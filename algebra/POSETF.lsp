@@ -2,7 +2,7 @@
 (SDEFUN |POSETF;addDimensionToObjects|
         ((|a| |List| (|List| S)) (|newObj| S) ($ |List| (|List| S)))
         (SPROG
-         ((|b| (|List| (|List| S))) (|x1| (|List| S)) (#1=#:G108 NIL)
+         ((|b| (|List| (|List| S))) (|x1| (|List| S)) (#1=#:G107 NIL)
           (|x| NIL))
          (SEQ (LETT |b| NIL)
               (SEQ (LETT |x| NIL) (LETT #1# |a|) G190
@@ -18,8 +18,8 @@
         ((|a| |List| (|List| (|Boolean|))) ($ |List| (|List| (|Boolean|))))
         (SPROG
          ((|res| (|List| #1=(|List| (|Boolean|)))) (|fst| #2=(|Boolean|))
-          (|thisRow| #1#) (|topRight| #2#) (#3=#:G119 NIL) (|y| NIL)
-          (|yrepeat| NIL) (#4=#:G118 NIL) (|x| NIL) (|xrepeat| NIL))
+          (|thisRow| #1#) (|topRight| #2#) (#3=#:G118 NIL) (|y| NIL)
+          (|yrepeat| NIL) (#4=#:G117 NIL) (|x| NIL) (|xrepeat| NIL))
          (SEQ (LETT |res| (LIST NIL)) (LETT |fst| 'T)
               (SEQ (LETT |xrepeat| 1) G190
                    (COND ((|greater_SI| |xrepeat| 2) (GO G191)))
@@ -82,7 +82,7 @@
         ((|objs| |List| S) ($ |FiniteBiCPO| (|List| S)))
         (SPROG
          ((|arrows| (|List| (|List| (|Boolean|)))) (|eles| (|List| (|List| S)))
-          (#1=#:G124 NIL) (|x| NIL))
+          (#1=#:G123 NIL) (|x| NIL))
          (SEQ (LETT |eles| (LIST NIL)) (LETT |arrows| (LIST (LIST 'T)))
               (SEQ (LETT |x| NIL) (LETT #1# |objs|) G190
                    (COND
@@ -100,7 +100,7 @@
         ((|objs| |List| S) ($ |FiniteBiCPO| S))
         (SPROG
          ((|arrows| (|List| (|List| (|Boolean|)))) (|row| (|List| (|Boolean|)))
-          (|g| (|Boolean|)) (#1=#:G132 NIL) (|y| NIL) (#2=#:G131 NIL) (|x| NIL)
+          (|g| (|Boolean|)) (#1=#:G131 NIL) (|y| NIL) (#2=#:G130 NIL) (|x| NIL)
           (|dim| (|NonNegativeInteger|)))
          (SEQ (LETT |dim| (LENGTH |objs|)) (LETT |arrows| (LIST NIL))
               (SEQ (LETT |x| 1) (LETT #2# |dim|) G190
@@ -164,9 +164,9 @@
 
 (DECLAIM (NOTINLINE |PosetFactory;|)) 
 
-(DEFUN |PosetFactory| (#1=#:G148)
+(DEFUN |PosetFactory| (#1=#:G147)
   (SPROG NIL
-         (PROG (#2=#:G149)
+         (PROG (#2=#:G148)
            (RETURN
             (COND
              ((LETT #2#

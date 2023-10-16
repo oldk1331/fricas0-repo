@@ -1,10 +1,10 @@
 
 (SDEFUN |IRURPK;checkRur;TSLB;1| ((|ts| TS) (|lts| |List| TS) ($ |Boolean|))
         (SPROG
-         ((#1=#:G141 NIL) (#2=#:G142 NIL) (|rems| (|List| P)) (#3=#:G145 NIL)
-          (|p| NIL) (#4=#:G144 NIL) (|dlts| (|NonNegativeInteger|))
-          (#5=#:G143 NIL) (|us| NIL) (|lp| (|List| P))
-          (|dts| (|NonNegativeInteger|)) (|z| (V)) (|f0| (P)) (#6=#:G130 NIL))
+         ((#1=#:G140 NIL) (#2=#:G141 NIL) (|rems| (|List| P)) (#3=#:G144 NIL)
+          (|p| NIL) (#4=#:G143 NIL) (|dlts| (|NonNegativeInteger|))
+          (#5=#:G142 NIL) (|us| NIL) (|lp| (|List| P))
+          (|dts| (|NonNegativeInteger|)) (|z| (V)) (|f0| (P)) (#6=#:G129 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -49,8 +49,8 @@
                                    (SPADCALL (SPADCALL |us| (QREFELT $ 25))
                                              (QREFELT $ 28))
                                    (EXIT
-                                    (PROGN (LETT #2# NIL) (GO #7=#:G140)))))
-                            (GO #8=#:G137)))))))
+                                    (PROGN (LETT #2# NIL) (GO #7=#:G139)))))
+                            (GO #8=#:G136)))))))
                   #8# (EXIT #1#))
                  (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
             (EXIT (EQL |dts| |dlts|))))
@@ -72,7 +72,7 @@
         (SPROG
          ((|toSave|
            (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
-          (|newf0| (P)) (#1=#:G162 NIL) (|ff1| NIL) (|newf1| (P)) (|x1| (V))
+          (|newf0| (P)) (#1=#:G161 NIL) (|ff1| NIL) (|newf1| (P)) (|x1| (V))
           (|lp| (|List| P)) (|f1| (P)) (|z| (V)) (|f0| (P)))
          (SEQ
           (COND
@@ -151,7 +151,7 @@
 
 (SDEFUN |IRURPK;makeMonic|
         ((|z| V) (|c| P) (|r| P) (|ts| TS) (|s| P) (|univ?| |Boolean|) ($ TS))
-        (SPROG ((|newts| (TS)) (|p| (P)) (#1=#:G170 NIL) (|lp| (|List| P)))
+        (SPROG ((|newts| (TS)) (|p| (P)) (#1=#:G169 NIL) (|lp| (|List| P)))
                (SEQ (LETT |lp| (SPADCALL |ts| (QREFELT $ 18)))
                     (LETT |lp| (SPADCALL (ELT $ 35) |lp| (QREFELT $ 37)))
                     (LETT |newts| (|IRURPK;convert| |r| 'T $))
@@ -188,13 +188,13 @@
            (|List|
             (|Record| (|:| |pol| P) (|:| |gap| #1=(|Integer|))
                       (|:| |tower| TS))))
-          (|toSave| (|List| TS)) (#2=#:G198 NIL) (|fr| NIL) (|r| (P)) (|h| (P))
+          (|toSave| (|List| TS)) (#2=#:G197 NIL) (|fr| NIL) (|r| (P)) (|h| (P))
           (|s| (P)) (|prs| (|List| P)) (|q| (P)) (|f| (P)) (|c| (P))
           (|lambda| (|Integer|)) (|f0| (P)) (|#G35| (TS)) (|#G34| #1#)
           (|#G33| (P))
           (|wip|
            (|Record| (|:| |pol| P) (|:| |gap| (|Integer|)) (|:| |tower| TS)))
-          (|z| (V)) (#3=#:G173 NIL))
+          (|z| (V)) (#3=#:G172 NIL))
          (SEQ
           (LETT |f0|
                 (PROG2 (LETT #3# (SPADCALL |ts| (QREFELT $ 12)))
@@ -310,7 +310,7 @@
         (SPROG
          ((|toSee| (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
           (|wip| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))
-          (#1=#:G213 NIL) (|lts| (|List| TS)) (|p| (P)) (|xi| (V))
+          (#1=#:G212 NIL) (|lts| (|List| TS)) (|p| (P)) (|xi| (V))
           (|lp| (|List| P)) (|toSave| (|List| TS)))
          (SEQ (LETT |toSee| (|IRURPK;prepareRur| |ts| $)) (LETT |toSave| NIL)
               (SEQ G190 (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
@@ -373,9 +373,9 @@
 
 (DECLAIM (NOTINLINE |InternalRationalUnivariateRepresentationPackage;|)) 
 
-(DEFUN |InternalRationalUnivariateRepresentationPackage| (&REST #1=#:G214)
+(DEFUN |InternalRationalUnivariateRepresentationPackage| (&REST #1=#:G213)
   (SPROG NIL
-         (PROG (#2=#:G215)
+         (PROG (#2=#:G214)
            (RETURN
             (COND
              ((LETT #2#

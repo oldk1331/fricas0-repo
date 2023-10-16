@@ -6,8 +6,8 @@
 (DEFPARAMETER |FunctionFieldCategory;AL| 'NIL) 
 
 (DEFUN |FunctionFieldCategory| (|t#1| |t#2| |t#3|)
-  (LET (#1=#:G121
-        (#2=#:G122
+  (LET (#1=#:G120
+        (#2=#:G121
          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|))))
     (COND ((SETQ #1# (|assoc| #2# |FunctionFieldCategory;AL|)) (CDR #1#))
           (T
@@ -19,13 +19,13 @@
            #1#)))) 
 
 (DEFUN |FunctionFieldCategory;| (|t#1| |t#2| |t#3|)
-  (SPROG ((#1=#:G120 NIL))
+  (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
                     (MAKE_PAIRS '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
                     (|sublisV|
-                     (MAKE_PAIRS '(#2=#:G119) (LIST '(|Fraction| |t#2|)))
+                     (MAKE_PAIRS '(#2=#:G118) (LIST '(|Fraction| |t#2|)))
                      (COND (|FunctionFieldCategory;CAT|)
                            ('T
                             (LETT |FunctionFieldCategory;CAT|

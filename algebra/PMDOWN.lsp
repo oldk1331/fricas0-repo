@@ -55,13 +55,13 @@
                     (|:| |res| (|PatternMatchResult| S A)))
           "failed"))
         (SPROG
-         ((|ll| (|List| (|Pattern| S))) (#1=#:G138 NIL)
+         ((|ll| (|List| (|Pattern| S))) (#1=#:G137 NIL)
           (|f|
            (|Union|
             (|Record| (|:| |pat| (|Pattern| S))
                       (|:| |res| (|PatternMatchResult| S A)))
             "failed"))
-          (#2=#:G139 NIL) (|x| NIL))
+          (#2=#:G138 NIL) (|x| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ll| NIL)
@@ -75,7 +75,7 @@
                             ((QEQCAR |f| 1)
                              (PROGN
                               (LETT #1# (CONS 1 "failed"))
-                              (GO #3=#:G137)))
+                              (GO #3=#:G136)))
                             ('T
                              (SEQ (LETT |ll| (CONS (QCAR (QCDR |f|)) |ll|))
                                   (EXIT (LETT |la| (QCDR (QCDR |f|)))))))))
@@ -102,9 +102,9 @@
                     (|:| |res| (|PatternMatchResult| S A)))
           #1="failed"))
         (SPROG
-         ((|q| (|Pattern| S)) (|lp| (|List| (|Any|))) (#2=#:G216 NIL)
-          (|h| (|Union| (|Any|) "failed")) (#3=#:G218 NIL) (|g| NIL)
-          (#4=#:G217 NIL) (|ua| (|Union| (|List| A) "failed"))
+         ((|q| (|Pattern| S)) (|lp| (|List| (|Any|))) (#2=#:G215 NIL)
+          (|h| (|Union| (|Any|) "failed")) (#3=#:G217 NIL) (|g| NIL)
+          (#4=#:G216 NIL) (|ua| (|Union| (|List| A) "failed"))
           (|fe|
            #5=(|Union|
                (|Record| (|:| |pat| (|Pattern| S))
@@ -141,7 +141,7 @@
             (|Record| (|:| |op| (|BasicOperator|))
                       (|:| |arg| (|List| (|Pattern| S))))
             "failed"))
-          (#6=#:G215 NIL) (|r| (|Union| S "failed")))
+          (#6=#:G214 NIL) (|r| (|Union| S "failed")))
          (SEQ
           (EXIT
            (SEQ
@@ -153,7 +153,7 @@
                      ((OR (QEQCAR |r| 0) (SPADCALL |p| (QREFELT $ 38)))
                       (PROGN
                        (LETT #6# (CONS 0 (CONS |p| |la|)))
-                       (GO #7=#:G213))))))
+                       (GO #7=#:G212))))))
               (LETT |u| (SPADCALL |p| (QREFELT $ 41)))
               (EXIT
                (COND
@@ -338,7 +338,7 @@
                                                                               1
                                                                               "failed"))
                                                                             (GO
-                                                                             #9=#:G214))))))
+                                                                             #9=#:G213))))))
                                                                        #4#))))
                                                               (LETT #3#
                                                                     (CDR #3#))
@@ -402,9 +402,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatchPushDown;|)) 
 
-(DEFUN |PatternMatchPushDown| (&REST #1=#:G219)
+(DEFUN |PatternMatchPushDown| (&REST #1=#:G218)
   (SPROG NIL
-         (PROG (#2=#:G220)
+         (PROG (#2=#:G219)
            (RETURN
             (COND
              ((LETT #2#

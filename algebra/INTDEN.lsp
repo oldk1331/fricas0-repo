@@ -12,18 +12,18 @@
             (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
                       (|:| |cfactor| (|SparseUnivariatePolynomial| F))
                       (|:| |ufun| F) (|:| |vfun| F) (|:| |den| (|Integer|)))))
-          (|f2| (|SparseUnivariatePolynomial| F)) (|k2| (F)) (#1=#:G216 NIL)
-          (|c| NIL) (#2=#:G217 NIL) (|ki| NIL) (#3=#:G215 NIL) (|u1| (F))
-          (#4=#:G213 NIL) (|ui| NIL) (#5=#:G214 NIL) (#6=#:G212 NIL)
+          (|f2| (|SparseUnivariatePolynomial| F)) (|k2| (F)) (#1=#:G215 NIL)
+          (|c| NIL) (#2=#:G216 NIL) (|ki| NIL) (#3=#:G214 NIL) (|u1| (F))
+          (#4=#:G212 NIL) (|ui| NIL) (#5=#:G213 NIL) (#6=#:G211 NIL)
           (|d| #7=(|Integer|))
           (|cd| (|Record| (|:| |num| (|List| (|Integer|))) (|:| |den| #7#)))
           (|sv| (|Vector| (|Fraction| (|Integer|))))
           (|su| (|Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
-          (|ulst| (|List| F)) (#8=#:G211 NIL) (|kk| NIL) (#9=#:G210 NIL)
-          (|dvvec| (|Vector| F)) (#10=#:G209 NIL) (#11=#:G208 NIL)
-          (|vlst| (|List| F)) (#12=#:G207 NIL) (#13=#:G206 NIL) (|rsum| (F))
+          (|ulst| (|List| F)) (#8=#:G210 NIL) (|kk| NIL) (#9=#:G209 NIL)
+          (|dvvec| (|Vector| F)) (#10=#:G208 NIL) (#11=#:G207 NIL)
+          (|vlst| (|List| F)) (#12=#:G206 NIL) (#13=#:G205 NIL) (|rsum| (F))
           (|deg1| (|NonNegativeInteger|))
-          (|f1| #14=(|SparseUnivariatePolynomial| F)) (#15=#:G205 NIL)
+          (|f1| #14=(|SparseUnivariatePolynomial| F)) (#15=#:G204 NIL)
           (|fac| NIL) (|u0| (F)) (|nk| (|NonNegativeInteger|))
           (|dummy| (|SingletonAsOrderedSet|))
           (|lfac|
@@ -387,18 +387,18 @@
             (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
                       (|:| |cfactor| (|SparseUnivariatePolynomial| F))
                       (|:| |ufun| F) (|:| |vfun| F) (|:| |den| (|Integer|)))))
-          (|f2| (|SparseUnivariatePolynomial| F)) (|k2| (F)) (#1=#:G284 NIL)
-          (|c| NIL) (#2=#:G285 NIL) (|ki| NIL) (#3=#:G283 NIL) (|u1| (F))
-          (#4=#:G281 NIL) (|ui| NIL) (#5=#:G282 NIL) (#6=#:G280 NIL)
+          (|f2| (|SparseUnivariatePolynomial| F)) (|k2| (F)) (#1=#:G283 NIL)
+          (|c| NIL) (#2=#:G284 NIL) (|ki| NIL) (#3=#:G282 NIL) (|u1| (F))
+          (#4=#:G280 NIL) (|ui| NIL) (#5=#:G281 NIL) (#6=#:G279 NIL)
           (|d| #7=(|Integer|))
           (|cd| (|Record| (|:| |num| (|List| (|Integer|))) (|:| |den| #7#)))
           (|sv| (|Vector| (|Fraction| (|Integer|))))
           (|su| (|Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
-          (|ulst| (|List| F)) (#8=#:G279 NIL) (|kk| NIL) (#9=#:G278 NIL)
-          (|dvvec| (|Vector| F)) (#10=#:G277 NIL) (#11=#:G276 NIL)
-          (|vlst| (|List| F)) (#12=#:G275 NIL) (#13=#:G274 NIL) (|lprod| (F))
+          (|ulst| (|List| F)) (#8=#:G278 NIL) (|kk| NIL) (#9=#:G277 NIL)
+          (|dvvec| (|Vector| F)) (#10=#:G276 NIL) (#11=#:G275 NIL)
+          (|vlst| (|List| F)) (#12=#:G274 NIL) (#13=#:G273 NIL) (|lprod| (F))
           (|f1| #14=(|SparseUnivariatePolynomial| F)) (|tc| (F))
-          (|deg1| (|NonNegativeInteger|)) (#15=#:G273 NIL) (|fac| NIL)
+          (|deg1| (|NonNegativeInteger|)) (#15=#:G272 NIL) (|fac| NIL)
           (|v0| (F)) (|nk| (|NonNegativeInteger|))
           (|dummy| (|SingletonAsOrderedSet|))
           (|lfac|
@@ -824,7 +824,7 @@
         ((|p| |SparseMultivariatePolynomial| F (|Kernel| F))
          (|q| |SparseMultivariatePolynomial| F (|Kernel| F)) ($ |Integer|))
         (SPROG
-         ((|res| (|Integer|)) (#1=#:G291 NIL)
+         ((|res| (|Integer|)) (#1=#:G290 NIL)
           (|qq|
            (|Union| (|SparseMultivariatePolynomial| F (|Kernel| F))
                     #2="failed")))
@@ -879,27 +879,27 @@
         ((|f1| F) (|u| F) (|x| |Symbol|)
          ($ |Union| (|List| (|List| F)) "failed"))
         (SPROG
-         ((#1=#:G361 NIL) (|c| NIL) (#2=#:G362 NIL) (|j| NIL) (#3=#:G360 NIL)
-          (#4=#:G348 NIL) (#5=#:G359 NIL) (|sl| (|List| F))
+         ((#1=#:G360 NIL) (|c| NIL) (#2=#:G361 NIL) (|j| NIL) (#3=#:G359 NIL)
+          (#4=#:G347 NIL) (#5=#:G358 NIL) (|sl| (|List| F))
           (|sl0| (|Union| (|List| F) "failed")) (|eqsl| (|List| F))
           (|eqs| (|SparseMultivariatePolynomial| F (|Kernel| F)))
-          (#6=#:G357 NIL) (|p1| NIL) (#7=#:G358 NIL) (|coef| NIL)
+          (#6=#:G356 NIL) (|p1| NIL) (#7=#:G357 NIL) (|coef| NIL)
           (|lpow| (|List| (|SparseMultivariatePolynomial| F (|Kernel| F))))
           (|pp| #8=(|SparseMultivariatePolynomial| F (|Kernel| F)))
-          (#9=#:G356 NIL) (|lpow0| (|List| #8#)) (#10=#:G355 NIL)
-          (|coefs| (|List| (|Symbol|))) (#11=#:G354 NIL) (#12=#:G353 NIL)
+          (#9=#:G355 NIL) (|lpow0| (|List| #8#)) (#10=#:G354 NIL)
+          (|coefs| (|List| (|Symbol|))) (#11=#:G353 NIL) (#12=#:G352 NIL)
           (|nf1| #13=(|SparseMultivariatePolynomial| F (|Kernel| F)))
           (|cc| (F)) (|ccru| (|Union| F "failed"))
           (|ccu|
            (|Union| (|SparseMultivariatePolynomial| F (|Kernel| F)) "failed"))
-          (|dup| #8#) (#14=#:G319 NIL) (|nup| #8#) (#15=#:G317 NIL)
+          (|dup| #8#) (#14=#:G318 NIL) (|nup| #8#) (#15=#:G316 NIL)
           (|m| (|Integer|)) (|n| (|Integer|))
           (|qu| (|Union| (|NonNegativeInteger|) "failed"))
           (|degdu| #16=(|NonNegativeInteger|)) (|degnu| #16#) (|degdf| #16#)
           (|degnf| #16#) (|du| #13#) (|nu| #13#) (|df1| #13#)
-          (|vk2| (|List| #17=(|Kernel| F))) (#18=#:G352 NIL) (|k| NIL)
-          (#19=#:G351 NIL) (|k1| (|Kernel| F)) (|vk| (|List| #17#))
-          (#20=#:G350 NIL) (#21=#:G349 NIL))
+          (|vk2| (|List| #17=(|Kernel| F))) (#18=#:G351 NIL) (|k| NIL)
+          (#19=#:G350 NIL) (|k1| (|Kernel| F)) (|vk| (|List| #17#))
+          (#20=#:G349 NIL) (#21=#:G348 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -965,7 +965,7 @@
                                  (EXIT
                                   (PROGN
                                    (LETT #4# (CONS 1 #23="failed"))
-                                   (GO #24=#:G347))))))
+                                   (GO #24=#:G346))))))
                               (#22#
                                (EXIT
                                 (PROGN (LETT #4# (CONS 1 #23#)) (GO #24#)))))
@@ -1331,7 +1331,7 @@
                  (|Fraction| (|SparseUnivariatePolynomial| F)))))
           "failed"))
         (SPROG
-         ((|res| (F)) (#1=#:G408 NIL) (|zz| NIL) (|lle| (F))
+         ((|res| (F)) (#1=#:G407 NIL) (|zz| NIL) (|lle| (F))
           (|logs|
            (|List|
             (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
@@ -1341,20 +1341,20 @@
                       (|:| |logand|
                            (|SparseUnivariatePolynomial|
                             (|Fraction| (|SparseUnivariatePolynomial| F)))))))
-          (#2=#:G407 NIL) (|e| NIL) (|zzl| (|List| F)) (|rf1k| (|Kernel| F))
+          (#2=#:G406 NIL) (|e| NIL) (|zzl| (|List| F)) (|rf1k| (|Kernel| F))
           (|elpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|lli| (|List| (|List| F))) (#3=#:G402 NIL)
+          (|lli| (|List| (|List| F))) (#3=#:G401 NIL)
           (|liu| (|Union| (|List| (|List| F)) "failed")) (|tf| (F))
           (|c_shift| (F)) (|ddf| (F)) (|rf1| (F)) (|rfc| (F))
           (|deg1| (|NonNegativeInteger|)) (|u1| (F))
           (|cfac| (|SparseUnivariatePolynomial| F))
-          (|liden| #4=(|SparseUnivariatePolynomial| F)) (#5=#:G405 NIL)
-          (|ldr| NIL) (#6=#:G406 NIL) (|linum| NIL) (|u0| (F))
+          (|liden| #4=(|SparseUnivariatePolynomial| F)) (#5=#:G404 NIL)
+          (|ldr| NIL) (#6=#:G405 NIL) (|linum| NIL) (|u0| (F))
           (|dummy| (|SingletonAsOrderedSet|))
           (|linums| (|List| (|SparseUnivariatePolynomial| F)))
           (|dn| (|List| (|SparseUnivariatePolynomial| F)))
           (|elden| (|Union| (|SparseUnivariatePolynomial| F) "failed"))
-          (|lidens| (|List| #4#)) (#7=#:G404 NIL) (#8=#:G403 NIL)
+          (|lidens| (|List| #4#)) (#7=#:G403 NIL) (#8=#:G402 NIL)
           (|ldrs|
            (|List|
             (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
@@ -1468,7 +1468,7 @@
                                           ((QEQCAR |liu| 1)
                                            (PROGN
                                             (LETT #3# (CONS 1 "failed"))
-                                            (GO #10=#:G401)))
+                                            (GO #10=#:G400)))
                                           ('T
                                            (SEQ (LETT |lli| (QCDR |liu|))
                                                 (COND
@@ -1684,7 +1684,7 @@
 
 (SDEFUN |INTDEN;mk_poly| ((|c| F) (|j| |Integer|) (|u| F) (|s| F) ($ F))
         (SPROG
-         ((|ifac| (F)) (|res| (F)) (|i1| (|Integer|)) (#1=#:G413 NIL) (|i| NIL)
+         ((|ifac| (F)) (|res| (F)) (|i1| (|Integer|)) (#1=#:G412 NIL) (|i| NIL)
           (|j1| (|Integer|)) (|eu| (F)))
          (SEQ
           (COND
@@ -1764,8 +1764,8 @@
                  (|Fraction| (|SparseUnivariatePolynomial| F)))))
           "failed"))
         (SPROG
-         ((|res| (F)) (#1=#:G449 NIL) (|zz| NIL) (|lle| (F)) (#2=#:G441 NIL)
-          (|ii| (|Integer|)) (#3=#:G448 NIL) (|e| NIL) (|zzl| (|List| F))
+         ((|res| (F)) (#1=#:G448 NIL) (|zz| NIL) (|lle| (F)) (#2=#:G440 NIL)
+          (|ii| (|Integer|)) (#3=#:G447 NIL) (|e| NIL) (|zzl| (|List| F))
           (|rf1k| (|Kernel| F))
           (|elpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
           (|lpoly| (|List| (|List| F)))
@@ -1774,8 +1774,8 @@
           (|deg1| (|NonNegativeInteger|))
           (|polynum| #4=(|SparseUnivariatePolynomial| F)) (|v1| (F))
           (|cfac| (|SparseUnivariatePolynomial| F))
-          (|polyden| #5=(|SparseUnivariatePolynomial| F)) (#6=#:G446 NIL)
-          (|ldr| NIL) (#7=#:G447 NIL) (|polynum1| NIL)
+          (|polyden| #5=(|SparseUnivariatePolynomial| F)) (#6=#:G445 NIL)
+          (|ldr| NIL) (#7=#:G446 NIL) (|polynum1| NIL)
           (|logs|
            (|List|
             (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
@@ -1789,8 +1789,8 @@
           (|polynums1| (|List| (|SparseUnivariatePolynomial| F)))
           (|dn| (|List| (|SparseUnivariatePolynomial| F)))
           (|elden| (|Union| (|SparseUnivariatePolynomial| F) "failed"))
-          (|polydens1| (|List| #4#)) (#8=#:G445 NIL) (|p| NIL) (#9=#:G444 NIL)
-          (|polydens| (|List| #5#)) (#10=#:G443 NIL) (#11=#:G442 NIL)
+          (|polydens1| (|List| #4#)) (#8=#:G444 NIL) (|p| NIL) (#9=#:G443 NIL)
+          (|polydens| (|List| #5#)) (#10=#:G442 NIL) (#11=#:G441 NIL)
           (|ldrs|
            (|List|
             (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
@@ -1938,7 +1938,7 @@
                                           ((QEQCAR |polyu| 1)
                                            (PROGN
                                             (LETT #2# (CONS 1 "failed"))
-                                            (GO #13=#:G440)))
+                                            (GO #13=#:G439)))
                                           ('T
                                            (SEQ (LETT |lpoly| (QCDR |polyu|))
                                                 (COND
@@ -2097,8 +2097,8 @@
                   (|IntegrationResult|
                    (|Fraction| (|SparseUnivariatePolynomial| F)))))
             "failed"))
-          (|lk| (|List| (|Kernel| F))) (#1=#:G457 NIL) (|kk| NIL)
-          (#2=#:G456 NIL) (|f| (F)))
+          (|lk| (|List| (|Kernel| F))) (#1=#:G456 NIL) (|kk| NIL)
+          (#2=#:G455 NIL) (|f| (F)))
          (SEQ (LETT |f| (SPADCALL |rf| |k| (QREFELT $ 159)))
               (LETT |lk|
                     (SPADCALL
@@ -2146,8 +2146,8 @@
                   (|IntegrationResult|
                    (|Fraction| (|SparseUnivariatePolynomial| F)))))
             "failed"))
-          (|lk| (|List| (|Kernel| F))) (#1=#:G464 NIL) (|kk| NIL)
-          (#2=#:G463 NIL) (|f| (F)))
+          (|lk| (|List| (|Kernel| F))) (#1=#:G463 NIL) (|kk| NIL)
+          (#2=#:G462 NIL) (|f| (F)))
          (SEQ (LETT |f| (SPADCALL |rf| |k| (QREFELT $ 159)))
               (LETT |lk|
                     (SPADCALL
@@ -2178,9 +2178,9 @@
 
 (DECLAIM (NOTINLINE |DenominatorIntegration;|)) 
 
-(DEFUN |DenominatorIntegration| (&REST #1=#:G465)
+(DEFUN |DenominatorIntegration| (&REST #1=#:G464)
   (SPROG NIL
-         (PROG (#2=#:G466)
+         (PROG (#2=#:G465)
            (RETURN
             (COND
              ((LETT #2#

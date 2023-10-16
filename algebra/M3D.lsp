@@ -2,9 +2,9 @@
 (SDEFUN |M3D;matrixConcat3D;S3$;1|
         ((|dir| |Symbol|) (|mat1| $) (|mat2| $) ($ $))
         (SPROG
-         ((|retVal| ($)) (#1=#:G132 NIL) (|j| NIL)
-          (|temp| (|PrimitiveArray| (|PrimitiveArray| R))) (#2=#:G131 NIL)
-          (|i| NIL) (#3=#:G130 NIL)
+         ((|retVal| ($)) (#1=#:G131 NIL) (|j| NIL)
+          (|temp| (|PrimitiveArray| (|PrimitiveArray| R))) (#2=#:G130 NIL)
+          (|i| NIL) (#3=#:G129 NIL)
           (|matRep2|
            #4=(|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
           (|matRep1| #4#) (|kDim2| #5=(|NonNegativeInteger|)) (|jDim2| #5#)
@@ -201,7 +201,7 @@
 (SDEFUN |M3D;identityMatrix;Nni$;8| ((|iLength| |NonNegativeInteger|) ($ $))
         (SPROG
          ((|row2| (|PrimitiveArray| (|PrimitiveArray| R)))
-          (|row1| (|PrimitiveArray| R)) (#1=#:G146 NIL) (|count| NIL)
+          (|row1| (|PrimitiveArray| R)) (#1=#:G145 NIL) (|count| NIL)
           (|row2empty| (|PrimitiveArray| (|PrimitiveArray| R)))
           (|row1empty| (|PrimitiveArray| R))
           (|retValueRep|
@@ -228,8 +228,8 @@
 
 (SDEFUN |M3D;plus;3$;9| ((|mat1| $) (|mat2| $) ($ $))
         (SPROG
-         ((|resultMatrix| ($)) (|sum| (R)) (#1=#:G157 NIL) (|k| NIL)
-          (#2=#:G156 NIL) (|j| NIL) (#3=#:G155 NIL) (|i| NIL)
+         ((|resultMatrix| ($)) (|sum| (R)) (#1=#:G156 NIL) (|k| NIL)
+          (#2=#:G155 NIL) (|j| NIL) (#3=#:G154 NIL) (|i| NIL)
           (|row3| (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
           (|row2| (|PrimitiveArray| (|PrimitiveArray| R)))
           (|row1| (|PrimitiveArray| R)) (|kLength2| #4=(|NonNegativeInteger|))
@@ -290,12 +290,12 @@
 
 (SDEFUN |M3D;construct;L$;10| ((|listRep| |List| (|List| (|List| R))) ($ $))
         (SPROG
-         ((|resultMatrix| ($)) (|element| (R)) (#1=#:G179 NIL) (|k| NIL)
-          (#2=#:G178 NIL) (|j| NIL) (#3=#:G177 NIL) (|i| NIL)
+         ((|resultMatrix| ($)) (|element| (R)) (#1=#:G178 NIL) (|k| NIL)
+          (#2=#:G177 NIL) (|j| NIL) (#3=#:G176 NIL) (|i| NIL)
           (|row3| (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
           (|row2| (|PrimitiveArray| (|PrimitiveArray| R)))
-          (|row1| (|PrimitiveArray| R)) (#4=#:G174 NIL) (#5=#:G176 NIL)
-          (|subSubList| NIL) (#6=#:G175 NIL) (|subList| NIL)
+          (|row1| (|PrimitiveArray| R)) (#4=#:G173 NIL) (#5=#:G175 NIL)
+          (|subSubList| NIL) (#6=#:G174 NIL) (|subList| NIL)
           (|kLength| (|NonNegativeInteger|)) (|jLength| (|NonNegativeInteger|))
           (|iLength| (|NonNegativeInteger|)))
          (SEQ
@@ -345,7 +345,7 @@
                                       (LETT #4#
                                             (|error|
                                              "can not have an irregular shaped matrix"))
-                                      (GO #7=#:G160))))))
+                                      (GO #7=#:G159))))))
                                  (LETT #5# (CDR #5#)) (GO G190) G191
                                  (EXIT NIL)))
                            #7# (EXIT #4#))))))
@@ -394,9 +394,9 @@
 
 (DECLAIM (NOTINLINE |ThreeDimensionalMatrix;|)) 
 
-(DEFUN |ThreeDimensionalMatrix| (#1=#:G185)
+(DEFUN |ThreeDimensionalMatrix| (#1=#:G184)
   (SPROG NIL
-         (PROG (#2=#:G186)
+         (PROG (#2=#:G185)
            (RETURN
             (COND
              ((LETT #2#
@@ -414,7 +414,7 @@
 
 (DEFUN |ThreeDimensionalMatrix;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G183 NIL) (#2=#:G184 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G182 NIL) (#2=#:G183 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|ThreeDimensionalMatrix| DV$1))

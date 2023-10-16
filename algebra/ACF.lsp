@@ -8,7 +8,7 @@
         (T (SETQ |AlgebraicallyClosedField;AL| (|AlgebraicallyClosedField;|))))) 
 
 (DEFUN |AlgebraicallyClosedField;| ()
-  (SPROG ((#1=#:G117 NIL))
+  (SPROG ((#1=#:G116 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|Field|) (|RadicalCategory|)

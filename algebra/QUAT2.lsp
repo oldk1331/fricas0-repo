@@ -79,9 +79,9 @@
 
 (DECLAIM (NOTINLINE |GeneralQuaternion;|)) 
 
-(DEFUN |GeneralQuaternion| (&REST #1=#:G131)
+(DEFUN |GeneralQuaternion| (&REST #1=#:G130)
   (SPROG NIL
-         (PROG (#2=#:G132)
+         (PROG (#2=#:G131)
            (RETURN
             (COND
              ((LETT #2#
@@ -100,7 +100,7 @@
 
 (DEFUN |GeneralQuaternion;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G130 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
+   ((|pv$| NIL) (#1=#:G129 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

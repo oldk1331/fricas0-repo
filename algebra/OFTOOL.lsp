@@ -97,8 +97,8 @@
          ((|a11| #1=(|OutputForm|)) (|args1| #2=(|List| (|OutputForm|)))
           (|op1| #3=(|OutputForm|)) (|op| #3#) (|a2| (|OutputForm|)) (|a1| #1#)
           (|nargs| (|List| (|OutputForm|))) (|args2| #2#)
-          (|n| (|NonNegativeInteger|)) (|args| #2#) (#4=#:G225 NIL) (|arg| NIL)
-          (#5=#:G224 NIL) (|xi| (|Integer|)))
+          (|n| (|NonNegativeInteger|)) (|args| #2#) (#4=#:G224 NIL) (|arg| NIL)
+          (#5=#:G223 NIL) (|xi| (|Integer|)))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT $ 15)) |x|)
                 ((SPADCALL |x| (QREFELT $ 9))
@@ -412,7 +412,7 @@
 
 (DEFUN |OutputFormTools| ()
   (SPROG NIL
-         (PROG (#1=#:G227)
+         (PROG (#1=#:G226)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|OutputFormTools|))

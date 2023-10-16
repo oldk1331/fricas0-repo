@@ -33,8 +33,8 @@
         ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
          ($ |Union| (|Expression| R) (|List| (|Expression| R))))
         (SPROG
-         ((|l| (|List| (|Expression| R))) (#1=#:G125 NIL) (|g| NIL)
-          (#2=#:G124 NIL))
+         ((|l| (|List| (|Expression| R))) (#1=#:G124 NIL) (|g| NIL)
+          (#2=#:G123 NIL))
          (SEQ
           (LETT |l|
                 (PROGN
@@ -62,9 +62,9 @@
 
 (DECLAIM (NOTINLINE |IntegrationResultRFToFunction;|)) 
 
-(DEFUN |IntegrationResultRFToFunction| (#1=#:G126)
+(DEFUN |IntegrationResultRFToFunction| (#1=#:G125)
   (SPROG NIL
-         (PROG (#2=#:G127)
+         (PROG (#2=#:G126)
            (RETURN
             (COND
              ((LETT #2#

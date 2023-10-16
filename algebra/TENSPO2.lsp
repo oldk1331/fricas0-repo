@@ -1,7 +1,7 @@
 
 (SDEFUN |TENSPO2;linearExtend;MTpM2;1|
         ((|f| |Mapping| M2 (|List| B)) (|x| |TensorPower| |n| R B M1) ($ M2))
-        (SPROG ((|res| (M2)) (#1=#:G110 NIL) (|t| NIL))
+        (SPROG ((|res| (M2)) (#1=#:G109 NIL) (|t| NIL))
                (SEQ (LETT |res| (|spadConstant| $ 11))
                     (SEQ (LETT |t| NIL)
                          (LETT #1# (SPADCALL |x| (QREFELT $ 15))) G190
@@ -24,9 +24,9 @@
 
 (DECLAIM (NOTINLINE |TensorPowerFunctions2;|)) 
 
-(DEFUN |TensorPowerFunctions2| (&REST #1=#:G111)
+(DEFUN |TensorPowerFunctions2| (&REST #1=#:G110)
   (SPROG NIL
-         (PROG (#2=#:G112)
+         (PROG (#2=#:G111)
            (RETURN
             (COND
              ((LETT #2#

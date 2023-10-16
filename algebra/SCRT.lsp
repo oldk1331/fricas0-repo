@@ -28,7 +28,7 @@
                     (QSETAREF1 |pt| (QREFELT $ 6) 0.0) (EXIT |pt|)))) 
 
 (SDEFUN |SCRT;min;3$;5| ((|a| $) (|b| $) ($ $))
-        (SPROG ((#1=#:G123 NIL) (|i| NIL) (|pt| ($)))
+        (SPROG ((#1=#:G122 NIL) (|i| NIL) (|pt| ($)))
                (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0))
                     (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 6) 1)) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -41,7 +41,7 @@
                     (QSETAREF1 |pt| (QREFELT $ 6) 1.0) (EXIT |pt|)))) 
 
 (SDEFUN |SCRT;max;3$;6| ((|a| $) (|b| $) ($ $))
-        (SPROG ((#1=#:G129 NIL) (|i| NIL) (|pt| ($)))
+        (SPROG ((#1=#:G128 NIL) (|i| NIL) (|pt| ($)))
                (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0))
                     (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 6) 1)) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -60,7 +60,7 @@
         (SPADCALL |x| |x| (QREFELT $ 20))) 
 
 (SDEFUN |SCRT;Pnan?;$B;9| ((|p| $) ($ |Boolean|))
-        (SPROG ((#1=#:G136 NIL) (#2=#:G137 NIL) (|i| NIL))
+        (SPROG ((#1=#:G135 NIL) (#2=#:G136 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -70,7 +70,7 @@
                         (EXIT
                          (COND
                           ((|SCRT;nan?| (QAREF1 |p| |i|) $)
-                           (PROGN (LETT #1# 'T) (GO #3=#:G135))))))
+                           (PROGN (LETT #1# 'T) (GO #3=#:G134))))))
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                   (EXIT NIL)))
                 #3# (EXIT #1#)))) 
@@ -83,8 +83,8 @@
 
 (SDEFUN |SCRT;unitVector;2$;11| ((|p| $) ($ $))
         (SPROG
-         ((#1=#:G144 NIL) (|i| NIL) (|pt| ($)) (|factor| (|DoubleFloat|))
-          (#2=#:G143 NIL))
+         ((#1=#:G143 NIL) (|i| NIL) (|pt| ($)) (|factor| (|DoubleFloat|))
+          (#2=#:G142 NIL))
          (SEQ (LETT |factor| 0.0)
               (SEQ (LETT |i| 0) (LETT #2# (- (QREFELT $ 6) 1)) G190
                    (COND ((|greater_SI| |i| #2#) (GO G191)))
@@ -107,7 +107,7 @@
               (QSETAREF1 |pt| (QREFELT $ 6) 0.0) (EXIT |pt|)))) 
 
 (SDEFUN |SCRT;distanceSquared;2$Df;12| ((|p1| $) (|p2| $) ($ |DoubleFloat|))
-        (SPROG ((|factor| (|DoubleFloat|)) (#1=#:G148 NIL) (|i| NIL))
+        (SPROG ((|factor| (|DoubleFloat|)) (#1=#:G147 NIL) (|i| NIL))
                (SEQ (LETT |factor| 0.0)
                     (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 6) 1)) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -123,7 +123,7 @@
                     (EXIT |factor|)))) 
 
 (SDEFUN |SCRT;perpendicular;3$;13| ((|x| $) (|y| $) ($ $))
-        (SPROG ((#1=#:G151 NIL) (|pt| ($)))
+        (SPROG ((#1=#:G150 NIL) (|pt| ($)))
                (SEQ
                 (EXIT
                  (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0))
@@ -131,7 +131,7 @@
                        ((< (QREFELT $ 6) 3)
                         (PROGN
                          (LETT #1# (SPADCALL 0 0 (QREFELT $ 26)))
-                         (GO #2=#:G150))))
+                         (GO #2=#:G149))))
                       (QSETAREF1 |pt| 0
                                  (|sub_DF|
                                   (|mul_DF| (QAREF1 |x| 1) (QAREF1 |y| 2))
@@ -148,7 +148,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SCRT;*;Df2$;14| ((|s| |DoubleFloat|) (|x| $) ($ $))
-        (SPROG ((#1=#:G155 NIL) (|i| NIL) (|pt| ($)))
+        (SPROG ((#1=#:G154 NIL) (|i| NIL) (|pt| ($)))
                (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0))
                     (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 6) 1)) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -161,7 +161,7 @@
                     (EXIT |pt|)))) 
 
 (SDEFUN |SCRT;+;3$;15| ((|x| $) (|y| $) ($ $))
-        (SPROG ((#1=#:G160 NIL) (|i| NIL) (|pt| ($)))
+        (SPROG ((#1=#:G159 NIL) (|i| NIL) (|pt| ($)))
                (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0))
                     (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 6) 1)) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -180,7 +180,7 @@
                     (EXIT |pt|)))) 
 
 (SDEFUN |SCRT;-;3$;16| ((|x| $) (|y| $) ($ $))
-        (SPROG ((#1=#:G165 NIL) (|i| NIL) (|pt| ($)))
+        (SPROG ((#1=#:G164 NIL) (|i| NIL) (|pt| ($)))
                (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0))
                     (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 6) 1)) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -199,7 +199,7 @@
                     (EXIT |pt|)))) 
 
 (SDEFUN |SCRT;inBounds?;3$B;17| ((|pt| $) (|mns| $) (|mxs| $) ($ |Boolean|))
-        (SPROG ((#1=#:G171 NIL) (#2=#:G172 NIL) (|i| NIL))
+        (SPROG ((#1=#:G170 NIL) (#2=#:G171 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -208,7 +208,7 @@
                        (SEQ
                         (COND
                          ((|less_DF| (QAREF1 |pt| |i|) (QAREF1 |mns| |i|))
-                          (PROGN (LETT #1# NIL) (GO #3=#:G170))))
+                          (PROGN (LETT #1# NIL) (GO #3=#:G169))))
                         (EXIT
                          (COND
                           ((SPADCALL (QAREF1 |pt| |i|) (QAREF1 |mxs| |i|)
@@ -230,7 +230,7 @@
         (COND ((> (QREFELT $ 6) 2) (QAREF1 |pt| 2)) ('T 0.0))) 
 
 (SDEFUN |SCRT;screenCoords;$L;21| ((|pt| $) ($ |List| (|DoubleFloat|)))
-        (SPROG ((|res| (|List| (|DoubleFloat|))) (#1=#:G179 NIL) (|i| NIL))
+        (SPROG ((|res| (|List| (|DoubleFloat|))) (#1=#:G178 NIL) (|i| NIL))
                (SEQ (LETT |res| NIL)
                     (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 6) 1)) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -246,7 +246,7 @@
         (SPADCALL |pt| (QREFELT $ 39))) 
 
 (SDEFUN |SCRT;toPoint;2$;23| ((|p| $) ($ $))
-        (SPROG ((#1=#:G184 NIL) (|i| NIL) (|pt| ($)))
+        (SPROG ((#1=#:G183 NIL) (|i| NIL) (|pt| ($)))
                (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0))
                     (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 6) 1)) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -255,7 +255,7 @@
                     (QSETAREF1 |pt| (QREFELT $ 6) 1.0) (EXIT |pt|)))) 
 
 (SDEFUN |SCRT;toVector;2$;24| ((|p| $) ($ $))
-        (SPROG ((#1=#:G188 NIL) (|i| NIL) (|pt| ($)))
+        (SPROG ((#1=#:G187 NIL) (|i| NIL) (|pt| ($)))
                (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0))
                     (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 6) 1)) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -277,7 +277,7 @@
 (SDEFUN |SCRT;hash;$Si;27| ((|s| $) ($ |SingleInteger|)) 0) 
 
 (SDEFUN |SCRT;=;2$B;28| ((|x| $) (|y| $) ($ |Boolean|))
-        (SPROG ((#1=#:G196 NIL) (#2=#:G197 NIL) (|i| NIL))
+        (SPROG ((#1=#:G195 NIL) (#2=#:G196 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -288,7 +288,7 @@
                          (COND
                           ((SPADCALL (QAREF1 |x| |i|) (QAREF1 |y| |i|)
                                      (QREFELT $ 20))
-                           (PROGN (LETT #1# NIL) (GO #3=#:G195))))))
+                           (PROGN (LETT #1# NIL) (GO #3=#:G194))))))
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
@@ -298,8 +298,8 @@
 
 (SDEFUN |SCRT;coerce;$Of;30| ((|pt| $) ($ |OutputForm|))
         (SPROG
-         ((|eles| (|List| (|OutputForm|))) (#1=#:G205 NIL) (|i| NIL)
-          (#2=#:G204 NIL) (|s| (|Symbol|)))
+         ((|eles| (|List| (|OutputForm|))) (#1=#:G204 NIL) (|i| NIL)
+          (#2=#:G203 NIL) (|s| (|Symbol|)))
          (SEQ (LETT |s| '|proj|)
               (COND
                ((|eql_DF| (QAREF1 |pt| (QREFELT $ 6)) 0.0) (LETT |s| '|vec|)))
@@ -324,9 +324,9 @@
 
 (DECLAIM (NOTINLINE |SCartesian;|)) 
 
-(DEFUN |SCartesian| (#1=#:G206)
+(DEFUN |SCartesian| (#1=#:G205)
   (SPROG NIL
-         (PROG (#2=#:G207)
+         (PROG (#2=#:G206)
            (RETURN
             (COND
              ((LETT #2#

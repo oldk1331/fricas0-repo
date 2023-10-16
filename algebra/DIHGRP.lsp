@@ -148,8 +148,8 @@
 
 (SDEFUN |DIHGRP;enumerate;L;19| (($ |List| $))
         (SPROG
-         ((#1=#:G166 NIL) (|k| NIL) (#2=#:G165 NIL) (#3=#:G164 NIL)
-          (#4=#:G163 NIL))
+         ((#1=#:G165 NIL) (|k| NIL) (#2=#:G164 NIL) (#3=#:G163 NIL)
+          (#4=#:G162 NIL))
          (SEQ
           (SPADCALL
            (PROGN
@@ -186,9 +186,9 @@
 
 (DECLAIM (NOTINLINE |DihedralGroup;|)) 
 
-(DEFUN |DihedralGroup| (&REST #1=#:G170)
+(DEFUN |DihedralGroup| (&REST #1=#:G169)
   (SPROG NIL
-         (PROG (#2=#:G171)
+         (PROG (#2=#:G170)
            (RETURN
             (COND
              ((LETT #2#

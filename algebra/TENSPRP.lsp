@@ -4,8 +4,8 @@
 (DEFPARAMETER |TensorProductProperty;AL| 'NIL) 
 
 (DEFUN |TensorProductProperty| (|t#1| |t#2| |t#3| |t#4| |t#5|)
-  (LET (#1=#:G105
-        (#2=#:G106
+  (LET (#1=#:G104
+        (#2=#:G105
          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|)
                (|devaluate| |t#4|) (|devaluate| |t#5|))))
     (COND ((SETQ #1# (|assoc| #2# |TensorProductProperty;AL|)) (CDR #1#))
@@ -18,7 +18,7 @@
            #1#)))) 
 
 (DEFUN |TensorProductProperty;| (|t#1| |t#2| |t#3| |t#4| |t#5|)
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|

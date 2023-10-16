@@ -6,7 +6,7 @@
 (DEFPARAMETER |FiniteAlgebraicExtensionField;AL| 'NIL) 
 
 (DEFUN |FiniteAlgebraicExtensionField| (|t#1|)
-  (LET (#1=#:G112 (#2=#:G113 (|devaluate| |t#1|)))
+  (LET (#1=#:G111 (#2=#:G112 (|devaluate| |t#1|)))
     (COND
      ((SETQ #1# (|assoc| #2# |FiniteAlgebraicExtensionField;AL|)) (CDR #1#))
      (T
@@ -17,7 +17,7 @@
       #1#)))) 
 
 (DEFUN |FiniteAlgebraicExtensionField;| (|t#1|)
-  (SPROG ((#1=#:G111 NIL))
+  (SPROG ((#1=#:G110 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))

@@ -8,10 +8,10 @@
         (T (SETQ |StringAggregate;AL| (|StringAggregate;|))))) 
 
 (DEFUN |StringAggregate;| ()
-  (SPROG ((#1=#:G105 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(#2=#:G104) (LIST '(|Character|)))
+                   (|sublisV| (MAKE_PAIRS '(#2=#:G103) (LIST '(|Character|)))
                               (|Join| (|OneDimensionalArrayAggregate| '#2#)
                                       (|mkCategory|
                                        '(((|lowerCase| ($ $)) T)

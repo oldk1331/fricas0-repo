@@ -3,8 +3,8 @@
         ((|lp| |List| (|Polynomial| F)) (|lv| |List| (|Symbol|))
          ($ |List| (|Polynomial| F)))
         (SPROG
-         ((#1=#:G111 NIL) (|pp| NIL) (#2=#:G110 NIL) (|gb| (|List| |DPoly|))
-          (|b| (|List| |DPoly|)) (#3=#:G109 NIL) (|pol| NIL) (#4=#:G108 NIL)
+         ((#1=#:G110 NIL) (|pp| NIL) (#2=#:G109 NIL) (|gb| (|List| |DPoly|))
+          (|b| (|List| |DPoly|)) (#3=#:G108 NIL) (|pol| NIL) (#4=#:G107 NIL)
           (OV
            (|Join| (|OrderedFinite|) (|ConvertibleTo| (|Symbol|))
                    (|ConvertibleTo| (|InputForm|))
@@ -120,8 +120,8 @@
         ((|lp| |List| (|Polynomial| F)) (|lv| |List| (|Symbol|))
          ($ |List| (|Polynomial| F)))
         (SPROG
-         ((#1=#:G119 NIL) (|pp| NIL) (#2=#:G118 NIL) (|gb| (|List| |HDPoly|))
-          (|b| (|List| |HDPoly|)) (#3=#:G117 NIL) (|pol| NIL) (#4=#:G116 NIL)
+         ((#1=#:G118 NIL) (|pp| NIL) (#2=#:G117 NIL) (|gb| (|List| |HDPoly|))
+          (|b| (|List| |HDPoly|)) (#3=#:G116 NIL) (|pol| NIL) (#4=#:G115 NIL)
           (OV
            (|Join| (|OrderedFinite|) (|ConvertibleTo| (|Symbol|))
                    (|ConvertibleTo| (|InputForm|))
@@ -240,9 +240,9 @@
 
 (DECLAIM (NOTINLINE |PolyGroebner;|)) 
 
-(DEFUN |PolyGroebner| (#1=#:G120)
+(DEFUN |PolyGroebner| (#1=#:G119)
   (SPROG NIL
-         (PROG (#2=#:G121)
+         (PROG (#2=#:G120)
            (RETURN
             (COND
              ((LETT #2#

@@ -1,6 +1,6 @@
 
 (SDEFUN |BSTREE;binarySearchTree;L$;1| ((|u| |List| S) ($ $))
-        (SPROG ((#1=#:G113 NIL) (|x| NIL) (|tree| ($)))
+        (SPROG ((#1=#:G112 NIL) (|x| NIL) (|tree| ($)))
                (SEQ
                 (COND ((NULL |u|) (SPADCALL (QREFELT $ 8)))
                       ('T
@@ -70,9 +70,9 @@
 
 (DECLAIM (NOTINLINE |BinarySearchTree;|)) 
 
-(DEFUN |BinarySearchTree| (#1=#:G134)
+(DEFUN |BinarySearchTree| (#1=#:G133)
   (SPROG NIL
-         (PROG (#2=#:G135)
+         (PROG (#2=#:G134)
            (RETURN
             (COND
              ((LETT #2#
@@ -89,7 +89,7 @@
 
 (DEFUN |BinarySearchTree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G131 NIL) (#2=#:G132 NIL) (#3=#:G133 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G130 NIL) (#2=#:G131 NIL) (#3=#:G132 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

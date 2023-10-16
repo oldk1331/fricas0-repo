@@ -47,18 +47,18 @@
          (|imagRange| |Segment| (|DoubleFloat|)) (|arrows?| |Boolean|)
          ($ |ThreeDimensionalViewport|))
         (SPROG
-         ((|real| #2=(|DoubleFloat|)) (|imag| #2#) (#3=#:G136 NIL) (|a| NIL)
+         ((|real| #2=(|DoubleFloat|)) (|imag| #2#) (#3=#:G135 NIL) (|a| NIL)
           (|arrow| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|p2| #4=(|Point| (|DoubleFloat|))) (|len| (|DoubleFloat|))
-          (|p1| #4#) (|arg| (|DoubleFloat|)) (#5=#:G135 NIL) (|j| NIL)
-          (#6=#:G134 NIL) (|i| NIL) (|space| (|ThreeSpace| (|DoubleFloat|)))
+          (|p1| #4#) (|arg| (|DoubleFloat|)) (#5=#:G134 NIL) (|j| NIL)
+          (#6=#:G133 NIL) (|i| NIL) (|space| (|ThreeSpace| (|DoubleFloat|)))
           (|llp| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|lp| (|List| (|Point| (|DoubleFloat|)))) (|p| #4#) (#7=#:G133 NIL)
-          (#8=#:G132 NIL) (|z| #1#) (#9=#:G131 NIL) (#10=#:G130 NIL)
+          (|lp| (|List| (|Point| (|DoubleFloat|)))) (|p| #4#) (#7=#:G132 NIL)
+          (#8=#:G131 NIL) (|z| #1#) (#9=#:G130 NIL) (#10=#:G129 NIL)
           (|funTable|
            (|TwoDimensionalArray|
             (|Record| (|:| |rr| (|DoubleFloat|)) (|:| |th| (|DoubleFloat|)))))
-          (#11=#:G110 NIL) (#12=#:G108 NIL) (|delImag| #13=(|DoubleFloat|))
+          (#11=#:G109 NIL) (#12=#:G107 NIL) (|delImag| #13=(|DoubleFloat|))
           (|delReal| #13#))
          (SEQ
           (LETT |delReal|
@@ -200,11 +200,11 @@
          (|imagRange| |Segment| (|DoubleFloat|))
          ($ |ThreeDimensionalViewport|))
         (SPROG
-         ((|real| #2=(|DoubleFloat|)) (|imag| #2#) (#3=#:G146 NIL) (|a| NIL)
+         ((|real| #2=(|DoubleFloat|)) (|imag| #2#) (#3=#:G145 NIL) (|a| NIL)
           (|arrow| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|p2| #4=(|Point| (|DoubleFloat|))) (|scaleLen| (|DoubleFloat|))
           (|p1| #4#) (|len| (|DoubleFloat|)) (|arg| (|DoubleFloat|)) (|z| #1#)
-          (#5=#:G145 NIL) (|j| NIL) (#6=#:G144 NIL) (|i| NIL)
+          (#5=#:G144 NIL) (|j| NIL) (#6=#:G143 NIL) (|i| NIL)
           (|space| (|ThreeSpace| (|DoubleFloat|)))
           (|delImag| #7=(|DoubleFloat|)) (|delReal| #7#))
          (SEQ
@@ -280,7 +280,7 @@
 
 (DEFUN |DrawComplex| ()
   (SPROG NIL
-         (PROG (#1=#:G151)
+         (PROG (#1=#:G150)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|DrawComplex|))

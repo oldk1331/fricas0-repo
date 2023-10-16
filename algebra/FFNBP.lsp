@@ -59,7 +59,7 @@
          ((|e1|
            (|Record| (|:| |coef1| (|SparseUnivariatePolynomial| GF))
                      (|:| |coef2| (|SparseUnivariatePolynomial| GF))))
-          (#1=#:G139 NIL)
+          (#1=#:G138 NIL)
           (|e|
            (|Union|
             (|Record| (|:| |coef1| (|SparseUnivariatePolynomial| GF))
@@ -132,7 +132,7 @@
 (SDEFUN |FFNBP;generator;$;13| (($ $)) (SPADCALL (QREFELT $ 17) (QREFELT $ 92))) 
 
 (SDEFUN |FFNBP;basis;PiV;14| ((|n| |PositiveInteger|) ($ |Vector| $))
-        (SPROG ((#1=#:G164 NIL) (|i| NIL) (#2=#:G163 NIL))
+        (SPROG ((#1=#:G163 NIL) (|i| NIL) (#2=#:G162 NIL))
                (SEQ
                 (COND
                  ((SPADCALL (REM (QREFELT $ 17) |n|) 0 (QREFELT $ 94))
@@ -185,7 +185,7 @@
 (SDEFUN |FFNBP;coerce;$Of;22| ((|x| $) ($ |OutputForm|))
         (SPROG
          ((|r| (|OutputForm|)) (|l| (|List| (|OutputForm|)))
-          (|mon| (|OutputForm|)) (#1=#:G190 NIL) (|i| NIL) (#2=#:G191 NIL)
+          (|mon| (|OutputForm|)) (#1=#:G189 NIL) (|i| NIL) (#2=#:G190 NIL)
           (|b| NIL) (|n| (|PositiveInteger|)))
          (SEQ (LETT |l| NIL) (LETT |n| (QREFELT $ 17))
               (EXIT
@@ -248,10 +248,10 @@
 
 (SDEFUN |FFNBP;initializeLog| (($ |Void|))
         (SPROG
-         ((#1=#:G204 NIL) (|a| ($)) (#2=#:G210 NIL) (#3=#:G198 NIL) (|i| NIL)
+         ((#1=#:G203 NIL) (|a| ($)) (#2=#:G209 NIL) (#3=#:G197 NIL) (|i| NIL)
           (|tbl| (|Table| (|PositiveInteger|) (|NonNegativeInteger|)))
           (|n| (|Integer|)) (|d| (|Integer|)) (|l| (|Integer|)) (|base| ($))
-          (|fac| (|Integer|)) (#4=#:G209 NIL) (|f| NIL) (|limit| (|Integer|)))
+          (|fac| (|Integer|)) (#4=#:G208 NIL) (|f| NIL) (|limit| (|Integer|)))
          (SEQ (COND ((QREFELT $ 15) (|FFNBP;initializeElt| $)))
               (LETT |limit| 30)
               (SEQ (LETT |f| NIL) (LETT #4# (QREFELT $ 44)) G190
@@ -316,7 +316,7 @@
          ((|tbl|
            (|Union| (|Table| (|PositiveInteger|) (|NonNegativeInteger|))
                     "failed"))
-          (#1=#:G212 NIL))
+          (#1=#:G211 NIL))
          (SEQ (COND ((QREFELT $ 14) (|FFNBP;initializeLog| $)))
               (LETT |tbl|
                     (SPADCALL
@@ -348,7 +348,7 @@
         (QREFELT $ 20)) 
 
 (SDEFUN |FFNBP;trace;$Pi$;31| ((|a| $) (|d| |PositiveInteger|) ($ $))
-        (SPROG ((|erg| ($)) (#1=#:G228 NIL) (|i| NIL) (|v| ($)))
+        (SPROG ((|erg| ($)) (#1=#:G227 NIL) (|i| NIL) (|v| ($)))
                (SEQ (LETT |v| (SPADCALL |a| |d| (QREFELT $ 147)))
                     (LETT |erg| |v|)
                     (SEQ (LETT |i| 2) (LETT #1# (QUOTIENT2 (QREFELT $ 17) |d|))
@@ -385,7 +385,7 @@
 
 (SDEFUN |FFNBP;basis;V;40| (($ |Vector| $))
         (SPROG
-         ((#1=#:G242 NIL) (|e| NIL) (#2=#:G241 NIL)
+         ((#1=#:G241 NIL) (|e| NIL) (#2=#:G240 NIL)
           (|a| (|Vector| (|Vector| GF))))
          (SEQ (LETT |a| (SPADCALL (QREFELT $ 17) (QREFELT $ 160)))
               (EXIT
@@ -437,7 +437,7 @@
              (EXIT (SPADCALL |a| (QREFELT $ 36))))) 
 
 (SDEFUN |FFNBP;inGroundField?;$B;50| ((|x| $) ($ |Boolean|))
-        (SPROG ((#1=#:G268 NIL) (|erg| (|Boolean|)) (#2=#:G269 NIL) (|i| NIL))
+        (SPROG ((#1=#:G267 NIL) (|erg| (|Boolean|)) (#2=#:G268 NIL) (|i| NIL))
                (SEQ (LETT |erg| 'T)
                     (SEQ
                      (EXIT
@@ -452,7 +452,7 @@
                                           (QREFELT $ 112)))
                                (PROGN
                                 (LETT #1# (LETT |erg| NIL))
-                                (GO #3=#:G265))))))
+                                (GO #3=#:G264))))))
                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                            (EXIT NIL)))
                      #3# (EXIT #1#))
@@ -478,9 +478,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldNormalBasisExtensionByPolynomial;|)) 
 
-(DEFUN |FiniteFieldNormalBasisExtensionByPolynomial| (&REST #1=#:G300)
+(DEFUN |FiniteFieldNormalBasisExtensionByPolynomial| (&REST #1=#:G299)
   (SPROG NIL
-         (PROG (#2=#:G301)
+         (PROG (#2=#:G300)
            (RETURN
             (COND
              ((LETT #2#
@@ -504,8 +504,8 @@
 
 (DEFUN |FiniteFieldNormalBasisExtensionByPolynomial;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G122 NIL) (#2=#:G299 NIL) (|i| NIL) (#3=#:G298 NIL) (|qs| NIL)
-    (|pv$| NIL) (#4=#:G297 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G121 NIL) (#2=#:G298 NIL) (|i| NIL) (#3=#:G297 NIL) (|qs| NIL)
+    (|pv$| NIL) (#4=#:G296 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN
      (LETT DV$1 (|devaluate| |#1|))

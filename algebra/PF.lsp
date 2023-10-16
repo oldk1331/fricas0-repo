@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |PrimeField;|)) 
 
-(DEFUN |PrimeField| (#1=#:G141)
+(DEFUN |PrimeField| (#1=#:G140)
   (SPROG NIL
-         (PROG (#2=#:G142)
+         (PROG (#2=#:G141)
            (RETURN
             (COND
              ((LETT #2#
@@ -41,7 +41,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|InnerPrimeField| (NRTEVAL (QREFELT $ 6)))
               (|local| |#1|) (|Boolean|) (|Integer|) (|IntegerPrimesPackage| 8)
-              (0 . |prime?|) '#:G104 (|Union| 20 '#1="failed") (|Matrix| $)
+              (0 . |prime?|) '#:G103 (|Union| 20 '#1="failed") (|Matrix| $)
               (|NonNegativeInteger|) (|SparseUnivariatePolynomial| $)
               (|PositiveInteger|) (|Union| 15 '"failed") (|Union| $ '"failed")
               (|OnePointCompletion| 16) (|Vector| $)

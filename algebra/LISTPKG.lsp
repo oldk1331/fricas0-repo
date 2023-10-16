@@ -3,7 +3,7 @@
         ((|f| |Mapping| (|Boolean|) T$) (|l| |List| T$)
          ($ |Record| (|:| |yes| (|List| T$)) (|:| |no| (|List| T$))))
         (SPROG
-         ((|resno| #1=(|List| T$)) (|resyes| #1#) (#2=#:G125 NIL) (|t| NIL))
+         ((|resno| #1=(|List| T$)) (|resyes| #1#) (#2=#:G124 NIL) (|t| NIL))
          (SEQ
           (COND ((NULL |l|) (CONS NIL NIL))
                 ('T
@@ -25,7 +25,7 @@
         ((|f| |Mapping| (|Boolean|) T$ T$) (|xx| |List| T$) ($ |List| T$))
         (SPROG
          ((|res| (|List| (|List| T$))) (|xx1| #1=(|List| T$)) (|bucket| #1#)
-          (#2=#:G134 NIL) (|x| NIL) (|x0| (T$)))
+          (#2=#:G133 NIL) (|x| NIL) (|x0| (T$)))
          (SEQ (LETT |bucket| NIL) (LETT |res| NIL)
               (SEQ G190 (COND ((NULL (NULL (NULL |xx|))) (GO G191)))
                    (SEQ (LETT |x0| (|SPADfirst| |xx|)) (LETT |xx| (CDR |xx|))
@@ -56,13 +56,13 @@
         ((|adjacency| |List| (|List| (|Boolean|))) (|xx| |List| T$)
          ($ |List| T$))
         (SPROG
-         ((#1=#:G152 NIL) (|p| NIL) (#2=#:G151 NIL)
+         ((#1=#:G151 NIL) (|p| NIL) (#2=#:G150 NIL)
           (|r| (|List| (|NonNegativeInteger|)))
           (|xi| (|List| (|NonNegativeInteger|)))
           (|res| (|List| (|List| (|NonNegativeInteger|))))
           (|xx1| #3=(|List| (|NonNegativeInteger|))) (|bucket| #3#)
-          (#4=#:G150 NIL) (|x| NIL) (|x0| (|NonNegativeInteger|))
-          (#5=#:G149 NIL) (|n| NIL) (#6=#:G148 NIL))
+          (#4=#:G149 NIL) (|x| NIL) (|x0| (|NonNegativeInteger|))
+          (#5=#:G148 NIL) (|n| NIL) (#6=#:G147 NIL))
          (SEQ
           (LETT |xi|
                 (PROGN
@@ -105,10 +105,10 @@
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |LISTPKG;shiftLeft;2L;5| ((|xx| |List| T$) ($ |List| T$))
-        (SPROG ((#1=#:G155 NIL))
+        (SPROG ((#1=#:G154 NIL))
                (SEQ
                 (EXIT
-                 (COND ((NULL |xx|) (PROGN (LETT #1# |xx|) (GO #2=#:G154)))
+                 (COND ((NULL |xx|) (PROGN (LETT #1# |xx|) (GO #2=#:G153)))
                        ('T
                         (SPADCALL (CDR |xx|) (|SPADfirst| |xx|)
                                   (QREFELT $ 27)))))
@@ -116,12 +116,12 @@
 
 (SDEFUN |LISTPKG;minShift;2L;6| ((|xx| . #1=(|List| T$)) ($ |List| T$))
         (SPROG
-         ((|res| #1#) (|xx1| #1#) (#2=#:G163 NIL) (|k| NIL) (#3=#:G162 NIL))
+         ((|res| #1#) (|xx1| #1#) (#2=#:G162 NIL) (|k| NIL) (#3=#:G161 NIL))
          (SEQ
           (EXIT
            (COND
             ((OR (NULL |xx|) (NULL (CDR |xx|)))
-             (PROGN (LETT #3# |xx|) (GO #4=#:G161)))
+             (PROGN (LETT #3# |xx|) (GO #4=#:G160)))
             ('T
              (SEQ (LETT |res| |xx|) (LETT |xx1| |xx|)
                   (SEQ (LETT |k| 2) (LETT #2# (LENGTH |xx|)) G190
@@ -138,9 +138,9 @@
 (SDEFUN |LISTPKG;cartesian;2L;7|
         ((SS |List| (|List| T$)) ($ |List| (|List| T$)))
         (SPROG
-         ((|res| (|List| (|List| T$))) (#1=#:G174 NIL) (|s| NIL)
-          (#2=#:G173 NIL) (|x| NIL) (#3=#:G170 NIL) (#4=#:G172 NIL)
-          (#5=#:G171 NIL))
+         ((|res| (|List| (|List| T$))) (#1=#:G173 NIL) (|s| NIL)
+          (#2=#:G172 NIL) (|x| NIL) (#3=#:G169 NIL) (#4=#:G171 NIL)
+          (#5=#:G170 NIL))
          (SEQ
           (EXIT
            (COND
@@ -156,7 +156,7 @@
                           (SEQ (EXIT (LETT #5# (CONS (LIST |s|) #5#))))
                           (LETT #4# (CDR #4#)) (GO G190) G191
                           (EXIT (NREVERSE #5#)))))
-              (GO #6=#:G169)))
+              (GO #6=#:G168)))
             ('T
              (SEQ (LETT |res| NIL)
                   (SEQ (LETT |x| NIL)
@@ -181,13 +181,13 @@
 (SDEFUN |LISTPKG;cartesianPower;LNniL;8|
         ((S |List| T$) (|n| |NonNegativeInteger|) ($ |List| (|List| T$)))
         (SPROG
-         ((|res| (|List| (|List| T$))) (#1=#:G187 NIL) (|s| NIL)
-          (#2=#:G186 NIL) (|x| NIL) (#3=#:G183 NIL) (#4=#:G185 NIL)
-          (#5=#:G184 NIL))
+         ((|res| (|List| (|List| T$))) (#1=#:G186 NIL) (|s| NIL)
+          (#2=#:G185 NIL) (|x| NIL) (#3=#:G182 NIL) (#4=#:G184 NIL)
+          (#5=#:G183 NIL))
          (SEQ
           (EXIT
            (COND
-            ((OR (NULL S) (ZEROP |n|)) (PROGN (LETT #3# NIL) (GO #6=#:G182)))
+            ((OR (NULL S) (ZEROP |n|)) (PROGN (LETT #3# NIL) (GO #6=#:G181)))
             ('T
              (COND
               ((EQL |n| 1)
@@ -228,9 +228,9 @@
 
 (DECLAIM (NOTINLINE |ListPackage;|)) 
 
-(DEFUN |ListPackage| (#1=#:G188)
+(DEFUN |ListPackage| (#1=#:G187)
   (SPROG NIL
-         (PROG (#2=#:G189)
+         (PROG (#2=#:G188)
            (RETURN
             (COND
              ((LETT #2#

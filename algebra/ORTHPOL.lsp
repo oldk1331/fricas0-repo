@@ -1,7 +1,7 @@
 
 (SDEFUN |ORTHPOL;laguerreL;Nni2R;1| ((|n| |NonNegativeInteger|) (|x| R) ($ R))
         (SPROG
-         ((|p0| (R)) (|p1| (R)) (|#G9| (R)) (|#G8| (R)) (#1=#:G107 NIL)
+         ((|p0| (R)) (|p1| (R)) (|#G9| (R)) (|#G8| (R)) (#1=#:G106 NIL)
           (|i| NIL) (|#G6| (R)) (|#G5| (R)))
          (SEQ
           (COND ((EQL |n| 0) (|spadConstant| $ 8))
@@ -40,8 +40,8 @@
 (SDEFUN |ORTHPOL;laguerreL;2Nni2R;2|
         ((|m| |NonNegativeInteger|) (|n| |NonNegativeInteger|) (|x| R) ($ R))
         (SPROG
-         ((|p1| (R)) (|p0| (R)) (|cx| (|Integer|)) (#1=#:G109 NIL)
-          (#2=#:G115 NIL) (|j| NIL) (|mi| (|Integer|)) (|ni| (|Integer|)))
+         ((|p1| (R)) (|p0| (R)) (|cx| (|Integer|)) (#1=#:G108 NIL)
+          (#2=#:G114 NIL) (|j| NIL) (|mi| (|Integer|)) (|ni| (|Integer|)))
          (SEQ (LETT |ni| |n|) (LETT |mi| |m|)
               (LETT |cx|
                     (*
@@ -73,7 +73,7 @@
 
 (SDEFUN |ORTHPOL;chebyshevT;Nni2R;3| ((|n| |NonNegativeInteger|) (|x| R) ($ R))
         (SPROG
-         ((|p0| (R)) (|p1| (R)) (|#G20| (R)) (|#G19| (R)) (#1=#:G119 NIL)
+         ((|p0| (R)) (|p1| (R)) (|#G20| (R)) (|#G19| (R)) (#1=#:G118 NIL)
           (|i| NIL) (|#G17| (R)) (|#G16| (R)))
          (SEQ
           (COND ((EQL |n| 0) (|spadConstant| $ 8))
@@ -102,7 +102,7 @@
 
 (SDEFUN |ORTHPOL;chebyshevU;Nni2R;4| ((|n| |NonNegativeInteger|) (|x| R) ($ R))
         (SPROG
-         ((|p0| (R)) (|p1| (R)) (|#G27| (R)) (|#G26| (R)) (#1=#:G123 NIL)
+         ((|p0| (R)) (|p1| (R)) (|#G27| (R)) (|#G26| (R)) (#1=#:G122 NIL)
           (|i| NIL) (|#G24| (R)) (|#G23| (R)))
          (SEQ
           (COND ((EQL |n| 0) (|spadConstant| $ 8))
@@ -131,7 +131,7 @@
 
 (SDEFUN |ORTHPOL;hermiteH;Nni2R;5| ((|n| |NonNegativeInteger|) (|x| R) ($ R))
         (SPROG
-         ((|p0| (R)) (|p1| (R)) (|#G34| (R)) (|#G33| (R)) (#1=#:G127 NIL)
+         ((|p0| (R)) (|p1| (R)) (|#G34| (R)) (|#G33| (R)) (#1=#:G126 NIL)
           (|i| NIL) (|#G31| (R)) (|#G30| (R)))
          (SEQ
           (COND ((EQL |n| 0) (|spadConstant| $ 8))
@@ -162,7 +162,7 @@
 (SDEFUN |ORTHPOL;legendreP;Nni2R;6| ((|n| |NonNegativeInteger|) (|x| R) ($ R))
         (SPROG
          ((|p0| (R)) (|p1| (R)) (|#G39| (R)) (|#G38| (R))
-          (|c| (|Fraction| (|Integer|))) (#1=#:G132 NIL) (|i| NIL))
+          (|c| (|Fraction| (|Integer|))) (#1=#:G131 NIL) (|i| NIL))
          (SEQ
           (COND ((EQL |n| 0) (|spadConstant| $ 8))
                 ('T
@@ -192,9 +192,9 @@
 
 (DECLAIM (NOTINLINE |OrthogonalPolynomialFunctions;|)) 
 
-(DEFUN |OrthogonalPolynomialFunctions| (#1=#:G133)
+(DEFUN |OrthogonalPolynomialFunctions| (#1=#:G132)
   (SPROG NIL
-         (PROG (#2=#:G134)
+         (PROG (#2=#:G133)
            (RETURN
             (COND
              ((LETT #2#

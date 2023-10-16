@@ -8,7 +8,7 @@
         (T (SETQ |FortranVectorCategory;AL| (|FortranVectorCategory;|))))) 
 
 (DEFUN |FortranVectorCategory;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|FortranProgramCategory|)

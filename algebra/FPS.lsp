@@ -8,10 +8,10 @@
         (T (SETQ |FloatingPointSystem;AL| (|FloatingPointSystem;|))))) 
 
 (DEFUN |FloatingPointSystem;| ()
-  (SPROG ((#1=#:G105 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(#2=#:G104) (LIST '(|String|)))
+                   (|sublisV| (MAKE_PAIRS '(#2=#:G103) (LIST '(|String|)))
                               (|Join| (|RealNumberSystem|) (|Approximate|)
                                       (|ConvertibleTo| '#2#)
                                       (|mkCategory|

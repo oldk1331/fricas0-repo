@@ -14,7 +14,7 @@
 
 (DEFUN |PositiveInteger| ()
   (SPROG NIL
-         (PROG (#1=#:G1785)
+         (PROG (#1=#:G1784)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|PositiveInteger|))

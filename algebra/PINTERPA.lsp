@@ -2,8 +2,8 @@
 (SDEFUN |PINTERPA;LagrangeInterpolation;2LP;1|
         ((|lx| |List| F) (|ly| |List| F) ($ P))
         (SPROG
-         ((|ip| (P)) (|xp| (F)) (|pp| (P)) (#1=#:G114 NIL) (|xj| NIL) (|j| NIL)
-          (#2=#:G112 NIL) (|xi| NIL) (#3=#:G113 NIL) (|yi| NIL) (|i| NIL))
+         ((|ip| (P)) (|xp| (F)) (|pp| (P)) (#1=#:G113 NIL) (|xj| NIL) (|j| NIL)
+          (#2=#:G111 NIL) (|xi| NIL) (#3=#:G112 NIL) (|yi| NIL) (|i| NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |lx|) (LENGTH |ly|) (QREFELT $ 10))
@@ -67,9 +67,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialInterpolationAlgorithms;|)) 
 
-(DEFUN |PolynomialInterpolationAlgorithms| (&REST #1=#:G115)
+(DEFUN |PolynomialInterpolationAlgorithms| (&REST #1=#:G114)
   (SPROG NIL
-         (PROG (#2=#:G116)
+         (PROG (#2=#:G115)
            (RETURN
             (COND
              ((LETT #2#

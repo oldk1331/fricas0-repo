@@ -215,8 +215,8 @@
          (|cl| |List| |Coef|) (|yl| |List| (|Stream| |Coef|))
          ($ |List| (|Stream| |Coef|)))
         (SPROG
-         ((|yil| (|List| (|Stream| |Coef|))) (#1=#:G193 NIL) (|c| NIL)
-          (#2=#:G194 NIL) (|y| NIL) (#3=#:G192 NIL))
+         ((|yil| (|List| (|Stream| |Coef|))) (#1=#:G192 NIL) (|c| NIL)
+          (#2=#:G193 NIL) (|y| NIL) (#3=#:G191 NIL))
          (SEQ
           (LETT |yil|
                 (PROGN
@@ -266,8 +266,8 @@
           (|Mapping| (|Stream| |Coef|) (|List| (|Stream| |Coef|))))
          (|c| |List| (|Stream| |Coef|)) ($ |List| (|Stream| |Coef|)))
         (SPROG
-         ((#1=#:G214 NIL) (|csti| NIL) (#2=#:G215 NIL) (|lsfi| NIL)
-          (#3=#:G213 NIL))
+         ((#1=#:G213 NIL) (|csti| NIL) (#2=#:G214 NIL) (|lsfi| NIL)
+          (#3=#:G212 NIL))
          (SEQ
           (PROGN
            (LETT #3# NIL)
@@ -323,8 +323,8 @@
         ((|cs| |List| |Coef|) (|lsts| |List| (|Mapping| UTS (|List| UTS)))
          ($ |List| UTS))
         (SPROG
-         ((|stSol| (|List| (|Stream| |Coef|))) (#1=#:G226 NIL) (|lst| NIL)
-          (#2=#:G225 NIL))
+         ((|stSol| (|List| (|Stream| |Coef|))) (#1=#:G225 NIL) (|lst| NIL)
+          (#2=#:G224 NIL))
          (SEQ
           (LETT |stSol|
                 (|UTSODE;iMpsode| |cs|
@@ -345,9 +345,9 @@
 
 (DECLAIM (NOTINLINE |UnivariateTaylorSeriesODESolver;|)) 
 
-(DEFUN |UnivariateTaylorSeriesODESolver| (&REST #1=#:G227)
+(DEFUN |UnivariateTaylorSeriesODESolver| (&REST #1=#:G226)
   (SPROG NIL
-         (PROG (#2=#:G228)
+         (PROG (#2=#:G227)
            (RETURN
             (COND
              ((LETT #2#

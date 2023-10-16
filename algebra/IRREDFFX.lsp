@@ -70,9 +70,9 @@
 
 (DECLAIM (NOTINLINE |IrredPolyOverFiniteField;|)) 
 
-(DEFUN |IrredPolyOverFiniteField| (#1=#:G128)
+(DEFUN |IrredPolyOverFiniteField| (#1=#:G127)
   (SPROG NIL
-         (PROG (#2=#:G129)
+         (PROG (#2=#:G128)
            (RETURN
             (COND
              ((LETT #2#
@@ -91,7 +91,7 @@
 
 (DEFUN |IrredPolyOverFiniteField;| (|#1|)
   (SPROG
-   ((#1=#:G112 NIL) (#2=#:G111 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((#1=#:G111 NIL) (#2=#:G110 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|IrredPolyOverFiniteField| DV$1))

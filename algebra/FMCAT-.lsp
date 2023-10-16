@@ -1,6 +1,6 @@
 
 (SDEFUN |FMCAT-;smaller?;2AB;1| ((|p| A) (|q| A) ($ |Boolean|))
-        (SPROG ((#1=#:G122 NIL))
+        (SPROG ((#1=#:G121 NIL))
                (SEQ
                 (EXIT
                  (SEQ G190 NIL
@@ -8,7 +8,7 @@
                        (EXIT
                         (COND
                          ((SPADCALL |q| (QREFELT $ 10))
-                          (PROGN (LETT #1# NIL) (GO #2=#:G121)))
+                          (PROGN (LETT #1# NIL) (GO #2=#:G120)))
                          ((SPADCALL |p| (QREFELT $ 10))
                           (PROGN (LETT #1# 'T) (GO #2#)))
                          ((SPADCALL (SPADCALL |p| (QREFELT $ 11))

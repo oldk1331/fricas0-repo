@@ -89,9 +89,9 @@
 
 (DECLAIM (NOTINLINE |Octonion;|)) 
 
-(DEFUN |Octonion| (#1=#:G176)
+(DEFUN |Octonion| (#1=#:G175)
   (SPROG NIL
-         (PROG (#2=#:G177)
+         (PROG (#2=#:G176)
            (RETURN
             (COND
              ((LETT #2#
@@ -106,7 +106,7 @@
 
 (DEFUN |Octonion;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G173 NIL) (#2=#:G174 NIL) (#3=#:G175 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G172 NIL) (#2=#:G173 NIL) (#3=#:G174 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

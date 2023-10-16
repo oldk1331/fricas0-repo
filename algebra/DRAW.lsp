@@ -240,9 +240,9 @@
 
 (DECLAIM (NOTINLINE |TopLevelDrawFunctions;|)) 
 
-(DEFUN |TopLevelDrawFunctions| (#1=#:G166)
+(DEFUN |TopLevelDrawFunctions| (#1=#:G165)
   (SPROG NIL
-         (PROG (#2=#:G167)
+         (PROG (#2=#:G166)
            (RETURN
             (COND
              ((LETT #2#

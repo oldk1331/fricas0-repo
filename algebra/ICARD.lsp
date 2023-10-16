@@ -141,7 +141,7 @@
 
 (DEFUN |IndexCard| ()
   (SPROG NIL
-         (PROG (#1=#:G145)
+         (PROG (#1=#:G144)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|IndexCard|))

@@ -141,7 +141,7 @@
          ('T NIL))) 
 
 (SDEFUN |DROPT;option?;LSB;31| ((|l| |List| $) (|s| |Symbol|) ($ |Boolean|))
-        (SPROG ((#1=#:G156 NIL) (#2=#:G157 NIL) (#3=#:G158 NIL) (|x| NIL))
+        (SPROG ((#1=#:G155 NIL) (#2=#:G156 NIL) (#3=#:G157 NIL) (|x| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -156,8 +156,8 @@
                            (COND
                             ((EQUAL (QCAR |x|) |s|)
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G155)))
-                              (GO #5=#:G153))))))
+                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G154)))
+                              (GO #5=#:G152))))))
                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT NIL)))
@@ -165,7 +165,7 @@
 
 (SDEFUN |DROPT;option;LSU;32|
         ((|l| |List| $) (|s| |Symbol|) ($ |Union| (|Any|) "failed"))
-        (SPROG ((#1=#:G170 NIL) (#2=#:G171 NIL) (#3=#:G172 NIL) (|x| NIL))
+        (SPROG ((#1=#:G169 NIL) (#2=#:G170 NIL) (#3=#:G171 NIL) (|x| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -183,8 +183,8 @@
                               (LETT #1#
                                     (PROGN
                                      (LETT #2# (CONS 0 (QCDR |x|)))
-                                     (GO #4=#:G169)))
-                              (GO #5=#:G164))))))
+                                     (GO #4=#:G168)))
+                              (GO #5=#:G163))))))
                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT (CONS 1 "failed"))))
@@ -194,7 +194,7 @@
 
 (DEFUN |DrawOption| ()
   (SPROG NIL
-         (PROG (#1=#:G174)
+         (PROG (#1=#:G173)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|DrawOption|))

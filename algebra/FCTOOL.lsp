@@ -21,7 +21,7 @@
 
 (SDEFUN |FCTOOL;fortranCleanUp| ((|l| |List| (|String|)) ($ |List| (|String|)))
         (SPROG
-         ((|oldTok| (|String|)) (|m| (|List| (|String|))) (#1=#:G255 NIL)
+         ((|oldTok| (|String|)) (|m| (|List| (|String|))) (#1=#:G254 NIL)
           (|e| NIL))
          (SEQ (LETT |oldTok| "") (LETT |m| NIL)
               (SEQ (LETT |e| NIL) (LETT #1# |l|) G190
@@ -41,7 +41,7 @@
 (SDEFUN |FCTOOL;exp2FortFn|
         ((|op| . #1=(|String|)) (|args| |List| (|OutputForm|))
          (|nargs| |Integer|) ($ |List| (|String|)))
-        (SPROG ((|s| (|List| #1#)) (#2=#:G260 NIL) (|arg| NIL))
+        (SPROG ((|s| (|List| #1#)) (#2=#:G259 NIL) (|arg| NIL))
                (SEQ (LETT |s| (LIST "(" |op|))
                     (EXIT
                      (COND ((EQL |nargs| 0) (CONS ")" |s|))
@@ -68,8 +68,8 @@
         ((|e| |OutputForm|) (|prec| |Integer|) (|oldOp| |String|)
          ($ |List| (|String|)))
         (SPROG
-         ((|s| (|List| (|String|))) (#1=#:G282 NIL) (|op1| (|String|))
-          (|args1| #2=(|List| (|OutputForm|))) (#3=#:G283 NIL) (|arg| NIL)
+         ((|s| (|List| (|String|))) (#1=#:G281 NIL) (|op1| (|String|))
+          (|args1| #2=(|List| (|OutputForm|))) (#3=#:G282 NIL) (|arg| NIL)
           (|nprec| (|Integer|)) (|p| (|Integer|)) (|op| (|String|))
           (|nargs| (|NonNegativeInteger|)) (|args| #2#) (|op0| (|OutputForm|)))
          (SEQ
@@ -229,7 +229,7 @@
                                                                            |s|))
                                                                     (QREFELT $
                                                                              25)))))))
-                                               (GO #5=#:G274))))))))))))
+                                               (GO #5=#:G273))))))))))))
                                     (EXIT
                                      (LETT |s|
                                            (CONS |op|
@@ -260,7 +260,7 @@
 (SDEFUN |FCTOOL;exp2Fort1| ((|l| |List| (|OutputForm|)) ($ |List| (|String|)))
         (SPROG
          ((|res| (|List| (|String|))) (|l1| (|List| (|String|)))
-          (#1=#:G288 NIL) (|e| NIL))
+          (#1=#:G287 NIL) (|e| NIL))
          (SEQ (LETT |res| NIL)
               (SEQ (LETT |e| NIL) (LETT #1# |l|) G190
                    (COND
@@ -278,8 +278,8 @@
 (SDEFUN |FCTOOL;fortExpSize_f|
         ((|op| |OutputForm|) (|args| |List| (|OutputForm|)) ($ |Integer|))
         (SPROG
-         ((#1=#:G291 NIL) (#2=#:G290 #3=(|Integer|)) (#4=#:G292 #3#)
-          (#5=#:G294 NIL) (|a| NIL))
+         ((#1=#:G290 NIL) (#2=#:G289 #3=(|Integer|)) (#4=#:G291 #3#)
+          (#5=#:G293 NIL) (|a| NIL))
          (SEQ
           (+ (+ 1 (LENGTH |args|))
              (PROGN
@@ -386,7 +386,7 @@
          ((|newVar| #1=(|Symbol|)) (|new_e1| (|OutputForm|))
           (|newE| (|List| (|OutputForm|))) (|exprs| (|List| (|OutputForm|)))
           (|new_var_f| (|OutputForm|)) (|new_var| #1#) (|subSize| (|Integer|))
-          (|subE| (|List| (|OutputForm|))) (#2=#:G323 NIL) (|e| NIL)
+          (|subE| (|List| (|OutputForm|))) (#2=#:G322 NIL) (|e| NIL)
           (|maxSize| (|Integer|)))
          (SEQ
           (LETT |maxSize|
@@ -469,7 +469,7 @@
          ((|safeSize| (|Integer|)) (|new_args| (|List| (|OutputForm|)))
           (|expressions| (|List| (|OutputForm|)))
           (|exprs| (|List| (|OutputForm|))) (|subSize| (|Integer|))
-          (#1=#:G332 NIL) (|e| NIL))
+          (#1=#:G331 NIL) (|e| NIL))
          (SEQ (LETT |expressions| NIL) (LETT |new_args| NIL)
               (LETT |safeSize|
                     (-
@@ -524,7 +524,7 @@
         (SPROG
          ((|s| (|List| (|OutputForm|))) (|exprs| (|List| (|OutputForm|)))
           (|var| (|OutputForm|)) (|args| (|List| (|OutputForm|)))
-          (|e1s| (|Symbol|)) (|e1f| (|OutputForm|)) (#1=#:G346 NIL) (|e| NIL))
+          (|e1s| (|Symbol|)) (|e1f| (|OutputForm|)) (#1=#:G345 NIL) (|e| NIL))
          (SEQ
           (COND ((NULL |$fortranSegment|) |l|)
                 ('T
@@ -626,7 +626,7 @@
 (SDEFUN |FCTOOL;clear_used_intrinsics;V;24| (($ |Void|)) (SETELT $ 51 NIL)) 
 
 (SDEFUN |FCTOOL;get_used_intrinsics;L;25| (($ |List| (|String|)))
-        (SPROG ((#1=#:G358 NIL) (|sy| NIL) (#2=#:G357 NIL))
+        (SPROG ((#1=#:G357 NIL) (|sy| NIL) (#2=#:G356 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -648,7 +648,7 @@
 (SDEFUN |FCTOOL;fortranifyIntrinsicFunctionName|
         ((|sy| |Symbol|) (|nargs| |Integer|) ($ |Symbol|))
         (SPROG
-         ((#1=#:G372 NIL) (#2=#:G373 NIL) (|r1| NIL)
+         ((#1=#:G371 NIL) (#2=#:G372 NIL) (|r1| NIL)
           (|use_double| (|Boolean|)))
          (SEQ
           (EXIT
@@ -679,7 +679,7 @@
                             (EXIT
                              (PROGN
                               (LETT #1# (QVELT |r1| 1))
-                              (GO #4=#:G371)))))
+                              (GO #4=#:G370)))))
                       (|use_double| (PROGN (LETT #1# (QVELT |r1| 2)) (GO #4#)))
                       ('T (PROGN (LETT #1# (QVELT |r1| 1)) (GO #4#))))))))
                  (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
@@ -688,7 +688,7 @@
 
 (SDEFUN |FCTOOL;fortranifyFunctionName|
         ((|sy| |Symbol|) (|nargs| |Integer|) ($ |Symbol|))
-        (SPROG ((#1=#:G379 NIL) (#2=#:G380 NIL) (|p1| NIL))
+        (SPROG ((#1=#:G378 NIL) (#2=#:G379 NIL) (|p1| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -700,7 +700,7 @@
                         (EXIT
                          (COND
                           ((EQUAL (QCAR |p1|) |sy|)
-                           (PROGN (LETT #1# (QCDR |p1|)) (GO #3=#:G378))))))
+                           (PROGN (LETT #1# (QCDR |p1|)) (GO #3=#:G377))))))
                        (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                   (EXIT
                    (|FCTOOL;fortranifyIntrinsicFunctionName| |sy| |nargs| $))))
@@ -709,7 +709,7 @@
 (SDEFUN |FCTOOL;mkFortFn|
         ((|name| . #1=(|OutputForm|)) (|args| |List| (|OutputForm|))
          (|nargs| |Integer|) ($ |OutputForm|))
-        (SPROG ((#2=#:G387 NIL) (|arg| NIL) (#3=#:G386 NIL) (|nn| #1#))
+        (SPROG ((#2=#:G386 NIL) (|arg| NIL) (#3=#:G385 NIL) (|nn| #1#))
                (SEQ
                 (LETT |nn|
                       (COND ((NULL (SPADCALL |name| (QREFELT $ 39))) |name|)
@@ -760,15 +760,15 @@
         ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|nargs| |Integer|)
          ($ |OutputForm|))
         (SPROG
-         ((|as1| (|OutputForm|)) (#1=#:G472 NIL) (|c| NIL) (|cx| NIL)
-          (|rx_f| (|OutputForm|)) (#2=#:G471 NIL) (|r| NIL) (|rx| NIL)
+         ((|as1| (|OutputForm|)) (#1=#:G471 NIL) (|c| NIL) (|cx| NIL)
+          (|rx_f| (|OutputForm|)) (#2=#:G470 NIL) (|r| NIL) (|rx| NIL)
           (|si| (|Integer|)) (|rows| (|List| (|OutputForm|)))
-          (|var| (|OutputForm|)) (#3=#:G470 NIL) (|e| NIL) (|i| NIL)
-          (|elts| #4=(|List| (|OutputForm|))) (#5=#:G469 NIL) (|ii| NIL)
+          (|var| (|OutputForm|)) (#3=#:G469 NIL) (|e| NIL) (|i| NIL)
+          (|elts| #4=(|List| (|OutputForm|))) (#5=#:G468 NIL) (|ii| NIL)
           (|i2| #6=(|Integer|)) (|i1| #6#) (|sArgs| #4#)
           (|sOp| #7=(|OutputForm|)) (|op1| #7#) (|old_Ints2Floats| (|Boolean|))
-          (|tailPart| (|List| (|String|))) (#8=#:G468 NIL) (|x| NIL)
-          (#9=#:G467 NIL) (|n_args| #4#) (|arg| (|OutputForm|)))
+          (|tailPart| (|List| (|String|))) (#8=#:G467 NIL) (|x| NIL)
+          (#9=#:G466 NIL) (|n_args| #4#) (|arg| (|OutputForm|)))
          (SEQ
           (COND
            ((EQUAL |op| 'CONCAT)
@@ -1141,8 +1141,8 @@
         (SPROG
          ((|n_args| #2=(|List| (|OutputForm|))) (|arg2| #3=(|OutputForm|))
           (|arg1| #3#) (|im_op| (|OutputForm|)) (|binaryExpr| #1#)
-          (#4=#:G530 NIL) (|e1| NIL) (|op| (|OutputForm|)) (|sy| #5=(|Symbol|))
-          (#6=#:G529 NIL) (|sr| #5#) (|exponent| #3#) (|rand| #3#) (|args| #2#)
+          (#4=#:G529 NIL) (|e1| NIL) (|op| (|OutputForm|)) (|sy| #5=(|Symbol|))
+          (#6=#:G528 NIL) (|sr| #5#) (|exponent| #3#) (|rand| #3#) (|args| #2#)
           (|ss| (|String|)) (|ii| (|Integer|)))
          (SEQ
           (EXIT
@@ -1222,7 +1222,7 @@
                                              (SPADCALL '|exp| (QREFELT $ 45))
                                              (LIST |exponent|) (QREFELT $ 48))
                                             $))
-                                     (GO #8=#:G528)))
+                                     (GO #8=#:G527)))
                                    ((SPADCALL |exponent| (QREFELT $ 64))
                                     (COND
                                      ((EQL (SPADCALL |exponent| (QREFELT $ 65))
@@ -1460,7 +1460,7 @@
         ((|l| |List| (|OutputForm|)) ($ |List| (|OutputForm|)))
         (SPROG
          ((|res| (|List| (|OutputForm|))) (|new| (|OutputForm|))
-          (#1=#:G535 NIL) (|e| NIL))
+          (#1=#:G534 NIL) (|e| NIL))
          (SEQ (SETELT $ 50 NIL)
               (SEQ (LETT |e| NIL) (LETT #1# |l|) G190
                    (COND
@@ -1481,7 +1481,7 @@
          (EXIT (SETELT $ 80 (+ (QREFELT $ 80) (* 2 |i|)))))) 
 
 (SDEFUN |FCTOOL;make_spaces| ((|x| |Integer|) ($ |String|))
-        (SPROG ((#1=#:G540 NIL))
+        (SPROG ((#1=#:G539 NIL))
                (|make_full_CVEC|
                 (PROG1 (LETT #1# |x|)
                   (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
@@ -1493,7 +1493,7 @@
          ($ |List| (|String|)))
         (SPROG
          ((|line| #1=(|String|)) (|ll| (|Integer|)) (|ff| (|String|))
-          (|spaceLeft| (|Integer|)) (#2=#:G552 NIL) (|sff| (|Integer|))
+          (|spaceLeft| (|Integer|)) (#2=#:G551 NIL) (|sff| (|Integer|))
           (|contPref| (|String|)) (|normPref| #1#))
          (SEQ (LETT |normPref| (|FCTOOL;make_spaces| (QREFELT $ 80) $))
               (LETT |contPref|
@@ -1518,7 +1518,7 @@
                                           ((NULL |f|)
                                            (PROGN
                                             (LETT #2# |$NoValue|)
-                                            (GO #3=#:G547)))
+                                            (GO #3=#:G546)))
                                           ('T
                                            (LETT |ff| (|SPADfirst| |f|)))))))
                                   ('T
@@ -1653,7 +1653,7 @@
            (|Record| (|:| |count| (|SingleInteger|)) (|:| |name| (|Symbol|))
                      (|:| |location| (|List| (|OutputForm|)))))
           (|n| (|None|)) (|sy| (|Symbol|)) (|f| (|List| (|OutputForm|)))
-          (#1=#:G593 NIL) (|args| (|List| (|OutputForm|)))
+          (#1=#:G592 NIL) (|args| (|List| (|OutputForm|)))
           (|op| (|OutputForm|)))
          (SEQ
           (COND ((SPADCALL |e| (QREFELT $ 30)) |e|)
@@ -1687,7 +1687,7 @@
                                      (LETT #1#
                                            (|FCTOOL;beenHere| |e| |n|
                                             |fortCsList| $))
-                                     (GO #3=#:G590))))))))))
+                                     (GO #3=#:G589))))))))))
                         (LETT |f| |e|)
                         (SEQ G190 (COND ((NULL (NULL (NULL |f|))) (GO G191)))
                              (SEQ
@@ -1734,8 +1734,8 @@
          ((|res1| (|OutputForm|)) (|var| (|OutputForm|))
           (|op2| #2=(|OutputForm|)) (|arg11| #3=(|OutputForm|))
           (|args1| #4=(|List| (|OutputForm|))) (|op1| #2#) (|arg1| #3#)
-          (|sy| (|Symbol|)) (|rargs| (|List| #1#)) (#5=#:G612 NIL) (|arg| NIL)
-          (#6=#:G611 NIL) (|rop| #1#) (|args| #4#) (|op| #2#))
+          (|sy| (|Symbol|)) (|rargs| (|List| #1#)) (#5=#:G611 NIL) (|arg| NIL)
+          (#6=#:G610 NIL) (|rop| #1#) (|args| #4#) (|op| #2#))
          (SEQ
           (COND ((SPADCALL |e| (QREFELT $ 30)) |e|)
                 (#7='T
@@ -1838,7 +1838,7 @@
 
 (SDEFUN |FCTOOL;exp2FortOptimize|
         ((|e| |OutputForm|) (|fort_name| |Symbol|) ($ |List| (|OutputForm|)))
-        (SPROG ((|e2| #1=(|OutputForm|)) (#2=#:G620 NIL) (|e1| #1#))
+        (SPROG ((|e2| #1=(|OutputForm|)) (#2=#:G619 NIL) (|e1| #1#))
                (SEQ (SETELT $ 50 (LIST (SPADCALL (QREFELT $ 95))))
                     (EXIT
                      (COND ((SPADCALL |e| (QREFELT $ 30)) (LIST |e|))
@@ -1929,7 +1929,7 @@
           (RETURN (PROGN (SPADCALL |of| (QREFELT $ 100)))))) 
 
 (SDEFUN |FCTOOL;displayLines;LV;57| ((|ls| |List| (|String|)) ($ |Void|))
-        (SPROG ((#1=#:G636 NIL) (|l| NIL))
+        (SPROG ((#1=#:G635 NIL) (|l| NIL))
                (SEQ (LETT |l| NIL) (LETT #1# |ls|) G190
                     (COND
                      ((OR (ATOM #1#) (PROGN (LETT |l| (CAR #1#)) NIL))
@@ -1947,7 +1947,7 @@
         ((|name| |Symbol|) (|asp| |List| (|String|)) (|args| |List| (|Symbol|))
          ($ |List| (|String|)))
         (SPROG
-         ((|of| (|OutputForm|)) (#1=#:G643 NIL) (|arg| NIL) (#2=#:G642 NIL))
+         ((|of| (|OutputForm|)) (#1=#:G642 NIL) (|arg| NIL) (#2=#:G641 NIL))
          (SEQ
           (LETT |of|
                 (SPADCALL (SPADCALL |name| (QREFELT $ 63))
@@ -1976,7 +1976,7 @@
          (|args| |List| (|Symbol|)) ($ |Void|))
         (SPROG
          ((|lines| (|List| (|String|))) (|l| (|Integer|))
-          (|asp| (|List| (|String|))) (|s| (|String|)) (#1=#:G644 NIL))
+          (|asp| (|List| (|String|))) (|s| (|String|)) (#1=#:G643 NIL))
          (SEQ
           (COND
            ((QEQCAR |returnType| 1)
@@ -2016,7 +2016,7 @@
           (RETURN (PROGN (|FCTOOL;fortFormatHead1| |name| |asp| |args| $))))) 
 
 (SDEFUN |FCTOOL;addCommas| ((|l| |List| (|String|)) ($ |List| (|String|)))
-        (SPROG ((|r| (|List| (|String|))) (#1=#:G657 NIL) (|e| NIL))
+        (SPROG ((|r| (|List| (|String|))) (#1=#:G656 NIL) (|e| NIL))
                (SEQ
                 (COND ((NULL |l|) |l|)
                       ('T
@@ -2034,8 +2034,8 @@
 
 (SDEFUN |FCTOOL;nameLen| ((|n| |List| (|String|)) ($ |Integer|))
         (SPROG
-         ((#1=#:G659 NIL) (#2=#:G658 #3=(|Integer|)) (#4=#:G660 #3#)
-          (#5=#:G662 NIL) (|u| NIL))
+         ((#1=#:G658 NIL) (#2=#:G657 #3=(|Integer|)) (#4=#:G659 #3#)
+          (#5=#:G661 NIL) (|u| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL)
@@ -2092,7 +2092,7 @@
 (SDEFUN |FCTOOL;par2string2| ((|u| |List| (|OutputForm|)) ($ |String|))
         (SPROG
          ((|l| (|List| (|String|))) (|ll| (|List| (|List| (|String|))))
-          (#1=#:G675 NIL) (|v| NIL) (#2=#:G674 NIL))
+          (#1=#:G674 NIL) (|v| NIL) (#2=#:G673 NIL))
          (SEQ
           (LETT |ll|
                 (PROGN
@@ -2130,7 +2130,7 @@
 
 (SDEFUN |FCTOOL;mkParameterList|
         ((|l| |List| (|OutputForm|)) ($ |List| (|String|)))
-        (SPROG ((#1=#:G684 NIL) (|u| NIL) (#2=#:G683 NIL))
+        (SPROG ((#1=#:G683 NIL) (|u| NIL) (#2=#:G682 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -2146,7 +2146,7 @@
 
 (SDEFUN |FCTOOL;mkParameterList2|
         ((|l| |List| (|List| (|OutputForm|))) ($ |List| (|String|)))
-        (SPROG ((#1=#:G688 NIL) (|u| NIL) (#2=#:G687 NIL))
+        (SPROG ((#1=#:G687 NIL) (|u| NIL) (#2=#:G686 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -2180,9 +2180,9 @@
 (SDEFUN |FCTOOL;fortFormatCharacterTypes|
         ((|names| |List| (|OutputForm|)) ($ |Void|))
         (SPROG
-         ((#1=#:G704 NIL) (|u2| NIL)
+         ((#1=#:G703 NIL) (|u2| NIL)
           (|genuineArrays| (|List| (|List| (|OutputForm|))))
-          (|u1| (|List| (|OutputForm|))) (#2=#:G703 NIL) (|u| NIL)
+          (|u1| (|List| (|OutputForm|))) (#2=#:G702 NIL) (|u| NIL)
           (|sortedByLength|
            (|AssociationList| (|Integer|) (|List| (|OutputForm|)))))
          (SEQ (LETT |sortedByLength| (SPADCALL (QREFELT $ 116)))
@@ -2227,7 +2227,7 @@
 
 (SDEFUN |FCTOOL;fort_format_types1|
         ((|typeName| |String|) (|names| |List| (|OutputForm|)) ($ |Void|))
-        (SPROG ((#1=#:G708 NIL) (|u| NIL) (#2=#:G707 NIL))
+        (SPROG ((#1=#:G707 NIL) (|u| NIL) (#2=#:G706 NIL))
                (SEQ
                 (COND
                  ((EQUAL |typeName| "CHARACTER")
@@ -2283,7 +2283,7 @@
 
 (DEFUN |FortranCodeTools| ()
   (SPROG NIL
-         (PROG (#1=#:G718)
+         (PROG (#1=#:G717)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FortranCodeTools|))

@@ -26,7 +26,7 @@
 
 (SDEFUN |PMPREDFS;suchThat;FLF;5|
         ((|p| F) (|l| |List| (|Mapping| (|Boolean|) D)) ($ F))
-        (SPROG ((#1=#:G123 NIL) (|f| NIL) (#2=#:G122 NIL))
+        (SPROG ((#1=#:G122 NIL) (|f| NIL) (#2=#:G121 NIL))
                (SEQ
                 (COND
                  ((QEQCAR (SPADCALL |p| (QREFELT $ 28)) 0)
@@ -48,9 +48,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceAttachPredicates;|)) 
 
-(DEFUN |FunctionSpaceAttachPredicates| (&REST #1=#:G124)
+(DEFUN |FunctionSpaceAttachPredicates| (&REST #1=#:G123)
   (SPROG NIL
-         (PROG (#2=#:G125)
+         (PROG (#2=#:G124)
            (RETURN
             (COND
              ((LETT #2#

@@ -24,7 +24,7 @@
 
 (SDEFUN |PFACET;getMaxLeft;$Nni;4| ((|orf| $) ($ |NonNegativeInteger|))
         (SPROG
-         ((|m| (|NonNegativeInteger|)) (#1=#:G128 NIL) (|index| NIL)
+         ((|m| (|NonNegativeInteger|)) (#1=#:G127 NIL) (|index| NIL)
           (|indexes|
            (|List|
             (|Record| (|:| |left| (|NonNegativeInteger|))
@@ -43,7 +43,7 @@
 
 (SDEFUN |PFACET;getMaxRight;$Nni;5| ((|orf| $) ($ |NonNegativeInteger|))
         (SPROG
-         ((|m| (|NonNegativeInteger|)) (#1=#:G135 NIL) (|index| NIL)
+         ((|m| (|NonNegativeInteger|)) (#1=#:G134 NIL) (|index| NIL)
           (|indexes|
            (|List|
             (|Record| (|:| |left| (|NonNegativeInteger|))
@@ -86,7 +86,7 @@
 
 (SDEFUN |PFACET;=;2$B;10| ((|a| $) (|b| $) ($ |Boolean|))
         (SPROG
-         ((#1=#:G156 NIL) (#2=#:G157 NIL) (|inda| NIL) (#3=#:G158 NIL)
+         ((#1=#:G155 NIL) (#2=#:G156 NIL) (|inda| NIL) (#3=#:G157 NIL)
           (|indb| NIL)
           (|indbs|
            #4=(|List|
@@ -98,7 +98,7 @@
            (SEQ
             (COND
              ((SPADCALL (QCAR |a|) (QCAR |b|) (QREFELT $ 24))
-              (PROGN (LETT #1# NIL) (GO #5=#:G155))))
+              (PROGN (LETT #1# NIL) (GO #5=#:G154))))
             (LETT |indas| (SPADCALL |a| (QREFELT $ 14)))
             (LETT |indbs| (SPADCALL |b| (QREFELT $ 14)))
             (COND
@@ -127,7 +127,7 @@
         (SPROG
          ((|body| (|OutputForm|)) (|elements| (|List| (|OutputForm|)))
           (|element| (|OutputForm|)) (|r| (|NonNegativeInteger|))
-          (|l| (|NonNegativeInteger|)) (#1=#:G167 NIL) (|x| NIL)
+          (|l| (|NonNegativeInteger|)) (#1=#:G166 NIL) (|x| NIL)
           (|prefix| (|OutputForm|)) (|m| (|Integer|)))
          (SEQ (LETT |prefix| (SPADCALL "" (QREFELT $ 28)))
               (LETT |m| (QCAR |s|))
@@ -162,7 +162,7 @@
 
 (DEFUN |ProductFacet| ()
   (SPROG NIL
-         (PROG (#1=#:G169)
+         (PROG (#1=#:G168)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ProductFacet|))

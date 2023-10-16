@@ -6,7 +6,7 @@
 
 (DEFUN |InternalPrintPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G107)
+         (PROG (#1=#:G106)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|InternalPrintPackage|))

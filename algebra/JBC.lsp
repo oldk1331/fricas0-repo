@@ -8,11 +8,11 @@
         (T (SETQ |JetBundleCategory;AL| (|JetBundleCategory;|))))) 
 
 (DEFUN |JetBundleCategory;| ()
-  (SPROG ((#1=#:G127 NIL))
+  (SPROG ((#1=#:G126 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (MAKE_PAIRS '(#2=#:G126)
+                    (MAKE_PAIRS '(#2=#:G125)
                                 (LIST '(|Expression| (|Integer|))))
                     (|Join| (|OrderedSet|) (|CoercibleTo| '#2#)
                             (|mkCategory|

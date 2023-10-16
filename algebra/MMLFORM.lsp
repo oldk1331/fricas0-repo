@@ -51,7 +51,7 @@
 
 (SDEFUN |MMLFORM;exprex;OfS;6| ((|expr| |OutputForm|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|s1| #1=(|String|)) (#2=#:G190 NIL) (|a| NIL)
+         ((|s| (|String|)) (|s1| #1=(|String|)) (#2=#:G189 NIL) (|a| NIL)
           (|nargs| (|Integer|)) (|args| (|List| (|OutputForm|))) (|sop| #1#)
           (|op| (|OutputForm|)))
          (SEQ (LETT |expr| (SPADCALL |expr| (QREFELT $ 23)))
@@ -268,7 +268,7 @@
         (SPROG
          ((|tmp| (|String|)) (|base| (|String|)) (|tmp3| #1=(|String|))
           (|tmp2| #1#) (|tmp1| #1#) (|n| (|NonNegativeInteger|))
-          (#2=#:G266 NIL) (|u| NIL) (#3=#:G265 NIL) (|prescript| (|Boolean|)))
+          (#2=#:G265 NIL) (|u| NIL) (#3=#:G264 NIL) (|prescript| (|Boolean|)))
          (SEQ (LETT |prescript| NIL)
               (EXIT
                (COND ((EQUAL |op| '|theMap|) "<mtext>theMap(...)</mtext>")
@@ -575,7 +575,7 @@
         ((|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
          ((|arg2| (|OutputForm|)) (|s| (|String|)) (|commaTest| (|String|))
-          (#1=#:G274 NIL) (|i| NIL) (|commaS| (|String|)))
+          (#1=#:G273 NIL) (|i| NIL) (|commaS| (|String|)))
          (SEQ (LETT |arg2| (SPADCALL |args| (QREFELT $ 52)))
               (COND
                ((SPADCALL |arg2| (QREFELT $ 56))
@@ -827,7 +827,7 @@
         ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
          (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G312 NIL) (|a| NIL)
+         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G311 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|ops| (|String|)) (|p| (|Integer|)))
          (SEQ
           (COND ((NULL |args|) "")
@@ -1077,7 +1077,7 @@
 
 (DEFUN |MathMLFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G343)
+         (PROG (#1=#:G342)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|MathMLFormat|))

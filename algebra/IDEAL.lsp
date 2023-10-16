@@ -64,7 +64,7 @@
 
 (SDEFUN |IDEAL;contractGrob| ((I1 |List| |newPoly|) ($ $))
         (SPROG
-         ((#1=#:G140 NIL) (#2=#:G157 NIL) (|f| NIL) (#3=#:G156 NIL)
+         ((#1=#:G139 NIL) (#2=#:G156 NIL) (|f| NIL) (#3=#:G155 NIL)
           (J1 (|List| |newPoly|)))
          (SEQ (LETT J1 (SPADCALL I1 (QREFELT $ 46)))
               (SEQ G190
@@ -100,7 +100,7 @@
         ((|fullVars| |List| |VarSet|) (|leastVars| |List| |VarSet|)
          ($ |List| |VarSet|))
         (SPROG
-         ((#1=#:G163 NIL) (|vv| NIL) (#2=#:G162 NIL)
+         ((#1=#:G162 NIL) (|vv| NIL) (#2=#:G161 NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (LENGTH |leastVars|))
               (EXIT
@@ -132,8 +132,8 @@
 (SDEFUN |IDEAL;subset|
         ((|lv| |List| |VarSet|) ($ . #1=(|List| (|List| |VarSet|))))
         (SPROG
-         ((|l1| (|List| (|List| |VarSet|))) (#2=#:G171 NIL) (|set| NIL)
-          (#3=#:G170 NIL) (|ll| #1#) (|v| (|VarSet|)))
+         ((|l1| (|List| (|List| |VarSet|))) (#2=#:G170 NIL) (|set| NIL)
+          (#3=#:G169 NIL) (|ll| #1#) (|v| (|VarSet|)))
          (SEQ
           (COND ((EQL (LENGTH |lv|) 1) (LIST |lv| NIL))
                 ('T
@@ -157,10 +157,10 @@
 (SDEFUN |IDEAL;monomDim|
         ((|listm| $) (|lv| . #1=(|List| |VarSet|)) ($ |NonNegativeInteger|))
         (SPROG
-         ((#2=#:G183 NIL) (|ldif| #1#) (#3=#:G186 NIL)
-          (|mvset| (|List| |VarSet|)) (#4=#:G185 NIL) (|subs| NIL)
+         ((#2=#:G182 NIL) (|ldif| #1#) (#3=#:G185 NIL)
+          (|mvset| (|List| |VarSet|)) (#4=#:G184 NIL) (|subs| NIL)
           (|lsubset| (|List| (|List| |VarSet|)))
-          (|monvar| (|List| (|List| |VarSet|))) (#5=#:G184 NIL) (|f| NIL))
+          (|monvar| (|List| (|List| |VarSet|))) (#5=#:G183 NIL) (|f| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |monvar| NIL)
@@ -220,7 +220,7 @@
                                      ((NULL (NULL |ldif|))
                                       (PROGN
                                        (LETT #2# (LENGTH |subs|))
-                                       (GO #6=#:G182))))))
+                                       (GO #6=#:G181))))))
                               (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                          (EXIT 0)))))))
           #6# (EXIT #2#)))) 
@@ -246,8 +246,8 @@
 
 (SDEFUN |IDEAL;in?;2$B;12| ((I $) (J $) ($ |Boolean|))
         (SPROG
-         ((#1=#:G193 NIL) (#2=#:G192 #3=(|Boolean|)) (#4=#:G194 #3#)
-          (#5=#:G197 NIL) (|f| NIL))
+         ((#1=#:G192 NIL) (#2=#:G191 #3=(|Boolean|)) (#4=#:G193 #3#)
+          (#5=#:G196 NIL) (|f| NIL))
          (SEQ (LETT J (SPADCALL J (QREFELT $ 69)))
               (EXIT
                (COND ((NULL (QCAR I)) 'T)
@@ -270,8 +270,8 @@
 
 (SDEFUN |IDEAL;groebner;2$;13| ((I $) ($ $))
         (SPROG
-         ((#1=#:G199 NIL) (#2=#:G198 #3=(|Boolean|)) (#4=#:G200 #3#)
-          (#5=#:G205 NIL) (|f| NIL))
+         ((#1=#:G198 NIL) (#2=#:G197 #3=(|Boolean|)) (#4=#:G199 #3#)
+          (#5=#:G204 NIL) (|f| NIL))
          (SEQ
           (COND
            ((QCDR I)
@@ -296,8 +296,8 @@
 
 (SDEFUN |IDEAL;intersect;3$;14| ((I $) (J $) ($ $))
         (SPROG
-         ((#1=#:G216 NIL) (|f| NIL) (#2=#:G215 NIL) (#3=#:G214 NIL)
-          (#4=#:G213 NIL) (|tp1| (|newPoly|)) (|tp| (|newPoly|))
+         ((#1=#:G215 NIL) (|f| NIL) (#2=#:G214 NIL) (#3=#:G213 NIL)
+          (#4=#:G212 NIL) (|tp1| (|newPoly|)) (|tp| (|newPoly|))
           (|Jd| #5=(|List| |DPoly|)) (|Id| #5#))
          (SEQ
           (COND ((NULL (LETT |Id| (QCAR I))) I) ((NULL (LETT |Jd| (QCAR J))) J)
@@ -348,7 +348,7 @@
 
 (SDEFUN |IDEAL;intersect;L$;15| ((|lid| |List| $) ($ $))
         (SPROG
-         ((#1=#:G218 NIL) (#2=#:G217 ($)) (#3=#:G219 ($)) (#4=#:G221 NIL)
+         ((#1=#:G217 NIL) (#2=#:G216 ($)) (#3=#:G218 ($)) (#4=#:G220 NIL)
           (|l| NIL))
          (SEQ
           (PROGN
@@ -366,7 +366,7 @@
            (COND (#1# #2#) ('T (|IdentityError| '|intersect|))))))) 
 
 (SDEFUN |IDEAL;quotient;$DPoly$;16| ((I $) (|f| |DPoly|) ($ $))
-        (SPROG ((#1=#:G140 NIL) (#2=#:G227 NIL) (|g| NIL) (#3=#:G226 NIL))
+        (SPROG ((#1=#:G139 NIL) (#2=#:G226 NIL) (|g| NIL) (#3=#:G225 NIL))
                (SEQ
                 (CONS
                  (SPADCALL
@@ -401,7 +401,7 @@
 
 (SDEFUN |IDEAL;quotient;3$;17| ((I $) (J $) ($ $))
         (SPROG
-         ((#1=#:G232 NIL) (#2=#:G231 ($)) (#3=#:G233 ($)) (#4=#:G236 NIL)
+         ((#1=#:G231 NIL) (#2=#:G230 ($)) (#3=#:G232 ($)) (#4=#:G235 NIL)
           (|f| NIL) (|Jdl| (|List| |DPoly|)))
          (SEQ (LETT |Jdl| (QCAR J))
               (EXIT
@@ -435,8 +435,8 @@
 
 (SDEFUN |IDEAL;*;3$;19| ((I $) (J $) ($ $))
         (SPROG
-         ((#1=#:G239 NIL) (#2=#:G238 #3=(|List| |DPoly|)) (#4=#:G240 #3#)
-          (#5=#:G245 NIL) (|f| NIL) (#6=#:G244 NIL) (#7=#:G243 NIL) (|g| NIL))
+         ((#1=#:G238 NIL) (#2=#:G237 #3=(|List| |DPoly|)) (#4=#:G239 #3#)
+          (#5=#:G244 NIL) (|f| NIL) (#6=#:G243 NIL) (#7=#:G242 NIL) (|g| NIL))
          (SEQ
           (CONS
            (SPADCALL
@@ -473,7 +473,7 @@
            'T)))) 
 
 (SDEFUN |IDEAL;^;$Nni$;20| ((I $) (|n| |NonNegativeInteger|) ($ $))
-        (SPROG ((#1=#:G246 NIL))
+        (SPROG ((#1=#:G245 NIL))
                (COND ((EQL |n| 0) (CONS (LIST (|spadConstant| $ 51)) 'T))
                      ('T
                       (SPADCALL I
@@ -487,7 +487,7 @@
                                 (QREFELT $ 92)))))) 
 
 (SDEFUN |IDEAL;saturate;$DPoly$;21| ((I $) (|f| |DPoly|) ($ $))
-        (SPROG ((#1=#:G252 NIL) (|g| NIL) (#2=#:G251 NIL) (|tp| (|newPoly|)))
+        (SPROG ((#1=#:G251 NIL) (|g| NIL) (#2=#:G250 NIL) (|tp| (|newPoly|)))
                (SEQ
                 (COND
                  ((SPADCALL |f| (|spadConstant| $ 13) (QREFELT $ 15))
@@ -524,15 +524,15 @@
 (SDEFUN |IDEAL;saturate;$DPolyL$;22|
         ((I $) (|f| |DPoly|) (|lvar| |List| |VarSet|) ($ $))
         (SPROG
-         ((#1=#:G278 NIL) (|g| NIL) (#2=#:G277 NIL)
-          (|fullPol| (|List| |DPoly|)) (#3=#:G276 NIL) (|vv| NIL)
-          (#4=#:G275 NIL) (|s| (|DPoly|)) (#5=#:G261 NIL) (#6=#:G260 (|DPoly|))
-          (#7=#:G262 (|DPoly|)) (#8=#:G274 NIL) (|ltg| NIL)
-          (|ltJ| (|List| |DPoly|)) (#9=#:G273 NIL) (#10=#:G272 NIL)
-          (J (|List| |DPoly|)) (#11=#:G271 NIL) (#12=#:G270 NIL)
-          (|subVars| (|List| |DPoly|)) (#13=#:G269 NIL) (#14=#:G268 NIL)
+         ((#1=#:G277 NIL) (|g| NIL) (#2=#:G276 NIL)
+          (|fullPol| (|List| |DPoly|)) (#3=#:G275 NIL) (|vv| NIL)
+          (#4=#:G274 NIL) (|s| (|DPoly|)) (#5=#:G260 NIL) (#6=#:G259 (|DPoly|))
+          (#7=#:G261 (|DPoly|)) (#8=#:G273 NIL) (|ltg| NIL)
+          (|ltJ| (|List| |DPoly|)) (#9=#:G272 NIL) (#10=#:G271 NIL)
+          (J (|List| |DPoly|)) (#11=#:G270 NIL) (#12=#:G269 NIL)
+          (|subVars| (|List| |DPoly|)) (#13=#:G268 NIL) (#14=#:G267 NIL)
           (|newVars| (|List| |VarSet|)) (|fullVars| #15=(|List| |VarSet|))
-          (#16=#:G254 NIL) (#17=#:G253 #15#) (#18=#:G255 #15#) (#19=#:G267 NIL)
+          (#16=#:G253 NIL) (#17=#:G252 #15#) (#18=#:G254 #15#) (#19=#:G266 NIL)
           (|Id| (|List| |DPoly|)))
          (SEQ (LETT |Id| (QCAR I))
               (LETT |fullVars|
@@ -661,7 +661,7 @@
 
 (SDEFUN |IDEAL;zeroDim?;$LB;23| ((I $) (|lvar| |List| |VarSet|) ($ |Boolean|))
         (SPROG
-         ((|x| (|VarSet|)) (#1=#:G281 NIL) (#2=#:G290 NIL) (|f| NIL)
+         ((|x| (|VarSet|)) (#1=#:G280 NIL) (#2=#:G289 NIL) (|f| NIL)
           (|n| (|NonNegativeInteger|)) (J (|List| |DPoly|)))
          (SEQ (LETT J (QCAR (SPADCALL I (QREFELT $ 69))))
               (EXIT
@@ -710,8 +710,8 @@
 
 (SDEFUN |IDEAL;zeroDim?;$B;24| ((I $) ($ |Boolean|))
         (SPROG
-         ((#1=#:G292 NIL) (#2=#:G291 #3=(|List| |VarSet|)) (#4=#:G293 #3#)
-          (#5=#:G296 NIL) (|g| NIL))
+         ((#1=#:G291 NIL) (#2=#:G290 #3=(|List| |VarSet|)) (#4=#:G292 #3#)
+          (#5=#:G295 NIL) (|g| NIL))
          (SEQ
           (SPADCALL I
                     (PROGN
@@ -734,7 +734,7 @@
 
 (SDEFUN |IDEAL;inRadical?;DPoly$B;25| ((|f| |DPoly|) (I $) ($ |Boolean|))
         (SPROG
-         ((#1=#:G359 NIL) (|g| NIL) (#2=#:G358 NIL) (|Id| (|List| |DPoly|))
+         ((#1=#:G358 NIL) (|g| NIL) (#2=#:G357 NIL) (|Id| (|List| |DPoly|))
           (|tp| (|newPoly|)))
          (SEQ
           (COND ((SPADCALL |f| (|spadConstant| $ 13) (QREFELT $ 15)) 'T)
@@ -778,9 +778,9 @@
 (SDEFUN |IDEAL;dimension;$LI;26| ((I $) (|lvar| |List| |VarSet|) ($ |Integer|))
         (SPROG
          ((|n1| (|Integer|)) (|leadid| ($)) (|ed| (|Integer|))
-          (|truelist| #1=(|List| |VarSet|)) (#2=#:G365 NIL)
-          (#3=#:G364 #4=(|Boolean|)) (#5=#:G366 #4#) (#6=#:G374 NIL) (|vv| NIL)
-          (#7=#:G361 NIL) (#8=#:G360 #1#) (#9=#:G362 #1#) (#10=#:G373 NIL)
+          (|truelist| #1=(|List| |VarSet|)) (#2=#:G364 NIL)
+          (#3=#:G363 #4=(|Boolean|)) (#5=#:G365 #4#) (#6=#:G373 NIL) (|vv| NIL)
+          (#7=#:G360 NIL) (#8=#:G359 #1#) (#9=#:G361 #1#) (#10=#:G372 NIL)
           (|f| NIL))
          (SEQ (LETT I (SPADCALL I (QREFELT $ 69)))
               (EXIT
@@ -850,8 +850,8 @@
 
 (SDEFUN |IDEAL;dimension;$I;27| ((I $) ($ |Integer|))
         (SPROG
-         ((#1=#:G376 NIL) (#2=#:G375 #3=(|List| |VarSet|)) (#4=#:G377 #3#)
-          (#5=#:G380 NIL) (|g| NIL))
+         ((#1=#:G375 NIL) (#2=#:G374 #3=(|List| |VarSet|)) (#4=#:G376 #3#)
+          (#5=#:G379 NIL) (|g| NIL))
          (SEQ
           (SPADCALL I
                     (PROGN
@@ -874,7 +874,7 @@
 
 (SDEFUN |IDEAL;leadingIdeal;2$;28| ((I $) ($ $))
         (SPROG
-         ((#1=#:G385 NIL) (|f| NIL) (#2=#:G384 NIL) (|Idl| (|List| |DPoly|)))
+         ((#1=#:G384 NIL) (|f| NIL) (#2=#:G383 NIL) (|Idl| (|List| |DPoly|)))
          (SEQ (LETT |Idl| (QCAR (SPADCALL I (QREFELT $ 69))))
               (EXIT
                (CONS
@@ -899,7 +899,7 @@
         ((|df| |List| (|NonNegativeInteger|)) (|lcf| F) (|lv| |List| |VarSet|)
          ($ |Polynomial| F))
         (SPROG
-         ((|g| (|Polynomial| F)) (#1=#:G389 NIL) (|dd| NIL) (#2=#:G390 NIL)
+         ((|g| (|Polynomial| F)) (#1=#:G388 NIL) (|dd| NIL) (#2=#:G389 NIL)
           (|v| NIL))
          (SEQ (LETT |g| (SPADCALL |lcf| (QREFELT $ 111)))
               (SEQ (LETT |v| NIL) (LETT #2# |lv|) (LETT |dd| NIL)
@@ -923,17 +923,17 @@
           (|List| (|Equation| (|Polynomial| F)))))
         (SPROG
          ((|solsn| (|List| (|Polynomial| F))) (|g| #1=(|Polynomial| F))
-          (#2=#:G410 NIL) (#3=#:G409 #4=(|Polynomial| F)) (#5=#:G411 #4#)
-          (#6=#:G434 NIL) (|p| NIL) (|j| NIL)
+          (#2=#:G409 NIL) (#3=#:G408 #4=(|Polynomial| F)) (#5=#:G410 #4#)
+          (#6=#:G433 NIL) (|p| NIL) (|j| NIL)
           (|vdq| (|Vector| (|NonNegativeInteger|))) (|q| (|nPoly|)) (|lcq| (F))
-          (|dq| (|nExponent|)) (#7=#:G433 NIL) (|lf| (|List| |nPoly|))
-          (#8=#:G419 NIL) (|n| (|Expon|))
-          (|leq| (|List| (|Equation| (|Polynomial| F)))) (#9=#:G431 NIL)
-          (#10=#:G432 NIL) (|pol| #1#) (#11=#:G430 NIL)
-          (|npol| (|List| (|Polynomial| F))) (#12=#:G429 NIL) (|v| NIL)
-          (#13=#:G428 NIL) (|lp| (|List| (|Polynomial| F))) (|f| (|DPoly|))
+          (|dq| (|nExponent|)) (#7=#:G432 NIL) (|lf| (|List| |nPoly|))
+          (#8=#:G418 NIL) (|n| (|Expon|))
+          (|leq| (|List| (|Equation| (|Polynomial| F)))) (#9=#:G430 NIL)
+          (#10=#:G431 NIL) (|pol| #1#) (#11=#:G429 NIL)
+          (|npol| (|List| (|Polynomial| F))) (#12=#:G428 NIL) (|v| NIL)
+          (#13=#:G427 NIL) (|lp| (|List| (|Polynomial| F))) (|f| (|DPoly|))
           (|lcf| (F)) (|df| (|List| (|NonNegativeInteger|)))
-          (|vec2| (|Vector| (|NonNegativeInteger|))) (#14=#:G427 NIL) (|i| NIL)
+          (|vec2| (|Vector| (|NonNegativeInteger|))) (#14=#:G426 NIL) (|i| NIL)
           (|gp|
            (CATEGORY |package|
             (SIGNATURE |groebner| ((|List| |nPoly|) (|List| |nPoly|)))
@@ -1006,8 +1006,8 @@
                     (SIGNATURE |first| (|Expon| $))
                     (SIGNATURE |second| (|DirP| $)))))
           (|DirP| (|DirectProductCategory| |nf| (|NonNegativeInteger|)))
-          (|lv1| (|List| |VarSet1|)) (#15=#:G398 NIL) (#16=#:G426 NIL)
-          (|vv| NIL) (#17=#:G425 NIL)
+          (|lv1| (|List| |VarSet1|)) (#15=#:G397 NIL) (#16=#:G425 NIL)
+          (|vv| NIL) (#17=#:G424 NIL)
           (|VarSet1|
            (|Join| (|OrderedFinite|) (|ConvertibleTo| (|Symbol|))
                    (|ConvertibleTo| (|InputForm|))
@@ -1015,10 +1015,10 @@
                    (|ConvertibleTo| (|Pattern| (|Integer|)))
                    (CATEGORY |domain|
                     (SIGNATURE |variable| ((|Union| $ "failed") (|Symbol|))))))
-          (|nvar| (|List| (|Symbol|))) (#18=#:G424 NIL) (#19=#:G423 NIL)
-          (|vl| (|List| (|Symbol|))) (#20=#:G422 NIL) (#21=#:G421 NIL)
-          (|lvint| #22=(|List| |VarSet|)) (#23=#:G392 NIL) (#24=#:G391 #22#)
-          (#25=#:G393 #22#) (#26=#:G420 NIL) (|nf| (|NonNegativeInteger|)))
+          (|nvar| (|List| (|Symbol|))) (#18=#:G423 NIL) (#19=#:G422 NIL)
+          (|vl| (|List| (|Symbol|))) (#20=#:G421 NIL) (#21=#:G420 NIL)
+          (|lvint| #22=(|List| |VarSet|)) (#23=#:G391 NIL) (#24=#:G390 #22#)
+          (#25=#:G392 #22#) (#26=#:G419 NIL) (|nf| (|NonNegativeInteger|)))
          (SEQ
           (COND ((NULL |listf|) (SPADCALL NIL NIL (QREFELT $ 118)))
                 (#27='T
@@ -1317,7 +1317,7 @@
                                               (QREFELT $ 134))
                                     (PROGN
                                      (LETT #8# |$NoValue|)
-                                     (GO #29=#:G408))))
+                                     (GO #29=#:G407))))
                                   (EXIT (LETT |lf| (CDR |lf|))))
                              NIL (GO G190) G191 (EXIT NIL)))
                        #29# (EXIT #8#))
@@ -1470,7 +1470,7 @@
                       ('T (SPADCALL |Idl| (QREFELT $ 142)))))))) 
 
 (SDEFUN |IDEAL;ideal;L$;33| ((|Id| |List| |DPoly|) ($ $))
-        (SPROG ((#1=#:G441 NIL) (|f| NIL) (#2=#:G440 NIL))
+        (SPROG ((#1=#:G440 NIL) (|f| NIL) (#2=#:G439 NIL))
                (SEQ
                 (CONS
                  (PROGN
@@ -1507,9 +1507,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialIdeal;|)) 
 
-(DEFUN |PolynomialIdeal| (&REST #1=#:G448)
+(DEFUN |PolynomialIdeal| (&REST #1=#:G447)
   (SPROG NIL
-         (PROG (#2=#:G449)
+         (PROG (#2=#:G448)
            (RETURN
             (COND
              ((LETT #2#

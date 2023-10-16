@@ -4,7 +4,7 @@
          (|full| |Mapping| (|Matrix| (|Integer|)) (|Matrix| (|Integer|)))
          ($ |Matrix| (|Integer|)))
         (SPROG
-         ((#1=#:G112 NIL) (|i| NIL) (|nn2| #2=(|Integer|)) (#3=#:G111 NIL)
+         ((#1=#:G111 NIL) (|i| NIL) (|nn2| #2=(|Integer|)) (#3=#:G110 NIL)
           (|res| (|Matrix| (|Integer|))) (|count| #2#)
           (|nn| (|NonNegativeInteger|)) (|k| (|NonNegativeInteger|))
           (|j| (|NonNegativeInteger|)) (|m3| (|Matrix| (|Integer|)))
@@ -44,11 +44,11 @@
           (|:| |leftEqMat| (|Matrix| (|Integer|)))
           (|:| |rightEqMat| (|Matrix| (|Integer|)))))
         (SPROG
-         ((#1=#:G159 NIL) (|n| NIL) (#2=#:G158 NIL) (|pp| (|Integer|))
-          (#3=#:G157 NIL) (|l| NIL) (#4=#:G156 NIL) (#5=#:G155 NIL)
-          (#6=#:G154 NIL) (#7=#:G153 NIL) (|i| NIL)
+         ((#1=#:G158 NIL) (|n| NIL) (#2=#:G157 NIL) (|pp| (|Integer|))
+          (#3=#:G156 NIL) (|l| NIL) (#4=#:G155 NIL) (#5=#:G154 NIL)
+          (#6=#:G153 NIL) (#7=#:G152 NIL) (|i| NIL)
           (|m16| #8=(|Matrix| (|Integer|))) (|m15| #9=(|Matrix| (|Integer|)))
-          (|m14| #8#) (|m13| #9#) (#10=#:G151 NIL) (#11=#:G152 NIL)
+          (|m14| #8#) (|m13| #9#) (#10=#:G150 NIL) (#11=#:G151 NIL)
           (|m12| (|Matrix| (|Integer|))) (|m11| #12=(|Matrix| (|Integer|)))
           (|m10| #9#) (|m9| #13=(|Matrix| (|Integer|))) (|m8| #12#) (|m7| #9#)
           (|m6| #13#)
@@ -59,12 +59,12 @@
           (|m5| #13#) (|count| (|NonNegativeInteger|))
           (|m4| (|Matrix| (|Integer|))) (|m3| (|Matrix| (|Integer|)))
           (|lks| #14=(|List| (|Integer|))) (|ljs| #14#)
-          (|lk| (|List| (|Integer|))) (|s| (|Integer|)) (#15=#:G150 NIL)
-          (#16=#:G149 NIL) (|lk0| (|List| (|Integer|))) (#17=#:G148 NIL)
-          (#18=#:G147 NIL) (|lj2| (|List| (|Integer|))) (#19=#:G146 NIL)
-          (#20=#:G145 NIL) (|lj1| (|List| (|Integer|))) (#21=#:G144 NIL)
-          (#22=#:G143 NIL) (|lj0| (|List| (|Integer|))) (#23=#:G142 NIL)
-          (#24=#:G141 NIL) (|m2| (|Matrix| (|Integer|)))
+          (|lk| (|List| (|Integer|))) (|s| (|Integer|)) (#15=#:G149 NIL)
+          (#16=#:G148 NIL) (|lk0| (|List| (|Integer|))) (#17=#:G147 NIL)
+          (#18=#:G146 NIL) (|lj2| (|List| (|Integer|))) (#19=#:G145 NIL)
+          (#20=#:G144 NIL) (|lj1| (|List| (|Integer|))) (#21=#:G143 NIL)
+          (#22=#:G142 NIL) (|lj0| (|List| (|Integer|))) (#23=#:G141 NIL)
+          (#24=#:G140 NIL) (|m2| (|Matrix| (|Integer|)))
           (|m1| (|Matrix| (|Integer|))) (|pivotsk| #25=(|Vector| (|Integer|)))
           (|pivotsj| #25#)
           (|res0|
@@ -338,7 +338,7 @@
 
 (DEFUN |IntegerSmithNormalForm| ()
   (SPROG NIL
-         (PROG (#1=#:G161)
+         (PROG (#1=#:G160)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|IntegerSmithNormalForm|))

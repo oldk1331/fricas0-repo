@@ -90,7 +90,7 @@
 
 (SDEFUN |SEG;expand;LL;15| ((|ls| |List| $) ($ |List| S))
         (SPROG
-         ((|l| (S)) (|lr| (|List| S)) (|inc| (S)) (|h| (S)) (#1=#:G140 NIL)
+         ((|l| (S)) (|lr| (|List| S)) (|inc| (S)) (|h| (S)) (#1=#:G139 NIL)
           (|s| NIL))
          (SEQ (LETT |lr| NIL)
               (SEQ (LETT |s| NIL) (LETT #1# |ls|) G190
@@ -168,9 +168,9 @@
 
 (DECLAIM (NOTINLINE |Segment;|)) 
 
-(DEFUN |Segment| (#1=#:G149)
+(DEFUN |Segment| (#1=#:G148)
   (SPROG NIL
-         (PROG (#2=#:G150)
+         (PROG (#2=#:G149)
            (RETURN
             (COND
              ((LETT #2#

@@ -3,13 +3,13 @@
         ((|xlist| |List| F) (|ylist| |List| F) (|m| |NonNegativeInteger|)
          (|k| |NonNegativeInteger|) ($ |Fraction| (|Polynomial| F)))
         (SPROG
-         ((|reslist| (|List| (|List| (|Polynomial| F)))) (#1=#:G139 NIL)
-          (|i| NIL) (#2=#:G138 NIL) (#3=#:G137 NIL) (#4=#:G136 NIL)
+         ((|reslist| (|List| (|List| (|Polynomial| F)))) (#1=#:G138 NIL)
+          (|i| NIL) (#2=#:G137 NIL) (#3=#:G136 NIL) (#4=#:G135 NIL)
           (|res| (|List| (|Vector| F))) (|collist| (|List| (|List| F)))
-          (#5=#:G135 NIL) (#6=#:G134 NIL) (#7=#:G133 NIL) (|j| NIL)
-          (#8=#:G132 NIL) (#9=#:G131 NIL) (#10=#:G130 NIL)
-          (|tempvec| (|List| F)) (#11=#:G129 NIL) (#12=#:G128 NIL)
-          (#13=#:G127 NIL) (#14=#:G126 NIL) (#15=#:G125 NIL) (#16=#:G124 NIL))
+          (#5=#:G134 NIL) (#6=#:G133 NIL) (#7=#:G132 NIL) (|j| NIL)
+          (#8=#:G131 NIL) (#9=#:G130 NIL) (#10=#:G129 NIL)
+          (|tempvec| (|List| F)) (#11=#:G128 NIL) (#12=#:G127 NIL)
+          (#13=#:G126 NIL) (#14=#:G125 NIL) (#15=#:G124 NIL) (#16=#:G123 NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |xlist|) (LENGTH |ylist|) (QREFELT $ 10))
@@ -171,9 +171,9 @@
 
 (DECLAIM (NOTINLINE |RationalInterpolation;|)) 
 
-(DEFUN |RationalInterpolation| (&REST #1=#:G140)
+(DEFUN |RationalInterpolation| (&REST #1=#:G139)
   (SPROG NIL
-         (PROG (#2=#:G141)
+         (PROG (#2=#:G140)
            (RETURN
             (COND
              ((LETT #2#

@@ -9,7 +9,7 @@
           "failed"))
         (SPROG
          ((|u| (|Union| UP #1="failed")) (|aa| (UP)) (|tt| (UP))
-          (#2=#:G133 NIL) (|gg| (UP)) (|e| (UP)) (|d| (UP)))
+          (#2=#:G132 NIL) (|gg| (UP)) (|e| (UP)) (|d| (UP)))
          (SEQ
           (LETT |gg|
                 (SPADCALL (LETT |d| (SPADCALL |f| |derivation| (QREFELT $ 11)))
@@ -180,7 +180,7 @@
           (|Integer|))
          ($ |Union| (|List| UP) #1#))
         (SPROG
-         ((#2=#:G212 NIL) (|rh| #3=(|Union| F "failed")) (|rb| #3#) (|ra| (F))
+         ((#2=#:G211 NIL) (|rh| #3=(|Union| F "failed")) (|rb| #3#) (|ra| (F))
           (|l| (|List| UP)) (|v| (|Union| (|List| UP) #1#))
           (|rec|
            (|Record| (|:| |z1| UP) (|:| |z2| UP) (|:| |r1| UP) (|:| |r2| UP)))
@@ -188,7 +188,7 @@
            (|Union|
             (|Record| (|:| |z1| UP) (|:| |z2| UP) (|:| |r1| UP) (|:| |r2| UP))
             "failed"))
-          (|da| (|NonNegativeInteger|)) (#4=#:G183 NIL) (#5=#:G213 NIL)
+          (|da| (|NonNegativeInteger|)) (#4=#:G182 NIL) (#5=#:G212 NIL)
           (|u2| #6=(|Union| UP #7="failed")) (|u1| #6#) (|g| (UP)))
          (SEQ
           (COND
@@ -212,7 +212,7 @@
                             ((QEQCAR |u1| 1)
                              (PROGN
                               (LETT #5# (CONS 1 #9="failed"))
-                              (GO #10=#:G209)))
+                              (GO #10=#:G208)))
                             (#8#
                              (SEQ
                               (LETT |u2| (SPADCALL |c2| |g| (QREFELT $ 16)))
@@ -304,7 +304,7 @@
                                         (LETT #2#
                                               (|RDETRS;DSPDEsys| |ra| |b| |h|
                                                |c1| |c2| |n| |derivation| $))
-                                        (GO #11=#:G208)))
+                                        (GO #11=#:G207)))
                                       (#8#
                                        (SEQ
                                         (LETT |rh|
@@ -389,8 +389,8 @@
          ($ |Union| (|List| UP) #2#))
         (SPROG
          ((|ans2| (UP)) (|ans1| (UP)) (|q2| (UP)) (|q1| (UP))
-          (|lq| (|List| UP)) (#3=#:G238 NIL) (#4=#:G239 NIL) (|u| #1#)
-          (#5=#:G232 NIL))
+          (|lq| (|List| UP)) (#3=#:G237 NIL) (#4=#:G238 NIL) (|u| #1#)
+          (#5=#:G231 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ans1| (LETT |ans2| (|spadConstant| $ 33)))
@@ -406,7 +406,7 @@
                              (EXIT
                               (PROGN
                                (LETT #4# (CONS 0 (LIST |ans1| |ans2|)))
-                               (GO #6=#:G237)))))))
+                               (GO #6=#:G236)))))))
                          (COND
                           ((< |n| 0)
                            (EXIT
@@ -427,7 +427,7 @@
                                (PROGN
                                 (LETT #3#
                                       (PROGN (LETT #4# (CONS 1 #7#)) (GO #6#)))
-                                (GO #8=#:G234))))))))
+                                (GO #8=#:G233))))))))
                          (LETT |lq| (QCDR |u|)) (LETT |q1| (|SPADfirst| |lq|))
                          (LETT |q2| (SPADCALL |lq| (QREFELT $ 30)))
                          (LETT |c1|
@@ -469,7 +469,7 @@
         ((|c1| UP) (|c2| UP) (|lb| F) (|lh| F) (|n| |NonNegativeInteger|)
          (|d| |Integer|) (|det| F) ($ |Union| (|List| UP) "failed"))
         (SPROG
-         ((|q2| (F)) (|q1| (F)) (|rh2| (F)) (#1=#:G249 NIL)
+         ((|q2| (F)) (|q1| (F)) (|rh2| (F)) (#1=#:G248 NIL)
           (|d2| #2=(|Integer|)) (|rh1| (F)) (|d1| #2#))
          (SEQ
           (EXIT
@@ -484,7 +484,7 @@
                                  ((> |d1| |n|)
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed"))
-                                   (GO #4=#:G248)))
+                                   (GO #4=#:G247)))
                                  (#3# (SPADCALL |c1| (QREFELT $ 58)))))))))
             (LETT |rh2|
                   (COND ((SPADCALL |c2| (QREFELT $ 51)) (|spadConstant| $ 52))
@@ -520,7 +520,7 @@
         ((|c1| UP) (|c2| UP) (|lb| F) (|lh| F) (|n| |NonNegativeInteger|)
          (|d| |Integer|) ($ |Union| (|List| UP) "failed"))
         (SPROG
-         ((|q2| (UP)) (#1=#:G259 NIL) (|d2| #2=(|Integer|)) (|q1| (UP))
+         ((|q2| (UP)) (#1=#:G258 NIL) (|d2| #2=(|Integer|)) (|q1| (UP))
           (|d1| #2#))
          (SEQ
           (EXIT
@@ -535,7 +535,7 @@
                                  ((> |d1| |n|)
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed"))
-                                   (GO #4=#:G258)))
+                                   (GO #4=#:G257)))
                                  (#3#
                                   (SPADCALL
                                    (SPADCALL (SPADCALL |c1| (QREFELT $ 58))
@@ -564,7 +564,7 @@
         ((|c1| UP) (|c2| UP) (|lb| F) (|lh| F) (|n| |NonNegativeInteger|)
          (|d| |Integer|) ($ |Union| (|List| UP) "failed"))
         (SPROG
-         ((|q2| (UP)) (#1=#:G269 NIL) (|d1| #2=(|Integer|)) (|q1| (UP))
+         ((|q2| (UP)) (#1=#:G268 NIL) (|d1| #2=(|Integer|)) (|q1| (UP))
           (|d2| #2#))
          (SEQ
           (EXIT
@@ -579,7 +579,7 @@
                                  ((> |d2| |n|)
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed"))
-                                   (GO #4=#:G268)))
+                                   (GO #4=#:G267)))
                                  (#3#
                                   (SPADCALL
                                    (SPADCALL (SPADCALL |c2| (QREFELT $ 58))
@@ -646,9 +646,9 @@
 
 (DECLAIM (NOTINLINE |TranscendentalRischDESystem;|)) 
 
-(DEFUN |TranscendentalRischDESystem| (&REST #1=#:G280)
+(DEFUN |TranscendentalRischDESystem| (&REST #1=#:G279)
   (SPROG NIL
-         (PROG (#2=#:G281)
+         (PROG (#2=#:G280)
            (RETURN
             (COND
              ((LETT #2#

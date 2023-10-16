@@ -11,13 +11,13 @@
 
 (SDEFUN |CHAINC;validate;$B;3| ((|a| $) ($ |Boolean|))
         (SPROG
-         ((|last| #1=(|Matrix| (|Integer|))) (#2=#:G116 NIL)
-          (|prod| (|Matrix| (|Integer|))) (|m| #1#) (#3=#:G117 NIL) (|x| NIL)
+         ((|last| #1=(|Matrix| (|Integer|))) (#2=#:G115 NIL)
+          (|prod| (|Matrix| (|Integer|))) (|m| #1#) (#3=#:G116 NIL) (|x| NIL)
           (|len| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ (LETT |len| (LENGTH |a|))
-                (COND ((< |len| 2) (PROGN (LETT #2# 'T) (GO #4=#:G115))))
+                (COND ((< |len| 2) (PROGN (LETT #2# 'T) (GO #4=#:G114))))
                 (LETT |last| (SPADCALL |a| 1 (QREFELT $ 12)))
                 (SEQ (LETT |x| 2) (LETT #3# |len|) G190
                      (COND ((|greater_SI| |x| #3#) (GO G191)))
@@ -74,7 +74,7 @@
 (SDEFUN |CHAINC;homology;$L;4| ((|a| $) ($ |List| (|Homology|)))
         (SPROG
          ((|prev| (|Matrix| (|Integer|))) (|notFirst| (|Boolean|))
-          (|res| (|List| (|Homology|))) (|m2| (|Homology|)) (#1=#:G123 NIL)
+          (|res| (|List| (|Homology|))) (|m2| (|Homology|)) (#1=#:G122 NIL)
           (|m1| NIL))
          (SEQ (LETT |res| NIL) (LETT |prev| (MAKE_MATRIX 0 0))
               (LETT |notFirst| NIL)
@@ -95,8 +95,8 @@
 
 (SDEFUN |CHAINC;coerce;$Of;5| ((|s| $) ($ |OutputForm|))
         (SPROG
-         ((|lst| (|List| (|OutputForm|))) (#1=#:G128 NIL) (|x| NIL)
-          (#2=#:G127 NIL))
+         ((|lst| (|List| (|OutputForm|))) (#1=#:G127 NIL) (|x| NIL)
+          (#2=#:G126 NIL))
          (SEQ
           (LETT |lst|
                 (PROGN
@@ -116,7 +116,7 @@
 
 (DEFUN |ChainComplex| ()
   (SPROG NIL
-         (PROG (#1=#:G130)
+         (PROG (#1=#:G129)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ChainComplex|))

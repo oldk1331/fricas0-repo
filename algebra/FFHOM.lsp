@@ -45,20 +45,20 @@
 
 (SDEFUN |FFHOM;initialize| (($ |Void|))
         (SPROG
-         ((|matbs| #1=(|Matrix| GF)) (#2=#:G138 NIL) (|matsb| #1#)
-          (#3=#:G164 NIL) (|i| NIL) (|mat| #1#)
+         ((|matbs| #1=(|Matrix| GF)) (#2=#:G137 NIL) (|matsb| #1#)
+          (#3=#:G163 NIL) (|i| NIL) (|mat| #1#)
           (|arr| (|PrimitiveArray| (|SparseUnivariatePolynomial| GF)))
-          (#4=#:G163 NIL) (#5=#:G162 NIL) (|rowind| (|Integer|))
+          (#4=#:G162 NIL) (#5=#:G161 NIL) (|rowind| (|Integer|))
           (|ra| (|Integer|)) (|iVec| (|Vector| (|Integer|)))
           (|a| #6=(|FiniteFieldExtensionByPolynomial| GF |dPbig|))
-          (#7=#:G161 NIL) (|root| #6#)
+          (#7=#:G160 NIL) (|root| #6#)
           (|rTsmall|
            (|Union| #8="prime" #9="polynomial" #10="normal" #11="cyclic"))
           (|dPsmall| (|SparseUnivariatePolynomial| GF))
           (|rTbig| (|Union| #8# #9# #10# #11#))
           (|dPbig| (|SparseUnivariatePolynomial| GF))
           (|degbig| (|NonNegativeInteger|)) (|degsmall| (|NonNegativeInteger|))
-          (#12=#:G160 NIL))
+          (#12=#:G159 NIL))
          (SEQ
           (COND
            ((SPADCALL (QREFELT $ 30) (QREFELT $ 32) (QREFELT $ 41))
@@ -369,9 +369,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldHomomorphisms;|)) 
 
-(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G183)
+(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G182)
   (SPROG NIL
-         (PROG (#2=#:G184)
+         (PROG (#2=#:G183)
            (RETURN
             (COND
              ((LETT #2#
@@ -432,7 +432,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|PositiveInteger|) (0 . |extensionDegree|)
               '|degree1| (4 . |extensionDegree|) '|degree2| (|Boolean|)
-              (|NonNegativeInteger|) (8 . ~=) '#:G104 (|Matrix| 7)
+              (|NonNegativeInteger|) (8 . ~=) '#:G103 (|Matrix| 7)
               (14 . |zero|) '|conMat1to2| '|conMat2to1|
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (20 . |representationType|) '|repType1|

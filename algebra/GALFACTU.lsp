@@ -5,7 +5,7 @@
         (SPADCALL |p| 1 (QREFELT $ 14))) 
 
 (SDEFUN |GALFACTU;norm;UPPiF;3| ((|f| UP) (|p| |PositiveInteger|) ($ F))
-        (SPROG ((|n| (F)) (#1=#:G113 NIL) (|c| NIL))
+        (SPROG ((|n| (F)) (#1=#:G112 NIL) (|c| NIL))
                (SEQ (LETT |n| (|spadConstant| $ 16))
                     (SEQ (LETT |c| NIL)
                          (LETT #1# (SPADCALL |f| (QREFELT $ 18))) G190
@@ -29,7 +29,7 @@
         (SPADCALL |f| 2 (QREFELT $ 14))) 
 
 (SDEFUN |GALFACTU;infinityNorm;UPF;5| ((|f| UP) ($ F))
-        (SPROG ((|n| (F)) (#1=#:G118 NIL) (|c| NIL))
+        (SPROG ((|n| (F)) (#1=#:G117 NIL) (|c| NIL))
                (SEQ (LETT |n| (|spadConstant| $ 16))
                     (SEQ (LETT |c| NIL)
                          (LETT #1# (SPADCALL |f| (QREFELT $ 18))) G190
@@ -122,7 +122,7 @@
 (SDEFUN |GALFACTU;rootBound;UPI;8| ((|p| UP) ($ |Integer|))
         (SPROG
          ((|b4| (F)) (|b3| (F)) (|b2| (F)) (|cl| (F)) (|b1| (F)) (|c| (F))
-          (#1=#:G127 NIL) (#2=#:G133 NIL) (|i| NIL) (|lc| (F))
+          (#1=#:G126 NIL) (#2=#:G132 NIL) (|i| NIL) (|lc| (F))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (SPADCALL |p| (QREFELT $ 28)))
               (EXIT
@@ -231,8 +231,8 @@
 (SDEFUN |GALFACTU;bombieriNorm;UPPiF;10|
         ((|f| UP) (|p| |PositiveInteger|) ($ F))
         (SPROG
-         ((|b| (F)) (#1=#:G159 NIL) (|dd| (|Integer|)) (#2=#:G142 NIL)
-          (#3=#:G165 NIL) (|i| NIL) (#4=#:G164 NIL)
+         ((|b| (F)) (#1=#:G158 NIL) (|dd| (|Integer|)) (#2=#:G141 NIL)
+          (#3=#:G164 NIL) (|i| NIL) (#4=#:G163 NIL)
           (|d| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -242,7 +242,7 @@
                        (SPADCALL (SPADCALL |f| 0 (QREFELT $ 47))
                                  (QREFELT $ 19))
                        (QREFELT $ 20)))
-                (COND ((ZEROP |d|) (PROGN (LETT #4# |b|) (GO #5=#:G163)))
+                (COND ((ZEROP |d|) (PROGN (LETT #4# |b|) (GO #5=#:G162)))
                       ('T (LETT |b| (SPADCALL |b| |p| (QREFELT $ 21)))))
                 (LETT |b|
                       (SPADCALL |b|
@@ -320,9 +320,9 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupFactorizationUtilities;|)) 
 
-(DEFUN |GaloisGroupFactorizationUtilities| (&REST #1=#:G167)
+(DEFUN |GaloisGroupFactorizationUtilities| (&REST #1=#:G166)
   (SPROG NIL
-         (PROG (#2=#:G168)
+         (PROG (#2=#:G167)
            (RETURN
             (COND
              ((LETT #2#

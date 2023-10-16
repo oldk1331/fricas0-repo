@@ -6,10 +6,10 @@
 (DEFUN |Finite| () (COND (|Finite;AL|) (T (SETQ |Finite;AL| (|Finite;|))))) 
 
 (DEFUN |Finite;| ()
-  (SPROG ((#1=#:G105 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(#2=#:G104) (LIST '(|InputForm|)))
+                   (|sublisV| (MAKE_PAIRS '(#2=#:G103) (LIST '(|InputForm|)))
                               (|Join| (|SetCategory|) (|ConvertibleTo| '#2#)
                                       (|Comparable|)
                                       (|mkCategory|

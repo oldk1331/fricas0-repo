@@ -6,7 +6,7 @@
 
 (DEFUN |Bits| ()
   (SPROG NIL
-         (PROG (#1=#:G112)
+         (PROG (#1=#:G111)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Bits|))
@@ -21,7 +21,7 @@
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Bits|)))))))))) 
 
 (DEFUN |Bits;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL) (#1=#:G110 NIL))
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL) (#1=#:G109 NIL))
          (PROGN
           (LETT |dv$| '(|Bits|))
           (LETT $ (GETREFV 26))

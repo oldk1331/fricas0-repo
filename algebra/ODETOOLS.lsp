@@ -5,7 +5,7 @@
 (SDEFUN |ODETOOLS;wronskianMatrix;LNniM;2|
         ((|l| |List| F) (|q| |NonNegativeInteger|) ($ |Matrix| F))
         (SPROG
-         ((|v| (|Vector| F)) (#1=#:G112 NIL) (|i| NIL) (|m| (|Matrix| F)))
+         ((|v| (|Vector| F)) (#1=#:G111 NIL) (|i| NIL) (|m| (|Matrix| F)))
          (SEQ (LETT |v| (SPADCALL |l| (QREFELT $ 16)))
               (LETT |m| (SPADCALL |q| (QVSIZE |v|) (QREFELT $ 17)))
               (SEQ (LETT |i| (PROGN |m| 1))
@@ -51,7 +51,7 @@
         ((|op| LODO) (|g| F) (|b| |List| F) (|integration| |Mapping| F F)
          ($ |Union| F "failed"))
         (SPROG
-         ((|ans| (F)) (#1=#:G133 NIL) (|f| NIL) (|i| NIL) (|s| (|Vector| F))
+         ((|ans| (F)) (#1=#:G132 NIL) (|f| NIL) (|i| NIL) (|s| (|Vector| F))
           (|sol| (|Union| (|Vector| F) "failed")))
          (SEQ
           (COND ((SPADCALL |g| (QREFELT $ 33)) (CONS 0 (|spadConstant| $ 25)))
@@ -88,9 +88,9 @@
 
 (DECLAIM (NOTINLINE |ODETools;|)) 
 
-(DEFUN |ODETools| (&REST #1=#:G134)
+(DEFUN |ODETools| (&REST #1=#:G133)
   (SPROG NIL
-         (PROG (#2=#:G135)
+         (PROG (#2=#:G134)
            (RETURN
             (COND
              ((LETT #2#

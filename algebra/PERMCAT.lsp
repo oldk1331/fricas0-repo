@@ -6,7 +6,7 @@
 (DEFPARAMETER |PermutationCategory;AL| 'NIL) 
 
 (DEFUN |PermutationCategory| (|t#1|)
-  (LET (#1=#:G105 (#2=#:G106 (|devaluate| |t#1|)))
+  (LET (#1=#:G104 (#2=#:G105 (|devaluate| |t#1|)))
     (COND ((SETQ #1# (|assoc| #2# |PermutationCategory;AL|)) (CDR #1#))
           (T
            (SETQ |PermutationCategory;AL|
@@ -15,7 +15,7 @@
            #1#)))) 
 
 (DEFUN |PermutationCategory;| (|t#1|)
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))

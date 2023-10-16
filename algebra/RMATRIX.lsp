@@ -6,9 +6,9 @@
 
 (SDEFUN |RMATRIX;matrix;L$;3| ((|l| |List| (|List| R)) ($ $))
         (SPROG
-         ((#1=#:G121 NIL) (|j| NIL) (#2=#:G122 NIL) (|r| NIL) (#3=#:G119 NIL)
-          (|i| NIL) (#4=#:G120 NIL) (|ll| NIL) (|ans| (|Matrix| R))
-          (#5=#:G117 NIL) (#6=#:G118 NIL))
+         ((#1=#:G120 NIL) (|j| NIL) (#2=#:G121 NIL) (|r| NIL) (#3=#:G118 NIL)
+          (|i| NIL) (#4=#:G119 NIL) (|ll| NIL) (|ans| (|Matrix| R))
+          (#5=#:G116 NIL) (#6=#:G117 NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |l|) (QREFELT $ 6) (QREFELT $ 17))
@@ -27,7 +27,7 @@
                        ((SPADCALL (LENGTH |ll|) (QREFELT $ 7) (QREFELT $ 17))
                         (PROGN
                          (LETT #5# (|error| "matrix: wrong number of columns"))
-                         (GO #7=#:G111))))))
+                         (GO #7=#:G110))))))
                     (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL)))
               #7# (EXIT #5#))
              (LETT |ans|
@@ -76,7 +76,7 @@
 (SDEFUN |RMATRIX;rowEchelon;2$;8| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 35))) 
 
 (SDEFUN |RMATRIX;columnSpace;$L;9| ((|x| $) ($ |List| (|DirectProduct| |m| R)))
-        (SPROG ((#1=#:G134 NIL) (|c| NIL) (#2=#:G133 NIL))
+        (SPROG ((#1=#:G133 NIL) (|c| NIL) (#2=#:G132 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -98,7 +98,7 @@
         (SPADCALL |x| (QREFELT $ 43))) 
 
 (SDEFUN |RMATRIX;nullSpace;$L;12| ((|x| $) ($ |List| (|DirectProduct| |m| R)))
-        (SPROG ((#1=#:G140 NIL) (|c| NIL) (#2=#:G139 NIL))
+        (SPROG ((#1=#:G139 NIL) (|c| NIL) (#2=#:G138 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -121,9 +121,9 @@
 
 (DECLAIM (NOTINLINE |RectangularMatrix;|)) 
 
-(DEFUN |RectangularMatrix| (&REST #1=#:G153)
+(DEFUN |RectangularMatrix| (&REST #1=#:G152)
   (SPROG NIL
-         (PROG (#2=#:G154)
+         (PROG (#2=#:G153)
            (RETURN
             (COND
              ((LETT #2#
@@ -142,7 +142,7 @@
 
 (DEFUN |RectangularMatrix;| (|#1| |#2| |#3|)
   (SPROG
-   ((#1=#:G152 NIL) (|pv$| NIL) (#2=#:G149 NIL) (#3=#:G150 NIL) ($ NIL)
+   ((#1=#:G151 NIL) (|pv$| NIL) (#2=#:G148 NIL) (#3=#:G149 NIL) ($ NIL)
     (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

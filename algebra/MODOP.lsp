@@ -18,7 +18,7 @@
 
 (SDEFUN |MODOP;elt;$2M;6| ((|x| $) (|r| M) ($ M))
         (SPROG
-         ((#1=#:G130 NIL) (#2=#:G129 (M)) (#3=#:G131 (M)) (#4=#:G134 NIL)
+         ((#1=#:G129 NIL) (#2=#:G128 (M)) (#3=#:G130 (M)) (#4=#:G133 NIL)
           (|t| NIL))
          (SEQ
           (PROGN
@@ -52,7 +52,7 @@
          ($ |List|
           (|Record| (|:| |coef| R)
                     (|:| |monom| (|FreeGroup| (|BasicOperator|))))))
-        (SPROG ((#1=#:G141 NIL) (|rm| NIL) (#2=#:G140 NIL))
+        (SPROG ((#1=#:G140 NIL) (|rm| NIL) (#2=#:G139 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -96,7 +96,7 @@
           (|Record| (|:| |coef| R)
                     (|:| |monom| #1=(|FreeGroup| (|BasicOperator|)))))
          ($ $))
-        (SPROG ((#2=#:G152 NIL) (|m| #1#) (|c| (R)))
+        (SPROG ((#2=#:G151 NIL) (|m| #1#) (|c| (R)))
                (SEQ
                 (COND ((NULL |t|) (|spadConstant| $ 12))
                       ('T
@@ -133,7 +133,7 @@
          $)) 
 
 (SDEFUN |MODOP;coerce;$Of;17| ((|x| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G168 NIL) (|t| NIL) (#2=#:G167 NIL))
+        (SPROG ((#1=#:G167 NIL) (|t| NIL) (#2=#:G166 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT $ 62))
@@ -176,7 +176,7 @@
           (|Record| (|:| |coef| R)
                     (|:| |monom| (|FreeGroup| (|BasicOperator|)))))
          ($ |OutputForm|))
-        (SPROG ((#1=#:G178 NIL) (|rm| NIL) (#2=#:G177 NIL))
+        (SPROG ((#1=#:G177 NIL) (|rm| NIL) (#2=#:G176 NIL))
                (SEQ
                 (SPADCALL (ELT $ 72)
                           (PROGN
@@ -210,9 +210,9 @@
 
 (SDEFUN |MODOP;*;3$;21| ((|x| $) (|y| $) ($ $))
         (SPROG
-         ((#1=#:G182 NIL) (#2=#:G181 ($)) (#3=#:G183 ($)) (#4=#:G185 NIL)
-          (#5=#:G184 ($)) (#6=#:G186 ($)) (#7=#:G190 NIL) (|s| NIL)
-          (#8=#:G189 NIL) (|t| NIL))
+         ((#1=#:G181 NIL) (#2=#:G180 ($)) (#3=#:G182 ($)) (#4=#:G184 NIL)
+          (#5=#:G183 ($)) (#6=#:G185 ($)) (#7=#:G189 NIL) (|s| NIL)
+          (#8=#:G188 NIL) (|t| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL)
@@ -354,7 +354,7 @@
           (|Record| (|:| |coef| R)
                     (|:| |monom| (|FreeGroup| (|BasicOperator|)))))
          (|r| M) ($ M))
-        (SPROG ((#1=#:G222 NIL) (|rm| NIL))
+        (SPROG ((#1=#:G221 NIL) (|rm| NIL))
                (SEQ
                 (SEQ (LETT |rm| NIL) (LETT #1# (REVERSE |t|)) G190
                      (COND
@@ -366,8 +366,8 @@
 
 (SDEFUN |MODOP;monomeval| ((|m| |FreeGroup| (|BasicOperator|)) (|r| M) ($ M))
         (SPROG
-         ((#1=#:G234 NIL) (|i| NIL) (#2=#:G233 NIL) (|g| (|BasicOperator|))
-          (|e| (|Integer|)) (#3=#:G232 NIL) (|rec| NIL))
+         ((#1=#:G233 NIL) (|i| NIL) (#2=#:G232 NIL) (|g| (|BasicOperator|))
+          (|e| (|Integer|)) (#3=#:G231 NIL) (|rec| NIL))
          (SEQ
           (SEQ (LETT |rec| NIL)
                (LETT #3# (NREVERSE (SPADCALL |m| (QREFELT $ 88)))) G190
@@ -478,7 +478,7 @@
 
 (SDEFUN |MODOP;adjoint;2$;34| ((|x| $) ($ $))
         (SPROG
-         ((#1=#:G272 NIL) (#2=#:G271 ($)) (#3=#:G273 ($)) (#4=#:G276 NIL)
+         ((#1=#:G271 NIL) (#2=#:G270 ($)) (#3=#:G272 ($)) (#4=#:G275 NIL)
           (|t| NIL))
          (SEQ
           (PROGN
@@ -515,7 +515,7 @@
           (|Record| (|:| |coef| R)
                     (|:| |monom| (|FreeGroup| (|BasicOperator|)))))
          ($ $))
-        (SPROG ((|ans| ($)) (#1=#:G284 NIL) (|rm| NIL))
+        (SPROG ((|ans| ($)) (#1=#:G283 NIL) (|rm| NIL))
                (SEQ (LETT |ans| (|spadConstant| $ 12))
                     (SEQ (LETT |rm| NIL) (LETT #1# |t|) G190
                          (COND
@@ -530,7 +530,7 @@
                     (EXIT |ans|)))) 
 
 (SDEFUN |MODOP;monomadj| ((|m| |FreeGroup| (|BasicOperator|)) ($ $))
-        (SPROG ((|ans| ($)) (#1=#:G289 NIL) (|rec| NIL))
+        (SPROG ((|ans| ($)) (#1=#:G288 NIL) (|rec| NIL))
                (SEQ (LETT |ans| (|spadConstant| $ 12))
                     (SEQ (LETT |rec| NIL)
                          (LETT #1# (SPADCALL |m| (QREFELT $ 88))) G190
@@ -565,9 +565,9 @@
 
 (DECLAIM (NOTINLINE |ModuleOperator;|)) 
 
-(DEFUN |ModuleOperator| (&REST #1=#:G297)
+(DEFUN |ModuleOperator| (&REST #1=#:G296)
   (SPROG NIL
-         (PROG (#2=#:G298)
+         (PROG (#2=#:G297)
            (RETURN
             (COND
              ((LETT #2#

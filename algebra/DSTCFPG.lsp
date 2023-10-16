@@ -73,9 +73,9 @@
 
 (DECLAIM (NOTINLINE |DistributionContinuedFractionPackage;|)) 
 
-(DEFUN |DistributionContinuedFractionPackage| (&REST #1=#:G115)
+(DEFUN |DistributionContinuedFractionPackage| (&REST #1=#:G114)
   (SPROG NIL
-         (PROG (#2=#:G116)
+         (PROG (#2=#:G115)
            (RETURN
             (COND
              ((LETT #2#
@@ -98,7 +98,7 @@
 
 (DEFUN |DistributionContinuedFractionPackage;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G114 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G113 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

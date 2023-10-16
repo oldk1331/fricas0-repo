@@ -20,9 +20,9 @@
 
 (DECLAIM (NOTINLINE |MakeFunction;|)) 
 
-(DEFUN |MakeFunction| (#1=#:G109)
+(DEFUN |MakeFunction| (#1=#:G108)
   (SPROG NIL
-         (PROG (#2=#:G110)
+         (PROG (#2=#:G109)
            (RETURN
             (COND
              ((LETT #2#

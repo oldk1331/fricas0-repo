@@ -45,9 +45,9 @@
 
 (SDEFUN |INCALG;*;P2$;7| ((|p| |Permutation| (|Integer|)) (A $) ($ $))
         (SPROG
-         ((|newA| (|Matrix| R)) (|indic| (|List| (|Integer|))) (#1=#:G137 NIL)
-          (|i| NIL) (#2=#:G136 NIL) (|newindices| (|OneDimensionalArray| S))
-          (#3=#:G135 NIL) (#4=#:G134 NIL) (|n| (|Integer|))
+         ((|newA| (|Matrix| R)) (|indic| (|List| (|Integer|))) (#1=#:G136 NIL)
+          (|i| NIL) (#2=#:G135 NIL) (|newindices| (|OneDimensionalArray| S))
+          (#3=#:G134 NIL) (#4=#:G133 NIL) (|n| (|Integer|))
           (|mp| (|Set| (|Integer|))))
          (SEQ (LETT |mp| (SPADCALL |p| (QREFELT $ 26)))
               (LETT |n| (QVSIZE (SPADCALL A (QREFELT $ 18))))
@@ -157,9 +157,9 @@
 
 (DECLAIM (NOTINLINE |IncidenceAlgebra;|)) 
 
-(DEFUN |IncidenceAlgebra| (&REST #1=#:G154)
+(DEFUN |IncidenceAlgebra| (&REST #1=#:G153)
   (SPROG NIL
-         (PROG (#2=#:G155)
+         (PROG (#2=#:G154)
            (RETURN
             (COND
              ((LETT #2#

@@ -13,9 +13,9 @@
 (SDEFUN |GENMOEBF;generalizedMoebiusFunction;LM$;4|
         ((|xx| |List| P) (|z| |Mapping| R P P) ($ $))
         (SPROG
-         ((#1=#:G122 NIL) (|mf| (|Union| (|Matrix| R) "failed"))
-          (|zf| (|Matrix| R)) (#2=#:G126 NIL) (|x| NIL) (#3=#:G125 NIL)
-          (#4=#:G124 NIL) (|y| NIL) (#5=#:G123 NIL) (|xxo| (|List| P)))
+         ((#1=#:G121 NIL) (|mf| (|Union| (|Matrix| R) "failed"))
+          (|zf| (|Matrix| R)) (#2=#:G125 NIL) (|x| NIL) (#3=#:G124 NIL)
+          (#4=#:G123 NIL) (|y| NIL) (#5=#:G122 NIL) (|xxo| (|List| P)))
          (SEQ
           (EXIT
            (SEQ
@@ -64,23 +64,23 @@
                     (PROGN
                      (LETT #1#
                            (|GENMOEBF;per| (VECTOR |zf| (QCDR |mf|) |xxo|) $))
-                     (GO #6=#:G121)))))))
+                     (GO #6=#:G120)))))))
           #6# (EXIT #1#)))) 
 
 (SDEFUN |GENMOEBF;canonicalZeta| ((|pi| P) (|si| P) ($ R))
-        (SPROG ((#1=#:G129 NIL))
+        (SPROG ((#1=#:G128 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((SPADCALL |pi| |si| (QREFELT $ 12))
-                    (PROGN (LETT #1# (|spadConstant| $ 25)) (GO #2=#:G128))))
+                    (PROGN (LETT #1# (|spadConstant| $ 25)) (GO #2=#:G127))))
                   (EXIT (|spadConstant| $ 17))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |GENMOEBF;apply;$2PR;6| ((|mf| $) (|x| P) (|y| P) ($ R))
         (SPROG
-         ((#1=#:G135 NIL) (|ky| #2=(|Integer|)) (|kx| #2#)
+         ((#1=#:G134 NIL) (|ky| #2=(|Integer|)) (|kx| #2#)
           (|mfn| (|Matrix| R)))
          (SEQ
           (EXIT
@@ -97,7 +97,7 @@
                 (EXIT
                  (PROGN
                   (LETT #1# (SPADCALL |mfn| |ky| |kx| (QREFELT $ 28)))
-                  (GO #3=#:G134)))))
+                  (GO #3=#:G133)))))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |GENMOEBF;moebiusMatrix;$M;7| ((|mf| $) ($ |Matrix| R))
@@ -111,9 +111,9 @@
 
 (DECLAIM (NOTINLINE |GeneralizedFiniteMoebiusFunction;|)) 
 
-(DEFUN |GeneralizedFiniteMoebiusFunction| (&REST #1=#:G141)
+(DEFUN |GeneralizedFiniteMoebiusFunction| (&REST #1=#:G140)
   (SPROG NIL
-         (PROG (#2=#:G142)
+         (PROG (#2=#:G141)
            (RETURN
             (COND
              ((LETT #2#

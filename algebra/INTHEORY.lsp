@@ -1,7 +1,7 @@
 
 (SDEFUN |INTHEORY;harmonic;IF;1| ((|n| |Integer|) ($ |Fraction| (|Integer|)))
         (SPROG
-         ((|h| #1=(|Fraction| (|Integer|))) (#2=#:G133 NIL) (|k| NIL)
+         ((|h| #1=(|Fraction| (|Integer|))) (#2=#:G132 NIL) (|k| NIL)
           (|s| #3=(|Integer|))
           (|#G3| (|Record| (|:| |Hn| #3#) (|:| |Hv| #1#))))
          (SEQ
@@ -66,7 +66,7 @@
                   (EXIT |f2|))))))) 
 
 (SDEFUN |INTHEORY;carmichaelLambda;2I;3| ((|n| |Integer|) ($ |Integer|))
-        (SPROG ((#1=#:G146 NIL) (|pk| NIL) (#2=#:G145 NIL))
+        (SPROG ((#1=#:G145 NIL) (|pk| NIL) (#2=#:G144 NIL))
                (SEQ
                 (COND
                  ((<= |n| 0)
@@ -102,8 +102,8 @@
 
 (SDEFUN |INTHEORY;euler;2I;4| ((|n| |Integer|) ($ |Integer|))
         (SPROG
-         ((|e| #1=(|Integer|)) (|t| #1#) (#2=#:G160 NIL) (|j| NIL)
-          (#3=#:G159 NIL) (|i| NIL) (#4=#:G158 NIL) (#5=#:G148 NIL)
+         ((|e| #1=(|Integer|)) (|t| #1#) (#2=#:G159 NIL) (|j| NIL)
+          (#3=#:G158 NIL) (|i| NIL) (#4=#:G157 NIL) (#5=#:G147 NIL)
           (|l| (|Integer|)))
          (SEQ
           (COND ((< |n| 0) (|error| "euler not defined for negative integers"))
@@ -162,8 +162,8 @@
 
 (SDEFUN |INTHEORY;bernoulli;IF;5| ((|n| |Integer|) ($ |Fraction| (|Integer|)))
         (SPROG
-         ((|b| (|Fraction| (|Integer|))) (|t| (|Integer|)) (#1=#:G174 NIL)
-          (|j| NIL) (#2=#:G173 NIL) (|i| NIL) (#3=#:G172 NIL) (#4=#:G162 NIL)
+         ((|b| (|Fraction| (|Integer|))) (|t| (|Integer|)) (#1=#:G173 NIL)
+          (|j| NIL) (#2=#:G172 NIL) (|i| NIL) (#3=#:G171 NIL) (#4=#:G161 NIL)
           (|l| (|Integer|)))
          (SEQ
           (COND
@@ -281,7 +281,7 @@
 
 (SDEFUN |INTHEORY;jacobi;3I;8| ((|a| |Integer|) (|b| |Integer|) ($ |Integer|))
         (SPROG
-         ((|j| (|Integer|)) (|k| NIL) (#1=#:G201 NIL) (|#G40| (|Integer|))
+         ((|j| (|Integer|)) (|k| NIL) (#1=#:G200 NIL) (|#G40| (|Integer|))
           (|#G39| (|Integer|)))
          (SEQ (COND ((< |b| 0) (LETT |b| (- |b|))))
               (EXIT
@@ -361,7 +361,7 @@
          ('T (|error| "characteristic of legendre must be prime")))) 
 
 (SDEFUN |INTHEORY;eulerPhi;2I;10| ((|n| |Integer|) ($ |Integer|))
-        (SPROG ((|r| (|Fraction| (|Integer|))) (#1=#:G208 NIL) (|entry| NIL))
+        (SPROG ((|r| (|Fraction| (|Integer|))) (#1=#:G207 NIL) (|entry| NIL))
                (SEQ
                 (COND ((EQL |n| 0) 0)
                       ('T
@@ -391,9 +391,9 @@
 
 (SDEFUN |INTHEORY;divisors;IL;11| ((|n| |Integer|) ($ |List| (|Integer|)))
         (SPROG
-         ((|oldList| #1=(|List| (|Integer|))) (|newList| #1#) (#2=#:G219 NIL)
-          (|m| NIL) (|pow| (|Integer|)) (#3=#:G218 NIL) (|k| NIL)
-          (#4=#:G217 NIL) (|f| NIL))
+         ((|oldList| #1=(|List| (|Integer|))) (|newList| #1#) (#2=#:G218 NIL)
+          (|m| NIL) (|pow| (|Integer|)) (#3=#:G217 NIL) (|k| NIL)
+          (#4=#:G216 NIL) (|f| NIL))
          (SEQ (LETT |oldList| (LIST 1))
               (SEQ (LETT |f| NIL)
                    (LETT #4#
@@ -430,7 +430,7 @@
 (SDEFUN |INTHEORY;numberOfDivisors;2I;12|
         ((|n| |Integer|) ($ . #1=(|Integer|)))
         (SPROG
-         ((#2=#:G222 NIL) (#3=#:G221 #1#) (#4=#:G223 #1#) (#5=#:G225 NIL)
+         ((#2=#:G221 NIL) (#3=#:G220 #1#) (#4=#:G222 #1#) (#5=#:G224 NIL)
           (|entry| NIL))
          (SEQ
           (COND ((EQL |n| 0) 0)
@@ -456,8 +456,8 @@
 
 (SDEFUN |INTHEORY;sumOfDivisors;2I;13| ((|n| |Integer|) ($ |Integer|))
         (SPROG
-         ((|r| #1=(|Fraction| (|Integer|))) (#2=#:G228 NIL) (#3=#:G227 #1#)
-          (#4=#:G229 #1#) (#5=#:G232 NIL) (|entry| NIL))
+         ((|r| #1=(|Fraction| (|Integer|))) (#2=#:G227 NIL) (#3=#:G226 #1#)
+          (#4=#:G228 #1#) (#5=#:G231 NIL) (|entry| NIL))
          (SEQ
           (COND ((EQL |n| 0) 0)
                 (#6='T
@@ -497,8 +497,8 @@
 (SDEFUN |INTHEORY;sumOfKthPowerDivisors;INniI;14|
         ((|n| |Integer|) (|k| |NonNegativeInteger|) ($ |Integer|))
         (SPROG
-         ((|r| #1=(|Fraction| (|Integer|))) (#2=#:G235 NIL) (#3=#:G234 #1#)
-          (#4=#:G236 #1#) (#5=#:G239 NIL) (|entry| NIL))
+         ((|r| #1=(|Fraction| (|Integer|))) (#2=#:G234 NIL) (#3=#:G233 #1#)
+          (#4=#:G235 #1#) (#5=#:G238 NIL) (|entry| NIL))
          (SEQ
           (COND ((EQL |n| 0) 0)
                 (#6='T
@@ -538,7 +538,7 @@
 
 (SDEFUN |INTHEORY;moebiusMu;2I;15| ((|n| |Integer|) ($ |Integer|))
         (SPROG
-         ((#1=#:G245 NIL) (#2=#:G246 NIL) (#3=#:G247 NIL) (|k| NIL)
+         ((#1=#:G244 NIL) (#2=#:G245 NIL) (#3=#:G246 NIL) (|k| NIL)
           (|t| (|Factored| (|Integer|))))
          (SEQ
           (EXIT
@@ -559,8 +559,8 @@
                                  ((> (QVELT |k| 2) 1)
                                   (PROGN
                                    (LETT #1#
-                                         (PROGN (LETT #2# 0) (GO #5=#:G244)))
-                                   (GO #6=#:G242))))))
+                                         (PROGN (LETT #2# 0) (GO #5=#:G243)))
+                                   (GO #6=#:G241))))))
                               (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                         #6# (EXIT #1#))
                        (EXIT
@@ -572,7 +572,7 @@
 
 (DEFUN |IntegerNumberTheoryFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G249)
+         (PROG (#1=#:G248)
            (RETURN
             (COND
              ((LETT #1#

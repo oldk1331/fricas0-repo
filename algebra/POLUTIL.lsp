@@ -6,8 +6,8 @@
 (SDEFUN |POLUTIL;sylvesterSequence;2ThePolsL;2|
         ((|p1| |ThePols|) (|p2| |ThePols|) ($ |List| |ThePols|))
         (SPROG
-         ((|res| (|List| |ThePols|)) (#1=#:G125 NIL) (|term| NIL)
-          (#2=#:G124 NIL) (|#G8| (|ThePols|)) (|#G7| (|ThePols|)))
+         ((|res| (|List| |ThePols|)) (#1=#:G124 NIL) (|term| NIL)
+          (#2=#:G123 NIL) (|#G8| (|ThePols|)) (|#G7| (|ThePols|)))
          (SEQ (LETT |res| (LIST |p1|))
               (SEQ G190
                    (COND
@@ -50,9 +50,9 @@
 (SDEFUN |POLUTIL;boundOfCauchy;ThePolsTheField;3|
         ((|p| |ThePols|) ($ |TheField|))
         (SPROG
-         ((#1=#:G128 NIL) (#2=#:G127 (|TheField|)) (#3=#:G129 (|TheField|))
-          (#4=#:G134 NIL) (|t| NIL) (|l| (|List| |TheField|)) (#5=#:G133 NIL)
-          (|term| NIL) (#6=#:G132 NIL) (|c| (|TheField|)))
+         ((#1=#:G127 NIL) (#2=#:G126 (|TheField|)) (#3=#:G128 (|TheField|))
+          (#4=#:G133 NIL) (|t| NIL) (|l| (|List| |TheField|)) (#5=#:G132 NIL)
+          (|term| NIL) (#6=#:G131 NIL) (|c| (|TheField|)))
          (SEQ
           (LETT |c| (SPADCALL (SPADCALL |p| (QREFELT $ 22)) (QREFELT $ 23)))
           (LETT |l|
@@ -102,7 +102,7 @@
 (SDEFUN |POLUTIL;sturmVariationsOf;LNni;4|
         ((|l| |List| |TheField|) ($ |NonNegativeInteger|))
         (SPROG
-         ((|ll| (|List| |TheField|)) (|ln| (|TheField|)) (#1=#:G141 NIL)
+         ((|ll| (|List| |TheField|)) (|ln| (|TheField|)) (#1=#:G140 NIL)
           (|term| NIL) (|l1| (|TheField|)))
          (SEQ
           (COND
@@ -175,9 +175,9 @@
 
 (DECLAIM (NOTINLINE |RealPolynomialUtilitiesPackage;|)) 
 
-(DEFUN |RealPolynomialUtilitiesPackage| (&REST #1=#:G150)
+(DEFUN |RealPolynomialUtilitiesPackage| (&REST #1=#:G149)
   (SPROG NIL
-         (PROG (#2=#:G151)
+         (PROG (#2=#:G150)
            (RETURN
             (COND
              ((LETT #2#

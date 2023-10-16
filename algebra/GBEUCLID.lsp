@@ -83,12 +83,12 @@
            (|List|
             #2=(|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
                          (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
-          (|dd1| (|List| #2#)) (#3=#:G216 NIL) (|x| NIL) (#4=#:G215 NIL)
+          (|dd1| (|List| #2#)) (#3=#:G215 NIL) (|x| NIL) (#4=#:G214 NIL)
           (|leh| (|Dom|)) (|e| (|Expon|)) (|eh| (|Dpol|)) (|ep| (|Dpol|))
           (D0
            (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
                      (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))
-          (#5=#:G214 NIL) (#6=#:G213 NIL) (|lch| (|Dom|)) (|en| (|Expon|))
+          (#5=#:G213 NIL) (#6=#:G212 NIL) (|lch| (|Dom|)) (|en| (|Expon|))
           (|Pol1| (|List| |Dpol|)) (|h| (|Dpol|)))
          (SEQ
           (LETT |Pol1|
@@ -498,7 +498,7 @@
         ((|h| |Dpol|) (H |List| |Dpol|) (|Hh| |List| |Dpol|)
          (|Hhh| |List| |Dpol|) ($ |List| |Dpol|))
         (SPROG
-         ((|hp| (|Dpol|)) (|hpp| (|List| |Dpol|)) (#1=#:G241 NIL)
+         ((|hp| (|Dpol|)) (|hpp| (|List| |Dpol|)) (#1=#:G240 NIL)
           (|plc|
            (|Record| (|:| |coef1| |Dom|) (|:| |coef2| |Dom|)
                      (|:| |generator| |Dom|)))
@@ -573,7 +573,7 @@
 
 (SDEFUN |GBEUCLID;crithdelH| ((|h| |Dpol|) (H |List| |Dpol|) ($ |List| |Dpol|))
         (SPROG
-         ((#1=#:G251 NIL)
+         ((#1=#:G250 NIL)
           (|plc|
            (|Record| (|:| |coef1| |Dom|) (|:| |coef2| |Dom|)
                      (|:| |generator| |Dom|)))
@@ -653,7 +653,7 @@
           (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))
          ($ |Dpol|))
         (SPROG
-         ((#1=#:G268 NIL) (#2=#:G265 NIL) (|lij| (|Dom|)) (|fj| (|Dpol|))
+         ((#1=#:G267 NIL) (#2=#:G264 NIL) (|lij| (|Dom|)) (|fj| (|Dpol|))
           (|fi| (|Dpol|)) (|Tij| (|Expon|)))
          (SEQ (LETT |Tij| (QVELT |p| 0)) (LETT |fi| (QVELT |p| 2))
               (LETT |fj| (QVELT |p| 3))
@@ -713,7 +713,7 @@
         (SPROG
          ((|q1| (|Dom|))
           (|sdf1| (|Record| (|:| |quotient| |Dom|) (|:| |remainder| |Dom|)))
-          (#1=#:G281 NIL) (|e| (|Union| |Expon| "failed")) (|ls| (|Dom|))
+          (#1=#:G280 NIL) (|e| (|Union| |Expon| "failed")) (|ls| (|Dom|))
           (|lf1| (|Dom|)) (|ds| (|Expon|)) (|f1| (|Dpol|)))
          (SEQ
           (EXIT
@@ -734,7 +734,7 @@
                      ((OR (QEQCAR |e| 1) (SPADCALL |ls| |lf1| (QREFELT $ 24)))
                       (PROGN
                        (LETT #1# (|GBEUCLID;eRed| |s| (CDR H) |Hh| $))
-                       (GO #2=#:G279))))))
+                       (GO #2=#:G278))))))
                   (LETT |sdf1| (SPADCALL |ls| |lf1| (QREFELT $ 59)))
                   (LETT |q1| (QCAR |sdf1|))
                   (EXIT
@@ -780,7 +780,7 @@
 
 (SDEFUN |GBEUCLID;ecritM|
         ((|e1| |Expon|) (|c1| |Dom|) (|e2| |Expon|) (|c2| |Dom|) ($ |Boolean|))
-        (SPROG ((#1=#:G294 NIL) (|en| (|Union| |Expon| "failed")))
+        (SPROG ((#1=#:G293 NIL) (|en| (|Union| |Expon| "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -789,7 +789,7 @@
                         (COND
                          ((OR (QEQCAR |en| 1)
                               (QEQCAR (SPADCALL |c2| |c1| (QREFELT $ 56)) 1))
-                          (PROGN (LETT #1# NIL) (GO #2=#:G292))))))
+                          (PROGN (LETT #1# NIL) (GO #2=#:G291))))))
                   (EXIT 'T)))
                 #2# (EXIT #1#)))) 
 
@@ -887,7 +887,7 @@
                     (EXIT |n|)))) 
 
 (SDEFUN |GBEUCLID;prinb| ((|n| |Integer|) ($ |Void|))
-        (SPROG ((#1=#:G314 NIL) (|i| NIL))
+        (SPROG ((#1=#:G313 NIL) (|i| NIL))
                (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                     (COND ((|greater_SI| |i| #1#) (GO G191)))
                     (SEQ (EXIT (SPADCALL "    " (QREFELT $ 63))))
@@ -1032,9 +1032,9 @@
 
 (DECLAIM (NOTINLINE |EuclideanGroebnerBasisPackage;|)) 
 
-(DEFUN |EuclideanGroebnerBasisPackage| (&REST #1=#:G330)
+(DEFUN |EuclideanGroebnerBasisPackage| (&REST #1=#:G329)
   (SPROG NIL
-         (PROG (#2=#:G331)
+         (PROG (#2=#:G330)
            (RETURN
             (COND
              ((LETT #2#

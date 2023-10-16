@@ -71,9 +71,9 @@
 
 (SDEFUN |NUMFMT;FormatRoman;PiS;9| ((|pn| |PositiveInteger|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|mm| (|String|)) (#1=#:G163 NIL) (|j| NIL)
-          (#2=#:G162 NIL) (|m0| (|String|)) (|n| (|Integer|)) (|d| (|Integer|))
-          (|i| NIL) (#3=#:G149 NIL))
+         ((|s| (|String|)) (|mm| (|String|)) (#1=#:G162 NIL) (|j| NIL)
+          (#2=#:G161 NIL) (|m0| (|String|)) (|n| (|Integer|)) (|d| (|Integer|))
+          (|i| NIL) (#3=#:G148 NIL))
          (SEQ (LETT |n| |pn|) (LETT |d| (+ (REM |n| 10) (QREFELT $ 36)))
               (LETT |n| (QUOTIENT2 |n| 10))
               (LETT |s| (QAREF1 (QREFELT $ 33) |d|))
@@ -210,9 +210,9 @@
 
 (SDEFUN |NUMFMT;ScanRoman;SPi;10| ((|s| |String|) ($ |PositiveInteger|))
         (SPROG
-         ((#1=#:G174 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
-          (|n| (|Integer|)) (#2=#:G177 NIL) (|i| (|Integer|))
-          (|c| (|Character|)) (#3=#:G178 NIL) (|k| NIL)
+         ((#1=#:G173 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
+          (|n| (|Integer|)) (#2=#:G176 NIL) (|i| (|Integer|))
+          (|c| (|Character|)) (#3=#:G177 NIL) (|k| NIL)
           (|nprens| (|PositiveInteger|)))
          (SEQ (LETT |s| (SPADCALL |s| (QREFELT $ 50))) (LETT |tot| 0)
               (LETT |Max| 0) (LETT |i| (SPADCALL |s| (QREFELT $ 51)))
@@ -280,7 +280,7 @@
                                                  (LETT #2#
                                                        (|error|
                                                         "Improper Roman numeral: unbalanced ')'"))
-                                                 (GO #4=#:G166)))))))
+                                                 (GO #4=#:G165)))))))
                                            #4# (EXIT #2#))
                                           (LETT |k| (|inc_SI| |k|)) (GO G190)
                                           G191 (EXIT NIL))
@@ -313,7 +313,7 @@
 
 (DEFUN |NumberFormats| ()
   (SPROG NIL
-         (PROG (#1=#:G181)
+         (PROG (#1=#:G180)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|))

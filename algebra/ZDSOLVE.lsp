@@ -9,7 +9,7 @@
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
           (|iq2|
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
-          (|v2| (|OrderedVariableList| |ls2|)) (#1=#:G133 NIL)
+          (|v2| (|OrderedVariableList| |ls2|)) (#1=#:G132 NIL)
           (|d| (|NonNegativeInteger|)) (|v| (|OrderedVariableList| |ls|)))
          (SEQ
           (COND
@@ -88,10 +88,10 @@
            (|List|
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |ls2|))))
-          (#1=#:G164 NIL)
+          (#1=#:G163 NIL)
           (|q|
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
-          (#2=#:G163 NIL)
+          (#2=#:G162 NIL)
           (|newts|
            (|SquareFreeRegularTriangularSet| R
                                              (|IndexedExponents|
@@ -108,7 +108,7 @@
                                              (|NewSparseMultivariatePolynomial|
                                               R
                                               (|OrderedVariableList| |ls2|))))
-          (#3=#:G162 NIL) (|sfqwt| NIL)
+          (#3=#:G161 NIL) (|sfqwt| NIL)
           (|lsfqwt|
            (|List|
             (|Record|
@@ -159,12 +159,12 @@
                                                     R
                                                     (|OrderedVariableList|
                                                      |ls2|))))))
-          (#4=#:G161 NIL) (|f| NIL)
+          (#4=#:G160 NIL) (|f| NIL)
           (|lf|
            (|List|
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |ls2|))))
-          (#5=#:G160 NIL) (|p| NIL) (#6=#:G159 NIL) (|irred?| (|Boolean|)))
+          (#5=#:G159 NIL) (|p| NIL) (#6=#:G158 NIL) (|irred?| (|Boolean|)))
          (SEQ (LETT |irred?| NIL)
               (LETT |st| (SPADCALL (LIST (QREFELT $ 19)) (QREFELT $ 39)))
               (LETT |lq|
@@ -279,7 +279,7 @@
            (|List|
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |ls|))))
-          (#1=#:G169 NIL) (|p| NIL) (#2=#:G168 NIL))
+          (#1=#:G168 NIL) (|p| NIL) (#2=#:G167 NIL))
          (SEQ
           (LETT |lq|
                 (PROGN
@@ -394,12 +394,12 @@
                                (|NewSparseMultivariatePolynomial| R
                                                                   (|OrderedVariableList|
                                                                    |ls2|)))))))
-          (#2=#:G207 NIL) (|urcRoot| NIL)
+          (#2=#:G206 NIL) (|urcRoot| NIL)
           (|urcRoots| (|List| (|RealClosure| (|Fraction| R))))
           (|urc| (|SparseUnivariatePolynomial| (|RealClosure| (|Fraction| R))))
-          (|lv| (|List| (|Symbol|))) (#3=#:G196 NIL)
-          (|qrc| (|Polynomial| (|RealClosure| (|Fraction| R)))) (#4=#:G205 NIL)
-          (|r| NIL) (#5=#:G206 NIL) (|v| NIL) (|lq2| #1#)
+          (|lv| (|List| (|Symbol|))) (#3=#:G195 NIL)
+          (|qrc| (|Polynomial| (|RealClosure| (|Fraction| R)))) (#4=#:G204 NIL)
+          (|r| NIL) (#5=#:G205 NIL) (|v| NIL) (|lq2| #1#)
           (|q2|
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
           (|toSave| (|List| (|List| (|RealClosure| (|Fraction| R)))))
@@ -412,7 +412,7 @@
                            (|NewSparseMultivariatePolynomial| R
                                                               (|OrderedVariableList|
                                                                |ls2|))))))
-          (#6=#:G204 NIL) (|sts| NIL) (#7=#:G203 NIL)
+          (#6=#:G203 NIL) (|sts| NIL) (#7=#:G202 NIL)
           (|lsts|
            (|List|
             (|SquareFreeRegularTriangularSet| R
@@ -508,9 +508,9 @@
          (|check?| |Boolean|) (|lextri?| |Boolean|)
          ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
         (SPROG
-         ((#1=#:G229 NIL) (|prc| (|Polynomial| (|RealClosure| (|Fraction| R))))
-          (#2=#:G240 NIL) (|rr| NIL) (#3=#:G241 NIL) (|symb| NIL)
-          (#4=#:G239 NIL) (|realsol| NIL) (#5=#:G238 NIL) (|p| NIL)
+         ((#1=#:G228 NIL) (|prc| (|Polynomial| (|RealClosure| (|Fraction| R))))
+          (#2=#:G239 NIL) (|rr| NIL) (#3=#:G240 NIL) (|symb| NIL)
+          (#4=#:G238 NIL) (|realsol| NIL) (#5=#:G237 NIL) (|p| NIL)
           (|toSee|
            (|List|
             (|Record| (|:| |reals| (|List| (|RealClosure| (|Fraction| R))))
@@ -520,12 +520,12 @@
                                (|NewSparseMultivariatePolynomial| R
                                                                   (|OrderedVariableList|
                                                                    |ls2|)))))))
-          (#7=#:G237 NIL) (|urcRoot| NIL)
+          (#7=#:G236 NIL) (|urcRoot| NIL)
           (|urcRoots| (|List| (|RealClosure| (|Fraction| R))))
           (|urc| (|SparseUnivariatePolynomial| (|RealClosure| (|Fraction| R))))
-          (|lv| (|List| (|Symbol|))) (#8=#:G218 NIL)
-          (|qrc| (|Polynomial| (|RealClosure| (|Fraction| R)))) (#9=#:G235 NIL)
-          (|r| NIL) (#10=#:G236 NIL) (|v| NIL) (|lq2| #6#)
+          (|lv| (|List| (|Symbol|))) (#8=#:G217 NIL)
+          (|qrc| (|Polynomial| (|RealClosure| (|Fraction| R)))) (#9=#:G234 NIL)
+          (|r| NIL) (#10=#:G235 NIL) (|v| NIL) (|lq2| #6#)
           (|q2|
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
           (|toSave| (|List| (|List| (|RealClosure| (|Fraction| R)))))
@@ -538,7 +538,7 @@
                            (|NewSparseMultivariatePolynomial| R
                                                               (|OrderedVariableList|
                                                                |ls2|))))))
-          (#11=#:G234 NIL) (|sts| NIL) (#12=#:G233 NIL)
+          (#11=#:G233 NIL) (|sts| NIL) (#12=#:G232 NIL)
           (|lsts|
            (|List|
             (|SquareFreeRegularTriangularSet| R
@@ -549,12 +549,12 @@
                                                R
                                                (|OrderedVariableList|
                                                 |ls2|)))))
-          (#13=#:G232 NIL) (|ts| NIL) (|lts| (|List| (|RegularChain| R |ls|)))
+          (#13=#:G231 NIL) (|ts| NIL) (|lts| (|List| (|RegularChain| R |ls|)))
           (|lq|
            (|List|
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |ls|))))
-          (#14=#:G231 NIL) (#15=#:G230 NIL))
+          (#14=#:G230 NIL) (#15=#:G229 NIL))
          (SEQ
           (LETT |lq|
                 (PROGN
@@ -690,7 +690,7 @@
                                    (LETT #1#
                                          (|error|
                                           "realSolve$ZDSOLVE: bad result"))
-                                   (GO #16=#:G224)))))))
+                                   (GO #16=#:G223)))))))
                          #16# (EXIT #1#))
                         (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))))
                  (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))))
@@ -725,12 +725,12 @@
                                (|NewSparseMultivariatePolynomial| R
                                                                   (|OrderedVariableList|
                                                                    |ls2|)))))))
-          (#2=#:G265 NIL) (|urcRoot| NIL)
+          (#2=#:G264 NIL) (|urcRoot| NIL)
           (|urcRoots| (|List| (|RealClosure| (|Fraction| R))))
           (|urc| (|SparseUnivariatePolynomial| (|RealClosure| (|Fraction| R))))
-          (|lv| (|List| (|Symbol|))) (#3=#:G253 NIL)
-          (|qrc| (|Polynomial| (|RealClosure| (|Fraction| R)))) (#4=#:G263 NIL)
-          (|r| NIL) (#5=#:G264 NIL) (|v| NIL) (|lq2| #1#)
+          (|lv| (|List| (|Symbol|))) (#3=#:G252 NIL)
+          (|qrc| (|Polynomial| (|RealClosure| (|Fraction| R)))) (#4=#:G262 NIL)
+          (|r| NIL) (#5=#:G263 NIL) (|v| NIL) (|lq2| #1#)
           (|q2|
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
           (|toSave| (|List| (|List| (|RealClosure| (|Fraction| R)))))
@@ -743,7 +743,7 @@
                            (|NewSparseMultivariatePolynomial| R
                                                               (|OrderedVariableList|
                                                                |ls2|))))))
-          (#6=#:G262 NIL) (|sts| NIL) (#7=#:G261 NIL)
+          (#6=#:G261 NIL) (|sts| NIL) (#7=#:G260 NIL)
           (|lsts|
            (|List|
             (|SquareFreeRegularTriangularSet| R
@@ -850,12 +850,12 @@
                                (|NewSparseMultivariatePolynomial| R
                                                                   (|OrderedVariableList|
                                                                    |ls2|)))))))
-          (#2=#:G291 NIL) (|urcRoot| NIL)
+          (#2=#:G290 NIL) (|urcRoot| NIL)
           (|urcRoots| (|List| (|RealClosure| (|Fraction| R))))
           (|urc| (|SparseUnivariatePolynomial| (|RealClosure| (|Fraction| R))))
-          (|lv| (|List| (|Symbol|))) (#3=#:G276 NIL)
-          (|qrc| (|Polynomial| (|RealClosure| (|Fraction| R)))) (#4=#:G289 NIL)
-          (|r| NIL) (#5=#:G290 NIL) (|v| NIL) (|lq2| #1#)
+          (|lv| (|List| (|Symbol|))) (#3=#:G275 NIL)
+          (|qrc| (|Polynomial| (|RealClosure| (|Fraction| R)))) (#4=#:G288 NIL)
+          (|r| NIL) (#5=#:G289 NIL) (|v| NIL) (|lq2| #1#)
           (|q2|
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
           (|toSave| (|List| (|List| (|RealClosure| (|Fraction| R)))))
@@ -868,7 +868,7 @@
                            (|NewSparseMultivariatePolynomial| R
                                                               (|OrderedVariableList|
                                                                |ls2|))))))
-          (#6=#:G288 NIL) (|sts| NIL) (#7=#:G287 NIL)
+          (#6=#:G287 NIL) (|sts| NIL) (#7=#:G286 NIL)
           (|lsts|
            (|List|
             (|SquareFreeRegularTriangularSet| R
@@ -879,12 +879,12 @@
                                                R
                                                (|OrderedVariableList|
                                                 |ls2|)))))
-          (#8=#:G286 NIL) (|ts| NIL) (|lts| (|List| (|RegularChain| R |ls|)))
+          (#8=#:G285 NIL) (|ts| NIL) (|lts| (|List| (|RegularChain| R |ls|)))
           (|lq|
            (|List|
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |ls|))))
-          (#9=#:G285 NIL) (|p| NIL) (#10=#:G284 NIL))
+          (#9=#:G284 NIL) (|p| NIL) (#10=#:G283 NIL))
          (SEQ
           (LETT |lq|
                 (PROGN
@@ -1003,9 +1003,9 @@
            (|List|
             (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
                       (|:| |coordinates| (|List| (|Polynomial| R))))))
-          (|lc| (|List| (|Polynomial| R))) (#1=#:G310 NIL) (|q2| NIL)
-          (#2=#:G309 NIL) (|g| (|SparseUnivariatePolynomial| R))
-          (#3=#:G296 NIL) (#4=#:G308 NIL) (|us| NIL)
+          (|lc| (|List| (|Polynomial| R))) (#1=#:G309 NIL) (|q2| NIL)
+          (#2=#:G308 NIL) (|g| (|SparseUnivariatePolynomial| R))
+          (#3=#:G295 NIL) (#4=#:G307 NIL) (|us| NIL)
           (|lus|
            (|List|
             (|SquareFreeRegularTriangularSet| R
@@ -1016,7 +1016,7 @@
                                                R
                                                (|OrderedVariableList|
                                                 |ls2|)))))
-          (#5=#:G307 NIL) (|st| NIL)
+          (#5=#:G306 NIL) (|st| NIL)
           (|toSee|
            (|List|
             (|SquareFreeRegularTriangularSet| R
@@ -1103,14 +1103,14 @@
            (|List|
             (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
                       (|:| |coordinates| (|List| (|Polynomial| R))))))
-          (|lc| (|List| (|Polynomial| R))) (#1=#:G348 NIL) (|q2| NIL)
-          (#2=#:G347 NIL) (|g| (|SparseUnivariatePolynomial| R))
-          (#3=#:G328 NIL) (#4=#:G337 NIL)
+          (|lc| (|List| (|Polynomial| R))) (#1=#:G347 NIL) (|q2| NIL)
+          (#2=#:G346 NIL) (|g| (|SparseUnivariatePolynomial| R))
+          (#3=#:G327 NIL) (#4=#:G336 NIL)
           (|rems|
            (|List|
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |ls2|))))
-          (#5=#:G346 NIL) (#6=#:G345 NIL) (#7=#:G344 NIL) (|us| NIL)
+          (#5=#:G345 NIL) (#6=#:G344 NIL) (#7=#:G343 NIL) (|us| NIL)
           (|lus|
            (|List|
             (|SquareFreeRegularTriangularSet| R
@@ -1121,12 +1121,12 @@
                                                R
                                                (|OrderedVariableList|
                                                 |ls2|)))))
-          (#8=#:G343 NIL) (|st| NIL)
+          (#8=#:G342 NIL) (|st| NIL)
           (|lq2|
            (|List|
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |ls2|))))
-          (#9=#:G342 NIL) (|p| NIL) (#10=#:G341 NIL)
+          (#9=#:G341 NIL) (|p| NIL) (#10=#:G340 NIL)
           (|toSee|
            (|List|
             (|SquareFreeRegularTriangularSet| R
@@ -1137,12 +1137,12 @@
                                                R
                                                (|OrderedVariableList|
                                                 |ls2|)))))
-          (#11=#:G340 NIL) (|ts| NIL) (|lts| (|List| (|RegularChain| R |ls|)))
+          (#11=#:G339 NIL) (|ts| NIL) (|lts| (|List| (|RegularChain| R |ls|)))
           (|lq|
            (|List|
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |ls|))))
-          (#12=#:G339 NIL) (#13=#:G338 NIL))
+          (#12=#:G338 NIL) (#13=#:G337 NIL))
          (SEQ
           (LETT |lq|
                 (PROGN
@@ -1239,7 +1239,7 @@
                                            (EXIT
                                             (|error|
                                              "univariateSolve$ZDSOLVE: bad RUR"))))
-                                    (GO #14=#:G326)))))))
+                                    (GO #14=#:G325)))))))
                               #14# (EXIT #4#))))
                            (LETT |g|
                                  (SPADCALL
@@ -1313,9 +1313,9 @@
 
 (DECLAIM (NOTINLINE |ZeroDimensionalSolvePackage;|)) 
 
-(DEFUN |ZeroDimensionalSolvePackage| (&REST #1=#:G355)
+(DEFUN |ZeroDimensionalSolvePackage| (&REST #1=#:G354)
   (SPROG NIL
-         (PROG (#2=#:G356)
+         (PROG (#2=#:G355)
            (RETURN
             (COND
              ((LETT #2#
@@ -1336,7 +1336,7 @@
 
 (DEFUN |ZeroDimensionalSolvePackage;| (|#1| |#2| |#3|)
   (SPROG
-   ((#1=#:G133 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
+   ((#1=#:G132 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

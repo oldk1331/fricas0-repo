@@ -40,8 +40,8 @@
 
 (SDEFUN |TEX;display;$IV;6| ((|f| $) (|len| |Integer|) ($ |Void|))
         (SPROG
-         ((#1=#:G222 NIL) (|s| NIL) (#2=#:G221 NIL) (|t| NIL) (#3=#:G220 NIL)
-          (#4=#:G219 NIL))
+         ((#1=#:G221 NIL) (|s| NIL) (#2=#:G220 NIL) (|t| NIL) (#3=#:G219 NIL)
+          (#4=#:G218 NIL))
          (SEQ
           (SEQ (LETT |s| NIL) (LETT #4# (QVELT |f| 0)) G190
                (COND
@@ -106,8 +106,8 @@
 
 (SDEFUN |TEX;coerce;$Of;14| ((|f| $) ($ |OutputForm|))
         (SPROG
-         ((|l| (|List| (|String|))) (#1=#:G239 NIL) (|s| NIL) (#2=#:G238 NIL)
-          (|t| NIL) (#3=#:G237 NIL) (#4=#:G236 NIL))
+         ((|l| (|List| (|String|))) (#1=#:G238 NIL) (|s| NIL) (#2=#:G237 NIL)
+          (|t| NIL) (#3=#:G236 NIL) (#4=#:G235 NIL))
          (SEQ (LETT |l| NIL)
               (SEQ (LETT |s| NIL) (LETT #4# (QVELT |f| 0)) G190
                    (COND
@@ -165,7 +165,7 @@
 
 (SDEFUN |TEX;postcondition| ((|str| |String|) ($ |String|))
         (SPROG
-         ((#1=#:G252 NIL) (|i| NIL) (|minus| #2=(|Character|)) (|plus| #2#)
+         ((#1=#:G251 NIL) (|i| NIL) (|minus| #2=(|Character|)) (|plus| #2#)
           (|len| (|Integer|)))
          (SEQ (LETT |str| (|TEX;ungroup| |str| $)) (LETT |len| (QCSIZE |str|))
               (LETT |plus| (|STR_to_CHAR| "+"))
@@ -232,7 +232,7 @@
         (SPROG
          ((|l| (|List| (|String|))) (|s| (|String|)) (|ls| (|Integer|))
           (|ownLine| (|Boolean|)) (|u| (|UniversalSegment| (|Integer|)))
-          (|lss| (|Integer|)) (#1=#:G282 NIL) (|ss| NIL))
+          (|lss| (|Integer|)) (#1=#:G281 NIL) (|ss| NIL))
          (SEQ (LETT |l| NIL) (LETT |s| "") (LETT |ls| 0)
               (SEQ (LETT |ss| NIL)
                    (LETT #1#
@@ -325,7 +325,7 @@
         ((|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
          ((|narg2| #1=(|OutputForm|)) (|k| (|NonNegativeInteger|))
-          (#2=#:G299 NIL) (|j| NIL) (#3=#:G298 NIL) (|i| NIL)
+          (#2=#:G298 NIL) (|j| NIL) (#3=#:G297 NIL) (|i| NIL)
           (|res| (|String|)) (|n| (|NonNegativeInteger|))
           (|prime_str| (#4="\\prime")) (|c_char| (|Character|))
           (|arg2s| (|String|)) (|arg2| #1#))
@@ -398,8 +398,8 @@
          ($ |String|))
         (SPROG
          ((|tmp| (|String|)) (|prescript| (|Boolean|))
-          (|form| (|List| (|String|))) (#1=#:G351 NIL) (|u| NIL)
-          (#2=#:G350 NIL))
+          (|form| (|List| (|String|))) (#1=#:G350 NIL) (|u| NIL)
+          (#2=#:G349 NIL))
          (SEQ (LETT |prescript| NIL)
               (EXIT
                (COND ((EQUAL |op| '|theMap|) "\\mbox{theMap(...)}")
@@ -787,7 +787,7 @@
                        (EXIT (|TEX;group| |s| $))))))))) 
 
 (SDEFUN |TEX;formatMatrix| ((|args| |List| (|OutputForm|)) ($ |String|))
-        (SPROG ((|cols| (|String|)) (#1=#:G370 NIL) (|i| NIL))
+        (SPROG ((|cols| (|String|)) (#1=#:G369 NIL) (|i| NIL))
                (SEQ (LETT |cols| "{")
                     (SEQ (LETT |i| 1)
                          (LETT #1#
@@ -923,7 +923,7 @@
         ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
          (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G396 NIL) (|a| NIL)
+         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G395 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|ops| (|String|)) (|p| (|Integer|)))
          (SEQ
           (COND ((NULL |args|) "")
@@ -982,8 +982,8 @@
         (SPROG
          ((|op| (|Symbol|)) (|nargs| (|Integer|))
           (|args| (|List| (|OutputForm|))) (|opf| (|OutputForm|))
-          (|i| (|Integer|)) (|str| (|String|)) (|s| (|String|)) (#1=#:G436 NIL)
-          (#2=#:G435 NIL) (|u| (|UniversalSegment| (|Integer|)))
+          (|i| (|Integer|)) (|str| (|String|)) (|s| (|String|)) (#1=#:G435 NIL)
+          (#2=#:G434 NIL) (|u| (|UniversalSegment| (|Integer|)))
           (|nstr| (|String|)) (|len| (|Integer|)) (|intSplitLen| (|Integer|)))
          (SEQ (LETT |intSplitLen| 20)
               (EXIT
@@ -1216,7 +1216,7 @@
 
 (DEFUN |TexFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G438)
+         (PROG (#1=#:G437)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|TexFormat|))

@@ -7,7 +7,7 @@
          ($ |Union|
           (|Record| (|:| |fac1| R) (|:| |fac2| R) (|:| |commonfac| R))
           "failed"))
-        (SPROG ((|b1| (R)) (#1=#:G117 NIL) (|a1| (R)) (|cf| (R)))
+        (SPROG ((|b1| (R)) (#1=#:G116 NIL) (|a1| (R)) (|cf| (R)))
                (SEQ (LETT |cf| (SPADCALL |a| |b| (QREFELT $ 11)))
                     (EXIT
                      (COND ((SPADCALL |cf| (QREFELT $ 13)) (CONS 1 "failed"))
@@ -42,13 +42,13 @@
          ($ |Record| (|:| |basis| #1=(|Vector| R))
           (|:| |transform| #2=(|Matrix| (|Integer|)))))
         (SPROG
-         ((#3=#:G131 NIL) (|j| NIL) (#4=#:G130 NIL) (|i| NIL)
+         ((#3=#:G130 NIL) (|j| NIL) (#4=#:G129 NIL) (|i| NIL)
           (|ct| (|Matrix| (|Integer|))) (|m| (|NonNegativeInteger|))
           (|ct0| #2#) (|cb| #1#)
           (|pr|
            (|Record| (|:| |basis| (|Vector| R))
                      (|:| |transform| (|Matrix| (|Integer|)))))
-          (#5=#:G129 NIL) (|nv| (|Vector| R)) (|n| (|NonNegativeInteger|)))
+          (#5=#:G128 NIL) (|nv| (|Vector| R)) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (QVSIZE |v|))
               (LETT |nv| (MAKEARR1 (* 2 |n|) (|spadConstant| $ 16)))
               (SEQ (LETT |i| 1) (LETT #5# |n|) G190
@@ -91,25 +91,25 @@
          ($ |Record| (|:| |basis| #1=(|Vector| R))
           (|:| |transform| #2=(|Matrix| (|Integer|)))))
         (SPROG
-         ((#3=#:G178 NIL) (|i| NIL) (#4=#:G177 NIL)
-          (|nv| (|Vector| (|Integer|))) (|a| (R)) (#5=#:G176 NIL) (|l| NIL)
-          (#6=#:G175 NIL) (|m| (|NonNegativeInteger|))
-          (|firstAdded| (|Boolean|)) (|c| (|Integer|)) (#7=#:G174 NIL)
+         ((#3=#:G177 NIL) (|i| NIL) (#4=#:G176 NIL)
+          (|nv| (|Vector| (|Integer|))) (|a| (R)) (#5=#:G175 NIL) (|l| NIL)
+          (#6=#:G174 NIL) (|m| (|NonNegativeInteger|))
+          (|firstAdded| (|Boolean|)) (|c| (|Integer|)) (#7=#:G173 NIL)
           (|k| NIL) (|ov| (|Vector| (|Integer|)))
           (|n1| #8=(|NonNegativeInteger|)) (|ct1| #2#) (|cb1| #1#)
           (|dr1|
            (|Record| (|:| |basis| (|Vector| R))
                      (|:| |transform| (|Matrix| (|Integer|)))))
-          (#9=#:G173 NIL) (#10=#:G172 NIL) (#11=#:G171 NIL) (|cf| (R))
+          (#9=#:G172 NIL) (#10=#:G171 NIL) (#11=#:G170 NIL) (|cf| (R))
           (|b1| (R)) (|a1| (R))
           (|sr| (|Record| (|:| |fac1| R) (|:| |fac2| R) (|:| |commonfac| R)))
           (|sr1|
            (|Union|
             (|Record| (|:| |fac1| R) (|:| |fac2| R) (|:| |commonfac| R))
             "failed"))
-          (#12=#:G168 NIL) (|pquo| (|Union| R "failed")) (|b| (R))
-          (#13=#:G170 NIL) (|j| NIL) (|i0| (|NonNegativeInteger|))
-          (#14=#:G169 NIL) (|ct| (|FlexibleArray| (|Vector| (|Integer|))))
+          (#12=#:G167 NIL) (|pquo| (|Union| R "failed")) (|b| (R))
+          (#13=#:G169 NIL) (|j| NIL) (|i0| (|NonNegativeInteger|))
+          (#14=#:G168 NIL) (|ct| (|FlexibleArray| (|Vector| (|Integer|))))
           (|n| #8#) (|cb| (|FlexibleArray| R)))
          (SEQ (LETT |cb| (SPADCALL (QREFELT $ 30))) (LETT |n| (QVSIZE |v|))
               (LETT |ct| (SPADCALL (QREFELT $ 32)))
@@ -162,7 +162,7 @@
                                       ((SPADCALL |a| (QREFELT $ 13))
                                        (PROGN
                                         (LETT #12# |$NoValue|)
-                                        (GO #15=#:G161)))
+                                        (GO #15=#:G160)))
                                       ('T
                                        (SEQ
                                         (LETT |sr1|
@@ -623,9 +623,9 @@
 
 (DECLAIM (NOTINLINE |GcdBasis;|)) 
 
-(DEFUN |GcdBasis| (#1=#:G179)
+(DEFUN |GcdBasis| (#1=#:G178)
   (SPROG NIL
-         (PROG (#2=#:G180)
+         (PROG (#2=#:G179)
            (RETURN
             (COND
              ((LETT #2#

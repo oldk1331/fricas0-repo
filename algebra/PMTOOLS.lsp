@@ -1,8 +1,8 @@
 
 (SDEFUN |PMTOOLS;negConstant| ((|l| |List| P) ($ |Union| P "failed"))
         (SPROG
-         ((#1=#:G149 NIL) (#2=#:G150 NIL) (|r| (|Union| R "failed"))
-          (#3=#:G151 NIL) (|x| NIL))
+         ((#1=#:G148 NIL) (#2=#:G149 NIL) (|r| (|Union| R "failed"))
+          (#3=#:G150 NIL) (|x| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -23,8 +23,8 @@
                               (LETT #1#
                                     (PROGN
                                      (LETT #2# (CONS 0 |x|))
-                                     (GO #4=#:G148)))
-                              (GO #5=#:G146))))))))
+                                     (GO #4=#:G147)))
+                              (GO #5=#:G145))))))))
                    (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
              #5# (EXIT #1#))
             (EXIT (CONS 1 "failed"))))
@@ -42,7 +42,7 @@
                        (|:| |s| #3=(|List| P)))
           "failed"))
         (SPROG
-         ((|ls| #3#) (#4=#:G163 NIL) (|l| #2#) (|rec| #1#) (#5=#:G164 NIL)
+         ((|ls| #3#) (#4=#:G162 NIL) (|l| #2#) (|rec| #1#) (#5=#:G163 NIL)
           (|p| NIL))
          (SEQ
           (EXIT
@@ -57,7 +57,7 @@
                   (EXIT
                    (COND
                     ((SPADCALL (LETT |l| (QCAR |rec|)) (QREFELT $ 21))
-                     (PROGN (LETT #4# (CONS 1 "failed")) (GO #6=#:G162)))
+                     (PROGN (LETT #4# (CONS 1 "failed")) (GO #6=#:G161)))
                     ('T (LETT |ls| (QCDR |rec|))))))
                  (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |rec|))))
@@ -103,8 +103,8 @@
 
 (SDEFUN |PMTOOLS;patternMatchTimes;LLPmrMPmr;3!1| ((|l1| NIL) ($ NIL))
         (SPROG
-         ((#1=#:G180 NIL) (#2=#:G179 NIL) (#3=#:G181 NIL) (#4=#:G183 NIL)
-          (#5=#:G105 NIL))
+         ((#1=#:G179 NIL) (#2=#:G178 NIL) (#3=#:G180 NIL) (#4=#:G182 NIL)
+          (#5=#:G104 NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL)
@@ -122,8 +122,8 @@
 
 (SDEFUN |PMTOOLS;patternMatchTimes;LLPmrMPmr;3!0| ((|l1| NIL) ($ NIL))
         (SPROG
-         ((#1=#:G170 NIL) (#2=#:G169 NIL) (#3=#:G171 NIL) (#4=#:G173 NIL)
-          (#5=#:G104 NIL))
+         ((#1=#:G169 NIL) (#2=#:G168 NIL) (#3=#:G170 NIL) (#4=#:G172 NIL)
+          (#5=#:G103 NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL)
@@ -147,8 +147,8 @@
          ($ |Record| (|:| |res| (|PatternMatchResult| S P))
           (|:| |s| (|List| P))))
         (SPROG
-         ((|l1| (|PatternMatchResult| S P)) (|t| (P)) (#1=#:G199 NIL) (|x| NIL)
-          (#2=#:G198 NIL) (|bad| (|List| P)))
+         ((|l1| (|PatternMatchResult| S P)) (|t| (P)) (#1=#:G198 NIL) (|x| NIL)
+          (#2=#:G197 NIL) (|bad| (|List| P)))
          (SEQ
           (LETT |bad|
                 (COND
@@ -217,7 +217,7 @@
           (|Record| (|:| |pat| (|List| (|Pattern| S))) (|:| |s| (|List| P)))
           "failed"))
         (SPROG
-         ((#1=#:G223 NIL) (|rc| (|Union| (|List| P) "failed")) (#2=#:G224 NIL)
+         ((#1=#:G222 NIL) (|rc| (|Union| (|List| P) "failed")) (#2=#:G223 NIL)
           (|p| NIL))
          (SEQ
           (EXIT
@@ -229,7 +229,7 @@
                       (EXIT
                        (COND
                         ((QEQCAR |rc| 1)
-                         (PROGN (LETT #1# (CONS 1 "failed")) (GO #3=#:G222)))
+                         (PROGN (LETT #1# (CONS 1 "failed")) (GO #3=#:G221)))
                         ((NULL (NULL (QCDR |rc|)))
                          (SEQ (LETT |lp| (SPADCALL |p| |lp| (QREFELT $ 28)))
                               (EXIT
@@ -243,8 +243,8 @@
 (SDEFUN |PMTOOLS;selBestGen|
         ((|l| |List| (|Pattern| S)) ($ |List| (|Pattern| S)))
         (SPROG
-         ((#1=#:G229 NIL) (#2=#:G230 NIL) (|ans| (|List| (|Pattern| S)))
-          (#3=#:G231 NIL) (|p| NIL))
+         ((#1=#:G228 NIL) (#2=#:G229 NIL) (|ans| (|List| (|Pattern| S)))
+          (#3=#:G230 NIL) (|p| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ans| NIL)
@@ -266,8 +266,8 @@
                                     (LETT #1#
                                           (PROGN
                                            (LETT #2# |ans|)
-                                           (GO #4=#:G228)))
-                                    (GO #5=#:G225)))))))
+                                           (GO #4=#:G227)))
+                                    (GO #5=#:G224)))))))
                           #5# (EXIT #1#))))))
                      (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |ans|)))
@@ -293,7 +293,7 @@
             (|Record| (|:| |pat| (|List| (|Pattern| S))) (|:| |s| (|List| P)))
             "failed"))
           (|l4| #1=(|List| (|Pattern| S))) (|l3| (|List| (|Pattern| S)))
-          (|l2| #1#) (|l1| #1#) (|lpm| #1#) (#2=#:G322 NIL) (|ident| (P)))
+          (|l2| #1#) (|l1| #1#) (|lpm| #1#) (#2=#:G321 NIL) (|ident| (P)))
          (SEQ
           (EXIT
            (SEQ (LETT |ident| (SPADCALL NIL |op|))
@@ -301,7 +301,7 @@
                 (EXIT
                  (COND
                   ((QEQCAR |rc| 1)
-                   (PROGN (LETT #2# (SPADCALL (QREFELT $ 24))) (GO #3=#:G321)))
+                   (PROGN (LETT #2# (SPADCALL (QREFELT $ 24))) (GO #3=#:G320)))
                   (#4='T
                    (SEQ (LETT |lp| (QCAR (QCDR |rc|)))
                         (LETT |ls| (QCDR (QCDR |rc|)))
@@ -504,9 +504,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatchTools;|)) 
 
-(DEFUN |PatternMatchTools| (&REST #1=#:G323)
+(DEFUN |PatternMatchTools| (&REST #1=#:G322)
   (SPROG NIL
-         (PROG (#2=#:G324)
+         (PROG (#2=#:G323)
            (RETURN
             (COND
              ((LETT #2#

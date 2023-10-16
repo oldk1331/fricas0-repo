@@ -54,7 +54,7 @@
         ((B M) (A M) (|nr| |NonNegativeInteger|) (|nc| |NonNegativeInteger|)
          (|n| |Integer|) ($ |Void|))
         (SPROG
-         ((#1=#:G124 NIL) (|i| NIL) (|sc| (|Integer|)) (|sr| (|Integer|))
+         ((#1=#:G123 NIL) (|i| NIL) (|sc| (|Integer|)) (|sr| (|Integer|))
           (|dl| (|Integer|)))
          (SEQ
           (COND
@@ -99,7 +99,7 @@
 
 (SDEFUN |MAMA;bandMatrix;MLM;11| ((A M) (|ln| |List| (|Integer|)) ($ M))
         (SPROG
-         ((#1=#:G131 NIL) (|n| NIL) (B (M)) (|nc| (|NonNegativeInteger|))
+         ((#1=#:G130 NIL) (|n| NIL) (B (M)) (|nc| (|NonNegativeInteger|))
           (|nr| (|NonNegativeInteger|)))
          (SEQ (LETT |nr| (SPADCALL A (QREFELT $ 29)))
               (LETT |nc| (SPADCALL A (QREFELT $ 17)))
@@ -119,8 +119,8 @@
 (SDEFUN |MAMA;subMatrix;M2LM;13|
         ((A M) (|lr| |List| (|Integer|)) (|lc| |List| (|Integer|)) ($ M))
         (SPROG
-         ((#1=#:G139 NIL) (|j| NIL) (#2=#:G140 NIL) (|jj| NIL) (#3=#:G137 NIL)
-          (|i| NIL) (#4=#:G138 NIL) (|ii| NIL) (|res| (M)) (|minC| (|Integer|))
+         ((#1=#:G138 NIL) (|j| NIL) (#2=#:G139 NIL) (|jj| NIL) (#3=#:G136 NIL)
+          (|i| NIL) (#4=#:G137 NIL) (|ii| NIL) (|res| (M)) (|minC| (|Integer|))
           (|minR| (|Integer|)) (|m| #5=(|NonNegativeInteger|)) (|n| #5#))
          (SEQ (LETT |n| (LENGTH |lr|)) (LETT |m| (LENGTH |lc|))
               (LETT |minR| (SPADCALL A (QREFELT $ 26)))
@@ -162,7 +162,7 @@
 (SDEFUN |MAMA;blockSplit;MLPiL;15|
         ((A M) (|lr| |List| (|NonNegativeInteger|)) (|nc| |PositiveInteger|)
          ($ |List| (|List| M)))
-        (SPROG ((#1=#:G145 NIL) (X NIL) (#2=#:G144 NIL))
+        (SPROG ((#1=#:G144 NIL) (X NIL) (#2=#:G143 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -181,7 +181,7 @@
 (SDEFUN |MAMA;blockSplit;MPiLL;16|
         ((A M) (|nr| |PositiveInteger|) (|lc| |List| (|NonNegativeInteger|))
          ($ |List| (|List| M)))
-        (SPROG ((#1=#:G149 NIL) (X NIL) (#2=#:G148 NIL))
+        (SPROG ((#1=#:G148 NIL) (X NIL) (#2=#:G147 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -199,9 +199,9 @@
 
 (DECLAIM (NOTINLINE |MatrixManipulation;|)) 
 
-(DEFUN |MatrixManipulation| (&REST #1=#:G150)
+(DEFUN |MatrixManipulation| (&REST #1=#:G149)
   (SPROG NIL
-         (PROG (#2=#:G151)
+         (PROG (#2=#:G150)
            (RETURN
             (COND
              ((LETT #2#

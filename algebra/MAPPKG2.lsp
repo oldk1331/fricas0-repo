@@ -34,9 +34,9 @@
 
 (DECLAIM (NOTINLINE |MappingPackage2;|)) 
 
-(DEFUN |MappingPackage2| (&REST #1=#:G115)
+(DEFUN |MappingPackage2| (&REST #1=#:G114)
   (SPROG NIL
-         (PROG (#2=#:G116)
+         (PROG (#2=#:G115)
            (RETURN
             (COND
              ((LETT #2#

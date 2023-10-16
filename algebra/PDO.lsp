@@ -2,7 +2,7 @@
 (SDEFUN |PDO;adjoint;2$;1| ((|x| $) ($ $))
         (SPROG
          ((|xu| (|Sup|)) (|res| ($)) (|sign| ($)) (|d| (|NonNegativeInteger|))
-          (|v| (|Var|)) (#1=#:G113 NIL))
+          (|v| (|Var|)) (#1=#:G112 NIL))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT $ 15)) |x|)
                 ('T
@@ -45,9 +45,9 @@
 
 (DECLAIM (NOTINLINE |PartialDifferentialOperator;|)) 
 
-(DEFUN |PartialDifferentialOperator| (&REST #1=#:G141)
+(DEFUN |PartialDifferentialOperator| (&REST #1=#:G140)
   (SPROG NIL
-         (PROG (#2=#:G142)
+         (PROG (#2=#:G141)
            (RETURN
             (COND
              ((LETT #2#
@@ -68,7 +68,7 @@
 
 (DEFUN |PartialDifferentialOperator;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G138 NIL) (#2=#:G139 NIL) (#3=#:G140 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G137 NIL) (#2=#:G138 NIL) (#3=#:G139 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

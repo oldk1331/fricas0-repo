@@ -1,6 +1,6 @@
 
 (SDEFUN |PSETPK;removeAssociates| ((|lp| |List| P) ($ |List| P))
-        (SPROG ((#1=#:G213 NIL) (|p| NIL) (#2=#:G212 NIL))
+        (SPROG ((#1=#:G212 NIL) (|p| NIL) (#2=#:G211 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -188,7 +188,7 @@
 (SDEFUN |PSETPK;removeRoughlyRedundantFactorsInPols;2LBL;12|
         ((|lp| |List| P) (|lf| |List| P) (|opt| |Boolean|) ($ |List| P))
         (SPROG
-         ((|newlp| (|List| P)) (|stop| (|Boolean|)) (|p| (P)) (#1=#:G284 NIL)
+         ((|newlp| (|List| P)) (|stop| (|Boolean|)) (|p| (P)) (#1=#:G283 NIL)
           (|test| (|Union| P "failed")) (|copylf| (|List| P)) (|f| (P)))
          (SEQ
           (COND ((NULL |lp|) |lp|)
@@ -330,7 +330,7 @@
 
 (SDEFUN |PSETPK;interReduce;2L;18| ((|lp| |List| P) ($ |List| P))
         (SPROG
-         ((|rs| (|List| P)) (|ps| (|List| P)) (#1=#:G327 NIL) (|r| (P))
+         ((|rs| (|List| P)) (|ps| (|List| P)) (#1=#:G326 NIL) (|r| (P))
           (|p| (P)))
          (SEQ
           (EXIT
@@ -340,7 +340,7 @@
                       (SEQ
                        (EXIT
                         (COND
-                         ((NULL |ps|) (PROGN (LETT #1# |rs|) (GO #2=#:G326)))
+                         ((NULL |ps|) (PROGN (LETT #1# |rs|) (GO #2=#:G325)))
                          ('T
                           (SEQ
                            (LETT |ps|
@@ -420,7 +420,7 @@
 
 (SDEFUN |PSETPK;crushedSet;2L;22| ((|lp| |List| P) ($ |List| P))
         (SPROG
-         ((|finished| #1=(|Boolean|)) (#2=#:G356 NIL) (|contradiction| #1#)
+         ((|finished| #1=(|Boolean|)) (#2=#:G355 NIL) (|contradiction| #1#)
           (|rec|
            (|Union|
             (|Record| (|:| |bas| #3=(|GeneralTriangularSet| R E V P))
@@ -543,11 +543,11 @@
          (|redOp?| |Mapping| (|Boolean|) P P) (|redOp| |Mapping| P P P)
          ($ |List| P))
         (SPROG
-         ((|rs| (|List| P)) (|contradiction| #1=(|Boolean|)) (#2=#:G373 NIL)
+         ((|rs| (|List| P)) (|contradiction| #1=(|Boolean|)) (#2=#:G372 NIL)
           (|stop| #1#) (|bs1| (|GeneralTriangularSet| R E V P))
-          (|bs2| (|GeneralTriangularSet| R E V P)) (#3=#:G372 NIL)
+          (|bs2| (|GeneralTriangularSet| R E V P)) (#3=#:G371 NIL)
           (|ar| (|Union| (|GeneralTriangularSet| R E V P) (|List| P)))
-          (#4=#:G369 NIL)
+          (#4=#:G368 NIL)
           (|rec|
            (|Union|
             (|Record| (|:| |bas| (|GeneralTriangularSet| R E V P))
@@ -703,8 +703,8 @@
 
 (SDEFUN |PSETPK;irreducibleFactors;2L;26| ((|lp| |List| P) ($ |List| P))
         (SPROG
-         ((|newlp| (|List| P)) (|lf| (|List| P)) (#1=#:G410 NIL) (|rrz| NIL)
-          (#2=#:G409 NIL)
+         ((|newlp| (|List| P)) (|lf| (|List| P)) (#1=#:G409 NIL) (|rrz| NIL)
+          (#2=#:G408 NIL)
           (|lrrz|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -744,8 +744,8 @@
 
 (SDEFUN |PSETPK;lazyIrreducibleFactors;2L;27| ((|lp| |List| P) ($ |List| P))
         (SPROG
-         ((|newlp| (|List| P)) (|lf| (|List| P)) (#1=#:G420 NIL) (|rrz| NIL)
-          (#2=#:G419 NIL)
+         ((|newlp| (|List| P)) (|lf| (|List| P)) (#1=#:G419 NIL) (|rrz| NIL)
+          (#2=#:G418 NIL)
           (|lrrz|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -793,7 +793,7 @@
 
 (SDEFUN |PSETPK;squareFreeFactors;PL;29| ((|p| P) ($ |List| P))
         (SPROG
-         ((|lsf| (|List| P)) (#1=#:G430 NIL) (|foo| NIL) (#2=#:G429 NIL)
+         ((|lsf| (|List| P)) (#1=#:G429 NIL) (|foo| NIL) (#2=#:G428 NIL)
           (|sfp| (|Factored| P)))
          (SEQ (LETT |sfp| (SPADCALL |p| (QREFELT $ 101)))
               (LETT |lsf|
@@ -864,7 +864,7 @@
         (SPADCALL |ps| NIL (QREFELT $ 105))) 
 
 (SDEFUN |PSETPK;removeSquaresIfCan;2L;32| ((|lp| |List| P) ($ |List| P))
-        (SPROG ((#1=#:G451 NIL) (|p| NIL) (#2=#:G450 NIL))
+        (SPROG ((#1=#:G450 NIL) (|p| NIL) (#2=#:G449 NIL))
                (SEQ
                 (COND ((NULL |lp|) |lp|)
                       ('T
@@ -902,9 +902,9 @@
 (SDEFUN |PSETPK;removeRoughlyRedundantFactorsInContents;3L;34|
         ((|ps| |List| P) (|lf| |List| P) ($ |List| P))
         (SPROG
-         ((|newps| (|List| P)) (|newp| (P)) (|newcp| (P)) (#1=#:G460 NIL)
+         ((|newps| (|List| P)) (|newp| (P)) (|newcp| (P)) (#1=#:G459 NIL)
           (|test| (|Union| P "failed")) (|copylf| (|List| P)) (|f| (P))
-          (#2=#:G477 NIL) (#3=#:G476 NIL) (|cp| (P)) (|p| (P)))
+          (#2=#:G476 NIL) (#3=#:G475 NIL) (|cp| (P)) (|p| (P)))
          (SEQ
           (COND ((NULL |ps|) |ps|)
                 ('T
@@ -998,7 +998,7 @@
 (SDEFUN |PSETPK;removeRedundantFactorsInContents;3L;35|
         ((|ps| |List| P) (|lf| . #1=(|List| P)) ($ |List| P))
         (SPROG
-         ((|newps| (|List| P)) (|newp| (P)) (|newcp| (P)) (#2=#:G480 NIL)
+         ((|newps| (|List| P)) (|newp| (P)) (|newcp| (P)) (#2=#:G479 NIL)
           (|g| (P)) (|copylf| #1#) (|f| (P)) (|cp| (P)) (|p| (P)))
          (SEQ
           (COND ((NULL |ps|) |ps|)
@@ -1077,7 +1077,7 @@
 (SDEFUN |PSETPK;removeRedundantFactorsInPols;3L;36|
         ((|ps| |List| P) (|lf| . #1=(|List| P)) ($ |List| P))
         (SPROG
-         ((|newps| (|List| P)) (|newp| (P)) (#2=#:G496 NIL) (|g| (P))
+         ((|newps| (|List| P)) (|newp| (P)) (#2=#:G495 NIL) (|g| (P))
           (|newcp| (P)) (|copylf| #1#) (|f| (P)) (|cp| (P)) (|p| (P)))
          (SEQ
           (COND ((NULL |ps|) |ps|)
@@ -1175,7 +1175,7 @@
                       (EXIT |newps|))))))) 
 
 (SDEFUN |PSETPK;removeRedundantFactors;2PL;37| ((|a| P) (|b| P) ($ |List| P))
-        (SPROG ((#1=#:G515 NIL) (|#G88| (P)) (|#G87| (P)))
+        (SPROG ((#1=#:G514 NIL) (|#G88| (P)) (|#G87| (P)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1197,7 +1197,7 @@
                     ((SPADCALL |a| (QREFELT $ 23))
                      (COND
                       ((SPADCALL |b| (QREFELT $ 23))
-                       (PROGN (LETT #1# NIL) (GO #2=#:G514)))
+                       (PROGN (LETT #1# NIL) (GO #2=#:G513)))
                       (#3='T (PROGN (LETT #1# (LIST |b|)) (GO #2#)))))
                     ((SPADCALL |b| (QREFELT $ 23))
                      (PROGN (LETT #1# (LIST |a|)) (GO #2#)))
@@ -1210,7 +1210,7 @@
 (SDEFUN |PSETPK;unprotectedRemoveRedundantFactors;2PL;38|
         ((|a| P) (|b| P) ($ |List| P))
         (SPROG
-         ((#1=#:G523 NIL) (#2=#:G517 NIL) (|g| (P)) (|d| (P))
+         ((#1=#:G522 NIL) (#2=#:G516 NIL) (|g| (P)) (|d| (P))
           (|c| (|Union| P #3="failed")))
          (SEQ
           (EXIT
@@ -1227,7 +1227,7 @@
                     (EXIT
                      (COND
                       ((SPADCALL |d| (QREFELT $ 23))
-                       (PROGN (LETT #1# (LIST |a|)) (GO #4=#:G522)))
+                       (PROGN (LETT #1# (LIST |a|)) (GO #4=#:G521)))
                       (#5='T (PROGN (LETT #1# (LIST |a| |d|)) (GO #4#)))))))
                   (#5#
                    (SEQ (LETT |g| (SPADCALL |a| |b| (QREFELT $ 114)))
@@ -1272,7 +1272,7 @@
         (SPADCALL |ps| (ELT $ 40) |redOp?| |redOp| (QREFELT $ 85))) 
 
 (SDEFUN |PSETPK;removeRedundantFactors;2PL;41| ((|a| P) (|b| P) ($ |List| P))
-        (SPROG ((#1=#:G536 NIL) (|#G98| (P)) (|#G97| (P)))
+        (SPROG ((#1=#:G535 NIL) (|#G98| (P)) (|#G97| (P)))
                (SEQ
                 (EXIT
                  (SEQ (LETT |a| (SPADCALL |a| (QREFELT $ 10)))
@@ -1289,7 +1289,7 @@
                         ((SPADCALL |a| (QREFELT $ 23))
                          (COND
                           ((SPADCALL |b| (QREFELT $ 23))
-                           (PROGN (LETT #1# NIL) (GO #2=#:G535)))
+                           (PROGN (LETT #1# NIL) (GO #2=#:G534)))
                           (#3='T (PROGN (LETT #1# (LIST |b|)) (GO #2#)))))
                         ((SPADCALL |b| (QREFELT $ 23))
                          (PROGN (LETT #1# (LIST |a|)) (GO #2#)))
@@ -1302,7 +1302,7 @@
 (SDEFUN |PSETPK;unprotectedRemoveRedundantFactors;2PL;42|
         ((|a| P) (|b| P) ($ |List| P))
         (SPROG
-         ((#1=#:G545 NIL) (|d| (P)) (|#G102| (P)) (|#G101| (P)) (#2=#:G538 NIL)
+         ((#1=#:G544 NIL) (|d| (P)) (|#G102| (P)) (|#G101| (P)) (#2=#:G537 NIL)
           (|c| (|Union| P #3="failed")))
          (SEQ
           (EXIT
@@ -1319,7 +1319,7 @@
                     (EXIT
                      (COND
                       ((SPADCALL |d| (QREFELT $ 23))
-                       (PROGN (LETT #1# (LIST |a|)) (GO #4=#:G544)))
+                       (PROGN (LETT #1# (LIST |a|)) (GO #4=#:G543)))
                       (#5='T
                        (SEQ
                         (COND
@@ -1338,8 +1338,8 @@
 
 (SDEFUN |PSETPK;removeRedundantFactors;2L;43| ((|lp| |List| P) ($ |List| P))
         (SPROG
-         ((|top| (|List| P)) (|base| (|List| P)) (|p| (P)) (#1=#:G561 NIL)
-          (#2=#:G560 NIL) (#3=#:G559 NIL) (#4=#:G558 NIL))
+         ((|top| (|List| P)) (|base| (|List| P)) (|p| (P)) (#1=#:G560 NIL)
+          (#2=#:G559 NIL) (#3=#:G558 NIL) (#4=#:G557 NIL))
          (SEQ (LETT |lp| (SPADCALL (ELT $ 23) |lp| (QREFELT $ 43)))
               (LETT |lp|
                     (SPADCALL
@@ -1522,9 +1522,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialSetUtilitiesPackage;|)) 
 
-(DEFUN |PolynomialSetUtilitiesPackage| (&REST #1=#:G588)
+(DEFUN |PolynomialSetUtilitiesPackage| (&REST #1=#:G587)
   (SPROG NIL
-         (PROG (#2=#:G589)
+         (PROG (#2=#:G588)
            (RETURN
             (COND
              ((LETT #2#

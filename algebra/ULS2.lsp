@@ -9,9 +9,9 @@
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeriesFunctions2;|)) 
 
-(DEFUN |UnivariateLaurentSeriesFunctions2| (&REST #1=#:G106)
+(DEFUN |UnivariateLaurentSeriesFunctions2| (&REST #1=#:G105)
   (SPROG NIL
-         (PROG (#2=#:G107)
+         (PROG (#2=#:G106)
            (RETURN
             (COND
              ((LETT #2#

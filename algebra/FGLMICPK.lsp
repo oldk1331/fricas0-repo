@@ -4,9 +4,9 @@
          ($ |Boolean|))
         (SPROG
          ((|lv| (|List| (|OrderedVariableList| |ls|)))
-          (|x| (|OrderedVariableList| |ls|)) (#1=#:G111 NIL)
+          (|x| (|OrderedVariableList| |ls|)) (#1=#:G110 NIL)
           (|m| (|HomogeneousDistributedMultivariatePolynomial| |ls| R))
-          (#2=#:G123 NIL) (|q2| NIL) (#3=#:G122 NIL) (|s| NIL) (#4=#:G121 NIL))
+          (#2=#:G122 NIL) (|q2| NIL) (#3=#:G121 NIL) (|s| NIL) (#4=#:G120 NIL))
          (SEQ (LETT |lq2| (SPADCALL |lq2| (QREFELT $ 10)))
               (EXIT
                (COND
@@ -75,7 +75,7 @@
         (SPROG
          ((|lq2|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |ls| R)))
-          (#1=#:G128 NIL) (|q1| NIL) (#2=#:G127 NIL))
+          (#1=#:G127 NIL) (|q1| NIL) (#2=#:G126 NIL))
          (SEQ
           (LETT |lq2|
                 (PROGN
@@ -95,11 +95,11 @@
         ((|lq1| |List| (|Polynomial| R))
          ($ |Union| (|List| (|Polynomial| R)) "failed"))
         (SPROG
-         ((#1=#:G143 NIL) (|q3| NIL) (#2=#:G142 NIL)
+         ((#1=#:G142 NIL) (|q3| NIL) (#2=#:G141 NIL)
           (|lq3| (|List| (|DistributedMultivariatePolynomial| |ls| R)))
           (|lq2|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |ls| R)))
-          (#3=#:G141 NIL) (|q1| NIL) (#4=#:G140 NIL))
+          (#3=#:G140 NIL) (|q1| NIL) (#4=#:G139 NIL))
          (SEQ
           (LETT |lq2|
                 (PROGN
@@ -134,13 +134,13 @@
 (SDEFUN |FGLMICPK;groebner;2L;4|
         ((|lq1| |List| (|Polynomial| R)) ($ |List| (|Polynomial| R)))
         (SPROG
-         ((#1=#:G159 NIL) (|q3| NIL) (#2=#:G158 NIL)
+         ((#1=#:G158 NIL) (|q3| NIL) (#2=#:G157 NIL)
           (|lq3| (|List| (|DistributedMultivariatePolynomial| |ls| R)))
-          (#3=#:G157 NIL) (#4=#:G156 NIL) (#5=#:G155 NIL) (|q1| NIL)
-          (#6=#:G154 NIL)
+          (#3=#:G156 NIL) (#4=#:G155 NIL) (#5=#:G154 NIL) (|q1| NIL)
+          (#6=#:G153 NIL)
           (|lq2|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |ls| R)))
-          (#7=#:G153 NIL) (#8=#:G152 NIL))
+          (#7=#:G152 NIL) (#8=#:G151 NIL))
          (SEQ
           (LETT |lq2|
                 (PROGN
@@ -199,9 +199,9 @@
 
 (DECLAIM (NOTINLINE |FGLMIfCanPackage;|)) 
 
-(DEFUN |FGLMIfCanPackage| (&REST #1=#:G160)
+(DEFUN |FGLMIfCanPackage| (&REST #1=#:G159)
   (SPROG NIL
-         (PROG (#2=#:G161)
+         (PROG (#2=#:G160)
            (RETURN
             (COND
              ((LETT #2#

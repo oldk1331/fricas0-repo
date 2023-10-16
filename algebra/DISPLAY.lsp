@@ -103,7 +103,7 @@
 (SDEFUN |DISPLAY;sayLength;SI;10| ((|s| |String|) ($ |Integer|)) (QCSIZE |s|)) 
 
 (SDEFUN |DISPLAY;sayLength;LI;11| ((|l| |List| (|String|)) ($ |Integer|))
-        (SPROG ((|sum| (|Integer|)) (#1=#:G127 NIL) (|s| NIL))
+        (SPROG ((|sum| (|Integer|)) (#1=#:G126 NIL) (|s| NIL))
                (SEQ (LETT |sum| 0)
                     (SEQ (LETT |s| NIL) (LETT #1# |l|) G190
                          (COND
@@ -126,7 +126,7 @@
 
 (DEFUN |DisplayPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G129)
+         (PROG (#1=#:G128)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|DisplayPackage|))

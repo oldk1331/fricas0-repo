@@ -8,7 +8,7 @@
                          (QREFELT $ 15))))) 
 
 (SDEFUN |FLAGG2;map;MAB;2| ((|f| |Mapping| R S) (|l| A) ($ B))
-        (SPROG ((#1=#:G116 NIL) (|s| NIL) (#2=#:G115 NIL))
+        (SPROG ((#1=#:G115 NIL) (|s| NIL) (#2=#:G114 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -40,7 +40,7 @@
 
 (SDEFUN |FLAGG2;map;MAB;4| ((|f| |Mapping| R S) (|l| A) ($ B))
         (SPROG
-         ((|i| (|Integer|)) (#1=#:G127 NIL) (|a| NIL) (|w| (B))
+         ((|i| (|Integer|)) (#1=#:G126 NIL) (|a| NIL) (|w| (B))
           (|l1| (|List| S)))
          (SEQ
           (COND ((SPADCALL |l| (QREFELT $ 11)) (SPADCALL (QREFELT $ 22)))
@@ -69,7 +69,7 @@
 
 (SDEFUN |FLAGG2;scan;MARB;5| ((|fn| |Mapping| R S R) (|l| A) (|ident| R) ($ B))
         (SPROG
-         ((|i| (|Integer|)) (|vl| (R)) (#1=#:G133 NIL) (|a| NIL) (|w| (B))
+         ((|i| (|Integer|)) (|vl| (R)) (#1=#:G132 NIL) (|a| NIL) (|w| (B))
           (|l1| (|List| S)))
          (SEQ
           (COND ((SPADCALL |l| (QREFELT $ 11)) (SPADCALL (QREFELT $ 22)))
@@ -98,7 +98,7 @@
                       (EXIT |w|))))))) 
 
 (SDEFUN |FLAGG2;map;MAB;6| ((|f| |Mapping| R S) (|l| A) ($ B))
-        (SPROG ((#1=#:G137 NIL) (|s| NIL) (#2=#:G136 NIL))
+        (SPROG ((#1=#:G136 NIL) (|s| NIL) (#2=#:G135 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -130,7 +130,7 @@
 
 (SDEFUN |FLAGG2;reduce;MA2R;8|
         ((|fn| |Mapping| R S R) (|v| A) (|ident| R) ($ R))
-        (SPROG ((|val| (R)) (#1=#:G146 NIL) (|i| NIL))
+        (SPROG ((|val| (R)) (#1=#:G145 NIL) (|i| NIL))
                (SEQ (LETT |val| |ident|)
                     (SEQ (LETT |i| (SPADCALL |v| (QREFELT $ 30)))
                          (LETT #1# (SPADCALL |v| (QREFELT $ 31))) G190
@@ -144,7 +144,7 @@
                     (EXIT |val|)))) 
 
 (SDEFUN |FLAGG2;map;MAB;9| ((|f| |Mapping| R S) (|v| A) ($ B))
-        (SPROG ((#1=#:G150 NIL) (|i| NIL) (#2=#:G149 NIL))
+        (SPROG ((#1=#:G149 NIL) (|i| NIL) (#2=#:G148 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -165,7 +165,7 @@
 
 (SDEFUN |FLAGG2;scan;MARB;10|
         ((|fn| |Mapping| R S R) (|v| A) (|ident| R) ($ B))
-        (SPROG ((|w| (B)) (#1=#:G155 NIL) (|i| NIL))
+        (SPROG ((|w| (B)) (#1=#:G154 NIL) (|i| NIL))
                (SEQ (LETT |w| (SPADCALL (QREFELT $ 22)))
                     (SEQ (LETT |i| (SPADCALL |v| (QREFELT $ 30)))
                          (LETT #1# (SPADCALL |v| (QREFELT $ 31))) G190
@@ -181,7 +181,7 @@
 
 (SDEFUN |FLAGG2;map;MAB;11| ((|f| |Mapping| R S) (|v| A) ($ B))
         (SPROG
-         ((#1=#:G160 NIL) (|i| NIL) (|w| (B)) (|i0| (|Integer|))
+         ((#1=#:G159 NIL) (|i| NIL) (|w| (B)) (|i0| (|Integer|))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (SPADCALL |v| (QREFELT $ 34)))
               (EXIT
@@ -210,7 +210,7 @@
 (SDEFUN |FLAGG2;scan;MARB;12|
         ((|fn| |Mapping| R S R) (|v| A) (|ident| R) ($ B))
         (SPROG
-         ((|vl| (R)) (#1=#:G165 NIL) (|i| NIL) (|w| (B)) (|i0| (|Integer|))
+         ((|vl| (R)) (#1=#:G164 NIL) (|i| NIL) (|w| (B)) (|i0| (|Integer|))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (SPADCALL |v| (QREFELT $ 34)))
               (EXIT
@@ -239,7 +239,7 @@
                            (EXIT |w|)))))))) 
 
 (SDEFUN |FLAGG2;map;MAB;13| ((|f| |Mapping| R S) (|v| A) ($ B))
-        (SPROG ((#1=#:G169 NIL) (|i| NIL) (#2=#:G168 NIL))
+        (SPROG ((#1=#:G168 NIL) (|i| NIL) (#2=#:G167 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -260,7 +260,7 @@
 
 (SDEFUN |FLAGG2;scan;MARB;14|
         ((|fn| |Mapping| R S R) (|v| A) (|ident| R) ($ B))
-        (SPROG ((|w| (B)) (#1=#:G174 NIL) (|i| NIL))
+        (SPROG ((|w| (B)) (#1=#:G173 NIL) (|i| NIL))
                (SEQ (LETT |w| (SPADCALL (QREFELT $ 22)))
                     (SEQ (LETT |i| (SPADCALL |v| (QREFELT $ 30)))
                          (LETT #1# (SPADCALL |v| (QREFELT $ 31))) G190
@@ -276,9 +276,9 @@
 
 (DECLAIM (NOTINLINE |FiniteLinearAggregateFunctions2;|)) 
 
-(DEFUN |FiniteLinearAggregateFunctions2| (&REST #1=#:G175)
+(DEFUN |FiniteLinearAggregateFunctions2| (&REST #1=#:G174)
   (SPROG NIL
-         (PROG (#2=#:G176)
+         (PROG (#2=#:G175)
            (RETURN
             (COND
              ((LETT #2#

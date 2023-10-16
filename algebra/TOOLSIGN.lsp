@@ -40,9 +40,9 @@
 
 (DECLAIM (NOTINLINE |ToolsForSign;|)) 
 
-(DEFUN |ToolsForSign| (#1=#:G134)
+(DEFUN |ToolsForSign| (#1=#:G133)
   (SPROG NIL
-         (PROG (#2=#:G135)
+         (PROG (#2=#:G134)
            (RETURN
             (COND
              ((LETT #2#

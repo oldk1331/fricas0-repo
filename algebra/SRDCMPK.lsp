@@ -3,7 +3,7 @@
         ((|lp| |List| P) (|lts| |List| TS) ($ |NonNegativeInteger|))
         (SPROG
          ((|n| (|NonNegativeInteger|)) (|ln| (|List| (|NonNegativeInteger|)))
-          (#1=#:G151 NIL) (|ts| NIL) (#2=#:G150 NIL))
+          (#1=#:G150 NIL) (|ts| NIL) (#2=#:G149 NIL))
          (SEQ
           (LETT |ln|
                 (PROGN
@@ -24,7 +24,7 @@
 
 (SDEFUN |SRDCMPK;numberOfVariables;LLNni;2|
         ((|lp| |List| P) (|lts| |List| TS) ($ |NonNegativeInteger|))
-        (SPROG ((|lv| (|List| V)) (#1=#:G155 NIL) (|ts| NIL))
+        (SPROG ((|lv| (|List| V)) (#1=#:G154 NIL) (|ts| NIL))
                (SEQ
                 (LETT |lv|
                       (SPADCALL (SPADCALL |lp| (QREFELT $ 21)) (QREFELT $ 23)))
@@ -46,13 +46,13 @@
           (|:| |todo|
                (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))))
         (SPROG
-         ((#1=#:G176 NIL) (|lts| (|List| TS))
+         ((#1=#:G175 NIL) (|lts| (|List| TS))
           (|llpwt| (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
-          (#2=#:G179 NIL) (|vs| NIL) (#3=#:G178 NIL) (|f| NIL)
+          (#2=#:G178 NIL) (|vs| NIL) (#3=#:G177 NIL) (|f| NIL)
           (|lsfp| (|List| P)) (|lus| (|List| TS)) (|h| (P)) (|us| (TS))
-          (|g| (P)) (#4=#:G177 NIL) (|gwt| NIL)
+          (|g| (P)) (#4=#:G176 NIL) (|gwt| NIL)
           (|lgwt| (|List| (|Record| (|:| |val| P) (|:| |tower| TS))))
-          (|ts_v| (P)) (#5=#:G158 NIL) (|ts_v+| (TS)) (|ts_v-| (TS))
+          (|ts_v| (P)) (#5=#:G157 NIL) (|ts_v+| (TS)) (|ts_v-| (TS))
           (|n| (|NonNegativeInteger|)) (|v| (V)))
          (SEQ
           (COND
@@ -152,7 +152,7 @@
                                                                             44))
                                                          (QREFELT $ 45))
                                                         |lts| (QREFELT $ 49))))
-                                           (GO #7=#:G166)))))
+                                           (GO #7=#:G165)))))
                                        #7# (EXIT #1#))))))))))
                       (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                  (EXIT (CONS |lts| |llpwt|)))))))) 
@@ -205,9 +205,9 @@
                           (|List|
                            (|Record| (|:| |val| (|List| P))
                                      (|:| |tower| TS))))))
-          (#1=#:G212 NIL) (|bwt| NIL)
+          (#1=#:G211 NIL) (|bwt| NIL)
           (|lbwt| (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS))))
-          (|tp| (P)) (|ip| (P)) (#2=#:G194 NIL) (|lmp| (P)))
+          (|tp| (P)) (|ip| (P)) (#2=#:G193 NIL) (|lmp| (P)))
          (SEQ (LETT |llpwt| NIL) (LETT |lts| NIL)
               (COND
                ((NULL (SPADCALL (SPADCALL |p| (QREFELT $ 58)) (QREFELT $ 40)))
@@ -313,9 +313,9 @@
                           (|List|
                            (|Record| (|:| |val| (|List| P))
                                      (|:| |tower| TS))))))
-          (#1=#:G233 NIL) (|bwt| NIL)
+          (#1=#:G232 NIL) (|bwt| NIL)
           (|lbwt| (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| TS))))
-          (|tp| (P)) (|ip| (P)) (#2=#:G216 NIL) (|lmp| (P)))
+          (|tp| (P)) (|ip| (P)) (#2=#:G215 NIL) (|lmp| (P)))
          (SEQ (LETT |llpwt| NIL) (LETT |lts| NIL)
               (COND
                ((NULL (SPADCALL (SPADCALL |p| (QREFELT $ 58)) (QREFELT $ 40)))
@@ -427,7 +427,7 @@
         ((|toSee| |List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))
          (|n| |NonNegativeInteger|) ($ |Void|))
         (SPROG
-         ((|s| (|String|)) (|m| (|NonNegativeInteger|)) (#1=#:G244 NIL)
+         ((|s| (|String|)) (|m| (|NonNegativeInteger|)) (#1=#:G243 NIL)
           (|lpwt| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
          (SEQ (LETT |lpwt| (|SPADfirst| |toSee|))
               (LETT |s|
@@ -468,8 +468,8 @@
                                      (|:| |tower| TS))))))
           (|p| (P)) (|toSave| (|List| TS)) (|ts| (TS))
           (|lpwt| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))
-          (|bound| (|NonNegativeInteger|)) (#1=#:G263 NIL) (|br| NIL)
-          (#2=#:G262 NIL)
+          (|bound| (|NonNegativeInteger|)) (#1=#:G262 NIL) (|br| NIL)
+          (#2=#:G261 NIL)
           (|branches|
            (|List|
             (|Record| (|:| |eq| (|List| P)) (|:| |tower| TS)
@@ -581,8 +581,8 @@
            (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
           (|branches2|
            (|List| #1=(|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
-          (#2=#:G283 NIL) (|us| (TS)) (|branches1| (|List| #1#))
-          (|newleq| (|List| P)) (#3=#:G282 NIL) (|branch| NIL)
+          (#2=#:G282 NIL) (|us| (TS)) (|branches1| (|List| #1#))
+          (|newleq| (|List| P)) (#3=#:G281 NIL) (|branch| NIL)
           (|newComponents| (|List| TS))
           (|newBranches|
            (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))))
@@ -638,9 +638,9 @@
 
 (DECLAIM (NOTINLINE |SquareFreeRegularSetDecompositionPackage;|)) 
 
-(DEFUN |SquareFreeRegularSetDecompositionPackage| (&REST #1=#:G284)
+(DEFUN |SquareFreeRegularSetDecompositionPackage| (&REST #1=#:G283)
   (SPROG NIL
-         (PROG (#2=#:G285)
+         (PROG (#2=#:G284)
            (RETURN
             (COND
              ((LETT #2#

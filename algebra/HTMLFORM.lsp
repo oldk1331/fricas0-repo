@@ -42,7 +42,7 @@
 
 (SDEFUN |HTMLFORM;notTable?| ((|node| |Tree| (|String|)) ($ |Boolean|))
         (SPROG
-         ((#1=#:G212 NIL) (#2=#:G213 NIL) (|a| NIL)
+         ((#1=#:G211 NIL) (#2=#:G212 NIL) (|a| NIL)
           (|c| (|List| (|Tree| (|String|)))))
          (SEQ
           (EXIT
@@ -62,14 +62,14 @@
                         (EXIT
                          (COND
                           ((NULL (|HTMLFORM;notTable?| |a| $))
-                           (PROGN (LETT #1# NIL) (GO #3=#:G211))))))
+                           (PROGN (LETT #1# NIL) (GO #3=#:G210))))))
                        (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |HTMLFORM;argsToString| ((|args| |List| (|OutputForm|)) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|s1| #1=(|String|)) (#2=#:G218 NIL) (|a| NIL)
+         ((|s| (|String|)) (|s1| #1=(|String|)) (#2=#:G217 NIL) (|a| NIL)
           (|sop| #1#))
          (SEQ (LETT |sop| (SPADCALL (|SPADfirst| |args|) (QREFELT $ 42)))
               (LETT |args| (CDR |args|))
@@ -86,7 +86,7 @@
 
 (SDEFUN |HTMLFORM;exprex;OfS;9| ((|expr| |OutputForm|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|s1| #1=(|String|)) (#2=#:G225 NIL) (|a| NIL)
+         ((|s| (|String|)) (|s1| #1=(|String|)) (#2=#:G224 NIL) (|a| NIL)
           (|nargs| (|Integer|)) (|args| (|List| (|OutputForm|))) (|sop| #1#)
           (|op| (|OutputForm|)))
          (SEQ (LETT |expr| (SPADCALL |expr| (QREFELT $ 24)))
@@ -116,7 +116,7 @@
 
 (SDEFUN |HTMLFORM;atomize| ((|expr| |OutputForm|) ($ |List| (|OutputForm|)))
         (SPROG
-         ((|le| (|List| (|OutputForm|))) (#1=#:G231 NIL) (|a| NIL)
+         ((|le| (|List| (|OutputForm|))) (#1=#:G230 NIL) (|a| NIL)
           (|letmp| (|List| (|OutputForm|))))
          (SEQ (LETT |le| NIL)
               (COND
@@ -143,8 +143,8 @@
 
 (SDEFUN |HTMLFORM;outputTree| ((|t| |Tree| (|String|)) ($ |Void|))
         (SPROG
-         ((#1=#:G262 NIL) (|c1| NIL) (#2=#:G259 NIL) (|s| (|String|))
-          (#3=#:G261 NIL) (#4=#:G260 NIL) (|enableGrid| (|Boolean|))
+         ((#1=#:G261 NIL) (|c1| NIL) (#2=#:G258 NIL) (|s| (|String|))
+          (#3=#:G260 NIL) (#4=#:G259 NIL) (|enableGrid| (|Boolean|))
           (|c| (|List| (|Tree| (|String|)))) (|tagName| (|String|))
           (|tagPos| (|Integer|)) (|endWithPlus| (|Boolean|)))
          (SEQ
@@ -152,7 +152,7 @@
            (SEQ (LETT |endWithPlus| NIL)
                 (COND
                  ((SPADCALL |t| (QREFELT $ 37))
-                  (PROGN (LETT #2# (SPADCALL (QREFELT $ 30))) (GO #5=#:G258))))
+                  (PROGN (LETT #2# (SPADCALL (QREFELT $ 30))) (GO #5=#:G257))))
                 (COND
                  ((SPADCALL |t| (QREFELT $ 38))
                   (SEQ (|sayHtml| (SPADCALL |t| (QREFELT $ 39)))
@@ -251,7 +251,7 @@
          ($ |Tree| (|String|)))
         (SPROG
          ((|row| (|Tree| (|String|))) (|cells| (|List| (|Tree| (|String|))))
-          (#1=#:G269 NIL) (|a| NIL) (#2=#:G268 NIL))
+          (#1=#:G268 NIL) (|a| NIL) (#2=#:G267 NIL))
          (SEQ
           (COND
            ((QREFELT $ 21)
@@ -308,7 +308,7 @@
         ((|content| |Tree| (|String|)) ($ |Tree| (|String|)))
         (SPROG
          ((|row| (|Tree| (|String|))) (|cell2| #1=(|Tree| (|String|)))
-          (|cell1| #1#) (#2=#:G275 NIL))
+          (|cell1| #1#) (#2=#:G274 NIL))
          (SEQ
           (EXIT
            (SEQ (COND ((QREFELT $ 21) (|sayHtml| "buildRoot")))
@@ -319,7 +319,7 @@
                          (|HTMLFORM;newNodes| ""
                           (LIST (SPADCALL "&radic;" (QREFELT $ 62)) |content|)
                           $))
-                   (GO #3=#:G274))))
+                   (GO #3=#:G273))))
                 (LETT |cell1|
                       (|HTMLFORM;newNode| "td id='root'"
                        (SPADCALL "&radic;" (QREFELT $ 62)) $))
@@ -339,7 +339,7 @@
          ($ |Tree| (|String|)))
         (SPROG
          ((|row| #1=(|Tree| (|String|))) (|cell2| #2=(|Tree| (|String|)))
-          (|cell1| #1#) (#3=#:G279 NIL) (|power| #2#))
+          (|cell1| #1#) (#3=#:G278 NIL) (|power| #2#))
          (SEQ
           (EXIT
            (SEQ (COND ((QREFELT $ 21) (|sayHtml| "buildNRoot")))
@@ -352,7 +352,7 @@
                           (LIST |power| (SPADCALL "&radic;" (QREFELT $ 62))
                                 |content|)
                           $))
-                   (GO #4=#:G278))))
+                   (GO #4=#:G277))))
                 (LETT |cell1|
                       (|HTMLFORM;newNodes| "td id='nroot'"
                        (LIST |power| (SPADCALL "&radic;" (QREFELT $ 62))) $))
@@ -371,7 +371,7 @@
         ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
          ($ |Tree| (|String|)))
         (SPROG
-         ((|tmp| (|Tree| (|String|))) (#1=#:G308 NIL) (|u| NIL) (#2=#:G307 NIL)
+         ((|tmp| (|Tree| (|String|))) (#1=#:G307 NIL) (|u| NIL) (#2=#:G306 NIL)
           (|prescript| (|Boolean|)))
          (SEQ
           (COND
@@ -672,7 +672,7 @@
         ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
          ($ |Tree| (|String|)))
         (SPROG
-         ((#1=#:G336 NIL) (|s| (|Tree| (|String|))) (|checkarg| (|Boolean|))
+         ((#1=#:G335 NIL) (|s| (|Tree| (|String|))) (|checkarg| (|Boolean|))
           (|n| (|Integer|)) (|opPrec| (|Integer|)) (|p| (|Integer|)))
          (SEQ
           (EXIT
@@ -733,7 +733,7 @@
                                 (SPADCALL |args| 2 (QREFELT $ 68))
                                 (QREFELT $ 8) $)
                                |s| $))
-                        (GO #3=#:G335))))
+                        (GO #3=#:G334))))
                      (EXIT
                       (|HTMLFORM;buildPlex3|
                        (|HTMLFORM;formatHtml| (|SPADfirst| |args|)
@@ -751,7 +751,7 @@
          (|y| |Integer|) (|h| |Integer|) ($ |List| (|Tree| (|String|))))
         (SPROG
          ((|cells| (|List| (|Tree| (|String|)))) (|attrib| (|String|))
-          (#1=#:G342 NIL) (|x| NIL) (|w| (|Integer|))
+          (#1=#:G341 NIL) (|x| NIL) (|w| (|Integer|))
           (|args| (|List| (|OutputForm|))))
          (SEQ
           (COND
@@ -819,7 +819,7 @@
          ($ |List| (|Tree| (|String|))))
         (SPROG
          ((|rows| (|List| (|Tree| (|String|)))) (|y| (|Integer|))
-          (#1=#:G347 NIL) (|e| NIL) (#2=#:G346 NIL))
+          (#1=#:G346 NIL) (|e| NIL) (#2=#:G345 NIL))
          (SEQ
           (COND
            ((QREFELT $ 21)
@@ -871,9 +871,9 @@
 (SDEFUN |HTMLFORM;buildColumnTable|
         ((|elements| |List| (|Tree| (|String|))) ($ |Tree| (|String|)))
         (SPROG
-         ((|rows| (|List| (|Tree| (|String|)))) (#1=#:G357 NIL) (|i| NIL)
-          (#2=#:G356 NIL) (|cells| (|List| (|Tree| (|String|))))
-          (#3=#:G355 NIL) (|j| NIL) (#4=#:G354 NIL))
+         ((|rows| (|List| (|Tree| (|String|)))) (#1=#:G356 NIL) (|i| NIL)
+          (#2=#:G355 NIL) (|cells| (|List| (|Tree| (|String|))))
+          (#3=#:G354 NIL) (|j| NIL) (#4=#:G353 NIL))
          (SEQ (COND ((QREFELT $ 21) (|sayHtml| "buildColumnTable")))
               (LETT |cells|
                     (PROGN
@@ -970,7 +970,7 @@
         ((|expr| |OutputForm|) (|args| |List| (|OutputForm|))
          (|opPrec| |Integer|) ($ |Tree| (|String|)))
         (SPROG
-         ((#1=#:G375 NIL) (#2=#:G377 NIL) (|e| NIL) (#3=#:G376 NIL)
+         ((#1=#:G374 NIL) (#2=#:G376 NIL) (|e| NIL) (#3=#:G375 NIL)
           (|op| (|String|)) (|atomE| (|List| (|OutputForm|))))
          (SEQ
           (EXIT
@@ -993,7 +993,7 @@
                (EXIT
                 (PROGN
                  (LETT #1# (SPADCALL "formatSub: expr = empty" (QREFELT $ 62)))
-                 (GO #4=#:G374))))))
+                 (GO #4=#:G373))))))
             (LETT |op| (|HTMLFORM;stringify| (|SPADfirst| |atomE|) $))
             (EXIT
              (COND
@@ -1325,7 +1325,7 @@
         ((|op| |String|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
          ($ |Tree| (|String|)))
         (SPROG
-         ((|tags| (|List| (|Tree| (|String|)))) (#1=#:G414 NIL) (|a| NIL)
+         ((|tags| (|List| (|Tree| (|String|)))) (#1=#:G413 NIL) (|a| NIL)
           (|count| (|Integer|)) (|opPrec| (|Integer|))
           (|l| (|Tree| (|String|))) (|tmpS| (|String|)) (|p| (|Integer|))
           (|checkargs| (|Boolean|)))
@@ -1460,7 +1460,7 @@
         (SPROG
          ((|op| (|Symbol|)) (|nargs| (|Integer|))
           (|args| (|List| (|OutputForm|))) (|opf| (|OutputForm|))
-          (|str| (|String|)) (#1=#:G429 NIL) (|i| (|Integer|))
+          (|str| (|String|)) (#1=#:G428 NIL) (|i| (|Integer|))
           (|intSplitLen| (|Integer|)))
          (SEQ
           (EXIT
@@ -1501,7 +1501,7 @@
                                  (SPADCALL
                                   (SPADCALL (QREFELT $ 20) |i| (QREFELT $ 55))
                                   (QREFELT $ 62)))
-                           (GO #2=#:G428))))))))
+                           (GO #2=#:G427))))))))
                 (LETT |str| (|HTMLFORM;stringify| |expr| $))
                 (EXIT (SPADCALL |str| (QREFELT $ 62)))))
               (#3='T
@@ -1568,7 +1568,7 @@
 
 (DEFUN |HTMLFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G431)
+         (PROG (#1=#:G430)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|HTMLFormat|))

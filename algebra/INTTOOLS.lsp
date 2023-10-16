@@ -6,7 +6,7 @@
 
 (SDEFUN |INTTOOLS;varselect;LSL;2|
         ((|l| |List| (|Kernel| F)) (|x| |Symbol|) ($ |List| (|Kernel| F)))
-        (SPROG ((#1=#:G125 NIL) (|k| NIL) (#2=#:G124 NIL))
+        (SPROG ((#1=#:G124 NIL) (|k| NIL) (#2=#:G123 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -36,7 +36,7 @@
 
 (SDEFUN |INTTOOLS;vark;LSL;4|
         ((|l| |List| F) (|x| |Symbol|) ($ |List| (|Kernel| F)))
-        (SPROG ((#1=#:G133 NIL) (|f| NIL) (#2=#:G132 NIL))
+        (SPROG ((#1=#:G132 NIL) (|f| NIL) (#2=#:G131 NIL))
                (SEQ
                 (SPADCALL
                  (SPADCALL (ELT $ 10)
@@ -58,7 +58,7 @@
                  |x| (QREFELT $ 19))))) 
 
 (SDEFUN |INTTOOLS;kmax;LK;5| ((|l| |List| (|Kernel| F)) ($ |Kernel| F))
-        (SPROG ((|ans| (|Kernel| F)) (#1=#:G138 NIL) (|k| NIL))
+        (SPROG ((|ans| (|Kernel| F)) (#1=#:G137 NIL) (|k| NIL))
                (SEQ (LETT |ans| (|SPADfirst| |l|))
                     (SEQ (LETT |k| NIL) (LETT #1# (CDR |l|)) G190
                          (COND
@@ -90,7 +90,7 @@
 (SDEFUN |INTTOOLS;removeConstantTerm;FSF;7| ((|f| F) (|x| |Symbol|) ($ F))
         (SPROG
          ((|ans| (|SparseMultivariatePolynomial| R (|Kernel| F)))
-          (#1=#:G155 NIL) (|term| NIL)
+          (#1=#:G154 NIL) (|term| NIL)
           (|u|
            (|Union| (|List| (|SparseMultivariatePolynomial| R (|Kernel| F)))
                     "failed"))
@@ -218,8 +218,8 @@
 
 (SDEFUN |INTTOOLS;mkPrim;FSF;11| ((|f| F) (|x| |Symbol|) ($ F))
         (SPROG
-         ((#1=#:G180 NIL) (|k| NIL) (#2=#:G179 NIL)
-          (|lg| (|List| (|Kernel| F))) (#3=#:G178 NIL) (#4=#:G177 NIL))
+         ((#1=#:G179 NIL) (|k| NIL) (#2=#:G178 NIL)
+          (|lg| (|List| (|Kernel| F))) (#3=#:G177 NIL) (#4=#:G176 NIL))
          (SEQ
           (LETT |lg|
                 (PROGN
@@ -266,7 +266,7 @@
             (|Record| (|:| |var| (|Kernel| F))
                       (|:| |exponent| (|NonNegativeInteger|)))
             "failed"))
-          (#1=#:G183 NIL))
+          (#1=#:G182 NIL))
          (SEQ
           (LETT |u|
                 (SPADCALL
@@ -315,7 +315,7 @@
                       (|:| |logand| (|SparseUnivariatePolynomial| F)))))
           (|ans| (F)) (|ir0| (|IntegrationResult| F))
           (|rc| (|Record| (|:| |special| F) (|:| |integrand| F))) (|u| #2#)
-          (#3=#:G208 NIL) (|rec| NIL)
+          (#3=#:G207 NIL) (|rec| NIL)
           (|l| (|List| (|Record| (|:| |integrand| F) (|:| |intvar| F))))
           (|ir| #1#))
          (SEQ (LETT |ir| (SPADCALL |f| |x| |int|))
@@ -378,9 +378,9 @@
 
 (DECLAIM (NOTINLINE |IntegrationTools;|)) 
 
-(DEFUN |IntegrationTools| (&REST #1=#:G209)
+(DEFUN |IntegrationTools| (&REST #1=#:G208)
   (SPROG NIL
-         (PROG (#2=#:G210)
+         (PROG (#2=#:G209)
            (RETURN
             (COND
              ((LETT #2#
@@ -504,7 +504,7 @@
               (219 . |tower|) (224 . |member?|) (|List| $) (230 . |eval|)
               (237 . |mkPrim|) (243 . |variables|) (|Union| $ '"failed")
               (248 . |exquo|) (|Record| (|:| |var| 20) (|:| |exponent| 32))
-              (|Union| 86 '#1#) (254 . |isExpt|) (259 . |One|) '#:G120
+              (|Union| 86 '#1#) (254 . |isExpt|) (259 . |One|) '#:G119
               (|Record| (|:| |integrand| 7) (|:| |intvar| 7)) (|List| 91)
               (|IntegrationResult| 7) (263 . |notelem|) (268 . |ratpart|)
               (|Record| (|:| |scalar| (|Fraction| 52)) (|:| |coeff| 70)

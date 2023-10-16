@@ -7,7 +7,7 @@
   (COND (|EntireRing;AL|) (T (SETQ |EntireRing;AL| (|EntireRing;|))))) 
 
 (DEFUN |EntireRing;| ()
-  (SPROG ((#1=#:G111 NIL))
+  (SPROG ((#1=#:G110 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|Ring|) (|noZeroDivisors|)

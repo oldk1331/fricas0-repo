@@ -2,12 +2,12 @@
 (SDEFUN |GROUPPF1;convert;LLGp;1|
         ((|lg| |List| S) (|lr| |List| (|FreeGroup| S)) ($ |GroupPresentation|))
         (SPROG
-         ((#1=#:G119 NIL) (|l| NIL) (#2=#:G118 NIL)
+         ((#1=#:G118 NIL) (|l| NIL) (#2=#:G117 NIL)
           (|nlr| (|List| (|List| (|Integer|)))) (|nr| (|List| (|Integer|)))
-          (#3=#:G117 NIL) (|m| #4=(|Integer|)) (|k| (|Integer|))
-          (#5=#:G116 NIL) (|t| NIL)
+          (#3=#:G116 NIL) (|m| #4=(|Integer|)) (|k| (|Integer|))
+          (#5=#:G115 NIL) (|t| NIL)
           (|fr| (|List| (|Record| (|:| |gen| S) (|:| |exp| #4#))))
-          (#6=#:G115 NIL) (|r| NIL) (|n| (|NonNegativeInteger|)))
+          (#6=#:G114 NIL) (|r| NIL) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (LENGTH |lg|)) (LETT |nlr| NIL)
               (SEQ (LETT |r| NIL) (LETT #6# |lr|) G190
                    (COND
@@ -62,9 +62,9 @@
 
 (DECLAIM (NOTINLINE |GroupPresentationFunctions1;|)) 
 
-(DEFUN |GroupPresentationFunctions1| (#1=#:G120)
+(DEFUN |GroupPresentationFunctions1| (#1=#:G119)
   (SPROG NIL
-         (PROG (#2=#:G121)
+         (PROG (#2=#:G120)
            (RETURN
             (COND
              ((LETT #2#

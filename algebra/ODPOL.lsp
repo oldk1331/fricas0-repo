@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |OrderlyDifferentialPolynomial;|)) 
 
-(DEFUN |OrderlyDifferentialPolynomial| (#1=#:G154)
+(DEFUN |OrderlyDifferentialPolynomial| (#1=#:G153)
   (SPROG NIL
-         (PROG (#2=#:G155)
+         (PROG (#2=#:G154)
            (RETURN
             (COND
              ((LETT #2#
@@ -22,8 +22,8 @@
 
 (DEFUN |OrderlyDifferentialPolynomial;| (|#1|)
   (SPROG
-   ((#1=#:G153 NIL) (|pv$| NIL) (#2=#:G146 NIL) (#3=#:G147 NIL) (#4=#:G148 NIL)
-    (#5=#:G149 NIL) (#6=#:G150 NIL) (#7=#:G151 NIL) (#8=#:G152 NIL) ($ NIL)
+   ((#1=#:G152 NIL) (|pv$| NIL) (#2=#:G145 NIL) (#3=#:G146 NIL) (#4=#:G147 NIL)
+    (#5=#:G148 NIL) (#6=#:G149 NIL) (#7=#:G150 NIL) (#8=#:G151 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

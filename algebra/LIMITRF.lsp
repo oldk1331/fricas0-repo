@@ -374,9 +374,9 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionLimitPackage;|)) 
 
-(DEFUN |RationalFunctionLimitPackage| (#1=#:G226)
+(DEFUN |RationalFunctionLimitPackage| (#1=#:G225)
   (SPROG NIL
-         (PROG (#2=#:G227)
+         (PROG (#2=#:G226)
            (RETURN
             (COND
              ((LETT #2#

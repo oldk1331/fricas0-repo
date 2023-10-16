@@ -26,9 +26,9 @@
 
 (DECLAIM (NOTINLINE |FiniteDivisorFunctions2;|)) 
 
-(DEFUN |FiniteDivisorFunctions2| (&REST #1=#:G138)
+(DEFUN |FiniteDivisorFunctions2| (&REST #1=#:G137)
   (SPROG NIL
-         (PROG (#2=#:G139)
+         (PROG (#2=#:G138)
            (RETURN
             (COND
              ((LETT #2#

@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |FiniteField;|)) 
 
-(DEFUN |FiniteField| (&REST #1=#:G142)
+(DEFUN |FiniteField| (&REST #1=#:G141)
   (SPROG NIL
-         (PROG (#2=#:G143)
+         (PROG (#2=#:G142)
            (RETURN
             (COND
              ((LETT #2#
@@ -20,7 +20,7 @@
 
 (DEFUN |FiniteField;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G141 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G140 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

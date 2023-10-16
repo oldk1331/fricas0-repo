@@ -26,9 +26,9 @@
 
 (DECLAIM (NOTINLINE |QuadraticForm;|)) 
 
-(DEFUN |QuadraticForm| (&REST #1=#:G115)
+(DEFUN |QuadraticForm| (&REST #1=#:G114)
   (SPROG NIL
-         (PROG (#2=#:G116)
+         (PROG (#2=#:G115)
            (RETURN
             (COND
              ((LETT #2#

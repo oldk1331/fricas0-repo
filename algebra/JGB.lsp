@@ -81,10 +81,10 @@
 
 (SDEFUN |JGB;groebner;2L;3| ((|lp| |List| P) ($ |List| P))
         (SPROG
-         ((#1=#:G135 NIL) (|dp| NIL) (#2=#:G134 NIL)
+         ((#1=#:G134 NIL) (|dp| NIL) (#2=#:G133 NIL)
           (|gb| (|List| (|DistributedJetBundlePolynomial| R JB LJV E)))
           (|nlp| (|List| (|DistributedJetBundlePolynomial| R JB LJV E)))
-          (#3=#:G133 NIL) (|p| NIL) (#4=#:G132 NIL))
+          (#3=#:G132 NIL) (|p| NIL) (#4=#:G131 NIL))
          (SEQ
           (LETT |nlp|
                 (PROGN
@@ -109,9 +109,9 @@
 
 (DECLAIM (NOTINLINE |JetGroebner;|)) 
 
-(DEFUN |JetGroebner| (&REST #1=#:G136)
+(DEFUN |JetGroebner| (&REST #1=#:G135)
   (SPROG NIL
-         (PROG (#2=#:G137)
+         (PROG (#2=#:G136)
            (RETURN
             (COND
              ((LETT #2#

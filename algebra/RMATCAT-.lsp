@@ -4,8 +4,8 @@
 
 (SDEFUN |RMATCAT-;random;S;2| (($ S))
         (SPROG
-         ((#1=#:G124 NIL) (|i| NIL) (#2=#:G123 NIL) (#3=#:G122 NIL) (|j| NIL)
-          (#4=#:G121 NIL))
+         ((#1=#:G123 NIL) (|i| NIL) (#2=#:G122 NIL) (#3=#:G121 NIL) (|j| NIL)
+          (#4=#:G120 NIL))
          (SEQ
           (SPADCALL
            (PROGN
@@ -33,8 +33,8 @@
 
 (SDEFUN |RMATCAT-;lookup;SPi;3| ((|x| S) ($ |PositiveInteger|))
         (SPROG
-         ((#1=#:G128 NIL) (|pow| (|Integer|)) (|res| (|Integer|))
-          (#2=#:G132 NIL) (|c| NIL) (#3=#:G131 NIL) (|r| NIL)
+         ((#1=#:G127 NIL) (|pow| (|Integer|)) (|res| (|Integer|))
+          (#2=#:G131 NIL) (|c| NIL) (#3=#:G130 NIL) (|r| NIL)
           (|l| (|List| (|List| R))) (|s| (|NonNegativeInteger|)))
          (SEQ (LETT |s| (SPADCALL (QREFELT $ 13))) (LETT |pow| 1)
               (LETT |l| (SPADCALL |x| (QREFELT $ 19))) (LETT |res| 1)
@@ -67,8 +67,8 @@
           (|old|
            (|Record| (|:| |quotient| (|Integer|))
                      (|:| |remainder| (|Integer|))))
-          (|row| (|List| R)) (|el| (R)) (#1=#:G134 NIL) (#2=#:G142 NIL)
-          (|j| NIL) (#3=#:G141 NIL) (|s| (|NonNegativeInteger|)))
+          (|row| (|List| R)) (|el| (R)) (#1=#:G133 NIL) (#2=#:G141 NIL)
+          (|j| NIL) (#3=#:G140 NIL) (|s| (|NonNegativeInteger|)))
          (SEQ (LETT |s| (SPADCALL (QREFELT $ 13)))
               (LETT |old| (DIVIDE2 (- |i| 1) |s|)) (LETT |res| NIL)
               (SEQ (LETT |i| 1) (LETT #3# (QREFELT $ 7)) G190
@@ -103,8 +103,8 @@
 
 (SDEFUN |RMATCAT-;diagonal?;SB;8| ((|x| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G152 NIL) (#2=#:G153 NIL) (#3=#:G155 NIL) (|j| NIL)
-          (#4=#:G154 NIL) (|i| NIL))
+         ((#1=#:G151 NIL) (#2=#:G152 NIL) (#3=#:G154 NIL) (|j| NIL)
+          (#4=#:G153 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (COND ((NULL (SPADCALL |x| (QREFELT $ 29))) NIL)
@@ -134,8 +134,8 @@
                                       (LETT #1#
                                             (PROGN
                                              (LETT #2# NIL)
-                                             (GO #5=#:G151)))
-                                      (GO #6=#:G148))))))))
+                                             (GO #5=#:G150)))
+                                      (GO #6=#:G147))))))))
                                (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL)))
                          #6# (EXIT #1#))
                         (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
@@ -144,8 +144,8 @@
 
 (SDEFUN |RMATCAT-;symmetric?;SB;9| ((|x| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G162 NIL) (#2=#:G163 NIL) (#3=#:G165 NIL) (|j| NIL)
-          (#4=#:G164 NIL) (|i| NIL) (|mc| (|Integer|)) (|mr| (|Integer|)))
+         ((#1=#:G161 NIL) (#2=#:G162 NIL) (#3=#:G164 NIL) (|j| NIL)
+          (#4=#:G163 NIL) (|i| NIL) (|mc| (|Integer|)) (|mr| (|Integer|)))
          (SEQ
           (EXIT
            (COND ((SPADCALL (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 39)) NIL)
@@ -172,8 +172,8 @@
                                         (LETT #1#
                                               (PROGN
                                                (LETT #2# NIL)
-                                               (GO #5=#:G161)))
-                                        (GO #6=#:G157))))))
+                                               (GO #5=#:G160)))
+                                        (GO #6=#:G156))))))
                                    (LETT |j| (+ |j| 1)) (GO G190) G191
                                    (EXIT NIL)))
                              #6# (EXIT #1#))
@@ -184,8 +184,8 @@
 
 (SDEFUN |RMATCAT-;antisymmetric?;SB;10| ((|x| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G172 NIL) (#2=#:G173 NIL) (#3=#:G175 NIL) (|j| NIL)
-          (#4=#:G174 NIL) (|i| NIL) (|mc| (|Integer|)) (|mr| (|Integer|))
+         ((#1=#:G171 NIL) (#2=#:G172 NIL) (#3=#:G174 NIL) (|j| NIL)
+          (#4=#:G173 NIL) (|i| NIL) (|mc| (|Integer|)) (|mr| (|Integer|))
           (|nRows| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -215,8 +215,8 @@
                                    (QREFELT $ 40))
                                   (PROGN
                                    (LETT #1#
-                                         (PROGN (LETT #2# NIL) (GO #5=#:G171)))
-                                   (GO #6=#:G167))))))
+                                         (PROGN (LETT #2# NIL) (GO #5=#:G170)))
+                                   (GO #6=#:G166))))))
                               (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL)))
                         #6# (EXIT #1#))
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))

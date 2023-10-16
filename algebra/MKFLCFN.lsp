@@ -128,8 +128,8 @@
         ((|l| |List| (|InputForm|))
          ($ |Union| (|List| (|InputForm|)) "failed"))
         (SPROG
-         ((|ans| (|List| (|InputForm|))) (#1=#:G153 NIL)
-          (|u| (|Union| (|InputForm|) "failed")) (#2=#:G154 NIL) (|s| NIL))
+         ((|ans| (|List| (|InputForm|))) (#1=#:G152 NIL)
+          (|u| (|Union| (|InputForm|) "failed")) (#2=#:G153 NIL) (|s| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ans| NIL)
@@ -143,7 +143,7 @@
                             ((QEQCAR |u| 1)
                              (PROGN
                               (LETT #1# (CONS 1 "failed"))
-                              (GO #3=#:G152)))
+                              (GO #3=#:G151)))
                             ('T (LETT |ans| (CONS (QCDR |u|) |ans|))))))
                      (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 (NREVERSE |ans|)))))
@@ -234,9 +234,9 @@
 
 (DECLAIM (NOTINLINE |MakeFloatCompiledFunction;|)) 
 
-(DEFUN |MakeFloatCompiledFunction| (#1=#:G173)
+(DEFUN |MakeFloatCompiledFunction| (#1=#:G172)
   (SPROG NIL
-         (PROG (#2=#:G174)
+         (PROG (#2=#:G173)
            (RETURN
             (COND
              ((LETT #2#

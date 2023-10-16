@@ -9,7 +9,7 @@
          ($ |Record| (|:| |normal| UP) (|:| |special| UP)))
         (SPROG
          ((|rec| (|Record| (|:| |normal| UP) (|:| |special| UP)))
-          (#1=#:G113 NIL) (|pbar| (UP)))
+          (#1=#:G112 NIL) (|pbar| (UP)))
          (SEQ
           (LETT |pbar|
                 (PROG2
@@ -45,8 +45,8 @@
          ($ |Record| (|:| |normal| (|Factored| UP))
           (|:| |special| (|Factored| UP))))
         (SPROG
-         ((|n| #1=(|Factored| UP)) (|h| (UP)) (#2=#:G123 NIL) (|s| #1#)
-          (|g| (UP)) (|r| (UP)) (#3=#:G130 NIL) (|rec| NIL)
+         ((|n| #1=(|Factored| UP)) (|h| (UP)) (#2=#:G122 NIL) (|s| #1#)
+          (|g| (UP)) (|r| (UP)) (#3=#:G129 NIL) (|rec| NIL)
           (|q| (|Factored| UP)))
          (SEQ (LETT |s| (|spadConstant| $ 24)) (LETT |n| |s|)
               (LETT |q| (SPADCALL |p| (QREFELT $ 26)))
@@ -93,7 +93,7 @@
          ($ |Record| (|:| |poly| UP) (|:| |normal| (|Fraction| UP))
           (|:| |special| (|Fraction| UP))))
         (SPROG
-         ((|eeu| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#1=#:G137 NIL)
+         ((|eeu| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#1=#:G136 NIL)
           (|rec| (|Record| (|:| |normal| UP) (|:| |special| UP)))
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP))))
          (SEQ
@@ -124,9 +124,9 @@
 
 (DECLAIM (NOTINLINE |MonomialExtensionTools;|)) 
 
-(DEFUN |MonomialExtensionTools| (&REST #1=#:G142)
+(DEFUN |MonomialExtensionTools| (&REST #1=#:G141)
   (SPROG NIL
-         (PROG (#2=#:G143)
+         (PROG (#2=#:G142)
            (RETURN
             (COND
              ((LETT #2#

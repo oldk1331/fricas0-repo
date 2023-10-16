@@ -6,7 +6,7 @@
 (DEFPARAMETER |FramedAlgebra;AL| 'NIL) 
 
 (DEFUN |FramedAlgebra| (|t#1| |t#2|)
-  (LET (#1=#:G105 (#2=#:G106 (LIST (|devaluate| |t#1|) (|devaluate| |t#2|))))
+  (LET (#1=#:G104 (#2=#:G105 (LIST (|devaluate| |t#1|) (|devaluate| |t#2|))))
     (COND ((SETQ #1# (|assoc| #2# |FramedAlgebra;AL|)) (CDR #1#))
           (T
            (SETQ |FramedAlgebra;AL|
@@ -16,7 +16,7 @@
            #1#)))) 
 
 (DEFUN |FramedAlgebra;| (|t#1| |t#2|)
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))

@@ -7,7 +7,7 @@
               ('T (NULL (SPADCALL |x| (QREFELT $ 14)))))) 
 
 (SDEFUN |RCAGG-;nodes;AL;3| ((|x| A) ($ |List| A))
-        (SPROG ((#1=#:G123 NIL) (|y| NIL) (#2=#:G122 NIL))
+        (SPROG ((#1=#:G122 NIL) (|y| NIL) (#2=#:G121 NIL))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 12)) NIL)
                       ('T
@@ -32,7 +32,7 @@
                               (QREFELT $ 18)))))))) 
 
 (SDEFUN |RCAGG-;leaves;AL;4| ((|x| A) ($ |List| S))
-        (SPROG ((#1=#:G129 NIL) (|y| NIL) (#2=#:G128 NIL))
+        (SPROG ((#1=#:G128 NIL) (|y| NIL) (#2=#:G127 NIL))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 12)) NIL)
                       ((SPADCALL |x| (QREFELT $ 20))
@@ -64,7 +64,7 @@
               ('T (SPADCALL |x| (SPADCALL |l| (QREFELT $ 14)) (QREFELT $ 27))))) 
 
 (SDEFUN |RCAGG-;parts;AL;7| ((|x| A) ($ |List| S))
-        (SPROG ((#1=#:G136 NIL) (|i| NIL) (#2=#:G135 NIL))
+        (SPROG ((#1=#:G135 NIL) (|i| NIL) (#2=#:G134 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)

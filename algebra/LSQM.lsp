@@ -4,7 +4,7 @@
 
 (SDEFUN |LSQM;conv| ((|v| |DirectProduct| |n2| R) ($ |SquareMatrix| |n| R))
         (SPROG
-         ((|z| (|Integer|)) (#1=#:G111 NIL) (|j| NIL) (#2=#:G110 NIL) (|i| NIL)
+         ((|z| (|Integer|)) (#1=#:G110 NIL) (|j| NIL) (#2=#:G109 NIL) (|i| NIL)
           (|cond| (|Matrix| R)))
          (SEQ
           (LETT |cond|
@@ -28,7 +28,7 @@
 
 (SDEFUN |LSQM;canonical_coordinates| ((|a| $) ($ |Vector| R))
         (SPROG
-         ((|z| (|Integer|)) (#1=#:G118 NIL) (|j| NIL) (#2=#:G117 NIL) (|i| NIL)
+         ((|z| (|Integer|)) (#1=#:G117 NIL) (|j| NIL) (#2=#:G116 NIL) (|i| NIL)
           (|as| (|SquareMatrix| |n| R)) (|res| (|Vector| R)))
          (SEQ (LETT |res| (MAKEARR1 (QREFELT $ 9) (|spadConstant| $ 13)))
               (LETT |z| 0) (LETT |as| |a|)
@@ -51,8 +51,8 @@
 
 (SDEFUN |LSQM;coordinates;$VV;4| ((|a| $) (|b| |Vector| $) ($ |Vector| R))
         (SPROG
-         ((|canonical| (|Boolean|)) (#1=#:G125 NIL) (|j| NIL)
-          (|bv| (|Vector| R)) (#2=#:G124 NIL) (|i| NIL))
+         ((|canonical| (|Boolean|)) (#1=#:G124 NIL) (|j| NIL)
+          (|bv| (|Vector| R)) (#2=#:G123 NIL) (|i| NIL))
          (SEQ (LETT |canonical| 'T)
               (SEQ (LETT |i| 1) (LETT #2# (QREFELT $ 9)) G190
                    (COND
@@ -101,7 +101,7 @@
 (SDEFUN |LSQM;basis;V;6| (($ |Vector| $))
         (SPROG
          ((|res| (|Vector| $)) (|ldp| (|List| (|DirectProduct| |n2| R)))
-          (#1=#:G129 NIL) (#2=#:G135 NIL) (|i| NIL) (#3=#:G134 NIL))
+          (#1=#:G128 NIL) (#2=#:G134 NIL) (|i| NIL) (#3=#:G133 NIL))
          (SEQ (SETELT $ 9 (* (QREFELT $ 6) (QREFELT $ 6)))
               (LETT |ldp|
                     (PROGN
@@ -135,9 +135,9 @@
 
 (DECLAIM (NOTINLINE |LieSquareMatrix;|)) 
 
-(DEFUN |LieSquareMatrix| (&REST #1=#:G145)
+(DEFUN |LieSquareMatrix| (&REST #1=#:G144)
   (SPROG NIL
-         (PROG (#2=#:G146)
+         (PROG (#2=#:G145)
            (RETURN
             (COND
              ((LETT #2#

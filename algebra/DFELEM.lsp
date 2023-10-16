@@ -140,7 +140,7 @@
 
 (DEFUN |DoubleFloatElementaryFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G120)
+         (PROG (#1=#:G119)
            (RETURN
             (COND
              ((LETT #1#

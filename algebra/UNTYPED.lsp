@@ -26,7 +26,7 @@
           (|r|
            (|Record| (|:| |rft| (|ILogic|))
                      (|:| |pout| (|NonNegativeInteger|))))
-          (|ch| (|Character|)) (#1=#:G122 NIL) (|vnm| (|String|)))
+          (|ch| (|Character|)) (#1=#:G121 NIL) (|vnm| (|String|)))
          (SEQ
           (EXIT
            (SEQ (LETT |vnm| "") (LETT |pt| |pin|)
@@ -40,7 +40,7 @@
                             (PROGN
                              (LETT #1#
                                    (CONS (SPADCALL |vnm| (QREFELT $ 8)) |pt|))
-                             (GO #2=#:G121))))
+                             (GO #2=#:G120))))
                           (EXIT (LETT |ch| (STR_ELT1 |t1| |pt|))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (COND
@@ -65,7 +65,7 @@
 
 (DEFUN |Untyped| ()
   (SPROG NIL
-         (PROG (#1=#:G130)
+         (PROG (#1=#:G129)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Untyped|))

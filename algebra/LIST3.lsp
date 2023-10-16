@@ -2,7 +2,7 @@
 (SDEFUN |LIST3;map;MLLL;1|
         ((|fn| |Mapping| C A B) (|la| |List| A) (|lb| |List| B) ($ |List| C))
         (SPROG
-         ((#1=#:G108 NIL) (|a| NIL) (#2=#:G109 NIL) (|b| NIL) (#3=#:G107 NIL))
+         ((#1=#:G107 NIL) (|a| NIL) (#2=#:G108 NIL) (|b| NIL) (#3=#:G106 NIL))
          (SEQ
           (PROGN
            (LETT #3# NIL)
@@ -18,9 +18,9 @@
 
 (DECLAIM (NOTINLINE |ListFunctions3;|)) 
 
-(DEFUN |ListFunctions3| (&REST #1=#:G110)
+(DEFUN |ListFunctions3| (&REST #1=#:G109)
   (SPROG NIL
-         (PROG (#2=#:G111)
+         (PROG (#2=#:G110)
            (RETURN
             (COND
              ((LETT #2#

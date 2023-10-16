@@ -22,7 +22,7 @@
 
 (DEFUN |HashState| ()
   (SPROG NIL
-         (PROG (#1=#:G938)
+         (PROG (#1=#:G937)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|HashState|))

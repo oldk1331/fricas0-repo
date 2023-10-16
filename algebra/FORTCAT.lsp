@@ -8,10 +8,10 @@
         (T (SETQ |FortranProgramCategory;AL| (|FortranProgramCategory;|))))) 
 
 (DEFUN |FortranProgramCategory;| ()
-  (SPROG ((#1=#:G105 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(#2=#:G104) (LIST '(|OutputForm|)))
+                   (|sublisV| (MAKE_PAIRS '(#2=#:G103) (LIST '(|OutputForm|)))
                               (|Join| (|Type|) (|CoercibleTo| '#2#)
                                       (|mkCategory|
                                        '(((|outputAsFortran| ((|Void|) $)) T))

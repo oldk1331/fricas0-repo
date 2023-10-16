@@ -57,7 +57,7 @@
                      ('T |x|)))) 
 
 (SDEFUN |PADICRC;=;2$B;11| ((|x| $) (|y| $) ($ |Boolean|))
-        (SPROG ((#1=#:G320 NIL) (#2=#:G259 NIL) (|n| (|Integer|)))
+        (SPROG ((#1=#:G319 NIL) (#2=#:G258 NIL) (|n| (|Integer|)))
                (SEQ
                 (COND ((EQ |x| |y|) 'T)
                       (#3='T
@@ -89,7 +89,7 @@
                             (|PADICRC;getZp| |x| $) (QREFELT $ 34))))))))))) 
 
 (SDEFUN |PADICRC;+;3$;12| ((|x| $) (|y| $) ($ $))
-        (SPROG ((#1=#:G338 NIL) (#2=#:G334 NIL) (|n| (|Integer|)))
+        (SPROG ((#1=#:G337 NIL) (#2=#:G333 NIL) (|n| (|Integer|)))
                (SEQ
                 (LETT |n|
                       (- (|PADICRC;getExpon| |x| $)
@@ -126,7 +126,7 @@
          (SPADCALL (|PADICRC;getZp| |x| $) (QREFELT $ 38)) $)) 
 
 (SDEFUN |PADICRC;-;3$;14| ((|x| $) (|y| $) ($ $))
-        (SPROG ((#1=#:G356 NIL) (#2=#:G352 NIL) (|n| (|Integer|)))
+        (SPROG ((#1=#:G355 NIL) (#2=#:G351 NIL) (|n| (|Integer|)))
                (SEQ
                 (LETT |n|
                       (- (|PADICRC;getExpon| |x| $)
@@ -170,7 +170,7 @@
          $)) 
 
 (SDEFUN |PADICRC;^;$I$;17| ((|x| $) (|n| |Integer|) ($ $))
-        (SPROG ((#1=#:G363 NIL) (#2=#:G362 NIL))
+        (SPROG ((#1=#:G362 NIL) (#2=#:G361 NIL))
                (COND ((ZEROP |n|) (|spadConstant| $ 16))
                      ((PLUSP |n|)
                       (SPADCALL |x|
@@ -302,7 +302,7 @@
 (SDEFUN |PADICRC;coerce;$Of;28| ((|x| $) ($ |OutputForm|))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu| (|Stream| (|Integer|)))
-          (|uu1| (|Stream| (|Integer|))) (|n| NIL) (#1=#:G420 NIL)
+          (|uu1| (|Stream| (|Integer|))) (|n| NIL) (#1=#:G419 NIL)
           (|count| (|NonNegativeInteger|)) (|zp| (PADIC)) (|m| (|Integer|)))
          (SEQ (LETT |x| (SPADCALL |$streamCount| |x| (QREFELT $ 32)))
               (LETT |m| (|PADICRC;getExpon| |x| $))
@@ -393,9 +393,9 @@
 
 (DECLAIM (NOTINLINE |PAdicRationalConstructor;|)) 
 
-(DEFUN |PAdicRationalConstructor| (&REST #1=#:G455)
+(DEFUN |PAdicRationalConstructor| (&REST #1=#:G454)
   (SPROG NIL
-         (PROG (#2=#:G456)
+         (PROG (#2=#:G455)
            (RETURN
             (COND
              ((LETT #2#
@@ -415,7 +415,7 @@
 
 (DEFUN |PAdicRationalConstructor;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G454 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G453 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

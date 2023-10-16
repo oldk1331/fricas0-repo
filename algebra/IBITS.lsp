@@ -10,7 +10,7 @@
 
 (SDEFUN |IBITS;coerce;$Of;3| ((|v| $) ($ |OutputForm|))
         (SPROG
-         ((#1=#:G119 NIL) (|i| NIL) (|j| NIL) (|s| (|String|))
+         ((#1=#:G118 NIL) (|i| NIL) (|j| NIL) (|s| (|String|))
           (|f| #2=(|Character|)) (|t| #2#))
          (SEQ (LETT |t| (|STR_to_CHAR| "1")) (LETT |f| (|STR_to_CHAR| "0"))
               (LETT |s|
@@ -99,9 +99,9 @@
 
 (DECLAIM (NOTINLINE |IndexedBits;|)) 
 
-(DEFUN |IndexedBits| (#1=#:G154)
+(DEFUN |IndexedBits| (#1=#:G153)
   (SPROG NIL
-         (PROG (#2=#:G155)
+         (PROG (#2=#:G154)
            (RETURN
             (COND
              ((LETT #2#
@@ -116,7 +116,7 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|IndexedBits|)))))))))) 
 
 (DEFUN |IndexedBits;| (|#1|)
-  (SPROG ((#1=#:G153 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((#1=#:G152 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|IndexedBits| DV$1))

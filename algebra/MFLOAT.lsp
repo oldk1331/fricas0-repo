@@ -219,7 +219,7 @@
                   ('T (CONS 1 "failed"))))))) 
 
 (SDEFUN |MFLOAT;retract;$I;19| ((|u| $) ($ |Integer|))
-        (SPROG ((#1=#:G200 NIL) (|result| (|Union| (|Integer|) "failed")))
+        (SPROG ((#1=#:G199 NIL) (|result| (|Union| (|Integer|) "failed")))
                (SEQ (LETT |result| (SPADCALL |u| (QREFELT $ 68)))
                     (EXIT
                      (COND
@@ -416,7 +416,7 @@
 
 (DEFUN |MachineFloat| ()
   (SPROG NIL
-         (PROG (#1=#:G281)
+         (PROG (#1=#:G280)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|MachineFloat|))

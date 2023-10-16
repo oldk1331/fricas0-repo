@@ -3,11 +3,11 @@
         ((|m| |Matrix| R) (|ld| |List| R)
          ($ |SparseUnivariatePolynomial| (|Fraction| R)))
         (SPROG
-         ((#1=#:G112 NIL) (|j| NIL) (#2=#:G113 NIL) (|di| NIL)
+         ((#1=#:G111 NIL) (|j| NIL) (#2=#:G112 NIL) (|di| NIL)
           (|m1| (|SparseUnivariatePolynomial| (|Fraction| R)))
           (|res| (|SparseUnivariatePolynomial| (|Fraction| R)))
           (|cor| (|Fraction| R)) (|m1v| (|Fraction| R)) (|i_f| (|Fraction| R))
-          (|d1| (R)) (#3=#:G111 NIL) (|i| NIL) (|v| (|SingletonAsOrderedSet|))
+          (|d1| (R)) (#3=#:G110 NIL) (|i| NIL) (|v| (|SingletonAsOrderedSet|))
           (A1 (|Matrix| R)) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (ANCOLS |m|))
               (EXIT
@@ -77,7 +77,7 @@
         ((|m| |Matrix| R) ($ |SparseUnivariatePolynomial| R))
         (SPROG
          ((|p1| (|SparseUnivariatePolynomial| (|Fraction| R)))
-          (|ld| (|List| R)) (#1=#:G119 NIL) (|i| NIL) (#2=#:G118 NIL))
+          (|ld| (|List| R)) (#1=#:G118 NIL) (|i| NIL) (#2=#:G117 NIL))
          (SEQ
           (LETT |ld|
                 (PROGN
@@ -94,9 +94,9 @@
         ((|m| |Matrix| (|Fraction| R))
          ($ |Record| (|:| |mr| (|Matrix| R)) (|:| |rd| (|List| R))))
         (SPROG
-         ((|g1| (R)) (#1=#:G123 NIL) (|a| (|Fraction| R)) (#2=#:G133 NIL)
+         ((|g1| (R)) (#1=#:G122 NIL) (|a| (|Fraction| R)) (#2=#:G132 NIL)
           (|j| NIL) (|lg| (|List| R)) (|g| (R)) (|lr| (|List| R))
-          (#3=#:G132 NIL) (#4=#:G131 NIL) (|i| NIL) (B (|Matrix| R))
+          (#3=#:G131 NIL) (#4=#:G130 NIL) (|i| NIL) (B (|Matrix| R))
           (|k| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (ANROWS |m|)) (LETT |k| (ANCOLS |m|)) (LETT |lg| NIL)
               (LETT B (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 43)))
@@ -199,9 +199,9 @@
 
 (DECLAIM (NOTINLINE |CharacteristicPolynomial3;|)) 
 
-(DEFUN |CharacteristicPolynomial3| (#1=#:G143)
+(DEFUN |CharacteristicPolynomial3| (#1=#:G142)
   (SPROG NIL
-         (PROG (#2=#:G144)
+         (PROG (#2=#:G143)
            (RETURN
             (COND
              ((LETT #2#

@@ -22,7 +22,7 @@
 
 (SDEFUN |EXTRED;cancelGcd|
         ((|c1| C) (|c2| C) ($ |Record| (|:| |co1| C) (|:| |co2| C)))
-        (SPROG ((#1=#:G117 NIL) (|g| (C)))
+        (SPROG ((#1=#:G116 NIL) (|g| (C)))
                (SEQ (LETT |g| (SPADCALL |c1| |c2| (QREFELT $ 9)))
                     (EXIT
                      (CONS
@@ -54,7 +54,7 @@
                           (|:| |mult| C))))
          ($ |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
         (SPROG
-         ((#2=#:G136 NIL) (|bas| #1#) (|f2| (R)) (|f1| (C)) (|a| (C))
+         ((#2=#:G135 NIL) (|bas| #1#) (|f2| (R)) (|f1| (C)) (|a| (C))
           (|l| (|Record| (|:| |llcm_res| C) (|:| |coeff1| C) (|:| |coeff2| C)))
           (|ee| (|Union| E "failed")) (|pb| (R))
           (|b|
@@ -132,7 +132,7 @@
                           (EXIT (LETT |bas| |basis|))))
                         ('T (LETT |bas| (CDR |bas|))))))
                  NIL (GO G190) G191 (EXIT NIL))
-            (EXIT (PROGN (LETT #2# |z|) (GO #3=#:G135)))))
+            (EXIT (PROGN (LETT #2# |z|) (GO #3=#:G134)))))
           #3# (EXIT #2#)))) 
 
 (SDEFUN |EXTRED;tailReduce|
@@ -184,7 +184,7 @@
            (|List|
             (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R))
                       (|:| |mult| C))))
-          (#1=#:G149 NIL) (|b| NIL) (#2=#:G150 NIL) (|i| NIL) (#3=#:G148 NIL)
+          (#1=#:G148 NIL) (|b| NIL) (#2=#:G149 NIL) (|i| NIL) (#3=#:G147 NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (COND
@@ -218,9 +218,9 @@
 
 (DECLAIM (NOTINLINE |ExtendedPolynomialReduction;|)) 
 
-(DEFUN |ExtendedPolynomialReduction| (&REST #1=#:G151)
+(DEFUN |ExtendedPolynomialReduction| (&REST #1=#:G150)
   (SPROG NIL
-         (PROG (#2=#:G152)
+         (PROG (#2=#:G151)
            (RETURN
             (COND
              ((LETT #2#

@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |OrdinaryWeightedPolynomials;|)) 
 
-(DEFUN |OrdinaryWeightedPolynomials| (&REST #1=#:G107)
+(DEFUN |OrdinaryWeightedPolynomials| (&REST #1=#:G106)
   (SPROG NIL
-         (PROG (#2=#:G108)
+         (PROG (#2=#:G107)
            (RETURN
             (COND
              ((LETT #2#

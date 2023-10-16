@@ -18,12 +18,12 @@
 
 (SDEFUN |SBOUND;sunion;3$;6| ((|x| $) (|y| $) ($ $))
         (SPROG
-         ((|ymax| (PT)) (#1=#:G125 NIL) (|ymin| (PT)) (|xmax| (PT))
-          (|xmin| (PT)) (#2=#:G157 NIL) (|res| ($)) (#3=#:G159 NIL) (|ptr| NIL)
-          (|p| (|List| $)) (#4=#:G126 NIL) (#5=#:G158 NIL))
+         ((|ymax| (PT)) (#1=#:G124 NIL) (|ymin| (PT)) (|xmax| (PT))
+          (|xmin| (PT)) (#2=#:G156 NIL) (|res| ($)) (#3=#:G158 NIL) (|ptr| NIL)
+          (|p| (|List| $)) (#4=#:G125 NIL) (#5=#:G157 NIL))
          (SEQ
           (EXIT
-           (SEQ (COND ((QEQCAR |x| 0) (PROGN (LETT #2# |y|) (GO #6=#:G156))))
+           (SEQ (COND ((QEQCAR |x| 0) (PROGN (LETT #2# |y|) (GO #6=#:G155))))
                 (COND ((QEQCAR |y| 0) (PROGN (LETT #2# |x|) (GO #6#))))
                 (COND
                  ((QEQCAR |x| 2)
@@ -525,8 +525,8 @@
 
 (SDEFUN |SBOUND;extendToPoint;$PT$;7| ((|n| $) (|p| PT) ($ $))
         (SPROG
-         ((|xmax| (PT)) (|xmin| (PT)) (#1=#:G171 NIL) (|res| ($))
-          (#2=#:G172 NIL) (|ptr| NIL) (|pa| (|List| $)) (#3=#:G126 NIL))
+         ((|xmax| (PT)) (|xmin| (PT)) (#1=#:G170 NIL) (|res| ($))
+          (#2=#:G171 NIL) (|ptr| NIL) (|pa| (|List| $)) (#3=#:G125 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -534,7 +534,7 @@
              ((QEQCAR |n| 0)
               (PROGN
                (LETT #1# (CONS 1 (VECTOR '|box| |p| |p|)))
-               (GO #4=#:G170))))
+               (GO #4=#:G169))))
             (COND
              ((QEQCAR |n| 2)
               (SEQ
@@ -592,12 +592,12 @@
 
 (SDEFUN |SBOUND;containsPoint?;$PTB;8| ((|n| $) (|p| PT) ($ |Boolean|))
         (SPROG
-         ((#1=#:G125 NIL) (#2=#:G182 NIL) (|rDist| #3=(|DoubleFloat|))
-          (|pDist| #3#) (|pRel| (PT)) (#4=#:G183 NIL) (|sub| NIL)
-          (|pa| (|List| $)) (#5=#:G126 NIL))
+         ((#1=#:G124 NIL) (#2=#:G181 NIL) (|rDist| #3=(|DoubleFloat|))
+          (|pDist| #3#) (|pRel| (PT)) (#4=#:G182 NIL) (|sub| NIL)
+          (|pa| (|List| $)) (#5=#:G125 NIL))
          (SEQ
           (EXIT
-           (SEQ (COND ((QEQCAR |n| 0) (PROGN (LETT #2# NIL) (GO #6=#:G181))))
+           (SEQ (COND ((QEQCAR |n| 0) (PROGN (LETT #2# NIL) (GO #6=#:G180))))
                 (COND
                  ((QEQCAR |n| 2)
                   (SEQ
@@ -874,11 +874,11 @@
         (SPROG
          ((|y| #1=(|DoubleFloat|)) (|x| #1#) (|yp| #2=(|DoubleFloat|))
           (|xp| #3=(|DoubleFloat|)) (|b| #2#) (|a| #3#) (|rad| (PT))
-          (#4=#:G125 NIL) (|pRel| (PT)) (|cent| (PT)) (#5=#:G196 NIL)
+          (#4=#:G124 NIL) (|pRel| (PT)) (|cent| (PT)) (#5=#:G195 NIL)
           (|divisor| (|DoubleFloat|)) (|ab| (|DoubleFloat|)) (|centre| (PT)))
          (SEQ
           (EXIT
-           (SEQ (COND ((QEQCAR |n| 0) (PROGN (LETT #5# |p|) (GO #6=#:G195))))
+           (SEQ (COND ((QEQCAR |n| 0) (PROGN (LETT #5# |p|) (GO #6=#:G194))))
                 (COND
                  ((QEQCAR |n| 2)
                   (|error| "cant compute lineIntersect with compound border")))
@@ -1115,29 +1115,29 @@
 (SDEFUN |SBOUND;isNull?;$B;10| ((|n| $) ($ |Boolean|)) (QEQCAR |n| 0)) 
 
 (SDEFUN |SBOUND;isEllipse?;$B;11| ((|n| $) ($ |Boolean|))
-        (SPROG ((#1=#:G205 NIL))
+        (SPROG ((#1=#:G204 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((NULL (QEQCAR |n| 1))
-                    (PROGN (LETT #1# NIL) (GO #2=#:G204))))
+                    (PROGN (LETT #1# NIL) (GO #2=#:G203))))
                   (EXIT (EQUAL (QVELT (CDR |n|) 0) '|ellipoid|))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SBOUND;isBox?;$B;12| ((|n| $) ($ |Boolean|))
-        (SPROG ((#1=#:G213 NIL))
+        (SPROG ((#1=#:G212 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((NULL (QEQCAR |n| 1))
-                    (PROGN (LETT #1# NIL) (GO #2=#:G212))))
+                    (PROGN (LETT #1# NIL) (GO #2=#:G211))))
                   (EXIT (EQUAL (QVELT (CDR |n|) 0) '|box|))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SBOUND;getMin;$PT;13| ((|n| $) ($ PT))
-        (SPROG ((#1=#:G125 NIL) (#2=#:G218 NIL))
+        (SPROG ((#1=#:G124 NIL) (#2=#:G217 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1207,7 +1207,7 @@
                               2)
                              (QREFELT $ 23))
                             (QREFELT $ 49)))
-                     (GO #4=#:G217))))
+                     (GO #4=#:G216))))
                   (EXIT
                    (QVELT
                     (PROG2 (LETT #1# |n|)
@@ -1234,7 +1234,7 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |SBOUND;getMax;$PT;14| ((|n| $) ($ PT))
-        (SPROG ((#1=#:G125 NIL) (#2=#:G223 NIL))
+        (SPROG ((#1=#:G124 NIL) (#2=#:G222 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1304,7 +1304,7 @@
                               2)
                              (QREFELT $ 24))
                             (QREFELT $ 49)))
-                     (GO #4=#:G222))))
+                     (GO #4=#:G221))))
                   (EXIT
                    (QVELT
                     (PROG2 (LETT #1# |n|)
@@ -1331,7 +1331,7 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |SBOUND;getCentre;$PT;15| ((|n| $) ($ PT))
-        (SPROG ((#1=#:G125 NIL) (#2=#:G228 NIL))
+        (SPROG ((#1=#:G124 NIL) (#2=#:G227 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1368,7 +1368,7 @@
                                                                    $)))))
                                               #1#))
                             1))
-                     (GO #4=#:G227))))
+                     (GO #4=#:G226))))
                   (EXIT
                    (SPADCALL
                     (SPADCALL (SPADCALL 5 -1 10 (QREFELT $ 40)) (QREFELT $ 41))
@@ -1438,8 +1438,8 @@
 
 (SDEFUN |SBOUND;coerce;$Of;17| ((|n| $) ($ |OutputForm|))
         (SPROG
-         ((|sub| (|OutputForm|)) (#1=#:G241 NIL) (#2=#:G126 NIL) (|x| NIL)
-          (#3=#:G240 NIL) (#4=#:G239 NIL) (#5=#:G125 NIL) (|s| (|OutputForm|))
+         ((|sub| (|OutputForm|)) (#1=#:G240 NIL) (#2=#:G125 NIL) (|x| NIL)
+          (#3=#:G239 NIL) (#4=#:G238 NIL) (#5=#:G124 NIL) (|s| (|OutputForm|))
           (|ty| (|OutputForm|)))
          (SEQ
           (EXIT
@@ -1453,7 +1453,7 @@
                 (LETT |s|
                       (SPADCALL (SPADCALL '|bound | (QREFELT $ 55)) |ty|
                                 (QREFELT $ 57)))
-                (COND ((QEQCAR |n| 0) (PROGN (LETT #4# |s|) (GO #6=#:G238))))
+                (COND ((QEQCAR |n| 0) (PROGN (LETT #4# |s|) (GO #6=#:G237))))
                 (COND
                  ((QEQCAR |n| 1)
                   (PROGN
@@ -1583,9 +1583,9 @@
 
 (DECLAIM (NOTINLINE |SBoundary;|)) 
 
-(DEFUN |SBoundary| (#1=#:G242)
+(DEFUN |SBoundary| (#1=#:G241)
   (SPROG NIL
-         (PROG (#2=#:G243)
+         (PROG (#2=#:G242)
            (RETURN
             (COND
              ((LETT #2#

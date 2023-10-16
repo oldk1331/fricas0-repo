@@ -2,7 +2,7 @@
 (SDEFUN |ODECONST;constDsolve;LFSR;1|
         ((|op| L) (|g| F) (|x| |Symbol|)
          ($ |Record| (|:| |particular| F) (|:| |basis| (|List| F))))
-        (SPROG ((#1=#:G111 NIL) (|b| (|List| F)))
+        (SPROG ((#1=#:G110 NIL) (|b| (|List| F)))
                (SEQ
                 (LETT |b|
                       (|ODECONST;homoBasis| |op| (SPADCALL |x| (QREFELT $ 10))
@@ -28,7 +28,7 @@
 
 (SDEFUN |ODECONST;homoBasis| ((|op| L) (|x| F) ($ |List| F))
         (SPROG
-         ((|b| (|List| F)) (#1=#:G122 NIL) (|ff| NIL)
+         ((|b| (|List| F)) (#1=#:G121 NIL) (|ff| NIL)
           (|fp| (|Factored| (|SparseUnivariatePolynomial| F)))
           (|p| (|SparseUnivariatePolynomial| F)))
          (SEQ (LETT |p| (|spadConstant| $ 21))
@@ -66,8 +66,8 @@
         ((|p| |SparseUnivariatePolynomial| F) (|n| |Integer|) (|x| F)
          ($ |List| F))
         (SPROG
-         ((|xn| (F)) (|l| (|List| F)) (#1=#:G131 NIL) (|f| NIL) (#2=#:G130 NIL)
-          (#3=#:G129 NIL) (|i| NIL) (|ll| (|List| F)))
+         ((|xn| (F)) (|l| (|List| F)) (#1=#:G130 NIL) (|f| NIL) (#2=#:G129 NIL)
+          (#3=#:G128 NIL) (|i| NIL) (|ll| (|List| F)))
          (SEQ (LETT |l| (|ODECONST;basisSqfr| |p| |x| $))
               (EXIT
                (COND ((ZEROP |n|) |l|)
@@ -114,7 +114,7 @@
 (SDEFUN |ODECONST;basisSqfr|
         ((|p| |SparseUnivariatePolynomial| F) (|x| F) ($ |List| F))
         (SPROG
-         ((#1=#:G136 NIL) (|a| NIL) (#2=#:G135 NIL)
+         ((#1=#:G135 NIL) (|a| NIL) (#2=#:G134 NIL)
           (|d| (|NonNegativeInteger|)))
          (SEQ (LETT |d| (SPADCALL |p| (QREFELT $ 43)))
               (EXIT
@@ -151,7 +151,7 @@
 (SDEFUN |ODECONST;quadSol|
         ((|p| |SparseUnivariatePolynomial| F) (|x| F) ($ |List| F))
         (SPROG
-         ((#1=#:G148 NIL) (|a| (F)) (#2=#:G147 NIL) (#3=#:G146 NIL) (|i| (F))
+         ((#1=#:G147 NIL) (|a| (F)) (#2=#:G146 NIL) (#3=#:G145 NIL) (|i| (F))
           (|r| (F)) (|y| (F)) (|u| (|Union| (|Integer|) "failed"))
           (|delta| (F)) (|c| (F)) (|b| (F)))
          (SEQ
@@ -201,7 +201,7 @@
                             (SPADCALL (SPADCALL |r| (QREFELT $ 50))
                                       (SPADCALL |i| (QREFELT $ 65))
                                       (QREFELT $ 42))))))
-                   (GO #4=#:G144))))))))
+                   (GO #4=#:G143))))))))
             (EXIT
              (PROGN
               (LETT #2# NIL)
@@ -222,9 +222,9 @@
 
 (DECLAIM (NOTINLINE |ConstantLODE;|)) 
 
-(DEFUN |ConstantLODE| (&REST #1=#:G149)
+(DEFUN |ConstantLODE| (&REST #1=#:G148)
   (SPROG NIL
-         (PROG (#2=#:G150)
+         (PROG (#2=#:G149)
            (RETURN
             (COND
              ((LETT #2#

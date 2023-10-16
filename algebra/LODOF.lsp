@@ -23,8 +23,8 @@
          (|ezfactor| |Mapping| (|Factored| UP) UP) (|all?| |Boolean|)
          ($ |List| (|Fraction| UP)))
         (SPROG
-         ((|sol| (|List| (|Fraction| UP))) (#1=#:G132 NIL) (|f| NIL)
-          (#2=#:G131 NIL))
+         ((|sol| (|List| (|Fraction| UP))) (#1=#:G131 NIL) (|f| NIL)
+          (#2=#:G130 NIL))
          (SEQ
           (LETT |sol|
                 (PROGN
@@ -61,7 +61,7 @@
         (SPROG
          ((|l2n| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
           (|ans| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
-          (#1=#:G137 NIL) (|i| NIL))
+          (#1=#:G136 NIL) (|i| NIL))
          (SEQ (LETT |ans| (|spadConstant| $ 33))
               (LETT |l2n| (|spadConstant| $ 34))
               (SEQ (LETT |i| 0) (LETT #1# (SPADCALL |l1| (QREFELT $ 36))) G190
@@ -85,7 +85,7 @@
          ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
         (SPROG
          ((|q| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
-          (#1=#:G139 NIL))
+          (#1=#:G138 NIL))
          (SEQ
           (LETT |q|
                 (PROG2 (LETT #1# (SPADCALL |l| |r| (QREFELT $ 42)))
@@ -142,11 +142,11 @@
          (|ezfactor| |Mapping| (|Factored| UP) UP) (|r1?| |Boolean|)
          ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
         (SPROG
-         ((#1=#:G180 NIL) (#2=#:G181 NIL)
+         ((#1=#:G179 NIL) (#2=#:G180 NIL)
           (|u|
            (|Union| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
                     "failed"))
-          (#3=#:G182 NIL) (|i| NIL)
+          (#3=#:G181 NIL) (|i| NIL)
           (|ll| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
           (|n| (|NonNegativeInteger|)))
          (SEQ
@@ -181,8 +181,8 @@
                                                            |ezfactor| NIL $)
                                                           (QCDR |u|)
                                                           (QREFELT $ 53)))
-                                                   (GO #4=#:G179)))
-                                            (GO #5=#:G175))))))))
+                                                   (GO #4=#:G178)))
+                                            (GO #5=#:G174))))))))
                                      (EXIT
                                       (COND
                                        ((< (* 2 |i|) |n|)
@@ -243,7 +243,7 @@
 
 (SDEFUN |LODOF;zro|
         ((|p| UP) (|ezfactor| |Mapping| (|Factored| UP) UP) ($ |List| F))
-        (SPROG ((#1=#:G197 NIL) (|r| NIL) (#2=#:G196 NIL))
+        (SPROG ((#1=#:G196 NIL) (|r| NIL) (#2=#:G195 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -308,9 +308,9 @@
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorFactorizer;|)) 
 
-(DEFUN |LinearOrdinaryDifferentialOperatorFactorizer| (&REST #1=#:G217)
+(DEFUN |LinearOrdinaryDifferentialOperatorFactorizer| (&REST #1=#:G216)
   (SPROG NIL
-         (PROG (#2=#:G218)
+         (PROG (#2=#:G217)
            (RETURN
             (COND
              ((LETT #2#

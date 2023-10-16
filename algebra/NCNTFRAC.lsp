@@ -58,9 +58,9 @@
 
 (DECLAIM (NOTINLINE |NumericContinuedFraction;|)) 
 
-(DEFUN |NumericContinuedFraction| (#1=#:G117)
+(DEFUN |NumericContinuedFraction| (#1=#:G116)
   (SPROG NIL
-         (PROG (#2=#:G118)
+         (PROG (#2=#:G117)
            (RETURN
             (COND
              ((LETT #2#

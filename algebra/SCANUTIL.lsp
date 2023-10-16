@@ -6,7 +6,7 @@
         (SPROG
          ((|res| (|Integer|)) (|l2| #1=(|SingleInteger|)) (|tp| (|Integer|))
           (|l1| (|SingleInteger|)) (|s1| (|SingleInteger|)) (|dig_val| #1#)
-          (#2=#:G121 NIL) (|i| NIL) (#3=#:G120 NIL) (#4=#:G119 NIL)
+          (#2=#:G120 NIL) (|i| NIL) (#3=#:G119 NIL) (#4=#:G118 NIL)
           (|ten7| (|Integer|)) (|ten| #5=(|SingleInteger|)) (|b| #5#))
          (SEQ (LETT |b| 48) (LETT |ten| 10) (LETT |ten7| 10000000)
               (EXIT
@@ -73,10 +73,10 @@
         (SPROG
          ((|res| (|Integer|)) (|j| (|SingleInteger|))
           (|s1| #1=(|SingleInteger|)) (|dig_val| #2=(|SingleInteger|))
-          (#3=#:G137 NIL) (|i| NIL) (#4=#:G136 NIL) (|k| NIL)
+          (#3=#:G136 NIL) (|i| NIL) (#4=#:G135 NIL) (|k| NIL)
           (|ll| #5=(|SingleInteger|)) (|tpl| (|List| #6=(|Integer|)))
           (|l2l| (|List| #1#)) (|tp| #6#) (|ten7| #6#) (|l2| #2#) (|l20| #2#)
-          (#7=#:G135 NIL) (|ten| #5#) (|l1| (|SingleInteger|)) (|l| #5#)
+          (#7=#:G134 NIL) (|ten| #5#) (|l1| (|SingleInteger|)) (|l| #5#)
           (|b| #5#))
          (SEQ (LETT |b| 48) (LETT |l| (QCSIZE |str|))
               (LETT |l1| (|rem_SI| |l| 7)) (LETT |s1| 0) (LETT |ten| 10)
@@ -148,7 +148,7 @@
 
 (DEFUN |ScanningUtilities| ()
   (SPROG NIL
-         (PROG (#1=#:G139)
+         (PROG (#1=#:G138)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ScanningUtilities|))

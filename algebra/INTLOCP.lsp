@@ -4,7 +4,7 @@
          ($ |Record| (|:| |ppow| (|NonNegativeInteger|))
           (|:| |pfree| (|Integer|))))
         (SPROG
-         ((|n| (|NonNegativeInteger|)) (|a| #1#) (#2=#:G134 NIL)
+         ((|n| (|NonNegativeInteger|)) (|a| #1#) (#2=#:G133 NIL)
           (|x| (|Union| (|Integer|) #3="failed")))
          (SEQ
           (COND ((ZEROP |z|) (CONS 0 0))
@@ -357,9 +357,9 @@
 
 (DECLAIM (NOTINLINE |IntegerLocalizedAtPrime;|)) 
 
-(DEFUN |IntegerLocalizedAtPrime| (#1=#:G266)
+(DEFUN |IntegerLocalizedAtPrime| (#1=#:G265)
   (SPROG NIL
-         (PROG (#2=#:G267)
+         (PROG (#2=#:G266)
            (RETURN
             (COND
              ((LETT #2#
@@ -398,7 +398,7 @@
 (MAKEPROP '|IntegerLocalizedAtPrime| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Boolean|) (|Integer|)
-              (|IntegerPrimesPackage| 8) (0 . |prime?|) '#:G104
+              (|IntegerPrimesPackage| 8) (0 . |prime?|) '#:G103
               (|Union| $ '"failed") (5 . |exquo|) (|NonNegativeInteger|)
               |INTLOCP;exponent;$Nni;2| (|Fraction| 8) |INTLOCP;unitPart;$F;3|
               (11 . |coerce|) |INTLOCP;coerce;I$;4| (16 . |denom|)

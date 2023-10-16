@@ -126,7 +126,7 @@
 
 (SDEFUN |BOP1;constantOpIfCan;BoU;13|
         ((|op| |BasicOperator|) ($ |Union| A "failed"))
-        (SPROG ((#1=#:G333 NIL) (|u| (|Union| (|None|) "failed")))
+        (SPROG ((#1=#:G332 NIL) (|u| (|Union| (|None|) "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -139,7 +139,7 @@
                        ((QEQCAR |u| 0)
                         (PROGN
                          (LETT #1# (CONS 0 (QCDR |u|)))
-                         (GO #2=#:G331))))))))
+                         (GO #2=#:G330))))))))
                   (EXIT (CONS 1 "failed"))))
                 #2# (EXIT #1#)))) 
 
@@ -161,9 +161,9 @@
 
 (DECLAIM (NOTINLINE |BasicOperatorFunctions1;|)) 
 
-(DEFUN |BasicOperatorFunctions1| (#1=#:G337)
+(DEFUN |BasicOperatorFunctions1| (#1=#:G336)
   (SPROG NIL
-         (PROG (#2=#:G338)
+         (PROG (#2=#:G337)
            (RETURN
             (COND
              ((LETT #2#

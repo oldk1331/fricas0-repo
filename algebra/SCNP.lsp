@@ -12,40 +12,40 @@
         (CONS 2 (CONS |chin| |nmin|))) 
 
 (SDEFUN |SCNP;isPointLeaf?;$B;4| ((|n| $) ($ |Boolean|))
-        (SPROG ((#1=#:G143 NIL))
+        (SPROG ((#1=#:G142 NIL))
                (SEQ
                 (EXIT
                  (SEQ
-                  (COND ((QEQCAR |n| 0) (PROGN (LETT #1# 'T) (GO #2=#:G142))))
+                  (COND ((QEQCAR |n| 0) (PROGN (LETT #1# 'T) (GO #2=#:G141))))
                   (EXIT 'NIL)))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SCNP;isNodeLeaf?;$B;5| ((|n| $) ($ |Boolean|))
-        (SPROG ((#1=#:G146 NIL))
+        (SPROG ((#1=#:G145 NIL))
                (SEQ
                 (EXIT
                  (SEQ
-                  (COND ((QEQCAR |n| 1) (PROGN (LETT #1# 'T) (GO #2=#:G145))))
+                  (COND ((QEQCAR |n| 1) (PROGN (LETT #1# 'T) (GO #2=#:G144))))
                   (EXIT 'NIL)))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SCNP;isNodeBranch?;$B;6| ((|n| $) ($ |Boolean|))
-        (SPROG ((#1=#:G149 NIL))
+        (SPROG ((#1=#:G148 NIL))
                (SEQ
                 (EXIT
                  (SEQ
-                  (COND ((QEQCAR |n| 2) (PROGN (LETT #1# 'T) (GO #2=#:G148))))
+                  (COND ((QEQCAR |n| 2) (PROGN (LETT #1# 'T) (GO #2=#:G147))))
                   (EXIT 'NIL)))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SCNP;getNames;$L;7| ((|n| $) ($ |List| (|String|)))
-        (SPROG ((#1=#:G127 NIL) (#2=#:G153 NIL))
+        (SPROG ((#1=#:G126 NIL) (#2=#:G152 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((QEQCAR |n| 0)
-                    (PROGN (LETT #2# (QCDR (CDR |n|))) (GO #3=#:G152))))
+                    (PROGN (LETT #2# (QCDR (CDR |n|))) (GO #3=#:G151))))
                   (EXIT
                    (QCDR
                     (PROG2 (LETT #1# |n|)
@@ -78,8 +78,8 @@
 
 (SDEFUN |SCNP;findPoint;$SPT;8| ((|n| $) (|ptName| |String|) ($ PT))
         (SPROG
-         ((#1=#:G162 NIL) (#2=#:G125 NIL) (|s| (|String|)) (#3=#:G163 NIL)
-          (|sNum| NIL) (|fst| ($)) (|c| (|List| $)) (#4=#:G127 NIL))
+         ((#1=#:G161 NIL) (#2=#:G124 NIL) (|s| (|String|)) (#3=#:G162 NIL)
+          (|sNum| NIL) (|fst| ($)) (|c| (|List| $)) (#4=#:G126 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -118,7 +118,7 @@
                 ((SPADCALL |c| NIL (QREFELT $ 21))
                  (PROGN
                   (LETT #1# (SPADCALL 0 0 (QREFELT $ 23)))
-                  (GO #5=#:G161))))
+                  (GO #5=#:G160))))
                (LETT |fst| (SPADCALL |c| (QREFELT $ 24)))
                (COND
                 ((SPADCALL |fst| (QREFELT $ 17))
@@ -241,7 +241,7 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |SCNP;addPoints!;$S2$;9| ((|n| $) (|ptName| |String|) (|pts| $) ($ $))
-        (SPROG ((#1=#:G127 NIL))
+        (SPROG ((#1=#:G126 NIL))
                (SEQ
                 (COND
                  ((NULL (SPADCALL |n| (QREFELT $ 18)))
@@ -367,7 +367,7 @@
 (SDEFUN |SCNP;addNode!;$SS$;10|
         ((|n| $) (|ptName| |String|) (|sc| |Scene| PT) ($ $))
         (SPROG
-         ((#1=#:G126 NIL) (#2=#:G174 NIL) (#3=#:G127 NIL) (|fst| ($))
+         ((#1=#:G125 NIL) (#2=#:G173 NIL) (#3=#:G126 NIL) (|fst| ($))
           (|c| (|List| $)) (|scnd| ($)))
          (SEQ
           (EXIT
@@ -471,7 +471,7 @@
                                          #3#))
                     (LIST "useNames"))
                    (QCDR #5#))
-                  (EXIT (PROGN (LETT #2# |scnd|) (GO #6=#:G173))))))
+                  (EXIT (PROGN (LETT #2# |scnd|) (GO #6=#:G172))))))
                (LETT |fst| (SPADCALL |c| (QREFELT $ 24)))
                (COND
                 ((SPADCALL |fst| (QREFELT $ 17))
@@ -676,9 +676,9 @@
 
 (SDEFUN |SCNP;findNode;$SS;11| ((|n| $) (|ptName| |String|) ($ |Scene| PT))
         (SPROG
-         ((#1=#:G181 NIL) (#2=#:G126 NIL) (#3=#:G182 NIL) (|name| NIL)
-          (#4=#:G183 NIL) (|namei| NIL) (|fst| ($)) (|c| (|List| $))
-          (#5=#:G127 NIL))
+         ((#1=#:G180 NIL) (#2=#:G125 NIL) (#3=#:G181 NIL) (|name| NIL)
+          (#4=#:G182 NIL) (|namei| NIL) (|fst| ($)) (|c| (|List| $))
+          (#5=#:G126 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -725,7 +725,7 @@
                  ((SPADCALL |fst| (QREFELT $ 17))
                   (PROGN
                    (LETT #1# (SPADCALL |fst| |ptName| (QREFELT $ 35)))
-                   (GO #6=#:G180))))))))
+                   (GO #6=#:G179))))))))
             (SEQ (LETT |namei| 1)
                  (LETT #4#
                        (LENGTH
@@ -848,10 +848,10 @@
 
 (SDEFUN |SCNP;toString;$S;12| ((|n| $) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (#1=#:G203 NIL) (|l1| NIL) (#2=#:G204 NIL)
-          (|ptr| NIL) (#3=#:G201 NIL) (|lst| NIL) (#4=#:G202 NIL)
-          (#5=#:G198 NIL) (|lenPT| (|NonNegativeInteger|))
-          (|lenNM| (|NonNegativeInteger|)) (#6=#:G199 NIL) (#7=#:G200 NIL))
+         ((|s| (|String|)) (#1=#:G202 NIL) (|l1| NIL) (#2=#:G203 NIL)
+          (|ptr| NIL) (#3=#:G200 NIL) (|lst| NIL) (#4=#:G201 NIL)
+          (#5=#:G197 NIL) (|lenPT| (|NonNegativeInteger|))
+          (|lenNM| (|NonNegativeInteger|)) (#6=#:G198 NIL) (#7=#:G199 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |s| "")
@@ -869,7 +869,7 @@
                                        " ~= point number:"
                                        (STRINGIMAGE |lenPT|))
                                  (QREFELT $ 39)))
-                          (GO #8=#:G197))))
+                          (GO #8=#:G196))))
                        (EXIT
                         (SEQ (LETT |ptr| 1)
                              (LETT #7# (LENGTH (QCDR (CDR |n|))))
@@ -984,7 +984,7 @@
 (SDEFUN |SCNP;hash;$Si;13| ((|s| $) ($ |SingleInteger|)) 0) 
 
 (SDEFUN |SCNP;=;2$B;14| ((|x| $) (|y| $) ($ |Boolean|))
-        (SPROG ((#1=#:G217 NIL))
+        (SPROG ((#1=#:G216 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -998,7 +998,7 @@
                         (COND
                          ((SPADCALL (QCDR (CDR |x|)) (QCDR (CDR |y|))
                                     (QREFELT $ 45))
-                          (PROGN (LETT #1# 'T) (GO #2=#:G216))))))))))
+                          (PROGN (LETT #1# 'T) (GO #2=#:G215))))))))))
                   (COND
                    ((QEQCAR |x| 1)
                     (COND
@@ -1026,10 +1026,10 @@
 
 (SDEFUN |SCNP;coerce;$Of;16| ((|n| $) ($ |OutputForm|))
         (SPROG
-         ((|s| (|OutputForm|)) (#1=#:G238 NIL) (|l1| NIL) (#2=#:G239 NIL)
-          (|ptr| NIL) (#3=#:G236 NIL) (|lst| NIL) (#4=#:G237 NIL)
-          (#5=#:G233 NIL) (|lenPT| (|NonNegativeInteger|))
-          (|lenNM| (|NonNegativeInteger|)) (#6=#:G234 NIL) (#7=#:G235 NIL))
+         ((|s| (|OutputForm|)) (#1=#:G237 NIL) (|l1| NIL) (#2=#:G238 NIL)
+          (|ptr| NIL) (#3=#:G235 NIL) (|lst| NIL) (#4=#:G236 NIL)
+          (#5=#:G232 NIL) (|lenPT| (|NonNegativeInteger|))
+          (|lenNM| (|NonNegativeInteger|)) (#6=#:G233 NIL) (#7=#:G234 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |s| (SPADCALL "" (QREFELT $ 49)))
@@ -1049,7 +1049,7 @@
                                   (SPADCALL " ~= point number:" (QREFELT $ 49))
                                   (SPADCALL |lenPT| (QREFELT $ 50)))
                                  (QREFELT $ 51)))
-                          (GO #8=#:G232))))
+                          (GO #8=#:G231))))
                        (EXIT
                         (SEQ (LETT |ptr| 1)
                              (LETT #7# (LENGTH (QCDR (CDR |n|))))
@@ -1177,9 +1177,9 @@
 
 (DECLAIM (NOTINLINE |SceneNamedPoints;|)) 
 
-(DEFUN |SceneNamedPoints| (#1=#:G240)
+(DEFUN |SceneNamedPoints| (#1=#:G239)
   (SPROG NIL
-         (PROG (#2=#:G241)
+         (PROG (#2=#:G240)
            (RETURN
             (COND
              ((LETT #2#

@@ -7,7 +7,7 @@
   (COND (|PartialOrder;AL|) (T (SETQ |PartialOrder;AL| (|PartialOrder;|))))) 
 
 (DEFUN |PartialOrder;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G103 NIL))
          (PROG1
              (LETT #1#
                    (|Join|

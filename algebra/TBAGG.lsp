@@ -6,7 +6,7 @@
 (DEFPARAMETER |TableAggregate;AL| 'NIL) 
 
 (DEFUN |TableAggregate| (|t#1| |t#2|)
-  (LET (#1=#:G112 (#2=#:G113 (LIST (|devaluate| |t#1|) (|devaluate| |t#2|))))
+  (LET (#1=#:G111 (#2=#:G112 (LIST (|devaluate| |t#1|) (|devaluate| |t#2|))))
     (COND ((SETQ #1# (|assoc| #2# |TableAggregate;AL|)) (CDR #1#))
           (T
            (SETQ |TableAggregate;AL|
@@ -16,7 +16,7 @@
            #1#)))) 
 
 (DEFUN |TableAggregate;| (|t#1| |t#2|)
-  (SPROG ((#1=#:G111 NIL))
+  (SPROG ((#1=#:G110 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))

@@ -1218,6 +1218,7 @@
 ;     self_preds := get_self_preds(condCats)
 ;     self_preds := [cat for p in self_preds | p is ["QUOTE", cat]]
 ;     self_preds = [] => [condCats, false]
+;     found_preds := []
 ;     false_preds := []
 ;     for c1 in self_preds repeat
 ;         op1 := opOf(c1)
@@ -1243,8 +1244,8 @@
 ;     [condCats, first(sub_data1)]
  
 (DEFUN |simplify_self_preds1| (|catvecListMaker| |condCats|)
-  (PROG (|self_preds| |ISTMP#1| |cat| |false_preds| |op1| |hl| |found|
-         |found_preds| |cond| |good_preds| |sub_data1|)
+  (PROG (|self_preds| |ISTMP#1| |cat| |found_preds| |false_preds| |op1| |hl|
+         |found| |cond| |good_preds| |sub_data1|)
     (RETURN
      (PROGN
       (SETQ |self_preds| (|get_self_preds| |condCats|))
@@ -1267,6 +1268,7 @@
       (COND ((NULL |self_preds|) (LIST |condCats| NIL))
             (#1#
              (PROGN
+              (SETQ |found_preds| NIL)
               (SETQ |false_preds| NIL)
               ((LAMBDA (|bfVar#50| |c1|)
                  (LOOP

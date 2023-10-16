@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |GenerateUnivariatePowerSeries;|)) 
 
-(DEFUN |GenerateUnivariatePowerSeries| (&REST #1=#:G106)
+(DEFUN |GenerateUnivariatePowerSeries| (&REST #1=#:G105)
   (SPROG NIL
-         (PROG (#2=#:G107)
+         (PROG (#2=#:G106)
            (RETURN
             (COND
              ((LETT #2#

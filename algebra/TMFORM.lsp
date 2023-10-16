@@ -886,7 +886,7 @@
                       (#1# (QCDR |res|))))))) 
 
 (SDEFUN |TMFORM;utf2cork| ((|str| |String|) ($ |String|))
-        (SPROG ((#1=#:G206 NIL) (|i| NIL) (#2=#:G205 NIL))
+        (SPROG ((#1=#:G205 NIL) (|i| NIL) (#2=#:G204 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -1236,7 +1236,7 @@
 (SDEFUN |TMFORM;formatIntBody|
         ((|body| |OutputForm|) (|opPrec| |Integer|) ($ |String|))
         (SPROG
-         ((#1=#:G267 NIL) (|bvarS| (|String|))
+         ((#1=#:G266 NIL) (|bvarS| (|String|))
           (|bvarL| #2=(|List| (|OutputForm|))) (|bvar| (|OutputForm|))
           (|bodyL| #2#))
          (SEQ
@@ -1275,7 +1275,7 @@
                                                    |opPrec| $)
                                                   " \"*<mathd>" |bvarS| "\")")
                                             (QREFELT $ 43)))
-                                     (GO #3=#:G266))))))))))))))))))
+                                     (GO #3=#:G265))))))))))))))))))
             (EXIT (|TMFORM;formatExpr| |body| |opPrec| $))))
           #3# (EXIT #1#)))) 
 
@@ -1423,7 +1423,7 @@
         ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
          (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G298 NIL) (|a| NIL)
+         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G297 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|ops| (|String|)) (|p| (|Integer|)))
          (SEQ
           (COND ((NULL |args|) "")
@@ -1749,7 +1749,7 @@
 
 (DEFUN |TexmacsFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G332)
+         (PROG (#1=#:G331)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|TexmacsFormat|))

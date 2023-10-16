@@ -6,7 +6,7 @@
 (DEFPARAMETER |KeyedDictionary;AL| 'NIL) 
 
 (DEFUN |KeyedDictionary| (|t#1| |t#2|)
-  (LET (#1=#:G108 (#2=#:G109 (LIST (|devaluate| |t#1|) (|devaluate| |t#2|))))
+  (LET (#1=#:G107 (#2=#:G108 (LIST (|devaluate| |t#1|) (|devaluate| |t#2|))))
     (COND ((SETQ #1# (|assoc| #2# |KeyedDictionary;AL|)) (CDR #1#))
           (T
            (SETQ |KeyedDictionary;AL|
@@ -16,12 +16,12 @@
            #1#)))) 
 
 (DEFUN |KeyedDictionary;| (|t#1| |t#2|)
-  (SPROG ((#1=#:G107 NIL))
+  (SPROG ((#1=#:G106 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
                               (|sublisV|
-                               (MAKE_PAIRS '(#2=#:G106)
+                               (MAKE_PAIRS '(#2=#:G105)
                                            (LIST
                                             '(|Record| (|:| |key| |t#1|)
                                                        (|:| |entry| |t#2|))))

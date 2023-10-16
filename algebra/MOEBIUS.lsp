@@ -188,9 +188,9 @@
 
 (DECLAIM (NOTINLINE |MoebiusTransform;|)) 
 
-(DEFUN |MoebiusTransform| (#1=#:G157)
+(DEFUN |MoebiusTransform| (#1=#:G156)
   (SPROG NIL
-         (PROG (#2=#:G158)
+         (PROG (#2=#:G157)
            (RETURN
             (COND
              ((LETT #2#

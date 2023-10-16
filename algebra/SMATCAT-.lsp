@@ -24,7 +24,7 @@
 
 (SDEFUN |SMATCAT-;diagonal;SRow;5| ((|x| S) ($ |Row|))
         (SPROG
-         ((#1=#:G130 NIL) (|i| NIL) (#2=#:G131 NIL) (|j| NIL) (#3=#:G132 NIL)
+         ((#1=#:G129 NIL) (|i| NIL) (#2=#:G130 NIL) (|j| NIL) (#3=#:G131 NIL)
           (|k| NIL) (|v| (|Vector| R)))
          (SEQ (LETT |v| (MAKEARR1 (QREFELT $ 7) (|spadConstant| $ 20)))
               (SEQ (LETT |k| (SPADCALL |v| (QREFELT $ 27)))
@@ -58,7 +58,7 @@
 
 (SDEFUN |SMATCAT-;equation2R| ((|v| |Vector| S) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G145 NIL) (|j| NIL) (#2=#:G144 NIL) (|i| NIL)
+         ((#1=#:G144 NIL) (|j| NIL) (#2=#:G143 NIL) (|i| NIL)
           (|ans| (|Matrix| |Col|)))
          (SEQ
           (LETT |ans|
@@ -83,7 +83,7 @@
           (EXIT (SPADCALL |ans| (QREFELT $ 46)))))) 
 
 (SDEFUN |SMATCAT-;reducedSystem;MM;9| ((|x| |Matrix| S) ($ |Matrix| R))
-        (SPROG ((#1=#:G152 NIL) (|i| NIL) (#2=#:G151 NIL))
+        (SPROG ((#1=#:G151 NIL) (|i| NIL) (#2=#:G150 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT $ 48))
@@ -128,7 +128,7 @@
                 (EXIT (CONS (SPADCALL |m| (QREFELT $ 59)) |vh|))))) 
 
 (SDEFUN |SMATCAT-;trace;SR;11| ((|x| S) ($ R))
-        (SPROG ((|tr| (R)) (#1=#:G162 NIL) (|i| NIL) (#2=#:G163 NIL) (|j| NIL))
+        (SPROG ((|tr| (R)) (#1=#:G161 NIL) (|i| NIL) (#2=#:G162 NIL) (|j| NIL))
                (SEQ (LETT |tr| (|spadConstant| $ 20))
                     (SEQ (LETT |j| (SPADCALL |x| (QREFELT $ 24)))
                          (LETT #2# (SPADCALL |x| (QREFELT $ 25)))
@@ -147,7 +147,7 @@
                     (EXIT |tr|)))) 
 
 (SDEFUN |SMATCAT-;diagonalProduct;SR;12| ((|x| S) ($ R))
-        (SPROG ((|pr| (R)) (#1=#:G167 NIL) (|i| NIL) (#2=#:G168 NIL) (|j| NIL))
+        (SPROG ((|pr| (R)) (#1=#:G166 NIL) (|i| NIL) (#2=#:G167 NIL) (|j| NIL))
                (SEQ
                 (LETT |pr|
                       (SPADCALL |x| (SPADCALL |x| (QREFELT $ 22))
