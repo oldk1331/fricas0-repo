@@ -170,9 +170,9 @@
 
 (DECLAIM (NOTINLINE |TensorProduct;|)) 
 
-(DEFUN |TensorProduct| (&REST #1=#:G150)
+(DEFUN |TensorProduct| (&REST #1=#:G151)
   (SPROG NIL
-         (PROG (#2=#:G151)
+         (PROG (#2=#:G152)
            (RETURN
             (COND
              ((LETT #2#
@@ -191,16 +191,16 @@
 
 (DEFUN |TensorProduct;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
-   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
-    (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G149 NIL) ($ NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL)
+    (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #1=(|TensorProduct|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
-    (LETT DV$5 (|devaluate| |#5|) . #1#)
-    (LETT |dv$| (LIST '|TensorProduct| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
-    (LETT $ (GETREFV 67) . #1#)
+    (LETT DV$1 (|devaluate| |#1|) . #2=(|TensorProduct|))
+    (LETT DV$2 (|devaluate| |#2|) . #2#)
+    (LETT DV$3 (|devaluate| |#3|) . #2#)
+    (LETT DV$4 (|devaluate| |#4|) . #2#)
+    (LETT DV$5 (|devaluate| |#5|) . #2#)
+    (LETT |dv$| (LIST '|TensorProduct| DV$1 DV$2 DV$3 DV$4 DV$5) . #2#)
+    (LETT $ (GETREFV 67) . #2#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -212,21 +212,6 @@
                                               (|HasCategory|
                                                (|Product| |#2| |#3|)
                                                '(|OrderedSet|)))
-                                             (OR
-                                              (|HasCategory| |#1|
-                                                             '(|Comparable|))
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              '(|OrderedAbelianMonoid|))
-                                               (|HasCategory|
-                                                (|Product| |#2| |#3|)
-                                                '(|OrderedSet|)))
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              '(|OrderedAbelianMonoidSup|))
-                                               (|HasCategory|
-                                                (|Product| |#2| |#3|)
-                                                '(|OrderedSet|))))
                                              (OR
                                               (AND
                                                (|HasCategory| |#1|
@@ -293,6 +278,28 @@
                                                                      |#1|)))))
                                              (|HasCategory| |#1|
                                                             '(|CommutativeRing|))
+                                             (LETT #1#
+                                                   (|HasCategory|
+                                                    (|Product| |#2| |#3|)
+                                                    '(|Comparable|))
+                                                   . #2#)
+                                             (OR
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|Comparable|))
+                                               #1#)
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianMonoid|))
+                                               (|HasCategory|
+                                                (|Product| |#2| |#3|)
+                                                '(|OrderedSet|)))
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianMonoidSup|))
+                                               (|HasCategory|
+                                                (|Product| |#2| |#3|)
+                                                '(|OrderedSet|))))
                                              (OR
                                               (|HasCategory| |#1|
                                                              '(|AbelianGroup|))
@@ -337,7 +344,7 @@
                                                               (LIST '|Algebra|
                                                                     (|devaluate|
                                                                      |#1|)))))))
-                    . #1#))
+                    . #2#))
     (|haddProp| |$ConstructorCache| '|TensorProduct|
                 (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
     (|stuffDomainSlots| $)
@@ -390,9 +397,9 @@
               >= 444 > 450 = 456 <= 462 < 468 - 474 + 485 * 491)
            'NIL
            (CONS
-            (|makeByteWordVec2| 8
-                                '(5 5 0 0 5 5 0 0 5 0 2 5 5 0 0 0 2 5 5 5 6 4 4
-                                  8 5 5 4 7 5 5 5 0 3 5 0 0 0 1 4 5))
+            (|makeByteWordVec2| 10
+                                '(4 4 0 0 4 4 0 0 4 0 2 4 4 0 0 0 2 4 4 4 5 3 3
+                                  7 4 4 3 6 4 4 4 0 10 4 0 0 0 1 3 4))
             (CONS
              '#(|Algebra&| NIL NIL |FreeModuleCategory&| |Rng&| NIL |Module&|
                 NIL NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
@@ -429,23 +436,23 @@
                                     0 41 1 6 42 0 43 1 7 42 0 44 1 8 42 0 45 2
                                     42 0 0 0 46 2 6 11 0 0 47 2 42 0 0 0 48 2
                                     42 0 0 0 49 2 51 42 50 0 52 2 0 11 0 0 1 1
-                                    11 11 0 40 2 0 0 9 10 28 1 0 61 0 1 2 2 0 0
-                                    0 1 2 10 55 0 0 1 2 3 11 0 0 1 0 11 0 1 1 5
-                                    55 0 1 2 5 0 0 54 1 2 5 0 0 57 1 1 1 59 0 1
-                                    1 1 12 0 1 1 0 0 0 1 1 5 55 0 1 2 11 11 0 0
-                                    1 1 5 11 0 1 1 0 54 0 1 1 0 63 0 1 1 0 11 0
-                                    1 2 0 0 6 12 1 2 4 0 0 0 1 2 4 0 0 0 1 2 0
-                                    0 60 0 1 1 0 26 0 29 2 9 6 58 0 1 1 5 55 0
-                                    1 2 5 0 0 54 1 2 5 0 0 57 1 1 0 25 0 1 1 0
-                                    12 0 1 1 0 0 0 1 1 0 6 0 1 1 0 64 0 1 2 0
-                                    66 66 0 1 1 0 65 0 1 1 0 0 26 27 1 0 0 26
-                                    38 2 5 0 0 0 1 1 5 0 6 1 1 5 0 56 1 1 1 0
+                                    12 11 0 40 2 0 0 9 10 28 1 0 61 0 1 2 2 0 0
+                                    0 1 2 11 55 0 0 1 2 10 11 0 0 1 0 12 0 1 1
+                                    4 55 0 1 2 4 0 0 54 1 2 4 0 0 57 1 1 1 59 0
+                                    1 1 1 12 0 1 1 9 0 0 1 1 4 55 0 1 2 12 11 0
+                                    0 1 1 4 11 0 1 1 0 54 0 1 1 0 63 0 1 1 0 11
+                                    0 1 2 0 0 6 12 1 2 3 0 0 0 1 2 3 0 0 0 1 2
+                                    0 0 60 0 1 1 0 26 0 29 2 8 6 58 0 1 1 4 55
+                                    0 1 2 4 0 0 54 1 2 4 0 0 57 1 1 9 25 0 1 1
+                                    9 12 0 1 1 9 0 0 1 1 9 6 0 1 1 0 64 0 1 2 0
+                                    66 66 0 1 1 0 65 0 1 1 9 0 26 27 1 0 0 26
+                                    38 2 4 0 0 0 1 1 4 0 6 1 1 4 0 56 1 1 1 0
                                     12 1 1 0 42 0 53 1 0 62 0 1 2 0 6 0 12 1 0
-                                    5 54 1 3 5 0 0 0 0 1 2 5 0 0 0 1 2 5 11 0 0
-                                    1 2 5 0 0 54 1 2 5 0 0 57 1 0 11 0 15 0 5 0
-                                    32 2 4 11 0 0 1 2 4 11 0 0 1 2 0 11 0 0 1 2
-                                    4 11 0 0 1 2 4 11 0 0 1 1 6 0 0 1 2 6 0 0 0
-                                    1 2 0 0 0 0 1 2 5 0 0 0 39 2 6 0 56 0 1 2
-                                    11 0 54 0 1 2 0 0 6 12 1 2 0 0 12 6 1 2 0 0
+                                    4 54 1 3 4 0 0 0 0 1 2 4 0 0 0 1 2 4 11 0 0
+                                    1 2 4 0 0 54 1 2 4 0 0 57 1 0 12 0 15 0 4 0
+                                    32 2 3 11 0 0 1 2 3 11 0 0 1 2 0 11 0 0 1 2
+                                    3 11 0 0 1 2 3 11 0 0 1 1 5 0 0 1 2 5 0 0 0
+                                    1 2 0 0 0 0 1 2 4 0 0 0 39 2 5 0 56 0 1 2
+                                    12 0 54 0 1 2 0 0 6 12 1 2 0 0 12 6 1 2 0 0
                                     0 6 1 2 0 0 57 0 1 2 0 0 6 0 1)))))
            '|lookupComplete|)) 

@@ -658,11 +658,12 @@
           (QSETREFV $ 7 |#2|)
           (SETF |pv$| (QREFELT $ 3))
           (QSETREFV $ 8
-                    (|FreeAbelianGroup|
-                     (|List|
-                      (|Record| (|:| |coef| |#1|)
-                                (|:| |monom|
-                                     (|FreeGroup| (|BasicOperator|)))))))
+                    (|FreeModule| (|Integer|)
+                                  (|List|
+                                   (|Record| (|:| |coef| |#1|)
+                                             (|:| |monom|
+                                                  (|FreeGroup|
+                                                   (|BasicOperator|)))))))
           (QSETREFV $ 9 '|%opAdjoint|)
           (QSETREFV $ 10 '|%opEval|)
           (QSETREFV $ 11 '|%invEval|)
@@ -704,7 +705,7 @@
 
 (MAKEPROP '|ModuleOperator| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|FreeAbelianGroup| 40) (|local| |#1|)
+           '#(NIL NIL NIL NIL NIL (|FreeModule| 17 40) (|local| |#1|)
               (|local| |#2|) '|Rep| 'OPADJ 'OPEVAL 'INVEVAL
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |MODOP;One;$;1|) $))
               (0 . |One|) (|FreeGroup| 24) (4 . |One|) (8 . |makeop|)
@@ -712,14 +713,14 @@
               |MODOP;coerce;I$;2| (|Boolean|) (19 . |zero?|) (24 . |Zero|)
               (|BasicOperator|) (28 . |copy|) |MODOP;coerce;Bo$;4|
               (33 . |coerce|) (|Record| (|:| |coef| 6) (|:| |monom| 14))
-              (|Record| (|:| |gen| 40) (|:| |exp| 17)) (|List| 29)
-              (38 . |terms|) (43 . *) (49 . +) (55 . |Zero|) |MODOP;elt;$2M;6|
-              (59 . *) (|NonNegativeInteger|) (65 . |characteristic|)
-              |MODOP;characteristic;Nni;9| (|List| 28) (69 . |coerce|)
-              (74 . |retract|) (|Symbol|) (|None|) (79 . |setProperty|)
-              (|Mapping| 7 7) |MODOP;evaluate;$M$;11| (86 . |Zero|) (90 . >=)
-              (96 . -) (101 . -) (106 . |inv|) |MODOP;*;3$;21|
-              (|Union| $ '"failed") (111 . |recip|) (116 . >)
+              (|Record| (|:| |k| 40) (|:| |c| 17)) (|List| 29)
+              (38 . |listOfTerms|) (43 . *) (49 . +) (55 . |Zero|)
+              |MODOP;elt;$2M;6| (59 . *) (|NonNegativeInteger|)
+              (65 . |characteristic|) |MODOP;characteristic;Nni;9| (|List| 28)
+              (69 . |coerce|) (74 . |retract|) (|Symbol|) (|None|)
+              (79 . |setProperty|) (|Mapping| 7 7) |MODOP;evaluate;$M$;11|
+              (86 . |Zero|) (90 . >=) (96 . -) (101 . -) (106 . |inv|)
+              |MODOP;*;3$;21| (|Union| $ '"failed") (111 . |recip|) (116 . >)
               (|PositiveInteger|) (|RepeatedSquaring| $$) (122 . |expt|)
               (128 . |retract|) |MODOP;^;$I$;15| |MODOP;evaluateInverse;$M$;16|
               (133 . |zero?|) (|OutputForm|) (138 . |coerce|) (143 . +)

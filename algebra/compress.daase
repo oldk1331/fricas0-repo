@@ -1159,7 +1159,7 @@
  |mirror| |monomial?| |monom| |rquo| |lquo| |mindegTerm| |table| |writeXml|
  |writeVRML| |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp|
  |product| |LiePolyIfCan| |trunc| |degree| / |quasiRegular| |quasiRegular?|
- |constant| |constant?| |coef| |mindeg| |maxdeg| |coerce| |#| |reductum| |map|
+ |constant| |constant?| |coef| |reductum| |mindeg| |maxdeg| |coerce| |#| |map|
  * |RemainderList| |unexpand| |expand| Y |triangSolve| |univariateSolve|
  |realSolve| |positiveSolve| |squareFree| |convert| |linearlyDependentOverZ?|
  |linearDependenceOverZ| |particularSolutionOverQ| |solveLinearlyOverQ|) 

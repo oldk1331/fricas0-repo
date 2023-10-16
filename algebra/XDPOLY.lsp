@@ -375,9 +375,9 @@
 
 (DECLAIM (NOTINLINE |XDistributedPolynomial;|)) 
 
-(DEFUN |XDistributedPolynomial| (&REST #1=#:G198)
+(DEFUN |XDistributedPolynomial| (&REST #1=#:G199)
   (SPROG NIL
-         (PROG (#2=#:G199)
+         (PROG (#2=#:G200)
            (RETURN
             (COND
              ((LETT #2#
@@ -396,71 +396,72 @@
                   (HREM |$ConstructorCache| '|XDistributedPolynomial|)))))))))) 
 
 (DEFUN |XDistributedPolynomial;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|XDistributedPolynomial|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|XDistributedPolynomial| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 81) . #1#)
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
-                    (LETT |pv$|
-                          (|buildPredVector| 0 0
-                                             (LIST
-                                              (|HasCategory| |#2|
-                                                             '(|CommutativeRing|))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|OrderedAbelianMonoidSup|))
-                                               (|HasCategory|
-                                                (|FreeMonoid| |#1|)
-                                                '(|OrderedSet|)))
-                                              (OR
-                                               (|HasCategory| |#2|
-                                                              '(|Comparable|))
-                                               (AND
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedAbelianMonoid|))
-                                                (|HasCategory|
-                                                 (|FreeMonoid| |#1|)
-                                                 '(|OrderedSet|)))
-                                               (AND
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedAbelianMonoidSup|))
-                                                (|HasCategory|
-                                                 (|FreeMonoid| |#1|)
-                                                 '(|OrderedSet|))))
-                                              (OR
-                                               (AND
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedAbelianMonoid|))
-                                                (|HasCategory|
-                                                 (|FreeMonoid| |#1|)
-                                                 '(|OrderedSet|)))
-                                               (AND
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedAbelianMonoidSup|))
-                                                (|HasCategory|
-                                                 (|FreeMonoid| |#1|)
-                                                 '(|OrderedSet|))))
-                                              (|HasCategory| |#2|
-                                                             '(|noZeroDivisors|))))
-                          . #1#))
-          (|haddProp| |$ConstructorCache| '|XDistributedPolynomial|
-                      (LIST DV$1 DV$2) (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (QSETREFV $ 7 |#2|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 8
-                    (|List|
-                     (|Record| (|:| |k| (|FreeMonoid| |#1|)) (|:| |c| |#2|))))
-          (COND
-           ((|testBitVector| |pv$| 1)
-            (PROGN
-             (QSETREFV $ 17 (CONS (|dispatchFunction| |XDPOLY;sh;$Nni$;2|) $))
-             (QSETREFV $ 18 (CONS (|dispatchFunction| |XDPOLY;sh;3$;3|) $)))))
-          $))) 
+  (SPROG
+   ((|pv$| NIL) (#1=#:G198 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #2=(|XDistributedPolynomial|))
+    (LETT DV$2 (|devaluate| |#2|) . #2#)
+    (LETT |dv$| (LIST '|XDistributedPolynomial| DV$1 DV$2) . #2#)
+    (LETT $ (GETREFV 81) . #2#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#2|
+                                                       '(|CommutativeRing|))
+                                        (AND
+                                         (|HasCategory| |#2|
+                                                        '(|OrderedAbelianMonoidSup|))
+                                         (|HasCategory| (|FreeMonoid| |#1|)
+                                                        '(|OrderedSet|)))
+                                        (OR
+                                         (AND
+                                          (|HasCategory| |#2|
+                                                         '(|OrderedAbelianMonoid|))
+                                          (|HasCategory| (|FreeMonoid| |#1|)
+                                                         '(|OrderedSet|)))
+                                         (AND
+                                          (|HasCategory| |#2|
+                                                         '(|OrderedAbelianMonoidSup|))
+                                          (|HasCategory| (|FreeMonoid| |#1|)
+                                                         '(|OrderedSet|))))
+                                        (|HasCategory| |#2|
+                                                       '(|noZeroDivisors|))
+                                        (LETT #1#
+                                              (|HasCategory|
+                                               (|FreeMonoid| |#1|)
+                                               '(|Comparable|))
+                                              . #2#)
+                                        (OR
+                                         (AND
+                                          (|HasCategory| |#2| '(|Comparable|))
+                                          #1#)
+                                         (AND
+                                          (|HasCategory| |#2|
+                                                         '(|OrderedAbelianMonoid|))
+                                          (|HasCategory| (|FreeMonoid| |#1|)
+                                                         '(|OrderedSet|)))
+                                         (AND
+                                          (|HasCategory| |#2|
+                                                         '(|OrderedAbelianMonoidSup|))
+                                          (|HasCategory| (|FreeMonoid| |#1|)
+                                                         '(|OrderedSet|))))))
+                    . #2#))
+    (|haddProp| |$ConstructorCache| '|XDistributedPolynomial| (LIST DV$1 DV$2)
+                (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 8
+              (|List| (|Record| (|:| |k| (|FreeMonoid| |#1|)) (|:| |c| |#2|))))
+    (COND
+     ((|testBitVector| |pv$| 1)
+      (PROGN
+       (QSETREFV $ 17 (CONS (|dispatchFunction| |XDPOLY;sh;$Nni$;2|) $))
+       (QSETREFV $ 18 (CONS (|dispatchFunction| |XDPOLY;sh;3$;3|) $)))))
+    $))) 
 
 (MAKEPROP '|XDistributedPolynomial| '|infovec|
           (LIST
@@ -482,9 +483,9 @@
               |XDPOLY;lquo;$vl$;13| (160 . |One|) (164 . =) (170 . |first|)
               (175 . |rest|) (180 . ~=) (186 . *) |XDPOLY;lquo;3$;15|
               |XDPOLY;rquo;3$;16| (192 . >) |XDPOLY;coef;2$R;17| (198 . <)
-              (204 . +) (|Mapping| 7 22) (|PositiveInteger|) (|Integer|)
-              (|Union| 22 '"failed") (|List| 22) (|List| $) (|List| 7)
-              (|Mapping| 7 7) (|List| 9) (|String|) (|SingleInteger|)
+              (204 . +) (|List| 9) (|Mapping| 7 22) (|PositiveInteger|)
+              (|Integer|) (|Union| 22 '"failed") (|List| 22) (|List| $)
+              (|List| 7) (|Mapping| 7 7) (|String|) (|SingleInteger|)
               (|HashState|) (|OutputForm|))
            '#(~= 210 |zero?| 216 |varList| 221 |trunc| 226 |support| 232 |sup|
               237 |subtractIfCan| 243 |smaller?| 249 |sh| 255 |sample| 267
@@ -504,9 +505,9 @@
               612 >= 616 > 622 = 628 <= 634 < 640 - 646 + 657 * 663)
            'NIL
            (CONS
-            (|makeByteWordVec2| 5
+            (|makeByteWordVec2| 6
                                 '(0 0 0 1 0 0 0 0 0 0 1 0 0 0 2 0 0 0 0 0 0 2 0
-                                  4 0 0 0 4 0 0 0 0 4 0 0 3 0 0 0 0 0 4 5))
+                                  3 0 0 0 3 0 0 0 0 3 0 0 6 0 0 0 0 0 3 4))
             (CONS
              '#(NIL NIL NIL |Algebra&| NIL |FreeModuleCategory&| NIL |Rng&| NIL
                 NIL |Module&| NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
@@ -547,30 +548,30 @@
                                     37 0 0 57 1 22 6 0 58 1 22 0 0 59 2 0 37 0
                                     0 60 2 0 0 0 7 61 2 22 37 0 0 64 2 22 37 0
                                     0 66 2 7 0 0 0 67 2 0 37 0 0 60 1 0 37 0 1
-                                    1 0 42 0 46 2 0 0 0 16 40 1 0 72 0 1 2 2 0
-                                    0 0 1 2 0 47 0 0 1 2 3 37 0 0 1 2 1 0 0 16
+                                    1 0 42 0 46 2 0 0 0 16 40 1 0 73 0 1 2 2 0
+                                    0 0 1 2 0 47 0 0 1 2 6 37 0 0 1 2 1 0 0 16
                                     17 2 1 0 0 0 18 0 0 0 1 2 0 0 0 6 53 2 0 0
-                                    0 22 49 2 0 0 0 0 63 1 0 47 0 1 2 0 0 0 69
-                                    1 2 0 0 0 16 1 1 0 71 0 1 1 0 22 0 1 1 0 0
+                                    0 22 49 2 0 0 0 0 63 1 0 47 0 1 2 0 0 0 70
+                                    1 2 0 0 0 16 1 1 0 72 0 1 1 0 22 0 1 1 5 0
                                     0 32 1 0 47 0 1 1 0 37 0 1 1 0 0 0 1 2 0 37
-                                    0 0 1 1 0 37 0 1 1 0 16 0 1 1 0 73 0 1 1 0
+                                    0 0 1 1 0 37 0 1 1 0 16 0 1 1 0 74 0 1 1 0
                                     37 0 1 2 0 0 7 22 1 2 0 0 22 7 31 1 0 0 0
-                                    33 1 0 9 0 11 1 0 22 0 1 2 4 0 0 0 1 1 0 22
-                                    0 34 2 4 0 0 0 1 2 0 0 75 0 1 2 0 0 0 6 55
-                                    2 0 0 0 22 51 2 0 0 0 0 62 1 0 76 0 1 2 1 7
-                                    68 0 1 1 0 47 0 1 2 0 0 0 69 1 2 0 0 0 16 1
-                                    1 0 9 0 1 1 0 22 0 28 1 0 0 0 1 1 0 7 0 30
+                                    33 1 0 9 0 11 1 0 22 0 1 2 3 0 0 0 1 1 0 22
+                                    0 34 2 3 0 0 0 1 2 0 0 76 0 1 2 0 0 0 6 55
+                                    2 0 0 0 22 51 2 0 0 0 0 62 1 0 68 0 1 2 1 7
+                                    69 0 1 1 0 47 0 1 2 0 0 0 70 1 2 0 0 0 16 1
+                                    1 5 9 0 1 1 5 22 0 28 1 5 0 0 1 1 5 7 0 30
                                     1 0 77 0 1 2 0 79 79 0 1 1 0 78 0 1 1 0 16
-                                    0 36 1 0 0 76 1 1 0 0 76 1 1 0 37 0 41 1 0
-                                    7 0 1 2 0 0 0 0 1 1 0 0 70 1 1 0 0 7 1 1 0
-                                    0 22 24 1 0 0 6 25 1 0 80 0 1 1 0 74 0 1 2
+                                    0 36 1 5 0 68 1 1 0 0 68 1 1 0 37 0 41 1 0
+                                    7 0 1 2 0 0 0 0 1 1 0 0 71 1 1 0 0 7 1 1 0
+                                    0 22 24 1 0 0 6 25 1 0 80 0 1 1 0 75 0 1 2
                                     0 7 0 22 1 2 0 7 0 22 1 2 0 7 0 0 65 0 0 16
                                     1 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0 37 0 0 1 2
-                                    0 0 0 69 1 2 0 0 0 16 1 0 0 0 12 0 0 0 14 2
-                                    4 37 0 0 1 2 4 37 0 0 1 2 0 37 0 0 38 2 4
-                                    37 0 0 1 2 4 37 0 0 1 1 0 0 0 1 2 0 0 0 0 1
-                                    2 0 0 0 0 21 2 0 0 0 0 1 2 0 0 70 0 1 2 0 0
+                                    0 0 0 70 1 2 0 0 0 16 1 0 0 0 12 0 0 0 14 2
+                                    3 37 0 0 1 2 3 37 0 0 1 2 0 37 0 0 38 2 3
+                                    37 0 0 1 2 3 37 0 0 1 1 0 0 0 1 2 0 0 0 0 1
+                                    2 0 0 0 0 21 2 0 0 0 0 1 2 0 0 71 0 1 2 0 0
                                     16 0 1 2 0 0 6 0 27 2 0 0 7 22 1 2 0 0 22 7
-                                    1 2 0 0 0 7 61 2 0 0 7 0 20 2 0 0 69 0
+                                    1 2 0 0 0 7 61 2 0 0 7 0 20 2 0 0 70 0
                                     1)))))
            '|lookupComplete|)) 

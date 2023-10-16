@@ -49,7 +49,9 @@
                                             ((|Module| |t#1|)
                                              (|has| |t#1| (|CommutativeRing|)))
                                             ((|Comparable|)
-                                             (|has| |t#1| (|Comparable|))))
+                                             (AND (|has| |t#2| (|Comparable|))
+                                                  (|has| |t#1|
+                                                         (|Comparable|)))))
                                           '((|List| $) (|List| |t#2|)
                                             (|List| |t#1|))
                                           NIL))

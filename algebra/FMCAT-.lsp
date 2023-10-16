@@ -58,6 +58,8 @@
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
+                                              (|HasCategory| |#3|
+                                                             '(|Comparable|))
                                               (|HasCategory| |#2|
                                                              '(|Comparable|))
                                               (|HasCategory| |#2|
@@ -71,9 +73,12 @@
           (QSETREFV $ 8 |#3|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 1)
-            (QSETREFV $ 18
-                      (CONS (|dispatchFunction| |FMCAT-;smaller?;2AB;1|) $))))
+           ((|testBitVector| |pv$| 2)
+            (COND
+             ((|testBitVector| |pv$| 1)
+              (QSETREFV $ 18
+                        (CONS (|dispatchFunction| |FMCAT-;smaller?;2AB;1|)
+                              $))))))
           $))) 
 
 (MAKEPROP '|FreeModuleCategory&| '|infovec|

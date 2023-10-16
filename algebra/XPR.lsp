@@ -305,9 +305,9 @@
 
 (DECLAIM (NOTINLINE |XPolynomialRing;|)) 
 
-(DEFUN |XPolynomialRing| (&REST #1=#:G215)
+(DEFUN |XPolynomialRing| (&REST #1=#:G216)
   (SPROG NIL
-         (PROG (#2=#:G216)
+         (PROG (#2=#:G217)
            (RETURN
             (COND
              ((LETT #2#
@@ -326,71 +326,73 @@
                   (HREM |$ConstructorCache| '|XPolynomialRing|)))))))))) 
 
 (DEFUN |XPolynomialRing;| (|#1| |#2|)
-  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|XPolynomialRing|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|XPolynomialRing| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 69) . #1#)
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
-                    (LETT |pv$|
-                          (|buildPredVector| 0 0
-                                             (LIST
-                                              (|HasCategory| |#1|
-                                                             '(|CommutativeRing|))
-                                              (|HasCategory| |#1|
-                                                             '(|SemiRing|))
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              '(|OrderedAbelianMonoidSup|))
-                                               (|HasCategory| |#2|
-                                                              '(|OrderedSet|)))
-                                              (OR
-                                               (|HasCategory| |#1|
-                                                              '(|Comparable|))
-                                               (AND
-                                                (|HasCategory| |#1|
-                                                               '(|OrderedAbelianMonoid|))
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedSet|)))
-                                               (AND
-                                                (|HasCategory| |#1|
-                                                               '(|OrderedAbelianMonoidSup|))
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedSet|))))
-                                              (OR
-                                               (AND
-                                                (|HasCategory| |#1|
-                                                               '(|OrderedAbelianMonoid|))
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedSet|)))
-                                               (AND
-                                                (|HasCategory| |#1|
-                                                               '(|OrderedAbelianMonoidSup|))
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedSet|))))
-                                              (|HasCategory| |#1|
-                                                             '(|canonicalUnitNormal|))
-                                              (|HasCategory| |#1|
-                                                             '(|noZeroDivisors|))
-                                              (|HasCategory| |#1| '(|Field|))))
-                          . #1#))
-          (|haddProp| |$ConstructorCache| '|XPolynomialRing| (LIST DV$1 DV$2)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (QSETREFV $ 7 |#2|)
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 8 (|List| (|Record| (|:| |k| |#2|) (|:| |c| |#1|))))
-          (COND
-           ((|testBitVector| |pv$| 7)
-            (QSETREFV $ 45 (CONS (|dispatchFunction| |XPR;*;3$;14|) $)))
-           ('T (QSETREFV $ 45 (CONS (|dispatchFunction| |XPR;*;3$;15|) $))))
-          (COND
-           ((|testBitVector| |pv$| 8)
-            (QSETREFV $ 57 (CONS (|dispatchFunction| |XPR;/;$R$;20|) $))))
-          $))) 
+  (SPROG
+   ((|pv$| NIL) (#1=#:G215 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #2=(|XPolynomialRing|))
+    (LETT DV$2 (|devaluate| |#2|) . #2#)
+    (LETT |dv$| (LIST '|XPolynomialRing| DV$1 DV$2) . #2#)
+    (LETT $ (GETREFV 69) . #2#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|CommutativeRing|))
+                                        (|HasCategory| |#1| '(|SemiRing|))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|OrderedAbelianMonoidSup|))
+                                         (|HasCategory| |#2| '(|OrderedSet|)))
+                                        (OR
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|OrderedAbelianMonoid|))
+                                          (|HasCategory| |#2| '(|OrderedSet|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|OrderedAbelianMonoidSup|))
+                                          (|HasCategory| |#2|
+                                                         '(|OrderedSet|))))
+                                        (|HasCategory| |#1|
+                                                       '(|canonicalUnitNormal|))
+                                        (|HasCategory| |#1|
+                                                       '(|noZeroDivisors|))
+                                        (LETT #1#
+                                              (|HasCategory| |#2|
+                                                             '(|Comparable|))
+                                              . #2#)
+                                        (OR
+                                         (AND
+                                          (|HasCategory| |#1| '(|Comparable|))
+                                          #1#)
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|OrderedAbelianMonoid|))
+                                          (|HasCategory| |#2| '(|OrderedSet|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|OrderedAbelianMonoidSup|))
+                                          (|HasCategory| |#2|
+                                                         '(|OrderedSet|))))
+                                        (|HasCategory| |#1| '(|Field|))))
+                    . #2#))
+    (|haddProp| |$ConstructorCache| '|XPolynomialRing| (LIST DV$1 DV$2)
+                (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 8 (|List| (|Record| (|:| |k| |#2|) (|:| |c| |#1|))))
+    (COND
+     ((|testBitVector| |pv$| 6)
+      (QSETREFV $ 45 (CONS (|dispatchFunction| |XPR;*;3$;14|) $)))
+     ('T (QSETREFV $ 45 (CONS (|dispatchFunction| |XPR;*;3$;15|) $))))
+    (COND
+     ((|testBitVector| |pv$| 9)
+      (QSETREFV $ 57 (CONS (|dispatchFunction| |XPR;/;$R$;20|) $))))
+    $))) 
 
 (MAKEPROP '|XPolynomialRing| '|infovec|
           (LIST
@@ -409,8 +411,8 @@
               (83 . *) (89 . +) (95 . *) |XPR;^;$Nni$;16| (|OutputForm|)
               (101 . |coerce|) (106 . |coerce|) (111 . *) (117 . +)
               (|Mapping| 47 47 47) (|List| 47) (123 . |reduce|)
-              |XPR;coerce;$Of;19| (129 . |inv|) (134 . /) (|Mapping| 6 7)
-              (|Union| 7 '"failed") (|List| 17) (|Mapping| 6 6) (|List| 7)
+              |XPR;coerce;$Of;19| (129 . |inv|) (134 . /) (|List| 17)
+              (|Mapping| 6 7) (|Union| 7 '"failed") (|Mapping| 6 6) (|List| 7)
               (|List| 6) (|List| $) (|PositiveInteger|) (|String|)
               (|SingleInteger|) (|HashState|))
            '#(|recip| 140 |quasiRegular?| 145 |quasiRegular| 150 |mindeg| 155
@@ -419,9 +421,9 @@
               226 * 232 |#| 244)
            'NIL
            (CONS
-            (|makeByteWordVec2| 7
-                                '(0 1 0 0 0 0 0 0 1 0 0 0 3 0 0 0 0 0 0 3 0 5 0
-                                  0 0 5 0 0 0 0 5 0 0 4 0 0 0 0 2 5 6 7))
+            (|makeByteWordVec2| 8
+                                '(0 1 0 0 0 0 0 0 1 0 0 0 3 0 0 0 0 0 0 3 0 4 0
+                                  0 0 4 0 0 0 0 4 0 0 8 0 0 0 0 2 4 5 6))
             (CONS
              '#(NIL |Algebra&| NIL |FreeModuleCategory&| |Rng&| NIL NIL NIL
                 |Module&| NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
@@ -459,7 +461,7 @@
                                     0 0 31 1 0 7 0 19 1 0 7 0 16 1 0 20 0 27 1
                                     0 6 0 28 1 0 0 6 35 1 0 0 38 40 1 0 47 0 55
                                     2 0 6 0 7 24 0 0 12 14 2 0 0 0 12 46 0 0 0
-                                    25 0 0 0 11 2 0 20 0 0 26 2 8 0 0 6 57 2 0
+                                    25 0 0 0 11 2 0 20 0 0 26 2 9 0 0 6 57 2 0
                                     0 0 0 44 2 0 0 6 0 41 2 0 0 0 0 45 1 0 12 0
                                     15)))))
            '|lookupIncomplete|)) 
