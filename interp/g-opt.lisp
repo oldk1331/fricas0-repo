@@ -1106,10 +1106,6 @@
 (DEFUN |optSuchthat| (|bfVar#9|)
   (PROG (|u|) (RETURN (PROGN (SETQ |u| (CDR |bfVar#9|)) (CONS 'SUCHTHAT |u|)))))
  
-; optMINUS u == BREAK()
- 
-(DEFUN |optMINUS| (|u|) (PROG () (RETURN (BREAK))))
- 
 ; opt_minus_SI u ==
 ;   u is ['minus_SI, v] =>
 ;     NUMBERP v => -v
@@ -1173,7 +1169,6 @@
 ; for x in '( (call         optCall) _
 ;               (SEQ          optSEQ)_
 ;               (EQ           optEQ)_
-;               (MINUS        optMINUS)_
 ;               (minus_SI     opt_minus_SI)_
 ;               (_-           opt_-)_
 ;               (SPADCALL     optSPADCALL)_
@@ -1196,7 +1191,7 @@
            (RETURN NIL))
           ('T (MAKEPROP (CAR |x|) 'OPTIMIZE (CADR |x|))))
          (SETQ |bfVar#10| (CDR |bfVar#10|))))
-      '((|call| |optCall|) (SEQ |optSEQ|) (EQ |optEQ|) (MINUS |optMINUS|)
+      '((|call| |optCall|) (SEQ |optSEQ|) (EQ |optEQ|)
         (|minus_SI| |opt_minus_SI|) (- |opt-|) (SPADCALL |optSPADCALL|)
         (|\|| |optSuchthat|) (CATCH |optCatch|) (COND |optCond|)
         (|mkRecord| |optMkRecord|) (RECORDELT |optRECORDELT|)
