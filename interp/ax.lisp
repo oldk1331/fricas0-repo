@@ -35,6 +35,25 @@
  
 (DEFUN |spad2AxTranslatorAutoloadOnceTrigger| (|any|) (PROG () (RETURN T)))
  
+; $foreignTag := 'Foreign
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ |$foreignTag| '|Foreign|))
+ 
+; setForeignStyle(tag) ==
+;     $foreignTag := tag
+ 
+(DEFUN |setForeignStyle| (|tag|) (PROG () (RETURN (SETQ |$foreignTag| |tag|))))
+ 
+; $conditionalCast := true
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ |$conditionalCast| T))
+ 
+; setConditionalCast(flg) ==
+;     $conditionalCast := flg
+ 
+(DEFUN |setConditionalCast| (|flg|)
+  (PROG () (RETURN (SETQ |$conditionalCast| |flg|))))
+ 
 ; $extendedDomains := nil
  
 (EVAL-WHEN (EVAL LOAD) (SETQ |$extendedDomains| NIL))
@@ -77,7 +96,7 @@
 ;   -- default body.
 ;   if $defaultFlag then
 ;      axForms :=
-;         [['Foreign, ['Declare, 'dummyDefault, 'Exit], 'Lisp], :axForms]
+;         [[$foreignTag, ['Declare, 'dummyDefault, 'Exit], 'Lisp], :axForms]
 ;   axForms := APPEND(axDoLiterals(), axForms)
 ;   axForm := ['Sequence, _
 ;                ['Import, [], 'AxiomLib], ['Import, [], 'Boolean], :axForms]
@@ -111,7 +130,7 @@
        (|$defaultFlag|
         (SETQ |axForms|
                 (CONS
-                 (LIST '|Foreign| (LIST '|Declare| '|dummyDefault| '|Exit|)
+                 (LIST |$foreignTag| (LIST '|Declare| '|dummyDefault| '|Exit|)
                        '|Lisp|)
                  |axForms|))))
       (SETQ |axForms| (APPEND (|axDoLiterals|) |axForms|))
@@ -419,7 +438,7 @@
 ;       ['Apply, 'FileCategory, axFormatType xx,
 ;           ['PretendTo, axFormatType CADDR typeform, 'SetCategory]]
 ;   typeform is [op,:args] =>
-;       $pretendFlag and constructor? op and
+;       $conditionalCast and $pretendFlag and constructor? op and
 ;         GETDATABASE(op,'CONSTRUCTORMODEMAP) is [[.,target,:argtypes],.] =>
 ;           ['Apply, op, :[pretendTo(a, t) for a in args for t in argtypes]]
 ;       -- $augmentedArgs is non-empty if we are inside a "if A has T then ..."
@@ -711,7 +730,7 @@
              (SETQ |args| (CDR |typeform|))
              #1#))
        (COND
-        ((AND |$pretendFlag| (|constructor?| |op|)
+        ((AND |$conditionalCast| |$pretendFlag| (|constructor?| |op|)
               (PROGN
                (SETQ |ISTMP#1| (GETDATABASE |op| 'CONSTRUCTORMODEMAP))
                (AND (CONSP |ISTMP#1|)
@@ -840,6 +859,7 @@
     (RETURN (LIST '|PretendTo| (|axFormatType| |a|) (|axFormatType| |t|)))))
  
 ; augmentTo(a, t) ==
+;   not $conditionalCast => axFormatType a
 ;   a = '$ => pretendTo(a, t)
 ;   ax := axFormatType a -- a looks like |#i|
 ;   not(null(kv:=ASSOC(a,$augmentedArgs))) =>
@@ -851,7 +871,8 @@
 (DEFUN |augmentTo| (|a| |t|)
   (PROG (|ax| |kv|)
     (RETURN
-     (COND ((EQ |a| '$) (|pretendTo| |a| |t|))
+     (COND ((NULL |$conditionalCast|) (|axFormatType| |a|))
+           ((EQ |a| '$) (|pretendTo| |a| |t|))
            (#1='T
             (PROGN
              (SETQ |ax| (|axFormatType| |a|))
@@ -1002,9 +1023,12 @@
 ;       ['Test,['Has,name, ftype]]
 ;    axArglist := [axFormatPred arg for arg in args]
 ;    op = 'AND => ['And,:axArglist]
+;    op = 'and => ['And,:axArglist]
 ;    op = 'OR  => ['Or,:axArglist]
+;    op = 'or  => ['Or,:axArglist]
 ;    op = 'NOT => ['Not,:axArglist]
-;    error "unknown predicate"
+;    op = 'not => ['Not,:axArglist]
+;    error LIST("unknown predicate", pred)
  
 (DEFUN |axFormatPred| (|pred|)
   (PROG (|op| |args| |name| |type| |ftype| |axArglist|)
@@ -1044,9 +1068,14 @@
                                  (SETQ |bfVar#42| (CDR |bfVar#42|))))
                               NIL |args| NIL))
                      (COND ((EQ |op| 'AND) (CONS '|And| |axArglist|))
+                           ((EQ |op| '|and|) (CONS '|And| |axArglist|))
                            ((EQ |op| 'OR) (CONS '|Or| |axArglist|))
+                           ((EQ |op| '|or|) (CONS '|Or| |axArglist|))
                            ((EQ |op| 'NOT) (CONS '|Not| |axArglist|))
-                           (#1# (|error| '|unknown predicate|))))))))))))
+                           ((EQ |op| '|not|) (CONS '|Not| |axArglist|))
+                           (#1#
+                            (|error|
+                             (LIST '|unknown predicate| |pred|)))))))))))))
  
 ; axFormatAugmentOp(op, axFormattedPred, pred, augargs) ==
 ;   if axFormattedPred is ['Test, ['Has, arg, augtype]] then
@@ -1253,7 +1282,7 @@
 ;   withform isnt ['With, joins, ['Sequence,: oplist]] =>
 ;      error "bad category body"
 ;   null(defaults := getDefaultingOps catname) => withform
-;   defaultdefs := [makeDefaultDef(decl) for decl in defaults]
+;   defaultdefs := [decl for decl in defaults]
 ;   ['With, joins,
 ;      ['Sequence, :oplist, ['Default, ['Sequence,: defaultdefs]]]]
  
@@ -1289,9 +1318,7 @@
                      ((OR (ATOM |bfVar#44|)
                           (PROGN (SETQ |decl| (CAR |bfVar#44|)) NIL))
                       (RETURN (NREVERSE |bfVar#45|)))
-                     (#1#
-                      (SETQ |bfVar#45|
-                              (CONS (|makeDefaultDef| |decl|) |bfVar#45|))))
+                     (#1# (SETQ |bfVar#45| (CONS |decl| |bfVar#45|))))
                     (SETQ |bfVar#44| (CDR |bfVar#44|))))
                  NIL |defaults| NIL))
         (LIST '|With| |joins|
@@ -1303,7 +1330,7 @@
  
 ; makeDefaultDef(decl) ==
 ;   decl isnt ['Declare, op, type] =>
-;        error "bad default definition"
+;        error LIST("bad default definition", decl)
 ;   $defaultFlag := true
 ;   type is ['Apply, "->", args, result] =>
 ;        ['Define, decl, ['Lambda, makeDefaultArgs args, result,
@@ -1324,7 +1351,7 @@
                     (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                     (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                          (PROGN (SETQ |type| (CAR |ISTMP#2|)) #1='T)))))))
-       (|error| '|bad default definition|))
+       (|error| (LIST '|bad default definition| |decl|)))
       (#1#
        (PROGN
         (SETQ |$defaultFlag| T)
@@ -1395,11 +1422,12 @@
 ;       curIndex := get1defaultOp(op,curIndex)
 ;   $pretendFlag : local := true
 ;   catops := GETDATABASE(catname, 'OPERATIONALIST)
-;   [axFormatDefaultOpSig(op,sig,catops) for opsig in $opList | opsig is [op,sig]]
+;   catdefops := GETDATABASE(name, 'OPERATIONALIST)
+;   [axFormatDefaultOpSig(op,sig,catops,catdefops) for opsig in $opList | opsig is [op,sig]]
  
 (DEFUN |getDefaultingOps| (|catname|)
-  (PROG (|$pretendFlag| |$opList| |$infovec| |sig| |ISTMP#1| |catops|
-         |curIndex| |stopIndex| |startIndex| |op| |opTable| |name|)
+  (PROG (|$pretendFlag| |$opList| |$infovec| |sig| |ISTMP#1| |catdefops|
+         |catops| |curIndex| |stopIndex| |startIndex| |op| |opTable| |name|)
     (DECLARE (SPECIAL |$pretendFlag| |$opList| |$infovec|))
     (RETURN
      (COND ((NULL (SETQ |name| (|hasDefaultPackage| |catname|))) NIL)
@@ -1434,6 +1462,7 @@
               (MAXINDEX |opTable|) 0)
              (SETQ |$pretendFlag| T)
              (SETQ |catops| (GETDATABASE |catname| 'OPERATIONALIST))
+             (SETQ |catdefops| (GETDATABASE |name| 'OPERATIONALIST))
              ((LAMBDA (|bfVar#51| |bfVar#50| |opsig|)
                 (LOOP
                  (COND
@@ -1449,32 +1478,83 @@
                               (PROGN (SETQ |sig| (CAR |ISTMP#1|)) #1#)))
                         (SETQ |bfVar#51|
                                 (CONS
-                                 (|axFormatDefaultOpSig| |op| |sig| |catops|)
+                                 (|axFormatDefaultOpSig| |op| |sig| |catops|
+                                  |catdefops|)
                                  |bfVar#51|)))))
                  (SETQ |bfVar#50| (CDR |bfVar#50|))))
               NIL |$opList| NIL)))))))
  
-; axFormatDefaultOpSig(op, sig, catops) ==
-;   #sig > 1 => axFormatOpSig(op,sig)
-;   nsig := substitute('$, '($), sig) -- dcSig listifies '$ ??
-;   (catsigs := LASSOC(op, catops)) and
-;     (catsig := assoc(nsig, catsigs)) and last(catsig) = 'CONST =>
-;        axFormatConstantOp(op, sig)
-;   axFormatOpSig(op,sig)
+; axFormatDefaultOpSig(op, sig, catops,catdefops) ==
+;   defsigs := LASSOC(op, catdefops)
+;   --nsig := sig -- substitute('$, '($), sig) -- dcSig listifies '$ ??
+;   catsigs := LASSOC(op, catops)
+;   nsig2 := axCatSignature(sig)
+;   theOp := LASSOC(nsig2, catsigs)
+;   cond := axFormatPred NTH(1, theOp)
+;   if cond = "T" then
+;       cond := nil -- cond of true is the same as unconditional
+;   #sig > 1 => axFormatCond(cond, makeDefaultDef(axFormatOpSig(op,sig)))
+;   catsigs and
+;     (catsig := assoc(nsig2, catsigs)) and last(catsig) = 'CONST =>
+;        axFormatCond(cond, makeDefaultDef(axFormatConstantOp(op, sig)))
+;   axFormatCond(cond, makeDefaultDef(axFormatOpSig(op, sig)))
  
-(DEFUN |axFormatDefaultOpSig| (|op| |sig| |catops|)
-  (PROG (|nsig| |catsigs| |catsig|)
+(DEFUN |axFormatDefaultOpSig| (|op| |sig| |catops| |catdefops|)
+  (PROG (|defsigs| |catsigs| |nsig2| |theOp| |cond| |catsig|)
     (RETURN
-     (COND ((< 1 (LENGTH |sig|)) (|axFormatOpSig| |op| |sig|))
+     (PROGN
+      (SETQ |defsigs| (LASSOC |op| |catdefops|))
+      (SETQ |catsigs| (LASSOC |op| |catops|))
+      (SETQ |nsig2| (|axCatSignature| |sig|))
+      (SETQ |theOp| (LASSOC |nsig2| |catsigs|))
+      (SETQ |cond| (|axFormatPred| (NTH 1 |theOp|)))
+      (COND ((EQ |cond| 'T) (SETQ |cond| NIL)))
+      (COND
+       ((< 1 (LENGTH |sig|))
+        (|axFormatCond| |cond|
+         (|makeDefaultDef| (|axFormatOpSig| |op| |sig|))))
+       ((AND |catsigs| (SETQ |catsig| (|assoc| |nsig2| |catsigs|))
+             (EQ (|last| |catsig|) 'CONST))
+        (|axFormatCond| |cond|
+         (|makeDefaultDef| (|axFormatConstantOp| |op| |sig|))))
+       ('T
+        (|axFormatCond| |cond|
+         (|makeDefaultDef| (|axFormatOpSig| |op| |sig|)))))))))
+ 
+; axCatSignature(sig) ==
+;     ATOM sig => sig
+;     sig = '($) => '$
+;     CAR(sig) = "local" => CADR(sig)
+;     CAR(sig) = "QUOTE" => CADR(sig)
+;     [axCatSignature elt for elt in sig]
+ 
+(DEFUN |axCatSignature| (|sig|)
+  (PROG ()
+    (RETURN
+     (COND ((ATOM |sig|) |sig|) ((EQUAL |sig| '($)) '$)
+           ((EQ (CAR |sig|) '|local|) (CADR |sig|))
+           ((EQ (CAR |sig|) 'QUOTE) (CADR |sig|))
            (#1='T
-            (PROGN
-             (SETQ |nsig| (|substitute| '$ '($) |sig|))
-             (COND
-              ((AND (SETQ |catsigs| (LASSOC |op| |catops|))
-                    (SETQ |catsig| (|assoc| |nsig| |catsigs|))
-                    (EQ (|last| |catsig|) 'CONST))
-               (|axFormatConstantOp| |op| |sig|))
-              (#1# (|axFormatOpSig| |op| |sig|)))))))))
+            ((LAMBDA (|bfVar#53| |bfVar#52| |elt|)
+               (LOOP
+                (COND
+                 ((OR (ATOM |bfVar#52|)
+                      (PROGN (SETQ |elt| (CAR |bfVar#52|)) NIL))
+                  (RETURN (NREVERSE |bfVar#53|)))
+                 (#1#
+                  (SETQ |bfVar#53|
+                          (CONS (|axCatSignature| |elt|) |bfVar#53|))))
+                (SETQ |bfVar#52| (CDR |bfVar#52|))))
+             NIL |sig| NIL))))))
+ 
+; axFormatCond(cond, inner) ==
+;   NOT cond => inner
+;   ['If, cond, inner, []]
+ 
+(DEFUN |axFormatCond| (|cond| |inner|)
+  (PROG ()
+    (RETURN
+     (COND ((NULL |cond|) |inner|) ('T (LIST '|If| |cond| |inner| NIL))))))
  
 ; get1defaultOp(op,index) ==
 ;   numvec := getCodeVector()
@@ -1538,30 +1618,30 @@
 (DEFUN |axDoLiterals| ()
   (PROG (|dom| |ISTMP#2| |type| |ISTMP#1| |name|)
     (RETURN
-     ((LAMBDA (|bfVar#54| |bfVar#53| |bfVar#52|)
+     ((LAMBDA (|bfVar#56| |bfVar#55| |bfVar#54|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#53|)
-               (PROGN (SETQ |bfVar#52| (CAR |bfVar#53|)) NIL))
-           (RETURN (NREVERSE |bfVar#54|)))
+          ((OR (ATOM |bfVar#55|)
+               (PROGN (SETQ |bfVar#54| (CAR |bfVar#55|)) NIL))
+           (RETURN (NREVERSE |bfVar#56|)))
           (#1='T
-           (AND (CONSP |bfVar#52|)
+           (AND (CONSP |bfVar#54|)
                 (PROGN
-                 (SETQ |name| (CAR |bfVar#52|))
-                 (SETQ |ISTMP#1| (CDR |bfVar#52|))
+                 (SETQ |name| (CAR |bfVar#54|))
+                 (SETQ |ISTMP#1| (CDR |bfVar#54|))
                  (AND (CONSP |ISTMP#1|)
                       (PROGN
                        (SETQ |type| (CAR |ISTMP#1|))
                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                             (PROGN (SETQ |dom| (CAR |ISTMP#2|)) #1#)))))
-                (SETQ |bfVar#54|
+                (SETQ |bfVar#56|
                         (CONS
                          (LIST '|Import|
                                (LIST '|With| NIL
                                      (LIST '|Declare| |name|
                                            (LIST '|Apply| '-> |dom| '%)))
                                |type|)
-                         |bfVar#54|)))))
-         (SETQ |bfVar#53| (CDR |bfVar#53|))))
+                         |bfVar#56|)))))
+         (SETQ |bfVar#55| (CDR |bfVar#55|))))
       NIL |$literals| NIL))))
