@@ -9,7 +9,7 @@
 ;     atom a => [a]
 ;     a
 ;   $conArgstrings : local := [form2HtString x for x in IFCDR a]
-;   a := first a
+;   a := first form
 ;   da := DOWNCASE a
 ;   pageName := QLASSQ(da, '((type . CategoryType) (union . DomainUnion) _
 ;                            (record . DomainRecord) (mapping . DomainMapping) _
@@ -36,7 +36,7 @@
                     (SETQ |bfVar#2| (CONS (|form2HtString| |x|) |bfVar#2|))))
                   (SETQ |bfVar#1| (CDR |bfVar#1|))))
                NIL (IFCDR |a|) NIL))
-      (SETQ |a| (CAR |a|))
+      (SETQ |a| (CAR |form|))
       (SETQ |da| (DOWNCASE |a|))
       (COND
        ((SETQ |pageName|
