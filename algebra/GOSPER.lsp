@@ -323,8 +323,9 @@
                                             (SPADCALL |cmz| (QREFELT $ 77))
                                             (QREFELT $ 78)))
                                  ('T
-                                  (QSETAREF2O |mat| (+ |dz| 1)
-                                              (- (+ |dmz| 1) 1) |cmz| 1 1)))))
+                                  (QSETAREF2O |mat| (+ |dz| (PROGN |mat| 1))
+                                              (- (+ |dmz| (PROGN |mat| 1)) 1)
+                                              |cmz| 1 1)))))
                               NIL (GO G190) G191 (EXIT NIL))))
                    NIL (GO G190) G191 (EXIT NIL))
               (LETT |soln| (SPADCALL |mat| |vec| (QREFELT $ 81)) . #15#)

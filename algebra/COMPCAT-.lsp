@@ -431,7 +431,7 @@
                       |COMPCAT-;reducedSystem;MVR;35|)
                 (EXIT
                  (CONS (SPADCALL |m| (QREFELT $ 163))
-                       (SPADCALL |rh| 1 (QREFELT $ 164))))))) 
+                       (SPADCALL |rh| (PROGN |rh| 1) (QREFELT $ 164))))))) 
 
 (SDEFUN |COMPCAT-;abs;2S;36| ((|x| S) ($ S))
         (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 19)) (QREFELT $ 167))

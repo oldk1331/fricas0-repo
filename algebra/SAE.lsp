@@ -279,7 +279,8 @@
          ((#1=#:G181 NIL) (|j| NIL) (#2=#:G180 NIL) (|i| NIL)
           (|mc| (|Integer|)) (|mr| (|Integer|)))
          (SEQ (SPADCALL (QREFELT $ 28) |b| (QREFELT $ 111))
-              (LETT |mr| 1 . #3=(|SAE;mkDiscMat|)) (LETT |mc| 1 . #3#)
+              (LETT |mr| (PROGN (QREFELT $ 24) 1) . #3=(|SAE;mkDiscMat|))
+              (LETT |mc| (PROGN (QREFELT $ 24) 1) . #3#)
               (SEQ (LETT |i| 0 . #3#) (LETT #2# (QREFELT $ 21) . #3#) G190
                    (COND ((|greater_SI| |i| #2#) (GO G191)))
                    (SEQ

@@ -11,19 +11,17 @@
          (SEQ (LETT |n| (SPADCALL (QREFELT $ 9)) . #6=(|NFINTBAS;frobMatrix|))
               (LETT |b| (SPADCALL (QREFELT $ 11)) . #6#)
               (LETT |v| (MAKEARR1 |n| (|spadConstant| $ 13)) . #6#)
-              (SEQ (LETT |ii| 1 . #6#)
+              (SEQ (LETT |ii| (PROGN |rb| 1) . #6#)
                    (LETT #5# (SPADCALL |rb| (QREFELT $ 18)) . #6#)
                    (LETT |i| (SPADCALL |v| (QREFELT $ 16)) . #6#)
                    (LETT #4# (QVSIZE |v|) . #6#) G190
-                   (COND ((OR (> |i| #4#) (|greater_SI| |ii| #5#)) (GO G191)))
+                   (COND ((OR (> |i| #4#) (> |ii| #5#)) (GO G191)))
                    (SEQ (LETT |a| (|spadConstant| $ 13) . #6#)
-                        (SEQ (LETT |jj| 1 . #6#)
+                        (SEQ (LETT |jj| (PROGN |rb| 1) . #6#)
                              (LETT #3# (SPADCALL |rb| (QREFELT $ 19)) . #6#)
                              (LETT |j| (SPADCALL |b| (QREFELT $ 16)) . #6#)
                              (LETT #2# (QVSIZE |b|) . #6#) G190
-                             (COND
-                              ((OR (> |j| #2#) (|greater_SI| |jj| #3#))
-                               (GO G191)))
+                             (COND ((OR (> |j| #2#) (> |jj| #3#)) (GO G191)))
                              (SEQ
                               (EXIT
                                (LETT |a|
@@ -36,14 +34,13 @@
                                      . #6#)))
                              (LETT |j|
                                    (PROG1 (+ |j| 1)
-                                     (LETT |jj| (|inc_SI| |jj|) . #6#))
+                                     (LETT |jj| (+ |jj| 1) . #6#))
                                    . #6#)
                              (GO G190) G191 (EXIT NIL))
                         (EXIT
                          (QSETAREF1O |v| |i| (SPADCALL |a| |p| (QREFELT $ 23))
                                      1)))
-                   (LETT |i|
-                         (PROG1 (+ |i| 1) (LETT |ii| (|inc_SI| |ii|) . #6#))
+                   (LETT |i| (PROG1 (+ |i| 1) (LETT |ii| (+ |ii| 1) . #6#))
                          . #6#)
                    (GO G190) G191 (EXIT NIL))
               (LETT |mat|

@@ -708,29 +708,27 @@
                         (EXIT (LETT |cols| (+ |cols| (ANCOLS |mat|)) . #9#)))
                    (LETT #8# (CDR #8#) . #9#) (GO G190) G191 (EXIT NIL))
               (LETT |ans| (SPADCALL |rows| |cols| (QREFELT $ 39)) . #9#)
-              (LETT |loR| 1 . #9#) (LETT |loC| 1 . #9#)
+              (LETT |loR| (PROGN |ans| 1) . #9#)
+              (LETT |loC| (PROGN |ans| 1) . #9#)
               (SEQ (LETT |mat| NIL . #9#) (LETT #6# |list| . #9#) G190
                    (COND
                     ((OR (ATOM #6#) (PROGN (LETT |mat| (CAR #6#) . #9#) NIL))
                      (GO G191)))
                    (SEQ (LETT |hiR| (- (+ |loR| (ANROWS |mat|)) 1) . #9#)
                         (LETT |hiC| (- (+ |loC| (ANROWS |mat|)) 1) . #9#)
-                        (SEQ (LETT |k| 1 . #9#)
+                        (SEQ (LETT |k| (PROGN |mat| 1) . #9#)
                              (LETT #4# (SPADCALL |mat| (QREFELT $ 18)) . #9#)
                              (LETT |i| |loR| . #9#) (LETT #3# |hiR| . #9#) G190
-                             (COND
-                              ((OR (> |i| #3#) (|greater_SI| |k| #4#))
-                               (GO G191)))
+                             (COND ((OR (> |i| #3#) (> |k| #4#)) (GO G191)))
                              (SEQ
                               (EXIT
-                               (SEQ (LETT |l| 1 . #9#)
+                               (SEQ (LETT |l| (PROGN |mat| 1) . #9#)
                                     (LETT #2# (SPADCALL |mat| (QREFELT $ 20))
                                           . #9#)
                                     (LETT |j| |loC| . #9#)
                                     (LETT #1# |hiC| . #9#) G190
                                     (COND
-                                     ((OR (> |j| #1#) (|greater_SI| |l| #2#))
-                                      (GO G191)))
+                                     ((OR (> |j| #1#) (> |l| #2#)) (GO G191)))
                                     (SEQ
                                      (EXIT
                                       (QSETAREF2O |ans| |i| |j|
@@ -738,12 +736,11 @@
                                                   1)))
                                     (LETT |j|
                                           (PROG1 (+ |j| 1)
-                                            (LETT |l| (|inc_SI| |l|) . #9#))
+                                            (LETT |l| (+ |l| 1) . #9#))
                                           . #9#)
                                     (GO G190) G191 (EXIT NIL))))
                              (LETT |i|
-                                   (PROG1 (+ |i| 1)
-                                     (LETT |k| (|inc_SI| |k|) . #9#))
+                                   (PROG1 (+ |i| 1) (LETT |k| (+ |k| 1) . #9#))
                                    . #9#)
                              (GO G190) G191 (EXIT NIL))
                         (LETT |loR| (+ |hiR| 1) . #9#)

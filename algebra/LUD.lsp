@@ -11,9 +11,9 @@
           (|minC| (|Integer|)) (|maxR| (|Integer|)) (|minR| (|Integer|))
           (A (|Matrix| D)))
          (SEQ (LETT A (SPADCALL AA (QREFELT $ 8)) . #8=(|LUD;LUDecomp;MR;1|))
-              (LETT |minR| 1 . #8#)
+              (LETT |minR| (PROGN A 1) . #8#)
               (LETT |maxR| (SPADCALL A (QREFELT $ 10)) . #8#)
-              (LETT |minC| 1 . #8#)
+              (LETT |minC| (PROGN A 1) . #8#)
               (LETT |maxC| (SPADCALL A (QREFELT $ 11)) . #8#)
               (EXIT
                (COND
@@ -129,7 +129,7 @@
           (|ii| (|Integer|)) (#3=#:G145 NIL) (|ip| (|Integer|)) (#4=#:G144 NIL)
           (|maxR| (|Integer|)) (|minR| (|Integer|)) (X (|Vector| D)))
          (SEQ (LETT X (SPADCALL XX (QREFELT $ 24)) . #5=(|LUD;LUSolve;MV2V;2|))
-              (LETT |minR| 1 . #5#)
+              (LETT |minR| (PROGN LU 1) . #5#)
               (LETT |maxR| (SPADCALL LU (QREFELT $ 10)) . #5#)
               (EXIT
                (COND
@@ -207,8 +207,9 @@
           (LETT |Alu| (SPADCALL A (QREFELT $ 22)) . #2=(|LUD;LUInverse;MR;3|))
           (LETT |n| (ANCOLS A) . #2#)
           (LETT |res| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 18)) . #2#)
-          (SEQ (LETT |i| 1 . #2#) (LETT #1# (SPADCALL A (QREFELT $ 10)) . #2#)
-               G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
+          (SEQ (LETT |i| (PROGN A 1) . #2#)
+               (LETT #1# (SPADCALL A (QREFELT $ 10)) . #2#) G190
+               (COND ((> |i| #1#) (GO G191)))
                (SEQ (LETT |v| (MAKEARR1 |n| (|spadConstant| $ 18)) . #2#)
                     (QSETAREF1O |v| |i| (|spadConstant| $ 14) 1)
                     (EXIT
@@ -218,7 +219,7 @@
                                                |v| (QREFELT $ 26))
                                      (QREFELT $ 27))
                            . #2#)))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+               (LETT |i| (+ |i| 1) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT (CONS |res| (QVELT |Alu| 2)))))) 
 
 (DECLAIM (NOTINLINE |LUDecomposition;|)) 

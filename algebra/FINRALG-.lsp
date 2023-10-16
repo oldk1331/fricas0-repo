@@ -10,7 +10,7 @@
                       (MAKE_MATRIX1 (QVSIZE |v|) (QVSIZE |b|)
                                     (|spadConstant| $ 14))
                       . #2=(|FINRALG-;coordinates;2VM;2|))
-                (SEQ (LETT |j| 1 . #2#)
+                (SEQ (LETT |j| (PROGN |m| 1) . #2#)
                      (LETT |i| (SPADCALL |v| (QREFELT $ 17)) . #2#)
                      (LETT #1# (QVSIZE |v|) . #2#) G190
                      (COND ((> |i| #1#) (GO G191)))
@@ -20,8 +20,7 @@
                                  (SPADCALL (QAREF1O |v| |i| 1) |b|
                                            (QREFELT $ 19))
                                  (QREFELT $ 20))))
-                     (LETT |i|
-                           (PROG1 (+ |i| 1) (LETT |j| (|inc_SI| |j|) . #2#))
+                     (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (+ |j| 1) . #2#))
                            . #2#)
                      (GO G190) G191 (EXIT NIL))
                 (EXIT |m|)))) 

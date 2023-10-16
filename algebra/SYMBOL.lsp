@@ -534,7 +534,7 @@
         (COND
          ((SPADCALL |n| 9 (QREFELT $ 114))
           (|error| "Can have at most 9 scripts of each kind"))
-         ('T (QAREF1 (QREFELT $ 16) (+ |n| 0))))) 
+         ('T (QAREF1 (QREFELT $ 16) (+ |n| (PROGN (QREFELT $ 16) 0)))))) 
 
 (SDEFUN |SYMBOL;sample;$;33| (($ $)) (SPADCALL "aSymbol" (QREFELT $ 37))) 
 

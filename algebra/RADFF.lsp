@@ -394,15 +394,12 @@
                (EXIT (|error| "charPintbas: integral basis not diagonal"))))
              (LETT |a| (|spadConstant| $ 12) . #4#)
              (SEQ (LETT |k| (QREFELT $ 38) . #4#) (LETT #3# (QVSIZE |v|) . #4#)
-                  (LETT |j| 1 . #4#)
+                  (LETT |j| (PROGN (QVELT |ib| 0) 1) . #4#)
                   (LETT #2# (SPADCALL (QVELT |ib| 0) (QREFELT $ 119)) . #4#)
-                  (LETT |i| 1 . #4#)
+                  (LETT |i| (PROGN (QVELT |ib| 0) 1) . #4#)
                   (LETT #1# (SPADCALL (QVELT |ib| 0) (QREFELT $ 118)) . #4#)
                   G190
-                  (COND
-                   ((OR (|greater_SI| |i| #1#) (|greater_SI| |j| #2#)
-                        (> |k| #3#))
-                    (GO G191)))
+                  (COND ((OR (> |i| #1#) (> |j| #2#) (> |k| #3#)) (GO G191)))
                   (SEQ
                    (QSETAREF1O |v| |k|
                                (SPADCALL
@@ -417,10 +414,9 @@
                                1)
                    (EXIT (LETT |a| (SPADCALL |a| |c| (QREFELT $ 65)) . #4#)))
                   (LETT |i|
-                        (PROG1 (|inc_SI| |i|)
+                        (PROG1 (+ |i| 1)
                           (LETT |j|
-                                (PROG1 (|inc_SI| |j|)
-                                  (LETT |k| (+ |k| 1) . #4#))
+                                (PROG1 (+ |j| 1) (LETT |k| (+ |k| 1) . #4#))
                                 . #4#))
                         . #4#)
                   (GO G190) G191 (EXIT NIL))

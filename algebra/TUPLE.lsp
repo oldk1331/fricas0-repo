@@ -26,9 +26,9 @@
                 (SPADCALL
                  (PROGN
                   (LETT #2# NIL . #3=(|TUPLE;coerce;$Of;6|))
-                  (SEQ (LETT |i| 0 . #3#)
+                  (SEQ (LETT |i| (PROGN (QCDR |x|) 0) . #3#)
                        (LETT #1# (SPADCALL (QCDR |x|) (QREFELT $ 18)) . #3#)
-                       G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
+                       G190 (COND ((> |i| #1#) (GO G191)))
                        (SEQ
                         (EXIT
                          (LETT #2#
@@ -37,7 +37,7 @@
                                           (QREFELT $ 20))
                                 #2#)
                                . #3#)))
-                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                       (LETT |i| (+ |i| 1) . #3#) (GO G190) G191
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 22))))) 
 

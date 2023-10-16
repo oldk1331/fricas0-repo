@@ -10,9 +10,9 @@
           (LETT |v| (SPADCALL |l| (QREFELT $ 16))
                 . #2=(|ODETOOLS;wronskianMatrix;LNniM;2|))
           (LETT |m| (SPADCALL |q| (QVSIZE |v|) (QREFELT $ 17)) . #2#)
-          (SEQ (LETT |i| 1 . #2#)
+          (SEQ (LETT |i| (PROGN |m| 1) . #2#)
                (LETT #1# (SPADCALL |m| (QREFELT $ 19)) . #2#) G190
-               (COND ((|greater_SI| |i| #1#) (GO G191)))
+               (COND ((> |i| #1#) (GO G191)))
                (SEQ (SPADCALL |m| |i| |v| (QREFELT $ 20))
                     (EXIT
                      (LETT |v|
@@ -21,7 +21,7 @@
                                   (VECTOR $ (QREFELT $ 9)))
                             |v| (QREFELT $ 23))
                            . #2#)))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+               (LETT |i| (+ |i| 1) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |m|)))) 
 
 (SDEFUN |ODETOOLS;wronskianMatrix;LNniM;2!0| ((|f1| NIL) ($$ NIL))

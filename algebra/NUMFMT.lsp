@@ -387,9 +387,9 @@
                      (LIST #2# #7="C" "CC" "CCC" "CD" #8="D" "DC" "DCC" "DCCC"
                            "CM")
                      (QREFELT $ 35)))
-          (QSETREFV $ 39 0)
-          (QSETREFV $ 40 0)
-          (QSETREFV $ 41 0)
+          (QSETREFV $ 39 (PROGN (QREFELT $ 36) 0))
+          (QSETREFV $ 40 (PROGN (QREFELT $ 37) 0))
+          (QSETREFV $ 41 (PROGN (QREFELT $ 38) 0))
           (QSETREFV $ 42 (MAKEARR1 256 -1))
           (QSETAREF1 (QREFELT $ 42) (|STR_to_CHAR| " ") 0)
           (QSETAREF1 (QREFELT $ 42) (|STR_to_CHAR| #3#) 1)

@@ -26,7 +26,7 @@
                  |n| (|spadConstant| $ 25))
                 . #2#)
           (LETT |b| (SPADCALL (QREFELT $ 10)) . #2#)
-          (SEQ (LETT |j| 1 . #2#)
+          (SEQ (LETT |j| (PROGN |m| 1) . #2#)
                (LETT |i| (SPADCALL |b| (QREFELT $ 28)) . #2#)
                (LETT #1# (QVSIZE |b|) . #2#) G190
                (COND ((> |i| #1#) (GO G191)))
@@ -37,8 +37,7 @@
                             (SPADCALL |x| (QAREF1O |b| |i| 1) (QREFELT $ 29))
                             (QREFELT $ 30))
                            (QREFELT $ 31))))
-               (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (|inc_SI| |j|) . #2#))
-                     . #2#)
+               (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (+ |j| 1) . #2#)) . #2#)
                (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |m| (QREFELT $ 32)))))) 
 

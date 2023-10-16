@@ -119,7 +119,7 @@
              (LETT AA
                    (MAKE_MATRIX1 (QVELT A 1) (QVELT A 0) (|spadConstant| $ 36))
                    . #3=(|SEM;coerce;$M;11|))
-             (SEQ (LETT |i| 1 . #3#) (LETT |r| NIL . #3#)
+             (SEQ (LETT |i| (PROGN AA 1) . #3#) (LETT |r| NIL . #3#)
                   (LETT #2# (SPADCALL (QVELT A 3) (QREFELT $ 45)) . #3#) G190
                   (COND
                    ((OR (ATOM #2#) (PROGN (LETT |r| (CAR #2#) . #3#) NIL))
@@ -127,7 +127,8 @@
                   (SEQ (LETT |inds| (QCAR |r|) . #3#)
                        (LETT |ents| (QCDR |r|) . #3#)
                        (EXIT
-                        (SEQ (LETT |j| 1 . #3#) (LETT |ind| NIL . #3#)
+                        (SEQ (LETT |j| (PROGN AA 1) . #3#)
+                             (LETT |ind| NIL . #3#)
                              (LETT #1# (QVELT A 2) . #3#) G190
                              (COND
                               ((OR (ATOM #1#)
@@ -145,12 +146,10 @@
                                   (LETT |inds| (CDR |inds|) . #3#)
                                   (EXIT (LETT |ents| (CDR |ents|) . #3#)))))))
                              (LETT #1#
-                                   (PROG1 (CDR #1#)
-                                     (LETT |j| (|inc_SI| |j|) . #3#))
+                                   (PROG1 (CDR #1#) (LETT |j| (+ |j| 1) . #3#))
                                    . #3#)
                              (GO G190) G191 (EXIT NIL))))
-                  (LETT #2# (PROG1 (CDR #2#) (LETT |i| (|inc_SI| |i|) . #3#))
-                        . #3#)
+                  (LETT #2# (PROG1 (CDR #2#) (LETT |i| (+ |i| 1) . #3#)) . #3#)
                   (GO G190) G191 (EXIT NIL))
              (EXIT AA))))))) 
 

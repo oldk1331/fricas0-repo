@@ -193,9 +193,10 @@
                       |QFCAT-;reducedSystem;MVR;25|)
                 (EXIT
                  (CONS
-                  (SPADCALL |n| 1 (SPADCALL |n| (QREFELT $ 105)) (+ 1 1)
-                            (SPADCALL |n| (QREFELT $ 106)) (QREFELT $ 107))
-                  (SPADCALL |n| 1 (QREFELT $ 109))))))) 
+                  (SPADCALL |n| (PROGN |n| 1) (SPADCALL |n| (QREFELT $ 105))
+                            (+ 1 (PROGN |n| 1)) (SPADCALL |n| (QREFELT $ 106))
+                            (QREFELT $ 107))
+                  (SPADCALL |n| (PROGN |n| 1) (QREFELT $ 109))))))) 
 
 (DECLAIM (NOTINLINE |QuotientFieldCategory&;|)) 
 

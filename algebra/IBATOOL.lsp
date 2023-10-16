@@ -5,20 +5,18 @@
          (SEQ
           (LETT |ans| (|spadConstant| $ 9)
                 . #3=(|IBATOOL;diagonalProduct;MR;1|))
-          (SEQ (LETT |j| 1 . #3#)
+          (SEQ (LETT |j| (PROGN |m| 1) . #3#)
                (LETT #2# (SPADCALL |m| (QREFELT $ 13)) . #3#)
-               (LETT |i| 1 . #3#)
+               (LETT |i| (PROGN |m| 1) . #3#)
                (LETT #1# (SPADCALL |m| (QREFELT $ 12)) . #3#) G190
-               (COND
-                ((OR (|greater_SI| |i| #1#) (|greater_SI| |j| #2#)) (GO G191)))
+               (COND ((OR (> |i| #1#) (> |j| #2#)) (GO G191)))
                (SEQ
                 (EXIT
                  (LETT |ans|
                        (SPADCALL |ans| (QAREF2O |m| |i| |j| 1 1)
                                  (QREFELT $ 14))
                        . #3#)))
-               (LETT |i| (PROG1 (|inc_SI| |i|) (LETT |j| (|inc_SI| |j|) . #3#))
-                     . #3#)
+               (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (+ |j| 1) . #3#)) . #3#)
                (GO G190) G191 (EXIT NIL))
           (EXIT |ans|)))) 
 
@@ -110,7 +108,7 @@
           (LETT |n| (SPADCALL (QREFELT $ 28))
                 . #4=(|IBATOOL;idealiserMatrix;3M;5|))
           (LETT |bigm| (SPADCALL (* |n| |n|) |n| (QREFELT $ 29)) . #4#)
-          (LETT |mr| 1 . #4#) (LETT |mc| 1 . #4#)
+          (LETT |mr| (PROGN |bigm| 1) . #4#) (LETT |mc| (PROGN |bigm| 1) . #4#)
           (LETT |v| (SPADCALL (QREFELT $ 31)) . #4#)
           (SEQ (LETT |i| 0 . #4#) (LETT #3# (- |n| 1) . #4#) G190
                (COND ((|greater_SI| |i| #3#) (GO G191)))

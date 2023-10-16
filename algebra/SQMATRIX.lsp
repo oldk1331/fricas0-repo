@@ -38,29 +38,27 @@
                    (MAKE_MATRIX1 (QREFELT $ 6) (QREFELT $ 6)
                                  (|spadConstant| $ 8))
                    . #7#)
-             (SEQ (LETT |ll| NIL . #7#) (LETT #4# |l| . #7#) (LETT |i| 1 . #7#)
+             (SEQ (LETT |ll| NIL . #7#) (LETT #4# |l| . #7#)
+                  (LETT |i| (PROGN |ans| 1) . #7#)
                   (LETT #3# (SPADCALL |ans| (QREFELT $ 21)) . #7#) G190
                   (COND
-                   ((OR (|greater_SI| |i| #3#) (ATOM #4#)
+                   ((OR (> |i| #3#) (ATOM #4#)
                         (PROGN (LETT |ll| (CAR #4#) . #7#) NIL))
                     (GO G191)))
                   (SEQ
                    (EXIT
                     (SEQ (LETT |r| NIL . #7#) (LETT #2# |ll| . #7#)
-                         (LETT |j| 1 . #7#)
+                         (LETT |j| (PROGN |ans| 1) . #7#)
                          (LETT #1# (SPADCALL |ans| (QREFELT $ 22)) . #7#) G190
                          (COND
-                          ((OR (|greater_SI| |j| #1#) (ATOM #2#)
+                          ((OR (> |j| #1#) (ATOM #2#)
                                (PROGN (LETT |r| (CAR #2#) . #7#) NIL))
                            (GO G191)))
                          (SEQ (EXIT (QSETAREF2O |ans| |i| |j| |r| 1 1)))
-                         (LETT |j|
-                               (PROG1 (|inc_SI| |j|)
-                                 (LETT #2# (CDR #2#) . #7#))
+                         (LETT |j| (PROG1 (+ |j| 1) (LETT #2# (CDR #2#) . #7#))
                                . #7#)
                          (GO G190) G191 (EXIT NIL))))
-                  (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #4# (CDR #4#) . #7#))
-                        . #7#)
+                  (LETT |i| (PROG1 (+ |i| 1) (LETT #4# (CDR #4#) . #7#)) . #7#)
                   (GO G190) G191 (EXIT NIL))
              (EXIT |ans|))))))) 
 

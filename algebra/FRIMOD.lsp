@@ -56,21 +56,20 @@
                                   (|Union| (|Matrix| (QREFELT $ 7)) "failed")
                                   #3#))
                 . #4#)
-          (SEQ (LETT |i| 1 . #4#)
+          (SEQ (LETT |i| (PROGN |m| 1) . #4#)
                (LETT #2# (SPADCALL |m| (QREFELT $ 41)) . #4#) G190
-               (COND ((|greater_SI| |i| #2#) (GO G191)))
+               (COND ((> |i| #2#) (GO G191)))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |j| 1 . #4#)
+                 (SEQ (LETT |j| (PROGN |m| 1) . #4#)
                       (LETT #1# (SPADCALL |m| (QREFELT $ 42)) . #4#) G190
-                      (COND ((|greater_SI| |j| #1#) (GO G191)))
+                      (COND ((> |j| #1#) (GO G191)))
                       (SEQ
                        (EXIT
                         (SPADCALL (QREFELT $ 18) |i| |j|
                                   (QAREF2O |m| |i| |j| 1 1) (QREFELT $ 43))))
-                      (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
-                      (EXIT NIL))))
-               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+                      (LETT |j| (+ |j| 1) . #4#) (GO G190) G191 (EXIT NIL))))
+               (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT NIL)))) 
 
 (SDEFUN |FRIMOD;getintmat| (($ |Boolean|))
@@ -80,21 +79,20 @@
          (SEQ
           (LETT |m| (SPADCALL (QREFELT $ 10) (QREFELT $ 37))
                 . #3=(|FRIMOD;getintmat|))
-          (SEQ (LETT |i| 1 . #3#)
+          (SEQ (LETT |i| (PROGN |m| 1) . #3#)
                (LETT #2# (SPADCALL |m| (QREFELT $ 41)) . #3#) G190
-               (COND ((|greater_SI| |i| #2#) (GO G191)))
+               (COND ((> |i| #2#) (GO G191)))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |j| 1 . #3#)
+                 (SEQ (LETT |j| (PROGN |m| 1) . #3#)
                       (LETT #1# (SPADCALL |m| (QREFELT $ 42)) . #3#) G190
-                      (COND ((|greater_SI| |j| #1#) (GO G191)))
+                      (COND ((> |j| #1#) (GO G191)))
                       (SEQ
                        (EXIT
                         (SPADCALL (QREFELT $ 19) |i| |j|
                                   (QAREF2O |m| |i| |j| 1 1) (QREFELT $ 43))))
-                      (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
-                      (EXIT NIL))))
-               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+                      (LETT |j| (+ |j| 1) . #3#) (GO G190) G191 (EXIT NIL))))
+               (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
           (EXIT NIL)))) 
 
 (SDEFUN |FRIMOD;invintmat| (($ |Matrix| F))
@@ -178,9 +176,9 @@
             (LIST2VEC
              (PROGN
               (LETT #2# NIL . #3#)
-              (SEQ (LETT |i| 1 . #3#)
+              (SEQ (LETT |i| (PROGN |m| 1) . #3#)
                    (LETT #1# (SPADCALL |m| (QREFELT $ 61)) . #3#) G190
-                   (COND ((|greater_SI| |i| #1#) (GO G191)))
+                   (COND ((> |i| #1#) (GO G191)))
                    (SEQ
                     (EXIT
                      (COND
@@ -194,7 +192,7 @@
                               . #3#)
                         (|spadConstant| $ 46) (QREFELT $ 63))
                        (LETT #2# (CONS |u| #2#) . #3#)))))
-                   (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                   (LETT |i| (+ |i| 1) . #3#) (GO G190) G191
                    (EXIT (NREVERSE #2#)))))
             (QREFELT $ 22)))))) 
 

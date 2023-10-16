@@ -18,13 +18,11 @@
                       (QREFELT $ 26))
                      $)
                     . #5#)
-              (SEQ (LETT |j| 1 . #5#)
+              (SEQ (LETT |j| (PROGN |md| 1) . #5#)
                    (LETT #4# (SPADCALL |md| (QREFELT $ 29)) . #5#)
-                   (LETT |i| 1 . #5#)
+                   (LETT |i| (PROGN |md| 1) . #5#)
                    (LETT #3# (SPADCALL |md| (QREFELT $ 28)) . #5#) G190
-                   (COND
-                    ((OR (|greater_SI| |i| #3#) (|greater_SI| |j| #4#))
-                     (GO G191)))
+                   (COND ((OR (> |i| #3#) (> |j| #4#)) (GO G191)))
                    (SEQ
                     (EXIT
                      (SPADCALL |md| |i| |j|
@@ -32,8 +30,7 @@
                                          (SPADCALL |md| |i| |j| (QREFELT $ 30))
                                          (QREFELT $ 31))
                                (QREFELT $ 32))))
-                   (LETT |i|
-                         (PROG1 (|inc_SI| |i|) (LETT |j| (|inc_SI| |j|) . #5#))
+                   (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (+ |j| 1) . #5#))
                          . #5#)
                    (GO G190) G191 (EXIT NIL))
               (LETT |mdi| (SPADCALL |md| (QREFELT $ 33)) . #5#)

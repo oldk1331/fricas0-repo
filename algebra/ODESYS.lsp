@@ -641,14 +641,14 @@
                   (MAKE_MATRIX1 (ANROWS |m|) (ANCOLS |m|)
                                 (|spadConstant| $ 15))
                   . #4=(|ODESYS;M2F|))
-            (SEQ (LETT |i| 1 . #4#)
+            (SEQ (LETT |i| (PROGN |m| 1) . #4#)
                  (LETT #3# (SPADCALL |m| (QREFELT $ 77)) . #4#) G190
-                 (COND ((|greater_SI| |i| #3#) (GO G191)))
+                 (COND ((> |i| #3#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |j| 1 . #4#)
+                   (SEQ (LETT |j| (PROGN |m| 1) . #4#)
                         (LETT #2# (SPADCALL |m| (QREFELT $ 78)) . #4#) G190
-                        (COND ((|greater_SI| |j| #2#) (GO G191)))
+                        (COND ((> |j| #2#) (GO G191)))
                         (SEQ
                          (LETT |u|
                                (SPADCALL (SPADCALL |m| |i| |j| (QREFELT $ 79))
@@ -663,9 +663,8 @@
                            ('T
                             (SPADCALL |mf| |i| |j| (QCDR |u|)
                                       (QREFELT $ 82))))))
-                        (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
-                        (EXIT NIL))))
-                 (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+                        (LETT |j| (+ |j| 1) . #4#) (GO G190) G191 (EXIT NIL))))
+                 (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |mf|))))
           #5# (EXIT #1#)))) 
 
