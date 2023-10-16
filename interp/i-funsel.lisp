@@ -4687,18 +4687,12 @@
 ;     atom x => SL
 ;     ncond := subCopy(x, constructSubst d)
 ;     ncond is ['has, =d, =cat] => 'failed
-;     if ncond is ['OR, :nconds] then
-;         nnconds := nconds
-;         for nc in nconds repeat
-;             if nc is ['has, =d, =cat] then
-;                 nnconds := delete(nc, nnconds)
-;         ncond := ['OR, :nnconds]
-;     hasCaty1(ncond, SL)
+;     hasCaty1(substitute('failed, ['has, d, cat], ncond), SL)
 ;   'failed
  
 (DEFUN |hasCaty| (|d| |cat| SL)
   (PROG (|ISTMP#1| |y| |foo| |ISTMP#2| |sig| |a| |x| S |z| |cond| |p| |S'|
-         |dom| |z'| S1 |ncond| |nconds| |nnconds|)
+         |dom| |z'| S1 |ncond|)
     (RETURN
      (COND
       ((AND (CONSP |cat|) (EQ (CAR |cat|) 'CATEGORY)
@@ -4850,33 +4844,8 @@
                              (EQUAL (CAR |ISTMP#2|) |cat|))))))
             '|failed|)
            (#1#
-            (PROGN
-             (COND
-              ((AND (CONSP |ncond|) (EQ (CAR |ncond|) 'OR)
-                    (PROGN (SETQ |nconds| (CDR |ncond|)) #1#))
-               (SETQ |nnconds| |nconds|)
-               ((LAMBDA (|bfVar#141| |nc|)
-                  (LOOP
-                   (COND
-                    ((OR (ATOM |bfVar#141|)
-                         (PROGN (SETQ |nc| (CAR |bfVar#141|)) NIL))
-                     (RETURN NIL))
-                    (#1#
-                     (COND
-                      ((AND (CONSP |nc|) (EQ (CAR |nc|) '|has|)
-                            (PROGN
-                             (SETQ |ISTMP#1| (CDR |nc|))
-                             (AND (CONSP |ISTMP#1|) (EQUAL (CAR |ISTMP#1|) |d|)
-                                  (PROGN
-                                   (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                                   (AND (CONSP |ISTMP#2|)
-                                        (EQ (CDR |ISTMP#2|) NIL)
-                                        (EQUAL (CAR |ISTMP#2|) |cat|))))))
-                       (SETQ |nnconds| (|delete| |nc| |nnconds|))))))
-                   (SETQ |bfVar#141| (CDR |bfVar#141|))))
-                |nconds| NIL)
-               (SETQ |ncond| (CONS 'OR |nnconds|))))
-             (|hasCaty1| |ncond| SL))))))))
+            (|hasCaty1|
+             (|substitute| '|failed| (LIST '|has| |d| |cat|) |ncond|) SL)))))))
       (#1# '|failed|)))))
  
 ; mkDomPvar(p, d, subs, y) ==
@@ -4919,9 +4888,11 @@
            ('T (|subCopy| |arg| SL2))))))
  
 ; hasCaty1(cond,SL) ==
-;   -- cond is either a (has a b) or an OR clause of such conditions
+;   -- cond is either a (has a b) or an OR/AND clause of such conditions,
+;   --     or a special flag 'failed to indicate failure
 ;   -- SL is augmented, if cond is true, otherwise the result is 'failed
 ;   $domPvar: local := NIL
+;   cond is 'failed => 'failed
 ;   cond is ['has,a,b] => hasCate(a,b,SL)
 ;   cond is ['AND,:args] =>
 ;     for x in args while not (S='failed) repeat S:=
@@ -4948,113 +4919,119 @@
     (RETURN
      (PROGN
       (SETQ |$domPvar| NIL)
-      (COND
-       ((AND (CONSP |cond|) (EQ (CAR |cond|) '|has|)
+      (COND ((EQ |cond| '|failed|) '|failed|)
+            ((AND (CONSP |cond|) (EQ (CAR |cond|) '|has|)
+                  (PROGN
+                   (SETQ |ISTMP#1| (CDR |cond|))
+                   (AND (CONSP |ISTMP#1|)
+                        (PROGN
+                         (SETQ |a| (CAR |ISTMP#1|))
+                         (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                         (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                              (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1='T))))))
+             (|hasCate| |a| |b| SL))
+            ((AND (CONSP |cond|) (EQ (CAR |cond|) 'AND)
+                  (PROGN (SETQ |args| (CDR |cond|)) #1#))
              (PROGN
-              (SETQ |ISTMP#1| (CDR |cond|))
-              (AND (CONSP |ISTMP#1|)
-                   (PROGN
-                    (SETQ |a| (CAR |ISTMP#1|))
-                    (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                    (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                         (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1='T))))))
-        (|hasCate| |a| |b| SL))
-       ((AND (CONSP |cond|) (EQ (CAR |cond|) 'AND)
-             (PROGN (SETQ |args| (CDR |cond|)) #1#))
-        (PROGN
-         ((LAMBDA (|bfVar#142| |x|)
-            (LOOP
-             (COND
-              ((OR (ATOM |bfVar#142|) (PROGN (SETQ |x| (CAR |bfVar#142|)) NIL)
-                   (EQ S '|failed|))
-               (RETURN NIL))
-              (#1#
-               (SETQ S
-                       (COND
-                        ((AND (CONSP |x|) (EQ (CAR |x|) '|has|)
-                              (PROGN
-                               (SETQ |ISTMP#1| (CDR |x|))
-                               (AND (CONSP |ISTMP#1|)
-                                    (PROGN
-                                     (SETQ |a| (CAR |ISTMP#1|))
-                                     (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                                     (AND (CONSP |ISTMP#2|)
-                                          (EQ (CDR |ISTMP#2|) NIL)
-                                          (PROGN
-                                           (SETQ |b| (CAR |ISTMP#2|))
-                                           #1#))))))
-                         (|hasCate| |a| |b| SL))
-                        ((AND (CONSP |x|) (EQ (CDR |x|) NIL)
-                              (PROGN
-                               (SETQ |ISTMP#1| (CAR |x|))
-                               (AND (CONSP |ISTMP#1|)
-                                    (EQ (CAR |ISTMP#1|) '|has|)
-                                    (PROGN
-                                     (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                                     (AND (CONSP |ISTMP#2|)
-                                          (PROGN
-                                           (SETQ |a| (CAR |ISTMP#2|))
-                                           (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                                           (AND (CONSP |ISTMP#3|)
-                                                (EQ (CDR |ISTMP#3|) NIL)
-                                                (PROGN
-                                                 (SETQ |b| (CAR |ISTMP#3|))
-                                                 #1#))))))))
-                         (|hasCate| |a| |b| SL))
-                        (#1# (|hasCaty1| |x| SL))))))
-             (SETQ |bfVar#142| (CDR |bfVar#142|))))
-          |args| NIL)
-         S))
-       ((AND (CONSP |cond|) (EQ (CAR |cond|) 'OR)
-             (PROGN (SETQ |args| (CDR |cond|)) #1#))
-        (PROGN
-         ((LAMBDA (|bfVar#143| |x| |bfVar#144|)
-            (LOOP
-             (COND
-              ((OR (ATOM |bfVar#143|) (PROGN (SETQ |x| (CAR |bfVar#143|)) NIL)
-                   |bfVar#144|)
-               (RETURN NIL))
-              (#1#
-               (SETQ S
-                       (COND
-                        ((AND (CONSP |x|) (EQ (CAR |x|) '|has|)
-                              (PROGN
-                               (SETQ |ISTMP#1| (CDR |x|))
-                               (AND (CONSP |ISTMP#1|)
-                                    (PROGN
-                                     (SETQ |a| (CAR |ISTMP#1|))
-                                     (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                                     (AND (CONSP |ISTMP#2|)
-                                          (EQ (CDR |ISTMP#2|) NIL)
-                                          (PROGN
-                                           (SETQ |b| (CAR |ISTMP#2|))
-                                           #1#))))))
-                         (|hasCate| |a| |b| (COPY SL)))
-                        ((AND (CONSP |x|) (EQ (CDR |x|) NIL)
-                              (PROGN
-                               (SETQ |ISTMP#1| (CAR |x|))
-                               (AND (CONSP |ISTMP#1|)
-                                    (EQ (CAR |ISTMP#1|) '|has|)
-                                    (PROGN
-                                     (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                                     (AND (CONSP |ISTMP#2|)
-                                          (PROGN
-                                           (SETQ |a| (CAR |ISTMP#2|))
-                                           (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                                           (AND (CONSP |ISTMP#3|)
-                                                (EQ (CDR |ISTMP#3|) NIL)
-                                                (PROGN
-                                                 (SETQ |b| (CAR |ISTMP#3|))
-                                                 #1#))))))))
-                         (|hasCate| |a| |b| (COPY SL)))
-                        (#1# (|hasCaty1| |x| (COPY SL)))))))
-             (SETQ |bfVar#143| (CDR |bfVar#143|))
-             (SETQ |bfVar#144| (NULL (EQ S '|failed|)))))
-          |args| NIL NIL)
-         S))
-       (#1#
-        (|keyedSystemError| 'S2GE0016
-         (LIST "hasCaty1" "unexpected condition from category table"))))))))
+              ((LAMBDA (|bfVar#141| |x|)
+                 (LOOP
+                  (COND
+                   ((OR (ATOM |bfVar#141|)
+                        (PROGN (SETQ |x| (CAR |bfVar#141|)) NIL)
+                        (EQ S '|failed|))
+                    (RETURN NIL))
+                   (#1#
+                    (SETQ S
+                            (COND
+                             ((AND (CONSP |x|) (EQ (CAR |x|) '|has|)
+                                   (PROGN
+                                    (SETQ |ISTMP#1| (CDR |x|))
+                                    (AND (CONSP |ISTMP#1|)
+                                         (PROGN
+                                          (SETQ |a| (CAR |ISTMP#1|))
+                                          (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                          (AND (CONSP |ISTMP#2|)
+                                               (EQ (CDR |ISTMP#2|) NIL)
+                                               (PROGN
+                                                (SETQ |b| (CAR |ISTMP#2|))
+                                                #1#))))))
+                              (|hasCate| |a| |b| SL))
+                             ((AND (CONSP |x|) (EQ (CDR |x|) NIL)
+                                   (PROGN
+                                    (SETQ |ISTMP#1| (CAR |x|))
+                                    (AND (CONSP |ISTMP#1|)
+                                         (EQ (CAR |ISTMP#1|) '|has|)
+                                         (PROGN
+                                          (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                          (AND (CONSP |ISTMP#2|)
+                                               (PROGN
+                                                (SETQ |a| (CAR |ISTMP#2|))
+                                                (SETQ |ISTMP#3|
+                                                        (CDR |ISTMP#2|))
+                                                (AND (CONSP |ISTMP#3|)
+                                                     (EQ (CDR |ISTMP#3|) NIL)
+                                                     (PROGN
+                                                      (SETQ |b|
+                                                              (CAR |ISTMP#3|))
+                                                      #1#))))))))
+                              (|hasCate| |a| |b| SL))
+                             (#1# (|hasCaty1| |x| SL))))))
+                  (SETQ |bfVar#141| (CDR |bfVar#141|))))
+               |args| NIL)
+              S))
+            ((AND (CONSP |cond|) (EQ (CAR |cond|) 'OR)
+                  (PROGN (SETQ |args| (CDR |cond|)) #1#))
+             (PROGN
+              ((LAMBDA (|bfVar#142| |x| |bfVar#143|)
+                 (LOOP
+                  (COND
+                   ((OR (ATOM |bfVar#142|)
+                        (PROGN (SETQ |x| (CAR |bfVar#142|)) NIL) |bfVar#143|)
+                    (RETURN NIL))
+                   (#1#
+                    (SETQ S
+                            (COND
+                             ((AND (CONSP |x|) (EQ (CAR |x|) '|has|)
+                                   (PROGN
+                                    (SETQ |ISTMP#1| (CDR |x|))
+                                    (AND (CONSP |ISTMP#1|)
+                                         (PROGN
+                                          (SETQ |a| (CAR |ISTMP#1|))
+                                          (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                          (AND (CONSP |ISTMP#2|)
+                                               (EQ (CDR |ISTMP#2|) NIL)
+                                               (PROGN
+                                                (SETQ |b| (CAR |ISTMP#2|))
+                                                #1#))))))
+                              (|hasCate| |a| |b| (COPY SL)))
+                             ((AND (CONSP |x|) (EQ (CDR |x|) NIL)
+                                   (PROGN
+                                    (SETQ |ISTMP#1| (CAR |x|))
+                                    (AND (CONSP |ISTMP#1|)
+                                         (EQ (CAR |ISTMP#1|) '|has|)
+                                         (PROGN
+                                          (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                          (AND (CONSP |ISTMP#2|)
+                                               (PROGN
+                                                (SETQ |a| (CAR |ISTMP#2|))
+                                                (SETQ |ISTMP#3|
+                                                        (CDR |ISTMP#2|))
+                                                (AND (CONSP |ISTMP#3|)
+                                                     (EQ (CDR |ISTMP#3|) NIL)
+                                                     (PROGN
+                                                      (SETQ |b|
+                                                              (CAR |ISTMP#3|))
+                                                      #1#))))))))
+                              (|hasCate| |a| |b| (COPY SL)))
+                             (#1# (|hasCaty1| |x| (COPY SL)))))))
+                  (SETQ |bfVar#142| (CDR |bfVar#142|))
+                  (SETQ |bfVar#143| (NULL (EQ S '|failed|)))))
+               |args| NIL NIL)
+              S))
+            (#1#
+             (|keyedSystemError| 'S2GE0016
+              (LIST "hasCaty1"
+                    "unexpected condition from category table"))))))))
  
 ; hasAttSig(d,x,SL) ==
 ;   -- d is domain, x a list of attributes and signatures
@@ -5070,11 +5047,11 @@
   (PROG (|ISTMP#1| |a| |foo| |ISTMP#2| |s|)
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#145| |y| |bfVar#146|)
+      ((LAMBDA (|bfVar#144| |y| |bfVar#145|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#145|) (PROGN (SETQ |y| (CAR |bfVar#145|)) NIL)
-                |bfVar#146|)
+           ((OR (ATOM |bfVar#144|) (PROGN (SETQ |y| (CAR |bfVar#144|)) NIL)
+                |bfVar#145|)
             (RETURN NIL))
            (#1='T
             (SETQ SL
@@ -5102,8 +5079,8 @@
                       (|keyedSystemError| 'S2GE0016
                        (LIST "hasAttSig"
                              "unexpected form of unnamed category")))))))
-          (SETQ |bfVar#145| (CDR |bfVar#145|))
-          (SETQ |bfVar#146| (EQ SL '|failed|))))
+          (SETQ |bfVar#144| (CDR |bfVar#144|))
+          (SETQ |bfVar#145| (EQ SL '|failed|))))
        |x| NIL NIL)
       SL))))
  
@@ -5126,10 +5103,10 @@
      (PROGN
       (SETQ |dead| NIL)
       (SETQ SA '|failed|)
-      ((LAMBDA (|bfVar#147| |cls|)
+      ((LAMBDA (|bfVar#146| |cls|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#147|) (PROGN (SETQ |cls| (CAR |bfVar#147|)) NIL)
+           ((OR (ATOM |bfVar#146|) (PROGN (SETQ |cls| (CAR |bfVar#146|)) NIL)
                 |dead|)
             (RETURN NIL))
            (#1='T
@@ -5155,7 +5132,7 @@
                              (LIST "hasSigAnd"
                                    "unexpected condition for signature")))))
              (COND ((EQ SA '|failed|) (SETQ |dead| T))))))
-          (SETQ |bfVar#147| (CDR |bfVar#147|))))
+          (SETQ |bfVar#146| (CDR |bfVar#146|))))
        |andCls| NIL)
       SA))))
  
@@ -5180,11 +5157,11 @@
      (PROGN
       (SETQ |found| NIL)
       (SETQ SA '|failed|)
-      ((LAMBDA (|bfVar#148| |cls| |bfVar#149|)
+      ((LAMBDA (|bfVar#147| |cls| |bfVar#148|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#148|) (PROGN (SETQ |cls| (CAR |bfVar#148|)) NIL)
-                |bfVar#149|)
+           ((OR (ATOM |bfVar#147|) (PROGN (SETQ |cls| (CAR |bfVar#147|)) NIL)
+                |bfVar#148|)
             (RETURN NIL))
            (#1='T
             (PROGN
@@ -5215,8 +5192,8 @@
                              (LIST "hasSigOr"
                                    "unexpected condition for signature")))))
              (COND ((NOT (EQ SA '|failed|)) (SETQ |found| T))))))
-          (SETQ |bfVar#148| (CDR |bfVar#148|))
-          (SETQ |bfVar#149| |found|)))
+          (SETQ |bfVar#147| (CDR |bfVar#147|))
+          (SETQ |bfVar#148| |found|)))
        |orCls| NIL NIL)
       SA))))
  
@@ -5257,18 +5234,18 @@
          (COND
           ((SETQ |p| (ASSQ |foo| (|getOperationAlistFromLisplib| (CAR |dom|))))
            (PROGN
-            ((LAMBDA (|bfVar#151| |bfVar#150| |bfVar#152|)
+            ((LAMBDA (|bfVar#150| |bfVar#149| |bfVar#151|)
                (LOOP
                 (COND
-                 ((OR (ATOM |bfVar#151|)
-                      (PROGN (SETQ |bfVar#150| (CAR |bfVar#151|)) NIL)
-                      |bfVar#152|)
+                 ((OR (ATOM |bfVar#150|)
+                      (PROGN (SETQ |bfVar#149| (CAR |bfVar#150|)) NIL)
+                      |bfVar#151|)
                   (RETURN NIL))
                  (#1='T
-                  (AND (CONSP |bfVar#150|)
+                  (AND (CONSP |bfVar#149|)
                        (PROGN
-                        (SETQ |x| (CAR |bfVar#150|))
-                        (SETQ |ISTMP#1| (CDR |bfVar#150|))
+                        (SETQ |x| (CAR |bfVar#149|))
+                        (SETQ |ISTMP#1| (CDR |bfVar#149|))
                         (AND (CONSP |ISTMP#1|)
                              (PROGN
                               (SETQ |ISTMP#2| (CDR |ISTMP#1|))
@@ -5333,8 +5310,8 @@
                           (SETQ S
                                   (|unifyStruct| (|subCopy| |x| S0) |sig|
                                    S))))))))
-                (SETQ |bfVar#151| (CDR |bfVar#151|))
-                (SETQ |bfVar#152| (NULL (EQ S '|failed|)))))
+                (SETQ |bfVar#150| (CDR |bfVar#150|))
+                (SETQ |bfVar#151| (NULL (EQ S '|failed|)))))
              (CDR |p|) NIL NIL)
             S))
           (#1# '|failed|))))
@@ -5356,36 +5333,36 @@
       ((AND (CONSP |cond|) (EQ (CAR |cond|) 'OR)
             (PROGN (SETQ |l| (CDR |cond|)) #1='T))
        (COND
-        (((LAMBDA (|bfVar#154| |bfVar#153| |x|)
+        (((LAMBDA (|bfVar#153| |bfVar#152| |x|)
             (LOOP
              (COND
-              ((OR (ATOM |bfVar#153|) (PROGN (SETQ |x| (CAR |bfVar#153|)) NIL))
-               (RETURN |bfVar#154|))
+              ((OR (ATOM |bfVar#152|) (PROGN (SETQ |x| (CAR |bfVar#152|)) NIL))
+               (RETURN |bfVar#153|))
               (#1#
                (PROGN
-                (SETQ |bfVar#154|
+                (SETQ |bfVar#153|
                         (NOT
                          (EQ (SETQ |y| (|hasCatExpression| |x| SL))
                              '|failed|)))
-                (COND (|bfVar#154| (RETURN |bfVar#154|))))))
-             (SETQ |bfVar#153| (CDR |bfVar#153|))))
+                (COND (|bfVar#153| (RETURN |bfVar#153|))))))
+             (SETQ |bfVar#152| (CDR |bfVar#152|))))
           NIL |l| NIL)
          (IDENTITY |y|))))
       ((AND (CONSP |cond|) (EQ (CAR |cond|) 'AND)
             (PROGN (SETQ |l| (CDR |cond|)) #1#))
        (COND
-        (((LAMBDA (|bfVar#156| |bfVar#155| |x|)
+        (((LAMBDA (|bfVar#155| |bfVar#154| |x|)
             (LOOP
              (COND
-              ((OR (ATOM |bfVar#155|) (PROGN (SETQ |x| (CAR |bfVar#155|)) NIL))
-               (RETURN |bfVar#156|))
+              ((OR (ATOM |bfVar#154|) (PROGN (SETQ |x| (CAR |bfVar#154|)) NIL))
+               (RETURN |bfVar#155|))
               (#1#
                (PROGN
-                (SETQ |bfVar#156|
+                (SETQ |bfVar#155|
                         (NOT
                          (EQ (SETQ SL (|hasCatExpression| |x| SL)) '|failed|)))
-                (COND ((NOT |bfVar#156|) (RETURN NIL))))))
-             (SETQ |bfVar#155| (CDR |bfVar#155|))))
+                (COND ((NOT |bfVar#155|) (RETURN NIL))))))
+             (SETQ |bfVar#154| (CDR |bfVar#154|))))
           T |l| NIL)
          (IDENTITY SL))))
       ((AND (CONSP |cond|) (EQ (CAR |cond|) '|has|)
@@ -5463,9 +5440,9 @@
                    ((OR (ATOM |s1|) (ATOM |s2|)) '|failed|)
                    (#1#
                     (PROGN
-                     ((LAMBDA (|bfVar#157|)
+                     ((LAMBDA (|bfVar#156|)
                         (LOOP
-                         (COND (|bfVar#157| (RETURN NIL))
+                         (COND (|bfVar#156| (RETURN NIL))
                                (#1#
                                 (PROGN
                                  (SETQ SL
@@ -5479,7 +5456,7 @@
                                     (COND ((EQUAL |s1| |s2|) (SETQ |s2| NIL)))
                                     (SETQ |s1| NIL)))
                                   ((ATOM |s2|) (SETQ |s2| NIL))))))
-                         (SETQ |bfVar#157|
+                         (SETQ |bfVar#156|
                                  (OR (NULL |s1|) (NULL |s2|)
                                      (EQ SL '|failed|)))))
                       NIL)
@@ -5604,17 +5581,17 @@
       (COND ((IDENTP |dom|) NIL)
             ((AND (CONSP |cat|) (EQ (CAR |cat|) '|Join|)
                   (PROGN (SETQ |cats| (CDR |cat|)) #1='T))
-             ((LAMBDA (|bfVar#159| |bfVar#158| |c|)
+             ((LAMBDA (|bfVar#158| |bfVar#157| |c|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#158|)
-                       (PROGN (SETQ |c| (CAR |bfVar#158|)) NIL))
-                   (RETURN |bfVar#159|))
+                  ((OR (ATOM |bfVar#157|)
+                       (PROGN (SETQ |c| (CAR |bfVar#157|)) NIL))
+                   (RETURN |bfVar#158|))
                   (#1#
                    (PROGN
-                    (SETQ |bfVar#159| (|ofCategory| |dom| |c|))
-                    (COND ((NOT |bfVar#159|) (RETURN NIL))))))
-                 (SETQ |bfVar#158| (CDR |bfVar#158|))))
+                    (SETQ |bfVar#158| (|ofCategory| |dom| |c|))
+                    (COND ((NOT |bfVar#158|) (RETURN NIL))))))
+                 (SETQ |bfVar#157| (CDR |bfVar#157|))))
               T |cats| NIL))
             (#1# (NOT (EQ (|hasCaty| |dom| |cat| NIL) '|failed|))))))))
  
@@ -5639,17 +5616,17 @@
     (RETURN
      (PROGN
       (|sayMSG| " ")
-      ((LAMBDA (|bfVar#161| |bfVar#160| |i|)
+      ((LAMBDA (|bfVar#160| |bfVar#159| |i|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#161|)
-                (PROGN (SETQ |bfVar#160| (CAR |bfVar#161|)) NIL))
+           ((OR (ATOM |bfVar#160|)
+                (PROGN (SETQ |bfVar#159| (CAR |bfVar#160|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#160|)
+            (AND (CONSP |bfVar#159|)
                  (PROGN
-                  (SETQ |sig| (CAR |bfVar#160|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#160|))
+                  (SETQ |sig| (CAR |bfVar#159|))
+                  (SETQ |ISTMP#1| (CDR |bfVar#159|))
                   (AND (CONSP |ISTMP#1|)
                        (PROGN
                         (SETQ |imp| (CAR |ISTMP#1|))
@@ -5676,7 +5653,7 @@
                     (|sayMSG|
                      (|concat| "      implemented: slot " |imp| " from "
                       (|prefix2String| (CAR |sig|))))))))))
-          (SETQ |bfVar#161| (CDR |bfVar#161|))
+          (SETQ |bfVar#160| (CDR |bfVar#160|))
           (SETQ |i| (+ |i| 1))))
        |mmS| NIL 1)
       (|sayMSG| " ")))))
