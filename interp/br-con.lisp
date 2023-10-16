@@ -3,13 +3,13 @@
  
 (IN-PACKAGE "BOOT")
  
-; conPage(a,:b) ==
+; conPage(a) ==
 ;   --The next 4 lines allow e.g. MATRIX INT  ==> Matrix Integer (see kPage)
 ;   form :=
-;     atom a => [a,:b]
+;     atom a => [a]
 ;     a
 ;   $conArgstrings : local := [form2HtString x for x in IFCDR a]
-;   if not atom a then a := first a
+;   a := first a
 ;   da := DOWNCASE a
 ;   pageName := QLASSQ(da, '((type . CategoryType) (union . DomainUnion) _
 ;                            (record . DomainRecord) (mapping . DomainMapping) _
@@ -19,12 +19,12 @@
 ;   line := conPageFastPath UPCASE a => kPage(line, [form]) --upper case an abbr?
 ;   ySearch a       --slow search (include default packages)
  
-(DEFUN |conPage| (|a| &REST |b|)
+(DEFUN |conPage| (|a|)
   (PROG (|$conArgstrings| |line| |pageName| |da| |form|)
     (DECLARE (SPECIAL |$conArgstrings|))
     (RETURN
      (PROGN
-      (SETQ |form| (COND ((ATOM |a|) (CONS |a| |b|)) (#1='T |a|)))
+      (SETQ |form| (COND ((ATOM |a|) (LIST |a|)) (#1='T |a|)))
       (SETQ |$conArgstrings|
               ((LAMBDA (|bfVar#2| |bfVar#1| |x|)
                  (LOOP
@@ -36,7 +36,7 @@
                     (SETQ |bfVar#2| (CONS (|form2HtString| |x|) |bfVar#2|))))
                   (SETQ |bfVar#1| (CDR |bfVar#1|))))
                NIL (IFCDR |a|) NIL))
-      (COND ((NULL (ATOM |a|)) (SETQ |a| (CAR |a|))))
+      (SETQ |a| (CAR |a|))
       (SETQ |da| (DOWNCASE |a|))
       (COND
        ((SETQ |pageName|
@@ -2621,11 +2621,10 @@
        (COND ((ATOM |u|) NIL) (#1='T (CONS (CONS |u| T) (|dbAddChain| |u|)))))
       (#1# NIL)))))
  
-; dbShowCons(htPage,key,:options) ==
+; dbShowCons(htPage, key) ==
 ;   cAlist  := htpProperty(htPage,'cAlist)
 ;   key = 'filter =>
-;     --if $saturn, IFCAR options is the filter string
-;     filter := pmTransFilter(IFCAR options or dbGetInputString htPage)
+;     filter := pmTransFilter(dbGetInputString(htPage))
 ;     filter is ['error,:.] => bcErrorPage filter
 ;     abbrev? := htpProperty(htPage,'exclusion) = 'abbrs
 ;     u := [x for x in cAlist | test] where test ==
@@ -2643,7 +2642,7 @@
 ;     key := htpProperty(htPage,'exclusion)
 ;   dbShowCons1(htPage,cAlist,key)
  
-(DEFUN |dbShowCons| (|htPage| |key| &REST |options|)
+(DEFUN |dbShowCons| (|htPage| |key|)
   (PROG (|cAlist| |filter| |abbrev?| |conname| |subject| |u|)
     (RETURN
      (PROGN
@@ -2651,9 +2650,7 @@
       (COND
        ((EQ |key| '|filter|)
         (PROGN
-         (SETQ |filter|
-                 (|pmTransFilter|
-                  (OR (IFCAR |options|) (|dbGetInputString| |htPage|))))
+         (SETQ |filter| (|pmTransFilter| (|dbGetInputString| |htPage|)))
          (COND
           ((AND (CONSP |filter|) (EQ (CAR |filter|) '|error|))
            (|bcErrorPage| |filter|))
@@ -3668,69 +3665,3 @@
                  "\\spad{coerce(e)} returns a representation of enumeration \\spad{r} as an output form")
                 (($ (|Symbol|))
                  "\\spad{coerce(s)} converts a symbol \\spad{s} into an enumeration which has \\spad{s} as a member symbol"))))))))
- 
-; mkConArgSublis args ==
-;   [[arg,:INTERN digits2Names PNAME arg] for arg in args
-;      | (s := PNAME arg) and or/[DIGITP ELT(s,i) for i in 0..MAXINDEX s]]
- 
-(DEFUN |mkConArgSublis| (|args|)
-  (PROG (|s|)
-    (RETURN
-     ((LAMBDA (|bfVar#106| |bfVar#103| |arg|)
-        (LOOP
-         (COND
-          ((OR (ATOM |bfVar#103|) (PROGN (SETQ |arg| (CAR |bfVar#103|)) NIL))
-           (RETURN (NREVERSE |bfVar#106|)))
-          (#1='T
-           (AND (SETQ |s| (PNAME |arg|))
-                ((LAMBDA (|bfVar#105| |bfVar#104| |i|)
-                   (LOOP
-                    (COND ((> |i| |bfVar#104|) (RETURN |bfVar#105|))
-                          (#1#
-                           (PROGN
-                            (SETQ |bfVar#105| (DIGITP (ELT |s| |i|)))
-                            (COND (|bfVar#105| (RETURN |bfVar#105|))))))
-                    (SETQ |i| (+ |i| 1))))
-                 NIL (MAXINDEX |s|) 0)
-                (SETQ |bfVar#106|
-                        (CONS
-                         (CONS |arg| (INTERN (|digits2Names| (PNAME |arg|))))
-                         |bfVar#106|)))))
-         (SETQ |bfVar#103| (CDR |bfVar#103|))))
-      NIL |args| NIL))))
- 
-; digits2Names s ==
-; --This is necessary since arguments of conforms CANNOT have digits in TechExplorer
-;   str := '""
-;   for i in 0..MAXINDEX s repeat
-;     c := s.i
-;     segment :=
-;       n := DIGIT_-CHAR_-P c =>
-;         ('("Zero" "One" "Two" "Three" "Four" "Five" "Six" "Seven" "Eight" "Nine")).n
-;       c
-;     CONCAT(str, segment)
-;   str
- 
-(DEFUN |digits2Names| (|s|)
-  (PROG (|str| |c| |n| |segment|)
-    (RETURN
-     (PROGN
-      (SETQ |str| "")
-      ((LAMBDA (|bfVar#107| |i|)
-         (LOOP
-          (COND ((> |i| |bfVar#107|) (RETURN NIL))
-                (#1='T
-                 (PROGN
-                  (SETQ |c| (ELT |s| |i|))
-                  (SETQ |segment|
-                          (COND
-                           ((SETQ |n| (DIGIT-CHAR-P |c|))
-                            (ELT
-                             '("Zero" "One" "Two" "Three" "Four" "Five" "Six"
-                               "Seven" "Eight" "Nine")
-                             |n|))
-                           (#1# |c|)))
-                  (CONCAT |str| |segment|))))
-          (SETQ |i| (+ |i| 1))))
-       (MAXINDEX |s|) 0)
-      |str|))))

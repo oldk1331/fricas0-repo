@@ -106,7 +106,7 @@
 ;   _*EOF_*: fluid := NIL
 ;   $InteractiveMode :fluid := true
 ;   $e:fluid := $InteractiveFrame
-;   ncIntLoop()
+;   int_loop()
  
 (DEFUN |ncTopLevel| ()
   (PROG (|$e| |$InteractiveMode| *EOF*)
@@ -116,7 +116,7 @@
       (SETQ *EOF* NIL)
       (SETQ |$InteractiveMode| T)
       (SETQ |$e| |$InteractiveFrame|)
-      (|ncIntLoop|)))))
+      (|int_loop|)))))
  
 ; printFirstPrompt?() ==
 ;     $interpreterFrameName ~= "initial" or not($SpadServer)
@@ -126,19 +126,14 @@
     (RETURN
      (OR (NOT (EQ |$interpreterFrameName| '|initial|)) (NULL |$SpadServer|)))))
  
-; ncIntLoop() ==
-;   intloop()
- 
-(DEFUN |ncIntLoop| () (PROG () (RETURN (|intloop|))))
- 
-; intloop () ==
+; int_loop () ==
 ;     mode := "restart"
 ;     while mode = "restart" repeat
 ;       resetStackLimits()
 ;       mode := CATCH("top_level",
 ;                     SpadInterpretStream(1, ["TIM", "DALY", "?"], true))
  
-(DEFUN |intloop| ()
+(DEFUN |int_loop| ()
   (PROG (|mode|)
     (RETURN
      (PROGN
@@ -197,16 +192,10 @@
          NIL))
        ('T (PROGN (|intloopInclude| |source| 0) NIL)))))))
  
-; SpadInterpretFile fn ==
-;   SpadInterpretStream(1, fn, nil)
- 
-(DEFUN |SpadInterpretFile| (|fn|)
-  (PROG () (RETURN (|SpadInterpretStream| 1 |fn| NIL))))
- 
 ; ncINTERPFILE(file, echo) ==
 ;   $EchoLines : local := echo
 ;   $ReadingFile : local := true
-;   SpadInterpretFile(file)
+;   SpadInterpretStream(1, file, false)
  
 (DEFUN |ncINTERPFILE| (|file| |echo|)
   (PROG (|$ReadingFile| |$EchoLines|)
@@ -215,7 +204,7 @@
      (PROGN
       (SETQ |$EchoLines| |echo|)
       (SETQ |$ReadingFile| T)
-      (|SpadInterpretFile| |file|)))))
+      (|SpadInterpretStream| 1 |file| NIL)))))
  
 ; setCurrentLine s ==
 ;   v := $currentLine
@@ -243,66 +232,68 @@
                              (PROGN (RPLACD (LASTNODE |v|) |u|) |v|)))))))))))
  
 ; intloopReadConsole(b, n)==
-;     ioHook("startReadLine")
-;     a:= serverReadLine(_*STANDARD_-INPUT_*)
-;     ioHook("endOfReadLine")
-;     not STRINGP a => leaveScratchpad()
-;     b = [] and #a=0 =>
+;     repeat
+;         ioHook("startReadLine")
+;         a := serverReadLine(_*STANDARD_-INPUT_*)
+;         ioHook("endOfReadLine")
+;         not STRINGP a => leaveScratchpad()
+;         b = [] and #a=0 =>
 ;              princPrompt()
-;              intloopReadConsole([], n)
-;     $DALYMODE and intloopPrefix?('"(",a) =>
+;         $DALYMODE and intloopPrefix?('"(",a) =>
 ;             intnplisp(a)
 ;             princPrompt()
-;             intloopReadConsole([], n)
-;     pfx := stripSpaces intloopPrefix?('")fi",a)
-;     pfx and ((pfx = '")fi") or (pfx = '")fin")) => []
-;     b = [] and (d := intloopPrefix?('")", a)) =>
+;         pfx := stripSpaces intloopPrefix?('")fi",a)
+;         pfx and ((pfx = '")fi") or (pfx = '")fin")) => return []
+;         b = [] and (d := intloopPrefix?('")", a)) =>
 ;              setCurrentLine d
-;              c := ncloopCommand(d,n)
+;              n := ncloopCommand(d, n)
 ;              princPrompt()
-;              intloopReadConsole([], c)
-;     b := CONS(a, b)
-;     ncloopEscaped a => intloopReadConsole(b, n)
-;     c := intloopProcessStrings(nreverse b, n)
-;     princPrompt()
-;     intloopReadConsole([], c)
+;         b := CONS(a, b)
+;         ncloopEscaped a => "iterate"
+;         n := intloopProcessStrings(nreverse b, n)
+;         princPrompt()
+;         b := []
  
 (DEFUN |intloopReadConsole| (|b| |n|)
-  (PROG (|a| |pfx| |d| |c|)
+  (PROG (|a| |pfx| |d|)
     (RETURN
-     (PROGN
-      (|ioHook| '|startReadLine|)
-      (SETQ |a| (|serverReadLine| *STANDARD-INPUT*))
-      (|ioHook| '|endOfReadLine|)
-      (COND ((NULL (STRINGP |a|)) (|leaveScratchpad|))
-            ((AND (NULL |b|) (EQL (LENGTH |a|) 0))
-             (PROGN (|princPrompt|) (|intloopReadConsole| NIL |n|)))
-            ((AND $DALYMODE (|intloopPrefix?| "(" |a|))
-             (PROGN
-              (|intnplisp| |a|)
-              (|princPrompt|)
-              (|intloopReadConsole| NIL |n|)))
-            (#1='T
-             (PROGN
-              (SETQ |pfx| (|stripSpaces| (|intloopPrefix?| ")fi" |a|)))
-              (COND
-               ((AND |pfx| (OR (EQUAL |pfx| ")fi") (EQUAL |pfx| ")fin"))) NIL)
-               ((AND (NULL |b|) (SETQ |d| (|intloopPrefix?| ")" |a|)))
+     ((LAMBDA ()
+        (LOOP
+         (COND (NIL (RETURN NIL))
+               (#1='T
                 (PROGN
-                 (|setCurrentLine| |d|)
-                 (SETQ |c| (|ncloopCommand| |d| |n|))
-                 (|princPrompt|)
-                 (|intloopReadConsole| NIL |c|)))
-               (#1#
-                (PROGN
-                 (SETQ |b| (CONS |a| |b|))
-                 (COND ((|ncloopEscaped| |a|) (|intloopReadConsole| |b| |n|))
+                 (|ioHook| '|startReadLine|)
+                 (SETQ |a| (|serverReadLine| *STANDARD-INPUT*))
+                 (|ioHook| '|endOfReadLine|)
+                 (COND ((NULL (STRINGP |a|)) (|leaveScratchpad|))
+                       ((AND (NULL |b|) (EQL (LENGTH |a|) 0)) (|princPrompt|))
+                       ((AND $DALYMODE (|intloopPrefix?| "(" |a|))
+                        (PROGN (|intnplisp| |a|) (|princPrompt|)))
                        (#1#
                         (PROGN
-                         (SETQ |c|
-                                 (|intloopProcessStrings| (NREVERSE |b|) |n|))
-                         (|princPrompt|)
-                         (|intloopReadConsole| NIL |c|))))))))))))))
+                         (SETQ |pfx|
+                                 (|stripSpaces| (|intloopPrefix?| ")fi" |a|)))
+                         (COND
+                          ((AND |pfx|
+                                (OR (EQUAL |pfx| ")fi") (EQUAL |pfx| ")fin")))
+                           (RETURN NIL))
+                          ((AND (NULL |b|)
+                                (SETQ |d| (|intloopPrefix?| ")" |a|)))
+                           (PROGN
+                            (|setCurrentLine| |d|)
+                            (SETQ |n| (|ncloopCommand| |d| |n|))
+                            (|princPrompt|)))
+                          (#1#
+                           (PROGN
+                            (SETQ |b| (CONS |a| |b|))
+                            (COND ((|ncloopEscaped| |a|) '|iterate|)
+                                  (#1#
+                                   (PROGN
+                                    (SETQ |n|
+                                            (|intloopProcessStrings|
+                                             (NREVERSE |b|) |n|))
+                                    (|princPrompt|)
+                                    (SETQ |b| NIL)))))))))))))))))))
  
 ; intloopPrefix?(prefix,whole) ==
 ;      #prefix > #whole => false
@@ -437,18 +428,6 @@
     (RETURN
      (OR (|handle_input_file| |name| #'|intloopInclude0| (LIST |name| |n|))
          (|error| "File not found")))))
- 
-; intloopInclude1(name,n) ==
-;           a:=ncloopIncFileName name
-;           a => intloopInclude(a,n)
-;           n
- 
-(DEFUN |intloopInclude1| (|name| |n|)
-  (PROG (|a|)
-    (RETURN
-     (PROGN
-      (SETQ |a| (|ncloopIncFileName| |name|))
-      (COND (|a| (|intloopInclude| |a| |n|)) ('T |n|))))))
  
 ; fakepile(s) ==
 ;     if npNull s then [false, 0, [], s]
@@ -694,18 +673,11 @@
       |value|))))
  
 ; ncloopCommand (line,n) ==
-;          a:=ncloopPrefix?('")include",line)=>
-;                   ncloopInclude1( a,n)
-;          InterpExecuteSpadSystemCommand(line)
-;          n
+;     InterpExecuteSpadSystemCommand(line)
+;     n
  
 (DEFUN |ncloopCommand| (|line| |n|)
-  (PROG (|a|)
-    (RETURN
-     (COND
-      ((SETQ |a| (|ncloopPrefix?| ")include" |line|))
-       (|ncloopInclude1| |a| |n|))
-      ('T (PROGN (|InterpExecuteSpadSystemCommand| |line|) |n|))))))
+  (PROG () (RETURN (PROGN (|InterpExecuteSpadSystemCommand| |line|) |n|))))
  
 ; ncloopEscaped x == #x > 0 and x.(#x - 1) = '"__".0
  
@@ -802,45 +774,6 @@
       (SETQ |LETTMP#1| (|ncloopDQlines| |dq| |stream|))
       (SETQ |lines| (CAR |LETTMP#1|))
       (CONS (LIST (LIST |lines| (|npParse| (|dqToList| |dq|)))) (CDR |s|))))))
- 
-; ncloopInclude0(st, name, n) ==
-;      $lines:local := incStream(st, name)
-;      ncloopProcess(n,false,
-;          next(function ncloopEchoParse,
-;            next(function insertpile,
-;             next(function lineoftoks,$lines))))
- 
-(DEFUN |ncloopInclude0| (|st| |name| |n|)
-  (PROG (|$lines|)
-    (DECLARE (SPECIAL |$lines|))
-    (RETURN
-     (PROGN
-      (SETQ |$lines| (|incStream| |st| |name|))
-      (|ncloopProcess| |n| NIL
-       (|next| #'|ncloopEchoParse|
-        (|next| #'|insertpile| (|next| #'|lineoftoks| |$lines|))))))))
- 
-; ncloopInclude(name, n) ==
-;     handle_input_file(name, function ncloopInclude0, [name, n])
-;       or error('"File not found")
- 
-(DEFUN |ncloopInclude| (|name| |n|)
-  (PROG ()
-    (RETURN
-     (OR (|handle_input_file| |name| #'|ncloopInclude0| (LIST |name| |n|))
-         (|error| "File not found")))))
- 
-; ncloopInclude1(name,n) ==
-;           a:=ncloopIncFileName name
-;           a => ncloopInclude(a,n)
-;           n
- 
-(DEFUN |ncloopInclude1| (|name| |n|)
-  (PROG (|a|)
-    (RETURN
-     (PROGN
-      (SETQ |a| (|ncloopIncFileName| |name|))
-      (COND (|a| (|ncloopInclude| |a| |n|)) ('T |n|))))))
  
 ; incString s== incRenumber incLude(0,[s],0,['"strings"] ,[Top])
  

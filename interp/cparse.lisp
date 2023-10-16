@@ -805,8 +805,6 @@
  
 ; npPrimary1() ==
 ;    npEncAp function npAtom1 or
-;    npLet() or
-;    npFix() or
 ;    npMacro() or
 ;    npBPileDefinition() or npDefn() or
 ;    npRule()
@@ -814,8 +812,8 @@
 (DEFUN |npPrimary1| ()
   (PROG ()
     (RETURN
-     (OR (|npEncAp| #'|npAtom1|) (|npLet|) (|npFix|) (|npMacro|)
-         (|npBPileDefinition|) (|npDefn|) (|npRule|)))))
+     (OR (|npEncAp| #'|npAtom1|) (|npMacro|) (|npBPileDefinition|) (|npDefn|)
+         (|npRule|)))))
  
 ; npPrimary2()== npEncAp function npAtom2 -- or  npBPileDefinition()
 ;                or npAdd(pfNothing()) or npWith(pfNothing())
@@ -1562,24 +1560,10 @@
      (AND (|npEqKey| 'EXPORT) (OR (|npLocalItemlist|) (|npTrap|))
           (|npPush| (|pfExport| (|npPop1|)))))))
  
-; npLet()== npLetQualified function npDefinitionOrStatement
- 
-(DEFUN |npLet| ()
-  (PROG () (RETURN (|npLetQualified| #'|npDefinitionOrStatement|))))
- 
 ; npDefn()== npEqKey "DEFN" and  npPP function npDef
  
 (DEFUN |npDefn| ()
   (PROG () (RETURN (AND (|npEqKey| 'DEFN) (|npPP| #'|npDef|)))))
- 
-; npFix()== npEqKey "FIX" and  npPP function npDef
-;                and npPush pfFix npPop1 ()
- 
-(DEFUN |npFix| ()
-  (PROG ()
-    (RETURN
-     (AND (|npEqKey| 'FIX) (|npPP| #'|npDef|)
-          (|npPush| (|pfFix| (|npPop1|)))))))
  
 ; npMacro()== npEqKey "MACRO" and  npPP function npMdef
  
@@ -1800,40 +1784,26 @@
 (DEFUN |npListing| (|p|) (PROG () (RETURN (|npList| |p| '|,| #'|pfListOf|))))
  
 ; npQualified(f)==
-;     if FUNCALL f
-;     then
-;      while npEqKey "where" and (npDefinition() or npTrap()) repeat
+;     FUNCALL f =>
+;         while npEqKey "where" and (npDefinition() or npTrap()) repeat
 ;              npPush pfWhere(npPop1(),npPop1())
-;      true
-;     else  npLetQualified  f
+;         true
+;     false
  
 (DEFUN |npQualified| (|f|)
   (PROG ()
     (RETURN
      (COND
       ((FUNCALL |f|)
-       ((LAMBDA ()
-          (LOOP
-           (COND
-            ((NOT (AND (|npEqKey| '|where|) (OR (|npDefinition|) (|npTrap|))))
-             (RETURN NIL))
-            (#1='T (|npPush| (|pfWhere| (|npPop1|) (|npPop1|))))))))
-       T)
-      (#1# (|npLetQualified| |f|))))))
- 
-; npLetQualified f==
-;       npEqKey "LET" and BREAK() and
-;       (npDefinition() or npTrap()) and
-;       npCompMissing "in"  and
-;       (FUNCALL f or npTrap()) and
-;       npPush pfWhere(npPop2(),npPop1())
- 
-(DEFUN |npLetQualified| (|f|)
-  (PROG ()
-    (RETURN
-     (AND (|npEqKey| 'LET) (BREAK) (OR (|npDefinition|) (|npTrap|))
-          (|npCompMissing| '|in|) (OR (FUNCALL |f|) (|npTrap|))
-          (|npPush| (|pfWhere| (|npPop2|) (|npPop1|)))))))
+       (PROGN
+        ((LAMBDA ()
+           (LOOP
+            (COND
+             ((NOT (AND (|npEqKey| '|where|) (OR (|npDefinition|) (|npTrap|))))
+              (RETURN NIL))
+             (#1='T (|npPush| (|pfWhere| (|npPop1|) (|npPop1|))))))))
+        T))
+      (#1# NIL)))))
  
 ; npQualifiedDefinition()==
 ;        npQualified function npDefinitionOrStatement

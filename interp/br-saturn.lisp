@@ -603,7 +603,6 @@
 ;   page := htInitPageNoHeading(nil)
 ;   htAddHeading heading
 ;   htSayStandard("\beginscroll ")
-;   htpSetProperty(page,'argSublis,mkConArgSublis rest conform)
 ;   htpSetProperty(page,'isFile,true)
 ;   htpSetProperty(page,'parts,parts)
 ;   htpSetProperty(page,'heading,heading)
@@ -659,7 +658,6 @@
       (SETQ |page| (|htInitPageNoHeading| NIL))
       (|htAddHeading| |heading|)
       (|htSayStandard| '|\\beginscroll |)
-      (|htpSetProperty| |page| '|argSublis| (|mkConArgSublis| (CDR |conform|)))
       (|htpSetProperty| |page| '|isFile| T)
       (|htpSetProperty| |page| '|parts| |parts|)
       (|htpSetProperty| |page| '|heading| |heading|)
@@ -1103,7 +1101,6 @@
 ;     rest parlist => '"s:"
 ;     '":"
 ;   odd := false
-;   argSublis := htpProperty(page,'argSublis)
 ;   for parname in $PatternVariableList for par in rest conform repeat
 ;     htSayStandard (odd or manuelsCode? => "\newline";"\tab{29}")
 ;     odd := not odd
@@ -1114,7 +1111,7 @@
 ;         ['bcStrings,[w - #STRINGIMAGE par,argstring,parname,'EM]]]
  
 (DEFUN |addParameterTemplates| (|page| |conform|)
-  (PROG (|parlist| |manuelsCode?| |w| |odd| |argSublis| |a| |r| |argstring|)
+  (PROG (|parlist| |manuelsCode?| |w| |odd| |a| |r| |argstring|)
     (RETURN
      (PROGN
       (SETQ |parlist|
@@ -1143,7 +1140,6 @@
       (|htSay| "Optional argument value")
       (|htSay| (COND ((CDR |parlist|) "s:") (#1# ":")))
       (SETQ |odd| NIL)
-      (SETQ |argSublis| (|htpProperty| |page| '|argSublis|))
       ((LAMBDA (|bfVar#26| |parname| |bfVar#27| |par|)
          (LOOP
           (COND
