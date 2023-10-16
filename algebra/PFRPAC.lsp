@@ -62,6 +62,7 @@
                     (SIGNATURE |unit| (|up| $))
                     (SIGNATURE |unitNormalize| ($ $))
                     (SIGNATURE |map| ($ (|Mapping| |up| |up|) $))
+                    (SIGNATURE |mergeFactors| ($ $ $))
                     (IF (|has| |up| (|GcdDomain|))
                         (ATTRIBUTE (|GcdDomain|))
                         |noBranch|)

@@ -6713,7 +6713,7 @@ omerge!`3`x`((S,S)->Boolean,_$,_$)->_$`cExtensibleLinearAggregate(S)``803135
 omerge`3`x`((S,S)->Boolean,_$,_$)->_$`cLinearAggregate(S)`has(_$,finiteAggregate)`803238
 omergeDifference`2`x`(List(S),List(S))->List(S)`pMergeThing(S)``803854
 omerge_exponents`5`n`(Integer,Vector(Integer),SortedExponentVector,Vector(Integer),SortedExponentVector)->List(List(Integer))`pInnerModularHermitePade``0
-omergeFactors`2`n`(Factored(R),Factored(R))->Factored(R)`pFactoredFunctionUtilities(R)``804039
+omergeFactors`2`x`(_$,_$)->_$`dFactored(R)``804039
 omesh?`1`x`(_$)->Boolean`cThreeSpaceCategory(R)``804362
 omesh`1`x`(_$)->List(List(Point(R)))`cThreeSpaceCategory(R)``804576
 omesh`1`x`(List(List(Point(R))))->_$`cThreeSpaceCategory(R)``804838
