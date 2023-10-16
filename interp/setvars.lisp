@@ -2525,6 +2525,132 @@
      (|describeSetOutputU| "tex" "TeX" "stex" NIL
       (|setOutputTex| '|%display%|)))))
  
+; setOutputFormatted arg ==
+;   arg = "%initialize%" =>
+;     $formattedOutputStream := mkOutputConsoleStream()
+;     $formattedOutputFile := '"CONSOLE"
+;     $formattedFormat := NIL
+; 
+;   arg = "%display%" =>
+;     if $formattedFormat then label := '"On:" else label := '"Off:"
+;     STRCONC(label, $formattedOutputFile)
+; 
+;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
+;     describeSetOutputFormatted()
+; 
+;   -- try to figure out what the argument is
+; 
+;   if arg is [fn] and
+;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
+;       then 'ok
+;       else arg := [fn,'formatted]
+; 
+;   arg is [fn] =>
+;     UPCASE(fn) in '(Y N YE O OF) =>
+;       sayKeyedMsg("S2IV0002",'(FORMATTED formatted))
+;     UPCASE(fn) in '(NO OFF) => $formattedFormat := NIL
+;     UPCASE(fn) in '(YES ON) => $formattedFormat := true
+;     UPCASE(fn) = 'CONSOLE =>
+;       stream_close($formattedOutputStream)
+;       $formattedOutputStream := mkOutputConsoleStream()
+;       $formattedOutputFile := '"CONSOLE"
+; 
+;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
+;     [testStream, filename] := try_open(fn, ft, false)
+;     testStream =>
+;       stream_close($formattedOutputStream)
+;       $formattedOutputStream := testStream
+;       $formattedOutputFile := filename
+;       sayKeyedMsg("S2IV0004",['"FORMATTED",$formattedOutputFile])
+;     sayKeyedMsg("S2IV0003",[fn,ft])
+; 
+;   sayKeyedMsg("S2IV0005",NIL)
+;   describeSetOutputFormatted()
+ 
+(DEFUN |setOutputFormatted| (|arg|)
+  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
+         |filename|)
+    (RETURN
+     (COND
+      ((EQ |arg| '|%initialize%|)
+       (PROGN
+        (SETQ |$formattedOutputStream| (|mkOutputConsoleStream|))
+        (SETQ |$formattedOutputFile| "CONSOLE")
+        (SETQ |$formattedFormat| NIL)))
+      ((EQ |arg| '|%display%|)
+       (PROGN
+        (COND (|$formattedFormat| (SETQ |label| "On:"))
+              (#1='T (SETQ |label| "Off:")))
+        (STRCONC |label| |$formattedOutputFile|)))
+      ((OR (NULL |arg|) (EQ |arg| '|%describe%|) (EQ (CAR |arg|) '?))
+       (|describeSetOutputFormatted|))
+      (#1#
+       (PROGN
+        (COND
+         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
+               (PROGN (SETQ |fn| (CAR |arg|)) #1#)
+               (|member| |fn|
+                '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no| |o|
+                  |on| OF |off| |console|)))
+          '|ok|)
+         (#1# (SETQ |arg| (LIST |fn| '|formatted|))))
+        (COND
+         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
+               (PROGN (SETQ |fn| (CAR |arg|)) #1#))
+          (COND
+           ((|member| (UPCASE |fn|) '(Y N YE O OF))
+            (|sayKeyedMsg| 'S2IV0002 '(FORMATTED |formatted|)))
+           ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$formattedFormat| NIL))
+           ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$formattedFormat| T))
+           ((EQ (UPCASE |fn|) 'CONSOLE)
+            (PROGN
+             (|stream_close| |$formattedOutputStream|)
+             (SETQ |$formattedOutputStream| (|mkOutputConsoleStream|))
+             (SETQ |$formattedOutputFile| "CONSOLE")))))
+         ((OR
+           (AND (CONSP |arg|)
+                (PROGN
+                 (SETQ |fn| (CAR |arg|))
+                 (SETQ |ISTMP#1| (CDR |arg|))
+                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                      (PROGN (SETQ |ft| (CAR |ISTMP#1|)) #1#))))
+           (AND (CONSP |arg|)
+                (PROGN
+                 (SETQ |fn| (CAR |arg|))
+                 (SETQ |ISTMP#1| (CDR |arg|))
+                 (AND (CONSP |ISTMP#1|)
+                      (PROGN
+                       (SETQ |ft| (CAR |ISTMP#1|))
+                       (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                       (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                            (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
+          (PROGN
+           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
+           (SETQ |testStream| (CAR |LETTMP#1|))
+           (SETQ |filename| (CADR |LETTMP#1|))
+           (COND
+            (|testStream|
+             (PROGN
+              (|stream_close| |$formattedOutputStream|)
+              (SETQ |$formattedOutputStream| |testStream|)
+              (SETQ |$formattedOutputFile| |filename|)
+              (|sayKeyedMsg| 'S2IV0004
+               (LIST "FORMATTED" |$formattedOutputFile|))))
+            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
+         (#1#
+          (PROGN
+           (|sayKeyedMsg| 'S2IV0005 NIL)
+           (|describeSetOutputFormatted|))))))))))
+ 
+; describeSetOutputFormatted() == describeSetOutputU(
+;     '"formatted",'"formatted",'"formatted",false,setOutputFormatted "%display%")
+ 
+(DEFUN |describeSetOutputFormatted| ()
+  (PROG ()
+    (RETURN
+     (|describeSetOutputU| "formatted" "formatted" "formatted" NIL
+      (|setOutputFormatted| '|%display%|)))))
+ 
 ; setStreamsCalculate arg ==
 ;   arg = "%initialize%" =>
 ;     $streamCount := 10

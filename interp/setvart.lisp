@@ -519,7 +519,23 @@
 ;         chkOutputFileName
 ;         "console"))
 ;       NIL)
-; 
+;      (formatted
+;       "create output in formatted style"
+;       interpreter
+;       FUNCTION
+;       setOutputFormatted
+;       (("create output via format engine"
+;         LITERALS
+;         $formattedFormat
+;         (off on)
+;         off)
+;        (break $formattedFormat)
+;        ("where formatted output goes (enter {\em console} or a pathname)"
+;         FILENAME
+;         $formattedOutputFile
+;         chkOutputFileName
+;         "console"))
+;       NIL)
 ;  ))
 ;   (quit
 ;    "protected or unprotected quit"
@@ -756,6 +772,14 @@
         (|break| |$htmlFormat|)
         ("where HTML output goes (enter {\\em console} or a pathname)" FILENAME
          |$htmlOutputFile| |chkOutputFileName| "console"))
+       NIL)
+      (|formatted| "create output in formatted style" |interpreter| FUNCTION
+       |setOutputFormatted|
+       (("create output via format engine" LITERALS |$formattedFormat|
+         (|off| |on|) |off|)
+        (|break| |$formattedFormat|)
+        ("where formatted output goes (enter {\\em console} or a pathname)"
+         FILENAME |$formattedOutputFile| |chkOutputFileName| "console"))
        NIL)))
     (|quit| "protected or unprotected quit" |interpreter| LITERALS
      |$quitCommandType| (|protected| |unprotected|) |unprotected|)

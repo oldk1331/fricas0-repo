@@ -2325,6 +2325,11 @@
 (DEFUN |sayMSG| (|x|)
   (PROG () (RETURN (|sayBrightly1| |x| (|get_algebra_stream|)))))
  
+; sayFormatted(x) == say_simple(x, get_formatted_stream())
+ 
+(DEFUN |sayFormatted| (|x|)
+  (PROG () (RETURN (|say_simple| |x| (|get_formatted_stream|)))))
+ 
 ; sayMSG2File(msg) ==
 ;     file := makePathname("spadmsg", "listing")
 ;     str := MAKE_OUTSTREAM(file)

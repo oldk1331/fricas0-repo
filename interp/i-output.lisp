@@ -66,6 +66,10 @@
  
 (DEFVAR |$texmacsFormat| NIL)
  
+; DEFVAR($formattedFormat, false) -- if true produce formatted output
+ 
+(DEFVAR |$formattedFormat| NIL)
+ 
 ; makeCharacter n == INTERN(NUM2USTR(n))
  
 (DEFUN |makeCharacter| (|n|) (PROG () (RETURN (INTERN (NUM2USTR |n|)))))
@@ -165,6 +169,11 @@
  
 (DEFUN |get_tex_stream| ()
   (PROG () (RETURN (|get_lisp_stream| |$texOutputStream|))))
+ 
+; get_formatted_stream() == get_lisp_stream($formattedOutputStream)
+ 
+(DEFUN |get_formatted_stream| ()
+  (PROG () (RETURN (|get_lisp_stream| |$formattedOutputStream|))))
  
 ; specialChar(symbol) ==
 ;   -- looks up symbol in $specialCharacterAlist, gets the index
@@ -3435,6 +3444,29 @@
       (FORCE-OUTPUT (|get_html_stream|))
       NIL))))
  
+; formattedFormat expr ==
+;   ty := '(FormattedOutput)
+;   formatFn := getFunctionFromDomain("convert", ty, [$OutputForm, $Integer])
+;   displayFn := getFunctionFromDomain("display", ty , [ty])
+;   SPADCALL(SPADCALL(expr,$IOindex,formatFn),displayFn)
+;   say_new_line(get_formatted_stream())
+;   FORCE_-OUTPUT(get_formatted_stream())
+;   NIL
+ 
+(DEFUN |formattedFormat| (|expr|)
+  (PROG (|ty| |formatFn| |displayFn|)
+    (RETURN
+     (PROGN
+      (SETQ |ty| '(|FormattedOutput|))
+      (SETQ |formatFn|
+              (|getFunctionFromDomain| '|convert| |ty|
+               (LIST |$OutputForm| |$Integer|)))
+      (SETQ |displayFn| (|getFunctionFromDomain| '|display| |ty| (LIST |ty|)))
+      (SPADCALL (SPADCALL |expr| |$IOindex| |formatFn|) |displayFn|)
+      (|say_new_line| (|get_formatted_stream|))
+      (FORCE-OUTPUT (|get_formatted_stream|))
+      NIL))))
+ 
 ; output(expr,domain) ==
 ;   $resolve_level : local := 0
 ;   if isWrapped expr then expr := unwrap expr
@@ -3453,6 +3485,7 @@
 ;     if $mathmlFormat  then mathmlFormat x
 ;     if $texmacsFormat then texmacsFormat x
 ;     if $htmlFormat    then htmlFormat x
+;     if $formattedFormat then formattedFormat x
 ;   (FUNCTIONP(opOf domain)) and (not(SYMBOLP(opOf domain))) and
 ;     (printfun := compiledLookup("<<",'(TextWriter TextWriter $), evalDomain domain))
 ;        and (textwrit := compiledLookup("print", '($), TextWriter())) =>
@@ -3497,7 +3530,8 @@
          (COND (|$texFormat| (|texFormat| |x|)))
          (COND (|$mathmlFormat| (|mathmlFormat| |x|)))
          (COND (|$texmacsFormat| (|texmacsFormat| |x|)))
-         (COND (|$htmlFormat| (|htmlFormat| |x|)))))
+         (COND (|$htmlFormat| (|htmlFormat| |x|)))
+         (COND (|$formattedFormat| (|formattedFormat| |x|)))))
        ((AND (FUNCTIONP (|opOf| |domain|)) (NULL (SYMBOLP (|opOf| |domain|)))
              (SETQ |printfun|
                      (|compiledLookup| '<< '(|TextWriter| |TextWriter| $)
