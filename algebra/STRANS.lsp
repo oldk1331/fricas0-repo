@@ -86,82 +86,21 @@
 
 (SDEFUN |STRANS;distributionBySTransform;UPSRD;4|
         ((S UPSR) ($ |Distribution| R))
-        (SPROG
-         ((|psi| #1=(|Stream| R)) (|psi2| #1#) (|chi2| (UTSR)) (|z1z| (UTSR))
-          (S2 (ULSR)) (#2=#:G129 NIL) (|chi| (|Stream| R)) (S1 (UTSR)))
-         (SEQ
-          (EXIT
-           (SEQ
-            (COND
-             ((SPADCALL (SPADCALL S (QREFELT $ 40)) (|spadConstant| $ 41)
-                        (QREFELT $ 42))
-              (SEQ
-               (LETT S1 (SPADCALL (SPADCALL S (QREFELT $ 43)) (QREFELT $ 44)))
-               (LETT |z1z|
-                     (SPADCALL
-                      (SPADCALL (|spadConstant| $ 18)
-                                (SPADCALL
-                                 (LIST (|spadConstant| $ 28)
-                                       (SPADCALL (|spadConstant| $ 28)
-                                                 (QREFELT $ 45)))
-                                 (QREFELT $ 47))
-                                (QREFELT $ 20))
-                      (QREFELT $ 26)))
-               (LETT |chi|
-                     (SPADCALL (SPADCALL S1 |z1z| (QREFELT $ 48))
-                               (QREFELT $ 49)))
-               (LETT |psi| (SPADCALL |chi| (QREFELT $ 22)))
-               (EXIT
-                (PROGN
-                 (LETT #2#
-                       (SPADCALL
-                        (SPADCALL (SPADCALL |psi| (QREFELT $ 24))
-                                  (QREFELT $ 23))
-                        (QREFELT $ 50)))
-                 (GO #3=#:G128)))))
-             ((NULL
-               (SPADCALL (SPADCALL S (QREFELT $ 40))
-                         (SPADCALL (SPADCALL 1 2 (QREFELT $ 32))
-                                   (QREFELT $ 51))
-                         (QREFELT $ 42)))
-              (|error| "Not an S-transform")))
-            (COND
-             ((NULL
-               (SPADCALL (SPADCALL S (QREFELT $ 52))
-                         (SPADCALL 1 2 (QREFELT $ 32)) (QREFELT $ 42)))
-              (|error| "Not an S-transform")))
-            (LETT S2 (SPADCALL S (QREFELT $ 53)))
-            (LETT |z1z|
-                  (SPADCALL
-                   (SPADCALL (|spadConstant| $ 18)
-                             (SPADCALL
-                              (LIST (|spadConstant| $ 18) (|spadConstant| $ 28)
-                                    (|spadConstant| $ 18)
-                                    (SPADCALL (|spadConstant| $ 28)
-                                              (QREFELT $ 45)))
-                              (QREFELT $ 47))
-                             (QREFELT $ 20))
-                   (QREFELT $ 26)))
-            (LETT |chi2|
-                  (SPADCALL
-                   (SPADCALL S2 (SPADCALL 0 |z1z| (QREFELT $ 34))
-                             (QREFELT $ 54))
-                   (QREFELT $ 44)))
-            (LETT |psi2|
-                  (SPADCALL (SPADCALL |chi2| (QREFELT $ 49)) (QREFELT $ 22)))
-            (LETT |psi|
-                  (SPADCALL (SPADCALL 2 (QREFELT $ 55)) |psi2| (QREFELT $ 33)))
-            (EXIT
-             (SPADCALL
-              (SPADCALL (SPADCALL |psi| (QREFELT $ 24)) (QREFELT $ 23))
-              (QREFELT $ 50)))))
-          #3# (EXIT #2#)))) 
+        (SPROG ((|taylS| (UTSR)) (|laurS| (ULSR)))
+               (SEQ (LETT |laurS| (SPADCALL S (QREFELT $ 40)))
+                    (LETT |taylS| (SPADCALL |laurS| (QREFELT $ 41)))
+                    (EXIT
+                     (SPADCALL (SPADCALL S (QREFELT $ 42))
+                               (SPADCALL S (QREFELT $ 43))
+                               (SPADCALL (SPADCALL |taylS| (QREFELT $ 44))
+                                         (QREFELT $ 23))
+                               (QREFELT $ 45)))))) 
 
 (DECLAIM (NOTINLINE |STransformPackage;|)) 
 
-(DEFUN |STransformPackage| (&REST #1=#:G130)
+(DEFUN |STransformPackage| (&REST #1=#:G121)
   (SPROG NIL
-         (PROG (#2=#:G131)
+         (PROG (#2=#:G122)
            (RETURN
             (COND
              ((LETT #2#
@@ -188,7 +127,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|STransformPackage| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 57))
+    (LETT $ (GETREFV 47))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|STransformPackage|
@@ -213,14 +152,12 @@
               (|Integer|) (|Fraction| 30) (68 . /) (74 . |powern|)
               (80 . |laurent|) (86 . +) (92 . |puiseux|)
               |STRANS;STransform2;DUPSR;2| (98 . |One|)
-              |STRANS;STransform;DUPSR;3| (102 . |order|) (107 . |Zero|)
-              (111 . =) (117 . |retract|) (122 . |retract|) (127 . -)
-              (|List| 6) (132 . |repeating|) (137 . *) (143 . |coefficients|)
-              (148 . |distributionByMoments|) (153 . -) (158 . |rationalPower|)
-              (163 . |laurentRep|) (168 . *) (174 . |coerce|)
+              |STRANS;STransform;DUPSR;3| (102 . |laurentRep|)
+              (107 . |taylorRep|) (112 . |rationalPower|) (117 . |order|)
+              (122 . |coefficients|) (127 . |distributionBySTransform|)
               |STRANS;distributionBySTransform;UPSRD;4|)
-           '#(|freeMultiplicativeConvolution| 179 |distributionBySTransform|
-              185 |STransform2| 190 |STransform1| 195 |STransform| 200)
+           '#(|distributionBySTransform| 134 |STransform2| 139 |STransform1|
+              144 |STransform| 149)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -233,13 +170,9 @@
                               '((|STransform| (|#4| (|Distribution| |#1|))) T)
                               '((|distributionBySTransform|
                                  ((|Distribution| |#1|) |#4|))
-                                T)
-                              '((|freeMultiplicativeConvolution|
-                                 ((|Distribution| |#1|) (|Distribution| |#1|)
-                                  (|Distribution| |#1|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 56
+                        (|makeByteWordVec2| 46
                                             '(1 11 10 0 12 1 10 13 0 14 1 13 6
                                               0 15 1 6 16 0 17 0 6 0 18 0 7 0
                                               19 2 13 0 6 0 20 1 21 13 13 22 1
@@ -247,13 +180,9 @@
                                               25 1 7 0 13 26 0 6 0 28 0 7 0 29
                                               2 31 0 30 30 32 2 21 13 31 13 33
                                               2 8 0 30 7 34 2 8 0 0 0 35 2 9 0
-                                              31 8 36 0 31 0 38 1 9 31 0 40 0
-                                              31 0 41 2 31 16 0 0 42 1 9 8 0 43
-                                              1 8 7 0 44 1 6 0 0 45 1 13 0 46
-                                              47 2 7 0 0 0 48 1 7 13 0 49 1 11
-                                              0 10 50 1 31 0 0 51 1 9 31 0 52 1
-                                              9 8 0 53 2 8 0 0 0 54 1 31 0 30
-                                              55 2 0 11 11 11 1 1 0 11 9 56 1 0
-                                              9 11 37 1 0 7 11 27 1 0 9 11
-                                              39)))))
+                                              31 8 36 0 31 0 38 1 9 8 0 40 1 8
+                                              7 0 41 1 9 31 0 42 1 9 31 0 43 1
+                                              7 13 0 44 3 11 0 31 31 10 45 1 0
+                                              11 9 46 1 0 9 11 37 1 0 7 11 27 1
+                                              0 9 11 39)))))
            '|lookupComplete|)) 

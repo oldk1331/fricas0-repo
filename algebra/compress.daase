@@ -528,25 +528,25 @@
  |moments| |booleanCumulant| |freeCumulant| |classicalCumulant| |moment|
  |gaussianDistribution| |poissonDistribution| |wignerDistribution|
  |freePoissonDistribution| |bernoulliDistribution01| |arcsineDistribution|
- |distributionByMonotoneCumulants| |booleanCumulantFromJacobi|
- |distributionByJacobiParameters| |distributionByBooleanCumulants|
- |distributionByFreeCumulants| |distributionByClassicalCumulants|
- |distributionByEvenMoments| |distributionByMoments| |mapall|
- |R1_to_R2_coercion| |setnext!| |setprevious!| |next| |previous| |datalist|
- |shanksDiscLogAlgorithm| |separant| |leader| |isobaric?| |weights|
- |differentialVariables| |extractBottom!| |extractTop!| |insertBottom!|
- |insertTop!| |recolor| |makeObject| |drawComplex| |drawComplexVectorField|
- |setRealSteps| |setImagSteps| |setClipValue| |draw| |option?| |range|
- |colorFunction| |curveColor| |pointColor| |clip| |clipBoolean| |style|
- |toScale| |pointColorPalette| |curveColorPalette| |var1Steps| |var2Steps|
- |space| |tubePoints| |tubeRadius| |JContinuedFraction| |makeVariable| |Nul|
- |exponents| |iisqrt2| |iisqrt3| |iiexp| |iilog| |iisin| |iicos| |iitan|
- |iicot| |iisec| |iicsc| |iiasin| |iiacos| |iiatan| |iiacot| |iiasec| |iiacsc|
- |iisinh| |iicosh| |iitanh| |iicoth| |iisech| |iicsch| |iiasinh| |iiacosh|
- |iiatanh| |iiacoth| |iiasech| |iiacsch| |specialTrigs| |localReal?|
- |poly_factor| |do_quo| |rischNormalize| |realLiouvillian| |realElementary|
- |validExponential| |rootNormalize| |rmap| |tanQ| |irootDep| |select!|
- |delete!| |sncndn| |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF|
+ |freeMultiplicativeConvolution| |distributionByMonotoneCumulants|
+ |booleanCumulantFromJacobi| |distributionByJacobiParameters|
+ |distributionByBooleanCumulants| |distributionByFreeCumulants|
+ |distributionByClassicalCumulants| |distributionByEvenMoments|
+ |distributionByMoments| |mapall| |R1_to_R2_coercion| |setnext!| |setprevious!|
+ |next| |previous| |datalist| |shanksDiscLogAlgorithm| |separant| |leader|
+ |isobaric?| |weights| |differentialVariables| |extractBottom!| |extractTop!|
+ |insertBottom!| |insertTop!| |recolor| |makeObject| |drawComplex|
+ |drawComplexVectorField| |setRealSteps| |setImagSteps| |setClipValue| |draw|
+ |option?| |range| |colorFunction| |curveColor| |pointColor| |clip|
+ |clipBoolean| |style| |toScale| |pointColorPalette| |curveColorPalette|
+ |var1Steps| |var2Steps| |space| |tubePoints| |tubeRadius| |JContinuedFraction|
+ |makeVariable| |Nul| |exponents| |iisqrt2| |iisqrt3| |iiexp| |iilog| |iisin|
+ |iicos| |iitan| |iicot| |iisec| |iicsc| |iiasin| |iiacos| |iiatan| |iiacot|
+ |iiasec| |iiacsc| |iisinh| |iicosh| |iitanh| |iicoth| |iisech| |iicsch|
+ |iiasinh| |iiacosh| |iiatanh| |iiacoth| |iiasech| |iiacsch| |specialTrigs|
+ |localReal?| |poly_factor| |do_quo| |rischNormalize| |realLiouvillian|
+ |realElementary| |validExponential| |rootNormalize| |rmap| |tanQ| |irootDep|
+ |select!| |delete!| |sncndn| |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF|
  |ellipticRJ| |unit?| |associates?| |unitCanonical| |unitNormal|
  |factorAndSplit| |rightOne| |leftOne| |rightZero| |leftZero| |swap| |error|
  |minPoly| |operators| |tower| |kernels| |mainKernel| |distribute|
@@ -1078,14 +1078,14 @@
  |leadingCoefficient| |stack| |possiblyInfinite?| |explicitlyFinite?|
  |nextItem| |init| |exp0| |log1| |tensorMap| |stransform| |stranslate|
  |identity| |xform| |compound| |STransform1| |STransform2| |STransform|
- |distributionBySTransform| |freeMultiplicativeConvolution| |filterUntil|
- |filterWhile| |stream| |showAll?| |showAllElements| |showElements| |cons|
- |delay| |findCycle| |repeating?| |repeating| |uentries| |ucodeToString|
- |exquo| |recip| |integers| |oddintegers| |int| |mapmult| |deriv| |gderiv|
- |compose| |addiag| |prodiag| |general_Lambert_product| |lazyIntegrate| |nlde|
- |powern| |mapdiv| |lazyGintegrate| |power| |sincos| |sinhcosh| |asin| |acos|
- |atan| |acot| |asec| |acsc| |sinh| |cosh| |tanh| |coth| |sech| |csch| |asinh|
- |acosh| |atanh| |acoth| |asech| |acsch| |subresultantVector| |primitivePart|
+ |distributionBySTransform| |filterUntil| |filterWhile| |stream| |showAll?|
+ |showAllElements| |showElements| |cons| |delay| |findCycle| |repeating?|
+ |repeating| |uentries| |ucodeToString| |exquo| |recip| |integers|
+ |oddintegers| |int| |mapmult| |deriv| |gderiv| |compose| |addiag| |prodiag|
+ |general_Lambert_product| |lazyIntegrate| |nlde| |powern| |mapdiv|
+ |lazyGintegrate| |power| |sincos| |sinhcosh| |asin| |acos| |atan| |acot|
+ |asec| |acsc| |sinh| |cosh| |tanh| |coth| |sech| |csch| |asinh| |acosh|
+ |atanh| |acoth| |asech| |acsch| |subresultantVector| |primitivePart|
  |pointData| |parent| |level| |extractProperty| |extractClosed| |extractIndex|
  |extractPoint| |traverse| |defineProperty| |closeComponent| |modifyPoint|
  |addPointLast| |addPoint2| |addPoint| |merge| |deepCopy| |shallowCopy|

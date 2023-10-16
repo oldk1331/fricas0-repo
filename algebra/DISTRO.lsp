@@ -238,7 +238,7 @@
             (COND
              ((SPADCALL (QVELT |Sx| 0) (|spadConstant| $ 58) (QREFELT $ 60))
               (COND
-               ((SPADCALL (QVELT |Sx| 0) (|spadConstant| $ 58) (QREFELT $ 60))
+               ((SPADCALL (QVELT |Sy| 0) (|spadConstant| $ 58) (QREFELT $ 60))
                 (SEQ (LETT |Sxyc| (SPADCALL |Sxc| |Syc| (QREFELT $ 63)))
                      (EXIT
                       (PROGN
