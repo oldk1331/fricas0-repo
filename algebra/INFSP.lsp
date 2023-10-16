@@ -574,6 +574,9 @@
             (SIGNATURE |redPol| (|dmp| |dmp| (|List| |dmp|)))
             (SIGNATURE |gbasis|
              ((|List| |dmp|) (|List| |dmp|) (|Integer|) (|Integer|)))
+            (SIGNATURE |gbasisExtend|
+             ((|List| |dmp|) (|List| |dmp|) (|List| |dmp|) (|Integer|)
+              (|Integer|)))
             (SIGNATURE |critT|
              ((|Boolean|)
               (|Record|

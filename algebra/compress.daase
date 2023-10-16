@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5035 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5036 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -639,10 +639,10 @@
  |factorOfDegree| |factorsOfDegree| |pascalTriangle| |rangePascalTriangle|
  |sizePascalTriangle| |fillPascalTriangle| |safeCeiling| |safeFloor|
  |safetyMargin| |sumSquares| |euclideanNormalForm| |euclideanGroebner|
- |factorGroebnerBasis| |groebnerFactorize| |credPol| |gbasis| |critT| |critM|
- |critB| |critBonD| |critMTonD1| |critMonD1| |redPo| |updatF| |updatD|
- |minGbasis| |lepol| |prinshINFO| |prindINFO| |fprindINFO| |prinpolINFO|
- |prinb| |critpOrder| |makeCrit| |gcdBasis| |gcdDecomposition|
+ |factorGroebnerBasis| |groebnerFactorize| |credPol| |gbasis| |gbasisExtend|
+ |critT| |critM| |critB| |critBonD| |critMTonD1| |critMonD1| |redPo| |updatF|
+ |updatD| |minGbasis| |lepol| |prinshINFO| |prindINFO| |fprindINFO|
+ |prinpolINFO| |prinb| |critpOrder| |makeCrit| |gcdBasis| |gcdDecomposition|
  |conditionsForIdempotents| |genericRightDiscriminant| |genericRightTraceForm|
  |genericLeftDiscriminant| |genericLeftTraceForm| |genericRightNorm|
  |genericRightTrace| |genericRightMinimalPolynomial| |rightRankPolynomial|
