@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5153 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5155 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -156,7 +156,8 @@
  |GenericNonAssociativeAlgebra| |GeneralDistributedMultivariatePolynomial|
  |GnuDraw| |GenExEuclid| |GeneralizedMultivariateFactorize|
  |GeneralizedFiniteMoebiusFunction| |GeneralPolynomialGcdPackage|
- |GenerateUnivariatePowerSeries| |GeneralizedUnivariatePowerSeries|
+ |GenerateUnivariatePowerSeries| |GenerateUnivariatePowerSeries1|
+ |GenerateUnivariatePowerSeries2| |GeneralizedUnivariatePowerSeries|
  |GeneralHenselPackage| |GeneralModulePolynomial| |GuessOption|
  |GuessOptionFunctions0| |GosperSummationMethod| |MaybeSkewPolynomialCategory&|
  |MaybeSkewPolynomialCategory| |GeneralPolynomialSet| |GradedAlgebra&|
