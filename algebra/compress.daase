@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5027 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5028 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -160,11 +160,11 @@
  |MaybeSkewPolynomialCategory| |GeneralPolynomialSet| |GradedAlgebra&|
  |GradedAlgebra| |GrayCode| |GraphicsDefaults| |GraphImage| |GradedModule&|
  |GradedModule| |GroebnerSolve| |Group&| |Group| |GroupPresentation|
- |GeneralUnivariatePowerSeries| |GeneralSparseTable| |GeneralTriangularSet|
- |Guess| |GuessAlgebraicNumber| |GuessExpBin| |GuessFinite|
- |GuessFiniteFunctions| |GuessInteger| |GuessPolynomial|
- |GuessPolynomialFunctions| |GuessPolynomialInteger| |Pi| |HankelPackage|
- |HashState| |HashTable| |HallBasis|
+ |GroupPresentationFunctions1| |GeneralUnivariatePowerSeries|
+ |GeneralSparseTable| |GeneralTriangularSet| |Guess| |GuessAlgebraicNumber|
+ |GuessExpBin| |GuessFinite| |GuessFiniteFunctions| |GuessInteger|
+ |GuessPolynomial| |GuessPolynomialFunctions| |GuessPolynomialInteger| |Pi|
+ |HankelPackage| |HashState| |HashTable| |HallBasis|
  |HomogeneousDistributedMultivariatePolynomial| |HomogeneousDirectProduct|
  |Heap| |HyperellipticFiniteDivisor| |HeuGcd| |HexadecimalExpansion|
  |HomogeneousAggregate&| |HomogeneousAggregate| |Homology| |HopfAlgebra|
