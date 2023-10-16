@@ -698,7 +698,7 @@
                    . #2=(|XPBWPOLY;log;$Nni$;28|))
              (COND
               ((NULL (SPADCALL |p1| (QREFELT $ 79)))
-               (EXIT (|error| "constant term <> 1, impossible log "))))
+               (EXIT (|error| "constant term ~= 1, impossible log"))))
              (LETT |s| (SPADCALL (|spadConstant| $ 26) (QREFELT $ 98)) . #2#)
              (LETT |r| (|spadConstant| $ 21) . #2#)
              (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190

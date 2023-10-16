@@ -10,7 +10,7 @@
                 . #2=(|XEXPPKG;log;XPOLYNniXPOLY;1|))
           (COND
            ((NULL (SPADCALL |p1| (QREFELT $ 13)))
-            (EXIT (|error| "constant term <> 1, impossible log"))))
+            (EXIT (|error| "constant term ~= 1, impossible log"))))
           (LETT |s| (|spadConstant| $ 14) . #2#) (LETT |k| |n| . #2#)
           (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
                (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -38,7 +38,7 @@
          (SEQ
           (COND
            ((NULL (SPADCALL |p| (QREFELT $ 13)))
-            (|error| "constant term <> 0, exp impossible"))
+            (|error| "constant term ~= 0, exp impossible"))
            ('T
             (COND
              ((SPADCALL |p| (|spadConstant| $ 14) (QREFELT $ 25))

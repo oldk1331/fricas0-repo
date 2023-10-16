@@ -608,7 +608,7 @@
              (SPADCALL "Mistake in formatSuperSub: no SUPERSUB"
                        (QREFELT $ 59)))
             ((SPADCALL (LENGTH |args|) 1 (QREFELT $ 63))
-             (SPADCALL "Mistake in SuperSub: #args <> 1" (QREFELT $ 59)))
+             (SPADCALL "Mistake in SuperSub: #args ~= 1" (QREFELT $ 59)))
             ('T
              (SEQ (LETT |var| (|SPADfirst| |args|) . #2#)
                   (LETT |funcS|
