@@ -80,15 +80,15 @@
      (COND ((STRINGP |name|) (INTERN (STRCONC |name| ";MV")))
            ('T (INTERN (STRCONC (PNAME |name|) ";MV")))))))
  
-; mkCacheName(name) == INTERNL(STRINGIMAGE name,'";AL")
+; mkCacheName(name) == INTERNL1(STRINGIMAGE(name), '";AL")
  
 (DEFUN |mkCacheName| (|name|)
-  (PROG () (RETURN (INTERNL (STRINGIMAGE |name|) ";AL"))))
+  (PROG () (RETURN (INTERNL1 (STRINGIMAGE |name|) ";AL"))))
  
-; mkAuxiliaryName(name) == INTERNL(STRINGIMAGE name,'";AUX")
+; mkAuxiliaryName(name) == INTERNL1(STRINGIMAGE(name), '";AUX")
  
 (DEFUN |mkAuxiliaryName| (|name|)
-  (PROG () (RETURN (INTERNL (STRINGIMAGE |name|) ";AUX"))))
+  (PROG () (RETURN (INTERNL1 (STRINGIMAGE |name|) ";AUX"))))
  
 ; isMapExpr x == x is ['SPADMAP, :.]
  
@@ -306,8 +306,9 @@
 ;   argPredList:= NREVERSE predList
 ;   finalPred :=
 ; -- handle g(a,T)==a+T confusion between pred=T and T variable
-;     MKPF((pred and (pred ~= 'T) => [:argPredList,SUBLISNQ($sl,pred)]; argPredList),"and")
-;   body:= SUBLISNQ($sl,rhs)
+;       MKPF((pred and (pred ~= 'T) =>
+;             [:argPredList, sublisNQ($sl, pred)]; argPredList), "and")
+;   body := sublisNQ($sl, rhs)
 ;   oldMap :=
 ;     (obj := get(op,'value,$InteractiveFrame)) => objVal obj
 ;     NIL
@@ -386,10 +387,10 @@
               (MKPF
                (COND
                 ((AND |pred| (NOT (EQ |pred| 'T)))
-                 (APPEND |argPredList| (CONS (SUBLISNQ |$sl| |pred|) NIL)))
+                 (APPEND |argPredList| (CONS (|sublisNQ| |$sl| |pred|) NIL)))
                 (#1# |argPredList|))
                '|and|))
-      (SETQ |body| (SUBLISNQ |$sl| |rhs|))
+      (SETQ |body| (|sublisNQ| |$sl| |rhs|))
       (SETQ |oldMap|
               (COND
                ((SETQ |obj| (|get| |op| '|value| |$InteractiveFrame|))

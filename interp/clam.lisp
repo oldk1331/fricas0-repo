@@ -5,7 +5,7 @@
  
 ; compHash(op, argl, body, cacheName, eqEtc) ==
 ; 
-;   auxfn:= INTERNL(op,'";")
+;   auxfn := INTERNL1(op, '";")
 ;   g1:= GENSYM()  --argument or argument list
 ;   [arg,cacheArgKey,computeValue] :=
 ;   --    arg: to be used as formal argument of lambda construction;
@@ -20,8 +20,8 @@
 ;     key := ['devaluateList, g1] 
 ;     [g1, key, ['APPLY,['function,auxfn],g1]]   --g1 is a parameter list
 ;   if $reportCounts=true then
-;     hitCounter:= INTERNL(op,'";hit")
-;     callCounter:= INTERNL(op,'";calls")
+;     hitCounter := INTERNL1(op, '";hit")
+;     callCounter := INTERNL1(op, '";calls")
 ;     SET(hitCounter,0)
 ;     SET(callCounter,0)
 ;     callCountCode := [['SETQ, callCounter, ['inc_SI, callCounter]]]
@@ -72,7 +72,7 @@
          |thirdPredPair| |codeBody| |lamex| |mainFunction| |computeFunction|)
     (RETURN
      (PROGN
-      (SETQ |auxfn| (INTERNL |op| ";"))
+      (SETQ |auxfn| (INTERNL1 |op| ";"))
       (SETQ |g1| (GENSYM))
       (SETQ |LETTMP#1|
               (COND ((NULL |argl|) (LIST NIL NIL (LIST |auxfn|)))
@@ -90,8 +90,8 @@
       (SETQ |cacheArgKey| (CADR . #2=(|LETTMP#1|)))
       (SETQ |computeValue| (CADDR . #2#))
       (COND
-       ((EQUAL |$reportCounts| T) (SETQ |hitCounter| (INTERNL |op| ";hit"))
-        (SETQ |callCounter| (INTERNL |op| ";calls")) (SET |hitCounter| 0)
+       ((EQUAL |$reportCounts| T) (SETQ |hitCounter| (INTERNL1 |op| ";hit"))
+        (SETQ |callCounter| (INTERNL1 |op| ";calls")) (SET |hitCounter| 0)
         (SET |callCounter| 0)
         (SETQ |callCountCode|
                 (LIST
@@ -288,9 +288,9 @@
 ; clearCategoryCaches() ==
 ;   for name in allConstructors() repeat
 ;     if GETDATABASE(name,'CONSTRUCTORKIND) = 'category then
-;       if BOUNDP(cacheName := INTERNL(PNAME name, '";AL"))
+;       if BOUNDP(cacheName := INTERNL1(PNAME(name), '";AL"))
 ;             then SET(cacheName,nil)
-;     if BOUNDP(cacheName := INTERNL(PNAME name, '";CAT"))
+;     if BOUNDP(cacheName := INTERNL1(PNAME(name), '";CAT"))
 ;           then SET(cacheName,nil)
  
 (DEFUN |clearCategoryCaches| ()
@@ -306,23 +306,23 @@
             (COND
              ((EQ (GETDATABASE |name| 'CONSTRUCTORKIND) '|category|)
               (COND
-               ((BOUNDP (SETQ |cacheName| (INTERNL (PNAME |name|) ";AL")))
+               ((BOUNDP (SETQ |cacheName| (INTERNL1 (PNAME |name|) ";AL")))
                 (SET |cacheName| NIL)))))
             (COND
-             ((BOUNDP (SETQ |cacheName| (INTERNL (PNAME |name|) ";CAT")))
+             ((BOUNDP (SETQ |cacheName| (INTERNL1 (PNAME |name|) ";CAT")))
               (SET |cacheName| NIL))))))
          (SETQ |bfVar#3| (CDR |bfVar#3|))))
       (|allConstructors|) NIL))))
  
 ; clearCategoryCache catName ==
-;   cacheName := INTERNL(PNAME catName, '";AL")
+;   cacheName := INTERNL1(PNAME(catName), '";AL")
 ;   SET(cacheName,nil)
  
 (DEFUN |clearCategoryCache| (|catName|)
   (PROG (|cacheName|)
     (RETURN
      (PROGN
-      (SETQ |cacheName| (INTERNL (PNAME |catName|) ";AL"))
+      (SETQ |cacheName| (INTERNL1 (PNAME |catName|) ";AL"))
       (SET |cacheName| NIL)))))
  
 ; displayHashtable x ==
@@ -739,8 +739,8 @@
 ;     cacheVec := GET(op, 'cacheInfo) or systemErrorHere "clamStats"
 ;     prefix:=
 ;       $reportCounts~= true => nil
-;       hitCounter:= INTERNL(op,'";hit")
-;       callCounter:= INTERNL(op,'";calls")
+;       hitCounter := INTERNL1(op, '";hit")
+;       callCounter := INTERNL1(op, '";calls")
 ;       res:= ["%b",eval hitCounter,"/",eval callCounter,"%d","calls to "]
 ;       SET(hitCounter,0)
 ;       SET(callCounter,0)
@@ -779,8 +779,8 @@
                          (COND ((NOT (EQUAL |$reportCounts| T)) NIL)
                                (#1#
                                 (PROGN
-                                 (SETQ |hitCounter| (INTERNL |op| ";hit"))
-                                 (SETQ |callCounter| (INTERNL |op| ";calls"))
+                                 (SETQ |hitCounter| (INTERNL1 |op| ";hit"))
+                                 (SETQ |callCounter| (INTERNL1 |op| ";calls"))
                                  (SETQ |res|
                                          (LIST '|%b| (|eval| |hitCounter|) '/
                                                (|eval| |callCounter|) '|%d|

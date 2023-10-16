@@ -479,7 +479,7 @@
  
 ; substituteCategoryArguments(argl,catform) ==
 ;   argl:= substitute("$$","$",argl)
-;   arglAssoc:= [[INTERNL("#",STRINGIMAGE i),:a] for i in 1.. for a in argl]
+;   arglAssoc := [[INTERNL1("#", STRINGIMAGE i), :a] for i in 1.. for a in argl]
 ;   SUBLIS(arglAssoc,catform)
  
 (DEFUN |substituteCategoryArguments| (|argl| |catform|)
@@ -496,7 +496,7 @@
                     (RETURN (NREVERSE |bfVar#11|)))
                    ('T
                     (SETQ |bfVar#11|
-                            (CONS (CONS (INTERNL '|#| (STRINGIMAGE |i|)) |a|)
+                            (CONS (CONS (INTERNL1 '|#| (STRINGIMAGE |i|)) |a|)
                                   |bfVar#11|))))
                   (SETQ |i| (+ |i| 1))
                   (SETQ |bfVar#10| (CDR |bfVar#10|))))

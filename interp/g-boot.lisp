@@ -158,8 +158,8 @@
       NIL (COMP_1 |fun|) NIL))))
  
 ; compSPADSLAM(name, argl, bodyl) ==
-;     al := INTERNL(name, '";AL")
-;     auxfn := INTERNL(name, '";")
+;     al := INTERNL1(name, '";AL")
+;     auxfn := INTERNL1(name, '";")
 ;     if argl then
 ;         g2 := GENSYM()
 ;         g3 := GENSYM()
@@ -195,8 +195,8 @@
   (PROG (|al| |auxfn| |g2| |g3| |argtran| |app| |la1| |la2| |lamex| |u|)
     (RETURN
      (PROGN
-      (SETQ |al| (INTERNL |name| ";AL"))
-      (SETQ |auxfn| (INTERNL |name| ";"))
+      (SETQ |al| (INTERNL1 |name| ";AL"))
+      (SETQ |auxfn| (INTERNL1 |name| ";"))
       (COND
        (|argl| (SETQ |g2| (GENSYM)) (SETQ |g3| (GENSYM))
         (SETQ |argtran|
@@ -247,10 +247,11 @@
       |name|))))
  
 ; makeClosedfnName() ==
-;     INTERNL($FUNNAME, '"!", STRINGIMAGE(LENGTH($CLOSEDFNS)))
+;     INTERN(CONCAT($FUNNAME, '"!", STRINGIMAGE(LENGTH($CLOSEDFNS))))
  
 (DEFUN |makeClosedfnName| ()
-  (PROG () (RETURN (INTERNL $FUNNAME "!" (STRINGIMAGE (LENGTH $CLOSEDFNS))))))
+  (PROG ()
+    (RETURN (INTERN (CONCAT $FUNNAME "!" (STRINGIMAGE (LENGTH $CLOSEDFNS)))))))
  
 ; lambdaHelper1(y) ==
 ;     NOT(MEMQ(y, $locVars)) =>
@@ -773,6 +774,10 @@
                  (OR (EQ |op| '|sub_SI|) (EQ |op| '-)))
             |xx|)
            ('T (LIST '|inc_SI| |x|))))))
+ 
+; $TRACELETFLAG := false
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ $TRACELETFLAG NIL))
  
 ; expandREPEAT(l) ==
 ;     [conds, :body] := repeat_tran(l, [])

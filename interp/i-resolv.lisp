@@ -1218,7 +1218,7 @@
 ;   t1 := nil
 ; 
 ;   for ut in rest t for i in 1.. while (argN = 0) repeat
-;     sharp := INTERNL('"#",STRINGIMAGE i)
+;     sharp := INTERNL1('"#", STRINGIMAGE(i))
 ;     sharp = pat =>
 ;       argN := i
 ;       t1 := ut
@@ -1272,7 +1272,7 @@
                  (RETURN NIL))
                 (#1#
                  (PROGN
-                  (SETQ |sharp| (INTERNL "#" (STRINGIMAGE |i|)))
+                  (SETQ |sharp| (INTERNL1 "#" (STRINGIMAGE |i|)))
                   (COND
                    ((EQUAL |sharp| |pat|)
                     (PROGN (SETQ |argN| |i|) (SETQ |t1| |ut|)))))))

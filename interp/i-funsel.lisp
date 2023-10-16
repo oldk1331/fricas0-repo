@@ -2656,7 +2656,7 @@
 ;   if maxargs ~= -1 then
 ;     SL:= NIL
 ;     for i in 1..maxargs repeat
-;       impls := SUBSTQ(GENSYM(),INTERNL('"#",STRINGIMAGE i),impls)
+;         impls := SUBSTQ(GENSYM(), INTERNL1('"#", STRINGIMAGE i), impls)
 ;   impls and
 ;     SL:= constructSubst dc
 ;     for mm in impls repeat
@@ -2734,7 +2734,8 @@
                           (#1#
                            (SETQ |impls|
                                    (SUBSTQ (GENSYM)
-                                    (INTERNL "#" (STRINGIMAGE |i|)) |impls|))))
+                                    (INTERNL1 "#" (STRINGIMAGE |i|))
+                                    |impls|))))
                     (SETQ |i| (+ |i| 1))))
                  1)))
               (AND |impls|

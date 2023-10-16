@@ -373,7 +373,7 @@
 ;   stateNam:= GENVAR()
 ;   stateVar:= GENSYM()
 ;   stateVal:= GENSYM()
-;   lastArg := INTERNL('"#", STRINGIMAGE inc_SI LENGTH argl)
+;   lastArg := INTERNL1('"#", STRINGIMAGE(inc_SI(LENGTH(argl))))
 ;   decomposeCode:=
 ;     [['LET,gIndex,['ELT,lastArg,0]],:[['LET,g,['ELT,lastArg,i]]
 ;       for g in gsList for i in 1..]]
@@ -503,7 +503,7 @@
       (SETQ |stateNam| (GENVAR))
       (SETQ |stateVar| (GENSYM))
       (SETQ |stateVal| (GENSYM))
-      (SETQ |lastArg| (INTERNL "#" (STRINGIMAGE (|inc_SI| (LENGTH |argl|)))))
+      (SETQ |lastArg| (INTERNL1 "#" (STRINGIMAGE (|inc_SI| (LENGTH |argl|)))))
       (SETQ |decomposeCode|
               (CONS (LIST 'LET |gIndex| (LIST 'ELT |lastArg| 0))
                     ((LAMBDA (|bfVar#13| |bfVar#12| |g| |i|)

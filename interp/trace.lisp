@@ -2719,10 +2719,11 @@
      (COND ((|isDomainOrPackage| |val|) (|devaluate| |val|)) ('T |val|)))))
  
 ; spadTraceAlias(domainId,op,n) ==
-;   INTERNL(domainId,".",op,",",STRINGIMAGE n)
+;   INTERN(CONCAT(domainId, '".", op, '",", STRINGIMAGE(n)))
  
 (DEFUN |spadTraceAlias| (|domainId| |op| |n|)
-  (PROG () (RETURN (INTERNL |domainId| '|.| |op| '|,| (STRINGIMAGE |n|)))))
+  (PROG ()
+    (RETURN (INTERN (CONCAT |domainId| "." |op| "," (STRINGIMAGE |n|))))))
  
 ; getOption(opt,l) ==
 ;   y:= assoc(opt,l) => rest y

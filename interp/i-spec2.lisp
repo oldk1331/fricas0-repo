@@ -3535,7 +3535,7 @@
  
 ; for name in $specialOps repeat
 ;     (
-;       functionName:=INTERNL('up,name) ;
+;       functionName := INTERNL1('up, name) ;
 ;       MAKEPROP(name,'up,functionName) ;
 ;       functionName
 ;      )
@@ -3550,7 +3550,7 @@
            (RETURN NIL))
           ('T
            (PROGN
-            (SETQ |functionName| (INTERNL '|up| |name|))
+            (SETQ |functionName| (INTERNL1 '|up| |name|))
             (MAKEPROP |name| '|up| |functionName|)
             |functionName|)))
          (SETQ |bfVar#86| (CDR |bfVar#86|))))

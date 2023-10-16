@@ -408,7 +408,7 @@
 ;             STRINGP x => INTERN x
 ;             x is ['QUOTE,val] and STRINGP val => INTERN val
 ;             valueCount := valueCount + 1
-;             INTERNL("value", STRINGIMAGE valueCount)
+;             INTERNL1("value", STRINGIMAGE(valueCount))
 ;           taglist := [tag ,: taglist]
 ;       ['Apply, 'Union, :[axFormatDecl(name,type) for name in reverse taglist
 ;                                 for type in args]]
@@ -657,7 +657,7 @@
                                (#1#
                                 (PROGN
                                  (SETQ |valueCount| (+ |valueCount| 1))
-                                 (INTERNL '|value|
+                                 (INTERNL1 '|value|
                                   (STRINGIMAGE |valueCount|))))))
                  (SETQ |taglist| (CONS |tag| |taglist|)))))
               (SETQ |bfVar#22| (CDR |bfVar#22|))))

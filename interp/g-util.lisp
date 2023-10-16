@@ -3,6 +3,26 @@
  
 (IN-PACKAGE "BOOT")
  
+; MKQ(X) ==
+;     NUMBERP(X) => X
+;     ['QUOTE, X]
+ 
+(DEFUN MKQ (X) (PROG () (RETURN (COND ((NUMBERP X) X) ('T (LIST 'QUOTE X))))))
+ 
+; INTERNL1(a, b) == INTERN(CONCAT(a, b))
+ 
+(DEFUN INTERNL1 (|a| |b|) (PROG () (RETURN (INTERN (CONCAT |a| |b|)))))
+ 
+; $GENNO := 0
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ $GENNO 0))
+ 
+; GENVAR() ==
+;     INTERNL1('"$", STRINGIMAGE($GENNO := $GENNO + 1))
+ 
+(DEFUN GENVAR ()
+  (PROG () (RETURN (INTERNL1 "$" (STRINGIMAGE (SETQ $GENNO (+ $GENNO 1)))))))
+ 
 ; Identity x == x
  
 (DEFUN |Identity| (|x|) (PROG () (RETURN |x|)))

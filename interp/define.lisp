@@ -2944,7 +2944,7 @@
 ; -- fn is the name of some category/domain/package constructor;
 ; -- we will cache all of its values on $ConstructorCache with reference
 ; -- counts
-;   auxfn := INTERNL(fn, '";")
+;   auxfn := INTERNL1(fn, '";")
 ;   output_lisp_form(["DECLAIM", ["NOTINLINE", auxfn]])
 ;   if key = 'category_functor
 ;       then u := compAndDefine form
@@ -2960,7 +2960,7 @@
       (SETQ |key| (CAADR . #1=(|form|)))
       (SETQ |vl| (CADADR . #1#))
       (SETQ |bodyl| (CDDADR . #1#))
-      (SETQ |auxfn| (INTERNL |fn| ";"))
+      (SETQ |auxfn| (INTERNL1 |fn| ";"))
       (|output_lisp_form| (LIST 'DECLAIM (LIST 'NOTINLINE |auxfn|)))
       (COND
        ((EQ |key| '|category_functor|) (SETQ |u| (|compAndDefine| |form|)))

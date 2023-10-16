@@ -35,8 +35,8 @@
 ;         encodedPair() ==
 ;           n=1 => encodeItem x
 ;           STRCONC(STRINGIMAGE n,encodeItem x)
-;     encodedName:= INTERNL(getAbbreviation(packageName,#arglist),";",
-;         encodeItem fun,";",encodedSig, sep,STRINGIMAGE count)
+;     encodedName := INTERN(CONCAT(getAbbreviation(packageName, #arglist), ";",
+;         encodeItem(fun), ";", encodedSig, sep, STRINGIMAGE(count)))
 ;     encodedName
  
 (DEFUN |encodeFunctionName| (|fun| |package| |signature| |sep| |count|)
@@ -72,9 +72,10 @@
                   (SETQ |bfVar#2| (CDR |bfVar#2|))))
                "" |reducedSig| NIL))
       (SETQ |encodedName|
-              (INTERNL (|getAbbreviation| |packageName| (LENGTH |arglist|))
-               '|;| (|encodeItem| |fun|) '|;| |encodedSig| |sep|
-               (STRINGIMAGE |count|)))
+              (INTERN
+               (CONCAT (|getAbbreviation| |packageName| (LENGTH |arglist|))
+                       '|;| (|encodeItem| |fun|) '|;| |encodedSig| |sep|
+                       (STRINGIMAGE |count|))))
       |encodedName|))))
  
 ; mkRepititionAssoc l ==
@@ -233,13 +234,13 @@
  
 ; addSuffix(n,u) ==
 ;   ALPHA_-CHAR_-P((s := STRINGIMAGE u).(MAXINDEX s)) =>
-;       INTERNL(s, STRINGIMAGE n)
-;   INTERNL(s, '";", STRINGIMAGE n)
+;       INTERNL1(s, STRINGIMAGE(n))
+;   INTERN(CONCAT(s, '";", STRINGIMAGE(n)))
  
 (DEFUN |addSuffix| (|n| |u|)
   (PROG (|s|)
     (RETURN
      (COND
       ((ALPHA-CHAR-P (ELT (SETQ |s| (STRINGIMAGE |u|)) (MAXINDEX |s|)))
-       (INTERNL |s| (STRINGIMAGE |n|)))
-      ('T (INTERNL |s| ";" (STRINGIMAGE |n|)))))))
+       (INTERNL1 |s| (STRINGIMAGE |n|)))
+      ('T (INTERN (CONCAT |s| ";" (STRINGIMAGE |n|))))))))

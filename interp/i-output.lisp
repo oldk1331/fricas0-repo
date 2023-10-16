@@ -2581,7 +2581,7 @@
 ;     for v in $MatrixList repeat
 ;         EQUAL(m, CDR v) => return first v
 ;   name => name
-;   name:=INTERNL('"matrix",STRINGIMAGE($MatrixCount:=$MatrixCount+1))
+;   name := INTERNL1('"matrix", STRINGIMAGE($MatrixCount := $MatrixCount + 1))
 ;   $MatrixList:=[[name,:m],:$MatrixList]
 ;   name
  
@@ -2605,7 +2605,7 @@
             (#1#
              (PROGN
               (SETQ |name|
-                      (INTERNL "matrix"
+                      (INTERNL1 "matrix"
                        (STRINGIMAGE
                         (SETQ |$MatrixCount| (+ |$MatrixCount| 1)))))
               (SETQ |$MatrixList| (CONS (CONS |name| |m|) |$MatrixList|))

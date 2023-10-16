@@ -105,7 +105,7 @@
 ;         [args,:body] := m
 ;         #args = #argl =>
 ;           sl := [[a,:s] for a in args for s in argl]
-;           x := SUBLISNQ(sl,body)
+;           x := sublisNQ(sl, body)
 ;         null args => x := [body,:argl]
 ;         x := [op,:argl]
 ;       x := [mkAtreeExpandMacros op,:argl]
@@ -188,7 +188,7 @@
                                     (SETQ |bfVar#3| (CDR |bfVar#3|))
                                     (SETQ |bfVar#4| (CDR |bfVar#4|))))
                                  NIL |args| NIL |argl| NIL))
-                        (SETQ |x| (SUBLISNQ |sl| |body|))))
+                        (SETQ |x| (|sublisNQ| |sl| |body|))))
                       ((NULL |args|) (SETQ |x| (CONS |body| |argl|)))
                       (#1# (SETQ |x| (CONS |op| |argl|))))))
                    (#1#

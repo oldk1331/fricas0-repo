@@ -1335,28 +1335,30 @@
  
 ; genDomainVar() ==
 ;   $Index:= $Index+1
-;   INTERNL('"#D", STRINGIMAGE $Index)
+;   INTERNL1('"#D", STRINGIMAGE($Index))
  
 (DEFUN |genDomainVar| ()
   (PROG ()
     (RETURN
      (PROGN
       (SETQ |$Index| (+ |$Index| 1))
-      (INTERNL "#D" (STRINGIMAGE |$Index|))))))
+      (INTERNL1 "#D" (STRINGIMAGE |$Index|))))))
  
 ; genVariable() ==
-;   INTERNL('"#G", STRINGIMAGE ($genSDVar:= $genSDVar+1))
+;   INTERNL1('"#G", STRINGIMAGE($genSDVar := $genSDVar + 1))
  
 (DEFUN |genVariable| ()
   (PROG ()
-    (RETURN (INTERNL "#G" (STRINGIMAGE (SETQ |$genSDVar| (+ |$genSDVar| 1)))))))
+    (RETURN
+     (INTERNL1 "#G" (STRINGIMAGE (SETQ |$genSDVar| (+ |$genSDVar| 1)))))))
  
 ; genSomeVariable() ==
-;   INTERNL('"##", STRINGIMAGE ($genSDVar:= $genSDVar+1))
+;   INTERNL1('"##", STRINGIMAGE($genSDVar := $genSDVar + 1))
  
 (DEFUN |genSomeVariable| ()
   (PROG ()
-    (RETURN (INTERNL "##" (STRINGIMAGE (SETQ |$genSDVar| (+ |$genSDVar| 1)))))))
+    (RETURN
+     (INTERNL1 "##" (STRINGIMAGE (SETQ |$genSDVar| (+ |$genSDVar| 1)))))))
  
 ; listOfIdentifiersIn x ==
 ;   IDENTP x => [x]
