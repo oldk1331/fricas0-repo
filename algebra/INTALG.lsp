@@ -178,12 +178,12 @@
            (|List|
             (|Record| (|:| |factor| UP)
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (|nfac| (|Fraction| (|Integer|))) (#1=#:G224 NIL)
-          (|nfac_ok| (|Boolean|)) (|ndu| #2=(|Union| (|Integer|) #3="failed"))
-          (|nnu| #2#) (|facu| (|Union| (|Fraction| (|Integer|)) "failed"))
-          (|fac| (F)) (|cp| (F)) (|p| (UP)) (#4=#:G240 NIL) (|f| NIL)
-          (|n| #5=(|NonNegativeInteger|)) (|rp1| (UP)) (#6=#:G239 NIL)
-          (|l| #5#) (|cp1| (F)) (|k| (|NonNegativeInteger|)) (|p1| (UP)))
+          (|nfac| (|Fraction| (|Integer|))) (|nfac_ok| (|Boolean|))
+          (|ndu| #1=(|Union| (|Integer|) "failed")) (|nnu| #1#)
+          (|facu| (|Union| (|Fraction| (|Integer|)) "failed")) (|fac| (F))
+          (|cp| (F)) (|p| (UP)) (#2=#:G240 NIL) (|f| NIL)
+          (|n| #3=(|NonNegativeInteger|)) (|rp1| (UP)) (#4=#:G239 NIL)
+          (|l| #3#) (|cp1| (F)) (|k| (|NonNegativeInteger|)) (|p1| (UP)))
          (SEQ (LETT |p1| (QCAR |f1|))
               (LETT |res|
                     (LIST (VECTOR |p1| (QCDR |f1|) (|spadConstant| $ 73))))
@@ -200,14 +200,14 @@
                           (LETT |l| (SPADCALL |rp1| (QREFELT $ 75)))
                           (COND
                            ((ODDP (- |k| |l|))
-                            (PROGN (LETT #6# |$NoValue|) (GO #7=#:G219))))
+                            (PROGN (LETT #4# |$NoValue|) (GO #5=#:G219))))
                           (EXIT (LETT |rp1| (SPADCALL |rp1| (QREFELT $ 76)))))
                      NIL (GO G190) G191 (EXIT NIL)))
-               #7# (EXIT #6#))
+               #5# (EXIT #4#))
               (LETT |n| (- |k| |l|))
-              (SEQ (LETT |f| NIL) (LETT #4# |lp|) G190
+              (SEQ (LETT |f| NIL) (LETT #2# |lp|) G190
                    (COND
-                    ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#)) NIL))
+                    ((OR (ATOM #2#) (PROGN (LETT |f| (CAR #2#)) NIL))
                      (GO G191)))
                    (SEQ (LETT |rr| (CONS |f| |rr|)) (LETT |p| (QCAR |f|))
                         (EXIT
@@ -258,26 +258,14 @@
                                                                (QREFELT $ 91)))
                                                         (EXIT
                                                          (COND
-                                                          ((QEQCAR |nnu| 1)
+                                                          ((QEQCAR |ndu| 1)
                                                            (LETT |nfac_ok|
                                                                  NIL))
                                                           ('T
                                                            (LETT |nfac|
                                                                  (SPADCALL
                                                                   (QCDR |nnu|)
-                                                                  (PROG2
-                                                                      (LETT #1#
-                                                                            |ndu|)
-                                                                      (QCDR
-                                                                       #1#)
-                                                                    (|check_union2|
-                                                                     (QEQCAR
-                                                                      #1# 0)
-                                                                     (|Integer|)
-                                                                     (|Union|
-                                                                      (|Integer|)
-                                                                      #3#)
-                                                                     #1#))
+                                                                  (QCDR |ndu|)
                                                                   (QREFELT $
                                                                            93)))))))))))))
                                                  (EXIT
@@ -326,7 +314,7 @@
                                                               (CDR |rr|)))))))
                                                    ('T
                                                     "iterate"))))))))))))))))
-                   (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
+                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (LETT |res| (NREVERSE |res|)) (EXIT (CONS |res| |rr|))))) 
 
 (SDEFUN |INTALG;handle_multiples1|
