@@ -207,7 +207,7 @@
 ;        bcConPredTable(conlist,opOf conform)
 ;        htSay '"\newline "
 ;   if oplist then
-;     if conlist or attrlist then htSay '" and "
+;     if conlist then htSay '" and "
 ;     reportAO('"operation",oplist)
  
 (DEFUN |reportCategory| (|conform| |typeForm| |arg|)
@@ -229,7 +229,7 @@
           (|bcConPredTable| |conlist| (|opOf| |conform|))
           (|htSay| "\\newline ")))))
       (COND
-       (|oplist| (COND ((OR |conlist| |attrlist|) (|htSay| " and ")))
+       (|oplist| (COND (|conlist| (|htSay| " and ")))
         (|reportAO| "operation" |oplist|)))))))
  
 ; reportAO(kind,oplist) ==
@@ -505,12 +505,11 @@
 ;                (domname => form2HtString(domname,nil,true); constring),'"}"]
 ;   data := sublisFormal(IFCDR domname or rest conform,
 ;                        getConstructorExports((domname or conform),true))
-;   [conlist,attrlist,:oplist] := data
+;   [conlist, :oplist] := data
 ;   if domname then
 ;     for x in conlist repeat  rplac(rest x, simpHasPred rest x)
-;     for x in attrlist repeat rplac(CDDR x, simpHasPred CDDR x)
 ;     for x in oplist   repeat rplac(CDDR x, simpHasPred CDDR x)
-;   prefix := pluralSay(#conlist + #attrlist + #oplist,'"Export",'"Exports")
+;   prefix := pluralSay(#conlist + #oplist, '"Export", '"Exports")
 ;   page := htInitPage([:prefix,'" of ",:heading],htCopyProplist htPage)
 ;   htSayStandard '"\beginmenu "
 ;   htpSetProperty(page,'data,data)
@@ -519,18 +518,15 @@
 ;     htSayStandard '"\tab{2}"
 ;     htSay  '"All attributes and operations from:"
 ;     bcConPredTable(conlist,opOf conform,rest conform)
-;   if attrlist then
-;     if conlist then htBigSkip()
-;     kePageDisplay(page,'"attribute",kePageOpAlist attrlist)
 ;   if oplist then
-;     if conlist or attrlist then htBigSkip()
+;     if conlist then htBigSkip()
 ;     kePageDisplay(page,'"operation",kePageOpAlist oplist)
 ;   htSayStandard '" \endmenu "
 ;   htShowPage()
  
 (DEFUN |kePage| (|htPage| |junk|)
-  (PROG (|$conformsAreDomains| |page| |prefix| |oplist| |attrlist| |conlist|
-         |data| |heading| |conname| |conform| |domname| |constring| |comments|
+  (PROG (|$conformsAreDomains| |page| |prefix| |oplist| |conlist| |data|
+         |heading| |conname| |conform| |domname| |constring| |comments|
          |abbrev| |args| |sig| |xflag| |nargs| |name| |kind| |LETTMP#1|)
     (DECLARE (SPECIAL |$conformsAreDomains|))
     (RETURN
@@ -564,8 +560,7 @@
                  (|sublisFormal| (OR (IFCDR |domname|) (CDR |conform|))
                   (|getConstructorExports| (OR |domname| |conform|) T)))
          (SETQ |conlist| (CAR |data|))
-         (SETQ |attrlist| (CADR . #5=(|data|)))
-         (SETQ |oplist| (CDDR . #5#))
+         (SETQ |oplist| (CDR |data|))
          (COND
           (|domname|
            ((LAMBDA (|bfVar#16| |x|)
@@ -583,20 +578,10 @@
                  (RETURN NIL))
                 (#4# (|rplac| (CDDR |x|) (|simpHasPred| (CDDR |x|)))))
                (SETQ |bfVar#17| (CDR |bfVar#17|))))
-            |attrlist| NIL)
-           ((LAMBDA (|bfVar#18| |x|)
-              (LOOP
-               (COND
-                ((OR (ATOM |bfVar#18|) (PROGN (SETQ |x| (CAR |bfVar#18|)) NIL))
-                 (RETURN NIL))
-                (#4# (|rplac| (CDDR |x|) (|simpHasPred| (CDDR |x|)))))
-               (SETQ |bfVar#18| (CDR |bfVar#18|))))
             |oplist| NIL)))
          (SETQ |prefix|
-                 (|pluralSay|
-                  (+ (+ (LENGTH |conlist|) (LENGTH |attrlist|))
-                     (LENGTH |oplist|))
-                  "Export" "Exports"))
+                 (|pluralSay| (+ (LENGTH |conlist|) (LENGTH |oplist|)) "Export"
+                  "Exports"))
          (SETQ |page|
                  (|htInitPage| (APPEND |prefix| (CONS " of " |heading|))
                   (|htCopyProplist| |htPage|)))
@@ -613,10 +598,7 @@
            (|htSay| "All attributes and operations from:")
            (|bcConPredTable| |conlist| (|opOf| |conform|) (CDR |conform|))))
          (COND
-          (|attrlist| (COND (|conlist| (|htBigSkip|)))
-           (|kePageDisplay| |page| "attribute" (|kePageOpAlist| |attrlist|))))
-         (COND
-          (|oplist| (COND ((OR |conlist| |attrlist|) (|htBigSkip|)))
+          (|oplist| (COND (|conlist| (|htBigSkip|)))
            (|kePageDisplay| |page| "operation" (|kePageOpAlist| |oplist|))))
          (|htSayStandard| " \\endmenu ")
          (|htShowPage|))))))))
@@ -633,17 +615,17 @@
     (RETURN
      (PROGN
       (SETQ |opAlist| NIL)
-      ((LAMBDA (|bfVar#20| |bfVar#19|)
+      ((LAMBDA (|bfVar#19| |bfVar#18|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#20|)
-                (PROGN (SETQ |bfVar#19| (CAR |bfVar#20|)) NIL))
+           ((OR (ATOM |bfVar#19|)
+                (PROGN (SETQ |bfVar#18| (CAR |bfVar#19|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#19|)
+            (AND (CONSP |bfVar#18|)
                  (PROGN
-                  (SETQ |op| (CAR |bfVar#19|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#19|))
+                  (SETQ |op| (CAR |bfVar#18|))
+                  (SETQ |ISTMP#1| (CDR |bfVar#18|))
                   (AND (CONSP |ISTMP#1|)
                        (PROGN
                         (SETQ |sig| (CAR |ISTMP#1|))
@@ -654,7 +636,7 @@
                   (SETQ |opAlist|
                           (|insertAlist| (|zeroOneConvert| |op|)
                            (CONS (LIST |sig| |pred|) |u|) |opAlist|))))))
-          (SETQ |bfVar#20| (CDR |bfVar#20|))))
+          (SETQ |bfVar#19| (CDR |bfVar#19|))))
        |oplist| NIL)
       |opAlist|))))
  
@@ -688,15 +670,15 @@
      (PROGN
       (SETQ |count| (LENGTH |opAlist|))
       (SETQ |total|
-              ((LAMBDA (|bfVar#22| |bfVar#21| |entry|)
+              ((LAMBDA (|bfVar#21| |bfVar#20| |entry|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#21|)
-                        (PROGN (SETQ |entry| (CAR |bfVar#21|)) NIL))
-                    (RETURN |bfVar#22|))
+                   ((OR (ATOM |bfVar#20|)
+                        (PROGN (SETQ |entry| (CAR |bfVar#20|)) NIL))
+                    (RETURN |bfVar#21|))
                    (#1='T
-                    (SETQ |bfVar#22| (+ |bfVar#22| (LENGTH (CDR |entry|))))))
-                  (SETQ |bfVar#21| (CDR |bfVar#21|))))
+                    (SETQ |bfVar#21| (+ |bfVar#21| (LENGTH (CDR |entry|))))))
+                  (SETQ |bfVar#20| (CDR |bfVar#20|))))
                0 |opAlist| NIL))
       (COND ((EQL |count| 0) NIL)
             (#1#
@@ -841,9 +823,9 @@
       (SETQ |catinfo| (CADR |u|))
       (SETQ |catvec| (CADDR |u|))
       (SETQ |catforms|
-              ((LAMBDA (|bfVar#24| |bfVar#23| |i|)
+              ((LAMBDA (|bfVar#23| |bfVar#22| |i|)
                  (LOOP
-                  (COND ((> |i| |bfVar#23|) (RETURN (NREVERSE |bfVar#24|)))
+                  (COND ((> |i| |bfVar#22|) (RETURN (NREVERSE |bfVar#23|)))
                         (#1#
                          (AND
                           (PROGN
@@ -860,7 +842,7 @@
                             ((AND |domname| (CONTAINED '$ |pred|))
                              (SETQ |pred| (SUBST |domname| '$ |pred|))))
                            (AND (SETQ |pak| (ELT |catinfo| |i|)) |pred|))
-                          (SETQ |bfVar#24|
+                          (SETQ |bfVar#23|
                                   (CONS
                                    (CONS
                                     (COND
@@ -882,7 +864,7 @@
                                                  (SUBST |domname| '$ |res|))))
                                        |res|)))
                                     |pred|)
-                                   |bfVar#24|)))))
+                                   |bfVar#23|)))))
                   (SETQ |i| (+ |i| 1))))
                NIL (MAXINDEX |catvec|) 0))
       (APPEND (|dbAddChain| |conform|) |catforms|)))))
@@ -963,23 +945,23 @@
     (RETURN
      (PROGN
       (SETQ |alist| (SUBLISLIS (CDR |domform|) (CDR |conform|) |alist|))
-      ((LAMBDA (|bfVar#25| |pair|)
+      ((LAMBDA (|bfVar#24| |pair|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#24|) (PROGN (SETQ |pair| (CAR |bfVar#24|)) NIL))
+            (RETURN NIL))
+           (#1='T (RPLACD |pair| (|simpHasPred2| (CDR |pair|) |domform|))))
+          (SETQ |bfVar#24| (CDR |bfVar#24|))))
+       |alist| NIL)
+      ((LAMBDA (|bfVar#26| |bfVar#25| |pair|)
          (LOOP
           (COND
            ((OR (ATOM |bfVar#25|) (PROGN (SETQ |pair| (CAR |bfVar#25|)) NIL))
-            (RETURN NIL))
-           (#1='T (RPLACD |pair| (|simpHasPred2| (CDR |pair|) |domform|))))
-          (SETQ |bfVar#25| (CDR |bfVar#25|))))
-       |alist| NIL)
-      ((LAMBDA (|bfVar#27| |bfVar#26| |pair|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#26|) (PROGN (SETQ |pair| (CAR |bfVar#26|)) NIL))
-            (RETURN (NREVERSE |bfVar#27|)))
+            (RETURN (NREVERSE |bfVar#26|)))
            (#1#
             (AND (CONSP |pair|) (PROGN (SETQ |pred| (CDR |pair|)) #1#) |pred|
-                 (SETQ |bfVar#27| (CONS |pair| |bfVar#27|)))))
-          (SETQ |bfVar#26| (CDR |bfVar#26|))))
+                 (SETQ |bfVar#26| (CONS |pair| |bfVar#26|)))))
+          (SETQ |bfVar#25| (CDR |bfVar#25|))))
        NIL |alist| NIL)))))
  
 ; kcaPage(htPage,junk) ==
@@ -1149,19 +1131,19 @@
       (SETQ |conname| (|opOf| |conform|))
       (SETQ |args| (OR (IFCDR |conform|) (RETURN |alist|)))
       (SETQ |n| (LENGTH |args|))
-      ((LAMBDA (|bfVar#30| |bfVar#29| |bfVar#28|)
+      ((LAMBDA (|bfVar#29| |bfVar#28| |bfVar#27|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#29|)
-                (PROGN (SETQ |bfVar#28| (CAR |bfVar#29|)) NIL))
-            (RETURN (NREVERSE |bfVar#30|)))
+           ((OR (ATOM |bfVar#28|)
+                (PROGN (SETQ |bfVar#27| (CAR |bfVar#28|)) NIL))
+            (RETURN (NREVERSE |bfVar#29|)))
            (#1='T
-            (AND (CONSP |bfVar#28|)
+            (AND (CONSP |bfVar#27|)
                  (PROGN
-                  (SETQ |name| (CAR |bfVar#28|))
-                  (SETQ |p| (CDR |bfVar#28|))
+                  (SETQ |name| (CAR |bfVar#27|))
+                  (SETQ |p| (CDR |bfVar#27|))
                   #1#)
-                 (SETQ |bfVar#30|
+                 (SETQ |bfVar#29|
                          (CONS
                           (CONS |name|
                                 (COND
@@ -1180,8 +1162,8 @@
                                           (IFCDR
                                            (|getConstructorForm|
                                             (|opOf| |name|)))))))))
-                          |bfVar#30|)))))
-          (SETQ |bfVar#29| (CDR |bfVar#29|))))
+                          |bfVar#29|)))))
+          (SETQ |bfVar#28| (CDR |bfVar#28|))))
        NIL |alist| NIL)))))
  
 ; kcdePage(htPage,junk) ==
@@ -1229,17 +1211,17 @@
       (SETQ |pakname| (|opOf| |conform|))
       (SETQ |domList| (|getDependentsOfConstructor| |pakname|))
       (SETQ |cAlist|
-              ((LAMBDA (|bfVar#32| |bfVar#31| |x|)
+              ((LAMBDA (|bfVar#31| |bfVar#30| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#31|)
-                        (PROGN (SETQ |x| (CAR |bfVar#31|)) NIL))
-                    (RETURN (NREVERSE |bfVar#32|)))
+                   ((OR (ATOM |bfVar#30|)
+                        (PROGN (SETQ |x| (CAR |bfVar#30|)) NIL))
+                    (RETURN (NREVERSE |bfVar#31|)))
                    (#4#
-                    (SETQ |bfVar#32|
+                    (SETQ |bfVar#31|
                             (CONS (CONS (|getConstructorForm| |x|) T)
-                                  |bfVar#32|))))
-                  (SETQ |bfVar#31| (CDR |bfVar#31|))))
+                                  |bfVar#31|))))
+                  (SETQ |bfVar#30| (CDR |bfVar#30|))))
                NIL |domList| NIL))
       (|htpSetProperty| |htPage| '|cAlist| |cAlist|)
       (|htpSetProperty| |htPage| '|thing| "dependent")
@@ -1294,17 +1276,17 @@
                (#4# (|opOf| |conform|))))
       (SETQ |domList| (|getUsersOfConstructor| |pakname|))
       (SETQ |cAlist|
-              ((LAMBDA (|bfVar#34| |bfVar#33| |x|)
+              ((LAMBDA (|bfVar#33| |bfVar#32| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#33|)
-                        (PROGN (SETQ |x| (CAR |bfVar#33|)) NIL))
-                    (RETURN (NREVERSE |bfVar#34|)))
+                   ((OR (ATOM |bfVar#32|)
+                        (PROGN (SETQ |x| (CAR |bfVar#32|)) NIL))
+                    (RETURN (NREVERSE |bfVar#33|)))
                    (#4#
-                    (SETQ |bfVar#34|
+                    (SETQ |bfVar#33|
                             (CONS (CONS (|getConstructorForm| |x|) T)
-                                  |bfVar#34|))))
-                  (SETQ |bfVar#33| (CDR |bfVar#33|))))
+                                  |bfVar#33|))))
+                  (SETQ |bfVar#32| (CDR |bfVar#32|))))
                NIL |domList| NIL))
       (|htpSetProperty| |htPage| '|cAlist| |cAlist|)
       (|htpSetProperty| |htPage| '|thing| "user")
@@ -1374,14 +1356,14 @@
                    (SUBLISLIS (CONS |domname| (CDR |domname|))
                     (CONS '$ (CDR |conform|)) |domList|))))
          (SETQ |cAlist|
-                 ((LAMBDA (|bfVar#36| |bfVar#35| |x|)
+                 ((LAMBDA (|bfVar#35| |bfVar#34| |x|)
                     (LOOP
                      (COND
-                      ((OR (ATOM |bfVar#35|)
-                           (PROGN (SETQ |x| (CAR |bfVar#35|)) NIL))
-                       (RETURN (NREVERSE |bfVar#36|)))
-                      (#4# (SETQ |bfVar#36| (CONS (CONS |x| T) |bfVar#36|))))
-                     (SETQ |bfVar#35| (CDR |bfVar#35|))))
+                      ((OR (ATOM |bfVar#34|)
+                           (PROGN (SETQ |x| (CAR |bfVar#34|)) NIL))
+                       (RETURN (NREVERSE |bfVar#35|)))
+                      (#4# (SETQ |bfVar#35| (CONS (CONS |x| T) |bfVar#35|))))
+                     (SETQ |bfVar#34| (CDR |bfVar#34|))))
                   NIL |domList| NIL))
          (|htpSetProperty| |htPage| '|cAlist| |cAlist|)
          (|htpSetProperty| |htPage| '|thing| "benefactor")
@@ -1395,15 +1377,15 @@
   (PROG ()
     (RETURN
      (EQUAL
-      ((LAMBDA (|bfVar#37| |i|)
+      ((LAMBDA (|bfVar#36| |i|)
          (LOOP
-          (COND ((> |i| |nargs|) (RETURN (NREVERSE |bfVar#37|)))
+          (COND ((> |i| |nargs|) (RETURN (NREVERSE |bfVar#36|)))
                 ('T
-                 (SETQ |bfVar#37|
+                 (SETQ |bfVar#36|
                          (CONS
                           (|htpLabelInputString| |htPage|
                            (INTERN (STRCONC "*" (STRINGIMAGE |i|))))
-                          |bfVar#37|))))
+                          |bfVar#36|))))
           (SETQ |i| (+ |i| 1))))
        NIL 1)
       (|htpProperty| |htPage| '|inputAreaList|)))))
@@ -1438,61 +1420,61 @@
      (PROGN
       (|htpSetProperty| |htPage| '|domname| NIL)
       (SETQ |inputAreaList|
-              ((LAMBDA (|bfVar#39| |i| |bfVar#38| |var|)
+              ((LAMBDA (|bfVar#38| |i| |bfVar#37| |var|)
                  (LOOP
                   (COND
-                   ((OR (> |i| |nargs|) (ATOM |bfVar#38|)
-                        (PROGN (SETQ |var| (CAR |bfVar#38|)) NIL))
-                    (RETURN (NREVERSE |bfVar#39|)))
+                   ((OR (> |i| |nargs|) (ATOM |bfVar#37|)
+                        (PROGN (SETQ |var| (CAR |bfVar#37|)) NIL))
+                    (RETURN (NREVERSE |bfVar#38|)))
                    (#1='T
-                    (SETQ |bfVar#39|
+                    (SETQ |bfVar#38|
                             (CONS (|htpLabelInputString| |htPage| |var|)
-                                  |bfVar#39|))))
+                                  |bfVar#38|))))
                   (SETQ |i| (+ |i| 1))
-                  (SETQ |bfVar#38| (CDR |bfVar#38|))))
+                  (SETQ |bfVar#37| (CDR |bfVar#37|))))
                NIL 1 |$PatternVariableList| NIL))
       (|htpSetProperty| |htPage| '|inputAreaList| |inputAreaList|)
       (SETQ |conname| (INTERN |name|))
       (SETQ |args|
-              ((LAMBDA (|bfVar#42| |bfVar#40| |x| |bfVar#41| |domain?|)
+              ((LAMBDA (|bfVar#41| |bfVar#39| |x| |bfVar#40| |domain?|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#40|)
-                        (PROGN (SETQ |x| (CAR |bfVar#40|)) NIL)
-                        (ATOM |bfVar#41|)
-                        (PROGN (SETQ |domain?| (CAR |bfVar#41|)) NIL))
-                    (RETURN (NREVERSE |bfVar#42|)))
+                   ((OR (ATOM |bfVar#39|)
+                        (PROGN (SETQ |x| (CAR |bfVar#39|)) NIL)
+                        (ATOM |bfVar#40|)
+                        (PROGN (SETQ |domain?| (CAR |bfVar#40|)) NIL))
+                    (RETURN (NREVERSE |bfVar#41|)))
                    (#1#
-                    (SETQ |bfVar#42|
+                    (SETQ |bfVar#41|
                             (CONS (OR (|kArgumentCheck| |domain?| |x|) NIL)
-                                  |bfVar#42|))))
-                  (SETQ |bfVar#40| (CDR |bfVar#40|))
-                  (SETQ |bfVar#41| (CDR |bfVar#41|))))
+                                  |bfVar#41|))))
+                  (SETQ |bfVar#39| (CDR |bfVar#39|))
+                  (SETQ |bfVar#40| (CDR |bfVar#40|))))
                NIL |inputAreaList| NIL (CDR (GETDATABASE |conname| 'COSIG))
                NIL))
       (COND
-       (((LAMBDA (|bfVar#44| |bfVar#43| |x|)
+       (((LAMBDA (|bfVar#43| |bfVar#42| |x|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#43|) (PROGN (SETQ |x| (CAR |bfVar#43|)) NIL))
-              (RETURN |bfVar#44|))
+             ((OR (ATOM |bfVar#42|) (PROGN (SETQ |x| (CAR |bfVar#42|)) NIL))
+              (RETURN |bfVar#43|))
              (#1#
               (PROGN
-               (SETQ |bfVar#44| (NULL |x|))
-               (COND (|bfVar#44| (RETURN |bfVar#44|))))))
-            (SETQ |bfVar#43| (CDR |bfVar#43|))))
+               (SETQ |bfVar#43| (NULL |x|))
+               (COND (|bfVar#43| (RETURN |bfVar#43|))))))
+            (SETQ |bfVar#42| (CDR |bfVar#42|))))
          NIL |args| NIL)
         (COND
          ((< 0
              (SETQ |n|
-                     ((LAMBDA (|bfVar#46| |bfVar#45| |x|)
+                     ((LAMBDA (|bfVar#45| |bfVar#44| |x|)
                         (LOOP
                          (COND
-                          ((OR (ATOM |bfVar#45|)
-                               (PROGN (SETQ |x| (CAR |bfVar#45|)) NIL))
-                           (RETURN |bfVar#46|))
-                          (#1# (AND |x| (SETQ |bfVar#46| (+ |bfVar#46| 1)))))
-                         (SETQ |bfVar#45| (CDR |bfVar#45|))))
+                          ((OR (ATOM |bfVar#44|)
+                               (PROGN (SETQ |x| (CAR |bfVar#44|)) NIL))
+                           (RETURN |bfVar#45|))
+                          (#1# (AND |x| (SETQ |bfVar#45| (+ |bfVar#45| 1)))))
+                         (SETQ |bfVar#44| (CDR |bfVar#44|))))
                       0 |args| NIL)))
           (LIST '|error| NIL "\\centerline{You gave values for only {\\em " |n|
                 " } of the {\\em " (LENGTH |args|) "}}"
@@ -1506,51 +1488,51 @@
                        (#1#
                         (PROGN
                          (SETQ |argTailPart|
-                                 ((LAMBDA (|bfVar#51| |bfVar#50| |x|)
+                                 ((LAMBDA (|bfVar#50| |bfVar#49| |x|)
                                     (LOOP
                                      (COND
-                                      ((OR (ATOM |bfVar#50|)
+                                      ((OR (ATOM |bfVar#49|)
                                            (PROGN
-                                            (SETQ |x| (CAR |bfVar#50|))
+                                            (SETQ |x| (CAR |bfVar#49|))
                                             NIL))
-                                       (RETURN |bfVar#51|))
+                                       (RETURN |bfVar#50|))
                                       (#1#
-                                       (SETQ |bfVar#51|
-                                               (STRCONC |bfVar#51|
+                                       (SETQ |bfVar#50|
+                                               (STRCONC |bfVar#50|
                                                 ((LAMBDA
-                                                     (|bfVar#47| |bfVar#49|
-                                                      |bfVar#48|)
+                                                     (|bfVar#46| |bfVar#48|
+                                                      |bfVar#47|)
                                                    (LOOP
                                                     (COND
-                                                     ((OR (ATOM |bfVar#49|)
+                                                     ((OR (ATOM |bfVar#48|)
                                                           (PROGN
-                                                           (SETQ |bfVar#48|
+                                                           (SETQ |bfVar#47|
                                                                    (CAR
-                                                                    |bfVar#49|))
+                                                                    |bfVar#48|))
                                                            NIL))
-                                                      (RETURN |bfVar#47|))
+                                                      (RETURN |bfVar#46|))
                                                      (#1#
-                                                      (SETQ |bfVar#47|
+                                                      (SETQ |bfVar#46|
                                                               (STRCONC
-                                                               |bfVar#47|
-                                                               |bfVar#48|))))
-                                                    (SETQ |bfVar#49|
-                                                            (CDR |bfVar#49|))))
+                                                               |bfVar#46|
+                                                               |bfVar#47|))))
+                                                    (SETQ |bfVar#48|
+                                                            (CDR |bfVar#48|))))
                                                  #2="" (CONS "," |x|) NIL)))))
-                                     (SETQ |bfVar#50| (CDR |bfVar#50|))))
+                                     (SETQ |bfVar#49| (CDR |bfVar#49|))))
                                   #2# (IFCDR |args|) NIL))
-                         ((LAMBDA (|bfVar#52| |bfVar#54| |bfVar#53|)
+                         ((LAMBDA (|bfVar#51| |bfVar#53| |bfVar#52|)
                             (LOOP
                              (COND
-                              ((OR (ATOM |bfVar#54|)
+                              ((OR (ATOM |bfVar#53|)
                                    (PROGN
-                                    (SETQ |bfVar#53| (CAR |bfVar#54|))
+                                    (SETQ |bfVar#52| (CAR |bfVar#53|))
                                     NIL))
-                               (RETURN |bfVar#52|))
+                               (RETURN |bfVar#51|))
                               (#1#
-                               (SETQ |bfVar#52|
-                                       (STRCONC |bfVar#52| |bfVar#53|))))
-                             (SETQ |bfVar#54| (CDR |bfVar#54|))))
+                               (SETQ |bfVar#51|
+                                       (STRCONC |bfVar#51| |bfVar#52|))))
+                             (SETQ |bfVar#53| (CDR |bfVar#53|))))
                           #2#
                           (CONS "("
                                 (APPEND (CAR |args|)
@@ -1747,17 +1729,17 @@
 (DEFUN |dbExtractUnderlyingDomain| (|domain|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#56| |bfVar#55| |x|)
+     ((LAMBDA (|bfVar#55| |bfVar#54| |x|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#55|) (PROGN (SETQ |x| (CAR |bfVar#55|)) NIL))
-           (RETURN |bfVar#56|))
+          ((OR (ATOM |bfVar#54|) (PROGN (SETQ |x| (CAR |bfVar#54|)) NIL))
+           (RETURN |bfVar#55|))
           ('T
            (AND (|isValidType| |x|)
                 (PROGN
-                 (SETQ |bfVar#56| |x|)
-                 (COND (|bfVar#56| (RETURN |bfVar#56|)))))))
-         (SETQ |bfVar#55| (CDR |bfVar#55|))))
+                 (SETQ |bfVar#55| |x|)
+                 (COND (|bfVar#55| (RETURN |bfVar#55|)))))))
+         (SETQ |bfVar#54| (CDR |bfVar#54|))))
       NIL (IFCDR |domain|) NIL))))
  
 ; conOpPage1(conform, options) ==
@@ -1840,20 +1822,20 @@
               (|htpSetProperty| |page| '|domname| |domname|)
               (|htpSetProperty| |page| '|conform| |conform|)
               (|htpSetProperty| |page| '|signature| |signature|)
-              ((LAMBDA (|bfVar#58| |bfVar#57|)
+              ((LAMBDA (|bfVar#57| |bfVar#56|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#58|)
-                        (PROGN (SETQ |bfVar#57| (CAR |bfVar#58|)) NIL))
+                   ((OR (ATOM |bfVar#57|)
+                        (PROGN (SETQ |bfVar#56| (CAR |bfVar#57|)) NIL))
                     (RETURN NIL))
                    (#1#
-                    (AND (CONSP |bfVar#57|)
+                    (AND (CONSP |bfVar#56|)
                          (PROGN
-                          (SETQ |a| (CAR |bfVar#57|))
-                          (SETQ |b| (CDR |bfVar#57|))
+                          (SETQ |a| (CAR |bfVar#56|))
+                          (SETQ |b| (CDR |bfVar#56|))
                           #1#)
                          (|htpSetProperty| |page| |a| |b|))))
-                  (SETQ |bfVar#58| (CDR |bfVar#58|))))
+                  (SETQ |bfVar#57| (CDR |bfVar#57|))))
                |bindingsAlist| NIL)
               (|koPage| |page| "operation"))))))))
  
@@ -2000,18 +1982,18 @@
         (SETQ |filter| (|pmTransFilter| (|dbGetInputString| |htPage|)))
         (SETQ |which| (|htpProperty| |htPage| '|which|))
         (SETQ |opAlist|
-                ((LAMBDA (|bfVar#60| |bfVar#59| |x|)
+                ((LAMBDA (|bfVar#59| |bfVar#58| |x|)
                    (LOOP
                     (COND
-                     ((OR (ATOM |bfVar#59|)
-                          (PROGN (SETQ |x| (CAR |bfVar#59|)) NIL))
-                      (RETURN (NREVERSE |bfVar#60|)))
+                     ((OR (ATOM |bfVar#58|)
+                          (PROGN (SETQ |x| (CAR |bfVar#58|)) NIL))
+                      (RETURN (NREVERSE |bfVar#59|)))
                      (#1#
                       (AND
                        (|superMatch?| |filter|
                         (DOWNCASE (STRINGIMAGE (CAR |x|))))
-                       (SETQ |bfVar#60| (CONS |x| |bfVar#60|)))))
-                    (SETQ |bfVar#59| (CDR |bfVar#59|))))
+                       (SETQ |bfVar#59| (CONS |x| |bfVar#59|)))))
+                    (SETQ |bfVar#58| (CDR |bfVar#58|))))
                  NIL (|htpProperty| |htPage| '|opAlist|) NIL))
         (|htpSetProperty| |htPage| '|opAlist| |opAlist|)
         (FUNCALL |functionToCall| |htPage| NIL)))))))
@@ -2033,41 +2015,41 @@
      (PROGN
       (SETQ |conname| (CAR |conform|))
       (SETQ |$args| (CDR |conform|))
-      ((LAMBDA (|bfVar#62| |bfVar#61| |y|)
+      ((LAMBDA (|bfVar#61| |bfVar#60| |y|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#61|) (PROGN (SETQ |y| (CAR |bfVar#61|)) NIL))
-            (RETURN |bfVar#62|))
+           ((OR (ATOM |bfVar#60|) (PROGN (SETQ |y| (CAR |bfVar#60|)) NIL))
+            (RETURN |bfVar#61|))
            ('T
             (PROGN
-             (SETQ |bfVar#62| (|dbConstructorDoc,gn| |y|))
-             (COND (|bfVar#62| (RETURN |bfVar#62|))))))
-          (SETQ |bfVar#61| (CDR |bfVar#61|))))
+             (SETQ |bfVar#61| (|dbConstructorDoc,gn| |y|))
+             (COND (|bfVar#61| (RETURN |bfVar#61|))))))
+          (SETQ |bfVar#60| (CDR |bfVar#60|))))
        NIL (GETDATABASE |conname| 'DOCUMENTATION) NIL)))))
-(DEFUN |dbConstructorDoc,gn| (|bfVar#66|)
+(DEFUN |dbConstructorDoc,gn| (|bfVar#65|)
   (PROG (|op| |alist| |sig| |doc|)
     (RETURN
      (PROGN
-      (SETQ |op| (CAR |bfVar#66|))
-      (SETQ |alist| (CDR |bfVar#66|))
+      (SETQ |op| (CAR |bfVar#65|))
+      (SETQ |alist| (CDR |bfVar#65|))
       (AND (EQUAL |op| |$op|)
-           ((LAMBDA (|bfVar#65| |bfVar#64| |bfVar#63|)
+           ((LAMBDA (|bfVar#64| |bfVar#63| |bfVar#62|)
               (LOOP
                (COND
-                ((OR (ATOM |bfVar#64|)
-                     (PROGN (SETQ |bfVar#63| (CAR |bfVar#64|)) NIL))
-                 (RETURN |bfVar#65|))
+                ((OR (ATOM |bfVar#63|)
+                     (PROGN (SETQ |bfVar#62| (CAR |bfVar#63|)) NIL))
+                 (RETURN |bfVar#64|))
                 (#1='T
-                 (AND (CONSP |bfVar#63|)
+                 (AND (CONSP |bfVar#62|)
                       (PROGN
-                       (SETQ |sig| (CAR |bfVar#63|))
-                       (SETQ |doc| (CDR |bfVar#63|))
+                       (SETQ |sig| (CAR |bfVar#62|))
+                       (SETQ |doc| (CDR |bfVar#62|))
                        #1#)
                       (|dbConstructorDoc,hn| |sig|)
                       (PROGN
-                       (SETQ |bfVar#65| (OR |doc| '("")))
-                       (COND (|bfVar#65| (RETURN |bfVar#65|)))))))
-               (SETQ |bfVar#64| (CDR |bfVar#64|))))
+                       (SETQ |bfVar#64| (OR |doc| '("")))
+                       (COND (|bfVar#64| (RETURN |bfVar#64|)))))))
+               (SETQ |bfVar#63| (CDR |bfVar#63|))))
             NIL |alist| NIL))))))
 (DEFUN |dbConstructorDoc,hn| (|sig|)
   (PROG ()
@@ -2093,14 +2075,14 @@
            (#1='T
             (PROGN
              (SETQ |$docTable| (MAKE_HASHTABLE 'ID))
-             ((LAMBDA (|bfVar#67| |x|)
+             ((LAMBDA (|bfVar#66| |x|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#67|)
-                       (PROGN (SETQ |x| (CAR |bfVar#67|)) NIL))
+                  ((OR (ATOM |bfVar#66|)
+                       (PROGN (SETQ |x| (CAR |bfVar#66|)) NIL))
                    (RETURN NIL))
                   (#1# (|dbAddDocTable| |x|)))
-                 (SETQ |bfVar#67| (CDR |bfVar#67|))))
+                 (SETQ |bfVar#66| (CDR |bfVar#66|))))
               (|originsInOrder| |conform|) NIL)
              (|dbAddDocTable| |conform|)
              (HPUT |$docTableHash| |conform| |$docTable|)
@@ -2128,22 +2110,22 @@
        (#1='T
         (PROGN
          (SETQ |acc| (ASSOCLEFT (|parentsOf| |con|)))
-         ((LAMBDA (|bfVar#68| |x|)
+         ((LAMBDA (|bfVar#67| |x|)
             (LOOP
              (COND
-              ((OR (ATOM |bfVar#68|) (PROGN (SETQ |x| (CAR |bfVar#68|)) NIL))
+              ((OR (ATOM |bfVar#67|) (PROGN (SETQ |x| (CAR |bfVar#67|)) NIL))
                (RETURN NIL))
               (#1#
-               ((LAMBDA (|bfVar#69| |y|)
+               ((LAMBDA (|bfVar#68| |y|)
                   (LOOP
                    (COND
-                    ((OR (ATOM |bfVar#69|)
-                         (PROGN (SETQ |y| (CAR |bfVar#69|)) NIL))
+                    ((OR (ATOM |bfVar#68|)
+                         (PROGN (SETQ |y| (CAR |bfVar#68|)) NIL))
                      (RETURN NIL))
                     (#1# (SETQ |acc| (|insert| |y| |acc|))))
-                   (SETQ |bfVar#69| (CDR |bfVar#69|))))
+                   (SETQ |bfVar#68| (CDR |bfVar#68|))))
                 (|originsInOrder| |x|) NIL)))
-             (SETQ |bfVar#68| (CDR |bfVar#68|))))
+             (SETQ |bfVar#67| (CDR |bfVar#67|))))
           |acc| NIL)
          |acc|)))))))
  
@@ -2166,41 +2148,41 @@
      (PROGN
       (SETQ |conname| (|opOf| |conform|))
       (SETQ |storedArgs| (CDR (|getConstructorForm| |conname|)))
-      ((LAMBDA (|bfVar#71| |bfVar#70|)
+      ((LAMBDA (|bfVar#70| |bfVar#69|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#71|)
-                (PROGN (SETQ |bfVar#70| (CAR |bfVar#71|)) NIL))
+           ((OR (ATOM |bfVar#70|)
+                (PROGN (SETQ |bfVar#69| (CAR |bfVar#70|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#70|)
+            (AND (CONSP |bfVar#69|)
                  (PROGN
-                  (SETQ |op| (CAR |bfVar#70|))
-                  (SETQ |alist| (CDR |bfVar#70|))
+                  (SETQ |op| (CAR |bfVar#69|))
+                  (SETQ |alist| (CDR |bfVar#69|))
                   #1#)
                  (PROGN
                   (SETQ |op1|
                           (COND ((EQUAL |op| '(|Zero|)) 0)
                                 ((EQUAL |op| '(|One|)) 1) (#1# |op|)))
-                  ((LAMBDA (|bfVar#73| |bfVar#72|)
+                  ((LAMBDA (|bfVar#72| |bfVar#71|)
                      (LOOP
                       (COND
-                       ((OR (ATOM |bfVar#73|)
-                            (PROGN (SETQ |bfVar#72| (CAR |bfVar#73|)) NIL))
+                       ((OR (ATOM |bfVar#72|)
+                            (PROGN (SETQ |bfVar#71| (CAR |bfVar#72|)) NIL))
                         (RETURN NIL))
                        (#1#
-                        (AND (CONSP |bfVar#72|)
+                        (AND (CONSP |bfVar#71|)
                              (PROGN
-                              (SETQ |sig| (CAR |bfVar#72|))
-                              (SETQ |ISTMP#1| (CDR |bfVar#72|))
+                              (SETQ |sig| (CAR |bfVar#71|))
+                              (SETQ |ISTMP#1| (CDR |bfVar#71|))
                               (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                                    (PROGN (SETQ |doc| (CAR |ISTMP#1|)) #1#)))
                              (HPUT |$docTable| |op1|
                                    (CONS (CONS |conform| |alist|)
                                          (HGET |$docTable| |op1|))))))
-                      (SETQ |bfVar#73| (CDR |bfVar#73|))))
+                      (SETQ |bfVar#72| (CDR |bfVar#72|))))
                    |alist| NIL)))))
-          (SETQ |bfVar#71| (CDR |bfVar#71|))))
+          (SETQ |bfVar#70| (CDR |bfVar#70|))))
        (SUBLISLIS (CONS '$ (CDR |conform|)) (CONS '% |storedArgs|)
         (GETDATABASE (|opOf| |conform|) 'DOCUMENTATION))
        NIL)))))
@@ -2258,16 +2240,16 @@
          (SETQ |origin| (COND (|pred| (CONS '|ifp| |aux|)) (#1# (CAR |aux|))))
          (CONS |origin| |doc|)))
        (#1#
-        ((LAMBDA (|bfVar#75| |bfVar#74| |x|)
+        ((LAMBDA (|bfVar#74| |bfVar#73| |x|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#74|) (PROGN (SETQ |x| (CAR |bfVar#74|)) NIL))
-              (RETURN |bfVar#75|))
+             ((OR (ATOM |bfVar#73|) (PROGN (SETQ |x| (CAR |bfVar#73|)) NIL))
+              (RETURN |bfVar#74|))
              (#1#
               (PROGN
-               (SETQ |bfVar#75| (|dbGetDocTable,gn| |x|))
-               (COND (|bfVar#75| (RETURN |bfVar#75|))))))
-            (SETQ |bfVar#74| (CDR |bfVar#74|))))
+               (SETQ |bfVar#74| (|dbGetDocTable,gn| |x|))
+               (COND (|bfVar#74| (RETURN |bfVar#74|))))))
+            (SETQ |bfVar#73| (CDR |bfVar#73|))))
          NIL (HGET |docTable| |op|) NIL)))))))
 (DEFUN |dbGetDocTable,gn| (|u|)
   (PROG (|code| |p| |comments|)
@@ -2278,27 +2260,27 @@
       (SETQ |code| (LASTATOM |u|))
       (SETQ |comments|
               (OR
-               ((LAMBDA (|bfVar#77| |bfVar#76| |entry|)
+               ((LAMBDA (|bfVar#76| |bfVar#75| |entry|)
                   (LOOP
                    (COND
-                    ((OR (ATOM |bfVar#76|)
-                         (PROGN (SETQ |entry| (CAR |bfVar#76|)) NIL))
-                     (RETURN |bfVar#77|))
+                    ((OR (ATOM |bfVar#75|)
+                         (PROGN (SETQ |entry| (CAR |bfVar#75|)) NIL))
+                     (RETURN |bfVar#76|))
                     ('T
                      (AND (SETQ |p| (|dbGetDocTable,hn| |entry|))
                           (PROGN
-                           (SETQ |bfVar#77| |p|)
-                           (COND (|bfVar#77| (RETURN |bfVar#77|)))))))
-                   (SETQ |bfVar#76| (CDR |bfVar#76|))))
+                           (SETQ |bfVar#76| |p|)
+                           (COND (|bfVar#76| (RETURN |bfVar#76|)))))))
+                   (SETQ |bfVar#75| (CDR |bfVar#75|))))
                 NIL (CDR |u|) NIL)
                (RETURN NIL)))
       (CONS |$conform| (CONS (CAR |comments|) |code|))))))
-(DEFUN |dbGetDocTable,hn| (|bfVar#78|)
+(DEFUN |dbGetDocTable,hn| (|bfVar#77|)
   (PROG (|sig| |doc| |alteredSig| |pred| |r|)
     (RETURN
      (PROGN
-      (SETQ |sig| (CAR |bfVar#78|))
-      (SETQ |doc| (CDR |bfVar#78|))
+      (SETQ |sig| (CAR |bfVar#77|))
+      (SETQ |doc| (CDR |bfVar#77|))
       (COND
        ((EQUAL |$which| "attribute")
         (AND (CONSP |sig|) (EQ (CAR |sig|) '|attribute|)
@@ -2378,14 +2360,14 @@
                   (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1#))))
        (|dbSubConform| |args| |y|))
       (#1#
-       ((LAMBDA (|bfVar#80| |bfVar#79| |x|)
+       ((LAMBDA (|bfVar#79| |bfVar#78| |x|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#79|) (PROGN (SETQ |x| (CAR |bfVar#79|)) NIL))
-             (RETURN (NREVERSE |bfVar#80|)))
+            ((OR (ATOM |bfVar#78|) (PROGN (SETQ |x| (CAR |bfVar#78|)) NIL))
+             (RETURN (NREVERSE |bfVar#79|)))
             (#1#
-             (SETQ |bfVar#80| (CONS (|dbSubConform| |args| |x|) |bfVar#80|))))
-           (SETQ |bfVar#79| (CDR |bfVar#79|))))
+             (SETQ |bfVar#79| (CONS (|dbSubConform| |args| |x|) |bfVar#79|))))
+           (SETQ |bfVar#78| (CDR |bfVar#78|))))
         NIL |u| NIL))))))
  
 ; dbAddChain conform ==
@@ -2440,12 +2422,12 @@
             (SETQ |abbrev?|
                     (EQ (|htpProperty| |htPage| '|exclusion|) '|abbrs|))
             (SETQ |u|
-                    ((LAMBDA (|bfVar#82| |bfVar#81| |x|)
+                    ((LAMBDA (|bfVar#81| |bfVar#80| |x|)
                        (LOOP
                         (COND
-                         ((OR (ATOM |bfVar#81|)
-                              (PROGN (SETQ |x| (CAR |bfVar#81|)) NIL))
-                          (RETURN (NREVERSE |bfVar#82|)))
+                         ((OR (ATOM |bfVar#80|)
+                              (PROGN (SETQ |x| (CAR |bfVar#80|)) NIL))
+                          (RETURN (NREVERSE |bfVar#81|)))
                          (#1#
                           (AND
                            (PROGN
@@ -2456,8 +2438,8 @@
                                      (#1# |conname|)))
                             (|superMatch?| |filter|
                              (DOWNCASE (STRINGIMAGE |subject|))))
-                           (SETQ |bfVar#82| (CONS |x| |bfVar#82|)))))
-                        (SETQ |bfVar#81| (CDR |bfVar#81|))))
+                           (SETQ |bfVar#81| (CONS |x| |bfVar#81|)))))
+                        (SETQ |bfVar#80| (CDR |bfVar#80|))))
                      NIL |cAlist| NIL))
             (COND ((NULL |u|) (|emptySearchPage| "constructor" |filter| NIL))
                   (#1#
@@ -2539,12 +2521,12 @@
      (PROGN
       (SETQ |conlist|
               (REMDUP
-               ((LAMBDA (|bfVar#84| |bfVar#83| |x|)
+               ((LAMBDA (|bfVar#83| |bfVar#82| |x|)
                   (LOOP
                    (COND
-                    ((OR (ATOM |bfVar#83|)
-                         (PROGN (SETQ |x| (CAR |bfVar#83|)) NIL))
-                     (RETURN (NREVERSE |bfVar#84|)))
+                    ((OR (ATOM |bfVar#82|)
+                         (PROGN (SETQ |x| (CAR |bfVar#82|)) NIL))
+                     (RETURN (NREVERSE |bfVar#83|)))
                     (#1='T
                      (AND
                       (PROGN
@@ -2553,8 +2535,8 @@
                         (|$exposedOnlyIfTrue|
                          (|isExposedConstructor| (|opOf| |item|)))
                         (#1# |item|)))
-                      (SETQ |bfVar#84| (CONS |item| |bfVar#84|)))))
-                   (SETQ |bfVar#83| (CDR |bfVar#83|))))
+                      (SETQ |bfVar#83| (CONS |item| |bfVar#83|)))))
+                   (SETQ |bfVar#82| (CDR |bfVar#82|))))
                 NIL |cAlist| NIL)))
       (COND
        ((AND (CONSP |conlist|) (EQ (CDR |conlist|) NIL))
@@ -2565,27 +2547,27 @@
        (#1#
         (PROGN
          (SETQ |conlist|
-                 ((LAMBDA (|bfVar#86| |bfVar#85| |x|)
+                 ((LAMBDA (|bfVar#85| |bfVar#84| |x|)
                     (LOOP
                      (COND
-                      ((OR (ATOM |bfVar#85|)
-                           (PROGN (SETQ |x| (CAR |bfVar#85|)) NIL))
-                       (RETURN (NREVERSE |bfVar#86|)))
-                      (#1# (SETQ |bfVar#86| (CONS (|opOf| |x|) |bfVar#86|))))
-                     (SETQ |bfVar#85| (CDR |bfVar#85|))))
+                      ((OR (ATOM |bfVar#84|)
+                           (PROGN (SETQ |x| (CAR |bfVar#84|)) NIL))
+                       (RETURN (NREVERSE |bfVar#85|)))
+                      (#1# (SETQ |bfVar#85| (CONS (|opOf| |x|) |bfVar#85|))))
+                     (SETQ |bfVar#84| (CDR |bfVar#84|))))
                   NIL |conlist| NIL))
          (SETQ |kinds|
-                 ((LAMBDA (|bfVar#88| |bfVar#87| |x|)
+                 ((LAMBDA (|bfVar#87| |bfVar#86| |x|)
                     (LOOP
                      (COND
-                      ((OR (ATOM |bfVar#87|)
-                           (PROGN (SETQ |x| (CAR |bfVar#87|)) NIL))
-                       (RETURN |bfVar#88|))
+                      ((OR (ATOM |bfVar#86|)
+                           (PROGN (SETQ |x| (CAR |bfVar#86|)) NIL))
+                       (RETURN |bfVar#87|))
                       (#1#
-                       (SETQ |bfVar#88|
-                               (|union| |bfVar#88|
+                       (SETQ |bfVar#87|
+                               (|union| |bfVar#87|
                                 (|dbConstructorKind| |x|)))))
-                     (SETQ |bfVar#87| (CDR |bfVar#87|))))
+                     (SETQ |bfVar#86| (CDR |bfVar#86|))))
                   NIL |conlist| NIL))
          (SETQ |kind|
                  (COND
@@ -2608,34 +2590,34 @@
           (COND ((EQ |key| '|names|) (|bcNameConTable| |conlist|))
                 ((EQ |key| '|abbrs|)
                  (|bcAbbTable|
-                  ((LAMBDA (|bfVar#90| |bfVar#89| |con|)
+                  ((LAMBDA (|bfVar#89| |bfVar#88| |con|)
                      (LOOP
                       (COND
-                       ((OR (ATOM |bfVar#89|)
-                            (PROGN (SETQ |con| (CAR |bfVar#89|)) NIL))
-                        (RETURN (NREVERSE |bfVar#90|)))
+                       ((OR (ATOM |bfVar#88|)
+                            (PROGN (SETQ |con| (CAR |bfVar#88|)) NIL))
+                        (RETURN (NREVERSE |bfVar#89|)))
                        (#1#
-                        (SETQ |bfVar#90|
-                                (CONS (|getCDTEntry| |con| T) |bfVar#90|))))
-                      (SETQ |bfVar#89| (CDR |bfVar#89|))))
+                        (SETQ |bfVar#89|
+                                (CONS (|getCDTEntry| |con| T) |bfVar#89|))))
+                      (SETQ |bfVar#88| (CDR |bfVar#88|))))
                    NIL |conlist| NIL)))
                 ((EQ |key| '|files|)
                  (PROGN
                   (SETQ |flist|
-                          ((LAMBDA (|bfVar#92| |bfVar#91| |con|)
+                          ((LAMBDA (|bfVar#91| |bfVar#90| |con|)
                              (LOOP
                               (COND
-                               ((OR (ATOM |bfVar#91|)
-                                    (PROGN (SETQ |con| (CAR |bfVar#91|)) NIL))
-                                (RETURN (NREVERSE |bfVar#92|)))
+                               ((OR (ATOM |bfVar#90|)
+                                    (PROGN (SETQ |con| (CAR |bfVar#90|)) NIL))
+                                (RETURN (NREVERSE |bfVar#91|)))
                                (#1#
                                 (AND
                                  (SETQ |y|
                                          (SETQ |fn|
                                                  (GETDATABASE |con|
                                                   'SOURCEFILE)))
-                                 (SETQ |bfVar#92| (CONS |y| |bfVar#92|)))))
-                              (SETQ |bfVar#91| (CDR |bfVar#91|))))
+                                 (SETQ |bfVar#91| (CONS |y| |bfVar#91|)))))
+                              (SETQ |bfVar#90| (CDR |bfVar#90|))))
                            NIL |conlist| NIL))
                   (|bcUnixTable| (|listSort| #'GLESSEQP (REMDUP |flist|)))))
                 ((EQ |key| '|documentation|)
@@ -2645,17 +2627,17 @@
                   (COND
                    (|$exposedOnlyIfTrue|
                     (SETQ |cAlist|
-                            ((LAMBDA (|bfVar#94| |bfVar#93| |x|)
+                            ((LAMBDA (|bfVar#93| |bfVar#92| |x|)
                                (LOOP
                                 (COND
-                                 ((OR (ATOM |bfVar#93|)
-                                      (PROGN (SETQ |x| (CAR |bfVar#93|)) NIL))
-                                  (RETURN (NREVERSE |bfVar#94|)))
+                                 ((OR (ATOM |bfVar#92|)
+                                      (PROGN (SETQ |x| (CAR |bfVar#92|)) NIL))
+                                  (RETURN (NREVERSE |bfVar#93|)))
                                  (#1#
                                   (AND
                                    (|isExposedConstructor| (|opOf| (CAR |x|)))
-                                   (SETQ |bfVar#94| (CONS |x| |bfVar#94|)))))
-                                (SETQ |bfVar#93| (CDR |bfVar#93|))))
+                                   (SETQ |bfVar#93| (CONS |x| |bfVar#93|)))))
+                                (SETQ |bfVar#92| (CDR |bfVar#92|))))
                              NIL |cAlist| NIL))))
                   (COND
                    ((EQ |key| '|conditions|)
@@ -2685,12 +2667,12 @@
 ;   htpSetProperty(htPage,'cAlist,cAlist)
 ;   dbShowCons(htPage,htpProperty(htPage,'exclusion))
  
-(DEFUN |dbShowConsKindsFilter| (|htPage| |bfVar#95|)
+(DEFUN |dbShowConsKindsFilter| (|htPage| |bfVar#94|)
   (PROG (|kind| |cAlist|)
     (RETURN
      (PROGN
-      (SETQ |kind| (CAR |bfVar#95|))
-      (SETQ |cAlist| (CADR |bfVar#95|))
+      (SETQ |kind| (CAR |bfVar#94|))
+      (SETQ |cAlist| (CADR |bfVar#94|))
       (|htpSetProperty| |htPage| '|cAlist| |cAlist|)
       (|dbShowCons| |htPage| (|htpProperty| |htPage| '|exclusion|))))))
  
@@ -2719,10 +2701,10 @@
        (PROGN
         (SETQ |cAlist| (|htpProperty| |htPage| '|cAlist|))
         (SETQ |index| 0)
-        ((LAMBDA (|bfVar#96| |x|)
+        ((LAMBDA (|bfVar#95| |x|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#96|) (PROGN (SETQ |x| (CAR |bfVar#96|)) NIL))
+             ((OR (ATOM |bfVar#95|) (PROGN (SETQ |x| (CAR |bfVar#95|)) NIL))
               (RETURN NIL))
              (#1#
               (|dbShowConsDoc1| |htPage| (|getConstructorForm| |x|)
@@ -2736,7 +2718,7 @@
                             (SETQ |cAlist| (CDR |cAlist|))
                             (COND ((NULL |cAlist|) (|systemError|)))))))))
                 |index|))))
-            (SETQ |bfVar#96| (CDR |bfVar#96|))))
+            (SETQ |bfVar#95| (CDR |bfVar#95|))))
          (REMDUP |conlist|) NIL)))))))
  
 ; dbShowConsDoc1(htPage,conform,indexOrNil) ==
@@ -2962,21 +2944,21 @@
     (RETURN
      (PROGN
       (SETQ |cAlist|
-              ((LAMBDA (|bfVar#98| |bfVar#97| |line|)
+              ((LAMBDA (|bfVar#97| |bfVar#96| |line|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#97|)
-                        (PROGN (SETQ |line| (CAR |bfVar#97|)) NIL))
-                    (RETURN (NREVERSE |bfVar#98|)))
+                   ((OR (ATOM |bfVar#96|)
+                        (PROGN (SETQ |line| (CAR |bfVar#96|)) NIL))
+                    (RETURN (NREVERSE |bfVar#97|)))
                    ('T
-                    (SETQ |bfVar#98|
+                    (SETQ |bfVar#97|
                             (CONS
                              (CONS
                               (|getConstructorForm|
                                (|intern| (|dbName| |line|)))
                               T)
-                             |bfVar#98|))))
-                  (SETQ |bfVar#97| (CDR |bfVar#97|))))
+                             |bfVar#97|))))
+                  (SETQ |bfVar#96| (CDR |bfVar#96|))))
                NIL |lines| NIL))
       (|dbShowCons1| NIL (|listSort| #'GLESSEQP |cAlist|) '|names|)))))
  
@@ -2999,10 +2981,10 @@
      (PROGN
       (|htSay| "\\newline")
       (|htBeginTable|)
-      ((LAMBDA (|bfVar#99| |x|)
+      ((LAMBDA (|bfVar#98| |x|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#99|) (PROGN (SETQ |x| (CAR |bfVar#99|)) NIL))
+           ((OR (ATOM |bfVar#98|) (PROGN (SETQ |x| (CAR |bfVar#98|)) NIL))
             (RETURN NIL))
            (#1='T
             (PROGN
@@ -3017,7 +2999,7 @@
                (LIST '|text| "\\unixcommand{" (PATHNAME-NAME |x|)
                      "}{$AXIOM/lib/SPADEDIT " |filename| "} ")))
              (|htSay| "}"))))
-          (SETQ |bfVar#99| (CDR |bfVar#99|))))
+          (SETQ |bfVar#98| (CDR |bfVar#98|))))
        |u| NIL)
       (|htEndTable|)))))
  
@@ -3130,32 +3112,32 @@
        |opAlist|)
       (#1#
        (PROGN
-        ((LAMBDA (|bfVar#101| |bfVar#100|)
+        ((LAMBDA (|bfVar#100| |bfVar#99|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#101|)
-                  (PROGN (SETQ |bfVar#100| (CAR |bfVar#101|)) NIL))
+             ((OR (ATOM |bfVar#100|)
+                  (PROGN (SETQ |bfVar#99| (CAR |bfVar#100|)) NIL))
               (RETURN NIL))
              (#1#
-              (AND (CONSP |bfVar#100|)
+              (AND (CONSP |bfVar#99|)
                    (PROGN
-                    (SETQ |op| (CAR |bfVar#100|))
-                    (SETQ |u| (CDR |bfVar#100|))
+                    (SETQ |op| (CAR |bfVar#99|))
+                    (SETQ |u| (CDR |bfVar#99|))
                     #1#)
-                   ((LAMBDA (|bfVar#102| |pair|)
+                   ((LAMBDA (|bfVar#101| |pair|)
                       (LOOP
                        (COND
-                        ((OR (ATOM |bfVar#102|)
-                             (PROGN (SETQ |pair| (CAR |bfVar#102|)) NIL))
+                        ((OR (ATOM |bfVar#101|)
+                             (PROGN (SETQ |pair| (CAR |bfVar#101|)) NIL))
                          (RETURN NIL))
                         (#1#
                          (PROGN
                           (SETQ |sig| (CAR |pair|))
                           (SETQ |comments| (CADR |pair|))
                           (RPLACD |pair| (LIST 'T |conform| 'T |comments|)))))
-                       (SETQ |bfVar#102| (CDR |bfVar#102|))))
+                       (SETQ |bfVar#101| (CDR |bfVar#101|))))
                     |u| NIL))))
-            (SETQ |bfVar#101| (CDR |bfVar#101|))))
+            (SETQ |bfVar#100| (CDR |bfVar#100|))))
          |opAlist| NIL)
         |opAlist|))))))
  
