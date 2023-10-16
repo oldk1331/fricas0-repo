@@ -616,15 +616,18 @@
 ;   --type analyzes and evaluates expression x, returns object
 ;   $env:local := [[NIL]]
 ;   $genValue:local := true       --evaluate all generated code
+;   -- counter used to limit recursion depth during resolve
+;   $resolve_level : local := 0
 ;   interpret1(x,nil,posnForm)
  
 (DEFUN |interpret| (|x| |posnForm|)
-  (PROG (|$genValue| |$env|)
-    (DECLARE (SPECIAL |$genValue| |$env|))
+  (PROG (|$resolve_level| |$genValue| |$env|)
+    (DECLARE (SPECIAL |$resolve_level| |$genValue| |$env|))
     (RETURN
      (PROGN
       (SETQ |$env| (LIST (LIST NIL)))
       (SETQ |$genValue| T)
+      (SETQ |$resolve_level| 0)
       (|interpret1| |x| NIL |posnForm|)))))
  
 ; interpret1(x,rootMode,posnForm) ==

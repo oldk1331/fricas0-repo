@@ -1478,7 +1478,11 @@
 ;   $Subst : local := NIL
 ;   $Coerce : local := 'T
 ;   m := SUBSTQ("**",$EmptyMode,m)
+;   -- arbitrary limit
+;   $resolve_level > 15 => nil
+;   $resolve_level := $resolve_level + 1
 ;   tt := resolveTM1(t,m)
+;   $resolve_level := $resolve_level - 1
 ;   result := tt and isValidType tt and tt
 ;   stopTimingProcess 'resolve
 ;   result
@@ -1492,10 +1496,15 @@
       (SETQ |$Subst| NIL)
       (SETQ |$Coerce| 'T)
       (SETQ |m| (SUBSTQ '** |$EmptyMode| |m|))
-      (SETQ |tt| (|resolveTM1| |t| |m|))
-      (SETQ |result| (AND |tt| (|isValidType| |tt|) |tt|))
-      (|stopTimingProcess| '|resolve|)
-      |result|))))
+      (COND ((< 15 |$resolve_level|) NIL)
+            ('T
+             (PROGN
+              (SETQ |$resolve_level| (+ |$resolve_level| 1))
+              (SETQ |tt| (|resolveTM1| |t| |m|))
+              (SETQ |$resolve_level| (- |$resolve_level| 1))
+              (SETQ |result| (AND |tt| (|isValidType| |tt|) |tt|))
+              (|stopTimingProcess| '|resolve|)
+              |result|)))))))
  
 ; resolveTM1(t,m) ==
 ;   -- general resolveTM, which looks for a term variable
