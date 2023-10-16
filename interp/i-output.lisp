@@ -3060,25 +3060,27 @@
  
 ; overlabelApp([.,a,b], x, y, d) ==
 ;   d := APP(b, x, y, d) -- the part that is under the label
-;   endPoint := x + WIDTH b - 1
+;   -- if b is empty, we set the width to 1 to prevent overflow
+;   wb := MAX(WIDTH b, 1)
+;   endPoint := x + wb - 1
 ;   middle := QUOTIENT(x + endPoint,2)
 ;   h := y + superspan b + 1
 ;   d := APP(a,middle,h + 1,d)
-;   apphor(x,x+WIDTH b-1,y+superspan b+1,d,"|")
+;   apphor(x, endPoint, y+superspan b+1,d,"|")
  
 (DEFUN |overlabelApp| (|bfVar#76| |x| |y| |d|)
-  (PROG (|a| |b| |endPoint| |middle| |h|)
+  (PROG (|a| |b| |wb| |endPoint| |middle| |h|)
     (RETURN
      (PROGN
       (SETQ |a| (CADR . #1=(|bfVar#76|)))
       (SETQ |b| (CADDR . #1#))
       (SETQ |d| (APP |b| |x| |y| |d|))
-      (SETQ |endPoint| (- (+ |x| (WIDTH |b|)) 1))
+      (SETQ |wb| (MAX (WIDTH |b|) 1))
+      (SETQ |endPoint| (- (+ |x| |wb|) 1))
       (SETQ |middle| (QUOTIENT (+ |x| |endPoint|) 2))
       (SETQ |h| (+ (+ |y| (|superspan| |b|)) 1))
       (SETQ |d| (APP |a| |middle| (+ |h| 1) |d|))
-      (|apphor| |x| (- (+ |x| (WIDTH |b|)) 1) (+ (+ |y| (|superspan| |b|)) 1)
-       |d| '|\||)))))
+      (|apphor| |x| |endPoint| (+ (+ |y| (|superspan| |b|)) 1) |d| '|\||)))))
  
 ; overbarSuper u == 1 + superspan u.1
  
