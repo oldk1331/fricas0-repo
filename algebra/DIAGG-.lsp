@@ -1,12 +1,13 @@
 
 (SDEFUN |DIAGG-;dictionary;LA;1| ((|l| |List| S) ($ A))
-        (SPROG ((#1=#:G118 NIL) (|x| NIL) (|d| (A)))
+        (SPROG ((|d| (A)) (#1=#:G118 NIL) (|x| NIL))
                (SEQ (LETT |d| (SPADCALL (QREFELT $ 8)))
                     (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
                          (COND
                           ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                            (GO G191)))
-                         (SEQ (EXIT (SPADCALL |x| |d| (QREFELT $ 9))))
+                         (SEQ
+                          (EXIT (LETT |d| (SPADCALL |x| |d| (QREFELT $ 9)))))
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |d|)))) 
 
@@ -45,7 +46,7 @@
                       (EXIT
                        (COND
                         ((SPADCALL |m| |f|)
-                         (SPADCALL |m| |t| (QREFELT $ 25))))))
+                         (LETT |t| (SPADCALL |m| |t| (QREFELT $ 25)))))))
                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |t|)))) 
 
