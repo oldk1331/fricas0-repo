@@ -54,14 +54,14 @@
         ((|pp| |SparseUnivariatePolynomial| S)
          ($ |Factored| (|SparseUnivariatePolynomial| S)))
         (SPROG
-         ((#1=#:G192 NIL)
+         ((#1=#:G190 NIL)
           (|lF|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| (|SparseUnivariatePolynomial| S))
                       (|:| |exponent| (|NonNegativeInteger|)))))
           (|p2| (|SparseUnivariatePolynomial| S))
-          (|p1| (|SparseUnivariatePolynomial| S)) (#2=#:G199 NIL) (|u| NIL)
+          (|p1| (|SparseUnivariatePolynomial| S)) (#2=#:G197 NIL) (|u| NIL)
           (|fR| (|Factored| (|SparseUnivariatePolynomial| R)))
           (|pnorm| (|SparseUnivariatePolynomial| R)) (|k| (R)))
          (SEQ (LETT |pnorm| (|COMPCAT-;normPolynomial| |pp| $))
@@ -287,7 +287,7 @@
 
 (SDEFUN |COMPCAT-;coordinates;SVV;29| ((|x| S) (|v| |Vector| S) ($ |Vector| R))
         (SPROG
-         ((|ix| (R)) (|rx| (R)) (#1=#:G239 NIL) (|d| (|Union| R "failed"))
+         ((|ix| (R)) (|rx| (R)) (#1=#:G237 NIL) (|d| (|Union| R "failed"))
           (|ia| (R)) (|ib| (R)) (|rb| (R)) (|b| (S)) (|ra| (R)) (|a| (S)))
          (SEQ
           (EXIT
@@ -319,7 +319,7 @@
                (EXIT
                 (COND
                  ((QEQCAR |d| 1)
-                  (PROGN (LETT #1# (|error| #2#)) (GO #3=#:G237))))))))
+                  (PROGN (LETT #1# (|error| #2#)) (GO #3=#:G235))))))))
             (LETT |rx| (SPADCALL |x| (QREFELT $ 24)))
             (LETT |ix| (SPADCALL |x| (QREFELT $ 86)))
             (EXIT
@@ -640,17 +640,13 @@
                                         (QREFELT $ 75)))))))))))))) 
 
 (SDEFUN |COMPCAT-;euclideanSize;SNni;54| ((|x| S) ($ |NonNegativeInteger|))
-        (MAX (SPADCALL (SPADCALL |x| (QREFELT $ 24)) (QREFELT $ 229))
-             (SPADCALL (SPADCALL |x| (QREFELT $ 86)) (QREFELT $ 229)))) 
-
-(SDEFUN |COMPCAT-;euclideanSize;SNni;55| ((|x| S) ($ |NonNegativeInteger|))
         (SPADCALL
          (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 24)) 2 (QREFELT $ 106))
                    (SPADCALL (SPADCALL |x| (QREFELT $ 86)) 2 (QREFELT $ 106))
                    (QREFELT $ 60))
          (QREFELT $ 229))) 
 
-(SDEFUN |COMPCAT-;rem;3S;56| ((|x| S) (|y| S) ($ S))
+(SDEFUN |COMPCAT-;rem;3S;55| ((|x| S) (|y| S) ($ S))
         (SPROG ((|yr| (R)))
                (SEQ
                 (COND
@@ -665,7 +661,7 @@
                          (QREFELT $ 30)))))
                  ('T (QCDR (SPADCALL |x| |y| (QREFELT $ 232)))))))) 
 
-(SDEFUN |COMPCAT-;quo;3S;57| ((|x| S) (|y| S) ($ S))
+(SDEFUN |COMPCAT-;quo;3S;56| ((|x| S) (|y| S) ($ S))
         (SPROG ((|xi| (R)) (|xr| (R)) (|yr| (R)))
                (SEQ
                 (COND
@@ -686,36 +682,10 @@
                          (QREFELT $ 30)))))
                  ('T (QCAR (SPADCALL |x| |y| (QREFELT $ 232)))))))) 
 
-(SDEFUN |COMPCAT-;rem;3S;58| ((|x| S) (|y| S) ($ S))
-        (SPROG ((|yr| (R)))
-               (SEQ
-                (COND
-                 ((SPADCALL (SPADCALL |y| (QREFELT $ 86)) (QREFELT $ 79))
-                  (SEQ (LETT |yr| (SPADCALL |y| (QREFELT $ 24)))
-                       (EXIT
-                        (SPADCALL
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 24)) |yr|
-                                   (QREFELT $ 236))
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 86)) |yr|
-                                   (QREFELT $ 236))
-                         (QREFELT $ 30)))))
-                 ('T (QCDR (SPADCALL |x| |y| (QREFELT $ 232)))))))) 
-
-(SDEFUN |COMPCAT-;quo;3S;59| ((|x| S) (|y| S) ($ S))
-        (COND
-         ((SPADCALL (SPADCALL |y| (QREFELT $ 86)) (QREFELT $ 79))
-          (SPADCALL
-           (SPADCALL (SPADCALL |x| (QREFELT $ 24))
-                     (SPADCALL |y| (QREFELT $ 24)) (QREFELT $ 234))
-           (SPADCALL (SPADCALL |x| (QREFELT $ 86))
-                     (SPADCALL |y| (QREFELT $ 24)) (QREFELT $ 234))
-           (QREFELT $ 30)))
-         ('T (QCAR (SPADCALL |x| |y| (QREFELT $ 232)))))) 
-
-(SDEFUN |COMPCAT-;divide;2SR;60|
+(SDEFUN |COMPCAT-;divide;2SR;57|
         ((|x| S) (|y| S) ($ |Record| (|:| |quotient| S) (|:| |remainder| S)))
         (SPROG
-         ((#1=#:G354 NIL) (|y1| (S)) (|b| (R)) (|x2| (R)) (|a| (R)) (|x1| (R))
+         ((#1=#:G344 NIL) (|y1| (S)) (|b| (R)) (|x2| (R)) (|a| (R)) (|x1| (R))
           (|xx| (S)) (|r| (R)))
          (SEQ (LETT |r| (SPADCALL |y| (QREFELT $ 19)))
               (LETT |y1| (SPADCALL |y| (QREFELT $ 41)))
@@ -769,7 +739,7 @@
                 |y1|))))) 
 
 (SDEFUN |COMPCAT-;atan2loc| ((|x| R) (|y| R) ($ R))
-        (SPROG ((|theta| (R)) (#1=#:G359 NIL) (|pi2| (R)) (|pi1| (R)))
+        (SPROG ((|theta| (R)) (#1=#:G349 NIL) (|pi2| (R)) (|pi1| (R)))
                (SEQ (LETT |pi1| (SPADCALL (QREFELT $ 242)))
                     (LETT |pi2|
                           (SPADCALL |pi1| (QREFELT $ 241) (QREFELT $ 120)))
@@ -806,12 +776,12 @@
                            (SPADCALL |theta| |pi1| (QREFELT $ 60)))
                           (#2# (SPADCALL |theta| |pi1| (QREFELT $ 27)))))))))))) 
 
-(SDEFUN |COMPCAT-;argument;SR;62| ((|x| S) ($ R))
+(SDEFUN |COMPCAT-;argument;SR;59| ((|x| S) ($ R))
         (|COMPCAT-;atan2loc| (SPADCALL |x| (QREFELT $ 24))
          (SPADCALL |x| (QREFELT $ 86)) $)) 
 
-(SDEFUN |COMPCAT-;argument;SR;63| ((|x| S) ($ R))
-        (SPROG ((#1=#:G359 NIL) (|x1| (R)) (|n1| (R)))
+(SDEFUN |COMPCAT-;argument;SR;60| ((|x| S) ($ R))
+        (SPROG ((#1=#:G349 NIL) (|x1| (R)) (|n1| (R)))
                (SEQ
                 (LETT |n1|
                       (SPADCALL (SPADCALL |x| (QREFELT $ 19)) (QREFELT $ 166)))
@@ -836,8 +806,8 @@
                             (QREFELT $ 244))
                            (QREFELT $ 120)))))) 
 
-(SDEFUN |COMPCAT-;argument;SR;64| ((|x| S) ($ R))
-        (SPROG ((#1=#:G359 NIL) (|x1| (R)) (|n1| (R)))
+(SDEFUN |COMPCAT-;argument;SR;61| ((|x| S) ($ R))
+        (SPROG ((#1=#:G349 NIL) (|x1| (R)) (|n1| (R)))
                (SEQ
                 (LETT |n1|
                       (SPADCALL
@@ -867,41 +837,41 @@
                             (QREFELT $ 244))
                            (QREFELT $ 120)))))) 
 
-(SDEFUN |COMPCAT-;pi;S;65| (($ S))
+(SDEFUN |COMPCAT-;pi;S;62| (($ S))
         (SPADCALL (SPADCALL (QREFELT $ 242)) (QREFELT $ 75))) 
 
-(SDEFUN |COMPCAT-;exp;2S;66| ((|x| S) ($ S)) (|c_to_s| (EXP (|s_to_c| |x|)))) 
+(SDEFUN |COMPCAT-;exp;2S;63| ((|x| S) ($ S)) (|c_to_s| (EXP (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;log;2S;67| ((|x| S) ($ S)) (|c_to_s| (LOG (|s_to_c| |x|)))) 
+(SDEFUN |COMPCAT-;log;2S;64| ((|x| S) ($ S)) (|c_to_s| (LOG (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;sin;2S;68| ((|x| S) ($ S)) (|c_to_s| (SIN (|s_to_c| |x|)))) 
+(SDEFUN |COMPCAT-;sin;2S;65| ((|x| S) ($ S)) (|c_to_s| (SIN (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;cos;2S;69| ((|x| S) ($ S)) (|c_to_s| (COS (|s_to_c| |x|)))) 
+(SDEFUN |COMPCAT-;cos;2S;66| ((|x| S) ($ S)) (|c_to_s| (COS (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;tan;2S;70| ((|x| S) ($ S)) (|c_to_s| (TAN (|s_to_c| |x|)))) 
+(SDEFUN |COMPCAT-;tan;2S;67| ((|x| S) ($ S)) (|c_to_s| (TAN (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;asin;2S;71| ((|x| S) ($ S)) (|c_to_s| (ASIN (|s_to_c| |x|)))) 
+(SDEFUN |COMPCAT-;asin;2S;68| ((|x| S) ($ S)) (|c_to_s| (ASIN (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;acos;2S;72| ((|x| S) ($ S)) (|c_to_s| (ACOS (|s_to_c| |x|)))) 
+(SDEFUN |COMPCAT-;acos;2S;69| ((|x| S) ($ S)) (|c_to_s| (ACOS (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;atan;2S;73| ((|x| S) ($ S)) (|c_to_s| (ATAN (|s_to_c| |x|)))) 
+(SDEFUN |COMPCAT-;atan;2S;70| ((|x| S) ($ S)) (|c_to_s| (ATAN (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;sinh;2S;74| ((|x| S) ($ S)) (|c_to_s| (SINH (|s_to_c| |x|)))) 
+(SDEFUN |COMPCAT-;sinh;2S;71| ((|x| S) ($ S)) (|c_to_s| (SINH (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;cosh;2S;75| ((|x| S) ($ S)) (|c_to_s| (COSH (|s_to_c| |x|)))) 
+(SDEFUN |COMPCAT-;cosh;2S;72| ((|x| S) ($ S)) (|c_to_s| (COSH (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;tanh;2S;76| ((|x| S) ($ S)) (|c_to_s| (TANH (|s_to_c| |x|)))) 
+(SDEFUN |COMPCAT-;tanh;2S;73| ((|x| S) ($ S)) (|c_to_s| (TANH (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;asinh;2S;77| ((|x| S) ($ S))
+(SDEFUN |COMPCAT-;asinh;2S;74| ((|x| S) ($ S))
         (|c_to_s| (ASINH (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;acosh;2S;78| ((|x| S) ($ S))
+(SDEFUN |COMPCAT-;acosh;2S;75| ((|x| S) ($ S))
         (|c_to_s| (ACOSH (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;atanh;2S;79| ((|x| S) ($ S))
+(SDEFUN |COMPCAT-;atanh;2S;76| ((|x| S) ($ S))
         (|c_to_s| (ATANH (|s_to_c| |x|)))) 
 
-(SDEFUN |COMPCAT-;atan;2S;80| ((|x| S) ($ S))
+(SDEFUN |COMPCAT-;atan;2S;77| ((|x| S) ($ S))
         (SPROG ((|ix| (S)))
                (SEQ
                 (LETT |ix|
@@ -923,13 +893,13 @@
                    (QREFELT $ 216))
                   (QREFELT $ 227)))))) 
 
-(SDEFUN |COMPCAT-;log;2S;81| ((|x| S) ($ S))
+(SDEFUN |COMPCAT-;log;2S;78| ((|x| S) ($ S))
         (SPADCALL
          (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 19)) (QREFELT $ 246))
                    (QREFELT $ 241) (QREFELT $ 120))
          (SPADCALL |x| (QREFELT $ 266)) (QREFELT $ 30))) 
 
-(SDEFUN |COMPCAT-;exp;2S;82| ((|x| S) ($ S))
+(SDEFUN |COMPCAT-;exp;2S;79| ((|x| S) ($ S))
         (SPROG ((|e| (R)))
                (SEQ
                 (LETT |e|
@@ -946,8 +916,8 @@
                             (QREFELT $ 120))
                   (QREFELT $ 30)))))) 
 
-(SDEFUN |COMPCAT-;cos;2S;83| ((|x| S) ($ S))
-        (SPROG ((#1=#:G390 NIL) (|e| (S)))
+(SDEFUN |COMPCAT-;cos;2S;80| ((|x| S) ($ S))
+        (SPROG ((#1=#:G380 NIL) (|e| (S)))
                (SEQ
                 (LETT |e|
                       (SPADCALL
@@ -969,8 +939,8 @@
                                      (QREFELT $ 264))
                            (QREFELT $ 224)))))) 
 
-(SDEFUN |COMPCAT-;sin;2S;84| ((|x| S) ($ S))
-        (SPROG ((#1=#:G395 NIL) (|e| (S)))
+(SDEFUN |COMPCAT-;sin;2S;81| ((|x| S) ($ S))
+        (SPROG ((#1=#:G385 NIL) (|e| (S)))
                (SEQ
                 (LETT |e|
                       (SPADCALL
@@ -992,7 +962,7 @@
                    (QREFELT $ 216))
                   (QREFELT $ 227)))))) 
 
-(SDEFUN |COMPCAT-;asin;2S;85| ((|x| S) ($ S))
+(SDEFUN |COMPCAT-;asin;2S;82| ((|x| S) ($ S))
         (SPADCALL
          (SPADCALL (SPADCALL (QREFELT $ 226))
                    (SPADCALL
@@ -1001,7 +971,7 @@
                    (QREFELT $ 216))
          (QREFELT $ 227))) 
 
-(SDEFUN |COMPCAT-;acos;2S;86| ((|x| S) ($ S))
+(SDEFUN |COMPCAT-;acos;2S;83| ((|x| S) ($ S))
         (SPADCALL
          (SPADCALL (SPADCALL (QREFELT $ 226))
                    (SPADCALL
@@ -1019,14 +989,14 @@
                    (QREFELT $ 216))
          (QREFELT $ 227))) 
 
-(SDEFUN |COMPCAT-;acos;2S;87| ((|x| S) ($ S))
+(SDEFUN |COMPCAT-;acos;2S;84| ((|x| S) ($ S))
         (SPADCALL
          (SPADCALL
           (SPADCALL (SPADCALL (QREFELT $ 242)) (QREFELT $ 241) (QREFELT $ 120))
           (QREFELT $ 75))
          (SPADCALL |x| (QREFELT $ 273)) (QREFELT $ 239))) 
 
-(SDEFUN |COMPCAT-;polarCoordinates;SR;88|
+(SDEFUN |COMPCAT-;polarCoordinates;SR;85|
         ((|x| S) ($ |Record| (|:| |r| R) (|:| |phi| R)))
         (SPROG ((|t| (R)))
                (CONS (SPADCALL (SPADCALL |x| (QREFELT $ 19)) (QREFELT $ 166))
@@ -1039,7 +1009,7 @@
                                  (QREFELT $ 60)))
                       ('T |t|))))) 
 
-(SDEFUN |COMPCAT-;^;SFS;89| ((|x| S) (|q| |Fraction| (|Integer|)) ($ S))
+(SDEFUN |COMPCAT-;^;SFS;86| ((|x| S) (|q| |Fraction| (|Integer|)) ($ S))
         (SPROG ((|tx| (R)) (|ax| (R)) (|rx| (R)))
                (SEQ
                 (COND
@@ -1086,8 +1056,8 @@
                                    (QREFELT $ 120))
                          (QREFELT $ 30))))))))) 
 
-(SDEFUN |COMPCAT-;^;SFS;90| ((|x| S) (|q| |Fraction| (|Integer|)) ($ S))
-        (SPROG ((|e| (R)) (|t| (R)) (#1=#:G359 NIL) (|i| (R)) (|r| (R)))
+(SDEFUN |COMPCAT-;^;SFS;87| ((|x| S) (|q| |Fraction| (|Integer|)) ($ S))
+        (SPROG ((|e| (R)) (|t| (R)) (#1=#:G349 NIL) (|i| (R)) (|r| (R)))
                (SEQ
                 (COND
                  ((SPADCALL |q| (QREFELT $ 277))
@@ -1142,7 +1112,7 @@
                                        (QREFELT $ 120))
                              (QREFELT $ 30))))))))))))) 
 
-(SDEFUN |COMPCAT-;^;3S;91| ((|x| S) (|y| S) ($ S))
+(SDEFUN |COMPCAT-;^;3S;88| ((|x| S) (|y| S) ($ S))
         (SPROG ((|yr| (R)))
                (SEQ
                 (COND
@@ -1160,7 +1130,7 @@
                              (QREFELT $ 216))
                    (QREFELT $ 269))))))) 
 
-(SDEFUN |COMPCAT-;^;3S;92| ((|x| S) (|y| S) ($ S))
+(SDEFUN |COMPCAT-;^;3S;89| ((|x| S) (|y| S) ($ S))
         (SPROG ((|yr| (R)))
                (SEQ
                 (COND
@@ -1180,7 +1150,7 @@
 
 (DEFUN |ComplexCategory&| (|#1| |#2|)
   (SPROG
-   ((#1=#:G359 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G349 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
@@ -1192,9 +1162,9 @@
                     (|buildPredVector| 0 0
                                        (LIST
                                         (|HasCategory| |#2|
-                                                       '(|PolynomialFactorizationExplicit|))
+                                                       '(|EuclideanDomain|))
                                         (|HasCategory| |#2|
-                                                       '(|IntegerNumberSystem|))
+                                                       '(|PolynomialFactorizationExplicit|))
                                         (|HasCategory| |#2|
                                                        '(|RadicalCategory|))
                                         (|HasCategory| |#2|
@@ -1213,11 +1183,7 @@
                                                          (|InputForm|)))
                                         (|HasCategory| |#2| '(|Field|))
                                         (|HasCategory| |#2|
-                                                       '(|additiveValuation|))
-                                        (|HasCategory| |#2|
-                                                       '(|multiplicativeValuation|))
-                                        (|HasCategory| |#2|
-                                                       '(|EuclideanDomain|))
+                                                       '(|IntegerNumberSystem|))
                                         (|HasCategory| |#2|
                                                        '(|IntegralDomain|))
                                         (|HasCategory| |#2|
@@ -1227,12 +1193,12 @@
     (QSETREFV $ 7 |#2|)
     (SETF |pv$| (QREFELT $ 3))
     (COND
-     ((|testBitVector| |pv$| 1)
+     ((|testBitVector| |pv$| 2)
       (COND
-       ((|testBitVector| |pv$| 14)
+       ((|testBitVector| |pv$| 1)
         (PROGN
          (COND
-          ((|testBitVector| |pv$| 2)
+          ((|testBitVector| |pv$| 12)
            (PROGN
             (QSETREFV $ 39
                       (CONS
@@ -1249,7 +1215,7 @@
                      |COMPCAT-;factorSquareFreePolynomial;SupF;6|)
                     $)))))))
     (COND
-     ((|testBitVector| |pv$| 2)
+     ((|testBitVector| |pv$| 12)
       (PROGN
        (QSETREFV $ 98 (CONS (|dispatchFunction| |COMPCAT-;factor;SF;7|) $))
        (QSETREFV $ 100
@@ -1285,11 +1251,11 @@
                 (CONS (|dispatchFunction| |COMPCAT-;patternMatch;SP2Pmr;43|)
                       $))))
     (COND
-     ((|testBitVector| |pv$| 16)
+     ((|testBitVector| |pv$| 14)
       (QSETREFV $ 203
                 (CONS (|dispatchFunction| |COMPCAT-;smaller?;2SB;44|) $))))
     (COND
-     ((|testBitVector| |pv$| 2)
+     ((|testBitVector| |pv$| 12)
       (PROGN
        (QSETREFV $ 204
                  (CONS (|dispatchFunction| |COMPCAT-;rational?;SB;45|) $))
@@ -1301,7 +1267,7 @@
      ((|testBitVector| |pv$| 11)
       (QSETREFV $ 212 (CONS (|dispatchFunction| |COMPCAT-;inv;2S;48|) $))))
     (COND
-     ((|testBitVector| |pv$| 15)
+     ((|testBitVector| |pv$| 13)
       (PROGN
        (QSETREFV $ 214 (CONS (|dispatchFunction| |COMPCAT-;exquo;SRU;49|) $))
        (QSETREFV $ 217 (CONS (|dispatchFunction| |COMPCAT-;exquo;2SU;50|) $))
@@ -1315,29 +1281,15 @@
                    (CONS (|dispatchFunction| |COMPCAT-;unitNormal;SR;53|)
                          $)))))))
     (COND
-     ((|testBitVector| |pv$| 14)
+     ((|testBitVector| |pv$| 12)
       (PROGN
-       (COND
-        ((|testBitVector| |pv$| 12)
-         (QSETREFV $ 230
-                   (CONS (|dispatchFunction| |COMPCAT-;euclideanSize;SNni;54|)
-                         $)))
-        ('T
-         (QSETREFV $ 230
-                   (CONS (|dispatchFunction| |COMPCAT-;euclideanSize;SNni;55|)
-                         $))))
-       (COND
-        ((|testBitVector| |pv$| 2)
-         (PROGN
-          (QSETREFV $ 233 (CONS (|dispatchFunction| |COMPCAT-;rem;3S;56|) $))
-          (QSETREFV $ 235 (CONS (|dispatchFunction| |COMPCAT-;quo;3S;57|) $))))
-        ('T
-         (PROGN
-          (QSETREFV $ 233 (CONS (|dispatchFunction| |COMPCAT-;rem;3S;58|) $))
-          (QSETREFV $ 235
-                    (CONS (|dispatchFunction| |COMPCAT-;quo;3S;59|) $)))))
+       (QSETREFV $ 230
+                 (CONS (|dispatchFunction| |COMPCAT-;euclideanSize;SNni;54|)
+                       $))
+       (QSETREFV $ 233 (CONS (|dispatchFunction| |COMPCAT-;rem;3S;55|) $))
+       (QSETREFV $ 235 (CONS (|dispatchFunction| |COMPCAT-;quo;3S;56|) $))
        (QSETREFV $ 240
-                 (CONS (|dispatchFunction| |COMPCAT-;divide;2SR;60|) $)))))
+                 (CONS (|dispatchFunction| |COMPCAT-;divide;2SR;57|) $)))))
     (COND
      ((|testBitVector| |pv$| 4)
       (PROGN
@@ -1353,57 +1305,57 @@
         ((|testBitVector| |pv$| 6)
          (PROGN
           (QSETREFV $ 245
-                    (CONS (|dispatchFunction| |COMPCAT-;argument;SR;62|) $))))
+                    (CONS (|dispatchFunction| |COMPCAT-;argument;SR;59|) $))))
         ((|testBitVector| |pv$| 3)
          (QSETREFV $ 245
-                   (CONS (|dispatchFunction| |COMPCAT-;argument;SR;63|) $)))
+                   (CONS (|dispatchFunction| |COMPCAT-;argument;SR;60|) $)))
         ('T
          (QSETREFV $ 245
-                   (CONS (|dispatchFunction| |COMPCAT-;argument;SR;64|) $))))
-       (QSETREFV $ 248 (CONS (|dispatchFunction| |COMPCAT-;pi;S;65|) $))
+                   (CONS (|dispatchFunction| |COMPCAT-;argument;SR;61|) $))))
+       (QSETREFV $ 248 (CONS (|dispatchFunction| |COMPCAT-;pi;S;62|) $))
        (COND
         ((|domainEqual| |#2| (|DoubleFloat|))
          (PROGN
-          (QSETREFV $ 249 (CONS (|dispatchFunction| |COMPCAT-;exp;2S;66|) $))
-          (QSETREFV $ 250 (CONS (|dispatchFunction| |COMPCAT-;log;2S;67|) $))
-          (QSETREFV $ 251 (CONS (|dispatchFunction| |COMPCAT-;sin;2S;68|) $))
-          (QSETREFV $ 252 (CONS (|dispatchFunction| |COMPCAT-;cos;2S;69|) $))
-          (QSETREFV $ 253 (CONS (|dispatchFunction| |COMPCAT-;tan;2S;70|) $))
-          (QSETREFV $ 254 (CONS (|dispatchFunction| |COMPCAT-;asin;2S;71|) $))
-          (QSETREFV $ 255 (CONS (|dispatchFunction| |COMPCAT-;acos;2S;72|) $))
-          (QSETREFV $ 256 (CONS (|dispatchFunction| |COMPCAT-;atan;2S;73|) $))
-          (QSETREFV $ 257 (CONS (|dispatchFunction| |COMPCAT-;sinh;2S;74|) $))
-          (QSETREFV $ 258 (CONS (|dispatchFunction| |COMPCAT-;cosh;2S;75|) $))
-          (QSETREFV $ 259 (CONS (|dispatchFunction| |COMPCAT-;tanh;2S;76|) $))
-          (QSETREFV $ 260 (CONS (|dispatchFunction| |COMPCAT-;asinh;2S;77|) $))
-          (QSETREFV $ 261 (CONS (|dispatchFunction| |COMPCAT-;acosh;2S;78|) $))
+          (QSETREFV $ 249 (CONS (|dispatchFunction| |COMPCAT-;exp;2S;63|) $))
+          (QSETREFV $ 250 (CONS (|dispatchFunction| |COMPCAT-;log;2S;64|) $))
+          (QSETREFV $ 251 (CONS (|dispatchFunction| |COMPCAT-;sin;2S;65|) $))
+          (QSETREFV $ 252 (CONS (|dispatchFunction| |COMPCAT-;cos;2S;66|) $))
+          (QSETREFV $ 253 (CONS (|dispatchFunction| |COMPCAT-;tan;2S;67|) $))
+          (QSETREFV $ 254 (CONS (|dispatchFunction| |COMPCAT-;asin;2S;68|) $))
+          (QSETREFV $ 255 (CONS (|dispatchFunction| |COMPCAT-;acos;2S;69|) $))
+          (QSETREFV $ 256 (CONS (|dispatchFunction| |COMPCAT-;atan;2S;70|) $))
+          (QSETREFV $ 257 (CONS (|dispatchFunction| |COMPCAT-;sinh;2S;71|) $))
+          (QSETREFV $ 258 (CONS (|dispatchFunction| |COMPCAT-;cosh;2S;72|) $))
+          (QSETREFV $ 259 (CONS (|dispatchFunction| |COMPCAT-;tanh;2S;73|) $))
+          (QSETREFV $ 260 (CONS (|dispatchFunction| |COMPCAT-;asinh;2S;74|) $))
+          (QSETREFV $ 261 (CONS (|dispatchFunction| |COMPCAT-;acosh;2S;75|) $))
           (QSETREFV $ 262
-                    (CONS (|dispatchFunction| |COMPCAT-;atanh;2S;79|) $))))
+                    (CONS (|dispatchFunction| |COMPCAT-;atanh;2S;76|) $))))
         ('T
          (PROGN
-          (QSETREFV $ 256 (CONS (|dispatchFunction| |COMPCAT-;atan;2S;80|) $))
-          (QSETREFV $ 250 (CONS (|dispatchFunction| |COMPCAT-;log;2S;81|) $))
-          (QSETREFV $ 249 (CONS (|dispatchFunction| |COMPCAT-;exp;2S;82|) $))
-          (QSETREFV $ 252 (CONS (|dispatchFunction| |COMPCAT-;cos;2S;83|) $))
-          (QSETREFV $ 251 (CONS (|dispatchFunction| |COMPCAT-;sin;2S;84|) $))
-          (QSETREFV $ 254 (CONS (|dispatchFunction| |COMPCAT-;asin;2S;85|) $))
+          (QSETREFV $ 256 (CONS (|dispatchFunction| |COMPCAT-;atan;2S;77|) $))
+          (QSETREFV $ 250 (CONS (|dispatchFunction| |COMPCAT-;log;2S;78|) $))
+          (QSETREFV $ 249 (CONS (|dispatchFunction| |COMPCAT-;exp;2S;79|) $))
+          (QSETREFV $ 252 (CONS (|dispatchFunction| |COMPCAT-;cos;2S;80|) $))
+          (QSETREFV $ 251 (CONS (|dispatchFunction| |COMPCAT-;sin;2S;81|) $))
+          (QSETREFV $ 254 (CONS (|dispatchFunction| |COMPCAT-;asin;2S;82|) $))
           (COND
            ((|testBitVector| |pv$| 3)
             (QSETREFV $ 255
-                      (CONS (|dispatchFunction| |COMPCAT-;acos;2S;86|) $)))
+                      (CONS (|dispatchFunction| |COMPCAT-;acos;2S;83|) $)))
            ('T
             (QSETREFV $ 255
-                      (CONS (|dispatchFunction| |COMPCAT-;acos;2S;87|) $)))))))
+                      (CONS (|dispatchFunction| |COMPCAT-;acos;2S;84|) $)))))))
        (COND
         ((|testBitVector| |pv$| 6)
          (PROGN
           (QSETREFV $ 276
                     (CONS
-                     (|dispatchFunction| |COMPCAT-;polarCoordinates;SR;88|) $))
-          (QSETREFV $ 282 (CONS (|dispatchFunction| |COMPCAT-;^;SFS;89|) $))))
+                     (|dispatchFunction| |COMPCAT-;polarCoordinates;SR;85|) $))
+          (QSETREFV $ 282 (CONS (|dispatchFunction| |COMPCAT-;^;SFS;86|) $))))
         ((|testBitVector| |pv$| 3)
          (QSETREFV $ 282
-                   (CONS (|dispatchFunction| |COMPCAT-;^;SFS;90|) $)))))))
+                   (CONS (|dispatchFunction| |COMPCAT-;^;SFS;87|) $)))))))
     (COND
      ((|domainEqual| |#2| (|Float|))
       (COND
@@ -1411,14 +1363,14 @@
                         (LIST '<
                               (LIST '(|Boolean|) (|devaluate| |#2|)
                                     (|devaluate| |#2|))))
-        (QSETREFV $ 287 (CONS (|dispatchFunction| |COMPCAT-;^;3S;91|) $)))))
+        (QSETREFV $ 287 (CONS (|dispatchFunction| |COMPCAT-;^;3S;88|) $)))))
      ((|domainEqual| |#2| (|DoubleFloat|))
       (COND
        ((|HasSignature| |#2|
                         (LIST '<
                               (LIST '(|Boolean|) (|devaluate| |#2|)
                                     (|devaluate| |#2|))))
-        (QSETREFV $ 287 (CONS (|dispatchFunction| |COMPCAT-;^;3S;92|) $))))))
+        (QSETREFV $ 287 (CONS (|dispatchFunction| |COMPCAT-;^;3S;89|) $))))))
     $))) 
 
 (MAKEPROP '|ComplexCategory&| '|infovec|

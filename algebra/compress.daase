@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5146 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5148 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -143,11 +143,11 @@
  |FunctionSpaceFunctions2| |FunctionSpaceToExponentialExpansion|
  |FunctionSpaceToUnivariatePowerSeries| |FunctionSpaceToUnivariatePowerSeries2|
  |FiniteSetAggregate&| |FiniteSetAggregate| |FiniteSetAggregateFunctions2|
- |FunctionSpaceComplexIntegration| |FourierSeries| |FloatSpecialFunctions|
- |FunctionSpaceIntegration| |FunctionalSpecialFunction|
- |FunctionSpacePrimitiveElement| |FunctionSpaceReduce|
- |FunctionSpaceRationalRoots| |FortranScalarType| |FortranType|
- |FortranTemplate| |FunctionCalled| |FortranVectorCategory|
+ |FunctionSpaceComplexIntegration| |FunctionSpaceComplexIntegrationAux|
+ |FourierSeries| |FloatSpecialFunctions| |FunctionSpaceIntegration|
+ |FunctionalSpecialFunction| |FunctionSpacePrimitiveElement|
+ |FunctionSpaceReduce| |FunctionSpaceRationalRoots| |FortranScalarType|
+ |FortranType| |FortranTemplate| |FunctionCalled| |FortranVectorCategory|
  |FortranVectorFunctionCategory| |GaloisGroupFactorizer|
  |GaloisGroupFactorizationUtilities| |GaloisGroupPolynomialUtilities|
  |GaloisGroupUtilities| |GaussianFactorizationPackage| |GroebnerPackage|
@@ -412,13 +412,13 @@
  |TopLevelThreeSpace| |TranscendentalFunctionCategory&|
  |TranscendentalFunctionCategory| |Tree| |TrigonometricFunctionCategory&|
  |TrigonometricFunctionCategory| |TrigonometricManipulations|
- |TriangularMatrixOperations| |TranscendentalManipulations| |TaylorSeries|
- |TaylorSeriesExpansion&| |TaylorSeriesExpansion|
- |TaylorSeriesExpansionGeneralized| |TaylorSeriesExpansionLaurent|
- |TaylorSeriesExpansionPuiseux| |TaylorSeriesExpansionTaylor|
- |TriangularSetCategory&| |TriangularSetCategory| |TubePlot| |TubePlotTools|
- |Tuple| |TwoFactorize| |Type| |Typed| |U16Matrix| |U16Vector| |U32Matrix|
- |U32Vector| |U8Matrix| |U8Vector| |UndirectedGraph|
+ |TrigonometricManipulationsAux| |TriangularMatrixOperations|
+ |TranscendentalManipulations| |TaylorSeries| |TaylorSeriesExpansion&|
+ |TaylorSeriesExpansion| |TaylorSeriesExpansionGeneralized|
+ |TaylorSeriesExpansionLaurent| |TaylorSeriesExpansionPuiseux|
+ |TaylorSeriesExpansionTaylor| |TriangularSetCategory&| |TriangularSetCategory|
+ |TubePlot| |TubePlotTools| |Tuple| |TwoFactorize| |Type| |Typed| |U16Matrix|
+ |U16Vector| |U32Matrix| |U32Vector| |U8Matrix| |U8Vector| |UndirectedGraph|
  |UserDefinedPartialOrdering| |UserDefinedVariableOrdering|
  |UniqueFactorizationDomain&| |UniqueFactorizationDomain|
  |UnivariateFormalPowerSeries| |UnivariateFormalPowerSeriesFunctions|
@@ -723,11 +723,11 @@
  |cAsec| |cAcot| |cAtan| |cAcos| |cAsin| |cCsc| |cSec| |cCot| |cTan| |cCos|
  |cSin| |cLog| |cExp| |cRationalPower| |cPower| |seriesToOutputForm| |iCompose|
  |taylorQuoByVar| |iExquo| |getStream| |getRef| |makeSeries| GF2FG FG2F F2FG
- |explogs2trigs| |trigs2explogs| |do_liou| |swap!| |fill!| |entry?| |indices|
- |index?| |dimS| |dimJ| |Pr| |Pm| |integrateIfCan| |derivativeOf?| |weight|
- |type| |allRepeated| |m2r| |r2m| |repeatedIndex| |multiIndex| |numerJP|
- |autoReduce| |reduceMod| |simpMod| |simpOne| |dSubst| |solveFor| |sortLD|
- |leadingDer| |freeOf?| |orderDim| |formalDiff2| |formalDiff| |class| |const?|
+ |explogs2trigs| |do_liou| |swap!| |fill!| |entry?| |indices| |index?| |dimS|
+ |dimJ| |Pr| |Pm| |integrateIfCan| |derivativeOf?| |weight| |type|
+ |allRepeated| |m2r| |r2m| |repeatedIndex| |multiIndex| |numerJP| |autoReduce|
+ |reduceMod| |simpMod| |simpOne| |dSubst| |solveFor| |sortLD| |leadingDer|
+ |freeOf?| |orderDim| |formalDiff2| |formalDiff| |class| |const?|
  |jetVariables| |numDepVar| |numIndVar| |getNotation| |setNotation| P U X
  |ground| |printSys| |jacobiMatrix| |makeSystem| |setSimpMode| |extractSymbol|
  |analyseSymbol| |prolongSymbol| |prolongMV| |project| |contract|
@@ -1118,25 +1118,25 @@
  |writeLine!| |coerceL| |sign| |nonQsign| |direction| |createThreeSpace| |pi|
  |tree| |cos| |cot| |csc| |sec| |sin| |tan| |complexNormalize|
  |complexElementary| |trigs| |real| |imag| |real?| |complexForm|
- |UpTriBddDenomInv| |LowTriBddDenomInv| |simplify| |htrigs| |simplifyExp|
- |simplifyLog| |expandPower| |expandLog| |cos2sec| |cosh2sech| |cot2trig|
- |coth2trigh| |csc2sin| |csch2sinh| |sec2cos| |sech2cosh| |sin2csc| |sinh2csch|
- |tan2trig| |tanh2trigh| |tan2cot| |tanh2coth| |cot2tan| |coth2tanh|
- |removeCosSq| |removeSinSq| |removeCoshSq| |removeSinhSq| |expandTrigProducts|
- |fintegrate| |coefficient| |taylor_via_deriv| |taylor_via_lode| |applyTaylor|
- |apply_taylor| |coHeight| |extendIfCan| |algebraicVariables|
- |zeroSetSplitIntoTriangularSystems| |zeroSetSplit| |reduceByQuasiMonic|
- |collectQuasiMonic| |removeZero| |initiallyReduce| |headReduce|
- |stronglyReduce| |rewriteSetWithReduction| |autoReduced?| |initiallyReduced?|
- |headReduced?| |stronglyReduced?| |reduced?| |normalized?| |quasiComponent|
- |initials| |basicSet| |infRittWu?| |getCurve| |listLoops| |closed?| |open?|
- |setClosed| |tube| |point| |unitVector| |cosSinInfo| |loopPoints| |select|
- |generalTwoFactor| |tryTwoFactor| |generalSqFr| |twoFactor| |doFactor|
- |diagramSvg2| |undirectedGraph| |setOrder| |getOrder| |less?| |userOrdered?|
- |largest| |more?| |setVariableOrder| |getVariableOrder| |resetVariableOrder|
- |prime?| |hadamard| |pre_gauss| |pre_smith| |pre_lr| |rationalFunction|
- |taylorIfCan| |taylor| |removeZeroes| |taylorRep| |hasHi| |segment| SEGMENT
- |commonDenominator| |clearDenominator| |splitDenominator|
+ |trigs2explogs| |UpTriBddDenomInv| |LowTriBddDenomInv| |simplify| |htrigs|
+ |simplifyExp| |simplifyLog| |expandPower| |expandLog| |cos2sec| |cosh2sech|
+ |cot2trig| |coth2trigh| |csc2sin| |csch2sinh| |sec2cos| |sech2cosh| |sin2csc|
+ |sinh2csch| |tan2trig| |tanh2trigh| |tan2cot| |tanh2coth| |cot2tan|
+ |coth2tanh| |removeCosSq| |removeSinSq| |removeCoshSq| |removeSinhSq|
+ |expandTrigProducts| |fintegrate| |coefficient| |taylor_via_deriv|
+ |taylor_via_lode| |applyTaylor| |apply_taylor| |coHeight| |extendIfCan|
+ |algebraicVariables| |zeroSetSplitIntoTriangularSystems| |zeroSetSplit|
+ |reduceByQuasiMonic| |collectQuasiMonic| |removeZero| |initiallyReduce|
+ |headReduce| |stronglyReduce| |rewriteSetWithReduction| |autoReduced?|
+ |initiallyReduced?| |headReduced?| |stronglyReduced?| |reduced?| |normalized?|
+ |quasiComponent| |initials| |basicSet| |infRittWu?| |getCurve| |listLoops|
+ |closed?| |open?| |setClosed| |tube| |point| |unitVector| |cosSinInfo|
+ |loopPoints| |select| |generalTwoFactor| |tryTwoFactor| |generalSqFr|
+ |twoFactor| |doFactor| |diagramSvg2| |undirectedGraph| |setOrder| |getOrder|
+ |less?| |userOrdered?| |largest| |more?| |setVariableOrder| |getVariableOrder|
+ |resetVariableOrder| |prime?| |hadamard| |pre_gauss| |pre_smith| |pre_lr|
+ |rationalFunction| |taylorIfCan| |taylor| |removeZeroes| |taylorRep| |hasHi|
+ |segment| SEGMENT |commonDenominator| |clearDenominator| |splitDenominator|
  |monicRightFactorIfCan| |rightFactorIfCan| |leftFactorIfCan|
  |monicDecomposeIfCan| |monicCompleteDecompose| |decomposeIfCan|
  |completeDecompose| |divideIfCan| |noKaratsuba| |karatsubaOnce| |karatsuba|
