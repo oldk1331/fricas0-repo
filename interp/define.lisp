@@ -387,29 +387,19 @@
       (#1# (|macroExpandList| |x| |e|))))))
  
 ; macroExpandList(l,e) ==
-;   -- macros should override niladic props
-;   (l is [name]) and IDENTP name and GETDATABASE(name, 'NILADIC) and
-;         (u := get(name, 'macro, e)) => macroExpand(u,e)
 ;   [macroExpand(x,e) for x in l]
  
 (DEFUN |macroExpandList| (|l| |e|)
-  (PROG (|name| |u|)
+  (PROG ()
     (RETURN
-     (COND
-      ((AND (CONSP |l|) (EQ (CDR |l|) NIL)
-            (PROGN (SETQ |name| (CAR |l|)) #1='T) (IDENTP |name|)
-            (GETDATABASE |name| 'NILADIC)
-            (SETQ |u| (|get| |name| '|macro| |e|)))
-       (|macroExpand| |u| |e|))
-      (#1#
-       ((LAMBDA (|bfVar#13| |bfVar#12| |x|)
-          (LOOP
-           (COND
-            ((OR (ATOM |bfVar#12|) (PROGN (SETQ |x| (CAR |bfVar#12|)) NIL))
-             (RETURN (NREVERSE |bfVar#13|)))
-            (#1# (SETQ |bfVar#13| (CONS (|macroExpand| |x| |e|) |bfVar#13|))))
-           (SETQ |bfVar#12| (CDR |bfVar#12|))))
-        NIL |l| NIL))))))
+     ((LAMBDA (|bfVar#13| |bfVar#12| |x|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#12|) (PROGN (SETQ |x| (CAR |bfVar#12|)) NIL))
+           (RETURN (NREVERSE |bfVar#13|)))
+          ('T (SETQ |bfVar#13| (CONS (|macroExpand| |x| |e|) |bfVar#13|))))
+         (SETQ |bfVar#12| (CDR |bfVar#12|))))
+      NIL |l| NIL))))
  
 ; compDefineCategory1(df is ['DEF,form,sig,sc,body],m,e,prefix,fal) ==
 ;   categoryCapsule :=

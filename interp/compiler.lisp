@@ -3923,7 +3923,7 @@
 ;       signature:=
 ;         ["Mapping",newTarget,:
 ;           [(x is [":",a,m] => m;
-;               getmode(x,e) or systemErrorHere '"compColonOld") for x in argl]]
+;               getmode(x,e) or systemErrorHere '"compColon") for x in argl]]
 ;       put(op,"mode",signature,e)
 ;     put(f,"mode",t,e)
 ;   if not $bootStrapMode and $insideFunctorIfTrue and
@@ -4080,7 +4080,7 @@
                                                          (OR
                                                           (|getmode| |x| |e|)
                                                           (|systemErrorHere|
-                                                           "compColonOld"))))
+                                                           "compColon"))))
                                                        |bfVar#143|))))
                                             (SETQ |bfVar#142|
                                                     (CDR |bfVar#142|))))

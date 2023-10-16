@@ -316,6 +316,25 @@
        (MSORT (HKEYS |$depTb|)) NIL)
       (RSHUT |stream|)))))
  
+; save_browser_data() ==
+;     buildLibdb(false)
+;     dbSplitLibdb()
+;     mkUsersHashTable()
+;     saveUsersHashTable()
+;     mkDependentsHashTable()
+;     saveDependentsHashTable()
+ 
+(DEFUN |save_browser_data| ()
+  (PROG ()
+    (RETURN
+     (PROGN
+      (|buildLibdb| NIL)
+      (|dbSplitLibdb|)
+      (|mkUsersHashTable|)
+      (|saveUsersHashTable|)
+      (|mkDependentsHashTable|)
+      (|saveDependentsHashTable|)))))
+ 
 ; getUsersOfConstructor(con) ==
 ;   stream := readLib('USERS, 'DATABASE)
 ;   val := rread_list(con, stream)
