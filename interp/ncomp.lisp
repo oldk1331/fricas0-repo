@@ -998,7 +998,7 @@
 ;         modemap := GETDATABASE(op, 'CONSTRUCTORMODEMAP)
 ;         modemap is [[form, sig, :.], [=true,.]] =>
 ;             pairlis:= [[v,:a] for a in argl for v in $FormalMapVariableList]
-;             -- substitue
+;             -- substitute
 ;             SUBLIS(pairlis, sig)
 ;         PRETTYPRINT("strange untyped def")
 ;         PRETTYPRINT([lhs, rhs, modemap])

@@ -997,7 +997,7 @@
 ;         $mutableDomain => 'mutable_domain_functor
 ;         'domain_functor
 ;     fun := do_compile(SUBLIS($pairlis, [op', [lamOrSlam, argl, body']]), e)
-;     --The above statement stops substitutions gettting in one another's way
+;     --The above statement stops substitutions getting in one another's way
 ; --+
 ;     operationAlist := SUBLIS($pairlis,$lisplibOperationAlist)
 ;     if $LISPLIB then

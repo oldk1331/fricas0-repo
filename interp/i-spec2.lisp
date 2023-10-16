@@ -754,7 +754,7 @@
              (LIST 'COND (LIST |p1| |a1|) (LIST ''T |a2|))))))))
  
 ; interpIF(op,cond,a,b) ==
-;   -- non-compiled version of IF type analyzer.  Doesn't resolve accross
+;   -- non-compiled version of IF type analyzer.  Doesn't resolve across
 ;   --  branches of the IF.
 ;   val:= getValue cond
 ;   val:= coerceInteractive(val,$Boolean) =>

@@ -266,7 +266,7 @@
 ; evaluateType form ==
 ;   -- Takes a parsed, unabbreviated type and evaluates it, replacing
 ;   --  type valued variables with their values, and calling bottomUp
-;   --  on non-type valued arguemnts to the constructor
+;   --  on non-type valued arguments to the constructor
 ;   --  and finally checking to see whether the type satisfies the
 ;   --  conditions of its modemap
 ;   domain:= isDomainValuedVariable form => domain

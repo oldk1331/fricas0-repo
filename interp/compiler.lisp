@@ -1471,7 +1471,7 @@
 ;       nil
 ;   op is ["Sel", domain, op'] => compSel1(domain, op', argl, m, e)
 ; 
-;   e:= addDomain(m,e) --???unneccessary because of comp2's call???
+;   e:= addDomain(m,e) --???unnecessary because of comp2's call???
 ;   (mmList:= getFormModemaps(form,e)) and (T:= compForm2(form,m,e,mmList)) => T
 ;   compToApply(op,argl,m,e)
  
@@ -3050,7 +3050,7 @@
 ; compReturn(["return", x], m, e) ==
 ;   ns := #$exitModeStack
 ;   ns = $currentFunctionLevel =>
-;     stackSemanticError(["the return before","%b",x,"%d","is unneccessary"],nil)
+;     stackSemanticError(["the return before","%b",x,"%d","is unnecessary"],nil)
 ;     nil
 ;   index := MAX(0, ns - $currentFunctionLevel - 1)
 ;   $returnMode:= resolve($exitModeStack.index,$returnMode)
@@ -3069,7 +3069,7 @@
        ((EQUAL |ns| |$currentFunctionLevel|)
         (PROGN
          (|stackSemanticError|
-          (LIST '|the return before| '|%b| |x| '|%d| '|is unneccessary|) NIL)
+          (LIST '|the return before| '|%b| |x| '|%d| '|is unnecessary|) NIL)
          NIL))
        ('T
         (PROGN
@@ -4532,7 +4532,7 @@
 ;            and (modeEqual(s,m) or isSubset(m,s,e))] or return nil
 ; 
 ;   --mm:= (or/[mm for (mm:=[.,[cond,.]]) in u | cond=true]) or return nil
-;   mm:=first u  -- patch for non-trival conditons
+;   mm:=first u  -- patch for non-trival conditions
 ;   fn :=
 ;       genDeltaEntry(['coerce, :mm], e)
 ;   [["call",fn,x],m',e]

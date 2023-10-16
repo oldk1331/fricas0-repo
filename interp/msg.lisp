@@ -315,7 +315,7 @@
       |posLetterList|))))
  
 ; insertPos(newPos,posList) ==
-; --insersts a position in the proper place of a positon list
+; --inserts a position in the proper place of a position list
 ; --used for the 2nd pos of a fromto
 ;     done := false
 ;     bot  := [0,:posList]

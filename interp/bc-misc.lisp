@@ -1426,7 +1426,7 @@
 ;     (text . "\tab{49}")
 ;     (bcStrings (8 0 point F))
 ;     (text . "\blankline ")
-;     (text . "For Puiseux Series, the exponent of the power series variable ranges from an {\em initial value}, an arbitary rational number, to plus infinity; the {\em step size} is an any positive rational number.")
+;     (text . "For Puiseux Series, the exponent of the power series variable ranges from an {\em initial value}, an arbitrary rational number, to plus infinity; the {\em step size} is an any positive rational number.")
 ;     (text . "\blankline ")
 ;     (text . "\newline ")
 ;     (text . "\menuitemstyle{}\tab{2}")
@@ -1470,7 +1470,7 @@
          (|text| . "\\tab{49}") (|bcStrings| (8 0 |point| F))
          (|text| . "\\blankline ")
          (|text|
-          . "For Puiseux Series, the exponent of the power series variable ranges from an {\\em initial value}, an arbitary rational number, to plus infinity; the {\\em step size} is an any positive rational number.")
+          . "For Puiseux Series, the exponent of the power series variable ranges from an {\\em initial value}, an arbitrary rational number, to plus infinity; the {\\em step size} is an any positive rational number.")
          (|text| . "\\blankline ") (|text| . "\\newline ")
          (|text| . "\\menuitemstyle{}\\tab{2}")
          (|text|

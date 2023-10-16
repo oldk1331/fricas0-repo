@@ -1427,7 +1427,7 @@
      (INTERN (STRCONC "$" (STRINGIMAGE |mapname|) "CatchMapIdentifier$")))))
  
 ; analyzeMap(op,argTypes,mapDef, tar) ==
-;   -- Top level enty point for map type analysis.  Sets up catch point
+;   -- Top level entry point for map type analysis.  Sets up catch point
 ;   --  for interpret-code mode.
 ;   $compilingMap:local := true
 ;   $definingMap:local := true
@@ -3037,7 +3037,7 @@
       NIL |mapDef| NIL))))
  
 ; numMapArgs(mapDef is [[args,:.],:.]) ==
-;   -- returns the number of arguemnts to the map whose body is mapDef
+;   -- returns the number of arguments to the map whose body is mapDef
 ;   numArgs args
  
 (DEFUN |numMapArgs| (|mapDef|)

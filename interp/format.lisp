@@ -234,7 +234,7 @@
       (|findSubstitutionOrder?| |alist|)))))
  
 ; findSubstitutionOrder? alist == fn(alist,nil) where
-;   -- returns NIL or an appropriate substituion order
+;   -- returns NIL or an appropriate substitution order
 ;   fn(alist,res) ==
 ;     null alist => NREVERSE res
 ;     choice := or/[x for (x:=[a,:b]) in alist | null containedRight(a,alist)] =>
