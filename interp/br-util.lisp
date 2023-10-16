@@ -89,14 +89,13 @@
   (SETQ |$pmFilterDelimiters| (LIST (|char| '|(|) (|char| '|)|) (|char| '| |))))
  
 ; $dbKindAlist :=
-;   [[char 'a,:'"attribute"],[char 'o,:'"operation"],
+;   [[char 'o, :'"operation"],
 ;     [char 'd,:'"domain"],[char 'p,:'"package"],
 ;       [char 'c,:'"category"],[char 'x,:'"default_ package"]]
  
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$dbKindAlist|
-          (LIST (CONS (|char| '|a|) "attribute")
-                (CONS (|char| '|o|) "operation") (CONS (|char| '|d|) "domain")
+          (LIST (CONS (|char| '|o|) "operation") (CONS (|char| '|d|) "domain")
                 (CONS (|char| '|p|) "package") (CONS (|char| '|c|) "category")
                 (CONS (|char| '|x|) "default package"))))
  
@@ -381,7 +380,6 @@
  
 ; form2HtString(x,:options) ==
 ;   $emList:local := IFCAR options   --list of atoms to be emphasized
-;   $brief: local := IFCAR IFCDR options --see dbShowOperationsFromConform (lib11)
 ;   fn(x) where
 ;     fn x ==
 ;       atom x =>
@@ -397,7 +395,6 @@
 ;       first x = 'construct => fnTail(rest x,'"[]")
 ;       tail := fnTail(rest x,'"()")
 ;       head := fn first x
-; --    $brief and #head + #tail > 35 => STRCONC(head,'"(...)")
 ;       STRCONC(head,tail)
 ;     fnTail(x,str) ==
 ;       null x => '""
@@ -407,13 +404,10 @@
 ;       STRCONC('",",fn first x,fnTailTail rest x)
  
 (DEFUN |form2HtString| (|x| &REST |options|)
-  (PROG (|$brief| |$emList|)
-    (DECLARE (SPECIAL |$brief| |$emList|))
+  (PROG (|$emList|)
+    (DECLARE (SPECIAL |$emList|))
     (RETURN
-     (PROGN
-      (SETQ |$emList| (IFCAR |options|))
-      (SETQ |$brief| (IFCAR (IFCDR |options|)))
-      (|form2HtString,fn| |x|)))))
+     (PROGN (SETQ |$emList| (IFCAR |options|)) (|form2HtString,fn| |x|)))))
 (DEFUN |form2HtString,fn| (|x|)
   (PROG (|u| |tail| |head|)
     (RETURN

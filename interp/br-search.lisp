@@ -664,7 +664,10 @@
 ;       kind = char '_- => 'skip                --for now
 ;       systemError 'kind
 ;   if doc? then CLOSE instream2
-;   [['"attribute",:NREVERSE atts],
+;   not(atts = []) => BREAK()
+;   [ 
+;      -- no attributes
+;      -- ['"attribute",:NREVERSE atts],
 ;      ['"operation",:NREVERSE ops],
 ;        ['"category",:NREVERSE cats],
 ;          ['"domain",:NREVERSE doms],
@@ -725,11 +728,12 @@
                 ((EQUAL |kind| (|char| '-)) '|skip|)
                 (#1# (|systemError| '|kind|)))))))))))
       (COND (|doc?| (CLOSE |instream2|)))
-      (LIST (CONS "attribute" (NREVERSE |atts|))
-            (CONS "operation" (NREVERSE |ops|))
-            (CONS "category" (NREVERSE |cats|))
-            (CONS "domain" (NREVERSE |doms|))
-            (CONS "package" (NREVERSE |paks|)))))))
+      (COND ((NULL (NULL |atts|)) (BREAK))
+            (#1#
+             (LIST (CONS "operation" (NREVERSE |ops|))
+                   (CONS "category" (NREVERSE |cats|))
+                   (CONS "domain" (NREVERSE |doms|))
+                   (CONS "package" (NREVERSE |paks|)))))))))
  
 ; mkUpDownPattern s == recurse(s,0,#s) where
 ;   recurse(s,i,n) ==
@@ -2319,36 +2323,37 @@
       (FUNCALL |fn| |filter| |key| |kind|)))))
  
 ; dbSearch(lines,kind,filter) == --called by attribute, operation, constructor search
+;   kind = '"attribute" => BREAK()
 ;   lines is ['error,:.] => bcErrorPage lines
 ;   null filter => nil      --means filter error
 ;   lines is ['Abbreviations,:r] => dbSearchAbbrev(lines,kind,filter)
-;   if member(kind,'("attribute" "operation")) then --should not be necessary!!
+;   if kind = '"operation" then --should not be necessary!!
 ;     lines := dbScreenForDefaultFunctions lines
 ;   count := #lines
 ;   count = 0 => emptySearchPage(kind, filter, false)
-;   member(kind,'("attribute" "operation")) => dbShowOperationLines(kind,lines)
+;   kind = '"operation" => dbShowOperationLines(kind, lines)
 ;   dbShowConstructorLines lines
  
 (DEFUN |dbSearch| (|lines| |kind| |filter|)
   (PROG (|r| |count|)
     (RETURN
-     (COND
-      ((AND (CONSP |lines|) (EQ (CAR |lines|) '|error|))
-       (|bcErrorPage| |lines|))
-      ((NULL |filter|) NIL)
-      ((AND (CONSP |lines|) (EQ (CAR |lines|) '|Abbreviations|)
-            (PROGN (SETQ |r| (CDR |lines|)) #1='T))
-       (|dbSearchAbbrev| |lines| |kind| |filter|))
-      (#1#
-       (PROGN
-        (COND
-         ((|member| |kind| '("attribute" "operation"))
-          (SETQ |lines| (|dbScreenForDefaultFunctions| |lines|))))
-        (SETQ |count| (LENGTH |lines|))
-        (COND ((EQL |count| 0) (|emptySearchPage| |kind| |filter| NIL))
-              ((|member| |kind| '("attribute" "operation"))
-               (|dbShowOperationLines| |kind| |lines|))
-              (#1# (|dbShowConstructorLines| |lines|)))))))))
+     (COND ((EQUAL |kind| "attribute") (BREAK))
+           ((AND (CONSP |lines|) (EQ (CAR |lines|) '|error|))
+            (|bcErrorPage| |lines|))
+           ((NULL |filter|) NIL)
+           ((AND (CONSP |lines|) (EQ (CAR |lines|) '|Abbreviations|)
+                 (PROGN (SETQ |r| (CDR |lines|)) #1='T))
+            (|dbSearchAbbrev| |lines| |kind| |filter|))
+           (#1#
+            (PROGN
+             (COND
+              ((EQUAL |kind| "operation")
+               (SETQ |lines| (|dbScreenForDefaultFunctions| |lines|))))
+             (SETQ |count| (LENGTH |lines|))
+             (COND ((EQL |count| 0) (|emptySearchPage| |kind| |filter| NIL))
+                   ((EQUAL |kind| "operation")
+                    (|dbShowOperationLines| |kind| |lines|))
+                   (#1# (|dbShowConstructorLines| |lines|)))))))))
  
 ; dbSearchAbbrev([.,:conlist],kind,filter) ==
 ;   null conlist => emptySearchPage('"abbreviation", filter, false)
@@ -2542,13 +2547,15 @@
 ;   selectors :=
 ;     which = 'cons => '(conname connargs consig)
 ;     which = 'ops  => '(opname  opnargs  opsig)
-;     '(attrname attrnargs attrargs)
+;     BREAK()
 ;   name := generalSearchString(htPage,selectors.0)
 ;   nargs:= generalSearchString(htPage,selectors.1)
 ;   npat := standardizeSignature generalSearchString(htPage,selectors.2)
 ;   kindCode :=
 ;     which = 'ops => char 'o
-;     which = 'attrs => char 'a
+;     which = 'attrs =>
+;         BREAK()
+;         char 'a
 ;     acc := '""
 ;     if htButtonOn?(htPage,'cats) then acc := STRCONC(char 'c,acc)
 ;     if htButtonOn?(htPage,'doms) then acc := STRCONC(char 'd,acc)
@@ -2571,7 +2578,7 @@
 ;         '"default package"
 ;       '"constructor"
 ;     which = 'ops  => '"operation"
-;     '"attribute"
+;     BREAK()
 ;   null lines => emptySearchPage(kind, nil, false)
 ;   dbSearch(lines,kind,'"filter")
  
@@ -2586,7 +2593,7 @@
       (SETQ |selectors|
               (COND ((EQ |which| '|cons|) '(|conname| |connargs| |consig|))
                     ((EQ |which| '|ops|) '(|opname| |opnargs| |opsig|))
-                    (#1='T '(|attrname| |attrnargs| |attrargs|))))
+                    (#1='T (BREAK))))
       (SETQ |name| (|generalSearchString| |htPage| (ELT |selectors| 0)))
       (SETQ |nargs| (|generalSearchString| |htPage| (ELT |selectors| 1)))
       (SETQ |npat|
@@ -2594,7 +2601,7 @@
                (|generalSearchString| |htPage| (ELT |selectors| 2))))
       (SETQ |kindCode|
               (COND ((EQ |which| '|ops|) (|char| '|o|))
-                    ((EQ |which| '|attrs|) (|char| '|a|))
+                    ((EQ |which| '|attrs|) (PROGN (BREAK) (|char| '|a|)))
                     (#1#
                      (PROGN
                       (SETQ |acc| "")
@@ -2629,7 +2636,7 @@
                         ((|htButtonOn?| |htPage| '|paks|) "package")
                         (#1# "default package")))
                  (#1# "constructor")))
-               ((EQ |which| '|ops|) "operation") (#1# "attribute")))
+               ((EQ |which| '|ops|) "operation") (#1# (BREAK))))
       (COND ((NULL |lines|) (|emptySearchPage| |kind| NIL NIL))
             (#1# (|dbSearch| |lines| |kind| "filter")))))))
  

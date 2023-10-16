@@ -1256,6 +1256,7 @@
   (PROG () (RETURN (|htSayStandardList| (LIST "\\tab{" |s| "}")))))
  
 ; dbGatherThenShow(htPage,opAlist,which,data,constructorIfTrue,word,fn) ==
+;   which ~= '"operation" => BREAK()
 ;   single? := null rest data
 ;   htBeginMenu 'description
 ;   bincount := 0
@@ -1293,64 +1294,71 @@
        (|htPage| |opAlist| |which| |data| |constructorIfTrue| |word| |fn|)
   (PROG (|single?| |bincount| |thing| |ISTMP#1| |exposeFlag| |items| |button|)
     (RETURN
-     (PROGN
-      (SETQ |single?| (NULL (CDR |data|)))
-      (|htBeginMenu| '|description|)
-      (SETQ |bincount| 0)
-      ((LAMBDA (|bfVar#34| |bfVar#33|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#34|)
-                (PROGN (SETQ |bfVar#33| (CAR |bfVar#34|)) NIL))
-            (RETURN NIL))
+     (COND ((NOT (EQUAL |which| "operation")) (BREAK))
            (#1='T
-            (AND (CONSP |bfVar#33|)
-                 (PROGN
-                  (SETQ |thing| (CAR |bfVar#33|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#33|))
-                  (AND (CONSP |ISTMP#1|)
-                       (PROGN
-                        (SETQ |exposeFlag| (CAR |ISTMP#1|))
-                        (SETQ |items| (CDR |ISTMP#1|))
-                        #1#)))
-                 (PROGN
-                  (|htSayStandard| "\\item")
-                  (COND (|single?| (|htSay| (|menuButton|)))
-                        (#1#
-                         (|htMakePage|
-                          (LIST
-                           (LIST '|bcLinks|
-                                 (LIST (|menuButton|) "" '|dbShowOps| |which|
-                                       |bincount|))))
-                         (SETQ |button| (|mkButtonBox| (+ 1 |bincount|)))))
-                  (|htSay| "{\\em ")
-                  (|htSay|
-                   (COND ((EQ |thing| '|nowhere|) "implemented nowhere")
-                         ((EQ |thing| '|constant|) "constant")
-                         ((EQ |thing| '$) "by the domain")
-                         ((INTEGERP |thing|) "unexported")
-                         (|constructorIfTrue|
-                          (PROGN
-                           (|htSay| |word|)
-                           (COND ((ATOM |thing|) " an unknown constructor")
-                                 (#1# ""))))
-                         ((ATOM |thing|) "unconditional") (#1# "")))
-                  (|htSay| "}")
-                  (COND
-                   ((NULL (ATOM |thing|))
-                    (COND
-                     (|constructorIfTrue|
-                      (|htSayList|
-                       (LIST " {\\em " (|dbShowKind| |thing|) "}"))))
-                    (|htSay| " ") (FUNCALL |fn| |thing|)))
-                  (|htSay| ":\\newline ")
-                  (|dbShowOpSigList| |which| |items| (* (+ 1 |bincount|) 8192))
-                  (SETQ |bincount| (+ |bincount| 1))))))
-          (SETQ |bfVar#34| (CDR |bfVar#34|))))
-       |data| NIL)
-      (|htEndMenu| '|description|)))))
+            (PROGN
+             (SETQ |single?| (NULL (CDR |data|)))
+             (|htBeginMenu| '|description|)
+             (SETQ |bincount| 0)
+             ((LAMBDA (|bfVar#34| |bfVar#33|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#34|)
+                       (PROGN (SETQ |bfVar#33| (CAR |bfVar#34|)) NIL))
+                   (RETURN NIL))
+                  (#1#
+                   (AND (CONSP |bfVar#33|)
+                        (PROGN
+                         (SETQ |thing| (CAR |bfVar#33|))
+                         (SETQ |ISTMP#1| (CDR |bfVar#33|))
+                         (AND (CONSP |ISTMP#1|)
+                              (PROGN
+                               (SETQ |exposeFlag| (CAR |ISTMP#1|))
+                               (SETQ |items| (CDR |ISTMP#1|))
+                               #1#)))
+                        (PROGN
+                         (|htSayStandard| "\\item")
+                         (COND (|single?| (|htSay| (|menuButton|)))
+                               (#1#
+                                (|htMakePage|
+                                 (LIST
+                                  (LIST '|bcLinks|
+                                        (LIST (|menuButton|) "" '|dbShowOps|
+                                              |which| |bincount|))))
+                                (SETQ |button|
+                                        (|mkButtonBox| (+ 1 |bincount|)))))
+                         (|htSay| "{\\em ")
+                         (|htSay|
+                          (COND ((EQ |thing| '|nowhere|) "implemented nowhere")
+                                ((EQ |thing| '|constant|) "constant")
+                                ((EQ |thing| '$) "by the domain")
+                                ((INTEGERP |thing|) "unexported")
+                                (|constructorIfTrue|
+                                 (PROGN
+                                  (|htSay| |word|)
+                                  (COND
+                                   ((ATOM |thing|) " an unknown constructor")
+                                   (#1# ""))))
+                                ((ATOM |thing|) "unconditional") (#1# "")))
+                         (|htSay| "}")
+                         (COND
+                          ((NULL (ATOM |thing|))
+                           (COND
+                            (|constructorIfTrue|
+                             (|htSayList|
+                              (LIST " {\\em " (|dbShowKind| |thing|) "}"))))
+                           (|htSay| " ") (FUNCALL |fn| |thing|)))
+                         (|htSay| ":\\newline ")
+                         (|dbShowOpSigList| |which| |items|
+                          (* (+ 1 |bincount|) 8192))
+                         (SETQ |bincount| (+ |bincount| 1))))))
+                 (SETQ |bfVar#34| (CDR |bfVar#34|))))
+              |data| NIL)
+             (|htEndMenu| '|description|)))))))
  
-; dbPresentOps(htPage,which,:exclusions) ==
+; dbPresentOps(htPage, which, exclusion) ==
+;   which ~= '"operation" => BREAK()
+;   exclusions := [exclusion]
 ;   asharp? := htpProperty(htPage,'isAsharpConstructor)
 ;   fromConPage? := (conname := opOf htpProperty(htPage,'conform))
 ;   usage? := nil
@@ -1386,7 +1394,8 @@
 ;     else htMakePage [['bcLispLinks,['"Names",'"",'dbShowOps,which,'names]]]
 ;   if not star? then
 ;     htSay '"}{"
-;     if not implementation? or member('implementation,exclusions) or which = '"attribute" or
+;     which = '"attribute" => BREAK()
+;     if not(implementation?) or member('implementation, exclusions) or
 ;       ((conname := opOf htpProperty(htPage,'conform))
 ;         and GETDATABASE(conname,'CONSTRUCTORKIND) = 'category)
 ;     then htSay '"{\em Implementations}"
@@ -1402,8 +1411,8 @@
 ;     then htSay '"{\em Parameters}"
 ;     else htMakePage [['bcLispLinks,['"Parameters",'"",'dbShowOps,which,'parameters]]]
 ;   htSay '"}{"
-;   if which ~= '"attribute" then
-;     if one? or member('signatures,exclusions)
+;   which = '"attribute" => BREAK()
+;   if one? or member('signatures, exclusions)
 ;       then htSay '"{\em Signatures}"
 ;       else htMakePage [['bcLispLinks,['"Signatures",'"",'dbShowOps,which,'signatures]]]
 ;   htSay '"}"
@@ -1419,141 +1428,155 @@
 ;     htSay '"}"
 ;   htEndTable()
  
-(DEFUN |dbPresentOps| (|htPage| |which| &REST |exclusions|)
-  (PROG (|asharp?| |conname| |fromConPage?| |usage?| |star?| |implementation?|
-         |rightmost?| |opAlist| |empty?| |entry| |one?|)
+(DEFUN |dbPresentOps| (|htPage| |which| |exclusion|)
+  (PROG (|exclusions| |asharp?| |conname| |fromConPage?| |usage?| |star?|
+         |implementation?| |rightmost?| |opAlist| |empty?| |entry| |one?|)
     (RETURN
-     (PROGN
-      (SETQ |asharp?| (|htpProperty| |htPage| '|isAsharpConstructor|))
-      (SETQ |fromConPage?|
-              (SETQ |conname| (|opOf| (|htpProperty| |htPage| '|conform|))))
-      (SETQ |usage?| NIL)
-      (SETQ |star?|
-              (OR (NULL |fromConPage?|) (EQUAL |which| "package operation")))
-      (SETQ |implementation?|
-              (AND (NULL |asharp?|) (EQ |$UserLevel| '|development|)
-                   |$conformsAreDomains|))
-      (SETQ |rightmost?|
-              (OR |star?| (AND |implementation?| (NULL |$includeUnexposed?|))))
-      (COND
-       ((INTEGERP (CAR |exclusions|))
-        (SETQ |exclusions| (LIST '|documentation|))))
-      (|htpSetProperty| |htPage| '|exclusion| (CAR |exclusions|))
-      (SETQ |opAlist|
-              (COND
-               ((EQUAL |which| "operation")
-                (|htpProperty| |htPage| '|opAlist|))
-               (#1='T (|htpProperty| |htPage| '|attrAlist|))))
-      (SETQ |empty?| (NULL |opAlist|))
-      (SETQ |one?|
-              (AND (CONSP |opAlist|) (EQ (CDR |opAlist|) NIL)
-                   (PROGN (SETQ |entry| (CAR |opAlist|)) #1#)
-                   (EQL 2 (LENGTH |entry|))))
-      (SETQ |one?| (OR |empty?| |one?|))
-      (|htBeginTable|)
-      (|htSay| "{")
-      (COND
-       ((OR |one?| (|member| '|conditions| |exclusions|)
-            (EQ (|htpProperty| |htPage| '|condition?|) '|no|))
-        (|htSay| "{\\em Conditions}"))
-       (#1#
-        (|htMakePage|
-         (LIST
-          (LIST '|bcLispLinks|
-                (LIST "Conditions" "" '|dbShowOps| |which| '|conditions|))))))
-      (|htSay| "}{")
-      (COND
-       ((OR |empty?| (|member| '|documentation| |exclusions|))
-        (|htSay| "{\\em Descriptions}"))
-       (#1#
-        (|htMakePage|
-         (LIST
-          (LIST '|bcLispLinks|
-                (LIST "Descriptions" "" '|dbShowOps| |which|
-                      '|documentation|))))))
-      (|htSay| "}{")
-      (COND ((NULL (IFCDR |opAlist|)) (|htSay| "{\\em Filter}"))
-            (#1#
-             (|htMakePage|
-              (LIST
-               (LIST '|bcLinks|
-                     (LIST "Filter " "" '|htFilterPage|
-                           (LIST '|dbShowOps| |which| '|filter|)))))))
-      (|htSay| "}{")
-      (COND
-       ((OR |one?| (|member| '|names| |exclusions|) (NULL (IFCDR |opAlist|)))
-        (|htSay| "{\\em Names}"))
-       (#1#
-        (|htMakePage|
-         (LIST
-          (LIST '|bcLispLinks|
-                (LIST "Names" "" '|dbShowOps| |which| '|names|))))))
-      (COND
-       ((NULL |star?|) (|htSay| "}{")
-        (COND
-         ((OR (NULL |implementation?|)
-              (|member| '|implementation| |exclusions|)
-              (EQUAL |which| "attribute")
-              (AND
-               (SETQ |conname| (|opOf| (|htpProperty| |htPage| '|conform|)))
-               (EQ (GETDATABASE |conname| 'CONSTRUCTORKIND) '|category|)))
-          (|htSay| "{\\em Implementations}"))
-         (#1#
-          (|htMakePage|
-           (LIST
-            (LIST '|bcLispLinks|
-                  (LIST "Implementations" "" '|dbShowOps| |which|
-                        '|implementation|))))))))
-      (|htSay| "}{")
-      (COND
-       ((OR |one?| (|member| '|origins| |exclusions|))
-        (|htSay| "{\\em Origins}"))
-       (#1#
-        (|htMakePage|
-         (LIST
-          (LIST '|bcLispLinks|
-                (LIST "Origins" "" '|dbShowOps| |which| '|origins|))))))
-      (|htSay| "}{")
-      (COND
-       ((OR |one?| (|member| '|parameters| |exclusions|)
-            (NULL (|dbDoesOneOpHaveParameters?| |opAlist|)))
-        (|htSay| "{\\em Parameters}"))
-       (#1#
-        (|htMakePage|
-         (LIST
-          (LIST '|bcLispLinks|
-                (LIST "Parameters" "" '|dbShowOps| |which| '|parameters|))))))
-      (|htSay| "}{")
-      (COND
-       ((NOT (EQUAL |which| "attribute"))
-        (COND
-         ((OR |one?| (|member| '|signatures| |exclusions|))
-          (|htSay| "{\\em Signatures}"))
-         (#1#
-          (|htMakePage|
-           (LIST
-            (LIST '|bcLispLinks|
-                  (LIST "Signatures" "" '|dbShowOps| |which|
-                        '|signatures|))))))))
-      (|htSay| "}")
-      (COND
-       (|star?| (|htSay| "{")
-        (COND
-         (|$exposedOnlyIfTrue|
-          (|htMakePage|
-           (LIST
-            (LIST '|bcLinks|
-                  (LIST "Unexposed Also" "" '|dbShowOps| |which|
-                        '|exposureOff|)))))
-         (|one?| (|htSay| "{\\em Exposed Only}"))
-         (#1#
-          (|htMakePage|
-           (LIST
-            (LIST '|bcLinks|
-                  (LIST "Exposed Only" "" '|dbShowOps| |which|
-                        '|exposureOn|))))))
-        (|htSay| "}")))
-      (|htEndTable|)))))
+     (COND ((NOT (EQUAL |which| "operation")) (BREAK))
+           (#1='T
+            (PROGN
+             (SETQ |exclusions| (LIST |exclusion|))
+             (SETQ |asharp?| (|htpProperty| |htPage| '|isAsharpConstructor|))
+             (SETQ |fromConPage?|
+                     (SETQ |conname|
+                             (|opOf| (|htpProperty| |htPage| '|conform|))))
+             (SETQ |usage?| NIL)
+             (SETQ |star?|
+                     (OR (NULL |fromConPage?|)
+                         (EQUAL |which| "package operation")))
+             (SETQ |implementation?|
+                     (AND (NULL |asharp?|) (EQ |$UserLevel| '|development|)
+                          |$conformsAreDomains|))
+             (SETQ |rightmost?|
+                     (OR |star?|
+                         (AND |implementation?| (NULL |$includeUnexposed?|))))
+             (COND
+              ((INTEGERP (CAR |exclusions|))
+               (SETQ |exclusions| (LIST '|documentation|))))
+             (|htpSetProperty| |htPage| '|exclusion| (CAR |exclusions|))
+             (SETQ |opAlist|
+                     (COND
+                      ((EQUAL |which| "operation")
+                       (|htpProperty| |htPage| '|opAlist|))
+                      (#1# (|htpProperty| |htPage| '|attrAlist|))))
+             (SETQ |empty?| (NULL |opAlist|))
+             (SETQ |one?|
+                     (AND (CONSP |opAlist|) (EQ (CDR |opAlist|) NIL)
+                          (PROGN (SETQ |entry| (CAR |opAlist|)) #1#)
+                          (EQL 2 (LENGTH |entry|))))
+             (SETQ |one?| (OR |empty?| |one?|))
+             (|htBeginTable|)
+             (|htSay| "{")
+             (COND
+              ((OR |one?| (|member| '|conditions| |exclusions|)
+                   (EQ (|htpProperty| |htPage| '|condition?|) '|no|))
+               (|htSay| "{\\em Conditions}"))
+              (#1#
+               (|htMakePage|
+                (LIST
+                 (LIST '|bcLispLinks|
+                       (LIST "Conditions" "" '|dbShowOps| |which|
+                             '|conditions|))))))
+             (|htSay| "}{")
+             (COND
+              ((OR |empty?| (|member| '|documentation| |exclusions|))
+               (|htSay| "{\\em Descriptions}"))
+              (#1#
+               (|htMakePage|
+                (LIST
+                 (LIST '|bcLispLinks|
+                       (LIST "Descriptions" "" '|dbShowOps| |which|
+                             '|documentation|))))))
+             (|htSay| "}{")
+             (COND ((NULL (IFCDR |opAlist|)) (|htSay| "{\\em Filter}"))
+                   (#1#
+                    (|htMakePage|
+                     (LIST
+                      (LIST '|bcLinks|
+                            (LIST "Filter " "" '|htFilterPage|
+                                  (LIST '|dbShowOps| |which| '|filter|)))))))
+             (|htSay| "}{")
+             (COND
+              ((OR |one?| (|member| '|names| |exclusions|)
+                   (NULL (IFCDR |opAlist|)))
+               (|htSay| "{\\em Names}"))
+              (#1#
+               (|htMakePage|
+                (LIST
+                 (LIST '|bcLispLinks|
+                       (LIST "Names" "" '|dbShowOps| |which| '|names|))))))
+             (COND
+              ((NULL |star?|) (|htSay| "}{")
+               (COND ((EQUAL |which| "attribute") (BREAK))
+                     (#1#
+                      (COND
+                       ((OR (NULL |implementation?|)
+                            (|member| '|implementation| |exclusions|)
+                            (AND
+                             (SETQ |conname|
+                                     (|opOf|
+                                      (|htpProperty| |htPage| '|conform|)))
+                             (EQ (GETDATABASE |conname| 'CONSTRUCTORKIND)
+                                 '|category|)))
+                        (|htSay| "{\\em Implementations}"))
+                       (#1#
+                        (|htMakePage|
+                         (LIST
+                          (LIST '|bcLispLinks|
+                                (LIST "Implementations" "" '|dbShowOps| |which|
+                                      '|implementation|))))))))))
+             (|htSay| "}{")
+             (COND
+              ((OR |one?| (|member| '|origins| |exclusions|))
+               (|htSay| "{\\em Origins}"))
+              (#1#
+               (|htMakePage|
+                (LIST
+                 (LIST '|bcLispLinks|
+                       (LIST "Origins" "" '|dbShowOps| |which| '|origins|))))))
+             (|htSay| "}{")
+             (COND
+              ((OR |one?| (|member| '|parameters| |exclusions|)
+                   (NULL (|dbDoesOneOpHaveParameters?| |opAlist|)))
+               (|htSay| "{\\em Parameters}"))
+              (#1#
+               (|htMakePage|
+                (LIST
+                 (LIST '|bcLispLinks|
+                       (LIST "Parameters" "" '|dbShowOps| |which|
+                             '|parameters|))))))
+             (|htSay| "}{")
+             (COND ((EQUAL |which| "attribute") (BREAK))
+                   (#1#
+                    (PROGN
+                     (COND
+                      ((OR |one?| (|member| '|signatures| |exclusions|))
+                       (|htSay| "{\\em Signatures}"))
+                      (#1#
+                       (|htMakePage|
+                        (LIST
+                         (LIST '|bcLispLinks|
+                               (LIST "Signatures" "" '|dbShowOps| |which|
+                                     '|signatures|))))))
+                     (|htSay| "}")
+                     (COND
+                      (|star?| (|htSay| "{")
+                       (COND
+                        (|$exposedOnlyIfTrue|
+                         (|htMakePage|
+                          (LIST
+                           (LIST '|bcLinks|
+                                 (LIST "Unexposed Also" "" '|dbShowOps| |which|
+                                       '|exposureOff|)))))
+                        (|one?| (|htSay| "{\\em Exposed Only}"))
+                        (#1#
+                         (|htMakePage|
+                          (LIST
+                           (LIST '|bcLinks|
+                                 (LIST "Exposed Only" "" '|dbShowOps| |which|
+                                       '|exposureOn|))))))
+                       (|htSay| "}")))
+                     (|htEndTable|))))))))))
  
 ; htShowPageStar() ==
 ;   htSayStandard '"\endscroll "
@@ -1592,9 +1615,7 @@
 ;                  or origin
 ;   if $generalSearch? then $DomainList := rest $DomainList
 ;   opform :=
-;     which = '"attribute" =>
-;       null sig => [op]
-;       [op,sig]
+;     which = '"attribute" => BREAK()
 ;     which = '"constructor" => origin
 ;     dbGetDisplayFormForOp(op,sig,doc)
 ;   htSayStandard('"\newline")
@@ -1618,7 +1639,7 @@
 ;       htSayUnexposed()
 ;     htSay(ops)
 ;     predicate='ASCONST or GETDATABASE(op,'NILADIC) or member(op,'(0 1)) => 'skip
-;     which = '"attribute" and null args => 'skip
+;     which = '"attribute" => BREAK()
 ;     htSay('"(")
 ;     if IFCAR args then
 ;         htSayList(['"{\em ", quickForm2HtString IFCAR args, '"}"])
@@ -1642,8 +1663,9 @@
 ;     --check the signature for SegmentExpansionCategory, e.g.
 ;     tvarlist := TAKE(# $conargs,$TriangleVariableList)
 ;     $signature := SUBLISLIS($FormalMapVariableList,tvarlist,$signature)
+;   which = '"attribute" => BREAK()
 ;   $sig :=
-;     which = '"attribute" or which = '"constructor" => sig
+;     which = '"constructor" => sig
 ;     $conkind ~= '"package" => sig
 ;     symbolsUsed := [x for x in rest conform | IDENTP x]
 ;     $DomainList := SETDIFFERENCE($DomainList,symbolsUsed)
@@ -1767,11 +1789,9 @@
                   (|htpProperty| |htPage| '|conform|) |origin|))
       (COND (|$generalSearch?| (SETQ |$DomainList| (CDR |$DomainList|))))
       (SETQ |opform|
-              (COND
-               ((EQUAL |which| "attribute")
-                (COND ((NULL |sig|) (LIST |op|)) (#1='T (LIST |op| |sig|))))
-               ((EQUAL |which| "constructor") |origin|)
-               (#1# (|dbGetDisplayFormForOp| |op| |sig| |doc|))))
+              (COND ((EQUAL |which| "attribute") (BREAK))
+                    ((EQUAL |which| "constructor") |origin|)
+                    (#1='T (|dbGetDisplayFormForOp| |op| |sig| |doc|))))
       (|htSayStandard| "\\newline")
       (COND (|exactlyOneOpSig| (|htSay| (|menuButton|)))
             (#1#
@@ -1801,7 +1821,7 @@
            ((OR (EQ |predicate| 'ASCONST) (GETDATABASE |op| 'NILADIC)
                 (|member| |op| '(0 1)))
             '|skip|)
-           ((AND (EQUAL |which| "attribute") (NULL |args|)) '|skip|)
+           ((EQUAL |which| "attribute") (BREAK))
            (#1#
             (PROGN
              (|htSay| "(")
@@ -1837,169 +1857,183 @@
         (SETQ |tvarlist| (TAKE (LENGTH |$conargs|) |$TriangleVariableList|))
         (SETQ |$signature|
                 (SUBLISLIS |$FormalMapVariableList| |tvarlist| |$signature|))))
-      (SETQ |$sig|
+      (COND ((EQUAL |which| "attribute") (BREAK))
+            (#1#
+             (PROGN
+              (SETQ |$sig|
+                      (COND ((EQUAL |which| "constructor") |sig|)
+                            ((NOT (EQUAL |$conkind| "package")) |sig|)
+                            (#1#
+                             (PROGN
+                              (SETQ |symbolsUsed|
+                                      ((LAMBDA (|bfVar#37| |bfVar#36| |x|)
+                                         (LOOP
+                                          (COND
+                                           ((OR (ATOM |bfVar#36|)
+                                                (PROGN
+                                                 (SETQ |x| (CAR |bfVar#36|))
+                                                 NIL))
+                                            (RETURN (NREVERSE |bfVar#37|)))
+                                           (#1#
+                                            (AND (IDENTP |x|)
+                                                 (SETQ |bfVar#37|
+                                                         (CONS |x|
+                                                               |bfVar#37|)))))
+                                          (SETQ |bfVar#36| (CDR |bfVar#36|))))
+                                       NIL (CDR |conform|) NIL))
+                              (SETQ |$DomainList|
+                                      (SETDIFFERENCE |$DomainList|
+                                                     |symbolsUsed|))
+                              (|getSubstSigIfPossible| |sig|)))))
               (COND
-               ((OR (EQUAL |which| "attribute") (EQUAL |which| "constructor"))
-                |sig|)
-               ((NOT (EQUAL |$conkind| "package")) |sig|)
-               (#1#
-                (PROGN
-                 (SETQ |symbolsUsed|
-                         ((LAMBDA (|bfVar#37| |bfVar#36| |x|)
-                            (LOOP
-                             (COND
-                              ((OR (ATOM |bfVar#36|)
-                                   (PROGN (SETQ |x| (CAR |bfVar#36|)) NIL))
-                               (RETURN (NREVERSE |bfVar#37|)))
-                              (#1#
-                               (AND (IDENTP |x|)
-                                    (SETQ |bfVar#37| (CONS |x| |bfVar#37|)))))
-                             (SETQ |bfVar#36| (CDR |bfVar#36|))))
-                          NIL (CDR |conform|) NIL))
-                 (SETQ |$DomainList|
-                         (SETDIFFERENCE |$DomainList| |symbolsUsed|))
-                 (|getSubstSigIfPossible| |sig|)))))
-      (COND
-       ((|member| |which| '("operation" "constructor"))
-        (SETQ |$displayReturnValue| NIL)
-        (COND
-         (|args| (|htSayStandard| "\\newline\\tab{2}{\\em Arguments:}")
-          (SETQ |coSig| (IFCDR (GETDATABASE |op| 'COSIG)))
-          ((LAMBDA (|bfVar#38| |a| |bfVar#39| |t|)
-             (LOOP
+               ((|member| |which| '("operation" "constructor"))
+                (SETQ |$displayReturnValue| NIL)
+                (COND
+                 (|args| (|htSayStandard| "\\newline\\tab{2}{\\em Arguments:}")
+                  (SETQ |coSig| (IFCDR (GETDATABASE |op| 'COSIG)))
+                  ((LAMBDA (|bfVar#38| |a| |bfVar#39| |t|)
+                     (LOOP
+                      (COND
+                       ((OR (ATOM |bfVar#38|)
+                            (PROGN (SETQ |a| (CAR |bfVar#38|)) NIL)
+                            (ATOM |bfVar#39|)
+                            (PROGN (SETQ |t| (CAR |bfVar#39|)) NIL))
+                        (RETURN NIL))
+                       (#1#
+                        (PROGN
+                         (|htSayIndentRel2| 15 T)
+                         (SETQ |position| (IFCAR |relatives|))
+                         (SETQ |relatives| (IFCDR |relatives|))
+                         (COND
+                          ((AND (IFCAR |coSig|) (NOT (EQUAL |t| '(|Type|))))
+                           (|htMakePage|
+                            (LIST
+                             (LIST '|bcLinks| (LIST |a| "" '|kArgPage| |a|)))))
+                          (#1#
+                           (|htSayList|
+                            (LIST "{\\em " (|form2HtString| |a|) "}"))))
+                         (|htSay| '|, |)
+                         (SETQ |coSig| (IFCDR |coSig|))
+                         (|htSayValue| |t|)
+                         (|htSayIndentRel2| (- 15) T)
+                         (|htSayStandard| "\\newline "))))
+                      (SETQ |bfVar#38| (CDR |bfVar#38|))
+                      (SETQ |bfVar#39| (CDR |bfVar#39|))))
+                   |args| NIL (CDR |$sig|) NIL)))
+                (COND
+                 ((CAR |$sig|) (SETQ |$displayReturnValue| T)
+                  (|htSayStandard| "\\newline\\tab{2}")
+                  (|htSay| "{\\em Returns:}") (|htSayIndentRel2| 15 T)
+                  (|htSayValue| (CAR |$sig|)) (|htSayIndentRel2| (- 15) T)))))
               (COND
-               ((OR (ATOM |bfVar#38|) (PROGN (SETQ |a| (CAR |bfVar#38|)) NIL)
-                    (ATOM |bfVar#39|) (PROGN (SETQ |t| (CAR |bfVar#39|)) NIL))
-                (RETURN NIL))
-               (#1#
-                (PROGN
-                 (|htSayIndentRel2| 15 T)
-                 (SETQ |position| (IFCAR |relatives|))
-                 (SETQ |relatives| (IFCDR |relatives|))
-                 (COND
-                  ((AND (IFCAR |coSig|) (NOT (EQUAL |t| '(|Type|))))
-                   (|htMakePage|
-                    (LIST (LIST '|bcLinks| (LIST |a| "" '|kArgPage| |a|)))))
-                  (#1#
-                   (|htSayList| (LIST "{\\em " (|form2HtString| |a|) "}"))))
-                 (|htSay| '|, |)
-                 (SETQ |coSig| (IFCDR |coSig|))
-                 (|htSayValue| |t|)
-                 (|htSayIndentRel2| (- 15) T)
-                 (|htSayStandard| "\\newline "))))
-              (SETQ |bfVar#38| (CDR |bfVar#38|))
-              (SETQ |bfVar#39| (CDR |bfVar#39|))))
-           |args| NIL (CDR |$sig|) NIL)))
-        (COND
-         ((CAR |$sig|) (SETQ |$displayReturnValue| T)
-          (|htSayStandard| "\\newline\\tab{2}") (|htSay| "{\\em Returns:}")
-          (|htSayIndentRel2| 15 T) (|htSayValue| (CAR |$sig|))
-          (|htSayIndentRel2| (- 15) T)))))
-      (COND
-       ((AND |origin| (OR |$generalSearch?| (NOT (EQUAL |origin| |conform|)))
-             (NOT (EQUAL |op| (|opOf| |origin|))))
-        (|htSayStandard| "\\newline\\tab{2}{\\em Origin:}")
-        (|htSayIndentRel| 15)
-        (COND
-         ((AND (NULL (|isExposedConstructor| (|opOf| |origin|)))
-               |$includeUnexposed?|)
-          (|htSayUnexposed|)))
-        (|bcConform| |origin| T) (|htSayIndentRel| (- 15))))
-      (COND
-       ((NULL (MEMQ |predicate| '(T ASCONST)))
-        (SETQ |pred| (|sublisFormal| (IFCDR |conform|) |predicate|))
-        (SETQ |count| (LENGTH |pred|))
-        (|htSayStandard| "\\newline\\tab{2}{\\em Conditions:}")
-        ((LAMBDA (|bfVar#40| |p|)
-           (LOOP
-            (COND
-             ((OR (ATOM |bfVar#40|) (PROGN (SETQ |p| (CAR |bfVar#40|)) NIL))
-              (RETURN NIL))
-             (#1#
-              (PROGN
-               (|htSayIndentRel2| 15 (< 1 |count|))
-               (|bcPred| |p| |$conform| T)
-               (|htSayIndentRel2| (- 15) (< 1 |count|))
-               (|htSayStandard| "\\newline "))))
-            (SETQ |bfVar#40| (CDR |bfVar#40|))))
-         (|displayBreakIntoAnds| (SUBST |$conform| '$ |pred|)) NIL)))
-      (COND
-       (|$whereList| (SETQ |count| (LENGTH |$whereList|))
-        (|htSayStandard| "\\newline\\tab{2}{\\em Where:}")
-        (COND
-         ((|assoc| '$ |$whereList|) (|htSayIndentRel2| 15 T)
-          (|htSayStandard| "{\\em \\$} is ")
-          (|htSay|
-           (COND ((EQUAL |$conkind| "category") "of category ")
-                 (#1# "the domain ")))
-          (|bcConform| |conform| T T) (|htSayIndentRel2| (- 15) T)))
-        ((LAMBDA (|bfVar#42| |bfVar#41|)
-           (LOOP
-            (COND
-             ((OR (ATOM |bfVar#42|)
-                  (PROGN (SETQ |bfVar#41| (CAR |bfVar#42|)) NIL))
-              (RETURN NIL))
-             (#1#
-              (AND (CONSP |bfVar#41|)
-                   (PROGN
-                    (SETQ |d| (CAR |bfVar#41|))
-                    (SETQ |ISTMP#1| (CDR |bfVar#41|))
-                    (AND (CONSP |ISTMP#1|)
-                         (PROGN
-                          (SETQ |key| (CAR |ISTMP#1|))
-                          (SETQ |t| (CDR |ISTMP#1|))
-                          #1#)))
-                   (NOT (EQ |d| '$))
-                   (PROGN
-                    (|htSayIndentRel2| 15 (< 1 |count|))
-                    (|htSayList| (LIST '|{\\em | |d| '|} is |))
-                    (|htSayConstructor| |key|
-                     (|sublisFormal| (IFCDR |conform|) |t|))
-                    (|htSayIndentRel2| (- 15) (< 1 |count|))))))
-            (SETQ |bfVar#42| (CDR |bfVar#42|))))
-         |$whereList| NIL)))
-      (COND
-       ((AND |doc| (NOT (EQUAL |doc| ""))
-             (OR
-              (NOT
-               (AND (CONSP |doc|) (EQ (CDR |doc|) NIL)
-                    (PROGN (SETQ |d| (CAR |doc|)) #1#)))
-              (NOT (EQUAL |d| ""))))
-        (|htSayStandard| "\\newline\\tab{2}{\\em Description:}")
-        (|htSayIndentRel| 15)
-        (COND ((EQUAL |doc| |$charFauxNewline|) (|htSay| |$charNewline|))
-              (#1#
-               (SETQ |ndoc|
-                       (COND
-                        ((CONSP |doc|)
-                         ((LAMBDA (|bfVar#44| |bfVar#43| |i|)
-                            (LOOP
-                             (COND
-                              ((OR (ATOM |bfVar#43|)
-                                   (PROGN (SETQ |i| (CAR |bfVar#43|)) NIL))
-                               (RETURN (NREVERSE |bfVar#44|)))
-                              (#1#
-                               (SETQ |bfVar#44|
-                                       (CONS
-                                        (SUBSTITUTE |$charNewline|
-                                                    |$charFauxNewline| |i|)
-                                        |bfVar#44|))))
-                             (SETQ |bfVar#43| (CDR |bfVar#43|))))
-                          NIL |doc| NIL))
-                        (#1#
-                         (SUBSTITUTE |$charNewline| |$charFauxNewline|
-                                     |doc|))))
-               (|htSay| |ndoc|)))
-        (|htSayIndentRel| (- 15))))
-      (COND
-       ((EQUAL |which| "constructor")
-        (COND
-         ((SETQ |abbr| (GETDATABASE |conname| 'ABBREVIATION))
-          (|htSayStandard| "\\tab{2}{\\em Abbreviation:}")
-          (|htSayIndentRel| 15) (|htSay| |abbr|) (|htSayIndentRel| (- 15))
-          (|htSayStandard| "\\newline{}")))
-        (|htSayStandard| "\\tab{2}{\\em Source File:}") (|htSayIndentRel| 15)
-        (|htSaySourceFile| |conname|) (|htSayIndentRel| (- 15))))))))
+               ((AND |origin|
+                     (OR |$generalSearch?| (NOT (EQUAL |origin| |conform|)))
+                     (NOT (EQUAL |op| (|opOf| |origin|))))
+                (|htSayStandard| "\\newline\\tab{2}{\\em Origin:}")
+                (|htSayIndentRel| 15)
+                (COND
+                 ((AND (NULL (|isExposedConstructor| (|opOf| |origin|)))
+                       |$includeUnexposed?|)
+                  (|htSayUnexposed|)))
+                (|bcConform| |origin| T) (|htSayIndentRel| (- 15))))
+              (COND
+               ((NULL (MEMQ |predicate| '(T ASCONST)))
+                (SETQ |pred| (|sublisFormal| (IFCDR |conform|) |predicate|))
+                (SETQ |count| (LENGTH |pred|))
+                (|htSayStandard| "\\newline\\tab{2}{\\em Conditions:}")
+                ((LAMBDA (|bfVar#40| |p|)
+                   (LOOP
+                    (COND
+                     ((OR (ATOM |bfVar#40|)
+                          (PROGN (SETQ |p| (CAR |bfVar#40|)) NIL))
+                      (RETURN NIL))
+                     (#1#
+                      (PROGN
+                       (|htSayIndentRel2| 15 (< 1 |count|))
+                       (|bcPred| |p| |$conform| T)
+                       (|htSayIndentRel2| (- 15) (< 1 |count|))
+                       (|htSayStandard| "\\newline "))))
+                    (SETQ |bfVar#40| (CDR |bfVar#40|))))
+                 (|displayBreakIntoAnds| (SUBST |$conform| '$ |pred|)) NIL)))
+              (COND
+               (|$whereList| (SETQ |count| (LENGTH |$whereList|))
+                (|htSayStandard| "\\newline\\tab{2}{\\em Where:}")
+                (COND
+                 ((|assoc| '$ |$whereList|) (|htSayIndentRel2| 15 T)
+                  (|htSayStandard| "{\\em \\$} is ")
+                  (|htSay|
+                   (COND ((EQUAL |$conkind| "category") "of category ")
+                         (#1# "the domain ")))
+                  (|bcConform| |conform| T T) (|htSayIndentRel2| (- 15) T)))
+                ((LAMBDA (|bfVar#42| |bfVar#41|)
+                   (LOOP
+                    (COND
+                     ((OR (ATOM |bfVar#42|)
+                          (PROGN (SETQ |bfVar#41| (CAR |bfVar#42|)) NIL))
+                      (RETURN NIL))
+                     (#1#
+                      (AND (CONSP |bfVar#41|)
+                           (PROGN
+                            (SETQ |d| (CAR |bfVar#41|))
+                            (SETQ |ISTMP#1| (CDR |bfVar#41|))
+                            (AND (CONSP |ISTMP#1|)
+                                 (PROGN
+                                  (SETQ |key| (CAR |ISTMP#1|))
+                                  (SETQ |t| (CDR |ISTMP#1|))
+                                  #1#)))
+                           (NOT (EQ |d| '$))
+                           (PROGN
+                            (|htSayIndentRel2| 15 (< 1 |count|))
+                            (|htSayList| (LIST '|{\\em | |d| '|} is |))
+                            (|htSayConstructor| |key|
+                             (|sublisFormal| (IFCDR |conform|) |t|))
+                            (|htSayIndentRel2| (- 15) (< 1 |count|))))))
+                    (SETQ |bfVar#42| (CDR |bfVar#42|))))
+                 |$whereList| NIL)))
+              (COND
+               ((AND |doc| (NOT (EQUAL |doc| ""))
+                     (OR
+                      (NOT
+                       (AND (CONSP |doc|) (EQ (CDR |doc|) NIL)
+                            (PROGN (SETQ |d| (CAR |doc|)) #1#)))
+                      (NOT (EQUAL |d| ""))))
+                (|htSayStandard| "\\newline\\tab{2}{\\em Description:}")
+                (|htSayIndentRel| 15)
+                (COND
+                 ((EQUAL |doc| |$charFauxNewline|) (|htSay| |$charNewline|))
+                 (#1#
+                  (SETQ |ndoc|
+                          (COND
+                           ((CONSP |doc|)
+                            ((LAMBDA (|bfVar#44| |bfVar#43| |i|)
+                               (LOOP
+                                (COND
+                                 ((OR (ATOM |bfVar#43|)
+                                      (PROGN (SETQ |i| (CAR |bfVar#43|)) NIL))
+                                  (RETURN (NREVERSE |bfVar#44|)))
+                                 (#1#
+                                  (SETQ |bfVar#44|
+                                          (CONS
+                                           (SUBSTITUTE |$charNewline|
+                                                       |$charFauxNewline| |i|)
+                                           |bfVar#44|))))
+                                (SETQ |bfVar#43| (CDR |bfVar#43|))))
+                             NIL |doc| NIL))
+                           (#1#
+                            (SUBSTITUTE |$charNewline| |$charFauxNewline|
+                                        |doc|))))
+                  (|htSay| |ndoc|)))
+                (|htSayIndentRel| (- 15))))
+              (COND
+               ((EQUAL |which| "constructor")
+                (COND
+                 ((SETQ |abbr| (GETDATABASE |conname| 'ABBREVIATION))
+                  (|htSayStandard| "\\tab{2}{\\em Abbreviation:}")
+                  (|htSayIndentRel| 15) (|htSay| |abbr|)
+                  (|htSayIndentRel| (- 15)) (|htSayStandard| "\\newline{}")))
+                (|htSayStandard| "\\tab{2}{\\em Source File:}")
+                (|htSayIndentRel| 15) (|htSaySourceFile| |conname|)
+                (|htSayIndentRel| (- 15)))))))))))
  
 ; htSaySourceFile conname ==
 ;   sourceFileName := (GETDATABASE(conname,'SOURCEFILE) or '"none")

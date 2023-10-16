@@ -49,33 +49,25 @@
          (SETQ |bfVar#4| (CDR |bfVar#4|))))
       NIL |opAlist| NIL))))
  
-; dbShowOps(htPage,which,key,:options) ==
+; dbShowOps(htPage, which, key) ==
 ;   --NEXT LINE SHOULD BE REMOVED if we are sure that which is a string
 ;   which := STRINGIMAGE which
+;   which ~= '"operation" => BREAK()
 ;   if MEMQ(key,'(extended basic all)) then
 ;     $groupChoice := key
 ;     key := htpProperty(htPage,'key) or 'names
-;   opAlist  :=
-;     which = '"operation" => htpProperty(htPage,'opAlist)
-; --      al := reduceByGroup(htPage,htpProperty(htPage,'principalOpAlist))
-; --      htpSetProperty(htPage,'opAlist,al)
-; --      al
-;     htpProperty(htPage,'attrAlist)
+;   opAlist := htpProperty(htPage, 'opAlist)
 ;   key = 'generalise =>
 ;     arg  := STRINGIMAGE CAAR opAlist
-;     which = '"attribute" => BREAK()
 ;     oPage arg
 ;   key = 'allDomains => dbShowOpAllDomains(htPage,opAlist,which)
 ;   key = 'filter =>
-;     --if $saturn, IFCAR options contains filter string
-;     filter := IFCAR options or pmTransFilter(dbGetInputString htPage)
+;     filter := pmTransFilter(dbGetInputString htPage)
 ;     filter is ['error,:.] => bcErrorPage filter
 ;     opAlist:= [x for x in opAlist | superMatch?(filter,DOWNCASE STRINGIMAGE opOf x)]
 ;     null opAlist => emptySearchPage(which, filter, false)
 ;     htPage := htInitPageNoHeading(htCopyProplist htPage)
-;     if which = '"operation"
-;       then htpSetProperty(htPage,'opAlist,opAlist)
-;       else htpSetProperty(htPage,'attrAlist,opAlist)
+;     htpSetProperty(htPage, 'opAlist, opAlist)
 ;     if not (htpProperty(htPage, 'condition?) = 'no) then
 ;       dbResetOpAlistCondition(htPage,which,opAlist)
 ;     dbShowOps(htPage,which,htpProperty(htPage,'exclusion))
@@ -87,74 +79,74 @@
 ;     key := htpProperty(htPage,'exclusion)
 ;   dbShowOp1(htPage,opAlist,which,key)
  
-(DEFUN |dbShowOps| (|htPage| |which| |key| &REST |options|)
+(DEFUN |dbShowOps| (|htPage| |which| |key|)
   (PROG (|opAlist| |arg| |filter|)
     (RETURN
      (PROGN
       (SETQ |which| (STRINGIMAGE |which|))
-      (COND
-       ((MEMQ |key| '(|extended| |basic| |all|)) (SETQ |$groupChoice| |key|)
-        (SETQ |key| (OR (|htpProperty| |htPage| '|key|) '|names|))))
-      (SETQ |opAlist|
+      (COND ((NOT (EQUAL |which| "operation")) (BREAK))
+            (#1='T
+             (PROGN
               (COND
-               ((EQUAL |which| "operation")
-                (|htpProperty| |htPage| '|opAlist|))
-               (#1='T (|htpProperty| |htPage| '|attrAlist|))))
-      (COND
-       ((EQ |key| '|generalise|)
-        (PROGN
-         (SETQ |arg| (STRINGIMAGE (CAAR |opAlist|)))
-         (COND ((EQUAL |which| "attribute") (BREAK)) (#1# (|oPage| |arg|)))))
-       ((EQ |key| '|allDomains|)
-        (|dbShowOpAllDomains| |htPage| |opAlist| |which|))
-       ((EQ |key| '|filter|)
-        (PROGN
-         (SETQ |filter|
-                 (OR (IFCAR |options|)
-                     (|pmTransFilter| (|dbGetInputString| |htPage|))))
-         (COND
-          ((AND (CONSP |filter|) (EQ (CAR |filter|) '|error|))
-           (|bcErrorPage| |filter|))
-          (#1#
-           (PROGN
-            (SETQ |opAlist|
-                    ((LAMBDA (|bfVar#7| |bfVar#6| |x|)
-                       (LOOP
-                        (COND
-                         ((OR (ATOM |bfVar#6|)
-                              (PROGN (SETQ |x| (CAR |bfVar#6|)) NIL))
-                          (RETURN (NREVERSE |bfVar#7|)))
-                         (#1#
-                          (AND
-                           (|superMatch?| |filter|
-                            (DOWNCASE (STRINGIMAGE (|opOf| |x|))))
-                           (SETQ |bfVar#7| (CONS |x| |bfVar#7|)))))
-                        (SETQ |bfVar#6| (CDR |bfVar#6|))))
-                     NIL |opAlist| NIL))
-            (COND ((NULL |opAlist|) (|emptySearchPage| |which| |filter| NIL))
+               ((MEMQ |key| '(|extended| |basic| |all|))
+                (SETQ |$groupChoice| |key|)
+                (SETQ |key| (OR (|htpProperty| |htPage| '|key|) '|names|))))
+              (SETQ |opAlist| (|htpProperty| |htPage| '|opAlist|))
+              (COND
+               ((EQ |key| '|generalise|)
+                (PROGN
+                 (SETQ |arg| (STRINGIMAGE (CAAR |opAlist|)))
+                 (|oPage| |arg|)))
+               ((EQ |key| '|allDomains|)
+                (|dbShowOpAllDomains| |htPage| |opAlist| |which|))
+               ((EQ |key| '|filter|)
+                (PROGN
+                 (SETQ |filter|
+                         (|pmTransFilter| (|dbGetInputString| |htPage|)))
+                 (COND
+                  ((AND (CONSP |filter|) (EQ (CAR |filter|) '|error|))
+                   (|bcErrorPage| |filter|))
                   (#1#
                    (PROGN
-                    (SETQ |htPage|
-                            (|htInitPageNoHeading|
-                             (|htCopyProplist| |htPage|)))
+                    (SETQ |opAlist|
+                            ((LAMBDA (|bfVar#7| |bfVar#6| |x|)
+                               (LOOP
+                                (COND
+                                 ((OR (ATOM |bfVar#6|)
+                                      (PROGN (SETQ |x| (CAR |bfVar#6|)) NIL))
+                                  (RETURN (NREVERSE |bfVar#7|)))
+                                 (#1#
+                                  (AND
+                                   (|superMatch?| |filter|
+                                    (DOWNCASE (STRINGIMAGE (|opOf| |x|))))
+                                   (SETQ |bfVar#7| (CONS |x| |bfVar#7|)))))
+                                (SETQ |bfVar#6| (CDR |bfVar#6|))))
+                             NIL |opAlist| NIL))
                     (COND
-                     ((EQUAL |which| "operation")
-                      (|htpSetProperty| |htPage| '|opAlist| |opAlist|))
-                     (#1# (|htpSetProperty| |htPage| '|attrAlist| |opAlist|)))
-                    (COND
-                     ((NULL (EQ (|htpProperty| |htPage| '|condition?|) '|no|))
-                      (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)))
-                    (|dbShowOps| |htPage| |which|
-                     (|htpProperty| |htPage| '|exclusion|))))))))))
-       (#1#
-        (PROGN
-         (|htpSetProperty| |htPage| '|key| |key|)
-         (COND
-          ((MEMQ |key| '(|exposureOn| |exposureOff|))
-           (SETQ |$exposedOnlyIfTrue|
-                   (COND ((EQ |key| '|exposureOn|) 'T) (#1# NIL)))
-           (SETQ |key| (|htpProperty| |htPage| '|exclusion|))))
-         (|dbShowOp1| |htPage| |opAlist| |which| |key|))))))))
+                     ((NULL |opAlist|)
+                      (|emptySearchPage| |which| |filter| NIL))
+                     (#1#
+                      (PROGN
+                       (SETQ |htPage|
+                               (|htInitPageNoHeading|
+                                (|htCopyProplist| |htPage|)))
+                       (|htpSetProperty| |htPage| '|opAlist| |opAlist|)
+                       (COND
+                        ((NULL
+                          (EQ (|htpProperty| |htPage| '|condition?|) '|no|))
+                         (|dbResetOpAlistCondition| |htPage| |which|
+                          |opAlist|)))
+                       (|dbShowOps| |htPage| |which|
+                        (|htpProperty| |htPage| '|exclusion|))))))))))
+               (#1#
+                (PROGN
+                 (|htpSetProperty| |htPage| '|key| |key|)
+                 (COND
+                  ((MEMQ |key| '(|exposureOn| |exposureOff|))
+                   (SETQ |$exposedOnlyIfTrue|
+                           (COND ((EQ |key| '|exposureOn|) 'T) (#1# NIL)))
+                   (SETQ |key| (|htpProperty| |htPage| '|exclusion|))))
+                 (|dbShowOp1| |htPage| |opAlist| |which| |key|)))))))))))
  
 ; reduceByGroup(htPage,opAlist) ==
 ;   not dbFromConstructor?(htPage) or null $groupChoice => opAlist
@@ -215,7 +207,7 @@
  
 ; dbShowOp1(htPage,opAlist,which,key) ==
 ;   --set up for filtering below in dbGatherData
-;   $which: local := which
+;   which ~= '"operation" => BREAK()
 ;   if INTEGERP key then
 ;     -- BREAK()
 ;     opAlist := dbSelectData(htPage,opAlist,key)
@@ -224,9 +216,7 @@
 ;       and constructor? con => return conPageChoose con
 ;   if INTEGERP key then
 ;     htPage := htInitPageNoHeading(htCopyProplist htPage)
-;     if which = '"operation"
-;       then htpSetProperty(htPage,'opAlist,opAlist)
-;       else htpSetProperty(htPage,'attrAlist,opAlist)
+;     htpSetProperty(htPage, 'opAlist, opAlist)
 ;     if not (htpProperty(htPage, 'condition?) = 'no) then
 ;       dbResetOpAlistCondition(htPage,which,opAlist)
 ;   dbExpandOpAlistIfNecessary(htPage,opAlist,which,true,false)
@@ -283,172 +273,186 @@
 ;   htShowPageNoScroll()
  
 (DEFUN |dbShowOp1| (|htPage| |opAlist| |which| |key|)
-  (PROG (|$conformsAreDomains| |$which| |u| |page| |firstPart| |prefix|
-         |exposurePart| |namedPart| |ops| |dataCount| |data| |fn| |whats|
-         |what| |LETTMP#1| |branch| |opCount| |acc| |items| |op| |con|
-         |ISTMP#1|)
-    (DECLARE (SPECIAL |$conformsAreDomains| |$which|))
+  (PROG (|$conformsAreDomains| |u| |page| |firstPart| |prefix| |exposurePart|
+         |namedPart| |ops| |dataCount| |data| |fn| |whats| |what| |LETTMP#1|
+         |branch| |opCount| |acc| |items| |op| |con| |ISTMP#1|)
+    (DECLARE (SPECIAL |$conformsAreDomains|))
     (RETURN
-     (PROGN
-      (SETQ |$which| |which|)
-      (COND
-       ((INTEGERP |key|)
-        (SETQ |opAlist| (|dbSelectData| |htPage| |opAlist| |key|))))
-      (COND
-       ((AND (INTEGERP |key|) (CONSP |opAlist|) (EQ (CDR |opAlist|) NIL)
-             (PROGN
-              (SETQ |ISTMP#1| (CAR |opAlist|))
-              (AND (CONSP |ISTMP#1|)
-                   (PROGN (SETQ |con| (CAR |ISTMP#1|)) #1='T)))
-             (|htpProperty| |htPage| '|isFile|) (|constructor?| |con|))
-        (RETURN (|conPageChoose| |con|)))
-       (#1#
-        (PROGN
-         (COND
-          ((INTEGERP |key|)
-           (SETQ |htPage| (|htInitPageNoHeading| (|htCopyProplist| |htPage|)))
-           (COND
-            ((EQUAL |which| "operation")
-             (|htpSetProperty| |htPage| '|opAlist| |opAlist|))
-            (#1# (|htpSetProperty| |htPage| '|attrAlist| |opAlist|)))
-           (COND
-            ((NULL (EQ (|htpProperty| |htPage| '|condition?|) '|no|))
-             (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)))))
-         (|dbExpandOpAlistIfNecessary| |htPage| |opAlist| |which| T NIL)
-         (COND
-          ((AND |$exposedOnlyIfTrue| (NULL (|dbFromConstructor?| |htPage|)))
-           (SETQ |opAlist|
-                   ((LAMBDA (|bfVar#15| |bfVar#14| |bfVar#13|)
-                      (LOOP
-                       (COND
-                        ((OR (ATOM |bfVar#14|)
-                             (PROGN (SETQ |bfVar#13| (CAR |bfVar#14|)) NIL))
-                         (RETURN (NREVERSE |bfVar#15|)))
-                        (#1#
-                         (AND (CONSP |bfVar#13|)
-                              (PROGN
-                               (SETQ |op| (CAR |bfVar#13|))
-                               (SETQ |items| (CDR |bfVar#13|))
-                               #1#)
-                              #2=(PROGN
-                                  (SETQ |acc| NIL)
-                                  ((LAMBDA (|bfVar#16| |x|)
-                                     (LOOP
-                                      (COND
-                                       ((OR (ATOM |bfVar#16|)
-                                            (PROGN
-                                             (SETQ |x| (CAR |bfVar#16|))
-                                             NIL))
-                                        (RETURN NIL))
-                                       (#1#
-                                        (AND (ELT |x| 3)
-                                             (SETQ |acc| (CONS |x| |acc|)))))
-                                      (SETQ |bfVar#16| (CDR |bfVar#16|))))
-                                   |items| NIL)
-                                  (COND ((NULL |acc|) NIL)
-                                        (#1# (CONS |op| (NREVERSE |acc|)))))
-                              (SETQ |bfVar#15| (CONS #2# |bfVar#15|)))))
-                       (SETQ |bfVar#14| (CDR |bfVar#14|))))
-                    NIL |opAlist| NIL))))
-         (SETQ |$conformsAreDomains| (|htpProperty| |htPage| '|domname|))
-         (SETQ |opCount| (|opAlistCount| |opAlist| |which|))
-         (SETQ |branch|
-                 (COND
-                  ((INTEGERP |key|)
-                   (COND
-                    ((NOT (< |$opDescriptionThreshold| |opCount|))
-                     '|documentation|)
-                    (#1# '|names|)))
-                  ((AND (EQ |key| '|names|) (NULL (CDR |opAlist|)))
-                   (COND
-                    ((NOT (< |$opDescriptionThreshold| |opCount|))
-                     '|documentation|)
-                    (#1# '|names|)))
-                  (#1# |key|)))
-         (SETQ |LETTMP#1| (LASSOC |branch| |$OpViewTable|))
-         (SETQ |what| (CAR |LETTMP#1|))
-         (SETQ |whats| (CADR . #3=(|LETTMP#1|)))
-         (SETQ |fn| (CADDR . #3#))
-         (SETQ |data| (|dbGatherData| |htPage| |opAlist| |which| |branch|))
-         (SETQ |dataCount|
-                 ((LAMBDA (|bfVar#18| |bfVar#17| |x|)
-                    (LOOP
-                     (COND
-                      ((OR (ATOM |bfVar#17|)
-                           (PROGN (SETQ |x| (CAR |bfVar#17|)) NIL))
-                       (RETURN |bfVar#18|))
-                      (#1#
-                       (AND
+     (COND ((NOT (EQUAL |which| "operation")) (BREAK))
+           (#1='T
+            (PROGN
+             (COND
+              ((INTEGERP |key|)
+               (SETQ |opAlist| (|dbSelectData| |htPage| |opAlist| |key|))))
+             (COND
+              ((AND (INTEGERP |key|) (CONSP |opAlist|) (EQ (CDR |opAlist|) NIL)
+                    (PROGN
+                     (SETQ |ISTMP#1| (CAR |opAlist|))
+                     (AND (CONSP |ISTMP#1|)
+                          (PROGN (SETQ |con| (CAR |ISTMP#1|)) #1#)))
+                    (|htpProperty| |htPage| '|isFile|) (|constructor?| |con|))
+               (RETURN (|conPageChoose| |con|)))
+              (#1#
+               (PROGN
+                (COND
+                 ((INTEGERP |key|)
+                  (SETQ |htPage|
+                          (|htInitPageNoHeading| (|htCopyProplist| |htPage|)))
+                  (|htpSetProperty| |htPage| '|opAlist| |opAlist|)
+                  (COND
+                   ((NULL (EQ (|htpProperty| |htPage| '|condition?|) '|no|))
+                    (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)))))
+                (|dbExpandOpAlistIfNecessary| |htPage| |opAlist| |which| T NIL)
+                (COND
+                 ((AND |$exposedOnlyIfTrue|
+                       (NULL (|dbFromConstructor?| |htPage|)))
+                  (SETQ |opAlist|
+                          ((LAMBDA (|bfVar#15| |bfVar#14| |bfVar#13|)
+                             (LOOP
+                              (COND
+                               ((OR (ATOM |bfVar#14|)
+                                    (PROGN
+                                     (SETQ |bfVar#13| (CAR |bfVar#14|))
+                                     NIL))
+                                (RETURN (NREVERSE |bfVar#15|)))
+                               (#1#
+                                (AND (CONSP |bfVar#13|)
+                                     (PROGN
+                                      (SETQ |op| (CAR |bfVar#13|))
+                                      (SETQ |items| (CDR |bfVar#13|))
+                                      #1#)
+                                     #2=(PROGN
+                                         (SETQ |acc| NIL)
+                                         ((LAMBDA (|bfVar#16| |x|)
+                                            (LOOP
+                                             (COND
+                                              ((OR (ATOM |bfVar#16|)
+                                                   (PROGN
+                                                    (SETQ |x| (CAR |bfVar#16|))
+                                                    NIL))
+                                               (RETURN NIL))
+                                              (#1#
+                                               (AND (ELT |x| 3)
+                                                    (SETQ |acc|
+                                                            (CONS |x|
+                                                                  |acc|)))))
+                                             (SETQ |bfVar#16|
+                                                     (CDR |bfVar#16|))))
+                                          |items| NIL)
+                                         (COND ((NULL |acc|) NIL)
+                                               (#1#
+                                                (CONS |op| (NREVERSE |acc|)))))
+                                     (SETQ |bfVar#15| (CONS #2# |bfVar#15|)))))
+                              (SETQ |bfVar#14| (CDR |bfVar#14|))))
+                           NIL |opAlist| NIL))))
+                (SETQ |$conformsAreDomains|
+                        (|htpProperty| |htPage| '|domname|))
+                (SETQ |opCount| (|opAlistCount| |opAlist| |which|))
+                (SETQ |branch|
                         (COND
-                         ((AND (EQUAL |what| "Name") |$exposedOnlyIfTrue|)
-                          (ATOM |x|))
-                         (#1# T))
-                        (SETQ |bfVar#18| (+ |bfVar#18| 1)))))
-                     (SETQ |bfVar#17| (CDR |bfVar#17|))))
-                  0 |data| NIL))
-         (SETQ |namedPart|
-                 (COND
-                  ((NULL (CDR |opAlist|))
-                   (PROGN
-                    (SETQ |ops|
-                            (|escapeSpecialChars|
-                             (STRINGIMAGE (CAAR |opAlist|))))
-                    (LIST " {\\em " |ops| "}")))
-                  (#1# NIL)))
-         (COND
-          ((AND (EQUAL |what| "Condition") (NULL (IFCAR (IFCAR |data|))))
-           (SETQ |dataCount| (- |dataCount| 1))))
-         (SETQ |exposurePart|
-                 (COND (|$exposedOnlyIfTrue| '(" Exposed ")) (#1# NIL)))
-         (SETQ |firstPart|
-                 (COND
-                  ((EQL |opCount| 0)
-                   (CONS "No "
-                         (APPEND |exposurePart|
-                                 (CONS (|pluralize| (|capitalize| |which|))
-                                       NIL))))
-                  ((OR (EQL |dataCount| 1) (EQUAL |dataCount| |opCount|))
-                   (COND
-                    ((EQL |opCount| 1)
-                     (APPEND |exposurePart|
-                             (CONS (|capitalize| |which|) |namedPart|)))
-                    (#1#
-                     (CONS (STRINGIMAGE |opCount|)
-                           (CONS " "
-                                 (APPEND |exposurePart|
-                                         (CONS
-                                          (|pluralize| (|capitalize| |which|))
-                                          |namedPart|)))))))
-                  (#1#
-                   (PROGN
-                    (SETQ |prefix| (|pluralSay| |dataCount| |what| |whats|))
-                    (APPEND |prefix|
-                            (CONS " for "
-                                  (CONS (STRINGIMAGE |opCount|)
-                                        (CONS " "
-                                              (CONS
-                                               (|pluralize|
-                                                (|capitalize| |which|))
-                                               |namedPart|)))))))))
-         (SETQ |page| (|htInitPageNoHeading| (|htCopyProplist| |htPage|)))
-         (|htAddHeading|
-          (|dbShowOpHeading| (APPEND |firstPart| (|fromHeading| |page|))
-           |branch|))
-         (|htpSetProperty| |page| '|data| |data|)
-         (|htpSetProperty| |page| '|branch| |branch|)
-         (COND
-          ((SETQ |u| (|htpProperty| |page| '|specialMessage|))
-           (APPLY (CAR |u|) (CDR |u|))))
-         (|htSayStandard| "\\beginscroll ")
-         (FUNCALL |fn| |page| |opAlist| |which| |data|)
-         (|dbOpsExposureMessage|)
-         (|htSayStandard| '|\\endscroll |)
-         (|dbPresentOps| |page| |which| |branch|)
-         (|htShowPageNoScroll|))))))))
+                         ((INTEGERP |key|)
+                          (COND
+                           ((NOT (< |$opDescriptionThreshold| |opCount|))
+                            '|documentation|)
+                           (#1# '|names|)))
+                         ((AND (EQ |key| '|names|) (NULL (CDR |opAlist|)))
+                          (COND
+                           ((NOT (< |$opDescriptionThreshold| |opCount|))
+                            '|documentation|)
+                           (#1# '|names|)))
+                         (#1# |key|)))
+                (SETQ |LETTMP#1| (LASSOC |branch| |$OpViewTable|))
+                (SETQ |what| (CAR |LETTMP#1|))
+                (SETQ |whats| (CADR . #3=(|LETTMP#1|)))
+                (SETQ |fn| (CADDR . #3#))
+                (SETQ |data|
+                        (|dbGatherData| |htPage| |opAlist| |which| |branch|))
+                (SETQ |dataCount|
+                        ((LAMBDA (|bfVar#18| |bfVar#17| |x|)
+                           (LOOP
+                            (COND
+                             ((OR (ATOM |bfVar#17|)
+                                  (PROGN (SETQ |x| (CAR |bfVar#17|)) NIL))
+                              (RETURN |bfVar#18|))
+                             (#1#
+                              (AND
+                               (COND
+                                ((AND (EQUAL |what| "Name")
+                                      |$exposedOnlyIfTrue|)
+                                 (ATOM |x|))
+                                (#1# T))
+                               (SETQ |bfVar#18| (+ |bfVar#18| 1)))))
+                            (SETQ |bfVar#17| (CDR |bfVar#17|))))
+                         0 |data| NIL))
+                (SETQ |namedPart|
+                        (COND
+                         ((NULL (CDR |opAlist|))
+                          (PROGN
+                           (SETQ |ops|
+                                   (|escapeSpecialChars|
+                                    (STRINGIMAGE (CAAR |opAlist|))))
+                           (LIST " {\\em " |ops| "}")))
+                         (#1# NIL)))
+                (COND
+                 ((AND (EQUAL |what| "Condition")
+                       (NULL (IFCAR (IFCAR |data|))))
+                  (SETQ |dataCount| (- |dataCount| 1))))
+                (SETQ |exposurePart|
+                        (COND (|$exposedOnlyIfTrue| '(" Exposed ")) (#1# NIL)))
+                (SETQ |firstPart|
+                        (COND
+                         ((EQL |opCount| 0)
+                          (CONS "No "
+                                (APPEND |exposurePart|
+                                        (CONS
+                                         (|pluralize| (|capitalize| |which|))
+                                         NIL))))
+                         ((OR (EQL |dataCount| 1)
+                              (EQUAL |dataCount| |opCount|))
+                          (COND
+                           ((EQL |opCount| 1)
+                            (APPEND |exposurePart|
+                                    (CONS (|capitalize| |which|) |namedPart|)))
+                           (#1#
+                            (CONS (STRINGIMAGE |opCount|)
+                                  (CONS " "
+                                        (APPEND |exposurePart|
+                                                (CONS
+                                                 (|pluralize|
+                                                  (|capitalize| |which|))
+                                                 |namedPart|)))))))
+                         (#1#
+                          (PROGN
+                           (SETQ |prefix|
+                                   (|pluralSay| |dataCount| |what| |whats|))
+                           (APPEND |prefix|
+                                   (CONS " for "
+                                         (CONS (STRINGIMAGE |opCount|)
+                                               (CONS " "
+                                                     (CONS
+                                                      (|pluralize|
+                                                       (|capitalize| |which|))
+                                                      |namedPart|)))))))))
+                (SETQ |page|
+                        (|htInitPageNoHeading| (|htCopyProplist| |htPage|)))
+                (|htAddHeading|
+                 (|dbShowOpHeading| (APPEND |firstPart| (|fromHeading| |page|))
+                  |branch|))
+                (|htpSetProperty| |page| '|data| |data|)
+                (|htpSetProperty| |page| '|branch| |branch|)
+                (COND
+                 ((SETQ |u| (|htpProperty| |page| '|specialMessage|))
+                  (APPLY (CAR |u|) (CDR |u|))))
+                (|htSayStandard| "\\beginscroll ")
+                (FUNCALL |fn| |page| |opAlist| |which| |data|)
+                (|dbOpsExposureMessage|)
+                (|htSayStandard| '|\\endscroll |)
+                (|dbPresentOps| |page| |which| |branch|)
+                (|htShowPageNoScroll|))))))))))
  
 ; opAlistCount(opAlist, which) == +/[foo for [op,:items] in opAlist] where foo ==
-;   null $exposedOnlyIfTrue or which = '"attribute" => #items
-;   --count if unexpanded---CDDR(w) = nil---or if w.3 = true
+;   which = '"attribute" => BREAK()
+;   null $exposedOnlyIfTrue => #items
 ;   +/[1 for w in items | null (p := CDDR w) or p . 1]
  
 (DEFUN |opAlistCount| (|opAlist| |which|)
@@ -468,24 +472,24 @@
                  #1#)
                 (SETQ |bfVar#21|
                         (+ |bfVar#21|
-                           (COND
-                            ((OR (NULL |$exposedOnlyIfTrue|)
-                                 (EQUAL |which| "attribute"))
-                             (LENGTH |items|))
-                            (#1#
-                             ((LAMBDA (|bfVar#23| |bfVar#22| |w|)
-                                (LOOP
-                                 (COND
-                                  ((OR (ATOM |bfVar#22|)
-                                       (PROGN (SETQ |w| (CAR |bfVar#22|)) NIL))
-                                   (RETURN |bfVar#23|))
-                                  (#1#
-                                   (AND
-                                    (OR (NULL (SETQ |p| (CDDR |w|)))
-                                        (ELT |p| 1))
-                                    (SETQ |bfVar#23| (+ |bfVar#23| 1)))))
-                                 (SETQ |bfVar#22| (CDR |bfVar#22|))))
-                              0 |items| NIL))))))))
+                           (COND ((EQUAL |which| "attribute") (BREAK))
+                                 ((NULL |$exposedOnlyIfTrue|) (LENGTH |items|))
+                                 (#1#
+                                  ((LAMBDA (|bfVar#23| |bfVar#22| |w|)
+                                     (LOOP
+                                      (COND
+                                       ((OR (ATOM |bfVar#22|)
+                                            (PROGN
+                                             (SETQ |w| (CAR |bfVar#22|))
+                                             NIL))
+                                        (RETURN |bfVar#23|))
+                                       (#1#
+                                        (AND
+                                         (OR (NULL (SETQ |p| (CDDR |w|)))
+                                             (ELT |p| 1))
+                                         (SETQ |bfVar#23| (+ |bfVar#23| 1)))))
+                                      (SETQ |bfVar#22| (CDR |bfVar#22|))))
+                                   0 |items| NIL))))))))
          (SETQ |bfVar#20| (CDR |bfVar#20|))))
       0 |opAlist| NIL))))
  
@@ -952,6 +956,7 @@
   (PROG () (RETURN (LIST (PNAME (|unAbbreviateIfNecessary| (|opOf| |form|)))))))
  
 ; dbGatherData(htPage,opAlist,which,key) ==
+;   which ~= '"operation" => BREAK()
 ;   key = 'implementation => dbGatherDataImplementation(htPage,opAlist)
 ;   dataFunction := LASSOC(key,table) where
 ;     table ==
@@ -1019,6 +1024,7 @@
 ;         atom tail => tail
 ;         listSort(function LEXLESSEQP,tail)
 ;       RPLACD(rest entry, tail)
+;   SAY(["dbGatherData", data])
 ;   data := listSort(function LEXLESSEQP,data)
 ;   data
  
@@ -1027,168 +1033,178 @@
          |item| |r| |isExposed?| |node| |data| |entry| |exposeFlag| |ISTMP#1|
          |tail| |u| |y| |newEntry|)
     (RETURN
-     (COND
-      ((EQ |key| '|implementation|)
-       (|dbGatherDataImplementation| |htPage| |opAlist|))
-      (#1='T
-       (PROGN
-        (SETQ |dataFunction|
-                (LASSOC |key|
-                 (OR |$dbDataFunctionAlist|
-                     (SETQ |$dbDataFunctionAlist|
-                             (LIST (CONS '|signatures| #'|dbMakeSignature|)
+     (COND ((NOT (EQUAL |which| "operation")) (BREAK))
+           ((EQ |key| '|implementation|)
+            (|dbGatherDataImplementation| |htPage| |opAlist|))
+           (#1='T
+            (PROGN
+             (SETQ |dataFunction|
+                     (LASSOC |key|
+                      (OR |$dbDataFunctionAlist|
+                          (SETQ |$dbDataFunctionAlist|
+                                  (LIST
+                                   (CONS '|signatures| #'|dbMakeSignature|)
                                    (CONS '|parameters| #'|dbContrivedForm|)
                                    (CONS '|origins| #'|dbGetOrigin|)
                                    (CONS '|domains| #'|dbGetOrigin|)
                                    (CONS '|conditions| #'|dbGetCondition|))))))
-        (COND
-         ((NULL |dataFunction|)
-          (PROGN
-           (COND
-            ((AND |$exposedOnlyIfTrue| (NULL (|dbFromConstructor?| |htPage|)))
-             (SETQ |opAlist|
-                     (COND
-                      ((EQUAL |which| "operation")
-                       (|htpProperty| |htPage| '|opAlist|))
-                      (#1# (|htpProperty| |htPage| '|attrAlist|))))))
-           (SETQ |acc| NIL)
-           (SETQ |initialExposure|
-                   (COND
-                    ((AND |htPage| (|htpProperty| |htPage| '|conform|)
-                          (NOT (EQUAL |which| "package operation")))
-                     T)
-                    (#1# NIL)))
-           ((LAMBDA (|bfVar#42| |bfVar#41|)
-              (LOOP
-               (COND
-                ((OR (ATOM |bfVar#42|)
-                     (PROGN (SETQ |bfVar#41| (CAR |bfVar#42|)) NIL))
-                 (RETURN NIL))
-                (#1#
-                 (AND (CONSP |bfVar#41|)
-                      (PROGN
-                       (SETQ |op| (CAR |bfVar#41|))
-                       (SETQ |alist| (CDR |bfVar#41|))
-                       #1#)
-                      (PROGN
-                       (SETQ |exposureFlag| |initialExposure|)
-                       ((LAMBDA ()
-                          (LOOP
-                           (COND ((NOT |alist|) (RETURN NIL))
-                                 (#1#
-                                  (PROGN
-                                   (SETQ |item| (CAR |alist|))
-                                   (SETQ |isExposed?|
-                                           (COND
-                                            ((STRINGP |item|)
-                                             (|dbExposed?| |item|
-                                              (|char| '|o|)))
-                                            ((NULL
-                                              (SETQ |r| (CDR (CDR |item|))))
-                                             T)
-                                            (#1# (ELT |r| 1))))
-                                   (COND
-                                    (|isExposed?|
-                                     (RETURN (SETQ |exposureFlag| T))))
-                                   (SETQ |alist| (CDR |alist|))))))))
-                       (SETQ |node|
-                               (COND (|exposureFlag| |op|)
-                                     (#1# (LIST |op| NIL))))
-                       (SETQ |acc| (CONS |node| |acc|))))))
-               (SETQ |bfVar#42| (CDR |bfVar#42|))))
-            |opAlist| NIL)
-           (NREVERSE |acc|)))
-         (#1#
-          (PROGN
-           (SETQ |data| NIL)
-           (|dbExpandOpAlistIfNecessary| |htPage| |opAlist| |which|
-            (|member| |key| '(|origins| |documentation|)) NIL)
-           ((LAMBDA (|bfVar#44| |bfVar#43|)
-              (LOOP
-               (COND
-                ((OR (ATOM |bfVar#44|)
-                     (PROGN (SETQ |bfVar#43| (CAR |bfVar#44|)) NIL))
-                 (RETURN NIL))
-                (#1#
-                 (AND (CONSP |bfVar#43|)
-                      (PROGN
-                       (SETQ |op| (CAR |bfVar#43|))
-                       (SETQ |alist| (CDR |bfVar#43|))
-                       #1#)
-                      ((LAMBDA (|bfVar#45| |item|)
-                         (LOOP
+             (COND
+              ((NULL |dataFunction|)
+               (PROGN
+                (COND
+                 ((AND |$exposedOnlyIfTrue|
+                       (NULL (|dbFromConstructor?| |htPage|)))
+                  (SETQ |opAlist|
                           (COND
-                           ((OR (ATOM |bfVar#45|)
-                                (PROGN (SETQ |item| (CAR |bfVar#45|)) NIL))
-                            (RETURN NIL))
-                           (#1#
-                            (PROGN
-                             (SETQ |entry|
-                                     (FUNCALL |dataFunction| |op| |item|))
-                             (SETQ |exposeFlag|
-                                     (COND
-                                      ((NULL (SETQ |r| (CDR (CDR |item|)))) T)
-                                      (#1# (ELT |r| 1))))
-                             (SETQ |tail|
-                                     (COND
-                                      ((AND (CONSP |item|)
-                                            (PROGN
-                                             (SETQ |ISTMP#1| (CDR |item|))
-                                             (AND (CONSP |ISTMP#1|)
-                                                  (EQ (CAR |ISTMP#1|)
-                                                      'ASCONST))))
-                                       'ASCONST)
-                                      (#1# NIL)))
-                             (SETQ |newEntry|
-                                     (COND
-                                      ((SETQ |u| (|assoc| |entry| |data|))
-                                       (PROGN
-                                        (RPLACA (CDR |u|)
-                                                (OR (CADR |u|) |exposeFlag|))
-                                        |u|))
+                           ((EQUAL |which| "operation")
+                            (|htpProperty| |htPage| '|opAlist|))
+                           (#1# (|htpProperty| |htPage| '|attrAlist|))))))
+                (SETQ |acc| NIL)
+                (SETQ |initialExposure|
+                        (COND
+                         ((AND |htPage| (|htpProperty| |htPage| '|conform|)
+                               (NOT (EQUAL |which| "package operation")))
+                          T)
+                         (#1# NIL)))
+                ((LAMBDA (|bfVar#42| |bfVar#41|)
+                   (LOOP
+                    (COND
+                     ((OR (ATOM |bfVar#42|)
+                          (PROGN (SETQ |bfVar#41| (CAR |bfVar#42|)) NIL))
+                      (RETURN NIL))
+                     (#1#
+                      (AND (CONSP |bfVar#41|)
+                           (PROGN
+                            (SETQ |op| (CAR |bfVar#41|))
+                            (SETQ |alist| (CDR |bfVar#41|))
+                            #1#)
+                           (PROGN
+                            (SETQ |exposureFlag| |initialExposure|)
+                            ((LAMBDA ()
+                               (LOOP
+                                (COND ((NOT |alist|) (RETURN NIL))
                                       (#1#
                                        (PROGN
-                                        (SETQ |data|
-                                                (CONS
-                                                 (SETQ |y|
-                                                         (CONS |entry|
-                                                               (CONS
-                                                                |exposeFlag|
-                                                                |tail|)))
-                                                 |data|))
-                                        |y|))))
-                             (COND
-                              ((|member| |key| '(|origins| |conditions|))
-                               (SETQ |r| (CDDR |newEntry|))
-                               (COND ((ATOM |r|) (SETQ |r| NIL)))
-                               (RPLACD (CDR |newEntry|)
-                                       (|insert|
-                                        (CONS (|dbMakeSignature| |op| |item|)
+                                        (SETQ |item| (CAR |alist|))
+                                        (SETQ |isExposed?|
+                                                (COND
+                                                 ((STRINGP |item|)
+                                                  (|dbExposed?| |item|
+                                                   (|char| '|o|)))
+                                                 ((NULL
+                                                   (SETQ |r|
+                                                           (CDR (CDR |item|))))
+                                                  T)
+                                                 (#1# (ELT |r| 1))))
+                                        (COND
+                                         (|isExposed?|
+                                          (RETURN (SETQ |exposureFlag| T))))
+                                        (SETQ |alist| (CDR |alist|))))))))
+                            (SETQ |node|
+                                    (COND (|exposureFlag| |op|)
+                                          (#1# (LIST |op| NIL))))
+                            (SETQ |acc| (CONS |node| |acc|))))))
+                    (SETQ |bfVar#42| (CDR |bfVar#42|))))
+                 |opAlist| NIL)
+                (NREVERSE |acc|)))
+              (#1#
+               (PROGN
+                (SETQ |data| NIL)
+                (|dbExpandOpAlistIfNecessary| |htPage| |opAlist| |which|
+                 (|member| |key| '(|origins| |documentation|)) NIL)
+                ((LAMBDA (|bfVar#44| |bfVar#43|)
+                   (LOOP
+                    (COND
+                     ((OR (ATOM |bfVar#44|)
+                          (PROGN (SETQ |bfVar#43| (CAR |bfVar#44|)) NIL))
+                      (RETURN NIL))
+                     (#1#
+                      (AND (CONSP |bfVar#43|)
+                           (PROGN
+                            (SETQ |op| (CAR |bfVar#43|))
+                            (SETQ |alist| (CDR |bfVar#43|))
+                            #1#)
+                           ((LAMBDA (|bfVar#45| |item|)
+                              (LOOP
+                               (COND
+                                ((OR (ATOM |bfVar#45|)
+                                     (PROGN
+                                      (SETQ |item| (CAR |bfVar#45|))
+                                      NIL))
+                                 (RETURN NIL))
+                                (#1#
+                                 (PROGN
+                                  (SETQ |entry|
+                                          (FUNCALL |dataFunction| |op| |item|))
+                                  (SETQ |exposeFlag|
+                                          (COND
+                                           ((NULL
+                                             (SETQ |r| (CDR (CDR |item|))))
+                                            T)
+                                           (#1# (ELT |r| 1))))
+                                  (SETQ |tail|
+                                          (COND
+                                           ((AND (CONSP |item|)
+                                                 (PROGN
+                                                  (SETQ |ISTMP#1| (CDR |item|))
+                                                  (AND (CONSP |ISTMP#1|)
+                                                       (EQ (CAR |ISTMP#1|)
+                                                           'ASCONST))))
+                                            'ASCONST)
+                                           (#1# NIL)))
+                                  (SETQ |newEntry|
+                                          (COND
+                                           ((SETQ |u| (|assoc| |entry| |data|))
+                                            (PROGN
+                                             (RPLACA (CDR |u|)
+                                                     (OR (CADR |u|)
+                                                         |exposeFlag|))
+                                             |u|))
+                                           (#1#
+                                            (PROGN
+                                             (SETQ |data|
+                                                     (CONS
+                                                      (SETQ |y|
+                                                              (CONS |entry|
+                                                                    (CONS
+                                                                     |exposeFlag|
+                                                                     |tail|)))
+                                                      |data|))
+                                             |y|))))
+                                  (COND
+                                   ((|member| |key| '(|origins| |conditions|))
+                                    (SETQ |r| (CDDR |newEntry|))
+                                    (COND ((ATOM |r|) (SETQ |r| NIL)))
+                                    (RPLACD (CDR |newEntry|)
+                                            (|insert|
+                                             (CONS
+                                              (|dbMakeSignature| |op| |item|)
                                               (CONS |exposeFlag| |tail|))
-                                        |r|)))))))
-                          (SETQ |bfVar#45| (CDR |bfVar#45|))))
-                       |alist| NIL))))
-               (SETQ |bfVar#44| (CDR |bfVar#44|))))
-            |opAlist| NIL)
-           (COND
-            ((|member| |key| '(|origins| |conditions|))
-             ((LAMBDA (|bfVar#46| |entry|)
-                (LOOP
-                 (COND
-                  ((OR (ATOM |bfVar#46|)
-                       (PROGN (SETQ |entry| (CAR |bfVar#46|)) NIL))
-                   (RETURN NIL))
-                  (#1#
-                   (PROGN
-                    (SETQ |tail| (CDDR |entry|))
-                    (SETQ |tail|
-                            (COND ((ATOM |tail|) |tail|)
-                                  (#1# (|listSort| #'LEXLESSEQP |tail|))))
-                    (RPLACD (CDR |entry|) |tail|))))
-                 (SETQ |bfVar#46| (CDR |bfVar#46|))))
-              |data| NIL)))
-           (SETQ |data| (|listSort| #'LEXLESSEQP |data|))
-           |data|)))))))))
+                                             |r|)))))))
+                               (SETQ |bfVar#45| (CDR |bfVar#45|))))
+                            |alist| NIL))))
+                    (SETQ |bfVar#44| (CDR |bfVar#44|))))
+                 |opAlist| NIL)
+                (COND
+                 ((|member| |key| '(|origins| |conditions|))
+                  ((LAMBDA (|bfVar#46| |entry|)
+                     (LOOP
+                      (COND
+                       ((OR (ATOM |bfVar#46|)
+                            (PROGN (SETQ |entry| (CAR |bfVar#46|)) NIL))
+                        (RETURN NIL))
+                       (#1#
+                        (PROGN
+                         (SETQ |tail| (CDDR |entry|))
+                         (SETQ |tail|
+                                 (COND ((ATOM |tail|) |tail|)
+                                       (#1# (|listSort| #'LEXLESSEQP |tail|))))
+                         (RPLACD (CDR |entry|) |tail|))))
+                      (SETQ |bfVar#46| (CDR |bfVar#46|))))
+                   |data| NIL)))
+                (SAY (LIST '|dbGatherData| |data|))
+                (SETQ |data| (|listSort| #'LEXLESSEQP |data|))
+                |data|)))))))))
  
 ; dbGatherDataImplementation(htPage,opAlist) ==
 ; --returns data, of form ((implementor exposed? entry entry...)...
@@ -1583,16 +1599,12 @@
       (NREVERSE |acc|)))))
  
 ; dbContrivedForm(op,[sig,:.]) ==
-;   $which = '"attribute" => [op,sig]
 ;   dbMakeContrivedForm(op,sig)
  
 (DEFUN |dbContrivedForm| (|op| |bfVar#68|)
   (PROG (|sig|)
     (RETURN
-     (PROGN
-      (SETQ |sig| (CAR |bfVar#68|))
-      (COND ((EQUAL |$which| "attribute") (LIST |op| |sig|))
-            ('T (|dbMakeContrivedForm| |op| |sig|)))))))
+     (PROGN (SETQ |sig| (CAR |bfVar#68|)) (|dbMakeContrivedForm| |op| |sig|)))))
  
 ; dbMakeSignature(op,[sig,:.]) == [op,sig]  --getDomainOpTable format
  
@@ -1913,18 +1925,19 @@
  
 ; dbShowOpSigList(which,dataItems,count) ==
 ; --dataItems is (((op,sig,:.),exposureFlag,...)
+;   which ~= '"operation" => BREAK()
 ;   single? := null rest dataItems
 ;   htBeginTable()
 ;   for [[op,sig,:.],exposureFlag,:tail] in dataItems repeat
 ;     ops := escapeSpecialChars STRINGIMAGE op
 ;     htSay '"{"
-; --  if single? then htSay('"{\em ",ops,'"}") else.....
 ;     htSayExpose(ops,exposureFlag)
 ;     htMakePage [['bcLinks,[ops,'"",'dbShowOps,which,count]]]
-;     if which = '"attribute" then htSay args2HtString (sig and [sig]) else
-;       htSay '": "
-;       tail = 'ASCONST => bcConform first sig
-;       bcConform ['Mapping,:sig]
+;     htSay '": "
+;     if tail = 'ASCONST then
+;         bcConform(first(sig))
+;     else
+;         bcConform(['Mapping, :sig])
 ;     htSay '"}"
 ;     count := count + 1
 ;   htEndTable()
@@ -1934,52 +1947,54 @@
   (PROG (|single?| |ISTMP#1| |op| |ISTMP#2| |sig| |ISTMP#3| |exposureFlag|
          |tail| |ops|)
     (RETURN
-     (PROGN
-      (SETQ |single?| (NULL (CDR |dataItems|)))
-      (|htBeginTable|)
-      ((LAMBDA (|bfVar#84| |bfVar#83|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#84|)
-                (PROGN (SETQ |bfVar#83| (CAR |bfVar#84|)) NIL))
-            (RETURN NIL))
+     (COND ((NOT (EQUAL |which| "operation")) (BREAK))
            (#1='T
-            (AND (CONSP |bfVar#83|)
-                 (PROGN
-                  (SETQ |ISTMP#1| (CAR |bfVar#83|))
-                  (AND (CONSP |ISTMP#1|)
-                       (PROGN
-                        (SETQ |op| (CAR |ISTMP#1|))
-                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                        (AND (CONSP |ISTMP#2|)
-                             (PROGN (SETQ |sig| (CAR |ISTMP#2|)) #1#)))))
-                 (PROGN
-                  (SETQ |ISTMP#3| (CDR |bfVar#83|))
-                  (AND (CONSP |ISTMP#3|)
-                       (PROGN
-                        (SETQ |exposureFlag| (CAR |ISTMP#3|))
-                        (SETQ |tail| (CDR |ISTMP#3|))
-                        #1#)))
-                 (PROGN
-                  (SETQ |ops| (|escapeSpecialChars| (STRINGIMAGE |op|)))
-                  (|htSay| "{")
-                  (|htSayExpose| |ops| |exposureFlag|)
-                  (|htMakePage|
-                   (LIST
-                    (LIST '|bcLinks|
-                          (LIST |ops| "" '|dbShowOps| |which| |count|))))
-                  (COND
-                   ((EQUAL |which| "attribute")
-                    (|htSay| (|args2HtString| (AND |sig| (LIST |sig|)))))
-                   (#1# (|htSay| ": ")
-                    (COND ((EQ |tail| 'ASCONST) (|bcConform| (CAR |sig|)))
-                          (#1# (|bcConform| (CONS '|Mapping| |sig|))))))
-                  (|htSay| "}")
-                  (SETQ |count| (+ |count| 1))))))
-          (SETQ |bfVar#84| (CDR |bfVar#84|))))
-       |dataItems| NIL)
-      (|htEndTable|)
-      |count|))))
+            (PROGN
+             (SETQ |single?| (NULL (CDR |dataItems|)))
+             (|htBeginTable|)
+             ((LAMBDA (|bfVar#84| |bfVar#83|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#84|)
+                       (PROGN (SETQ |bfVar#83| (CAR |bfVar#84|)) NIL))
+                   (RETURN NIL))
+                  (#1#
+                   (AND (CONSP |bfVar#83|)
+                        (PROGN
+                         (SETQ |ISTMP#1| (CAR |bfVar#83|))
+                         (AND (CONSP |ISTMP#1|)
+                              (PROGN
+                               (SETQ |op| (CAR |ISTMP#1|))
+                               (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                               (AND (CONSP |ISTMP#2|)
+                                    (PROGN
+                                     (SETQ |sig| (CAR |ISTMP#2|))
+                                     #1#)))))
+                        (PROGN
+                         (SETQ |ISTMP#3| (CDR |bfVar#83|))
+                         (AND (CONSP |ISTMP#3|)
+                              (PROGN
+                               (SETQ |exposureFlag| (CAR |ISTMP#3|))
+                               (SETQ |tail| (CDR |ISTMP#3|))
+                               #1#)))
+                        (PROGN
+                         (SETQ |ops| (|escapeSpecialChars| (STRINGIMAGE |op|)))
+                         (|htSay| "{")
+                         (|htSayExpose| |ops| |exposureFlag|)
+                         (|htMakePage|
+                          (LIST
+                           (LIST '|bcLinks|
+                                 (LIST |ops| "" '|dbShowOps| |which|
+                                       |count|))))
+                         (|htSay| ": ")
+                         (COND ((EQ |tail| 'ASCONST) (|bcConform| (CAR |sig|)))
+                               (#1# (|bcConform| (CONS '|Mapping| |sig|))))
+                         (|htSay| "}")
+                         (SETQ |count| (+ |count| 1))))))
+                 (SETQ |bfVar#84| (CDR |bfVar#84|))))
+              |dataItems| NIL)
+             (|htEndTable|)
+             |count|))))))
  
 ; dbShowOpParameters(htPage,opAlist,which,data) ==
 ;   single? := null rest data
@@ -2002,7 +2017,8 @@
 ;         dbShowOpParameterJump(ops,which,count,single?)
 ;         htSayList(['" {\em ", IFCAR IFCDR args, '"}"])
 ;       dbShowOpParameterJump(ops,which,count,single?)
-;       tail = 'ASCONST or member(op,'(0 1)) or which = '"attribute" and null IFCAR args => 'skip
+;       which = '"attribute" => BREAK()
+;       tail = 'ASCONST or member(op,'(0 1)) => 'skip
 ;       htSay('"(")
 ;       if IFCAR args then htSayList(['"{\em ", IFCAR args, '"}"])
 ;       for x in IFCDR args repeat
@@ -2049,26 +2065,25 @@
                (#1#
                 (PROGN
                  (|dbShowOpParameterJump| |ops| |which| |count| |single?|)
-                 (COND
-                  ((OR (EQ |tail| 'ASCONST) (|member| |op| '(0 1))
-                       (AND (EQUAL |which| "attribute") (NULL (IFCAR |args|))))
-                   '|skip|)
-                  (#1#
-                   (PROGN
-                    (|htSay| "(")
-                    (COND
-                     ((IFCAR |args|)
-                      (|htSayList| (LIST "{\\em " (IFCAR |args|) "}"))))
-                    ((LAMBDA (|bfVar#86| |x|)
-                       (LOOP
-                        (COND
-                         ((OR (ATOM |bfVar#86|)
-                              (PROGN (SETQ |x| (CAR |bfVar#86|)) NIL))
-                          (RETURN NIL))
-                         (#1# (|htSayList| (LIST ", {\\em " |x| "}"))))
-                        (SETQ |bfVar#86| (CDR |bfVar#86|))))
-                     (IFCDR |args|) NIL)
-                    (|htSay| ")"))))))))
+                 (COND ((EQUAL |which| "attribute") (BREAK))
+                       ((OR (EQ |tail| 'ASCONST) (|member| |op| '(0 1)))
+                        '|skip|)
+                       (#1#
+                        (PROGN
+                         (|htSay| "(")
+                         (COND
+                          ((IFCAR |args|)
+                           (|htSayList| (LIST "{\\em " (IFCAR |args|) "}"))))
+                         ((LAMBDA (|bfVar#86| |x|)
+                            (LOOP
+                             (COND
+                              ((OR (ATOM |bfVar#86|)
+                                   (PROGN (SETQ |x| (CAR |bfVar#86|)) NIL))
+                               (RETURN NIL))
+                              (#1# (|htSayList| (LIST ", {\\em " |x| "}"))))
+                             (SETQ |bfVar#86| (CDR |bfVar#86|))))
+                          (IFCDR |args|) NIL)
+                         (|htSay| ")"))))))))
              (|htSay| "}")
              (SETQ |count| (+ |count| 1)))))
           (SETQ |bfVar#85| (CDR |bfVar#85|))))
@@ -2090,17 +2105,10 @@
                     (LIST |ops| "" '|dbShowOps| |which| |count|)))))))))
  
 ; dbShowOpDocumentation(htPage,opAlist,which,data) ==
+;   which ~= '"operation" => BREAK()
 ;   if $exposedOnlyIfTrue and not dbFromConstructor?(htPage) then
-;     opAlist :=
-;       which = '"operation" => htpProperty(htPage,'opAlist)
-;       htpProperty(htPage,'attrAlist)
-;     --NOTE: this line is necessary to get indexing right.
-;     --The test below for $exposedOnlyIfTrue causes unexposed items
-;     --to be skipped.
-;   newWhich :=
-;     conform := htpProperty(htPage,'domname) or htpProperty(htPage,'conform)
-;     which = '"package operation" => '"operation"
-;     which
+;       opAlist := htpProperty(htPage, 'opAlist)
+;   conform := htpProperty(htPage, 'domname) or htpProperty(htPage, 'conform)
 ;   expand := dbExpandOpAlistIfNecessary(htPage,opAlist,which,true,false)
 ;   if expand then
 ;     condata := dbGatherData(htPage,opAlist,which,'conditions)
@@ -2121,111 +2129,107 @@
 ;         doc := (STRINGP comments and comments ~= '"" => comments; nil)
 ;         pred := predicate or true
 ;         index := (exactlyOneOpSig => nil; base + j)
-;         if which = '"package operation" then
-;           sig    := substitute(conform, '_$, sig)
-;           origin := substitute(conform, '_$, origin)
-;         displayDomainOp(htPage,newWhich,origin,op,sig,pred,doc,index,'dbChooseDomainOp,null exposeFlag,true)
+;         displayDomainOp(htPage, '"operation", origin, op, sig, pred,
+;                         doc, index, 'dbChooseDomainOp, null(exposeFlag), true)
  
 (DEFUN |dbShowOpDocumentation| (|htPage| |opAlist| |which| |data|)
-  (PROG (|conform| |newWhich| |expand| |condata| |base| |ISTMP#1| |ISTMP#2|
+  (PROG (|conform| |expand| |condata| |base| |ISTMP#1| |ISTMP#2|
          |exactlyOneOpSig| |op| |alist| |sig| |predicate| |origin| |exposeFlag|
          |comments| |k| |tail| |doc| |pred| |index|)
     (RETURN
-     (PROGN
-      (COND
-       ((AND |$exposedOnlyIfTrue| (NULL (|dbFromConstructor?| |htPage|)))
-        (SETQ |opAlist|
-                (COND
-                 ((EQUAL |which| "operation")
-                  (|htpProperty| |htPage| '|opAlist|))
-                 (#1='T (|htpProperty| |htPage| '|attrAlist|))))))
-      (SETQ |newWhich|
-              (PROGN
-               (SETQ |conform|
-                       (OR (|htpProperty| |htPage| '|domname|)
-                           (|htpProperty| |htPage| '|conform|)))
-               (COND ((EQUAL |which| "package operation") "operation")
-                     (#1# |which|))))
-      (SETQ |expand|
-              (|dbExpandOpAlistIfNecessary| |htPage| |opAlist| |which| T NIL))
-      (COND
-       (|expand|
-        (SETQ |condata|
-                (|dbGatherData| |htPage| |opAlist| |which| '|conditions|))
-        (|htpSetProperty| |htPage| '|conditionData| |condata|)))
-      (SETQ |base| (- 8192))
-      (SETQ |exactlyOneOpSig|
-              (AND (CONSP |opAlist|) (EQ (CDR |opAlist|) NIL)
-                   (PROGN
-                    (SETQ |ISTMP#1| (CAR |opAlist|))
-                    (AND (CONSP |ISTMP#1|)
-                         (PROGN
-                          (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                          (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)))))))
-      ((LAMBDA (|bfVar#88| |bfVar#87|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#88|)
-                (PROGN (SETQ |bfVar#87| (CAR |bfVar#88|)) NIL))
-            (RETURN NIL))
-           (#1#
-            (AND (CONSP |bfVar#87|)
-                 (PROGN
-                  (SETQ |op| (CAR |bfVar#87|))
-                  (SETQ |alist| (CDR |bfVar#87|))
-                  #1#)
-                 (PROGN
-                  (SETQ |base| (+ 8192 |base|))
-                  ((LAMBDA (|bfVar#89| |item| |j|)
-                     (LOOP
-                      (COND
-                       ((OR (ATOM |bfVar#89|)
-                            (PROGN (SETQ |item| (CAR |bfVar#89|)) NIL))
-                        (RETURN NIL))
-                       (#1#
+     (COND ((NOT (EQUAL |which| "operation")) (BREAK))
+           (#1='T
+            (PROGN
+             (COND
+              ((AND |$exposedOnlyIfTrue|
+                    (NULL (|dbFromConstructor?| |htPage|)))
+               (SETQ |opAlist| (|htpProperty| |htPage| '|opAlist|))))
+             (SETQ |conform|
+                     (OR (|htpProperty| |htPage| '|domname|)
+                         (|htpProperty| |htPage| '|conform|)))
+             (SETQ |expand|
+                     (|dbExpandOpAlistIfNecessary| |htPage| |opAlist| |which| T
+                      NIL))
+             (COND
+              (|expand|
+               (SETQ |condata|
+                       (|dbGatherData| |htPage| |opAlist| |which|
+                        '|conditions|))
+               (|htpSetProperty| |htPage| '|conditionData| |condata|)))
+             (SETQ |base| (- 8192))
+             (SETQ |exactlyOneOpSig|
+                     (AND (CONSP |opAlist|) (EQ (CDR |opAlist|) NIL)
+                          (PROGN
+                           (SETQ |ISTMP#1| (CAR |opAlist|))
+                           (AND (CONSP |ISTMP#1|)
+                                (PROGN
+                                 (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                 (AND (CONSP |ISTMP#2|)
+                                      (EQ (CDR |ISTMP#2|) NIL)))))))
+             ((LAMBDA (|bfVar#88| |bfVar#87|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#88|)
+                       (PROGN (SETQ |bfVar#87| (CAR |bfVar#88|)) NIL))
+                   (RETURN NIL))
+                  (#1#
+                   (AND (CONSP |bfVar#87|)
                         (PROGN
-                         (SETQ |sig| (CAR |item|))
-                         (SETQ |predicate| (CADR . #2=(|item|)))
-                         (SETQ |origin| (CADDR . #2#))
-                         (SETQ |exposeFlag| (CADDDR . #2#))
-                         (SETQ |comments| (CAR (CDDDDR . #2#)))
-                         (COND
-                          ((OR |exposeFlag| (NULL |$exposedOnlyIfTrue|))
-                           (PROGN
-                            (COND
-                             ((AND (NOT (EQUAL |comments| ""))
-                                   (STRINGP |comments|)
-                                   (SETQ |k| (|string2Integer| |comments|)))
-                              (SETQ |comments|
-                                      (COND ((MEMQ |k| '(0 1)) "")
-                                            (#1# (|dbReadComments| |k|))))
-                              (SETQ |tail| (CDDDDR |item|))
-                              (RPLACA |tail| |comments|)))
-                            (SETQ |doc|
-                                    (COND
-                                     ((AND (STRINGP |comments|)
-                                           (NOT (EQUAL |comments| "")))
-                                      |comments|)
-                                     (#1# NIL)))
-                            (SETQ |pred| (OR |predicate| T))
-                            (SETQ |index|
-                                    (COND (|exactlyOneOpSig| NIL)
-                                          (#1# (+ |base| |j|))))
-                            (COND
-                             ((EQUAL |which| "package operation")
-                              (SETQ |sig| (|substitute| |conform| '$ |sig|))
-                              (SETQ |origin|
-                                      (|substitute| |conform| '$ |origin|))))
-                            (|displayDomainOp| |htPage| |newWhich| |origin|
-                             |op| |sig| |pred| |doc| |index|
-                             '|dbChooseDomainOp| (NULL |exposeFlag|) T)))))))
-                      (SETQ |bfVar#89| (CDR |bfVar#89|))
-                      (SETQ |j| (+ |j| 1))))
-                   |alist| NIL 0)))))
-          (SETQ |bfVar#88| (CDR |bfVar#88|))))
-       |opAlist| NIL)))))
+                         (SETQ |op| (CAR |bfVar#87|))
+                         (SETQ |alist| (CDR |bfVar#87|))
+                         #1#)
+                        (PROGN
+                         (SETQ |base| (+ 8192 |base|))
+                         ((LAMBDA (|bfVar#89| |item| |j|)
+                            (LOOP
+                             (COND
+                              ((OR (ATOM |bfVar#89|)
+                                   (PROGN (SETQ |item| (CAR |bfVar#89|)) NIL))
+                               (RETURN NIL))
+                              (#1#
+                               (PROGN
+                                (SETQ |sig| (CAR |item|))
+                                (SETQ |predicate| (CADR . #2=(|item|)))
+                                (SETQ |origin| (CADDR . #2#))
+                                (SETQ |exposeFlag| (CADDDR . #2#))
+                                (SETQ |comments| (CAR (CDDDDR . #2#)))
+                                (COND
+                                 ((OR |exposeFlag| (NULL |$exposedOnlyIfTrue|))
+                                  (PROGN
+                                   (COND
+                                    ((AND (NOT (EQUAL |comments| ""))
+                                          (STRINGP |comments|)
+                                          (SETQ |k|
+                                                  (|string2Integer|
+                                                   |comments|)))
+                                     (SETQ |comments|
+                                             (COND ((MEMQ |k| '(0 1)) "")
+                                                   (#1#
+                                                    (|dbReadComments| |k|))))
+                                     (SETQ |tail| (CDDDDR |item|))
+                                     (RPLACA |tail| |comments|)))
+                                   (SETQ |doc|
+                                           (COND
+                                            ((AND (STRINGP |comments|)
+                                                  (NOT (EQUAL |comments| "")))
+                                             |comments|)
+                                            (#1# NIL)))
+                                   (SETQ |pred| (OR |predicate| T))
+                                   (SETQ |index|
+                                           (COND (|exactlyOneOpSig| NIL)
+                                                 (#1# (+ |base| |j|))))
+                                   (|displayDomainOp| |htPage| "operation"
+                                    |origin| |op| |sig| |pred| |doc| |index|
+                                    '|dbChooseDomainOp| (NULL |exposeFlag|)
+                                    T)))))))
+                             (SETQ |bfVar#89| (CDR |bfVar#89|))
+                             (SETQ |j| (+ |j| 1))))
+                          |alist| NIL 0)))))
+                 (SETQ |bfVar#88| (CDR |bfVar#88|))))
+              |opAlist| NIL)))))))
  
 ; dbChooseDomainOp(htPage,which,index) ==
+;   which ~= '"operation" => BREAK()
 ;   [opKey,entryKey] := DIVIDE(index,8192)
 ;   opAlist :=
 ;     which = '"operation" => htpProperty(htPage,'opAlist)
@@ -2243,29 +2247,34 @@
 (DEFUN |dbChooseDomainOp| (|htPage| |which| |index|)
   (PROG (|LETTMP#1| |opKey| |entryKey| |opAlist| |op| |entries| |entry|)
     (RETURN
-     (PROGN
-      (SETQ |LETTMP#1| (DIVIDE |index| 8192))
-      (SETQ |opKey| (CAR |LETTMP#1|))
-      (SETQ |entryKey| (CADR |LETTMP#1|))
-      (SETQ |opAlist|
-              (COND
-               ((EQUAL |which| "operation")
-                (|htpProperty| |htPage| '|opAlist|))
-               (#1='T (|htpProperty| |htPage| '|attrAlist|))))
-      (SETQ |LETTMP#1| (ELT |opAlist| |opKey|))
-      (SETQ |op| (CAR |LETTMP#1|))
-      (SETQ |entries| (CDR |LETTMP#1|))
-      (SETQ |entry| (ELT |entries| |entryKey|))
-      (SETQ |htPage| (|htInitPageNoHeading| (|htCopyProplist| |htPage|)))
-      (COND
-       ((EQUAL |which| "operation")
-        (|htpSetProperty| |htPage| '|opAlist| (LIST (LIST |op| |entry|))))
-       (#1#
-        (|htpSetProperty| |htPage| '|attrAlist| (LIST (LIST |op| |entry|)))))
-      (COND
-       ((NULL (EQ (|htpProperty| |htPage| '|condition?|) '|no|))
-        (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)))
-      (|dbShowOps| |htPage| |which| '|documentation|)))))
+     (COND ((NOT (EQUAL |which| "operation")) (BREAK))
+           (#1='T
+            (PROGN
+             (SETQ |LETTMP#1| (DIVIDE |index| 8192))
+             (SETQ |opKey| (CAR |LETTMP#1|))
+             (SETQ |entryKey| (CADR |LETTMP#1|))
+             (SETQ |opAlist|
+                     (COND
+                      ((EQUAL |which| "operation")
+                       (|htpProperty| |htPage| '|opAlist|))
+                      (#1# (|htpProperty| |htPage| '|attrAlist|))))
+             (SETQ |LETTMP#1| (ELT |opAlist| |opKey|))
+             (SETQ |op| (CAR |LETTMP#1|))
+             (SETQ |entries| (CDR |LETTMP#1|))
+             (SETQ |entry| (ELT |entries| |entryKey|))
+             (SETQ |htPage|
+                     (|htInitPageNoHeading| (|htCopyProplist| |htPage|)))
+             (COND
+              ((EQUAL |which| "operation")
+               (|htpSetProperty| |htPage| '|opAlist|
+                (LIST (LIST |op| |entry|))))
+              (#1#
+               (|htpSetProperty| |htPage| '|attrAlist|
+                (LIST (LIST |op| |entry|)))))
+             (COND
+              ((NULL (EQ (|htpProperty| |htPage| '|condition?|) '|no|))
+               (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)))
+             (|dbShowOps| |htPage| |which| '|documentation|)))))))
  
 ; htSayExpose(op, flag) ==
 ;   $includeUnexposed? =>
@@ -2285,6 +2294,7 @@
       (#1# (|htSay| ""))))))
  
 ; dbShowOperationsFromConform(htPage,which,opAlist) ==  --branch in with lists
+;   which ~= '"operation" => BREAK()
 ;   $groupChoice := nil
 ;   conform := htpProperty(htPage,'conform)
 ;   --prepare opAlist for possible filtering of groups
@@ -2308,85 +2318,74 @@
 ;     form2HtString conform
 ;   heading :=
 ;     ['" from ",exposePart,kind,'" {\em ",fromPart,'"}"]
-;   expandProperty :=
-;     which = '"operation" => 'expandOperations
-;     'expandAttributes
-;   htpSetProperty(htPage,expandProperty,'lists)
+;   htpSetProperty(htPage, 'expandOperations, 'lists)
 ;   htpSetProperty(htPage,'fromHeading,heading)
-;   reducedOpAlist :=
-;     which = '"operation" =>  reduceByGroup(htPage,opAlist)
-;     opAlist
-;   if which = '"operation"
-;     then
-;       htpSetProperty(htPage,'principalOpAlist,opAlist)
-;       htpSetProperty(htPage,'opAlist,reducedOpAlist)
-;     else htpSetProperty(htPage,'attrAlist,opAlist)
+;   reducedOpAlist := reduceByGroup(htPage, opAlist)
+;   htpSetProperty(htPage, 'principalOpAlist, opAlist)
+;   htpSetProperty(htPage, 'opAlist, reducedOpAlist)
 ;   if domform
 ;    then htpSetProperty(htPage,'condition?,'no)
 ;    else dbResetOpAlistCondition(htPage,which,opAlist)
 ;   dbShowOp1(htPage,reducedOpAlist,which,'names)
  
 (DEFUN |dbShowOperationsFromConform| (|htPage| |which| |opAlist|)
-  (PROG (|$conformsAreDomains| |reducedOpAlist| |expandProperty| |heading|
-         |fromPart| |exposePart| |kind| |domform| |c| |x| |conform|)
+  (PROG (|$conformsAreDomains| |reducedOpAlist| |heading| |fromPart|
+         |exposePart| |kind| |domform| |c| |x| |conform|)
     (DECLARE (SPECIAL |$conformsAreDomains|))
     (RETURN
-     (PROGN
-      (SETQ |$groupChoice| NIL)
-      (SETQ |conform| (|htpProperty| |htPage| '|conform|))
-      (COND
-       ((NULL (BOUNDP '|$topicHash|)) (SETQ |$topicHash| (MAKE_HASHTABLE 'ID))
-        ((LAMBDA (|bfVar#91| |bfVar#90|)
-           (LOOP
-            (COND
-             ((OR (ATOM |bfVar#91|)
-                  (PROGN (SETQ |bfVar#90| (CAR |bfVar#91|)) NIL))
-              (RETURN NIL))
-             (#1='T
-              (AND (CONSP |bfVar#90|)
-                   (PROGN
-                    (SETQ |x| (CAR |bfVar#90|))
-                    (SETQ |c| (CDR |bfVar#90|))
-                    #1#)
-                   (HPUT |$topicHash| |x| |c|))))
-            (SETQ |bfVar#91| (CDR |bfVar#91|))))
-         '((|extended| . 0) (|basic| . 1) (|hidden| . 2)) NIL)))
-      (SETQ |domform| (|htpProperty| |htPage| '|domname|))
-      (COND
-       ((EQUAL (|htpProperty| |htPage| '|kind|) "category")
-        (SETQ |domform| NIL)))
-      (COND
-       (|domform| (SETQ |$conformsAreDomains| T)
-        (SETQ |opAlist|
-                (|reduceOpAlistForDomain| |opAlist| |domform| |conform|))))
-      (SETQ |conform| (OR |domform| |conform|))
-      (SETQ |kind| (|capitalize| (|htpProperty| |htPage| '|kind|)))
-      (SETQ |exposePart|
-              (COND ((|isExposedConstructor| (|opOf| |conform|)) "")
-                    (#1# " Unexposed ")))
-      (SETQ |fromPart|
-              (COND (|domform| (|evalableConstructor2HtString| |domform|))
-                    (#1# (|form2HtString| |conform|))))
-      (SETQ |heading|
-              (LIST " from " |exposePart| |kind| " {\\em " |fromPart| "}"))
-      (SETQ |expandProperty|
-              (COND ((EQUAL |which| "operation") '|expandOperations|)
-                    (#1# '|expandAttributes|)))
-      (|htpSetProperty| |htPage| |expandProperty| '|lists|)
-      (|htpSetProperty| |htPage| '|fromHeading| |heading|)
-      (SETQ |reducedOpAlist|
-              (COND
-               ((EQUAL |which| "operation")
-                (|reduceByGroup| |htPage| |opAlist|))
-               (#1# |opAlist|)))
-      (COND
-       ((EQUAL |which| "operation")
-        (|htpSetProperty| |htPage| '|principalOpAlist| |opAlist|)
-        (|htpSetProperty| |htPage| '|opAlist| |reducedOpAlist|))
-       (#1# (|htpSetProperty| |htPage| '|attrAlist| |opAlist|)))
-      (COND (|domform| (|htpSetProperty| |htPage| '|condition?| '|no|))
-            (#1# (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)))
-      (|dbShowOp1| |htPage| |reducedOpAlist| |which| '|names|)))))
+     (COND ((NOT (EQUAL |which| "operation")) (BREAK))
+           (#1='T
+            (PROGN
+             (SETQ |$groupChoice| NIL)
+             (SETQ |conform| (|htpProperty| |htPage| '|conform|))
+             (COND
+              ((NULL (BOUNDP '|$topicHash|))
+               (SETQ |$topicHash| (MAKE_HASHTABLE 'ID))
+               ((LAMBDA (|bfVar#91| |bfVar#90|)
+                  (LOOP
+                   (COND
+                    ((OR (ATOM |bfVar#91|)
+                         (PROGN (SETQ |bfVar#90| (CAR |bfVar#91|)) NIL))
+                     (RETURN NIL))
+                    (#1#
+                     (AND (CONSP |bfVar#90|)
+                          (PROGN
+                           (SETQ |x| (CAR |bfVar#90|))
+                           (SETQ |c| (CDR |bfVar#90|))
+                           #1#)
+                          (HPUT |$topicHash| |x| |c|))))
+                   (SETQ |bfVar#91| (CDR |bfVar#91|))))
+                '((|extended| . 0) (|basic| . 1) (|hidden| . 2)) NIL)))
+             (SETQ |domform| (|htpProperty| |htPage| '|domname|))
+             (COND
+              ((EQUAL (|htpProperty| |htPage| '|kind|) "category")
+               (SETQ |domform| NIL)))
+             (COND
+              (|domform| (SETQ |$conformsAreDomains| T)
+               (SETQ |opAlist|
+                       (|reduceOpAlistForDomain| |opAlist| |domform|
+                        |conform|))))
+             (SETQ |conform| (OR |domform| |conform|))
+             (SETQ |kind| (|capitalize| (|htpProperty| |htPage| '|kind|)))
+             (SETQ |exposePart|
+                     (COND ((|isExposedConstructor| (|opOf| |conform|)) "")
+                           (#1# " Unexposed ")))
+             (SETQ |fromPart|
+                     (COND
+                      (|domform| (|evalableConstructor2HtString| |domform|))
+                      (#1# (|form2HtString| |conform|))))
+             (SETQ |heading|
+                     (LIST " from " |exposePart| |kind| " {\\em " |fromPart|
+                           "}"))
+             (|htpSetProperty| |htPage| '|expandOperations| '|lists|)
+             (|htpSetProperty| |htPage| '|fromHeading| |heading|)
+             (SETQ |reducedOpAlist| (|reduceByGroup| |htPage| |opAlist|))
+             (|htpSetProperty| |htPage| '|principalOpAlist| |opAlist|)
+             (|htpSetProperty| |htPage| '|opAlist| |reducedOpAlist|)
+             (COND (|domform| (|htpSetProperty| |htPage| '|condition?| '|no|))
+                   (#1#
+                    (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)))
+             (|dbShowOp1| |htPage| |reducedOpAlist| |which| '|names|)))))))
  
 ; reduceOpAlistForDomain(opAlist,domform,conform) ==
 ; --destructively simplify all predicates; filter out any that fail
@@ -2456,6 +2455,7 @@
       (NREVERSE |new_opAlist|)))))
  
 ; dbShowOperationLines(which,linelist) ==  --branch in with lines
+;   which ~= '"operation" => BREAK()
 ;   htPage := htInitPage(nil,nil)  --create empty page
 ;   opAlist := nil
 ;   lines := linelist
@@ -2465,6 +2465,7 @@
 ;     while (lines := rest lines) and name = dbName (x := first lines) repeat
 ;       pile := [x,:pile]
 ;     opAlist := [[name,:NREVERSE pile],:opAlist]
+;   -- sorting list of pairs (String, List(String))
 ;   opAlist := listSort(function LEXLESSEQP,NREVERSE opAlist)
 ;   if which = '"operation"
 ;     then htpSetProperty(htPage,'opAlist,opAlist)
@@ -2480,43 +2481,47 @@
 (DEFUN |dbShowOperationLines| (|which| |linelist|)
   (PROG (|htPage| |opAlist| |lines| |x| |name| |pile| |expandProperty|)
     (RETURN
-     (PROGN
-      (SETQ |htPage| (|htInitPage| NIL NIL))
-      (SETQ |opAlist| NIL)
-      (SETQ |lines| |linelist|)
-      ((LAMBDA ()
-         (LOOP
-          (COND ((NOT |lines|) (RETURN NIL))
-                (#1='T
-                 (PROGN
-                  (SETQ |name| (|dbName| (SETQ |x| (CAR |lines|))))
-                  (SETQ |pile| (LIST |x|))
-                  ((LAMBDA ()
-                     (LOOP
-                      (COND
-                       ((NOT
-                         (AND (SETQ |lines| (CDR |lines|))
-                              (EQUAL |name|
-                                     (|dbName| (SETQ |x| (CAR |lines|))))))
-                        (RETURN NIL))
-                       (#1# (SETQ |pile| (CONS |x| |pile|)))))))
-                  (SETQ |opAlist|
-                          (CONS (CONS |name| (NREVERSE |pile|))
-                                |opAlist|))))))))
-      (SETQ |opAlist| (|listSort| #'LEXLESSEQP (NREVERSE |opAlist|)))
-      (COND
-       ((EQUAL |which| "operation")
-        (|htpSetProperty| |htPage| '|opAlist| |opAlist|))
-       (#1# (|htpSetProperty| |htPage| '|attrAlist| |opAlist|)))
-      (SETQ |expandProperty|
-              (COND ((EQUAL |which| "operation") '|expandOperations|)
-                    (#1# '|expandAttributes|)))
-      (|htpSetProperty| |htPage| |expandProperty| '|strings|)
-      (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)
-      (COND ((EQUAL |which| "attribute") (BREAK)))
-      (|dbShowOp1| |htPage| |opAlist| |which| '|names|)))))
+     (COND ((NOT (EQUAL |which| "operation")) (BREAK))
+           (#1='T
+            (PROGN
+             (SETQ |htPage| (|htInitPage| NIL NIL))
+             (SETQ |opAlist| NIL)
+             (SETQ |lines| |linelist|)
+             ((LAMBDA ()
+                (LOOP
+                 (COND ((NOT |lines|) (RETURN NIL))
+                       (#1#
+                        (PROGN
+                         (SETQ |name| (|dbName| (SETQ |x| (CAR |lines|))))
+                         (SETQ |pile| (LIST |x|))
+                         ((LAMBDA ()
+                            (LOOP
+                             (COND
+                              ((NOT
+                                (AND (SETQ |lines| (CDR |lines|))
+                                     (EQUAL |name|
+                                            (|dbName|
+                                             (SETQ |x| (CAR |lines|))))))
+                               (RETURN NIL))
+                              (#1# (SETQ |pile| (CONS |x| |pile|)))))))
+                         (SETQ |opAlist|
+                                 (CONS (CONS |name| (NREVERSE |pile|))
+                                       |opAlist|))))))))
+             (SETQ |opAlist| (|listSort| #'LEXLESSEQP (NREVERSE |opAlist|)))
+             (COND
+              ((EQUAL |which| "operation")
+               (|htpSetProperty| |htPage| '|opAlist| |opAlist|))
+              (#1# (|htpSetProperty| |htPage| '|attrAlist| |opAlist|)))
+             (SETQ |expandProperty|
+                     (COND ((EQUAL |which| "operation") '|expandOperations|)
+                           (#1# '|expandAttributes|)))
+             (|htpSetProperty| |htPage| |expandProperty| '|strings|)
+             (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)
+             (COND ((EQUAL |which| "attribute") (BREAK)))
+             (|dbShowOp1| |htPage| |opAlist| |which| '|names|)))))))
  
 ; dbResetOpAlistCondition(htPage,which,opAlist) ==
+;   which ~= '"operation" => BREAK()
 ;   value := dbExpandOpAlistIfNecessary(htPage,opAlist,which,false,true)
 ;   htpSetProperty(htPage,'condition?,(value => 'yes; 'no))
 ;   value
@@ -2524,36 +2529,15 @@
 (DEFUN |dbResetOpAlistCondition| (|htPage| |which| |opAlist|)
   (PROG (|value|)
     (RETURN
-     (PROGN
-      (SETQ |value|
-              (|dbExpandOpAlistIfNecessary| |htPage| |opAlist| |which| NIL T))
-      (|htpSetProperty| |htPage| '|condition?|
-       (COND (|value| '|yes|) ('T '|no|)))
-      |value|))))
- 
-; dbSetOpAlistCondition(htPage,opAlist,which) ==
-; --called whenever a new opAlist is needed
-; --property can only be inherited if 'no (a subset says NO if whole says NO)
-;   condition := htpProperty(htPage,'condition?)
-;   MEMQ(condition,'(yes no)) => condition = 'yes
-;   value := dbExpandOpAlistIfNecessary(htPage,opAlist,which,false,true)
-;   htpSetProperty(htPage,'condition?,(value => 'yes; 'no))
-;   value
- 
-(DEFUN |dbSetOpAlistCondition| (|htPage| |opAlist| |which|)
-  (PROG (|condition| |value|)
-    (RETURN
-     (PROGN
-      (SETQ |condition| (|htpProperty| |htPage| '|condition?|))
-      (COND ((MEMQ |condition| '(|yes| |no|)) (EQ |condition| '|yes|))
-            (#1='T
-             (PROGN
-              (SETQ |value|
-                      (|dbExpandOpAlistIfNecessary| |htPage| |opAlist| |which|
-                       NIL T))
-              (|htpSetProperty| |htPage| '|condition?|
-               (COND (|value| '|yes|) (#1# '|no|)))
-              |value|)))))))
+     (COND ((NOT (EQUAL |which| "operation")) (BREAK))
+           (#1='T
+            (PROGN
+             (SETQ |value|
+                     (|dbExpandOpAlistIfNecessary| |htPage| |opAlist| |which|
+                      NIL T))
+             (|htpSetProperty| |htPage| '|condition?|
+              (COND (|value| '|yes|) (#1# '|no|)))
+             |value|))))))
  
 ; dbExpandOpAlistIfNecessary(htPage,opAlist,which,needOrigins?,condition?) ==
 ; --if condition? = true, stop when you find a non-trivial predicate
@@ -2566,6 +2550,7 @@
 ; --            i.e. opAlist is ((op . (string ...))...) if unexpanded
 ; --  'lists,   if not fully expanded and it contains lists
 ; --            i.e. opAlist is ((op . ((sig pred) ...))...) if unexpanded
+;     which ~= '"operation" => BREAK()
 ;     condition? := condition? and not $exposedOnlyIfTrue
 ;     value      := nil  --return value
 ;     expandProperty :=
@@ -2629,8 +2614,7 @@
 ;             dbGetDocTable(op,sig,docTable,which,nil)
 ;           origin := IFCAR u or origin
 ;           docCode := IFCDR u   --> (doc . code)
-; --        if null FIXP rest docCode then harhar(op) -->
-;           if null doc and which = '"attribute" then doc := getRegistry(op,sig)
+;           which = '"attribute" => BREAK()
 ;           RPLACD(tail,[origin,isExposedConstructor opOf origin,:docCode])
 ;         $value => return $value
 ;       $value => $value
@@ -2640,202 +2624,223 @@
  
 (DEFUN |dbExpandOpAlistIfNecessary|
        (|htPage| |opAlist| |which| |needOrigins?| |condition?|)
-  (PROG (|$value| |doc| |docCode| |u| |ISTMP#1| |tail| |alist| |docTable|
-         |catname| |s| |domform| |packageSymbol| |exposeFlag| |origin| |sig|
-         |predicate| |comments| |conname| |sigs| |xflag| |nargs| |name|
-         |LETTMP#1| |pred| |acc| |lines| |op| |expandFlag| |expandProperty|
-         |value|)
+  (PROG (|$value| |docCode| |u| |ISTMP#1| |tail| |alist| |docTable| |catname|
+         |s| |domform| |packageSymbol| |exposeFlag| |origin| |sig| |predicate|
+         |comments| |conname| |sigs| |xflag| |nargs| |name| |LETTMP#1| |pred|
+         |acc| |lines| |op| |expandFlag| |expandProperty| |value|)
     (DECLARE (SPECIAL |$value|))
     (RETURN
-     (PROGN
-      (SETQ |condition?| (AND |condition?| (NULL |$exposedOnlyIfTrue|)))
-      (SETQ |value| NIL)
-      (SETQ |expandProperty|
-              (COND ((EQUAL |which| "operation") '|expandOperations|)
-                    (#1='T '|expandAttributes|)))
-      (SETQ |expandFlag| (|htpProperty| |htPage| |expandProperty|))
-      (COND ((EQ |expandFlag| '|fullyExpanded|) NIL)
-            ((EQ |expandFlag| '|strings|)
-             (PROGN
-              ((LAMBDA (|bfVar#95| |pair|)
-                 (LOOP
-                  (COND
-                   ((OR (ATOM |bfVar#95|)
-                        (PROGN (SETQ |pair| (CAR |bfVar#95|)) NIL))
-                    (RETURN NIL))
-                   (#1#
+     (COND ((NOT (EQUAL |which| "operation")) (BREAK))
+           (#1='T
+            (PROGN
+             (SETQ |condition?| (AND |condition?| (NULL |$exposedOnlyIfTrue|)))
+             (SETQ |value| NIL)
+             (SETQ |expandProperty|
+                     (COND ((EQUAL |which| "operation") '|expandOperations|)
+                           (#1# '|expandAttributes|)))
+             (SETQ |expandFlag| (|htpProperty| |htPage| |expandProperty|))
+             (COND ((EQ |expandFlag| '|fullyExpanded|) NIL)
+                   ((EQ |expandFlag| '|strings|)
                     (PROGN
-                     (SETQ |op| (CAR |pair|))
-                     (SETQ |lines| (CDR |pair|))
-                     (SETQ |acc| NIL)
-                     ((LAMBDA (|bfVar#96| |line|)
+                     ((LAMBDA (|bfVar#95| |pair|)
                         (LOOP
                          (COND
-                          ((OR (ATOM |bfVar#96|)
-                               (PROGN (SETQ |line| (CAR |bfVar#96|)) NIL))
+                          ((OR (ATOM |bfVar#95|)
+                               (PROGN (SETQ |pair| (CAR |bfVar#95|)) NIL))
                            (RETURN NIL))
                           (#1#
-                           (COND
-                            ((NULL (STRINGP |line|))
-                             (PROGN
-                              (COND
-                               (|condition?|
+                           (PROGN
+                            (SETQ |op| (CAR |pair|))
+                            (SETQ |lines| (CDR |pair|))
+                            (SETQ |acc| NIL)
+                            ((LAMBDA (|bfVar#96| |line|)
+                               (LOOP
                                 (COND
-                                 ((NULL (ATOM (SETQ |pred| (CADR |line|))))
-                                  (SETQ |value| |pred|)))))
-                              (SETQ |acc| (CONS |line| |acc|))))
-                            (#1#
-                             (PROGN
-                              (SETQ |LETTMP#1| (|dbParts| |line| 7 1))
-                              (SETQ |name| (CAR |LETTMP#1|))
-                              (SETQ |nargs| (CADR . #2=(|LETTMP#1|)))
-                              (SETQ |xflag| (CADDR . #2#))
-                              (SETQ |sigs| (CADDDR . #2#))
-                              (SETQ |conname| (CAR #3=(CDDDDR . #2#)))
-                              (SETQ |pred| (CADR . #4=(#3#)))
-                              (SETQ |comments| (CADDR . #4#))
-                              (SETQ |predicate| (|ncParseFromString| |pred|))
-                              (COND
-                               ((AND |condition?| (NULL (ATOM |predicate|)))
-                                (SETQ |value| |predicate|)))
-                              (SETQ |sig| (|ncParseFromString| |sigs|))
-                              (COND
-                               ((EQUAL |which| "operation")
-                                (COND
-                                 ((NOT
-                                   (AND (CONSP |sig|)
-                                        (EQ (CAR |sig|) '|Mapping|)))
-                                  (|sayBrightly|
-                                   (LIST "Unexpected signature for " |name|
-                                         ": " |sigs|)))
-                                 (#1# (SETQ |sig| (CDR |sig|))))))
-                              (SETQ |conname|
-                                      (|intern| (|dbNewConname| |line|)))
-                              (SETQ |origin|
-                                      (CONS |conname|
-                                            (|getConstructorArgs| |conname|)))
-                              (SETQ |exposeFlag|
-                                      (|dbExposed?| |line| (|char| '|o|)))
-                              (SETQ |acc|
-                                      (CONS
-                                       (LIST |sig| |predicate| |origin|
-                                             |exposeFlag| |comments|)
-                                       |acc|)))))))
-                         (SETQ |bfVar#96| (CDR |bfVar#96|))))
-                      |lines| NIL)
-                     (RPLACD |pair| (NREVERSE |acc|))
-                     (COND ((AND |condition?| |value|) (RETURN |value|))))))
-                  (SETQ |bfVar#95| (CDR |bfVar#95|))))
-               |opAlist| NIL)
-              (COND (|value| |value|) (|condition?| NIL)
-                    (#1#
-                     (|htpSetProperty| |htPage| |expandProperty|
-                      '|fullyExpanded|)))))
-            ((EQ |expandFlag| '|lists|)
-             (PROGN
-              (SETQ |$value| NIL)
-              (SETQ |$docTableHash| (MAKE_HASHTABLE 'EQUAL))
-              (SETQ |packageSymbol| NIL)
-              (SETQ |domform|
-                      (OR (|htpProperty| |htPage| '|domname|)
-                          (|htpProperty| |htPage| '|conform|)))
-              (COND
-               ((|isDefaultPackageName| (|opOf| |domform|))
-                (SETQ |catname|
-                        (|intern|
-                         (SUBSTRING (SETQ |s| (PNAME (|opOf| |domform|))) 0
-                                    (MAXINDEX |s|))))
-                (SETQ |packageSymbol| (CAR (CDR |domform|)))
-                (SETQ |domform| (CONS |catname| (CDR (CDR |domform|))))))
-              (SETQ |docTable| (|dbDocTable| |domform|))
-              ((LAMBDA (|bfVar#98| |bfVar#97|)
-                 (LOOP
-                  (COND
-                   ((OR (ATOM |bfVar#98|)
-                        (PROGN (SETQ |bfVar#97| (CAR |bfVar#98|)) NIL))
-                    (RETURN NIL))
-                   (#1#
-                    (AND (CONSP |bfVar#97|)
-                         (PROGN
-                          (SETQ |op| (CAR |bfVar#97|))
-                          (SETQ |alist| (CDR |bfVar#97|))
-                          #1#)
-                         (PROGN
-                          ((LAMBDA (|bfVar#100| |bfVar#99|)
-                             (LOOP
-                              (COND
-                               ((OR (ATOM |bfVar#100|)
+                                 ((OR (ATOM |bfVar#96|)
+                                      (PROGN
+                                       (SETQ |line| (CAR |bfVar#96|))
+                                       NIL))
+                                  (RETURN NIL))
+                                 (#1#
+                                  (COND
+                                   ((NULL (STRINGP |line|))
                                     (PROGN
-                                     (SETQ |bfVar#99| (CAR |bfVar#100|))
-                                     NIL))
-                                (RETURN NIL))
-                               (#1#
-                                (AND (CONSP |bfVar#99|)
-                                     (PROGN
-                                      (SETQ |sig| (CAR |bfVar#99|))
-                                      (SETQ |tail| (CDR |bfVar#99|))
-                                      #1#)
                                      (COND
                                       (|condition?|
                                        (COND
                                         ((NULL
-                                          (ATOM (SETQ |pred| (CAR |tail|))))
-                                         (RETURN (SETQ |$value| |pred|)))
-                                        (#1# '|skip|)))
+                                          (ATOM (SETQ |pred| (CADR |line|))))
+                                         (SETQ |value| |pred|)))))
+                                     (SETQ |acc| (CONS |line| |acc|))))
+                                   (#1#
+                                    (PROGN
+                                     (SETQ |LETTMP#1| (|dbParts| |line| 7 1))
+                                     (SETQ |name| (CAR |LETTMP#1|))
+                                     (SETQ |nargs| (CADR . #2=(|LETTMP#1|)))
+                                     (SETQ |xflag| (CADDR . #2#))
+                                     (SETQ |sigs| (CADDDR . #2#))
+                                     (SETQ |conname| (CAR #3=(CDDDDR . #2#)))
+                                     (SETQ |pred| (CADR . #4=(#3#)))
+                                     (SETQ |comments| (CADDR . #4#))
+                                     (SETQ |predicate|
+                                             (|ncParseFromString| |pred|))
+                                     (COND
+                                      ((AND |condition?|
+                                            (NULL (ATOM |predicate|)))
+                                       (SETQ |value| |predicate|)))
+                                     (SETQ |sig| (|ncParseFromString| |sigs|))
+                                     (COND
+                                      ((EQUAL |which| "operation")
+                                       (COND
+                                        ((NOT
+                                          (AND (CONSP |sig|)
+                                               (EQ (CAR |sig|) '|Mapping|)))
+                                         (|sayBrightly|
+                                          (LIST "Unexpected signature for "
+                                                |name| ": " |sigs|)))
+                                        (#1# (SETQ |sig| (CDR |sig|))))))
+                                     (SETQ |conname|
+                                             (|intern|
+                                              (|dbNewConname| |line|)))
+                                     (SETQ |origin|
+                                             (CONS |conname|
+                                                   (|getConstructorArgs|
+                                                    |conname|)))
+                                     (SETQ |exposeFlag|
+                                             (|dbExposed?| |line|
+                                              (|char| '|o|)))
+                                     (SETQ |acc|
+                                             (CONS
+                                              (LIST |sig| |predicate| |origin|
+                                                    |exposeFlag| |comments|)
+                                              |acc|)))))))
+                                (SETQ |bfVar#96| (CDR |bfVar#96|))))
+                             |lines| NIL)
+                            (RPLACD |pair| (NREVERSE |acc|))
+                            (COND
+                             ((AND |condition?| |value|) (RETURN |value|))))))
+                         (SETQ |bfVar#95| (CDR |bfVar#95|))))
+                      |opAlist| NIL)
+                     (COND (|value| |value|) (|condition?| NIL)
+                           (#1#
+                            (|htpSetProperty| |htPage| |expandProperty|
+                             '|fullyExpanded|)))))
+                   ((EQ |expandFlag| '|lists|)
+                    (PROGN
+                     (SETQ |$value| NIL)
+                     (SETQ |$docTableHash| (MAKE_HASHTABLE 'EQUAL))
+                     (SETQ |packageSymbol| NIL)
+                     (SETQ |domform|
+                             (OR (|htpProperty| |htPage| '|domname|)
+                                 (|htpProperty| |htPage| '|conform|)))
+                     (COND
+                      ((|isDefaultPackageName| (|opOf| |domform|))
+                       (SETQ |catname|
+                               (|intern|
+                                (SUBSTRING
+                                 (SETQ |s| (PNAME (|opOf| |domform|))) 0
+                                 (MAXINDEX |s|))))
+                       (SETQ |packageSymbol| (CAR (CDR |domform|)))
+                       (SETQ |domform|
+                               (CONS |catname| (CDR (CDR |domform|))))))
+                     (SETQ |docTable| (|dbDocTable| |domform|))
+                     ((LAMBDA (|bfVar#98| |bfVar#97|)
+                        (LOOP
+                         (COND
+                          ((OR (ATOM |bfVar#98|)
+                               (PROGN (SETQ |bfVar#97| (CAR |bfVar#98|)) NIL))
+                           (RETURN NIL))
+                          (#1#
+                           (AND (CONSP |bfVar#97|)
+                                (PROGN
+                                 (SETQ |op| (CAR |bfVar#97|))
+                                 (SETQ |alist| (CDR |bfVar#97|))
+                                 #1#)
+                                (PROGN
+                                 ((LAMBDA (|bfVar#100| |bfVar#99|)
+                                    (LOOP
+                                     (COND
+                                      ((OR (ATOM |bfVar#100|)
+                                           (PROGN
+                                            (SETQ |bfVar#99| (CAR |bfVar#100|))
+                                            NIL))
+                                       (RETURN NIL))
                                       (#1#
-                                       (PROGN
-                                        (SETQ |u|
-                                                (COND
-                                                 ((AND (CONSP |tail|)
-                                                       (PROGN
-                                                        (SETQ |ISTMP#1|
-                                                                (CDR |tail|))
-                                                        (AND (CONSP |ISTMP#1|)
-                                                             (PROGN
-                                                              (SETQ |origin|
-                                                                      (CAR
-                                                                       |ISTMP#1|))
-                                                              #1#)))
-                                                       |origin|)
-                                                  (|dbGetDocTable| |op|
-                                                   (SUBLISLIS (LIST '$)
-                                                    (LIST '%) |sig|)
-                                                   (|dbDocTable| |origin|)
-                                                   |which| NIL))
-                                                 (#1#
-                                                  (PROGN
-                                                   (COND
-                                                    (|packageSymbol|
-                                                     (SETQ |sig|
-                                                             (|substitute| '$
-                                                              |packageSymbol|
-                                                              |sig|))))
-                                                   (|dbGetDocTable| |op| |sig|
-                                                    |docTable| |which| NIL)))))
-                                        (SETQ |origin|
-                                                (OR (IFCAR |u|) |origin|))
-                                        (SETQ |docCode| (IFCDR |u|))
-                                        (COND
-                                         ((AND (NULL |doc|)
-                                               (EQUAL |which| "attribute"))
-                                          (SETQ |doc|
-                                                  (|getRegistry| |op| |sig|))))
-                                        (RPLACD |tail|
-                                                (CONS |origin|
-                                                      (CONS
-                                                       (|isExposedConstructor|
-                                                        (|opOf| |origin|))
-                                                       |docCode|)))))))))
-                              (SETQ |bfVar#100| (CDR |bfVar#100|))))
-                           |alist| NIL)
-                          (COND (|$value| (RETURN |$value|)))))))
-                  (SETQ |bfVar#98| (CDR |bfVar#98|))))
-               |opAlist| NIL)
-              (COND (|$value| |$value|) (|condition?| NIL)
-                    (#1#
-                     (|htpSetProperty| |htPage| |expandProperty|
-                      '|fullyExpanded|)))))
-            (#1# '|done|))))))
+                                       (AND (CONSP |bfVar#99|)
+                                            (PROGN
+                                             (SETQ |sig| (CAR |bfVar#99|))
+                                             (SETQ |tail| (CDR |bfVar#99|))
+                                             #1#)
+                                            (COND
+                                             (|condition?|
+                                              (COND
+                                               ((NULL
+                                                 (ATOM
+                                                  (SETQ |pred| (CAR |tail|))))
+                                                (RETURN
+                                                 (SETQ |$value| |pred|)))
+                                               (#1# '|skip|)))
+                                             (#1#
+                                              (PROGN
+                                               (SETQ |u|
+                                                       (COND
+                                                        ((AND (CONSP |tail|)
+                                                              (PROGN
+                                                               (SETQ |ISTMP#1|
+                                                                       (CDR
+                                                                        |tail|))
+                                                               (AND
+                                                                (CONSP
+                                                                 |ISTMP#1|)
+                                                                (PROGN
+                                                                 (SETQ |origin|
+                                                                         (CAR
+                                                                          |ISTMP#1|))
+                                                                 #1#)))
+                                                              |origin|)
+                                                         (|dbGetDocTable| |op|
+                                                          (SUBLISLIS (LIST '$)
+                                                           (LIST '%) |sig|)
+                                                          (|dbDocTable|
+                                                           |origin|)
+                                                          |which| NIL))
+                                                        (#1#
+                                                         (PROGN
+                                                          (COND
+                                                           (|packageSymbol|
+                                                            (SETQ |sig|
+                                                                    (|substitute|
+                                                                     '$
+                                                                     |packageSymbol|
+                                                                     |sig|))))
+                                                          (|dbGetDocTable| |op|
+                                                           |sig| |docTable|
+                                                           |which| NIL)))))
+                                               (SETQ |origin|
+                                                       (OR (IFCAR |u|)
+                                                           |origin|))
+                                               (SETQ |docCode| (IFCDR |u|))
+                                               (COND
+                                                ((EQUAL |which| "attribute")
+                                                 (BREAK))
+                                                (#1#
+                                                 (RPLACD |tail|
+                                                         (CONS |origin|
+                                                               (CONS
+                                                                (|isExposedConstructor|
+                                                                 (|opOf|
+                                                                  |origin|))
+                                                                |docCode|)))))))))))
+                                     (SETQ |bfVar#100| (CDR |bfVar#100|))))
+                                  |alist| NIL)
+                                 (COND (|$value| (RETURN |$value|)))))))
+                         (SETQ |bfVar#98| (CDR |bfVar#98|))))
+                      |opAlist| NIL)
+                     (COND (|$value| |$value|) (|condition?| NIL)
+                           (#1#
+                            (|htpSetProperty| |htPage| |expandProperty|
+                             '|fullyExpanded|)))))
+                   (#1# '|done|))))))))
  
 ; getRegistry(op,sig) ==
 ;   u := GETDATABASE('AttributeRegistry,'DOCUMENTATION)
