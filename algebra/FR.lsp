@@ -834,20 +834,19 @@
           (|goodQuotient| (|Boolean|)) (|v1| ($)))
          (SEQ
           (COND
-           ((NULL
-             (LETT |x1| (SPADCALL |v| (QREFELT $ 11))
-                   . #1=(|FR;exquo;2$U;51|)))
+           ((NULL (SPADCALL |v| (QREFELT $ 11)))
             (CONS 0
                   (SPADCALL
                    (QVELT
                     (SPADCALL (SPADCALL |v| (QREFELT $ 57)) (QREFELT $ 139)) 2)
                    |u| (QREFELT $ 53))))
            ((NULL (SPADCALL |u| (QREFELT $ 11))) (CONS 1 "failed"))
-           (#2='T
+           (#1='T
             (SEQ
              (LETT |v1| (SPADCALL |u| (|FR;reciprocal| |v| $) (QREFELT $ 51))
-                   . #1#)
-             (LETT |goodQuotient| 'T . #1#)
+                   . #2=(|FR;exquo;2$U;51|))
+             (LETT |goodQuotient| 'T . #2#)
+             (LETT |x1| (SPADCALL |v1| (QREFELT $ 11)) . #2#)
              (SEQ G190
                   (COND
                    ((NULL (COND (|goodQuotient| (NULL (NULL |x1|))) ('T NIL)))
@@ -856,12 +855,12 @@
                    (EXIT
                     (COND
                      ((< (QVELT (|SPADfirst| |x1|) 2) 0)
-                      (LETT |goodQuotient| NIL . #1#))
-                     ('T (LETT |x1| (CDR |x1|) . #1#)))))
+                      (LETT |goodQuotient| NIL . #2#))
+                     ('T (LETT |x1| (CDR |x1|) . #2#)))))
                   NIL (GO G190) G191 (EXIT NIL))
              (EXIT
               (COND (|goodQuotient| (CONS 0 |v1|))
-                    (#2# (CONS 1 "failed")))))))))) 
+                    (#1# (CONS 1 "failed")))))))))) 
 
 (SDEFUN |FR;unitNormal;$R;52|
         ((|u| $)
