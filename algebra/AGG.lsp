@@ -4,8 +4,7 @@
 (DEFPARAMETER |Aggregate;AL| 'NIL) 
 
 (DEFUN |Aggregate| ()
-  (LET (#:G106)
-    (COND (|Aggregate;AL|) (T (SETQ |Aggregate;AL| (|Aggregate;|)))))) 
+  (COND (|Aggregate;AL|) (T (SETQ |Aggregate;AL| (|Aggregate;|))))) 
 
 (DEFUN |Aggregate;| ()
   (SPROG ((#1=#:G104 NIL))

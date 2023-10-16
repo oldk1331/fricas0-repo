@@ -4,9 +4,8 @@
 (DEFPARAMETER |FortranVectorCategory;AL| 'NIL) 
 
 (DEFUN |FortranVectorCategory| ()
-  (LET (#:G106)
-    (COND (|FortranVectorCategory;AL|)
-          (T (SETQ |FortranVectorCategory;AL| (|FortranVectorCategory;|)))))) 
+  (COND (|FortranVectorCategory;AL|)
+        (T (SETQ |FortranVectorCategory;AL| (|FortranVectorCategory;|))))) 
 
 (DEFUN |FortranVectorCategory;| ()
   (SPROG ((#1=#:G104 NIL))

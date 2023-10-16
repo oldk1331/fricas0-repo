@@ -4,9 +4,8 @@
 (DEFPARAMETER |additiveValuation;AL| 'NIL) 
 
 (DEFUN |additiveValuation| ()
-  (LET (#:G106)
-    (COND (|additiveValuation;AL|)
-          (T (SETQ |additiveValuation;AL| (|additiveValuation;|)))))) 
+  (COND (|additiveValuation;AL|)
+        (T (SETQ |additiveValuation;AL| (|additiveValuation;|))))) 
 
 (DEFUN |additiveValuation;| ()
   (SPROG ((#1=#:G104 NIL))

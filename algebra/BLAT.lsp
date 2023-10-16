@@ -4,9 +4,8 @@
 (DEFPARAMETER |BoundedLattice;AL| 'NIL) 
 
 (DEFUN |BoundedLattice| ()
-  (LET (#:G106)
-    (COND (|BoundedLattice;AL|)
-          (T (SETQ |BoundedLattice;AL| (|BoundedLattice;|)))))) 
+  (COND (|BoundedLattice;AL|)
+        (T (SETQ |BoundedLattice;AL| (|BoundedLattice;|))))) 
 
 (DEFUN |BoundedLattice;| ()
   (SPROG ((#1=#:G104 NIL))

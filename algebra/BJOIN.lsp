@@ -4,9 +4,8 @@
 (DEFPARAMETER |BoundedJoinSemilattice;AL| 'NIL) 
 
 (DEFUN |BoundedJoinSemilattice| ()
-  (LET (#:G106)
-    (COND (|BoundedJoinSemilattice;AL|)
-          (T (SETQ |BoundedJoinSemilattice;AL| (|BoundedJoinSemilattice;|)))))) 
+  (COND (|BoundedJoinSemilattice;AL|)
+        (T (SETQ |BoundedJoinSemilattice;AL| (|BoundedJoinSemilattice;|))))) 
 
 (DEFUN |BoundedJoinSemilattice;| ()
   (SPROG ((#1=#:G104 NIL))

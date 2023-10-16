@@ -4,9 +4,8 @@
 (DEFPARAMETER |MeetSemilattice;AL| 'NIL) 
 
 (DEFUN |MeetSemilattice| ()
-  (LET (#:G106)
-    (COND (|MeetSemilattice;AL|)
-          (T (SETQ |MeetSemilattice;AL| (|MeetSemilattice;|)))))) 
+  (COND (|MeetSemilattice;AL|)
+        (T (SETQ |MeetSemilattice;AL| (|MeetSemilattice;|))))) 
 
 (DEFUN |MeetSemilattice;| ()
   (SPROG ((#1=#:G104 NIL))

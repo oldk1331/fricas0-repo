@@ -4,8 +4,7 @@
 (DEFPARAMETER |Comparable;AL| 'NIL) 
 
 (DEFUN |Comparable| ()
-  (LET (#:G106)
-    (COND (|Comparable;AL|) (T (SETQ |Comparable;AL| (|Comparable;|)))))) 
+  (COND (|Comparable;AL|) (T (SETQ |Comparable;AL| (|Comparable;|))))) 
 
 (DEFUN |Comparable;| ()
   (SPROG ((#1=#:G104 NIL))

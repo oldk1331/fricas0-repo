@@ -1471,11 +1471,11 @@
 ;   NRTdescendCodeTran(storeOperationCode,nil) --side effects storeOperationCode
 ;   codePart2:=
 ;       argStuffCode :=
-;         [[$setelt,'$,i,v] for i in 6.. for v in $FormalMapVariableList
+;         [['QSETREFV, '$, i, v] for i in 6.. for v in $FormalMapVariableList
 ;           for arg in rest definition]
 ;       if MEMQ($NRTaddForm,$locals) then
 ;          addargname := $FormalMapVariableList.(POSN1($NRTaddForm,$locals))
-;          argStuffCode := [[$setelt,'$,5,addargname],:argStuffCode]
+;          argStuffCode := [['QSETREFV, '$, 5, addargname], :argStuffCode]
 ;       [['stuffDomainSlots,'$],:argStuffCode,
 ;          :predBitVectorCode2, ['SETF, 'pv_$, ['QREFELT, '$, 3]],
 ;             storeOperationCode]
@@ -1490,7 +1490,7 @@
 ;         ['LET, domname, ['LIST, MKQ first definition,
 ;                          :ASSOCRIGHT $devaluateList]]
 ;     createViewCode:= ['LET,'$,['GETREFV, 6+$NRTdeltaLength]]
-;     setVector0Code:=[$setelt,'$,0,'dv_$]
+;     setVector0Code := ['QSETREFV, '$, 0, 'dv_$]
 ;     slot3Code := ['QSETREFV,'$,3,['LET,'pv_$,predBitVectorCode1]]
 ;     slamCode:=
 ;         isCategoryPackageName(opOf(definition)) => nil
@@ -1645,7 +1645,7 @@
                              (RETURN (NREVERSE |bfVar#70|)))
                             (#1#
                              (SETQ |bfVar#70|
-                                     (CONS (LIST |$setelt| '$ |i| |v|)
+                                     (CONS (LIST 'QSETREFV '$ |i| |v|)
                                            |bfVar#70|))))
                            (SETQ |i| (+ |i| 1))
                            (SETQ |bfVar#68| (CDR |bfVar#68|))
@@ -1658,7 +1658,7 @@
                          (ELT |$FormalMapVariableList|
                               (POSN1 |$NRTaddForm| |$locals|)))
                  (SETQ |argStuffCode|
-                         (CONS (LIST |$setelt| '$ 5 |addargname|)
+                         (CONS (LIST 'QSETREFV '$ 5 |addargname|)
                                |argStuffCode|))))
                (CONS (LIST '|stuffDomainSlots| '$)
                      (APPEND |argStuffCode|
@@ -1692,7 +1692,7 @@
                                 (ASSOCRIGHT |$devaluateList|)))))
       (SETQ |createViewCode|
               (LIST 'LET '$ (LIST 'GETREFV (+ 6 |$NRTdeltaLength|))))
-      (SETQ |setVector0Code| (LIST |$setelt| '$ 0 '|dv$|))
+      (SETQ |setVector0Code| (LIST 'QSETREFV '$ 0 '|dv$|))
       (SETQ |slot3Code|
               (LIST 'QSETREFV '$ 3 (LIST 'LET '|pv$| |predBitVectorCode1|)))
       (SETQ |slamCode|

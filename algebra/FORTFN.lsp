@@ -4,10 +4,8 @@
 (DEFPARAMETER |FortranFunctionCategory;AL| 'NIL) 
 
 (DEFUN |FortranFunctionCategory| ()
-  (LET (#:G106)
-    (COND (|FortranFunctionCategory;AL|)
-          (T
-           (SETQ |FortranFunctionCategory;AL| (|FortranFunctionCategory;|)))))) 
+  (COND (|FortranFunctionCategory;AL|)
+        (T (SETQ |FortranFunctionCategory;AL| (|FortranFunctionCategory;|))))) 
 
 (DEFUN |FortranFunctionCategory;| ()
   (SPROG ((#1=#:G104 NIL))

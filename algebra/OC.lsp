@@ -5,22 +5,20 @@
 
 (DEFPARAMETER |OctonionCategory;AL| 'NIL) 
 
-(DEFUN |OctonionCategory| (#1=#:G171)
-  (LET (#2=#:G172)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |OctonionCategory;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |OctonionCategory;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|OctonionCategory;| #1#)))
-                       |OctonionCategory;AL|))
-      #2#)))) 
+(DEFUN |OctonionCategory| (|t#1|)
+  (LET (#1=#:G171 (#2=#:G172 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |OctonionCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |OctonionCategory;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|OctonionCategory;| #2#)))
+                            |OctonionCategory;AL|))
+           #1#)))) 
 
 (DEFUN |OctonionCategory;| (|t#1|)
   (SPROG ((#1=#:G170 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|OctonionCategory;CAT|)
                                     ('T
                                      (LETT |OctonionCategory;CAT|

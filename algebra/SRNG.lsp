@@ -3,9 +3,7 @@
 
 (DEFPARAMETER |SemiRng;AL| 'NIL) 
 
-(DEFUN |SemiRng| ()
-  (LET (#:G106)
-    (COND (|SemiRng;AL|) (T (SETQ |SemiRng;AL| (|SemiRng;|)))))) 
+(DEFUN |SemiRng| () (COND (|SemiRng;AL|) (T (SETQ |SemiRng;AL| (|SemiRng;|))))) 
 
 (DEFUN |SemiRng;| ()
   (SPROG ((#1=#:G104 NIL))

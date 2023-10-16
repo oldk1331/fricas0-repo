@@ -41,7 +41,7 @@
 
 (SDEFUN |FFIELDC-;createPrimitiveElement;S;8| (($ S))
         (SPROG
-         ((|found| (|Boolean|)) (|e| (S)) (#1=#:G151 NIL) (|i| NIL)
+         ((|found| (|Boolean|)) (|e| (S)) (#1=#:G149 NIL) (|i| NIL)
           (|start| (|Integer|)) (|sm1| (|PositiveInteger|)))
          (SEQ
           (LETT |sm1| (- (SPADCALL (QREFELT $ 32)) 1)
@@ -72,7 +72,7 @@
 
 (SDEFUN |FFIELDC-;primitive?;SB;9| ((|a| S) ($ |Boolean|))
         (SPROG
-         ((|equalone| (|Boolean|)) (#1=#:G161 NIL) (|exp| NIL)
+         ((|equalone| (|Boolean|)) (#1=#:G159 NIL) (|exp| NIL)
           (|q| (|Integer|))
           (|explist|
            (|List|
@@ -106,8 +106,8 @@
 (SDEFUN |FFIELDC-;order;SPi;10| ((|e| S) ($ |PositiveInteger|))
         (SPROG
          ((|ord| (|Integer|)) (|goon| (|Boolean|)) (|a| (|Integer|))
-          (#1=#:G170 NIL) (|j| NIL) (|primeDivisor| #2=(|Integer|))
-          (#3=#:G169 NIL) (|rec| NIL)
+          (#1=#:G168 NIL) (|j| NIL) (|primeDivisor| #2=(|Integer|))
+          (#3=#:G167 NIL) (|rec| NIL)
           (|lof|
            (|List|
             (|Record| (|:| |factor| #2#)
@@ -156,11 +156,11 @@
         (SPROG
          ((|a| (S)) (|disclog| (|Integer|)) (|mult| (|Integer|)) (|c| (S))
           (|disc1| (|Integer|)) (|found| (|Boolean|))
-          (|rho| (|Union| (|NonNegativeInteger|) "failed")) (#1=#:G189 NIL)
+          (|rho| (|Union| (|NonNegativeInteger|) "failed")) (#1=#:G187 NIL)
           (|i| NIL) (|end| (|Integer|)) (|n| (|NonNegativeInteger|))
           (|exptable| (|Table| (|PositiveInteger|) (|NonNegativeInteger|)))
-          (|exp| #2=(|Integer|)) (#3=#:G188 NIL) (|t| NIL)
-          (|fac| #4=(|Integer|)) (#5=#:G187 NIL) (|f| NIL) (|groupord| #2#)
+          (|exp| #2=(|Integer|)) (#3=#:G186 NIL) (|t| NIL)
+          (|fac| #4=(|Integer|)) (#5=#:G185 NIL) (|f| NIL) (|groupord| #2#)
           (|gen| (S))
           (|faclist|
            (|List|
@@ -292,10 +292,10 @@
         ((|logbase| S) (|b| S) ($ |Union| (|NonNegativeInteger|) "failed"))
         (SPROG
          ((|a| (S)) (|mult| (|Integer|)) (|disclog| (|Integer|))
-          (|rho| (|Integer|)) (#1=#:G210 NIL)
+          (|rho| (|Integer|)) (#1=#:G208 NIL)
           (|rhoHelp| (|Union| (|NonNegativeInteger|) "failed"))
-          (|exp| (|Integer|)) (#2=#:G212 NIL) (|t| NIL) (|primroot| (S))
-          (|fac| #3=(|Integer|)) (#4=#:G211 NIL) (|f| NIL)
+          (|exp| (|Integer|)) (#2=#:G210 NIL) (|t| NIL) (|primroot| (S))
+          (|fac| #3=(|Integer|)) (#4=#:G209 NIL) (|f| NIL)
           (|faclist|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -360,7 +360,7 @@
                                        ((QEQCAR |rhoHelp| 1)
                                         (PROGN
                                          (LETT #1# (CONS 1 "failed") . #5#)
-                                         (GO #6=#:G209)))
+                                         (GO #6=#:G207)))
                                        ('T
                                         (SEQ
                                          (LETT |rho|
@@ -399,9 +399,9 @@
         ((|f| |SparseUnivariatePolynomial| S)
          ($ |Factored| (|SparseUnivariatePolynomial| S)))
         (SPROG
-         ((#1=#:G226 NIL)
-          (#2=#:G225 #3=(|Factored| (|SparseUnivariatePolynomial| S)))
-          (#4=#:G227 #3#) (#5=#:G230 NIL) (|u| NIL)
+         ((#1=#:G224 NIL)
+          (#2=#:G223 #3=(|Factored| (|SparseUnivariatePolynomial| S)))
+          (#4=#:G225 #3#) (#5=#:G228 NIL) (|u| NIL)
           (|flist|
            (|Record| (|:| |cont| S)
                      (|:| |factors|

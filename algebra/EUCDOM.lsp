@@ -4,9 +4,8 @@
 (DEFPARAMETER |EuclideanDomain;AL| 'NIL) 
 
 (DEFUN |EuclideanDomain| ()
-  (LET (#:G123)
-    (COND (|EuclideanDomain;AL|)
-          (T (SETQ |EuclideanDomain;AL| (|EuclideanDomain;|)))))) 
+  (COND (|EuclideanDomain;AL|)
+        (T (SETQ |EuclideanDomain;AL| (|EuclideanDomain;|))))) 
 
 (DEFUN |EuclideanDomain;| ()
   (SPROG ((#1=#:G121 NIL))

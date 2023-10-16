@@ -5,26 +5,25 @@
 
 (DEFPARAMETER |FunctionFieldCategory;AL| 'NIL) 
 
-(DEFUN |FunctionFieldCategory| (&REST #1=#:G121)
-  (LET (#2=#:G122)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |FunctionFieldCategory;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |FunctionFieldCategory;AL|
-              (|cons5|
-               (CONS #3# (SETQ #2# (APPLY #'|FunctionFieldCategory;| #1#)))
-               |FunctionFieldCategory;AL|))
-      #2#)))) 
+(DEFUN |FunctionFieldCategory| (|t#1| |t#2| |t#3|)
+  (LET (#1=#:G121
+        (#2=#:G122
+         (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|))))
+    (COND ((SETQ #1# (|assoc| #2# |FunctionFieldCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |FunctionFieldCategory;AL|
+                   (|cons5|
+                    (CONS #2#
+                          (SETQ #1# (APPLY #'|FunctionFieldCategory;| #2#)))
+                    |FunctionFieldCategory;AL|))
+           #1#)))) 
 
 (DEFUN |FunctionFieldCategory;| (|t#1| |t#2| |t#3|)
   (SPROG ((#1=#:G120 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3|)
-                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                                (|devaluate| |t#3|)))
+                    (PAIR '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
                     (|sublisV| (PAIR '(#2=#:G119) (LIST '(|Fraction| |t#2|)))
                                (COND (|FunctionFieldCategory;CAT|)
                                      ('T

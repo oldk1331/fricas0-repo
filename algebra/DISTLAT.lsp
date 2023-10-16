@@ -4,9 +4,8 @@
 (DEFPARAMETER |DistributiveLattice;AL| 'NIL) 
 
 (DEFUN |DistributiveLattice| ()
-  (LET (#:G106)
-    (COND (|DistributiveLattice;AL|)
-          (T (SETQ |DistributiveLattice;AL| (|DistributiveLattice;|)))))) 
+  (COND (|DistributiveLattice;AL|)
+        (T (SETQ |DistributiveLattice;AL| (|DistributiveLattice;|))))) 
 
 (DEFUN |DistributiveLattice;| ()
   (SPROG ((#1=#:G104 NIL))

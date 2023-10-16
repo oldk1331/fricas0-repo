@@ -5,19 +5,20 @@
 
 (DEFPARAMETER |RectangularMatrixCategory;AL| 'NIL) 
 
-(DEFUN |RectangularMatrixCategory| (&REST #1=#:G111)
-  (LET (#2=#:G112)
-    (COND
-     ((SETQ #2#
-              (|assoc| #3=(|devaluateList| #1#)
-                       |RectangularMatrixCategory;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |RectangularMatrixCategory;AL|
-              (|cons5|
-               (CONS #3# (SETQ #2# (APPLY #'|RectangularMatrixCategory;| #1#)))
-               |RectangularMatrixCategory;AL|))
-      #2#)))) 
+(DEFUN |RectangularMatrixCategory| (|t#1| |t#2| |t#3| |t#4| |t#5|)
+  (LET (#1=#:G111
+        (#2=#:G112
+         (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|)
+               (|devaluate| |t#4|) (|devaluate| |t#5|))))
+    (COND ((SETQ #1# (|assoc| #2# |RectangularMatrixCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |RectangularMatrixCategory;AL|
+                   (|cons5|
+                    (CONS #2#
+                          (SETQ #1#
+                                  (APPLY #'|RectangularMatrixCategory;| #2#)))
+                    |RectangularMatrixCategory;AL|))
+           #1#)))) 
 
 (DEFUN |RectangularMatrixCategory;| (|t#1| |t#2| |t#3| |t#4| |t#5|)
   (SPROG ((#1=#:G110 NIL))
@@ -25,9 +26,7 @@
              (LETT #1#
                    (|sublisV|
                     (PAIR '(|t#1| |t#2| |t#3| |t#4| |t#5|)
-                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                                (|devaluate| |t#3|) (|devaluate| |t#4|)
-                                (|devaluate| |t#5|)))
+                          (LIST |t#1| |t#2| |t#3| |t#4| |t#5|))
                     (COND (|RectangularMatrixCategory;CAT|)
                           ('T
                            (LETT |RectangularMatrixCategory;CAT|

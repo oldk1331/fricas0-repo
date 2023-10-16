@@ -4,8 +4,7 @@
 (DEFPARAMETER |GcdDomain;AL| 'NIL) 
 
 (DEFUN |GcdDomain| ()
-  (LET (#:G112)
-    (COND (|GcdDomain;AL|) (T (SETQ |GcdDomain;AL| (|GcdDomain;|)))))) 
+  (COND (|GcdDomain;AL|) (T (SETQ |GcdDomain;AL| (|GcdDomain;|))))) 
 
 (DEFUN |GcdDomain;| ()
   (SPROG ((#1=#:G110 NIL))

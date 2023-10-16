@@ -4,8 +4,7 @@
 (DEFPARAMETER |SemiRing;AL| 'NIL) 
 
 (DEFUN |SemiRing| ()
-  (LET (#:G106)
-    (COND (|SemiRing;AL|) (T (SETQ |SemiRing;AL| (|SemiRing;|)))))) 
+  (COND (|SemiRing;AL|) (T (SETQ |SemiRing;AL| (|SemiRing;|))))) 
 
 (DEFUN |SemiRing;| ()
   (SPROG ((#1=#:G104 NIL))

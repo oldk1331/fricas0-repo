@@ -5,37 +5,41 @@
 
 (DEFPARAMETER |EltableAggregate;AL| 'NIL) 
 
-(DEFUN |EltableAggregate| (&REST #1=#:G105)
-  (LET (#2=#:G106)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |EltableAggregate;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |EltableAggregate;AL|
-              (|cons5| (CONS #3# (SETQ #2# (APPLY #'|EltableAggregate;| #1#)))
-                       |EltableAggregate;AL|))
-      #2#)))) 
+(DEFUN |EltableAggregate| (|t#1| |t#2|)
+  (LET (#1=#:G105 (#2=#:G106 (LIST (|devaluate| |t#1|) (|devaluate| |t#2|))))
+    (COND ((SETQ #1# (|assoc| #2# |EltableAggregate;AL|)) (CDR #1#))
+          (T
+           (SETQ |EltableAggregate;AL|
+                   (|cons5|
+                    (CONS #2# (SETQ #1# (APPLY #'|EltableAggregate;| #2#)))
+                    |EltableAggregate;AL|))
+           #1#)))) 
 
 (DEFUN |EltableAggregate;| (|t#1| |t#2|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (PAIR '(|t#1| |t#2|)
-                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
-                    (COND (|EltableAggregate;CAT|)
-                          ('T
-                           (LETT |EltableAggregate;CAT|
-                                 (|Join| (|Eltable| '|t#1| '|t#2|)
-                                         (|mkCategory|
-                                          '(((|elt| (|t#2| $ |t#1| |t#2|)) T)
-                                            ((|qelt| (|t#2| $ |t#1|)) T)
-                                            ((|setelt!| (|t#2| $ |t#1| |t#2|))
-                                             (|has| $ (|shallowlyMutable|)))
-                                            ((|qsetelt!| (|t#2| $ |t#1| |t#2|))
-                                             (|has| $ (|shallowlyMutable|))))
-                                          NIL 'NIL NIL))
-                                 . #2=(|EltableAggregate|)))))
+                   (|sublisV| (PAIR '(|t#1| |t#2|) (LIST |t#1| |t#2|))
+                              (COND (|EltableAggregate;CAT|)
+                                    ('T
+                                     (LETT |EltableAggregate;CAT|
+                                           (|Join| (|Eltable| '|t#1| '|t#2|)
+                                                   (|mkCategory|
+                                                    '(((|elt|
+                                                        (|t#2| $ |t#1| |t#2|))
+                                                       T)
+                                                      ((|qelt| (|t#2| $ |t#1|))
+                                                       T)
+                                                      ((|setelt!|
+                                                        (|t#2| $ |t#1| |t#2|))
+                                                       (|has| $
+                                                              (|shallowlyMutable|)))
+                                                      ((|qsetelt!|
+                                                        (|t#2| $ |t#1| |t#2|))
+                                                       (|has| $
+                                                              (|shallowlyMutable|))))
+                                                    NIL 'NIL NIL))
+                                           . #2=(|EltableAggregate|)))))
                    . #2#)
            (SETELT #1# 0
                    (LIST '|EltableAggregate| (|devaluate| |t#1|)

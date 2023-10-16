@@ -4,9 +4,8 @@
 (DEFPARAMETER |CommutativeRing;AL| 'NIL) 
 
 (DEFUN |CommutativeRing| ()
-  (LET (#:G106)
-    (COND (|CommutativeRing;AL|)
-          (T (SETQ |CommutativeRing;AL| (|CommutativeRing;|)))))) 
+  (COND (|CommutativeRing;AL|)
+        (T (SETQ |CommutativeRing;AL| (|CommutativeRing;|))))) 
 
 (DEFUN |CommutativeRing;| ()
   (SPROG ((#1=#:G104 NIL))

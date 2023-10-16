@@ -4,8 +4,7 @@
 (DEFPARAMETER |FiniteGroup;AL| 'NIL) 
 
 (DEFUN |FiniteGroup| ()
-  (LET (#:G107)
-    (COND (|FiniteGroup;AL|) (T (SETQ |FiniteGroup;AL| (|FiniteGroup;|)))))) 
+  (COND (|FiniteGroup;AL|) (T (SETQ |FiniteGroup;AL| (|FiniteGroup;|))))) 
 
 (DEFUN |FiniteGroup;| ()
   (SPROG ((#1=#:G105 NIL))

@@ -4,9 +4,8 @@
 (DEFPARAMETER |FortranProgramCategory;AL| 'NIL) 
 
 (DEFUN |FortranProgramCategory| ()
-  (LET (#:G107)
-    (COND (|FortranProgramCategory;AL|)
-          (T (SETQ |FortranProgramCategory;AL| (|FortranProgramCategory;|)))))) 
+  (COND (|FortranProgramCategory;AL|)
+        (T (SETQ |FortranProgramCategory;AL| (|FortranProgramCategory;|))))) 
 
 (DEFUN |FortranProgramCategory;| ()
   (SPROG ((#1=#:G105 NIL))

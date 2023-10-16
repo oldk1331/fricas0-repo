@@ -4,8 +4,7 @@
 (DEFPARAMETER |BitAggregate;AL| 'NIL) 
 
 (DEFUN |BitAggregate| ()
-  (LET (#:G107)
-    (COND (|BitAggregate;AL|) (T (SETQ |BitAggregate;AL| (|BitAggregate;|)))))) 
+  (COND (|BitAggregate;AL|) (T (SETQ |BitAggregate;AL| (|BitAggregate;|))))) 
 
 (DEFUN |BitAggregate;| ()
   (SPROG ((#1=#:G105 NIL))

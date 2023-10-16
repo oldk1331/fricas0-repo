@@ -3,229 +3,8 @@
  
 (IN-PACKAGE "BOOT")
  
-; compClam(op, argl, body, kind, eqEtc, options) ==
-;   --similar to reportFunctionCompilation in SLAM BOOT
-;   if $InteractiveMode then startTimingProcess 'compilation
-;   if u := set_difference(options, '(shift count)) then
-;     keyedSystemError("S2GE0006",[op,:u])
-;   shiftFl := MEMQ('shift,options)
-;   countFl := MEMQ('count,options)
-;   if #argl > 1 and eqEtc= 'EQ then
-;     keyedSystemError("S2GE0007",[op])
-;   (not IDENTP kind) and (not INTEGERP kind or kind < 1) =>
-;     keyedSystemError("S2GE0005",[op])
-;   IDENTP kind =>
-;     shiftFl => keyedSystemError("S2GE0008",[op])
-;     compHash(op,argl,body,(kind='hash => nil; kind),eqEtc,countFl)
-;   cacheCount:= kind
-;   if null argl then keyedSystemError("S2GE0009",[op])
-;   phrase:=
-;     cacheCount=1 => ['"computed value only"]
-;     [:bright cacheCount,'"computed values"]
-;   sayBrightly [:bright op,'"will save last",:phrase]
-;   auxfn:= INTERNL(op,'";")
-;   g1:= GENSYM()  --argument or argument list
-;   [arg,computeValue] :=
-;     argl is [.] => [[g1],[auxfn,g1]]  --g1 is a parameter
-;     [g1,['APPLY, ['function, auxfn], g1]]          --g1 is a parameter list
-;   cacheName:= INTERNL(op,'";AL")
-;   if $reportCounts=true then
-;     hitCounter:= INTERNL(op,'";hit")
-;     callCounter:= INTERNL(op,'";calls")
-;     SET(hitCounter,0)
-;     SET(callCounter,0)
-;     callCountCode := [['SETQ, callCounter, ['inc_SI, callCounter]]]
-;     hitCountCode := [['SETQ, hitCounter, ['inc_SI, hitCounter]]]
-;   g2:= GENSYM()  --length of cache or arg-value pair
-;   g3:= GENSYM()  --value computed by calling function
-;   lookUpFunction:=
-;     shiftFl =>
-;       countFl => 'assocCacheShiftCount
-;       'assocCacheShift
-;     countFl => 'assocCacheCount
-;     'assocCache
-;   returnFoundValue:=
-;     countFl => ['CDDR,g3]
-;     ['CDR,g3]
-;   namePart:=
-;     countFl => cacheName
-;     MKQ cacheName
-;   secondPredPair:=
-; --   null argl => [cacheName]
-;     [['SETQ,g3,[lookUpFunction,g1,namePart,eqEtc]],
-;       :hitCountCode,
-;         returnFoundValue]
-;   resetCacheEntry:=
-;     countFl => ['CONS,1,g2]
-;     g2
-;   thirdPredPair:=
-; --   null argl => ['(QUOTE T),['SETQ,cacheName,computeValue]]
-;     ['(QUOTE T),
-;       ['SETQ,g2,computeValue],
-;         ['SETQ,g3,['CAR,cacheName]],
-;           ['RPLACA,g3,g1],
-;             ['RPLACD,g3,resetCacheEntry],
-;               g2]
-;   codeBody:= ['PROG,[g2,g3],
-;                 :callCountCode,
-;                   ['RETURN,['COND,secondPredPair,thirdPredPair]]]
-;   lamex:= ['LAMBDA, arg, codeBody]
-;   mainFunction:= [op,lamex]
-;   computeFunction:= [auxfn,['LAMBDA,argl,:body]]
+; compHash(op, argl, body, cacheName, eqEtc) ==
 ; 
-;   -- compile generated function stub
-;   compileInteractive mainFunction
-; 
-;   -- compile main body: this has already been compTran'ed
-;   if $reportCompilation then
-;     sayBrightlyI bright '"Generated LISP code for function:"
-;     pp computeFunction
-;   compileQuietly computeFunction
-; 
-;   cacheType:= 'function
-;   cacheResetCode:= ['SETQ,cacheName,['initCache,cacheCount]]
-;   cacheCountCode:= ['countCircularAlist,cacheName,cacheCount]
-;   cacheVector:= mkCacheVec(op,cacheName,cacheType,
-;     cacheResetCode,cacheCountCode)
-;   output_lisp_form(['PUT, MKQ op, MKQ 'cacheInfo, MKQ cacheVector])
-;   output_lisp_form(cacheResetCode)
-;   if $InteractiveMode then stopTimingProcess 'compilation
-;   op
- 
-(DEFUN |compClam| (|op| |argl| |body| |kind| |eqEtc| |options|)
-  (PROG (|u| |shiftFl| |countFl| |cacheCount| |phrase| |auxfn| |g1| |LETTMP#1|
-         |arg| |computeValue| |cacheName| |hitCounter| |callCounter|
-         |callCountCode| |hitCountCode| |g2| |g3| |lookUpFunction|
-         |returnFoundValue| |namePart| |secondPredPair| |resetCacheEntry|
-         |thirdPredPair| |codeBody| |lamex| |mainFunction| |computeFunction|
-         |cacheType| |cacheResetCode| |cacheCountCode| |cacheVector|)
-    (RETURN
-     (PROGN
-      (COND (|$InteractiveMode| (|startTimingProcess| '|compilation|)))
-      (COND
-       ((SETQ |u| (|set_difference| |options| '(|shift| |count|)))
-        (|keyedSystemError| 'S2GE0006 (CONS |op| |u|))))
-      (SETQ |shiftFl| (MEMQ '|shift| |options|))
-      (SETQ |countFl| (MEMQ '|count| |options|))
-      (COND
-       ((AND (< 1 (LENGTH |argl|)) (EQ |eqEtc| 'EQ))
-        (|keyedSystemError| 'S2GE0007 (LIST |op|))))
-      (COND
-       ((AND (NULL (IDENTP |kind|)) (OR (NULL (INTEGERP |kind|)) (< |kind| 1)))
-        (|keyedSystemError| 'S2GE0005 (LIST |op|)))
-       ((IDENTP |kind|)
-        (COND (|shiftFl| (|keyedSystemError| 'S2GE0008 (LIST |op|)))
-              (#1='T
-               (|compHash| |op| |argl| |body|
-                (COND ((EQ |kind| '|hash|) NIL) (#1# |kind|)) |eqEtc|
-                |countFl|))))
-       (#1#
-        (PROGN
-         (SETQ |cacheCount| |kind|)
-         (COND ((NULL |argl|) (|keyedSystemError| 'S2GE0009 (LIST |op|))))
-         (SETQ |phrase|
-                 (COND ((EQL |cacheCount| 1) (LIST "computed value only"))
-                       (#1#
-                        (APPEND (|bright| |cacheCount|)
-                                (CONS "computed values" NIL)))))
-         (|sayBrightly|
-          (APPEND (|bright| |op|) (CONS "will save last" |phrase|)))
-         (SETQ |auxfn| (INTERNL |op| ";"))
-         (SETQ |g1| (GENSYM))
-         (SETQ |LETTMP#1|
-                 (COND
-                  ((AND (CONSP |argl|) (EQ (CDR |argl|) NIL))
-                   (LIST (LIST |g1|) (LIST |auxfn| |g1|)))
-                  (#1#
-                   (LIST |g1| (LIST 'APPLY (LIST '|function| |auxfn|) |g1|)))))
-         (SETQ |arg| (CAR |LETTMP#1|))
-         (SETQ |computeValue| (CADR |LETTMP#1|))
-         (SETQ |cacheName| (INTERNL |op| ";AL"))
-         (COND
-          ((EQUAL |$reportCounts| T) (SETQ |hitCounter| (INTERNL |op| ";hit"))
-           (SETQ |callCounter| (INTERNL |op| ";calls")) (SET |hitCounter| 0)
-           (SET |callCounter| 0)
-           (SETQ |callCountCode|
-                   (LIST
-                    (LIST 'SETQ |callCounter| (LIST '|inc_SI| |callCounter|))))
-           (SETQ |hitCountCode|
-                   (LIST
-                    (LIST 'SETQ |hitCounter| (LIST '|inc_SI| |hitCounter|))))))
-         (SETQ |g2| (GENSYM))
-         (SETQ |g3| (GENSYM))
-         (SETQ |lookUpFunction|
-                 (COND
-                  (|shiftFl|
-                   (COND (|countFl| '|assocCacheShiftCount|)
-                         (#1# '|assocCacheShift|)))
-                  (|countFl| '|assocCacheCount|) (#1# '|assocCache|)))
-         (SETQ |returnFoundValue|
-                 (COND (|countFl| (LIST 'CDDR |g3|)) (#1# (LIST 'CDR |g3|))))
-         (SETQ |namePart|
-                 (COND (|countFl| |cacheName|) (#1# (MKQ |cacheName|))))
-         (SETQ |secondPredPair|
-                 (CONS
-                  (LIST 'SETQ |g3|
-                        (LIST |lookUpFunction| |g1| |namePart| |eqEtc|))
-                  (APPEND |hitCountCode| (CONS |returnFoundValue| NIL))))
-         (SETQ |resetCacheEntry|
-                 (COND (|countFl| (LIST 'CONS 1 |g2|)) (#1# |g2|)))
-         (SETQ |thirdPredPair|
-                 (LIST ''T (LIST 'SETQ |g2| |computeValue|)
-                       (LIST 'SETQ |g3| (LIST 'CAR |cacheName|))
-                       (LIST 'RPLACA |g3| |g1|)
-                       (LIST 'RPLACD |g3| |resetCacheEntry|) |g2|))
-         (SETQ |codeBody|
-                 (CONS 'PROG
-                       (CONS (LIST |g2| |g3|)
-                             (APPEND |callCountCode|
-                                     (CONS
-                                      (LIST 'RETURN
-                                            (LIST 'COND |secondPredPair|
-                                                  |thirdPredPair|))
-                                      NIL)))))
-         (SETQ |lamex| (LIST 'LAMBDA |arg| |codeBody|))
-         (SETQ |mainFunction| (LIST |op| |lamex|))
-         (SETQ |computeFunction|
-                 (LIST |auxfn| (CONS 'LAMBDA (CONS |argl| |body|))))
-         (|compileInteractive| |mainFunction|)
-         (COND
-          (|$reportCompilation|
-           (|sayBrightlyI| (|bright| "Generated LISP code for function:"))
-           (|pp| |computeFunction|)))
-         (|compileQuietly| |computeFunction|)
-         (SETQ |cacheType| '|function|)
-         (SETQ |cacheResetCode|
-                 (LIST 'SETQ |cacheName| (LIST '|initCache| |cacheCount|)))
-         (SETQ |cacheCountCode|
-                 (LIST '|countCircularAlist| |cacheName| |cacheCount|))
-         (SETQ |cacheVector|
-                 (|mkCacheVec| |op| |cacheName| |cacheType| |cacheResetCode|
-                  |cacheCountCode|))
-         (|output_lisp_form|
-          (LIST 'PUT (MKQ |op|) (MKQ '|cacheInfo|) (MKQ |cacheVector|)))
-         (|output_lisp_form| |cacheResetCode|)
-         (COND (|$InteractiveMode| (|stopTimingProcess| '|compilation|)))
-         |op|)))))))
- 
-; compHash(op,argl,body,cacheNameOrNil,eqEtc,countFl) ==
-;   --Note: when cacheNameOrNil~=nil, it names a global hashtable
-; 
-;   if cacheNameOrNil and cacheNameOrNil~='_$ConstructorCache then
-;     keyedSystemError("S2GE0010",[op])
-;     --restriction due to omission of call to hputNewValue (see *** lines below)
-; 
-;   if null argl then
-;     null cacheNameOrNil => keyedSystemError("S2GE0011",[op])
-;     nil
-;   (not cacheNameOrNil) and (not MEMQ(eqEtc,'(EQ CVEC UEQUAL))) =>
-;     keyedSystemError("S2GE0012",[op])
-; --withWithout := (countFl => "with"; "without")
-; --middle:=
-; --  cacheNameOrNil => ["on","%b",cacheNameOrNil,"%d"]
-; --  '"privately "
-; --sayBrightly
-; --  ["%b",op,"%d","hashes ",:middle,withWithout," reference counts"]
 ;   auxfn:= INTERNL(op,'";")
 ;   g1:= GENSYM()  --argument or argument list
 ;   [arg,cacheArgKey,computeValue] :=
@@ -234,11 +13,12 @@
 ;   --    computeValue: the form used to compute the value from arg
 ;     null argl => [nil,nil,[auxfn]]
 ;     argl is [.] =>
-;       key:= (cacheNameOrNil => ['devaluate,g1]; g1)
+;       -- FIXME: we shall call 'devaluate' only on domains
+;       key := ['devaluate, g1] 
 ;       [[g1],['LIST,key],[auxfn,g1]]  --g1 is a parameter
-;     key:= (cacheNameOrNil => ['devaluateList,g1] ; g1)
-;     [g1,key,['APPLY,['function,auxfn],g1]]   --g1 is a parameter list
-;   cacheName:= cacheNameOrNil or INTERNL(op,'";AL")
+;     -- FIXME: we shall call 'devaluate' only on domains
+;     key := ['devaluateList, g1] 
+;     [g1, key, ['APPLY,['function,auxfn],g1]]   --g1 is a parameter list
 ;   if $reportCounts=true then
 ;     hitCounter:= INTERNL(op,'";hit")
 ;     callCounter:= INTERNL(op,'";calls")
@@ -253,35 +33,21 @@
 ;     --  stored in the same format as those with several arguments, e.g.
 ;     --  to cache the value <val> given by f(), the structure
 ;     --  ((nil <count> <val>)) is stored in the cache
-;       countFl => ['CDRwithIncrement,['CDAR,g2]]
-;       ['CDAR,g2]
-;     countFl => ['CDRwithIncrement,g2]
-;     g2
+;         ['CDRwithIncrement,['CDAR,g2]]
+;     ['CDRwithIncrement,g2]
 ;   getCode:=
 ;     null argl => ['HGET,cacheName,MKQ op]
-;     cacheNameOrNil =>
-;       eqEtc~='EQUAL =>
-;         ['lassocShiftWithFunction,cacheArgKey,
-;           ['HGET,cacheNameOrNil,MKQ op],MKQ eqEtc]
-;       ['lassocShift,cacheArgKey,['HGET,cacheNameOrNil,MKQ op]]
-;     ['HGET,cacheName,g1]
+;     ['lassocShiftWithFunction, cacheArgKey,
+;           ['HGET, cacheName, MKQ op], MKQ eqEtc]
 ;   secondPredPair:= [['SETQ,g2,getCode],:hitCountCode,returnFoundValue]
 ;   putCode:=
-;     null argl =>
-;       cacheNameOrNil =>
-;         countFl => ['CDDAR,['HPUT,cacheNameOrNil,MKQ op,
-;                       ['LIST,['CONS,nil,['CONS,1,computeValue]]]]]
-;         ['HPUT,cacheNameOrNil,MKQ op,['LIST,['CONS,nil,computeValue]]]
-;       systemError '"unexpected"
-;     cacheNameOrNil => computeValue
-;     --countFl => ['CDR,['hputNewProp,cacheNameOrNil,MKQ op,cacheArgKey, --***
-;     --             ['CONS,1,computeValue]]]                             --***
-;     --['hputNewProp,cacheNameOrNil,MKQ op,cacheArgKey,computeValue]    --***
-;     countFl => ['CDR,['HPUT,cacheName,g1,['CONS,1,computeValue]]]
-;     ['HPUT,cacheName,g1,computeValue]
-;   if cacheNameOrNil then putCode :=
+;       null argl =>
+;           ['CDDAR, ['HPUT, cacheName, MKQ op,
+;                    ['LIST, ['CONS, nil, ['CONS, 1, computeValue]]]]]
+;       computeValue
+;   putCode :=
 ;      ['UNWIND_-PROTECT,['PROG1,putCode,['SETQ,g2,'T]],
-;                   ['COND,[['NOT,g2],['HREM,cacheName,MKQ op]]]]
+;                   ['COND, [['NOT, g2], ['HREM, cacheName, MKQ op]]]]
 ;   thirdPredPair:= ['(QUOTE T),putCode]
 ;   codeBody:= ['PROG,[g2],
 ;                :callCountCode,['RETURN,['COND,secondPredPair,thirdPredPair]]]
@@ -297,171 +63,92 @@
 ;     sayBrightlyI bright '"Generated LISP code for function:"
 ;     pp computeFunction
 ;   compileQuietly computeFunction
-; 
-;   if null cacheNameOrNil then
-;     cacheType:=
-;       countFl => 'hash_-tableWithCounts
-;       'hash_-table
-;     weakStrong:= (countFl => 'STRONG; 'WEAK)
-;       --note: WEAK means that key/value pairs disappear at garbage collection
-;     cacheResetCode:=
-;       ['SETQ,cacheName,['MAKE_-HASHTABLE,MKQ eqEtc]]
-;     cacheCountCode:= ['hashCount,cacheName]
-;     cacheVector:=
-;       mkCacheVec(op,cacheName,cacheType,cacheResetCode,cacheCountCode)
-;     output_lisp_form(['PUT, MKQ op, MKQ 'cacheInfo, MKQ cacheVector])
-;     output_lisp_form(cacheResetCode)
 ;   op
  
-(DEFUN |compHash| (|op| |argl| |body| |cacheNameOrNil| |eqEtc| |countFl|)
+(DEFUN |compHash| (|op| |argl| |body| |cacheName| |eqEtc|)
   (PROG (|auxfn| |g1| |key| |LETTMP#1| |arg| |cacheArgKey| |computeValue|
-         |cacheName| |hitCounter| |callCounter| |callCountCode| |hitCountCode|
-         |g2| |returnFoundValue| |getCode| |secondPredPair| |putCode|
-         |thirdPredPair| |codeBody| |lamex| |mainFunction| |computeFunction|
-         |cacheType| |weakStrong| |cacheResetCode| |cacheCountCode|
-         |cacheVector|)
+         |hitCounter| |callCounter| |callCountCode| |hitCountCode| |g2|
+         |returnFoundValue| |getCode| |secondPredPair| |putCode|
+         |thirdPredPair| |codeBody| |lamex| |mainFunction| |computeFunction|)
     (RETURN
      (PROGN
+      (SETQ |auxfn| (INTERNL |op| ";"))
+      (SETQ |g1| (GENSYM))
+      (SETQ |LETTMP#1|
+              (COND ((NULL |argl|) (LIST NIL NIL (LIST |auxfn|)))
+                    ((AND (CONSP |argl|) (EQ (CDR |argl|) NIL))
+                     (PROGN
+                      (SETQ |key| (LIST '|devaluate| |g1|))
+                      (LIST (LIST |g1|) (LIST 'LIST |key|)
+                            (LIST |auxfn| |g1|))))
+                    (#1='T
+                     (PROGN
+                      (SETQ |key| (LIST '|devaluateList| |g1|))
+                      (LIST |g1| |key|
+                            (LIST 'APPLY (LIST '|function| |auxfn|) |g1|))))))
+      (SETQ |arg| (CAR |LETTMP#1|))
+      (SETQ |cacheArgKey| (CADR . #2=(|LETTMP#1|)))
+      (SETQ |computeValue| (CADDR . #2#))
       (COND
-       ((AND |cacheNameOrNil| (NOT (EQ |cacheNameOrNil| '|$ConstructorCache|)))
-        (|keyedSystemError| 'S2GE0010 (LIST |op|))))
+       ((EQUAL |$reportCounts| T) (SETQ |hitCounter| (INTERNL |op| ";hit"))
+        (SETQ |callCounter| (INTERNL |op| ";calls")) (SET |hitCounter| 0)
+        (SET |callCounter| 0)
+        (SETQ |callCountCode|
+                (LIST
+                 (LIST 'SETQ |callCounter| (LIST '|inc_SI| |callCounter|))))
+        (SETQ |hitCountCode|
+                (LIST
+                 (LIST 'SETQ |hitCounter| (LIST '|inc_SI| |hitCounter|))))))
+      (SETQ |g2| (GENSYM))
+      (SETQ |returnFoundValue|
+              (COND
+               ((NULL |argl|) (LIST '|CDRwithIncrement| (LIST 'CDAR |g2|)))
+               (#1# (LIST '|CDRwithIncrement| |g2|))))
+      (SETQ |getCode|
+              (COND ((NULL |argl|) (LIST 'HGET |cacheName| (MKQ |op|)))
+                    (#1#
+                     (LIST '|lassocShiftWithFunction| |cacheArgKey|
+                           (LIST 'HGET |cacheName| (MKQ |op|))
+                           (MKQ |eqEtc|)))))
+      (SETQ |secondPredPair|
+              (CONS (LIST 'SETQ |g2| |getCode|)
+                    (APPEND |hitCountCode| (CONS |returnFoundValue| NIL))))
+      (SETQ |putCode|
+              (COND
+               ((NULL |argl|)
+                (LIST 'CDDAR
+                      (LIST 'HPUT |cacheName| (MKQ |op|)
+                            (LIST 'LIST
+                                  (LIST 'CONS NIL
+                                        (LIST 'CONS 1 |computeValue|))))))
+               (#1# |computeValue|)))
+      (SETQ |putCode|
+              (LIST 'UNWIND-PROTECT
+                    (LIST 'PROG1 |putCode| (LIST 'SETQ |g2| 'T))
+                    (LIST 'COND
+                          (LIST (LIST 'NOT |g2|)
+                                (LIST 'HREM |cacheName| (MKQ |op|))))))
+      (SETQ |thirdPredPair| (LIST ''T |putCode|))
+      (SETQ |codeBody|
+              (CONS 'PROG
+                    (CONS (LIST |g2|)
+                          (APPEND |callCountCode|
+                                  (CONS
+                                   (LIST 'RETURN
+                                         (LIST 'COND |secondPredPair|
+                                               |thirdPredPair|))
+                                   NIL)))))
+      (SETQ |lamex| (LIST 'LAMBDA |arg| |codeBody|))
+      (SETQ |mainFunction| (LIST |op| |lamex|))
+      (SETQ |computeFunction|
+              (LIST |auxfn| (CONS 'LAMBDA (CONS |argl| |body|))))
+      (|compileInteractive| |mainFunction|)
       (COND
-       ((NULL |argl|)
-        (COND
-         ((NULL |cacheNameOrNil|) (|keyedSystemError| 'S2GE0011 (LIST |op|)))
-         (#1='T NIL))))
-      (COND
-       ((AND (NULL |cacheNameOrNil|) (NULL (MEMQ |eqEtc| '(EQ CVEC UEQUAL))))
-        (|keyedSystemError| 'S2GE0012 (LIST |op|)))
-       (#1#
-        (PROGN
-         (SETQ |auxfn| (INTERNL |op| ";"))
-         (SETQ |g1| (GENSYM))
-         (SETQ |LETTMP#1|
-                 (COND ((NULL |argl|) (LIST NIL NIL (LIST |auxfn|)))
-                       ((AND (CONSP |argl|) (EQ (CDR |argl|) NIL))
-                        (PROGN
-                         (SETQ |key|
-                                 (COND
-                                  (|cacheNameOrNil| (LIST '|devaluate| |g1|))
-                                  (#1# |g1|)))
-                         (LIST (LIST |g1|) (LIST 'LIST |key|)
-                               (LIST |auxfn| |g1|))))
-                       (#1#
-                        (PROGN
-                         (SETQ |key|
-                                 (COND
-                                  (|cacheNameOrNil|
-                                   (LIST '|devaluateList| |g1|))
-                                  (#1# |g1|)))
-                         (LIST |g1| |key|
-                               (LIST 'APPLY (LIST '|function| |auxfn|)
-                                     |g1|))))))
-         (SETQ |arg| (CAR |LETTMP#1|))
-         (SETQ |cacheArgKey| (CADR . #2=(|LETTMP#1|)))
-         (SETQ |computeValue| (CADDR . #2#))
-         (SETQ |cacheName| (OR |cacheNameOrNil| (INTERNL |op| ";AL")))
-         (COND
-          ((EQUAL |$reportCounts| T) (SETQ |hitCounter| (INTERNL |op| ";hit"))
-           (SETQ |callCounter| (INTERNL |op| ";calls")) (SET |hitCounter| 0)
-           (SET |callCounter| 0)
-           (SETQ |callCountCode|
-                   (LIST
-                    (LIST 'SETQ |callCounter| (LIST '|inc_SI| |callCounter|))))
-           (SETQ |hitCountCode|
-                   (LIST
-                    (LIST 'SETQ |hitCounter| (LIST '|inc_SI| |hitCounter|))))))
-         (SETQ |g2| (GENSYM))
-         (SETQ |returnFoundValue|
-                 (COND
-                  ((NULL |argl|)
-                   (COND
-                    (|countFl| (LIST '|CDRwithIncrement| (LIST 'CDAR |g2|)))
-                    (#1# (LIST 'CDAR |g2|))))
-                  (|countFl| (LIST '|CDRwithIncrement| |g2|)) (#1# |g2|)))
-         (SETQ |getCode|
-                 (COND ((NULL |argl|) (LIST 'HGET |cacheName| (MKQ |op|)))
-                       (|cacheNameOrNil|
-                        (COND
-                         ((NOT (EQ |eqEtc| 'EQUAL))
-                          (LIST '|lassocShiftWithFunction| |cacheArgKey|
-                                (LIST 'HGET |cacheNameOrNil| (MKQ |op|))
-                                (MKQ |eqEtc|)))
-                         (#1#
-                          (LIST '|lassocShift| |cacheArgKey|
-                                (LIST 'HGET |cacheNameOrNil| (MKQ |op|))))))
-                       (#1# (LIST 'HGET |cacheName| |g1|))))
-         (SETQ |secondPredPair|
-                 (CONS (LIST 'SETQ |g2| |getCode|)
-                       (APPEND |hitCountCode| (CONS |returnFoundValue| NIL))))
-         (SETQ |putCode|
-                 (COND
-                  ((NULL |argl|)
-                   (COND
-                    (|cacheNameOrNil|
-                     (COND
-                      (|countFl|
-                       (LIST 'CDDAR
-                             (LIST 'HPUT |cacheNameOrNil| (MKQ |op|)
-                                   (LIST 'LIST
-                                         (LIST 'CONS NIL
-                                               (LIST 'CONS 1
-                                                     |computeValue|))))))
-                      (#1#
-                       (LIST 'HPUT |cacheNameOrNil| (MKQ |op|)
-                             (LIST 'LIST (LIST 'CONS NIL |computeValue|))))))
-                    (#1# (|systemError| "unexpected"))))
-                  (|cacheNameOrNil| |computeValue|)
-                  (|countFl|
-                   (LIST 'CDR
-                         (LIST 'HPUT |cacheName| |g1|
-                               (LIST 'CONS 1 |computeValue|))))
-                  (#1# (LIST 'HPUT |cacheName| |g1| |computeValue|))))
-         (COND
-          (|cacheNameOrNil|
-           (SETQ |putCode|
-                   (LIST 'UNWIND-PROTECT
-                         (LIST 'PROG1 |putCode| (LIST 'SETQ |g2| 'T))
-                         (LIST 'COND
-                               (LIST (LIST 'NOT |g2|)
-                                     (LIST 'HREM |cacheName| (MKQ |op|))))))))
-         (SETQ |thirdPredPair| (LIST ''T |putCode|))
-         (SETQ |codeBody|
-                 (CONS 'PROG
-                       (CONS (LIST |g2|)
-                             (APPEND |callCountCode|
-                                     (CONS
-                                      (LIST 'RETURN
-                                            (LIST 'COND |secondPredPair|
-                                                  |thirdPredPair|))
-                                      NIL)))))
-         (SETQ |lamex| (LIST 'LAMBDA |arg| |codeBody|))
-         (SETQ |mainFunction| (LIST |op| |lamex|))
-         (SETQ |computeFunction|
-                 (LIST |auxfn| (CONS 'LAMBDA (CONS |argl| |body|))))
-         (|compileInteractive| |mainFunction|)
-         (COND
-          (|$reportCompilation|
-           (|sayBrightlyI| (|bright| "Generated LISP code for function:"))
-           (|pp| |computeFunction|)))
-         (|compileQuietly| |computeFunction|)
-         (COND
-          ((NULL |cacheNameOrNil|)
-           (SETQ |cacheType|
-                   (COND (|countFl| '|hash-tableWithCounts|)
-                         (#1# '|hash-table|)))
-           (SETQ |weakStrong| (COND (|countFl| 'STRONG) (#1# 'WEAK)))
-           (SETQ |cacheResetCode|
-                   (LIST 'SETQ |cacheName|
-                         (LIST 'MAKE-HASHTABLE (MKQ |eqEtc|))))
-           (SETQ |cacheCountCode| (LIST '|hashCount| |cacheName|))
-           (SETQ |cacheVector|
-                   (|mkCacheVec| |op| |cacheName| |cacheType| |cacheResetCode|
-                    |cacheCountCode|))
-           (|output_lisp_form|
-            (LIST 'PUT (MKQ |op|) (MKQ '|cacheInfo|) (MKQ |cacheVector|)))
-           (|output_lisp_form| |cacheResetCode|)))
-         |op|)))))))
+       (|$reportCompilation|
+        (|sayBrightlyI| (|bright| "Generated LISP code for function:"))
+        (|pp| |computeFunction|)))
+      (|compileQuietly| |computeFunction|)
+      |op|))))
  
 ; CDRwithIncrement x ==
 ;   RPLACA(x, inc_SI first x)
@@ -882,40 +569,15 @@
        |vl| NIL)
       |al|))))
  
-; clearHashReferenceCounts() ==
-;   --free all cells with 0 reference counts; clear other counts to 0
-;   for x in $clamList repeat
-;     x.cacheType='hash_-tableWithCounts =>
-;       remHashEntriesWith0Count eval x.cacheName
-;     x.cacheType='hash_-table => CLRHASH eval x.cacheName
+; clearHashReferenceCounts() == BREAK()
  
-(DEFUN |clearHashReferenceCounts| ()
-  (PROG ()
-    (RETURN
-     ((LAMBDA (|bfVar#20| |x|)
-        (LOOP
-         (COND
-          ((OR (ATOM |bfVar#20|) (PROGN (SETQ |x| (CAR |bfVar#20|)) NIL))
-           (RETURN NIL))
-          ('T
-           (COND
-            ((EQ (CADDR |x|) '|hash-tableWithCounts|)
-             (|remHashEntriesWith0Count| (|eval| (CADR |x|))))
-            ((EQ (CADDR |x|) '|hash-table|) (CLRHASH (|eval| (CADR |x|)))))))
-         (SETQ |bfVar#20| (CDR |bfVar#20|))))
-      |$clamList| NIL))))
+(DEFUN |clearHashReferenceCounts| () (PROG () (RETURN (BREAK))))
  
-; remHashEntriesWith0Count $hashTable ==
-;   MAPHASH(FUNCTION fn,$hashTable) where fn(key,obj) ==
-;     first obj = 0 => HREM($hashTable, key)  --free store
-;     nil
+; remHashEntriesWith0Count $hashTable == BREAK()
  
 (DEFUN |remHashEntriesWith0Count| (|$hashTable|)
   (DECLARE (SPECIAL |$hashTable|))
-  (PROG () (RETURN (MAPHASH #'|remHashEntriesWith0Count,fn| |$hashTable|))))
-(DEFUN |remHashEntriesWith0Count,fn| (|key| |obj|)
-  (PROG ()
-    (RETURN (COND ((EQL (CAR |obj|) 0) (HREM |$hashTable| |key|)) ('T NIL)))))
+  (PROG () (RETURN (BREAK))))
  
 ; initCache n ==
 ;   tail:= '(0 . $failed)
@@ -928,12 +590,12 @@
      (PROGN
       (SETQ |tail| '(0 . |$failed|))
       (SETQ |l|
-              ((LAMBDA (|bfVar#21| |i|)
+              ((LAMBDA (|bfVar#20| |i|)
                  (LOOP
-                  (COND ((> |i| |n|) (RETURN (NREVERSE |bfVar#21|)))
+                  (COND ((> |i| |n|) (RETURN (NREVERSE |bfVar#20|)))
                         ('T
-                         (SETQ |bfVar#21|
-                                 (CONS (CONS |$failed| |tail|) |bfVar#21|))))
+                         (SETQ |bfVar#20|
+                                 (CONS (CONS |$failed| |tail|) |bfVar#20|))))
                   (SETQ |i| (+ |i| 1))))
                NIL 1))
       (RPLACD (LASTNODE |l|) |l|)))))
@@ -959,9 +621,9 @@
       (SETQ |al| (|eval| |cacheName|))
       (SETQ |forwardPointer| |al|)
       (SETQ |val| NIL)
-      ((LAMBDA (|bfVar#22|)
+      ((LAMBDA (|bfVar#21|)
          (LOOP
-          (COND (|bfVar#22| (RETURN NIL))
+          (COND (|bfVar#21| (RETURN NIL))
                 (#1='T
                  (COND
                   ((FUNCALL |fn| (CAAR |forwardPointer|) |x|)
@@ -970,7 +632,7 @@
                    (PROGN
                     (SETQ |backPointer| |forwardPointer|)
                     (SETQ |forwardPointer| (CDR |forwardPointer|)))))))
-          (SETQ |bfVar#22| (EQ |forwardPointer| |al|))))
+          (SETQ |bfVar#21| (EQ |forwardPointer| |al|))))
        NIL)
       (COND (|val| |val|) (#1# (PROGN (SET |cacheName| |backPointer|) NIL)))))))
  
@@ -998,9 +660,9 @@
       (SETQ |al| (|eval| |cacheName|))
       (SETQ |forwardPointer| |al|)
       (SETQ |val| NIL)
-      ((LAMBDA (|bfVar#23|)
+      ((LAMBDA (|bfVar#22|)
          (LOOP
-          (COND (|bfVar#23| (RETURN NIL))
+          (COND (|bfVar#22| (RETURN NIL))
                 (#1='T
                  (COND
                   ((FUNCALL |fn| (CAR (SETQ |y| (CAR |forwardPointer|))) |x|)
@@ -1013,7 +675,7 @@
                    (PROGN
                     (SETQ |backPointer| |forwardPointer|)
                     (SETQ |forwardPointer| (CDR |forwardPointer|)))))))
-          (SETQ |bfVar#23| (EQ |forwardPointer| |al|))))
+          (SETQ |bfVar#22| (EQ |forwardPointer| |al|))))
        NIL)
       (COND (|val| |val|) (#1# (PROGN (SET |cacheName| |backPointer|) NIL)))))))
  
@@ -1047,9 +709,9 @@
       (SETQ |forwardPointer| |al|)
       (SETQ |val| NIL)
       (SETQ |minCount| 10000)
-      ((LAMBDA (|bfVar#24|)
+      ((LAMBDA (|bfVar#23|)
          (LOOP
-          (COND (|bfVar#24| (RETURN NIL))
+          (COND (|bfVar#23| (RETURN NIL))
                 (#1='T
                  (COND
                   ((FUNCALL |fn| (CAR (SETQ |y| (CAR |forwardPointer|))) |x|)
@@ -1064,7 +726,7 @@
                       (SETQ |minCount| |c|)
                       (SETQ |newFrontPointer| |forwardPointer|)))
                     (SETQ |forwardPointer| (CDR |forwardPointer|)))))))
-          (SETQ |bfVar#24| (EQ |forwardPointer| |al|))))
+          (SETQ |bfVar#23| (EQ |forwardPointer| |al|))))
        NIL)
       (COND
        ((NULL (EQ |newFrontPointer| |al|))
@@ -1096,17 +758,17 @@
   (PROG (|postString| |empties| |cacheValue| |prefix| |res| |callCounter|
          |hitCounter| |cacheVec| |kind| |ISTMP#1| |op|)
     (RETURN
-     ((LAMBDA (|bfVar#26| |bfVar#25|)
+     ((LAMBDA (|bfVar#25| |bfVar#24|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#26|)
-               (PROGN (SETQ |bfVar#25| (CAR |bfVar#26|)) NIL))
+          ((OR (ATOM |bfVar#25|)
+               (PROGN (SETQ |bfVar#24| (CAR |bfVar#25|)) NIL))
            (RETURN NIL))
           (#1='T
-           (AND (CONSP |bfVar#25|)
+           (AND (CONSP |bfVar#24|)
                 (PROGN
-                 (SETQ |op| (CAR |bfVar#25|))
-                 (SETQ |ISTMP#1| (CDR |bfVar#25|))
+                 (SETQ |op| (CAR |bfVar#24|))
+                 (SETQ |ISTMP#1| (CDR |bfVar#24|))
                  (AND (CONSP |ISTMP#1|)
                       (PROGN (SETQ |kind| (CAR |ISTMP#1|)) #1#)))
                 (PROGN
@@ -1143,7 +805,7 @@
                                     (LIST '| (| '|%b| (- |kind| |empties|) '/
                                           |kind| '|%d| '|slots used)|))))))))
                  (|sayBrightly| (APPEND |prefix| (CONS |op| |postString|)))))))
-         (SETQ |bfVar#26| (CDR |bfVar#26|))))
+         (SETQ |bfVar#25| (CDR |bfVar#25|))))
       |$clamList| NIL))))
  
 ; numberOfEmptySlots cache==
@@ -1341,59 +1003,59 @@
     (RETURN
      (PROGN
       (SETQ |conList|
-              ((LAMBDA (|bfVar#31| |bfVar#30| |key|)
+              ((LAMBDA (|bfVar#30| |bfVar#29| |key|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#30|)
-                        (PROGN (SETQ |key| (CAR |bfVar#30|)) NIL))
-                    (RETURN (NREVERSE |bfVar#31|)))
+                   ((OR (ATOM |bfVar#29|)
+                        (PROGN (SETQ |key| (CAR |bfVar#29|)) NIL))
+                    (RETURN (NREVERSE |bfVar#30|)))
                    (#1='T
-                    (SETQ |bfVar#31|
+                    (SETQ |bfVar#30|
                             (APPEND
                              (REVERSE
-                              ((LAMBDA (|bfVar#29| |bfVar#28| |bfVar#27|)
+                              ((LAMBDA (|bfVar#28| |bfVar#27| |bfVar#26|)
                                  (LOOP
                                   (COND
-                                   ((OR (ATOM |bfVar#28|)
+                                   ((OR (ATOM |bfVar#27|)
                                         (PROGN
-                                         (SETQ |bfVar#27| (CAR |bfVar#28|))
+                                         (SETQ |bfVar#26| (CAR |bfVar#27|))
                                          NIL))
-                                    (RETURN (NREVERSE |bfVar#29|)))
+                                    (RETURN (NREVERSE |bfVar#28|)))
                                    (#1#
-                                    (AND (CONSP |bfVar#27|)
+                                    (AND (CONSP |bfVar#26|)
                                          (PROGN
-                                          (SETQ |argList| (CAR |bfVar#27|))
-                                          (SETQ |ISTMP#1| (CDR |bfVar#27|))
+                                          (SETQ |argList| (CAR |bfVar#26|))
+                                          (SETQ |ISTMP#1| (CDR |bfVar#26|))
                                           (AND (CONSP |ISTMP#1|)
                                                (PROGN
                                                 (SETQ |n| (CAR |ISTMP#1|))
                                                 (SETQ |m| (CDR |ISTMP#1|))
                                                 #1#)))
-                                         (SETQ |bfVar#29|
+                                         (SETQ |bfVar#28|
                                                  (CONS
                                                   (LIST |n| |m|
                                                         (CONS |key| |argList|))
-                                                  |bfVar#29|)))))
-                                  (SETQ |bfVar#28| (CDR |bfVar#28|))))
+                                                  |bfVar#28|)))))
+                                  (SETQ |bfVar#27| (CDR |bfVar#27|))))
                                NIL (HGET |$instantRecord| |key|) NIL))
-                             |bfVar#31|))))
-                  (SETQ |bfVar#30| (CDR |bfVar#30|))))
+                             |bfVar#30|))))
+                  (SETQ |bfVar#29| (CDR |bfVar#29|))))
                NIL (HKEYS |$instantRecord|) NIL))
       (|sayBrightly|
        (LIST "# instantiated/# dropped/domain name" '|%l|
              "------------------------------------"))
       (SETQ |nTotal| (SETQ |mTotal| (SETQ |rTotal| (SETQ |nForms| 0))))
-      ((LAMBDA (|bfVar#33| |bfVar#32|)
+      ((LAMBDA (|bfVar#32| |bfVar#31|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#33|)
-                (PROGN (SETQ |bfVar#32| (CAR |bfVar#33|)) NIL))
+           ((OR (ATOM |bfVar#32|)
+                (PROGN (SETQ |bfVar#31| (CAR |bfVar#32|)) NIL))
             (RETURN NIL))
            (#1#
-            (AND (CONSP |bfVar#32|)
+            (AND (CONSP |bfVar#31|)
                  (PROGN
-                  (SETQ |n| (CAR |bfVar#32|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#32|))
+                  (SETQ |n| (CAR |bfVar#31|))
+                  (SETQ |ISTMP#1| (CDR |bfVar#31|))
                   (AND (CONSP |ISTMP#1|)
                        (PROGN
                         (SETQ |m| (CAR |ISTMP#1|))
@@ -1408,7 +1070,7 @@
                   (|typeTimePrin|
                    (LIST 'CONCATB |n| |m|
                          (|outputDomainConstructor| |form|)))))))
-          (SETQ |bfVar#33| (CDR |bfVar#33|))))
+          (SETQ |bfVar#32| (CDR |bfVar#32|))))
        (NREVERSE (SORTBY 'CADDR |conList|)) NIL)
       (|sayBrightly|
        (LIST '|%b| "Totals:" '|%d| |nTotal| " instantiated" '|%l| "         "
@@ -1536,25 +1198,25 @@
     (RETURN
      (PROGN
       (SETQ |keys| (HKEYS |x|))
-      ((LAMBDA (|bfVar#34| |key|)
+      ((LAMBDA (|bfVar#33| |key|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#34|) (PROGN (SETQ |key| (CAR |bfVar#34|)) NIL))
+           ((OR (ATOM |bfVar#33|) (PROGN (SETQ |key| (CAR |bfVar#33|)) NIL))
             (RETURN NIL))
            (#1='T
             (PROGN
              (SETQ |u| (HGET |x| |key|))
-             ((LAMBDA (|bfVar#36| |bfVar#35|)
+             ((LAMBDA (|bfVar#35| |bfVar#34|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#36|)
-                       (PROGN (SETQ |bfVar#35| (CAR |bfVar#36|)) NIL))
+                  ((OR (ATOM |bfVar#35|)
+                       (PROGN (SETQ |bfVar#34| (CAR |bfVar#35|)) NIL))
                    (RETURN NIL))
                   (#1#
-                   (AND (CONSP |bfVar#35|)
+                   (AND (CONSP |bfVar#34|)
                         (PROGN
-                         (SETQ |argList| (CAR |bfVar#35|))
-                         (SETQ |ISTMP#1| (CDR |bfVar#35|))
+                         (SETQ |argList| (CAR |bfVar#34|))
+                         (SETQ |ISTMP#1| (CDR |bfVar#34|))
                          (AND (CONSP |ISTMP#1|)
                               (PROGN (SETQ |n| (CAR |ISTMP#1|)) #1#)))
                         (COND
@@ -1563,41 +1225,41 @@
                          (#1#
                           (PROGN
                            (SETQ |argList1|
-                                   ((LAMBDA (|bfVar#38| |bfVar#37| |x|)
+                                   ((LAMBDA (|bfVar#37| |bfVar#36| |x|)
                                       (LOOP
                                        (COND
-                                        ((OR (ATOM |bfVar#37|)
+                                        ((OR (ATOM |bfVar#36|)
                                              (PROGN
-                                              (SETQ |x| (CAR |bfVar#37|))
+                                              (SETQ |x| (CAR |bfVar#36|))
                                               NIL))
-                                         (RETURN (NREVERSE |bfVar#38|)))
+                                         (RETURN (NREVERSE |bfVar#37|)))
                                         (#1#
-                                         (SETQ |bfVar#38|
+                                         (SETQ |bfVar#37|
                                                  (CONS
                                                   (|constructor2ConstructorForm|
                                                    |x|)
-                                                  |bfVar#38|))))
-                                       (SETQ |bfVar#37| (CDR |bfVar#37|))))
+                                                  |bfVar#37|))))
+                                       (SETQ |bfVar#36| (CDR |bfVar#36|))))
                                     NIL |argList| NIL))
                            (SETQ |reportList|
                                    (CONS (LIST |n| |key| |argList1|)
                                          |reportList|))))))))
-                 (SETQ |bfVar#36| (CDR |bfVar#36|))))
+                 (SETQ |bfVar#35| (CDR |bfVar#35|))))
               |u| NIL))))
-          (SETQ |bfVar#34| (CDR |bfVar#34|))))
+          (SETQ |bfVar#33| (CDR |bfVar#33|))))
        |keys| NIL)
       (|sayBrightly| (LIST '|%b| '|  USE  NAME ARGS| '|%d|))
-      ((LAMBDA (|bfVar#40| |bfVar#39|)
+      ((LAMBDA (|bfVar#39| |bfVar#38|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#40|)
-                (PROGN (SETQ |bfVar#39| (CAR |bfVar#40|)) NIL))
+           ((OR (ATOM |bfVar#39|)
+                (PROGN (SETQ |bfVar#38| (CAR |bfVar#39|)) NIL))
             (RETURN NIL))
            (#1#
-            (AND (CONSP |bfVar#39|)
+            (AND (CONSP |bfVar#38|)
                  (PROGN
-                  (SETQ |n| (CAR |bfVar#39|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#39|))
+                  (SETQ |n| (CAR |bfVar#38|))
+                  (SETQ |ISTMP#1| (CDR |bfVar#38|))
                   (AND (CONSP |ISTMP#1|)
                        (PROGN
                         (SETQ |fn| (CAR |ISTMP#1|))
@@ -1609,7 +1271,7 @@
                    (APPEND (|rightJustifyString| |n| 6)
                            (CONS '|  | (CONS |fn| (CONS '|: | NIL)))))
                   (|pp| |args|)))))
-          (SETQ |bfVar#40| (CDR |bfVar#40|))))
+          (SETQ |bfVar#39| (CDR |bfVar#39|))))
        (NREVERSE (SORTBY |sortFn| |reportList|)) NIL)))))
  
 ; constructor2ConstructorForm x ==
@@ -1673,18 +1335,18 @@
 (DEFUN |removeAllClams| ()
   (PROG (|fun|)
     (RETURN
-     ((LAMBDA (|bfVar#42| |bfVar#41|)
+     ((LAMBDA (|bfVar#41| |bfVar#40|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#42|)
-               (PROGN (SETQ |bfVar#41| (CAR |bfVar#42|)) NIL))
+          ((OR (ATOM |bfVar#41|)
+               (PROGN (SETQ |bfVar#40| (CAR |bfVar#41|)) NIL))
            (RETURN NIL))
           (#1='T
-           (AND (CONSP |bfVar#41|) (PROGN (SETQ |fun| (CAR |bfVar#41|)) #1#)
+           (AND (CONSP |bfVar#40|) (PROGN (SETQ |fun| (CAR |bfVar#40|)) #1#)
                 (PROGN
                  (|sayBrightly|
                   (LIST "Un-clamming function" '|%b| |fun| '|%d|))
                  (SET |fun|
                       (|eval| (INTERN (STRCONC (STRINGIMAGE |fun|) ";"))))))))
-         (SETQ |bfVar#42| (CDR |bfVar#42|))))
+         (SETQ |bfVar#41| (CDR |bfVar#41|))))
       |$clamList| NIL))))

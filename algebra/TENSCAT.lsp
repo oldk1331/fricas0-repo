@@ -5,26 +5,25 @@
 
 (DEFPARAMETER |TensorProductCategory;AL| 'NIL) 
 
-(DEFUN |TensorProductCategory| (&REST #1=#:G105)
-  (LET (#2=#:G106)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |TensorProductCategory;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |TensorProductCategory;AL|
-              (|cons5|
-               (CONS #3# (SETQ #2# (APPLY #'|TensorProductCategory;| #1#)))
-               |TensorProductCategory;AL|))
-      #2#)))) 
+(DEFUN |TensorProductCategory| (|t#1| |t#2| |t#3|)
+  (LET (#1=#:G105
+        (#2=#:G106
+         (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|))))
+    (COND ((SETQ #1# (|assoc| #2# |TensorProductCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |TensorProductCategory;AL|
+                   (|cons5|
+                    (CONS #2#
+                          (SETQ #1# (APPLY #'|TensorProductCategory;| #2#)))
+                    |TensorProductCategory;AL|))
+           #1#)))) 
 
 (DEFUN |TensorProductCategory;| (|t#1| |t#2| |t#3|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3|)
-                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                                (|devaluate| |t#3|)))
+                    (PAIR '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
                     (COND (|TensorProductCategory;CAT|)
                           ('T
                            (LETT |TensorProductCategory;CAT|

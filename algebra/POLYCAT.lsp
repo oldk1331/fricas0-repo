@@ -5,26 +5,24 @@
 
 (DEFPARAMETER |PolynomialCategory;AL| 'NIL) 
 
-(DEFUN |PolynomialCategory| (&REST #1=#:G129)
-  (LET (#2=#:G130)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |PolynomialCategory;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |PolynomialCategory;AL|
-              (|cons5|
-               (CONS #3# (SETQ #2# (APPLY #'|PolynomialCategory;| #1#)))
-               |PolynomialCategory;AL|))
-      #2#)))) 
+(DEFUN |PolynomialCategory| (|t#1| |t#2| |t#3|)
+  (LET (#1=#:G129
+        (#2=#:G130
+         (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|))))
+    (COND ((SETQ #1# (|assoc| #2# |PolynomialCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |PolynomialCategory;AL|
+                   (|cons5|
+                    (CONS #2# (SETQ #1# (APPLY #'|PolynomialCategory;| #2#)))
+                    |PolynomialCategory;AL|))
+           #1#)))) 
 
 (DEFUN |PolynomialCategory;| (|t#1| |t#2| |t#3|)
   (SPROG ((#1=#:G128 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3|)
-                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                                (|devaluate| |t#3|)))
+                    (PAIR '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
                     (COND (|PolynomialCategory;CAT|)
                           ('T
                            (LETT |PolynomialCategory;CAT|

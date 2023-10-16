@@ -3,9 +3,7 @@
 
 (DEFPARAMETER |Logic;AL| 'NIL) 
 
-(DEFUN |Logic| ()
-  (LET (#:G106)
-    (COND (|Logic;AL|) (T (SETQ |Logic;AL| (|Logic;|)))))) 
+(DEFUN |Logic| () (COND (|Logic;AL|) (T (SETQ |Logic;AL| (|Logic;|))))) 
 
 (DEFUN |Logic;| ()
   (SPROG ((#1=#:G104 NIL))

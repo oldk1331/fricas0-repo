@@ -4,9 +4,7 @@
 (DEFPARAMETER |MagmaWithUnit;AL| 'NIL) 
 
 (DEFUN |MagmaWithUnit| ()
-  (LET (#:G109)
-    (COND (|MagmaWithUnit;AL|)
-          (T (SETQ |MagmaWithUnit;AL| (|MagmaWithUnit;|)))))) 
+  (COND (|MagmaWithUnit;AL|) (T (SETQ |MagmaWithUnit;AL| (|MagmaWithUnit;|))))) 
 
 (DEFUN |MagmaWithUnit;| ()
   (SPROG ((#1=#:G107 NIL))

@@ -5,25 +5,22 @@
 
 (DEFPARAMETER |FiniteAlgebraicExtensionField;AL| 'NIL) 
 
-(DEFUN |FiniteAlgebraicExtensionField| (#1=#:G112)
-  (LET (#2=#:G113)
+(DEFUN |FiniteAlgebraicExtensionField| (|t#1|)
+  (LET (#1=#:G112 (#2=#:G113 (|devaluate| |t#1|)))
     (COND
-     ((SETQ #2#
-              (|assoc| #3=(|devaluate| #1#)
-                       |FiniteAlgebraicExtensionField;AL|))
-      (CDR #2#))
+     ((SETQ #1# (|assoc| #2# |FiniteAlgebraicExtensionField;AL|)) (CDR #1#))
      (T
       (SETQ |FiniteAlgebraicExtensionField;AL|
               (|cons5|
-               (CONS #3# (SETQ #2# (|FiniteAlgebraicExtensionField;| #1#)))
+               (CONS #2# (SETQ #1# (|FiniteAlgebraicExtensionField;| #2#)))
                |FiniteAlgebraicExtensionField;AL|))
-      #2#)))) 
+      #1#)))) 
 
 (DEFUN |FiniteAlgebraicExtensionField;| (|t#1|)
   (SPROG ((#1=#:G111 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|FiniteAlgebraicExtensionField;CAT|)
                                     ('T
                                      (LETT |FiniteAlgebraicExtensionField;CAT|

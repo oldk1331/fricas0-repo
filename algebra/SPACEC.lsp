@@ -5,22 +5,20 @@
 
 (DEFPARAMETER |ThreeSpaceCategory;AL| 'NIL) 
 
-(DEFUN |ThreeSpaceCategory| (#1=#:G105)
-  (LET (#2=#:G106)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |ThreeSpaceCategory;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |ThreeSpaceCategory;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|ThreeSpaceCategory;| #1#)))
-                       |ThreeSpaceCategory;AL|))
-      #2#)))) 
+(DEFUN |ThreeSpaceCategory| (|t#1|)
+  (LET (#1=#:G105 (#2=#:G106 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |ThreeSpaceCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |ThreeSpaceCategory;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|ThreeSpaceCategory;| #2#)))
+                            |ThreeSpaceCategory;AL|))
+           #1#)))) 
 
 (DEFUN |ThreeSpaceCategory;| (|t#1|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|ThreeSpaceCategory;CAT|)
                                     ('T
                                      (LETT |ThreeSpaceCategory;CAT|

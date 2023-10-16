@@ -3,9 +3,7 @@
 
 (DEFPARAMETER |Rng;AL| 'NIL) 
 
-(DEFUN |Rng| ()
-  (LET (#:G106)
-    (COND (|Rng;AL|) (T (SETQ |Rng;AL| (|Rng;|)))))) 
+(DEFUN |Rng| () (COND (|Rng;AL|) (T (SETQ |Rng;AL| (|Rng;|))))) 
 
 (DEFUN |Rng;| ()
   (SPROG ((#1=#:G104 NIL))

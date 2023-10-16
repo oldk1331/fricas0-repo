@@ -4,10 +4,8 @@
 (DEFPARAMETER |SpecialFunctionCategory;AL| 'NIL) 
 
 (DEFUN |SpecialFunctionCategory| ()
-  (LET (#:G106)
-    (COND (|SpecialFunctionCategory;AL|)
-          (T
-           (SETQ |SpecialFunctionCategory;AL| (|SpecialFunctionCategory;|)))))) 
+  (COND (|SpecialFunctionCategory;AL|)
+        (T (SETQ |SpecialFunctionCategory;AL| (|SpecialFunctionCategory;|))))) 
 
 (DEFUN |SpecialFunctionCategory;| ()
   (SPROG ((#1=#:G104 NIL))

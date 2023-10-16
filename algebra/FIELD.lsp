@@ -3,9 +3,7 @@
 
 (DEFPARAMETER |Field;AL| 'NIL) 
 
-(DEFUN |Field| ()
-  (LET (#:G111)
-    (COND (|Field;AL|) (T (SETQ |Field;AL| (|Field;|)))))) 
+(DEFUN |Field| () (COND (|Field;AL|) (T (SETQ |Field;AL| (|Field;|))))) 
 
 (DEFUN |Field;| ()
   (SPROG ((#1=#:G109 NIL))

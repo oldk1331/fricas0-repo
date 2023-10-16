@@ -5,25 +5,22 @@
 
 (DEFPARAMETER |UnivariatePuiseuxSeriesCategory;AL| 'NIL) 
 
-(DEFUN |UnivariatePuiseuxSeriesCategory| (#1=#:G106)
-  (LET (#2=#:G107)
+(DEFUN |UnivariatePuiseuxSeriesCategory| (|t#1|)
+  (LET (#1=#:G106 (#2=#:G107 (|devaluate| |t#1|)))
     (COND
-     ((SETQ #2#
-              (|assoc| #3=(|devaluate| #1#)
-                       |UnivariatePuiseuxSeriesCategory;AL|))
-      (CDR #2#))
+     ((SETQ #1# (|assoc| #2# |UnivariatePuiseuxSeriesCategory;AL|)) (CDR #1#))
      (T
       (SETQ |UnivariatePuiseuxSeriesCategory;AL|
               (|cons5|
-               (CONS #3# (SETQ #2# (|UnivariatePuiseuxSeriesCategory;| #1#)))
+               (CONS #2# (SETQ #1# (|UnivariatePuiseuxSeriesCategory;| #2#)))
                |UnivariatePuiseuxSeriesCategory;AL|))
-      #2#)))) 
+      #1#)))) 
 
 (DEFUN |UnivariatePuiseuxSeriesCategory;| (|t#1|)
   (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (|sublisV|
                                (PAIR '(#2=#:G104)
                                      (LIST '(|Fraction| (|Integer|))))

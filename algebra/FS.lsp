@@ -5,21 +5,20 @@
 
 (DEFPARAMETER |FunctionSpace;AL| 'NIL) 
 
-(DEFUN |FunctionSpace| (#1=#:G148)
-  (LET (#2=#:G149)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |FunctionSpace;AL|)) (CDR #2#))
-     (T
-      (SETQ |FunctionSpace;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|FunctionSpace;| #1#)))
-                       |FunctionSpace;AL|))
-      #2#)))) 
+(DEFUN |FunctionSpace| (|t#1|)
+  (LET (#1=#:G148 (#2=#:G149 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |FunctionSpace;AL|)) (CDR #1#))
+          (T
+           (SETQ |FunctionSpace;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|FunctionSpace;| #2#)))
+                            |FunctionSpace;AL|))
+           #1#)))) 
 
 (DEFUN |FunctionSpace;| (|t#1|)
   (SPROG ((#1=#:G147 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (|sublisV| (PAIR '(#2=#:G146) (LIST '(|Symbol|)))
                                          (COND (|FunctionSpace;CAT|)
                                                ('T

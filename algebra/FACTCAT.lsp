@@ -4,9 +4,7 @@
 (DEFPARAMETER |FacetCategory;AL| 'NIL) 
 
 (DEFUN |FacetCategory| ()
-  (LET (#:G107)
-    (COND (|FacetCategory;AL|)
-          (T (SETQ |FacetCategory;AL| (|FacetCategory;|)))))) 
+  (COND (|FacetCategory;AL|) (T (SETQ |FacetCategory;AL| (|FacetCategory;|))))) 
 
 (DEFUN |FacetCategory;| ()
   (SPROG ((#1=#:G105 NIL))

@@ -5,28 +5,26 @@
 
 (DEFPARAMETER |LinearOrdinaryDifferentialOperatorCategory;AL| 'NIL) 
 
-(DEFUN |LinearOrdinaryDifferentialOperatorCategory| (#1=#:G106)
-  (LET (#2=#:G107)
+(DEFUN |LinearOrdinaryDifferentialOperatorCategory| (|t#1|)
+  (LET (#1=#:G106 (#2=#:G107 (|devaluate| |t#1|)))
     (COND
-     ((SETQ #2#
-              (|assoc| #3=(|devaluate| #1#)
-                       |LinearOrdinaryDifferentialOperatorCategory;AL|))
-      (CDR #2#))
+     ((SETQ #1# (|assoc| #2# |LinearOrdinaryDifferentialOperatorCategory;AL|))
+      (CDR #1#))
      (T
       (SETQ |LinearOrdinaryDifferentialOperatorCategory;AL|
               (|cons5|
-               (CONS #3#
-                     (SETQ #2#
+               (CONS #2#
+                     (SETQ #1#
                              (|LinearOrdinaryDifferentialOperatorCategory;|
-                              #1#)))
+                              #2#)))
                |LinearOrdinaryDifferentialOperatorCategory;AL|))
-      #2#)))) 
+      #1#)))) 
 
 (DEFUN |LinearOrdinaryDifferentialOperatorCategory;| (|t#1|)
   (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND
                                (|LinearOrdinaryDifferentialOperatorCategory;CAT|)
                                ('T

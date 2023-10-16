@@ -5,25 +5,22 @@
 
 (DEFPARAMETER |FiniteRankNonAssociativeAlgebra;AL| 'NIL) 
 
-(DEFUN |FiniteRankNonAssociativeAlgebra| (#1=#:G126)
-  (LET (#2=#:G127)
+(DEFUN |FiniteRankNonAssociativeAlgebra| (|t#1|)
+  (LET (#1=#:G126 (#2=#:G127 (|devaluate| |t#1|)))
     (COND
-     ((SETQ #2#
-              (|assoc| #3=(|devaluate| #1#)
-                       |FiniteRankNonAssociativeAlgebra;AL|))
-      (CDR #2#))
+     ((SETQ #1# (|assoc| #2# |FiniteRankNonAssociativeAlgebra;AL|)) (CDR #1#))
      (T
       (SETQ |FiniteRankNonAssociativeAlgebra;AL|
               (|cons5|
-               (CONS #3# (SETQ #2# (|FiniteRankNonAssociativeAlgebra;| #1#)))
+               (CONS #2# (SETQ #1# (|FiniteRankNonAssociativeAlgebra;| #2#)))
                |FiniteRankNonAssociativeAlgebra;AL|))
-      #2#)))) 
+      #1#)))) 
 
 (DEFUN |FiniteRankNonAssociativeAlgebra;| (|t#1|)
   (SPROG ((#1=#:G125 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|FiniteRankNonAssociativeAlgebra;CAT|)
                                     ('T
                                      (LETT

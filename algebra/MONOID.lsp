@@ -3,9 +3,7 @@
 
 (DEFPARAMETER |Monoid;AL| 'NIL) 
 
-(DEFUN |Monoid| ()
-  (LET (#:G106)
-    (COND (|Monoid;AL|) (T (SETQ |Monoid;AL| (|Monoid;|)))))) 
+(DEFUN |Monoid| () (COND (|Monoid;AL|) (T (SETQ |Monoid;AL| (|Monoid;|))))) 
 
 (DEFUN |Monoid;| ()
   (SPROG ((#1=#:G104 NIL))

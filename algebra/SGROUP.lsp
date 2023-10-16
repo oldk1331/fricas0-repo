@@ -4,8 +4,7 @@
 (DEFPARAMETER |SemiGroup;AL| 'NIL) 
 
 (DEFUN |SemiGroup| ()
-  (LET (#:G106)
-    (COND (|SemiGroup;AL|) (T (SETQ |SemiGroup;AL| (|SemiGroup;|)))))) 
+  (COND (|SemiGroup;AL|) (T (SETQ |SemiGroup;AL| (|SemiGroup;|))))) 
 
 (DEFUN |SemiGroup;| ()
   (SPROG ((#1=#:G104 NIL))

@@ -5,21 +5,20 @@
 
 (DEFPARAMETER |PointCategory;AL| 'NIL) 
 
-(DEFUN |PointCategory| (#1=#:G105)
-  (LET (#2=#:G106)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |PointCategory;AL|)) (CDR #2#))
-     (T
-      (SETQ |PointCategory;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|PointCategory;| #1#)))
-                       |PointCategory;AL|))
-      #2#)))) 
+(DEFUN |PointCategory| (|t#1|)
+  (LET (#1=#:G105 (#2=#:G106 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |PointCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |PointCategory;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|PointCategory;| #2#)))
+                            |PointCategory;AL|))
+           #1#)))) 
 
 (DEFUN |PointCategory;| (|t#1|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|PointCategory;CAT|)
                                     ('T
                                      (LETT |PointCategory;CAT|

@@ -4,11 +4,10 @@
 (DEFPARAMETER |ArcTrigonometricFunctionCategory;AL| 'NIL) 
 
 (DEFUN |ArcTrigonometricFunctionCategory| ()
-  (LET (#:G106)
-    (COND (|ArcTrigonometricFunctionCategory;AL|)
-          (T
-           (SETQ |ArcTrigonometricFunctionCategory;AL|
-                   (|ArcTrigonometricFunctionCategory;|)))))) 
+  (COND (|ArcTrigonometricFunctionCategory;AL|)
+        (T
+         (SETQ |ArcTrigonometricFunctionCategory;AL|
+                 (|ArcTrigonometricFunctionCategory;|))))) 
 
 (DEFUN |ArcTrigonometricFunctionCategory;| ()
   (SPROG ((#1=#:G104 NIL))

@@ -5,24 +5,22 @@
 
 (DEFPARAMETER |DifferentialVariableCategory;AL| 'NIL) 
 
-(DEFUN |DifferentialVariableCategory| (#1=#:G110)
-  (LET (#2=#:G111)
+(DEFUN |DifferentialVariableCategory| (|t#1|)
+  (LET (#1=#:G110 (#2=#:G111 (|devaluate| |t#1|)))
     (COND
-     ((SETQ #2#
-              (|assoc| #3=(|devaluate| #1#) |DifferentialVariableCategory;AL|))
-      (CDR #2#))
+     ((SETQ #1# (|assoc| #2# |DifferentialVariableCategory;AL|)) (CDR #1#))
      (T
       (SETQ |DifferentialVariableCategory;AL|
               (|cons5|
-               (CONS #3# (SETQ #2# (|DifferentialVariableCategory;| #1#)))
+               (CONS #2# (SETQ #1# (|DifferentialVariableCategory;| #2#)))
                |DifferentialVariableCategory;AL|))
-      #2#)))) 
+      #1#)))) 
 
 (DEFUN |DifferentialVariableCategory;| (|t#1|)
   (SPROG ((#1=#:G109 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|DifferentialVariableCategory;CAT|)
                                     ('T
                                      (LETT |DifferentialVariableCategory;CAT|

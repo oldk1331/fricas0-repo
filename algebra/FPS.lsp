@@ -4,9 +4,8 @@
 (DEFPARAMETER |FloatingPointSystem;AL| 'NIL) 
 
 (DEFUN |FloatingPointSystem| ()
-  (LET (#:G107)
-    (COND (|FloatingPointSystem;AL|)
-          (T (SETQ |FloatingPointSystem;AL| (|FloatingPointSystem;|)))))) 
+  (COND (|FloatingPointSystem;AL|)
+        (T (SETQ |FloatingPointSystem;AL| (|FloatingPointSystem;|))))) 
 
 (DEFUN |FloatingPointSystem;| ()
   (SPROG ((#1=#:G105 NIL))

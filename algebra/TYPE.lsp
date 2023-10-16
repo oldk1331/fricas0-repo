@@ -3,9 +3,7 @@
 
 (DEFPARAMETER |Type;AL| 'NIL) 
 
-(DEFUN |Type| ()
-  (LET (#:G106)
-    (COND (|Type;AL|) (T (SETQ |Type;AL| (|Type;|)))))) 
+(DEFUN |Type| () (COND (|Type;AL|) (T (SETQ |Type;AL| (|Type;|))))) 
 
 (DEFUN |Type;| ()
   (SPROG ((#1=#:G104 NIL))

@@ -4,9 +4,8 @@
 (DEFPARAMETER |FinitelyGenerated;AL| 'NIL) 
 
 (DEFUN |FinitelyGenerated| ()
-  (LET (#:G106)
-    (COND (|FinitelyGenerated;AL|)
-          (T (SETQ |FinitelyGenerated;AL| (|FinitelyGenerated;|)))))) 
+  (COND (|FinitelyGenerated;AL|)
+        (T (SETQ |FinitelyGenerated;AL| (|FinitelyGenerated;|))))) 
 
 (DEFUN |FinitelyGenerated;| ()
   (SPROG ((#1=#:G104 NIL))

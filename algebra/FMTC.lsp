@@ -4,11 +4,10 @@
 (DEFPARAMETER |FortranMachineTypeCategory;AL| 'NIL) 
 
 (DEFUN |FortranMachineTypeCategory| ()
-  (LET (#:G107)
-    (COND (|FortranMachineTypeCategory;AL|)
-          (T
-           (SETQ |FortranMachineTypeCategory;AL|
-                   (|FortranMachineTypeCategory;|)))))) 
+  (COND (|FortranMachineTypeCategory;AL|)
+        (T
+         (SETQ |FortranMachineTypeCategory;AL|
+                 (|FortranMachineTypeCategory;|))))) 
 
 (DEFUN |FortranMachineTypeCategory;| ()
   (SPROG ((#1=#:G105 NIL))

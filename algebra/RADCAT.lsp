@@ -4,9 +4,8 @@
 (DEFPARAMETER |RadicalCategory;AL| 'NIL) 
 
 (DEFUN |RadicalCategory| ()
-  (LET (#:G106)
-    (COND (|RadicalCategory;AL|)
-          (T (SETQ |RadicalCategory;AL| (|RadicalCategory;|)))))) 
+  (COND (|RadicalCategory;AL|)
+        (T (SETQ |RadicalCategory;AL| (|RadicalCategory;|))))) 
 
 (DEFUN |RadicalCategory;| ()
   (SPROG ((#1=#:G104 NIL))

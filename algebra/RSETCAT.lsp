@@ -5,20 +5,20 @@
 
 (DEFPARAMETER |RegularTriangularSetCategory;AL| 'NIL) 
 
-(DEFUN |RegularTriangularSetCategory| (&REST #1=#:G142)
-  (LET (#2=#:G143)
+(DEFUN |RegularTriangularSetCategory| (|t#1| |t#2| |t#3| |t#4|)
+  (LET (#1=#:G142
+        (#2=#:G143
+         (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|)
+               (|devaluate| |t#4|))))
     (COND
-     ((SETQ #2#
-              (|assoc| #3=(|devaluateList| #1#)
-                       |RegularTriangularSetCategory;AL|))
-      (CDR #2#))
+     ((SETQ #1# (|assoc| #2# |RegularTriangularSetCategory;AL|)) (CDR #1#))
      (T
       (SETQ |RegularTriangularSetCategory;AL|
               (|cons5|
-               (CONS #3#
-                     (SETQ #2# (APPLY #'|RegularTriangularSetCategory;| #1#)))
+               (CONS #2#
+                     (SETQ #1# (APPLY #'|RegularTriangularSetCategory;| #2#)))
                |RegularTriangularSetCategory;AL|))
-      #2#)))) 
+      #1#)))) 
 
 (DEFUN |RegularTriangularSetCategory;| (|t#1| |t#2| |t#3| |t#4|)
   (SPROG ((#1=#:G141 NIL))
@@ -26,8 +26,7 @@
              (LETT #1#
                    (|sublisV|
                     (PAIR '(|t#1| |t#2| |t#3| |t#4|)
-                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                                (|devaluate| |t#3|) (|devaluate| |t#4|)))
+                          (LIST |t#1| |t#2| |t#3| |t#4|))
                     (COND (|RegularTriangularSetCategory;CAT|)
                           ('T
                            (LETT |RegularTriangularSetCategory;CAT|

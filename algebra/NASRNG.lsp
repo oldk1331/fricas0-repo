@@ -4,9 +4,8 @@
 (DEFPARAMETER |NonAssociativeSemiRng;AL| 'NIL) 
 
 (DEFUN |NonAssociativeSemiRng| ()
-  (LET (#:G106)
-    (COND (|NonAssociativeSemiRng;AL|)
-          (T (SETQ |NonAssociativeSemiRng;AL| (|NonAssociativeSemiRng;|)))))) 
+  (COND (|NonAssociativeSemiRng;AL|)
+        (T (SETQ |NonAssociativeSemiRng;AL| (|NonAssociativeSemiRng;|))))) 
 
 (DEFUN |NonAssociativeSemiRng;| ()
   (SPROG ((#1=#:G104 NIL))

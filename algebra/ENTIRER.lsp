@@ -4,8 +4,7 @@
 (DEFPARAMETER |EntireRing;AL| 'NIL) 
 
 (DEFUN |EntireRing| ()
-  (LET (#:G113)
-    (COND (|EntireRing;AL|) (T (SETQ |EntireRing;AL| (|EntireRing;|)))))) 
+  (COND (|EntireRing;AL|) (T (SETQ |EntireRing;AL| (|EntireRing;|))))) 
 
 (DEFUN |EntireRing;| ()
   (SPROG ((#1=#:G111 NIL))

@@ -4,9 +4,8 @@
 (DEFPARAMETER |SPointCategory;AL| 'NIL) 
 
 (DEFUN |SPointCategory| ()
-  (LET (#:G106)
-    (COND (|SPointCategory;AL|)
-          (T (SETQ |SPointCategory;AL| (|SPointCategory;|)))))) 
+  (COND (|SPointCategory;AL|)
+        (T (SETQ |SPointCategory;AL| (|SPointCategory;|))))) 
 
 (DEFUN |SPointCategory;| ()
   (SPROG ((#1=#:G104 NIL))

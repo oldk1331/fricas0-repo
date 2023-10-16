@@ -4,8 +4,7 @@
 (DEFPARAMETER |OrderedSet;AL| 'NIL) 
 
 (DEFUN |OrderedSet| ()
-  (LET (#:G106)
-    (COND (|OrderedSet;AL|) (T (SETQ |OrderedSet;AL| (|OrderedSet;|)))))) 
+  (COND (|OrderedSet;AL|) (T (SETQ |OrderedSet;AL| (|OrderedSet;|))))) 
 
 (DEFUN |OrderedSet;| ()
   (SPROG ((#1=#:G104 NIL))

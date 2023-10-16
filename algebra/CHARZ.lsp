@@ -4,9 +4,8 @@
 (DEFPARAMETER |CharacteristicZero;AL| 'NIL) 
 
 (DEFUN |CharacteristicZero| ()
-  (LET (#:G106)
-    (COND (|CharacteristicZero;AL|)
-          (T (SETQ |CharacteristicZero;AL| (|CharacteristicZero;|)))))) 
+  (COND (|CharacteristicZero;AL|)
+        (T (SETQ |CharacteristicZero;AL| (|CharacteristicZero;|))))) 
 
 (DEFUN |CharacteristicZero;| ()
   (SPROG ((#1=#:G104 NIL))

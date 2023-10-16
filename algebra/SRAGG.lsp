@@ -4,9 +4,8 @@
 (DEFPARAMETER |StringAggregate;AL| 'NIL) 
 
 (DEFUN |StringAggregate| ()
-  (LET (#:G107)
-    (COND (|StringAggregate;AL|)
-          (T (SETQ |StringAggregate;AL| (|StringAggregate;|)))))) 
+  (COND (|StringAggregate;AL|)
+        (T (SETQ |StringAggregate;AL| (|StringAggregate;|))))) 
 
 (DEFUN |StringAggregate;| ()
   (SPROG ((#1=#:G105 NIL))

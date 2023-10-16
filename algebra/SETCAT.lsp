@@ -4,8 +4,7 @@
 (DEFPARAMETER |SetCategory;AL| 'NIL) 
 
 (DEFUN |SetCategory| ()
-  (LET (#:G107)
-    (COND (|SetCategory;AL|) (T (SETQ |SetCategory;AL| (|SetCategory;|)))))) 
+  (COND (|SetCategory;AL|) (T (SETQ |SetCategory;AL| (|SetCategory;|))))) 
 
 (DEFUN |SetCategory;| ()
   (SPROG ((#1=#:G105 NIL))

@@ -4,9 +4,8 @@
 (DEFPARAMETER |canonicalUnitNormal;AL| 'NIL) 
 
 (DEFUN |canonicalUnitNormal| ()
-  (LET (#:G106)
-    (COND (|canonicalUnitNormal;AL|)
-          (T (SETQ |canonicalUnitNormal;AL| (|canonicalUnitNormal;|)))))) 
+  (COND (|canonicalUnitNormal;AL|)
+        (T (SETQ |canonicalUnitNormal;AL| (|canonicalUnitNormal;|))))) 
 
 (DEFUN |canonicalUnitNormal;| ()
   (SPROG ((#1=#:G104 NIL))

@@ -4,11 +4,9 @@
 (DEFPARAMETER |CancellationAbelianMonoid;AL| 'NIL) 
 
 (DEFUN |CancellationAbelianMonoid| ()
-  (LET (#:G106)
-    (COND (|CancellationAbelianMonoid;AL|)
-          (T
-           (SETQ |CancellationAbelianMonoid;AL|
-                   (|CancellationAbelianMonoid;|)))))) 
+  (COND (|CancellationAbelianMonoid;AL|)
+        (T
+         (SETQ |CancellationAbelianMonoid;AL| (|CancellationAbelianMonoid;|))))) 
 
 (DEFUN |CancellationAbelianMonoid;| ()
   (SPROG ((#1=#:G104 NIL))

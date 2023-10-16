@@ -4,8 +4,7 @@
 (DEFPARAMETER |PartialOrder;AL| 'NIL) 
 
 (DEFUN |PartialOrder| ()
-  (LET (#:G106)
-    (COND (|PartialOrder;AL|) (T (SETQ |PartialOrder;AL| (|PartialOrder;|)))))) 
+  (COND (|PartialOrder;AL|) (T (SETQ |PartialOrder;AL| (|PartialOrder;|))))) 
 
 (DEFUN |PartialOrder;| ()
   (SPROG ((#1=#:G104 NIL))

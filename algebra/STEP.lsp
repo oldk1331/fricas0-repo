@@ -4,8 +4,7 @@
 (DEFPARAMETER |StepThrough;AL| 'NIL) 
 
 (DEFUN |StepThrough| ()
-  (LET (#:G106)
-    (COND (|StepThrough;AL|) (T (SETQ |StepThrough;AL| (|StepThrough;|)))))) 
+  (COND (|StepThrough;AL|) (T (SETQ |StepThrough;AL| (|StepThrough;|))))) 
 
 (DEFUN |StepThrough;| ()
   (SPROG ((#1=#:G104 NIL))

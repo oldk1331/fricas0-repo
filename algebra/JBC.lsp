@@ -4,9 +4,8 @@
 (DEFPARAMETER |JetBundleCategory;AL| 'NIL) 
 
 (DEFUN |JetBundleCategory| ()
-  (LET (#:G129)
-    (COND (|JetBundleCategory;AL|)
-          (T (SETQ |JetBundleCategory;AL| (|JetBundleCategory;|)))))) 
+  (COND (|JetBundleCategory;AL|)
+        (T (SETQ |JetBundleCategory;AL| (|JetBundleCategory;|))))) 
 
 (DEFUN |JetBundleCategory;| ()
   (SPROG ((#1=#:G127 NIL))

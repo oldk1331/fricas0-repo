@@ -4,9 +4,8 @@
 (DEFPARAMETER |FileNameCategory;AL| 'NIL) 
 
 (DEFUN |FileNameCategory| ()
-  (LET (#:G106)
-    (COND (|FileNameCategory;AL|)
-          (T (SETQ |FileNameCategory;AL| (|FileNameCategory;|)))))) 
+  (COND (|FileNameCategory;AL|)
+        (T (SETQ |FileNameCategory;AL| (|FileNameCategory;|))))) 
 
 (DEFUN |FileNameCategory;| ()
   (SPROG ((#1=#:G104 NIL))

@@ -5,22 +5,20 @@
 
 (DEFPARAMETER |LazyStreamAggregate;AL| 'NIL) 
 
-(DEFUN |LazyStreamAggregate| (#1=#:G201)
-  (LET (#2=#:G202)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |LazyStreamAggregate;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |LazyStreamAggregate;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|LazyStreamAggregate;| #1#)))
-                       |LazyStreamAggregate;AL|))
-      #2#)))) 
+(DEFUN |LazyStreamAggregate| (|t#1|)
+  (LET (#1=#:G201 (#2=#:G202 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |LazyStreamAggregate;AL|)) (CDR #1#))
+          (T
+           (SETQ |LazyStreamAggregate;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|LazyStreamAggregate;| #2#)))
+                            |LazyStreamAggregate;AL|))
+           #1#)))) 
 
 (DEFUN |LazyStreamAggregate;| (|t#1|)
   (SPROG ((#1=#:G200 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|LazyStreamAggregate;CAT|)
                                     ('T
                                      (LETT |LazyStreamAggregate;CAT|

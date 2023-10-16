@@ -5,21 +5,20 @@
 
 (DEFPARAMETER |VectorSpace;AL| 'NIL) 
 
-(DEFUN |VectorSpace| (#1=#:G105)
-  (LET (#2=#:G106)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |VectorSpace;AL|)) (CDR #2#))
-     (T
-      (SETQ |VectorSpace;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|VectorSpace;| #1#)))
-                       |VectorSpace;AL|))
-      #2#)))) 
+(DEFUN |VectorSpace| (|t#1|)
+  (LET (#1=#:G105 (#2=#:G106 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |VectorSpace;AL|)) (CDR #1#))
+          (T
+           (SETQ |VectorSpace;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|VectorSpace;| #2#)))
+                            |VectorSpace;AL|))
+           #1#)))) 
 
 (DEFUN |VectorSpace;| (|t#1|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|VectorSpace;CAT|)
                                     ('T
                                      (LETT |VectorSpace;CAT|

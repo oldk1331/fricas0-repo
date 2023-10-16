@@ -4,10 +4,8 @@
 (DEFPARAMETER |OutputFormatterCategory;AL| 'NIL) 
 
 (DEFUN |OutputFormatterCategory| ()
-  (LET (#:G106)
-    (COND (|OutputFormatterCategory;AL|)
-          (T
-           (SETQ |OutputFormatterCategory;AL| (|OutputFormatterCategory;|)))))) 
+  (COND (|OutputFormatterCategory;AL|)
+        (T (SETQ |OutputFormatterCategory;AL| (|OutputFormatterCategory;|))))) 
 
 (DEFUN |OutputFormatterCategory;| ()
   (SPROG ((#1=#:G104 NIL))

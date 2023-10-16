@@ -3,9 +3,7 @@
 
 (DEFPARAMETER |Lattice;AL| 'NIL) 
 
-(DEFUN |Lattice| ()
-  (LET (#:G106)
-    (COND (|Lattice;AL|) (T (SETQ |Lattice;AL| (|Lattice;|)))))) 
+(DEFUN |Lattice| () (COND (|Lattice;AL|) (T (SETQ |Lattice;AL| (|Lattice;|))))) 
 
 (DEFUN |Lattice;| ()
   (SPROG ((#1=#:G104 NIL))

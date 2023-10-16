@@ -5,21 +5,20 @@
 
 (DEFPARAMETER |RightModule;AL| 'NIL) 
 
-(DEFUN |RightModule| (#1=#:G105)
-  (LET (#2=#:G106)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |RightModule;AL|)) (CDR #2#))
-     (T
-      (SETQ |RightModule;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|RightModule;| #1#)))
-                       |RightModule;AL|))
-      #2#)))) 
+(DEFUN |RightModule| (|t#1|)
+  (LET (#1=#:G105 (#2=#:G106 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |RightModule;AL|)) (CDR #1#))
+          (T
+           (SETQ |RightModule;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|RightModule;| #2#)))
+                            |RightModule;AL|))
+           #1#)))) 
 
 (DEFUN |RightModule;| (|t#1|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|RightModule;CAT|)
                                     ('T
                                      (LETT |RightModule;CAT|

@@ -5,19 +5,19 @@
 
 (DEFPARAMETER |Dcpo;AL| 'NIL) 
 
-(DEFUN |Dcpo| (#1=#:G105)
-  (LET (#2=#:G106)
-    (COND ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |Dcpo;AL|)) (CDR #2#))
+(DEFUN |Dcpo| (|t#1|)
+  (LET (#1=#:G105 (#2=#:G106 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |Dcpo;AL|)) (CDR #1#))
           (T
            (SETQ |Dcpo;AL|
-                   (|cons5| (CONS #3# (SETQ #2# (|Dcpo;| #1#))) |Dcpo;AL|))
-           #2#)))) 
+                   (|cons5| (CONS #2# (SETQ #1# (|Dcpo;| #2#))) |Dcpo;AL|))
+           #1#)))) 
 
 (DEFUN |Dcpo;| (|t#1|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|Dcpo;CAT|)
                                     ('T
                                      (LETT |Dcpo;CAT|

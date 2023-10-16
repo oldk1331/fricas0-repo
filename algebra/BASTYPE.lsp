@@ -4,8 +4,7 @@
 (DEFPARAMETER |BasicType;AL| 'NIL) 
 
 (DEFUN |BasicType| ()
-  (LET (#:G106)
-    (COND (|BasicType;AL|) (T (SETQ |BasicType;AL| (|BasicType;|)))))) 
+  (COND (|BasicType;AL|) (T (SETQ |BasicType;AL| (|BasicType;|))))) 
 
 (DEFUN |BasicType;| ()
   (SPROG ((#1=#:G104 NIL))

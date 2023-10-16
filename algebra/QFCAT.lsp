@@ -5,22 +5,21 @@
 
 (DEFPARAMETER |QuotientFieldCategory;AL| 'NIL) 
 
-(DEFUN |QuotientFieldCategory| (#1=#:G105)
-  (LET (#2=#:G106)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |QuotientFieldCategory;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |QuotientFieldCategory;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|QuotientFieldCategory;| #1#)))
-                       |QuotientFieldCategory;AL|))
-      #2#)))) 
+(DEFUN |QuotientFieldCategory| (|t#1|)
+  (LET (#1=#:G105 (#2=#:G106 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |QuotientFieldCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |QuotientFieldCategory;AL|
+                   (|cons5|
+                    (CONS #2# (SETQ #1# (|QuotientFieldCategory;| #2#)))
+                    |QuotientFieldCategory;AL|))
+           #1#)))) 
 
 (DEFUN |QuotientFieldCategory;| (|t#1|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|QuotientFieldCategory;CAT|)
                                     ('T
                                      (LETT |QuotientFieldCategory;CAT|

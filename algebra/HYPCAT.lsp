@@ -4,11 +4,10 @@
 (DEFPARAMETER |HyperbolicFunctionCategory;AL| 'NIL) 
 
 (DEFUN |HyperbolicFunctionCategory| ()
-  (LET (#:G106)
-    (COND (|HyperbolicFunctionCategory;AL|)
-          (T
-           (SETQ |HyperbolicFunctionCategory;AL|
-                   (|HyperbolicFunctionCategory;|)))))) 
+  (COND (|HyperbolicFunctionCategory;AL|)
+        (T
+         (SETQ |HyperbolicFunctionCategory;AL|
+                 (|HyperbolicFunctionCategory;|))))) 
 
 (DEFUN |HyperbolicFunctionCategory;| ()
   (SPROG ((#1=#:G104 NIL))

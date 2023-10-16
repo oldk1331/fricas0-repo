@@ -4,11 +4,10 @@
 (DEFPARAMETER |LiouvillianFunctionCategory;AL| 'NIL) 
 
 (DEFUN |LiouvillianFunctionCategory| ()
-  (LET (#:G106)
-    (COND (|LiouvillianFunctionCategory;AL|)
-          (T
-           (SETQ |LiouvillianFunctionCategory;AL|
-                   (|LiouvillianFunctionCategory;|)))))) 
+  (COND (|LiouvillianFunctionCategory;AL|)
+        (T
+         (SETQ |LiouvillianFunctionCategory;AL|
+                 (|LiouvillianFunctionCategory;|))))) 
 
 (DEFUN |LiouvillianFunctionCategory;| ()
   (SPROG ((#1=#:G104 NIL))

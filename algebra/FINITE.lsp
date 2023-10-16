@@ -3,9 +3,7 @@
 
 (DEFPARAMETER |Finite;AL| 'NIL) 
 
-(DEFUN |Finite| ()
-  (LET (#:G107)
-    (COND (|Finite;AL|) (T (SETQ |Finite;AL| (|Finite;|)))))) 
+(DEFUN |Finite| () (COND (|Finite;AL|) (T (SETQ |Finite;AL| (|Finite;|))))) 
 
 (DEFUN |Finite;| ()
   (SPROG ((#1=#:G105 NIL))

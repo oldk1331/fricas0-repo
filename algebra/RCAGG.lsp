@@ -5,22 +5,20 @@
 
 (DEFPARAMETER |RecursiveAggregate;AL| 'NIL) 
 
-(DEFUN |RecursiveAggregate| (#1=#:G108)
-  (LET (#2=#:G109)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |RecursiveAggregate;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |RecursiveAggregate;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|RecursiveAggregate;| #1#)))
-                       |RecursiveAggregate;AL|))
-      #2#)))) 
+(DEFUN |RecursiveAggregate| (|t#1|)
+  (LET (#1=#:G108 (#2=#:G109 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |RecursiveAggregate;AL|)) (CDR #1#))
+          (T
+           (SETQ |RecursiveAggregate;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|RecursiveAggregate;| #2#)))
+                            |RecursiveAggregate;AL|))
+           #1#)))) 
 
 (DEFUN |RecursiveAggregate;| (|t#1|)
   (SPROG ((#1=#:G107 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|RecursiveAggregate;CAT|)
                                     ('T
                                      (LETT |RecursiveAggregate;CAT|

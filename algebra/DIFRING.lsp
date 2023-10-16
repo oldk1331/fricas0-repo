@@ -4,9 +4,8 @@
 (DEFPARAMETER |DifferentialRing;AL| 'NIL) 
 
 (DEFUN |DifferentialRing| ()
-  (LET (#:G106)
-    (COND (|DifferentialRing;AL|)
-          (T (SETQ |DifferentialRing;AL| (|DifferentialRing;|)))))) 
+  (COND (|DifferentialRing;AL|)
+        (T (SETQ |DifferentialRing;AL| (|DifferentialRing;|))))) 
 
 (DEFUN |DifferentialRing;| ()
   (SPROG ((#1=#:G104 NIL))

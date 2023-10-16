@@ -4,8 +4,7 @@
 (DEFPARAMETER |Canonical;AL| 'NIL) 
 
 (DEFUN |Canonical| ()
-  (LET (#:G106)
-    (COND (|Canonical;AL|) (T (SETQ |Canonical;AL| (|Canonical;|)))))) 
+  (COND (|Canonical;AL|) (T (SETQ |Canonical;AL| (|Canonical;|))))) 
 
 (DEFUN |Canonical;| ()
   (SPROG ((#1=#:G104 NIL))

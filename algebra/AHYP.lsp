@@ -4,11 +4,10 @@
 (DEFPARAMETER |ArcHyperbolicFunctionCategory;AL| 'NIL) 
 
 (DEFUN |ArcHyperbolicFunctionCategory| ()
-  (LET (#:G106)
-    (COND (|ArcHyperbolicFunctionCategory;AL|)
-          (T
-           (SETQ |ArcHyperbolicFunctionCategory;AL|
-                   (|ArcHyperbolicFunctionCategory;|)))))) 
+  (COND (|ArcHyperbolicFunctionCategory;AL|)
+        (T
+         (SETQ |ArcHyperbolicFunctionCategory;AL|
+                 (|ArcHyperbolicFunctionCategory;|))))) 
 
 (DEFUN |ArcHyperbolicFunctionCategory;| ()
   (SPROG ((#1=#:G104 NIL))

@@ -5,21 +5,21 @@
 
 (DEFPARAMETER |DifferentialPolynomialCategory;AL| 'NIL) 
 
-(DEFUN |DifferentialPolynomialCategory| (&REST #1=#:G123)
-  (LET (#2=#:G124)
+(DEFUN |DifferentialPolynomialCategory| (|t#1| |t#2| |t#3| |t#4|)
+  (LET (#1=#:G123
+        (#2=#:G124
+         (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|)
+               (|devaluate| |t#4|))))
     (COND
-     ((SETQ #2#
-              (|assoc| #3=(|devaluateList| #1#)
-                       |DifferentialPolynomialCategory;AL|))
-      (CDR #2#))
+     ((SETQ #1# (|assoc| #2# |DifferentialPolynomialCategory;AL|)) (CDR #1#))
      (T
       (SETQ |DifferentialPolynomialCategory;AL|
               (|cons5|
-               (CONS #3#
-                     (SETQ #2#
-                             (APPLY #'|DifferentialPolynomialCategory;| #1#)))
+               (CONS #2#
+                     (SETQ #1#
+                             (APPLY #'|DifferentialPolynomialCategory;| #2#)))
                |DifferentialPolynomialCategory;AL|))
-      #2#)))) 
+      #1#)))) 
 
 (DEFUN |DifferentialPolynomialCategory;| (|t#1| |t#2| |t#3| |t#4|)
   (SPROG ((#1=#:G122 NIL))
@@ -27,8 +27,7 @@
              (LETT #1#
                    (|sublisV|
                     (PAIR '(|t#1| |t#2| |t#3| |t#4|)
-                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                                (|devaluate| |t#3|) (|devaluate| |t#4|)))
+                          (LIST |t#1| |t#2| |t#3| |t#4|))
                     (COND (|DifferentialPolynomialCategory;CAT|)
                           ('T
                            (LETT |DifferentialPolynomialCategory;CAT|

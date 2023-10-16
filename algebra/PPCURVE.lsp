@@ -4,11 +4,10 @@
 (DEFPARAMETER |PlottablePlaneCurveCategory;AL| 'NIL) 
 
 (DEFUN |PlottablePlaneCurveCategory| ()
-  (LET (#:G107)
-    (COND (|PlottablePlaneCurveCategory;AL|)
-          (T
-           (SETQ |PlottablePlaneCurveCategory;AL|
-                   (|PlottablePlaneCurveCategory;|)))))) 
+  (COND (|PlottablePlaneCurveCategory;AL|)
+        (T
+         (SETQ |PlottablePlaneCurveCategory;AL|
+                 (|PlottablePlaneCurveCategory;|))))) 
 
 (DEFUN |PlottablePlaneCurveCategory;| ()
   (SPROG ((#1=#:G105 NIL))

@@ -4,8 +4,7 @@
 (DEFPARAMETER |LeftOreRing;AL| 'NIL) 
 
 (DEFUN |LeftOreRing| ()
-  (LET (#:G106)
-    (COND (|LeftOreRing;AL|) (T (SETQ |LeftOreRing;AL| (|LeftOreRing;|)))))) 
+  (COND (|LeftOreRing;AL|) (T (SETQ |LeftOreRing;AL| (|LeftOreRing;|))))) 
 
 (DEFUN |LeftOreRing;| ()
   (SPROG ((#1=#:G104 NIL))

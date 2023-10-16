@@ -4,9 +4,8 @@
 (DEFPARAMETER |IntegerNumberSystem;AL| 'NIL) 
 
 (DEFUN |IntegerNumberSystem| ()
-  (LET (#:G123)
-    (COND (|IntegerNumberSystem;AL|)
-          (T (SETQ |IntegerNumberSystem;AL| (|IntegerNumberSystem;|)))))) 
+  (COND (|IntegerNumberSystem;AL|)
+        (T (SETQ |IntegerNumberSystem;AL| (|IntegerNumberSystem;|))))) 
 
 (DEFUN |IntegerNumberSystem;| ()
   (SPROG ((#1=#:G121 NIL))

@@ -4,9 +4,7 @@
 (DEFPARAMETER |TwoSidedRecip;AL| 'NIL) 
 
 (DEFUN |TwoSidedRecip| ()
-  (LET (#:G106)
-    (COND (|TwoSidedRecip;AL|)
-          (T (SETQ |TwoSidedRecip;AL| (|TwoSidedRecip;|)))))) 
+  (COND (|TwoSidedRecip;AL|) (T (SETQ |TwoSidedRecip;AL| (|TwoSidedRecip;|))))) 
 
 (DEFUN |TwoSidedRecip;| ()
   (SPROG ((#1=#:G104 NIL))

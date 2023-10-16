@@ -4,8 +4,7 @@
 (DEFPARAMETER |unitsKnown;AL| 'NIL) 
 
 (DEFUN |unitsKnown| ()
-  (LET (#:G106)
-    (COND (|unitsKnown;AL|) (T (SETQ |unitsKnown;AL| (|unitsKnown;|)))))) 
+  (COND (|unitsKnown;AL|) (T (SETQ |unitsKnown;AL| (|unitsKnown;|))))) 
 
 (DEFUN |unitsKnown;| ()
   (SPROG ((#1=#:G104 NIL))

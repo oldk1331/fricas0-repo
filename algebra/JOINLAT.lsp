@@ -4,9 +4,8 @@
 (DEFPARAMETER |JoinSemilattice;AL| 'NIL) 
 
 (DEFUN |JoinSemilattice| ()
-  (LET (#:G106)
-    (COND (|JoinSemilattice;AL|)
-          (T (SETQ |JoinSemilattice;AL| (|JoinSemilattice;|)))))) 
+  (COND (|JoinSemilattice;AL|)
+        (T (SETQ |JoinSemilattice;AL| (|JoinSemilattice;|))))) 
 
 (DEFUN |JoinSemilattice;| ()
   (SPROG ((#1=#:G104 NIL))

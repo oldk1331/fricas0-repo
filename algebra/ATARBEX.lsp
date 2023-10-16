@@ -4,9 +4,8 @@
 (DEFPARAMETER |arbitraryExponent;AL| 'NIL) 
 
 (DEFUN |arbitraryExponent| ()
-  (LET (#:G106)
-    (COND (|arbitraryExponent;AL|)
-          (T (SETQ |arbitraryExponent;AL| (|arbitraryExponent;|)))))) 
+  (COND (|arbitraryExponent;AL|)
+        (T (SETQ |arbitraryExponent;AL| (|arbitraryExponent;|))))) 
 
 (DEFUN |arbitraryExponent;| ()
   (SPROG ((#1=#:G104 NIL))

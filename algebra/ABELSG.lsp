@@ -4,9 +4,8 @@
 (DEFPARAMETER |AbelianSemiGroup;AL| 'NIL) 
 
 (DEFUN |AbelianSemiGroup| ()
-  (LET (#:G106)
-    (COND (|AbelianSemiGroup;AL|)
-          (T (SETQ |AbelianSemiGroup;AL| (|AbelianSemiGroup;|)))))) 
+  (COND (|AbelianSemiGroup;AL|)
+        (T (SETQ |AbelianSemiGroup;AL| (|AbelianSemiGroup;|))))) 
 
 (DEFUN |AbelianSemiGroup;| ()
   (SPROG ((#1=#:G104 NIL))

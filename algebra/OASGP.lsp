@@ -4,10 +4,8 @@
 (DEFPARAMETER |OrderedAbelianSemiGroup;AL| 'NIL) 
 
 (DEFUN |OrderedAbelianSemiGroup| ()
-  (LET (#:G106)
-    (COND (|OrderedAbelianSemiGroup;AL|)
-          (T
-           (SETQ |OrderedAbelianSemiGroup;AL| (|OrderedAbelianSemiGroup;|)))))) 
+  (COND (|OrderedAbelianSemiGroup;AL|)
+        (T (SETQ |OrderedAbelianSemiGroup;AL| (|OrderedAbelianSemiGroup;|))))) 
 
 (DEFUN |OrderedAbelianSemiGroup;| ()
   (SPROG ((#1=#:G104 NIL))

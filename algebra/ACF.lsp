@@ -4,11 +4,8 @@
 (DEFPARAMETER |AlgebraicallyClosedField;AL| 'NIL) 
 
 (DEFUN |AlgebraicallyClosedField| ()
-  (LET (#:G119)
-    (COND (|AlgebraicallyClosedField;AL|)
-          (T
-           (SETQ |AlgebraicallyClosedField;AL|
-                   (|AlgebraicallyClosedField;|)))))) 
+  (COND (|AlgebraicallyClosedField;AL|)
+        (T (SETQ |AlgebraicallyClosedField;AL| (|AlgebraicallyClosedField;|))))) 
 
 (DEFUN |AlgebraicallyClosedField;| ()
   (SPROG ((#1=#:G117 NIL))

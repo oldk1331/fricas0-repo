@@ -4,8 +4,7 @@
 (DEFPARAMETER |RealConstant;AL| 'NIL) 
 
 (DEFUN |RealConstant| ()
-  (LET (#:G108)
-    (COND (|RealConstant;AL|) (T (SETQ |RealConstant;AL| (|RealConstant;|)))))) 
+  (COND (|RealConstant;AL|) (T (SETQ |RealConstant;AL| (|RealConstant;|))))) 
 
 (DEFUN |RealConstant;| ()
   (SPROG ((#1=#:G106 NIL))

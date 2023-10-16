@@ -5,21 +5,20 @@
 
 (DEFPARAMETER |ExtensionField;AL| 'NIL) 
 
-(DEFUN |ExtensionField| (#1=#:G106)
-  (LET (#2=#:G107)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |ExtensionField;AL|)) (CDR #2#))
-     (T
-      (SETQ |ExtensionField;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|ExtensionField;| #1#)))
-                       |ExtensionField;AL|))
-      #2#)))) 
+(DEFUN |ExtensionField| (|t#1|)
+  (LET (#1=#:G106 (#2=#:G107 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |ExtensionField;AL|)) (CDR #1#))
+          (T
+           (SETQ |ExtensionField;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|ExtensionField;| #2#)))
+                            |ExtensionField;AL|))
+           #1#)))) 
 
 (DEFUN |ExtensionField;| (|t#1|)
   (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|ExtensionField;CAT|)
                                     ('T
                                      (LETT |ExtensionField;CAT|

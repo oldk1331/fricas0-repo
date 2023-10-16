@@ -4,9 +4,8 @@
 (DEFPARAMETER |StringCategory;AL| 'NIL) 
 
 (DEFUN |StringCategory| ()
-  (LET (#:G106)
-    (COND (|StringCategory;AL|)
-          (T (SETQ |StringCategory;AL| (|StringCategory;|)))))) 
+  (COND (|StringCategory;AL|)
+        (T (SETQ |StringCategory;AL| (|StringCategory;|))))) 
 
 (DEFUN |StringCategory;| ()
   (SPROG ((#1=#:G104 NIL))

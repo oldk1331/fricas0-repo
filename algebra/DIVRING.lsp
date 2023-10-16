@@ -4,8 +4,7 @@
 (DEFPARAMETER |DivisionRing;AL| 'NIL) 
 
 (DEFUN |DivisionRing| ()
-  (LET (#:G109)
-    (COND (|DivisionRing;AL|) (T (SETQ |DivisionRing;AL| (|DivisionRing;|)))))) 
+  (COND (|DivisionRing;AL|) (T (SETQ |DivisionRing;AL| (|DivisionRing;|))))) 
 
 (DEFUN |DivisionRing;| ()
   (SPROG ((#1=#:G107 NIL))

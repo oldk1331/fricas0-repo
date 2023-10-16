@@ -4,11 +4,10 @@
 (DEFPARAMETER |CombinatorialFunctionCategory;AL| 'NIL) 
 
 (DEFUN |CombinatorialFunctionCategory| ()
-  (LET (#:G106)
-    (COND (|CombinatorialFunctionCategory;AL|)
-          (T
-           (SETQ |CombinatorialFunctionCategory;AL|
-                   (|CombinatorialFunctionCategory;|)))))) 
+  (COND (|CombinatorialFunctionCategory;AL|)
+        (T
+         (SETQ |CombinatorialFunctionCategory;AL|
+                 (|CombinatorialFunctionCategory;|))))) 
 
 (DEFUN |CombinatorialFunctionCategory;| ()
   (SPROG ((#1=#:G104 NIL))

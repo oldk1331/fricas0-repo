@@ -4,11 +4,10 @@
 (DEFPARAMETER |FieldOfPrimeCharacteristic;AL| 'NIL) 
 
 (DEFUN |FieldOfPrimeCharacteristic| ()
-  (LET (#:G106)
-    (COND (|FieldOfPrimeCharacteristic;AL|)
-          (T
-           (SETQ |FieldOfPrimeCharacteristic;AL|
-                   (|FieldOfPrimeCharacteristic;|)))))) 
+  (COND (|FieldOfPrimeCharacteristic;AL|)
+        (T
+         (SETQ |FieldOfPrimeCharacteristic;AL|
+                 (|FieldOfPrimeCharacteristic;|))))) 
 
 (DEFUN |FieldOfPrimeCharacteristic;| ()
   (SPROG ((#1=#:G104 NIL))

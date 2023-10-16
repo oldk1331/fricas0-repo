@@ -4,9 +4,8 @@
 (DEFPARAMETER |OrderedAbelianMonoid;AL| 'NIL) 
 
 (DEFUN |OrderedAbelianMonoid| ()
-  (LET (#:G106)
-    (COND (|OrderedAbelianMonoid;AL|)
-          (T (SETQ |OrderedAbelianMonoid;AL| (|OrderedAbelianMonoid;|)))))) 
+  (COND (|OrderedAbelianMonoid;AL|)
+        (T (SETQ |OrderedAbelianMonoid;AL| (|OrderedAbelianMonoid;|))))) 
 
 (DEFUN |OrderedAbelianMonoid;| ()
   (SPROG ((#1=#:G104 NIL))

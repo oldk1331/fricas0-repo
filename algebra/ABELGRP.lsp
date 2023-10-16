@@ -4,8 +4,7 @@
 (DEFPARAMETER |AbelianGroup;AL| 'NIL) 
 
 (DEFUN |AbelianGroup| ()
-  (LET (#:G107)
-    (COND (|AbelianGroup;AL|) (T (SETQ |AbelianGroup;AL| (|AbelianGroup;|)))))) 
+  (COND (|AbelianGroup;AL|) (T (SETQ |AbelianGroup;AL| (|AbelianGroup;|))))) 
 
 (DEFUN |AbelianGroup;| ()
   (SPROG ((#1=#:G105 NIL))

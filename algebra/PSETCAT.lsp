@@ -5,17 +5,19 @@
 
 (DEFPARAMETER |PolynomialSetCategory;AL| 'NIL) 
 
-(DEFUN |PolynomialSetCategory| (&REST #1=#:G150)
-  (LET (#2=#:G151)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |PolynomialSetCategory;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |PolynomialSetCategory;AL|
-              (|cons5|
-               (CONS #3# (SETQ #2# (APPLY #'|PolynomialSetCategory;| #1#)))
-               |PolynomialSetCategory;AL|))
-      #2#)))) 
+(DEFUN |PolynomialSetCategory| (|t#1| |t#2| |t#3| |t#4|)
+  (LET (#1=#:G150
+        (#2=#:G151
+         (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|)
+               (|devaluate| |t#4|))))
+    (COND ((SETQ #1# (|assoc| #2# |PolynomialSetCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |PolynomialSetCategory;AL|
+                   (|cons5|
+                    (CONS #2#
+                          (SETQ #1# (APPLY #'|PolynomialSetCategory;| #2#)))
+                    |PolynomialSetCategory;AL|))
+           #1#)))) 
 
 (DEFUN |PolynomialSetCategory;| (|t#1| |t#2| |t#3| |t#4|)
   (SPROG ((#1=#:G149 NIL))
@@ -23,8 +25,7 @@
              (LETT #1#
                    (|sublisV|
                     (PAIR '(|t#1| |t#2| |t#3| |t#4|)
-                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                                (|devaluate| |t#3|) (|devaluate| |t#4|)))
+                          (LIST |t#1| |t#2| |t#3| |t#4|))
                     (|sublisV|
                      (PAIR '(#2=#:G147 #3=#:G148)
                            (LIST '(|List| |t#4|) '(|List| |t#4|)))

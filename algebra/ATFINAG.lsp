@@ -4,9 +4,8 @@
 (DEFPARAMETER |finiteAggregate;AL| 'NIL) 
 
 (DEFUN |finiteAggregate| ()
-  (LET (#:G106)
-    (COND (|finiteAggregate;AL|)
-          (T (SETQ |finiteAggregate;AL| (|finiteAggregate;|)))))) 
+  (COND (|finiteAggregate;AL|)
+        (T (SETQ |finiteAggregate;AL| (|finiteAggregate;|))))) 
 
 (DEFUN |finiteAggregate;| ()
   (SPROG ((#1=#:G104 NIL))

@@ -4,8 +4,7 @@
 (DEFPARAMETER |OpenMath;AL| 'NIL) 
 
 (DEFUN |OpenMath| ()
-  (LET (#:G106)
-    (COND (|OpenMath;AL|) (T (SETQ |OpenMath;AL| (|OpenMath;|)))))) 
+  (COND (|OpenMath;AL|) (T (SETQ |OpenMath;AL| (|OpenMath;|))))) 
 
 (DEFUN |OpenMath;| ()
   (SPROG ((#1=#:G104 NIL))

@@ -5,22 +5,20 @@
 
 (DEFPARAMETER |IntervalCategory;AL| 'NIL) 
 
-(DEFUN |IntervalCategory| (#1=#:G106)
-  (LET (#2=#:G107)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |IntervalCategory;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |IntervalCategory;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|IntervalCategory;| #1#)))
-                       |IntervalCategory;AL|))
-      #2#)))) 
+(DEFUN |IntervalCategory| (|t#1|)
+  (LET (#1=#:G106 (#2=#:G107 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |IntervalCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |IntervalCategory;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|IntervalCategory;| #2#)))
+                            |IntervalCategory;AL|))
+           #1#)))) 
 
 (DEFUN |IntervalCategory;| (|t#1|)
   (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (|sublisV|
                                (PAIR '(#2=#:G104) (LIST '(|Integer|)))
                                (COND (|IntervalCategory;CAT|)

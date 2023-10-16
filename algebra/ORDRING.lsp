@@ -4,8 +4,7 @@
 (DEFPARAMETER |OrderedRing;AL| 'NIL) 
 
 (DEFUN |OrderedRing| ()
-  (LET (#:G112)
-    (COND (|OrderedRing;AL|) (T (SETQ |OrderedRing;AL| (|OrderedRing;|)))))) 
+  (COND (|OrderedRing;AL|) (T (SETQ |OrderedRing;AL| (|OrderedRing;|))))) 
 
 (DEFUN |OrderedRing;| ()
   (SPROG ((#1=#:G110 NIL))

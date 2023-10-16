@@ -4,9 +4,8 @@
 (DEFPARAMETER |arbitraryPrecision;AL| 'NIL) 
 
 (DEFUN |arbitraryPrecision| ()
-  (LET (#:G106)
-    (COND (|arbitraryPrecision;AL|)
-          (T (SETQ |arbitraryPrecision;AL| (|arbitraryPrecision;|)))))) 
+  (COND (|arbitraryPrecision;AL|)
+        (T (SETQ |arbitraryPrecision;AL| (|arbitraryPrecision;|))))) 
 
 (DEFUN |arbitraryPrecision;| ()
   (SPROG ((#1=#:G104 NIL))

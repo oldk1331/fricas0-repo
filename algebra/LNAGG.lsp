@@ -5,21 +5,20 @@
 
 (DEFPARAMETER |LinearAggregate;AL| 'NIL) 
 
-(DEFUN |LinearAggregate| (#1=#:G108)
-  (LET (#2=#:G109)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |LinearAggregate;AL|)) (CDR #2#))
-     (T
-      (SETQ |LinearAggregate;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|LinearAggregate;| #1#)))
-                       |LinearAggregate;AL|))
-      #2#)))) 
+(DEFUN |LinearAggregate| (|t#1|)
+  (LET (#1=#:G108 (#2=#:G109 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |LinearAggregate;AL|)) (CDR #1#))
+          (T
+           (SETQ |LinearAggregate;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|LinearAggregate;| #2#)))
+                            |LinearAggregate;AL|))
+           #1#)))) 
 
 (DEFUN |LinearAggregate;| (|t#1|)
   (SPROG ((#1=#:G107 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (|sublisV|
                                (PAIR '(#2=#:G105 #3=#:G106)
                                      (LIST '(|Integer|)

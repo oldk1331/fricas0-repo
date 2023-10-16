@@ -5,22 +5,21 @@
 
 (DEFPARAMETER |PartialDifferentialRing;AL| 'NIL) 
 
-(DEFUN |PartialDifferentialRing| (#1=#:G105)
-  (LET (#2=#:G106)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |PartialDifferentialRing;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |PartialDifferentialRing;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|PartialDifferentialRing;| #1#)))
-                       |PartialDifferentialRing;AL|))
-      #2#)))) 
+(DEFUN |PartialDifferentialRing| (|t#1|)
+  (LET (#1=#:G105 (#2=#:G106 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |PartialDifferentialRing;AL|)) (CDR #1#))
+          (T
+           (SETQ |PartialDifferentialRing;AL|
+                   (|cons5|
+                    (CONS #2# (SETQ #1# (|PartialDifferentialRing;| #2#)))
+                    |PartialDifferentialRing;AL|))
+           #1#)))) 
 
 (DEFUN |PartialDifferentialRing;| (|t#1|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|PartialDifferentialRing;CAT|)
                                     ('T
                                      (LETT |PartialDifferentialRing;CAT|

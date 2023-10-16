@@ -3,9 +3,7 @@
 
 (DEFPARAMETER |Magma;AL| 'NIL) 
 
-(DEFUN |Magma| ()
-  (LET (#:G106)
-    (COND (|Magma;AL|) (T (SETQ |Magma;AL| (|Magma;|)))))) 
+(DEFUN |Magma| () (COND (|Magma;AL|) (T (SETQ |Magma;AL| (|Magma;|))))) 
 
 (DEFUN |Magma;| ()
   (SPROG ((#1=#:G104 NIL))

@@ -4,9 +4,7 @@
 (DEFPARAMETER |OrderedFinite;AL| 'NIL) 
 
 (DEFUN |OrderedFinite| ()
-  (LET (#:G106)
-    (COND (|OrderedFinite;AL|)
-          (T (SETQ |OrderedFinite;AL| (|OrderedFinite;|)))))) 
+  (COND (|OrderedFinite;AL|) (T (SETQ |OrderedFinite;AL| (|OrderedFinite;|))))) 
 
 (DEFUN |OrderedFinite;| ()
   (SPROG ((#1=#:G104 NIL))

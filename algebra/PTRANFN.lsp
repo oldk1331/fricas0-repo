@@ -3,25 +3,22 @@
 
 (DEFPARAMETER |PartialTranscendentalFunctions;AL| 'NIL) 
 
-(DEFUN |PartialTranscendentalFunctions| (#1=#:G105)
-  (LET (#2=#:G106)
+(DEFUN |PartialTranscendentalFunctions| (|t#1|)
+  (LET (#1=#:G105 (#2=#:G106 (|devaluate| |t#1|)))
     (COND
-     ((SETQ #2#
-              (|assoc| #3=(|devaluate| #1#)
-                       |PartialTranscendentalFunctions;AL|))
-      (CDR #2#))
+     ((SETQ #1# (|assoc| #2# |PartialTranscendentalFunctions;AL|)) (CDR #1#))
      (T
       (SETQ |PartialTranscendentalFunctions;AL|
               (|cons5|
-               (CONS #3# (SETQ #2# (|PartialTranscendentalFunctions;| #1#)))
+               (CONS #2# (SETQ #1# (|PartialTranscendentalFunctions;| #2#)))
                |PartialTranscendentalFunctions;AL|))
-      #2#)))) 
+      #1#)))) 
 
 (DEFUN |PartialTranscendentalFunctions;| (|t#1|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (|Join|
                                (|mkCategory|
                                 '(((|nthRootIfCan|

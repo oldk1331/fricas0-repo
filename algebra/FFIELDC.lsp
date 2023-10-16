@@ -4,9 +4,8 @@
 (DEFPARAMETER |FiniteFieldCategory;AL| 'NIL) 
 
 (DEFUN |FiniteFieldCategory| ()
-  (LET (#:G113)
-    (COND (|FiniteFieldCategory;AL|)
-          (T (SETQ |FiniteFieldCategory;AL| (|FiniteFieldCategory;|)))))) 
+  (COND (|FiniteFieldCategory;AL|)
+        (T (SETQ |FiniteFieldCategory;AL| (|FiniteFieldCategory;|))))) 
 
 (DEFUN |FiniteFieldCategory;| ()
   (SPROG ((#1=#:G111 NIL))

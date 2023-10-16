@@ -4,9 +4,8 @@
 (DEFPARAMETER |ExpressionSpace;AL| 'NIL) 
 
 (DEFUN |ExpressionSpace| ()
-  (LET (#:G126)
-    (COND (|ExpressionSpace;AL|)
-          (T (SETQ |ExpressionSpace;AL| (|ExpressionSpace;|)))))) 
+  (COND (|ExpressionSpace;AL|)
+        (T (SETQ |ExpressionSpace;AL| (|ExpressionSpace;|))))) 
 
 (DEFUN |ExpressionSpace;| ()
   (SPROG ((#1=#:G124 NIL))

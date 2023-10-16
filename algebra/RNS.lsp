@@ -4,9 +4,8 @@
 (DEFPARAMETER |RealNumberSystem;AL| 'NIL) 
 
 (DEFUN |RealNumberSystem| ()
-  (LET (#:G115)
-    (COND (|RealNumberSystem;AL|)
-          (T (SETQ |RealNumberSystem;AL| (|RealNumberSystem;|)))))) 
+  (COND (|RealNumberSystem;AL|)
+        (T (SETQ |RealNumberSystem;AL| (|RealNumberSystem;|))))) 
 
 (DEFUN |RealNumberSystem;| ()
   (SPROG ((#1=#:G113 NIL))

@@ -3,9 +3,7 @@
 
 (DEFPARAMETER |Group;AL| 'NIL) 
 
-(DEFUN |Group| ()
-  (LET (#:G107)
-    (COND (|Group;AL|) (T (SETQ |Group;AL| (|Group;|)))))) 
+(DEFUN |Group| () (COND (|Group;AL|) (T (SETQ |Group;AL| (|Group;|))))) 
 
 (DEFUN |Group;| ()
   (SPROG ((#1=#:G105 NIL))

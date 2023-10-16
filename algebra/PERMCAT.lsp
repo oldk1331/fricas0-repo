@@ -5,22 +5,20 @@
 
 (DEFPARAMETER |PermutationCategory;AL| 'NIL) 
 
-(DEFUN |PermutationCategory| (#1=#:G105)
-  (LET (#2=#:G106)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |PermutationCategory;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |PermutationCategory;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|PermutationCategory;| #1#)))
-                       |PermutationCategory;AL|))
-      #2#)))) 
+(DEFUN |PermutationCategory| (|t#1|)
+  (LET (#1=#:G105 (#2=#:G106 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |PermutationCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |PermutationCategory;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|PermutationCategory;| #2#)))
+                            |PermutationCategory;AL|))
+           #1#)))) 
 
 (DEFUN |PermutationCategory;| (|t#1|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|PermutationCategory;CAT|)
                                     ('T
                                      (LETT |PermutationCategory;CAT|

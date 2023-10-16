@@ -4,9 +4,7 @@
 (DEFPARAMETER |AbelianMonoid;AL| 'NIL) 
 
 (DEFUN |AbelianMonoid| ()
-  (LET (#:G107)
-    (COND (|AbelianMonoid;AL|)
-          (T (SETQ |AbelianMonoid;AL| (|AbelianMonoid;|)))))) 
+  (COND (|AbelianMonoid;AL|) (T (SETQ |AbelianMonoid;AL| (|AbelianMonoid;|))))) 
 
 (DEFUN |AbelianMonoid;| ()
   (SPROG ((#1=#:G105 NIL))

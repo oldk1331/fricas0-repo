@@ -3,9 +3,7 @@
 
 (DEFPARAMETER |VarCat;AL| 'NIL) 
 
-(DEFUN |VarCat| ()
-  (LET (#:G107)
-    (COND (|VarCat;AL|) (T (SETQ |VarCat;AL| (|VarCat;|)))))) 
+(DEFUN |VarCat| () (COND (|VarCat;AL|) (T (SETQ |VarCat;AL| (|VarCat;|))))) 
 
 (DEFUN |VarCat;| ()
   (SPROG ((#1=#:G105 NIL))

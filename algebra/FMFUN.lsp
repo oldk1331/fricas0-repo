@@ -4,11 +4,10 @@
 (DEFPARAMETER |FortranMatrixFunctionCategory;AL| 'NIL) 
 
 (DEFUN |FortranMatrixFunctionCategory| ()
-  (LET (#:G106)
-    (COND (|FortranMatrixFunctionCategory;AL|)
-          (T
-           (SETQ |FortranMatrixFunctionCategory;AL|
-                   (|FortranMatrixFunctionCategory;|)))))) 
+  (COND (|FortranMatrixFunctionCategory;AL|)
+        (T
+         (SETQ |FortranMatrixFunctionCategory;AL|
+                 (|FortranMatrixFunctionCategory;|))))) 
 
 (DEFUN |FortranMatrixFunctionCategory;| ()
   (SPROG ((#1=#:G104 NIL))

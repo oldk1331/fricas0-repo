@@ -4,9 +4,8 @@
 (DEFPARAMETER |PrincipalIdealDomain;AL| 'NIL) 
 
 (DEFUN |PrincipalIdealDomain| ()
-  (LET (#:G106)
-    (COND (|PrincipalIdealDomain;AL|)
-          (T (SETQ |PrincipalIdealDomain;AL| (|PrincipalIdealDomain;|)))))) 
+  (COND (|PrincipalIdealDomain;AL|)
+        (T (SETQ |PrincipalIdealDomain;AL| (|PrincipalIdealDomain;|))))) 
 
 (DEFUN |PrincipalIdealDomain;| ()
   (SPROG ((#1=#:G104 NIL))

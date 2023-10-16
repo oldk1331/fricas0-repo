@@ -3,29 +3,26 @@
 
 (DEFPARAMETER |ModularAlgebraicGcdOperations;AL| 'NIL) 
 
-(DEFUN |ModularAlgebraicGcdOperations| (&REST #1=#:G105)
-  (LET (#2=#:G106)
+(DEFUN |ModularAlgebraicGcdOperations| (|t#1| |t#2| |t#3|)
+  (LET (#1=#:G105
+        (#2=#:G106
+         (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|))))
     (COND
-     ((SETQ #2#
-              (|assoc| #3=(|devaluateList| #1#)
-                       |ModularAlgebraicGcdOperations;AL|))
-      (CDR #2#))
+     ((SETQ #1# (|assoc| #2# |ModularAlgebraicGcdOperations;AL|)) (CDR #1#))
      (T
       (SETQ |ModularAlgebraicGcdOperations;AL|
               (|cons5|
-               (CONS #3#
-                     (SETQ #2# (APPLY #'|ModularAlgebraicGcdOperations;| #1#)))
+               (CONS #2#
+                     (SETQ #1# (APPLY #'|ModularAlgebraicGcdOperations;| #2#)))
                |ModularAlgebraicGcdOperations;AL|))
-      #2#)))) 
+      #1#)))) 
 
 (DEFUN |ModularAlgebraicGcdOperations;| (|t#1| |t#2| |t#3|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3|)
-                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                                (|devaluate| |t#3|)))
+                    (PAIR '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
                     (|Join|
                      (|mkCategory|
                       '(((|pseudoRem| (|t#2| |t#2| |t#2| |t#3|)) T)

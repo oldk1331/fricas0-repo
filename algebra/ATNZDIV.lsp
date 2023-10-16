@@ -4,9 +4,8 @@
 (DEFPARAMETER |noZeroDivisors;AL| 'NIL) 
 
 (DEFUN |noZeroDivisors| ()
-  (LET (#:G106)
-    (COND (|noZeroDivisors;AL|)
-          (T (SETQ |noZeroDivisors;AL| (|noZeroDivisors;|)))))) 
+  (COND (|noZeroDivisors;AL|)
+        (T (SETQ |noZeroDivisors;AL| (|noZeroDivisors;|))))) 
 
 (DEFUN |noZeroDivisors;| ()
   (SPROG ((#1=#:G104 NIL))

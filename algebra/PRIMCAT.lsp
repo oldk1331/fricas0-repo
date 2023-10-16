@@ -4,11 +4,9 @@
 (DEFPARAMETER |PrimitiveFunctionCategory;AL| 'NIL) 
 
 (DEFUN |PrimitiveFunctionCategory| ()
-  (LET (#:G106)
-    (COND (|PrimitiveFunctionCategory;AL|)
-          (T
-           (SETQ |PrimitiveFunctionCategory;AL|
-                   (|PrimitiveFunctionCategory;|)))))) 
+  (COND (|PrimitiveFunctionCategory;AL|)
+        (T
+         (SETQ |PrimitiveFunctionCategory;AL| (|PrimitiveFunctionCategory;|))))) 
 
 (DEFUN |PrimitiveFunctionCategory;| ()
   (SPROG ((#1=#:G104 NIL))

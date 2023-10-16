@@ -5,21 +5,20 @@
 
 (DEFPARAMETER |VectorCategory;AL| 'NIL) 
 
-(DEFUN |VectorCategory| (#1=#:G110)
-  (LET (#2=#:G111)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |VectorCategory;AL|)) (CDR #2#))
-     (T
-      (SETQ |VectorCategory;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|VectorCategory;| #1#)))
-                       |VectorCategory;AL|))
-      #2#)))) 
+(DEFUN |VectorCategory| (|t#1|)
+  (LET (#1=#:G110 (#2=#:G111 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |VectorCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |VectorCategory;AL|
+                   (|cons5| (CONS #2# (SETQ #1# (|VectorCategory;| #2#)))
+                            |VectorCategory;AL|))
+           #1#)))) 
 
 (DEFUN |VectorCategory;| (|t#1|)
   (SPROG ((#1=#:G109 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|VectorCategory;CAT|)
                                     ('T
                                      (LETT |VectorCategory;CAT|

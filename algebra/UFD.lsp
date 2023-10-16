@@ -4,11 +4,9 @@
 (DEFPARAMETER |UniqueFactorizationDomain;AL| 'NIL) 
 
 (DEFUN |UniqueFactorizationDomain| ()
-  (LET (#:G106)
-    (COND (|UniqueFactorizationDomain;AL|)
-          (T
-           (SETQ |UniqueFactorizationDomain;AL|
-                   (|UniqueFactorizationDomain;|)))))) 
+  (COND (|UniqueFactorizationDomain;AL|)
+        (T
+         (SETQ |UniqueFactorizationDomain;AL| (|UniqueFactorizationDomain;|))))) 
 
 (DEFUN |UniqueFactorizationDomain;| ()
   (SPROG ((#1=#:G104 NIL))

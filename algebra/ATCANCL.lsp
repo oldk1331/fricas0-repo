@@ -4,9 +4,8 @@
 (DEFPARAMETER |canonicalsClosed;AL| 'NIL) 
 
 (DEFUN |canonicalsClosed| ()
-  (LET (#:G106)
-    (COND (|canonicalsClosed;AL|)
-          (T (SETQ |canonicalsClosed;AL| (|canonicalsClosed;|)))))) 
+  (COND (|canonicalsClosed;AL|)
+        (T (SETQ |canonicalsClosed;AL| (|canonicalsClosed;|))))) 
 
 (DEFUN |canonicalsClosed;| ()
   (SPROG ((#1=#:G104 NIL))

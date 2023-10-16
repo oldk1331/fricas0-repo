@@ -4,9 +4,8 @@
 (DEFPARAMETER |RealClosedField;AL| 'NIL) 
 
 (DEFUN |RealClosedField| ()
-  (LET (#:G115)
-    (COND (|RealClosedField;AL|)
-          (T (SETQ |RealClosedField;AL| (|RealClosedField;|)))))) 
+  (COND (|RealClosedField;AL|)
+        (T (SETQ |RealClosedField;AL| (|RealClosedField;|))))) 
 
 (DEFUN |RealClosedField;| ()
   (SPROG ((#1=#:G113 NIL))

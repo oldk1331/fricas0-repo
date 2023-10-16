@@ -4,9 +4,8 @@
 (DEFPARAMETER |NonAssociativeRng;AL| 'NIL) 
 
 (DEFUN |NonAssociativeRng| ()
-  (LET (#:G106)
-    (COND (|NonAssociativeRng;AL|)
-          (T (SETQ |NonAssociativeRng;AL| (|NonAssociativeRng;|)))))) 
+  (COND (|NonAssociativeRng;AL|)
+        (T (SETQ |NonAssociativeRng;AL| (|NonAssociativeRng;|))))) 
 
 (DEFUN |NonAssociativeRng;| ()
   (SPROG ((#1=#:G104 NIL))

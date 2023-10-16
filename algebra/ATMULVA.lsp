@@ -4,10 +4,8 @@
 (DEFPARAMETER |multiplicativeValuation;AL| 'NIL) 
 
 (DEFUN |multiplicativeValuation| ()
-  (LET (#:G106)
-    (COND (|multiplicativeValuation;AL|)
-          (T
-           (SETQ |multiplicativeValuation;AL| (|multiplicativeValuation;|)))))) 
+  (COND (|multiplicativeValuation;AL|)
+        (T (SETQ |multiplicativeValuation;AL| (|multiplicativeValuation;|))))) 
 
 (DEFUN |multiplicativeValuation;| ()
   (SPROG ((#1=#:G104 NIL))

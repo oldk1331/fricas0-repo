@@ -4,9 +4,8 @@
 (DEFPARAMETER |IntegralDomain;AL| 'NIL) 
 
 (DEFUN |IntegralDomain| ()
-  (LET (#:G106)
-    (COND (|IntegralDomain;AL|)
-          (T (SETQ |IntegralDomain;AL| (|IntegralDomain;|)))))) 
+  (COND (|IntegralDomain;AL|)
+        (T (SETQ |IntegralDomain;AL| (|IntegralDomain;|))))) 
 
 (DEFUN |IntegralDomain;| ()
   (SPROG ((#1=#:G104 NIL))

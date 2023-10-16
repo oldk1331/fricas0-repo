@@ -4,9 +4,8 @@
 (DEFPARAMETER |BoundedMeetSemilattice;AL| 'NIL) 
 
 (DEFUN |BoundedMeetSemilattice| ()
-  (LET (#:G106)
-    (COND (|BoundedMeetSemilattice;AL|)
-          (T (SETQ |BoundedMeetSemilattice;AL| (|BoundedMeetSemilattice;|)))))) 
+  (COND (|BoundedMeetSemilattice;AL|)
+        (T (SETQ |BoundedMeetSemilattice;AL| (|BoundedMeetSemilattice;|))))) 
 
 (DEFUN |BoundedMeetSemilattice;| ()
   (SPROG ((#1=#:G104 NIL))

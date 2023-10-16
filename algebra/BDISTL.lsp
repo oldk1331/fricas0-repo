@@ -4,11 +4,10 @@
 (DEFPARAMETER |BoundedDistributiveLattice;AL| 'NIL) 
 
 (DEFUN |BoundedDistributiveLattice| ()
-  (LET (#:G106)
-    (COND (|BoundedDistributiveLattice;AL|)
-          (T
-           (SETQ |BoundedDistributiveLattice;AL|
-                   (|BoundedDistributiveLattice;|)))))) 
+  (COND (|BoundedDistributiveLattice;AL|)
+        (T
+         (SETQ |BoundedDistributiveLattice;AL|
+                 (|BoundedDistributiveLattice;|))))) 
 
 (DEFUN |BoundedDistributiveLattice;| ()
   (SPROG ((#1=#:G104 NIL))

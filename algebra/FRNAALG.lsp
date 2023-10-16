@@ -5,24 +5,21 @@
 
 (DEFPARAMETER |FramedNonAssociativeAlgebra;AL| 'NIL) 
 
-(DEFUN |FramedNonAssociativeAlgebra| (#1=#:G110)
-  (LET (#2=#:G111)
-    (COND
-     ((SETQ #2#
-              (|assoc| #3=(|devaluate| #1#) |FramedNonAssociativeAlgebra;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |FramedNonAssociativeAlgebra;AL|
-              (|cons5|
-               (CONS #3# (SETQ #2# (|FramedNonAssociativeAlgebra;| #1#)))
-               |FramedNonAssociativeAlgebra;AL|))
-      #2#)))) 
+(DEFUN |FramedNonAssociativeAlgebra| (|t#1|)
+  (LET (#1=#:G110 (#2=#:G111 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |FramedNonAssociativeAlgebra;AL|)) (CDR #1#))
+          (T
+           (SETQ |FramedNonAssociativeAlgebra;AL|
+                   (|cons5|
+                    (CONS #2# (SETQ #1# (|FramedNonAssociativeAlgebra;| #2#)))
+                    |FramedNonAssociativeAlgebra;AL|))
+           #1#)))) 
 
 (DEFUN |FramedNonAssociativeAlgebra;| (|t#1|)
   (SPROG ((#1=#:G109 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|FramedNonAssociativeAlgebra;CAT|)
                                     ('T
                                      (LETT |FramedNonAssociativeAlgebra;CAT|

@@ -5,26 +5,24 @@
 
 (DEFPARAMETER |PowerSeriesCategory;AL| 'NIL) 
 
-(DEFUN |PowerSeriesCategory| (&REST #1=#:G110)
-  (LET (#2=#:G111)
-    (COND
-     ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |PowerSeriesCategory;AL|))
-      (CDR #2#))
-     (T
-      (SETQ |PowerSeriesCategory;AL|
-              (|cons5|
-               (CONS #3# (SETQ #2# (APPLY #'|PowerSeriesCategory;| #1#)))
-               |PowerSeriesCategory;AL|))
-      #2#)))) 
+(DEFUN |PowerSeriesCategory| (|t#1| |t#2| |t#3|)
+  (LET (#1=#:G110
+        (#2=#:G111
+         (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|))))
+    (COND ((SETQ #1# (|assoc| #2# |PowerSeriesCategory;AL|)) (CDR #1#))
+          (T
+           (SETQ |PowerSeriesCategory;AL|
+                   (|cons5|
+                    (CONS #2# (SETQ #1# (APPLY #'|PowerSeriesCategory;| #2#)))
+                    |PowerSeriesCategory;AL|))
+           #1#)))) 
 
 (DEFUN |PowerSeriesCategory;| (|t#1| |t#2| |t#3|)
   (SPROG ((#1=#:G109 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3|)
-                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                                (|devaluate| |t#3|)))
+                    (PAIR '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
                     (COND (|PowerSeriesCategory;CAT|)
                           ('T
                            (LETT |PowerSeriesCategory;CAT|

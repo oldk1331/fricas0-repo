@@ -4,11 +4,10 @@
 (DEFPARAMETER |VariablesCommuteWithCoefficients;AL| 'NIL) 
 
 (DEFUN |VariablesCommuteWithCoefficients| ()
-  (LET (#:G106)
-    (COND (|VariablesCommuteWithCoefficients;AL|)
-          (T
-           (SETQ |VariablesCommuteWithCoefficients;AL|
-                   (|VariablesCommuteWithCoefficients;|)))))) 
+  (COND (|VariablesCommuteWithCoefficients;AL|)
+        (T
+         (SETQ |VariablesCommuteWithCoefficients;AL|
+                 (|VariablesCommuteWithCoefficients;|))))) 
 
 (DEFUN |VariablesCommuteWithCoefficients;| ()
   (SPROG ((#1=#:G104 NIL))

@@ -4,11 +4,10 @@
 (DEFPARAMETER |PolynomialFactorizationExplicit;AL| 'NIL) 
 
 (DEFUN |PolynomialFactorizationExplicit| ()
-  (LET (#:G107)
-    (COND (|PolynomialFactorizationExplicit;AL|)
-          (T
-           (SETQ |PolynomialFactorizationExplicit;AL|
-                   (|PolynomialFactorizationExplicit;|)))))) 
+  (COND (|PolynomialFactorizationExplicit;AL|)
+        (T
+         (SETQ |PolynomialFactorizationExplicit;AL|
+                 (|PolynomialFactorizationExplicit;|))))) 
 
 (DEFUN |PolynomialFactorizationExplicit;| ()
   (SPROG ((#1=#:G105 NIL))

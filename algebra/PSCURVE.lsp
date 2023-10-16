@@ -4,11 +4,10 @@
 (DEFPARAMETER |PlottableSpaceCurveCategory;AL| 'NIL) 
 
 (DEFUN |PlottableSpaceCurveCategory| ()
-  (LET (#:G107)
-    (COND (|PlottableSpaceCurveCategory;AL|)
-          (T
-           (SETQ |PlottableSpaceCurveCategory;AL|
-                   (|PlottableSpaceCurveCategory;|)))))) 
+  (COND (|PlottableSpaceCurveCategory;AL|)
+        (T
+         (SETQ |PlottableSpaceCurveCategory;AL|
+                 (|PlottableSpaceCurveCategory;|))))) 
 
 (DEFUN |PlottableSpaceCurveCategory;| ()
   (SPROG ((#1=#:G105 NIL))

@@ -5,19 +5,19 @@
 
 (DEFPARAMETER |Poset;AL| 'NIL) 
 
-(DEFUN |Poset| (#1=#:G137)
-  (LET (#2=#:G138)
-    (COND ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |Poset;AL|)) (CDR #2#))
+(DEFUN |Poset| (|t#1|)
+  (LET (#1=#:G137 (#2=#:G138 (|devaluate| |t#1|)))
+    (COND ((SETQ #1# (|assoc| #2# |Poset;AL|)) (CDR #1#))
           (T
            (SETQ |Poset;AL|
-                   (|cons5| (CONS #3# (SETQ #2# (|Poset;| #1#))) |Poset;AL|))
-           #2#)))) 
+                   (|cons5| (CONS #2# (SETQ #1# (|Poset;| #2#))) |Poset;AL|))
+           #1#)))) 
 
 (DEFUN |Poset;| (|t#1|)
   (SPROG ((#1=#:G136 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (COND (|Poset;CAT|)
                                     ('T
                                      (LETT |Poset;CAT|

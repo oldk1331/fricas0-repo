@@ -4,9 +4,8 @@
 (DEFPARAMETER |lazyRepresentation;AL| 'NIL) 
 
 (DEFUN |lazyRepresentation| ()
-  (LET (#:G106)
-    (COND (|lazyRepresentation;AL|)
-          (T (SETQ |lazyRepresentation;AL| (|lazyRepresentation;|)))))) 
+  (COND (|lazyRepresentation;AL|)
+        (T (SETQ |lazyRepresentation;AL| (|lazyRepresentation;|))))) 
 
 (DEFUN |lazyRepresentation;| ()
   (SPROG ((#1=#:G104 NIL))

@@ -4,9 +4,8 @@
 (DEFPARAMETER |OrderedSemiGroup;AL| 'NIL) 
 
 (DEFUN |OrderedSemiGroup| ()
-  (LET (#:G106)
-    (COND (|OrderedSemiGroup;AL|)
-          (T (SETQ |OrderedSemiGroup;AL| (|OrderedSemiGroup;|)))))) 
+  (COND (|OrderedSemiGroup;AL|)
+        (T (SETQ |OrderedSemiGroup;AL| (|OrderedSemiGroup;|))))) 
 
 (DEFUN |OrderedSemiGroup;| ()
   (SPROG ((#1=#:G104 NIL))

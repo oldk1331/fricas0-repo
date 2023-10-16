@@ -4,11 +4,8 @@
 (DEFPARAMETER |CombinatorialOpsCategory;AL| 'NIL) 
 
 (DEFUN |CombinatorialOpsCategory| ()
-  (LET (#:G106)
-    (COND (|CombinatorialOpsCategory;AL|)
-          (T
-           (SETQ |CombinatorialOpsCategory;AL|
-                   (|CombinatorialOpsCategory;|)))))) 
+  (COND (|CombinatorialOpsCategory;AL|)
+        (T (SETQ |CombinatorialOpsCategory;AL| (|CombinatorialOpsCategory;|))))) 
 
 (DEFUN |CombinatorialOpsCategory;| ()
   (SPROG ((#1=#:G104 NIL))

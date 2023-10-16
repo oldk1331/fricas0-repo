@@ -4,9 +4,8 @@
 (DEFPARAMETER |OrderedIntegralDomain;AL| 'NIL) 
 
 (DEFUN |OrderedIntegralDomain| ()
-  (LET (#:G106)
-    (COND (|OrderedIntegralDomain;AL|)
-          (T (SETQ |OrderedIntegralDomain;AL| (|OrderedIntegralDomain;|)))))) 
+  (COND (|OrderedIntegralDomain;AL|)
+        (T (SETQ |OrderedIntegralDomain;AL| (|OrderedIntegralDomain;|))))) 
 
 (DEFUN |OrderedIntegralDomain;| ()
   (SPROG ((#1=#:G104 NIL))

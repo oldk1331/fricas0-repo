@@ -4,8 +4,7 @@
 (DEFPARAMETER |Approximate;AL| 'NIL) 
 
 (DEFUN |Approximate| ()
-  (LET (#:G106)
-    (COND (|Approximate;AL|) (T (SETQ |Approximate;AL| (|Approximate;|)))))) 
+  (COND (|Approximate;AL|) (T (SETQ |Approximate;AL| (|Approximate;|))))) 
 
 (DEFUN |Approximate;| ()
   (SPROG ((#1=#:G104 NIL))
