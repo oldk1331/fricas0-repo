@@ -658,7 +658,6 @@
 ;   lisplibWrite('"parents",removeZeroOne $lisplibParents,$libFile)
 ;   lisplibWrite('"ancestors",removeZeroOne $lisplibAncestors,$libFile)
 ;   lisplibWrite('"documentation",finalizeDocumentation(),$libFile)
-;   if $profileCompiler then profileWrite()
 ;   if $lisplibForm and null rest $lisplibForm then
 ;     MAKEPROP(first $lisplibForm, 'NILADIC, 'T)
  
@@ -690,7 +689,6 @@
       (|lisplibWrite| "ancestors" (|removeZeroOne| |$lisplibAncestors|)
        |$libFile|)
       (|lisplibWrite| "documentation" (|finalizeDocumentation|) |$libFile|)
-      (COND (|$profileCompiler| (|profileWrite|)))
       (COND
        ((AND |$lisplibForm| (NULL (CDR |$lisplibForm|)))
         (MAKEPROP (CAR |$lisplibForm|) 'NILADIC 'T)))))))

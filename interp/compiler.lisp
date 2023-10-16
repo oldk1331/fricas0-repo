@@ -2083,12 +2083,6 @@
  
 ; finish_setq_single(T, m, id, val, currentProplist) ==
 ;   T' := [x, m', e'] := convert(T, m) or return nil
-;   if $profileCompiler = true then
-;     null IDENTP id => nil
-;     key :=
-;       MEMQ(id,rest $form) => 'arguments
-;       'locals
-;     profileRecord(key,id,T.mode)
 ;   newProplist:= consProplistOf(id,currentProplist,"value",removeEnv [val,:rest T])
 ;   e':= (PAIRP id => e'; addBinding(id,newProplist,e'))
 ;   if isDomainForm(val,e') then
@@ -2110,7 +2104,7 @@
 ;   [form,m',e']
  
 (DEFUN |finish_setq_single| (T$ |m| |id| |val| |currentProplist|)
-  (PROG (|LETTMP#1| |x| |m'| |e'| |T'| |key| |newProplist| |k| |form|)
+  (PROG (|LETTMP#1| |x| |m'| |e'| |T'| |newProplist| |k| |form|)
     (RETURN
      (PROGN
       (SETQ |T'|
@@ -2120,21 +2114,12 @@
                (SETQ |m'| (CADR . #1=(|LETTMP#1|)))
                (SETQ |e'| (CADDR . #1#))
                |LETTMP#1|))
-      (COND
-       ((EQUAL |$profileCompiler| T)
-        (COND ((NULL (IDENTP |id|)) NIL)
-              (#2='T
-               (PROGN
-                (SETQ |key|
-                        (COND ((MEMQ |id| (CDR |$form|)) '|arguments|)
-                              (#2# '|locals|)))
-                (|profileRecord| |key| |id| (CADR T$)))))))
       (SETQ |newProplist|
               (|consProplistOf| |id| |currentProplist| '|value|
                (|removeEnv| (CONS |val| (CDR T$)))))
       (SETQ |e'|
               (COND ((CONSP |id|) |e'|)
-                    (#2# (|addBinding| |id| |newProplist| |e'|))))
+                    (#2='T (|addBinding| |id| |newProplist| |e'|))))
       (COND
        ((|isDomainForm| |val| |e'|)
         (COND

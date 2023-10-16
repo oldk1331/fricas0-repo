@@ -482,7 +482,6 @@
 ; --$NRTdeltaLength=0.. always equals length of $NRTdeltaList
 ;   $compUniquelyIfTrue: local:= false
 ;   [op,[dc,:sig],[.,cform:=[eltOrConst,.,nsig]]] := opMmPair
-;   if $profileCompiler = true then profileRecord(dc,op,sig)
 ;   eltOrConst = 'XLAM => cform
 ;   if atom dc then
 ;     dc = "$" => nsig := sig
@@ -531,7 +530,6 @@
       (SETQ |cform| (CAR . #2=((CDADDR . #1#))))
       (SETQ |eltOrConst| (CAAR . #2#))
       (SETQ |nsig| (CADDAR . #2#))
-      (COND ((EQUAL |$profileCompiler| T) (|profileRecord| |dc| |op| |sig|)))
       (COND ((EQ |eltOrConst| 'XLAM) |cform|)
             (#3='T
              (PROGN
