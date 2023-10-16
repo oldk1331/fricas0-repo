@@ -2,8 +2,8 @@
 (SDEFUN |FSCINTA;internalIntegrate;FGSIr;1|
         ((|f| FG) (|x| |Symbol|) ($ |IntegrationResult| FG))
         (SPROG
-         ((|h| (FG)) (#1=#:G115 NIL) (|k| NIL) (#2=#:G114 NIL)
-          (|lt| (|List| #3=(|Kernel| FG))) (#4=#:G113 NIL) (#5=#:G112 NIL)
+         ((|h| (FG)) (#1=#:G116 NIL) (|k| NIL) (#2=#:G115 NIL)
+          (|lt| (|List| #3=(|Kernel| FG))) (#4=#:G114 NIL) (#5=#:G113 NIL)
           (|tg| (|List| #3#)) (|g| (FG)))
          (SEQ
           (LETT |f|
@@ -27,39 +27,37 @@
                           (LETT #5# (CONS |k| #5#))))))
                       (LETT #4# (CDR #4#)) (GO G190) G191
                       (EXIT (NREVERSE #5#)))))
-          (EXIT
-           (COND
-            ((SPADCALL
-              (CONS #'|FSCINTA;internalIntegrate;FGSIr;1!0|
-                    (VECTOR (QREFELT $ 8) $))
-              |lt| (QREFELT $ 28))
-             (SEQ
-              (LETT |h|
-                    (SPADCALL |g|
-                              (PROGN
-                               (LETT #2# NIL)
-                               (SEQ (LETT |k| NIL)
-                                    (LETT #1# (SPADCALL |f| (QREFELT $ 15)))
-                                    G190
+          (LETT |h|
+                (COND
+                 ((SPADCALL
+                   (CONS #'|FSCINTA;internalIntegrate;FGSIr;1!0|
+                         (VECTOR (QREFELT $ 8) $))
+                   |lt| (QREFELT $ 28))
+                  (SPADCALL |g|
+                            (PROGN
+                             (LETT #2# NIL)
+                             (SEQ (LETT |k| NIL)
+                                  (LETT #1# (SPADCALL |f| (QREFELT $ 15))) G190
+                                  (COND
+                                   ((OR (ATOM #1#)
+                                        (PROGN (LETT |k| (CAR #1#)) NIL))
+                                    (GO G191)))
+                                  (SEQ
+                                   (EXIT
                                     (COND
-                                     ((OR (ATOM #1#)
-                                          (PROGN (LETT |k| (CAR #1#)) NIL))
-                                      (GO G191)))
-                                    (SEQ
-                                     (EXIT
-                                      (COND
-                                       ((COND
-                                         ((SPADCALL |k| '|tan| (QREFELT $ 29))
-                                          'T)
-                                         (#6='T
-                                          (SPADCALL |k| '|cot|
-                                                    (QREFELT $ 29))))
-                                        (LETT #2# (CONS |k| #2#))))))
-                                    (LETT #1# (CDR #1#)) (GO G190) G191
-                                    (EXIT (NREVERSE #2#))))
-                              (QREFELT $ 31)))
-              (EXIT (SPADCALL |h| |x| (QREFELT $ 34)))))
-            (#6# (SPADCALL |g| |x| (QREFELT $ 34)))))))) 
+                                     ((COND
+                                       ((SPADCALL |k| '|tan| (QREFELT $ 29))
+                                        'T)
+                                       (#6='T
+                                        (SPADCALL |k| '|cot| (QREFELT $ 29))))
+                                      (LETT #2# (CONS |k| #2#))))))
+                                  (LETT #1# (CDR #1#)) (GO G190) G191
+                                  (EXIT (NREVERSE #2#))))
+                            (QREFELT $ 31)))
+                 (#6# |g|)))
+          (EXIT
+           (SPADCALL (QVELT (SPADCALL |h| |x| (QREFELT $ 33)) 0) |x|
+                     (QREFELT $ 36)))))) 
 
 (SDEFUN |FSCINTA;internalIntegrate;FGSIr;1!0| ((|x1| NIL) ($$ NIL))
         (PROG ($ RTRIG)
@@ -71,9 +69,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceComplexIntegrationAux;|)) 
 
-(DEFUN |FunctionSpaceComplexIntegrationAux| (&REST #1=#:G116)
+(DEFUN |FunctionSpaceComplexIntegrationAux| (&REST #1=#:G117)
   (SPROG NIL
-         (PROG (#2=#:G117)
+         (PROG (#2=#:G118)
            (RETURN
             (COND
              ((LETT #2#
@@ -99,7 +97,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|FunctionSpaceComplexIntegrationAux| DV$1 DV$2))
-          (LETT $ (GETREFV 36))
+          (LETT $ (GETREFV 38))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FunctionSpaceComplexIntegrationAux|
@@ -121,10 +119,12 @@
               (32 . |member?|) (|BasicOperator|) (|Kernel| 7) (38 . |operator|)
               (43 . |has?|) (|Mapping| 20 23) (|List| 23) (49 . |any?|)
               (55 . |is?|) (|TrigonometricManipulationsAux| 6 7)
-              (61 . |trigs2explogs|) (|IntegrationResult| 7)
-              (|ElementaryIntegration| 6 7) (67 . |lfintegrate|)
+              (61 . |trigs2explogs|)
+              (|Record| (|:| |func| 7) (|:| |kers| 27) (|:| |vals| (|List| 7)))
+              (67 . |rischNormalize|) (|IntegrationResult| 7)
+              (|ElementaryIntegration| 6 7) (73 . |lfintegrate|)
               |FSCINTA;internalIntegrate;FGSIr;1|)
-           '#(|internalIntegrate| 73) 'NIL
+           '#(|internalIntegrate| 79) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -135,11 +135,12 @@
                                  ((|IntegrationResult| |#2|) |#2| (|Symbol|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 35
+                        (|makeByteWordVec2| 37
                                             '(1 7 0 9 10 2 7 0 0 0 11 2 12 7 7
                                               9 13 1 7 14 0 15 1 7 0 16 17 1 7
                                               18 0 19 2 18 20 9 0 21 1 23 22 0
                                               24 2 22 20 0 9 25 2 27 20 26 0 28
                                               2 23 20 0 9 29 2 30 7 7 27 31 2
-                                              33 32 7 9 34 2 0 32 7 9 35)))))
+                                              12 32 7 9 33 2 35 34 7 9 36 2 0
+                                              34 7 9 37)))))
            '|lookupComplete|)) 
