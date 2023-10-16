@@ -823,6 +823,12 @@
       (|compiledLookup| |op| |sig| |domain|)))))
  
 ; basicLookup(op,sig,domain,dollar) ==
+;   -- FIXME: We should use consistent representation, not hacks
+;   -- like this one
+;   if op = 0 then op := 'Zero
+;   if op = ['Zero] then op := 'Zero
+;   if op = 1 then op := 'One
+;   if op = ['One] then op := 'One
 ;   -- Spad case
 ;   VECP domain =>
 ;      isNewWorldDomain domain => -- getting ops from yourself (or for defaults)
@@ -872,75 +878,80 @@
 (DEFUN |basicLookup| (|op| |sig| |domain| |dollar|)
   (PROG (|hashPercent| |box| |dispatch| |lookupFun| |hashSig| |val| |boxval|)
     (RETURN
-     (COND
-      ((VECP |domain|)
-       (COND
-        ((|isNewWorldDomain| |domain|)
-         (|oldCompLookup| |op| |sig| |domain| |dollar|))
-        (#1='T (|lookupInDomainVector| |op| |sig| |domain| |dollar|))))
-      (#1#
-       (PROGN
-        (SETQ |hashPercent|
-                (COND ((VECP |dollar|) (|hashType| (ELT |dollar| 0) 0))
-                      (#1# (|hashType| |dollar| 0))))
-        (SETQ |box| (LIST NIL))
+     (PROGN
+      (COND ((EQL |op| 0) (SETQ |op| '|Zero|)))
+      (COND ((EQUAL |op| (LIST '|Zero|)) (SETQ |op| '|Zero|)))
+      (COND ((EQL |op| 1) (SETQ |op| '|One|)))
+      (COND ((EQUAL |op| (LIST '|One|)) (SETQ |op| '|One|)))
+      (COND
+       ((VECP |domain|)
         (COND
-         ((NULL (VECP (SETQ |dispatch| (CAR |domain|))))
-          (|error| '|bad domain format|))
-         (#1#
-          (PROGN
-           (SETQ |lookupFun| (ELT |dispatch| 3))
-           (COND
-            ((EQL (ELT |dispatch| 0) 0)
-             (PROGN
-              (SETQ |hashSig|
-                      (COND ((|hashCode?| |sig|) |sig|)
-                            ((|opIsHasCat| |op|)
-                             (|hashType| |sig| |hashPercent|))
-                            (#1#
-                             (|hashType| (CONS '|Mapping| |sig|)
-                              |hashPercent|))))
-              (COND
-               ((SYMBOLP |op|)
-                (COND ((EQ |op| '|Zero|) (SETQ |op| |$hashOp0|))
-                      ((EQ |op| '|One|) (SETQ |op| |$hashOp1|))
-                      ((EQ |op| '|elt|) (SETQ |op| |$hashOpApply|))
-                      ((EQ |op| '|setelt!|) (SETQ |op| |$hashOpSet|))
-                      (#1# (SETQ |op| (|hashString| (SYMBOL-NAME |op|)))))))
-              (COND
-               ((SETQ |val|
-                        (CAR
-                         (SPADCALL (CDR |domain|) |dollar| |op| |hashSig| |box|
-                          NIL |lookupFun|)))
-                |val|)
-               ((|hashCode?| |sig|) NIL)
-               ((OR (< 1 (LENGTH |sig|)) (|opIsHasCat| |op|)) NIL)
-               ((SETQ |boxval|
-                        (SPADCALL (CDR |dollar|) |dollar| |op|
-                         (|hashType| (CAR |sig|) |hashPercent|) |box| NIL
-                         |lookupFun|))
-                (CONS #'IDENTITY (CAR |boxval|)))
-               (#1# NIL))))
-            ((|opIsHasCat| |op|) (|HasCategory| |domain| |sig|))
-            (#1#
-             (PROGN
-              (COND
-               ((|hashCode?| |op|)
-                (COND ((EQL |op| |$hashOp1|) (SETQ |op| '|One|))
-                      ((EQL |op| |$hashOp0|) (SETQ |op| '|Zero|))
-                      ((EQL |op| |$hashOpApply|) (SETQ |op| '|elt|))
-                      ((EQL |op| |$hashOpSet|) (SETQ |op| '|setelt!|))
-                      ((EQL |op| |$hashSeg|) (SETQ |op| 'SEGMENT)))))
-              (COND
-               ((AND (|hashCode?| |sig|) (EQL |sig| |hashPercent|))
-                (SPADCALL
+         ((|isNewWorldDomain| |domain|)
+          (|oldCompLookup| |op| |sig| |domain| |dollar|))
+         (#1='T (|lookupInDomainVector| |op| |sig| |domain| |dollar|))))
+       (#1#
+        (PROGN
+         (SETQ |hashPercent|
+                 (COND ((VECP |dollar|) (|hashType| (ELT |dollar| 0) 0))
+                       (#1# (|hashType| |dollar| 0))))
+         (SETQ |box| (LIST NIL))
+         (COND
+          ((NULL (VECP (SETQ |dispatch| (CAR |domain|))))
+           (|error| '|bad domain format|))
+          (#1#
+           (PROGN
+            (SETQ |lookupFun| (ELT |dispatch| 3))
+            (COND
+             ((EQL (ELT |dispatch| 0) 0)
+              (PROGN
+               (SETQ |hashSig|
+                       (COND ((|hashCode?| |sig|) |sig|)
+                             ((|opIsHasCat| |op|)
+                              (|hashType| |sig| |hashPercent|))
+                             (#1#
+                              (|hashType| (CONS '|Mapping| |sig|)
+                               |hashPercent|))))
+               (COND
+                ((SYMBOLP |op|)
+                 (COND ((EQ |op| '|Zero|) (SETQ |op| |$hashOp0|))
+                       ((EQ |op| '|One|) (SETQ |op| |$hashOp1|))
+                       ((EQ |op| '|elt|) (SETQ |op| |$hashOpApply|))
+                       ((EQ |op| '|setelt!|) (SETQ |op| |$hashOpSet|))
+                       (#1# (SETQ |op| (|hashString| (SYMBOL-NAME |op|)))))))
+               (COND
+                ((SETQ |val|
+                         (CAR
+                          (SPADCALL (CDR |domain|) |dollar| |op| |hashSig|
+                           |box| NIL |lookupFun|)))
+                 |val|)
+                ((|hashCode?| |sig|) NIL)
+                ((OR (< 1 (LENGTH |sig|)) (|opIsHasCat| |op|)) NIL)
+                ((SETQ |boxval|
+                         (SPADCALL (CDR |dollar|) |dollar| |op|
+                          (|hashType| (CAR |sig|) |hashPercent|) |box| NIL
+                          |lookupFun|))
+                 (CONS #'IDENTITY (CAR |boxval|)))
+                (#1# NIL))))
+             ((|opIsHasCat| |op|) (|HasCategory| |domain| |sig|))
+             (#1#
+              (PROGN
+               (COND
+                ((|hashCode?| |op|)
+                 (COND ((EQL |op| |$hashOp1|) (SETQ |op| '|One|))
+                       ((EQL |op| |$hashOp0|) (SETQ |op| '|Zero|))
+                       ((EQL |op| |$hashOpApply|) (SETQ |op| '|elt|))
+                       ((EQL |op| |$hashOpSet|) (SETQ |op| '|setelt!|))
+                       ((EQL |op| |$hashSeg|) (SETQ |op| 'SEGMENT)))))
+               (COND
+                ((AND (|hashCode?| |sig|) (EQL |sig| |hashPercent|))
+                 (SPADCALL
+                  (CAR
+                   (SPADCALL (CDR |dollar|) |dollar| |op| '($) |box| NIL
+                    |lookupFun|))))
+                (#1#
                  (CAR
-                  (SPADCALL (CDR |dollar|) |dollar| |op| '($) |box| NIL
-                   |lookupFun|))))
-               (#1#
-                (CAR
-                 (SPADCALL (CDR |dollar|) |dollar| |op| |sig| |box| NIL
-                  |lookupFun|))))))))))))))))
+                  (SPADCALL (CDR |dollar|) |dollar| |op| |sig| |box| NIL
+                   |lookupFun|)))))))))))))))))
  
 ; basicLookupCheckDefaults(op,sig,domain,dollar) ==
 ;   box := [nil]
