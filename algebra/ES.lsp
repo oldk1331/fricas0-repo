@@ -12,8 +12,8 @@
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(#2=#:G122 #3=#:G123)
-                          (LIST '(|Kernel| $) '(|Kernel| $)))
+                    (MAKE_PAIRS '(#2=#:G122 #3=#:G123)
+                                (LIST '(|Kernel| $) '(|Kernel| $)))
                     (|Join| (|Comparable|) (|RetractableTo| '#2#)
                             (|InnerEvalable| '#3# '$) (|Evalable| '$)
                             (|mkCategory|

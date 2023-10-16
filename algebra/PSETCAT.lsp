@@ -24,11 +24,11 @@
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3| |t#4|)
-                          (LIST |t#1| |t#2| |t#3| |t#4|))
+                    (MAKE_PAIRS '(|t#1| |t#2| |t#3| |t#4|)
+                                (LIST |t#1| |t#2| |t#3| |t#4|))
                     (|sublisV|
-                     (PAIR '(#2=#:G147 #3=#:G148)
-                           (LIST '(|List| |t#4|) '(|List| |t#4|)))
+                     (MAKE_PAIRS '(#2=#:G147 #3=#:G148)
+                                 (LIST '(|List| |t#4|) '(|List| |t#4|)))
                      (COND (|PolynomialSetCategory;CAT|)
                            ('T
                             (LETT |PolynomialSetCategory;CAT|

@@ -23,7 +23,7 @@
   (SPROG ((#1=#:G108 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1| |t#2|) (LIST |t#1| |t#2|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
                               (COND (|RealRootCharacterizationCategory;CAT|)
                                     ('T
                                      (LETT

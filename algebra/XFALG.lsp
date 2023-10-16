@@ -18,9 +18,10 @@
   (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1| |t#2|) (LIST |t#1| |t#2|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
                               (|sublisV|
-                               (PAIR '(#2=#:G104) (LIST '(|FreeMonoid| |t#1|)))
+                               (MAKE_PAIRS '(#2=#:G104)
+                                           (LIST '(|FreeMonoid| |t#1|)))
                                (COND (|XFreeAlgebra;CAT|)
                                      ('T
                                       (LETT |XFreeAlgebra;CAT|

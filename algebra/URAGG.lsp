@@ -19,7 +19,7 @@
   (SPROG ((#1=#:G159 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
                               (COND (|UnaryRecursiveAggregate;CAT|)
                                     ('T
                                      (LETT |UnaryRecursiveAggregate;CAT|

@@ -12,7 +12,8 @@
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(#2=#:G126) (LIST '(|Expression| (|Integer|))))
+                    (MAKE_PAIRS '(#2=#:G126)
+                                (LIST '(|Expression| (|Integer|))))
                     (|Join| (|OrderedSet|) (|CoercibleTo| '#2#)
                             (|mkCategory|
                              '(((|setNotation| ((|Symbol|) (|Symbol|))) T)

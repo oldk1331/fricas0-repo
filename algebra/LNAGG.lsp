@@ -18,11 +18,12 @@
   (SPROG ((#1=#:G107 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
                               (|sublisV|
-                               (PAIR '(#2=#:G105 #3=#:G106)
-                                     (LIST '(|Integer|)
-                                           '(|UniversalSegment| (|Integer|))))
+                               (MAKE_PAIRS '(#2=#:G105 #3=#:G106)
+                                           (LIST '(|Integer|)
+                                                 '(|UniversalSegment|
+                                                   (|Integer|))))
                                (COND (|LinearAggregate;CAT|)
                                      ('T
                                       (LETT |LinearAggregate;CAT|

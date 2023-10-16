@@ -20,10 +20,11 @@
   (SPROG ((#1=#:G108 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1| |t#2|) (LIST |t#1| |t#2|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
                               (|sublisV|
-                               (PAIR '(#2=#:G106 #3=#:G107)
-                                     (LIST '(|Integer|) '(|Vector| |t#2|)))
+                               (MAKE_PAIRS '(#2=#:G106 #3=#:G107)
+                                           (LIST '(|Integer|)
+                                                 '(|Vector| |t#2|)))
                                (COND (|DirectProductCategory;CAT|)
                                      ('T
                                       (LETT |DirectProductCategory;CAT|

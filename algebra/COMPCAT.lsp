@@ -18,11 +18,12 @@
   (SPROG ((#1=#:G146 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
                               (|sublisV|
-                               (PAIR '(#2=#:G145)
-                                     (LIST
-                                      '(|SparseUnivariatePolynomial| |t#1|)))
+                               (MAKE_PAIRS '(#2=#:G145)
+                                           (LIST
+                                            '(|SparseUnivariatePolynomial|
+                                              |t#1|)))
                                (COND (|ComplexCategory;CAT|)
                                      ('T
                                       (LETT |ComplexCategory;CAT|

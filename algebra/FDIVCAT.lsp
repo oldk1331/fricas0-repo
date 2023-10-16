@@ -24,8 +24,8 @@
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3| |t#4|)
-                          (LIST |t#1| |t#2| |t#3| |t#4|))
+                    (MAKE_PAIRS '(|t#1| |t#2| |t#3| |t#4|)
+                                (LIST |t#1| |t#2| |t#3| |t#4|))
                     (COND (|FiniteDivisorCategory;CAT|)
                           ('T
                            (LETT |FiniteDivisorCategory;CAT|

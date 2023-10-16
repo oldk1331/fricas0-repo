@@ -16,7 +16,7 @@
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
                               (|Join|
                                (|mkCategory|
                                 '(((|coerce| ($ |t#1|)) T)

@@ -18,9 +18,9 @@
   (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
                               (|sublisV|
-                               (PAIR '(#2=#:G104) (LIST '(|Integer|)))
+                               (MAKE_PAIRS '(#2=#:G104) (LIST '(|Integer|)))
                                (COND (|IntervalCategory;CAT|)
                                      ('T
                                       (LETT |IntervalCategory;CAT|

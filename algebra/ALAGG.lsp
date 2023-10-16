@@ -20,12 +20,12 @@
   (SPROG ((#1=#:G107 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1| |t#2|) (LIST |t#1| |t#2|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
                               (|sublisV|
-                               (PAIR '(#2=#:G106)
-                                     (LIST
-                                      '(|Record| (|:| |key| |t#1|)
-                                                 (|:| |entry| |t#2|))))
+                               (MAKE_PAIRS '(#2=#:G106)
+                                           (LIST
+                                            '(|Record| (|:| |key| |t#1|)
+                                                       (|:| |entry| |t#2|))))
                                (COND (|AssociationListAggregate;CAT|)
                                      ('T
                                       (LETT |AssociationListAggregate;CAT|

@@ -20,7 +20,7 @@
   (SPROG ((#1=#:G109 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
                               (COND (|DifferentialVariableCategory;CAT|)
                                     ('T
                                      (LETT |DifferentialVariableCategory;CAT|

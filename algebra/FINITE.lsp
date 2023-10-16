@@ -9,7 +9,7 @@
   (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(#2=#:G104) (LIST '(|InputForm|)))
+                   (|sublisV| (MAKE_PAIRS '(#2=#:G104) (LIST '(|InputForm|)))
                               (|Join| (|SetCategory|) (|ConvertibleTo| '#2#)
                                       (|Comparable|)
                                       (|mkCategory|

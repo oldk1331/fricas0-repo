@@ -11,7 +11,7 @@
   (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(#2=#:G104) (LIST '(|OutputForm|)))
+                   (|sublisV| (MAKE_PAIRS '(#2=#:G104) (LIST '(|OutputForm|)))
                               (|Join| (|Type|) (|CoercibleTo| '#2#)
                                       (|mkCategory|
                                        '(((|outputAsFortran| ((|Void|) $)) T))

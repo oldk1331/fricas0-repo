@@ -11,7 +11,7 @@
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(#2=#:G106) (LIST '(|Fraction| (|Integer|))))
+                    (MAKE_PAIRS '(#2=#:G106) (LIST '(|Fraction| (|Integer|))))
                     (|Join| (|EntireRing|) (|Algebra| '#2#) (|TwoSidedRecip|)
                             (|mkCategory|
                              '(((^ ($ $ (|Integer|))) T) ((|inv| ($ $)) T)) NIL

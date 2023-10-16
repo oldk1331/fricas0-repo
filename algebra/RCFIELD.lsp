@@ -12,9 +12,9 @@
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(#2=#:G110 #3=#:G111 #4=#:G112)
-                          (LIST '(|Fraction| (|Integer|)) '(|Integer|)
-                                '(|Fraction| (|Integer|))))
+                    (MAKE_PAIRS '(#2=#:G110 #3=#:G111 #4=#:G112)
+                                (LIST '(|Fraction| (|Integer|)) '(|Integer|)
+                                      '(|Fraction| (|Integer|))))
                     (|Join| (|CharacteristicZero|) (|OrderedRing|)
                             (|CommutativeRing|) (|Field|)
                             (|FullyRetractableTo| '#2#) (|Algebra| '#3#)

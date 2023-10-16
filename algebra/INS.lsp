@@ -12,9 +12,10 @@
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(#2=#:G116 #3=#:G117 #4=#:G118 #5=#:G119 #6=#:G120)
-                          (LIST '(|Integer|) '(|Integer|) '(|InputForm|)
-                                '(|Pattern| (|Integer|)) '(|Integer|)))
+                    (MAKE_PAIRS
+                     '(#2=#:G116 #3=#:G117 #4=#:G118 #5=#:G119 #6=#:G120)
+                     (LIST '(|Integer|) '(|Integer|) '(|InputForm|)
+                           '(|Pattern| (|Integer|)) '(|Integer|)))
                     (|Join| (|UniqueFactorizationDomain|) (|EuclideanDomain|)
                             (|OrderedIntegralDomain|) (|DifferentialRing|)
                             (|ConvertibleTo| '#2#) (|RetractableTo| '#3#)

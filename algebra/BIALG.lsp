@@ -18,7 +18,7 @@
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1| |t#2|) (LIST |t#1| |t#2|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
                               (COND (|Bialgebra;CAT|)
                                     ('T
                                      (LETT |Bialgebra;CAT|

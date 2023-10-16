@@ -19,13 +19,12 @@
   (SPROG ((#1=#:G159 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
-                              (|sublisV| (PAIR '(#2=#:G158) (LIST '(|Symbol|)))
-                                         (COND
-                                          (|JetBundleFunctionCategory;CAT|)
-                                          ('T
-                                           (LETT
-                                            |JetBundleFunctionCategory;CAT|
+                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
+                              (|sublisV|
+                               (MAKE_PAIRS '(#2=#:G158) (LIST '(|Symbol|)))
+                               (COND (|JetBundleFunctionCategory;CAT|)
+                                     ('T
+                                      (LETT |JetBundleFunctionCategory;CAT|
                                             (|Join|
                                              (|PartialDifferentialRing| '#2#)
                                              (|GcdDomain|)

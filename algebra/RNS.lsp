@@ -12,9 +12,9 @@
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(#2=#:G109 #3=#:G110 #4=#:G111 #5=#:G112)
-                          (LIST '(|Integer|) '(|Fraction| (|Integer|))
-                                '(|Pattern| (|Float|)) '(|Float|)))
+                    (MAKE_PAIRS '(#2=#:G109 #3=#:G110 #4=#:G111 #5=#:G112)
+                                (LIST '(|Integer|) '(|Fraction| (|Integer|))
+                                      '(|Pattern| (|Float|)) '(|Float|)))
                     (|Join| (|Field|) (|OrderedRing|) (|RealConstant|)
                             (|RetractableTo| '#2#) (|RetractableTo| '#3#)
                             (|RadicalCategory|) (|ConvertibleTo| '#4#)

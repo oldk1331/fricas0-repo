@@ -13,7 +13,7 @@
   (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(#2=#:G104) (LIST '(|Integer|)))
+                   (|sublisV| (MAKE_PAIRS '(#2=#:G104) (LIST '(|Integer|)))
                               (|Join| (|IntegralDomain|) (|OrderedSet|)
                                       (|RetractableTo| '#2#))))
            (SETELT #1# 0 '(|FortranMachineTypeCategory|))))) 

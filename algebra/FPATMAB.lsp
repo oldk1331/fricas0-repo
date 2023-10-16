@@ -19,7 +19,7 @@
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
                               (COND (|FullyPatternMatchable;CAT|)
                                     ('T
                                      (LETT |FullyPatternMatchable;CAT|

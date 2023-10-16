@@ -22,7 +22,7 @@
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
+                    (MAKE_PAIRS '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
                     (|Join|
                      (|mkCategory|
                       '(((|pseudoRem| (|t#2| |t#2| |t#2| |t#3|)) T)

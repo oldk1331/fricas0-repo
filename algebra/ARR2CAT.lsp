@@ -25,7 +25,7 @@
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
+                    (MAKE_PAIRS '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
                     (COND (|TwoDimensionalArrayCategory;CAT|)
                           ('T
                            (LETT |TwoDimensionalArrayCategory;CAT|

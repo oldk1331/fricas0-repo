@@ -20,11 +20,11 @@
   (SPROG ((#1=#:G150 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
+                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
                               (|sublisV|
-                               (PAIR '(#2=#:G148 #3=#:G149)
-                                     (LIST '(|NonNegativeInteger|)
-                                           '(|SingletonAsOrderedSet|)))
+                               (MAKE_PAIRS '(#2=#:G148 #3=#:G149)
+                                           (LIST '(|NonNegativeInteger|)
+                                                 '(|SingletonAsOrderedSet|)))
                                (COND (|UnivariatePolynomialCategory;CAT|)
                                      ('T
                                       (LETT |UnivariatePolynomialCategory;CAT|

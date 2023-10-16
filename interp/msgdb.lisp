@@ -2251,6 +2251,21 @@
 (DEFUN |sayFORMULA| (|x|)
   (PROG () (RETURN (|sayBrightly1| |x| |$formulaOutputStream|))))
  
+; sayMSG2File(msg) ==
+;     file := makePathname("spadmsg", "listing")
+;     str := MAKE_OUTSTREAM(file)
+;     sayBrightly1(msg, str)
+;     SHUT(str)
+ 
+(DEFUN |sayMSG2File| (|msg|)
+  (PROG (|file| |str|)
+    (RETURN
+     (PROGN
+      (SETQ |file| (|makePathname| '|spadmsg| '|listing|))
+      (SETQ |str| (MAKE_OUTSTREAM |file|))
+      (|sayBrightly1| |msg| |str|)
+      (SHUT |str|)))))
+ 
 ; $htSpecialChars := ['"_#", '"[", '"]", '"%", '"{", '"}", '"_\",
 ;                     '"$", '"&", '"^", '"__", '"_~"]
  

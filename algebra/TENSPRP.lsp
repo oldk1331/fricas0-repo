@@ -22,8 +22,8 @@
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3| |t#4| |t#5|)
-                          (LIST |t#1| |t#2| |t#3| |t#4| |t#5|))
+                    (MAKE_PAIRS '(|t#1| |t#2| |t#3| |t#4| |t#5|)
+                                (LIST |t#1| |t#2| |t#3| |t#4| |t#5|))
                     (|Join|
                      (|mkCategory|
                       '(((|eval| (|t#5| |t#4| (|Mapping| |t#5| |t#2| |t#3|)))
