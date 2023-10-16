@@ -2453,7 +2453,7 @@
 ;   CDAR u <= width => nil
 ;        --CDAR is the width of a charybdis structure
 ;   op:=CAAR u
-;   op = 'MATRIX => largeMatrixAlist u
+;   op = 'MATRIX => true
 ;          --We already know the structure is more than 'width' wide
 ;   MEMQ(op,'(LET SEGMENT _- CONCAT CONCATB PAREN BRACKET BRACE)) =>
 ;       --Each of these prints the arguments in a width 3 smaller
@@ -2461,26 +2461,26 @@
 ;     width:=width-3
 ;     ans:=
 ;       for v in rest u repeat
-;         (ans:=LargeMatrixp(v,width,dist)) => return largeMatrixAlist ans
+;         (ans:=LargeMatrixp(v,width,dist)) => return ans
 ;         dist:=dist - WIDTH v
 ;         dist<0 => return nil
 ;     ans
 ;       --Relying that falling out of a loop gives nil
 ;   MEMQ(op,'(_+ _* )) =>
 ;       --Each of these prints the first argument in a width 3 smaller
-;     (ans:=LargeMatrixp(CADR u,width-3,dist)) => largeMatrixAlist ans
+;     (ans:=LargeMatrixp(CADR u,width-3,dist)) =>  ans
 ;     n:=3+WIDTH CADR u
 ;     dist:=dist-n
 ;     ans:=
 ;       for v in CDDR u repeat
-;         (ans:=LargeMatrixp(v,width,dist)) => return largeMatrixAlist ans
+;         (ans:=LargeMatrixp(v,width,dist)) => return ans
 ;         dist:=dist - WIDTH v
 ;         dist<0 => return nil
 ;     ans
 ;       --Relying that falling out of a loop gives nil
 ;   ans:=
 ;     for v in rest u repeat
-;       (ans:=LargeMatrixp(v,width,dist)) => return largeMatrixAlist ans
+;       (ans:=LargeMatrixp(v,width,dist)) => return ans
 ;       dist:=dist - WIDTH v
 ;       dist<0 => return nil
 ;   ans
@@ -2492,7 +2492,7 @@
            (#1='T
             (PROGN
              (SETQ |op| (CAAR |u|))
-             (COND ((EQ |op| 'MATRIX) (|largeMatrixAlist| |u|))
+             (COND ((EQ |op| 'MATRIX) T)
                    ((MEMQ |op|
                           '(LET SEGMENT
                              -
@@ -2516,7 +2516,7 @@
                                     ((SETQ |ans|
                                              (|LargeMatrixp| |v| |width|
                                               |dist|))
-                                     (RETURN (|largeMatrixAlist| |ans|)))
+                                     (RETURN |ans|))
                                     (#1#
                                      (PROGN
                                       (SETQ |dist| (- |dist| (WIDTH |v|)))
@@ -2529,7 +2529,7 @@
                     (COND
                      ((SETQ |ans|
                               (|LargeMatrixp| (CADR |u|) (- |width| 3) |dist|))
-                      (|largeMatrixAlist| |ans|))
+                      |ans|)
                      (#1#
                       (PROGN
                        (SETQ |n| (+ 3 (WIDTH (CADR |u|))))
@@ -2548,7 +2548,7 @@
                                       ((SETQ |ans|
                                                (|LargeMatrixp| |v| |width|
                                                 |dist|))
-                                       (RETURN (|largeMatrixAlist| |ans|)))
+                                       (RETURN |ans|))
                                       (#1#
                                        (PROGN
                                         (SETQ |dist| (- |dist| (WIDTH |v|)))
@@ -2571,7 +2571,7 @@
                                     ((SETQ |ans|
                                              (|LargeMatrixp| |v| |width|
                                               |dist|))
-                                     (RETURN (|largeMatrixAlist| |ans|)))
+                                     (RETURN |ans|))
                                     (#1#
                                      (PROGN
                                       (SETQ |dist| (- |dist| (WIDTH |v|)))
@@ -2580,22 +2580,6 @@
                                  (SETQ |bfVar#63| (CDR |bfVar#63|))))
                               (CDR |u|) NIL))
                      |ans|)))))))))
- 
-; largeMatrixAlist u ==
-;   u is [op,:r] =>
-;     op is ['MATRIX,:.] => deMatrix u
-;     largeMatrixAlist op or largeMatrixAlist r
-;   nil
- 
-(DEFUN |largeMatrixAlist| (|u|)
-  (PROG (|op| |r|)
-    (RETURN
-     (COND
-      ((AND (CONSP |u|)
-            (PROGN (SETQ |op| (CAR |u|)) (SETQ |r| (CDR |u|)) #1='T))
-       (COND ((AND (CONSP |op|) (EQ (CAR |op|) 'MATRIX)) (|deMatrix| |u|))
-             (#1# (OR (|largeMatrixAlist| |op|) (|largeMatrixAlist| |r|)))))
-      (#1# NIL)))))
  
 ; PushMatrix m ==
 ;     --Adds the matrix to the look-aside list, and returns a name for it
