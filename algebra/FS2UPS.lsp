@@ -7,10 +7,11 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|FunctionSpaceToUnivariatePowerSeries|)
-                                               '|domainEqualList|))
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T T T T T T NIL))
+                     (HGET |$ConstructorCache|
+                           '|FunctionSpaceToUnivariatePowerSeries|)
+                     '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -37,7 +38,7 @@
     (LETT DV$5 (|devaluate| |#5|))
     (LETT DV$6 (|devaluate| |#6|))
     (LETT DV$7 (|devaluate| |#7|))
-    (LETT DV$8 (|devaluate| |#8|))
+    (LETT DV$8 |#8|)
     (LETT |dv$|
           (LIST '|FunctionSpaceToUnivariatePowerSeries| DV$1 DV$2 DV$3 DV$4
                 DV$5 DV$6 DV$7 DV$8))

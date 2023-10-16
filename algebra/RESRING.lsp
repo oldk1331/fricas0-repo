@@ -45,10 +45,10 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|ResidueRing|)
-                                               '|domainEqualList|))
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T T T NIL))
+                     (HGET |$ConstructorCache| '|ResidueRing|)
+                     '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -65,7 +65,7 @@
     (LETT DV$2 (|devaluate| |#2|))
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
-    (LETT DV$5 (|devaluate| |#5|))
+    (LETT DV$5 |#5|)
     (LETT |dv$| (LIST '|ResidueRing| DV$1 DV$2 DV$3 DV$4 DV$5))
     (LETT $ (GETREFV 52))
     (QSETREFV $ 0 |dv$|)

@@ -7,8 +7,7 @@
 
 (DEFUN |TensorPowerCategory| (|t#1| |t#2| |t#3|)
   (LET (#1=#:G104
-        (#2=#:G105
-         (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|))))
+        (#2=#:G105 (LIST |t#1| (|devaluate| |t#2|) (|devaluate| |t#3|))))
     (COND ((SETQ #1# (|assoc| #2# |TensorPowerCategory;AL|)) (CDR #1#))
           (T
            (SETQ |TensorPowerCategory;AL|

@@ -2136,8 +2136,7 @@
                                                                (|devaluate|
                                                                 (ELT $ 7))
                                                                |x|
-                                                               (|devaluate|
-                                                                (ELT $ 9))))
+                                                               (QREFELT $ 9)))
                                                         (LIST '|:| '|%problem|
                                                               (LIST '|Record|
                                                                     (LIST '|:|

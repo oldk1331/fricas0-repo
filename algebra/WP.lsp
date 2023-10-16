@@ -214,10 +214,10 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|WeightedPolynomials|)
-                                               '|domainEqualList|))
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T T T NIL NIL NIL))
+                     (HGET |$ConstructorCache| '|WeightedPolynomials|)
+                     '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -238,9 +238,9 @@
      (LETT DV$2 (|devaluate| |#2|))
      (LETT DV$3 (|devaluate| |#3|))
      (LETT DV$4 (|devaluate| |#4|))
-     (LETT DV$5 (|devaluate| |#5|))
-     (LETT DV$6 (|devaluate| |#6|))
-     (LETT DV$7 (|devaluate| |#7|))
+     (LETT DV$5 |#5|)
+     (LETT DV$6 |#6|)
+     (LETT DV$7 |#7|)
      (LETT |dv$|
            (LIST '|WeightedPolynomials| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7))
      (LETT $ (GETREFV 82))

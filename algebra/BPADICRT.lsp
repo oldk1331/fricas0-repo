@@ -7,7 +7,7 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                    (|lassocShiftWithFunction| (LIST #1#)
                                                (HGET |$ConstructorCache|
                                                      '|BalancedPAdicRational|)
                                                '|domainEqualList|))
@@ -22,7 +22,7 @@
 (DEFUN |BalancedPAdicRational;| (|#1|)
   (SPROG ((|pv$| NIL) (#1=#:G139 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|BalancedPAdicRational| DV$1))
           (LETT $ (GETREFV 58))
           (QSETREFV $ 0 |dv$|)

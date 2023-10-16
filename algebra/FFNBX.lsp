@@ -7,7 +7,7 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(T NIL))
                                                (HGET |$ConstructorCache|
                                                      '|FiniteFieldNormalBasisExtension|)
                                                '|domainEqualList|))
@@ -28,7 +28,7 @@
    ((|pv$| NIL) (#1=#:G145 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
-    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$2 |#2|)
     (LETT |dv$| (LIST '|FiniteFieldNormalBasisExtension| DV$1 DV$2))
     (LETT $ (GETREFV 52))
     (QSETREFV $ 0 |dv$|)

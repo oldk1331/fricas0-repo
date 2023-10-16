@@ -965,10 +965,11 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|GeneralizedUnivariatePowerSeries|)
-                                               '|domainEqualList|))
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T T NIL NIL))
+                     (HGET |$ConstructorCache|
+                           '|GeneralizedUnivariatePowerSeries|)
+                     '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -989,8 +990,8 @@
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
-    (LETT DV$3 (|devaluate| |#3|))
-    (LETT DV$4 (|devaluate| |#4|))
+    (LETT DV$3 |#3|)
+    (LETT DV$4 |#4|)
     (LETT |dv$| (LIST '|GeneralizedUnivariatePowerSeries| DV$1 DV$2 DV$3 DV$4))
     (LETT $ (GETREFV 185))
     (QSETREFV $ 0 |dv$|)

@@ -8,8 +8,8 @@
 (DEFUN |RectangularMatrixCategory| (|t#1| |t#2| |t#3| |t#4| |t#5|)
   (LET (#1=#:G110
         (#2=#:G111
-         (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|)
-               (|devaluate| |t#4|) (|devaluate| |t#5|))))
+         (LIST |t#1| |t#2| (|devaluate| |t#3|) (|devaluate| |t#4|)
+               (|devaluate| |t#5|))))
     (COND ((SETQ #1# (|assoc| #2# |RectangularMatrixCategory;AL|)) (CDR #1#))
           (T
            (SETQ |RectangularMatrixCategory;AL|

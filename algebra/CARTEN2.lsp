@@ -30,10 +30,10 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|CartesianTensorFunctions2|)
-                                               '|domainEqualList|))
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL NIL T T))
+                     (HGET |$ConstructorCache| '|CartesianTensorFunctions2|)
+                     '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -49,8 +49,8 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|))
-    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$1 |#1|)
+    (LETT DV$2 |#2|)
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|CartesianTensorFunctions2| DV$1 DV$2 DV$3 DV$4))

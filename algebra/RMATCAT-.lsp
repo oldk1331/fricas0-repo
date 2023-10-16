@@ -231,8 +231,8 @@
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
-    (LETT DV$2 (|devaluate| |#2|))
-    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$2 |#2|)
+    (LETT DV$3 |#3|)
     (LETT DV$4 (|devaluate| |#4|))
     (LETT DV$5 (|devaluate| |#5|))
     (LETT DV$6 (|devaluate| |#6|))

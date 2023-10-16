@@ -136,7 +136,7 @@
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$2 |#2|)
           (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$| (LIST '|DirectProductCategory&| DV$1 DV$2 DV$3))
           (LETT $ (GETREFV 61))

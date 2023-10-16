@@ -25,10 +25,10 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|UnivariateLaurentSeries|)
-                                               '|domainEqualList|))
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache| '|UnivariateLaurentSeries|)
+                     '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -46,8 +46,8 @@
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
-    (LETT DV$2 (|devaluate| |#2|))
-    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$2 |#2|)
+    (LETT DV$3 |#3|)
     (LETT |dv$| (LIST '|UnivariateLaurentSeries| DV$1 DV$2 DV$3))
     (LETT $ (GETREFV 81))
     (QSETREFV $ 0 |dv$|)

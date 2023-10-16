@@ -18,7 +18,7 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
                                                (HGET |$ConstructorCache|
                                                      '|PolynomialInterpolation|)
                                                '|domainEqualList|))
@@ -34,7 +34,7 @@
 (DEFUN |PolynomialInterpolation;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$1 |#1|)
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|PolynomialInterpolation| DV$1 DV$2))
           (LETT $ (GETREFV 18))

@@ -327,7 +327,7 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                    (|lassocShiftWithFunction| (LIST #1#)
                                                (HGET |$ConstructorCache|
                                                      '|SCartesian|)
                                                '|domainEqualList|))
@@ -340,7 +340,7 @@
 (DEFUN |SCartesian;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|SCartesian| DV$1))
           (LETT $ (GETREFV 59))
           (QSETREFV $ 0 |dv$|)

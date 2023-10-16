@@ -127,10 +127,10 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|RectangularMatrix|)
-                                               '|domainEqualList|))
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(NIL NIL T))
+                     (HGET |$ConstructorCache| '|RectangularMatrix|)
+                     '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -145,8 +145,8 @@
    ((#1=#:G151 NIL) (|pv$| NIL) (#2=#:G148 NIL) (#3=#:G149 NIL) ($ NIL)
     (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|))
-    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$1 |#1|)
+    (LETT DV$2 |#2|)
     (LETT DV$3 (|devaluate| |#3|))
     (LETT |dv$| (LIST '|RectangularMatrix| DV$1 DV$2 DV$3))
     (LETT $ (GETREFV 66))

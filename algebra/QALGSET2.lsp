@@ -195,7 +195,7 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                    (|lassocShiftWithFunction| (LIST #1#)
                                                (HGET |$ConstructorCache|
                                                      '|QuasiAlgebraicSet2|)
                                                '|domainEqualList|))
@@ -209,7 +209,7 @@
 (DEFUN |QuasiAlgebraicSet2;| (|#1|)
   (SPROG ((#1=#:G107 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|QuasiAlgebraicSet2| DV$1))
           (LETT $ (GETREFV 64))
           (QSETREFV $ 0 |dv$|)

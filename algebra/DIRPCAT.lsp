@@ -6,7 +6,7 @@
 (DEFPARAMETER |DirectProductCategory;AL| 'NIL) 
 
 (DEFUN |DirectProductCategory| (|t#1| |t#2|)
-  (LET (#1=#:G108 (#2=#:G109 (LIST (|devaluate| |t#1|) (|devaluate| |t#2|))))
+  (LET (#1=#:G108 (#2=#:G109 (LIST |t#1| (|devaluate| |t#2|))))
     (COND ((SETQ #1# (|assoc| #2# |DirectProductCategory;AL|)) (CDR #1#))
           (T
            (SETQ |DirectProductCategory;AL|

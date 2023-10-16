@@ -4960,11 +4960,9 @@
                                                                    '|Expression|
                                                                    (LIST
                                                                     '|Integer|))
-                                                                  (|devaluate|
-                                                                   (ELT $ 6))
-                                                                  (|devaluate|
-                                                                   (ELT $
-                                                                        7)))))
+                                                                  (QREFELT $ 6)
+                                                                  (QREFELT $
+                                                                           7))))
                                                      (|SquareMatrix| |order|
                                                                      (|UnivariateLaurentSeries|
                                                                       (|Expression|
@@ -5035,12 +5033,11 @@
                                                                          '|Expression|
                                                                          (LIST
                                                                           '|Integer|))
-                                                                        (|devaluate|
-                                                                         (ELT $
-                                                                              6))
-                                                                        (|devaluate|
-                                                                         (ELT $
-                                                                              7)))))
+                                                                        (QREFELT
+                                                                         $ 6)
+                                                                        (QREFELT
+                                                                         $
+                                                                         7))))
                                                                 (|SquareMatrix|
                                                                  |order|
                                                                  (|UnivariateLaurentSeries|
@@ -5058,10 +5055,8 @@
                                                                '|Expression|
                                                                (LIST
                                                                 '|Integer|))
-                                                              (|devaluate|
-                                                               (ELT $ 6))
-                                                              (|devaluate|
-                                                               (ELT $ 7))))
+                                                              (QREFELT $ 6)
+                                                              (QREFELT $ 7)))
                                                        '$ (LIST '|Integer|)
                                                        (LIST '|SquareMatrix|
                                                              |order|
@@ -5071,10 +5066,8 @@
                                                                '|Expression|
                                                                (LIST
                                                                 '|Integer|))
-                                                              (|devaluate|
-                                                               (ELT $ 6))
-                                                              (|devaluate|
-                                                               (ELT $ 7)))))
+                                                              (QREFELT $ 6)
+                                                              (QREFELT $ 7))))
                                                       (|List|
                                                        (|SquareMatrix| |order|
                                                                        (|UnivariateLaurentSeries|
@@ -5093,8 +5086,8 @@
                                                        '|UnivariateLaurentSeries|
                                                        (LIST '|Expression|
                                                              (LIST '|Integer|))
-                                                       (|devaluate| (ELT $ 6))
-                                                       (|devaluate| (ELT $ 7)))
+                                                       (QREFELT $ 6)
+                                                       (QREFELT $ 7))
                                                       '$)
                                                      (|SquareMatrix| |order|
                                                                      (|UnivariateLaurentSeries|
@@ -5129,10 +5122,8 @@
                                                                 '|Expression|
                                                                 (LIST
                                                                  '|Integer|))
-                                                               (|devaluate|
-                                                                (ELT $ 6))
-                                                               (|devaluate|
-                                                                (ELT $ 7))))
+                                                               (QREFELT $ 6)
+                                                               (QREFELT $ 7)))
                                                              '$
                                                              (LIST '|Integer|))
                                                             (|List|
@@ -5149,8 +5140,8 @@
                                                     '|UnivariateLaurentSeries|
                                                     (LIST '|Expression|
                                                           (LIST '|Integer|))
-                                                    (|devaluate| (ELT $ 6))
-                                                    (|devaluate| (ELT $ 7)))
+                                                    (QREFELT $ 6)
+                                                    (QREFELT $ 7))
                                                    '$)
                                                   (|SquareMatrix| |order|
                                                                   (|UnivariateLaurentSeries|
@@ -8932,7 +8923,7 @@
                                                  (LIST '$
                                                        (LIST
                                                         '|UnivariatePolynomial|
-                                                        (|devaluate| (ELT $ 6))
+                                                        (QREFELT $ 6)
                                                         (LIST '|Expression|
                                                               (LIST
                                                                '|Integer|))))
@@ -9780,7 +9771,7 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL NIL))
                                                (HGET |$ConstructorCache|
                                                      '|LinearOrdinaryDifferentialOperatorFactorizer2|)
                                                '|domainEqualList|))
@@ -9801,8 +9792,8 @@
 (DEFUN |LinearOrdinaryDifferentialOperatorFactorizer2;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
-          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$1 |#1|)
+          (LETT DV$2 |#2|)
           (LETT |dv$|
                 (LIST '|LinearOrdinaryDifferentialOperatorFactorizer2| DV$1
                       DV$2))

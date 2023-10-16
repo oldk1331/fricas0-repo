@@ -345,7 +345,7 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                    (|lassocShiftWithFunction| (LIST #1#)
                                                (HGET |$ConstructorCache|
                                                      '|InnerPrimeField|)
                                                '|domainEqualList|))
@@ -360,7 +360,7 @@
   (SPROG ((|r| NIL) (|cGS| NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (SEQ
           (PROGN
-           (LETT DV$1 (|devaluate| |#1|))
+           (LETT DV$1 |#1|)
            (LETT |dv$| (LIST '|InnerPrimeField| DV$1))
            (LETT $ (GETREFV 118))
            (QSETREFV $ 0 |dv$|)

@@ -363,7 +363,7 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                    (|lassocShiftWithFunction| (LIST #1#)
                                                (HGET |$ConstructorCache|
                                                      '|IntegerLocalizedAtPrime|)
                                                '|domainEqualList|))
@@ -378,7 +378,7 @@
 (DEFUN |IntegerLocalizedAtPrime;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|IntegerLocalizedAtPrime| DV$1))
           (LETT $ (GETREFV 84))
           (QSETREFV $ 0 |dv$|)

@@ -2005,7 +2005,7 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                    (|lassocShiftWithFunction| (LIST #1#)
                                                (HGET |$ConstructorCache|
                                                      '|IdealDecompositionPackage|)
                                                '|domainEqualList|))
@@ -2024,7 +2024,7 @@
     (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (SEQ
     (PROGN
-     (LETT DV$1 (|devaluate| |#1|))
+     (LETT DV$1 |#1|)
      (LETT |dv$| (LIST '|IdealDecompositionPackage| DV$1))
      (LETT $ (GETREFV 166))
      (QSETREFV $ 0 |dv$|)

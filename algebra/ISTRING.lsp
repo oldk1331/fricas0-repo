@@ -531,7 +531,7 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                    (|lassocShiftWithFunction| (LIST #1#)
                                                (HGET |$ConstructorCache|
                                                      '|IndexedString|)
                                                '|domainEqualList|))
@@ -546,7 +546,7 @@
    ((|pv$| NIL) (#1=#:G1213 NIL) (#2=#:G1214 NIL) (#3=#:G1215 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$1 |#1|)
     (LETT |dv$| (LIST '|IndexedString| DV$1))
     (LETT $ (GETREFV 82))
     (QSETREFV $ 0 |dv$|)

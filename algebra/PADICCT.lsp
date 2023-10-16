@@ -6,7 +6,7 @@
 (DEFPARAMETER |PAdicIntegerCategory;AL| 'NIL) 
 
 (DEFUN |PAdicIntegerCategory| (|t#1|)
-  (LET (#1=#:G104 (#2=#:G105 (|devaluate| |t#1|)))
+  (LET (#1=#:G104 (#2=#:G105 |t#1|))
     (COND ((SETQ #1# (|assoc| #2# |PAdicIntegerCategory;AL|)) (CDR #1#))
           (T
            (SETQ |PAdicIntegerCategory;AL|

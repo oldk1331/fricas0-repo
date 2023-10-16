@@ -346,7 +346,7 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                    (|lassocShiftWithFunction| (|devaluate_sig| #1# '(NIL T))
                                                (HGET |$ConstructorCache|
                                                      '|DirectProduct|)
                                                '|domainEqualList|))
@@ -364,7 +364,7 @@
     (#5=#:G245 NIL) (#6=#:G246 NIL) (#7=#:G247 NIL) (#8=#:G248 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$1 |#1|)
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|DirectProduct| DV$1 DV$2))
     (LETT $ (GETREFV 84))

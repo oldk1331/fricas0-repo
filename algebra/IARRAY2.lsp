@@ -7,10 +7,10 @@
            (RETURN
             (COND
              ((LETT #2#
-                    (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                               (HGET |$ConstructorCache|
-                                                     '|IndexedTwoDimensionalArray|)
-                                               '|domainEqualList|))
+                    (|lassocShiftWithFunction|
+                     (|devaluate_sig| #1# '(T NIL NIL))
+                     (HGET |$ConstructorCache| '|IndexedTwoDimensionalArray|)
+                     '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -27,8 +27,8 @@
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
-    (LETT DV$2 (|devaluate| |#2|))
-    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$2 |#2|)
+    (LETT DV$3 |#3|)
     (LETT |dv$| (LIST '|IndexedTwoDimensionalArray| DV$1 DV$2 DV$3))
     (LETT $ (GETREFV 33))
     (QSETREFV $ 0 |dv$|)
