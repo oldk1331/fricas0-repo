@@ -670,6 +670,12 @@
                                       |ir_lst|)))))
                             ('T
                              (SEQ
+                              (LETT |nk|
+                                    (SPADCALL (SPADCALL |k| (QREFELT $ 53))
+                                              (LIST |nak|
+                                                    (SPADCALL (QVELT |pr| 0)
+                                                              (QREFELT $ 131)))
+                                              (QREFELT $ 132)))
                               (LETT |rv_lst|
                                     (CONS
                                      (SPADCALL (QVELT |pr| 1) |nk|
