@@ -3375,6 +3375,8 @@
 ;       for x in l repeat if not getTarget(x) then putTarget(x,ud)
 ;     first(tar) in '(Matrix SquareMatrix RectangularMatrix) =>
 ;       vec := ['List,underDomainOf tar]
+;       (l is [[realOp, :.]]) and (getUnname(realOp) = 'COLLECT) =>
+;           putTarget(first(l), ['List, vec])
 ;       for x in l repeat if not getTarget(x) then putTarget(x,vec)
 ;   argModeSetList:= [bottomUp x for x in l]
 ;   dol and dol is [topType,:.] and not (topType in aggs) =>
@@ -3454,18 +3456,27 @@
                      '(|Matrix| |SquareMatrix| |RectangularMatrix|))
                     (PROGN
                      (SETQ |vec| (LIST '|List| (|underDomainOf| |tar|)))
-                     ((LAMBDA (|bfVar#79| |x|)
-                        (LOOP
-                         (COND
-                          ((OR (ATOM |bfVar#79|)
-                               (PROGN (SETQ |x| (CAR |bfVar#79|)) NIL))
-                           (RETURN NIL))
-                          (#1#
+                     (COND
+                      ((AND (CONSP |l|) (EQ (CDR |l|) NIL)
+                            (PROGN
+                             (SETQ |ISTMP#1| (CAR |l|))
+                             (AND (CONSP |ISTMP#1|)
+                                  (PROGN (SETQ |realOp| (CAR |ISTMP#1|)) #1#)))
+                            (EQ (|getUnname| |realOp|) 'COLLECT))
+                       (|putTarget| (CAR |l|) (LIST '|List| |vec|)))
+                      (#1#
+                       ((LAMBDA (|bfVar#79| |x|)
+                          (LOOP
                            (COND
-                            ((NULL (|getTarget| |x|))
-                             (|putTarget| |x| |vec|)))))
-                         (SETQ |bfVar#79| (CDR |bfVar#79|))))
-                      |l| NIL))))))
+                            ((OR (ATOM |bfVar#79|)
+                                 (PROGN (SETQ |x| (CAR |bfVar#79|)) NIL))
+                             (RETURN NIL))
+                            (#1#
+                             (COND
+                              ((NULL (|getTarget| |x|))
+                               (|putTarget| |x| |vec|)))))
+                           (SETQ |bfVar#79| (CDR |bfVar#79|))))
+                        |l| NIL))))))))
                 (SETQ |argModeSetList|
                         ((LAMBDA (|bfVar#81| |bfVar#80| |x|)
                            (LOOP
