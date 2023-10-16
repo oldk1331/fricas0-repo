@@ -1024,7 +1024,6 @@
 ;         atom tail => tail
 ;         listSort(function LEXLESSEQP,tail)
 ;       RPLACD(rest entry, tail)
-;   SAY(["dbGatherData", data])
 ;   data := listSort(function LEXLESSEQP,data)
 ;   data
  
@@ -1202,7 +1201,6 @@
                          (RPLACD (CDR |entry|) |tail|))))
                       (SETQ |bfVar#46| (CDR |bfVar#46|))))
                    |data| NIL)))
-                (SAY (LIST '|dbGatherData| |data|))
                 (SETQ |data| (|listSort| #'LEXLESSEQP |data|))
                 |data|)))))))))
  
