@@ -1856,7 +1856,7 @@
                       (SETQ |bfVar#61| (CDR |bfVar#61|))))
                    NIL (CDR |x|) NIL)))))))
  
-; sublisV(p,e) == 
+; sublisV(p,e) ==
 ;   LIST2REFVEC [suba(p, e.i) for i in 0..MAXINDEX e] where
 ;     suba(p,e) ==
 ;       STRINGP e => e

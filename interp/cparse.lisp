@@ -212,7 +212,7 @@
       |a|))))
  
 ; npParenthesized f==
-;    npParenthesize("(",")",f) 
+;    npParenthesize("(",")",f)
  
 (DEFUN |npParenthesized| (|f|)
   (PROG () (RETURN (|npParenthesize| '|(| '|)| |f|))))
