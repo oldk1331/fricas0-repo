@@ -5856,7 +5856,7 @@
 ;     opt = 'operations =>
 ;       if isRecordOrUnion
 ;         then
-;           constructorFunction:= GETL(top,"makeFunctionList") or
+;           constructorFunction := get_oplist_maker(top) or
 ;             systemErrorHere '"reportOpsFromUnitDirectly"
 ;           [funlist,.]:= FUNCALL(constructorFunction,"$",unitForm,
 ;             $CategoryFrame)
@@ -5943,7 +5943,7 @@
                      (COND
                       (|isRecordOrUnion|
                        (SETQ |constructorFunction|
-                               (OR (GETL |top| '|makeFunctionList|)
+                               (OR (|get_oplist_maker| |top|)
                                    (|systemErrorHere|
                                     "reportOpsFromUnitDirectly")))
                        (SETQ |LETTMP#1|
