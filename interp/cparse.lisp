@@ -65,7 +65,7 @@
  
 ; npItem()==
 ;      npQualDef() =>
-;             npEqKey "SEMICOLON" =>
+;             npEqKey(";") =>
 ;                       [a,b]:=npItem1 npPop1 ()
 ;                       c:=pfEnSequence b
 ;                       a => npPush c
@@ -79,7 +79,7 @@
      (COND
       ((|npQualDef|)
        (COND
-        ((|npEqKey| 'SEMICOLON)
+        ((|npEqKey| '|;|)
          (PROGN
           (SETQ |LETTMP#1| (|npItem1| (|npPop1|)))
           (SETQ |a| (CAR |LETTMP#1|))
@@ -91,7 +91,7 @@
  
 ; npItem1 c==
 ;      npQualDef() =>
-;             npEqKey "SEMICOLON" =>
+;             npEqKey(";") =>
 ;                       [a,b]:=npItem1 npPop1 ()
 ;                       [a,append(c,b)]
 ;             [true,append (c,npPop1())]
@@ -103,7 +103,7 @@
      (COND
       ((|npQualDef|)
        (COND
-        ((|npEqKey| 'SEMICOLON)
+        ((|npEqKey| '|;|)
          (PROGN
           (SETQ |LETTMP#1| (|npItem1| (|npPop1|)))
           (SETQ |a| (CAR |LETTMP#1|))
@@ -883,14 +883,14 @@
            (|npPush| (|tokConstruct| '|id| '$ (|tokPosn| |$stok|)))
            (|npNext|))))))
  
-; npPrefixColon()== npEqPeek "COLON" and
+; npPrefixColon()== npEqPeek(":") and
 ;    npPush tokConstruct("id",":",tokPosn $stok)
 ;    npNext()
  
 (DEFUN |npPrefixColon| ()
   (PROG ()
     (RETURN
-     (AND (|npEqPeek| 'COLON)
+     (AND (|npEqPeek| '|:|)
           (PROGN
            (|npPush| (|tokConstruct| '|id| '|:| (|tokPosn| |$stok|)))
            (|npNext|))))))
@@ -946,13 +946,13 @@
   (PROG () (RETURN (AND (APPLY |f| NIL) (|npAnyNo| #'|npSelector|)))))
  
 ; npSelector()==
-;             npEqKey "DOT" and (npPrimary() or npTrap()) and
+;             npEqKey(".") and (npPrimary() or npTrap()) and
 ;               npPush(pfApplication(npPop2(),npPop1()))
  
 (DEFUN |npSelector| ()
   (PROG ()
     (RETURN
-     (AND (|npEqKey| 'DOT) (OR (|npPrimary|) (|npTrap|))
+     (AND (|npEqKey| '|.|) (OR (|npPrimary|) (|npTrap|))
           (|npPush| (|pfApplication| (|npPop2|) (|npPop1|)))))))
  
 ; npApplication()==
@@ -1003,14 +1003,13 @@
      (AND (|npEqKey| |sy|) (OR (|npApplication|) (|npTrap|))
           (|npPush| (FUNCALL |fn| (|npPop2|) (|npPop1|)))))))
  
-; npRestrict() == npTypedForm("AT",function pfRestrict)
+; npRestrict() == npTypedForm("@", function pfRestrict)
  
-(DEFUN |npRestrict| () (PROG () (RETURN (|npTypedForm| 'AT #'|pfRestrict|))))
+(DEFUN |npRestrict| () (PROG () (RETURN (|npTypedForm| '@ #'|pfRestrict|))))
  
-; npCoerceTo() == npTypedForm("COERCE",function pfCoerceto)
+; npCoerceTo() == npTypedForm("::", function pfCoerceto)
  
-(DEFUN |npCoerceTo| ()
-  (PROG () (RETURN (|npTypedForm| 'COERCE #'|pfCoerceto|))))
+(DEFUN |npCoerceTo| () (PROG () (RETURN (|npTypedForm| '|::| #'|pfCoerceto|))))
  
 ; npColonQuery() == npTypedForm("ATAT",function pfRetractTo)
  
@@ -1034,31 +1033,29 @@
 (DEFUN |npTypified| ()
   (PROG () (RETURN (AND (|npApplication|) (|npAnyNo| #'|npTypeStyle|)))))
  
-; npTagged() == npTypedForm1("COLON",function pfTagged)
+; npTagged() == npTypedForm1(":", function pfTagged)
  
-(DEFUN |npTagged| () (PROG () (RETURN (|npTypedForm1| 'COLON #'|pfTagged|))))
+(DEFUN |npTagged| () (PROG () (RETURN (|npTypedForm1| '|:| #'|pfTagged|))))
  
 ; npColon () == npTypified() and npAnyNo function npTagged
  
 (DEFUN |npColon| ()
   (PROG () (RETURN (AND (|npTypified|) (|npAnyNo| #'|npTagged|)))))
  
-; npPower() == npRightAssoc('(POWER CARAT),function npColon)
+; npPower() == npRightAssoc(["**", "^"], function npColon)
  
 (DEFUN |npPower| ()
-  (PROG () (RETURN (|npRightAssoc| '(POWER CARAT) #'|npColon|))))
+  (PROG () (RETURN (|npRightAssoc| (LIST '** '^) #'|npColon|))))
  
 ; npProduct()==
-;     npLeftAssoc('(TIMES SLASH BACKSLASH SLASHSLASH
-;        BACKSLASHBACKSLASH SLASHBACKSLASH BACKSLASHSLASH )
-;                        ,function npPower)
+;     npLeftAssoc(["*", "/", "\", "SLASHSLASH",
+;        "BACKSLASHBACKSLASH", "/\", "\/"], function npPower)
  
 (DEFUN |npProduct| ()
   (PROG ()
     (RETURN
      (|npLeftAssoc|
-      '(TIMES SLASH BACKSLASH SLASHSLASH BACKSLASHBACKSLASH SLASHBACKSLASH
-        BACKSLASHSLASH)
+      (LIST '* '/ '|\\| 'SLASHSLASH 'BACKSLASHBACKSLASH '|/\\| '|\\/|)
       #'|npPower|))))
  
 ; npRemainder()==
@@ -1069,7 +1066,7 @@
     (RETURN (|npLeftAssoc| (LIST '|rem| '|quo| '|exquo|) #'|npProduct|))))
  
 ; npTerm()==
-;    npInfGeneric '(MINUS PLUS) and (npRemainder()
+;    npInfGeneric(["-", "+"]) and (npRemainder()
 ;         and npPush(pfApplication(npPop2(),npPop1())) or true)
 ;              or npRemainder()
  
@@ -1077,20 +1074,20 @@
   (PROG ()
     (RETURN
      (OR
-      (AND (|npInfGeneric| '(MINUS PLUS))
+      (AND (|npInfGeneric| (LIST '- '+))
            (OR
             (AND (|npRemainder|)
                  (|npPush| (|pfApplication| (|npPop2|) (|npPop1|))))
             T))
       (|npRemainder|)))))
  
-; npSum()==npLeftAssoc('(PLUS MINUS),function npTerm)
+; npSum()==npLeftAssoc(["-", "+"], function npTerm)
  
-(DEFUN |npSum| () (PROG () (RETURN (|npLeftAssoc| '(PLUS MINUS) #'|npTerm|))))
+(DEFUN |npSum| () (PROG () (RETURN (|npLeftAssoc| (LIST '- '+) #'|npTerm|))))
  
-; npArith()==npLeftAssoc('(MOD),function npSum)
+; npArith()==npLeftAssoc(["mod"], function npSum)
  
-(DEFUN |npArith| () (PROG () (RETURN (|npLeftAssoc| '(MOD) #'|npSum|))))
+(DEFUN |npArith| () (PROG () (RETURN (|npLeftAssoc| (LIST '|mod|) #'|npSum|))))
  
 ; npSegment()==  npEqPeek "SEG"  and npPushId() and npFromdom()
  
@@ -1099,7 +1096,7 @@
  
 ; npInterval()==
 ;   npArith() and
-;    (npSegment() and ((npEqPeek "BAR"
+;    (npSegment() and ((npEqPeek("|")
 ;       and npPush(pfApplication(npPop1(),npPop1()))) or
 ;      (npArith() and npPush(pfInfApplication(npPop2(),npPop2(),npPop1())))
 ;             or npPush(pfApplication(npPop1(),npPop1()))) or true)
@@ -1111,7 +1108,7 @@
           (OR
            (AND (|npSegment|)
                 (OR
-                 (AND (|npEqPeek| 'BAR)
+                 (AND (|npEqPeek| '|\||)
                       (|npPush| (|pfApplication| (|npPop1|) (|npPop1|))))
                  (AND (|npArith|)
                       (|npPush|
@@ -1164,14 +1161,13 @@
       (#1# NIL)))))
  
 ; npRelation()==
-;    npLeftAssoc ('(EQUAL NOTEQUAL LT LE GT GE OANGLE CANGLE),
+;    npLeftAssoc(["=", "~=", "<", "<=", ">", ">=", "<<", ">>"],
 ;             function npSynthetic)
  
 (DEFUN |npRelation| ()
   (PROG ()
     (RETURN
-     (|npLeftAssoc| '(EQUAL NOTEQUAL LT LE GT GE OANGLE CANGLE)
-      #'|npSynthetic|))))
+     (|npLeftAssoc| (LIST '= '~= '< '<= '> '>= '<< '>>) #'|npSynthetic|))))
  
 ; npQuiver()  ==    npRightAssoc('(ARROW LARROW),function npRelation)
  
@@ -1193,9 +1189,10 @@
 (DEFUN |npLogical| ()
   (PROG () (RETURN (|npLeftAssoc| (LIST '|or|) #'|npDisjand|))))
  
-; npSuch() == npLeftAssoc( '(BAR),function npLogical)
+; npSuch() == npLeftAssoc(["|"], function npLogical)
  
-(DEFUN |npSuch| () (PROG () (RETURN (|npLeftAssoc| '(BAR) #'|npLogical|))))
+(DEFUN |npSuch| ()
+  (PROG () (RETURN (|npLeftAssoc| (LIST '|\||) #'|npLogical|))))
  
 ; npMatch()   ==  npLeftAssoc(["is", "isnt"], function npSuch)
  
@@ -1232,10 +1229,10 @@
 (DEFUN |npExpress1| ()
   (PROG () (RETURN (OR (|npConditionalStatement|) (|npADD|)))))
  
-; npCommaBackSet()== npEqKey "COMMA" and (npEqKey "BACKSET" or true)
+; npCommaBackSet()== npEqKey(",") and (npEqKey "BACKSET" or true)
  
 (DEFUN |npCommaBackSet| ()
-  (PROG () (RETURN (AND (|npEqKey| 'COMMA) (OR (|npEqKey| 'BACKSET) T)))))
+  (PROG () (RETURN (AND (|npEqKey| '|,|) (OR (|npEqKey| 'BACKSET) T)))))
  
 ; npExpress()==
 ;      npExpress1() and
@@ -1339,30 +1336,30 @@
          (#1='T T)))
        (#1# NIL))))))
  
-; npMDEF()== npBackTrack(function npStatement,"MDEF",function npMDEFinition)
+; npMDEF()== npBackTrack(function npStatement, "==>", function npMDEFinition)
  
 (DEFUN |npMDEF| ()
-  (PROG () (RETURN (|npBackTrack| #'|npStatement| 'MDEF #'|npMDEFinition|))))
+  (PROG () (RETURN (|npBackTrack| #'|npStatement| '==> #'|npMDEFinition|))))
  
 ; npMDEFinition() == npPP function npMdef
  
 (DEFUN |npMDEFinition| () (PROG () (RETURN (|npPP| #'|npMdef|))))
  
-; npAssign()== npBackTrack(function npMDEF,"BECOMES",function npAssignment)
+; npAssign()== npBackTrack(function npMDEF, ":=", function npAssignment)
  
 (DEFUN |npAssign| ()
-  (PROG () (RETURN (|npBackTrack| #'|npMDEF| 'BECOMES #'|npAssignment|))))
+  (PROG () (RETURN (|npBackTrack| #'|npMDEF| '|:=| #'|npAssignment|))))
  
 ; npAssignment()==
 ;     npAssignVariable() and
-;       (npEqKey "BECOMES" or npTrap()) and
+;       (npEqKey(":=") or npTrap()) and
 ;         (npGives() or npTrap()) and
 ;            npPush pfAssign (npPop2(),npPop1())
  
 (DEFUN |npAssignment| ()
   (PROG ()
     (RETURN
-     (AND (|npAssignVariable|) (OR (|npEqKey| 'BECOMES) (|npTrap|))
+     (AND (|npAssignVariable|) (OR (|npEqKey| '|:=|) (|npTrap|))
           (OR (|npGives|) (|npTrap|))
           (|npPush| (|pfAssign| (|npPop2|) (|npPop1|)))))))
  
@@ -1396,33 +1393,33 @@
 (DEFUN |npAssignVariablelist| ()
   (PROG () (RETURN (|npListing| #'|npAssignVariableName|))))
  
-; npExit()== npBackTrack(function npAssign,"EXIT",function npPileExit)
+; npExit()== npBackTrack(function npAssign, "=>", function npPileExit)
  
 (DEFUN |npExit| ()
-  (PROG () (RETURN (|npBackTrack| #'|npAssign| 'EXIT #'|npPileExit|))))
+  (PROG () (RETURN (|npBackTrack| #'|npAssign| '=> #'|npPileExit|))))
  
 ; npPileExit()==
-;      npAssign() and (npEqKey "EXIT" or npTrap()) and
+;      npAssign() and (npEqKey("=>") or npTrap()) and
 ;          (npStatement() or npTrap())
 ;            and npPush pfExit (npPop2(),npPop1())
  
 (DEFUN |npPileExit| ()
   (PROG ()
     (RETURN
-     (AND (|npAssign|) (OR (|npEqKey| 'EXIT) (|npTrap|))
+     (AND (|npAssign|) (OR (|npEqKey| '=>) (|npTrap|))
           (OR (|npStatement|) (|npTrap|))
           (|npPush| (|pfExit| (|npPop2|) (|npPop1|)))))))
  
-; npGives()== npBackTrack(function npExit,"GIVES",function npLambda)
+; npGives()== npBackTrack(function npExit, "+->", function npLambda)
  
 (DEFUN |npGives| ()
-  (PROG () (RETURN (|npBackTrack| #'|npExit| 'GIVES #'|npLambda|))))
+  (PROG () (RETURN (|npBackTrack| #'|npExit| '+-> #'|npLambda|))))
  
 ; npDefinitionOrStatement()==
-;             npBackTrack(function npGives,"DEF",function npDef)
+;             npBackTrack(function npGives, "==", function npDef)
  
 (DEFUN |npDefinitionOrStatement| ()
-  (PROG () (RETURN (|npBackTrack| #'|npGives| 'DEF #'|npDef|))))
+  (PROG () (RETURN (|npBackTrack| #'|npGives| '== #'|npDef|))))
  
 ; npVoid()== npAndOr("DO",function npStatement,function pfNovalue)
  
@@ -1464,10 +1461,10 @@
       (AND (|npEqKey| '|repeat|) (OR (|npAssign|) (|npTrap|))
            (|npPush| (|pfLoop1| (|npPop1|))))))))
  
-; npSuchThat()==npAndOr("BAR",function npLogical,function pfSuchthat)
+; npSuchThat()==npAndOr("|", function npLogical, function pfSuchthat)
  
 (DEFUN |npSuchThat| ()
-  (PROG () (RETURN (|npAndOr| 'BAR #'|npLogical| #'|pfSuchthat|))))
+  (PROG () (RETURN (|npAndOr| '|\|| #'|npLogical| #'|pfSuchthat|))))
  
 ; npWhile() == npAndOr("while", function npLogical, function pfWhile)
  
@@ -1536,7 +1533,7 @@
 (DEFUN |npInline| ()
   (PROG () (RETURN (|npAndOr| 'INLINE #'|npQualTypelist| #'|pfInline|))))
  
-; npLocalDecl()== npEqKey "COLON" and (npType() or npTrap()) and
+; npLocalDecl()== npEqKey(":") and (npType() or npTrap()) and
 ;              npPush pfSpread (pfParts npPop2(),npPop1()) or
 ;               npPush pfSpread (pfParts npPop1(),pfNothing())
  
@@ -1544,7 +1541,7 @@
   (PROG ()
     (RETURN
      (OR
-      (AND (|npEqKey| 'COLON) (OR (|npType|) (|npTrap|))
+      (AND (|npEqKey| '|:|) (OR (|npType|) (|npTrap|))
            (|npPush| (|pfSpread| (|pfParts| (|npPop2|)) (|npPop1|))))
       (|npPush| (|pfSpread| (|pfParts| (|npPop1|)) (|pfNothing|)))))))
  
@@ -1723,7 +1720,7 @@
 ;     else
 ;       a:=npState()
 ;       if npPrimary()
-;       then if npEqPeek "COLON"
+;       then if npEqPeek(":")
 ;            then
 ;               npRestore a
 ;               npSignature()
@@ -1742,7 +1739,7 @@
            (#1='T (SETQ |a| (|npState|))
             (COND
              ((|npPrimary|)
-              (COND ((|npEqPeek| 'COLON) (|npRestore| |a|) (|npSignature|))
+              (COND ((|npEqPeek| '|:|) (|npRestore| |a|) (|npSignature|))
                     (#1# (|npRestore| |a|)
                      (OR
                       (AND (|npApplication|)
@@ -1756,13 +1753,13 @@
 (DEFUN |npSignatureDefinee| ()
   (PROG () (RETURN (OR (|npName|) (|npInfixOperator|) (|npPrefixColon|)))))
  
-; npSigDecl()== npEqKey "COLON" and (npType() or npTrap()) and
+; npSigDecl()== npEqKey(":") and (npType() or npTrap()) and
 ;            npPush pfSpread (pfParts npPop2(),npPop1())
  
 (DEFUN |npSigDecl| ()
   (PROG ()
     (RETURN
-     (AND (|npEqKey| 'COLON) (OR (|npType|) (|npTrap|))
+     (AND (|npEqKey| '|:|) (OR (|npType|) (|npTrap|))
           (|npPush| (|pfSpread| (|pfParts| (|npPop2|)) (|npPop1|)))))))
  
 ; npSigItem()==npTypeVariable() and  (npSigDecl() or npTrap())
@@ -1794,18 +1791,18 @@
 (DEFUN |npSemiListing| (|p|)
   (PROG () (RETURN (|npListofFun| |p| #'|npSemiBackSet| #'|pfAppend|))))
  
-; npSemiBackSet()== npEqKey "SEMICOLON" and (npEqKey "BACKSET" or true)
+; npSemiBackSet()== npEqKey(";") and (npEqKey "BACKSET" or true)
  
 (DEFUN |npSemiBackSet| ()
-  (PROG () (RETURN (AND (|npEqKey| 'SEMICOLON) (OR (|npEqKey| 'BACKSET) T)))))
+  (PROG () (RETURN (AND (|npEqKey| '|;|) (OR (|npEqKey| 'BACKSET) T)))))
  
-; npDecl()== npEqKey "COLON" and (npType() or npTrap()) and
+; npDecl()== npEqKey(":") and (npType() or npTrap()) and
 ;            npPush pfTyped (npPop2(),npPop1())
  
 (DEFUN |npDecl| ()
   (PROG ()
     (RETURN
-     (AND (|npEqKey| 'COLON) (OR (|npType|) (|npTrap|))
+     (AND (|npEqKey| '|:|) (OR (|npType|) (|npTrap|))
           (|npPush| (|pfTyped| (|npPop2|) (|npPop1|)))))))
  
 ; npVariableName()==npName() and
@@ -1830,9 +1827,9 @@
  
 (DEFUN |npVariablelist| () (PROG () (RETURN (|npListing| #'|npVariableName|))))
  
-; npListing (p)==npList(p,"COMMA",function pfListOf)
+; npListing (p)==npList(p, ",", function pfListOf)
  
-(DEFUN |npListing| (|p|) (PROG () (RETURN (|npList| |p| 'COMMA #'|pfListOf|))))
+(DEFUN |npListing| (|p|) (PROG () (RETURN (|npList| |p| '|,| #'|pfListOf|))))
  
 ; npQualified(f)==
 ;     if FUNCALL f
@@ -1857,7 +1854,7 @@
       (#1# (|npLetQualified| |f|))))))
  
 ; npLetQualified f==
-;       npEqKey "LET" and
+;       npEqKey "LET" and BREAK() and
 ;       (npDefinition() or npTrap()) and
 ;       npCompMissing "in"  and
 ;       (FUNCALL f or npTrap()) and
@@ -1866,7 +1863,7 @@
 (DEFUN |npLetQualified| (|f|)
   (PROG ()
     (RETURN
-     (AND (|npEqKey| 'LET) (OR (|npDefinition|) (|npTrap|))
+     (AND (|npEqKey| 'LET) (BREAK) (OR (|npDefinition|) (|npTrap|))
           (|npCompMissing| '|in|) (OR (FUNCALL |f|) (|npTrap|))
           (|npPush| (|pfWhere| (|npPop2|) (|npPop1|)))))))
  
@@ -1955,13 +1952,13 @@
     (RETURN
      (AND (|npPC| #'|npSDefaultItem|) (|npPush| (|pfUnSequence| (|npPop1|)))))))
  
-; npDefaultDecl()== npEqKey "COLON" and (npType() or npTrap()) and
+; npDefaultDecl()== npEqKey(":") and (npType() or npTrap()) and
 ;            npPush pfSpread (pfParts npPop2(),npPop1())
  
 (DEFUN |npDefaultDecl| ()
   (PROG ()
     (RETURN
-     (AND (|npEqKey| 'COLON) (OR (|npType|) (|npTrap|))
+     (AND (|npEqKey| '|:|) (OR (|npType|) (|npTrap|))
           (|npPush| (|pfSpread| (|pfParts| (|npPop2|)) (|npPop1|)))))))
  
 ; npDefaultItem()==npTypeVariable() and (npDefaultDecl() or npTrap())
@@ -1992,9 +1989,9 @@
 ;      (npVariable() and
 ;       ((npLambda() or npTrap()) and
 ;        npPush pfLam(npPop2(),npPop1()))) or
-;          npEqKey "GIVES" and (npDefinitionOrStatement() or npTrap()) or
-;           npEqKey "COLON" and (npType() or npTrap()) and
-;             npEqKey "GIVES" and (npDefinitionOrStatement() or npTrap())
+;          npEqKey("+->") and (npDefinitionOrStatement() or npTrap()) or
+;           npEqKey(":") and (npType() or npTrap()) and
+;             npEqKey("+->") and (npDefinitionOrStatement() or npTrap())
 ;                and
 ;                   npPush pfReturnTyped(npPop2(),npPop1())
  
@@ -2004,8 +2001,8 @@
      (OR
       (AND (|npVariable|) (OR (|npLambda|) (|npTrap|))
            (|npPush| (|pfLam| (|npPop2|) (|npPop1|))))
-      (AND (|npEqKey| 'GIVES) (OR (|npDefinitionOrStatement|) (|npTrap|)))
-      (AND (|npEqKey| 'COLON) (OR (|npType|) (|npTrap|)) (|npEqKey| 'GIVES)
+      (AND (|npEqKey| '+->) (OR (|npDefinitionOrStatement|) (|npTrap|)))
+      (AND (|npEqKey| '|:|) (OR (|npType|) (|npTrap|)) (|npEqKey| '+->)
            (OR (|npDefinitionOrStatement|) (|npTrap|))
            (|npPush| (|pfReturnTyped| (|npPop2|) (|npPop1|))))))))
  
@@ -2036,13 +2033,12 @@
                 (|pfDefinition| |op| (|pfPushBody| |rt| |arg| |body|)))))))
       (#2# NIL)))))
  
-; npDefTail()== (npEqKey "DEF" or npEqKey "MDEF") and npDefinitionOrStatement()
+; npDefTail()== (npEqKey("==") or npEqKey("==>")) and npDefinitionOrStatement()
  
 (DEFUN |npDefTail| ()
   (PROG ()
     (RETURN
-     (AND (OR (|npEqKey| 'DEF) (|npEqKey| 'MDEF))
-          (|npDefinitionOrStatement|)))))
+     (AND (OR (|npEqKey| '==) (|npEqKey| '==>)) (|npDefinitionOrStatement|)))))
  
 ; npMdef()==
 ;     npQuiver() =>
@@ -2090,7 +2086,7 @@
 ;       npImport()  or
 ;           a:=npState()
 ;           npStatement() =>
-;                npEqPeek "DEF" =>
+;                npEqPeek("==") =>
 ;                   npRestore a
 ;                   npDef()
 ;                npRestore a
@@ -2105,7 +2101,7 @@
           (SETQ |a| (|npState|))
           (COND
            ((|npStatement|)
-            (COND ((|npEqPeek| 'DEF) (PROGN (|npRestore| |a|) (|npDef|)))
+            (COND ((|npEqPeek| '==) (PROGN (|npRestore| |a|) (|npDef|)))
                   (#1='T
                    (PROGN (|npRestore| |a|) (OR (|npMacro|) (|npDefn|))))))
            (#1# (|npTrap|))))))))

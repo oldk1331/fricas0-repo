@@ -229,49 +229,12 @@
  
 ; $trans_key := [ _
 ;                 ["ARROW", "->"], _
-;                 ["AT", "@"], _
-;                 ["BAR", "|"], _
-;                 ["BACKSLASHSLASH", "\/"], _
-;                 ["BECOMES", ":="], _
-;                 ["CARAT", "^"], _
-;                 ["COERCE", "::"], _
-;                 ["COLON", ":"], _
-;                 ["COMMA", ","], _
-;                 ["DEF", "=="], _
-;                 ["DOT", "."], _
-;                 ["EQUAL", "="], _
-;                 ["EXIT", "=>"], _
-;                 ["GE", ">="], _
-;                 ["GIVES", "+->"], _
-;                 ["GT", ">"], _
-;                 ["LE", "<="], _
-;                 ["LT", "<"], _
-;                 ["OANGLE", "<<"], _
-;                 ["CANGLE", ">>"], _
-;                 ["MDEF", "==>"], _
-;                 ["MINUS", "-"], _
-;                 ["NOTEQUAL", "~="], _
-;                 ["PLUS", "+"], _
 ;                 ["SEG", ".."], _
-;                 ["SEMICOLON", ";"], _
-;                 ["SLASH", "/"], _
-;                 ["SLASHBACKSLASH", "/\"], _
-;                 ["TIMES", "*"], _
 ;                 ["BACKSET", ";"]]
  
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$trans_key|
-          (LIST (LIST 'ARROW '->) (LIST 'AT '@) (LIST 'BAR '|\||)
-                (LIST 'BACKSLASHSLASH '|\\/|) (LIST 'BECOMES '|:=|)
-                (LIST 'CARAT '^) (LIST 'COERCE '|::|) (LIST 'COLON '|:|)
-                (LIST 'COMMA '|,|) (LIST 'DEF '==) (LIST 'DOT '|.|)
-                (LIST 'EQUAL '=) (LIST 'EXIT '=>) (LIST 'GE '>=)
-                (LIST 'GIVES '+->) (LIST 'GT '>) (LIST 'LE '<=) (LIST 'LT '<)
-                (LIST 'OANGLE '<<) (LIST 'CANGLE '>>) (LIST 'MDEF '==>)
-                (LIST 'MINUS '-) (LIST 'NOTEQUAL '~=) (LIST 'PLUS '+)
-                (LIST 'SEG '|..|) (LIST 'SEMICOLON '|;|) (LIST 'SLASH '/)
-                (LIST 'SLASHBACKSLASH '|/\\|) (LIST 'TIMES '*)
-                (LIST 'BACKSET '|;|))))
+          (LIST (LIST 'ARROW '->) (LIST 'SEG '|..|) (LIST 'BACKSET '|;|))))
  
 ; $trans_key_id := [ _
 ;                 ["break", "break"], _
@@ -284,14 +247,14 @@
           (LIST (LIST '|break| '|break|) (LIST 'DEFAULT '|default|)
                 (LIST 'RULE '|rule|))))
  
-; $expression_nostarters := [ "ARROW", "BACKSET", "BECOMES", "COLON", _
-;     "COMMA", "DEF", "ELSE", "EXIT", "GIVES", "MDEF", "SEMICOLON",
+; $expression_nostarters := [ "ARROW", "BACKSET", ":=", ":", _
+;     ",", "==", "=>", "+->", "==>", ";",
 ;     "has", "is", "pretend", "where", ")"]
  
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$expression_nostarters|
-          (LIST 'ARROW 'BACKSET 'BECOMES 'COLON 'COMMA 'DEF 'ELSE 'EXIT 'GIVES
-                'MDEF 'SEMICOLON '|has| '|is| '|pretend| '|where| '|)|)))
+          (LIST 'ARROW 'BACKSET '|:=| '|:| '|,| '== '=> '+-> '==> '|;| '|has|
+                '|is| '|pretend| '|where| '|)|)))
  
 ; starts_expression?(sym, type) ==
 ;     type ~= "key" => true
@@ -378,7 +341,7 @@
 ;             ntype1 := first(ntok1)
 ;             nsym := ntok1.1
 ;             if ntype1 = "key" and nsym in ["then", "else",
-;                   "COMMA", "SEMICOLON"] then
+;                   ",", ";"] then
 ;                 PUSH($ignored_tab, $tab_states)
 ;                 $ignored_tab := true
 ;                 return ntokreader(token)
@@ -491,8 +454,7 @@
                 (SETQ |nsym| (ELT |ntok1| 1))
                 (COND
                  ((AND (EQ |ntype1| '|key|)
-                       (|member| |nsym|
-                        (LIST '|then| '|else| 'COMMA 'SEMICOLON)))
+                       (|member| |nsym| (LIST '|then| '|else| '|,| '|;|)))
                   (PUSH |$ignored_tab| |$tab_states|) (SETQ |$ignored_tab| T)
                   (RETURN (|ntokreader| |token|)))
                  (#1# (PUSH |$ignored_tab| |$tab_states|)

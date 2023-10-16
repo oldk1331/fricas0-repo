@@ -84,7 +84,7 @@
 ;            ['"iterate", "ITERATE"],_
 ;            ['"local", "local"], _
 ;            ['"macro", "MACRO" ],_
-;            ['"mod", "MOD" ],_
+;            ['"mod", "mod"], _
 ;            ['"not", "not"], _
 ;            ['"or", "or"], _
 ;            ['"pretend", "pretend"], _
@@ -100,45 +100,45 @@
 ;            ['"while", "while"],_
 ;            ['"with", "with"], _
 ;            ['"yield", "yield"], _
-;            ['"|","BAR"],_
-;            ['".","DOT" ],_
-;            ['"::","COERCE" ],_
-;            ['":","COLON" ],_
+;            ['"|",  "|"], _
+;            ['".",  "."], _
+;            ['"::", "::"], _
+;            ['":",  ":"], _
 ;            ['":-","COLONDASH" ],_
-;            ['"@","AT" ],_
+;            ['"@",  "@"], _
 ;            ['"@@","ATAT" ],_
-;            ['",","COMMA" ],_
-;            ['";","SEMICOLON" ],_
-;            ['"**","POWER" ],_
-;            ['"*","TIMES" ],_
-;            ['"+","PLUS" ],_
-;            ['"-","MINUS" ],_
-;            ['"<","LT" ],_
-;            ['">","GT" ],_
-;            ['"<=","LE" ],_
-;            ['">=","GE" ],_
-;            ['"=", "EQUAL"],_
-;            ['"~=","NOTEQUAL" ],_
-;            ['"~","~" ],_
-;            ['"^","CARAT" ],_
+;            ['",", ","],_
+;            ['";",  ";"],_
+;            ['"**", "**"], _
+;            ['"*",  "*"],_
+;            ['"+",  "+"], _
+;            ['"-",  "-"], _
+;            ['"<",  "<"], _
+;            ['">",  ">"], _
+;            ['"<=", "<="], _
+;            ['">=", ">="], _
+;            ['"=",  "="], _
+;            ['"~=", "~="], _
+;            ['"~", "~"], _
+;            ['"^",  "^" ], _
 ;            ['"..","SEG" ],_
 ;            ['"#","#" ],_
 ;            ['"#1", "#1" ],_
 ;            ['"&","AMPERSAND" ],_
 ;            ['"$","$" ],_
-;            ['"/","SLASH" ],_
-;            ['"\","BACKSLASH" ],_
+;            ['"/",  "/"], _
+;            ['"\",  "\"], _
 ;            ['"//","SLASHSLASH" ],_
 ;            ['"\\","BACKSLASHBACKSLASH" ],_
-;            ['"/\","SLASHBACKSLASH" ],_
-;            ['"\/","BACKSLASHSLASH" ],_
-;            ['"=>","EXIT" ],_
-;            ['":=","BECOMES" ],_
-;            ['"==","DEF" ],_
-;            ['"==>","MDEF" ],_
+;            ['"/\", "/\"], _
+;            ['"\/", "\/"], _
+;            ['"=>", "=>"], _
+;            ['":=", ":="], _
+;            ['"==", "=="], _
+;            ['"==>", "==>"],_
 ;            ['"->","ARROW" ],_
 ;            ['"<-","LARROW" ],_
-;            ['"+->","GIVES" ],_
+;            ['"+->", "+->"], _
 ;            ['"(","(" ],_
 ;            ['")",")" ],_
 ;            ['"(|","(|" ],_
@@ -155,8 +155,8 @@
 ;            ['"{|","{|" ],_
 ;            ['"|}","|}" ],_
 ;            ['"{|__|}","{||}" ],_
-;            ['"<<","OANGLE" ],_
-;            ['">>","CANGLE" ],_
+;            ['"<<", "<<"], _
+;            ['">>", ">>"], _
 ;            ['"'", "'" ],_
 ;            ['"`", "BACKQUOTE" ]_
 ;                           ]
@@ -173,35 +173,33 @@
                 (LIST "has" '|has|) (LIST "if" '|if|) (LIST "import" '|import|)
                 (LIST "in" '|in|) (LIST "inline" 'INLINE) (LIST "is" '|is|)
                 (LIST "isnt" '|isnt|) (LIST "iterate" 'ITERATE)
-                (LIST "local" '|local|) (LIST "macro" 'MACRO) (LIST "mod" 'MOD)
-                (LIST "not" '|not|) (LIST "or" '|or|)
+                (LIST "local" '|local|) (LIST "macro" 'MACRO)
+                (LIST "mod" '|mod|) (LIST "not" '|not|) (LIST "or" '|or|)
                 (LIST "pretend" '|pretend|) (LIST "quo" '|quo|)
                 (LIST "rem" '|rem|) (LIST "repeat" '|repeat|)
                 (LIST "return" '|return|) (LIST "rule" 'RULE)
                 (LIST "then" '|then|) (LIST "try" '|try|)
                 (LIST "until" '|until|) (LIST "where" '|where|)
                 (LIST "while" '|while|) (LIST "with" '|with|)
-                (LIST "yield" '|yield|) (LIST "|" 'BAR) (LIST "." 'DOT)
-                (LIST "::" 'COERCE) (LIST ":" 'COLON) (LIST ":-" 'COLONDASH)
-                (LIST "@" 'AT) (LIST "@@" 'ATAT) (LIST "," 'COMMA)
-                (LIST ";" 'SEMICOLON) (LIST "**" 'POWER) (LIST "*" 'TIMES)
-                (LIST "+" 'PLUS) (LIST "-" 'MINUS) (LIST "<" 'LT)
-                (LIST ">" 'GT) (LIST "<=" 'LE) (LIST ">=" 'GE)
-                (LIST "=" 'EQUAL) (LIST "~=" 'NOTEQUAL) (LIST "~" '~)
-                (LIST "^" 'CARAT) (LIST ".." 'SEG) (LIST "#" '|#|)
-                (LIST "#1" '|#1|) (LIST "&" 'AMPERSAND) (LIST "$" '$)
-                (LIST "/" 'SLASH) (LIST "\\" 'BACKSLASH)
-                (LIST "//" 'SLASHSLASH) (LIST "\\\\" 'BACKSLASHBACKSLASH)
-                (LIST "/\\" 'SLASHBACKSLASH) (LIST "\\/" 'BACKSLASHSLASH)
-                (LIST "=>" 'EXIT) (LIST ":=" 'BECOMES) (LIST "==" 'DEF)
-                (LIST "==>" 'MDEF) (LIST "->" 'ARROW) (LIST "<-" 'LARROW)
-                (LIST "+->" 'GIVES) (LIST "(" '|(|) (LIST ")" '|)|)
-                (LIST "(|" '|(\||) (LIST "|)" '|\|)|) (LIST "[" '[)
-                (LIST "]" ']) (LIST "[_]" '[]) (LIST "{" '{) (LIST "}" '})
-                (LIST "{_}" '{}) (LIST "[|" '|[\||) (LIST "|]" '|\|]|)
-                (LIST "[|_|]" '|[\|\|]|) (LIST "{|" '|{\||) (LIST "|}" '|\|}|)
-                (LIST "{|_|}" '|{\|\|}|) (LIST "<<" 'OANGLE)
-                (LIST ">>" 'CANGLE) (LIST "'" '|'|) (LIST "`" 'BACKQUOTE))))
+                (LIST "yield" '|yield|) (LIST "|" '|\||) (LIST "." '|.|)
+                (LIST "::" '|::|) (LIST ":" '|:|) (LIST ":-" 'COLONDASH)
+                (LIST "@" '@) (LIST "@@" 'ATAT) (LIST "," '|,|) (LIST ";" '|;|)
+                (LIST "**" '**) (LIST "*" '*) (LIST "+" '+) (LIST "-" '-)
+                (LIST "<" '<) (LIST ">" '>) (LIST "<=" '<=) (LIST ">=" '>=)
+                (LIST "=" '=) (LIST "~=" '~=) (LIST "~" '~) (LIST "^" '^)
+                (LIST ".." 'SEG) (LIST "#" '|#|) (LIST "#1" '|#1|)
+                (LIST "&" 'AMPERSAND) (LIST "$" '$) (LIST "/" '/)
+                (LIST "\\" '|\\|) (LIST "//" 'SLASHSLASH)
+                (LIST "\\\\" 'BACKSLASHBACKSLASH) (LIST "/\\" '|/\\|)
+                (LIST "\\/" '|\\/|) (LIST "=>" '=>) (LIST ":=" '|:=|)
+                (LIST "==" '==) (LIST "==>" '==>) (LIST "->" 'ARROW)
+                (LIST "<-" 'LARROW) (LIST "+->" '+->) (LIST "(" '|(|)
+                (LIST ")" '|)|) (LIST "(|" '|(\||) (LIST "|)" '|\|)|)
+                (LIST "[" '[) (LIST "]" ']) (LIST "[_]" '[]) (LIST "{" '{)
+                (LIST "}" '}) (LIST "{_}" '{}) (LIST "[|" '|[\||)
+                (LIST "|]" '|\|]|) (LIST "[|_|]" '|[\|\|]|) (LIST "{|" '|{\||)
+                (LIST "|}" '|\|}|) (LIST "{|_|}" '|{\|\|}|) (LIST "<<" '<<)
+                (LIST ">>" '>>) (LIST "'" '|'|) (LIST "`" 'BACKQUOTE))))
  
 ; scanKeyTableCons()==
 ;    KeyTable:=MAKE_-HASHTABLE("CVEC")
@@ -353,35 +351,35 @@
 (EVAL-WHEN (EVAL LOAD) (SETQ |scanPun| (|scanPunCons|)))
  
 ; for i in   [ _
-;    ["EQUAL"    ,"="], _
-;    ["TIMES"    ,"*"], _
+;    ["=",   "="], _
+;    ["*",   "*"], _
 ;    ["has",      "has"], _
 ;    ["case",     "case"], _
 ;    ["exquo",    "exquo"], _
 ;    ["rem",      "rem"], _
-;    ["MOD"      ,"mod"], _
+;    ["mod", "mod"], _
 ;    ["quo",      "quo"], _
-;    ["SLASH"    ,"/"], _
-;    ["BACKSLASH","\"], _
+;    ["/",   "/"], _
+;    ["\",   "\"], _
 ;    ["SLASHSLASH"    ,"//"], _
 ;    ["BACKSLASHBACKSLASH","\\"], _
-;    ["SLASHBACKSLASH"    ,"/\"], _
-;    ["BACKSLASHSLASH","\/"], _
-;    ["POWER"    ,"**"], _
-;    ["CARAT"    ,"^"], _
-;    ["PLUS"     ,"+"], _
-;    ["MINUS"    ,"-"], _
-;    ["LT"       ,"<"], _
-;    ["GT"       ,">"], _
-;    ["OANGLE"       ,"<<"], _
-;    ["CANGLE"       ,">>"], _
-;    ["LE"       ,"<="], _
-;    ["GE"       ,">="], _
-;    ["NOTEQUAL" ,"~="], _
+;    ["/\",  "/\"], _
+;    ["\/",  "\/"], _
+;    ["**",  "**"], _
+;    ["^",   "^"], _
+;    ["+",   "+"], _
+;    ["-",   "-"], _
+;    ["<",   "<"], _
+;    [">",   ">"], _
+;    ["<<",  "<<"], _
+;    [">>",  ">>"], _
+;    ["<=",  "<="], _
+;    [">=",  ">="], _
+;    ["~=",  "~="], _
 ;    ["by",       "by"], _
 ;    ["ARROW"       ,"->"], _
 ;    ["LARROW"       ,"<-"], _
-;    ["BAR"       ,"|"], _
+;    ["|",   "|"], _
 ;    ["SEG"       ,".."] _
 ;     ] repeat MAKEPROP(first i, 'INFGENERIC, CADR i)
  
@@ -395,16 +393,16 @@
            (RETURN NIL))
           ('T (MAKEPROP (CAR |i|) 'INFGENERIC (CADR |i|))))
          (SETQ |bfVar#6| (CDR |bfVar#6|))))
-      (LIST (LIST 'EQUAL '=) (LIST 'TIMES '*) (LIST '|has| '|has|)
+      (LIST (LIST '= '=) (LIST '* '*) (LIST '|has| '|has|)
             (LIST '|case| '|case|) (LIST '|exquo| '|exquo|)
-            (LIST '|rem| '|rem|) (LIST 'MOD '|mod|) (LIST '|quo| '|quo|)
-            (LIST 'SLASH '/) (LIST 'BACKSLASH '|\\|) (LIST 'SLASHSLASH '//)
-            (LIST 'BACKSLASHBACKSLASH '|\\\\|) (LIST 'SLASHBACKSLASH '|/\\|)
-            (LIST 'BACKSLASHSLASH '|\\/|) (LIST 'POWER '**) (LIST 'CARAT '^)
-            (LIST 'PLUS '+) (LIST 'MINUS '-) (LIST 'LT '<) (LIST 'GT '>)
-            (LIST 'OANGLE '<<) (LIST 'CANGLE '>>) (LIST 'LE '<=) (LIST 'GE '>=)
-            (LIST 'NOTEQUAL '~=) (LIST '|by| '|by|) (LIST 'ARROW '->)
-            (LIST 'LARROW '<-) (LIST 'BAR '|\||) (LIST 'SEG '|..|))
+            (LIST '|rem| '|rem|) (LIST '|mod| '|mod|) (LIST '|quo| '|quo|)
+            (LIST '/ '/) (LIST '|\\| '|\\|) (LIST 'SLASHSLASH '//)
+            (LIST 'BACKSLASHBACKSLASH '|\\\\|) (LIST '|/\\| '|/\\|)
+            (LIST '|\\/| '|\\/|) (LIST '** '**) (LIST '^ '^) (LIST '+ '+)
+            (LIST '- '-) (LIST '< '<) (LIST '> '>) (LIST '<< '<<)
+            (LIST '>> '>>) (LIST '<= '<=) (LIST '>= '>=) (LIST '~= '~=)
+            (LIST '|by| '|by|) (LIST 'ARROW '->) (LIST 'LARROW '<-)
+            (LIST '|\|| '|\||) (LIST 'SEG '|..|))
       NIL))))
  
 ; is_white?(c) == c = SPACE_CHAR or c = PAGE_CTL
@@ -910,7 +908,7 @@
             ('T (SETQ |$n| (+ |$n| |a|)) (|scanKeyTr| |sss|)))))))
  
 ; scanKeyTr w==
-;        if EQ(keyword w,"DOT")
+;        if EQ(keyword w, ".")
 ;        then if $floatok
 ;             then scanPossFloat(w)
 ;             else lfkey w
@@ -922,7 +920,7 @@
   (PROG ()
     (RETURN
      (COND
-      ((EQ (|keyword| |w|) 'DOT)
+      ((EQ (|keyword| |w|) '|.|)
        (COND (|$floatok| (|scanPossFloat| |w|)) (#1='T (|lfkey| |w|))))
       (#1# (SETQ |$floatok| (NULL (|scanCloser?| |w|))) (|lfkey| |w|))))))
  

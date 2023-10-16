@@ -363,7 +363,7 @@
 ;          a:=car x
 ;          lta := tokPart(last_tok(a))
 ;          ftb := tokPart(first_tok(car(cdr x)))
-;          EQ(lta, "COLON") or EQ(lta, "SEMICOLON") or EQ(lta, "(") or
+;          EQ(lta, ":") or EQ(lta, ";") or EQ(lta, "(") or
 ;            EQ(lta, "[") or EQ(lta, "{") or EQ(ftb, "in") or
 ;              EQ(ftb, "then") or EQ(ftb, "else") or EQ(ftb, ")") or
 ;                EQ(ftb, "]") or EQ(ftb, "}") =>
@@ -379,10 +379,10 @@
             (SETQ |lta| (|tokPart| (|last_tok| |a|)))
             (SETQ |ftb| (|tokPart| (|first_tok| (CAR (CDR |x|)))))
             (COND
-             ((OR (EQ |lta| 'COLON) (EQ |lta| 'SEMICOLON) (EQ |lta| '|(|)
-                  (EQ |lta| '[) (EQ |lta| '{) (EQ |ftb| '|in|)
-                  (EQ |ftb| '|then|) (EQ |ftb| '|else|) (EQ |ftb| '|)|)
-                  (EQ |ftb| ']) (EQ |ftb| '}))
+             ((OR (EQ |lta| '|:|) (EQ |lta| '|;|) (EQ |lta| '|(|) (EQ |lta| '[)
+                  (EQ |lta| '{) (EQ |ftb| '|in|) (EQ |ftb| '|then|)
+                  (EQ |ftb| '|else|) (EQ |ftb| '|)|) (EQ |ftb| '])
+                  (EQ |ftb| '}))
               (|dqConcat| (LIST |a| (|separatePiles| (CDR |x|)))))
              (#1#
               (PROGN
