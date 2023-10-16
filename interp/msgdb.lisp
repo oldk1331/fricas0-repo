@@ -1848,13 +1848,6 @@
                     (|sayBrightly| "")))
                   (#1# (|sayBrightly| ""))))))))))))
  
-; sayDisplayStringWidth x ==
-;   null x => 0
-;   sayDisplayWidth x
- 
-(DEFUN |sayDisplayStringWidth| (|x|)
-  (PROG () (RETURN (COND ((NULL |x|) 0) ('T (|sayDisplayWidth| |x|))))))
- 
 ; sayDisplayWidth x ==
 ;   PAIRP x =>
 ;     +/[fn y for y in x] where fn y ==
@@ -2288,8 +2281,3 @@
     (RETURN
      (COND ((SETQ |u| (LASSOC |s| |$htCharAlist|)) |u|)
            ((|member| |s| |$htSpecialChars|) (STRCONC "\\" |s|)) ('T |s|)))))
- 
-; dbSpecialDisplayOpChar? c == (c = char '_~)
- 
-(DEFUN |dbSpecialDisplayOpChar?| (|c|)
-  (PROG () (RETURN (EQUAL |c| (|char| '~)))))

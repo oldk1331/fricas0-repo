@@ -26,7 +26,7 @@
 ;   sayBrightly '"-------------Operation summary-----------------"
 ;   missingOnlyFlag := IFCAR options
 ;   domainForm := devaluate dom
-;   [nam,:$domainArgs] := domainForm
+;   [nam, :.] := domainForm
 ;   $predicateList: local := GETDATABASE(nam,'PREDICATES)
 ;   predVector := dom.3
 ;   u := getDomainOpTable(dom,true)
@@ -78,7 +78,6 @@
       (SETQ |missingOnlyFlag| (IFCAR |options|))
       (SETQ |domainForm| (|devaluate| |dom|))
       (SETQ |nam| (CAR |domainForm|))
-      (SETQ |$domainArgs| (CDR |domainForm|))
       (SETQ |$predicateList| (GETDATABASE |nam| 'PREDICATES))
       (SETQ |predVector| (ELT |dom| 3))
       (SETQ |u| (|getDomainOpTable| |dom| T))

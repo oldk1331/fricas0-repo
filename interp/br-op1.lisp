@@ -1198,7 +1198,7 @@
 ;   domainForm  := htpProperty(htPage,'domname)
 ;   dom     := EVAL domainForm
 ;   which   := '"operation"
-;   [nam,:$domainArgs] := domainForm
+;   [nam, :.] := domainForm
 ;   $predicateList: local := GETDATABASE(nam,'PREDICATES)
 ;   predVector := dom.3
 ;   u := getDomainOpTable2(dom, true, ASSOCLEFT opAlist)
@@ -1240,7 +1240,6 @@
       (SETQ |dom| (EVAL |domainForm|))
       (SETQ |which| "operation")
       (SETQ |nam| (CAR |domainForm|))
-      (SETQ |$domainArgs| (CDR |domainForm|))
       (SETQ |$predicateList| (GETDATABASE |nam| 'PREDICATES))
       (SETQ |predVector| (ELT |dom| 3))
       (SETQ |u| (|getDomainOpTable2| |dom| T (ASSOCLEFT |opAlist|)))
