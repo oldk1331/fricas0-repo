@@ -1698,8 +1698,8 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 2 3 4 14
                                   0 0 0 0 0 0 2 0 0 0 2 0 0 0 0 0 2 2 0 6 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 10 11 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 13 1 5
-                                  7 8 9 12))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 13 1
+                                  5 7 8 9 12))
             (CONS
              '#(|AlgebraicallyClosedFunctionSpace&| |AlgebraicallyClosedField&|
                 |FunctionSpace&| |Field&| |EuclideanDomain&|
@@ -1714,7 +1714,7 @@
                 |NonAssociativeSemiRng&| |AbelianMonoid&| NIL NIL |Magma&|
                 |AbelianSemiGroup&| NIL NIL NIL
                 |TranscendentalFunctionCategory&| |FullyRetractableTo&| NIL
-                |Evalable&| |SetCategory&| NIL NIL NIL
+                |Evalable&| NIL |SetCategory&| NIL NIL NIL
                 |ElementaryFunctionCategory&| NIL |HyperbolicFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |TrigonometricFunctionCategory&| |RadicalCategory&|
@@ -1746,8 +1746,9 @@
                  (|AbelianSemiGroup|) (|PatternMatchable| (|Float|))
                  (|PatternMatchable| 24) (|CombinatorialOpsCategory|)
                  (|TranscendentalFunctionCategory|) (|FullyRetractableTo| 24)
-                 (|Patternable| 24) (|Evalable| $$) (|SetCategory|)
-                 (|SpecialFunctionCategory|) (|PrimitiveFunctionCategory|)
+                 (|Patternable| 24) (|Evalable| $$) (|CommutativeStar|)
+                 (|SetCategory|) (|SpecialFunctionCategory|)
+                 (|PrimitiveFunctionCategory|)
                  (|CombinatorialFunctionCategory|)
                  (|ElementaryFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
@@ -1758,7 +1759,7 @@
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|InnerEvalable| $$ $$) (|InnerEvalable| 34 $$)
                  (|RetractableTo| 34) (|RetractableTo| 6) (|noZeroDivisors|)
-                 (|CommutativeStar|) (|unitsKnown|) (|BasicType|)
+                 (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
                  (|CoercibleTo| 110) (|RetractableTo| 213)
                  (|RetractableTo| 226) (|RetractableTo| 245)
                  (|ConvertibleTo| 219) (|ConvertibleTo| 220)

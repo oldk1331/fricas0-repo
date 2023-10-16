@@ -668,7 +668,7 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  1))
+                                  0 1))
             (CONS
              '#(|RealClosedField&| |Field&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL |GcdDomain&| NIL
@@ -679,7 +679,7 @@
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 |OrderedSet&| NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| NIL |Magma&| |AbelianSemiGroup&|
-                |FullyRetractableTo&| |FullyRetractableTo&| |SetCategory&|
+                |FullyRetractableTo&| |FullyRetractableTo&| NIL |SetCategory&|
                 |RetractableTo&| |RadicalCategory&| |RetractableTo&| NIL NIL
                 NIL NIL |PartialOrder&| NIL |BasicType&| NIL |RetractableTo&|)
              (CONS
@@ -702,11 +702,12 @@
                  (|OrderedSet|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Comparable|)
                  (|Magma|) (|AbelianSemiGroup|) (|FullyRetractableTo| 6)
-                 (|FullyRetractableTo| 13) (|SetCategory|) (|RetractableTo| 6)
-                 (|RadicalCategory|) (|RetractableTo| 13) (|canonicalsClosed|)
-                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
-                 (|PartialOrder|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 38) (|RetractableTo| 64))
+                 (|FullyRetractableTo| 13) (|CommutativeStar|) (|SetCategory|)
+                 (|RetractableTo| 6) (|RadicalCategory|) (|RetractableTo| 13)
+                 (|canonicalsClosed|) (|canonicalUnitNormal|)
+                 (|noZeroDivisors|) (|TwoSidedRecip|) (|PartialOrder|)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 38)
+                 (|RetractableTo| 64))
               (|makeByteWordVec2| 130
                                   '(0 10 0 11 1 0 13 0 14 3 16 2 15 0 2 17 0 13
                                     0 22 3 16 2 15 0 2 23 1 16 15 0 25 1 15 26

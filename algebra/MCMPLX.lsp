@@ -280,7 +280,7 @@
                                 '(0 0 2 2 4 29 15 31 15 0 32 0 0 0 0 0 0 3 9 0
                                   0 0 0 1 3 5 8 18 19 0 0 0 0 0 0 3 0 0 0 0 3 0
                                   0 0 0 0 3 3 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 2
-                                  23 24 0 0 0 10 21 0 0 0 0 0 0 0 0 0 0 3 3 7
+                                  23 24 0 0 0 0 10 21 0 0 0 0 0 0 0 0 0 0 3 3 7
                                   11 10 10 10 10 10 12 13 13 14 16 17 20 21 22
                                   25 26))
             (CONS
@@ -298,7 +298,7 @@
                 NIL NIL NIL |OrderedSet&| NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Finite&|
                 |FullyEvalableOver&| NIL |Magma&| |AbelianSemiGroup&| NIL NIL
-                NIL NIL |FullyRetractableTo&| |SetCategory&|
+                NIL NIL |FullyRetractableTo&| NIL |SetCategory&|
                 |TranscendentalFunctionCategory&| |Evalable&| NIL
                 |RetractableTo&| NIL |RetractableTo&| |PartialOrder&| NIL NIL
                 NIL |BasicType&| NIL NIL NIL |RetractableTo&|
@@ -333,10 +333,10 @@
                  (|Finite|) (|FullyEvalableOver| 9) (|Comparable|) (|Magma|)
                  (|AbelianSemiGroup|) (|StepThrough|) (|PatternMatchable| 6)
                  (|PatternMatchable| 14) (|Patternable| 9)
-                 (|FullyRetractableTo| 9) (|SetCategory|)
+                 (|FullyRetractableTo| 9) (|CommutativeStar|) (|SetCategory|)
                  (|TranscendentalFunctionCategory|) (|Evalable| 9) (|Type|)
                  (|RetractableTo| 9) (|ConvertibleTo| 60) (|RetractableTo| 14)
-                 (|PartialOrder|) (|noZeroDivisors|) (|CommutativeStar|)
+                 (|PartialOrder|) (|noZeroDivisors|) (|TwoSidedRecip|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 88)
                  (|canonicalUnitNormal|) (|canonicalsClosed|)
                  (|RetractableTo| 34) (|RadicalCategory|)

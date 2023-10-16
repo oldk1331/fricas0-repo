@@ -78,11 +78,11 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0))
+                                  0 0 0 0))
             (CONS
              '#(NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL |OrderedSet&|
                 NIL |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
-                NIL |Magma&| |AbelianSemiGroup&| |SetCategory&| NIL NIL
+                NIL |Magma&| |AbelianSemiGroup&| NIL |SetCategory&| NIL NIL
                 |BasicType&| |PartialOrder&| NIL)
              (CONS
               '#((|SemiRing|) (|SemiRng|) (|OrderedAbelianMonoidSup|)
@@ -92,9 +92,9 @@
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|OrderedSet|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Comparable|)
-                 (|Magma|) (|AbelianSemiGroup|) (|SetCategory|)
-                 (|ConvertibleTo| 12) (|CommutativeStar|) (|BasicType|)
-                 (|PartialOrder|) (|CoercibleTo| 19))
+                 (|Magma|) (|AbelianSemiGroup|) (|CommutativeStar|)
+                 (|SetCategory|) (|ConvertibleTo| 12) (|TwoSidedRecip|)
+                 (|BasicType|) (|PartialOrder|) (|CoercibleTo| 19))
               (|makeByteWordVec2| 19
                                   '(2 0 15 0 0 1 1 0 15 0 1 2 0 0 0 0 6 2 0 9 0
                                     0 10 2 0 15 0 0 1 2 0 0 0 5 7 0 0 0 1 1 0 9

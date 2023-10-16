@@ -353,14 +353,14 @@
               |conjugate| 258 |commutator| 264 |coerce| 270 ^ 285 |One| 303
               |LyndonCoordinates| 307 |LyndonBasis| 312 = 317 / 323 * 329)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|Group&| NIL NIL |MagmaWithUnit&| |Magma&| |SetCategory&|
-                     NIL |BasicType&| NIL)
+                     NIL NIL |BasicType&| NIL)
                   (CONS
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|MagmaWithUnit|)
-                      (|Magma|) (|SetCategory|) (|unitsKnown|) (|BasicType|)
-                      (|CoercibleTo| 20))
+                      (|Magma|) (|SetCategory|) (|unitsKnown|)
+                      (|TwoSidedRecip|) (|BasicType|) (|CoercibleTo| 20))
                    (|makeByteWordVec2| 74
                                        '(0 7 0 10 2 11 0 7 7 12 2 14 13 0 0 15
                                          2 7 0 0 0 16 2 7 13 0 0 17 2 14 13 0 0

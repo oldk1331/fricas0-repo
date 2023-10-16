@@ -1292,8 +1292,8 @@
             (|makeByteWordVec2| 26
                                 '(0 0 6 0 6 0 6 6 0 6 15 6 14 6 1 2 9 4 3 14 15
                                   7 20 17 20 0 9 14 7 0 0 19 7 0 0 0 0 20 7 7
-                                  26 25 17 17 0 0 24 17 0 0 0 7 0 0 0 0 5 19 14
-                                  15 6 6 7 7 7 7 7 7))
+                                  26 25 17 17 0 0 24 17 0 0 0 14 7 0 0 0 0 5 19
+                                  14 15 6 6 7 7 7 7 7 7))
             (CONS
              '#(|UnivariatePuiseuxSeriesConstructorCategory&| NIL |Field&|
                 |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
@@ -1305,7 +1305,7 @@
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL |NonAssociativeRng&|
                 NIL NIL |AbelianGroup&| NIL NIL NIL |NonAssociativeSemiRng&|
                 NIL |AbelianMonoid&| |MagmaWithUnit&| |Magma&|
-                |AbelianSemiGroup&| |SetCategory&|
+                |AbelianSemiGroup&| |SetCategory&| NIL
                 |TranscendentalFunctionCategory&| |RetractableTo&| NIL
                 |BasicType&| NIL NIL NIL NIL NIL NIL NIL
                 |TrigonometricFunctionCategory&|
@@ -1332,12 +1332,12 @@
                  (|NonAssociativeSemiRing|) (|Monoid|)
                  (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianMonoid|)
                  (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
-                 (|SetCategory|) (|TranscendentalFunctionCategory|)
-                 (|RetractableTo| 7) (|VariablesCommuteWithCoefficients|)
-                 (|BasicType|) (|CoercibleTo| 217) (|Eltable| $$ $$)
-                 (|unitsKnown|) (|CommutativeStar|) (|noZeroDivisors|)
-                 (|canonicalUnitNormal|) (|canonicalsClosed|)
-                 (|TrigonometricFunctionCategory|)
+                 (|SetCategory|) (|CommutativeStar|)
+                 (|TranscendentalFunctionCategory|) (|RetractableTo| 7)
+                 (|VariablesCommuteWithCoefficients|) (|BasicType|)
+                 (|CoercibleTo| 217) (|Eltable| $$ $$) (|unitsKnown|)
+                 (|TwoSidedRecip|) (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|canonicalsClosed|) (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)

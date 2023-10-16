@@ -1134,8 +1134,8 @@
                                   23 24 49 33 7 2 39 40 2 13 51 38 51 0 19 23
                                   49 2 0 0 42 49 6 2 0 0 0 0 49 49 6 2 2 51 47
                                   6 46 38 38 6 0 0 50 38 27 2 0 0 28 9 2 16 17
-                                  0 49 5 11 2 0 0 0 0 1 23 24 2 2 49 49 49 49
-                                  49 49 42 3 4 5 5 27 8 8 10 11 12 14 15 2))
+                                  0 23 49 5 11 2 0 0 0 0 1 23 24 2 2 49 49 49
+                                  49 49 49 42 3 4 5 5 27 8 8 10 11 12 14 15 2))
             (CONS
              '#(|UnivariateLaurentSeriesConstructorCategory&|
                 |UnivariateLaurentSeriesCategory&| |QuotientFieldCategory&|
@@ -1151,7 +1151,7 @@
                 NIL NIL NIL NIL |NonAssociativeRng&| |AbelianGroup&| NIL NIL
                 NIL NIL NIL |NonAssociativeSemiRng&| NIL |AbelianMonoid&|
                 |MagmaWithUnit&| |OrderedSet&| NIL |Magma&| |AbelianSemiGroup&|
-                NIL NIL |FullyEvalableOver&| NIL NIL |SetCategory&|
+                NIL NIL |FullyEvalableOver&| NIL NIL |SetCategory&| NIL
                 |TranscendentalFunctionCategory&| NIL |Evalable&| NIL
                 |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL
                 |TrigonometricFunctionCategory&|
@@ -1207,13 +1207,13 @@
                  (|Magma|) (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
                  (|FullyEvalableOver| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|PatternMatchable| 168) (|PatternMatchable| 17)
-                 (|SetCategory|) (|TranscendentalFunctionCategory|)
-                 (|RealConstant|)
+                 (|SetCategory|) (|CommutativeStar|)
+                 (|TranscendentalFunctionCategory|) (|RealConstant|)
                  (|Evalable| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|Patternable| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|RetractableTo| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|VariablesCommuteWithCoefficients|) (|BasicType|)
-                 (|CoercibleTo| 147) (|Eltable| $$ $$) (|CommutativeStar|)
+                 (|CoercibleTo| 147) (|Eltable| $$ $$) (|TwoSidedRecip|)
                  (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|) (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)

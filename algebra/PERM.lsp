@@ -841,16 +841,17 @@
               460 |coerceImages| 465 |coerce| 470 ^ 485 |One| 503 >= 507 > 513
               = 519 <= 525 < 531 / 537 * 543)
            'NIL
-           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 2 0 2 0 0 0 0 2))
+           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 2 0 2 0 0 0 0 0 2))
                  (CONS
                   '#(NIL |Group&| NIL NIL |MagmaWithUnit&| |OrderedSet&|
-                     |Magma&| NIL |SetCategory&| NIL |BasicType&| NIL
+                     |Magma&| NIL |SetCategory&| NIL NIL |BasicType&| NIL
                      |PartialOrder&|)
                   (CONS
                    '#((|PermutationCategory| 6) (|Group|) (|Monoid|)
                       (|SemiGroup|) (|MagmaWithUnit|) (|OrderedSet|) (|Magma|)
                       (|Comparable|) (|SetCategory|) (|unitsKnown|)
-                      (|BasicType|) (|CoercibleTo| 76) (|PartialOrder|))
+                      (|TwoSidedRecip|) (|BasicType|) (|CoercibleTo| 76)
+                      (|PartialOrder|))
                    (|makeByteWordVec2| 103
                                        '(2 6 8 0 0 9 1 6 10 0 11 1 13 12 0 14 2
                                          13 6 0 12 15 2 13 0 0 17 18 2 13 0 0

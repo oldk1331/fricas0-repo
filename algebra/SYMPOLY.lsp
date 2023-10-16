@@ -317,8 +317,8 @@
            (CONS
             (|makeByteWordVec2| 22
                                 '(0 0 2 6 1 6 3 4 5 7 11 11 9 0 1 6 5 0 0 1 10
-                                  0 0 0 0 1 1 11 8 22 9 9 0 0 21 9 0 0 14 0 0 0
-                                  0 0 0 6 10 7 12 13 15))
+                                  0 0 0 0 1 1 11 8 22 9 9 0 0 21 9 0 0 14 0 0 6
+                                  0 0 0 0 6 10 7 12 13 15))
             (CONS
              '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL NIL
                 |Algebra&| |Algebra&| NIL NIL |Algebra&| |EntireRing&| NIL
@@ -327,8 +327,8 @@
                 |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL
                 |NonAssociativeSemiRng&| NIL |AbelianMonoid&| |MagmaWithUnit&|
                 |Magma&| |AbelianSemiGroup&| NIL |FullyRetractableTo&|
-                |SetCategory&| NIL |RetractableTo&| |BasicType&| NIL NIL NIL
-                NIL |RetractableTo&| |RetractableTo&| NIL)
+                |SetCategory&| NIL NIL |RetractableTo&| |BasicType&| NIL NIL
+                NIL NIL |RetractableTo&| |RetractableTo&| NIL)
              (CONS
               '#((|FiniteAbelianMonoidRing| 6 11) (|AbelianMonoidRing| 6 11)
                  (|IntegralDomain|) (|CommutativeRing|) (|Algebra| 27)
@@ -344,10 +344,11 @@
                  (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianMonoid|)
                  (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
                  (|Comparable|) (|FullyRetractableTo| 6) (|SetCategory|)
-                 (|VariablesCommuteWithCoefficients|) (|RetractableTo| 6)
-                 (|BasicType|) (|CoercibleTo| 38) (|CommutativeStar|)
-                 (|unitsKnown|) (|noZeroDivisors|) (|RetractableTo| 27)
-                 (|RetractableTo| 23) (|canonicalUnitNormal|))
+                 (|CommutativeStar|) (|VariablesCommuteWithCoefficients|)
+                 (|RetractableTo| 6) (|BasicType|) (|CoercibleTo| 38)
+                 (|TwoSidedRecip|) (|unitsKnown|) (|noZeroDivisors|)
+                 (|RetractableTo| 27) (|RetractableTo| 23)
+                 (|canonicalUnitNormal|))
               (|makeByteWordVec2| 29
                                   '(0 0 0 9 1 11 10 0 12 2 0 0 6 0 13 0 0 0 14
                                     0 6 0 15 2 0 10 0 0 16 2 11 0 0 0 17 2 6 0

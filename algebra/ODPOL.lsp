@@ -598,8 +598,8 @@
             (|makeByteWordVec2| 35
                                 '(0 0 0 10 0 10 0 13 26 0 8 25 12 1 2 3 23 8 9
                                   27 14 8 18 17 0 0 0 0 1 23 27 0 0 0 1 0 0 0 0
-                                  0 1 1 0 0 0 0 0 0 0 0 0 0 7 29 31 0 0 16 0 0
-                                  0 0 0 0 0 0 0 4 5 6 27 11 33 35 15 16 16 17
+                                  0 1 1 0 0 0 0 0 0 0 0 0 0 7 29 31 0 0 27 16 0
+                                  0 0 0 0 0 0 0 0 4 5 6 27 11 33 35 15 16 16 17
                                   17))
             (CONS
              '#(|DifferentialPolynomialCategory&| |PolynomialCategory&|
@@ -615,11 +615,11 @@
                 |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |AbelianMonoid&| |NonAssociativeSemiRng&| |Magma&|
                 |AbelianSemiGroup&| NIL NIL NIL |FullyRetractableTo&|
-                |SetCategory&| |Evalable&| |RetractableTo&| |RetractableTo&|
-                NIL NIL |InnerEvalable&| |InnerEvalable&| |RetractableTo&|
-                |BasicType&| NIL |RetractableTo&| |RetractableTo&| NIL NIL NIL
-                NIL NIL NIL |RetractableTo&| |InnerEvalable&| |InnerEvalable&|
-                |InnerEvalable&|)
+                |SetCategory&| NIL |Evalable&| |RetractableTo&|
+                |RetractableTo&| NIL NIL |InnerEvalable&| |InnerEvalable&|
+                |RetractableTo&| |BasicType&| NIL |RetractableTo&|
+                |RetractableTo&| NIL NIL NIL NIL NIL NIL |RetractableTo&|
+                |InnerEvalable&| |InnerEvalable&| |InnerEvalable&|)
              (CONS
               '#((|DifferentialPolynomialCategory| 6 23 22 42)
                  (|PolynomialCategory| 6 42 22)
@@ -643,13 +643,14 @@
                  (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|Magma|)
                  (|AbelianSemiGroup|) (|Comparable|)
                  (|PatternMatchable| (|Float|)) (|PatternMatchable| 37)
-                 (|FullyRetractableTo| 6) (|SetCategory|) (|Evalable| $$)
+                 (|FullyRetractableTo| 6) (|SetCategory|) (|CommutativeStar|)
+                 (|Evalable| $$)
                  (|RetractableTo| (|SparseMultivariatePolynomial| 6 23))
                  (|RetractableTo| 23) (|unitsKnown|)
                  (|VariablesCommuteWithCoefficients|) (|InnerEvalable| 22 $$)
                  (|InnerEvalable| 22 6) (|RetractableTo| 6) (|BasicType|)
                  (|CoercibleTo| 60) (|RetractableTo| 20) (|RetractableTo| 37)
-                 (|canonicalUnitNormal|) (|CommutativeStar|) (|noZeroDivisors|)
+                 (|canonicalUnitNormal|) (|TwoSidedRecip|) (|noZeroDivisors|)
                  (|ConvertibleTo| 10) (|ConvertibleTo| 11) (|ConvertibleTo| 9)
                  (|RetractableTo| 22) (|InnerEvalable| $$ $$)
                  (|InnerEvalable| 23 $$) (|InnerEvalable| 23 6))

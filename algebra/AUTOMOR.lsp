@@ -187,14 +187,14 @@
               |inv| 101 |hashUpdate!| 106 |hash| 112 |elt| 117 |conjugate| 123
               |commutator| 129 |coerce| 135 ^ 140 |One| 158 = 162 / 168 * 174)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|Group&| NIL NIL |MagmaWithUnit&| |Magma&| |SetCategory&|
-                     NIL NIL |BasicType&| NIL)
+                     NIL NIL NIL |BasicType&| NIL)
                   (CONS
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|MagmaWithUnit|)
                       (|Magma|) (|SetCategory|) (|Eltable| 6 6) (|unitsKnown|)
-                      (|BasicType|) (|CoercibleTo| 18))
+                      (|TwoSidedRecip|) (|BasicType|) (|CoercibleTo| 18))
                    (|makeByteWordVec2| 33
                                        '(1 12 0 0 13 2 12 0 0 0 15 1 18 0 17 19
                                          0 6 0 26 2 0 0 0 27 28 2 0 9 0 0 1 0 0

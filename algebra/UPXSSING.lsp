@@ -1044,7 +1044,7 @@
            (CONS
             (|makeByteWordVec2| 5
                                 '(0 0 0 0 0 0 1 2 3 0 0 0 0 0 1 0 0 0 1 0 0 0 0
-                                  0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4
+                                  0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4
                                   5))
             (CONS
              '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL NIL
@@ -1052,7 +1052,7 @@
                 |Module&| |Module&| NIL |NonAssociativeRing&| NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL NIL NIL |AbelianGroup&| NIL
                 NIL NIL NIL |MagmaWithUnit&| |AbelianMonoid&|
-                |NonAssociativeSemiRng&| |Magma&| |AbelianSemiGroup&|
+                |NonAssociativeSemiRng&| |Magma&| |AbelianSemiGroup&| NIL
                 |FullyRetractableTo&| |SetCategory&| NIL NIL NIL
                 |RetractableTo&| |BasicType&| NIL |RetractableTo&|
                 |RetractableTo&|)
@@ -1078,9 +1078,9 @@
                  (|AbelianGroup|) (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|Magma|)
-                 (|AbelianSemiGroup|)
+                 (|AbelianSemiGroup|) (|CommutativeStar|)
                  (|FullyRetractableTo| (|UnivariatePuiseuxSeries| 7 8 9))
-                 (|SetCategory|) (|noZeroDivisors|) (|CommutativeStar|)
+                 (|SetCategory|) (|noZeroDivisors|) (|TwoSidedRecip|)
                  (|unitsKnown|)
                  (|RetractableTo| (|UnivariatePuiseuxSeries| 7 8 9))
                  (|BasicType|) (|CoercibleTo| 81) (|RetractableTo| 34)

@@ -1262,7 +1262,7 @@
                                 '(0 0 0 1 0 0 0 6 0 0 0 0 0 0 6 0 0 0 0 0 3 4
                                   13 14 15 0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0
                                   0 6 0 6 0 0 0 6 0 0 0 0 0 8 0 0 0 29 9 17 25
-                                  0 0 5 11 0 0 0 0 0 0 0 0 0 2 27 5 5 7 31 31
+                                  0 0 0 5 11 0 0 0 0 0 0 0 0 0 2 27 5 5 7 31 31
                                   10 11 12 16 24 18 23))
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
@@ -1277,7 +1277,7 @@
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |OrderedSet&| |FullyEvalableOver&| |Magma&|
-                |AbelianSemiGroup&| NIL NIL NIL NIL NIL |SetCategory&| NIL
+                |AbelianSemiGroup&| NIL NIL NIL NIL NIL NIL |SetCategory&| NIL
                 |Evalable&| NIL |RetractableTo&| NIL NIL NIL NIL NIL
                 |BasicType&| NIL |RetractableTo&| NIL NIL NIL |PartialOrder&|
                 |RetractableTo&| |RetractableTo&| |InnerEvalable&|
@@ -1307,10 +1307,10 @@
                  (|AbelianMonoid|) (|OrderedSet|) (|FullyEvalableOver| 6)
                  (|Magma|) (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
                  (|PatternMatchable| 153) (|PatternMatchable| 61)
-                 (|Patternable| 6) (|SetCategory|) (|RealConstant|)
-                 (|Evalable| 6) (|Type|) (|RetractableTo| 6)
+                 (|Patternable| 6) (|CommutativeStar|) (|SetCategory|)
+                 (|RealConstant|) (|Evalable| 6) (|Type|) (|RetractableTo| 6)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
+                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 167) (|RetractableTo| 144)
                  (|ConvertibleTo| 137) (|ConvertibleTo| 154)
                  (|ConvertibleTo| 153) (|PartialOrder|) (|RetractableTo| 67)

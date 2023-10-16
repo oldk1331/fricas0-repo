@@ -1304,7 +1304,7 @@
             (|makeByteWordVec2| 22
                                 '(0 0 0 0 2 6 1 6 2 3 4 5 8 7 16 13 16 0 1 6 5
                                   0 0 1 15 0 0 0 0 1 1 16 22 21 13 13 0 0 20 13
-                                  0 0 0 1 0 0 0 6 2 15 9 1 1 1 1 1 1))
+                                  0 0 0 6 1 0 0 0 6 2 15 9 1 1 1 1 1 1))
             (CONS
              '#(|UnivariateTaylorSeriesCategory&|
                 |UnivariatePowerSeriesCategory&| |PowerSeriesCategory&|
@@ -1314,7 +1314,7 @@
                 |Module&| NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
                 NIL |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL
                 |NonAssociativeSemiRng&| NIL |AbelianMonoid&| |MagmaWithUnit&|
-                |Magma&| |AbelianSemiGroup&| |SetCategory&|
+                |Magma&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |TranscendentalFunctionCategory&| NIL |BasicType&| NIL NIL NIL
                 NIL NIL |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
@@ -1337,9 +1337,10 @@
                  (|NonAssociativeSemiRing|) (|Monoid|)
                  (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianMonoid|)
                  (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
-                 (|SetCategory|) (|TranscendentalFunctionCategory|)
+                 (|SetCategory|) (|CommutativeStar|)
+                 (|TranscendentalFunctionCategory|)
                  (|VariablesCommuteWithCoefficients|) (|BasicType|)
-                 (|CoercibleTo| 192) (|CommutativeStar|) (|noZeroDivisors|)
+                 (|CoercibleTo| 192) (|TwoSidedRecip|) (|noZeroDivisors|)
                  (|unitsKnown|) (|Eltable| $$ $$)
                  (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)

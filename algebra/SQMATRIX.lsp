@@ -519,7 +519,7 @@
             (|makeByteWordVec2| 24
                                 '(0 4 4 1 4 5 6 7 8 0 3 8 0 1 0 0 4 0 0 0 0 8 2
                                   2 3 3 0 0 0 3 9 0 0 0 9 0 0 0 17 0 0 0 0 0 0
-                                  17 10 11 24 12))
+                                  0 17 10 11 24 12))
             (CONS
              '#(|SquareMatrixCategory&| |FullyLinearlyExplicitOver&|
                 |DifferentialExtension&| |Algebra&| NIL NIL
@@ -530,8 +530,8 @@
                 |AbelianMonoid&| NIL |MagmaWithUnit&| |Finite&|
                 |HomogeneousAggregate&| |Magma&| |AbelianSemiGroup&| NIL
                 |FullyRetractableTo&| |Aggregate&| |SetCategory&| |Evalable&|
-                NIL |RetractableTo&| NIL NIL |BasicType&| NIL |InnerEvalable&|
-                |RetractableTo&| |RetractableTo&| NIL NIL)
+                NIL |RetractableTo&| NIL NIL NIL |BasicType&| NIL
+                |InnerEvalable&| |RetractableTo&| |RetractableTo&| NIL NIL)
              (CONS
               '#((|SquareMatrixCategory| 6 7 (|DirectProduct| 6 7)
                                          (|DirectProduct| 6 7))
@@ -551,8 +551,9 @@
                  (|HomogeneousAggregate| 7) (|Magma|) (|AbelianSemiGroup|)
                  (|Comparable|) (|FullyRetractableTo| 7) (|Aggregate|)
                  (|SetCategory|) (|Evalable| 7) (|CoercibleTo| (|Matrix| 7))
-                 (|RetractableTo| 7) (|finiteAggregate|) (|Type|) (|BasicType|)
-                 (|CoercibleTo| 32) (|InnerEvalable| 7 7) (|RetractableTo| 90)
+                 (|RetractableTo| 7) (|finiteAggregate|) (|Type|)
+                 (|TwoSidedRecip|) (|BasicType|) (|CoercibleTo| 32)
+                 (|InnerEvalable| 7 7) (|RetractableTo| 90)
                  (|RetractableTo| 20) (|ConvertibleTo| 73) (|unitsKnown|))
               (|makeByteWordVec2| 98
                                   '(0 7 0 8 0 7 0 12 0 0 0 14 0 7 15 16 0 0 15

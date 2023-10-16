@@ -55,17 +55,17 @@
               |convert| 105 |coerce| 110 ^ 115 |One| 127 >= 131 > 137 = 143 <=
               149 < 155 + 161 * 167)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(NIL NIL |OrderedSet&| |MagmaWithUnit&| NIL NIL |Magma&|
-                     |AbelianSemiGroup&| |SetCategory&| NIL NIL |BasicType&|
-                     |PartialOrder&| NIL)
+                     |AbelianSemiGroup&| NIL |SetCategory&| NIL NIL
+                     |BasicType&| |PartialOrder&| NIL)
                   (CONS
                    '#((|OrderedAbelianSemiGroup|) (|Monoid|) (|OrderedSet|)
                       (|MagmaWithUnit|) (|SemiGroup|) (|Comparable|) (|Magma|)
-                      (|AbelianSemiGroup|) (|SetCategory|) (|ConvertibleTo| 10)
-                      (|CommutativeStar|) (|BasicType|) (|PartialOrder|)
-                      (|CoercibleTo| 15))
+                      (|AbelianSemiGroup|) (|CommutativeStar|) (|SetCategory|)
+                      (|ConvertibleTo| 10) (|TwoSidedRecip|) (|BasicType|)
+                      (|PartialOrder|) (|CoercibleTo| 15))
                    (|makeByteWordVec2| 16
                                        '(2 5 6 0 0 7 2 0 6 0 0 1 2 0 6 0 0 1 0
                                          0 0 1 1 0 12 0 1 2 0 0 0 11 1 2 0 0 0

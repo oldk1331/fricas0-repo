@@ -120,13 +120,13 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(NIL |Algebra&| |Algebra&| NIL |Rng&| NIL |Module&| |Module&|
                 NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL
                 |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
-                |Magma&| |AbelianSemiGroup&| |SetCategory&| NIL NIL
+                |Magma&| |AbelianSemiGroup&| NIL |SetCategory&| NIL NIL
                 |BasicType&| NIL)
              (CONS
               '#((|CommutativeRing|) (|Algebra| 6) (|Algebra| $$) (|Ring|)
@@ -137,8 +137,9 @@
                  (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Magma|)
-                 (|AbelianSemiGroup|) (|SetCategory|) (|CommutativeStar|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 44))
+                 (|AbelianSemiGroup|) (|CommutativeStar|) (|SetCategory|)
+                 (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
+                 (|CoercibleTo| 44))
               (|makeByteWordVec2| 51
                                   '(1 13 12 12 14 0 9 0 16 2 12 17 0 0 18 0 11
                                     0 20 0 11 0 22 2 13 9 9 12 24 2 11 0 0 0 28

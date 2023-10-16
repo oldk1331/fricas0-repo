@@ -30,6 +30,7 @@
                            (LETT |SquareMatrixCategory;CAT|
                                  (|Join| (|SemiRng|) (|AbelianMonoid|)
                                          (|BiModule| '|t#2| '|t#2|)
+                                         (|TwoSidedRecip|)
                                          (|RectangularMatrixCategory| |t#1|
                                                                       |t#1|
                                                                       '|t#2|

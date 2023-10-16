@@ -13,7 +13,7 @@
              (LETT #1#
                    (|sublisV|
                     (PAIR '(#2=#:G106) (LIST '(|Fraction| (|Integer|))))
-                    (|Join| (|EntireRing|) (|Algebra| '#2#)
+                    (|Join| (|EntireRing|) (|Algebra| '#2#) (|TwoSidedRecip|)
                             (|mkCategory|
                              '(((^ ($ $ (|Integer|))) T) ((|inv| ($ $)) T)) NIL
                              '((|Integer|)) NIL)))

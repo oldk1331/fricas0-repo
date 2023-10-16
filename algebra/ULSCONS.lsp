@@ -2075,8 +2075,8 @@
                                   23 24 37 31 7 2 42 43 2 13 46 41 46 0 19 23
                                   37 2 0 0 45 37 6 2 0 0 0 0 37 37 6 2 2 46 52
                                   6 51 41 41 6 0 0 50 41 27 2 0 0 28 9 2 16 17
-                                  0 37 5 11 2 0 0 0 0 1 23 24 2 2 37 37 37 37
-                                  37 37 45 3 4 5 5 27 8 8 10 11 12 14 15 2))
+                                  0 23 37 5 11 2 0 0 0 0 1 23 24 2 2 37 37 37
+                                  37 37 37 45 3 4 5 5 27 8 8 10 11 12 14 15 2))
             (CONS
              '#(|UnivariateLaurentSeriesConstructorCategory&|
                 |UnivariateLaurentSeriesCategory&| |QuotientFieldCategory&|
@@ -2092,7 +2092,7 @@
                 NIL NIL NIL NIL |NonAssociativeRng&| |AbelianGroup&| NIL NIL
                 NIL NIL NIL |NonAssociativeSemiRng&| NIL |AbelianMonoid&|
                 |MagmaWithUnit&| |OrderedSet&| NIL |Magma&| |AbelianSemiGroup&|
-                NIL NIL |FullyEvalableOver&| NIL NIL |SetCategory&|
+                NIL NIL |FullyEvalableOver&| NIL NIL |SetCategory&| NIL
                 |TranscendentalFunctionCategory&| NIL |Evalable&| NIL
                 |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL
                 |TrigonometricFunctionCategory&|
@@ -2132,11 +2132,11 @@
                  (|OrderedSet|) (|FullyPatternMatchable| 7) (|Magma|)
                  (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
                  (|FullyEvalableOver| 7) (|PatternMatchable| 262)
-                 (|PatternMatchable| 9) (|SetCategory|)
+                 (|PatternMatchable| 9) (|SetCategory|) (|CommutativeStar|)
                  (|TranscendentalFunctionCategory|) (|RealConstant|)
                  (|Evalable| 7) (|Patternable| 7) (|RetractableTo| 7)
                  (|VariablesCommuteWithCoefficients|) (|BasicType|)
-                 (|CoercibleTo| 224) (|Eltable| $$ $$) (|CommutativeStar|)
+                 (|CoercibleTo| 224) (|Eltable| $$ $$) (|TwoSidedRecip|)
                  (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|) (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)

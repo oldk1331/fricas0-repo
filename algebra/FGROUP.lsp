@@ -195,15 +195,15 @@
               |hashUpdate!| 218 |hash| 224 |factors| 229 |conjugate| 234
               |commutator| 240 |coerce| 246 ^ 256 |One| 280 = 284 / 290 * 296)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 1 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 1 0 0 0 0 0 0))
                  (CONS
                   '#(|Group&| NIL NIL |MagmaWithUnit&| |Magma&| NIL
-                     |SetCategory&| |RetractableTo&| NIL |BasicType&| NIL)
+                     |SetCategory&| |RetractableTo&| NIL NIL |BasicType&| NIL)
                   (CONS
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|MagmaWithUnit|)
                       (|Magma|) (|Comparable|) (|SetCategory|)
-                      (|RetractableTo| 6) (|unitsKnown|) (|BasicType|)
-                      (|CoercibleTo| 33))
+                      (|RetractableTo| 6) (|unitsKnown|) (|TwoSidedRecip|)
+                      (|BasicType|) (|CoercibleTo| 33))
                    (|makeByteWordVec2| 52
                                        '(0 8 0 9 1 8 11 0 12 2 8 0 6 15 16 2 8
                                          0 0 6 18 2 8 0 6 0 20 1 15 0 0 22 1 8

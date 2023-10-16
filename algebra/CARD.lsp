@@ -190,17 +190,17 @@
               |countable?| 185 |coerce| 190 ^ 200 |Zero| 218 |One| 222 |Aleph|
               226 >= 231 > 237 = 243 <= 249 < 255 - 261 + 267 * 273)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(NIL |OrderedSet&| |MagmaWithUnit&| NIL |AbelianMonoid&|
-                     NIL |Magma&| |AbelianSemiGroup&| |SetCategory&| NIL
+                     NIL |Magma&| |AbelianSemiGroup&| NIL |SetCategory&| NIL
                      |RetractableTo&| |BasicType&| |PartialOrder&| NIL)
                   (CONS
                    '#((|Monoid|) (|OrderedSet|) (|MagmaWithUnit|) (|SemiGroup|)
                       (|AbelianMonoid|) (|Comparable|) (|Magma|)
-                      (|AbelianSemiGroup|) (|SetCategory|) (|CommutativeStar|)
-                      (|RetractableTo| 13) (|BasicType|) (|PartialOrder|)
-                      (|CoercibleTo| 16))
+                      (|AbelianSemiGroup|) (|CommutativeStar|) (|SetCategory|)
+                      (|TwoSidedRecip|) (|RetractableTo| 13) (|BasicType|)
+                      (|PartialOrder|) (|CoercibleTo| 16))
                    (|makeByteWordVec2| 50
                                        '(1 8 0 7 9 1 17 16 0 18 1 20 16 0 21 2
                                          16 0 0 22 23 2 20 7 0 0 25 2 20 7 0 0

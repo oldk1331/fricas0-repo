@@ -167,17 +167,18 @@
               |conjugate| 172 |commutator| 178 |coerce| 184 ^ 189 |One| 207 =
               211 / 217 * 223)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|FiniteGroup&| |Group&| NIL NIL |Finite&| |MagmaWithUnit&|
-                     NIL |Magma&| |SetCategory&| NIL NIL NIL NIL NIL
+                     NIL |Magma&| NIL |SetCategory&| NIL NIL NIL NIL NIL
                      |BasicType&| NIL)
                   (CONS
                    '#((|FiniteGroup|) (|Group|) (|Monoid|) (|SemiGroup|)
                       (|Finite|) (|MagmaWithUnit|) (|Comparable|) (|Magma|)
-                      (|SetCategory|) (|ConvertibleTo| 20) (|CommutativeStar|)
-                      (|FinitelyGenerated|) (|ConvertibleTo| 43) (|unitsKnown|)
-                      (|BasicType|) (|CoercibleTo| 11))
+                      (|CommutativeStar|) (|SetCategory|) (|ConvertibleTo| 20)
+                      (|TwoSidedRecip|) (|FinitelyGenerated|)
+                      (|ConvertibleTo| 43) (|unitsKnown|) (|BasicType|)
+                      (|CoercibleTo| 11))
                    (|makeByteWordVec2| 46
                                        '(1 12 11 0 13 1 14 11 0 15 2 11 0 0 0
                                          16 1 20 0 12 21 3 8 0 0 0 0 26 2 33 9

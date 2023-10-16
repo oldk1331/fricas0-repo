@@ -561,7 +561,8 @@
            (CONS
             (|makeByteWordVec2| 7
                                 '(5 5 5 0 0 0 5 0 0 1 2 6 7 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 4))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3
+                                  4))
             (CONS
              '#(|EuclideanDomain&| NIL |GcdDomain&| NIL
                 |DifferentialExtension&| NIL NIL |EntireRing&| |Algebra&|
@@ -569,7 +570,7 @@
                 |Rng&| NIL |Module&| NIL NIL |NonAssociativeRing&| NIL
                 |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
-                |Magma&| |AbelianSemiGroup&| |FullyRetractableTo&|
+                |Magma&| |AbelianSemiGroup&| |FullyRetractableTo&| NIL
                 |SetCategory&| |RetractableTo&| |RetractableTo&| NIL NIL NIL
                 NIL |BasicType&| NIL |RetractableTo&| |RetractableTo&|)
              (CONS
@@ -585,11 +586,11 @@
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
-                 (|FullyRetractableTo| 6) (|SetCategory|) (|RetractableTo| 7)
-                 (|RetractableTo| 6) (|ConvertibleTo| (|Fraction| 7))
-                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 53) (|RetractableTo| 108)
-                 (|RetractableTo| 18))
+                 (|FullyRetractableTo| 6) (|CommutativeStar|) (|SetCategory|)
+                 (|RetractableTo| 7) (|RetractableTo| 6)
+                 (|ConvertibleTo| (|Fraction| 7)) (|noZeroDivisors|)
+                 (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
+                 (|CoercibleTo| 53) (|RetractableTo| 108) (|RetractableTo| 18))
               (|makeByteWordVec2| 118
                                   '(0 6 0 10 0 7 0 11 0 6 0 13 0 7 0 14 2 7 15
                                     0 0 16 1 7 0 6 20 1 7 0 0 23 2 7 0 18 0 25

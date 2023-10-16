@@ -110,7 +110,8 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 0 1 1 0 0 1 0
-                                  0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1))
+                                  0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1
+                                  1))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| NIL NIL NIL |DivisionRing&| |DifferentialRing&|
@@ -118,8 +119,8 @@
                 |Module&| |Module&| NIL |NonAssociativeRing&| NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL NIL NIL
                 NIL |MagmaWithUnit&| |AbelianMonoid&| |NonAssociativeSemiRng&|
-                |Magma&| |AbelianSemiGroup&| |SetCategory&| NIL |BasicType&|
-                NIL NIL NIL NIL NIL)
+                |Magma&| |AbelianSemiGroup&| |SetCategory&| NIL NIL
+                |BasicType&| NIL NIL NIL NIL NIL)
              (CONS
               '#((|Field|) (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
@@ -133,9 +134,10 @@
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|AbelianMonoid|)
                  (|NonAssociativeSemiRng|) (|Magma|) (|AbelianSemiGroup|)
-                 (|SetCategory|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 40) (|CommutativeStar|) (|noZeroDivisors|)
-                 (|canonicalUnitNormal|) (|canonicalsClosed|))
+                 (|SetCategory|) (|CommutativeStar|) (|unitsKnown|)
+                 (|BasicType|) (|CoercibleTo| 40) (|TwoSidedRecip|)
+                 (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|canonicalsClosed|))
               (|makeByteWordVec2| 40
                                   '(2 9 0 0 6 12 2 5 0 0 0 14 2 0 0 0 0 15 2 5
                                     0 0 16 17 2 0 0 0 16 18 1 5 0 0 19 1 0 0 0

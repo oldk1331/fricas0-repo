@@ -821,14 +821,14 @@
               |commutator| 559 |coerce| 565 |basis| 570 ^ 575 |One| 593 = 597 /
               603 * 609)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|Group&| NIL NIL |MagmaWithUnit&| |Magma&| |SetCategory&|
-                     NIL |BasicType&| NIL)
+                     NIL NIL |BasicType&| NIL)
                   (CONS
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|MagmaWithUnit|)
-                      (|Magma|) (|SetCategory|) (|unitsKnown|) (|BasicType|)
-                      (|CoercibleTo| 129))
+                      (|Magma|) (|SetCategory|) (|unitsKnown|)
+                      (|TwoSidedRecip|) (|BasicType|) (|CoercibleTo| 129))
                    (|makeByteWordVec2| 145
                                        '(0 6 0 12 0 9 0 13 1 17 0 0 18 1 9 19 0
                                          20 2 17 19 0 19 21 1 9 0 19 22 2 8 0 7

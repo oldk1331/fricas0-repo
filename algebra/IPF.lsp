@@ -326,7 +326,7 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -337,7 +337,7 @@
                 |Module&| |Module&| NIL NIL NIL |NonAssociativeRing&| NIL NIL
                 NIL |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL
                 |Finite&| NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
-                |AbelianMonoid&| NIL NIL |Magma&| |AbelianSemiGroup&|
+                |AbelianMonoid&| NIL NIL |Magma&| |AbelianSemiGroup&| NIL
                 |SetCategory&| NIL |RetractableTo&| NIL NIL NIL NIL NIL NIL
                 |BasicType&| NIL)
              (CONS
@@ -357,9 +357,9 @@
                  (|CancellationAbelianMonoid|) (|Finite|) (|SemiGroup|)
                  (|MagmaWithUnit|) (|NonAssociativeSemiRng|) (|AbelianMonoid|)
                  (|StepThrough|) (|Comparable|) (|Magma|) (|AbelianSemiGroup|)
-                 (|SetCategory|) (|ConvertibleTo| 20) (|RetractableTo| $$)
-                 (|ConvertibleTo| 94) (|canonicalsClosed|)
-                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
+                 (|CommutativeStar|) (|SetCategory|) (|ConvertibleTo| 20)
+                 (|RetractableTo| $$) (|ConvertibleTo| 94) (|canonicalsClosed|)
+                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|TwoSidedRecip|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 108))
               (|makeByteWordVec2| 85
                                   '(0 12 0 13 0 0 0 15 1 0 17 0 18 0 0 0 19 2

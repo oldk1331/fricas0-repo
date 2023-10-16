@@ -560,7 +560,7 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&| NIL
@@ -569,7 +569,7 @@
                 |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 |OrderedSet&| NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
-                |AbelianMonoid&| NIL NIL |Magma&| |AbelianSemiGroup&| NIL
+                |AbelianMonoid&| NIL NIL |Magma&| |AbelianSemiGroup&| NIL NIL
                 |SetCategory&| |RetractableTo&| NIL NIL NIL |RadicalCategory&|
                 |RetractableTo&| |RetractableTo&| NIL NIL |PartialOrder&| NIL
                 NIL NIL NIL NIL |BasicType&| NIL)
@@ -591,12 +591,12 @@
                  (|OrderedSet|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|)
                  (|PatternMatchable| 18) (|Comparable|) (|Magma|)
-                 (|AbelianSemiGroup|) (|RealConstant|) (|SetCategory|)
-                 (|RetractableTo| 18) (|ConvertibleTo| 45) (|Approximate|)
-                 (|ConvertibleTo| 104) (|RadicalCategory|) (|RetractableTo| 20)
-                 (|RetractableTo| 15) (|ConvertibleTo| 18)
+                 (|AbelianSemiGroup|) (|RealConstant|) (|CommutativeStar|)
+                 (|SetCategory|) (|RetractableTo| 18) (|ConvertibleTo| 45)
+                 (|Approximate|) (|ConvertibleTo| 104) (|RadicalCategory|)
+                 (|RetractableTo| 20) (|RetractableTo| 15) (|ConvertibleTo| 18)
                  (|ConvertibleTo| 106) (|PartialOrder|) (|canonicalsClosed|)
-                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
+                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|TwoSidedRecip|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 48))
               (|makeByteWordVec2| 117
                                   '(2 12 0 0 12 13 0 18 0 19 2 20 0 15 15 21 2

@@ -2458,8 +2458,8 @@
             (|makeByteWordVec2| 39
                                 '(0 0 10 0 10 0 15 25 4 24 14 1 2 3 22 4 9 26
                                   16 4 27 12 27 0 1 22 26 0 0 1 4 0 0 0 0 1 1
-                                  27 11 39 12 12 0 0 38 12 0 0 8 29 31 0 0 12 0
-                                  0 0 0 0 0 4 5 6 7 26 13 33 35 17 12 12))
+                                  27 11 39 12 12 0 0 38 12 0 0 8 29 31 0 0 26
+                                  12 0 0 0 0 0 0 4 5 6 7 26 13 33 35 17 12 12))
             (CONS
              '#(|PolynomialCategory&| |MaybeSkewPolynomialCategory&|
                 |PolynomialFactorizationExplicit&| |FiniteAbelianMonoidRing&|
@@ -2471,7 +2471,7 @@
                 NIL NIL NIL NIL |NonAssociativeRng&| |AbelianGroup&| NIL NIL
                 NIL |NonAssociativeSemiRng&| NIL |AbelianMonoid&|
                 |MagmaWithUnit&| |Magma&| |AbelianSemiGroup&| NIL NIL NIL
-                |FullyRetractableTo&| |SetCategory&| |Evalable&| NIL
+                |FullyRetractableTo&| |SetCategory&| NIL |Evalable&| NIL
                 |InnerEvalable&| |InnerEvalable&| |RetractableTo&| |BasicType&|
                 NIL NIL |RetractableTo&| |RetractableTo&| NIL NIL NIL NIL NIL
                 NIL |InnerEvalable&| |RetractableTo&|)
@@ -2498,14 +2498,14 @@
                  (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
                  (|Comparable|) (|PatternMatchable| (|Float|))
                  (|PatternMatchable| 79) (|FullyRetractableTo| 6)
-                 (|SetCategory|) (|Evalable| $$)
+                 (|SetCategory|) (|CommutativeStar|) (|Evalable| $$)
                  (|VariablesCommuteWithCoefficients|) (|InnerEvalable| 7 $$)
                  (|InnerEvalable| 7 6) (|RetractableTo| 6) (|BasicType|)
                  (|CoercibleTo| 154) (|unitsKnown|) (|RetractableTo| 217)
-                 (|RetractableTo| 79) (|canonicalUnitNormal|)
-                 (|CommutativeStar|) (|noZeroDivisors|) (|ConvertibleTo| 210)
-                 (|ConvertibleTo| 211) (|ConvertibleTo| 209)
-                 (|InnerEvalable| $$ $$) (|RetractableTo| 7))
+                 (|RetractableTo| 79) (|canonicalUnitNormal|) (|TwoSidedRecip|)
+                 (|noZeroDivisors|) (|ConvertibleTo| 210) (|ConvertibleTo| 211)
+                 (|ConvertibleTo| 209) (|InnerEvalable| $$ $$)
+                 (|RetractableTo| 7))
               (|makeByteWordVec2| 235
                                   '(0 6 0 11 0 6 0 13 0 0 0 14 1 6 16 0 17 0 8
                                     0 19 2 6 16 0 0 20 1 0 16 0 21 1 8 0 0 22 1

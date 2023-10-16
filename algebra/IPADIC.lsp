@@ -891,14 +891,14 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(NIL |EuclideanDomain&| NIL |GcdDomain&| NIL NIL NIL NIL
                 |EntireRing&| |Algebra&| NIL |Rng&| NIL |Module&| NIL NIL
                 |NonAssociativeRing&| NIL |NonAssociativeRng&| NIL
                 |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
-                |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL |BasicType&|
+                |AbelianSemiGroup&| NIL |SetCategory&| NIL NIL NIL |BasicType&|
                 NIL)
              (CONS
               '#((|PAdicIntegerCategory| 6) (|EuclideanDomain|)
@@ -911,8 +911,9 @@
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
-                 (|SetCategory|) (|noZeroDivisors|) (|CommutativeStar|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 8))
+                 (|CommutativeStar|) (|SetCategory|) (|noZeroDivisors|)
+                 (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
+                 (|CoercibleTo| 8))
               (|makeByteWordVec2| 102
                                   '(1 9 8 0 10 2 12 0 0 9 20 1 12 0 0 22 2 9 0
                                     0 0 24 2 9 0 0 0 25 2 9 26 0 0 27 2 9 0 0 0

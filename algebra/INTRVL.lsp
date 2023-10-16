@@ -1205,14 +1205,15 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                  0))
             (CONS
              '#(NIL |GcdDomain&| NIL NIL NIL |EntireRing&| |Algebra&| NIL
                 |Rng&| NIL |Module&| NIL NIL |NonAssociativeRing&| NIL
                 |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL
                 |OrderedSet&| NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| NIL |Magma&| |AbelianSemiGroup&|
-                |TranscendentalFunctionCategory&| |SetCategory&| NIL
+                |TranscendentalFunctionCategory&| NIL |SetCategory&| NIL
                 |RetractableTo&| |RadicalCategory&|
                 |ElementaryFunctionCategory&| NIL |HyperbolicFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
@@ -1228,14 +1229,14 @@
                  (|CancellationAbelianMonoid|) (|OrderedSet|) (|SemiGroup|)
                  (|MagmaWithUnit|) (|NonAssociativeSemiRng|) (|AbelianMonoid|)
                  (|Comparable|) (|Magma|) (|AbelianSemiGroup|)
-                 (|TranscendentalFunctionCategory|) (|SetCategory|)
-                 (|Approximate|) (|RetractableTo| 12) (|RadicalCategory|)
-                 (|ElementaryFunctionCategory|)
+                 (|TranscendentalFunctionCategory|) (|CommutativeStar|)
+                 (|SetCategory|) (|Approximate|) (|RetractableTo| 12)
+                 (|RadicalCategory|) (|ElementaryFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|TrigonometricFunctionCategory|) (|PartialOrder|)
-                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
+                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 82))
               (|makeByteWordVec2| 157
                                   '(1 6 8 0 9 0 6 10 11 1 6 12 0 13 1 6 12 0 14

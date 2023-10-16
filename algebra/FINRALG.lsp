@@ -26,7 +26,7 @@
                     (COND (|FiniteRankAlgebra;CAT|)
                           ('T
                            (LETT |FiniteRankAlgebra;CAT|
-                                 (|Join| (|Algebra| '|t#1|)
+                                 (|Join| (|Algebra| '|t#1|) (|TwoSidedRecip|)
                                          (|mkCategory|
                                           '(((|rank| ((|PositiveInteger|))) T)
                                             ((|regularRepresentation|

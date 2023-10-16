@@ -173,7 +173,7 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| NIL |DivisionRing&| NIL NIL NIL |Algebra&|
@@ -181,8 +181,8 @@
                 NIL NIL |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&|
                 NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
-                |AbelianSemiGroup&| NIL |SetCategory&| NIL NIL NIL NIL NIL NIL
-                |RetractableTo&| |RetractableTo&| NIL NIL NIL NIL NIL
+                |AbelianSemiGroup&| NIL NIL |SetCategory&| NIL NIL NIL NIL NIL
+                NIL |RetractableTo&| |RetractableTo&| NIL NIL NIL NIL NIL
                 |BasicType&| NIL)
              (CONS
               '#((|Field|) (|EuclideanDomain|) (|PrincipalIdealDomain|)
@@ -197,11 +197,11 @@
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
-                 (|RealConstant|) (|SetCategory|) (|ConvertibleTo| 30)
-                 (|ConvertibleTo| 5) (|CoercibleTo| 17) (|CoercibleTo| 20)
-                 (|ConvertibleTo| 17) (|ConvertibleTo| 20) (|RetractableTo| 65)
-                 (|RetractableTo| 10) (|canonicalsClosed|)
-                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
+                 (|RealConstant|) (|CommutativeStar|) (|SetCategory|)
+                 (|ConvertibleTo| 30) (|ConvertibleTo| 5) (|CoercibleTo| 17)
+                 (|CoercibleTo| 20) (|ConvertibleTo| 17) (|ConvertibleTo| 20)
+                 (|RetractableTo| 65) (|RetractableTo| 10) (|canonicalsClosed|)
+                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|TwoSidedRecip|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 26))
               (|makeByteWordVec2| 82
                                   '(0 0 0 8 0 6 0 9 2 12 0 10 11 13 1 5 0 12 14

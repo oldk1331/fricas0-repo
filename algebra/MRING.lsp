@@ -1276,8 +1276,8 @@
            (CONS
             (|makeByteWordVec2| 10
                                 '(0 8 8 2 9 10 0 0 0 1 0 2 1 8 0 0 3 4 0 0 0 3
-                                  3 1 4 0 5 0 0 0 5 0 0 0 0 5 6 0 0 7 0 0 0 0 0
-                                  0 5 6 8))
+                                  3 1 4 0 5 0 0 0 5 0 0 0 0 5 6 0 0 7 0 8 0 0 0
+                                  0 0 5 6 8))
             (CONS
              '#(NIL NIL |Algebra&| |Algebra&| NIL NIL NIL |Rng&| NIL
                 |FreeModuleCategory&| NIL |Module&| NIL |Module&|
@@ -1285,7 +1285,7 @@
                 NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL NIL NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
                 |OrderedSet&| |Finite&| |Magma&| |AbelianSemiGroup&| NIL
-                |SetCategory&| |RetractableTo&| |RetractableTo&| NIL
+                |SetCategory&| NIL |RetractableTo&| |RetractableTo&| NIL
                 |BasicType&| NIL |PartialOrder&| NIL NIL)
              (CONS
               '#((|MonoidRingCategory| 6 7) (|CommutativeRing|) (|Algebra| $$)
@@ -1303,9 +1303,9 @@
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|OrderedSet|) (|Finite|) (|Magma|)
                  (|AbelianSemiGroup|) (|Comparable|) (|SetCategory|)
-                 (|RetractableTo| 6) (|RetractableTo| 7) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 71) (|PartialOrder|)
-                 (|ConvertibleTo| 115) (|CommutativeStar|))
+                 (|CommutativeStar|) (|RetractableTo| 6) (|RetractableTo| 7)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 71)
+                 (|PartialOrder|) (|ConvertibleTo| 115) (|TwoSidedRecip|))
               (|makeByteWordVec2| 118
                                   '(0 6 9 10 0 6 0 16 2 6 17 0 0 18 2 9 17 0 0
                                     21 0 6 9 23 0 7 9 24 0 0 9 25 2 26 17 0 0

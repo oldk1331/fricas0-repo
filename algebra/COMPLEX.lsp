@@ -394,9 +394,9 @@
                                 '(0 0 2 2 4 38 17 39 17 36 0 35 0 0 0 0 3 11 0
                                   0 0 1 3 5 9 20 22 23 0 0 0 0 0 0 3 0 0 0 0 3
                                   0 0 0 0 0 3 3 0 0 0 0 0 0 0 0 0 6 0 0 0 2 21
-                                  27 28 0 0 0 12 25 0 0 0 0 0 0 0 3 3 7 8 10 13
-                                  12 12 12 12 12 14 15 15 16 18 19 24 25 26 29
-                                  30 31))
+                                  27 28 0 0 0 0 12 25 0 0 0 0 0 0 0 3 3 7 8 10
+                                  13 12 12 12 12 12 14 15 15 16 18 19 24 25 26
+                                  29 30 31))
             (CONS
              '#(|ComplexCategory&| |MonogenicAlgebra&| |FiniteFieldCategory&|
                 |FieldOfPrimeCharacteristic&| |Field&|
@@ -411,7 +411,7 @@
                 NIL NIL |AbelianGroup&| NIL NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Finite&|
                 |FullyEvalableOver&| |Magma&| |AbelianSemiGroup&| NIL NIL NIL
-                NIL NIL |FullyRetractableTo&| |SetCategory&|
+                NIL NIL |FullyRetractableTo&| NIL |SetCategory&|
                 |TranscendentalFunctionCategory&| |Evalable&| NIL
                 |RetractableTo&| NIL NIL NIL |BasicType&| NIL NIL NIL
                 |RetractableTo&| |RetractableTo&| NIL |RadicalCategory&|
@@ -448,11 +448,11 @@
                  (|AbelianMonoid|) (|Finite|) (|FullyEvalableOver| 6) (|Magma|)
                  (|AbelianSemiGroup|) (|StepThrough|) (|Comparable|)
                  (|PatternMatchable| (|Float|)) (|PatternMatchable| 43)
-                 (|Patternable| 6) (|FullyRetractableTo| 6) (|SetCategory|)
-                 (|TranscendentalFunctionCategory|) (|Evalable| 6) (|Type|)
-                 (|RetractableTo| 6)
+                 (|Patternable| 6) (|FullyRetractableTo| 6) (|CommutativeStar|)
+                 (|SetCategory|) (|TranscendentalFunctionCategory|)
+                 (|Evalable| 6) (|Type|) (|RetractableTo| 6)
                  (|ConvertibleTo| (|SparseUnivariatePolynomial| 6))
-                 (|CommutativeStar|) (|unitsKnown|) (|BasicType|)
+                 (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
                  (|CoercibleTo| 95) (|canonicalUnitNormal|)
                  (|canonicalsClosed|) (|RetractableTo| 42) (|RetractableTo| 43)
                  (|noZeroDivisors|) (|RadicalCategory|)

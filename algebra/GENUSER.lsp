@@ -1473,8 +1473,8 @@
             (|makeByteWordVec2| 30
                                 '(14 0 14 0 14 14 0 14 21 14 20 14 1 2 9 4 3 18
                                   21 16 30 27 30 0 9 18 16 0 0 29 16 0 0 0 0 30
-                                  16 16 15 23 27 27 0 0 25 27 0 0 0 6 0 0 0 5 6
-                                  6 6 6 6 29 18 19 14 14))
+                                  16 16 15 23 27 27 0 0 25 27 0 0 0 6 18 0 0 0
+                                  5 6 6 6 6 6 29 18 19 14 14))
             (CONS
              '#(|Field&| |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
                 |PowerSeriesCategory&| NIL |UniqueFactorizationDomain&|
@@ -1486,7 +1486,7 @@
                 NIL NIL |AbelianGroup&| NIL NIL NIL |NonAssociativeSemiRng&|
                 NIL |AbelianMonoid&| |MagmaWithUnit&| |Magma&|
                 |AbelianSemiGroup&| |SetCategory&|
-                |TranscendentalFunctionCategory&| NIL |BasicType&| NIL NIL
+                |TranscendentalFunctionCategory&| NIL NIL |BasicType&| NIL NIL
                 |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
@@ -1510,14 +1510,14 @@
                  (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianMonoid|)
                  (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
                  (|SetCategory|) (|TranscendentalFunctionCategory|)
-                 (|VariablesCommuteWithCoefficients|) (|BasicType|)
-                 (|CoercibleTo| 37) (|Eltable| $$ $$)
+                 (|CommutativeStar|) (|VariablesCommuteWithCoefficients|)
+                 (|BasicType|) (|CoercibleTo| 37) (|Eltable| $$ $$)
                  (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|ElementaryFunctionCategory|) (|unitsKnown|)
-                 (|CommutativeStar|) (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|TwoSidedRecip|) (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|))
               (|makeByteWordVec2| 187
                                   '(1 10 17 0 18 0 6 0 19 0 7 0 21 2 7 17 0 0

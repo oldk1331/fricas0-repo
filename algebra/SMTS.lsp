@@ -954,8 +954,8 @@
            (CONS
             (|makeByteWordVec2| 6
                                 '(0 0 0 2 6 0 1 6 2 3 4 5 0 0 0 0 1 6 5 0 0 0 1
-                                  0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
-                                  0 0 0 1 1 1 1 1 1 6 2))
+                                  0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 6 0 0
+                                  0 0 0 0 1 1 1 1 1 1 6 2))
             (CONS
              '#(|MultivariateTaylorSeriesCategory&| |PowerSeriesCategory&|
                 |AbelianMonoidRing&| NIL NIL |PartialDifferentialRing&|
@@ -965,7 +965,7 @@
                 NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
                 |AbelianSemiGroup&| |Evalable&| |SetCategory&|
-                |TranscendentalFunctionCategory&| |InnerEvalable&|
+                |TranscendentalFunctionCategory&| NIL |InnerEvalable&|
                 |InnerEvalable&| NIL NIL |BasicType&| NIL
                 |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
@@ -988,15 +988,16 @@
                  (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Magma|)
                  (|AbelianSemiGroup|) (|Evalable| $$) (|SetCategory|)
-                 (|TranscendentalFunctionCategory|) (|InnerEvalable| $$ $$)
-                 (|InnerEvalable| 7 $$) (|VariablesCommuteWithCoefficients|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 188)
+                 (|TranscendentalFunctionCategory|) (|CommutativeStar|)
+                 (|InnerEvalable| $$ $$) (|InnerEvalable| 7 $$)
+                 (|VariablesCommuteWithCoefficients|) (|unitsKnown|)
+                 (|BasicType|) (|CoercibleTo| 188)
                  (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|ElementaryFunctionCategory|) (|RadicalCategory|)
-                 (|CommutativeStar|) (|noZeroDivisors|))
+                 (|TwoSidedRecip|) (|noZeroDivisors|))
               (|makeByteWordVec2| 218
                                   '(0 0 0 13 0 6 0 14 2 9 0 0 15 16 1 9 0 0 19
                                     0 0 0 21 0 6 0 22 0 8 0 23 2 8 0 0 0 24 3 8

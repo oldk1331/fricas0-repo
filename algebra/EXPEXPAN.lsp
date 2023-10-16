@@ -709,8 +709,8 @@
                                 '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 7 0 0 0 0 0 3 4
                                   15 16 17 0 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0
                                   0 7 0 7 0 0 0 7 0 0 0 0 0 9 0 0 0 25 11 20 21
-                                  0 0 6 13 0 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10 10
-                                  12 13 14 18 19))
+                                  0 0 0 6 13 0 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10
+                                  10 12 13 14 18 19))
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
@@ -724,7 +724,7 @@
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |OrderedSet&| |FullyEvalableOver&| |Magma&|
-                |AbelianSemiGroup&| NIL NIL NIL NIL NIL |SetCategory&| NIL
+                |AbelianSemiGroup&| NIL NIL NIL NIL NIL NIL |SetCategory&| NIL
                 |Evalable&| |RetractableTo&| NIL |RetractableTo&| NIL NIL NIL
                 NIL NIL |BasicType&| NIL |RetractableTo&| NIL NIL NIL
                 |PartialOrder&| |RetractableTo&| |RetractableTo&|
@@ -789,7 +789,7 @@
                  (|Patternable|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
-                 (|SetCategory|) (|RealConstant|)
+                 (|CommutativeStar|) (|SetCategory|) (|RealConstant|)
                  (|Evalable|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
@@ -798,7 +798,7 @@
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
+                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 113) (|RetractableTo| 48)
                  (|ConvertibleTo| 74) (|ConvertibleTo| 91) (|ConvertibleTo| 92)
                  (|PartialOrder|) (|RetractableTo| 13) (|RetractableTo| 12)

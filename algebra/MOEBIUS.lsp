@@ -259,14 +259,14 @@
               |hash| 205 |eval| 210 |conjugate| 222 |commutator| 228 |coerce|
               234 ^ 239 |One| 257 = 261 / 267 * 273)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|Group&| NIL NIL |MagmaWithUnit&| |Magma&| |SetCategory&|
-                     NIL |BasicType&| NIL)
+                     NIL NIL |BasicType&| NIL)
                   (CONS
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|MagmaWithUnit|)
-                      (|Magma|) (|SetCategory|) (|unitsKnown|) (|BasicType|)
-                      (|CoercibleTo| 34))
+                      (|Magma|) (|SetCategory|) (|unitsKnown|)
+                      (|TwoSidedRecip|) (|BasicType|) (|CoercibleTo| 34))
                    (|makeByteWordVec2| 52
                                        '(0 6 0 10 0 6 0 11 2 6 0 0 0 12 2 6 0 0
                                          0 13 1 6 0 0 15 2 6 0 0 0 23 1 26 25 0

@@ -2839,7 +2839,7 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
@@ -2850,8 +2850,9 @@
                 NIL |AbelianGroup&| NIL NIL NIL NIL |OrderedSet&| NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&| NIL
                 NIL |Magma&| |AbelianSemiGroup&|
-                |TranscendentalFunctionCategory&| NIL |SetCategory&| NIL NIL
-                |ElementaryFunctionCategory&| NIL |HyperbolicFunctionCategory&|
+                |TranscendentalFunctionCategory&| NIL NIL |SetCategory&| NIL
+                NIL |ElementaryFunctionCategory&| NIL
+                |HyperbolicFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |TrigonometricFunctionCategory&| NIL NIL |OpenMath&| NIL NIL
                 NIL |RadicalCategory&| |RetractableTo&| |RetractableTo&| NIL
@@ -2875,8 +2876,9 @@
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|)
                  (|PatternMatchable| 177) (|Comparable|) (|Magma|)
                  (|AbelianSemiGroup|) (|TranscendentalFunctionCategory|)
-                 (|RealConstant|) (|SetCategory|) (|arbitraryExponent|)
-                 (|arbitraryPrecision|) (|ElementaryFunctionCategory|)
+                 (|RealConstant|) (|CommutativeStar|) (|SetCategory|)
+                 (|arbitraryExponent|) (|arbitraryPrecision|)
+                 (|ElementaryFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
@@ -2886,7 +2888,7 @@
                  (|RetractableTo| 125) (|RetractableTo| 16)
                  (|ConvertibleTo| 177) (|ConvertibleTo| 179) (|PartialOrder|)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
+                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 166))
               (|makeByteWordVec2| 211
                                   '(1 7 0 6 8 1 12 11 0 13 3 12 11 0 14 14 15 2

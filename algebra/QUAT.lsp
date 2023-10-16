@@ -120,7 +120,7 @@
             (|makeByteWordVec2| 15
                                 '(0 0 0 4 0 0 1 2 6 4 10 11 15 0 0 0 0 0 4 0 0
                                   0 4 0 0 0 0 0 4 4 0 0 0 0 0 0 0 0 7 0 0 0 7 0
-                                  0 13 0 0 0 0 3 5 7 8 9 12 13 14))
+                                  0 13 0 0 0 0 3 5 4 7 8 9 12 13 14))
             (CONS
              '#(|QuaternionCategory&| |FullyLinearlyExplicitOver&|
                 |DifferentialExtension&| |DivisionRing&| |Algebra&| NIL NIL NIL
@@ -131,9 +131,9 @@
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
                 |OrderedSet&| |FullyEvalableOver&| |Magma&| |AbelianSemiGroup&|
                 NIL |FullyRetractableTo&| |SetCategory&| |Evalable&|
-                |RetractableTo&| NIL |BasicType&| NIL NIL NIL |PartialOrder&|
-                |RetractableTo&| |RetractableTo&| |InnerEvalable&|
-                |InnerEvalable&| NIL)
+                |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL
+                |PartialOrder&| |RetractableTo&| |RetractableTo&|
+                |InnerEvalable&| |InnerEvalable&| NIL)
              (CONS
               '#((|QuaternionCategory| 6) (|FullyLinearlyExplicitOver| 6)
                  (|DifferentialExtension| 6) (|DivisionRing|) (|Algebra| 6)
@@ -153,7 +153,8 @@
                  (|FullyRetractableTo| 6) (|SetCategory|) (|Evalable| 6)
                  (|RetractableTo| 6) (|unitsKnown|) (|BasicType|)
                  (|CoercibleTo| 36) (|ConvertibleTo| 12) (|noZeroDivisors|)
-                 (|PartialOrder|) (|RetractableTo| 10) (|RetractableTo| 19)
-                 (|InnerEvalable| 20 6) (|InnerEvalable| 6 6) (|Eltable| 6 $$))
+                 (|TwoSidedRecip|) (|PartialOrder|) (|RetractableTo| 10)
+                 (|RetractableTo| 19) (|InnerEvalable| 20 6)
+                 (|InnerEvalable| 6 6) (|Eltable| 6 $$))
               (|makeByteWordVec2| 9 '(0 0 0 7 0 6 0 8 1 6 0 0 9 0 0 0 7)))))
            '|lookupIncomplete|)) 

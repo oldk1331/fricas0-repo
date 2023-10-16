@@ -86,7 +86,7 @@
             (|makeByteWordVec2| 3
                                 '(0 0 2 3 0 0 2 0 0 0 0 0 0 0 0 0 0 3 1 2 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 2 0 0 2 2 0 0 0 0 0 0 0 0 0 2))
+                                  0 2 0 0 2 2 0 0 0 0 0 0 0 0 0 0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -98,7 +98,7 @@
                 NIL NIL NIL NIL |NonAssociativeRng&| NIL |AbelianGroup&| NIL
                 NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |Finite&| |Magma&| |AbelianSemiGroup&| NIL NIL
-                |SetCategory&| |RetractableTo&| NIL NIL NIL NIL NIL
+                NIL |SetCategory&| |RetractableTo&| NIL NIL NIL NIL NIL
                 |BasicType&| NIL NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| (|InnerPrimeField| 6))
@@ -123,10 +123,10 @@
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Finite|) (|Magma|) (|AbelianSemiGroup|)
-                 (|Comparable|) (|StepThrough|) (|SetCategory|)
-                 (|RetractableTo| (|InnerPrimeField| 6)) (|canonicalsClosed|)
-                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 48)
-                 (|ConvertibleTo| 16))
+                 (|Comparable|) (|StepThrough|) (|CommutativeStar|)
+                 (|SetCategory|) (|RetractableTo| (|InnerPrimeField| 6))
+                 (|canonicalsClosed|) (|canonicalUnitNormal|)
+                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
+                 (|BasicType|) (|CoercibleTo| 48) (|ConvertibleTo| 16))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

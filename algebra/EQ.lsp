@@ -615,14 +615,14 @@
            (CONS
             (|makeByteWordVec2| 22
                                 '(7 8 1 8 4 2 4 5 4 4 5 4 4 4 8 6 10 6 4 12 6 9
-                                  8 18 21 18 22 0 3 11 22 3 13))
+                                  8 18 21 18 22 0 3 11 22 10 3 13))
             (CONS
              '#(|PartialDifferentialRing&| NIL |VectorSpace&| |Rng&| NIL
                 |Module&| NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
                 |NonAssociativeRng&| |AbelianGroup&| |Group&| NIL NIL NIL
                 |AbelianMonoid&| |MagmaWithUnit&| |NonAssociativeSemiRng&| NIL
                 |AbelianSemiGroup&| |Magma&| |SetCategory&| NIL NIL NIL
-                |BasicType&| NIL |InnerEvalable&|)
+                |BasicType&| NIL NIL |InnerEvalable&|)
              (CONS
               '#((|PartialDifferentialRing| 25) (|Ring|) (|VectorSpace| 6)
                  (|Rng|) (|SemiRing|) (|Module| 6) (|SemiRng|) (|BiModule| 6 6)
@@ -633,8 +633,8 @@
                  (|Monoid|) (|AbelianMonoid|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianSemiGroup|)
                  (|Magma|) (|SetCategory|) (|Type|) (|CoercibleTo| 41)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 38)
-                 (|InnerEvalable| 25 6))
+                 (|unitsKnown|) (|BasicType|) (|TwoSidedRecip|)
+                 (|CoercibleTo| 38) (|InnerEvalable| 25 6))
               (|makeByteWordVec2| 98
                                   '(1 0 0 0 8 1 6 10 0 11 1 14 13 0 15 0 6 0 16
                                     1 0 18 0 19 3 6 0 0 25 6 26 3 0 0 0 25 6 27

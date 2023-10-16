@@ -617,8 +617,8 @@
             (|makeByteWordVec2| 47
                                 '(0 7 10 10 7 7 10 15 16 17 19 1 10 19 9 2 7 8
                                   3 10 12 0 0 0 8 2 3 2 12 19 3 41 3 10 11 46 0
-                                  5 11 13 29 18 47 0 0 14 29 0 0 0 43 20 0 0 0
-                                  0 0 0 43 4 6 7 13 20 44 45))
+                                  5 11 13 29 18 47 0 0 14 29 0 0 0 43 7 20 0 0
+                                  0 0 0 0 43 4 6 7 13 20 44 45))
             (CONS
              '#(|DirectProductCategory&| NIL |FullyLinearlyExplicitOver&|
                 |DifferentialExtension&| |Algebra&| |Algebra&| NIL NIL
@@ -629,7 +629,7 @@
                 |IndexedAggregate&| |OrderedSet&| |MagmaWithUnit&| |Finite&|
                 NIL |NonAssociativeSemiRng&| |AbelianMonoid&|
                 |HomogeneousAggregate&| |AbelianSemiGroup&| NIL |Magma&|
-                |Aggregate&| |SetCategory&| |EltableAggregate&| |Evalable&|
+                |Aggregate&| |SetCategory&| |EltableAggregate&| |Evalable&| NIL
                 |FullyRetractableTo&| NIL NIL |BasicType&| NIL NIL NIL
                 |InnerEvalable&| |PartialOrder&| NIL NIL NIL |RetractableTo&|
                 |RetractableTo&| |RetractableTo&|)
@@ -653,11 +653,12 @@
                  (|AbelianMonoid|) (|HomogeneousAggregate| 9)
                  (|AbelianSemiGroup|) (|Comparable|) (|Magma|) (|Aggregate|)
                  (|SetCategory|) (|EltableAggregate| 11 9) (|Evalable| 9)
-                 (|FullyRetractableTo| 9) (|Type|) (|CoercibleTo| 46)
-                 (|BasicType|) (|finiteAggregate|) (|CoercibleTo| (|Vector| 9))
-                 (|Eltable| 11 9) (|InnerEvalable| 9 9) (|PartialOrder|)
-                 (|unitsKnown|) (|CommutativeStar|) (|ConvertibleTo| 40)
-                 (|RetractableTo| 9) (|RetractableTo| 32) (|RetractableTo| 11))
+                 (|CommutativeStar|) (|FullyRetractableTo| 9) (|Type|)
+                 (|CoercibleTo| 46) (|BasicType|) (|finiteAggregate|)
+                 (|CoercibleTo| (|Vector| 9)) (|Eltable| 11 9)
+                 (|InnerEvalable| 9 9) (|PartialOrder|) (|unitsKnown|)
+                 (|TwoSidedRecip|) (|ConvertibleTo| 40) (|RetractableTo| 9)
+                 (|RetractableTo| 32) (|RetractableTo| 11))
               (|makeByteWordVec2| 18
                                   '(2 0 9 0 11 12 2 9 0 7 0 13 3 8 7 0 11 11 15
                                     2 9 0 0 0 16 0 9 0 17 2 0 9 0 11 12 2 0 0 8

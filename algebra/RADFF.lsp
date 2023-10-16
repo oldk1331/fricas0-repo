@@ -907,7 +907,7 @@
                                 '(0 0 2 2 4 4 2 4 4 4 0 4 0 0 0 3 3 3 0 0 0 1 3
                                   3 5 7 12 10 0 0 0 0 0 0 3 0 0 0 0 3 0 0 0 0 0
                                   3 3 0 0 0 0 0 0 0 0 6 0 0 6 2 0 0 0 0 0 0 0 0
-                                  3 3 3 6 8 9))
+                                  0 3 3 3 6 8 9))
             (CONS
              '#(|FunctionFieldCategory&| |MonogenicAlgebra&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -921,7 +921,7 @@
                 |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
                 NIL NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Finite&| |Magma&|
-                |AbelianSemiGroup&| NIL NIL |FullyRetractableTo&|
+                |AbelianSemiGroup&| NIL NIL |FullyRetractableTo&| NIL
                 |SetCategory&| |RetractableTo&| NIL NIL NIL |BasicType&| NIL
                 NIL NIL NIL NIL |RetractableTo&| |RetractableTo&|)
              (CONS
@@ -952,12 +952,13 @@
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Finite|) (|Magma|) (|AbelianSemiGroup|)
                  (|Comparable|) (|StepThrough|)
-                 (|FullyRetractableTo| (|Fraction| 7)) (|SetCategory|)
-                 (|RetractableTo| (|Fraction| 7)) (|ConvertibleTo| 8)
-                 (|CommutativeStar|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 187) (|noZeroDivisors|) (|canonicalUnitNormal|)
-                 (|canonicalsClosed|) (|ConvertibleTo| 165)
-                 (|RetractableTo| 152) (|RetractableTo| 35))
+                 (|FullyRetractableTo| (|Fraction| 7)) (|CommutativeStar|)
+                 (|SetCategory|) (|RetractableTo| (|Fraction| 7))
+                 (|ConvertibleTo| 8) (|TwoSidedRecip|) (|unitsKnown|)
+                 (|BasicType|) (|CoercibleTo| 187) (|noZeroDivisors|)
+                 (|canonicalUnitNormal|) (|canonicalsClosed|)
+                 (|ConvertibleTo| 165) (|RetractableTo| 152)
+                 (|RetractableTo| 35))
               (|makeByteWordVec2| 187
                                   '(0 11 0 12 2 8 0 11 13 14 1 8 0 11 15 2 8 0
                                     0 0 16 1 18 0 17 19 0 11 0 21 1 22 0 11 23

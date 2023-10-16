@@ -191,8 +191,8 @@
                                 '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 7 0 0 0 0 0 3 4
                                   15 16 17 0 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0
                                   0 7 0 7 0 0 0 7 0 0 0 0 0 9 0 0 0 25 11 20 21
-                                  0 0 6 13 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10 10 12
-                                  13 14 18 19))
+                                  0 0 0 6 13 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10 10
+                                  12 13 14 18 19))
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
@@ -206,7 +206,7 @@
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |OrderedSet&| |FullyEvalableOver&| |Magma&|
-                |AbelianSemiGroup&| NIL NIL NIL NIL NIL |SetCategory&| NIL
+                |AbelianSemiGroup&| NIL NIL NIL NIL NIL NIL |SetCategory&| NIL
                 |Evalable&| NIL |RetractableTo&| NIL NIL NIL NIL NIL
                 |BasicType&| NIL |RetractableTo&| NIL NIL NIL |PartialOrder&|
                 |RetractableTo&| |RetractableTo&| |InnerEvalable&|
@@ -244,11 +244,12 @@
                  (|FullyEvalableOver| (|BalancedPAdicInteger| 6)) (|Magma|)
                  (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
                  (|PatternMatchable| 33) (|PatternMatchable| 24)
-                 (|Patternable| (|BalancedPAdicInteger| 6)) (|SetCategory|)
-                 (|RealConstant|) (|Evalable| (|BalancedPAdicInteger| 6))
-                 (|Type|) (|RetractableTo| (|BalancedPAdicInteger| 6))
+                 (|Patternable| (|BalancedPAdicInteger| 6)) (|CommutativeStar|)
+                 (|SetCategory|) (|RealConstant|)
+                 (|Evalable| (|BalancedPAdicInteger| 6)) (|Type|)
+                 (|RetractableTo| (|BalancedPAdicInteger| 6))
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
+                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 57) (|RetractableTo| 19)
                  (|ConvertibleTo| 11) (|ConvertibleTo| 32) (|ConvertibleTo| 33)
                  (|PartialOrder|) (|RetractableTo| 34) (|RetractableTo| 24)

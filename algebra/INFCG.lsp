@@ -102,18 +102,18 @@
               |commutator| 143 |coerce| 149 ^ 154 |One| 172 >= 176 > 182 = 188
               <= 194 < 200 / 206 * 212)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|Group&| NIL NIL NIL NIL |OrderedSet&| |MagmaWithUnit&|
-                     NIL |Magma&| |SetCategory&| NIL NIL |PartialOrder&| NIL
-                     NIL |BasicType&| NIL)
+                     NIL |Magma&| NIL |SetCategory&| NIL NIL |PartialOrder&|
+                     NIL NIL |BasicType&| NIL)
                   (CONS
                    '#((|Group|) (|OrderedMonoid|) (|Monoid|)
                       (|OrderedSemiGroup|) (|SemiGroup|) (|OrderedSet|)
                       (|MagmaWithUnit|) (|Comparable|) (|Magma|)
-                      (|SetCategory|) (|ConvertibleTo| 20) (|CommutativeStar|)
-                      (|PartialOrder|) (|FinitelyGenerated|) (|unitsKnown|)
-                      (|BasicType|) (|CoercibleTo| 10))
+                      (|CommutativeStar|) (|SetCategory|) (|ConvertibleTo| 20)
+                      (|TwoSidedRecip|) (|PartialOrder|) (|FinitelyGenerated|)
+                      (|unitsKnown|) (|BasicType|) (|CoercibleTo| 10))
                    (|makeByteWordVec2| 36
                                        '(1 11 10 0 12 1 13 10 0 14 1 7 10 0 15
                                          2 10 0 0 0 16 1 20 0 11 21 2 0 8 0 0 1

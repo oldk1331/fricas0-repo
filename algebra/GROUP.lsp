@@ -11,7 +11,7 @@
   (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|Join| (|Monoid|) (|unitsKnown|)
+                   (|Join| (|Monoid|) (|TwoSidedRecip|) (|unitsKnown|)
                            (|mkCategory|
                             '(((|inv| ($ $)) T) ((/ ($ $ $)) T)
                               ((^ ($ $ (|Integer|))) T)

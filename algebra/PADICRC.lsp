@@ -623,8 +623,8 @@
                                 '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 7 0 0 0 0 0 3 4
                                   15 16 17 0 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0
                                   0 7 0 7 0 0 0 7 0 0 0 0 0 9 0 0 0 25 11 20 21
-                                  0 0 6 13 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10 10 12
-                                  13 14 18 19))
+                                  0 0 0 6 13 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10 10
+                                  12 13 14 18 19))
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
@@ -638,7 +638,7 @@
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |OrderedSet&| |FullyEvalableOver&| |Magma&|
-                |AbelianSemiGroup&| NIL NIL NIL NIL NIL |SetCategory&| NIL
+                |AbelianSemiGroup&| NIL NIL NIL NIL NIL NIL |SetCategory&| NIL
                 |Evalable&| NIL |RetractableTo&| NIL NIL NIL NIL NIL
                 |BasicType&| NIL |RetractableTo&| NIL NIL NIL |PartialOrder&|
                 |RetractableTo&| |RetractableTo&| |InnerEvalable&|
@@ -668,10 +668,10 @@
                  (|AbelianMonoid|) (|OrderedSet|) (|FullyEvalableOver| 7)
                  (|Magma|) (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
                  (|PatternMatchable| 110) (|PatternMatchable| 9)
-                 (|Patternable| 7) (|SetCategory|) (|RealConstant|)
-                 (|Evalable| 7) (|Type|) (|RetractableTo| 7)
+                 (|Patternable| 7) (|CommutativeStar|) (|SetCategory|)
+                 (|RealConstant|) (|Evalable| 7) (|Type|) (|RetractableTo| 7)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
+                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 8) (|RetractableTo| 79)
                  (|ConvertibleTo| 92) (|ConvertibleTo| 109)
                  (|ConvertibleTo| 110) (|PartialOrder|) (|RetractableTo| 20)

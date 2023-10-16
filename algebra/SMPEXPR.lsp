@@ -644,9 +644,9 @@
             (|makeByteWordVec2| 40
                                 '(0 0 10 0 10 0 15 26 4 25 14 1 2 3 23 4 9 27
                                   16 4 28 12 28 0 1 23 27 0 0 1 4 0 0 0 0 1 1
-                                  28 11 40 12 12 0 0 39 12 0 0 8 30 32 0 0 12
-                                  18 0 0 0 0 0 0 4 5 6 7 27 13 34 36 17 12 12
-                                  18 18 18 18 18))
+                                  28 11 40 12 12 0 0 39 12 0 0 8 30 32 0 0 27
+                                  12 18 0 0 0 0 0 0 4 5 6 7 27 13 34 36 17 12
+                                  12 18 18 18 18 18))
             (CONS
              '#(|PolynomialCategory&| |MaybeSkewPolynomialCategory&|
                 |PolynomialFactorizationExplicit&| |FiniteAbelianMonoidRing&|
@@ -658,7 +658,7 @@
                 NIL NIL NIL NIL |NonAssociativeRng&| |AbelianGroup&| NIL NIL
                 NIL |NonAssociativeSemiRng&| NIL |AbelianMonoid&|
                 |MagmaWithUnit&| |Magma&| |AbelianSemiGroup&| NIL NIL NIL
-                |FullyRetractableTo&| |SetCategory&| |Evalable&|
+                |FullyRetractableTo&| |SetCategory&| NIL |Evalable&|
                 |TranscendentalFunctionCategory&| NIL |InnerEvalable&|
                 |InnerEvalable&| |RetractableTo&| |BasicType&| NIL NIL
                 |RetractableTo&| |RetractableTo&| NIL NIL NIL NIL NIL NIL
@@ -689,16 +689,15 @@
                  (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
                  (|Comparable|) (|PatternMatchable| (|Float|))
                  (|PatternMatchable| 40) (|FullyRetractableTo| 6)
-                 (|SetCategory|) (|Evalable| $$)
+                 (|SetCategory|) (|CommutativeStar|) (|Evalable| $$)
                  (|TranscendentalFunctionCategory|)
                  (|VariablesCommuteWithCoefficients|) (|InnerEvalable| 41 $$)
                  (|InnerEvalable| 41 6) (|RetractableTo| 6) (|BasicType|)
                  (|CoercibleTo| 12) (|unitsKnown|) (|RetractableTo| 43)
-                 (|RetractableTo| 40) (|canonicalUnitNormal|)
-                 (|CommutativeStar|) (|noZeroDivisors|) (|ConvertibleTo| 32)
-                 (|ConvertibleTo| 33) (|ConvertibleTo| 31)
-                 (|InnerEvalable| $$ $$) (|RetractableTo| 41)
-                 (|TrigonometricFunctionCategory|)
+                 (|RetractableTo| 40) (|canonicalUnitNormal|) (|TwoSidedRecip|)
+                 (|noZeroDivisors|) (|ConvertibleTo| 32) (|ConvertibleTo| 33)
+                 (|ConvertibleTo| 31) (|InnerEvalable| $$ $$)
+                 (|RetractableTo| 41) (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)

@@ -49,6 +49,12 @@
         (COND ((SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9)) (CONS 0 |x|))
               ('T (CONS 1 "failed")))) 
 
+(SDEFUN |MAGMAWU-;leftRecip;SU;7| ((|x| S) ($ |Union| S "failed"))
+        (SPADCALL |x| (QREFELT $ 22))) 
+
+(SDEFUN |MAGMAWU-;rightRecip;SU;8| ((|x| S) ($ |Union| S "failed"))
+        (SPADCALL |x| (QREFELT $ 22))) 
+
 (DECLAIM (NOTINLINE |MagmaWithUnit&;|)) 
 
 (DEFUN |MagmaWithUnit&| (|#1|)
@@ -56,12 +62,20 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|MagmaWithUnit&|))
           (LETT |dv$| (LIST '|MagmaWithUnit&| DV$1) . #1#)
-          (LETT $ (GETREFV 22) . #1#)
+          (LETT $ (GETREFV 25) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|HasCategory| |#1| '(|TwoSidedRecip|))
+            (PROGN
+             (QSETREFV $ 23
+                       (CONS (|dispatchFunction| |MAGMAWU-;leftRecip;SU;7|) $))
+             (QSETREFV $ 24
+                       (CONS (|dispatchFunction| |MAGMAWU-;rightRecip;SU;8|)
+                             $)))))
           $))) 
 
 (MAKEPROP '|MagmaWithUnit&| '|infovec|
@@ -71,17 +85,20 @@
               (|PositiveInteger|) (|RepeatedSquaring| 6) (10 . |expt|)
               (|NonNegativeInteger|) |MAGMAWU-;^;SNniS;3| (16 . *)
               |MAGMAWU-;rightPower;SNniS;4| |MAGMAWU-;leftPower;SNniS;5|
-              (|Union| $ '"failed") |MAGMAWU-;recip;SU;6|)
-           '#(|sample| 22 |rightPower| 26 |recip| 32 |one?| 37 |leftPower| 42 ^
-              48)
+              (|Union| $ '"failed") |MAGMAWU-;recip;SU;6| (22 . |recip|)
+              (27 . |leftRecip|) (32 . |rightRecip|))
+           '#(|sample| 37 |rightRecip| 41 |rightPower| 46 |recip| 52 |one?| 57
+              |leftRecip| 62 |leftPower| 67 ^ 73)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 21
+                             (|makeByteWordVec2| 24
                                                  '(0 6 0 7 2 6 8 0 0 9 2 13 6 6
-                                                   12 14 2 6 0 0 0 17 0 0 0 11
-                                                   2 0 0 0 15 18 1 0 20 0 21 1
-                                                   0 8 0 10 2 0 0 0 15 19 2 0 0
-                                                   0 15 16)))))
+                                                   12 14 2 6 0 0 0 17 1 6 20 0
+                                                   22 1 0 20 0 23 1 0 20 0 24 0
+                                                   0 0 11 1 0 20 0 24 2 0 0 0
+                                                   15 18 1 0 20 0 21 1 0 8 0 10
+                                                   1 0 20 0 23 2 0 0 0 15 19 2
+                                                   0 0 0 15 16)))))
            '|lookupComplete|)) 

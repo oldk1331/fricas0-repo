@@ -390,12 +390,13 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 9
-                                '(1 1 1 3 6 1 4 7 2 5 7 7 8 9 5 7 0 0 0 2 6 8))
+                                '(1 1 1 3 6 1 4 7 2 5 7 7 8 9 5 7 0 0 0 2 6 6
+                                  8))
             (CONS
              '#(NIL NIL NIL |AbelianGroup&| |Group&| NIL NIL NIL |OrderedSet&|
                 |AbelianMonoid&| NIL |MagmaWithUnit&| |Finite&| NIL
                 |AbelianSemiGroup&| |Magma&| |SetCategory&| |BasicType&| NIL
-                |PartialOrder&| NIL NIL)
+                |PartialOrder&| NIL NIL NIL)
              (CONS
               '#((|OrderedAbelianMonoidSup|)
                  (|OrderedCancellationAbelianMonoid|) (|OrderedAbelianMonoid|)
@@ -404,7 +405,7 @@
                  (|AbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|) (|Finite|)
                  (|Comparable|) (|AbelianSemiGroup|) (|Magma|) (|SetCategory|)
                  (|BasicType|) (|CoercibleTo| 9) (|PartialOrder|)
-                 (|unitsKnown|) (|ConvertibleTo| 84))
+                 (|TwoSidedRecip|) (|unitsKnown|) (|ConvertibleTo| 84))
               (|makeByteWordVec2| 86
                                   '(1 6 9 0 10 1 7 9 0 11 1 9 0 12 13 2 6 15 0
                                     0 16 2 7 15 0 0 17 0 6 0 22 0 7 0 23 0 0 0
