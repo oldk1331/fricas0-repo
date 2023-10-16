@@ -192,7 +192,7 @@
                                         (CONS 0 0))
                                        (#6#
                                         (CONS 1 (CONS |vx| (NREVERSE |yu|))))))
-                                (EXIT (SETF |xr| |xr|))))))))))))
+                                (EXIT |xr|)))))))))))
           #5# (EXIT #3#)))) 
 
 (SDEFUN |PEVALUT;eval1;RSIRU;3|
@@ -259,7 +259,7 @@
                (COND
                 ((QEQCAR |xr| 0)
                  (SEQ (LETT |c0| (SPADCALL (QCDR |xr|) |p| (QREFELT $ 29)))
-                      (LETT |xr| (CONS 0 |c0|)) (EXIT (SETF |xr| |xr|))))
+                      (LETT |xr| (CONS 0 |c0|)) (EXIT |xr|)))
                 (#2='T
                  (SEQ (LETT |vx| (QCAR (QCDR |xr|)))
                       (LETT |xu| (QCDR (QCDR |xr|))) (LETT |yu| NIL)
@@ -283,8 +283,7 @@
                                                   (LETT |yu|
                                                         (CONS
                                                          (CONS (QCAR |t0|)
-                                                               (SETF |xr|
-                                                                       |xr|))
+                                                               |xr|)
                                                          |yu|)))))))))
                                   ('T
                                    (SEQ
@@ -305,7 +304,7 @@
                             (COND
                              ((SPADCALL |yu| NIL (QREFELT $ 25)) (CONS 0 0))
                              (#2# (CONS 1 (CONS |vx| (NREVERSE |yu|))))))
-                      (EXIT (SETF |xr| |xr|))))))))) 
+                      (EXIT |xr|)))))))) 
 
 (SDEFUN |PEVALUT;modpreduction;FIU;5|
         ((|x| |Fraction| (|Polynomial| (|Integer|))) (|p| |Integer|)
