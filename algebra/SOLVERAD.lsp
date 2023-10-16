@@ -758,7 +758,7 @@
               (60 . |coerce|) (65 . |One|) (69 . |One|) (73 . /)
               (|SparseUnivariatePolynomial| 12) (|Mapping| 12 18)
               (|SparseUnivariatePolynomialFunctions2| 18 12) (79 . |map|)
-              (|List| 12) (|PolynomialSolveByFormulas| 34 12)
+              (|List| 12) (|PolynomialSolveByFormulas| 34 12 6)
               (85 . |quadratic|) (90 . |cubic|) (95 . |quartic|) (|Integer|)
               (100 . |coerce|) |SOLVERAD;radicalRoots;FSL;21|
               (|SparseUnivariatePolynomial| $) (105 . |univariate|) (111 . -)

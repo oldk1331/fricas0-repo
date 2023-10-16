@@ -1164,7 +1164,7 @@ oacsch`1`n`(UPXS)->UPXS`dElementaryFunctionsUnivariatePuiseuxSeries(Coef,ULS,UPX
 oacsch`1`x`(_$)->_$`cArcHyperbolicFunctionCategory``193013
 oacschIfCan`1`x`(K)->Union(K,"failed")`cPartialTranscendentalFunctions(K)``193084
 oacscIfCan`1`x`(K)->Union(K,"failed")`cPartialTranscendentalFunctions(K)``193174
-oaCubic`4`n`(F,F,F,F)->F`pPolynomialSolveByFormulas(UP,F)``193262
+oaCubic`4`n`(F,F,F,F)->F`pPolynomialSolveByFormulas(UP,F,RR)``193262
 oadaptive?`0`n`()->Boolean`dPlot``193314
 oadaptive`0`x`()->Boolean`pGraphicsDefaults``193386
 oadaptive`1`x`(Boolean)->_$`dDrawOption``193463
@@ -1329,7 +1329,7 @@ oalgtower`1`n`(S)->List(Kernel(S))`xFunctionSpace&(S,R)``0
 oalgtower`1`x`(_$)->List(Kernel(_$))`cFunctionSpace(R)`has(R,IntegralDomain)`213305
 oalgtower`1`x`(List(_$))->List(Kernel(_$))`cFunctionSpace(R)`has(R,IntegralDomain)`213355
 oalg_trial_division`5`n`(SparseMultivariatePolynomial(Integer,Symbol),SparseMultivariatePolynomial(Integer,Symbol),List(SparseMultivariatePolynomial(Integer,Symbol)),List(Symbol),List(Symbol))->Boolean`pPrimGCD``213609
-oaLinear`2`n`(F,F)->F`pPolynomialSolveByFormulas(UP,F)``213895
+oaLinear`2`n`(F,F)->F`pPolynomialSolveByFormulas(UP,F,RR)``213895
 oallDegrees`1`n`(List(GuessOption))->Boolean`dGuessOptionFunctions0``213939
 oallDegrees`1`x`(Boolean)->_$`dGuessOption``214070
 oallIndices`1`n`(_$)->List(C)`dSparseEchelonMatrix(C,D)``214322
@@ -1446,8 +1446,8 @@ oapproximate`2`x`(_$,Integer)->Integer`cPAdicIntegerCategory(p)``226347
 oapproximate`3`x`(ThePols,_$,TheField)->TheField`cRealRootCharacterizationCategory(TheField,ThePols)``226488
 oapproxNthRoot`2`x`(I,NonNegativeInteger)->I`pIntegerRoots(I)``226618
 oapproxSqrt`1`x`(I)->I`pIntegerRoots(I)``226741
-oaQuadratic`3`n`(F,F,F)->F`pPolynomialSolveByFormulas(UP,F)``226984
-oaQuartic`5`n`(F,F,F,F,F)->F`pPolynomialSolveByFormulas(UP,F)``227036
+oaQuadratic`3`n`(F,F,F)->F`pPolynomialSolveByFormulas(UP,F,RR)``226984
+oaQuartic`5`n`(F,F,F,F,F)->F`pPolynomialSolveByFormulas(UP,F,RR)``227036
 oarbFunctions`3`n`(NonNegativeInteger,Integer,List(NonNegativeInteger))->List(Integer)`pCartanKuranishi(JB,D)``227096
 oarcsineDistribution`1`x`(R)->Distribution(R)`pDistributionPackage(R)`has(R,Algebra(Fraction(Integer)))`227323
 oareEquivalent?`2`x`(List(Matrix(R)),List(Matrix(R)))->Matrix(R)`pRepresentationPackage2(R)`has(R,Field)`227416
@@ -3097,8 +3097,8 @@ ocSinh`1`n`(_$)->_$`dInnerSparseUnivariatePowerSeries(Coef)`has(Coef,Algebra(Fra
 ocsubst`2`n`(List(Var),List(Stream(SMP)))->(SMP)->Stream(SMP)`dSparseMultivariateTaylorSeries(Coef,Var,SMP)``404299
 ocTan`1`n`(_$)->_$`dInnerSparseUnivariatePowerSeries(Coef)`has(Coef,Algebra(Fraction(Integer)))`404353
 ocTanh`1`n`(_$)->_$`dInnerSparseUnivariatePowerSeries(Coef)`has(Coef,Algebra(Fraction(Integer)))`404476
-ocubic`1`n`(UP)->List(F)`pPolynomialSolveByFormulas(UP,F)``404611
-ocubic`4`n`(F,F,F,F)->List(F)`pPolynomialSolveByFormulas(UP,F)``404648
+ocubic`1`n`(UP)->List(F)`pPolynomialSolveByFormulas(UP,F,RR)``404611
+ocubic`4`n`(F,F,F,F)->List(F)`pPolynomialSolveByFormulas(UP,F,RR)``404648
 ocubicalComplex`1`n`(List(VS))->_$`dFiniteCubicalComplex(VS)``404700
 ocubicalComplex`2`n`(List(VS),List(CubicalFacet))->_$`dFiniteCubicalComplex(VS)``404739
 ocubicalComplex`2`n`(List(VS),List(List(List(Integer))))->_$`dFiniteCubicalComplex(VS)``404787
@@ -6273,8 +6273,8 @@ olin_comb`2`n`(Vector(Fraction(Integer)),List(Fraction(UP)))->Fraction(UP)`pLine
 olin_comb!`3`n`(Vector(F),Vector(F),List(Vector(F)))->Vector(F)`pLinearCombinationUtilities(F,UP)``742421
 oline`0`n`()->FiniteSimplicialComplex(VS)`pSimplicialComplexFactory(VS)``742684
 olinear?`1`n`(P)->Boolean`pPolynomialSetUtilitiesPackage(R,E,V,P)``742738
-olinear`1`n`(UP)->List(F)`pPolynomialSolveByFormulas(UP,F)``742865
-olinear`2`n`(F,F)->List(F)`pPolynomialSolveByFormulas(UP,F)``742903
+olinear`1`n`(UP)->List(F)`pPolynomialSolveByFormulas(UP,F,RR)``742865
+olinear`2`n`(F,F)->List(F)`pPolynomialSolveByFormulas(UP,F,RR)``742903
 olinearAssociatedExp`2`n`(S,SparseUnivariatePolynomial(F))->S`xFiniteAlgebraicExtensionField&(S,F)``0
 olinearAssociatedExp`2`x`(_$,SparseUnivariatePolynomial(F))->_$`cFiniteAlgebraicExtensionField(F)`has(F,Finite)`742946
 olinearAssociatedLog`1`n`(S)->SparseUnivariatePolynomial(F)`xFiniteAlgebraicExtensionField&(S,F)``0
@@ -7720,7 +7720,7 @@ opartialFraction`2`x`(R,Factored(R))->_$`dPartialFraction(R)``925419
 opartialFraction`3`x`(Polynomial(R),Factored(Polynomial(R)),Symbol)->Any`pPartialFractionPackage(R)``925585
 opartialNumerators`1`x`(_$)->Stream(R)`dContinuedFraction(R)``925821
 opartialQuotients`1`x`(_$)->Stream(R)`dContinuedFraction(R)``926067
-oparticularSolution`1`n`(UP)->F`pPolynomialSolveByFormulas(UP,F)``926324
+oparticularSolution`1`n`(UP)->F`pPolynomialSolveByFormulas(UP,F,RR)``926324
 oparticularSolution`2`n`(Matrix(R),Vector(R))->Union(Vector(Fraction(S)),"failed")`pLinearDependence(S,R)`NOT(has(S,Field))`926374
 oparticularSolution`2`n`(Matrix(R),Vector(R))->Union(Vector(S),"failed")`pLinearDependence(S,R)`has(S,Field)`926588
 oparticularSolution`2`n`(Vector(R),R)->Union(Vector(Fraction(S)),"failed")`pLinearDependence(S,R)`NOT(has(S,Field))`926780
@@ -8214,13 +8214,13 @@ oqswapColumns!`3`n`(_$,NonNegativeInteger,NonNegativeInteger)->_$`dFreeDivisionA
 oqswapColumns!`3`n`(_$,NonNegativeInteger,NonNegativeInteger)->_$`dLinearMultivariateMatrixPencil(R)``992457
 oqswapRows!`3`n`(_$,NonNegativeInteger,NonNegativeInteger)->_$`dFreeDivisionAlgebra(VAR,F)``992601
 oqswapRows!`3`n`(_$,NonNegativeInteger,NonNegativeInteger)->_$`dLinearMultivariateMatrixPencil(R)``992699
-oquadratic`1`n`(UP)->List(F)`pPolynomialSolveByFormulas(UP,F)``992838
-oquadratic`3`n`(F,F,F)->List(F)`pPolynomialSolveByFormulas(UP,F)``992879
+oquadratic`1`n`(UP)->List(F)`pPolynomialSolveByFormulas(UP,F,RR)``992838
+oquadratic`3`n`(F,F,F)->List(F)`pPolynomialSolveByFormulas(UP,F,RR)``992879
 oquadraticForm`1`x`(SquareMatrix(n,K))->_$`dQuadraticForm(n,K)``992930
 oquadraticNonResidue`0`n`()->_$`dInnerPrimeField(p)``993030
 oquadraticNorm`1`n`(UP)->F`pGaloisGroupFactorizationUtilities(R,UP,F)``993154
-oquartic`1`n`(UP)->List(F)`pPolynomialSolveByFormulas(UP,F)``993240
-oquartic`5`n`(F,F,F,F,F)->List(F)`pPolynomialSolveByFormulas(UP,F)``993279
+oquartic`1`n`(UP)->List(F)`pPolynomialSolveByFormulas(UP,F,RR)``993240
+oquartic`5`n`(F,F,F,F,F)->List(F)`pPolynomialSolveByFormulas(UP,F,RR)``993279
 oquasiAlgebraicSet`2`n`(List(Dpoly),Dpoly)->_$`dQuasiAlgebraicSet(R,Var,Expon,Dpoly)``993338
 oquasiComponent`1`n`(S)->Record(close:List(P),open:List(P))`xTriangularSetCategory&(S,R,E,V,P)``0
 oquasiComponent`1`x`(_$)->Record(close:List(P),open:List(P))`cTriangularSetCategory(R,E,V,P)``993542
@@ -9738,7 +9738,7 @@ osolutionVector`1`n`(_$)->Matrix(XDistributedPolynomial(VAR,F))`dFreeDivisionAlg
 osolutionVector`2`n`(_$,NonNegativeInteger)->Matrix(XDistributedPolynomial(VAR,F))`dFreeDivisionAlgebra(VAR,F)``1166840
 osolve1`2`n`(SparseUnivariatePolynomial(K),Par)->List(F)`pInnerNumericEigenPackage(K,F,Par)``1166998
 osolve`1`n`(List(Polynomial(R)))->List(List(Equation(Fraction(Polynomial(R)))))`pNonLinearSolvePackage(R)``1167269
-osolve`1`n`(UP)->List(F)`pPolynomialSolveByFormulas(UP,F)``1167449
+osolve`1`n`(UP)->List(F)`pPolynomialSolveByFormulas(UP,F,RR)``1167449
 osolve`1`x`(Equation(Expression(R)))->List(Equation(Expression(R)))`pTransSolvePackage(R)``1167486
 osolve`1`x`(Equation(Fraction(Polynomial(R))))->List(Equation(Fraction(Polynomial(R))))`pSystemSolvePackage(R)``1167696
 osolve`1`x`(Expression(R))->List(Equation(Expression(R)))`pTransSolvePackage(R)``1167826
@@ -11364,7 +11364,7 @@ pPolynomialNumberTheoryFunctions`0`n`()->etc``PNTHEORY`1399223
 pPolynomialRationalRoots`2`n`(F:Join(IntegralDomain,etc),UP:UnivariatePolynomialCategory(F))->etc`(F,UP)`PRROOT`0
 pPolynomialRoots`5`n`(E:OrderedAbelianMonoidSup,V:OrderedSet,R:IntegralDomain,P:PolynomialCategory(R,E,V),F:Join(Field,etc))->etc`(E,V,R,P,F)`POLYROOT`1399318
 pPolynomialSetUtilitiesPackage`4`n`(R:IntegralDomain,E:OrderedAbelianMonoidSup,V:OrderedSet,P:RecursivePolynomialCategory(R,E,V))->etc`(R,E,V,P)`PSETPK`1399394
-pPolynomialSolveByFormulas`2`n`(UnivariatePolynomialCategory(F),F:Join(Field,etc))->etc`(UP,F)`SOLVEFOR`1399684
+pPolynomialSolveByFormulas`3`n`(UnivariatePolynomialCategory(F),F:Join(Field,etc),Join(PolynomialFactorizationExplicit,etc))->etc`(UP,F,RR)`SOLVEFOR`1399684
 pPolynomialSquareFree`4`n`(VarSet:OrderedSet,E:OrderedAbelianMonoidSup,RC:GcdDomain,P:PolynomialCategory(RC,E,VarSet))->etc`(VarSet,E,RC,P)`PSQFR`1399924
 pPolynomialToUnivariatePolynomial`2`x`(Symbol,R:Ring)->etc`(x,R)`POLY2UP`1400357
 pPosetFactory`1`n`(SetCategory)->etc`(S)`POSETF`1400590
