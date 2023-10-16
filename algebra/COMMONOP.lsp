@@ -114,6 +114,8 @@
                         (QREFELT $ 179))
               (SPADCALL (QREFELT $ 58) (CONS (|function| |COMMONOP;dgamma|) $)
                         (QREFELT $ 182))
+              (SPADCALL (QREFELT $ 58) '|disp_name|
+                        (SPADCALL '|Gamma| (QREFELT $ 161)) (QREFELT $ 168))
               (SPADCALL (QREFELT $ 98)
                         (CONS (|function| |COMMONOP;dEllipticE2|) $)
                         (QREFELT $ 182))
