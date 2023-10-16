@@ -307,6 +307,7 @@
 ;   simpHas(pred,a,b) ==
 ;     b is ['ATTRIBUTE,attr] => BREAK()
 ;     b is ['SIGNATURE,op,sig] => simpHasSignature(pred,a,op,sig)
+;     STRINGP(a) => pred
 ;     IDENTP a or hasIdent b => pred
 ;     npred := eval pred
 ;     IDENTP npred or null hasIdent npred => npred
@@ -394,7 +395,7 @@
                    (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                         (PROGN (SETQ |sig| (CAR |ISTMP#2|)) #1#))))))
        (|simpHasSignature| |pred| |a| |op| |sig|))
-      ((OR (IDENTP |a|) (|hasIdent| |b|)) |pred|)
+      ((STRINGP |a|) |pred|) ((OR (IDENTP |a|) (|hasIdent| |b|)) |pred|)
       (#1#
        (PROGN
         (SETQ |npred| (|simpHasPred2,eval| |pred|))

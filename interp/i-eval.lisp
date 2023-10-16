@@ -91,7 +91,6 @@
 ;         typeFlag =>
 ;           kind = 'category => MKQ x
 ;           VECP x => MKQ x
-;           loadIfNecessary x
 ;           mkEvalable x
 ;         x is ['QUOTE,:.] => x
 ;         x is ['_#,y] => ['SIZE,MKQ y]
@@ -137,10 +136,7 @@
                                         (COND
                                          ((EQ |kind| '|category|) (MKQ |x|))
                                          ((VECP |x|) (MKQ |x|))
-                                         (#1#
-                                          (PROGN
-                                           (|loadIfNecessary| |x|)
-                                           (|mkEvalable| |x|)))))
+                                         (#1# (|mkEvalable| |x|))))
                                        ((AND (CONSP |x|) (EQ (CAR |x|) 'QUOTE))
                                         |x|)
                                        ((AND (CONSP |x|) (EQ (CAR |x|) '|#|)
