@@ -31,31 +31,16 @@
                  (EXIT |t|)))))) 
 
 (SDEFUN |BTCAT-;#;ANni;4| ((|t| A) ($ |NonNegativeInteger|))
-        (|BTCAT-;treeCount| |t| 0 $)) 
-
-(SDEFUN |BTCAT-;treeCount|
-        ((|t| A) (|k| |NonNegativeInteger|) ($ |NonNegativeInteger|))
-        (SEQ
-         (COND ((SPADCALL |t| (QREFELT $ 9)) |k|)
-               ('T
-                (SEQ (LETT |k| (+ |k| 1))
-                     (COND
-                      ((EQL |k| 5)
-                       (COND
-                        ((SPADCALL |t| (QREFELT $ 27))
-                         (EXIT (|error| "cyclic binary tree"))))))
-                     (LETT |k|
-                           (|BTCAT-;treeCount| (SPADCALL |t| (QREFELT $ 11))
-                            |k| $))
-                     (EXIT
-                      (|BTCAT-;treeCount| (SPADCALL |t| (QREFELT $ 14)) |k|
-                       $))))))) 
+        (COND ((SPADCALL |t| (QREFELT $ 9)) 0)
+              ('T
+               (+ (+ 1 (SPADCALL (SPADCALL |t| (QREFELT $ 11)) (QREFELT $ 26)))
+                  (SPADCALL (SPADCALL |t| (QREFELT $ 14)) (QREFELT $ 26)))))) 
 
 (SDEFUN |BTCAT-;distance1| ((|t1| A) (|t2| A) ($ . #1=(|Integer|)))
         (SPROG
-         ((#2=#:G138 NIL) (#3=#:G137 #1#) (#4=#:G139 #1#) (#5=#:G145 NIL)
-          (#6=#:G104 NIL) (|u| (|List| #1#)) (|n| #1#) (#7=#:G144 NIL)
-          (|t| NIL) (#8=#:G143 NIL))
+         ((#2=#:G134 NIL) (#3=#:G133 #1#) (#4=#:G135 #1#) (#5=#:G141 NIL)
+          (#6=#:G104 NIL) (|u| (|List| #1#)) (|n| #1#) (#7=#:G140 NIL)
+          (|t| NIL) (#8=#:G139 NIL))
          (SEQ
           (COND ((SPADCALL |t1| |t2| (QREFELT $ 28)) 0)
                 ((SPADCALL |t2| (QREFELT $ 9)) -1)
@@ -103,14 +88,14 @@
                          (COND (#2# #3#) (#9# (|IdentityError| '|min|))))))
                     (#9# -1))))))))) 
 
-(SDEFUN |BTCAT-;distance;2AI;7| ((|t1| A) (|t2| A) ($ |Integer|))
+(SDEFUN |BTCAT-;distance;2AI;6| ((|t1| A) (|t2| A) ($ |Integer|))
         (SPROG ((|n| (|Integer|)))
                (SEQ (LETT |n| (|BTCAT-;distance1| |t1| |t2| $))
                     (EXIT
                      (COND ((>= |n| 0) |n|)
                            ('T (|BTCAT-;distance1| |t2| |t1| $))))))) 
 
-(SDEFUN |BTCAT-;hashUpdate!;HsAHs;8|
+(SDEFUN |BTCAT-;hashUpdate!;HsAHs;7|
         ((|s| |HashState|) (|t| A) ($ |HashState|))
         (SEQ
          (COND ((SPADCALL |t| (QREFELT $ 9)) |s|)
@@ -150,10 +135,10 @@
               (19 . |value|) (24 . |right|) (29 . |node|) |BTCAT-;copy;2A;1|
               (|Mapping| 7 7) (36 . |map|) |BTCAT-;map;M2A;2| '"value"
               (42 . |elt|) (48 . |setelt!|) (55 . |map!|) |BTCAT-;map!;M2A;3|
-              (|NonNegativeInteger|) |BTCAT-;#;ANni;4| (61 . |cyclic?|)
-              (66 . =) (|List| $) (72 . |children|) (|Integer|)
-              |BTCAT-;distance;2AI;7| (|HashState|) (77 . |hashUpdate!|)
-              (83 . |hashUpdate!|) |BTCAT-;hashUpdate!;HsAHs;8|)
+              (|NonNegativeInteger|) (61 . |#|) |BTCAT-;#;ANni;4| (66 . =)
+              (|List| $) (72 . |children|) (|Integer|) |BTCAT-;distance;2AI;6|
+              (|HashState|) (77 . |hashUpdate!|) (83 . |hashUpdate!|)
+              |BTCAT-;hashUpdate!;HsAHs;7|)
            '#(|map!| 89 |map| 95 |hashUpdate!| 101 |distance| 107 |copy| 113
               |#| 118)
            'NIL
@@ -178,9 +163,9 @@
                                               0 0 12 1 6 7 0 13 1 6 0 0 14 3 6
                                               0 0 7 0 15 2 6 0 17 0 18 2 6 7 0
                                               20 21 3 6 7 0 20 7 22 2 6 0 17 0
-                                              23 1 6 8 0 27 2 6 8 0 0 28 1 6 29
-                                              0 30 2 7 33 33 0 34 2 6 33 33 0
-                                              35 2 0 0 17 0 24 2 0 0 17 0 19 2
-                                              0 33 33 0 36 2 0 31 0 0 32 1 0 0
-                                              0 16 1 0 25 0 26)))))
+                                              23 1 6 25 0 26 2 6 8 0 0 28 1 6
+                                              29 0 30 2 7 33 33 0 34 2 6 33 33
+                                              0 35 2 0 0 17 0 24 2 0 0 17 0 19
+                                              2 0 33 33 0 36 2 0 31 0 0 32 1 0
+                                              0 0 16 1 0 25 0 27)))))
            '|lookupComplete|)) 

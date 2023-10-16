@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5038 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5034 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -924,9 +924,9 @@
  |quatern| |imagK| |imagJ| |imagI| |queue| |nthRoot| |fractRadix| |wholeRadix|
  |cycleRagits| |prefixRagits| |fractRagits| |wholeRagits| |radix| |randnum|
  |reseed| |seed| |factorSquareFree| |rational| |rational?| |rationalIfCan|
- |setvalue!| |setchildren!| |node?| |child?| |leaves| |nodes| |rename|
- |rename!| |mainValue| |mainDefiningPolynomial| |mainForm| |sqrt| |multi_SPDE|
- SPDE1 |rischDEsys| |ei_int| |mk_erf| |risch_de_ext| |do_risch_DE|
+ |setvalue!| |setchildren!| |node?| |child?| |leaves| |cyclic?| |nodes|
+ |rename| |rename!| |mainValue| |mainDefiningPolynomial| |mainForm| |sqrt|
+ |multi_SPDE| SPDE1 |rischDEsys| |ei_int| |mk_erf| |risch_de_ext| |do_risch_DE|
  |do_param_RDE| |param_rde| |param_rde2| |exp_lower_bound| |monomRDEsys|
  |baseRDEsys| |weighted| |rdHack1| |midpoint| |midpoints| |realZeros|
  |mainCharacterization| |algebraicOf| |makeRec| |makeFEq| |getEq| |values|
@@ -1093,8 +1093,7 @@
  |xftestLibraryError| |setPrologue!| |setTex!| |setEpilogue!| |prologue| |new|
  |tex| |epilogue| |endOfFile?| |readIfCan!| |readLineIfCan!| |readLine!|
  |writeLine!| |display| |coerceL| |sign| |nonQsign| |direction|
- |createThreeSpace| |pi| |cyclicParents| |cyclicEqual?| |cyclicEntries|
- |cyclicCopy| |tree| |cyclic?| |cos| |cot| |csc| |sec| |sin| |tan|
+ |createThreeSpace| |pi| |tree| |cos| |cot| |csc| |sec| |sin| |tan|
  |complexNormalize| |complexElementary| |trigs| |real| |imag| |real?|
  |complexForm| |UpTriBddDenomInv| |LowTriBddDenomInv| |simplify| |htrigs|
  |simplifyExp| |simplifyLog| |expandPower| |expandLog| |cos2sec| |cosh2sech|
