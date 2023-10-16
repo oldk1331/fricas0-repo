@@ -4275,26 +4275,47 @@
         (LIST |x| |m'| |e|))
        ('T NIL))))))
  
+; check_prop(pl, m) ==
+;     (QLASSQ("value", pl) is [m'', :.] or
+;       QLASSQ("mode", pl) is ["Mapping", m'']) and modeEqual(m'', m)
+ 
+(DEFUN |check_prop| (|pl| |m|)
+  (PROG (|ISTMP#1| |m''| |ISTMP#2|)
+    (RETURN
+     (AND
+      (OR
+       (PROGN
+        (SETQ |ISTMP#1| (QLASSQ '|value| |pl|))
+        (AND (CONSP |ISTMP#1|) (PROGN (SETQ |m''| (CAR |ISTMP#1|)) #1='T)))
+       (PROGN
+        (SETQ |ISTMP#1| (QLASSQ '|mode| |pl|))
+        (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)
+             (PROGN
+              (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+              (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                   (PROGN (SETQ |m''| (CAR |ISTMP#2|)) #1#))))))
+      (|modeEqual| |m''| |m|)))))
+ 
 ; coerceHard(T,m) ==
 ;   e := T.env
 ;   m':= T.mode
 ;   STRINGP m' and modeEqual(m, $String) => [T.expr, m, e]
 ;   STRINGP T.expr and modeEqual(m', $String) and modeEqual(m, $Symbol) =>
 ;       [["QUOTE", INTERN(T.expr, "BOOT")], m, e]
-;   modeEqual(m', m) or
-;     (get(m', "value", e) is [m'', :.] or getmode(m', e) is ["Mapping", m''])
-;       and modeEqual(m'', m) or
-;         (get(m, "value", e) is [m'', :.] or getmode(m, e) is ["Mapping", m''])
-;           and modeEqual(m'', m') => [T.expr, m, e]
+;   modeEqual(m', m) => [T.expr, m, e]
 ;   STRINGP T.expr and T.expr = m => [T.expr, m, e]
+;   pl' := getProplist(m', e)
+;   check_prop(pl', m) => [T.expr, m, e]
+;   pl := getProplist(m, e)
+;   check_prop(pl, m') => [T.expr, m, e]
 ;   isCategoryForm(m) =>
 ;       $bootStrapMode = true => [T.expr, m, e]
 ;       extendsCategoryForm(T.expr, T.mode, m, e) => [T.expr, m, e]
-;       coerceExtraHard(T,m)
-;   coerceExtraHard(T,m)
+;       coerceExtraHard(T, m, pl, pl')
+;   coerceExtraHard(T, m, pl, pl')
  
 (DEFUN |coerceHard| (T$ |m|)
-  (PROG (|e| |m'| |ISTMP#1| |m''| |ISTMP#2|)
+  (PROG (|e| |m'| |pl'| |pl|)
     (RETURN
      (PROGN
       (SETQ |e| (CADDR T$))
@@ -4305,54 +4326,84 @@
        ((AND (STRINGP (CAR T$)) (|modeEqual| |m'| |$String|)
              (|modeEqual| |m| |$Symbol|))
         (LIST (LIST 'QUOTE (INTERN (CAR T$) 'BOOT)) |m| |e|))
-       ((OR (|modeEqual| |m'| |m|)
-            (AND
-             (OR
-              (PROGN
-               (SETQ |ISTMP#1| (|get| |m'| '|value| |e|))
-               (AND (CONSP |ISTMP#1|)
-                    (PROGN (SETQ |m''| (CAR |ISTMP#1|)) #1='T)))
-              (PROGN
-               (SETQ |ISTMP#1| (|getmode| |m'| |e|))
-               (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)
-                    (PROGN
-                     (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                     (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                          (PROGN (SETQ |m''| (CAR |ISTMP#2|)) #1#))))))
-             (|modeEqual| |m''| |m|))
-            (AND
-             (OR
-              (PROGN
-               (SETQ |ISTMP#1| (|get| |m| '|value| |e|))
-               (AND (CONSP |ISTMP#1|)
-                    (PROGN (SETQ |m''| (CAR |ISTMP#1|)) #1#)))
-              (PROGN
-               (SETQ |ISTMP#1| (|getmode| |m| |e|))
-               (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)
-                    (PROGN
-                     (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                     (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                          (PROGN (SETQ |m''| (CAR |ISTMP#2|)) #1#))))))
-             (|modeEqual| |m''| |m'|)))
-        (LIST (CAR T$) |m| |e|))
+       ((|modeEqual| |m'| |m|) (LIST (CAR T$) |m| |e|))
        ((AND (STRINGP (CAR T$)) (EQUAL (CAR T$) |m|)) (LIST (CAR T$) |m| |e|))
-       ((|isCategoryForm| |m|)
-        (COND ((EQUAL |$bootStrapMode| T) (LIST (CAR T$) |m| |e|))
-              ((|extendsCategoryForm| (CAR T$) (CADR T$) |m| |e|)
-               (LIST (CAR T$) |m| |e|))
-              (#1# (|coerceExtraHard| T$ |m|))))
-       (#1# (|coerceExtraHard| T$ |m|)))))))
+       (#1='T
+        (PROGN
+         (SETQ |pl'| (|getProplist| |m'| |e|))
+         (COND ((|check_prop| |pl'| |m|) (LIST (CAR T$) |m| |e|))
+               (#1#
+                (PROGN
+                 (SETQ |pl| (|getProplist| |m| |e|))
+                 (COND ((|check_prop| |pl| |m'|) (LIST (CAR T$) |m| |e|))
+                       ((|isCategoryForm| |m|)
+                        (COND
+                         ((EQUAL |$bootStrapMode| T) (LIST (CAR T$) |m| |e|))
+                         ((|extendsCategoryForm| (CAR T$) (CADR T$) |m| |e|)
+                          (LIST (CAR T$) |m| |e|))
+                         (#1# (|coerceExtraHard| T$ |m| |pl| |pl'|))))
+                       (#1# (|coerceExtraHard| T$ |m| |pl| |pl'|)))))))))))))
  
-; coerceExtraHard(T is [x,m',e],m) ==
+; getmode_pl(x, pl) ==
+;   u := QLASSQ("value", pl) => u.mode
+;   QLASSQ("mode", pl)
+ 
+(DEFUN |getmode_pl| (|x| |pl|)
+  (PROG (|u|)
+    (RETURN
+     (COND ((SETQ |u| (QLASSQ '|value| |pl|)) (CADR |u|))
+           ('T (QLASSQ '|mode| |pl|))))))
+ 
+; isUnionMode2(m, e, pl) ==
+;   m is ["Union",:.] => m
+;   (m' := getmode_pl(m, pl)) is ["Mapping", ["UnionCategory", :.]] => CADR m'
+;   -- FIXME: Hardcoded assumprion about Rep
+;   v :=
+;       m = "$" => get("Rep", "value", e)
+;       QLASSQ("value", pl)
+;   v => (v.expr is ["Union",:.] => v.expr; nil)
+;   nil
+ 
+(DEFUN |isUnionMode2| (|m| |e| |pl|)
+  (PROG (|m'| |ISTMP#1| |ISTMP#2| |ISTMP#3| |v|)
+    (RETURN
+     (COND ((AND (CONSP |m|) (EQ (CAR |m|) '|Union|)) |m|)
+           ((PROGN
+             (SETQ |ISTMP#1| (SETQ |m'| (|getmode_pl| |m| |pl|)))
+             (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)
+                  (PROGN
+                   (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                   (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                        (PROGN
+                         (SETQ |ISTMP#3| (CAR |ISTMP#2|))
+                         (AND (CONSP |ISTMP#3|)
+                              (EQ (CAR |ISTMP#3|) '|UnionCategory|)))))))
+            (CADR |m'|))
+           (#1='T
+            (PROGN
+             (SETQ |v|
+                     (COND ((EQ |m| '$) (|get| '|Rep| '|value| |e|))
+                           (#1# (QLASSQ '|value| |pl|))))
+             (COND
+              (|v|
+               (COND
+                ((PROGN
+                  (SETQ |ISTMP#1| (CAR |v|))
+                  (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Union|)))
+                 (CAR |v|))
+                (#1# NIL)))
+              (#1# NIL))))))))
+ 
+; coerceExtraHard(T is [x, m', e], m, pl, pl') ==
 ;   T':= autoCoerceByModemap(T,m) => T'
-;   isUnionMode(m',e) is ["Union",:l] and (t:= hasType(x,e)) and
+;   isUnionMode2(m', e, pl') is ["Union",:l] and (t:= hasType(x,e)) and
 ;     member(t,l) and (T':= autoCoerceByModemap(T,t)) and
 ;       (T'':= coerce(T',m)) => T''
 ;   m' is ['Record, :.] and m = $OutputForm =>
 ;       [['coerceRe2E,x,['ELT,COPY m',0]],m,e]
 ;   nil
  
-(DEFUN |coerceExtraHard| (T$ |m|)
+(DEFUN |coerceExtraHard| (T$ |m| |pl| |pl'|)
   (PROG (|x| |m'| |e| |T'| |ISTMP#1| |l| |t| |T''|)
     (RETURN
      (PROGN
@@ -4362,7 +4413,7 @@
       (COND ((SETQ |T'| (|autoCoerceByModemap| T$ |m|)) |T'|)
             ((AND
               (PROGN
-               (SETQ |ISTMP#1| (|isUnionMode| |m'| |e|))
+               (SETQ |ISTMP#1| (|isUnionMode2| |m'| |e| |pl'|))
                (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Union|)
                     (PROGN (SETQ |l| (CDR |ISTMP#1|)) #2='T)))
               (SETQ |t| (|hasType| |x| |e|)) (|member| |t| |l|)
