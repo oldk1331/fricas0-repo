@@ -868,40 +868,40 @@
 
 (SDEFUN |FR;map;M2$;47| ((|fn| |Mapping| R R) (|u| $) ($ $))
         (SPROG
-         ((#1=#:G506 NIL) (#2=#:G505 ($)) (#3=#:G507 ($)) (#4=#:G509 NIL)
-          (|f| NIL))
+         ((|l|
+           (|List|
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| R) (|:| |exponent| (|Integer|)))))
+          (#1=#:G514 NIL) (|f| NIL) (#2=#:G513 NIL))
          (SEQ
-          (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 12)) |fn|)
-                    (PROGN
-                     (LETT #1# NIL . #5=(|FR;map;M2$;47|))
-                     (SEQ (LETT |f| NIL . #5#)
-                          (LETT #4# (SPADCALL |u| (QREFELT $ 11)) . #5#) G190
-                          (COND
-                           ((OR (ATOM #4#)
-                                (PROGN (LETT |f| (CAR #4#) . #5#) NIL))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (PROGN
-                             (LETT #3#
-                                   (SPADCALL (SPADCALL (QVELT |f| 1) |fn|)
-                                             (QVELT |f| 2) (QREFELT $ 35))
-                                   . #5#)
-                             (COND
-                              (#1#
-                               (LETT #2# (SPADCALL #2# #3# (QREFELT $ 51))
-                                     . #5#))
-                              ('T
-                               (PROGN
-                                (LETT #2# #3# . #5#)
-                                (LETT #1# 'T . #5#)))))))
-                          (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-                     (COND (#1# #2#) ('T (|spadConstant| $ 41))))
-                    (QREFELT $ 53))))) 
+          (LETT |l|
+                (CONS
+                 (VECTOR (CONS 0 "nil")
+                         (SPADCALL (SPADCALL |u| (QREFELT $ 12)) |fn|) 1)
+                 (PROGN
+                  (LETT #2# NIL . #3=(|FR;map;M2$;47|))
+                  (SEQ (LETT |f| NIL . #3#)
+                       (LETT #1# (SPADCALL |u| (QREFELT $ 11)) . #3#) G190
+                       (COND
+                        ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#) . #3#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (LETT #2#
+                               (CONS
+                                (VECTOR (CONS 0 "nil")
+                                        (SPADCALL (QVELT |f| 1) |fn|)
+                                        (QVELT |f| 2))
+                                #2#)
+                               . #3#)))
+                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                       (EXIT (NREVERSE #2#)))))
+                . #3#)
+          (EXIT (SPADCALL (|spadConstant| $ 15) |l| (QREFELT $ 64)))))) 
 
 (SDEFUN |FR;exquo;2$U;48| ((|u| $) (|v| $) ($ |Union| $ #1="failed"))
         (SPROG
-         ((#2=#:G541 NIL)
+         ((#2=#:G546 NIL)
           (|lu|
            #3=(|List|
                #4=(|Record|
@@ -912,11 +912,11 @@
            (|List|
             (|Record| (|:| |flag| (|Union| #5# #6# #7# #8#)) (|:| |factor| R)
                       (|:| |exponent| (|Integer|)))))
-          (|lv| #3#) (|newfactor| #4#) (#9=#:G525 NIL) (|expn| (|Integer|))
+          (|lv| #3#) (|newfactor| #4#) (#9=#:G530 NIL) (|expn| (|Integer|))
           (|v1|
            #10=(|Record| (|:| |flag| (|Union| #5# #6# #7# #8#))
                          (|:| |factor| R) (|:| |exponent| (|Integer|))))
-          (|u1| #10#) (|newunit| (R)) (#11=#:G515 NIL))
+          (|u1| #10#) (|newunit| (R)) (#11=#:G520 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -958,7 +958,7 @@
                                          ((< |expn| 0)
                                           (PROGN
                                            (LETT #2# (CONS 1 "failed") . #12#)
-                                           (GO #13=#:G540)))
+                                           (GO #13=#:G545)))
                                          ('T
                                           (SEQ
                                            (COND
@@ -1014,10 +1014,10 @@
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| R) (|:| |exponent| (|Integer|)))))
-          (|as| (R)) (|un| (R)) (|e| (|NonNegativeInteger|)) (#2=#:G549 NIL)
+          (|as| (R)) (|un| (R)) (|e| (|NonNegativeInteger|)) (#2=#:G554 NIL)
           (|ucar|
            (|Record| (|:| |unit| R) (|:| |canonical| R) (|:| |associate| R)))
-          (#3=#:G565 NIL) (|x| NIL) (|ur| (|Union| R "failed")))
+          (#3=#:G570 NIL) (|x| NIL) (|ur| (|Union| R "failed")))
          (SEQ
           (LETT |ur|
                 (SPADCALL
@@ -1107,7 +1107,7 @@
             (SPADCALL (QVELT |uca| 1) (QREFELT $ 11)) $))))) 
 
 (SDEFUN |FR;+;3$;51| ((|u| $) (|v| $) ($ $))
-        (SPROG ((#1=#:G572 NIL) (|u1| ($)))
+        (SPROG ((#1=#:G577 NIL) (|u1| ($)))
                (SEQ
                 (COND ((SPADCALL |u| (QREFELT $ 44)) |v|)
                       ((SPADCALL |v| (QREFELT $ 44)) |u|)
@@ -1223,9 +1223,9 @@
 
 (DECLAIM (NOTINLINE |Factored;|)) 
 
-(DEFUN |Factored| (#1=#:G618)
+(DEFUN |Factored| (#1=#:G623)
   (SPROG NIL
-         (PROG (#2=#:G619)
+         (PROG (#2=#:G624)
            (RETURN
             (COND
              ((LETT #2#
@@ -1240,7 +1240,7 @@
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Factored|)))))))))) 
 
 (DEFUN |Factored;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G617 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G622 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #2=(|Factored|))
           (LETT |dv$| (LIST '|Factored| DV$1) . #2#)
