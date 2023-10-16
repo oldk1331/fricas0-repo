@@ -52,25 +52,24 @@
           (LETT |mgf|
                 (SPADCALL
                  (SPADCALL
-                  (SPADCALL (SPADCALL 2 (QREFELT $ 26))
-                            (SPADCALL |a| 2 (QREFELT $ 28)) (QREFELT $ 29))
-                  (QREFELT $ 30))
+                  (SPADCALL (SPADCALL 2 (QREFELT $ 26)) |a| (QREFELT $ 27))
+                  (QREFELT $ 28))
                  (SPADCALL (LIST (|spadConstant| $ 7)) (QREFELT $ 13))
-                 (QREFELT $ 31)))
-          (LETT |mgf| (SPADCALL (|spadConstant| $ 7) |mgf| (QREFELT $ 31)))
-          (LETT |half| (SPADCALL 1 2 (QREFELT $ 34)))
+                 (QREFELT $ 29)))
+          (LETT |mgf| (SPADCALL (|spadConstant| $ 7) |mgf| (QREFELT $ 29)))
+          (LETT |half| (SPADCALL 1 2 (QREFELT $ 32)))
           (LETT |mgf|
                 (SPADCALL |half|
-                          (SPADCALL (|spadConstant| $ 32) |mgf| (QREFELT $ 31))
-                          (QREFELT $ 36)))
+                          (SPADCALL (|spadConstant| $ 30) |mgf| (QREFELT $ 29))
+                          (QREFELT $ 34)))
           (LETT |mgf|
-                (PROG2 (LETT #1# (SPADCALL |mgf| (QREFELT $ 38)))
+                (PROG2 (LETT #1# (SPADCALL |mgf| (QREFELT $ 36)))
                     (QCDR #1#)
                   (|check_union2| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6))
                                   (|Union| (|Stream| (QREFELT $ 6)) "failed")
                                   #1#)))
           (EXIT
-           (SPADCALL (SPADCALL (SPADCALL |mgf| (QREFELT $ 39)) (QREFELT $ 16))
+           (SPADCALL (SPADCALL (SPADCALL |mgf| (QREFELT $ 37)) (QREFELT $ 16))
                      (QREFELT $ 23)))))) 
 
 (DECLAIM (NOTINLINE |DistributionPackage;|)) 
@@ -97,7 +96,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|DistributionPackage| DV$1))
-          (LETT $ (GETREFV 41))
+          (LETT $ (GETREFV 39))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -115,7 +114,7 @@
           (COND
            ((|testBitVector| |pv$| 1)
             (PROGN
-             (QSETREFV $ 40
+             (QSETREFV $ 38
                        (CONS
                         (|dispatchFunction| |DISTEX;arcsineDistribution;RD;6|)
                         $)))))
@@ -134,14 +133,13 @@
               |DISTEX;freePoissonDistribution;RD;4|
               (39 . |distributionByMoments|)
               |DISTEX;bernoulliDistribution01;RD;5| (|Integer|) (44 . |coerce|)
-              (|PositiveInteger|) (49 . ^) (55 . *) (61 . -) (66 . |cons|)
-              (72 . |One|) (|Fraction| 25) (76 . /)
-              (|StreamTaylorSeriesOperations| 6) (82 . |powern|)
-              (|Union| 9 '"failed") (88 . |recip|) (93 . |rest|)
-              (98 . |arcsineDistribution|))
-           '#(|wignerDistribution| 103 |poissonDistribution| 108
-              |gaussianDistribution| 113 |freePoissonDistribution| 118
-              |bernoulliDistribution01| 123 |arcsineDistribution| 128)
+              (49 . *) (55 . -) (60 . |cons|) (66 . |One|) (|Fraction| 25)
+              (70 . /) (|StreamTaylorSeriesOperations| 6) (76 . |powern|)
+              (|Union| 9 '"failed") (82 . |recip|) (87 . |rest|)
+              (92 . |arcsineDistribution|))
+           '#(|wignerDistribution| 97 |poissonDistribution| 102
+              |gaussianDistribution| 107 |freePoissonDistribution| 112
+              |bernoulliDistribution01| 117 |arcsineDistribution| 122)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -166,17 +164,17 @@
                                 T)
                               '((|arcsineDistribution|
                                  ((|Distribution| |#1|) |#1|))
-                                (|has| 6 (|Algebra| 33))))
+                                (|has| 6 (|Algebra| 31))))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 40
+                        (|makeByteWordVec2| 38
                                             '(0 6 0 7 1 9 0 8 10 0 11 0 12 1 9
                                               0 8 13 2 9 0 0 0 14 1 15 0 9 16 1
                                               11 0 15 17 1 11 0 15 20 1 11 0 15
-                                              23 1 6 0 25 26 2 6 0 0 27 28 2 6
-                                              0 0 0 29 1 6 0 0 30 2 9 0 6 0 31
-                                              0 6 0 32 2 33 0 25 25 34 2 35 9
-                                              33 9 36 1 35 37 9 38 1 9 0 0 39 1
-                                              0 11 6 40 1 0 11 6 21 1 0 11 6 19
-                                              1 0 11 6 18 1 0 11 6 22 1 0 11 6
-                                              24 1 1 11 6 40)))))
+                                              23 1 6 0 25 26 2 6 0 0 0 27 1 6 0
+                                              0 28 2 9 0 6 0 29 0 6 0 30 2 31 0
+                                              25 25 32 2 33 9 31 9 34 1 33 35 9
+                                              36 1 9 0 0 37 1 0 11 6 38 1 0 11
+                                              6 21 1 0 11 6 19 1 0 11 6 18 1 0
+                                              11 6 22 1 0 11 6 24 1 1 11 6
+                                              38)))))
            '|lookupComplete|)) 

@@ -447,11 +447,43 @@
                 (EXIT
                  (SPADCALL (SPADCALL |momn| (QREFELT $ 13)) (QREFELT $ 14)))))) 
 
+(SDEFUN |DISTRO;orthogonalConvolution;3$;46| ((|x| $) (|y| $) ($ $))
+        (SPROG ((|Bxy| (|Stream| R)) (|zMy| (|Stream| R)) (|Bx| (|Stream| R)))
+               (SEQ
+                (LETT |Bx|
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 87)) (QREFELT $ 26)))
+                (LETT |zMy|
+                      (SPADCALL (|spadConstant| $ 8)
+                                (SPADCALL (|spadConstant| $ 38)
+                                          (SPADCALL
+                                           (SPADCALL |y| (QREFELT $ 51))
+                                           (QREFELT $ 26))
+                                          (QREFELT $ 23))
+                                (QREFELT $ 23)))
+                (LETT |Bxy| (SPADCALL |Bx| |zMy| (QREFELT $ 117)))
+                (EXIT (SPADCALL |Bxy| (QREFELT $ 37)))))) 
+
+(SDEFUN |DISTRO;subordinationConvolution;3$;47| ((|x| $) (|y| $) ($ $))
+        (SPROG ((|Rxy| (|Stream| R)) (|zMy| (|Stream| R)) (|Rx| (|Stream| R)))
+               (SEQ
+                (LETT |Rx|
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 86)) (QREFELT $ 26)))
+                (LETT |zMy|
+                      (SPADCALL (|spadConstant| $ 8)
+                                (SPADCALL (|spadConstant| $ 38)
+                                          (SPADCALL
+                                           (SPADCALL |y| (QREFELT $ 51))
+                                           (QREFELT $ 26))
+                                          (QREFELT $ 23))
+                                (QREFELT $ 23)))
+                (LETT |Rxy| (SPADCALL |Rx| |zMy| (QREFELT $ 117)))
+                (EXIT (SPADCALL |Rxy| (QREFELT $ 34)))))) 
+
 (DECLAIM (NOTINLINE |Distribution;|)) 
 
-(DEFUN |Distribution| (#1=#:G220)
+(DEFUN |Distribution| (#1=#:G224)
   (SPROG NIL
-         (PROG (#2=#:G221)
+         (PROG (#2=#:G225)
            (RETURN
             (COND
              ((LETT #2#
@@ -470,7 +502,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Distribution| DV$1))
-          (LETT $ (GETREFV 123))
+          (LETT $ (GETREFV 125))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -613,28 +645,31 @@
               |DISTRO;classicalConvolution;3$;40|
               |DISTRO;freeConvolution;3$;41| |DISTRO;booleanConvolution;3$;42|
               (294 . |compose|) |DISTRO;monotoneConvolution;3$;43|
-              |DISTRO;^;$Pi$;45| (|String|) (|SingleInteger|) (|HashState|))
-           '#(~= 300 |orthogonalPolynomials| 306 |monotoneCumulants| 316
-              |monotoneConvolution| 321 |moments| 327 |moment| 332 |latex| 338
-              |jacobiParameters| 343 |hashUpdate!| 353 |hash| 359
-              |hankelDeterminants| 364 |freeMultiplicativeConvolution| 369
-              |freeCumulants| 375 |freeCumulant| 380 |freeConvolution| 386
-              |distributionBySTransform| 392 |distributionByMonotoneCumulants|
-              404 |distributionByMoments| 414 |distributionByJacobiParameters|
-              424 |distributionByFreeCumulants| 436 |distributionByEvenMoments|
-              446 |distributionByClassicalCumulants| 456
-              |distributionByBooleanCumulants| 466 |construct| 476 |coerce| 484
-              |classicalCumulants| 489 |classicalCumulant| 494
-              |classicalConvolution| 500 |booleanCumulants| 506
-              |booleanCumulantFromJacobi| 511 |booleanCumulant| 518
-              |booleanConvolution| 524 ^ 530 |Zero| 536 = 540)
+              |DISTRO;^;$Pi$;45| |DISTRO;orthogonalConvolution;3$;46|
+              |DISTRO;subordinationConvolution;3$;47| (|String|)
+              (|SingleInteger|) (|HashState|))
+           '#(~= 300 |subordinationConvolution| 306 |orthogonalPolynomials| 312
+              |orthogonalConvolution| 322 |monotoneCumulants| 328
+              |monotoneConvolution| 333 |moments| 339 |moment| 344 |latex| 350
+              |jacobiParameters| 355 |hashUpdate!| 365 |hash| 371
+              |hankelDeterminants| 376 |freeMultiplicativeConvolution| 381
+              |freeCumulants| 387 |freeCumulant| 392 |freeConvolution| 398
+              |distributionBySTransform| 404 |distributionByMonotoneCumulants|
+              416 |distributionByMoments| 426 |distributionByJacobiParameters|
+              436 |distributionByFreeCumulants| 448 |distributionByEvenMoments|
+              458 |distributionByClassicalCumulants| 468
+              |distributionByBooleanCumulants| 478 |construct| 488 |coerce| 496
+              |classicalCumulants| 501 |classicalCumulant| 506
+              |classicalConvolution| 512 |booleanCumulants| 518
+              |booleanCumulantFromJacobi| 523 |booleanCumulant| 530
+              |booleanConvolution| 536 ^ 542 |Zero| 548 = 552)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|DistributionCategory| 6) (|SetCategory|)
                            (|BasicType|) (|CoercibleTo| 76))
-                        (|makeByteWordVec2| 122
+                        (|makeByteWordVec2| 124
                                             '(0 6 0 8 1 10 0 9 11 1 12 0 10 13
                                               1 16 12 12 17 1 16 12 12 18 1 16
                                               12 12 19 1 10 6 0 21 1 10 0 0 22
@@ -659,23 +694,23 @@
                                               105 1 107 106 104 108 1 0 106 0
                                               109 2 107 110 100 100 111 1 0 110
                                               0 112 2 12 0 0 0 113 2 62 10 10
-                                              10 117 2 0 59 0 0 1 1 2 110 0 112
-                                              1 1 95 0 97 1 3 12 0 53 2 0 0 0 0
-                                              118 1 0 12 0 51 2 0 6 0 79 80 1 0
-                                              120 0 1 1 2 106 0 109 1 1 92 0 94
-                                              2 0 122 122 0 1 1 0 121 0 1 1 0
-                                              10 0 91 2 3 0 0 0 75 1 0 12 0 86
-                                              2 0 6 0 81 83 2 0 0 0 0 115 3 3 0
-                                              57 57 12 69 1 3 0 70 71 1 3 0 12
-                                              55 1 3 0 10 56 1 0 0 12 14 1 0 0
-                                              10 20 2 0 0 10 10 49 2 0 0 12 12
-                                              48 1 0 0 12 33 1 0 0 10 34 1 0 0
-                                              10 28 1 0 0 12 27 1 0 0 10 31 1 0
-                                              0 12 30 1 0 0 12 36 1 0 0 10 37 4
-                                              0 0 12 12 12 12 50 1 0 76 0 78 1
-                                              0 12 0 85 2 0 6 0 81 82 2 0 0 0 0
-                                              114 1 0 12 0 87 3 0 6 39 12 12 42
-                                              2 0 6 0 81 84 2 0 0 0 0 116 2 0 0
-                                              0 81 119 0 0 0 15 2 0 59 0 0
-                                              1)))))
+                                              10 117 2 0 59 0 0 1 2 0 0 0 0 121
+                                              1 2 110 0 112 1 1 95 0 97 2 0 0 0
+                                              0 120 1 3 12 0 53 2 0 0 0 0 118 1
+                                              0 12 0 51 2 0 6 0 79 80 1 0 122 0
+                                              1 1 2 106 0 109 1 1 92 0 94 2 0
+                                              124 124 0 1 1 0 123 0 1 1 0 10 0
+                                              91 2 3 0 0 0 75 1 0 12 0 86 2 0 6
+                                              0 81 83 2 0 0 0 0 115 3 3 0 57 57
+                                              12 69 1 3 0 70 71 1 3 0 12 55 1 3
+                                              0 10 56 1 0 0 10 20 1 0 0 12 14 2
+                                              0 0 10 10 49 2 0 0 12 12 48 1 0 0
+                                              10 34 1 0 0 12 33 1 0 0 12 27 1 0
+                                              0 10 28 1 0 0 10 31 1 0 0 12 30 1
+                                              0 0 12 36 1 0 0 10 37 4 0 0 12 12
+                                              12 12 50 1 0 76 0 78 1 0 12 0 85
+                                              2 0 6 0 81 82 2 0 0 0 0 114 1 0
+                                              12 0 87 3 0 6 39 12 12 42 2 0 6 0
+                                              81 84 2 0 0 0 0 116 2 0 0 0 81
+                                              119 0 0 0 15 2 0 59 0 0 1)))))
            '|lookupComplete|)) 

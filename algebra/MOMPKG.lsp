@@ -684,13 +684,13 @@
               (363 . |monotoneCumulant2moment|) (|Mapping| 66 114)
               (|StreamFunctions2| 114 66) (368 . |map|) (|Sequence| 66)
               (374 . |sequence|) (379 . |monotoneCumulant2momentPoly|))
-           '#(|qcumulant2nthmoment| 384 |monotoneCumulant2momentPoly| 391
-              |monotoneCumulant2moment| 396 |moment2nthJacobi| 401
-              |moment2monotoneCumulant| 406 |moment2jacobi2| 416
-              |moment2jacobi| 421 |moment2freeCumulant| 426 |moment2cumulant|
-              431 |moment2booleanCumulant| 436 |moment2Stransform| 441
-              |jacobi2poly| 446 |hankelDeterminant| 452 |freeCumulant2moment|
-              458 |cumulant2moment| 463 |booleanCumulant2moment| 468)
+           '#(|monotoneCumulant2momentPoly| 384 |monotoneCumulant2moment| 389
+              |moment2nthJacobi| 394 |moment2monotoneCumulant| 399
+              |moment2jacobi2| 409 |moment2jacobi| 414 |moment2freeCumulant|
+              419 |moment2cumulant| 424 |moment2booleanCumulant| 429
+              |moment2Stransform| 434 |jacobi2poly| 439 |hankelDeterminant| 445
+              |freeCumulant2moment| 451 |cumulant2moment| 456
+              |booleanCumulant2moment| 461)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -742,10 +742,6 @@
                               '((|moment2monotoneCumulant|
                                  ((|Sequence| |#1|) (|Sequence| |#1|)))
                                 T)
-                              '((|qcumulant2nthmoment|
-                                 (|#1| |#1| (|Sequence| |#1|)
-                                  (|NonNegativeInteger|)))
-                                T)
                               '((|hankelDeterminant|
                                  (|#1| (|Sequence| |#1|)
                                   (|NonNegativeInteger|)))
@@ -795,12 +791,11 @@
                                               113 2 116 0 115 114 117 1 118 66
                                               0 119 2 121 7 120 116 122 1 0 8 8
                                               123 2 125 77 124 116 126 1 127 0
-                                              77 128 1 0 127 8 129 3 0 6 6 8 32
-                                              1 1 0 127 8 129 1 0 8 8 123 1 2
-                                              47 31 48 1 1 8 8 112 1 0 8 8 112
-                                              1 2 54 8 55 1 2 64 8 65 1 0 8 8
-                                              26 1 0 8 8 16 1 0 8 8 30 1 1 95 8
-                                              96 2 0 77 7 7 81 2 0 6 8 32 38 1
-                                              0 8 8 22 1 0 8 8 14 1 0 8 8
-                                              29)))))
+                                              77 128 1 0 127 8 129 1 0 127 8
+                                              129 1 0 8 8 123 1 2 47 31 48 1 1
+                                              8 8 112 1 0 8 8 112 1 2 54 8 55 1
+                                              2 64 8 65 1 0 8 8 26 1 0 8 8 16 1
+                                              0 8 8 30 1 1 95 8 96 2 0 77 7 7
+                                              81 2 0 6 8 32 38 1 0 8 8 22 1 0 8
+                                              8 14 1 0 8 8 29)))))
            '|lookupComplete|)) 

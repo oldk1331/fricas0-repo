@@ -122,6 +122,12 @@
                                                       ((^
                                                         ($ $
                                                          (|PositiveInteger|)))
+                                                       T)
+                                                      ((|orthogonalConvolution|
+                                                        ($ $ $))
+                                                       T)
+                                                      ((|subordinationConvolution|
+                                                        ($ $ $))
                                                        T))
                                                     NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DistributionCategory| |t#1|))))) 
