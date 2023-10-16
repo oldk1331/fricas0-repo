@@ -1632,10 +1632,26 @@
          (SETQ |bfVar#34| (CDR |bfVar#34|))))
       |untraceList| NIL))))
  
+; coerceToOutput(value, mode) ==
+;     $resolve_level : local := 0
+;     -- following binding is to prevent forcing calculation of stream elements
+;     $streamCount : local := 0
+;     objValUnwrap coerceInteractive(objNewWrap(value, mode), $OutputForm)
+ 
+(DEFUN |coerceToOutput| (|value| |mode|)
+  (PROG (|$streamCount| |$resolve_level|)
+    (DECLARE (SPECIAL |$streamCount| |$resolve_level|))
+    (RETURN
+     (PROGN
+      (SETQ |$resolve_level| 0)
+      (SETQ |$streamCount| 0)
+      (|objValUnwrap|
+       (|coerceInteractive| (|objNewWrap| |value| |mode|) |$OutputForm|))))))
+ 
 ; coerceTraceArgs2E(traceName,subName,args) ==
 ;   MEMQ(name:= subName,$mathTraceList) =>
 ;     SPADSYSNAMEP PNAME name => coerceSpadArgs2E(reverse rest reverse args)
-;     [["=",name,objValUnwrap coerceInteractive(objNewWrap(arg,type),$OutputForm)]
+;     [["=", name, coerceToOutput(arg, type)]
 ;       for name in '(arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8 arg9 arg10 arg11 arg12 arg13 arg14 arg15 arg16 arg17 arg18 arg19 )
 ;        for arg in args for type in rest LASSOC(subName,
 ;         $tracedMapSignatures)]
@@ -1662,12 +1678,8 @@
                (RETURN (NREVERSE |bfVar#38|)))
               (#1#
                (SETQ |bfVar#38|
-                       (CONS
-                        (LIST '= |name|
-                              (|objValUnwrap|
-                               (|coerceInteractive| (|objNewWrap| |arg| |type|)
-                                |$OutputForm|)))
-                        |bfVar#38|))))
+                       (CONS (LIST '= |name| (|coerceToOutput| |arg| |type|))
+                             |bfVar#38|))))
              (SETQ |bfVar#35| (CDR |bfVar#35|))
              (SETQ |bfVar#36| (CDR |bfVar#36|))
              (SETQ |bfVar#37| (CDR |bfVar#37|))))
@@ -1681,42 +1693,32 @@
       (#1# |args|)))))
  
 ; coerceSpadArgs2E(args) ==
-;   -- following binding is to prevent forcing calculation of stream elements
-;   $streamCount:local := 0
-;   [["=",name,objValUnwrap coerceInteractive(objNewWrap(arg,type),$OutputForm)]
+;     [["=", name, coerceToOutput(arg, type)]
 ;       for name in '(arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8 arg9 arg10 arg11 arg12 arg13 arg14 arg15 arg16 arg17 arg18 arg19 )
 ;         for arg in args for type in rest $tracedSpadModemap]
  
 (DEFUN |coerceSpadArgs2E| (|args|)
-  (PROG (|$streamCount|)
-    (DECLARE (SPECIAL |$streamCount|))
+  (PROG ()
     (RETURN
-     (PROGN
-      (SETQ |$streamCount| 0)
-      ((LAMBDA
-           (|bfVar#42| |bfVar#39| |name| |bfVar#40| |arg| |bfVar#41| |type|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#39|) (PROGN (SETQ |name| (CAR |bfVar#39|)) NIL)
-                (ATOM |bfVar#40|) (PROGN (SETQ |arg| (CAR |bfVar#40|)) NIL)
-                (ATOM |bfVar#41|) (PROGN (SETQ |type| (CAR |bfVar#41|)) NIL))
-            (RETURN (NREVERSE |bfVar#42|)))
-           ('T
-            (SETQ |bfVar#42|
-                    (CONS
-                     (LIST '= |name|
-                           (|objValUnwrap|
-                            (|coerceInteractive| (|objNewWrap| |arg| |type|)
-                             |$OutputForm|)))
-                     |bfVar#42|))))
-          (SETQ |bfVar#39| (CDR |bfVar#39|))
-          (SETQ |bfVar#40| (CDR |bfVar#40|))
-          (SETQ |bfVar#41| (CDR |bfVar#41|))))
-       NIL
-       '(|arg1| |arg2| |arg3| |arg4| |arg5| |arg6| |arg7| |arg8| |arg9| |arg10|
-         |arg11| |arg12| |arg13| |arg14| |arg15| |arg16| |arg17| |arg18|
-         |arg19|)
-       NIL |args| NIL (CDR |$tracedSpadModemap|) NIL)))))
+     ((LAMBDA (|bfVar#42| |bfVar#39| |name| |bfVar#40| |arg| |bfVar#41| |type|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#39|) (PROGN (SETQ |name| (CAR |bfVar#39|)) NIL)
+               (ATOM |bfVar#40|) (PROGN (SETQ |arg| (CAR |bfVar#40|)) NIL)
+               (ATOM |bfVar#41|) (PROGN (SETQ |type| (CAR |bfVar#41|)) NIL))
+           (RETURN (NREVERSE |bfVar#42|)))
+          ('T
+           (SETQ |bfVar#42|
+                   (CONS (LIST '= |name| (|coerceToOutput| |arg| |type|))
+                         |bfVar#42|))))
+         (SETQ |bfVar#39| (CDR |bfVar#39|))
+         (SETQ |bfVar#40| (CDR |bfVar#40|))
+         (SETQ |bfVar#41| (CDR |bfVar#41|))))
+      NIL
+      '(|arg1| |arg2| |arg3| |arg4| |arg5| |arg6| |arg7| |arg8| |arg9| |arg10|
+        |arg11| |arg12| |arg13| |arg14| |arg15| |arg16| |arg17| |arg18|
+        |arg19|)
+      NIL |args| NIL (CDR |$tracedSpadModemap|) NIL))))
  
 ; subTypes(mm,sublist) ==
 ;   ATOM mm =>
@@ -1745,7 +1747,7 @@
 ;   MEMQ(name:= subName,$mathTraceList) =>
 ;     SPADSYSNAMEP PNAME traceName => coerceSpadFunValue2E(value)
 ;     (u:=LASSOC(subName,$tracedMapSignatures)) =>
-;       objValUnwrap coerceInteractive(objNewWrap(value, first u), $OutputForm)
+;         coerceToOutput(value, first u)
 ;     value
 ;   value
  
@@ -1757,27 +1759,15 @@
        (COND
         ((SPADSYSNAMEP (PNAME |traceName|)) (|coerceSpadFunValue2E| |value|))
         ((SETQ |u| (LASSOC |subName| |$tracedMapSignatures|))
-         (|objValUnwrap|
-          (|coerceInteractive| (|objNewWrap| |value| (CAR |u|))
-           |$OutputForm|)))
+         (|coerceToOutput| |value| (CAR |u|)))
         (#1='T |value|)))
       (#1# |value|)))))
  
 ; coerceSpadFunValue2E(value) ==
-;   -- following binding is to prevent forcing calculation of stream elements
-;   $streamCount:local := 0
-;   objValUnwrap coerceInteractive(objNewWrap(value, first $tracedSpadModemap),
-;     $OutputForm)
+;     coerceToOutput(value, first $tracedSpadModemap)
  
 (DEFUN |coerceSpadFunValue2E| (|value|)
-  (PROG (|$streamCount|)
-    (DECLARE (SPECIAL |$streamCount|))
-    (RETURN
-     (PROGN
-      (SETQ |$streamCount| 0)
-      (|objValUnwrap|
-       (|coerceInteractive| (|objNewWrap| |value| (CAR |$tracedSpadModemap|))
-        |$OutputForm|))))))
+  (PROG () (RETURN (|coerceToOutput| |value| (CAR |$tracedSpadModemap|)))))
  
 ; isListOfIdentifiers l == and/[IDENTP x for x in l]
  
