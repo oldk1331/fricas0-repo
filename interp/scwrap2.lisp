@@ -32,6 +32,23 @@
          (CONS '|special| (COPY-TREE |$InitialDomainsInScope|)))
    (|addBinding| '|$Information| NIL (|makeInitialModemapFrame|))))
  
+; make_BF(mant, expo) == [$BFtag, mant, expo]
+ 
+(DEFUN |make_BF| (|mant| |expo|)
+  (PROG () (RETURN (LIST |$BFtag| |mant| |expo|))))
+ 
+; make_float(int, frac, fraclen, expo) ==
+;     frac = 0 => make_BF(int, expo)
+;     make_BF(int*EXPT(10, fraclen) + frac, expo - fraclen)
+ 
+(DEFUN |make_float| (|int| |frac| |fraclen| |expo|)
+  (PROG ()
+    (RETURN
+     (COND ((EQL |frac| 0) (|make_BF| |int| |expo|))
+           ('T
+            (|make_BF| (+ (* |int| (EXPT 10 |fraclen|)) |frac|)
+             (- |expo| |fraclen|)))))))
+ 
 ; current_line_number() ==
 ;     tok := current_token()
 ;     tok =>
