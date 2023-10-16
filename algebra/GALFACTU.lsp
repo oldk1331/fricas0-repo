@@ -42,7 +42,9 @@
                      (SEQ
                       (EXIT
                        (LETT |n|
-                             (SPADCALL |n| (SPADCALL |c| (QREFELT $ 19))
+                             (SPADCALL |n|
+                                       (SPADCALL (SPADCALL |c| (QREFELT $ 19))
+                                                 (QREFELT $ 20))
                                        (QREFELT $ 26))
                              . #2#)))
                      (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))

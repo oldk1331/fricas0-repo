@@ -982,17 +982,12 @@
 ; form2StringLocal u ==
 ; --+
 ;   $NRTmonitorIfTrue : local := nil
-;   $fortInts2Floats  : local := nil
 ;   form2String1 u
  
 (DEFUN |form2StringLocal| (|u|)
-  (PROG (|$fortInts2Floats| |$NRTmonitorIfTrue|)
-    (DECLARE (SPECIAL |$fortInts2Floats| |$NRTmonitorIfTrue|))
-    (RETURN
-     (PROGN
-      (SETQ |$NRTmonitorIfTrue| NIL)
-      (SETQ |$fortInts2Floats| NIL)
-      (|form2String1| |u|)))))
+  (PROG (|$NRTmonitorIfTrue|)
+    (DECLARE (SPECIAL |$NRTmonitorIfTrue|))
+    (RETURN (PROGN (SETQ |$NRTmonitorIfTrue| NIL) (|form2String1| |u|)))))
  
 ; constructorName con ==
 ;   $abbreviateTypes => abbreviate con

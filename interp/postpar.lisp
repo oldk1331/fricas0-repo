@@ -4,6 +4,7 @@
 (IN-PACKAGE "BOOT")
  
 ; postTransform y ==
+;   $insidePostCategoryIfTrue : local := nil
 ;   x:= y
 ;   u:= postTran x
 ;   if u is ["@Tuple", :l, [":", y, t]] and (and/[IDENTP x for x in l]) then
@@ -12,9 +13,12 @@
 ;   u
  
 (DEFUN |postTransform| (|y|)
-  (PROG (|x| |u| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |ISTMP#5| |t| |l|)
+  (PROG (|$insidePostCategoryIfTrue| |l| |t| |ISTMP#5| |ISTMP#4| |ISTMP#3|
+         |ISTMP#2| |ISTMP#1| |u| |x|)
+    (DECLARE (SPECIAL |$insidePostCategoryIfTrue|))
     (RETURN
      (PROGN
+      (SETQ |$insidePostCategoryIfTrue| NIL)
       (SETQ |x| |y|)
       (SETQ |u| (|postTran| |x|))
       (COND
