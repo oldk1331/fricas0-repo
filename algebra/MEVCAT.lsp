@@ -28,23 +28,18 @@
                                   ((|ldegree|
                                     ((|NonNegativeInteger|) |t#1| (|Symbol|)))
                                    T)
-                                  ((|eval1a|
-                                    ((|Integer|) |t#2| (|Integer|)
-                                     (|Record| (|:| |prime| (|Integer|))
-                                               (|:| |eval1coeffbuf|
-                                                    (|U32Vector|))
-                                               (|:| |eval1expbuf|
-                                                    (|SortedExponentVector|)))))
-                                   T)
                                   ((|eval1|
-                                    (|t#2| |t#2| (|Symbol|) (|Integer|)
+                                    ((|Union| |t#2| "failed") |t#2| (|Symbol|)
+                                     (|Integer|)
                                      (|Record| (|:| |prime| (|Integer|))
                                                (|:| |eval1coeffbuf|
                                                     (|U32Vector|))
                                                (|:| |eval1expbuf|
                                                     (|SortedExponentVector|)))))
                                    T)
-                                  ((|modpreduction| (|t#2| |t#2| (|Integer|)))
+                                  ((|modpreduction|
+                                    ((|Union| |t#2| "failed") |t#2|
+                                     (|Integer|)))
                                    T)
                                   ((|subst_vars|
                                     (|t#2| |t#1| (|List| (|Symbol|))
