@@ -6,7 +6,7 @@
 (DEFPARAMETER |RecursiveAggregate;AL| 'NIL) 
 
 (DEFUN |RecursiveAggregate| (|t#1|)
-  (LET (#1=#:G108 (#2=#:G109 (|devaluate| |t#1|)))
+  (LET (#1=#:G109 (#2=#:G110 (|devaluate| |t#1|)))
     (COND ((SETQ #1# (|assoc| #2# |RecursiveAggregate;AL|)) (CDR #1#))
           (T
            (SETQ |RecursiveAggregate;AL|
@@ -15,7 +15,7 @@
            #1#)))) 
 
 (DEFUN |RecursiveAggregate;| (|t#1|)
-  (SPROG ((#1=#:G107 NIL))
+  (SPROG ((#1=#:G108 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
