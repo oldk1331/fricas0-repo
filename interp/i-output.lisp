@@ -132,6 +132,40 @@
  
 (EVAL-WHEN (EVAL LOAD) (SETQ |$collectOutput| NIL))
  
+; get_lisp_stream(fs) == REST(fs)
+ 
+(DEFUN |get_lisp_stream| (|fs|) (PROG () (RETURN (REST |fs|))))
+ 
+; get_algebra_stream() == get_lisp_stream($algebraOutputStream)
+ 
+(DEFUN |get_algebra_stream| ()
+  (PROG () (RETURN (|get_lisp_stream| |$algebraOutputStream|))))
+ 
+; get_fortran_stream() == get_lisp_stream($fortranOutputStream)
+ 
+(DEFUN |get_fortran_stream| ()
+  (PROG () (RETURN (|get_lisp_stream| |$fortranOutputStream|))))
+ 
+; get_mathml_stream() == get_lisp_stream($mathmlOutputStream)
+ 
+(DEFUN |get_mathml_stream| ()
+  (PROG () (RETURN (|get_lisp_stream| |$mathmlOutputStream|))))
+ 
+; get_texmacs_stream() == get_lisp_stream($texmacsOutputStream)
+ 
+(DEFUN |get_texmacs_stream| ()
+  (PROG () (RETURN (|get_lisp_stream| |$texmacsOutputStream|))))
+ 
+; get_html_stream() == get_lisp_stream($htmlOutputStream)
+ 
+(DEFUN |get_html_stream| ()
+  (PROG () (RETURN (|get_lisp_stream| |$htmlOutputStream|))))
+ 
+; get_tex_stream() == get_lisp_stream($texOutputStream)
+ 
+(DEFUN |get_tex_stream| ()
+  (PROG () (RETURN (|get_lisp_stream| |$texOutputStream|))))
+ 
 ; specialChar(symbol) ==
 ;   -- looks up symbol in $specialCharacterAlist, gets the index
 ;   -- into the EBCDIC table, and returns the appropriate character
@@ -2317,7 +2351,7 @@
 ;       u := assoc(y,$MatrixList)
 ;       $MatrixList := delete(u,$MatrixList)
 ;       maPrin ['EQUATNUM,n,rest u]
-;       if not $collectOutput then TERPRI $algebraOutputStream
+;       if not $collectOutput then TERPRI(get_algebra_stream())
 ;     maPrin x
 ;   maPrin x
  
@@ -2372,18 +2406,18 @@
                (SETQ |$MatrixList| (|delete| |u| |$MatrixList|))
                (|maPrin| (LIST 'EQUATNUM |n| (CDR |u|)))
                (COND
-                ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)))))
+                ((NULL |$collectOutput|) (TERPRI (|get_algebra_stream|))))))
              (#1# (|maPrin| |x|))))
            (#1# (|maPrin| |x|))))))
  
 ; maprinRows matrixList ==
-;     if not $collectOutput then TERPRI($algebraOutputStream)
+;     if not $collectOutput then TERPRI(get_algebra_stream())
 ;     y:=NREVERSE matrixList
 ;     --Makes the matrices come out in order, since CONSed on backwards
 ;     matrixList:=nil
 ;     firstName := first first y
 ;     for [name,:m] in y for n in 0.. repeat
-;       if not $collectOutput then TERPRI($algebraOutputStream)
+;       if not $collectOutput then TERPRI(get_algebra_stream())
 ;       andWhere := (name = firstName => '"where "; '"and ")
 ;       line := STRCONC(andWhere, PNAME name)
 ;       maprinChk ["=",line,m]
@@ -2392,7 +2426,7 @@
   (PROG (|y| |firstName| |name| |m| |andWhere| |line|)
     (RETURN
      (PROGN
-      (COND ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)))
+      (COND ((NULL |$collectOutput|) (TERPRI (|get_algebra_stream|))))
       (SETQ |y| (NREVERSE |matrixList|))
       (SETQ |matrixList| NIL)
       (SETQ |firstName| (CAR (CAR |y|)))
@@ -2410,7 +2444,7 @@
                   #1#)
                  (PROGN
                   (COND
-                   ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)))
+                   ((NULL |$collectOutput|) (TERPRI (|get_algebra_stream|))))
                   (SETQ |andWhere|
                           (COND ((EQUAL |name| |firstName|) "where ")
                                 (#1# "and ")))
@@ -3235,9 +3269,9 @@
  
 ; spadPrint(x,m) ==
 ;   m = $NoValueMode => x
-;   if not $collectOutput then TERPRI $algebraOutputStream
+;   if not $collectOutput then TERPRI(get_algebra_stream())
 ;   output(x,m)
-;   if not $collectOutput then TERPRI $algebraOutputStream
+;   if not $collectOutput then TERPRI(get_algebra_stream())
  
 (DEFUN |spadPrint| (|x| |m|)
   (PROG ()
@@ -3245,10 +3279,10 @@
      (COND ((EQUAL |m| |$NoValueMode|) |x|)
            ('T
             (PROGN
-             (COND ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)))
+             (COND ((NULL |$collectOutput|) (TERPRI (|get_algebra_stream|))))
              (|output| |x| |m|)
              (COND
-              ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)))))))))
+              ((NULL |$collectOutput|) (TERPRI (|get_algebra_stream|))))))))))
  
 ; fortranFormat expr ==
 ;     ff := '(FortranFormat)
@@ -3256,8 +3290,8 @@
 ;         getFunctionFromDomain("convert", ff, [$OutputForm, $Integer])
 ;     displayFn := getFunctionFromDomain("display", ff, [ff])
 ;     SPADCALL(SPADCALL(expr, $IOindex, formatFn), displayFn)
-;     if not $collectOutput then TERPRI $fortranOutputStream
-;     FORCE_-OUTPUT $fortranOutputStream
+;     if not $collectOutput then TERPRI(get_fortran_stream())
+;     FORCE_-OUTPUT(get_fortran_stream())
  
 (DEFUN |fortranFormat| (|expr|)
   (PROG (|ff| |formatFn| |displayFn|)
@@ -3269,8 +3303,8 @@
                (LIST |$OutputForm| |$Integer|)))
       (SETQ |displayFn| (|getFunctionFromDomain| '|display| |ff| (LIST |ff|)))
       (SPADCALL (SPADCALL |expr| |$IOindex| |formatFn|) |displayFn|)
-      (COND ((NULL |$collectOutput|) (TERPRI |$fortranOutputStream|)))
-      (FORCE-OUTPUT |$fortranOutputStream|)))))
+      (COND ((NULL |$collectOutput|) (TERPRI (|get_fortran_stream|))))
+      (FORCE-OUTPUT (|get_fortran_stream|))))))
  
 ; texFormat expr ==
 ;   ioHook("startTeXOutput")
@@ -3279,8 +3313,8 @@
 ;     getFunctionFromDomain("convert",tf,[$OutputForm,$Integer])
 ;   displayFn := getFunctionFromDomain("display",tf,[tf])
 ;   SPADCALL(SPADCALL(expr,$IOindex,formatFn),displayFn)
-;   TERPRI $texOutputStream
-;   FORCE_-OUTPUT $texOutputStream
+;   TERPRI(get_tex_stream())
+;   FORCE_-OUTPUT(get_tex_stream())
 ;   ioHook("endOfTeXOutput")
 ;   NIL
  
@@ -3295,8 +3329,8 @@
                (LIST |$OutputForm| |$Integer|)))
       (SETQ |displayFn| (|getFunctionFromDomain| '|display| |tf| (LIST |tf|)))
       (SPADCALL (SPADCALL |expr| |$IOindex| |formatFn|) |displayFn|)
-      (TERPRI |$texOutputStream|)
-      (FORCE-OUTPUT |$texOutputStream|)
+      (TERPRI (|get_tex_stream|))
+      (FORCE-OUTPUT (|get_tex_stream|))
       (|ioHook| '|endOfTeXOutput|)
       NIL))))
  
@@ -3305,8 +3339,8 @@
 ;   formatFn := getFunctionFromDomain("coerce",tf, [$OutputForm])
 ;   displayFn := getFunctionFromDomain("display",tf,[tf])
 ;   SPADCALL(SPADCALL(expr,formatFn),displayFn)
-;   TERPRI $texOutputStream
-;   FORCE_-OUTPUT $texOutputStream
+;   TERPRI(get_tex_stream())
+;   FORCE_-OUTPUT(get_tex_stream())
 ;   NIL
  
 (DEFUN |texFormat1| (|expr|)
@@ -3318,8 +3352,8 @@
               (|getFunctionFromDomain| '|coerce| |tf| (LIST |$OutputForm|)))
       (SETQ |displayFn| (|getFunctionFromDomain| '|display| |tf| (LIST |tf|)))
       (SPADCALL (SPADCALL |expr| |formatFn|) |displayFn|)
-      (TERPRI |$texOutputStream|)
-      (FORCE-OUTPUT |$texOutputStream|)
+      (TERPRI (|get_tex_stream|))
+      (FORCE-OUTPUT (|get_tex_stream|))
       NIL))))
  
 ; mathmlFormat expr ==
@@ -3328,8 +3362,8 @@
 ;   formatFn := getFunctionFromDomain("coerce",mml,[$OutputForm])
 ;   displayFn := getFunctionFromDomain("display",mml,[mmlrep])
 ;   SPADCALL(SPADCALL(expr,formatFn),displayFn)
-;   TERPRI $mathmlOutputStream
-;   FORCE_-OUTPUT $mathmlOutputStream
+;   TERPRI(get_mathml_stream())
+;   FORCE_-OUTPUT(get_mathml_stream())
 ;   NIL
  
 (DEFUN |mathmlFormat| (|expr|)
@@ -3343,8 +3377,8 @@
       (SETQ |displayFn|
               (|getFunctionFromDomain| '|display| |mml| (LIST |mmlrep|)))
       (SPADCALL (SPADCALL |expr| |formatFn|) |displayFn|)
-      (TERPRI |$mathmlOutputStream|)
-      (FORCE-OUTPUT |$mathmlOutputStream|)
+      (TERPRI (|get_mathml_stream|))
+      (FORCE-OUTPUT (|get_mathml_stream|))
       NIL))))
  
 ; texmacsFormat expr ==
@@ -3354,8 +3388,8 @@
 ;   formatFn := getFunctionFromDomain("coerce",mml,[$OutputForm])
 ;   displayFn := getFunctionFromDomain("display",mml,[mmlrep])
 ;   SPADCALL(SPADCALL(expr,formatFn),displayFn)
-;   TERPRI $texmacsOutputStream
-;   FORCE_-OUTPUT $texmacsOutputStream
+;   TERPRI(get_texmacs_stream())
+;   FORCE_-OUTPUT(get_texmacs_stream())
 ;   ioHook("endOfTeXmacsOutput")
 ;   NIL
  
@@ -3371,8 +3405,8 @@
       (SETQ |displayFn|
               (|getFunctionFromDomain| '|display| |mml| (LIST |mmlrep|)))
       (SPADCALL (SPADCALL |expr| |formatFn|) |displayFn|)
-      (TERPRI |$texmacsOutputStream|)
-      (FORCE-OUTPUT |$texmacsOutputStream|)
+      (TERPRI (|get_texmacs_stream|))
+      (FORCE-OUTPUT (|get_texmacs_stream|))
       (|ioHook| '|endOfTeXmacsOutput|)
       NIL))))
  
@@ -3382,8 +3416,8 @@
 ;   formatFn := getFunctionFromDomain("coerce", htf, [$OutputForm])
 ;   displayFn := getFunctionFromDomain("display", htf, [htrep])
 ;   SPADCALL(SPADCALL(expr,formatFn),displayFn)
-;   TERPRI $htmlOutputStream
-;   FORCE_-OUTPUT $htmlOutputStream
+;   TERPRI(get_html_stream())
+;   FORCE_-OUTPUT(get_html_stream())
 ;   NIL
  
 (DEFUN |htmlFormat| (|expr|)
@@ -3397,8 +3431,8 @@
       (SETQ |displayFn|
               (|getFunctionFromDomain| '|display| |htf| (LIST |htrep|)))
       (SPADCALL (SPADCALL |expr| |formatFn|) |displayFn|)
-      (TERPRI |$htmlOutputStream|)
-      (FORCE-OUTPUT |$htmlOutputStream|)
+      (TERPRI (|get_html_stream|))
+      (FORCE-OUTPUT (|get_html_stream|))
       NIL))))
  
 ; output(expr,domain) ==
@@ -4083,8 +4117,8 @@
 ;   if $collectOutput then
 ;     $outputLines := [y, :$outputLines]
 ;   else
-;     PRINTEXP(y,$algebraOutputStream)
-;     TERPRI $algebraOutputStream
+;     PRINTEXP(y, get_algebra_stream())
+;     TERPRI(get_algebra_stream())
 ;   nil
  
 (DEFUN |scylla| (|n| |v|)
@@ -4099,8 +4133,8 @@
               (COND
                (|$collectOutput|
                 (SETQ |$outputLines| (CONS |y| |$outputLines|)))
-               (#1# (PRINTEXP |y| |$algebraOutputStream|)
-                (TERPRI |$algebraOutputStream|)))
+               (#1# (PRINTEXP |y| (|get_algebra_stream|))
+                (TERPRI (|get_algebra_stream|))))
               NIL)))))))
  
 ; keyp(u) ==
@@ -4614,7 +4648,7 @@
 ;   y := first x
 ;   u := remWidth(REVERSEWOC(CONS('" ", rest x)))
 ;   charybdis(u, i, n)
-;   if not $collectOutput then TERPRI $algebraOutputStream
+;   if not $collectOutput then TERPRI(get_algebra_stream())
 ;   charybdis(CONS('ELSE, LIST y), i, n)
 ;   '" "
  
@@ -4626,7 +4660,7 @@
       (SETQ |y| (CAR |x|))
       (SETQ |u| (|remWidth| (REVERSEWOC (CONS " " (CDR |x|)))))
       (|charybdis| |u| |i| |n|)
-      (COND ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)))
+      (COND ((NULL |$collectOutput|) (TERPRI (|get_algebra_stream|))))
       (|charybdis| (CONS 'ELSE (LIST |y|)) |i| |n|)
       " "))))
  
@@ -5220,7 +5254,7 @@
 ;            RPLACA(x, LIST('CONCAT, first x, tchr))
 ;     if null nextu then RPLACA(CDDR last u, close)
 ;     charybdis(ASSOCIATER('CONCAT, u), start, linelength)
-;     if $collectOutput then TERPRI $algebraOutputStream
+;     if $collectOutput then TERPRI(get_algebra_stream())
 ;     u := nextu
 ;     null u => return(nil)
  
@@ -5277,7 +5311,7 @@
                    |u|)
                   (COND ((NULL |nextu|) (RPLACA (CDDR (|last| |u|)) |close|)))
                   (|charybdis| (ASSOCIATER 'CONCAT |u|) |start| |linelength|)
-                  (COND (|$collectOutput| (TERPRI |$algebraOutputStream|)))
+                  (COND (|$collectOutput| (TERPRI (|get_algebra_stream|))))
                   (SETQ |u| |nextu|)
                   (COND ((NULL |u|) (RETURN NIL)))))))))))))
  
@@ -5286,9 +5320,9 @@
 ;   $collectOutput =>
 ;     string := STRCONC(spcs, op)
 ;     $outputLines := [string, :$outputLines]
-;   PRINTEXP(spcs, $algebraOutputStream)
-;   PRINTEXP(op,$algebraOutputStream)
-;   TERPRI $algebraOutputStream
+;   PRINTEXP(spcs, get_algebra_stream())
+;   PRINTEXP(op, get_algebra_stream())
+;   TERPRI(get_algebra_stream())
  
 (DEFUN |prnd| (|start| |op|)
   (PROG (|spcs| |string|)
@@ -5302,9 +5336,9 @@
          (SETQ |$outputLines| (CONS |string| |$outputLines|))))
        ('T
         (PROGN
-         (PRINTEXP |spcs| |$algebraOutputStream|)
-         (PRINTEXP |op| |$algebraOutputStream|)
-         (TERPRI |$algebraOutputStream|))))))))
+         (PRINTEXP |spcs| (|get_algebra_stream|))
+         (PRINTEXP |op| (|get_algebra_stream|))
+         (TERPRI (|get_algebra_stream|)))))))))
  
 ; qTSub(u) ==
 ;   subspan CADR u
@@ -5978,7 +6012,7 @@
       (|superSubWidth| (LIST 'SUPERSUB |a| " " |b|))))))
  
 ; mathPrint u ==
-;   if not $collectOutput then TERPRI $algebraOutputStream
+;   if not $collectOutput then TERPRI(get_algebra_stream())
 ;   (u := STRINGP mathPrint1(mathPrintTran u, nil) =>
 ;    PSTRING u; nil)
  
@@ -5986,7 +6020,7 @@
   (PROG ()
     (RETURN
      (PROGN
-      (COND ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)))
+      (COND ((NULL |$collectOutput|) (TERPRI (|get_algebra_stream|))))
       (COND
        ((SETQ |u| (STRINGP (|mathPrint1| (|mathPrintTran| |u|) NIL)))
         (PSTRING |u|))
@@ -6013,19 +6047,19 @@
              |u|))))))
  
 ; mathPrint1(x,fg) ==
-;   if fg and not $collectOutput then TERPRI $algebraOutputStream
+;   if fg and not $collectOutput then TERPRI(get_algebra_stream())
 ;   maPrin x
-;   if fg and not $collectOutput then TERPRI $algebraOutputStream
+;   if fg and not $collectOutput then TERPRI(get_algebra_stream())
  
 (DEFUN |mathPrint1| (|x| |fg|)
   (PROG ()
     (RETURN
      (PROGN
       (COND
-       ((AND |fg| (NULL |$collectOutput|)) (TERPRI |$algebraOutputStream|)))
+       ((AND |fg| (NULL |$collectOutput|)) (TERPRI (|get_algebra_stream|))))
       (|maPrin| |x|)
       (COND
-       ((AND |fg| (NULL |$collectOutput|)) (TERPRI |$algebraOutputStream|)))))))
+       ((AND |fg| (NULL |$collectOutput|)) (TERPRI (|get_algebra_stream|))))))))
  
 ; maPrin u ==
 ;   null u => nil
@@ -6036,10 +6070,10 @@
 ;   u is ['EQUATNUM,num,form] or u is [['EQUATNUM,:.],num,form] =>
 ;     charybdis(['EQUATNUM,num], $MARGIN, $LINELENGTH)
 ;     if not $collectOutput then
-;       TERPRI $algebraOutputStream
-;       PRETTYPRINT(form,$algebraOutputStream)
+;       TERPRI(get_algebra_stream())
+;       PRETTYPRINT(form, get_algebra_stream())
 ;     form
-;   if not $collectOutput then PRETTYPRINT(u,$algebraOutputStream)
+;   if not $collectOutput then PRETTYPRINT(u, get_algebra_stream())
 ;   nil
  
 (DEFUN |maPrin| (|u|)
@@ -6091,14 +6125,14 @@
                          $LINELENGTH)
                         (COND
                          ((NULL |$collectOutput|)
-                          (TERPRI |$algebraOutputStream|)
-                          (PRETTYPRINT |form| |$algebraOutputStream|)))
+                          (TERPRI (|get_algebra_stream|))
+                          (PRETTYPRINT |form| (|get_algebra_stream|))))
                         |form|))
                       (#1#
                        (PROGN
                         (COND
                          ((NULL |$collectOutput|)
-                          (PRETTYPRINT |u| |$algebraOutputStream|)))
+                          (PRETTYPRINT |u| (|get_algebra_stream|))))
                         NIL))))))))))))
  
 ; clear_highlight() ==

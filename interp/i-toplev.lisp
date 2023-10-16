@@ -310,7 +310,7 @@
 ;     md' := md
 ;   mode:= (md=$EmptyMode => quadSch(); md)
 ;   if (md ~= $Void) or $printVoidIfTrue then
-;     if null $collectOutput then TERPRI $algebraOutputStream
+;     if null $collectOutput then TERPRI(get_algebra_stream())
 ;     if $QuietCommand = false then
 ;       output(x',md')
 ;   putHist('%,'value,objNewWrap(x,md),$e)
@@ -330,7 +330,7 @@
       (SETQ |mode| (COND ((EQUAL |md| |$EmptyMode|) (|quadSch|)) (#1# |md|)))
       (COND
        ((OR (NOT (EQUAL |md| |$Void|)) |$printVoidIfTrue|)
-        (COND ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)))
+        (COND ((NULL |$collectOutput|) (TERPRI (|get_algebra_stream|))))
         (COND ((NULL |$QuietCommand|) (|output| |x'| |md'|)))))
       (|putHist| '% '|value| (|objNewWrap| |x| |md|) |$e|)
       (COND

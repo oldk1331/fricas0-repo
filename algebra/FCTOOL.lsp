@@ -1934,8 +1934,8 @@
                     (COND
                      ((OR (ATOM #1#) (PROGN (LETT |l| (CAR #1#)) NIL))
                       (GO G191)))
-                    (SEQ (PRINTEXP |l| |$fortranOutputStream|)
-                         (EXIT (TERPRI |$fortranOutputStream|)))
+                    (SEQ (|sayString| |l| (|get_fortran_stream|))
+                         (EXIT (TERPRI (|get_fortran_stream|))))
                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |FCTOOL;dispStatement;OfV;58| ((|of| |OutputForm|) ($ |Void|))

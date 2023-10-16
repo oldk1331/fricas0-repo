@@ -2260,45 +2260,72 @@
     (RETURN
      (COND ((NULL |x|) NIL) ('T (|sayBrightly1| |x| (|get_lisp_error_out|)))))))
  
-; sayMSGNT(x) == sayBrightlyNT1(x, $algebraOutputStream)
+; sayMSGNT(x) == sayBrightlyNT1(x, get_algebra_stream())
  
 (DEFUN |sayMSGNT| (|x|)
-  (PROG () (RETURN (|sayBrightlyNT1| |x| |$algebraOutputStream|))))
+  (PROG () (RETURN (|sayBrightlyNT1| |x| (|get_algebra_stream|)))))
  
-; sayHtml(x) == sayBrightly1(x, $htmlOutputStream)
+; say_simple(x, str) ==
+;     if x then
+;         if true then
+;             ATOM(x) => sayString(x, str)
+;             for y in x repeat
+;                 sayString(y, str)
+;         TERPRI(str)
+ 
+(DEFUN |say_simple| (|x| |str|)
+  (PROG ()
+    (RETURN
+     (COND
+      (|x|
+       (COND
+        (T
+         (COND ((ATOM |x|) (|sayString| |x| |str|))
+               (#1='T
+                ((LAMBDA (|bfVar#34| |y|)
+                   (LOOP
+                    (COND
+                     ((OR (ATOM |bfVar#34|)
+                          (PROGN (SETQ |y| (CAR |bfVar#34|)) NIL))
+                      (RETURN NIL))
+                     (#1# (|sayString| |y| |str|)))
+                    (SETQ |bfVar#34| (CDR |bfVar#34|))))
+                 |x| NIL)))))
+       (TERPRI |str|))))))
+ 
+; sayHtml(x) == say_simple(x, get_html_stream())
  
 (DEFUN |sayHtml| (|x|)
-  (PROG () (RETURN (|sayBrightly1| |x| |$htmlOutputStream|))))
+  (PROG () (RETURN (|say_simple| |x| (|get_html_stream|)))))
  
-; sayMathML(x) == sayBrightly1(x, $mathmlOutputStream)
+; sayMathML(x) == say_simple(x, get_mathml_stream())
  
 (DEFUN |sayMathML| (|x|)
-  (PROG () (RETURN (|sayBrightly1| |x| |$mathmlOutputStream|))))
+  (PROG () (RETURN (|say_simple| |x| (|get_mathml_stream|)))))
  
-; sayTeX(x) == sayBrightly1(x, $texOutputStream)
+; sayTeX(x) == say_simple(x, get_tex_stream())
  
-(DEFUN |sayTeX| (|x|)
-  (PROG () (RETURN (|sayBrightly1| |x| |$texOutputStream|))))
+(DEFUN |sayTeX| (|x|) (PROG () (RETURN (|say_simple| |x| (|get_tex_stream|)))))
  
-; sayTexmacs(x) == sayBrightly1(x, $texmacsOutputStream)
+; sayTexmacs(x) == say_simple(x, get_texmacs_stream())
  
 (DEFUN |sayTexmacs| (|x|)
-  (PROG () (RETURN (|sayBrightly1| |x| |$texmacsOutputStream|))))
+  (PROG () (RETURN (|say_simple| |x| (|get_texmacs_stream|)))))
  
-; saySpadMsg(x) == sayBrightly1(x, $algebraOutputStream)
+; saySpadMsg(x) == sayBrightly1(x, get_algebra_stream())
  
 (DEFUN |saySpadMsg| (|x|)
-  (PROG () (RETURN (|sayBrightly1| |x| |$algebraOutputStream|))))
+  (PROG () (RETURN (|sayBrightly1| |x| (|get_algebra_stream|)))))
  
-; sayALGEBRA(x) == sayBrightly1(x, $algebraOutputStream)
+; sayALGEBRA(x) == sayBrightly1(x, get_algebra_stream())
  
 (DEFUN |sayALGEBRA| (|x|)
-  (PROG () (RETURN (|sayBrightly1| |x| |$algebraOutputStream|))))
+  (PROG () (RETURN (|sayBrightly1| |x| (|get_algebra_stream|)))))
  
-; sayMSG(x) == sayBrightly1(x, $algebraOutputStream)
+; sayMSG(x) == sayBrightly1(x, get_algebra_stream())
  
 (DEFUN |sayMSG| (|x|)
-  (PROG () (RETURN (|sayBrightly1| |x| |$algebraOutputStream|))))
+  (PROG () (RETURN (|sayBrightly1| |x| (|get_algebra_stream|)))))
  
 ; sayMSG2File(msg) ==
 ;     file := makePathname("spadmsg", "listing")

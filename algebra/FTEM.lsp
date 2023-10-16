@@ -1,19 +1,13 @@
 
 (SDEFUN |FTEM;fortranLiteralLine;SV;1| ((|s| |String|) ($ |Void|))
-        (SEQ (PRINTEXP |s| |$fortranOutputStream|)
-             (EXIT (TERPRI |$fortranOutputStream|)))) 
-
-(PUT '|FTEM;fortranLiteral;SV;2| '|SPADreplace|
-     '(XLAM (|s|) (PRINTEXP |s| |$fortranOutputStream|))) 
+        (SEQ (|sayString| |s| (|get_fortran_stream|))
+             (EXIT (TERPRI (|get_fortran_stream|))))) 
 
 (SDEFUN |FTEM;fortranLiteral;SV;2| ((|s| |String|) ($ |Void|))
-        (PRINTEXP |s| |$fortranOutputStream|)) 
-
-(PUT '|FTEM;fortranCarriageReturn;V;3| '|SPADreplace|
-     '(XLAM NIL (TERPRI |$fortranOutputStream|))) 
+        (|sayString| |s| (|get_fortran_stream|))) 
 
 (SDEFUN |FTEM;fortranCarriageReturn;V;3| (($ |Void|))
-        (TERPRI |$fortranOutputStream|)) 
+        (TERPRI (|get_fortran_stream|))) 
 
 (SDEFUN |FTEM;writePassiveLine!| ((|line| |String|) ($ |Void|))
         (SPADCALL |line| (QREFELT $ 9))) 

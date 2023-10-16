@@ -1477,6 +1477,35 @@
             '|%l| "the one you set with the )cd system command." '|%l|
             "The current setting is: " '|%b| |cs| '|%d|)))))
  
+; stream_close(st) ==
+;     if first(st) then CLOSE(rest(st))
+ 
+(DEFUN |stream_close| (|st|)
+  (PROG () (RETURN (COND ((CAR |st|) (CLOSE (CDR |st|)))))))
+ 
+; try_open(fn, ft, append) ==
+;     if (ptype := pathnameType fn) then
+;         fn := STRCONC(pathnameDirectory fn,pathnameName fn)
+;         ft := ptype
+;     filename := make_full_namestring([fn, ft])
+;     null filename => [NIL, NIL]
+;     (testStream := makeStream(append, filename)) => [testStream, filename]
+;     [NIL, NIL]
+ 
+(DEFUN |try_open| (|fn| |ft| APPEND)
+  (PROG (|ptype| |filename| |testStream|)
+    (RETURN
+     (PROGN
+      (COND
+       ((SETQ |ptype| (|pathnameType| |fn|))
+        (SETQ |fn| (STRCONC (|pathnameDirectory| |fn|) (|pathnameName| |fn|)))
+        (SETQ |ft| |ptype|)))
+      (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
+      (COND ((NULL |filename|) (LIST NIL NIL))
+            ((SETQ |testStream| (|makeStream| APPEND |filename|))
+             (LIST |testStream| |filename|))
+            ('T (LIST NIL NIL)))))))
+ 
 ; setOutputAlgebra arg ==
 ;   arg = "%initialize%" =>
 ;     $algebraOutputStream := mkOutputConsoleStream()
@@ -1503,21 +1532,16 @@
 ;     UPCASE(fn) in '(NO OFF)  => $algebraFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $algebraFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
-;       SHUT $algebraOutputStream
+;       stream_close($algebraOutputStream)
 ;       $algebraOutputStream := mkOutputConsoleStream()
 ;       $algebraOutputFile := '"CONSOLE"
 ; 
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     if (ptype := pathnameType fn) then
-;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
-;       ft := ptype
-;     filename := make_full_namestring([fn, ft])
-;     null filename =>
-;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_OUTSTREAM(filename)) =>
-;       SHUT $algebraOutputStream
+;     [testStream, filename] := try_open(fn, ft, false)
+;     testStream =>
+;       stream_close($algebraOutputStream)
 ;       $algebraOutputStream := testStream
-;       $algebraOutputFile := object2String filename
+;       $algebraOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"Algebra",$algebraOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
 ; 
@@ -1525,8 +1549,8 @@
 ;   describeSetOutputAlgebra()
  
 (DEFUN |setOutputAlgebra| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |ptype| |filename|
-         |testStream|)
+  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
+         |filename|)
     (RETURN
      (COND
       ((EQ |arg| '|%initialize%|)
@@ -1561,7 +1585,7 @@
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$algebraFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
             (PROGN
-             (SHUT |$algebraOutputStream|)
+             (|stream_close| |$algebraOutputStream|)
              (SETQ |$algebraOutputStream| (|mkOutputConsoleStream|))
              (SETQ |$algebraOutputFile| "CONSOLE")))))
          ((OR
@@ -1582,22 +1606,17 @@
                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                             (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
           (PROGN
+           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
+           (SETQ |testStream| (CAR |LETTMP#1|))
+           (SETQ |filename| (CADR |LETTMP#1|))
            (COND
-            ((SETQ |ptype| (|pathnameType| |fn|))
-             (SETQ |fn|
-                     (STRCONC (|pathnameDirectory| |fn|)
-                      (|pathnameName| |fn|)))
-             (SETQ |ft| |ptype|)))
-           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
-           (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
-                  (PROGN
-                   (SHUT |$algebraOutputStream|)
-                   (SETQ |$algebraOutputStream| |testStream|)
-                   (SETQ |$algebraOutputFile| (|object2String| |filename|))
-                   (|sayKeyedMsg| 'S2IV0004
-                    (LIST "Algebra" |$algebraOutputFile|))))
-                 (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
+            (|testStream|
+             (PROGN
+              (|stream_close| |$algebraOutputStream|)
+              (SETQ |$algebraOutputStream| |testStream|)
+              (SETQ |$algebraOutputFile| |filename|)
+              (|sayKeyedMsg| 'S2IV0004 (LIST "Algebra" |$algebraOutputFile|))))
+            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
          (#1#
           (PROGN
            (|sayKeyedMsg| 'S2IV0005 NIL)
@@ -1723,14 +1742,14 @@
               (#1# (|setOutputCharacters| NIL)))))))))
  
 ; makeStream(append,filename) ==
-;   append => MAKE_APPENDSTREAM(filename)
-;   MAKE_OUTSTREAM(filename)
+;   append => make_append_stream(filename)
+;   make_out_stream(filename)
  
 (DEFUN |makeStream| (APPEND |filename|)
   (PROG ()
     (RETURN
-     (COND (APPEND (MAKE_APPENDSTREAM |filename|))
-           ('T (MAKE_OUTSTREAM |filename|))))))
+     (COND (APPEND (|make_append_stream| |filename|))
+           ('T (|make_out_stream| |filename|))))))
  
 ; setOutputFortran arg ==
 ;   arg = "%initialize%" =>
@@ -1765,29 +1784,24 @@
 ;     UPCASE(fn) in '(NO OFF)  => $fortranFormat := NIL
 ;     UPCASE(fn) in '(YES ON)  => $fortranFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
-;       SHUT $fortranOutputStream
+;       stream_close($fortranOutputStream)
 ;       $fortranOutputStream := mkOutputConsoleStream()
 ;       $fortranOutputFile := '"CONSOLE"
 ; 
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     if (ptype := pathnameType fn) then
-;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
-;       ft := ptype
-;     filename := make_full_namestring([fn, ft])
-;     null filename =>
-;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := makeStream(append,filename)) =>
-;       SHUT $fortranOutputStream
+;     [testStream, filename] := try_open(fn, ft, append)
+;     testStream =>
+;       stream_close($fortranOutputStream)
 ;       $fortranOutputStream := testStream
-;       $fortranOutputFile := object2String filename
+;       $fortranOutputFile := filename
 ;       if null quiet then sayKeyedMsg("S2IV0004",['FORTRAN,$fortranOutputFile])
 ;     if null quiet then sayKeyedMsg("S2IV0003",[fn,ft])
 ;   if null quiet then sayKeyedMsg("S2IV0005",NIL)
 ;   describeSetOutputFortran()
  
 (DEFUN |setOutputFortran| (|arg|)
-  (PROG (|label| APPEND |quiet| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |ptype|
-         |filename| |testStream|)
+  (PROG (|label| APPEND |quiet| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1|
+         |testStream| |filename|)
     (RETURN
      (COND
       ((EQ |arg| '|%initialize%|)
@@ -1836,7 +1850,7 @@
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$fortranFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
             (PROGN
-             (SHUT |$fortranOutputStream|)
+             (|stream_close| |$fortranOutputStream|)
              (SETQ |$fortranOutputStream| (|mkOutputConsoleStream|))
              (SETQ |$fortranOutputFile| "CONSOLE")))))
          ((OR
@@ -1857,27 +1871,22 @@
                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                             (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
           (PROGN
+           (SETQ |LETTMP#1| (|try_open| |fn| |ft| APPEND))
+           (SETQ |testStream| (CAR |LETTMP#1|))
+           (SETQ |filename| (CADR |LETTMP#1|))
            (COND
-            ((SETQ |ptype| (|pathnameType| |fn|))
-             (SETQ |fn|
-                     (STRCONC (|pathnameDirectory| |fn|)
-                      (|pathnameName| |fn|)))
-             (SETQ |ft| |ptype|)))
-           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
-           (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (|makeStream| APPEND |filename|))
-                  (PROGN
-                   (SHUT |$fortranOutputStream|)
-                   (SETQ |$fortranOutputStream| |testStream|)
-                   (SETQ |$fortranOutputFile| (|object2String| |filename|))
-                   (COND
-                    ((NULL |quiet|)
-                     (|sayKeyedMsg| 'S2IV0004
-                      (LIST 'FORTRAN |$fortranOutputFile|))))))
-                 (#1#
-                  (COND
-                   ((NULL |quiet|)
-                    (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))))
+            (|testStream|
+             (PROGN
+              (|stream_close| |$fortranOutputStream|)
+              (SETQ |$fortranOutputStream| |testStream|)
+              (SETQ |$fortranOutputFile| |filename|)
+              (COND
+               ((NULL |quiet|)
+                (|sayKeyedMsg| 'S2IV0004
+                 (LIST 'FORTRAN |$fortranOutputFile|))))))
+            (#1#
+             (COND
+              ((NULL |quiet|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))))
          (#1#
           (PROGN
            (COND ((NULL |quiet|) (|sayKeyedMsg| 'S2IV0005 NIL)))
@@ -1918,21 +1927,16 @@
 ;     UPCASE(fn) in '(NO OFF)  => $mathmlFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $mathmlFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
-;       SHUT $mathmlOutputStream
+;       stream_close($mathmlOutputStream)
 ;       $mathmlOutputStream := mkOutputConsoleStream()
 ;       $mathmlOutputFile := '"CONSOLE"
 ; 
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     if (ptype := pathnameType fn) then
-;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
-;       ft := ptype
-;     filename := make_full_namestring([fn, ft])
-;     null filename =>
-;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_OUTSTREAM(filename)) =>
-;       SHUT $mathmlOutputStream
+;     [testStream, filename] := try_open(fn, ft, false)
+;     testStream =>
+;       stream_close($mathmlOutputStream)
 ;       $mathmlOutputStream := testStream
-;       $mathmlOutputFile := object2String filename
+;       $mathmlOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"MathML",$mathmlOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
 ; 
@@ -1940,8 +1944,8 @@
 ;   describeSetOutputMathml()
  
 (DEFUN |setOutputMathml| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |ptype| |filename|
-         |testStream|)
+  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
+         |filename|)
     (RETURN
      (COND
       ((EQ |arg| '|%initialize%|)
@@ -1976,7 +1980,7 @@
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$mathmlFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
             (PROGN
-             (SHUT |$mathmlOutputStream|)
+             (|stream_close| |$mathmlOutputStream|)
              (SETQ |$mathmlOutputStream| (|mkOutputConsoleStream|))
              (SETQ |$mathmlOutputFile| "CONSOLE")))))
          ((OR
@@ -1997,22 +2001,17 @@
                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                             (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
           (PROGN
+           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
+           (SETQ |testStream| (CAR |LETTMP#1|))
+           (SETQ |filename| (CADR |LETTMP#1|))
            (COND
-            ((SETQ |ptype| (|pathnameType| |fn|))
-             (SETQ |fn|
-                     (STRCONC (|pathnameDirectory| |fn|)
-                      (|pathnameName| |fn|)))
-             (SETQ |ft| |ptype|)))
-           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
-           (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
-                  (PROGN
-                   (SHUT |$mathmlOutputStream|)
-                   (SETQ |$mathmlOutputStream| |testStream|)
-                   (SETQ |$mathmlOutputFile| (|object2String| |filename|))
-                   (|sayKeyedMsg| 'S2IV0004
-                    (LIST "MathML" |$mathmlOutputFile|))))
-                 (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
+            (|testStream|
+             (PROGN
+              (|stream_close| |$mathmlOutputStream|)
+              (SETQ |$mathmlOutputStream| |testStream|)
+              (SETQ |$mathmlOutputFile| |filename|)
+              (|sayKeyedMsg| 'S2IV0004 (LIST "MathML" |$mathmlOutputFile|))))
+            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
          (#1#
           (PROGN
            (|sayKeyedMsg| 'S2IV0005 NIL)
@@ -2053,21 +2052,16 @@
 ;     UPCASE(fn) in '(NO OFF)  => $texmacsFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $texmacsFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
-;       SHUT $texmacsOutputStream
+;       stream_close($texmacsOutputStream)
 ;       $texmacsOutputStream := mkOutputConsoleStream()
 ;       $texmacsOutputFile := '"CONSOLE"
 ; 
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     if (ptype := pathnameType fn) then
-;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
-;       ft := ptype
-;     filename := make_full_namestring([fn, ft])
-;     null filename =>
-;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_OUTSTREAM(filename)) =>
-;       SHUT $texmacsOutputStream
+;     [testStream, filename] := try_open(fn, ft, false)
+;     testStream =>
+;       stream_close($texmacsOutputStream)
 ;       $texmacsOutputStream := testStream
-;       $texmacsOutputFile := object2String filename
+;       $texmacsOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"Texmacs",$texmacsOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
 ; 
@@ -2075,8 +2069,8 @@
 ;   describeSetOutputTexmacs()
  
 (DEFUN |setOutputTexmacs| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |ptype| |filename|
-         |testStream|)
+  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
+         |filename|)
     (RETURN
      (COND
       ((EQ |arg| '|%initialize%|)
@@ -2111,7 +2105,7 @@
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$texmacsFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
             (PROGN
-             (SHUT |$texmacsOutputStream|)
+             (|stream_close| |$texmacsOutputStream|)
              (SETQ |$texmacsOutputStream| (|mkOutputConsoleStream|))
              (SETQ |$texmacsOutputFile| "CONSOLE")))))
          ((OR
@@ -2132,22 +2126,17 @@
                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                             (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
           (PROGN
+           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
+           (SETQ |testStream| (CAR |LETTMP#1|))
+           (SETQ |filename| (CADR |LETTMP#1|))
            (COND
-            ((SETQ |ptype| (|pathnameType| |fn|))
-             (SETQ |fn|
-                     (STRCONC (|pathnameDirectory| |fn|)
-                      (|pathnameName| |fn|)))
-             (SETQ |ft| |ptype|)))
-           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
-           (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
-                  (PROGN
-                   (SHUT |$texmacsOutputStream|)
-                   (SETQ |$texmacsOutputStream| |testStream|)
-                   (SETQ |$texmacsOutputFile| (|object2String| |filename|))
-                   (|sayKeyedMsg| 'S2IV0004
-                    (LIST "Texmacs" |$texmacsOutputFile|))))
-                 (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
+            (|testStream|
+             (PROGN
+              (|stream_close| |$texmacsOutputStream|)
+              (SETQ |$texmacsOutputStream| |testStream|)
+              (SETQ |$texmacsOutputFile| |filename|)
+              (|sayKeyedMsg| 'S2IV0004 (LIST "Texmacs" |$texmacsOutputFile|))))
+            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
          (#1#
           (PROGN
            (|sayKeyedMsg| 'S2IV0005 NIL)
@@ -2188,21 +2177,16 @@
 ;     UPCASE(fn) in '(NO OFF)  => $htmlFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $htmlFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
-;       SHUT $htmlOutputStream
+;       stream_close($htmlOutputStream)
 ;       $htmlOutputStream := mkOutputConsoleStream()
 ;       $htmlOutputFile := '"CONSOLE"
 ; 
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     if (ptype := pathnameType fn) then
-;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
-;       ft := ptype
-;     filename := make_full_namestring([fn, ft])
-;     null filename =>
-;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_OUTSTREAM(filename)) =>
-;       SHUT $htmlOutputStream
+;     [testStream, filename] := try_open(fn, ft, false)
+;     testStream =>
+;       stream_close($htmlOutputStream)
 ;       $htmlOutputStream := testStream
-;       $htmlOutputFile := object2String filename
+;       $htmlOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"HTML",$htmlOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
 ; 
@@ -2210,8 +2194,8 @@
 ;   describeSetOutputHtml()
  
 (DEFUN |setOutputHtml| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |ptype| |filename|
-         |testStream|)
+  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
+         |filename|)
     (RETURN
      (COND
       ((EQ |arg| '|%initialize%|)
@@ -2246,7 +2230,7 @@
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$htmlFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
             (PROGN
-             (SHUT |$htmlOutputStream|)
+             (|stream_close| |$htmlOutputStream|)
              (SETQ |$htmlOutputStream| (|mkOutputConsoleStream|))
              (SETQ |$htmlOutputFile| "CONSOLE")))))
          ((OR
@@ -2267,21 +2251,17 @@
                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                             (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
           (PROGN
+           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
+           (SETQ |testStream| (CAR |LETTMP#1|))
+           (SETQ |filename| (CADR |LETTMP#1|))
            (COND
-            ((SETQ |ptype| (|pathnameType| |fn|))
-             (SETQ |fn|
-                     (STRCONC (|pathnameDirectory| |fn|)
-                      (|pathnameName| |fn|)))
-             (SETQ |ft| |ptype|)))
-           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
-           (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
-                  (PROGN
-                   (SHUT |$htmlOutputStream|)
-                   (SETQ |$htmlOutputStream| |testStream|)
-                   (SETQ |$htmlOutputFile| (|object2String| |filename|))
-                   (|sayKeyedMsg| 'S2IV0004 (LIST "HTML" |$htmlOutputFile|))))
-                 (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
+            (|testStream|
+             (PROGN
+              (|stream_close| |$htmlOutputStream|)
+              (SETQ |$htmlOutputStream| |testStream|)
+              (SETQ |$htmlOutputFile| |filename|)
+              (|sayKeyedMsg| 'S2IV0004 (LIST "HTML" |$htmlOutputFile|))))
+            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
          (#1#
           (PROGN
            (|sayKeyedMsg| 'S2IV0005 NIL)
@@ -2322,21 +2302,16 @@
 ;     UPCASE(fn) in '(NO OFF)  => $openMathFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $openMathFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
-;       SHUT $openMathOutputStream
+;       stream_close($openMathOutputStream)
 ;       $openMathOutputStream := mkOutputConsoleStream()
 ;       $openMathOutputFile := '"CONSOLE"
 ; 
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     if (ptype := pathnameType fn) then
-;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
-;       ft := ptype
-;     filename := make_full_namestring([fn, ft])
-;     null filename =>
-;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_OUTSTREAM(filename)) =>
-;       SHUT $openMathOutputStream
+;     [testStream, filename] := try_open(fn, ft, false)
+;     testStream =>
+;       stream_close($openMathOutputStream)
 ;       $openMathOutputStream := testStream
-;       $openMathOutputFile := object2String filename
+;       $openMathOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"OpenMath",$openMathOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
 ; 
@@ -2344,8 +2319,8 @@
 ;   describeSetOutputOpenMath()
  
 (DEFUN |setOutputOpenMath| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |ptype| |filename|
-         |testStream|)
+  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
+         |filename|)
     (RETURN
      (COND
       ((EQ |arg| '|%initialize%|)
@@ -2380,7 +2355,7 @@
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$openMathFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
             (PROGN
-             (SHUT |$openMathOutputStream|)
+             (|stream_close| |$openMathOutputStream|)
              (SETQ |$openMathOutputStream| (|mkOutputConsoleStream|))
              (SETQ |$openMathOutputFile| "CONSOLE")))))
          ((OR
@@ -2401,22 +2376,18 @@
                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                             (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
           (PROGN
+           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
+           (SETQ |testStream| (CAR |LETTMP#1|))
+           (SETQ |filename| (CADR |LETTMP#1|))
            (COND
-            ((SETQ |ptype| (|pathnameType| |fn|))
-             (SETQ |fn|
-                     (STRCONC (|pathnameDirectory| |fn|)
-                      (|pathnameName| |fn|)))
-             (SETQ |ft| |ptype|)))
-           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
-           (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
-                  (PROGN
-                   (SHUT |$openMathOutputStream|)
-                   (SETQ |$openMathOutputStream| |testStream|)
-                   (SETQ |$openMathOutputFile| (|object2String| |filename|))
-                   (|sayKeyedMsg| 'S2IV0004
-                    (LIST "OpenMath" |$openMathOutputFile|))))
-                 (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
+            (|testStream|
+             (PROGN
+              (|stream_close| |$openMathOutputStream|)
+              (SETQ |$openMathOutputStream| |testStream|)
+              (SETQ |$openMathOutputFile| |filename|)
+              (|sayKeyedMsg| 'S2IV0004
+               (LIST "OpenMath" |$openMathOutputFile|))))
+            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
          (#1#
           (PROGN
            (|sayKeyedMsg| 'S2IV0005 NIL)
@@ -2457,21 +2428,16 @@
 ;     UPCASE(fn) in '(NO OFF)  => $texFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $texFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
-;       SHUT $texOutputStream
+;       stream_close($texOutputStream)
 ;       $texOutputStream := mkOutputConsoleStream()
 ;       $texOutputFile := '"CONSOLE"
 ; 
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
-;     if (ptype := pathnameType fn) then
-;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
-;       ft := ptype
-;     filename := make_full_namestring([fn, ft])
-;     null filename =>
-;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_OUTSTREAM(filename)) =>
-;       SHUT $texOutputStream
+;     [testStream, filename] := try_open(fn, ft, false)
+;     testStream =>
+;       stream_close($texOutputStream)
 ;       $texOutputStream := testStream
-;       $texOutputFile := object2String filename
+;       $texOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"TeX",$texOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
 ; 
@@ -2479,8 +2445,8 @@
 ;   describeSetOutputTex()
  
 (DEFUN |setOutputTex| (|arg|)
-  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |ptype| |filename|
-         |testStream|)
+  (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
+         |filename|)
     (RETURN
      (COND
       ((EQ |arg| '|%initialize%|)
@@ -2515,7 +2481,7 @@
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$texFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
             (PROGN
-             (SHUT |$texOutputStream|)
+             (|stream_close| |$texOutputStream|)
              (SETQ |$texOutputStream| (|mkOutputConsoleStream|))
              (SETQ |$texOutputFile| "CONSOLE")))))
          ((OR
@@ -2536,21 +2502,17 @@
                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                             (PROGN (SETQ |fm| (CAR |ISTMP#2|)) #1#)))))))
           (PROGN
+           (SETQ |LETTMP#1| (|try_open| |fn| |ft| NIL))
+           (SETQ |testStream| (CAR |LETTMP#1|))
+           (SETQ |filename| (CADR |LETTMP#1|))
            (COND
-            ((SETQ |ptype| (|pathnameType| |fn|))
-             (SETQ |fn|
-                     (STRCONC (|pathnameDirectory| |fn|)
-                      (|pathnameName| |fn|)))
-             (SETQ |ft| |ptype|)))
-           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
-           (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
-                  (PROGN
-                   (SHUT |$texOutputStream|)
-                   (SETQ |$texOutputStream| |testStream|)
-                   (SETQ |$texOutputFile| (|object2String| |filename|))
-                   (|sayKeyedMsg| 'S2IV0004 (LIST "TeX" |$texOutputFile|))))
-                 (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
+            (|testStream|
+             (PROGN
+              (|stream_close| |$texOutputStream|)
+              (SETQ |$texOutputStream| |testStream|)
+              (SETQ |$texOutputFile| |filename|)
+              (|sayKeyedMsg| 'S2IV0004 (LIST "TeX" |$texOutputFile|))))
+            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
          (#1#
           (PROGN (|sayKeyedMsg| 'S2IV0005 NIL) (|describeSetOutputTex|))))))))))
  

@@ -467,7 +467,7 @@
 ;   lisplibDoRename(libName)
 ;   filearg := make_full_namestring([libName, $spadLibFT])
 ;   RPACKFILE filearg
-;   FRESH_-LINE $algebraOutputStream
+;   FRESH_-LINE(get_algebra_stream())
 ;   sayMSG fillerSpaces(72,'"-")
 ;   unloadOneConstructor(op,libName)
 ;   LOCALDATABASE(LIST GETDATABASE(op,'ABBREVIATION),NIL)
@@ -530,7 +530,7 @@
       (|lisplibDoRename| |libName|)
       (SETQ |filearg| (|make_full_namestring| (LIST |libName| |$spadLibFT|)))
       (RPACKFILE |filearg|)
-      (FRESH-LINE |$algebraOutputStream|)
+      (FRESH-LINE (|get_algebra_stream|))
       (|sayMSG| (|fillerSpaces| 72 "-"))
       (|unloadOneConstructor| |op| |libName|)
       (LOCALDATABASE (LIST (GETDATABASE |op| 'ABBREVIATION)) NIL)
