@@ -76,7 +76,7 @@
          (COND
           ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 19))
            (|error| "File not in write state"))
-          ((OR (|less_SI| |x| 0) (> |x| 255))
+          ((OR (|less_SI| |x| 0) (SPADCALL |x| 255 (QREFELT $ 24)))
            (|error| "integer cannot be represented as a byte"))
           ('T (SEQ (BINARY_PRINBYTE |x|) (EXIT |x|)))))) 
 
@@ -117,7 +117,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|BinaryFile|))
-          (LETT $ (GETREFV 29))
+          (LETT $ (GETREFV 30))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|BinaryFile| NIL (CONS 1 $))
@@ -137,24 +137,24 @@
               |BINFILE;open;FnS$;2| |BINFILE;reopen!;$S$;3|
               |BINFILE;close!;2$;4| (25 . ~=) (|SingleInteger|)
               |BINFILE;read!;$Si;5| (|Union| 20 '"failed")
-              |BINFILE;readIfCan!;$U;6| |BINFILE;write!;$2Si;7|
+              |BINFILE;readIfCan!;$U;6| (31 . >) |BINFILE;write!;$2Si;7|
               |BINFILE;position;$Si;8| |BINFILE;position!;$2Si;9| (|Void|)
               (|HashState|))
-           '#(|write!| 31 |reopen!| 37 |readIfCan!| 43 |read!| 48 |position!|
-              53 |position| 59 |open| 64 |close!| 70)
+           '#(|write!| 37 |reopen!| 43 |readIfCan!| 49 |read!| 54 |position!|
+              59 |position| 65 |open| 70 |close!| 76)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|FileCategory| 8 20) (|SetCategory|) (|BasicType|)
                            (|CoercibleTo| 10))
-                        (|makeByteWordVec2| 26
+                        (|makeByteWordVec2| 27
                                             '(1 8 7 0 9 1 11 10 0 12 1 8 10 0
                                               13 1 8 11 0 14 1 8 7 0 15 2 11 7
-                                              0 0 19 2 0 20 0 20 24 2 0 0 0 11
-                                              17 1 0 22 0 23 1 0 20 0 21 2 0 20
-                                              0 20 26 1 0 20 0 25 2 0 0 8 11 16
-                                              1 0 0 0 18)))))
+                                              0 0 19 2 20 7 0 0 24 2 0 20 0 20
+                                              25 2 0 0 0 11 17 1 0 22 0 23 1 0
+                                              20 0 21 2 0 20 0 20 27 1 0 20 0
+                                              26 2 0 0 8 11 16 1 0 0 0 18)))))
            '|lookupIncomplete|)) 
 
 (MAKEPROP '|BinaryFile| 'NILADIC T) 

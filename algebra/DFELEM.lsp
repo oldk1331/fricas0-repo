@@ -3,14 +3,14 @@
         (SPROG ((|x2| (|DoubleFloat|)) (|x1| (|DoubleFloat|)))
                (SEQ (LETT |x1| (|add_DF| |x| 1.0))
                     (COND
-                     ((OR (SPADCALL |x| (QREFELT $ 15) (QREFELT $ 20))
-                          (|less_DF| |x| (|minus_DF| (QREFELT $ 15))))
-                      (EXIT (SPADCALL |x1| (QREFELT $ 21)))))
-                    (LETT |x2| (|mul_DF| (QREFELT $ 15) (|add_DF| 1.0 |x1|)))
+                     ((OR (SPADCALL |x| (QREFELT $ 8) (QREFELT $ 14))
+                          (|less_DF| |x| (|minus_DF| (QREFELT $ 8))))
+                      (EXIT (SPADCALL |x1| (QREFELT $ 15)))))
+                    (LETT |x2| (|mul_DF| (QREFELT $ 8) (|add_DF| 1.0 |x1|)))
                     (EXIT
                      (|mul_DF| |x|
                                (SPADCALL (|mul_DF| |x2| |x2|) |x1|
-                                         (QREFELT $ 25))))))) 
+                                         (QREFELT $ 19))))))) 
 
 (SDEFUN |DFELEM;atanh;2C;2|
         ((|z| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
@@ -19,27 +19,27 @@
           (|rr| (|DoubleFloat|)) (|t| (|DoubleFloat|)) (|sy| (|DoubleFloat|))
           (|u| #1#) (|s| (|DoubleFloat|)) (|ay| (|DoubleFloat|))
           (|y| (|DoubleFloat|)) (|x| (|DoubleFloat|)))
-         (SEQ (LETT |x| (SPADCALL |z| (QREFELT $ 28)))
-              (LETT |y| (SPADCALL |z| (QREFELT $ 29)))
+         (SEQ (LETT |x| (SPADCALL |z| (QREFELT $ 22)))
+              (LETT |y| (SPADCALL |z| (QREFELT $ 23)))
               (EXIT
                (COND
                 ((|less_DF| |x| 0.0)
                  (SPADCALL
-                  (SPADCALL (SPADCALL |z| (QREFELT $ 31)) (QREFELT $ 32))
-                  (QREFELT $ 31)))
+                  (SPADCALL (SPADCALL |z| (QREFELT $ 24)) (QREFELT $ 25))
+                  (QREFELT $ 24)))
                 (#2='T
                  (SEQ (LETT |ay| (|abs_DF| |y|))
                       (COND
-                       ((OR (SPADCALL |x| (QREFELT $ 13) (QREFELT $ 20))
-                            (SPADCALL |ay| (QREFELT $ 13) (QREFELT $ 20)))
+                       ((OR (SPADCALL |x| (QREFELT $ 6) (QREFELT $ 14))
+                            (SPADCALL |ay| (QREFELT $ 6) (QREFELT $ 14)))
                         (EXIT
                          (SEQ
                           (LETT |s|
-                                (|mul_DF_I| (QREFELT $ 16)
-                                            (SPADCALL |y| (QREFELT $ 33))))
+                                (|mul_DF_I| (QREFELT $ 9)
+                                            (SPADCALL |y| (QREFELT $ 27))))
                           (EXIT
                            (COND
-                            ((SPADCALL |x| |ay| (QREFELT $ 20))
+                            ((SPADCALL |x| |ay| (QREFELT $ 14))
                              (SEQ (LETT |t| (|div_DF| |ay| |x|))
                                   (LETT |t|
                                         (|div_DF| 1.0
@@ -48,7 +48,7 @@
                                                                       |t|))))
                                   (EXIT
                                    (SPADCALL (|div_DF| |t| |x|) |s|
-                                             (QREFELT $ 34)))))
+                                             (QREFELT $ 28)))))
                             (#2#
                              (SEQ (LETT |t| (|div_DF| |x| |ay|))
                                   (LETT |t|
@@ -58,24 +58,24 @@
                                                                       |t|))))
                                   (EXIT
                                    (SPADCALL (|div_DF| |t| |ay|) |s|
-                                             (QREFELT $ 34)))))))))))
+                                             (QREFELT $ 28)))))))))))
                       (COND
-                       ((|less_DF| |x| (QREFELT $ 15))
+                       ((|less_DF| |x| (QREFELT $ 8))
                         (COND
-                         ((|less_DF| |ay| (QREFELT $ 15))
+                         ((|less_DF| |ay| (QREFELT $ 8))
                           (EXIT
                            (SPADCALL |z|
-                                     (SPADCALL (|spadConstant| $ 35)
-                                               (SPADCALL (|spadConstant| $ 35)
+                                     (SPADCALL (|spadConstant| $ 29)
+                                               (SPADCALL (|spadConstant| $ 29)
                                                          (SPADCALL |z| |z|
                                                                    (QREFELT $
-                                                                            36))
-                                                         (QREFELT $ 37))
-                                               (QREFELT $ 38))
-                                     (QREFELT $ 36)))))))
+                                                                            30))
+                                                         (QREFELT $ 31))
+                                               (QREFELT $ 32))
+                                     (QREFELT $ 30)))))))
                       (LETT |u| (|sub_DF| 1.0 |x|))
                       (LETT |sy|
-                            (FLOAT (SPADCALL |y| (QREFELT $ 33))
+                            (FLOAT (SPADCALL |y| (QREFELT $ 27))
                                    MOST-POSITIVE-DOUBLE-FLOAT))
                       (EXIT
                        (COND
@@ -86,55 +86,54 @@
                           (#2#
                            (SEQ
                             (LETT |t|
-                                  (|add_DF| (QREFELT $ 17) (|mul_DF| |y| |y|)))
+                                  (|add_DF| (QREFELT $ 10) (|mul_DF| |y| |y|)))
                             (LETT |rr|
                                   (SPADCALL
                                    (|div_DF|
-                                    (SPADCALL (SPADCALL |t| (QREFELT $ 39))
-                                              (QREFELT $ 39))
-                                    (SPADCALL |ay| (QREFELT $ 39)))
-                                   (QREFELT $ 21)))
+                                    (SPADCALL (SPADCALL |t| (QREFELT $ 33))
+                                              (QREFELT $ 33))
+                                    (SPADCALL |ay| (QREFELT $ 33)))
+                                   (QREFELT $ 15)))
                             (LETT |ri|
-                                  (|mul_DF| (|mul_DF| (QREFELT $ 15) |sy|)
-                                            (|add_DF| (QREFELT $ 16)
+                                  (|mul_DF| (|mul_DF| (QREFELT $ 8) |sy|)
+                                            (|add_DF| (QREFELT $ 9)
                                                       (|atan_DF|
-                                                       (|mul_DF| (QREFELT $ 15)
+                                                       (|mul_DF| (QREFELT $ 8)
                                                                  |ay|)))))
-                            (EXIT (SPADCALL |rr| |ri| (QREFELT $ 34)))))))
+                            (EXIT (SPADCALL |rr| |ri| (QREFELT $ 28)))))))
                         (#2#
                          (SEQ
                           (LETT |t|
                                 (|add_DF| (|mul_DF| |u| |u|)
                                           (|mul_DF| |ay| |ay|)))
                           (LETT |rr|
-                                (|mul_DF| (QREFELT $ 18)
+                                (|mul_DF| (QREFELT $ 11)
                                           (SPADCALL
                                            (|div_DF|
-                                            (|mul_DF| (QREFELT $ 17) |x|) |t|)
-                                           (QREFELT $ 26))))
+                                            (|mul_DF| (QREFELT $ 10) |x|) |t|)
+                                           (QREFELT $ 20))))
                           (LETT |t2|
                                 (|sub_DF| (|mul_DF| |u| (|add_DF| 1.0 |x|))
                                           (|mul_DF| |ay| |ay|)))
                           (LETT |ri|
                                 (COND
                                  ((|less_DF| |ay| |t2|)
-                                  (|mul_DF| (QREFELT $ 15)
+                                  (|mul_DF| (QREFELT $ 8)
                                             (|atan_DF|
                                              (|div_DF|
-                                              (|mul_DF| (QREFELT $ 14) |y|)
+                                              (|mul_DF| (QREFELT $ 7) |y|)
                                               |t2|))))
                                  ((|eql_DF| |y| 0.0)
-                                  (|mul_DF| |sy| (QREFELT $ 16)))
+                                  (|mul_DF| |sy| (QREFELT $ 9)))
                                  (#2#
-                                  (|mul_DF| (|mul_DF| (QREFELT $ 15) |sy|)
-                                            (|sub_DF| (QREFELT $ 16)
+                                  (|mul_DF| (|mul_DF| (QREFELT $ 8) |sy|)
+                                            (|sub_DF| (QREFELT $ 9)
                                                       (|atan_DF|
                                                        (|div_DF| |t2|
                                                                  (|mul_DF|
-                                                                  (QREFELT $
-                                                                           14)
+                                                                  (QREFELT $ 7)
                                                                   |ay|))))))))
-                          (EXIT (SPADCALL |rr| |ri| (QREFELT $ 34)))))))))))))) 
+                          (EXIT (SPADCALL |rr| |ri| (QREFELT $ 28)))))))))))))) 
 
 (DECLAIM (NOTINLINE |DoubleFloatElementaryFunctions;|)) 
 
@@ -167,37 +166,33 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|DoubleFloatElementaryFunctions|))
-          (LETT $ (GETREFV 40))
+          (LETT $ (GETREFV 34))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DoubleFloatElementaryFunctions| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 13
-                    (SPADCALL (SPADCALL 1 30 10 (QREFELT $ 10))
-                              (QREFELT $ 12)))
-          (QSETREFV $ 14 (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT))
-          (QSETREFV $ 15 (|div_DF| 1.0 (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)))
-          (QSETREFV $ 16
+          (QSETREFV $ 6 (|mk_DF| 1 30))
+          (QSETREFV $ 7 (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT))
+          (QSETREFV $ 8 (|div_DF| 1.0 (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 9
                     (|div_DF| (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)
                               (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)))
-          (QSETREFV $ 17 (FLOAT 4 MOST-POSITIVE-DOUBLE-FLOAT))
-          (QSETREFV $ 18 (|div_DF| 1.0 (FLOAT 4 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 10 (FLOAT 4 MOST-POSITIVE-DOUBLE-FLOAT))
+          (QSETREFV $ 11 (|div_DF| 1.0 (FLOAT 4 MOST-POSITIVE-DOUBLE-FLOAT)))
           $))) 
 
 (MAKEPROP '|DoubleFloatElementaryFunctions| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Float|) (0 . |One|) (|Integer|)
-              (|PositiveInteger|) (4 . |float|) (|DoubleFloat|) (11 . |coerce|)
-              '|large| '|two| '|half| '|half_pi| '|four| '|fourth| (|Boolean|)
-              (16 . >) (22 . |log|) (|Fraction| 8) (27 . |One|)
-              (|DoubleFloatEllipticIntegrals|) (31 . |ellipticRC|)
-              |DFELEM;log_plus_1;2Df;1| (|Complex| 11) (37 . |real|)
-              (42 . |imag|) (47 . |Zero|) (51 . -) |DFELEM;atanh;2C;2|
-              (56 . |sign|) (61 . |complex|) (67 . |One|) (71 . *) (77 . -)
-              (83 . |ellipticRC|) (89 . |sqrt|))
-           '#(|log_plus_1| 94 |atanh| 99) 'NIL
+           '#(NIL NIL NIL NIL NIL NIL '|large| '|two| '|half| '|half_pi|
+              '|four| '|fourth| (|Boolean|) (|DoubleFloat|) (0 . >) (6 . |log|)
+              (|Fraction| 26) (11 . |One|) (|DoubleFloatEllipticIntegrals|)
+              (15 . |ellipticRC|) |DFELEM;log_plus_1;2Df;1| (|Complex| 13)
+              (21 . |real|) (26 . |imag|) (31 . -) |DFELEM;atanh;2C;2|
+              (|Integer|) (36 . |sign|) (41 . |complex|) (47 . |One|) (51 . *)
+              (57 . -) (63 . |ellipticRC|) (69 . |sqrt|))
+           '#(|log_plus_1| 74 |atanh| 79) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -212,15 +207,14 @@
                                   (|Complex| (|DoubleFloat|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 39
-                                            '(0 6 0 7 3 6 0 8 8 9 10 1 6 11 0
-                                              12 2 11 19 0 0 20 1 11 0 0 21 0
-                                              22 0 23 2 24 11 11 11 25 1 27 11
-                                              0 28 1 27 11 0 29 0 6 0 30 1 27 0
-                                              0 31 1 11 8 0 33 2 27 0 11 11 34
-                                              0 27 0 35 2 27 0 0 0 36 2 27 0 0
-                                              0 37 2 24 27 27 27 38 1 11 0 0 39
-                                              1 0 11 11 26 1 0 27 27 32)))))
+                        (|makeByteWordVec2| 33
+                                            '(2 13 12 0 0 14 1 13 0 0 15 0 16 0
+                                              17 2 18 13 13 13 19 1 21 13 0 22
+                                              1 21 13 0 23 1 21 0 0 24 1 13 26
+                                              0 27 2 21 0 13 13 28 0 21 0 29 2
+                                              21 0 0 0 30 2 21 0 0 0 31 2 18 21
+                                              21 21 32 1 13 0 0 33 1 0 13 13 20
+                                              1 0 21 21 25)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DoubleFloatElementaryFunctions| 'NILADIC T) 

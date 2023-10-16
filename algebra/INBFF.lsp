@@ -10,7 +10,7 @@
                                     (|check_subtype2| (>= #1# 0)
                                                       '(|NonNegativeInteger|)
                                                       '(|Integer|) #1#))
-                                  (QREFELT $ 15))
+                                  (QREFELT $ 17))
                                  1 (QREFELT $ 19))
                        1 (QREFELT $ 20)))
                 (EXIT
@@ -51,14 +51,14 @@
                  ((EQL |e| 1) (SPADCALL |a| (QREFELT $ 28)))
                  (#3='T
                   (SEQ
-                   (LETT |e1| (SPADCALL (INTEGER-LENGTH |e|) (QREFELT $ 15)))
+                   (LETT |e1| (SPADCALL (INTEGER-LENGTH |e|) (QREFELT $ 17)))
                    (EXIT
                     (COND
                      ((> (QREFELT $ 9) 11)
                       (SEQ
                        (LETT |q1|
                              (SPADCALL (INTEGER-LENGTH (QREFELT $ 9))
-                                       (QREFELT $ 15)))
+                                       (QREFELT $ 17)))
                        (LETT |logqe| (|add_SI| (|quo_SI| |e1| |q1|) 1))
                        (EXIT
                         (COND
@@ -71,12 +71,12 @@
                        (LETT |logqe|
                              (|add_SI|
                               (|quo_SI| (|mul_SI| 10 |e1|)
-                                        (SPADCALL (QREFELT $ 16) (QREFELT $ 9)
+                                        (SPADCALL (QREFELT $ 13) (QREFELT $ 9)
                                                   (QREFELT $ 32)))
                               1))
                        (LETT |k| 1)
                        (LETT |expT|
-                             (SPADCALL (QREFELT $ 17) (QREFELT $ 9)
+                             (SPADCALL (QREFELT $ 14) (QREFELT $ 9)
                                        (QREFELT $ 34)))
                        (SEQ G190
                             (COND
@@ -188,7 +188,7 @@
           (#1=#:G170 NIL) (|t| NIL) (#2=#:G169 NIL) (|j| NIL) (#3=#:G168 NIL)
           (|i| NIL) (#4=#:G167 NIL) (#5=#:G166 NIL) (|erg| (|Vector| GF))
           (|e| (|SingleInteger|)))
-         (SEQ (LETT |e| (SPADCALL (QVSIZE |a|) (QREFELT $ 15)))
+         (SEQ (LETT |e| (SPADCALL (QVSIZE |a|) (QREFELT $ 17)))
               (LETT |erg| (SPADCALL (QVSIZE |a|) (QREFELT $ 46)))
               (SEQ (LETT |t| NIL)
                    (LETT #5# (SPADCALL (QREFELT $ 11) 1 (QREFELT $ 50))) G190
@@ -204,7 +204,7 @@
                                      (|add_SI|
                                       (|addmod_SI| |x|
                                                    (SPADCALL |j|
-                                                             (QREFELT $ 15))
+                                                             (QREFELT $ 17))
                                                    |e|)
                                       1))
                                (EXIT
@@ -247,7 +247,7 @@
                                              (|addmod_SI| |x|
                                                           (SPADCALL |i|
                                                                     (QREFELT $
-                                                                             15))
+                                                                             17))
                                                           |e|)
                                              1))
                                       (EXIT
@@ -312,9 +312,9 @@
            (|Record| (|:| |quotient| (|SingleInteger|))
                      (|:| |remainder| (|SingleInteger|))))
           (|dSI| (|SingleInteger|)))
-         (SEQ (LETT |dSI| (SPADCALL |d| (QREFELT $ 15)))
+         (SEQ (LETT |dSI| (SPADCALL |d| (QREFELT $ 17)))
               (LETT |r|
-                    (SPADCALL (SPADCALL (QVSIZE |a|) (QREFELT $ 15)) |dSI|
+                    (SPADCALL (SPADCALL (QVSIZE |a|) (QREFELT $ 17)) |dSI|
                               (QREFELT $ 57)))
               (COND
                ((NULL (|eql_SI| (QCDR |r|) 0))
@@ -327,7 +327,7 @@
         (SPROG
          ((|qpot| #1#) (|erg| #2=(|Vector| GF)) (|k2| #1#) (|y| #2#)
           (#3=#:G189 NIL) (|k| NIL) (|deg| (|SingleInteger|)))
-         (SEQ (LETT |deg| (SPADCALL (QVSIZE |a|) (QREFELT $ 15)))
+         (SEQ (LETT |deg| (SPADCALL (QVSIZE |a|) (QREFELT $ 17)))
               (EXIT
                (COND ((|eql_SI| |e| 1) (SPADCALL |a| (QREFELT $ 28)))
                      (#4='T
@@ -374,9 +374,9 @@
         (SPROG
          ((#1=#:G196 NIL) (|i| NIL) (#2=#:G195 NIL) (|e1| (|Vector| GF))
           (|m| (|SingleInteger|)) (|ei| (|SingleInteger|)))
-         (SEQ (LETT |ei| (SPADCALL (QVSIZE |e|) (QREFELT $ 15)))
+         (SEQ (LETT |ei| (SPADCALL (QVSIZE |e|) (QREFELT $ 17)))
               (LETT |m|
-                    (SPADCALL (SPADCALL |n| (QREFELT $ 15)) |ei|
+                    (SPADCALL (SPADCALL |n| (QREFELT $ 17)) |ei|
                               (QREFELT $ 61)))
               (EXIT
                (COND ((|zero?_SI| |m|) |e|)
@@ -412,9 +412,9 @@
           (|r|
            (|Record| (|:| |quotient| #3#) (|:| |remainder| (|SingleInteger|))))
           (|dSI| (|SingleInteger|)))
-         (SEQ (LETT |dSI| (SPADCALL |d| (QREFELT $ 15)))
+         (SEQ (LETT |dSI| (SPADCALL |d| (QREFELT $ 17)))
               (LETT |r|
-                    (SPADCALL (SPADCALL (QVSIZE |a|) (QREFELT $ 15)) |dSI|
+                    (SPADCALL (SPADCALL (QVSIZE |a|) (QREFELT $ 17)) |dSI|
                               (QREFELT $ 57)))
               (COND
                ((NULL (|eql_SI| (QCDR |r|) 0))
@@ -440,7 +440,7 @@
                                                  (+ |i|
                                                     (|mul_SI|
                                                      (SPADCALL |j|
-                                                               (QREFELT $ 15))
+                                                               (QREFELT $ 17))
                                                      |dSI|))
                                                  (QREFELT $ 22))
                                        (QREFELT $ 51))
@@ -621,55 +621,33 @@
           (QSETREFV $ 9 (SPADCALL (QREFELT $ 8)))
           (QSETREFV $ 11 (MAKEARR1 1 NIL))
           (QSETREFV $ 12 (|spadConstant| $ 10))
-          (QSETREFV $ 16
-                    (LIST 0 (SPADCALL 10 (QREFELT $ 15))
-                          (SPADCALL 16 (QREFELT $ 15))
-                          (SPADCALL 20 (QREFELT $ 15))
-                          (SPADCALL 23 (QREFELT $ 15)) 0
-                          (SPADCALL 28 (QREFELT $ 15))
-                          (SPADCALL 30 (QREFELT $ 15))
-                          (SPADCALL 32 (QREFELT $ 15)) 0
-                          (SPADCALL 35 (QREFELT $ 15))))
-          (QSETREFV $ 17
-                    (LIST NIL
-                          (LIST (SPADCALL 4 (QREFELT $ 15))
-                                (SPADCALL 12 (QREFELT $ 15))
-                                (SPADCALL 48 (QREFELT $ 15))
-                                (SPADCALL 160 (QREFELT $ 15))
-                                (SPADCALL 480 (QREFELT $ 15)) 0)
-                          (LIST (SPADCALL 8 (QREFELT $ 15))
-                                (SPADCALL 72 (QREFELT $ 15))
-                                (SPADCALL 432 (QREFELT $ 15)) 0)
-                          (LIST (SPADCALL 18 (QREFELT $ 15))
-                                (SPADCALL 216 (QREFELT $ 15)) 0)
-                          (LIST (SPADCALL 32 (QREFELT $ 15))
-                                (SPADCALL 480 (QREFELT $ 15)) 0)
-                          NIL (LIST (SPADCALL 72 (QREFELT $ 15)) 0)
-                          (LIST (SPADCALL 98 (QREFELT $ 15)) 0)
-                          (LIST (SPADCALL 128 (QREFELT $ 15)) 0) NIL
-                          (LIST (SPADCALL 200 (QREFELT $ 15)) 0)))
+          (QSETREFV $ 13 (LIST 0 10 16 20 23 0 28 30 32 0 35))
+          (QSETREFV $ 14
+                    (LIST NIL (LIST 4 12 48 160 480 0) (LIST 8 72 432 0)
+                          (LIST 18 216 0) (LIST 32 480 0) NIL (LIST 72 0)
+                          (LIST 98 0) (LIST 128 0) NIL (LIST 200 0)))
           $))) 
 
 (MAKEPROP '|InnerNormalBasisFieldFunctions| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|NonNegativeInteger|)
-              (0 . |size|) '|sizeGF| (4 . |One|) '|multTable| '|trGen|
-              (|Integer|) (|SingleInteger|) (8 . |coerce|) '|logq| '|expTable|
+              (0 . |size|) '|sizeGF| (4 . |One|) '|multTable| '|trGen| '|logq|
+              '|expTable| (|Integer|) (|SingleInteger|) (8 . |coerce|)
               (|Vector| 6) |INBFF;expPot;V2SiV;8| |INBFF;qPot;VIV;9|
               |INBFF;*;3V;5| (13 . |elt|) (19 . *) (25 . |inv|) (30 . *)
               |INBFF;inv;2V;1| (36 . |positiveRemainder|) (42 . |copy|)
-              |INBFF;repSq;VNniV;3| |INBFF;dAndcExp;VNniSiV;4| (|List| 14)
+              |INBFF;repSq;VNniV;3| |INBFF;dAndcExp;VNniSiV;4| (|List| 16)
               (47 . |elt|) (|List| 31) (53 . |elt|) (|Boolean|) (59 . >=)
               |INBFF;^;VIV;2| (|List| 18) (65 . |elt|) (71 . |last|)
               (76 . |concat|) (82 . |Zero|) (|List| 7) (86 . |concat|)
               (92 . ~=) (98 . |zero|)
-              (|Record| (|:| |value| 6) (|:| |index| 14)) (|List| 47)
+              (|Record| (|:| |value| 6) (|:| |index| 16)) (|List| 47)
               (|Vector| 48) (103 . |elt|) (109 . +) (115 . |setelt!|)
               (|PositiveInteger|) (122 . |lookup|) |INBFF;lookup;VPi;6|
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (127 . |divide|) |INBFF;norm;VPiV;7| (133 . |bit?|)
               (139 . |bit?|) (145 . |positiveRemainder|)
-              (|UniversalSegment| 13) (151 . SEGMENT) (157 . |elt|)
+              (|UniversalSegment| 15) (151 . SEGMENT) (157 . |elt|)
               |INBFF;trace;VPiV;10| (163 . |random|) |INBFF;random;PiV;11|
               (|SparseUnivariatePolynomial| 6) (167 . |monomial|) (173 . |One|)
               (177 . -) |INBFF;xn;NniSup;12| |INBFF;pol;VSup;20| (183 . |gcd|)
@@ -766,30 +744,30 @@
                                 T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 91
-                                            '(0 6 7 8 0 6 0 10 1 14 0 13 15 2
-                                              18 6 0 13 22 2 6 0 0 0 23 1 6 0 0
-                                              24 2 18 0 6 0 25 2 13 0 0 0 27 1
-                                              18 0 0 28 2 31 14 0 13 32 2 33 31
-                                              0 13 34 2 14 35 0 0 36 2 38 18 0
-                                              13 39 1 38 18 0 40 2 38 0 0 18 41
+                                            '(0 6 7 8 0 6 0 10 1 16 0 15 17 2
+                                              18 6 0 15 22 2 6 0 0 0 23 1 6 0 0
+                                              24 2 18 0 6 0 25 2 15 0 0 0 27 1
+                                              18 0 0 28 2 31 16 0 15 32 2 33 31
+                                              0 15 34 2 16 35 0 0 36 2 38 18 0
+                                              15 39 1 38 18 0 40 2 38 0 0 18 41
                                               0 6 0 42 2 43 0 0 7 44 2 7 35 0 0
-                                              45 1 18 0 7 46 2 49 48 0 13 50 2
-                                              6 0 0 0 51 3 18 6 0 13 6 52 1 6
-                                              53 0 54 2 14 56 0 0 57 2 14 35 0
-                                              0 59 2 13 35 0 0 60 2 14 0 0 0 61
-                                              2 62 0 13 13 63 2 18 0 0 62 64 0
+                                              45 1 18 0 7 46 2 49 48 0 15 50 2
+                                              6 0 0 0 51 3 18 6 0 15 6 52 1 6
+                                              53 0 54 2 16 56 0 0 57 2 16 35 0
+                                              0 59 2 15 35 0 0 60 2 16 0 0 0 61
+                                              2 62 0 15 15 63 2 18 0 0 62 64 0
                                               6 0 66 2 68 0 6 7 69 0 68 0 70 2
                                               68 0 0 0 71 2 68 0 0 0 74 2 68 35
                                               0 0 75 0 78 0 79 2 81 0 7 7 82 1
                                               81 38 0 83 1 6 0 53 88 2 68 0 0 0
                                               90 0 68 0 91 1 0 68 7 72 2 0 18
                                               18 53 65 2 0 78 49 6 80 2 0 18 18
-                                              7 29 1 0 18 53 67 2 0 18 18 13 20
+                                              7 29 1 0 18 53 67 2 0 18 18 15 20
                                               1 0 68 18 73 1 0 18 53 87 1 0 35
                                               18 76 2 0 18 18 53 58 1 0 68 18
                                               84 1 0 53 18 55 1 0 18 18 26 2 0
-                                              18 53 53 89 3 0 18 18 14 14 19 3
-                                              0 18 18 7 14 30 1 0 85 53 86 2 0
-                                              18 18 13 37 2 0 18 18 18 77 2 0
+                                              18 53 53 89 3 0 18 18 16 16 19 3
+                                              0 18 18 7 16 30 1 0 85 53 86 2 0
+                                              18 18 15 37 2 0 18 18 18 77 2 0
                                               18 18 18 21)))))
            '|lookupComplete|)) 

@@ -354,7 +354,8 @@
                                             (COND
                                              ((SPADCALL |c0| 1 (QREFELT $ 35))
                                               (COND
-                                               ((> |delta| 30)
+                                               ((SPADCALL |delta| 30
+                                                          (QREFELT $ 37))
                                                 (SEQ
                                                  (LETT |c0|
                                                        (SPADCALL |c0| |p|
@@ -425,7 +426,7 @@
                           (EXIT
                            (LETT |res|
                                  (SPADCALL (QAREF1 |a| |i|) |res| |p|
-                                           (QREFELT $ 36)))))
+                                           (QREFELT $ 38)))))
                          (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
                     (EXIT |res|)))) 
 
@@ -434,19 +435,19 @@
         (SPROG
          ((|tmp2| #1=(|U32Vector|)) (|tmp1| #1#) (|dpp| #2=(|Integer|))
           (|dv2| #2#) (|pp| (|U32Vector|)))
-         (SEQ (LETT |pp| (SPADCALL |v1| |v2| |p| (QREFELT $ 36)))
+         (SEQ (LETT |pp| (SPADCALL |v1| |v2| |p| (QREFELT $ 38)))
               (LETT |dv2| (SPADCALL |v2| (QREFELT $ 30)))
               (LETT |dpp| (SPADCALL |pp| (QREFELT $ 30)))
               (EXIT
                (COND ((EQL |dv2| |dpp|) |v1|)
-                     ((EQL |dpp| 0) (SPADCALL |v1| |v2| |p| (QREFELT $ 39)))
+                     ((EQL |dpp| 0) (SPADCALL |v1| |v2| |p| (QREFELT $ 41)))
                      ('T
                       (SEQ (LETT |tmp1| (GETREFV_U32 (+ |dv2| 1) 0))
                            (LETT |tmp2| (GETREFV_U32 (+ (- |dv2| |dpp|) 1) 0))
                            (SPADCALL |tmp1| |v2| (+ |dv2| 1) (QREFELT $ 9))
                            (SPADCALL |tmp1| |pp| |tmp2| |p| (QREFELT $ 33))
                            (EXIT
-                            (SPADCALL |v1| |tmp2| |p| (QREFELT $ 39)))))))))) 
+                            (SPADCALL |v1| |tmp2| |p| (QREFELT $ 41)))))))))) 
 
 (SDEFUN |POLYVEC;lcm;Pa3IUv;17|
         ((|a| |PrimitiveArray| (|U32Vector|)) (|lo| |Integer|) (|hi| |Integer|)
@@ -473,7 +474,7 @@
          (SEQ (LETT |xdeg| (SPADCALL |x| (QREFELT $ 30)))
               (LETT |ydeg| (SPADCALL |y| (QREFELT $ 30)))
               (COND
-               ((SPADCALL |xdeg| |ydeg| (QREFELT $ 42))
+               ((SPADCALL |xdeg| |ydeg| (QREFELT $ 37))
                 (SEQ (LETT |tmpp| |x|) (LETT |tmp| |xdeg|) (LETT |x| |y|)
                      (LETT |xdeg| |ydeg|) (LETT |y| |tmpp|)
                      (EXIT (LETT |ydeg| |tmp|)))))
@@ -714,12 +715,12 @@
                    (SEQ
                     (LETT |dt|
                           (COND
-                           ((SPADCALL |dr0| 0 (QREFELT $ 42))
+                           ((SPADCALL |dr0| 0 (QREFELT $ 37))
                             (|sub_SI| |dr0| 1))
                            (#8# 0)))
                     (LETT |ds|
                           (COND
-                           ((SPADCALL |dr1| 0 (QREFELT $ 42))
+                           ((SPADCALL |dr1| 0 (QREFELT $ 37))
                             (|sub_SI| |dr1| 1))
                            (#8# 0)))
                     (LETT |r0| (GETREFV_U32 (|add_SI| |dr0| 1) 0))
@@ -734,7 +735,7 @@
                     (SETELT_U32 |t1| 0 1)
                     (SEQ G190
                          (COND
-                          ((NULL (SPADCALL |dr1| 0 (QREFELT $ 42))) (GO G191)))
+                          ((NULL (SPADCALL |dr1| 0 (QREFELT $ 37))) (GO G191)))
                          (SEQ
                           (SEQ G190
                                (COND
@@ -747,7 +748,7 @@
                                     (COND
                                      ((SPADCALL |c0| 1 (QREFELT $ 35))
                                       (COND
-                                       ((SPADCALL |delta| 30 (QREFELT $ 42))
+                                       ((SPADCALL |delta| 30 (QREFELT $ 37))
                                         (SEQ
                                          (LETT |c0|
                                                (SPADCALL |c0| |p|
@@ -1026,10 +1027,11 @@
               |POLYVEC;mul_by_binomial;Uv2IV;8| |POLYVEC;mul_by_scalar;Uv3IV;9|
               |POLYVEC;degree;UvI;10| |POLYVEC;vector_combination;UvIUv4IV;11|
               (46 . |invmod|) |POLYVEC;divide!;3UvIV;12|
-              |POLYVEC;remainder!;2UvIV;13| (52 . ~=) |POLYVEC;gcd;2UvIUv;14|
-              (|PrimitiveArray| 7) |POLYVEC;gcd;Pa3IUv;15|
-              |POLYVEC;mul;2UvIUv;18| |POLYVEC;lcm;Pa3IUv;17| (|SingleInteger|)
-              (58 . >) (64 . |copy|) |POLYVEC;truncated_mul_add;3Uv2IV;20|
+              |POLYVEC;remainder!;2UvIV;13| (52 . ~=) (|SingleInteger|)
+              (58 . >) |POLYVEC;gcd;2UvIUv;14| (|PrimitiveArray| 7)
+              |POLYVEC;gcd;Pa3IUv;15| |POLYVEC;mul;2UvIUv;18|
+              |POLYVEC;lcm;Pa3IUv;17| (64 . |copy|)
+              |POLYVEC;truncated_mul_add;3Uv2IV;20|
               |POLYVEC;truncated_multiplication;2Uv2IUv;21| (|PositiveInteger|)
               |POLYVEC;pow;UvPiNniIUv;22| |POLYVEC;differentiate;UvIUv;23|
               |POLYVEC;differentiate;UvNniIUv;24| (69 . >=) (|List| 7)
@@ -1152,16 +1154,16 @@
                                               17 1 13 8 0 18 2 8 0 0 0 19 1 13
                                               0 0 20 0 13 0 22 2 13 0 8 16 23 2
                                               13 0 0 0 24 2 8 0 0 0 32 2 8 12 0
-                                              0 35 2 41 12 0 0 42 1 7 0 0 43 2
-                                              41 12 0 0 50 7 0 6 7 8 7 8 8 8 8
+                                              0 35 2 36 12 0 0 37 1 7 0 0 43 2
+                                              36 12 0 0 50 7 0 6 7 8 7 8 8 8 8
                                               31 6 0 6 7 7 8 8 8 8 26 4 0 7 7 7
                                               8 8 45 5 0 6 7 7 7 8 8 44 2 0 7
                                               13 8 21 3 0 8 7 7 8 53 3 0 6 7 7
                                               8 34 4 0 7 7 46 16 8 47 1 0 13 7
                                               25 4 0 6 7 8 8 8 29 4 0 6 7 8 8 8
-                                              27 3 0 6 7 8 8 28 3 0 7 7 7 8 39
-                                              4 0 7 37 8 8 8 40 3 0 7 7 7 8 36
-                                              4 0 7 37 8 8 8 38 3 0 51 7 7 8 52
+                                              27 3 0 6 7 8 8 28 3 0 7 7 7 8 41
+                                              4 0 7 39 8 8 8 42 3 0 7 7 7 8 38
+                                              4 0 7 39 8 8 8 40 3 0 51 7 7 8 52
                                               4 0 8 7 8 8 8 11 4 0 6 7 7 7 8 33
                                               2 0 7 7 8 48 3 0 7 7 16 8 49 1 0
                                               8 7 30 4 0 6 7 7 8 8 10 3 0 6 7 7

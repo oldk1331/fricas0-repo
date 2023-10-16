@@ -11,10 +11,10 @@
          (SEQ (LETT |b| 48) (LETT |ten| 10) (LETT |ten7| 10000000)
               (EXIT
                (COND
-                ((EQL |l| 2)
+                ((|eql_SI| |l| 2)
                  (SEQ (LETT |s1| 0)
-                      (SEQ (LETT |i| |i0|) (LETT #4# (+ |i0| 6)) G190
-                           (COND ((> |i| #4#) (GO G191)))
+                      (SEQ (LETT |i| |i0|) (LETT #4# (|add_SI| |i0| 6)) G190
+                           (COND ((|greater_SI| |i| #4#) (GO G191)))
                            (SEQ
                             (LETT |dig_val|
                                   (|sub_SI| (STR_ELT1 |str| |i|) |b|))
@@ -22,10 +22,11 @@
                              (LETT |s1|
                                    (|add_SI| (|mul_SI| |ten| |s1|)
                                              |dig_val|))))
-                           (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
+                           (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                       (LETT |res| |s1|) (LETT |s1| 0)
-                      (SEQ (LETT |i| (+ |i0| 7)) (LETT #3# (+ |i0| 13)) G190
-                           (COND ((> |i| #3#) (GO G191)))
+                      (SEQ (LETT |i| (|add_SI| |i0| 7))
+                           (LETT #3# (|add_SI| |i0| 13)) G190
+                           (COND ((|greater_SI| |i| #3#) (GO G191)))
                            (SEQ
                             (LETT |dig_val|
                                   (|sub_SI| (STR_ELT1 |str| |i|) |b|))
@@ -33,7 +34,7 @@
                              (LETT |s1|
                                    (|add_SI| (|mul_SI| |ten| |s1|)
                                              |dig_val|))))
-                           (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
+                           (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                       (EXIT (+ (* |ten7| |res|) |s1|))))
                 ((|eql_SI| |l| 1)
                  (SEQ (LETT |s1| 0)

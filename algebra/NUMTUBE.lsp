@@ -2,9 +2,9 @@
 (SDEFUN |NUMTUBE;colinearity|
         ((|x| |Point| (|DoubleFloat|)) (|y| |Point| (|DoubleFloat|))
          ($ |DoubleFloat|))
-        (|div_DF| (|expt_DF_I| (SPADCALL |x| |y| (QREFELT $ 23)) 2)
-                  (|mul_DF| (SPADCALL |x| |x| (QREFELT $ 23))
-                            (SPADCALL |y| |y| (QREFELT $ 23))))) 
+        (|div_DF| (|expt_DF_I| (SPADCALL |x| |y| (QREFELT $ 16)) 2)
+                  (|mul_DF| (SPADCALL |x| |x| (QREFELT $ 16))
+                            (SPADCALL |y| |y| (QREFELT $ 16))))) 
 
 (SDEFUN |NUMTUBE;orthog|
         ((|x| |Point| (|DoubleFloat|)) (|y| |Point| (|DoubleFloat|))
@@ -12,27 +12,27 @@
         (SPROG ((|a| (|DoubleFloat|)))
                (SEQ
                 (COND
-                 ((SPADCALL (|NUMTUBE;colinearity| |x| |y| $) (QREFELT $ 13)
-                            (QREFELT $ 25))
-                  (LETT |y| (QREFELT $ 22))))
+                 ((SPADCALL (|NUMTUBE;colinearity| |x| |y| $) (QREFELT $ 7)
+                            (QREFELT $ 18))
+                  (LETT |y| (QREFELT $ 15))))
                 (COND
-                 ((SPADCALL (|NUMTUBE;colinearity| |x| |y| $) (QREFELT $ 13)
-                            (QREFELT $ 25))
+                 ((SPADCALL (|NUMTUBE;colinearity| |x| |y| $) (QREFELT $ 7)
+                            (QREFELT $ 18))
                   (LETT |y|
                         (COND
                          ((|less_DF|
-                           (|NUMTUBE;colinearity| |x| (QREFELT $ 18) $)
-                           (QREFELT $ 13))
-                          (QREFELT $ 18))
-                         ('T (QREFELT $ 20))))))
+                           (|NUMTUBE;colinearity| |x| (QREFELT $ 12) $)
+                           (QREFELT $ 7))
+                          (QREFELT $ 12))
+                         ('T (QREFELT $ 13))))))
                 (LETT |a|
                       (|minus_DF|
-                       (|div_DF| (SPADCALL |x| |y| (QREFELT $ 23))
-                                 (SPADCALL |x| |x| (QREFELT $ 23)))))
+                       (|div_DF| (SPADCALL |x| |y| (QREFELT $ 16))
+                                 (SPADCALL |x| |x| (QREFELT $ 16)))))
                 (EXIT
-                 (SETELT $ 22
-                         (SPADCALL (SPADCALL |a| |x| (QREFELT $ 26)) |y|
-                                   (QREFELT $ 27))))))) 
+                 (SETELT $ 15
+                         (SPADCALL (SPADCALL |a| |x| (QREFELT $ 19)) |y|
+                                   (QREFELT $ 20))))))) 
 
 (SDEFUN |NUMTUBE;poTriad|
         ((|pl| |Point| (|DoubleFloat|)) (|po| |Point| (|DoubleFloat|))
@@ -45,10 +45,10 @@
           (|t| #1#))
          (SEQ
           (LETT |t|
-                (SPADCALL (SPADCALL |pr| |pl| (QREFELT $ 28)) (QREFELT $ 29)))
-          (LETT |pol| (SPADCALL |pl| |po| (QREFELT $ 28)))
-          (LETT |n| (SPADCALL (|NUMTUBE;orthog| |t| |pol| $) (QREFELT $ 29)))
-          (EXIT (VECTOR |t| |n| (SPADCALL |t| |n| (QREFELT $ 30))))))) 
+                (SPADCALL (SPADCALL |pr| |pl| (QREFELT $ 21)) (QREFELT $ 22)))
+          (LETT |pol| (SPADCALL |pl| |po| (QREFELT $ 21)))
+          (LETT |n| (SPADCALL (|NUMTUBE;orthog| |t| |pol| $) (QREFELT $ 22)))
+          (EXIT (VECTOR |t| |n| (SPADCALL |t| |n| (QREFELT $ 23))))))) 
 
 (SDEFUN |NUMTUBE;curveTriads|
         ((|l| |List| (|Point| (|DoubleFloat|)))
@@ -77,21 +77,21 @@
                 ((< |k| 2)
                  (|error| "Need at least 2 points to specify a curve"))
                 (#7='T
-                 (SEQ (SETELT $ 22 (QREFELT $ 21))
+                 (SEQ (SETELT $ 15 (QREFELT $ 14))
                       (EXIT
                        (COND
                         ((EQL |k| 2)
                          (SEQ
                           (LETT |t|
                                 (SPADCALL
-                                 (SPADCALL (SPADCALL |l| (QREFELT $ 32))
-                                           (|SPADfirst| |l|) (QREFELT $ 28))
-                                 (QREFELT $ 29)))
+                                 (SPADCALL (SPADCALL |l| (QREFELT $ 25))
+                                           (|SPADfirst| |l|) (QREFELT $ 21))
+                                 (QREFELT $ 22)))
                           (LETT |n|
                                 (SPADCALL
-                                 (SPADCALL |t| (QREFELT $ 18) (QREFELT $ 28))
-                                 (QREFELT $ 29)))
-                          (LETT |b| (SPADCALL |t| |n| (QREFELT $ 30)))
+                                 (SPADCALL |t| (QREFELT $ 12) (QREFELT $ 21))
+                                 (QREFELT $ 22)))
+                          (LETT |b| (SPADCALL |t| |n| (QREFELT $ 23)))
                           (LETT |triad| (VECTOR |t| |n| |b|))
                           (EXIT (LIST |triad| |triad|))))
                         (#7#
@@ -127,35 +127,35 @@
                           (LETT |x| (|SPADfirst| |midtriads|))
                           (LETT |t|
                                 (SPADCALL
-                                 (SPADCALL (SPADCALL |l| (QREFELT $ 32))
-                                           (|SPADfirst| |l|) (QREFELT $ 28))
-                                 (QREFELT $ 29)))
+                                 (SPADCALL (SPADCALL |l| (QREFELT $ 25))
+                                           (|SPADfirst| |l|) (QREFELT $ 21))
+                                 (QREFELT $ 22)))
                           (LETT |n|
                                 (SPADCALL
                                  (|NUMTUBE;orthog| |t| (QVELT |x| 1) $)
-                                 (QREFELT $ 29)))
+                                 (QREFELT $ 22)))
                           (LETT |begtriad|
                                 (VECTOR |t| |n|
-                                        (SPADCALL |t| |n| (QREFELT $ 30))))
-                          (LETT |x| (SPADCALL |midtriads| (QREFELT $ 35)))
+                                        (SPADCALL |t| |n| (QREFELT $ 23))))
+                          (LETT |x| (SPADCALL |midtriads| (QREFELT $ 28)))
                           (LETT |t|
                                 (SPADCALL
-                                 (SPADCALL (SPADCALL |l| |k| (QREFELT $ 36))
+                                 (SPADCALL (SPADCALL |l| |k| (QREFELT $ 30))
                                            (SPADCALL |l| (- |k| 1)
-                                                     (QREFELT $ 36))
-                                           (QREFELT $ 28))
-                                 (QREFELT $ 29)))
+                                                     (QREFELT $ 30))
+                                           (QREFELT $ 21))
+                                 (QREFELT $ 22)))
                           (LETT |n|
                                 (SPADCALL
                                  (|NUMTUBE;orthog| |t| (QVELT |x| 1) $)
-                                 (QREFELT $ 29)))
+                                 (QREFELT $ 22)))
                           (LETT |endtriad|
                                 (VECTOR |t| |n|
-                                        (SPADCALL |t| |n| (QREFELT $ 30))))
+                                        (SPADCALL |t| |n| (QREFELT $ 23))))
                           (EXIT
                            (CONS |begtriad|
                                  (SPADCALL |midtriads| |endtriad|
-                                           (QREFELT $ 37))))))))))))))) 
+                                           (QREFELT $ 31))))))))))))))) 
 
 (SDEFUN |NUMTUBE;curveLoops|
         ((|pts| |List| (|Point| (|DoubleFloat|))) (|r| |DoubleFloat|)
@@ -170,7 +170,7 @@
             (|Record| (|:| |tang| (|Point| (|DoubleFloat|))) (|:| |norm| #2#)
                       (|:| |bin| #1#)))))
          (SEQ (LETT |triads| (|NUMTUBE;curveTriads| |pts| $))
-              (LETT |cosSin| (SPADCALL |nn| (QREFELT $ 39))) (LETT |loops| NIL)
+              (LETT |cosSin| (SPADCALL |nn| (QREFELT $ 33))) (LETT |loops| NIL)
               (SEQ (LETT |triad| NIL) (LETT #4# |triads|) (LETT |pt| NIL)
                    (LETT #3# |pts|) G190
                    (COND
@@ -183,7 +183,7 @@
                          (LETT |loops|
                                (CONS
                                 (SPADCALL |pt| |n| |b| |r| |cosSin|
-                                          (QREFELT $ 40))
+                                          (QREFELT $ 34))
                                 |loops|))))
                    (LETT #3# (PROG1 (CDR #3#) (LETT #4# (CDR #4#)))) (GO G190)
                    G191 (EXIT NIL))
@@ -198,7 +198,7 @@
          (SEQ
           (COND ((< |n| 3) (|error| "tube: n should be at least 3"))
                 ('T
-                 (SEQ (LETT |brans| (SPADCALL |curve| (QREFELT $ 42)))
+                 (SEQ (LETT |brans| (SPADCALL |curve| (QREFELT $ 36)))
                       (LETT |loops| NIL)
                       (SEQ (LETT |bran| NIL) (LETT #1# |brans|) G190
                            (COND
@@ -211,9 +211,9 @@
                                    (SPADCALL |loops|
                                              (|NUMTUBE;curveLoops| |bran| |r|
                                               |n| $)
-                                             (QREFELT $ 43)))))
+                                             (QREFELT $ 37)))))
                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
-                      (EXIT (SPADCALL |curve| |loops| NIL (QREFELT $ 45))))))))) 
+                      (EXIT (SPADCALL |curve| |loops| NIL (QREFELT $ 39))))))))) 
 
 (DECLAIM (NOTINLINE |NumericTubePlot;|)) 
 
@@ -239,7 +239,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|NumericTubePlot| DV$1))
-          (LETT $ (GETREFV 47))
+          (LETT $ (GETREFV 41))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|NumericTubePlot| (LIST DV$1)
@@ -247,30 +247,27 @@
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 13
-                    (SPADCALL (SPADCALL 995 -3 10 (QREFELT $ 10))
-                              (QREFELT $ 12)))
-          (QSETREFV $ 18 (SPADCALL 1.0 0.0 0.0 0.0 (QREFELT $ 17)))
-          (QSETREFV $ 20 (SPADCALL 0.0 1.0 0.0 0.0 (QREFELT $ 17)))
-          (QSETREFV $ 21 (SPADCALL 1.0 1.0 0.0 0.0 (QREFELT $ 17)))
-          (QSETREFV $ 22 (QREFELT $ 21))
+          (QSETREFV $ 7 (|mk_DF| 995 -3))
+          (QSETREFV $ 12 (SPADCALL 1.0 0.0 0.0 0.0 (QREFELT $ 11)))
+          (QSETREFV $ 13 (SPADCALL 0.0 1.0 0.0 0.0 (QREFELT $ 11)))
+          (QSETREFV $ 14 (SPADCALL 1.0 1.0 0.0 0.0 (QREFELT $ 11)))
+          (QSETREFV $ 15 (QREFELT $ 14))
           $))) 
 
 (MAKEPROP '|NumericTubePlot| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Integer|)
-              (|PositiveInteger|) (|Float|) (0 . |float|) (|DoubleFloat|)
-              (7 . |convert|) 'LINMAX (12 . |One|) (|Point| 11)
-              (|TubePlotTools|) (16 . |point|) 'XHAT (24 . |Zero|) 'YHAT 'PREV0
-              'PREV (28 . |dot|) (|Boolean|) (34 . >) (40 . *) (46 . +)
-              (52 . -) (58 . |unitVector|) (63 . |cross|) (|List| 15)
-              (69 . |second|)
-              (|Record| (|:| |tang| 15) (|:| |norm| 15) (|:| |bin| 15))
-              (|List| 33) (74 . |last|) (79 . |elt|) (85 . |concat|)
-              (|List| (|List| 11)) (91 . |cosSinInfo|) (96 . |loopPoints|)
-              (|List| 31) (105 . |listBranches|) (110 . |concat|)
-              (|TubePlot| 6) (116 . |tube|) |NUMTUBE;tube;CurveDfITp;6|)
-           '#(|tube| 123) 'NIL
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) 'LINMAX (|Point| 9)
+              (|DoubleFloat|) (|TubePlotTools|) (0 . |point|) 'XHAT 'YHAT
+              'PREV0 'PREV (8 . |dot|) (|Boolean|) (14 . >) (20 . *) (26 . +)
+              (32 . -) (38 . |unitVector|) (43 . |cross|) (|List| 8)
+              (49 . |second|)
+              (|Record| (|:| |tang| 8) (|:| |norm| 8) (|:| |bin| 8))
+              (|List| 26) (54 . |last|) (|Integer|) (59 . |elt|)
+              (65 . |concat|) (|List| (|List| 9)) (71 . |cosSinInfo|)
+              (76 . |loopPoints|) (|List| 24) (85 . |listBranches|)
+              (90 . |concat|) (|TubePlot| 6) (96 . |tube|)
+              |NUMTUBE;tube;CurveDfITp;6|)
+           '#(|tube| 103) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -282,16 +279,14 @@
                                   (|Integer|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 46
-                                            '(3 9 0 7 7 8 10 1 9 11 0 12 0 9 0
-                                              14 4 16 15 11 11 11 11 17 0 9 0
-                                              19 2 16 11 15 15 23 2 11 24 0 0
-                                              25 2 16 15 11 15 26 2 16 15 15 15
-                                              27 2 16 15 15 15 28 1 16 15 15 29
-                                              2 16 15 15 15 30 1 31 15 0 32 1
-                                              34 33 0 35 2 31 15 0 7 36 2 34 0
-                                              0 33 37 1 16 38 7 39 5 16 31 15
-                                              15 15 11 38 40 1 6 41 0 42 2 41 0
-                                              0 0 43 3 44 0 6 41 24 45 3 0 44 6
-                                              11 7 46)))))
+                        (|makeByteWordVec2| 40
+                                            '(4 10 8 9 9 9 9 11 2 10 9 8 8 16 2
+                                              9 17 0 0 18 2 10 8 9 8 19 2 10 8
+                                              8 8 20 2 10 8 8 8 21 1 10 8 8 22
+                                              2 10 8 8 8 23 1 24 8 0 25 1 27 26
+                                              0 28 2 24 8 0 29 30 2 27 0 0 26
+                                              31 1 10 32 29 33 5 10 24 8 8 8 9
+                                              32 34 1 6 35 0 36 2 35 0 0 0 37 3
+                                              38 0 6 35 17 39 3 0 38 6 9 29
+                                              40)))))
            '|lookupComplete|)) 

@@ -92,7 +92,7 @@
                                     (GO #3=#:G131)))
                              (GO #4=#:G126)))))))))
                      #4# (EXIT #1#))
-                    (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL)))))))
+                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))))
           #3# (EXIT #2#)))) 
 
 (SDEFUN |PRIMELT;findUniv|
@@ -337,7 +337,7 @@
                                               (GO #11=#:G192)))))
                                  (GO #12=#:G189)))))))
                        #12# (EXIT #1#))
-                      (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL)))))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))
           #11# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |PrimitiveElement;|)) 
