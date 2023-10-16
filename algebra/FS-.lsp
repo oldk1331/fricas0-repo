@@ -1621,7 +1621,6 @@
                                     (COND
                                      (|needed|
                                       (SEQ (LETT |resl| (CONS |k| |resl|))
-                                           (LETT |ak1| (CONS |k| |ak1|))
                                            (LETT |arg|
                                                  (SPADCALL |k| (QREFELT $ 46)))
                                            (EXIT
