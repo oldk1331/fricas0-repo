@@ -416,9 +416,6 @@
 ;     ['LIST,MKQ 'Record,:[mkDomainConstructor y for y in argl]]
 ;   x is ['Join,:argl] =>
 ;     ['LIST,MKQ 'Join,:[mkDomainConstructor y for y in argl]]
-;   x is ['call,:argl] => ['MKQ, optCall x]
-;         --The previous line added JHD/BMT 20/3/84
-;         --Necessary for proper compilation of DPOLY SPAD
 ;   x is [op] => MKQ x
 ;   x is [op,:argl] => ['LIST,MKQ op,:[mkDomainConstructor a for a in argl]]
  
@@ -473,9 +470,6 @@
                                             |bfVar#24|))))
                             (SETQ |bfVar#23| (CDR |bfVar#23|))))
                          NIL |argl| NIL))))
-           ((AND (CONSP |x|) (EQ (CAR |x|) '|call|)
-                 (PROGN (SETQ |argl| (CDR |x|)) #1#))
-            (LIST 'MKQ (|optCall| |x|)))
            ((AND (CONSP |x|) (EQ (CDR |x|) NIL)
                  (PROGN (SETQ |op| (CAR |x|)) #1#))
             (MKQ |x|))
@@ -762,7 +756,7 @@
 ;       NREVERSE [v for u in REVERSE codelist | (v := DescendCode(
 ;                          u, flag, viewAssoc, EnvToPass, kvec, e)) ~= nil]]
 ;   code is ['COND,:condlist] =>
-;     c := [[u2 := ProcessCond(first u), :q] for u in condlist] where q ==
+;     c := [[u2 := ProcessCond(first(u), e), :q] for u in condlist] where q ==
 ;           null u2 => nil
 ;           f:=
 ;             TruthP u2 => flag;
@@ -791,7 +785,7 @@
 ;           code:=[($QuickCode => 'QSETREFV; 'SETELT),[($QuickCode => 'QREFELT; 'ELT),'$,5],#$locals-#u,code]
 ;           $epilogue:=
 ;             TruthP flag => [code,:$epilogue]
-;             [['COND, [ProcessCond(flag), code]], :$epilogue]
+;             [['COND, [ProcessCond(flag, e), code]], :$epilogue]
 ;           nil
 ;         code
 ;     code -- doItIf deletes entries from $locals so can't optimize this
@@ -804,7 +798,7 @@
 ;     body:= ['CONS,implem,dom]
 ;     u := SetFunctionSlots(sig, body, flag, kvec)
 ;     ConstantCreator u =>
-;       if not (flag=true) then u := ['COND, [ProcessCond(flag), u]]
+;       if not (flag = true) then u := ['COND, [ProcessCond(flag, e), u]]
 ;       $ConstantAssignments:= [u,:$ConstantAssignments]
 ;       nil
 ;     u
@@ -882,104 +876,96 @@
                           (#1#
                            (SETQ |bfVar#42|
                                    (CONS
-                                    (CONS (SETQ |u2| (|ProcessCond| (CAR |u|)))
-                                          (COND ((NULL |u2|) NIL)
-                                                (#1#
-                                                 (PROGN
-                                                  (SETQ |f|
-                                                          (PROGN
-                                                           (COND
-                                                            ((|TruthP| |u2|)
-                                                             |flag|)
-                                                            ((|TruthP| |flag|)
-                                                             (PROGN
-                                                              (SETQ |flag|
-                                                                      (LIST
-                                                                       'NOT
-                                                                       |u2|))
-                                                              |u2|)))
-                                                           (SETQ |f1|
-                                                                   (LIST 'AND
-                                                                         |flag|
-                                                                         |u2|))
-                                                           (SETQ |flag|
-                                                                   (LIST 'AND
-                                                                         |flag|
-                                                                         (LIST
-                                                                          'NOT
-                                                                          |u2|)))
-                                                           |f1|))
-                                                  ((LAMBDA
-                                                       (|bfVar#44| |bfVar#43|
-                                                        |v|)
-                                                     (LOOP
+                                    (CONS
+                                     (SETQ |u2| (|ProcessCond| (CAR |u|) |e|))
+                                     (COND ((NULL |u2|) NIL)
+                                           (#1#
+                                            (PROGN
+                                             (SETQ |f|
+                                                     (PROGN
                                                       (COND
-                                                       ((OR (ATOM |bfVar#43|)
-                                                            (PROGN
-                                                             (SETQ |v|
-                                                                     (CAR
-                                                                      |bfVar#43|))
-                                                             NIL))
-                                                        (RETURN
-                                                         (NREVERSE
-                                                          |bfVar#44|)))
-                                                       (#1#
-                                                        (SETQ |bfVar#44|
-                                                                (CONS
-                                                                 (|DescendCode|
-                                                                  |v| |f|
-                                                                  (COND
-                                                                   ((PROGN
-                                                                     (SETQ |ISTMP#1|
-                                                                             (CAR
-                                                                              |u|))
-                                                                     (AND
-                                                                      (CONSP
-                                                                       |ISTMP#1|)
-                                                                      (EQ
-                                                                       (CAR
-                                                                        |ISTMP#1|)
-                                                                       '|HasCategory|)
-                                                                      (PROGN
-                                                                       (SETQ |ISTMP#2|
-                                                                               (CDR
-                                                                                |ISTMP#1|))
-                                                                       (AND
-                                                                        (CONSP
-                                                                         |ISTMP#2|)
-                                                                        (PROGN
-                                                                         (SETQ |dom|
-                                                                                 (CAR
-                                                                                  |ISTMP#2|))
-                                                                         (SETQ |ISTMP#3|
-                                                                                 (CDR
-                                                                                  |ISTMP#2|))
-                                                                         (AND
-                                                                          (CONSP
-                                                                           |ISTMP#3|)
-                                                                          (EQ
-                                                                           (CDR
-                                                                            |ISTMP#3|)
-                                                                           NIL)
-                                                                          (PROGN
-                                                                           (SETQ |cat|
-                                                                                   (CAR
-                                                                                    |ISTMP#3|))
-                                                                           #1#)))))))
-                                                                    (CONS
-                                                                     (CONS
-                                                                      |dom|
+                                                       ((|TruthP| |u2|) |flag|)
+                                                       ((|TruthP| |flag|)
+                                                        (PROGN
+                                                         (SETQ |flag|
+                                                                 (LIST 'NOT
+                                                                       |u2|))
+                                                         |u2|)))
+                                                      (SETQ |f1|
+                                                              (LIST 'AND |flag|
+                                                                    |u2|))
+                                                      (SETQ |flag|
+                                                              (LIST 'AND |flag|
+                                                                    (LIST 'NOT
+                                                                          |u2|)))
+                                                      |f1|))
+                                             ((LAMBDA
+                                                  (|bfVar#44| |bfVar#43| |v|)
+                                                (LOOP
+                                                 (COND
+                                                  ((OR (ATOM |bfVar#43|)
+                                                       (PROGN
+                                                        (SETQ |v|
+                                                                (CAR
+                                                                 |bfVar#43|))
+                                                        NIL))
+                                                   (RETURN
+                                                    (NREVERSE |bfVar#44|)))
+                                                  (#1#
+                                                   (SETQ |bfVar#44|
+                                                           (CONS
+                                                            (|DescendCode| |v|
+                                                             |f|
+                                                             (COND
+                                                              ((PROGN
+                                                                (SETQ |ISTMP#1|
+                                                                        (CAR
+                                                                         |u|))
+                                                                (AND
+                                                                 (CONSP
+                                                                  |ISTMP#1|)
+                                                                 (EQ
+                                                                  (CAR
+                                                                   |ISTMP#1|)
+                                                                  '|HasCategory|)
+                                                                 (PROGN
+                                                                  (SETQ |ISTMP#2|
+                                                                          (CDR
+                                                                           |ISTMP#1|))
+                                                                  (AND
+                                                                   (CONSP
+                                                                    |ISTMP#2|)
+                                                                   (PROGN
+                                                                    (SETQ |dom|
+                                                                            (CAR
+                                                                             |ISTMP#2|))
+                                                                    (SETQ |ISTMP#3|
+                                                                            (CDR
+                                                                             |ISTMP#2|))
+                                                                    (AND
+                                                                     (CONSP
+                                                                      |ISTMP#3|)
+                                                                     (EQ
+                                                                      (CDR
+                                                                       |ISTMP#3|)
+                                                                      NIL)
+                                                                     (PROGN
+                                                                      (SETQ |cat|
+                                                                              (CAR
+                                                                               |ISTMP#3|))
+                                                                      #1#)))))))
+                                                               (CONS
+                                                                (CONS |dom|
                                                                       |cat|)
-                                                                     |viewAssoc|))
-                                                                   (#1#
-                                                                    |viewAssoc|))
-                                                                  |EnvToPass|
-                                                                  |kvec| |e|)
-                                                                 |bfVar#44|))))
-                                                      (SETQ |bfVar#43|
-                                                              (CDR
-                                                               |bfVar#43|))))
-                                                   NIL (CDR |u|) NIL)))))
+                                                                |viewAssoc|))
+                                                              (#1#
+                                                               |viewAssoc|))
+                                                             |EnvToPass| |kvec|
+                                                             |e|)
+                                                            |bfVar#44|))))
+                                                 (SETQ |bfVar#43|
+                                                         (CDR |bfVar#43|))))
+                                              NIL (CDR |u|) NIL)))))
                                     |bfVar#42|))))
                          (SETQ |bfVar#41| (CDR |bfVar#41|))))
                       NIL |condlist| NIL))
@@ -1041,7 +1027,8 @@
                                (#1#
                                 (CONS
                                  (LIST 'COND
-                                       (LIST (|ProcessCond| |flag|) |code|))
+                                       (LIST (|ProcessCond| |flag| |e|)
+                                             |code|))
                                  |$epilogue|))))
                  NIL))
                (#1# |code|)))
@@ -1069,7 +1056,8 @@
                (PROGN
                 (COND
                  ((NULL (EQUAL |flag| T))
-                  (SETQ |u| (LIST 'COND (LIST (|ProcessCond| |flag|) |u|)))))
+                  (SETQ |u|
+                          (LIST 'COND (LIST (|ProcessCond| |flag| |e|) |u|)))))
                 (SETQ |$ConstantAssignments| (CONS |u| |$ConstantAssignments|))
                 NIL))
               (#1# |u|))))
@@ -1114,19 +1102,19 @@
             (|ConstantCreator| |u'|))
            ((AND (CONSP |u|) (EQ (CAR |u|) 'CONS)) NIL) (#1# T)))))
  
-; ProcessCond(cond) ==
+; ProcessCond(cond, et) ==
 ;   ncond := SUBLIS($pairlis,cond)
-;   INTEGERP POSN1(ncond,$NRTslot1PredicateList) => predicateBitRef ncond
+;   INTEGERP POSN1(ncond, $NRTslot1PredicateList) => predicateBitRef(ncond, et)
 ;   cond
  
-(DEFUN |ProcessCond| (|cond|)
+(DEFUN |ProcessCond| (|cond| |et|)
   (PROG (|ncond|)
     (RETURN
      (PROGN
       (SETQ |ncond| (SUBLIS |$pairlis| |cond|))
       (COND
        ((INTEGERP (POSN1 |ncond| |$NRTslot1PredicateList|))
-        (|predicateBitRef| |ncond|))
+        (|predicateBitRef| |ncond| |et|))
        ('T |cond|))))))
  
 ; SetFunctionSlots(sig, body, flag, kvec) ==
@@ -1348,43 +1336,44 @@
               NIL |l| NIL)))
       (#1# |x|)))))
  
-; InvestigateConditions(catvecListMaker, e) ==
+; InvestigateConditions(catvecListMaker, base_shell, e) ==
 ;   -- given a principal view and a list of secondary views,
 ;   -- discover under what conditions the secondary view are
 ;   -- always present.
-;   $Conditions: local := nil
-;   $principal: local := nil
-;   [$principal,:secondaries]:= catvecListMaker
+;   [principal, :secondaries] := catvecListMaker
 ;       --We are not interested in the principal view
 ;       --The next block allows for the possibility that $principal may
 ;       --have conditional secondary views
 ; --+
 ;   null secondaries => '(T)
 ;       --return for packages which generally have no secondary views
-;   if $principal is [op,:.] then
-;     [principal', :.] := compMakeCategoryObject($principal, e)
+;   if principal is [op, :.] then
+;     [principal', :.] := compMakeCategoryObject(principal, e)
 ;               --Rather like eval, but quotes parameters first
 ;     for u in CADR principal'.4 repeat
 ;       if not TruthP(cond:=CADR u) then
 ;         new := ['CATEGORY, 'domain,
 ;                 ['IF, cond, ['ATTRIBUTE, first u], 'noBranch]]
-;         $principal is ['Join,:l] =>
+;         principal is ['Join, :l] =>
 ;           not member(new,l) =>
-;             $principal:=['Join,:l,new]
-;         $principal:=['Join,$principal,new]
-;   principal' :=
-;     pessimise $principal where
-;       pessimise a ==
-;         atom a => a
-;         a is ['SIGNATURE,:.] => a
+;              principal := ['Join, :l, new]
+;         principal := ['Join, principal, new]
+;   [principal', Conditions] :=
+;     pessimise(principal, nil) where
+;       pessimise(a, Conditions) ==
+;         atom a => [a, Conditions]
+;         a is ['SIGNATURE, :.] => [a, Conditions]
 ;         a is ['IF,cond,:.] =>
-;           if not member(cond,$Conditions) then $Conditions:= [cond,:$Conditions]
-;           nil
-;         [pessimise first a,:pessimise rest a]
-;   null $Conditions => [true,:[true for u in secondaries]]
+;           if not member(cond, Conditions) then
+;               Conditions := [cond, Conditions]
+;           [nil, Conditions]
+;         [r1, Conditions] := pessimise(first(a), Conditions)
+;         [r2, Conditions] := pessimise(rest(a), Conditions)
+;         [[r1, :r2], Conditions]
+;   null Conditions => [true, :[true for u in secondaries]]
 ;   PrincipalSecondaries:= getViewsConditions(principal', e)
 ;   MinimalPrimary := first first PrincipalSecondaries
-;   MaximalPrimary:= CAAR $domainShell.4
+;   MaximalPrimary:= CAAR base_shell.4
 ;   necessarySecondaries:= [first u for u in PrincipalSecondaries | rest u=true]
 ;   and/[member(u,necessarySecondaries) for u in secondaries] =>
 ;     [true,:[true for u in secondaries]]
@@ -1395,7 +1384,7 @@
 ;     MinimalPrimaries := [MinimalPrimary, :first (CatEval MinimalPrimary).4]
 ;     MaximalPrimaries := set_difference(MaximalPrimaries, MinimalPrimaries)
 ;     [[x] for x in MaximalPrimaries]
-;   ($Conditions:= Conds($principal,nil)) where
+;   (Conditions := Conds(principal, nil)) where
 ;     Conds(code,previous) ==
 ;            --each call takes a list of conditions, and returns a list
 ;            --of refinements of that list
@@ -1406,10 +1395,10 @@
 ;       code is ['CATEGORY,:l] => "union"/[Conds(u,previous) for u in l]
 ;       code is ['Join,:l] => "union"/[Conds(u,previous) for u in l]
 ;       [previous]
-;   $Conditions:= EFFACE(nil,[EFFACE(nil,u) for u in $Conditions])
+;   Conditions := EFFACE(nil, [EFFACE(nil, u) for u in Conditions])
 ;   partList:=
-;     [getViewsConditions(partPessimise($principal, cond), e)
-;          for cond in $Conditions]
+;     [getViewsConditions(partPessimise(principal, cond), e)
+;          for cond in Conditions]
 ;   masterSecondaries:= secondaries
 ;   for u in partList repeat
 ;     for [v,:.] in u repeat
@@ -1421,7 +1410,7 @@
 ;     mkNilT u ==
 ;       u => true
 ;       nil
-;   for u in $Conditions for newS in partList repeat
+;   for u in Conditions for newS in partList repeat
 ;     --newS is a list of secondaries and conditions (over and above
 ;     --u) for which they apply
 ;     u:=
@@ -1448,26 +1437,23 @@
 ;   list:= ICformat_loop(list, secondaries, e)
 ;   [true,:[LASSOC(ms,list) for ms in masterSecondaries]]
  
-(DEFUN |InvestigateConditions| (|catvecListMaker| |e|)
-  (PROG (|$principal| |$Conditions| |w| LIST |v| |masterSecondaries| |partList|
-         |HackSlot4| |MinimalPrimaries| |MaximalPrimaries|
-         |necessarySecondaries| |MaximalPrimary| |MinimalPrimary|
-         |PrincipalSecondaries| |l| |new| |cond| |principal'| |LETTMP#1| |op|
-         |secondaries|)
-    (DECLARE (SPECIAL |$principal| |$Conditions|))
+(DEFUN |InvestigateConditions| (|catvecListMaker| |base_shell| |e|)
+  (PROG (|principal| |secondaries| |op| |LETTMP#1| |principal'| |cond| |new|
+         |l| |Conditions| |PrincipalSecondaries| |MinimalPrimary|
+         |MaximalPrimary| |necessarySecondaries| |MaximalPrimaries|
+         |MinimalPrimaries| |HackSlot4| |partList| |masterSecondaries| |v| LIST
+         |w|)
     (RETURN
      (PROGN
-      (SETQ |$Conditions| NIL)
-      (SETQ |$principal| NIL)
-      (SETQ |$principal| (CAR |catvecListMaker|))
+      (SETQ |principal| (CAR |catvecListMaker|))
       (SETQ |secondaries| (CDR |catvecListMaker|))
       (COND ((NULL |secondaries|) '(T))
             (#1='T
              (PROGN
               (COND
-               ((AND (CONSP |$principal|)
-                     (PROGN (SETQ |op| (CAR |$principal|)) #1#))
-                (SETQ |LETTMP#1| (|compMakeCategoryObject| |$principal| |e|))
+               ((AND (CONSP |principal|)
+                     (PROGN (SETQ |op| (CAR |principal|)) #1#))
+                (SETQ |LETTMP#1| (|compMakeCategoryObject| |principal| |e|))
                 (SETQ |principal'| (CAR |LETTMP#1|))
                 ((LAMBDA (|bfVar#50| |u|)
                    (LOOP
@@ -1484,24 +1470,26 @@
                                             (LIST 'ATTRIBUTE (CAR |u|))
                                             '|noBranch|)))
                         (COND
-                         ((AND (CONSP |$principal|)
-                               (EQ (CAR |$principal|) '|Join|)
-                               (PROGN (SETQ |l| (CDR |$principal|)) #1#))
+                         ((AND (CONSP |principal|)
+                               (EQ (CAR |principal|) '|Join|)
+                               (PROGN (SETQ |l| (CDR |principal|)) #1#))
                           (COND
                            ((NULL (|member| |new| |l|))
                             (IDENTITY
-                             (SETQ |$principal|
+                             (SETQ |principal|
                                      (CONS '|Join|
                                            (APPEND |l| (CONS |new| NIL))))))))
                          (#1#
-                          (SETQ |$principal|
-                                  (LIST '|Join| |$principal| |new|))))))))
+                          (SETQ |principal|
+                                  (LIST '|Join| |principal| |new|))))))))
                     (SETQ |bfVar#50| (CDR |bfVar#50|))))
                  (CADR (ELT |principal'| 4)) NIL)))
-              (SETQ |principal'|
-                      (|InvestigateConditions,pessimise| |$principal|))
+              (SETQ |LETTMP#1|
+                      (|InvestigateConditions,pessimise| |principal| NIL))
+              (SETQ |principal'| (CAR |LETTMP#1|))
+              (SETQ |Conditions| (CADR |LETTMP#1|))
               (COND
-               ((NULL |$Conditions|)
+               ((NULL |Conditions|)
                 (CONS T
                       ((LAMBDA (|bfVar#52| |bfVar#51| |u|)
                          (LOOP
@@ -1517,7 +1505,7 @@
                  (SETQ |PrincipalSecondaries|
                          (|getViewsConditions| |principal'| |e|))
                  (SETQ |MinimalPrimary| (CAR (CAR |PrincipalSecondaries|)))
-                 (SETQ |MaximalPrimary| (CAAR (ELT |$domainShell| 4)))
+                 (SETQ |MaximalPrimary| (CAAR (ELT |base_shell| 4)))
                  (SETQ |necessarySecondaries|
                          ((LAMBDA (|bfVar#54| |bfVar#53| |u|)
                             (LOOP
@@ -1595,9 +1583,9 @@
                                                         |bfVar#60|))))
                                         (SETQ |bfVar#59| (CDR |bfVar#59|))))
                                      NIL |MaximalPrimaries| NIL)))))
-                    (SETQ |$Conditions|
-                            (|InvestigateConditions,Conds| |$principal| NIL))
-                    (SETQ |$Conditions|
+                    (SETQ |Conditions|
+                            (|InvestigateConditions,Conds| |principal| NIL))
+                    (SETQ |Conditions|
                             (EFFACE NIL
                              ((LAMBDA (|bfVar#68| |bfVar#67| |u|)
                                 (LOOP
@@ -1610,7 +1598,7 @@
                                            (CONS (EFFACE NIL |u|)
                                                  |bfVar#68|))))
                                  (SETQ |bfVar#67| (CDR |bfVar#67|))))
-                              NIL |$Conditions| NIL)))
+                              NIL |Conditions| NIL)))
                     (SETQ |partList|
                             ((LAMBDA (|bfVar#70| |bfVar#69| |cond|)
                                (LOOP
@@ -1624,12 +1612,12 @@
                                   (SETQ |bfVar#70|
                                           (CONS
                                            (|getViewsConditions|
-                                            (|partPessimise| |$principal|
+                                            (|partPessimise| |principal|
                                              |cond|)
                                             |e|)
                                            |bfVar#70|))))
                                 (SETQ |bfVar#69| (CDR |bfVar#69|))))
-                             NIL |$Conditions| NIL))
+                             NIL |Conditions| NIL))
                     (SETQ |masterSecondaries| |secondaries|)
                     ((LAMBDA (|bfVar#71| |u|)
                        (LOOP
@@ -1725,7 +1713,7 @@
                                     |secondaries| |newS|)))))
                         (SETQ |bfVar#76| (CDR |bfVar#76|))
                         (SETQ |bfVar#77| (CDR |bfVar#77|))))
-                     |$Conditions| NIL |partList| NIL)
+                     |Conditions| NIL |partList| NIL)
                     (SETQ LIST (|ICformat_loop| LIST |secondaries| |e|))
                     (CONS T
                           ((LAMBDA (|bfVar#87| |bfVar#86| |ms|)
@@ -1867,10 +1855,12 @@
                 (SETQ |bfVar#65| (CDR |bfVar#65|))))
              NIL |l| NIL))
            (#1# (LIST |previous|))))))
-(DEFUN |InvestigateConditions,pessimise| (|a|)
-  (PROG (|ISTMP#1| |cond|)
+(DEFUN |InvestigateConditions,pessimise| (|a| |Conditions|)
+  (PROG (|ISTMP#1| |cond| |LETTMP#1| |r1| |r2|)
     (RETURN
-     (COND ((ATOM |a|) |a|) ((AND (CONSP |a|) (EQ (CAR |a|) 'SIGNATURE)) |a|)
+     (COND ((ATOM |a|) (LIST |a| |Conditions|))
+           ((AND (CONSP |a|) (EQ (CAR |a|) 'SIGNATURE))
+            (LIST |a| |Conditions|))
            ((AND (CONSP |a|) (EQ (CAR |a|) 'IF)
                  (PROGN
                   (SETQ |ISTMP#1| (CDR |a|))
@@ -1878,12 +1868,22 @@
                        (PROGN (SETQ |cond| (CAR |ISTMP#1|)) #1='T))))
             (PROGN
              (COND
-              ((NULL (|member| |cond| |$Conditions|))
-               (SETQ |$Conditions| (CONS |cond| |$Conditions|))))
-             NIL))
+              ((NULL (|member| |cond| |Conditions|))
+               (SETQ |Conditions| (LIST |cond| |Conditions|))))
+             (LIST NIL |Conditions|)))
            (#1#
-            (CONS (|InvestigateConditions,pessimise| (CAR |a|))
-                  (|InvestigateConditions,pessimise| (CDR |a|))))))))
+            (PROGN
+             (SETQ |LETTMP#1|
+                     (|InvestigateConditions,pessimise| (CAR |a|)
+                      |Conditions|))
+             (SETQ |r1| (CAR |LETTMP#1|))
+             (SETQ |Conditions| (CADR |LETTMP#1|))
+             (SETQ |LETTMP#1|
+                     (|InvestigateConditions,pessimise| (CDR |a|)
+                      |Conditions|))
+             (SETQ |r2| (CAR |LETTMP#1|))
+             (SETQ |Conditions| (CADR |LETTMP#1|))
+             (LIST (CONS |r1| |r2|) |Conditions|)))))))
  
 ; ICformat_loop(list, secondaries, e) ==
 ;   $ICformat_hash : local := MAKE_HASHTABLE('EQUAL)

@@ -766,10 +766,10 @@
                |ok|))))
       (#1# NIL)))))
  
-; NRTassignCapsuleFunctionSlot(op, sig, e) ==
+; NRTassignCapsuleFunctionSlot(op, sig, base_shell, e) ==
 ; --called from compDefineCapsuleFunction
 ;   opSig := [op,sig]
-;   [.,.,implementation] := NRTisExported? opSig or return nil
+;   [., ., implementation] := NRTisExported?(opSig, base_shell) or return nil
 ;     --if opSig is not exported, it is local and need not be assigned
 ;   if $insideCategoryPackageIfTrue then
 ;       sig := substitute('$,CADR($functorForm),sig)
@@ -780,12 +780,13 @@
 ;   $NRTdeltaListComp := [nil,:$NRTdeltaListComp]
 ;   $NRTdeltaLength := $NRTdeltaLength+1
  
-(DEFUN |NRTassignCapsuleFunctionSlot| (|op| |sig| |e|)
+(DEFUN |NRTassignCapsuleFunctionSlot| (|op| |sig| |base_shell| |e|)
   (PROG (|opSig| |LETTMP#1| |implementation| |opModemapPair|)
     (RETURN
      (PROGN
       (SETQ |opSig| (LIST |op| |sig|))
-      (SETQ |LETTMP#1| (OR (|NRTisExported?| |opSig|) (RETURN NIL)))
+      (SETQ |LETTMP#1|
+              (OR (|NRTisExported?| |opSig| |base_shell|) (RETURN NIL)))
       (SETQ |implementation| (CADDR |LETTMP#1|))
       (COND
        (|$insideCategoryPackageIfTrue|
@@ -811,10 +812,10 @@
               (SETQ |$NRTdeltaListComp| (CONS NIL |$NRTdeltaListComp|))
               (SETQ |$NRTdeltaLength| (+ |$NRTdeltaLength| 1)))))))))
  
-; NRTisExported? opSig ==
-;   or/[u for u in $domainShell.1 | u.0 = opSig]
+; NRTisExported?(opSig, base_shell) ==
+;   or/[u for u in base_shell.1 | u.0 = opSig]
  
-(DEFUN |NRTisExported?| (|opSig|)
+(DEFUN |NRTisExported?| (|opSig| |base_shell|)
   (PROG ()
     (RETURN
      ((LAMBDA (|bfVar#32| |bfVar#31| |u|)
@@ -828,7 +829,7 @@
                  (SETQ |bfVar#32| |u|)
                  (COND (|bfVar#32| (RETURN |bfVar#32|)))))))
          (SETQ |bfVar#31| (CDR |bfVar#31|))))
-      NIL (ELT |$domainShell| 1) NIL))))
+      NIL (ELT |base_shell| 1) NIL))))
  
 ; consSig(sig, dc, e) == [consDomainName(sigpart, dc, e) for sigpart in sig]
  
@@ -1399,7 +1400,8 @@
                   |LETTMP#1|))))))
       |condCats|))))
  
-; buildFunctor(definition is [name, :args], sig, code, $locals, e) ==
+; buildFunctor(definition is [name, :args], sig, code, $locals,
+;              base_shell, e) ==
 ; --PARAMETERS
 ; --  $definition: constructor form, e.g. (SquareMatrix 10 (RationalNumber))
 ; --  sig: signature of constructor form
@@ -1411,16 +1413,14 @@
 ; --  $locals: list of variables to go into slot 5, e.g. (R Rep R,1 R,2 R,3 R,4)
 ; --           same as $functorLocalParameters
 ; --           this list is not augmented by this function
-; --  $e: environment
 ; --GLOBAL VARIABLES REFERENCED:
-; --  $domainShell: passed in from compDefineFunctor1
 ; --  $QuickCode: compilation flag
 ; 
 ;   $definition : local := definition
 ; 
 ;   if code is ['add,.,newstuff] then code := newstuff
 ; 
-;   changeDirectoryInSlot1(e)  --this extends $NRTslot1PredicateList
+;   changeDirectoryInSlot1(base_shell, e)  --this extends $NRTslot1PredicateList
 ; 
 ;   --pp '"=================="
 ;   --for item in $NRTdeltaList repeat pp item
@@ -1440,15 +1440,15 @@
 ;   [catsig, :argsig] := sig
 ;   catvecListMaker:=REMDUP
 ;     [(comp(catsig, $EmptyMode, e)).expr,
-;       :[compCategories(first u, e) for u in CADR $domainShell.4]]
-;   condCats := InvestigateConditions([catsig, :rest catvecListMaker], e)
+;       :[compCategories(first u, e) for u in CADR base_shell.4]]
+;   condCats := InvestigateConditions([catsig, :rest catvecListMaker],
+;                                     base_shell, e)
 ;   -- a list, one for each element of catvecListMaker
 ;   -- indicating under what conditions this
 ;   -- category should be present.  true => always
 ;   makeCatvecCode:= first catvecListMaker
 ;   domainShell := GETREFV (6 + $NRTdeltaLength)
-;   for i in 0..4 repeat domainShell.i := $domainShell.i
-;     --we will clobber elements; copy since $domainShell may be a cached vector
+;   for i in 0..4 repeat domainShell.i := base_shell.i
 ;   $template := GETREFV (6 + $NRTdeltaLength)
 ;   $SetFunctions:= GETREFV SIZE domainShell
 ;   $MissingFunctionInfo:= GETREFV SIZE domainShell
@@ -1460,9 +1460,10 @@
 ; -->  Do this now to create predicate vector; then DescendCode can refer
 ; -->  to predicate vector if it can
 ;   [$uncondAlist,:$condAlist] :=    --bound in compDefineFunctor1
-;       NRTsetVector4Part1(catNames, catvecListMaker, condCats, e)
+;       NRTsetVector4Part1(catNames, catvecListMaker, condCats, base_shell, e)
 ;   [$NRTslot1PredicateList,predBitVectorCode1,:predBitVectorCode2] :=
-;       makePredicateBitVector [:ASSOCRIGHT $condAlist,:$NRTslot1PredicateList]
+;       makePredicateBitVector([:ASSOCRIGHT($condAlist),
+;                               :$NRTslot1PredicateList], e)
 ; 
 ;   storeOperationCode := DescendCode(code, true, nil, first catNames,
 ;                                     domainShell, e)
@@ -1508,7 +1509,7 @@
 ;   --pp ans
 ;   ans
  
-(DEFUN |buildFunctor| (|definition| |sig| |code| |$locals| |e|)
+(DEFUN |buildFunctor| (|definition| |sig| |code| |$locals| |base_shell| |e|)
   (DECLARE (SPECIAL |$locals|))
   (PROG (|$devaluateList| |$extraParms| |$epilogue| |$ConstantAssignments|
          |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO
@@ -1538,7 +1539,7 @@
                     (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                          (PROGN (SETQ |newstuff| (CAR |ISTMP#2|)) #1='T))))))
         (SETQ |code| |newstuff|)))
-      (|changeDirectoryInSlot1| |e|)
+      (|changeDirectoryInSlot1| |base_shell| |e|)
       (SETQ $GENNO 0)
       (SETQ |$catvecList| NIL)
       (SETQ |$SetFunctions| NIL)
@@ -1576,16 +1577,16 @@
                                    (CONS (|compCategories| (CAR |u|) |e|)
                                          |bfVar#63|))))
                          (SETQ |bfVar#62| (CDR |bfVar#62|))))
-                      NIL (CADR (ELT |$domainShell| 4)) NIL))))
+                      NIL (CADR (ELT |base_shell| 4)) NIL))))
       (SETQ |condCats|
               (|InvestigateConditions| (CONS |catsig| (CDR |catvecListMaker|))
-               |e|))
+               |base_shell| |e|))
       (SETQ |makeCatvecCode| (CAR |catvecListMaker|))
       (SETQ |domainShell| (GETREFV (+ 6 |$NRTdeltaLength|)))
       ((LAMBDA (|i|)
          (LOOP
           (COND ((> |i| 4) (RETURN NIL))
-                (#1# (SETF (ELT |domainShell| |i|) (ELT |$domainShell| |i|))))
+                (#1# (SETF (ELT |domainShell| |i|) (ELT |base_shell| |i|))))
           (SETQ |i| (+ |i| 1))))
        0)
       (SETQ |$template| (GETREFV (+ 6 |$NRTdeltaLength|)))
@@ -1616,12 +1617,13 @@
       (SETQ |condCats| (|simplify_self_preds| |catvecListMaker| |condCats|))
       (SETQ |LETTMP#1|
               (|NRTsetVector4Part1| |catNames| |catvecListMaker| |condCats|
-               |e|))
+               |base_shell| |e|))
       (SETQ |$uncondAlist| (CAR |LETTMP#1|))
       (SETQ |$condAlist| (CDR |LETTMP#1|))
       (SETQ |LETTMP#1|
               (|makePredicateBitVector|
-               (APPEND (ASSOCRIGHT |$condAlist|) |$NRTslot1PredicateList|)))
+               (APPEND (ASSOCRIGHT |$condAlist|) |$NRTslot1PredicateList|)
+               |e|))
       (SETQ |$NRTslot1PredicateList| (CAR |LETTMP#1|))
       (SETQ |predBitVectorCode1| (CADR . #2=(|LETTMP#1|)))
       (SETQ |predBitVectorCode2| (CDDR . #2#))
@@ -1772,7 +1774,7 @@
        (MAXINDEX |domainShell|) 6)
       |alist|))))
  
-; NRTsetVector4Part1(sigs, forms, conds, e) ==
+; NRTsetVector4Part1(sigs, forms, conds, base_shell, e) ==
 ;     uncond_list := nil
 ;     cond_list := nil
 ;     for sig in reverse sigs for form in reverse forms
@@ -1780,7 +1782,7 @@
 ;         sig = '$ =>
 ;             domainList :=
 ;                 [optimize COPY IFCAR comp(d, $EmptyMode, e) or
-;                    d for d in $domainShell.4.0]
+;                    d for d in base_shell.4.0]
 ;             uncond_list := APPEND(domainList, uncond_list)
 ;             if isCategoryForm(form) then
 ;                 uncond_list := [form, :uncond_list]
@@ -1796,7 +1798,7 @@
 ;     orCondlist := [[x, :MKPF(y, 'OR)] for [x, :y] in revCondlist]
 ;     [reducedUncondlist, :orCondlist]
  
-(DEFUN |NRTsetVector4Part1| (|sigs| |forms| |conds| |e|)
+(DEFUN |NRTsetVector4Part1| (|sigs| |forms| |conds| |base_shell| |e|)
   (PROG (|uncond_list| |cond_list| |domainList| |evalform| |reducedUncondlist|
          |x| |ISTMP#1| |z| |y| |reducedConlist| |revCondlist| |orCondlist|)
     (RETURN
@@ -1832,7 +1834,7 @@
                                        |d|)
                                       |bfVar#81|))))
                            (SETQ |bfVar#80| (CDR |bfVar#80|))))
-                        NIL (ELT (ELT |$domainShell| 4) 0) NIL))
+                        NIL (ELT (ELT |base_shell| 4) 0) NIL))
                (SETQ |uncond_list| (APPEND |domainList| |uncond_list|))
                (COND
                 ((|isCategoryForm| |form|)
@@ -1943,48 +1945,48 @@
        |cl| NIL)
       |alist|))))
  
-; NRTmakeSlot1Info() ==
+; NRTmakeSlot1Info(form, base_shell) ==
 ; -- 4 cases:
 ; -- a:T == b add c  --- slot1 directory has #s for entries defined in c
 ; -- a:T == b        --- slot1 has all slot #s = NIL (see compFunctorBody)
 ; -- a == b add c    --- not allowed (line 7 of getTargetFromRhs)
 ;   pairlis :=
 ;     $insideCategoryPackageIfTrue = true =>
-;       [:argl,dollarName] := rest $form
+;       [:argl, dollarName] := rest(form)
 ;       [[dollarName,:'_$],:mkSlot1sublis argl]
-;     mkSlot1sublis rest $form
-;   lisplibOpAlist := transformOperationAlist SUBLIS(pairlis, $domainShell.1)
+;     mkSlot1sublis(rest(form))
+;   lisplibOpAlist := transformOperationAlist(SUBLIS(pairlis, base_shell.1))
 ;   opList :=
 ;     $insideCategoryPackageIfTrue = true => slot1Filter lisplibOpAlist
 ;     lisplibOpAlist
 ;   addList := SUBLIS(pairlis,$NRTaddForm)
-;   [first $form,[addList,:opList]]
+;   [first(form), [addList, :opList]]
  
-(DEFUN |NRTmakeSlot1Info| ()
-  (PROG (|addList| |opList| |lisplibOpAlist| |pairlis| |argl| |dollarName|
-         |LETTMP#2| |LETTMP#1|)
+(DEFUN |NRTmakeSlot1Info| (|form| |base_shell|)
+  (PROG (|LETTMP#1| |LETTMP#2| |dollarName| |argl| |pairlis| |lisplibOpAlist|
+         |opList| |addList|)
     (RETURN
      (PROGN
       (SETQ |pairlis|
               (COND
                ((EQUAL |$insideCategoryPackageIfTrue| T)
                 (PROGN
-                 (SETQ |LETTMP#1| (CDR |$form|))
+                 (SETQ |LETTMP#1| (CDR |form|))
                  (SETQ |LETTMP#2| (REVERSE |LETTMP#1|))
                  (SETQ |dollarName| (CAR |LETTMP#2|))
                  (SETQ |argl| (NREVERSE (CDR |LETTMP#2|)))
                  (CONS (CONS |dollarName| '$) (|mkSlot1sublis| |argl|))))
-               (#1='T (|mkSlot1sublis| (CDR |$form|)))))
+               (#1='T (|mkSlot1sublis| (CDR |form|)))))
       (SETQ |lisplibOpAlist|
               (|transformOperationAlist|
-               (SUBLIS |pairlis| (ELT |$domainShell| 1))))
+               (SUBLIS |pairlis| (ELT |base_shell| 1))))
       (SETQ |opList|
               (COND
                ((EQUAL |$insideCategoryPackageIfTrue| T)
                 (|slot1Filter| |lisplibOpAlist|))
                (#1# |lisplibOpAlist|)))
       (SETQ |addList| (SUBLIS |pairlis| |$NRTaddForm|))
-      (LIST (CAR |$form|) (CONS |addList| |opList|))))))
+      (LIST (CAR |form|) (CONS |addList| |opList|))))))
  
 ; mkSlot1sublis argl ==
 ;   [[a,:b] for a in argl for b in $FormalMapVariableList]
@@ -2064,8 +2066,8 @@
               (SETQ |args| (CONS 'LIST (ASSOCRIGHT |$devaluateList|)))
               (|addToConstructorCache| |name| |args| |shell|))))))))
  
-; genOperationAlist() ==
-;   $lisplibOperationAlist := [sigloc entry for entry in $domainShell.1] where
+; genOperationAlist(base_shell) ==
+;   $lisplibOperationAlist := [sigloc entry for entry in base_shell.1] where
 ;     sigloc [opsig,pred,fnsel] ==
 ;         if pred ~= 'T then
 ;           pred := simpBool pred
@@ -2076,7 +2078,7 @@
 ;           [opsig,pred,[op,a,vectorLocation(first opsig,CADR opsig)]]
 ;         [opsig,pred,fnsel]
  
-(DEFUN |genOperationAlist| ()
+(DEFUN |genOperationAlist| (|base_shell|)
   (PROG ()
     (RETURN
      (SETQ |$lisplibOperationAlist|
@@ -2091,7 +2093,7 @@
                            (CONS (|genOperationAlist,sigloc| |entry|)
                                  |bfVar#101|))))
                  (SETQ |bfVar#100| (CDR |bfVar#100|))))
-              NIL (ELT |$domainShell| 1) NIL)))))
+              NIL (ELT |base_shell| 1) NIL)))))
 (DEFUN |genOperationAlist,sigloc| (|bfVar#102|)
   (PROG (|opsig| |pred| |fnsel| |op| |ISTMP#1| |a|)
     (RETURN
@@ -2119,31 +2121,31 @@
                      (|vectorLocation| (CAR |opsig|) (CADR |opsig|))))))
        (#2# (LIST |opsig| |pred| |fnsel|)))))))
  
-; changeDirectoryInSlot1(e) ==  --called by buildFunctor
-;   genOperationAlist()
+; changeDirectoryInSlot1(base_shell, e) ==  --called by buildFunctor
+;   genOperationAlist(base_shell)
 ;   sortedOplist := listSort(function GLESSEQP,
 ;                            COPY_-LIST $lisplibOperationAlist,function CADR)
 ;   $lastPred :local := nil
 ;   $newEnv : local := e
-;   $domainShell.1 := [fn(entry, e) for entry in sortedOplist] where
+;   base_shell.1 := [fn(entry, e) for entry in sortedOplist] where
 ;     fn([[op, sig], pred, fnsel], e) ==
 ;        if $lastPred ~= pred then
 ;             $newEnv := deepChaseInferences(pred, e)
 ;             $lastPred := pred
 ;        [[op, genSlotSig(sig, $newEnv)], pred, fnsel]
  
-(DEFUN |changeDirectoryInSlot1| (|e|)
+(DEFUN |changeDirectoryInSlot1| (|base_shell| |e|)
   (PROG (|$newEnv| |$lastPred| |sortedOplist|)
     (DECLARE (SPECIAL |$newEnv| |$lastPred|))
     (RETURN
      (PROGN
-      (|genOperationAlist|)
+      (|genOperationAlist| |base_shell|)
       (SETQ |sortedOplist|
               (|listSort| #'GLESSEQP (COPY-LIST |$lisplibOperationAlist|)
                #'CADR))
       (SETQ |$lastPred| NIL)
       (SETQ |$newEnv| |e|)
-      (SETF (ELT |$domainShell| 1)
+      (SETF (ELT |base_shell| 1)
               ((LAMBDA (|bfVar#104| |bfVar#103| |entry|)
                  (LOOP
                   (COND

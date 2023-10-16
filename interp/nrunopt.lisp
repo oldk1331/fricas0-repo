@@ -3,21 +3,21 @@
  
 (IN-PACKAGE "BOOT")
  
-; getInfovecCode(NRTslot1Info) ==
+; getInfovecCode(NRTslot1Info, et) ==
 ; --Function called by compDefineFunctor1 to create infovec at compile time
 ;   ['LIST,
 ;     MKQ makeDomainTemplate $template,
-;       MKQ makeCompactDirect NRTslot1Info,
+;       MKQ makeCompactDirect(NRTslot1Info, et),
 ;         MKQ [],
-;           NRTmakeCategoryAlist(),
+;           NRTmakeCategoryAlist(et),
 ;             MKQ $lookupFunction]
  
-(DEFUN |getInfovecCode| (|NRTslot1Info|)
+(DEFUN |getInfovecCode| (|NRTslot1Info| |et|)
   (PROG ()
     (RETURN
      (LIST 'LIST (MKQ (|makeDomainTemplate| |$template|))
-           (MKQ (|makeCompactDirect| |NRTslot1Info|)) (MKQ NIL)
-           (|NRTmakeCategoryAlist|) (MKQ |$lookupFunction|)))))
+           (MKQ (|makeCompactDirect| |NRTslot1Info| |et|)) (MKQ NIL)
+           (|NRTmakeCategoryAlist| |et|) (MKQ |$lookupFunction|)))))
  
 ; makeDomainTemplate vec ==
 ; --NOTES: This function is called at compile time to create the template
@@ -95,16 +95,17 @@
       (SETQ |$byteAddress| (+ (+ |$byteAddress| |n|) 4))
       (CONS |curAddress| |op|)))))
  
-; makeCompactDirect u ==
+; makeCompactDirect(u, et) ==
 ;   $predListLength :local := LENGTH $NRTslot1PredicateList
 ;   $byteVecAcc: local := nil
 ;   [nam,[addForm,:opList]] := u
 ;   --pp opList
-;   d := [[op,y] for [op,:items] in opList | y := makeCompactDirect1(op,items)]
+;   d := [[op, y] for [op, :items] in opList 
+;         | y := makeCompactDirect1(op, items, et)]
 ;   $byteVec := [:$byteVec,:"append"/NREVERSE $byteVecAcc]
 ;   LIST2VEC ("append"/d)
  
-(DEFUN |makeCompactDirect| (|u|)
+(DEFUN |makeCompactDirect| (|u| |et|)
   (PROG (|$byteVecAcc| |$predListLength| |d| |y| |items| |op| |opList|
          |addForm| |nam|)
     (DECLARE (SPECIAL |$byteVecAcc| |$predListLength|))
@@ -128,7 +129,7 @@
                           (SETQ |op| (CAR |bfVar#5|))
                           (SETQ |items| (CDR |bfVar#5|))
                           #2#)
-                         (SETQ |y| (|makeCompactDirect1| |op| |items|))
+                         (SETQ |y| (|makeCompactDirect1| |op| |items| |et|))
                          (SETQ |bfVar#7| (CONS (LIST |op| |y|) |bfVar#7|)))))
                   (SETQ |bfVar#6| (CDR |bfVar#6|))))
                NIL |opList| NIL))
@@ -154,21 +155,22 @@
            (SETQ |bfVar#13| (CDR |bfVar#13|))))
         NIL |d| NIL))))))
  
-; makeCompactDirect1(op,items) ==
+; makeCompactDirect1(op, items, et) ==
 ; --NOTES: creates byte codes for ops implemented by the domain
 ;     curAddress := $byteAddress
 ;     newcodes :=
-;       "append"/[u for y in orderBySubsumption items | u := fn y] or return nil
+;       "append"/[u for y in orderBySubsumption items
+;                   | u := fn(y, et)] or return nil
 ;     $byteVecAcc := [newcodes,:$byteVecAcc]
 ;     curAddress
-;  where fn y ==
+;  where fn(y, et) ==
 ;   [sig,:r] := y
 ;   if r is [n,:s] then
 ;     slot :=
 ;       n is [p, :.] => p  --the rest is linenumber of function definition
 ;       n
 ;     predCode :=
-;       s is [pred,:.] => predicateBitIndex pred
+;       s is [pred, :.] => predicateBitIndex(pred, et)
 ;       0
 ;   --> drop items which are not present (predCode = -1)
 ;   predCode = -1 => return nil
@@ -181,7 +183,7 @@
 ;   res := [n,predCode,:makeCompactSigCode(sig),slot]
 ;   res
  
-(DEFUN |makeCompactDirect1| (|op| |items|)
+(DEFUN |makeCompactDirect1| (|op| |items| |et|)
   (PROG (|curAddress| |u| |newcodes|)
     (RETURN
      (PROGN
@@ -195,14 +197,14 @@
                          (PROGN (SETQ |y| (CAR |bfVar#14|)) NIL))
                      (RETURN |bfVar#15|))
                     ('T
-                     (AND (SETQ |u| (|makeCompactDirect1,fn| |y|))
+                     (AND (SETQ |u| (|makeCompactDirect1,fn| |y| |et|))
                           (SETQ |bfVar#15| (APPEND |bfVar#15| |u|)))))
                    (SETQ |bfVar#14| (CDR |bfVar#14|))))
                 NIL (|orderBySubsumption| |items|) NIL)
                (RETURN NIL)))
       (SETQ |$byteVecAcc| (CONS |newcodes| |$byteVecAcc|))
       |curAddress|))))
-(DEFUN |makeCompactDirect1,fn| (|y|)
+(DEFUN |makeCompactDirect1,fn| (|y| |et|)
   (PROG (|sig| |r| |n| |s| |p| |slot| |pred| |predCode| |res|)
     (RETURN
      (PROGN
@@ -217,7 +219,7 @@
         (SETQ |predCode|
                 (COND
                  ((AND (CONSP |s|) (PROGN (SETQ |pred| (CAR |s|)) #1#))
-                  (|predicateBitIndex| |pred|))
+                  (|predicateBitIndex| |pred| |et|))
                  (#1# 0)))))
       (COND ((EQUAL |predCode| (- 1)) (RETURN NIL))
             (#1#
@@ -415,31 +417,32 @@
                        NIL))))
                    (#1# |item|))))))
  
-; predicateBitIndex x ==
-;       u := simpBool transHasCode x
+; predicateBitIndex(x, et) ==
+;       u := simpBool(transHasCode(x, et))
 ;       u = 'T  =>  0
 ;       u = nil => -1
 ;       p := POSN1(u,$NRTslot1PredicateList) => p + 1
 ;       systemError nil
  
-(DEFUN |predicateBitIndex| (|x|)
+(DEFUN |predicateBitIndex| (|x| |et|)
   (PROG (|u| |p|)
     (RETURN
      (PROGN
-      (SETQ |u| (|simpBool| (|transHasCode| |x|)))
+      (SETQ |u| (|simpBool| (|transHasCode| |x| |et|)))
       (COND ((EQ |u| 'T) 0) ((NULL |u|) (- 1))
             ((SETQ |p| (POSN1 |u| |$NRTslot1PredicateList|)) (+ |p| 1))
             ('T (|systemError| NIL)))))))
  
-; predicateBitRef x ==
+; predicateBitRef(x, et) ==
 ;   x = 'T => 'T
-;   ['testBitVector,'pv_$,predicateBitIndex x]
+;   ['testBitVector, 'pv_$, predicateBitIndex(x, et)]
  
-(DEFUN |predicateBitRef| (|x|)
+(DEFUN |predicateBitRef| (|x| |et|)
   (PROG ()
     (RETURN
      (COND ((EQ |x| 'T) 'T)
-           ('T (LIST '|testBitVector| '|pv$| (|predicateBitIndex| |x|)))))))
+           ('T
+            (LIST '|testBitVector| '|pv$| (|predicateBitIndex| |x| |et|)))))))
  
 ; makePrefixForm(u,op) ==
 ;   u := MKPF(u,op)
@@ -451,12 +454,12 @@
     (RETURN
      (PROGN (SETQ |u| (MKPF |u| |op|)) (COND ((EQUAL |u| ''T) 'T) ('T |u|))))))
  
-; makePredicateBitVector pl ==   --called by buildFunctor
+; makePredicateBitVector(pl, et) ==   --called by buildFunctor
 ;   if $insideCategoryPackageIfTrue = true then
 ;     pl := union(pl,$categoryPredicateList)
 ;   $predGensymAlist := nil
 ;   for p in removeAttributePredicates pl repeat
-;     pred := simpBool transHasCode p
+;     pred := simpBool(transHasCode(p, et))
 ;     atom pred => 'skip                --skip over T and NIL
 ;     if isHasDollarPred pred then
 ;       lasts := insert(pred,lasts)
@@ -471,7 +474,7 @@
 ;   $lisplibPredicates := [:firstPl,:lastPl] --what is stored under 'predicates
 ;   [$lisplibPredicates,firstCode,:lastCode]  --$pairlis set by compDefineFunctor1
  
-(DEFUN |makePredicateBitVector| (|pl|)
+(DEFUN |makePredicateBitVector| (|pl| |et|)
   (PROG (|pred| |lasts| |firsts| |firstPl| |lastPl| |firstCode| |lastCode|)
     (RETURN
      (PROGN
@@ -486,7 +489,7 @@
             (RETURN NIL))
            (#1='T
             (PROGN
-             (SETQ |pred| (|simpBool| (|transHasCode| |p|)))
+             (SETQ |pred| (|simpBool| (|transHasCode| |p| |et|)))
              (COND ((ATOM |pred|) '|skip|)
                    (#1#
                     (COND
@@ -673,14 +676,14 @@
          (SETQ |bfVar#31| (CDR |bfVar#31|))))
       NIL |p| NIL))))
  
-; transHasCode x ==
+; transHasCode(x, et) ==
 ;   atom x => x
 ;   op := QCAR x
 ;   op is "HasCategory" => x
-;   EQ(op, 'has) => compHasFormat(x, $e)
-;   [transHasCode y for y in x]
+;   EQ(op, 'has) => compHasFormat(x, et)
+;   [transHasCode(y, et) for y in x]
  
-(DEFUN |transHasCode| (|x|)
+(DEFUN |transHasCode| (|x| |et|)
   (PROG (|op|)
     (RETURN
      (COND ((ATOM |x|) |x|)
@@ -688,7 +691,7 @@
             (PROGN
              (SETQ |op| (QCAR |x|))
              (COND ((EQ |op| '|HasCategory|) |x|)
-                   ((EQ |op| '|has|) (|compHasFormat| |x| |$e|))
+                   ((EQ |op| '|has|) (|compHasFormat| |x| |et|))
                    (#1#
                     ((LAMBDA (|bfVar#34| |bfVar#33| |y|)
                        (LOOP
@@ -698,7 +701,8 @@
                           (RETURN (NREVERSE |bfVar#34|)))
                          (#1#
                           (SETQ |bfVar#34|
-                                  (CONS (|transHasCode| |y|) |bfVar#34|))))
+                                  (CONS (|transHasCode| |y| |et|)
+                                        |bfVar#34|))))
                         (SETQ |bfVar#33| (CDR |bfVar#33|))))
                      NIL |x| NIL)))))))))
  
@@ -842,7 +846,7 @@
   (PROG ()
     (RETURN (COND ((EQL |n| 0) 0) ('T (+ 1 (|bitsOf| (QUOTIENT |n| 2))))))))
  
-; NRTmakeCategoryAlist() ==
+; NRTmakeCategoryAlist(et) ==
 ;   $depthAssocCache : local := MAKE_HASHTABLE('ID)
 ;   $catAncestorAlist: local := NIL
 ;   pcAlist := [:[[x,:'T] for x in $uncondAlist],:$condAlist]
@@ -850,7 +854,7 @@
 ;   opcAlist := NREVERSE SORTBY(function NRTcatCompare,pcAlist)
 ;   newPairlis := [[5 + i,:b] for [.,:b] in $pairlis for i in 1..]
 ;   slot1 := [[a,:k] for [a,:b] in SUBLIS($pairlis,opcAlist)
-;                    | (k := predicateBitIndex b) ~= -1]
+;                    | (k := predicateBitIndex(b, et)) ~= -1]
 ;   slot0 := [hasDefaultPackage opOf a for [a,:b] in slot1]
 ;   sixEtc := [5 + i for i in 1..#$pairlis]
 ;   formals := ASSOCRIGHT $pairlis
@@ -867,10 +871,10 @@
 ;       ['CONS, MKQ LIST2VEC catformvec,
 ;         ['makeByteWordVec2,maxElement,MKQ $byteVec]]]]
  
-(DEFUN |NRTmakeCategoryAlist| ()
-  (PROG (|$levelAlist| |$catAncestorAlist| |$depthAssocCache| |pcAlist|
-         |opcAlist| |b| |newPairlis| |a| |k| |slot1| |slot0| |sixEtc| |formals|
-         |predList| |maxPredList| |catformvec| |maxElement|)
+(DEFUN |NRTmakeCategoryAlist| (|et|)
+  (PROG (|$levelAlist| |$catAncestorAlist| |$depthAssocCache| |maxElement|
+         |catformvec| |maxPredList| |predList| |formals| |sixEtc| |slot0|
+         |slot1| |k| |a| |newPairlis| |b| |opcAlist| |pcAlist|)
     (DECLARE (SPECIAL |$levelAlist| |$catAncestorAlist| |$depthAssocCache|))
     (RETURN
      (PROGN
@@ -929,7 +933,8 @@
                           (SETQ |b| (CDR |bfVar#47|))
                           #1#)
                          (NOT
-                          (EQUAL (SETQ |k| (|predicateBitIndex| |b|)) (- 1)))
+                          (EQUAL (SETQ |k| (|predicateBitIndex| |b| |et|))
+                                 (- 1)))
                          (SETQ |bfVar#49| (CONS (CONS |a| |k|) |bfVar#49|)))))
                   (SETQ |bfVar#48| (CDR |bfVar#48|))))
                NIL (SUBLIS |$pairlis| |opcAlist|) NIL))

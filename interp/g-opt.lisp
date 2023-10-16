@@ -414,20 +414,14 @@
  
 ; optCallSpecially(q,x,n,R) ==
 ;     MEMQ(IFCAR R, $optimizableConstructorNames) => optSpecialCall(x, R, n)
-;     (y:= get(R,"value",$e)) and
-;       MEMQ(opOf y.expr,$optimizableConstructorNames) =>
-;         optSpecialCall(x,y.expr,n)
 ;     nil
  
 (DEFUN |optCallSpecially| (|q| |x| |n| R)
-  (PROG (|y|)
+  (PROG ()
     (RETURN
      (COND
       ((MEMQ (IFCAR R) |$optimizableConstructorNames|)
        (|optSpecialCall| |x| R |n|))
-      ((AND (SETQ |y| (|get| R '|value| |$e|))
-            (MEMQ (|opOf| (CAR |y|)) |$optimizableConstructorNames|))
-       (|optSpecialCall| |x| (CAR |y|) |n|))
       ('T NIL)))))
  
 ; optCallEval u ==

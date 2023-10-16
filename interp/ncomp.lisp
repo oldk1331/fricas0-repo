@@ -941,7 +941,6 @@
 ;     $insideWhereIfTrue : local := false
 ;     $insideCategoryIfTrue : local := false
 ;     $insideCapsuleFunctionIfTrue : local := false
-;     $form : local := nil
 ;     $e : local := $EmptyEnvironment
 ;     $genSDVar : local :=  0
 ;     $previousTime : local := get_run_time()
@@ -949,18 +948,16 @@
 ;     if $semanticErrorStack then displaySemanticErrors()
  
 (DEFUN |boo_comp1| (|x|)
-  (PROG (|$previousTime| |$genSDVar| |$e| |$form|
-         |$insideCapsuleFunctionIfTrue| |$insideCategoryIfTrue|
-         |$insideWhereIfTrue| |$insideFunctorIfTrue| |$CategoryFrame|
-         |$leaveLevelStack| |$returnMode| |$exitModeStack| |$exitMode|
-         |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
-         |$compUniquelyIfTrue| $MACROASSOC |$Index|)
+  (PROG (|$previousTime| |$genSDVar| |$e| |$insideCapsuleFunctionIfTrue|
+         |$insideCategoryIfTrue| |$insideWhereIfTrue| |$insideFunctorIfTrue|
+         |$CategoryFrame| |$leaveLevelStack| |$returnMode| |$exitModeStack|
+         |$exitMode| |$warningStack| |$semanticErrorStack| |$topOp|
+         |$postStack| |$compUniquelyIfTrue| $MACROASSOC |$Index|)
     (DECLARE
-     (SPECIAL |$previousTime| |$genSDVar| |$e| |$form|
-      |$insideCapsuleFunctionIfTrue| |$insideCategoryIfTrue|
-      |$insideWhereIfTrue| |$insideFunctorIfTrue| |$CategoryFrame|
-      |$leaveLevelStack| |$returnMode| |$exitModeStack| |$exitMode|
-      |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
+     (SPECIAL |$previousTime| |$genSDVar| |$e| |$insideCapsuleFunctionIfTrue|
+      |$insideCategoryIfTrue| |$insideWhereIfTrue| |$insideFunctorIfTrue|
+      |$CategoryFrame| |$leaveLevelStack| |$returnMode| |$exitModeStack|
+      |$exitMode| |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
       |$compUniquelyIfTrue| $MACROASSOC |$Index|))
     (RETURN
      (PROGN
@@ -980,7 +977,6 @@
       (SETQ |$insideWhereIfTrue| NIL)
       (SETQ |$insideCategoryIfTrue| NIL)
       (SETQ |$insideCapsuleFunctionIfTrue| NIL)
-      (SETQ |$form| NIL)
       (SETQ |$e| |$EmptyEnvironment|)
       (SETQ |$genSDVar| 0)
       (SETQ |$previousTime| (|get_run_time|))
@@ -1151,7 +1147,6 @@
 ;     $insideWhereIfTrue : local := false
 ;     $insideCategoryIfTrue : local := false
 ;     $insideCapsuleFunctionIfTrue : local := false
-;     $form : local := nil
 ;     $e : local := $EmptyEnvironment
 ;     $genSDVar : local := 0
 ;     $previousTime : local := get_run_time()
@@ -1183,14 +1178,14 @@
 ;     TERPRI()
  
 (DEFUN |S_process| (|x|)
-  (PROG (|$m| |$x| |$s| |$previousTime| |$genSDVar| |$e| |$form|
+  (PROG (|$m| |$x| |$s| |$previousTime| |$genSDVar| |$e|
          |$insideCapsuleFunctionIfTrue| |$insideCategoryIfTrue|
          |$insideWhereIfTrue| |$insideFunctorIfTrue| |$CategoryFrame|
          |$leaveLevelStack| |$returnMode| |$exitModeStack| |$exitMode|
          |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
          |$compUniquelyIfTrue| $MACROASSOC |$Index| |u| |nform|)
     (DECLARE
-     (SPECIAL |$m| |$x| |$s| |$previousTime| |$genSDVar| |$e| |$form|
+     (SPECIAL |$m| |$x| |$s| |$previousTime| |$genSDVar| |$e|
       |$insideCapsuleFunctionIfTrue| |$insideCategoryIfTrue|
       |$insideWhereIfTrue| |$insideFunctorIfTrue| |$CategoryFrame|
       |$leaveLevelStack| |$returnMode| |$exitModeStack| |$exitMode|
@@ -1214,7 +1209,6 @@
       (SETQ |$insideWhereIfTrue| NIL)
       (SETQ |$insideCategoryIfTrue| NIL)
       (SETQ |$insideCapsuleFunctionIfTrue| NIL)
-      (SETQ |$form| NIL)
       (SETQ |$e| |$EmptyEnvironment|)
       (SETQ |$genSDVar| 0)
       (SETQ |$previousTime| (|get_run_time|))

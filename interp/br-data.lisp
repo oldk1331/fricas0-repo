@@ -1710,8 +1710,8 @@
          (SETQ |i| (+ |i| 1))))
       T |argl| NIL |nargl| NIL 0))))
  
-; ancestorsOf(conform,domform) ==  --called by kcaPage, originsInOrder,...
-;   'category = GETDATABASE((conname := opOf conform),'CONSTRUCTORKIND) =>
+; ancestors_of_cat(conform, domform) ==
+;        conname := opOf(conform)
 ;        alist := GETDATABASE(conname,'ANCESTORS)
 ;        argl := IFCDR domform or IFCDR conform
 ;        [pair for [a,:b] in alist | pair] where pair ==
@@ -1720,39 +1720,48 @@
 ;          if domform then right := simpHasPred right
 ;          null right => false
 ;          [left,:right]
+ 
+(DEFUN |ancestors_of_cat| (|conform| |domform|)
+  (PROG (|conname| |alist| |argl| |a| |b| |left| |right|)
+    (RETURN
+     (PROGN
+      (SETQ |conname| (|opOf| |conform|))
+      (SETQ |alist| (GETDATABASE |conname| 'ANCESTORS))
+      (SETQ |argl| (OR (IFCDR |domform|) (IFCDR |conform|)))
+      ((LAMBDA (|bfVar#75| |bfVar#74| |bfVar#73|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#74|)
+                (PROGN (SETQ |bfVar#73| (CAR |bfVar#74|)) NIL))
+            (RETURN (NREVERSE |bfVar#75|)))
+           (#1='T
+            (AND (CONSP |bfVar#73|)
+                 (PROGN
+                  (SETQ |a| (CAR |bfVar#73|))
+                  (SETQ |b| (CDR |bfVar#73|))
+                  #1#)
+                 #2=(PROGN
+                     (SETQ |left| (|sublisFormal| |argl| |a|))
+                     (SETQ |right| (|sublisFormal| |argl| |b|))
+                     (COND (|domform| (SETQ |right| (|simpHasPred| |right|))))
+                     (COND ((NULL |right|) NIL) (#1# (CONS |left| |right|))))
+                 (SETQ |bfVar#75| (CONS #2# |bfVar#75|)))))
+          (SETQ |bfVar#74| (CDR |bfVar#74|))))
+       NIL |alist| NIL)))))
+ 
+; ancestorsOf(conform,domform) ==  --called by kcaPage, originsInOrder,...
+;   'category = GETDATABASE((conname := opOf(conform)), 'CONSTRUCTORKIND) =>
+;        ancestors_of_cat(conform, domform)
 ;   computeAncestorsOf(conform,domform)
  
 (DEFUN |ancestorsOf| (|conform| |domform|)
-  (PROG (|conname| |alist| |argl| |a| |b| |left| |right|)
+  (PROG (|conname|)
     (RETURN
      (COND
       ((EQ '|category|
            (GETDATABASE (SETQ |conname| (|opOf| |conform|)) 'CONSTRUCTORKIND))
-       (PROGN
-        (SETQ |alist| (GETDATABASE |conname| 'ANCESTORS))
-        (SETQ |argl| (OR (IFCDR |domform|) (IFCDR |conform|)))
-        ((LAMBDA (|bfVar#75| |bfVar#74| |bfVar#73|)
-           (LOOP
-            (COND
-             ((OR (ATOM |bfVar#74|)
-                  (PROGN (SETQ |bfVar#73| (CAR |bfVar#74|)) NIL))
-              (RETURN (NREVERSE |bfVar#75|)))
-             (#1='T
-              (AND (CONSP |bfVar#73|)
-                   (PROGN
-                    (SETQ |a| (CAR |bfVar#73|))
-                    (SETQ |b| (CDR |bfVar#73|))
-                    #1#)
-                   #2=(PROGN
-                       (SETQ |left| (|sublisFormal| |argl| |a|))
-                       (SETQ |right| (|sublisFormal| |argl| |b|))
-                       (COND
-                        (|domform| (SETQ |right| (|simpHasPred| |right|))))
-                       (COND ((NULL |right|) NIL) (#1# (CONS |left| |right|))))
-                   (SETQ |bfVar#75| (CONS #2# |bfVar#75|)))))
-            (SETQ |bfVar#74| (CDR |bfVar#74|))))
-         NIL |alist| NIL)))
-      (#1# (|computeAncestorsOf| |conform| |domform|))))))
+       (|ancestors_of_cat| |conform| |domform|))
+      ('T (|computeAncestorsOf| |conform| |domform|))))))
  
 ; computeAncestorsOf(conform,domform) ==
 ;   $done : local := MAKE_HASHTABLE('UEQUAL)
@@ -1799,7 +1808,8 @@
 ;       $lisplibParents
 ;     parentsOf op
 ;   originalConform :=
-;     firstTime? and ($insideCategoryIfTrue or $insideFunctorIfTrue) => $form
+;     firstTime? and ($insideCategoryIfTrue or $insideFunctorIfTrue) =>
+;         $functorForm
 ;     getConstructorForm op
 ;   if conform ~= originalConform then
 ;     parents := SUBLISLIS(IFCDR conform,IFCDR originalConform,parents)
@@ -1832,7 +1842,7 @@
                        ((AND |firstTime?|
                              (OR |$insideCategoryIfTrue|
                                  |$insideFunctorIfTrue|))
-                        |$form|)
+                        |$functorForm|)
                        (#1# (|getConstructorForm| |op|))))
               (COND
                ((NOT (EQUAL |conform| |originalConform|))

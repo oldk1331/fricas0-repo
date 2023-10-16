@@ -38,22 +38,20 @@
 ; --     otherwise, fill in all NILs in the signature
 ;   not (and/[null x for x in rest signature]) => compDefWhereClause(form,m,e)
 ;   signature.target=$Category =>
-;     compDefineCategory(form,m,e,nil,$formalArgList)
+;       compDefineCategory(form, m, e, nil, $formalArgList)
 ;   isDomainForm(rhs,e) and not $insideFunctorIfTrue =>
 ;     if null signature.target then signature:=
 ;       [getTargetFromRhs(lhs,rhs,giveFormalParametersValues(rest lhs,e)),:
 ;           rest signature]
 ;     rhs:= addEmptyCapsuleIfNecessary(signature.target,rhs)
-;     compDefineFunctor(['DEF,lhs,signature,specialCases,rhs],m,e,nil,
-;       $formalArgList)
-;   null $form => stackAndThrow ['"bad == form ",form]
-;   newPrefix:=
-;     $prefix => INTERN STRCONC(encodeItem $prefix,'",",encodeItem $op)
-;     getAbbreviation($op,#rest $form)
-;   compDefineCapsuleFunction(form,m,e,newPrefix,$formalArgList)
+;     new_prefix := getAbbreviation(first(lhs), #(rest(lhs)))
+;     compDefineFunctor(['DEF, lhs, signature, specialCases, rhs], m, e,
+;                       new_prefix, $formalArgList)
+;   null($functorForm) => stackAndThrow ['"bad == form ",form]
+;   compDefineCapsuleFunction(form, m, e, $prefix, $formalArgList)
  
 (DEFUN |compDefine1| (|form| |m| |e|)
-  (PROG (|lhs| |signature| |specialCases| |rhs| |sig| |newPrefix|)
+  (PROG (|lhs| |signature| |specialCases| |rhs| |sig| |new_prefix|)
     (RETURN
      (PROGN
       (SETQ |form| (|macroExpand| |form| |e|))
@@ -105,21 +103,16 @@
                         (|giveFormalParametersValues| (CDR |lhs|) |e|))
                        (CDR |signature|)))))
             (SETQ |rhs| (|addEmptyCapsuleIfNecessary| (CAR |signature|) |rhs|))
+            (SETQ |new_prefix|
+                    (|getAbbreviation| (CAR |lhs|) (LENGTH (CDR |lhs|))))
             (|compDefineFunctor|
-             (LIST 'DEF |lhs| |signature| |specialCases| |rhs|) |m| |e| NIL
-             |$formalArgList|)))
-          ((NULL |$form|) (|stackAndThrow| (LIST "bad == form " |form|)))
+             (LIST 'DEF |lhs| |signature| |specialCases| |rhs|) |m| |e|
+             |new_prefix| |$formalArgList|)))
+          ((NULL |$functorForm|)
+           (|stackAndThrow| (LIST "bad == form " |form|)))
           (#2#
-           (PROGN
-            (SETQ |newPrefix|
-                    (COND
-                     (|$prefix|
-                      (INTERN
-                       (STRCONC (|encodeItem| |$prefix|) ","
-                        (|encodeItem| |$op|))))
-                     (#2# (|getAbbreviation| |$op| (LENGTH (CDR |$form|))))))
-            (|compDefineCapsuleFunction| |form| |m| |e| |newPrefix|
-             |$formalArgList|)))))))))))
+           (|compDefineCapsuleFunction| |form| |m| |e| |$prefix|
+            |$formalArgList|))))))))))
  
 ; compDefineAddSignature([op,:argl],signature,e) ==
 ;   (sig:= hasFullSignature(argl,signature,e)) and
@@ -668,8 +661,7 @@
 ; --     and introduce declarations into environment
 ;     sargl:= TAKE(# argl, $TriangleVariableList)
 ;     sform := [$op, :sargl]
-;     $form : local := sform
-;     $functorForm : local := $form
+;     $functorForm : local := sform
 ;     $formalArgList:= [:sargl,:$formalArgList]
 ;     aList:= [[a,:sa] for a in argl for sa in sargl]
 ;     formalBody:= SUBLIS(aList,body)
@@ -699,7 +691,7 @@
 ;     body:=
 ;         ['PROG1, ['LET, g:= GENSYM(), body],
 ;                  ['SETELT, g, 0, mkConstructor(sform)]]
-;     fun := do_compile [op', ['category_functor, sargl, body]]
+;     fun := do_compile([op', ['category_functor, sargl, body]], e)
 ; 
 ; --  5. give operator a 'modemap property
 ;     pairlis:= [[a,:v] for a in argl for v in $FormalMapVariableList]
@@ -730,14 +722,14 @@
        (|form| |signature| |specialCases| |body| |m| |e| |$prefix|
         |$formalArgList|)
   (DECLARE (SPECIAL |$prefix| |$formalArgList|))
-  (PROG (|$addForm| |$functorStats| |$functionStats| |$functorForm| |$form|
-         |$op| |$extraParms| |$definition| |$insideCategoryIfTrue|
-         |domainShell| |modemap| |parForm| |parSignature| |pairlis| |fun| |g|
-         |formals| |actuals| |op'| |LETTMP#1| |formalBody| |aList| |sform|
-         |sargl| |signature'| |argl|)
+  (PROG (|$addForm| |$functorStats| |$functionStats| |$functorForm| |$op|
+         |$extraParms| |$definition| |$insideCategoryIfTrue| |domainShell|
+         |modemap| |parForm| |parSignature| |pairlis| |fun| |g| |formals|
+         |actuals| |op'| |LETTMP#1| |formalBody| |aList| |sform| |sargl|
+         |signature'| |argl|)
     (DECLARE
-     (SPECIAL |$addForm| |$functorStats| |$functionStats| |$functorForm|
-      |$form| |$op| |$extraParms| |$definition| |$insideCategoryIfTrue|))
+     (SPECIAL |$addForm| |$functorStats| |$functionStats| |$functorForm| |$op|
+      |$extraParms| |$definition| |$insideCategoryIfTrue|))
     (RETURN
      (PROGN
       (SETQ |$insideCategoryIfTrue| T)
@@ -765,8 +757,7 @@
       (SETQ |e| (|giveFormalParametersValues| |argl| |e|))
       (SETQ |sargl| (TAKE (LENGTH |argl|) |$TriangleVariableList|))
       (SETQ |sform| (CONS |$op| |sargl|))
-      (SETQ |$form| |sform|)
-      (SETQ |$functorForm| |$form|)
+      (SETQ |$functorForm| |sform|)
       (SETQ |$formalArgList| (APPEND |sargl| |$formalArgList|))
       (SETQ |aList|
               ((LAMBDA (|bfVar#24| |bfVar#22| |a| |bfVar#23| |sa|)
@@ -838,7 +829,7 @@
                     (LIST 'SETELT |g| 0 (|mkConstructor| |sform|))))
       (SETQ |fun|
               (|do_compile|
-               (LIST |op'| (LIST '|category_functor| |sargl| |body|))))
+               (LIST |op'| (LIST '|category_functor| |sargl| |body|)) |e|))
       (SETQ |pairlis|
               ((LAMBDA (|bfVar#30| |bfVar#28| |a| |bfVar#29| |v|)
                  (LOOP
@@ -921,14 +912,12 @@
        ('T (|compDefineFunctor1| |df| |m| |e| |prefix| |fal|)))))))
  
 ; compDefineFunctor1(df is ['DEF,form,signature,$functorSpecialCases,body],
-;   m, $e, $prefix, $formalArgList) ==
+;   m, e, $prefix, $formalArgList) ==
 ; --  1. bind global variables
-;     e := $e
 ;     $addForm: local := nil
 ; 
 ;     $functionStats: local:= [0,0]
 ;     $functorStats: local:= [0,0]
-;     $op: local := nil
 ;     $signature: local := nil
 ;     $Representation: local := nil
 ;          --Set in doIt, accessed in the compiler - compNoStacking
@@ -949,8 +938,7 @@
 ;             else false )   --true if domain has mutable state
 ;     signature':=
 ;       [first signature, :[getArgumentModeOrMoan(a, form, e) for a in argl]]
-;     $form : local := form
-;     $functorForm : local := $form
+;     $functorForm : local := form
 ;     if null first signature' then BREAK()
 ;     target:= first signature'
 ;     e := giveFormalParametersValues(argl, e)
@@ -959,7 +947,8 @@
 ;       pp target
 ;       userError '"cannot produce category object"
 ; --+ copy needed since slot1 is reset; compMake.. can return a cached vector
-;     $domainShell:= COPY_-SEQ ds
+;     base_shell := COPY_-SEQ ds
+;     $domainShell := base_shell
 ; --+ 7 lines for $NRT follow
 ; -->--these globals used by NRTmakeCategoryAlist, set by NRTsetVector4Part1
 ;     $condAlist: local := nil
@@ -999,14 +988,13 @@
 ; --  4. compile body in environment of %type declarations for arguments
 ;     op':= $op
 ;     rettype:= signature'.target
-;     $e := e
-;     T := compFunctorBody(body, rettype, $e, parForm)
+;     T := compFunctorBody(body, rettype, e, parForm, base_shell)
 ; 
 ;     body':= T.expr
 ;     lamOrSlam :=
 ;         $mutableDomain => 'mutable_domain_functor
 ;         'domain_functor
-;     fun:= do_compile(SUBLIS($pairlis, [op', [lamOrSlam, argl, body']]))
+;     fun := do_compile(SUBLIS($pairlis, [op', [lamOrSlam, argl, body']]), e)
 ;     --The above statement stops substitutions gettting in one another's way
 ; --+
 ;     operationAlist := SUBLIS($pairlis,$lisplibOperationAlist)
@@ -1022,7 +1010,7 @@
 ;       $lisplibCategory := modemap.mmTarget
 ;       $lisplibParents  :=
 ;         getParentsFor($op,$FormalMapVariableList,$lisplibCategory)
-;       $lisplibAncestors := computeAncestorsOf($form,nil)
+;       $lisplibAncestors := computeAncestorsOf(form, nil)
 ;       $lisplibAbbreviation := constructor? $op
 ;     $insideFunctorIfTrue:= false
 ;     if $LISPLIB then
@@ -1033,7 +1021,7 @@
 ;         'domain
 ;       $lisplibForm:= form
 ;       if null $bootStrapMode then
-;         NRTslot1Info := NRTmakeSlot1Info()
+;         NRTslot1Info := NRTmakeSlot1Info(form, base_shell)
 ;         libFn := GETDATABASE(op','ABBREVIATION)
 ;         $lookupFunction: local :=
 ;             NRTgetLookupFunction(form, CADAR $lisplibModemap, $NRTaddForm)
@@ -1043,7 +1031,7 @@
 ;         $NRTslot1PredicateList :=
 ;           [simpBool x for x in $NRTslot1PredicateList]
 ;         output_lisp_form(['MAKEPROP, MKQ $op, ''infovec,
-;                           getInfovecCode(NRTslot1Info)])
+;                           getInfovecCode(NRTslot1Info, e)])
 ;       $lisplibOperationAlist:= operationAlist
 ;       $lisplibMissingFunctions:= $CheckVectorList
 ;     if null argl then
@@ -1051,25 +1039,25 @@
 ;             ['MAKEPROP, ['QUOTE,op'], ['QUOTE,'NILADIC], true])
 ;     [fun, ['Mapping, :signature'], originale]
  
-(DEFUN |compDefineFunctor1| (|df| |m| |$e| |$prefix| |$formalArgList|)
-  (DECLARE (SPECIAL |$e| |$prefix| |$formalArgList|))
+(DEFUN |compDefineFunctor1| (|df| |m| |e| |$prefix| |$formalArgList|)
+  (DECLARE (SPECIAL |$prefix| |$formalArgList|))
   (PROG (|$byteVec| |$byteAddress| |$lookupFunction| |$functionLocations|
          |$template| |$NRTdeltaListComp| |$NRTdeltaList| |$NRTdeltaLength|
          |$NRTaddForm| |$NRTbase| |$NRTslot1PredicateList| |$uncondAlist|
-         |$condAlist| |$functorForm| |$form| |$mutableDomain| |$genSDVar|
+         |$condAlist| |$functorForm| |$mutableDomain| |$op| |$genSDVar|
          |$insideFunctorIfTrue| |$CheckVectorList| |$functorLocalParameters|
-         |$Representation| |$signature| |$op| |$functorStats| |$functionStats|
+         |$Representation| |$signature| |$functorStats| |$functionStats|
          |$addForm| |libFn| |NRTslot1Info| |key| |ISTMP#1| |modemap|
          |operationAlist| |fun| |lamOrSlam| |body'| T$ |rettype| |op'|
-         |parForm| |parSignature| |ds| |LETTMP#1| |target| |signature'| |argl|
-         |originale| |e| |body| |signature| |form|)
+         |parForm| |parSignature| |base_shell| |ds| |LETTMP#1| |target|
+         |signature'| |argl| |originale| |body| |signature| |form|)
     (DECLARE
      (SPECIAL |$byteVec| |$byteAddress| |$lookupFunction| |$functionLocations|
       |$template| |$NRTdeltaListComp| |$NRTdeltaList| |$NRTdeltaLength|
       |$NRTaddForm| |$NRTbase| |$NRTslot1PredicateList| |$uncondAlist|
-      |$condAlist| |$functorForm| |$form| |$mutableDomain| |$genSDVar|
+      |$condAlist| |$functorForm| |$mutableDomain| |$op| |$genSDVar|
       |$insideFunctorIfTrue| |$CheckVectorList| |$functorLocalParameters|
-      |$Representation| |$signature| |$op| |$functorStats| |$functionStats|
+      |$Representation| |$signature| |$functorStats| |$functionStats|
       |$addForm|))
     (RETURN
      (PROGN
@@ -1077,11 +1065,9 @@
       (SETQ |signature| (CADDR . #1#))
       (SETQ |$functorSpecialCases| (CADDDR . #1#))
       (SETQ |body| (CAR (CDDDDR . #1#)))
-      (SETQ |e| |$e|)
       (SETQ |$addForm| NIL)
       (SETQ |$functionStats| (LIST 0 0))
       (SETQ |$functorStats| (LIST 0 0))
-      (SETQ |$op| NIL)
       (SETQ |$signature| NIL)
       (SETQ |$Representation| NIL)
       (SETQ |$functorLocalParameters| NIL)
@@ -1126,8 +1112,7 @@
                                    |bfVar#35|))))
                         (SETQ |bfVar#34| (CDR |bfVar#34|))))
                      NIL |argl| NIL)))
-      (SETQ |$form| |form|)
-      (SETQ |$functorForm| |$form|)
+      (SETQ |$functorForm| |form|)
       (COND ((NULL (CAR |signature'|)) (BREAK)))
       (SETQ |target| (CAR |signature'|))
       (SETQ |e| (|giveFormalParametersValues| |argl| |e|))
@@ -1139,7 +1124,8 @@
                    (|userError| "cannot produce category object"))))
       (SETQ |ds| (CAR |LETTMP#1|))
       (SETQ |e| (CADDR |LETTMP#1|))
-      (SETQ |$domainShell| (COPY-SEQ |ds|))
+      (SETQ |base_shell| (COPY-SEQ |ds|))
+      (SETQ |$domainShell| |base_shell|)
       (SETQ |$condAlist| NIL)
       (SETQ |$uncondAlist| NIL)
       (SETQ |$NRTslot1PredicateList| NIL)
@@ -1172,8 +1158,7 @@
                (CAR |signature'|) |e|))
       (SETQ |op'| |$op|)
       (SETQ |rettype| (CAR |signature'|))
-      (SETQ |$e| |e|)
-      (SETQ T$ (|compFunctorBody| |body| |rettype| |$e| |parForm|))
+      (SETQ T$ (|compFunctorBody| |body| |rettype| |e| |parForm| |base_shell|))
       (SETQ |body'| (CAR T$))
       (SETQ |lamOrSlam|
               (COND (|$mutableDomain| '|mutable_domain_functor|)
@@ -1181,7 +1166,8 @@
       (SETQ |fun|
               (|do_compile|
                (SUBLIS |$pairlis|
-                       (LIST |op'| (LIST |lamOrSlam| |argl| |body'|)))))
+                       (LIST |op'| (LIST |lamOrSlam| |argl| |body'|)))
+               |e|))
       (SETQ |operationAlist| (SUBLIS |$pairlis| |$lisplibOperationAlist|))
       (COND
        ($LISPLIB
@@ -1197,7 +1183,7 @@
         (SETQ |$lisplibParents|
                 (|getParentsFor| |$op| |$FormalMapVariableList|
                  |$lisplibCategory|))
-        (SETQ |$lisplibAncestors| (|computeAncestorsOf| |$form| NIL))
+        (SETQ |$lisplibAncestors| (|computeAncestorsOf| |form| NIL))
         (SETQ |$lisplibAbbreviation| (|constructor?| |$op|))))
       (SETQ |$insideFunctorIfTrue| NIL)
       (COND
@@ -1214,7 +1200,8 @@
                  (#2# '|domain|)))
         (SETQ |$lisplibForm| |form|)
         (COND
-         ((NULL |$bootStrapMode|) (SETQ |NRTslot1Info| (|NRTmakeSlot1Info|))
+         ((NULL |$bootStrapMode|)
+          (SETQ |NRTslot1Info| (|NRTmakeSlot1Info| |form| |base_shell|))
           (SETQ |libFn| (GETDATABASE |op'| 'ABBREVIATION))
           (SETQ |$lookupFunction|
                   (|NRTgetLookupFunction| |form| (CADAR |$lisplibModemap|)
@@ -1233,7 +1220,7 @@
                    NIL |$NRTslot1PredicateList| NIL))
           (|output_lisp_form|
            (LIST 'MAKEPROP (MKQ |$op|) ''|infovec|
-                 (|getInfovecCode| |NRTslot1Info|)))))
+                 (|getInfovecCode| |NRTslot1Info| |e|)))))
         (SETQ |$lisplibOperationAlist| |operationAlist|)
         (SETQ |$lisplibMissingFunctions| |$CheckVectorList|)))
       (COND
@@ -1242,9 +1229,9 @@
          (LIST 'MAKEPROP (LIST 'QUOTE |op'|) (LIST 'QUOTE 'NILADIC) T))))
       (LIST |fun| (CONS '|Mapping| |signature'|) |originale|)))))
  
-; compFunctorBody(body,m,e,parForm) ==
+; compFunctorBody(body, m, e, parForm, base_shell) ==
 ;   $bootStrapMode = true =>
-;     genOperationAlist()
+;     genOperationAlist(base_shell)
 ;     [bootStrapError($functorForm, $edit_file), m, e]
 ;   T:= compOrCroak(body,m,e)
 ;   body is [op,:.] and MEMQ(op,'(add CAPSULE)) => T
@@ -1253,13 +1240,13 @@
 ;     body
 ;   T
  
-(DEFUN |compFunctorBody| (|body| |m| |e| |parForm|)
+(DEFUN |compFunctorBody| (|body| |m| |e| |parForm| |base_shell|)
   (PROG (T$ |op| |ISTMP#1| |domainForm| |ISTMP#2| |predicate|)
     (RETURN
      (COND
       ((EQUAL |$bootStrapMode| T)
        (PROGN
-        (|genOperationAlist|)
+        (|genOperationAlist| |base_shell|)
         (LIST (|bootStrapError| |$functorForm| |$edit_file|) |m| |e|)))
       (#1='T
        (PROGN
@@ -2174,7 +2161,6 @@
 ;     $returnMode:= m
 ;     $op: local := nil
 ;     [$op,:argl]:= form
-;     $form : local := [$op, :argl]
 ;     $formalArgList:= [:argl,:$formalArgList]
 ; 
 ;     --let target and local signatures help determine modes of arguments
@@ -2206,7 +2192,7 @@
 ;     for domain in signature' repeat e:= addDomain(domain,e)
 ; 
 ;     --6. compile body in environment with extended environment
-;     rettype:= resolve(signature'.target,$returnMode)
+;     rettype := resolve(signature'.target, $returnMode)
 ; 
 ;     localOrExported :=
 ;       null member($op,$formalArgList) and
@@ -2222,7 +2208,7 @@
 ;     T := CATCH('compCapsuleBody, compOrCroak(body,rettype,e))
 ;            or ["",rettype,e]
 ; --+
-;     NRTassignCapsuleFunctionSlot($op, signature', e)
+;     NRTassignCapsuleFunctionSlot($op, signature', $domainShell, e)
 ;     if $newCompCompare=true then
 ;          SAY '"The old compiler generates:"
 ;          prTriple T
@@ -2242,14 +2228,14 @@
  
 (DEFUN |compDefineCapsuleFunction| (|df| |m| |oldE| |$prefix| |$formalArgList|)
   (DECLARE (SPECIAL |$prefix| |$formalArgList|))
-  (PROG (|$form| |$op| |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
+  (PROG (|$op| |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
          |$insideCapsuleFunctionIfTrue| |$initCapsuleErrorCount|
          |$locVarsTypes| |$finalEnv| |$functionStats| |val| |fun| |finalBody|
          |body'| |catchTag| T$ |formattedSig| |localOrExported| |ISTMP#1|
          |rettype| |signature'| |argModeList| |identSig| |argl| |e|
          |lineNumber| |LETTMP#1| |body| |specialCases| |signature| |form|)
     (DECLARE
-     (SPECIAL |$form| |$op| |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
+     (SPECIAL |$op| |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
       |$insideCapsuleFunctionIfTrue| |$initCapsuleErrorCount| |$locVarsTypes|
       |$finalEnv| |$functionStats|))
     (RETURN
@@ -2273,7 +2259,6 @@
       (SETQ |$op| NIL)
       (SETQ |$op| (CAR |form|))
       (SETQ |argl| (CDR |form|))
-      (SETQ |$form| (CONS |$op| |argl|))
       (SETQ |$formalArgList| (APPEND |argl| |$formalArgList|))
       (SETQ |argModeList|
               (COND
@@ -2342,7 +2327,7 @@
               (OR
                (CATCH '|compCapsuleBody| (|compOrCroak| |body| |rettype| |e|))
                (LIST '|| |rettype| |e|)))
-      (|NRTassignCapsuleFunctionSlot| |$op| |signature'| |e|)
+      (|NRTassignCapsuleFunctionSlot| |$op| |signature'| |$domainShell| |e|)
       (COND
        ((EQUAL |$newCompCompare| T) (SAY "The old compiler generates:")
         (|prTriple| T$)))
@@ -2706,26 +2691,24 @@
       (|NRTputInTail| (CDDADR |def|))
       |def|))))
  
-; compileCases(x,$e) == -- $e is referenced in compile
-;     do_compile x
+; compileCases(x, e) ==
+;     do_compile(x, e)
  
-(DEFUN |compileCases| (|x| |$e|)
-  (DECLARE (SPECIAL |$e|))
-  (PROG () (RETURN (|do_compile| |x|))))
+(DEFUN |compileCases| (|x| |e|) (PROG () (RETURN (|do_compile| |x| |e|))))
  
-; isLocalFunction op ==
+; isLocalFunction(op, e) ==
 ;     null member(op, $formalArgList) and
-;         getmode(op, $e) is ['Mapping, :.]
+;         getmode(op, e) is ['Mapping, :.]
  
-(DEFUN |isLocalFunction| (|op|)
+(DEFUN |isLocalFunction| (|op| |e|)
   (PROG (|ISTMP#1|)
     (RETURN
      (AND (NULL (|member| |op| |$formalArgList|))
           (PROGN
-           (SETQ |ISTMP#1| (|getmode| |op| |$e|))
+           (SETQ |ISTMP#1| (|getmode| |op| |e|))
            (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)))))))
  
-; do_compile u ==
+; do_compile(u, e) ==
 ;   [op,lamExpr] := u
 ;   if $suffix then
 ;     $suffix:= $suffix+1
@@ -2733,10 +2716,10 @@
 ;       opexport:=nil
 ;       opmodes:=
 ;         [sel
-;           for [[DC,:sig],[.,sel]] in get(op,'modemap,$e) |
+;           for [[DC, :sig], [., sel]] in get(op, 'modemap, e) |
 ;             DC='_$ and (opexport:=true) and
 ;              (and/[modeEqual(x,y) for x in sig for y in $signatureOfForm])]
-;       isLocalFunction op =>
+;       isLocalFunction(op, e) =>
 ;         if opexport then userError ['%b,op,'%d,'" is local and exported"]
 ;         INTERN STRCONC(encodeItem $prefix, '";", encodeItem op)
 ;       encodeFunctionName(op,$functorForm,$signatureOfForm,";",$suffix)
@@ -2753,7 +2736,7 @@
 ;   printStats functionStats
 ;   result
  
-(DEFUN |do_compile| (|u|)
+(DEFUN |do_compile| (|u| |e|)
   (PROG (|op| |lamExpr| |opexport| |ISTMP#1| DC |sig| |ISTMP#2| |ISTMP#3|
          |ISTMP#4| |sel| |opmodes| |op'| |optimizedBody| |stuffToCompile|
          |result| |functionStats|)
@@ -2828,9 +2811,9 @@
                                     (SETQ |bfVar#123|
                                             (CONS |sel| |bfVar#123|)))))
                              (SETQ |bfVar#119| (CDR |bfVar#119|))))
-                          NIL (|get| |op| '|modemap| |$e|) NIL))
+                          NIL (|get| |op| '|modemap| |e|) NIL))
                  (COND
-                  ((|isLocalFunction| |op|)
+                  ((|isLocalFunction| |op| |e|)
                    (PROGN
                     (COND
                      (|opexport|
@@ -3258,7 +3241,7 @@
 ;   if $addForm then data:= ['add,$addForm,data]
 ;   code:=
 ;     $insideCategoryIfTrue and not $insideCategoryPackageIfTrue => BREAK()
-;     processFunctor($form,$signature,data,localParList,e)
+;     processFunctor($functorForm, $signature, data, localParList, e)
 ;   [MKPF([code],"PROGN"),m,e]
  
 (DEFUN |compCapsuleInner| (|itemList| |m| |e|)
@@ -3276,14 +3259,14 @@
                      (NULL |$insideCategoryPackageIfTrue|))
                 (BREAK))
                ('T
-                (|processFunctor| |$form| |$signature| |data| |localParList|
-                 |e|))))
+                (|processFunctor| |$functorForm| |$signature| |data|
+                 |localParList| |e|))))
       (LIST (MKPF (LIST |code|) 'PROGN) |m| |e|)))))
  
 ; processFunctor(form,signature,data,localParList,e) ==
 ;   form is ["CategoryDefaults"] =>
 ;     error "CategoryDefaults is a reserved name"
-;   buildFunctor(form,signature,data,localParList,e)
+;   buildFunctor(form, signature, data, localParList, $domainShell, e)
  
 (DEFUN |processFunctor| (|form| |signature| |data| |localParList| |e|)
   (PROG ()
@@ -3292,16 +3275,18 @@
       ((AND (CONSP |form|) (EQ (CDR |form|) NIL)
             (EQ (CAR |form|) '|CategoryDefaults|))
        (|error| '|CategoryDefaults is a reserved name|))
-      ('T (|buildFunctor| |form| |signature| |data| |localParList| |e|))))))
+      ('T
+       (|buildFunctor| |form| |signature| |data| |localParList| |$domainShell|
+        |e|))))))
  
-; compCapsuleItems(itemlist,$predl,$e) ==
+; compCapsuleItems(itemlist, $predl, e) ==
 ;   $signatureOfForm: local := nil
 ;   $suffix: local:= 0
-;   for item in itemlist repeat $e:= compSingleCapsuleItem(item,$predl,$e)
-;   $e
+;   for item in itemlist repeat e := compSingleCapsuleItem(item, $predl, e)
+;   e
  
-(DEFUN |compCapsuleItems| (|itemlist| |$predl| |$e|)
-  (DECLARE (SPECIAL |$predl| |$e|))
+(DEFUN |compCapsuleItems| (|itemlist| |$predl| |e|)
+  (DECLARE (SPECIAL |$predl|))
   (PROG (|$suffix| |$signatureOfForm|)
     (DECLARE (SPECIAL |$suffix| |$signatureOfForm|))
     (RETURN
@@ -3313,72 +3298,83 @@
           (COND
            ((OR (ATOM |bfVar#135|) (PROGN (SETQ |item| (CAR |bfVar#135|)) NIL))
             (RETURN NIL))
-           ('T (SETQ |$e| (|compSingleCapsuleItem| |item| |$predl| |$e|))))
+           ('T (SETQ |e| (|compSingleCapsuleItem| |item| |$predl| |e|))))
           (SETQ |bfVar#135| (CDR |bfVar#135|))))
        |itemlist| NIL)
-      |$e|))))
+      |e|))))
  
-; compSingleCapsuleItem(item,$predl,$e) ==
-;   doIt(macroExpandInPlace(item,$e),$predl)
-;   $e
+; compSingleCapsuleItem(item, $predl, e) ==
+;   doIt(macroExpandInPlace(item, e), $predl, e)
  
-(DEFUN |compSingleCapsuleItem| (|item| |$predl| |$e|)
-  (DECLARE (SPECIAL |$predl| |$e|))
-  (PROG ()
-    (RETURN (PROGN (|doIt| (|macroExpandInPlace| |item| |$e|) |$predl|) |$e|))))
+(DEFUN |compSingleCapsuleItem| (|item| |$predl| |e|)
+  (DECLARE (SPECIAL |$predl|))
+  (PROG () (RETURN (|doIt| (|macroExpandInPlace| |item| |e|) |$predl| |e|))))
  
-; doIt(item,$predl) ==
+; doIt(item, $predl, e) ==
 ;   $GENNO: local:= 0
 ;   item is ['SEQ,:l,['exit,1,x]] =>
 ;     RPLACA(item,"PROGN")
 ;     RPLACA(LASTNODE item,x)
-;     for it1 in rest item repeat $e:= compSingleCapsuleItem(it1,$predl,$e)
+;     for it1 in rest item repeat e := compSingleCapsuleItem(it1, $predl, e)
 ;         --This will RPLAC as appropriate
-;   isDomainForm(item,$e) =>
+;     e
+;   isDomainForm(item, e) =>
 ;      -- convert naked top level domains to import
 ;     u:= ['import, [first item,:rest item]]
 ;     userError ["Use: import ", [first item,:rest item]]
 ;     RPLACA(item,first u)
 ;     RPLACD(item,rest u)
-;     doIt(item,$predl)
+;     doIt(item, $predl, e)
 ;   item is [":=", lhs, rhs, :.] =>
-;     not (compOrCroak(item,$EmptyMode,$e) is [code,.,$e]) =>
+;     not (compOrCroak(item, $EmptyMode, e) is [code, ., e]) =>
 ;       stackSemanticError(["cannot compile assigned value to",:bright lhs],nil)
+;       e
 ;     not (code is ['LET,lhs',rhs',:.] and atom lhs') =>
 ;       code is ["PROGN",:.] =>
 ;          stackSemanticError(["multiple assignment ",item," not allowed"],nil)
+;          e
 ;       RPLACA(item,first code)
 ;       RPLACD(item,rest code)
+;       e
 ;     lhs:= lhs'
 ;     if not member(IFCAR rhs, $NonMentionableDomainNames) and
 ;       not MEMQ(lhs, $functorLocalParameters) then
 ;          $functorLocalParameters:= [:$functorLocalParameters,lhs]
-;     if code is ['LET,.,rhs',:.] and isDomainForm(rhs',$e) then
+;     if code is ['LET, ., rhs', :.] and isDomainForm(rhs', e) then
 ;       if lhs="Rep" then
-;         $Representation:= (get("Rep",'value,$e)).(0)
+;         -- FIXME: $Representation is set unconditionally, but
+;         -- assignment to Rep may be conditional ...
+;         $Representation := (get("Rep", 'value, e)).(0)
 ;            --$Representation bound by compDefineFunctor, used in compNoStacking
 ; --+
 ; --+
 ; --+
-;     code is ['LET,:.] =>
+;     code is ['LET, :.] =>
 ;       RPLACA(item,($QuickCode => 'QSETREFV;'SETELT))
 ;       rhsCode:=
 ;        rhs'
-;       RPLACD(item, ['$, NRTgetLocalIndex(lhs, $e), rhsCode])
+;       RPLACD(item, ['$, NRTgetLocalIndex(lhs, e), rhsCode])
+;       e
 ;     RPLACA(item,first code)
 ;     RPLACD(item,rest code)
-;   item is [":",a,t] => [.,.,$e]:= compOrCroak(item,$EmptyMode,$e)
+;     e
+;   item is [":", a, t] =>
+;       [., ., e] := compOrCroak(item, $EmptyMode, e)
+;       e
 ;   item is ['import,:doms] =>
 ;      for dom in doms repeat
 ;        sayBrightly ['"   importing ",:formatUnabbreviated dom]
-;      [.,.,$e] := compOrCroak(item,$EmptyMode,$e)
+;      [., ., e] := compOrCroak(item, $EmptyMode, e)
 ;      RPLACA(item,'PROGN)
 ;      RPLACD(item,NIL) -- creates a no-op
-;   item is ["IF",:.] => doItIf(item,$predl,$e)
-;   item is ["where",b,:l] => doItWhere(item, $predl, $e)
-;   item is ["MDEF",:.] => [.,.,$e]:= compOrCroak(item,$EmptyMode,$e)
+;      e
+;   item is ["IF", :.] => doItIf(item, $predl, e)
+;   item is ["where", b, :l] => doItWhere(item, $predl, e)
+;   item is ["MDEF", :.] =>
+;       [., ., e] := compOrCroak(item, $EmptyMode, e)
+;       e
 ;   item is ['DEF,[op,:.],:.] =>
-;     [.,.,$e]:= t:= compOrCroak(item,$EmptyMode,$e)
+;     [., ., e] := t := compOrCroak(item, $EmptyMode, e)
 ;     RPLACA(item,"CodeDefine")
 ;         --Note that DescendCode, in CodeDefine, is looking for this
 ;     RPLACD(CADR item,[$signatureOfForm])
@@ -3387,11 +3383,13 @@
 ;     functionPart:= ['dispatchFunction,t.expr]
 ;     RPLACA(CDDR item,functionPart)
 ;     RPLACD(CDDR item,nil)
-;   u:= compOrCroak(item,$EmptyMode,$e) =>
-;     ([code,.,$e]:= u; RPLACA(item,first code); RPLACD(item,rest code))
+;     e
+;   u := compOrCroak(item, $EmptyMode, e) =>
+;     ([code, ., e] := u; RPLACA(item, first code); RPLACD(item, rest code))
+;     e
 ;   true => cannotDo()
  
-(DEFUN |doIt| (|item| |$predl|)
+(DEFUN |doIt| (|item| |$predl| |e|)
   (DECLARE (SPECIAL |$predl|))
   (PROG ($GENNO |functionPart| |op| |b| |doms| |LETTMP#1| |t| |a| |rhsCode|
          |rhs'| |lhs'| |code| |rhs| |lhs| |u| |l| |x| |ISTMP#5| |ISTMP#4|
@@ -3430,16 +3428,17 @@
               ((OR (ATOM |bfVar#136|)
                    (PROGN (SETQ |it1| (CAR |bfVar#136|)) NIL))
                (RETURN NIL))
-              (#1# (SETQ |$e| (|compSingleCapsuleItem| |it1| |$predl| |$e|))))
+              (#1# (SETQ |e| (|compSingleCapsuleItem| |it1| |$predl| |e|))))
              (SETQ |bfVar#136| (CDR |bfVar#136|))))
-          (CDR |item|) NIL)))
-       ((|isDomainForm| |item| |$e|)
+          (CDR |item|) NIL)
+         |e|))
+       ((|isDomainForm| |item| |e|)
         (PROGN
          (SETQ |u| (LIST '|import| (CONS (CAR |item|) (CDR |item|))))
          (|userError| (LIST '|Use: import | (CONS (CAR |item|) (CDR |item|))))
          (RPLACA |item| (CAR |u|))
          (RPLACD |item| (CDR |u|))
-         (|doIt| |item| |$predl|)))
+         (|doIt| |item| |$predl| |e|)))
        ((AND (CONSP |item|) (EQ (CAR |item|) '|:=|)
              (PROGN
               (SETQ |ISTMP#1| (CDR |item|))
@@ -3452,7 +3451,7 @@
         (COND
          ((NULL
            (PROGN
-            (SETQ |ISTMP#1| (|compOrCroak| |item| |$EmptyMode| |$e|))
+            (SETQ |ISTMP#1| (|compOrCroak| |item| |$EmptyMode| |e|))
             (AND (CONSP |ISTMP#1|)
                  (PROGN
                   (SETQ |code| (CAR |ISTMP#1|))
@@ -3461,9 +3460,11 @@
                        (PROGN
                         (SETQ |ISTMP#3| (CDR |ISTMP#2|))
                         (AND (CONSP |ISTMP#3|) (EQ (CDR |ISTMP#3|) NIL)
-                             (PROGN (SETQ |$e| (CAR |ISTMP#3|)) #1#))))))))
-          (|stackSemanticError|
-           (CONS '|cannot compile assigned value to| (|bright| |lhs|)) NIL))
+                             (PROGN (SETQ |e| (CAR |ISTMP#3|)) #1#))))))))
+          (PROGN
+           (|stackSemanticError|
+            (CONS '|cannot compile assigned value to| (|bright| |lhs|)) NIL)
+           |e|))
          ((NULL
            (AND (CONSP |code|) (EQ (CAR |code|) 'LET)
                 (PROGN
@@ -3477,12 +3478,15 @@
                 (ATOM |lhs'|)))
           (COND
            ((AND (CONSP |code|) (EQ (CAR |code|) 'PROGN))
-            (|stackSemanticError|
-             (LIST '|multiple assignment | |item| '| not allowed|) NIL))
+            (PROGN
+             (|stackSemanticError|
+              (LIST '|multiple assignment | |item| '| not allowed|) NIL)
+             |e|))
            (#1#
             (PROGN
              (RPLACA |item| (CAR |code|))
-             (RPLACD |item| (CDR |code|))))))
+             (RPLACD |item| (CDR |code|))
+             |e|))))
          (#1#
           (PROGN
            (SETQ |lhs| |lhs'|)
@@ -3500,22 +3504,23 @@
                          (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                          (AND (CONSP |ISTMP#2|)
                               (PROGN (SETQ |rhs'| (CAR |ISTMP#2|)) #1#)))))
-                  (|isDomainForm| |rhs'| |$e|))
+                  (|isDomainForm| |rhs'| |e|))
              (COND
               ((EQ |lhs| '|Rep|)
-               (SETQ |$Representation|
-                       (ELT (|get| '|Rep| '|value| |$e|) 0))))))
+               (SETQ |$Representation| (ELT (|get| '|Rep| '|value| |e|) 0))))))
            (COND
             ((AND (CONSP |code|) (EQ (CAR |code|) 'LET))
              (PROGN
               (RPLACA |item| (COND (|$QuickCode| 'QSETREFV) (#1# 'SETELT)))
               (SETQ |rhsCode| |rhs'|)
               (RPLACD |item|
-                      (LIST '$ (|NRTgetLocalIndex| |lhs| |$e|) |rhsCode|))))
+                      (LIST '$ (|NRTgetLocalIndex| |lhs| |e|) |rhsCode|))
+              |e|))
             (#1#
              (PROGN
               (RPLACA |item| (CAR |code|))
-              (RPLACD |item| (CDR |code|)))))))))
+              (RPLACD |item| (CDR |code|))
+              |e|)))))))
        ((AND (CONSP |item|) (EQ (CAR |item|) '|:|)
              (PROGN
               (SETQ |ISTMP#1| (CDR |item|))
@@ -3526,9 +3531,9 @@
                     (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                          (PROGN (SETQ |t| (CAR |ISTMP#2|)) #1#))))))
         (PROGN
-         (SETQ |LETTMP#1| (|compOrCroak| |item| |$EmptyMode| |$e|))
-         (SETQ |$e| (CADDR |LETTMP#1|))
-         |LETTMP#1|))
+         (SETQ |LETTMP#1| (|compOrCroak| |item| |$EmptyMode| |e|))
+         (SETQ |e| (CADDR |LETTMP#1|))
+         |e|))
        ((AND (CONSP |item|) (EQ (CAR |item|) '|import|)
              (PROGN (SETQ |doms| (CDR |item|)) #1#))
         (PROGN
@@ -3543,12 +3548,13 @@
                 (CONS "   importing " (|formatUnabbreviated| |dom|)))))
              (SETQ |bfVar#137| (CDR |bfVar#137|))))
           |doms| NIL)
-         (SETQ |LETTMP#1| (|compOrCroak| |item| |$EmptyMode| |$e|))
-         (SETQ |$e| (CADDR |LETTMP#1|))
+         (SETQ |LETTMP#1| (|compOrCroak| |item| |$EmptyMode| |e|))
+         (SETQ |e| (CADDR |LETTMP#1|))
          (RPLACA |item| 'PROGN)
-         (RPLACD |item| NIL)))
+         (RPLACD |item| NIL)
+         |e|))
        ((AND (CONSP |item|) (EQ (CAR |item|) 'IF))
-        (|doItIf| |item| |$predl| |$e|))
+        (|doItIf| |item| |$predl| |e|))
        ((AND (CONSP |item|) (EQ (CAR |item|) '|where|)
              (PROGN
               (SETQ |ISTMP#1| (CDR |item|))
@@ -3557,12 +3563,12 @@
                     (SETQ |b| (CAR |ISTMP#1|))
                     (SETQ |l| (CDR |ISTMP#1|))
                     #1#))))
-        (|doItWhere| |item| |$predl| |$e|))
+        (|doItWhere| |item| |$predl| |e|))
        ((AND (CONSP |item|) (EQ (CAR |item|) 'MDEF))
         (PROGN
-         (SETQ |LETTMP#1| (|compOrCroak| |item| |$EmptyMode| |$e|))
-         (SETQ |$e| (CADDR |LETTMP#1|))
-         |LETTMP#1|))
+         (SETQ |LETTMP#1| (|compOrCroak| |item| |$EmptyMode| |e|))
+         (SETQ |e| (CADDR |LETTMP#1|))
+         |e|))
        ((AND (CONSP |item|) (EQ (CAR |item|) 'DEF)
              (PROGN
               (SETQ |ISTMP#1| (CDR |item|))
@@ -3572,19 +3578,21 @@
                     (AND (CONSP |ISTMP#2|)
                          (PROGN (SETQ |op| (CAR |ISTMP#2|)) #1#))))))
         (PROGN
-         (SETQ |t| (|compOrCroak| |item| |$EmptyMode| |$e|))
-         (SETQ |$e| (CADDR |t|))
+         (SETQ |t| (|compOrCroak| |item| |$EmptyMode| |e|))
+         (SETQ |e| (CADDR |t|))
          (RPLACA |item| '|CodeDefine|)
          (RPLACD (CADR |item|) (LIST |$signatureOfForm|))
          (SETQ |functionPart| (LIST '|dispatchFunction| (CAR |t|)))
          (RPLACA (CDDR |item|) |functionPart|)
-         (RPLACD (CDDR |item|) NIL)))
-       ((SETQ |u| (|compOrCroak| |item| |$EmptyMode| |$e|))
+         (RPLACD (CDDR |item|) NIL)
+         |e|))
+       ((SETQ |u| (|compOrCroak| |item| |$EmptyMode| |e|))
         (PROGN
          (SETQ |code| (CAR |u|))
-         (SETQ |$e| (CADDR |u|))
+         (SETQ |e| (CADDR |u|))
          (RPLACA |item| (CAR |code|))
-         (RPLACD |item| (CDR |code|))))
+         (RPLACD |item| (CDR |code|))
+         |e|))
        (T (|cannotDo|)))))))
  
 ; isMacro(x,e) ==
@@ -3627,40 +3635,42 @@
             (EQ (CDR |signature|) NIL) (NULL (CAR |signature|)))
        (IDENTITY |body|))))))
  
-; doItIf(item is [., p, x, y], $predl, $e) ==
-;     olde := $e
-;     [p', ., $e] := comp(p, $Boolean, $e) or userError ['"not a Boolean:", p]
+; doItIf(item is [., p, x, y], $predl, e) ==
+;     olde := e
+;     [p', ., e] := comp(p, $Boolean, e) or userError ['"not a Boolean:", p]
 ;     if x ~= "noBranch" then
-;         compSingleCapsuleItem(x, $predl, getSuccessEnvironment(p, $e))
+;         compSingleCapsuleItem(x, $predl, getSuccessEnvironment(p, e))
 ;     if y ~= "noBranch" then
 ;         compSingleCapsuleItem(y, $predl, getInverseEnvironment(p, olde))
 ;     RPLACA(item, "COND")
 ;     RPLACD(item, [[p', x], ['(QUOTE T), y]])
+;     olde
  
-(DEFUN |doItIf| (|item| |$predl| |$e|)
-  (DECLARE (SPECIAL |$predl| |$e|))
+(DEFUN |doItIf| (|item| |$predl| |e|)
+  (DECLARE (SPECIAL |$predl|))
   (PROG (|p| |x| |y| |olde| |LETTMP#1| |p'|)
     (RETURN
      (PROGN
       (SETQ |p| (CADR . #1=(|item|)))
       (SETQ |x| (CADDR . #1#))
       (SETQ |y| (CADDDR . #1#))
-      (SETQ |olde| |$e|)
+      (SETQ |olde| |e|)
       (SETQ |LETTMP#1|
-              (OR (|comp| |p| |$Boolean| |$e|)
+              (OR (|comp| |p| |$Boolean| |e|)
                   (|userError| (LIST "not a Boolean:" |p|))))
       (SETQ |p'| (CAR |LETTMP#1|))
-      (SETQ |$e| (CADDR |LETTMP#1|))
+      (SETQ |e| (CADDR |LETTMP#1|))
       (COND
        ((NOT (EQ |x| '|noBranch|))
         (|compSingleCapsuleItem| |x| |$predl|
-         (|getSuccessEnvironment| |p| |$e|))))
+         (|getSuccessEnvironment| |p| |e|))))
       (COND
        ((NOT (EQ |y| '|noBranch|))
         (|compSingleCapsuleItem| |y| |$predl|
          (|getInverseEnvironment| |p| |olde|))))
       (RPLACA |item| 'COND)
-      (RPLACD |item| (LIST (LIST |p'| |x|) (LIST ''T |y|)))))))
+      (RPLACD |item| (LIST (LIST |p'| |x|) (LIST ''T |y|)))
+      |olde|))))
  
 ; doItWhere(item is [.,form,:exprList], $predl, eInit) ==
 ;   $insideWhereIfTrue: local:= true
@@ -3674,9 +3684,9 @@
 ;   eFinal:=
 ;     del:= deltaContour(eAfter, eBefore) => addContour(del, eInit)
 ;     eInit
-;   $e := eFinal
 ;   RPLACA(item, "PROGN")
 ;   RPLACD(item, [["PROGN", :exprList], form1])
+;   eFinal
  
 (DEFUN |doItWhere| (|item| |$predl| |eInit|)
   (DECLARE (SPECIAL |$predl|))
@@ -3708,9 +3718,9 @@
                ((SETQ |del| (|deltaContour| |eAfter| |eBefore|))
                 (|addContour| |del| |eInit|))
                (#2# |eInit|)))
-      (SETQ |$e| |eFinal|)
       (RPLACA |item| 'PROGN)
-      (RPLACD |item| (LIST (CONS 'PROGN |exprList|) |form1|))))))
+      (RPLACD |item| (LIST (CONS 'PROGN |exprList|) |form1|))
+      |eFinal|))))
  
 ; compJoin(["Join",:argl],m,e) ==
 ;   catList:= [(compForMode(x,$Category,e) or return 'failed).expr for x in argl]

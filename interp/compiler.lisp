@@ -3176,7 +3176,7 @@
        (#2# (LIST '|HasCategory| |a| (|mkDomainConstructor| |b|))))))))
  
 ; compHasFormat (pred is ["has",olda,b], e) ==
-;   argl := rest $form
+;   argl := rest($functorForm)
 ;   formals := TAKE(#argl,$FormalMapVariableList)
 ;   a := SUBLISLIS(argl,formals,olda)
 ;   [a,:.] := comp(a, $EmptyMode, e) or return nil
@@ -3195,7 +3195,7 @@
      (PROGN
       (SETQ |olda| (CADR . #1=(|pred|)))
       (SETQ |b| (CADDR . #1#))
-      (SETQ |argl| (CDR |$form|))
+      (SETQ |argl| (CDR |$functorForm|))
       (SETQ |formals| (TAKE (LENGTH |argl|) |$FormalMapVariableList|))
       (SETQ |a| (SUBLISLIS |argl| |formals| |olda|))
       (SETQ |LETTMP#1| (OR (|comp| |a| |$EmptyMode| |e|) (RETURN NIL)))

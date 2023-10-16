@@ -249,13 +249,13 @@
               NIL |v| NIL)))
       (#1# (|systemError| "formatPred"))))))
  
-; chaseInferences(pred,$e) ==
-;   foo hasToInfo pred where
-;     foo pred ==
+; chaseInferences(pred, $info_e) ==
+;   foo(hasToInfo(pred)) where
+;     foo(pred) ==
 ;       knownInfo pred => nil
-;       $e:= actOnInfo(pred,$e)
+;       $info_e := actOnInfo(pred, $info_e)
 ;       pred:= infoToHas pred
-;       for u in get("$Information","special",$e) repeat
+;       for u in get("$Information", "special", $info_e) repeat
 ;         u is ["COND",:l] =>
 ;           for [ante,:conseq] in l repeat
 ;             ante=pred => [foo w for w in conseq]
@@ -265,23 +265,24 @@
 ;                 LENGTH ante'=1 => first ante'
 ;                 ["and",:ante']
 ;               v':= ["COND",[v',:conseq]]
-;               member(v',get("$Information","special",$e)) => nil
-;               $e:=
-;                 put("$Information","special",[v',:
-;                   get("$Information","special",$e)],$e)
+;               member(v', get("$Information", "special", $info_e)) => nil
+;               $info_e :=
+;                 put("$Information", "special", [v',:
+;                   get("$Information", "special", $info_e)], $info_e)
 ;             nil
-;   $e
+;   $info_e
  
-(DEFUN |chaseInferences| (|pred| |$e|)
-  (DECLARE (SPECIAL |$e|))
-  (PROG () (RETURN (PROGN (|chaseInferences,foo| (|hasToInfo| |pred|)) |$e|))))
+(DEFUN |chaseInferences| (|pred| |$info_e|)
+  (DECLARE (SPECIAL |$info_e|))
+  (PROG ()
+    (RETURN (PROGN (|chaseInferences,foo| (|hasToInfo| |pred|)) |$info_e|))))
 (DEFUN |chaseInferences,foo| (|pred|)
   (PROG (|l| |ante| |conseq| |ante'| |v'|)
     (RETURN
      (COND ((|knownInfo| |pred|) NIL)
            (#1='T
             (PROGN
-             (SETQ |$e| (|actOnInfo| |pred| |$e|))
+             (SETQ |$info_e| (|actOnInfo| |pred| |$info_e|))
              (SETQ |pred| (|infoToHas| |pred|))
              ((LAMBDA (|bfVar#11| |u|)
                 (LOOP
@@ -337,20 +338,21 @@
                                             (LIST 'COND (CONS |v'| |conseq|)))
                                     (COND
                                      ((|member| |v'|
-                                       (|get| '|$Information| '|special| |$e|))
+                                       (|get| '|$Information| '|special|
+                                        |$info_e|))
                                       NIL)
                                      (#1#
-                                      (SETQ |$e|
+                                      (SETQ |$info_e|
                                               (|put| '|$Information| '|special|
                                                (CONS |v'|
                                                      (|get| '|$Information|
-                                                      '|special| |$e|))
-                                               |$e|))))))
+                                                      '|special| |$info_e|))
+                                               |$info_e|))))))
                                   (#1# NIL)))))
                           (SETQ |bfVar#13| (CDR |bfVar#13|))))
                        |l| NIL))))))
                  (SETQ |bfVar#11| (CDR |bfVar#11|))))
-              (|get| '|$Information| '|special| |$e|) NIL)))))))
+              (|get| '|$Information| '|special| |$info_e|) NIL)))))))
  
 ; hasToInfo (pred is ["has",a,b]) ==
 ;   b is ["SIGNATURE",:data] => ["SIGNATURE",a,:data]
@@ -409,10 +411,10 @@
  
 (DEFPARAMETER |$cycleMarker| (GENSYM))
  
-; known_info_in_env(pred, $e) == knownInfo(pred)
+; known_info_in_env(pred, $info_e) == knownInfo(pred)
  
-(DEFUN |known_info_in_env| (|pred| |$e|)
-  (DECLARE (SPECIAL |$e|))
+(DEFUN |known_info_in_env| (|pred| |$info_e|)
+  (DECLARE (SPECIAL |$info_e|))
   (PROG () (RETURN (|knownInfo| |pred|))))
  
 ; hashed_known_info(pred) ==
@@ -429,7 +431,7 @@
 ;                --true %if the information is already known
 ;   pred=true => true
 ;   --pred = "true" => true
-;   member(pred,get("$Information","special",$e)) => true
+;   member(pred, get("$Information", "special", $info_e)) => true
 ;   not($infoHash) => hashed_known_info(pred)
 ;   ress := HGET($infoHash, pred) =>
 ;       ress = $cycleMarker => nil
@@ -444,7 +446,7 @@
   (PROG (|ress|)
     (RETURN
      (COND ((EQUAL |pred| T) T)
-           ((|member| |pred| (|get| '|$Information| '|special| |$e|)) T)
+           ((|member| |pred| (|get| '|$Information| '|special| |$info_e|)) T)
            ((NULL |$infoHash|) (|hashed_known_info| |pred|))
            ((SETQ |ress| (HGET |$infoHash| |pred|))
             (COND ((EQUAL |ress| |$cycleMarker|) NIL) (#1='T |ress|)))
@@ -481,12 +483,12 @@
 ;     -- FIXME: there is confusion between '$ in outer domain
 ;     -- (the one which needs info) and freshly compiled
 ;     -- domain...
-;     v:= compForMode(name,$EmptyMode,$e)
+;     v := compForMode(name, $EmptyMode, $info_e)
 ;     null v => stackSemanticError(["can't find category of ",name],nil)
 ;     vmode := CADR v
 ;     cat = vmode => true
 ;     vmode is ["Join",:l] and member(cat,l) => true
-;     [vv, ., .] := get_catlist(vmode, $e)
+;     [vv, ., .] := get_catlist(vmode, $info_e)
 ;     catlist := vv.4
 ;     --catlist := SUBST(name,'$,vv.4)
 ;     null vv => stackSemanticError(["can't make category of ",name],nil)
@@ -501,7 +503,7 @@
 ;           for u in CADR catlist] => true
 ;     false
 ;   pred is ["SIGNATURE",name,op,sig,:.] =>
-;       v:= get(op,"modemap",$e)
+;       v:= get(op, "modemap", $info_e)
 ;       res := false
 ;       for w in v while(not(res)) repeat
 ;           w1 := first(w)
@@ -599,7 +601,7 @@
         ((AND (CONSP |name|) (EQ (CAR |name|) '|Union|)) NIL)
         (#1#
          (PROGN
-          (SETQ |v| (|compForMode| |name| |$EmptyMode| |$e|))
+          (SETQ |v| (|compForMode| |name| |$EmptyMode| |$info_e|))
           (COND
            ((NULL |v|)
             (|stackSemanticError| (LIST '|can't find category of | |name|)
@@ -614,7 +616,7 @@
                     T)
                    (#1#
                     (PROGN
-                     (SETQ |LETTMP#1| (|get_catlist| |vmode| |$e|))
+                     (SETQ |LETTMP#1| (|get_catlist| |vmode| |$info_e|))
                      (SETQ |vv| (CAR |LETTMP#1|))
                      (SETQ |catlist| (ELT |vv| 4))
                      (COND
@@ -655,7 +657,7 @@
                          (AND (CONSP |ISTMP#3|)
                               (PROGN (SETQ |sig| (CAR |ISTMP#3|)) #1#))))))))
        (PROGN
-        (SETQ |v| (|get| |op| '|modemap| |$e|))
+        (SETQ |v| (|get| |op| '|modemap| |$info_e|))
         (SETQ |res| NIL)
         ((LAMBDA (|bfVar#26| |w|)
            (LOOP
@@ -677,38 +679,40 @@
         |res|))
       (#1# NIL)))))
  
-; actOnInfo(u,$e) ==
-;   null u => $e
-;   u is ["PROGN",:l] => (for v in l repeat $e:= actOnInfo(v,$e); $e)
-;   $e:=
-;     put("$Information","special",Info:= [u,:get("$Information","special",$e)],$e
-;       )
+; actOnInfo(u, e) ==
+;   null u => e
+;   u is ["PROGN", :l] =>
+;       for v in l repeat
+;           e := actOnInfo(v, e)
+;       e
+;   Info := [u, :get("$Information", "special", e)]
+;   e := put("$Information", "special", Info, e)
 ;   u is ["COND",:l] =>
 ;       --there is nowhere %else that this sort of thing exists
 ;     for [ante,:conseq] in l repeat
 ;       if member(hasToInfo ante,Info) then for v in conseq repeat
-;         $e:= actOnInfo(v,$e)
-;     $e
+;         e := actOnInfo(v, e)
+;     e
 ;   u is ["ATTRIBUTE",name,att] => BREAK()
 ;   u is ["SIGNATURE",name,operator,modemap] =>
 ;     implem:=
-;       (implem:= assoc([name,:modemap],get(operator,'modemap,$e))) =>
+;       (implem := assoc([name, :modemap], get(operator, 'modemap, e))) =>
 ;           CADADR implem
 ;       name = "$" => ['ELT,name,-1]
 ;       ['ELT,name,substitute('$,name,modemap)]
-;     $e:= addModemap(operator,name,modemap,true,implem,$e)
-;     [vval,vmode,venv]:= GetValue name
+;     e := addModemap(operator, name, modemap, true, implem, e)
+;     [vval, vmode, venv] := GetValue(name, e)
 ;     SAY("augmenting ",name,": ",u)
 ;     key:= if CONTAINED("$",vmode) then "domain" else name
 ;     cat:= ["CATEGORY",key,["SIGNATURE",operator,modemap]]
-;     $e:= put(name,"value",[vval,mkJoin(cat,vmode),venv],$e)
+;     put(name, "value", [vval, mkJoin(cat, vmode), venv], e)
 ;   u is ["has",name,cat] =>
-;     [vval,vmode,venv]:= GetValue name
-;     cat=vmode => $e --stating the already known
-;     u:= compMakeCategoryObject(cat,$e) =>
+;     [vval, vmode, venv] := GetValue(name, e)
+;     cat = vmode => e --stating the already known
+;     u := compMakeCategoryObject(cat, e) =>
 ;          --we are adding information about a category
-;       [catvec,.,$e]:= u
-;       [ocatvec,.,$e]:= compMakeCategoryObject(vmode,$e)
+;       [catvec, ., e] := u
+;       [ocatvec, ., e] := compMakeCategoryObject(vmode, e)
 ;       -- member(vmode, first catvec.4) =>
 ;       --    JHD 82/08/08 01:40 This does not mean that we can ignore the
 ;       --    extension, since this may not be compatible with the view we
@@ -719,30 +723,29 @@
 ;       --    SAY("augmenting ",name,": ",cat)
 ;       --    put(name, "value", (vval, cat, venv), $e)
 ;       member(cat,first ocatvec.4) or
-;          assoc(cat,CADR ocatvec.4) is [.,'T,.] => $e
+;          assoc(cat, CADR ocatvec.4) is [., 'T, .] => e
 ;         --SAY("Category extension error:
 ;         --cat shouldn't be a join
 ;                       --what was being asserted is an ancestor of what was known
 ;       -- augModemapsFromCategory asserts that domain is in scope,
 ;       -- so make sure it really is (and not only the extra view we add)
-;       $e := addDomain(name, $e)
-;       if ATOM(name)
-;         then $e:= augModemapsFromCategory(name,name,name,cat,$e)
-;         else
-;             $e := augModemapsFromCategory(name, name, nil, cat, $e)
+;       e := addDomain(name, e)
+;       if ATOM(name) then
+;           e := augModemapsFromCategory(name, name, name, cat, e)
+;       else
+;           e := augModemapsFromCategory(name, name, nil, cat, e)
 ;       SAY("augmenting ",name,": ",cat)
-;       $e:= put(name,"value",[vval,mkJoin(cat,vmode),venv],$e)
+;       e := put(name, "value", [vval, mkJoin(cat, vmode), venv], e)
 ;     SAY("extension of ",vval," to ",cat," ignored")
-;     $e
+;     e
 ;   systemError '"knownInfo"
  
-(DEFUN |actOnInfo| (|u| |$e|)
-  (DECLARE (SPECIAL |$e|))
+(DEFUN |actOnInfo| (|u| |e|)
   (PROG (|l| |Info| |ante| |conseq| |ISTMP#1| |name| |ISTMP#2| |att| |operator|
          |ISTMP#3| |modemap| |implem| |LETTMP#1| |vval| |vmode| |venv| |key|
          |cat| |catvec| |ocatvec|)
     (RETURN
-     (COND ((NULL |u|) |$e|)
+     (COND ((NULL |u|) |e|)
            ((AND (CONSP |u|) (EQ (CAR |u|) 'PROGN)
                  (PROGN (SETQ |l| (CDR |u|)) #1='T))
             (PROGN
@@ -752,18 +755,14 @@
                   ((OR (ATOM |bfVar#27|)
                        (PROGN (SETQ |v| (CAR |bfVar#27|)) NIL))
                    (RETURN NIL))
-                  (#1# (SETQ |$e| (|actOnInfo| |v| |$e|))))
+                  (#1# (SETQ |e| (|actOnInfo| |v| |e|))))
                  (SETQ |bfVar#27| (CDR |bfVar#27|))))
               |l| NIL)
-             |$e|))
+             |e|))
            (#1#
             (PROGN
-             (SETQ |$e|
-                     (|put| '|$Information| '|special|
-                      (SETQ |Info|
-                              (CONS |u|
-                                    (|get| '|$Information| '|special| |$e|)))
-                      |$e|))
+             (SETQ |Info| (CONS |u| (|get| '|$Information| '|special| |e|)))
+             (SETQ |e| (|put| '|$Information| '|special| |Info| |e|))
              (COND
               ((AND (CONSP |u|) (EQ (CAR |u|) 'COND)
                     (PROGN (SETQ |l| (CDR |u|)) #1#))
@@ -788,12 +787,12 @@
                                   ((OR (ATOM |bfVar#30|)
                                        (PROGN (SETQ |v| (CAR |bfVar#30|)) NIL))
                                    (RETURN NIL))
-                                  (#1# (SETQ |$e| (|actOnInfo| |v| |$e|))))
+                                  (#1# (SETQ |e| (|actOnInfo| |v| |e|))))
                                  (SETQ |bfVar#30| (CDR |bfVar#30|))))
                               |conseq| NIL))))))
                     (SETQ |bfVar#29| (CDR |bfVar#29|))))
                  |l| NIL)
-                |$e|))
+                |e|))
               ((AND (CONSP |u|) (EQ (CAR |u|) 'ATTRIBUTE)
                     (PROGN
                      (SETQ |ISTMP#1| (CDR |u|))
@@ -825,16 +824,16 @@
                         (COND
                          ((SETQ |implem|
                                   (|assoc| (CONS |name| |modemap|)
-                                   (|get| |operator| '|modemap| |$e|)))
+                                   (|get| |operator| '|modemap| |e|)))
                           (CADADR |implem|))
                          ((EQ |name| '$) (LIST 'ELT |name| (- 1)))
                          (#1#
                           (LIST 'ELT |name|
                                 (|substitute| '$ |name| |modemap|)))))
-                (SETQ |$e|
+                (SETQ |e|
                         (|addModemap| |operator| |name| |modemap| T |implem|
-                         |$e|))
-                (SETQ |LETTMP#1| (|GetValue| |name|))
+                         |e|))
+                (SETQ |LETTMP#1| (|GetValue| |name| |e|))
                 (SETQ |vval| (CAR |LETTMP#1|))
                 (SETQ |vmode| (CADR . #2=(|LETTMP#1|)))
                 (SETQ |venv| (CADDR . #2#))
@@ -844,9 +843,8 @@
                 (SETQ |cat|
                         (LIST 'CATEGORY |key|
                               (LIST 'SIGNATURE |operator| |modemap|)))
-                (SETQ |$e|
-                        (|put| |name| '|value|
-                         (LIST |vval| (|mkJoin| |cat| |vmode|) |venv|) |$e|))))
+                (|put| |name| '|value|
+                 (LIST |vval| (|mkJoin| |cat| |vmode|) |venv|) |e|)))
               ((AND (CONSP |u|) (EQ (CAR |u|) '|has|)
                     (PROGN
                      (SETQ |ISTMP#1| (CDR |u|))
@@ -857,19 +855,19 @@
                            (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                                 (PROGN (SETQ |cat| (CAR |ISTMP#2|)) #1#))))))
                (PROGN
-                (SETQ |LETTMP#1| (|GetValue| |name|))
+                (SETQ |LETTMP#1| (|GetValue| |name| |e|))
                 (SETQ |vval| (CAR |LETTMP#1|))
                 (SETQ |vmode| (CADR . #3=(|LETTMP#1|)))
                 (SETQ |venv| (CADDR . #3#))
-                (COND ((EQUAL |cat| |vmode|) |$e|)
-                      ((SETQ |u| (|compMakeCategoryObject| |cat| |$e|))
+                (COND ((EQUAL |cat| |vmode|) |e|)
+                      ((SETQ |u| (|compMakeCategoryObject| |cat| |e|))
                        (PROGN
                         (SETQ |catvec| (CAR |u|))
-                        (SETQ |$e| (CADDR |u|))
+                        (SETQ |e| (CADDR |u|))
                         (SETQ |LETTMP#1|
-                                (|compMakeCategoryObject| |vmode| |$e|))
+                                (|compMakeCategoryObject| |vmode| |e|))
                         (SETQ |ocatvec| (CAR |LETTMP#1|))
-                        (SETQ |$e| (CADDR |LETTMP#1|))
+                        (SETQ |e| (CADDR |LETTMP#1|))
                         (COND
                          ((OR (|member| |cat| (CAR (ELT |ocatvec| 4)))
                               (PROGN
@@ -885,29 +883,29 @@
                                            (SETQ |ISTMP#3| (CDR |ISTMP#2|))
                                            (AND (CONSP |ISTMP#3|)
                                                 (EQ (CDR |ISTMP#3|) NIL))))))))
-                          |$e|)
+                          |e|)
                          (#1#
                           (PROGN
-                           (SETQ |$e| (|addDomain| |name| |$e|))
+                           (SETQ |e| (|addDomain| |name| |e|))
                            (COND
                             ((ATOM |name|)
-                             (SETQ |$e|
+                             (SETQ |e|
                                      (|augModemapsFromCategory| |name| |name|
-                                      |name| |cat| |$e|)))
+                                      |name| |cat| |e|)))
                             (#1#
-                             (SETQ |$e|
+                             (SETQ |e|
                                      (|augModemapsFromCategory| |name| |name|
-                                      NIL |cat| |$e|))))
+                                      NIL |cat| |e|))))
                            (SAY '|augmenting | |name| '|: | |cat|)
-                           (SETQ |$e|
+                           (SETQ |e|
                                    (|put| |name| '|value|
                                     (LIST |vval| (|mkJoin| |cat| |vmode|)
                                           |venv|)
-                                    |$e|)))))))
+                                    |e|)))))))
                       (#1#
                        (PROGN
                         (SAY '|extension of | |vval| '| to | |cat| '| ignored|)
-                        |$e|)))))
+                        |e|)))))
               (#1# (|systemError| "knownInfo")))))))))
  
 ; mkJoin(cat,mode) ==
@@ -923,16 +921,16 @@
        (CONS '|Join| (CONS |cat| |cats|)))
       (#1# (LIST '|Join| |cat| |mode|))))))
  
-; GetValue name ==
-;   u:= get(name,"value",$e) => u
-;   u:= comp(name,$EmptyMode,$e) => u  --name may be a form
+; GetValue(name, e) ==
+;   u := get(name,"value", e) => u
+;   u := comp(name, $EmptyMode, e) => u  --name may be a form
 ;   systemError [name,'" is not bound in the current environment"]
  
-(DEFUN |GetValue| (|name|)
+(DEFUN |GetValue| (|name| |e|)
   (PROG (|u|)
     (RETURN
-     (COND ((SETQ |u| (|get| |name| '|value| |$e|)) |u|)
-           ((SETQ |u| (|comp| |name| |$EmptyMode| |$e|)) |u|)
+     (COND ((SETQ |u| (|get| |name| '|value| |e|)) |u|)
+           ((SETQ |u| (|comp| |name| |$EmptyMode| |e|)) |u|)
            ('T
             (|systemError|
              (LIST |name| " is not bound in the current environment")))))))

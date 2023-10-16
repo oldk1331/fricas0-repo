@@ -189,12 +189,11 @@
 ;         say_msg('"%1 The constructor %2b has incorrectly placed documentation.",[STRCONC(STRINGIMAGE bigcnt,'"."),name])
 ;         for [n,r] in unusedCommentLineNumbers repeat
 ;           sayMSG ['"   ",:bright n,'"   ",r]
-;   hn [[:fn(sig,$e),:doc] for [sig,:doc] in docList] where
-;     fn(x,e) ==
+;   hn([[:fn(sig), :doc] for [sig, :doc] in docList]) where
+;     fn(x) ==
 ;       atom x => [x,nil]
 ;       if #x > 2 then x := TAKE(2,x)
-;       SUBLISLIS($FormalMapVariableList,rest $lisplibForm,
-;         macroExpand(x,e))
+;       SUBLISLIS($FormalMapVariableList, rest($lisplibForm), x)
 ;     hn u ==
 ;      -- ((op,sig,doc), ...)  --> ((op ((sig doc) ...)) ...)
 ;       opList := REMDUP ASSOCLEFT u
@@ -352,21 +351,19 @@
                           #1#)
                          (SETQ |bfVar#16|
                                  (CONS
-                                  (APPEND
-                                   (|finalizeDocumentation,fn| |sig| |$e|)
-                                   |doc|)
+                                  (APPEND (|finalizeDocumentation,fn| |sig|)
+                                          |doc|)
                                   |bfVar#16|)))))
                   (SETQ |bfVar#15| (CDR |bfVar#15|))))
                NIL |docList| NIL))))))))
-(DEFUN |finalizeDocumentation,fn| (|x| |e|)
+(DEFUN |finalizeDocumentation,fn| (|x|)
   (PROG ()
     (RETURN
      (COND ((ATOM |x|) (LIST |x| NIL))
            ('T
             (PROGN
              (COND ((< 2 (LENGTH |x|)) (SETQ |x| (TAKE 2 |x|))))
-             (SUBLISLIS |$FormalMapVariableList| (CDR |$lisplibForm|)
-              (|macroExpand| |x| |e|))))))))
+             (SUBLISLIS |$FormalMapVariableList| (CDR |$lisplibForm|) |x|)))))))
 (DEFUN |finalizeDocumentation,hn| (|u|)
   (PROG (|opList| |op1| |ISTMP#1| |sig| |ISTMP#2| |doc|)
     (RETURN

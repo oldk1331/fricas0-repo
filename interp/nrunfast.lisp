@@ -1155,7 +1155,7 @@
 ;   GETDATABASE(opOf domform, 'ASHARP?) => fn(domform,catOrAtt) where
 ;   -- atom (infovec := getInfovec opOf domform) => fn(domform,catOrAtt) where
 ;     fn(a,b) ==
-;       categoryForm?(a) => assoc(b, ancestorsOf(a, nil))
+;       categoryForm?(a) => assoc(b, ancestors_of_cat(a, nil))
 ;       isPartialMode a => throwKeyedMsg("S2IS0025",NIL)
 ;       b is ["SIGNATURE",:opSig] =>
 ;         HasSignature(evalDomain a,opSig)
@@ -1176,7 +1176,8 @@
 ;       systemError '"strange Mapping type in newHasTest"
 ;   GETDATABASE(opOf domform,'CONSTRUCTORKIND) = 'category =>
 ;       domform = catOrAtt => 'T
-;       for [aCat,:cond] in ancestorsOf(domform,NIL) |  aCat = catOrAtt  repeat
+;       for [aCat, :cond] in ancestors_of_cat(domform, NIL)
+;            | aCat = catOrAtt  repeat
 ;          return evalCond cond where
 ;            evalCond x ==
 ;              ATOM x => x
@@ -1266,7 +1267,7 @@
                                  (EQUAL |aCat| |catOrAtt|)
                                  (RETURN (|newHasTest,evalCond| |cond|)))))
                           (SETQ |bfVar#39| (CDR |bfVar#39|))))
-                       (|ancestorsOf| |domform| NIL) NIL))))
+                       (|ancestors_of_cat| |domform| NIL) NIL))))
               ((AND (NULL |isAtom|) (|constructor?| |op|))
                (PROGN
                 (SETQ |domain| (|eval| (|mkEvalable| |domform|)))
@@ -1343,7 +1344,7 @@
 (DEFUN |newHasTest,fn| (|a| |b|)
   (PROG (|opSig| |ISTMP#1| |attr|)
     (RETURN
-     (COND ((|categoryForm?| |a|) (|assoc| |b| (|ancestorsOf| |a| NIL)))
+     (COND ((|categoryForm?| |a|) (|assoc| |b| (|ancestors_of_cat| |a| NIL)))
            ((|isPartialMode| |a|) (|throwKeyedMsg| 'S2IS0025 NIL))
            ((AND (CONSP |b|) (EQ (CAR |b|) 'SIGNATURE)
                  (PROGN (SETQ |opSig| (CDR |b|)) #1='T))

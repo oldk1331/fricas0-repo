@@ -161,9 +161,7 @@
 ;     argTl = "failed" => nil
 ;     form:=
 ;       not (member(op,$formalArgList) or member(T.expr,$formalArgList)) and ATOM T.expr =>
-;         nprefix := $prefix or
-;         -- following needed for referencing local funs at capsule level
-;            getAbbreviation($op,#rest $form)
+;         nprefix := $prefix or BREAK()
 ;         [op',:[a.expr for a in argTl],"$"] where
 ;           op':= INTERN STRCONC(encodeItem nprefix,";",encodeItem T.expr)
 ;       ['call, ['applyFun, T.expr], :[a.expr for a in argTl]]
@@ -231,10 +229,7 @@
                                            |$formalArgList|)))
                                      (ATOM (CAR T$)))
                                     (PROGN
-                                     (SETQ |nprefix|
-                                             (OR |$prefix|
-                                                 (|getAbbreviation| |$op|
-                                                  (LENGTH (CDR |$form|)))))
+                                     (SETQ |nprefix| (OR |$prefix| (BREAK)))
                                      (SETQ |op'|
                                              (INTERN
                                               (STRCONC (|encodeItem| |nprefix|)
@@ -454,9 +449,7 @@
 ;   if argl'="failed" then return nil
 ;   form:=
 ;     not member(op,$formalArgList) and ATOM op and not get(op,'value,e) =>
-;       nprefix := $prefix or
-;    -- following needed for referencing local funs at capsule level
-;         getAbbreviation($op,#rest $form)
+;       nprefix := $prefix or BREAK()
 ;       [op',:argl',"$"] where
 ;         op':= INTERN STRCONC(encodeItem nprefix,";",encodeItem op)
 ;     ['call,['applyFun,op],:argl']
@@ -545,10 +538,7 @@
                        ((AND (NULL (|member| |op| |$formalArgList|))
                              (ATOM |op|) (NULL (|get| |op| '|value| |e|)))
                         (PROGN
-                         (SETQ |nprefix|
-                                 (OR |$prefix|
-                                     (|getAbbreviation| |$op|
-                                      (LENGTH (CDR |$form|)))))
+                         (SETQ |nprefix| (OR |$prefix| (BREAK)))
                          (SETQ |op'|
                                  (INTERN
                                   (STRCONC (|encodeItem| |nprefix|) '|;|
