@@ -219,7 +219,7 @@
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 16 (<= |#1| MOST-POSITIVE-FIXNUM))
+          (QSETREFV $ 16 (<= |#1| (ASH MOST-POSITIVE-FIXNUM -1)))
           (COND
            ((QREFELT $ 16)
             (PROGN
