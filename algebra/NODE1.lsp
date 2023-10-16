@@ -30,7 +30,8 @@
                  (QREFELT $ 27)))
           (LETT |mm| (SPADCALL |d| |mm| (QREFELT $ 28)))
           (LETT |nn| (SPADCALL |d| |nn| (QREFELT $ 28)))
-          (LETT |u| (|NODE1;integratingFactor| |mm| |nn| (QREFELT $ 10) |x| $))
+          (LETT |u|
+                (|NODE1;integratingFactor| |mm| |nn| |d| (QREFELT $ 10) |x| $))
           (EXIT
            (COND
             ((QEQCAR |u| 0)
@@ -69,7 +70,8 @@
                         (#2# (CONS 1 "failed"))))))))))))))) 
 
 (SDEFUN |NODE1;integratingFactor|
-        ((|m| F) (|n| F) (|y| |Symbol|) (|x| |Symbol|) ($ |Union| F "failed"))
+        ((|m| F) (|n| F) (|den| F) (|y| |Symbol|) (|x| |Symbol|)
+         ($ |Union| F "failed"))
         (SPROG ((|f| (F)) (|d| (F)))
                (COND
                 ((SPADCALL
@@ -79,22 +81,32 @@
                                   (QREFELT $ 32)))
                   (QREFELT $ 37))
                  (CONS 0 (|spadConstant| $ 38)))
+                ((SPADCALL
+                  (SPADCALL
+                   (SPADCALL (SPADCALL |m| |den| (QREFELT $ 39)) |y|
+                             (QREFELT $ 31))
+                   (SPADCALL (SPADCALL |n| |den| (QREFELT $ 39)) |x|
+                             (QREFELT $ 31))
+                   (QREFELT $ 32))
+                  (QREFELT $ 37))
+                 (CONS 0
+                       (SPADCALL (|spadConstant| $ 38) |den| (QREFELT $ 39))))
                 ((NULL
                   (SPADCALL |y|
                             (SPADCALL
                              (LETT |f| (SPADCALL |d| |n| (QREFELT $ 39)))
-                             (QREFELT $ 41))
-                            (QREFELT $ 42)))
-                 (CONS 0 (SPADCALL |f| |x| (QREFELT $ 43))))
+                             (QREFELT $ 42))
+                            (QREFELT $ 43)))
+                 (CONS 0 (SPADCALL |f| |x| (QREFELT $ 44))))
                 ((NULL
                   (SPADCALL |x|
                             (SPADCALL
                              (LETT |f|
                                    (SPADCALL (SPADCALL |d| |m| (QREFELT $ 39))
-                                             (QREFELT $ 44)))
-                             (QREFELT $ 41))
-                            (QREFELT $ 42)))
-                 (CONS 0 (SPADCALL |f| |y| (QREFELT $ 43))))
+                                             (QREFELT $ 45)))
+                             (QREFELT $ 42))
+                            (QREFELT $ 43)))
+                 (CONS 0 (SPADCALL |f| |y| (QREFELT $ 44))))
                 ('T (CONS 1 "failed"))))) 
 
 (SDEFUN |NODE1;checkBernoulli|
@@ -104,7 +116,7 @@
                     (|:| |exponent| (|NonNegativeInteger|)))
           "failed"))
         (SPROG
-         ((#1=#:G156 NIL) (|b| (F)) (|a| (F))
+         ((#1=#:G158 NIL) (|b| (F)) (|a| (F))
           (|pp|
            (|SparseUnivariatePolynomial|
             (|SparseMultivariatePolynomial| R (|Kernel| F))))
@@ -123,39 +135,39 @@
                    (QREFELT $ 27)))
             (COND
              ((SPADCALL |r| (LETT |y| (SPADCALL |ky| (QREFELT $ 19)))
-                        (QREFELT $ 45))
+                        (QREFELT $ 46))
               (SEQ
                (LETT |d|
                      (SPADCALL
                       (LETT |p|
-                            (SPADCALL (SPADCALL |f| (QREFELT $ 46)) |ky|
-                                      (QREFELT $ 48)))
-                      (QREFELT $ 51)))
+                            (SPADCALL (SPADCALL |f| (QREFELT $ 47)) |ky|
+                                      (QREFELT $ 49)))
+                      (QREFELT $ 52)))
                (EXIT
                 (COND
                  ((OR (< |d| 2)
                       (OR
                        (SPADCALL
-                        (SPADCALL (LETT |pp| (SPADCALL |p| (QREFELT $ 52)))
-                                  (QREFELT $ 51))
-                        1 (QREFELT $ 53))
+                        (SPADCALL (LETT |pp| (SPADCALL |p| (QREFELT $ 53)))
+                                  (QREFELT $ 52))
+                        1 (QREFELT $ 54))
                        (OR
                         (OR
-                         (SPADCALL (SPADCALL |pp| (QREFELT $ 52))
-                                   (|spadConstant| $ 54) (QREFELT $ 55))
+                         (SPADCALL (SPADCALL |pp| (QREFELT $ 53))
+                                   (|spadConstant| $ 55) (QREFELT $ 56))
                          (NULL
                           (SPADCALL
                            (LETT |a|
-                                 (SPADCALL (SPADCALL |pp| (QREFELT $ 56))
+                                 (SPADCALL (SPADCALL |pp| (QREFELT $ 57))
                                            (QREFELT $ 27)))
-                           |y| (QREFELT $ 45))))
+                           |y| (QREFELT $ 46))))
                         (NULL
                          (SPADCALL
                           (LETT |b|
-                                (SPADCALL (SPADCALL |p| (QREFELT $ 56))
+                                (SPADCALL (SPADCALL |p| (QREFELT $ 57))
                                           (QREFELT $ 27)))
-                          |y| (QREFELT $ 45))))))
-                  (PROGN (LETT #1# (CONS 1 #2="failed")) (GO #3=#:G154)))))))
+                          |y| (QREFELT $ 46))))))
+                  (PROGN (LETT #1# (CONS 1 #2="failed")) (GO #3=#:G156)))))))
              ('T (EXIT (CONS 1 #2#))))
             (EXIT
              (CONS 0
@@ -169,7 +181,7 @@
          (|y| |BasicOperator|) (|x| |Symbol|) (|yx| F) ($ |Union| F "failed"))
         (SPROG
          ((|sol| (|Record| (|:| |particular| F) (|:| |basis| (|List| F))))
-          (#1=#:G163 NIL) (|deq| (F)) (|n1| (|Integer|)))
+          (#1=#:G165 NIL) (|deq| (F)) (|n1| (|Integer|)))
          (SEQ (LETT |n1| (- 1 (QVELT |rec| 2)))
               (LETT |deq|
                     (SPADCALL
@@ -216,7 +228,7 @@
                  (QREFELT $ 27)))
           (COND
            ((SPADCALL |q| (LETT |y| (SPADCALL |ky| (QREFELT $ 19)))
-                      (QREFELT $ 45))
+                      (QREFELT $ 46))
             (COND
              ((OR
                (OR
@@ -224,28 +236,28 @@
                  (>
                   (SPADCALL
                    (LETT |p|
-                         (SPADCALL (SPADCALL |f| (QREFELT $ 46)) |ky|
-                                   (QREFELT $ 48)))
-                   (QREFELT $ 51))
+                         (SPADCALL (SPADCALL |f| (QREFELT $ 47)) |ky|
+                                   (QREFELT $ 49)))
+                   (QREFELT $ 52))
                   2)
                  (NULL
                   (SPADCALL
                    (LETT |a0|
                          (SPADCALL (SPADCALL |p| 0 (QREFELT $ 67))
                                    (QREFELT $ 27)))
-                   |y| (QREFELT $ 45))))
+                   |y| (QREFELT $ 46))))
                 (NULL
                  (SPADCALL
                   (LETT |a1|
                         (SPADCALL (SPADCALL |p| 1 (QREFELT $ 67))
                                   (QREFELT $ 27)))
-                  |y| (QREFELT $ 45))))
+                  |y| (QREFELT $ 46))))
                (NULL
                 (SPADCALL
                  (LETT |a2|
                        (SPADCALL (SPADCALL |p| 2 (QREFELT $ 67))
                                  (QREFELT $ 27)))
-                 |y| (QREFELT $ 45))))
+                 |y| (QREFELT $ 46))))
               (EXIT (CONS 1 #1="failed")))))
            ('T (EXIT (CONS 1 #1#))))
           (EXIT
@@ -259,7 +271,7 @@
          ($ |Union| F "failed"))
         (SPROG
          ((|gsol| (|Record| (|:| |particular| F) (|:| |basis| (|List| F))))
-          (#1=#:G183 NIL) (|deq| (F)) (|u| (|Union| F "failed")))
+          (#1=#:G185 NIL) (|deq| (F)) (|u| (|Union| F "failed")))
          (SEQ (LETT |u| (|NODE1;partSolRiccati| |l| |y| |x| |yx| $))
               (EXIT
                (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
@@ -315,7 +327,7 @@
         ((|l| |List| F) (|y| |BasicOperator|) (|x| |Symbol|) (|yx| F)
          ($ |Union| F "failed"))
         (SPROG
-         ((#1=#:G201 NIL) (|bas| #2=(|List| F))
+         ((#1=#:G203 NIL) (|bas| #2=(|List| F))
           (|gsol|
            (|Union| (|Record| (|:| |particular| F) (|:| |basis| #2#)) F
                     "failed"))
@@ -345,7 +357,7 @@
                    ((QEQCAR |gsol| 0)
                     (COND
                      ((NULL (LETT |bas| (QCDR (QCDR |gsol|))))
-                      (PROGN (LETT #1# (CONS 1 #3="failed")) (GO #4=#:G199)))))
+                      (PROGN (LETT #1# (CONS 1 #3="failed")) (GO #4=#:G201)))))
                    ('T (PROGN (LETT #1# (CONS 1 #3#)) (GO #4#))))))
             (EXIT
              (CONS 0
@@ -356,9 +368,9 @@
 
 (DECLAIM (NOTINLINE |NonLinearFirstOrderODESolver;|)) 
 
-(DEFUN |NonLinearFirstOrderODESolver| (&REST #1=#:G202)
+(DEFUN |NonLinearFirstOrderODESolver| (&REST #1=#:G204)
   (SPROG NIL
-         (PROG (#2=#:G203)
+         (PROG (#2=#:G205)
            (RETURN
             (COND
              ((LETT #2#
@@ -407,13 +419,14 @@
               (48 . |coerce|) (53 . *) (|ODEIntegration| 6 7) (59 . |int|)
               (65 . |differentiate|) (71 . -) (77 . +) (|Union| 7 '#1="failed")
               |NODE1;solve;2FBoSU;1| (|Boolean|) (83 . |zero?|) (88 . |One|)
-              (92 . /) (|List| 8) (98 . |variables|) (103 . |member?|)
-              (109 . |expint|) (115 . -) (120 . |freeOf?|) (126 . |numer|)
-              (|SparseUnivariatePolynomial| $) (131 . |univariate|)
-              (|NonNegativeInteger|) (|SparseUnivariatePolynomial| 25)
-              (137 . |degree|) (142 . |reductum|) (147 . ~=) (153 . |Zero|)
-              (157 . ~=) (163 . |leadingCoefficient|) (168 . |One|) (|Integer|)
-              (172 . *) (|Record| (|:| |particular| 7) (|:| |basis| 68))
+              (92 . /) (98 . |One|) (|List| 8) (102 . |variables|)
+              (107 . |member?|) (113 . |expint|) (119 . -) (124 . |freeOf?|)
+              (130 . |numer|) (|SparseUnivariatePolynomial| $)
+              (135 . |univariate|) (|NonNegativeInteger|)
+              (|SparseUnivariatePolynomial| 25) (141 . |degree|)
+              (146 . |reductum|) (151 . ~=) (157 . |Zero|) (161 . ~=)
+              (167 . |leadingCoefficient|) (|Integer|) (172 . *)
+              (|Record| (|:| |particular| 7) (|:| |basis| 68))
               (|Union| 60 7 '"failed") (|ElementaryFunctionODESolver| 6 7)
               (178 . |solve|) (185 . ^) (191 . |Zero|) (195 . |Zero|)
               (199 . |coefficient|) (|List| 7) (205 . |elt|)
@@ -438,15 +451,15 @@
                                               25 0 0 0 26 1 7 0 23 27 2 7 0 0 0
                                               28 2 29 7 7 8 30 2 7 0 0 8 31 2 7
                                               0 0 0 32 2 7 0 0 0 33 1 7 36 0 37
-                                              0 7 0 38 2 7 0 0 0 39 1 7 40 0 41
-                                              2 40 36 8 0 42 2 29 7 7 8 43 1 7
-                                              0 0 44 2 7 36 0 0 45 1 7 23 0 46
-                                              2 25 47 0 11 48 1 50 49 0 51 1 50
-                                              0 0 52 2 49 36 0 0 53 0 50 0 54 2
-                                              50 36 0 0 55 1 50 25 0 56 0 6 0
+                                              0 7 0 38 2 7 0 0 0 39 0 6 0 40 1
+                                              7 41 0 42 2 41 36 8 0 43 2 29 7 7
+                                              8 44 1 7 0 0 45 2 7 36 0 0 46 1 7
+                                              23 0 47 2 25 48 0 11 49 1 51 50 0
+                                              52 1 51 0 0 53 2 50 36 0 0 54 0
+                                              51 0 55 2 51 36 0 0 56 1 51 25 0
                                               57 2 7 0 58 0 59 3 62 61 7 15 8
                                               63 2 7 0 0 58 64 0 6 0 65 0 7 0
-                                              66 2 50 25 0 49 67 2 68 7 0 58 69
+                                              66 2 51 25 0 50 67 2 68 7 0 58 69
                                               2 7 0 70 0 71 1 7 0 0 72 3 7 0 0
-                                              8 49 73 4 0 34 7 7 15 8 35)))))
+                                              8 50 73 4 0 34 7 7 15 8 35)))))
            '|lookupComplete|)) 
