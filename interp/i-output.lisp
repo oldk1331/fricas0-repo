@@ -3684,6 +3684,9 @@
       ('T (|charyTop| |u| |start| |linelength|))))))
  
 ; charyTop(u,start,linelength) ==
+;   linelength < 1 =>
+;       sayALGEBRA ['%l,'%b,'"  Too wide to Print",'%d]
+;       THROW('output,nil)
 ;   u is ['SC,:l] or u is [['SC,:.],:l] =>
 ;     for a in l repeat charyTop(a,start,linelength)
 ;   u is [['CONCATB,:.],:m,[['SC,:.],:l]] =>
@@ -3709,6 +3712,10 @@
          |v| |d| |n|)
     (RETURN
      (COND
+      ((< |linelength| 1)
+       (PROGN
+        (|sayALGEBRA| (LIST '|%l| '|%b| "  Too wide to Print" '|%d|))
+        (THROW '|output| NIL)))
       ((OR
         (AND (CONSP |u|) (EQ (CAR |u|) 'SC) (PROGN (SETQ |l| (CDR |u|)) #1='T))
         (AND (CONSP |u|)
