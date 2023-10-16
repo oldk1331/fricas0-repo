@@ -1615,15 +1615,22 @@
                        (SEQ
                         (COND
                          ((EQL |d| 2)
-                          (SEQ (SPADCALL (INTEGER-LENGTH |n|) (QREFELT $ 39))
-                               (LETT |y| (SPADCALL |x| (QREFELT $ 40)) . #3#)
-                               (LETT |y| (SPADCALL |y| |n| (QREFELT $ 87))
-                                     . #3#)
-                               (SPADCALL (INTEGER-LENGTH |n|) (QREFELT $ 43))
-                               (EXIT
-                                (PROGN
-                                 (LETT #1# (SPADCALL |y| (QREFELT $ 44)) . #3#)
-                                 (GO #4#))))))
+                          (COND
+                           ((EQL |n| 1)
+                            (PROGN
+                             (LETT #1# (SPADCALL |x| (QREFELT $ 40)) . #3#)
+                             (GO #4#)))
+                           (#2#
+                            (SEQ (SPADCALL (INTEGER-LENGTH |n|) (QREFELT $ 39))
+                                 (LETT |y| (SPADCALL |x| (QREFELT $ 40)) . #3#)
+                                 (LETT |y| (SPADCALL |y| |n| (QREFELT $ 87))
+                                       . #3#)
+                                 (SPADCALL (INTEGER-LENGTH |n|) (QREFELT $ 43))
+                                 (EXIT
+                                  (PROGN
+                                   (LETT #1# (SPADCALL |y| (QREFELT $ 44))
+                                         . #3#)
+                                   (GO #4#))))))))
                         (LETT |y|
                               (SPADCALL (CONS |n| 0) (CONS |d| 0)
                                         (QREFELT $ 41))
