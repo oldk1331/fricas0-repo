@@ -4563,7 +4563,7 @@ ofirst`1`n`(_$)->S`dFreeMonoid(S)``558289
 ofirst`1`n`(_$)->VarSet`dFreeMagma(VarSet)``558350
 ofirst`1`n`(A)->S`xLazyStreamAggregate&(A,S)``0
 ofirst`1`n`(A)->S`xLinearAggregate&(A,S)``0
-ofirst`1`n`(A)->S`xStreamAggregate&(A,S)``0
+ofirst`1`n`(A)->S`xUnaryRecursiveAggregate&(A,S)``0
 ofirst`1`n`(S)->Entry`xIndexedAggregate&(S,Index,Entry)``0
 ofirst`1`n`(S)->Union(P,"failed")`xTriangularSetCategory&(S,R,E,V,P)``0
 ofirst`1`x`(_$)->Entry`cIndexedAggregate(Index,Entry)`has(Index,OrderedSet)`558419
@@ -4572,7 +4572,7 @@ ofirst`1`x`(_$)->Union(P,"failed")`cTriangularSetCategory(R,E,V,P)``558694
 ofirst`2`n`(_$,NonNegativeInteger)->_$`cSequenceCategory(R)``558846
 ofirst`2`n`(A,NonNegativeInteger)->A`xLazyStreamAggregate&(A,S)``0
 ofirst`2`n`(A,NonNegativeInteger)->A`xLinearAggregate&(A,S)``0
-ofirst`2`n`(A,NonNegativeInteger)->A`xStreamAggregate&(A,S)``0
+ofirst`2`n`(A,NonNegativeInteger)->A`xUnaryRecursiveAggregate&(A,S)``0
 ofirst`2`x`(_$,NonNegativeInteger)->_$`cLinearAggregate(S)``558925
 ofirst`2`x`(_$,NonNegativeInteger)->_$`cUnaryRecursiveAggregate(S)``559064
 ofirstn`2`n`(_$,NonNegativeInteger)->List(R)`cSequenceCategory(R)``559151

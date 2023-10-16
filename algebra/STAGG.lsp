@@ -6,7 +6,7 @@
 (DEFPARAMETER |StreamAggregate;AL| 'NIL) 
 
 (DEFUN |StreamAggregate| (|t#1|)
-  (LET (#1=#:G115 (#2=#:G116 (|devaluate| |t#1|)))
+  (LET (#1=#:G114 (#2=#:G115 (|devaluate| |t#1|)))
     (COND ((SETQ #1# (|assoc| #2# |StreamAggregate;AL|)) (CDR #1#))
           (T
            (SETQ |StreamAggregate;AL|
@@ -15,7 +15,7 @@
            #1#)))) 
 
 (DEFUN |StreamAggregate;| (|t#1|)
-  (SPROG ((#1=#:G114 NIL))
+  (SPROG ((#1=#:G113 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
