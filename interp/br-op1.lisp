@@ -2317,7 +2317,10 @@
 ;     $topicHash := MAKE_-HASHTABLE 'ID
 ;     for [x,:c] in '((extended . 0) (basic . 1) (hidden . 2)) repeat
 ;       HPUT($topicHash,x,c)
-;   if domform := htpProperty(htPage,'domname) then
+;   domform := htpProperty(htPage,'domname)
+;   if htpProperty(htPage, 'kind) = '"category" then
+;       domform := false
+;   if domform then
 ;     $conformsAreDomains : local := true
 ;     opAlist := reduceOpAlistForDomain(opAlist, domform, conform)
 ;   conform := domform or conform
@@ -2373,9 +2376,12 @@
                    (HPUT |$topicHash| |x| |c|))))
             (SETQ |bfVar#91| (CDR |bfVar#91|))))
          '((|extended| . 0) (|basic| . 1) (|hidden| . 2)) NIL)))
+      (SETQ |domform| (|htpProperty| |htPage| '|domname|))
       (COND
-       ((SETQ |domform| (|htpProperty| |htPage| '|domname|))
-        (SETQ |$conformsAreDomains| T)
+       ((EQUAL (|htpProperty| |htPage| '|kind|) "category")
+        (SETQ |domform| NIL)))
+      (COND
+       (|domform| (SETQ |$conformsAreDomains| T)
         (SETQ |opAlist|
                 (|reduceOpAlistForDomain| |opAlist| |domform| |conform|))))
       (SETQ |conform| (OR |domform| |conform|))
