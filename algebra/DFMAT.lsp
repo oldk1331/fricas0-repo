@@ -45,22 +45,22 @@
          ($ . #2#))
         (DSETAREF2 |m| |i| |j| |r|)) 
 
-(PUT '|DFMAT;empty;$;11| '|SPADreplace| '(XLAM NIL (MAKE-DOUBLE-MATRIX 0 0))) 
+(PUT '|DFMAT;empty;$;11| '|SPADreplace| '(XLAM NIL (MAKE_DOUBLE_MATRIX 0 0))) 
 
-(SDEFUN |DFMAT;empty;$;11| (($ $)) (MAKE-DOUBLE-MATRIX 0 0)) 
+(SDEFUN |DFMAT;empty;$;11| (($ $)) (MAKE_DOUBLE_MATRIX 0 0)) 
 
-(PUT '|DFMAT;qnew;2Nni$;12| '|SPADreplace| 'MAKE-DOUBLE-MATRIX) 
+(PUT '|DFMAT;qnew;2Nni$;12| '|SPADreplace| 'MAKE_DOUBLE_MATRIX) 
 
 (SDEFUN |DFMAT;qnew;2Nni$;12|
         ((|rows| . #1=(|NonNegativeInteger|)) (|cols| . #1#) ($ $))
-        (MAKE-DOUBLE-MATRIX |rows| |cols|)) 
+        (MAKE_DOUBLE_MATRIX |rows| |cols|)) 
 
-(PUT '|DFMAT;new;2NniDf$;13| '|SPADreplace| 'MAKE-DOUBLE-MATRIX1) 
+(PUT '|DFMAT;new;2NniDf$;13| '|SPADreplace| 'MAKE_DOUBLE_MATRIX1) 
 
 (SDEFUN |DFMAT;new;2NniDf$;13|
         ((|rows| . #1=(|NonNegativeInteger|)) (|cols| . #1#)
          (|a| |DoubleFloat|) ($ $))
-        (MAKE-DOUBLE-MATRIX1 |rows| |cols| |a|)) 
+        (MAKE_DOUBLE_MATRIX1 |rows| |cols| |a|)) 
 
 (DECLAIM (NOTINLINE |DoubleFloatMatrix;|)) 
 

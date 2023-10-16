@@ -94,7 +94,7 @@
                                        NIL (GO G190) G191 (EXIT NIL))
                                   (EXIT
                                    (LETT |res|
-                                         (QSMULADDMOD64-32 |ptk|
+                                         (QSMULADDMOD64_32 |ptk|
                                                            (ELT_U32 |coeffs|
                                                                     |j|)
                                                            |res| |p|)
@@ -455,7 +455,7 @@
                                                 . #4#)
                                           (EXIT
                                            (LETT |res|
-                                                 (QSMULADDMOD64-32 |ptk| |c0|
+                                                 (QSMULADDMOD64_32 |ptk| |c0|
                                                                    |res| |p|)
                                                  . #4#)))
                                      (LETT #2# (CDR #2#) . #4#) (GO G190) G191

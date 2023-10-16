@@ -19,18 +19,18 @@
 
 (SDEFUN |CDFVEC;minIndex;$I;4| ((|x| $) ($ |Integer|)) 0) 
 
-(PUT '|CDFVEC;empty;$;5| '|SPADreplace| '(XLAM NIL (MAKE-CDOUBLE-VECTOR 0))) 
+(PUT '|CDFVEC;empty;$;5| '|SPADreplace| '(XLAM NIL (MAKE_CDOUBLE_VECTOR 0))) 
 
-(SDEFUN |CDFVEC;empty;$;5| (($ $)) (MAKE-CDOUBLE-VECTOR 0)) 
+(SDEFUN |CDFVEC;empty;$;5| (($ $)) (MAKE_CDOUBLE_VECTOR 0)) 
 
-(PUT '|CDFVEC;qnew;I$;6| '|SPADreplace| 'MAKE-CDOUBLE-VECTOR) 
+(PUT '|CDFVEC;qnew;I$;6| '|SPADreplace| 'MAKE_CDOUBLE_VECTOR) 
 
-(SDEFUN |CDFVEC;qnew;I$;6| ((|n| |Integer|) ($ $)) (MAKE-CDOUBLE-VECTOR |n|)) 
+(SDEFUN |CDFVEC;qnew;I$;6| ((|n| |Integer|) ($ $)) (MAKE_CDOUBLE_VECTOR |n|)) 
 
 (SDEFUN |CDFVEC;new;NniC$;7|
         ((|n| |NonNegativeInteger|) (|x| |Complex| (|DoubleFloat|)) ($ $))
         (SPROG ((|res| ($)))
-               (SEQ (LETT |res| (MAKE-CDOUBLE-VECTOR |n|) |CDFVEC;new;NniC$;7|)
+               (SEQ (LETT |res| (MAKE_CDOUBLE_VECTOR |n|) |CDFVEC;new;NniC$;7|)
                     (EXIT (SPADCALL |res| |x| (QREFELT $ 15)))))) 
 
 (PUT '|CDFVEC;qelt;$IC;8| '|SPADreplace| 'CDELT) 

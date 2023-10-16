@@ -22,14 +22,14 @@
                                      (SEQ
                                       (EXIT
                                        (LETT |ss|
-                                             (QSMULADD64-32
+                                             (QSMULADD64_32
                                               (AREF2_U32 |m| |i| |j|)
                                               (ELT_U32 |v| |j|) |ss|)
                                              . #3#)))
                                      (LETT |j| (|inc_SI| |j|) . #3#) (GO G190)
                                      G191 (EXIT NIL))
                                 (EXIT
-                                 (SETELT_U32 |res| |i| (QSMOD64-32 |ss| |p|))))
+                                 (SETELT_U32 |res| |i| (QSMOD64_32 |ss| |p|))))
                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                            (EXIT NIL))
                       (EXIT |res|)))))))) 
@@ -66,7 +66,7 @@
                                             (SEQ
                                              (EXIT
                                               (LETT |ss|
-                                                    (QSMULADD64-32
+                                                    (QSMULADD64_32
                                                      (AREF2_U32 |m1| |i| |k|)
                                                      (AREF2_U32 |m2| |j| |k|)
                                                      |ss|)
@@ -75,7 +75,7 @@
                                             (GO G190) G191 (EXIT NIL))
                                        (EXIT
                                         (SETAREF2_U32 |res| |i| |j|
-                                                      (QSMOD64-32 |ss| |p|))))
+                                                      (QSMOD64_32 |ss| |p|))))
                                   (LETT |j| (|inc_SI| |j|) . #5#) (GO G190)
                                   G191 (EXIT NIL))))
                            (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191

@@ -35,7 +35,7 @@
                          (COND ((NULL (NULL (|less_SI| |i| 0))) (GO G191)))
                          (SEQ
                           (LETT |res|
-                                (QSMULADDMOD64-32 |pt| |res| (ELT_U32 |v| |i|)
+                                (QSMULADDMOD64_32 |pt| |res| (ELT_U32 |v| |i|)
                                                   |p|)
                                 . #1#)
                           (EXIT (LETT |i| (|sub_SI| |i| 1) . #1#)))
@@ -100,7 +100,7 @@
                     (SEQ
                      (EXIT
                       (SETELT_U32 |v1| |i|
-                                  (QSMULADDMOD64-32 |c| (ELT_U32 |v2| |i|)
+                                  (QSMULADDMOD64_32 |c| (ELT_U32 |v2| |i|)
                                                     (ELT_U32 |v1| |i|) |p|))))
                     (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                     (EXIT NIL)))))) 
@@ -118,7 +118,7 @@
                     (COND ((|greater_SI| |i| #1#) (GO G191)))
                     (SEQ (LETT |pp| (ELT_U32 |v| |i|) . #2#)
                          (SETELT_U32 |v| |i|
-                                     (QSMULADDMOD64-32 |pt| |pp| |prev_coeff|
+                                     (QSMULADDMOD64_32 |pt| |pp| |prev_coeff|
                                                        |p|))
                          (EXIT (LETT |prev_coeff| |pp| . #2#)))
                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
@@ -186,7 +186,7 @@
                       (SEQ
                        (EXIT
                         (SETELT_U32 |v1| |i|
-                                    (QSMULADDMOD64-32 |c2|
+                                    (QSMULADDMOD64_32 |c2|
                                                       (ELT_U32 |v2|
                                                                (|sub_SI| |i|
                                                                          |ds|))
@@ -220,7 +220,7 @@
                         (SEQ
                          (EXIT
                           (SETELT_U32 |v1| |i|
-                                      (QSDOT2MOD64-32 (ELT_U32 |v1| |i|) |c1|
+                                      (QSDOT2MOD64_32 (ELT_U32 |v1| |i|) |c1|
                                                       (ELT_U32 |v2|
                                                                (|sub_SI| |i|
                                                                          |ds|))
@@ -540,12 +540,12 @@
                          (SEQ
                           (EXIT
                            (LETT |ss|
-                                 (QSMULADD64-32 (ELT_U32 |x| (- |i| |j|))
+                                 (QSMULADD64_32 (ELT_U32 |x| (- |i| |j|))
                                                 (ELT_U32 |y| |j|) |ss|)
                                  . #9#)))
                          (LETT |j| (|inc_SI| |j|) . #9#) (GO G190) G191
                          (EXIT NIL))
-                    (EXIT (SETELT_U32 |z| |i| (QSMOD64-32 |ss| |p|))))
+                    (EXIT (SETELT_U32 |z| |i| (QSMOD64_32 |ss| |p|))))
                (LETT |i| (|inc_SI| |i|) . #9#) (GO G190) G191 (EXIT NIL))
           (SEQ (LETT |i| (|add_SI| |xdeg| 1) . #9#) (LETT #6# |ydeg| . #9#)
                G190 (COND ((|greater_SI| |i| #6#) (GO G191)))
@@ -555,12 +555,12 @@
                          (SEQ
                           (EXIT
                            (LETT |ss|
-                                 (QSMULADD64-32 (ELT_U32 |x| |j|)
+                                 (QSMULADD64_32 (ELT_U32 |x| |j|)
                                                 (ELT_U32 |y| (- |i| |j|)) |ss|)
                                  . #9#)))
                          (LETT |j| (|inc_SI| |j|) . #9#) (GO G190) G191
                          (EXIT NIL))
-                    (EXIT (SETELT_U32 |z| |i| (QSMOD64-32 |ss| |p|))))
+                    (EXIT (SETELT_U32 |z| |i| (QSMOD64_32 |ss| |p|))))
                (LETT |i| (|inc_SI| |i|) . #9#) (GO G190) G191 (EXIT NIL))
           (EXIT
            (SEQ (LETT |i| (|add_SI| |ydeg| 1) . #9#) (LETT #4# |zdeg| . #9#)
@@ -572,13 +572,13 @@
                           (SEQ
                            (EXIT
                             (LETT |ss|
-                                  (QSMULADD64-32
+                                  (QSMULADD64_32
                                    (ELT_U32 |x| (|sub_SI| |i| |j|))
                                    (ELT_U32 |y| |j|) |ss|)
                                   . #9#)))
                           (LETT |j| (|inc_SI| |j|) . #9#) (GO G190) G191
                           (EXIT NIL))
-                     (EXIT (SETELT_U32 |z| |i| (QSMOD64-32 |ss| |p|))))
+                     (EXIT (SETELT_U32 |z| |i| (QSMOD64_32 |ss| |p|))))
                 (LETT |i| (|inc_SI| |i|) . #9#) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |POLYVEC;truncated_mul_add;3Uv2IV;20|

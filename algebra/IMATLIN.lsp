@@ -86,7 +86,7 @@
                 (SEQ
                  (EXIT
                   (QSETAREF2O |x| |k| |k1|
-                              (QSMULADDMOD64-32 |pp1|
+                              (QSMULADDMOD64_32 |pp1|
                                                 (QAREF2O |x| |i| |k1| 1 1)
                                                 (QAREF2O |x| |k| |k1| 1 1) |p|)
                               1 1)))
@@ -564,7 +564,7 @@
                 (SEQ
                  (EXIT
                   (SPADCALL |x| |k| |k1|
-                            (QSMULADDMOD64-32 |pp1|
+                            (QSMULADDMOD64_32 |pp1|
                                               (SPADCALL |x| |i| |k1|
                                                         (QREFELT $ 13))
                                               (SPADCALL |x| |k| |k1|

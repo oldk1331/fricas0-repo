@@ -18,19 +18,19 @@
 
 (SDEFUN |DFVEC;minIndex;$I;4| ((|x| $) ($ |Integer|)) 0) 
 
-(PUT '|DFVEC;empty;$;5| '|SPADreplace| '(XLAM NIL (MAKE-DOUBLE-VECTOR 0))) 
+(PUT '|DFVEC;empty;$;5| '|SPADreplace| '(XLAM NIL (MAKE_DOUBLE_VECTOR 0))) 
 
-(SDEFUN |DFVEC;empty;$;5| (($ $)) (MAKE-DOUBLE-VECTOR 0)) 
+(SDEFUN |DFVEC;empty;$;5| (($ $)) (MAKE_DOUBLE_VECTOR 0)) 
 
-(PUT '|DFVEC;qnew;I$;6| '|SPADreplace| 'MAKE-DOUBLE-VECTOR) 
+(PUT '|DFVEC;qnew;I$;6| '|SPADreplace| 'MAKE_DOUBLE_VECTOR) 
 
-(SDEFUN |DFVEC;qnew;I$;6| ((|n| |Integer|) ($ $)) (MAKE-DOUBLE-VECTOR |n|)) 
+(SDEFUN |DFVEC;qnew;I$;6| ((|n| |Integer|) ($ $)) (MAKE_DOUBLE_VECTOR |n|)) 
 
-(PUT '|DFVEC;new;NniDf$;7| '|SPADreplace| 'MAKE-DOUBLE-VECTOR1) 
+(PUT '|DFVEC;new;NniDf$;7| '|SPADreplace| 'MAKE_DOUBLE_VECTOR1) 
 
 (SDEFUN |DFVEC;new;NniDf$;7|
         ((|n| |NonNegativeInteger|) (|x| |DoubleFloat|) ($ $))
-        (MAKE-DOUBLE-VECTOR1 |n| |x|)) 
+        (MAKE_DOUBLE_VECTOR1 |n| |x|)) 
 
 (PUT '|DFVEC;qelt;$IDf;8| '|SPADreplace| 'DELT) 
 

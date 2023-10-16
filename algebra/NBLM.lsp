@@ -476,7 +476,7 @@
                           (SEQ
                            (EXIT
                             (SETELT_U32 |v1| |i|
-                                        (QSMULADDMOD64-32 |c|
+                                        (QSMULADDMOD64_32 |c|
                                                           (ELT_U32 |v2|
                                                                    (- |i| |k|))
                                                           (ELT_U32 |v1| |i|)
