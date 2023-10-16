@@ -311,7 +311,7 @@
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|EntireRing|) (|LinearlyExplicitOver| 6)
                  (|LinearlyExplicitOver| 42)
-                 (|SolvableSkewPolynomialCategory| 6 (|IndexedExponents| 7) 7)
+                 (|SolvableSkewPolynomialCategory| 6 (|IndexedExponents| 7))
                  (|Ring|) (|Rng|) (|SemiRing|) (|SemiRng|) (|Module| 45)
                  (|BiModule| 6 6) (|BiModule| $$ $$) (|BiModule| 45 45)
                  (|NonAssociativeRing|) (|LeftModule| 6) (|RightModule| 6)

@@ -21,14 +21,13 @@
                |SolvableSkewPolynomialCategory;AL|))
       #2#)))) 
 
-(DEFUN |SolvableSkewPolynomialCategory;| (|t#1| |t#2| |t#3|)
+(DEFUN |SolvableSkewPolynomialCategory;| (|t#1| |t#2|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3|)
-                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                                (|devaluate| |t#3|)))
+                    (PAIR '(|t#1| |t#2|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
                     (COND (|SolvableSkewPolynomialCategory;CAT|)
                           ('T
                            (LETT |SolvableSkewPolynomialCategory;CAT|
@@ -45,4 +44,4 @@
                    . #2#)
            (SETELT #1# 0
                    (LIST '|SolvableSkewPolynomialCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|) (|devaluate| |t#3|)))))) 
+                         (|devaluate| |t#2|)))))) 
