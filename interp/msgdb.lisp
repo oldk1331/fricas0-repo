@@ -2169,14 +2169,14 @@
   (PROG () (RETURN (|sayBrightlyNT2| |x| (|get_lisp_std_out|)))))
  
 ; sayBrightly2(x, str) ==
-;     NULL(X) => nil
+;     NULL(x) => nil
 ;     $sayBrightlyStream => sayBrightly1(x, $sayBrightlyStream)
 ;     sayBrightly1(x, str)
  
 (DEFUN |sayBrightly2| (|x| |str|)
   (PROG ()
     (RETURN
-     (COND ((NULL X) NIL)
+     (COND ((NULL |x|) NIL)
            (|$sayBrightlyStream| (|sayBrightly1| |x| |$sayBrightlyStream|))
            ('T (|sayBrightly1| |x| |str|))))))
  
@@ -2198,13 +2198,13 @@
   (PROG () (RETURN (|sayBrightly2| |x| (|get_lisp_std_out|)))))
  
 ; sayBrightlyI(x) ==
-;     NULL(X) => nil
+;     NULL(x) => nil
 ;     sayBrightly1(x, get_lisp_error_out())
  
 (DEFUN |sayBrightlyI| (|x|)
   (PROG ()
     (RETURN
-     (COND ((NULL X) NIL) ('T (|sayBrightly1| |x| (|get_lisp_error_out|)))))))
+     (COND ((NULL |x|) NIL) ('T (|sayBrightly1| |x| (|get_lisp_error_out|)))))))
  
 ; sayMSGNT(x) == sayBrightlyNT1(x, $algebraOutputStream)
  
