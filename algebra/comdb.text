@@ -3049,7 +3049,7 @@
 317356`--omial and the corresponding eigenvectors are expressed in terms of a "generic" root of such a polynomial.
 317627`\spad{eigenvectors(m,{} fac)} returns the eigenvalues and eigenvectors for the matrix \spad{m}. The eigenvalues in base field and corresponding eigenvectors are explicitely computed,{} while the other eigenvalues are given via their mi
 317627`--nimal polynomial and the corresponding eigenvectors are expressed in terms of a "generic" root of such a polynomial. fac is a factorizer for polynomials over \spad{F}.
-317899`\spad{ei_int(n,{} f,{} g,{} x)} returns \spad{[h,{} u,{} t,{} s]} such that \spad{u*exp(n*f) = (h*exp(n*f))' + t'} where \spad{t} involves special functions. When \spad{s} is \spad{true} then \spad{f = u},{} otherwise ei_int returns partial answer,{}
+317899`\spad{ei_int(n,{} f,{} g,{} x)} returns \spad{[h,{} u,{} t,{} s]} such that \spad{u*exp(n*f) = (h*exp(n*f))' + t'} where \spad{t} involves special functions. When \spad{s} is \spad{true} then \spad{g = u},{} otherwise ei_int returns partial answer,{}
 318012`\spad{eisensteinIrreducible?(p)} returns \spad{true} if \spad{p} can be shown to be irreducible by Eisenstein\spad{'s} criterion,{} \spad{false} is inconclusive.
 318089`\spad{elColumn2!(m,{} a,{} i,{} j)} adds to column \spad{i} a*column(\spad{m},{} \spad{j}) : elementary operation of second kind. (\spad{i} \spad{~=j})
 318181`\spad{elem?(ir)} tests if an integration result is elementary over \spad{F?}
@@ -7118,7 +7118,7 @@
 769167`\spad{rightUnits()} returns the affine space of all right units of the algebra,{} or \spad{"failed"} if there is none
 769402`\spad{rightUnits()} returns the affine space of all right units of the algebra,{} or \spad{"failed"} if there is none.
 769541`\spad{rightZero(eq)} subtracts the right hand side.
-769606`\spad{risch_de_ext(n,{} f,{} g,{} x)} returns \spad{[y,{} h,{} p,{} b]} such that \spad{dy/dx + n df/dx y + exp(-nf)dp = h} and \spad{b := h = g}. The equation \spad{dy/dx + n df/dx y = g} has no solution if \spad{h \~~= g} (\spad{y} is a partial solution in that case).
+769606`\spad{risch_de_ext(n,{} f,{} g,{} x)} returns \spad{[y,{} h,{} p,{} b]} such that \spad{dy/dx + n df/dx y + exp(-nf)dp/dx = h} and \spad{b := h = g}. The equation \spad{dy/dx + n df/dx y = g} has no solution if \spad{h \~~= g} (\spad{y} is a partial solution in that case).
 769727`\spad{rischDEsys(n,{} f,{} g_1,{} g_2,{} x,{} lim,{} ext)} returns \spad{y_1.y_2} such that \spad{(dy1/dx,{} dy2/dx) + ((0,{} - n df/dx),{} (n df/dx,{} 0)) (y1,{} y2) = (g1,{} g2)} if \spad{y_1,{}y_2} exist,{} "failed" otherwise. \spad{lim} is a limited integration
 769727`-- function,{} ext is an extended integration function.
 769970`\spad{rischNormalize(f,{} lx)} is rischNormalize([\spad{f}],{} \spad{lx})
