@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5034 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5026 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -95,8 +95,7 @@
  |ExpressionToUnivariatePowerSeries| |ExpressionSpaceODESolver|
  |ExpressionSolve| |ExpressionTubePlot| |ExponentialOfUnivariatePuiseuxSeries|
  |FacetCategory&| |FacetCategory| |FactoredFunctions| |FactoringUtilities|
- |FreeAbelianGroup| |FakePolynomial| |FreeAbelianMonoidCategory|
- |FreeAbelianMonoid| |FiniteAbelianMonoidRing&| |FiniteAbelianMonoidRing|
+ |FakePolynomial| |FiniteAbelianMonoidRing&| |FiniteAbelianMonoidRing|
  |FiniteAbelianMonoidRingFunctions2| |FlexibleArray|
  |FiniteAlgebraicExtensionField&| |FiniteAlgebraicExtensionField| |FiniteBiCPO|
  |FortranCode| |FiniteCoDcpo| |FourierComponent| |FortranCodePackage1|
@@ -175,24 +174,23 @@
  |IntegralBasisPolynomialTools| |IndexCard| |InnerCommonDenominator|
  |PolynomialIdeal| |IdealDecompositionPackage| |IndexedDirectProductCategory|
  |IndexedDirectProductObject| |InnerEigenPackage| |InnerEvalable&|
- |InnerEvalable| |InnerFreeAbelianMonoid| |IndexedFlexibleArray|
- |InnerFiniteField| |InnerIndexedTwoDimensionalArray| |IndexedJetBundle|
- |IndexedList| |ILogic| |InnerMatrixLinearAlgebraFunctions|
- |InnerMatrixQuotientFieldFunctions| |IndexedMatrix| |InnerModularHermitePade|
- |InnerNormalBasisFieldFunctions| |IncidenceAlgebra| |IncrementingMaps|
- |IndexedExponents| |InnerNumericEigenPackage| |InfiniteCyclicGroup| |Infinity|
- |InputForm| |InputFormFunctions1| |InfiniteLambertProduct|
- |InnerNumericFloatSolvePackage| |InnerModularGcd| |InnerMultFact|
- |InnerPolySign| |IntegerNumberSystem&| |IntegerNumberSystem| |Integer|
- |InnerTable| |AlgebraicIntegration| |AlgebraicIntegrate| |AlgebraicIntegrate2|
- |IntegerBits| |IntervalCategory| |DenominatorIntegration| |IntegralDomain|
- |IntegrateSolutions| |ElementaryIntegration| |IntegerFactorizationPackage|
- |GenusZeroIntegration| |IntegerNumberTheoryFunctions|
- |AlgebraicHermiteIntegration| |TranscendentalHermiteIntegration|
- |IntegerLocalizedAtPrime| |PureAlgebraicIntegration|
- |ParametricTranscendentalIntegration| |ParametricIntegration|
- |PatternMatchIntegration| |RationalIntegration| |IntegerRetractions|
- |RationalFunctionIntegration| |Interval|
+ |InnerEvalable| |IndexedFlexibleArray| |InnerFiniteField|
+ |InnerIndexedTwoDimensionalArray| |IndexedJetBundle| |IndexedList| |ILogic|
+ |InnerMatrixLinearAlgebraFunctions| |InnerMatrixQuotientFieldFunctions|
+ |IndexedMatrix| |InnerModularHermitePade| |InnerNormalBasisFieldFunctions|
+ |IncidenceAlgebra| |IncrementingMaps| |IndexedExponents|
+ |InnerNumericEigenPackage| |InfiniteCyclicGroup| |Infinity| |InputForm|
+ |InputFormFunctions1| |InfiniteLambertProduct| |InnerNumericFloatSolvePackage|
+ |InnerModularGcd| |InnerMultFact| |InnerPolySign| |IntegerNumberSystem&|
+ |IntegerNumberSystem| |Integer| |InnerTable| |AlgebraicIntegration|
+ |AlgebraicIntegrate| |AlgebraicIntegrate2| |IntegerBits| |IntervalCategory|
+ |DenominatorIntegration| |IntegralDomain| |IntegrateSolutions|
+ |ElementaryIntegration| |IntegerFactorizationPackage| |GenusZeroIntegration|
+ |IntegerNumberTheoryFunctions| |AlgebraicHermiteIntegration|
+ |TranscendentalHermiteIntegration| |IntegerLocalizedAtPrime|
+ |PureAlgebraicIntegration| |ParametricTranscendentalIntegration|
+ |ParametricIntegration| |PatternMatchIntegration| |RationalIntegration|
+ |IntegerRetractions| |RationalFunctionIntegration| |Interval|
  |IntegerSolveLinearPolynomialEquation| |IntegrationTools|
  |TranscendentalIntegration| |InverseLaplaceTransform| |InnerPAdicInteger|
  |InnerPrimeField| |InternalPrintPackage| |IntegrationResult|
@@ -551,24 +549,23 @@
  |getSimplifyDenomsFlag| |setSimplifyDenomsFlag| |number?| |replaceDiffs|
  |constantToUnaryFunction| |tubePlot| |exponentialOrder| |getMult|
  |completeEval| |lowerPolynomial| |raisePolynomial| |normalDeriv| |ran|
- |subst_var| |to_UP| |highCommonTerms| |mapCoef| |nthCoef| |binomThmExpt|
- |fmecg| |pomopo!| |mapExponents| |linearAssociatedLog| |linearAssociatedOrder|
- |linearAssociatedExp| |createNormalElement| |setLabelValue| |getCode|
- |printCode| |code| |operation| |common| |printStatement| |save| |stop| |block|
- |cond| |returns| |call| |comment| |continue| |gotoJump| |repeatUntilLoop|
- |whileLoop| |forLoop| |sin?| |zeroVector| |zeroSquareMatrix|
- |identitySquareMatrix| |fort_clean_lines| |do_with_error_env3|
- |do_with_error_env2| |do_with_error_env1| |expression2Fortran1|
- |statement2Fortran| |expression2Fortran| |getStatement| |changeExprLength|
- |displayLines| |dispStatement| |fortFormatHead| |fortFormatTypeLines|
- |fort_format_types| |indentFortLevel| |checkType| |newFortranTempVar|
- |clear_used_intrinsics| |get_used_intrinsics| |get_fort_indent| |lSpaceBasis|
- |finiteBasis| |principal?| |divisor| |weierstrassHalfPeriods|
- |weierstrassInvariants| |modularInvariantJ| |landen1| |landen2| |landen|
- |kprod| |sn2| |useNagFunctions| |rationalPoints| |nonSingularModel|
- |algSplitSimple| |hyperelliptic| |elliptic| |integralDerivationMatrix|
- |integralRepresents| |integralCoordinates| |yCoordinates|
- |inverseIntegralMatrixAtInfinity| |integralMatrixAtInfinity|
+ |subst_var| |to_UP| |binomThmExpt| |fmecg| |pomopo!| |mapExponents|
+ |linearAssociatedLog| |linearAssociatedOrder| |linearAssociatedExp|
+ |createNormalElement| |setLabelValue| |getCode| |printCode| |code| |operation|
+ |common| |printStatement| |save| |stop| |block| |cond| |returns| |call|
+ |comment| |continue| |gotoJump| |repeatUntilLoop| |whileLoop| |forLoop| |sin?|
+ |zeroVector| |zeroSquareMatrix| |identitySquareMatrix| |fort_clean_lines|
+ |do_with_error_env3| |do_with_error_env2| |do_with_error_env1|
+ |expression2Fortran1| |statement2Fortran| |expression2Fortran| |getStatement|
+ |changeExprLength| |displayLines| |dispStatement| |fortFormatHead|
+ |fortFormatTypeLines| |fort_format_types| |indentFortLevel| |checkType|
+ |newFortranTempVar| |clear_used_intrinsics| |get_used_intrinsics|
+ |get_fort_indent| |lSpaceBasis| |finiteBasis| |principal?| |divisor|
+ |weierstrassHalfPeriods| |weierstrassInvariants| |modularInvariantJ| |landen1|
+ |landen2| |landen| |kprod| |sn2| |useNagFunctions| |rationalPoints|
+ |nonSingularModel| |algSplitSimple| |hyperelliptic| |elliptic|
+ |integralDerivationMatrix| |integralRepresents| |integralCoordinates|
+ |yCoordinates| |inverseIntegralMatrixAtInfinity| |integralMatrixAtInfinity|
  |inverseIntegralMatrix| |integralMatrix| |reduceBasisAtInfinity|
  |normalizeAtInfinity| |complementaryBasis| |integral?| |integralAtInfinity?|
  |integralBasisAtInfinity| |ramified?| |ramifiedAtInfinity?| |singular?|
@@ -732,16 +729,16 @@
  |solveLinear| |reducedSystem| |setDifference| |setIntersection| |setUnion|
  |tails| |append| |match| |splitList| |topologicalSort!| |topologicalSort|
  |cartesianPower| |minShift| LLL |find_relation| |substitute| |duplicates?|
- |mapGen| |mapExpon| |commutativeEquality| |leftMult| |rightMult| |makeUnit|
- |nthFactor| |nthExpon| |makeMulti| |makeTerm| |listOfMonoms| |sort!|
- |reverse!| |copyInto!| |sorted?| |insert| |delete| |delta_deriv|
- |symmetricSquare| |factor1| |testnp| |testfn| |testf2| |testll| |testlc|
- |testln| |testlw| |testcp| |testco| |testcx| |testpd| |testfr| |testsb|
- |testro| |testfo| |testsc| |testfg| |testlp| |testis| |testgt| |gen_exp|
- |ge_minimal| |symmetricProduct| |symmetricPower| |directSum| |false| |true|
- |entries| |loop| |lcmCoef| |solveLinearPolynomialEquationByFractions| |list|
- |hasSolution?| |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse|
- |LyndonWordsList| |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |lexico|
+ |mapGen| |mapExpon| |leftMult| |rightMult| |makeUnit| |nthFactor| |nthExpon|
+ |makeMulti| |makeTerm| |listOfMonoms| |sort!| |reverse!| |copyInto!| |sorted?|
+ |insert| |delete| |delta_deriv| |symmetricSquare| |factor1| |testnp| |testfn|
+ |testf2| |testll| |testlc| |testln| |testlw| |testcp| |testco| |testcx|
+ |testpd| |testfr| |testsb| |testro| |testfo| |testsc| |testfg| |testlp|
+ |testis| |testgt| |gen_exp| |ge_minimal| |symmetricProduct| |symmetricPower|
+ |directSum| |false| |true| |entries| |loop| |lcmCoef|
+ |solveLinearPolynomialEquationByFractions| |list| |hasSolution?| |linSolve|
+ |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
+ |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |lexico|
  |numberOfComputedEntries| |rst| |frst| |lazyEvaluate| |lazy?|
  |explicitlyEmpty?| |explicitEntries?| |matrixDimensions| |matrixConcat3D|
  |plus| |identityMatrix| |zeroMatrix| |algebraicGcd| |pseudoRem|
