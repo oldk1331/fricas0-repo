@@ -1893,11 +1893,206 @@
                 . #3#)
           (EXIT (|SOLVETRA;solveList| |lexpr| |lvar| $))))) 
 
+(SDEFUN |SOLVETRA;solve;LLL;38|
+        ((|leqs| |List| (|Equation| (|Expression| R)))
+         (|lker| |List| (|Kernel| (|Expression| R)))
+         ($ |List| (|List| (|Equation| (|Expression| R)))))
+        (SPROG
+         ((#1=#:G590 NIL) (|neq| NIL) (#2=#:G589 NIL) (#3=#:G588 NIL)
+          (|sol| NIL) (#4=#:G587 NIL) (|lval2| (|List| (|Expression| R)))
+          (#5=#:G586 NIL) (|k| NIL) (#6=#:G585 NIL)
+          (|lker2| (|List| (|Kernel| (|Expression| R)))) (#7=#:G584 NIL)
+          (|v| NIL) (#8=#:G583 NIL)
+          (|ans| (|List| (|List| (|Equation| (|Expression| R)))))
+          (|nlexpr| (|List| (|Expression| R))) (#9=#:G582 NIL) (|expr| NIL)
+          (#10=#:G581 NIL) (|lval| (|List| (|Expression| R))) (#11=#:G580 NIL)
+          (#12=#:G579 NIL) (|lvar| (|List| (|Symbol|))) (#13=#:G578 NIL)
+          (#14=#:G577 NIL) (|lexpr| (|List| (|Expression| R))) (#15=#:G576 NIL)
+          (|eq| NIL) (#16=#:G575 NIL))
+         (SEQ
+          (LETT |lexpr|
+                (PROGN
+                 (LETT #16# NIL . #17=(|SOLVETRA;solve;LLL;38|))
+                 (SEQ (LETT |eq| NIL . #17#) (LETT #15# |leqs| . #17#) G190
+                      (COND
+                       ((OR (ATOM #15#)
+                            (PROGN (LETT |eq| (CAR #15#) . #17#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #16#
+                              (CONS
+                               (SPADCALL (SPADCALL |eq| (QREFELT $ 20))
+                                         (SPADCALL |eq| (QREFELT $ 21))
+                                         (QREFELT $ 22))
+                               #16#)
+                              . #17#)))
+                      (LETT #15# (CDR #15#) . #17#) (GO G190) G191
+                      (EXIT (NREVERSE #16#))))
+                . #17#)
+          (LETT |lvar|
+                (PROGN
+                 (LETT #14# NIL . #17#)
+                 (SEQ (LETT |k| NIL . #17#) (LETT #13# |lker| . #17#) G190
+                      (COND
+                       ((OR (ATOM #13#)
+                            (PROGN (LETT |k| (CAR #13#) . #17#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #14# (CONS (SPADCALL (QREFELT $ 33)) #14#)
+                              . #17#)))
+                      (LETT #13# (CDR #13#) . #17#) (GO G190) G191
+                      (EXIT (NREVERSE #14#))))
+                . #17#)
+          (LETT |lval|
+                (PROGN
+                 (LETT #12# NIL . #17#)
+                 (SEQ (LETT |v| NIL . #17#) (LETT #11# |lvar| . #17#) G190
+                      (COND
+                       ((OR (ATOM #11#)
+                            (PROGN (LETT |v| (CAR #11#) . #17#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #12# (CONS (SPADCALL |v| (QREFELT $ 34)) #12#)
+                              . #17#)))
+                      (LETT #11# (CDR #11#) . #17#) (GO G190) G191
+                      (EXIT (NREVERSE #12#))))
+                . #17#)
+          (LETT |nlexpr|
+                (PROGN
+                 (LETT #10# NIL . #17#)
+                 (SEQ (LETT |expr| NIL . #17#) (LETT #9# |lexpr| . #17#) G190
+                      (COND
+                       ((OR (ATOM #9#)
+                            (PROGN (LETT |expr| (CAR #9#) . #17#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #10#
+                              (CONS
+                               (SPADCALL |expr| |lker| |lval| (QREFELT $ 259))
+                               #10#)
+                              . #17#)))
+                      (LETT #9# (CDR #9#) . #17#) (GO G190) G191
+                      (EXIT (NREVERSE #10#))))
+                . #17#)
+          (LETT |ans| (|SOLVETRA;solveList| |nlexpr| |lvar| $) . #17#)
+          (LETT |lker2|
+                (PROGN
+                 (LETT #8# NIL . #17#)
+                 (SEQ (LETT |v| NIL . #17#) (LETT #7# |lvar| . #17#) G190
+                      (COND
+                       ((OR (ATOM #7#) (PROGN (LETT |v| (CAR #7#) . #17#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #8# (CONS (SPADCALL |v| (QREFELT $ 63)) #8#)
+                              . #17#)))
+                      (LETT #7# (CDR #7#) . #17#) (GO G190) G191
+                      (EXIT (NREVERSE #8#))))
+                . #17#)
+          (LETT |lval2|
+                (PROGN
+                 (LETT #6# NIL . #17#)
+                 (SEQ (LETT |k| NIL . #17#) (LETT #5# |lker| . #17#) G190
+                      (COND
+                       ((OR (ATOM #5#) (PROGN (LETT |k| (CAR #5#) . #17#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #6# (CONS (SPADCALL |k| (QREFELT $ 107)) #6#)
+                              . #17#)))
+                      (LETT #5# (CDR #5#) . #17#) (GO G190) G191
+                      (EXIT (NREVERSE #6#))))
+                . #17#)
+          (EXIT
+           (PROGN
+            (LETT #4# NIL . #17#)
+            (SEQ (LETT |sol| NIL . #17#) (LETT #3# |ans| . #17#) G190
+                 (COND
+                  ((OR (ATOM #3#) (PROGN (LETT |sol| (CAR #3#) . #17#) NIL))
+                   (GO G191)))
+                 (SEQ
+                  (EXIT
+                   (LETT #4#
+                         (CONS
+                          (PROGN
+                           (LETT #2# NIL . #17#)
+                           (SEQ (LETT |neq| NIL . #17#) (LETT #1# |sol| . #17#)
+                                G190
+                                (COND
+                                 ((OR (ATOM #1#)
+                                      (PROGN
+                                       (LETT |neq| (CAR #1#) . #17#)
+                                       NIL))
+                                  (GO G191)))
+                                (SEQ
+                                 (EXIT
+                                  (LETT #2#
+                                        (CONS
+                                         (SPADCALL
+                                          (CONS #'|SOLVETRA;solve;LLL;38!0|
+                                                (VECTOR $ |lval2| |lker2|))
+                                          |neq| (QREFELT $ 261))
+                                         #2#)
+                                        . #17#)))
+                                (LETT #1# (CDR #1#) . #17#) (GO G190) G191
+                                (EXIT (NREVERSE #2#))))
+                          #4#)
+                         . #17#)))
+                 (LETT #3# (CDR #3#) . #17#) (GO G190) G191
+                 (EXIT (NREVERSE #4#)))))))) 
+
+(SDEFUN |SOLVETRA;solve;LLL;38!0| ((|e| NIL) ($$ NIL))
+        (PROG (|lker2| |lval2| $)
+          (LETT |lker2| (QREFELT $$ 2) . #1=(|SOLVETRA;solve;LLL;38|))
+          (LETT |lval2| (QREFELT $$ 1) . #1#)
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |e| |lker2| |lval2| (QREFELT $ 259)))))) 
+
+(SDEFUN |SOLVETRA;retract2|
+        ((|e| |Expression| R) ($ |Kernel| (|Expression| R)))
+        (SPROG ((|k| (|Union| (|Kernel| (|Expression| R)) "failed")))
+               (SEQ
+                (LETT |k| (SPADCALL |e| (QREFELT $ 151)) |SOLVETRA;retract2|)
+                (EXIT
+                 (COND
+                  ((QEQCAR |k| 1)
+                   (|error|
+                    "solve$TransSolvePackage: variable is not a single kernel"))
+                  ('T (QCDR |k|))))))) 
+
+(SDEFUN |SOLVETRA;solve;LLL;40|
+        ((|leqs| |List| (|Equation| (|Expression| R)))
+         (|lexpr| |List| (|Expression| R))
+         ($ |List| (|List| (|Equation| (|Expression| R)))))
+        (SPROG
+         ((|lker| (|List| (|Kernel| (|Expression| R)))) (#1=#:G600 NIL)
+          (|e| NIL) (#2=#:G599 NIL))
+         (SEQ
+          (LETT |lker|
+                (PROGN
+                 (LETT #2# NIL . #3=(|SOLVETRA;solve;LLL;40|))
+                 (SEQ (LETT |e| NIL . #3#) (LETT #1# |lexpr| . #3#) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |e| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #2# (CONS (|SOLVETRA;retract2| |e| $) #2#)
+                              . #3#)))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                . #3#)
+          (EXIT (SPADCALL |leqs| |lker| (QREFELT $ 262)))))) 
+
 (DECLAIM (NOTINLINE |TransSolvePackage;|)) 
 
-(DEFUN |TransSolvePackage| (#1=#:G564)
+(DEFUN |TransSolvePackage| (#1=#:G601)
   (SPROG NIL
-         (PROG (#2=#:G565)
+         (PROG (#2=#:G602)
            (RETURN
             (COND
              ((LETT #2#
@@ -1919,7 +2114,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|TransSolvePackage|))
           (LETT |dv$| (LIST '|TransSolvePackage| DV$1) . #1#)
-          (LETT $ (GETREFV 259) . #1#)
+          (LETT $ (GETREFV 264) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|TransSolvePackage| (LIST DV$1)
@@ -2017,12 +2212,14 @@
               (812 . |elt|) (818 . |setelt!|) (825 . |elt|)
               (|List| (|List| 189)) (|List| 197) (|SystemSolvePackage| 8)
               (831 . |triangularSystems|) (|Mapping| 85 85 85) (|List| 85)
-              (837 . |reduce|) |SOLVETRA;solve;LLL;37|)
-           '#(|solve| 844) 'NIL
+              (837 . |reduce|) |SOLVETRA;solve;LLL;37| (844 . |eval|)
+              (|Mapping| 8 8) (851 . |map|) |SOLVETRA;solve;LLL;38|
+              |SOLVETRA;solve;LLL;40|)
+           '#(|solve| 857) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 258
+                             (|makeByteWordVec2| 263
                                                  '(1 8 7 0 9 1 8 10 0 11 0 6 0
                                                    12 2 13 7 0 0 14 1 19 8 0 20
                                                    1 19 8 0 21 2 8 0 0 0 22 1 8
@@ -2103,8 +2300,10 @@
                                                    2 238 8 0 56 248 3 238 8 0
                                                    56 8 249 2 10 16 0 56 250 2
                                                    253 251 252 10 254 3 256 85
-                                                   255 0 85 257 1 0 15 19 23 1
-                                                   0 15 8 18 2 0 15 19 16 24 2
-                                                   0 85 15 10 258 2 0 15 8 16
-                                                   17)))))
+                                                   255 0 85 257 3 8 0 0 37 51
+                                                   259 2 19 0 260 0 261 1 0 15
+                                                   8 18 2 0 15 19 16 24 1 0 15
+                                                   19 23 2 0 85 15 10 258 2 0
+                                                   15 8 16 17 2 0 85 15 54 263
+                                                   2 0 85 15 212 262)))))
            '|lookupComplete|)) 
