@@ -34,6 +34,7 @@
         ((|f| F) (|t| |Kernel| F) (|k| |Kernel| F)
          (|derivation| |Mapping| (|SparseUnivariatePolynomial| F)
           (|SparseUnivariatePolynomial| F))
+         (|rec_int| |Mapping| (|IntegrationResult| F) F)
          ($ |IntegrationResult| F))
         (SPROG
          ((|curve|
@@ -116,7 +117,7 @@
                                                             (|devaluate|
                                                              (ELT $ 7))))))
                                               |curve|))
-             |derivation|
+             |derivation| |rec_int|
              (|compiledLookupCheck| '|algintegrate|
                                     (LIST
                                      (LIST '|IntegrationResult|
@@ -126,7 +127,11 @@
                                            (LIST '|SparseUnivariatePolynomial|
                                                  (|devaluate| (ELT $ 7)))
                                            (LIST '|SparseUnivariatePolynomial|
-                                                 (|devaluate| (ELT $ 7)))))
+                                                 (|devaluate| (ELT $ 7))))
+                                     (LIST '|Mapping|
+                                           (LIST '|IntegrationResult|
+                                                 (|devaluate| (ELT $ 7)))
+                                           (|devaluate| (ELT $ 7))))
                                     (|AlgebraicIntegrate| (ELT $ 6) (ELT $ 7)
                                                           (|SparseUnivariatePolynomial|
                                                            (ELT $ 7))
@@ -175,6 +180,7 @@
         ((|f| F) (|t| |Kernel| F) (|k| |Kernel| F)
          (|derivation| |Mapping| (|SparseUnivariatePolynomial| F)
           (|SparseUnivariatePolynomial| F))
+         (|rec_int| |Mapping| (|IntegrationResult| F) F)
          ($ |IntegrationResult| F))
         (SPROG
          ((|curve|
@@ -236,7 +242,7 @@
                                                             (|devaluate|
                                                              (ELT $ 7))))))
                                               |curve|))
-             |derivation|
+             |derivation| |rec_int|
              (|compiledLookupCheck| '|algintegrate|
                                     (LIST
                                      (LIST '|IntegrationResult|
@@ -246,7 +252,11 @@
                                            (LIST '|SparseUnivariatePolynomial|
                                                  (|devaluate| (ELT $ 7)))
                                            (LIST '|SparseUnivariatePolynomial|
-                                                 (|devaluate| (ELT $ 7)))))
+                                                 (|devaluate| (ELT $ 7))))
+                                     (LIST '|Mapping|
+                                           (LIST '|IntegrationResult|
+                                                 (|devaluate| (ELT $ 7)))
+                                           (|devaluate| (ELT $ 7))))
                                     (|AlgebraicIntegrate| (ELT $ 6) (ELT $ 7)
                                                           (|SparseUnivariatePolynomial|
                                                            (ELT $ 7))
@@ -323,12 +333,12 @@
            (|Record|
             (|:| |radicand| (|Fraction| (|SparseUnivariatePolynomial| F)))
             (|:| |deg| (|NonNegativeInteger|))))
-          (#1=#:G137 NIL)
+          (#1=#:G139 NIL)
           (|lf1|
            (|List|
             (|SparseUnivariatePolynomial|
              (|Fraction| (|SparseUnivariatePolynomial| F)))))
-          (#2=#:G142 NIL) (|f| NIL) (#3=#:G141 NIL)
+          (#2=#:G144 NIL) (|f| NIL) (#3=#:G143 NIL)
           (|mon1|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|SparseUnivariatePolynomial| F))))
@@ -433,7 +443,7 @@
            (|List|
             (|SparseUnivariatePolynomial|
              (|Fraction| (|SparseUnivariatePolynomial| F)))))
-          (#1=#:G148 NIL) (|f| NIL) (#2=#:G147 NIL)
+          (#1=#:G150 NIL) (|f| NIL) (#2=#:G149 NIL)
           (|mon1|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|SparseUnivariatePolynomial| F))))
@@ -504,11 +514,11 @@
          (|lg| |List| F)
          ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
         (SPROG
-         ((#1=#:G177 NIL) (|be| NIL) (#2=#:G176 NIL)
+         ((#1=#:G179 NIL) (|be| NIL) (#2=#:G178 NIL)
           (|res1|
            (|List|
             (|Record| (|:| |ratpart| |curve|) (|:| |coeffs| (|Vector| F)))))
-          (#3=#:G175 NIL) (|f| NIL) (#4=#:G174 NIL)
+          (#3=#:G177 NIL) (|f| NIL) (#4=#:G176 NIL)
           (|cc| (|Fraction| (|SparseUnivariatePolynomial| F)))
           (|red|
            (|Mapping| |curve|
@@ -717,11 +727,11 @@
          (|lg| |List| F)
          ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
         (SPROG
-         ((#1=#:G201 NIL) (|be| NIL) (#2=#:G200 NIL)
+         ((#1=#:G203 NIL) (|be| NIL) (#2=#:G202 NIL)
           (|res1|
            (|List|
             (|Record| (|:| |ratpart| |curve|) (|:| |coeffs| (|Vector| F)))))
-          (#3=#:G199 NIL) (|f| NIL) (#4=#:G198 NIL)
+          (#3=#:G201 NIL) (|f| NIL) (#4=#:G200 NIL)
           (|red|
            (|Mapping| |curve|
                       (|SparseUnivariatePolynomial|
@@ -735,7 +745,7 @@
            (|Record|
             (|:| |radicand| (|Fraction| (|SparseUnivariatePolynomial| F)))
             (|:| |deg| (|NonNegativeInteger|))))
-          (#5=#:G183 NIL)
+          (#5=#:G185 NIL)
           (|cv|
            (|Record|
             (|:| |func|
@@ -752,7 +762,7 @@
            (|List|
             (|SparseUnivariatePolynomial|
              (|Fraction| (|SparseUnivariatePolynomial| F)))))
-          (#6=#:G197 NIL) (|g| NIL) (#7=#:G196 NIL)
+          (#6=#:G199 NIL) (|g| NIL) (#7=#:G198 NIL)
           (|p| (|SparseUnivariatePolynomial| F)))
          (SEQ (LETT |p| (SPADCALL |y| (QREFELT $ 24)))
               (LETT |lg1|
@@ -959,23 +969,24 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x1| |t| (QREFELT $ 14)))))) 
 
-(SDEFUN |INTAF;algint;F2KMIr;12|
+(SDEFUN |INTAF;algint;F2KMMIr;12|
         ((|f| F) (|t| |Kernel| F) (|y| |Kernel| F)
          (|derivation| |Mapping| (|SparseUnivariatePolynomial| F)
           (|SparseUnivariatePolynomial| F))
+         (|rec_int| |Mapping| (|IntegrationResult| F) F)
          ($ |IntegrationResult| F))
         (COND
          ((SPADCALL |y| '|nthRoot| (QREFELT $ 39))
-          (|INTAF;rootintegrate| |f| |t| |y| |derivation| $))
+          (|INTAF;rootintegrate| |f| |t| |y| |derivation| |rec_int| $))
          ((SPADCALL |y| '|rootOf| (QREFELT $ 39))
-          (|INTAF;algintegrate| |f| |t| |y| |derivation| $))
+          (|INTAF;algintegrate| |f| |t| |y| |derivation| |rec_int| $))
          ('T (|error| "failed - cannot handle that integrand")))) 
 
 (DECLAIM (NOTINLINE |AlgebraicIntegration;|)) 
 
-(DEFUN |AlgebraicIntegration| (&REST #1=#:G215)
+(DEFUN |AlgebraicIntegration| (&REST #1=#:G220)
   (SPROG NIL
-         (PROG (#2=#:G216)
+         (PROG (#2=#:G221)
            (RETURN
             (COND
              ((LETT #2#
@@ -998,7 +1009,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|AlgebraicIntegration| DV$1 DV$2))
-          (LETT $ (GETREFV 61))
+          (LETT $ (GETREFV 62))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|AlgebraicIntegration|
@@ -1041,8 +1052,9 @@
               (|List| 8) (89 . |chvar|) |INTAF;algextint_base;2KMMLL;9|
               (|Fraction| 23) (95 . |univariate|) (|Mapping| 9 7)
               (|SparseUnivariatePolynomialFunctions2| 7 9) (101 . |map|)
-              (107 . *) (|IntegrationResult| 7) |INTAF;algint;F2KMIr;12|)
-           '#(|algint| 113 |algextint_base| 121 |algextint| 130) 'NIL
+              (107 . *) (|IntegrationResult| 7) (|Mapping| 59 7)
+              |INTAF;algint;F2KMMIr;12|)
+           '#(|algint| 113 |algextint_base| 122 |algextint| 131) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -1054,7 +1066,8 @@
                                   (|Kernel| |#2|) (|Kernel| |#2|)
                                   (|Mapping|
                                    (|SparseUnivariatePolynomial| |#2|)
-                                   (|SparseUnivariatePolynomial| |#2|))))
+                                   (|SparseUnivariatePolynomial| |#2|))
+                                  (|Mapping| (|IntegrationResult| |#2|) |#2|)))
                                 T)
                               '((|algextint|
                                  ((|List|
@@ -1105,7 +1118,7 @@
                                   (|List| |#2|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 60
+                        (|makeByteWordVec2| 61
                                             '(3 10 8 8 9 9 11 2 13 7 9 12 14 2
                                               17 15 16 8 18 1 7 0 19 20 2 15 7
                                               0 7 21 3 13 15 7 12 15 22 1 7 23
@@ -1114,7 +1127,7 @@
                                               10 33 8 34 1 9 15 0 35 1 9 0 15
                                               36 2 12 37 0 38 39 2 10 49 50 8
                                               51 2 7 53 0 19 54 2 56 8 55 15 57
-                                              2 7 0 0 0 58 4 0 59 7 12 12 42 60
-                                              5 0 41 12 12 42 46 47 52 7 0 41
-                                              12 12 42 44 45 46 47 48)))))
+                                              2 7 0 0 0 58 5 0 59 7 12 12 42 60
+                                              61 5 0 41 12 12 42 46 47 52 7 0
+                                              41 12 12 42 44 45 46 47 48)))))
            '|lookupComplete|)) 

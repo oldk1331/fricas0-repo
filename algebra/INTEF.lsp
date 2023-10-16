@@ -643,7 +643,15 @@
                             (SPADCALL |f| |t| |y|
                                       (CONS #'|INTEF;algexpint!1|
                                             (VECTOR |t| |x| $))
+                                      (CONS #'|INTEF;algexpint!2|
+                                            (VECTOR $ |x|))
                                       (QREFELT $ 154)))))))) 
+
+(SDEFUN |INTEF;algexpint!2| ((|f1| NIL) ($$ NIL))
+        (PROG (|x| $)
+          (LETT |x| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
+          (RETURN (PROGN (SPADCALL |f1| |x| (QREFELT $ 43)))))) 
 
 (SDEFUN |INTEF;algexpint!1| ((|x1| NIL) ($$ NIL))
         (PROG ($ |x| |t|)
@@ -679,7 +687,15 @@
                             (SPADCALL |f| |t| |y|
                                       (CONS #'|INTEF;algprimint!1|
                                             (VECTOR |t| |x| $))
+                                      (CONS #'|INTEF;algprimint!2|
+                                            (VECTOR $ |x|))
                                       (QREFELT $ 154)))))))) 
+
+(SDEFUN |INTEF;algprimint!2| ((|f1| NIL) ($$ NIL))
+        (PROG (|x| $)
+          (LETT |x| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
+          (RETURN (PROGN (SPADCALL |f1| |x| (QREFELT $ 43)))))) 
 
 (SDEFUN |INTEF;algprimint!1| ((|x1| NIL) ($$ NIL))
         (PROG ($ |x| |t|)
@@ -751,8 +767,8 @@
                   (|IntegrationResult|
                    (|Fraction| (|SparseUnivariatePolynomial| F)))))
             (|Fraction| (|SparseUnivariatePolynomial| F))))
-          (|lk| (|List| (|Kernel| F))) (#1=#:G353 NIL) (|a| NIL)
-          (#2=#:G352 NIL))
+          (|lk| (|List| (|Kernel| F))) (#1=#:G355 NIL) (|a| NIL)
+          (#2=#:G354 NIL))
          (SEQ
           (LETT |lk|
                 (SPADCALL
@@ -917,9 +933,9 @@
 
 (DECLAIM (NOTINLINE |ElementaryIntegration;|)) 
 
-(DEFUN |ElementaryIntegration| (&REST #1=#:G370)
+(DEFUN |ElementaryIntegration| (&REST #1=#:G372)
   (SPROG NIL
-         (PROG (#2=#:G371)
+         (PROG (#2=#:G373)
            (RETURN
             (COND
              ((LETT #2#
@@ -1084,23 +1100,23 @@
               (446 . |intPatternMatch|) (454 . |varselect|) (460 . |kmax|)
               (|RationalIntegration| 7 23) (465 . |integrate|) (470 . |elem?|)
               (475 . |subst|) (482 . |freeOf?|) (488 . |first|)
-              (|AlgebraicIntegration| 6 7) (493 . |algint|) (501 . |coerce|)
+              (|AlgebraicIntegration| 6 7) (493 . |algint|) (502 . |coerce|)
               (|Record| (|:| |ratpart| 7) (|:| |coeffs| 161))
               (|Union| 156 '"failed")
               (|Record| (|:| |particular| 157) (|:| |basis| (|List| 156)))
-              (|ParametricIntegration| 6 7) (506 . |extendedint|) (|Vector| 7)
-              (513 . |elt|) (519 . |Zero|) (523 . |Zero|)
+              (|ParametricIntegration| 6 7) (507 . |extendedint|) (|Vector| 7)
+              (514 . |elt|) (520 . |Zero|) (524 . |Zero|)
               (|Record| (|:| |answer| 40) (|:| |logpart| 40) (|:| |ir| 53))
-              (|DenominatorIntegration| 6 7) (527 . |li_int|) '|denint_li|
-              (534 . |poly_int|) '|denint_poly| (541 . ~=)
-              (547 . |extendedint|) (555 . |One|)
+              (|DenominatorIntegration| 6 7) (528 . |li_int|) '|denint_li|
+              (535 . |poly_int|) '|denint_poly| (542 . ~=)
+              (548 . |extendedint|) (556 . |One|)
               (|Record| (|:| |answer| 53) (|:| |a0| 7)) (|Mapping| 165 40)
-              (559 . |primintegrate|)
+              (560 . |primintegrate|)
               (|Record| (|:| |ans| 7) (|:| |right| 7) (|:| |primpart| 7)
                         (|:| |sol?| 10))
-              (|ElementaryRischDEX2| 6 7) (567 . |risch_de_ext|)
-              (|Mapping| 177 82 7) (575 . |expintegrate|))
-           '#(|lfintegrate| 583 |lfextendedint| 589) 'NIL
+              (|ElementaryRischDEX2| 6 7) (568 . |risch_de_ext|)
+              (|Mapping| 177 82 7) (576 . |expintegrate|))
+           '#(|lfintegrate| 584 |lfextendedint| 590) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -1157,8 +1173,8 @@
                                               142 143 144 2 116 110 110 11 145
                                               1 116 12 110 146 1 147 53 40 148
                                               1 42 10 0 149 3 7 0 0 108 135 150
-                                              2 7 10 0 11 151 1 17 7 0 152 4
-                                              153 42 7 12 12 45 154 1 23 0 7
+                                              2 7 10 0 11 151 1 17 7 0 152 5
+                                              153 42 7 12 12 45 47 154 1 23 0 7
                                               155 3 159 158 7 11 17 160 2 161 7
                                               0 82 162 0 40 0 163 0 53 0 164 3
                                               166 165 40 12 11 167 3 166 165 40
