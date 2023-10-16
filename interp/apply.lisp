@@ -155,7 +155,7 @@
 ;   T.mode is ['Mapping, retm, :argml] =>
 ;     #argl ~= #argml => nil
 ;     retm := resolve(m, retm)
-;     retm = $Category or isCategoryForm(retm,e) => nil  -- not handled
+;     retm = $Category or isCategoryForm(retm) => nil  -- not handled
 ;     argTl := [[.,.,e] := comp(x,m,e) or return "failed"
 ;               for x in argl for m in argml]
 ;     argTl = "failed" => nil
@@ -168,6 +168,8 @@
 ;           op':= INTERN STRCONC(encodeItem nprefix,";",encodeItem T.expr)
 ;       ['call, ['applyFun, T.expr], :[a.expr for a in argTl]]
 ;     coerce([form, retm, e],resolve(retm,m))
+;   -- If op is not 'elt' and not a mapping check if we can
+;   -- use appropriate 'elt'
 ;   op = 'elt => nil
 ;   eltForm := ['elt, op, :argl]
 ;   comp(eltForm, m, e)
@@ -192,8 +194,7 @@
               (PROGN
                (SETQ |retm| (|resolve| |m| |retm|))
                (COND
-                ((OR (EQUAL |retm| |$Category|) (|isCategoryForm| |retm| |e|))
-                 NIL)
+                ((OR (EQUAL |retm| |$Category|) (|isCategoryForm| |retm|)) NIL)
                 (#1#
                  (PROGN
                   (SETQ |argTl|
@@ -290,7 +291,7 @@
  
 ; compFormWithModemap(form is [op,:argl],m,e,modemap) ==
 ;   [map:= [.,target,:.],[pred,impl]]:= modemap
-;   if isCategoryForm(target,e) and isFunctor op then
+;   if isCategoryForm(target) and isFunctor op then
 ;     [modemap,e]:= substituteIntoFunctorModemap(argl,modemap,e) or return nil
 ;     [map:= [.,target,:.],:cexpr]:= modemap
 ;   sv:=listOfSharpVars map
@@ -310,7 +311,7 @@
 ;       m':= SUBLIS(sl,map.(1))
 ;       x':=
 ;         form':= [f,:[t.expr for t in Tl]]
-;         (m'=$Category or isCategoryForm(m',e)) and ATOM(f) => form'
+;         (m' = $Category or isCategoryForm(m')) and ATOM(f) => form'
 ;         -- try to deal with new-style Unions where we know the conditions
 ;         op = "elt" and f is ['XLAM,:.] and IDENTP(z := first argl) and
 ;           (c:=get(z,'condition,e)) and
@@ -338,7 +339,7 @@
       (SETQ |pred| (CAADR . #2=(|modemap|)))
       (SETQ |impl| (CADADR . #2#))
       (COND
-       ((AND (|isCategoryForm| |target| |e|) (|isFunctor| |op|))
+       ((AND (|isCategoryForm| |target|) (|isFunctor| |op|))
         (SETQ |LETTMP#1|
                 (OR (|substituteIntoFunctorModemap| |argl| |modemap| |e|)
                     (RETURN NIL)))
@@ -394,8 +395,7 @@
                                       NIL |Tl| NIL)))
                        (COND
                         ((AND
-                          (OR (EQUAL |m'| |$Category|)
-                              (|isCategoryForm| |m'| |e|))
+                          (OR (EQUAL |m'| |$Category|) (|isCategoryForm| |m'|))
                           (ATOM |f|))
                          |form'|)
                         ((AND (EQ |op| '|elt|) (CONSP |f|) (EQ (CAR |f|) 'XLAM)
@@ -438,7 +438,7 @@
  
 ; applyMapping([op,:argl],m,e,ml) ==
 ;   #argl~=#ml-1 => nil
-;   isCategoryForm(first ml,e) =>
+;   isCategoryForm(first ml) =>
 ;                                 --is op a functor?
 ;     pairlis:= [[v,:a] for a in argl for v in $FormalMapVariableList]
 ;     ml' := SUBLIS(pairlis, ml)
@@ -470,7 +470,7 @@
       (SETQ |op| (CAR |bfVar#26|))
       (SETQ |argl| (CDR |bfVar#26|))
       (COND ((NOT (EQL (LENGTH |argl|) (- (LENGTH |ml|) 1))) NIL)
-            ((|isCategoryForm| (CAR |ml|) |e|)
+            ((|isCategoryForm| (CAR |ml|))
              (PROGN
               (SETQ |pairlis|
                       ((LAMBDA (|bfVar#16| |bfVar#14| |a| |bfVar#15| |v|)
@@ -607,7 +607,7 @@
 ;   -- 3.  obtain domain-specific function, if possible, and return
 ; 
 ;   --$bindings is bound by compMapCond
-;   [f,$bindings]:= compMapCond(op,mc,sl,fnsel) or return nil
+;   [f, bindings] := compMapCond(op, mc, sl, fnsel) or return nil
 ; 
 ; --+ can no longer trust what the modemap says for a reference into
 ; --+ an exterior domain (it is calculating the displacement based on view
@@ -616,13 +616,13 @@
 ; 
 ; --$NRTflag=true and f is [op1,d,.] and NE(d,'$) and member(op1,'(ELT CONST)) =>
 ;   f is [op1,d,.] and member(op1,'(ELT CONST)) =>
-;     [genDeltaEntry [op,:modemap],lt',$bindings]
-;   [f,lt',$bindings]
+;       [genDeltaEntry([op, :modemap]), lt', bindings]
+;   [f, lt', bindings]
  
 (DEFUN |compApplyModemap| (|form| |modemap| |$e| |sl|)
   (DECLARE (SPECIAL |$e|))
-  (PROG (|$generatingCall| |ISTMP#2| |d| |ISTMP#1| |op1| |f| |lt'| |lt| |m'|
-         |LETTMP#1| |g| |fnsel| |margl| |mr| |mc| |argl| |op|)
+  (PROG (|$generatingCall| |ISTMP#2| |d| |ISTMP#1| |op1| |bindings| |f| |lt'|
+         |lt| |m'| |LETTMP#1| |g| |fnsel| |margl| |mr| |mc| |argl| |op|)
     (DECLARE (SPECIAL |$generatingCall|))
     (RETURN
      (PROGN
@@ -686,7 +686,7 @@
                               (OR (|compMapCond| |op| |mc| |sl| |fnsel|)
                                   (RETURN NIL)))
                       (SETQ |f| (CAR |LETTMP#1|))
-                      (SETQ |$bindings| (CADR |LETTMP#1|))
+                      (SETQ |bindings| (CADR |LETTMP#1|))
                       (COND
                        ((AND (CONSP |f|)
                              (PROGN
@@ -700,14 +700,13 @@
                                          (EQ (CDR |ISTMP#2|) NIL)))))
                              (|member| |op1| '(ELT CONST)))
                         (LIST (|genDeltaEntry| (CONS |op| |modemap|)) |lt'|
-                              |$bindings|))
-                       (#2# (LIST |f| |lt'| |$bindings|)))))))))))))
+                              |bindings|))
+                       (#2# (LIST |f| |lt'| |bindings|)))))))))))))
  
-; compMapCond(op,mc,$bindings,fnsel) ==
-;   or/[compMapCond'(u,op,mc,$bindings) for u in fnsel]
+; compMapCond(op, mc, bindings, fnsel) ==
+;   or/[compMapCond'(u, op, mc, bindings) for u in fnsel]
  
-(DEFUN |compMapCond| (|op| |mc| |$bindings| |fnsel|)
-  (DECLARE (SPECIAL |$bindings|))
+(DEFUN |compMapCond| (|op| |mc| |bindings| |fnsel|)
   (PROG ()
     (RETURN
      ((LAMBDA (|bfVar#34| |bfVar#33| |u|)
@@ -717,7 +716,7 @@
            (RETURN |bfVar#34|))
           ('T
            (PROGN
-            (SETQ |bfVar#34| (|compMapCond'| |u| |op| |mc| |$bindings|))
+            (SETQ |bfVar#34| (|compMapCond'| |u| |op| |mc| |bindings|))
             (COND (|bfVar#34| (RETURN |bfVar#34|))))))
          (SETQ |bfVar#33| (CDR |bfVar#33|))))
       NIL |fnsel| NIL))))

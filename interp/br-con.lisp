@@ -1176,7 +1176,7 @@
  
 ; reduceAlistForDomain(alist,domform,conform) == --called from kccPage
 ;   alist := SUBLISLIS(rest domform,rest conform,alist)
-;   for pair in alist repeat RPLACD(pair, simpHasPred(rest pair, domform))
+;   for pair in alist repeat RPLACD(pair, simpHasPred2(rest pair, domform))
 ;   [pair for (pair := [.,:pred]) in alist | pred]
  
 (DEFUN |reduceAlistForDomain| (|alist| |domform| |conform|)
@@ -1189,7 +1189,7 @@
           (COND
            ((OR (ATOM |bfVar#25|) (PROGN (SETQ |pair| (CAR |bfVar#25|)) NIL))
             (RETURN NIL))
-           (#1='T (RPLACD |pair| (|simpHasPred| (CDR |pair|) |domform|))))
+           (#1='T (RPLACD |pair| (|simpHasPred2| (CDR |pair|) |domform|))))
           (SETQ |bfVar#25| (CDR |bfVar#25|))))
        |alist| NIL)
       ((LAMBDA (|bfVar#27| |bfVar#26| |pair|)

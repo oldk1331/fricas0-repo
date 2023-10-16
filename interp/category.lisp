@@ -919,8 +919,7 @@
 ;   --returns a list of them and all their fundamental ancestors
 ;   --also as two-lists with the appropriate conditions
 ;   l=nil => nil
-;   [l1, cond1] := first l
-;   f1:= CatEval l1
+;   [f1, cond1] := first l
 ;   ans := FindFundAncs rest l
 ;   -- Does not work with Shoe (garbage items ???)
 ;   --  ll := [[CatEval xf, mkAnd(cond1, xc)] for [xf, xc] in CADR f1.4]
@@ -931,8 +930,8 @@
 ;             ans:= [[u1, mkOr(CADR x, uc)],:delete(x,ans)]
 ;         ans:= [u,:ans]
 ;   f1.(0) = nil => ans
-;   --testing to see if l1 is already there
-;   x := ASSQ(l1, ans) => [[l1, mkOr(cond1, CADR x)],:delete(x,ans)]
+;   --testing to see if f1 is already there
+;   x := ASSQ(f1, ans) => [[f1, mkOr(cond1, CADR x)], :delete(x, ans)]
 ;   cond1 = true =>
 ;       for x in first f1.4 repeat
 ;             if y:= ASSQ(CatEval x,ans) then ans:= delete(y,ans)
@@ -943,15 +942,14 @@
 ;   [first l,:ans]
  
 (DEFUN |FindFundAncs| (|l|)
-  (PROG (|LETTMP#1| |l1| |cond1| |f1| |ans| |ll| |u1| |uc| |x| |y|)
+  (PROG (|LETTMP#1| |f1| |cond1| |ans| |ll| |u1| |uc| |x| |y|)
     (RETURN
      (COND ((NULL |l|) NIL)
            (#1='T
             (PROGN
              (SETQ |LETTMP#1| (CAR |l|))
-             (SETQ |l1| (CAR |LETTMP#1|))
+             (SETQ |f1| (CAR |LETTMP#1|))
              (SETQ |cond1| (CADR |LETTMP#1|))
-             (SETQ |f1| (|CatEval| |l1|))
              (SETQ |ans| (|FindFundAncs| (CDR |l|)))
              (SETQ |ll|
                      ((LAMBDA (|bfVar#34| |bfVar#33| |x|)
@@ -987,8 +985,8 @@
                  (SETQ |bfVar#35| (CDR |bfVar#35|))))
               |ll| NIL)
              (COND ((NULL (ELT |f1| 0)) |ans|)
-                   ((SETQ |x| (ASSQ |l1| |ans|))
-                    (CONS (LIST |l1| (|mkOr| |cond1| (CADR |x|)))
+                   ((SETQ |x| (ASSQ |f1| |ans|))
+                    (CONS (LIST |f1| (|mkOr| |cond1| (CADR |x|)))
                           (|delete| |x| |ans|)))
                    ((EQUAL |cond1| T)
                     (PROGN
@@ -1026,13 +1024,13 @@
                      (CONS (CAR |l|) |ans|))))))))))
  
 ; CatEval x ==
-;   REFVECP x => x
+;   REFVECP x => BREAK()
 ;   (compMakeCategoryObject(x, $EmptyEnvironment)).expr
  
 (DEFUN |CatEval| (|x|)
   (PROG ()
     (RETURN
-     (COND ((REFVECP |x|) |x|)
+     (COND ((REFVECP |x|) (BREAK))
            ('T (CAR (|compMakeCategoryObject| |x| |$EmptyEnvironment|)))))))
  
 ; AncestorP(xname,leaves) ==
@@ -1342,7 +1340,7 @@
 ;     for at in u.2 repeat
 ;       at2:= first at
 ;       if atom at2 then BREAK()
-;       null isCategoryForm(at2, []) => BREAK()
+;       null isCategoryForm(at2) => BREAK()
 ; 
 ;       pred:= first rest at
 ;         -- The predicate under which this category is conditional
@@ -1401,7 +1399,7 @@
                   (PROGN
                    (SETQ |at2| (CAR |at|))
                    (COND ((ATOM |at2|) (BREAK)))
-                   (COND ((NULL (|isCategoryForm| |at2| NIL)) (BREAK))
+                   (COND ((NULL (|isCategoryForm| |at2|)) (BREAK))
                          (#1#
                           (PROGN
                            (SETQ |pred| (CAR (CDR |at|)))
@@ -1527,11 +1525,11 @@
  
 (DEFUN |Join| (&REST L) (PROG () (RETURN (|JoinInner| L))))
  
-; isCategoryForm(x,e) ==
+; isCategoryForm(x) ==
 ;   x is [name,:.] => categoryForm? name
 ;   false
  
-(DEFUN |isCategoryForm| (|x| |e|)
+(DEFUN |isCategoryForm| (|x|)
   (PROG (|name|)
     (RETURN
      (COND

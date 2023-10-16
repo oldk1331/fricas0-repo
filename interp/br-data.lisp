@@ -53,7 +53,7 @@
 ;   constructorList := domainList or allConstructors()
 ;   for con in constructorList repeat
 ;     writedb buildLibdbConEntry con
-;     [attrlist,:oplist] := getConstructorExports $conform
+;     [attrlist, :oplist] := getConstructorExports($conform, false)
 ;     buildLibOps oplist
 ;     buildLibAttrs attrlist
 ;   SHUT $outStream
@@ -116,7 +116,7 @@
            (#1='T
             (PROGN
              (|writedb| (|buildLibdbConEntry| |con|))
-             (SETQ |LETTMP#1| (|getConstructorExports| |$conform|))
+             (SETQ |LETTMP#1| (|getConstructorExports| |$conform| NIL))
              (SETQ |attrlist| (CAR |LETTMP#1|))
              (SETQ |oplist| (CDR |LETTMP#1|))
              (|buildLibOps| |oplist|)

@@ -91,13 +91,8 @@
 ;  --u is ("CATEGORY",junk,:l) => ("PROGN",:(formatInfo v for v in l))
 ;   u is ["PROGN",:l] => ["PROGN",:[formatInfo v for v in l]]
 ;   u is ["ATTRIBUTE",v] =>
-; 
-;     -- The parser can't tell between those attributes that really
-;     -- are attributes, and those that are category names
-;     atom v and isCategoryForm([v],$e) => ["has","$",[v]]
-;     atom v => BREAK()
-;     isCategoryForm(v,$e) => ["has","$",v]
-;     BREAK()
+;       isCategoryForm(v) => ["has", "$", v]
+;       BREAK()
 ;   u is ["IF",a,b,c] =>
 ;     c="noBranch" => ["COND",:liftCond [formatPred a,formatInfo b]]
 ;     b="noBranch" => ["COND",:liftCond [["not",formatPred a],formatInfo c]]
@@ -130,11 +125,7 @@
                   (SETQ |ISTMP#1| (CDR |u|))
                   (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                        (PROGN (SETQ |v| (CAR |ISTMP#1|)) #1#))))
-            (COND
-             ((AND (ATOM |v|) (|isCategoryForm| (LIST |v|) |$e|))
-              (LIST '|has| '$ (LIST |v|)))
-             ((ATOM |v|) (BREAK))
-             ((|isCategoryForm| |v| |$e|) (LIST '|has| '$ |v|)) (#1# (BREAK))))
+            (COND ((|isCategoryForm| |v|) (LIST '|has| '$ |v|)) (#1# (BREAK))))
            ((AND (CONSP |u|) (EQ (CAR |u|) 'IF)
                  (PROGN
                   (SETQ |ISTMP#1| (CDR |u|))
@@ -215,9 +206,9 @@
 ; formatPred u ==
 ;          --Assumes that $e is set up to point to an environment
 ;   u is ["has",a,b] =>
-;     atom b and isCategoryForm([b],$e) => ["has",a,[b]]
+;     atom b and isCategoryForm([b]) => ["has", a, [b]]
 ;     atom b => BREAK()
-;     isCategoryForm(b,$e) => u
+;     isCategoryForm(b) => u
 ;     b is ["ATTRIBUTE",.] => BREAK()
 ;     b is ["SIGNATURE",:.] => u
 ;     BREAK()
@@ -239,9 +230,9 @@
                    (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                         (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1='T))))))
        (COND
-        ((AND (ATOM |b|) (|isCategoryForm| (LIST |b|) |$e|))
+        ((AND (ATOM |b|) (|isCategoryForm| (LIST |b|)))
          (LIST '|has| |a| (LIST |b|)))
-        ((ATOM |b|) (BREAK)) ((|isCategoryForm| |b| |$e|) |u|)
+        ((ATOM |b|) (BREAK)) ((|isCategoryForm| |b|) |u|)
         ((AND (CONSP |b|) (EQ (CAR |b|) 'ATTRIBUTE)
               (PROGN
                (SETQ |ISTMP#1| (CDR |b|))

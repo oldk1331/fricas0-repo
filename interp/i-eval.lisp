@@ -447,7 +447,7 @@
 ;   form is [op,:args] and constructor? op => evaluateType1 form
 ;   t := mkAtree form
 ;   -- ??? Maybe we should be more careful about generalized types.
-;   bottomUp t is [m] and (m = ["Mode"] or isCategoryForm(m,$e)) =>
+;   bottomUp t is [m] and (m = ["Mode"] or isCategoryForm(m)) =>
 ;     objVal getValue t
 ;   throwEvalTypeMsg("S2IE0004",[form])
  
@@ -468,7 +468,7 @@
             (SETQ |ISTMP#1| (|bottomUp| |t|))
             (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                  (PROGN (SETQ |m| (CAR |ISTMP#1|)) #1#)))
-           (OR (EQUAL |m| (LIST '|Mode|)) (|isCategoryForm| |m| |$e|)))
+           (OR (EQUAL |m| (LIST '|Mode|)) (|isCategoryForm| |m|)))
           (|objVal| (|getValue| |t|)))
          (#1# (|throwEvalTypeMsg| 'S2IE0004 (LIST |form|))))))))))
  

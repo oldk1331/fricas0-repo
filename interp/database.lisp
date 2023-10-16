@@ -18,7 +18,7 @@
 ;     mkAlistOfExplicitCategoryOps substitute("*1","$",body)
 ;   domainList:=
 ;     [[a,m] for a in rest form for m in rest signature |
-;       isCategoryForm(m,$EmptyEnvironment)]
+;       isCategoryForm(m)]
 ;   catPredList:= [['ofCategory,:u] for u in [["*1",form],:domainList]]
 ;   for (entry:= [[op,sig,:.],pred,sel]) in opAlist |
 ;     member(sig,LASSOC(op,nonCategorySigAlist)) repeat
@@ -65,7 +65,7 @@
                         (PROGN (SETQ |m| (CAR |bfVar#5|)) NIL))
                     (RETURN (NREVERSE |bfVar#6|)))
                    (#1#
-                    (AND (|isCategoryForm| |m| |$EmptyEnvironment|)
+                    (AND (|isCategoryForm| |m|)
                          (SETQ |bfVar#6| (CONS (LIST |a| |m|) |bfVar#6|)))))
                   (SETQ |bfVar#4| (CDR |bfVar#4|))
                   (SETQ |bfVar#5| (CDR |bfVar#5|))))
@@ -790,7 +790,7 @@
  
 ; signatureTran pred ==
 ;   atom pred => pred
-;   pred is ['has,D,catForm] and isCategoryForm(catForm,$e) =>
+;   pred is ['has, D, catForm] and isCategoryForm(catForm) =>
 ;     ['ofCategory,D,catForm]
 ;   [signatureTran p for p in pred]
  
@@ -807,7 +807,7 @@
                         (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                         (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                              (PROGN (SETQ |catForm| (CAR |ISTMP#2|)) #1='T)))))
-                 (|isCategoryForm| |catForm| |$e|))
+                 (|isCategoryForm| |catForm|))
             (LIST '|ofCategory| D |catForm|))
            (#1#
             ((LAMBDA (|bfVar#37| |bfVar#36| |p|)
@@ -1514,7 +1514,7 @@
 ;     [[x,:fn(x,u)] for x in opList] where
 ;       fn(op,u) ==
 ;         u is [[a,:b],:c] => (a=op => [b,:fn(op,c)]; fn(op,c))
-;   isCategoryForm(target,$e) => nil
+;   isCategoryForm(target) => nil
 ;   keyedSystemError("S2GE0016",
 ;     ['"mkAlistOfExplicitCategoryOps",'"bad signature"])
  
@@ -1593,7 +1593,7 @@
                         |bfVar#59|))))
              (SETQ |bfVar#58| (CDR |bfVar#58|))))
           NIL |opList| NIL)))
-       ((|isCategoryForm| |target| |$e|) NIL)
+       ((|isCategoryForm| |target|) NIL)
        (#1#
         (|keyedSystemError| 'S2GE0016
          (LIST "mkAlistOfExplicitCategoryOps" "bad signature"))))))))
@@ -1683,7 +1683,7 @@
            (#1# NIL)))))
  
 ; mkDatabasePred [a,t] ==
-;   isCategoryForm(t,$e) => ['ofCategory,a,t]
+;   isCategoryForm(t) => ['ofCategory, a, t]
 ;   ['ofType,a,t]
  
 (DEFUN |mkDatabasePred| (|bfVar#61|)
@@ -1692,7 +1692,7 @@
      (PROGN
       (SETQ |a| (CAR |bfVar#61|))
       (SETQ |t| (CADR |bfVar#61|))
-      (COND ((|isCategoryForm| |t| |$e|) (LIST '|ofCategory| |a| |t|))
+      (COND ((|isCategoryForm| |t|) (LIST '|ofCategory| |a| |t|))
             ('T (LIST '|ofType| |a| |t|)))))))
  
 ; formal2Pattern x ==

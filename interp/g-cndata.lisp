@@ -4,7 +4,6 @@
 (IN-PACKAGE "BOOT")
  
 ; mkLowerCaseConTable() ==
-; --Called at system build time by function BUILD-INTERPSYS (see util.lisp)
 ; --Table is referenced by functions conPageFastPath and grepForAbbrev
 ;   $lowerCaseConTb := MAKE_-HASH_-TABLE()
 ;   for x in allConstructors() repeat augmentLowerCaseConTable x

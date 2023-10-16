@@ -1036,9 +1036,9 @@
 ; isDomainForm(D,e) ==
 ;   --added for MPOLY 3/83 by RDJ
 ;   MEMQ(IFCAR D, $SpecialDomainNames) or isFunctor D or
-;     -- ((D is ['Mapping,target,:.]) and isCategoryForm(target,e)) or
-;      ((getmode(D,e) is ['Mapping,target,:.]) and isCategoryForm(target,e)) or
-;        isCategoryForm(getmode(D,e),e) or isDomainConstructorForm(D,e)
+;     -- ((D is ['Mapping,target,:.]) and isCategoryForm(target)) or
+;      ((getmode(D, e) is ['Mapping, target, :.]) and isCategoryForm(target)) or
+;        isCategoryForm(getmode(D, e)) or isDomainConstructorForm(D, e)
  
 (DEFUN |isDomainForm| (D |e|)
   (PROG (|ISTMP#1| |ISTMP#2| |target|)
@@ -1052,14 +1052,14 @@
                  (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                  (AND (CONSP |ISTMP#2|)
                       (PROGN (SETQ |target| (CAR |ISTMP#2|)) 'T)))))
-          (|isCategoryForm| |target| |e|))
-         (|isCategoryForm| (|getmode| D |e|) |e|)
+          (|isCategoryForm| |target|))
+         (|isCategoryForm| (|getmode| D |e|))
          (|isDomainConstructorForm| D |e|)))))
  
 ; isDomainConstructorForm(D,e) ==
 ;   D is [op,:argl] and (u:= get(op,"value",e)) and
 ;     u is [.,["Mapping",target,:.],:.] and
-;       isCategoryForm(EQSUBSTLIST(argl,$FormalMapVariableList,target),e)
+;       isCategoryForm(EQSUBSTLIST(argl, $FormalMapVariableList, target))
  
 (DEFUN |isDomainConstructorForm| (D |e|)
   (PROG (|op| |argl| |u| |ISTMP#1| |ISTMP#2| |ISTMP#3| |target|)
@@ -1077,7 +1077,7 @@
                        (AND (CONSP |ISTMP#3|)
                             (PROGN (SETQ |target| (CAR |ISTMP#3|)) #1#)))))))
           (|isCategoryForm|
-           (EQSUBSTLIST |argl| |$FormalMapVariableList| |target|) |e|)))))
+           (EQSUBSTLIST |argl| |$FormalMapVariableList| |target|))))))
  
 ; isFunctor x ==
 ;   op:= opOf x

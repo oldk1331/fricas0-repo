@@ -276,7 +276,11 @@
          (SETQ |bfVar#17| (CDR |bfVar#17|))))
       (HKEYS |$has_category_hash|) NIL))))
  
-; simpHasPred(pred,:options) == main where
+; simpHasPred(pred) == simpHasPred2(pred, [])
+ 
+(DEFUN |simpHasPred| (|pred|) (PROG () (RETURN (|simpHasPred2| |pred| NIL))))
+ 
+; simpHasPred2(pred, options) == main where
 ;   main ==
 ;     $hasArgs: local := IFCDR IFCAR options
 ;     simp pred
@@ -314,14 +318,14 @@
 ;       false  --if not there, it is false
 ;     x
  
-(DEFUN |simpHasPred| (|pred| &REST |options|)
+(DEFUN |simpHasPred2| (|pred| |options|)
   (PROG (|$hasArgs|)
     (DECLARE (SPECIAL |$hasArgs|))
     (RETURN
      (PROGN
       (SETQ |$hasArgs| (IFCDR (IFCAR |options|)))
-      (|simpHasPred,simp| |pred|)))))
-(DEFUN |simpHasPred,simp| (|pred|)
+      (|simpHasPred2,simp| |pred|)))))
+(DEFUN |simpHasPred2,simp| (|pred|)
   (PROG (|op| |r| |LETTMP#1| |sig| |u| |op1|)
     (RETURN
      (COND
@@ -329,13 +333,13 @@
             (PROGN (SETQ |op| (CAR |pred|)) (SETQ |r| (CDR |pred|)) #1='T))
        (COND
         ((EQ |op| '|has|)
-         (|simpHasPred,simpHas| |pred| (CAR |r|) (CAR (CDR |r|))))
+         (|simpHasPred2,simpHas| |pred| (CAR |r|) (CAR (CDR |r|))))
         ((EQ |op| '|HasCategory|)
-         (|simpHasPred,simp|
-          (LIST '|has| (CAR |r|) (|simpHasPred,simpDevaluate| (CADR |r|)))))
+         (|simpHasPred2,simp|
+          (LIST '|has| (CAR |r|) (|simpHasPred2,simpDevaluate| (CADR |r|)))))
         ((EQ |op| '|HasSignature|)
          (PROGN
-          (SETQ |LETTMP#1| (|simpHasPred,simpDevaluate| (CADR |r|)))
+          (SETQ |LETTMP#1| (|simpHasPred2,simpDevaluate| (CADR |r|)))
           (SETQ |op| (CAR |LETTMP#1|))
           (SETQ |sig| (CADR |LETTMP#1|))
           (LIST '|has| (CAR |r|) (LIST 'SIGNATURE |op| |sig|))))
@@ -353,7 +357,7 @@
                            (RETURN (NREVERSE |bfVar#22|)))
                           (#1#
                            (SETQ |bfVar#22|
-                                   (CONS (|simpHasPred,simp| |p|)
+                                   (CONS (|simpHasPred2,simp| |p|)
                                          |bfVar#22|))))
                          (SETQ |bfVar#21| (CDR |bfVar#21|))))
                       NIL |r| NIL)
@@ -363,14 +367,14 @@
         ((EQ |op| '|hasArgs|)
          (COND (|$hasArgs| (EQUAL |$hasArgs| |r|)) (#1# |pred|)))
         ((AND (NULL |r|) (EQ (|opOf| |op|) '|has|))
-         (|simpHasPred,simp| (CAR |pred|)))
+         (|simpHasPred2,simp| (CAR |pred|)))
         ((EQUAL |pred| ''T) T)
         ((SETQ |op1| (LASSOC |op| '((|and| . AND) (|or| . OR) (|not| . NOT))))
-         (|simpHasPred,simp| (CONS |op1| |r|)))))
+         (|simpHasPred2,simp| (CONS |op1| |r|)))))
       ((|member| |pred| '(T |etc|)) |pred|) ((NULL |pred|) NIL) (#1# |pred|)))))
-(DEFUN |simpHasPred,simpDevaluate| (|a|)
+(DEFUN |simpHasPred2,simpDevaluate| (|a|)
   (PROG () (RETURN (EVAL (SUBST 'QUOTE '|devaluate| |a|)))))
-(DEFUN |simpHasPred,simpHas| (|pred| |a| |b|)
+(DEFUN |simpHasPred2,simpHas| (|pred| |a| |b|)
   (PROG (|ISTMP#1| |attr| |op| |ISTMP#2| |sig| |npred|)
     (RETURN
      (COND
@@ -393,10 +397,10 @@
       ((OR (IDENTP |a|) (|hasIdent| |b|)) |pred|)
       (#1#
        (PROGN
-        (SETQ |npred| (|simpHasPred,eval| |pred|))
+        (SETQ |npred| (|simpHasPred2,eval| |pred|))
         (COND ((OR (IDENTP |npred|) (NULL (|hasIdent| |npred|))) |npred|)
               (#1# |pred|))))))))
-(DEFUN |simpHasPred,eval| (|pred|)
+(DEFUN |simpHasPred2,eval| (|pred|)
   (PROG (|d| |cat| |x| |y| |args| |p| |npred|)
     (RETURN
      (PROGN
@@ -425,7 +429,7 @@
                               (COND (|bfVar#25| (RETURN |bfVar#25|)))))))
                       (SETQ |bfVar#24| (CDR |bfVar#24|))))
                    NIL |x| NIL))
-          (|simpHasPred,simp| |npred|))
+          (|simpHasPred2,simp| |npred|))
          (#2# NIL)))
        (#2# |x|))))))
  
@@ -1339,15 +1343,14 @@
          |ats| NIL)))
       |cats|))))
  
-; getConstructorExports(conform,:options) == categoryParts(conform,
-;   GETDATABASE(opOf conform,'CONSTRUCTORCATEGORY),IFCAR options)
+; getConstructorExports(conform, do_constr) == categoryParts(conform,
+;   GETDATABASE(opOf conform, 'CONSTRUCTORCATEGORY), do_constr)
  
-(DEFUN |getConstructorExports| (|conform| &REST |options|)
+(DEFUN |getConstructorExports| (|conform| |do_constr|)
   (PROG ()
     (RETURN
      (|categoryParts| |conform|
-      (GETDATABASE (|opOf| |conform|) 'CONSTRUCTORCATEGORY)
-      (IFCAR |options|)))))
+      (GETDATABASE (|opOf| |conform|) 'CONSTRUCTORCATEGORY) |do_constr|))))
  
 ; DEFVAR($attrlist)
  
@@ -1361,9 +1364,8 @@
  
 (DEFVAR |$conslist|)
  
-; categoryParts(conform,category,:options) == main where
+; categoryParts(conform, category, do_constr) == main where
 ;   main ==
-;     cons? := IFCAR options  --means to include constructors as well
 ;     $attrlist: local := nil
 ;     $oplist  : local := nil
 ;     $conslist: local := nil
@@ -1372,7 +1374,7 @@
 ;     $attrlist := listSort(function GLESSEQP,$attrlist)
 ;     $oplist   := listSort(function GLESSEQP,$oplist)
 ;     res := [$attrlist,:$oplist]
-;     if cons? then res := [listSort(function GLESSEQP,$conslist),:res]
+;     if do_constr then res := [listSort(function GLESSEQP, $conslist), :res]
 ;     if GETDATABASE(conname,'CONSTRUCTORKIND) = 'category then
 ;       tvl := TAKE(#rest conform,$TriangleVariableList)
 ;       res := SUBLISLIS($FormalMapVariableList,tvl,res)
@@ -1403,12 +1405,11 @@
 ;     $conslist := [[target,:true],:$conslist]
 ;     nil
  
-(DEFUN |categoryParts| (|conform| |category| &REST |options|)
-  (PROG (|$conslist| |$oplist| |$attrlist| |tvl| |res| |conname| |cons?|)
+(DEFUN |categoryParts| (|conform| |category| |do_constr|)
+  (PROG (|$conslist| |$oplist| |$attrlist| |tvl| |res| |conname|)
     (DECLARE (SPECIAL |$conslist| |$oplist| |$attrlist|))
     (RETURN
      (PROGN
-      (SETQ |cons?| (IFCAR |options|))
       (SETQ |$attrlist| NIL)
       (SETQ |$oplist| NIL)
       (SETQ |$conslist| NIL)
@@ -1425,7 +1426,8 @@
       (SETQ |$oplist| (|listSort| #'GLESSEQP |$oplist|))
       (SETQ |res| (CONS |$attrlist| |$oplist|))
       (COND
-       (|cons?| (SETQ |res| (CONS (|listSort| #'GLESSEQP |$conslist|) |res|))))
+       (|do_constr|
+        (SETQ |res| (CONS (|listSort| #'GLESSEQP |$conslist|) |res|))))
       (COND
        ((EQ (GETDATABASE |conname| 'CONSTRUCTORKIND) '|category|)
         (SETQ |tvl| (TAKE (LENGTH (CDR |conform|)) |$TriangleVariableList|))

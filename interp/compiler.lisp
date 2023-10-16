@@ -3970,7 +3970,7 @@
 ;     atom t and (t':= assoc(t,getDomainsInScope e)) => t'
 ;     isDomainForm(t,e) and not $insideCategoryIfTrue =>
 ;       (if not member(t,getDomainsInScope e) then e:= addDomain(t,e); t)
-;     isDomainForm(t,e) or isCategoryForm(t,e) => t
+;     isDomainForm(t, e) or isCategoryForm(t) => t
 ;     t is ["Mapping",m',:r] => t
 ;     unknownTypeError t
 ;     t
@@ -4010,7 +4010,7 @@
                   ((NULL (|member| |t| (|getDomainsInScope| |e|)))
                    (SETQ |e| (|addDomain| |t| |e|))))
                  |t|))
-               ((OR (|isDomainForm| |t| |e|) (|isCategoryForm| |t| |e|)) |t|)
+               ((OR (|isDomainForm| |t| |e|) (|isCategoryForm| |t|)) |t|)
                ((AND (CONSP |t|) (EQ (CAR |t|) '|Mapping|)
                      (PROGN
                       (SETQ |ISTMP#1| (CDR |t|))
@@ -4344,7 +4344,7 @@
 ;         (get(m,"value",$e) is [m'',:.] or getmode(m,$e) is ["Mapping",m'']) and
 ;           modeEqual(m'',m') => [T.expr,m,T.env]
 ;   STRINGP T.expr and T.expr=m => [T.expr,m,$e]
-;   isCategoryForm(m,$e) =>
+;   isCategoryForm(m) =>
 ;       $bootStrapMode = true => [T.expr,m,$e]
 ;       extendsCategoryForm(T.expr,T.mode,m) => [T.expr,m,$e]
 ;       coerceExtraHard(T,m)
@@ -4394,7 +4394,7 @@
              (|modeEqual| |m''| |m'|)))
         (LIST (CAR T$) |m| (CADDR T$)))
        ((AND (STRINGP (CAR T$)) (EQUAL (CAR T$) |m|)) (LIST (CAR T$) |m| |$e|))
-       ((|isCategoryForm| |m| |$e|)
+       ((|isCategoryForm| |m|)
         (COND ((EQUAL |$bootStrapMode| T) (LIST (CAR T$) |m| |$e|))
               ((|extendsCategoryForm| (CAR T$) (CADR T$) |m|)
                (LIST (CAR T$) |m| |$e|))

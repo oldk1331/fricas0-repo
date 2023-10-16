@@ -2276,7 +2276,7 @@
 ;   v is ['IF,p,['ATTRIBUTE,c],.] =>
 ;     -- BREAK()
 ;     uVec := (compMakeCategoryObject(u, $EmptyEnvironment)).expr
-;     null atom c and isCategoryForm(c,nil) =>
+;     null atom c and isCategoryForm(c) =>
 ;       slot4 := uVec.4
 ;       LASSOC(c,CADR slot4) is [=p,:.]
 ;     slot2 := uVec.2
@@ -2311,7 +2311,7 @@
        (PROGN
         (SETQ |uVec| (CAR (|compMakeCategoryObject| |u| |$EmptyEnvironment|)))
         (COND
-         ((AND (NULL (ATOM |c|)) (|isCategoryForm| |c| NIL))
+         ((AND (NULL (ATOM |c|)) (|isCategoryForm| |c|))
           (PROGN
            (SETQ |slot4| (ELT |uVec| 4))
            (SETQ |ISTMP#1| (LASSOC |c| (CADR |slot4|)))
@@ -2327,7 +2327,7 @@
 ;   u is ["Join",:l] => or/[extendsCategoryBasic(dom,x,v) for x in l]
 ;   u = v => true
 ;   uVec := (compMakeCategoryObject(u, $EmptyEnvironment)).expr
-;   isCategoryForm(v,nil) => catExtendsCat?(u,v,uVec)
+;   isCategoryForm(v) => catExtendsCat?(u, v, uVec)
 ;   v is ['SIGNATURE,op,sig] =>
 ;       res := false
 ;       for csig in uVec.1 repeat
@@ -2362,7 +2362,7 @@
       (#1#
        (PROGN
         (SETQ |uVec| (CAR (|compMakeCategoryObject| |u| |$EmptyEnvironment|)))
-        (COND ((|isCategoryForm| |v| NIL) (|catExtendsCat?| |u| |v| |uVec|))
+        (COND ((|isCategoryForm| |v|) (|catExtendsCat?| |u| |v| |uVec|))
               ((AND (CONSP |v|) (EQ (CAR |v|) 'SIGNATURE)
                     (PROGN
                      (SETQ |ISTMP#1| (CDR |v|))

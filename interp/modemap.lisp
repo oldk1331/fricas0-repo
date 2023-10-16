@@ -14,11 +14,11 @@
 ;     addNewDomain(domain,e)
 ;   (name:= first domain)='Category => e
 ;   domainMember(domain,getDomainsInScope e) => e
-;   getmode(name,e) is ["Mapping",target,:.] and isCategoryForm(target,e)=>
+;   getmode(name, e) is ["Mapping", target, :.] and isCategoryForm(target) =>
 ;       addNewDomain(domain,e)
 ;     -- constructor? test needed for domains compiled with $bootStrapMode=true
 ;   isFunctor name or constructor? name => addNewDomain(domain,e)
-;   if not isCategoryForm(domain,e) and
+;   if not isCategoryForm(domain) and
 ;     not member(name,'(Mapping CATEGORY)) then
 ;       unknownTypeError name
 ;   e        --is not a functor
@@ -48,14 +48,14 @@
                (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                (AND (CONSP |ISTMP#2|)
                     (PROGN (SETQ |target| (CAR |ISTMP#2|)) #1#)))))
-        (|isCategoryForm| |target| |e|))
+        (|isCategoryForm| |target|))
        (|addNewDomain| |domain| |e|))
       ((OR (|isFunctor| |name|) (|constructor?| |name|))
        (|addNewDomain| |domain| |e|))
       (#1#
        (PROGN
         (COND
-         ((AND (NULL (|isCategoryForm| |domain| |e|))
+         ((AND (NULL (|isCategoryForm| |domain|))
                (NULL (|member| |name| '(|Mapping| CATEGORY))))
           (|unknownTypeError| |name|)))
         |e|))))))
@@ -452,7 +452,7 @@
  
 ; augModemapsFromDomain(name,functorForm,e) ==
 ;   member(IFCAR name or name, $DummyFunctorNames) => e
-;   name=$Category or isCategoryForm(name,e) => e
+;   name = $Category or isCategoryForm(name) => e
 ;   member(name, getDomainsInScope e) => e
 ;   if u:= GETDATABASE(opOf functorForm,'SUPERDOMAIN) then
 ;     e:= addNewDomain(first u,e)
@@ -466,7 +466,7 @@
   (PROG (|u| |innerDom| |dl|)
     (RETURN
      (COND ((|member| (OR (IFCAR |name|) |name|) |$DummyFunctorNames|) |e|)
-           ((OR (EQUAL |name| |$Category|) (|isCategoryForm| |name| |e|)) |e|)
+           ((OR (EQUAL |name| |$Category|) (|isCategoryForm| |name|)) |e|)
            ((|member| |name| (|getDomainsInScope| |e|)) |e|)
            (#1='T
             (PROGN

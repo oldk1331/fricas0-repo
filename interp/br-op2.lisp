@@ -1573,7 +1573,7 @@
       NIL (|listSort| #'GLESSEQP (HKEYS |$if|)) NIL))))
  
 ; koCatAttrsAdd(catform,pred) ==
-;   for [name, argl, :p] in first getConstructorExports catform repeat
+;   for [name, argl, :p] in first getConstructorExports(catform, false) repeat
 ;     npred  := quickAnd(pred,p)
 ;     exists := HGET($if,name)
 ;     if existingPred := LASSOC(argl,exists) then npred := quickOr(npred,existingPred)
@@ -1610,7 +1610,7 @@
                          (CONS (LIST |argl| (|simpHasPred| |npred|))
                                |exists|))))))))
          (SETQ |bfVar#64| (CDR |bfVar#64|))))
-      (CAR (|getConstructorExports| |catform|)) NIL))))
+      (CAR (|getConstructorExports| |catform| NIL)) NIL))))
  
 ; koaPageFilterByCategory(htPage,calledFrom) ==
 ;   opAlist := htpProperty(htPage,'opAlist)
