@@ -768,10 +768,10 @@
 ;   pathname := '"gloss.text"
 ;   instream := MAKE_INSTREAM(pathname)
 ;   keypath  := '"glosskey.text"
-;   OBEY STRCONC('"rm -f ",keypath)
+;   maybe_delete_file(keypath)
 ;   outstream := MAKE_OUTSTREAM(keypath)
 ;   htpath   := '"gloss.ht"
-;   OBEY STRCONC('"rm -f ",htpath)
+;   maybe_delete_file(htpath)
 ;   htstream := MAKE_OUTSTREAM(htpath)
 ;   defpath  := '"glossdef.text"
 ;   defstream := MAKE_OUTSTREAM(defpath)
@@ -823,10 +823,10 @@
       (SETQ |pathname| "gloss.text")
       (SETQ |instream| (MAKE_INSTREAM |pathname|))
       (SETQ |keypath| "glosskey.text")
-      (OBEY (STRCONC "rm -f " |keypath|))
+      (|maybe_delete_file| |keypath|)
       (SETQ |outstream| (MAKE_OUTSTREAM |keypath|))
       (SETQ |htpath| "gloss.ht")
-      (OBEY (STRCONC "rm -f " |htpath|))
+      (|maybe_delete_file| |htpath|)
       (SETQ |htstream| (MAKE_OUTSTREAM |htpath|))
       (SETQ |defpath| "glossdef.text")
       (SETQ |defstream| (MAKE_OUTSTREAM |defpath|))
@@ -2311,7 +2311,7 @@
 ;   oldlines := purgeNewConstructorLines(dbReadLines localLibdb, conlist)
 ;   newlines := dbReadLines '"temp.text"
 ;   dbWriteLines(MSORT union(oldlines,newlines), '"libdb.text")
-;   PROBE_-FILE '"temp.text" => deleteFile '"temp.text"
+;   maybe_delete_file('"temp.text")
  
 (DEFUN |extendLocalLibdb| (|conlist|)
   (PROG (|localLibdb| |oldlines| |newlines|)
@@ -2334,5 +2334,4 @@
                 (SETQ |newlines| (|dbReadLines| "temp.text"))
                 (|dbWriteLines| (MSORT (|union| |oldlines| |newlines|))
                  "libdb.text")
-                (COND
-                 ((PROBE-FILE "temp.text") (|deleteFile| "temp.text"))))))))))))
+                (|maybe_delete_file| "temp.text"))))))))))

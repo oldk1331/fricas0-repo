@@ -20,7 +20,7 @@
 (EVAL-WHEN (EVAL LOAD) (SETQ |$asyPrint| NIL))
  
 ; asList() ==
-;   OBEY '"rm -f temp.text"
+;   maybe_delete_file('"temp.text")
 ;   OBEY '"ls as/*.asy > temp.text"
 ;   instream := OPEN '"temp.text"
 ;   lines := [read_line instream while not EOFP instream]
@@ -31,7 +31,7 @@
   (PROG (|lines| |instream|)
     (RETURN
      (PROGN
-      (OBEY "rm -f temp.text")
+      (|maybe_delete_file| "temp.text")
       (OBEY "ls as/*.asy > temp.text")
       (SETQ |instream| (OPEN "temp.text"))
       (SETQ |lines|
