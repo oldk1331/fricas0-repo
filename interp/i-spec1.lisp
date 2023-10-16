@@ -1185,6 +1185,8 @@
 ;     it is ['_|,pred] =>
 ;       [['SUCHTHAT,mkAtree1 pred]]
 ;     it is [op,:.] and (op in '(VALUE UNTIL)) => nil
+;     keyedSystemError("S2GE0016",
+;         ['"transformCollect",'"Unknown type of iterator"])
 ;   bodyTree:=mkAtree1 body
 ;   iterList:=NCONC(iterList,[:iterTran2 for it in itrl]) where
 ;     iterTran2 ==
@@ -1323,7 +1325,11 @@
                                ((AND (CONSP |it|)
                                      (PROGN (SETQ |op| (CAR |it|)) #1#)
                                      (|member| |op| '(VALUE UNTIL)))
-                                NIL)))
+                                NIL)
+                               (#1#
+                                (|keyedSystemError| 'S2GE0016
+                                 (LIST "transformCollect"
+                                       "Unknown type of iterator")))))
                              |bfVar#25|))))
                   (SETQ |bfVar#24| (CDR |bfVar#24|))))
                NIL |itrl| NIL))
@@ -1502,7 +1508,7 @@
 ;       -- following is an optimization
 ;       typeIsASmallInteger(get(index,'mode,$env)) =>
 ;         RPLACA(iter,'ISTEP)
-;     NIL       -- should have error msg here?
+;     throwKeyedMsg("Malformed iterator")
  
 (DEFUN |upLoopIters| (|itrl|)
   (PROG (|ISTMP#1| |pred| |index| |ISTMP#2| |s| |lower| |ISTMP#3| |step|
@@ -1559,7 +1565,7 @@
               (COND
                ((|typeIsASmallInteger| (|get| |index| '|mode| |$env|))
                 (RPLACA |iter| 'ISTEP)))))
-            (#1# NIL))))
+            (#1# (|throwKeyedMsg| '|Malformed iterator|)))))
          (SETQ |bfVar#32| (CDR |bfVar#32|))))
       |itrl| NIL))))
  
