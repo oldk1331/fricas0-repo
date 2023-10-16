@@ -5827,6 +5827,7 @@
   (PROG () (RETURN (+ (WIDTH (ELT |u| 1)) (|aggwidth| (CDDR |u|))))))
  
 ; vconcatapp(u, x, y, d) ==
+;   null rest u => d
 ;   w := vConcatWidth u
 ;   y := y + superspan u.1 + 1
 ;   for a in rest u repeat
@@ -5839,23 +5840,26 @@
 (DEFUN |vconcatapp| (|u| |x| |y| |d|)
   (PROG (|w| |xoff|)
     (RETURN
-     (PROGN
-      (SETQ |w| (|vConcatWidth| |u|))
-      (SETQ |y| (+ (+ |y| (|superspan| (ELT |u| 1))) 1))
-      ((LAMBDA (|bfVar#109| |a|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#109|) (PROGN (SETQ |a| (CAR |bfVar#109|)) NIL))
-            (RETURN NIL))
-           ('T
+     (COND ((NULL (CDR |u|)) |d|)
+           (#1='T
             (PROGN
-             (SETQ |y| (- (- |y| (|superspan| |a|)) 1))
-             (SETQ |xoff| (QUOTIENT (- |w| (WIDTH |a|)) 2))
-             (SETQ |d| (APP |a| (+ |x| |xoff|) |y| |d|))
-             (SETQ |y| (- |y| (|subspan| |a|))))))
-          (SETQ |bfVar#109| (CDR |bfVar#109|))))
-       (CDR |u|) NIL)
-      |d|))))
+             (SETQ |w| (|vConcatWidth| |u|))
+             (SETQ |y| (+ (+ |y| (|superspan| (ELT |u| 1))) 1))
+             ((LAMBDA (|bfVar#109| |a|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#109|)
+                       (PROGN (SETQ |a| (CAR |bfVar#109|)) NIL))
+                   (RETURN NIL))
+                  (#1#
+                   (PROGN
+                    (SETQ |y| (- (- |y| (|superspan| |a|)) 1))
+                    (SETQ |xoff| (QUOTIENT (- |w| (WIDTH |a|)) 2))
+                    (SETQ |d| (APP |a| (+ |x| |xoff|) |y| |d|))
+                    (SETQ |y| (- |y| (|subspan| |a|))))))
+                 (SETQ |bfVar#109| (CDR |bfVar#109|))))
+              (CDR |u|) NIL)
+             |d|))))))
  
 ; binomialApp(u, x, y, d) ==
 ;   [.,b,a] := u
@@ -5890,25 +5894,31 @@
       (APP ")" |x| |y| |d|)))))
  
 ; vConcatSub u ==
+;   null rest u => 0
 ;   subspan u.1 + +/[height a for a in CDDR u]
  
 (DEFUN |vConcatSub| (|u|)
   (PROG ()
     (RETURN
-     (+ (|subspan| (ELT |u| 1))
-        ((LAMBDA (|bfVar#111| |bfVar#110| |a|)
-           (LOOP
-            (COND
-             ((OR (ATOM |bfVar#110|) (PROGN (SETQ |a| (CAR |bfVar#110|)) NIL))
-              (RETURN |bfVar#111|))
-             ('T (SETQ |bfVar#111| (+ |bfVar#111| (|height| |a|)))))
-            (SETQ |bfVar#110| (CDR |bfVar#110|))))
-         0 (CDDR |u|) NIL)))))
+     (COND ((NULL (CDR |u|)) 0)
+           (#1='T
+            (+ (|subspan| (ELT |u| 1))
+               ((LAMBDA (|bfVar#111| |bfVar#110| |a|)
+                  (LOOP
+                   (COND
+                    ((OR (ATOM |bfVar#110|)
+                         (PROGN (SETQ |a| (CAR |bfVar#110|)) NIL))
+                     (RETURN |bfVar#111|))
+                    (#1# (SETQ |bfVar#111| (+ |bfVar#111| (|height| |a|)))))
+                   (SETQ |bfVar#110| (CDR |bfVar#110|))))
+                0 (CDDR |u|) NIL)))))))
  
 ; vConcatSuper u ==
+;   null rest u => 0
 ;   superspan u.1
  
-(DEFUN |vConcatSuper| (|u|) (PROG () (RETURN (|superspan| (ELT |u| 1)))))
+(DEFUN |vConcatSuper| (|u|)
+  (PROG () (RETURN (COND ((NULL (CDR |u|)) 0) ('T (|superspan| (ELT |u| 1)))))))
  
 ; vConcatWidth u ==
 ;   w := 0
