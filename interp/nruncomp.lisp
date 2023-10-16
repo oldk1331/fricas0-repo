@@ -1399,7 +1399,7 @@
                   |LETTMP#1|))))))
       |condCats|))))
  
-; buildFunctor($definition is [name, :args], sig, code, $locals, e) ==
+; buildFunctor(definition is [name, :args], sig, code, $locals, e) ==
 ; --PARAMETERS
 ; --  $definition: constructor form, e.g. (SquareMatrix 10 (RationalNumber))
 ; --  sig: signature of constructor form
@@ -1415,6 +1415,8 @@
 ; --GLOBAL VARIABLES REFERENCED:
 ; --  $domainShell: passed in from compDefineFunctor1
 ; --  $QuickCode: compilation flag
+; 
+;   $definition : local := definition
 ; 
 ;   if code is ['add,.,newstuff] then code := newstuff
 ; 
@@ -1470,7 +1472,7 @@
 ;   codePart2:=
 ;       argStuffCode :=
 ;         [[$setelt,'$,i,v] for i in 6.. for v in $FormalMapVariableList
-;           for arg in rest $definition]
+;           for arg in rest definition]
 ;       if MEMQ($NRTaddForm,$locals) then
 ;          addargname := $FormalMapVariableList.(POSN1($NRTaddForm,$locals))
 ;          argStuffCode := [[$setelt,'$,5,addargname],:argStuffCode]
@@ -1482,16 +1484,17 @@
 ; --CODE: part 1
 ;   codePart1:= [:devaluateCode, createDomainCode,
 ;                 createViewCode,setVector0Code, slot3Code,:slamCode] where
+;     -- FIXME: should devaluate only domain arguments
 ;     devaluateCode:= [['LET,b,['devaluate,a]] for [a,:b] in $devaluateList]
 ;     createDomainCode:=
-;         ['LET, domname, ['LIST, MKQ first $definition,
+;         ['LET, domname, ['LIST, MKQ first definition,
 ;                          :ASSOCRIGHT $devaluateList]]
 ;     createViewCode:= ['LET,'$,['GETREFV, 6+$NRTdeltaLength]]
 ;     setVector0Code:=[$setelt,'$,0,'dv_$]
 ;     slot3Code := ['QSETREFV,'$,3,['LET,'pv_$,predBitVectorCode1]]
 ;     slamCode:=
-;       isCategoryPackageName opOf $definition => nil
-;       [NRTaddToSlam($definition,'$)]
+;         isCategoryPackageName(opOf(definition)) => nil
+;         [NRTaddToSlam(definition, '$)]
 ; 
 ; --CODE: part 3
 ;   $ConstantAssignments :=
@@ -1505,24 +1508,26 @@
 ;   --pp ans
 ;   ans
  
-(DEFUN |buildFunctor| (|$definition| |sig| |code| |$locals| |e|)
-  (DECLARE (SPECIAL |$definition| |$locals|))
+(DEFUN |buildFunctor| (|definition| |sig| |code| |$locals| |e|)
+  (DECLARE (SPECIAL |$locals|))
   (PROG (|$devaluateList| |$extraParms| |$epilogue| |$ConstantAssignments|
-         |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO |ans|
-         |codePart3| |codePart1| |slamCode| |slot3Code| |setVector0Code|
-         |createViewCode| |createDomainCode| |devaluateCode| |b| |a|
-         |codePart2| |addargname| |argStuffCode| |outsideFunctionCode|
+         |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO
+         |$definition| |ans| |codePart3| |codePart1| |slamCode| |slot3Code|
+         |setVector0Code| |createViewCode| |createDomainCode| |devaluateCode|
+         |b| |a| |codePart2| |addargname| |argStuffCode| |outsideFunctionCode|
          |storeOperationCode| |predBitVectorCode2| |predBitVectorCode1|
          |LETTMP#1| |domname| |catNames| |domainShell| |makeCatvecCode|
          |condCats| |catvecListMaker| |argsig| |catsig| |oldtime| |newstuff|
          |ISTMP#2| |ISTMP#1| |args| |name|)
     (DECLARE
      (SPECIAL |$devaluateList| |$extraParms| |$epilogue| |$ConstantAssignments|
-      |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO))
+      |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO
+      |$definition|))
     (RETURN
      (PROGN
-      (SETQ |name| (CAR |$definition|))
-      (SETQ |args| (CDR |$definition|))
+      (SETQ |name| (CAR |definition|))
+      (SETQ |args| (CDR |definition|))
+      (SETQ |$definition| |definition|)
       (COND
        ((AND (CONSP |code|) (EQ (CAR |code|) '|add|)
              (PROGN
@@ -1645,7 +1650,7 @@
                            (SETQ |i| (+ |i| 1))
                            (SETQ |bfVar#68| (CDR |bfVar#68|))
                            (SETQ |bfVar#69| (CDR |bfVar#69|))))
-                        NIL 6 |$FormalMapVariableList| NIL (CDR |$definition|)
+                        NIL 6 |$FormalMapVariableList| NIL (CDR |definition|)
                         NIL))
                (COND
                 ((MEMQ |$NRTaddForm| |$locals|)
@@ -1683,7 +1688,7 @@
       (SETQ |createDomainCode|
               (LIST 'LET |domname|
                     (CONS 'LIST
-                          (CONS (MKQ (CAR |$definition|))
+                          (CONS (MKQ (CAR |definition|))
                                 (ASSOCRIGHT |$devaluateList|)))))
       (SETQ |createViewCode|
               (LIST 'LET '$ (LIST 'GETREFV (+ 6 |$NRTdeltaLength|))))
@@ -1691,8 +1696,8 @@
       (SETQ |slot3Code|
               (LIST 'QSETREFV '$ 3 (LIST 'LET '|pv$| |predBitVectorCode1|)))
       (SETQ |slamCode|
-              (COND ((|isCategoryPackageName| (|opOf| |$definition|)) NIL)
-                    (#1# (LIST (|NRTaddToSlam| |$definition| '$)))))
+              (COND ((|isCategoryPackageName| (|opOf| |definition|)) NIL)
+                    (#1# (LIST (|NRTaddToSlam| |definition| '$)))))
       (SETQ |codePart1|
               (APPEND |devaluateCode|
                       (CONS |createDomainCode|

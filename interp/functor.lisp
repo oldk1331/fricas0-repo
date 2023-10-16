@@ -158,7 +158,7 @@
 ;   atom x => x
 ;   x is ['QUOTE,:l] => x
 ;   x is ['DomainSubstitutionMacro,parms,body] =>
-;     optFunctorBody DomainSubstitutionFunction(parms,body)
+;       optFunctorBody(DomainSubstitutionFunction($definition, parms, body))
 ;   x is ['LIST,:l] =>
 ;     null l => nil
 ;     l:= [optFunctorBody u for u in l]
@@ -203,7 +203,8 @@
                         (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                         (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                              (PROGN (SETQ |body| (CAR |ISTMP#2|)) #1#))))))
-            (|optFunctorBody| (|DomainSubstitutionFunction| |parms| |body|)))
+            (|optFunctorBody|
+             (|DomainSubstitutionFunction| |$definition| |parms| |body|)))
            ((AND (CONSP |x|) (EQ (CAR |x|) 'LIST)
                  (PROGN (SETQ |l| (CDR |x|)) #1#))
             (COND ((NULL |l|) NIL)

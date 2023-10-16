@@ -4189,11 +4189,11 @@
            (OR (MEMQ |fn| |$DummyFunctorNames|)
                (GET |fn| '|makeFunctionList|)))))))
  
-; DomainSubstitutionFunction(parameters,body) ==
+; DomainSubstitutionFunction(definition, parameters,body) ==
 ;   --see optFunctorBody
 ;   if parameters then
-;     (body:= Subst(parameters,body)) where
-;       Subst(parameters,body) ==
+;     (body:= Subst(definition, parameters,body)) where
+;       Subst(definition, parameters,body) ==
 ;         ATOM body =>
 ;           MEMQ(body,parameters) => MKQ body
 ;           body
@@ -4205,29 +4205,30 @@
 ;            --For categories, bound and used in compDefineCategory
 ;           MKQ g
 ;         first body="QUOTE" => body
-;         PAIRP $definition and
+;         PAIRP definition and
 ;             isFunctor first body and
-;               first body ~= first $definition
+;               first body ~= first definition
 ;           =>  ['QUOTE,optimize body]
-;         [Subst(parameters,u) for u in body]
+;         [Subst(definition, parameters,u) for u in body]
 ;   not (body is ["Join",:.]) => body
 ;   body is ["Join", ["mkCategory", :.]] => body
-;   atom $definition => body
-;   null rest $definition => body
+;   atom definition => body
+;   null rest definition => body
 ;            --should not bother if it will only be called once
-;   name := INTERN STRCONC(IFCAR $definition, ";CAT")
+;   name := INTERN STRCONC(IFCAR definition, ";CAT")
 ;   output_lisp_defparameter(name, nil)
 ;   body:= ["COND",[name],['(QUOTE T),['SETQ,name,body]]]
 ;   body
  
-(DEFUN |DomainSubstitutionFunction| (|parameters| |body|)
+(DEFUN |DomainSubstitutionFunction| (|definition| |parameters| |body|)
   (PROG (|ISTMP#1| |ISTMP#2| |name|)
     (RETURN
      (PROGN
       (COND
        (|parameters|
         (SETQ |body|
-                (|DomainSubstitutionFunction,Subst| |parameters| |body|))))
+                (|DomainSubstitutionFunction,Subst| |definition| |parameters|
+                 |body|))))
       (COND ((NULL (AND (CONSP |body|) (EQ (CAR |body|) '|Join|))) |body|)
             ((AND (CONSP |body|) (EQ (CAR |body|) '|Join|)
                   (PROGN
@@ -4238,16 +4239,16 @@
                          (AND (CONSP |ISTMP#2|)
                               (EQ (CAR |ISTMP#2|) '|mkCategory|))))))
              |body|)
-            ((ATOM |$definition|) |body|) ((NULL (CDR |$definition|)) |body|)
+            ((ATOM |definition|) |body|) ((NULL (CDR |definition|)) |body|)
             ('T
              (PROGN
-              (SETQ |name| (INTERN (STRCONC (IFCAR |$definition|) '|;CAT|)))
+              (SETQ |name| (INTERN (STRCONC (IFCAR |definition|) '|;CAT|)))
               (|output_lisp_defparameter| |name| NIL)
               (SETQ |body|
                       (LIST 'COND (LIST |name|)
                             (LIST ''T (LIST 'SETQ |name| |body|))))
               |body|)))))))
-(DEFUN |DomainSubstitutionFunction,Subst| (|parameters| |body|)
+(DEFUN |DomainSubstitutionFunction,Subst| (|definition| |parameters| |body|)
   (PROG (|g|)
     (RETURN
      (COND
@@ -4259,8 +4260,8 @@
         (SETQ |$extraParms| (PUSH (CONS |g| |body|) |$extraParms|))
         (MKQ |g|)))
       ((EQ (CAR |body|) 'QUOTE) |body|)
-      ((AND (CONSP |$definition|) (|isFunctor| (CAR |body|))
-            (NOT (EQUAL (CAR |body|) (CAR |$definition|))))
+      ((AND (CONSP |definition|) (|isFunctor| (CAR |body|))
+            (NOT (EQUAL (CAR |body|) (CAR |definition|))))
        (LIST 'QUOTE (|optimize| |body|)))
       (#1#
        ((LAMBDA (|bfVar#162| |bfVar#161| |u|)
@@ -4271,7 +4272,8 @@
             (#1#
              (SETQ |bfVar#162|
                      (CONS
-                      (|DomainSubstitutionFunction,Subst| |parameters| |u|)
+                      (|DomainSubstitutionFunction,Subst| |definition|
+                       |parameters| |u|)
                       |bfVar#162|))))
            (SETQ |bfVar#161| (CDR |bfVar#161|))))
         NIL |body| NIL))))))
