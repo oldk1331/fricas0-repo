@@ -111,7 +111,7 @@
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN (PROGN (SPADCALL |c| |ls1| |lm| (QREFELT $ 36)))))) 
 
-(SDEFUN |MEVAL2;m_inverse|
+(SDEFUN |MEVAL2;m_reduc|
         ((|x1| |Fraction| (|Polynomial| (|Integer|)))
          (|lmu| |List|
           (|SparseUnivariatePolynomial|
@@ -123,7 +123,7 @@
             (|Fraction| (|Polynomial| (|Integer|)))))
           (#1=#:G133 NIL) (|s| NIL) (#2=#:G134 NIL) (|m| NIL))
          (SEQ
-          (SEQ (LETT |m| NIL . #3=(|MEVAL2;m_inverse|)) (LETT #2# |lmu| . #3#)
+          (SEQ (LETT |m| NIL . #3=(|MEVAL2;m_reduc|)) (LETT #2# |lmu| . #3#)
                (LETT |s| NIL . #3#) (LETT #1# |ls| . #3#) G190
                (COND
                 ((OR (ATOM #1#) (PROGN (LETT |s| (CAR #1#) . #3#) NIL)
@@ -162,10 +162,13 @@
             (|SparseUnivariatePolynomial|
              (|Fraction| (|Polynomial| (|Integer|))))))
           (#7=#:G152 NIL) (|m| NIL) (#8=#:G153 NIL) (|s| NIL) (#9=#:G151 NIL)
-          (|gu|
+          (|rgu|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|Polynomial| (|Integer|)))))
           (|dg| #6#) (|lcg| #4#)
+          (|gu|
+           (|SparseUnivariatePolynomial|
+            (|Fraction| (|Polynomial| (|Integer|)))))
           (|gu1| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
          (SEQ
           (EXIT
@@ -176,7 +179,7 @@
             (LETT |pu| (SPADCALL |p| (QREFELT $ 56)) . #10#)
             (LETT |lcg| (SPADCALL |gu| (QREFELT $ 57)) . #10#)
             (LETT |dg| (SPADCALL |gu| (QREFELT $ 12)) . #10#)
-            (LETT |gu| (SPADCALL |gu| (QREFELT $ 58)) . #10#)
+            (LETT |rgu| (SPADCALL |gu| (QREFELT $ 58)) . #10#)
             (LETT |lmu|
                   (PROGN
                    (LETT #9# NIL . #10#)
@@ -216,7 +219,7 @@
                    (GO G191)))
                  (SEQ (LETT |lcp| (SPADCALL |pu| (QREFELT $ 57)) . #10#)
                       (LETT |c1|
-                            (|MEVAL2;m_inverse|
+                            (|MEVAL2;m_reduc|
                              (SPADCALL |lcp| |lcg| (QREFELT $ 66)) |lmu| |ls|
                              $)
                             . #10#)
@@ -233,7 +236,7 @@
                                                      '(|NonNegativeInteger|)
                                                      '(|Integer|) #5#))
                                                   (QREFELT $ 67))
-                                        |gu| (QREFELT $ 68))
+                                        |rgu| (QREFELT $ 68))
                                        (QREFELT $ 69))
                              . #10#)))
                  NIL (GO G190) G191 (EXIT NIL))
@@ -244,8 +247,7 @@
                      (SPADCALL |pu| (|spadConstant| $ 64) (QREFELT $ 65))))
                    (GO G191)))
                  (SEQ (LETT |lcp| (SPADCALL |pu| (QREFELT $ 57)) . #10#)
-                      (LETT |c1| (|MEVAL2;m_inverse| |lcp| |lmu| |ls| $)
-                            . #10#)
+                      (LETT |c1| (|MEVAL2;m_reduc| |lcp| |lmu| |ls| $) . #10#)
                       (EXIT
                        (COND
                         ((SPADCALL |c1| (|spadConstant| $ 62) (QREFELT $ 70))

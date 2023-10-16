@@ -5424,7 +5424,7 @@
 586279`\spad{!minus!(c,{} a,{} b)} computes the matrix difference \spad{a - b} and stores the result in the matrix \spad{c}. Error: if \spad{a},{} \spad{b},{} and \spad{c} do not have the same dimensions.
 586379`\spad{minusInfinity()} returns -infinity.
 586435`\spad{minusInfinity()} returns minusInfinity.
-586503`\spad{m_inverse(x,{} lm,{} lv,{} p)} computes inverse of \spad{x} in algeraic extension defined by \spad{lm}.
+586503`\spad{m_inverse(x,{} lm,{} lv,{} p)} computes inverse of \spad{x} in algebraic extension defined by \spad{lm}.
 586659`\spad{mirror(x)} returns the reversed word of \spad{x}. That is \spad{x} itself if \spadopFrom{retractable?}{FreeMagma}(\spad{x}) is \spad{true} and \spad{mirror(z) * mirror(y)} if \spad{x} is \spad{y*z}.
 586707`\spad{mirror(x)} returns the reversed word of \spad{x}.
 586751`\spad{mirror(g)} is the mirror of the internal representation of \spad{g}.
