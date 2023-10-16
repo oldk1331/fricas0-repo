@@ -376,20 +376,33 @@
         ((|st| |Stream|
           (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|)))
          ($ |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-        (SPROG ((|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
+        (SPROG NIL
                (SEQ
-                (COND
-                 ((SPADCALL |st| (QREFELT $ 106)) (SPADCALL (QREFELT $ 40)))
-                 ('T
-                  (SEQ
-                   (LETT |term|
-                         (CONS (QCAR (SPADCALL |st| (QREFELT $ 107)))
-                               (QCDR (SPADCALL |st| (QREFELT $ 107))))
-                         |SUTS;nniToI|)
-                   (EXIT
-                    (SPADCALL |term|
-                              (|SUTS;nniToI| (SPADCALL |st| (QREFELT $ 108)) $)
-                              (QREFELT $ 43))))))))) 
+                (SPADCALL (CONS #'|SUTS;nniToI!0| (VECTOR $ |st|))
+                          (QREFELT $ 104))))) 
+
+(SDEFUN |SUTS;nniToI!0| (($$ NIL))
+        (PROG (|st| $)
+          (LETT |st| (QREFELT $$ 1) . #1=(|SUTS;nniToI|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPROG ((|term| NIL))
+                   (SEQ
+                    (COND
+                     ((SPADCALL |st| (QREFELT $ 106))
+                      (SPADCALL (QREFELT $ 40)))
+                     ('T
+                      (SEQ
+                       (LETT |term|
+                             (CONS (QCAR (SPADCALL |st| (QREFELT $ 107)))
+                                   (QCDR (SPADCALL |st| (QREFELT $ 107))))
+                             NIL)
+                       (EXIT
+                        (SPADCALL |term|
+                                  (|SUTS;nniToI|
+                                   (SPADCALL |st| (QREFELT $ 108)) $)
+                                  (QREFELT $ 43)))))))))))) 
 
 (SDEFUN |SUTS;series;S$;25|
         ((|st| |Stream|
@@ -413,7 +426,7 @@
 (SDEFUN |SUTS;pole?;$B;30| ((|x| $) ($ |Boolean|)) NIL) 
 
 (SDEFUN |SUTS;order;$Nni;31| ((|x| $) ($ |NonNegativeInteger|))
-        (SPROG ((#1=#:G234 NIL))
+        (SPROG ((#1=#:G239 NIL))
                (PROG1
                    (LETT #1# (SPADCALL |x| (QREFELT $ 116))
                          |SUTS;order;$Nni;31|)
@@ -422,7 +435,7 @@
 
 (SDEFUN |SUTS;order;$2Nni;32|
         ((|x| $) (|n| . #1=(|NonNegativeInteger|)) ($ . #1#))
-        (SPROG ((#2=#:G236 NIL))
+        (SPROG ((#2=#:G241 NIL))
                (PROG1
                    (LETT #2# (SPADCALL |x| |n| (QREFELT $ 118))
                          |SUTS;order;$2Nni;32|)
@@ -835,9 +848,9 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariateTaylorSeries;|)) 
 
-(DEFUN |SparseUnivariateTaylorSeries| (&REST #1=#:G350)
+(DEFUN |SparseUnivariateTaylorSeries| (&REST #1=#:G355)
   (SPROG NIL
-         (PROG (#2=#:G351)
+         (PROG (#2=#:G356)
            (RETURN
             (COND
              ((LETT #2#
@@ -859,7 +872,7 @@
 
 (DEFUN |SparseUnivariateTaylorSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G344 NIL) (#2=#:G345 NIL) (#3=#:G346 NIL) (#4=#:G349 NIL)
+   ((|pv$| NIL) (#1=#:G349 NIL) (#2=#:G350 NIL) (#3=#:G351 NIL) (#4=#:G354 NIL)
     ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|SparseUnivariateTaylorSeries|))

@@ -74,23 +74,35 @@
         ((|x| |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
          (|refer| |Reference| (|OrderedCompletion| (|Integer|)))
          ($ |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
-        (SEQ
-         (COND
-          ((SPADCALL |x| (QREFELT $ 23))
-           (SEQ (SPADCALL |refer| (SPADCALL (QREFELT $ 19)) (QREFELT $ 31))
-                (EXIT (SPADCALL (QREFELT $ 14)))))
-          ('T
-           (SEQ
-            (SPADCALL |refer|
-                      (SPADCALL
-                       (|ISUPS;getExpon| (SPADCALL |x| (QREFELT $ 32)) $)
-                       (QREFELT $ 33))
-                      (QREFELT $ 31))
-            (EXIT
-             (SPADCALL (SPADCALL |x| (QREFELT $ 32))
-                       (|ISUPS;iSeries| (SPADCALL |x| (QREFELT $ 24)) |refer|
-                        $)
-                       (QREFELT $ 17)))))))) 
+        (SPROG NIL
+               (SEQ
+                (SPADCALL (CONS #'|ISUPS;iSeries!0| (VECTOR |refer| $ |x|))
+                          (QREFELT $ 35))))) 
+
+(SDEFUN |ISUPS;iSeries!0| (($$ NIL))
+        (PROG (|x| $ |refer|)
+          (LETT |x| (QREFELT $$ 2) . #1=(|ISUPS;iSeries|))
+          (LETT $ (QREFELT $$ 1) . #1#)
+          (LETT |refer| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SEQ
+             (COND
+              ((SPADCALL |x| (QREFELT $ 23))
+               (SEQ (SPADCALL |refer| (SPADCALL (QREFELT $ 19)) (QREFELT $ 31))
+                    (EXIT (SPADCALL (QREFELT $ 14)))))
+              ('T
+               (SEQ
+                (SPADCALL |refer|
+                          (SPADCALL
+                           (|ISUPS;getExpon| (SPADCALL |x| (QREFELT $ 32)) $)
+                           (QREFELT $ 33))
+                          (QREFELT $ 31))
+                (EXIT
+                 (SPADCALL (SPADCALL |x| (QREFELT $ 32))
+                           (|ISUPS;iSeries| (SPADCALL |x| (QREFELT $ 24))
+                            |refer| $)
+                           (QREFELT $ 17))))))))))) 
 
 (SDEFUN |ISUPS;series;S$;12|
         ((|x| |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
@@ -112,13 +124,13 @@
                              (QREFELT $ 11))))))))) 
 
 (SDEFUN |ISUPS;characteristic;Nni;13| (($ |NonNegativeInteger|))
-        (SPADCALL (QREFELT $ 36))) 
+        (SPADCALL (QREFELT $ 38))) 
 
 (SDEFUN |ISUPS;Zero;$;14| (($ $))
         (SPADCALL (|spadConstant| $ 30) 0 (QREFELT $ 22))) 
 
 (SDEFUN |ISUPS;One;$;15| (($ $))
-        (SPADCALL (|spadConstant| $ 39) 0 (QREFELT $ 22))) 
+        (SPADCALL (|spadConstant| $ 41) 0 (QREFELT $ 22))) 
 
 (SDEFUN |ISUPS;iExtend|
         ((|st| |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
@@ -127,15 +139,15 @@
          ($ |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
         (SEQ
          (COND
-          ((SPADCALL (SPADCALL |refer| (QREFELT $ 40)) |n| (QREFELT $ 41))
+          ((SPADCALL (SPADCALL |refer| (QREFELT $ 42)) |n| (QREFELT $ 43))
            (COND
-            ((SPADCALL |st| (QREFELT $ 42))
+            ((SPADCALL |st| (QREFELT $ 44))
              (SEQ (SPADCALL |refer| (SPADCALL (QREFELT $ 19)) (QREFELT $ 31))
                   (EXIT |st|)))
-            ((SPADCALL |st| (QREFELT $ 43))
+            ((SPADCALL |st| (QREFELT $ 45))
              (|ISUPS;iExtend| (SPADCALL |st| (QREFELT $ 24)) |n| |refer| $))
             (#1='T
-             (|ISUPS;iExtend| (SPADCALL |st| (QREFELT $ 44)) |n| |refer| $))))
+             (|ISUPS;iExtend| (SPADCALL |st| (QREFELT $ 46)) |n| |refer| $))))
           (#1# |st|)))) 
 
 (SDEFUN |ISUPS;extend;$I$;17| ((|x| $) (|n| |Integer|) ($ $))
@@ -162,7 +174,7 @@
                 (SPADCALL
                  (CONS #'|ISUPS;iTruncate0!0|
                        (VECTOR |minExp| |maxExp| |xRefer| |n| |refer| $ |x|))
-                 (QREFELT $ 53))))) 
+                 (QREFELT $ 35))))) 
 
 (SDEFUN |ISUPS;iTruncate0!0| (($$ NIL))
         (PROG (|x| $ |refer| |n| |xRefer| |maxExp| |minExp|)
@@ -178,7 +190,7 @@
             (SPROG ((|nn| NIL) (|xTerm| NIL) (|nx| NIL) (|degr| NIL))
                    (SEQ
                     (COND
-                     ((SPADCALL |x| (QREFELT $ 42))
+                     ((SPADCALL |x| (QREFELT $ 44))
                       (SEQ
                        (SPADCALL |refer| (SPADCALL (QREFELT $ 19))
                                  (QREFELT $ 31))
@@ -188,14 +200,14 @@
                            (SEQ G190
                                 (COND
                                  ((NULL
-                                   (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40))
-                                             |nn| (QREFELT $ 41)))
+                                   (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42))
+                                             |nn| (QREFELT $ 43)))
                                   (GO G191)))
-                                (SEQ (EXIT (SPADCALL |x| (QREFELT $ 44)))) NIL
+                                (SEQ (EXIT (SPADCALL |x| (QREFELT $ 46)))) NIL
                                 (GO G190) G191 (EXIT NIL))
                            (EXIT
                             (COND
-                             ((SPADCALL |x| (QREFELT $ 43))
+                             ((SPADCALL |x| (QREFELT $ 45))
                               (SEQ
                                (LETT |nx|
                                      (|ISUPS;getExpon|
@@ -205,7 +217,7 @@
                                      NIL)
                                (EXIT
                                 (COND
-                                 ((SPADCALL |nx| |maxExp| (QREFELT $ 47))
+                                 ((SPADCALL |nx| |maxExp| (QREFELT $ 49))
                                   (SEQ
                                    (SPADCALL |refer| (SPADCALL (QREFELT $ 19))
                                              (QREFELT $ 31))
@@ -218,30 +230,30 @@
                                    (EXIT
                                     (COND
                                      ((SPADCALL (SPADCALL |nx| (QREFELT $ 33))
-                                                |minExp| (QREFELT $ 48))
+                                                |minExp| (QREFELT $ 50))
                                       (SPADCALL
                                        (|ISUPS;makeTerm| |nx|
                                         (|ISUPS;getCoef| |xTerm| $) $)
                                        (|ISUPS;iTruncate0|
                                         (SPADCALL |x| (QREFELT $ 24)) |xRefer|
                                         |refer| |minExp| |maxExp|
-                                        (SPADCALL |nx| (|spadConstant| $ 49)
-                                                  (QREFELT $ 50))
+                                        (SPADCALL |nx| (|spadConstant| $ 51)
+                                                  (QREFELT $ 52))
                                         $)
                                        (QREFELT $ 17)))
                                      ('T
                                       (|ISUPS;iTruncate0|
                                        (SPADCALL |x| (QREFELT $ 24)) |xRefer|
                                        |refer| |minExp| |maxExp|
-                                       (SPADCALL |nx| (|spadConstant| $ 49)
-                                                 (QREFELT $ 50))
+                                       (SPADCALL |nx| (|spadConstant| $ 51)
+                                                 (QREFELT $ 52))
                                        $))))))))))
                              ('T
                               (SEQ
                                (LETT |degr|
                                      (SPADCALL
-                                      (SPADCALL |xRefer| (QREFELT $ 40))
-                                      (QREFELT $ 51))
+                                      (SPADCALL |xRefer| (QREFELT $ 42))
+                                      (QREFELT $ 53))
                                      NIL)
                                (SPADCALL |refer|
                                          (SPADCALL |degr| (QREFELT $ 33))
@@ -249,8 +261,8 @@
                                (EXIT
                                 (|ISUPS;iTruncate0| |x| |xRefer| |refer|
                                  |minExp| |maxExp|
-                                 (SPADCALL |degr| (|spadConstant| $ 49)
-                                           (QREFELT $ 50))
+                                 (SPADCALL |degr| (|spadConstant| $ 51)
+                                           (QREFELT $ 52))
                                  $))))))))))))))) 
 
 (SDEFUN |ISUPS;iTruncate|
@@ -265,8 +277,8 @@
           (LETT |x| (SPADCALL |ups| (QREFELT $ 13)) . #1=(|ISUPS;iTruncate|))
           (LETT |xRefer| (SPADCALL |ups| (QREFELT $ 12)) . #1#)
           (EXIT
-           (COND ((SPADCALL |x| (QREFELT $ 42)) (|spadConstant| $ 29))
-                 ((SPADCALL |x| (QREFELT $ 43))
+           (COND ((SPADCALL |x| (QREFELT $ 44)) (|spadConstant| $ 29))
+                 ((SPADCALL |x| (QREFELT $ 45))
                   (SEQ
                    (LETT |deg|
                          (|ISUPS;getExpon| (SPADCALL |x| (QREFELT $ 32)) $)
@@ -283,8 +295,8 @@
                  ('T
                   (SEQ
                    (LETT |degr|
-                         (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40))
-                                   (QREFELT $ 51))
+                         (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42))
+                                   (QREFELT $ 53))
                          . #1#)
                    (LETT |refer|
                          (SPADCALL (SPADCALL |degr| (QREFELT $ 33))
@@ -304,7 +316,7 @@
         (SPROG ((|#G41| #1#) (|#G40| #1#))
                (SEQ
                 (COND
-                 ((SPADCALL |n1| |n2| (QREFELT $ 47))
+                 ((SPADCALL |n1| |n2| (QREFELT $ 49))
                   (PROGN
                    (LETT |#G40| |n2| . #2=(|ISUPS;truncate;$2I$;22|))
                    (LETT |#G41| |n1| . #2#)
@@ -322,14 +334,14 @@
           (|term| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
          (SEQ
           (COND
-           ((SPADCALL |st| (QREFELT $ 43))
+           ((SPADCALL |st| (QREFELT $ 45))
             (SEQ
              (LETT |term| (SPADCALL |st| (QREFELT $ 32))
                    . #1=(|ISUPS;iCoefficient|))
              (LETT |expon| (|ISUPS;getExpon| |term| $) . #1#)
              (EXIT
               (COND
-               ((SPADCALL |expon| |n| (QREFELT $ 47)) (|spadConstant| $ 30))
+               ((SPADCALL |expon| |n| (QREFELT $ 49)) (|spadConstant| $ 30))
                ((EQL |expon| |n|) (|ISUPS;getCoef| |term| $))
                (#2='T
                 (|ISUPS;iCoefficient| (SPADCALL |st| (QREFELT $ 24)) |n|
@@ -337,7 +349,7 @@
            (#2# (|spadConstant| $ 30)))))) 
 
 (SDEFUN |ISUPS;coefficient;$ICoef;24| ((|x| $) (|n| |Integer|) ($ |Coef|))
-        (SEQ (SPADCALL |x| |n| (QREFELT $ 45))
+        (SEQ (SPADCALL |x| |n| (QREFELT $ 47))
              (EXIT (|ISUPS;iCoefficient| (SPADCALL |x| (QREFELT $ 13)) |n| $)))) 
 
 (SDEFUN |ISUPS;elt;$ICoef;25| ((|x| $) (|n| |Integer|) ($ |Coef|))
@@ -350,12 +362,12 @@
         (SPROG ((|degr| (|Integer|)) (|r| (|Integer|)))
                (SEQ
                 (COND
-                 ((SPADCALL |st| (QREFELT $ 42))
+                 ((SPADCALL |st| (QREFELT $ 44))
                   (COND
                    ((SPADCALL |n| (QREFELT $ 59))
-                    (SPADCALL |n| (QREFELT $ 51)))
+                    (SPADCALL |n| (QREFELT $ 53)))
                    (#1='T (|error| "order: series has infinite order"))))
-                 ((SPADCALL |st| (QREFELT $ 43))
+                 ((SPADCALL |st| (QREFELT $ 45))
                   (SEQ
                    (LETT |r|
                          (|ISUPS;getExpon| (SPADCALL |st| (QREFELT $ 32)) $)
@@ -363,22 +375,22 @@
                    (EXIT
                     (COND
                      ((SPADCALL (SPADCALL |r| (QREFELT $ 33)) |n|
-                                (QREFELT $ 48))
-                      (SPADCALL |n| (QREFELT $ 51)))
+                                (QREFELT $ 50))
+                      (SPADCALL |n| (QREFELT $ 53)))
                      (#1# |r|)))))
                  (#1#
                   (SEQ
                    (LETT |degr|
-                         (SPADCALL (SPADCALL |refer| (QREFELT $ 40))
-                                   (QREFELT $ 51))
+                         (SPADCALL (SPADCALL |refer| (QREFELT $ 42))
+                                   (QREFELT $ 53))
                          . #2#)
                    (EXIT
                     (COND
                      ((SPADCALL (SPADCALL |degr| (QREFELT $ 33)) |n|
-                                (QREFELT $ 48))
-                      (SPADCALL |n| (QREFELT $ 51)))
+                                (QREFELT $ 50))
+                      (SPADCALL |n| (QREFELT $ 53)))
                      (#1#
-                      (|ISUPS;iOrder| (SPADCALL |st| (QREFELT $ 44)) |n|
+                      (|ISUPS;iOrder| (SPADCALL |st| (QREFELT $ 46)) |n|
                        |refer| $)))))))))) 
 
 (SDEFUN |ISUPS;order;$I;27| ((|x| $) ($ |Integer|))
@@ -396,7 +408,7 @@
 
 (SDEFUN |ISUPS;zero?;$B;30| ((|ups| $) ($ |Boolean|))
         (SPROG
-         ((#1=#:G347 NIL) (#2=#:G348 NIL) (|i| NIL)
+         ((#1=#:G354 NIL) (#2=#:G355 NIL) (|i| NIL)
           (|count| (|NonNegativeInteger|))
           (|n| (|OrderedCompletion| (|Integer|)))
           (|ref| (|Reference| (|OrderedCompletion| (|Integer|))))
@@ -410,10 +422,10 @@
             (EXIT
              (COND
               ((|eql_SI|
-                (SPADCALL (LETT |n| (SPADCALL |ref| (QREFELT $ 40)) . #3#)
+                (SPADCALL (LETT |n| (SPADCALL |ref| (QREFELT $ 42)) . #3#)
                           (QREFELT $ 64))
                 1)
-               (SPADCALL |x| (QREFELT $ 42)))
+               (SPADCALL |x| (QREFELT $ 44)))
               ('T
                (SEQ (LETT |count| |$streamCount| . #3#)
                     (SEQ (LETT |i| 1 . #3#) (LETT #2# |count| . #3#) G190
@@ -421,11 +433,11 @@
                          (SEQ
                           (EXIT
                            (COND
-                            ((SPADCALL |x| (QREFELT $ 42))
-                             (PROGN (LETT #1# 'T . #3#) (GO #4=#:G346)))
-                            ((SPADCALL |x| (QREFELT $ 43))
+                            ((SPADCALL |x| (QREFELT $ 44))
+                             (PROGN (LETT #1# 'T . #3#) (GO #4=#:G353)))
+                            ((SPADCALL |x| (QREFELT $ 45))
                              (PROGN (LETT #1# NIL . #3#) (GO #4#)))
-                            ('T (SPADCALL |x| (QREFELT $ 44))))))
+                            ('T (SPADCALL |x| (QREFELT $ 46))))))
                          (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                          (EXIT NIL))
                     (EXIT NIL)))))))
@@ -448,7 +460,7 @@
                  (CONS #'|ISUPS;iMap1!0|
                        (VECTOR |check?| |eFcn| |cFcn| |xRefer| |n| |refer| $
                                |x|))
-                 (QREFELT $ 53))))) 
+                 (QREFELT $ 35))))) 
 
 (SDEFUN |ISUPS;iMap1!0| (($$ NIL))
         (PROG (|x| $ |refer| |n| |xRefer| |cFcn| |eFcn| |check?|)
@@ -467,7 +479,7 @@
               (|m| NIL) (|degr| NIL))
              (SEQ
               (COND
-               ((SPADCALL |x| (QREFELT $ 42))
+               ((SPADCALL |x| (QREFELT $ 44))
                 (SEQ
                  (SPADCALL |refer| (SPADCALL (QREFELT $ 19)) (QREFELT $ 31))
                  (EXIT (SPADCALL (QREFELT $ 14)))))
@@ -476,19 +488,19 @@
                      (SEQ G190
                           (COND
                            ((NULL
-                             (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40)) |nn|
-                                       (QREFELT $ 41)))
+                             (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42)) |nn|
+                                       (QREFELT $ 43)))
                             (GO G191)))
-                          (SEQ (EXIT (SPADCALL |x| (QREFELT $ 44)))) NIL
+                          (SEQ (EXIT (SPADCALL |x| (QREFELT $ 46)))) NIL
                           (GO G190) G191 (EXIT NIL))
                      (EXIT
                       (COND
-                       ((SPADCALL |x| (QREFELT $ 42))
+                       ((SPADCALL |x| (QREFELT $ 44))
                         (SEQ
                          (SPADCALL |refer| (SPADCALL (QREFELT $ 19))
                                    (QREFELT $ 31))
                          (EXIT (SPADCALL (QREFELT $ 14)))))
-                       ((SPADCALL |x| (QREFELT $ 43))
+                       ((SPADCALL |x| (QREFELT $ 45))
                         (SEQ
                          (LETT |xCoef|
                                (|ISUPS;getCoef|
@@ -508,16 +520,16 @@
                              ((SPADCALL |newCoef| (QREFELT $ 16))
                               (|ISUPS;iMap1| |cFcn| |eFcn| |check?|
                                (SPADCALL |x| (QREFELT $ 24)) |xRefer| |refer|
-                               (SPADCALL |nx| (|spadConstant| $ 49)
-                                         (QREFELT $ 50))
+                               (SPADCALL |nx| (|spadConstant| $ 51)
+                                         (QREFELT $ 52))
                                $))
                              ('T
                               (SPADCALL (|ISUPS;makeTerm| |m| |newCoef| $)
                                         (|ISUPS;iMap1| |cFcn| |eFcn| |check?|
                                          (SPADCALL |x| (QREFELT $ 24)) |xRefer|
                                          |refer|
-                                         (SPADCALL |nx| (|spadConstant| $ 49)
-                                                   (QREFELT $ 50))
+                                         (SPADCALL |nx| (|spadConstant| $ 51)
+                                                   (QREFELT $ 52))
                                          $)
                                         (QREFELT $ 17)))))
                            ('T
@@ -525,15 +537,15 @@
                                       (|ISUPS;iMap1| |cFcn| |eFcn| |check?|
                                        (SPADCALL |x| (QREFELT $ 24)) |xRefer|
                                        |refer|
-                                       (SPADCALL |nx| (|spadConstant| $ 49)
-                                                 (QREFELT $ 50))
+                                       (SPADCALL |nx| (|spadConstant| $ 51)
+                                                 (QREFELT $ 52))
                                        $)
                                       (QREFELT $ 17)))))))
                        ('T
                         (SEQ
                          (LETT |degr|
-                               (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40))
-                                         (QREFELT $ 51))
+                               (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42))
+                                         (QREFELT $ 53))
                                NIL)
                          (SPADCALL |refer|
                                    (SPADCALL (SPADCALL |degr| |eFcn|)
@@ -542,8 +554,8 @@
                          (EXIT
                           (|ISUPS;iMap1| |cFcn| |eFcn| |check?| |x| |xRefer|
                            |refer|
-                           (SPADCALL |degr| (|spadConstant| $ 49)
-                                     (QREFELT $ 50))
+                           (SPADCALL |degr| (|spadConstant| $ 51)
+                                     (QREFELT $ 52))
                            $))))))))))))))) 
 
 (SDEFUN |ISUPS;iMap2|
@@ -559,8 +571,8 @@
           (LETT |xRefer| (SPADCALL |ups| (QREFELT $ 12)) . #1=(|ISUPS;iMap2|))
           (LETT |x| (SPADCALL |ups| (QREFELT $ 13)) . #1#)
           (EXIT
-           (COND ((SPADCALL |x| (QREFELT $ 42)) (|spadConstant| $ 29))
-                 ((SPADCALL |x| (QREFELT $ 43))
+           (COND ((SPADCALL |x| (QREFELT $ 44)) (|spadConstant| $ 29))
+                 ((SPADCALL |x| (QREFELT $ 45))
                   (SEQ
                    (LETT |deg|
                          (|ISUPS;getExpon| (SPADCALL |x| (QREFELT $ 32)) $)
@@ -579,8 +591,8 @@
                  ('T
                   (SEQ
                    (LETT |degr|
-                         (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40))
-                                   (QREFELT $ 51))
+                         (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42))
+                                   (QREFELT $ 53))
                          . #1#)
                    (LETT |refer|
                          (SPADCALL
@@ -607,7 +619,7 @@
          (CONS #'|ISUPS;differentiate;2$;35!1| $) 'T |x| $)) 
 
 (SDEFUN |ISUPS;differentiate;2$;35!1| ((|z| NIL) ($ NIL))
-        (SPADCALL |z| (|spadConstant| $ 49) (QREFELT $ 71))) 
+        (SPADCALL |z| (|spadConstant| $ 51) (QREFELT $ 71))) 
 
 (SDEFUN |ISUPS;differentiate;2$;35!0| ((|y| NIL) (|n| NIL) ($ NIL))
         (SPADCALL |n| |y| (QREFELT $ 70))) 
@@ -656,7 +668,7 @@
                 (SPADCALL
                  (CONS #'|ISUPS;iPlus1!8|
                        (VECTOR |xRefer| |n| |refer| |yRefer| |y| |op| $ |x|))
-                 (QREFELT $ 53))))) 
+                 (QREFELT $ 35))))) 
 
 (SDEFUN |ISUPS;iPlus1!8| (($$ NIL))
         (PROG (|x| $ |op| |y| |yRefer| |refer| |n| |xRefer|)
@@ -676,10 +688,10 @@
               (|xyRef| NIL))
              (SEQ
               (COND
-               ((SPADCALL |x| (QREFELT $ 42))
+               ((SPADCALL |x| (QREFELT $ 44))
                 (|ISUPS;iMap1| (CONS #'|ISUPS;iPlus1!0| (VECTOR |op| $))
                  (LIST #'|ISUPS;iPlus1!1|) NIL |y| |yRefer| |refer| |n| $))
-               ((SPADCALL |y| (QREFELT $ 42))
+               ((SPADCALL |y| (QREFELT $ 44))
                 (|ISUPS;iMap1| (CONS #'|ISUPS;iPlus1!2| (VECTOR |op| $))
                  (LIST #'|ISUPS;iPlus1!3|) NIL |x| |xRefer| |refer| |n| $))
                ('T
@@ -687,27 +699,27 @@
                      (SEQ G190
                           (COND
                            ((NULL
-                             (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40)) |nn|
-                                       (QREFELT $ 41)))
+                             (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42)) |nn|
+                                       (QREFELT $ 43)))
                             (GO G191)))
-                          (SEQ (EXIT (SPADCALL |x| (QREFELT $ 44)))) NIL
+                          (SEQ (EXIT (SPADCALL |x| (QREFELT $ 46)))) NIL
                           (GO G190) G191 (EXIT NIL))
                      (SEQ G190
                           (COND
                            ((NULL
-                             (SPADCALL (SPADCALL |yRefer| (QREFELT $ 40)) |nn|
-                                       (QREFELT $ 41)))
+                             (SPADCALL (SPADCALL |yRefer| (QREFELT $ 42)) |nn|
+                                       (QREFELT $ 43)))
                             (GO G191)))
-                          (SEQ (EXIT (SPADCALL |y| (QREFELT $ 44)))) NIL
+                          (SEQ (EXIT (SPADCALL |y| (QREFELT $ 46)))) NIL
                           (GO G190) G191 (EXIT NIL))
                      (EXIT
                       (COND
-                       ((SPADCALL |x| (QREFELT $ 42))
+                       ((SPADCALL |x| (QREFELT $ 44))
                         (|ISUPS;iMap1|
                          (CONS #'|ISUPS;iPlus1!4| (VECTOR |op| $))
                          (LIST #'|ISUPS;iPlus1!5|) NIL |y| |yRefer| |refer| |n|
                          $))
-                       ((SPADCALL |y| (QREFELT $ 42))
+                       ((SPADCALL |y| (QREFELT $ 44))
                         (|ISUPS;iMap1|
                          (CONS #'|ISUPS;iPlus1!6| (VECTOR |op| $))
                          (LIST #'|ISUPS;iPlus1!7|) NIL |x| |xRefer| |refer| |n|
@@ -715,9 +727,9 @@
                        ('T
                         (SEQ
                          (COND
-                          ((SPADCALL |x| (QREFELT $ 43))
+                          ((SPADCALL |x| (QREFELT $ 45))
                            (COND
-                            ((SPADCALL |y| (QREFELT $ 43))
+                            ((SPADCALL |y| (QREFELT $ 45))
                              (EXIT
                               (SEQ
                                (LETT |xCoef|
@@ -752,8 +764,8 @@
                                        (SPADCALL |x| (QREFELT $ 24)) |xRefer|
                                        (SPADCALL |y| (QREFELT $ 24)) |yRefer|
                                        |refer|
-                                       (SPADCALL |nx| (|spadConstant| $ 49)
-                                                 (QREFELT $ 50))
+                                       (SPADCALL |nx| (|spadConstant| $ 51)
+                                                 (QREFELT $ 52))
                                        $))
                                      ('T
                                       (SPADCALL
@@ -762,8 +774,8 @@
                                         (SPADCALL |x| (QREFELT $ 24)) |xRefer|
                                         (SPADCALL |y| (QREFELT $ 24)) |yRefer|
                                         |refer|
-                                        (SPADCALL |nx| (|spadConstant| $ 49)
-                                                  (QREFELT $ 50))
+                                        (SPADCALL |nx| (|spadConstant| $ 51)
+                                                  (QREFELT $ 52))
                                         $)
                                        (QREFELT $ 17)))))))
                                  ((SPADCALL |nx| |ny| (QREFELT $ 80))
@@ -780,8 +792,8 @@
                                      (|ISUPS;iPlus1| |op|
                                       (SPADCALL |x| (QREFELT $ 24)) |xRefer|
                                       |y| |yRefer| |refer|
-                                      (SPADCALL |nx| (|spadConstant| $ 49)
-                                                (QREFELT $ 50))
+                                      (SPADCALL |nx| (|spadConstant| $ 51)
+                                                (QREFELT $ 52))
                                       $)
                                      (QREFELT $ 17)))))
                                  ('T
@@ -798,13 +810,13 @@
                                      (|ISUPS;iPlus1| |op| |x| |xRefer|
                                       (SPADCALL |y| (QREFELT $ 24)) |yRefer|
                                       |refer|
-                                      (SPADCALL |ny| (|spadConstant| $ 49)
-                                                (QREFELT $ 50))
+                                      (SPADCALL |ny| (|spadConstant| $ 51)
+                                                (QREFELT $ 52))
                                       $)
                                      (QREFELT $ 17)))))))))))))
                          (EXIT
                           (COND
-                           ((SPADCALL |x| (QREFELT $ 43))
+                           ((SPADCALL |x| (QREFELT $ 45))
                             (SEQ
                              (LETT |xCoef|
                                    (|ISUPS;getCoef|
@@ -814,21 +826,21 @@
                                    NIL)
                              (LETT |nx| (|ISUPS;getExpon| |xTerm| $) NIL)
                              (LETT |degr|
-                                   (SPADCALL (SPADCALL |yRefer| (QREFELT $ 40))
-                                             (QREFELT $ 51))
+                                   (SPADCALL (SPADCALL |yRefer| (QREFELT $ 42))
+                                             (QREFELT $ 53))
                                    NIL)
                              (EXIT
                               (COND
                                ((SPADCALL |degr| |nx| (QREFELT $ 80))
                                 (SEQ
                                  (SPADCALL |refer|
-                                           (SPADCALL |yRefer| (QREFELT $ 40))
+                                           (SPADCALL |yRefer| (QREFELT $ 42))
                                            (QREFELT $ 31))
                                  (EXIT
                                   (|ISUPS;iPlus1| |op| |x| |xRefer| |y|
                                    |yRefer| |refer|
-                                   (SPADCALL |degr| (|spadConstant| $ 49)
-                                             (QREFELT $ 50))
+                                   (SPADCALL |degr| (|spadConstant| $ 51)
+                                             (QREFELT $ 52))
                                    $))))
                                ('T
                                 (SEQ
@@ -844,11 +856,11 @@
                                    (|ISUPS;iPlus1| |op|
                                     (SPADCALL |x| (QREFELT $ 24)) |xRefer| |y|
                                     |yRefer| |refer|
-                                    (SPADCALL |nx| (|spadConstant| $ 49)
-                                              (QREFELT $ 50))
+                                    (SPADCALL |nx| (|spadConstant| $ 51)
+                                              (QREFELT $ 52))
                                     $)
                                    (QREFELT $ 17)))))))))
-                           ((SPADCALL |y| (QREFELT $ 43))
+                           ((SPADCALL |y| (QREFELT $ 45))
                             (SEQ
                              (LETT |yCoef|
                                    (|ISUPS;getCoef|
@@ -858,21 +870,21 @@
                                    NIL)
                              (LETT |ny| (|ISUPS;getExpon| |yTerm| $) NIL)
                              (LETT |degr|
-                                   (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40))
-                                             (QREFELT $ 51))
+                                   (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42))
+                                             (QREFELT $ 53))
                                    NIL)
                              (EXIT
                               (COND
                                ((SPADCALL |degr| |ny| (QREFELT $ 80))
                                 (SEQ
                                  (SPADCALL |refer|
-                                           (SPADCALL |xRefer| (QREFELT $ 40))
+                                           (SPADCALL |xRefer| (QREFELT $ 42))
                                            (QREFELT $ 31))
                                  (EXIT
                                   (|ISUPS;iPlus1| |op| |x| |xRefer| |y|
                                    |yRefer| |refer|
-                                   (SPADCALL |degr| (|spadConstant| $ 49)
-                                             (QREFELT $ 50))
+                                   (SPADCALL |degr| (|spadConstant| $ 51)
+                                             (QREFELT $ 52))
                                    $))))
                                ('T
                                 (SEQ
@@ -888,8 +900,8 @@
                                    (|ISUPS;iPlus1| |op| |x| |xRefer|
                                     (SPADCALL |y| (QREFELT $ 24)) |yRefer|
                                     |refer|
-                                    (SPADCALL |ny| (|spadConstant| $ 49)
-                                              (QREFELT $ 50))
+                                    (SPADCALL |ny| (|spadConstant| $ 51)
+                                              (QREFELT $ 52))
                                     $)
                                    (QREFELT $ 17)))))))))
                            ('T
@@ -898,17 +910,17 @@
                                        (LETT |xyRef|
                                              (SPADCALL
                                               (SPADCALL |xRefer|
-                                                        (QREFELT $ 40))
+                                                        (QREFELT $ 42))
                                               (SPADCALL |yRefer|
-                                                        (QREFELT $ 40))
+                                                        (QREFELT $ 42))
                                               (QREFELT $ 81))
                                              NIL)
                                        (QREFELT $ 31))
                              (EXIT
                               (|ISUPS;iPlus1| |op| |x| |xRefer| |y| |yRefer|
                                |refer|
-                               (SPADCALL (SPADCALL |xyRef| (QREFELT $ 51))
-                                         (|spadConstant| $ 49) (QREFELT $ 50))
+                               (SPADCALL (SPADCALL |xyRef| (QREFELT $ 53))
+                                         (|spadConstant| $ 51) (QREFELT $ 52))
                                $))))))))))))))))))) 
 
 (SDEFUN |ISUPS;iPlus1!7| ((|z| NIL) ($$ NIL)) |z|) 
@@ -947,7 +959,7 @@
         ((|op| |Mapping| |Coef| |Coef| |Coef|) (|ups1| $) (|ups2| $) ($ $))
         (SPROG
          ((|refer| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|deg| (|Integer|)) (|yDeg| #1=(|Integer|)) (#2=#:G599 NIL)
+          (|deg| (|Integer|)) (|yDeg| #1=(|Integer|)) (#2=#:G606 NIL)
           (|y| #3=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
           (|yRefer| #4=(|Reference| (|OrderedCompletion| (|Integer|))))
           (|xDeg| #1#) (|x| #3#) (|xRefer| #4#))
@@ -959,35 +971,35 @@
             (LETT |x| (SPADCALL |ups1| (QREFELT $ 13)) . #5#)
             (LETT |xDeg|
                   (COND
-                   ((SPADCALL |x| (QREFELT $ 42))
+                   ((SPADCALL |x| (QREFELT $ 44))
                     (PROGN
                      (LETT #2#
                            (SPADCALL (CONS #'|ISUPS;iPlus2!0| (VECTOR |op| $))
                                      |ups2| (QREFELT $ 69))
                            . #5#)
-                     (GO #6=#:G598)))
-                   ((SPADCALL |x| (QREFELT $ 43))
+                     (GO #6=#:G605)))
+                   ((SPADCALL |x| (QREFELT $ 45))
                     (- (|ISUPS;getExpon| (SPADCALL |x| (QREFELT $ 32)) $) 1))
                    (#7='T
-                    (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40))
-                              (QREFELT $ 51))))
+                    (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42))
+                              (QREFELT $ 53))))
                   . #5#)
             (LETT |yRefer| (SPADCALL |ups2| (QREFELT $ 12)) . #5#)
             (LETT |y| (SPADCALL |ups2| (QREFELT $ 13)) . #5#)
             (LETT |yDeg|
                   (COND
-                   ((SPADCALL |y| (QREFELT $ 42))
+                   ((SPADCALL |y| (QREFELT $ 44))
                     (PROGN
                      (LETT #2#
                            (SPADCALL (CONS #'|ISUPS;iPlus2!1| (VECTOR |op| $))
                                      |ups1| (QREFELT $ 69))
                            . #5#)
                      (GO #6#)))
-                   ((SPADCALL |y| (QREFELT $ 43))
+                   ((SPADCALL |y| (QREFELT $ 45))
                     (- (|ISUPS;getExpon| (SPADCALL |y| (QREFELT $ 32)) $) 1))
                    (#7#
-                    (SPADCALL (SPADCALL |yRefer| (QREFELT $ 40))
-                              (QREFELT $ 51))))
+                    (SPADCALL (SPADCALL |yRefer| (QREFELT $ 42))
+                              (QREFELT $ 53))))
                   . #5#)
             (LETT |deg| (MIN |xDeg| |yDeg|) . #5#)
             (LETT |refer|
@@ -1083,7 +1095,7 @@
         (PROG (|expon| $)
           (LETT |expon| (QREFELT $$ 1) . #1=(|ISUPS;productByTerm|))
           (LETT $ (QREFELT $$ 0) . #1#)
-          (RETURN (PROGN (SPADCALL |z| |expon| (QREFELT $ 50)))))) 
+          (RETURN (PROGN (SPADCALL |z| |expon| (QREFELT $ 52)))))) 
 
 (SDEFUN |ISUPS;productByTerm!0| ((|y| NIL) (|m| NIL) ($$ NIL))
         (PROG (|coef| $)
@@ -1102,12 +1114,12 @@
           (|xDeg| (|OrderedCompletion| (|Integer|))))
          (SEQ
           (COND
-           ((OR (SPADCALL |x| (QREFELT $ 42)) (SPADCALL |y| (QREFELT $ 42)))
+           ((OR (SPADCALL |x| (QREFELT $ 44)) (SPADCALL |y| (QREFELT $ 44)))
             (SPADCALL (QREFELT $ 93)))
            ('T
             (COND
-             ((SPADCALL |x| (QREFELT $ 43))
-              (COND ((SPADCALL |y| (QREFELT $ 43)) (SPADCALL (QREFELT $ 93)))
+             ((SPADCALL |x| (QREFELT $ 45))
+              (COND ((SPADCALL |y| (QREFELT $ 45)) (SPADCALL (QREFELT $ 93)))
                     (#1='T
                      (SEQ
                       (LETT |xDeg|
@@ -1120,14 +1132,14 @@
                             ((NULL
                               (SPADCALL
                                (SPADCALL |xDeg|
-                                         (SPADCALL |yRefer| (QREFELT $ 40))
+                                         (SPADCALL |yRefer| (QREFELT $ 42))
                                          (QREFELT $ 94))
-                               |nn| (QREFELT $ 41)))
+                               |nn| (QREFELT $ 43)))
                              (GO G191)))
-                           (SEQ (EXIT (SPADCALL |y| (QREFELT $ 44)))) NIL
+                           (SEQ (EXIT (SPADCALL |y| (QREFELT $ 46)))) NIL
                            (GO G190) G191 (EXIT NIL))
                       (EXIT (SPADCALL (QREFELT $ 93)))))))
-             ((SPADCALL |y| (QREFELT $ 43))
+             ((SPADCALL |y| (QREFELT $ 45))
               (SEQ
                (LETT |yDeg|
                      (SPADCALL
@@ -1138,18 +1150,18 @@
                     (COND
                      ((NULL
                        (SPADCALL
-                        (SPADCALL |yDeg| (SPADCALL |xRefer| (QREFELT $ 40))
+                        (SPADCALL |yDeg| (SPADCALL |xRefer| (QREFELT $ 42))
                                   (QREFELT $ 94))
-                        |nn| (QREFELT $ 41)))
+                        |nn| (QREFELT $ 43)))
                       (GO G191)))
-                    (SEQ (EXIT (SPADCALL |x| (QREFELT $ 44)))) NIL (GO G190)
+                    (SEQ (EXIT (SPADCALL |x| (QREFELT $ 46)))) NIL (GO G190)
                     G191 (EXIT NIL))
                (EXIT (SPADCALL (QREFELT $ 93)))))
              (#1#
-              (SEQ (SPADCALL |x| (QREFELT $ 44))
+              (SEQ (SPADCALL |x| (QREFELT $ 46))
                    (COND
                     ((SPADCALL |y| (QREFELT $ 95))
-                     (SPADCALL |y| (QREFELT $ 44))))
+                     (SPADCALL |y| (QREFELT $ 46))))
                    (EXIT
                     (|ISUPS;productLazyEval| |x| |xRefer| |y| |yRefer| |nn|
                      $)))))))))) 
@@ -1167,7 +1179,7 @@
                 (SPADCALL
                  (CONS #'|ISUPS;iTimes!0|
                        (VECTOR |refer| $ |n| |yRefer| |y| |xRefer| |x|))
-                 (QREFELT $ 53))))) 
+                 (QREFELT $ 35))))) 
 
 (SDEFUN |ISUPS;iTimes!0| (($$ NIL))
         (PROG (|x| |xRefer| |y| |yRefer| |n| $ |refer|)
@@ -1189,16 +1201,16 @@
               (|ISUPS;productLazyEval| |x| |xRefer| |y| |yRefer|
                (SPADCALL |n| (QREFELT $ 33)) $)
               (COND
-               ((OR (SPADCALL |x| (QREFELT $ 42))
-                    (SPADCALL |y| (QREFELT $ 42)))
+               ((OR (SPADCALL |x| (QREFELT $ 44))
+                    (SPADCALL |y| (QREFELT $ 44)))
                 (EXIT
                  (SEQ
                   (SPADCALL |refer| (SPADCALL (QREFELT $ 19)) (QREFELT $ 31))
                   (EXIT (SPADCALL (QREFELT $ 14)))))))
               (COND
-               ((SPADCALL |x| (QREFELT $ 43))
+               ((SPADCALL |x| (QREFELT $ 45))
                 (COND
-                 ((SPADCALL |y| (QREFELT $ 43))
+                 ((SPADCALL |y| (QREFELT $ 45))
                   (EXIT
                    (SEQ
                     (LETT |xCoef|
@@ -1211,7 +1223,7 @@
                            (LETT |yTerm| (SPADCALL |y| (QREFELT $ 32)) NIL) $)
                           NIL)
                     (LETT |yExpon| (|ISUPS;getExpon| |yTerm| $) NIL)
-                    (LETT |expon| (SPADCALL |xExpon| |yExpon| (QREFELT $ 50))
+                    (LETT |expon| (SPADCALL |xExpon| |yExpon| (QREFELT $ 52))
                           NIL)
                     (SPADCALL |refer| (SPADCALL |expon| (QREFELT $ 33))
                               (QREFELT $ 31))
@@ -1223,7 +1235,7 @@
                           (|ISUPS;productByTerm| |xCoef| |xExpon|
                            (SPADCALL |y| (QREFELT $ 24)) |yRefer| |scRefer|
                            (SPADCALL |yExpon| (|spadConstant| $ 96)
-                                     (QREFELT $ 50))
+                                     (QREFELT $ 52))
                            $)
                           NIL)
                     (LETT |prRefer|
@@ -1234,14 +1246,14 @@
                           (|ISUPS;iTimes| (SPADCALL |x| (QREFELT $ 24))
                            |xRefer| |y| |yRefer| |prRefer|
                            (SPADCALL |expon| (|spadConstant| $ 96)
-                                     (QREFELT $ 50))
+                                     (QREFELT $ 52))
                            $)
                           NIL)
                     (LETT |sm|
                           (|ISUPS;iPlus1| (ELT $ 82) |scMult| |scRefer| |pr|
                            |prRefer| |refer|
                            (SPADCALL |expon| (|spadConstant| $ 96)
-                                     (QREFELT $ 50))
+                                     (QREFELT $ 52))
                            $)
                           NIL)
                     (EXIT
@@ -1256,64 +1268,64 @@
                                  (QREFELT $ 17)))))))))))
               (EXIT
                (COND
-                ((SPADCALL |x| (QREFELT $ 43))
+                ((SPADCALL |x| (QREFELT $ 45))
                  (SEQ
                   (LETT |xExpon|
                         (|ISUPS;getExpon| (SPADCALL |x| (QREFELT $ 32)) $) NIL)
                   (LETT |degr|
-                        (SPADCALL (SPADCALL |yRefer| (QREFELT $ 40))
-                                  (QREFELT $ 51))
+                        (SPADCALL (SPADCALL |yRefer| (QREFELT $ 42))
+                                  (QREFELT $ 53))
                         NIL)
                   (SPADCALL |refer|
-                            (SPADCALL (SPADCALL |xExpon| |degr| (QREFELT $ 50))
+                            (SPADCALL (SPADCALL |xExpon| |degr| (QREFELT $ 52))
                                       (QREFELT $ 33))
                             (QREFELT $ 31))
                   (EXIT
                    (|ISUPS;iTimes| |x| |xRefer| |y| |yRefer| |refer|
-                    (SPADCALL (SPADCALL |xExpon| |degr| (QREFELT $ 50))
-                              (|spadConstant| $ 96) (QREFELT $ 50))
+                    (SPADCALL (SPADCALL |xExpon| |degr| (QREFELT $ 52))
+                              (|spadConstant| $ 96) (QREFELT $ 52))
                     $))))
-                ((SPADCALL |y| (QREFELT $ 43))
+                ((SPADCALL |y| (QREFELT $ 45))
                  (SEQ
                   (LETT |yExpon|
                         (|ISUPS;getExpon| (SPADCALL |y| (QREFELT $ 32)) $) NIL)
                   (LETT |degr|
-                        (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40))
-                                  (QREFELT $ 51))
+                        (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42))
+                                  (QREFELT $ 53))
                         NIL)
                   (SPADCALL |refer|
-                            (SPADCALL (SPADCALL |yExpon| |degr| (QREFELT $ 50))
+                            (SPADCALL (SPADCALL |yExpon| |degr| (QREFELT $ 52))
                                       (QREFELT $ 33))
                             (QREFELT $ 31))
                   (EXIT
                    (|ISUPS;iTimes| |x| |xRefer| |y| |yRefer| |refer|
-                    (SPADCALL (SPADCALL |yExpon| |degr| (QREFELT $ 50))
-                              (|spadConstant| $ 96) (QREFELT $ 50))
+                    (SPADCALL (SPADCALL |yExpon| |degr| (QREFELT $ 52))
+                              (|spadConstant| $ 96) (QREFELT $ 52))
                     $))))
                 ('T
                  (SEQ
                   (LETT |xDegr|
-                        (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40))
-                                  (QREFELT $ 51))
+                        (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42))
+                                  (QREFELT $ 53))
                         NIL)
                   (LETT |yDegr|
-                        (SPADCALL (SPADCALL |yRefer| (QREFELT $ 40))
-                                  (QREFELT $ 51))
+                        (SPADCALL (SPADCALL |yRefer| (QREFELT $ 42))
+                                  (QREFELT $ 53))
                         NIL)
                   (SPADCALL |refer|
-                            (SPADCALL (SPADCALL |xDegr| |yDegr| (QREFELT $ 50))
+                            (SPADCALL (SPADCALL |xDegr| |yDegr| (QREFELT $ 52))
                                       (QREFELT $ 33))
                             (QREFELT $ 31))
                   (EXIT
                    (|ISUPS;iTimes| |x| |xRefer| |y| |yRefer| |refer|
-                    (SPADCALL (SPADCALL |xDegr| |yDegr| (QREFELT $ 50))
-                              (|spadConstant| $ 96) (QREFELT $ 50))
+                    (SPADCALL (SPADCALL |xDegr| |yDegr| (QREFELT $ 52))
+                              (|spadConstant| $ 96) (QREFELT $ 52))
                     $)))))))))))) 
 
 (SDEFUN |ISUPS;*;3$;49| ((|ups1| $) (|ups2| $) ($ $))
         (SPROG
          ((|refer| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|deg| (|Integer|)) (|yDeg| #1=(|Integer|)) (#2=#:G679 NIL)
+          (|deg| (|Integer|)) (|yDeg| #1=(|Integer|)) (#2=#:G686 NIL)
           (|y| #3=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
           (|yRefer| #4=(|Reference| (|OrderedCompletion| (|Integer|))))
           (|xDeg| #1#) (|x| #3#) (|xRefer| #4#))
@@ -1325,27 +1337,27 @@
             (LETT |x| (SPADCALL |ups1| (QREFELT $ 13)) . #5#)
             (LETT |xDeg|
                   (COND
-                   ((SPADCALL |x| (QREFELT $ 42))
+                   ((SPADCALL |x| (QREFELT $ 44))
                     (PROGN
                      (LETT #2# (|spadConstant| $ 29) . #5#)
-                     (GO #6=#:G678)))
-                   ((SPADCALL |x| (QREFELT $ 43))
+                     (GO #6=#:G685)))
+                   ((SPADCALL |x| (QREFELT $ 45))
                     (- (|ISUPS;getExpon| (SPADCALL |x| (QREFELT $ 32)) $) 1))
                    (#7='T
-                    (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40))
-                              (QREFELT $ 51))))
+                    (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42))
+                              (QREFELT $ 53))))
                   . #5#)
             (LETT |yRefer| (SPADCALL |ups2| (QREFELT $ 12)) . #5#)
             (LETT |y| (SPADCALL |ups2| (QREFELT $ 13)) . #5#)
             (LETT |yDeg|
                   (COND
-                   ((SPADCALL |y| (QREFELT $ 42))
+                   ((SPADCALL |y| (QREFELT $ 44))
                     (PROGN (LETT #2# (|spadConstant| $ 29) . #5#) (GO #6#)))
-                   ((SPADCALL |y| (QREFELT $ 43))
+                   ((SPADCALL |y| (QREFELT $ 45))
                     (- (|ISUPS;getExpon| (SPADCALL |y| (QREFELT $ 32)) $) 1))
                    (#7#
-                    (SPADCALL (SPADCALL |yRefer| (QREFELT $ 40))
-                              (QREFELT $ 51))))
+                    (SPADCALL (SPADCALL |yRefer| (QREFELT $ 42))
+                              (QREFELT $ 53))))
                   . #5#)
             (LETT |deg| (+ (+ |xDeg| |yDeg|) 1) . #5#)
             (LETT |refer|
@@ -1373,7 +1385,7 @@
                  (CONS #'|ISUPS;iDivide!0|
                        (VECTOR |yRefer| |y| |rym| |xRefer| |m| |n| |refer| $
                                |x|))
-                 (QREFELT $ 53))))) 
+                 (QREFELT $ 35))))) 
 
 (SDEFUN |ISUPS;iDivide!0| (($$ NIL))
         (PROG (|x| $ |refer| |n| |m| |xRefer| |rym| |y| |yRefer|)
@@ -1394,32 +1406,32 @@
               (|term| NIL) (|degr| NIL))
              (SEQ
               (COND
-               ((SPADCALL |x| (QREFELT $ 42))
+               ((SPADCALL |x| (QREFELT $ 44))
                 (SEQ
                  (SPADCALL |refer| (SPADCALL (QREFELT $ 19)) (QREFELT $ 31))
                  (EXIT (SPADCALL (QREFELT $ 14)))))
                ('T
                 (SEQ
                  (LETT |nm|
-                       (SPADCALL (SPADCALL |n| |m| (QREFELT $ 50))
+                       (SPADCALL (SPADCALL |n| |m| (QREFELT $ 52))
                                  (QREFELT $ 33))
                        NIL)
                  (SEQ G190
                       (COND
                        ((NULL
-                         (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40)) |nm|
-                                   (QREFELT $ 41)))
+                         (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42)) |nm|
+                                   (QREFELT $ 43)))
                         (GO G191)))
-                      (SEQ (EXIT (SPADCALL |x| (QREFELT $ 44)))) NIL (GO G190)
+                      (SEQ (EXIT (SPADCALL |x| (QREFELT $ 46)))) NIL (GO G190)
                       G191 (EXIT NIL))
                  (EXIT
                   (COND
-                   ((SPADCALL |x| (QREFELT $ 42))
+                   ((SPADCALL |x| (QREFELT $ 44))
                     (SEQ
                      (SPADCALL |refer| (SPADCALL (QREFELT $ 19))
                                (QREFELT $ 31))
                      (EXIT (SPADCALL (QREFELT $ 14)))))
-                   ((SPADCALL |x| (QREFELT $ 43))
+                   ((SPADCALL |x| (QREFELT $ 45))
                     (SEQ
                      (LETT |newCoef|
                            (SPADCALL
@@ -1449,7 +1461,7 @@
                             (SPADCALL |x| (QREFELT $ 24)) |xRefer| |prod|
                             |prodRefer| |sumRefer|
                             (SPADCALL |nx| (|spadConstant| $ 96)
-                                      (QREFELT $ 50))
+                                      (QREFELT $ 52))
                             $)
                            NIL)
                      (SPADCALL |refer|
@@ -1466,14 +1478,14 @@
                                  |rym| |m| |refer|
                                  (SPADCALL (SPADCALL |nx| |m| (QREFELT $ 71))
                                            (|spadConstant| $ 96)
-                                           (QREFELT $ 50))
+                                           (QREFELT $ 52))
                                  $)
                                 (QREFELT $ 17)))))
                    ('T
                     (SEQ
                      (LETT |degr|
-                           (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40))
-                                     (QREFELT $ 51))
+                           (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42))
+                                     (QREFELT $ 53))
                            NIL)
                      (SPADCALL |refer|
                                (SPADCALL (SPADCALL |degr| |m| (QREFELT $ 71))
@@ -1483,7 +1495,7 @@
                       (|ISUPS;iDivide| |x| |xRefer| |y| |yRefer| |rym| |m|
                        |refer|
                        (SPADCALL (SPADCALL |degr| |m| (QREFELT $ 71))
-                                 (|spadConstant| $ 96) (QREFELT $ 50))
+                                 (|spadConstant| $ 96) (QREFELT $ 52))
                        $))))))))))))))) 
 
 (SDEFUN |ISUPS;divide|
@@ -1513,11 +1525,11 @@
 (SDEFUN |ISUPS;iExquo;2$BU;52|
         ((|ups1| $) (|ups2| $) (|taylor?| |Boolean|) ($ |Union| $ "failed"))
         (SPROG
-         ((|nx| (|Integer|)) (#1=#:G734 NIL) (#2=#:G736 NIL)
+         ((|nx| (|Integer|)) (#1=#:G741 NIL) (#2=#:G743 NIL)
           (|deg| #3=(|Integer|)) (|nn| (|OrderedCompletion| (|Integer|)))
           (|ry| (|Union| |Coef| "failed")) (|ny| #3#) (|yCoef| (|Coef|))
           (|yTerm| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
-          (#4=#:G735 NIL) (|n| (|Integer|))
+          (#4=#:G742 NIL) (|n| (|Integer|))
           (|y| #5=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
           (|yRefer| #6=(|Reference| (|OrderedCompletion| (|Integer|))))
           (|x| #5#) (|xRefer| #6#))
@@ -1531,27 +1543,27 @@
             (LETT |y| (SPADCALL |ups2| (QREFELT $ 13)) . #7#)
             (LETT |n| 0 . #7#)
             (SEQ G190
-                 (COND ((NULL (NULL (SPADCALL |y| (QREFELT $ 43)))) (GO G191)))
+                 (COND ((NULL (NULL (SPADCALL |y| (QREFELT $ 45)))) (GO G191)))
                  (SEQ
                   (EXIT
                    (COND
-                    ((SPADCALL |y| (QREFELT $ 42))
-                     (PROGN (LETT #2# (CONS 1 "failed") . #7#) (GO #8=#:G733)))
+                    ((SPADCALL |y| (QREFELT $ 44))
+                     (PROGN (LETT #2# (CONS 1 "failed") . #7#) (GO #8=#:G740)))
                     ('T
                      (SEQ
                       (EXIT
-                       (SEQ (SPADCALL |y| (QREFELT $ 44))
+                       (SEQ (SPADCALL |y| (QREFELT $ 46))
                             (LETT |n| (+ |n| 1) . #7#)
                             (EXIT
                              (COND
-                              ((SPADCALL |n| 1000 (QREFELT $ 47))
+                              ((SPADCALL |n| 1000 (QREFELT $ 49))
                                (PROGN
                                 (LETT #4#
                                       (PROGN
                                        (LETT #2# (CONS 1 "failed") . #7#)
                                        (GO #8#))
                                       . #7#)
-                                (GO #9=#:G714)))))))
+                                (GO #9=#:G721)))))))
                       #9# (EXIT #4#))))))
                  NIL (GO G190) G191 (EXIT NIL))
             (LETT |yCoef|
@@ -1569,22 +1581,22 @@
                            (SEQ G190
                                 (COND
                                  ((NULL
-                                   (SPADCALL (SPADCALL |xRefer| (QREFELT $ 40))
-                                             |nn| (QREFELT $ 41)))
+                                   (SPADCALL (SPADCALL |xRefer| (QREFELT $ 42))
+                                             |nn| (QREFELT $ 43)))
                                   (GO G191)))
                                 (SEQ
                                  (EXIT
                                   (COND
-                                   ((SPADCALL |x| (QREFELT $ 42))
+                                   ((SPADCALL |x| (QREFELT $ 44))
                                     (PROGN
                                      (LETT #2# (CONS 0 (|spadConstant| $ 29))
                                            . #7#)
                                      (GO #8#)))
-                                   ((SPADCALL |x| (QREFELT $ 43))
+                                   ((SPADCALL |x| (QREFELT $ 45))
                                     (PROGN
                                      (LETT #2# (CONS 1 "failed") . #7#)
                                      (GO #8#)))
-                                   ('T (SPADCALL |x| (QREFELT $ 44))))))
+                                   ('T (SPADCALL |x| (QREFELT $ 46))))))
                                 NIL (GO G190) G191 (EXIT NIL))))
                          (EXIT
                           (COND
@@ -1597,13 +1609,13 @@
                                    (CONS #'|ISUPS;iExquo;2$BU;52!1|
                                          (VECTOR $ |ny|))
                                    NIL |ups1| $)))
-                           ((SPADCALL |x| (QREFELT $ 42))
+                           ((SPADCALL |x| (QREFELT $ 44))
                             (CONS 0 (|spadConstant| $ 29)))
                            (#10#
                             (SEQ
                              (LETT |nx|
                                    (COND
-                                    ((SPADCALL |x| (QREFELT $ 43))
+                                    ((SPADCALL |x| (QREFELT $ 45))
                                      (SEQ
                                       (EXIT
                                        (SEQ
@@ -1626,13 +1638,13 @@
                                                             . #7#)
                                                       (GO #8#))
                                                      . #7#)
-                                               (GO #11=#:G727))))))))
+                                               (GO #11=#:G734))))))))
                                         (EXIT (- |deg| 1))))
                                       #11# (EXIT #1#)))
                                     (#10#
                                      (SPADCALL
-                                      (SPADCALL |xRefer| (QREFELT $ 40))
-                                      (QREFELT $ 51))))
+                                      (SPADCALL |xRefer| (QREFELT $ 42))
+                                      (QREFELT $ 53))))
                                    . #7#)
                              (EXIT
                               (CONS 0
@@ -1662,7 +1674,7 @@
          $)) 
 
 (SDEFUN |ISUPS;taylorQuoByVar;2$;53!1| ((|z| NIL) ($ NIL))
-        (SPADCALL |z| (|spadConstant| $ 49) (QREFELT $ 71))) 
+        (SPADCALL |z| (|spadConstant| $ 51) (QREFELT $ 71))) 
 
 (SDEFUN |ISUPS;taylorQuoByVar;2$;53!0| ((|y| NIL) (|n| NIL) ($$ NIL)) |y|) 
 
@@ -1681,7 +1693,7 @@
                  (CONS #'|ISUPS;compose0!2|
                        (VECTOR |n0| |yn0| |y1| |yRefer| |y| |xRefer| |yOrd| |n|
                                |refer| $ |x|))
-                 (QREFELT $ 53))))) 
+                 (QREFELT $ 35))))) 
 
 (SDEFUN |ISUPS;compose0!2| (($$ NIL))
         (PROG (|x| $ |refer| |n| |yOrd| |xRefer| |y| |yRefer| |y1| |yn0| |n0|)
@@ -1699,13 +1711,13 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|nn| NIL) (|yyOrd| NIL) (|x_ord| NIL) (#2=#:G785 NIL)
-              (|xTerm| NIL) (|xCoef| NIL) (|n1| NIL) (#3=#:G776 NIL)
+             ((|nn| NIL) (|yyOrd| NIL) (|x_ord| NIL) (#2=#:G792 NIL)
+              (|xTerm| NIL) (|xCoef| NIL) (|n1| NIL) (#3=#:G783 NIL)
               (|yn1| NIL) (|z| NIL) (|zRefer| NIL) (|prodRefer| NIL)
               (|prod| NIL) (|coRefer| NIL) (|co| NIL) (|degr| NIL))
              (SEQ
               (COND
-               ((SPADCALL |x| (QREFELT $ 42))
+               ((SPADCALL |x| (QREFELT $ 44))
                 (SEQ
                  (SPADCALL |refer| (SPADCALL (QREFELT $ 19)) (QREFELT $ 31))
                  (EXIT (SPADCALL (QREFELT $ 14)))))
@@ -1716,7 +1728,7 @@
                       (EXIT
                        (SEQ G190 NIL
                             (SEQ
-                             (LETT |x_ord| (SPADCALL |xRefer| (QREFELT $ 40))
+                             (LETT |x_ord| (SPADCALL |xRefer| (QREFELT $ 42))
                                    NIL)
                              (EXIT
                               (COND
@@ -1727,18 +1739,18 @@
                                  (NULL
                                   (SPADCALL
                                    (SPADCALL |yOrd|
-                                             (SPADCALL |x_ord| (QREFELT $ 51))
+                                             (SPADCALL |x_ord| (QREFELT $ 53))
                                              (QREFELT $ 104))
                                    |n| (QREFELT $ 80))))
                                 (PROGN
                                  (LETT #2# |$NoValue| NIL)
-                                 (GO #4=#:G773)))
-                               ('T (SPADCALL |x| (QREFELT $ 44))))))
+                                 (GO #4=#:G780)))
+                               ('T (SPADCALL |x| (QREFELT $ 46))))))
                             NIL (GO G190) G191 (EXIT NIL)))
                       #4# (EXIT #2#))
                      (EXIT
                       (COND
-                       ((SPADCALL |x| (QREFELT $ 43))
+                       ((SPADCALL |x| (QREFELT $ 45))
                         (SEQ
                          (LETT |xCoef|
                                (|ISUPS;getCoef|
@@ -1760,7 +1772,7 @@
                                          |y| |yRefer| |yOrd| |y1| |yn0| |n0|
                                          |refer|
                                          (SPADCALL |n1| (|spadConstant| $ 96)
-                                                   (QREFELT $ 50))
+                                                   (QREFELT $ 52))
                                          $)
                                         (QREFELT $ 17)))))
                            ('T
@@ -1807,7 +1819,7 @@
                                    (SPADCALL
                                     (SPADCALL
                                      (SPADCALL
-                                      (SPADCALL |degr| |yOrd| (QREFELT $ 50))
+                                      (SPADCALL |degr| |yOrd| (QREFELT $ 52))
                                       (|spadConstant| $ 96) (QREFELT $ 71))
                                      (QREFELT $ 33))
                                     (QREFELT $ 20))
@@ -1816,7 +1828,7 @@
                                    (|ISUPS;compose0|
                                     (SPADCALL |x| (QREFELT $ 24)) |xRefer| |y|
                                     |yRefer| |yOrd| |y1| |yn1| |n1| |coRefer|
-                                    (SPADCALL |degr| |yOrd| (QREFELT $ 50)) $)
+                                    (SPADCALL |degr| |yOrd| (QREFELT $ 52)) $)
                                    NIL)
                              (SPADCALL |refer|
                                        (SPADCALL
@@ -1833,9 +1845,9 @@
                                (SPADCALL |yOrd|
                                          (SPADCALL
                                           (SPADCALL
-                                           (SPADCALL |xRefer| (QREFELT $ 40))
-                                           (QREFELT $ 51))
-                                          (|spadConstant| $ 96) (QREFELT $ 50))
+                                           (SPADCALL |xRefer| (QREFELT $ 42))
+                                           (QREFELT $ 53))
+                                          (|spadConstant| $ 96) (QREFELT $ 52))
                                          (QREFELT $ 104))
                                NIL)
                          (SPADCALL |refer|
@@ -1859,7 +1871,7 @@
 (SDEFUN |ISUPS;iCompose;3$;55| ((|ups1| $) (|ups2| $) ($ $))
         (SPROG
          ((|compRefer| (|Reference| (|OrderedCompletion| (|Integer|))))
-          (|yOrd| (|Integer|)) (#1=#:G796 NIL) (#2=#:G797 NIL) (|i| NIL)
+          (|yOrd| (|Integer|)) (#1=#:G803 NIL) (#2=#:G804 NIL) (|i| NIL)
           (|n| (|Integer|))
           (|yRefer| #3=(|Reference| (|OrderedCompletion| (|Integer|))))
           (|y| #4=(|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
@@ -1876,33 +1888,33 @@
             (SEQ (LETT |i| 1 . #5#) (LETT #2# |n| . #5#) G190
                  (COND
                   ((OR (|greater_SI| |i| #2#)
-                       (NULL (NULL (SPADCALL |y| (QREFELT $ 43)))))
+                       (NULL (NULL (SPADCALL |y| (QREFELT $ 45)))))
                    (GO G191)))
                  (SEQ
                   (EXIT
                    (COND
-                    ((SPADCALL |y| (QREFELT $ 42))
+                    ((SPADCALL |y| (QREFELT $ 44))
                      (PROGN
                       (LETT #1#
                             (SPADCALL (SPADCALL |ups1| 0 (QREFELT $ 57))
                                       (QREFELT $ 27))
                             . #5#)
-                      (GO #6=#:G795)))
-                    ('T (SPADCALL |y| (QREFELT $ 44))))))
+                      (GO #6=#:G802)))
+                    ('T (SPADCALL |y| (QREFELT $ 46))))))
                  (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
             (EXIT
              (COND
-              ((SPADCALL |y| (QREFELT $ 42))
+              ((SPADCALL |y| (QREFELT $ 44))
                (SPADCALL (SPADCALL |ups1| 0 (QREFELT $ 57)) (QREFELT $ 27)))
               (#7='T
                (SEQ
                 (LETT |yOrd|
                       (COND
-                       ((SPADCALL |y| (QREFELT $ 43))
+                       ((SPADCALL |y| (QREFELT $ 45))
                         (|ISUPS;getExpon| (SPADCALL |y| (QREFELT $ 32)) $))
                        (#7#
-                        (SPADCALL (SPADCALL |yRefer| (QREFELT $ 40))
-                                  (QREFELT $ 51))))
+                        (SPADCALL (SPADCALL |yRefer| (QREFELT $ 42))
+                                  (QREFELT $ 53))))
                       . #5#)
                 (LETT |compRefer|
                       (SPADCALL (SPADCALL -1 (QREFELT $ 33)) (QREFELT $ 20))
@@ -1910,7 +1922,7 @@
                 (EXIT
                  (SPADCALL |compRefer|
                            (|ISUPS;compose0| |x| |xRefer| |y| |yRefer| |yOrd|
-                            |ups2| (|spadConstant| $ 38) 0 |compRefer| 0 $)
+                            |ups2| (|spadConstant| $ 40) 0 |compRefer| 0 $)
                            (QREFELT $ 11)))))))))
           #6# (EXIT #1#)))) 
 
@@ -1919,12 +1931,12 @@
          (CONS #'|ISUPS;integrate;2$;56!1| $) 'T |x| $)) 
 
 (SDEFUN |ISUPS;integrate;2$;56!1| ((|z| NIL) ($ NIL))
-        (SPADCALL |z| (|spadConstant| $ 49) (QREFELT $ 50))) 
+        (SPADCALL |z| (|spadConstant| $ 51) (QREFELT $ 52))) 
 
 (SDEFUN |ISUPS;integrate;2$;56!0| ((|y| NIL) (|n| NIL) ($ NIL))
         (SPADCALL
-         (SPADCALL (|spadConstant| $ 49)
-                   (SPADCALL |n| (|spadConstant| $ 49) (QREFELT $ 50))
+         (SPADCALL (|spadConstant| $ 51)
+                   (SPADCALL |n| (|spadConstant| $ 51) (QREFELT $ 52))
                    (QREFELT $ 110))
          |y| (QREFELT $ 111))) 
 
@@ -1938,7 +1950,7 @@
                (SEQ
                 (SPADCALL
                  (CONS #'|ISUPS;integ0!0| (VECTOR |ansRef| |x| |intRef| $ |n|))
-                 (QREFELT $ 53))))) 
+                 (QREFELT $ 35))))) 
 
 (SDEFUN |ISUPS;integ0!0| (($$ NIL))
         (PROG (|n| $ |intRef| |x| |ansRef|)
@@ -1961,18 +1973,18 @@
               (SEQ G190
                    (COND
                     ((NULL
-                      (SPADCALL (SPADCALL |intRef| (QREFELT $ 40)) |nLess1|
-                                (QREFELT $ 41)))
+                      (SPADCALL (SPADCALL |intRef| (QREFELT $ 42)) |nLess1|
+                                (QREFELT $ 43)))
                      (GO G191)))
-                   (SEQ (EXIT (SPADCALL |x| (QREFELT $ 44)))) NIL (GO G190)
+                   (SEQ (EXIT (SPADCALL |x| (QREFELT $ 46)))) NIL (GO G190)
                    G191 (EXIT NIL))
               (EXIT
                (COND
-                ((SPADCALL |x| (QREFELT $ 42))
+                ((SPADCALL |x| (QREFELT $ 44))
                  (SEQ
                   (SPADCALL |ansRef| (SPADCALL (QREFELT $ 19)) (QREFELT $ 31))
                   (EXIT (SPADCALL (QREFELT $ 14)))))
-                ((SPADCALL |x| (QREFELT $ 43))
+                ((SPADCALL |x| (QREFELT $ 45))
                  (SEQ
                   (LETT |xCoef|
                         (|ISUPS;getCoef|
@@ -1983,7 +1995,7 @@
                             (SPADCALL
                              (LETT |n1|
                                    (SPADCALL |nx| (|spadConstant| $ 96)
-                                             (QREFELT $ 50))
+                                             (QREFELT $ 52))
                                    NIL)
                              (QREFELT $ 33))
                             (QREFELT $ 31))
@@ -2001,18 +2013,18 @@
                 ('T
                  (SEQ
                   (LETT |degr|
-                        (SPADCALL (SPADCALL |intRef| (QREFELT $ 40))
-                                  (QREFELT $ 51))
+                        (SPADCALL (SPADCALL |intRef| (QREFELT $ 42))
+                                  (QREFELT $ 53))
                         NIL)
                   (SPADCALL |ansRef|
                             (SPADCALL
                              (SPADCALL |degr| (|spadConstant| $ 96)
-                                       (QREFELT $ 50))
+                                       (QREFELT $ 52))
                              (QREFELT $ 33))
                             (QREFELT $ 31))
                   (EXIT
                    (|ISUPS;integ0| |x| |intRef| |ansRef|
-                    (SPADCALL |degr| 2 (QREFELT $ 50)) $)))))))))))) 
+                    (SPADCALL |degr| 2 (QREFELT $ 52)) $)))))))))))) 
 
 (SDEFUN |ISUPS;integ1|
         ((|x| |Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
@@ -2033,7 +2045,7 @@
            (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
          (SEQ
           (LETT |ansStr|
-                (|ISUPS;integ1| (SPADCALL |xf| (QREFELT $ 53)) |intRef|
+                (|ISUPS;integ1| (SPADCALL |xf| (QREFELT $ 35)) |intRef|
                  |ansRef| $)
                 |ISUPS;lazyInteg|)
           (EXIT
@@ -2047,14 +2059,14 @@
           (|intRef| #1#)
           (|yStr| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))))
           (|yRef| (|Reference| (|OrderedCompletion| (|Integer|)))) (|y| ($))
-          (|fInv| ($)) (#2=#:G829 NIL) (|fp| ($)))
+          (|fInv| ($)) (#2=#:G836 NIL) (|fp| ($)))
          (SEQ
           (LETT |fp| (SPADCALL |f| (QREFELT $ 72))
                 . #3=(|ISUPS;cPower;$Coef$;60|))
           (LETT |fInv|
                 (PROG2
                     (LETT #2#
-                          (SPADCALL (|spadConstant| $ 38) |f| NIL
+                          (SPADCALL (|spadConstant| $ 40) |f| NIL
                                     (QREFELT $ 100))
                           . #3#)
                     (QCDR #2#)
@@ -2088,7 +2100,7 @@
           (RETURN
            (PROGN
             (SPROG NIL
-                   (|ISUPS;lazyInteg| (|spadConstant| $ 39)
+                   (|ISUPS;lazyInteg| (|spadConstant| $ 41)
                     (CONS #'|ISUPS;cPower;$Coef$;60!0|
                           (VECTOR $ |intRef| |yRef| |yStr| |ansRef| |s|))
                     |intRef| |ansRef| $)))))) 
@@ -2309,7 +2321,7 @@
                 (|ISUPS;iTimes| |ansStr| |ansRef| |ansStr| |ansRef| |sqRef| 0
                  $)
                 . #2#)
-          (LETT |one| (|spadConstant| $ 38) . #2#)
+          (LETT |one| (|spadConstant| $ 40) . #2#)
           (LETT |oneStr| (SPADCALL |one| (QREFELT $ 13)) . #2#)
           (LETT |oneRef| (SPADCALL |one| (QREFELT $ 12)) . #2#)
           (LETT |yRef| (SPADCALL (SPADCALL -1 (QREFELT $ 33)) (QREFELT $ 20))
@@ -2383,7 +2395,7 @@
 
 (SDEFUN |ISUPS;orderOrFailed| ((|uts| $) ($ |Union| (|Integer|) "failed"))
         (SPROG
-         ((#1=#:G866 NIL) (|n| NIL)
+         ((#1=#:G873 NIL) (|n| NIL)
           (|x| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
          (SEQ
           (EXIT
@@ -2395,9 +2407,9 @@
                  (SEQ
                   (EXIT
                    (COND
-                    ((SPADCALL |x| (QREFELT $ 42))
-                     (PROGN (LETT #1# (CONS 0 -1) . #2#) (GO #3=#:G865)))
-                    ((SPADCALL |x| (QREFELT $ 43))
+                    ((SPADCALL |x| (QREFELT $ 44))
+                     (PROGN (LETT #1# (CONS 0 -1) . #2#) (GO #3=#:G872)))
+                    ((SPADCALL |x| (QREFELT $ 45))
                      (PROGN
                       (LETT #1#
                             (CONS 0
@@ -2405,7 +2417,7 @@
                                    (SPADCALL |x| (QREFELT $ 32)) $))
                             . #2#)
                       (GO #3#)))
-                    ('T (SPADCALL |x| (QREFELT $ 44))))))
+                    ('T (SPADCALL |x| (QREFELT $ 46))))))
                  (LETT |n| (|inc_SI| |n|) . #2#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 1 "failed"))))
           #3# (EXIT #1#)))) 
@@ -2413,8 +2425,8 @@
 (SDEFUN |ISUPS;cRationalPower;$F$;67|
         ((|uts| $) (|r| |Fraction| (|Integer|)) ($ $))
         (SPROG
-         ((|uts2| ($)) (|uts1| ($)) (|ccPow| (|Coef|)) (#1=#:G881 NIL)
-          (#2=#:G875 NIL) (|num| (|Integer|))
+         ((|uts2| ($)) (|uts1| ($)) (|ccPow| (|Coef|)) (#1=#:G888 NIL)
+          (#2=#:G882 NIL) (|num| (|Integer|))
           (|ccInv| (|Union| |Coef| "failed")) (|cc| (|Coef|))
           (|n| (|Union| (|Integer|) "failed")) (|order| (|Integer|))
           (|ord0| (|Union| (|Integer|) "failed")))
@@ -2447,7 +2459,7 @@
                          (SEQ
                           (LETT |ccPow|
                                 (COND
-                                 ((SPADCALL |cc| (|spadConstant| $ 39)
+                                 ((SPADCALL |cc| (|spadConstant| $ 41)
                                             (QREFELT $ 135))
                                   |cc|)
                                  ((EQL (SPADCALL |r| (QREFELT $ 133)) 1)
@@ -2483,7 +2495,7 @@
                                 . #3#)
                           (LETT |uts2|
                                 (SPADCALL |uts1|
-                                          (SPADCALL (|spadConstant| $ 39)
+                                          (SPADCALL (|spadConstant| $ 41)
                                                     (- |order|) (QREFELT $ 22))
                                           (QREFELT $ 97))
                                 . #3#)
@@ -2504,13 +2516,13 @@
                   (LETT |cc| (SPADCALL |uts| 0 (QREFELT $ 57))
                         |ISUPS;cExp;2$;68|)
                   (QREFELT $ 16))
-                 (|ISUPS;iExp| |uts| (|spadConstant| $ 39) $))
+                 (|ISUPS;iExp| |uts| (|spadConstant| $ 41) $))
                 ((QREFELT $ 132)
                  (|ISUPS;iExp| |uts| (SPADCALL |cc| (QREFELT $ 141)) $))
                 ('T (|error| (STRCONC "exp: " (QREFELT $ 124))))))) 
 
 (SDEFUN |ISUPS;cLog;2$;69| ((|uts| $) ($ $))
-        (SPROG ((|y| ($)) (#1=#:G894 NIL) (|cc| (|Coef|)))
+        (SPROG ((|y| ($)) (#1=#:G901 NIL) (|cc| (|Coef|)))
                (SEQ
                 (COND
                  ((SPADCALL
@@ -2518,12 +2530,12 @@
                          . #2=(|ISUPS;cLog;2$;69|))
                    (QREFELT $ 16))
                   (|error| "log: constant coefficient should not be 0"))
-                 ((SPADCALL |cc| (|spadConstant| $ 39) (QREFELT $ 135))
+                 ((SPADCALL |cc| (|spadConstant| $ 41) (QREFELT $ 135))
                   (SPADCALL
                    (SPADCALL (SPADCALL |uts| (QREFELT $ 72))
                              (PROG2
                                  (LETT #1#
-                                       (SPADCALL (|spadConstant| $ 38) |uts| 'T
+                                       (SPADCALL (|spadConstant| $ 40) |uts| 'T
                                                  (QREFELT $ 100))
                                        . #2#)
                                  (QCDR #1#)
@@ -2536,7 +2548,7 @@
                    (LETT |y|
                          (PROG2
                              (LETT #1#
-                                   (SPADCALL (|spadConstant| $ 38) |uts| 'T
+                                   (SPADCALL (|spadConstant| $ 40) |uts| 'T
                                              (QREFELT $ 100))
                                    . #2#)
                              (QCDR #1#)
@@ -2560,7 +2572,7 @@
                   (LETT |cc| (SPADCALL |uts| 0 (QREFELT $ 57)) |ISUPS;sincos|)
                   (QREFELT $ 16))
                  (|ISUPS;iSincos| |uts| (|spadConstant| $ 30)
-                  (|spadConstant| $ 39) -1 $))
+                  (|spadConstant| $ 41) -1 $))
                 ((QREFELT $ 132)
                  (|ISUPS;iSincos| |uts| (SPADCALL |cc| (QREFELT $ 145))
                   (SPADCALL |cc| (QREFELT $ 146)) -1 $))
@@ -2601,7 +2613,7 @@
                 ('T (|error| (STRCONC "cot: " (QREFELT $ 124))))))) 
 
 (SDEFUN |ISUPS;cSec;2$;75| ((|uts| $) ($ $))
-        (SPROG ((#1=#:G918 NIL) (|cosUts| ($)) (|cc| (|Coef|)))
+        (SPROG ((#1=#:G925 NIL) (|cosUts| ($)) (|cc| (|Coef|)))
                (SEQ
                 (COND
                  ((SPADCALL
@@ -2610,7 +2622,7 @@
                    (QREFELT $ 16))
                   (PROG2
                       (LETT #1#
-                            (SPADCALL (|spadConstant| $ 38)
+                            (SPADCALL (|spadConstant| $ 40)
                                       (SPADCALL |uts| (QREFELT $ 148)) 'T
                                       (QREFELT $ 100))
                             . #2#)
@@ -2627,7 +2639,7 @@
                          (#4='T
                           (PROG2
                               (LETT #1#
-                                    (SPADCALL (|spadConstant| $ 38) |cosUts| 'T
+                                    (SPADCALL (|spadConstant| $ 40) |cosUts| 'T
                                               (QREFELT $ 100))
                                     . #2#)
                               (QCDR #1#)
@@ -2636,7 +2648,7 @@
                  (#4# (|error| (STRCONC "sec: " (QREFELT $ 124)))))))) 
 
 (SDEFUN |ISUPS;cCsc;2$;76| ((|uts| $) ($ $))
-        (SPROG ((#1=#:G925 NIL) (|sinUts| ($)))
+        (SPROG ((#1=#:G932 NIL) (|sinUts| ($)))
                (SEQ
                 (COND
                  ((SPADCALL |uts| (QREFELT $ 65))
@@ -2653,7 +2665,7 @@
                      (#3='T
                       (PROG2
                           (LETT #1#
-                                (SPADCALL (|spadConstant| $ 38) |sinUts| 'T
+                                (SPADCALL (|spadConstant| $ 40) |sinUts| 'T
                                           (QREFELT $ 100))
                                 . #2#)
                           (QCDR #1#)
@@ -2663,7 +2675,7 @@
 
 (SDEFUN |ISUPS;cAsin;2$;77| ((|uts| $) ($ $))
         (SPROG
-         ((|c0| ($)) (#1=#:G946 NIL) (|order| (|Integer|))
+         ((|c0| ($)) (#1=#:G953 NIL) (|order| (|Integer|))
           (|ord| (|Union| (|Integer|) "failed")) (|x| ($)) (|cc| (|Coef|)))
          (SEQ
           (EXIT
@@ -2675,7 +2687,7 @@
              (SPADCALL
               (SPADCALL
                (SPADCALL
-                (SPADCALL (|spadConstant| $ 38)
+                (SPADCALL (|spadConstant| $ 40)
                           (SPADCALL |uts| |uts| (QREFELT $ 97)) (QREFELT $ 66))
                 (SPADCALL (SPADCALL 1 2 (QREFELT $ 110)) (QREFELT $ 155))
                 (QREFELT $ 140))
@@ -2684,14 +2696,14 @@
             ((QREFELT $ 132)
              (SEQ
               (LETT |x|
-                    (SPADCALL (|spadConstant| $ 38)
+                    (SPADCALL (|spadConstant| $ 40)
                               (SPADCALL |uts| |uts| (QREFELT $ 97))
                               (QREFELT $ 66))
                     . #2#)
               (COND
-               ((OR (SPADCALL |cc| (|spadConstant| $ 39) (QREFELT $ 135))
+               ((OR (SPADCALL |cc| (|spadConstant| $ 41) (QREFELT $ 135))
                     (SPADCALL |cc|
-                              (SPADCALL (|spadConstant| $ 39) (QREFELT $ 85))
+                              (SPADCALL (|spadConstant| $ 41) (QREFELT $ 85))
                               (QREFELT $ 135)))
                 (EXIT
                  (SEQ (LETT |ord| (|ISUPS;orderOrFailed| |x| $) . #2#)
@@ -2705,7 +2717,7 @@
                                 (SPADCALL (SPADCALL |cc| (QREFELT $ 156))
                                           (QREFELT $ 27))
                                 . #2#)
-                          (GO #3=#:G945)))
+                          (GO #3=#:G952)))
                         ((ODDP |order|)
                          (|error| (STRCONC "asin: " (QREFELT $ 126))))
                         (#4='T
@@ -2747,7 +2759,7 @@
 
 (SDEFUN |ISUPS;cAcos;2$;78| ((|uts| $) ($ $))
         (SPROG
-         ((|c0| ($)) (#1=#:G963 NIL) (|order| (|Integer|))
+         ((|c0| ($)) (#1=#:G970 NIL) (|order| (|Integer|))
           (|ord| (|Union| (|Integer|) "failed")) (|cc| (|Coef|)) (|x| ($)))
          (SEQ
           (EXIT
@@ -2761,15 +2773,15 @@
             ((QREFELT $ 132)
              (SEQ
               (LETT |x|
-                    (SPADCALL (|spadConstant| $ 38)
+                    (SPADCALL (|spadConstant| $ 40)
                               (SPADCALL |uts| |uts| (QREFELT $ 97))
                               (QREFELT $ 66))
                     . #3=(|ISUPS;cAcos;2$;78|))
               (LETT |cc| (SPADCALL |uts| 0 (QREFELT $ 57)) . #3#)
               (COND
-               ((OR (SPADCALL |cc| (|spadConstant| $ 39) (QREFELT $ 135))
+               ((OR (SPADCALL |cc| (|spadConstant| $ 41) (QREFELT $ 135))
                     (SPADCALL |cc|
-                              (SPADCALL (|spadConstant| $ 39) (QREFELT $ 85))
+                              (SPADCALL (|spadConstant| $ 41) (QREFELT $ 85))
                               (QREFELT $ 135)))
                 (EXIT
                  (SEQ (LETT |ord| (|ISUPS;orderOrFailed| |x| $) . #3#)
@@ -2783,7 +2795,7 @@
                                 (SPADCALL (SPADCALL |cc| (QREFELT $ 158))
                                           (QREFELT $ 27))
                                 . #3#)
-                          (GO #4=#:G962)))
+                          (GO #4=#:G969)))
                         ((ODDP |order|)
                          (|error| (STRCONC "acos: " (QREFELT $ 126))))
                         (#2#
@@ -2828,7 +2840,7 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |ISUPS;cAtan;2$;79| ((|uts| $) ($ $))
-        (SPROG ((|y| (|Union| $ #1="failed")) (#2=#:G966 NIL) (|cc| (|Coef|)))
+        (SPROG ((|y| (|Union| $ #1="failed")) (#2=#:G973 NIL) (|cc| (|Coef|)))
                (SEQ
                 (COND
                  ((SPADCALL
@@ -2839,8 +2851,8 @@
                    (LETT |y|
                          (PROG2
                              (LETT #2#
-                                   (SPADCALL (|spadConstant| $ 38)
-                                             (SPADCALL (|spadConstant| $ 38)
+                                   (SPADCALL (|spadConstant| $ 40)
+                                             (SPADCALL (|spadConstant| $ 40)
                                                        (SPADCALL |uts| |uts|
                                                                  (QREFELT $
                                                                           97))
@@ -2859,8 +2871,8 @@
                  ((QREFELT $ 132)
                   (SEQ
                    (LETT |y|
-                         (SPADCALL (|spadConstant| $ 38)
-                                   (SPADCALL (|spadConstant| $ 38)
+                         (SPADCALL (|spadConstant| $ 40)
+                                   (SPADCALL (|spadConstant| $ 40)
                                              (SPADCALL |uts| |uts|
                                                        (QREFELT $ 97))
                                              (QREFELT $ 83))
@@ -2888,8 +2900,8 @@
                  ((QREFELT $ 132)
                   (SEQ
                    (LETT |y|
-                         (SPADCALL (|spadConstant| $ 38)
-                                   (SPADCALL (|spadConstant| $ 38)
+                         (SPADCALL (|spadConstant| $ 40)
+                                   (SPADCALL (|spadConstant| $ 40)
                                              (SPADCALL |uts| |uts|
                                                        (QREFELT $ 97))
                                              (QREFELT $ 83))
@@ -2917,7 +2929,7 @@
 
 (SDEFUN |ISUPS;cAsec;2$;81| ((|uts| $) ($ $))
         (SPROG
-         ((|z| (|Union| $ "failed")) (|y| ($)) (#1=#:G997 NIL)
+         ((|z| (|Union| $ "failed")) (|y| ($)) (#1=#:G1004 NIL)
           (|order| (|Integer|)) (|ord| (|Union| (|Integer|) "failed"))
           (|x| ($)) (|cc| (|Coef|)))
          (SEQ
@@ -2932,13 +2944,13 @@
              (SEQ
               (LETT |x|
                     (SPADCALL (SPADCALL |uts| |uts| (QREFELT $ 97))
-                              (|spadConstant| $ 38) (QREFELT $ 66))
+                              (|spadConstant| $ 40) (QREFELT $ 66))
                     . #2#)
               (LETT |y|
                     (COND
-                     ((OR (SPADCALL |cc| (|spadConstant| $ 39) (QREFELT $ 135))
+                     ((OR (SPADCALL |cc| (|spadConstant| $ 41) (QREFELT $ 135))
                           (SPADCALL |cc|
-                                    (SPADCALL (|spadConstant| $ 39)
+                                    (SPADCALL (|spadConstant| $ 41)
                                               (QREFELT $ 85))
                                     (QREFELT $ 135)))
                       (SEQ (LETT |ord| (|ISUPS;orderOrFailed| |x| $) . #2#)
@@ -2952,7 +2964,7 @@
                                      (SPADCALL (SPADCALL |cc| (QREFELT $ 164))
                                                (QREFELT $ 27))
                                      . #2#)
-                               (GO #3=#:G996)))
+                               (GO #3=#:G1003)))
                              ((ODDP |order|)
                               (|error| (STRCONC "asec: " (QREFELT $ 126))))
                              (#4='T
@@ -2985,7 +2997,7 @@
 
 (SDEFUN |ISUPS;cAcsc;2$;82| ((|uts| $) ($ $))
         (SPROG
-         ((|z| (|Union| $ "failed")) (|y| ($)) (#1=#:G1016 NIL)
+         ((|z| (|Union| $ "failed")) (|y| ($)) (#1=#:G1023 NIL)
           (|order| (|Integer|)) (|ord| (|Union| (|Integer|) "failed"))
           (|x| ($)) (|cc| (|Coef|)))
          (SEQ
@@ -3000,13 +3012,13 @@
              (SEQ
               (LETT |x|
                     (SPADCALL (SPADCALL |uts| |uts| (QREFELT $ 97))
-                              (|spadConstant| $ 38) (QREFELT $ 66))
+                              (|spadConstant| $ 40) (QREFELT $ 66))
                     . #2#)
               (LETT |y|
                     (COND
-                     ((OR (SPADCALL |cc| (|spadConstant| $ 39) (QREFELT $ 135))
+                     ((OR (SPADCALL |cc| (|spadConstant| $ 41) (QREFELT $ 135))
                           (SPADCALL |cc|
-                                    (SPADCALL (|spadConstant| $ 39)
+                                    (SPADCALL (|spadConstant| $ 41)
                                               (QREFELT $ 85))
                                     (QREFELT $ 135)))
                       (SEQ (LETT |ord| (|ISUPS;orderOrFailed| |x| $) . #2#)
@@ -3020,7 +3032,7 @@
                                      (SPADCALL (SPADCALL |cc| (QREFELT $ 166))
                                                (QREFELT $ 27))
                                      . #2#)
-                               (GO #3=#:G1015)))
+                               (GO #3=#:G1022)))
                              ((ODDP |order|)
                               (|error| (STRCONC "acsc: " (QREFELT $ 126))))
                              (#4='T
@@ -3067,7 +3079,7 @@
             (SEQ
              (LETT |tmp|
                    (|ISUPS;iSincos| |uts| (|spadConstant| $ 30)
-                    (|spadConstant| $ 39) 1 $)
+                    (|spadConstant| $ 41) 1 $)
                    . #1#)
              (EXIT (CONS (QCAR |tmp|) (QCDR |tmp|)))))
            ((QREFELT $ 132)
@@ -3098,7 +3110,7 @@
                 ('T (|error| (STRCONC "tanh: " (QREFELT $ 124))))))) 
 
 (SDEFUN |ISUPS;cCoth;2$;87| ((|uts| $) ($ $))
-        (SPROG ((#1=#:G1035 NIL) (|tanhUts| ($)))
+        (SPROG ((#1=#:G1042 NIL) (|tanhUts| ($)))
                (SEQ
                 (LETT |tanhUts| (SPADCALL |uts| (QREFELT $ 173))
                       . #2=(|ISUPS;cCoth;2$;87|))
@@ -3112,7 +3124,7 @@
                   ('T
                    (PROG2
                        (LETT #1#
-                             (SPADCALL (|spadConstant| $ 38) |tanhUts| 'T
+                             (SPADCALL (|spadConstant| $ 40) |tanhUts| 'T
                                        (QREFELT $ 100))
                              . #2#)
                        (QCDR #1#)
@@ -3120,7 +3132,7 @@
                                      #1#)))))))) 
 
 (SDEFUN |ISUPS;cSech;2$;88| ((|uts| $) ($ $))
-        (SPROG ((#1=#:G1042 NIL) (|coshUts| ($)))
+        (SPROG ((#1=#:G1049 NIL) (|coshUts| ($)))
                (SEQ
                 (LETT |coshUts| (SPADCALL |uts| (QREFELT $ 171))
                       . #2=(|ISUPS;cSech;2$;88|))
@@ -3132,7 +3144,7 @@
                   ('T
                    (PROG2
                        (LETT #1#
-                             (SPADCALL (|spadConstant| $ 38) |coshUts| 'T
+                             (SPADCALL (|spadConstant| $ 40) |coshUts| 'T
                                        (QREFELT $ 100))
                              . #2#)
                        (QCDR #1#)
@@ -3140,7 +3152,7 @@
                                      #1#)))))))) 
 
 (SDEFUN |ISUPS;cCsch;2$;89| ((|uts| $) ($ $))
-        (SPROG ((#1=#:G1048 NIL) (|sinhUts| ($)))
+        (SPROG ((#1=#:G1055 NIL) (|sinhUts| ($)))
                (SEQ
                 (LETT |sinhUts| (SPADCALL |uts| (QREFELT $ 170))
                       . #2=(|ISUPS;cCsch;2$;89|))
@@ -3152,7 +3164,7 @@
                   ('T
                    (PROG2
                        (LETT #1#
-                             (SPADCALL (|spadConstant| $ 38) |sinhUts| 'T
+                             (SPADCALL (|spadConstant| $ 40) |sinhUts| 'T
                                        (QREFELT $ 100))
                              . #2#)
                        (QCDR #1#)
@@ -3161,13 +3173,13 @@
 
 (SDEFUN |ISUPS;cAsinh;2$;90| ((|uts| $) ($ $))
         (SPROG
-         ((#1=#:G1061 NIL) (|order| (|Integer|))
+         ((#1=#:G1068 NIL) (|order| (|Integer|))
           (|ord| (|Union| (|Integer|) "failed")) (|cc| (|Coef|)) (|x| ($)))
          (SEQ
           (EXIT
            (SEQ
             (LETT |x|
-                  (SPADCALL (|spadConstant| $ 38)
+                  (SPADCALL (|spadConstant| $ 40)
                             (SPADCALL |uts| |uts| (QREFELT $ 97))
                             (QREFELT $ 83))
                   . #2=(|ISUPS;cAsinh;2$;90|))
@@ -3193,7 +3205,7 @@
                               (SPADCALL (SPADCALL |cc| (QREFELT $ 177))
                                         (QREFELT $ 27))
                               . #2#)
-                        (GO #3=#:G1060)))
+                        (GO #3=#:G1067)))
                       ((ODDP |order|)
                        (|error| (STRCONC "asinh: " (QREFELT $ 126))))
                       (#4='T
@@ -3208,7 +3220,7 @@
 
 (SDEFUN |ISUPS;cAcosh;2$;91| ((|uts| $) ($ $))
         (SPROG
-         ((#1=#:G1076 NIL) (|order| (|Integer|))
+         ((#1=#:G1083 NIL) (|order| (|Integer|))
           (|ord| (|Union| (|Integer|) "failed")) (|x| ($)) (|cc| (|Coef|)))
          (SEQ
           (EXIT
@@ -3225,12 +3237,12 @@
                     . #3=(|ISUPS;cAcosh;2$;91|))
               (LETT |x|
                     (SPADCALL (SPADCALL |uts| |uts| (QREFELT $ 97))
-                              (|spadConstant| $ 38) (QREFELT $ 66))
+                              (|spadConstant| $ 40) (QREFELT $ 66))
                     . #3#)
               (COND
-               ((OR (SPADCALL |cc| (|spadConstant| $ 39) (QREFELT $ 135))
+               ((OR (SPADCALL |cc| (|spadConstant| $ 41) (QREFELT $ 135))
                     (SPADCALL |cc|
-                              (SPADCALL (|spadConstant| $ 39) (QREFELT $ 85))
+                              (SPADCALL (|spadConstant| $ 41) (QREFELT $ 85))
                               (QREFELT $ 135)))
                 (EXIT
                  (SEQ (LETT |ord| (|ISUPS;orderOrFailed| |x| $) . #3#)
@@ -3244,7 +3256,7 @@
                                 (SPADCALL (SPADCALL |cc| (QREFELT $ 179))
                                           (QREFELT $ 27))
                                 . #3#)
-                          (GO #4=#:G1075)))
+                          (GO #4=#:G1082)))
                         ((ODDP |order|)
                          (|error| (STRCONC "acosh: " (QREFELT $ 126))))
                         (#2#
@@ -3281,20 +3293,20 @@
                    (SPADCALL |half|
                              (SPADCALL
                               (SPADCALL
-                               (SPADCALL (|spadConstant| $ 38) |uts|
+                               (SPADCALL (|spadConstant| $ 40) |uts|
                                          (QREFELT $ 83))
                                (QREFELT $ 144))
                               (SPADCALL
-                               (SPADCALL (|spadConstant| $ 38) |uts|
+                               (SPADCALL (|spadConstant| $ 40) |uts|
                                          (QREFELT $ 66))
                                (QREFELT $ 144))
                               (QREFELT $ 66))
                              (QREFELT $ 115)))
                   ((QREFELT $ 132)
                    (COND
-                    ((OR (SPADCALL |cc| (|spadConstant| $ 39) (QREFELT $ 135))
+                    ((OR (SPADCALL |cc| (|spadConstant| $ 41) (QREFELT $ 135))
                          (SPADCALL |cc|
-                                   (SPADCALL (|spadConstant| $ 39)
+                                   (SPADCALL (|spadConstant| $ 41)
                                              (QREFELT $ 85))
                                    (QREFELT $ 135)))
                      (|error| (STRCONC "atanh: " (QREFELT $ 128))))
@@ -3302,11 +3314,11 @@
                      (SPADCALL |half|
                                (SPADCALL
                                 (SPADCALL
-                                 (SPADCALL (|spadConstant| $ 38) |uts|
+                                 (SPADCALL (|spadConstant| $ 40) |uts|
                                            (QREFELT $ 83))
                                  (QREFELT $ 144))
                                 (SPADCALL
-                                 (SPADCALL (|spadConstant| $ 38) |uts|
+                                 (SPADCALL (|spadConstant| $ 40) |uts|
                                            (QREFELT $ 66))
                                  (QREFELT $ 144))
                                 (QREFELT $ 66))
@@ -3334,9 +3346,9 @@
                           (QREFELT $ 139))
                          . #2#)
                    (COND
-                    ((OR (SPADCALL |cc| (|spadConstant| $ 39) (QREFELT $ 135))
+                    ((OR (SPADCALL |cc| (|spadConstant| $ 41) (QREFELT $ 135))
                          (SPADCALL |cc|
-                                   (SPADCALL (|spadConstant| $ 39)
+                                   (SPADCALL (|spadConstant| $ 41)
                                              (QREFELT $ 85))
                                    (QREFELT $ 135)))
                      (EXIT (|error| (STRCONC "acoth: " (QREFELT $ 128))))))
@@ -3344,11 +3356,11 @@
                     (SPADCALL |half|
                               (SPADCALL
                                (SPADCALL
-                                (SPADCALL |uts| (|spadConstant| $ 38)
+                                (SPADCALL |uts| (|spadConstant| $ 40)
                                           (QREFELT $ 83))
                                 (QREFELT $ 144))
                                (SPADCALL
-                                (SPADCALL |uts| (|spadConstant| $ 38)
+                                (SPADCALL |uts| (|spadConstant| $ 40)
                                           (QREFELT $ 66))
                                 (QREFELT $ 144))
                                (QREFELT $ 66))
@@ -3357,7 +3369,7 @@
 
 (SDEFUN |ISUPS;cAsech;2$;94| ((|uts| $) ($ $))
         (SPROG
-         ((|utsInv| (|Union| $ "failed")) (#1=#:G1107 NIL)
+         ((|utsInv| (|Union| $ "failed")) (#1=#:G1114 NIL)
           (|order| (|Integer|)) (|ord| (|Union| (|Integer|) "failed"))
           (|x| ($)) (|cc| (|Coef|)))
          (SEQ
@@ -3375,14 +3387,14 @@
               (#3='T
                (SEQ
                 (LETT |x|
-                      (SPADCALL (|spadConstant| $ 38)
+                      (SPADCALL (|spadConstant| $ 40)
                                 (SPADCALL |uts| |uts| (QREFELT $ 97))
                                 (QREFELT $ 66))
                       . #2#)
                 (COND
-                 ((OR (SPADCALL |cc| (|spadConstant| $ 39) (QREFELT $ 135))
+                 ((OR (SPADCALL |cc| (|spadConstant| $ 41) (QREFELT $ 135))
                       (SPADCALL |cc|
-                                (SPADCALL (|spadConstant| $ 39) (QREFELT $ 85))
+                                (SPADCALL (|spadConstant| $ 41) (QREFELT $ 85))
                                 (QREFELT $ 135)))
                   (EXIT
                    (SEQ (LETT |ord| (|ISUPS;orderOrFailed| |x| $) . #2#)
@@ -3396,13 +3408,13 @@
                                   (SPADCALL (SPADCALL |cc| (QREFELT $ 184))
                                             (QREFELT $ 27))
                                   . #2#)
-                            (GO #4=#:G1106)))
+                            (GO #4=#:G1113)))
                           ((ODDP |order|)
                            (|error| (STRCONC "asech: " (QREFELT $ 126))))
                           (#3#
                            (SEQ
                             (LETT |utsInv|
-                                  (SPADCALL (|spadConstant| $ 38) |uts| 'T
+                                  (SPADCALL (|spadConstant| $ 40) |uts| 'T
                                             (QREFELT $ 100))
                                   . #2#)
                             (EXIT
@@ -3412,7 +3424,7 @@
                               (#3#
                                (SPADCALL
                                 (SPADCALL
-                                 (SPADCALL (|spadConstant| $ 38)
+                                 (SPADCALL (|spadConstant| $ 40)
                                            (SPADCALL |x|
                                                      (SPADCALL 1 2
                                                                (QREFELT $ 110))
@@ -3421,7 +3433,7 @@
                                  (QCDR |utsInv|) (QREFELT $ 97))
                                 (QREFELT $ 144)))))))))))))
                 (LETT |utsInv|
-                      (SPADCALL (|spadConstant| $ 38) |uts| 'T (QREFELT $ 100))
+                      (SPADCALL (|spadConstant| $ 40) |uts| 'T (QREFELT $ 100))
                       . #2#)
                 (EXIT
                  (COND
@@ -3430,7 +3442,7 @@
                   (#3#
                    (SPADCALL
                     (SPADCALL
-                     (SPADCALL (|spadConstant| $ 38)
+                     (SPADCALL (|spadConstant| $ 40)
                                (SPADCALL |x| (SPADCALL 1 2 (QREFELT $ 110))
                                          (QREFELT $ 140))
                                (QREFELT $ 83))
@@ -3441,7 +3453,7 @@
 
 (SDEFUN |ISUPS;cAcsch;2$;95| ((|uts| $) ($ $))
         (SPROG
-         ((|utsInv| (|Union| $ "failed")) (#1=#:G1122 NIL)
+         ((|utsInv| (|Union| $ "failed")) (#1=#:G1129 NIL)
           (|order| (|Integer|)) (|ord| (|Union| (|Integer|) "failed"))
           (|x| ($)) (|cc| (|Coef|)))
          (SEQ
@@ -3460,7 +3472,7 @@
                (SEQ
                 (LETT |x|
                       (SPADCALL (SPADCALL |uts| |uts| (QREFELT $ 97))
-                                (|spadConstant| $ 38) (QREFELT $ 83))
+                                (|spadConstant| $ 40) (QREFELT $ 83))
                       . #2#)
                 (LETT |ord| (|ISUPS;orderOrFailed| |x| $) . #2#)
                 (EXIT
@@ -3473,13 +3485,13 @@
                           (SPADCALL (SPADCALL |cc| (QREFELT $ 186))
                                     (QREFELT $ 27))
                           . #2#)
-                    (GO #4=#:G1121)))
+                    (GO #4=#:G1128)))
                   ((ODDP |order|)
                    (|error| (STRCONC "acsch: " (QREFELT $ 126))))
                   (#3#
                    (SEQ
                     (LETT |utsInv|
-                          (SPADCALL (|spadConstant| $ 38) |uts| 'T
+                          (SPADCALL (|spadConstant| $ 40) |uts| 'T
                                     (QREFELT $ 100))
                           . #2#)
                     (EXIT
@@ -3489,7 +3501,7 @@
                       (#3#
                        (SPADCALL
                         (SPADCALL
-                         (SPADCALL (|spadConstant| $ 38)
+                         (SPADCALL (|spadConstant| $ 40)
                                    (SPADCALL |x| (SPADCALL 1 2 (QREFELT $ 110))
                                              (QREFELT $ 140))
                                    (QREFELT $ 83))
@@ -3523,10 +3535,10 @@
                          |ISUPS;termOutput|)
                    (EXIT
                     (COND
-                     ((SPADCALL |c| (|spadConstant| $ 39) (QREFELT $ 135))
+                     ((SPADCALL |c| (|spadConstant| $ 41) (QREFELT $ 135))
                       |mon|)
                      ((SPADCALL |c|
-                                (SPADCALL (|spadConstant| $ 39) (QREFELT $ 85))
+                                (SPADCALL (|spadConstant| $ 41) (QREFELT $ 85))
                                 (QREFELT $ 135))
                       (SPADCALL |mon| (QREFELT $ 195)))
                      (#1#
@@ -3558,7 +3570,7 @@
                    (QREFELT $ 200))))
                 . #2=(|ISUPS;seriesToOutputForm;SRSCoefFOf;99|))
           (LETT |l| NIL . #2#)
-          (SEQ G190 (COND ((NULL (SPADCALL |st| (QREFELT $ 43))) (GO G191)))
+          (SEQ G190 (COND ((NULL (SPADCALL |st| (QREFELT $ 45))) (GO G191)))
                (SEQ (LETT |term| (SPADCALL |st| (QREFELT $ 32)) . #2#)
                     (LETT |l|
                           (CONS
@@ -3571,11 +3583,11 @@
                     (EXIT (LETT |st| (SPADCALL |st| (QREFELT $ 24)) . #2#)))
                NIL (GO G190) G191 (EXIT NIL))
           (LETT |l|
-                (COND ((SPADCALL |st| (QREFELT $ 42)) |l|)
+                (COND ((SPADCALL |st| (QREFELT $ 44)) |l|)
                       (#1#
                        (SEQ
                         (LETT |deg|
-                              (SPADCALL (SPADCALL |refer| (QREFELT $ 40))
+                              (SPADCALL (SPADCALL |refer| (QREFELT $ 42))
                                         (QREFELT $ 203))
                               . #2#)
                         (EXIT
@@ -3602,9 +3614,9 @@
 
 (DECLAIM (NOTINLINE |InnerSparseUnivariatePowerSeries;|)) 
 
-(DEFUN |InnerSparseUnivariatePowerSeries| (#1=#:G1151)
+(DEFUN |InnerSparseUnivariatePowerSeries| (#1=#:G1158)
   (SPROG NIL
-         (PROG (#2=#:G1152)
+         (PROG (#2=#:G1159)
            (RETURN
             (COND
              ((LETT #2#
@@ -3625,8 +3637,8 @@
 
 (DEFUN |InnerSparseUnivariatePowerSeries;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G1145 NIL) (#2=#:G1146 NIL) (#3=#:G1147 NIL)
-    (#4=#:G1150 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G1152 NIL) (#2=#:G1153 NIL) (#3=#:G1154 NIL)
+    (#4=#:G1157 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|InnerSparseUnivariatePowerSeries|))
     (LETT |dv$| (LIST '|InnerSparseUnivariatePowerSeries| DV$1) . #5#)
@@ -3943,20 +3955,21 @@
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |ISUPS;Zero;$;14|) $))
               (39 . |Zero|) (43 . |setelt!|) (49 . |frst|) (54 . |coerce|)
-              |ISUPS;series;S$;12| (|NonNegativeInteger|)
-              (59 . |characteristic|) |ISUPS;characteristic;Nni;13|
+              (|Mapping| $) (59 . |delay|) |ISUPS;series;S$;12|
+              (|NonNegativeInteger|) (64 . |characteristic|)
+              |ISUPS;characteristic;Nni;13|
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |ISUPS;One;$;15|) $))
-              (63 . |One|) (67 . |elt|) (72 . <) (78 . |explicitlyEmpty?|)
-              (83 . |explicitEntries?|) (88 . |lazyEvaluate|)
-              |ISUPS;extend;$I$;17| |ISUPS;complete;2$;18| (93 . >) (99 . >=)
-              (105 . |One|) (109 . +) (115 . |retract|) (|Mapping| $)
-              (120 . |delay|) (125 . |minusInfinity|) |ISUPS;truncate;$I$;21|
-              |ISUPS;truncate;$2I$;22| |ISUPS;coefficient;$ICoef;24|
-              |ISUPS;elt;$ICoef;25| (129 . |finite?|) |ISUPS;order;$I;27|
-              |ISUPS;order;$2I;28| |ISUPS;terms;$S;29| (|SingleInteger|)
-              (134 . |whatInfinity|) |ISUPS;zero?;$B;30| |ISUPS;-;3$;41|
-              |ISUPS;=;2$B;31| (|Mapping| 6 6) |ISUPS;map;M2$;34| (139 . *)
-              (145 . -) |ISUPS;differentiate;2$;35| (151 . *) (|Mapping| 6 21)
+              (68 . |One|) (72 . |elt|) (77 . <) (83 . |explicitlyEmpty?|)
+              (88 . |explicitEntries?|) (93 . |lazyEvaluate|)
+              |ISUPS;extend;$I$;17| |ISUPS;complete;2$;18| (98 . >) (104 . >=)
+              (110 . |One|) (114 . +) (120 . |retract|) (125 . |minusInfinity|)
+              |ISUPS;truncate;$I$;21| |ISUPS;truncate;$2I$;22|
+              |ISUPS;coefficient;$ICoef;24| |ISUPS;elt;$ICoef;25|
+              (129 . |finite?|) |ISUPS;order;$I;27| |ISUPS;order;$2I;28|
+              |ISUPS;terms;$S;29| (|SingleInteger|) (134 . |whatInfinity|)
+              |ISUPS;zero?;$B;30| |ISUPS;-;3$;41| |ISUPS;=;2$B;31|
+              (|Mapping| 6 6) |ISUPS;map;M2$;34| (139 . *) (145 . -)
+              |ISUPS;differentiate;2$;35| (151 . *) (|Mapping| 6 21)
               |ISUPS;multiplyCoefficients;M2$;36| (|PositiveInteger|) (157 . *)
               |ISUPS;multiplyExponents;$Pi$;37| (163 . =) (169 . <)
               (175 . |min|) (181 . +) |ISUPS;+;3$;40| (187 . -) (193 . -)
@@ -3993,7 +4006,7 @@
               (|Mapping| 190 190 190) (|List| 190) (680 . |reduce|)
               |ISUPS;seriesToOutputForm;SRSCoefFOf;99|
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|List| 197) (|List| 35) (|Stream| 6) (|HashState|) (|String|))
+              (|List| 197) (|List| 37) (|Stream| 6) (|HashState|) (|String|))
            '#(~= 686 |zero?| 692 |variable| 697 |unitNormal| 702
               |unitCanonical| 707 |unit?| 712 |truncate| 717 |terms| 730
               |taylorQuoByVar| 735 |subtractIfCan| 740 |seriesToOutputForm| 746
@@ -4058,39 +4071,39 @@
                                   '(0 10 0 14 1 6 15 0 16 2 10 0 9 0 17 0 18 0
                                     19 1 8 0 18 20 1 10 15 0 23 1 10 0 0 24 1 6
                                     0 21 26 0 6 0 30 2 8 18 0 18 31 1 10 9 0 32
-                                    1 18 0 21 33 0 6 35 36 0 6 0 39 1 8 18 0 40
-                                    2 18 15 0 0 41 1 10 15 0 42 1 10 15 0 43 1
-                                    10 0 0 44 2 21 15 0 0 47 2 18 15 0 0 48 0
-                                    21 0 49 2 21 0 0 0 50 1 18 21 0 51 1 10 0
-                                    52 53 0 18 0 54 1 18 15 0 59 1 18 63 0 64 2
-                                    6 0 21 0 70 2 21 0 0 0 71 2 6 0 0 0 73 2 21
-                                    0 76 0 77 2 21 15 0 0 79 2 21 15 0 0 80 2
-                                    18 0 0 0 81 2 6 0 0 0 82 2 6 0 0 0 84 1 6 0
-                                    0 85 2 6 0 35 0 88 2 6 0 76 0 90 0 92 0 93
-                                    2 18 0 0 0 94 1 10 15 0 95 0 76 0 96 1 6 98
-                                    0 99 0 21 0 102 2 21 15 0 0 103 2 21 0 0 0
-                                    104 1 21 15 0 105 2 0 0 0 35 106 0 35 0 107
-                                    2 109 0 21 21 110 2 6 0 109 0 111 1 0 0 0
-                                    112 1 109 0 21 113 1 109 0 0 114 2 0 0 6 0
-                                    115 1 117 10 116 118 2 0 0 0 6 119 1 120 10
-                                    0 121 2 117 120 122 21 123 1 109 21 0 133 2
-                                    21 98 0 0 134 2 6 15 0 0 135 1 109 21 0 136
-                                    2 6 0 0 35 137 2 6 0 0 109 138 1 6 0 109
-                                    139 2 0 0 0 109 140 1 6 0 0 141 1 0 0 0 142
-                                    1 6 0 0 143 1 0 0 0 144 1 6 0 0 145 1 6 0 0
-                                    146 1 0 0 0 147 1 0 0 0 148 1 6 0 0 149 1 0
-                                    0 0 150 1 6 0 0 151 1 0 0 0 152 1 0 0 0 153
-                                    1 0 0 0 154 1 109 0 0 155 1 6 0 0 156 1 0 0
-                                    0 157 1 6 0 0 158 1 0 0 0 159 1 6 0 0 160 1
-                                    0 0 0 161 1 6 0 0 162 1 0 0 0 163 1 6 0 0
-                                    164 1 0 0 0 165 1 6 0 0 166 1 0 0 0 167 1 6
-                                    0 0 168 1 6 0 0 169 1 0 0 0 170 1 0 0 0 171
-                                    1 6 0 0 172 1 0 0 0 173 1 0 0 0 174 1 0 0 0
-                                    175 1 0 0 0 176 1 6 0 0 177 1 0 0 0 178 1 6
-                                    0 0 179 1 0 0 0 180 1 0 0 0 181 1 6 0 0 182
-                                    1 0 0 0 183 1 6 0 0 184 1 0 0 0 185 1 6 0 0
-                                    186 1 0 0 0 187 0 109 0 188 2 109 15 0 0
-                                    189 1 6 190 0 191 0 109 0 192 1 109 190 0
+                                    1 18 0 21 33 1 10 0 34 35 0 6 37 38 0 6 0
+                                    41 1 8 18 0 42 2 18 15 0 0 43 1 10 15 0 44
+                                    1 10 15 0 45 1 10 0 0 46 2 21 15 0 0 49 2
+                                    18 15 0 0 50 0 21 0 51 2 21 0 0 0 52 1 18
+                                    21 0 53 0 18 0 54 1 18 15 0 59 1 18 63 0 64
+                                    2 6 0 21 0 70 2 21 0 0 0 71 2 6 0 0 0 73 2
+                                    21 0 76 0 77 2 21 15 0 0 79 2 21 15 0 0 80
+                                    2 18 0 0 0 81 2 6 0 0 0 82 2 6 0 0 0 84 1 6
+                                    0 0 85 2 6 0 37 0 88 2 6 0 76 0 90 0 92 0
+                                    93 2 18 0 0 0 94 1 10 15 0 95 0 76 0 96 1 6
+                                    98 0 99 0 21 0 102 2 21 15 0 0 103 2 21 0 0
+                                    0 104 1 21 15 0 105 2 0 0 0 37 106 0 37 0
+                                    107 2 109 0 21 21 110 2 6 0 109 0 111 1 0 0
+                                    0 112 1 109 0 21 113 1 109 0 0 114 2 0 0 6
+                                    0 115 1 117 10 116 118 2 0 0 0 6 119 1 120
+                                    10 0 121 2 117 120 122 21 123 1 109 21 0
+                                    133 2 21 98 0 0 134 2 6 15 0 0 135 1 109 21
+                                    0 136 2 6 0 0 37 137 2 6 0 0 109 138 1 6 0
+                                    109 139 2 0 0 0 109 140 1 6 0 0 141 1 0 0 0
+                                    142 1 6 0 0 143 1 0 0 0 144 1 6 0 0 145 1 6
+                                    0 0 146 1 0 0 0 147 1 0 0 0 148 1 6 0 0 149
+                                    1 0 0 0 150 1 6 0 0 151 1 0 0 0 152 1 0 0 0
+                                    153 1 0 0 0 154 1 109 0 0 155 1 6 0 0 156 1
+                                    0 0 0 157 1 6 0 0 158 1 0 0 0 159 1 6 0 0
+                                    160 1 0 0 0 161 1 6 0 0 162 1 0 0 0 163 1 6
+                                    0 0 164 1 0 0 0 165 1 6 0 0 166 1 0 0 0 167
+                                    1 6 0 0 168 1 6 0 0 169 1 0 0 0 170 1 0 0 0
+                                    171 1 6 0 0 172 1 0 0 0 173 1 0 0 0 174 1 0
+                                    0 0 175 1 0 0 0 176 1 6 0 0 177 1 0 0 0 178
+                                    1 6 0 0 179 1 0 0 0 180 1 0 0 0 181 1 6 0 0
+                                    182 1 0 0 0 183 1 6 0 0 184 1 0 0 0 185 1 6
+                                    0 0 186 1 0 0 0 187 0 109 0 188 2 109 15 0
+                                    0 189 1 6 190 0 191 0 109 0 192 1 109 190 0
                                     193 2 190 0 0 0 194 1 190 0 0 195 2 190 0 0
                                     0 196 1 197 190 0 198 2 190 0 0 0 199 1 190
                                     0 0 200 2 109 0 21 0 201 1 18 202 0 203 2
@@ -4099,22 +4112,22 @@
                                     0 1 1 24 211 0 1 1 24 0 0 1 1 24 15 0 1 3 0
                                     0 0 21 21 56 2 0 0 0 21 55 1 0 10 0 62 1 0
                                     0 0 101 2 30 98 0 0 1 5 0 190 10 8 197 6
-                                    109 210 1 0 0 10 34 0 29 0 1 1 27 98 0 1 2
-                                    27 0 0 35 1 2 0 0 0 76 1 1 0 0 0 1 1 27 98
+                                    109 210 1 0 0 10 36 0 29 0 1 1 27 98 0 1 2
+                                    27 0 0 37 1 2 0 0 0 76 1 1 0 0 0 1 1 27 98
                                     0 1 1 0 15 0 1 2 0 21 0 21 61 1 0 21 0 60 2
                                     29 15 0 0 1 1 27 15 0 1 2 0 0 0 76 78 2 0 0
                                     74 0 75 1 0 15 0 25 2 0 0 6 21 22 2 0 0 68
-                                    0 69 2 0 0 8 10 11 1 27 98 0 1 2 27 0 0 35
+                                    0 69 2 0 0 8 10 11 1 27 98 0 1 2 27 0 0 37
                                     1 2 0 0 0 76 1 1 0 0 0 1 1 0 6 0 1 1 0 216
                                     0 1 1 1 0 0 112 3 0 98 0 0 15 100 2 0 0 0 0
                                     108 2 0 215 215 0 1 1 0 63 0 1 1 0 10 0 13
-                                    1 0 8 0 12 2 0 0 0 21 45 2 24 98 0 0 1 2 11
+                                    1 0 8 0 12 2 0 0 0 21 47 2 24 98 0 0 1 2 11
                                     214 0 6 1 2 9 0 0 0 1 2 0 6 0 21 58 2 8 0 0
-                                    197 1 3 8 0 0 197 35 1 2 8 0 0 212 1 3 8 0
-                                    0 212 213 1 1 7 0 0 72 2 7 0 0 35 1 1 0 21
-                                    0 1 1 0 0 0 46 2 28 0 0 0 1 1 25 0 6 27 1
+                                    197 1 3 8 0 0 197 37 1 2 8 0 0 212 1 3 8 0
+                                    0 212 213 1 1 7 0 0 72 2 7 0 0 37 1 1 0 21
+                                    0 1 1 0 0 0 48 2 28 0 0 0 1 1 25 0 6 27 1
                                     28 0 21 28 1 26 0 0 1 1 1 0 109 1 1 0 190 0
-                                    1 2 0 6 0 21 57 1 3 98 0 1 0 28 35 37 1 0 6
+                                    1 2 0 6 0 21 57 1 3 98 0 1 0 28 37 39 1 0 6
                                     0 1 1 1 0 0 173 1 1 0 0 150 1 1 0 0 170 1 1
                                     0 0 147 1 1 0 0 175 1 1 0 0 153 2 1 0 0 109
                                     140 2 1 0 0 6 119 1 1 0 0 144 1 1 0 0 142 1
@@ -4124,12 +4137,12 @@
                                     1 1 0 0 165 1 1 0 0 187 1 1 0 0 167 1 1 0 0
                                     183 1 1 0 0 163 1 1 0 0 180 1 1 0 0 159 3
                                     28 0 0 0 0 1 2 24 15 0 0 1 2 12 6 0 21 1 2
-                                    0 0 0 0 1 2 28 15 0 0 1 2 27 0 0 35 106 2 0
-                                    0 0 76 1 0 29 0 29 0 27 0 38 2 8 0 0 197 1
-                                    3 8 0 0 197 35 1 2 8 0 0 212 1 3 8 0 0 212
-                                    213 1 1 7 0 0 1 2 7 0 0 35 1 2 0 15 0 0 67
+                                    0 0 0 0 1 2 28 15 0 0 1 2 27 0 0 37 106 2 0
+                                    0 0 76 1 0 29 0 29 0 27 0 40 2 8 0 0 197 1
+                                    3 8 0 0 197 37 1 2 8 0 0 212 1 3 8 0 0 212
+                                    213 1 1 7 0 0 1 2 7 0 0 37 1 2 0 15 0 0 67
                                     2 10 0 0 6 1 2 31 0 0 0 66 1 31 0 0 86 2 0
-                                    0 0 0 83 2 31 0 21 0 87 2 29 0 35 0 89 2 1
+                                    0 0 0 83 2 31 0 21 0 87 2 29 0 37 0 89 2 1
                                     0 0 109 1 2 1 0 109 0 1 2 0 0 6 0 115 2 0 0
                                     0 6 1 2 0 0 0 0 97 2 0 0 76 0 91)))))
            '|lookupComplete|)) 
