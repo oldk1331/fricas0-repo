@@ -33,6 +33,7 @@
 (SDEFUN |FGROUP;*;3$;11| ((|f| $) (|g| $) ($ $))
         (SPROG
          ((|h| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
+          (|newexp| (|Integer|))
           (|q| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
           (|r| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|))))))
          (SEQ
@@ -68,10 +69,12 @@
                          ((SPADCALL (QCAR (|SPADfirst| |r|))
                                     (QCAR (|SPADfirst| |q|)) (QREFELT $ 39))
                           (SEQ
+                           (LETT |newexp|
+                                 (+ (QCDR (|SPADfirst| |q|))
+                                    (QCDR (|SPADfirst| |r|)))
+                                 . #2#)
                            (SPADCALL (LETT |h| (NREVERSE |r|) . #2#)
-                                     (CONS (QCAR (|SPADfirst| |q|))
-                                           (+ (QCDR (|SPADfirst| |q|))
-                                              (QCDR (|SPADfirst| |r|))))
+                                     (CONS (QCAR (|SPADfirst| |q|)) |newexp|)
                                      (QREFELT $ 41))
                            (EXIT
                             (SPADCALL (SPADCALL |h| (CDR |q|) (QREFELT $ 42))
