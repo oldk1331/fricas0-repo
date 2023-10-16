@@ -198,8 +198,6 @@
 ;   $instantCanCoerceCount: local := 0
 ;   $instantMmCondCount: local := 0
 ;   $minivector: local := NIL
-;   $minivectorCode: local := NIL
-;   $minivectorNames: local := NIL
 ;   $domPvar: local := NIL
 ;   $inRetract: local := NIL
 ;   object := processInteractive1(form, posnForm)
@@ -212,19 +210,17 @@
 ;   object
  
 (DEFUN |processInteractive| (|form| |posnForm|)
-  (PROG (|$inRetract| |$domPvar| |$minivectorNames| |$minivectorCode|
-         |$minivector| |$instantMmCondCount| |$instantCanCoerceCount|
-         |$instantCoerceCount| |$analyzingMapList| |$localVars| |$declaredMode|
-         |$timeGlobalName| |$whereCacheList| |$interpOnly| |$compilingLoop|
-         |$compilingMap| |$mapList| |$freeVars| |$compErrorMessageStack|
-         |$Coerce| |$op| |object| |op|)
+  (PROG (|$inRetract| |$domPvar| |$minivector| |$instantMmCondCount|
+         |$instantCanCoerceCount| |$instantCoerceCount| |$analyzingMapList|
+         |$localVars| |$declaredMode| |$timeGlobalName| |$whereCacheList|
+         |$interpOnly| |$compilingLoop| |$compilingMap| |$mapList| |$freeVars|
+         |$compErrorMessageStack| |$Coerce| |$op| |object| |op|)
     (DECLARE
-     (SPECIAL |$inRetract| |$domPvar| |$minivectorNames| |$minivectorCode|
-      |$minivector| |$instantMmCondCount| |$instantCanCoerceCount|
-      |$instantCoerceCount| |$analyzingMapList| |$localVars| |$declaredMode|
-      |$timeGlobalName| |$whereCacheList| |$interpOnly| |$compilingLoop|
-      |$compilingMap| |$mapList| |$freeVars| |$compErrorMessageStack| |$Coerce|
-      |$op|))
+     (SPECIAL |$inRetract| |$domPvar| |$minivector| |$instantMmCondCount|
+      |$instantCanCoerceCount| |$instantCoerceCount| |$analyzingMapList|
+      |$localVars| |$declaredMode| |$timeGlobalName| |$whereCacheList|
+      |$interpOnly| |$compilingLoop| |$compilingMap| |$mapList| |$freeVars|
+      |$compErrorMessageStack| |$Coerce| |$op|))
     (RETURN
      (PROGN
       (|initializeTimedNames| |$interpreterTimedNames|
@@ -250,8 +246,6 @@
       (SETQ |$instantCanCoerceCount| 0)
       (SETQ |$instantMmCondCount| 0)
       (SETQ |$minivector| NIL)
-      (SETQ |$minivectorCode| NIL)
-      (SETQ |$minivectorNames| NIL)
       (SETQ |$domPvar| NIL)
       (SETQ |$inRetract| NIL)
       (SETQ |object| (|processInteractive1| |form| |posnForm|))

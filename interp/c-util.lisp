@@ -3,14 +3,6 @@
  
 (IN-PACKAGE "BOOT")
  
-; continue() == FIN comp($x,$m,$f)
- 
-(DEFUN |continue| () (PROG () (RETURN (FIN (|comp| |$x| |$m| |$f|)))))
- 
-; LEVEL(:l) == APPLY('level,l)
- 
-(DEFUN LEVEL (&REST |l|) (PROG () (RETURN (APPLY '|level| |l|))))
- 
 ; level(:l) ==
 ;   null l => same()
 ;   l is [n] and INTEGERP n => displayComp ($level:= n)
@@ -27,26 +19,14 @@
             (SAY
              "Correct format: (level n) where n is the level you want to go to"))))))
  
-; UP() == up()
- 
-(DEFUN UP () (PROG () (RETURN (|up|))))
- 
 ; up() == displayComp ($level:= $level-1)
  
 (DEFUN |up| ()
   (PROG () (RETURN (|displayComp| (SETQ |$level| (- |$level| 1))))))
  
-; SAME() == same()
- 
-(DEFUN SAME () (PROG () (RETURN (|same|))))
- 
 ; same() == displayComp $level
  
 (DEFUN |same| () (PROG () (RETURN (|displayComp| |$level|))))
- 
-; DOWN() == down()
- 
-(DEFUN DOWN () (PROG () (RETURN (|down|))))
  
 ; down() == displayComp ($level:= $level+1)
  
@@ -1982,10 +1962,6 @@
                 (SETQ |bfVar#65| (CDR |bfVar#65|))))
              (CDR |$x|) NIL))))))
  
-; _?M x == _?m x
- 
-(DEFUN ?M (|x|) (PROG () (RETURN (|?m| |x|))))
- 
 ; _?m x ==
 ;   u:= comp(x,$EmptyMode,$f) => u.mode
 ;   nil
@@ -2064,10 +2040,6 @@
       (|sayBrightly| (LIST |a| '| --> | |m| '|%b| |yesOrNo| '|%d|))
       (EQ |yesOrNo| '|yes|)))))
  
-; _?COMP x == _?comp x
- 
-(DEFUN ?COMP (|x|) (PROG () (RETURN (|?comp| |x|))))
- 
 ; _?comp x ==
 ;   msg:=
 ;     u:= comp(x,$EmptyMode,$f) =>
@@ -2090,10 +2062,6 @@
  
 (DEFUN |?domains| () (PROG () (RETURN (|pp| (|getDomainsInScope| |$f|)))))
  
-; _?DOMAINS() == ?domains()
- 
-(DEFUN ?DOMAINS () (PROG () (RETURN (|?domains|))))
- 
 ; _?mode x == displayProplist(x,[["mode",:getmode(x,$f)]])
  
 (DEFUN |?mode| (|x|)
@@ -2101,18 +2069,10 @@
     (RETURN
      (|displayProplist| |x| (LIST (CONS '|mode| (|getmode| |x| |$f|)))))))
  
-; _?MODE x == _?mode x
- 
-(DEFUN ?MODE (|x|) (PROG () (RETURN (|?mode| |x|))))
- 
 ; _?properties x == displayProplist(x,getProplist(x,$f))
  
 (DEFUN |?properties| (|x|)
   (PROG () (RETURN (|displayProplist| |x| (|getProplist| |x| |$f|)))))
- 
-; _?PROPERTIES x == _?properties x
- 
-(DEFUN ?PROPERTIES (|x|) (PROG () (RETURN (|?properties| |x|))))
  
 ; _?value x == displayProplist(x,[["value",:get(x,"value",$f)]])
  
@@ -2120,10 +2080,6 @@
   (PROG ()
     (RETURN
      (|displayProplist| |x| (LIST (CONS '|value| (|get| |x| '|value| |$f|)))))))
- 
-; _?VALUE x == _?value x
- 
-(DEFUN ?VALUE (|x|) (PROG () (RETURN (|?value| |x|))))
  
 ; displayProplist(x,alist) ==
 ;   sayBrightly ["properties of",'%b,x,'%d,":"]

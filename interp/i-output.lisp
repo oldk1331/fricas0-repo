@@ -2273,17 +2273,11 @@
   (PROG () (RETURN (|maprin0| |x|))))
  
 ; maprin x ==
-;   if $demoFlag=true then recordOrCompareDemoResult x
 ;   CATCH('output,maprin0 x)
 ;   nil
  
 (DEFUN |maprin| (|x|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      (COND ((EQUAL |$demoFlag| T) (|recordOrCompareDemoResult| |x|)))
-      (CATCH '|output| (|maprin0| |x|))
-      NIL))))
+  (PROG () (RETURN (PROGN (CATCH '|output| (|maprin0| |x|)) NIL))))
  
 ; maprin0 x ==
 ;   $MatrixCount:local :=0
@@ -4354,29 +4348,10 @@
              (SETQ |temparg2| (APP |s| |temp| |y| |temparg1|))
              (|appagg1| (CDR |u|) (+ 1 |temp|) |y| |temparg2| |s|)))))))
  
-; appargs(u,x,y,d) == appargs1(u,x,y,d,'";")
+; appargs(u, x, y, d) == appagg1(u, x, y, d, '";")
  
 (DEFUN |appargs| (|u| |x| |y| |d|)
-  (PROG () (RETURN (|appargs1| |u| |x| |y| |d| ";"))))
- 
-; appargs1(u,x,y,d,s) ==
-;   null u => d
-;   null rest u => APP(first u,x,y,d)
-;   temp := x + WIDTH first u
-;   temparg1 := APP(first u,x,y,d)
-;   temparg2 := APP(s,temp,y,temparg1)
-;   true => appargs(rest u, 1 + temp, y, temparg2)
- 
-(DEFUN |appargs1| (|u| |x| |y| |d| |s|)
-  (PROG (|temp| |temparg1| |temparg2|)
-    (RETURN
-     (COND ((NULL |u|) |d|) ((NULL (CDR |u|)) (APP (CAR |u|) |x| |y| |d|))
-           ('T
-            (PROGN
-             (SETQ |temp| (+ |x| (WIDTH (CAR |u|))))
-             (SETQ |temparg1| (APP (CAR |u|) |x| |y| |d|))
-             (SETQ |temparg2| (APP |s| |temp| |y| |temparg1|))
-             (COND (T (|appargs| (CDR |u|) (+ 1 |temp|) |y| |temparg2|)))))))))
+  (PROG () (RETURN (|appagg1| |u| |x| |y| |d| ";"))))
  
 ; apprpar(x, y, y1, y2, d) ==
 ;   (not ($tallPar) or (y2 - y1 < 2)) => APP('")", x, y, d)

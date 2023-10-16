@@ -37,12 +37,7 @@
                                      '(|PolynomialFactorizationExplicit|))
                       (EXIT (SPADCALL |p| (QREFELT $ 21)))))))))
                 (EXIT
-                 (COND
-                  ((|HasCategory| (QREFELT $ 9) '(|GcdDomain|))
-                   (SPADCALL |p| (QREFELT $ 23)))
-                  (#1#
-                   (|error|
-                    "factor for this domain is unimplemented"))))))))))))) 
+                 (|error| "factor for this domain is unimplemented"))))))))))) 
 
 (DECLAIM (NOTINLINE |GeneralizedMultivariateFactorize;|)) 
 
@@ -80,7 +75,7 @@
     (LETT DV$5 (|devaluate| |#5|))
     (LETT |dv$|
           (LIST '|GeneralizedMultivariateFactorize| DV$1 DV$2 DV$3 DV$4 DV$5))
-    (LETT $ (GETREFV 25))
+    (LETT $ (GETREFV 23))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|GeneralizedMultivariateFactorize|
@@ -102,9 +97,9 @@
               (|MPolyCatPolyFactorizer| 7 6 8 10) (5 . |factor|)
               (|MRationalFactorize| 7 6 8 10) (10 . |factor|)
               (|MPolyCatRationalFunctionFactorizer| 7 6 8 10) (15 . |factor|)
-              (|MultivariateFactorize| 6 7 9 10) (20 . |factor|) (|Factored| $)
-              (25 . |squareFree|) |GENMFACT;factor;PF;1|)
-           '#(|factor| 30) 'NIL
+              (|MultivariateFactorize| 6 7 9 10) (20 . |factor|)
+              |GENMFACT;factor;PF;1|)
+           '#(|factor| 25) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -112,8 +107,8 @@
                             (|mkCategory|
                              (LIST '((|factor| ((|Factored| |#5|) |#5|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 24
+                        (|makeByteWordVec2| 22
                                             '(1 12 11 10 13 1 14 11 10 15 1 16
                                               11 10 17 1 18 11 10 19 1 20 11 10
-                                              21 1 10 22 0 23 1 0 11 10 24)))))
+                                              21 1 0 11 10 22)))))
            '|lookupComplete|)) 

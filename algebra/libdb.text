@@ -10928,9 +10928,9 @@ pGroebnerInternalPackage`3`n`(Dom:GcdDomain,Expon:OrderedAbelianMonoidSup,Dpol:J
 pGroebnerPackage`3`x`(Dom:GcdDomain,Expon:OrderedAbelianMonoidSup,Dpol:Join(FiniteAbelianMonoidRing(Dom,Expon),etc))->etc`(Dom,Expon,Dpol)`GB`1326914
 pGroebnerSolve`3`n`(List(Symbol),F:GcdDomain,GcdDomain)->etc`(lv,F,R)`GROEBSOL`1327969
 pGroupPresentationFunctions1`1`n`(SetCategory)->etc`(S)`GROUPPF1`0
-pGuess`5`x`(F:Field,S:GcdDomain,EXPRR:Join(FunctionSpace(Integer),etc),(EXPRR)->F,(F)->EXPRR)->etc`(F,S,EXPRR,retract,coerce)`GUESS`1328247
+pGuess`5`x`(F:Join(Field,etc),S:GcdDomain,EXPRR:Join(FunctionSpace(Integer),etc),(EXPRR)->F,(F)->EXPRR)->etc`(F,S,EXPRR,retract,coerce)`GUESS`1328247
 pGuessAlgebraicNumber`0`n`()->etc``GUESSAN`1328414
-pGuessExpBin`5`n`(F:Field,S:GcdDomain,EXPRR:Join(FunctionSpace(Integer),etc),(EXPRR)->F,(F)->EXPRR)->etc`(F,S,EXPRR,retract,coerce)`GUESSEB`1328486
+pGuessExpBin`5`n`(F:Join(Field,etc),S:GcdDomain,EXPRR:Join(FunctionSpace(Integer),etc),(EXPRR)->F,(F)->EXPRR)->etc`(F,S,EXPRR,retract,coerce)`GUESSEB`1328486
 pGuessFinite`1`x`(Join(FiniteFieldCategory,etc))->etc`(F)`GUESSF`1328585
 pGuessFiniteFunctions`1`n`(Join(FiniteFieldCategory,etc))->etc`(F)`GUESSF1`1328664
 pGuessInteger`0`x`()->etc``GUESSINT`1328747

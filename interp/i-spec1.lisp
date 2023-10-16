@@ -405,10 +405,7 @@
 ; --+
 ;   $compiledOpNameList := [$mapName]
 ;   minivectorName := makeInternalMapMinivectorName(PNAME $mapName)
-;   $minivectorNames := [[$mapName,:minivectorName],:$minivectorNames]
 ;   body := SUBST(minivectorName,"$$$",body)
-;   if $compilingInputFile then
-;     $minivectorCode := [:$minivectorCode,minivectorName]
 ;   SET(minivectorName,LIST2REFVEC $minivector)
 ; 
 ;   -- The use of the three variables $definingMap, $genValue and $compilingMap
@@ -451,13 +448,7 @@
       (SETQ |$compiledOpNameList| (LIST |$mapName|))
       (SETQ |minivectorName|
               (|makeInternalMapMinivectorName| (PNAME |$mapName|)))
-      (SETQ |$minivectorNames|
-              (CONS (CONS |$mapName| |minivectorName|) |$minivectorNames|))
       (SETQ |body| (SUBST |minivectorName| '$$$ |body|))
-      (COND
-       (|$compilingInputFile|
-        (SETQ |$minivectorCode|
-                (APPEND |$minivectorCode| (CONS |minivectorName| NIL)))))
       (SET |minivectorName| (LIST2REFVEC |$minivector|))
       (SETQ |$freeVariables| NIL)
       (SETQ |$boundVariables| (CONS |minivectorName| |vars|))

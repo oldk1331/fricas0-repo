@@ -9,10 +9,7 @@
 ; --+
 ;   $compiledOpNameList := [nam]
 ;   minivectorName := makeInternalMapMinivectorName(nam)
-;   $minivectorNames := [[op,:minivectorName],:$minivectorNames]
 ;   body := substitute(minivectorName, "$$$", body)
-;   if $compilingInputFile then
-;     $minivectorCode := [:$minivectorCode,minivectorName]
 ;   SET(minivectorName,LIST2REFVEC $minivector)
 ;   argl := COPY argl     -- play it safe for optimization
 ;   init :=
@@ -81,13 +78,7 @@
      (PROGN
       (SETQ |$compiledOpNameList| (LIST |nam|))
       (SETQ |minivectorName| (|makeInternalMapMinivectorName| |nam|))
-      (SETQ |$minivectorNames|
-              (CONS (CONS |op| |minivectorName|) |$minivectorNames|))
       (SETQ |body| (|substitute| |minivectorName| '$$$ |body|))
-      (COND
-       (|$compilingInputFile|
-        (SETQ |$minivectorCode|
-                (APPEND |$minivectorCode| (CONS |minivectorName| NIL)))))
       (SET |minivectorName| (LIST2REFVEC |$minivector|))
       (SETQ |argl| (COPY |argl|))
       (SETQ |init|
