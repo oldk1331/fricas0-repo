@@ -20,7 +20,8 @@
                        (LETT |diff| (+ |diff| 1))))))
                    (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#)))) (GO G190)
                    G191 (EXIT NIL))
-              (COND ((EQL |diff| 1) (|error| "cant construct orientedFacet")))
+              (COND
+               ((EQL |diff| 1) (|error| "can not construct orientedFacet")))
               (COND
                ((EVENP |diff|) (COND ((> |diff| 1) (LETT |mul2| (- |mul2|))))))
               (EXIT (CONS |mul2| |fac2|))))) 

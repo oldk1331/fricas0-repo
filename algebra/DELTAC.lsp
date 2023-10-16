@@ -363,7 +363,7 @@
                                       (QREFELT $ 33))
                                      (EXIT
                                       (|error|
-                                       (STRCONC "cant find index:"
+                                       (STRCONC "can not find index:"
                                                 (STRINGIMAGE |i|)))))))
                                   (EXIT
                                    (LETT |newIndexes|
@@ -478,7 +478,7 @@
                                                 (EXIT
                                                  (|error|
                                                   (STRCONC
-                                                   "deltaComplex: cant find index:"
+                                                   "deltaComplex: can not find index:"
                                                    (STRINGIMAGE |i|)))))))
                                              (EXIT
                                               (LETT |newIndexes|
