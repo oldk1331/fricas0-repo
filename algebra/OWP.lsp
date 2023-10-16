@@ -58,14 +58,15 @@
           (LIST
            '#(NIL NIL NIL NIL NIL
               (|WeightedPolynomials| 6 (|Symbol|)
-                                     (|IndexedExponents| (|Symbol|)) 13
+                                     (|IndexedExponents| (|Symbol|)) 11
                                      (NRTEVAL (QREFELT $ 7))
                                      (NRTEVAL (QREFELT $ 8))
                                      (NRTEVAL (QREFELT $ 9)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
-              (|Union| $ '"failed") (|Void|) (|NonNegativeInteger|)
-              (|Polynomial| 6) (|Integer|) (|Boolean|) (|PositiveInteger|)
-              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
+              (|Union| $ '"failed") (|Polynomial| 6) (|Void|)
+              (|NonNegativeInteger|) (|Integer|) (|Boolean|)
+              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
+              (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 1

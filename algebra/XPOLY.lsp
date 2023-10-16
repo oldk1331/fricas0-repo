@@ -30,9 +30,9 @@
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
-                                                             '(|noZeroDivisors|))
+                                                             '(|CommutativeRing|))
                                               (|HasCategory| |#1|
-                                                             '(|CommutativeRing|))))
+                                                             '(|noZeroDivisors|))))
                           . #1#))
           (|haddProp| |$ConstructorCache| '|XPolynomial| (LIST DV$1)
                       (CONS 1 $))
@@ -53,8 +53,8 @@
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 2
-                                '(0 0 0 2 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 1))
+                                '(0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                  0 0 0 0 0 0 0 0 0 2))
             (CONS
              '#(NIL NIL NIL |Algebra&| NIL |Rng&| NIL NIL |Module&| NIL
                 |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&| NIL NIL

@@ -828,9 +828,9 @@
                     (|buildPredVector| 0 0
                                        (LIST
                                         (|HasCategory| |#2|
-                                                       '(|noZeroDivisors|))
-                                        (|HasCategory| |#2|
                                                        '(|CommutativeRing|))
+                                        (|HasCategory| |#2|
+                                                       '(|noZeroDivisors|))
                                         (|HasCategory| |#2| '(|SemiRing|))
                                         (AND
                                          (|HasCategory| |#2|
@@ -949,10 +949,10 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 7
-                                '(0 0 0 2 0 0 0 0 0 0 2 0 0 0 4 0 0 0 0 0 0 4 0
-                                  5 0 0 0 5 0 0 0 0 5 0 0 7 0 0 0 0 0 1 3 5))
+                                '(0 0 0 1 0 0 0 0 0 0 1 0 0 0 4 0 0 0 0 0 0 4 0
+                                  5 0 0 0 5 0 0 0 0 5 0 0 7 0 0 0 0 0 2 3 5))
             (CONS
-             '#(NIL NIL NIL |Algebra&| NIL |FreeModuleCategory&| |Rng&| NIL NIL
+             '#(NIL NIL NIL |Algebra&| NIL |Rng&| |FreeModuleCategory&| NIL NIL
                 NIL |Module&| NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL NIL NIL
                 NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
@@ -961,9 +961,9 @@
                 |RetractableTo&| |PartialOrder&|)
              (CONS
               '#((|XPolynomialsCat| 6 7) (|XFreeAlgebra| 6 7) (|XAlgebra| 7)
-                 (|Algebra| 7) (|Ring|)
+                 (|Algebra| 7) (|Ring|) (|Rng|)
                  (|FreeModuleCategory| 7 (|PoincareBirkhoffWittLyndonBasis| 6))
-                 (|Rng|) (|SemiRing|)
+                 (|SemiRing|)
                  (|IndexedDirectProductCategory| 7
                                                  (|PoincareBirkhoffWittLyndonBasis|
                                                   6))

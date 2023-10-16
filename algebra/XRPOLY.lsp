@@ -913,9 +913,9 @@
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#2|
-                                                             '(|noZeroDivisors|))
+                                                             '(|CommutativeRing|))
                                               (|HasCategory| |#2|
-                                                             '(|CommutativeRing|))))
+                                                             '(|noZeroDivisors|))))
                           . #1#))
           (|haddProp| |$ConstructorCache| '|XRecursivePolynomial|
                       (LIST DV$1 DV$2) (CONS 1 $))
@@ -928,7 +928,7 @@
                              (|Record| (|:| |c0| |#2|)
                                        (|:| |reg| (|FreeModule| $ |#1|)))))
           (COND
-           ((|testBitVector| |pv$| 2)
+           ((|testBitVector| |pv$| 1)
             (PROGN
              (QSETREFV $ 46 (CONS (|dispatchFunction| |XRPOLY;sh;$Nni$;7|) $))
              (QSETREFV $ 48 (CONS (|dispatchFunction| |XRPOLY;sh;3$;8|) $)))))
@@ -992,8 +992,8 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 2
-                                '(0 0 0 2 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 1))
+                                '(0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                  0 0 0 0 0 0 0 0 0 2))
             (CONS
              '#(NIL NIL NIL |Algebra&| NIL |Rng&| NIL NIL |Module&| NIL
                 |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&| NIL NIL
@@ -1033,7 +1033,7 @@
                                     16 0 0 0 116 1 16 31 0 117 2 37 0 0 0 122 1
                                     37 0 0 123 2 0 9 0 0 26 1 0 9 0 1 1 0 37 0
                                     121 1 0 0 33 44 2 0 0 0 31 32 2 0 110 0 0 1
-                                    2 2 0 0 0 48 2 2 0 0 31 46 0 0 0 1 2 0 0 0
+                                    2 1 0 0 0 48 2 1 0 0 31 46 0 0 0 1 2 0 0 0
                                     0 25 2 0 0 0 6 103 2 0 0 0 16 104 1 0 110 0
                                     1 2 0 0 0 31 1 2 0 0 0 126 1 1 0 125 0 1 1
                                     0 16 0 1 1 0 110 0 111 1 0 9 0 106 1 0 0 0

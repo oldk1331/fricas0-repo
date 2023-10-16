@@ -425,7 +425,7 @@
                                 '(0 1 0 0 0 0 0 0 1 0 0 0 3 0 0 0 0 0 0 3 0 4 0
                                   0 0 4 0 0 0 0 4 0 0 8 0 0 0 0 2 4 5 6))
             (CONS
-             '#(NIL |Algebra&| NIL |FreeModuleCategory&| |Rng&| NIL NIL NIL
+             '#(NIL |Algebra&| NIL |Rng&| |FreeModuleCategory&| NIL NIL NIL
                 |Module&| NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL NIL NIL
                 NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
@@ -433,8 +433,8 @@
                 |SetCategory&| NIL |BasicType&| NIL |RetractableTo&|
                 |PartialOrder&| NIL NIL)
              (CONS
-              '#((|XAlgebra| 6) (|Algebra| 6) (|Ring|)
-                 (|FreeModuleCategory| 6 7) (|Rng|) (|SemiRing|)
+              '#((|XAlgebra| 6) (|Algebra| 6) (|Ring|) (|Rng|)
+                 (|FreeModuleCategory| 6 7) (|SemiRing|)
                  (|IndexedDirectProductCategory| 6 7) (|SemiRng|) (|Module| 6)
                  (|BiModule| 6 6) (|NonAssociativeRing|) (|BiModule| $$ $$)
                  (|OrderedAbelianMonoidSup|) (|AbelianProductCategory| 6)

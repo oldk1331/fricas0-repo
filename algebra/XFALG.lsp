@@ -27,8 +27,7 @@
                                (COND (|XFreeAlgebra;CAT|)
                                      ('T
                                       (LETT |XFreeAlgebra;CAT|
-                                            (|Join| (|Ring|)
-                                                    (|XAlgebra| '|t#2|)
+                                            (|Join| (|XAlgebra| '|t#2|)
                                                     (|RetractableTo| '#2#)
                                                     (|mkCategory|
                                                      '(((* ($ |t#1| $)) T)
