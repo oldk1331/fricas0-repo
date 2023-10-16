@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5028 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5029 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -483,13 +483,13 @@
  |ravel| |leviCivitaSymbol| |kroneckerDelta| |reshape| |alphanumeric|
  |alphabetic| |hexDigit| |digit| |charClass| |simpleCells| |projection|
  |variablesOf| |mainVariableOf| |makeCell| |setMult| |getIntervals|
- |cubicalFacet| |chainComplex| |alphanumeric?| |lowerCase?| |upperCase?|
- |alphabetic?| |hexDigit?| |digit?| |newline| |escape| |char| |ord|
- |mkIntegral| |radPoly| |rootPoly| |goodPoint| |chvar| |setOutMode|
- |setRedMode| |stirling| |alpha| |hilbert| |alphaHilbert| |arbFunctions|
- |gauge| |gaugeHilbert| |bound| |complete2| |removeDuplicates| |find| |setMode|
- |conj| |gradeInvolution| |rc| |lc| |toTable| |ePseudoscalar| |eFromBinaryMap|
- |multivector| |ee| |e| |linearlyDependentOverConstants?|
+ |cubicalFacet| |transition_matrices| |chainComplex| |alphanumeric?|
+ |lowerCase?| |upperCase?| |alphabetic?| |hexDigit?| |digit?| |newline|
+ |escape| |char| |ord| |mkIntegral| |radPoly| |rootPoly| |goodPoint| |chvar|
+ |setOutMode| |setRedMode| |stirling| |alpha| |hilbert| |alphaHilbert|
+ |arbFunctions| |gauge| |gaugeHilbert| |bound| |complete2| |removeDuplicates|
+ |find| |setMode| |conj| |gradeInvolution| |rc| |lc| |toTable| |ePseudoscalar|
+ |eFromBinaryMap| |multivector| |ee| |e| |linearlyDependentOverConstants?|
  |linearDependenceOverConstants| |particularSolutionOverConstants|
  |solveLinearOverConstants| |nullSpaceOverConstants| |constant_subspace|
  |clipParametric| |clipWithRanges| |counit| |coproduct| |coboundary| |validate|

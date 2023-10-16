@@ -1010,18 +1010,13 @@
                 (EXIT (SPADCALL |dc| |simplify| |trace| (QREFELT $ 105)))))) 
 
 (SDEFUN |SIMPC;chain;$Cc;28| ((|s| $) ($ |ChainComplex|))
-        (SPROG ((|cc| (|ChainComplex|)) (|dc| (|DeltaComplex| VS)))
-               (SEQ
-                (LETT |dc| (SPADCALL |s| (QREFELT $ 104))
-                      . #1=(|SIMPC;chain;$Cc;28|))
-                (LETT |cc| (SPADCALL |dc| (QREFELT $ 107)) . #1#) (EXIT |cc|)))) 
-
-(SDEFUN |SIMPC;coChain;$Ccc;29| ((|s| $) ($ |CoChainComplex| VS))
         (SPROG ((|dc| (|DeltaComplex| VS)))
                (SEQ
-                (LETT |dc| (SPADCALL |s| (QREFELT $ 104))
-                      |SIMPC;coChain;$Ccc;29|)
-                (EXIT (SPADCALL |dc| (QREFELT $ 110)))))) 
+                (LETT |dc| (SPADCALL |s| (QREFELT $ 104)) |SIMPC;chain;$Cc;28|)
+                (EXIT (SPADCALL |dc| (QREFELT $ 107)))))) 
+
+(SDEFUN |SIMPC;coChain;$Ccc;29| ((|s| $) ($ |CoChainComplex| VS))
+        (SPADCALL (SPADCALL |s| (QREFELT $ 108)) (QREFELT $ 110))) 
 
 (SDEFUN |SIMPC;homology;$L;30| ((|s| $) ($ |List| (|Homology|)))
         (SPROG ((|dc| (|DeltaComplex| VS)))
@@ -1043,19 +1038,19 @@
           (|res3| (|List| (|OrientedFacet|)))
           (|inds2| (|List| (|NonNegativeInteger|)))
           (|newIndex| (|NonNegativeInteger|)) (|r| (|NonNegativeInteger|))
-          (#1=#:G348 NIL) (|l| (|NonNegativeInteger|)) (#2=#:G363 NIL)
+          (#1=#:G347 NIL) (|l| (|NonNegativeInteger|)) (#2=#:G362 NIL)
           (|y| NIL) (|mul| (|Integer|))
           (|inds|
            (|List|
             (|Record| (|:| |left| (|NonNegativeInteger|))
                       (|:| |right| (|NonNegativeInteger|)))))
-          (#3=#:G362 NIL) (|x| NIL) (|dimb| #4=(|NonNegativeInteger|))
+          (#3=#:G361 NIL) (|x| NIL) (|dimb| #4=(|NonNegativeInteger|))
           (|bz| (|NonNegativeInteger|)) (|dima| #4#)
-          (|az| (|NonNegativeInteger|)) (#5=#:G361 NIL) (|z| NIL)
-          (|res2| (|List| (|ProductFacet|))) (#6=#:G360 NIL) (|e| NIL)
-          (|res| (|List| (|ProductFacet|))) (#7=#:G359 NIL) (|simpb| NIL)
-          (#8=#:G358 NIL) (|simpa| NIL) (|vs| (|List| VS)) (|pp| (VS))
-          (#9=#:G357 NIL) (|pb| NIL) (#10=#:G356 NIL) (|pa| NIL)
+          (|az| (|NonNegativeInteger|)) (#5=#:G360 NIL) (|z| NIL)
+          (|res2| (|List| (|ProductFacet|))) (#6=#:G359 NIL) (|e| NIL)
+          (|res| (|List| (|ProductFacet|))) (#7=#:G358 NIL) (|simpb| NIL)
+          (#8=#:G357 NIL) (|simpa| NIL) (|vs| (|List| VS)) (|pp| (VS))
+          (#9=#:G356 NIL) (|pb| NIL) (#10=#:G355 NIL) (|pa| NIL)
           (|simpsb| #11=(|List| (|OrientedFacet|))) (|simpsa| #11#))
          (SEQ (LETT |simpsa| (QVELT |a| 2) . #12=(|SIMPC;product;3$;32|))
               (LETT |simpsb| (QVELT |b| 2) . #12#) (LETT |vs| NIL . #12#)
@@ -1199,7 +1194,7 @@
         ((|a| |List| (|NonNegativeInteger|))
          (|b| |List| (|NonNegativeInteger|)) ($ |Boolean|))
         (SPROG
-         ((|offset| (|Integer|)) (#1=#:G371 NIL) (#2=#:G372 NIL) (|n| NIL)
+         ((|offset| (|Integer|)) (#1=#:G370 NIL) (#2=#:G371 NIL) (|n| NIL)
           (|fst| (|NonNegativeInteger|)) (|len| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -1208,7 +1203,7 @@
                   . #3=(|SIMPC;equalSimplex|))
             (COND
              ((SPADCALL |len| (SPADCALL |b| (QREFELT $ 133)) (QREFELT $ 134))
-              (PROGN (LETT #1# NIL . #3#) (GO #4=#:G370))))
+              (PROGN (LETT #1# NIL . #3#) (GO #4=#:G369))))
             (COND ((EQL |len| 0) (PROGN (LETT #1# 'T . #3#) (GO #4#))))
             (LETT |fst| (|SPADfirst| |a|) . #3#)
             (LETT |offset| (SPADCALL |fst| |b| (QREFELT $ 135)) . #3#)
@@ -1234,9 +1229,9 @@
 
 (SDEFUN |SIMPC;=;2$B;34| ((|a| $) (|b| $) ($ |Boolean|))
         (SPROG
-         ((#1=#:G384 NIL) (#2=#:G388 NIL) (|f| NIL)
-          (|x| (|NonNegativeInteger|)) (#3=#:G387 NIL) (|a1| NIL)
-          (|flags| (|List| (|Boolean|))) (#4=#:G386 NIL) (#5=#:G385 NIL)
+         ((#1=#:G383 NIL) (#2=#:G387 NIL) (|f| NIL)
+          (|x| (|NonNegativeInteger|)) (#3=#:G386 NIL) (|a1| NIL)
+          (|flags| (|List| (|Boolean|))) (#4=#:G385 NIL) (#5=#:G384 NIL)
           (|len| (|NonNegativeInteger|)) (|bs| #6=(|List| (|OrientedFacet|)))
           (|as| #6#))
          (SEQ
@@ -1246,7 +1241,7 @@
                 (LETT |len| (LENGTH |as|) . #7#)
                 (COND
                  ((SPADCALL |len| (LENGTH |bs|) (QREFELT $ 134))
-                  (PROGN (LETT #1# NIL . #7#) (GO #8=#:G383))))
+                  (PROGN (LETT #1# NIL . #7#) (GO #8=#:G382))))
                 (LETT |flags|
                       (PROGN
                        (LETT #5# NIL . #7#)
@@ -1302,7 +1297,7 @@
 
 (SDEFUN |SIMPC;coerce;$Of;35| ((|s| $) ($ |OutputForm|))
         (SPROG
-         ((|res| (|OutputForm|)) (#1=#:G394 NIL) (|a| NIL) (#2=#:G393 NIL))
+         ((|res| (|OutputForm|)) (#1=#:G393 NIL) (|a| NIL) (#2=#:G392 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -1319,7 +1314,7 @@
                      (SPADCALL (SPADCALL "empty" (QREFELT $ 30))
                                (QREFELT $ 142))
                      . #3#)
-               (GO #4=#:G392))))
+               (GO #4=#:G391))))
             (SEQ (LETT |a| NIL . #3#) (LETT #1# (QVELT |s| 2) . #3#) G190
                  (COND
                   ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
@@ -1339,9 +1334,9 @@
 
 (DECLAIM (NOTINLINE |FiniteSimplicialComplex;|)) 
 
-(DEFUN |FiniteSimplicialComplex| (#1=#:G396)
+(DEFUN |FiniteSimplicialComplex| (#1=#:G395)
   (SPROG NIL
-         (PROG (#2=#:G397)
+         (PROG (#2=#:G396)
            (RETURN
             (COND
              ((LETT #2#
@@ -1418,19 +1413,19 @@
               |SIMPC;fundamentalGroup;$Gp;26| (|FiniteSimplicialComplex| 6)
               (281 . |deltaComplex|) (286 . |fundamentalGroup|)
               (|ChainComplex|) (293 . |chain|) |SIMPC;chain;$Cc;28|
-              (|CoChainComplex| 6) (298 . |coChain|) |SIMPC;coChain;$Ccc;29|
-              (|List| (|Homology|)) (303 . |homology|) |SIMPC;homology;$L;30|
-              (308 . |coHomology|) |SIMPC;coHomology;$L;31| (313 . +)
-              (319 . |concat|) (|List| 122) (325 . |product|) (331 . |concat|)
-              (|ProductFacet|) (337 . |member?|) (343 . |concat|)
-              (349 . |getMaxLeft|) (354 . |getMaxRight|)
-              (|Record| (|:| |left| 15) (|:| |right| 15)) (|List| 127)
-              (359 . |getIndexs|) (364 . |getMult|) (369 . |concat|)
-              |SIMPC;product;3$;32| (375 . |#|) (380 . ~=) (386 . |position|)
-              (392 . ~=) (|List| 19) (398 . |elt|) (404 . |setelt!|)
-              |SIMPC;=;2$B;34| (411 . |hconcat|) (416 . |bracket|)
-              (421 . |vconcat|) |SIMPC;coerce;$Of;35| |SIMPC;coerce;$Dc;36|
-              (|SingleInteger|) (|HashState|))
+              (|CoChainComplex| 6) (298 . |coChainComplex|)
+              |SIMPC;coChain;$Ccc;29| (|List| (|Homology|)) (303 . |homology|)
+              |SIMPC;homology;$L;30| (308 . |coHomology|)
+              |SIMPC;coHomology;$L;31| (313 . +) (319 . |concat|) (|List| 122)
+              (325 . |product|) (331 . |concat|) (|ProductFacet|)
+              (337 . |member?|) (343 . |concat|) (349 . |getMaxLeft|)
+              (354 . |getMaxRight|) (|Record| (|:| |left| 15) (|:| |right| 15))
+              (|List| 127) (359 . |getIndexs|) (364 . |getMult|)
+              (369 . |concat|) |SIMPC;product;3$;32| (375 . |#|) (380 . ~=)
+              (386 . |position|) (392 . ~=) (|List| 19) (398 . |elt|)
+              (404 . |setelt!|) |SIMPC;=;2$B;34| (411 . |hconcat|)
+              (416 . |bracket|) (421 . |vconcat|) |SIMPC;coerce;$Of;35|
+              |SIMPC;coerce;$Dc;36| (|SingleInteger|) (|HashState|))
            '#(~= 427 |star| 433 |sort| 439 |simplicialJoin| 444
               |simplicialComplexIfCan| 451 |simplicialComplex| 462
               |refactorIndexes| 480 |product| 486 |oneSkeleton| 492 |minIndex|
@@ -1467,7 +1462,7 @@
                                               19 89 0 91 2 90 0 0 89 92 2 94 19
                                               93 0 95 2 94 0 0 93 96 2 9 15 0 8
                                               97 1 25 0 103 104 3 25 100 0 19
-                                              19 105 1 25 106 0 107 1 25 109 0
+                                              19 105 1 25 106 0 107 1 109 0 106
                                               110 1 25 112 0 113 1 25 112 0 115
                                               2 6 0 0 0 117 2 14 0 0 6 118 2 10
                                               119 0 0 120 2 119 0 0 0 121 2 119
