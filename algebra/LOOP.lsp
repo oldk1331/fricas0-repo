@@ -36,7 +36,7 @@
                                   (QREFELT $ 9)))))))))) 
 
 (SDEFUN |LOOP;entries;$L;2| ((|lp| $) ($ |List| (|NonNegativeInteger|)))
-        (SPADCALL |lp| (QREFELT $ 12))) 
+        (SPADCALL |lp| (QREFELT $ 11))) 
 
 (PUT '|LOOP;hash;$Si;3| '|SPADreplace| '(XLAM (|s|) 0)) 
 
@@ -47,15 +47,15 @@
          ((|res| (|String|)) (|x| (|NonNegativeInteger|)) (#1=#:G126 NIL)
           (|i| NIL))
          (SEQ (LETT |res| "")
-              (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |lp| (QREFELT $ 17))) G190
+              (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |lp| (QREFELT $ 16))) G190
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
                    (SEQ (LETT |x| (QAREF1 |lp| (- |i| 1)))
                         (EXIT
                          (LETT |res|
                                (SPADCALL (LIST |res| "->" (STRINGIMAGE |x|))
-                                         (QREFELT $ 20)))))
+                                         (QREFELT $ 19)))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL (LIST "[" |res| "]") (QREFELT $ 20)))))) 
+              (EXIT (SPADCALL (LIST "[" |res| "]") (QREFELT $ 19)))))) 
 
 (SDEFUN |LOOP;=;2$B;5| ((|x| $) (|y| $) ($ |Boolean|))
         (SPROG ((#1=#:G132 NIL) (#2=#:G133 NIL) (|i| NIL))
@@ -63,50 +63,43 @@
                 (EXIT
                  (SEQ
                   (COND
-                   ((SPADCALL (SPADCALL |x| (QREFELT $ 17))
-                              (SPADCALL |y| (QREFELT $ 17)) (QREFELT $ 23))
+                   ((SPADCALL (SPADCALL |x| (QREFELT $ 16))
+                              (SPADCALL |y| (QREFELT $ 16)) (QREFELT $ 22))
                     (PROGN (LETT #1# NIL) (GO #3=#:G131))))
-                  (SEQ (LETT |i| 1) (LETT #2# (SPADCALL |x| (QREFELT $ 17)))
+                  (SEQ (LETT |i| 1) (LETT #2# (SPADCALL |x| (QREFELT $ 16)))
                        G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ
                         (EXIT
                          (COND
                           ((SPADCALL (QAREF1 |x| (- |i| 1))
-                                     (QAREF1 |y| (- |i| 1)) (QREFELT $ 23))
+                                     (QAREF1 |y| (- |i| 1)) (QREFELT $ 22))
                            (PROGN (LETT #1# NIL) (GO #3#))))))
                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |LOOP;~=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
-        (NULL (SPADCALL |x| |y| (QREFELT $ 24)))) 
-
-(SDEFUN |LOOP;coerce;$Of;7| ((|lp| $) ($ |OutputForm|))
+(SDEFUN |LOOP;coerce;$Of;6| ((|lp| $) ($ |OutputForm|))
         (SPROG
-         ((|res| (|OutputForm|)) (|x| (|NonNegativeInteger|)) (#1=#:G139 NIL)
+         ((|res| (|OutputForm|)) (|x| (|NonNegativeInteger|)) (#1=#:G138 NIL)
           (|i| NIL))
-         (SEQ (LETT |res| (SPADCALL (QREFELT $ 27)))
-              (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |lp| (QREFELT $ 17))) G190
+         (SEQ (LETT |res| (SPADCALL (QREFELT $ 25)))
+              (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |lp| (QREFELT $ 16))) G190
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
                    (SEQ (LETT |x| (QAREF1 |lp| (- |i| 1)))
                         (EXIT
                          (LETT |res|
                                (SPADCALL
-                                (LIST |res| (SPADCALL '-> (QREFELT $ 29))
-                                      (SPADCALL |x| (QREFELT $ 30)))
-                                (QREFELT $ 31)))))
+                                (LIST |res| (SPADCALL '-> (QREFELT $ 27))
+                                      (SPADCALL |x| (QREFELT $ 28)))
+                                (QREFELT $ 29)))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-              (EXIT
-               (SPADCALL
-                (LIST (SPADCALL '[ (QREFELT $ 29)) |res|
-                      (SPADCALL '] (QREFELT $ 29)))
-                (QREFELT $ 31)))))) 
+              (EXIT (SPADCALL |res| (QREFELT $ 30)))))) 
 
 (DECLAIM (NOTINLINE |Loop;|)) 
 
 (DEFUN |Loop| ()
   (SPROG NIL
-         (PROG (#1=#:G141)
+         (PROG (#1=#:G140)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Loop|))
@@ -124,7 +117,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Loop|))
-          (LETT $ (GETREFV 34))
+          (LETT $ (GETREFV 33))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Loop| NIL (CONS 1 $))
@@ -135,29 +128,30 @@
 
 (MAKEPROP '|Loop| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|List| 16) (0 . |concat|)
-              (6 . |construct|) |LOOP;loop;L$;1| (|PrimitiveArray| 16)
-              (11 . |entries|) |LOOP;entries;$L;2| (|SingleInteger|)
-              |LOOP;hash;$Si;3| (|NonNegativeInteger|) (16 . |#|) (|List| $)
-              (|String|) (21 . |concat|) |LOOP;latex;$S;4| (|Boolean|)
-              (26 . ~=) |LOOP;=;2$B;5| |LOOP;~=;2$B;6| (|OutputForm|)
-              (32 . |empty|) (|Symbol|) (36 . |outputForm|) (41 . |coerce|)
-              (46 . |hconcat|) |LOOP;coerce;$Of;7| (|HashState|))
-           '#(~= 51 |loop| 57 |latex| 62 |hashUpdate!| 67 |hash| 73 |entries|
-              78 |coerce| 83 = 88)
+           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|List| 15) (0 . |concat|)
+              (6 . |construct|) |LOOP;loop;L$;1| (11 . |entries|)
+              |LOOP;entries;$L;2| (|SingleInteger|) |LOOP;hash;$Si;3|
+              (|NonNegativeInteger|) (16 . |#|) (|List| $) (|String|)
+              (21 . |concat|) |LOOP;latex;$S;4| (|Boolean|) (26 . ~=)
+              |LOOP;=;2$B;5| (|OutputForm|) (32 . |empty|) (|Symbol|)
+              (36 . |outputForm|) (41 . |coerce|) (46 . |hconcat|)
+              (51 . |bracket|) |LOOP;coerce;$Of;6| (|HashState|))
+           '#(~= 56 |loop| 62 |latex| 67 |hashUpdate!| 72 |hash| 78 |entries|
+              83 |coerce| 88 = 93)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 26))
-                        (|makeByteWordVec2| 33
-                                            '(2 7 0 0 0 8 1 6 0 7 9 1 11 7 0 12
-                                              1 6 16 0 17 1 19 0 18 20 2 16 22
-                                              0 0 23 0 26 0 27 1 26 0 28 29 1
-                                              16 26 0 30 1 26 0 18 31 2 0 22 0
-                                              0 25 1 0 0 7 10 1 0 19 0 21 2 0
-                                              33 33 0 1 1 0 14 0 15 1 0 7 0 13
-                                              1 0 26 0 32 2 0 22 0 0 24)))))
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 24))
+                        (|makeByteWordVec2| 32
+                                            '(2 7 0 0 0 8 1 6 0 7 9 1 6 7 0 11
+                                              1 6 15 0 16 1 18 0 17 19 2 15 21
+                                              0 0 22 0 24 0 25 1 24 0 26 27 1
+                                              15 24 0 28 1 24 0 17 29 1 24 0 0
+                                              30 2 0 21 0 0 1 1 0 0 7 10 1 0 18
+                                              0 20 2 0 32 32 0 1 1 0 13 0 14 1
+                                              0 7 0 12 1 0 24 0 31 2 0 21 0 0
+                                              23)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Loop| 'NILADIC T) 

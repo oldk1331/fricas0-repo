@@ -5190,7 +5190,7 @@
 563432`\spad{map(f,{} u)} returns a copy of \spad{u} with each element \spad{x} replaced by \spad{f}(\spad{x}). For collections,{} \spad{map(f,{} u) = [f(x) for x in u]}.
 563490`\spad{map(f,{} eqn)} constructs a new equation by applying \spad{f} to both sides of eqn.
 563536`\spad{map(f,{} t)} replaces the tuple \spad{t} by \spad{[f(x) for x in t]}.
-563587`\spad{map(f,{} l..h by k)} produces a value of type \spad{L} by applying \spad{f} to each of the succesive elements of the segment,{} that is,{} \spad{[f(l),{} f(l+k),{} ...,{} f(lN)]},{} where \spad{lN <= h < lN+k}.
+563587`\spad{map(f,{} l..h by k)} produces a value of type \spad{L} by applying \spad{f} to each of the successive elements of the segment,{} that is,{} \spad{[f(l),{} f(l+k),{} ...,{} f(lN)]},{} where \spad{lN <= h < lN+k}.
 563650`\spad{map(f,{} ts)} does a componentwise conversion of the tensor \spad{ts} to a tensor with components of type \spad{T}.
 563849`\spad{map(f,{} p,{} k)} uses the property \spad{p} of the operator of \spad{k},{} in order to lift \spad{f} and apply it to \spad{k}.
 564117`\spad{map(varmap,{} coefmap,{} p)} takes a \spad{varmap},{} a mapping from the variables of polynomial \spad{p} into \spad{S},{} \spad{coefmap},{} a mapping from coefficients of \spad{p} into \spad{S},{} and \spad{p},{} and produces a member of \spad{S} using the corresponding arithmetic in \spad{S}.

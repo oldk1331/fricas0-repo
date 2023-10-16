@@ -66,20 +66,16 @@
 (SDEFUN |HEAP;insert!;S2$;5| ((|x| S) (|r| $) ($ $))
         (SPROG ((|j| (|Integer|)) (#1=#:G127 NIL) (|i| (|Integer|)))
                (SEQ (LETT |j| (SPADCALL |r| (QREFELT $ 21)))
-                    (LETT |r|
-                          (SPADCALL |r|
-                                    (SPADCALL |x| (SPADCALL (QREFELT $ 8))
-                                              (QREFELT $ 24))
-                                    (QREFELT $ 25)))
+                    (LETT |r| (SPADCALL |r| |x| (QREFELT $ 24)))
                     (SEQ
                      (EXIT
                       (SEQ G190
                            (COND
-                            ((NULL (SPADCALL |j| 0 (QREFELT $ 26))) (GO G191)))
+                            ((NULL (SPADCALL |j| 0 (QREFELT $ 25))) (GO G191)))
                            (SEQ (LETT |i| (QUOTIENT2 (- |j| 1) 2))
                                 (COND
                                  ((SPADCALL (SPADCALL |r| |i| (QREFELT $ 14))
-                                            |x| (QREFELT $ 27))
+                                            |x| (QREFELT $ 26))
                                   (PROGN
                                    (LETT #1# |$NoValue|)
                                    (GO #2=#:G124))))
@@ -95,7 +91,7 @@
         (COND ((EQL (SPADCALL |r| (QREFELT $ 21)) 0) (|error| "empty heap"))
               ('T (SPADCALL |r| 0 (QREFELT $ 14))))) 
 
-(SDEFUN |HEAP;inspect;$S;7| ((|r| $) ($ S)) (SPADCALL |r| (QREFELT $ 29))) 
+(SDEFUN |HEAP;inspect;$S;7| ((|r| $) ($ S)) (SPADCALL |r| (QREFELT $ 28))) 
 
 (SDEFUN |HEAP;makeHeap| ((|r| $) ($ $))
         (SPROG ((|k| NIL) (|n| (|NonNegativeInteger|)))
@@ -107,13 +103,13 @@
                     (EXIT |r|)))) 
 
 (SDEFUN |HEAP;construct;L$;9| ((|l| |List| S) ($ $))
-        (|HEAP;makeHeap| (SPADCALL |l| (QREFELT $ 31)) $)) 
+        (|HEAP;makeHeap| (SPADCALL |l| (QREFELT $ 30)) $)) 
 
 (SDEFUN |HEAP;merge;3$;10| ((|a| $) (|b| $) ($ $))
-        (|HEAP;makeHeap| (SPADCALL |a| |b| (QREFELT $ 32)) $)) 
+        (|HEAP;makeHeap| (SPADCALL |a| |b| (QREFELT $ 31)) $)) 
 
 (SDEFUN |HEAP;merge!;3$;11| ((|a| $) (|b| $) ($ $))
-        (|HEAP;makeHeap| (SPADCALL |a| |b| (QREFELT $ 25)) $)) 
+        (|HEAP;makeHeap| (SPADCALL |a| |b| (QREFELT $ 33)) $)) 
 
 (DECLAIM (NOTINLINE |Heap;|)) 
 
@@ -194,10 +190,10 @@
               |HEAP;construct;L$;9| |HEAP;heap;L$;2| (|Integer|) (4 . |elt|)
               (|PositiveInteger|) (10 . *) (|Boolean|) (16 . <)
               (22 . |setelt!|) (|NonNegativeInteger|) (29 . |#|)
-              (34 . |delete!|) |HEAP;extract!;$S;4| (40 . |concat|)
-              (46 . |concat!|) (52 . >) (58 . >=) |HEAP;insert!;S2$;5|
-              |HEAP;max;$S;6| |HEAP;inspect;$S;7| (64 . |construct|)
-              (69 . |concat|) |HEAP;merge;3$;10| |HEAP;merge!;3$;11|
+              (34 . |delete!|) |HEAP;extract!;$S;4| (40 . |concat!|) (46 . >)
+              (52 . >=) |HEAP;insert!;S2$;5| |HEAP;max;$S;6|
+              |HEAP;inspect;$S;7| (58 . |construct|) (63 . |concat|)
+              |HEAP;merge;3$;10| (69 . |concat!|) |HEAP;merge!;3$;11|
               (|Mapping| 6 6 6) (|List| 37) (|Equation| 6) (|Mapping| 17 6)
               (|Mapping| 6 6) (|OutputForm|) (|InputForm|) (|HashState|)
               (|SingleInteger|) (|String|) (|Union| 6 '"failed"))
@@ -225,17 +221,17 @@
                    (|makeByteWordVec2| 45
                                        '(0 7 0 8 2 7 6 0 13 14 2 13 0 15 0 16 2
                                          6 17 0 0 18 3 7 6 0 13 6 19 1 0 20 0
-                                         21 2 7 0 0 13 22 2 7 0 6 0 24 2 7 0 0
-                                         0 25 2 13 17 0 0 26 2 6 17 0 0 27 1 7
-                                         0 10 31 2 7 0 0 0 32 2 11 17 0 0 1 2 0
+                                         21 2 7 0 0 13 22 2 7 0 0 6 24 2 13 17
+                                         0 0 25 2 6 17 0 0 26 1 7 0 10 30 2 7 0
+                                         0 0 31 2 7 0 0 0 33 2 11 17 0 0 1 2 0
                                          17 0 20 1 2 9 0 38 0 1 0 0 0 1 1 10 0
                                          0 1 2 10 0 6 0 1 2 9 0 38 0 1 4 10 6
                                          35 0 6 6 1 3 9 6 35 0 6 1 2 9 6 35 0 1
                                          1 9 10 0 1 2 0 17 0 20 1 2 0 0 0 0 34
-                                         2 0 0 0 0 33 1 9 10 0 1 2 10 17 6 0 1
-                                         1 0 6 0 29 2 8 0 39 0 1 2 0 0 39 0 1 2
-                                         0 17 0 20 1 1 1 44 0 1 1 0 6 0 30 2 0
-                                         0 6 0 28 1 0 0 10 12 2 1 42 42 0 1 1 1
+                                         2 0 0 0 0 32 1 9 10 0 1 2 10 17 6 0 1
+                                         1 0 6 0 28 2 8 0 39 0 1 2 0 0 39 0 1 2
+                                         0 17 0 20 1 1 1 44 0 1 1 0 6 0 29 2 0
+                                         0 6 0 27 1 0 0 10 12 2 1 42 42 0 1 1 1
                                          43 0 1 2 0 45 38 0 1 1 0 6 0 23 2 9 17
                                          38 0 1 3 2 0 0 10 10 1 3 2 0 0 6 6 1 2
                                          2 0 0 36 1 2 2 0 0 37 1 2 0 17 0 0 1 1

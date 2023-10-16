@@ -23,19 +23,13 @@
                          (QREFELT $ 21))))) 
 
 (SDEFUN |BRAGG-;nodes;AL;5| ((|x| A) ($ |List| A))
-        (SPROG ((|l| (|List| A)))
-               (SEQ (LETT |l| NIL)
-                    (EXIT
-                     (COND ((SPADCALL |x| (QREFELT $ 15)) |l|)
-                           ('T
-                            (SPADCALL
-                             (SPADCALL (SPADCALL |x| (QREFELT $ 8))
-                                       (QREFELT $ 24))
-                             (SPADCALL (LIST |x|)
-                                       (SPADCALL (SPADCALL |x| (QREFELT $ 11))
-                                                 (QREFELT $ 24))
-                                       (QREFELT $ 26))
-                             (QREFELT $ 26)))))))) 
+        (COND ((SPADCALL |x| (QREFELT $ 15)) NIL)
+              ('T
+               (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 24))
+                         (CONS |x|
+                               (SPADCALL (SPADCALL |x| (QREFELT $ 11))
+                                         (QREFELT $ 24)))
+                         (QREFELT $ 26))))) 
 
 (SDEFUN |BRAGG-;children;AL;6| ((|x| A) ($ |List| A))
         (SPROG ((|l| (|List| A)))
