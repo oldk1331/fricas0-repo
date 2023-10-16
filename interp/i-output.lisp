@@ -3059,7 +3059,7 @@
       (WIDTH |b|)))))
  
 ; overlabelApp([.,a,b], x, y, d) ==
-;   underApp:= APP(b,x,y,d)
+;   d := APP(b, x, y, d) -- the part that is under the label
 ;   endPoint := x + WIDTH b - 1
 ;   middle := QUOTIENT(x + endPoint,2)
 ;   h := y + superspan b + 1
@@ -3067,12 +3067,12 @@
 ;   apphor(x,x+WIDTH b-1,y+superspan b+1,d,"|")
  
 (DEFUN |overlabelApp| (|bfVar#76| |x| |y| |d|)
-  (PROG (|a| |b| |underApp| |endPoint| |middle| |h|)
+  (PROG (|a| |b| |endPoint| |middle| |h|)
     (RETURN
      (PROGN
       (SETQ |a| (CADR . #1=(|bfVar#76|)))
       (SETQ |b| (CADDR . #1#))
-      (SETQ |underApp| (APP |b| |x| |y| |d|))
+      (SETQ |d| (APP |b| |x| |y| |d|))
       (SETQ |endPoint| (- (+ |x| (WIDTH |b|)) 1))
       (SETQ |middle| (QUOTIENT (+ |x| |endPoint|) 2))
       (SETQ |h| (+ (+ |y| (|superspan| |b|)) 1))
@@ -3089,14 +3089,14 @@
 (DEFUN |overbarWidth| (|u|) (PROG () (RETURN (WIDTH (ELT |u| 1)))))
  
 ; overbarApp(u,x,y,d) ==
-;   underApp:= APP(u.1,x,y,d)
+;   d := APP(u.1, x, y, d) -- the part that is under the bar
 ;   apphor(x,x+WIDTH u.1-1,y+superspan u.1+1,d,UNDERBAR)
  
 (DEFUN |overbarApp| (|u| |x| |y| |d|)
-  (PROG (|underApp|)
+  (PROG ()
     (RETURN
      (PROGN
-      (SETQ |underApp| (APP (ELT |u| 1) |x| |y| |d|))
+      (SETQ |d| (APP (ELT |u| 1) |x| |y| |d|))
       (|apphor| |x| (- (+ |x| (WIDTH (ELT |u| 1))) 1)
        (+ (+ |y| (|superspan| (ELT |u| 1))) 1) |d| UNDERBAR)))))
  
