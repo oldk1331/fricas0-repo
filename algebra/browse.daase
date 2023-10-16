@@ -1,5 +1,5 @@
 
-(3094508 . 1)                
+(3095261 . 1)                
 (|OneDimensionalArrayAggregate&| A S) 
 ((|constructor|
   (NIL
@@ -47310,6 +47310,19 @@ NIL
        (|HasCategory| (|PoincareBirkhoffWittLyndonBasis| |#1|)
                       '(|OrderedSet|))))
  (|HasCategory| |#2| (LIST '|Module| (LIST '|Fraction| '(|Integer|))))) 
+(|XPolynomialFactor| |vl| F) 
+((|lift1|
+  (((|Record| (|:| |l_fac| (|XDistributedPolynomial| |#1| (|Polynomial| |#2|)))
+              (|:| |r_fac| (|XDistributedPolynomial| |#1| (|Polynomial| |#2|)))
+              (|:| |residual|
+                   (|XDistributedPolynomial| |#1| (|Polynomial| |#2|)))
+              (|:| |nsym| (|Union| (|Symbol|) "none")))
+    (|FreeMonoid| |#1|) (|XDistributedPolynomial| |#1| (|Polynomial| |#2|))
+    (|Integer|) (|FreeMonoid| |#1|)
+    (|XDistributedPolynomial| |#1| (|Polynomial| |#2|)) (|Integer|) |#2|
+    (|XDistributedPolynomial| |#1| (|Polynomial| |#2|)) (|Boolean|))
+   "\\spad{lift1(lw,{} lfy,{} d1,{} rw,{} rfy,{} j,{} lc,{} rp,{} o_case)}"))) 
+((|HasCategory| |#2| '(|PolynomialFactorizationExplicit|))) 
 (|XPolynomial| R) 
 ((|constructor|
   (NIL
@@ -47560,17 +47573,18 @@ NIL
 NIL 
 NIL 
 NIL 
-((|Category| NIL 3094493 3094498 3094503) (|Union| NIL 3094478 3094483 3094488)
- (|Record| NIL 3094463 3094468 3094473) (|Mapping| NIL 3094448 3094453 3094458)
- (|Enumeration| NIL 3094433 3094438 3094443)
- (|IntegerMod| "ZMOD.spad" 3094287 3094307 3094428)
- (|IntegerLinearDependence| "ZLINDEP.spad" 3092168 3092199 3094282)
- (|ZeroDimensionalSolvePackage| "ZDSOLVE.spad" 3081057 3081103 3092163)
- (|ParadoxicalCombinatorsForStreams| "YSTREAM.spad" 3080508 3080548 3081052)
- (|XRecursivePolynomial| "XRPOLY.spad" 3079745 3079782 3080421)
- (|XPolynomialRing| "XPR.spad" 3076832 3076857 3078903)
- (|XPolynomialsCat| "XPOLYC.spad" 3076188 3076216 3076827)
- (|XPolynomial| "XPOLY.spad" 3075787 3075806 3076101)
+((|Category| NIL 3095246 3095251 3095256) (|Union| NIL 3095231 3095236 3095241)
+ (|Record| NIL 3095216 3095221 3095226) (|Mapping| NIL 3095201 3095206 3095211)
+ (|Enumeration| NIL 3095186 3095191 3095196)
+ (|IntegerMod| "ZMOD.spad" 3095040 3095060 3095181)
+ (|IntegerLinearDependence| "ZLINDEP.spad" 3092921 3092952 3095035)
+ (|ZeroDimensionalSolvePackage| "ZDSOLVE.spad" 3081810 3081856 3092916)
+ (|ParadoxicalCombinatorsForStreams| "YSTREAM.spad" 3081261 3081301 3081805)
+ (|XRecursivePolynomial| "XRPOLY.spad" 3080498 3080535 3081174)
+ (|XPolynomialRing| "XPR.spad" 3077585 3077610 3079656)
+ (|XPolynomialsCat| "XPOLYC.spad" 3076941 3076969 3077580)
+ (|XPolynomial| "XPOLY.spad" 3076540 3076559 3076854)
+ (|XPolynomialFactor| "XPFACT.spad" 3075787 3075817 3076479)
  (|XPBWPolynomial| "XPBWPOLY.spad" 3073369 3073400 3074591)
  (|XmlElement| "XMLEL.spad" 3072051 3072067 3073364)
  (|XmlAttribute| "XMLAT.spad" 3071126 3071144 3072046)
