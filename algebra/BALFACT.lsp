@@ -61,7 +61,7 @@
                             (LETT #5#
                                   (SPADCALL
                                    (|BALFACT;balSqfr| |a| |n| (CDR |l|) $)
-                                   (QREFELT $ 24))
+                                   (QREFELT $ 25))
                                   . #6#)
                             G190
                             (COND
@@ -72,7 +72,8 @@
                              (EXIT
                               (PROGN
                                (LETT #4#
-                                     (|BALFACT;balSqfr1| (QCAR |f|) |n| |b| $)
+                                     (|BALFACT;balSqfr1| (QVELT |f| 1) |n| |b|
+                                      $)
                                      . #6#)
                                (COND
                                 (#1#
@@ -84,7 +85,7 @@
                                   (LETT #1# 'T . #6#)))))))
                             (LETT #5# (CDR #5#) . #6#) (GO G190) G191
                             (EXIT NIL))
-                       (COND (#1# #2#) (#7# (|spadConstant| $ 25)))))))))) 
+                       (COND (#1# #2#) (#7# (|spadConstant| $ 26)))))))))) 
 
 (SDEFUN |BALFACT;balancedFactorisation;UPLF;4|
         ((|a| UP) (|l| |List| UP) ($ |Factored| UP))
@@ -97,17 +98,17 @@
              (LETT |ll|
                    (SPADCALL
                     (CONS #'|BALFACT;balancedFactorisation;UPLF;4!0| $) |l|
-                    (QREFELT $ 30))
+                    (QREFELT $ 31))
                    . #6=(|BALFACT;balancedFactorisation;UPLF;4|)))
             (|error| "balancedFactorisation: 2nd argument is empty or all 0"))
            (#7='T
-            (SEQ (LETT |sa| (SPADCALL |a| (QREFELT $ 32)) . #6#)
+            (SEQ (LETT |sa| (SPADCALL |a| (QREFELT $ 33)) . #6#)
                  (EXIT
-                  (SPADCALL (SPADCALL |sa| (QREFELT $ 33))
+                  (SPADCALL (SPADCALL |sa| (QREFELT $ 34))
                             (PROGN
                              (LETT #1# NIL . #6#)
                              (SEQ (LETT |f| NIL . #6#)
-                                  (LETT #5# (SPADCALL |sa| (QREFELT $ 24))
+                                  (LETT #5# (SPADCALL |sa| (QREFELT $ 25))
                                         . #6#)
                                   G190
                                   (COND
@@ -118,8 +119,8 @@
                                    (EXIT
                                     (PROGN
                                      (LETT #4#
-                                           (|BALFACT;balSqfr| (QCAR |f|)
-                                            (QCDR |f|) |ll| $)
+                                           (|BALFACT;balSqfr| (QVELT |f| 1)
+                                            (QVELT |f| 2) |ll| $)
                                            . #6#)
                                      (COND
                                       (#1#
@@ -132,11 +133,11 @@
                                         (LETT #1# 'T . #6#)))))))
                                   (LETT #5# (CDR #5#) . #6#) (GO G190) G191
                                   (EXIT NIL))
-                             (COND (#1# #2#) (#7# (|spadConstant| $ 25))))
-                            (QREFELT $ 34))))))))) 
+                             (COND (#1# #2#) (#7# (|spadConstant| $ 26))))
+                            (QREFELT $ 35))))))))) 
 
 (SDEFUN |BALFACT;balancedFactorisation;UPLF;4!0| ((|z1| NIL) ($ NIL))
-        (SPADCALL |z1| (|spadConstant| $ 27) (QREFELT $ 28))) 
+        (SPADCALL |z1| (|spadConstant| $ 28) (QREFELT $ 29))) 
 
 (DECLAIM (NOTINLINE |BalancedFactorisation;|)) 
 
@@ -166,7 +167,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|BalancedFactorisation|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|BalancedFactorisation| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 35) . #1#)
+          (LETT $ (GETREFV 36) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|BalancedFactorisation|
@@ -184,22 +185,23 @@
               |BALFACT;balancedFactorisation;2UPF;1| (0 . |gcd|)
               (|Union| $ '"failed") (6 . |exquo|) (|NonNegativeInteger|)
               (12 . |sqfrFactor|) (|Boolean|) (18 . |ground?|) (23 . |order|)
-              (29 . ^) (35 . *) (|Record| (|:| |factor| 7) (|:| |exponent| 15))
-              (|List| 22) (41 . |factors|) (46 . |One|) (50 . |Zero|)
+              (29 . ^) (35 . *) (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 22) (|:| |factor| 7) (|:| |exponent| 15))
+              (|List| 23) (41 . |factorList|) (46 . |One|) (50 . |Zero|)
               (54 . |Zero|) (58 . ~=) (|Mapping| 17 7) (64 . |select|)
               (|Factored| $) (70 . |squareFree|) (75 . |unit|) (80 . *))
            '#(|balancedFactorisation| 86) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 34
+                             (|makeByteWordVec2| 35
                                                  '(2 7 0 0 0 12 2 7 13 0 0 14 2
                                                    8 0 7 15 16 1 7 17 0 18 2 7
                                                    15 0 0 19 2 7 0 0 15 20 2 8
-                                                   0 0 0 21 1 8 23 0 24 0 8 0
-                                                   25 0 6 0 26 0 7 0 27 2 7 17
-                                                   0 0 28 2 9 0 29 0 30 1 7 31
-                                                   0 32 1 8 7 0 33 2 8 0 7 0 34
+                                                   0 0 0 21 1 8 24 0 25 0 8 0
+                                                   26 0 6 0 27 0 7 0 28 2 7 17
+                                                   0 0 29 2 9 0 30 0 31 1 7 32
+                                                   0 33 1 8 7 0 34 2 8 0 7 0 35
                                                    2 0 8 7 9 10 2 0 8 7 7
                                                    11)))))
            '|lookupComplete|)) 

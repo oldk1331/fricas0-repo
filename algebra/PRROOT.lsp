@@ -8,7 +8,8 @@
           (|facr| NIL)
           (|facl|
            (|List|
-            (|Record| (|:| |factor| #1#)
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| #1#)
                       (|:| |exponent| (|NonNegativeInteger|)))))
           (|ff| (|Factored| (|SparseUnivariatePolynomial| (|Integer|))))
           (|eq2z| (|SparseUnivariatePolynomial| (|Integer|)))
@@ -42,26 +43,26 @@
                 . #5#)
           (LETT |eq2z| (SPADCALL |pl2| (QREFELT $ 26)) . #5#)
           (LETT |ff| (SPADCALL |eq2z| (QREFELT $ 29)) . #5#)
-          (LETT |facl| (SPADCALL |ff| (QREFELT $ 33)) . #5#)
+          (LETT |facl| (SPADCALL |ff| (QREFELT $ 34)) . #5#)
           (LETT |res| NIL . #5#)
           (SEQ (LETT |facr| NIL . #5#) (LETT #2# |facl| . #5#) G190
                (COND
                 ((OR (ATOM #2#) (PROGN (LETT |facr| (CAR #2#) . #5#) NIL))
                  (GO G191)))
-               (SEQ (LETT |fac| (QCAR |facr|) . #5#)
+               (SEQ (LETT |fac| (QVELT |facr| 1) . #5#)
                     (EXIT
                      (COND
-                      ((SPADCALL (SPADCALL |fac| (QREFELT $ 34)) 1
-                                 (QREFELT $ 36))
+                      ((SPADCALL (SPADCALL |fac| (QREFELT $ 35)) 1
+                                 (QREFELT $ 37))
                        "iterate")
                       ('T
                        (SEQ
                         (LETT |val1r|
                               (SPADCALL
-                               (SPADCALL (SPADCALL |fac| 0 (QREFELT $ 39))
-                                         (SPADCALL |fac| (QREFELT $ 40))
-                                         (QREFELT $ 42))
-                               (QREFELT $ 43))
+                               (SPADCALL (SPADCALL |fac| 0 (QREFELT $ 40))
+                                         (SPADCALL |fac| (QREFELT $ 41))
+                                         (QREFELT $ 43))
+                               (QREFELT $ 44))
                               . #5#)
                         (EXIT (LETT |res| (CONS |val1r| |res|) . #5#)))))))
                (LETT #2# (CDR #2#) . #5#) (GO G190) G191 (EXIT NIL))
@@ -73,14 +74,14 @@
           (|qu| (|Union| (|Integer|) "failed")) (#1=#:G123 NIL) (|r| NIL)
           (|lr| (|List| (|Fraction| (|Integer|)))))
          (SEQ
-          (LETT |lr| (SPADCALL |p| (QREFELT $ 45))
+          (LETT |lr| (SPADCALL |p| (QREFELT $ 46))
                 . #2=(|PRROOT;integerBound;UPI;2|))
           (LETT |res| 0 . #2#)
           (SEQ (LETT |r| NIL . #2#) (LETT #1# |lr| . #2#) G190
                (COND
                 ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#) . #2#) NIL))
                  (GO G191)))
-               (SEQ (LETT |qu| (SPADCALL |r| (QREFELT $ 47)) . #2#)
+               (SEQ (LETT |qu| (SPADCALL |r| (QREFELT $ 48)) . #2#)
                     (EXIT
                      (COND ((QEQCAR |qu| 1) "iterate")
                            ('T
@@ -120,7 +121,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|PolynomialRationalRoots|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|PolynomialRationalRoots| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 49) . #1#)
+          (LETT $ (GETREFV 50) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|PolynomialRationalRoots|
@@ -141,26 +142,27 @@
               (|SparseUnivariatePolynomial| 21) (32 . |unvectorise|) (|List| $)
               (37 . |gcd|) (|Factored| 28) (|SparseUnivariatePolynomial| $)
               (42 . |factorPolynomial|)
-              (|Record| (|:| |factor| 23) (|:| |exponent| 8)) (|List| 30)
-              (|Factored| 23) (47 . |factors|) (52 . |degree|) (|Boolean|)
-              (57 . ~=) (63 . |Zero|) (67 . |Zero|) (71 . |coefficient|)
-              (77 . |leadingCoefficient|) (|Fraction| 21) (82 . /) (88 . -)
-              (|List| 41) |PRROOT;get_rational_roots;UPL;1|
+              (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 30) (|:| |factor| 23) (|:| |exponent| 8))
+              (|List| 31) (|Factored| 23) (47 . |factorList|) (52 . |degree|)
+              (|Boolean|) (57 . ~=) (63 . |Zero|) (67 . |Zero|)
+              (71 . |coefficient|) (77 . |leadingCoefficient|) (|Fraction| 21)
+              (82 . /) (88 . -) (|List| 42) |PRROOT;get_rational_roots;UPL;1|
               (|Union| 21 '"failed") (93 . |retractIfCan|)
               |PRROOT;integerBound;UPI;2|)
            '#(|integerBound| 98 |get_rational_roots| 103) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 48
+                             (|makeByteWordVec2| 49
                                                  '(1 7 8 0 9 2 7 10 0 8 11 1 10
                                                    12 0 13 1 15 0 14 16 1 6 17
                                                    18 19 2 17 20 0 21 22 1 23 0
                                                    20 24 1 23 0 25 26 1 21 27
-                                                   28 29 1 32 31 0 33 1 23 8 0
-                                                   34 2 8 35 0 0 36 0 6 0 37 0
-                                                   7 0 38 2 23 21 0 8 39 1 23
-                                                   21 0 40 2 41 0 21 21 42 1 41
-                                                   0 0 43 1 41 46 0 47 1 0 21 7
-                                                   48 1 0 44 7 45)))))
+                                                   28 29 1 33 32 0 34 1 23 8 0
+                                                   35 2 8 36 0 0 37 0 6 0 38 0
+                                                   7 0 39 2 23 21 0 8 40 1 23
+                                                   21 0 41 2 42 0 21 21 43 1 42
+                                                   0 0 44 1 42 47 0 48 1 0 21 7
+                                                   49 1 0 45 7 46)))))
            '|lookupComplete|)) 

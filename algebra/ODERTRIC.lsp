@@ -795,7 +795,7 @@
                   (SEQ (LETT |r| NIL . #3#)
                        (LETT #1#
                              (SPADCALL (SPADCALL |p| |ezfactor|)
-                                       (QREFELT $ 142))
+                                       (QREFELT $ 143))
                              . #3#)
                        G190
                        (COND
@@ -803,16 +803,16 @@
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #2# (CONS (|ODERTRIC;zro1| (QCAR |r|) $) #2#)
+                         (LETT #2# (CONS (|ODERTRIC;zro1| (QVELT |r| 1) $) #2#)
                                . #3#)))
                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                        (EXIT (NREVERSE #2#))))
-                 (QREFELT $ 144))))) 
+                 (QREFELT $ 145))))) 
 
 (SDEFUN |ODERTRIC;zro1| ((|p| UP) ($ |List| F))
         (LIST
-         (SPADCALL (SPADCALL (LIST #'|ODERTRIC;zro1!0|) |p| (QREFELT $ 148))
-                   (QREFELT $ 150)))) 
+         (SPADCALL (SPADCALL (LIST #'|ODERTRIC;zro1!0|) |p| (QREFELT $ 149))
+                   (QREFELT $ 151)))) 
 
 (SDEFUN |ODERTRIC;zro1!0| ((|z| NIL) ($$ NIL)) |z|) 
 
@@ -843,7 +843,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalRicDE|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|RationalRicDE| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 151) . #1#)
+          (LETT $ (GETREFV 152) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -890,7 +890,7 @@
               (27 . |ratDsolve|) (33 . |differentiate|) (38 . /) (|Factored| $)
               (44 . |squareFree|) (|List| 19)
               (|LinearOrdinaryDifferentialOperator1| 19) (|Mapping| 48 7)
-              (|Mapping| 141 7) |ODERTRIC;ricDsolve;LodoMML;6|
+              (|Mapping| 142 7) |ODERTRIC;ricDsolve;LodoMML;6|
               |ODERTRIC;ricDsolve;LodoML;3| |ODERTRIC;ricDsolve;LodoMML;17|
               |ODERTRIC;ricDsolve;LodoML;4|
               (|Record| (|:| |frac| 19) (|:| |eq| 23)) (|List| 38)
@@ -932,17 +932,17 @@
               (379 . |monicDivide|) (|List| 11) (385 . |coefficients|)
               (|List| (|List| 66)) (|NonLinearSolvePackage| 6) (390 . |solve|)
               (396 . |ricDsolve|) (402 . |ricDsolve|) (407 . |ricDsolve|)
-              (413 . |ricDsolve|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 63)) (|List| 139)
-              (|Factored| 7) (418 . |factors|) (|List| $) (423 . |concat|)
-              (|SparseUnivariatePolynomial| 6) (|Mapping| 6 6)
-              (|UnivariatePolynomialCategoryFunctions2| 6 7 6 145)
+              (413 . |ricDsolve|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 139) (|:| |factor| 7) (|:| |exponent| 63))
+              (|List| 140) (|Factored| 7) (418 . |factorList|) (|List| $)
+              (423 . |concat|) (|SparseUnivariatePolynomial| 6) (|Mapping| 6 6)
+              (|UnivariatePolynomialCategoryFunctions2| 6 7 6 146)
               (428 . |map|) (|SparseUnivariatePolynomial| $) (434 . |zeroOf|))
            '#(|singRicDE| 439 |ricDsolve| 445 |polyRicDE| 493) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 150
+                             (|makeByteWordVec2| 151
                                                  '(0 8 0 9 1 11 0 6 12 2 15 13
                                                    14 7 16 0 6 0 17 0 7 0 18 0
                                                    19 0 20 2 24 22 23 19 25 1
@@ -981,9 +981,9 @@
                                                    130 0 131 2 133 132 130 47
                                                    134 2 0 30 23 33 135 1 0 30
                                                    23 136 2 0 30 31 33 137 1 0
-                                                   30 31 138 1 141 140 0 142 1
-                                                   48 0 143 144 2 147 145 146 7
-                                                   148 1 6 0 149 150 2 0 39 23
+                                                   30 31 138 1 142 141 0 143 1
+                                                   48 0 144 145 2 148 146 147 7
+                                                   149 1 6 0 150 151 2 0 39 23
                                                    33 43 1 1 30 31 138 2 1 30
                                                    31 33 137 2 1 30 23 33 135 1
                                                    1 30 23 136 3 0 30 31 32 33

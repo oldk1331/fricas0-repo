@@ -16,7 +16,7 @@
                  (PROGN
                   (LETT #2# NIL . #3=(|FR2;map;MFF;1|))
                   (SEQ (LETT |f| NIL . #3#)
-                       (LETT #1# (SPADCALL |u| (QREFELT $ 12)) . #3#) G190
+                       (LETT #1# (SPADCALL |u| (QREFELT $ 13)) . #3#) G190
                        (COND
                         ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#) . #3#) NIL))
                          (GO G191)))
@@ -25,13 +25,14 @@
                          (LETT #2#
                                (CONS
                                 (VECTOR (CONS 0 "nil")
-                                        (SPADCALL (QCAR |f|) |fn|) (QCDR |f|))
+                                        (SPADCALL (QVELT |f| 1) |fn|)
+                                        (QVELT |f| 2))
                                 #2#)
                                . #3#)))
                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                        (EXIT (NREVERSE #2#)))))
                 . #3#)
-          (EXIT (SPADCALL (|spadConstant| $ 14) |l| (QREFELT $ 19)))))) 
+          (EXIT (SPADCALL (|spadConstant| $ 15) |l| (QREFELT $ 19)))))) 
 
 (DECLAIM (NOTINLINE |FactoredFunctions2;|)) 
 
@@ -76,11 +77,11 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|Factored| 6) (0 . |unit|)
-              (|Record| (|:| |factor| 6)
-                        (|:| |exponent| (|NonNegativeInteger|)))
-              (|List| 10) (5 . |factors|) (10 . |One|) (14 . |One|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 15) (|:| |factor| 7)
+              (|Record| (|:| |flag| 10) (|:| |factor| 6)
+                        (|:| |exponent| (|NonNegativeInteger|)))
+              (|List| 11) (5 . |factorList|) (10 . |One|) (14 . |One|)
+              (|Record| (|:| |flag| 10) (|:| |factor| 7)
                         (|:| |exponent| (|NonNegativeInteger|)))
               (|List| 16) (|Factored| 7) (18 . |makeFR|) (|Mapping| 7 6)
               |FR2;map;MFF;1|)
@@ -89,7 +90,7 @@
                  (CONS '#()
                        (CONS '#()
                              (|makeByteWordVec2| 21
-                                                 '(1 8 6 0 9 1 8 11 0 12 0 6 0
-                                                   13 0 7 0 14 2 18 0 7 17 19 2
+                                                 '(1 8 6 0 9 1 8 12 0 13 0 6 0
+                                                   14 0 7 0 15 2 18 0 7 17 19 2
                                                    0 18 20 8 21)))))
            '|lookupComplete|)) 

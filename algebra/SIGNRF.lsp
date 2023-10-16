@@ -135,7 +135,7 @@
                                  (SEQ (LETT |ans| (QCDR |u|) . #3#)
                                       (SEQ (LETT |term| NIL . #3#)
                                            (LETT #2#
-                                                 (SPADCALL |s| (QREFELT $ 45))
+                                                 (SPADCALL |s| (QREFELT $ 46))
                                                  . #3#)
                                            G190
                                            (COND
@@ -147,11 +147,11 @@
                                            (SEQ
                                             (EXIT
                                              (COND
-                                              ((ODDP (QCDR |term|))
+                                              ((ODDP (QVELT |term| 2))
                                                (SEQ
                                                 (LETT |u|
                                                       (|SIGNRF;sqfrSign|
-                                                       (QCAR |term|) $)
+                                                       (QVELT |term| 1) $)
                                                       . #3#)
                                                 (EXIT
                                                  (COND
@@ -177,7 +177,7 @@
           (LETT |u|
                 (|SIGNRF;termSign|
                  (|SPADfirst|
-                  (LETT |l| (SPADCALL |p| (QREFELT $ 47))
+                  (LETT |l| (SPADCALL |p| (QREFELT $ 48))
                         . #2=(|SIGNRF;sqfrSign|)))
                  $)
                 . #2#)
@@ -210,7 +210,7 @@
                          (SEQ
                           (EXIT
                            (COND
-                            ((SPADCALL (QCDR |u|) |s| (QREFELT $ 49))
+                            ((SPADCALL (QCDR |u|) |s| (QREFELT $ 50))
                              (PROGN
                               (LETT #2#
                                     (PROGN
@@ -232,7 +232,7 @@
                   (SEQ
                    (EXIT
                     (SEQ (LETT |var| NIL . #4=(|SIGNRF;termSign|))
-                         (LETT #3# (SPADCALL |term| (QREFELT $ 51)) . #4#) G190
+                         (LETT #3# (SPADCALL |term| (QREFELT $ 52)) . #4#) G190
                          (COND
                           ((OR (ATOM #3#)
                                (PROGN (LETT |var| (CAR #3#) . #4#) NIL))
@@ -240,7 +240,7 @@
                          (SEQ
                           (EXIT
                            (COND
-                            ((ODDP (SPADCALL |term| |var| (QREFELT $ 53)))
+                            ((ODDP (SPADCALL |term| |var| (QREFELT $ 54)))
                              (PROGN
                               (LETT #1#
                                     (PROGN
@@ -251,7 +251,7 @@
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
                   (EXIT
-                   (SPADCALL (SPADCALL |term| (QREFELT $ 54))
+                   (SPADCALL (SPADCALL |term| (QREFELT $ 55))
                              (QREFELT $ 37)))))
                 #5# (EXIT #2#)))) 
 
@@ -281,7 +281,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalFunctionSign|))
           (LETT |dv$| (LIST '|RationalFunctionSign| DV$1) . #1#)
-          (LETT $ (GETREFV 55) . #1#)
+          (LETT $ (GETREFV 56) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|RationalFunctionSign| (LIST DV$1)
@@ -308,15 +308,17 @@
               |SIGNRF;sign;FSFSU;4| (|Union| 6 '"failed") (63 . |retractIfCan|)
               (68 . |sign|) (|Factored| $) (73 . |squareFree|) (|Factored| 7)
               (78 . |unit|) (83 . |retract|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 52)) (|List| 43)
-              (88 . |factors|) (|List| $) (93 . |monomials|) (|Boolean|)
-              (98 . ~=) (|List| 20) (104 . |variables|) (|NonNegativeInteger|)
-              (109 . |degree|) (115 . |leadingCoefficient|))
+              (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 43) (|:| |factor| 7) (|:| |exponent| 53))
+              (|List| 44) (88 . |factorList|) (|List| $) (93 . |monomials|)
+              (|Boolean|) (98 . ~=) (|List| 20) (104 . |variables|)
+              (|NonNegativeInteger|) (109 . |degree|)
+              (115 . |leadingCoefficient|))
            '#(|sign| 120) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 54
+                             (|makeByteWordVec2| 55
                                                  '(1 8 7 0 9 1 8 7 0 10 1 14 13
                                                    0 15 3 17 11 13 8 16 18 1 14
                                                    13 0 19 2 21 14 8 20 22 1 24
@@ -325,9 +327,9 @@
                                                    17 11 13 8 27 16 33 1 7 35 0
                                                    36 1 31 11 6 37 1 7 38 0 39
                                                    1 40 7 0 41 1 7 6 0 42 1 40
-                                                   44 0 45 1 7 46 0 47 2 27 48
-                                                   0 0 49 1 7 50 0 51 2 7 52 0
-                                                   20 53 1 7 6 0 54 1 0 11 8 12
+                                                   45 0 46 1 7 47 0 48 2 27 49
+                                                   0 0 50 1 7 51 0 52 2 7 53 0
+                                                   20 54 1 7 6 0 55 1 0 11 8 12
                                                    4 0 11 8 20 8 30 34 3 0 11 8
                                                    20 24 29)))))
            '|lookupComplete|)) 

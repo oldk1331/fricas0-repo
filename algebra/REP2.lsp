@@ -1215,24 +1215,25 @@
           (|fac| NIL)
           (|fl|
            (|List|
-            (|Record| (|:| |factor| |Smp|)
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| |Smp|)
                       (|:| |exponent| (|NonNegativeInteger|)))))
           (|mp| (|Smp|)))
          (SEQ
           (EXIT
            (SEQ (LETT |mp| (|REP2;my_min| |x| |n| $) . #3=(|REP2;meatAxe1|))
                 (LETT |fl|
-                      (SPADCALL (SPADCALL |mp| (QREFELT $ 96)) (QREFELT $ 99))
+                      (SPADCALL (SPADCALL |mp| (QREFELT $ 96)) (QREFELT $ 100))
                       . #3#)
                 (SEQ (LETT |fac| NIL . #3#) (LETT #2# |fl| . #3#) G190
                      (COND
                       ((OR (ATOM #2#) (PROGN (LETT |fac| (CAR #2#) . #3#) NIL))
                        (GO G191)))
-                     (SEQ (LETT |fpol| (QCAR |fac|) . #3#)
+                     (SEQ (LETT |fpol| (QVELT |fac| 1) . #3#)
                           (LETT |mm| (SPADCALL |fpol| (QREFELT $ 89)) . #3#)
                           (EXIT
                            (COND
-                            ((SPADCALL |mm| |m| (QREFELT $ 100)) "iterate")
+                            ((SPADCALL |mm| |m| (QREFELT $ 101)) "iterate")
                             ('T
                              (SEQ
                               (LETT |xx| (|REP2;m_eval| |fpol| |x| |n| $)
@@ -1290,7 +1291,7 @@
                   . #5=(|REP2;meatAxe;LB2IL;19|))
             (LETT |result| NIL . #5#)
             (LETT |q|
-                  (PROG1 (LETT #4# (SPADCALL (QREFELT $ 101)) . #5#)
+                  (PROG1 (LETT #4# (SPADCALL (QREFELT $ 102)) . #5#)
                     (|check_subtype2| (> #4# 0) '(|PositiveInteger|)
                                       '(|NonNegativeInteger|) #4#))
                   . #5#)
@@ -1337,9 +1338,9 @@
                               . #5#)))
                       (LETT |n| (QVSIZE (SPADCALL |x| 1 (QREFELT $ 46))) . #5#)
                       (COND
-                       ((OR (SPADCALL |q| 2 (QREFELT $ 103))
-                            (OR (SPADCALL |i| (QREFELT $ 104))
-                                (SPADCALL |i| 15 (QREFELT $ 105))))
+                       ((OR (SPADCALL |q| 2 (QREFELT $ 104))
+                            (OR (SPADCALL |i| (QREFELT $ 105))
+                                (SPADCALL |i| 15 (QREFELT $ 106))))
                         (EXIT
                          (SEQ
                           (LETT |pp|
@@ -1392,7 +1393,7 @@
                                  (LETT |result|
                                        (SPADCALL |algebraGenerators|
                                                  (SPADCALL |kernel| |j|
-                                                           (QREFELT $ 106))
+                                                           (QREFELT $ 107))
                                                  (QREFELT $ 70))
                                        . #5#)
                                  (EXIT
@@ -1401,7 +1402,7 @@
                                     (COND
                                      ((SPADCALL (+ |j| 1)
                                                 |numberOfOneDimSubspacesInKernel|
-                                                (QREFELT $ 100))
+                                                (QREFELT $ 101))
                                       (PROGN
                                        (LETT #1#
                                              (|REP2;irreducibilityTestInternal|
@@ -1424,20 +1425,20 @@
 (SDEFUN |REP2;meatAxe;LL;20|
         ((|algebraGenerators| |List| (|Matrix| R))
          ($ |List| (|List| (|Matrix| R))))
-        (SPADCALL |algebraGenerators| NIL 25 7 (QREFELT $ 107))) 
+        (SPADCALL |algebraGenerators| NIL 25 7 (QREFELT $ 108))) 
 
 (SDEFUN |REP2;meatAxe;LBL;21|
         ((|algebraGenerators| |List| (|Matrix| R))
          (|randomElements?| |Boolean|) ($ |List| (|List| (|Matrix| R))))
         (COND
          (|randomElements?|
-          (SPADCALL |algebraGenerators| 'T 25 7 (QREFELT $ 107)))
-         ('T (SPADCALL |algebraGenerators| NIL 6 7 (QREFELT $ 107))))) 
+          (SPADCALL |algebraGenerators| 'T 25 7 (QREFELT $ 108)))
+         ('T (SPADCALL |algebraGenerators| NIL 6 7 (QREFELT $ 108))))) 
 
 (SDEFUN |REP2;meatAxe;LPiL;22|
         ((|algebraGenerators| |List| (|Matrix| R))
          (|numberOfTries| |PositiveInteger|) ($ |List| (|List| (|Matrix| R))))
-        (SPADCALL |algebraGenerators| 'T |numberOfTries| 7 (QREFELT $ 107))) 
+        (SPADCALL |algebraGenerators| 'T |numberOfTries| 7 (QREFELT $ 108))) 
 
 (SDEFUN |REP2;scanOneDimSubspaces;LIV;23|
         ((|basis| |List| (|Vector| R)) (|n| |Integer|) ($ |Vector| R))
@@ -1452,7 +1453,7 @@
           (LETT |dim| (LENGTH |basis|)
                 . #8=(|REP2;scanOneDimSubspaces;LIV;23|))
           (LETT |nn| (QVSIZE (SPADCALL |basis| 1 (QREFELT $ 66))) . #8#)
-          (LETT |q| (SPADCALL (QREFELT $ 101)) . #8#)
+          (LETT |q| (SPADCALL (QREFELT $ 102)) . #8#)
           (LETT |nred| (REM |n| (QUOTIENT2 (- (EXPT |q| |dim|) 1) (- |q| 1)))
                 . #8#)
           (LETT |pos| |nred| . #8#) (LETT |i| 0 . #8#)
@@ -1465,7 +1466,7 @@
           (LETT |i| (COND ((EQL |i| 0) 0) ('T (- |i| 1))) . #8#)
           (LETT |coefficients| (MAKEARR1 |dim| (|spadConstant| $ 12)) . #8#)
           (SPADCALL |coefficients| (- |dim| |i|) (|spadConstant| $ 15)
-                    (QREFELT $ 111))
+                    (QREFELT $ 112))
           (LETT |iR|
                 (SPADCALL
                  (SPADCALL |pos|
@@ -1478,7 +1479,7 @@
                                         (|RadixExpansion| |q|)))
                 . #8#)
           (SEQ (LETT |j| 1 . #8#)
-               (LETT #5# (SPADCALL |iR| (QREFELT $ 113)) . #8#) G190
+               (LETT #5# (SPADCALL |iR| (QREFELT $ 114)) . #8#) G190
                (COND ((|greater_SI| |j| #5#) (GO G191)))
                (SEQ
                 (EXIT
@@ -1486,13 +1487,13 @@
                            (SPADCALL
                             (PROG1
                                 (LETT #4#
-                                      (+ (SPADCALL |iR| |j| (QREFELT $ 114))
+                                      (+ (SPADCALL |iR| |j| (QREFELT $ 115))
                                          |q|)
                                       . #8#)
                               (|check_subtype2| (> #4# 0) '(|PositiveInteger|)
                                                 '(|Integer|) #4#))
-                            (QREFELT $ 115))
-                           (QREFELT $ 111))))
+                            (QREFELT $ 116))
+                           (QREFELT $ 112))))
                (LETT |j| (|inc_SI| |j|) . #8#) (GO G190) G191 (EXIT NIL))
           (LETT |result| (MAKEARR1 |nn| (|spadConstant| $ 12)) . #8#)
           (SEQ (LETT |i| 1 . #8#) (LETT #2# (QVSIZE |coefficients|) . #8#) G190
@@ -1501,7 +1502,7 @@
                 (LETT |newAdd|
                       (SPADCALL (SPADCALL |coefficients| |i| (QREFELT $ 27))
                                 (SPADCALL |basis| |i| (QREFELT $ 66))
-                                (QREFELT $ 116))
+                                (QREFELT $ 117))
                       . #8#)
                 (EXIT
                  (SEQ (LETT |j| 1 . #8#) (LETT #1# |nn| . #8#) G190
@@ -1513,7 +1514,7 @@
                                    (SPADCALL |result| |j| (QREFELT $ 27))
                                    (SPADCALL |newAdd| |j| (QREFELT $ 27))
                                    (QREFELT $ 11))
-                                  (QREFELT $ 111))))
+                                  (QREFELT $ 112))))
                       (LETT |j| (|inc_SI| |j|) . #8#) (GO G190) G191
                       (EXIT NIL))))
                (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191 (EXIT NIL))
@@ -1545,7 +1546,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #2=(|RepresentationPackage2|))
           (LETT |dv$| (LIST '|RepresentationPackage2| DV$1) . #2#)
-          (LETT $ (GETREFV 117) . #2#)
+          (LETT $ (GETREFV 118) . #2#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -1605,16 +1606,16 @@
               ((|HasCategory| |#1| '(|FiniteFieldCategory|))
                (PROGN
                 (QSETREFV $ 73 (|SparseUnivariatePolynomial| |#1|))
-                (QSETREFV $ 107
+                (QSETREFV $ 108
                           (CONS (|dispatchFunction| |REP2;meatAxe;LB2IL;19|)
                                 $))
-                (QSETREFV $ 108
-                          (CONS (|dispatchFunction| |REP2;meatAxe;LL;20|) $))
                 (QSETREFV $ 109
-                          (CONS (|dispatchFunction| |REP2;meatAxe;LBL;21|) $))
+                          (CONS (|dispatchFunction| |REP2;meatAxe;LL;20|) $))
                 (QSETREFV $ 110
+                          (CONS (|dispatchFunction| |REP2;meatAxe;LBL;21|) $))
+                (QSETREFV $ 111
                           (CONS (|dispatchFunction| |REP2;meatAxe;LPiL;22|) $))
-                (QSETREFV $ 106
+                (QSETREFV $ 107
                           (CONS
                            (|dispatchFunction|
                             |REP2;scanOneDimSubspaces;LIV;23|)
@@ -1649,12 +1650,13 @@
               (363 . |degree|) (368 . ~=) (374 . |leadingCoefficient|)
               (379 . *) (385 . |reductum|) (|Factored| 73)
               (|DistinctDegreeFactorize| 6 73) (390 . |factor|)
-              (|Record| (|:| |factor| 73) (|:| |exponent| 22)) (|List| 97)
-              (395 . |factors|) (400 . >) (406 . |size|) (|PositiveInteger|)
-              (410 . >) (416 . |even?|) (421 . >) (427 . |scanOneDimSubspaces|)
-              (433 . |meatAxe|) (441 . |meatAxe|) (446 . |meatAxe|)
-              (452 . |meatAxe|) (458 . |setelt!|) (|List| 7) (465 . |maxIndex|)
-              (470 . |elt|) (476 . |index|) (481 . *))
+              (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 97) (|:| |factor| 73) (|:| |exponent| 22))
+              (|List| 98) (395 . |factorList|) (400 . >) (406 . |size|)
+              (|PositiveInteger|) (410 . >) (416 . |even?|) (421 . >)
+              (427 . |scanOneDimSubspaces|) (433 . |meatAxe|) (441 . |meatAxe|)
+              (446 . |meatAxe|) (452 . |meatAxe|) (458 . |setelt!|) (|List| 7)
+              (465 . |maxIndex|) (470 . |elt|) (476 . |index|) (481 . *))
            '#(|standardBasisOfCyclicSubmodule| 487 |split| 493
               |scanOneDimSubspaces| 505 |meatAxe| 511
               |isAbsolutelyIrreducible?| 536 |cyclicSubmodule| 547
@@ -1664,7 +1666,7 @@
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 116
+                             (|makeByteWordVec2| 117
                                                  '(3 8 6 0 7 7 9 2 6 0 0 0 10 2
                                                    6 0 0 0 11 0 6 0 12 1 8 0 13
                                                    14 0 6 0 15 2 8 0 0 0 16 2 8
@@ -1698,20 +1700,20 @@
                                                    87 1 8 0 19 88 1 73 22 0 89
                                                    2 73 25 0 0 90 1 73 6 0 91 2
                                                    8 0 6 0 92 1 73 0 0 93 1 95
-                                                   94 73 96 1 94 98 0 99 2 7 25
-                                                   0 0 100 0 6 22 101 2 102 25
-                                                   0 0 103 1 7 25 0 104 2 22 25
-                                                   0 0 105 2 0 19 43 7 106 4 0
-                                                   59 31 25 7 7 107 1 0 59 31
-                                                   108 2 0 59 31 25 109 2 0 59
-                                                   31 102 110 3 19 6 0 7 6 111
-                                                   1 112 7 0 113 2 112 7 0 7
-                                                   114 1 6 0 102 115 2 19 0 6 0
-                                                   116 2 3 8 31 19 50 2 1 59 31
+                                                   94 73 96 1 94 99 0 100 2 7
+                                                   25 0 0 101 0 6 22 102 2 103
+                                                   25 0 0 104 1 7 25 0 105 2 22
+                                                   25 0 0 106 2 0 19 43 7 107 4
+                                                   0 59 31 25 7 7 108 1 0 59 31
+                                                   109 2 0 59 31 25 110 2 0 59
+                                                   31 103 111 3 19 6 0 7 6 112
+                                                   1 113 7 0 114 2 113 7 0 7
+                                                   115 1 6 0 103 116 2 19 0 6 0
+                                                   117 2 3 8 31 19 50 2 1 59 31
                                                    19 70 2 1 59 31 20 72 2 2 19
-                                                   43 7 106 4 2 59 31 25 7 7
-                                                   107 2 2 59 31 25 109 1 2 59
-                                                   31 108 2 2 59 31 102 110 2 1
+                                                   43 7 107 4 2 59 31 25 7 7
+                                                   108 2 2 59 31 25 110 1 2 59
+                                                   31 109 2 2 59 31 103 111 2 1
                                                    25 31 7 68 1 1 25 31 69 2 3
                                                    20 31 19 48 2 0 8 31 8 33 1
                                                    0 8 20 30 2 1 8 31 31 64 4 1

@@ -33,7 +33,7 @@
                         (PROGN
                          (LETT #7# NIL . #10#)
                          (SEQ (LETT |u| NIL . #10#)
-                              (LETT #6# (SPADCALL |flist| (QREFELT $ 31))
+                              (LETT #6# (SPADCALL |flist| (QREFELT $ 32))
                                     . #10#)
                               G190
                               (COND
@@ -46,21 +46,22 @@
                                       (CONS
                                        (CONS
                                         (SPADCALL
-                                         (SPADCALL (QCAR |u|) (QREFELT $ 32))
-                                         |vars| (QREFELT $ 33))
-                                        (QCDR |u|))
+                                         (SPADCALL (QVELT |u| 1)
+                                                   (QREFELT $ 33))
+                                         |vars| (QREFELT $ 34))
+                                        (QVELT |u| 2))
                                        #7#)
                                       . #10#)))
                               (LETT #6# (CDR #6#) . #10#) (GO G190) G191
                               (EXIT (NREVERSE #7#))))
                         . #10#)
                   (LETT |fcont|
-                        (SPADCALL (SPADCALL |flist| (QREFELT $ 34))
-                                  (QREFELT $ 32))
+                        (SPADCALL (SPADCALL |flist| (QREFELT $ 35))
+                                  (QREFELT $ 33))
                         . #10#)
                   (EXIT
                    (SPADCALL
-                    (SPADCALL (SPADCALL |c| |fcont| (QREFELT $ 35)) 1
+                    (SPADCALL (SPADCALL |c| |fcont| (QREFELT $ 36)) 1
                               (QREFELT $ 16))
                     (PROGN
                      (LETT #1# NIL . #10#)
@@ -74,11 +75,11 @@
                             (PROGN
                              (LETT #4#
                                    (SPADCALL (QCAR |ff|) (QCDR |ff|)
-                                             (QREFELT $ 36))
+                                             (QREFELT $ 37))
                                    . #10#)
                              (COND
                               (#1#
-                               (LETT #2# (SPADCALL #2# #4# (QREFELT $ 37))
+                               (LETT #2# (SPADCALL #2# #4# (QREFELT $ 38))
                                      . #10#))
                               ('T
                                (PROGN
@@ -86,8 +87,8 @@
                                 (LETT #1# 'T . #10#)))))))
                           (LETT #5# (CDR #5#) . #10#) (GO G190) G191
                           (EXIT NIL))
-                     (COND (#1# #2#) (#9# (|spadConstant| $ 38))))
-                    (QREFELT $ 37))))))))) 
+                     (COND (#1# #2#) (#9# (|spadConstant| $ 39))))
+                    (QREFELT $ 38))))))))) 
 
 (DECLAIM (NOTINLINE |MPolyCatPolyFactorizer;|)) 
 
@@ -121,7 +122,7 @@
     (LETT DV$3 (|devaluate| |#3|) . #1#)
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|MPolyCatPolyFactorizer| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 40) . #1#)
+    (LETT $ (GETREFV 41) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|MPolyCatPolyFactorizer|
@@ -147,23 +148,24 @@
                                                   (|IndexedExponents|
                                                    (|Symbol|))
                                                   8 8 17)
-              (46 . |factor|) (|Record| (|:| |factor| 17) (|:| |exponent| 14))
-              (|List| 29) (51 . |factors|) (56 . |coerce|) (61 . |pushup|)
+              (46 . |factor|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 29) (|:| |factor| 17) (|:| |exponent| 14))
+              (|List| 30) (51 . |factorList|) (56 . |coerce|) (61 . |pushup|)
               (67 . |unit|) (72 . *) (78 . |primeFactor|) (84 . *) (90 . |One|)
               |MPCPF;factor;PPRF;1|)
            '#(|factor| 94) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 39
+                             (|makeByteWordVec2| 40
                                                  '(1 9 10 0 11 0 8 0 12 0 9 0
                                                    13 2 15 0 9 14 16 1 9 17 0
                                                    18 2 9 19 0 17 20 1 9 21 0
                                                    22 2 23 9 9 21 24 1 9 17 0
-                                                   25 1 27 26 17 28 1 26 30 0
-                                                   31 1 9 0 17 32 2 23 9 9 21
-                                                   33 1 26 17 0 34 2 9 0 17 0
-                                                   35 2 15 0 9 14 36 2 15 0 0 0
-                                                   37 0 15 0 38 1 0 15 9
-                                                   39)))))
+                                                   25 1 27 26 17 28 1 26 31 0
+                                                   32 1 9 0 17 33 2 23 9 9 21
+                                                   34 1 26 17 0 35 2 9 0 17 0
+                                                   36 2 15 0 9 14 37 2 15 0 0 0
+                                                   38 0 15 0 39 1 0 15 9
+                                                   40)))))
            '|lookupComplete|)) 

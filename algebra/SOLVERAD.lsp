@@ -721,31 +721,32 @@
             (|:| |deg| (|PositiveInteger|))))
           (|constants| (|List| (|Polynomial| R))) (|ff| #3=(|Polynomial| R))
           (#4=#:G238 NIL) (|f| NIL)
-          (|factors|
+          (|lfactors|
            (|List|
-            (|Record| (|:| |factor| #3#)
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| #3#)
                       (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ (SETELT $ 7 NIL) (SETELT $ 8 |contractFlag|)
-              (LETT |factors|
-                    (SPADCALL (SPADCALL |pq| (QREFELT $ 104)) (QREFELT $ 107))
+              (LETT |lfactors|
+                    (SPADCALL (SPADCALL |pq| (QREFELT $ 104)) (QREFELT $ 108))
                     . #5=(|SOLVERAD;solveInner|))
               (LETT |constants| NIL . #5#) (LETT |unsolved| NIL . #5#)
               (LETT |solutions| NIL . #5#)
-              (SEQ (LETT |f| NIL . #5#) (LETT #4# |factors| . #5#) G190
+              (SEQ (LETT |f| NIL . #5#) (LETT #4# |lfactors| . #5#) G190
                    (COND
                     ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#) . #5#) NIL))
                      (GO G191)))
-                   (SEQ (LETT |ff| (QCAR |f|) . #5#)
+                   (SEQ (LETT |ff| (QVELT |f| 1) . #5#)
                         (COND
                          ((NULL
                            (SPADCALL |v| (SPADCALL |ff| (QREFELT $ 66))
-                                     (QREFELT $ 108)))
+                                     (QREFELT $ 109)))
                           (EXIT
                            (LETT |constants| (CONS |ff| |constants|) . #5#))))
                         (LETT |u| (SPADCALL |ff| |v| (QREFELT $ 47)) . #5#)
-                        (LETT |t| (SPADCALL |u| (QREFELT $ 111)) . #5#)
+                        (LETT |t| (SPADCALL |u| (QREFELT $ 112)) . #5#)
                         (LETT |u| (QCAR |t|) . #5#)
-                        (LETT |n| (SPADCALL |u| (QREFELT $ 112)) . #5#)
+                        (LETT |n| (SPADCALL |u| (QREFELT $ 113)) . #5#)
                         (LETT |l|
                               (COND ((EQL |n| 1) (|SOLVERAD;linear| |u| $))
                                     ((EQL |n| 2) (|SOLVERAD;quadratic| |u| $))
@@ -765,19 +766,19 @@
                                 (GO G191)))
                               (SEQ
                                (COND
-                                ((SPADCALL (QCDR |t|) 1 (QREFELT $ 114))
+                                ((SPADCALL (QCDR |t|) 1 (QREFELT $ 115))
                                  (LETT |s| (|SOLVERAD;wrap| |s| $) . #5#)))
                                (LETT T0
-                                     (SPADCALL |s| (QCDR |t|) (QREFELT $ 115))
+                                     (SPADCALL |s| (QCDR |t|) (QREFELT $ 116))
                                      . #5#)
                                (SEQ (LETT |i| 1 . #5#)
-                                    (LETT #1# (QCDR |f|) . #5#) G190
+                                    (LETT #1# (QVELT |f| 2) . #5#) G190
                                     (COND ((|greater_SI| |i| #1#) (GO G191)))
                                     (SEQ
                                      (EXIT
                                       (LETT |solutions|
                                             (SPADCALL T0 |solutions|
-                                                      (QREFELT $ 116))
+                                                      (QREFELT $ 117))
                                             . #5#)))
                                     (LETT |i| (|inc_SI| |i|) . #5#) (GO G190)
                                     G191 (EXIT NIL))
@@ -785,7 +786,7 @@
                               (LETT #2# (CDR #2#) . #5#) (GO G190) G191
                               (EXIT NIL))))
                    (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |solutions| (QREFELT $ 7) (QREFELT $ 117)))))) 
+              (EXIT (SPADCALL |solutions| (QREFELT $ 7) (QREFELT $ 118)))))) 
 
 (DECLAIM (NOTINLINE |RadicalSolvePackage;|)) 
 
@@ -813,7 +814,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|RadicalSolvePackage|))
           (LETT |dv$| (LIST '|RadicalSolvePackage| DV$1) . #1#)
-          (LETT $ (GETREFV 118) . #1#)
+          (LETT $ (GETREFV 119) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|RadicalSolvePackage| (LIST DV$1)
@@ -860,9 +861,10 @@
               |SOLVERAD;contractSolve;FSSt;20| (252 . |lhs|) (257 . |degree|)
               (263 . =) (269 . |list|) (|Factored| 18)
               (|MultivariateFactorize| 16 (|IndexedExponents| 16) 6 18)
-              (274 . |factor|) (|Record| (|:| |factor| 18) (|:| |exponent| 26))
-              (|List| 105) (279 . |factors|) (284 . |member?|)
-              (|Record| (|:| |pol| 27) (|:| |deg| 113))
+              (274 . |factor|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 105) (|:| |factor| 18) (|:| |exponent| 26))
+              (|List| 106) (279 . |factorList|) (284 . |member?|)
+              (|Record| (|:| |pol| 27) (|:| |deg| 114))
               (|DegreeReductionPackage| 18 6) (290 . |reduce|) (295 . |degree|)
               (|PositiveInteger|) (300 . >) (306 . |expand|) (312 . |append|)
               (318 . |construct|))
@@ -870,7 +872,7 @@
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 117
+                             (|makeByteWordVec2| 118
                                                  '(0 6 0 9 0 10 0 11 0 12 0 13
                                                    2 12 14 0 0 15 0 16 0 17 1
                                                    18 0 16 19 1 20 0 18 21 1 12
@@ -896,12 +898,12 @@
                                                    86 2 65 0 0 0 90 1 95 38 0
                                                    98 2 18 26 0 16 99 2 54 14 0
                                                    0 100 1 54 0 38 101 1 103
-                                                   102 18 104 1 102 106 0 107 2
-                                                   65 14 16 0 108 1 110 109 27
-                                                   111 1 27 26 0 112 2 113 14 0
-                                                   0 114 2 110 38 12 113 115 2
-                                                   38 0 0 0 116 2 95 0 38 24
-                                                   117 2 0 24 20 16 62 2 0 24
+                                                   102 18 104 1 102 107 0 108 2
+                                                   65 14 16 0 109 1 111 110 27
+                                                   112 1 27 26 0 113 2 114 14 0
+                                                   0 115 2 111 38 12 114 116 2
+                                                   38 0 0 0 117 2 95 0 38 24
+                                                   118 2 0 24 20 16 62 2 0 24
                                                    72 16 77 1 0 24 20 71 1 0 24
                                                    72 76 1 0 88 79 91 2 0 88 79
                                                    65 89 2 0 88 92 65 93 1 0 88

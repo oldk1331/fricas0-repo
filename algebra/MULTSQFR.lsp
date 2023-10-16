@@ -1151,7 +1151,7 @@
             (PROGN
              (LETT #2# NIL . #4#)
              (SEQ (LETT |term| NIL . #4#)
-                  (LETT #1# (SPADCALL |result| (QREFELT $ 134)) . #4#) G190
+                  (LETT #1# (SPADCALL |result| (QREFELT $ 108)) . #4#) G190
                   (COND
                    ((OR (ATOM #1#) (PROGN (LETT |term| (CAR #1#) . #4#) NIL))
                     (GO G191)))
@@ -1160,8 +1160,9 @@
                     (LETT #2#
                           (CONS
                            (VECTOR (CONS 1 "sqfr")
-                                   (SPADCALL (QCAR |term|) |x| (QREFELT $ 151))
-                                   (QCDR |term|))
+                                   (SPADCALL (QVELT |term| 1) |x|
+                                             (QREFELT $ 151))
+                                   (QVELT |term| 2))
                            #2#)
                           . #4#)))
                   (LETT #1# (CDR #1#) . #4#) (GO G190) G191

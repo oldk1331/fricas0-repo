@@ -805,7 +805,7 @@
                              (SPADCALL
                               (SPADCALL (QVELT |lg| 1) (QREFELT $ 118))
                               (QREFELT $ 121))
-                             (QREFELT $ 124))
+                             (QREFELT $ 125))
                             . #3#)
                       G190
                       (COND
@@ -816,9 +816,9 @@
                         (LETT #2#
                               (CONS
                                (VECTOR
-                                (SPADCALL (QCDR |f|) (QVELT |lg| 0)
-                                          (QREFELT $ 125))
-                                (QCAR |f|) (QVELT |lg| 2))
+                                (SPADCALL (QVELT |f| 2) (QVELT |lg| 0)
+                                          (QREFELT $ 126))
+                                (QVELT |f| 1) (QVELT |lg| 2))
                                #2#)
                               . #3#)))
                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
@@ -854,7 +854,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegrationResultToFunction|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|IntegrationResultToFunction| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 126) . #1#)
+          (LETT $ (GETREFV 127) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|IntegrationResultToFunction|
@@ -908,13 +908,14 @@
               (|PolynomialRoots| (|IndexedExponents| 25) 25 6 73 7)
               (376 . |froot|) (382 . |primitivePart|) (|Factored| 8)
               (|ExpressionFactorPolynomial| 6 7) (387 . |factorPolynomial|)
-              (|Record| (|:| |factor| 8) (|:| |exponent| 47)) (|List| 122)
-              (392 . |factors|) (397 . *))
+              (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 122) (|:| |factor| 8) (|:| |exponent| 47))
+              (|List| 123) (392 . |factorList|) (397 . *))
            '#(|split| 403 |expand| 408 |complexExpand| 414) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 125
+                             (|makeByteWordVec2| 126
                                                  '(2 8 7 0 7 9 1 7 0 0 10 2 7 0
                                                    0 0 11 1 12 7 0 13 1 12 15 0
                                                    16 3 12 0 7 18 15 19 1 12 7
@@ -949,7 +950,7 @@
                                                    30 0 112 2 27 0 0 0 113 1 27
                                                    0 0 114 2 116 115 7 47 117 1
                                                    8 0 0 118 1 120 119 8 121 1
-                                                   119 123 0 124 2 40 0 47 0
-                                                   125 1 0 12 12 35 2 0 27 12
+                                                   119 124 0 125 2 40 0 47 0
+                                                   126 1 0 12 12 35 2 0 27 12
                                                    24 37 1 0 7 12 44)))))
            '|lookupComplete|)) 

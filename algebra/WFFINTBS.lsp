@@ -6,15 +6,15 @@
          (SEQ (LETT |ans| NIL . #2=(|WFFINTBS;listSquaredFactors|))
               (LETT |factored| (SPADCALL |px| (QREFELT $ 12)) . #2#)
               (SEQ (LETT |f| NIL . #2#)
-                   (LETT #1# (SPADCALL |factored| (QREFELT $ 15)) . #2#) G190
+                   (LETT #1# (SPADCALL |factored| (QREFELT $ 16)) . #2#) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#) . #2#) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (COND
-                      ((SPADCALL (QCDR |f|) 1 (QREFELT $ 19))
-                       (LETT |ans| (CONS (QCAR |f|) |ans|) . #2#)))))
+                      ((SPADCALL (QVELT |f| 2) 1 (QREFELT $ 20))
+                       (LETT |ans| (CONS (QVELT |f| 1) |ans|) . #2#)))))
                    (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 
@@ -48,35 +48,35 @@
          (SEQ
           (EXIT
            (SEQ
-            (LETT |n| (SPADCALL (QREFELT $ 21))
+            (LETT |n| (SPADCALL (QREFELT $ 22))
                   . #14=(|WFFINTBS;iLocalIntegralBasis|))
-            (LETT |standardBasis| (SPADCALL (QREFELT $ 23)) . #14#)
-            (LETT |p2| (SPADCALL |prime| |prime| (QREFELT $ 24)) . #14#)
+            (LETT |standardBasis| (SPADCALL (QREFELT $ 24)) . #14#)
+            (LETT |p2| (SPADCALL |prime| |prime| (QREFELT $ 25)) . #14#)
             (LETT |sae|
                   (|SimpleAlgebraicExtension| (QREFELT $ 6) (QREFELT $ 7)
                                               |prime|)
                   . #14#)
-            (LETT |p| (SPADCALL (QREFELT $ 25)) . #14#)
+            (LETT |p| (SPADCALL (QREFELT $ 26)) . #14#)
             (LETT |q|
                   (SPADCALL
                    (|compiledLookupCheck| '|size|
                                           (LIST (LIST '|NonNegativeInteger|))
                                           |sae|))
                   . #14#)
-            (LETT |lp| (SPADCALL |q| |n| (QREFELT $ 27)) . #14#)
-            (LETT |rb| (SPADCALL |n| (|spadConstant| $ 28) (QREFELT $ 30))
+            (LETT |lp| (SPADCALL |q| |n| (QREFELT $ 28)) . #14#)
+            (LETT |rb| (SPADCALL |n| (|spadConstant| $ 29) (QREFELT $ 31))
                   . #14#)
-            (LETT |rbinv| (SPADCALL |n| (|spadConstant| $ 28) (QREFELT $ 30))
+            (LETT |rbinv| (SPADCALL |n| (|spadConstant| $ 29) (QREFELT $ 31))
                   . #14#)
-            (LETT |rbden| (|spadConstant| $ 28) . #14#)
-            (LETT |index| (|spadConstant| $ 28) . #14#)
-            (LETT |oldIndex| (|spadConstant| $ 28) . #14#)
+            (LETT |rbden| (|spadConstant| $ 29) . #14#)
+            (LETT |index| (|spadConstant| $ 29) . #14#)
+            (LETT |oldIndex| (|spadConstant| $ 29) . #14#)
             (EXIT
              (SEQ G190 NIL
                   (SEQ
                    (SEQ (LETT |i| 1 . #14#) (LETT #13# |n| . #14#) G190
                         (COND ((|greater_SI| |i| #13#) (GO G191)))
-                        (SEQ (LETT |bi| (|spadConstant| $ 31) . #14#)
+                        (SEQ (LETT |bi| (|spadConstant| $ 32) . #14#)
                              (SEQ (LETT |j| 1 . #14#) (LETT #12# |n| . #14#)
                                   G190
                                   (COND ((|greater_SI| |j| #12#) (GO G191)))
@@ -88,21 +88,21 @@
                                                      (QAREF2O |rb| |i| |j| 1 1)
                                                      (QAREF1O |standardBasis|
                                                               |j| 1)
-                                                     (QREFELT $ 32))
-                                                    (QREFELT $ 33))
+                                                     (QREFELT $ 33))
+                                                    (QREFELT $ 34))
                                           . #14#)))
                                   (LETT |j| (|inc_SI| |j|) . #14#) (GO G190)
                                   G191 (EXIT NIL))
                              (QSETAREF1O |bas| |i| |bi| 1)
                              (EXIT
                               (QSETAREF1O |pows| |i|
-                                          (SPADCALL |bi| |p| (QREFELT $ 34))
+                                          (SPADCALL |bi| |p| (QREFELT $ 35))
                                           1)))
                         (LETT |i| (|inc_SI| |i|) . #14#) (GO G190) G191
                         (EXIT NIL))
                    (LETT |coor0|
-                         (SPADCALL (SPADCALL |pows| |bas| (QREFELT $ 35))
-                                   (QREFELT $ 36))
+                         (SPADCALL (SPADCALL |pows| |bas| (QREFELT $ 36))
+                                   (QREFELT $ 37))
                          . #14#)
                    (LETT |denPow|
                          (SPADCALL |rbden|
@@ -110,9 +110,9 @@
                                      (|check_subtype2| (>= #11# 0)
                                                        '(|NonNegativeInteger|)
                                                        '(|Integer|) #11#))
-                                   (QREFELT $ 37))
+                                   (QREFELT $ 38))
                          . #14#)
-                   (LETT |coMat0| (SPADCALL |coor0| |denPow| (QREFELT $ 39))
+                   (LETT |coMat0| (SPADCALL |coor0| |denPow| (QREFELT $ 40))
                          . #14#)
                    (EXIT
                     (COND ((QEQCAR |coMat0| 1) (|error| "can't happen"))
@@ -176,7 +176,7 @@
                                         . #14#)
                                   (SEQ (LETT |r| 2 . #14#)
                                        (LETT #10#
-                                             (SPADCALL |p| |q| (QREFELT $ 27))
+                                             (SPADCALL |p| |q| (QREFELT $ 28))
                                              . #14#)
                                        G190
                                        (COND
@@ -271,7 +271,7 @@
                                                (EXIT
                                                 (QSETAREF2O |tfm| |i| |j|
                                                             (|spadConstant| $
-                                                                            41)
+                                                                            42)
                                                             1 1)))
                                               (LETT |j| (|inc_SI| |j|) . #14#)
                                               (GO G190) G191 (EXIT NIL))))
@@ -318,65 +318,65 @@
                                   (LETT |id|
                                         (SPADCALL
                                          (SPADCALL |tfm| |prime|
-                                                   (QREFELT $ 43))
-                                         (QREFELT $ 44))
+                                                   (QREFELT $ 44))
+                                         (QREFELT $ 45))
                                         . #14#)
                                   (LETT |idinv|
-                                        (SPADCALL |id| |prime| (QREFELT $ 46))
+                                        (SPADCALL |id| |prime| (QREFELT $ 47))
                                         . #14#)
                                   (LETT |rbinv|
                                         (SPADCALL
-                                         (SPADCALL |id| |rb| (QREFELT $ 47))
+                                         (SPADCALL |id| |rb| (QREFELT $ 48))
                                          (SPADCALL |rbinv| |idinv|
-                                                   (QREFELT $ 47))
+                                                   (QREFELT $ 48))
                                          (SPADCALL |prime| |rbden|
-                                                   (QREFELT $ 24))
-                                         (QREFELT $ 48))
+                                                   (QREFELT $ 25))
+                                         (QREFELT $ 49))
                                         . #14#)
                                   (LETT |index|
-                                        (SPADCALL |rbinv| (QREFELT $ 49))
+                                        (SPADCALL |rbinv| (QREFELT $ 50))
                                         . #14#)
                                   (LETT |rb|
                                         (SPADCALL
                                          (SPADCALL |rbinv|
                                                    (SPADCALL |rbden| |prime|
-                                                             (QREFELT $ 24))
-                                                   (QREFELT $ 50))
-                                         (QREFELT $ 51))
+                                                             (QREFELT $ 25))
+                                                   (QREFELT $ 51))
+                                         (QREFELT $ 52))
                                         . #14#)
                                   (COND
                                    ((SPADCALL
                                      (SPADCALL |rb| |matrixOut| |prime| |n|
-                                               (QREFELT $ 53))
-                                     (|spadConstant| $ 28) (QREFELT $ 54))
+                                               (QREFELT $ 54))
+                                     (|spadConstant| $ 29) (QREFELT $ 55))
                                     (LETT |rb| |matrixOut| . #14#))
                                    ('T
                                     (LETT |rbden|
                                           (SPADCALL |rbden| |prime|
-                                                    (QREFELT $ 24))
+                                                    (QREFELT $ 25))
                                           . #14#)))
                                   (LETT |rbinv|
-                                        (SPADCALL |rb| |rbden| (QREFELT $ 46))
+                                        (SPADCALL |rb| |rbden| (QREFELT $ 47))
                                         . #14#)
                                   (LETT |indexChange|
                                         (SPADCALL |index| |oldIndex|
-                                                  (QREFELT $ 55))
+                                                  (QREFELT $ 56))
                                         . #14#)
                                   (LETT |oldIndex| |index| . #14#)
                                   (LETT |disc|
                                         (SPADCALL |disc|
                                                   (SPADCALL |indexChange|
                                                             |indexChange|
-                                                            (QREFELT $ 24))
-                                                  (QREFELT $ 55))
+                                                            (QREFELT $ 25))
+                                                  (QREFELT $ 56))
                                         . #14#)
                                   (EXIT
                                    (COND
-                                    ((SPADCALL (|spadConstant| $ 28)
-                                               |indexChange| (QREFELT $ 56))
+                                    ((SPADCALL (|spadConstant| $ 29)
+                                               |indexChange| (QREFELT $ 57))
                                      (COND
                                       ((QEQCAR
-                                        (SPADCALL |disc| |p2| (QREFELT $ 57))
+                                        (SPADCALL |disc| |p2| (QREFELT $ 58))
                                         1)
                                        (PROGN
                                         (LETT #1#
@@ -418,33 +418,33 @@
           (|singList| (|List| R)) (|n| (|PositiveInteger|))
           (|traceMat| (|Matrix| R)))
          (SEQ
-          (LETT |traceMat| (SPADCALL (QREFELT $ 58))
+          (LETT |traceMat| (SPADCALL (QREFELT $ 59))
                 . #7=(|WFFINTBS;integralBasis;R;3|))
-          (LETT |n| (SPADCALL (QREFELT $ 21)) . #7#)
-          (LETT |disc| (SPADCALL |traceMat| (QREFELT $ 59)) . #7#)
+          (LETT |n| (SPADCALL (QREFELT $ 22)) . #7#)
+          (LETT |disc| (SPADCALL |traceMat| (QREFELT $ 60)) . #7#)
           (EXIT
            (COND
-            ((SPADCALL |disc| (QREFELT $ 60))
+            ((SPADCALL |disc| (QREFELT $ 61))
              (|error| "integralBasis: polynomial must be separable"))
             (#8='T
              (SEQ
               (LETT |singList| (|WFFINTBS;listSquaredFactors| |disc| $) . #7#)
               (LETT |runningRb|
-                    (SPADCALL |n| (|spadConstant| $ 28) (QREFELT $ 30)) . #7#)
+                    (SPADCALL |n| (|spadConstant| $ 29) (QREFELT $ 31)) . #7#)
               (LETT |runningRbinv|
-                    (SPADCALL |n| (|spadConstant| $ 28) (QREFELT $ 30)) . #7#)
-              (LETT |runningRbden| (|spadConstant| $ 28) . #7#)
+                    (SPADCALL |n| (|spadConstant| $ 29) (QREFELT $ 31)) . #7#)
+              (LETT |runningRbden| (|spadConstant| $ 29) . #7#)
               (EXIT
                (COND
                 ((NULL |singList|)
                  (VECTOR |runningRb| |runningRbden| |runningRbinv|))
                 (#8#
-                 (SEQ (LETT |bas| (MAKEARR1 |n| (|spadConstant| $ 31)) . #7#)
-                      (LETT |pows| (MAKEARR1 |n| (|spadConstant| $ 31)) . #7#)
-                      (LETT |tfm| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 41))
+                 (SEQ (LETT |bas| (MAKEARR1 |n| (|spadConstant| $ 32)) . #7#)
+                      (LETT |pows| (MAKEARR1 |n| (|spadConstant| $ 32)) . #7#)
+                      (LETT |tfm| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 42))
                             . #7#)
                       (LETT |matrixOut|
-                            (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 41)) . #7#)
+                            (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 42)) . #7#)
                       (SEQ (LETT |prime| NIL . #7#) (LETT #4# |singList| . #7#)
                            G190
                            (COND
@@ -462,31 +462,31 @@
                             (LETT |disc| (QVELT |lb| 3) . #7#)
                             (EXIT
                              (COND
-                              ((SPADCALL (|spadConstant| $ 28) |rbden|
-                                         (QREFELT $ 56))
+                              ((SPADCALL (|spadConstant| $ 29) |rbden|
+                                         (QREFELT $ 57))
                                (SEQ
                                 (LETT |mat|
                                       (SPADCALL
                                        (SPADCALL |rbden| |runningRb|
-                                                 (QREFELT $ 61))
+                                                 (QREFELT $ 62))
                                        (SPADCALL |runningRbden| |rb|
-                                                 (QREFELT $ 61))
-                                       (QREFELT $ 62))
+                                                 (QREFELT $ 62))
+                                       (QREFELT $ 63))
                                       . #7#)
                                 (LETT |runningRbden|
                                       (SPADCALL |runningRbden| |rbden|
-                                                (QREFELT $ 24))
+                                                (QREFELT $ 25))
                                       . #7#)
                                 (LETT |runningRb|
                                       (SPADCALL
                                        (SPADCALL |mat| |runningRbden|
-                                                 (QREFELT $ 43))
-                                       (QREFELT $ 44))
+                                                 (QREFELT $ 44))
+                                       (QREFELT $ 45))
                                       . #7#)
                                 (EXIT
                                  (LETT |runningRbinv|
                                        (SPADCALL |runningRb| |runningRbden|
-                                                 (QREFELT $ 46))
+                                                 (QREFELT $ 47))
                                        . #7#)))))))
                            (LETT #4# (CDR #4#) . #7#) (GO G190) G191
                            (EXIT NIL))
@@ -506,28 +506,28 @@
           (|bas| #2#) (|disc| (R)) (|n| (|PositiveInteger|))
           (|traceMat| (|Matrix| R)))
          (SEQ
-          (LETT |traceMat| (SPADCALL (QREFELT $ 58))
+          (LETT |traceMat| (SPADCALL (QREFELT $ 59))
                 . #3=(|WFFINTBS;localIntegralBasis;RR;4|))
-          (LETT |n| (SPADCALL (QREFELT $ 21)) . #3#)
-          (LETT |disc| (SPADCALL |traceMat| (QREFELT $ 59)) . #3#)
+          (LETT |n| (SPADCALL (QREFELT $ 22)) . #3#)
+          (LETT |disc| (SPADCALL |traceMat| (QREFELT $ 60)) . #3#)
           (EXIT
            (COND
-            ((SPADCALL |disc| (QREFELT $ 60))
+            ((SPADCALL |disc| (QREFELT $ 61))
              (|error| "localIntegralBasis: polynomial must be separable"))
             ((QEQCAR
-              (SPADCALL |disc| (SPADCALL |prime| |prime| (QREFELT $ 24))
-                        (QREFELT $ 57))
+              (SPADCALL |disc| (SPADCALL |prime| |prime| (QREFELT $ 25))
+                        (QREFELT $ 58))
               1)
-             (VECTOR (SPADCALL |n| (|spadConstant| $ 28) (QREFELT $ 30))
-                     (|spadConstant| $ 28)
-                     (SPADCALL |n| (|spadConstant| $ 28) (QREFELT $ 30))))
+             (VECTOR (SPADCALL |n| (|spadConstant| $ 29) (QREFELT $ 31))
+                     (|spadConstant| $ 29)
+                     (SPADCALL |n| (|spadConstant| $ 29) (QREFELT $ 31))))
             ('T
-             (SEQ (LETT |bas| (MAKEARR1 |n| (|spadConstant| $ 31)) . #3#)
-                  (LETT |pows| (MAKEARR1 |n| (|spadConstant| $ 31)) . #3#)
-                  (LETT |tfm| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 41))
+             (SEQ (LETT |bas| (MAKEARR1 |n| (|spadConstant| $ 32)) . #3#)
+                  (LETT |pows| (MAKEARR1 |n| (|spadConstant| $ 32)) . #3#)
+                  (LETT |tfm| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 42))
                         . #3#)
                   (LETT |matrixOut|
-                        (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 41)) . #3#)
+                        (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 42)) . #3#)
                   (LETT |lb|
                         (|WFFINTBS;iLocalIntegralBasis| |bas| |pows| |tfm|
                          |matrixOut| |disc| |prime| $)
@@ -571,7 +571,7 @@
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|WildFunctionFieldIntegralBasis| DV$1 DV$2 DV$3 DV$4)
           . #1#)
-    (LETT $ (GETREFV 66) . #1#)
+    (LETT $ (GETREFV 67) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|WildFunctionFieldIntegralBasis|
@@ -589,49 +589,50 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|Factored| 7)
               (|DistinctDegreeFactorize| 6 7) (0 . |factor|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 18)) (|List| 13)
-              (5 . |factors|) (10 . |One|) (|Boolean|) (|NonNegativeInteger|)
-              (14 . >) (|PositiveInteger|) (20 . |rank|) (|Vector| $)
-              (24 . |basis|) (28 . *) (34 . |characteristic|)
+              (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 13) (|:| |factor| 7) (|:| |exponent| 19))
+              (|List| 14) (5 . |factorList|) (10 . |One|) (|Boolean|)
+              (|NonNegativeInteger|) (14 . >) (|PositiveInteger|) (20 . |rank|)
+              (|Vector| $) (24 . |basis|) (28 . *) (34 . |characteristic|)
               (|IntegralBasisTools| 7 8 9) (38 . |leastPower|) (44 . |One|)
               (|Matrix| 7) (48 . |scalarMatrix|) (54 . |Zero|) (58 . *)
               (64 . +) (70 . ^) (76 . |coordinates|) (82 . |transpose|)
               (87 . ^) (|Union| $ '"failed") (93 . |exquo|) (99 . |Zero|)
               (103 . |Zero|) (|ModularHermitianRowReduction| 7)
               (107 . |rowEchelon|) (113 . |squareTop|)
-              (|TriangularMatrixOperations| 7 (|Vector| 7) (|Vector| 7) 29)
+              (|TriangularMatrixOperations| 7 (|Vector| 7) (|Vector| 7) 30)
               (118 . |UpTriBddDenomInv|) (124 . *) (130 . |idealiser|)
               (137 . |diagonalProduct|) (142 . |LowTriBddDenomInv|)
               (148 . |rowEchelon|) (|Integer|) (153 . |divideIfCan!|) (161 . =)
               (167 . |quo|) (173 . |sizeLess?|) (179 . |exquo|)
               (185 . |traceMatrix|) (189 . |determinant|) (194 . |zero?|)
               (199 . *) (205 . |vertConcat|)
-              (|Record| (|:| |basis| 29) (|:| |basisDen| 7)
-                        (|:| |basisInv| 29))
+              (|Record| (|:| |basis| 30) (|:| |basisDen| 7)
+                        (|:| |basisInv| 30))
               |WFFINTBS;integralBasis;R;3| |WFFINTBS;localIntegralBasis;RR;4|)
            '#(|localIntegralBasis| 211 |integralBasis| 216) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 65
-                                                 '(1 11 10 7 12 1 10 14 0 15 0
-                                                   6 0 16 2 18 17 0 0 19 0 9 20
-                                                   21 0 9 22 23 2 7 0 0 0 24 0
-                                                   9 18 25 2 26 18 18 18 27 0 7
-                                                   0 28 2 29 0 18 7 30 0 9 0 31
-                                                   2 9 0 7 0 32 2 9 0 0 0 33 2
-                                                   9 0 0 18 34 2 9 29 22 22 35
-                                                   1 29 0 0 36 2 7 0 0 18 37 2
-                                                   29 38 0 7 39 0 6 0 40 0 7 0
-                                                   41 2 42 29 29 7 43 1 29 0 0
-                                                   44 2 45 29 29 7 46 2 29 0 0
-                                                   0 47 3 26 29 29 29 7 48 1 26
-                                                   7 29 49 2 45 29 29 7 50 1 29
-                                                   0 0 51 4 26 7 29 29 7 52 53
-                                                   2 7 17 0 0 54 2 7 0 0 0 55 2
-                                                   7 17 0 0 56 2 7 38 0 0 57 0
-                                                   9 29 58 1 29 7 0 59 1 7 17 0
-                                                   60 2 29 0 7 0 61 2 29 0 0 0
-                                                   62 1 0 63 7 65 0 0 63
-                                                   64)))))
+                             (|makeByteWordVec2| 66
+                                                 '(1 11 10 7 12 1 10 15 0 16 0
+                                                   6 0 17 2 19 18 0 0 20 0 9 21
+                                                   22 0 9 23 24 2 7 0 0 0 25 0
+                                                   9 19 26 2 27 19 19 19 28 0 7
+                                                   0 29 2 30 0 19 7 31 0 9 0 32
+                                                   2 9 0 7 0 33 2 9 0 0 0 34 2
+                                                   9 0 0 19 35 2 9 30 23 23 36
+                                                   1 30 0 0 37 2 7 0 0 19 38 2
+                                                   30 39 0 7 40 0 6 0 41 0 7 0
+                                                   42 2 43 30 30 7 44 1 30 0 0
+                                                   45 2 46 30 30 7 47 2 30 0 0
+                                                   0 48 3 27 30 30 30 7 49 1 27
+                                                   7 30 50 2 46 30 30 7 51 1 30
+                                                   0 0 52 4 27 7 30 30 7 53 54
+                                                   2 7 18 0 0 55 2 7 0 0 0 56 2
+                                                   7 18 0 0 57 2 7 39 0 0 58 0
+                                                   9 30 59 1 30 7 0 60 1 7 18 0
+                                                   61 2 30 0 7 0 62 2 30 0 0 0
+                                                   63 1 0 64 7 66 0 0 64
+                                                   65)))))
            '|lookupComplete|)) 

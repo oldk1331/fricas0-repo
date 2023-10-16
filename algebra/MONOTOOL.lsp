@@ -57,22 +57,22 @@
                 . #4=(|MONOTOOL;splitSquarefree;UPMR;3|))
           (LETT |n| |s| . #4#) (LETT |q| (SPADCALL |p| (QREFELT $ 26)) . #4#)
           (SEQ (LETT |rec| NIL . #4#)
-               (LETT #3# (SPADCALL |q| (QREFELT $ 29)) . #4#) G190
+               (LETT #3# (SPADCALL |q| (QREFELT $ 30)) . #4#) G190
                (COND
                 ((OR (ATOM #3#) (PROGN (LETT |rec| (CAR #3#) . #4#) NIL))
                  (GO G191)))
-               (SEQ (LETT |r| (QCAR |rec|) . #4#)
+               (SEQ (LETT |r| (QVELT |rec| 1) . #4#)
                     (LETT |g|
                           (SPADCALL |r| (SPADCALL |r| |derivation|)
                                     (QREFELT $ 14))
                           . #4#)
                     (COND
-                     ((NULL (SPADCALL |g| (QREFELT $ 31)))
+                     ((NULL (SPADCALL |g| (QREFELT $ 32)))
                       (LETT |s|
                             (SPADCALL |s|
-                                      (SPADCALL |g| (QCDR |rec|)
-                                                (QREFELT $ 32))
-                                      (QREFELT $ 33))
+                                      (SPADCALL |g| (QVELT |rec| 2)
+                                                (QREFELT $ 33))
+                                      (QREFELT $ 34))
                             . #4#)))
                     (LETT |h|
                           (PROG2
@@ -85,18 +85,18 @@
                           . #4#)
                     (EXIT
                      (COND
-                      ((NULL (SPADCALL |h| (QREFELT $ 31)))
+                      ((NULL (SPADCALL |h| (QREFELT $ 32)))
                        (LETT |n|
                              (SPADCALL |n|
-                                       (SPADCALL |h| (QCDR |rec|)
-                                                 (QREFELT $ 32))
-                                       (QREFELT $ 33))
+                                       (SPADCALL |h| (QVELT |rec| 2)
+                                                 (QREFELT $ 33))
+                                       (QREFELT $ 34))
                              . #4#)))))
                (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT
            (CONS |n|
-                 (SPADCALL (SPADCALL |q| (QREFELT $ 34)) |s|
-                           (QREFELT $ 35))))))) 
+                 (SPADCALL (SPADCALL |q| (QREFELT $ 35)) |s|
+                           (QREFELT $ 36))))))) 
 
 (SDEFUN |MONOTOOL;decompose;FMR;4|
         ((|f| |Fraction| UP) (|derivation| |Mapping| UP UP)
@@ -108,8 +108,8 @@
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP))))
          (SEQ
           (LETT |qr|
-                (SPADCALL (SPADCALL |f| (QREFELT $ 38))
-                          (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 40))
+                (SPADCALL (SPADCALL |f| (QREFELT $ 39))
+                          (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 41))
                 . #2=(|MONOTOOL;decompose;FMR;4|))
           (LETT |rec|
                 (SPADCALL (SPADCALL |f| (QREFELT $ 9)) |derivation|
@@ -119,7 +119,7 @@
                 (PROG2
                     (LETT #1#
                           (SPADCALL (QCAR |rec|) (QCDR |rec|) (QCDR |qr|)
-                                    (QREFELT $ 43))
+                                    (QREFELT $ 44))
                           . #2#)
                     (QCDR #1#)
                   (|check_union2| (QEQCAR #1# 0)
@@ -133,8 +133,8 @@
                 . #2#)
           (EXIT
            (VECTOR (QCAR |qr|)
-                   (SPADCALL (QCDR |eeu|) (QCAR |rec|) (QREFELT $ 44))
-                   (SPADCALL (QCAR |eeu|) (QCDR |rec|) (QREFELT $ 44))))))) 
+                   (SPADCALL (QCDR |eeu|) (QCAR |rec|) (QREFELT $ 45))
+                   (SPADCALL (QCAR |eeu|) (QCDR |rec|) (QREFELT $ 45))))))) 
 
 (DECLAIM (NOTINLINE |MonomialExtensionTools;|)) 
 
@@ -164,7 +164,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|MonomialExtensionTools|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|MonomialExtensionTools| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 47) . #1#)
+          (LETT $ (GETREFV 48) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|MonomialExtensionTools|
@@ -184,14 +184,14 @@
               (11 . |differentiate|) (|Union| $ '"failed") (16 . |exquo|)
               (|NonNegativeInteger|) (22 . |degree|) (27 . |One|) (31 . |One|)
               (35 . *) (|Factored| 7) (41 . |One|) (|Factored| $)
-              (45 . |squareFree|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 18)) (|List| 27)
-              (50 . |factors|) (|Boolean|) (55 . |ground?|) (60 . |sqfrFactor|)
-              (66 . *) (72 . |unit|) (77 . *)
+              (45 . |squareFree|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 27) (|:| |factor| 7) (|:| |exponent| 18))
+              (|List| 28) (50 . |factorList|) (|Boolean|) (55 . |ground?|)
+              (60 . |sqfrFactor|) (66 . *) (72 . |unit|) (77 . *)
               (|Record| (|:| |normal| 23) (|:| |special| 23))
               |MONOTOOL;splitSquarefree;UPMR;3| (83 . |numer|)
               (|Record| (|:| |quotient| $) (|:| |remainder| $)) (88 . |divide|)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 41 '"failed")
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 42 '"failed")
               (94 . |extendedEuclidean|) (101 . /)
               (|Record| (|:| |poly| 7) (|:| |normal| 8) (|:| |special| 8))
               |MONOTOOL;decompose;FMR;4|)
@@ -201,16 +201,16 @@
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 46
+                             (|makeByteWordVec2| 47
                                                  '(1 8 7 0 9 2 7 0 0 0 14 1 7 0
                                                    0 15 2 7 16 0 0 17 1 7 18 0
                                                    19 0 6 0 20 0 7 0 21 2 7 0 0
                                                    0 22 0 23 0 24 1 7 25 0 26 1
-                                                   23 28 0 29 1 7 30 0 31 2 23
-                                                   0 7 18 32 2 23 0 0 0 33 1 23
-                                                   7 0 34 2 23 0 7 0 35 1 8 7 0
-                                                   38 2 7 39 0 0 40 3 7 42 0 0
-                                                   0 43 2 8 0 7 7 44 2 0 36 7
-                                                   11 37 2 0 10 7 11 12 2 0 7 8
-                                                   11 13 2 0 45 8 11 46)))))
+                                                   23 29 0 30 1 7 31 0 32 2 23
+                                                   0 7 18 33 2 23 0 0 0 34 1 23
+                                                   7 0 35 2 23 0 7 0 36 1 8 7 0
+                                                   39 2 7 40 0 0 41 3 7 43 0 0
+                                                   0 44 2 8 0 7 7 45 2 0 37 7
+                                                   11 38 2 0 10 7 11 12 2 0 7 8
+                                                   11 13 2 0 46 8 11 47)))))
            '|lookupComplete|)) 
