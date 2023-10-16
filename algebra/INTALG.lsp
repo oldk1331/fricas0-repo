@@ -827,7 +827,7 @@
             "failed"))
           (|v1| (|FiniteDivisor| F UP UPUP R)) (|alpha| (F))
           (|ld| (|List| (|FiniteDivisor| F UP UPUP R))) (|la| (|List| F))
-          (|bb| (F)) (#1=#:G399 NIL) (|fcf| (UP))
+          (|bb| (F)) (#1=#:G400 NIL) (|fcf| (UP))
           (|lins2|
            (|List|
             #2=(|List|
@@ -841,7 +841,7 @@
            (|List|
             (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
                       (|:| |coeff| (|Fraction| (|Integer|))))))
-          (#3=#:G376 NIL)
+          (#3=#:G377 NIL)
           (|lins1|
            (|List|
             #4=(|List|
@@ -859,8 +859,8 @@
             (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
                       (|:| |coeff| (|Fraction| (|Integer|))) (|:| |scalar| F)
                       (|:| |divisor| (|FiniteDivisor| F UP UPUP R)))))
-          (#5=#:G412 NIL) (|nfl| NIL) (#6=#:G411 NIL) (#7=#:G410 NIL)
-          (#8=#:G409 NIL)
+          (#5=#:G413 NIL) (|nfl| NIL) (#6=#:G412 NIL) (#7=#:G411 NIL)
+          (#8=#:G410 NIL)
           (|nlins2|
            (|List|
             (|List|
@@ -875,8 +875,8 @@
                        (|:| |coeff| (|SparseUnivariatePolynomial| R))
                        (|:| |logand| (|SparseUnivariatePolynomial| R))))
             "failed"))
-          (#9=#:G408 NIL) (|nlins1| (|List| #4#)) (#10=#:G407 NIL)
-          (#11=#:G406 NIL) (|nfacs2| (|List| #2#)) (|nfacs1| (|List| #4#))
+          (#9=#:G409 NIL) (|nlins1| (|List| #4#)) (#10=#:G408 NIL)
+          (#11=#:G407 NIL) (|nfacs2| (|List| #2#)) (|nfacs1| (|List| #4#))
           (|ppr|
            (|Record|
             (|:| |result1|
@@ -969,7 +969,8 @@
                                                     (CONS |nfl| |nlins2|))
                                               (EXIT
                                                (LETT |root_fails|
-                                                     (+ |root_fails| 1)))))
+                                                     (+ |root_fails|
+                                                        (LENGTH |nfl|))))))
                                             ('T
                                              (QSETVELT |ppr| 0
                                                        (SPADCALL (QCDR |pp|)
@@ -1283,7 +1284,7 @@
 (SDEFUN |INTALG;SUP2UP!0| ((|x| NIL) ($$ NIL)) |x|) 
 
 (SDEFUN |INTALG;varRoot?| ((|p| UP) (|derivation| |Mapping| F F) ($ |Boolean|))
-        (SPROG ((#1=#:G432 NIL) (#2=#:G433 NIL) (#3=#:G434 NIL) (|c| NIL))
+        (SPROG ((#1=#:G433 NIL) (#2=#:G434 NIL) (#3=#:G435 NIL) (|c| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1300,8 +1301,8 @@
                             ((SPADCALL (SPADCALL |c| |derivation|)
                                        (|spadConstant| $ 30) (QREFELT $ 159))
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G431)))
-                              (GO #5=#:G429))))))
+                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G432)))
+                              (GO #5=#:G430))))))
                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT NIL)))
@@ -1314,7 +1315,7 @@
          (|derivation| |Mapping| R R) ($ R))
         (SPROG
          ((|ans| (R)) (|algans| #1=(|SparseUnivariatePolynomial| R))
-          (#2=#:G460 NIL) (|i| NIL)
+          (#2=#:G461 NIL) (|i| NIL)
           (|diflog|
            (|Union|
             (|Record| (|:| |coef1| #1#)
@@ -1461,12 +1462,12 @@
             (|Record| (|:| |order| (|NonNegativeInteger|)) (|:| |function| R))
             "failed"))
           (|v2| (|FiniteDivisor| F UP UPUP R))
-          (|v0| #1=(|FiniteDivisor| F UP UPUP R)) (#2=#:G474 NIL)
-          (#3=#:G473 #1#) (#4=#:G475 #1#) (#5=#:G485 NIL) (|a| NIL)
-          (#6=#:G486 NIL) (|dv| NIL)
+          (|v0| #1=(|FiniteDivisor| F UP UPUP R)) (#2=#:G475 NIL)
+          (#3=#:G474 #1#) (#4=#:G476 #1#) (#5=#:G486 NIL) (|a| NIL)
+          (#6=#:G487 NIL) (|dv| NIL)
           (|cd|
            (|Record| (|:| |num| (|List| (|Integer|))) (|:| |den| (|Integer|))))
-          (#7=#:G484 NIL) (#8=#:G483 NIL))
+          (#7=#:G485 NIL) (#8=#:G484 NIL))
          (SEQ
           (LETT |cd|
                 (SPADCALL
@@ -1550,8 +1551,8 @@
 (SDEFUN |INTALG;palgintegrate;RMIr;26|
         ((|f| R) (|derivation| |Mapping| UP UP) ($ |IntegrationResult| R))
         (SPROG
-         ((|difFirstKind| (R)) (#1=#:G547 NIL) (#2=#:G546 (R)) (#3=#:G548 (R))
-          (#4=#:G555 NIL) (|lg| NIL) (#5=#:G554 NIL)
+         ((|difFirstKind| (R)) (#1=#:G548 NIL) (#2=#:G547 (R)) (#3=#:G549 (R))
+          (#4=#:G556 NIL) (|lg| NIL) (#5=#:G555 NIL)
           (|u|
            (|Union|
             (|List|
@@ -1583,7 +1584,7 @@
                                            (LIST
                                             (CONS (QCDR |h|) (QREFELT $ 12)))
                                            (QREFELT $ 60)))
-                           (GO #7=#:G551)))))))
+                           (GO #7=#:G552)))))))
                      (#6#
                       (EXIT
                        (SPADCALL (QCAR |h|) NIL
@@ -1646,7 +1647,7 @@
 (SDEFUN |INTALG;algintegrate;RMIr;27|
         ((|f| R) (|derivation| |Mapping| UP UP) ($ |IntegrationResult| R))
         (SPROG
-         ((#1=#:G569 NIL) (|xx| (|Union| UP "failed")) (|x'| (UP)) (|x| (UP)))
+         ((#1=#:G570 NIL) (|xx| (|Union| UP "failed")) (|x'| (UP)) (|x| (UP)))
          (SEQ
           (LETT |x'|
                 (SPADCALL
@@ -1668,7 +1669,7 @@
                          ((QEQCAR (SPADCALL (QCDR |xx|) (QREFELT $ 222)) 0)
                           (PROGN
                            (LETT #1# (|INTALG;algintexp| |f| |derivation| $))
-                           (GO #2=#:G566))))))))
+                           (GO #2=#:G567))))))))
                 (EXIT (|error| "should not happen"))))
               #2# (EXIT #1#)))))))) 
 
@@ -1705,9 +1706,9 @@
 
 (DECLAIM (NOTINLINE |AlgebraicIntegrate;|)) 
 
-(DEFUN |AlgebraicIntegrate| (&REST #1=#:G574)
+(DEFUN |AlgebraicIntegrate| (&REST #1=#:G575)
   (SPROG NIL
-         (PROG (#2=#:G575)
+         (PROG (#2=#:G576)
            (RETURN
             (COND
              ((LETT #2#
