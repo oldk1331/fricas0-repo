@@ -8,17 +8,14 @@
                         (LETT |n1|
                               (PROG1
                                   (LETT #1#
-                                        (PROG1
-                                            (LETT #2# (- |n| 1)
-                                                  . #3=(|NAALG-;plenaryPower;SPiS;1|))
+                                        (PROG1 (LETT #2# (- |n| 1))
                                           (|check_subtype2| (>= #2# 0)
                                                             '(|NonNegativeInteger|)
-                                                            '(|Integer|) #2#))
-                                        . #3#)
+                                                            '(|Integer|) #2#)))
                                 (|check_subtype2| (> #1# 0)
                                                   '(|PositiveInteger|)
-                                                  '(|NonNegativeInteger|) #1#))
-                              . #3#)
+                                                  '(|NonNegativeInteger|)
+                                                  #1#)))
                         (EXIT
                          (SPADCALL (SPADCALL |a| |n1| (QREFELT $ 10))
                                    (SPADCALL |a| |n1| (QREFELT $ 10))
@@ -29,12 +26,12 @@
 (DEFUN |NonAssociativeAlgebra&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|NonAssociativeAlgebra&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|NonAssociativeAlgebra&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 13) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|NonAssociativeAlgebra&| DV$1 DV$2))
+          (LETT $ (GETREFV 13))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

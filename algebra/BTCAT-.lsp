@@ -38,7 +38,7 @@
         (SEQ
          (COND ((SPADCALL |t| (QREFELT $ 9)) |k|)
                ('T
-                (SEQ (LETT |k| (+ |k| 1) . #1=(|BTCAT-;treeCount|))
+                (SEQ (LETT |k| (+ |k| 1))
                      (COND
                       ((EQL |k| 5)
                        (COND
@@ -46,8 +46,7 @@
                          (EXIT (|error| "cyclic binary tree"))))))
                      (LETT |k|
                            (|BTCAT-;treeCount| (SPADCALL |t| (QREFELT $ 11))
-                            |k| $)
-                           . #1#)
+                            |k| $))
                      (EXIT
                       (|BTCAT-;treeCount| (SPADCALL |t| (QREFELT $ 14)) |k|
                        $))))))) 
@@ -64,58 +63,52 @@
                  (SEQ
                   (LETT |u|
                         (PROGN
-                         (LETT #8# NIL . #10=(|BTCAT-;distance1|))
-                         (SEQ (LETT |t| NIL . #10#)
-                              (LETT #7# (SPADCALL |t2| (QREFELT $ 30)) . #10#)
-                              G190
+                         (LETT #8# NIL)
+                         (SEQ (LETT |t| NIL)
+                              (LETT #7# (SPADCALL |t2| (QREFELT $ 30))) G190
                               (COND
                                ((OR (ATOM #7#)
-                                    (PROGN (LETT |t| (CAR #7#) . #10#) NIL))
+                                    (PROGN (LETT |t| (CAR #7#)) NIL))
                                 (GO G191)))
                               (SEQ
                                (EXIT
                                 (COND
                                  ((>=
-                                   (LETT |n| (|BTCAT-;distance1| |t1| |t| $)
-                                         . #10#)
+                                   (LETT |n| (|BTCAT-;distance1| |t1| |t| $))
                                    0)
-                                  (LETT #8# (CONS |n| #8#) . #10#)))))
-                              (LETT #7# (CDR #7#) . #10#) (GO G190) G191
-                              (EXIT (NREVERSE #8#))))
-                        . #10#)
+                                  (LETT #8# (CONS |n| #8#))))))
+                              (LETT #7# (CDR #7#)) (GO G190) G191
+                              (EXIT (NREVERSE #8#)))))
                   (EXIT
                    (COND
                     ((SPADCALL (LENGTH |u|) 0 (QREFELT $ 32))
                      (+ 1
                         (PROGN
-                         (LETT #2# NIL . #10#)
-                         (SEQ (LETT #6# NIL . #10#) (LETT #5# |u| . #10#) G190
+                         (LETT #2# NIL)
+                         (SEQ (LETT #6# NIL) (LETT #5# |u|) G190
                               (COND
                                ((OR (ATOM #5#)
-                                    (PROGN (LETT #6# (CAR #5#) . #10#) NIL))
+                                    (PROGN (LETT #6# (CAR #5#)) NIL))
                                 (GO G191)))
                               (SEQ
                                (EXIT
                                 (PROGN
-                                 (LETT #4# #6# . #10#)
-                                 (COND (#2# (LETT #3# (MIN #3# #4#) . #10#))
+                                 (LETT #4# #6#)
+                                 (COND (#2# (LETT #3# (MIN #3# #4#)))
                                        ('T
                                         (PROGN
-                                         (LETT #3# #4# . #10#)
-                                         (LETT #2# 'T . #10#)))))))
-                              (LETT #5# (CDR #5#) . #10#) (GO G190) G191
-                              (EXIT NIL))
+                                         (LETT #3# #4#)
+                                         (LETT #2# 'T)))))))
+                              (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
                          (COND (#2# #3#) (#9# (|IdentityError| '|min|))))))
                     (#9# -1))))))))) 
 
 (SDEFUN |BTCAT-;distance;2AI;7| ((|t1| A) (|t2| A) ($ |Integer|))
         (SPROG ((|n| (|Integer|)))
-               (SEQ
-                (LETT |n| (|BTCAT-;distance1| |t1| |t2| $)
-                      |BTCAT-;distance;2AI;7|)
-                (EXIT
-                 (COND ((>= |n| 0) |n|)
-                       ('T (|BTCAT-;distance1| |t2| |t1| $))))))) 
+               (SEQ (LETT |n| (|BTCAT-;distance1| |t1| |t2| $))
+                    (EXIT
+                     (COND ((>= |n| 0) |n|)
+                           ('T (|BTCAT-;distance1| |t2| |t1| $))))))) 
 
 (SDEFUN |BTCAT-;hashUpdate!;HsAHs;8|
         ((|s| |HashState|) (|t| A) ($ |HashState|))
@@ -125,12 +118,10 @@
                 (SEQ
                  (LETT |s|
                        (SPADCALL |s| (SPADCALL |t| (QREFELT $ 13))
-                                 (QREFELT $ 35))
-                       . #1=(|BTCAT-;hashUpdate!;HsAHs;8|))
+                                 (QREFELT $ 35)))
                  (LETT |s|
                        (SPADCALL |s| (SPADCALL |t| (QREFELT $ 11))
-                                 (QREFELT $ 36))
-                       . #1#)
+                                 (QREFELT $ 36)))
                  (EXIT
                   (SPADCALL |s| (SPADCALL |t| (QREFELT $ 14))
                             (QREFELT $ 36)))))))) 
@@ -140,12 +131,12 @@
 (DEFUN |BinaryTreeCategory&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|BinaryTreeCategory&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|BinaryTreeCategory&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 38) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|BinaryTreeCategory&| DV$1 DV$2))
+          (LETT $ (GETREFV 38))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

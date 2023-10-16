@@ -36,8 +36,7 @@
                                 ((|Union| "prime" "polynomial" "normal"
                                           "cyclic")))
                                T))
-                            NIL NIL NIL))
-                   |FiniteFieldCategory|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|FiniteFieldCategory|))))) 
 
 (MAKEPROP '|FiniteFieldCategory| 'NILADIC T) 

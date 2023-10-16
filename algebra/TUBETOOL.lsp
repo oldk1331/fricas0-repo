@@ -3,9 +3,7 @@
         ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
          (|c| . #1=(|DoubleFloat|)) ($ |Point| (|DoubleFloat|)))
         (SPROG ((|l| (|List| #1#)))
-               (SPADCALL
-                (LETT |l| (LIST |x| |y| |z| |c|) |TUBETOOL;point;4DfP;1|)
-                (QREFELT $ 8)))) 
+               (SPADCALL (LETT |l| (LIST |x| |y| |z| |c|)) (QREFELT $ 8)))) 
 
 (SDEFUN |TUBETOOL;getColor| ((|pt| |Point| (|DoubleFloat|)) ($ |DoubleFloat|))
         (COND
@@ -32,8 +30,7 @@
                       (LIST (|mul_DF| |a| (SPADCALL |p| (QREFELT $ 17)))
                             (|mul_DF| |a| (SPADCALL |p| (QREFELT $ 18)))
                             (|mul_DF| |a| (SPADCALL |p| (QREFELT $ 19)))
-                            (|TUBETOOL;getColor| |p| $))
-                      |TUBETOOL;*;Df2P;4|)
+                            (|TUBETOOL;getColor| |p| $)))
                 (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
 
 (SDEFUN |TUBETOOL;+;3P;5|
@@ -49,8 +46,7 @@
                                  (SPADCALL |p1| (QREFELT $ 18)))
                        (|add_DF| (SPADCALL |p0| (QREFELT $ 19))
                                  (SPADCALL |p1| (QREFELT $ 19)))
-                       (|TUBETOOL;getColor2| |p0| |p1| $))
-                      |TUBETOOL;+;3P;5|)
+                       (|TUBETOOL;getColor2| |p0| |p1| $)))
                 (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
 
 (SDEFUN |TUBETOOL;-;3P;6|
@@ -66,8 +62,7 @@
                                  (SPADCALL |p1| (QREFELT $ 18)))
                        (|sub_DF| (SPADCALL |p0| (QREFELT $ 19))
                                  (SPADCALL |p1| (QREFELT $ 19)))
-                       (|TUBETOOL;getColor2| |p0| |p1| $))
-                      |TUBETOOL;-;3P;6|)
+                       (|TUBETOOL;getColor2| |p0| |p1| $)))
                 (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
 
 (SDEFUN |TUBETOOL;dot;2PDf;7|
@@ -89,21 +84,18 @@
          ((|l| (|List| (|DoubleFloat|))) (|z1| #1=(|DoubleFloat|))
           (|y1| #2=(|DoubleFloat|)) (|x1| #3=(|DoubleFloat|)) (|z0| #1#)
           (|y0| #2#) (|x0| #3#))
-         (SEQ
-          (LETT |x0| (SPADCALL |p0| (QREFELT $ 17))
-                . #4=(|TUBETOOL;cross;3P;8|))
-          (LETT |y0| (SPADCALL |p0| (QREFELT $ 18)) . #4#)
-          (LETT |z0| (SPADCALL |p0| (QREFELT $ 19)) . #4#)
-          (LETT |x1| (SPADCALL |p1| (QREFELT $ 17)) . #4#)
-          (LETT |y1| (SPADCALL |p1| (QREFELT $ 18)) . #4#)
-          (LETT |z1| (SPADCALL |p1| (QREFELT $ 19)) . #4#)
-          (LETT |l|
-                (LIST (|sub_DF| (|mul_DF| |y0| |z1|) (|mul_DF| |y1| |z0|))
-                      (|sub_DF| (|mul_DF| |z0| |x1|) (|mul_DF| |z1| |x0|))
-                      (|sub_DF| (|mul_DF| |x0| |y1|) (|mul_DF| |x1| |y0|))
-                      (|TUBETOOL;getColor2| |p0| |p1| $))
-                . #4#)
-          (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
+         (SEQ (LETT |x0| (SPADCALL |p0| (QREFELT $ 17)))
+              (LETT |y0| (SPADCALL |p0| (QREFELT $ 18)))
+              (LETT |z0| (SPADCALL |p0| (QREFELT $ 19)))
+              (LETT |x1| (SPADCALL |p1| (QREFELT $ 17)))
+              (LETT |y1| (SPADCALL |p1| (QREFELT $ 18)))
+              (LETT |z1| (SPADCALL |p1| (QREFELT $ 19)))
+              (LETT |l|
+                    (LIST (|sub_DF| (|mul_DF| |y0| |z1|) (|mul_DF| |y1| |z0|))
+                          (|sub_DF| (|mul_DF| |z0| |x1|) (|mul_DF| |z1| |x0|))
+                          (|sub_DF| (|mul_DF| |x0| |y1|) (|mul_DF| |x1| |y0|))
+                          (|TUBETOOL;getColor2| |p0| |p1| $)))
+              (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
 
 (SDEFUN |TUBETOOL;unitVector;2P;9|
         ((|p| |Point| (|DoubleFloat|)) ($ |Point| (|DoubleFloat|)))
@@ -117,23 +109,21 @@
         (SPROG
          ((|ans| (|List| (|List| (|DoubleFloat|)))) (|angle| (|DoubleFloat|))
           (#1=#:G128 NIL) (|i| NIL) (|theta| (|DoubleFloat|)))
-         (SEQ (LETT |ans| NIL . #2=(|TUBETOOL;cosSinInfo;IL;10|))
+         (SEQ (LETT |ans| NIL)
               (LETT |theta|
                     (|div_DF_I|
                      (SPADCALL 2 (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)
                                (QREFELT $ 29))
-                     |n|)
-                    . #2#)
-              (SEQ (LETT |i| 1 . #2#) (LETT #1# (- |n| 1) . #2#) G190
+                     |n|))
+              (SEQ (LETT |i| 1) (LETT #1# (- |n| 1)) G190
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
-                   (SEQ
-                    (LETT |angle| (SPADCALL |i| |theta| (QREFELT $ 31)) . #2#)
-                    (EXIT
-                     (LETT |ans|
-                           (CONS (LIST (|cos_DF| |angle|) (|sin_DF| |angle|))
-                                 |ans|)
-                           . #2#)))
-                   (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                   (SEQ (LETT |angle| (SPADCALL |i| |theta| (QREFELT $ 31)))
+                        (EXIT
+                         (LETT |ans|
+                               (CONS
+                                (LIST (|cos_DF| |angle|) (|sin_DF| |angle|))
+                                |ans|))))
+                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 
 (SDEFUN |TUBETOOL;loopPoints;3PDfLL;11|
@@ -145,11 +135,11 @@
          ((|pt| (|Point| (|DoubleFloat|)))
           (|ans| (|List| (|Point| (|DoubleFloat|)))) (|sin| (|DoubleFloat|))
           (|cos| (|DoubleFloat|)) (|cossin| (|List| (|DoubleFloat|))))
-         (SEQ (LETT |ans| NIL . #1=(|TUBETOOL;loopPoints;3PDfLL;11|))
+         (SEQ (LETT |ans| NIL)
               (SEQ G190 (COND ((NULL (NULL (NULL |cosSin|))) (GO G191)))
-                   (SEQ (LETT |cossin| (|SPADfirst| |cosSin|) . #1#)
-                        (LETT |cos| (|SPADfirst| |cossin|) . #1#)
-                        (LETT |sin| (SPADCALL |cossin| (QREFELT $ 34)) . #1#)
+                   (SEQ (LETT |cossin| (|SPADfirst| |cosSin|))
+                        (LETT |cos| (|SPADfirst| |cossin|))
+                        (LETT |sin| (SPADCALL |cossin| (QREFELT $ 34)))
                         (LETT |ans|
                               (CONS
                                (SPADCALL |ctr|
@@ -162,14 +152,12 @@
                                                     (QREFELT $ 21))
                                                    (QREFELT $ 20))
                                          (QREFELT $ 21))
-                               |ans|)
-                              . #1#)
-                        (EXIT (LETT |cosSin| (CDR |cosSin|) . #1#)))
+                               |ans|))
+                        (EXIT (LETT |cosSin| (CDR |cosSin|))))
                    NIL (GO G190) G191 (EXIT NIL))
               (LETT |pt|
                     (SPADCALL |ctr| (SPADCALL |rad| |pNorm| (QREFELT $ 20))
-                              (QREFELT $ 21))
-                    . #1#)
+                              (QREFELT $ 21)))
               (EXIT (CONS |pt| (SPADCALL |ans| |pt| (QREFELT $ 36))))))) 
 
 (DECLAIM (NOTINLINE |TubePlotTools;|)) 
@@ -179,8 +167,7 @@
          (PROG (#1=#:G135)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|TubePlotTools|)
-                    . #2=(|TubePlotTools|))
+             ((LETT #1# (HGET |$ConstructorCache| '|TubePlotTools|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -188,17 +175,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|TubePlotTools|
                              (LIST (CONS NIL (CONS 1 (|TubePlotTools;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|TubePlotTools|)))))))))) 
 
 (DEFUN |TubePlotTools;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|TubePlotTools|) . #1=(|TubePlotTools|))
-          (LETT $ (GETREFV 38) . #1#)
+          (LETT |dv$| '(|TubePlotTools|))
+          (LETT $ (GETREFV 38))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TubePlotTools| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

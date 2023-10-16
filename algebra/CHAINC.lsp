@@ -16,12 +16,12 @@
           (|len| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
-           (SEQ (LETT |len| (LENGTH |a|) . #4=(|CHAINC;validate;$B;3|))
-                (COND ((< |len| 2) (PROGN (LETT #2# 'T . #4#) (GO #5=#:G115))))
-                (LETT |last| (SPADCALL |a| 1 (QREFELT $ 12)) . #4#)
-                (SEQ (LETT |x| 2 . #4#) (LETT #3# |len| . #4#) G190
+           (SEQ (LETT |len| (LENGTH |a|))
+                (COND ((< |len| 2) (PROGN (LETT #2# 'T) (GO #4=#:G115))))
+                (LETT |last| (SPADCALL |a| 1 (QREFELT $ 12)))
+                (SEQ (LETT |x| 2) (LETT #3# |len|) G190
                      (COND ((|greater_SI| |x| #3#) (GO G191)))
-                     (SEQ (LETT |m| (SPADCALL |a| |x| (QREFELT $ 12)) . #4#)
+                     (SEQ (LETT |m| (SPADCALL |a| |x| (QREFELT $ 12)))
                           (COND
                            ((SPADCALL (SPADCALL |m| (QREFELT $ 13))
                                       (SPADCALL |last| (QREFELT $ 14))
@@ -43,9 +43,8 @@
                                          (QREFELT $ 20))
                                (QREFELT $ 21))
                               (QREFELT $ 23))
-                             (EXIT (PROGN (LETT #2# NIL . #4#) (GO #5#))))))
-                          (LETT |prod| (SPADCALL |last| |m| (QREFELT $ 24))
-                                . #4#)
+                             (EXIT (PROGN (LETT #2# NIL) (GO #4#))))))
+                          (LETT |prod| (SPADCALL |last| |m| (QREFELT $ 24)))
                           (COND
                            ((NULL (SPADCALL |prod| (QREFELT $ 25)))
                             (SEQ
@@ -66,33 +65,32 @@
                                 (SPADCALL " = " (QREFELT $ 19)) (QREFELT $ 21))
                                (SPADCALL |prod| (QREFELT $ 26)) (QREFELT $ 21))
                               (QREFELT $ 23))
-                             (EXIT (PROGN (LETT #2# NIL . #4#) (GO #5#))))))
-                          (EXIT (LETT |last| |m| . #4#)))
-                     (LETT |x| (|inc_SI| |x|) . #4#) (GO G190) G191 (EXIT NIL))
+                             (EXIT (PROGN (LETT #2# NIL) (GO #4#))))))
+                          (EXIT (LETT |last| |m|)))
+                     (LETT |x| (|inc_SI| |x|)) (GO G190) G191 (EXIT NIL))
                 (EXIT 'T)))
-          #5# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |CHAINC;homology;$L;4| ((|a| $) ($ |List| (|Homology|)))
         (SPROG
          ((|prev| (|Matrix| (|Integer|))) (|notFirst| (|Boolean|))
           (|res| (|List| (|Homology|))) (|m2| (|Homology|)) (#1=#:G123 NIL)
           (|m1| NIL))
-         (SEQ (LETT |res| NIL . #2=(|CHAINC;homology;$L;4|))
-              (LETT |prev| (MAKE_MATRIX 0 0) . #2#) (LETT |notFirst| NIL . #2#)
-              (SEQ (LETT |m1| NIL . #2#) (LETT #1# |a| . #2#) G190
+         (SEQ (LETT |res| NIL) (LETT |prev| (MAKE_MATRIX 0 0))
+              (LETT |notFirst| NIL)
+              (SEQ (LETT |m1| NIL) (LETT #1# |a|) G190
                    (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |m1| (CAR #1#) . #2#) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |m1| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ
                     (COND
                      (|notFirst|
-                      (SEQ
-                       (LETT |m2| (SPADCALL |m1| |prev| (QREFELT $ 29)) . #2#)
-                       (EXIT
-                        (LETT |res| (SPADCALL |res| |m2| (QREFELT $ 31))
-                              . #2#)))))
-                    (LETT |notFirst| 'T . #2#) (EXIT (LETT |prev| |m1| . #2#)))
-                   (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                      (SEQ (LETT |m2| (SPADCALL |m1| |prev| (QREFELT $ 29)))
+                           (EXIT
+                            (LETT |res|
+                                  (SPADCALL |res| |m2| (QREFELT $ 31)))))))
+                    (LETT |notFirst| 'T) (EXIT (LETT |prev| |m1|)))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
 (SDEFUN |CHAINC;coerce;$Of;5| ((|s| $) ($ |OutputForm|))
@@ -102,18 +100,16 @@
          (SEQ
           (LETT |lst|
                 (PROGN
-                 (LETT #2# NIL . #3=(|CHAINC;coerce;$Of;5|))
-                 (SEQ (LETT |x| NIL . #3#) (LETT #1# |s| . #3#) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |x| NIL) (LETT #1# |s|) G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
+                       ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 26)) #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #3#)
+                        (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 26)) #2#))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191
+                      (EXIT (NREVERSE #2#)))))
           (EXIT (SPADCALL |lst| (QREFELT $ 34)))))) 
 
 (DECLAIM (NOTINLINE |ChainComplex;|)) 
@@ -123,8 +119,7 @@
          (PROG (#1=#:G130)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ChainComplex|)
-                    . #2=(|ChainComplex|))
+             ((LETT #1# (HGET |$ConstructorCache| '|ChainComplex|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -132,17 +127,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|ChainComplex|
                              (LIST (CONS NIL (CONS 1 (|ChainComplex;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|ChainComplex|)))))))))) 
 
 (DEFUN |ChainComplex;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|ChainComplex|) . #1=(|ChainComplex|))
-          (LETT $ (GETREFV 38) . #1#)
+          (LETT |dv$| '(|ChainComplex|))
+          (LETT $ (GETREFV 38))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ChainComplex| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

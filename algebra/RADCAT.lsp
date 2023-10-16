@@ -15,8 +15,7 @@
                     (|mkCategory|
                      '(((|sqrt| ($ $)) T) ((|nthRoot| ($ $ (|Integer|))) T)
                        ((^ ($ $ (|Fraction| (|Integer|)))) T))
-                     NIL NIL NIL))
-                   |RadicalCategory|)
+                     NIL NIL NIL)))
            (SETELT #1# 0 '(|RadicalCategory|))))) 
 
 (MAKEPROP '|RadicalCategory| 'NILADIC T) 

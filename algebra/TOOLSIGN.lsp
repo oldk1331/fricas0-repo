@@ -9,21 +9,20 @@
 
 (SDEFUN |TOOLSIGN;sign;RU;3| ((|r| R) ($ |Union| (|Integer|) "failed"))
         (SPROG ((|u| (|Union| (|Fraction| (|Integer|)) "failed")))
-               (SEQ
-                (LETT |u| (SPADCALL |r| (QREFELT $ 15)) |TOOLSIGN;sign;RU;3|)
-                (EXIT
-                 (COND
-                  ((QEQCAR |u| 0)
-                   (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 18))))
-                  ('T (SPADCALL |r| (QREFELT $ 13)))))))) 
+               (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 15)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |u| 0)
+                       (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 18))))
+                      ('T (SPADCALL |r| (QREFELT $ 13)))))))) 
 
 (SDEFUN |TOOLSIGN;sign;RU;4| ((|r| R) ($ |Union| (|Integer|) "failed"))
         (SPROG ((|u| (|Union| (|Integer|) "failed")))
-               (SEQ
-                (LETT |u| (SPADCALL |r| (QREFELT $ 20)) |TOOLSIGN;sign;RU;4|)
-                (EXIT
-                 (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                       ('T (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 21))))))))) 
+               (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 20)))
+                    (EXIT
+                     (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                           ('T
+                            (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 21))))))))) 
 
 (SDEFUN |TOOLSIGN;sign;RU;5| ((|r| R) ($ |Union| (|Integer|) "failed"))
         (COND ((SPADCALL |r| (QREFELT $ 23)) (CONS 0 0))
@@ -50,22 +49,21 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|ToolsForSign|)
-                                               '|domainEqualList|)
-                    . #3=(|ToolsForSign|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|ToolsForSign;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|ToolsForSign;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|ToolsForSign|)))))))))) 
 
 (DEFUN |ToolsForSign;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|ToolsForSign|))
-          (LETT |dv$| (LIST '|ToolsForSign| DV$1) . #1#)
-          (LETT $ (GETREFV 29) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|ToolsForSign| DV$1))
+          (LETT $ (GETREFV 29))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ToolsForSign| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

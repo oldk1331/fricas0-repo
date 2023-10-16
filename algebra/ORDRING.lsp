@@ -16,8 +16,7 @@
                             '(((|positive?| ((|Boolean|) $)) T)
                               ((|negative?| ((|Boolean|) $)) T)
                               ((|sign| ((|Integer|) $)) T) ((|abs| ($ $)) T))
-                            NIL NIL NIL))
-                   |OrderedRing|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|OrderedRing|))))) 
 
 (MAKEPROP '|OrderedRing| 'NILADIC T) 

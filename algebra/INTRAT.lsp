@@ -13,49 +13,45 @@
            (|Mapping|
             (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
             (|List| F))))
-         (SEQ
-          (LETT |ext| (CONS #'|INTRAT;infieldint;FU;1!0| $)
-                . #1=(|INTRAT;infieldint;FU;1|))
-          (LETT |rec|
-                (SPADCALL (ELT $ 15) |ext| (ELT $ 12) (LIST |f|)
-                          (QREFELT $ 24))
-                . #1#)
-          (EXIT
-           (COND ((NULL |rec|) (CONS 1 "failed"))
-                 ('T
-                  (SEQ (LETT |s1| (|SPADfirst| |rec|) . #1#)
-                       (EXIT
-                        (CONS 0
-                              (SPADCALL
-                               (SPADCALL (QCAR |s1|)
-                                         (SPADCALL
-                                          (SPADCALL
-                                           (SPADCALL (QCDR |s1|) 1
-                                                     (QREFELT $ 28))
-                                           (QREFELT $ 29))
-                                          (QREFELT $ 31))
-                                         (QREFELT $ 32))
-                               (QREFELT $ 33))))))))))) 
+         (SEQ (LETT |ext| (CONS #'|INTRAT;infieldint;FU;1!0| $))
+              (LETT |rec|
+                    (SPADCALL (ELT $ 15) |ext| (ELT $ 12) (LIST |f|)
+                              (QREFELT $ 24)))
+              (EXIT
+               (COND ((NULL |rec|) (CONS 1 "failed"))
+                     ('T
+                      (SEQ (LETT |s1| (|SPADfirst| |rec|))
+                           (EXIT
+                            (CONS 0
+                                  (SPADCALL
+                                   (SPADCALL (QCAR |s1|)
+                                             (SPADCALL
+                                              (SPADCALL
+                                               (SPADCALL (QCDR |s1|) 1
+                                                         (QREFELT $ 28))
+                                               (QREFELT $ 29))
+                                              (QREFELT $ 31))
+                                             (QREFELT $ 32))
+                                   (QREFELT $ 33))))))))))) 
 
 (SDEFUN |INTRAT;infieldint;FU;1!0| ((|lg| NIL) ($ NIL))
         (SPROG ((#1=#:G113 NIL) (|bv| NIL) (#2=#:G112 NIL) (|r1| NIL))
                (SEQ
                 (LETT |r1|
                       (SPADCALL (SPADCALL (LIST |lg|) (QREFELT $ 10))
-                                (QREFELT $ 12))
-                      NIL)
+                                (QREFELT $ 12)))
                 (EXIT
                  (PROGN
-                  (LETT #2# NIL NIL)
-                  (SEQ (LETT |bv| NIL NIL) (LETT #1# |r1| NIL) G190
+                  (LETT #2# NIL)
+                  (SEQ (LETT |bv| NIL) (LETT #1# |r1|) G190
                        (COND
-                        ((OR (ATOM #1#) (PROGN (LETT |bv| (CAR #1#) NIL) NIL))
+                        ((OR (ATOM #1#) (PROGN (LETT |bv| (CAR #1#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #2# (CONS (CONS (|spadConstant| $ 13) |bv|) #2#)
-                               NIL)))
-                       (LETT #1# (CDR #1#) NIL) (GO G190) G191
+                         (LETT #2#
+                               (CONS (CONS (|spadConstant| $ 13) |bv|) #2#))))
+                       (LETT #1# (CDR #1#)) (GO G190) G191
                        (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |INTRAT;integrate;FIr;2|
@@ -64,16 +60,14 @@
          ((|rec|
            (|Record| (|:| |ir| (|IntegrationResult| (|Fraction| UP)))
                      (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP))))
-         (SEQ
-          (LETT |rec| (SPADCALL |f| (ELT $ 15) (QREFELT $ 38))
-                |INTRAT;integrate;FIr;2|)
-          (EXIT
-           (SPADCALL
-            (SPADCALL
-             (SPADCALL (SPADCALL (QVELT |rec| 2) (QREFELT $ 39))
-                       (QREFELT $ 31))
-             (QREFELT $ 41))
-            (QVELT |rec| 0) (QREFELT $ 42)))))) 
+         (SEQ (LETT |rec| (SPADCALL |f| (ELT $ 15) (QREFELT $ 38)))
+              (EXIT
+               (SPADCALL
+                (SPADCALL
+                 (SPADCALL (SPADCALL (QVELT |rec| 2) (QREFELT $ 39))
+                           (QREFELT $ 31))
+                 (QREFELT $ 41))
+                (QVELT |rec| 0) (QREFELT $ 42)))))) 
 
 (DECLAIM (NOTINLINE |RationalIntegration;|)) 
 
@@ -86,13 +80,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|RationalIntegration|)
-                                               '|domainEqualList|)
-                    . #3=(|RationalIntegration|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |RationalIntegration;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|RationalIntegration|)))))))))) 
@@ -100,12 +93,12 @@
 (DEFUN |RationalIntegration;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalIntegration|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|RationalIntegration| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 44) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|RationalIntegration| DV$1 DV$2))
+          (LETT $ (GETREFV 44))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RationalIntegration|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

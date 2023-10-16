@@ -123,7 +123,5 @@
                                                         ($ $
                                                          (|PositiveInteger|)))
                                                        T))
-                                                    NIL NIL NIL))
-                                           . #2=(|DistributionCategory|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DistributionCategory| |t#1|))))) 

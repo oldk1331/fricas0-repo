@@ -12,9 +12,8 @@
 (SDEFUN |GSERIES;differentiate;2$;3| ((|f| $) ($ $))
         (SPROG ((|str2| (|String|)) (|str1| (|String|)))
                (SEQ
-                (LETT |str1| "'differentiate' unavailable on this domain;  "
-                      . #1=(|GSERIES;differentiate;2$;3|))
-                (LETT |str2| "use 'approximate' first" . #1#)
+                (LETT |str1| "'differentiate' unavailable on this domain;  ")
+                (LETT |str2| "use 'approximate' first")
                 (EXIT (|error| (STRCONC |str1| |str2|)))))) 
 
 (SDEFUN |GSERIES;differentiate;$V$;4| ((|f| $) (|v| |Variable| |var|) ($ $))
@@ -27,21 +26,17 @@
          (SEQ
           (COND
            ((EQUAL |s| (SPADCALL |f| (QREFELT $ 14)))
-            (SEQ
-             (LETT |str1| "'differentiate' unavailable on this domain;  "
-                   . #1=(|GSERIES;differentiate;$S$;5|))
-             (LETT |str2| "use 'approximate' first" . #1#)
-             (EXIT (|error| (STRCONC |str1| |str2|)))))
+            (SEQ (LETT |str1| "'differentiate' unavailable on this domain;  ")
+                 (LETT |str2| "use 'approximate' first")
+                 (EXIT (|error| (STRCONC |str1| |str2|)))))
            ('T
             (SEQ
              (LETT |dcds|
-                   (SPADCALL (SPADCALL |f| (QREFELT $ 15)) |s| (QREFELT $ 16))
-                   . #1#)
+                   (SPADCALL (SPADCALL |f| (QREFELT $ 15)) |s| (QREFELT $ 16)))
              (LETT |deriv|
                    (SPADCALL
                     (SPADCALL (|GSERIES;puiseux| |f| $) (QREFELT $ 17))
-                    (QREFELT $ 9))
-                   . #1#)
+                    (QREFELT $ 9)))
              (EXIT
               (SPADCALL
                (SPADCALL
@@ -51,17 +46,15 @@
 
 (SDEFUN |GSERIES;differentiate;$S$;5!0| ((|x| NIL) ($$ NIL))
         (PROG (|s| $)
-          (LETT |s| (QREFELT $$ 1) . #1=(|GSERIES;differentiate;$S$;5|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |s| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |s| (QREFELT $ 16)))))) 
 
 (SDEFUN |GSERIES;integrate;2$;6| ((|f| $) ($ $))
         (SPROG ((|str2| (|String|)) (|str1| (|String|)))
-               (SEQ
-                (LETT |str1| "'integrate' unavailable on this domain;  "
-                      . #1=(|GSERIES;integrate;2$;6|))
-                (LETT |str2| "use 'approximate' first" . #1#)
-                (EXIT (|error| (STRCONC |str1| |str2|)))))) 
+               (SEQ (LETT |str1| "'integrate' unavailable on this domain;  ")
+                    (LETT |str2| "use 'approximate' first")
+                    (EXIT (|error| (STRCONC |str1| |str2|)))))) 
 
 (SDEFUN |GSERIES;integrate;$V$;7| ((|f| $) (|v| |Variable| |var|) ($ $))
         (SPADCALL |f| (QREFELT $ 23))) 
@@ -72,9 +65,8 @@
                 (COND
                  ((EQUAL |s| (SPADCALL |f| (QREFELT $ 14)))
                   (SEQ
-                   (LETT |str1| "'integrate' unavailable on this domain;  "
-                         . #1=(|GSERIES;integrate;$S$;8|))
-                   (LETT |str2| "use 'approximate' first" . #1#)
+                   (LETT |str1| "'integrate' unavailable on this domain;  ")
+                   (LETT |str2| "use 'approximate' first")
                    (EXIT (|error| (STRCONC |str1| |str2|)))))
                  ((NULL
                    (SPADCALL |s|
@@ -89,19 +81,17 @@
 
 (SDEFUN |GSERIES;integrate;$S$;8!0| ((|x| NIL) ($$ NIL))
         (PROG (|s| $)
-          (LETT |s| (QREFELT $$ 1) . #1=(|GSERIES;integrate;$S$;8|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |s| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |s| (QREFELT $ 29)))))) 
 
 (SDEFUN |GSERIES;integrateWithOneAnswer|
         ((|f| |Coef|) (|s| |Symbol|) ($ |Coef|))
         (SPROG ((|res| (|Union| |Coef| (|List| |Coef|))))
-               (SEQ
-                (LETT |res| (SPADCALL |f| |s| (QREFELT $ 33))
-                      |GSERIES;integrateWithOneAnswer|)
-                (EXIT
-                 (COND ((QEQCAR |res| 0) (QCDR |res|))
-                       ('T (|SPADfirst| (QCDR |res|)))))))) 
+               (SEQ (LETT |res| (SPADCALL |f| |s| (QREFELT $ 33)))
+                    (EXIT
+                     (COND ((QEQCAR |res| 0) (QCDR |res|))
+                           ('T (|SPADfirst| (QCDR |res|)))))))) 
 
 (SDEFUN |GSERIES;integrate;$S$;10| ((|f| $) (|s| |Symbol|) ($ $))
         (SPROG ((|str2| (|String|)) (|str1| (|String|)))
@@ -109,9 +99,8 @@
                 (COND
                  ((EQUAL |s| (SPADCALL |f| (QREFELT $ 14)))
                   (SEQ
-                   (LETT |str1| "'integrate' unavailable on this domain;  "
-                         . #1=(|GSERIES;integrate;$S$;10|))
-                   (LETT |str2| "use 'approximate' first" . #1#)
+                   (LETT |str1| "'integrate' unavailable on this domain;  ")
+                   (LETT |str2| "use 'approximate' first")
                    (EXIT (|error| (STRCONC |str1| |str2|)))))
                  ((NULL
                    (SPADCALL |s|
@@ -127,8 +116,8 @@
 
 (SDEFUN |GSERIES;integrate;$S$;10!0| ((|x| NIL) ($$ NIL))
         (PROG (|s| $)
-          (LETT |s| (QREFELT $$ 1) . #1=(|GSERIES;integrate;$S$;10|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |s| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|GSERIES;integrateWithOneAnswer| |x| |s| $))))) 
 
 (DECLAIM (NOTINLINE |GeneralUnivariatePowerSeries;|)) 
@@ -142,14 +131,13 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|GeneralUnivariatePowerSeries|)
-                                               '|domainEqualList|)
-                    . #3=(|GeneralUnivariatePowerSeries|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |GeneralUnivariatePowerSeries;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -160,11 +148,11 @@
    ((|pv$| NIL) (#1=#:G156 NIL) (#2=#:G157 NIL) (#3=#:G158 NIL) (#4=#:G159 NIL)
     (#5=#:G161 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #6=(|GeneralUnivariatePowerSeries|))
-    (LETT DV$2 (|devaluate| |#2|) . #6#)
-    (LETT DV$3 (|devaluate| |#3|) . #6#)
-    (LETT |dv$| (LIST '|GeneralUnivariatePowerSeries| DV$1 DV$2 DV$3) . #6#)
-    (LETT $ (GETREFV 58) . #6#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT |dv$| (LIST '|GeneralUnivariatePowerSeries| DV$1 DV$2 DV$3))
+    (LETT $ (GETREFV 58))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -205,8 +193,7 @@
                                                           (|Integer|))))
                                         (LETT #5#
                                               (|HasCategory| |#1|
-                                                             '(|CommutativeRing|))
-                                              . #6#)
+                                                             '(|CommutativeRing|)))
                                         (OR #5#
                                             (|HasCategory| |#1| '(|Field|)))
                                         (|HasSignature| |#1|
@@ -269,16 +256,14 @@
                                                                   |#1|))))))
                                         (LETT #4#
                                               (|HasCategory| |#1|
-                                                             '(|IntegralDomain|))
-                                              . #6#)
+                                                             '(|IntegralDomain|)))
                                         (OR #5# (|HasCategory| |#1| '(|Field|))
                                             #4#)
                                         (OR (|HasCategory| |#1| '(|Field|))
                                             #4#)
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|SemiRing|))
-                                              . #6#)
+                                                             '(|SemiRing|)))
                                         (OR #3#
                                             (|HasSignature| |#1|
                                                             (LIST '*
@@ -290,8 +275,7 @@
                                                                    (|devaluate|
                                                                     |#1|)))))
                                         (LETT #2#
-                                              (|HasCategory| |#1| '(|Ring|))
-                                              . #6#)
+                                              (|HasCategory| |#1| '(|Ring|)))
                                         (OR #2#
                                             (|HasSignature| |#1|
                                                             (LIST '*
@@ -327,8 +311,7 @@
                                                        '(|CancellationAbelianMonoid|))
                                         (LETT #1#
                                               (|HasCategory| |#1|
-                                                             '(|AbelianGroup|))
-                                              . #6#)
+                                                             '(|AbelianGroup|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -373,8 +356,7 @@
                                                                    '(|Fraction|
                                                                      (|Integer|))
                                                                    (|devaluate|
-                                                                    |#1|)))))))
-                    . #6#))
+                                                                    |#1|)))))))))
     (|haddProp| |$ConstructorCache| '|GeneralUnivariatePowerSeries|
                 (LIST DV$1 DV$2 DV$3) (CONS 1 $))
     (|stuffDomainSlots| $)

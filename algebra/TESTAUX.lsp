@@ -64,17 +64,13 @@
 
 (SDEFUN |TESTAUX;testRelativePrecision;2R;11| ((|eps| R) ($ R))
         (SPROG ((|old| (R)))
-               (SEQ
-                (LETT |old| (QREFELT $ 30)
-                      |TESTAUX;testRelativePrecision;2R;11|)
-                (SETELT $ 30 |eps|) (EXIT |old|)))) 
+               (SEQ (LETT |old| (QREFELT $ 30)) (SETELT $ 30 |eps|)
+                    (EXIT |old|)))) 
 
 (SDEFUN |TESTAUX;testAbsolutePrecision;2R;12| ((|eps| R) ($ R))
         (SPROG ((|old| (R)))
-               (SEQ
-                (LETT |old| (QREFELT $ 31)
-                      |TESTAUX;testAbsolutePrecision;2R;12|)
-                (SETELT $ 31 |eps|) (EXIT |old|)))) 
+               (SEQ (LETT |old| (QREFELT $ 31)) (SETELT $ 31 |eps|)
+                    (EXIT |old|)))) 
 
 (SDEFUN |TESTAUX;testRealEqualsAux0|
         ((|inp| |String|) (|ex1| R) (|ex2| R)
@@ -85,19 +81,18 @@
          ((|res| (|List| (|OutputForm|))) (|relative| (R)) (|absolute| (R)))
          (SEQ
           (LETT |absolute|
-                (SPADCALL (SPADCALL |ex1| |ex2| (QREFELT $ 34)) (QREFELT $ 35))
-                . #1=(|TESTAUX;testRealEqualsAux0|))
+                (SPADCALL (SPADCALL |ex1| |ex2| (QREFELT $ 34))
+                          (QREFELT $ 35)))
           (COND
            ((SPADCALL |ex2| (QREFELT $ 36))
-            (LETT |relative| (|spadConstant| $ 37) . #1#))
-           (#2='T
+            (LETT |relative| (|spadConstant| $ 37)))
+           (#1='T
             (LETT |relative|
                   (SPADCALL
                    (SPADCALL (SPADCALL |ex1| |ex2| (QREFELT $ 38))
                              (|spadConstant| $ 39) (QREFELT $ 34))
-                   (QREFELT $ 35))
-                  . #1#)))
-          (LETT |res| NIL . #1#)
+                   (QREFELT $ 35)))))
+          (LETT |res| NIL)
           (COND
            ((SPADCALL |relative| (QREFELT $ 30) (QREFELT $ 40))
             (COND
@@ -108,11 +103,10 @@
                      (SPADCALL (SPADCALL "rel err: " (QREFELT $ 22))
                                (SPADCALL |relative| (QREFELT $ 24))
                                (QREFELT $ 41))
-                     |res|)
-                    . #1#))
-             (#2#
-              (LETT |res| (CONS (SPADCALL "rel err " (QREFELT $ 22)) |res|)
-                    . #1#)))))
+                     |res|)))
+             (#1#
+              (LETT |res|
+                    (CONS (SPADCALL "rel err " (QREFELT $ 22)) |res|))))))
           (COND
            ((SPADCALL |absolute| (QREFELT $ 31) (QREFELT $ 40))
             (COND
@@ -123,11 +117,10 @@
                      (SPADCALL (SPADCALL "abs err: " (QREFELT $ 22))
                                (SPADCALL |absolute| (QREFELT $ 24))
                                (QREFELT $ 41))
-                     |res|)
-                    . #1#))
-             (#2#
-              (LETT |res| (CONS (SPADCALL "abs err " (QREFELT $ 22)) |res|)
-                    . #1#)))))
+                     |res|)))
+             (#1#
+              (LETT |res|
+                    (CONS (SPADCALL "abs err " (QREFELT $ 22)) |res|))))))
           (EXIT
            (COND
             ((NULL |res|)
@@ -135,7 +128,7 @@
                        (LIST (SPADCALL |ex1| (QREFELT $ 24))
                              (SPADCALL |ex2| (QREFELT $ 24)))
                        |prep|))
-            (#2#
+            (#1#
              (SPADCALL |inp|
                        (SPADCALL
                         (LIST (SPADCALL |ex1| (QREFELT $ 24))
@@ -164,19 +157,18 @@
          ((|res| (|List| (|OutputForm|))) (|relative| (R)) (|absolute| (R)))
          (SEQ
           (LETT |absolute|
-                (SPADCALL (SPADCALL |ex1| |ex2| (QREFELT $ 46)) (QREFELT $ 47))
-                . #1=(|TESTAUX;testComplexEqualsAux0|))
+                (SPADCALL (SPADCALL |ex1| |ex2| (QREFELT $ 46))
+                          (QREFELT $ 47)))
           (COND
            ((SPADCALL |ex2| (QREFELT $ 48))
-            (LETT |relative| (|spadConstant| $ 37) . #1#))
-           (#2='T
+            (LETT |relative| (|spadConstant| $ 37)))
+           (#1='T
             (LETT |relative|
                   (SPADCALL
                    (SPADCALL (SPADCALL |ex1| |ex2| (QREFELT $ 49))
                              (|spadConstant| $ 50) (QREFELT $ 46))
-                   (QREFELT $ 47))
-                  . #1#)))
-          (LETT |res| NIL . #1#)
+                   (QREFELT $ 47)))))
+          (LETT |res| NIL)
           (COND
            ((SPADCALL |relative| (QREFELT $ 30) (QREFELT $ 40))
             (COND
@@ -187,11 +179,10 @@
                      (SPADCALL (SPADCALL "rel err: " (QREFELT $ 22))
                                (SPADCALL |relative| (QREFELT $ 24))
                                (QREFELT $ 41))
-                     |res|)
-                    . #1#))
-             (#2#
-              (LETT |res| (CONS (SPADCALL "rel err " (QREFELT $ 22)) |res|)
-                    . #1#)))))
+                     |res|)))
+             (#1#
+              (LETT |res|
+                    (CONS (SPADCALL "rel err " (QREFELT $ 22)) |res|))))))
           (COND
            ((SPADCALL |absolute| (QREFELT $ 31) (QREFELT $ 40))
             (COND
@@ -202,11 +193,10 @@
                      (SPADCALL (SPADCALL "abs err: " (QREFELT $ 22))
                                (SPADCALL |absolute| (QREFELT $ 24))
                                (QREFELT $ 41))
-                     |res|)
-                    . #1#))
-             (#2#
-              (LETT |res| (CONS (SPADCALL "abs err " (QREFELT $ 22)) |res|)
-                    . #1#)))))
+                     |res|)))
+             (#1#
+              (LETT |res|
+                    (CONS (SPADCALL "abs err " (QREFELT $ 22)) |res|))))))
           (EXIT
            (COND
             ((NULL |res|)
@@ -214,7 +204,7 @@
                        (LIST (SPADCALL |ex1| (QREFELT $ 51))
                              (SPADCALL |ex2| (QREFELT $ 51)))
                        |prep|))
-            (#2#
+            (#1#
              (SPADCALL |inp|
                        (SPADCALL
                         (LIST (SPADCALL |ex1| (QREFELT $ 51))
@@ -298,28 +288,26 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|UnittestAux|)
-                                               '|domainEqualList|)
-                    . #3=(|UnittestAux|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|UnittestAux;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|UnittestAux;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|UnittestAux|)))))))))) 
 
 (DEFUN |UnittestAux;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|UnittestAux|))
-          (LETT |dv$| (LIST '|UnittestAux| DV$1) . #1#)
-          (LETT $ (GETREFV 63) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|UnittestAux| DV$1))
+          (LETT $ (GETREFV 63))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
-                                                             '(|RealNumberSystem|))))
-                          . #1#))
+                                                             '(|RealNumberSystem|))))))
           (|haddProp| |$ConstructorCache| '|UnittestAux| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

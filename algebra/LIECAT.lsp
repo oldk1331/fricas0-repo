@@ -28,7 +28,5 @@
                                                       ((/ ($ $ |t#1|))
                                                        (|has| |t#1|
                                                               (|Field|))))
-                                                    NIL NIL NIL))
-                                           . #2=(|LieAlgebra|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|LieAlgebra| |t#1|))))) 

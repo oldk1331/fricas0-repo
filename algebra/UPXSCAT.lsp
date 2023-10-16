@@ -82,7 +82,5 @@
                                                    (|Algebra|
                                                     (|Fraction| (|Integer|)))))
                                            ((|Field|) (|has| |t#1| (|Field|))))
-                                         NIL NIL))
-                                       . #3=(|UnivariatePuiseuxSeriesCategory|))))))
-                   . #3#)
+                                         NIL NIL))))))))
            (SETELT #1# 0 (LIST '|UnivariatePuiseuxSeriesCategory| |t#1|))))) 

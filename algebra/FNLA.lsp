@@ -12,20 +12,18 @@
                  (SPADCALL (SPADCALL (QREFELT $ 14) |i| (QREFELT $ 18)) 2
                            (QREFELT $ 19))
                  (SPADCALL (SPADCALL (QREFELT $ 14) |j| (QREFELT $ 18)) 2
-                           (QREFELT $ 19)))
-                . #1=(|FNLA;have|))
+                           (QREFELT $ 19))))
           (EXIT
            (COND
             ((SPADCALL |wt| (QREFELT $ 7) (QREFELT $ 21))
              (|spadConstant| $ 22))
             ('T
-             (SEQ (LETT |lo| 1 . #1#)
-                  (LETT |hi| (SPADCALL (QREFELT $ 15)) . #1#)
+             (SEQ (LETT |lo| 1) (LETT |hi| (SPADCALL (QREFELT $ 15)))
                   (SEQ G190
                        (COND
                         ((NULL (SPADCALL (- |hi| |lo|) 1 (QREFELT $ 21)))
                          (GO G191)))
-                       (SEQ (LETT |mid| (QUOTIENT2 (+ |hi| |lo|) 2) . #1#)
+                       (SEQ (LETT |mid| (QUOTIENT2 (+ |hi| |lo|) 2))
                             (EXIT
                              (COND
                               ((<
@@ -33,8 +31,8 @@
                                  (SPADCALL (QREFELT $ 14) |mid| (QREFELT $ 18))
                                  2 (QREFELT $ 19))
                                 |wt|)
-                               (LETT |lo| |mid| . #1#))
-                              ('T (LETT |hi| |mid| . #1#)))))
+                               (LETT |lo| |mid|))
+                              ('T (LETT |hi| |mid|)))))
                        NIL (GO G190) G191 (EXIT NIL))
                   (SEQ G190
                        (COND
@@ -45,8 +43,8 @@
                             (QREFELT $ 19))
                            |i|))
                          (GO G191)))
-                       (SEQ (EXIT (LETT |hi| (+ |hi| 1) . #1#))) NIL (GO G190)
-                       G191 (EXIT NIL))
+                       (SEQ (EXIT (LETT |hi| (+ |hi| 1)))) NIL (GO G190) G191
+                       (EXIT NIL))
                   (SEQ G190
                        (COND
                         ((NULL
@@ -56,8 +54,8 @@
                             (QREFELT $ 19))
                            |j|))
                          (GO G191)))
-                       (SEQ (EXIT (LETT |hi| (+ |hi| 1) . #1#))) NIL (GO G190)
-                       G191 (EXIT NIL))
+                       (SEQ (EXIT (LETT |hi| (+ |hi| 1)))) NIL (GO G190) G191
+                       (EXIT NIL))
                   (EXIT
                    (SPADCALL (|spadConstant| $ 25)
                              (SPADCALL |hi| (QREFELT $ 24))
@@ -85,8 +83,7 @@
                   (SEQ
                    (LETT |dg|
                          (SPADCALL (SPADCALL |f| (QREFELT $ 31))
-                                   (QREFELT $ 32))
-                         |FNLA;brkt|)
+                                   (QREFELT $ 32)))
                    (EXIT
                     (COND
                      ((SPADCALL (SPADCALL |f| (QREFELT $ 33))
@@ -191,7 +188,7 @@
 
 (SDEFUN |FNLA;shallowE| ((|r| R) (|s| |OrdSetInts|) ($ |OutputForm|))
         (SPROG ((|k| (|Integer|)))
-               (SEQ (LETT |k| (SPADCALL |s| (QREFELT $ 32)) |FNLA;shallowE|)
+               (SEQ (LETT |k| (SPADCALL |s| (QREFELT $ 32)))
                     (EXIT
                      (COND
                       ((SPADCALL |r| (|spadConstant| $ 25) (QREFELT $ 44))
@@ -304,13 +301,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FreeNilpotentLie|)
-                                               '|domainEqualList|)
-                    . #3=(|FreeNilpotentLie|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |FreeNilpotentLie;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|FreeNilpotentLie|)))))))))) 
@@ -318,13 +314,13 @@
 (DEFUN |FreeNilpotentLie;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FreeNilpotentLie|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|FreeNilpotentLie| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 60) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|FreeNilpotentLie| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 60))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FreeNilpotentLie|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))
           (|stuffDomainSlots| $)

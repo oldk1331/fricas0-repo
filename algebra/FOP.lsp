@@ -55,8 +55,8 @@
          (PROG (#1=#:G122)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|FortranOutputStackPackage|)
-                    . #2=(|FortranOutputStackPackage|))
+             ((LETT #1#
+                    (HGET |$ConstructorCache| '|FortranOutputStackPackage|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -66,7 +66,7 @@
                              (LIST
                               (CONS NIL
                                     (CONS 1 (|FortranOutputStackPackage;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
@@ -75,11 +75,10 @@
 (DEFUN |FortranOutputStackPackage;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|FortranOutputStackPackage|)
-                . #1=(|FortranOutputStackPackage|))
-          (LETT $ (GETREFV 29) . #1#)
+          (LETT |dv$| '(|FortranOutputStackPackage|))
+          (LETT $ (GETREFV 29))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FortranOutputStackPackage| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

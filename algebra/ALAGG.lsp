@@ -41,7 +41,5 @@
                                                     "failed")
                                                    |t#1| $))
                                                  T))
-                                              NIL NIL NIL))
-                                            . #3=(|AssociationListAggregate|))))))
-                   . #3#)
+                                              NIL NIL NIL))))))))
            (SETELT #1# 0 (LIST '|AssociationListAggregate| |t#1| |t#2|))))) 

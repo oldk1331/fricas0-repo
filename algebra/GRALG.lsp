@@ -29,7 +29,5 @@
                                             (|mkCategory|
                                              '(((|One| ($) |constant|) T)
                                                ((|product| ($ $ $)) T))
-                                             NIL NIL NIL))
-                                           . #2=(|GradedAlgebra|)))))
-                   . #2#)
+                                             NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|GradedAlgebra| |t#1| |t#2|))))) 

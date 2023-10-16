@@ -13,35 +13,31 @@
           (COND
            ((SPADCALL |p| (QREFELT $ 11))
             (SPADCALL |p| |x| |l| (QREFELT $ 13)))
-           ((QEQCAR
-             (LETT |r| (SPADCALL |x| (QREFELT $ 15))
-                   . #2=(|PMQFCAT;patternMatch;QP2Pmr;1|))
-             0)
+           ((QEQCAR (LETT |r| (SPADCALL |x| (QREFELT $ 15))) 0)
             (SPADCALL
-             (PROG2 (LETT #1# |r| . #2#)
+             (PROG2 (LETT #1# |r|)
                  (QCDR #1#)
                (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                (|Union| (QREFELT $ 7) "failed") #1#))
              |p| |l| (QREFELT $ 17)))
-           (#3='T
-            (SEQ (LETT |u| (SPADCALL |p| (QREFELT $ 20)) . #2#)
+           (#2='T
+            (SEQ (LETT |u| (SPADCALL |p| (QREFELT $ 20)))
                  (EXIT
                   (COND
                    ((QEQCAR |u| 0)
-                    (SEQ (LETT |ur| (QCDR |u|) . #2#)
+                    (SEQ (LETT |ur| (QCDR |u|))
                          (EXIT
                           (COND
                            ((SPADCALL
                              (LETT |l|
                                    (SPADCALL (SPADCALL |x| (QREFELT $ 21))
-                                             (QCAR |ur|) |l| (QREFELT $ 17))
-                                   . #2#)
+                                             (QCAR |ur|) |l| (QREFELT $ 17)))
                              (QREFELT $ 22))
                             |l|)
-                           (#3#
+                           (#2#
                             (SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QCDR |ur|)
                                       |l| (QREFELT $ 17)))))))
-                   (#3# (SPADCALL (QREFELT $ 24))))))))))) 
+                   (#2# (SPADCALL (QREFELT $ 24))))))))))) 
 
 (DECLAIM (NOTINLINE |PatternMatchQuotientFieldCategory;|)) 
 
@@ -54,15 +50,14 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|PatternMatchQuotientFieldCategory|)
-                                               '|domainEqualList|)
-                    . #3=(|PatternMatchQuotientFieldCategory|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |PatternMatchQuotientFieldCategory;|)
                              #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -71,16 +66,14 @@
 (DEFUN |PatternMatchQuotientFieldCategory;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|PatternMatchQuotientFieldCategory|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$|
-                (LIST '|PatternMatchQuotientFieldCategory| DV$1 DV$2 DV$3)
-                . #1#)
-          (LETT $ (GETREFV 26) . #1#)
+                (LIST '|PatternMatchQuotientFieldCategory| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 26))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PatternMatchQuotientFieldCategory|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))
           (|stuffDomainSlots| $)

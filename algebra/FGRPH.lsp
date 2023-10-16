@@ -367,7 +367,5 @@
                                                          (|Integer|)
                                                          (|Integer|)))
                                                        T))
-                                                    NIL NIL NIL))
-                                           . #2=(|FiniteGraph|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FiniteGraph| |t#1|))))) 

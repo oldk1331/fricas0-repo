@@ -35,7 +35,5 @@
                                                ((|trunc|
                                                  ($ $ (|NonNegativeInteger|)))
                                                 T))
-                                             NIL NIL NIL))
-                                           . #2=(|XPolynomialsCat|)))))
-                   . #2#)
+                                             NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|XPolynomialsCat| |t#1| |t#2|))))) 

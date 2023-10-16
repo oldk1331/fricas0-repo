@@ -15,8 +15,7 @@
                     (|mkCategory|
                      '(((|convert| ($ (|OutputForm|) (|Integer|))) T)
                        ((|display| ((|Void|) $)) T))
-                     NIL NIL NIL))
-                   |OutputFormatterCategory|)
+                     NIL NIL NIL)))
            (SETELT #1# 0 '(|OutputFormatterCategory|))))) 
 
 (MAKEPROP '|OutputFormatterCategory| 'NILADIC T) 

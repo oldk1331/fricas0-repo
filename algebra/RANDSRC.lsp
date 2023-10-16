@@ -6,9 +6,8 @@
                       (REM
                        (- (SPADCALL 271828183 (QREFELT $ 8) (QREFELT $ 11))
                           (SPADCALL 314159269 (QREFELT $ 7) (QREFELT $ 11)))
-                       (QREFELT $ 6))
-                      . #1=(|RANDSRC;randnum;I;1|))
-                (COND ((< |t| 0) (LETT |t| (+ |t| (QREFELT $ 6)) . #1#)))
+                       (QREFELT $ 6)))
+                (COND ((< |t| 0) (LETT |t| (+ |t| (QREFELT $ 6)))))
                 (SETELT $ 7 (QREFELT $ 8)) (EXIT (SETELT $ 8 |t|))))) 
 
 (SDEFUN |RANDSRC;size;I;2| (($ |Integer|)) (QREFELT $ 6)) 
@@ -30,8 +29,7 @@
          (PROG (#1=#:G112)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|RandomNumberSource|)
-                    . #2=(|RandomNumberSource|))
+             ((LETT #1# (HGET |$ConstructorCache| '|RandomNumberSource|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -40,7 +38,7 @@
                        (HPUT |$ConstructorCache| '|RandomNumberSource|
                              (LIST
                               (CONS NIL (CONS 1 (|RandomNumberSource;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|RandomNumberSource|)))))))))) 
@@ -48,10 +46,10 @@
 (DEFUN |RandomNumberSource;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|RandomNumberSource|) . #1=(|RandomNumberSource|))
-          (LETT $ (GETREFV 18) . #1#)
+          (LETT |dv$| '(|RandomNumberSource|))
+          (LETT $ (GETREFV 18))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RandomNumberSource| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

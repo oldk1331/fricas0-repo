@@ -86,7 +86,5 @@
                                                         (|OrderedAbelianMonoidSup|))
                                                  (|has| |t#2|
                                                         (|OrderedSet|)))))
-                                             NIL NIL))
-                                           . #2=(|IndexedDirectProductCategory|)))))
-                   . #2#)
+                                             NIL NIL)))))))
            (SETELT #1# 0 (LIST '|IndexedDirectProductCategory| |t#1| |t#2|))))) 

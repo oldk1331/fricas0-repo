@@ -33,11 +33,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|DataList|)
-                                               '|domainEqualList|)
-                    . #3=(|DataList|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|DataList;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|DataList;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|DataList|)))))))))) 
 
 (DEFUN |DataList;| (|#1|)
@@ -46,9 +45,9 @@
     (#5=#:G118 NIL) (#6=#:G119 NIL) (#7=#:G120 NIL) ($ NIL) (|dv$| NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #8=(|DataList|))
-    (LETT |dv$| (LIST '|DataList| DV$1) . #8#)
-    (LETT $ (GETREFV 44) . #8#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|DataList| DV$1))
+    (LETT $ (GETREFV 44))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -61,15 +60,13 @@
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #7#
                                               (|HasCategory| |#1|
-                                                             '(|Comparable|))
-                                              . #8#)
+                                                             '(|Comparable|)))
                                         (OR #7#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|)))
                                         (LETT #6#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #8#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -88,25 +85,22 @@
                                         (LETT #5#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #8#)
+                                                               (|OutputForm|))))
                                         (OR #5# #7#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
                                             #6#)
                                         (|HasCategory| (|Integer|)
-                                                       '(|OrderedSet|))))
-                    . #8#))
+                                                       '(|OrderedSet|))))))
     (|haddProp| |$ConstructorCache| '|DataList| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
-    (AND (LETT #4# (|HasCategory| $ '(|finiteAggregate|)) . #8#)
+    (AND (LETT #4# (|HasCategory| $ '(|finiteAggregate|)))
          (|augmentPredVector| $ 4096))
     (AND
      (LETT #3#
            (AND (|HasCategory| |#1| '(|OrderedSet|))
-                (|HasCategory| $ '(|finiteAggregate|)))
-           . #8#)
+                (|HasCategory| $ '(|finiteAggregate|))))
      (|augmentPredVector| $ 8192))
     (AND (OR #5# (AND #7# #4#) #3#) (|augmentPredVector| $ 16384))
     (AND (OR (AND #7# #4#) #3# #6#) (|augmentPredVector| $ 32768))
@@ -114,11 +108,10 @@
     (AND
      (LETT #2#
            (AND (|HasCategory| |#1| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|)))
-           . #8#)
+                (|HasCategory| $ '(|finiteAggregate|))))
      (|augmentPredVector| $ 131072))
     (AND (OR #2# (AND #7# #4#) #3# #6#) (|augmentPredVector| $ 262144))
-    (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)) . #8#)
+    (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)))
          (|augmentPredVector| $ 524288))
     (AND (|HasCategory| |#1| '(|OrderedSet|)) #4# #1#
          (|augmentPredVector| $ 1048576))

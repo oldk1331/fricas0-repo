@@ -14,8 +14,7 @@
          (PROG1
              (LETT #1#
                    (|Join| (|OrderedAbelianMonoid|)
-                           (|CancellationAbelianMonoid|))
-                   |OrderedCancellationAbelianMonoid|)
+                           (|CancellationAbelianMonoid|)))
            (SETELT #1# 0 '(|OrderedCancellationAbelianMonoid|))))) 
 
 (MAKEPROP '|OrderedCancellationAbelianMonoid| 'NILADIC T) 

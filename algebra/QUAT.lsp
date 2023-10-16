@@ -10,20 +10,19 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Quaternion|)
-                                               '|domainEqualList|)
-                    . #3=(|Quaternion|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Quaternion;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Quaternion;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|Quaternion|)))))))))) 
 
 (DEFUN |Quaternion;| (|#1|)
   (SPROG ((|pv$| NIL) (#1=#:G120 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #2=(|Quaternion|))
-          (LETT |dv$| (LIST '|Quaternion| DV$1) . #2#)
-          (LETT $ (GETREFV 38) . #2#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|Quaternion| DV$1))
+          (LETT $ (GETREFV 38))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -39,8 +38,7 @@
                                               (|HasCategory| |#1| '(|Field|))
                                               (LETT #1#
                                                     (|HasCategory| |#1|
-                                                                   '(|EntireRing|))
-                                                    . #2#)
+                                                                   '(|EntireRing|)))
                                               (OR #1#
                                                   (|HasCategory| |#1|
                                                                  '(|Field|)))
@@ -87,8 +85,7 @@
                                                                 (|Fraction|
                                                                  (|Integer|))))
                                                (|HasCategory| |#1|
-                                                              '(|Field|)))))
-                          . #2#))
+                                                              '(|Field|)))))))
           (|haddProp| |$ConstructorCache| '|Quaternion| (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)

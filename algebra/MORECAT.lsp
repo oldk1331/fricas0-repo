@@ -33,9 +33,7 @@
                            (LETT |MultivariateSkewPolynomialCategory;CAT|
                                  (|Join|
                                   (|MaybeSkewPolynomialCategory| '|t#1| '|t#2|
-                                                                 '|t#3|))
-                                 . #2=(|MultivariateSkewPolynomialCategory|)))))
-                   . #2#)
+                                                                 '|t#3|)))))))
            (SETELT #1# 0
                    (LIST '|MultivariateSkewPolynomialCategory| |t#1| |t#2|
                          |t#3|))))) 

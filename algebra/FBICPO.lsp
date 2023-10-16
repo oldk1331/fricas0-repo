@@ -4,34 +4,32 @@
          ($ |NonNegativeInteger|))
         (SPROG
          ((#2=#:G105 NIL) (|res| (|Union| (|NonNegativeInteger|) "failed")))
-         (SEQ
-          (LETT |res| (SPADCALL |s| |a| |b| (QREFELT $ 9))
-                . #3=(|FBICPO;join;$3Nni;1|))
-          (COND
-           ((SPADCALL |res| (CONS 1 "failed") (QREFELT $ 11))
-            (|error| "This POSET does not have join")))
-          (EXIT
-           (PROG2 (LETT #2# |res| . #3#)
-               (QCDR #2#)
-             (|check_union2| (QEQCAR #2# 0) (|NonNegativeInteger|)
-                             (|Union| (|NonNegativeInteger|) "failed") #2#)))))) 
+         (SEQ (LETT |res| (SPADCALL |s| |a| |b| (QREFELT $ 9)))
+              (COND
+               ((SPADCALL |res| (CONS 1 "failed") (QREFELT $ 11))
+                (|error| "This POSET does not have join")))
+              (EXIT
+               (PROG2 (LETT #2# |res|)
+                   (QCDR #2#)
+                 (|check_union2| (QEQCAR #2# 0) (|NonNegativeInteger|)
+                                 (|Union| (|NonNegativeInteger|) "failed")
+                                 #2#)))))) 
 
 (SDEFUN |FBICPO;meet;$3Nni;2|
         ((|s| $) (|a| . #1=(|NonNegativeInteger|)) (|b| . #1#)
          ($ |NonNegativeInteger|))
         (SPROG
          ((#2=#:G110 NIL) (|res| (|Union| (|NonNegativeInteger|) "failed")))
-         (SEQ
-          (LETT |res| (SPADCALL |s| |a| |b| (QREFELT $ 13))
-                . #3=(|FBICPO;meet;$3Nni;2|))
-          (COND
-           ((SPADCALL |res| (CONS 1 "failed") (QREFELT $ 11))
-            (|error| "This POSET does not have meet")))
-          (EXIT
-           (PROG2 (LETT #2# |res| . #3#)
-               (QCDR #2#)
-             (|check_union2| (QEQCAR #2# 0) (|NonNegativeInteger|)
-                             (|Union| (|NonNegativeInteger|) "failed") #2#)))))) 
+         (SEQ (LETT |res| (SPADCALL |s| |a| |b| (QREFELT $ 13)))
+              (COND
+               ((SPADCALL |res| (CONS 1 "failed") (QREFELT $ 11))
+                (|error| "This POSET does not have meet")))
+              (EXIT
+               (PROG2 (LETT #2# |res|)
+                   (QCDR #2#)
+                 (|check_union2| (QEQCAR #2# 0) (|NonNegativeInteger|)
+                                 (|Union| (|NonNegativeInteger|) "failed")
+                                 #2#)))))) 
 
 (DECLAIM (NOTINLINE |FiniteBiCPO;|)) 
 
@@ -44,22 +42,21 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|FiniteBiCPO|)
-                                               '|domainEqualList|)
-                    . #3=(|FiniteBiCPO|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|FiniteBiCPO;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|FiniteBiCPO;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|FiniteBiCPO|)))))))))) 
 
 (DEFUN |FiniteBiCPO;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteBiCPO|))
-          (LETT |dv$| (LIST '|FiniteBiCPO| DV$1) . #1#)
-          (LETT $ (GETREFV 38) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|FiniteBiCPO| DV$1))
+          (LETT $ (GETREFV 38))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FiniteBiCPO| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -10,47 +10,41 @@
 
 (SDEFUN |XMLAT;coerce;$S;3| ((|rp| $) ($ |String|))
         (SPROG ((|val| (|String|)) (#1=#:G112 NIL) (|vn| NIL))
-               (SEQ (LETT |val| "" . #2=(|XMLAT;coerce;$S;3|))
-                    (SEQ (LETT |vn| NIL . #2#) (LETT #1# (QCDR |rp|) . #2#)
-                         G190
+               (SEQ (LETT |val| "")
+                    (SEQ (LETT |vn| NIL) (LETT #1# (QCDR |rp|)) G190
                          (COND
-                          ((OR (ATOM #1#)
-                               (PROGN (LETT |vn| (CAR #1#) . #2#) NIL))
+                          ((OR (ATOM #1#) (PROGN (LETT |vn| (CAR #1#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
-                           (COND ((EQUAL |val| "") (LETT |val| |vn| . #2#))
+                           (COND ((EQUAL |val| "") (LETT |val| |vn|))
                                  ('T
                                   (LETT |val|
                                         (SPADCALL (LIST |val| " " |vn|)
-                                                  (QREFELT $ 12))
-                                        . #2#)))))
-                         (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                                                  (QREFELT $ 12)))))))
+                         (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT
                      (SPADCALL
                       (LIST " " (QCAR |rp|)
-                            (SPADCALL "=" (STR_ELT #3="\" " 0) (QREFELT $ 14))
-                            (SPADCALL |val| (STR_ELT #3# 0) (QREFELT $ 14)))
+                            (SPADCALL "=" (STR_ELT #2="\" " 0) (QREFELT $ 14))
+                            (SPADCALL |val| (STR_ELT #2# 0) (QREFELT $ 14)))
                       (QREFELT $ 12)))))) 
 
 (SDEFUN |XMLAT;outputVRML;$TfV;4| ((|rp| $) (|f1| |TextFile|) ($ |Void|))
         (SPROG ((|val| (|String|)) (#1=#:G117 NIL) (|vn| NIL))
-               (SEQ (LETT |val| "" . #2=(|XMLAT;outputVRML;$TfV;4|))
-                    (SEQ (LETT |vn| NIL . #2#) (LETT #1# (QCDR |rp|) . #2#)
-                         G190
+               (SEQ (LETT |val| "")
+                    (SEQ (LETT |vn| NIL) (LETT #1# (QCDR |rp|)) G190
                          (COND
-                          ((OR (ATOM #1#)
-                               (PROGN (LETT |vn| (CAR #1#) . #2#) NIL))
+                          ((OR (ATOM #1#) (PROGN (LETT |vn| (CAR #1#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
-                           (COND ((EQUAL |val| "") (LETT |val| |vn| . #2#))
+                           (COND ((EQUAL |val| "") (LETT |val| |vn|))
                                  ('T
                                   (LETT |val|
                                         (SPADCALL (LIST |val| "," |vn|)
-                                                  (QREFELT $ 12))
-                                        . #2#)))))
-                         (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                                                  (QREFELT $ 12)))))))
+                         (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (SPADCALL |f1|
                               (SPADCALL (LIST (QCAR |rp|) " " |val|)
                                         (QREFELT $ 12))
@@ -64,8 +58,7 @@
          (PROG (#1=#:G119)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|XmlAttribute|)
-                    . #2=(|XmlAttribute|))
+             ((LETT #1# (HGET |$ConstructorCache| '|XmlAttribute|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -73,17 +66,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|XmlAttribute|
                              (LIST (CONS NIL (CONS 1 (|XmlAttribute;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|XmlAttribute|)))))))))) 
 
 (DEFUN |XmlAttribute;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|XmlAttribute|) . #1=(|XmlAttribute|))
-          (LETT $ (GETREFV 20) . #1#)
+          (LETT |dv$| '(|XmlAttribute|))
+          (LETT $ (GETREFV 20))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|XmlAttribute| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

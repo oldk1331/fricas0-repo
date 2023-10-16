@@ -6,38 +6,34 @@
         (SPROG
          ((|c| (P)) (|u| (|SparseUnivariatePolynomial| P)) (#1=#:G112 NIL)
           (|v| NIL) (|i| NIL) (|coefs| (|Vector| (|Fraction| P))))
-         (SEQ
-          (LETT |coefs| (MAKEARR1 (LENGTH |vs|) (|spadConstant| $ 11))
-                . #2=(|LSPP;poly2vect|))
-          (SEQ (LETT |i| 1 . #2#) (LETT |v| NIL . #2#) (LETT #1# |vs| . #2#)
-               G190
-               (COND
-                ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#) . #2#) NIL)
-                     (NULL
-                      (SPADCALL |p| (|spadConstant| $ 14) (QREFELT $ 16))))
-                 (GO G191)))
-               (SEQ (LETT |u| (SPADCALL |p| |v| (QREFELT $ 18)) . #2#)
-                    (EXIT
-                     (COND ((EQL (SPADCALL |u| (QREFELT $ 21)) 0) "next v")
-                           ('T
-                            (SEQ
-                             (SPADCALL |coefs| |i|
-                                       (SPADCALL
-                                        (LETT |c| (SPADCALL |u| (QREFELT $ 22))
-                                              . #2#)
-                                        (QREFELT $ 23))
-                                       (QREFELT $ 26))
-                             (EXIT
-                              (LETT |p|
-                                    (SPADCALL |p|
-                                              (SPADCALL |c| |v| 1
-                                                        (QREFELT $ 29))
-                                              (QREFELT $ 30))
-                                    . #2#)))))))
-               (LETT #1# (PROG1 (CDR #1#) (LETT |i| (|inc_SI| |i|) . #2#))
-                     . #2#)
-               (GO G190) G191 (EXIT NIL))
-          (EXIT (CONS |coefs| (SPADCALL |p| (QREFELT $ 23))))))) 
+         (SEQ (LETT |coefs| (MAKEARR1 (LENGTH |vs|) (|spadConstant| $ 11)))
+              (SEQ (LETT |i| 1) (LETT |v| NIL) (LETT #1# |vs|) G190
+                   (COND
+                    ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#)) NIL)
+                         (NULL
+                          (SPADCALL |p| (|spadConstant| $ 14) (QREFELT $ 16))))
+                     (GO G191)))
+                   (SEQ (LETT |u| (SPADCALL |p| |v| (QREFELT $ 18)))
+                        (EXIT
+                         (COND ((EQL (SPADCALL |u| (QREFELT $ 21)) 0) "next v")
+                               ('T
+                                (SEQ
+                                 (SPADCALL |coefs| |i|
+                                           (SPADCALL
+                                            (LETT |c|
+                                                  (SPADCALL |u|
+                                                            (QREFELT $ 22)))
+                                            (QREFELT $ 23))
+                                           (QREFELT $ 26))
+                                 (EXIT
+                                  (LETT |p|
+                                        (SPADCALL |p|
+                                                  (SPADCALL |c| |v| 1
+                                                            (QREFELT $ 29))
+                                                  (QREFELT $ 30)))))))))
+                   (LETT #1# (PROG1 (CDR #1#) (LETT |i| (|inc_SI| |i|))))
+                   (GO G190) G191 (EXIT NIL))
+              (EXIT (CONS |coefs| (SPADCALL |p| (QREFELT $ 23))))))) 
 
 (SDEFUN |LSPP;intoMatrix;LLR;2|
         ((|ps| |List| P) (|vs| |List| OV)
@@ -49,32 +45,29 @@
            (|Record| (|:| |coefvec| (|Vector| (|Fraction| P)))
                      (|:| |reductum| (|Fraction| P))))
           (#1=#:G120 NIL) (|p| NIL) (|i| NIL) (|v| (|Vector| (|Fraction| P))))
-         (SEQ
-          (LETT |m| (SPADCALL (LENGTH |ps|) (LENGTH |vs|) (QREFELT $ 32))
-                . #2=(|LSPP;intoMatrix;LLR;2|))
-          (LETT |v| (MAKEARR1 (LENGTH |ps|) (|spadConstant| $ 11)) . #2#)
-          (SEQ (LETT |i| 1 . #2#) (LETT |p| NIL . #2#) (LETT #1# |ps| . #2#)
-               G190
-               (COND
-                ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#) . #2#) NIL))
-                 (GO G191)))
-               (SEQ
-                (EXIT
-                 (COND
-                  ((SPADCALL (SPADCALL |p| |vs| (QREFELT $ 34)) 1
-                             (QREFELT $ 35))
-                   (|error| "The system is not linear"))
-                  ('T
-                   (SEQ (LETT |r| (|LSPP;poly2vect| |p| |vs| $) . #2#)
-                        (LETT |m| (SPADCALL |m| |i| (QCAR |r|) (QREFELT $ 36))
-                              . #2#)
-                        (EXIT
-                         (SPADCALL |v| |i| (SPADCALL (QCDR |r|) (QREFELT $ 37))
-                                   (QREFELT $ 26))))))))
-               (LETT #1# (PROG1 (CDR #1#) (LETT |i| (|inc_SI| |i|) . #2#))
-                     . #2#)
-               (GO G190) G191 (EXIT NIL))
-          (EXIT (CONS |m| |v|))))) 
+         (SEQ (LETT |m| (SPADCALL (LENGTH |ps|) (LENGTH |vs|) (QREFELT $ 32)))
+              (LETT |v| (MAKEARR1 (LENGTH |ps|) (|spadConstant| $ 11)))
+              (SEQ (LETT |i| 1) (LETT |p| NIL) (LETT #1# |ps|) G190
+                   (COND
+                    ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#)) NIL))
+                     (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (COND
+                      ((SPADCALL (SPADCALL |p| |vs| (QREFELT $ 34)) 1
+                                 (QREFELT $ 35))
+                       (|error| "The system is not linear"))
+                      ('T
+                       (SEQ (LETT |r| (|LSPP;poly2vect| |p| |vs| $))
+                            (LETT |m|
+                                  (SPADCALL |m| |i| (QCAR |r|) (QREFELT $ 36)))
+                            (EXIT
+                             (SPADCALL |v| |i|
+                                       (SPADCALL (QCDR |r|) (QREFELT $ 37))
+                                       (QREFELT $ 26))))))))
+                   (LETT #1# (PROG1 (CDR #1#) (LETT |i| (|inc_SI| |i|))))
+                   (GO G190) G191 (EXIT NIL))
+              (EXIT (CONS |m| |v|))))) 
 
 (SDEFUN |LSPP;linSolve;LLR;3|
         ((|ps| |List| P) (|vs| |List| OV)
@@ -85,9 +78,8 @@
          ((|r|
            (|Record| (|:| |mat| (|Matrix| (|Fraction| P)))
                      (|:| |vec| (|Vector| (|Fraction| P))))))
-         (SEQ
-          (LETT |r| (SPADCALL |ps| |vs| (QREFELT $ 40)) |LSPP;linSolve;LLR;3|)
-          (EXIT (SPADCALL (QCAR |r|) (QCDR |r|) (QREFELT $ 44)))))) 
+         (SEQ (LETT |r| (SPADCALL |ps| |vs| (QREFELT $ 40)))
+              (EXIT (SPADCALL (QCAR |r|) (QCDR |r|) (QREFELT $ 44)))))) 
 
 (DECLAIM (NOTINLINE |LinearSystemPolynomialPackage;|)) 
 
@@ -100,14 +92,13 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|LinearSystemPolynomialPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|LinearSystemPolynomialPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |LinearSystemPolynomialPackage;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -118,15 +109,14 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #1=(|LinearSystemPolynomialPackage|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
-    (LETT |dv$| (LIST '|LinearSystemPolynomialPackage| DV$1 DV$2 DV$3 DV$4)
-          . #1#)
-    (LETT $ (GETREFV 46) . #1#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
+    (LETT |dv$| (LIST '|LinearSystemPolynomialPackage| DV$1 DV$2 DV$3 DV$4))
+    (LETT $ (GETREFV 46))
     (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|LinearSystemPolynomialPackage|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
     (|stuffDomainSlots| $)

@@ -1,29 +1,28 @@
 
 (SDEFUN |COMMUPC;swap;2UPUP;1| ((|poly| UPUP) ($ UPUP))
         (SPROG ((|ans| (UPUP)))
-               (SEQ
-                (LETT |ans| (|spadConstant| $ 9) . #1=(|COMMUPC;swap;2UPUP;1|))
-                (SEQ G190
-                     (COND
-                      ((NULL
-                        (SPADCALL |poly| (|spadConstant| $ 9) (QREFELT $ 13)))
-                       (GO G191)))
-                     (SEQ
-                      (LETT |ans|
-                            (SPADCALL |ans|
-                                      (|COMMUPC;makePoly|
-                                       (SPADCALL |poly| (QREFELT $ 14))
-                                       (SPADCALL |poly| (QREFELT $ 16)) $)
-                                      (QREFELT $ 17))
-                            . #1#)
-                      (EXIT
-                       (LETT |poly| (SPADCALL |poly| (QREFELT $ 18)) . #1#)))
-                     NIL (GO G190) G191 (EXIT NIL))
-                (EXIT |ans|)))) 
+               (SEQ (LETT |ans| (|spadConstant| $ 9))
+                    (SEQ G190
+                         (COND
+                          ((NULL
+                            (SPADCALL |poly| (|spadConstant| $ 9)
+                                      (QREFELT $ 13)))
+                           (GO G191)))
+                         (SEQ
+                          (LETT |ans|
+                                (SPADCALL |ans|
+                                          (|COMMUPC;makePoly|
+                                           (SPADCALL |poly| (QREFELT $ 14))
+                                           (SPADCALL |poly| (QREFELT $ 16)) $)
+                                          (QREFELT $ 17)))
+                          (EXIT
+                           (LETT |poly| (SPADCALL |poly| (QREFELT $ 18)))))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT |ans|)))) 
 
 (SDEFUN |COMMUPC;makePoly| ((|poly| UP) (|d| |NonNegativeInteger|) ($ UPUP))
         (SPROG ((|ans| (UPUP)))
-               (SEQ (LETT |ans| (|spadConstant| $ 9) . #1=(|COMMUPC;makePoly|))
+               (SEQ (LETT |ans| (|spadConstant| $ 9))
                     (SEQ G190
                          (COND
                           ((NULL
@@ -39,11 +38,9 @@
                                             |d| (QREFELT $ 22))
                                            (SPADCALL |poly| (QREFELT $ 23))
                                            (QREFELT $ 24))
-                                          (QREFELT $ 17))
-                                . #1#)
+                                          (QREFELT $ 17)))
                           (EXIT
-                           (LETT |poly| (SPADCALL |poly| (QREFELT $ 25))
-                                 . #1#)))
+                           (LETT |poly| (SPADCALL |poly| (QREFELT $ 25)))))
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |ans|)))) 
 
@@ -58,15 +55,14 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|CommuteUnivariatePolynomialCategory|)
-                                               '|domainEqualList|)
-                    . #3=(|CommuteUnivariatePolynomialCategory|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY
                        (|function| |CommuteUnivariatePolynomialCategory;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -75,16 +71,14 @@
 (DEFUN |CommuteUnivariatePolynomialCategory;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|CommuteUnivariatePolynomialCategory|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$|
-                (LIST '|CommuteUnivariatePolynomialCategory| DV$1 DV$2 DV$3)
-                . #1#)
-          (LETT $ (GETREFV 26) . #1#)
+                (LIST '|CommuteUnivariatePolynomialCategory| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 26))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
                       '|CommuteUnivariatePolynomialCategory|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))

@@ -27,21 +27,20 @@
         (SPROG ((|j| #1=(|Integer|)) (|i| #1#))
                (SEQ
                 (LETT |i|
-                      (SPADCALL |u| (SPADCALL A (QREFELT $ 18)) (QREFELT $ 22))
-                      . #2=(|INCALG;apply;$2SR;6|))
+                      (SPADCALL |u| (SPADCALL A (QREFELT $ 18))
+                                (QREFELT $ 22)))
                 (EXIT
                  (COND ((ZEROP |i|) (|error| "First index is not a vertex"))
-                       (#3='T
+                       (#2='T
                         (SEQ
                          (LETT |j|
                                (SPADCALL |v| (SPADCALL A (QREFELT $ 18))
-                                         (QREFELT $ 22))
-                               . #2#)
+                                         (QREFELT $ 22)))
                          (EXIT
                           (COND
                            ((ZEROP |j|)
                             (|error| "Second index is not a vertex"))
-                           (#3#
+                           (#2#
                             (SPADCALL (QCAR A) |i| |j| (QREFELT $ 20)))))))))))) 
 
 (SDEFUN |INCALG;*;P2$;7| ((|p| |Permutation| (|Integer|)) (A $) ($ $))
@@ -50,8 +49,8 @@
           (|i| NIL) (#2=#:G136 NIL) (|newindices| (|OneDimensionalArray| S))
           (#3=#:G135 NIL) (#4=#:G134 NIL) (|n| (|Integer|))
           (|mp| (|Set| (|Integer|))))
-         (SEQ (LETT |mp| (SPADCALL |p| (QREFELT $ 26)) . #5=(|INCALG;*;P2$;7|))
-              (LETT |n| (QVSIZE (SPADCALL A (QREFELT $ 18))) . #5#)
+         (SEQ (LETT |mp| (SPADCALL |p| (QREFELT $ 26)))
+              (LETT |n| (QVSIZE (SPADCALL A (QREFELT $ 18))))
               (COND
                ((OR (< (SPADCALL |mp| (QREFELT $ 27)) 1)
                     (SPADCALL (SPADCALL |mp| (QREFELT $ 28)) |n|
@@ -60,8 +59,8 @@
               (LETT |newindices|
                     (SPADCALL
                      (PROGN
-                      (LETT #4# NIL . #5#)
-                      (SEQ (LETT |i| 1 . #5#) (LETT #3# |n| . #5#) G190
+                      (LETT #4# NIL)
+                      (SEQ (LETT |i| 1) (LETT #3# |n|) G190
                            (COND ((|greater_SI| |i| #3#) (GO G191)))
                            (SEQ
                             (EXIT
@@ -70,29 +69,25 @@
                                     (SPADCALL (SPADCALL A (QREFELT $ 18))
                                               (SPADCALL |p| |i| (QREFELT $ 30))
                                               (QREFELT $ 31))
-                                    #4#)
-                                   . #5#)))
-                           (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                                    #4#))))
+                           (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                            (EXIT (NREVERSE #4#))))
-                     (QREFELT $ 16))
-                    . #5#)
+                     (QREFELT $ 16)))
               (LETT |indic|
                     (PROGN
-                     (LETT #2# NIL . #5#)
-                     (SEQ (LETT |i| 1 . #5#) (LETT #1# |n| . #5#) G190
+                     (LETT #2# NIL)
+                     (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                           (COND ((|greater_SI| |i| #1#) (GO G191)))
                           (SEQ
                            (EXIT
                             (LETT #2#
-                                  (CONS (SPADCALL |p| |i| (QREFELT $ 30)) #2#)
-                                  . #5#)))
-                          (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
-                          (EXIT (NREVERSE #2#))))
-                    . #5#)
+                                  (CONS (SPADCALL |p| |i| (QREFELT $ 30))
+                                        #2#))))
+                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                          (EXIT (NREVERSE #2#)))))
               (LETT |newA|
                     (SPADCALL (SPADCALL A (QREFELT $ 19)) |indic| |indic|
-                              (QREFELT $ 33))
-                    . #5#)
+                              (QREFELT $ 33)))
               (EXIT (CONS |newA| |newindices|))))) 
 
 (SDEFUN |INCALG;coerce;$Of;8| ((A $) ($ |OutputForm|))
@@ -115,61 +110,53 @@
         (SPROG
          ((|Ci| (|Matrix| R)) (|Bind| #1=(|OneDimensionalArray| S))
           (|Aind| #1#))
-         (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)) . #2=(|INCALG;+;3$;10|))
-              (LETT |Bind| (SPADCALL B (QREFELT $ 18)) . #2#)
+         (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
+              (LETT |Bind| (SPADCALL B (QREFELT $ 18)))
               (COND
                ((SPADCALL |Aind| |Bind| (QREFELT $ 45))
                 (|error| "incompatible indices")))
               (LETT |Ci|
                     (SPADCALL (SPADCALL A (QREFELT $ 19))
-                              (SPADCALL B (QREFELT $ 19)) (QREFELT $ 46))
-                    . #2#)
+                              (SPADCALL B (QREFELT $ 19)) (QREFELT $ 46)))
               (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
 (SDEFUN |INCALG;*;3$;11| ((A $) (B $) ($ $))
         (SPROG
          ((|Ci| (|Matrix| R)) (|Bind| #1=(|OneDimensionalArray| S))
           (|Aind| #1#))
-         (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)) . #2=(|INCALG;*;3$;11|))
-              (LETT |Bind| (SPADCALL B (QREFELT $ 18)) . #2#)
+         (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
+              (LETT |Bind| (SPADCALL B (QREFELT $ 18)))
               (COND
                ((SPADCALL |Aind| |Bind| (QREFELT $ 45))
                 (|error| "incompatible indices")))
               (LETT |Ci|
                     (SPADCALL (SPADCALL A (QREFELT $ 19))
-                              (SPADCALL B (QREFELT $ 19)) (QREFELT $ 48))
-                    . #2#)
+                              (SPADCALL B (QREFELT $ 19)) (QREFELT $ 48)))
               (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
 (SDEFUN |INCALG;*;R2$;12| ((|r| R) (A $) ($ $))
         (SPROG ((|Ci| (|Matrix| R)) (|Aind| (|OneDimensionalArray| S)))
-               (SEQ
-                (LETT |Aind| (SPADCALL A (QREFELT $ 18))
-                      . #1=(|INCALG;*;R2$;12|))
-                (LETT |Ci|
-                      (SPADCALL |r| (SPADCALL A (QREFELT $ 19)) (QREFELT $ 50))
-                      . #1#)
-                (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
+               (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
+                    (LETT |Ci|
+                          (SPADCALL |r| (SPADCALL A (QREFELT $ 19))
+                                    (QREFELT $ 50)))
+                    (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
 (SDEFUN |INCALG;*;$R$;13| ((A $) (|r| R) ($ $))
         (SPROG ((|Ci| (|Matrix| R)) (|Aind| (|OneDimensionalArray| S)))
-               (SEQ
-                (LETT |Aind| (SPADCALL A (QREFELT $ 18))
-                      . #1=(|INCALG;*;$R$;13|))
-                (LETT |Ci|
-                      (SPADCALL (SPADCALL A (QREFELT $ 19)) |r| (QREFELT $ 52))
-                      . #1#)
-                (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
+               (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
+                    (LETT |Ci|
+                          (SPADCALL (SPADCALL A (QREFELT $ 19)) |r|
+                                    (QREFELT $ 52)))
+                    (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
 (SDEFUN |INCALG;^;$Nni$;14| ((A $) (|n| |NonNegativeInteger|) ($ $))
         (SPROG ((|Ci| (|Matrix| R)) (|Aind| (|OneDimensionalArray| S)))
-               (SEQ
-                (LETT |Aind| (SPADCALL A (QREFELT $ 18))
-                      . #1=(|INCALG;^;$Nni$;14|))
-                (LETT |Ci|
-                      (SPADCALL (SPADCALL A (QREFELT $ 19)) |n| (QREFELT $ 55))
-                      . #1#)
-                (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
+               (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
+                    (LETT |Ci|
+                          (SPADCALL (SPADCALL A (QREFELT $ 19)) |n|
+                                    (QREFELT $ 55)))
+                    (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
 (DECLAIM (NOTINLINE |IncidenceAlgebra;|)) 
 
@@ -182,13 +169,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|IncidenceAlgebra|)
-                                               '|domainEqualList|)
-                    . #3=(|IncidenceAlgebra|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |IncidenceAlgebra;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|IncidenceAlgebra|)))))))))) 
@@ -196,12 +182,12 @@
 (DEFUN |IncidenceAlgebra;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|IncidenceAlgebra|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|IncidenceAlgebra| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 60) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|IncidenceAlgebra| DV$1 DV$2))
+          (LETT $ (GETREFV 60))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|IncidenceAlgebra| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

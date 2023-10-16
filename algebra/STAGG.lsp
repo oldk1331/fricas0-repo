@@ -32,7 +32,5 @@
                                                ((|possiblyInfinite?|
                                                  ((|Boolean|) $))
                                                 T))
-                                             NIL NIL NIL))
-                                           . #2=(|StreamAggregate|)))))
-                   . #2#)
+                                             NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|StreamAggregate| |t#1|))))) 

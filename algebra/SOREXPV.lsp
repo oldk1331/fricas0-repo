@@ -6,8 +6,7 @@
          (PROG (#1=#:G2581)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|SortedExponentVector|)
-                    . #2=(|SortedExponentVector|))
+             ((LETT #1# (HGET |$ConstructorCache| '|SortedExponentVector|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -16,7 +15,7 @@
                        (HPUT |$ConstructorCache| '|SortedExponentVector|
                              (LIST
                               (CONS NIL (CONS 1 (|SortedExponentVector;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|SortedExponentVector|)))))))))) 
@@ -26,8 +25,8 @@
    ((|dv$| NIL) ($ NIL) (#1=#:G2579 NIL) (#2=#:G2578 NIL) (#3=#:G2577 NIL)
     (|pv$| NIL))
    (PROGN
-    (LETT |dv$| '(|SortedExponentVector|) . #4=(|SortedExponentVector|))
-    (LETT $ (GETREFV 25) . #4#)
+    (LETT |dv$| '(|SortedExponentVector|))
+    (LETT $ (GETREFV 25))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -42,15 +41,13 @@
                                                        '(|BasicType|))
                                         (LETT #1#
                                               (|HasCategory| (|Integer|)
-                                                             '(|Comparable|))
-                                              . #4#)
+                                                             '(|Comparable|)))
                                         (OR #1#
                                             (|HasCategory| (|Integer|)
                                                            '(|OrderedSet|)))
                                         (LETT #2#
                                               (|HasCategory| (|Integer|)
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| (|Integer|)
                                                         '(|Evalable|
@@ -70,13 +67,11 @@
                                         (LETT #3#
                                               (|HasCategory| (|Integer|)
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #3# #1#
                                             (|HasCategory| (|Integer|)
                                                            '(|OrderedSet|))
-                                            #2#)))
-                    . #4#))
+                                            #2#)))))
     (|haddProp| |$ConstructorCache| '|SortedExponentVector| NIL (CONS 1 $))
     (|stuffDomainSlots| $)
     (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 2048))

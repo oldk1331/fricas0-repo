@@ -1,58 +1,52 @@
 
 (SDEFUN |OMSERVER;OMreceive;OmcA;1| ((|conn| |OpenMathConnection|) ($ |Any|))
         (SPROG ((|dev| (|OpenMathDevice|)))
-               (SEQ
-                (LETT |dev| (SPADCALL |conn| (QREFELT $ 8))
-                      |OMSERVER;OMreceive;OmcA;1|)
-                (SPADCALL |dev| (SPADCALL (QREFELT $ 10)) (QREFELT $ 12))
-                (EXIT (SPADCALL |dev| (QREFELT $ 15)))))) 
+               (SEQ (LETT |dev| (SPADCALL |conn| (QREFELT $ 8)))
+                    (SPADCALL |dev| (SPADCALL (QREFELT $ 10)) (QREFELT $ 12))
+                    (EXIT (SPADCALL |dev| (QREFELT $ 15)))))) 
 
 (SDEFUN |OMSERVER;OMsend;OmcAV;2|
         ((|conn| |OpenMathConnection|) (|value| |Any|) ($ |Void|))
         (SPROG ((#1=#:G117 NIL) (|dev| (|OpenMathDevice|)))
-               (SEQ
-                (LETT |dev| (SPADCALL |conn| (QREFELT $ 17))
-                      . #2=(|OMSERVER;OMsend;OmcAV;2|))
-                (SPADCALL |dev| (SPADCALL (QREFELT $ 18)) (QREFELT $ 12))
-                (EXIT
-                 (COND
-                  ((SPADCALL |value| (QREFELT $ 21))
-                   (SPADCALL |dev| (SPADCALL |value| (QREFELT $ 23)) 'T
-                             (QREFELT $ 24)))
-                  ((SPADCALL |value| (QREFELT $ 26))
-                   (SPADCALL |dev| (SPADCALL |value| (QREFELT $ 28)) 'T
-                             (QREFELT $ 29)))
-                  ((SPADCALL |value| (QREFELT $ 31))
-                   (SPADCALL |dev| (SPADCALL |value| (QREFELT $ 33)) 'T
-                             (QREFELT $ 24)))
-                  ((SPADCALL |value| (QREFELT $ 35))
-                   (SPADCALL |dev| (SPADCALL |value| (QREFELT $ 37)) 'T
-                             (QREFELT $ 38)))
-                  ('T
-                   (SEQ
+               (SEQ (LETT |dev| (SPADCALL |conn| (QREFELT $ 17)))
+                    (SPADCALL |dev| (SPADCALL (QREFELT $ 18)) (QREFELT $ 12))
                     (EXIT
                      (COND
-                      ((SPADCALL |value| (QREFELT $ 40))
-                       (PROGN
-                        (LETT #1#
-                              (SPADCALL |dev| (SPADCALL |value| (QREFELT $ 42))
-                                        'T (QREFELT $ 43))
-                              . #2#)
-                        (GO #3=#:G111)))))
-                    #3# (EXIT #1#)))))))) 
+                      ((SPADCALL |value| (QREFELT $ 21))
+                       (SPADCALL |dev| (SPADCALL |value| (QREFELT $ 23)) 'T
+                                 (QREFELT $ 24)))
+                      ((SPADCALL |value| (QREFELT $ 26))
+                       (SPADCALL |dev| (SPADCALL |value| (QREFELT $ 28)) 'T
+                                 (QREFELT $ 29)))
+                      ((SPADCALL |value| (QREFELT $ 31))
+                       (SPADCALL |dev| (SPADCALL |value| (QREFELT $ 33)) 'T
+                                 (QREFELT $ 24)))
+                      ((SPADCALL |value| (QREFELT $ 35))
+                       (SPADCALL |dev| (SPADCALL |value| (QREFELT $ 37)) 'T
+                                 (QREFELT $ 38)))
+                      ('T
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((SPADCALL |value| (QREFELT $ 40))
+                           (PROGN
+                            (LETT #1#
+                                  (SPADCALL |dev|
+                                            (SPADCALL |value| (QREFELT $ 42))
+                                            'T (QREFELT $ 43)))
+                            (GO #2=#:G111)))))
+                        #2# (EXIT #1#)))))))) 
 
 (SDEFUN |OMSERVER;OMserve;2SiV;3|
         ((|portNum| |SingleInteger|) (|timeout| |SingleInteger|) ($ |Void|))
         (SPROG ((|val| (|Any|)) (|conn| (|OpenMathConnection|)))
-               (SEQ
-                (LETT |conn| (SPADCALL |timeout| (QREFELT $ 45))
-                      . #1=(|OMSERVER;OMserve;2SiV;3|))
-                (SPADCALL |conn| |portNum| (QREFELT $ 46))
-                (EXIT
-                 (SEQ G190 (COND ((NULL 'T) (GO G191)))
-                      (SEQ (LETT |val| (SPADCALL |conn| (QREFELT $ 16)) . #1#)
-                           (EXIT (SPADCALL |conn| |val| (QREFELT $ 44))))
-                      NIL (GO G190) G191 (EXIT NIL)))))) 
+               (SEQ (LETT |conn| (SPADCALL |timeout| (QREFELT $ 45)))
+                    (SPADCALL |conn| |portNum| (QREFELT $ 46))
+                    (EXIT
+                     (SEQ G190 (COND ((NULL 'T) (GO G191)))
+                          (SEQ (LETT |val| (SPADCALL |conn| (QREFELT $ 16)))
+                               (EXIT (SPADCALL |conn| |val| (QREFELT $ 44))))
+                          NIL (GO G190) G191 (EXIT NIL)))))) 
 
 (DECLAIM (NOTINLINE |OpenMathServerPackage;|)) 
 
@@ -61,8 +55,7 @@
          (PROG (#1=#:G123)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|OpenMathServerPackage|)
-                    . #2=(|OpenMathServerPackage|))
+             ((LETT #1# (HGET |$ConstructorCache| '|OpenMathServerPackage|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -71,7 +64,7 @@
                        (HPUT |$ConstructorCache| '|OpenMathServerPackage|
                              (LIST
                               (CONS NIL (CONS 1 (|OpenMathServerPackage;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|OpenMathServerPackage|)))))))))) 
@@ -79,11 +72,10 @@
 (DEFUN |OpenMathServerPackage;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|OpenMathServerPackage|)
-                . #1=(|OpenMathServerPackage|))
-          (LETT $ (GETREFV 48) . #1#)
+          (LETT |dv$| '(|OpenMathServerPackage|))
+          (LETT $ (GETREFV 48))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|OpenMathServerPackage| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

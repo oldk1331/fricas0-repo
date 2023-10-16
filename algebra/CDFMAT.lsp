@@ -62,20 +62,18 @@
          (|a| |Complex| (|DoubleFloat|)) ($ $))
         (SPROG
          ((#2=#:G2554 NIL) (|j| NIL) (#3=#:G2553 NIL) (|i| NIL) (|res| ($)))
-         (SEQ
-          (LETT |res| (MAKE_CDOUBLE_MATRIX |rows| |cols|)
-                . #4=(|CDFMAT;new;2NniC$;13|))
-          (SEQ (LETT |i| 0 . #4#) (LETT #3# (- |rows| 1) . #4#) G190
-               (COND ((|greater_SI| |i| #3#) (GO G191)))
-               (SEQ
-                (EXIT
-                 (SEQ (LETT |j| 0 . #4#) (LETT #2# (- |cols| 1) . #4#) G190
-                      (COND ((|greater_SI| |j| #2#) (GO G191)))
-                      (SEQ (EXIT (CDSETAREF2 |res| |i| |j| |a|)))
-                      (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
-                      (EXIT NIL))))
-               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-          (EXIT |res|)))) 
+         (SEQ (LETT |res| (MAKE_CDOUBLE_MATRIX |rows| |cols|))
+              (SEQ (LETT |i| 0) (LETT #3# (- |rows| 1)) G190
+                   (COND ((|greater_SI| |i| #3#) (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (SEQ (LETT |j| 0) (LETT #2# (- |cols| 1)) G190
+                          (COND ((|greater_SI| |j| #2#) (GO G191)))
+                          (SEQ (EXIT (CDSETAREF2 |res| |i| |j| |a|)))
+                          (LETT |j| (|inc_SI| |j|)) (GO G190) G191
+                          (EXIT NIL))))
+                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+              (EXIT |res|)))) 
 
 (DECLAIM (NOTINLINE |ComplexDoubleFloatMatrix;|)) 
 
@@ -84,8 +82,7 @@
          (PROG (#1=#:G2569)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ComplexDoubleFloatMatrix|)
-                    . #2=(|ComplexDoubleFloatMatrix|))
+             ((LETT #1# (HGET |$ConstructorCache| '|ComplexDoubleFloatMatrix|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -95,7 +92,7 @@
                              (LIST
                               (CONS NIL
                                     (CONS 1 (|ComplexDoubleFloatMatrix;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
@@ -106,9 +103,8 @@
    ((|dv$| NIL) ($ NIL) (#1=#:G2566 NIL) (#2=#:G2567 NIL) (#3=#:G2565 NIL)
     (|pv$| NIL))
    (PROGN
-    (LETT |dv$| '(|ComplexDoubleFloatMatrix|)
-          . #4=(|ComplexDoubleFloatMatrix|))
-    (LETT $ (GETREFV 48) . #4#)
+    (LETT |dv$| '(|ComplexDoubleFloatMatrix|))
+    (LETT $ (GETREFV 48))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -123,8 +119,7 @@
                                         (LETT #1#
                                               (|HasCategory|
                                                (|Complex| (|DoubleFloat|))
-                                               '(|SetCategory|))
-                                              . #4#)
+                                               '(|SetCategory|)))
                                         (OR
                                          (|HasCategory|
                                           (|Complex| (|DoubleFloat|))
@@ -146,8 +141,7 @@
                                                   (|Complex| (|DoubleFloat|))))
                                                (|HasCategory|
                                                 (|Complex| (|DoubleFloat|))
-                                                '(|SetCategory|)))
-                                              . #4#)
+                                                '(|SetCategory|))))
                                         (OR
                                          (AND
                                           (|HasCategory|
@@ -161,8 +155,8 @@
                                         (LETT #3#
                                               (|HasCategory|
                                                (|Complex| (|DoubleFloat|))
-                                               '(|CoercibleTo| (|OutputForm|)))
-                                              . #4#)
+                                               '(|CoercibleTo|
+                                                 (|OutputForm|))))
                                         (OR #3# #2#)
                                         (|HasCategory|
                                          (|Complex| (|DoubleFloat|))
@@ -188,8 +182,7 @@
                                          '(|CommutativeRing|))
                                         (|HasCategory|
                                          (|Complex| (|DoubleFloat|))
-                                         '(|Field|))))
-                    . #4#))
+                                         '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|ComplexDoubleFloatMatrix| NIL (CONS 1 $))
     (|stuffDomainSlots| $)
     (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 65536))

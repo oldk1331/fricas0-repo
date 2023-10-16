@@ -5,17 +5,14 @@
                 (COND ((NULL |u|) (SPADCALL (QREFELT $ 8)))
                       ('T
                        (SEQ
-                        (LETT |tree| (SPADCALL (|SPADfirst| |u|) (QREFELT $ 9))
-                              . #2=(|BTOURN;binaryTournament;L$;1|))
-                        (SEQ (LETT |x| NIL . #2#) (LETT #1# (CDR |u|) . #2#)
-                             G190
+                        (LETT |tree|
+                              (SPADCALL (|SPADfirst| |u|) (QREFELT $ 9)))
+                        (SEQ (LETT |x| NIL) (LETT #1# (CDR |u|)) G190
                              (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
+                              ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                                (GO G191)))
                              (SEQ (EXIT (SPADCALL |x| |tree| (QREFELT $ 10))))
-                             (LETT #1# (CDR #1#) . #2#) (GO G190) G191
-                             (EXIT NIL))
+                             (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                         (EXIT |tree|))))))) 
 
 (SDEFUN |BTOURN;insert!;S2$;2| ((|x| S) (|t| $) ($ $))
@@ -46,12 +43,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|BinaryTournament|)
-                                               '|domainEqualList|)
-                    . #3=(|BinaryTournament|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|BinaryTournament;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|BinaryTournament;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|BinaryTournament|)))))))))) 
@@ -61,9 +56,9 @@
    ((|pv$| NIL) (#1=#:G119 NIL) (#2=#:G120 NIL) (#3=#:G121 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #4=(|BinaryTournament|))
-    (LETT |dv$| (LIST '|BinaryTournament| DV$1) . #4#)
-    (LETT $ (GETREFV 36) . #4#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|BinaryTournament| DV$1))
+    (LETT $ (GETREFV 36))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -71,8 +66,7 @@
                                        (LIST
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -81,22 +75,19 @@
                                          #3#)
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|BasicType|))
-                                              . #4#)
+                                                             '(|BasicType|)))
                                         (OR #2# #3#)
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #1#
                                             (AND
                                              (|HasCategory| |#1|
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #3#))))
-                    . #4#))
+                                             #3#))))))
     (|haddProp| |$ConstructorCache| '|BinaryTournament| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)

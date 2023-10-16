@@ -4,34 +4,31 @@
         (SPROG
          ((#1=#:G115 NIL) (|j| NIL) (#2=#:G114 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
-         (SEQ
-          (LETT |n| (SPADCALL |m| (QREFELT $ 9))
-                . #3=(|SORTPAK;bubbleSort!;AMA;1|))
-          (SEQ (LETT |i| 1 . #3#) (LETT #2# (- |n| 1) . #3#) G190
-               (COND ((|greater_SI| |i| #2#) (GO G191)))
-               (SEQ
-                (EXIT
-                 (SEQ (LETT |j| |n| . #3#) (LETT #1# (+ |i| 1) . #3#) G190
-                      (COND ((< |j| #1#) (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (COND
-                         ((SPADCALL (SPADCALL |m| |j| (QREFELT $ 11))
-                                    (SPADCALL |m| (- |j| 1) (QREFELT $ 11))
-                                    |f|)
-                          (SPADCALL |m| |j| (- |j| 1) (QREFELT $ 13))))))
-                      (LETT |j| (+ |j| -1) . #3#) (GO G190) G191 (EXIT NIL))))
-               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-          (EXIT |m|)))) 
+         (SEQ (LETT |n| (SPADCALL |m| (QREFELT $ 9)))
+              (SEQ (LETT |i| 1) (LETT #2# (- |n| 1)) G190
+                   (COND ((|greater_SI| |i| #2#) (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (SEQ (LETT |j| |n|) (LETT #1# (+ |i| 1)) G190
+                          (COND ((< |j| #1#) (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (COND
+                             ((SPADCALL (SPADCALL |m| |j| (QREFELT $ 11))
+                                        (SPADCALL |m| (- |j| 1) (QREFELT $ 11))
+                                        |f|)
+                              (SPADCALL |m| |j| (- |j| 1) (QREFELT $ 13))))))
+                          (LETT |j| (+ |j| -1)) (GO G190) G191 (EXIT NIL))))
+                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+              (EXIT |m|)))) 
 
 (SDEFUN |SORTPAK;insertionSort!;AMA;2|
         ((|m| A) (|f| |Mapping| (|Boolean|) S S) ($ A))
         (SPROG ((|j| (|NonNegativeInteger|)) (#1=#:G122 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 2 . #2=(|SORTPAK;insertionSort!;AMA;2|))
-                     (LETT #1# (SPADCALL |m| (QREFELT $ 9)) . #2#) G190
+                (SEQ (LETT |i| 2) (LETT #1# (SPADCALL |m| (QREFELT $ 9))) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
-                     (SEQ (LETT |j| |i| . #2#)
+                     (SEQ (LETT |j| |i|)
                           (EXIT
                            (SEQ G190
                                 (COND
@@ -46,9 +43,9 @@
                                   (GO G191)))
                                 (SEQ
                                  (SPADCALL |m| |j| (- |j| 1) (QREFELT $ 13))
-                                 (EXIT (LETT |j| (- |j| 1) . #2#)))
+                                 (EXIT (LETT |j| (- |j| 1))))
                                 NIL (GO G190) G191 (EXIT NIL))))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |m|)))) 
 
 (SDEFUN |SORTPAK;bubbleSort!;2A;3| ((|m| A) ($ A))
@@ -63,7 +60,7 @@
                (SEQ
                 (COND ((SPADCALL |m| (QREFELT $ 22)) |m|)
                       ('T
-                       (SEQ (LETT |l| |m| . #1=(|SORTPAK;bubbleSort!;AMA;5|))
+                       (SEQ (LETT |l| |m|)
                             (SEQ G190
                                  (COND
                                   ((NULL
@@ -71,16 +68,13 @@
                                      (SPADCALL
                                       (LETT |r|
                                             (SPADCALL |l| '|rest|
-                                                      (QREFELT $ 24))
-                                            . #1#)
+                                                      (QREFELT $ 24)))
                                       (QREFELT $ 22))))
                                    (GO G191)))
                                  (SEQ
-                                  (LETT |r| (SPADCALL |r| |fn| (QREFELT $ 15))
-                                        . #1#)
+                                  (LETT |r| (SPADCALL |r| |fn| (QREFELT $ 15)))
                                   (LETT |x|
-                                        (SPADCALL |l| '|first| (QREFELT $ 26))
-                                        . #1#)
+                                        (SPADCALL |l| '|first| (QREFELT $ 26)))
                                   (COND
                                    ((SPADCALL
                                      (SPADCALL |r| '|first| (QREFELT $ 26)) |x|
@@ -96,8 +90,8 @@
                                   (SPADCALL |l| '|rest| |r| (QREFELT $ 28))
                                   (EXIT
                                    (LETT |l|
-                                         (SPADCALL |l| '|rest| (QREFELT $ 24))
-                                         . #1#)))
+                                         (SPADCALL |l| '|rest|
+                                                   (QREFELT $ 24)))))
                                  NIL (GO G190) G191 (EXIT NIL))
                             (EXIT |m|))))))) 
 
@@ -112,31 +106,28 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|SortPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|SortPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |SortPackage;|) #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (APPLY (|function| |SortPackage;|) #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|SortPackage|)))))))))) 
 
 (DEFUN |SortPackage;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|SortPackage|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|SortPackage| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 29) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|SortPackage| DV$1 DV$2))
+          (LETT $ (GETREFV 29))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
-                                                             '(|OrderedSet|))))
-                          . #1#))
+                                                             '(|OrderedSet|))))))
           (|haddProp| |$ConstructorCache| '|SortPackage| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -5,11 +5,10 @@
         ((|r| S) (|n| |NonNegativeInteger|) ($ S))
         (SPROG ((#1=#:G113 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #2=(|DIFRING-;differentiate;SNniS;2|))
-                     (LETT #1# |n| . #2#) G190
+                (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
-                     (SEQ (EXIT (LETT |r| (SPADCALL |r| (QREFELT $ 7)) . #2#)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                     (SEQ (EXIT (LETT |r| (SPADCALL |r| (QREFELT $ 7)))))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |r|)))) 
 
 (SDEFUN |DIFRING-;D;SNniS;3| ((|r| S) (|n| |NonNegativeInteger|) ($ S))
@@ -20,11 +19,11 @@
 (DEFUN |DifferentialRing&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|DifferentialRing&|))
-          (LETT |dv$| (LIST '|DifferentialRing&| DV$1) . #1#)
-          (LETT $ (GETREFV 13) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|DifferentialRing&| DV$1))
+          (LETT $ (GETREFV 13))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

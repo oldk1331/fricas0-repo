@@ -112,7 +112,5 @@
                                         (|NonNegativeInteger|)
                                         (|Union| |t#1| "one")))
                                       T))
-                                   NIL NIL NIL))
-                                 . #2=(|MatrixCategory|)))))
-                   . #2#)
+                                   NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|MatrixCategory| |t#1| |t#2| |t#3|))))) 

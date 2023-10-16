@@ -92,8 +92,6 @@
                                              ((|iexactQuo| (|t#1| |t#1| |t#1|))
                                               (|has| |t#1|
                                                      (|IntegralDomain|))))
-                                           NIL NIL NIL))
-                                  . #4=(|PolynomialSetCategory|))))))
-                   . #4#)
+                                           NIL NIL NIL))))))))
            (SETELT #1# 0
                    (LIST '|PolynomialSetCategory| |t#1| |t#2| |t#3| |t#4|))))) 

@@ -81,7 +81,5 @@
                                                       ((|CharacteristicNonZero|)
                                                        (|has| |t#1|
                                                               (|CharacteristicNonZero|))))
-                                                    NIL NIL))
-                                           . #2=(|QuaternionCategory|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|QuaternionCategory| |t#1|))))) 

@@ -9,8 +9,7 @@
          (PROG (#1=#:G106)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|TopLevelThreeSpace|)
-                    . #2=(|TopLevelThreeSpace|))
+             ((LETT #1# (HGET |$ConstructorCache| '|TopLevelThreeSpace|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -19,7 +18,7 @@
                        (HPUT |$ConstructorCache| '|TopLevelThreeSpace|
                              (LIST
                               (CONS NIL (CONS 1 (|TopLevelThreeSpace;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|TopLevelThreeSpace|)))))))))) 
@@ -27,10 +26,10 @@
 (DEFUN |TopLevelThreeSpace;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|TopLevelThreeSpace|) . #1=(|TopLevelThreeSpace|))
-          (LETT $ (GETREFV 9) . #1#)
+          (LETT |dv$| '(|TopLevelThreeSpace|))
+          (LETT $ (GETREFV 9))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TopLevelThreeSpace| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

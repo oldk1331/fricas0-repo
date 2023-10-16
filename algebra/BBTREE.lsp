@@ -3,26 +3,24 @@
         (SPROG
          ((|acc| (|List| S)) (#1=#:G122 NIL) (|i| NIL)
           (|m| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |n| (LENGTH |u|) . #2=(|BBTREE;setleaves!;$L$;1|))
+         (SEQ (LETT |n| (LENGTH |u|))
               (EXIT
                (COND
                 ((EQL |n| 0)
                  (COND ((SPADCALL |t| (QREFELT $ 9)) |t|)
-                       (#3='T
+                       (#2='T
                         (|error|
                          "the tree and list must have the same number of elements"))))
                 ((EQL |n| 1)
                  (SEQ (SPADCALL |t| (|SPADfirst| |u|) (QREFELT $ 10))
                       (EXIT |t|)))
-                (#3#
-                 (SEQ (LETT |m| (QUOTIENT2 |n| 2) . #2#) (LETT |acc| NIL . #2#)
-                      (SEQ (LETT |i| 1 . #2#) (LETT #1# |m| . #2#) G190
+                (#2#
+                 (SEQ (LETT |m| (QUOTIENT2 |n| 2)) (LETT |acc| NIL)
+                      (SEQ (LETT |i| 1) (LETT #1# |m|) G190
                            (COND ((|greater_SI| |i| #1#) (GO G191)))
-                           (SEQ
-                            (LETT |acc| (CONS (|SPADfirst| |u|) |acc|) . #2#)
-                            (EXIT (LETT |u| (CDR |u|) . #2#)))
-                           (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
-                           (EXIT NIL))
+                           (SEQ (LETT |acc| (CONS (|SPADfirst| |u|) |acc|))
+                                (EXIT (LETT |u| (CDR |u|))))
+                           (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                       (SPADCALL (SPADCALL |t| (QREFELT $ 11)) (NREVERSE |acc|)
                                 (QREFELT $ 13))
                       (SPADCALL (SPADCALL |t| (QREFELT $ 14)) |u|
@@ -38,13 +36,13 @@
                        (SPADCALL (SPADCALL (QREFELT $ 15)) |val|
                                  (SPADCALL (QREFELT $ 15)) (QREFELT $ 16)))
                       ('T
-                       (SEQ
-                        (LETT |m| (QUOTIENT2 |n| 2)
-                              |BBTREE;balancedBinaryTree;NniS$;2|)
-                        (EXIT
-                         (SPADCALL (SPADCALL |m| |val| (QREFELT $ 18)) |val|
-                                   (SPADCALL (- |n| |m|) |val| (QREFELT $ 18))
-                                   (QREFELT $ 16))))))))) 
+                       (SEQ (LETT |m| (QUOTIENT2 |n| 2))
+                            (EXIT
+                             (SPADCALL (SPADCALL |m| |val| (QREFELT $ 18))
+                                       |val|
+                                       (SPADCALL (- |n| |m|) |val|
+                                                 (QREFELT $ 18))
+                                       (QREFELT $ 16))))))))) 
 
 (SDEFUN |BBTREE;mapUp!;$MS;3| ((|x| $) (|fn| |Mapping| S S S) ($ S))
         (COND
@@ -134,8 +132,7 @@
                                              (SPADCALL |x| '|right|
                                                        (QREFELT $ 27))
                                              '|value| (QREFELT $ 21))
-                                            |p| |fn|)
-                                           |BBTREE;mapDown!;$SM$;6|)
+                                            |p| |fn|))
                                      (SPADCALL
                                       (SPADCALL |x| '|left| (QREFELT $ 23))
                                       (SPADCALL |u| 1 (QREFELT $ 33)) |fn|
@@ -157,12 +154,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|BalancedBinaryTree|)
-                                               '|domainEqualList|)
-                    . #3=(|BalancedBinaryTree|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|BalancedBinaryTree;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|BalancedBinaryTree;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|BalancedBinaryTree|)))))))))) 
@@ -172,9 +167,9 @@
    ((|pv$| NIL) (#1=#:G170 NIL) (#2=#:G171 NIL) (#3=#:G172 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #4=(|BalancedBinaryTree|))
-    (LETT |dv$| (LIST '|BalancedBinaryTree| DV$1) . #4#)
-    (LETT $ (GETREFV 48) . #4#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|BalancedBinaryTree| DV$1))
+    (LETT $ (GETREFV 48))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -182,8 +177,7 @@
                                        (LIST
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -192,22 +186,19 @@
                                          #3#)
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|BasicType|))
-                                              . #4#)
+                                                             '(|BasicType|)))
                                         (OR #2# #3#)
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #1#
                                             (AND
                                              (|HasCategory| |#1|
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #3#))))
-                    . #4#))
+                                             #3#))))))
     (|haddProp| |$ConstructorCache| '|BalancedBinaryTree| (LIST DV$1)
                 (CONS 1 $))
     (|stuffDomainSlots| $)

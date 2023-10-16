@@ -25,7 +25,5 @@
                                            (|Join| (|Bialgebra| '|t#1| '|t#2|)
                                                    (|mkCategory|
                                                     '(((|antipode| ($ $)) T))
-                                                    NIL NIL NIL))
-                                           . #2=(|HopfAlgebra|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|HopfAlgebra| |t#1| |t#2|))))) 

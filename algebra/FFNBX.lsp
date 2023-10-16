@@ -10,15 +10,14 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FiniteFieldNormalBasisExtension|)
-                                               '|domainEqualList|)
-                    . #3=(|FiniteFieldNormalBasisExtension|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |FiniteFieldNormalBasisExtension;|)
                              #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -28,10 +27,10 @@
   (SPROG
    ((|pv$| NIL) (#1=#:G146 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldNormalBasisExtension|))
-    (LETT DV$2 (|devaluate| |#2|) . #2#)
-    (LETT |dv$| (LIST '|FiniteFieldNormalBasisExtension| DV$1 DV$2) . #2#)
-    (LETT $ (GETREFV 53) . #2#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT |dv$| (LIST '|FiniteFieldNormalBasisExtension| DV$1 DV$2))
+    (LETT $ (GETREFV 53))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -40,13 +39,11 @@
                                         (|HasCategory| |#1|
                                                        '(|CharacteristicZero|))
                                         (LETT #1#
-                                              (|HasCategory| |#1| '(|Finite|))
-                                              . #2#)
+                                              (|HasCategory| |#1| '(|Finite|)))
                                         (OR
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicNonZero|))
-                                         #1#)))
-                    . #2#))
+                                         #1#)))))
     (|haddProp| |$ConstructorCache| '|FiniteFieldNormalBasisExtension|
                 (LIST DV$1 DV$2) (CONS 1 $))
     (|stuffDomainSlots| $)

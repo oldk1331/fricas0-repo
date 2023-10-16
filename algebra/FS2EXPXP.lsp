@@ -36,33 +36,28 @@
            ((NULL
              (LETT |args|
                    (PROGN
-                    (LETT #2# NIL . #3=(|FS2EXPXP;k2Elem|))
-                    (SEQ (LETT |a| NIL . #3#)
-                         (LETT #1# (SPADCALL |k| (QREFELT $ 29)) . #3#) G190
+                    (LETT #2# NIL)
+                    (SEQ (LETT |a| NIL)
+                         (LETT #1# (SPADCALL |k| (QREFELT $ 29))) G190
                          (COND
-                          ((OR (ATOM #1#)
-                               (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
+                          ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
-                           (LETT #2# (CONS (|FS2EXPXP;newElem| |a| $) #2#)
-                                 . #3#)))
-                         (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                         (EXIT (NREVERSE #2#))))
-                   . #3#))
+                           (LETT #2# (CONS (|FS2EXPXP;newElem| |a| $) #2#))))
+                         (LETT #1# (CDR #1#)) (GO G190) G191
+                         (EXIT (NREVERSE #2#))))))
             (SPADCALL |k| (QREFELT $ 31)))
-           (#4='T
+           (#3='T
             (SEQ
              (LETT |iez|
                    (SPADCALL
                     (LETT |ez|
-                          (SPADCALL (LETT |z| (|SPADfirst| |args|) . #3#)
-                                    (QREFELT $ 32))
-                          . #3#)
-                    (QREFELT $ 33))
-                   . #3#)
-             (LETT |sinz| (SPADCALL |z| (QREFELT $ 34)) . #3#)
-             (LETT |cosz| (SPADCALL |z| (QREFELT $ 35)) . #3#)
+                          (SPADCALL (LETT |z| (|SPADfirst| |args|))
+                                    (QREFELT $ 32)))
+                    (QREFELT $ 33)))
+             (LETT |sinz| (SPADCALL |z| (QREFELT $ 34)))
+             (LETT |cosz| (SPADCALL |z| (QREFELT $ 35)))
              (EXIT
               (COND
                ((SPADCALL |k| '|tan| (QREFELT $ 38))
@@ -142,7 +137,7 @@
                             (QREFELT $ 45))
                            (QREFELT $ 41))
                  (QREFELT $ 46)))
-               (#4#
+               (#3#
                 (SPADCALL (SPADCALL |k| (QREFELT $ 48)) |args|
                           (QREFELT $ 50))))))))))) 
 
@@ -167,72 +162,72 @@
           (|prod| (|Union| (|List| FE) #2="failed"))
           (|sum| (|Union| (|List| FE) #2#)) (#3=#:G219 NIL)
           (|poly| (|Union| (|Polynomial| R) #1#)))
-         (SEQ
-          (LETT |poly| (SPADCALL |fcn| (QREFELT $ 55))
-                . #4=(|FS2EXPXP;iExprToXXP|))
-          (EXIT
-           (COND
-            ((QEQCAR |poly| 0)
-             (CONS 0
-                   (SPADCALL
-                    (PROG2
-                        (LETT #3#
-                              (SPADCALL |fcn| NIL (CONS 1 "real: two sides")
-                                        (QREFELT $ 59))
-                              . #4#)
-                        (QCDR #3#)
-                      (|check_union2| (QEQCAR #3# 0)
-                                      (|UnivariatePuiseuxSeries| (QREFELT $ 7)
-                                                                 (QREFELT $ 8)
-                                                                 (QREFELT $ 9))
-                                      (|Union|
-                                       (|:| |%series|
-                                            (|UnivariatePuiseuxSeries|
-                                             (QREFELT $ 7) (QREFELT $ 8)
-                                             (QREFELT $ 9)))
-                                       (|:| |%problem|
-                                            (|Record| (|:| |func| (|String|))
-                                                      (|:| |prob|
-                                                           (|String|)))))
-                                      #3#))
-                    (QREFELT $ 62))))
-            (#5='T
-             (SEQ (LETT |sum| (SPADCALL |fcn| (QREFELT $ 64)) . #4#)
-                  (EXIT
-                   (COND
-                    ((QEQCAR |sum| 0)
-                     (|FS2EXPXP;listToXXP| (QCDR |sum|) |posCheck?|
-                      (|spadConstant| $ 65) (ELT $ 66) $))
-                    (#5#
-                     (SEQ (LETT |prod| (SPADCALL |fcn| (QREFELT $ 67)) . #4#)
-                          (EXIT
-                           (COND
-                            ((QEQCAR |prod| 0)
-                             (|FS2EXPXP;listToXXP| (QCDR |prod|) |posCheck?|
-                              (|spadConstant| $ 68) (ELT $ 69) $))
-                            (#5#
-                             (SEQ
-                              (LETT |expt| (|FS2EXPXP;isNonTrivPower| |fcn| $)
-                                    . #4#)
+         (SEQ (LETT |poly| (SPADCALL |fcn| (QREFELT $ 55)))
+              (EXIT
+               (COND
+                ((QEQCAR |poly| 0)
+                 (CONS 0
+                       (SPADCALL
+                        (PROG2
+                            (LETT #3#
+                                  (SPADCALL |fcn| NIL
+                                            (CONS 1 "real: two sides")
+                                            (QREFELT $ 59)))
+                            (QCDR #3#)
+                          (|check_union2| (QEQCAR #3# 0)
+                                          (|UnivariatePuiseuxSeries|
+                                           (QREFELT $ 7) (QREFELT $ 8)
+                                           (QREFELT $ 9))
+                                          (|Union|
+                                           (|:| |%series|
+                                                (|UnivariatePuiseuxSeries|
+                                                 (QREFELT $ 7) (QREFELT $ 8)
+                                                 (QREFELT $ 9)))
+                                           (|:| |%problem|
+                                                (|Record|
+                                                 (|:| |func| (|String|))
+                                                 (|:| |prob| (|String|)))))
+                                          #3#))
+                        (QREFELT $ 62))))
+                (#4='T
+                 (SEQ (LETT |sum| (SPADCALL |fcn| (QREFELT $ 64)))
+                      (EXIT
+                       (COND
+                        ((QEQCAR |sum| 0)
+                         (|FS2EXPXP;listToXXP| (QCDR |sum|) |posCheck?|
+                          (|spadConstant| $ 65) (ELT $ 66) $))
+                        (#4#
+                         (SEQ (LETT |prod| (SPADCALL |fcn| (QREFELT $ 67)))
                               (EXIT
                                (COND
-                                ((QEQCAR |expt| 0)
-                                 (SEQ (LETT |power| (QCDR |expt|) . #4#)
-                                      (EXIT
-                                       (|FS2EXPXP;powerToXXP| (QCAR |power|)
-                                        (QCDR |power|) |posCheck?| $))))
-                                (#5#
+                                ((QEQCAR |prod| 0)
+                                 (|FS2EXPXP;listToXXP| (QCDR |prod|)
+                                  |posCheck?| (|spadConstant| $ 68) (ELT $ 69)
+                                  $))
+                                (#4#
                                  (SEQ
-                                  (LETT |ker| (SPADCALL |fcn| (QREFELT $ 71))
-                                        . #4#)
+                                  (LETT |expt|
+                                        (|FS2EXPXP;isNonTrivPower| |fcn| $))
                                   (EXIT
                                    (COND
-                                    ((QEQCAR |ker| 0)
-                                     (|FS2EXPXP;kernelToXXP| (QCDR |ker|)
-                                      |posCheck?| $))
-                                    (#5#
-                                     (|error|
-                                      "exprToXXP: neither a sum, product, power, nor kernel"))))))))))))))))))))))) 
+                                    ((QEQCAR |expt| 0)
+                                     (SEQ (LETT |power| (QCDR |expt|))
+                                          (EXIT
+                                           (|FS2EXPXP;powerToXXP|
+                                            (QCAR |power|) (QCDR |power|)
+                                            |posCheck?| $))))
+                                    (#4#
+                                     (SEQ
+                                      (LETT |ker|
+                                            (SPADCALL |fcn| (QREFELT $ 71)))
+                                      (EXIT
+                                       (COND
+                                        ((QEQCAR |ker| 0)
+                                         (|FS2EXPXP;kernelToXXP| (QCDR |ker|)
+                                          |posCheck?| $))
+                                        (#4#
+                                         (|error|
+                                          "exprToXXP: neither a sum, product, power, nor kernel"))))))))))))))))))))))) 
 
 (SDEFUN |FS2EXPXP;listToXXP|
         ((|list| |List| FE) (|posCheck?| |Boolean|)
@@ -257,18 +252,17 @@
                  (SEQ
                   (LETT |term|
                         (|FS2EXPXP;iExprToXXP| (|SPADfirst| |list|) |posCheck?|
-                         $)
-                        . #2=(|FS2EXPXP;listToXXP|))
+                         $))
                   (EXIT
                    (COND
                     ((QEQCAR |term| 1)
-                     (PROGN (LETT #1# |term| . #2#) (GO #3=#:G246)))
+                     (PROGN (LETT #1# |term|) (GO #2=#:G246)))
                     ('T
-                     (SEQ (LETT |ans| (SPADCALL |ans| (CDR |term|) |op|) . #2#)
-                          (EXIT (LETT |list| (CDR |list|) . #2#)))))))
+                     (SEQ (LETT |ans| (SPADCALL |ans| (CDR |term|) |op|))
+                          (EXIT (LETT |list| (CDR |list|))))))))
                  NIL (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |ans|))))
-          #3# (EXIT #1#)))) 
+          #2# (EXIT #1#)))) 
 
 (SDEFUN |FS2EXPXP;isNonTrivPower|
         ((|fcn| FE)
@@ -279,55 +273,52 @@
           (|expt|
            (|Union| (|Record| (|:| |val| FE) (|:| |exponent| (|Integer|)))
                     "failed")))
-         (SEQ
-          (LETT |expt| (SPADCALL |fcn| (QREFELT $ 74))
-                . #1=(|FS2EXPXP;isNonTrivPower|))
-          (EXIT
-           (COND ((QEQCAR |expt| 1) (CONS 1 "failed"))
-                 (#2='T
-                  (SEQ (LETT |power| (QCDR |expt|) . #1#)
-                       (EXIT
-                        (COND ((EQL (QCDR |power|) 1) (CONS 1 "failed"))
-                              (#2# (CONS 0 |power|))))))))))) 
+         (SEQ (LETT |expt| (SPADCALL |fcn| (QREFELT $ 74)))
+              (EXIT
+               (COND ((QEQCAR |expt| 1) (CONS 1 "failed"))
+                     (#1='T
+                      (SEQ (LETT |power| (QCDR |expt|))
+                           (EXIT
+                            (COND ((EQL (QCDR |power|) 1) (CONS 1 "failed"))
+                                  (#1# (CONS 0 |power|))))))))))) 
 
 (SDEFUN |FS2EXPXP;negativePowerOK?|
         ((|upxs| |UnivariatePuiseuxSeries| FE |x| |cen|) ($ |Boolean|))
         (SPROG
          ((|xOpList| (|List| (|BasicOperator|))) (|coef| (FE))
           (|deg| (|Fraction| (|Integer|))))
-         (SEQ
-          (LETT |deg| (SPADCALL |upxs| (QREFELT $ 75))
-                . #1=(|FS2EXPXP;negativePowerOK?|))
-          (SEQ (LETT |coef| (SPADCALL |upxs| |deg| (QREFELT $ 76)) . #1#)
-               (EXIT
-                (COND
-                 ((SPADCALL |coef| (|spadConstant| $ 77) (QREFELT $ 78))
-                  (SEQ
-                   (LETT |deg|
-                         (SPADCALL |upxs|
-                                   (SPADCALL |deg| (QREFELT $ 14)
-                                             (QREFELT $ 79))
-                                   (QREFELT $ 80))
-                         . #1#)
-                   (LETT |coef| (SPADCALL |upxs| |deg| (QREFELT $ 76)) . #1#)
+         (SEQ (LETT |deg| (SPADCALL |upxs| (QREFELT $ 75)))
+              (SEQ (LETT |coef| (SPADCALL |upxs| |deg| (QREFELT $ 76)))
                    (EXIT
                     (COND
                      ((SPADCALL |coef| (|spadConstant| $ 77) (QREFELT $ 78))
-                      (|error|
-                       "inverse of series with many leading zero coefficients")))))))))
-          (LETT |xOpList| (|FS2EXPXP;opsInvolvingX| |coef| $) . #1#)
-          (EXIT
-           (COND ((NULL |xOpList|) 'T)
-                 (#2='T
-                  (SEQ
-                   (COND
-                    ((NULL (CDR |xOpList|))
-                     (COND
-                      ((SPADCALL (|SPADfirst| |xOpList|) '|log| (QREFELT $ 81))
-                       (EXIT 'T)))))
-                   (EXIT
-                    (COND ((|FS2EXPXP;productOfNonZeroes?| |coef| $) 'T)
-                          (#2# NIL)))))))))) 
+                      (SEQ
+                       (LETT |deg|
+                             (SPADCALL |upxs|
+                                       (SPADCALL |deg| (QREFELT $ 14)
+                                                 (QREFELT $ 79))
+                                       (QREFELT $ 80)))
+                       (LETT |coef| (SPADCALL |upxs| |deg| (QREFELT $ 76)))
+                       (EXIT
+                        (COND
+                         ((SPADCALL |coef| (|spadConstant| $ 77)
+                                    (QREFELT $ 78))
+                          (|error|
+                           "inverse of series with many leading zero coefficients")))))))))
+              (LETT |xOpList| (|FS2EXPXP;opsInvolvingX| |coef| $))
+              (EXIT
+               (COND ((NULL |xOpList|) 'T)
+                     (#1='T
+                      (SEQ
+                       (COND
+                        ((NULL (CDR |xOpList|))
+                         (COND
+                          ((SPADCALL (|SPADfirst| |xOpList|) '|log|
+                                     (QREFELT $ 81))
+                           (EXIT 'T)))))
+                       (EXIT
+                        (COND ((|FS2EXPXP;productOfNonZeroes?| |coef| $) 'T)
+                              (#1# NIL)))))))))) 
 
 (SDEFUN |FS2EXPXP;powerToXXP|
         ((|fcn| FE) (|n| |Integer|) (|posCheck?| |Boolean|)
@@ -351,69 +342,69 @@
                     (|:| |%problem|
                          (|Record| (|:| |func| (|String|))
                                    (|:| |prob| (|String|)))))))
-         (SEQ
-          (LETT |b| (|FS2EXPXP;iExprToXXP| |fcn| |posCheck?| $)
-                . #4=(|FS2EXPXP;powerToXXP|))
-          (EXIT
-           (COND ((QEQCAR |b| 1) |b|)
-                 (#5='T
-                  (SEQ
-                   (LETT |xxp|
-                         (PROG2 (LETT #3# |b| . #4#)
-                             (QCDR #3#)
-                           (|check_union2| (QEQCAR #3# 0)
-                                           (|ExponentialExpansion|
-                                            (QREFELT $ 6) (QREFELT $ 7)
-                                            (QREFELT $ 8) (QREFELT $ 9))
-                                           (|Union|
-                                            (|:| |%expansion|
-                                                 (|ExponentialExpansion|
-                                                  (QREFELT $ 6) (QREFELT $ 7)
-                                                  (QREFELT $ 8) (QREFELT $ 9)))
-                                            (|:| |%problem|
-                                                 (|Record|
-                                                  (|:| |func| (|String|))
-                                                  (|:| |prob| (|String|)))))
-                                           #3#))
-                         . #4#)
-                   (EXIT
-                    (COND
-                     ((OR (SPADCALL |n| 0 (QREFELT $ 82))
-                          (SPADCALL
-                           (SPADCALL
-                            (LETT |num| (SPADCALL |xxp| (QREFELT $ 85)) . #4#)
-                            (QREFELT $ 87))
-                           1 (QREFELT $ 88)))
-                      (CONS 0 (SPADCALL |xxp| |n| (QREFELT $ 83))))
-                     ((|FS2EXPXP;negativePowerOK?|
-                       (SPADCALL |num| (QREFELT $ 89)) $)
-                      (SEQ (LETT |rec| (SPADCALL |num| (QREFELT $ 91)) . #4#)
-                           (EXIT
-                            (COND
-                             ((QEQCAR |rec| 1)
-                              (|error| "FS2EXPXP: can't happen"))
-                             (#5#
-                              (SEQ
-                               (LETT |nn|
-                                     (PROG1 (LETT #2# (- |n|) . #4#)
-                                       (|check_subtype2| (>= #2# 0)
-                                                         '(|NonNegativeInteger|)
-                                                         '(|Integer|) #2#))
-                                     . #4#)
+         (SEQ (LETT |b| (|FS2EXPXP;iExprToXXP| |fcn| |posCheck?| $))
+              (EXIT
+               (COND ((QEQCAR |b| 1) |b|)
+                     (#4='T
+                      (SEQ
+                       (LETT |xxp|
+                             (PROG2 (LETT #3# |b|)
+                                 (QCDR #3#)
+                               (|check_union2| (QEQCAR #3# 0)
+                                               (|ExponentialExpansion|
+                                                (QREFELT $ 6) (QREFELT $ 7)
+                                                (QREFELT $ 8) (QREFELT $ 9))
+                                               (|Union|
+                                                (|:| |%expansion|
+                                                     (|ExponentialExpansion|
+                                                      (QREFELT $ 6)
+                                                      (QREFELT $ 7)
+                                                      (QREFELT $ 8)
+                                                      (QREFELT $ 9)))
+                                                (|:| |%problem|
+                                                     (|Record|
+                                                      (|:| |func| (|String|))
+                                                      (|:| |prob|
+                                                           (|String|)))))
+                                               #3#)))
+                       (EXIT
+                        (COND
+                         ((OR (SPADCALL |n| 0 (QREFELT $ 82))
+                              (SPADCALL
+                               (SPADCALL
+                                (LETT |num| (SPADCALL |xxp| (QREFELT $ 85)))
+                                (QREFELT $ 87))
+                               1 (QREFELT $ 88)))
+                          (CONS 0 (SPADCALL |xxp| |n| (QREFELT $ 83))))
+                         ((|FS2EXPXP;negativePowerOK?|
+                           (SPADCALL |num| (QREFELT $ 89)) $)
+                          (SEQ (LETT |rec| (SPADCALL |num| (QREFELT $ 91)))
                                (EXIT
-                                (CONS 0
-                                      (SPADCALL
-                                       (SPADCALL
-                                        (SPADCALL
-                                         (SPADCALL |xxp| (QREFELT $ 92)) |nn|
-                                         (QREFELT $ 93))
-                                        (SPADCALL (QCDR |rec|) |nn|
-                                                  (QREFELT $ 93))
-                                        (QREFELT $ 94))
-                                       (QREFELT $ 95))))))))))
-                     (#5#
-                      (|FS2EXPXP;stateProblem| "inv"
-                       "lowest order coefficient involves x" $))))))))))) 
+                                (COND
+                                 ((QEQCAR |rec| 1)
+                                  (|error| "FS2EXPXP: can't happen"))
+                                 (#4#
+                                  (SEQ
+                                   (LETT |nn|
+                                         (PROG1 (LETT #2# (- |n|))
+                                           (|check_subtype2| (>= #2# 0)
+                                                             '(|NonNegativeInteger|)
+                                                             '(|Integer|)
+                                                             #2#)))
+                                   (EXIT
+                                    (CONS 0
+                                          (SPADCALL
+                                           (SPADCALL
+                                            (SPADCALL
+                                             (SPADCALL |xxp| (QREFELT $ 92))
+                                             |nn| (QREFELT $ 93))
+                                            (SPADCALL (QCDR |rec|) |nn|
+                                                      (QREFELT $ 93))
+                                            (QREFELT $ 94))
+                                           (QREFELT $ 95))))))))))
+                         (#4#
+                          (|FS2EXPXP;stateProblem| "inv"
+                           "lowest order coefficient involves x" $))))))))))) 
 
 (SDEFUN |FS2EXPXP;carefulNthRootIfCan|
         ((|ups| |UnivariatePuiseuxSeries| FE |x| |cen|)
@@ -432,61 +423,56 @@
                  (#3='T
                   (SEQ
                    (EXIT
-                    (SEQ
-                     (LETT |deg| (SPADCALL |ups| (QREFELT $ 75))
-                           . #4=(|FS2EXPXP;carefulNthRootIfCan|))
-                     (SEQ
-                      (LETT |coef| (SPADCALL |ups| |deg| (QREFELT $ 76)) . #4#)
-                      (EXIT
-                       (COND
-                        ((SPADCALL |coef| (|spadConstant| $ 77) (QREFELT $ 78))
+                    (SEQ (LETT |deg| (SPADCALL |ups| (QREFELT $ 75)))
                          (SEQ
-                          (LETT |deg|
-                                (SPADCALL |ups|
-                                          (SPADCALL |deg| (QREFELT $ 14)
-                                                    (QREFELT $ 79))
-                                          (QREFELT $ 80))
-                                . #4#)
-                          (LETT |coef| (SPADCALL |ups| |deg| (QREFELT $ 76))
-                                . #4#)
+                          (LETT |coef| (SPADCALL |ups| |deg| (QREFELT $ 76)))
                           (EXIT
                            (COND
                             ((SPADCALL |coef| (|spadConstant| $ 77)
                                        (QREFELT $ 78))
-                             (|error|
-                              "log of series with many leading zero coefficients")))))))))
-                     (COND
-                      ((SPADCALL |n| (QREFELT $ 96))
-                       (COND
-                        (|posCheck?|
-                         (SEQ
-                          (LETT |signum| (SPADCALL |coef| (QREFELT $ 99))
-                                . #4#)
-                          (EXIT
+                             (SEQ
+                              (LETT |deg|
+                                    (SPADCALL |ups|
+                                              (SPADCALL |deg| (QREFELT $ 14)
+                                                        (QREFELT $ 79))
+                                              (QREFELT $ 80)))
+                              (LETT |coef|
+                                    (SPADCALL |ups| |deg| (QREFELT $ 76)))
+                              (EXIT
+                               (COND
+                                ((SPADCALL |coef| (|spadConstant| $ 77)
+                                           (QREFELT $ 78))
+                                 (|error|
+                                  "log of series with many leading zero coefficients")))))))))
+                         (COND
+                          ((SPADCALL |n| (QREFELT $ 96))
                            (COND
-                            ((QEQCAR |signum| 0)
-                             (COND
-                              ((EQL (QCDR |signum|) -1)
-                               (PROGN
-                                (LETT #1#
-                                      (PROGN
-                                       (LETT #2#
-                                             (|FS2EXPXP;stateSeriesProblem|
-                                              "nth root"
-                                              "root of negative number" $)
-                                             . #4#)
-                                       (GO #5=#:G291))
-                                      . #4#)
-                                (GO #6=#:G290))))))))))))
-                     (LETT |ans| (SPADCALL |ups| |n| (QREFELT $ 102)) . #4#)
-                     (EXIT
-                      (COND
-                       ((QEQCAR |ans| 1)
-                        (|FS2EXPXP;stateSeriesProblem| "nth root" "no nth root"
-                         $))
-                       (#3# (CONS 0 (QCDR |ans|)))))))
-                   #6# (EXIT #1#)))))
-          #5# (EXIT #2#)))) 
+                            (|posCheck?|
+                             (SEQ
+                              (LETT |signum| (SPADCALL |coef| (QREFELT $ 99)))
+                              (EXIT
+                               (COND
+                                ((QEQCAR |signum| 0)
+                                 (COND
+                                  ((EQL (QCDR |signum|) -1)
+                                   (PROGN
+                                    (LETT #1#
+                                          (PROGN
+                                           (LETT #2#
+                                                 (|FS2EXPXP;stateSeriesProblem|
+                                                  "nth root"
+                                                  "root of negative number" $))
+                                           (GO #4=#:G291)))
+                                    (GO #5=#:G290))))))))))))
+                         (LETT |ans| (SPADCALL |ups| |n| (QREFELT $ 102)))
+                         (EXIT
+                          (COND
+                           ((QEQCAR |ans| 1)
+                            (|FS2EXPXP;stateSeriesProblem| "nth root"
+                             "no nth root" $))
+                           (#3# (CONS 0 (QCDR |ans|)))))))
+                   #5# (EXIT #1#)))))
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |FS2EXPXP;nthRootXXPIfCan|
         ((|xxp| |ExponentialExpansion| R FE |x| |cen|)
@@ -515,114 +501,106 @@
                                                                 |cen|)))
          (SEQ
           (EXIT
-           (SEQ
-            (LETT |num| (SPADCALL |xxp| (QREFELT $ 85))
-                  . #5=(|FS2EXPXP;nthRootXXPIfCan|))
-            (LETT |den| (SPADCALL |xxp| (QREFELT $ 92)) . #5#)
-            (COND
-             ((SPADCALL (SPADCALL |num| (QREFELT $ 103)) (QREFELT $ 104))
-              (COND
-               ((NULL
-                 (SPADCALL (SPADCALL |den| (QREFELT $ 103)) (QREFELT $ 104)))
-                (EXIT
-                 (|FS2EXPXP;stateProblem| #6="nth root"
-                  #7="several monomials in numerator or denominator" $)))))
-             (#8='T (EXIT (|FS2EXPXP;stateProblem| #6# #7# $))))
-            (LETT |nInv| (SPADCALL 1 |n| (QREFELT $ 13)) . #5#)
-            (LETT |newNum|
-                  (SEQ
-                   (LETT |coef|
-                         (SEQ
-                          (LETT |root|
-                                (|FS2EXPXP;carefulNthRootIfCan|
-                                 (SPADCALL |num| (QREFELT $ 89)) |n|
-                                 |posCheck?| $)
-                                . #5#)
-                          (EXIT
-                           (COND
-                            ((QEQCAR |root| 1)
-                             (PROGN
-                              (LETT #3# (CONS 1 (CDR |root|)) . #5#)
-                              (GO #9=#:G306)))
-                            (#8# (CDR |root|)))))
-                         . #5#)
-                   (LETT |deg|
-                         (SPADCALL (SPADCALL |nInv| (QREFELT $ 105))
-                                   (SPADCALL |num| (QREFELT $ 107))
-                                   (QREFELT $ 108))
-                         . #5#)
-                   (EXIT (SPADCALL |coef| |deg| (QREFELT $ 109))))
-                  . #5#)
-            (LETT |newDen|
-                  (SEQ
-                   (LETT |coef|
-                         (SEQ
-                          (LETT |root|
-                                (|FS2EXPXP;carefulNthRootIfCan|
-                                 (SPADCALL |den| (QREFELT $ 89)) |n|
-                                 |posCheck?| $)
-                                . #5#)
-                          (EXIT
-                           (COND
-                            ((QEQCAR |root| 1)
-                             (PROGN
-                              (LETT #3#
-                                    (CONS 1
-                                          (PROG2 (LETT #4# |root| . #5#)
-                                              (QCDR #4#)
-                                            (|check_union2| (QEQCAR #4# 1)
-                                                            (|Record|
-                                                             (|:| |func|
-                                                                  (|String|))
-                                                             (|:| |prob|
-                                                                  (|String|)))
-                                                            (|Union|
-                                                             (|:| |%series|
-                                                                  (|UnivariatePuiseuxSeries|
-                                                                   (QREFELT $
-                                                                            7)
-                                                                   (QREFELT $
-                                                                            8)
-                                                                   (QREFELT $
-                                                                            9)))
-                                                             (|:| |%problem|
+           (SEQ (LETT |num| (SPADCALL |xxp| (QREFELT $ 85)))
+                (LETT |den| (SPADCALL |xxp| (QREFELT $ 92)))
+                (COND
+                 ((SPADCALL (SPADCALL |num| (QREFELT $ 103)) (QREFELT $ 104))
+                  (COND
+                   ((NULL
+                     (SPADCALL (SPADCALL |den| (QREFELT $ 103))
+                               (QREFELT $ 104)))
+                    (EXIT
+                     (|FS2EXPXP;stateProblem| #5="nth root"
+                      #6="several monomials in numerator or denominator" $)))))
+                 (#7='T (EXIT (|FS2EXPXP;stateProblem| #5# #6# $))))
+                (LETT |nInv| (SPADCALL 1 |n| (QREFELT $ 13)))
+                (LETT |newNum|
+                      (SEQ
+                       (LETT |coef|
+                             (SEQ
+                              (LETT |root|
+                                    (|FS2EXPXP;carefulNthRootIfCan|
+                                     (SPADCALL |num| (QREFELT $ 89)) |n|
+                                     |posCheck?| $))
+                              (EXIT
+                               (COND
+                                ((QEQCAR |root| 1)
+                                 (PROGN
+                                  (LETT #3# (CONS 1 (CDR |root|)))
+                                  (GO #8=#:G306)))
+                                (#7# (CDR |root|))))))
+                       (LETT |deg|
+                             (SPADCALL (SPADCALL |nInv| (QREFELT $ 105))
+                                       (SPADCALL |num| (QREFELT $ 107))
+                                       (QREFELT $ 108)))
+                       (EXIT (SPADCALL |coef| |deg| (QREFELT $ 109)))))
+                (LETT |newDen|
+                      (SEQ
+                       (LETT |coef|
+                             (SEQ
+                              (LETT |root|
+                                    (|FS2EXPXP;carefulNthRootIfCan|
+                                     (SPADCALL |den| (QREFELT $ 89)) |n|
+                                     |posCheck?| $))
+                              (EXIT
+                               (COND
+                                ((QEQCAR |root| 1)
+                                 (PROGN
+                                  (LETT #3#
+                                        (CONS 1
+                                              (PROG2 (LETT #4# |root|)
+                                                  (QCDR #4#)
+                                                (|check_union2| (QEQCAR #4# 1)
+                                                                (|Record|
+                                                                 (|:| |func|
+                                                                      (|String|))
+                                                                 (|:| |prob|
+                                                                      (|String|)))
+                                                                (|Union|
+                                                                 (|:| |%series|
+                                                                      (|UnivariatePuiseuxSeries|
+                                                                       (QREFELT
+                                                                        $ 7)
+                                                                       (QREFELT
+                                                                        $ 8)
+                                                                       (QREFELT
+                                                                        $ 9)))
+                                                                 (|:|
+                                                                  |%problem|
                                                                   (|Record|
                                                                    (|:| |func|
                                                                         (|String|))
                                                                    (|:| |prob|
                                                                         (|String|)))))
-                                                            #4#)))
-                                    . #5#)
-                              (GO #9#)))
-                            (#8#
-                             (PROG2 (LETT #2# |root| . #5#)
-                                 (QCDR #2#)
-                               (|check_union2| (QEQCAR #2# 0)
-                                               (|UnivariatePuiseuxSeries|
-                                                (QREFELT $ 7) (QREFELT $ 8)
-                                                (QREFELT $ 9))
-                                               (|Union|
-                                                (|:| |%series|
-                                                     (|UnivariatePuiseuxSeries|
-                                                      (QREFELT $ 7)
-                                                      (QREFELT $ 8)
-                                                      (QREFELT $ 9)))
-                                                (|:| |%problem|
-                                                     (|Record|
-                                                      (|:| |func| (|String|))
-                                                      (|:| |prob|
-                                                           (|String|)))))
-                                               #2#))))))
-                         . #5#)
-                   (LETT |deg|
-                         (SPADCALL (SPADCALL |nInv| (QREFELT $ 105))
-                                   (SPADCALL |den| (QREFELT $ 107))
-                                   (QREFELT $ 108))
-                         . #5#)
-                   (EXIT (SPADCALL |coef| |deg| (QREFELT $ 109))))
-                  . #5#)
-            (EXIT (CONS 0 (SPADCALL |newNum| |newDen| (QREFELT $ 110))))))
-          #9# (EXIT #3#)))) 
+                                                                #4#))))
+                                  (GO #8#)))
+                                (#7#
+                                 (PROG2 (LETT #2# |root|)
+                                     (QCDR #2#)
+                                   (|check_union2| (QEQCAR #2# 0)
+                                                   (|UnivariatePuiseuxSeries|
+                                                    (QREFELT $ 7) (QREFELT $ 8)
+                                                    (QREFELT $ 9))
+                                                   (|Union|
+                                                    (|:| |%series|
+                                                         (|UnivariatePuiseuxSeries|
+                                                          (QREFELT $ 7)
+                                                          (QREFELT $ 8)
+                                                          (QREFELT $ 9)))
+                                                    (|:| |%problem|
+                                                         (|Record|
+                                                          (|:| |func|
+                                                               (|String|))
+                                                          (|:| |prob|
+                                                               (|String|)))))
+                                                   #2#)))))))
+                       (LETT |deg|
+                             (SPADCALL (SPADCALL |nInv| (QREFELT $ 105))
+                                       (SPADCALL |den| (QREFELT $ 107))
+                                       (QREFELT $ 108)))
+                       (EXIT (SPADCALL |coef| |deg| (QREFELT $ 109)))))
+                (EXIT (CONS 0 (SPADCALL |newNum| |newDen| (QREFELT $ 110))))))
+          #8# (EXIT #3#)))) 
 
 (SDEFUN |FS2EXPXP;nthRootToXXP|
         ((|arg| FE) (|n| |NonNegativeInteger|) (|posCheck?| |Boolean|)
@@ -640,20 +618,17 @@
                     (|:| |%problem|
                          (|Record| (|:| |func| (|String|))
                                    (|:| |prob| (|String|)))))))
-         (SEQ
-          (LETT |result| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $)
-                . #1=(|FS2EXPXP;nthRootToXXP|))
-          (EXIT
-           (COND ((QEQCAR |result| 1) (CONS 1 (CDR |result|)))
-                 (#2='T
-                  (SEQ
-                   (LETT |ans|
-                         (|FS2EXPXP;nthRootXXPIfCan| (CDR |result|) |n|
-                          |posCheck?| $)
-                         . #1#)
-                   (EXIT
-                    (COND ((QEQCAR |ans| 1) (CONS 1 (CDR |ans|)))
-                          (#2# (CONS 0 (CDR |ans|)))))))))))) 
+         (SEQ (LETT |result| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $))
+              (EXIT
+               (COND ((QEQCAR |result| 1) (CONS 1 (CDR |result|)))
+                     (#1='T
+                      (SEQ
+                       (LETT |ans|
+                             (|FS2EXPXP;nthRootXXPIfCan| (CDR |result|) |n|
+                              |posCheck?| $))
+                       (EXIT
+                        (COND ((QEQCAR |ans| 1) (CONS 1 (CDR |ans|)))
+                              (#1# (CONS 0 (CDR |ans|)))))))))))) 
 
 (SDEFUN |FS2EXPXP;genPowerToXXP|
         ((|args| |List| FE) (|posCheck?| |Boolean|)
@@ -675,31 +650,28 @@
                                    (|:| |prob| (|String|)))))))
          (SEQ
           (LETT |logBase|
-                (|FS2EXPXP;logToXXP| (|SPADfirst| |args|) |posCheck?| $)
-                . #1=(|FS2EXPXP;genPowerToXXP|))
+                (|FS2EXPXP;logToXXP| (|SPADfirst| |args|) |posCheck?| $))
           (EXIT
            (COND ((QEQCAR |logBase| 1) |logBase|)
-                 (#2='T
+                 (#1='T
                   (SEQ
                    (LETT |expon|
                          (|FS2EXPXP;iExprToXXP|
-                          (SPADCALL |args| (QREFELT $ 111)) |posCheck?| $)
-                         . #1#)
+                          (SPADCALL |args| (QREFELT $ 111)) |posCheck?| $))
                    (EXIT
                     (COND ((QEQCAR |expon| 1) |expon|)
-                          (#2#
+                          (#1#
                            (SEQ
                             (LETT |xxp|
                                   (SPADCALL (CDR |expon|) (CDR |logBase|)
-                                            (QREFELT $ 69))
-                                  . #1#)
-                            (LETT |f| (SPADCALL |xxp| (QREFELT $ 112)) . #1#)
+                                            (QREFELT $ 69)))
+                            (LETT |f| (SPADCALL |xxp| (QREFELT $ 112)))
                             (EXIT
                              (COND
                               ((QEQCAR |f| 1)
                                (|FS2EXPXP;stateProblem| "exp"
                                 "multiply nested exponential" $))
-                              (#2#
+                              (#1#
                                (|FS2EXPXP;exponential| (QCDR |f|) |posCheck?|
                                 $))))))))))))))) 
 
@@ -711,60 +683,58 @@
         (SPROG
          ((#1=#:G333 NIL) (|n| (|Integer|)) (|arg| (FE)) (|args| (|List| FE))
           (|sym| (|Union| (|Symbol|) "failed")))
-         (SEQ
-          (LETT |sym| (SPADCALL |ker| (QREFELT $ 114))
-                . #2=(|FS2EXPXP;kernelToXXP|))
-          (EXIT
-           (COND
-            ((QEQCAR |sym| 0)
-             (COND
-              ((EQUAL (QCDR |sym|) (QREFELT $ 8))
-               (CONS 0
-                     (SPADCALL
-                      (SPADCALL (|spadConstant| $ 10) (|spadConstant| $ 115)
-                                (QREFELT $ 116))
-                      (QREFELT $ 62))))
-              (#3='T
-               (CONS 0
-                     (SPADCALL
-                      (SPADCALL (SPADCALL |ker| (QREFELT $ 31))
-                                (|spadConstant| $ 117) (QREFELT $ 116))
-                      (QREFELT $ 62))))))
-            ((NULL (LETT |args| (SPADCALL |ker| (QREFELT $ 29)) . #2#))
-             (CONS 0
-                   (SPADCALL
-                    (SPADCALL (SPADCALL |ker| (QREFELT $ 31))
-                              (|spadConstant| $ 117) (QREFELT $ 116))
-                    (QREFELT $ 62))))
-            ((NULL (CDR |args|))
-             (SEQ (LETT |arg| (|SPADfirst| |args|) . #2#)
-                  (EXIT
-                   (COND
-                    ((SPADCALL |ker| '|%paren| (QREFELT $ 38))
-                     (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $))
-                    ((SPADCALL |ker| '|log| (QREFELT $ 38))
-                     (|FS2EXPXP;logToXXP| |arg| |posCheck?| $))
-                    ((SPADCALL |ker| '|exp| (QREFELT $ 38))
-                     (|FS2EXPXP;expToXXP| |arg| |posCheck?| $))
-                    (#3# (|FS2EXPXP;tranToXXP| |ker| |arg| |posCheck?| $))))))
-            ((SPADCALL |ker| '|%power| (QREFELT $ 38))
-             (|FS2EXPXP;genPowerToXXP| |args| |posCheck?| $))
-            ((SPADCALL |ker| '|nthRoot| (QREFELT $ 38))
-             (SEQ
-              (LETT |n|
-                    (SPADCALL (SPADCALL |args| (QREFELT $ 111))
-                              (QREFELT $ 118))
-                    . #2#)
+         (SEQ (LETT |sym| (SPADCALL |ker| (QREFELT $ 114)))
               (EXIT
-               (|FS2EXPXP;nthRootToXXP| (|SPADfirst| |args|)
-                (PROG1 (LETT #1# |n| . #2#)
-                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
-                                    '(|Integer|) #1#))
-                |posCheck?| $))))
-            (#3#
-             (|FS2EXPXP;stateProblem|
-              (SPADCALL (SPADCALL |ker| (QREFELT $ 119)) (QREFELT $ 121))
-              "unknown kernel" $))))))) 
+               (COND
+                ((QEQCAR |sym| 0)
+                 (COND
+                  ((EQUAL (QCDR |sym|) (QREFELT $ 8))
+                   (CONS 0
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 10)
+                                    (|spadConstant| $ 115) (QREFELT $ 116))
+                          (QREFELT $ 62))))
+                  (#2='T
+                   (CONS 0
+                         (SPADCALL
+                          (SPADCALL (SPADCALL |ker| (QREFELT $ 31))
+                                    (|spadConstant| $ 117) (QREFELT $ 116))
+                          (QREFELT $ 62))))))
+                ((NULL (LETT |args| (SPADCALL |ker| (QREFELT $ 29))))
+                 (CONS 0
+                       (SPADCALL
+                        (SPADCALL (SPADCALL |ker| (QREFELT $ 31))
+                                  (|spadConstant| $ 117) (QREFELT $ 116))
+                        (QREFELT $ 62))))
+                ((NULL (CDR |args|))
+                 (SEQ (LETT |arg| (|SPADfirst| |args|))
+                      (EXIT
+                       (COND
+                        ((SPADCALL |ker| '|%paren| (QREFELT $ 38))
+                         (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $))
+                        ((SPADCALL |ker| '|log| (QREFELT $ 38))
+                         (|FS2EXPXP;logToXXP| |arg| |posCheck?| $))
+                        ((SPADCALL |ker| '|exp| (QREFELT $ 38))
+                         (|FS2EXPXP;expToXXP| |arg| |posCheck?| $))
+                        (#2#
+                         (|FS2EXPXP;tranToXXP| |ker| |arg| |posCheck?| $))))))
+                ((SPADCALL |ker| '|%power| (QREFELT $ 38))
+                 (|FS2EXPXP;genPowerToXXP| |args| |posCheck?| $))
+                ((SPADCALL |ker| '|nthRoot| (QREFELT $ 38))
+                 (SEQ
+                  (LETT |n|
+                        (SPADCALL (SPADCALL |args| (QREFELT $ 111))
+                                  (QREFELT $ 118)))
+                  (EXIT
+                   (|FS2EXPXP;nthRootToXXP| (|SPADfirst| |args|)
+                    (PROG1 (LETT #1# |n|)
+                      (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                        '(|Integer|) #1#))
+                    |posCheck?| $))))
+                (#2#
+                 (|FS2EXPXP;stateProblem|
+                  (SPADCALL (SPADCALL |ker| (QREFELT $ 119)) (QREFELT $ 121))
+                  "unknown kernel" $))))))) 
 
 (SDEFUN |FS2EXPXP;genExp|
         ((|ups| |UnivariatePuiseuxSeries| FE |x| |cen|) (|posCheck?| |Boolean|)
@@ -780,33 +750,30 @@
           (|expCoef| (FE)) (|varOpList| (|List| (|BasicOperator|))) (|lc| (FE))
           (|deg| (|Fraction| (|Integer|))))
          (SEQ
-          (LETT |deg| (SPADCALL |ups| (|spadConstant| $ 115) (QREFELT $ 80))
-                . #1=(|FS2EXPXP;genExp|))
+          (LETT |deg| (SPADCALL |ups| (|spadConstant| $ 115) (QREFELT $ 80)))
           (EXIT
            (COND
             ((SPADCALL |deg| (|spadConstant| $ 117) (QREFELT $ 122))
              (|error| "exp of function with sigularity"))
             ((SPADCALL |deg| (|spadConstant| $ 117) (QREFELT $ 123))
              (CONS 0 (SPADCALL |ups| (QREFELT $ 124))))
-            (#2='T
+            (#1='T
              (SEQ
-              (LETT |lc| (SPADCALL |ups| (|spadConstant| $ 117) (QREFELT $ 76))
-                    . #1#)
-              (LETT |varOpList| (|FS2EXPXP;opsInvolvingX| |lc| $) . #1#)
+              (LETT |lc|
+                    (SPADCALL |ups| (|spadConstant| $ 117) (QREFELT $ 76)))
+              (LETT |varOpList| (|FS2EXPXP;opsInvolvingX| |lc| $))
               (COND
                ((NULL (|FS2EXPXP;opInOpList?| '|log| |varOpList| $))
                 (EXIT (CONS 0 (SPADCALL |ups| (QREFELT $ 124))))))
               (LETT |expCoef|
                     (SPADCALL (SPADCALL |lc| (QREFELT $ 32)) (QREFELT $ 8)
-                              (QREFELT $ 126))
-                    . #1#)
+                              (QREFELT $ 126)))
               (LETT |result|
                     (SPADCALL |expCoef| |posCheck?| (CONS 3 "real: right side")
-                              (QREFELT $ 127))
-                    . #1#)
+                              (QREFELT $ 127)))
               (EXIT
                (COND ((QEQCAR |result| 1) |result|)
-                     (#2#
+                     (#1#
                       (CONS 0
                             (SPADCALL (CDR |result|)
                                       (SPADCALL
@@ -839,11 +806,10 @@
                           (SPADCALL
                            (SPADCALL |f| (|spadConstant| $ 117) (QREFELT $ 76))
                            (QREFELT $ 131))
-                          (QREFELT $ 128))
-                . #2=(|FS2EXPXP;exponential|))
-          (LETT |taylorPart| (SPADCALL |f| |singPart| (QREFELT $ 128)) . #2#)
-          (LETT |expon| (SPADCALL |singPart| (QREFELT $ 132)) . #2#)
-          (LETT |coef| (|FS2EXPXP;genExp| |taylorPart| |posCheck?| $) . #2#)
+                          (QREFELT $ 128)))
+          (LETT |taylorPart| (SPADCALL |f| |singPart| (QREFELT $ 128)))
+          (LETT |expon| (SPADCALL |singPart| (QREFELT $ 132)))
+          (LETT |coef| (|FS2EXPXP;genExp| |taylorPart| |posCheck?| $))
           (EXIT
            (COND ((QEQCAR |coef| 1) (CONS 1 (CDR |coef|)))
                  ('T
@@ -866,40 +832,40 @@
                     (|:| |%problem|
                          (|Record| (|:| |func| (|String|))
                                    (|:| |prob| (|String|)))))))
-         (SEQ
-          (LETT |result| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $)
-                . #3=(|FS2EXPXP;expToXXP|))
-          (EXIT
-           (COND ((QEQCAR |result| 1) |result|)
-                 (#4='T
-                  (SEQ
-                   (LETT |xxp|
-                         (PROG2 (LETT #2# |result| . #3#)
-                             (QCDR #2#)
-                           (|check_union2| (QEQCAR #2# 0)
-                                           (|ExponentialExpansion|
-                                            (QREFELT $ 6) (QREFELT $ 7)
-                                            (QREFELT $ 8) (QREFELT $ 9))
-                                           (|Union|
-                                            (|:| |%expansion|
-                                                 (|ExponentialExpansion|
-                                                  (QREFELT $ 6) (QREFELT $ 7)
-                                                  (QREFELT $ 8) (QREFELT $ 9)))
-                                            (|:| |%problem|
-                                                 (|Record|
-                                                  (|:| |func| (|String|))
-                                                  (|:| |prob| (|String|)))))
-                                           #2#))
-                         . #3#)
-                   (LETT |f| (SPADCALL |xxp| (QREFELT $ 112)) . #3#)
-                   (EXIT
-                    (COND
-                     ((QEQCAR |f| 1)
-                      (|FS2EXPXP;stateProblem| "exp"
-                       "multiply nested exponential" $))
-                     (#4#
-                      (|FS2EXPXP;exponential| (QCDR |f|) |posCheck?|
-                       $))))))))))) 
+         (SEQ (LETT |result| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $))
+              (EXIT
+               (COND ((QEQCAR |result| 1) |result|)
+                     (#3='T
+                      (SEQ
+                       (LETT |xxp|
+                             (PROG2 (LETT #2# |result|)
+                                 (QCDR #2#)
+                               (|check_union2| (QEQCAR #2# 0)
+                                               (|ExponentialExpansion|
+                                                (QREFELT $ 6) (QREFELT $ 7)
+                                                (QREFELT $ 8) (QREFELT $ 9))
+                                               (|Union|
+                                                (|:| |%expansion|
+                                                     (|ExponentialExpansion|
+                                                      (QREFELT $ 6)
+                                                      (QREFELT $ 7)
+                                                      (QREFELT $ 8)
+                                                      (QREFELT $ 9)))
+                                                (|:| |%problem|
+                                                     (|Record|
+                                                      (|:| |func| (|String|))
+                                                      (|:| |prob|
+                                                           (|String|)))))
+                                               #2#)))
+                       (LETT |f| (SPADCALL |xxp| (QREFELT $ 112)))
+                       (EXIT
+                        (COND
+                         ((QEQCAR |f| 1)
+                          (|FS2EXPXP;stateProblem| "exp"
+                           "multiply nested exponential" $))
+                         (#3#
+                          (|FS2EXPXP;exponential| (QCDR |f|) |posCheck?|
+                           $))))))))))) 
 
 (SDEFUN |FS2EXPXP;genLog|
         ((|ups| |UnivariatePuiseuxSeries| FE |x| |cen|) (|posCheck?| |Boolean|)
@@ -917,95 +883,87 @@
           (EXIT
            (SEQ
             (EXIT
-             (SEQ
-              (LETT |deg| (SPADCALL |ups| (QREFELT $ 75))
-                    . #3=(|FS2EXPXP;genLog|))
-              (SEQ (LETT |coef| (SPADCALL |ups| |deg| (QREFELT $ 76)) . #3#)
-                   (EXIT
-                    (COND
-                     ((SPADCALL |coef| (|spadConstant| $ 77) (QREFELT $ 78))
-                      (SEQ
-                       (LETT |deg|
-                             (SPADCALL |ups|
-                                       (SPADCALL |deg| (QREFELT $ 14)
-                                                 (QREFELT $ 79))
-                                       (QREFELT $ 80))
-                             . #3#)
-                       (LETT |coef| (SPADCALL |ups| |deg| (QREFELT $ 76))
-                             . #3#)
+             (SEQ (LETT |deg| (SPADCALL |ups| (QREFELT $ 75)))
+                  (SEQ (LETT |coef| (SPADCALL |ups| |deg| (QREFELT $ 76)))
                        (EXIT
                         (COND
                          ((SPADCALL |coef| (|spadConstant| $ 77)
                                     (QREFELT $ 78))
-                          (|error|
-                           "log of series with many leading zero coefficients")))))))))
-              (COND
-               (|posCheck?|
-                (SEQ (LETT |signum| (SPADCALL |coef| (QREFELT $ 99)) . #3#)
-                     (EXIT
-                      (COND
-                       ((QEQCAR |signum| 0)
-                        (COND
-                         ((EQL (QCDR |signum|) -1)
-                          (PROGN
-                           (LETT #1#
-                                 (PROGN
-                                  (LETT #2#
-                                        (|FS2EXPXP;stateSeriesProblem| "log"
-                                         "negative leading coefficient" $)
-                                        . #3#)
-                                  (GO #4=#:G387))
-                                 . #3#)
-                           (GO #5=#:G386))))))))))
-              (LETT |lt| (SPADCALL |coef| |deg| (QREFELT $ 116)) . #3#)
-              (LETT |negRat?|
-                    (SEQ (LETT |rat| (|FS2EXPXP;ratIfCan| |coef| $) . #3#)
+                          (SEQ
+                           (LETT |deg|
+                                 (SPADCALL |ups|
+                                           (SPADCALL |deg| (QREFELT $ 14)
+                                                     (QREFELT $ 79))
+                                           (QREFELT $ 80)))
+                           (LETT |coef| (SPADCALL |ups| |deg| (QREFELT $ 76)))
+                           (EXIT
+                            (COND
+                             ((SPADCALL |coef| (|spadConstant| $ 77)
+                                        (QREFELT $ 78))
+                              (|error|
+                               "log of series with many leading zero coefficients")))))))))
+                  (COND
+                   (|posCheck?|
+                    (SEQ (LETT |signum| (SPADCALL |coef| (QREFELT $ 99)))
                          (EXIT
                           (COND
-                           ((QEQCAR |rat| 0)
+                           ((QEQCAR |signum| 0)
                             (COND
-                             ((SPADCALL (QCDR |rat|) (|spadConstant| $ 117)
-                                        (QREFELT $ 122))
-                              'T)
-                             (#6='T NIL)))
-                           (#6# NIL))))
-                    . #3#)
-              (LETT |logTerm|
-                    (SEQ
-                     (LETT |mon|
-                           (SPADCALL (SPADCALL (QREFELT $ 8) (QREFELT $ 133))
-                                     (QREFELT $ 9) (QREFELT $ 39))
-                           . #3#)
-                     (LETT |pow|
-                           (SPADCALL |mon| (SPADCALL |deg| (QREFELT $ 105))
-                                     (QREFELT $ 134))
-                           . #3#)
-                     (EXIT
-                      (COND
-                       (|negRat?|
-                        (SPADCALL (SPADCALL |coef| |pow| (QREFELT $ 135))
-                                  (QREFELT $ 46)))
-                       (#6#
+                             ((EQL (QCDR |signum|) -1)
+                              (PROGN
+                               (LETT #1#
+                                     (PROGN
+                                      (LETT #2#
+                                            (|FS2EXPXP;stateSeriesProblem|
+                                             "log"
+                                             "negative leading coefficient" $))
+                                      (GO #3=#:G387)))
+                               (GO #4=#:G386))))))))))
+                  (LETT |lt| (SPADCALL |coef| |deg| (QREFELT $ 116)))
+                  (LETT |negRat?|
+                        (SEQ (LETT |rat| (|FS2EXPXP;ratIfCan| |coef| $))
+                             (EXIT
+                              (COND
+                               ((QEQCAR |rat| 0)
+                                (COND
+                                 ((SPADCALL (QCDR |rat|) (|spadConstant| $ 117)
+                                            (QREFELT $ 122))
+                                  'T)
+                                 (#5='T NIL)))
+                               (#5# NIL)))))
+                  (LETT |logTerm|
                         (SEQ
-                         (LETT |term1|
-                               (SPADCALL (SPADCALL |deg| (QREFELT $ 105))
-                                         (SPADCALL |mon| (QREFELT $ 46))
-                                         (QREFELT $ 135))
-                               . #3#)
+                         (LETT |mon|
+                               (SPADCALL
+                                (SPADCALL (QREFELT $ 8) (QREFELT $ 133))
+                                (QREFELT $ 9) (QREFELT $ 39)))
+                         (LETT |pow|
+                               (SPADCALL |mon| (SPADCALL |deg| (QREFELT $ 105))
+                                         (QREFELT $ 134)))
                          (EXIT
-                          (SPADCALL (SPADCALL |coef| (QREFELT $ 46)) |term1|
-                                    (QREFELT $ 41))))))))
-                    . #3#)
-              (EXIT
-               (CONS 0
-                     (SPADCALL
-                      (SPADCALL |logTerm| (|spadConstant| $ 117)
-                                (QREFELT $ 116))
-                      (SPADCALL (SPADCALL |ups| |lt| (QREFELT $ 136))
-                                (QREFELT $ 137))
-                      (QREFELT $ 138))))))
-            #5# (EXIT #1#)))
-          #4# (EXIT #2#)))) 
+                          (COND
+                           (|negRat?|
+                            (SPADCALL (SPADCALL |coef| |pow| (QREFELT $ 135))
+                                      (QREFELT $ 46)))
+                           (#5#
+                            (SEQ
+                             (LETT |term1|
+                                   (SPADCALL (SPADCALL |deg| (QREFELT $ 105))
+                                             (SPADCALL |mon| (QREFELT $ 46))
+                                             (QREFELT $ 135)))
+                             (EXIT
+                              (SPADCALL (SPADCALL |coef| (QREFELT $ 46))
+                                        |term1| (QREFELT $ 41)))))))))
+                  (EXIT
+                   (CONS 0
+                         (SPADCALL
+                          (SPADCALL |logTerm| (|spadConstant| $ 117)
+                                    (QREFELT $ 116))
+                          (SPADCALL (SPADCALL |ups| |lt| (QREFELT $ 136))
+                                    (QREFELT $ 137))
+                          (QREFELT $ 138))))))
+            #4# (EXIT #1#)))
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |FS2EXPXP;logToXXP|
         ((|arg| FE) (|posCheck?| |Boolean|)
@@ -1037,112 +995,22 @@
                                    (|:| |prob| (|String|)))))))
          (SEQ
           (EXIT
-           (SEQ
-            (LETT |result| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $)
-                  . #7=(|FS2EXPXP;logToXXP|))
-            (EXIT
-             (COND ((QEQCAR |result| 1) |result|)
-                   (#8='T
-                    (SEQ
-                     (LETT |xxp|
-                           (PROG2 (LETT #6# |result| . #7#)
-                               (QCDR #6#)
-                             (|check_union2| (QEQCAR #6# 0)
-                                             (|ExponentialExpansion|
-                                              (QREFELT $ 6) (QREFELT $ 7)
-                                              (QREFELT $ 8) (QREFELT $ 9))
-                                             (|Union|
-                                              (|:| |%expansion|
-                                                   (|ExponentialExpansion|
-                                                    (QREFELT $ 6) (QREFELT $ 7)
-                                                    (QREFELT $ 8)
-                                                    (QREFELT $ 9)))
-                                              (|:| |%problem|
-                                                   (|Record|
-                                                    (|:| |func| (|String|))
-                                                    (|:| |prob| (|String|)))))
-                                             #6#))
-                           . #7#)
-                     (LETT |num| (SPADCALL |xxp| (QREFELT $ 85)) . #7#)
-                     (LETT |den| (SPADCALL |xxp| (QREFELT $ 92)) . #7#)
-                     (COND
-                      ((SPADCALL (SPADCALL |num| (QREFELT $ 103))
-                                 (QREFELT $ 104))
-                       (COND
-                        ((NULL
-                          (SPADCALL (SPADCALL |den| (QREFELT $ 103))
-                                    (QREFELT $ 104)))
-                         (EXIT
-                          (|FS2EXPXP;stateProblem| #9="log"
-                           #10="several monomials in numerator or denominator"
-                           $)))))
-                      (#8# (EXIT (|FS2EXPXP;stateProblem| #9# #10# $))))
-                     (LETT |numCoefLog|
-                           (SEQ
-                            (LETT |res|
-                                  (|FS2EXPXP;genLog|
-                                   (SPADCALL |num| (QREFELT $ 89)) |posCheck?|
-                                   $)
-                                  . #7#)
-                            (EXIT
-                             (COND
-                              ((QEQCAR |res| 1)
-                               (PROGN
-                                (LETT #4# (CONS 1 (CDR |res|)) . #7#)
-                                (GO #11=#:G401)))
-                              (#8# (CDR |res|)))))
-                           . #7#)
-                     (LETT |denCoefLog|
-                           (SEQ
-                            (LETT |res|
-                                  (|FS2EXPXP;genLog|
-                                   (SPADCALL |den| (QREFELT $ 89)) |posCheck?|
-                                   $)
-                                  . #7#)
-                            (EXIT
-                             (COND
-                              ((QEQCAR |res| 1)
-                               (PROGN
-                                (LETT #4#
-                                      (CONS 1
-                                            (PROG2 (LETT #5# |res| . #7#)
-                                                (QCDR #5#)
-                                              (|check_union2| (QEQCAR #5# 1)
-                                                              (|Record|
-                                                               (|:| |func|
-                                                                    (|String|))
-                                                               (|:| |prob|
-                                                                    (|String|)))
-                                                              (|Union|
-                                                               (|:| |%series|
-                                                                    (|UnivariatePuiseuxSeries|
-                                                                     (QREFELT $
-                                                                              7)
-                                                                     (QREFELT $
-                                                                              8)
-                                                                     (QREFELT $
-                                                                              9)))
-                                                               (|:| |%problem|
-                                                                    (|Record|
-                                                                     (|:|
-                                                                      |func|
-                                                                      (|String|))
-                                                                     (|:|
-                                                                      |prob|
-                                                                      (|String|)))))
-                                                              #5#)))
-                                      . #7#)
-                                (GO #11#)))
-                              (#8#
-                               (PROG2 (LETT #3# |res| . #7#)
-                                   (QCDR #3#)
-                                 (|check_union2| (QEQCAR #3# 0)
-                                                 (|UnivariatePuiseuxSeries|
-                                                  (QREFELT $ 7) (QREFELT $ 8)
-                                                  (QREFELT $ 9))
+           (SEQ (LETT |result| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $))
+                (EXIT
+                 (COND ((QEQCAR |result| 1) |result|)
+                       (#7='T
+                        (SEQ
+                         (LETT |xxp|
+                               (PROG2 (LETT #6# |result|)
+                                   (QCDR #6#)
+                                 (|check_union2| (QEQCAR #6# 0)
+                                                 (|ExponentialExpansion|
+                                                  (QREFELT $ 6) (QREFELT $ 7)
+                                                  (QREFELT $ 8) (QREFELT $ 9))
                                                  (|Union|
-                                                  (|:| |%series|
-                                                       (|UnivariatePuiseuxSeries|
+                                                  (|:| |%expansion|
+                                                       (|ExponentialExpansion|
+                                                        (QREFELT $ 6)
                                                         (QREFELT $ 7)
                                                         (QREFELT $ 8)
                                                         (QREFELT $ 9)))
@@ -1151,26 +1019,104 @@
                                                         (|:| |func| (|String|))
                                                         (|:| |prob|
                                                              (|String|)))))
-                                                 #3#))))))
-                           . #7#)
-                     (LETT |numLog|
-                           (SPADCALL
-                            (SPADCALL (SPADCALL |num| (QREFELT $ 107))
-                                      (QREFELT $ 139))
-                            |numCoefLog| (QREFELT $ 138))
-                           . #7#)
-                     (LETT |denLog|
-                           (SPADCALL
-                            (SPADCALL (SPADCALL |den| (QREFELT $ 107))
-                                      (QREFELT $ 139))
-                            |denCoefLog| (QREFELT $ 138))
-                           . #7#)
-                     (EXIT
-                      (CONS 0
-                            (SPADCALL
-                             (SPADCALL |numLog| |denLog| (QREFELT $ 128))
-                             (QREFELT $ 62))))))))))
-          #11# (EXIT #4#)))) 
+                                                 #6#)))
+                         (LETT |num| (SPADCALL |xxp| (QREFELT $ 85)))
+                         (LETT |den| (SPADCALL |xxp| (QREFELT $ 92)))
+                         (COND
+                          ((SPADCALL (SPADCALL |num| (QREFELT $ 103))
+                                     (QREFELT $ 104))
+                           (COND
+                            ((NULL
+                              (SPADCALL (SPADCALL |den| (QREFELT $ 103))
+                                        (QREFELT $ 104)))
+                             (EXIT
+                              (|FS2EXPXP;stateProblem| #8="log"
+                               #9="several monomials in numerator or denominator"
+                               $)))))
+                          (#7# (EXIT (|FS2EXPXP;stateProblem| #8# #9# $))))
+                         (LETT |numCoefLog|
+                               (SEQ
+                                (LETT |res|
+                                      (|FS2EXPXP;genLog|
+                                       (SPADCALL |num| (QREFELT $ 89))
+                                       |posCheck?| $))
+                                (EXIT
+                                 (COND
+                                  ((QEQCAR |res| 1)
+                                   (PROGN
+                                    (LETT #4# (CONS 1 (CDR |res|)))
+                                    (GO #10=#:G401)))
+                                  (#7# (CDR |res|))))))
+                         (LETT |denCoefLog|
+                               (SEQ
+                                (LETT |res|
+                                      (|FS2EXPXP;genLog|
+                                       (SPADCALL |den| (QREFELT $ 89))
+                                       |posCheck?| $))
+                                (EXIT
+                                 (COND
+                                  ((QEQCAR |res| 1)
+                                   (PROGN
+                                    (LETT #4#
+                                          (CONS 1
+                                                (PROG2 (LETT #5# |res|)
+                                                    (QCDR #5#)
+                                                  (|check_union2|
+                                                   (QEQCAR #5# 1)
+                                                   (|Record|
+                                                    (|:| |func| (|String|))
+                                                    (|:| |prob| (|String|)))
+                                                   (|Union|
+                                                    (|:| |%series|
+                                                         (|UnivariatePuiseuxSeries|
+                                                          (QREFELT $ 7)
+                                                          (QREFELT $ 8)
+                                                          (QREFELT $ 9)))
+                                                    (|:| |%problem|
+                                                         (|Record|
+                                                          (|:| |func|
+                                                               (|String|))
+                                                          (|:| |prob|
+                                                               (|String|)))))
+                                                   #5#))))
+                                    (GO #10#)))
+                                  (#7#
+                                   (PROG2 (LETT #3# |res|)
+                                       (QCDR #3#)
+                                     (|check_union2| (QEQCAR #3# 0)
+                                                     (|UnivariatePuiseuxSeries|
+                                                      (QREFELT $ 7)
+                                                      (QREFELT $ 8)
+                                                      (QREFELT $ 9))
+                                                     (|Union|
+                                                      (|:| |%series|
+                                                           (|UnivariatePuiseuxSeries|
+                                                            (QREFELT $ 7)
+                                                            (QREFELT $ 8)
+                                                            (QREFELT $ 9)))
+                                                      (|:| |%problem|
+                                                           (|Record|
+                                                            (|:| |func|
+                                                                 (|String|))
+                                                            (|:| |prob|
+                                                                 (|String|)))))
+                                                     #3#)))))))
+                         (LETT |numLog|
+                               (SPADCALL
+                                (SPADCALL (SPADCALL |num| (QREFELT $ 107))
+                                          (QREFELT $ 139))
+                                |numCoefLog| (QREFELT $ 138)))
+                         (LETT |denLog|
+                               (SPADCALL
+                                (SPADCALL (SPADCALL |den| (QREFELT $ 107))
+                                          (QREFELT $ 139))
+                                |denCoefLog| (QREFELT $ 138)))
+                         (EXIT
+                          (CONS 0
+                                (SPADCALL
+                                 (SPADCALL |numLog| |denLog| (QREFELT $ 128))
+                                 (QREFELT $ 62))))))))))
+          #10# (EXIT #4#)))) 
 
 (SDEFUN |FS2EXPXP;applyIfCan|
         ((|fcn| |Mapping|
@@ -1192,86 +1138,54 @@
                     (|:| |%problem|
                          (|Record| (|:| |func| (|String|))
                                    (|:| |prob| (|String|)))))))
-         (SEQ
-          (LETT |xxpArg| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $)
-                . #4=(|FS2EXPXP;applyIfCan|))
-          (EXIT
-           (COND ((QEQCAR |xxpArg| 1) |xxpArg|)
-                 (#5='T
-                  (SEQ
-                   (LETT |xxp|
-                         (PROG2 (LETT #3# |xxpArg| . #4#)
-                             (QCDR #3#)
-                           (|check_union2| (QEQCAR #3# 0)
-                                           (|ExponentialExpansion|
-                                            (QREFELT $ 6) (QREFELT $ 7)
-                                            (QREFELT $ 8) (QREFELT $ 9))
-                                           (|Union|
-                                            (|:| |%expansion|
-                                                 (|ExponentialExpansion|
-                                                  (QREFELT $ 6) (QREFELT $ 7)
-                                                  (QREFELT $ 8) (QREFELT $ 9)))
-                                            (|:| |%problem|
-                                                 (|Record|
-                                                  (|:| |func| (|String|))
-                                                  (|:| |prob| (|String|)))))
-                                           #3#))
-                         . #4#)
-                   (LETT |f| (SPADCALL |xxp| (QREFELT $ 112)) . #4#)
-                   (EXIT
-                    (COND
-                     ((QEQCAR |f| 1)
-                      (|FS2EXPXP;stateProblem| |fcnName|
-                       "multiply nested exponential" $))
-                     (#5#
-                      (SEQ (LETT |upxs| (QCDR |f|) . #4#)
-                           (LETT |deg|
-                                 (SPADCALL |upxs| (|spadConstant| $ 115)
-                                           (QREFELT $ 80))
-                                 . #4#)
-                           (EXIT
-                            (COND
-                             ((SPADCALL |deg| (|spadConstant| $ 117)
-                                        (QREFELT $ 122))
-                              (|FS2EXPXP;stateProblem| |fcnName|
-                               "essential singularity" $))
-                             ((SPADCALL |deg| (|spadConstant| $ 117)
-                                        (QREFELT $ 123))
-                              (CONS 0
-                                    (SPADCALL
-                                     (PROG2
-                                         (LETT #2# (SPADCALL |upxs| |fcn|)
-                                               . #4#)
-                                         (QCDR #2#)
-                                       (|check_union2| (QEQCAR #2# 0)
-                                                       (|UnivariatePuiseuxSeries|
-                                                        (QREFELT $ 7)
-                                                        (QREFELT $ 8)
-                                                        (QREFELT $ 9))
-                                                       (|Union|
-                                                        (|UnivariatePuiseuxSeries|
-                                                         (QREFELT $ 7)
-                                                         (QREFELT $ 8)
-                                                         (QREFELT $ 9))
-                                                        #6="failed")
-                                                       #2#))
-                                     (QREFELT $ 62))))
-                             (#5#
-                              (SEQ
-                               (LETT |lc|
-                                     (SPADCALL |upxs| (|spadConstant| $ 117)
-                                               (QREFELT $ 76))
-                                     . #4#)
-                               (LETT |xOpList|
-                                     (|FS2EXPXP;opsInvolvingX| |lc| $) . #4#)
+         (SEQ (LETT |xxpArg| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $))
+              (EXIT
+               (COND ((QEQCAR |xxpArg| 1) |xxpArg|)
+                     (#4='T
+                      (SEQ
+                       (LETT |xxp|
+                             (PROG2 (LETT #3# |xxpArg|)
+                                 (QCDR #3#)
+                               (|check_union2| (QEQCAR #3# 0)
+                                               (|ExponentialExpansion|
+                                                (QREFELT $ 6) (QREFELT $ 7)
+                                                (QREFELT $ 8) (QREFELT $ 9))
+                                               (|Union|
+                                                (|:| |%expansion|
+                                                     (|ExponentialExpansion|
+                                                      (QREFELT $ 6)
+                                                      (QREFELT $ 7)
+                                                      (QREFELT $ 8)
+                                                      (QREFELT $ 9)))
+                                                (|:| |%problem|
+                                                     (|Record|
+                                                      (|:| |func| (|String|))
+                                                      (|:| |prob|
+                                                           (|String|)))))
+                                               #3#)))
+                       (LETT |f| (SPADCALL |xxp| (QREFELT $ 112)))
+                       (EXIT
+                        (COND
+                         ((QEQCAR |f| 1)
+                          (|FS2EXPXP;stateProblem| |fcnName|
+                           "multiply nested exponential" $))
+                         (#4#
+                          (SEQ (LETT |upxs| (QCDR |f|))
+                               (LETT |deg|
+                                     (SPADCALL |upxs| (|spadConstant| $ 115)
+                                               (QREFELT $ 80)))
                                (EXIT
                                 (COND
-                                 ((NULL |xOpList|)
+                                 ((SPADCALL |deg| (|spadConstant| $ 117)
+                                            (QREFELT $ 122))
+                                  (|FS2EXPXP;stateProblem| |fcnName|
+                                   "essential singularity" $))
+                                 ((SPADCALL |deg| (|spadConstant| $ 117)
+                                            (QREFELT $ 123))
                                   (CONS 0
                                         (SPADCALL
                                          (PROG2
-                                             (LETT #2# (SPADCALL |upxs| |fcn|)
-                                                   . #4#)
+                                             (LETT #2# (SPADCALL |upxs| |fcn|))
                                              (QCDR #2#)
                                            (|check_union2| (QEQCAR #2# 0)
                                                            (|UnivariatePuiseuxSeries|
@@ -1283,36 +1197,67 @@
                                                              (QREFELT $ 7)
                                                              (QREFELT $ 8)
                                                              (QREFELT $ 9))
-                                                            #6#)
+                                                            #5="failed")
                                                            #2#))
                                          (QREFELT $ 62))))
-                                 ((|FS2EXPXP;opInOpList?| '|log| |xOpList| $)
-                                  (|FS2EXPXP;stateProblem| |fcnName|
-                                   "logs in constant coefficient" $))
-                                 ((|FS2EXPXP;contOnReals?| |fcnName| $)
-                                  (CONS 0
-                                        (SPADCALL
-                                         (PROG2
-                                             (LETT #2# (SPADCALL |upxs| |fcn|)
-                                                   . #4#)
-                                             (QCDR #2#)
-                                           (|check_union2| (QEQCAR #2# 0)
-                                                           (|UnivariatePuiseuxSeries|
-                                                            (QREFELT $ 7)
-                                                            (QREFELT $ 8)
-                                                            (QREFELT $ 9))
-                                                           (|Union|
-                                                            (|UnivariatePuiseuxSeries|
-                                                             (QREFELT $ 7)
-                                                             (QREFELT $ 8)
-                                                             (QREFELT $ 9))
-                                                            #6#)
-                                                           #2#))
-                                         (QREFELT $ 62))))
-                                 (#5#
-                                  (|FS2EXPXP;stateProblem| |fcnName|
-                                   "x in constant coefficient"
-                                   $))))))))))))))))))) 
+                                 (#4#
+                                  (SEQ
+                                   (LETT |lc|
+                                         (SPADCALL |upxs|
+                                                   (|spadConstant| $ 117)
+                                                   (QREFELT $ 76)))
+                                   (LETT |xOpList|
+                                         (|FS2EXPXP;opsInvolvingX| |lc| $))
+                                   (EXIT
+                                    (COND
+                                     ((NULL |xOpList|)
+                                      (CONS 0
+                                            (SPADCALL
+                                             (PROG2
+                                                 (LETT #2#
+                                                       (SPADCALL |upxs| |fcn|))
+                                                 (QCDR #2#)
+                                               (|check_union2| (QEQCAR #2# 0)
+                                                               (|UnivariatePuiseuxSeries|
+                                                                (QREFELT $ 7)
+                                                                (QREFELT $ 8)
+                                                                (QREFELT $ 9))
+                                                               (|Union|
+                                                                (|UnivariatePuiseuxSeries|
+                                                                 (QREFELT $ 7)
+                                                                 (QREFELT $ 8)
+                                                                 (QREFELT $ 9))
+                                                                #5#)
+                                                               #2#))
+                                             (QREFELT $ 62))))
+                                     ((|FS2EXPXP;opInOpList?| '|log| |xOpList|
+                                       $)
+                                      (|FS2EXPXP;stateProblem| |fcnName|
+                                       "logs in constant coefficient" $))
+                                     ((|FS2EXPXP;contOnReals?| |fcnName| $)
+                                      (CONS 0
+                                            (SPADCALL
+                                             (PROG2
+                                                 (LETT #2#
+                                                       (SPADCALL |upxs| |fcn|))
+                                                 (QCDR #2#)
+                                               (|check_union2| (QEQCAR #2# 0)
+                                                               (|UnivariatePuiseuxSeries|
+                                                                (QREFELT $ 7)
+                                                                (QREFELT $ 8)
+                                                                (QREFELT $ 9))
+                                                               (|Union|
+                                                                (|UnivariatePuiseuxSeries|
+                                                                 (QREFELT $ 7)
+                                                                 (QREFELT $ 8)
+                                                                 (QREFELT $ 9))
+                                                                #5#)
+                                                               #2#))
+                                             (QREFELT $ 62))))
+                                     (#4#
+                                      (|FS2EXPXP;stateProblem| |fcnName|
+                                       "x in constant coefficient"
+                                       $))))))))))))))))))) 
 
 (SDEFUN |FS2EXPXP;applyBddIfCan|
         ((|fe| FE)
@@ -1333,63 +1278,61 @@
                     (|:| |%problem|
                          (|Record| (|:| |func| (|String|))
                                    (|:| |prob| (|String|)))))))
-         (SEQ
-          (LETT |xxpArg| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $)
-                . #5=(|FS2EXPXP;applyBddIfCan|))
-          (EXIT
-           (COND
-            ((QEQCAR |xxpArg| 1)
-             (SEQ (LETT |trouble| (CDR |xxpArg|) . #5#)
-                  (EXIT
-                   (COND
-                    ((EQUAL (QCDR |trouble|) "essential singularity")
-                     (CONS 0
-                           (SPADCALL
-                            (SPADCALL |fe| (|spadConstant| $ 117)
-                                      (QREFELT $ 116))
-                            (QREFELT $ 62))))
-                    (#6='T |xxpArg|)))))
-            (#6#
-             (SEQ
-              (LETT |xxp|
-                    (PROG2 (LETT #4# |xxpArg| . #5#)
-                        (QCDR #4#)
-                      (|check_union2| (QEQCAR #4# 0)
-                                      (|ExponentialExpansion| (QREFELT $ 6)
-                                                              (QREFELT $ 7)
-                                                              (QREFELT $ 8)
-                                                              (QREFELT $ 9))
-                                      (|Union|
-                                       (|:| |%expansion|
-                                            (|ExponentialExpansion|
-                                             (QREFELT $ 6) (QREFELT $ 7)
-                                             (QREFELT $ 8) (QREFELT $ 9)))
-                                       (|:| |%problem|
-                                            (|Record| (|:| |func| (|String|))
-                                                      (|:| |prob|
-                                                           (|String|)))))
-                                      #4#))
-                    . #5#)
-              (LETT |f| (SPADCALL |xxp| (QREFELT $ 112)) . #5#)
+         (SEQ (LETT |xxpArg| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $))
               (EXIT
                (COND
-                ((QEQCAR |f| 1)
-                 (|FS2EXPXP;stateProblem| "exp" "multiply nested exponential"
-                  $))
-                (#6#
-                 (SEQ (LETT |ans| (SPADCALL (QCDR |f|) |fcn|) . #5#)
+                ((QEQCAR |xxpArg| 1)
+                 (SEQ (LETT |trouble| (CDR |xxpArg|))
                       (EXIT
                        (COND
-                        ((QEQCAR |ans| 1)
+                        ((EQUAL (QCDR |trouble|) "essential singularity")
                          (CONS 0
                                (SPADCALL
                                 (SPADCALL |fe| (|spadConstant| $ 117)
                                           (QREFELT $ 116))
                                 (QREFELT $ 62))))
-                        (#6#
-                         (CONS 0
-                               (SPADCALL (QCDR |ans|)
-                                         (QREFELT $ 62))))))))))))))))) 
+                        (#5='T |xxpArg|)))))
+                (#5#
+                 (SEQ
+                  (LETT |xxp|
+                        (PROG2 (LETT #4# |xxpArg|)
+                            (QCDR #4#)
+                          (|check_union2| (QEQCAR #4# 0)
+                                          (|ExponentialExpansion| (QREFELT $ 6)
+                                                                  (QREFELT $ 7)
+                                                                  (QREFELT $ 8)
+                                                                  (QREFELT $
+                                                                           9))
+                                          (|Union|
+                                           (|:| |%expansion|
+                                                (|ExponentialExpansion|
+                                                 (QREFELT $ 6) (QREFELT $ 7)
+                                                 (QREFELT $ 8) (QREFELT $ 9)))
+                                           (|:| |%problem|
+                                                (|Record|
+                                                 (|:| |func| (|String|))
+                                                 (|:| |prob| (|String|)))))
+                                          #4#)))
+                  (LETT |f| (SPADCALL |xxp| (QREFELT $ 112)))
+                  (EXIT
+                   (COND
+                    ((QEQCAR |f| 1)
+                     (|FS2EXPXP;stateProblem| "exp"
+                      "multiply nested exponential" $))
+                    (#5#
+                     (SEQ (LETT |ans| (SPADCALL (QCDR |f|) |fcn|))
+                          (EXIT
+                           (COND
+                            ((QEQCAR |ans| 1)
+                             (CONS 0
+                                   (SPADCALL
+                                    (SPADCALL |fe| (|spadConstant| $ 117)
+                                              (QREFELT $ 116))
+                                    (QREFELT $ 62))))
+                            (#5#
+                             (CONS 0
+                                   (SPADCALL (QCDR |ans|)
+                                             (QREFELT $ 62))))))))))))))))) 
 
 (SDEFUN |FS2EXPXP;contOnReals?| ((|fcn| |String|) ($ |Boolean|))
         (SPADCALL |fcn| (QREFELT $ 140) (QREFELT $ 143))) 
@@ -1404,19 +1347,18 @@
          (SEQ
           (LETT |opList|
                 (PROGN
-                 (LETT #3# NIL . #4=(|FS2EXPXP;opsInvolvingX|))
-                 (SEQ (LETT |k| NIL . #4#)
-                      (LETT #2# (SPADCALL |fcn| (QREFELT $ 145)) . #4#) G190
+                 (LETT #3# NIL)
+                 (SEQ (LETT |k| NIL)
+                      (LETT #2# (SPADCALL |fcn| (QREFELT $ 145))) G190
                       (COND
-                       ((OR (ATOM #2#) (PROGN (LETT |k| (CAR #2#) . #4#) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |k| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
                         (COND
                          ((COND
-                           ((SPADCALL
-                             (LETT |op| (SPADCALL |k| (QREFELT $ 48)) . #4#)
-                             (QREFELT $ 146))
+                           ((SPADCALL (LETT |op| (SPADCALL |k| (QREFELT $ 48)))
+                                      (QREFELT $ 146))
                             (SPADCALL (QREFELT $ 8)
                                       (SPADCALL
                                        (|SPADfirst|
@@ -1424,10 +1366,9 @@
                                        (QREFELT $ 148))
                                       (QREFELT $ 149)))
                            ('T NIL))
-                          (LETT #3# (CONS |op| #3#) . #4#)))))
-                      (LETT #2# (CDR #2#) . #4#) (GO G190) G191
-                      (EXIT (NREVERSE #3#))))
-                . #4#)
+                          (LETT #3# (CONS |op| #3#))))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #3#)))))
           (EXIT (SPADCALL |opList| (QREFELT $ 151)))))) 
 
 (SDEFUN |FS2EXPXP;opInOpList?|
@@ -1438,36 +1379,30 @@
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |op| NIL . #4=(|FS2EXPXP;opInOpList?|))
-                         (LETT #3# |opList| . #4#) G190
+                    (SEQ (LETT |op| NIL) (LETT #3# |opList|) G190
                          (COND
-                          ((OR (ATOM #3#)
-                               (PROGN (LETT |op| (CAR #3#) . #4#) NIL))
+                          ((OR (ATOM #3#) (PROGN (LETT |op| (CAR #3#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (COND
                             ((SPADCALL |op| |name| (QREFELT $ 81))
                              (PROGN
-                              (LETT #1#
-                                    (PROGN (LETT #2# 'T . #4#) (GO #5=#:G438))
-                                    . #4#)
-                              (GO #6=#:G436))))))
-                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #6# (EXIT #1#))
+                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G438)))
+                              (GO #5=#:G436))))))
+                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #1#))
                   (EXIT NIL)))
-                #5# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (SDEFUN |FS2EXPXP;exponential?| ((|fcn| FE) ($ |Boolean|))
         (SPROG ((|ker| (|Union| (|Kernel| FE) "failed")))
-               (SEQ
-                (LETT |ker| (SPADCALL |fcn| (QREFELT $ 71))
-                      |FS2EXPXP;exponential?|)
-                (EXIT
-                 (COND
-                  ((QEQCAR |ker| 0)
-                   (SPADCALL (QCDR |ker|) '|exp| (QREFELT $ 38)))
-                  ('T NIL)))))) 
+               (SEQ (LETT |ker| (SPADCALL |fcn| (QREFELT $ 71)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |ker| 0)
+                       (SPADCALL (QCDR |ker|) '|exp| (QREFELT $ 38)))
+                      ('T NIL)))))) 
 
 (SDEFUN |FS2EXPXP;productOfNonZeroes?| ((|fcn| FE) ($ |Boolean|))
         (SPROG
@@ -1477,45 +1412,43 @@
           (EXIT
            (COND ((|FS2EXPXP;exponential?| |fcn| $) 'T)
                  (#4='T
-                  (SEQ
-                   (LETT |prod| (SPADCALL |fcn| (QREFELT $ 67))
-                         . #5=(|FS2EXPXP;productOfNonZeroes?|))
-                   (EXIT
-                    (COND ((QEQCAR |prod| 1) NIL)
-                          (#4#
-                           (SEQ
-                            (SEQ
-                             (EXIT
-                              (SEQ (LETT |term| NIL . #5#)
-                                   (LETT #3# (QCDR |prod|) . #5#) G190
-                                   (COND
-                                    ((OR (ATOM #3#)
-                                         (PROGN
-                                          (LETT |term| (CAR #3#) . #5#)
-                                          NIL))
-                                     (GO G191)))
-                                   (SEQ
-                                    (EXIT
-                                     (COND
-                                      ((NULL
-                                        (|FS2EXPXP;exponential?| |term| $))
+                  (SEQ (LETT |prod| (SPADCALL |fcn| (QREFELT $ 67)))
+                       (EXIT
+                        (COND ((QEQCAR |prod| 1) NIL)
+                              (#4#
+                               (SEQ
+                                (SEQ
+                                 (EXIT
+                                  (SEQ (LETT |term| NIL)
+                                       (LETT #3# (QCDR |prod|)) G190
                                        (COND
-                                        ((SPADCALL (QREFELT $ 8)
-                                                   (SPADCALL |term|
-                                                             (QREFELT $ 148))
-                                                   (QREFELT $ 149))
-                                         (PROGN
-                                          (LETT #1#
-                                                (PROGN
-                                                 (LETT #2# NIL . #5#)
-                                                 (GO #6=#:G456))
-                                                . #5#)
-                                          (GO #7=#:G452))))))))
-                                   (LETT #3# (CDR #3#) . #5#) (GO G190) G191
-                                   (EXIT NIL)))
-                             #7# (EXIT #1#))
-                            (EXIT 'T)))))))))
-          #6# (EXIT #2#)))) 
+                                        ((OR (ATOM #3#)
+                                             (PROGN
+                                              (LETT |term| (CAR #3#))
+                                              NIL))
+                                         (GO G191)))
+                                       (SEQ
+                                        (EXIT
+                                         (COND
+                                          ((NULL
+                                            (|FS2EXPXP;exponential?| |term| $))
+                                           (COND
+                                            ((SPADCALL (QREFELT $ 8)
+                                                       (SPADCALL |term|
+                                                                 (QREFELT $
+                                                                          148))
+                                                       (QREFELT $ 149))
+                                             (PROGN
+                                              (LETT #1#
+                                                    (PROGN
+                                                     (LETT #2# NIL)
+                                                     (GO #5=#:G456)))
+                                              (GO #6=#:G452))))))))
+                                       (LETT #3# (CDR #3#)) (GO G190) G191
+                                       (EXIT NIL)))
+                                 #6# (EXIT #1#))
+                                (EXIT 'T)))))))))
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |FS2EXPXP;tranToXXP|
         ((|ker| |Kernel| FE) (|arg| FE) (|posCheck?| |Boolean|)
@@ -1576,15 +1509,14 @@
           (|result| (|Union| (|:| |%series| #3#) (|:| |%problem| #5#))))
          (SEQ
           (EXIT
-           (SEQ (LETT |posCheck?| 'T . #6=(|FS2EXPXP;atancotToXXP|))
+           (SEQ (LETT |posCheck?| 'T)
                 (LETT |result|
                       (SPADCALL |arg| |posCheck?| (CONS 3 "real: right side")
-                                (QREFELT $ 127))
-                      . #6#)
+                                (QREFELT $ 127)))
                 (EXIT
                  (COND
                   ((QEQCAR |result| 1)
-                   (SEQ (LETT |trouble| (CDR |result|) . #6#)
+                   (SEQ (LETT |trouble| (CDR |result|))
                         (EXIT
                          (COND
                           ((EQUAL (QCDR |trouble|) "essential singularity")
@@ -1593,13 +1525,13 @@
                                   (SPADCALL |fe| (|spadConstant| $ 117)
                                             (QREFELT $ 116))
                                   (QREFELT $ 62))))
-                          (#7='T (CONS 1 (CDR |result|)))))))
-                  (#7#
+                          (#6='T (CONS 1 (CDR |result|)))))))
+                  (#6#
                    (SEQ
                     (EXIT
                      (SEQ
                       (LETT |ups|
-                            (PROG2 (LETT #4# |result| . #6#)
+                            (PROG2 (LETT #4# |result|)
                                 (QCDR #4#)
                               (|check_union2| (QEQCAR #4# 0)
                                               (|UnivariatePuiseuxSeries|
@@ -1615,17 +1547,14 @@
                                                     (|Record|
                                                      (|:| |func| (|String|))
                                                      (|:| |prob| (|String|)))))
-                                              #4#))
-                            . #6#)
+                                              #4#)))
                       (LETT |coef|
                             (SPADCALL |ups| (|spadConstant| $ 117)
-                                      (QREFELT $ 76))
-                            . #6#)
+                                      (QREFELT $ 76)))
                       (SEQ
                        (LETT |ord|
                              (SPADCALL |ups| (|spadConstant| $ 117)
-                                       (QREFELT $ 80))
-                             . #6#)
+                                       (QREFELT $ 80)))
                        (EXIT
                         (COND
                          ((SPADCALL |ord| (|spadConstant| $ 117)
@@ -1645,15 +1574,13 @@
                                                      (SPADCALL |ups| |ups|
                                                                (QREFELT $ 129))
                                                      (QREFELT $ 138))
-                                           (QREFELT $ 136))
-                                          . #6#)
+                                           (QREFELT $ 136)))
                                     (LETT |yCoef|
                                           (SPADCALL |y|
                                                     (SPADCALL
                                                      (|spadConstant| $ 115)
                                                      (QREFELT $ 165))
-                                                    (QREFELT $ 76))
-                                          . #6#)
+                                                    (QREFELT $ 76)))
                                     (EXIT
                                      (CONS 0
                                            (SPADCALL
@@ -1675,9 +1602,8 @@
                                                         (QREFELT $ 128))
                                               (QREFELT $ 166))
                                              (QREFELT $ 138))
-                                            (QREFELT $ 62)))))
-                                   . #6#)
-                             (GO #8=#:G511))))))))
+                                            (QREFELT $ 62))))))
+                             (GO #7=#:G511))))))))
                       (LETT |cc|
                             (COND
                              ((SPADCALL |ord| (|spadConstant| $ 117)
@@ -1685,24 +1611,21 @@
                               (SEQ
                                (LETT |rn|
                                      (|FS2EXPXP;ratIfCan|
-                                      (SPADCALL |ord| (QREFELT $ 105)) $)
-                                     . #6#)
+                                      (SPADCALL |ord| (QREFELT $ 105)) $))
                                (EXIT
                                 (COND
                                  ((QEQCAR |rn| 1)
                                   (PROGN
                                    (LETT #1#
                                          (|FS2EXPXP;stateProblem| "atan"
-                                          "branch problem" $)
-                                         . #6#)
-                                   (GO #9=#:G513)))
-                                 (#7#
+                                          "branch problem" $))
+                                   (GO #8=#:G513)))
+                                 (#6#
                                   (SEQ
                                    (LETT |lc|
-                                         (SPADCALL |ups| |ord| (QREFELT $ 76))
-                                         . #6#)
+                                         (SPADCALL |ups| |ord| (QREFELT $ 76)))
                                    (LETT |signum|
-                                         (SPADCALL |lc| (QREFELT $ 99)) . #6#)
+                                         (SPADCALL |lc| (QREFELT $ 99)))
                                    (EXIT
                                     (COND
                                      ((QEQCAR |signum| 1)
@@ -1715,11 +1638,10 @@
                                                (SPADCALL (QREFELT $ 167))
                                                (QREFELT $ 135))
                                               (SPADCALL 2 (QREFELT $ 40))
-                                              (QREFELT $ 20))
-                                             . #6#)
+                                              (QREFELT $ 20)))
                                        (EXIT
                                         (COND ((EQL |plusMinus| 1) |posNegPi2|)
-                                              (#7#
+                                              (#6#
                                                (SPADCALL
                                                 (SPADCALL
                                                  (SPADCALL (QREFELT $ 167))
@@ -1727,7 +1649,7 @@
                                                  (QREFELT $ 20))
                                                 |posNegPi2|
                                                 (QREFELT $ 39)))))))
-                                     ((EQL (LETT |n| (QCDR |signum|) . #6#) -1)
+                                     ((EQL (LETT |n| (QCDR |signum|)) -1)
                                       (COND
                                        ((EQL |plusMinus| 1)
                                         (SPADCALL
@@ -1735,14 +1657,13 @@
                                                    (SPADCALL 2 (QREFELT $ 40))
                                                    (QREFELT $ 20))
                                          (QREFELT $ 162)))
-                                       (#7# (SPADCALL (QREFELT $ 167)))))
+                                       (#6# (SPADCALL (QREFELT $ 167)))))
                                      ((EQL |plusMinus| 1)
                                       (SPADCALL (SPADCALL (QREFELT $ 167))
                                                 (SPADCALL 2 (QREFELT $ 40))
                                                 (QREFELT $ 20)))
-                                     (#7# (|spadConstant| $ 77))))))))))
-                             (#7# (SPADCALL |coef| (QREFELT $ 168))))
-                            . #6#)
+                                     (#6# (|spadConstant| $ 77))))))))))
+                             (#6# (SPADCALL |coef| (QREFELT $ 168)))))
                       (EXIT
                        (CONS 0
                              (SPADCALL
@@ -1758,8 +1679,8 @@
                                          (QREFELT $ 166))
                                         (QREFELT $ 138))
                               (QREFELT $ 62))))))
-                    #8# (EXIT #2#)))))))
-          #9# (EXIT #1#)))) 
+                    #7# (EXIT #2#)))))))
+          #8# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |FunctionSpaceToExponentialExpansion;|)) 
 
@@ -1772,15 +1693,14 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FunctionSpaceToExponentialExpansion|)
-                                               '|domainEqualList|)
-                    . #3=(|FunctionSpaceToExponentialExpansion|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY
                        (|function| |FunctionSpaceToExponentialExpansion;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -1791,16 +1711,15 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionSpaceToExponentialExpansion|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$|
-          (LIST '|FunctionSpaceToExponentialExpansion| DV$1 DV$2 DV$3 DV$4)
-          . #1#)
-    (LETT $ (GETREFV 169) . #1#)
+          (LIST '|FunctionSpaceToExponentialExpansion| DV$1 DV$2 DV$3 DV$4))
+    (LETT $ (GETREFV 169))
     (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|FunctionSpaceToExponentialExpansion|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
     (|stuffDomainSlots| $)
@@ -1810,8 +1729,8 @@
     (QSETREFV $ 9 |#4|)
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 14 (SPADCALL 1000 1 (QREFELT $ 13)))
-    (QSETREFV $ 140 (LIST #2="sin" #3="cos" #4="atan" #5="acot" "exp" "asinh"))
-    (QSETREFV $ 141 (LIST #2# #3# #4# #5#))
+    (QSETREFV $ 140 (LIST #1="sin" #2="cos" #3="atan" #4="acot" "exp" "asinh"))
+    (QSETREFV $ 141 (LIST #1# #2# #3# #4#))
     (COND
      ((|HasSignature| |#2|
                       (LIST '|abs|

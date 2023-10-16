@@ -7,8 +7,8 @@
 
 (SDEFUN |POLY2;map;MPP;1!0| ((|x2| NIL) ($$ NIL))
         (PROG (|f| $)
-          (LETT |f| (QREFELT $$ 1) . #1=(|POLY2;map;MPP;1|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |f| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL (SPADCALL |x2| |f|) (QREFELT $ 11)))))) 
 
 (DECLAIM (NOTINLINE |PolynomialFunctions2;|)) 
@@ -22,13 +22,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|PolynomialFunctions2|)
-                                               '|domainEqualList|)
-                    . #3=(|PolynomialFunctions2|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |PolynomialFunctions2;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|PolynomialFunctions2|)))))))))) 
@@ -36,12 +35,12 @@
 (DEFUN |PolynomialFunctions2;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|PolynomialFunctions2|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|PolynomialFunctions2| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 19) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|PolynomialFunctions2| DV$1 DV$2))
+          (LETT $ (GETREFV 19))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PolynomialFunctions2|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

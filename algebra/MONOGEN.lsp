@@ -52,7 +52,5 @@
                                                ((|FiniteFieldCategory|)
                                                 (|has| |t#1|
                                                        (|FiniteFieldCategory|))))
-                                             NIL NIL))
-                                           . #2=(|MonogenicAlgebra|)))))
-                   . #2#)
+                                             NIL NIL)))))))
            (SETELT #1# 0 (LIST '|MonogenicAlgebra| |t#1| |t#2|))))) 

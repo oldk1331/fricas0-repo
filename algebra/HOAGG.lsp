@@ -102,7 +102,5 @@
                                                                (|BasicType|))
                                                         (|has| $
                                                                (|finiteAggregate|)))))
-                                                    NIL NIL))
-                                           . #2=(|HomogeneousAggregate|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|HomogeneousAggregate| |t#1|))))) 

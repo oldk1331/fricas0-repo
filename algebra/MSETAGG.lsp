@@ -23,7 +23,6 @@
                                     ('T
                                      (LETT |MultisetAggregate;CAT|
                                            (|Join| (|MultiDictionary| '|t#1|)
-                                                   (|SetAggregate| '|t#1|))
-                                           . #2=(|MultisetAggregate|)))))
-                   . #2#)
+                                                   (|SetAggregate|
+                                                    '|t#1|)))))))
            (SETELT #1# 0 (LIST '|MultisetAggregate| |t#1|))))) 

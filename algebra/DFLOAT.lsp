@@ -1,8 +1,7 @@
 
 (SDEFUN |DFLOAT;doubleFloatFormat;2S;1| ((|s| |String|) ($ |String|))
         (SPROG ((|ss| (|String|)))
-               (SEQ (LETT |ss| (QREFELT $ 6) |DFLOAT;doubleFloatFormat;2S;1|)
-                    (SETELT $ 6 |s|) (EXIT |ss|)))) 
+               (SEQ (LETT |ss| (QREFELT $ 6)) (SETELT $ 6 |s|) (EXIT |ss|)))) 
 
 (SDEFUN |DFLOAT;OMwrite;Omd$BV;2|
         ((|dev| |OpenMathDevice|) (|x| $) (|wholeObj| |Boolean|) ($ |Void|))
@@ -43,8 +42,7 @@
                                        (FLOAT (SPADCALL (QREFELT $ 18))
                                               MOST-POSITIVE-DOUBLE-FLOAT)
                                        (QREFELT $ 23))
-                                      (QREFELT $ 24)))
-                           |DFLOAT;bits;Pi;8|)
+                                      (QREFELT $ 24))))
                    (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                      '(|Integer|) #1#)))))) 
 
@@ -300,23 +298,22 @@
 
 (SDEFUN |DFLOAT;polygamma;3$;78| ((|x| $) (|y| $) ($ $))
         (SPROG ((#1=#:G504 NIL) (|n| (|Union| (|Integer|) "failed")))
-               (SEQ
-                (LETT |n| (SPADCALL |x| (QREFELT $ 114))
-                      . #2=(|DFLOAT;polygamma;3$;78|))
-                (EXIT
-                 (COND
-                  ((QEQCAR |n| 0)
-                   (COND
-                    ((>= (QCDR |n|) 0)
-                     (SPADCALL
-                      (PROG1 (LETT #1# (QCDR |n|) . #2#)
-                        (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
-                                          '(|Integer|) #1#))
-                      |y| (QREFELT $ 116)))
-                    (#3='T
-                     (|error|
-                      #4="polygamma: first argument should be a nonnegative integer"))))
-                  (#3# (|error| #4#))))))) 
+               (SEQ (LETT |n| (SPADCALL |x| (QREFELT $ 114)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |n| 0)
+                       (COND
+                        ((>= (QCDR |n|) 0)
+                         (SPADCALL
+                          (PROG1 (LETT #1# (QCDR |n|))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
+                          |y| (QREFELT $ 116)))
+                        (#2='T
+                         (|error|
+                          #3="polygamma: first argument should be a nonnegative integer"))))
+                      (#2# (|error| #3#))))))) 
 
 (SDEFUN |DFLOAT;lambertW;2$;79| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 119))) 
 
@@ -335,85 +332,75 @@
 
 (SDEFUN |DFLOAT;jacobiSn;3$;85| ((|x| $) (|y| $) ($ $))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ
-                (LETT |obits| (SPADCALL (QREFELT $ 133))
-                      |DFLOAT;jacobiSn;3$;85|)
-                (EXIT
-                 (|finally|
-                  (SEQ (SPADCALL 68 (QREFELT $ 134))
-                       (EXIT
-                        (SPADCALL
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 135))
-                                   (SPADCALL |y| (QREFELT $ 135))
-                                   (QREFELT $ 137))
-                         (QREFELT $ 138))))
-                  (SPADCALL |obits| (QREFELT $ 134))))))) 
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 133)))
+                    (EXIT
+                     (|finally|
+                      (SEQ (SPADCALL 68 (QREFELT $ 134))
+                           (EXIT
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 135))
+                                       (SPADCALL |y| (QREFELT $ 135))
+                                       (QREFELT $ 137))
+                             (QREFELT $ 138))))
+                      (SPADCALL |obits| (QREFELT $ 134))))))) 
 
 (SDEFUN |DFLOAT;jacobiCn;3$;86| ((|x| $) (|y| $) ($ $))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ
-                (LETT |obits| (SPADCALL (QREFELT $ 133))
-                      |DFLOAT;jacobiCn;3$;86|)
-                (EXIT
-                 (|finally|
-                  (SEQ (SPADCALL 68 (QREFELT $ 134))
-                       (EXIT
-                        (SPADCALL
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 135))
-                                   (SPADCALL |y| (QREFELT $ 135))
-                                   (QREFELT $ 140))
-                         (QREFELT $ 138))))
-                  (SPADCALL |obits| (QREFELT $ 134))))))) 
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 133)))
+                    (EXIT
+                     (|finally|
+                      (SEQ (SPADCALL 68 (QREFELT $ 134))
+                           (EXIT
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 135))
+                                       (SPADCALL |y| (QREFELT $ 135))
+                                       (QREFELT $ 140))
+                             (QREFELT $ 138))))
+                      (SPADCALL |obits| (QREFELT $ 134))))))) 
 
 (SDEFUN |DFLOAT;jacobiDn;3$;87| ((|x| $) (|y| $) ($ $))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ
-                (LETT |obits| (SPADCALL (QREFELT $ 133))
-                      |DFLOAT;jacobiDn;3$;87|)
-                (EXIT
-                 (|finally|
-                  (SEQ (SPADCALL 68 (QREFELT $ 134))
-                       (EXIT
-                        (SPADCALL
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 135))
-                                   (SPADCALL |y| (QREFELT $ 135))
-                                   (QREFELT $ 142))
-                         (QREFELT $ 138))))
-                  (SPADCALL |obits| (QREFELT $ 134))))))) 
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 133)))
+                    (EXIT
+                     (|finally|
+                      (SEQ (SPADCALL 68 (QREFELT $ 134))
+                           (EXIT
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 135))
+                                       (SPADCALL |y| (QREFELT $ 135))
+                                       (QREFELT $ 142))
+                             (QREFELT $ 138))))
+                      (SPADCALL |obits| (QREFELT $ 134))))))) 
 
 (SDEFUN |DFLOAT;weierstrassP;4$;88| ((|x| $) (|y| $) (|z| $) ($ $))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ
-                (LETT |obits| (SPADCALL (QREFELT $ 133))
-                      |DFLOAT;weierstrassP;4$;88|)
-                (EXIT
-                 (|finally|
-                  (SEQ (SPADCALL 68 (QREFELT $ 134))
-                       (EXIT
-                        (SPADCALL
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 135))
-                                   (SPADCALL |y| (QREFELT $ 135))
-                                   (SPADCALL |z| (QREFELT $ 135))
-                                   (QREFELT $ 144))
-                         (QREFELT $ 138))))
-                  (SPADCALL |obits| (QREFELT $ 134))))))) 
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 133)))
+                    (EXIT
+                     (|finally|
+                      (SEQ (SPADCALL 68 (QREFELT $ 134))
+                           (EXIT
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 135))
+                                       (SPADCALL |y| (QREFELT $ 135))
+                                       (SPADCALL |z| (QREFELT $ 135))
+                                       (QREFELT $ 144))
+                             (QREFELT $ 138))))
+                      (SPADCALL |obits| (QREFELT $ 134))))))) 
 
 (SDEFUN |DFLOAT;weierstrassPPrime;4$;89| ((|x| $) (|y| $) (|z| $) ($ $))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ
-                (LETT |obits| (SPADCALL (QREFELT $ 133))
-                      |DFLOAT;weierstrassPPrime;4$;89|)
-                (EXIT
-                 (|finally|
-                  (SEQ (SPADCALL 68 (QREFELT $ 134))
-                       (EXIT
-                        (SPADCALL
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 135))
-                                   (SPADCALL |y| (QREFELT $ 135))
-                                   (SPADCALL |z| (QREFELT $ 135))
-                                   (QREFELT $ 146))
-                         (QREFELT $ 138))))
-                  (SPADCALL |obits| (QREFELT $ 134))))))) 
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 133)))
+                    (EXIT
+                     (|finally|
+                      (SEQ (SPADCALL 68 (QREFELT $ 134))
+                           (EXIT
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 135))
+                                       (SPADCALL |y| (QREFELT $ 135))
+                                       (SPADCALL |z| (QREFELT $ 135))
+                                       (QREFELT $ 146))
+                             (QREFELT $ 138))))
+                      (SPADCALL |obits| (QREFELT $ 134))))))) 
 
 (PUT '|DFLOAT;wholePart;$I;90| '|SPADreplace| 'TRUNCATE) 
 
@@ -448,19 +435,16 @@
                      (|div_DF_I| (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT) 2)))
                    (#1='T 0.0)))
                  (#1#
-                  (SEQ
-                   (LETT |theta| (|atan_DF| (|abs_DF| (|div_DF| |y| |x|)))
-                         . #2=(|DFLOAT;atan;3$;95|))
-                   (COND
-                    ((|less_DF| |x| 0.0)
-                     (LETT |theta|
-                           (|sub_DF| (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)
-                                     |theta|)
-                           . #2#)))
-                   (COND
-                    ((|less_DF| |y| 0.0)
-                     (LETT |theta| (|minus_DF| |theta|) . #2#)))
-                   (EXIT |theta|))))))) 
+                  (SEQ (LETT |theta| (|atan_DF| (|abs_DF| (|div_DF| |y| |x|))))
+                       (COND
+                        ((|less_DF| |x| 0.0)
+                         (LETT |theta|
+                               (|sub_DF| (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)
+                                         |theta|))))
+                       (COND
+                        ((|less_DF| |y| 0.0)
+                         (LETT |theta| (|minus_DF| |theta|))))
+                       (EXIT |theta|))))))) 
 
 (SDEFUN |DFLOAT;retract;$F;96| ((|x| $) ($ |Fraction| (|Integer|)))
         (SPADCALL |x| (SPADCALL (SPADCALL (QREFELT $ 22)) 1 (QREFELT $ 157))
@@ -475,7 +459,7 @@
 
 (SDEFUN |DFLOAT;retract;$I;98| ((|x| $) ($ |Integer|))
         (SPROG ((|n| (|Integer|)))
-               (SEQ (LETT |n| (TRUNCATE |x|) |DFLOAT;retract;$I;98|)
+               (SEQ (LETT |n| (TRUNCATE |x|))
                     (EXIT
                      (COND
                       ((|eql_DF| |x| (FLOAT |n| MOST-POSITIVE-DOUBLE-FLOAT))
@@ -484,7 +468,7 @@
 
 (SDEFUN |DFLOAT;retractIfCan;$U;99| ((|x| $) ($ |Union| (|Integer|) "failed"))
         (SPROG ((|n| (|Integer|)))
-               (SEQ (LETT |n| (TRUNCATE |x|) |DFLOAT;retractIfCan;$U;99|)
+               (SEQ (LETT |n| (TRUNCATE |x|))
                     (EXIT
                      (COND
                       ((|eql_DF| |x| (FLOAT |n| MOST-POSITIVE-DOUBLE-FLOAT))
@@ -513,36 +497,34 @@
           (EXIT
            (COND ((|zero?_DF| |x|) (CONS 0 0))
                  ('T
-                  (SEQ
-                   (LETT |s| (SPADCALL |x| (QREFELT $ 163))
-                         . #2=(|DFLOAT;manexp|))
-                   (LETT |x| (|abs_DF| |x|) . #2#)
-                   (COND
-                    ((SPADCALL |x| MOST-POSITIVE-DOUBLE-FLOAT (QREFELT $ 155))
-                     (PROGN
-                      (LETT #1#
-                            (CONS
-                             (+
-                              (* |s|
+                  (SEQ (LETT |s| (SPADCALL |x| (QREFELT $ 163)))
+                       (LETT |x| (|abs_DF| |x|))
+                       (COND
+                        ((SPADCALL |x| MOST-POSITIVE-DOUBLE-FLOAT
+                                   (QREFELT $ 155))
+                         (PROGN
+                          (LETT #1#
+                                (CONS
+                                 (+
+                                  (* |s|
+                                     (SPADCALL MOST-POSITIVE-DOUBLE-FLOAT
+                                               (QREFELT $ 20)))
+                                  1)
                                  (SPADCALL MOST-POSITIVE-DOUBLE-FLOAT
-                                           (QREFELT $ 20)))
-                              1)
-                             (SPADCALL MOST-POSITIVE-DOUBLE-FLOAT
-                                       (QREFELT $ 21)))
-                            . #2#)
-                      (GO #3=#:G557))))
-                   (LETT |me| (MANEXP |x|) . #2#)
-                   (LETT |two53|
-                         (SPADCALL (SPADCALL (QREFELT $ 18))
-                                   (SPADCALL (QREFELT $ 22)) (QREFELT $ 166))
-                         . #2#)
-                   (EXIT
-                    (CONS
-                     (* |s|
-                        (TRUNCATE
-                         (SPADCALL |two53| (QCAR |me|) (QREFELT $ 24))))
-                     (- (QCDR |me|) (SPADCALL (QREFELT $ 22)))))))))
-          #3# (EXIT #1#)))) 
+                                           (QREFELT $ 21))))
+                          (GO #2=#:G557))))
+                       (LETT |me| (MANEXP |x|))
+                       (LETT |two53|
+                             (SPADCALL (SPADCALL (QREFELT $ 18))
+                                       (SPADCALL (QREFELT $ 22))
+                                       (QREFELT $ 166)))
+                       (EXIT
+                        (CONS
+                         (* |s|
+                            (TRUNCATE
+                             (SPADCALL |two53| (QCAR |me|) (QREFELT $ 24))))
+                         (- (QCDR |me|) (SPADCALL (QREFELT $ 22)))))))))
+          #2# (EXIT #1#)))) 
 
 (SDEFUN |DFLOAT;rationalApproximation;$2NniF;104|
         ((|f| $) (|d| |NonNegativeInteger|) (|b| |NonNegativeInteger|)
@@ -562,50 +544,47 @@
           (EXIT
            (SEQ
             (PROGN
-             (LETT |#G138| (|DFLOAT;manexp| |f| $)
-                   . #12=(|DFLOAT;rationalApproximation;$2NniF;104|))
-             (LETT |nu| (QCAR |#G138|) . #12#)
-             (LETT |ex| (QCDR |#G138|) . #12#)
+             (LETT |#G138| (|DFLOAT;manexp| |f| $))
+             (LETT |nu| (QCAR |#G138|))
+             (LETT |ex| (QCDR |#G138|))
              |#G138|)
-            (LETT BASE (SPADCALL (QREFELT $ 18)) . #12#)
+            (LETT BASE (SPADCALL (QREFELT $ 18)))
             (EXIT
              (COND
               ((>= |ex| 0)
                (SPADCALL
                 (SPADCALL |nu|
                           (EXPT BASE
-                                (PROG1 (LETT #10# |ex| . #12#)
+                                (PROG1 (LETT #10# |ex|)
                                   (|check_subtype2| (>= #10# 0)
                                                     '(|NonNegativeInteger|)
                                                     '(|Integer|) #10#)))
                           (QREFELT $ 167))
                 (QREFELT $ 168)))
-              (#13='T
+              (#12='T
                (SEQ
                 (LETT |de|
                       (EXPT BASE
-                            (PROG1 (LETT #9# (- |ex|) . #12#)
+                            (PROG1 (LETT #9# (- |ex|))
                               (|check_subtype2| (>= #9# 0)
                                                 '(|NonNegativeInteger|)
-                                                '(|Integer|) #9#)))
-                      . #12#)
+                                                '(|Integer|) #9#))))
                 (EXIT
                  (COND ((< |b| 2) (|error| "base must be > 1"))
-                       (#13#
-                        (SEQ (LETT |tol| (EXPT |b| |d|) . #12#)
-                             (LETT |s| |nu| . #12#) (LETT |t| |de| . #12#)
-                             (LETT |p0| 0 . #12#) (LETT |p1| 1 . #12#)
-                             (LETT |q0| 1 . #12#) (LETT |q1| 0 . #12#)
+                       (#12#
+                        (SEQ (LETT |tol| (EXPT |b| |d|)) (LETT |s| |nu|)
+                             (LETT |t| |de|) (LETT |p0| 0) (LETT |p1| 1)
+                             (LETT |q0| 1) (LETT |q1| 0)
                              (EXIT
                               (SEQ G190 NIL
                                    (SEQ
                                     (PROGN
-                                     (LETT |#G139| (DIVIDE2 |s| |t|) . #12#)
-                                     (LETT |q| (QCAR |#G139|) . #12#)
-                                     (LETT |r| (QCDR |#G139|) . #12#)
+                                     (LETT |#G139| (DIVIDE2 |s| |t|))
+                                     (LETT |q| (QCAR |#G139|))
+                                     (LETT |r| (QCDR |#G139|))
                                      |#G139|)
-                                    (LETT |p2| (+ (* |q| |p1|) |p0|) . #12#)
-                                    (LETT |q2| (+ (* |q| |q1|) |q0|) . #12#)
+                                    (LETT |p2| (+ (* |q| |p1|) |p0|))
+                                    (LETT |q2| (+ (* |q| |q1|) |q0|))
                                     (COND
                                      ((OR (EQL |r| 0)
                                           (<
@@ -619,27 +598,26 @@
                                        (PROGN
                                         (LETT #7#
                                               (SPADCALL |p2| |q2|
-                                                        (QREFELT $ 169))
-                                              . #12#)
-                                        (GO #14=#:G588)))))
+                                                        (QREFELT $ 169)))
+                                        (GO #13=#:G588)))))
                                     (PROGN
-                                     (LETT |#G140| |p1| . #12#)
-                                     (LETT |#G141| |p2| . #12#)
-                                     (LETT |p0| |#G140| . #12#)
-                                     (LETT |p1| |#G141| . #12#))
+                                     (LETT |#G140| |p1|)
+                                     (LETT |#G141| |p2|)
+                                     (LETT |p0| |#G140|)
+                                     (LETT |p1| |#G141|))
                                     (PROGN
-                                     (LETT |#G142| |q1| . #12#)
-                                     (LETT |#G143| |q2| . #12#)
-                                     (LETT |q0| |#G142| . #12#)
-                                     (LETT |q1| |#G143| . #12#))
+                                     (LETT |#G142| |q1|)
+                                     (LETT |#G143| |q2|)
+                                     (LETT |q0| |#G142|)
+                                     (LETT |q1| |#G143|))
                                     (EXIT
                                      (PROGN
-                                      (LETT |#G144| |t| . #12#)
-                                      (LETT |#G145| |r| . #12#)
-                                      (LETT |s| |#G144| . #12#)
-                                      (LETT |t| |#G145| . #12#))))
+                                      (LETT |#G144| |t|)
+                                      (LETT |#G145| |r|)
+                                      (LETT |s| |#G144|)
+                                      (LETT |t| |#G145|))))
                                    NIL (GO G190) G191 (EXIT NIL)))))))))))))
-          #14# (EXIT #7#)))) 
+          #13# (EXIT #7#)))) 
 
 (SDEFUN |DFLOAT;^;$F$;105| ((|x| $) (|r| |Fraction| (|Integer|)) ($ $))
         (SPROG ((#1=#:G599 NIL) (|d| (|Integer|)) (|n| (|Integer|)))
@@ -656,41 +634,37 @@
                    (COND
                     ((SPADCALL |r| (|spadConstant| $ 173) (QREFELT $ 174)) |x|)
                     (#2#
-                     (SEQ
-                      (LETT |n| (SPADCALL |r| (QREFELT $ 175))
-                            . #3=(|DFLOAT;^;$F$;105|))
-                      (LETT |d| (SPADCALL |r| (QREFELT $ 176)) . #3#)
-                      (EXIT
-                       (COND
-                        ((|negative?_DF| |x|)
-                         (COND
-                          ((ODDP |d|)
+                     (SEQ (LETT |n| (SPADCALL |r| (QREFELT $ 175)))
+                          (LETT |d| (SPADCALL |r| (QREFELT $ 176)))
+                          (EXIT
                            (COND
-                            ((ODDP |n|)
-                             (PROGN
-                              (LETT #1#
-                                    (|minus_DF|
-                                     (SPADCALL (|minus_DF| |x|) |r|
-                                               (QREFELT $ 177)))
-                                    . #3#)
-                              (GO #4=#:G598)))
+                            ((|negative?_DF| |x|)
+                             (COND
+                              ((ODDP |d|)
+                               (COND
+                                ((ODDP |n|)
+                                 (PROGN
+                                  (LETT #1#
+                                        (|minus_DF|
+                                         (SPADCALL (|minus_DF| |x|) |r|
+                                                   (QREFELT $ 177))))
+                                  (GO #3=#:G598)))
+                                (#2#
+                                 (PROGN
+                                  (LETT #1#
+                                        (SPADCALL (|minus_DF| |x|) |r|
+                                                  (QREFELT $ 177)))
+                                  (GO #3#)))))
+                              (#2# (|error| "negative root"))))
+                            ((EQL |d| 2)
+                             (|expt_DF_I| (SPADCALL |x| (QREFELT $ 52)) |n|))
                             (#2#
-                             (PROGN
-                              (LETT #1#
-                                    (SPADCALL (|minus_DF| |x|) |r|
-                                              (QREFELT $ 177))
-                                    . #3#)
-                              (GO #4#)))))
-                          (#2# (|error| "negative root"))))
-                        ((EQL |d| 2)
-                         (|expt_DF_I| (SPADCALL |x| (QREFELT $ 52)) |n|))
-                        (#2#
-                         (SPADCALL |x|
-                                   (|div_DF|
-                                    (FLOAT |n| MOST-POSITIVE-DOUBLE-FLOAT)
-                                    (FLOAT |d| MOST-POSITIVE-DOUBLE-FLOAT))
-                                   (QREFELT $ 56)))))))))))
-                #4# (EXIT #1#)))) 
+                             (SPADCALL |x|
+                                       (|div_DF|
+                                        (FLOAT |n| MOST-POSITIVE-DOUBLE-FLOAT)
+                                        (FLOAT |d| MOST-POSITIVE-DOUBLE-FLOAT))
+                                       (QREFELT $ 56)))))))))))
+                #3# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |DoubleFloat;|)) 
 
@@ -699,8 +673,7 @@
          (PROG (#1=#:G613)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloat|)
-                    . #2=(|DoubleFloat|))
+             ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloat|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -708,17 +681,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|DoubleFloat|
                              (LIST (CONS NIL (CONS 1 (|DoubleFloat;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|DoubleFloat|)))))))))) 
 
 (DEFUN |DoubleFloat;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|DoubleFloat|) . #1=(|DoubleFloat|))
-          (LETT $ (GETREFV 192) . #1#)
+          (LETT |dv$| '(|DoubleFloat|))
+          (LETT $ (GETREFV 192))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DoubleFloat| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (AND (|HasCategory| $ '(|arbitraryPrecision|))

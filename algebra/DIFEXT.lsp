@@ -55,7 +55,5 @@
                                                        (|has| |t#1|
                                                               (|PartialDifferentialRing|
                                                                (|Symbol|)))))
-                                                    NIL NIL))
-                                           . #2=(|DifferentialExtension|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DifferentialExtension| |t#1|))))) 

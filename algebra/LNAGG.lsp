@@ -176,7 +176,5 @@
                                                   (|has| |t#1| (|OrderedSet|))
                                                   (|has| $
                                                          (|finiteAggregate|)))))
-                                              NIL NIL))
-                                            . #4=(|LinearAggregate|))))))
-                   . #4#)
+                                              NIL NIL))))))))
            (SETELT #1# 0 (LIST '|LinearAggregate| |t#1|))))) 

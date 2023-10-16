@@ -73,7 +73,5 @@
                                                       ((|merge!| ($ $ $))
                                                        (|has| |t#1|
                                                               (|OrderedSet|))))
-                                                    NIL NIL NIL))
-                                           . #2=(|ExtensibleLinearAggregate|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|ExtensibleLinearAggregate| |t#1|))))) 

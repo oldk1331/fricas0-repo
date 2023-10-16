@@ -14,8 +14,7 @@
                    (|Join| (|Ring|)
                            (|mkCategory|
                             '(((|charthRoot| ((|Union| $ "failed") $)) T)) NIL
-                            NIL NIL))
-                   |CharacteristicNonZero|)
+                            NIL NIL)))
            (SETELT #1# 0 '(|CharacteristicNonZero|))))) 
 
 (MAKEPROP '|CharacteristicNonZero| 'NILADIC T) 

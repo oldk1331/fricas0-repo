@@ -7,35 +7,31 @@
         (SPROG
          ((|res| (|List| (|Boolean|))) (#1=#:G114 NIL) (|c| NIL)
           (|cs| (|List| (|Character|))))
-         (SEQ (LETT |res| NIL . #2=(|BITST;starts;S$;2|))
-              (LETT |cs| (SPADCALL |str| (QREFELT $ 11)) . #2#)
-              (SEQ (LETT |c| NIL . #2#) (LETT #1# |cs| . #2#) G190
+         (SEQ (LETT |res| NIL) (LETT |cs| (SPADCALL |str| (QREFELT $ 11)))
+              (SEQ (LETT |c| NIL) (LETT #1# |cs|) G190
                    (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#) . #2#) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ
                     (COND
                      ((|eql_SI| |c| (|STR_to_CHAR| "0"))
-                      (LETT |res| (SPADCALL |res| NIL (QREFELT $ 13)) . #2#)))
+                      (LETT |res| (SPADCALL |res| NIL (QREFELT $ 13)))))
                     (EXIT
                      (COND
                       ((|eql_SI| |c| (|STR_to_CHAR| "1"))
-                       (LETT |res| (SPADCALL |res| 'T (QREFELT $ 13))
-                             . #2#)))))
-                   (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                       (LETT |res| (SPADCALL |res| 'T (QREFELT $ 13)))))))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (LIST |res|))))) 
 
 (SDEFUN |BITST;/\\;3$;3| ((|a| $) (|b| $) ($ $))
         (SPROG ((|res| (|List| (|List| (|Boolean|)))))
-               (SEQ
-                (LETT |res| (SPADCALL |a| |b| (QREFELT $ 16)) |BITST;/\\;3$;3|)
-                (EXIT |res|)))) 
+               (SEQ (LETT |res| (SPADCALL |a| |b| (QREFELT $ 16)))
+                    (EXIT |res|)))) 
 
 (SDEFUN |BITST;\\/;3$;4| ((|a| $) (|b| $) ($ $))
         (SPROG ((|res| (|List| (|List| (|Boolean|)))))
-               (SEQ
-                (LETT |res| (SPADCALL |a| |b| (QREFELT $ 16)) |BITST;\\/;3$;4|)
-                (EXIT |res|)))) 
+               (SEQ (LETT |res| (SPADCALL |a| |b| (QREFELT $ 16)))
+                    (EXIT |res|)))) 
 
 (PUT '|BITST;hash;$Si;5| '|SPADreplace| '(XLAM (|s|) 0)) 
 
@@ -50,9 +46,9 @@
            (SEQ
             (COND
              ((SPADCALL (LENGTH |x|) (LENGTH |y|) (QREFELT $ 22))
-              (PROGN (LETT #1# NIL . #3=(|BITST;=;2$B;6|)) (GO #4=#:G124))))
-            (LETT |len| (LENGTH |x|) . #3#)
-            (SEQ (LETT |i| 1 . #3#) (LETT #2# |len| . #3#) G190
+              (PROGN (LETT #1# NIL) (GO #3=#:G124))))
+            (LETT |len| (LENGTH |x|))
+            (SEQ (LETT |i| 1) (LETT #2# |len|) G190
                  (COND ((|greater_SI| |i| #2#) (GO G191)))
                  (SEQ
                   (EXIT
@@ -60,10 +56,10 @@
                     ((SPADCALL (SPADCALL |x| |i| (QREFELT $ 24))
                                (SPADCALL |y| |i| (QREFELT $ 24))
                                (QREFELT $ 25))
-                     (PROGN (LETT #1# NIL . #3#) (GO #4#))))))
-                 (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+                     (PROGN (LETT #1# NIL) (GO #3#))))))
+                 (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
-          #4# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |BITST;~=;2$B;7| ((|x| $) (|y| $) ($ |Boolean|))
         (NULL (SPADCALL |x| |y| (QREFELT $ 26)))) 
@@ -73,31 +69,27 @@
          ((|cs| (|List| (|OutputForm|))) (|c| (|OutputForm|))
           (|r| (|List| #1=(|OutputForm|))) (|ro| #1#) (#2=#:G135 NIL) (|x| NIL)
           (#3=#:G134 NIL) (|row| NIL))
-         (SEQ (LETT |cs| NIL . #4=(|BITST;coerce;$Of;8|))
-              (SEQ (LETT |row| NIL . #4#) (LETT #3# |s| . #4#) G190
+         (SEQ (LETT |cs| NIL)
+              (SEQ (LETT |row| NIL) (LETT #3# |s|) G190
                    (COND
-                    ((OR (ATOM #3#) (PROGN (LETT |row| (CAR #3#) . #4#) NIL))
+                    ((OR (ATOM #3#) (PROGN (LETT |row| (CAR #3#)) NIL))
                      (GO G191)))
-                   (SEQ
-                    (LETT |r| (LIST (SPADCALL "starts:" (QREFELT $ 29))) . #4#)
-                    (SEQ (LETT |x| NIL . #4#) (LETT #2# |row| . #4#) G190
-                         (COND
-                          ((OR (ATOM #2#)
-                               (PROGN (LETT |x| (CAR #2#) . #4#) NIL))
-                           (GO G191)))
-                         (SEQ (LETT |ro| (SPADCALL "0" (QREFELT $ 29)) . #4#)
-                              (COND
-                               (|x|
-                                (LETT |ro| (SPADCALL "1" (QREFELT $ 29))
-                                      . #4#)))
-                              (EXIT
-                               (LETT |r| (SPADCALL |r| |ro| (QREFELT $ 31))
-                                     . #4#)))
-                         (LETT #2# (CDR #2#) . #4#) (GO G190) G191 (EXIT NIL))
-                    (LETT |c| (SPADCALL |r| (QREFELT $ 33)) . #4#)
-                    (EXIT
-                     (LETT |cs| (SPADCALL |cs| |c| (QREFELT $ 31)) . #4#)))
-                   (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
+                   (SEQ (LETT |r| (LIST (SPADCALL "starts:" (QREFELT $ 29))))
+                        (SEQ (LETT |x| NIL) (LETT #2# |row|) G190
+                             (COND
+                              ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL))
+                               (GO G191)))
+                             (SEQ (LETT |ro| (SPADCALL "0" (QREFELT $ 29)))
+                                  (COND
+                                   (|x|
+                                    (LETT |ro| (SPADCALL "1" (QREFELT $ 29)))))
+                                  (EXIT
+                                   (LETT |r|
+                                         (SPADCALL |r| |ro| (QREFELT $ 31)))))
+                             (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
+                        (LETT |c| (SPADCALL |r| (QREFELT $ 33)))
+                        (EXIT (LETT |cs| (SPADCALL |cs| |c| (QREFELT $ 31)))))
+                   (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |cs| (QREFELT $ 34)))))) 
 
 (DECLAIM (NOTINLINE |BitStreamFrame;|)) 
@@ -107,8 +99,7 @@
          (PROG (#1=#:G137)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|BitStreamFrame|)
-                    . #2=(|BitStreamFrame|))
+             ((LETT #1# (HGET |$ConstructorCache| '|BitStreamFrame|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -116,7 +107,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|BitStreamFrame|
                              (LIST (CONS NIL (CONS 1 (|BitStreamFrame;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|BitStreamFrame|)))))))))) 
@@ -124,10 +115,10 @@
 (DEFUN |BitStreamFrame;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|BitStreamFrame|) . #1=(|BitStreamFrame|))
-          (LETT $ (GETREFV 37) . #1#)
+          (LETT |dv$| '(|BitStreamFrame|))
+          (LETT $ (GETREFV 37))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|BitStreamFrame| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

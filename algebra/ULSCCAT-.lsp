@@ -16,22 +16,20 @@
 (DEFUN |UnivariateLaurentSeriesConstructorCategory&| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|UnivariateLaurentSeriesConstructorCategory&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$|
                 (LIST '|UnivariateLaurentSeriesConstructorCategory&| DV$1 DV$2
-                      DV$3)
-                . #1#)
-          (LETT $ (GETREFV 28) . #1#)
+                      DV$3))
+          (LETT $ (GETREFV 28))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
-                                              (|HasCategory| |#2| '(|Field|))))
-                          . #1#))
+                                              (|HasCategory| |#2|
+                                                             '(|Field|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

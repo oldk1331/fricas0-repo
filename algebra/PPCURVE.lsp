@@ -28,8 +28,7 @@
                                          ((|yRange|
                                            ((|Segment| (|DoubleFloat|)) $))
                                           T))
-                                       NIL NIL NIL)))
-                   |PlottablePlaneCurveCategory|)
+                                       NIL NIL NIL))))
            (SETELT #1# 0 '(|PlottablePlaneCurveCategory|))))) 
 
 (MAKEPROP '|PlottablePlaneCurveCategory| 'NILADIC T) 

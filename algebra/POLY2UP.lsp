@@ -3,12 +3,10 @@
         ((|p| |Polynomial| R) (|y| |Variable| |x|)
          ($ |UnivariatePolynomial| |x| (|Polynomial| R)))
         (SPROG ((|q| (|SparseUnivariatePolynomial| (|Polynomial| R))))
-               (SEQ
-                (LETT |q| (SPADCALL |p| (QREFELT $ 6) (QREFELT $ 11))
-                      |POLY2UP;univariate;PVUp;1|)
-                (EXIT
-                 (SPADCALL (LIST #'|POLY2UP;univariate;PVUp;1!0|) |q|
-                           (QREFELT $ 16)))))) 
+               (SEQ (LETT |q| (SPADCALL |p| (QREFELT $ 6) (QREFELT $ 11)))
+                    (EXIT
+                     (SPADCALL (LIST #'|POLY2UP;univariate;PVUp;1!0|) |q|
+                               (QREFELT $ 16)))))) 
 
 (SDEFUN |POLY2UP;univariate;PVUp;1!0| ((|x1| NIL) ($$ NIL)) |x1|) 
 
@@ -23,15 +21,14 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|PolynomialToUnivariatePolynomial|)
-                                               '|domainEqualList|)
-                    . #3=(|PolynomialToUnivariatePolynomial|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |PolynomialToUnivariatePolynomial;|)
                              #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -40,14 +37,12 @@
 (DEFUN |PolynomialToUnivariatePolynomial;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|PolynomialToUnivariatePolynomial|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|PolynomialToUnivariatePolynomial| DV$1 DV$2)
-                . #1#)
-          (LETT $ (GETREFV 19) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|PolynomialToUnivariatePolynomial| DV$1 DV$2))
+          (LETT $ (GETREFV 19))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PolynomialToUnivariatePolynomial|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -121,7 +121,5 @@
                                                     '(((|FiniteFieldCategory|)
                                                        (|has| |t#1|
                                                               (|Finite|))))
-                                                    NIL NIL))
-                                           . #2=(|FiniteAlgebraicExtensionField|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FiniteAlgebraicExtensionField| |t#1|))))) 

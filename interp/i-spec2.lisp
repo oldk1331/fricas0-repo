@@ -1702,7 +1702,7 @@
 ;       not ((localEnv and get(name,'mode,$env)) or get(name,'mode,$e))
 ;     objMode val ~= objMode(value)
 ;   if clearCompilationsFlag then
-;     clearDependencies(name,true)
+;     clearDependencies(name)
 ;   if localEnv and isLocalVar(name)
 ;     then $env:= putHist(name,'value,value,$env)
 ;     else putIntSymTab(name,'value,value,$e)
@@ -1724,7 +1724,7 @@
                   (OR (AND |localEnv| (|get| |name| '|mode| |$env|))
                       (|get| |name| '|mode| |$e|))))
                 (#1='T (NOT (EQUAL (|objMode| |val|) (|objMode| |value|)))))))
-      (COND (|clearCompilationsFlag| (|clearDependencies| |name| T)))
+      (COND (|clearCompilationsFlag| (|clearDependencies| |name|)))
       (COND
        ((AND |localEnv| (|isLocalVar| |name|))
         (SETQ |$env| (|putHist| |name| '|value| |value| |$env|)))
@@ -3398,7 +3398,7 @@
 ;   putValue(op,val)
 ;   result := putModeSet(op,getModeSet tree)
 ;   wcl := [op for op in $whereCacheList]
-;   for op in wcl repeat clearDependencies(op,'T)
+;   for op in wcl repeat clearDependencies(op)
 ;   result
  
 (DEFUN |upwhere| (|t|)
@@ -3453,7 +3453,7 @@
             (COND
              ((OR (ATOM |bfVar#81|) (PROGN (SETQ |op| (CAR |bfVar#81|)) NIL))
               (RETURN NIL))
-             (#1# (|clearDependencies| |op| 'T)))
+             (#1# (|clearDependencies| |op|)))
             (SETQ |bfVar#81| (CDR |bfVar#81|))))
          |wcl| NIL)
         |result|))))))

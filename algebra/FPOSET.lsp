@@ -13,38 +13,32 @@
          (SEQ
           (LETT |struct1|
                 (PROGN
-                 (LETT #4# NIL . #5=(|FPOSET;finitePoset;LM$;2|))
-                 (SEQ (LETT |y| NIL . #5#) (LETT #3# |carrier| . #5#) G190
+                 (LETT #4# NIL)
+                 (SEQ (LETT |y| NIL) (LETT #3# |carrier|) G190
                       (COND
-                       ((OR (ATOM #3#) (PROGN (LETT |y| (CAR #3#) . #5#) NIL))
+                       ((OR (ATOM #3#) (PROGN (LETT |y| (CAR #3#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
                         (LETT #4#
                               (CONS
                                (PROGN
-                                (LETT #2# NIL . #5#)
-                                (SEQ (LETT |x| NIL . #5#)
-                                     (LETT #1# |carrier| . #5#) G190
+                                (LETT #2# NIL)
+                                (SEQ (LETT |x| NIL) (LETT #1# |carrier|) G190
                                      (COND
                                       ((OR (ATOM #1#)
-                                           (PROGN
-                                            (LETT |x| (CAR #1#) . #5#)
-                                            NIL))
+                                           (PROGN (LETT |x| (CAR #1#)) NIL))
                                        (GO G191)))
                                      (SEQ
                                       (EXIT
                                        (LETT #2#
                                              (CONS (SPADCALL |x| |y| |pred|)
-                                                   #2#)
-                                             . #5#)))
-                                     (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                                                   #2#))))
+                                     (LETT #1# (CDR #1#)) (GO G190) G191
                                      (EXIT (NREVERSE #2#))))
-                               #4#)
-                              . #5#)))
-                      (LETT #3# (CDR #3#) . #5#) (GO G190) G191
-                      (EXIT (NREVERSE #4#))))
-                . #5#)
+                               #4#))))
+                      (LETT #3# (CDR #3#)) (GO G190) G191
+                      (EXIT (NREVERSE #4#)))))
           (EXIT (CONS |carrier| |struct1|))))) 
 
 (PUT '|FPOSET;getVert;$L;3| '|SPADreplace| 'QCAR) 
@@ -76,22 +70,21 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|FinitePoset|)
-                                               '|domainEqualList|)
-                    . #3=(|FinitePoset|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|FinitePoset;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|FinitePoset;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|FinitePoset|)))))))))) 
 
 (DEFUN |FinitePoset;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FinitePoset|))
-          (LETT |dv$| (LIST '|FinitePoset| DV$1) . #1#)
-          (LETT $ (GETREFV 41) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|FinitePoset| DV$1))
+          (LETT $ (GETREFV 41))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FinitePoset| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

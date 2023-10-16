@@ -119,33 +119,28 @@
         (SPROG
          ((|thingsToWrite| (|List| (|String|))) (|writeTypeInt| (|Integer|))
           (#1=#:G140 NIL) (|aTypeOfFile| NIL))
-         (SEQ
-          (LETT |thingsToWrite| NIL . #2=(|VIEWDEF;viewWriteDefault;2L;26|))
-          (SEQ (LETT |aTypeOfFile| NIL . #2#) (LETT #1# |listOfThings| . #2#)
-               G190
-               (COND
-                ((OR (ATOM #1#)
-                     (PROGN (LETT |aTypeOfFile| (CAR #1#) . #2#) NIL))
-                 (GO G191)))
-               (SEQ
-                (LETT |writeTypeInt|
-                      (SPADCALL (SPADCALL |aTypeOfFile| (QREFELT $ 91))
-                                (SPADCALL (QREFELT $ 87)) (QREFELT $ 92))
-                      . #2#)
-                (EXIT
-                 (COND
-                  ((< |writeTypeInt| 1)
-                   (SPADCALL
-                    (LIST "  > " |aTypeOfFile|
-                          " is not a valid file type for writing a viewport")
-                    (QREFELT $ 94)))
-                  ('T
-                   (LETT |thingsToWrite|
-                         (SPADCALL |thingsToWrite| (LIST |aTypeOfFile|)
-                                   (QREFELT $ 95))
-                         . #2#)))))
-               (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL (QREFELT $ 34) |thingsToWrite| (QREFELT $ 96)))))) 
+         (SEQ (LETT |thingsToWrite| NIL)
+              (SEQ (LETT |aTypeOfFile| NIL) (LETT #1# |listOfThings|) G190
+                   (COND
+                    ((OR (ATOM #1#) (PROGN (LETT |aTypeOfFile| (CAR #1#)) NIL))
+                     (GO G191)))
+                   (SEQ
+                    (LETT |writeTypeInt|
+                          (SPADCALL (SPADCALL |aTypeOfFile| (QREFELT $ 91))
+                                    (SPADCALL (QREFELT $ 87)) (QREFELT $ 92)))
+                    (EXIT
+                     (COND
+                      ((< |writeTypeInt| 1)
+                       (SPADCALL
+                        (LIST "  > " |aTypeOfFile|
+                              " is not a valid file type for writing a viewport")
+                        (QREFELT $ 94)))
+                      ('T
+                       (LETT |thingsToWrite|
+                             (SPADCALL |thingsToWrite| (LIST |aTypeOfFile|)
+                                       (QREFELT $ 95)))))))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+              (EXIT (SPADCALL (QREFELT $ 34) |thingsToWrite| (QREFELT $ 96)))))) 
 
 (DECLAIM (NOTINLINE |ViewDefaultsPackage;|)) 
 
@@ -154,8 +149,7 @@
          (PROG (#1=#:G142)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ViewDefaultsPackage|)
-                    . #2=(|ViewDefaultsPackage|))
+             ((LETT #1# (HGET |$ConstructorCache| '|ViewDefaultsPackage|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -164,7 +158,7 @@
                        (HPUT |$ConstructorCache| '|ViewDefaultsPackage|
                              (LIST
                               (CONS NIL (CONS 1 (|ViewDefaultsPackage;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|ViewDefaultsPackage|)))))))))) 
@@ -172,10 +166,10 @@
 (DEFUN |ViewDefaultsPackage;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|ViewDefaultsPackage|) . #1=(|ViewDefaultsPackage|))
-          (LETT $ (GETREFV 98) . #1#)
+          (LETT |dv$| '(|ViewDefaultsPackage|))
+          (LETT $ (GETREFV 98))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ViewDefaultsPackage| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

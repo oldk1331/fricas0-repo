@@ -13,8 +13,7 @@
              (LETT #1#
                    (|Join| (|JoinSemilattice|)
                            (|mkCategory| '(((|_\|_| ($) |constant|) T)) NIL NIL
-                                         NIL))
-                   |BoundedJoinSemilattice|)
+                                         NIL)))
            (SETELT #1# 0 '(|BoundedJoinSemilattice|))))) 
 
 (MAKEPROP '|BoundedJoinSemilattice| 'NILADIC T) 

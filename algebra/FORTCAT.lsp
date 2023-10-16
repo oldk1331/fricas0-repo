@@ -15,8 +15,7 @@
                               (|Join| (|Type|) (|CoercibleTo| '#2#)
                                       (|mkCategory|
                                        '(((|outputAsFortran| ((|Void|) $)) T))
-                                       NIL NIL NIL)))
-                   |FortranProgramCategory|)
+                                       NIL NIL NIL))))
            (SETELT #1# 0 '(|FortranProgramCategory|))))) 
 
 (MAKEPROP '|FortranProgramCategory| 'NILADIC T) 

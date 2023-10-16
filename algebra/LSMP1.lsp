@@ -48,13 +48,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|LinearSystemMatrixPackage1|)
-                                               '|domainEqualList|)
-                    . #3=(|LinearSystemMatrixPackage1|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|LinearSystemMatrixPackage1;| #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (|LinearSystemMatrixPackage1;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -63,11 +61,11 @@
 (DEFUN |LinearSystemMatrixPackage1;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|LinearSystemMatrixPackage1|))
-          (LETT |dv$| (LIST '|LinearSystemMatrixPackage1| DV$1) . #1#)
-          (LETT $ (GETREFV 30) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|LinearSystemMatrixPackage1| DV$1))
+          (LETT $ (GETREFV 30))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|LinearSystemMatrixPackage1|
                       (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)

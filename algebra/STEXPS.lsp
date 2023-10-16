@@ -12,46 +12,44 @@
 
 (SDEFUN |STEXPS;stmult!0| (($$ NIL))
         (PROG (|x0| |y0| |n0| |ll0| $)
-          (LETT |x0| (QREFELT $$ 4) . #1=(|STEXPS;stmult|))
-          (LETT |y0| (QREFELT $$ 3) . #1#)
-          (LETT |n0| (QREFELT $$ 2) . #1#)
-          (LETT |ll0| (QREFELT $$ 1) . #1#)
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |x0| (QREFELT $$ 4))
+          (LETT |y0| (QREFELT $$ 3))
+          (LETT |n0| (QREFELT $$ 2))
+          (LETT |ll0| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPROG
              ((|x| NIL) (|c| NIL) (|y| NIL) (|ll| NIL) (|n| NIL) (|i| NIL)
-              (#2=#:G145 NIL) (#3=#:G144 NIL) (#4=#:G143 NIL) (|res| NIL)
+              (#1=#:G145 NIL) (#2=#:G144 NIL) (#3=#:G143 NIL) (|res| NIL)
               (|llp| NIL) (|xp| NIL))
              (SEQ
               (EXIT
-               (SEQ (LETT |x| |x0| NIL) (LETT |y| |y0| NIL) (LETT |n| |n0| NIL)
-                    (LETT |ll| |ll0| NIL)
+               (SEQ (LETT |x| |x0|) (LETT |y| |y0|) (LETT |n| |n0|)
+                    (LETT |ll| |ll0|)
                     (COND
                      ((SPADCALL |y| (QREFELT $ 10))
                       (COND
                        ((OR (SPADCALL |n| (|spadConstant| $ 23) (QREFELT $ 14))
                             (SPADCALL |x| (QREFELT $ 10)))
                         (PROGN
-                         (LETT #3# (SPADCALL (QREFELT $ 8)) NIL)
-                         (GO #5=#:G142)))
-                       ('T (LETT |x| (SPADCALL |x| (QREFELT $ 15)) NIL))))
+                         (LETT #2# (SPADCALL (QREFELT $ 8)))
+                         (GO #4=#:G142)))
+                       ('T (LETT |x| (SPADCALL |x| (QREFELT $ 15))))))
                      ('T
-                      (SEQ (LETT |c| (SPADCALL |y| (QREFELT $ 16)) NIL)
-                           (LETT |y| (SPADCALL |y| (QREFELT $ 15)) NIL)
-                           (LETT |ll| (SPADCALL |c| |ll| (QREFELT $ 18)) NIL)
+                      (SEQ (LETT |c| (SPADCALL |y| (QREFELT $ 16)))
+                           (LETT |y| (SPADCALL |y| (QREFELT $ 15)))
+                           (LETT |ll| (SPADCALL |c| |ll| (QREFELT $ 18)))
                            (EXIT
                             (LETT |n|
                                   (SPADCALL |n| (|spadConstant| $ 35)
-                                            (QREFELT $ 21))
-                                  NIL)))))
-                    (LETT |res| (|spadConstant| $ 11) NIL) (LETT |xp| |x| NIL)
-                    (LETT |llp| |ll| NIL)
+                                            (QREFELT $ 21)))))))
+                    (LETT |res| (|spadConstant| $ 11)) (LETT |xp| |x|)
+                    (LETT |llp| |ll|)
                     (SEQ
                      (EXIT
-                      (SEQ (LETT |i| (|spadConstant| $ 23) NIL)
-                           (LETT #2# |n| NIL) G190
-                           (COND ((> |i| #2#) (GO G191)))
+                      (SEQ (LETT |i| (|spadConstant| $ 23)) (LETT #1# |n|) G190
+                           (COND ((> |i| #1#) (GO G191)))
                            (SEQ
                             (EXIT
                              (COND
@@ -60,12 +58,12 @@
                                 ((SPADCALL |i| (|spadConstant| $ 25)
                                            (QREFELT $ 26))
                                  (PROGN
-                                  (LETT #3# (SPADCALL (QREFELT $ 8)) NIL)
-                                  (GO #5#)))
+                                  (LETT #2# (SPADCALL (QREFELT $ 8)))
+                                  (GO #4#)))
                                 ('T
                                  (PROGN
-                                  (LETT #4# |$NoValue| NIL)
-                                  (GO #6=#:G138)))))
+                                  (LETT #3# |$NoValue|)
+                                  (GO #5=#:G138)))))
                               ('T
                                (SEQ
                                 (LETT |res|
@@ -80,15 +78,13 @@
                                                  (SPADCALL |llp|
                                                            (QREFELT $ 29))
                                                  (QREFELT $ 30))
-                                                (QREFELT $ 31))
-                                      NIL)
-                                (LETT |llp| (SPADCALL |llp| (QREFELT $ 32))
-                                      NIL)
+                                                (QREFELT $ 31)))
+                                (LETT |llp| (SPADCALL |llp| (QREFELT $ 32)))
                                 (EXIT
-                                 (LETT |xp| (SPADCALL |xp| (QREFELT $ 15))
-                                       NIL)))))))
-                           (LETT |i| (+ |i| 1) NIL) (GO G190) G191 (EXIT NIL)))
-                     #6# (EXIT #4#))
+                                 (LETT |xp|
+                                       (SPADCALL |xp| (QREFELT $ 15)))))))))
+                           (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL)))
+                     #5# (EXIT #3#))
                     (COND
                      ((SPADCALL (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 33))
                       (COND
@@ -99,7 +95,7 @@
                     (EXIT
                      (SPADCALL |res| (|STEXPS;stmult| |n| |x| |y| |ll| $)
                                (QREFELT $ 34)))))
-              #5# (EXIT #3#))))))) 
+              #4# (EXIT #2#))))))) 
 
 (SDEFUN |STEXPS;*;3S;3|
         ((|x| |Stream| |Coef|) (|y| |Stream| |Coef|) ($ |Stream| |Coef|))
@@ -109,9 +105,9 @@
 
 (SDEFUN |STEXPS;*;3S;3!0| (($$ NIL))
         (PROG (|y| $ |x|)
-          (LETT |y| (QREFELT $$ 2) . #1=(|STEXPS;*;3S;3|))
-          (LETT $ (QREFELT $$ 1) . #1#)
-          (LETT |x| (QREFELT $$ 0) . #1#)
+          (LETT |y| (QREFELT $$ 2))
+          (LETT $ (QREFELT $$ 1))
+          (LETT |x| (QREFELT $$ 0))
           (RETURN
            (PROGN
             (COND
@@ -145,8 +141,8 @@
 
 (SDEFUN |STEXPS;exp00!1| ((|y| NIL) ($$ NIL))
         (PROG ($ |z|)
-          (LETT $ (QREFELT $$ 1) . #1=(|STEXPS;exp00|))
-          (LETT |z| (QREFELT $$ 0) . #1#)
+          (LETT $ (QREFELT $$ 1))
+          (LETT |z| (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPROG NIL
@@ -156,9 +152,9 @@
 
 (SDEFUN |STEXPS;exp00!0| (($$ NIL))
         (PROG (|y| |z| $)
-          (LETT |y| (QREFELT $$ 2) NIL)
-          (LETT |z| (QREFELT $$ 1) NIL)
-          (LETT $ (QREFELT $$ 0) NIL)
+          (LETT |y| (QREFELT $$ 2))
+          (LETT |z| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL |y| (SPADCALL |z| (QREFELT $ 40)) (QREFELT $ 39)))))) 
@@ -175,8 +171,8 @@
 
 (SDEFUN |STEXPS;log1;2S;9!1| ((|y| NIL) ($$ NIL))
         (PROG ($ |z|)
-          (LETT $ (QREFELT $$ 1) . #1=(|STEXPS;log1;2S;9|))
-          (LETT |z| (QREFELT $$ 0) . #1#)
+          (LETT $ (QREFELT $$ 1))
+          (LETT |z| (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPROG NIL
@@ -186,9 +182,9 @@
 
 (SDEFUN |STEXPS;log1;2S;9!0| (($$ NIL))
         (PROG (|y| $ |z|)
-          (LETT |y| (QREFELT $$ 2) NIL)
-          (LETT $ (QREFELT $$ 1) NIL)
-          (LETT |z| (QREFELT $$ 0) NIL)
+          (LETT |y| (QREFELT $$ 2))
+          (LETT $ (QREFELT $$ 1))
+          (LETT |z| (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL (|STEXPS;exp00| (SPADCALL |y| (QREFELT $ 50)) $) |z|
@@ -205,13 +201,12 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|StreamExponentialSeriesOperations|)
-                                               '|domainEqualList|)
-                    . #3=(|StreamExponentialSeriesOperations|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (|StreamExponentialSeriesOperations;| #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -220,12 +215,11 @@
 (DEFUN |StreamExponentialSeriesOperations;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|StreamExponentialSeriesOperations|))
-          (LETT |dv$| (LIST '|StreamExponentialSeriesOperations| DV$1) . #1#)
-          (LETT $ (GETREFV 52) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|StreamExponentialSeriesOperations| DV$1))
+          (LETT $ (GETREFV 52))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|StreamExponentialSeriesOperations|
                       (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)

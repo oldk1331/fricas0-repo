@@ -247,8 +247,6 @@
                                               (|RetractableTo| (|Integer|)))
                                        (|has| |t#3|
                                               (|ConvertibleTo| (|Symbol|))))))
-                                   NIL NIL))
-                                 . #2=(|RecursivePolynomialCategory|)))))
-                   . #2#)
+                                   NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|RecursivePolynomialCategory| |t#1| |t#2| |t#3|))))) 

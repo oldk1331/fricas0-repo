@@ -15,20 +15,19 @@
                       ('T
                        (SPADCALL
                         (PROGN
-                         (LETT #2# NIL . #3=(|RCAGG-;leaves;AL;3|))
-                         (SEQ (LETT |y| NIL . #3#)
-                              (LETT #1# (SPADCALL |x| (QREFELT $ 14)) . #3#)
-                              G190
+                         (LETT #2# NIL)
+                         (SEQ (LETT |y| NIL)
+                              (LETT #1# (SPADCALL |x| (QREFELT $ 14))) G190
                               (COND
                                ((OR (ATOM #1#)
-                                    (PROGN (LETT |y| (CAR #1#) . #3#) NIL))
+                                    (PROGN (LETT |y| (CAR #1#)) NIL))
                                 (GO G191)))
                               (SEQ
                                (EXIT
                                 (LETT #2#
-                                      (CONS (SPADCALL |y| (QREFELT $ 18)) #2#)
-                                      . #3#)))
-                              (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                                      (CONS (SPADCALL |y| (QREFELT $ 18))
+                                            #2#))))
+                              (LETT #1# (CDR #1#)) (GO G190) G191
                               (EXIT (NREVERSE #2#))))
                         (QREFELT $ 19))))))) 
 
@@ -42,17 +41,16 @@
         (SPROG ((#1=#:G128 NIL) (|i| NIL) (#2=#:G127 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL . #3=(|RCAGG-;parts;AL;6|))
-                 (SEQ (LETT |i| NIL . #3#)
-                      (LETT #1# (SPADCALL |x| (QREFELT $ 26)) . #3#) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |i| NIL) (LETT #1# (SPADCALL |x| (QREFELT $ 26)))
+                      G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#) . #3#) NIL))
+                       ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |i| (QREFELT $ 8)) #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                        (LETT #2# (CONS (SPADCALL |i| (QREFELT $ 8)) #2#))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
 (DECLAIM (NOTINLINE |RecursiveAggregate&;|)) 
@@ -60,10 +58,10 @@
 (DEFUN |RecursiveAggregate&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|RecursiveAggregate&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|RecursiveAggregate&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 28) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|RecursiveAggregate&| DV$1 DV$2))
+          (LETT $ (GETREFV 28))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -72,8 +70,7 @@
                                               (|HasCategory| |#1|
                                                              '(|shallowlyMutable|))
                                               (|HasCategory| |#2|
-                                                             '(|BasicType|))))
-                          . #1#))
+                                                             '(|BasicType|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

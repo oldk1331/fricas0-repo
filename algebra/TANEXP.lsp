@@ -7,10 +7,8 @@
         (SPROG ((|q| (|Fraction| (|SparseUnivariatePolynomial| R))))
                (SPADCALL
                 (SPADCALL |a|
-                          (SPADCALL
-                           (LETT |q| (|TANEXP;tanPIa| |n| $)
-                                 |TANEXP;tanAn;RPiSup;2|)
-                           (QREFELT $ 10))
+                          (SPADCALL (LETT |q| (|TANEXP;tanPIa| |n| $))
+                                    (QREFELT $ 10))
                           (QREFELT $ 11))
                 (SPADCALL |q| (QREFELT $ 12)) (QREFELT $ 13)))) 
 
@@ -27,11 +25,10 @@
                   (SPADCALL
                    (LETT |t|
                          (|TANEXP;tanPIa|
-                          (PROG1 (LETT #1# |n| . #2=(|TANEXP;tanNa;RIR;3|))
+                          (PROG1 (LETT #1# |n|)
                             (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                               '(|Integer|) #1#))
-                          $)
-                         . #2#)
+                          $))
                    (QREFELT $ 12))
                   |a| (QREFELT $ 20))
                  (SPADCALL (SPADCALL |t| (QREFELT $ 10)) |a| (QREFELT $ 20))
@@ -47,18 +44,15 @@
                 (#9='T
                  (SEQ
                   (LETT |m|
-                        (SPADCALL
-                         (LETT |v| (SPADCALL |l| (QREFELT $ 25))
-                               . #10=(|TANEXP;tanSum;LR;4|))
-                         (QREFELT $ 26))
-                        . #10#)
+                        (SPADCALL (LETT |v| (SPADCALL |l| (QREFELT $ 25)))
+                                  (QREFELT $ 26)))
                   (EXIT
                    (SPADCALL
                     (PROGN
-                     (LETT #5# NIL . #10#)
-                     (SEQ (LETT |i| 0 . #10#)
-                          (LETT #8# (QUOTIENT2 (- (QVSIZE |v|) 1) 2) . #10#)
-                          G190 (COND ((|greater_SI| |i| #8#) (GO G191)))
+                     (LETT #5# NIL)
+                     (SEQ (LETT |i| 0)
+                          (LETT #8# (QUOTIENT2 (- (QVSIZE |v|) 1) 2)) G190
+                          (COND ((|greater_SI| |i| #8#) (GO G191)))
                           (SEQ
                            (EXIT
                             (PROGN
@@ -71,26 +65,18 @@
                                                                            28))
                                                         |m|)
                                                        (QREFELT $ 29))
-                                             (QREFELT $ 30))
-                                   . #10#)
+                                             (QREFELT $ 30)))
                              (COND
                               (#5#
-                               (LETT #6# (SPADCALL #6# #7# (QREFELT $ 31))
-                                     . #10#))
-                              ('T
-                               (PROGN
-                                (LETT #6# #7# . #10#)
-                                (LETT #5# 'T . #10#)))))))
-                          (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191
-                          (EXIT NIL))
+                               (LETT #6# (SPADCALL #6# #7# (QREFELT $ 31))))
+                              ('T (PROGN (LETT #6# #7#) (LETT #5# 'T)))))))
+                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                      (COND (#5# #6#) (#9# (|spadConstant| $ 16))))
                     (SPADCALL (|spadConstant| $ 7)
                               (PROGN
-                               (LETT #1# NIL . #10#)
-                               (SEQ (LETT |i| 1 . #10#)
-                                    (LETT #4# (QUOTIENT2 (QVSIZE |v|) 2)
-                                          . #10#)
-                                    G190
+                               (LETT #1# NIL)
+                               (SEQ (LETT |i| 1)
+                                    (LETT #4# (QUOTIENT2 (QVSIZE |v|) 2)) G190
                                     (COND ((|greater_SI| |i| #4#) (GO G191)))
                                     (SEQ
                                      (EXIT
@@ -109,20 +95,18 @@
                                                                   |m|)
                                                                  (QREFELT $
                                                                           29))
-                                                       (QREFELT $ 30))
-                                             . #10#)
+                                                       (QREFELT $ 30)))
                                        (COND
                                         (#1#
                                          (LETT #2#
                                                (SPADCALL #2# #3#
-                                                         (QREFELT $ 31))
-                                               . #10#))
+                                                         (QREFELT $ 31))))
                                         ('T
                                          (PROGN
-                                          (LETT #2# #3# . #10#)
-                                          (LETT #1# 'T . #10#)))))))
-                                    (LETT |i| (|inc_SI| |i|) . #10#) (GO G190)
-                                    G191 (EXIT NIL))
+                                          (LETT #2# #3#)
+                                          (LETT #1# 'T)))))))
+                                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                                    (EXIT NIL))
                                (COND (#1# #2#) (#9# (|spadConstant| $ 16))))
                               (QREFELT $ 31))
                     (QREFELT $ 21))))))))) 
@@ -141,16 +125,13 @@
                  (LETT |v|
                        (SPADCALL
                         (SPADCALL (|spadConstant| $ 7) 1 (QREFELT $ 34)) |n|
-                        (QREFELT $ 37))
-                       . #10=(|TANEXP;tanPIa|))
-                 (QREFELT $ 38))
-                . #10#)
+                        (QREFELT $ 37)))
+                 (QREFELT $ 38)))
           (EXIT
            (SPADCALL
             (PROGN
-             (LETT #6# NIL . #10#)
-             (SEQ (LETT |i| 0 . #10#)
-                  (LETT #9# (QUOTIENT2 (- (QVSIZE |v|) 1) 2) . #10#) G190
+             (LETT #6# NIL)
+             (SEQ (LETT |i| 0) (LETT #9# (QUOTIENT2 (- (QVSIZE |v|) 1) 2)) G190
                   (COND ((|greater_SI| |i| #9#) (GO G191)))
                   (SEQ
                    (EXIT
@@ -162,20 +143,16 @@
                                                 (SPADCALL 2 |i| (QREFELT $ 28))
                                                 |m|)
                                                (QREFELT $ 39))
-                                     (QREFELT $ 40))
-                           . #10#)
-                     (COND
-                      (#6# (LETT #7# (SPADCALL #7# #8# (QREFELT $ 41)) . #10#))
-                      ('T
-                       (PROGN (LETT #7# #8# . #10#) (LETT #6# 'T . #10#)))))))
-                  (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191 (EXIT NIL))
-             (COND (#6# #7#) (#11='T (|spadConstant| $ 42))))
+                                     (QREFELT $ 40)))
+                     (COND (#6# (LETT #7# (SPADCALL #7# #8# (QREFELT $ 41))))
+                           ('T (PROGN (LETT #7# #8#) (LETT #6# 'T)))))))
+                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+             (COND (#6# #7#) (#10='T (|spadConstant| $ 42))))
             (SPADCALL (|spadConstant| $ 43)
                       (PROGN
-                       (LETT #1# NIL . #10#)
-                       (SEQ (LETT |i| 1 . #10#)
-                            (LETT #5# (QUOTIENT2 (QVSIZE |v|) 2) . #10#) G190
-                            (COND ((|greater_SI| |i| #5#) (GO G191)))
+                       (LETT #1# NIL)
+                       (SEQ (LETT |i| 1) (LETT #5# (QUOTIENT2 (QVSIZE |v|) 2))
+                            G190 (COND ((|greater_SI| |i| #5#) (GO G191)))
                             (SEQ
                              (EXIT
                               (PROGN
@@ -190,19 +167,14 @@
                                                            1)
                                                           |m|)
                                                          (QREFELT $ 39))
-                                               (QREFELT $ 40))
-                                     . #10#)
+                                               (QREFELT $ 40)))
                                (COND
                                 (#1#
-                                 (LETT #2# (SPADCALL #2# #4# (QREFELT $ 41))
-                                       . #10#))
-                                ('T
-                                 (PROGN
-                                  (LETT #2# #4# . #10#)
-                                  (LETT #1# 'T . #10#)))))))
-                            (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191
+                                 (LETT #2# (SPADCALL #2# #4# (QREFELT $ 41))))
+                                ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
+                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT NIL))
-                       (COND (#1# #2#) (#11# (|spadConstant| $ 42))))
+                       (COND (#1# #2#) (#10# (|spadConstant| $ 42))))
                       (QREFELT $ 41))
             (QREFELT $ 44)))))) 
 
@@ -217,12 +189,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|TangentExpansions|)
-                                               '|domainEqualList|)
-                    . #3=(|TangentExpansions|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|TangentExpansions;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|TangentExpansions;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|TangentExpansions|)))))))))) 
@@ -230,11 +200,11 @@
 (DEFUN |TangentExpansions;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|TangentExpansions|))
-          (LETT |dv$| (LIST '|TangentExpansions| DV$1) . #1#)
-          (LETT $ (GETREFV 45) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|TangentExpansions| DV$1))
+          (LETT $ (GETREFV 45))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TangentExpansions| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -57,7 +57,5 @@
                                                        (|has| |t#1|
                                                               (|ConvertibleTo|
                                                                (|InputForm|)))))
-                                                    NIL NIL))
-                                           . #2=(|SegmentCategory|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|SegmentCategory| |t#1|))))) 

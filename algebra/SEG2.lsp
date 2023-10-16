@@ -6,35 +6,31 @@
 
 (SDEFUN |SEG2;map;MSL;2| ((|f| |Mapping| S R) (|r| |Segment| R) ($ |List| S))
         (SPROG ((|l| (R)) (|lr| (|List| S)) (|inc| (R)) (|h| (R)))
-               (SEQ (LETT |lr| NIL . #1=(|SEG2;map;MSL;2|))
-                    (LETT |l| (SPADCALL |r| (QREFELT $ 9)) . #1#)
-                    (LETT |h| (SPADCALL |r| (QREFELT $ 10)) . #1#)
+               (SEQ (LETT |lr| NIL) (LETT |l| (SPADCALL |r| (QREFELT $ 9)))
+                    (LETT |h| (SPADCALL |r| (QREFELT $ 10)))
                     (LETT |inc|
                           (SPADCALL (SPADCALL |r| (QREFELT $ 16))
-                                    (QREFELT $ 17))
-                          . #1#)
+                                    (QREFELT $ 17)))
                     (COND
                      ((SPADCALL |inc| (|spadConstant| $ 18) (QREFELT $ 20))
                       (SEQ G190
                            (COND
                             ((NULL (SPADCALL |l| |h| (QREFELT $ 21)))
                              (GO G191)))
-                           (SEQ
-                            (LETT |lr| (CONS (SPADCALL |l| |f|) |lr|) . #1#)
-                            (EXIT
-                             (LETT |l| (SPADCALL |l| |inc| (QREFELT $ 22))
-                                   . #1#)))
+                           (SEQ (LETT |lr| (CONS (SPADCALL |l| |f|) |lr|))
+                                (EXIT
+                                 (LETT |l|
+                                       (SPADCALL |l| |inc| (QREFELT $ 22)))))
                            NIL (GO G190) G191 (EXIT NIL)))
                      ('T
                       (SEQ G190
                            (COND
                             ((NULL (SPADCALL |l| |h| (QREFELT $ 23)))
                              (GO G191)))
-                           (SEQ
-                            (LETT |lr| (CONS (SPADCALL |l| |f|) |lr|) . #1#)
-                            (EXIT
-                             (LETT |l| (SPADCALL |l| |inc| (QREFELT $ 22))
-                                   . #1#)))
+                           (SEQ (LETT |lr| (CONS (SPADCALL |l| |f|) |lr|))
+                                (EXIT
+                                 (LETT |l|
+                                       (SPADCALL |l| |inc| (QREFELT $ 22)))))
                            NIL (GO G190) G191 (EXIT NIL))))
                     (EXIT (NREVERSE |lr|))))) 
 
@@ -49,13 +45,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|SegmentFunctions2|)
-                                               '|domainEqualList|)
-                    . #3=(|SegmentFunctions2|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |SegmentFunctions2;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|SegmentFunctions2|)))))))))) 
@@ -63,18 +58,17 @@
 (DEFUN |SegmentFunctions2;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|SegmentFunctions2|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|SegmentFunctions2| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 26) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|SegmentFunctions2| DV$1 DV$2))
+          (LETT $ (GETREFV 26))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
-                                                             '(|OrderedRing|))))
-                          . #1#))
+                                                             '(|OrderedRing|))))))
           (|haddProp| |$ConstructorCache| '|SegmentFunctions2| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

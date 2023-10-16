@@ -17,8 +17,7 @@
                               ((|zero?| ((|Boolean|) $)) T)
                               ((* ($ (|NonNegativeInteger|) $)) T)
                               ((|opposite?| ((|Boolean|) $ $)) T))
-                            NIL NIL NIL))
-                   |AbelianMonoid|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|AbelianMonoid|))))) 
 
 (MAKEPROP '|AbelianMonoid| 'NILADIC T) 

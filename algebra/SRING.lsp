@@ -10,8 +10,7 @@
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|Join| (|NonAssociativeSemiRing|) (|SemiRng|) (|Monoid|))
-                   |SemiRing|)
+                   (|Join| (|NonAssociativeSemiRing|) (|SemiRng|) (|Monoid|)))
            (SETELT #1# 0 '(|SemiRing|))))) 
 
 (MAKEPROP '|SemiRing| 'NILADIC T) 

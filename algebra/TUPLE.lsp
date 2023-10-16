@@ -25,19 +25,18 @@
                (SEQ
                 (SPADCALL
                  (PROGN
-                  (LETT #2# NIL . #3=(|TUPLE;coerce;$Of;6|))
-                  (SEQ (LETT |i| (PROGN (QCDR |x|) 0) . #3#)
-                       (LETT #1# (SPADCALL (QCDR |x|) (QREFELT $ 18)) . #3#)
-                       G190 (COND ((> |i| #1#) (GO G191)))
+                  (LETT #2# NIL)
+                  (SEQ (LETT |i| (PROGN (QCDR |x|) 0))
+                       (LETT #1# (SPADCALL (QCDR |x|) (QREFELT $ 18))) G190
+                       (COND ((> |i| #1#) (GO G191)))
                        (SEQ
                         (EXIT
                          (LETT #2#
                                (CONS
                                 (SPADCALL (QAREF1 (QCDR |x|) |i|)
                                           (QREFELT $ 20))
-                                #2#)
-                               . #3#)))
-                       (LETT |i| (+ |i| 1) . #3#) (GO G190) G191
+                                #2#))))
+                       (LETT |i| (+ |i| 1)) (GO G190) G191
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 22))))) 
 
@@ -52,19 +51,18 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Tuple|)
-                                               '|domainEqualList|)
-                    . #3=(|Tuple|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Tuple;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Tuple;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tuple|)))))))))) 
 
 (DEFUN |Tuple;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|Tuple|))
-          (LETT |dv$| (LIST '|Tuple| DV$1) . #1#)
-          (LETT $ (GETREFV 27) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|Tuple| DV$1))
+          (LETT $ (GETREFV 27))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -74,8 +72,7 @@
                                                              '(|SetCategory|))
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))))
-                          . #1#))
+                                                               (|OutputForm|)))))))
           (|haddProp| |$ConstructorCache| '|Tuple| (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)

@@ -21,30 +21,25 @@
            (SEQ
             (LETT |xxo|
                   (SPADCALL (SPADCALL (ELT $ 12) |xx| (QREFELT $ 15))
-                            (QREFELT $ 16))
-                  . #6=(|GENMOEBF;generalizedMoebiusFunction;LM$;4|))
+                            (QREFELT $ 16)))
             (LETT |zf|
                   (SPADCALL
                    (PROGN
-                    (LETT #5# NIL . #6#)
-                    (SEQ (LETT |y| NIL . #6#) (LETT #4# |xxo| . #6#) G190
+                    (LETT #5# NIL)
+                    (SEQ (LETT |y| NIL) (LETT #4# |xxo|) G190
                          (COND
-                          ((OR (ATOM #4#)
-                               (PROGN (LETT |y| (CAR #4#) . #6#) NIL))
+                          ((OR (ATOM #4#) (PROGN (LETT |y| (CAR #4#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (LETT #5#
                                  (CONS
                                   (PROGN
-                                   (LETT #3# NIL . #6#)
-                                   (SEQ (LETT |x| NIL . #6#)
-                                        (LETT #2# |xxo| . #6#) G190
+                                   (LETT #3# NIL)
+                                   (SEQ (LETT |x| NIL) (LETT #2# |xxo|) G190
                                         (COND
                                          ((OR (ATOM #2#)
-                                              (PROGN
-                                               (LETT |x| (CAR #2#) . #6#)
-                                               NIL))
+                                              (PROGN (LETT |x| (CAR #2#)) NIL))
                                           (GO G191)))
                                         (SEQ
                                          (EXIT
@@ -55,26 +50,22 @@
                                                              (QREFELT $ 12))
                                                    (SPADCALL |x| |y| |z|))
                                                   ('T (|spadConstant| $ 17)))
-                                                 #3#)
-                                                . #6#)))
-                                        (LETT #2# (CDR #2#) . #6#) (GO G190)
-                                        G191 (EXIT (NREVERSE #3#))))
-                                  #5#)
-                                 . #6#)))
-                         (LETT #4# (CDR #4#) . #6#) (GO G190) G191
+                                                 #3#))))
+                                        (LETT #2# (CDR #2#)) (GO G190) G191
+                                        (EXIT (NREVERSE #3#))))
+                                  #5#))))
+                         (LETT #4# (CDR #4#)) (GO G190) G191
                          (EXIT (NREVERSE #5#))))
-                   (QREFELT $ 20))
-                  . #6#)
-            (LETT |mf| (SPADCALL |zf| (QREFELT $ 22)) . #6#)
+                   (QREFELT $ 20)))
+            (LETT |mf| (SPADCALL |zf| (QREFELT $ 22)))
             (EXIT
              (COND ((QEQCAR |mf| 1) (|error| "zeta not invertible"))
                    ('T
                     (PROGN
                      (LETT #1#
-                           (|GENMOEBF;per| (VECTOR |zf| (QCDR |mf|) |xxo|) $)
-                           . #6#)
-                     (GO #7=#:G121)))))))
-          #7# (EXIT #1#)))) 
+                           (|GENMOEBF;per| (VECTOR |zf| (QCDR |mf|) |xxo|) $))
+                     (GO #6=#:G121)))))))
+          #6# (EXIT #1#)))) 
 
 (SDEFUN |GENMOEBF;canonicalZeta| ((|pi| P) (|si| P) ($ R))
         (SPROG ((#1=#:G129 NIL))
@@ -83,9 +74,7 @@
                  (SEQ
                   (COND
                    ((SPADCALL |pi| |si| (QREFELT $ 12))
-                    (PROGN
-                     (LETT #1# (|spadConstant| $ 25) |GENMOEBF;canonicalZeta|)
-                     (GO #2=#:G128))))
+                    (PROGN (LETT #1# (|spadConstant| $ 25)) (GO #2=#:G128))))
                   (EXIT (|spadConstant| $ 17))))
                 #2# (EXIT #1#)))) 
 
@@ -95,22 +84,21 @@
           (|mfn| (|Matrix| R)))
          (SEQ
           (EXIT
-           (SEQ
-            (LETT |mfn| (QVELT (|GENMOEBF;rep| |mf| $) 1)
-                  . #3=(|GENMOEBF;apply;$2PR;6|))
-            (LETT |kx|
-                  (SPADCALL |x| (SPADCALL |mf| (QREFELT $ 10)) (QREFELT $ 27))
-                  . #3#)
-            (LETT |ky|
-                  (SPADCALL |y| (SPADCALL |mf| (QREFELT $ 10)) (QREFELT $ 27))
-                  . #3#)
-            (COND
-             ((OR (ZEROP |kx|) (ZEROP |ky|)) (EXIT (|error| "not members"))))
-            (EXIT
-             (PROGN
-              (LETT #1# (SPADCALL |mfn| |ky| |kx| (QREFELT $ 28)) . #3#)
-              (GO #4=#:G134)))))
-          #4# (EXIT #1#)))) 
+           (SEQ (LETT |mfn| (QVELT (|GENMOEBF;rep| |mf| $) 1))
+                (LETT |kx|
+                      (SPADCALL |x| (SPADCALL |mf| (QREFELT $ 10))
+                                (QREFELT $ 27)))
+                (LETT |ky|
+                      (SPADCALL |y| (SPADCALL |mf| (QREFELT $ 10))
+                                (QREFELT $ 27)))
+                (COND
+                 ((OR (ZEROP |kx|) (ZEROP |ky|))
+                  (EXIT (|error| "not members"))))
+                (EXIT
+                 (PROGN
+                  (LETT #1# (SPADCALL |mfn| |ky| |kx| (QREFELT $ 28)))
+                  (GO #3=#:G134)))))
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |GENMOEBF;moebiusMatrix;$M;7| ((|mf| $) ($ |Matrix| R))
         (QVELT (|GENMOEBF;rep| |mf| $) 1)) 
@@ -132,15 +120,14 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|GeneralizedFiniteMoebiusFunction|)
-                                               '|domainEqualList|)
-                    . #3=(|GeneralizedFiniteMoebiusFunction|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |GeneralizedFiniteMoebiusFunction;|)
                              #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -149,14 +136,12 @@
 (DEFUN |GeneralizedFiniteMoebiusFunction;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|GeneralizedFiniteMoebiusFunction|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|GeneralizedFiniteMoebiusFunction| DV$1 DV$2)
-                . #1#)
-          (LETT $ (GETREFV 34) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|GeneralizedFiniteMoebiusFunction| DV$1 DV$2))
+          (LETT $ (GETREFV 34))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|GeneralizedFiniteMoebiusFunction|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

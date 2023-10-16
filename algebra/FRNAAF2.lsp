@@ -9,37 +9,36 @@
                       (QREFELT $ 14))
             (|error| "map: ranks of algebras do not fit"))
            (#4='T
-            (SEQ
-             (LETT |vr| (SPADCALL |u| (QREFELT $ 16))
-                   . #5=(|FRNAAF2;map;MARAS;1|))
-             (LETT |vs| (SPADCALL |fn| |vr| (QREFELT $ 20)) . #5#)
-             (EXIT
-              (COND
-               ((EQL (SPADCALL (QREFELT $ 11)) (SPADCALL (QREFELT $ 12)))
-                (SPADCALL |vs| (QREFELT $ 21)))
-               (#4#
-                (SEQ (LETT |ba| (SPADCALL (QREFELT $ 23)) . #5#)
-                     (EXIT
-                      (SPADCALL |vs|
-                                (PROGN
-                                 (LETT #3#
-                                       (GETREFV #6=(SPADCALL (QREFELT $ 11)))
-                                       . #5#)
-                                 (SEQ (LETT |i| 1 . #5#) (LETT #2# #6# . #5#)
-                                      (LETT #1# 0 . #5#) G190
-                                      (COND ((|greater_SI| |i| #2#) (GO G191)))
-                                      (SEQ
-                                       (EXIT
-                                        (SETELT #3# #1#
-                                                (SPADCALL |ba| |i|
-                                                          (QREFELT $ 26)))))
-                                      (LETT #1#
-                                            (PROG1 (|inc_SI| #1#)
-                                              (LETT |i| (|inc_SI| |i|) . #5#))
-                                            . #5#)
-                                      (GO G190) G191 (EXIT NIL))
-                                 #3#)
-                                (QREFELT $ 27))))))))))))) 
+            (SEQ (LETT |vr| (SPADCALL |u| (QREFELT $ 16)))
+                 (LETT |vs| (SPADCALL |fn| |vr| (QREFELT $ 20)))
+                 (EXIT
+                  (COND
+                   ((EQL (SPADCALL (QREFELT $ 11)) (SPADCALL (QREFELT $ 12)))
+                    (SPADCALL |vs| (QREFELT $ 21)))
+                   (#4#
+                    (SEQ (LETT |ba| (SPADCALL (QREFELT $ 23)))
+                         (EXIT
+                          (SPADCALL |vs|
+                                    (PROGN
+                                     (LETT #3#
+                                           (GETREFV
+                                            #5=(SPADCALL (QREFELT $ 11))))
+                                     (SEQ (LETT |i| 1) (LETT #2# #5#)
+                                          (LETT #1# 0) G190
+                                          (COND
+                                           ((|greater_SI| |i| #2#) (GO G191)))
+                                          (SEQ
+                                           (EXIT
+                                            (SETELT #3# #1#
+                                                    (SPADCALL |ba| |i|
+                                                              (QREFELT $
+                                                                       26)))))
+                                          (LETT #1#
+                                                (PROG1 (|inc_SI| #1#)
+                                                  (LETT |i| (|inc_SI| |i|))))
+                                          (GO G190) G191 (EXIT NIL))
+                                     #3#)
+                                    (QREFELT $ 27))))))))))))) 
 
 (DECLAIM (NOTINLINE |FramedNonAssociativeAlgebraFunctions2;|)) 
 
@@ -52,8 +51,7 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FramedNonAssociativeAlgebraFunctions2|)
-                                               '|domainEqualList|)
-                    . #3=(|FramedNonAssociativeAlgebraFunctions2|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -61,7 +59,7 @@
                       (APPLY
                        (|function| |FramedNonAssociativeAlgebraFunctions2;|)
                        #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -72,17 +70,15 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|)
-          . #1=(|FramedNonAssociativeAlgebraFunctions2|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$|
-          (LIST '|FramedNonAssociativeAlgebraFunctions2| DV$1 DV$2 DV$3 DV$4)
-          . #1#)
-    (LETT $ (GETREFV 29) . #1#)
+          (LIST '|FramedNonAssociativeAlgebraFunctions2| DV$1 DV$2 DV$3 DV$4))
+    (LETT $ (GETREFV 29))
     (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|FramedNonAssociativeAlgebraFunctions2|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
     (|stuffDomainSlots| $)

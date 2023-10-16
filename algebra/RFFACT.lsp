@@ -8,8 +8,8 @@
 
 (SDEFUN |RFFACT;likuniv!0| ((|y| NIL) ($$ NIL))
         (PROG (|d| $)
-          (LETT |d| (QREFELT $$ 1) . #1=(|RFFACT;likuniv|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |d| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |y| |d| (QREFELT $ 12)))))) 
 
 (SDEFUN |RFFACT;factor;UPF;2| ((|p| UP) ($ |Factored| UP))
@@ -24,10 +24,8 @@
                                  (SPADCALL
                                   (SPADCALL (QREFELT $ 9) (QREFELT $ 19))
                                   (QREFELT $ 20))
-                                 (QREFELT $ 21))
-                       . #1=(|RFFACT;factor;UPF;2|))
-                 (QREFELT $ 22))
-                . #1#)
+                                 (QREFELT $ 21)))
+                 (QREFELT $ 22)))
           (EXIT
            (SPADCALL
             (CONS #'|RFFACT;factor;UPF;2!0| (VECTOR $ |d| (QREFELT $ 9)))
@@ -36,9 +34,9 @@
 
 (SDEFUN |RFFACT;factor;UPF;2!0| ((|x| NIL) ($$ NIL))
         (PROG (|dummy| |d| $)
-          (LETT |dummy| (QREFELT $$ 2) . #1=(|RFFACT;factor;UPF;2|))
-          (LETT |d| (QREFELT $$ 1) . #1#)
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |dummy| (QREFELT $$ 2))
+          (LETT |d| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|RFFACT;likuniv| |x| |dummy| |d| $))))) 
 
 (DECLAIM (NOTINLINE |RationalFunctionFactor;|)) 
@@ -52,12 +50,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|RationalFunctionFactor|)
-                                               '|domainEqualList|)
-                    . #3=(|RationalFunctionFactor|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|RationalFunctionFactor;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|RationalFunctionFactor;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|RationalFunctionFactor|)))))))))) 
@@ -65,11 +62,11 @@
 (DEFUN |RationalFunctionFactor;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalFunctionFactor|))
-          (LETT |dv$| (LIST '|RationalFunctionFactor| DV$1) . #1#)
-          (LETT $ (GETREFV 32) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|RationalFunctionFactor| DV$1))
+          (LETT $ (GETREFV 32))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RationalFunctionFactor| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

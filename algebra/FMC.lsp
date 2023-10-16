@@ -22,8 +22,7 @@
                                            (|:| |code|
                                                 (|List| (|FortranCode|))))))
                                T))
-                            NIL NIL NIL))
-                   |FortranMatrixCategory|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|FortranMatrixCategory|))))) 
 
 (MAKEPROP '|FortranMatrixCategory| 'NILADIC T) 

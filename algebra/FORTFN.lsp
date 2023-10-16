@@ -55,8 +55,7 @@
                                 ((|Union| $ "failed")
                                  (|Fraction| (|Polynomial| (|Integer|)))))
                                T))
-                            NIL NIL NIL))
-                   |FortranFunctionCategory|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|FortranFunctionCategory|))))) 
 
 (MAKEPROP '|FortranFunctionCategory| 'NILADIC T) 

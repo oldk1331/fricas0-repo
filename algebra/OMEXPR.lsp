@@ -5,14 +5,12 @@
         (SPROG ((#1=#:G126 NIL) (|arg| NIL))
                (SEQ (SPADCALL |dev| (QREFELT $ 16))
                     (SPADCALL |dev| "arith1" |sym| (QREFELT $ 18))
-                    (SEQ (LETT |arg| NIL . #2=(|OMEXPR;outputOMArith1|))
-                         (LETT #1# |args| . #2#) G190
+                    (SEQ (LETT |arg| NIL) (LETT #1# |args|) G190
                          (COND
-                          ((OR (ATOM #1#)
-                               (PROGN (LETT |arg| (CAR #1#) . #2#) NIL))
+                          ((OR (ATOM #1#) (PROGN (LETT |arg| (CAR #1#)) NIL))
                            (GO G191)))
                          (SEQ (EXIT (SPADCALL |dev| |arg| NIL (QREFELT $ 21))))
-                         (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                         (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT (SPADCALL |dev| (QREFELT $ 22)))))) 
 
 (SDEFUN |OMEXPR;outputOMLambda|
@@ -54,16 +52,14 @@
                  ('T
                   (SEQ (SPADCALL |dev| (QREFELT $ 16))
                        (SPADCALL |dev| "combinat1" "binomial" (QREFELT $ 18))
-                       (SEQ (LETT |arg| NIL . #2=(|OMEXPR;outputOMBinomial|))
-                            (LETT #1# |args| . #2#) G190
+                       (SEQ (LETT |arg| NIL) (LETT #1# |args|) G190
                             (COND
                              ((OR (ATOM #1#)
-                                  (PROGN (LETT |arg| (CAR #1#) . #2#) NIL))
+                                  (PROGN (LETT |arg| (CAR #1#)) NIL))
                               (GO G191)))
                             (SEQ
                              (EXIT (SPADCALL |dev| |arg| NIL (QREFELT $ 21))))
-                            (LETT #1# (CDR #1#) . #2#) (GO G190) G191
-                            (EXIT NIL))
+                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                        (EXIT (SPADCALL |dev| (QREFELT $ 22))))))))) 
 
 (SDEFUN |OMEXPR;outputOMPower|
@@ -155,49 +151,45 @@
            (|Union| (|Record| (|:| |cd| (|String|)) (|:| |name| (|String|)))
                     "failed"))
           (|nargs| (|NonNegativeInteger|)))
-         (SEQ (LETT |nargs| (LENGTH |args|) . #2=(|OMEXPR;outputOMFunction|))
+         (SEQ (LETT |nargs| (LENGTH |args|))
               (EXIT
                (COND
                 ((ZEROP |nargs|)
                  (SEQ
-                  (LETT |omOp| (SPADCALL |op| (QREFELT $ 12) (QREFELT $ 37))
-                        . #2#)
+                  (LETT |omOp| (SPADCALL |op| (QREFELT $ 12) (QREFELT $ 37)))
                   (EXIT
                    (COND
                     ((QEQCAR |omOp| 1)
                      (|error|
                       (STRCONC "No OpenMath definition for nullary function "
                                (SPADCALL |op| (QREFELT $ 38)))))
-                    (#3='T
+                    (#2='T
                      (SPADCALL |dev| (QCAR (QCDR |omOp|)) (QCDR (QCDR |omOp|))
                                (QREFELT $ 18)))))))
                 ((EQL |nargs| 1)
                  (SEQ
-                  (LETT |omOp| (SPADCALL |op| (QREFELT $ 13) (QREFELT $ 37))
-                        . #2#)
+                  (LETT |omOp| (SPADCALL |op| (QREFELT $ 13) (QREFELT $ 37)))
                   (EXIT
                    (COND
                     ((QEQCAR |omOp| 1)
                      (|error|
                       (STRCONC "No OpenMath definition for unary function "
                                (SPADCALL |op| (QREFELT $ 38)))))
-                    (#3#
+                    (#2#
                      (SEQ (SPADCALL |dev| (QREFELT $ 16))
                           (SPADCALL |dev| (QCAR (QCDR |omOp|))
                                     (QCDR (QCDR |omOp|)) (QREFELT $ 18))
-                          (SEQ (LETT |arg| NIL . #2#) (LETT #1# |args| . #2#)
-                               G190
+                          (SEQ (LETT |arg| NIL) (LETT #1# |args|) G190
                                (COND
                                 ((OR (ATOM #1#)
-                                     (PROGN (LETT |arg| (CAR #1#) . #2#) NIL))
+                                     (PROGN (LETT |arg| (CAR #1#)) NIL))
                                  (GO G191)))
                                (SEQ
                                 (EXIT
                                  (SPADCALL |dev| |arg| NIL (QREFELT $ 21))))
-                               (LETT #1# (CDR #1#) . #2#) (GO G190) G191
-                               (EXIT NIL))
+                               (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                           (EXIT (SPADCALL |dev| (QREFELT $ 22)))))))))
-                (#3#
+                (#2#
                  (COND
                   ((EQUAL |op| '|%defint|)
                    (|OMEXPR;outputOMDefint| |dev| |args| $))
@@ -211,7 +203,7 @@
                    (|OMEXPR;outputOMPower| |dev| |args| $))
                   ((EQUAL |op| '|binomial|)
                    (|OMEXPR;outputOMBinomial| |dev| |args| $))
-                  (#3#
+                  (#2#
                    (|error|
                     (STRCONC "No OpenMath definition for function "
                              (SPADCALL |op| (QREFELT $ 38)))))))))))) 
@@ -241,36 +233,32 @@
             (SEQ
              (EXIT
               (SEQ
-               (SEQ
-                (LETT |v| (SPADCALL |ex| (QREFELT $ 43))
-                      . #2=(|OMEXPR;outputOMExpr|))
-                (EXIT
-                 (COND
-                  ((NULL (QEQCAR |v| 1))
-                   (PROGN
-                    (LETT #1# (SPADCALL |dev| (QCDR |v|) (QREFELT $ 44)) . #2#)
-                    (GO #3=#:G192))))))
-               (SEQ (LETT |w| (SPADCALL |ex| (QREFELT $ 46)) . #2#)
+               (SEQ (LETT |v| (SPADCALL |ex| (QREFELT $ 43)))
+                    (EXIT
+                     (COND
+                      ((NULL (QEQCAR |v| 1))
+                       (PROGN
+                        (LETT #1# (SPADCALL |dev| (QCDR |v|) (QREFELT $ 44)))
+                        (GO #2=#:G192))))))
+               (SEQ (LETT |w| (SPADCALL |ex| (QREFELT $ 46)))
                     (EXIT
                      (COND
                       ((NULL (QEQCAR |w| 1))
                        (PROGN
                         (LETT #1#
                               (|OMEXPR;outputOMArith1| |dev| "plus" (QCDR |w|)
-                               $)
-                              . #2#)
-                        (GO #3#))))))
-               (SEQ (LETT |w| (SPADCALL |ex| (QREFELT $ 47)) . #2#)
+                               $))
+                        (GO #2#))))))
+               (SEQ (LETT |w| (SPADCALL |ex| (QREFELT $ 47)))
                     (EXIT
                      (COND
                       ((NULL (QEQCAR |w| 1))
                        (PROGN
                         (LETT #1#
                               (|OMEXPR;outputOMArith1| |dev| "times" (QCDR |w|)
-                               $)
-                              . #2#)
-                        (GO #3#))))))
-               (SEQ (LETT |x| (SPADCALL |ex| (QREFELT $ 50)) . #2#)
+                               $))
+                        (GO #2#))))))
+               (SEQ (LETT |x| (SPADCALL |ex| (QREFELT $ 50)))
                     (EXIT
                      (COND
                       ((NULL (QEQCAR |x| 1))
@@ -281,8 +269,7 @@
                                 (SEQ
                                  (LETT |s|
                                        (SPADCALL (QCAR (QCDR |x|))
-                                                 (QREFELT $ 52))
-                                       . #2#)
+                                                 (QREFELT $ 52)))
                                  (EXIT
                                   (COND
                                    ((NULL (QEQCAR |s| 1))
@@ -299,12 +286,10 @@
                                                           (QREFELT $ 53))
                                                 (EXIT
                                                  (SPADCALL |dev|
-                                                           (QREFELT $ 22))))
-                                           . #2#)
-                                     (GO #3#))))))
-                                . #2#)
-                          (GO #3#))))))))
-               (SEQ (LETT |z| (SPADCALL |ex| (QREFELT $ 56)) . #2#)
+                                                           (QREFELT $ 22)))))
+                                     (GO #2#)))))))
+                          (GO #2#))))))))
+               (SEQ (LETT |z| (SPADCALL |ex| (QREFELT $ 56)))
                     (EXIT
                      (COND
                       ((NULL (QEQCAR |z| 1))
@@ -316,28 +301,25 @@
                                  (LIST (QCAR (QCDR |z|))
                                        (SPADCALL (QCDR (QCDR |z|))
                                                  (QREFELT $ 57)))
-                                 $)
-                                . #2#)
-                          (GO #3#))))))))
-               (LETT |k| (|SPADfirst| (SPADCALL |ex| (QREFELT $ 59))) . #2#)
+                                 $))
+                          (GO #2#))))))))
+               (LETT |k| (|SPADfirst| (SPADCALL |ex| (QREFELT $ 59))))
                (EXIT
                 (|OMEXPR;outputOMFunction| |dev|
                  (SPADCALL (SPADCALL |k| (QREFELT $ 61)) (QREFELT $ 62))
                  (SPADCALL |k| (QREFELT $ 63)) $))))
-             #3# (EXIT #1#))))))) 
+             #2# (EXIT #1#))))))) 
 
 (SDEFUN |OMEXPR;OMwrite;EBS;13|
         ((|ex| |Expression| R) (|wholeObj| |Boolean|) ($ |String|))
         (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
-               (SEQ (LETT |s| "" . #1=(|OMEXPR;OMwrite;EBS;13|))
-                    (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
+               (SEQ (LETT |s| "") (LETT |sp| (OM-STRINGTOSTRINGPTR |s|))
                     (LETT |dev|
                           (SPADCALL |sp| (SPADCALL (QREFELT $ 65))
-                                    (QREFELT $ 66))
-                          . #1#)
+                                    (QREFELT $ 66)))
                     (SPADCALL |dev| |ex| |wholeObj| (QREFELT $ 21))
                     (SPADCALL |dev| (QREFELT $ 67))
-                    (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
+                    (LETT |s| (OM-STRINGPTRTOSTRING |sp|)) (EXIT |s|)))) 
 
 (SDEFUN |OMEXPR;OMwrite;OmdEV;14|
         ((|dev| |OpenMathDevice|) (|ex| |Expression| R) ($ |Void|))
@@ -370,12 +352,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|ExpressionToOpenMath|)
-                                               '|domainEqualList|)
-                    . #3=(|ExpressionToOpenMath|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|ExpressionToOpenMath;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|ExpressionToOpenMath;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|ExpressionToOpenMath|)))))))))) 
@@ -383,11 +364,11 @@
 (DEFUN |ExpressionToOpenMath;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|ExpressionToOpenMath|))
-          (LETT |dv$| (LIST '|ExpressionToOpenMath| DV$1) . #1#)
-          (LETT $ (GETREFV 73) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|ExpressionToOpenMath| DV$1))
+          (LETT $ (GETREFV 73))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ExpressionToOpenMath| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)
@@ -398,32 +379,32 @@
                               (QREFELT $ 11)))
           (QSETREFV $ 13
                     (SPADCALL
-                     (LIST (CONS '|exp| (CONS #2="transc1" "exp"))
-                           (CONS '|log| (CONS #2# "ln"))
-                           (CONS '|sin| (CONS #2# "sin"))
-                           (CONS '|cos| (CONS #2# "cos"))
-                           (CONS '|tan| (CONS #2# "tan"))
-                           (CONS '|cot| (CONS #2# "cot"))
-                           (CONS '|sec| (CONS #2# "sec"))
-                           (CONS '|csc| (CONS #2# "csc"))
-                           (CONS '|asin| (CONS #2# "arcsin"))
-                           (CONS '|acos| (CONS #2# "arccos"))
-                           (CONS '|atan| (CONS #2# "arctan"))
-                           (CONS '|acot| (CONS #2# "arccot"))
-                           (CONS '|asec| (CONS #2# "arcsec"))
-                           (CONS '|acsc| (CONS #2# "arccsc"))
-                           (CONS '|sinh| (CONS #2# "sinh"))
-                           (CONS '|cosh| (CONS #2# "cosh"))
-                           (CONS '|tanh| (CONS #2# "tanh"))
-                           (CONS '|coth| (CONS #2# "coth"))
-                           (CONS '|sech| (CONS #2# "sech"))
-                           (CONS '|csch| (CONS #2# "csch"))
-                           (CONS '|asinh| (CONS #2# "arcsinh"))
-                           (CONS '|acosh| (CONS #2# "arccosh"))
-                           (CONS '|atanh| (CONS #2# "arctanh"))
-                           (CONS '|acoth| (CONS #2# "arccoth"))
-                           (CONS '|asech| (CONS #2# "arcsech"))
-                           (CONS '|acsch| (CONS #2# "arccsch"))
+                     (LIST (CONS '|exp| (CONS #1="transc1" "exp"))
+                           (CONS '|log| (CONS #1# "ln"))
+                           (CONS '|sin| (CONS #1# "sin"))
+                           (CONS '|cos| (CONS #1# "cos"))
+                           (CONS '|tan| (CONS #1# "tan"))
+                           (CONS '|cot| (CONS #1# "cot"))
+                           (CONS '|sec| (CONS #1# "sec"))
+                           (CONS '|csc| (CONS #1# "csc"))
+                           (CONS '|asin| (CONS #1# "arcsin"))
+                           (CONS '|acos| (CONS #1# "arccos"))
+                           (CONS '|atan| (CONS #1# "arctan"))
+                           (CONS '|acot| (CONS #1# "arccot"))
+                           (CONS '|asec| (CONS #1# "arcsec"))
+                           (CONS '|acsc| (CONS #1# "arccsc"))
+                           (CONS '|sinh| (CONS #1# "sinh"))
+                           (CONS '|cosh| (CONS #1# "cosh"))
+                           (CONS '|tanh| (CONS #1# "tanh"))
+                           (CONS '|coth| (CONS #1# "coth"))
+                           (CONS '|sech| (CONS #1# "sech"))
+                           (CONS '|csch| (CONS #1# "csch"))
+                           (CONS '|asinh| (CONS #1# "arcsinh"))
+                           (CONS '|acosh| (CONS #1# "arccosh"))
+                           (CONS '|atanh| (CONS #1# "arctanh"))
+                           (CONS '|acoth| (CONS #1# "arccoth"))
+                           (CONS '|asech| (CONS #1# "arcsech"))
+                           (CONS '|acsch| (CONS #1# "arccsch"))
                            (CONS '|factorial| (CONS "integer1" "factorial"))
                            (CONS '|abs| (CONS "arith1" "abs")))
                      (QREFELT $ 11)))

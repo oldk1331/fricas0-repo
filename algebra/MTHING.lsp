@@ -18,11 +18,11 @@
         (SPROG ((#2=#:G124 NIL) (|frx| (S)) (|rx| #1#))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |rx| |x| . #3=(|MTHING;mergeDifference1|))
+                 (SEQ (LETT |rx| |x|)
                       (EXIT
                        (SEQ G190 (COND ((NULL (NULL (NULL |rx|))) (GO G191)))
-                            (SEQ (LETT |rx| (CDR |rx|) . #3#)
-                                 (LETT |frx| (|SPADfirst| |rx|) . #3#)
+                            (SEQ (LETT |rx| (CDR |rx|))
+                                 (LETT |frx| (|SPADfirst| |rx|))
                                  (SEQ G190
                                       (COND
                                        ((NULL
@@ -33,13 +33,12 @@
                                         (COND
                                          ((NULL |ry|)
                                           (PROGN
-                                           (LETT #2# |x| . #3#)
-                                           (GO #4=#:G123)))
+                                           (LETT #2# |x|)
+                                           (GO #3=#:G123)))
                                          ('T
-                                          (SEQ
-                                           (LETT |fy| (|SPADfirst| |ry|) . #3#)
-                                           (EXIT
-                                            (LETT |ry| (CDR |ry|) . #3#)))))))
+                                          (SEQ (LETT |fy| (|SPADfirst| |ry|))
+                                               (EXIT
+                                                (LETT |ry| (CDR |ry|))))))))
                                       NIL (GO G190) G191 (EXIT NIL))
                                  (EXIT
                                   (COND
@@ -50,15 +49,14 @@
                                      (EXIT
                                       (COND
                                        ((NULL |ry|)
-                                        (PROGN (LETT #2# |x| . #3#) (GO #4#)))
+                                        (PROGN (LETT #2# |x|) (GO #3#)))
                                        ('T
-                                        (SEQ
-                                         (LETT |fy| (|SPADfirst| |ry|) . #3#)
-                                         (EXIT
-                                          (LETT |ry| (CDR |ry|) . #3#))))))))
-                                   ('T (LETT |x| |rx| . #3#)))))
+                                        (SEQ (LETT |fy| (|SPADfirst| |ry|))
+                                             (EXIT
+                                              (LETT |ry| (CDR |ry|)))))))))
+                                   ('T (LETT |x| |rx|)))))
                             NIL (GO G190) G191 (EXIT NIL)))))
-                #4# (EXIT #2#)))) 
+                #3# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |MergeThing;|)) 
 
@@ -71,22 +69,21 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|MergeThing|)
-                                               '|domainEqualList|)
-                    . #3=(|MergeThing|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|MergeThing;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|MergeThing;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|MergeThing|)))))))))) 
 
 (DEFUN |MergeThing;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|MergeThing|))
-          (LETT |dv$| (LIST '|MergeThing| DV$1) . #1#)
-          (LETT $ (GETREFV 14) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|MergeThing| DV$1))
+          (LETT $ (GETREFV 14))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|MergeThing| (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)

@@ -6,9 +6,7 @@
                  (SEQ
                   (COND
                    ((EQL (SPADCALL |orf| (QREFELT $ 8)) 0)
-                    (PROGN
-                     (LETT #1# 'T |FACTCAT-;empty?;SB;1|)
-                     (GO #2=#:G112))))
+                    (PROGN (LETT #1# 'T) (GO #2=#:G112))))
                   (EXIT (EQL (SPADCALL |orf| (QREFELT $ 10)) 0))))
                 #2# (EXIT #1#)))) 
 
@@ -17,11 +15,11 @@
 (DEFUN |FacetCategory&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FacetCategory&|))
-          (LETT |dv$| (LIST '|FacetCategory&| DV$1) . #1#)
-          (LETT $ (GETREFV 13) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|FacetCategory&| DV$1))
+          (LETT $ (GETREFV 13))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

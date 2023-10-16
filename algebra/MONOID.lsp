@@ -7,7 +7,7 @@
 
 (DEFUN |Monoid;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1 (LETT #1# (|Join| (|SemiGroup|) (|MagmaWithUnit|)) |Monoid|)
+         (PROG1 (LETT #1# (|Join| (|SemiGroup|) (|MagmaWithUnit|)))
            (SETELT #1# 0 '(|Monoid|))))) 
 
 (MAKEPROP '|Monoid| 'NILADIC T) 

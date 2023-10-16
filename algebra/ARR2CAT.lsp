@@ -258,8 +258,6 @@
                                              T))
                                           '(((|Comparable|)
                                              (|has| |t#1| (|Comparable|))))
-                                          NIL NIL))
-                                 . #2=(|TwoDimensionalArrayCategory|)))))
-                   . #2#)
+                                          NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|TwoDimensionalArrayCategory| |t#1| |t#2| |t#3|))))) 

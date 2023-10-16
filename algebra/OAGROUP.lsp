@@ -12,8 +12,7 @@
          (PROG1
              (LETT #1#
                    (|Join| (|OrderedCancellationAbelianMonoid|)
-                           (|AbelianGroup|))
-                   |OrderedAbelianGroup|)
+                           (|AbelianGroup|)))
            (SETELT #1# 0 '(|OrderedAbelianGroup|))))) 
 
 (MAKEPROP '|OrderedAbelianGroup| 'NILADIC T) 

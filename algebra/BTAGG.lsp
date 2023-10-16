@@ -18,8 +18,7 @@
                                          ((|nor| ($ $ $)) T)
                                          ((|and| ($ $ $)) T) ((|or| ($ $ $)) T)
                                          ((|xor| ($ $ $)) T))
-                                       NIL NIL NIL)))
-                   |BitAggregate|)
+                                       NIL NIL NIL))))
            (SETELT #1# 0 '(|BitAggregate|))))) 
 
 (MAKEPROP '|BitAggregate| 'NILADIC T) 

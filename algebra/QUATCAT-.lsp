@@ -159,13 +159,12 @@
                                    (SPADCALL |x| (QREFELT $ 12))
                                    (SPADCALL |x| (QREFELT $ 14))
                                    (SPADCALL |x| (QREFELT $ 15))
-                                   (QREFELT $ 16))
-                         . #1=(|QUATCAT-;coerce;SOf;18|))
+                                   (QREFELT $ 16)))
                    (EXIT
                     (COND
                      ((SPADCALL |y| (QREFELT $ 49))
                       (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 51)))
-                     (#2='T
+                     (#1='T
                       (SPADCALL
                        (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 51))
                        (SPADCALL |y| (QREFELT $ 52)) (QREFELT $ 53)))))))
@@ -176,25 +175,23 @@
                          (SPADCALL (|spadConstant| $ 38) (|spadConstant| $ 38)
                                    (SPADCALL |x| (QREFELT $ 14))
                                    (SPADCALL |x| (QREFELT $ 15))
-                                   (QREFELT $ 16))
-                         . #1#)
+                                   (QREFELT $ 16)))
                    (LETT |z|
-                         (SEQ
-                          (LETT |part| (SPADCALL '|i| (QREFELT $ 55)) . #1#)
-                          (EXIT
-                           (COND
-                            ((SPADCALL (SPADCALL |x| (QREFELT $ 12))
-                                       (|spadConstant| $ 42) (QREFELT $ 25))
-                             |part|)
-                            (#2#
-                             (SPADCALL
-                              (SPADCALL (SPADCALL |x| (QREFELT $ 12))
-                                        (QREFELT $ 51))
-                              |part| (QREFELT $ 56))))))
-                         . #1#)
+                         (SEQ (LETT |part| (SPADCALL '|i| (QREFELT $ 55)))
+                              (EXIT
+                               (COND
+                                ((SPADCALL (SPADCALL |x| (QREFELT $ 12))
+                                           (|spadConstant| $ 42)
+                                           (QREFELT $ 25))
+                                 |part|)
+                                (#1#
+                                 (SPADCALL
+                                  (SPADCALL (SPADCALL |x| (QREFELT $ 12))
+                                            (QREFELT $ 51))
+                                  |part| (QREFELT $ 56)))))))
                    (EXIT
                     (COND ((SPADCALL |y| (QREFELT $ 49)) |z|)
-                          (#2#
+                          (#1#
                            (SPADCALL |z| (SPADCALL |y| (QREFELT $ 52))
                                      (QREFELT $ 53)))))))
                  ((NULL
@@ -204,35 +201,33 @@
                          (SPADCALL (|spadConstant| $ 38) (|spadConstant| $ 38)
                                    (|spadConstant| $ 38)
                                    (SPADCALL |x| (QREFELT $ 15))
-                                   (QREFELT $ 16))
-                         . #1#)
+                                   (QREFELT $ 16)))
                    (LETT |z|
-                         (SEQ
-                          (LETT |part| (SPADCALL '|j| (QREFELT $ 55)) . #1#)
-                          (EXIT
-                           (COND
-                            ((SPADCALL (SPADCALL |x| (QREFELT $ 14))
-                                       (|spadConstant| $ 42) (QREFELT $ 25))
-                             |part|)
-                            (#2#
-                             (SPADCALL
-                              (SPADCALL (SPADCALL |x| (QREFELT $ 14))
-                                        (QREFELT $ 51))
-                              |part| (QREFELT $ 56))))))
-                         . #1#)
+                         (SEQ (LETT |part| (SPADCALL '|j| (QREFELT $ 55)))
+                              (EXIT
+                               (COND
+                                ((SPADCALL (SPADCALL |x| (QREFELT $ 14))
+                                           (|spadConstant| $ 42)
+                                           (QREFELT $ 25))
+                                 |part|)
+                                (#1#
+                                 (SPADCALL
+                                  (SPADCALL (SPADCALL |x| (QREFELT $ 14))
+                                            (QREFELT $ 51))
+                                  |part| (QREFELT $ 56)))))))
                    (EXIT
                     (COND ((SPADCALL |y| (QREFELT $ 49)) |z|)
-                          (#2#
+                          (#1#
                            (SPADCALL |z| (SPADCALL |y| (QREFELT $ 52))
                                      (QREFELT $ 53)))))))
                  ('T
-                  (SEQ (LETT |part| (SPADCALL '|k| (QREFELT $ 55)) . #1#)
+                  (SEQ (LETT |part| (SPADCALL '|k| (QREFELT $ 55)))
                        (EXIT
                         (COND
                          ((SPADCALL (SPADCALL |x| (QREFELT $ 15))
                                     (|spadConstant| $ 42) (QREFELT $ 25))
                           |part|)
-                         (#2#
+                         (#1#
                           (SPADCALL
                            (SPADCALL (SPADCALL |x| (QREFELT $ 15))
                                      (QREFELT $ 51))
@@ -259,8 +254,7 @@
                             (SPADCALL (SPADCALL |x| (QREFELT $ 14))
                                       (QREFELT $ 64))
                             (SPADCALL (SPADCALL |x| (QREFELT $ 15))
-                                      (QREFELT $ 64)))
-                      |QUATCAT-;convert;SIf;20|)
+                                      (QREFELT $ 64))))
                 (EXIT (SPADCALL |l| (QREFELT $ 66)))))) 
 
 (SDEFUN |QUATCAT-;<;2SB;21| ((|x| S) (|y| S) ($ |Boolean|))
@@ -315,10 +309,10 @@
 (DEFUN |QuaternionCategory&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|QuaternionCategory&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|QuaternionCategory&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 83) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|QuaternionCategory&| DV$1 DV$2))
+          (LETT $ (GETREFV 83))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -339,8 +333,7 @@
                                               (|HasCategory| |#2|
                                                              '(|OrderedSet|))
                                               (|HasCategory| |#2|
-                                                             '(|EntireRing|))))
-                          . #1#))
+                                                             '(|EntireRing|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

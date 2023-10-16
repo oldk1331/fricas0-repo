@@ -13,60 +13,54 @@
         (SPROG
          ((|r| (|List| S)) (|contains| (|Boolean|)) (#1=#:G113 NIL) (|c| NIL)
           (#2=#:G112 NIL) (|b| NIL))
-         (SEQ (LETT |r| NIL . #3=(|SETLAT;complement;2$;4|))
-              (SEQ (LETT |b| NIL . #3#) (LETT #2# (QREFELT $ 7) . #3#) G190
+         (SEQ (LETT |r| NIL)
+              (SEQ (LETT |b| NIL) (LETT #2# (QREFELT $ 7)) G190
                    (COND
-                    ((OR (ATOM #2#) (PROGN (LETT |b| (CAR #2#) . #3#) NIL))
+                    ((OR (ATOM #2#) (PROGN (LETT |b| (CAR #2#)) NIL))
                      (GO G191)))
-                   (SEQ (LETT |contains| NIL . #3#)
-                        (SEQ (LETT |c| NIL . #3#) (LETT #1# |a| . #3#) G190
+                   (SEQ (LETT |contains| NIL)
+                        (SEQ (LETT |c| NIL) (LETT #1# |a|) G190
                              (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |c| (CAR #1#) . #3#) NIL))
+                              ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
                                (GO G191)))
                              (SEQ
                               (EXIT
                                (COND
                                 ((SPADCALL |b| |c| (QREFELT $ 16))
-                                 (LETT |contains| 'T . #3#)))))
-                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                             (EXIT NIL))
+                                 (LETT |contains| 'T)))))
+                             (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                         (EXIT
                          (COND
                           ((NULL |contains|)
-                           (LETT |r| (SPADCALL |r| |b| (QREFELT $ 17))
-                                 . #3#)))))
-                   (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+                           (LETT |r| (SPADCALL |r| |b| (QREFELT $ 17)))))))
+                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |r|)))) 
 
 (SDEFUN |SETLAT;complement;$L$;5| ((|a| $) (|pseudoTop| |List| S) ($ $))
         (SPROG
          ((|r| (|List| S)) (|contains| (|Boolean|)) (#1=#:G120 NIL) (|c| NIL)
           (#2=#:G119 NIL) (|b| NIL))
-         (SEQ (LETT |r| NIL . #3=(|SETLAT;complement;$L$;5|))
-              (SEQ (LETT |b| NIL . #3#) (LETT #2# |pseudoTop| . #3#) G190
+         (SEQ (LETT |r| NIL)
+              (SEQ (LETT |b| NIL) (LETT #2# |pseudoTop|) G190
                    (COND
-                    ((OR (ATOM #2#) (PROGN (LETT |b| (CAR #2#) . #3#) NIL))
+                    ((OR (ATOM #2#) (PROGN (LETT |b| (CAR #2#)) NIL))
                      (GO G191)))
-                   (SEQ (LETT |contains| NIL . #3#)
-                        (SEQ (LETT |c| NIL . #3#) (LETT #1# |a| . #3#) G190
+                   (SEQ (LETT |contains| NIL)
+                        (SEQ (LETT |c| NIL) (LETT #1# |a|) G190
                              (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |c| (CAR #1#) . #3#) NIL))
+                              ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
                                (GO G191)))
                              (SEQ
                               (EXIT
                                (COND
                                 ((SPADCALL |b| |c| (QREFELT $ 16))
-                                 (LETT |contains| 'T . #3#)))))
-                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                             (EXIT NIL))
+                                 (LETT |contains| 'T)))))
+                             (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                         (EXIT
                          (COND
                           ((NULL |contains|)
-                           (LETT |r| (SPADCALL |r| |b| (QREFELT $ 17))
-                                 . #3#)))))
-                   (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+                           (LETT |r| (SPADCALL |r| |b| (QREFELT $ 17)))))))
+                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |r|)))) 
 
 (PUT '|SETLAT;hash;$Si;6| '|SPADreplace| '(XLAM (|s|) 0)) 
@@ -84,19 +78,17 @@
         (SPROG
          ((|oup| (|List| (|OutputForm|))) (#1=#:G127 NIL) (|x| NIL)
           (|inp| ($)))
-         (SEQ (LETT |inp| |s| . #2=(|SETLAT;coerce;$Of;9|))
-              (LETT |oup| NIL . #2#)
-              (SEQ (LETT |x| NIL . #2#) (LETT #1# |inp| . #2#) G190
+         (SEQ (LETT |inp| |s|) (LETT |oup| NIL)
+              (SEQ (LETT |x| NIL) (LETT #1# |inp|) G190
                    (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (LETT |oup|
                            (SPADCALL |oup| (SPADCALL |x| (QREFELT $ 25))
-                                     (QREFELT $ 27))
-                           . #2#)))
-                   (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                                     (QREFELT $ 27)))))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |oup| (QREFELT $ 29)))))) 
 
 (DECLAIM (NOTINLINE |SubsetLattice;|)) 
@@ -110,25 +102,24 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|SubsetLattice|)
-                                               '|domainEqualList|)
-                    . #3=(|SubsetLattice|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |SubsetLattice;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|SubsetLattice|)))))))))) 
 
 (DEFUN |SubsetLattice;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|SubsetLattice|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|SubsetLattice| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 33) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|SubsetLattice| DV$1 DV$2))
+          (LETT $ (GETREFV 33))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SubsetLattice| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

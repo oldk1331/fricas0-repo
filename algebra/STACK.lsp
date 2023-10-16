@@ -29,8 +29,7 @@
                 (COND ((SPADCALL |s| (QREFELT $ 25)) (|error| "empty stack"))
                       ('T
                        (SEQ
-                        (LETT |e| (|SPADfirst| (SPADCALL |s| (QREFELT $ 9)))
-                              |STACK;pop!;$S;7|)
+                        (LETT |e| (|SPADfirst| (SPADCALL |s| (QREFELT $ 9))))
                         (SPADCALL |s| (CDR (SPADCALL |s| (QREFELT $ 9)))
                                   (QREFELT $ 19))
                         (EXIT |e|))))))) 
@@ -77,11 +76,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Stack|)
-                                               '|domainEqualList|)
-                    . #3=(|Stack|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Stack;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Stack;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Stack|)))))))))) 
 
 (DEFUN |Stack;| (|#1|)
@@ -89,9 +87,9 @@
    ((#1=#:G139 NIL) (|pv$| NIL) (#2=#:G136 NIL) (#3=#:G137 NIL) (#4=#:G138 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #5=(|Stack|))
-    (LETT |dv$| (LIST '|Stack| DV$1) . #5#)
-    (LETT $ (GETREFV 47) . #5#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|Stack| DV$1))
+    (LETT $ (GETREFV 47))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -99,8 +97,7 @@
                                        (LIST
                                         (LETT #4#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #5#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -112,22 +109,19 @@
                                                          (|InputForm|)))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|BasicType|))
-                                              . #5#)
+                                                             '(|BasicType|)))
                                         (OR #3# #4#)
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #5#)
+                                                               (|OutputForm|))))
                                         (OR #2#
                                             (AND
                                              (|HasCategory| |#1|
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #4#))))
-                    . #5#))
+                                             #4#))))))
     (|haddProp| |$ConstructorCache| '|Stack| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
@@ -136,8 +130,7 @@
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|)))
-           . #5#)
+                (|HasCategory| $ '(|finiteAggregate|))))
      (|augmentPredVector| $ 512))
     (AND (OR #1# #4#) (|augmentPredVector| $ 1024))
     (SETF |pv$| (QREFELT $ 3))

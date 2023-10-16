@@ -17,47 +17,42 @@
             (SEQ
              (SEQ
               (EXIT
-               (SEQ (LETT |ll| NIL . #7=(|RMATRIX;matrix;L$;3|))
-                    (LETT #6# |l| . #7#) G190
+               (SEQ (LETT |ll| NIL) (LETT #6# |l|) G190
                     (COND
-                     ((OR (ATOM #6#) (PROGN (LETT |ll| (CAR #6#) . #7#) NIL))
+                     ((OR (ATOM #6#) (PROGN (LETT |ll| (CAR #6#)) NIL))
                       (GO G191)))
                     (SEQ
                      (EXIT
                       (COND
                        ((SPADCALL (LENGTH |ll|) (QREFELT $ 7) (QREFELT $ 17))
                         (PROGN
-                         (LETT #5# (|error| "matrix: wrong number of columns")
-                               . #7#)
-                         (GO #8=#:G111))))))
-                    (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL)))
-              #8# (EXIT #5#))
+                         (LETT #5# (|error| "matrix: wrong number of columns"))
+                         (GO #7=#:G111))))))
+                    (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL)))
+              #7# (EXIT #5#))
              (LETT |ans|
                    (MAKE_MATRIX1 (QREFELT $ 6) (QREFELT $ 7)
-                                 (|spadConstant| $ 9))
-                   . #7#)
-             (SEQ (LETT |ll| NIL . #7#) (LETT #4# |l| . #7#)
-                  (LETT |i| (PROGN |ans| 1) . #7#)
-                  (LETT #3# (SPADCALL |ans| (QREFELT $ 19)) . #7#) G190
+                                 (|spadConstant| $ 9)))
+             (SEQ (LETT |ll| NIL) (LETT #4# |l|) (LETT |i| (PROGN |ans| 1))
+                  (LETT #3# (SPADCALL |ans| (QREFELT $ 19))) G190
                   (COND
                    ((OR (> |i| #3#) (ATOM #4#)
-                        (PROGN (LETT |ll| (CAR #4#) . #7#) NIL))
+                        (PROGN (LETT |ll| (CAR #4#)) NIL))
                     (GO G191)))
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |r| NIL . #7#) (LETT #2# |ll| . #7#)
-                         (LETT |j| (PROGN |ans| 1) . #7#)
-                         (LETT #1# (SPADCALL |ans| (QREFELT $ 20)) . #7#) G190
+                    (SEQ (LETT |r| NIL) (LETT #2# |ll|)
+                         (LETT |j| (PROGN |ans| 1))
+                         (LETT #1# (SPADCALL |ans| (QREFELT $ 20))) G190
                          (COND
                           ((OR (> |j| #1#) (ATOM #2#)
-                               (PROGN (LETT |r| (CAR #2#) . #7#) NIL))
+                               (PROGN (LETT |r| (CAR #2#)) NIL))
                            (GO G191)))
                          (SEQ (EXIT (QSETAREF2O |ans| |i| |j| |r| 1 1)))
-                         (LETT |j| (PROG1 (+ |j| 1) (LETT #2# (CDR #2#) . #7#))
-                               . #7#)
+                         (LETT |j| (PROG1 (+ |j| 1) (LETT #2# (CDR #2#))))
                          (GO G190) G191 (EXIT NIL))))
-                  (LETT |i| (PROG1 (+ |i| 1) (LETT #4# (CDR #4#) . #7#)) . #7#)
-                  (GO G190) G191 (EXIT NIL))
+                  (LETT |i| (PROG1 (+ |i| 1) (LETT #4# (CDR #4#)))) (GO G190)
+                  G191 (EXIT NIL))
              (EXIT |ans|))))))) 
 
 (SDEFUN |RMATRIX;row;$IDp;4|
@@ -84,17 +79,16 @@
         (SPROG ((#1=#:G134 NIL) (|c| NIL) (#2=#:G133 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL . #3=(|RMATRIX;columnSpace;$L;9|))
-                 (SEQ (LETT |c| NIL . #3#)
-                      (LETT #1# (SPADCALL |x| (QREFELT $ 38)) . #3#) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |c| NIL) (LETT #1# (SPADCALL |x| (QREFELT $ 38)))
+                      G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#) . #3#) NIL))
+                       ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |c| (QREFELT $ 30)) #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                        (LETT #2# (CONS (SPADCALL |c| (QREFELT $ 30)) #2#))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |RMATRIX;rank;$Nni;10| ((|x| $) ($ |NonNegativeInteger|))
@@ -107,17 +101,16 @@
         (SPROG ((#1=#:G140 NIL) (|c| NIL) (#2=#:G139 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL . #3=(|RMATRIX;nullSpace;$L;12|))
-                 (SEQ (LETT |c| NIL . #3#)
-                      (LETT #1# (SPADCALL |x| (QREFELT $ 45)) . #3#) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |c| NIL) (LETT #1# (SPADCALL |x| (QREFELT $ 45)))
+                      G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#) . #3#) NIL))
+                       ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |c| (QREFELT $ 30)) #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                        (LETT #2# (CONS (SPADCALL |c| (QREFELT $ 30)) #2#))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |RMATRIX;dimension;Cn;13| (($ |CardinalNumber|))
@@ -140,13 +133,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|RectangularMatrix|)
-                                               '|domainEqualList|)
-                    . #3=(|RectangularMatrix|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |RectangularMatrix;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|RectangularMatrix|)))))))))) 
@@ -156,11 +148,11 @@
    ((#1=#:G153 NIL) (|pv$| NIL) (#2=#:G149 NIL) (#3=#:G150 NIL) (#4=#:G152 NIL)
     ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #5=(|RectangularMatrix|))
-    (LETT DV$2 (|devaluate| |#2|) . #5#)
-    (LETT DV$3 (|devaluate| |#3|) . #5#)
-    (LETT |dv$| (LIST '|RectangularMatrix| DV$1 DV$2 DV$3) . #5#)
-    (LETT $ (GETREFV 68) . #5#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT |dv$| (LIST '|RectangularMatrix| DV$1 DV$2 DV$3))
+    (LETT $ (GETREFV 68))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -169,8 +161,7 @@
                                         (|HasCategory| |#3| '(|AbelianGroup|))
                                         (|HasCategory| |#3| '(|Finite|))
                                         (LETT #4#
-                                              (|HasCategory| |#3| '(|Field|))
-                                              . #5#)
+                                              (|HasCategory| |#3| '(|Field|)))
                                         (OR
                                          (|HasCategory| |#3|
                                                         '(|CommutativeRing|))
@@ -215,16 +206,14 @@
                                                        '(|IntegralDomain|))
                                         (LETT #3#
                                               (|HasCategory| |#3|
-                                                             '(|AbelianMonoid|))
-                                              . #5#)
+                                                             '(|AbelianMonoid|)))
                                         (OR
                                          (|HasCategory| |#3| '(|AbelianGroup|))
                                          #3#)
                                         (LETT #2#
                                               (|HasCategory| |#3|
                                                              '(|ConvertibleTo|
-                                                               (|InputForm|)))
-                                              . #5#)
+                                                               (|InputForm|))))
                                         (OR #2#
                                             (AND
                                              (|HasCategory| |#3|
@@ -245,8 +234,7 @@
                                              (|HasCategory| |#3| '(|Finite|)))
                                             (AND #4#
                                                  (|HasCategory| |#3|
-                                                                '(|Finite|))))))
-                    . #5#))
+                                                                '(|Finite|))))))))
     (|haddProp| |$ConstructorCache| '|RectangularMatrix| (LIST DV$1 DV$2 DV$3)
                 (CONS 1 $))
     (|stuffDomainSlots| $)
@@ -254,7 +242,7 @@
     (QSETREFV $ 7 |#2|)
     (QSETREFV $ 8 |#3|)
     (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 8192))
-    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
+    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)))
          (|augmentPredVector| $ 16384))
     (AND (|HasCategory| |#3| '(|BasicType|)) #1# (|augmentPredVector| $ 32768))
     (SETF |pv$| (QREFELT $ 3))

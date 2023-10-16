@@ -3,8 +3,8 @@
 
 (SDEFUN |MINT;maxint;2Pi;2| ((|new| |PositiveInteger|) ($ |PositiveInteger|))
         (SPROG ((|old| (|PositiveInteger|)))
-               (SEQ (LETT |old| (QREFELT $ 8) |MINT;maxint;2Pi;2|)
-                    (SETELT $ 8 |new|) (EXIT |old|)))) 
+               (SEQ (LETT |old| (QREFELT $ 8)) (SETELT $ 8 |new|)
+                    (EXIT |old|)))) 
 
 (SDEFUN |MINT;coerce;EE;3| ((|u| |Expression| (|Integer|)) ($ |Expression| $))
         (SPADCALL (ELT $ 11) |u| (QREFELT $ 16))) 
@@ -19,8 +19,7 @@
                          (SPADCALL
                           (LIST (STRINGIMAGE |u|) "  > MAXINT("
                                 (STRINGIMAGE (QREFELT $ 8)) ")")
-                          (QREFELT $ 23))
-                         |MINT;coerce;I$;4|)
+                          (QREFELT $ 23)))
                    (EXIT (|error| |message|))))
                  ('T |u|))))) 
 
@@ -40,8 +39,7 @@
          (PROG (#1=#:G140)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|MachineInteger|)
-                    . #2=(|MachineInteger|))
+             ((LETT #1# (HGET |$ConstructorCache| '|MachineInteger|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -49,7 +47,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|MachineInteger|
                              (LIST (CONS NIL (CONS 1 (|MachineInteger;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|MachineInteger|)))))))))) 
@@ -57,10 +55,10 @@
 (DEFUN |MachineInteger;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|MachineInteger|) . #1=(|MachineInteger|))
-          (LETT $ (GETREFV 50) . #1#)
+          (LETT |dv$| '(|MachineInteger|))
+          (LETT $ (GETREFV 50))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|MachineInteger| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

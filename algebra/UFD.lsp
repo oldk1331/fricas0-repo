@@ -18,8 +18,7 @@
                               ((|squareFree| ((|Factored| $) $)) T)
                               ((|squareFreePart| ($ $)) T)
                               ((|factor| ((|Factored| $) $)) T))
-                            NIL NIL NIL))
-                   |UniqueFactorizationDomain|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|UniqueFactorizationDomain|))))) 
 
 (MAKEPROP '|UniqueFactorizationDomain| 'NILADIC T) 

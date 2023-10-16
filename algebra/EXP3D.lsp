@@ -5,19 +5,18 @@
         (SPROG
          ((|faceIndexList| (|List| (|NonNegativeInteger|))) (#1=#:G112 NIL)
           (|poly| NIL))
-         (SEQ (LETT |faceIndexList| NIL . #2=(|EXP3D;faceIndex|))
-              (SEQ (LETT |poly| NIL . #2#)
-                   (LETT #1# (SPADCALL |subSp| (QREFELT $ 8)) . #2#) G190
+         (SEQ (LETT |faceIndexList| NIL)
+              (SEQ (LETT |poly| NIL)
+                   (LETT #1# (SPADCALL |subSp| (QREFELT $ 8))) G190
                    (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |poly| (CAR #1#) . #2#) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |poly| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (LETT |faceIndexList|
                            (CONS (SPADCALL |poly| (QREFELT $ 10))
-                                 |faceIndexList|)
-                           . #2#)))
-                   (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                                 |faceIndexList|))))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (REVERSE |faceIndexList|))))) 
 
 (SDEFUN |EXP3D;writePolygon|
@@ -27,27 +26,26 @@
          ((|s| (|String|)) (#1=#:G119 NIL) (|i| NIL)
           (|faceIndexList| (|List| (|NonNegativeInteger|))) (#2=#:G118 NIL)
           (|curve| NIL))
-         (SEQ (LETT |faceIndexList| NIL . #3=(|EXP3D;writePolygon|))
-              (SEQ (LETT |curve| NIL . #3#) (LETT #2# |curves| . #3#) G190
+         (SEQ (LETT |faceIndexList| NIL)
+              (SEQ (LETT |curve| NIL) (LETT #2# |curves|) G190
                    (COND
-                    ((OR (ATOM #2#) (PROGN (LETT |curve| (CAR #2#) . #3#) NIL))
+                    ((OR (ATOM #2#) (PROGN (LETT |curve| (CAR #2#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (LETT |faceIndexList|
                            (SPADCALL |faceIndexList|
                                      (|EXP3D;faceIndex| |curve| $)
-                                     (QREFELT $ 12))
-                           . #3#)))
-                   (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
-              (LETT |s| "f " . #3#)
-              (SEQ (LETT |i| NIL . #3#) (LETT #1# |faceIndexList| . #3#) G190
+                                     (QREFELT $ 12)))))
+                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
+              (LETT |s| "f ")
+              (SEQ (LETT |i| NIL) (LETT #1# |faceIndexList|) G190
                    (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#) . #3#) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#)) NIL))
                      (GO G191)))
-                   (SEQ (LETT |s| (STRCONC |s| (STRINGIMAGE |i|)) . #3#)
-                        (EXIT (LETT |s| (STRCONC |s| " ") . #3#)))
-                   (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT NIL))
+                   (SEQ (LETT |s| (STRCONC |s| (STRINGIMAGE |i|)))
+                        (EXIT (LETT |s| (STRCONC |s| " "))))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |f1| |s| (QREFELT $ 15)))))) 
 
 (SDEFUN |EXP3D;writeMesh|
@@ -59,31 +57,28 @@
           (|rowLength| (|NonNegativeInteger|))
           (|meshIndexArray| (|List| (|List| (|NonNegativeInteger|))))
           (#3=#:G126 NIL) (|curve| NIL))
-         (SEQ (LETT |meshIndexArray| NIL . #4=(|EXP3D;writeMesh|))
-              (SEQ (LETT |curve| NIL . #4#) (LETT #3# |curves| . #4#) G190
+         (SEQ (LETT |meshIndexArray| NIL)
+              (SEQ (LETT |curve| NIL) (LETT #3# |curves|) G190
                    (COND
-                    ((OR (ATOM #3#) (PROGN (LETT |curve| (CAR #3#) . #4#) NIL))
+                    ((OR (ATOM #3#) (PROGN (LETT |curve| (CAR #3#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (LETT |meshIndexArray|
                            (CONS (|EXP3D;faceIndex| |curve| $)
-                                 |meshIndexArray|)
-                           . #4#)))
-                   (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
-              (LETT |meshIndexArray| (REVERSE |meshIndexArray|) . #4#)
-              (LETT |rowLength| (LENGTH |meshIndexArray|) . #4#)
+                                 |meshIndexArray|))))
+                   (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
+              (LETT |meshIndexArray| (REVERSE |meshIndexArray|))
+              (LETT |rowLength| (LENGTH |meshIndexArray|))
               (LETT |colLength|
                     (SPADCALL (SPADCALL |meshIndexArray| 1 (QREFELT $ 18))
-                              (QREFELT $ 19))
-                    . #4#)
+                              (QREFELT $ 19)))
               (EXIT
-               (SEQ (LETT |i| 1 . #4#) (LETT #2# (- |rowLength| 1) . #4#) G190
+               (SEQ (LETT |i| 1) (LETT #2# (- |rowLength| 1)) G190
                     (COND ((|greater_SI| |i| #2#) (GO G191)))
                     (SEQ
                      (EXIT
-                      (SEQ (LETT |j| 1 . #4#)
-                           (LETT #1# (- |colLength| 1) . #4#) G190
+                      (SEQ (LETT |j| 1) (LETT #1# (- |colLength| 1)) G190
                            (COND ((|greater_SI| |j| #1#) (GO G191)))
                            (SEQ
                             (LETT |s|
@@ -112,13 +107,11 @@
                                            (SPADCALL |meshIndexArray| |i|
                                                      (QREFELT $ 18))
                                            (+ |j| 1) (QREFELT $ 20))))
-                                   (QREFELT $ 21))
-                                  . #4#)
+                                   (QREFELT $ 21)))
                             (EXIT (SPADCALL |f1| |s| (QREFELT $ 15))))
-                           (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
+                           (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                            (EXIT NIL))))
-                    (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
-                    (EXIT NIL)))))) 
+                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |EXP3D;toString| ((|d| |DoubleFloat|) ($ |String|))
         (SPADCALL (SPADCALL |d| (QREFELT $ 24)) (QREFELT $ 25))) 
@@ -133,14 +126,12 @@
          (SEQ
           (LETT |f1|
                 (SPADCALL (SPADCALL |filename| (QREFELT $ 27)) "output"
-                          (QREFELT $ 28))
-                . #3=(|EXP3D;writeObj;SsSV;5|))
+                          (QREFELT $ 28)))
           (SPADCALL |f1| "# mesh generated by axiom" (QREFELT $ 15))
-          (LETT |verts| (SPADCALL |subSp| (QREFELT $ 30)) . #3#)
-          (SEQ (LETT |v| NIL . #3#) (LETT #2# |verts| . #3#) G190
+          (LETT |verts| (SPADCALL |subSp| (QREFELT $ 30)))
+          (SEQ (LETT |v| NIL) (LETT #2# |verts|) G190
                (COND
-                ((OR (ATOM #2#) (PROGN (LETT |v| (CAR #2#) . #3#) NIL))
-                 (GO G191)))
+                ((OR (ATOM #2#) (PROGN (LETT |v| (CAR #2#)) NIL)) (GO G191)))
                (SEQ
                 (EXIT
                  (COND
@@ -160,13 +151,13 @@
                                      (SPADCALL |v| 3 (QREFELT $ 33)) $))
                               (QREFELT $ 21))
                              (QREFELT $ 15))))))
-               (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
-          (SEQ (LETT |component| NIL . #3#)
-               (LETT #1# (SPADCALL |subSp| (QREFELT $ 8)) . #3#) G190
+               (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
+          (SEQ (LETT |component| NIL)
+               (LETT #1# (SPADCALL |subSp| (QREFELT $ 8))) G190
                (COND
-                ((OR (ATOM #1#) (PROGN (LETT |component| (CAR #1#) . #3#) NIL))
+                ((OR (ATOM #1#) (PROGN (LETT |component| (CAR #1#)) NIL))
                  (GO G191)))
-               (SEQ (LETT |curves| (SPADCALL |component| (QREFELT $ 8)) . #3#)
+               (SEQ (LETT |curves| (SPADCALL |component| (QREFELT $ 8)))
                     (COND
                      ((< (LENGTH |curves|) 2)
                       (SPADCALL "Can't write point or curve to OBJ file"
@@ -188,7 +179,7 @@
                                       (QREFELT $ 41))
                             1 (QREFELT $ 38))
                            (|EXP3D;writeMesh| |f1| |curves| $)))))))))
-               (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT NIL))
+               (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |f1| (QREFELT $ 42)))))) 
 
 (DECLAIM (NOTINLINE |Export3D;|)) 
@@ -198,8 +189,7 @@
          (PROG (#1=#:G142)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Export3D|)
-                    . #2=(|Export3D|))
+             ((LETT #1# (HGET |$ConstructorCache| '|Export3D|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -207,16 +197,16 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|Export3D|
                              (LIST (CONS NIL (CONS 1 (|Export3D;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Export3D|)))))))))) 
 
 (DEFUN |Export3D;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|Export3D|) . #1=(|Export3D|))
-          (LETT $ (GETREFV 44) . #1#)
+          (LETT |dv$| '(|Export3D|))
+          (LETT $ (GETREFV 44))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Export3D| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

@@ -9,20 +9,17 @@
         (SPROG ((#1=#:G108 NIL) (|Qx| (|PolR|)))
                (SEQ
                 (EXIT
-                 (SEQ
-                  (LETT |Qx| (SPADCALL |x| (QREFELT $ 24))
-                        . #2=(|CPIMA;characteristicPolynomial;EPolR;2|))
-                  (EXIT
-                   (PROGN
-                    (LETT #1#
-                          (SPADCALL (QREFELT $ 19)
-                                    (SPADCALL (QREFELT $ 23)
-                                              (|CPIMA;XtoY| |Qx| $)
-                                              (QREFELT $ 25))
-                                    (QREFELT $ 26))
-                          . #2#)
-                    (GO #3=#:G107)))))
-                #3# (EXIT #1#)))) 
+                 (SEQ (LETT |Qx| (SPADCALL |x| (QREFELT $ 24)))
+                      (EXIT
+                       (PROGN
+                        (LETT #1#
+                              (SPADCALL (QREFELT $ 19)
+                                        (SPADCALL (QREFELT $ 23)
+                                                  (|CPIMA;XtoY| |Qx| $)
+                                                  (QREFELT $ 25))
+                                        (QREFELT $ 26)))
+                        (GO #2=#:G107)))))
+                #2# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |CharacteristicPolynomialInMonogenicalAlgebra;|)) 
 
@@ -35,8 +32,7 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|CharacteristicPolynomialInMonogenicalAlgebra|)
-                                               '|domainEqualList|)
-                    . #3=(|CharacteristicPolynomialInMonogenicalAlgebra|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -45,7 +41,7 @@
                        (|function|
                         |CharacteristicPolynomialInMonogenicalAlgebra;|)
                        #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -54,17 +50,15 @@
 (DEFUN |CharacteristicPolynomialInMonogenicalAlgebra;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|CharacteristicPolynomialInMonogenicalAlgebra|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$|
                 (LIST '|CharacteristicPolynomialInMonogenicalAlgebra| DV$1 DV$2
-                      DV$3)
-                . #1#)
-          (LETT $ (GETREFV 28) . #1#)
+                      DV$3))
+          (LETT $ (GETREFV 28))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
                       '|CharacteristicPolynomialInMonogenicalAlgebra|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))

@@ -17,20 +17,17 @@
           (#4=#:G122 NIL) (#5=#:G104 NIL))
          (SEQ
           (PROGN
-           (LETT #1# NIL . #6=(|IXAGG-;maxIndex;SIndex;4|))
-           (SEQ (LETT #5# NIL . #6#)
-                (LETT #4# (SPADCALL |a| (QREFELT $ 19)) . #6#) G190
+           (LETT #1# NIL)
+           (SEQ (LETT #5# NIL) (LETT #4# (SPADCALL |a| (QREFELT $ 19))) G190
                 (COND
-                 ((OR (ATOM #4#) (PROGN (LETT #5# (CAR #4#) . #6#) NIL))
-                  (GO G191)))
+                 ((OR (ATOM #4#) (PROGN (LETT #5# (CAR #4#)) NIL)) (GO G191)))
                 (SEQ
                  (EXIT
                   (PROGN
-                   (LETT #3# #5# . #6#)
-                   (COND
-                    (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 20)) . #6#))
-                    ('T (PROGN (LETT #2# #3# . #6#) (LETT #1# 'T . #6#)))))))
-                (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
+                   (LETT #3# #5#)
+                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 20))))
+                         ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
+                (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
            (COND (#1# #2#) ('T (|IdentityError| '|max|))))))) 
 
 (SDEFUN |IXAGG-;minIndex;SIndex;5| ((|a| S) ($ |Index|))
@@ -39,20 +36,17 @@
           (#4=#:G127 NIL) (#5=#:G105 NIL))
          (SEQ
           (PROGN
-           (LETT #1# NIL . #6=(|IXAGG-;minIndex;SIndex;5|))
-           (SEQ (LETT #5# NIL . #6#)
-                (LETT #4# (SPADCALL |a| (QREFELT $ 19)) . #6#) G190
+           (LETT #1# NIL)
+           (SEQ (LETT #5# NIL) (LETT #4# (SPADCALL |a| (QREFELT $ 19))) G190
                 (COND
-                 ((OR (ATOM #4#) (PROGN (LETT #5# (CAR #4#) . #6#) NIL))
-                  (GO G191)))
+                 ((OR (ATOM #4#) (PROGN (LETT #5# (CAR #4#)) NIL)) (GO G191)))
                 (SEQ
                  (EXIT
                   (PROGN
-                   (LETT #3# #5# . #6#)
-                   (COND
-                    (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 22)) . #6#))
-                    ('T (PROGN (LETT #2# #3# . #6#) (LETT #1# 'T . #6#)))))))
-                (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
+                   (LETT #3# #5#)
+                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 22))))
+                         ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
+                (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
            (COND (#1# #2#) ('T (|IdentityError| '|min|))))))) 
 
 (SDEFUN |IXAGG-;first;SEntry;6| ((|a| S) ($ |Entry|))
@@ -64,10 +58,10 @@
 (SDEFUN |IXAGG-;map!;M2S;8| ((|f| |Mapping| |Entry| |Entry|) (|a| S) ($ S))
         (SPROG ((#1=#:G134 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| NIL . #2=(|IXAGG-;map!;M2S;8|))
-                     (LETT #1# (SPADCALL |a| (QREFELT $ 19)) . #2#) G190
+                (SEQ (LETT |i| NIL) (LETT #1# (SPADCALL |a| (QREFELT $ 19)))
+                     G190
                      (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#) . #2#) NIL))
+                      ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ
                       (EXIT
@@ -75,41 +69,39 @@
                                  (SPADCALL (SPADCALL |a| |i| (QREFELT $ 11))
                                            |f|)
                                  (QREFELT $ 31))))
-                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |a|)))) 
 
 (SDEFUN |IXAGG-;fill!;SEntryS;9| ((|a| S) (|x| |Entry|) ($ S))
         (SPROG ((#1=#:G138 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| NIL . #2=(|IXAGG-;fill!;SEntryS;9|))
-                     (LETT #1# (SPADCALL |a| (QREFELT $ 19)) . #2#) G190
+                (SEQ (LETT |i| NIL) (LETT #1# (SPADCALL |a| (QREFELT $ 19)))
+                     G190
                      (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#) . #2#) NIL))
+                      ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ (EXIT (SPADCALL |a| |i| |x| (QREFELT $ 31))))
-                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |a|)))) 
 
 (SDEFUN |IXAGG-;swap!;S2IndexV;10|
         ((|a| S) (|i| |Index|) (|j| |Index|) ($ |Void|))
         (SPROG ((|t| (|Entry|)))
-               (SEQ
-                (LETT |t| (SPADCALL |a| |i| (QREFELT $ 25))
-                      |IXAGG-;swap!;S2IndexV;10|)
-                (SPADCALL |a| |i| (SPADCALL |a| |j| (QREFELT $ 25))
-                          (QREFELT $ 31))
-                (EXIT (SPADCALL |a| |j| |t| (QREFELT $ 31)))))) 
+               (SEQ (LETT |t| (SPADCALL |a| |i| (QREFELT $ 25)))
+                    (SPADCALL |a| |i| (SPADCALL |a| |j| (QREFELT $ 25))
+                              (QREFELT $ 31))
+                    (EXIT (SPADCALL |a| |j| |t| (QREFELT $ 31)))))) 
 
 (DECLAIM (NOTINLINE |IndexedAggregate&;|)) 
 
 (DEFUN |IndexedAggregate&| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|IndexedAggregate&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|IndexedAggregate&| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 36) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|IndexedAggregate&| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 36))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -122,8 +114,7 @@
                                               (|HasCategory| |#1|
                                                              '(|finiteAggregate|))
                                               (|HasCategory| |#3|
-                                                             '(|BasicType|))))
-                          . #1#))
+                                                             '(|BasicType|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

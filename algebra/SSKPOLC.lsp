@@ -40,8 +40,6 @@
                                                       ((|monomial|
                                                         ($ |t#1| |t#2|))
                                                        T))
-                                                    NIL NIL NIL))
-                                           . #2=(|SolvableSkewPolynomialCategory|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|SolvableSkewPolynomialCategory| |t#1| |t#2|))))) 

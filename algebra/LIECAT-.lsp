@@ -7,17 +7,17 @@
 (DEFUN |LieAlgebra&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|LieAlgebra&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|LieAlgebra&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 11) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|LieAlgebra&| DV$1 DV$2))
+          (LETT $ (GETREFV 11))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
-                                              (|HasCategory| |#2| '(|Field|))))
-                          . #1#))
+                                              (|HasCategory| |#2|
+                                                             '(|Field|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

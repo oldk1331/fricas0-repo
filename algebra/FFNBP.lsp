@@ -8,13 +8,12 @@
 
 (SDEFUN |FFNBP;degree;$Pi;3| ((|a| $) ($ |PositiveInteger|))
         (SPROG ((|d| (|PositiveInteger|)) (|b| ($)))
-               (SEQ (LETT |d| 1 . #1=(|FFNBP;degree;$Pi;3|))
-                    (LETT |b| (SPADCALL |a| 1 (QREFELT $ 55)) . #1#)
+               (SEQ (LETT |d| 1) (LETT |b| (SPADCALL |a| 1 (QREFELT $ 55)))
                     (SEQ G190
                          (COND
                           ((NULL (SPADCALL |b| |a| (QREFELT $ 57))) (GO G191)))
-                         (SEQ (LETT |b| (SPADCALL |b| 1 (QREFELT $ 55)) . #1#)
-                              (EXIT (LETT |d| (+ |d| 1) . #1#)))
+                         (SEQ (LETT |b| (SPADCALL |b| 1 (QREFELT $ 55)))
+                              (EXIT (LETT |d| (+ |d| 1))))
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |d|)))) 
 
@@ -27,13 +26,11 @@
           (LETT |xm|
                 (SPADCALL
                  (SPADCALL (|spadConstant| $ 27) (QREFELT $ 17) (QREFELT $ 60))
-                 (|spadConstant| $ 21) (QREFELT $ 61))
-                . #1=(|FFNBP;linearAssociatedExp;$Sup$;4|))
+                 (|spadConstant| $ 21) (QREFELT $ 61)))
           (LETT |r|
                 (SPADCALL
                  (SPADCALL |f| (SPADCALL |x| (QREFELT $ 62)) (QREFELT $ 63))
-                 |xm| (QREFELT $ 64))
-                . #1#)
+                 |xm| (QREFELT $ 64)))
           (EXIT (SPADCALL |r| (QREFELT $ 17) (QREFELT $ 65)))))) 
 
 (SDEFUN |FFNBP;linearAssociatedLog;$Sup;5|
@@ -48,8 +45,7 @@
                       (SPADCALL
                        (SPADCALL (|spadConstant| $ 27) (QREFELT $ 17)
                                  (QREFELT $ 60))
-                       (|spadConstant| $ 21) (QREFELT $ 61))
-                      |FFNBP;linearAssociatedOrder;$Sup;6|)
+                       (|spadConstant| $ 21) (QREFELT $ 61)))
                 (EXIT
                  (SPADCALL |xm|
                            (SPADCALL |xm| (SPADCALL |x| (QREFELT $ 62))
@@ -78,12 +74,11 @@
                         (SPADCALL
                          (SPADCALL (|spadConstant| $ 27) (QREFELT $ 17)
                                    (QREFELT $ 60))
-                         (|spadConstant| $ 21) (QREFELT $ 61))
-                        . #4=(|FFNBP;linearAssociatedLog;2$U;7|))
+                         (|spadConstant| $ 21) (QREFELT $ 61)))
                   (LETT |e|
                         (SPADCALL (SPADCALL |b| (QREFELT $ 62)) |xm|
-                                  (SPADCALL |x| (QREFELT $ 62)) (QREFELT $ 74))
-                        . #4#)
+                                  (SPADCALL |x| (QREFELT $ 62))
+                                  (QREFELT $ 74)))
                   (EXIT
                    (COND
                     ((SPADCALL |e| (CONS 1 "failed") (QREFELT $ 77))
@@ -91,7 +86,7 @@
                     (#3#
                      (SEQ
                       (LETT |e1|
-                            (PROG2 (LETT #1# |e| . #4#)
+                            (PROG2 (LETT #1# |e|)
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0)
                                               (|Record|
@@ -110,8 +105,7 @@
                                                      (|SparseUnivariatePolynomial|
                                                       (QREFELT $ 6))))
                                                #2#)
-                                              #1#))
-                            . #4#)
+                                              #1#)))
                       (EXIT (CONS 0 (QCAR |e1|))))))))))))) 
 
 (SDEFUN |FFNBP;getMultiplicationTable;V;8|
@@ -145,8 +139,8 @@
                   (|error| "argument must divide extension degree"))
                  ('T
                   (PROGN
-                   (LETT #2# (GETREFV |n|) . #3=(|FFNBP;basis;PiV;14|))
-                   (SEQ (LETT |i| 0 . #3#) (LETT #1# (- |n| 1) . #3#) G190
+                   (LETT #2# (GETREFV |n|))
+                   (SEQ (LETT |i| 0) (LETT #1# (- |n| 1)) G190
                         (COND ((|greater_SI| |i| #1#) (GO G191)))
                         (SEQ
                          (EXIT
@@ -155,8 +149,7 @@
                                    (SPADCALL (SPADCALL (QREFELT $ 95)) |n|
                                              (QREFELT $ 87))
                                    |i| (QREFELT $ 96)))))
-                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                        (EXIT NIL))
+                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                    #2#)))))) 
 
 (SDEFUN |FFNBP;*;GF2$;15| ((|a| GF) (|x| $) ($ $))
@@ -194,19 +187,18 @@
          ((|r| (|OutputForm|)) (|l| (|List| (|OutputForm|)))
           (|mon| (|OutputForm|)) (#1=#:G190 NIL) (|i| NIL) (#2=#:G191 NIL)
           (|b| NIL) (|n| (|PositiveInteger|)))
-         (SEQ (LETT |l| NIL . #3=(|FFNBP;coerce;$Of;22|))
-              (LETT |n| (QREFELT $ 17) . #3#)
+         (SEQ (LETT |l| NIL) (LETT |n| (QREFELT $ 17))
               (EXIT
                (COND
                 ((EQL |n| 1)
                  (SPADCALL (SPADCALL |x| 1 (QREFELT $ 106)) (QREFELT $ 110)))
-                (#4='T
+                (#3='T
                  (SEQ
-                  (SEQ (LETT |b| NIL . #3#) (LETT #2# (QREFELT $ 43) . #3#)
-                       (LETT |i| 1 . #3#) (LETT #1# |n| . #3#) G190
+                  (SEQ (LETT |b| NIL) (LETT #2# (QREFELT $ 43)) (LETT |i| 1)
+                       (LETT #1# |n|) G190
                        (COND
                         ((OR (|greater_SI| |i| #1#) (ATOM #2#)
-                             (PROGN (LETT |b| (CAR #2#) . #3#) NIL))
+                             (PROGN (LETT |b| (CAR #2#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
@@ -226,22 +218,17 @@
                                      (SPADCALL
                                       (SPADCALL |x| |i| (QREFELT $ 106))
                                       (QREFELT $ 110))
-                                     |b| (QREFELT $ 113))))
-                                  . #3#)
-                            (EXIT (LETT |l| (CONS |mon| |l|) . #3#)))))))
-                       (LETT |i|
-                             (PROG1 (|inc_SI| |i|) (LETT #2# (CDR #2#) . #3#))
-                             . #3#)
+                                     |b| (QREFELT $ 113)))))
+                            (EXIT (LETT |l| (CONS |mon| |l|))))))))
+                       (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #2# (CDR #2#))))
                        (GO G190) G191 (EXIT NIL))
                   (EXIT
                    (COND
                     ((NULL |l|)
                      (SPADCALL (|spadConstant| $ 19) (QREFELT $ 114)))
-                    (#4#
-                     (SEQ
-                      (LETT |r| (SPADCALL (ELT $ 115) |l| (QREFELT $ 117))
-                            . #3#)
-                      (EXIT |r|)))))))))))) 
+                    (#3#
+                     (SEQ (LETT |r| (SPADCALL (ELT $ 115) |l| (QREFELT $ 117)))
+                          (EXIT |r|)))))))))))) 
 
 (SDEFUN |FFNBP;initializeElt| (($ |Void|))
         (SEQ
@@ -269,12 +256,12 @@
           (|n| (|Integer|)) (|d| (|Integer|)) (|l| (|Integer|)) (|base| ($))
           (|fac| (|Integer|)) (#4=#:G209 NIL) (|f| NIL) (|limit| (|Integer|)))
          (SEQ (COND ((QREFELT $ 15) (|FFNBP;initializeElt| $)))
-              (LETT |limit| 30 . #5=(|FFNBP;initializeLog|))
-              (SEQ (LETT |f| NIL . #5#) (LETT #4# (QREFELT $ 44) . #5#) G190
+              (LETT |limit| 30)
+              (SEQ (LETT |f| NIL) (LETT #4# (QREFELT $ 44)) G190
                    (COND
-                    ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#) . #5#) NIL))
+                    ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#)) NIL))
                      (GO G191)))
-                   (SEQ (LETT |fac| (QCAR |f|) . #5#)
+                   (SEQ (LETT |fac| (QCAR |f|))
                         (LETT |base|
                               (SPADCALL
                                (SPADCALL (QREFELT $ 48) (QREFELT $ 131))
@@ -284,50 +271,45 @@
                                            (QREFELT $ 17) (QREFELT $ 120))
                                  1)
                                 |fac|)
-                               (QREFELT $ 132))
-                              . #5#)
-                        (LETT |l| (INTEGER-LENGTH |fac|) . #5#)
-                        (LETT |n| 0 . #5#)
+                               (QREFELT $ 132)))
+                        (LETT |l| (INTEGER-LENGTH |fac|)) (LETT |n| 0)
                         (COND
                          ((ODDP |l|)
-                          (LETT |n| (ASH |fac| (- (QUOTIENT2 |l| 2))) . #5#))
-                         ('T (LETT |n| (ASH 1 (QUOTIENT2 |l| 2)) . #5#)))
+                          (LETT |n| (ASH |fac| (- (QUOTIENT2 |l| 2)))))
+                         ('T (LETT |n| (ASH 1 (QUOTIENT2 |l| 2)))))
                         (COND
                          ((< |n| |limit|)
-                          (SEQ
-                           (LETT |d| (+ (QUOTIENT2 (- |fac| 1) |limit|) 1)
-                                 . #5#)
-                           (EXIT
-                            (LETT |n| (+ (QUOTIENT2 (- |fac| 1) |d|) 1)
-                                  . #5#)))))
-                        (LETT |tbl| (SPADCALL (QREFELT $ 134)) . #5#)
-                        (LETT |a| (|spadConstant| $ 22) . #5#)
-                        (SEQ (LETT |i| 0 . #5#)
+                          (SEQ (LETT |d| (+ (QUOTIENT2 (- |fac| 1) |limit|) 1))
+                               (EXIT
+                                (LETT |n|
+                                      (+ (QUOTIENT2 (- |fac| 1) |d|) 1))))))
+                        (LETT |tbl| (SPADCALL (QREFELT $ 134)))
+                        (LETT |a| (|spadConstant| $ 22))
+                        (SEQ (LETT |i| 0)
                              (LETT #2#
-                                   (PROG1 (LETT #3# (- |n| 1) . #5#)
+                                   (PROG1 (LETT #3# (- |n| 1))
                                      (|check_subtype2| (>= #3# 0)
                                                        '(|NonNegativeInteger|)
-                                                       '(|Integer|) #3#))
-                                   . #5#)
+                                                       '(|Integer|) #3#)))
                              G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
                              (SEQ
                               (SPADCALL
                                (CONS (SPADCALL |a| (QREFELT $ 128)) |i|) |tbl|
                                (QREFELT $ 136))
                               (EXIT
-                               (LETT |a| (SPADCALL |a| |base| (QREFELT $ 137))
-                                     . #5#)))
-                             (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                               (LETT |a|
+                                     (SPADCALL |a| |base| (QREFELT $ 137)))))
+                             (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                              (EXIT NIL))
                         (EXIT
                          (SPADCALL
                           (CONS
-                           (PROG1 (LETT #1# |fac| . #5#)
+                           (PROG1 (LETT #1# |fac|)
                              (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                                '(|Integer|) #1#))
                            (SPADCALL |tbl| (QREFELT $ 138)))
                           (QREFELT $ 51) (QREFELT $ 140))))
-                   (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
+                   (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
               (SETELT $ 14 NIL) (EXIT (SPADCALL (QREFELT $ 129)))))) 
 
 (SDEFUN |FFNBP;tableForDiscreteLogarithm;IT;26|
@@ -341,13 +323,10 @@
          (SEQ (COND ((QREFELT $ 14) (|FFNBP;initializeLog| $)))
               (LETT |tbl|
                     (SPADCALL
-                     (PROG1
-                         (LETT #1# |fac|
-                               . #2=(|FFNBP;tableForDiscreteLogarithm;IT;26|))
+                     (PROG1 (LETT #1# |fac|)
                        (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                          '(|Integer|) #1#))
-                     (QREFELT $ 51) (QREFELT $ 142))
-                    . #2#)
+                     (QREFELT $ 51) (QREFELT $ 142)))
               (EXIT
                (COND
                 ((QEQCAR |tbl| 1)
@@ -373,19 +352,15 @@
 
 (SDEFUN |FFNBP;trace;$Pi$;31| ((|a| $) (|d| |PositiveInteger|) ($ $))
         (SPROG ((|erg| ($)) (#1=#:G228 NIL) (|i| NIL) (|v| ($)))
-               (SEQ
-                (LETT |v| (SPADCALL |a| |d| (QREFELT $ 148))
-                      . #2=(|FFNBP;trace;$Pi$;31|))
-                (LETT |erg| |v| . #2#)
-                (SEQ (LETT |i| 2 . #2#)
-                     (LETT #1# (QUOTIENT2 (QREFELT $ 17) |d|) . #2#) G190
-                     (COND ((|greater_SI| |i| #1#) (GO G191)))
-                     (SEQ
-                      (EXIT
-                       (LETT |erg| (SPADCALL |erg| |v| (QREFELT $ 149))
-                             . #2#)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-                (EXIT |erg|)))) 
+               (SEQ (LETT |v| (SPADCALL |a| |d| (QREFELT $ 148)))
+                    (LETT |erg| |v|)
+                    (SEQ (LETT |i| 2) (LETT #1# (QUOTIENT2 (QREFELT $ 17) |d|))
+                         G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (LETT |erg| (SPADCALL |erg| |v| (QREFELT $ 149)))))
+                         (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+                    (EXIT |erg|)))) 
 
 (SDEFUN |FFNBP;characteristic;Nni;32| (($ |NonNegativeInteger|))
         (SPADCALL (QREFELT $ 150))) 
@@ -415,22 +390,20 @@
         (SPROG
          ((#1=#:G242 NIL) (|e| NIL) (#2=#:G241 NIL)
           (|a| (|Vector| (|Vector| GF))))
-         (SEQ
-          (LETT |a| (SPADCALL (QREFELT $ 17) (QREFELT $ 161))
-                . #3=(|FFNBP;basis;V;40|))
-          (EXIT
-           (SPADCALL
-            (PROGN
-             (LETT #2# NIL . #3#)
-             (SEQ (LETT |e| NIL . #3#)
-                  (LETT #1# (SPADCALL |a| (QREFELT $ 163)) . #3#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |e| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ (EXIT (LETT #2# (CONS |e| #2#) . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            (QREFELT $ 166)))))) 
+         (SEQ (LETT |a| (SPADCALL (QREFELT $ 17) (QREFELT $ 161)))
+              (EXIT
+               (SPADCALL
+                (PROGN
+                 (LETT #2# NIL)
+                 (SEQ (LETT |e| NIL) (LETT #1# (SPADCALL |a| (QREFELT $ 163)))
+                      G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |e| (CAR #1#)) NIL))
+                        (GO G191)))
+                      (SEQ (EXIT (LETT #2# (CONS |e| #2#))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                (QREFELT $ 166)))))) 
 
 (SDEFUN |FFNBP;^;$I$;41| ((|x| $) (|e| |Integer|) ($ $))
         (SEQ (COND ((QREFELT $ 16) (|FFNBP;initializeMult| $)))
@@ -468,11 +441,11 @@
 
 (SDEFUN |FFNBP;inGroundField?;$B;50| ((|x| $) ($ |Boolean|))
         (SPROG ((#1=#:G268 NIL) (|erg| (|Boolean|)) (#2=#:G269 NIL) (|i| NIL))
-               (SEQ (LETT |erg| 'T . #3=(|FFNBP;inGroundField?;$B;50|))
+               (SEQ (LETT |erg| 'T)
                     (SEQ
                      (EXIT
-                      (SEQ (LETT |i| 2 . #3#) (LETT #2# (QREFELT $ 17) . #3#)
-                           G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
+                      (SEQ (LETT |i| 2) (LETT #2# (QREFELT $ 17)) G190
+                           (COND ((|greater_SI| |i| #2#) (GO G191)))
                            (SEQ
                             (EXIT
                              (COND
@@ -481,11 +454,11 @@
                                           (SPADCALL |x| 1 (QREFELT $ 106))
                                           (QREFELT $ 112)))
                                (PROGN
-                                (LETT #1# (LETT |erg| NIL . #3#) . #3#)
-                                (GO #4=#:G265))))))
-                           (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                (LETT #1# (LETT |erg| NIL))
+                                (GO #3=#:G265))))))
+                           (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                            (EXIT NIL)))
-                     #4# (EXIT #1#))
+                     #3# (EXIT #1#))
                     (EXIT |erg|)))) 
 
 (SDEFUN |FFNBP;/;3$;51| ((|x| $) (|y| $) ($ $))
@@ -517,8 +490,7 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FiniteFieldNormalBasisExtensionByPolynomial|)
-                                               '|domainEqualList|)
-                    . #3=(|FiniteFieldNormalBasisExtensionByPolynomial|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -527,7 +499,7 @@
                        (|function|
                         |FiniteFieldNormalBasisExtensionByPolynomial;|)
                        #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -539,13 +511,11 @@
     (|pv$| NIL) (#4=#:G297 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN
-     (LETT DV$1 (|devaluate| |#1|)
-           . #5=(|FiniteFieldNormalBasisExtensionByPolynomial|))
-     (LETT DV$2 (|devaluate| |#2|) . #5#)
+     (LETT DV$1 (|devaluate| |#1|))
+     (LETT DV$2 (|devaluate| |#2|))
      (LETT |dv$|
-           (LIST '|FiniteFieldNormalBasisExtensionByPolynomial| DV$1 DV$2)
-           . #5#)
-     (LETT $ (GETREFV 211) . #5#)
+           (LIST '|FiniteFieldNormalBasisExtensionByPolynomial| DV$1 DV$2))
+     (LETT $ (GETREFV 211))
      (QSETREFV $ 0 |dv$|)
      (QSETREFV $ 3
                (LETT |pv$|
@@ -554,13 +524,12 @@
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicZero|))
                                          (LETT #4#
-                                               (|HasCategory| |#1| '(|Finite|))
-                                               . #5#)
+                                               (|HasCategory| |#1|
+                                                              '(|Finite|)))
                                          (OR
                                           (|HasCategory| |#1|
                                                          '(|CharacteristicNonZero|))
-                                          #4#)))
-                     . #5#))
+                                          #4#)))))
      (|haddProp| |$ConstructorCache|
                  '|FiniteFieldNormalBasisExtensionByPolynomial|
                  (LIST DV$1 DV$2) (CONS 1 $))
@@ -594,15 +563,14 @@
         (SETELT $ 17 (SPADCALL (QREFELT $ 20) (QREFELT $ 38)))
         (SETELT $ 23 (MAKEARR1 (QREFELT $ 17) NIL)))))
      (QSETREFV $ 43
-               (SEQ (LETT |qs| (SPADCALL '|q| (QREFELT $ 12)) . #5#)
+               (SEQ (LETT |qs| (SPADCALL '|q| (QREFELT $ 12)))
                     (EXIT
                      (SPADCALL
                       (LIST (QREFELT $ 13)
                             (SPADCALL (QREFELT $ 13) |qs| (QREFELT $ 39)))
                       (PROGN
-                       (LETT #3# NIL . #5#)
-                       (SEQ (LETT |i| 2 . #5#)
-                            (LETT #2# (- (QREFELT $ 17) 1) . #5#) G190
+                       (LETT #3# NIL)
+                       (SEQ (LETT |i| 2) (LETT #2# (- (QREFELT $ 17) 1)) G190
                             (COND ((|greater_SI| |i| #2#) (GO G191)))
                             (SEQ
                              (EXIT
@@ -615,9 +583,8 @@
                                                                             40))
                                                          (QREFELT $ 39))
                                                (QREFELT $ 39))
-                                     #3#)
-                                    . #5#)))
-                            (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                                     #3#))))
+                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT (NREVERSE #3#))))
                       (QREFELT $ 42)))))
      (QSETREFV $ 44 NIL)
@@ -627,8 +594,7 @@
                           (PROG1
                               (LETT #1#
                                     (- (SPADCALL (QREFELT $ 20) (QREFELT $ 38))
-                                       1)
-                                    . #5#)
+                                       1))
                             (|check_subtype2| (>= #1# 0)
                                               '(|NonNegativeInteger|)
                                               '(|Integer|) #1#))

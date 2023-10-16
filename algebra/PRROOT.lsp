@@ -17,81 +17,72 @@
           (#3=#:G113 NIL) (|i| NIL) (#4=#:G112 NIL)
           (|vvr| (|Matrix| (|Integer|))) (|vm| (|Matrix| F))
           (|vv| (|Vector| F)) (|nn| (|NonNegativeInteger|)))
-         (SEQ
-          (LETT |nn| (+ (SPADCALL |p| (QREFELT $ 9)) 1)
-                . #5=(|PRROOT;get_rational_roots;UPL;1|))
-          (LETT |vv| (SPADCALL |p| |nn| (QREFELT $ 11)) . #5#)
-          (LETT |vm|
-                (SPADCALL (LIST (SPADCALL |vv| (QREFELT $ 13))) (QREFELT $ 16))
-                . #5#)
-          (LETT |vvr| (SPADCALL |vm| (QREFELT $ 19)) . #5#)
-          (LETT |pl2|
-                (PROGN
-                 (LETT #4# NIL . #5#)
-                 (SEQ (LETT |i| 1 . #5#) (LETT #3# (ANROWS |vvr|) . #5#) G190
-                      (COND ((|greater_SI| |i| #3#) (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #4#
-                              (CONS
-                               (SPADCALL (SPADCALL |vvr| |i| (QREFELT $ 22))
-                                         (QREFELT $ 24))
-                               #4#)
-                              . #5#)))
-                      (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
-                      (EXIT (NREVERSE #4#))))
-                . #5#)
-          (LETT |eq2z| (SPADCALL |pl2| (QREFELT $ 26)) . #5#)
-          (LETT |ff| (SPADCALL |eq2z| (QREFELT $ 29)) . #5#)
-          (LETT |facl| (SPADCALL |ff| (QREFELT $ 34)) . #5#)
-          (LETT |res| NIL . #5#)
-          (SEQ (LETT |facr| NIL . #5#) (LETT #2# |facl| . #5#) G190
-               (COND
-                ((OR (ATOM #2#) (PROGN (LETT |facr| (CAR #2#) . #5#) NIL))
-                 (GO G191)))
-               (SEQ (LETT |fac| (QVELT |facr| 1) . #5#)
-                    (EXIT
-                     (COND
-                      ((SPADCALL (SPADCALL |fac| (QREFELT $ 35)) 1
-                                 (QREFELT $ 37))
-                       "iterate")
-                      ('T
-                       (SEQ
-                        (LETT |val1r|
-                              (SPADCALL
-                               (SPADCALL (SPADCALL |fac| 0 (QREFELT $ 40))
-                                         (SPADCALL |fac| (QREFELT $ 41))
-                                         (QREFELT $ 43))
-                               (QREFELT $ 44))
-                              . #5#)
-                        (EXIT (LETT |res| (CONS |val1r| |res|) . #5#)))))))
-               (LETT #2# (CDR #2#) . #5#) (GO G190) G191 (EXIT NIL))
-          (EXIT |res|)))) 
+         (SEQ (LETT |nn| (+ (SPADCALL |p| (QREFELT $ 9)) 1))
+              (LETT |vv| (SPADCALL |p| |nn| (QREFELT $ 11)))
+              (LETT |vm|
+                    (SPADCALL (LIST (SPADCALL |vv| (QREFELT $ 13)))
+                              (QREFELT $ 16)))
+              (LETT |vvr| (SPADCALL |vm| (QREFELT $ 19)))
+              (LETT |pl2|
+                    (PROGN
+                     (LETT #4# NIL)
+                     (SEQ (LETT |i| 1) (LETT #3# (ANROWS |vvr|)) G190
+                          (COND ((|greater_SI| |i| #3#) (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (LETT #4#
+                                  (CONS
+                                   (SPADCALL
+                                    (SPADCALL |vvr| |i| (QREFELT $ 22))
+                                    (QREFELT $ 24))
+                                   #4#))))
+                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                          (EXIT (NREVERSE #4#)))))
+              (LETT |eq2z| (SPADCALL |pl2| (QREFELT $ 26)))
+              (LETT |ff| (SPADCALL |eq2z| (QREFELT $ 29)))
+              (LETT |facl| (SPADCALL |ff| (QREFELT $ 34))) (LETT |res| NIL)
+              (SEQ (LETT |facr| NIL) (LETT #2# |facl|) G190
+                   (COND
+                    ((OR (ATOM #2#) (PROGN (LETT |facr| (CAR #2#)) NIL))
+                     (GO G191)))
+                   (SEQ (LETT |fac| (QVELT |facr| 1))
+                        (EXIT
+                         (COND
+                          ((SPADCALL (SPADCALL |fac| (QREFELT $ 35)) 1
+                                     (QREFELT $ 37))
+                           "iterate")
+                          ('T
+                           (SEQ
+                            (LETT |val1r|
+                                  (SPADCALL
+                                   (SPADCALL (SPADCALL |fac| 0 (QREFELT $ 40))
+                                             (SPADCALL |fac| (QREFELT $ 41))
+                                             (QREFELT $ 43))
+                                   (QREFELT $ 44)))
+                            (EXIT (LETT |res| (CONS |val1r| |res|))))))))
+                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
+              (EXIT |res|)))) 
 
 (SDEFUN |PRROOT;integerBound;UPI;2| ((|p| UP) ($ |Integer|))
         (SPROG
          ((|res| (|Integer|)) (|q| (|Integer|))
           (|qu| (|Union| (|Integer|) "failed")) (#1=#:G123 NIL) (|r| NIL)
           (|lr| (|List| (|Fraction| (|Integer|)))))
-         (SEQ
-          (LETT |lr| (SPADCALL |p| (QREFELT $ 46))
-                . #2=(|PRROOT;integerBound;UPI;2|))
-          (LETT |res| 0 . #2#)
-          (SEQ (LETT |r| NIL . #2#) (LETT #1# |lr| . #2#) G190
-               (COND
-                ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#) . #2#) NIL))
-                 (GO G191)))
-               (SEQ (LETT |qu| (SPADCALL |r| (QREFELT $ 48)) . #2#)
-                    (EXIT
-                     (COND ((QEQCAR |qu| 1) "iterate")
-                           ('T
-                            (SEQ (LETT |q| (QCDR |qu|) . #2#)
-                                 (EXIT
-                                  (COND
-                                   ((< |q| |res|)
-                                    (LETT |res| |q| . #2#)))))))))
-               (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT |res|)))) 
+         (SEQ (LETT |lr| (SPADCALL |p| (QREFELT $ 46))) (LETT |res| 0)
+              (SEQ (LETT |r| NIL) (LETT #1# |lr|) G190
+                   (COND
+                    ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#)) NIL))
+                     (GO G191)))
+                   (SEQ (LETT |qu| (SPADCALL |r| (QREFELT $ 48)))
+                        (EXIT
+                         (COND ((QEQCAR |qu| 1) "iterate")
+                               ('T
+                                (SEQ (LETT |q| (QCDR |qu|))
+                                     (EXIT
+                                      (COND
+                                       ((< |q| |res|) (LETT |res| |q|)))))))))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+              (EXIT |res|)))) 
 
 (DECLAIM (NOTINLINE |PolynomialRationalRoots;|)) 
 
@@ -104,13 +95,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|PolynomialRationalRoots|)
-                                               '|domainEqualList|)
-                    . #3=(|PolynomialRationalRoots|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |PolynomialRationalRoots;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|PolynomialRationalRoots|)))))))))) 
@@ -118,12 +108,12 @@
 (DEFUN |PolynomialRationalRoots;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|PolynomialRationalRoots|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|PolynomialRationalRoots| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 50) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|PolynomialRationalRoots| DV$1 DV$2))
+          (LETT $ (GETREFV 50))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PolynomialRationalRoots|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

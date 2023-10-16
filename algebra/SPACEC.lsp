@@ -256,7 +256,5 @@
                                                       ((|coerce|
                                                         ((|OutputForm|) $))
                                                        T))
-                                                    NIL NIL NIL))
-                                           . #2=(|ThreeSpaceCategory|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|ThreeSpaceCategory| |t#1|))))) 

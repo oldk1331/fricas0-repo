@@ -22,7 +22,5 @@
                                     ('T
                                      (LETT |BiCPO;CAT|
                                            (|Join| (|Dcpo| '|t#1|)
-                                                   (|CoDcpo| '|t#1|))
-                                           . #2=(|BiCPO|)))))
-                   . #2#)
+                                                   (|CoDcpo| '|t#1|)))))))
            (SETELT #1# 0 (LIST '|BiCPO| |t#1|))))) 

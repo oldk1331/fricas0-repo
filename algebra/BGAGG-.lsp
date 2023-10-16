@@ -1,29 +1,27 @@
 
 (SDEFUN |BGAGG-;construct;LA;1| ((|l| |List| S) ($ A))
         (SPROG ((|x| (A)) (#1=#:G114 NIL) (|s| NIL))
-               (SEQ
-                (LETT |x| (SPADCALL (QREFELT $ 8))
-                      . #2=(|BGAGG-;construct;LA;1|))
-                (SEQ (LETT |s| NIL . #2#) (LETT #1# |l| . #2#) G190
-                     (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |s| (CAR #1#) . #2#) NIL))
-                       (GO G191)))
-                     (SEQ
-                      (EXIT (LETT |x| (SPADCALL |s| |x| (QREFELT $ 9)) . #2#)))
-                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-                (EXIT |x|)))) 
+               (SEQ (LETT |x| (SPADCALL (QREFELT $ 8)))
+                    (SEQ (LETT |s| NIL) (LETT #1# |l|) G190
+                         (COND
+                          ((OR (ATOM #1#) (PROGN (LETT |s| (CAR #1#)) NIL))
+                           (GO G191)))
+                         (SEQ
+                          (EXIT (LETT |x| (SPADCALL |s| |x| (QREFELT $ 9)))))
+                         (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                    (EXIT |x|)))) 
 
 (DECLAIM (NOTINLINE |BagAggregate&;|)) 
 
 (DEFUN |BagAggregate&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|BagAggregate&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|BagAggregate&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 12) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|BagAggregate&| DV$1 DV$2))
+          (LETT $ (GETREFV 12))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

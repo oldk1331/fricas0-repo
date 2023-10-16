@@ -29,7 +29,5 @@
                                                     '(((|Algebra| |t#1|)
                                                        (|has| |t#1|
                                                               (|CommutativeRing|))))
-                                                    NIL NIL))
-                                           . #2=(|XAlgebra|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|XAlgebra| |t#1|))))) 

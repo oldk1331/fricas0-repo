@@ -7,46 +7,44 @@
           L F)
          ($ |Record| (|:| |ltilde| L) (|:| |r| (|Union| L "failed"))))
         (SPROG ((|rt| (L)) (#3=#:G108 NIL) (|rec| #1#) (|a| (L)))
-               (SEQ
-                (LETT |a| (SPADCALL |l| (QREFELT $ 8))
-                      . #4=(|INTDSOL;integrate_sols;LMR;1|))
-                (LETT |rec| (SPADCALL |a| (|spadConstant| $ 9) |rat_solve|)
-                      . #4#)
-                (EXIT
-                 (COND
-                  ((QEQCAR (QCAR |rec|) 1)
-                   (CONS
-                    (SPADCALL |l|
-                              (SPADCALL (|spadConstant| $ 9) 1 (QREFELT $ 12))
-                              (QREFELT $ 13))
-                    (CONS 1 "failed")))
-                  ('T
-                   (SEQ
-                    (LETT |rt|
-                          (SPADCALL
-                           (SPADCALL (|spadConstant| $ 10)
-                                     (SPADCALL
-                                      (PROG2 (LETT #3# (QCAR |rec|) . #4#)
-                                          (QCDR #3#)
-                                        (|check_union2| (QEQCAR #3# 0)
-                                                        (QREFELT $ 6)
-                                                        (|Union| (QREFELT $ 6)
-                                                                 #2#)
-                                                        #3#))
-                                      |l| (QREFELT $ 14))
-                                     (QREFELT $ 15))
-                           (SPADCALL (|spadConstant| $ 9) 1 (QREFELT $ 12))
-                           (QREFELT $ 16))
-                          . #4#)
+               (SEQ (LETT |a| (SPADCALL |l| (QREFELT $ 8)))
+                    (LETT |rec|
+                          (SPADCALL |a| (|spadConstant| $ 9) |rat_solve|))
                     (EXIT
-                     (CONS
-                      (SPADCALL (|spadConstant| $ 10)
-                                (SPADCALL |rt|
-                                          (SPADCALL (|spadConstant| $ 9) 1
-                                                    (QREFELT $ 12))
-                                          (QREFELT $ 13))
-                                (QREFELT $ 15))
-                      (CONS 0 |rt|)))))))))) 
+                     (COND
+                      ((QEQCAR (QCAR |rec|) 1)
+                       (CONS
+                        (SPADCALL |l|
+                                  (SPADCALL (|spadConstant| $ 9) 1
+                                            (QREFELT $ 12))
+                                  (QREFELT $ 13))
+                        (CONS 1 "failed")))
+                      ('T
+                       (SEQ
+                        (LETT |rt|
+                              (SPADCALL
+                               (SPADCALL (|spadConstant| $ 10)
+                                         (SPADCALL
+                                          (PROG2 (LETT #3# (QCAR |rec|))
+                                              (QCDR #3#)
+                                            (|check_union2| (QEQCAR #3# 0)
+                                                            (QREFELT $ 6)
+                                                            (|Union|
+                                                             (QREFELT $ 6) #2#)
+                                                            #3#))
+                                          |l| (QREFELT $ 14))
+                                         (QREFELT $ 15))
+                               (SPADCALL (|spadConstant| $ 9) 1 (QREFELT $ 12))
+                               (QREFELT $ 16)))
+                        (EXIT
+                         (CONS
+                          (SPADCALL (|spadConstant| $ 10)
+                                    (SPADCALL |rt|
+                                              (SPADCALL (|spadConstant| $ 9) 1
+                                                        (QREFELT $ 12))
+                                              (QREFELT $ 13))
+                                    (QREFELT $ 15))
+                          (CONS 0 |rt|)))))))))) 
 
 (DECLAIM (NOTINLINE |IntegrateSolutions;|)) 
 
@@ -59,13 +57,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|IntegrateSolutions|)
-                                               '|domainEqualList|)
-                    . #3=(|IntegrateSolutions|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |IntegrateSolutions;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|IntegrateSolutions|)))))))))) 
@@ -73,12 +70,12 @@
 (DEFUN |IntegrateSolutions;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegrateSolutions|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|IntegrateSolutions| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 23) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|IntegrateSolutions| DV$1 DV$2))
+          (LETT $ (GETREFV 23))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|IntegrateSolutions|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

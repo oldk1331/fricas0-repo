@@ -27,7 +27,5 @@
                                                     '(((|coproduct| (|t#2| $))
                                                        T)
                                                       ((|counit| (|t#1| $)) T))
-                                                    NIL NIL NIL))
-                                           . #2=(|Coalgebra|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|Coalgebra| |t#1| |t#2|))))) 

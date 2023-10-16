@@ -15,8 +15,7 @@
                            (|mkCategory|
                             '(((+ ($ $ $)) T)
                               ((* ($ (|PositiveInteger|) $)) T))
-                            NIL NIL NIL))
-                   |AbelianSemiGroup|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|AbelianSemiGroup|))))) 
 
 (MAKEPROP '|AbelianSemiGroup| 'NILADIC T) 

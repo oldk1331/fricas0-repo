@@ -58,7 +58,5 @@
                                                 (|has| |t#1| (|GcdDomain|))))
                                              '(((|EntireRing|)
                                                 (|has| |t#1| (|EntireRing|))))
-                                             NIL NIL))
-                                           . #2=(|FiniteAbelianMonoidRing|)))))
-                   . #2#)
+                                             NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FiniteAbelianMonoidRing| |t#1| |t#2|))))) 

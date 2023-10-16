@@ -19,8 +19,7 @@
                                  (|SparseUnivariatePolynomial| $)
                                  (|SparseUnivariatePolynomial| $)))
                                T))
-                            NIL NIL NIL))
-                   |GcdDomain|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|GcdDomain|))))) 
 
 (MAKEPROP '|GcdDomain| 'NILADIC T) 

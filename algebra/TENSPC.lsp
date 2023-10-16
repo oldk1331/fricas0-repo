@@ -35,7 +35,5 @@
                                                                       |t#3|
                                                                       |t#3|)
                                              T))
-                                          NIL NIL))
-                                 . #2=(|TensorPowerCategory|)))))
-                   . #2#)
+                                          NIL NIL)))))))
            (SETELT #1# 0 (LIST '|TensorPowerCategory| |t#1| |t#2| |t#3|))))) 

@@ -2,32 +2,28 @@
 (SDEFUN |ACFS-;rootOf;2S;1| ((|p| S) ($ S))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
-                ((NULL
-                  (LETT |l| (SPADCALL |p| (QREFELT $ 9)) |ACFS-;rootOf;2S;1|))
+                ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 9))))
                  (|error| "rootOf: constant expression"))
                 ('T (SPADCALL |p| (|SPADfirst| |l|) (QREFELT $ 11)))))) 
 
 (SDEFUN |ACFS-;rootsOf;SL;2| ((|p| S) ($ |List| S))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
-                ((NULL
-                  (LETT |l| (SPADCALL |p| (QREFELT $ 9)) |ACFS-;rootsOf;SL;2|))
+                ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 9))))
                  (|error| "rootsOf: constant expression"))
                 ('T (SPADCALL |p| (|SPADfirst| |l|) (QREFELT $ 14)))))) 
 
 (SDEFUN |ACFS-;zeroOf;2S;3| ((|p| S) ($ S))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
-                ((NULL
-                  (LETT |l| (SPADCALL |p| (QREFELT $ 9)) |ACFS-;zeroOf;2S;3|))
+                ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 9))))
                  (|error| "zeroOf: constant expression"))
                 ('T (SPADCALL |p| (|SPADfirst| |l|) (QREFELT $ 16)))))) 
 
 (SDEFUN |ACFS-;zerosOf;SL;4| ((|p| S) ($ |List| S))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
-                ((NULL
-                  (LETT |l| (SPADCALL |p| (QREFELT $ 9)) |ACFS-;zerosOf;SL;4|))
+                ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 9))))
                  (|error| "zerosOf: constant expression"))
                 ('T (SPADCALL |p| (|SPADfirst| |l|) (QREFELT $ 18)))))) 
 
@@ -40,10 +36,8 @@
                 (SPADCALL
                  (LETT |f|
                        (SPADCALL |p| (SPADCALL |x| (QREFELT $ 21))
-                                 (QREFELT $ 24))
-                       . #1=(|ACFS-;zeroOf;SSS;5|))
-                 (QREFELT $ 27))
-                . #1#)
+                                 (QREFELT $ 24)))
+                 (QREFELT $ 27)))
           (EXIT
            (COND
             ((SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 28)) (QREFELT $ 30))
@@ -62,10 +56,8 @@
                 (SPADCALL
                  (LETT |f|
                        (SPADCALL |p| (SPADCALL |x| (QREFELT $ 21))
-                                 (QREFELT $ 24))
-                       . #1=(|ACFS-;rootOf;SSS;6|))
-                 (QREFELT $ 27))
-                . #1#)
+                                 (QREFELT $ 24)))
+                 (QREFELT $ 27)))
           (EXIT
            (COND
             ((SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 28)) (QREFELT $ 30))
@@ -84,10 +76,8 @@
                 (SPADCALL
                  (LETT |f|
                        (SPADCALL |p| (SPADCALL |x| (QREFELT $ 21))
-                                 (QREFELT $ 24))
-                       . #1=(|ACFS-;zerosOf;SSL;7|))
-                 (QREFELT $ 27))
-                . #1#)
+                                 (QREFELT $ 24)))
+                 (QREFELT $ 27)))
           (EXIT
            (COND
             ((SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 28)) (QREFELT $ 30))
@@ -105,10 +95,8 @@
                 (SPADCALL
                  (LETT |f|
                        (SPADCALL |p| (SPADCALL |x| (QREFELT $ 21))
-                                 (QREFELT $ 24))
-                       . #1=(|ACFS-;rootsOf;SSL;8|))
-                 (QREFELT $ 27))
-                . #1#)
+                                 (QREFELT $ 24)))
+                 (QREFELT $ 27)))
           (EXIT
            (COND
             ((SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 28)) (QREFELT $ 30))
@@ -120,47 +108,39 @@
 (SDEFUN |ACFS-;rootsOf;SupSL;9|
         ((|p| |SparseUnivariatePolynomial| S) (|y| |Symbol|) ($ |List| S))
         (SPROG ((|r| (|Union| S "failed")))
-               (SEQ
-                (LETT |r| (SPADCALL |p| (QREFELT $ 44))
-                      |ACFS-;rootsOf;SupSL;9|)
-                (EXIT
-                 (COND
-                  ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) |y| (QREFELT $ 14)))
-                  ('T (SPADCALL |p| |y| (QREFELT $ 46)))))))) 
+               (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 44)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) |y| (QREFELT $ 14)))
+                      ('T (SPADCALL |p| |y| (QREFELT $ 46)))))))) 
 
 (SDEFUN |ACFS-;zerosOf;SupSL;10|
         ((|p| |SparseUnivariatePolynomial| S) (|y| |Symbol|) ($ |List| S))
         (SPROG ((|r| (|Union| S "failed")))
-               (SEQ
-                (LETT |r| (SPADCALL |p| (QREFELT $ 44))
-                      |ACFS-;zerosOf;SupSL;10|)
-                (EXIT
-                 (COND
-                  ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) |y| (QREFELT $ 18)))
-                  ('T (SPADCALL |p| |y| (QREFELT $ 48)))))))) 
+               (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 44)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) |y| (QREFELT $ 18)))
+                      ('T (SPADCALL |p| |y| (QREFELT $ 48)))))))) 
 
 (SDEFUN |ACFS-;zeroOf;SupSS;11|
         ((|p| |SparseUnivariatePolynomial| S) (|y| |Symbol|) ($ S))
         (SPROG ((|r| (|Union| S "failed")))
-               (SEQ
-                (LETT |r| (SPADCALL |p| (QREFELT $ 44))
-                      |ACFS-;zeroOf;SupSS;11|)
-                (EXIT
-                 (COND
-                  ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) |y| (QREFELT $ 16)))
-                  ('T (SPADCALL |p| |y| (QREFELT $ 50)))))))) 
+               (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 44)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) |y| (QREFELT $ 16)))
+                      ('T (SPADCALL |p| |y| (QREFELT $ 50)))))))) 
 
 (DECLAIM (NOTINLINE |AlgebraicallyClosedFunctionSpace&;|)) 
 
 (DEFUN |AlgebraicallyClosedFunctionSpace&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|AlgebraicallyClosedFunctionSpace&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|AlgebraicallyClosedFunctionSpace&| DV$1 DV$2)
-                . #1#)
-          (LETT $ (GETREFV 53) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|AlgebraicallyClosedFunctionSpace&| DV$1 DV$2))
+          (LETT $ (GETREFV 53))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -168,8 +148,7 @@
                                              (LIST
                                               (|HasCategory| |#2|
                                                              '(|RetractableTo|
-                                                               (|Integer|)))))
-                          . #1#))
+                                                               (|Integer|)))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

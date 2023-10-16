@@ -168,7 +168,5 @@
                                                 ((|rationalPoints|
                                                   ((|List| (|List| |t#1|))))
                                                  (|has| |t#1| (|Finite|))))
-                                              NIL NIL NIL))
-                                            . #3=(|FunctionFieldCategory|))))))
-                   . #3#)
+                                              NIL NIL NIL))))))))
            (SETELT #1# 0 (LIST '|FunctionFieldCategory| |t#1| |t#2| |t#3|))))) 

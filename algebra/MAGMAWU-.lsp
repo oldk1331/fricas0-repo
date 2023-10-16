@@ -14,36 +14,32 @@
                (SEQ
                 (COND ((ZEROP |n|) (|spadConstant| $ 7))
                       ('T
-                       (SEQ
-                        (LETT |res| (|spadConstant| $ 7)
-                              . #2=(|MAGMAWU-;rightPower;SNniS;4|))
-                        (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
-                             (COND ((|greater_SI| |i| #1#) (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT |res| (SPADCALL |res| |a| (QREFELT $ 17))
-                                     . #2#)))
-                             (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
-                             (EXIT NIL))
-                        (EXIT |res|))))))) 
+                       (SEQ (LETT |res| (|spadConstant| $ 7))
+                            (SEQ (LETT |i| 1) (LETT #1# |n|) G190
+                                 (COND ((|greater_SI| |i| #1#) (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (LETT |res|
+                                         (SPADCALL |res| |a| (QREFELT $ 17)))))
+                                 (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                                 (EXIT NIL))
+                            (EXIT |res|))))))) 
 
 (SDEFUN |MAGMAWU-;leftPower;SNniS;5| ((|a| S) (|n| |NonNegativeInteger|) ($ S))
         (SPROG ((|res| (S)) (#1=#:G127 NIL) (|i| NIL))
                (SEQ
                 (COND ((ZEROP |n|) (|spadConstant| $ 7))
                       ('T
-                       (SEQ
-                        (LETT |res| (|spadConstant| $ 7)
-                              . #2=(|MAGMAWU-;leftPower;SNniS;5|))
-                        (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
-                             (COND ((|greater_SI| |i| #1#) (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT |res| (SPADCALL |a| |res| (QREFELT $ 17))
-                                     . #2#)))
-                             (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
-                             (EXIT NIL))
-                        (EXIT |res|))))))) 
+                       (SEQ (LETT |res| (|spadConstant| $ 7))
+                            (SEQ (LETT |i| 1) (LETT #1# |n|) G190
+                                 (COND ((|greater_SI| |i| #1#) (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (LETT |res|
+                                         (SPADCALL |a| |res| (QREFELT $ 17)))))
+                                 (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                                 (EXIT NIL))
+                            (EXIT |res|))))))) 
 
 (SDEFUN |MAGMAWU-;recip;SU;6| ((|x| S) ($ |Union| S "failed"))
         (COND ((SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9)) (CONS 0 |x|))
@@ -60,11 +56,11 @@
 (DEFUN |MagmaWithUnit&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|MagmaWithUnit&|))
-          (LETT |dv$| (LIST '|MagmaWithUnit&| DV$1) . #1#)
-          (LETT $ (GETREFV 25) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|MagmaWithUnit&| DV$1))
+          (LETT $ (GETREFV 25))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

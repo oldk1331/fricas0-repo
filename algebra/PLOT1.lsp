@@ -30,12 +30,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|PlotFunctions1|)
-                                               '|domainEqualList|)
-                    . #3=(|PlotFunctions1|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|PlotFunctions1;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|PlotFunctions1;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|PlotFunctions1|)))))))))) 
@@ -43,11 +41,11 @@
 (DEFUN |PlotFunctions1;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|PlotFunctions1|))
-          (LETT |dv$| (LIST '|PlotFunctions1| DV$1) . #1#)
-          (LETT $ (GETREFV 21) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|PlotFunctions1| DV$1))
+          (LETT $ (GETREFV 21))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PlotFunctions1| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

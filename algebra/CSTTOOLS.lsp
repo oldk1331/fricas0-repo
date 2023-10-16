@@ -3,66 +3,61 @@
         (SPROG ((#1=#:G123 NIL) (#2=#:G124 NIL) (|y| (ST)) (|i| NIL))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |y| |x| . #3=(|CSTTOOLS;cycleElt;STU;1|))
+                 (SEQ (LETT |y| |x|)
                       (EXIT
-                       (SEQ (LETT |i| 0 . #3#) G190 NIL
+                       (SEQ (LETT |i| 0) G190 NIL
                             (SEQ
                              (EXIT
                               (COND
                                ((OR (SPADCALL |y| (QREFELT $ 9))
                                     (SPADCALL |y| (QREFELT $ 10)))
                                 (PROGN
-                                 (LETT #2# (CONS 1 "failed") . #3#)
-                                 (GO #4=#:G122)))
+                                 (LETT #2# (CONS 1 "failed"))
+                                 (GO #3=#:G122)))
                                ('T
-                                (SEQ
-                                 (LETT |y| (SPADCALL |y| (QREFELT $ 11)) . #3#)
-                                 (COND
-                                  ((ODDP |i|)
-                                   (LETT |x| (SPADCALL |x| (QREFELT $ 11))
-                                         . #3#)))
-                                 (EXIT
-                                  (COND
-                                   ((SPADCALL |x| |y| (QREFELT $ 12))
-                                    (PROGN
-                                     (LETT #1#
-                                           (PROGN
-                                            (LETT #2# (CONS 0 |y|) . #3#)
-                                            (GO #4#))
-                                           . #3#)
-                                     (GO #5=#:G116)))))))))
-                             #5# (EXIT #1#))
-                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                (SEQ (LETT |y| (SPADCALL |y| (QREFELT $ 11)))
+                                     (COND
+                                      ((ODDP |i|)
+                                       (LETT |x|
+                                             (SPADCALL |x| (QREFELT $ 11)))))
+                                     (EXIT
+                                      (COND
+                                       ((SPADCALL |x| |y| (QREFELT $ 12))
+                                        (PROGN
+                                         (LETT #1#
+                                               (PROGN
+                                                (LETT #2# (CONS 0 |y|))
+                                                (GO #3#)))
+                                         (GO #4=#:G116)))))))))
+                             #4# (EXIT #1#))
+                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT NIL)))))
-                #4# (EXIT #2#)))) 
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |CSTTOOLS;computeCycleLength;STNni;2|
         ((|cycElt| ST) ($ |NonNegativeInteger|))
         (SPROG ((#1=#:G129 NIL) (#2=#:G130 NIL) (|y| (ST)) (|i| NIL))
                (SEQ
                 (EXIT
-                 (SEQ
-                  (LETT |y| |cycElt|
-                        . #3=(|CSTTOOLS;computeCycleLength;STNni;2|))
-                  (EXIT
-                   (SEQ (LETT |i| 1 . #3#) G190 NIL
-                        (SEQ
-                         (EXIT
-                          (SEQ (LETT |y| (SPADCALL |y| (QREFELT $ 11)) . #3#)
-                               (EXIT
-                                (COND
-                                 ((SPADCALL |y| |cycElt| (QREFELT $ 12))
-                                  (PROGN
-                                   (LETT #1#
-                                         (PROGN
-                                          (LETT #2# |i| . #3#)
-                                          (GO #4=#:G128))
-                                         . #3#)
-                                   (GO #5=#:G125)))))))
-                         #5# (EXIT #1#))
-                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                        (EXIT NIL)))))
-                #4# (EXIT #2#)))) 
+                 (SEQ (LETT |y| |cycElt|)
+                      (EXIT
+                       (SEQ (LETT |i| 1) G190 NIL
+                            (SEQ
+                             (EXIT
+                              (SEQ (LETT |y| (SPADCALL |y| (QREFELT $ 11)))
+                                   (EXIT
+                                    (COND
+                                     ((SPADCALL |y| |cycElt| (QREFELT $ 12))
+                                      (PROGN
+                                       (LETT #1#
+                                             (PROGN
+                                              (LETT #2# |i|)
+                                              (GO #3=#:G128)))
+                                       (GO #4=#:G125)))))))
+                             #4# (EXIT #1#))
+                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                            (EXIT NIL)))))
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |CSTTOOLS;computeCycleEntry;3ST;3| ((|x| ST) (|cycElt| ST) ($ ST))
         (SPROG ((|y| (ST)) (#1=#:G136 NIL))
@@ -71,22 +66,21 @@
                  (SEQ
                   (LETT |y|
                         (SPADCALL |x| (SPADCALL |cycElt| (QREFELT $ 16))
-                                  (QREFELT $ 17))
-                        . #2=(|CSTTOOLS;computeCycleEntry;3ST;3|))
+                                  (QREFELT $ 17)))
                   (EXIT
                    (SEQ G190 NIL
                         (SEQ
                          (EXIT
                           (COND
                            ((SPADCALL |x| |y| (QREFELT $ 12))
-                            (PROGN (LETT #1# |x| . #2#) (GO #3=#:G135)))
+                            (PROGN (LETT #1# |x|) (GO #2=#:G135)))
                            ('T
-                            (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 11)) . #2#)
+                            (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 11)))
                                  (EXIT
-                                  (LETT |y| (SPADCALL |y| (QREFELT $ 11))
-                                        . #2#)))))))
+                                  (LETT |y|
+                                        (SPADCALL |y| (QREFELT $ 11)))))))))
                         NIL (GO G190) G191 (EXIT NIL)))))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |CyclicStreamTools;|)) 
 
@@ -99,13 +93,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|CyclicStreamTools|)
-                                               '|domainEqualList|)
-                    . #3=(|CyclicStreamTools|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |CyclicStreamTools;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|CyclicStreamTools|)))))))))) 
@@ -113,12 +106,12 @@
 (DEFUN |CyclicStreamTools;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|CyclicStreamTools|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|CyclicStreamTools| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 19) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|CyclicStreamTools| DV$1 DV$2))
+          (LETT $ (GETREFV 19))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CyclicStreamTools| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

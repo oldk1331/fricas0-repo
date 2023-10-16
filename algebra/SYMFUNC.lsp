@@ -20,23 +20,20 @@
          (SEQ
           (|SYMFUNC;coef_vect|
            (PROGN
-            (LETT #1# NIL . #6=(|SYMFUNC;symFunc;LV;3|))
-            (SEQ (LETT |a| NIL . #6#) (LETT #5# |l| . #6#) G190
+            (LETT #1# NIL)
+            (SEQ (LETT |a| NIL) (LETT #5# |l|) G190
                  (COND
-                  ((OR (ATOM #5#) (PROGN (LETT |a| (CAR #5#) . #6#) NIL))
-                   (GO G191)))
+                  ((OR (ATOM #5#) (PROGN (LETT |a| (CAR #5#)) NIL)) (GO G191)))
                  (SEQ
                   (EXIT
                    (PROGN
                     (LETT #4#
                           (SPADCALL
                            (SPADCALL (|spadConstant| $ 12) 1 (QREFELT $ 13))
-                           (SPADCALL |a| (QREFELT $ 14)) (QREFELT $ 15))
-                          . #6#)
-                    (COND
-                     (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 20)) . #6#))
-                     ('T (PROGN (LETT #2# #4# . #6#) (LETT #1# 'T . #6#)))))))
-                 (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
+                           (SPADCALL |a| (QREFELT $ 14)) (QREFELT $ 15)))
+                    (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 20))))
+                          ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
+                 (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
             (COND (#1# #2#) ('T (|spadConstant| $ 19))))
            (LENGTH |l|) $)))) 
 
@@ -51,12 +48,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|SymmetricFunctions|)
-                                               '|domainEqualList|)
-                    . #3=(|SymmetricFunctions|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|SymmetricFunctions;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|SymmetricFunctions;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|SymmetricFunctions|)))))))))) 
@@ -64,11 +59,11 @@
 (DEFUN |SymmetricFunctions;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|SymmetricFunctions|))
-          (LETT |dv$| (LIST '|SymmetricFunctions| DV$1) . #1#)
-          (LETT $ (GETREFV 23) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|SymmetricFunctions| DV$1))
+          (LETT $ (GETREFV 23))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SymmetricFunctions| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

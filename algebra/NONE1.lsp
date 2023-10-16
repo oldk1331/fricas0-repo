@@ -14,12 +14,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|NoneFunctions1|)
-                                               '|domainEqualList|)
-                    . #3=(|NoneFunctions1|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|NoneFunctions1;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|NoneFunctions1;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|NoneFunctions1|)))))))))) 
@@ -27,11 +25,11 @@
 (DEFUN |NoneFunctions1;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|NoneFunctions1|))
-          (LETT |dv$| (LIST '|NoneFunctions1| DV$1) . #1#)
-          (LETT $ (GETREFV 9) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|NoneFunctions1| DV$1))
+          (LETT $ (GETREFV 9))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|NoneFunctions1| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

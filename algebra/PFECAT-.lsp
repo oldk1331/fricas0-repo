@@ -11,9 +11,8 @@
                           (LIST
                            (LIST (|spadConstant| $ 10)
                                  (SPADCALL |f| (QREFELT $ 11))))
-                          (QREFELT $ 14))
-                         . #2=(|PFECAT-;charthRoot;SU;1|))
-                   (LETT |ans| (SPADCALL |m| (QREFELT $ 17)) . #2#)
+                          (QREFELT $ 14)))
+                   (LETT |ans| (SPADCALL |m| (QREFELT $ 17)))
                    (EXIT
                     (COND ((QEQCAR |ans| 1) (CONS 1 "failed"))
                           (#1#
@@ -38,18 +37,16 @@
 (DEFUN |PolynomialFactorizationExplicit&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|PolynomialFactorizationExplicit&|))
-          (LETT |dv$| (LIST '|PolynomialFactorizationExplicit&| DV$1) . #1#)
-          (LETT $ (GETREFV 36) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|PolynomialFactorizationExplicit&| DV$1))
+          (LETT $ (GETREFV 36))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
-                                                             '(|CharacteristicNonZero|))))
-                          . #1#))
+                                                             '(|CharacteristicNonZero|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

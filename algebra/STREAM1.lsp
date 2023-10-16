@@ -6,14 +6,14 @@
 
 (SDEFUN |STREAM1;concat;SS;1!0| (($$ NIL))
         (PROG (|z| $)
-          (LETT |z| (QREFELT $$ 1) . #1=(|STREAM1;concat;SS;1|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |z| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPROG ((|x| NIL))
                    (COND
                     ((SPADCALL |z| (QREFELT $ 9)) (SPADCALL (QREFELT $ 11)))
-                    ((SPADCALL (LETT |x| (SPADCALL |z| (QREFELT $ 12)) NIL)
+                    ((SPADCALL (LETT |x| (SPADCALL |z| (QREFELT $ 12)))
                                (QREFELT $ 13))
                      (SPADCALL (SPADCALL |z| (QREFELT $ 14)) (QREFELT $ 15)))
                     ('T
@@ -36,12 +36,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|StreamFunctions1|)
-                                               '|domainEqualList|)
-                    . #3=(|StreamFunctions1|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|StreamFunctions1;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|StreamFunctions1;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|StreamFunctions1|)))))))))) 
@@ -49,11 +47,11 @@
 (DEFUN |StreamFunctions1;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|StreamFunctions1|))
-          (LETT |dv$| (LIST '|StreamFunctions1| DV$1) . #1#)
-          (LETT $ (GETREFV 22) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|StreamFunctions1| DV$1))
+          (LETT $ (GETREFV 22))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|StreamFunctions1| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

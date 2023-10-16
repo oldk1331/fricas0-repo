@@ -83,7 +83,7 @@
 
 (SDEFUN |DROPT;range;L$;20| ((|tup| |List| (|Segment| (|Float|))) ($ $))
         (SPROG ((|n| (|NonNegativeInteger|)))
-               (SEQ (LETT |n| (|DROPT;length| |tup| $) |DROPT;range;L$;20|)
+               (SEQ (LETT |n| (|DROPT;length| |tup| $))
                     (EXIT
                      (COND
                       ((SPADCALL |n| 3 (QREFELT $ 46))
@@ -97,7 +97,7 @@
 (SDEFUN |DROPT;range;L$;21|
         ((|tup| |List| (|Segment| (|Fraction| (|Integer|)))) ($ $))
         (SPROG ((|n| (|NonNegativeInteger|)))
-               (SEQ (LETT |n| (|DROPT;lengthR| |tup| $) |DROPT;range;L$;21|)
+               (SEQ (LETT |n| (|DROPT;lengthR| |tup| $))
                     (EXIT
                      (COND
                       ((SPADCALL |n| 3 (QREFELT $ 46))
@@ -147,25 +147,21 @@
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |x| NIL . #4=(|DROPT;option?;LSB;31|))
-                         (LETT #3# |l| . #4#) G190
+                    (SEQ (LETT |x| NIL) (LETT #3# |l|) G190
                          (COND
-                          ((OR (ATOM #3#)
-                               (PROGN (LETT |x| (CAR #3#) . #4#) NIL))
+                          ((OR (ATOM #3#) (PROGN (LETT |x| (CAR #3#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (COND
                             ((EQUAL (QCAR |x|) |s|)
                              (PROGN
-                              (LETT #1#
-                                    (PROGN (LETT #2# 'T . #4#) (GO #5=#:G155))
-                                    . #4#)
-                              (GO #6=#:G153))))))
-                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #6# (EXIT #1#))
+                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G155)))
+                              (GO #5=#:G153))))))
+                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #1#))
                   (EXIT NIL)))
-                #5# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (SDEFUN |DROPT;option;LSU;32|
         ((|l| |List| $) (|s| |Symbol|) ($ |Union| (|Any|) "failed"))
@@ -175,11 +171,9 @@
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |x| NIL . #4=(|DROPT;option;LSU;32|))
-                         (LETT #3# |l| . #4#) G190
+                    (SEQ (LETT |x| NIL) (LETT #3# |l|) G190
                          (COND
-                          ((OR (ATOM #3#)
-                               (PROGN (LETT |x| (CAR #3#) . #4#) NIL))
+                          ((OR (ATOM #3#) (PROGN (LETT |x| (CAR #3#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
@@ -188,14 +182,13 @@
                              (PROGN
                               (LETT #1#
                                     (PROGN
-                                     (LETT #2# (CONS 0 (QCDR |x|)) . #4#)
-                                     (GO #5=#:G169))
-                                    . #4#)
-                              (GO #6=#:G164))))))
-                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #6# (EXIT #1#))
+                                     (LETT #2# (CONS 0 (QCDR |x|)))
+                                     (GO #4=#:G169)))
+                              (GO #5=#:G164))))))
+                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #1#))
                   (EXIT (CONS 1 "failed"))))
-                #5# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |DrawOption;|)) 
 
@@ -204,8 +197,7 @@
          (PROG (#1=#:G174)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|DrawOption|)
-                    . #2=(|DrawOption|))
+             ((LETT #1# (HGET |$ConstructorCache| '|DrawOption|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -213,17 +205,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|DrawOption|
                              (LIST (CONS NIL (CONS 1 (|DrawOption;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|DrawOption|)))))))))) 
 
 (DEFUN |DrawOption;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|DrawOption|) . #1=(|DrawOption|))
-          (LETT $ (GETREFV 91) . #1#)
+          (LETT |dv$| '(|DrawOption|))
+          (LETT $ (GETREFV 91))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DrawOption| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

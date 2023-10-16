@@ -13,8 +13,7 @@
              (LETT #1#
                    (|Join|
                     (|mkCategory| '(((|generators| ((|List| $))) T)) NIL NIL
-                                  NIL))
-                   |FinitelyGenerated|)
+                                  NIL)))
            (SETELT #1# 0 '(|FinitelyGenerated|))))) 
 
 (MAKEPROP '|FinitelyGenerated| 'NILADIC T) 

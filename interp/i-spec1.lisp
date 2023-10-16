@@ -478,7 +478,7 @@
 ;   putHist(saeTypeSynonym,'value,saeTypeSynonymValue,$e)
 ;   putHist(a,'mode,sae,$e)
 ;   putHist(a,'value,T2:= objNew(expr,sae),$e)
-;   clearDependencies(a,true)
+;   clearDependencies(a)
 ;   if $printTypeIfTrue then
 ;     sayKeyedMsg("S2IS0003",NIL)
 ;     sayMSG concat ['%l,'"   ",saeTypeSynonym,'" := ",
@@ -545,7 +545,7 @@
               (|putHist| |saeTypeSynonym| '|value| |saeTypeSynonymValue| |$e|)
               (|putHist| |a| '|mode| |sae| |$e|)
               (|putHist| |a| '|value| (SETQ T2 (|objNew| |expr| |sae|)) |$e|)
-              (|clearDependencies| |a| T)
+              (|clearDependencies| |a|)
               (COND
                (|$printTypeIfTrue| (|sayKeyedMsg| 'S2IS0003 NIL)
                 (|sayMSG|
@@ -1725,9 +1725,9 @@
 ;       getArgValue(step,$Integer),
 ;         :[getArgValue(upper,$Integer) for upper in upperList]]
 ;   itr is ['ISTEP,index,lower,step,:upperList] =>
-;     ['ISTEP,getUnname index,getArgValue(lower,$SmallInteger),
-;       getArgValue(step,$SmallInteger),
-;         :[getArgValue(upper,$SmallInteger) for upper in upperList]]
+;     ['ISTEP, getUnname index, getArgValue(lower, $SingleInteger),
+;       getArgValue(step, $SingleInteger),
+;         :[getArgValue(upper, $SingleInteger) for upper in upperList]]
 ;   itr is ['IN,index,s] =>
 ;     ['IN,getUnname index,getArgValue(s,['List,get(index,'mode,$env)])]
 ;   (itr is [x,pred]) and (x in '(WHILE UNTIL SUCHTHAT)) =>
@@ -1792,8 +1792,8 @@
                                #1#))))))))
        (CONS 'ISTEP
              (CONS (|getUnname| |index|)
-                   (CONS (|getArgValue| |lower| |$SmallInteger|)
-                         (CONS (|getArgValue| |step| |$SmallInteger|)
+                   (CONS (|getArgValue| |lower| |$SingleInteger|)
+                         (CONS (|getArgValue| |step| |$SingleInteger|)
                                ((LAMBDA (|bfVar#36| |bfVar#35| |upper|)
                                   (LOOP
                                    (COND
@@ -1806,7 +1806,7 @@
                                      (SETQ |bfVar#36|
                                              (CONS
                                               (|getArgValue| |upper|
-                                               |$SmallInteger|)
+                                               |$SingleInteger|)
                                               |bfVar#36|))))
                                    (SETQ |bfVar#35| (CDR |bfVar#35|))))
                                 NIL |upperList| NIL))))))
@@ -1921,9 +1921,9 @@
 ;     [m]:= bottomUp lower
 ;     $indexTypes:= [m,:$indexTypes]
 ;     for up in upperList repeat bottomUp up
-;     ['ISTEP,getUnname index,getArgValue(lower,$SmallInteger),
-;       getArgValue(step,$SmallInteger),
-;         :[getArgValue(upper,$SmallInteger) for upper in upperList]]
+;     ['ISTEP, getUnname index, getArgValue(lower, $SingleInteger),
+;       getArgValue(step, $SingleInteger),
+;         :[getArgValue(upper, $SingleInteger) for upper in upperList]]
 ;   itr is ['IN,index,s] =>
 ;     $indexVars:=[getUnname index,:$indexVars]
 ;     [m]:= bottomUp s
@@ -2018,8 +2018,8 @@
          |upperList| NIL)
         (CONS 'ISTEP
               (CONS (|getUnname| |index|)
-                    (CONS (|getArgValue| |lower| |$SmallInteger|)
-                          (CONS (|getArgValue| |step| |$SmallInteger|)
+                    (CONS (|getArgValue| |lower| |$SingleInteger|)
+                          (CONS (|getArgValue| |step| |$SingleInteger|)
                                 ((LAMBDA (|bfVar#47| |bfVar#46| |upper|)
                                    (LOOP
                                     (COND
@@ -2032,7 +2032,7 @@
                                       (SETQ |bfVar#47|
                                               (CONS
                                                (|getArgValue| |upper|
-                                                |$SmallInteger|)
+                                                |$SingleInteger|)
                                                |bfVar#47|))))
                                     (SETQ |bfVar#46| (CDR |bfVar#46|))))
                                  NIL |upperList| NIL)))))))
@@ -4063,7 +4063,7 @@
 ;       1
 ;     nargs ~= #args => throwKeyedMsg("S2IM0008",[var])
 ;   if $compilingMap then mkLocalVar($mapName,var)
-;   else clearDependencies(var,true)
+;   else clearDependencies(var)
 ;   isLocalVar(var) => put(var,'mode,mode,$env)
 ;   mode is ['Mapping,:.] => declareMap(var,mode)
 ;   v := get(var,'value,$e) =>
@@ -4121,7 +4121,7 @@
                ((NOT (EQL |nargs| (LENGTH |args|)))
                 (|throwKeyedMsg| 'S2IM0008 (LIST |var|)))))))))
          (COND (|$compilingMap| (|mkLocalVar| |$mapName| |var|))
-               (#1# (|clearDependencies| |var| T)))
+               (#1# (|clearDependencies| |var|)))
          (COND ((|isLocalVar| |var|) (|put| |var| '|mode| |mode| |$env|))
                ((AND (CONSP |mode|) (EQ (CAR |mode|) '|Mapping|))
                 (|declareMap| |var| |mode|))

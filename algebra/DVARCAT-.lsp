@@ -26,14 +26,12 @@
         (SPROG ((|nn| (|Integer|)) (|a| (|OutputForm|)))
                (SEQ
                 (LETT |a|
-                      (SPADCALL (SPADCALL |v| (QREFELT $ 13)) (QREFELT $ 22))
-                      . #1=(|DVARCAT-;coerce;AOf;6|))
+                      (SPADCALL (SPADCALL |v| (QREFELT $ 13)) (QREFELT $ 22)))
                 (EXIT
-                 (COND
-                  ((ZEROP (LETT |nn| (SPADCALL |v| (QREFELT $ 14)) . #1#)) |a|)
-                  ('T
-                   (SPADCALL |a| (SPADCALL |nn| (QREFELT $ 24))
-                             (QREFELT $ 25)))))))) 
+                 (COND ((ZEROP (LETT |nn| (SPADCALL |v| (QREFELT $ 14)))) |a|)
+                       ('T
+                        (SPADCALL |a| (SPADCALL |nn| (QREFELT $ 24))
+                                  (QREFELT $ 25)))))))) 
 
 (SDEFUN |DVARCAT-;retract;AS;7| ((|v| A) ($ S))
         (COND
@@ -55,12 +53,12 @@
 (DEFUN |DifferentialVariableCategory&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|DifferentialVariableCategory&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|DifferentialVariableCategory&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 31) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|DifferentialVariableCategory&| DV$1 DV$2))
+          (LETT $ (GETREFV 31))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

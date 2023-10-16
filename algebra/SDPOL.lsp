@@ -10,13 +10,12 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|SequentialDifferentialPolynomial|)
-                                               '|domainEqualList|)
-                    . #3=(|SequentialDifferentialPolynomial|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (|SequentialDifferentialPolynomial;| #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -28,9 +27,9 @@
     (#5=#:G149 NIL) (#6=#:G150 NIL) (#7=#:G151 NIL) (#8=#:G152 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #9=(|SequentialDifferentialPolynomial|))
-    (LETT |dv$| (LIST '|SequentialDifferentialPolynomial| DV$1) . #9#)
-    (LETT $ (GETREFV 61) . #9#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|SequentialDifferentialPolynomial| DV$1))
+    (LETT $ (GETREFV 61))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -63,8 +62,7 @@
                                         (|HasCategory| |#1| '(|EntireRing|))
                                         (LETT #8#
                                               (|HasCategory| |#1|
-                                                             '(|GcdDomain|))
-                                              . #9#)
+                                                             '(|GcdDomain|)))
                                         (OR #8#
                                             (|HasCategory| |#1|
                                                            '(|PolynomialFactorizationExplicit|)))
@@ -102,15 +100,13 @@
                                          (|HasCategory| |#1| '(|Ring|)))
                                         (LETT #7#
                                               (|HasCategory| |#1|
-                                                             '(|CommutativeRing|))
-                                              . #9#)
+                                                             '(|CommutativeRing|)))
                                         (OR #7# #8#
                                             (|HasCategory| |#1|
                                                            '(|PolynomialFactorizationExplicit|)))
                                         (LETT #6#
                                               (|HasCategory| |#1|
-                                                             '(|IntegralDomain|))
-                                              . #9#)
+                                                             '(|IntegralDomain|)))
                                         (OR #7# #8# #6#
                                             (|HasCategory| |#1|
                                                            '(|PolynomialFactorizationExplicit|)))
@@ -128,8 +124,7 @@
                                                 (|SequentialDifferentialVariable|
                                                  (|Symbol|))
                                                 '(|PatternMatchable|
-                                                  (|Float|))))
-                                              . #9#)
+                                                  (|Float|)))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -225,8 +220,7 @@
                                                 (|SequentialDifferentialVariable|
                                                  (|Symbol|))
                                                 '(|PatternMatchable|
-                                                  (|Integer|))))
-                                              . #9#)
+                                                  (|Integer|)))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -323,8 +317,7 @@
                                                 (|SequentialDifferentialVariable|
                                                  (|Symbol|))
                                                 '(|ConvertibleTo|
-                                                  (|Pattern| (|Float|)))))
-                                              . #9#)
+                                                  (|Pattern| (|Float|))))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -437,8 +430,7 @@
                                                 (|SequentialDifferentialVariable|
                                                  (|Symbol|))
                                                 '(|ConvertibleTo|
-                                                  (|Pattern| (|Integer|)))))
-                                              . #9#)
+                                                  (|Pattern| (|Integer|))))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -539,8 +531,7 @@
                                             (|Symbol|))
                                            '(|ConvertibleTo|
                                              (|Pattern| (|Integer|)))))
-                                         #2#)))
-                    . #9#))
+                                         #2#)))))
     (|haddProp| |$ConstructorCache| '|SequentialDifferentialPolynomial|
                 (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
@@ -550,8 +541,7 @@
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
-                (|HasCategory| $ '(|CharacteristicNonZero|)))
-           . #9#)
+                (|HasCategory| $ '(|CharacteristicNonZero|))))
      (|augmentPredVector| $ 68719476736))
     (AND (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#)
          (|augmentPredVector| $ 137438953472))

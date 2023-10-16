@@ -17,8 +17,7 @@
          (PROG (#1=#:G107)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|PolynomialAN2Expression|)
-                    . #2=(|PolynomialAN2Expression|))
+             ((LETT #1# (HGET |$ConstructorCache| '|PolynomialAN2Expression|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -28,7 +27,7 @@
                              (LIST
                               (CONS NIL
                                     (CONS 1 (|PolynomialAN2Expression;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|PolynomialAN2Expression|)))))))))) 
@@ -36,11 +35,10 @@
 (DEFUN |PolynomialAN2Expression;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|PolynomialAN2Expression|)
-                . #1=(|PolynomialAN2Expression|))
-          (LETT $ (GETREFV 22) . #1#)
+          (LETT |dv$| '(|PolynomialAN2Expression|))
+          (LETT $ (GETREFV 22))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PolynomialAN2Expression| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

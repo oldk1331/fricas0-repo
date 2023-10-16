@@ -3,11 +3,10 @@
         ((|g| |Mapping| A A) (|n| |NonNegativeInteger|) (|x| A) ($ A))
         (SPROG ((#1=#:G108 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #2=(|MAPHACK1;iter;MNni2A;1|))
-                     (LETT #1# |n| . #2#) G190
+                (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
-                     (SEQ (EXIT (LETT |x| (SPADCALL |x| |g|) . #2#)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                     (SEQ (EXIT (LETT |x| (SPADCALL |x| |g|))))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (SDEFUN |MAPHACK1;recur;MNni2A;2|
@@ -15,11 +14,10 @@
          (|x| A) ($ A))
         (SPROG ((#1=#:G113 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #2=(|MAPHACK1;recur;MNni2A;2|))
-                     (LETT #1# |n| . #2#) G190
+                (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
-                     (SEQ (EXIT (LETT |x| (SPADCALL |i| |x| |g|) . #2#)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                     (SEQ (EXIT (LETT |x| (SPADCALL |i| |x| |g|))))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (DECLAIM (NOTINLINE |MappingPackageInternalHacks1;|)) 
@@ -33,13 +31,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|MappingPackageInternalHacks1|)
-                                               '|domainEqualList|)
-                    . #3=(|MappingPackageInternalHacks1|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|MappingPackageInternalHacks1;| #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (|MappingPackageInternalHacks1;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -48,11 +44,11 @@
 (DEFUN |MappingPackageInternalHacks1;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|MappingPackageInternalHacks1|))
-          (LETT |dv$| (LIST '|MappingPackageInternalHacks1| DV$1) . #1#)
-          (LETT $ (GETREFV 12) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|MappingPackageInternalHacks1| DV$1))
+          (LETT $ (GETREFV 12))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|MappingPackageInternalHacks1|
                       (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)

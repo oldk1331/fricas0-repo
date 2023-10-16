@@ -10,26 +10,25 @@
 
 (SDEFUN |ROMAN;coerce;$Of;4| ((|r| $) ($ |OutputForm|))
         (SPROG ((#1=#:G118 NIL) (|n| (|Integer|)))
-               (SEQ
-                (LETT |n| (SPADCALL |r| (QREFELT $ 16))
-                      . #2=(|ROMAN;coerce;$Of;4|))
-                (EXIT
-                 (COND ((ZEROP |n|) (SPADCALL |n| (QREFELT $ 18)))
-                       ((MINUSP |n|)
-                        (SPADCALL
-                         (SPADCALL (SPADCALL |r| (QREFELT $ 19))
-                                   (QREFELT $ 20))
-                         (QREFELT $ 21)))
-                       ('T
-                        (SPADCALL
-                         (SPADCALL
-                          (SPADCALL
-                           (PROG1 (LETT #1# |n| . #2#)
-                             (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
-                                               '(|Integer|) #1#))
-                           (QREFELT $ 22))
-                          (QREFELT $ 23))
-                         (QREFELT $ 24)))))))) 
+               (SEQ (LETT |n| (SPADCALL |r| (QREFELT $ 16)))
+                    (EXIT
+                     (COND ((ZEROP |n|) (SPADCALL |n| (QREFELT $ 18)))
+                           ((MINUSP |n|)
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |r| (QREFELT $ 19))
+                                       (QREFELT $ 20))
+                             (QREFELT $ 21)))
+                           ('T
+                            (SPADCALL
+                             (SPADCALL
+                              (SPADCALL
+                               (PROG1 (LETT #1# |n|)
+                                 (|check_subtype2| (> #1# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|Integer|) #1#))
+                               (QREFELT $ 22))
+                              (QREFELT $ 23))
+                             (QREFELT $ 24)))))))) 
 
 (DECLAIM (NOTINLINE |RomanNumeral;|)) 
 
@@ -38,8 +37,7 @@
          (PROG (#1=#:G144)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|RomanNumeral|)
-                    . #2=(|RomanNumeral|))
+             ((LETT #1# (HGET |$ConstructorCache| '|RomanNumeral|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -47,17 +45,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|RomanNumeral|
                              (LIST (CONS NIL (CONS 1 (|RomanNumeral;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|RomanNumeral|)))))))))) 
 
 (DEFUN |RomanNumeral;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|RomanNumeral|) . #1=(|RomanNumeral|))
-          (LETT $ (GETREFV 49) . #1#)
+          (LETT |dv$| '(|RomanNumeral|))
+          (LETT $ (GETREFV 49))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RomanNumeral| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

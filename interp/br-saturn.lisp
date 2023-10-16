@@ -804,7 +804,7 @@
 ;   one? := empty? or one?
 ;   exposedUnexposedFlag := $includeUnexposed? --used to be star?       4/92
 ;   star?  := true     --always include information on exposed/unexposed   4/92
-;   if $standard then htBeginTable()
+;   htBeginTable()
 ;   htSay '"{"
 ;   if one? or member('abbrs,exclusions)
 ;     then htSay '"{\em Abbreviations}"
@@ -859,7 +859,7 @@
       (SETQ |one?| (OR |empty?| |one?|))
       (SETQ |exposedUnexposedFlag| |$includeUnexposed?|)
       (SETQ |star?| T)
-      (COND (|$standard| (|htBeginTable|)))
+      (|htBeginTable|)
       (|htSay| "{")
       (COND
        ((OR |one?| (|member| '|abbrs| |exclusions|))

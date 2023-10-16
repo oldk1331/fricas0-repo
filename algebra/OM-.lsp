@@ -7,26 +7,24 @@
 
 (SDEFUN |OM-;OMwrite;SBS;3| ((|x| S) (|wholeObj| |Boolean|) ($ |String|))
         (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
-               (SEQ (LETT |s| "" . #1=(|OM-;OMwrite;SBS;3|))
-                    (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
+               (SEQ (LETT |s| "") (LETT |sp| (OM-STRINGTOSTRINGPTR |s|))
                     (LETT |dev|
                           (SPADCALL |sp| (SPADCALL (QREFELT $ 16))
-                                    (QREFELT $ 17))
-                          . #1#)
+                                    (QREFELT $ 17)))
                     (SPADCALL |dev| |x| |wholeObj| (QREFELT $ 13))
                     (SPADCALL |dev| (QREFELT $ 18))
-                    (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
+                    (LETT |s| (OM-STRINGPTRTOSTRING |sp|)) (EXIT |s|)))) 
 
 (DECLAIM (NOTINLINE |OpenMath&;|)) 
 
 (DEFUN |OpenMath&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|OpenMath&|))
-          (LETT |dv$| (LIST '|OpenMath&| DV$1) . #1#)
-          (LETT $ (GETREFV 20) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|OpenMath&| DV$1))
+          (LETT $ (GETREFV 20))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

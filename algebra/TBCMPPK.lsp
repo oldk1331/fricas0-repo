@@ -38,11 +38,9 @@
                          (LETT |title|
                                (STRCONC "*** "
                                         (STRCONC (QREFELT $ 17)
-                                                 " Statistics ***"))
-                               . #1=(|TBCMPPK;printStats!;V;4|))
+                                                 " Statistics ***")))
                          (SPADCALL |title| (QREFELT $ 28))
-                         (LETT |n| (SPADCALL (QREFELT $ 11) (QREFELT $ 30))
-                               . #1#)
+                         (LETT |n| (SPADCALL (QREFELT $ 11) (QREFELT $ 30)))
                          (SPADCALL "   Table     size: "
                                    (SPADCALL |n| (QREFELT $ 32))
                                    (QREFELT $ 33))
@@ -50,10 +48,10 @@
                           (SPADCALL "   Entries reused: "
                                     (SPADCALL (QREFELT $ 14) (QREFELT $ 32))
                                     (QREFELT $ 33)))))
-                   (#2='T
+                   (#1='T
                     (|error|
                      "in printStats!()$TBCMPPK: statistics not started"))))
-                 (#2#
+                 (#1#
                   (|error|
                    "in printStats!()$TBCMPPK: not allowed to use hashtable")))))) 
 
@@ -82,22 +80,21 @@
                 (EXIT
                  (COND
                   ((QREFELT $ 8)
-                   (SEQ
-                    (LETT |s| (SPADCALL |k| (QREFELT $ 11) (QREFELT $ 39))
-                          . #2=(|TBCMPPK;extractIfCan;KeyU;9|))
-                    (EXIT
-                     (COND
-                      ((QEQCAR |s| 0)
-                       (SEQ
-                        (COND
-                         ((QREFELT $ 12)
-                          (SPADCALL (QREFELT $ 15) (QREFELT $ 41))))
-                        (COND
-                         ((QREFELT $ 13) (SETELT $ 14 (+ (QREFELT $ 14) 1))))
-                        (EXIT (PROGN (LETT #1# |s| . #2#) (GO #3=#:G129)))))
-                      (#4='T (CONS 1 "failed"))))))
-                  (#4# (CONS 1 "failed"))))
-                #3# (EXIT #1#)))) 
+                   (SEQ (LETT |s| (SPADCALL |k| (QREFELT $ 11) (QREFELT $ 39)))
+                        (EXIT
+                         (COND
+                          ((QEQCAR |s| 0)
+                           (SEQ
+                            (COND
+                             ((QREFELT $ 12)
+                              (SPADCALL (QREFELT $ 15) (QREFELT $ 41))))
+                            (COND
+                             ((QREFELT $ 13)
+                              (SETELT $ 14 (+ (QREFELT $ 14) 1))))
+                            (EXIT (PROGN (LETT #1# |s|) (GO #2=#:G129)))))
+                          (#3='T (CONS 1 "failed"))))))
+                  (#3# (CONS 1 "failed"))))
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |TBCMPPK;insert!;KeyEntryV;10| ((|k| |Key|) (|e| |Entry|) ($ |Void|))
         (SEQ
@@ -120,14 +117,13 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|TabulatedComputationPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|TabulatedComputationPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |TabulatedComputationPackage;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -136,12 +132,12 @@
 (DEFUN |TabulatedComputationPackage;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|TabulatedComputationPackage|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|TabulatedComputationPackage| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 45) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|TabulatedComputationPackage| DV$1 DV$2))
+          (LETT $ (GETREFV 45))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TabulatedComputationPackage|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -15,16 +15,15 @@
                          (SPADCALL
                           (CONS #'|PARTPERM;partitions;3IS;1!0| (VECTOR $ N))
                           (SPADCALL (- M 1) N (- |n| N) (QREFELT $ 12))
-                          (QREFELT $ 14))
-                         |PARTPERM;partitions;3IS;1|)
+                          (QREFELT $ 14)))
                    (EXIT
                     (SPADCALL |c| (SPADCALL M (- N 1) |n| (QREFELT $ 12))
                               (QREFELT $ 15))))))))) 
 
 (SDEFUN |PARTPERM;partitions;3IS;1!0| ((|l1| NIL) ($$ NIL))
         (PROG (N $)
-          (LETT N (QREFELT $$ 1) . #1=(|PARTPERM;partitions;3IS;1|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT N (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL N |l1| (QREFELT $ 11)))))) 
 
 (SDEFUN |PARTPERM;partitions;IS;2|
@@ -39,16 +38,15 @@
          (SEQ
           (LETT |aaa|
                 (PROGN
-                 (LETT #2# NIL . #3=(|PARTPERM;partitions;2IS;3|))
-                 (SEQ (LETT |i| 0 . #3#) (LETT #1# (* M N) . #3#) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |i| 0) (LETT #1# (* M N)) G190
                       (COND ((|greater_SI| |i| #1#) (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL M N |i| (QREFELT $ 12)) #2#)
-                              . #3#)))
-                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #3#)
+                        (LETT #2#
+                              (CONS (SPADCALL M N |i| (QREFELT $ 12)) #2#))))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                      (EXIT (NREVERSE #2#)))))
           (EXIT (SPADCALL (SPADCALL |aaa| (QREFELT $ 19)) (QREFELT $ 21)))))) 
 
 (SDEFUN |PARTPERM;odd_partitions;3IS;4|
@@ -62,25 +60,21 @@
                  ((OR (OR (ZEROP M) (SPADCALL N 0 (QREFELT $ 24))) (< |n| 0))
                   (SPADCALL (QREFELT $ 7)))
                  ('T
-                  (SEQ
-                   (COND
-                    ((SPADCALL N (QREFELT $ 25))
-                     (LETT N (- N 1) . #1=(|PARTPERM;odd_partitions;3IS;4|))))
-                   (LETT |c|
-                         (SPADCALL
-                          (CONS #'|PARTPERM;odd_partitions;3IS;4!0|
-                                (VECTOR $ N))
-                          (SPADCALL (- M 1) N (- |n| N) (QREFELT $ 26))
-                          (QREFELT $ 14))
-                         . #1#)
-                   (EXIT
-                    (SPADCALL |c| (SPADCALL M (- N 2) |n| (QREFELT $ 26))
-                              (QREFELT $ 15))))))))) 
+                  (SEQ (COND ((SPADCALL N (QREFELT $ 25)) (LETT N (- N 1))))
+                       (LETT |c|
+                             (SPADCALL
+                              (CONS #'|PARTPERM;odd_partitions;3IS;4!0|
+                                    (VECTOR $ N))
+                              (SPADCALL (- M 1) N (- |n| N) (QREFELT $ 26))
+                              (QREFELT $ 14)))
+                       (EXIT
+                        (SPADCALL |c| (SPADCALL M (- N 2) |n| (QREFELT $ 26))
+                                  (QREFELT $ 15))))))))) 
 
 (SDEFUN |PARTPERM;odd_partitions;3IS;4!0| ((|l1| NIL) ($$ NIL))
         (PROG (N $)
-          (LETT N (QREFELT $$ 1) . #1=(|PARTPERM;odd_partitions;3IS;4|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT N (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL N |l1| (QREFELT $ 11)))))) 
 
 (SDEFUN |PARTPERM;odd_partitions;IS;5|
@@ -104,16 +98,15 @@
                           (CONS #'|PARTPERM;distinct_partitions;3IS;6!0|
                                 (VECTOR $ N))
                           (SPADCALL (- M 1) (- N 1) (- |n| N) (QREFELT $ 28))
-                          (QREFELT $ 14))
-                         |PARTPERM;distinct_partitions;3IS;6|)
+                          (QREFELT $ 14)))
                    (EXIT
                     (SPADCALL |c| (SPADCALL M (- N 1) |n| (QREFELT $ 28))
                               (QREFELT $ 15))))))))) 
 
 (SDEFUN |PARTPERM;distinct_partitions;3IS;6!0| ((|l1| NIL) ($$ NIL))
         (PROG (N $)
-          (LETT N (QREFELT $$ 1) . #1=(|PARTPERM;distinct_partitions;3IS;6|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT N (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL N |l1| (QREFELT $ 11)))))) 
 
 (SDEFUN |PARTPERM;distinct_partitions;IS;7|
@@ -127,23 +120,19 @@
           (#5=#:G146 NIL) (|i| NIL))
          (SEQ
           (PROGN
-           (LETT #1# NIL . #6=(|PARTPERM;nogreq|))
-           (SEQ (LETT |i| NIL . #6#) (LETT #5# |x| . #6#) G190
+           (LETT #1# NIL)
+           (SEQ (LETT |i| NIL) (LETT #5# |x|) G190
                 (COND
-                 ((OR (ATOM #5#) (PROGN (LETT |i| (CAR #5#) . #6#) NIL))
-                  (GO G191)))
+                 ((OR (ATOM #5#) (PROGN (LETT |i| (CAR #5#)) NIL)) (GO G191)))
                 (SEQ
                  (EXIT
                   (COND
                    ((>= |i| |n|)
                     (PROGN
-                     (LETT #4# 1 . #6#)
-                     (COND (#1# (LETT #2# (+ #2# #4#) . #6#))
-                           ('T
-                            (PROGN
-                             (LETT #2# #4# . #6#)
-                             (LETT #1# 'T . #6#)))))))))
-                (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
+                     (LETT #4# 1)
+                     (COND (#1# (LETT #2# (+ #2# #4#)))
+                           ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))))
+                (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
            (COND (#1# #2#) ('T 0)))))) 
 
 (SDEFUN |PARTPERM;conjugate;2L;9|
@@ -153,16 +142,15 @@
                 (COND ((NULL |x|) NIL)
                       ('T
                        (PROGN
-                        (LETT #2# NIL . #3=(|PARTPERM;conjugate;2L;9|))
-                        (SEQ (LETT |i| 1 . #3#)
-                             (LETT #1# (|SPADfirst| |x|) . #3#) G190
+                        (LETT #2# NIL)
+                        (SEQ (LETT |i| 1) (LETT #1# (|SPADfirst| |x|)) G190
                              (COND ((|greater_SI| |i| #1#) (GO G191)))
                              (SEQ
                               (EXIT
                                (LETT #2#
-                                     (CONS (|PARTPERM;nogreq| |i| |x| $) #2#)
-                                     . #3#)))
-                             (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                     (CONS (|PARTPERM;nogreq| |i| |x| $)
+                                           #2#))))
+                             (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                              (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |PARTPERM;conjugates;2S;10|
@@ -190,16 +178,16 @@
 
 (SDEFUN |PARTPERM;shuffle;2LS;11!1| ((|l1| NIL) ($$ NIL))
         (PROG (|y| $)
-          (LETT |y| (QREFELT $$ 1) . #1=(|PARTPERM;shuffle;2LS;11|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |y| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL (SPADCALL |y| (QREFELT $ 32)) |l1| (QREFELT $ 11)))))) 
 
 (SDEFUN |PARTPERM;shuffle;2LS;11!0| ((|l1| NIL) ($$ NIL))
         (PROG (|x| $)
-          (LETT |x| (QREFELT $$ 1) . #1=(|PARTPERM;shuffle;2LS;11|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |x| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL (SPADCALL |x| (QREFELT $ 32)) |l1| (QREFELT $ 11)))))) 
@@ -215,19 +203,19 @@
 
 (SDEFUN |PARTPERM;shufflein;L2S;12!0| ((|l1| NIL) ($$ NIL))
         (PROG (|x| $)
-          (LETT |x| (QREFELT $$ 1) . #1=(|PARTPERM;shufflein;L2S;12|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |x| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |l1| (QREFELT $ 33)))))) 
 
 (SDEFUN |PARTPERM;rpt| ((|n| |Integer|) (|m| |Integer|) ($ |List| (|Integer|)))
         (SPROG ((#1=#:G175 NIL) (|i| NIL) (#2=#:G174 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL . #3=(|PARTPERM;rpt|))
-                 (SEQ (LETT |i| 1 . #3#) (LETT #1# |n| . #3#) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                       (COND ((|greater_SI| |i| #1#) (GO G191)))
-                      (SEQ (EXIT (LETT #2# (CONS |m| #2#) . #3#)))
-                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                      (SEQ (EXIT (LETT #2# (CONS |m| #2#))))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |PARTPERM;zrpt|
@@ -249,12 +237,11 @@
                (SEQ
                 (SPADCALL |x|
                           (PROGN
-                           (LETT #2# NIL . #3=(|PARTPERM;sequences;LS;16|))
-                           (SEQ (LETT |i| 0 . #3#)
-                                (LETT #1# (- (LENGTH |x|) 1) . #3#) G190
+                           (LETT #2# NIL)
+                           (SEQ (LETT |i| 0) (LETT #1# (- (LENGTH |x|) 1)) G190
                                 (COND ((|greater_SI| |i| #1#) (GO G191)))
-                                (SEQ (EXIT (LETT #2# (CONS |i| #2#) . #3#)))
-                                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                (SEQ (EXIT (LETT #2# (CONS |i| #2#))))
+                                (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                 (EXIT (NREVERSE #2#))))
                           (QREFELT $ 45))))) 
 
@@ -264,11 +251,11 @@
                (SEQ
                 (SPADCALL (|PARTPERM;rpt| |n| 1 $)
                           (PROGN
-                           (LETT #2# NIL . #3=(|PARTPERM;permutations;IS;17|))
-                           (SEQ (LETT |i| 1 . #3#) (LETT #1# |n| . #3#) G190
+                           (LETT #2# NIL)
+                           (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                                 (COND ((|greater_SI| |i| #1#) (GO G191)))
-                                (SEQ (EXIT (LETT #2# (CONS |i| #2#) . #3#)))
-                                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                (SEQ (EXIT (LETT #2# (CONS |i| #2#))))
+                                (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                 (EXIT (NREVERSE #2#))))
                           (QREFELT $ 45))))) 
 
@@ -279,8 +266,8 @@
          (PROG (#1=#:G191)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|PartitionsAndPermutations|)
-                    . #2=(|PartitionsAndPermutations|))
+             ((LETT #1#
+                    (HGET |$ConstructorCache| '|PartitionsAndPermutations|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -290,7 +277,7 @@
                              (LIST
                               (CONS NIL
                                     (CONS 1 (|PartitionsAndPermutations;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
@@ -299,11 +286,10 @@
 (DEFUN |PartitionsAndPermutations;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|PartitionsAndPermutations|)
-                . #1=(|PartitionsAndPermutations|))
-          (LETT $ (GETREFV 48) . #1#)
+          (LETT |dv$| '(|PartitionsAndPermutations|))
+          (LETT $ (GETREFV 48))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PartitionsAndPermutations| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

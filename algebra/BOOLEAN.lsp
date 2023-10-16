@@ -85,7 +85,7 @@
          (PROG (#1=#:G366)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Boolean|) . #2=(|Boolean|))
+             ((LETT #1# (HGET |$ConstructorCache| '|Boolean|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -93,16 +93,16 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|Boolean|
                              (LIST (CONS NIL (CONS 1 (|Boolean;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Boolean|)))))))))) 
 
 (DEFUN |Boolean;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|Boolean|) . #1=(|Boolean|))
-          (LETT $ (GETREFV 41) . #1#)
+          (LETT |dv$| '(|Boolean|))
+          (LETT $ (GETREFV 41))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Boolean| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

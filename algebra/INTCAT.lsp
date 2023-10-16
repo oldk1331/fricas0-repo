@@ -56,7 +56,5 @@
                                                        ((|contains?|
                                                          ((|Boolean|) $ |t#1|))
                                                         T))
-                                                     NIL NIL NIL))
-                                            . #3=(|IntervalCategory|))))))
-                   . #3#)
+                                                     NIL NIL NIL))))))))
            (SETELT #1# 0 (LIST '|IntervalCategory| |t#1|))))) 

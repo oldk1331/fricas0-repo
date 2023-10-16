@@ -13,8 +13,8 @@
            ((< (SPADCALL |f| (QREFELT $ 33)) (SPADCALL |g| (QREFELT $ 33)))
             NIL)
            (#2='T
-            (SEQ (LETT |equal| 0 . #3=(|FFHOM;compare|))
-                 (SEQ (LETT |i| (SPADCALL |f| (QREFELT $ 33)) . #3#) G190
+            (SEQ (LETT |equal| 0)
+                 (SEQ (LETT |i| (SPADCALL |f| (QREFELT $ 33))) G190
                       (COND ((OR (< |i| 0) (NULL (EQL |equal| 0))) (GO G191)))
                       (SEQ
                        (COND
@@ -24,7 +24,7 @@
                          (COND
                           ((SPADCALL (SPADCALL |g| |i| (QREFELT $ 39))
                                      (QREFELT $ 40))
-                           (EXIT (LETT |equal| 1 . #3#))))))
+                           (EXIT (LETT |equal| 1))))))
                        (COND
                         ((NULL
                           (SPADCALL (SPADCALL |g| |i| (QREFELT $ 39))
@@ -32,21 +32,18 @@
                          (COND
                           ((SPADCALL (SPADCALL |f| |i| (QREFELT $ 39))
                                      (QREFELT $ 40))
-                           (EXIT (LETT |equal| -1 . #3#))))))
+                           (EXIT (LETT |equal| -1))))))
                        (LETT |f1|
                              (SPADCALL (SPADCALL |f| |i| (QREFELT $ 39))
-                                       (QREFELT $ 41))
-                             . #3#)
+                                       (QREFELT $ 41)))
                        (LETT |g1|
                              (SPADCALL (SPADCALL |g| |i| (QREFELT $ 39))
-                                       (QREFELT $ 41))
-                             . #3#)
+                                       (QREFELT $ 41)))
                        (EXIT
                         (COND
-                         ((SPADCALL |f1| |g1| (QREFELT $ 42))
-                          (LETT |equal| 1 . #3#))
-                         ((< |f1| |g1|) (LETT |equal| -1 . #3#)))))
-                      (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL))
+                         ((SPADCALL |f1| |g1| (QREFELT $ 42)) (LETT |equal| 1))
+                         ((< |f1| |g1|) (LETT |equal| -1)))))
+                      (LETT |i| (+ |i| -1)) (GO G190) G191 (EXIT NIL))
                  (EXIT (COND ((EQL |equal| 1) 'T) (#2# NIL))))))))) 
 
 (SDEFUN |FFHOM;initialize| (($ |Void|))
@@ -70,10 +67,9 @@
            ((SPADCALL (QREFELT $ 30) (QREFELT $ 32) (QREFELT $ 43))
             (SEQ
              (LETT |mat|
-                   (SPADCALL (QREFELT $ 11) (QREFELT $ 11) (QREFELT $ 19))
-                   . #13=(|FFHOM;initialize|))
-             (LETT |arr| (SPADCALL (QREFELT $ 30) (QREFELT $ 46)) . #13#)
-             (SEQ (LETT |i| 1 . #13#) (LETT #12# (QREFELT $ 11) . #13#) G190
+                   (SPADCALL (QREFELT $ 11) (QREFELT $ 11) (QREFELT $ 19)))
+             (LETT |arr| (SPADCALL (QREFELT $ 30) (QREFELT $ 46)))
+             (SEQ (LETT |i| 1) (LETT #12# (QREFELT $ 11)) G190
                   (COND ((|greater_SI| |i| #12#) (GO G191)))
                   (SEQ
                    (EXIT
@@ -81,55 +77,49 @@
                               (SPADCALL (QAREF1 |arr| (- |i| 1)) (QREFELT $ 11)
                                         (QREFELT $ 48))
                               (QREFELT $ 50))))
-                  (LETT |i| (|inc_SI| |i|) . #13#) (GO G190) G191 (EXIT NIL))
+                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
              (EXIT
               (COND
                ((SPADCALL (QREFELT $ 24) (CONS 2 "normal") (QREFELT $ 51))
                 (SEQ (SETELT $ 20 (SPADCALL |mat| (QREFELT $ 52)))
                      (SETELT $ 21
                              (SPADCALL
-                              (PROG2
-                                  (LETT #2# (SPADCALL |mat| (QREFELT $ 54))
-                                        . #13#)
+                              (PROG2 (LETT #2# (SPADCALL |mat| (QREFELT $ 54)))
                                   (QCDR #2#)
                                 (|check_union2| (QEQCAR #2# 0)
                                                 (|Matrix| (QREFELT $ 7))
                                                 (|Union|
                                                  (|Matrix| (QREFELT $ 7))
-                                                 #14="failed")
+                                                 #13="failed")
                                                 #2#))
                               (QREFELT $ 52)))
                      (SETELT $ 27 NIL) (EXIT (SPADCALL (QREFELT $ 56)))))
-               (#15='T
+               (#14='T
                 (SEQ (SETELT $ 21 (SPADCALL |mat| (QREFELT $ 52)))
                      (SETELT $ 20
                              (SPADCALL
-                              (PROG2
-                                  (LETT #2# (SPADCALL |mat| (QREFELT $ 54))
-                                        . #13#)
+                              (PROG2 (LETT #2# (SPADCALL |mat| (QREFELT $ 54)))
                                   (QCDR #2#)
                                 (|check_union2| (QEQCAR #2# 0)
                                                 (|Matrix| (QREFELT $ 7))
                                                 (|Union|
-                                                 (|Matrix| (QREFELT $ 7)) #14#)
+                                                 (|Matrix| (QREFELT $ 7)) #13#)
                                                 #2#))
                               (QREFELT $ 52)))
                      (SETELT $ 27 NIL) (EXIT (SPADCALL (QREFELT $ 56)))))))))
-           (#15#
-            (SEQ (LETT |dPbig| (QREFELT $ 32) . #13#)
-                 (LETT |rTbig| (QREFELT $ 26) . #13#)
-                 (LETT |dPsmall| (QREFELT $ 30) . #13#)
-                 (LETT |rTsmall| (QREFELT $ 24) . #13#)
-                 (LETT |degbig| (QREFELT $ 13) . #13#)
-                 (LETT |degsmall| (QREFELT $ 11) . #13#)
+           (#14#
+            (SEQ (LETT |dPbig| (QREFELT $ 32)) (LETT |rTbig| (QREFELT $ 26))
+                 (LETT |dPsmall| (QREFELT $ 30))
+                 (LETT |rTsmall| (QREFELT $ 24)) (LETT |degbig| (QREFELT $ 13))
+                 (LETT |degsmall| (QREFELT $ 11))
                  (COND
                   ((|FFHOM;compare| (QREFELT $ 32) (QREFELT $ 30) $)
-                   (SEQ (LETT |degsmall| (QREFELT $ 13) . #13#)
-                        (LETT |degbig| (QREFELT $ 11) . #13#)
-                        (LETT |dPbig| (QREFELT $ 30) . #13#)
-                        (LETT |rTbig| (QREFELT $ 24) . #13#)
-                        (LETT |dPsmall| (QREFELT $ 32) . #13#)
-                        (EXIT (LETT |rTsmall| (QREFELT $ 26) . #13#)))))
+                   (SEQ (LETT |degsmall| (QREFELT $ 13))
+                        (LETT |degbig| (QREFELT $ 11))
+                        (LETT |dPbig| (QREFELT $ 30))
+                        (LETT |rTbig| (QREFELT $ 24))
+                        (LETT |dPsmall| (QREFELT $ 32))
+                        (EXIT (LETT |rTsmall| (QREFELT $ 26))))))
                  (LETT |root|
                        (SPADCALL |dPsmall|
                                  (|compiledLookupCheck|
@@ -142,13 +132,11 @@
                                   (|FiniteFieldPolynomialPackage2|
                                    (|FiniteFieldExtensionByPolynomial|
                                     (ELT $ 7) |dPbig|)
-                                   (ELT $ 7))))
-                       . #13#)
-                 (LETT |matsb| (SPADCALL |degbig| |degsmall| (QREFELT $ 19))
-                       . #13#)
+                                   (ELT $ 7)))))
+                 (LETT |matsb| (SPADCALL |degbig| |degsmall| (QREFELT $ 19)))
                  (QSETAREF2O |matsb| 1 1 (|spadConstant| $ 36) 1 1)
-                 (LETT |a| |root| . #13#)
-                 (SEQ (LETT |i| 2 . #13#) (LETT #7# |degsmall| . #13#) G190
+                 (LETT |a| |root|)
+                 (SEQ (LETT |i| 2) (LETT #7# |degsmall|) G190
                       (COND ((|greater_SI| |i| #7#) (GO G191)))
                       (SEQ
                        (SPADCALL |matsb| |i|
@@ -169,17 +157,13 @@
                                                                (LIST '$ '$ '$)
                                                                (|FiniteFieldExtensionByPolynomial|
                                                                 (ELT $ 7)
-                                                                |dPbig|)))
-                              . #13#)))
-                      (LETT |i| (|inc_SI| |i|) . #13#) (GO G190) G191
-                      (EXIT NIL))
-                 (LETT |ra| 1 . #13#)
+                                                                |dPbig|))))))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+                 (LETT |ra| 1)
                  (LETT |mat|
                        (SPADCALL (SPADCALL |matsb| 1 (QREFELT $ 57))
-                                 (QREFELT $ 58))
-                       . #13#)
-                 (LETT |rowind| 2 . #13#)
-                 (LETT |iVec| (MAKEARR1 |degsmall| 1) . #13#)
+                                 (QREFELT $ 58)))
+                 (LETT |rowind| 2) (LETT |iVec| (MAKEARR1 |degsmall| 1))
                  (SEQ G190 (COND ((NULL (< |ra| |degsmall|)) (GO G191)))
                       (SEQ
                        (COND
@@ -200,104 +184,94 @@
                                            (SPADCALL |matsb| |rowind|
                                                      (QREFELT $ 57))
                                            (QREFELT $ 58))
-                                          (QREFELT $ 59))
-                                . #13#)
-                          (LETT |ra| (+ |ra| 1) . #13#)
+                                          (QREFELT $ 59)))
+                          (LETT |ra| (+ |ra| 1))
                           (EXIT
                            (SPADCALL |iVec| |ra| |rowind| (QREFELT $ 63))))))
-                       (EXIT (LETT |rowind| (+ |rowind| 1) . #13#)))
+                       (EXIT (LETT |rowind| (+ |rowind| 1))))
                       NIL (GO G190) G191 (EXIT NIL))
                  (LETT |mat|
-                       (PROG2 (LETT #2# (SPADCALL |mat| (QREFELT $ 54)) . #13#)
+                       (PROG2 (LETT #2# (SPADCALL |mat| (QREFELT $ 54)))
                            (QCDR #2#)
                          (|check_union2| (QEQCAR #2# 0)
                                          (|Matrix| (QREFELT $ 7))
                                          (|Union| (|Matrix| (QREFELT $ 7))
-                                                  #14#)
-                                         #2#))
-                       . #13#)
-                 (LETT |matbs| (SPADCALL |degsmall| |degbig| (QREFELT $ 19))
-                       . #13#)
-                 (SEQ (LETT |i| 1 . #13#) (LETT #5# |degsmall| . #13#) G190
+                                                  #13#)
+                                         #2#)))
+                 (LETT |matbs| (SPADCALL |degsmall| |degbig| (QREFELT $ 19)))
+                 (SEQ (LETT |i| 1) (LETT #5# |degsmall|) G190
                       (COND ((|greater_SI| |i| #5#) (GO G191)))
                       (SEQ
                        (EXIT
                         (SPADCALL |matbs| (SPADCALL |iVec| |i| (QREFELT $ 64))
                                   (SPADCALL |mat| |i| (QREFELT $ 65))
                                   (QREFELT $ 50))))
-                      (LETT |i| (|inc_SI| |i|) . #13#) (GO G190) G191
-                      (EXIT NIL))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                  (COND
                   ((SPADCALL |rTbig| (CONS 2 "normal") (QREFELT $ 51))
-                   (SEQ (LETT |arr| (SPADCALL |dPbig| (QREFELT $ 46)) . #13#)
-                        (LETT |mat| (SPADCALL |degbig| |degbig| (QREFELT $ 19))
-                              . #13#)
-                        (SEQ (LETT |i| 1 . #13#) (LETT #4# |degbig| . #13#)
-                             G190 (COND ((|greater_SI| |i| #4#) (GO G191)))
+                   (SEQ (LETT |arr| (SPADCALL |dPbig| (QREFELT $ 46)))
+                        (LETT |mat|
+                              (SPADCALL |degbig| |degbig| (QREFELT $ 19)))
+                        (SEQ (LETT |i| 1) (LETT #4# |degbig|) G190
+                             (COND ((|greater_SI| |i| #4#) (GO G191)))
                              (SEQ
                               (EXIT
                                (SPADCALL |mat| |i|
                                          (SPADCALL (QAREF1 |arr| (- |i| 1))
                                                    |degbig| (QREFELT $ 48))
                                          (QREFELT $ 50))))
-                             (LETT |i| (|inc_SI| |i|) . #13#) (GO G190) G191
+                             (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                              (EXIT NIL))
                         (LETT |matsb|
                               (SPADCALL
                                (PROG2
-                                   (LETT #2# (SPADCALL |mat| (QREFELT $ 54))
-                                         . #13#)
+                                   (LETT #2# (SPADCALL |mat| (QREFELT $ 54)))
                                    (QCDR #2#)
                                  (|check_union2| (QEQCAR #2# 0)
                                                  (|Matrix| (QREFELT $ 7))
                                                  (|Union|
                                                   (|Matrix| (QREFELT $ 7))
-                                                  #14#)
+                                                  #13#)
                                                  #2#))
-                               |matsb| (QREFELT $ 66))
-                              . #13#)
+                               |matsb| (QREFELT $ 66)))
                         (EXIT
-                         (LETT |matbs| (SPADCALL |matbs| |mat| (QREFELT $ 66))
-                               . #13#)))))
+                         (LETT |matbs|
+                               (SPADCALL |matbs| |mat| (QREFELT $ 66)))))))
                  (COND
                   ((SPADCALL |rTsmall| (CONS 2 "normal") (QREFELT $ 51))
-                   (SEQ (LETT |arr| (SPADCALL |dPsmall| (QREFELT $ 46)) . #13#)
+                   (SEQ (LETT |arr| (SPADCALL |dPsmall| (QREFELT $ 46)))
                         (LETT |mat|
-                              (SPADCALL |degsmall| |degsmall| (QREFELT $ 19))
-                              . #13#)
-                        (SEQ (LETT |i| 1 . #13#) (LETT #3# |degsmall| . #13#)
-                             G190 (COND ((|greater_SI| |i| #3#) (GO G191)))
+                              (SPADCALL |degsmall| |degsmall| (QREFELT $ 19)))
+                        (SEQ (LETT |i| 1) (LETT #3# |degsmall|) G190
+                             (COND ((|greater_SI| |i| #3#) (GO G191)))
                              (SEQ
                               (EXIT
                                (SPADCALL |mat| |i|
                                          (SPADCALL (QAREF1 |arr| (- |i| 1))
                                                    |degsmall| (QREFELT $ 48))
                                          (QREFELT $ 50))))
-                             (LETT |i| (|inc_SI| |i|) . #13#) (GO G190) G191
+                             (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                              (EXIT NIL))
-                        (LETT |matsb| (SPADCALL |matsb| |mat| (QREFELT $ 66))
-                              . #13#)
+                        (LETT |matsb| (SPADCALL |matsb| |mat| (QREFELT $ 66)))
                         (EXIT
                          (LETT |matbs|
                                (SPADCALL
                                 (PROG2
-                                    (LETT #2# (SPADCALL |mat| (QREFELT $ 54))
-                                          . #13#)
+                                    (LETT #2# (SPADCALL |mat| (QREFELT $ 54)))
                                     (QCDR #2#)
                                   (|check_union2| (QEQCAR #2# 0)
                                                   (|Matrix| (QREFELT $ 7))
                                                   (|Union|
                                                    (|Matrix| (QREFELT $ 7))
-                                                   #14#)
+                                                   #13#)
                                                   #2#))
-                                |matbs| (QREFELT $ 66))
-                               . #13#)))))
+                                |matbs| (QREFELT $ 66)))))))
                  (EXIT
                   (COND
                    ((SPADCALL |dPbig| (QREFELT $ 32) (QREFELT $ 43))
                     (SEQ (SETELT $ 20 |matsb|) (SETELT $ 21 |matbs|)
                          (SETELT $ 27 NIL) (EXIT (SPADCALL (QREFELT $ 56)))))
-                   (#15#
+                   (#14#
                     (SEQ (SETELT $ 20 |matbs|) (SETELT $ 21 |matsb|)
                          (SETELT $ 27 NIL)
                          (EXIT (SPADCALL (QREFELT $ 56))))))))))))) 
@@ -407,13 +381,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FiniteFieldHomomorphisms|)
-                                               '|domainEqualList|)
-                    . #3=(|FiniteFieldHomomorphisms|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |FiniteFieldHomomorphisms;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -422,13 +395,13 @@
 (DEFUN |FiniteFieldHomomorphisms;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteFieldHomomorphisms|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|FiniteFieldHomomorphisms| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 96) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|FiniteFieldHomomorphisms| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 96))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FiniteFieldHomomorphisms|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))
           (|stuffDomainSlots| $)

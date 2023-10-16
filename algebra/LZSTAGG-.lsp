@@ -31,9 +31,7 @@
                (COND ((EQL |n| 0) NIL) ((SPADCALL |x| (QREFELT $ 19)) 'T)
                      ('T
                       (SPADCALL (SPADCALL |x| (QREFELT $ 17))
-                                (PROG1
-                                    (LETT #1# (- |n| 1)
-                                          |LZSTAGG-;less?;ANniB;2|)
+                                (PROG1 (LETT #1# (- |n| 1))
                                   (|check_subtype2| (>= #1# 0)
                                                     '(|NonNegativeInteger|)
                                                     '(|Integer|) #1#))
@@ -45,9 +43,7 @@
                (COND ((SPADCALL |x| (QREFELT $ 19)) NIL) ((EQL |n| 0) 'T)
                      ('T
                       (SPADCALL (SPADCALL |x| (QREFELT $ 17))
-                                (PROG1
-                                    (LETT #1# (- |n| 1)
-                                          |LZSTAGG-;more?;ANniB;3|)
+                                (PROG1 (LETT #1# (- |n| 1))
                                   (|check_subtype2| (>= #1# 0)
                                                     '(|NonNegativeInteger|)
                                                     '(|Integer|) #1#))
@@ -60,9 +56,7 @@
                      ((EQL |n| 0) NIL)
                      ('T
                       (SPADCALL (SPADCALL |x| (QREFELT $ 17))
-                                (PROG1
-                                    (LETT #1# (- |n| 1)
-                                          |LZSTAGG-;size?;ANniB;4|)
+                                (PROG1 (LETT #1# (- |n| 1))
                                   (|check_subtype2| (>= #1# 0)
                                                     '(|NonNegativeInteger|)
                                                     '(|Integer|) #1#))
@@ -72,93 +66,89 @@
         (SPROG ((#1=#:G231 NIL) (|y| (A)) (#2=#:G232 NIL) (|i| NIL))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |y| |x| . #3=(|LZSTAGG-;#;ANni;5|))
+                 (SEQ (LETT |y| |x|)
                       (EXIT
-                       (SEQ (LETT |i| 0 . #3#) G190 NIL
+                       (SEQ (LETT |i| 0) G190 NIL
                             (SEQ
                              (EXIT
                               (COND
                                ((SPADCALL |y| (QREFELT $ 27))
-                                (PROGN (LETT #2# |i| . #3#) (GO #4=#:G230)))
+                                (PROGN (LETT #2# |i|) (GO #3=#:G230)))
                                ((SPADCALL |y| (QREFELT $ 28))
                                 (|error| "#: infinite stream"))
                                ('T
                                 (SEQ
                                  (EXIT
-                                  (SEQ
-                                   (LETT |y| (SPADCALL |y| (QREFELT $ 17))
-                                         . #3#)
-                                   (COND
-                                    ((ODDP |i|)
-                                     (LETT |x| (SPADCALL |x| (QREFELT $ 17))
-                                           . #3#)))
-                                   (EXIT
-                                    (COND
-                                     ((SPADCALL |x| |y| (QREFELT $ 9))
-                                      (PROGN
-                                       (LETT #1# (|error| "#: infinite stream")
-                                             . #3#)
-                                       (GO #5=#:G225)))))))
-                                 #5# (EXIT #1#))))))
-                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                  (SEQ (LETT |y| (SPADCALL |y| (QREFELT $ 17)))
+                                       (COND
+                                        ((ODDP |i|)
+                                         (LETT |x|
+                                               (SPADCALL |x| (QREFELT $ 17)))))
+                                       (EXIT
+                                        (COND
+                                         ((SPADCALL |x| |y| (QREFELT $ 9))
+                                          (PROGN
+                                           (LETT #1#
+                                                 (|error|
+                                                  "#: infinite stream"))
+                                           (GO #4=#:G225)))))))
+                                 #4# (EXIT #1#))))))
+                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT NIL)))))
-                #4# (EXIT #2#)))) 
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;any?;MAB;6|
         ((|f| |Mapping| (|Boolean|) S) (|x| A) ($ |Boolean|))
         (SPROG ((#1=#:G242 NIL) (#2=#:G243 NIL) (|y| (A)) (|i| NIL))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |y| |x| . #3=(|LZSTAGG-;any?;MAB;6|))
+                 (SEQ (LETT |y| |x|)
                       (EXIT
-                       (SEQ (LETT |i| 0 . #3#) G190 NIL
+                       (SEQ (LETT |i| 0) G190 NIL
                             (SEQ
                              (EXIT
                               (COND
                                ((SPADCALL |y| (QREFELT $ 27))
-                                (PROGN (LETT #2# NIL . #3#) (GO #4=#:G241)))
+                                (PROGN (LETT #2# NIL) (GO #3=#:G241)))
                                ((SPADCALL |y| (QREFELT $ 28))
                                 (|error| "any?: infinite stream"))
                                ((SPADCALL (SPADCALL |y| (QREFELT $ 15)) |f|)
-                                (PROGN (LETT #2# 'T . #3#) (GO #4#)))
+                                (PROGN (LETT #2# 'T) (GO #3#)))
                                ('T
                                 (SEQ
                                  (EXIT
-                                  (SEQ
-                                   (LETT |y| (SPADCALL |y| (QREFELT $ 17))
-                                         . #3#)
-                                   (COND
-                                    ((ODDP |i|)
-                                     (LETT |x| (SPADCALL |x| (QREFELT $ 17))
-                                           . #3#)))
-                                   (EXIT
-                                    (COND
-                                     ((SPADCALL |x| |y| (QREFELT $ 9))
-                                      (PROGN
-                                       (LETT #1#
-                                             (PROGN
-                                              (LETT #2# NIL . #3#)
-                                              (GO #4#))
-                                             . #3#)
-                                       (GO #5=#:G234)))))))
-                                 #5# (EXIT #1#))))))
-                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                  (SEQ (LETT |y| (SPADCALL |y| (QREFELT $ 17)))
+                                       (COND
+                                        ((ODDP |i|)
+                                         (LETT |x|
+                                               (SPADCALL |x| (QREFELT $ 17)))))
+                                       (EXIT
+                                        (COND
+                                         ((SPADCALL |x| |y| (QREFELT $ 9))
+                                          (PROGN
+                                           (LETT #1#
+                                                 (PROGN
+                                                  (LETT #2# NIL)
+                                                  (GO #3#)))
+                                           (GO #4=#:G234)))))))
+                                 #4# (EXIT #1#))))))
+                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT NIL)))))
-                #4# (EXIT #2#)))) 
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;every?;MAB;7|
         ((|f| |Mapping| (|Boolean|) S) (|x| A) ($ |Boolean|))
         (SPROG ((#1=#:G252 NIL) (#2=#:G253 NIL) (|y| (A)) (|i| NIL))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |y| |x| . #3=(|LZSTAGG-;every?;MAB;7|))
+                 (SEQ (LETT |y| |x|)
                       (EXIT
-                       (SEQ (LETT |i| 0 . #3#) G190 NIL
+                       (SEQ (LETT |i| 0) G190 NIL
                             (SEQ
                              (EXIT
                               (COND
                                ((SPADCALL |y| (QREFELT $ 27))
-                                (PROGN (LETT #2# 'T . #3#) (GO #4=#:G251)))
+                                (PROGN (LETT #2# 'T) (GO #3=#:G251)))
                                ((SPADCALL |y| (QREFELT $ 28))
                                 (|error| "every?: infinite stream"))
                                ('T
@@ -168,87 +158,77 @@
                                    ((NULL
                                      (SPADCALL (SPADCALL |y| (QREFELT $ 15))
                                                |f|))
-                                    (PROGN (LETT #2# NIL . #3#) (GO #4#)))
+                                    (PROGN (LETT #2# NIL) (GO #3#)))
                                    ('T
                                     (SEQ
-                                     (LETT |y| (SPADCALL |y| (QREFELT $ 17))
-                                           . #3#)
+                                     (LETT |y| (SPADCALL |y| (QREFELT $ 17)))
                                      (COND
                                       ((ODDP |i|)
-                                       (LETT |x| (SPADCALL |x| (QREFELT $ 17))
-                                             . #3#)))
+                                       (LETT |x|
+                                             (SPADCALL |x| (QREFELT $ 17)))))
                                      (EXIT
                                       (COND
                                        ((SPADCALL |x| |y| (QREFELT $ 9))
                                         (PROGN
                                          (LETT #1#
-                                               (PROGN
-                                                (LETT #2# 'T . #3#)
-                                                (GO #4#))
-                                               . #3#)
-                                         (GO #5=#:G246)))))))))
-                                 #5# (EXIT #1#))))))
-                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                               (PROGN (LETT #2# 'T) (GO #3#)))
+                                         (GO #4=#:G246)))))))))
+                                 #4# (EXIT #1#))))))
+                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT NIL)))))
-                #4# (EXIT #2#)))) 
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;entries;AL;8| ((|x| A) ($ |List| S))
         (SPROG
          ((#1=#:G261 NIL) (|y| (A)) (|l| (|List| S)) (#2=#:G262 NIL) (|i| NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |y| |x| . #3=(|LZSTAGG-;entries;AL;8|))
-                (LETT |l| NIL . #3#)
+           (SEQ (LETT |y| |x|) (LETT |l| NIL)
                 (EXIT
-                 (SEQ (LETT |i| 0 . #3#) G190 NIL
+                 (SEQ (LETT |i| 0) G190 NIL
                       (SEQ
                        (EXIT
                         (COND
                          ((SPADCALL |y| (QREFELT $ 27))
-                          (PROGN
-                           (LETT #2# (NREVERSE |l|) . #3#)
-                           (GO #4=#:G260)))
+                          (PROGN (LETT #2# (NREVERSE |l|)) (GO #3=#:G260)))
                          ((SPADCALL |y| (QREFELT $ 28))
                           (|error| "infinite stream"))
                          ('T
                           (SEQ
                            (EXIT
                             (SEQ
-                             (LETT |l| (CONS (SPADCALL |y| (QREFELT $ 15)) |l|)
-                                   . #3#)
-                             (LETT |y| (SPADCALL |y| (QREFELT $ 17)) . #3#)
+                             (LETT |l|
+                                   (CONS (SPADCALL |y| (QREFELT $ 15)) |l|))
+                             (LETT |y| (SPADCALL |y| (QREFELT $ 17)))
                              (COND
                               ((ODDP |i|)
-                               (LETT |x| (SPADCALL |x| (QREFELT $ 17)) . #3#)))
+                               (LETT |x| (SPADCALL |x| (QREFELT $ 17)))))
                              (EXIT
                               (COND
                                ((SPADCALL |x| |y| (QREFELT $ 9))
                                 (PROGN
-                                 (LETT #1# (|error| "infinite stream") . #3#)
-                                 (GO #5=#:G255)))))))
-                           #5# (EXIT #1#))))))
-                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                      (EXIT NIL)))))
-          #4# (EXIT #2#)))) 
+                                 (LETT #1# (|error| "infinite stream"))
+                                 (GO #4=#:G255)))))))
+                           #4# (EXIT #1#))))))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;construct;LA;9| ((|l| |List| S) ($ A))
         (SPROG ((|res| (A)))
                (SEQ
                 (COND ((NULL |l|) (SPADCALL (QREFELT $ 34)))
                       ('T
-                       (SEQ
-                        (LETT |l| (REVERSE |l|)
-                              . #1=(|LZSTAGG-;construct;LA;9|))
-                        (LETT |res| (SPADCALL (QREFELT $ 34)) . #1#)
-                        (SEQ G190 (COND ((NULL (NULL (NULL |l|))) (GO G191)))
-                             (SEQ
-                              (LETT |res|
-                                    (SPADCALL (|SPADfirst| |l|) |res|
-                                              (QREFELT $ 35))
-                                    . #1#)
-                              (EXIT (LETT |l| (CDR |l|) . #1#)))
-                             NIL (GO G190) G191 (EXIT NIL))
-                        (EXIT |res|))))))) 
+                       (SEQ (LETT |l| (REVERSE |l|))
+                            (LETT |res| (SPADCALL (QREFELT $ 34)))
+                            (SEQ G190
+                                 (COND ((NULL (NULL (NULL |l|))) (GO G191)))
+                                 (SEQ
+                                  (LETT |res|
+                                        (SPADCALL (|SPADfirst| |l|) |res|
+                                                  (QREFELT $ 35)))
+                                  (EXIT (LETT |l| (CDR |l|))))
+                                 NIL (GO G190) G191 (EXIT NIL))
+                            (EXIT |res|))))))) 
 
 (SDEFUN |LZSTAGG-;elt;AIS;10| ((|x| A) (|n| |Integer|) ($ S))
         (COND
@@ -282,40 +262,35 @@
           (|i| NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |y| |x| . #3=(|LZSTAGG-;indices;AL;14|))
-                (LETT |l| NIL . #3#)
+           (SEQ (LETT |y| |x|) (LETT |l| NIL)
                 (EXIT
-                 (SEQ (LETT |i| 1 . #3#) G190 NIL
+                 (SEQ (LETT |i| 1) G190 NIL
                       (SEQ
                        (EXIT
                         (COND
                          ((SPADCALL |y| (QREFELT $ 27))
-                          (PROGN
-                           (LETT #2# (NREVERSE |l|) . #3#)
-                           (GO #4=#:G284)))
+                          (PROGN (LETT #2# (NREVERSE |l|)) (GO #3=#:G284)))
                          ((SPADCALL |y| (QREFELT $ 28))
                           (|error| "indices: infinite stream"))
                          ('T
                           (SEQ
                            (EXIT
-                            (SEQ (LETT |l| (CONS |i| |l|) . #3#)
-                                 (LETT |y| (SPADCALL |y| (QREFELT $ 17)) . #3#)
+                            (SEQ (LETT |l| (CONS |i| |l|))
+                                 (LETT |y| (SPADCALL |y| (QREFELT $ 17)))
                                  (COND
                                   ((ODDP |i|)
-                                   (LETT |x| (SPADCALL |x| (QREFELT $ 17))
-                                         . #3#)))
+                                   (LETT |x| (SPADCALL |x| (QREFELT $ 17)))))
                                  (EXIT
                                   (COND
                                    ((SPADCALL |x| |y| (QREFELT $ 9))
                                     (PROGN
                                      (LETT #1#
-                                           (|error| "indices: infinite stream")
-                                           . #3#)
-                                     (GO #5=#:G279)))))))
-                           #5# (EXIT #1#))))))
-                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                      (EXIT NIL)))))
-          #4# (EXIT #2#)))) 
+                                           (|error|
+                                            "indices: infinite stream"))
+                                     (GO #4=#:G279)))))))
+                           #4# (EXIT #1#))))))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;maxIndex;AI;15| ((|x| A) ($ |Integer|))
         (SPROG ((#1=#:G295 NIL) (|y| (A)) (#2=#:G296 NIL) (|i| NIL))
@@ -325,40 +300,37 @@
                   ((SPADCALL |x| (QREFELT $ 19))
                    (|error| "maxIndex: no maximal index for empty stream"))
                   ('T
-                   (SEQ
-                    (LETT |y| (SPADCALL |x| (QREFELT $ 17))
-                          . #3=(|LZSTAGG-;maxIndex;AI;15|))
-                    (EXIT
-                     (SEQ (LETT |i| 1 . #3#) G190 NIL
-                          (SEQ
-                           (EXIT
-                            (COND
-                             ((SPADCALL |y| (QREFELT $ 27))
-                              (PROGN (LETT #2# |i| . #3#) (GO #4=#:G294)))
-                             ((SPADCALL |y| (QREFELT $ 28))
-                              (|error| "maxIndex: infinite stream"))
-                             ('T
+                   (SEQ (LETT |y| (SPADCALL |x| (QREFELT $ 17)))
+                        (EXIT
+                         (SEQ (LETT |i| 1) G190 NIL
                               (SEQ
                                (EXIT
-                                (SEQ
-                                 (LETT |y| (SPADCALL |y| (QREFELT $ 17)) . #3#)
-                                 (COND
-                                  ((ODDP |i|)
-                                   (LETT |x| (SPADCALL |x| (QREFELT $ 17))
-                                         . #3#)))
-                                 (EXIT
-                                  (COND
-                                   ((SPADCALL |x| |y| (QREFELT $ 9))
-                                    (PROGN
-                                     (LETT #1#
-                                           (|error|
-                                            "maxIndex: infinite stream")
-                                           . #3#)
-                                     (GO #5=#:G288)))))))
-                               #5# (EXIT #1#))))))
-                          (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                          (EXIT NIL)))))))
-                #4# (EXIT #2#)))) 
+                                (COND
+                                 ((SPADCALL |y| (QREFELT $ 27))
+                                  (PROGN (LETT #2# |i|) (GO #3=#:G294)))
+                                 ((SPADCALL |y| (QREFELT $ 28))
+                                  (|error| "maxIndex: infinite stream"))
+                                 ('T
+                                  (SEQ
+                                   (EXIT
+                                    (SEQ
+                                     (LETT |y| (SPADCALL |y| (QREFELT $ 17)))
+                                     (COND
+                                      ((ODDP |i|)
+                                       (LETT |x|
+                                             (SPADCALL |x| (QREFELT $ 17)))))
+                                     (EXIT
+                                      (COND
+                                       ((SPADCALL |x| |y| (QREFELT $ 9))
+                                        (PROGN
+                                         (LETT #1#
+                                               (|error|
+                                                "maxIndex: infinite stream"))
+                                         (GO #4=#:G288)))))))
+                                   #4# (EXIT #1#))))))
+                              (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                              (EXIT NIL)))))))
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;minIndex;AI;16| ((|x| A) ($ |Integer|))
         (COND
@@ -374,15 +346,13 @@
                 ('T
                  (SPADCALL
                   (SPADCALL |x|
-                            (PROG1
-                                (LETT #2# (- |n| 1)
-                                      . #3=(|LZSTAGG-;delete;AIA;17|))
+                            (PROG1 (LETT #2# (- |n| 1))
                               (|check_subtype2| (>= #2# 0)
                                                 '(|NonNegativeInteger|)
                                                 '(|Integer|) #2#))
                             (QREFELT $ 47))
                   (SPADCALL |x|
-                            (PROG1 (LETT #1# (+ (- |n| 1) 1) . #3#)
+                            (PROG1 (LETT #1# (+ (- |n| 1) 1))
                               (|check_subtype2| (>= #1# 0)
                                                 '(|NonNegativeInteger|)
                                                 '(|Integer|) #1#))
@@ -394,92 +364,94 @@
         (SPROG
          ((#1=#:G311 NIL) (#2=#:G307 NIL) (#3=#:G306 NIL) (|high| (|Integer|))
           (|low| (|Integer|)))
-         (SEQ
-          (LETT |low| (SPADCALL |seg| (QREFELT $ 52))
-                . #4=(|LZSTAGG-;delete;AUsA;18|))
-          (EXIT
-           (COND
-            ((SPADCALL |seg| (QREFELT $ 53))
-             (SEQ (LETT |high| (SPADCALL |seg| (QREFELT $ 54)) . #4#)
-                  (EXIT
-                   (COND ((< |high| |low|) (SPADCALL |x| (QREFELT $ 55)))
-                         (#5='T
-                          (SEQ
-                           (COND
-                            ((SPADCALL |low| |x| (QREFELT $ 46))
-                             (COND
-                              ((NULL (SPADCALL |high| |x| (QREFELT $ 46)))
+         (SEQ (LETT |low| (SPADCALL |seg| (QREFELT $ 52)))
+              (EXIT
+               (COND
+                ((SPADCALL |seg| (QREFELT $ 53))
+                 (SEQ (LETT |high| (SPADCALL |seg| (QREFELT $ 54)))
+                      (EXIT
+                       (COND ((< |high| |low|) (SPADCALL |x| (QREFELT $ 55)))
+                             (#4='T
+                              (SEQ
+                               (COND
+                                ((SPADCALL |low| |x| (QREFELT $ 46))
+                                 (COND
+                                  ((NULL (SPADCALL |high| |x| (QREFELT $ 46)))
+                                   (EXIT
+                                    (|error|
+                                     #5="delete: index out of range")))))
+                                (#4# (EXIT (|error| #5#))))
                                (EXIT
-                                (|error| #6="delete: index out of range")))))
-                            (#5# (EXIT (|error| #6#))))
-                           (EXIT
-                            (SPADCALL
-                             (SPADCALL |x|
-                                       (PROG1 (LETT #3# (- |low| 1) . #4#)
-                                         (|check_subtype2| (>= #3# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           '(|Integer|) #3#))
-                                       (QREFELT $ 47))
-                             (SPADCALL |x|
-                                       (PROG1
-                                           (LETT #2# (+ (- |high| 1) 1) . #4#)
-                                         (|check_subtype2| (>= #2# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           '(|Integer|) #2#))
-                                       (QREFELT $ 48))
-                             (QREFELT $ 49)))))))))
-            ((NULL (SPADCALL |low| |x| (QREFELT $ 46)))
-             (|error| "delete: index out of range"))
-            ('T
-             (SPADCALL |x|
-                       (PROG1 (LETT #1# (- |low| 1) . #4#)
-                         (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
-                                           '(|Integer|) #1#))
-                       (QREFELT $ 47)))))))) 
+                                (SPADCALL
+                                 (SPADCALL |x|
+                                           (PROG1 (LETT #3# (- |low| 1))
+                                             (|check_subtype2| (>= #3# 0)
+                                                               '(|NonNegativeInteger|)
+                                                               '(|Integer|)
+                                                               #3#))
+                                           (QREFELT $ 47))
+                                 (SPADCALL |x|
+                                           (PROG1 (LETT #2# (+ (- |high| 1) 1))
+                                             (|check_subtype2| (>= #2# 0)
+                                                               '(|NonNegativeInteger|)
+                                                               '(|Integer|)
+                                                               #2#))
+                                           (QREFELT $ 48))
+                                 (QREFELT $ 49)))))))))
+                ((NULL (SPADCALL |low| |x| (QREFELT $ 46)))
+                 (|error| "delete: index out of range"))
+                ('T
+                 (SPADCALL |x|
+                           (PROG1 (LETT #1# (- |low| 1))
+                             (|check_subtype2| (>= #1# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #1#))
+                           (QREFELT $ 47)))))))) 
 
 (SDEFUN |LZSTAGG-;elt;AUsA;19|
         ((|x| A) (|seg| |UniversalSegment| (|Integer|)) ($ A))
         (SPROG
          ((#1=#:G322 NIL) (#2=#:G318 NIL) (#3=#:G317 NIL) (|high| (|Integer|))
           (|low| (|Integer|)))
-         (SEQ
-          (LETT |low| (SPADCALL |seg| (QREFELT $ 52))
-                . #4=(|LZSTAGG-;elt;AUsA;19|))
-          (EXIT
-           (COND
-            ((SPADCALL |seg| (QREFELT $ 53))
-             (SEQ (LETT |high| (SPADCALL |seg| (QREFELT $ 54)) . #4#)
-                  (EXIT
-                   (COND ((< |high| |low|) (SPADCALL (QREFELT $ 34)))
-                         (#5='T
-                          (SEQ
-                           (COND
-                            ((SPADCALL |low| |x| (QREFELT $ 46))
-                             (COND
-                              ((NULL (SPADCALL |high| |x| (QREFELT $ 46)))
-                               (EXIT (|error| #6="elt: index out of range")))))
-                            (#5# (EXIT (|error| #6#))))
-                           (EXIT
-                            (SPADCALL
-                             (SPADCALL |x|
-                                       (PROG1 (LETT #3# (- |low| 1) . #4#)
-                                         (|check_subtype2| (>= #3# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           '(|Integer|) #3#))
-                                       (QREFELT $ 48))
-                             (PROG1 (LETT #2# (+ (- |high| |low|) 1) . #4#)
-                               (|check_subtype2| (>= #2# 0)
-                                                 '(|NonNegativeInteger|)
-                                                 '(|Integer|) #2#))
-                             (QREFELT $ 47)))))))))
-            ((NULL (SPADCALL |low| |x| (QREFELT $ 46)))
-             (|error| "elt: index out of range"))
-            ('T
-             (SPADCALL |x|
-                       (PROG1 (LETT #1# (- |low| 1) . #4#)
-                         (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
-                                           '(|Integer|) #1#))
-                       (QREFELT $ 48)))))))) 
+         (SEQ (LETT |low| (SPADCALL |seg| (QREFELT $ 52)))
+              (EXIT
+               (COND
+                ((SPADCALL |seg| (QREFELT $ 53))
+                 (SEQ (LETT |high| (SPADCALL |seg| (QREFELT $ 54)))
+                      (EXIT
+                       (COND ((< |high| |low|) (SPADCALL (QREFELT $ 34)))
+                             (#4='T
+                              (SEQ
+                               (COND
+                                ((SPADCALL |low| |x| (QREFELT $ 46))
+                                 (COND
+                                  ((NULL (SPADCALL |high| |x| (QREFELT $ 46)))
+                                   (EXIT
+                                    (|error| #5="elt: index out of range")))))
+                                (#4# (EXIT (|error| #5#))))
+                               (EXIT
+                                (SPADCALL
+                                 (SPADCALL |x|
+                                           (PROG1 (LETT #3# (- |low| 1))
+                                             (|check_subtype2| (>= #3# 0)
+                                                               '(|NonNegativeInteger|)
+                                                               '(|Integer|)
+                                                               #3#))
+                                           (QREFELT $ 48))
+                                 (PROG1 (LETT #2# (+ (- |high| |low|) 1))
+                                   (|check_subtype2| (>= #2# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #2#))
+                                 (QREFELT $ 47)))))))))
+                ((NULL (SPADCALL |low| |x| (QREFELT $ 46)))
+                 (|error| "elt: index out of range"))
+                ('T
+                 (SPADCALL |x|
+                           (PROG1 (LETT #1# (- |low| 1))
+                             (|check_subtype2| (>= #1# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #1#))
+                           (QREFELT $ 48)))))))) 
 
 (SDEFUN |LZSTAGG-;insert;SAIA;20| ((|s| S) (|x| A) (|n| |Integer|) ($ A))
         (SPROG ((|nn| (|NonNegativeInteger|)) (#1=#:G327 NIL))
@@ -490,12 +462,9 @@
                  ('T
                   (SEQ
                    (LETT |nn|
-                         (PROG1
-                             (LETT #1# (- |n| 1)
-                                   . #2=(|LZSTAGG-;insert;SAIA;20|))
+                         (PROG1 (LETT #1# (- |n| 1))
                            (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
-                                             '(|Integer|) #1#))
-                         . #2#)
+                                             '(|Integer|) #1#)))
                    (EXIT
                     (SPADCALL
                      (LIST (SPADCALL |x| |nn| (QREFELT $ 47))
@@ -513,12 +482,9 @@
                  ('T
                   (SEQ
                    (LETT |nn|
-                         (PROG1
-                             (LETT #1# (- |n| 1)
-                                   . #2=(|LZSTAGG-;insert;2AIA;21|))
+                         (PROG1 (LETT #1# (- |n| 1))
                            (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
-                                             '(|Integer|) #1#))
-                         . #2#)
+                                             '(|Integer|) #1#)))
                    (EXIT
                     (SPADCALL
                      (LIST (SPADCALL |x| |nn| (QREFELT $ 47)) |y|
@@ -543,14 +509,14 @@
         (SPROG ((#1=#:G355 NIL) (|y| (A)) (#2=#:G356 NIL) (|i| NIL))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |y| |x| . #3=(|LZSTAGG-;distance;2AI;26|))
+                 (SEQ (LETT |y| |x|)
                       (EXIT
-                       (SEQ (LETT |i| 0 . #3#) G190 NIL
+                       (SEQ (LETT |i| 0) G190 NIL
                             (SEQ
                              (EXIT
                               (COND
                                ((SPADCALL |y| |z| (QREFELT $ 9))
-                                (PROGN (LETT #2# |i| . #3#) (GO #4=#:G354)))
+                                (PROGN (LETT #2# |i|) (GO #3=#:G354)))
                                ('T
                                 (SEQ
                                  (EXIT
@@ -561,148 +527,135 @@
                                      "distance: 2nd arg not a descendent of the 1st"))
                                    ('T
                                     (SEQ
-                                     (LETT |y| (SPADCALL |y| (QREFELT $ 17))
-                                           . #3#)
+                                     (LETT |y| (SPADCALL |y| (QREFELT $ 17)))
                                      (COND
                                       ((ODDP |i|)
-                                       (LETT |x| (SPADCALL |x| (QREFELT $ 17))
-                                             . #3#)))
+                                       (LETT |x|
+                                             (SPADCALL |x| (QREFELT $ 17)))))
                                      (EXIT
                                       (COND
                                        ((SPADCALL |x| |y| (QREFELT $ 9))
                                         (PROGN
                                          (LETT #1#
                                                (|error|
-                                                "distance: 2nd arg not a descendent of the 1st")
-                                               . #3#)
-                                         (GO #5=#:G350)))))))))
-                                 #5# (EXIT #1#))))))
-                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                                "distance: 2nd arg not a descendent of the 1st"))
+                                         (GO #4=#:G350)))))))))
+                                 #4# (EXIT #1#))))))
+                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT NIL)))))
-                #4# (EXIT #2#)))) 
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;node?;2AB;27| ((|z| A) (|x| A) ($ |Boolean|))
         (SPROG ((#1=#:G364 NIL) (#2=#:G365 NIL) (|y| (A)) (|i| NIL))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |y| |x| . #3=(|LZSTAGG-;node?;2AB;27|))
+                 (SEQ (LETT |y| |x|)
                       (EXIT
-                       (SEQ (LETT |i| 0 . #3#) G190 NIL
+                       (SEQ (LETT |i| 0) G190 NIL
                             (SEQ
                              (EXIT
                               (COND
                                ((SPADCALL |z| |y| (QREFELT $ 66))
-                                (PROGN (LETT #2# 'T . #3#) (GO #4=#:G363)))
+                                (PROGN (LETT #2# 'T) (GO #3=#:G363)))
                                ((SPADCALL |y| (QREFELT $ 27))
-                                (PROGN (LETT #2# NIL . #3#) (GO #4#)))
+                                (PROGN (LETT #2# NIL) (GO #3#)))
                                ((SPADCALL |y| (QREFELT $ 28))
                                 (|error| "node?: infinite stream"))
                                ('T
                                 (SEQ
                                  (EXIT
-                                  (SEQ
-                                   (LETT |y| (SPADCALL |y| (QREFELT $ 17))
-                                         . #3#)
-                                   (COND
-                                    ((ODDP |i|)
-                                     (LETT |x| (SPADCALL |x| (QREFELT $ 17))
-                                           . #3#)))
-                                   (EXIT
-                                    (COND
-                                     ((SPADCALL |x| |y| (QREFELT $ 9))
-                                      (PROGN
-                                       (LETT #1#
-                                             (PROGN
-                                              (LETT #2# NIL . #3#)
-                                              (GO #4#))
-                                             . #3#)
-                                       (GO #5=#:G358)))))))
-                                 #5# (EXIT #1#))))))
-                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                  (SEQ (LETT |y| (SPADCALL |y| (QREFELT $ 17)))
+                                       (COND
+                                        ((ODDP |i|)
+                                         (LETT |x|
+                                               (SPADCALL |x| (QREFELT $ 17)))))
+                                       (EXIT
+                                        (COND
+                                         ((SPADCALL |x| |y| (QREFELT $ 9))
+                                          (PROGN
+                                           (LETT #1#
+                                                 (PROGN
+                                                  (LETT #2# NIL)
+                                                  (GO #3#)))
+                                           (GO #4=#:G358)))))))
+                                 #4# (EXIT #1#))))))
+                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT NIL)))))
-                #4# (EXIT #2#)))) 
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;nodes;AL;28| ((|x| A) ($ |List| A))
         (SPROG
          ((#1=#:G373 NIL) (|y| (A)) (|l| (|List| A)) (#2=#:G374 NIL) (|i| NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |y| |x| . #3=(|LZSTAGG-;nodes;AL;28|))
-                (LETT |l| NIL . #3#)
-                (SEQ (LETT |i| 0 . #3#) G190 NIL
+           (SEQ (LETT |y| |x|) (LETT |l| NIL)
+                (SEQ (LETT |i| 0) G190 NIL
                      (SEQ
                       (EXIT
                        (COND
                         ((SPADCALL |y| (QREFELT $ 27))
-                         (PROGN
-                          (LETT #2# (NREVERSE |l|) . #3#)
-                          (GO #4=#:G372)))
+                         (PROGN (LETT #2# (NREVERSE |l|)) (GO #3=#:G372)))
                         ((SPADCALL |y| (QREFELT $ 28))
                          (|error| "nodes: infinite stream"))
                         ('T
                          (SEQ
                           (EXIT
-                           (SEQ (LETT |l| (CONS |y| |l|) . #3#)
-                                (LETT |y| (SPADCALL |y| (QREFELT $ 17)) . #3#)
+                           (SEQ (LETT |l| (CONS |y| |l|))
+                                (LETT |y| (SPADCALL |y| (QREFELT $ 17)))
                                 (COND
                                  ((ODDP |i|)
-                                  (LETT |x| (SPADCALL |x| (QREFELT $ 17))
-                                        . #3#)))
+                                  (LETT |x| (SPADCALL |x| (QREFELT $ 17)))))
                                 (EXIT
                                  (COND
                                   ((SPADCALL |x| |y| (QREFELT $ 9))
                                    (PROGN
                                     (LETT #1#
-                                          (|error| "nodes: infinite stream")
-                                          . #3#)
-                                    (GO #5=#:G367)))))))
-                          #5# (EXIT #1#))))))
-                     (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+                                          (|error| "nodes: infinite stream"))
+                                    (GO #4=#:G367)))))))
+                          #4# (EXIT #1#))))))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |l|)))
-          #4# (EXIT #2#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;leaves;AL;29| ((|x| A) ($ |List| S))
         (SPROG ((#1=#:G383 NIL) (|y| (A)) (#2=#:G384 NIL) (|i| NIL))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |y| |x| . #3=(|LZSTAGG-;leaves;AL;29|))
+                 (SEQ (LETT |y| |x|)
                       (EXIT
-                       (SEQ (LETT |i| 0 . #3#) G190 NIL
+                       (SEQ (LETT |i| 0) G190 NIL
                             (SEQ
                              (EXIT
                               (COND
                                ((SPADCALL |y| (QREFELT $ 27))
-                                (PROGN (LETT #2# NIL . #3#) (GO #4=#:G382)))
+                                (PROGN (LETT #2# NIL) (GO #3=#:G382)))
                                ((SPADCALL |y| (QREFELT $ 28))
                                 (|error| "leaves$Stream: infinite stream"))
                                ((SPADCALL |y| (QREFELT $ 72))
                                 (PROGN
-                                 (LETT #2# (LIST (SPADCALL |y| (QREFELT $ 73)))
-                                       . #3#)
-                                 (GO #4#)))
+                                 (LETT #2#
+                                       (LIST (SPADCALL |y| (QREFELT $ 73))))
+                                 (GO #3#)))
                                ('T
                                 (SEQ
                                  (EXIT
-                                  (SEQ
-                                   (LETT |y| (SPADCALL |y| (QREFELT $ 17))
-                                         . #3#)
-                                   (COND
-                                    ((ODDP |i|)
-                                     (LETT |x| (SPADCALL |x| (QREFELT $ 17))
-                                           . #3#)))
-                                   (EXIT
-                                    (COND
-                                     ((SPADCALL |x| |y| (QREFELT $ 9))
-                                      (PROGN
-                                       (LETT #1#
-                                             (|error|
-                                              "leaves$Stream: infinite stream")
-                                             . #3#)
-                                       (GO #5=#:G376)))))))
-                                 #5# (EXIT #1#))))))
-                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                  (SEQ (LETT |y| (SPADCALL |y| (QREFELT $ 17)))
+                                       (COND
+                                        ((ODDP |i|)
+                                         (LETT |x|
+                                               (SPADCALL |x| (QREFELT $ 17)))))
+                                       (EXIT
+                                        (COND
+                                         ((SPADCALL |x| |y| (QREFELT $ 9))
+                                          (PROGN
+                                           (LETT #1#
+                                                 (|error|
+                                                  "leaves$Stream: infinite stream"))
+                                           (GO #4=#:G376)))))))
+                                 #4# (EXIT #1#))))))
+                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT NIL)))))
-                #4# (EXIT #2#)))) 
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;value;AS;30| ((|x| A) ($ S)) (SPADCALL |x| (QREFELT $ 75))) 
 
@@ -714,60 +667,56 @@
 
 (SDEFUN |LZSTAGG-;cycleEntry;2A;33| ((|x| A) ($ A))
         (SPROG ((|cycElt| (|Union| A "failed")))
-               (SEQ
-                (LETT |cycElt| (|LZSTAGG-;cycleElt| |x| $)
-                      |LZSTAGG-;cycleEntry;2A;33|)
-                (EXIT
-                 (COND
-                  ((QEQCAR |cycElt| 1)
-                   (|error| "cycleEntry: non-cyclic stream"))
-                  ('T (|LZSTAGG-;computeCycleEntry| |x| (QCDR |cycElt|) $))))))) 
+               (SEQ (LETT |cycElt| (|LZSTAGG-;cycleElt| |x| $))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |cycElt| 1)
+                       (|error| "cycleEntry: non-cyclic stream"))
+                      ('T
+                       (|LZSTAGG-;computeCycleEntry| |x| (QCDR |cycElt|)
+                        $))))))) 
 
 (SDEFUN |LZSTAGG-;cycleLength;ANni;34| ((|x| A) ($ |NonNegativeInteger|))
         (SPROG ((|cycElt| (|Union| A "failed")))
-               (SEQ
-                (LETT |cycElt| (|LZSTAGG-;cycleElt| |x| $)
-                      |LZSTAGG-;cycleLength;ANni;34|)
-                (EXIT
-                 (COND
-                  ((QEQCAR |cycElt| 1)
-                   (|error| "cycleLength: non-cyclic stream"))
-                  ('T (|LZSTAGG-;computeCycleLength| (QCDR |cycElt|) $))))))) 
+               (SEQ (LETT |cycElt| (|LZSTAGG-;cycleElt| |x| $))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |cycElt| 1)
+                       (|error| "cycleLength: non-cyclic stream"))
+                      ('T
+                       (|LZSTAGG-;computeCycleLength| (QCDR |cycElt|) $))))))) 
 
 (SDEFUN |LZSTAGG-;cycleTail;2A;35| ((|x| A) ($ A))
         (SPROG
          ((|z| (A)) (|y| (A)) (#1=#:G407 NIL) (|cycElt| (|Union| A "failed")))
          (SEQ
           (EXIT
-           (SEQ
-            (LETT |cycElt| (|LZSTAGG-;cycleElt| |x| $)
-                  . #2=(|LZSTAGG-;cycleTail;2A;35|))
-            (EXIT
-             (COND
-              ((QEQCAR |cycElt| 1) (|error| "cycleTail: non-cyclic stream"))
-              ('T
-               (SEQ
-                (LETT |y|
-                      (LETT |x|
-                            (|LZSTAGG-;computeCycleEntry| |x| (QCDR |cycElt|)
-                             $)
-                            . #2#)
-                      . #2#)
-                (LETT |z| (SPADCALL |x| (QREFELT $ 17)) . #2#)
+           (SEQ (LETT |cycElt| (|LZSTAGG-;cycleElt| |x| $))
                 (EXIT
-                 (SEQ G190 NIL
-                      (SEQ
-                       (EXIT
-                        (COND
-                         ((SPADCALL |x| |z| (QREFELT $ 9))
-                          (PROGN (LETT #1# |y| . #2#) (GO #3=#:G406)))
-                         ('T
-                          (SEQ (LETT |y| |z| . #2#)
-                               (EXIT
-                                (LETT |z| (SPADCALL |z| (QREFELT $ 17))
-                                      . #2#)))))))
-                      NIL (GO G190) G191 (EXIT NIL)))))))))
-          #3# (EXIT #1#)))) 
+                 (COND
+                  ((QEQCAR |cycElt| 1)
+                   (|error| "cycleTail: non-cyclic stream"))
+                  ('T
+                   (SEQ
+                    (LETT |y|
+                          (LETT |x|
+                                (|LZSTAGG-;computeCycleEntry| |x|
+                                 (QCDR |cycElt|) $)))
+                    (LETT |z| (SPADCALL |x| (QREFELT $ 17)))
+                    (EXIT
+                     (SEQ G190 NIL
+                          (SEQ
+                           (EXIT
+                            (COND
+                             ((SPADCALL |x| |z| (QREFELT $ 9))
+                              (PROGN (LETT #1# |y|) (GO #2=#:G406)))
+                             ('T
+                              (SEQ (LETT |y| |z|)
+                                   (EXIT
+                                    (LETT |z|
+                                          (SPADCALL |z| (QREFELT $ 17)))))))))
+                          NIL (GO G190) G191 (EXIT NIL)))))))))
+          #2# (EXIT #1#)))) 
 
 (SDEFUN |LZSTAGG-;elt;AfirstS;36| ((|x| A) (T5 "first") ($ S))
         (SPADCALL |x| (QREFELT $ 75))) 
@@ -780,9 +729,7 @@
                 ('T
                  (SPADCALL (SPADCALL |x| (QREFELT $ 15))
                            (SPADCALL (SPADCALL |x| (QREFELT $ 17))
-                                     (PROG1
-                                         (LETT #1# (- |n| 1)
-                                               |LZSTAGG-;first;ANniA;37|)
+                                     (PROG1 (LETT #1# (- |n| 1))
                                        (|check_subtype2| (>= #1# 0)
                                                          '(|NonNegativeInteger|)
                                                          '(|Integer|) #1#))
@@ -803,9 +750,7 @@
                (COND ((OR (EQL |n| 0) (SPADCALL |x| (QREFELT $ 19))) |x|)
                      ('T
                       (SPADCALL (SPADCALL |x| (QREFELT $ 17))
-                                (PROG1
-                                    (LETT #1# (- |n| 1)
-                                          |LZSTAGG-;rest;ANniA;40|)
+                                (PROG1 (LETT #1# (- |n| 1))
                                   (|check_subtype2| (>= #1# 0)
                                                     '(|NonNegativeInteger|)
                                                     '(|Integer|) #1#))
@@ -818,45 +763,42 @@
           (EXIT
            (COND ((SPADCALL |x| (QREFELT $ 19)) (|error| "last: empty stream"))
                  ('T
-                  (SEQ (LETT |y1| |x| . #3=(|LZSTAGG-;last;AS;41|))
-                       (LETT |y2| (SPADCALL |x| (QREFELT $ 17)) . #3#)
+                  (SEQ (LETT |y1| |x|)
+                       (LETT |y2| (SPADCALL |x| (QREFELT $ 17)))
                        (EXIT
-                        (SEQ (LETT |i| 0 . #3#) G190 NIL
+                        (SEQ (LETT |i| 0) G190 NIL
                              (SEQ
                               (EXIT
                                (COND
                                 ((SPADCALL |y2| (QREFELT $ 27))
                                  (PROGN
-                                  (LETT #2# (SPADCALL |y1| (QREFELT $ 15))
-                                        . #3#)
-                                  (GO #4=#:G427)))
+                                  (LETT #2# (SPADCALL |y1| (QREFELT $ 15)))
+                                  (GO #3=#:G427)))
                                 ((SPADCALL |y2| (QREFELT $ 28))
                                  (|error| "last: infinite stream"))
                                 ('T
                                  (SEQ
                                   (EXIT
-                                   (SEQ (LETT |y1| |y2| . #3#)
+                                   (SEQ (LETT |y1| |y2|)
                                         (LETT |y2|
-                                              (SPADCALL |y2| (QREFELT $ 17))
-                                              . #3#)
+                                              (SPADCALL |y2| (QREFELT $ 17)))
                                         (COND
                                          ((ODDP |i|)
                                           (LETT |x|
-                                                (SPADCALL |x| (QREFELT $ 17))
-                                                . #3#)))
+                                                (SPADCALL |x|
+                                                          (QREFELT $ 17)))))
                                         (EXIT
                                          (COND
                                           ((SPADCALL |x| |y2| (QREFELT $ 9))
                                            (PROGN
                                             (LETT #1#
                                                   (|error|
-                                                   "last: infinite stream")
-                                                  . #3#)
-                                            (GO #5=#:G421)))))))
-                                  #5# (EXIT #1#))))))
-                             (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                                   "last: infinite stream"))
+                                            (GO #4=#:G421)))))))
+                                  #4# (EXIT #1#))))))
+                             (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                              (EXIT NIL)))))))
-          #4# (EXIT #2#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;last;ANniA;42| ((|x| A) (|n| |NonNegativeInteger|) ($ A))
         (SPROG ((#1=#:G430 NIL) (|m| (|NonNegativeInteger|)))
@@ -865,20 +807,19 @@
                  ((SPADCALL |x| (QREFELT $ 91))
                   (|error| "last: infinite stream"))
                  (#2='T
-                  (SEQ
-                   (LETT |m| (SPADCALL |x| (QREFELT $ 92))
-                         . #3=(|LZSTAGG-;last;ANniA;42|))
-                   (EXIT
-                    (COND ((< |m| |n|) (|error| "last: index out of range"))
-                          (#2#
-                           (SPADCALL
-                            (SPADCALL |x|
-                                      (PROG1 (LETT #1# (- |m| |n|) . #3#)
-                                        (|check_subtype2| (>= #1# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          '(|Integer|) #1#))
-                                      (QREFELT $ 48))
-                            (QREFELT $ 55))))))))))) 
+                  (SEQ (LETT |m| (SPADCALL |x| (QREFELT $ 92)))
+                       (EXIT
+                        (COND
+                         ((< |m| |n|) (|error| "last: index out of range"))
+                         (#2#
+                          (SPADCALL
+                           (SPADCALL |x|
+                                     (PROG1 (LETT #1# (- |m| |n|))
+                                       (|check_subtype2| (>= #1# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #1#))
+                                     (QREFELT $ 48))
+                           (QREFELT $ 55))))))))))) 
 
 (SDEFUN |LZSTAGG-;elt;AlastS;43| ((|x| A) (T7 "last") ($ S))
         (SPADCALL |x| (QREFELT $ 94))) 
@@ -890,110 +831,98 @@
           (EXIT
            (COND ((SPADCALL |x| (QREFELT $ 19)) (|error| "tail: empty stream"))
                  ('T
-                  (SEQ (LETT |y1| |x| . #3=(|LZSTAGG-;tail;2A;44|))
-                       (LETT |y2| (SPADCALL |x| (QREFELT $ 17)) . #3#)
+                  (SEQ (LETT |y1| |x|)
+                       (LETT |y2| (SPADCALL |x| (QREFELT $ 17)))
                        (EXIT
-                        (SEQ (LETT |i| 0 . #3#) G190 NIL
+                        (SEQ (LETT |i| 0) G190 NIL
                              (SEQ
                               (EXIT
                                (COND
                                 ((SPADCALL |y2| (QREFELT $ 27))
-                                 (PROGN (LETT #2# |y1| . #3#) (GO #4=#:G442)))
+                                 (PROGN (LETT #2# |y1|) (GO #3=#:G442)))
                                 ((SPADCALL |y2| (QREFELT $ 28))
                                  (|error| "tail: infinite stream"))
                                 ('T
                                  (SEQ
                                   (EXIT
-                                   (SEQ (LETT |y1| |y2| . #3#)
+                                   (SEQ (LETT |y1| |y2|)
                                         (LETT |y2|
-                                              (SPADCALL |y2| (QREFELT $ 17))
-                                              . #3#)
+                                              (SPADCALL |y2| (QREFELT $ 17)))
                                         (COND
                                          ((ODDP |i|)
                                           (LETT |x|
-                                                (SPADCALL |x| (QREFELT $ 17))
-                                                . #3#)))
+                                                (SPADCALL |x|
+                                                          (QREFELT $ 17)))))
                                         (EXIT
                                          (COND
                                           ((SPADCALL |x| |y2| (QREFELT $ 9))
                                            (PROGN
                                             (LETT #1#
                                                   (|error|
-                                                   "tail: infinite stream")
-                                                  . #3#)
-                                            (GO #5=#:G436)))))))
-                                  #5# (EXIT #1#))))))
-                             (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                                   "tail: infinite stream"))
+                                            (GO #4=#:G436)))))))
+                                  #4# (EXIT #1#))))))
+                             (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                              (EXIT NIL)))))))
-          #4# (EXIT #2#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;possiblyInfinite?;AB;45| ((|x| A) ($ |Boolean|))
         (SPROG ((#1=#:G452 NIL) (#2=#:G453 NIL) (|y| (A)) (|i| NIL))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |y| |x| . #3=(|LZSTAGG-;possiblyInfinite?;AB;45|))
+                 (SEQ (LETT |y| |x|)
                       (EXIT
-                       (SEQ (LETT |i| 0 . #3#) G190 NIL
+                       (SEQ (LETT |i| 0) G190 NIL
                             (SEQ
                              (EXIT
                               (COND
                                ((SPADCALL |y| (QREFELT $ 27))
-                                (PROGN (LETT #2# NIL . #3#) (GO #4=#:G451)))
+                                (PROGN (LETT #2# NIL) (GO #3=#:G451)))
                                ((SPADCALL |y| (QREFELT $ 28))
-                                (PROGN (LETT #2# 'T . #3#) (GO #4#)))
+                                (PROGN (LETT #2# 'T) (GO #3#)))
                                ('T
                                 (SEQ
                                  (EXIT
                                   (SEQ
                                    (COND
                                     ((ODDP |i|)
-                                     (LETT |x| (SPADCALL |x| (QREFELT $ 17))
-                                           . #3#)))
-                                   (LETT |y| (SPADCALL |y| (QREFELT $ 17))
-                                         . #3#)
+                                     (LETT |x| (SPADCALL |x| (QREFELT $ 17)))))
+                                   (LETT |y| (SPADCALL |y| (QREFELT $ 17)))
                                    (EXIT
                                     (COND
                                      ((SPADCALL |x| |y| (QREFELT $ 9))
                                       (PROGN
                                        (LETT #1#
-                                             (PROGN
-                                              (LETT #2# 'T . #3#)
-                                              (GO #4#))
-                                             . #3#)
-                                       (GO #5=#:G446)))))))
-                                 #5# (EXIT #1#))))))
-                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                             (PROGN (LETT #2# 'T) (GO #3#)))
+                                       (GO #4=#:G446)))))))
+                                 #4# (EXIT #1#))))))
+                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT NIL)))))
-                #4# (EXIT #2#)))) 
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |LZSTAGG-;explicitlyFinite?;AB;46| ((|x| A) ($ |Boolean|))
         (NULL (SPADCALL |x| (QREFELT $ 91)))) 
 
 (SDEFUN |LZSTAGG-;extend;AIA;47| ((|x| A) (|n| |Integer|) ($ A))
         (SPROG ((|y| (A)) (#1=#:G460 NIL) (|i| NIL))
-               (SEQ (LETT |y| |x| . #2=(|LZSTAGG-;extend;AIA;47|))
-                    (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
+               (SEQ (LETT |y| |x|)
+                    (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                          (COND
                           ((OR (|greater_SI| |i| #1#)
                                (NULL (NULL (SPADCALL |y| (QREFELT $ 19)))))
                            (GO G191)))
-                         (SEQ
-                          (EXIT
-                           (LETT |y| (SPADCALL |y| (QREFELT $ 17)) . #2#)))
-                         (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
-                         (EXIT NIL))
+                         (SEQ (EXIT (LETT |y| (SPADCALL |y| (QREFELT $ 17)))))
+                         (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |x|)))) 
 
 (SDEFUN |LZSTAGG-;complete;2A;48| ((|x| A) ($ A))
         (SPROG ((|y| (A)))
-               (SEQ (LETT |y| |x| . #1=(|LZSTAGG-;complete;2A;48|))
+               (SEQ (LETT |y| |x|)
                     (SEQ G190
                          (COND
                           ((NULL (NULL (SPADCALL |y| (QREFELT $ 19))))
                            (GO G191)))
-                         (SEQ
-                          (EXIT
-                           (LETT |y| (SPADCALL |y| (QREFELT $ 17)) . #1#)))
+                         (SEQ (EXIT (LETT |y| (SPADCALL |y| (QREFELT $ 17)))))
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |x|)))) 
 
@@ -1002,12 +931,12 @@
 (DEFUN |LazyStreamAggregate&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|LazyStreamAggregate&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|LazyStreamAggregate&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 103) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|LazyStreamAggregate&| DV$1 DV$2))
+          (LETT $ (GETREFV 103))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

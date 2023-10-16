@@ -7,9 +7,7 @@
 
 (DEFUN |Lattice;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1
-             (LETT #1# (|Join| (|MeetSemilattice|) (|JoinSemilattice|))
-                   |Lattice|)
+         (PROG1 (LETT #1# (|Join| (|MeetSemilattice|) (|JoinSemilattice|)))
            (SETELT #1# 0 '(|Lattice|))))) 
 
 (MAKEPROP '|Lattice| 'NILADIC T) 

@@ -48,7 +48,5 @@
                                                       ((|OrderedSet|)
                                                        (|has| |t#1|
                                                               (|Finite|))))
-                                                    NIL NIL))
-                                           . #2=(|PermutationCategory|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PermutationCategory| |t#1|))))) 

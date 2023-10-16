@@ -2,8 +2,8 @@
 (SDEFUN |HYPCAT-;csch;2S;1| ((|x| S) ($ S))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ
-                (LETT |a| (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 9))
-                      |HYPCAT-;csch;2S;1|)
+                (LETT |a|
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 9)))
                 (EXIT
                  (COND ((QEQCAR |a| 1) (|error| "csch: no reciprocal"))
                        ('T (QCDR |a|))))))) 
@@ -12,8 +12,7 @@
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ
                 (LETT |a|
-                      (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 9))
-                      |HYPCAT-;sech;2S;2|)
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 9)))
                 (EXIT
                  (COND ((QEQCAR |a| 1) (|error| "sech: no reciprocal"))
                        ('T (QCDR |a|))))))) 
@@ -28,66 +27,58 @@
 
 (SDEFUN |HYPCAT-;cosh;2S;5| ((|x| S) ($ S))
         (SPROG ((#1=#:G127 NIL) (|e| (S)))
-               (SEQ
-                (LETT |e| (SPADCALL |x| (QREFELT $ 18))
-                      . #2=(|HYPCAT-;cosh;2S;5|))
-                (EXIT
-                 (SPADCALL
-                  (SPADCALL |e|
-                            (PROG2
-                                (LETT #1# (SPADCALL |e| (QREFELT $ 9)) . #2#)
-                                (QCDR #1#)
-                              (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
-                                              (|Union| (QREFELT $ 6)
-                                                       #3="failed")
-                                              #1#))
-                            (QREFELT $ 19))
-                  (PROG2
-                      (LETT #1#
-                            (SPADCALL (SPADCALL 2 (QREFELT $ 21))
-                                      (QREFELT $ 9))
-                            . #2#)
-                      (QCDR #1#)
-                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
-                                    (|Union| (QREFELT $ 6) #3#) #1#))
-                  (QREFELT $ 14)))))) 
+               (SEQ (LETT |e| (SPADCALL |x| (QREFELT $ 18)))
+                    (EXIT
+                     (SPADCALL
+                      (SPADCALL |e|
+                                (PROG2 (LETT #1# (SPADCALL |e| (QREFELT $ 9)))
+                                    (QCDR #1#)
+                                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                                  (|Union| (QREFELT $ 6)
+                                                           #2="failed")
+                                                  #1#))
+                                (QREFELT $ 19))
+                      (PROG2
+                          (LETT #1#
+                                (SPADCALL (SPADCALL 2 (QREFELT $ 21))
+                                          (QREFELT $ 9)))
+                          (QCDR #1#)
+                        (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                        (|Union| (QREFELT $ 6) #2#) #1#))
+                      (QREFELT $ 14)))))) 
 
 (SDEFUN |HYPCAT-;sinh;2S;6| ((|x| S) ($ S))
         (SPROG ((#1=#:G132 NIL) (|e| (S)))
-               (SEQ
-                (LETT |e| (SPADCALL |x| (QREFELT $ 18))
-                      . #2=(|HYPCAT-;sinh;2S;6|))
-                (EXIT
-                 (SPADCALL
-                  (SPADCALL |e|
-                            (PROG2
-                                (LETT #1# (SPADCALL |e| (QREFELT $ 9)) . #2#)
-                                (QCDR #1#)
-                              (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
-                                              (|Union| (QREFELT $ 6)
-                                                       #3="failed")
-                                              #1#))
-                            (QREFELT $ 23))
-                  (PROG2
-                      (LETT #1#
-                            (SPADCALL (SPADCALL 2 (QREFELT $ 21))
-                                      (QREFELT $ 9))
-                            . #2#)
-                      (QCDR #1#)
-                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
-                                    (|Union| (QREFELT $ 6) #3#) #1#))
-                  (QREFELT $ 14)))))) 
+               (SEQ (LETT |e| (SPADCALL |x| (QREFELT $ 18)))
+                    (EXIT
+                     (SPADCALL
+                      (SPADCALL |e|
+                                (PROG2 (LETT #1# (SPADCALL |e| (QREFELT $ 9)))
+                                    (QCDR #1#)
+                                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                                  (|Union| (QREFELT $ 6)
+                                                           #2="failed")
+                                                  #1#))
+                                (QREFELT $ 23))
+                      (PROG2
+                          (LETT #1#
+                                (SPADCALL (SPADCALL 2 (QREFELT $ 21))
+                                          (QREFELT $ 9)))
+                          (QCDR #1#)
+                        (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                        (|Union| (QREFELT $ 6) #2#) #1#))
+                      (QREFELT $ 14)))))) 
 
 (DECLAIM (NOTINLINE |HyperbolicFunctionCategory&;|)) 
 
 (DEFUN |HyperbolicFunctionCategory&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|HyperbolicFunctionCategory&|))
-          (LETT |dv$| (LIST '|HyperbolicFunctionCategory&| DV$1) . #1#)
-          (LETT $ (GETREFV 25) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|HyperbolicFunctionCategory&| DV$1))
+          (LETT $ (GETREFV 25))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

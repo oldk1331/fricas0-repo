@@ -9,9 +9,7 @@
 
 (DEFUN |OrderedIntegralDomain;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1
-             (LETT #1# (|Join| (|IntegralDomain|) (|OrderedRing|))
-                   |OrderedIntegralDomain|)
+         (PROG1 (LETT #1# (|Join| (|IntegralDomain|) (|OrderedRing|)))
            (SETELT #1# 0 '(|OrderedIntegralDomain|))))) 
 
 (MAKEPROP '|OrderedIntegralDomain| 'NILADIC T) 

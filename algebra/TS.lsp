@@ -2,22 +2,19 @@
 (SDEFUN |TS;polynomial;$NniP;1|
         ((|s| $) (|n| |NonNegativeInteger|) ($ |Polynomial| |Coef|))
         (SPROG ((|sum| (|Polynomial| |Coef|)) (#1=#:G110 NIL) (|i| NIL))
-               (SEQ
-                (LETT |sum| (|spadConstant| $ 9)
-                      . #2=(|TS;polynomial;$NniP;1|))
-                (SEQ (LETT |i| 0 . #2#) (LETT #1# |n| . #2#) G190
-                     (COND
-                      ((OR (|greater_SI| |i| #1#)
-                           (NULL (NULL (SPADCALL |s| (QREFELT $ 11)))))
-                       (GO G191)))
-                     (SEQ
-                      (LETT |sum|
-                            (SPADCALL |sum| (SPADCALL |s| (QREFELT $ 12))
-                                      (QREFELT $ 13))
-                            . #2#)
-                      (EXIT (LETT |s| (SPADCALL |s| (QREFELT $ 14)) . #2#)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-                (EXIT |sum|)))) 
+               (SEQ (LETT |sum| (|spadConstant| $ 9))
+                    (SEQ (LETT |i| 0) (LETT #1# |n|) G190
+                         (COND
+                          ((OR (|greater_SI| |i| #1#)
+                               (NULL (NULL (SPADCALL |s| (QREFELT $ 11)))))
+                           (GO G191)))
+                         (SEQ
+                          (LETT |sum|
+                                (SPADCALL |sum| (SPADCALL |s| (QREFELT $ 12))
+                                          (QREFELT $ 13)))
+                          (EXIT (LETT |s| (SPADCALL |s| (QREFELT $ 14)))))
+                         (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+                    (EXIT |sum|)))) 
 
 (DECLAIM (NOTINLINE |TaylorSeries;|)) 
 
@@ -30,11 +27,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|TaylorSeries|)
-                                               '|domainEqualList|)
-                    . #3=(|TaylorSeries|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|TaylorSeries;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|TaylorSeries;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|TaylorSeries|)))))))))) 
 
@@ -42,9 +38,9 @@
   (SPROG
    ((#1=#:G118 NIL) (|pv$| NIL) (#2=#:G117 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #3=(|TaylorSeries|))
-    (LETT |dv$| (LIST '|TaylorSeries| DV$1) . #3#)
-    (LETT $ (GETREFV 35) . #3#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|TaylorSeries| DV$1))
+    (LETT $ (GETREFV 35))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -62,13 +58,11 @@
                                                        '(|CharacteristicZero|))
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|CommutativeRing|))
-                                              . #3#)
+                                                             '(|CommutativeRing|)))
                                         (OR #2#
                                             (|HasCategory| |#1|
                                                            '(|IntegralDomain|)))
-                                        (|HasCategory| |#1| '(|Field|))))
-                    . #3#))
+                                        (|HasCategory| |#1| '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|TaylorSeries| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
@@ -77,8 +71,7 @@
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|IntegralDomain|))
-                (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           . #3#)
+                (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
      (|augmentPredVector| $ 256))
     (AND
      (OR (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))) #1#)

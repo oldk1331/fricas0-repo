@@ -22,8 +22,8 @@
 
 (SDEFUN |AUTOMOR;inv;2$;6!0| ((|r1| NIL) (|i2| NIL) ($$ NIL))
         (PROG (|f| $)
-          (LETT |f| (QREFELT $$ 1) . #1=(|AUTOMOR;inv;2$;6|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |f| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (|AUTOMOR;apply| |f| |r1| (SPADCALL |i2| (QREFELT $ 13)) $))))) 
@@ -33,9 +33,9 @@
 
 (SDEFUN |AUTOMOR;^;$I$;7!0| ((|r1| NIL) (|i2| NIL) ($$ NIL))
         (PROG (|f| |n| $)
-          (LETT |f| (QREFELT $$ 2) . #1=(|AUTOMOR;^;$I$;7|))
-          (LETT |n| (QREFELT $$ 1) . #1#)
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |f| (QREFELT $$ 2))
+          (LETT |n| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (|AUTOMOR;apply| |f| |r1| (SPADCALL |n| |i2| (QREFELT $ 15)) $))))) 
@@ -56,15 +56,14 @@
 
 (SDEFUN |AUTOMOR;morphism;2M$;11!0| ((|r1| NIL) (|i2| NIL) ($$ NIL))
         (PROG (|f| |g| $)
-          (LETT |f| (QREFELT $$ 2) . #1=(|AUTOMOR;morphism;2M$;11|))
-          (LETT |g| (QREFELT $$ 1) . #1#)
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |f| (QREFELT $$ 2))
+          (LETT |g| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|AUTOMOR;iterat| |f| |g| |i2| |r1| $))))) 
 
 (SDEFUN |AUTOMOR;apply| ((|f| $) (|r| R) (|n| |Integer|) ($ R))
         (SPROG ((|g| (|Mapping| R R (|Integer|))))
-               (SEQ (LETT |g| |f| |AUTOMOR;apply|)
-                    (EXIT (SPADCALL |r| |n| |g|))))) 
+               (SEQ (LETT |g| |f|) (EXIT (SPADCALL |r| |n| |g|))))) 
 
 (SDEFUN |AUTOMOR;iterat|
         ((|f| |Mapping| R R) (|g| |Mapping| R R) (|n| |Integer|) (|r| R) ($ R))
@@ -72,13 +71,13 @@
                (COND
                 ((< |n| 0)
                  (|AUTOMOR;iter| |g|
-                  (PROG1 (LETT #2# (- |n|) . #3=(|AUTOMOR;iterat|))
+                  (PROG1 (LETT #2# (- |n|))
                     (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
                                       '(|Integer|) #2#))
                   |r| $))
                 ('T
                  (|AUTOMOR;iter| |f|
-                  (PROG1 (LETT #1# |n| . #3#)
+                  (PROG1 (LETT #1# |n|)
                     (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                       '(|Integer|) #1#))
                   |r| $))))) 
@@ -87,10 +86,10 @@
         ((|f| |Mapping| R R) (|n| |NonNegativeInteger|) (|r| R) ($ R))
         (SPROG ((#1=#:G145 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #2=(|AUTOMOR;iter|)) (LETT #1# |n| . #2#)
-                     G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
-                     (SEQ (EXIT (LETT |r| (SPADCALL |r| |f|) . #2#)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                (SEQ (LETT |i| 1) (LETT #1# |n|) G190
+                     (COND ((|greater_SI| |i| #1#) (GO G191)))
+                     (SEQ (EXIT (LETT |r| (SPADCALL |r| |f|))))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |r|)))) 
 
 (SDEFUN |AUTOMOR;*;3$;15| ((|f| $) (|g| $) ($ $))
@@ -102,9 +101,9 @@
 
 (SDEFUN |AUTOMOR;*;3$;15!2| ((|r1| NIL) (|i2| NIL) ($$ NIL))
         (PROG ($ |g| |f|)
-          (LETT $ (QREFELT $$ 2) . #1=(|AUTOMOR;*;3$;15|))
-          (LETT |g| (QREFELT $$ 1) . #1#)
-          (LETT |f| (QREFELT $$ 0) . #1#)
+          (LETT $ (QREFELT $$ 2))
+          (LETT |g| (QREFELT $$ 1))
+          (LETT |f| (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPROG NIL
@@ -115,9 +114,9 @@
 
 (SDEFUN |AUTOMOR;*;3$;15!1| ((|v1| NIL) ($$ NIL))
         (PROG (|g| $ |f|)
-          (LETT |g| (QREFELT $$ 2) NIL)
-          (LETT $ (QREFELT $$ 1) NIL)
-          (LETT |f| (QREFELT $$ 0) NIL)
+          (LETT |g| (QREFELT $$ 2))
+          (LETT $ (QREFELT $$ 1))
+          (LETT |f| (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL (SPADCALL |g| (QREFELT $ 14))
@@ -127,9 +126,9 @@
 
 (SDEFUN |AUTOMOR;*;3$;15!0| ((|u1| NIL) ($$ NIL))
         (PROG (|f| |g| $)
-          (LETT |f| (QREFELT $$ 2) NIL)
-          (LETT |g| (QREFELT $$ 1) NIL)
-          (LETT $ (QREFELT $$ 0) NIL)
+          (LETT |f| (QREFELT $$ 2))
+          (LETT |g| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL |f| (SPADCALL |g| |u1| (QREFELT $ 11)) (QREFELT $ 11)))))) 
@@ -145,22 +144,21 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Automorphism|)
-                                               '|domainEqualList|)
-                    . #3=(|Automorphism|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Automorphism;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Automorphism;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|Automorphism|)))))))))) 
 
 (DEFUN |Automorphism;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|Automorphism|))
-          (LETT |dv$| (LIST '|Automorphism| DV$1) . #1#)
-          (LETT $ (GETREFV 34) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|Automorphism| DV$1))
+          (LETT $ (GETREFV 34))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Automorphism| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -12,8 +12,7 @@
             (COND
              ((LETT #1#
                     (HGET |$ConstructorCache|
-                          '|SimplifyAlgebraicNumberConvertPackage|)
-                    . #2=(|SimplifyAlgebraicNumberConvertPackage|))
+                          '|SimplifyAlgebraicNumberConvertPackage|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -25,7 +24,7 @@
                               (CONS NIL
                                     (CONS 1
                                           (|SimplifyAlgebraicNumberConvertPackage;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
@@ -34,11 +33,10 @@
 (DEFUN |SimplifyAlgebraicNumberConvertPackage;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|SimplifyAlgebraicNumberConvertPackage|)
-                . #1=(|SimplifyAlgebraicNumberConvertPackage|))
-          (LETT $ (GETREFV 12) . #1#)
+          (LETT |dv$| '(|SimplifyAlgebraicNumberConvertPackage|))
+          (LETT $ (GETREFV 12))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
                       '|SimplifyAlgebraicNumberConvertPackage| NIL (CONS 1 $))
           (|stuffDomainSlots| $)

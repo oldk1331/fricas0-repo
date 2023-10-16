@@ -12,8 +12,7 @@
          (PROG1
              (LETT #1#
                    (|Join| (|BoundedMeetSemilattice|)
-                           (|BoundedJoinSemilattice|))
-                   |BoundedLattice|)
+                           (|BoundedJoinSemilattice|)))
            (SETELT #1# 0 '(|BoundedLattice|))))) 
 
 (MAKEPROP '|BoundedLattice| 'NILADIC T) 

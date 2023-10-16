@@ -36,8 +36,7 @@
          (PROG (#1=#:G117)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|GraphicsDefaults|)
-                    . #2=(|GraphicsDefaults|))
+             ((LETT #1# (HGET |$ConstructorCache| '|GraphicsDefaults|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -45,7 +44,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|GraphicsDefaults|
                              (LIST (CONS NIL (CONS 1 (|GraphicsDefaults;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|GraphicsDefaults|)))))))))) 
@@ -53,10 +52,10 @@
 (DEFUN |GraphicsDefaults;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|GraphicsDefaults|) . #1=(|GraphicsDefaults|))
-          (LETT $ (GETREFV 31) . #1#)
+          (LETT |dv$| '(|GraphicsDefaults|))
+          (LETT $ (GETREFV 31))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|GraphicsDefaults| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

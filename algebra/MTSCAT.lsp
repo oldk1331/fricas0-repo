@@ -87,8 +87,6 @@
                                                    (|Algebra|
                                                     (|Fraction|
                                                      (|Integer|))))))
-                                         NIL NIL))
-                                       . #3=(|MultivariateTaylorSeriesCategory|))))))
-                   . #3#)
+                                         NIL NIL))))))))
            (SETELT #1# 0
                    (LIST '|MultivariateTaylorSeriesCategory| |t#1| |t#2|))))) 

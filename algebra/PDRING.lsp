@@ -52,7 +52,5 @@
                                                          (|List|
                                                           (|NonNegativeInteger|))))
                                                        T))
-                                                    NIL NIL NIL))
-                                           . #2=(|PartialDifferentialRing|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PartialDifferentialRing| |t#1|))))) 

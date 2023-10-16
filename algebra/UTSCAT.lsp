@@ -99,7 +99,5 @@
                                                    (|Algebra|
                                                     (|Fraction|
                                                      (|Integer|))))))
-                                         NIL NIL))
-                                       . #3=(|UnivariateTaylorSeriesCategory|))))))
-                   . #3#)
+                                         NIL NIL))))))))
            (SETELT #1# 0 (LIST '|UnivariateTaylorSeriesCategory| |t#1|))))) 

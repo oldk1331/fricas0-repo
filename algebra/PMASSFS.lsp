@@ -5,9 +5,8 @@
 (SDEFUN |PMASSFS;ass| ((|k| |Kernel| F) (|s| |Symbol|) ($ F))
         (SPROG ((|op| (|BasicOperator|)))
                (COND
-                ((SPADCALL
-                  (LETT |op| (SPADCALL |k| (QREFELT $ 12)) |PMASSFS;ass|) |s|
-                  (QREFELT $ 15))
+                ((SPADCALL (LETT |op| (SPADCALL |k| (QREFELT $ 12))) |s|
+                           (QREFELT $ 15))
                  (SPADCALL |k| (QREFELT $ 17)))
                 ('T
                  (|PMASSFS;mkk|
@@ -43,13 +42,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FunctionSpaceAssertions|)
-                                               '|domainEqualList|)
-                    . #3=(|FunctionSpaceAssertions|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |FunctionSpaceAssertions;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|FunctionSpaceAssertions|)))))))))) 
@@ -57,12 +55,12 @@
 (DEFUN |FunctionSpaceAssertions;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionSpaceAssertions|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|FunctionSpaceAssertions| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 26) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|FunctionSpaceAssertions| DV$1 DV$2))
+          (LETT $ (GETREFV 26))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FunctionSpaceAssertions|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

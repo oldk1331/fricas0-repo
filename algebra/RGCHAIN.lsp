@@ -10,13 +10,11 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|RegularChain|)
-                                               '|domainEqualList|)
-                    . #3=(|RegularChain|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |RegularChain;|) #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (APPLY (|function| |RegularChain;|) #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|RegularChain|)))))))))) 
 
@@ -24,10 +22,10 @@
   (SPROG
    ((#1=#:G135 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #2=(|RegularChain|))
-    (LETT DV$2 (|devaluate| |#2|) . #2#)
-    (LETT |dv$| (LIST '|RegularChain| DV$1 DV$2) . #2#)
-    (LETT $ (GETREFV 43) . #2#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT |dv$| (LIST '|RegularChain| DV$1 DV$2))
+    (LETT $ (GETREFV 43))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -59,15 +57,14 @@
                                                        '(|IntegralDomain|))
                                         (|HasCategory|
                                          (|OrderedVariableList| |#2|)
-                                         '(|Finite|))))
-                    . #2#))
+                                         '(|Finite|))))))
     (|haddProp| |$ConstructorCache| '|RegularChain| (LIST DV$1 DV$2)
                 (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
     (QSETREFV $ 7 |#2|)
     (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32))
-    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
+    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)))
          (|augmentPredVector| $ 64))
     (AND #1#
          (|HasCategory|

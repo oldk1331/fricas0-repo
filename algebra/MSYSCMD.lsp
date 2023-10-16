@@ -11,8 +11,7 @@
          (PROG (#1=#:G106)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|MoreSystemCommands|)
-                    . #2=(|MoreSystemCommands|))
+             ((LETT #1# (HGET |$ConstructorCache| '|MoreSystemCommands|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -21,7 +20,7 @@
                        (HPUT |$ConstructorCache| '|MoreSystemCommands|
                              (LIST
                               (CONS NIL (CONS 1 (|MoreSystemCommands;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|MoreSystemCommands|)))))))))) 
@@ -29,10 +28,10 @@
 (DEFUN |MoreSystemCommands;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|MoreSystemCommands|) . #1=(|MoreSystemCommands|))
-          (LETT $ (GETREFV 9) . #1#)
+          (LETT |dv$| '(|MoreSystemCommands|))
+          (LETT $ (GETREFV 9))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|MoreSystemCommands| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

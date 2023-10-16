@@ -30,7 +30,7 @@
 (SDEFUN |CDFVEC;new;NniC$;7|
         ((|n| |NonNegativeInteger|) (|x| |Complex| (|DoubleFloat|)) ($ $))
         (SPROG ((|res| ($)))
-               (SEQ (LETT |res| (MAKE_CDOUBLE_VECTOR |n|) |CDFVEC;new;NniC$;7|)
+               (SEQ (LETT |res| (MAKE_CDOUBLE_VECTOR |n|))
                     (EXIT (SPADCALL |res| |x| (QREFELT $ 15)))))) 
 
 (PUT '|CDFVEC;qelt;$IC;8| '|SPADreplace| 'CDELT) 
@@ -60,11 +60,10 @@
 (SDEFUN |CDFVEC;fill!;$C$;12| ((|x| $) (|s| |Complex| (|DoubleFloat|)) ($ $))
         (SPROG ((#1=#:G2524 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 0 . #2=(|CDFVEC;fill!;$C$;12|))
-                     (LETT #1# (|sub_SI| (CDLEN |x|) 1) . #2#) G190
+                (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (CDLEN |x|) 1)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ (EXIT (CDSETELT |x| |i| |s|)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (DECLAIM (NOTINLINE |ComplexDoubleFloatVector;|)) 
@@ -74,8 +73,7 @@
          (PROG (#1=#:G2536)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ComplexDoubleFloatVector|)
-                    . #2=(|ComplexDoubleFloatVector|))
+             ((LETT #1# (HGET |$ConstructorCache| '|ComplexDoubleFloatVector|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -85,7 +83,7 @@
                              (LIST
                               (CONS NIL
                                     (CONS 1 (|ComplexDoubleFloatVector;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
@@ -96,9 +94,8 @@
    ((|dv$| NIL) ($ NIL) (#1=#:G2534 NIL) (#2=#:G2533 NIL) (#3=#:G2532 NIL)
     (|pv$| NIL))
    (PROGN
-    (LETT |dv$| '(|ComplexDoubleFloatVector|)
-          . #4=(|ComplexDoubleFloatVector|))
-    (LETT $ (GETREFV 38) . #4#)
+    (LETT |dv$| '(|ComplexDoubleFloatVector|))
+    (LETT $ (GETREFV 38))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -118,8 +115,7 @@
                                         (LETT #1#
                                               (|HasCategory|
                                                (|Complex| (|DoubleFloat|))
-                                               '(|Comparable|))
-                                              . #4#)
+                                               '(|Comparable|)))
                                         (OR #1#
                                             (|HasCategory|
                                              (|Complex| (|DoubleFloat|))
@@ -127,8 +123,7 @@
                                         (LETT #2#
                                               (|HasCategory|
                                                (|Complex| (|DoubleFloat|))
-                                               '(|SetCategory|))
-                                              . #4#)
+                                               '(|SetCategory|)))
                                         (AND
                                          (|HasCategory|
                                           (|Complex| (|DoubleFloat|))
@@ -152,8 +147,8 @@
                                         (LETT #3#
                                               (|HasCategory|
                                                (|Complex| (|DoubleFloat|))
-                                               '(|CoercibleTo| (|OutputForm|)))
-                                              . #4#)
+                                               '(|CoercibleTo|
+                                                 (|OutputForm|))))
                                         (OR #3# #1#
                                             (|HasCategory|
                                              (|Complex| (|DoubleFloat|))
@@ -186,8 +181,7 @@
                                           '(|RadicalCategory|))
                                          (|HasCategory|
                                           (|Complex| (|DoubleFloat|))
-                                          '(|Ring|)))))
-                    . #4#))
+                                          '(|Ring|)))))))
     (|haddProp| |$ConstructorCache| '|ComplexDoubleFloatVector| NIL (CONS 1 $))
     (|stuffDomainSlots| $)
     (AND (|HasCategory| $ '(|shallowlyMutable|))

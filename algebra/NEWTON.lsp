@@ -5,19 +5,18 @@
           (#3=#:G107 NIL))
          (SEQ
           (PROGN
-           (LETT #3# NIL . #4=(|NEWTON;differences|))
-           (SEQ (LETT |y2| NIL . #4#) (LETT #2# (CDR |yl|) . #4#)
-                (LETT |y1| NIL . #4#) (LETT #1# |yl| . #4#) G190
+           (LETT #3# NIL)
+           (SEQ (LETT |y2| NIL) (LETT #2# (CDR |yl|)) (LETT |y1| NIL)
+                (LETT #1# |yl|) G190
                 (COND
-                 ((OR (ATOM #1#) (PROGN (LETT |y1| (CAR #1#) . #4#) NIL)
-                      (ATOM #2#) (PROGN (LETT |y2| (CAR #2#) . #4#) NIL))
+                 ((OR (ATOM #1#) (PROGN (LETT |y1| (CAR #1#)) NIL) (ATOM #2#)
+                      (PROGN (LETT |y2| (CAR #2#)) NIL))
                   (GO G191)))
                 (SEQ
                  (EXIT
-                  (LETT #3# (CONS (SPADCALL |y2| |y1| (QREFELT $ 7)) #3#)
-                        . #4#)))
-                (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #4#)) . #4#)
-                (GO G190) G191 (EXIT (NREVERSE #3#))))))) 
+                  (LETT #3# (CONS (SPADCALL |y2| |y1| (QREFELT $ 7)) #3#))))
+                (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#)))) (GO G190)
+                G191 (EXIT (NREVERSE #3#))))))) 
 
 (SDEFUN |NEWTON;newtonAux|
         ((|k| F) (|fact| F) (|yl| |List| F) ($ |SparseUnivariatePolynomial| F))
@@ -28,11 +27,10 @@
                   (PROG2
                       (LETT #1#
                             (SPADCALL (SPADCALL |yl| 1 (QREFELT $ 16)) |fact|
-                                      (QREFELT $ 18))
-                            . #2=(|NEWTON;newtonAux|))
+                                      (QREFELT $ 18)))
                       (QCDR #1#)
                     (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
-                                    (|Union| (QREFELT $ 6) #3="failed") #1#))
+                                    (|Union| (QREFELT $ 6) #2="failed") #1#))
                   (QREFELT $ 19)))
                 ('T
                  (SPADCALL
@@ -40,11 +38,10 @@
                    (PROG2
                        (LETT #1#
                              (SPADCALL (SPADCALL |yl| 1 (QREFELT $ 16)) |fact|
-                                       (QREFELT $ 18))
-                             . #2#)
+                                       (QREFELT $ 18)))
                        (QCDR #1#)
                      (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
-                                     (|Union| (QREFELT $ 6) #3#) #1#))
+                                     (|Union| (QREFELT $ 6) #2#) #1#))
                    (QREFELT $ 19))
                   (SPADCALL
                    (SPADCALL (QREFELT $ 13) (SPADCALL |k| (QREFELT $ 19))
@@ -71,12 +68,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|NewtonInterpolation|)
-                                               '|domainEqualList|)
-                    . #3=(|NewtonInterpolation|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|NewtonInterpolation;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|NewtonInterpolation;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|NewtonInterpolation|)))))))))) 
@@ -84,11 +79,11 @@
 (DEFUN |NewtonInterpolation;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|NewtonInterpolation|))
-          (LETT |dv$| (LIST '|NewtonInterpolation| DV$1) . #1#)
-          (LETT $ (GETREFV 26) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|NewtonInterpolation| DV$1))
+          (LETT $ (GETREFV 26))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|NewtonInterpolation| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

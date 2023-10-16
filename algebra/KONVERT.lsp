@@ -19,6 +19,5 @@
                    (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (|Join|
                                (|mkCategory| '(((|convert| (|t#1| $)) T)) NIL
-                                             NIL NIL)))
-                   |ConvertibleTo|)
+                                             NIL NIL))))
            (SETELT #1# 0 (LIST '|ConvertibleTo| |t#1|))))) 

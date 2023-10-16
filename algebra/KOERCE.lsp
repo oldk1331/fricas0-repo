@@ -19,6 +19,5 @@
                    (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
                               (|Join|
                                (|mkCategory| '(((|coerce| (|t#1| $)) T)) NIL
-                                             NIL NIL)))
-                   |CoercibleTo|)
+                                             NIL NIL))))
            (SETELT #1# 0 (LIST '|CoercibleTo| |t#1|))))) 

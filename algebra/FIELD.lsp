@@ -12,8 +12,7 @@
                    (|Join| (|EuclideanDomain|) (|UniqueFactorizationDomain|)
                            (|DivisionRing|) (|canonicalUnitNormal|)
                            (|canonicalsClosed|)
-                           (|mkCategory| '(((/ ($ $ $)) T)) NIL NIL NIL))
-                   |Field|)
+                           (|mkCategory| '(((/ ($ $ $)) T)) NIL NIL NIL)))
            (SETELT #1# 0 '(|Field|))))) 
 
 (MAKEPROP '|Field| 'NILADIC T) 

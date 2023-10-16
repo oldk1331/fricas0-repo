@@ -24,40 +24,35 @@
           (#3=#:G114 NIL) (#4=#:G113 NIL)
           (|listOfPointColors| (|List| (|Palette|))) (#5=#:G112 NIL)
           (#6=#:G111 NIL) (|len| (|NonNegativeInteger|)))
-         (SEQ
-          (LETT |len| (LENGTH |listOfListsOfPoints|)
-                . #7=(|VIEW;graphCurves;L2PPiLGi;3|))
-          (LETT |listOfPointColors|
-                (PROGN
-                 (LETT #6# NIL . #7#)
-                 (SEQ (LETT |i| 1 . #7#) (LETT #5# |len| . #7#) G190
-                      (COND ((|greater_SI| |i| #5#) (GO G191)))
-                      (SEQ (EXIT (LETT #6# (CONS |ptColor| #6#) . #7#)))
-                      (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
-                      (EXIT (NREVERSE #6#))))
-                . #7#)
-          (LETT |listOfLineColors|
-                (PROGN
-                 (LETT #4# NIL . #7#)
-                 (SEQ (LETT |i| 1 . #7#) (LETT #3# |len| . #7#) G190
-                      (COND ((|greater_SI| |i| #3#) (GO G191)))
-                      (SEQ (EXIT (LETT #4# (CONS |lineColor| #4#) . #7#)))
-                      (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
-                      (EXIT (NREVERSE #4#))))
-                . #7#)
-          (LETT |listOfPointSizes|
-                (PROGN
-                 (LETT #2# NIL . #7#)
-                 (SEQ (LETT |i| 1 . #7#) (LETT #1# |len| . #7#) G190
-                      (COND ((|greater_SI| |i| #1#) (GO G191)))
-                      (SEQ (EXIT (LETT #2# (CONS |ptSize| #2#) . #7#)))
-                      (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #7#)
-          (EXIT
-           (SPADCALL |listOfListsOfPoints| |listOfPointColors|
-                     |listOfLineColors| |listOfPointSizes| |optionsList|
-                     (QREFELT $ 20)))))) 
+         (SEQ (LETT |len| (LENGTH |listOfListsOfPoints|))
+              (LETT |listOfPointColors|
+                    (PROGN
+                     (LETT #6# NIL)
+                     (SEQ (LETT |i| 1) (LETT #5# |len|) G190
+                          (COND ((|greater_SI| |i| #5#) (GO G191)))
+                          (SEQ (EXIT (LETT #6# (CONS |ptColor| #6#))))
+                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                          (EXIT (NREVERSE #6#)))))
+              (LETT |listOfLineColors|
+                    (PROGN
+                     (LETT #4# NIL)
+                     (SEQ (LETT |i| 1) (LETT #3# |len|) G190
+                          (COND ((|greater_SI| |i| #3#) (GO G191)))
+                          (SEQ (EXIT (LETT #4# (CONS |lineColor| #4#))))
+                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                          (EXIT (NREVERSE #4#)))))
+              (LETT |listOfPointSizes|
+                    (PROGN
+                     (LETT #2# NIL)
+                     (SEQ (LETT |i| 1) (LETT #1# |len|) G190
+                          (COND ((|greater_SI| |i| #1#) (GO G191)))
+                          (SEQ (EXIT (LETT #2# (CONS |ptSize| #2#))))
+                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                          (EXIT (NREVERSE #2#)))))
+              (EXIT
+               (SPADCALL |listOfListsOfPoints| |listOfPointColors|
+                         |listOfLineColors| |listOfPointSizes| |optionsList|
+                         (QREFELT $ 20)))))) 
 
 (SDEFUN |VIEW;drawCurves;LLTdv;4|
         ((|listOfListsOfPoints| |List| (|List| (|Point| (|DoubleFloat|))))
@@ -72,16 +67,13 @@
          (|ptSize| |PositiveInteger|) (|optList| |List| (|DrawOption|))
          ($ |TwoDimensionalViewport|))
         (SPROG ((|g| (|GraphImage|)) (|v| (|TwoDimensionalViewport|)))
-               (SEQ
-                (LETT |v| (SPADCALL (QREFELT $ 24))
-                      . #1=(|VIEW;drawCurves;L2PPiLTdv;5|))
-                (SPADCALL |v| |optList| (QREFELT $ 25))
-                (LETT |g|
-                      (SPADCALL |ptLists| |ptColor| |lColor| |ptSize| |optList|
-                                (QREFELT $ 15))
-                      . #1#)
-                (SPADCALL |v| |g| 1 (QREFELT $ 27))
-                (EXIT (SPADCALL |v| (QREFELT $ 28)))))) 
+               (SEQ (LETT |v| (SPADCALL (QREFELT $ 24)))
+                    (SPADCALL |v| |optList| (QREFELT $ 25))
+                    (LETT |g|
+                          (SPADCALL |ptLists| |ptColor| |lColor| |ptSize|
+                                    |optList| (QREFELT $ 15)))
+                    (SPADCALL |v| |g| 1 (QREFELT $ 27))
+                    (EXIT (SPADCALL |v| (QREFELT $ 28)))))) 
 
 (SDEFUN |VIEW;coerce;GiTdv;6|
         ((|graf| |GraphImage|) ($ |TwoDimensionalViewport|))
@@ -94,8 +86,7 @@
          (PROG (#1=#:G122)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ViewportPackage|)
-                    . #2=(|ViewportPackage|))
+             ((LETT #1# (HGET |$ConstructorCache| '|ViewportPackage|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -103,7 +94,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|ViewportPackage|
                              (LIST (CONS NIL (CONS 1 (|ViewportPackage;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|ViewportPackage|)))))))))) 
@@ -111,10 +102,10 @@
 (DEFUN |ViewportPackage;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|ViewportPackage|) . #1=(|ViewportPackage|))
-          (LETT $ (GETREFV 31) . #1#)
+          (LETT |dv$| '(|ViewportPackage|))
+          (LETT $ (GETREFV 31))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ViewportPackage| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

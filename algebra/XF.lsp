@@ -64,7 +64,5 @@
                                                       ((|FieldOfPrimeCharacteristic|)
                                                        (|has| |t#1|
                                                               (|Finite|))))
-                                                    NIL NIL))
-                                           . #2=(|ExtensionField|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|ExtensionField| |t#1|))))) 

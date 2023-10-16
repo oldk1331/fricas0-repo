@@ -21,8 +21,7 @@
                       (SPADCALL
                        (LIST (QCAR |v|) ":"
                              (SPADCALL (QCDR |v|) (QREFELT $ 14)))
-                       (QREFELT $ 16))
-                      |TYPED;toString;$S;5|)
+                       (QREFELT $ 16)))
                 (EXIT |s|)))) 
 
 (SDEFUN |TYPED;parseVarTerm;SNniR;6|
@@ -36,49 +35,46 @@
           (|ch| (|Character|)) (|vnm| (|String|)))
          (SEQ
           (EXIT
-           (SEQ (LETT |vnm| "" . #2=(|TYPED;parseVarTerm;SNniR;6|))
-                (LETT |pt| |pin| . #2#) (LETT |ch| (STR_ELT1 |t1| |pt|) . #2#)
+           (SEQ (LETT |vnm| "") (LETT |pt| |pin|)
+                (LETT |ch| (STR_ELT1 |t1| |pt|))
                 (SEQ G190
                      (COND ((NULL (SPADCALL |ch| (QREFELT $ 20))) (GO G191)))
-                     (SEQ
-                      (LETT |vnm| (SPADCALL |vnm| |ch| (QREFELT $ 21)) . #2#)
-                      (LETT |pt| (+ |pt| 1) . #2#)
-                      (COND
-                       ((SPADCALL |pt| (SPADCALL |t1| (QREFELT $ 23))
-                                  (QREFELT $ 24))
-                        (PROGN
-                         (LETT #1# (CONS (SPADCALL |vnm| (QREFELT $ 10)) |pt|)
-                               . #2#)
-                         (GO #3=#:G126))))
-                      (EXIT (LETT |ch| (STR_ELT1 |t1| |pt|) . #2#)))
+                     (SEQ (LETT |vnm| (SPADCALL |vnm| |ch| (QREFELT $ 21)))
+                          (LETT |pt| (+ |pt| 1))
+                          (COND
+                           ((SPADCALL |pt| (SPADCALL |t1| (QREFELT $ 23))
+                                      (QREFELT $ 24))
+                            (PROGN
+                             (LETT #1#
+                                   (CONS (SPADCALL |vnm| (QREFELT $ 10)) |pt|))
+                             (GO #2=#:G126))))
+                          (EXIT (LETT |ch| (STR_ELT1 |t1| |pt|))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (COND
                  ((|eql_SI| |ch| (|STR_to_CHAR| ":"))
-                  (SEQ (LETT |pt| (+ |pt| 1) . #2#)
+                  (SEQ (LETT |pt| (+ |pt| 1))
                        (COND
                         ((SPADCALL |pt| (SPADCALL |t1| (QREFELT $ 23))
                                    (QREFELT $ 24))
                          (PROGN
-                          (LETT #1# (CONS (SPADCALL |vnm| (QREFELT $ 10)) |pt|)
-                                . #2#)
-                          (GO #3#))))
-                       (LETT |r| (SPADCALL |t1| |pt| (QREFELT $ 27)) . #2#)
-                       (LETT |pt| (QCDR |r|) . #2#)
+                          (LETT #1#
+                                (CONS (SPADCALL |vnm| (QREFELT $ 10)) |pt|))
+                          (GO #2#))))
+                       (LETT |r| (SPADCALL |t1| |pt| (QREFELT $ 27)))
+                       (LETT |pt| (QCDR |r|))
                        (EXIT
                         (PROGN
                          (LETT #1#
                                (CONS (SPADCALL |vnm| (QCAR |r|) (QREFELT $ 11))
-                                     |pt|)
-                               . #2#)
-                         (GO #3#))))))
+                                     |pt|))
+                         (GO #2#))))))
                 (EXIT (CONS (SPADCALL |vnm| (QREFELT $ 10)) |pt|))))
-          #3# (EXIT #1#)))) 
+          #2# (EXIT #1#)))) 
 
 (SDEFUN |TYPED;parseVar;S$;7| ((|t1| |String|) ($ $))
         (SPROG
          ((|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
-         (SEQ (LETT |r| (SPADCALL |t1| 1 (QREFELT $ 28)) |TYPED;parseVar;S$;7|)
-              (EXIT (QCAR |r|))))) 
+         (SEQ (LETT |r| (SPADCALL |t1| 1 (QREFELT $ 28))) (EXIT (QCAR |r|))))) 
 
 (SDEFUN |TYPED;=;2$B;8| ((|x| $) (|y| $) ($ |Boolean|))
         (COND
@@ -100,7 +96,7 @@
          (PROG (#1=#:G136)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Typed|) . #2=(|Typed|))
+             ((LETT #1# (HGET |$ConstructorCache| '|Typed|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -108,16 +104,16 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|Typed|
                              (LIST (CONS NIL (CONS 1 (|Typed;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Typed|)))))))))) 
 
 (DEFUN |Typed;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|Typed|) . #1=(|Typed|))
-          (LETT $ (GETREFV 37) . #1#)
+          (LETT |dv$| '(|Typed|))
+          (LETT $ (GETREFV 37))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Typed| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

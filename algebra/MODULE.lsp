@@ -21,7 +21,6 @@
                               (COND (|Module;CAT|)
                                     ('T
                                      (LETT |Module;CAT|
-                                           (|Join| (|BiModule| '|t#1| '|t#1|))
-                                           . #2=(|Module|)))))
-                   . #2#)
+                                           (|Join|
+                                            (|BiModule| '|t#1| '|t#1|)))))))
            (SETELT #1# 0 (LIST '|Module| |t#1|))))) 

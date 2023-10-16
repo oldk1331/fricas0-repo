@@ -15,8 +15,7 @@
                             '(((|getMult| ((|Integer|) $)) T)
                               ((|order| ((|NonNegativeInteger|) $)) T)
                               ((|empty?| ((|Boolean|) $)) T))
-                            NIL NIL NIL))
-                   |FacetCategory|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|FacetCategory|))))) 
 
 (MAKEPROP '|FacetCategory| 'NILADIC T) 

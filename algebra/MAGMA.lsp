@@ -15,8 +15,7 @@
                               ((|rightPower| ($ $ (|PositiveInteger|))) T)
                               ((|leftPower| ($ $ (|PositiveInteger|))) T)
                               ((^ ($ $ (|PositiveInteger|))) T))
-                            NIL NIL NIL))
-                   |Magma|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|Magma|))))) 
 
 (MAKEPROP '|Magma| 'NILADIC T) 

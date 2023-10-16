@@ -51,8 +51,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;incPass;V;5|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (EXIT (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1)))))) 
 
 (SDEFUN |TESTCNT;chkLibraryError;V;6| (($ |Void|))
@@ -79,8 +78,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;chkLibraryError;V;6|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (EXIT (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1)))))) 
 
 (SDEFUN |TESTCNT;incLibraryError;SLV;7|
@@ -108,8 +106,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;incLibraryError;SLV;7|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (QSETVELT |cur| 1 (+ (QVELT |cur| 1) 1))
           (EXIT
            (QSETVELT |cur| 6
@@ -141,8 +138,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;incXfLibraryError;SLV;8|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (EXIT (QSETVELT |cur| 2 (+ (QVELT |cur| 2) 1)))))) 
 
 (SDEFUN |TESTCNT;incXfFail;V;9| (($ |Void|))
@@ -169,8 +165,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;incXfFail;V;9|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (QSETVELT |cur| 2 (+ (QVELT |cur| 2) 1))
           (EXIT (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1)))))) 
 
@@ -199,8 +194,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;incFail;SLV;10|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (QSETVELT |cur| 1 (+ (QVELT |cur| 1) 1))
           (QSETVELT |cur| 6
                     (CONS (VECTOR (QVELT |cur| 0) |inp| |out|)
@@ -232,8 +226,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;incXfPass;SLV;11|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (QSETVELT |cur| 3 (+ (QVELT |cur| 3) 1))
           (QSETVELT |cur| 5
                     (CONS (VECTOR (QVELT |cur| 0) |inp| |out|)
@@ -264,8 +257,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;decXfPass;V;12|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (QSETVELT |cur| 0 (- (QVELT |cur| 0) 1))
           (QSETVELT |cur| 5 (CDR (QVELT |cur| 5)))
           (EXIT (QSETVELT |cur| 3 (- (QVELT |cur| 3) 1)))))) 
@@ -294,8 +286,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;incFatal;SV;13|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1))
           (QSETVELT |cur| 1 (+ (QVELT |cur| 1) 1))
           (EXIT
@@ -326,8 +317,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;decFatal;V;14|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (QSETVELT |cur| 0 (- (QVELT |cur| 0) 1))
           (QSETVELT |cur| 1 (- (QVELT |cur| 1) 1))
           (EXIT (QSETVELT |cur| 4 (CDR (QVELT |cur| 4))))))) 
@@ -356,8 +346,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;incXfFatal;SV;15|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (QSETVELT |cur| 0 (+ (QVELT |cur| 0) 1))
           (EXIT (QSETVELT |cur| 2 (+ (QVELT |cur| 2) 1)))))) 
 
@@ -385,8 +374,7 @@
           (LETT |cur|
                 (SPADCALL
                  (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
-                 (QREFELT $ 14) (QREFELT $ 37))
-                |TESTCNT;decXfFatal;V;16|)
+                 (QREFELT $ 14) (QREFELT $ 37)))
           (QSETVELT |cur| 0 (- (QVELT |cur| 0) 1))
           (EXIT (QSETVELT |cur| 2 (- (QVELT |cur| 2) 1)))))) 
 
@@ -398,8 +386,7 @@
                        (SPADCALL
                         (SPADCALL (QREFELT $ 12) (QREFELT $ 15) (QREFELT $ 32))
                         (QREFELT $ 14) (QREFELT $ 37))
-                       0)
-                      |TESTCNT;addWarning;OfV;17|)
+                       0))
                 (EXIT
                  (SETELT $ 13
                          (CONS
@@ -470,66 +457,55 @@
                        (QREFELT $ 27))
              (SPADCALL "WARNINGS:" (QREFELT $ 27))
              (EXIT
-              (SEQ (LETT |w| NIL . #21=(|TESTCNT;statistics;V;18|))
-                   (LETT #20# (REVERSE (QREFELT $ 13)) . #21#) G190
+              (SEQ (LETT |w| NIL) (LETT #20# (REVERSE (QREFELT $ 13))) G190
                    (COND
-                    ((OR (ATOM #20#) (PROGN (LETT |w| (CAR #20#) . #21#) NIL))
+                    ((OR (ATOM #20#) (PROGN (LETT |w| (CAR #20#)) NIL))
                      (GO G191)))
                    (SEQ (EXIT (SPADCALL |w| (QREFELT $ 56))))
-                   (LETT #20# (CDR #20#) . #21#) (GO G190) G191 (EXIT NIL))))))
-          (SPADCALL "" (QREFELT $ 57)) (LETT |totalTests| 0 . #21#)
-          (LETT |failedTests| 0 . #21#) (LETT |xfailedTests| 0 . #21#)
-          (LETT |xfpassedTests| 0 . #21#)
-          (SEQ (LETT |tstsuite| NIL . #21#)
-               (LETT #19# (REVERSE (SPADCALL (QREFELT $ 12) (QREFELT $ 59)))
-                     . #21#)
+                   (LETT #20# (CDR #20#)) (GO G190) G191 (EXIT NIL))))))
+          (SPADCALL "" (QREFELT $ 57)) (LETT |totalTests| 0)
+          (LETT |failedTests| 0) (LETT |xfailedTests| 0)
+          (LETT |xfpassedTests| 0)
+          (SEQ (LETT |tstsuite| NIL)
+               (LETT #19# (REVERSE (SPADCALL (QREFELT $ 12) (QREFELT $ 59))))
                G190
                (COND
-                ((OR (ATOM #19#)
-                     (PROGN (LETT |tstsuite| (CAR #19#) . #21#) NIL))
+                ((OR (ATOM #19#) (PROGN (LETT |tstsuite| (CAR #19#)) NIL))
                  (GO G191)))
-               (SEQ (LETT |failedCases| 0 . #21#)
-                    (LETT |xfpassedCases| 0 . #21#)
-                    (LETT |totalCases| 0 . #21#)
-                    (SEQ (LETT |tstcase| NIL . #21#)
+               (SEQ (LETT |failedCases| 0) (LETT |xfpassedCases| 0)
+                    (LETT |totalCases| 0)
+                    (SEQ (LETT |tstcase| NIL)
                          (LETT #18#
                                (REVERSE
-                                (SPADCALL (QCDR |tstsuite|) (QREFELT $ 61)))
-                               . #21#)
+                                (SPADCALL (QCDR |tstsuite|) (QREFELT $ 61))))
                          G190
                          (COND
                           ((OR (ATOM #18#)
-                               (PROGN (LETT |tstcase| (CAR #18#) . #21#) NIL))
+                               (PROGN (LETT |tstcase| (CAR #18#)) NIL))
                            (GO G191)))
-                         (SEQ (LETT |totalCases| (+ |totalCases| 1) . #21#)
+                         (SEQ (LETT |totalCases| (+ |totalCases| 1))
                               (COND
                                ((SPADCALL (QVELT (QCDR |tstcase|) 1) 0
                                           (QREFELT $ 63))
-                                (LETT |failedCases| (+ |failedCases| 1)
-                                      . #21#)))
+                                (LETT |failedCases| (+ |failedCases| 1))))
                               (COND
                                ((SPADCALL (QVELT (QCDR |tstcase|) 3) 0
                                           (QREFELT $ 63))
-                                (LETT |xfpassedCases| (+ |xfpassedCases| 1)
-                                      . #21#)))
+                                (LETT |xfpassedCases| (+ |xfpassedCases| 1))))
                               (LETT |totalTests|
-                                    (+ |totalTests| (QVELT (QCDR |tstcase|) 0))
-                                    . #21#)
+                                    (+ |totalTests|
+                                       (QVELT (QCDR |tstcase|) 0)))
                               (LETT |failedTests|
                                     (+ |failedTests|
-                                       (QVELT (QCDR |tstcase|) 1))
-                                    . #21#)
+                                       (QVELT (QCDR |tstcase|) 1)))
                               (LETT |xfailedTests|
                                     (+ |xfailedTests|
-                                       (QVELT (QCDR |tstcase|) 2))
-                                    . #21#)
+                                       (QVELT (QCDR |tstcase|) 2)))
                               (EXIT
                                (LETT |xfpassedTests|
                                      (+ |xfpassedTests|
-                                        (QVELT (QCDR |tstcase|) 3))
-                                     . #21#)))
-                         (LETT #18# (CDR #18#) . #21#) (GO G190) G191
-                         (EXIT NIL))
+                                        (QVELT (QCDR |tstcase|) 3)))))
+                         (LETT #18# (CDR #18#)) (GO G190) G191 (EXIT NIL))
                     (SPADCALL
                      (|make_full_CVEC| (QREFELT $ 6) (|STR_to_CHAR| "="))
                      (QREFELT $ 27))
@@ -552,18 +528,15 @@
                       (SEQ (SPADCALL "" (QREFELT $ 57))
                            (SPADCALL "  failed testcases were:" (QREFELT $ 27))
                            (EXIT
-                            (SEQ (LETT |tstcase| NIL . #21#)
+                            (SEQ (LETT |tstcase| NIL)
                                  (LETT #17#
                                        (REVERSE
                                         (SPADCALL (QCDR |tstsuite|)
-                                                  (QREFELT $ 61)))
-                                       . #21#)
+                                                  (QREFELT $ 61))))
                                  G190
                                  (COND
                                   ((OR (ATOM #17#)
-                                       (PROGN
-                                        (LETT |tstcase| (CAR #17#) . #21#)
-                                        NIL))
+                                       (PROGN (LETT |tstcase| (CAR #17#)) NIL))
                                    (GO G191)))
                                  (SEQ
                                   (EXIT
@@ -576,8 +549,8 @@
                                                  (|make_full_CVEC|
                                                   (PROG1
                                                       (LETT #16#
-                                                            (- (QREFELT $ 6) 2)
-                                                            . #21#)
+                                                            (- (QREFELT $ 6)
+                                                               2))
                                                     (|check_subtype2|
                                                      (>= #16# 0)
                                                      '(|NonNegativeInteger|)
@@ -614,18 +587,17 @@
                                              (SPADCALL "    failed tests were:"
                                                        (QREFELT $ 27))
                                              (EXIT
-                                              (SEQ (LETT |f| NIL . #21#)
+                                              (SEQ (LETT |f| NIL)
                                                    (LETT #15#
                                                          (REVERSE
                                                           (QVELT
-                                                           (QCDR |tstcase|) 6))
-                                                         . #21#)
+                                                           (QCDR |tstcase|)
+                                                           6)))
                                                    G190
                                                    (COND
                                                     ((OR (ATOM #15#)
                                                          (PROGN
-                                                          (LETT |f| (CAR #15#)
-                                                                . #21#)
+                                                          (LETT |f| (CAR #15#))
                                                           NIL))
                                                      (GO G191)))
                                                    (SEQ
@@ -647,23 +619,21 @@
                                                                (QREFELT $ 25))
                                                      (QREFELT $ 27))
                                                     (EXIT
-                                                     (SEQ (LETT |i| 1 . #21#)
+                                                     (SEQ (LETT |i| 1)
                                                           (LETT #14#
                                                                 (LENGTH
-                                                                 (QVELT |f| 2))
-                                                                . #21#)
-                                                          (LETT |o| NIL . #21#)
+                                                                 (QVELT |f|
+                                                                        2)))
+                                                          (LETT |o| NIL)
                                                           (LETT #13#
-                                                                (QVELT |f| 2)
-                                                                . #21#)
+                                                                (QVELT |f| 2))
                                                           G190
                                                           (COND
                                                            ((OR (ATOM #13#)
                                                                 (PROGN
                                                                  (LETT |o|
                                                                        (CAR
-                                                                        #13#)
-                                                                       . #21#)
+                                                                        #13#))
                                                                  NIL)
                                                                 (|greater_SI|
                                                                  |i| #14#))
@@ -679,8 +649,7 @@
                                                                    (QREFELT $
                                                                             25))
                                                                   (QREFELT $
-                                                                           25))
-                                                                 . #21#)
+                                                                           25)))
                                                            (EXIT
                                                             (SPADCALL
                                                              (SPADCALL
@@ -695,13 +664,10 @@
                                                                     (CDR #13#)
                                                                   (LETT |i|
                                                                         (|inc_SI|
-                                                                         |i|)
-                                                                        . #21#))
-                                                                . #21#)
+                                                                         |i|))))
                                                           (GO G190) G191
                                                           (EXIT NIL))))
-                                                   (LETT #15# (CDR #15#)
-                                                         . #21#)
+                                                   (LETT #15# (CDR #15#))
                                                    (GO G190) G191
                                                    (EXIT NIL))))))
                                       (EXIT
@@ -712,19 +678,18 @@
                                               (SPADCALL "  fatal tests were:"
                                                         (QREFELT $ 27))
                                               (EXIT
-                                               (SEQ (LETT |f| NIL . #21#)
+                                               (SEQ (LETT |f| NIL)
                                                     (LETT #12#
                                                           (REVERSE
                                                            (QVELT
                                                             (QCDR |tstcase|)
-                                                            4))
-                                                          . #21#)
+                                                            4)))
                                                     G190
                                                     (COND
                                                      ((OR (ATOM #12#)
                                                           (PROGN
-                                                           (LETT |f| (CAR #12#)
-                                                                 . #21#)
+                                                           (LETT |f|
+                                                                 (CAR #12#))
                                                            NIL))
                                                       (GO G191)))
                                                     (SEQ
@@ -746,11 +711,10 @@
                                                                  (QREFELT $
                                                                           25))
                                                        (QREFELT $ 27))))
-                                                    (LETT #12# (CDR #12#)
-                                                          . #21#)
+                                                    (LETT #12# (CDR #12#))
                                                     (GO G190) G191
                                                     (EXIT NIL))))))))))))
-                                 (LETT #17# (CDR #17#) . #21#) (GO G190) G191
+                                 (LETT #17# (CDR #17#)) (GO G190) G191
                                  (EXIT NIL))))))
                     (EXIT
                      (COND
@@ -760,17 +724,16 @@
                              "  testcases with unexpected passed tests were:"
                              (QREFELT $ 27))
                             (EXIT
-                             (SEQ (LETT |tstcase| NIL . #21#)
+                             (SEQ (LETT |tstcase| NIL)
                                   (LETT #11#
                                         (REVERSE
                                          (SPADCALL (QCDR |tstsuite|)
-                                                   (QREFELT $ 61)))
-                                        . #21#)
+                                                   (QREFELT $ 61))))
                                   G190
                                   (COND
                                    ((OR (ATOM #11#)
                                         (PROGN
-                                         (LETT |tstcase| (CAR #11#) . #21#)
+                                         (LETT |tstcase| (CAR #11#))
                                          NIL))
                                     (GO G191)))
                                   (SEQ
@@ -785,8 +748,7 @@
                                                    (PROG1
                                                        (LETT #10#
                                                              (- (QREFELT $ 6)
-                                                                2)
-                                                             . #21#)
+                                                                2))
                                                      (|check_subtype2|
                                                       (>= #10# 0)
                                                       '(|NonNegativeInteger|)
@@ -808,19 +770,18 @@
                                                 "  unexpected passed tests were:"
                                                 (QREFELT $ 27))
                                                (EXIT
-                                                (SEQ (LETT |f| NIL . #21#)
+                                                (SEQ (LETT |f| NIL)
                                                      (LETT #9#
                                                            (REVERSE
                                                             (QVELT
                                                              (QCDR |tstcase|)
-                                                             5))
-                                                           . #21#)
+                                                             5)))
                                                      G190
                                                      (COND
                                                       ((OR (ATOM #9#)
                                                            (PROGN
-                                                            (LETT |f| (CAR #9#)
-                                                                  . #21#)
+                                                            (LETT |f|
+                                                                  (CAR #9#))
                                                             NIL))
                                                        (GO G191)))
                                                      (SEQ
@@ -844,59 +805,52 @@
                                                                   (QREFELT $
                                                                            25))
                                                         (QREFELT $ 27))))
-                                                     (LETT #9# (CDR #9#)
-                                                           . #21#)
+                                                     (LETT #9# (CDR #9#))
                                                      (GO G190) G191
                                                      (EXIT NIL))))))))))))
-                                  (LETT #11# (CDR #11#) . #21#) (GO G190) G191
+                                  (LETT #11# (CDR #11#)) (GO G190) G191
                                   (EXIT NIL))))))))
-               (LETT #19# (CDR #19#) . #21#) (GO G190) G191 (EXIT NIL))
+               (LETT #19# (CDR #19#)) (GO G190) G191 (EXIT NIL))
           (SPADCALL "" (QREFELT $ 57))
           (SPADCALL (|make_full_CVEC| (QREFELT $ 6) (|STR_to_CHAR| "="))
                     (QREFELT $ 27))
           (SPADCALL
            "testsuite | testcases: failed (total) | tests: failed (total)"
            (QREFELT $ 27))
-          (SEQ (LETT |tstsuite| NIL . #21#)
-               (LETT #8# (REVERSE (SPADCALL (QREFELT $ 12) (QREFELT $ 59)))
-                     . #21#)
+          (SEQ (LETT |tstsuite| NIL)
+               (LETT #8# (REVERSE (SPADCALL (QREFELT $ 12) (QREFELT $ 59))))
                G190
                (COND
-                ((OR (ATOM #8#) (PROGN (LETT |tstsuite| (CAR #8#) . #21#) NIL))
+                ((OR (ATOM #8#) (PROGN (LETT |tstsuite| (CAR #8#)) NIL))
                  (GO G191)))
-               (SEQ (LETT |failedCases| 0 . #21#) (LETT |totalCases| 0 . #21#)
-                    (LETT |tsfailedTests| 0 . #21#)
-                    (LETT |tstotalTests| 0 . #21#)
-                    (SEQ (LETT |tstcase| NIL . #21#)
+               (SEQ (LETT |failedCases| 0) (LETT |totalCases| 0)
+                    (LETT |tsfailedTests| 0) (LETT |tstotalTests| 0)
+                    (SEQ (LETT |tstcase| NIL)
                          (LETT #7#
                                (REVERSE
-                                (SPADCALL (QCDR |tstsuite|) (QREFELT $ 61)))
-                               . #21#)
+                                (SPADCALL (QCDR |tstsuite|) (QREFELT $ 61))))
                          G190
                          (COND
                           ((OR (ATOM #7#)
-                               (PROGN (LETT |tstcase| (CAR #7#) . #21#) NIL))
+                               (PROGN (LETT |tstcase| (CAR #7#)) NIL))
                            (GO G191)))
-                         (SEQ (LETT |totalCases| (+ |totalCases| 1) . #21#)
+                         (SEQ (LETT |totalCases| (+ |totalCases| 1))
                               (COND
                                ((SPADCALL (QVELT (QCDR |tstcase|) 1) 0
                                           (QREFELT $ 63))
-                                (LETT |failedCases| (+ |failedCases| 1)
-                                      . #21#)))
+                                (LETT |failedCases| (+ |failedCases| 1))))
                               (LETT |tstotalTests|
                                     (+ |tstotalTests|
-                                       (QVELT (QCDR |tstcase|) 0))
-                                    . #21#)
+                                       (QVELT (QCDR |tstcase|) 0)))
                               (EXIT
                                (LETT |tsfailedTests|
                                      (+ |tsfailedTests|
-                                        (QVELT (QCDR |tstcase|) 1))
-                                     . #21#)))
-                         (LETT #7# (CDR #7#) . #21#) (GO G190) G191 (EXIT NIL))
-                    (LETT |sfailedCases| (STRINGIMAGE |failedCases|) . #21#)
-                    (LETT |stotalCases| (STRINGIMAGE |totalCases|) . #21#)
-                    (LETT |sfailedTests| (STRINGIMAGE |tsfailedTests|) . #21#)
-                    (LETT |stotalTests| (STRINGIMAGE |tstotalTests|) . #21#)
+                                        (QVELT (QCDR |tstcase|) 1)))))
+                         (LETT #7# (CDR #7#)) (GO G190) G191 (EXIT NIL))
+                    (LETT |sfailedCases| (STRINGIMAGE |failedCases|))
+                    (LETT |stotalCases| (STRINGIMAGE |totalCases|))
+                    (LETT |sfailedTests| (STRINGIMAGE |tsfailedTests|))
+                    (LETT |stotalTests| (STRINGIMAGE |tstotalTests|))
                     (EXIT
                      (SPADCALL
                       (SPADCALL (QCAR |tstsuite|)
@@ -906,8 +860,7 @@
                                       (LETT #5#
                                             (MAX
                                              (- 24 (QCSIZE (QCAR |tstsuite|)))
-                                             0)
-                                            . #21#)
+                                             0))
                                     (|check_subtype2| (>= #5# 0)
                                                       '(|NonNegativeInteger|)
                                                       '(|Integer|) #5#))
@@ -917,8 +870,7 @@
                                    (PROG1
                                        (LETT #4#
                                              (MAX (- 5 (QCSIZE |sfailedCases|))
-                                                  0)
-                                             . #21#)
+                                                  0))
                                      (|check_subtype2| (>= #4# 0)
                                                        '(|NonNegativeInteger|)
                                                        '(|Integer|) #4#))
@@ -932,8 +884,7 @@
                                                          (- 6
                                                             (QCSIZE
                                                              |stotalCases|))
-                                                         0)
-                                                        . #21#)
+                                                         0))
                                                 (|check_subtype2| (>= #3# 0)
                                                                   '(|NonNegativeInteger|)
                                                                   '(|Integer|)
@@ -952,8 +903,7 @@
                                                                                     16
                                                                                     (QCSIZE
                                                                                      |sfailedTests|))
-                                                                                   0)
-                                                                                  . #21#)
+                                                                                   0))
                                                                                (|check_subtype2|
                                                                                 (>=
                                                                                  #2#
@@ -975,8 +925,7 @@
                                                                                       6
                                                                                       (QCSIZE
                                                                                        |stotalTests|))
-                                                                                     0)
-                                                                                    . #21#)
+                                                                                     0))
                                                                                  (|check_subtype2|
                                                                                   (>=
                                                                                    #1#
@@ -1018,7 +967,7 @@
                                  (QREFELT $ 25))
                                 (QREFELT $ 25))
                       (QREFELT $ 27))))
-               (LETT #8# (CDR #8#) . #21#) (GO G190) G191 (EXIT NIL))
+               (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
           (SPADCALL (|make_full_CVEC| (QREFELT $ 6) (|STR_to_CHAR| "="))
                     (QREFELT $ 27))
           (SPADCALL "File summary." (QREFELT $ 27))
@@ -1047,8 +996,7 @@
          (PROG (#1=#:G263)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|UnittestCount|)
-                    . #2=(|UnittestCount|))
+             ((LETT #1# (HGET |$ConstructorCache| '|UnittestCount|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -1056,25 +1004,25 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|UnittestCount|
                              (LIST (CONS NIL (CONS 1 (|UnittestCount;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|UnittestCount|)))))))))) 
 
 (DEFUN |UnittestCount;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|UnittestCount|) . #1=(|UnittestCount|))
-          (LETT $ (GETREFV 66) . #1#)
+          (LETT |dv$| '(|UnittestCount|))
+          (LETT $ (GETREFV 66))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|UnittestCount| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))
           (QSETREFV $ 6 77)
           (QSETREFV $ 12 (SPADCALL (QREFELT $ 11)))
           (QSETREFV $ 13 NIL)
-          (QSETREFV $ 14 #2="")
-          (QSETREFV $ 15 #2#)
+          (QSETREFV $ 14 #1="")
+          (QSETREFV $ 15 #1#)
           $))) 
 
 (MAKEPROP '|UnittestCount| '|infovec|

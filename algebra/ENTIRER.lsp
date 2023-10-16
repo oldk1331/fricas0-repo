@@ -21,8 +21,7 @@
                               ((|unitCanonical| ($ $)) T)
                               ((|associates?| ((|Boolean|) $ $)) T)
                               ((|unit?| ((|Boolean|) $)) T))
-                            NIL NIL NIL))
-                   |EntireRing|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|EntireRing|))))) 
 
 (MAKEPROP '|EntireRing| 'NILADIC T) 

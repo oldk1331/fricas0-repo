@@ -65,8 +65,7 @@
                                             (|has| $ (|arbitraryPrecision|)))
                                            (|not|
                                             (|has| $ (|arbitraryExponent|))))))
-                                       NIL NIL NIL)))
-                   |FloatingPointSystem|)
+                                       NIL NIL NIL))))
            (SETELT #1# 0 '(|FloatingPointSystem|))))) 
 
 (MAKEPROP '|FloatingPointSystem| 'NILADIC T) 

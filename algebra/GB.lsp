@@ -1,7 +1,7 @@
 
 (SDEFUN |GB;monicize| ((|p| |Dpol|) ($ |Dpol|))
         (SPROG ((|lc| (|Dom|)))
-               (SEQ (LETT |lc| (SPADCALL |p| (QREFELT $ 9)) |GB;monicize|)
+               (SEQ (LETT |lc| (SPADCALL |p| (QREFELT $ 9)))
                     (EXIT
                      (COND
                       ((SPADCALL |lc| (|spadConstant| $ 10) (QREFELT $ 13))
@@ -25,24 +25,20 @@
                        (SEQ
                         (LETT |Pol|
                               (PROGN
-                               (LETT #2# NIL . #4=(|GB;groebner;2L;3|))
-                               (SEQ (LETT |x| NIL . #4#) (LETT #1# |Pol| . #4#)
-                                    G190
+                               (LETT #2# NIL)
+                               (SEQ (LETT |x| NIL) (LETT #1# |Pol|) G190
                                     (COND
                                      ((OR (ATOM #1#)
-                                          (PROGN
-                                           (LETT |x| (CAR #1#) . #4#)
-                                           NIL))
+                                          (PROGN (LETT |x| (CAR #1#)) NIL))
                                       (GO G191)))
                                     (SEQ
                                      (EXIT
                                       (COND
                                        ((SPADCALL |x| (|spadConstant| $ 25)
                                                   (QREFELT $ 26))
-                                        (LETT #2# (CONS |x| #2#) . #4#)))))
-                                    (LETT #1# (CDR #1#) . #4#) (GO G190) G191
-                                    (EXIT (NREVERSE #2#))))
-                              . #4#)
+                                        (LETT #2# (CONS |x| #2#))))))
+                                    (LETT #1# (CDR #1#)) (GO G190) G191
+                                    (EXIT (NREVERSE #2#)))))
                         (EXIT
                          (COND
                           ((SPADCALL |Pol| NIL (QREFELT $ 22))
@@ -67,24 +63,20 @@
                        (SEQ
                         (LETT |Pol|
                               (PROGN
-                               (LETT #2# NIL . #4=(|GB;groebner;LSL;4|))
-                               (SEQ (LETT |x| NIL . #4#) (LETT #1# |Pol| . #4#)
-                                    G190
+                               (LETT #2# NIL)
+                               (SEQ (LETT |x| NIL) (LETT #1# |Pol|) G190
                                     (COND
                                      ((OR (ATOM #1#)
-                                          (PROGN
-                                           (LETT |x| (CAR #1#) . #4#)
-                                           NIL))
+                                          (PROGN (LETT |x| (CAR #1#)) NIL))
                                       (GO G191)))
                                     (SEQ
                                      (EXIT
                                       (COND
                                        ((SPADCALL |x| (|spadConstant| $ 25)
                                                   (QREFELT $ 26))
-                                        (LETT #2# (CONS |x| #2#) . #4#)))))
-                                    (LETT #1# (CDR #1#) . #4#) (GO G190) G191
-                                    (EXIT (NREVERSE #2#))))
-                              . #4#)
+                                        (LETT #2# (CONS |x| #2#))))))
+                                    (LETT #1# (CDR #1#)) (GO G190) G191
+                                    (EXIT (NREVERSE #2#)))))
                         (EXIT
                          (COND
                           ((SPADCALL |Pol| NIL (QREFELT $ 22))
@@ -132,24 +124,20 @@
                        (SEQ
                         (LETT |Pol|
                               (PROGN
-                               (LETT #2# NIL . #4=(|GB;groebner;L2SL;5|))
-                               (SEQ (LETT |x| NIL . #4#) (LETT #1# |Pol| . #4#)
-                                    G190
+                               (LETT #2# NIL)
+                               (SEQ (LETT |x| NIL) (LETT #1# |Pol|) G190
                                     (COND
                                      ((OR (ATOM #1#)
-                                          (PROGN
-                                           (LETT |x| (CAR #1#) . #4#)
-                                           NIL))
+                                          (PROGN (LETT |x| (CAR #1#)) NIL))
                                       (GO G191)))
                                     (SEQ
                                      (EXIT
                                       (COND
                                        ((SPADCALL |x| (|spadConstant| $ 25)
                                                   (QREFELT $ 26))
-                                        (LETT #2# (CONS |x| #2#) . #4#)))))
-                                    (LETT #1# (CDR #1#) . #4#) (GO G190) G191
-                                    (EXIT (NREVERSE #2#))))
-                              . #4#)
+                                        (LETT #2# (CONS |x| #2#))))))
+                                    (LETT #1# (CDR #1#)) (GO G190) G191
+                                    (EXIT (NREVERSE #2#)))))
                         (EXIT
                          (COND
                           ((SPADCALL |Pol| NIL (QREFELT $ 22))
@@ -166,9 +154,9 @@
                                             (SPADCALL |Pol| 1 1 (QREFELT $ 30))
                                             (QREFELT $ 32))
                                   (QREFELT $ 33))))
-                               ((EQUAL |xx1| #5="info")
+                               ((EQUAL |xx1| #4="info")
                                 (COND
-                                 ((EQUAL |xx2| #6="redcrit")
+                                 ((EQUAL |xx2| #5="redcrit")
                                   (EXIT
                                    (SPADCALL
                                     (SPADCALL (CONS #'|GB;groebner;L2SL;5!1| $)
@@ -176,9 +164,9 @@
                                                         (QREFELT $ 30))
                                               (QREFELT $ 32))
                                     (QREFELT $ 33))))))))
-                             ((EQUAL |xx1| #5#)
+                             ((EQUAL |xx1| #4#)
                               (COND
-                               ((EQUAL |xx2| #6#)
+                               ((EQUAL |xx2| #5#)
                                 (EXIT
                                  (SPADCALL
                                   (SPADCALL (CONS #'|GB;groebner;L2SL;5!2| $)
@@ -247,13 +235,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|GroebnerPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|GroebnerPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |GroebnerPackage;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|GroebnerPackage|)))))))))) 
@@ -261,18 +248,18 @@
 (DEFUN |GroebnerPackage;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|GroebnerPackage|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|GroebnerPackage| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 41) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|GroebnerPackage| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 41))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
-                                              (|HasCategory| |#1| '(|Field|))))
-                          . #1#))
+                                              (|HasCategory| |#1|
+                                                             '(|Field|))))))
           (|haddProp| |$ConstructorCache| '|GroebnerPackage|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))
           (|stuffDomainSlots| $)

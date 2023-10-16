@@ -67,11 +67,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|BinaryTree|)
-                                               '|domainEqualList|)
-                    . #3=(|BinaryTree|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|BinaryTree;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|BinaryTree;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|BinaryTree|)))))))))) 
 
@@ -80,9 +79,9 @@
    ((|pv$| NIL) (#1=#:G132 NIL) (#2=#:G133 NIL) (#3=#:G134 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #4=(|BinaryTree|))
-    (LETT |dv$| (LIST '|BinaryTree| DV$1) . #4#)
-    (LETT $ (GETREFV 44) . #4#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|BinaryTree| DV$1))
+    (LETT $ (GETREFV 44))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -90,8 +89,7 @@
                                        (LIST
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -100,22 +98,19 @@
                                          #3#)
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|BasicType|))
-                                              . #4#)
+                                                             '(|BasicType|)))
                                         (OR #2# #3#)
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #1#
                                             (AND
                                              (|HasCategory| |#1|
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #3#))))
-                    . #4#))
+                                             #3#))))))
     (|haddProp| |$ConstructorCache| '|BinaryTree| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)

@@ -6,11 +6,10 @@
 (SDEFUN |IARRAY1;fill!;$S$;2| ((|x| $) (|s| S) ($ $))
         (SPROG ((#1=#:G1134 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 0 . #2=(|IARRAY1;fill!;$S$;2|))
-                     (LETT #1# (QVMAXINDEX |x|) . #2#) G190
+                (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ (EXIT (QSETVELT |x| |i| |s|)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (SDEFUN |IARRAY1;minIndex;$I;3| ((|x| $) ($ |Integer|)) (QREFELT $ 7)) 
@@ -26,75 +25,70 @@
 
 (SDEFUN |IARRAY1;map!;M2$;6| ((|f| |Mapping| S S) (|s1| $) ($ $))
         (SPROG ((#1=#:G1143 NIL) (|i| NIL) (|n| (|Integer|)))
-               (SEQ (LETT |n| (QVMAXINDEX |s1|) . #2=(|IARRAY1;map!;M2$;6|))
+               (SEQ (LETT |n| (QVMAXINDEX |s1|))
                     (EXIT
                      (COND ((< |n| 0) |s1|)
                            ('T
                             (SEQ
-                             (SEQ (LETT |i| 0 . #2#) (LETT #1# |n| . #2#) G190
+                             (SEQ (LETT |i| 0) (LETT #1# |n|) G190
                                   (COND ((|greater_SI| |i| #1#) (GO G191)))
                                   (SEQ
                                    (EXIT
                                     (QSETVELT |s1| |i|
                                               (SPADCALL (QAREF1 |s1| |i|)
                                                         |f|))))
-                                  (LETT |i| (|inc_SI| |i|) . #2#) (GO G190)
-                                  G191 (EXIT NIL))
+                                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                                  (EXIT NIL))
                              (EXIT |s1|)))))))) 
 
 (SDEFUN |IARRAY1;map;M2$;7| ((|f| |Mapping| S S) (|s1| $) ($ $))
         (SPROG ((#1=#:G1148 NIL) (|i| NIL) (|ss2| ($)) (|n| (|Integer|)))
-               (SEQ (LETT |n| (QVMAXINDEX |s1|) . #2=(|IARRAY1;map;M2$;7|))
+               (SEQ (LETT |n| (QVMAXINDEX |s1|))
                     (EXIT
                      (COND ((< |n| 0) |s1|)
                            ('T
-                            (SEQ (LETT |ss2| (MAKE-ARRAY (+ |n| 1)) . #2#)
-                                 (SEQ (LETT |i| 0 . #2#) (LETT #1# |n| . #2#)
-                                      G190
+                            (SEQ (LETT |ss2| (MAKE-ARRAY (+ |n| 1)))
+                                 (SEQ (LETT |i| 0) (LETT #1# |n|) G190
                                       (COND ((|greater_SI| |i| #1#) (GO G191)))
                                       (SEQ
                                        (EXIT
                                         (QSETVELT |ss2| |i|
                                                   (SPADCALL (QAREF1 |s1| |i|)
                                                             |f|))))
-                                      (LETT |i| (|inc_SI| |i|) . #2#) (GO G190)
-                                      G191 (EXIT NIL))
+                                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                                      (EXIT NIL))
                                  (EXIT |ss2|)))))))) 
 
 (SDEFUN |IARRAY1;map;M3$;8| ((|f| |Mapping| S S S) (|a| $) (|b| $) ($ $))
         (SPROG ((#1=#:G1154 NIL) (|i| NIL) (|c| ($)) (|maxind| (|Integer|)))
-               (SEQ
-                (LETT |maxind| (MIN (QVMAXINDEX |a|) (QVMAXINDEX |b|))
-                      . #2=(|IARRAY1;map;M3$;8|))
-                (EXIT
-                 (COND ((< |maxind| 0) (SPADCALL (QREFELT $ 13)))
-                       ('T
-                        (SEQ (LETT |c| (MAKE-ARRAY (+ |maxind| 1)) . #2#)
-                             (SEQ (LETT |i| 0 . #2#) (LETT #1# |maxind| . #2#)
-                                  G190
-                                  (COND ((|greater_SI| |i| #1#) (GO G191)))
-                                  (SEQ
-                                   (EXIT
-                                    (QSETVELT |c| |i|
-                                              (SPADCALL (QAREF1 |a| |i|)
-                                                        (QAREF1 |b| |i|)
-                                                        |f|))))
-                                  (LETT |i| (|inc_SI| |i|) . #2#) (GO G190)
-                                  G191 (EXIT NIL))
-                             (EXIT |c|)))))))) 
+               (SEQ (LETT |maxind| (MIN (QVMAXINDEX |a|) (QVMAXINDEX |b|)))
+                    (EXIT
+                     (COND ((< |maxind| 0) (SPADCALL (QREFELT $ 13)))
+                           ('T
+                            (SEQ (LETT |c| (MAKE-ARRAY (+ |maxind| 1)))
+                                 (SEQ (LETT |i| 0) (LETT #1# |maxind|) G190
+                                      (COND ((|greater_SI| |i| #1#) (GO G191)))
+                                      (SEQ
+                                       (EXIT
+                                        (QSETVELT |c| |i|
+                                                  (SPADCALL (QAREF1 |a| |i|)
+                                                            (QAREF1 |b| |i|)
+                                                            |f|))))
+                                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                                      (EXIT NIL))
+                                 (EXIT |c|)))))))) 
 
 (SDEFUN |IARRAY1;hashUpdate!;Hs$Hs;9|
         ((|s| |HashState|) (|x| $) ($ |HashState|))
         (SPROG ((#1=#:G1158 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 0 . #2=(|IARRAY1;hashUpdate!;Hs$Hs;9|))
-                     (LETT #1# (QVMAXINDEX |x|) . #2#) G190
+                (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ
                       (EXIT
-                       (LETT |s| (SPADCALL |s| (QAREF1 |x| |i|) (QREFELT $ 21))
-                             . #2#)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                       (LETT |s|
+                             (SPADCALL |s| (QAREF1 |x| |i|) (QREFELT $ 21)))))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |s|)))) 
 
 (PUT '|IARRAY1;qelt;$IS;10| '|SPADreplace| 'QAREF1) 
@@ -173,13 +167,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|IndexedOneDimensionalArray|)
-                                               '|domainEqualList|)
-                    . #3=(|IndexedOneDimensionalArray|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |IndexedOneDimensionalArray;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -190,10 +183,10 @@
    ((|pv$| NIL) (#1=#:G1193 NIL) (#2=#:G1194 NIL) (#3=#:G1195 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedOneDimensionalArray|))
-    (LETT DV$2 (|devaluate| |#2|) . #4#)
-    (LETT |dv$| (LIST '|IndexedOneDimensionalArray| DV$1 DV$2) . #4#)
-    (LETT $ (GETREFV 45) . #4#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT |dv$| (LIST '|IndexedOneDimensionalArray| DV$1 DV$2))
+    (LETT $ (GETREFV 45))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -208,15 +201,13 @@
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|Comparable|))
-                                              . #4#)
+                                                             '(|Comparable|)))
                                         (OR #3#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|)))
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -235,13 +226,11 @@
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #1# #3#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
-                                            #2#)))
-                    . #4#))
+                                            #2#)))))
     (|haddProp| |$ConstructorCache| '|IndexedOneDimensionalArray|
                 (LIST DV$1 DV$2) (CONS 1 $))
     (|stuffDomainSlots| $)

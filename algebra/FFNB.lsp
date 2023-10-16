@@ -10,13 +10,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FiniteFieldNormalBasis|)
-                                               '|domainEqualList|)
-                    . #3=(|FiniteFieldNormalBasis|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |FiniteFieldNormalBasis;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|FiniteFieldNormalBasis|)))))))))) 
@@ -25,10 +24,10 @@
   (SPROG
    ((|pv$| NIL) (#1=#:G146 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldNormalBasis|))
-    (LETT DV$2 (|devaluate| |#2|) . #2#)
-    (LETT |dv$| (LIST '|FiniteFieldNormalBasis| DV$1 DV$2) . #2#)
-    (LETT $ (GETREFV 54) . #2#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT |dv$| (LIST '|FiniteFieldNormalBasis| DV$1 DV$2))
+    (LETT $ (GETREFV 54))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -38,13 +37,12 @@
                                                        '(|CharacteristicZero|))
                                         (LETT #1#
                                               (|HasCategory|
-                                               (|PrimeField| |#1|) '(|Finite|))
-                                              . #2#)
+                                               (|PrimeField| |#1|)
+                                               '(|Finite|)))
                                         (OR
                                          (|HasCategory| (|PrimeField| |#1|)
                                                         '(|CharacteristicNonZero|))
-                                         #1#)))
-                    . #2#))
+                                         #1#)))))
     (|haddProp| |$ConstructorCache| '|FiniteFieldNormalBasis| (LIST DV$1 DV$2)
                 (CONS 1 $))
     (|stuffDomainSlots| $)

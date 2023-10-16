@@ -1,14 +1,14 @@
 
 (SDEFUN |ATRIG-;asec;2S;1| ((|x| S) ($ S))
         (SPROG ((|a| (|Union| S "failed")))
-               (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 8)) |ATRIG-;asec;2S;1|)
+               (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 8)))
                     (EXIT
                      (COND ((QEQCAR |a| 1) (|error| "asec: no reciprocal"))
                            ('T (SPADCALL (QCDR |a|) (QREFELT $ 9)))))))) 
 
 (SDEFUN |ATRIG-;acsc;2S;2| ((|x| S) ($ S))
         (SPROG ((|a| (|Union| S "failed")))
-               (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 8)) |ATRIG-;acsc;2S;2|)
+               (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 8)))
                     (EXIT
                      (COND ((QEQCAR |a| 1) (|error| "acsc: no reciprocal"))
                            ('T (SPADCALL (QCDR |a|) (QREFELT $ 11)))))))) 
@@ -18,12 +18,11 @@
 (DEFUN |ArcTrigonometricFunctionCategory&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|ArcTrigonometricFunctionCategory&|))
-          (LETT |dv$| (LIST '|ArcTrigonometricFunctionCategory&| DV$1) . #1#)
-          (LETT $ (GETREFV 13) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|ArcTrigonometricFunctionCategory&| DV$1))
+          (LETT $ (GETREFV 13))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

@@ -2,20 +2,20 @@
 (SDEFUN |SIGNRF;sign;FU;1|
         ((|f| |Fraction| (|Polynomial| R)) ($ |Union| (|Integer|) #1="failed"))
         (SPROG ((|ud| #2=(|Union| (|Integer|) #1#)) (|un| #2#))
-               (SEQ
-                (LETT |un| (|SIGNRF;psign| (SPADCALL |f| (QREFELT $ 9)) $)
-                      . #3=(|SIGNRF;sign;FU;1|))
-                (EXIT
-                 (COND ((QEQCAR |un| 1) (CONS 1 "failed"))
-                       (#4='T
-                        (SEQ
-                         (LETT |ud|
-                               (|SIGNRF;psign| (SPADCALL |f| (QREFELT $ 10)) $)
-                               . #3#)
-                         (EXIT
-                          (COND ((QEQCAR |ud| 1) (CONS 1 "failed"))
-                                (#4#
-                                 (CONS 0 (* (QCDR |un|) (QCDR |ud|))))))))))))) 
+               (SEQ (LETT |un| (|SIGNRF;psign| (SPADCALL |f| (QREFELT $ 9)) $))
+                    (EXIT
+                     (COND ((QEQCAR |un| 1) (CONS 1 "failed"))
+                           (#3='T
+                            (SEQ
+                             (LETT |ud|
+                                   (|SIGNRF;psign|
+                                    (SPADCALL |f| (QREFELT $ 10)) $))
+                             (EXIT
+                              (COND ((QEQCAR |ud| 1) (CONS 1 "failed"))
+                                    (#3#
+                                     (CONS 0
+                                           (* (QCDR |un|)
+                                              (QCDR |ud|))))))))))))) 
 
 (SDEFUN |SIGNRF;finiteSign|
         ((|g| |Fraction|
@@ -25,19 +25,17 @@
                (SEQ
                 (LETT |ud|
                       (SPADCALL (SPADCALL |g| (QREFELT $ 15)) |a| (ELT $ 12)
-                                (QREFELT $ 18))
-                      . #2=(|SIGNRF;finiteSign|))
+                                (QREFELT $ 18)))
                 (EXIT
                  (COND ((QEQCAR |ud| 1) (CONS 1 "failed"))
-                       (#3='T
+                       (#2='T
                         (SEQ
                          (LETT |un|
                                (SPADCALL (SPADCALL |g| (QREFELT $ 19)) |a|
-                                         (ELT $ 12) (QREFELT $ 18))
-                               . #2#)
+                                         (ELT $ 12) (QREFELT $ 18)))
                          (EXIT
                           (COND ((QEQCAR |un| 1) (CONS 1 "failed"))
-                                (#3#
+                                (#2#
                                  (CONS 0 (* (QCDR |un|) (QCDR |ud|))))))))))))) 
 
 (SDEFUN |SIGNRF;sign;FSOcU;3|
@@ -49,32 +47,29 @@
           (|g|
            (|Fraction|
             (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))))
-         (SEQ
-          (LETT |g| (SPADCALL |f| |x| (QREFELT $ 22))
-                . #2=(|SIGNRF;sign;FSOcU;3|))
-          (EXIT
-           (COND
-            ((ZEROP (LETT |n| (SPADCALL |a| (QREFELT $ 25)) . #2#))
-             (|SIGNRF;finiteSign| |g| (SPADCALL |a| (QREFELT $ 26)) $))
-            (#3='T
-             (SEQ
-              (LETT |ud|
-                    (SPADCALL (SPADCALL |g| (QREFELT $ 15)) |n| (ELT $ 12)
-                              (QREFELT $ 28))
-                    . #2#)
+         (SEQ (LETT |g| (SPADCALL |f| |x| (QREFELT $ 22)))
               (EXIT
-               (COND ((QEQCAR |ud| 1) (CONS 1 "failed"))
-                     (#3#
-                      (SEQ
-                       (LETT |un|
-                             (SPADCALL (SPADCALL |g| (QREFELT $ 19)) |n|
-                                       (ELT $ 12) (QREFELT $ 28))
-                             . #2#)
-                       (EXIT
-                        (COND ((QEQCAR |un| 1) (CONS 1 "failed"))
-                              (#3#
-                               (CONS 0
-                                     (* (QCDR |un|) (QCDR |ud|))))))))))))))))) 
+               (COND
+                ((ZEROP (LETT |n| (SPADCALL |a| (QREFELT $ 25))))
+                 (|SIGNRF;finiteSign| |g| (SPADCALL |a| (QREFELT $ 26)) $))
+                (#2='T
+                 (SEQ
+                  (LETT |ud|
+                        (SPADCALL (SPADCALL |g| (QREFELT $ 15)) |n| (ELT $ 12)
+                                  (QREFELT $ 28)))
+                  (EXIT
+                   (COND ((QEQCAR |ud| 1) (CONS 1 "failed"))
+                         (#2#
+                          (SEQ
+                           (LETT |un|
+                                 (SPADCALL (SPADCALL |g| (QREFELT $ 19)) |n|
+                                           (ELT $ 12) (QREFELT $ 28)))
+                           (EXIT
+                            (COND ((QEQCAR |un| 1) (CONS 1 "failed"))
+                                  (#2#
+                                   (CONS 0
+                                         (* (QCDR |un|)
+                                            (QCDR |ud|))))))))))))))))) 
 
 (SDEFUN |SIGNRF;sign;FSFSU;4|
         ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
@@ -88,24 +83,20 @@
          (SEQ
           (LETT |ud|
                 (SPADCALL
-                 (SPADCALL
-                  (LETT |g| (SPADCALL |f| |x| (QREFELT $ 22))
-                        . #2=(|SIGNRF;sign;FSFSU;4|))
-                  (QREFELT $ 15))
-                 |a| (LETT |d| (SPADCALL |st| (QREFELT $ 32)) . #2#) (ELT $ 12)
-                 (QREFELT $ 33))
-                . #2#)
+                 (SPADCALL (LETT |g| (SPADCALL |f| |x| (QREFELT $ 22)))
+                           (QREFELT $ 15))
+                 |a| (LETT |d| (SPADCALL |st| (QREFELT $ 32))) (ELT $ 12)
+                 (QREFELT $ 33)))
           (EXIT
            (COND ((QEQCAR |ud| 1) (CONS 1 "failed"))
-                 (#3='T
+                 (#2='T
                   (SEQ
                    (LETT |un|
                          (SPADCALL (SPADCALL |g| (QREFELT $ 19)) |a| |d|
-                                   (ELT $ 12) (QREFELT $ 33))
-                         . #2#)
+                                   (ELT $ 12) (QREFELT $ 33)))
                    (EXIT
                     (COND ((QEQCAR |un| 1) (CONS 1 "failed"))
-                          (#3# (CONS 0 (* (QCDR |un|) (QCDR |ud|))))))))))))) 
+                          (#2# (CONS 0 (* (QCDR |un|) (QCDR |ud|))))))))))))) 
 
 (SDEFUN |SIGNRF;psign| ((|p| |Polynomial| R) ($ |Union| (|Integer|) "failed"))
         (SPROG
@@ -114,34 +105,31 @@
           (|s| (|Factored| (|Polynomial| R))) (|r| (|Union| R "failed")))
          (SEQ
           (EXIT
-           (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 36)) . #3=(|SIGNRF;psign|))
+           (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 36)))
                 (EXIT
                  (COND ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) (QREFELT $ 37)))
-                       (#4='T
+                       (#3='T
                         (SEQ
                          (LETT |u|
                                (SPADCALL
                                 (SPADCALL
                                  (SPADCALL
-                                  (LETT |s| (SPADCALL |p| (QREFELT $ 39))
-                                        . #3#)
+                                  (LETT |s| (SPADCALL |p| (QREFELT $ 39)))
                                   (QREFELT $ 41))
                                  (QREFELT $ 42))
-                                (QREFELT $ 37))
-                               . #3#)
+                                (QREFELT $ 37)))
                          (EXIT
                           (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                                (#4#
-                                 (SEQ (LETT |ans| (QCDR |u|) . #3#)
-                                      (SEQ (LETT |term| NIL . #3#)
+                                (#3#
+                                 (SEQ (LETT |ans| (QCDR |u|))
+                                      (SEQ (LETT |term| NIL)
                                            (LETT #2#
-                                                 (SPADCALL |s| (QREFELT $ 46))
-                                                 . #3#)
+                                                 (SPADCALL |s| (QREFELT $ 46)))
                                            G190
                                            (COND
                                             ((OR (ATOM #2#)
                                                  (PROGN
-                                                  (LETT |term| (CAR #2#) . #3#)
+                                                  (LETT |term| (CAR #2#))
                                                   NIL))
                                              (GO G191)))
                                            (SEQ
@@ -151,23 +139,23 @@
                                                (SEQ
                                                 (LETT |u|
                                                       (|SIGNRF;sqfrSign|
-                                                       (QVELT |term| 1) $)
-                                                      . #3#)
+                                                       (QVELT |term| 1) $))
                                                 (EXIT
                                                  (COND
                                                   ((QEQCAR |u| 1)
                                                    (PROGN
-                                                    (LETT #1# (CONS 1 "failed")
-                                                          . #3#)
-                                                    (GO #5=#:G153)))
+                                                    (LETT #1#
+                                                          (CONS 1 "failed"))
+                                                    (GO #4=#:G153)))
                                                   ('T
                                                    (LETT |ans|
-                                                         (* |ans| (QCDR |u|))
-                                                         . #3#)))))))))
-                                           (LETT #2# (CDR #2#) . #3#) (GO G190)
-                                           G191 (EXIT NIL))
+                                                         (* |ans|
+                                                            (QCDR
+                                                             |u|)))))))))))
+                                           (LETT #2# (CDR #2#)) (GO G190) G191
+                                           (EXIT NIL))
                                       (EXIT (CONS 0 |ans|))))))))))))
-          #5# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |SIGNRF;sqfrSign|
         ((|p| |Polynomial| R) ($ |Union| (|Integer|) #1="failed"))
@@ -176,11 +164,7 @@
          (SEQ
           (LETT |u|
                 (|SIGNRF;termSign|
-                 (|SPADfirst|
-                  (LETT |l| (SPADCALL |p| (QREFELT $ 48))
-                        . #2=(|SIGNRF;sqfrSign|)))
-                 $)
-                . #2#)
+                 (|SPADfirst| (LETT |l| (SPADCALL |p| (QREFELT $ 48)))) $))
           (EXIT
            (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                  ('T (|SIGNRF;listSign| (CDR |l|) (QCDR |u|) $))))))) 
@@ -194,18 +178,15 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |term| NIL . #5=(|SIGNRF;listSign|))
-                 (LETT #4# |l| . #5#) G190
+            (SEQ (LETT |term| NIL) (LETT #4# |l|) G190
                  (COND
-                  ((OR (ATOM #4#) (PROGN (LETT |term| (CAR #4#) . #5#) NIL))
+                  ((OR (ATOM #4#) (PROGN (LETT |term| (CAR #4#)) NIL))
                    (GO G191)))
-                 (SEQ (LETT |u| (|SIGNRF;termSign| |term| $) . #5#)
+                 (SEQ (LETT |u| (|SIGNRF;termSign| |term| $))
                       (EXIT
                        (COND
                         ((QEQCAR |u| 1)
-                         (PROGN
-                          (LETT #3# (CONS 1 "failed") . #5#)
-                          (GO #6=#:G168)))
+                         (PROGN (LETT #3# (CONS 1 "failed")) (GO #5=#:G168)))
                         ('T
                          (SEQ
                           (EXIT
@@ -214,14 +195,13 @@
                              (PROGN
                               (LETT #2#
                                     (PROGN
-                                     (LETT #3# (CONS 1 "failed") . #5#)
-                                     (GO #6#))
-                                    . #5#)
-                              (GO #7=#:G164)))))
-                          #7# (EXIT #2#))))))
-                 (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
+                                     (LETT #3# (CONS 1 "failed"))
+                                     (GO #5#)))
+                              (GO #6=#:G164)))))
+                          #6# (EXIT #2#))))))
+                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |s|))))
-          #6# (EXIT #3#)))) 
+          #5# (EXIT #3#)))) 
 
 (SDEFUN |SIGNRF;termSign|
         ((|term| |Polynomial| R) ($ |Union| (|Integer|) "failed"))
@@ -231,11 +211,10 @@
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |var| NIL . #4=(|SIGNRF;termSign|))
-                         (LETT #3# (SPADCALL |term| (QREFELT $ 52)) . #4#) G190
+                    (SEQ (LETT |var| NIL)
+                         (LETT #3# (SPADCALL |term| (QREFELT $ 52))) G190
                          (COND
-                          ((OR (ATOM #3#)
-                               (PROGN (LETT |var| (CAR #3#) . #4#) NIL))
+                          ((OR (ATOM #3#) (PROGN (LETT |var| (CAR #3#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
@@ -244,16 +223,15 @@
                              (PROGN
                               (LETT #1#
                                     (PROGN
-                                     (LETT #2# (CONS 1 "failed") . #4#)
-                                     (GO #5=#:G178))
-                                    . #4#)
-                              (GO #6=#:G176))))))
-                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #6# (EXIT #1#))
+                                     (LETT #2# (CONS 1 "failed"))
+                                     (GO #4=#:G178)))
+                              (GO #5=#:G176))))))
+                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #1#))
                   (EXIT
                    (SPADCALL (SPADCALL |term| (QREFELT $ 55))
                              (QREFELT $ 37)))))
-                #5# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |RationalFunctionSign;|)) 
 
@@ -266,12 +244,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|RationalFunctionSign|)
-                                               '|domainEqualList|)
-                    . #3=(|RationalFunctionSign|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|RationalFunctionSign;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|RationalFunctionSign;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|RationalFunctionSign|)))))))))) 
@@ -279,11 +256,11 @@
 (DEFUN |RationalFunctionSign;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalFunctionSign|))
-          (LETT |dv$| (LIST '|RationalFunctionSign| DV$1) . #1#)
-          (LETT $ (GETREFV 56) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|RationalFunctionSign| DV$1))
+          (LETT $ (GETREFV 56))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RationalFunctionSign| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -17,9 +17,9 @@
 
 (SDEFUN |MAPPKG1;^;MNniM;4!0| ((|a1| NIL) ($$ NIL))
         (PROG (|g| |n| $)
-          (LETT |g| (QREFELT $$ 2) . #1=(|MAPPKG1;^;MNniM;4|))
-          (LETT |n| (QREFELT $$ 1) . #1#)
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |g| (QREFELT $$ 2))
+          (LETT |n| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |g| |n| |a1| (QREFELT $ 14)))))) 
 
 (SDEFUN |MAPPKG1;recur;2M;5|
@@ -29,8 +29,8 @@
 
 (SDEFUN |MAPPKG1;recur;2M;5!0| ((|n1| NIL) (|a2| NIL) ($$ NIL))
         (PROG (|fnaa| $)
-          (LETT |fnaa| (QREFELT $$ 1) . #1=(|MAPPKG1;recur;2M;5|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |fnaa| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |fnaa| |n1| |a2| (QREFELT $ 17)))))) 
 
 (DECLAIM (NOTINLINE |MappingPackage1;|)) 
@@ -44,12 +44,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|MappingPackage1|)
-                                               '|domainEqualList|)
-                    . #3=(|MappingPackage1|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|MappingPackage1;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|MappingPackage1;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|MappingPackage1|)))))))))) 
@@ -57,11 +55,11 @@
 (DEFUN |MappingPackage1;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|MappingPackage1|))
-          (LETT |dv$| (LIST '|MappingPackage1| DV$1) . #1#)
-          (LETT $ (GETREFV 19) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|MappingPackage1| DV$1))
+          (LETT $ (GETREFV 19))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|MappingPackage1| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

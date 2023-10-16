@@ -25,18 +25,15 @@
           (|r| (|PatternMatchResult| |Base| |Subject|)))
          (SEQ
           (COND
-           ((SPADCALL
-             (LETT |r| (|PATMATCH;ist| |s| |p| $)
-                   . #3=(|PATMATCH;Is;SubjectPatL;5|))
-             (QREFELT $ 16))
+           ((SPADCALL (LETT |r| (|PATMATCH;ist| |s| |p| $)) (QREFELT $ 16))
             NIL)
            ('T
             (PROGN
-             (LETT #2# NIL . #3#)
-             (SEQ (LETT |rec| NIL . #3#)
-                  (LETT #1# (SPADCALL |r| (QREFELT $ 28)) . #3#) G190
+             (LETT #2# NIL)
+             (SEQ (LETT |rec| NIL) (LETT #1# (SPADCALL |r| (QREFELT $ 28)))
+                  G190
                   (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |rec| (CAR #1#) . #3#) NIL))
+                   ((OR (ATOM #1#) (PROGN (LETT |rec| (CAR #1#)) NIL))
                     (GO G191)))
                   (SEQ
                    (EXIT
@@ -44,9 +41,8 @@
                           (CONS
                            (SPADCALL (SPADCALL (QCAR |rec|) (QREFELT $ 30))
                                      (QCDR |rec|) (QREFELT $ 32))
-                           #2#)
-                          . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                           #2#))))
+                  (LETT #1# (CDR #1#)) (GO G190) G191
                   (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |PATMATCH;Is;SubjectPatL;6|
@@ -57,18 +53,15 @@
           (|r| (|PatternMatchResult| |Base| |Subject|)))
          (SEQ
           (COND
-           ((SPADCALL
-             (LETT |r| (|PATMATCH;ist| |s| |p| $)
-                   . #3=(|PATMATCH;Is;SubjectPatL;6|))
-             (QREFELT $ 16))
+           ((SPADCALL (LETT |r| (|PATMATCH;ist| |s| |p| $)) (QREFELT $ 16))
             NIL)
            ('T
             (PROGN
-             (LETT #2# NIL . #3#)
-             (SEQ (LETT |rec| NIL . #3#)
-                  (LETT #1# (SPADCALL |r| (QREFELT $ 28)) . #3#) G190
+             (LETT #2# NIL)
+             (SEQ (LETT |rec| NIL) (LETT #1# (SPADCALL |r| (QREFELT $ 28)))
+                  G190
                   (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |rec| (CAR #1#) . #3#) NIL))
+                   ((OR (ATOM #1#) (PROGN (LETT |rec| (CAR #1#)) NIL))
                     (GO G191)))
                   (SEQ
                    (EXIT
@@ -77,9 +70,8 @@
                            (SPADCALL (SPADCALL (QCAR |rec|) (QREFELT $ 36))
                                      (SPADCALL (QCDR |rec|) (QREFELT $ 37))
                                      (QREFELT $ 39))
-                           #2#)
-                          . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                           #2#))))
+                  (LETT #1# (CDR #1#)) (GO G190) G191
                   (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |PATMATCH;Is;SubjectPatPmr;7|
@@ -97,13 +89,11 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|PatternMatch|)
-                                               '|domainEqualList|)
-                    . #3=(|PatternMatch|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |PatternMatch;|) #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (APPLY (|function| |PatternMatch;|) #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|PatternMatch|)))))))))) 
 
@@ -112,11 +102,11 @@
    ((|pv$| NIL) (#1=#:G127 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #2=(|PatternMatch|))
-    (LETT DV$2 (|devaluate| |#2|) . #2#)
-    (LETT DV$3 (|devaluate| |#3|) . #2#)
-    (LETT |dv$| (LIST '|PatternMatch| DV$1 DV$2 DV$3) . #2#)
-    (LETT $ (GETREFV 43) . #2#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT |dv$| (LIST '|PatternMatch| DV$1 DV$2 DV$3))
+    (LETT $ (GETREFV 43))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -125,14 +115,12 @@
                                         (LETT #1#
                                               (|HasCategory| |#2|
                                                              '(|RetractableTo|
-                                                               (|Symbol|)))
-                                              . #2#)
+                                                               (|Symbol|))))
                                         (AND (|not| #1#)
                                              (|not|
                                               (|HasCategory| |#2| '(|Ring|))))
                                         (AND (|HasCategory| |#2| '(|Ring|))
-                                             (|not| #1#))))
-                    . #2#))
+                                             (|not| #1#))))))
     (|haddProp| |$ConstructorCache| '|PatternMatch| (LIST DV$1 DV$2 DV$3)
                 (CONS 1 $))
     (|stuffDomainSlots| $)

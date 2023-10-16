@@ -6,28 +6,26 @@
         ((|p| |Record| (|:| |key| |Key|) (|:| |entry| |Entry|)) (|t| S)
          ($ |Boolean|))
         (SPROG ((|r| (|Union| |Entry| "failed")))
-               (SEQ
-                (LETT |r| (SPADCALL (QCAR |p|) |t| (QREFELT $ 10))
-                      |KDAGG-;member?;RSB;2|)
-                (EXIT
-                 (COND
-                  ((QEQCAR |r| 0)
-                   (SPADCALL (CONS 0 (QCDR |r|)) (CONS 0 (QCDR |p|))
-                             (QREFELT $ 13)))
-                  ('T NIL)))))) 
+               (SEQ (LETT |r| (SPADCALL (QCAR |p|) |t| (QREFELT $ 10)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |r| 0)
+                       (SPADCALL (CONS 0 (QCDR |r|)) (CONS 0 (QCDR |p|))
+                                 (QREFELT $ 13)))
+                      ('T NIL)))))) 
 
 (SDEFUN |KDAGG-;keys;SL;3| ((|t| S) ($ |List| |Key|))
         (SPROG ((#1=#:G129 NIL) (|x| NIL) (#2=#:G128 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL . #3=(|KDAGG-;keys;SL;3|))
-                 (SEQ (LETT |x| NIL . #3#)
-                      (LETT #1# (SPADCALL |t| (QREFELT $ 17)) . #3#) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |x| NIL) (LETT #1# (SPADCALL |t| (QREFELT $ 17)))
+                      G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
+                       ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                         (GO G191)))
-                      (SEQ (EXIT (LETT #2# (CONS (QCAR |x|) #2#) . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (SEQ (EXIT (LETT #2# (CONS (QCAR |x|) #2#))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
 (DECLAIM (NOTINLINE |KeyedDictionary&;|)) 
@@ -35,13 +33,13 @@
 (DEFUN |KeyedDictionary&| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|KeyedDictionary&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|KeyedDictionary&| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 20) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|KeyedDictionary&| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 20))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

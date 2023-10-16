@@ -12,15 +12,13 @@
         (SPROG
          ((#1=#:G119 NIL) (|i| NIL) (|j| NIL) (|s| (|String|))
           (|f| #2=(|Character|)) (|t| #2#))
-         (SEQ (LETT |t| (|STR_to_CHAR| "1") . #3=(|IBITS;coerce;$Of;3|))
-              (LETT |f| (|STR_to_CHAR| "0") . #3#)
+         (SEQ (LETT |t| (|STR_to_CHAR| "1")) (LETT |f| (|STR_to_CHAR| "0"))
               (LETT |s|
                     (|make_full_CVEC| (SPADCALL |v| (QREFELT $ 10))
-                                      (STR_ELT "   " 0))
-                    . #3#)
-              (SEQ (LETT |j| (QREFELT $ 6) . #3#)
-                   (LETT |i| (SPADCALL |s| (QREFELT $ 12)) . #3#)
-                   (LETT #1# (SPADCALL |s| (QREFELT $ 13)) . #3#) G190
+                                      (STR_ELT "   " 0)))
+              (SEQ (LETT |j| (QREFELT $ 6))
+                   (LETT |i| (SPADCALL |s| (QREFELT $ 12)))
+                   (LETT #1# (SPADCALL |s| (QREFELT $ 13))) G190
                    (COND ((> |i| #1#) (GO G191)))
                    (SEQ
                     (EXIT
@@ -28,9 +26,8 @@
                                (COND ((SPADCALL |v| |j| (QREFELT $ 15)) |t|)
                                      ('T |f|))
                                (QREFELT $ 17))))
-                   (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (+ |j| 1) . #3#))
-                         . #3#)
-                   (GO G190) G191 (EXIT NIL))
+                   (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (+ |j| 1)))) (GO G190)
+                   G191 (EXIT NIL))
               (EXIT (SPADCALL |s| (QREFELT $ 19)))))) 
 
 (SDEFUN |IBITS;new;NniB$;4| ((|n| |NonNegativeInteger|) (|b| |Boolean|) ($ $))
@@ -111,20 +108,19 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|IndexedBits|)
-                                               '|domainEqualList|)
-                    . #3=(|IndexedBits|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|IndexedBits;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|IndexedBits;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|IndexedBits|)))))))))) 
 
 (DEFUN |IndexedBits;| (|#1|)
   (SPROG ((#1=#:G153 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #2=(|IndexedBits|))
-          (LETT |dv$| (LIST '|IndexedBits| DV$1) . #2#)
-          (LETT $ (GETREFV 50) . #2#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|IndexedBits| DV$1))
+          (LETT $ (GETREFV 50))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -144,15 +140,14 @@
                                               (|HasCategory| (|Integer|)
                                                              '(|OrderedSet|))
                                               (|HasCategory| (|Boolean|)
-                                                             '(|BasicType|))))
-                          . #2#))
+                                                             '(|BasicType|))))))
           (|haddProp| |$ConstructorCache| '|IndexedBits| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (AND (|HasCategory| $ '(|shallowlyMutable|))
                (|augmentPredVector| $ 32))
-          (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
+          (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)))
                (|augmentPredVector| $ 64))
           (AND #1# (|HasCategory| $ '(|shallowlyMutable|))
                (|HasCategory| (|Boolean|) '(|OrderedSet|))

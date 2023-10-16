@@ -424,14 +424,14 @@
 ;     --if all start/inc/end compile as small integers, then loop
 ;     --is compiled as a small integer loop
 ;     final':= nil
-;     (start':= comp(start,$SmallInteger,e)) and
+;     (start' := comp(start, $SingleInteger, e)) and
 ;       (inc':= comp(inc,$NonNegativeInteger,start'.env)) and
 ;         (not (optFinal is [final]) or
-;           (final':= comp(final,$SmallInteger,inc'.env))) =>
+;           (final' := comp(final, $SingleInteger, inc'.env))) =>
 ;             indexmode:=
 ;               comp(start,$NonNegativeInteger,e) =>
 ;                       $NonNegativeInteger
-;               $SmallInteger
+;               $SingleInteger
 ;             if null get(index,"mode",e) then [.,.,e]:=
 ;               compMakeDeclaration([":",index,indexmode],$EmptyMode,
 ;                 (final' => final'.env; inc'.env)) or return nil
@@ -601,7 +601,7 @@
         (SETQ |$formalArgList| (CONS |index| |$formalArgList|))
         (SETQ |final'| NIL)
         (COND
-         ((AND (SETQ |start'| (|comp| |start| |$SmallInteger| |e|))
+         ((AND (SETQ |start'| (|comp| |start| |$SingleInteger| |e|))
                (SETQ |inc'|
                        (|comp| |inc| |$NonNegativeInteger| (CADDR |start'|)))
                (OR
@@ -609,13 +609,13 @@
                  (AND (CONSP |optFinal|) (EQ (CDR |optFinal|) NIL)
                       (PROGN (SETQ |final| (CAR |optFinal|)) #1#)))
                 (SETQ |final'|
-                        (|comp| |final| |$SmallInteger| (CADDR |inc'|)))))
+                        (|comp| |final| |$SingleInteger| (CADDR |inc'|)))))
           (PROGN
            (SETQ |indexmode|
                    (COND
                     ((|comp| |start| |$NonNegativeInteger| |e|)
                      |$NonNegativeInteger|)
-                    (#1# |$SmallInteger|)))
+                    (#1# |$SingleInteger|)))
            (COND
             ((NULL (|get| |index| '|mode| |e|))
              (SETQ |LETTMP#1|

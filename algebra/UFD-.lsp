@@ -5,25 +5,19 @@
           (|f| NIL) (|s| (|Factored| S)))
          (SEQ
           (SPADCALL
-           (SPADCALL
-            (LETT |s| (SPADCALL |x| (QREFELT $ 8))
-                  . #5=(|UFD-;squareFreePart;2S;1|))
-            (QREFELT $ 10))
+           (SPADCALL (LETT |s| (SPADCALL |x| (QREFELT $ 8))) (QREFELT $ 10))
            (PROGN
-            (LETT #1# NIL . #5#)
-            (SEQ (LETT |f| NIL . #5#)
-                 (LETT #4# (SPADCALL |s| (QREFELT $ 14)) . #5#) G190
+            (LETT #1# NIL)
+            (SEQ (LETT |f| NIL) (LETT #4# (SPADCALL |s| (QREFELT $ 14))) G190
                  (COND
-                  ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#) . #5#) NIL))
-                   (GO G191)))
+                  ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#)) NIL)) (GO G191)))
                  (SEQ
                   (EXIT
                    (PROGN
-                    (LETT #3# (QVELT |f| 1) . #5#)
-                    (COND
-                     (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 15)) . #5#))
-                     ('T (PROGN (LETT #2# #3# . #5#) (LETT #1# 'T . #5#)))))))
-                 (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
+                    (LETT #3# (QVELT |f| 1))
+                    (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 15))))
+                          ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
+                 (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
             (COND (#1# #2#) ('T (|spadConstant| $ 16))))
            (QREFELT $ 15))))) 
 
@@ -35,11 +29,11 @@
 (DEFUN |UniqueFactorizationDomain&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|UniqueFactorizationDomain&|))
-          (LETT |dv$| (LIST '|UniqueFactorizationDomain&| DV$1) . #1#)
-          (LETT $ (GETREFV 23) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|UniqueFactorizationDomain&| DV$1))
+          (LETT $ (GETREFV 23))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

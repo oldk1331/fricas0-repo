@@ -20,8 +20,7 @@
          (PROG (#1=#:G106)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|RadixUtilities|)
-                    . #2=(|RadixUtilities|))
+             ((LETT #1# (HGET |$ConstructorCache| '|RadixUtilities|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -29,7 +28,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|RadixUtilities|
                              (LIST (CONS NIL (CONS 1 (|RadixUtilities;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|RadixUtilities|)))))))))) 
@@ -37,10 +36,10 @@
 (DEFUN |RadixUtilities;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|RadixUtilities|) . #1=(|RadixUtilities|))
-          (LETT $ (GETREFV 10) . #1#)
+          (LETT |dv$| '(|RadixUtilities|))
+          (LETT $ (GETREFV 10))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RadixUtilities| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

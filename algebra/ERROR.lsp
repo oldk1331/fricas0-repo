@@ -7,18 +7,17 @@
 
 (SDEFUN |ERROR;error;LE;3| ((|l| |List| (|String|)) ($ |Exit|))
         (SPROG ((|s| (|String|)) (#1=#:G110 NIL) (|x| NIL))
-               (SEQ (LETT |s| (QREFELT $ 6) . #2=(|ERROR;error;LE;3|))
-                    (SEQ (LETT |x| NIL . #2#) (LETT #1# |l| . #2#) G190
+               (SEQ (LETT |s| (QREFELT $ 6))
+                    (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
                          (COND
-                          ((OR (ATOM #1#)
-                               (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
+                          ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (LETT |s|
-                                 (SPADCALL (LIST |s| " " |x|) (QREFELT $ 10))
-                                 . #2#)))
-                         (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                                 (SPADCALL (LIST |s| " " |x|)
+                                           (QREFELT $ 10)))))
+                         (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT (|ERROR;doit| |s| $))))) 
 
 (SDEFUN |ERROR;error;2SE;4| ((|fn| |String|) (|s| |String|) ($ |Exit|))
@@ -31,17 +30,16 @@
                (SEQ
                 (LETT |s|
                       (SPADCALL (LIST (QREFELT $ 7) |fn| ": %d %l")
-                                (QREFELT $ 10))
-                      . #2=(|ERROR;error;SLE;5|))
-                (SEQ (LETT |x| NIL . #2#) (LETT #1# |l| . #2#) G190
+                                (QREFELT $ 10)))
+                (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
                      (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
+                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ
                       (EXIT
-                       (LETT |s| (SPADCALL (LIST |s| " " |x|) (QREFELT $ 10))
-                             . #2#)))
-                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                       (LETT |s|
+                             (SPADCALL (LIST |s| " " |x|) (QREFELT $ 10)))))
+                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT (|ERROR;doit| |s| $))))) 
 
 (DECLAIM (NOTINLINE |ErrorFunctions;|)) 
@@ -51,8 +49,7 @@
          (PROG (#1=#:G117)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ErrorFunctions|)
-                    . #2=(|ErrorFunctions|))
+             ((LETT #1# (HGET |$ConstructorCache| '|ErrorFunctions|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -60,7 +57,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|ErrorFunctions|
                              (LIST (CONS NIL (CONS 1 (|ErrorFunctions;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|ErrorFunctions|)))))))))) 
@@ -68,10 +65,10 @@
 (DEFUN |ErrorFunctions;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|ErrorFunctions|) . #1=(|ErrorFunctions|))
-          (LETT $ (GETREFV 17) . #1#)
+          (LETT |dv$| '(|ErrorFunctions|))
+          (LETT $ (GETREFV 17))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ErrorFunctions| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

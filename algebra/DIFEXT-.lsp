@@ -3,14 +3,12 @@
         ((|x| S) (|derivation| |Mapping| R R) (|n| |NonNegativeInteger|) ($ S))
         (SPROG ((#1=#:G115 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #2=(|DIFEXT-;differentiate;SMNniS;1|))
-                     (LETT #1# |n| . #2#) G190
+                (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ
                       (EXIT
-                       (LETT |x| (SPADCALL |x| |derivation| (QREFELT $ 9))
-                             . #2#)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                       (LETT |x| (SPADCALL |x| |derivation| (QREFELT $ 9)))))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (SDEFUN |DIFEXT-;D;SMS;2| ((|x| S) (|derivation| |Mapping| R R) ($ S))
@@ -32,8 +30,8 @@
 
 (SDEFUN |DIFEXT-;differentiate;SSS;5!0| ((|s| NIL) ($$ NIL))
         (PROG (|v| $)
-          (LETT |v| (QREFELT $$ 1) . #1=(|DIFEXT-;differentiate;SSS;5|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |v| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |s| |v| (QREFELT $ 18)))))) 
 
 (DECLAIM (NOTINLINE |DifferentialExtension&;|)) 
@@ -41,10 +39,10 @@
 (DEFUN |DifferentialExtension&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|DifferentialExtension&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|DifferentialExtension&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 22) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|DifferentialExtension&| DV$1 DV$2))
+          (LETT $ (GETREFV 22))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -54,8 +52,7 @@
                                                              '(|PartialDifferentialRing|
                                                                (|Symbol|)))
                                               (|HasCategory| |#2|
-                                                             '(|DifferentialRing|))))
-                          . #1#))
+                                                             '(|DifferentialRing|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

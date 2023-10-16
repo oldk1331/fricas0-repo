@@ -11,16 +11,14 @@
                   (SEQ
                    (LETT |c|
                          (SPADCALL (SPADCALL |pF| (QREFELT $ 15))
-                                   (QREFELT $ 17))
-                         . #3=(|LPEFRAC;pullback|))
+                                   (QREFELT $ 17)))
                    (EXIT
                     (COND ((QEQCAR |c| 1) (CONS 1 "failed"))
                           (#2#
                            (SEQ
                             (LETT |r|
                                   (|LPEFRAC;pullback|
-                                   (SPADCALL |pF| (QREFELT $ 18)) $)
-                                  . #3#)
+                                   (SPADCALL |pF| (QREFELT $ 18)) $))
                             (EXIT
                              (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
                                    (#2#
@@ -52,56 +50,49 @@
            (SEQ
             (LETT |lpF|
                   (PROGN
-                   (LETT #5# NIL
-                         . #6=(|LPEFRAC;solveLinearPolynomialEquationByFractions;LSupU;2|))
-                   (SEQ (LETT |u| NIL . #6#) (LETT #4# |lp| . #6#) G190
+                   (LETT #5# NIL)
+                   (SEQ (LETT |u| NIL) (LETT #4# |lp|) G190
                         (COND
-                         ((OR (ATOM #4#)
-                              (PROGN (LETT |u| (CAR #4#) . #6#) NIL))
+                         ((OR (ATOM #4#) (PROGN (LETT |u| (CAR #4#)) NIL))
                           (GO G191)))
                         (SEQ
                          (EXIT
                           (LETT #5#
                                 (CONS (SPADCALL (ELT $ 23) |u| (QREFELT $ 26))
-                                      #5#)
-                                . #6#)))
-                        (LETT #4# (CDR #4#) . #6#) (GO G190) G191
-                        (EXIT (NREVERSE #5#))))
-                  . #6#)
-            (LETT |pF| (SPADCALL (ELT $ 23) |pp| (QREFELT $ 26)) . #6#)
-            (LETT |ans| (SPADCALL |lpF| |pF| (QREFELT $ 30)) . #6#)
+                                      #5#))))
+                        (LETT #4# (CDR #4#)) (GO G190) G191
+                        (EXIT (NREVERSE #5#)))))
+            (LETT |pF| (SPADCALL (ELT $ 23) |pp| (QREFELT $ 26)))
+            (LETT |ans| (SPADCALL |lpF| |pF| (QREFELT $ 30)))
             (EXIT
              (COND ((QEQCAR |ans| 1) (CONS 1 "failed"))
                    ('T
                     (CONS 0
                           (PROGN
-                           (LETT #3# NIL . #6#)
-                           (SEQ (LETT |v| NIL . #6#)
-                                (LETT #2# (QCDR |ans|) . #6#) G190
+                           (LETT #3# NIL)
+                           (SEQ (LETT |v| NIL) (LETT #2# (QCDR |ans|)) G190
                                 (COND
                                  ((OR (ATOM #2#)
-                                      (PROGN (LETT |v| (CAR #2#) . #6#) NIL))
+                                      (PROGN (LETT |v| (CAR #2#)) NIL))
                                   (GO G191)))
                                 (SEQ
                                  (EXIT
                                   (LETT #3#
                                         (CONS
                                          (SEQ
-                                          (LETT |vv| (|LPEFRAC;pullback| |v| $)
-                                                . #6#)
+                                          (LETT |vv|
+                                                (|LPEFRAC;pullback| |v| $))
                                           (EXIT
                                            (COND
                                             ((QEQCAR |vv| 1)
                                              (PROGN
-                                              (LETT #1# (CONS 1 "failed")
-                                                    . #6#)
-                                              (GO #7=#:G126)))
+                                              (LETT #1# (CONS 1 "failed"))
+                                              (GO #6=#:G126)))
                                             ('T (QCDR |vv|)))))
-                                         #3#)
-                                        . #6#)))
-                                (LETT #2# (CDR #2#) . #6#) (GO G190) G191
+                                         #3#))))
+                                (LETT #2# (CDR #2#)) (GO G190) G191
                                 (EXIT (NREVERSE #3#))))))))))
-          #7# (EXIT #1#)))) 
+          #6# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |LinearPolynomialEquationByFractions;|)) 
 
@@ -114,13 +105,12 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|LinearPolynomialEquationByFractions|)
-                                               '|domainEqualList|)
-                    . #3=(|LinearPolynomialEquationByFractions|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (|LinearPolynomialEquationByFractions;| #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -129,12 +119,11 @@
 (DEFUN |LinearPolynomialEquationByFractions;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|LinearPolynomialEquationByFractions|))
-          (LETT |dv$| (LIST '|LinearPolynomialEquationByFractions| DV$1) . #1#)
-          (LETT $ (GETREFV 34) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|LinearPolynomialEquationByFractions| DV$1))
+          (LETT $ (GETREFV 34))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
                       '|LinearPolynomialEquationByFractions| (LIST DV$1)
                       (CONS 1 $))

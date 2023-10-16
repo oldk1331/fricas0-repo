@@ -2999,9 +2999,7 @@
 ;   options := [option]
 ;   source := grepSource key
 ;   lines :=
-;     not PROBE_-FILE source => NIL
-;     $standard =>
-;     -----AIX Version----------
+;       not PROBE_-FILE source => NIL
 ;       target := getTempPath 'target
 ;       casepart :=
 ;         MEMQ('iv,options)=> '"-vi"
@@ -3010,34 +3008,26 @@
 ;       OBEY STRCONC(command, '" > ",target)
 ;       dbReadLines target
 ;       -- deleteFile target
-;     ----Windows Version------
-;     invert? := MEMQ('iv, options)
-;     GREP(source, pattern, false, not invert?)
 ;   dbUnpatchLines lines
  
 (DEFUN |grepFile| (|pattern| |key| |option|)
-  (PROG (|options| |source| |target| |casepart| |command| |invert?| |lines|)
+  (PROG (|options| |source| |target| |casepart| |command| |lines|)
     (RETURN
      (PROGN
       (SETQ |options| (LIST |option|))
       (SETQ |source| (|grepSource| |key|))
       (SETQ |lines|
               (COND ((NULL (PROBE-FILE |source|)) NIL)
-                    (|$standard|
+                    (#1='T
                      (PROGN
                       (SETQ |target| (|getTempPath| '|target|))
                       (SETQ |casepart|
-                              (COND ((MEMQ '|iv| |options|) "-vi")
-                                    (#1='T "-i")))
+                              (COND ((MEMQ '|iv| |options|) "-vi") (#1# "-i")))
                       (SETQ |command|
                               (STRCONC "grep " |casepart| " '" |pattern| "' "
                                |source|))
                       (OBEY (STRCONC |command| " > " |target|))
-                      (|dbReadLines| |target|)))
-                    (#1#
-                     (PROGN
-                      (SETQ |invert?| (MEMQ '|iv| |options|))
-                      (GREP |source| |pattern| NIL (NULL |invert?|))))))
+                      (|dbReadLines| |target|)))))
       (|dbUnpatchLines| |lines|)))))
  
 ; dbUnpatchLines lines ==  --concatenate long lines together, skip blank lines

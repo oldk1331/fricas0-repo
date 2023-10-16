@@ -22,17 +22,16 @@
 (DEFUN |Aggregate&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|Aggregate&|))
-          (LETT |dv$| (LIST '|Aggregate&| DV$1) . #1#)
-          (LETT $ (GETREFV 18) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|Aggregate&| DV$1))
+          (LETT $ (GETREFV 18))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
-                                                             '(|finiteAggregate|))))
-                          . #1#))
+                                                             '(|finiteAggregate|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

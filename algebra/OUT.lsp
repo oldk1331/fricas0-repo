@@ -14,11 +14,10 @@
                 (SPADCALL
                  (SPADCALL
                   (PROGN
-                   (LETT #2# NIL . #3=(|OUT;outputList;LV;4|))
-                   (SEQ (LETT |x| NIL . #3#) (LETT #1# |l| . #3#) G190
+                   (LETT #2# NIL)
+                   (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
                         (COND
-                         ((OR (ATOM #1#)
-                              (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
+                         ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                           (GO G191)))
                         (SEQ
                          (EXIT
@@ -29,9 +28,8 @@
                                    (SPADCALL (SPADCALL |x| (QREFELT $ 19))
                                              (QREFELT $ 20)))
                                   ('T (SPADCALL |x| (QREFELT $ 21))))
-                                 #2#)
-                                . #3#)))
-                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                                 #2#))))
+                        (LETT #1# (CDR #1#)) (GO G190) G191
                         (EXIT (NREVERSE #2#))))
                   (QREFELT $ 22))
                  (QREFELT $ 9))))) 
@@ -43,8 +41,7 @@
          (PROG (#1=#:G115)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|OutputPackage|)
-                    . #2=(|OutputPackage|))
+             ((LETT #1# (HGET |$ConstructorCache| '|OutputPackage|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -52,17 +49,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|OutputPackage|
                              (LIST (CONS NIL (CONS 1 (|OutputPackage;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|OutputPackage|)))))))))) 
 
 (DEFUN |OutputPackage;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|OutputPackage|) . #1=(|OutputPackage|))
-          (LETT $ (GETREFV 25) . #1#)
+          (LETT |dv$| '(|OutputPackage|))
+          (LETT $ (GETREFV 25))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|OutputPackage| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

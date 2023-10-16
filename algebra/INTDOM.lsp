@@ -9,9 +9,7 @@
 
 (DEFUN |IntegralDomain;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1
-             (LETT #1# (|Join| (|CommutativeRing|) (|EntireRing|))
-                   |IntegralDomain|)
+         (PROG1 (LETT #1# (|Join| (|CommutativeRing|) (|EntireRing|)))
            (SETELT #1# 0 '(|IntegralDomain|))))) 
 
 (MAKEPROP '|IntegralDomain| 'NILADIC T) 

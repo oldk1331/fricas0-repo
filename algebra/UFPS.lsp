@@ -10,13 +10,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|UnivariateFormalPowerSeries|)
-                                               '|domainEqualList|)
-                    . #3=(|UnivariateFormalPowerSeries|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|UnivariateFormalPowerSeries;| #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (|UnivariateFormalPowerSeries;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -27,9 +25,9 @@
    ((|pv$| NIL) (#1=#:G112 NIL) (#2=#:G113 NIL) (#3=#:G114 NIL) (#4=#:G117 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #5=(|UnivariateFormalPowerSeries|))
-    (LETT |dv$| (LIST '|UnivariateFormalPowerSeries| DV$1) . #5#)
-    (LETT $ (GETREFV 30) . #5#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|UnivariateFormalPowerSeries| DV$1))
+    (LETT $ (GETREFV 30))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -47,8 +45,7 @@
                                                        '(|CharacteristicZero|))
                                         (LETT #4#
                                               (|HasCategory| |#1|
-                                                             '(|CommutativeRing|))
-                                              . #5#)
+                                                             '(|CommutativeRing|)))
                                         (OR #4#
                                             (|HasCategory| |#1|
                                                            '(|IntegralDomain|)))
@@ -99,8 +96,7 @@
                                                                 '(|Symbol|)))))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|SemiRing|))
-                                              . #5#)
+                                                             '(|SemiRing|)))
                                         (OR #3#
                                             (|HasSignature| |#1|
                                                             (LIST '*
@@ -111,8 +107,7 @@
                                                                    (|devaluate|
                                                                     |#1|)))))
                                         (LETT #2#
-                                              (|HasCategory| |#1| '(|Ring|))
-                                              . #5#)
+                                              (|HasCategory| |#1| '(|Ring|)))
                                         (OR #2#
                                             (|HasSignature| |#1|
                                                             (LIST '*
@@ -148,8 +143,7 @@
                                                        '(|CancellationAbelianMonoid|))
                                         (LETT #1#
                                               (|HasCategory| |#1|
-                                                             '(|AbelianGroup|))
-                                              . #5#)
+                                                             '(|AbelianGroup|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -225,8 +219,7 @@
                                                                  '(|List|
                                                                    (|Symbol|))
                                                                  (|devaluate|
-                                                                  |#1|))))))))
-                    . #5#))
+                                                                  |#1|))))))))))
     (|haddProp| |$ConstructorCache| '|UnivariateFormalPowerSeries| (LIST DV$1)
                 (CONS 1 $))
     (|stuffDomainSlots| $)

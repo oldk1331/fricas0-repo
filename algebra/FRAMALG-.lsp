@@ -20,16 +20,12 @@
           (|m| (|Matrix| R)) (|n| (|NonNegativeInteger|)))
          (SEQ
           (LETT |m|
-                (MAKE_MATRIX1
-                 (LETT |n| (SPADCALL (QREFELT $ 24))
-                       . #2=(|FRAMALG-;regularRepresentation;SM;6|))
-                 |n| (|spadConstant| $ 25))
-                . #2#)
-          (LETT |b| (SPADCALL (QREFELT $ 10)) . #2#)
-          (SEQ (LETT |j| (PROGN |m| 1) . #2#)
-               (LETT |i| (SPADCALL |b| (QREFELT $ 28)) . #2#)
-               (LETT #1# (QVSIZE |b|) . #2#) G190
-               (COND ((> |i| #1#) (GO G191)))
+                (MAKE_MATRIX1 (LETT |n| (SPADCALL (QREFELT $ 24))) |n|
+                              (|spadConstant| $ 25)))
+          (LETT |b| (SPADCALL (QREFELT $ 10)))
+          (SEQ (LETT |j| (PROGN |m| 1))
+               (LETT |i| (SPADCALL |b| (QREFELT $ 28))) (LETT #1# (QVSIZE |b|))
+               G190 (COND ((> |i| #1#) (GO G191)))
                (SEQ
                 (EXIT
                  (SPADCALL |m| |j|
@@ -37,72 +33,68 @@
                             (SPADCALL |x| (QAREF1O |b| |i| 1) (QREFELT $ 29))
                             (QREFELT $ 30))
                            (QREFELT $ 31))))
-               (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (+ |j| 1) . #2#)) . #2#)
-               (GO G190) G191 (EXIT NIL))
+               (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (+ |j| 1)))) (GO G190) G191
+               (EXIT NIL))
           (EXIT (SPADCALL |m| (QREFELT $ 32)))))) 
 
 (SDEFUN |FRAMALG-;characteristicPolynomial;SUP;7| ((|x| S) ($ UP))
         (SPROG
          ((|mat1| (|Matrix| UP)) (|mat0| (|Matrix| UP)) (|mat00| (|Matrix| R)))
-         (SEQ
-          (LETT |mat00| (SPADCALL |x| (QREFELT $ 33))
-                . #1=(|FRAMALG-;characteristicPolynomial;SUP;7|))
-          (LETT |mat0| (SPADCALL (ELT $ 34) |mat00| (QREFELT $ 38)) . #1#)
-          (LETT |mat1|
-                (SPADCALL (SPADCALL (QREFELT $ 24))
-                          (SPADCALL (|spadConstant| $ 40) 1 (QREFELT $ 42))
-                          (QREFELT $ 43))
-                . #1#)
-          (EXIT
-           (SPADCALL (SPADCALL |mat1| |mat0| (QREFELT $ 44)) (QREFELT $ 45)))))) 
+         (SEQ (LETT |mat00| (SPADCALL |x| (QREFELT $ 33)))
+              (LETT |mat0| (SPADCALL (ELT $ 34) |mat00| (QREFELT $ 38)))
+              (LETT |mat1|
+                    (SPADCALL (SPADCALL (QREFELT $ 24))
+                              (SPADCALL (|spadConstant| $ 40) 1 (QREFELT $ 42))
+                              (QREFELT $ 43)))
+              (EXIT
+               (SPADCALL (SPADCALL |mat1| |mat0| (QREFELT $ 44))
+                         (QREFELT $ 45)))))) 
 
 (SDEFUN |FRAMALG-;minimalPolynomial;SUP;8| ((|x| S) ($ UP))
         (SPROG
          ((#1=#:G125 NIL) (#2=#:G124 (UP)) (#3=#:G126 (UP)) (#4=#:G130 NIL)
           (|i| NIL) (|v| (|Vector| R)) (|y| (S)) (#5=#:G129 NIL)
           (|m| (|Matrix| R)) (|n| (|PositiveInteger|)))
-         (SEQ
-          (LETT |y| (|spadConstant| $ 39)
-                . #6=(|FRAMALG-;minimalPolynomial;SUP;8|))
-          (LETT |n| (SPADCALL (QREFELT $ 24)) . #6#)
-          (LETT |m| (SPADCALL |n| (+ |n| 1) (QREFELT $ 47)) . #6#)
-          (SEQ (LETT |i| 1 . #6#) (LETT #5# (+ |n| 1) . #6#) G190
-               (COND ((|greater_SI| |i| #5#) (GO G191)))
-               (SEQ
-                (SPADCALL |m| |i| (SPADCALL |y| (QREFELT $ 30)) (QREFELT $ 48))
-                (EXIT (LETT |y| (SPADCALL |y| |x| (QREFELT $ 29)) . #6#)))
-               (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
-          (LETT |v| (|SPADfirst| (SPADCALL |m| (QREFELT $ 50))) . #6#)
-          (EXIT
-           (PROGN
-            (LETT #1# NIL . #6#)
-            (SEQ (LETT |i| 0 . #6#) (LETT #4# (- (QVSIZE |v|) 1) . #6#) G190
-                 (COND ((|greater_SI| |i| #4#) (GO G191)))
-                 (SEQ
-                  (EXIT
-                   (PROGN
-                    (LETT #3#
-                          (SPADCALL (SPADCALL |v| (+ |i| 1) (QREFELT $ 51)) |i|
-                                    (QREFELT $ 42))
-                          . #6#)
-                    (COND
-                     (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 52)) . #6#))
-                     ('T (PROGN (LETT #2# #3# . #6#) (LETT #1# 'T . #6#)))))))
-                 (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
-            (COND (#1# #2#) ('T (|spadConstant| $ 53)))))))) 
+         (SEQ (LETT |y| (|spadConstant| $ 39))
+              (LETT |n| (SPADCALL (QREFELT $ 24)))
+              (LETT |m| (SPADCALL |n| (+ |n| 1) (QREFELT $ 47)))
+              (SEQ (LETT |i| 1) (LETT #5# (+ |n| 1)) G190
+                   (COND ((|greater_SI| |i| #5#) (GO G191)))
+                   (SEQ
+                    (SPADCALL |m| |i| (SPADCALL |y| (QREFELT $ 30))
+                              (QREFELT $ 48))
+                    (EXIT (LETT |y| (SPADCALL |y| |x| (QREFELT $ 29)))))
+                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+              (LETT |v| (|SPADfirst| (SPADCALL |m| (QREFELT $ 50))))
+              (EXIT
+               (PROGN
+                (LETT #1# NIL)
+                (SEQ (LETT |i| 0) (LETT #4# (- (QVSIZE |v|) 1)) G190
+                     (COND ((|greater_SI| |i| #4#) (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (PROGN
+                        (LETT #3#
+                              (SPADCALL (SPADCALL |v| (+ |i| 1) (QREFELT $ 51))
+                                        |i| (QREFELT $ 42)))
+                        (COND
+                         (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 52))))
+                         ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+                (COND (#1# #2#) ('T (|spadConstant| $ 53)))))))) 
 
 (DECLAIM (NOTINLINE |FramedAlgebra&;|)) 
 
 (DEFUN |FramedAlgebra&| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FramedAlgebra&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|FramedAlgebra&| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 55) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|FramedAlgebra&| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 55))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

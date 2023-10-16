@@ -31,7 +31,5 @@
                                                              (|has| |t#1|
                                                                     (|LinearlyExplicitOver|
                                                                      (|Integer|)))))
-                                                          NIL NIL))
-                                           . #2=(|FullyLinearlyExplicitOver|)))))
-                   . #2#)
+                                                          NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FullyLinearlyExplicitOver| |t#1|))))) 

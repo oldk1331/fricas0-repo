@@ -34,9 +34,7 @@
                                  (|Join|
                                   (|RegularTriangularSetCategory| '|t#1| '|t#2|
                                                                   '|t#3|
-                                                                  '|t#4|))
-                                 . #2=(|NormalizedTriangularSetCategory|)))))
-                   . #2#)
+                                                                  '|t#4|)))))))
            (SETELT #1# 0
                    (LIST '|NormalizedTriangularSetCategory| |t#1| |t#2| |t#3|
                          |t#4|))))) 

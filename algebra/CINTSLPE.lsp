@@ -18,26 +18,20 @@
             (SEQ
              (LETT |deg|
                    (PROGN
-                    (LETT #4# NIL
-                          . #8=(|CINTSLPE;solveLinearPolynomialEquation;LSupU;1|))
-                    (SEQ (LETT |u| NIL . #8#) (LETT #7# |lp| . #8#) G190
+                    (LETT #4# NIL)
+                    (SEQ (LETT |u| NIL) (LETT #7# |lp|) G190
                          (COND
-                          ((OR (ATOM #7#)
-                               (PROGN (LETT |u| (CAR #7#) . #8#) NIL))
+                          ((OR (ATOM #7#) (PROGN (LETT |u| (CAR #7#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (PROGN
-                            (LETT #6# (SPADCALL |u| (QREFELT $ 18)) . #8#)
-                            (COND (#4# (LETT #5# (+ #5# #6#) . #8#))
-                                  ('T
-                                   (PROGN
-                                    (LETT #5# #6# . #8#)
-                                    (LETT #4# 'T . #8#)))))))
-                         (LETT #7# (CDR #7#) . #8#) (GO G190) G191 (EXIT NIL))
-                    (COND (#4# #5#) ('T 0)))
-                   . #8#)
-             (LETT |ans| (CONS 1 "failed") . #8#)
+                            (LETT #6# (SPADCALL |u| (QREFELT $ 18)))
+                            (COND (#4# (LETT #5# (+ #5# #6#)))
+                                  ('T (PROGN (LETT #5# #6#) (LETT #4# 'T)))))))
+                         (LETT #7# (CDR #7#)) (GO G190) G191 (EXIT NIL))
+                    (COND (#4# #5#) ('T 0))))
+             (LETT |ans| (CONS 1 "failed"))
              (SETELT $ 11 (SPADCALL 67108859 (QREFELT $ 10)))
              (SEQ G190 (COND ((NULL (QEQCAR |ans| 1)) (GO G191)))
                   (SEQ
@@ -46,8 +40,7 @@
                                    (SPADCALL (QREFELT $ 11)
                                              (|spadConstant| $ 19)
                                              (QREFELT $ 21))
-                                   |lp| (QREFELT $ 24))
-                         . #8#)
+                                   |lp| (QREFELT $ 24)))
                    (EXIT
                     (COND
                      ((QEQCAR |ans| 1)
@@ -73,7 +66,7 @@
                   NIL (GO G190) G191 (EXIT NIL))
              (EXIT
               (SETELT $ 12
-                      (PROG2 (LETT #1# |ans| . #8#)
+                      (PROG2 (LETT #1# |ans|)
                           (QCDR #1#)
                         (|check_union2| (QEQCAR #1# 0)
                                         (|Vector|
@@ -91,8 +84,7 @@
                 (SPADCALL |p|
                           (SPADCALL (QREFELT $ 11) (|spadConstant| $ 19)
                                     (QREFELT $ 21))
-                          (QREFELT $ 12) (QREFELT $ 30))
-                . #8#)
+                          (QREFELT $ 12) (QREFELT $ 30)))
           (EXIT |answer|)))) 
 
 (DECLAIM (NOTINLINE |ComplexIntegerSolveLinearPolynomialEquation;|)) 
@@ -106,8 +98,7 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|ComplexIntegerSolveLinearPolynomialEquation|)
-                                               '|domainEqualList|)
-                    . #3=(|ComplexIntegerSolveLinearPolynomialEquation|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -116,7 +107,7 @@
                        (|function|
                         |ComplexIntegerSolveLinearPolynomialEquation;|)
                        #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -125,15 +116,14 @@
 (DEFUN |ComplexIntegerSolveLinearPolynomialEquation;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|ComplexIntegerSolveLinearPolynomialEquation|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$|
-                (LIST '|ComplexIntegerSolveLinearPolynomialEquation| DV$1 DV$2)
-                . #1#)
-          (LETT $ (GETREFV 32) . #1#)
+                (LIST '|ComplexIntegerSolveLinearPolynomialEquation| DV$1
+                      DV$2))
+          (LETT $ (GETREFV 32))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
                       '|ComplexIntegerSolveLinearPolynomialEquation|
                       (LIST DV$1 DV$2) (CONS 1 $))

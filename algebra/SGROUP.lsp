@@ -8,7 +8,6 @@
 
 (DEFUN |SemiGroup;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1 (LETT #1# (|Join| (|Magma|)) |SemiGroup|)
-           (SETELT #1# 0 '(|SemiGroup|))))) 
+         (PROG1 (LETT #1# (|Join| (|Magma|))) (SETELT #1# 0 '(|SemiGroup|))))) 
 
 (MAKEPROP '|SemiGroup| 'NILADIC T) 

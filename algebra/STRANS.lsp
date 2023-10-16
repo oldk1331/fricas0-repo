@@ -3,23 +3,21 @@
         (SPROG
          ((|res| (|Sequence| R)) (|chi| (|Stream| R)) (|mom| (|Stream| R)))
          (SEQ
-          (LETT |mom| (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 14))
-                . #1=(|STRANS;STransform1;DUTSR;1|))
+          (LETT |mom| (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 14)))
           (EXIT
            (COND
             ((SPADCALL (SPADCALL |mom| (QREFELT $ 15)) (QREFELT $ 17))
              (|error| "mean is zero!"))
             ('T
              (SEQ
-              (LETT |mom| (SPADCALL (|spadConstant| $ 18) |mom| (QREFELT $ 20))
-                    . #1#)
-              (LETT |chi| (SPADCALL |mom| (QREFELT $ 22)) . #1#)
+              (LETT |mom|
+                    (SPADCALL (|spadConstant| $ 18) |mom| (QREFELT $ 20)))
+              (LETT |chi| (SPADCALL |mom| (QREFELT $ 22)))
               (LETT |res|
                     (SPADCALL (SPADCALL |chi| (QREFELT $ 23))
                               (SPADCALL (SPADCALL |chi| (QREFELT $ 24))
                                         (QREFELT $ 23))
-                              (QREFELT $ 25))
-                    . #1#)
+                              (QREFELT $ 25)))
               (EXIT
                (SPADCALL (SPADCALL |res| (QREFELT $ 14)) (QREFELT $ 26)))))))))) 
 
@@ -28,8 +26,7 @@
          ((S2 (ULSR)) (|res2| (UTSR)) (|chi2| (|Stream| R))
           (|mom2| (|Stream| R)) (|mom| (|Stream| R)))
          (SEQ
-          (LETT |mom| (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 14))
-                . #1=(|STRANS;STransform2;DUPSR;2|))
+          (LETT |mom| (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 14)))
           (COND
            ((NULL (SPADCALL (SPADCALL |mom| (QREFELT $ 15)) (QREFELT $ 17)))
             (EXIT (|error| "mean is nonzero!"))))
@@ -38,14 +35,12 @@
                           (SPADCALL (SPADCALL 1 2 (QREFELT $ 32))
                                     (SPADCALL |mom| (QREFELT $ 24))
                                     (QREFELT $ 33))
-                          (QREFELT $ 20))
-                . #1#)
-          (LETT |chi2| (SPADCALL |mom2| (QREFELT $ 22)) . #1#)
-          (LETT |res2| (SPADCALL |chi2| (QREFELT $ 26)) . #1#)
+                          (QREFELT $ 20)))
+          (LETT |chi2| (SPADCALL |mom2| (QREFELT $ 22)))
+          (LETT |res2| (SPADCALL |chi2| (QREFELT $ 26)))
           (LETT S2
                 (SPADCALL (SPADCALL -2 |res2| (QREFELT $ 34))
-                          (SPADCALL 0 |res2| (QREFELT $ 34)) (QREFELT $ 35))
-                . #1#)
+                          (SPADCALL 0 |res2| (QREFELT $ 34)) (QREFELT $ 35)))
           (EXIT (SPADCALL (SPADCALL 1 2 (QREFELT $ 32)) S2 (QREFELT $ 36)))))) 
 
 (SDEFUN |STRANS;STransform;DUPSR;3| ((|x| |Distribution| R) ($ UPSR))
@@ -54,8 +49,7 @@
           (|mom| (|Stream| R)) (S2 (ULSR)) (|res2| (UTSR)) (|chi2| #1#)
           (|mom2| (|Stream| R)))
          (SEQ
-          (LETT |mom| (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 14))
-                . #2=(|STRANS;STransform;DUPSR;3|))
+          (LETT |mom| (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 14)))
           (EXIT
            (COND
             ((SPADCALL (SPADCALL |mom| (QREFELT $ 15)) (QREFELT $ 17))
@@ -65,30 +59,27 @@
                               (SPADCALL (SPADCALL 1 2 (QREFELT $ 32))
                                         (SPADCALL |mom| (QREFELT $ 24))
                                         (QREFELT $ 33))
-                              (QREFELT $ 20))
-                    . #2#)
-              (LETT |chi2| (SPADCALL |mom2| (QREFELT $ 22)) . #2#)
-              (LETT |res2| (SPADCALL |chi2| (QREFELT $ 26)) . #2#)
+                              (QREFELT $ 20)))
+              (LETT |chi2| (SPADCALL |mom2| (QREFELT $ 22)))
+              (LETT |res2| (SPADCALL |chi2| (QREFELT $ 26)))
               (LETT S2
                     (SPADCALL (SPADCALL -2 |res2| (QREFELT $ 34))
                               (SPADCALL 0 |res2| (QREFELT $ 34))
-                              (QREFELT $ 35))
-                    . #2#)
+                              (QREFELT $ 35)))
               (EXIT
                (SPADCALL (SPADCALL 1 2 (QREFELT $ 32)) S2 (QREFELT $ 36)))))
             ('T
              (SEQ
-              (LETT |mom| (SPADCALL (|spadConstant| $ 18) |mom| (QREFELT $ 20))
-                    . #2#)
-              (LETT |chi| (SPADCALL |mom| (QREFELT $ 22)) . #2#)
+              (LETT |mom|
+                    (SPADCALL (|spadConstant| $ 18) |mom| (QREFELT $ 20)))
+              (LETT |chi| (SPADCALL |mom| (QREFELT $ 22)))
               (LETT |res|
                     (SPADCALL (SPADCALL |chi| (QREFELT $ 23))
                               (SPADCALL (SPADCALL |chi| (QREFELT $ 24))
                                         (QREFELT $ 23))
-                              (QREFELT $ 25))
-                    . #2#)
-              (LETT S (SPADCALL (SPADCALL |res| (QREFELT $ 14)) (QREFELT $ 26))
-                    . #2#)
+                              (QREFELT $ 25)))
+              (LETT S
+                    (SPADCALL (SPADCALL |res| (QREFELT $ 14)) (QREFELT $ 26)))
               (EXIT
                (SPADCALL (|spadConstant| $ 38) (SPADCALL 0 S (QREFELT $ 34))
                          (QREFELT $ 36)))))))))) 
@@ -105,8 +96,7 @@
              ((SPADCALL (SPADCALL S (QREFELT $ 40)) (|spadConstant| $ 41)
                         (QREFELT $ 42))
               (SEQ
-               (LETT S1 (SPADCALL (SPADCALL S (QREFELT $ 43)) (QREFELT $ 44))
-                     . #3=(|STRANS;distributionBySTransform;UPSRD;4|))
+               (LETT S1 (SPADCALL (SPADCALL S (QREFELT $ 43)) (QREFELT $ 44)))
                (LETT |z1z|
                      (SPADCALL
                       (SPADCALL (|spadConstant| $ 18)
@@ -116,22 +106,19 @@
                                                  (QREFELT $ 45)))
                                  (QREFELT $ 47))
                                 (QREFELT $ 20))
-                      (QREFELT $ 26))
-                     . #3#)
+                      (QREFELT $ 26)))
                (LETT |chi|
                      (SPADCALL (SPADCALL S1 |z1z| (QREFELT $ 48))
-                               (QREFELT $ 49))
-                     . #3#)
-               (LETT |psi| (SPADCALL |chi| (QREFELT $ 22)) . #3#)
+                               (QREFELT $ 49)))
+               (LETT |psi| (SPADCALL |chi| (QREFELT $ 22)))
                (EXIT
                 (PROGN
                  (LETT #2#
                        (SPADCALL
                         (SPADCALL (SPADCALL |psi| (QREFELT $ 24))
                                   (QREFELT $ 23))
-                        (QREFELT $ 50))
-                       . #3#)
-                 (GO #4=#:G128)))))
+                        (QREFELT $ 50)))
+                 (GO #3=#:G128)))))
              ((NULL
                (SPADCALL (SPADCALL S (QREFELT $ 40))
                          (SPADCALL (SPADCALL 1 2 (QREFELT $ 32))
@@ -143,7 +130,7 @@
                (SPADCALL (SPADCALL S (QREFELT $ 52))
                          (SPADCALL 1 2 (QREFELT $ 32)) (QREFELT $ 42)))
               (|error| "Not an S-transform")))
-            (LETT S2 (SPADCALL S (QREFELT $ 53)) . #3#)
+            (LETT S2 (SPADCALL S (QREFELT $ 53)))
             (LETT |z1z|
                   (SPADCALL
                    (SPADCALL (|spadConstant| $ 18)
@@ -154,25 +141,21 @@
                                               (QREFELT $ 45)))
                               (QREFELT $ 47))
                              (QREFELT $ 20))
-                   (QREFELT $ 26))
-                  . #3#)
+                   (QREFELT $ 26)))
             (LETT |chi2|
                   (SPADCALL
                    (SPADCALL S2 (SPADCALL 0 |z1z| (QREFELT $ 34))
                              (QREFELT $ 54))
-                   (QREFELT $ 44))
-                  . #3#)
+                   (QREFELT $ 44)))
             (LETT |psi2|
-                  (SPADCALL (SPADCALL |chi2| (QREFELT $ 49)) (QREFELT $ 22))
-                  . #3#)
+                  (SPADCALL (SPADCALL |chi2| (QREFELT $ 49)) (QREFELT $ 22)))
             (LETT |psi|
-                  (SPADCALL (SPADCALL 2 (QREFELT $ 55)) |psi2| (QREFELT $ 33))
-                  . #3#)
+                  (SPADCALL (SPADCALL 2 (QREFELT $ 55)) |psi2| (QREFELT $ 33)))
             (EXIT
              (SPADCALL
               (SPADCALL (SPADCALL |psi| (QREFELT $ 24)) (QREFELT $ 23))
               (QREFELT $ 50)))))
-          #4# (EXIT #2#)))) 
+          #3# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |STransformPackage;|)) 
 
@@ -185,13 +168,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|STransformPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|STransformPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |STransformPackage;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|STransformPackage|)))))))))) 
@@ -201,14 +183,14 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #1=(|STransformPackage|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
-    (LETT |dv$| (LIST '|STransformPackage| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 57) . #1#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
+    (LETT |dv$| (LIST '|STransformPackage| DV$1 DV$2 DV$3 DV$4))
+    (LETT $ (GETREFV 57))
     (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|STransformPackage|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
     (|stuffDomainSlots| $)

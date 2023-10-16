@@ -46,7 +46,6 @@
                         ((|repack1|
                           ((|Void|) |t#2| (|U32Vector|) (|Integer|) |t#3|))
                          T))
-                      NIL NIL NIL)))
-                   |ModularAlgebraicGcdOperations|)
+                      NIL NIL NIL))))
            (SETELT #1# 0
                    (LIST '|ModularAlgebraicGcdOperations| |t#1| |t#2| |t#3|))))) 

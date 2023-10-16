@@ -14,11 +14,10 @@
 
 (SDEFUN |DHMATRIX;*;$2P;2| ((|d| $) (|p| |Point| R) ($ |Point| R))
         (SPROG ((|v| (|Vector| R)))
-               (SEQ (LETT |v| |p| . #1=(|DHMATRIX;*;$2P;2|))
+               (SEQ (LETT |v| |p|)
                     (LETT |v|
-                          (SPADCALL |v| (|spadConstant| $ 7) (QREFELT $ 13))
-                          . #1#)
-                    (LETT |v| (SPADCALL |d| |v| (QREFELT $ 14)) . #1#)
+                          (SPADCALL |v| (|spadConstant| $ 7) (QREFELT $ 13)))
+                    (LETT |v| (SPADCALL |d| |v| (QREFELT $ 14)))
                     (EXIT
                      (SPADCALL
                       (LIST (SPADCALL |v| 1 (QREFELT $ 16))
@@ -33,10 +32,9 @@
                       (SPADCALL
                        (SPADCALL |degree| (SPADCALL (QREFELT $ 21))
                                  (QREFELT $ 22))
-                       (SPADCALL 180 (QREFELT $ 23)) (QREFELT $ 24))
-                      . #1=(|DHMATRIX;rotatex;R$;3|))
-                (LETT |cosAngle| (SPADCALL |angle| (QREFELT $ 25)) . #1#)
-                (LETT |sinAngle| (SPADCALL |angle| (QREFELT $ 26)) . #1#)
+                       (SPADCALL 180 (QREFELT $ 23)) (QREFELT $ 24)))
+                (LETT |cosAngle| (SPADCALL |angle| (QREFELT $ 25)))
+                (LETT |sinAngle| (SPADCALL |angle| (QREFELT $ 26)))
                 (EXIT
                  (SPADCALL
                   (LIST
@@ -58,10 +56,9 @@
                       (SPADCALL
                        (SPADCALL |degree| (SPADCALL (QREFELT $ 21))
                                  (QREFELT $ 22))
-                       (SPADCALL 180 (QREFELT $ 23)) (QREFELT $ 24))
-                      . #1=(|DHMATRIX;rotatey;R$;4|))
-                (LETT |cosAngle| (SPADCALL |angle| (QREFELT $ 25)) . #1#)
-                (LETT |sinAngle| (SPADCALL |angle| (QREFELT $ 26)) . #1#)
+                       (SPADCALL 180 (QREFELT $ 23)) (QREFELT $ 24)))
+                (LETT |cosAngle| (SPADCALL |angle| (QREFELT $ 25)))
+                (LETT |sinAngle| (SPADCALL |angle| (QREFELT $ 26)))
                 (EXIT
                  (SPADCALL
                   (LIST
@@ -82,10 +79,9 @@
                       (SPADCALL
                        (SPADCALL |degree| (SPADCALL (QREFELT $ 21))
                                  (QREFELT $ 22))
-                       (SPADCALL 180 (QREFELT $ 23)) (QREFELT $ 24))
-                      . #1=(|DHMATRIX;rotatez;R$;5|))
-                (LETT |cosAngle| (SPADCALL |angle| (QREFELT $ 25)) . #1#)
-                (LETT |sinAngle| (SPADCALL |angle| (QREFELT $ 26)) . #1#)
+                       (SPADCALL 180 (QREFELT $ 23)) (QREFELT $ 24)))
+                (LETT |cosAngle| (SPADCALL |angle| (QREFELT $ 25)))
+                (LETT |sinAngle| (SPADCALL |angle| (QREFELT $ 26)))
                 (EXIT
                  (SPADCALL
                   (LIST
@@ -136,12 +132,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|DenavitHartenbergMatrix|)
-                                               '|domainEqualList|)
-                    . #3=(|DenavitHartenbergMatrix|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|DenavitHartenbergMatrix;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|DenavitHartenbergMatrix;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|DenavitHartenbergMatrix|)))))))))) 
@@ -150,9 +145,9 @@
   (SPROG
    ((|pv$| NIL) (#1=#:G125 NIL) (#2=#:G126 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #3=(|DenavitHartenbergMatrix|))
-    (LETT |dv$| (LIST '|DenavitHartenbergMatrix| DV$1) . #3#)
-    (LETT $ (GETREFV 57) . #3#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|DenavitHartenbergMatrix| DV$1))
+    (LETT $ (GETREFV 57))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -162,8 +157,7 @@
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #3#)
+                                                             '(|SetCategory|)))
                                         (OR (|HasCategory| |#1| '(|BasicType|))
                                             (|HasCategory| |#1|
                                                            '(|Comparable|))
@@ -193,8 +187,7 @@
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #3#)
+                                                               (|OutputForm|))))
                                         (OR #1#
                                             (AND
                                              (|HasCategory| |#1|
@@ -212,8 +205,7 @@
                                                        '(|IntegralDomain|))
                                         (|HasCategory| |#1|
                                                        '(|CommutativeRing|))
-                                        (|HasCategory| |#1| '(|Field|))))
-                    . #3#))
+                                        (|HasCategory| |#1| '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|DenavitHartenbergMatrix| (LIST DV$1)
                 (CONS 1 $))
     (|stuffDomainSlots| $)

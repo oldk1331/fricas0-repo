@@ -16,8 +16,7 @@
                     (|mkCategory|
                      '(((|integral| ($ $ (|Symbol|))) T)
                        ((|integral| ($ $ (|SegmentBinding| $))) T))
-                     NIL NIL NIL))
-                   |PrimitiveFunctionCategory|)
+                     NIL NIL NIL)))
            (SETELT #1# 0 '(|PrimitiveFunctionCategory|))))) 
 
 (MAKEPROP '|PrimitiveFunctionCategory| 'NILADIC T) 

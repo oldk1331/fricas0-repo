@@ -3,23 +3,19 @@
         ((|l| |List| (|GuessOption|))
          ($ |Union| (|NonNegativeInteger|) "arbitrary"))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|maxLevel| (QREFELT $ 10))
-                      |GOPT0;maxLevel;LU;1|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) (CONS 1 "arbitrary"))
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 14)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|maxLevel| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) (CONS 1 "arbitrary"))
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 14)))))))) 
 
 (SDEFUN |GOPT0;maxDerivative;LU;2|
         ((|l| |List| (|GuessOption|))
          ($ |Union| (|NonNegativeInteger|) "arbitrary"))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|maxDerivative| (QREFELT $ 10))
-                      |GOPT0;maxDerivative;LU;2|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) (CONS 1 "arbitrary"))
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 14)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|maxDerivative| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) (CONS 1 "arbitrary"))
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 14)))))))) 
 
 (SDEFUN |GOPT0;maxShift;LU;3|
         ((|l| |List| (|GuessOption|))
@@ -31,176 +27,145 @@
          ($ |Union| (|PositiveInteger|) "arbitrary"))
         (SPROG
          ((#1=#:G141 NIL) (|d| (|Union| (|NonNegativeInteger|) "arbitrary")))
-         (SEQ
-          (LETT |d| (SPADCALL |l| (QREFELT $ 17)) . #2=(|GOPT0;maxSubst;LU;4|))
-          (EXIT
-           (COND
-            ((QEQCAR |d| 0)
-             (CONS 0
-                   (PROG1 (LETT #1# (+ (QCDR |d|) 1) . #2#)
-                     (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
-                                       '(|NonNegativeInteger|) #1#))))
-            ('T (CONS 1 (QCDR |d|)))))))) 
+         (SEQ (LETT |d| (SPADCALL |l| (QREFELT $ 17)))
+              (EXIT
+               (COND
+                ((QEQCAR |d| 0)
+                 (CONS 0
+                       (PROG1 (LETT #1# (+ (QCDR |d|) 1))
+                         (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                           '(|NonNegativeInteger|) #1#))))
+                ('T (CONS 1 (QCDR |d|)))))))) 
 
 (SDEFUN |GOPT0;maxDegree;LU;5|
         ((|l| |List| (|GuessOption|))
          ($ |Union| (|NonNegativeInteger|) "arbitrary"))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|maxDegree| (QREFELT $ 10))
-                      |GOPT0;maxDegree;LU;5|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) (CONS 1 "arbitrary"))
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 14)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|maxDegree| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) (CONS 1 "arbitrary"))
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 14)))))))) 
 
 (SDEFUN |GOPT0;maxMixedDegree;LNni;6|
         ((|l| |List| (|GuessOption|)) ($ |NonNegativeInteger|))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ
-                (LETT |opt| (SPADCALL |l| '|maxMixedDegree| (QREFELT $ 10))
-                      |GOPT0;maxMixedDegree;LNni;6|)
+                (LETT |opt| (SPADCALL |l| '|maxMixedDegree| (QREFELT $ 10)))
                 (EXIT
                  (COND ((QEQCAR |opt| 1) 0)
                        ('T (SPADCALL (QCDR |opt|) (QREFELT $ 24)))))))) 
 
 (SDEFUN |GOPT0;allDegrees;LB;7| ((|l| |List| (|GuessOption|)) ($ |Boolean|))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|allDegrees| (QREFELT $ 10))
-                      |GOPT0;allDegrees;LB;7|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) NIL)
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|allDegrees| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) NIL)
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
 
 (SDEFUN |GOPT0;maxPower;LU;8|
         ((|l| |List| (|GuessOption|))
          ($ |Union| (|PositiveInteger|) "arbitrary"))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|maxPower| (QREFELT $ 10))
-                      |GOPT0;maxPower;LU;8|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) (CONS 1 "arbitrary"))
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 31)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|maxPower| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) (CONS 1 "arbitrary"))
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 31)))))))) 
 
 (SDEFUN |GOPT0;safety;LNni;9|
         ((|l| |List| (|GuessOption|)) ($ |NonNegativeInteger|))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|safety| (QREFELT $ 10))
-                      |GOPT0;safety;LNni;9|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) 1)
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 24)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|safety| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) 1)
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 24)))))))) 
 
 (SDEFUN |GOPT0;check;LU;10|
         ((|l| |List| (|GuessOption|))
          ($ |Union| "skip" "MonteCarlo" "deterministic"))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|check| (QREFELT $ 10))
-                      |GOPT0;check;LU;10|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) (CONS 2 "deterministic"))
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 36)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|check| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) (CONS 2 "deterministic"))
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 36)))))))) 
 
 (SDEFUN |GOPT0;checkExtraValues;LB;11|
         ((|l| |List| (|GuessOption|)) ($ |Boolean|))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ
-                (LETT |opt| (SPADCALL |l| '|checkExtraValues| (QREFELT $ 10))
-                      |GOPT0;checkExtraValues;LB;11|)
+                (LETT |opt| (SPADCALL |l| '|checkExtraValues| (QREFELT $ 10)))
                 (EXIT
                  (COND ((QEQCAR |opt| 1) 'T)
                        ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
 
 (SDEFUN |GOPT0;one;LB;12| ((|l| |List| (|GuessOption|)) ($ |Boolean|))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|one| (QREFELT $ 10))
-                      |GOPT0;one;LB;12|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) 'T)
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|one| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) 'T)
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
 
 (SDEFUN |GOPT0;debug;LB;13| ((|l| |List| (|GuessOption|)) ($ |Boolean|))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|debug| (QREFELT $ 10))
-                      |GOPT0;debug;LB;13|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) NIL)
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|debug| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) NIL)
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
 
 (SDEFUN |GOPT0;homogeneous;LU;14|
         ((|l| |List| (|GuessOption|))
          ($ |Union| (|PositiveInteger|) (|Boolean|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|homogeneous| (QREFELT $ 10))
-                      |GOPT0;homogeneous;LU;14|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) (CONS 1 NIL))
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 43)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|homogeneous| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) (CONS 1 NIL))
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 43)))))))) 
 
 (SDEFUN |GOPT0;Somos;LU;15|
         ((|l| |List| (|GuessOption|))
          ($ |Union| (|PositiveInteger|) (|Boolean|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|Somos| (QREFELT $ 10))
-                      |GOPT0;Somos;LU;15|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) (CONS 1 NIL))
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 43)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|Somos| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) (CONS 1 NIL))
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 43)))))))) 
 
 (SDEFUN |GOPT0;variableName;LS;16| ((|l| |List| (|GuessOption|)) ($ |Symbol|))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|variableName| (QREFELT $ 10))
-                      |GOPT0;variableName;LS;16|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) '|x|)
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|variableName| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) '|x|)
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
 
 (SDEFUN |GOPT0;functionName;LS;17| ((|l| |List| (|GuessOption|)) ($ |Symbol|))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|functionName| (QREFELT $ 10))
-                      |GOPT0;functionName;LS;17|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) '|f|)
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|functionName| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) '|f|)
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
 
 (SDEFUN |GOPT0;functionNames;LL;18|
         ((|l| |List| (|GuessOption|)) ($ |List| (|Symbol|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|functionNames| (QREFELT $ 10))
-                      |GOPT0;functionNames;LL;18|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) NIL)
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 52)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|functionNames| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) NIL)
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 52)))))))) 
 
 (SDEFUN |GOPT0;indexName;LS;19| ((|l| |List| (|GuessOption|)) ($ |Symbol|))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|indexName| (QREFELT $ 10))
-                      |GOPT0;indexName;LS;19|)
-                (EXIT
-                 (COND ((QEQCAR |opt| 1) '|n|)
-                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|indexName| (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((QEQCAR |opt| 1) '|n|)
+                           ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
 
 (SDEFUN |GOPT0;displayKind;LS;20| ((|l| |List| (|GuessOption|)) ($ |Symbol|))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
-               (SEQ
-                (LETT |opt| (SPADCALL |l| '|displayKind| (QREFELT $ 10))
-                      |GOPT0;displayKind;LS;20|)
-                (EXIT
-                 (COND
-                  ((QEQCAR |opt| 1)
-                   (|error| "GuessOption: displayKind not set"))
-                  ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
+               (SEQ (LETT |opt| (SPADCALL |l| '|displayKind| (QREFELT $ 10)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |opt| 1)
+                       (|error| "GuessOption: displayKind not set"))
+                      ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
 
 (SDEFUN |GOPT0;checkOptions;LV;21| ((|l| |List| (|GuessOption|)) ($ |Void|))
         (SPROG
@@ -208,108 +173,108 @@
           (|homo| (|Union| (|PositiveInteger|) (|Boolean|)))
           (|maxP| (|Union| (|PositiveInteger|) "arbitrary"))
           (|maxD| (|Union| (|NonNegativeInteger|) "arbitrary")))
-         (SEQ
-          (LETT |maxD| (SPADCALL |l| (QREFELT $ 17))
-                . #1=(|GOPT0;checkOptions;LV;21|))
-          (LETT |maxP| (SPADCALL |l| (QREFELT $ 32)) . #1#)
-          (LETT |homo| (SPADCALL |l| (QREFELT $ 44)) . #1#)
-          (LETT |Somo| (SPADCALL |l| (QREFELT $ 45)) . #1#)
-          (COND
-           ((QEQCAR |Somo| 0)
-            (SEQ
-             (COND
-              ((EQL (QCDR |Somo|) 1)
-               (|error| "Guess: Somos must be Boolean or at least two")))
-             (COND
-              ((QEQCAR |maxP| 0)
-               (COND
-                ((EQL (QCDR |maxP|) 1)
-                 (|error|
-                  "Guess: Somos requires that maxPower is at least two")))))
-             (EXIT
+         (SEQ (LETT |maxD| (SPADCALL |l| (QREFELT $ 17)))
+              (LETT |maxP| (SPADCALL |l| (QREFELT $ 32)))
+              (LETT |homo| (SPADCALL |l| (QREFELT $ 44)))
+              (LETT |Somo| (SPADCALL |l| (QREFELT $ 45)))
               (COND
-               ((QEQCAR |maxD| 0)
-                (COND
-                 ((SPADCALL (QCDR |maxD|) (QCDR |Somo|) (QREFELT $ 56))
-                  (|error|
-                   (SPADCALL
-                    "Guess: if Somos is an integer, it should be larger"
-                    " than maxDerivative/maxShift or at least as big as maxSubst"
-                    (QREFELT $ 58))))))))))
-           ((QCDR |Somo|)
-            (SEQ
-             (COND
-              ((QEQCAR |maxP| 0)
-               (COND
-                ((EQL (QCDR |maxP|) 1)
-                 (|error|
-                  "Guess: Somos requires that maxPower is at least two")))))
-             (COND
-              ((QEQCAR |maxD| 0)
-               (COND
-                ((OR (ZEROP (QCDR |maxD|)) (EQL (QCDR |maxD|) 1))
-                 (|error|
-                  (SPADCALL
-                   #2="Guess: Somos==true requires that maxDerivative/"
-                   (SPADCALL
-                    #3="maxShift is an integer, at least two, or maxSubst is"
-                    #4=" an integer, at least three" (QREFELT $ 58))
-                   (QREFELT $ 58))))))
-              ('T
-               (|error|
-                (SPADCALL #2# (SPADCALL #3# #4# (QREFELT $ 58))
-                          (QREFELT $ 58)))))
-             (EXIT
-              (COND
-               ((NULL (QEQCAR |maxP| 0))
-                (COND
-                 ((QEQCAR |homo| 1)
+               ((QEQCAR |Somo| 0)
+                (SEQ
+                 (COND
+                  ((EQL (QCDR |Somo|) 1)
+                   (|error| "Guess: Somos must be Boolean or at least two")))
+                 (COND
+                  ((QEQCAR |maxP| 0)
+                   (COND
+                    ((EQL (QCDR |maxP|) 1)
+                     (|error|
+                      "Guess: Somos requires that maxPower is at least two")))))
+                 (EXIT
                   (COND
-                   ((NULL (QCDR |homo|))
+                   ((QEQCAR |maxD| 0)
+                    (COND
+                     ((SPADCALL (QCDR |maxD|) (QCDR |Somo|) (QREFELT $ 56))
+                      (|error|
+                       (SPADCALL
+                        "Guess: if Somos is an integer, it should be larger"
+                        " than maxDerivative/maxShift or at least as big as maxSubst"
+                        (QREFELT $ 58))))))))))
+               ((QCDR |Somo|)
+                (SEQ
+                 (COND
+                  ((QEQCAR |maxP| 0)
+                   (COND
+                    ((EQL (QCDR |maxP|) 1)
+                     (|error|
+                      "Guess: Somos requires that maxPower is at least two")))))
+                 (COND
+                  ((QEQCAR |maxD| 0)
+                   (COND
+                    ((OR (ZEROP (QCDR |maxD|)) (EQL (QCDR |maxD|) 1))
+                     (|error|
+                      (SPADCALL
+                       #1="Guess: Somos==true requires that maxDerivative/"
+                       (SPADCALL
+                        #2="maxShift is an integer, at least two, or maxSubst is"
+                        #3=" an integer, at least three" (QREFELT $ 58))
+                       (QREFELT $ 58))))))
+                  ('T
+                   (|error|
+                    (SPADCALL #1# (SPADCALL #2# #3# (QREFELT $ 58))
+                              (QREFELT $ 58)))))
+                 (EXIT
+                  (COND
+                   ((NULL (QEQCAR |maxP| 0))
+                    (COND
+                     ((QEQCAR |homo| 1)
+                      (COND
+                       ((NULL (QCDR |homo|))
+                        (|error|
+                         (SPADCALL
+                          "Guess: Somos requires that maxPower is set or"
+                          " homogeneous is not false"
+                          (QREFELT $ 58)))))))))))))
+              (EXIT
+               (COND
+                ((QEQCAR |homo| 0)
+                 (SEQ
+                  (COND
+                   ((QEQCAR |maxP| 0)
+                    (COND
+                     ((SPADCALL (QCDR |maxP|) (QCDR |homo|) (QREFELT $ 60))
+                      (|error|
+                       (SPADCALL
+                        "Guess: only one of homogeneous and maxPower may be"
+                        " an integer" (QREFELT $ 58)))))))
+                  (EXIT
+                   (COND
+                    ((QEQCAR |maxD| 0)
+                     (COND
+                      ((ZEROP (QCDR |maxD|))
+                       (|error|
+                        (SPADCALL
+                         "Guess: homogeneous requires that maxShift/maxDerivative"
+                         " is at least one or maxSubst is at least two"
+                         (QREFELT $ 58))))))))))
+                ((QCDR |homo|)
+                 (SEQ
+                  (COND
+                   ((NULL (QEQCAR |maxP| 0))
                     (|error|
-                     (SPADCALL "Guess: Somos requires that maxPower is set or"
-                               " homogeneous is not false"
-                               (QREFELT $ 58)))))))))))))
-          (EXIT
-           (COND
-            ((QEQCAR |homo| 0)
-             (SEQ
-              (COND
-               ((QEQCAR |maxP| 0)
-                (COND
-                 ((SPADCALL (QCDR |maxP|) (QCDR |homo|) (QREFELT $ 60))
-                  (|error|
-                   (SPADCALL
-                    "Guess: only one of homogeneous and maxPower may be"
-                    " an integer" (QREFELT $ 58)))))))
-              (EXIT
-               (COND
-                ((QEQCAR |maxD| 0)
-                 (COND
-                  ((ZEROP (QCDR |maxD|))
-                   (|error|
-                    (SPADCALL
-                     "Guess: homogeneous requires that maxShift/maxDerivative"
-                     " is at least one or maxSubst is at least two"
-                     (QREFELT $ 58))))))))))
-            ((QCDR |homo|)
-             (SEQ
-              (COND
-               ((NULL (QEQCAR |maxP| 0))
-                (|error|
-                 (SPADCALL "Guess: homogeneous==true requires that maxPower"
-                           " is an integer" (QREFELT $ 58)))))
-              (EXIT
-               (COND
-                ((QEQCAR |maxD| 0)
-                 (COND
-                  ((ZEROP (QCDR |maxD|))
-                   (|error|
-                    (SPADCALL "Guess: homogeneous requires that maxShift/"
-                              (SPADCALL
-                               "maxDerivative is at least one or maxSubst is"
-                               " at least two" (QREFELT $ 58))
-                              (QREFELT $ 58))))))))))))))) 
+                     (SPADCALL
+                      "Guess: homogeneous==true requires that maxPower"
+                      " is an integer" (QREFELT $ 58)))))
+                  (EXIT
+                   (COND
+                    ((QEQCAR |maxD| 0)
+                     (COND
+                      ((ZEROP (QCDR |maxD|))
+                       (|error|
+                        (SPADCALL "Guess: homogeneous requires that maxShift/"
+                                  (SPADCALL
+                                   "maxDerivative is at least one or maxSubst is"
+                                   " at least two" (QREFELT $ 58))
+                                  (QREFELT $ 58))))))))))))))) 
 
 (DECLAIM (NOTINLINE |GuessOptionFunctions0;|)) 
 
@@ -318,8 +283,7 @@
          (PROG (#1=#:G277)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|GuessOptionFunctions0|)
-                    . #2=(|GuessOptionFunctions0|))
+             ((LETT #1# (HGET |$ConstructorCache| '|GuessOptionFunctions0|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -328,7 +292,7 @@
                        (HPUT |$ConstructorCache| '|GuessOptionFunctions0|
                              (LIST
                               (CONS NIL (CONS 1 (|GuessOptionFunctions0;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|GuessOptionFunctions0|)))))))))) 
@@ -336,11 +300,10 @@
 (DEFUN |GuessOptionFunctions0;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|GuessOptionFunctions0|)
-                . #1=(|GuessOptionFunctions0|))
-          (LETT $ (GETREFV 66) . #1#)
+          (LETT |dv$| '(|GuessOptionFunctions0|))
+          (LETT $ (GETREFV 66))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|GuessOptionFunctions0| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

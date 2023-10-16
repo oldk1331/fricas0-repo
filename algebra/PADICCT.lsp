@@ -57,7 +57,5 @@
                                                           (|Integer|))
                                                          (|Integer|)))
                                                        T))
-                                                    NIL NIL NIL))
-                                           . #2=(|PAdicIntegerCategory|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PAdicIntegerCategory| |t#1|))))) 

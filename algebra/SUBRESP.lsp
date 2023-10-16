@@ -7,8 +7,7 @@
                 (PROG2
                     (LETT #1#
                           (SPADCALL (SPADCALL |p| (QREFELT $ 8)) |q|
-                                    (|spadConstant| $ 9) (QREFELT $ 12))
-                          . #2=(|SUBRESP;primitivePart;UPRUP;1|))
+                                    (|spadConstant| $ 9) (QREFELT $ 12)))
                     (QCDR #1#)
                   (|check_union2| (QEQCAR #1# 0)
                                   (|Record| (|:| |coef1| (QREFELT $ 6))
@@ -17,8 +16,7 @@
                                    (|Record| (|:| |coef1| (QREFELT $ 6))
                                              (|:| |coef2| (QREFELT $ 6)))
                                    "failed")
-                                  #1#))
-                . #2#)
+                                  #1#)))
           (EXIT
            (SPADCALL
             (SPADCALL
@@ -30,9 +28,9 @@
 
 (SDEFUN |SUBRESP;primitivePart;UPRUP;1!0| ((|x1| NIL) ($$ NIL))
         (PROG (|rec| $ |q|)
-          (LETT |rec| (QREFELT $$ 2) . #1=(|SUBRESP;primitivePart;UPRUP;1|))
-          (LETT $ (QREFELT $$ 1) . #1#)
-          (LETT |q| (QREFELT $$ 0) . #1#)
+          (LETT |rec| (QREFELT $$ 2))
+          (LETT $ (QREFELT $$ 1))
+          (LETT |q| (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL (SPADCALL (QCAR |rec|) |x1| (QREFELT $ 13)) |q|
@@ -50,9 +48,8 @@
                  (+ 2
                     (MAX (SPADCALL |p1| (QREFELT $ 21))
                          (SPADCALL |p2| (QREFELT $ 21))))
-                 (|spadConstant| $ 22))
-                . #5=(|SUBRESP;subresultantVector;2UPPa;2|))
-          (LETT |l| (SPADCALL |p1| |p2| (QREFELT $ 25)) . #5#)
+                 (|spadConstant| $ 22)))
+          (LETT |l| (SPADCALL |p1| |p2| (QREFELT $ 25)))
           (EXIT
            (COND
             ((NULL |l|)
@@ -67,8 +64,7 @@
                                   (PROG1
                                       (LETT #4#
                                             (- (SPADCALL |p2| (QREFELT $ 21))
-                                               1)
-                                            . #5#)
+                                               1))
                                     (|check_subtype2| (>= #4# 0)
                                                       '(|NonNegativeInteger|)
                                                       '(|Integer|) #4#))
@@ -80,7 +76,7 @@
                                               (SPADCALL |p2| (QREFELT $ 21))
                                               (QREFELT $ 29))
                                     (QREFELT $ 30))))))
-                     (#6='T (QSETAREF1 |res| 0 (|spadConstant| $ 31))))
+                     (#5='T (QSETAREF1 |res| 0 (|spadConstant| $ 31))))
                     (EXIT |res|)))
               ((ZEROP (SPADCALL |p2| (QREFELT $ 21)))
                (SEQ
@@ -90,8 +86,7 @@
                    (QSETAREF1 |res|
                               (PROG1
                                   (LETT #3#
-                                        (- (SPADCALL |p1| (QREFELT $ 21)) 1)
-                                        . #5#)
+                                        (- (SPADCALL |p1| (QREFELT $ 21)) 1))
                                 (|check_subtype2| (>= #3# 0)
                                                   '(|NonNegativeInteger|)
                                                   '(|Integer|) #3#))
@@ -103,18 +98,17 @@
                                           (SPADCALL |p1| (QREFELT $ 21))
                                           (QREFELT $ 29))
                                 (QREFELT $ 30))))))
-                 (#6# (QSETAREF1 |res| 0 (|spadConstant| $ 31))))
+                 (#5# (QSETAREF1 |res| 0 (|spadConstant| $ 31))))
                 (EXIT |res|)))
-              (#6# (|error| "SUBRESP: strange Subresultant chain from PRS"))))
-            (#6#
-             (SEQ (LETT F (|SPADfirst| |l|) . #5#) (LETT |l| (CDR |l|) . #5#)
-                  (LETT |n| (SPADCALL F (QREFELT $ 21)) . #5#)
+              (#5# (|error| "SUBRESP: strange Subresultant chain from PRS"))))
+            (#5#
+             (SEQ (LETT F (|SPADfirst| |l|)) (LETT |l| (CDR |l|))
+                  (LETT |n| (SPADCALL F (QREFELT $ 21)))
                   (QSETAREF1 |res| |n| F)
                   (SEQ G190
                        (COND
                         ((NULL (SPADCALL |l| NIL (QREFELT $ 32))) (GO G191)))
-                       (SEQ (LETT F (|SPADfirst| |l|) . #5#)
-                            (LETT |l| (CDR |l|) . #5#)
+                       (SEQ (LETT F (|SPADfirst| |l|)) (LETT |l| (CDR |l|))
                             (EXIT
                              (COND
                               ((EQL (SPADCALL F (QREFELT $ 21)) |n|)
@@ -126,14 +120,11 @@
                                  (SEQ
                                   (LETT |nextn|
                                         (SPADCALL (|SPADfirst| |l|)
-                                                  (QREFELT $ 21))
-                                        . #5#)
-                                  (LETT |n| (SPADCALL F (QREFELT $ 21)) . #5#)
+                                                  (QREFELT $ 21)))
+                                  (LETT |n| (SPADCALL F (QREFELT $ 21)))
                                   (EXIT
                                    (QSETAREF1 |res|
-                                              (PROG1
-                                                  (LETT #2# (- |nextn| 1)
-                                                        . #5#)
+                                              (PROG1 (LETT #2# (- |nextn| 1))
                                                 (|check_subtype2| (>= #2# 0)
                                                                   '(|NonNegativeInteger|)
                                                                   '(|Integer|)
@@ -142,9 +133,8 @@
                               ((< (SPADCALL F (QREFELT $ 21)) |n|)
                                (|error| "strange result !"))
                               ('T
-                               (SEQ
-                                (LETT |n| (SPADCALL F (QREFELT $ 21)) . #5#)
-                                (EXIT (QSETAREF1 |res| |n| F)))))))
+                               (SEQ (LETT |n| (SPADCALL F (QREFELT $ 21)))
+                                    (EXIT (QSETAREF1 |res| |n| F)))))))
                        NIL (GO G190) G191 (EXIT NIL))
                   (COND
                    ((EQL (SPADCALL |p1| (QREFELT $ 21))
@@ -154,7 +144,7 @@
                    ((SPADCALL (SPADCALL |p1| (QREFELT $ 21))
                               (SPADCALL |p2| (QREFELT $ 21)) (QREFELT $ 27))
                     (QSETAREF1 |res| (SPADCALL |p1| (QREFELT $ 21)) |p1|))
-                   (#6# (QSETAREF1 |res| (SPADCALL |p2| (QREFELT $ 21)) |p2|)))
+                   (#5# (QSETAREF1 |res| (SPADCALL |p2| (QREFELT $ 21)) |p2|)))
                   (EXIT |res|)))))))) 
 
 (DECLAIM (NOTINLINE |SubResultantPackage;|)) 
@@ -168,13 +158,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|SubResultantPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|SubResultantPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |SubResultantPackage;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|SubResultantPackage|)))))))))) 
@@ -182,18 +171,17 @@
 (DEFUN |SubResultantPackage;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|SubResultantPackage|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|SubResultantPackage| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 35) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|SubResultantPackage| DV$1 DV$2))
+          (LETT $ (GETREFV 35))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
-                                                             '(|EuclideanDomain|))))
-                          . #1#))
+                                                             '(|EuclideanDomain|))))))
           (|haddProp| |$ConstructorCache| '|SubResultantPackage|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

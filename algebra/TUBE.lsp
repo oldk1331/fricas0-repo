@@ -39,21 +39,20 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|TubePlot|)
-                                               '|domainEqualList|)
-                    . #3=(|TubePlot|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|TubePlot;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|TubePlot;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|TubePlot|)))))))))) 
 
 (DEFUN |TubePlot;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|TubePlot|))
-          (LETT |dv$| (LIST '|TubePlot| DV$1) . #1#)
-          (LETT $ (GETREFV 16) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|TubePlot| DV$1))
+          (LETT $ (GETREFV 16))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TubePlot| (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)

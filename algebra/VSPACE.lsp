@@ -28,7 +28,5 @@
                                                       ((|dimension|
                                                         ((|CardinalNumber|)))
                                                        T))
-                                                    NIL NIL NIL))
-                                           . #2=(|VectorSpace|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|VectorSpace| |t#1|))))) 

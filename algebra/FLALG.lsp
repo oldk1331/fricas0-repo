@@ -78,7 +78,5 @@
                                                         ($ $ (|List| |t#1|)
                                                          (|List| $)))
                                                        T))
-                                                    NIL NIL NIL))
-                                           . #2=(|FreeLieAlgebra|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FreeLieAlgebra| |t#1| |t#2|))))) 

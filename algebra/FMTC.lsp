@@ -15,8 +15,7 @@
              (LETT #1#
                    (|sublisV| (PAIR '(#2=#:G104) (LIST '(|Integer|)))
                               (|Join| (|IntegralDomain|) (|OrderedSet|)
-                                      (|RetractableTo| '#2#)))
-                   |FortranMachineTypeCategory|)
+                                      (|RetractableTo| '#2#))))
            (SETELT #1# 0 '(|FortranMachineTypeCategory|))))) 
 
 (MAKEPROP '|FortranMachineTypeCategory| 'NILADIC T) 

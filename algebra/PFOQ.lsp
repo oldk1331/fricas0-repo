@@ -18,18 +18,12 @@
           (LETT |mn|
                 (SPADCALL
                  (LETT |nm|
-                       (SPADCALL
-                        (LETT |i| (SPADCALL |d| (QREFELT $ 15))
-                              . #2=(|PFOQ;ratcurve|))
-                        (QREFELT $ 17))
-                       . #2#)
-                 (QREFELT $ 19))
-                . #2#)
+                       (SPADCALL (LETT |i| (SPADCALL |d| (QREFELT $ 15)))
+                                 (QREFELT $ 17)))
+                 (QREFELT $ 19)))
           (LETT |h|
-                (SPADCALL
-                 (LETT |hh| (SPADCALL |nm| (+ |mn| 1) (QREFELT $ 22)) . #2#)
-                 (QREFELT $ 23))
-                . #2#)
+                (SPADCALL (LETT |hh| (SPADCALL |nm| (+ |mn| 1) (QREFELT $ 22)))
+                          (QREFELT $ 23)))
           (LETT |s|
                 (QCAR
                  (SPADCALL
@@ -38,36 +32,30 @@
                         (SPADCALL
                          (SPADCALL (SPADCALL |nm| |mn| (QREFELT $ 22))
                                    (QREFELT $ 27))
-                         (QREFELT $ 26))
-                        . #2#)
-                  (QREFELT $ 29)))
-                . #2#)
-          (LETT |bd| (SPADCALL (SPADCALL |i| (QREFELT $ 30)) (QREFELT $ 33))
-                . #2#)
-          (LETT |r| (SPADCALL |s| |b| (QREFELT $ 35)) . #2#)
+                         (QREFELT $ 26)))
+                  (QREFELT $ 29))))
+          (LETT |bd| (SPADCALL (SPADCALL |i| (QREFELT $ 30)) (QREFELT $ 33)))
+          (LETT |r| (SPADCALL |s| |b| (QREFELT $ 35)))
           (LETT |bad|
                 (SPADCALL
                  (LIST |disc| (SPADCALL |r| (QREFELT $ 36))
                        (SPADCALL |r| (QREFELT $ 37))
                        (* (QCAR |bd|) (QCDR |bd|))
                        (SPADCALL |h| (QREFELT $ 38)))
-                 (QREFELT $ 40))
-                . #2#)
+                 (QREFELT $ 40)))
           (LETT |n|
                 (|PFOQ;rat| |modulus| |d|
-                 (LETT |p| (SPADCALL |bad| (QREFELT $ 42)) . #2#) $)
-                . #2#)
+                 (LETT |p| (SPADCALL |bad| (QREFELT $ 42))) $))
           (EXIT
            (COND ((EQL |n| 1) |n|)
-                 (#3='T
+                 (#2='T
                   (SEQ
                    (LETT |m|
                          (|PFOQ;rat| |modulus| |d|
                           (SPADCALL (SPADCALL |p| |bad| (QREFELT $ 43))
                                     (QREFELT $ 42))
-                          $)
-                         . #2#)
-                   (EXIT (COND ((EQL |n| |m|) |n|) (#3# 0)))))))))) 
+                          $))
+                   (EXIT (COND ((EQL |n| |m|) |n|) (#2# 0)))))))))) 
 
 (SDEFUN |PFOQ;rat|
         ((|pp| UPUP) (|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
@@ -76,7 +64,7 @@
          ((|gf|
            (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| $)
                    (|ConvertibleTo| (|Integer|)))))
-         (SEQ (LETT |gf| (|InnerPrimeField| |p|) |PFOQ;rat|)
+         (SEQ (LETT |gf| (|InnerPrimeField| |p|))
               (EXIT
                (SPADCALL |d| |pp| (CONS #'|PFOQ;rat!0| (VECTOR |gf| $))
                          (|compiledLookupCheck| '|order|
@@ -101,8 +89,8 @@
 
 (SDEFUN |PFOQ;rat!0| ((|z1| NIL) ($$ NIL))
         (PROG ($ |gf|)
-          (LETT $ (QREFELT $$ 1) . #1=(|PFOQ;rat|))
-          (LETT |gf| (QREFELT $$ 0) . #1#)
+          (LETT $ (QREFELT $$ 1))
+          (LETT |gf| (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL
@@ -132,8 +120,7 @@
                  ('T
                   (SEQ
                    (LETT |r|
-                         (SPADCALL (SPADCALL (QREFELT $ 46)) (QREFELT $ 47))
-                         |PFOQ;possibleOrder|)
+                         (SPADCALL (SPADCALL (QREFELT $ 46)) (QREFELT $ 47)))
                    (EXIT
                     (|PFOQ;ratcurve| |d| |r| (SPADCALL |r| (QREFELT $ 48))
                      $)))))))) 
@@ -147,10 +134,7 @@
                   (ZEROP
                    (LETT |n|
                          (|PFOQ;possibleOrder|
-                          (LETT |d| (SPADCALL |d| (QREFELT $ 49))
-                                . #1=(|PFOQ;order;FdU;5|))
-                          $)
-                         . #1#))
+                          (LETT |d| (SPADCALL |d| (QREFELT $ 49))) $)))
                   (NULL
                    (SPADCALL
                     (SPADCALL (SPADCALL |n| |d| (QREFELT $ 50)) (QREFELT $ 49))
@@ -169,22 +153,18 @@
                  ((ZEROP
                    (LETT |n|
                          (|PFOQ;possibleOrder|
-                          (LETT |d| (SPADCALL |d| (QREFELT $ 49))
-                                . #1=(|PFOQ;torsionIfCan;FdU;6|))
-                          $)
-                         . #1#))
+                          (LETT |d| (SPADCALL |d| (QREFELT $ 49))) $)))
                   (CONS 1 "failed"))
-                 (#2='T
+                 (#1='T
                   (SEQ
                    (LETT |g|
                          (SPADCALL
                           (SPADCALL (SPADCALL |n| |d| (QREFELT $ 50))
                                     (QREFELT $ 49))
-                          (QREFELT $ 53))
-                         . #1#)
+                          (QREFELT $ 53)))
                    (EXIT
                     (COND ((QEQCAR |g| 1) (CONS 1 "failed"))
-                          (#2# (CONS 0 (CONS |n| (QCDR |g|)))))))))))) 
+                          (#1# (CONS 0 (CONS |n| (QCDR |g|)))))))))))) 
 
 (DECLAIM (NOTINLINE |PointsOfFiniteOrderRational;|)) 
 
@@ -197,14 +177,13 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|PointsOfFiniteOrderRational|)
-                                               '|domainEqualList|)
-                    . #3=(|PointsOfFiniteOrderRational|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |PointsOfFiniteOrderRational;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -213,14 +192,13 @@
 (DEFUN |PointsOfFiniteOrderRational;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|PointsOfFiniteOrderRational|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|PointsOfFiniteOrderRational| DV$1 DV$2 DV$3)
-                . #1#)
-          (LETT $ (GETREFV 57) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|PointsOfFiniteOrderRational| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 57))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PointsOfFiniteOrderRational|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))
           (|stuffDomainSlots| $)

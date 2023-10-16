@@ -13,15 +13,14 @@
 (SDEFUN |GUESSP1;iiretractVar;KP;4|
         ((|v| |Kernel| (|Expression| (|Integer|))) ($ |Polynomial| R))
         (SPROG ((|r| (|Union| R "failed")) (|v2| (|Expression| (|Integer|))))
-               (SEQ
-                (LETT |v2| (|GUESSP1;m3| |v| $)
-                      . #1=(|GUESSP1;iiretractVar;KP;4|))
-                (LETT |r| (SPADCALL |v2| (QREFELT $ 15)) . #1#)
-                (EXIT
-                 (COND
-                  ((QEQCAR |r| 1)
-                   (SPADCALL (SPADCALL |v2| (QREFELT $ 16)) (QREFELT $ 18)))
-                  ('T (SPADCALL (QCDR |r|) (QREFELT $ 19)))))))) 
+               (SEQ (LETT |v2| (|GUESSP1;m3| |v| $))
+                    (LETT |r| (SPADCALL |v2| (QREFELT $ 15)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |r| 1)
+                       (SPADCALL (SPADCALL |v2| (QREFELT $ 16))
+                                 (QREFELT $ 18)))
+                      ('T (SPADCALL (QCDR |r|) (QREFELT $ 19)))))))) 
 
 (SDEFUN |GUESSP1;iim2;RE;5| ((|coeff| R) ($ |Expression| (|Integer|)))
         (SPADCALL (SPADCALL |coeff| (QREFELT $ 23)) (QREFELT $ 24))) 
@@ -31,16 +30,15 @@
         (SPROG
          ((|r| (|Union| (|Integer|) "failed"))
           (|v2| (|Expression| (|Integer|))))
-         (SEQ
-          (LETT |v2| (|GUESSP1;m3| |v| $) . #1=(|GUESSP1;iiretractVar;KP;6|))
-          (LETT |r| (SPADCALL |v2| (QREFELT $ 26)) . #1#)
-          (EXIT
-           (COND
-            ((QEQCAR |r| 1)
-             (SPADCALL (SPADCALL |v2| (QREFELT $ 16)) (QREFELT $ 18)))
-            ('T
-             (SPADCALL (SPADCALL (QCDR |r|) (QREFELT $ 27))
-                       (QREFELT $ 19)))))))) 
+         (SEQ (LETT |v2| (|GUESSP1;m3| |v| $))
+              (LETT |r| (SPADCALL |v2| (QREFELT $ 26)))
+              (EXIT
+               (COND
+                ((QEQCAR |r| 1)
+                 (SPADCALL (SPADCALL |v2| (QREFELT $ 16)) (QREFELT $ 18)))
+                ('T
+                 (SPADCALL (SPADCALL (QCDR |r|) (QREFELT $ 27))
+                           (QREFELT $ 19)))))))) 
 
 (SDEFUN |GUESSP1;S2EXPRR| ((|p| |Polynomial| R) ($ |Expression| (|Integer|)))
         (SPADCALL (CONS #'|GUESSP1;S2EXPRR!0| $) (ELT $ 13) |p| (QREFELT $ 31))) 
@@ -79,12 +77,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|GuessPolynomialFunctions|)
-                                               '|domainEqualList|)
-                    . #3=(|GuessPolynomialFunctions|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|GuessPolynomialFunctions;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|GuessPolynomialFunctions;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -93,11 +90,11 @@
 (DEFUN |GuessPolynomialFunctions;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|GuessPolynomialFunctions|))
-          (LETT |dv$| (LIST '|GuessPolynomialFunctions| DV$1) . #1#)
-          (LETT $ (GETREFV 47) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|GuessPolynomialFunctions| DV$1))
+          (LETT $ (GETREFV 47))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|GuessPolynomialFunctions|
                       (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)

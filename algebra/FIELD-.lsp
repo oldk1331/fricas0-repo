@@ -17,7 +17,7 @@
 
 (SDEFUN |FIELD-;inv;2S;4| ((|x| S) ($ S))
         (SPROG ((|u| (|Union| S "failed")))
-               (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 17)) |FIELD-;inv;2S;4|)
+               (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 17)))
                     (EXIT
                      (COND ((QEQCAR |u| 1) (|error| "not invertible"))
                            ('T (QCDR |u|))))))) 
@@ -65,11 +65,11 @@
 (DEFUN |Field&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|Field&|))
-          (LETT |dv$| (LIST '|Field&| DV$1) . #1#)
-          (LETT $ (GETREFV 36) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|Field&| DV$1))
+          (LETT $ (GETREFV 36))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

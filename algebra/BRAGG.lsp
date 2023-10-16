@@ -39,7 +39,5 @@
                                                ((|setright!| ($ $ $))
                                                 (|has| $
                                                        (|shallowlyMutable|))))
-                                             NIL NIL NIL))
-                                           . #2=(|BinaryRecursiveAggregate|)))))
-                   . #2#)
+                                             NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|BinaryRecursiveAggregate| |t#1|))))) 

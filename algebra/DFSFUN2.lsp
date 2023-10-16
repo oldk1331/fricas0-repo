@@ -1,7 +1,7 @@
 
 (SDEFUN |DFSFUN2;erf;2Df;1| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)) |DFSFUN2;erf;2Df;1|)
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)))
                     (EXIT
                      (|finally|
                       (SEQ (SPADCALL 68 (QREFELT $ 9))
@@ -14,51 +14,46 @@
 
 (SDEFUN |DFSFUN2;erfi;2Df;2| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ
-                (LETT |obits| (SPADCALL (QREFELT $ 8)) |DFSFUN2;erfi;2Df;2|)
-                (EXIT
-                 (|finally|
-                  (SEQ (SPADCALL 68 (QREFELT $ 9))
-                       (EXIT
-                        (SPADCALL
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 11))
-                                   (QREFELT $ 16))
-                         (QREFELT $ 14))))
-                  (SPADCALL |obits| (QREFELT $ 9))))))) 
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)))
+                    (EXIT
+                     (|finally|
+                      (SEQ (SPADCALL 68 (QREFELT $ 9))
+                           (EXIT
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 11))
+                                       (QREFELT $ 16))
+                             (QREFELT $ 14))))
+                      (SPADCALL |obits| (QREFELT $ 9))))))) 
 
 (SDEFUN |DFSFUN2;fresnelC;2Df;3| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ
-                (LETT |obits| (SPADCALL (QREFELT $ 8))
-                      |DFSFUN2;fresnelC;2Df;3|)
-                (EXIT
-                 (|finally|
-                  (SEQ (SPADCALL 68 (QREFELT $ 9))
-                       (EXIT
-                        (SPADCALL
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 11))
-                                   (QREFELT $ 18))
-                         (QREFELT $ 14))))
-                  (SPADCALL |obits| (QREFELT $ 9))))))) 
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)))
+                    (EXIT
+                     (|finally|
+                      (SEQ (SPADCALL 68 (QREFELT $ 9))
+                           (EXIT
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 11))
+                                       (QREFELT $ 18))
+                             (QREFELT $ 14))))
+                      (SPADCALL |obits| (QREFELT $ 9))))))) 
 
 (SDEFUN |DFSFUN2;fresnelS;2Df;4| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ
-                (LETT |obits| (SPADCALL (QREFELT $ 8))
-                      |DFSFUN2;fresnelS;2Df;4|)
-                (EXIT
-                 (|finally|
-                  (SEQ (SPADCALL 68 (QREFELT $ 9))
-                       (EXIT
-                        (SPADCALL
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 11))
-                                   (QREFELT $ 20))
-                         (QREFELT $ 14))))
-                  (SPADCALL |obits| (QREFELT $ 9))))))) 
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)))
+                    (EXIT
+                     (|finally|
+                      (SEQ (SPADCALL 68 (QREFELT $ 9))
+                           (EXIT
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 11))
+                                       (QREFELT $ 20))
+                             (QREFELT $ 14))))
+                      (SPADCALL |obits| (QREFELT $ 9))))))) 
 
 (SDEFUN |DFSFUN2;Ei;2Df;5| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)) |DFSFUN2;Ei;2Df;5|)
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)))
                     (EXIT
                      (|finally|
                       (SEQ (SPADCALL 68 (QREFELT $ 9))
@@ -71,7 +66,7 @@
 
 (SDEFUN |DFSFUN2;li;2Df;6| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)) |DFSFUN2;li;2Df;6|)
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)))
                     (EXIT
                      (|finally|
                       (SEQ (SPADCALL 68 (QREFELT $ 9))
@@ -84,7 +79,7 @@
 
 (SDEFUN |DFSFUN2;Ci;2Df;7| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)) |DFSFUN2;Ci;2Df;7|)
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)))
                     (EXIT
                      (|finally|
                       (SEQ (SPADCALL 68 (QREFELT $ 9))
@@ -97,7 +92,7 @@
 
 (SDEFUN |DFSFUN2;Si;2Df;8| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)) |DFSFUN2;Si;2Df;8|)
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)))
                     (EXIT
                      (|finally|
                       (SEQ (SPADCALL 68 (QREFELT $ 9))
@@ -110,7 +105,7 @@
 
 (SDEFUN |DFSFUN2;Chi;2Df;9| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)) |DFSFUN2;Chi;2Df;9|)
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)))
                     (EXIT
                      (|finally|
                       (SEQ (SPADCALL 68 (QREFELT $ 9))
@@ -123,17 +118,16 @@
 
 (SDEFUN |DFSFUN2;Shi;2Df;10| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG ((|obits| (|PositiveInteger|)))
-               (SEQ
-                (LETT |obits| (SPADCALL (QREFELT $ 8)) |DFSFUN2;Shi;2Df;10|)
-                (EXIT
-                 (|finally|
-                  (SEQ (SPADCALL 68 (QREFELT $ 9))
-                       (EXIT
-                        (SPADCALL
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 11))
-                                   (QREFELT $ 32))
-                         (QREFELT $ 14))))
-                  (SPADCALL |obits| (QREFELT $ 9))))))) 
+               (SEQ (LETT |obits| (SPADCALL (QREFELT $ 8)))
+                    (EXIT
+                     (|finally|
+                      (SEQ (SPADCALL 68 (QREFELT $ 9))
+                           (EXIT
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 11))
+                                       (QREFELT $ 32))
+                             (QREFELT $ 14))))
+                      (SPADCALL |obits| (QREFELT $ 9))))))) 
 
 (DECLAIM (NOTINLINE |DoubleFloatSpecialFunctions2;|)) 
 
@@ -143,8 +137,7 @@
            (RETURN
             (COND
              ((LETT #1#
-                    (HGET |$ConstructorCache| '|DoubleFloatSpecialFunctions2|)
-                    . #2=(|DoubleFloatSpecialFunctions2|))
+                    (HGET |$ConstructorCache| '|DoubleFloatSpecialFunctions2|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -156,7 +149,7 @@
                               (CONS NIL
                                     (CONS 1
                                           (|DoubleFloatSpecialFunctions2;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
@@ -165,11 +158,10 @@
 (DEFUN |DoubleFloatSpecialFunctions2;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|DoubleFloatSpecialFunctions2|)
-                . #1=(|DoubleFloatSpecialFunctions2|))
-          (LETT $ (GETREFV 34) . #1#)
+          (LETT |dv$| '(|DoubleFloatSpecialFunctions2|))
+          (LETT $ (GETREFV 34))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DoubleFloatSpecialFunctions2| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

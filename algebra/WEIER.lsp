@@ -30,7 +30,7 @@
                 ('T
                  (SPADCALL (SPADCALL |p| |n| (QREFELT $ 32))
                            (|WEIER;streamlikeUniv| |p|
-                            (PROG1 (LETT #1# (- |n| 1) |WEIER;streamlikeUniv|)
+                            (PROG1 (LETT #1# (- |n| 1))
                               (|check_subtype2| (>= #1# 0)
                                                 '(|NonNegativeInteger|)
                                                 '(|Integer|) #1#))
@@ -46,8 +46,8 @@
 
 (SDEFUN |WEIER;transpose!0| (($$ NIL))
         (PROG (|s| $)
-          (LETT |s| (QREFELT $$ 1) . #1=(|WEIER;transpose|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |s| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (COND ((SPADCALL |s| (QREFELT $ 35)) (SPADCALL (QREFELT $ 36)))
@@ -64,7 +64,7 @@
         ((|var| |Symbol|) (|sts| |Stream| (|Polynomial| R))
          ($ |Stream| (|Stream| (|Polynomial| R))))
         (SPROG ((|si0| (|Stream| (|NonNegativeInteger|))))
-               (SEQ (LETT |si0| (SPADCALL 0 (QREFELT $ 45)) |WEIER;sts2stst|)
+               (SEQ (LETT |si0| (SPADCALL 0 (QREFELT $ 45)))
                     (EXIT
                      (SPADCALL (CONS #'|WEIER;sts2stst!0| $)
                                (SPADCALL
@@ -74,8 +74,8 @@
 
 (SDEFUN |WEIER;sts2stst!1| ((|p| NIL) ($$ NIL))
         (PROG (|var| $)
-          (LETT |var| (QREFELT $$ 1) . #1=(|WEIER;sts2stst|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |var| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |p| |var| (QREFELT $ 48)))))) 
 
 (SDEFUN |WEIER;sts2stst!0| ((|x| NIL) (|y| NIL) ($ NIL))
@@ -95,8 +95,8 @@
 
 (SDEFUN |WEIER;maptake!0| ((|ss| NIL) ($$ NIL))
         (PROG (|n| $)
-          (LETT |n| (QREFELT $$ 1) . #1=(|WEIER;maptake|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |n| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |ss| |n| (QREFELT $ 57)))))) 
 
 (SDEFUN |WEIER;mapdrop|
@@ -108,8 +108,8 @@
 
 (SDEFUN |WEIER;mapdrop!0| ((|ss| NIL) ($$ NIL))
         (PROG (|n| $)
-          (LETT |n| (QREFELT $$ 1) . #1=(|WEIER;mapdrop|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |n| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |ss| |n| (QREFELT $ 25)))))) 
 
 (SDEFUN |WEIER;weier|
@@ -122,11 +122,11 @@
           (|a| (|NonNegativeInteger|)) (|c| (|Union| R "failed"))
           (|b0| (|Polynomial| R)) (|a0| NIL)
           (|p| (|Stream| (|TaylorSeries| R))))
-         (SEQ (LETT |p| (|WEIER;tp| |v| |sts| $) . #2=(|WEIER;weier|))
-              (LETT |b| (SPADCALL |p| (QREFELT $ 58)) . #2#)
+         (SEQ (LETT |p| (|WEIER;tp| |v| |sts| $))
+              (LETT |b| (SPADCALL |p| (QREFELT $ 58)))
               (SEQ
                (EXIT
-                (SEQ (LETT |a0| 0 . #2#) G190 NIL
+                (SEQ (LETT |a0| 0) G190 NIL
                      (SEQ
                       (EXIT
                        (COND
@@ -134,43 +134,38 @@
                          (|error|
                           "can not find power of variable with constant coefficient"))
                         ('T
-                         (SEQ (LETT |b0| (SPADCALL |b| (QREFELT $ 16)) . #2#)
+                         (SEQ (LETT |b0| (SPADCALL |b| (QREFELT $ 16)))
                               (EXIT
                                (COND
                                 ((SPADCALL |b0| (|spadConstant| $ 15)
                                            (QREFELT $ 59))
-                                 (SEQ
-                                  (LETT |b| (SPADCALL |b| (QREFELT $ 37))
-                                        . #2#)
-                                  (EXIT "iterate")))
+                                 (SEQ (LETT |b| (SPADCALL |b| (QREFELT $ 37)))
+                                      (EXIT "iterate")))
                                 ('T
-                                 (SEQ
-                                  (LETT |c| (SPADCALL |b0| (QREFELT $ 61))
-                                        . #2#)
-                                  (EXIT
-                                   (COND
-                                    ((QEQCAR |c| 0)
-                                     (SEQ (LETT |a| |a0| . #2#)
-                                          (EXIT
-                                           (PROGN
-                                            (LETT #1# |$NoValue| . #2#)
-                                            (GO #3=#:G151)))))
-                                    ('T
-                                     (LETT |b| (SPADCALL |b| (QREFELT $ 37))
-                                           . #2#)))))))))))))
-                     (LETT |a0| (|inc_SI| |a0|) . #2#) (GO G190) G191
-                     (EXIT NIL)))
-               #3# (EXIT #1#))
-              (LETT |e| (SPADCALL |b| (QREFELT $ 63)) . #2#)
+                                 (SEQ (LETT |c| (SPADCALL |b0| (QREFELT $ 61)))
+                                      (EXIT
+                                       (COND
+                                        ((QEQCAR |c| 0)
+                                         (SEQ (LETT |a| |a0|)
+                                              (EXIT
+                                               (PROGN
+                                                (LETT #1# |$NoValue|)
+                                                (GO #2=#:G151)))))
+                                        ('T
+                                         (LETT |b|
+                                               (SPADCALL |b|
+                                                         (QREFELT $
+                                                                  37)))))))))))))))
+                     (LETT |a0| (|inc_SI| |a0|)) (GO G190) G191 (EXIT NIL)))
+               #2# (EXIT #1#))
+              (LETT |e| (SPADCALL |b| (QREFELT $ 63)))
               (LETT |f|
                     (COND ((QEQCAR |e| 1) (|error| "no reciprocal"))
-                          ('T (QCDR |e|)))
-                    . #2#)
+                          ('T (QCDR |e|))))
               (LETT |q|
                     (SPADCALL
                      (|WEIER;qqq| |a| |f| (SPADCALL |p| (QREFELT $ 64)) $)
-                     (QREFELT $ 67))
-                    . #2#)
+                     (QREFELT $ 67)))
               (EXIT
                (|WEIER;maptake| |a| (SPADCALL |p| |q| (QREFELT $ 69)) $))))) 
 
@@ -194,10 +189,10 @@
 
 (SDEFUN |WEIER;qqq!0| ((|s| NIL) ($$ NIL))
         (PROG (|a| |e| |p| $)
-          (LETT |a| (QREFELT $$ 3) . #1=(|WEIER;qqq|))
-          (LETT |e| (QREFELT $$ 2) . #1#)
-          (LETT |p| (QREFELT $$ 1) . #1#)
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |a| (QREFELT $$ 3))
+          (LETT |e| (QREFELT $$ 2))
+          (LETT |p| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|WEIER;qq| |a| |e| |p| |s| $))))) 
 
 (SDEFUN |WEIER;wei|
@@ -224,12 +219,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|WeierstrassPreparation|)
-                                               '|domainEqualList|)
-                    . #3=(|WeierstrassPreparation|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|WeierstrassPreparation;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|WeierstrassPreparation;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|WeierstrassPreparation|)))))))))) 
@@ -237,11 +231,11 @@
 (DEFUN |WeierstrassPreparation;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|WeierstrassPreparation|))
-          (LETT |dv$| (LIST '|WeierstrassPreparation| DV$1) . #1#)
-          (LETT $ (GETREFV 79) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|WeierstrassPreparation| DV$1))
+          (LETT $ (GETREFV 79))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|WeierstrassPreparation| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

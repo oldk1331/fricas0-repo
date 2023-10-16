@@ -52,8 +52,7 @@
                                            ($ $ (|CharacterClass|)))
                                           T)
                                          ((|elt| ($ $ $)) T))
-                                       NIL NIL NIL)))
-                   |StringAggregate|)
+                                       NIL NIL NIL))))
            (SETELT #1# 0 '(|StringAggregate|))))) 
 
 (MAKEPROP '|StringAggregate| 'NILADIC T) 

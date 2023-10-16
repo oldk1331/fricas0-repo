@@ -5,20 +5,17 @@
           (|i| NIL))
          (SEQ
           (PROGN
-           (LETT #1# NIL . #5=(|EVALCYC;evp|))
-           (SEQ (LETT |i| NIL . #5#)
-                (LETT #4# (SPADCALL |pt| (QREFELT $ 9)) . #5#) G190
+           (LETT #1# NIL)
+           (SEQ (LETT |i| NIL) (LETT #4# (SPADCALL |pt| (QREFELT $ 9))) G190
                 (COND
-                 ((OR (ATOM #4#) (PROGN (LETT |i| (CAR #4#) . #5#) NIL))
-                  (GO G191)))
+                 ((OR (ATOM #4#) (PROGN (LETT |i| (CAR #4#)) NIL)) (GO G191)))
                 (SEQ
                  (EXIT
                   (PROGN
-                   (LETT #3# (SPADCALL |i| |fn|) . #5#)
-                   (COND
-                    (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 10)) . #5#))
-                    ('T (PROGN (LETT #2# #3# . #5#) (LETT #1# 'T . #5#)))))))
-                (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
+                   (LETT #3# (SPADCALL |i| |fn|))
+                   (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 10))))
+                         ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
+                (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
            (COND (#1# #2#) ('T (|spadConstant| $ 11))))))) 
 
 (SDEFUN |EVALCYC;eval;MSpF;2|
@@ -46,12 +43,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|EvaluateCycleIndicators|)
-                                               '|domainEqualList|)
-                    . #3=(|EvaluateCycleIndicators|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|EvaluateCycleIndicators;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|EvaluateCycleIndicators;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|EvaluateCycleIndicators|)))))))))) 
@@ -59,11 +55,11 @@
 (DEFUN |EvaluateCycleIndicators;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|EvaluateCycleIndicators|))
-          (LETT |dv$| (LIST '|EvaluateCycleIndicators| DV$1) . #1#)
-          (LETT $ (GETREFV 26) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|EvaluateCycleIndicators| DV$1))
+          (LETT $ (GETREFV 26))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|EvaluateCycleIndicators|
                       (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)

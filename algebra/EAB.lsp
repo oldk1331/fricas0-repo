@@ -12,10 +12,9 @@
 (SDEFUN |EAB;coerce;L$;3| ((|li| |List| (|Integer|)) ($ $))
         (SPROG ((#1=#:G122 NIL) (|x| NIL))
                (SEQ
-                (SEQ (LETT |x| NIL . #2=(|EAB;coerce;L$;3|))
-                     (LETT #1# |li| . #2#) G190
+                (SEQ (LETT |x| NIL) (LETT #1# |li|) G190
                      (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
+                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ
                       (EXIT
@@ -24,7 +23,7 @@
                          (COND
                           ((SPADCALL |x| 0 (QREFELT $ 13))
                            (|error| "coerce: values can only be 0 and 1")))))))
-                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |li|)))) 
 
 (SDEFUN |EAB;degree;$Nni;4| ((|x| $) ($ |NonNegativeInteger|))
@@ -35,24 +34,20 @@
           (PROG1
               (LETT #1#
                     (PROGN
-                     (LETT #2# NIL . #8=(|EAB;degree;$Nni;4|))
-                     (SEQ (LETT #7# NIL . #8#) (LETT #6# |x| . #8#) G190
+                     (LETT #2# NIL)
+                     (SEQ (LETT #7# NIL) (LETT #6# |x|) G190
                           (COND
-                           ((OR (ATOM #6#)
-                                (PROGN (LETT #7# (CAR #6#) . #8#) NIL))
+                           ((OR (ATOM #6#) (PROGN (LETT #7# (CAR #6#)) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
                             (PROGN
-                             (LETT #5# #7# . #8#)
-                             (COND (#2# (LETT #3# (+ #3# #5#) . #8#))
+                             (LETT #5# #7#)
+                             (COND (#2# (LETT #3# (+ #3# #5#)))
                                    ('T
-                                    (PROGN
-                                     (LETT #3# #5# . #8#)
-                                     (LETT #2# 'T . #8#)))))))
-                          (LETT #6# (CDR #6#) . #8#) (GO G190) G191 (EXIT NIL))
-                     (COND (#2# #3#) ('T 0)))
-                    . #8#)
+                                    (PROGN (LETT #3# #5#) (LETT #2# 'T)))))))
+                          (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
+                     (COND (#2# #3#) ('T 0))))
             (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|) '(|Integer|)
                               #1#))))) 
 
@@ -63,11 +58,11 @@
         (SPROG ((#1=#:G136 NIL) (|i| NIL) (#2=#:G135 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL . #3=(|EAB;Nul;Nni$;6|))
-                 (SEQ (LETT |i| 1 . #3#) (LETT #1# |n| . #3#) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                       (COND ((|greater_SI| |i| #1#) (GO G191)))
-                      (SEQ (EXIT (LETT #2# (CONS 0 #2#) . #3#)))
-                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                      (SEQ (EXIT (LETT #2# (CONS 0 #2#))))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |EAB;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
@@ -80,8 +75,7 @@
          (PROG (#1=#:G139)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ExtAlgBasis|)
-                    . #2=(|ExtAlgBasis|))
+             ((LETT #1# (HGET |$ConstructorCache| '|ExtAlgBasis|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -89,17 +83,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|ExtAlgBasis|
                              (LIST (CONS NIL (CONS 1 (|ExtAlgBasis;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|ExtAlgBasis|)))))))))) 
 
 (DEFUN |ExtAlgBasis;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|ExtAlgBasis|) . #1=(|ExtAlgBasis|))
-          (LETT $ (GETREFV 27) . #1#)
+          (LETT |dv$| '(|ExtAlgBasis|))
+          (LETT $ (GETREFV 27))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ExtAlgBasis| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

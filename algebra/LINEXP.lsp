@@ -39,7 +39,5 @@
                                                          (|Matrix| $)
                                                          (|Vector| $)))
                                                        T))
-                                                    NIL NIL NIL))
-                                           . #2=(|LinearlyExplicitOver|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|LinearlyExplicitOver| |t#1|))))) 

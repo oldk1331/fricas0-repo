@@ -73,7 +73,5 @@
                                                ((|CharacteristicNonZero|)
                                                 (|has| |t#1|
                                                        (|CharacteristicNonZero|))))
-                                             NIL NIL))
-                                           . #2=(|OctonionCategory|)))))
-                   . #2#)
+                                             NIL NIL)))))))
            (SETELT #1# 0 (LIST '|OctonionCategory| |t#1|))))) 

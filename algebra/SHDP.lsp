@@ -7,44 +7,41 @@
           (#3=#:G117 NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |n1| (|spadConstant| $ 10) . #4=(|SHDP;lessThanRlex|))
-                (LETT |n2| (|spadConstant| $ 10) . #4#)
-                (SEQ (LETT |i| |low| . #4#) (LETT #3# |high| . #4#) G190
+           (SEQ (LETT |n1| (|spadConstant| $ 10))
+                (LETT |n2| (|spadConstant| $ 10))
+                (SEQ (LETT |i| |low|) (LETT #3# |high|) G190
                      (COND ((> |i| #3#) (GO G191)))
                      (SEQ
                       (LETT |n1|
                             (SPADCALL |n1| (SPADCALL |v1| |i| (QREFELT $ 12))
-                                      (QREFELT $ 13))
-                            . #4#)
+                                      (QREFELT $ 13)))
                       (EXIT
                        (LETT |n2|
                              (SPADCALL |n2| (SPADCALL |v2| |i| (QREFELT $ 12))
-                                       (QREFELT $ 13))
-                             . #4#)))
-                     (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
+                                       (QREFELT $ 13)))))
+                     (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (COND ((SPADCALL |n1| |n2| (QREFELT $ 15)) 'T)
                        ((SPADCALL |n2| |n1| (QREFELT $ 15)) NIL)
                        ('T
                         (SEQ
-                         (SEQ (LETT |i| |high| . #4#) (LETT #2# |low| . #4#)
-                              G190 (COND ((< |i| #2#) (GO G191)))
+                         (SEQ (LETT |i| |high|) (LETT #2# |low|) G190
+                              (COND ((< |i| #2#) (GO G191)))
                               (SEQ
                                (COND
                                 ((SPADCALL (SPADCALL |v2| |i| (QREFELT $ 12))
                                            (SPADCALL |v1| |i| (QREFELT $ 12))
                                            (QREFELT $ 15))
-                                 (PROGN (LETT #1# 'T . #4#) (GO #5=#:G115))))
+                                 (PROGN (LETT #1# 'T) (GO #4=#:G115))))
                                (EXIT
                                 (COND
                                  ((SPADCALL (SPADCALL |v1| |i| (QREFELT $ 12))
                                             (SPADCALL |v2| |i| (QREFELT $ 12))
                                             (QREFELT $ 15))
-                                  (PROGN (LETT #1# NIL . #4#) (GO #5#))))))
-                              (LETT |i| (+ |i| -1) . #4#) (GO G190) G191
-                              (EXIT NIL))
+                                  (PROGN (LETT #1# NIL) (GO #4#))))))
+                              (LETT |i| (+ |i| -1)) (GO G190) G191 (EXIT NIL))
                          (EXIT NIL)))))))
-          #5# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |SHDP;<;2$B;2| ((|v1| $) (|v2| $) ($ |Boolean|))
         (SPROG ((#1=#:G124 NIL) (#2=#:G125 NIL) (|i| NIL))
@@ -53,8 +50,7 @@
                  (COND ((|SHDP;lessThanRlex| |v1| |v2| 1 (QREFELT $ 7) $) 'T)
                        ('T
                         (SEQ
-                         (SEQ (LETT |i| 1 . #3=(|SHDP;<;2$B;2|))
-                              (LETT #2# (QREFELT $ 7) . #3#) G190
+                         (SEQ (LETT |i| 1) (LETT #2# (QREFELT $ 7)) G190
                               (COND ((|greater_SI| |i| #2#) (GO G191)))
                               (SEQ
                                (EXIT
@@ -62,15 +58,13 @@
                                  ((SPADCALL (SPADCALL |v1| |i| (QREFELT $ 12))
                                             (SPADCALL |v2| |i| (QREFELT $ 12))
                                             (QREFELT $ 16))
-                                  (PROGN
-                                   (LETT #1# NIL . #3#)
-                                   (GO #4=#:G123))))))
-                              (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                  (PROGN (LETT #1# NIL) (GO #3=#:G123))))))
+                              (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                               (EXIT NIL))
                          (EXIT
                           (|SHDP;lessThanRlex| |v1| |v2| (+ (QREFELT $ 7) 1)
                            (QREFELT $ 6) $))))))
-                #4# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |SplitHomogeneousDirectProduct;|)) 
 
@@ -83,14 +77,13 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|SplitHomogeneousDirectProduct|)
-                                               '|domainEqualList|)
-                    . #3=(|SplitHomogeneousDirectProduct|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |SplitHomogeneousDirectProduct;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -102,11 +95,11 @@
     (#5=#:G146 NIL) (#6=#:G147 NIL) (#7=#:G148 NIL) (#8=#:G149 NIL)
     (#9=#:G150 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #10=(|SplitHomogeneousDirectProduct|))
-    (LETT DV$2 (|devaluate| |#2|) . #10#)
-    (LETT DV$3 (|devaluate| |#3|) . #10#)
-    (LETT |dv$| (LIST '|SplitHomogeneousDirectProduct| DV$1 DV$2 DV$3) . #10#)
-    (LETT $ (GETREFV 49) . #10#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT |dv$| (LIST '|SplitHomogeneousDirectProduct| DV$1 DV$2 DV$3))
+    (LETT $ (GETREFV 49))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -119,8 +112,7 @@
                                                             '(|OrderedAbelianMonoidSup|))
                                              (LETT #9#
                                                    (|HasCategory| |#3|
-                                                                  '(|OrderedSet|))
-                                                   . #10#)
+                                                                  '(|OrderedSet|)))
                                              (OR
                                               (|HasCategory| |#3|
                                                              '(|OrderedAbelianMonoidSup|))
@@ -129,8 +121,7 @@
                                                             '(|unitsKnown|))
                                              (LETT #8#
                                                    (|HasCategory| |#3|
-                                                                  '(|CommutativeRing|))
-                                                   . #10#)
+                                                                  '(|CommutativeRing|)))
                                              (OR #8#
                                                  (|HasCategory| |#3|
                                                                 '(|Field|))
@@ -146,8 +137,7 @@
                                                                 '(|SemiRng|)))
                                              (LETT #7#
                                                    (|HasCategory| |#3|
-                                                                  '(|Finite|))
-                                                   . #10#)
+                                                                  '(|Finite|)))
                                              (OR #7#
                                                  (|HasCategory| |#3|
                                                                 '(|OrderedAbelianMonoidSup|))
@@ -160,8 +150,7 @@
                                                               (|Symbol|)))
                                              (LETT #6#
                                                    (|HasCategory| |#3|
-                                                                  '(|DifferentialRing|))
-                                                   . #10#)
+                                                                  '(|DifferentialRing|)))
                                              (OR
                                               (|HasCategory| |#3|
                                                              '(|LinearlyExplicitOver|
@@ -211,8 +200,7 @@
                                               (|HasCategory| |#3| '(|Ring|)))
                                              (LETT #5#
                                                    (|HasCategory| |#3|
-                                                                  '(|AbelianMonoid|))
-                                                   . #10#)
+                                                                  '(|AbelianMonoid|)))
                                              (AND #5#
                                                   (|HasCategory| |#3|
                                                                  '(|Monoid|)))
@@ -221,8 +209,7 @@
                                                                  '(|SemiRng|)))
                                              (LETT #4#
                                                    (|HasCategory| |#3|
-                                                                  '(|CancellationAbelianMonoid|))
-                                                   . #10#)
+                                                                  '(|CancellationAbelianMonoid|)))
                                              (OR
                                               (|HasCategory| |#3|
                                                              '(|AbelianGroup|))
@@ -247,8 +234,7 @@
                                                              '(|SemiRng|)))
                                              (LETT #3#
                                                    (|HasCategory| |#3|
-                                                                  '(|SemiGroup|))
-                                                   . #10#)
+                                                                  '(|SemiGroup|)))
                                              (OR
                                               (AND
                                                (|HasCategory| |#3|
@@ -402,8 +388,7 @@
                                                                    '(|RetractableTo|
                                                                      (|Integer|)))
                                                     (|HasCategory| |#3|
-                                                                   '(|SetCategory|)))
-                                                   . #10#)
+                                                                   '(|SetCategory|))))
                                              (OR
                                               (AND
                                                (|HasCategory| |#3|
@@ -488,8 +473,7 @@
                                                                      (|Fraction|
                                                                       (|Integer|))))
                                                     (|HasCategory| |#3|
-                                                                   '(|SetCategory|)))
-                                                   . #10#)
+                                                                   '(|SetCategory|))))
                                              (OR
                                               (|HasCategory| |#3|
                                                              '(|CoercibleTo|
@@ -603,8 +587,7 @@
                                                                  (|Integer|))))
                                                (|HasCategory| |#3|
                                                               '(|SemiRng|)))
-                                              #1#)))
-                    . #10#))
+                                              #1#)))))
     (|haddProp| |$ConstructorCache| '|SplitHomogeneousDirectProduct|
                 (LIST DV$1 DV$2 DV$3) (CONS 1 $))
     (|stuffDomainSlots| $)

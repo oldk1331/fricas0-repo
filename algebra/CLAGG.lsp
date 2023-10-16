@@ -75,7 +75,5 @@
                                                 (|has| |t#1|
                                                        (|ConvertibleTo|
                                                         (|InputForm|)))))
-                                             NIL NIL))
-                                           . #2=(|Collection|)))))
-                   . #2#)
+                                             NIL NIL)))))))
            (SETELT #1# 0 (LIST '|Collection| |t#1|))))) 

@@ -34,25 +34,24 @@
            ((SPADCALL |f| (QREFELT $ 24)) (NULL (SPADCALL |g| (QREFELT $ 24))))
            ((SPADCALL |g| (QREFELT $ 24)) NIL)
            (#2='T
-            (SEQ
-             (LETT |ordf| (SPADCALL |f| (QREFELT $ 16))
-                   . #3=(|EXPUPXS;<;2$B;6|))
-             (LETT |ordg| (SPADCALL |g| (QREFELT $ 16)) . #3#)
-             (EXIT
-              (COND ((SPADCALL |ordf| |ordg| (QREFELT $ 27)) 'T)
-                    ((SPADCALL |ordf| |ordg| (QREFELT $ 28)) NIL)
-                    (#2#
-                     (SEQ
-                      (LETT |fCoef| (SPADCALL |f| |ordf| (QREFELT $ 29)) . #3#)
-                      (LETT |gCoef| (SPADCALL |g| |ordg| (QREFELT $ 29)) . #3#)
-                      (EXIT
-                       (COND
-                        ((SPADCALL |fCoef| |gCoef| (QREFELT $ 30))
-                         (SPADCALL (SPADCALL |f| (QREFELT $ 31))
-                                   (SPADCALL |g| (QREFELT $ 31))
-                                   (QREFELT $ 32)))
+            (SEQ (LETT |ordf| (SPADCALL |f| (QREFELT $ 16)))
+                 (LETT |ordg| (SPADCALL |g| (QREFELT $ 16)))
+                 (EXIT
+                  (COND ((SPADCALL |ordf| |ordg| (QREFELT $ 27)) 'T)
+                        ((SPADCALL |ordf| |ordg| (QREFELT $ 28)) NIL)
                         (#2#
-                         (SPADCALL |fCoef| |gCoef| (QREFELT $ 33))))))))))))))) 
+                         (SEQ
+                          (LETT |fCoef| (SPADCALL |f| |ordf| (QREFELT $ 29)))
+                          (LETT |gCoef| (SPADCALL |g| |ordg| (QREFELT $ 29)))
+                          (EXIT
+                           (COND
+                            ((SPADCALL |fCoef| |gCoef| (QREFELT $ 30))
+                             (SPADCALL (SPADCALL |f| (QREFELT $ 31))
+                                       (SPADCALL |g| (QREFELT $ 31))
+                                       (QREFELT $ 32)))
+                            (#2#
+                             (SPADCALL |fCoef| |gCoef|
+                                       (QREFELT $ 33))))))))))))))) 
 
 (SDEFUN |EXPUPXS;coerce;$Of;7| ((|f| $) ($ |OutputForm|))
         (SPADCALL (SPADCALL "%e" (QREFELT $ 36))
@@ -70,8 +69,7 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|ExponentialOfUnivariatePuiseuxSeries|)
-                                               '|domainEqualList|)
-                    . #3=(|ExponentialOfUnivariatePuiseuxSeries|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -79,7 +77,7 @@
                       (APPLY
                        (|function| |ExponentialOfUnivariatePuiseuxSeries;|)
                        #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -90,13 +88,11 @@
    ((|pv$| NIL) (#1=#:G139 NIL) (#2=#:G140 NIL) (#3=#:G141 NIL) (#4=#:G142 NIL)
     (#5=#:G144 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|)
-          . #6=(|ExponentialOfUnivariatePuiseuxSeries|))
-    (LETT DV$2 (|devaluate| |#2|) . #6#)
-    (LETT DV$3 (|devaluate| |#3|) . #6#)
-    (LETT |dv$| (LIST '|ExponentialOfUnivariatePuiseuxSeries| DV$1 DV$2 DV$3)
-          . #6#)
-    (LETT $ (GETREFV 62) . #6#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT |dv$| (LIST '|ExponentialOfUnivariatePuiseuxSeries| DV$1 DV$2 DV$3))
+    (LETT $ (GETREFV 62))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -137,8 +133,7 @@
                                                           (|Integer|))))
                                         (LETT #5#
                                               (|HasCategory| |#1|
-                                                             '(|CommutativeRing|))
-                                              . #6#)
+                                                             '(|CommutativeRing|)))
                                         (OR #5#
                                             (|HasCategory| |#1| '(|Field|)))
                                         (|HasSignature| |#1|
@@ -201,16 +196,14 @@
                                                                   |#1|))))))
                                         (LETT #4#
                                               (|HasCategory| |#1|
-                                                             '(|IntegralDomain|))
-                                              . #6#)
+                                                             '(|IntegralDomain|)))
                                         (OR #5# (|HasCategory| |#1| '(|Field|))
                                             #4#)
                                         (OR (|HasCategory| |#1| '(|Field|))
                                             #4#)
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|SemiRing|))
-                                              . #6#)
+                                                             '(|SemiRing|)))
                                         (OR #3#
                                             (|HasSignature| |#1|
                                                             (LIST '*
@@ -222,8 +215,7 @@
                                                                    (|devaluate|
                                                                     |#1|)))))
                                         (LETT #2#
-                                              (|HasCategory| |#1| '(|Ring|))
-                                              . #6#)
+                                              (|HasCategory| |#1| '(|Ring|)))
                                         (OR #2#
                                             (|HasSignature| |#1|
                                                             (LIST '*
@@ -258,8 +250,7 @@
                                                        '(|CancellationAbelianMonoid|))
                                         (LETT #1#
                                               (|HasCategory| |#1|
-                                                             '(|AbelianGroup|))
-                                              . #6#)
+                                                             '(|AbelianGroup|)))
                                         (OR #1#
                                             (|HasCategory| |#1|
                                                            '(|CancellationAbelianMonoid|))
@@ -281,8 +272,7 @@
                                                                    '(|Fraction|
                                                                      (|Integer|))
                                                                    (|devaluate|
-                                                                    |#1|)))))))
-                    . #6#))
+                                                                    |#1|)))))))))
     (|haddProp| |$ConstructorCache| '|ExponentialOfUnivariatePuiseuxSeries|
                 (LIST DV$1 DV$2 DV$3) (CONS 1 $))
     (|stuffDomainSlots| $)

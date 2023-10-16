@@ -68,7 +68,5 @@
                                                       ((|CharacteristicNonZero|)
                                                        (|has| |t#1|
                                                               (|CharacteristicNonZero|))))
-                                                    NIL NIL))
-                                           . #2=(|FiniteRankAlgebra|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FiniteRankAlgebra| |t#1| |t#2|))))) 

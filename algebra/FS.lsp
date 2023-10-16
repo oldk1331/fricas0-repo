@@ -333,7 +333,5 @@
                                                                     (|Integer|)))
                                                             (|has| |t#1|
                                                                    (|IntegralDomain|)))))
-                                                        NIL NIL))
-                                                      . #3=(|FunctionSpace|))))))
-                   . #3#)
+                                                        NIL NIL))))))))
            (SETELT #1# 0 (LIST '|FunctionSpace| |t#1|))))) 

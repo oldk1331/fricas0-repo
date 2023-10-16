@@ -28,15 +28,13 @@
                (SEQ
                 (COND ((QEQCAR |x| 0) (SPADCALL (CDR |x|) (QREFELT $ 18)))
                       (#1='T
-                       (SEQ
-                        (LETT |e| (SPADCALL '|infinity| (QREFELT $ 20))
-                              |ORDCOMP;coerce;$Of;8|)
-                        (EXIT
-                         (COND
-                          ((CDR |x|)
-                           (SPADCALL (SPADCALL (QREFELT $ 21)) |e|
-                                     (QREFELT $ 22)))
-                          (#1# (SPADCALL |e| (QREFELT $ 23))))))))))) 
+                       (SEQ (LETT |e| (SPADCALL '|infinity| (QREFELT $ 20)))
+                            (EXIT
+                             (COND
+                              ((CDR |x|)
+                               (SPADCALL (SPADCALL (QREFELT $ 21)) |e|
+                                         (QREFELT $ 22)))
+                              (#1# (SPADCALL |e| (QREFELT $ 23))))))))))) 
 
 (SDEFUN |ORDCOMP;whatInfinity;$Si;9| ((|x| $) ($ |SingleInteger|))
         (COND ((QEQCAR |x| 0) 0) ((CDR |x|) 1) ('T -1))) 
@@ -86,12 +84,11 @@
 (SDEFUN |ORDCOMP;rationalIfCan;$U;16|
         ((|x| $) ($ |Union| (|Fraction| (|Integer|)) "failed"))
         (SPROG ((|r| (|Union| R "failed")))
-               (SEQ
-                (LETT |r| (SPADCALL |x| (QREFELT $ 16))
-                      |ORDCOMP;rationalIfCan;$U;16|)
-                (EXIT
-                 (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
-                       ('T (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 38))))))))) 
+               (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 16)))
+                    (EXIT
+                     (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
+                           ('T
+                            (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 38))))))))) 
 
 (DECLAIM (NOTINLINE |OrderedCompletion;|)) 
 
@@ -104,12 +101,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|OrderedCompletion|)
-                                               '|domainEqualList|)
-                    . #3=(|OrderedCompletion|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|OrderedCompletion;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|OrderedCompletion;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|OrderedCompletion|)))))))))) 
@@ -117,9 +112,9 @@
 (DEFUN |OrderedCompletion;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|OrderedCompletion|))
-          (LETT |dv$| (LIST '|OrderedCompletion| DV$1) . #1#)
-          (LETT $ (GETREFV 46) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|OrderedCompletion| DV$1))
+          (LETT $ (GETREFV 46))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -139,8 +134,7 @@
                                               (|HasCategory| |#1|
                                                              '(|AbelianGroup|))
                                               (|HasCategory| |#1|
-                                                             '(|IntegerNumberSystem|))))
-                          . #1#))
+                                                             '(|IntegerNumberSystem|))))))
           (|haddProp| |$ConstructorCache| '|OrderedCompletion| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

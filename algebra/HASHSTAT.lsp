@@ -25,8 +25,7 @@
          (PROG (#1=#:G937)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|HashState|)
-                    . #2=(|HashState|))
+             ((LETT #1# (HGET |$ConstructorCache| '|HashState|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -34,17 +33,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|HashState|
                              (LIST (CONS NIL (CONS 1 (|HashState;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|HashState|)))))))))) 
 
 (DEFUN |HashState;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|HashState|) . #1=(|HashState|))
-          (LETT $ (GETREFV 10) . #1#)
+          (LETT |dv$| '(|HashState|))
+          (LETT $ (GETREFV 10))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|HashState| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

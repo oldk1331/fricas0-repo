@@ -14,18 +14,17 @@
                  (COND
                   ((SPADCALL |x| (QREFELT $ 10))
                    (PROGN
-                    (LETT #1# (SPADCALL 1 (QREFELT $ 13))
-                          . #2=(|CYCGRP;coerce;$Of;3|))
-                    (GO #3=#:G112)))
+                    (LETT #1# (SPADCALL 1 (QREFELT $ 13)))
+                    (GO #2=#:G112)))
                   ((EQL (|CYCGRP;rep| |x| $) 1)
                    (PROGN
-                    (LETT #1# (SPADCALL (QREFELT $ 7) (QREFELT $ 15)) . #2#)
-                    (GO #3#)))
+                    (LETT #1# (SPADCALL (QREFELT $ 7) (QREFELT $ 15)))
+                    (GO #2#)))
                   ('T
                    (SPADCALL (SPADCALL (QREFELT $ 7) (QREFELT $ 15))
                              (SPADCALL (|CYCGRP;rep| |x| $) (QREFELT $ 13))
                              (QREFELT $ 16)))))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |CYCGRP;hashUpdate!;Hs$Hs;4|
         ((|hs| . #1=(|HashState|)) (|s| $) ($ . #1#))
@@ -69,16 +68,14 @@
                    (|error| "out of range"))
                   (#2='T
                    (SEQ
-                    (LETT |imodn| (SPADCALL |i| 1 (QREFELT $ 6) (QREFELT $ 35))
-                          . #3=(|CYCGRP;index;Pi$;14|))
+                    (LETT |imodn|
+                          (SPADCALL |i| 1 (QREFELT $ 6) (QREFELT $ 35)))
                     (EXIT
                      (COND
                       ((ZEROP |imodn|)
-                       (PROGN
-                        (LETT #1# (|spadConstant| $ 23) . #3#)
-                        (GO #4=#:G126)))
+                       (PROGN (LETT #1# (|spadConstant| $ 23)) (GO #3=#:G126)))
                       (#2# (|CYCGRP;per| |imodn| $))))))))
-                #4# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |CYCGRP;lookup;$Pi;15| ((|x| $) ($ |PositiveInteger|))
         (+ (REM (|CYCGRP;rep| |x| $) (QREFELT $ 6)) 1)) 
@@ -89,12 +86,11 @@
         (SPROG ((#1=#:G133 NIL) (|k| NIL) (#2=#:G132 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL . #3=(|CYCGRP;enumerate;L;17|))
-                 (SEQ (LETT |k| 0 . #3#) (LETT #1# (- (QREFELT $ 6) 1) . #3#)
-                      G190 (COND ((|greater_SI| |k| #1#) (GO G191)))
-                      (SEQ
-                       (EXIT (LETT #2# (CONS (|CYCGRP;per| |k| $) #2#) . #3#)))
-                      (LETT |k| (|inc_SI| |k|) . #3#) (GO G190) G191
+                 (LETT #2# NIL)
+                 (SEQ (LETT |k| 0) (LETT #1# (- (QREFELT $ 6) 1)) G190
+                      (COND ((|greater_SI| |k| #1#) (GO G191)))
+                      (SEQ (EXIT (LETT #2# (CONS (|CYCGRP;per| |k| $) #2#))))
+                      (LETT |k| (|inc_SI| |k|)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |CYCGRP;generator;$;18| (($ $)) (|CYCGRP;per| 1 $)) 
@@ -115,25 +111,23 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|CyclicGroup|)
-                                               '|domainEqualList|)
-                    . #3=(|CyclicGroup|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |CyclicGroup;|) #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (APPLY (|function| |CyclicGroup;|) #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|CyclicGroup|)))))))))) 
 
 (DEFUN |CyclicGroup;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|CyclicGroup|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|CyclicGroup| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 47) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|CyclicGroup| DV$1 DV$2))
+          (LETT $ (GETREFV 47))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CyclicGroup| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -18,8 +18,7 @@
                            (|HyperbolicFunctionCategory|)
                            (|ArcHyperbolicFunctionCategory|)
                            (|ElementaryFunctionCategory|)
-                           (|mkCategory| '(((|pi| ($)) T)) NIL NIL NIL))
-                   |TranscendentalFunctionCategory|)
+                           (|mkCategory| '(((|pi| ($)) T)) NIL NIL NIL)))
            (SETELT #1# 0 '(|TranscendentalFunctionCategory|))))) 
 
 (MAKEPROP '|TranscendentalFunctionCategory| 'NILADIC T) 

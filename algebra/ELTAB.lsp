@@ -19,6 +19,5 @@
                    (|sublisV| (PAIR '(|t#1| |t#2|) (LIST |t#1| |t#2|))
                               (|Join|
                                (|mkCategory| '(((|elt| (|t#2| $ |t#1|)) T)) NIL
-                                             NIL NIL)))
-                   |Eltable|)
+                                             NIL NIL))))
            (SETELT #1# 0 (LIST '|Eltable| |t#1| |t#2|))))) 

@@ -79,7 +79,5 @@
                                                  ($ $ (|NonNegativeInteger|)))
                                                 (|has| $
                                                        (|shallowlyMutable|))))
-                                             NIL NIL NIL))
-                                           . #2=(|UnaryRecursiveAggregate|)))))
-                   . #2#)
+                                             NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|UnaryRecursiveAggregate| |t#1|))))) 

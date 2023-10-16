@@ -5,68 +5,68 @@
         (SPROG
          ((|t2| #1=(|Symbol|)) (|t1| #1#) (|varList3| #2=(|List| (|Symbol|)))
           (|varList2| #2#) (|varList1| #2#))
-         (SEQ
-          (LETT |varList1| (SPADCALL |x| (QREFELT $ 8))
-                . #3=(|EXPRTUBE;getVariable|))
-          (LETT |varList2| (SPADCALL |y| (QREFELT $ 8)) . #3#)
-          (LETT |varList3| (SPADCALL |z| (QREFELT $ 8)) . #3#)
-          (COND
-           ((SPADCALL (LENGTH |varList1|) 1 (QREFELT $ 12))
-            (COND
-             ((SPADCALL (LENGTH |varList2|) 1 (QREFELT $ 12))
+         (SEQ (LETT |varList1| (SPADCALL |x| (QREFELT $ 8)))
+              (LETT |varList2| (SPADCALL |y| (QREFELT $ 8)))
+              (LETT |varList3| (SPADCALL |z| (QREFELT $ 8)))
               (COND
-               ((NULL (SPADCALL (LENGTH |varList3|) 1 (QREFELT $ 12)))
-                (EXIT
-                 (|error| #4="tubePlot: only one variable may be used")))))
-             (#5='T (EXIT (|error| #4#)))))
-           (#5# (EXIT (|error| #4#))))
-          (EXIT
-           (COND
-            ((NULL |varList1|)
-             (COND
-              ((NULL |varList2|)
-               (COND
-                ((NULL |varList3|)
-                 (|error| "tubePlot: a variable must appear in functions"))
-                (#5# (|SPADfirst| |varList3|))))
-              (#5#
-               (SEQ (LETT |t2| (|SPADfirst| |varList2|) . #3#)
+               ((SPADCALL (LENGTH |varList1|) 1 (QREFELT $ 12))
+                (COND
+                 ((SPADCALL (LENGTH |varList2|) 1 (QREFELT $ 12))
+                  (COND
+                   ((NULL (SPADCALL (LENGTH |varList3|) 1 (QREFELT $ 12)))
                     (EXIT
-                     (COND ((NULL |varList3|) |t2|)
-                           ((NULL (EQUAL (|SPADfirst| |varList3|) |t2|))
-                            (|error|
-                             "tubePlot: only one variable may be used"))))))))
-            (#5#
-             (SEQ (LETT |t1| (|SPADfirst| |varList1|) . #3#)
-                  (EXIT
+                     (|error| #3="tubePlot: only one variable may be used")))))
+                 (#4='T (EXIT (|error| #3#)))))
+               (#4# (EXIT (|error| #3#))))
+              (EXIT
+               (COND
+                ((NULL |varList1|)
+                 (COND
+                  ((NULL |varList2|)
                    (COND
-                    ((NULL |varList2|)
-                     (COND
-                      ((OR (NULL |varList3|)
-                           (NULL (NULL (EQUAL (|SPADfirst| |varList3|) |t1|))))
-                       |t1|)
-                      ('T
-                       (|error| "tubePlot: only one variable may be used"))))
-                    (#5#
-                     (SEQ (LETT |t2| (|SPADfirst| |varList2|) . #3#)
-                          (EXIT
-                           (COND
-                            ((NULL |varList3|)
-                             (COND ((EQUAL |t1| |t2|) |t1|)
-                                   (#5#
-                                    (|error|
-                                     "tubePlot: only one variable may be used"))))
-                            (#5#
-                             (SEQ
-                              (COND
-                               ((EQUAL (|SPADfirst| |varList3|) |t1|)
-                                (COND
-                                 ((NULL (EQUAL |t2| |t1|))
-                                  (EXIT
-                                   (|error|
-                                    #6="tubePlot: only one variable may be used")))))
-                               (#5# (EXIT (|error| #6#))))
-                              (EXIT |t1|)))))))))))))))) 
+                    ((NULL |varList3|)
+                     (|error| "tubePlot: a variable must appear in functions"))
+                    (#4# (|SPADfirst| |varList3|))))
+                  (#4#
+                   (SEQ (LETT |t2| (|SPADfirst| |varList2|))
+                        (EXIT
+                         (COND ((NULL |varList3|) |t2|)
+                               ((NULL (EQUAL (|SPADfirst| |varList3|) |t2|))
+                                (|error|
+                                 "tubePlot: only one variable may be used"))))))))
+                (#4#
+                 (SEQ (LETT |t1| (|SPADfirst| |varList1|))
+                      (EXIT
+                       (COND
+                        ((NULL |varList2|)
+                         (COND
+                          ((OR (NULL |varList3|)
+                               (NULL
+                                (NULL (EQUAL (|SPADfirst| |varList3|) |t1|))))
+                           |t1|)
+                          ('T
+                           (|error|
+                            "tubePlot: only one variable may be used"))))
+                        (#4#
+                         (SEQ (LETT |t2| (|SPADfirst| |varList2|))
+                              (EXIT
+                               (COND
+                                ((NULL |varList3|)
+                                 (COND ((EQUAL |t1| |t2|) |t1|)
+                                       (#4#
+                                        (|error|
+                                         "tubePlot: only one variable may be used"))))
+                                (#4#
+                                 (SEQ
+                                  (COND
+                                   ((EQUAL (|SPADfirst| |varList3|) |t1|)
+                                    (COND
+                                     ((NULL (EQUAL |t2| |t1|))
+                                      (EXIT
+                                       (|error|
+                                        #5="tubePlot: only one variable may be used")))))
+                                   (#4# (EXIT (|error| #5#))))
+                                  (EXIT |t1|)))))))))))))))) 
 
 (SDEFUN |EXPRTUBE;tubePlot;3EMSMISTp;2|
         ((|x| |Expression| (|Integer|)) (|y| |Expression| (|Integer|))
@@ -103,15 +103,14 @@
                               ((EQUAL |string| "open") NIL)
                               (#8#
                                (|error|
-                                "tubePlot: last argument should be open or closed")))
-                        . #9=(|EXPRTUBE;tubePlot;3EMSMISTp;2|))
-                  (LETT |t| (|EXPRTUBE;getVariable| |x| |y| |z| $) . #9#)
-                  (LETT |xFunc| (SPADCALL |x| |t| (QREFELT $ 16)) . #9#)
-                  (LETT |yFunc| (SPADCALL |y| |t| (QREFELT $ 16)) . #9#)
-                  (LETT |zFunc| (SPADCALL |z| |t| (QREFELT $ 16)) . #9#)
-                  (LETT |xp| (SPADCALL |x| |t| (QREFELT $ 17)) . #9#)
-                  (LETT |yp| (SPADCALL |y| |t| (QREFELT $ 17)) . #9#)
-                  (LETT |zp| (SPADCALL |z| |t| (QREFELT $ 17)) . #9#)
+                                "tubePlot: last argument should be open or closed"))))
+                  (LETT |t| (|EXPRTUBE;getVariable| |x| |y| |z| $))
+                  (LETT |xFunc| (SPADCALL |x| |t| (QREFELT $ 16)))
+                  (LETT |yFunc| (SPADCALL |y| |t| (QREFELT $ 16)))
+                  (LETT |zFunc| (SPADCALL |z| |t| (QREFELT $ 16)))
+                  (LETT |xp| (SPADCALL |x| |t| (QREFELT $ 17)))
+                  (LETT |yp| (SPADCALL |y| |t| (QREFELT $ 17)))
+                  (LETT |zp| (SPADCALL |z| |t| (QREFELT $ 17)))
                   (LETT |sp|
                         (SPADCALL
                          (SPADCALL
@@ -119,14 +118,13 @@
                                     (SPADCALL |yp| 2 (QREFELT $ 19))
                                     (QREFELT $ 20))
                           (SPADCALL |zp| 2 (QREFELT $ 19)) (QREFELT $ 20))
-                         (QREFELT $ 21))
-                        . #9#)
-                  (LETT |Tx| (SPADCALL |xp| |sp| (QREFELT $ 22)) . #9#)
-                  (LETT |Ty| (SPADCALL |yp| |sp| (QREFELT $ 22)) . #9#)
-                  (LETT |Tz| (SPADCALL |zp| |sp| (QREFELT $ 22)) . #9#)
-                  (LETT |Txp| (SPADCALL |Tx| |t| (QREFELT $ 17)) . #9#)
-                  (LETT |Typ| (SPADCALL |Ty| |t| (QREFELT $ 17)) . #9#)
-                  (LETT |Tzp| (SPADCALL |Tz| |t| (QREFELT $ 17)) . #9#)
+                         (QREFELT $ 21)))
+                  (LETT |Tx| (SPADCALL |xp| |sp| (QREFELT $ 22)))
+                  (LETT |Ty| (SPADCALL |yp| |sp| (QREFELT $ 22)))
+                  (LETT |Tz| (SPADCALL |zp| |sp| (QREFELT $ 22)))
+                  (LETT |Txp| (SPADCALL |Tx| |t| (QREFELT $ 17)))
+                  (LETT |Typ| (SPADCALL |Ty| |t| (QREFELT $ 17)))
+                  (LETT |Tzp| (SPADCALL |Tz| |t| (QREFELT $ 17)))
                   (LETT K
                         (SPADCALL
                          (SPADCALL
@@ -134,72 +132,61 @@
                                     (SPADCALL |Typ| 2 (QREFELT $ 19))
                                     (QREFELT $ 20))
                           (SPADCALL |Tzp| 2 (QREFELT $ 19)) (QREFELT $ 20))
-                         (QREFELT $ 21))
-                        . #9#)
-                  (LETT |Nx| (SPADCALL |Txp| K (QREFELT $ 22)) . #9#)
-                  (LETT |Ny| (SPADCALL |Typ| K (QREFELT $ 22)) . #9#)
-                  (LETT |Nz| (SPADCALL |Tzp| K (QREFELT $ 22)) . #9#)
-                  (LETT |NxFunc| (SPADCALL |Nx| |t| (QREFELT $ 16)) . #9#)
-                  (LETT |NyFunc| (SPADCALL |Ny| |t| (QREFELT $ 16)) . #9#)
-                  (LETT |NzFunc| (SPADCALL |Nz| |t| (QREFELT $ 16)) . #9#)
+                         (QREFELT $ 21)))
+                  (LETT |Nx| (SPADCALL |Txp| K (QREFELT $ 22)))
+                  (LETT |Ny| (SPADCALL |Typ| K (QREFELT $ 22)))
+                  (LETT |Nz| (SPADCALL |Tzp| K (QREFELT $ 22)))
+                  (LETT |NxFunc| (SPADCALL |Nx| |t| (QREFELT $ 16)))
+                  (LETT |NyFunc| (SPADCALL |Ny| |t| (QREFELT $ 16)))
+                  (LETT |NzFunc| (SPADCALL |Nz| |t| (QREFELT $ 16)))
                   (LETT |Bx|
                         (SPADCALL (SPADCALL |Ty| |Nz| (QREFELT $ 23))
                                   (SPADCALL |Tz| |Ny| (QREFELT $ 23))
-                                  (QREFELT $ 24))
-                        . #9#)
+                                  (QREFELT $ 24)))
                   (LETT |By|
                         (SPADCALL (SPADCALL |Tz| |Nx| (QREFELT $ 23))
                                   (SPADCALL |Tx| |Nz| (QREFELT $ 23))
-                                  (QREFELT $ 24))
-                        . #9#)
+                                  (QREFELT $ 24)))
                   (LETT |Bz|
                         (SPADCALL (SPADCALL |Tx| |Ny| (QREFELT $ 23))
                                   (SPADCALL |Ty| |Nx| (QREFELT $ 23))
-                                  (QREFELT $ 24))
-                        . #9#)
-                  (LETT |BxFunc| (SPADCALL |Bx| |t| (QREFELT $ 16)) . #9#)
-                  (LETT |ByFunc| (SPADCALL |By| |t| (QREFELT $ 16)) . #9#)
-                  (LETT |BzFunc| (SPADCALL |Bz| |t| (QREFELT $ 16)) . #9#)
+                                  (QREFELT $ 24)))
+                  (LETT |BxFunc| (SPADCALL |Bx| |t| (QREFELT $ 16)))
+                  (LETT |ByFunc| (SPADCALL |By| |t| (QREFELT $ 16)))
+                  (LETT |BzFunc| (SPADCALL |Bz| |t| (QREFELT $ 16)))
                   (LETT |parPlot|
                         (SPADCALL |xFunc| |yFunc| |zFunc| |colorFcn| |tRange|
-                                  (QREFELT $ 27))
-                        . #9#)
+                                  (QREFELT $ 27)))
                   (LETT |tvals|
-                        (|SPADfirst| (SPADCALL |parPlot| (QREFELT $ 29)))
-                        . #9#)
+                        (|SPADfirst| (SPADCALL |parPlot| (QREFELT $ 29))))
                   (LETT |curvePts|
-                        (|SPADfirst| (SPADCALL |parPlot| (QREFELT $ 31)))
-                        . #9#)
-                  (LETT |cosSin| (SPADCALL |n| (QREFELT $ 34)) . #9#)
-                  (LETT |loopList| NIL . #9#)
+                        (|SPADfirst| (SPADCALL |parPlot| (QREFELT $ 31))))
+                  (LETT |cosSin| (SPADCALL |n| (QREFELT $ 34)))
+                  (LETT |loopList| NIL)
                   (SEQ G190 (COND ((NULL (NULL (NULL |tvals|))) (GO G191)))
-                       (SEQ (LETT |tval| (|SPADfirst| |tvals|) . #9#)
-                            (LETT |tvals| (CDR |tvals|) . #9#)
-                            (LETT |ctr| (|SPADfirst| |curvePts|) . #9#)
-                            (LETT |curvePts| (CDR |curvePts|) . #9#)
+                       (SEQ (LETT |tval| (|SPADfirst| |tvals|))
+                            (LETT |tvals| (CDR |tvals|))
+                            (LETT |ctr| (|SPADfirst| |curvePts|))
+                            (LETT |curvePts| (CDR |curvePts|))
                             (LETT |pNormList|
                                   (LIST (SPADCALL |tval| |NxFunc|)
                                         (SPADCALL |tval| |NyFunc|)
                                         (SPADCALL |tval| |NzFunc|)
-                                        (SPADCALL |tval| |colorFcn|))
-                                  . #9#)
-                            (LETT |pNorm| (SPADCALL |pNormList| (QREFELT $ 37))
-                                  . #9#)
+                                        (SPADCALL |tval| |colorFcn|)))
+                            (LETT |pNorm|
+                                  (SPADCALL |pNormList| (QREFELT $ 37)))
                             (LETT |bNormList|
                                   (LIST (SPADCALL |tval| |BxFunc|)
                                         (SPADCALL |tval| |ByFunc|)
                                         (SPADCALL |tval| |BzFunc|)
-                                        (SPADCALL |tval| |colorFcn|))
-                                  . #9#)
-                            (LETT |bNorm| (SPADCALL |bNormList| (QREFELT $ 37))
-                                  . #9#)
+                                        (SPADCALL |tval| |colorFcn|)))
+                            (LETT |bNorm|
+                                  (SPADCALL |bNormList| (QREFELT $ 37)))
                             (LETT |lps|
                                   (SPADCALL |ctr| |pNorm| |bNorm|
                                             (SPADCALL |tval| |radFcn|) |cosSin|
-                                            (QREFELT $ 40))
-                                  . #9#)
-                            (EXIT
-                             (LETT |loopList| (CONS |lps| |loopList|) . #9#)))
+                                            (QREFELT $ 40)))
+                            (EXIT (LETT |loopList| (CONS |lps| |loopList|))))
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT
                    (SPADCALL |parPlot| (NREVERSE |loopList|) |flag|
@@ -228,9 +215,8 @@
 
 (SDEFUN |EXPRTUBE;constantToUnaryFunction;DfM;5!0| ((|s| NIL) ($$ NIL))
         (PROG (|x| $)
-          (LETT |x| (QREFELT $$ 1)
-                . #1=(|EXPRTUBE;constantToUnaryFunction;DfM;5|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |x| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|EXPRTUBE;project| |x| |s| $))))) 
 
 (SDEFUN |EXPRTUBE;tubePlot;3EMSDfISTp;6|
@@ -258,8 +244,7 @@
          (PROG (#1=#:G157)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|ExpressionTubePlot|)
-                    . #2=(|ExpressionTubePlot|))
+             ((LETT #1# (HGET |$ConstructorCache| '|ExpressionTubePlot|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -268,7 +253,7 @@
                        (HPUT |$ConstructorCache| '|ExpressionTubePlot|
                              (LIST
                               (CONS NIL (CONS 1 (|ExpressionTubePlot;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|ExpressionTubePlot|)))))))))) 
@@ -276,10 +261,10 @@
 (DEFUN |ExpressionTubePlot;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|ExpressionTubePlot|) . #1=(|ExpressionTubePlot|))
-          (LETT $ (GETREFV 49) . #1#)
+          (LETT |dv$| '(|ExpressionTubePlot|))
+          (LETT $ (GETREFV 49))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ExpressionTubePlot| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

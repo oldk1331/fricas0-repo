@@ -39,7 +39,5 @@
                                                         (|t#1| $))
                                                        T)
                                                       ((|reverse!| ($ $)) T))
-                                                    NIL NIL NIL))
-                                           . #2=(|DequeueAggregate|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DequeueAggregate| |t#1|))))) 

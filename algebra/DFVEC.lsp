@@ -57,11 +57,10 @@
 (SDEFUN |DFVEC;fill!;$Df$;12| ((|x| $) (|s| |DoubleFloat|) ($ $))
         (SPROG ((#1=#:G2387 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 0 . #2=(|DFVEC;fill!;$Df$;12|))
-                     (LETT #1# (|sub_SI| (DLEN |x|) 1) . #2#) G190
+                (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (DLEN |x|) 1)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ (EXIT (DSETELT |x| |i| |s|)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (DECLAIM (NOTINLINE |DoubleFloatVector;|)) 
@@ -71,8 +70,7 @@
          (PROG (#1=#:G2399)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloatVector|)
-                    . #2=(|DoubleFloatVector|))
+             ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloatVector|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -81,7 +79,7 @@
                        (HPUT |$ConstructorCache| '|DoubleFloatVector|
                              (LIST
                               (CONS NIL (CONS 1 (|DoubleFloatVector;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|DoubleFloatVector|)))))))))) 
@@ -91,8 +89,8 @@
    ((|dv$| NIL) ($ NIL) (#1=#:G2397 NIL) (#2=#:G2396 NIL) (#3=#:G2395 NIL)
     (|pv$| NIL))
    (PROGN
-    (LETT |dv$| '(|DoubleFloatVector|) . #4=(|DoubleFloatVector|))
-    (LETT $ (GETREFV 38) . #4#)
+    (LETT |dv$| '(|DoubleFloatVector|))
+    (LETT $ (GETREFV 38))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -109,15 +107,13 @@
                                                        '(|BasicType|))
                                         (LETT #1#
                                               (|HasCategory| (|DoubleFloat|)
-                                                             '(|Comparable|))
-                                              . #4#)
+                                                             '(|Comparable|)))
                                         (OR #1#
                                             (|HasCategory| (|DoubleFloat|)
                                                            '(|OrderedSet|)))
                                         (LETT #2#
                                               (|HasCategory| (|DoubleFloat|)
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| (|DoubleFloat|)
                                                         '(|Evalable|
@@ -137,8 +133,7 @@
                                         (LETT #3#
                                               (|HasCategory| (|DoubleFloat|)
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #3# #1#
                                             (|HasCategory| (|DoubleFloat|)
                                                            '(|OrderedSet|))
@@ -162,8 +157,7 @@
                                          (|HasCategory| (|DoubleFloat|)
                                                         '(|RadicalCategory|))
                                          (|HasCategory| (|DoubleFloat|)
-                                                        '(|Ring|)))))
-                    . #4#))
+                                                        '(|Ring|)))))))
     (|haddProp| |$ConstructorCache| '|DoubleFloatVector| NIL (CONS 1 $))
     (|stuffDomainSlots| $)
     (AND (|HasCategory| $ '(|shallowlyMutable|))

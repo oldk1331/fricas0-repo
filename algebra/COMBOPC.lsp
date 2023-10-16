@@ -19,8 +19,7 @@
                               ((|summation| ($ $ (|SegmentBinding| $))) T)
                               ((|product| ($ $ (|Symbol|))) T)
                               ((|product| ($ $ (|SegmentBinding| $))) T))
-                            NIL NIL NIL))
-                   |CombinatorialOpsCategory|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|CombinatorialOpsCategory|))))) 
 
 (MAKEPROP '|CombinatorialOpsCategory| 'NILADIC T) 

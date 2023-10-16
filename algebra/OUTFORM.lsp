@@ -107,14 +107,11 @@
                        (SEQ
                         (LETT |lv|
                               (PROGN
-                               (LETT #2# NIL . #3=(|OUTFORM;matrix;L$;25|))
-                               (SEQ (LETT |l| NIL . #3#) (LETT #1# |ll| . #3#)
-                                    G190
+                               (LETT #2# NIL)
+                               (SEQ (LETT |l| NIL) (LETT #1# |ll|) G190
                                     (COND
                                      ((OR (ATOM #1#)
-                                          (PROGN
-                                           (LETT |l| (CAR #1#) . #3#)
-                                           NIL))
+                                          (PROGN (LETT |l| (CAR #1#)) NIL))
                                       (GO G191)))
                                     (SEQ
                                      (EXIT
@@ -122,11 +119,9 @@
                                             (CONS
                                              (|OUTFORM;cons_form|
                                               (|OUTFORM;eform| 'ROW $) |l| $)
-                                             #2#)
-                                            . #3#)))
-                                    (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                                    (EXIT (NREVERSE #2#))))
-                              . #3#)
+                                             #2#))))
+                                    (LETT #1# (CDR #1#)) (GO G190) G191
+                                    (EXIT (NREVERSE #2#)))))
                         (EXIT
                          (|OUTFORM;cons_form| (|OUTFORM;eform| 'MATRIX $)
                           (SPADCALL (|OUTFORM;eform| 'NIL $) |lv|
@@ -146,27 +141,22 @@
         (SPROG
          ((|l1| (|List| $)) (|l2| (|List| $)) (|uo| (|OutputForm|))
           (#1=#:G1639 NIL) (|u| NIL) (|c| ($)))
-         (SEQ
-          (LETT |c| (|OUTFORM;eform| 'CONCATB $)
-                . #2=(|OUTFORM;blankSeparate;L$;29|))
-          (LETT |l1| NIL . #2#)
-          (SEQ (LETT |u| NIL . #2#)
-               (LETT #1# (SPADCALL |l| (QREFELT $ 48)) . #2#) G190
-               (COND
-                ((OR (ATOM #1#) (PROGN (LETT |u| (CAR #1#) . #2#) NIL))
-                 (GO G191)))
-               (SEQ (LETT |uo| |u| . #2#)
-                    (EXIT
-                     (COND
-                      ((SPADCALL |uo| 'CONCATB (QREFELT $ 50))
-                       (SEQ (LETT |l2| (SPADCALL |uo| (QREFELT $ 52)) . #2#)
-                            (EXIT
-                             (LETT |l1| (SPADCALL |l2| |l1| (QREFELT $ 53))
-                                   . #2#))))
-                      ('T
-                       (LETT |l1| (SPADCALL |u| |l1| (QREFELT $ 7)) . #2#)))))
-               (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT (|OUTFORM;cons_form| |c| |l1| $))))) 
+         (SEQ (LETT |c| (|OUTFORM;eform| 'CONCATB $)) (LETT |l1| NIL)
+              (SEQ (LETT |u| NIL) (LETT #1# (SPADCALL |l| (QREFELT $ 48))) G190
+                   (COND
+                    ((OR (ATOM #1#) (PROGN (LETT |u| (CAR #1#)) NIL))
+                     (GO G191)))
+                   (SEQ (LETT |uo| |u|)
+                        (EXIT
+                         (COND
+                          ((SPADCALL |uo| 'CONCATB (QREFELT $ 50))
+                           (SEQ (LETT |l2| (SPADCALL |uo| (QREFELT $ 52)))
+                                (EXIT
+                                 (LETT |l1|
+                                       (SPADCALL |l2| |l1| (QREFELT $ 53))))))
+                          ('T (LETT |l1| (SPADCALL |u| |l1| (QREFELT $ 7)))))))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+              (EXIT (|OUTFORM;cons_form| |c| |l1| $))))) 
 
 (SDEFUN |OUTFORM;brace;2$;30| ((|a| $) ($ $))
         (SPADCALL (LIST (|OUTFORM;eform| 'BRACE $) |a|) (QREFELT $ 19))) 
@@ -219,8 +209,8 @@
          (COND
           ((ODDP (SPADCALL |l| (QREFELT $ 69)))
            (LETT |l|
-                 (SPADCALL |l| (LIST (SPADCALL (QREFELT $ 14))) (QREFELT $ 70))
-                 |OUTFORM;supersub;$L$;41|)))
+                 (SPADCALL |l| (LIST (SPADCALL (QREFELT $ 14)))
+                           (QREFELT $ 70)))))
          (EXIT
           (|OUTFORM;cons_form| (|OUTFORM;eform| 'ALTSUPERSUB $)
            (SPADCALL |a| |l| (QREFELT $ 7)) $)))) 
@@ -307,13 +297,9 @@
                  (SEQ
                   (LETT |e|
                         (COND ((IDENTP |a|) |a|) ((STRINGP |a|) (INTERN |a|))
-                              (#2='T
-                               (PROGN
-                                (LETT #1# NIL . #3=(|OUTFORM;infix?;$B;67|))
-                                (GO #4=#:G1684))))
-                        . #3#)
+                              (#2='T (PROGN (LETT #1# NIL) (GO #3=#:G1684)))))
                   (EXIT (COND ((GET |e| 'INFIXOP) 'T) (#2# NIL)))))
-                #4# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |OUTFORM;elt;$L$;68| ((|a| $) (|l| |List| $) ($ $))
         (|OUTFORM;cons_form| |a| |l| $)) 
@@ -362,17 +348,15 @@
 
 (SDEFUN |OUTFORM;dot;$Nni$;78| ((|a| $) (|nn| |NonNegativeInteger|) ($ $))
         (SPROG ((|s| (|String|)))
-               (SEQ
-                (LETT |s| (|make_full_CVEC| |nn| (|STR_to_CHAR| "."))
-                      |OUTFORM;dot;$Nni$;78|)
-                (EXIT (SPADCALL |a| (|OUTFORM;sform| |s| $) (QREFELT $ 61)))))) 
+               (SEQ (LETT |s| (|make_full_CVEC| |nn| (|STR_to_CHAR| ".")))
+                    (EXIT
+                     (SPADCALL |a| (|OUTFORM;sform| |s| $) (QREFELT $ 61)))))) 
 
 (SDEFUN |OUTFORM;prime;$Nni$;79| ((|a| $) (|nn| |NonNegativeInteger|) ($ $))
         (SPROG ((|s| (|String|)))
-               (SEQ
-                (LETT |s| (|make_full_CVEC| |nn| (|STR_to_CHAR| ","))
-                      |OUTFORM;prime;$Nni$;79|)
-                (EXIT (|OUTFORM;add_prime| |a| (|OUTFORM;sform| |s| $) $))))) 
+               (SEQ (LETT |s| (|make_full_CVEC| |nn| (|STR_to_CHAR| ",")))
+                    (EXIT
+                     (|OUTFORM;add_prime| |a| (|OUTFORM;sform| |s| $) $))))) 
 
 (SDEFUN |OUTFORM;overlabel;3$;80| ((|a| $) (|b| $) ($ $))
         (SPADCALL (LIST (|OUTFORM;eform| 'OVERLABEL $) |a| |b|) (QREFELT $ 19))) 
@@ -414,16 +398,13 @@
                        (SEQ
                         (LETT |r|
                               (SPADCALL
-                               (PROG1
-                                   (LETT #1# |nn|
-                                         . #2=(|OUTFORM;differentiate;$Nni$;90|))
+                               (PROG1 (LETT #1# |nn|)
                                  (|check_subtype2| (> #1# 0)
                                                    '(|PositiveInteger|)
                                                    '(|NonNegativeInteger|)
                                                    #1#))
-                               (QREFELT $ 118))
-                              . #2#)
-                        (LETT |s| (SPADCALL |r| (QREFELT $ 119)) . #2#)
+                               (QREFELT $ 118)))
+                        (LETT |s| (SPADCALL |r| (QREFELT $ 119)))
                         (EXIT
                          (|OUTFORM;add_prime| |a|
                           (SPADCALL (|OUTFORM;sform| |s| $) (QREFELT $ 58))
@@ -476,8 +457,7 @@
          (PROG (#1=#:G1732)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|OutputForm|)
-                    . #2=(|OutputForm|))
+             ((LETT #1# (HGET |$ConstructorCache| '|OutputForm|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -485,17 +465,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|OutputForm|
                              (LIST (CONS NIL (CONS 1 (|OutputForm;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|OutputForm|)))))))))) 
 
 (DEFUN |OutputForm;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|OutputForm|) . #1=(|OutputForm|))
-          (LETT $ (GETREFV 133) . #1#)
+          (LETT |dv$| '(|OutputForm|))
+          (LETT $ (GETREFV 133))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|OutputForm| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

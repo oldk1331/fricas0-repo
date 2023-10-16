@@ -38,15 +38,14 @@
          (SEQ
           (LETT |l|
                 (PROGN
-                 (LETT #2# NIL . #3=(|IRRF2F;integrate;FSU;7|))
-                 (SEQ (LETT |g| NIL . #3#)
+                 (LETT #2# NIL)
+                 (SEQ (LETT |g| NIL)
                       (LETT #1#
                             (SPADCALL (SPADCALL |f| |x| (QREFELT $ 29)) |x|
-                                      (QREFELT $ 19))
-                            . #3#)
+                                      (QREFELT $ 19)))
                       G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |g| (CAR #1#) . #3#) NIL))
+                       ((OR (ATOM #1#) (PROGN (LETT |g| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
@@ -54,11 +53,9 @@
                               (CONS
                                (SPADCALL (SPADCALL |g| (QREFELT $ 34)) |x|
                                          (QREFELT $ 36))
-                               #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #3#)
+                               #2#))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191
+                      (EXIT (NREVERSE #2#)))))
           (EXIT
            (COND ((NULL (CDR |l|)) (CONS 0 (|SPADfirst| |l|)))
                  ('T (CONS 1 |l|))))))) 
@@ -74,13 +71,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|IntegrationResultRFToFunction|)
-                                               '|domainEqualList|)
-                    . #3=(|IntegrationResultRFToFunction|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|IntegrationResultRFToFunction;| #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (|IntegrationResultRFToFunction;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -89,17 +84,16 @@
 (DEFUN |IntegrationResultRFToFunction;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegrationResultRFToFunction|))
-          (LETT |dv$| (LIST '|IntegrationResultRFToFunction| DV$1) . #1#)
-          (LETT $ (GETREFV 37) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|IntegrationResultRFToFunction| DV$1))
+          (LETT $ (GETREFV 37))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
-                                                             '(|CharacteristicZero|))))
-                          . #1#))
+                                                             '(|CharacteristicZero|))))))
           (|haddProp| |$ConstructorCache| '|IntegrationResultRFToFunction|
                       (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)

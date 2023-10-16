@@ -1,13 +1,12 @@
 
 (SDEFUN |TEMUTL;stripC| ((|s| |String|) (|u| |String|) ($ |String|))
         (SPROG ((|i| (|Integer|)))
-               (SEQ
-                (LETT |i| (SPADCALL |u| |s| 1 (QREFELT $ 10)) |TEMUTL;stripC|)
-                (EXIT
-                 (COND ((EQL |i| 0) |s|)
-                       ('T
-                        (SPADCALL |s| (SPADCALL |i| (QREFELT $ 13))
-                                  (QREFELT $ 14)))))))) 
+               (SEQ (LETT |i| (SPADCALL |u| |s| 1 (QREFELT $ 10)))
+                    (EXIT
+                     (COND ((EQL |i| 0) |s|)
+                           ('T
+                            (SPADCALL |s| (SPADCALL |i| (QREFELT $ 13))
+                                      (QREFELT $ 14)))))))) 
 
 (SDEFUN |TEMUTL;stripCommentsAndBlanks;2S;2| ((|s| |String|) ($ |String|))
         (SPADCALL (|TEMUTL;stripC| (|TEMUTL;stripC| |s| "++" $) "--" $)
@@ -23,8 +22,7 @@
          (PROG (#1=#:G109)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|TemplateUtilities|)
-                    . #2=(|TemplateUtilities|))
+             ((LETT #1# (HGET |$ConstructorCache| '|TemplateUtilities|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -33,7 +31,7 @@
                        (HPUT |$ConstructorCache| '|TemplateUtilities|
                              (LIST
                               (CONS NIL (CONS 1 (|TemplateUtilities;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|TemplateUtilities|)))))))))) 
@@ -41,10 +39,10 @@
 (DEFUN |TemplateUtilities;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|TemplateUtilities|) . #1=(|TemplateUtilities|))
-          (LETT $ (GETREFV 22) . #1#)
+          (LETT |dv$| '(|TemplateUtilities|))
+          (LETT $ (GETREFV 22))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TemplateUtilities| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

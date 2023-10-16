@@ -4,19 +4,18 @@
 
 (SDEFUN |SKSMP;Delta;S$;2| ((|s| |Symbol|) ($ $))
         (SPROG ((|vu| (|Union| |Var| "failed")))
-               (SEQ
-                (LETT |vu| (SPADCALL |s| (QREFELT $ 17)) |SKSMP;Delta;S$;2|)
-                (EXIT
-                 (COND ((QEQCAR |vu| 1) (|error| "missing variable"))
-                       ('T (SPADCALL (QCDR |vu|) (QREFELT $ 14)))))))) 
+               (SEQ (LETT |vu| (SPADCALL |s| (QREFELT $ 17)))
+                    (EXIT
+                     (COND ((QEQCAR |vu| 1) (|error| "missing variable"))
+                           ('T (SPADCALL (QCDR |vu|) (QREFELT $ 14)))))))) 
 
 (SDEFUN |SKSMP;lift_map| ((|f| |Mapping| R R) ($ |Mapping| $ $))
         (SPROG NIL (CONS #'|SKSMP;lift_map!0| (VECTOR $ |f|)))) 
 
 (SDEFUN |SKSMP;lift_map!0| ((|x| NIL) ($$ NIL))
         (PROG (|f| $)
-          (LETT |f| (QREFELT $$ 1) . #1=(|SKSMP;lift_map|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |f| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |f| |x| (QREFELT $ 28)))))) 
 
 (SDEFUN |SKSMP;lift_morphism| ((|m| |Automorphism| R) ($ |Automorphism| $))
@@ -30,16 +29,16 @@
 
 (SDEFUN |SKSMP;lift_morphism!1| ((|x| NIL) ($$ NIL))
         (PROG (|m| $)
-          (LETT |m| (QREFELT $$ 1) . #1=(|SKSMP;lift_morphism|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |m| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL (SPADCALL |m| (QREFELT $ 31)) |x| (QREFELT $ 30)))))) 
 
 (SDEFUN |SKSMP;lift_morphism!0| ((|x| NIL) ($$ NIL))
         (PROG (|m| $)
-          (LETT |m| (QREFELT $$ 1) . #1=(|SKSMP;lift_morphism|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |m| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |m| |x| (QREFELT $ 30)))))) 
 
 (SDEFUN |SKSMP;*;3$;5| ((|x| $) (|y| $) ($ $))
@@ -53,22 +52,18 @@
            ('T
             (SEQ
              (LETT |v|
-                   (PROG2
-                       (LETT #1# (SPADCALL |x| (QREFELT $ 38))
-                             . #2=(|SKSMP;*;3$;5|))
+                   (PROG2 (LETT #1# (SPADCALL |x| (QREFELT $ 38)))
                        (QCDR #1#)
                      (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
-                                     (|Union| (QREFELT $ 7) "failed") #1#))
-                   . #2#)
-             (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 40)) . #2#)
-             (LETT |yu| (SPADCALL |y| |v| (QREFELT $ 40)) . #2#)
+                                     (|Union| (QREFELT $ 7) "failed") #1#)))
+             (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 40)))
+             (LETT |yu| (SPADCALL |y| |v| (QREFELT $ 40)))
              (LETT |ru|
                    (SPADCALL |xu| |yu|
                              (|SKSMP;lift_morphism|
                               (SPADCALL |v| (QREFELT $ 8)) $)
                              (|SKSMP;lift_map| (SPADCALL |v| (QREFELT $ 9)) $)
-                             (QREFELT $ 42))
-                   . #2#)
+                             (QREFELT $ 42)))
              (EXIT (SPADCALL |ru| |v| (QREFELT $ 43))))))))) 
 
 (SDEFUN |SKSMP;*;$R$;6| ((|x| $) (|r| R) ($ $))
@@ -88,62 +83,58 @@
              (SPADCALL |x| (SPADCALL |y| (QREFELT $ 35)) (QREFELT $ 47)))
             ((SPADCALL |x| (QREFELT $ 34)) (CONS 1 "failed"))
             ('T
-             (SEQ
-              (LETT |maxd| (SPADCALL |x| (QREFELT $ 48))
-                    . #2=(|SKSMP;exquo;2$U;7|))
-              (LETT |ly| (SPADCALL |y| (QREFELT $ 49)) . #2#)
-              (LETT |res| (|spadConstant| $ 25) . #2#)
-              (SEQ G190
-                   (COND
-                    ((NULL (SPADCALL |x| (|spadConstant| $ 25) (QREFELT $ 51)))
-                     (GO G191)))
-                   (SEQ (LETT |lx1| (SPADCALL |x| (QREFELT $ 49)) . #2#)
-                        (EXIT
-                         (COND
-                          ((SPADCALL (SPADCALL |lx1| (QREFELT $ 48)) |maxd|
-                                     (QREFELT $ 52))
-                           (PROGN
-                            (LETT #1# (CONS 1 "failed") . #2#)
-                            (GO #3=#:G156)))
-                          ('T
-                           (SEQ (LETT |lx| |lx1| . #2#)
-                                (LETT |cu| (SPADCALL |lx| |ly| (QREFELT $ 53))
-                                      . #2#)
-                                (EXIT
-                                 (COND
-                                  ((QEQCAR |cu| 1)
-                                   (PROGN
-                                    (LETT #1# (CONS 1 "failed") . #2#)
-                                    (GO #3#)))
-                                  ('T
-                                   (SEQ (LETT |cc| (QCDR |cu|) . #2#)
-                                        (LETT |res|
-                                              (SPADCALL |res| |cc|
-                                                        (QREFELT $ 54))
-                                              . #2#)
-                                        (EXIT
-                                         (LETT |x|
-                                               (SPADCALL |x|
-                                                         (SPADCALL |cc| |y|
-                                                                   (QREFELT $
-                                                                            44))
-                                                         (QREFELT $ 55))
-                                               . #2#)))))))))))
-                   NIL (GO G190) G191 (EXIT NIL))
-              (EXIT (CONS 0 |res|))))))
-          #3# (EXIT #1#)))) 
+             (SEQ (LETT |maxd| (SPADCALL |x| (QREFELT $ 48)))
+                  (LETT |ly| (SPADCALL |y| (QREFELT $ 49)))
+                  (LETT |res| (|spadConstant| $ 25))
+                  (SEQ G190
+                       (COND
+                        ((NULL
+                          (SPADCALL |x| (|spadConstant| $ 25) (QREFELT $ 51)))
+                         (GO G191)))
+                       (SEQ (LETT |lx1| (SPADCALL |x| (QREFELT $ 49)))
+                            (EXIT
+                             (COND
+                              ((SPADCALL (SPADCALL |lx1| (QREFELT $ 48)) |maxd|
+                                         (QREFELT $ 52))
+                               (PROGN
+                                (LETT #1# (CONS 1 "failed"))
+                                (GO #2=#:G156)))
+                              ('T
+                               (SEQ (LETT |lx| |lx1|)
+                                    (LETT |cu|
+                                          (SPADCALL |lx| |ly| (QREFELT $ 53)))
+                                    (EXIT
+                                     (COND
+                                      ((QEQCAR |cu| 1)
+                                       (PROGN
+                                        (LETT #1# (CONS 1 "failed"))
+                                        (GO #2#)))
+                                      ('T
+                                       (SEQ (LETT |cc| (QCDR |cu|))
+                                            (LETT |res|
+                                                  (SPADCALL |res| |cc|
+                                                            (QREFELT $ 54)))
+                                            (EXIT
+                                             (LETT |x|
+                                                   (SPADCALL |x|
+                                                             (SPADCALL |cc| |y|
+                                                                       (QREFELT
+                                                                        $ 44))
+                                                             (QREFELT $
+                                                                      55)))))))))))))
+                       NIL (GO G190) G191 (EXIT NIL))
+                  (EXIT (CONS 0 |res|))))))
+          #2# (EXIT #1#)))) 
 
 (SDEFUN |SKSMP;^;$Pi$;8| ((|x| $) (|n| |PositiveInteger|) ($ $))
         (SPROG ((|res| ($)) (#1=#:G161 NIL) (|i| NIL))
-               (SEQ (LETT |res| |x| . #2=(|SKSMP;^;$Pi$;8|))
-                    (SEQ (LETT |i| 2 . #2#) (LETT #1# |n| . #2#) G190
+               (SEQ (LETT |res| |x|)
+                    (SEQ (LETT |i| 2) (LETT #1# |n|) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
                          (SEQ
                           (EXIT
-                           (LETT |res| (SPADCALL |res| |x| (QREFELT $ 44))
-                                 . #2#)))
-                         (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
-                         (EXIT NIL))
+                           (LETT |res| (SPADCALL |res| |x| (QREFELT $ 44)))))
+                         (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |res|)))) 
 
 (SDEFUN |SKSMP;^;$Nni$;9| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
@@ -159,15 +150,12 @@
                  ('T
                   (SEQ
                    (LETT |v|
-                         (PROG2
-                             (LETT #1# (SPADCALL |x| (QREFELT $ 38))
-                                   . #2=(|SKSMP;coerce;$Of;10|))
+                         (PROG2 (LETT #1# (SPADCALL |x| (QREFELT $ 38)))
                              (QCDR #1#)
                            (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                            (|Union| (QREFELT $ 7) "failed")
-                                           #1#))
-                         . #2#)
-                   (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 40)) . #2#)
+                                           #1#)))
+                   (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 40)))
                    (EXIT
                     (SPADCALL |xu|
                               (SPADCALL (SPADCALL 'D (QREFELT $ 62))
@@ -186,15 +174,14 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|SparseMultivariateSkewPolynomial|)
-                                               '|domainEqualList|)
-                    . #3=(|SparseMultivariateSkewPolynomial|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |SparseMultivariateSkewPolynomial;|)
                              #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -205,13 +192,12 @@
    ((|pv$| NIL) (#1=#:G182 NIL) (#2=#:G183 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL)
     (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #3=(|SparseMultivariateSkewPolynomial|))
-    (LETT DV$2 (|devaluate| |#2|) . #3#)
-    (LETT DV$3 (|devaluate| |#3|) . #3#)
-    (LETT DV$4 (|devaluate| |#4|) . #3#)
-    (LETT |dv$| (LIST '|SparseMultivariateSkewPolynomial| DV$1 DV$2 DV$3 DV$4)
-          . #3#)
-    (LETT $ (GETREFV 88) . #3#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
+    (LETT |dv$| (LIST '|SparseMultivariateSkewPolynomial| DV$1 DV$2 DV$3 DV$4))
+    (LETT $ (GETREFV 88))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -242,8 +228,7 @@
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|LinearlyExplicitOver|
-                                                               (|Integer|)))
-                                              . #3#)
+                                                               (|Integer|))))
                                         (OR
                                          (|HasCategory| |#1|
                                                         '(|Algebra|
@@ -276,8 +261,7 @@
                                         (|HasCategory| |#1| '(|AbelianMonoid|))
                                         (LETT #1#
                                               (|HasCategory| |#1|
-                                                             '(|CancellationAbelianMonoid|))
-                                              . #3#)
+                                                             '(|CancellationAbelianMonoid|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -299,8 +283,7 @@
                                                               (LIST
                                                                (|devaluate|
                                                                 |#2|)
-                                                               '(|Symbol|))))))
-                    . #3#))
+                                                               '(|Symbol|))))))))
     (|haddProp| |$ConstructorCache| '|SparseMultivariateSkewPolynomial|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
     (|stuffDomainSlots| $)

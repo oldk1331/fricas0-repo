@@ -18,8 +18,7 @@
                      '(((|acos| ($ $)) T) ((|acot| ($ $)) T) ((|acsc| ($ $)) T)
                        ((|asec| ($ $)) T) ((|asin| ($ $)) T)
                        ((|atan| ($ $)) T))
-                     NIL NIL NIL))
-                   |ArcTrigonometricFunctionCategory|)
+                     NIL NIL NIL)))
            (SETELT #1# 0 '(|ArcTrigonometricFunctionCategory|))))) 
 
 (MAKEPROP '|ArcTrigonometricFunctionCategory| 'NILADIC T) 

@@ -12,16 +12,12 @@
                 (COND
                  ((SPADCALL (ELT $ 16)
                             (PROGN
-                             (LETT #2# NIL . #3=(|JBX;retractIfCan;JbeU;2|))
-                             (SEQ (LETT |jv| NIL . #3#)
-                                  (LETT #1# (SPADCALL |p| (QREFELT $ 15))
-                                        . #3#)
-                                  G190
+                             (LETT #2# NIL)
+                             (SEQ (LETT |jv| NIL)
+                                  (LETT #1# (SPADCALL |p| (QREFELT $ 15))) G190
                                   (COND
                                    ((OR (ATOM #1#)
-                                        (PROGN
-                                         (LETT |jv| (CAR #1#) . #3#)
-                                         NIL))
+                                        (PROGN (LETT |jv| (CAR #1#)) NIL))
                                     (GO G191)))
                                   (SEQ
                                    (EXIT
@@ -29,9 +25,8 @@
                                           (CONS
                                            (EQUAL (SPADCALL |jv| (QREFELT $ 9))
                                                   '|Indep|)
-                                           #2#)
-                                          . #3#)))
-                                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                                           #2#))))
+                                  (LETT #1# (CDR #1#)) (GO G190) G191
                                   (EXIT (NREVERSE #2#))))
                             'T (QREFELT $ 19))
                   (CONS 0 |p|))
@@ -39,13 +34,13 @@
 
 (SDEFUN |JBX;retract;Jbe$;3| ((|p| |JetBundleExpression| JB) ($ $))
         (SPROG ((|px| (|Union| $ "failed")))
-               (SEQ
-                (LETT |px| (SPADCALL |p| (QREFELT $ 21)) |JBX;retract;Jbe$;3|)
-                (EXIT
-                 (COND
-                  ((QEQCAR |px| 1)
-                   (|error| "Only functions of independent variables allowed"))
-                  ('T (QCDR |px|))))))) 
+               (SEQ (LETT |px| (SPADCALL |p| (QREFELT $ 21)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |px| 1)
+                       (|error|
+                        "Only functions of independent variables allowed"))
+                      ('T (QCDR |px|))))))) 
 
 (DECLAIM (NOTINLINE |JetBundleXExpression;|)) 
 
@@ -58,12 +53,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|JetBundleXExpression|)
-                                               '|domainEqualList|)
-                    . #3=(|JetBundleXExpression|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|JetBundleXExpression;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|JetBundleXExpression;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|JetBundleXExpression|)))))))))) 
@@ -71,9 +65,9 @@
 (DEFUN |JetBundleXExpression;| (|#1|)
   (SPROG ((|pv$| NIL) (#1=#:G186 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #2=(|JetBundleXExpression|))
-          (LETT |dv$| (LIST '|JetBundleXExpression| DV$1) . #2#)
-          (LETT $ (GETREFV 94) . #2#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|JetBundleXExpression| DV$1))
+          (LETT $ (GETREFV 94))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -111,8 +105,7 @@
                                               (LETT #1#
                                                     (|HasCategory| (|Integer|)
                                                                    '(|RetractableTo|
-                                                                     (|Integer|)))
-                                                    . #2#)
+                                                                     (|Integer|))))
                                               (OR
                                                (|HasCategory| (|Integer|)
                                                               '(|RetractableTo|
@@ -183,8 +176,7 @@
                                               (|HasCategory| (|Integer|)
                                                              '(|AbelianSemiGroup|))
                                               (|HasCategory| (|Integer|)
-                                                             '(|SemiGroup|))))
-                          . #2#))
+                                                             '(|SemiGroup|))))))
           (|haddProp| |$ConstructorCache| '|JetBundleXExpression| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

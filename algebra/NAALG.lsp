@@ -30,7 +30,5 @@
                                                         ($ $
                                                          (|PositiveInteger|)))
                                                        T))
-                                                    NIL NIL NIL))
-                                           . #2=(|NonAssociativeAlgebra|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|NonAssociativeAlgebra| |t#1|))))) 

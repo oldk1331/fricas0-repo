@@ -158,7 +158,5 @@
                                                           (|Integer|) |t#1|)
                                                          $))
                                                        T))
-                                                    NIL NIL NIL))
-                                           . #2=(|Poset|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|Poset| |t#1|))))) 

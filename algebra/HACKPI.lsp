@@ -34,7 +34,7 @@
         ((|p| |SparseUnivariatePolynomial| (|Integer|))
          ($ |Polynomial| (|Integer|)))
         (SPROG ((|ans| (|Polynomial| (|Integer|))))
-               (SEQ (LETT |ans| (|spadConstant| $ 33) . #1=(|HACKPI;p2p|))
+               (SEQ (LETT |ans| (|spadConstant| $ 33))
                     (SEQ G190
                          (COND
                           ((NULL
@@ -51,17 +51,15 @@
                                            (QREFELT $ 7)
                                            (SPADCALL |p| (QREFELT $ 41))
                                            (QREFELT $ 42))
-                                          (QREFELT $ 43))
-                                . #1#)
-                          (EXIT
-                           (LETT |p| (SPADCALL |p| (QREFELT $ 44)) . #1#)))
+                                          (QREFELT $ 43)))
+                          (EXIT (LETT |p| (SPADCALL |p| (QREFELT $ 44)))))
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |ans|)))) 
 
 (SDEFUN |HACKPI;coerce;$Of;10| ((|x| $) ($ |OutputForm|))
         (SPROG
          ((|r| (|Union| (|SparseUnivariatePolynomial| (|Integer|)) "failed")))
-         (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 46)) |HACKPI;coerce;$Of;10|)
+         (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 46)))
               (EXIT
                (COND ((QEQCAR |r| 0) (|HACKPI;p2o| (QCDR |r|) $))
                      ('T
@@ -72,7 +70,7 @@
 (SDEFUN |HACKPI;convert;$If;11| ((|x| $) ($ |InputForm|))
         (SPROG
          ((|r| (|Union| (|SparseUnivariatePolynomial| (|Integer|)) "failed")))
-         (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 46)) |HACKPI;convert;$If;11|)
+         (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 46)))
               (EXIT
                (COND ((QEQCAR |r| 0) (|HACKPI;p2i| (QCDR |r|) $))
                      ('T
@@ -97,7 +95,7 @@
          (PROG (#1=#:G150)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Pi|) . #2=(|Pi|))
+             ((LETT #1# (HGET |$ConstructorCache| '|Pi|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -105,16 +103,16 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|Pi|
                              (LIST (CONS NIL (CONS 1 (|Pi;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Pi|)))))))))) 
 
 (DEFUN |Pi;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|Pi|) . #1=(|Pi|))
-          (LETT $ (GETREFV 83) . #1#)
+          (LETT |dv$| '(|Pi|))
+          (LETT $ (GETREFV 83))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Pi| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

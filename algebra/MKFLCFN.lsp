@@ -33,8 +33,8 @@
         ((|s| |InputForm|) (|lv| |List| (|InputForm|)) ($ |InputForm|))
         (SPROG ((|fun| (|InputForm|)) (|name| (|InputForm|)))
                (SEQ
-                (LETT |name| (SPADCALL (SPADCALL (QREFELT $ 21)) (QREFELT $ 9))
-                      . #1=(|MKFLCFN;mkDefun|))
+                (LETT |name|
+                      (SPADCALL (SPADCALL (QREFELT $ 21)) (QREFELT $ 9)))
                 (LETT |fun|
                       (SPADCALL
                        (LIST (SPADCALL 'DEFUN (QREFELT $ 9)) |name|
@@ -43,8 +43,7 @@
                               (LIST (|MKFLCFN;gencode| "DOUBLE-FLOAT" |lv| $))
                               $)
                              (|MKFLCFN;mkCTOR| |s| $))
-                       (QREFELT $ 11))
-                      . #1#)
+                       (QREFELT $ 11)))
                 (EVAL |fun|)
                 (COND (|$compileDontDefineFunctions| (COMPILE |name|)))
                 (EXIT |name|)))) 
@@ -57,41 +56,36 @@
           (|t| (|List| (|InputForm|))) (|name| (|InputForm|))
           (|iy| #1=(|InputForm|)) (|ix| #1#)
           (|u| (|Union| (|InputForm|) "failed")))
-         (SEQ
-          (LETT |u| (|MKFLCFN;mkLisp| (SPADCALL |f| (QREFELT $ 22)) $)
-                . #2=(|MKFLCFN;makeFloatFunction;S2SM;8|))
-          (EXIT
-           (COND ((QEQCAR |u| 1) (SPADCALL |f| |x| |y| (QREFELT $ 25)))
-                 ('T
-                  (SEQ
-                   (LETT |name|
-                         (|MKFLCFN;mkDefun| (QCDR |u|)
-                          (LIST (LETT |ix| (SPADCALL |x| (QREFELT $ 9)) . #2#)
-                                (LETT |iy| (SPADCALL |y| (QREFELT $ 9)) . #2#))
-                          $)
-                         . #2#)
-                   (LETT |t| (LIST (QREFELT $ 12) (QREFELT $ 12)) . #2#)
-                   (LETT |spadname|
-                         (SPADCALL
-                          (|devaluate|
-                           (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
-                                      (|DoubleFloat|)))
-                          (QREFELT $ 26))
-                         . #2#)
-                   (LETT |spadform|
-                         (|MKFLCFN;mkPretend|
-                          (SPADCALL
-                           (LIST (|MKFLCFN;mkLispCall| |name| $) |ix| |iy|)
-                           (QREFELT $ 11))
-                          $)
-                         . #2#)
-                   (SPADCALL
-                    (SPADCALL |spadform| (LIST |x| |y|) |spadname|
-                              (QREFELT $ 28))
-                    (QREFELT $ 30))
-                   (EXIT
-                    (SPADCALL (SPADCALL |spadname| |t| (QREFELT $ 31))
-                              (QREFELT $ 32)))))))))) 
+         (SEQ (LETT |u| (|MKFLCFN;mkLisp| (SPADCALL |f| (QREFELT $ 22)) $))
+              (EXIT
+               (COND ((QEQCAR |u| 1) (SPADCALL |f| |x| |y| (QREFELT $ 25)))
+                     ('T
+                      (SEQ
+                       (LETT |name|
+                             (|MKFLCFN;mkDefun| (QCDR |u|)
+                              (LIST (LETT |ix| (SPADCALL |x| (QREFELT $ 9)))
+                                    (LETT |iy| (SPADCALL |y| (QREFELT $ 9))))
+                              $))
+                       (LETT |t| (LIST (QREFELT $ 12) (QREFELT $ 12)))
+                       (LETT |spadname|
+                             (SPADCALL
+                              (|devaluate|
+                               (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                          (|DoubleFloat|)))
+                              (QREFELT $ 26)))
+                       (LETT |spadform|
+                             (|MKFLCFN;mkPretend|
+                              (SPADCALL
+                               (LIST (|MKFLCFN;mkLispCall| |name| $) |ix| |iy|)
+                               (QREFELT $ 11))
+                              $))
+                       (SPADCALL
+                        (SPADCALL |spadform| (LIST |x| |y|) |spadname|
+                                  (QREFELT $ 28))
+                        (QREFELT $ 30))
+                       (EXIT
+                        (SPADCALL (SPADCALL |spadname| |t| (QREFELT $ 31))
+                                  (QREFELT $ 32)))))))))) 
 
 (SDEFUN |MKFLCFN;makeFloatFunction;SSM;9|
         ((|f| S) (|var| |Symbol|)
@@ -100,40 +94,35 @@
          ((|spadform| (|InputForm|)) (|spadname| (|Symbol|))
           (|t| (|List| (|InputForm|))) (|name| (|InputForm|))
           (|ivar| (|InputForm|)) (|u| (|Union| (|InputForm|) "failed")))
-         (SEQ
-          (LETT |u| (|MKFLCFN;mkLisp| (SPADCALL |f| (QREFELT $ 22)) $)
-                . #1=(|MKFLCFN;makeFloatFunction;SSM;9|))
-          (EXIT
-           (COND ((QEQCAR |u| 1) (SPADCALL |f| |var| (QREFELT $ 36)))
-                 ('T
-                  (SEQ
-                   (LETT |name|
-                         (|MKFLCFN;mkDefun| (QCDR |u|)
-                          (LIST
-                           (LETT |ivar| (SPADCALL |var| (QREFELT $ 9)) . #1#))
-                          $)
-                         . #1#)
-                   (LETT |t| (LIST (QREFELT $ 12)) . #1#)
-                   (LETT |spadname|
-                         (SPADCALL
-                          (|devaluate|
-                           (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
-                          (QREFELT $ 26))
-                         . #1#)
-                   (LETT |spadform|
-                         (|MKFLCFN;mkPretend|
-                          (SPADCALL
-                           (LIST (|MKFLCFN;mkLispCall| |name| $) |ivar|)
-                           (QREFELT $ 11))
-                          $)
-                         . #1#)
-                   (SPADCALL
-                    (SPADCALL |spadform| (LIST |var|) |spadname|
-                              (QREFELT $ 28))
-                    (QREFELT $ 30))
-                   (EXIT
-                    (SPADCALL (SPADCALL |spadname| |t| (QREFELT $ 31))
-                              (QREFELT $ 37)))))))))) 
+         (SEQ (LETT |u| (|MKFLCFN;mkLisp| (SPADCALL |f| (QREFELT $ 22)) $))
+              (EXIT
+               (COND ((QEQCAR |u| 1) (SPADCALL |f| |var| (QREFELT $ 36)))
+                     ('T
+                      (SEQ
+                       (LETT |name|
+                             (|MKFLCFN;mkDefun| (QCDR |u|)
+                              (LIST
+                               (LETT |ivar| (SPADCALL |var| (QREFELT $ 9))))
+                              $))
+                       (LETT |t| (LIST (QREFELT $ 12)))
+                       (LETT |spadname|
+                             (SPADCALL
+                              (|devaluate|
+                               (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+                              (QREFELT $ 26)))
+                       (LETT |spadform|
+                             (|MKFLCFN;mkPretend|
+                              (SPADCALL
+                               (LIST (|MKFLCFN;mkLispCall| |name| $) |ivar|)
+                               (QREFELT $ 11))
+                              $))
+                       (SPADCALL
+                        (SPADCALL |spadform| (LIST |var|) |spadname|
+                                  (QREFELT $ 28))
+                        (QREFELT $ 30))
+                       (EXIT
+                        (SPADCALL (SPADCALL |spadname| |t| (QREFELT $ 31))
+                                  (QREFELT $ 37)))))))))) 
 
 (SDEFUN |MKFLCFN;mkLispList|
         ((|l| |List| (|InputForm|))
@@ -143,22 +132,22 @@
           (|u| (|Union| (|InputForm|) "failed")) (#2=#:G154 NIL) (|s| NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |ans| NIL . #3=(|MKFLCFN;mkLispList|))
-                (SEQ (LETT |s| NIL . #3#) (LETT #2# |l| . #3#) G190
+           (SEQ (LETT |ans| NIL)
+                (SEQ (LETT |s| NIL) (LETT #2# |l|) G190
                      (COND
-                      ((OR (ATOM #2#) (PROGN (LETT |s| (CAR #2#) . #3#) NIL))
+                      ((OR (ATOM #2#) (PROGN (LETT |s| (CAR #2#)) NIL))
                        (GO G191)))
-                     (SEQ (LETT |u| (|MKFLCFN;mkLisp| |s| $) . #3#)
+                     (SEQ (LETT |u| (|MKFLCFN;mkLisp| |s| $))
                           (EXIT
                            (COND
                             ((QEQCAR |u| 1)
                              (PROGN
-                              (LETT #1# (CONS 1 "failed") . #3#)
-                              (GO #4=#:G152)))
-                            ('T (LETT |ans| (CONS (QCDR |u|) |ans|) . #3#)))))
-                     (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+                              (LETT #1# (CONS 1 "failed"))
+                              (GO #3=#:G152)))
+                            ('T (LETT |ans| (CONS (QCDR |u|) |ans|))))))
+                     (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 (NREVERSE |ans|)))))
-          #4# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |MKFLCFN;mkLisp| ((|s| |InputForm|) ($ |Union| (|InputForm|) "failed"))
         (SPROG
@@ -179,16 +168,12 @@
              (#2='T (CONS 0 |s|))))
            (#2#
             (SEQ
-             (LETT |op|
-                   (|SPADfirst|
-                    (LETT |l| (SPADCALL |s| (QREFELT $ 45))
-                          . #3=(|MKFLCFN;mkLisp|)))
-                   . #3#)
-             (LETT |u| (|MKFLCFN;mkLispList| (CDR |l|) $) . #3#)
+             (LETT |op| (|SPADfirst| (LETT |l| (SPADCALL |s| (QREFELT $ 45)))))
+             (LETT |u| (|MKFLCFN;mkLispList| (CDR |l|) $))
              (EXIT
               (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                     (#2#
-                     (SEQ (LETT |ll| (QCDR |u|) . #3#)
+                     (SEQ (LETT |ll| (QCDR |u|))
                           (EXIT
                            (COND
                             ((|MKFLCFN;streqlist?| |op| (LIST "+" "*" "/" "-")
@@ -198,8 +183,7 @@
                             ((|MKFLCFN;streq?| |op| "^" $)
                              (COND
                               ((SPADCALL
-                                (LETT |ii| (SPADCALL |l| 3 (QREFELT $ 47))
-                                      . #3#)
+                                (LETT |ii| (SPADCALL |l| 3 (QREFELT $ 47)))
                                 (QREFELT $ 40))
                                (CONS 0
                                      (|MKFLCFN;gencode| "EXPT"
@@ -240,14 +224,12 @@
                                                        (QREFELT $ 52))))
                                       $)))))
                             ((|MKFLCFN;streq?| |op| "float" $)
-                             (SEQ
-                              (LETT |a| (SPADCALL |ll| 1 (QREFELT $ 47)) . #3#)
-                              (LETT |e| (SPADCALL |ll| 2 (QREFELT $ 47)) . #3#)
-                              (LETT |b|
-                                    (FLOAT (SPADCALL |ll| 3 (QREFELT $ 47))
-                                           MOST-POSITIVE-DOUBLE-FLOAT)
-                                    . #3#)
-                              (EXIT (CONS 0 (* |a| (EXPT |b| |e|))))))
+                             (SEQ (LETT |a| (SPADCALL |ll| 1 (QREFELT $ 47)))
+                                  (LETT |e| (SPADCALL |ll| 2 (QREFELT $ 47)))
+                                  (LETT |b|
+                                        (FLOAT (SPADCALL |ll| 3 (QREFELT $ 47))
+                                               MOST-POSITIVE-DOUBLE-FLOAT))
+                                  (EXIT (CONS 0 (* |a| (EXPT |b| |e|))))))
                             (#2# (CONS 1 "failed")))))))))))))) 
 
 (DECLAIM (NOTINLINE |MakeFloatCompiledFunction;|)) 
@@ -261,12 +243,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|MakeFloatCompiledFunction|)
-                                               '|domainEqualList|)
-                    . #3=(|MakeFloatCompiledFunction|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|MakeFloatCompiledFunction;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|MakeFloatCompiledFunction;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -275,11 +256,11 @@
 (DEFUN |MakeFloatCompiledFunction;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|MakeFloatCompiledFunction|))
-          (LETT |dv$| (LIST '|MakeFloatCompiledFunction| DV$1) . #1#)
-          (LETT $ (GETREFV 53) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|MakeFloatCompiledFunction| DV$1))
+          (LETT $ (GETREFV 53))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|MakeFloatCompiledFunction|
                       (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)

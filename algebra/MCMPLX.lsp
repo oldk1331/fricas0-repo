@@ -30,8 +30,7 @@
          (PROG (#1=#:G159)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|MachineComplex|)
-                    . #2=(|MachineComplex|))
+             ((LETT #1# (HGET |$ConstructorCache| '|MachineComplex|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -39,7 +38,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|MachineComplex|
                              (LIST (CONS NIL (CONS 1 (|MachineComplex;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|MachineComplex|)))))))))) 
@@ -49,8 +48,8 @@
    ((|dv$| NIL) ($ NIL) (#1=#:G157 NIL) (#2=#:G156 NIL) (#3=#:G155 NIL)
     (#4=#:G154 NIL) (#5=#:G153 NIL) (|pv$| NIL))
    (PROGN
-    (LETT |dv$| '(|MachineComplex|) . #6=(|MachineComplex|))
-    (LETT $ (GETREFV 90) . #6#)
+    (LETT |dv$| '(|MachineComplex|))
+    (LETT $ (GETREFV 90))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -62,8 +61,7 @@
                                                        '(|FiniteFieldCategory|))
                                         (LETT #1#
                                               (|HasCategory| (|MachineFloat|)
-                                                             '(|Field|))
-                                              . #6#)
+                                                             '(|Field|)))
                                         (OR #1#
                                             (|HasCategory| (|MachineFloat|)
                                                            '(|FiniteFieldCategory|)))
@@ -82,8 +80,7 @@
                                                        '(|EuclideanDomain|))
                                         (LETT #2#
                                               (|HasCategory| (|MachineFloat|)
-                                                             '(|TranscendentalFunctionCategory|))
-                                              . #6#)
+                                                             '(|TranscendentalFunctionCategory|)))
                                         (AND
                                          (|HasCategory| (|MachineFloat|)
                                                         '(|RadicalCategory|))
@@ -143,8 +140,7 @@
                                          #1#)
                                         (LETT #3#
                                               (|HasCategory| (|MachineFloat|)
-                                                             '(|PolynomialFactorizationExplicit|))
-                                              . #6#)
+                                                             '(|PolynomialFactorizationExplicit|)))
                                         (OR
                                          (AND
                                           (|HasCategory| (|MachineFloat|)
@@ -154,8 +150,7 @@
                                                         '(|FiniteFieldCategory|)))
                                         (LETT #4#
                                               (|HasCategory| (|MachineFloat|)
-                                                             '(|IntegerNumberSystem|))
-                                              . #6#)
+                                                             '(|IntegerNumberSystem|)))
                                         (OR
                                          (AND
                                           (|HasCategory| (|MachineFloat|)
@@ -180,12 +175,10 @@
                                          #1# #4#)
                                         (LETT #5#
                                               (|HasCategory| (|MachineFloat|)
-                                                             '(|RealNumberSystem|))
-                                              . #6#)
+                                                             '(|RealNumberSystem|)))
                                         (AND #5# #2#)
                                         (|HasCategory| (|MachineFloat|)
-                                                       '(|IntegralDomain|))))
-                    . #6#))
+                                                       '(|IntegralDomain|))))))
     (|haddProp| |$ConstructorCache| '|MachineComplex| NIL (CONS 1 $))
     (|stuffDomainSlots| $)
     (AND

@@ -10,20 +10,19 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|PAdicRational|)
-                                               '|domainEqualList|)
-                    . #3=(|PAdicRational|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|PAdicRational;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|PAdicRational;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|PAdicRational|)))))))))) 
 
 (DEFUN |PAdicRational;| (|#1|)
   (SPROG ((|pv$| NIL) (#1=#:G140 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #2=(|PAdicRational|))
-          (LETT |dv$| (LIST '|PAdicRational| DV$1) . #2#)
-          (LETT $ (GETREFV 58) . #2#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|PAdicRational| DV$1))
+          (LETT $ (GETREFV 58))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -123,16 +122,14 @@
                                               (LETT #1#
                                                     (|HasCategory|
                                                      (|PAdicInteger| |#1|)
-                                                     '(|Comparable|))
-                                                    . #2#)
+                                                     '(|Comparable|)))
                                               (OR #1#
                                                   (|HasCategory|
                                                    (|PAdicInteger| |#1|)
                                                    '(|OrderedIntegralDomain|))
                                                   (|HasCategory|
                                                    (|PAdicInteger| |#1|)
-                                                   '(|OrderedSet|)))))
-                          . #2#))
+                                                   '(|OrderedSet|)))))))
           (|haddProp| |$ConstructorCache| '|PAdicRational| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

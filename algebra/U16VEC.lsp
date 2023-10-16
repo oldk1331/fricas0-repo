@@ -41,11 +41,10 @@
 (SDEFUN |U16VEC;fill!;$I$;9| ((|x| $) (|s| |Integer|) ($ $))
         (SPROG ((#1=#:G2282 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 0 . #2=(|U16VEC;fill!;$I$;9|))
-                     (LETT #1# (|sub_SI| (QV_LEN_U16 |x|) 1) . #2#) G190
+                (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (QV_LEN_U16 |x|) 1)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ (EXIT (SETELT_U16 |x| |i| |s|)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (DECLAIM (NOTINLINE |U16Vector;|)) 
@@ -55,8 +54,7 @@
          (PROG (#1=#:G2294)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|U16Vector|)
-                    . #2=(|U16Vector|))
+             ((LETT #1# (HGET |$ConstructorCache| '|U16Vector|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -64,7 +62,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|U16Vector|
                              (LIST (CONS NIL (CONS 1 (|U16Vector;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|U16Vector|)))))))))) 
 
@@ -73,8 +71,8 @@
    ((|dv$| NIL) ($ NIL) (#1=#:G2292 NIL) (#2=#:G2291 NIL) (#3=#:G2290 NIL)
     (|pv$| NIL))
    (PROGN
-    (LETT |dv$| '(|U16Vector|) . #4=(|U16Vector|))
-    (LETT $ (GETREFV 34) . #4#)
+    (LETT |dv$| '(|U16Vector|))
+    (LETT $ (GETREFV 34))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -89,15 +87,13 @@
                                                        '(|BasicType|))
                                         (LETT #1#
                                               (|HasCategory| (|Integer|)
-                                                             '(|Comparable|))
-                                              . #4#)
+                                                             '(|Comparable|)))
                                         (OR #1#
                                             (|HasCategory| (|Integer|)
                                                            '(|OrderedSet|)))
                                         (LETT #2#
                                               (|HasCategory| (|Integer|)
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| (|Integer|)
                                                         '(|Evalable|
@@ -117,13 +113,11 @@
                                         (LETT #3#
                                               (|HasCategory| (|Integer|)
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #3# #1#
                                             (|HasCategory| (|Integer|)
                                                            '(|OrderedSet|))
-                                            #2#)))
-                    . #4#))
+                                            #2#)))))
     (|haddProp| |$ConstructorCache| '|U16Vector| NIL (CONS 1 $))
     (|stuffDomainSlots| $)
     (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 2048))

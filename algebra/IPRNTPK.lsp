@@ -9,8 +9,7 @@
          (PROG (#1=#:G107)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|InternalPrintPackage|)
-                    . #2=(|InternalPrintPackage|))
+             ((LETT #1# (HGET |$ConstructorCache| '|InternalPrintPackage|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -19,7 +18,7 @@
                        (HPUT |$ConstructorCache| '|InternalPrintPackage|
                              (LIST
                               (CONS NIL (CONS 1 (|InternalPrintPackage;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|InternalPrintPackage|)))))))))) 
@@ -27,10 +26,10 @@
 (DEFUN |InternalPrintPackage;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|InternalPrintPackage|) . #1=(|InternalPrintPackage|))
-          (LETT $ (GETREFV 11) . #1#)
+          (LETT |dv$| '(|InternalPrintPackage|))
+          (LETT $ (GETREFV 11))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|InternalPrintPackage| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -17,8 +17,7 @@
                               ((|differentiate| ($ $ (|NonNegativeInteger|)))
                                T)
                               ((D ($ $ (|NonNegativeInteger|))) T))
-                            NIL NIL NIL))
-                   |DifferentialRing|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|DifferentialRing|))))) 
 
 (MAKEPROP '|DifferentialRing| 'NILADIC T) 

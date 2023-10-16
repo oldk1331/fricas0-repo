@@ -48,7 +48,5 @@
                                                       ((|Comparable|)
                                                        (|has| |t#1|
                                                               (|Comparable|))))
-                                                    NIL NIL))
-                                           . #2=(|FiniteSetAggregate|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FiniteSetAggregate| |t#1|))))) 

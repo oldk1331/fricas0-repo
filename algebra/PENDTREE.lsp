@@ -55,11 +55,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|PendantTree|)
-                                               '|domainEqualList|)
-                    . #3=(|PendantTree|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|PendantTree;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|PendantTree;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|PendantTree|)))))))))) 
 
@@ -67,9 +66,9 @@
   (SPROG
    ((|pv$| NIL) (#1=#:G123 NIL) (#2=#:G124 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #3=(|PendantTree|))
-    (LETT |dv$| (LIST '|PendantTree| DV$1) . #3#)
-    (LETT $ (GETREFV 45) . #3#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|PendantTree| DV$1))
+    (LETT $ (GETREFV 45))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -77,8 +76,7 @@
                                        (LIST
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #3#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -89,16 +87,14 @@
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #3#)
+                                                               (|OutputForm|))))
                                         (OR #1#
                                             (AND
                                              (|HasCategory| |#1|
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #2#))))
-                    . #3#))
+                                             #2#))))))
     (|haddProp| |$ConstructorCache| '|PendantTree| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)

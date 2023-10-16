@@ -15,14 +15,12 @@
 (SDEFUN |RRCC-;rootOf;ThePolsPiU;4|
         ((|pol| |ThePols|) (|n| |PositiveInteger|) ($ |Union| S "failed"))
         (SPROG ((|liste| (|List| S)))
-               (SEQ
-                (LETT |liste| (SPADCALL |pol| (QREFELT $ 17))
-                      |RRCC-;rootOf;ThePolsPiU;4|)
-                (EXIT
-                 (COND
-                  ((SPADCALL (LENGTH |liste|) |n| (QREFELT $ 19))
-                   (CONS 1 "failed"))
-                  ('T (CONS 0 (SPADCALL |liste| |n| (QREFELT $ 21))))))))) 
+               (SEQ (LETT |liste| (SPADCALL |pol| (QREFELT $ 17)))
+                    (EXIT
+                     (COND
+                      ((SPADCALL (LENGTH |liste|) |n| (QREFELT $ 19))
+                       (CONS 1 "failed"))
+                      ('T (CONS 0 (SPADCALL |liste| |n| (QREFELT $ 21))))))))) 
 
 (SDEFUN |RRCC-;recip;ThePolsSU;5|
         ((|toInv| |ThePols|) (|rootChar| S) ($ |Union| |ThePols| #1="failed"))
@@ -37,20 +35,18 @@
            ((EQL (SPADCALL |toInv| (QREFELT $ 25)) 0)
             (SEQ
              (LETT |res|
-                   (SPADCALL (SPADCALL |toInv| (QREFELT $ 26)) (QREFELT $ 27))
-                   . #3=(|RRCC-;recip;ThePolsSU;5|))
+                   (SPADCALL (SPADCALL |toInv| (QREFELT $ 26)) (QREFELT $ 27)))
              (EXIT
               (COND ((QEQCAR |res| 1) (CONS 1 "failed"))
-                    (#4='T (CONS 0 (SPADCALL (QCDR |res|) (QREFELT $ 28))))))))
-           (#4#
-            (SEQ (LETT |defPol| (SPADCALL |rootChar| (QREFELT $ 29)) . #3#)
-                 (LETT |d| (SPADCALL (LIST |defPol| |toInv|) (QREFELT $ 31))
-                       . #3#)
+                    (#3='T (CONS 0 (SPADCALL (QCDR |res|) (QREFELT $ 28))))))))
+           (#3#
+            (SEQ (LETT |defPol| (SPADCALL |rootChar| (QREFELT $ 29)))
+                 (LETT |d| (SPADCALL (LIST |defPol| |toInv|) (QREFELT $ 31)))
                  (EXIT
                   (COND
                    ((SPADCALL (QCDR |d|) |rootChar| (QREFELT $ 32))
                     (CONS 1 "failed"))
-                   (#4#
+                   (#3#
                     (SEQ
                      (COND
                       ((SPADCALL (SPADCALL (QCDR |d|) (QREFELT $ 25)) 0
@@ -60,18 +56,15 @@
                               (PROG2
                                   (LETT #2#
                                         (SPADCALL |defPol| (QCDR |d|)
-                                                  (QREFELT $ 34))
-                                        . #3#)
+                                                  (QREFELT $ 34)))
                                   (QCDR #2#)
                                 (|check_union2| (QEQCAR #2# 0) (QREFELT $ 8)
                                                 (|Union| (QREFELT $ 8) #1#)
-                                                #2#))
-                              . #3#)
+                                                #2#)))
                         (EXIT
                          (LETT |d|
                                (SPADCALL (LIST |defPol| |toInv|)
-                                         (QREFELT $ 31))
-                               . #3#)))))
+                                         (QREFELT $ 31)))))))
                      (EXIT
                       (CONS 0 (SPADCALL (QCAR |d|) 2 (QREFELT $ 36)))))))))))))) 
 
@@ -80,16 +73,14 @@
 (DEFUN |RealRootCharacterizationCategory&| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|RealRootCharacterizationCategory&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$|
-                (LIST '|RealRootCharacterizationCategory&| DV$1 DV$2 DV$3)
-                . #1#)
-          (LETT $ (GETREFV 39) . #1#)
+                (LIST '|RealRootCharacterizationCategory&| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 39))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

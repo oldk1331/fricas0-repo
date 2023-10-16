@@ -22,8 +22,7 @@
                               ((|dilog| ($ $)) T) ((|erf| ($ $)) T)
                               ((|erfi| ($ $)) T) ((|fresnelS| ($ $)) T)
                               ((|fresnelC| ($ $)) T))
-                            NIL NIL NIL))
-                   |LiouvillianFunctionCategory|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|LiouvillianFunctionCategory|))))) 
 
 (MAKEPROP '|LiouvillianFunctionCategory| 'NILADIC T) 

@@ -91,7 +91,5 @@
                                                         |t#1| |t#2|)
                                                        (|has| |t#2|
                                                               (|Comparable|))))
-                                                    NIL NIL))
-                                           . #2=(|MonoidRingCategory|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|MonoidRingCategory| |t#1| |t#2|))))) 

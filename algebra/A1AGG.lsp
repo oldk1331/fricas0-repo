@@ -26,7 +26,5 @@
                                      (LETT |OneDimensionalArrayAggregate;CAT|
                                            (|Join|
                                             (|FiniteLinearAggregate| '|t#1|)
-                                            (|shallowlyMutable|))
-                                           . #2=(|OneDimensionalArrayAggregate|)))))
-                   . #2#)
+                                            (|shallowlyMutable|)))))))
            (SETELT #1# 0 (LIST '|OneDimensionalArrayAggregate| |t#1|))))) 

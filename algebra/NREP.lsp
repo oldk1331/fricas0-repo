@@ -3,11 +3,10 @@
         ((|m| |Matrix| (|Fraction| (|Integer|)))
          ($ |Polynomial| (|Fraction| (|Integer|))))
         (SPROG ((|x| (|Symbol|)))
-               (SEQ
-                (LETT |x| (SPADCALL (QREFELT $ 8))
-                      |NREP;characteristicPolynomial;MP;1|)
-                (EXIT
-                 (SPADCALL (SPADCALL |m| (QREFELT $ 12)) |x| (QREFELT $ 14)))))) 
+               (SEQ (LETT |x| (SPADCALL (QREFELT $ 8)))
+                    (EXIT
+                     (SPADCALL (SPADCALL |m| (QREFELT $ 12)) |x|
+                               (QREFELT $ 14)))))) 
 
 (SDEFUN |NREP;characteristicPolynomial;MSP;2|
         ((A |Matrix| (|Fraction| (|Integer|))) (|x| |Symbol|)
@@ -37,12 +36,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|NumericRealEigenPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|NumericRealEigenPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|NumericRealEigenPackage;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|NumericRealEigenPackage;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|NumericRealEigenPackage|)))))))))) 
@@ -50,11 +48,11 @@
 (DEFUN |NumericRealEigenPackage;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|NumericRealEigenPackage|))
-          (LETT |dv$| (LIST '|NumericRealEigenPackage| DV$1) . #1#)
-          (LETT $ (GETREFV 29) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|NumericRealEigenPackage| DV$1))
+          (LETT $ (GETREFV 29))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|NumericRealEigenPackage|
                       (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)

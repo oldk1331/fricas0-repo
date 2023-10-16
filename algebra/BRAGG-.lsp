@@ -24,7 +24,7 @@
 
 (SDEFUN |BRAGG-;nodes;AL;5| ((|x| A) ($ |List| A))
         (SPROG ((|l| (|List| A)))
-               (SEQ (LETT |l| NIL |BRAGG-;nodes;AL;5|)
+               (SEQ (LETT |l| NIL)
                     (EXIT
                      (COND ((SPADCALL |x| (QREFELT $ 15)) |l|)
                            ('T
@@ -39,7 +39,7 @@
 
 (SDEFUN |BRAGG-;children;AL;6| ((|x| A) ($ |List| A))
         (SPROG ((|l| (|List| A)))
-               (SEQ (LETT |l| NIL |BRAGG-;children;AL;6|)
+               (SEQ (LETT |l| NIL)
                     (EXIT
                      (COND ((SPADCALL |x| (QREFELT $ 15)) |l|)
                            ((SPADCALL (SPADCALL |x| (QREFELT $ 8))
@@ -61,24 +61,22 @@
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 15)) 0)
                       ('T
-                       (SEQ (LETT |k| (+ |k| 1) . #2=(|BRAGG-;aggCount|))
+                       (SEQ (LETT |k| (+ |k| 1))
                             (COND
                              ((EQL |k| 1000)
                               (COND
                                ((SPADCALL |x| (QREFELT $ 31))
                                 (EXIT (|error| "cyclic tree"))))))
-                            (SEQ (LETT |y| NIL . #2#)
-                                 (LETT #1# (SPADCALL |x| (QREFELT $ 32)) . #2#)
-                                 G190
+                            (SEQ (LETT |y| NIL)
+                                 (LETT #1# (SPADCALL |x| (QREFELT $ 32))) G190
                                  (COND
                                   ((OR (ATOM #1#)
-                                       (PROGN (LETT |y| (CAR #1#) . #2#) NIL))
+                                       (PROGN (LETT |y| (CAR #1#)) NIL))
                                    (GO G191)))
                                  (SEQ
                                   (EXIT
-                                   (LETT |k| (|BRAGG-;aggCount| |y| |k| $)
-                                         . #2#)))
-                                 (LETT #1# (CDR #1#) . #2#) (GO G190) G191
+                                   (LETT |k| (|BRAGG-;aggCount| |y| |k| $))))
+                                 (LETT #1# (CDR #1#)) (GO G190) G191
                                  (EXIT NIL))
                             (EXIT |k|))))))) 
 
@@ -95,9 +93,7 @@
                                      (QREFELT $ 34))
                            (SPADCALL |u| (SPADCALL |v| (QREFELT $ 11))
                                      (QREFELT $ 34)))
-                          (PROGN
-                           (LETT #1# 'T |BRAGG-;node?;2AB;9|)
-                           (GO #2=#:G166)))
+                          (PROGN (LETT #1# 'T) (GO #2=#:G166)))
                          ('T NIL)))))
                 #2# (EXIT #1#)))) 
 
@@ -132,8 +128,7 @@
                   (SEQ
                    (LETT |v|
                          (SPADCALL (SPADCALL |t| (QREFELT $ 18))
-                                   (QREFELT $ 43))
-                         . #3=(|BRAGG-;coerce;AOf;12|))
+                                   (QREFELT $ 43)))
                    (EXIT
                     (COND
                      ((SPADCALL (SPADCALL |t| (QREFELT $ 8)) (QREFELT $ 15))
@@ -144,8 +139,7 @@
                         (SEQ
                          (LETT |r|
                                (SPADCALL (SPADCALL |t| (QREFELT $ 11))
-                                         (QREFELT $ 44))
-                               . #3#)
+                                         (QREFELT $ 44)))
                          (EXIT
                           (SPADCALL
                            (LIST (SPADCALL "." (QREFELT $ 42)) |v| |r|)
@@ -154,8 +148,7 @@
                       (SEQ
                        (LETT |l|
                              (SPADCALL (SPADCALL |t| (QREFELT $ 8))
-                                       (QREFELT $ 44))
-                             . #3#)
+                                       (QREFELT $ 44)))
                        (LETT |r|
                              (COND
                               ((SPADCALL (SPADCALL |t| (QREFELT $ 11))
@@ -163,8 +156,7 @@
                                (SPADCALL "." (QREFELT $ 42)))
                               (#2#
                                (SPADCALL (SPADCALL |t| (QREFELT $ 11))
-                                         (QREFELT $ 44))))
-                             . #3#)
+                                         (QREFELT $ 44)))))
                        (EXIT
                         (SPADCALL (LIST |l| |v| |r|) (QREFELT $ 45))))))))))))) 
 
@@ -182,12 +174,11 @@
                         (SEQ
                          (SEQ
                           (EXIT
-                           (SEQ (LETT |y| NIL . #4=(|BRAGG-;isCycle?|))
-                                (LETT #3# (SPADCALL |x| (QREFELT $ 32)) . #4#)
-                                G190
+                           (SEQ (LETT |y| NIL)
+                                (LETT #3# (SPADCALL |x| (QREFELT $ 32))) G190
                                 (COND
                                  ((OR (ATOM #3#)
-                                      (PROGN (LETT |y| (CAR #3#) . #4#) NIL))
+                                      (PROGN (LETT |y| (CAR #3#)) NIL))
                                   (GO G191)))
                                 (SEQ
                                  (EXIT
@@ -198,15 +189,14 @@
                                       (PROGN
                                        (LETT #1#
                                              (PROGN
-                                              (LETT #2# 'T . #4#)
-                                              (GO #5=#:G192))
-                                             . #4#)
-                                       (GO #6=#:G188))))))))
-                                (LETT #3# (CDR #3#) . #4#) (GO G190) G191
+                                              (LETT #2# 'T)
+                                              (GO #4=#:G192)))
+                                       (GO #5=#:G188))))))))
+                                (LETT #3# (CDR #3#)) (GO G190) G191
                                 (EXIT NIL)))
-                          #6# (EXIT #1#))
+                          #5# (EXIT #1#))
                          (EXIT NIL)))))
-                #5# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (SDEFUN |BRAGG-;eqMember?| ((|y| A) (|l| |List| A) ($ |Boolean|))
         (SPROG ((#1=#:G200 NIL) (#2=#:G201 NIL) (#3=#:G202 NIL) (|x| NIL))
@@ -215,25 +205,21 @@
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |x| NIL . #4=(|BRAGG-;eqMember?|))
-                         (LETT #3# |l| . #4#) G190
+                    (SEQ (LETT |x| NIL) (LETT #3# |l|) G190
                          (COND
-                          ((OR (ATOM #3#)
-                               (PROGN (LETT |x| (CAR #3#) . #4#) NIL))
+                          ((OR (ATOM #3#) (PROGN (LETT |x| (CAR #3#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (COND
                             ((SPADCALL |x| |y| (QREFELT $ 48))
                              (PROGN
-                              (LETT #1#
-                                    (PROGN (LETT #2# 'T . #4#) (GO #5=#:G199))
-                                    . #4#)
-                              (GO #6=#:G197))))))
-                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #6# (EXIT #1#))
+                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G199)))
+                              (GO #5=#:G197))))))
+                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #1#))
                   (EXIT NIL)))
-                #5# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (SDEFUN |BRAGG-;setelt!;Aleft2A;16| ((|x| A) (T5 "left") (|b| A) ($ A))
         (SPADCALL |x| |b| (QREFELT $ 49))) 
@@ -246,18 +232,17 @@
 (DEFUN |BinaryRecursiveAggregate&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|BinaryRecursiveAggregate&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|BinaryRecursiveAggregate&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 54) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|BinaryRecursiveAggregate&| DV$1 DV$2))
+          (LETT $ (GETREFV 54))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
-                                                             '(|shallowlyMutable|))))
-                          . #1#))
+                                                             '(|shallowlyMutable|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

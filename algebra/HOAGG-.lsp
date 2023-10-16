@@ -6,8 +6,8 @@
 
 (SDEFUN |HOAGG-;eval;ALA;1!0| ((|x| NIL) ($$ NIL))
         (PROG (|l| $)
-          (LETT |l| (QREFELT $$ 1) . #1=(|HOAGG-;eval;ALA;1|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |l| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |l| (QREFELT $ 9)))))) 
 
 (SDEFUN |HOAGG-;#;ANni;2| ((|c| A) ($ |NonNegativeInteger|))
@@ -19,19 +19,19 @@
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |x| NIL . #3=(|HOAGG-;any?;MAB;3|))
-                       (LETT #2# (SPADCALL |c| (QREFELT $ 14)) . #3#) G190
+                  (SEQ (LETT |x| NIL) (LETT #2# (SPADCALL |c| (QREFELT $ 14)))
+                       G190
                        (COND
-                        ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#) . #3#) NIL))
+                        ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
                          (COND
                           ((SPADCALL |x| |f|)
-                           (PROGN (LETT #1# 'T . #3#) (GO #4=#:G121))))))
-                       (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+                           (PROGN (LETT #1# 'T) (GO #3=#:G121))))))
+                       (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                   (EXIT NIL)))
-                #4# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |HOAGG-;every?;MAB;4|
         ((|f| |Mapping| (|Boolean|) S) (|c| A) ($ |Boolean|))
@@ -39,19 +39,19 @@
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |x| NIL . #3=(|HOAGG-;every?;MAB;4|))
-                       (LETT #2# (SPADCALL |c| (QREFELT $ 14)) . #3#) G190
+                  (SEQ (LETT |x| NIL) (LETT #2# (SPADCALL |c| (QREFELT $ 14)))
+                       G190
                        (COND
-                        ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#) . #3#) NIL))
+                        ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
                          (COND
                           ((NULL (SPADCALL |x| |f|))
-                           (PROGN (LETT #1# NIL . #3#) (GO #4=#:G127))))))
-                       (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+                           (PROGN (LETT #1# NIL) (GO #3=#:G127))))))
+                       (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
-                #4# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |HOAGG-;count;MANni;5|
         ((|f| |Mapping| (|Boolean|) S) (|c| A) ($ |NonNegativeInteger|))
@@ -60,24 +60,19 @@
           (#5=#:G134 NIL) (|x| NIL))
          (SEQ
           (PROGN
-           (LETT #1# NIL . #6=(|HOAGG-;count;MANni;5|))
-           (SEQ (LETT |x| NIL . #6#)
-                (LETT #5# (SPADCALL |c| (QREFELT $ 14)) . #6#) G190
+           (LETT #1# NIL)
+           (SEQ (LETT |x| NIL) (LETT #5# (SPADCALL |c| (QREFELT $ 14))) G190
                 (COND
-                 ((OR (ATOM #5#) (PROGN (LETT |x| (CAR #5#) . #6#) NIL))
-                  (GO G191)))
+                 ((OR (ATOM #5#) (PROGN (LETT |x| (CAR #5#)) NIL)) (GO G191)))
                 (SEQ
                  (EXIT
                   (COND
                    ((SPADCALL |x| |f|)
                     (PROGN
-                     (LETT #4# 1 . #6#)
-                     (COND (#1# (LETT #2# (+ #2# #4#) . #6#))
-                           ('T
-                            (PROGN
-                             (LETT #2# #4# . #6#)
-                             (LETT #1# 'T . #6#)))))))))
-                (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
+                     (LETT #4# 1)
+                     (COND (#1# (LETT #2# (+ #2# #4#)))
+                           ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))))
+                (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
            (COND (#1# #2#) ('T 0)))))) 
 
 (SDEFUN |HOAGG-;members;AL;6| ((|x| A) ($ |List| S))
@@ -90,8 +85,8 @@
 
 (SDEFUN |HOAGG-;count;SANni;7!0| ((|x| NIL) ($$ NIL))
         (PROG (|e| $)
-          (LETT |e| (QREFELT $$ 1) . #1=(|HOAGG-;count;SANni;7|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |e| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |e| |x| (QREFELT $ 23)))))) 
 
 (SDEFUN |HOAGG-;member?;SAB;8| ((|e| S) (|c| A) ($ |Boolean|))
@@ -101,8 +96,8 @@
 
 (SDEFUN |HOAGG-;member?;SAB;8!0| ((|x| NIL) ($$ NIL))
         (PROG (|e| $)
-          (LETT |e| (QREFELT $$ 1) . #1=(|HOAGG-;member?;SAB;8|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |e| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |e| |x| (QREFELT $ 23)))))) 
 
 (SDEFUN |HOAGG-;=;2AB;9| ((|x| A) (|y| A) ($ |Boolean|))
@@ -115,41 +110,37 @@
              NIL)
             ('T
              (SEQ
-              (SEQ (LETT |b| NIL . #4=(|HOAGG-;=;2AB;9|))
-                   (LETT #3# (SPADCALL |y| (QREFELT $ 14)) . #4#)
-                   (LETT |a| NIL . #4#)
-                   (LETT #2# (SPADCALL |x| (QREFELT $ 14)) . #4#) G190
+              (SEQ (LETT |b| NIL) (LETT #3# (SPADCALL |y| (QREFELT $ 14)))
+                   (LETT |a| NIL) (LETT #2# (SPADCALL |x| (QREFELT $ 14))) G190
                    (COND
-                    ((OR (ATOM #2#) (PROGN (LETT |a| (CAR #2#) . #4#) NIL)
-                         (ATOM #3#) (PROGN (LETT |b| (CAR #3#) . #4#) NIL))
+                    ((OR (ATOM #2#) (PROGN (LETT |a| (CAR #2#)) NIL) (ATOM #3#)
+                         (PROGN (LETT |b| (CAR #3#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (COND
                       ((SPADCALL |a| |b| (QREFELT $ 30))
-                       (PROGN (LETT #1# NIL . #4#) (GO #5=#:G143))))))
-                   (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#) . #4#))
-                         . #4#)
-                   (GO G190) G191 (EXIT NIL))
+                       (PROGN (LETT #1# NIL) (GO #4=#:G143))))))
+                   (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#)))) (GO G190)
+                   G191 (EXIT NIL))
               (EXIT 'T)))))
-          #5# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |HOAGG-;coerce;AOf;10| ((|x| A) ($ |OutputForm|))
         (SPROG ((#1=#:G150 NIL) (|a| NIL) (#2=#:G149 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
-                  (LETT #2# NIL . #3=(|HOAGG-;coerce;AOf;10|))
-                  (SEQ (LETT |a| NIL . #3#)
-                       (LETT #1# (SPADCALL |x| (QREFELT $ 14)) . #3#) G190
+                  (LETT #2# NIL)
+                  (SEQ (LETT |a| NIL) (LETT #1# (SPADCALL |x| (QREFELT $ 14)))
+                       G190
                        (COND
-                        ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
+                        ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #2# (CONS (SPADCALL |a| (QREFELT $ 33)) #2#)
-                               . #3#)))
-                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                         (LETT #2# (CONS (SPADCALL |a| (QREFELT $ 33)) #2#))))
+                       (LETT #1# (CDR #1#)) (GO G190) G191
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 35))))) 
 
@@ -158,10 +149,10 @@
 (DEFUN |HomogeneousAggregate&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|HomogeneousAggregate&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|HomogeneousAggregate&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 38) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|HomogeneousAggregate&| DV$1 DV$2))
+          (LETT $ (GETREFV 38))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -181,8 +172,7 @@
                                                              '(|SetCategory|))
                                               (|HasCategory| |#2|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))))
-                          . #1#))
+                                                               (|OutputForm|)))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

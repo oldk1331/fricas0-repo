@@ -5,30 +5,28 @@
          ((|k| (|Integer|)) (|s| (XPOLY)) (|k2| (R))
           (|k1| (|Fraction| (|Integer|))) (#1=#:G111 NIL) (|i| NIL)
           (|p1| (XPOLY)))
-         (SEQ
-          (LETT |p1| (SPADCALL |p| (|spadConstant| $ 10) (QREFELT $ 11))
-                . #2=(|XEXPPKG;log;XPOLYNniXPOLY;1|))
-          (COND
-           ((NULL (SPADCALL |p1| (QREFELT $ 13)))
-            (EXIT (|error| "constant term ~= 1, impossible log"))))
-          (LETT |s| (|spadConstant| $ 14) . #2#) (LETT |k| |n| . #2#)
-          (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
-               (COND ((|greater_SI| |i| #1#) (GO G191)))
-               (SEQ (LETT |k1| (SPADCALL 1 |k| (QREFELT $ 17)) . #2#)
-                    (LETT |k2|
-                          (SPADCALL |k1| (|spadConstant| $ 9) (QREFELT $ 18))
-                          . #2#)
-                    (LETT |s|
-                          (SPADCALL
-                           (SPADCALL (SPADCALL |p1| |i| (QREFELT $ 20))
-                                     (SPADCALL (SPADCALL |k2| (QREFELT $ 21))
-                                               |s| (QREFELT $ 11))
-                                     (QREFELT $ 22))
-                           |i| (QREFELT $ 20))
-                          . #2#)
-                    (EXIT (LETT |k| (- |k| 1) . #2#)))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT |s|)))) 
+         (SEQ (LETT |p1| (SPADCALL |p| (|spadConstant| $ 10) (QREFELT $ 11)))
+              (COND
+               ((NULL (SPADCALL |p1| (QREFELT $ 13)))
+                (EXIT (|error| "constant term ~= 1, impossible log"))))
+              (LETT |s| (|spadConstant| $ 14)) (LETT |k| |n|)
+              (SEQ (LETT |i| 1) (LETT #1# |n|) G190
+                   (COND ((|greater_SI| |i| #1#) (GO G191)))
+                   (SEQ (LETT |k1| (SPADCALL 1 |k| (QREFELT $ 17)))
+                        (LETT |k2|
+                              (SPADCALL |k1| (|spadConstant| $ 9)
+                                        (QREFELT $ 18)))
+                        (LETT |s|
+                              (SPADCALL
+                               (SPADCALL (SPADCALL |p1| |i| (QREFELT $ 20))
+                                         (SPADCALL
+                                          (SPADCALL |k2| (QREFELT $ 21)) |s|
+                                          (QREFELT $ 11))
+                                         (QREFELT $ 22))
+                               |i| (QREFELT $ 20)))
+                        (EXIT (LETT |k| (- |k| 1))))
+                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+              (EXIT |s|)))) 
 
 (SDEFUN |XEXPPKG;exp;XPOLYNniXPOLY;2|
         ((|p| XPOLY) (|n| |NonNegativeInteger|) ($ XPOLY))
@@ -44,43 +42,37 @@
              ((SPADCALL |p| (|spadConstant| $ 14) (QREFELT $ 25))
               (|spadConstant| $ 10))
              ('T
-              (SEQ
-               (LETT |s| (|spadConstant| $ 10)
-                     . #2=(|XEXPPKG;exp;XPOLYNniXPOLY;2|))
-               (LETT |k| |n| . #2#)
-               (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
-                    (COND ((|greater_SI| |i| #1#) (GO G191)))
-                    (SEQ (LETT |k1| (SPADCALL 1 |k| (QREFELT $ 17)) . #2#)
-                         (LETT |k2|
-                               (SPADCALL |k1| (|spadConstant| $ 9)
-                                         (QREFELT $ 18))
-                               . #2#)
-                         (LETT |s|
-                               (SPADCALL
-                                (SPADCALL (|spadConstant| $ 10)
-                                          (SPADCALL
-                                           (SPADCALL |k2|
-                                                     (SPADCALL |p| |i|
-                                                               (QREFELT $ 20))
-                                                     (QREFELT $ 26))
-                                           |s| (QREFELT $ 22))
-                                          (QREFELT $ 27))
-                                |i| (QREFELT $ 20))
-                               . #2#)
-                         (EXIT (LETT |k| (- |k| 1) . #2#)))
-                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-               (EXIT |s|))))))))) 
+              (SEQ (LETT |s| (|spadConstant| $ 10)) (LETT |k| |n|)
+                   (SEQ (LETT |i| 1) (LETT #1# |n|) G190
+                        (COND ((|greater_SI| |i| #1#) (GO G191)))
+                        (SEQ (LETT |k1| (SPADCALL 1 |k| (QREFELT $ 17)))
+                             (LETT |k2|
+                                   (SPADCALL |k1| (|spadConstant| $ 9)
+                                             (QREFELT $ 18)))
+                             (LETT |s|
+                                   (SPADCALL
+                                    (SPADCALL (|spadConstant| $ 10)
+                                              (SPADCALL
+                                               (SPADCALL |k2|
+                                                         (SPADCALL |p| |i|
+                                                                   (QREFELT $
+                                                                            20))
+                                                         (QREFELT $ 26))
+                                               |s| (QREFELT $ 22))
+                                              (QREFELT $ 27))
+                                    |i| (QREFELT $ 20)))
+                             (EXIT (LETT |k| (- |k| 1))))
+                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+                   (EXIT |s|))))))))) 
 
 (SDEFUN |XEXPPKG;Hausdorff;2XPOLYNniXPOLY;3|
         ((|p| XPOLY) (|q| XPOLY) (|n| |NonNegativeInteger|) ($ XPOLY))
         (SPROG ((|q1| (XPOLY)) (|p1| (XPOLY)))
-               (SEQ
-                (LETT |p1| (SPADCALL |p| |n| (QREFELT $ 28))
-                      . #1=(|XEXPPKG;Hausdorff;2XPOLYNniXPOLY;3|))
-                (LETT |q1| (SPADCALL |q| |n| (QREFELT $ 28)) . #1#)
-                (EXIT
-                 (SPADCALL (SPADCALL |p1| |q1| (QREFELT $ 22)) |n|
-                           (QREFELT $ 23)))))) 
+               (SEQ (LETT |p1| (SPADCALL |p| |n| (QREFELT $ 28)))
+                    (LETT |q1| (SPADCALL |q| |n| (QREFELT $ 28)))
+                    (EXIT
+                     (SPADCALL (SPADCALL |p1| |q1| (QREFELT $ 22)) |n|
+                               (QREFELT $ 23)))))) 
 
 (DECLAIM (NOTINLINE |XExponentialPackage;|)) 
 
@@ -93,13 +85,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|XExponentialPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|XExponentialPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |XExponentialPackage;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|XExponentialPackage|)))))))))) 
@@ -107,13 +98,13 @@
 (DEFUN |XExponentialPackage;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|XExponentialPackage|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|XExponentialPackage| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 30) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|XExponentialPackage| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 30))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|XExponentialPackage|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))
           (|stuffDomainSlots| $)

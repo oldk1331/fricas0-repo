@@ -95,8 +95,7 @@
                                 (|has| $ (|RetractableTo| (|Integer|))))
                                ((|odd?| ((|Boolean|) $))
                                 (|has| $ (|RetractableTo| (|Integer|)))))
-                             NIL NIL NIL)))
-                   |ExpressionSpace|)
+                             NIL NIL NIL))))
            (SETELT #1# 0 '(|ExpressionSpace|))))) 
 
 (MAKEPROP '|ExpressionSpace| 'NILADIC T) 

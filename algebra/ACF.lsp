@@ -43,8 +43,7 @@
                                 ((|List| $) (|SparseUnivariatePolynomial| $)
                                  (|Symbol|)))
                                T))
-                            NIL NIL NIL))
-                   |AlgebraicallyClosedField|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|AlgebraicallyClosedField|))))) 
 
 (MAKEPROP '|AlgebraicallyClosedField| 'NILADIC T) 

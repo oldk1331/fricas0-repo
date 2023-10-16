@@ -46,7 +46,5 @@
                                                                    "failed")
                                                           |t#1| $))
                                                         T))
-                                                     NIL NIL NIL))
-                                            . #3=(|KeyedDictionary|))))))
-                   . #3#)
+                                                     NIL NIL NIL))))))))
            (SETELT #1# 0 (LIST '|KeyedDictionary| |t#1| |t#2|))))) 

@@ -13,8 +13,7 @@
                    (|Join| (|Comparable|) (|PartialOrder|)
                            (|mkCategory|
                             '(((|max| ($ $ $)) T) ((|min| ($ $ $)) T)) NIL NIL
-                            NIL))
-                   |OrderedSet|)
+                            NIL)))
            (SETELT #1# 0 '(|OrderedSet|))))) 
 
 (MAKEPROP '|OrderedSet| 'NILADIC T) 

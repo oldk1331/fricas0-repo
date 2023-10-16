@@ -73,8 +73,7 @@
          (PROG (#1=#:G2270)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|U32Matrix|)
-                    . #2=(|U32Matrix|))
+             ((LETT #1# (HGET |$ConstructorCache| '|U32Matrix|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -82,7 +81,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|U32Matrix|
                              (LIST (CONS NIL (CONS 1 (|U32Matrix;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|U32Matrix|)))))))))) 
 
@@ -91,8 +90,8 @@
    ((|dv$| NIL) ($ NIL) (#1=#:G2267 NIL) (#2=#:G2268 NIL) (#3=#:G2266 NIL)
     (|pv$| NIL))
    (PROGN
-    (LETT |dv$| '(|U32Matrix|) . #4=(|U32Matrix|))
-    (LETT $ (GETREFV 45) . #4#)
+    (LETT |dv$| '(|U32Matrix|))
+    (LETT $ (GETREFV 45))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -104,8 +103,7 @@
                                                        '(|BasicType|))
                                         (LETT #1#
                                               (|HasCategory| (|Integer|)
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (OR
                                          (|HasCategory| (|Integer|)
                                                         '(|BasicType|))
@@ -122,8 +120,7 @@
                                                               '(|Evalable|
                                                                 (|Integer|)))
                                                (|HasCategory| (|Integer|)
-                                                              '(|SetCategory|)))
-                                              . #4#)
+                                                              '(|SetCategory|))))
                                         (OR
                                          (AND
                                           (|HasCategory| (|Integer|)
@@ -135,8 +132,7 @@
                                         (LETT #3#
                                               (|HasCategory| (|Integer|)
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #3# #2#)
                                         (|HasCategory| (|Integer|)
                                                        '(|AbelianGroup|))
@@ -154,8 +150,7 @@
                                         (|HasCategory| (|Integer|)
                                                        '(|CommutativeRing|))
                                         (|HasCategory| (|Integer|)
-                                                       '(|Field|))))
-                    . #4#))
+                                                       '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|U32Matrix| NIL (CONS 1 $))
     (|stuffDomainSlots| $)
     (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 65536))

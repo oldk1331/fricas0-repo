@@ -19,35 +19,30 @@
           (|r2| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
          (SEQ
           (EXIT
-           (SEQ (LETT |p1| |pin| . #3=(|SKICOMB;parseBracketTerm|))
-                (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)
+           (SEQ (LETT |p1| |pin|) (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (COND
                  ((NULL (|eql_SI| |ch| (|STR_to_CHAR| "(")))
                   (SEQ (|error| "bracket term must start with (")
                        (EXIT
                         (PROGN
-                         (LETT #2# (CONS (CONS 0 'I) |p1|) . #3#)
-                         (GO #4=#:G161))))))
-                (LETT |p1| (+ |p1| 1) . #3#)
+                         (LETT #2# (CONS (CONS 0 'I) |p1|))
+                         (GO #3=#:G161))))))
+                (LETT |p1| (+ |p1| 1))
                 (COND
                  ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 15)) (QREFELT $ 17))
                   (SEQ (|error| "opening but no closing bracket")
                        (EXIT
-                        (PROGN
-                         (LETT #2# (CONS (CONS 0 'I) |p1|) . #3#)
-                         (GO #4#))))))
-                (LETT |r2| (SPADCALL |t1| |p1| (QREFELT $ 20)) . #3#)
-                (LETT |trm| (QCAR |r2|) . #3#) (LETT |p1| (QCDR |r2|) . #3#)
-                (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)
+                        (PROGN (LETT #2# (CONS (CONS 0 'I) |p1|)) (GO #3#))))))
+                (LETT |r2| (SPADCALL |t1| |p1| (QREFELT $ 20)))
+                (LETT |trm| (QCAR |r2|)) (LETT |p1| (QCDR |r2|))
+                (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (COND
                  ((NULL (|eql_SI| |ch| (|STR_to_CHAR| ")")))
                   (SEQ (|error| "can't find closing bracket")
                        (EXIT
-                        (PROGN
-                         (LETT #2# (CONS (CONS 0 'I) |p1|) . #3#)
-                         (GO #4#))))))
-                (LETT |p1| (+ |p1| 1) . #3#) (EXIT (CONS |trm| |p1|))))
-          #4# (EXIT #2#)))) 
+                        (PROGN (LETT #2# (CONS (CONS 0 'I) |p1|)) (GO #3#))))))
+                (LETT |p1| (+ |p1| 1)) (EXIT (CONS |trm| |p1|))))
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |SKICOMB;parseCombinatorTerm|
         ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|))
@@ -55,26 +50,25 @@
         (SPROG ((#2=#:G168 NIL) (|ch| (|Character|)) (|p1| #1#))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |p1| |pin| . #3=(|SKICOMB;parseCombinatorTerm|))
-                      (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)
+                 (SEQ (LETT |p1| |pin|) (LETT |ch| (STR_ELT1 |t1| |p1|))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "I"))
                         (PROGN
-                         (LETT #2# (CONS (CONS 0 'I) (+ |p1| 1)) . #3#)
-                         (GO #4=#:G167))))
+                         (LETT #2# (CONS (CONS 0 'I) (+ |p1| 1)))
+                         (GO #3=#:G167))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "K"))
                         (PROGN
-                         (LETT #2# (CONS (CONS 0 'K) (+ |p1| 1)) . #3#)
-                         (GO #4#))))
+                         (LETT #2# (CONS (CONS 0 'K) (+ |p1| 1)))
+                         (GO #3#))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "S"))
                         (PROGN
-                         (LETT #2# (CONS (CONS 0 'S) (+ |p1| 1)) . #3#)
-                         (GO #4#))))
+                         (LETT #2# (CONS (CONS 0 'S) (+ |p1| 1)))
+                         (GO #3#))))
                       (|error| "invalid combinator")
                       (EXIT (CONS (CONS 0 'I) (+ |p1| 1)))))
-                #4# (EXIT #2#)))) 
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |SKICOMB;parseOneTerm|
         ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|))
@@ -86,20 +80,19 @@
           (|ch| (|Character|)) (#2=#:G182 NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |p1| |pin| . #3=(|SKICOMB;parseOneTerm|))
-                (LETT |res| (CONS 0 'I) . #3#)
-                (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)
+           (SEQ (LETT |p1| |pin|) (LETT |res| (CONS 0 'I))
+                (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (SEQ G190
                      (COND
                       ((NULL (|eql_SI| |ch| (|STR_to_CHAR| " "))) (GO G191)))
-                     (SEQ (LETT |p1| (+ |p1| 1) . #3#)
+                     (SEQ (LETT |p1| (+ |p1| 1))
                           (COND
                            ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 15))
                                       (QREFELT $ 17))
                             (PROGN
-                             (LETT #2# (CONS |res| |p1|) . #3#)
-                             (GO #4=#:G181))))
-                          (EXIT (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)))
+                             (LETT #2# (CONS |res| |p1|))
+                             (GO #3=#:G181))))
+                          (EXIT (LETT |ch| (STR_ELT1 |t1| |p1|))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (COND
                  ((SPADCALL |ch| (QREFELT $ 22))
@@ -107,25 +100,20 @@
                    (COND
                     ((SPADCALL |ch| (QREFELT $ 23))
                      (SEQ
-                      (LETT |r| (|SKICOMB;parseCombinatorTerm| |t1| |p1| $)
-                            . #3#)
-                      (LETT |res| (QCAR |r|) . #3#)
-                      (EXIT (LETT |p1| (QCDR |r|) . #3#)))))
+                      (LETT |r| (|SKICOMB;parseCombinatorTerm| |t1| |p1| $))
+                      (LETT |res| (QCAR |r|)) (EXIT (LETT |p1| (QCDR |r|))))))
                    (EXIT
                     (COND
                      ((SPADCALL |ch| (QREFELT $ 24))
-                      (SEQ
-                       (LETT |r2| (SPADCALL |t1| |p1| (QREFELT $ 25)) . #3#)
-                       (LETT |res| (SPADCALL (QCAR |r2|) (QREFELT $ 9)) . #3#)
-                       (EXIT (LETT |p1| (QCDR |r2|) . #3#)))))))))
+                      (SEQ (LETT |r2| (SPADCALL |t1| |p1| (QREFELT $ 25)))
+                           (LETT |res| (SPADCALL (QCAR |r2|) (QREFELT $ 9)))
+                           (EXIT (LETT |p1| (QCDR |r2|))))))))))
                 (COND
                  ((|eql_SI| |ch| (|STR_to_CHAR| "("))
-                  (SEQ
-                   (LETT |r| (|SKICOMB;parseBracketTerm| |t1| |p1| $) . #3#)
-                   (LETT |res| (QCAR |r|) . #3#)
-                   (EXIT (LETT |p1| (QCDR |r|) . #3#)))))
+                  (SEQ (LETT |r| (|SKICOMB;parseBracketTerm| |t1| |p1| $))
+                       (LETT |res| (QCAR |r|)) (EXIT (LETT |p1| (QCDR |r|))))))
                 (EXIT (CONS |res| |p1|))))
-          #4# (EXIT #2#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |SKICOMB;parseTerm;SNniR;9|
         ((|t1| |String|) (|pin| |NonNegativeInteger|)
@@ -137,13 +125,13 @@
           (#2=#:G191 NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |p1| |pin| . #3=(|SKICOMB;parseTerm;SNniR;9|))
-                (LETT |r| (|SKICOMB;parseOneTerm| |t1| |p1| $) . #3#)
-                (LETT |res| (QCAR |r|) . #3#) (LETT |p1| (QCDR |r|) . #3#)
+           (SEQ (LETT |p1| |pin|)
+                (LETT |r| (|SKICOMB;parseOneTerm| |t1| |p1| $))
+                (LETT |res| (QCAR |r|)) (LETT |p1| (QCDR |r|))
                 (COND
                  ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 15)) (QREFELT $ 17))
-                  (PROGN (LETT #2# (CONS |res| |p1|) . #3#) (GO #4=#:G190))))
-                (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#) (LETT |stck| NIL . #3#)
+                  (PROGN (LETT #2# (CONS |res| |p1|)) (GO #3=#:G190))))
+                (LETT |ch| (STR_ELT1 |t1| |p1|)) (LETT |stck| NIL)
                 (SEQ G190
                      (COND
                       ((NULL
@@ -153,31 +141,28 @@
                           'T)
                          ('T (|eql_SI| |ch| (|STR_to_CHAR| "(")))))
                        (GO G191)))
-                     (SEQ (LETT |r| (|SKICOMB;parseOneTerm| |t1| |p1| $) . #3#)
-                          (LETT |p1| (QCDR |r|) . #3#)
+                     (SEQ (LETT |r| (|SKICOMB;parseOneTerm| |t1| |p1| $))
+                          (LETT |p1| (QCDR |r|))
                           (LETT |stck|
-                                (SPADCALL |stck| (QCAR |r|) (QREFELT $ 27))
-                                . #3#)
+                                (SPADCALL |stck| (QCAR |r|) (QREFELT $ 27)))
                           (EXIT
                            (COND
                             ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 15))
                                        (QREFELT $ 17))
-                             (LETT |ch| (|STR_to_CHAR| "*") . #3#))
-                            ('T (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)))))
+                             (LETT |ch| (|STR_to_CHAR| "*")))
+                            ('T (LETT |ch| (STR_ELT1 |t1| |p1|))))))
                      NIL (GO G190) G191 (EXIT NIL))
-                (SEQ (LETT |i| 1 . #3#)
-                     (LETT #1# (SPADCALL |stck| (QREFELT $ 28)) . #3#) G190
-                     (COND ((|greater_SI| |i| #1#) (GO G191)))
+                (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |stck| (QREFELT $ 28)))
+                     G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ
                       (EXIT
                        (LETT |res|
                              (SPADCALL |res|
                                        (SPADCALL |stck| |i| (QREFELT $ 29))
-                                       (QREFELT $ 8))
-                             . #3#)))
-                     (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+                                       (QREFELT $ 8)))))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS |res| |p1|))))
-          #4# (EXIT #2#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |SKICOMB;parseSki;S$;10| ((|t1| |String|) ($ $))
         (SPROG
@@ -186,14 +171,11 @@
          (SEQ
           (LETT |r|
                 (SPADCALL |t1|
-                          (PROG1
-                              (LETT #1# (SPADCALL |t1| (QREFELT $ 30))
-                                    . #2=(|SKICOMB;parseSki;S$;10|))
+                          (PROG1 (LETT #1# (SPADCALL |t1| (QREFELT $ 30)))
                             (|check_subtype2| (>= #1# 0)
                                               '(|NonNegativeInteger|)
                                               '(|Integer|) #1#))
-                          (QREFELT $ 20))
-                . #2#)
+                          (QREFELT $ 20)))
           (EXIT (QCAR |r|))))) 
 
 (SDEFUN |SKICOMB;getChildren;$L;11| ((|n| $) ($ |List| $))
@@ -203,13 +185,11 @@
                  (SEQ
                   (COND
                    ((SPADCALL |n| (QREFELT $ 32))
-                    (PROGN
-                     (LETT #2# NIL . #3=(|SKICOMB;getChildren;$L;11|))
-                     (GO #4=#:G199))))
+                    (PROGN (LETT #2# NIL) (GO #3=#:G199))))
                   (EXIT
                    (LIST
                     (QCAR
-                     (PROG2 (LETT #1# |n| . #3#)
+                     (PROG2 (LETT #1# |n|)
                          (QCDR #1#)
                        (|check_union2| (QEQCAR #1# 1)
                                        (|Record| (|:| |c1| $) (|:| |c2| $))
@@ -220,7 +200,7 @@
                                                 (|:| |vr| (QREFELT $ 6)))
                                        #1#)))
                     (QCDR
-                     (PROG2 (LETT #1# |n| . #3#)
+                     (PROG2 (LETT #1# |n|)
                          (QCDR #1#)
                        (|check_union2| (QEQCAR #1# 1)
                                        (|Record| (|:| |c1| $) (|:| |c2| $))
@@ -230,7 +210,7 @@
                                                                (|:| |c2| $)))
                                                 (|:| |vr| (QREFELT $ 6)))
                                        #1#)))))))
-                #4# (EXIT #2#)))) 
+                #3# (EXIT #2#)))) 
 
 (SDEFUN |SKICOMB;atom?;$B;12| ((|n| $) ($ |Boolean|))
         (COND ((QEQCAR |n| 0) 'T) ('T (QEQCAR |n| 2)))) 
@@ -246,13 +226,10 @@
                  (SEQ
                   (COND
                    ((NULL (QEQCAR |n| 0))
-                    (PROGN
-                     (LETT #1# NIL . #2=(|SKICOMB;isI?;$B;14|))
-                     (GO #3=#:G209))))
-                  (COND
-                   ((EQUAL (CDR |n|) 'I) (PROGN (LETT #1# 'T . #2#) (GO #3#))))
+                    (PROGN (LETT #1# NIL) (GO #2=#:G209))))
+                  (COND ((EQUAL (CDR |n|) 'I) (PROGN (LETT #1# 'T) (GO #2#))))
                   (EXIT NIL)))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |SKICOMB;isK?;$B;15| ((|n| $) ($ |Boolean|))
         (SPROG ((#1=#:G218 NIL))
@@ -261,13 +238,10 @@
                  (SEQ
                   (COND
                    ((NULL (QEQCAR |n| 0))
-                    (PROGN
-                     (LETT #1# NIL . #2=(|SKICOMB;isK?;$B;15|))
-                     (GO #3=#:G217))))
-                  (COND
-                   ((EQUAL (CDR |n|) 'K) (PROGN (LETT #1# 'T . #2#) (GO #3#))))
+                    (PROGN (LETT #1# NIL) (GO #2=#:G217))))
+                  (COND ((EQUAL (CDR |n|) 'K) (PROGN (LETT #1# 'T) (GO #2#))))
                   (EXIT NIL)))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |SKICOMB;isS?;$B;16| ((|n| $) ($ |Boolean|))
         (SPROG ((#1=#:G226 NIL))
@@ -276,13 +250,10 @@
                  (SEQ
                   (COND
                    ((NULL (QEQCAR |n| 0))
-                    (PROGN
-                     (LETT #1# NIL . #2=(|SKICOMB;isS?;$B;16|))
-                     (GO #3=#:G225))))
-                  (COND
-                   ((EQUAL (CDR |n|) 'S) (PROGN (LETT #1# 'T . #2#) (GO #3#))))
+                    (PROGN (LETT #1# NIL) (GO #2=#:G225))))
+                  (COND ((EQUAL (CDR |n|) 'S) (PROGN (LETT #1# 'T) (GO #2#))))
                   (EXIT NIL)))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |SKICOMB;getVariable;$UT;17| ((|n| $) ($ UT))
         (SPROG ((#1=#:G229 NIL))
@@ -291,9 +262,7 @@
                  (SEQ
                   (COND
                    ((QEQCAR |n| 2)
-                    (PROGN
-                     (LETT #1# (CDR |n|) |SKICOMB;getVariable;$UT;17|)
-                     (GO #2=#:G228))))
+                    (PROGN (LETT #1# (CDR |n|)) (GO #2=#:G228))))
                   (EXIT (SPADCALL " " (QREFELT $ 39)))))
                 #2# (EXIT #1#)))) 
 
@@ -306,30 +275,27 @@
                    ((QEQCAR |n| 2)
                     (COND
                      ((SPADCALL (CDR |n|) |s| (QREFELT $ 41))
-                      (PROGN
-                       (LETT #1# NIL . #2=(|SKICOMB;freeVariable?;$UTB;18|))
-                       (GO #3=#:G238))))))
+                      (PROGN (LETT #1# NIL) (GO #2=#:G238))))))
                   (COND
                    ((QEQCAR |n| 1)
                     (COND
                      ((SPADCALL (QCAR (CDR |n|)) |s| (QREFELT $ 42))
                       (COND
                        ((NULL (SPADCALL (QCDR (CDR |n|)) |s| (QREFELT $ 42)))
-                        (PROGN (LETT #1# NIL . #2#) (GO #3#)))))
-                     ('T (PROGN (LETT #1# NIL . #2#) (GO #3#))))))
+                        (PROGN (LETT #1# NIL) (GO #2#)))))
+                     ('T (PROGN (LETT #1# NIL) (GO #2#))))))
                   (EXIT 'T)))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |SKICOMB;toString;$S;19| ((|n| $) ($ |String|))
         (SPROG ((|s| (|String|)))
-               (SEQ (LETT |s| "" . #1=(|SKICOMB;toString;$S;19|))
+               (SEQ (LETT |s| "")
                     (COND
                      ((QEQCAR |n| 0)
-                      (SEQ (COND ((EQUAL (CDR |n|) 'I) (LETT |s| "I" . #1#)))
-                           (COND ((EQUAL (CDR |n|) 'K) (LETT |s| "K" . #1#)))
+                      (SEQ (COND ((EQUAL (CDR |n|) 'I) (LETT |s| "I")))
+                           (COND ((EQUAL (CDR |n|) 'K) (LETT |s| "K")))
                            (EXIT
-                            (COND
-                             ((EQUAL (CDR |n|) 'S) (LETT |s| "S" . #1#)))))))
+                            (COND ((EQUAL (CDR |n|) 'S) (LETT |s| "S")))))))
                     (COND
                      ((QEQCAR |n| 1)
                       (COND
@@ -344,9 +310,8 @@
                                        " "
                                        (SPADCALL (QCDR (CDR |n|))
                                                  (QREFELT $ 43)))
-                                 (QREFELT $ 44))
-                                . #1#))
-                         (#2='T
+                                 (QREFELT $ 44))))
+                         (#1='T
                           (LETT |s|
                                 (SPADCALL
                                  (LIST |s|
@@ -354,9 +319,8 @@
                                                  (QREFELT $ 43))
                                        (SPADCALL (QCDR (CDR |n|))
                                                  (QREFELT $ 43)))
-                                 (QREFELT $ 44))
-                                . #1#))))
-                       (#2#
+                                 (QREFELT $ 44))))))
+                       (#1#
                         (LETT |s|
                               (SPADCALL
                                (LIST |s|
@@ -364,11 +328,10 @@
                                      "("
                                      (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 43))
                                      ")")
-                               (QREFELT $ 44))
-                              . #1#)))))
+                               (QREFELT $ 44)))))))
                     (COND
                      ((QEQCAR |n| 2)
-                      (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 45)) . #1#)))
+                      (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 45)))))
                     (EXIT |s|)))) 
 
 (SDEFUN |SKICOMB;redux1| ((|n| $) ($ $))
@@ -380,54 +343,51 @@
            (SEQ
             (COND
              ((QEQCAR |n| 1)
-              (SEQ
-               (LETT |left| (|SKICOMB;redux1| (QCAR (CDR |n|)) $)
-                     . #2=(|SKICOMB;redux1|))
-               (LETT |right| (|SKICOMB;redux1| (QCDR (CDR |n|)) $) . #2#)
-               (COND
-                ((SPADCALL |left| (QREFELT $ 36))
-                 (PROGN (LETT #1# |right| . #2#) (GO #3=#:G257))))
-               (COND
-                ((NULL (QEQCAR |left| 1))
-                 (PROGN
-                  (LETT #1# (SPADCALL |left| |right| (QREFELT $ 8)) . #2#)
-                  (GO #3#))))
-               (LETT |leftleft| (QCAR (CDR |left|)) . #2#)
-               (LETT |leftright| (QCDR (CDR |left|)) . #2#)
-               (COND
-                ((SPADCALL |leftleft| (QREFELT $ 37))
-                 (PROGN (LETT #1# |leftright| . #2#) (GO #3#))))
-               (COND
-                ((NULL (QEQCAR |leftleft| 1))
-                 (PROGN
-                  (LETT #1# (SPADCALL |left| |right| (QREFELT $ 8)) . #2#)
-                  (GO #3#))))
-               (LETT |leftleftleft| (QCAR (CDR |leftleft|)) . #2#)
-               (LETT |leftleftright| (QCDR (CDR |leftleft|)) . #2#)
-               (COND
-                ((SPADCALL |leftleftleft| (QREFELT $ 38))
-                 (PROGN
-                  (LETT #1#
-                        (SPADCALL
-                         (SPADCALL |leftleftright| |right| (QREFELT $ 8))
-                         (SPADCALL |leftright| |right| (QREFELT $ 8))
-                         (QREFELT $ 8))
-                        . #2#)
-                  (GO #3#))))
-               (EXIT
-                (PROGN
-                 (LETT #1# (SPADCALL |left| |right| (QREFELT $ 8)) . #2#)
-                 (GO #3#))))))
+              (SEQ (LETT |left| (|SKICOMB;redux1| (QCAR (CDR |n|)) $))
+                   (LETT |right| (|SKICOMB;redux1| (QCDR (CDR |n|)) $))
+                   (COND
+                    ((SPADCALL |left| (QREFELT $ 36))
+                     (PROGN (LETT #1# |right|) (GO #2=#:G257))))
+                   (COND
+                    ((NULL (QEQCAR |left| 1))
+                     (PROGN
+                      (LETT #1# (SPADCALL |left| |right| (QREFELT $ 8)))
+                      (GO #2#))))
+                   (LETT |leftleft| (QCAR (CDR |left|)))
+                   (LETT |leftright| (QCDR (CDR |left|)))
+                   (COND
+                    ((SPADCALL |leftleft| (QREFELT $ 37))
+                     (PROGN (LETT #1# |leftright|) (GO #2#))))
+                   (COND
+                    ((NULL (QEQCAR |leftleft| 1))
+                     (PROGN
+                      (LETT #1# (SPADCALL |left| |right| (QREFELT $ 8)))
+                      (GO #2#))))
+                   (LETT |leftleftleft| (QCAR (CDR |leftleft|)))
+                   (LETT |leftleftright| (QCDR (CDR |leftleft|)))
+                   (COND
+                    ((SPADCALL |leftleftleft| (QREFELT $ 38))
+                     (PROGN
+                      (LETT #1#
+                            (SPADCALL
+                             (SPADCALL |leftleftright| |right| (QREFELT $ 8))
+                             (SPADCALL |leftright| |right| (QREFELT $ 8))
+                             (QREFELT $ 8)))
+                      (GO #2#))))
+                   (EXIT
+                    (PROGN
+                     (LETT #1# (SPADCALL |left| |right| (QREFELT $ 8)))
+                     (GO #2#))))))
             (EXIT |n|)))
-          #3# (EXIT #1#)))) 
+          #2# (EXIT #1#)))) 
 
 (SDEFUN |SKICOMB;redux;2$;21| ((|n| $) ($ $))
         (SPROG
          ((|triesLeft| (|NonNegativeInteger|)) (#1=#:G260 NIL)
           (|thisResult| ($)) (|lastResult| ($)))
-         (SEQ (LETT |lastResult| (CONS 0 'I) . #2=(|SKICOMB;redux;2$;21|))
-              (LETT |thisResult| (|SKICOMB;redux1| |n| $) . #2#)
-              (LETT |triesLeft| 20 . #2#)
+         (SEQ (LETT |lastResult| (CONS 0 'I))
+              (LETT |thisResult| (|SKICOMB;redux1| |n| $))
+              (LETT |triesLeft| 20)
               (SEQ G190
                    (COND
                     ((NULL
@@ -436,15 +396,13 @@
                         (SPADCALL |triesLeft| 1 (QREFELT $ 47)))
                        ('T NIL)))
                      (GO G191)))
-                   (SEQ (LETT |lastResult| |thisResult| . #2#)
-                        (LETT |thisResult| (|SKICOMB;redux1| |lastResult| $)
-                              . #2#)
+                   (SEQ (LETT |lastResult| |thisResult|)
+                        (LETT |thisResult| (|SKICOMB;redux1| |lastResult| $))
                         (LETT |triesLeft|
-                              (PROG1 (LETT #1# (- |triesLeft| 1) . #2#)
+                              (PROG1 (LETT #1# (- |triesLeft| 1))
                                 (|check_subtype2| (>= #1# 0)
                                                   '(|NonNegativeInteger|)
-                                                  '(|Integer|) #1#))
-                              . #2#)
+                                                  '(|Integer|) #1#)))
                         (EXIT
                          (SPADCALL (SPADCALL |lastResult| (QREFELT $ 49))
                                    (QREFELT $ 51))))
@@ -463,10 +421,8 @@
                       (SEQ
                        (COND
                         ((EQUAL (CDR |x|) (CDR |y|))
-                         (PROGN
-                          (LETT #1# 'T . #2=(|SKICOMB;=;2$B;22|))
-                          (GO #3=#:G277))))
-                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
+                         (PROGN (LETT #1# 'T) (GO #2=#:G277))))
+                       (EXIT (PROGN (LETT #1# NIL) (GO #2#))))))))
                   (COND
                    ((QEQCAR |x| 2)
                     (COND
@@ -474,8 +430,8 @@
                       (SEQ
                        (COND
                         ((SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 41))
-                         (PROGN (LETT #1# 'T . #2#) (GO #3#))))
-                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
+                         (PROGN (LETT #1# 'T) (GO #2#))))
+                       (EXIT (PROGN (LETT #1# NIL) (GO #2#))))))))
                   (COND
                    ((QEQCAR |x| 1)
                     (COND
@@ -487,54 +443,54 @@
                          (COND
                           ((SPADCALL (QCDR (CDR |x|)) (QCDR (CDR |y|))
                                      (QREFELT $ 53))
-                           (PROGN (LETT #1# 'T . #2#) (GO #3#))))))
-                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
+                           (PROGN (LETT #1# 'T) (GO #2#))))))
+                       (EXIT (PROGN (LETT #1# NIL) (GO #2#))))))))
                   (EXIT NIL)))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |SKICOMB;coerce;$Of;23| ((|n| $) ($ |OutputForm|))
         (SPROG ((|s| (|OutputForm|)))
-               (SEQ
-                (LETT |s| (SPADCALL (QREFELT $ 54))
-                      . #1=(|SKICOMB;coerce;$Of;23|))
-                (COND
-                 ((QEQCAR |n| 0)
-                  (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 56)) . #1#)))
-                (COND
-                 ((QEQCAR |n| 1)
-                  (COND
-                   ((SPADCALL (QCDR (CDR |n|)) (QREFELT $ 32))
+               (SEQ (LETT |s| (SPADCALL (QREFELT $ 54)))
                     (COND
-                     ((SPADCALL (QCDR (CDR |n|)) (QREFELT $ 35))
-                      (LETT |s|
-                            (SPADCALL
-                             (LIST |s|
-                                   (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 49))
-                                   (SPADCALL " " (QREFELT $ 57))
-                                   (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49)))
-                             (QREFELT $ 58))
-                            . #1#))
-                     (#2='T
-                      (LETT |s|
-                            (SPADCALL
-                             (LIST |s|
-                                   (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 49))
-                                   (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49)))
-                             (QREFELT $ 58))
-                            . #1#))))
-                   (#2#
-                    (LETT |s|
-                          (SPADCALL
-                           (LIST |s| (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 49))
-                                 (SPADCALL "(" (QREFELT $ 57))
-                                 (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49))
-                                 (SPADCALL ")" (QREFELT $ 57)))
-                           (QREFELT $ 58))
-                          . #1#)))))
-                (COND
-                 ((QEQCAR |n| 2)
-                  (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 59)) . #1#)))
-                (EXIT |s|)))) 
+                     ((QEQCAR |n| 0)
+                      (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 56)))))
+                    (COND
+                     ((QEQCAR |n| 1)
+                      (COND
+                       ((SPADCALL (QCDR (CDR |n|)) (QREFELT $ 32))
+                        (COND
+                         ((SPADCALL (QCDR (CDR |n|)) (QREFELT $ 35))
+                          (LETT |s|
+                                (SPADCALL
+                                 (LIST |s|
+                                       (SPADCALL (QCAR (CDR |n|))
+                                                 (QREFELT $ 49))
+                                       (SPADCALL " " (QREFELT $ 57))
+                                       (SPADCALL (QCDR (CDR |n|))
+                                                 (QREFELT $ 49)))
+                                 (QREFELT $ 58))))
+                         (#1='T
+                          (LETT |s|
+                                (SPADCALL
+                                 (LIST |s|
+                                       (SPADCALL (QCAR (CDR |n|))
+                                                 (QREFELT $ 49))
+                                       (SPADCALL (QCDR (CDR |n|))
+                                                 (QREFELT $ 49)))
+                                 (QREFELT $ 58))))))
+                       (#1#
+                        (LETT |s|
+                              (SPADCALL
+                               (LIST |s|
+                                     (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 49))
+                                     (SPADCALL "(" (QREFELT $ 57))
+                                     (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49))
+                                     (SPADCALL ")" (QREFELT $ 57)))
+                               (QREFELT $ 58)))))))
+                    (COND
+                     ((QEQCAR |n| 2)
+                      (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 59)))))
+                    (EXIT |s|)))) 
 
 (DECLAIM (NOTINLINE |SKICombinators;|)) 
 
@@ -547,12 +503,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|SKICombinators|)
-                                               '|domainEqualList|)
-                    . #3=(|SKICombinators|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|SKICombinators;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|SKICombinators;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|SKICombinators|)))))))))) 
@@ -560,11 +514,11 @@
 (DEFUN |SKICombinators;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|SKICombinators|))
-          (LETT |dv$| (LIST '|SKICombinators| DV$1) . #1#)
-          (LETT $ (GETREFV 62) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|SKICombinators| DV$1))
+          (LETT $ (GETREFV 62))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SKICombinators| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

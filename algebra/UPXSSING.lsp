@@ -191,59 +191,52 @@
                           (|List|
                            (|Record| (|:| |k| (|Fraction| (|Integer|)))
                                      (|:| |c| FE)))))))
-         (SEQ (LETT |zeroTerms| NIL . #4=(|UPXSSING;sortAndDiscardTerms|))
-              (LETT |infiniteTerms| NIL . #4#) (LETT |failedTerms| NIL . #4#)
-              (LETT |infTermOrd| (|spadConstant| $ 35) . #4#)
-              (LETT |zeroTermOrd| (|spadConstant| $ 35) . #4#)
-              (LETT |ord| (|spadConstant| $ 35) . #4#)
-              (LETT |pSeries| (|spadConstant| $ 36) . #4#)
+         (SEQ (LETT |zeroTerms| NIL) (LETT |infiniteTerms| NIL)
+              (LETT |failedTerms| NIL)
+              (LETT |infTermOrd| (|spadConstant| $ 35))
+              (LETT |zeroTermOrd| (|spadConstant| $ 35))
+              (LETT |ord| (|spadConstant| $ 35))
+              (LETT |pSeries| (|spadConstant| $ 36))
               (SEQ
                (EXIT
                 (SEQ G190 (COND ((NULL (NULL (NULL |termList|))) (GO G191)))
                      (SEQ
                       (LETT |expon|
                             (|UPXSSING;exponent|
-                             (LETT |term| (|SPADfirst| |termList|) . #4#) $)
-                            . #4#)
+                             (LETT |term| (|SPADfirst| |termList|)) $))
                       (LETT |ord|
                             (SPADCALL |expon| (|spadConstant| $ 35)
-                                      (QREFELT $ 38))
-                            . #4#)
+                                      (QREFELT $ 38)))
                       (EXIT
                        (COND
                         ((SPADCALL |ord| |infTermOrd| (QREFELT $ 39))
-                         (PROGN (LETT #3# |$NoValue| . #4#) (GO #5=#:G177)))
+                         (PROGN (LETT #3# |$NoValue|) (GO #4=#:G177)))
                         ((SPADCALL |ord| (|spadConstant| $ 35) (QREFELT $ 40))
-                         (SEQ
-                          (LETT |pSeries| (|UPXSSING;coeff| |term| $) . #4#)
-                          (LETT |zeroTerms| NIL . #4#)
-                          (EXIT (PROGN (LETT #3# |$NoValue| . #4#) (GO #5#)))))
+                         (SEQ (LETT |pSeries| (|UPXSSING;coeff| |term| $))
+                              (LETT |zeroTerms| NIL)
+                              (EXIT (PROGN (LETT #3# |$NoValue|) (GO #4#)))))
                         ('T
                          (SEQ
-                          (LETT |coef| (SPADCALL |expon| |ord| (QREFELT $ 41))
-                                . #4#)
-                          (LETT |signum| (SPADCALL |coef| (QREFELT $ 44))
-                                . #4#)
+                          (LETT |coef| (SPADCALL |expon| |ord| (QREFELT $ 41)))
+                          (LETT |signum| (SPADCALL |coef| (QREFELT $ 44)))
                           (EXIT
                            (COND
                             ((QEQCAR |signum| 1)
                              (SEQ
-                              (LETT |failedTerms| (CONS |term| |failedTerms|)
-                                    . #4#)
-                              (EXIT (LETT |termList| (CDR |termList|) . #4#))))
+                              (LETT |failedTerms| (CONS |term| |failedTerms|))
+                              (EXIT (LETT |termList| (CDR |termList|)))))
                             ('T
-                             (SEQ (LETT |sig| (QCDR |signum|) . #4#)
+                             (SEQ (LETT |sig| (QCDR |signum|))
                                   (EXIT
                                    (COND
                                     ((EQL |sig| 1)
-                                     (SEQ (LETT |infTermOrd| |ord| . #4#)
+                                     (SEQ (LETT |infTermOrd| |ord|)
                                           (LETT |infiniteTerms|
-                                                (CONS |term| |infiniteTerms|)
-                                                . #4#)
-                                          (LETT |zeroTerms| NIL . #4#)
+                                                (CONS |term| |infiniteTerms|))
+                                          (LETT |zeroTerms| NIL)
                                           (EXIT
-                                           (LETT |termList| (CDR |termList|)
-                                                 . #4#))))
+                                           (LETT |termList|
+                                                 (CDR |termList|)))))
                                     ('T
                                      (SEQ
                                       (COND
@@ -254,18 +247,16 @@
                                                           (QREFELT $ 40))
                                                 (CONS |term| |zeroTerms|))
                                                ('T
-                                                (SEQ
-                                                 (LETT |zeroTermOrd| |ord|
-                                                       . #4#)
-                                                 (EXIT
-                                                  (SPADCALL |term|
-                                                            (QREFELT $ 47))))))
-                                              . #4#)))
+                                                (SEQ (LETT |zeroTermOrd| |ord|)
+                                                     (EXIT
+                                                      (SPADCALL |term|
+                                                                (QREFELT $
+                                                                         47)))))))))
                                       (EXIT
-                                       (LETT |termList| (CDR |termList|)
-                                             . #4#)))))))))))))))
+                                       (LETT |termList|
+                                             (CDR |termList|))))))))))))))))
                      NIL (GO G190) G191 (EXIT NIL)))
-               #5# (EXIT #3#))
+               #4# (EXIT #3#))
               (EXIT
                (VECTOR |zeroTerms| |infiniteTerms| (NREVERSE |failedTerms|)
                        |pSeries|))))) 
@@ -316,11 +307,8 @@
                                |ord| (QREFELT $ 41))
                      (|spadConstant| $ 37) (QREFELT $ 48)))
                    (GO G191)))
-                 (SEQ
-                  (EXIT
-                   (LETT |termList| (CDR |termList|)
-                         . #3=(|UPXSSING;termsWithExtremeLeadingCoef|))))
-                 NIL (GO G190) G191 (EXIT NIL))
+                 (SEQ (EXIT (LETT |termList| (CDR |termList|)))) NIL (GO G190)
+                 G191 (EXIT NIL))
             (EXIT
              (COND ((NULL |termList|) (|error| "UPXSSING: can't happen"))
                    ('T
@@ -328,47 +316,42 @@
                      (LETT |coefExtreme|
                            (SPADCALL
                             (|UPXSSING;exponent| (|SPADfirst| |termList|) $)
-                            |ord| (QREFELT $ 41))
-                           . #3#)
+                            |ord| (QREFELT $ 41)))
                      (LETT |outList|
-                           (SPADCALL (|SPADfirst| |termList|) (QREFELT $ 47))
-                           . #3#)
-                     (LETT |termList| (CDR |termList|) . #3#)
-                     (SEQ (LETT |term| NIL . #3#) (LETT #2# |termList| . #3#)
-                          G190
+                           (SPADCALL (|SPADfirst| |termList|) (QREFELT $ 47)))
+                     (LETT |termList| (CDR |termList|))
+                     (SEQ (LETT |term| NIL) (LETT #2# |termList|) G190
                           (COND
-                           ((OR (ATOM #2#)
-                                (PROGN (LETT |term| (CAR #2#) . #3#) NIL))
+                           ((OR (ATOM #2#) (PROGN (LETT |term| (CAR #2#)) NIL))
                             (GO G191)))
                           (SEQ
                            (LETT |coefDiff|
                                  (SPADCALL
                                   (SPADCALL (|UPXSSING;exponent| |term| $)
                                             |ord| (QREFELT $ 41))
-                                  |coefExtreme| (QREFELT $ 49))
-                                 . #3#)
+                                  |coefExtreme| (QREFELT $ 49)))
                            (EXIT
                             (COND
                              ((SPADCALL |coefDiff| (|spadConstant| $ 37)
                                         (QREFELT $ 48))
-                              (LETT |outList| (CONS |term| |outList|) . #3#))
+                              (LETT |outList| (CONS |term| |outList|)))
                              ('T
                               (SEQ
-                               (LETT |sig| (SPADCALL |coefDiff| (QREFELT $ 44))
-                                     . #3#)
+                               (LETT |sig|
+                                     (SPADCALL |coefDiff| (QREFELT $ 44)))
                                (EXIT
                                 (COND
                                  ((QEQCAR |sig| 1)
                                   (PROGN
-                                   (LETT #1# (CONS 1 "failed") . #3#)
-                                   (GO #4=#:G196)))
+                                   (LETT #1# (CONS 1 "failed"))
+                                   (GO #3=#:G196)))
                                  ((EQL (QCDR |sig|) |signum|)
                                   (LETT |outList|
-                                        (SPADCALL |term| (QREFELT $ 47))
-                                        . #3#)))))))))
-                          (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+                                        (SPADCALL |term|
+                                                  (QREFELT $ 47)))))))))))
+                          (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                      (EXIT (CONS 0 |outList|))))))))
-          #4# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |UPXSSING;filterByOrder|
         ((|termList| |List|
@@ -416,29 +399,25 @@
                  (GO G191)))
                (SEQ
                 (EXIT
-                 (SEQ
-                  (LETT |termList| (CDR |termList|)
-                        . #7=(|UPXSSING;filterByOrder|))
-                  (EXIT
-                   (COND
-                    ((NULL |termList|)
-                     (PROGN
-                      (LETT #6# (|error| "UPXSING: can't happen") . #7#)
-                      (GO #8=#:G202)))))))
-                #8# (EXIT #6#))
+                 (SEQ (LETT |termList| (CDR |termList|))
+                      (EXIT
+                       (COND
+                        ((NULL |termList|)
+                         (PROGN
+                          (LETT #6# (|error| "UPXSING: can't happen"))
+                          (GO #7=#:G202)))))))
+                #7# (EXIT #6#))
                NIL (GO G190) G191 (EXIT NIL))
           (LETT |ordExtreme|
                 (QCAR
                  (|SPADfirst|
-                  (|UPXSSING;exponentTerms| (|SPADfirst| |termList|) $)))
-                . #7#)
-          (LETT |outList| (SPADCALL (|SPADfirst| |termList|) (QREFELT $ 47))
-                . #7#)
+                  (|UPXSSING;exponentTerms| (|SPADfirst| |termList|) $))))
+          (LETT |outList| (SPADCALL (|SPADfirst| |termList|) (QREFELT $ 47)))
           (SEQ
            (EXIT
-            (SEQ (LETT |term| NIL . #7#) (LETT #5# (CDR |termList|) . #7#) G190
+            (SEQ (LETT |term| NIL) (LETT #5# (CDR |termList|)) G190
                  (COND
-                  ((OR (ATOM #5#) (PROGN (LETT |term| (CAR #5#) . #7#) NIL))
+                  ((OR (ATOM #5#) (PROGN (LETT |term| (CAR #5#)) NIL))
                    (GO G191)))
                  (SEQ
                   (EXIT
@@ -450,12 +429,11 @@
                              (LETT |ord|
                                    (QCAR
                                     (|SPADfirst|
-                                     (|UPXSSING;exponentTerms| |term| $)))
-                                   . #7#)
+                                     (|UPXSSING;exponentTerms| |term| $))))
                              (EXIT
                               (COND
                                ((SPADCALL |ord| |ordExtreme| (QREFELT $ 40))
-                                (LETT |outList| (CONS |term| |outList|) . #7#))
+                                (LETT |outList| (CONS |term| |outList|)))
                                ('T
                                 (SEQ
                                  (EXIT
@@ -463,29 +441,26 @@
                                    ((SPADCALL |ord| |ordExtreme| |predicate|)
                                     (PROGN
                                      (LETT #3#
-                                           (SEQ (LETT |ordExtreme| |ord| . #7#)
+                                           (SEQ (LETT |ordExtreme| |ord|)
                                                 (EXIT
                                                  (LETT |outList|
                                                        (SPADCALL |term|
                                                                  (QREFELT $
-                                                                          47))
-                                                       . #7#)))
-                                           . #7#)
-                                     (GO #9=#:G205)))))
-                                 #9# (EXIT #3#))))))
-                            . #7#)
-                      (GO #10=#:G208))))))
-                 (LETT #5# (CDR #5#) . #7#) (GO G190) G191 (EXIT NIL)))
-           #10# (EXIT #2#))
-          (SEQ (LETT |term| NIL . #7#) (LETT #1# |outList| . #7#) G190
+                                                                          47))))))
+                                     (GO #8=#:G205)))))
+                                 #8# (EXIT #3#)))))))
+                      (GO #9=#:G208))))))
+                 (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL)))
+           #9# (EXIT #2#))
+          (SEQ (LETT |term| NIL) (LETT #1# |outList|) G190
                (COND
-                ((OR (ATOM #1#) (PROGN (LETT |term| (CAR #1#) . #7#) NIL))
+                ((OR (ATOM #1#) (PROGN (LETT |term| (CAR #1#)) NIL))
                  (GO G191)))
                (SEQ
                 (EXIT
                  (|UPXSSING;setExponentTerms!| |term|
                   (CDR (|UPXSSING;exponentTerms| |term| $)) $)))
-               (LETT #1# (CDR #1#) . #7#) (GO G190) G191 (EXIT NIL))
+               (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
           (EXIT (CONS |outList| |ordExtreme|))))) 
 
 (SDEFUN |UPXSSING;dominantTermOnList|
@@ -539,33 +514,31 @@
          (SEQ
           (LETT |newList|
                 (|UPXSSING;termsWithExtremeLeadingCoef| |termList| |ord0|
-                 |signum| $)
-                . #1=(|UPXSSING;dominantTermOnList|))
+                 |signum| $))
           (EXIT
            (COND ((QEQCAR |newList| 1) (CONS 1 "failed"))
-                 (#2='T
-                  (SEQ (LETT |termList| (QCDR |newList|) . #1#)
+                 (#1='T
+                  (SEQ (LETT |termList| (QCDR |newList|))
                        (EXIT
                         (COND
                          ((NULL (CDR |termList|))
                           (CONS 0 (|SPADfirst| |termList|)))
-                         (#2#
+                         (#1#
                           (SEQ
                            (LETT |filtered|
                                  (COND
                                   ((EQL |signum| 1)
                                    (|UPXSSING;filterByOrder| |termList|
                                     (ELT $ 50) $))
-                                  (#2#
+                                  (#1#
                                    (|UPXSSING;filterByOrder| |termList|
-                                    (ELT $ 39) $)))
-                                 . #1#)
-                           (LETT |termList| (QCAR |filtered|) . #1#)
+                                    (ELT $ 39) $))))
+                           (LETT |termList| (QCAR |filtered|))
                            (EXIT
                             (COND
                              ((NULL (CDR |termList|))
                               (CONS 0 (|SPADfirst| |termList|)))
-                             (#2#
+                             (#1#
                               (|UPXSSING;dominantTermOnList| |termList|
                                (QCDR |filtered|) |signum| $))))))))))))))) 
 
@@ -644,12 +617,11 @@
          (SEQ
           (EXIT
            (SEQ
-            (LETT |termRecord| (|UPXSSING;sortAndDiscardTerms| |termList| $)
-                  . #8=(|UPXSSING;iDominantTerm|))
-            (LETT |zeroTerms| (QVELT |termRecord| 0) . #8#)
-            (LETT |infiniteTerms| (QVELT |termRecord| 1) . #8#)
-            (LETT |failedTerms| (QVELT |termRecord| 2) . #8#)
-            (LETT |pSeries| (QVELT |termRecord| 3) . #8#)
+            (LETT |termRecord| (|UPXSSING;sortAndDiscardTerms| |termList| $))
+            (LETT |zeroTerms| (QVELT |termRecord| 0))
+            (LETT |infiniteTerms| (QVELT |termRecord| 1))
+            (LETT |failedTerms| (QVELT |termRecord| 2))
+            (LETT |pSeries| (QVELT |termRecord| 3))
             (COND ((NULL (NULL |failedTerms|)) (EXIT (CONS 1 "failed"))))
             (COND
              ((NULL (SPADCALL |pSeries| (QREFELT $ 51)))
@@ -664,59 +636,50 @@
                (COND
                 ((NULL (CDR |infiniteTerms|))
                  (CONS 0 (CONS (|SPADfirst| |infiniteTerms|) "infinity")))
-                (#9='T
+                (#8='T
                  (SEQ
-                  (SEQ (LETT |term| NIL . #8#) (LETT #3# |infiniteTerms| . #8#)
-                       G190
+                  (SEQ (LETT |term| NIL) (LETT #3# |infiniteTerms|) G190
                        (COND
-                        ((OR (ATOM #3#)
-                             (PROGN (LETT |term| (CAR #3#) . #8#) NIL))
+                        ((OR (ATOM #3#) (PROGN (LETT |term| (CAR #3#)) NIL))
                          (GO G191)))
                        (SEQ (EXIT (|UPXSSING;computeExponentTerms!| |term| $)))
-                       (LETT #3# (CDR #3#) . #8#) (GO G190) G191 (EXIT NIL))
+                       (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                   (LETT |ord0|
                         (SPADCALL
                          (|UPXSSING;exponent| (|SPADfirst| |infiniteTerms|) $)
-                         (QREFELT $ 53))
-                        . #8#)
+                         (QREFELT $ 53)))
                   (LETT |dTerm|
                         (|UPXSSING;dominantTermOnList| |infiniteTerms| |ord0| 1
-                         $)
-                        . #8#)
+                         $))
                   (EXIT
                    (COND
                     ((QEQCAR |dTerm| 1)
-                     (PROGN
-                      (LETT #1# (CONS 1 "failed") . #8#)
-                      (GO #10=#:G247)))
-                    (#9# (CONS 0 (CONS (QCDR |dTerm|) "infinity")))))))))))
+                     (PROGN (LETT #1# (CONS 1 "failed")) (GO #9=#:G247)))
+                    (#8# (CONS 0 (CONS (QCDR |dTerm|) "infinity")))))))))))
             (EXIT
              (COND
               ((NULL (CDR |zeroTerms|))
                (CONS 0 (CONS (|SPADfirst| |zeroTerms|) "zero")))
-              (#9#
+              (#8#
                (SEQ
-                (SEQ (LETT |term| NIL . #8#) (LETT #2# |zeroTerms| . #8#) G190
+                (SEQ (LETT |term| NIL) (LETT #2# |zeroTerms|) G190
                      (COND
-                      ((OR (ATOM #2#)
-                           (PROGN (LETT |term| (CAR #2#) . #8#) NIL))
+                      ((OR (ATOM #2#) (PROGN (LETT |term| (CAR #2#)) NIL))
                        (GO G191)))
                      (SEQ (EXIT (|UPXSSING;computeExponentTerms!| |term| $)))
-                     (LETT #2# (CDR #2#) . #8#) (GO G190) G191 (EXIT NIL))
+                     (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                 (LETT |ord0|
                       (SPADCALL
                        (|UPXSSING;exponent| (|SPADfirst| |zeroTerms|) $)
-                       (QREFELT $ 53))
-                      . #8#)
+                       (QREFELT $ 53)))
                 (LETT |dTerm|
-                      (|UPXSSING;dominantTermOnList| |zeroTerms| |ord0| -1 $)
-                      . #8#)
+                      (|UPXSSING;dominantTermOnList| |zeroTerms| |ord0| -1 $))
                 (EXIT
                  (COND
                   ((QEQCAR |dTerm| 1)
-                   (PROGN (LETT #1# (CONS 1 "failed") . #8#) (GO #10#)))
-                  (#9# (CONS 0 (CONS (QCDR |dTerm|) "zero")))))))))))
-          #10# (EXIT #1#)))) 
+                   (PROGN (LETT #1# (CONS 1 "failed")) (GO #9#)))
+                  (#8# (CONS 0 (CONS (QCDR |dTerm|) "zero")))))))))))
+          #9# (EXIT #1#)))) 
 
 (SDEFUN |UPXSSING;dominantTerm;$U;15|
         ((|f| $)
@@ -777,18 +740,16 @@
                                       (|:| |c| FE))))))))
          (SEQ
           (COND
-           ((NULL
-             (LETT |termList| (|UPXSSING;terms| |f| $)
-                   . #3=(|UPXSSING;limitPlus;$U;16|)))
+           ((NULL (LETT |termList| (|UPXSSING;terms| |f| $)))
             (CONS 0 (SPADCALL (|spadConstant| $ 37) (QREFELT $ 58))))
-           (#4='T
-            (SEQ (LETT |tInfo| (|UPXSSING;iDominantTerm| |termList| $) . #3#)
+           (#3='T
+            (SEQ (LETT |tInfo| (|UPXSSING;iDominantTerm| |termList| $))
                  (EXIT
                   (COND ((QEQCAR |tInfo| 1) (CONS 1 "failed"))
-                        (#4#
-                         (SEQ (LETT |termInfo| (QCDR |tInfo|) . #3#)
-                              (LETT |domTerm| (QCAR |termInfo|) . #3#)
-                              (LETT |type| (QCDR |termInfo|) . #3#)
+                        (#3#
+                         (SEQ (LETT |termInfo| (QCDR |tInfo|))
+                              (LETT |domTerm| (QCAR |termInfo|))
+                              (LETT |type| (QCDR |termInfo|))
                               (EXIT
                                (COND
                                 ((EQUAL |type| "series")
@@ -796,10 +757,8 @@
                                   (LETT |ord|
                                         (SPADCALL
                                          (LETT |pSeries|
-                                               (|UPXSSING;coeff| |domTerm| $)
-                                               . #3#)
-                                         (|spadConstant| $ 59) (QREFELT $ 60))
-                                        . #3#)
+                                               (|UPXSSING;coeff| |domTerm| $))
+                                         (|spadConstant| $ 59) (QREFELT $ 60)))
                                   (EXIT
                                    (COND
                                     ((SPADCALL |ord| (|spadConstant| $ 35)
@@ -807,12 +766,11 @@
                                      (CONS 0
                                            (SPADCALL (|spadConstant| $ 37)
                                                      (QREFELT $ 58))))
-                                    (#4#
+                                    (#3#
                                      (SEQ
                                       (LETT |coef|
                                             (SPADCALL |pSeries| |ord|
-                                                      (QREFELT $ 61))
-                                            . #3#)
+                                                      (QREFELT $ 61)))
                                       (EXIT
                                        (COND
                                         ((SPADCALL (QREFELT $ 8)
@@ -825,12 +783,11 @@
                                          (CONS 0
                                                (SPADCALL |coef|
                                                          (QREFELT $ 58))))
-                                        (#4#
+                                        (#3#
                                          (SEQ
                                           (LETT |signum|
                                                 (SPADCALL |coef|
-                                                          (QREFELT $ 44))
-                                                . #3#)
+                                                          (QREFELT $ 44)))
                                           (EXIT
                                            (COND
                                             ((QEQCAR |signum| 1)
@@ -838,7 +795,7 @@
                                             ((EQL (QCDR |signum|) 1)
                                              (CONS 0
                                                    (SPADCALL (QREFELT $ 66))))
-                                            (#4#
+                                            (#3#
                                              (CONS 0
                                                    (SPADCALL
                                                     (QREFELT $
@@ -847,36 +804,32 @@
                                  (CONS 0
                                        (SPADCALL (|spadConstant| $ 37)
                                                  (QREFELT $ 58))))
-                                (#4#
+                                (#3#
                                  (SEQ
                                   (LETT |ord|
                                         (SPADCALL
                                          (LETT |pSeries|
-                                               (|UPXSSING;coeff| |domTerm| $)
-                                               . #3#)
-                                         (QREFELT $ 68))
-                                        . #3#)
+                                               (|UPXSSING;coeff| |domTerm| $))
+                                         (QREFELT $ 68)))
                                   (LETT |coef|
                                         (SPADCALL |pSeries| |ord|
-                                                  (QREFELT $ 61))
-                                        . #3#)
+                                                  (QREFELT $ 61)))
                                   (EXIT
                                    (COND
                                     ((SPADCALL (QREFELT $ 8)
                                                (SPADCALL |coef| (QREFELT $ 63))
                                                (QREFELT $ 65))
                                      (CONS 1 "failed"))
-                                    (#4#
+                                    (#3#
                                      (SEQ
                                       (LETT |signum|
-                                            (SPADCALL |coef| (QREFELT $ 44))
-                                            . #3#)
+                                            (SPADCALL |coef| (QREFELT $ 44)))
                                       (EXIT
                                        (COND
                                         ((QEQCAR |signum| 1) (CONS 1 "failed"))
                                         ((EQL (QCDR |signum|) 1)
                                          (CONS 0 (SPADCALL (QREFELT $ 66))))
-                                        (#4#
+                                        (#3#
                                          (CONS 0
                                                (SPADCALL
                                                 (QREFELT $
@@ -893,8 +846,7 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|UnivariatePuiseuxSeriesWithExponentialSingularity|)
-                                               '|domainEqualList|)
-                    . #3=(|UnivariatePuiseuxSeriesWithExponentialSingularity|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -903,7 +855,7 @@
                        (|function|
                         |UnivariatePuiseuxSeriesWithExponentialSingularity;|)
                        #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -915,16 +867,14 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|)
-          . #1=(|UnivariatePuiseuxSeriesWithExponentialSingularity|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$|
           (LIST '|UnivariatePuiseuxSeriesWithExponentialSingularity| DV$1 DV$2
-                DV$3 DV$4)
-          . #1#)
-    (LETT $ (GETREFV 82) . #1#)
+                DV$3 DV$4))
+    (LETT $ (GETREFV 82))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -977,8 +927,7 @@
                                         (|HasCategory|
                                          (|UnivariatePuiseuxSeries| |#2| |#3|
                                                                     |#4|)
-                                         '(|GcdDomain|))))
-                    . #1#))
+                                         '(|GcdDomain|))))))
     (|haddProp| |$ConstructorCache|
                 '|UnivariatePuiseuxSeriesWithExponentialSingularity|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))

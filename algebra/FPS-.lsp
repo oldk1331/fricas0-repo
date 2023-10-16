@@ -10,8 +10,7 @@
                               (QUOTIENT2
                                (SPADCALL 4004 (- (SPADCALL (QREFELT $ 13)) 1)
                                          (QREFELT $ 14))
-                               13301))
-                         |FPS-;digits;Pi;2|)
+                               13301)))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
                                    #1#)))) 
 
@@ -23,30 +22,27 @@
         (SPROG
          ((|res| (|List| (|String|))) (|x2| (S)) (|tenn| (S)) (|x0| (S))
           (|x1| (S)))
-         (SEQ
-          (LETT |x1| (SPADCALL |x| (QREFELT $ 20))
-                . #1=(|FPS-;toString;SNniS;4|))
-          (LETT |x0|
-                (SPADCALL (SPADCALL |x| |x1| (QREFELT $ 21)) (QREFELT $ 22))
-                . #1#)
-          (LETT |tenn| (SPADCALL 1 |n| 10 (QREFELT $ 10)) . #1#)
-          (LETT |x2|
-                (SPADCALL (SPADCALL |tenn| |x0| (QREFELT $ 23)) (QREFELT $ 20))
-                . #1#)
-          (LETT |res|
-                (LIST (STRINGIMAGE (SPADCALL |x1| (QREFELT $ 24))) "."
-                      (STRINGIMAGE (SPADCALL |x2| (QREFELT $ 24))))
-                . #1#)
-          (EXIT (SPADCALL (ELT $ 25) |res| (QREFELT $ 28)))))) 
+         (SEQ (LETT |x1| (SPADCALL |x| (QREFELT $ 20)))
+              (LETT |x0|
+                    (SPADCALL (SPADCALL |x| |x1| (QREFELT $ 21))
+                              (QREFELT $ 22)))
+              (LETT |tenn| (SPADCALL 1 |n| 10 (QREFELT $ 10)))
+              (LETT |x2|
+                    (SPADCALL (SPADCALL |tenn| |x0| (QREFELT $ 23))
+                              (QREFELT $ 20)))
+              (LETT |res|
+                    (LIST (STRINGIMAGE (SPADCALL |x1| (QREFELT $ 24))) "."
+                          (STRINGIMAGE (SPADCALL |x2| (QREFELT $ 24)))))
+              (EXIT (SPADCALL (ELT $ 25) |res| (QREFELT $ 28)))))) 
 
 (DECLAIM (NOTINLINE |FloatingPointSystem&;|)) 
 
 (DEFUN |FloatingPointSystem&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FloatingPointSystem&|))
-          (LETT |dv$| (LIST '|FloatingPointSystem&| DV$1) . #1#)
-          (LETT $ (GETREFV 31) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|FloatingPointSystem&| DV$1))
+          (LETT $ (GETREFV 31))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -55,8 +51,7 @@
                                               (|HasCategory| |#1|
                                                              '(|arbitraryExponent|))
                                               (|HasCategory| |#1|
-                                                             '(|arbitraryPrecision|))))
-                          . #1#))
+                                                             '(|arbitraryPrecision|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

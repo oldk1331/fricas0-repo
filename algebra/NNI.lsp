@@ -20,7 +20,7 @@
 
 (SDEFUN |NNI;subtractIfCan;2$U;4| ((|x| $) (|y| $) ($ |Union| $ "failed"))
         (SPROG ((|c| (|Integer|)))
-               (SEQ (LETT |c| (- |x| |y|) |NNI;subtractIfCan;2$U;4|)
+               (SEQ (LETT |c| (- |x| |y|))
                     (EXIT
                      (COND ((< |c| 0) (CONS 1 "failed")) ('T (CONS 0 |c|))))))) 
 
@@ -31,8 +31,7 @@
          (PROG (#1=#:G1582)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|NonNegativeInteger|)
-                    . #2=(|NonNegativeInteger|))
+             ((LETT #1# (HGET |$ConstructorCache| '|NonNegativeInteger|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -41,7 +40,7 @@
                        (HPUT |$ConstructorCache| '|NonNegativeInteger|
                              (LIST
                               (CONS NIL (CONS 1 (|NonNegativeInteger;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|NonNegativeInteger|)))))))))) 
@@ -49,10 +48,10 @@
 (DEFUN |NonNegativeInteger;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|NonNegativeInteger|) . #1=(|NonNegativeInteger|))
-          (LETT $ (GETREFV 20) . #1#)
+          (LETT |dv$| '(|NonNegativeInteger|))
+          (LETT $ (GETREFV 20))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|NonNegativeInteger| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (AND (|HasCategory| $ '(|AbelianGroup|)) (|augmentPredVector| $ 1))

@@ -23,7 +23,6 @@
                                     ('T
                                      (LETT |Dictionary;CAT|
                                            (|Join|
-                                            (|DictionaryOperations| '|t#1|))
-                                           . #2=(|Dictionary|)))))
-                   . #2#)
+                                            (|DictionaryOperations|
+                                             '|t#1|)))))))
            (SETELT #1# 0 (LIST '|Dictionary| |t#1|))))) 

@@ -8,7 +8,7 @@
 
 (DEFUN |Canonical;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1 (LETT #1# (|Join| (|mkCategory| NIL NIL NIL NIL)) |Canonical|)
+         (PROG1 (LETT #1# (|Join| (|mkCategory| NIL NIL NIL NIL)))
            (SETELT #1# 0 '(|Canonical|))))) 
 
 (MAKEPROP '|Canonical| 'NILADIC T) 

@@ -25,8 +25,7 @@
                                ((|wholePart| ((|Integer|) $)) T)
                                ((|fractionPart| ($ $)) T)
                                ((|truncate| ($ $)) T) ((|round| ($ $)) T))
-                             NIL NIL NIL)))
-                   |RealNumberSystem|)
+                             NIL NIL NIL))))
            (SETELT #1# 0 '(|RealNumberSystem|))))) 
 
 (MAKEPROP '|RealNumberSystem| 'NILADIC T) 

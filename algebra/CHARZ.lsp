@@ -9,7 +9,7 @@
 
 (DEFUN |CharacteristicZero;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1 (LETT #1# (|Join| (|Ring|)) |CharacteristicZero|)
+         (PROG1 (LETT #1# (|Join| (|Ring|)))
            (SETELT #1# 0 '(|CharacteristicZero|))))) 
 
 (MAKEPROP '|CharacteristicZero| 'NILADIC T) 

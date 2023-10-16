@@ -14,8 +14,7 @@
                   (SEQ
                    (LETT |c|
                          (SPADCALL |fn| (SPADCALL |supr| (QREFELT $ 24))
-                                   (QREFELT $ 26))
-                         |MPC2;supMap|)
+                                   (QREFELT $ 26)))
                    (EXIT
                     (SPADCALL
                      (SPADCALL |c| (SPADCALL |supr| (QREFELT $ 27))
@@ -27,20 +26,18 @@
         (SPROG
          ((|supr| (|SparseUnivariatePolynomial| PR)) (|var| (|VarSet|))
           (|varu| (|Union| |VarSet| "failed")))
-         (SEQ
-          (LETT |varu| (SPADCALL |pr| (QREFELT $ 31))
-                . #1=(|MPC2;map;MPRPS;2|))
-          (EXIT
-           (COND
-            ((QEQCAR |varu| 1)
-             (SPADCALL (SPADCALL (SPADCALL |pr| (QREFELT $ 32)) |fn|)
-                       (QREFELT $ 20)))
-            ('T
-             (SEQ (LETT |var| (QCDR |varu|) . #1#)
-                  (LETT |supr| (SPADCALL |pr| |var| (QREFELT $ 34)) . #1#)
-                  (EXIT
-                   (SPADCALL (|MPC2;supMap| |fn| |supr| $) |var|
-                             (QREFELT $ 35)))))))))) 
+         (SEQ (LETT |varu| (SPADCALL |pr| (QREFELT $ 31)))
+              (EXIT
+               (COND
+                ((QEQCAR |varu| 1)
+                 (SPADCALL (SPADCALL (SPADCALL |pr| (QREFELT $ 32)) |fn|)
+                           (QREFELT $ 20)))
+                ('T
+                 (SEQ (LETT |var| (QCDR |varu|))
+                      (LETT |supr| (SPADCALL |pr| |var| (QREFELT $ 34)))
+                      (EXIT
+                       (SPADCALL (|MPC2;supMap| |fn| |supr| $) |var|
+                                 (QREFELT $ 35)))))))))) 
 
 (DECLAIM (NOTINLINE |MPolyCatFunctions2;|)) 
 
@@ -53,13 +50,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|MPolyCatFunctions2|)
-                                               '|domainEqualList|)
-                    . #3=(|MPolyCatFunctions2|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |MPolyCatFunctions2;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|MPolyCatFunctions2|)))))))))) 
@@ -69,18 +65,18 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$7 NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL)
     (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #1=(|MPolyCatFunctions2|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
-    (LETT DV$5 (|devaluate| |#5|) . #1#)
-    (LETT DV$6 (|devaluate| |#6|) . #1#)
-    (LETT DV$7 (|devaluate| |#7|) . #1#)
-    (LETT |dv$| (LIST '|MPolyCatFunctions2| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7)
-          . #1#)
-    (LETT $ (GETREFV 36) . #1#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
+    (LETT DV$5 (|devaluate| |#5|))
+    (LETT DV$6 (|devaluate| |#6|))
+    (LETT DV$7 (|devaluate| |#7|))
+    (LETT |dv$|
+          (LIST '|MPolyCatFunctions2| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7))
+    (LETT $ (GETREFV 36))
     (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|MPolyCatFunctions2|
                 (LIST DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7) (CONS 1 $))
     (|stuffDomainSlots| $)

@@ -51,7 +51,5 @@
                                                  ((|Void|) $ |t#1| |t#1|))
                                                 (|has| $
                                                        (|shallowlyMutable|))))
-                                             NIL NIL NIL))
-                                           . #2=(|IndexedAggregate|)))))
-                   . #2#)
+                                             NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|IndexedAggregate| |t#1| |t#2|))))) 

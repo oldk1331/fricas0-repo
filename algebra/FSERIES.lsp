@@ -23,8 +23,7 @@
                             (SPADCALL
                              (SPADCALL (SPADCALL |e| (QREFELT $ 19))
                                        (QREFELT $ 22))
-                             (QREFELT $ 14))
-                            . #2=(|FSERIES;coerce;Fc$;2|)))
+                             (QREFELT $ 14))))
                      ('T
                       (PROGN
                        (LETT #1#
@@ -35,11 +34,10 @@
                                           (QREFELT $ 22))
                                 (QREFELT $ 23))
                                (SPADCALL (|spadConstant| $ 15)
-                                         (QREFELT $ 24))))
-                             . #2#)
-                       (GO #3=#:G125))))))
+                                         (QREFELT $ 24)))))
+                       (GO #2=#:G125))))))
                   (EXIT (LIST (CONS |e| (|spadConstant| $ 15))))))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |FSERIES;multiply| ((|t1| |Term|) (|t2| |Term|) ($ $))
         (SPROG ((|diff| (E)) (|sum| (E)) (|s2| (E)) (|s1| (E)) (|r| (R)))
@@ -47,12 +45,11 @@
                 (LETT |r|
                       (SPADCALL
                        (SPADCALL (QCDR |t1|) (QCDR |t2|) (QREFELT $ 27))
-                       (SPADCALL 1 2 (QREFELT $ 30)) (QREFELT $ 31))
-                      . #1=(|FSERIES;multiply|))
-                (LETT |s1| (SPADCALL (QCAR |t1|) (QREFELT $ 19)) . #1#)
-                (LETT |s2| (SPADCALL (QCAR |t2|) (QREFELT $ 19)) . #1#)
-                (LETT |sum| (SPADCALL |s1| |s2| (QREFELT $ 32)) . #1#)
-                (LETT |diff| (SPADCALL |s1| |s2| (QREFELT $ 33)) . #1#)
+                       (SPADCALL 1 2 (QREFELT $ 30)) (QREFELT $ 31)))
+                (LETT |s1| (SPADCALL (QCAR |t1|) (QREFELT $ 19)))
+                (LETT |s2| (SPADCALL (QCAR |t2|) (QREFELT $ 19)))
+                (LETT |sum| (SPADCALL |s1| |s2| (QREFELT $ 32)))
+                (LETT |diff| (SPADCALL |s1| |s2| (QREFELT $ 33)))
                 (EXIT
                  (COND
                   ((SPADCALL (QCAR |t1|) (QREFELT $ 18))
@@ -62,7 +59,7 @@
                                (SPADCALL |sum| (SPADCALL |r| (QREFELT $ 24))
                                          (QREFELT $ 34))
                                (QREFELT $ 35)))
-                    (#2='T
+                    (#1='T
                      (SPADCALL (SPADCALL |sum| |r| (QREFELT $ 36))
                                (SPADCALL |diff| |r| (QREFELT $ 36))
                                (QREFELT $ 35)))))
@@ -70,7 +67,7 @@
                    (SPADCALL (SPADCALL |sum| |r| (QREFELT $ 36))
                              (SPADCALL |diff| |r| (QREFELT $ 36))
                              (QREFELT $ 35)))
-                  (#2#
+                  (#1#
                    (SPADCALL (SPADCALL |diff| |r| (QREFELT $ 34))
                              (SPADCALL |sum| |r| (QREFELT $ 34))
                              (QREFELT $ 35)))))))) 
@@ -84,54 +81,44 @@
           (COND ((OR (NULL |x1|) (NULL |x2|)) (|spadConstant| $ 10))
                 ('T
                  (PROGN
-                  (LETT #1# NIL . #9=(|FSERIES;*;3$;4|))
-                  (SEQ (LETT |t1| NIL . #9#) (LETT #8# |x1| . #9#) G190
+                  (LETT #1# NIL)
+                  (SEQ (LETT |t1| NIL) (LETT #8# |x1|) G190
                        (COND
-                        ((OR (ATOM #8#)
-                             (PROGN (LETT |t1| (CAR #8#) . #9#) NIL))
+                        ((OR (ATOM #8#) (PROGN (LETT |t1| (CAR #8#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
                          (PROGN
                           (LETT #3#
                                 (PROGN
-                                 (LETT #4# NIL . #9#)
-                                 (SEQ (LETT |t2| NIL . #9#)
-                                      (LETT #7# |x2| . #9#) G190
+                                 (LETT #4# NIL)
+                                 (SEQ (LETT |t2| NIL) (LETT #7# |x2|) G190
                                       (COND
                                        ((OR (ATOM #7#)
-                                            (PROGN
-                                             (LETT |t2| (CAR #7#) . #9#)
-                                             NIL))
+                                            (PROGN (LETT |t2| (CAR #7#)) NIL))
                                         (GO G191)))
                                       (SEQ
                                        (EXIT
                                         (PROGN
                                          (LETT #6#
-                                               (|FSERIES;multiply| |t1| |t2| $)
-                                               . #9#)
+                                               (|FSERIES;multiply| |t1| |t2|
+                                                $))
                                          (COND
                                           (#4#
                                            (LETT #5#
                                                  (SPADCALL #5# #6#
-                                                           (QREFELT $ 35))
-                                                 . #9#))
+                                                           (QREFELT $ 35))))
                                           ('T
                                            (PROGN
-                                            (LETT #5# #6# . #9#)
-                                            (LETT #4# 'T . #9#)))))))
-                                      (LETT #7# (CDR #7#) . #9#) (GO G190) G191
+                                            (LETT #5# #6#)
+                                            (LETT #4# 'T)))))))
+                                      (LETT #7# (CDR #7#)) (GO G190) G191
                                       (EXIT NIL))
-                                 (COND (#4# #5#) ('T (|spadConstant| $ 10))))
-                                . #9#)
+                                 (COND (#4# #5#) ('T (|spadConstant| $ 10)))))
                           (COND
-                           (#1#
-                            (LETT #2# (SPADCALL #2# #3# (QREFELT $ 35)) . #9#))
-                           ('T
-                            (PROGN
-                             (LETT #2# #3# . #9#)
-                             (LETT #1# 'T . #9#)))))))
-                       (LETT #8# (CDR #8#) . #9#) (GO G190) G191 (EXIT NIL))
+                           (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 35))))
+                           ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
+                       (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
                   (COND (#1# #2#) ('T (|spadConstant| $ 10))))))))) 
 
 (SDEFUN |FSERIES;makeCos;ER$;5| ((|a| E) (|r| R) ($ $))
@@ -160,23 +147,22 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FourierSeries|)
-                                               '|domainEqualList|)
-                    . #3=(|FourierSeries|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |FourierSeries;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|FourierSeries|)))))))))) 
 
 (DEFUN |FourierSeries;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FourierSeries|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|FourierSeries| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 45) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|FourierSeries| DV$1 DV$2))
+          (LETT $ (GETREFV 45))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -186,8 +172,7 @@
                                                (|HasCategory| |#1|
                                                               '(|Canonical|))
                                                (|HasCategory| |#2|
-                                                              '(|Canonical|)))))
-                          . #1#))
+                                                              '(|Canonical|)))))))
           (|haddProp| |$ConstructorCache| '|FourierSeries| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

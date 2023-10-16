@@ -10,8 +10,8 @@
 
 (SDEFUN |PATTERN1;predicate;PM;2!0| ((|d1| NIL) ($$ NIL))
         (PROG (|p| $)
-          (LETT |p| (QREFELT $$ 1) . #1=(|PATTERN1;predicate;PM;2|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |p| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN (|PATTERN1;applyAll| (SPADCALL |p| (QREFELT $ 10)) |d1| $))))) 
 
@@ -23,17 +23,16 @@
         (SPROG ((#1=#:G114 NIL) (|v| NIL) (#2=#:G113 NIL))
                (SEQ
                 (PROGN
-                 (LETT #2# NIL . #3=(|PATTERN1;badValues;PL;4|))
-                 (SEQ (LETT |v| NIL . #3#)
-                      (LETT #1# (SPADCALL |p| (QREFELT $ 20)) . #3#) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |v| NIL) (LETT #1# (SPADCALL |p| (QREFELT $ 20)))
+                      G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#) . #3#) NIL))
+                       ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 21)) #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                        (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 21)) #2#))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |PATTERN1;suchThat;PLMP;5|
@@ -54,13 +53,8 @@
         (SPROG
          ((|rec|
            (|Record| (|:| |var| (|List| (|Symbol|))) (|:| |pred| (|Any|)))))
-         (COND
-          ((NULL
-            (QCAR
-             (LETT |rec| (SPADCALL |p| (QREFELT $ 37))
-                   |PATTERN1;satisfy?;LPB;8|)))
-           'T)
-          ('T (SPADCALL |l| (SPADCALL (QCDR |rec|) (QREFELT $ 38))))))) 
+         (COND ((NULL (QCAR (LETT |rec| (SPADCALL |p| (QREFELT $ 37))))) 'T)
+               ('T (SPADCALL |l| (SPADCALL (QCDR |rec|) (QREFELT $ 38))))))) 
 
 (SDEFUN |PATTERN1;applyAll| ((|l| |List| (|Any|)) (|d| D) ($ |Boolean|))
         (SPROG ((#1=#:G129 NIL) (#2=#:G130 NIL) (#3=#:G131 NIL) (|f| NIL))
@@ -69,11 +63,9 @@
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |f| NIL . #4=(|PATTERN1;applyAll|))
-                         (LETT #3# |l| . #4#) G190
+                    (SEQ (LETT |f| NIL) (LETT #3# |l|) G190
                          (COND
-                          ((OR (ATOM #3#)
-                               (PROGN (LETT |f| (CAR #3#) . #4#) NIL))
+                          ((OR (ATOM #3#) (PROGN (LETT |f| (CAR #3#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
@@ -81,14 +73,12 @@
                             ((NULL
                               (SPADCALL |d| (SPADCALL |f| (QREFELT $ 40))))
                              (PROGN
-                              (LETT #1#
-                                    (PROGN (LETT #2# NIL . #4#) (GO #5=#:G128))
-                                    . #4#)
-                              (GO #6=#:G126))))))
-                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #6# (EXIT #1#))
+                              (LETT #1# (PROGN (LETT #2# NIL) (GO #4=#:G128)))
+                              (GO #5=#:G126))))))
+                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #1#))
                   (EXIT 'T)))
-                #5# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (SDEFUN |PATTERN1;suchThat;PLP;10|
         ((|p| |Pattern| R) (|l| |List| (|Mapping| (|Boolean|) D))
@@ -97,16 +87,15 @@
                (SEQ
                 (|PATTERN1;st| |p|
                  (PROGN
-                  (LETT #2# NIL . #3=(|PATTERN1;suchThat;PLP;10|))
-                  (SEQ (LETT |f| NIL . #3#) (LETT #1# |l| . #3#) G190
+                  (LETT #2# NIL)
+                  (SEQ (LETT |f| NIL) (LETT #1# |l|) G190
                        (COND
-                        ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#) . #3#) NIL))
+                        ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #2# (CONS (SPADCALL |f| (QREFELT $ 32)) #2#)
-                               . #3#)))
-                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                         (LETT #2# (CONS (SPADCALL |f| (QREFELT $ 32)) #2#))))
+                       (LETT #1# (CDR #1#)) (GO G190) G191
                        (EXIT (NREVERSE #2#))))
                  $)))) 
 
@@ -121,13 +110,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|PatternFunctions1|)
-                                               '|domainEqualList|)
-                    . #3=(|PatternFunctions1|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |PatternFunctions1;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|PatternFunctions1|)))))))))) 
@@ -135,12 +123,12 @@
 (DEFUN |PatternFunctions1;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|PatternFunctions1|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|PatternFunctions1| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 43) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|PatternFunctions1| DV$1 DV$2))
+          (LETT $ (GETREFV 43))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PatternFunctions1| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

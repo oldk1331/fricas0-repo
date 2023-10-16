@@ -30,14 +30,12 @@
 
 (SDEFUN |BINFILE;open;FnS$;2| ((|fname| |FileName|) (|mode| |String|) ($ $))
         (SPROG ((|fstream| (|SExpression|)))
-               (SEQ
-                (LETT |fstream| (|BINFILE;defstream| |fname| |mode| $)
-                      |BINFILE;open;FnS$;2|)
-                (EXIT (VECTOR |fname| |fstream| |mode|))))) 
+               (SEQ (LETT |fstream| (|BINFILE;defstream| |fname| |mode| $))
+                    (EXIT (VECTOR |fname| |fstream| |mode|))))) 
 
 (SDEFUN |BINFILE;reopen!;$S$;3| ((|f| $) (|mode| |String|) ($ $))
         (SPROG ((|fname| (|FileName|)))
-               (SEQ (LETT |fname| (QVELT |f| 0) |BINFILE;reopen!;$S$;3|)
+               (SEQ (LETT |fname| (QVELT |f| 0))
                     (QSETVELT |f| 1 (|BINFILE;defstream| |fname| |mode| $))
                     (QSETVELT |f| 2 |mode|) (EXIT |f|)))) 
 
@@ -67,7 +65,7 @@
                   (|error| "File not in read state"))
                  (#1='T
                   (SEQ (BINARY_SELECT_INPUT (QVELT |f| 1))
-                       (LETT |n| (BINARY_READBYTE) |BINFILE;readIfCan!;$U;6|)
+                       (LETT |n| (BINARY_READBYTE))
                        (EXIT
                         (COND ((|eql_SI| |n| -1) (CONS 1 "failed"))
                               (#1# (CONS 0 |n|)))))))))) 
@@ -103,8 +101,7 @@
          (PROG (#1=#:G158)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|BinaryFile|)
-                    . #2=(|BinaryFile|))
+             ((LETT #1# (HGET |$ConstructorCache| '|BinaryFile|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -112,17 +109,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|BinaryFile|
                              (LIST (CONS NIL (CONS 1 (|BinaryFile;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|BinaryFile|)))))))))) 
 
 (DEFUN |BinaryFile;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|BinaryFile|) . #1=(|BinaryFile|))
-          (LETT $ (GETREFV 31) . #1#)
+          (LETT |dv$| '(|BinaryFile|))
+          (LETT $ (GETREFV 31))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|BinaryFile| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

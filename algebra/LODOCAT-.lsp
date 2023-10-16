@@ -9,34 +9,32 @@
                       (COND
                        ((ODDP |n|)
                         (SPADCALL (|spadConstant| $ 9) (QREFELT $ 13)))
-                       ('T (|spadConstant| $ 9)))
-                      |LODOCAT-;m1monom|)
+                       ('T (|spadConstant| $ 9))))
                 (EXIT (SPADCALL |a| |n| (QREFELT $ 11)))))) 
 
 (SDEFUN |LODOCAT-;adjoint;2S;3| ((|a| S) ($ S))
         (SPROG ((|ans| (S)))
-               (SEQ
-                (LETT |ans| (|spadConstant| $ 14)
-                      . #1=(|LODOCAT-;adjoint;2S;3|))
-                (SEQ G190
-                     (COND
-                      ((NULL
-                        (SPADCALL |a| (|spadConstant| $ 14) (QREFELT $ 17)))
-                       (GO G191)))
-                     (SEQ
-                      (LETT |ans|
-                            (SPADCALL |ans|
-                                      (SPADCALL
-                                       (|LODOCAT-;m1monom|
-                                        (SPADCALL |a| (QREFELT $ 18)) $)
-                                       (SPADCALL (SPADCALL |a| (QREFELT $ 19))
-                                                 (QREFELT $ 20))
-                                       (QREFELT $ 21))
-                                      (QREFELT $ 22))
-                            . #1#)
-                      (EXIT (LETT |a| (SPADCALL |a| (QREFELT $ 23)) . #1#)))
-                     NIL (GO G190) G191 (EXIT NIL))
-                (EXIT |ans|)))) 
+               (SEQ (LETT |ans| (|spadConstant| $ 14))
+                    (SEQ G190
+                         (COND
+                          ((NULL
+                            (SPADCALL |a| (|spadConstant| $ 14)
+                                      (QREFELT $ 17)))
+                           (GO G191)))
+                         (SEQ
+                          (LETT |ans|
+                                (SPADCALL |ans|
+                                          (SPADCALL
+                                           (|LODOCAT-;m1monom|
+                                            (SPADCALL |a| (QREFELT $ 18)) $)
+                                           (SPADCALL
+                                            (SPADCALL |a| (QREFELT $ 19))
+                                            (QREFELT $ 20))
+                                           (QREFELT $ 21))
+                                          (QREFELT $ 22)))
+                          (EXIT (LETT |a| (SPADCALL |a| (QREFELT $ 23)))))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT |ans|)))) 
 
 (SDEFUN |LODOCAT-;symmetricSquare;2S;4| ((|l| S) ($ S))
         (SPADCALL |l| 2 (QREFELT $ 25))) 
@@ -46,20 +44,19 @@
 (DEFUN |LinearOrdinaryDifferentialOperatorCategory&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|LinearOrdinaryDifferentialOperatorCategory&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$|
-                (LIST '|LinearOrdinaryDifferentialOperatorCategory&| DV$1 DV$2)
-                . #1#)
-          (LETT $ (GETREFV 27) . #1#)
+                (LIST '|LinearOrdinaryDifferentialOperatorCategory&| DV$1
+                      DV$2))
+          (LETT $ (GETREFV 27))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
-                                              (|HasCategory| |#2| '(|Field|))))
-                          . #1#))
+                                              (|HasCategory| |#2|
+                                                             '(|Field|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

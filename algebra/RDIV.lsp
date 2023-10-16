@@ -5,8 +5,7 @@
         (SPROG ((|r| (|Union| (|Fraction| UP) "failed")))
                (SEQ
                 (LETT |r|
-                      (SPADCALL (SPADCALL |pp| (QREFELT $ 11)) (QREFELT $ 13))
-                      |RDIV;order;FdUPUPMNni;1|)
+                      (SPADCALL (SPADCALL |pp| (QREFELT $ 11)) (QREFELT $ 13)))
                 (EXIT
                  (COND ((QEQCAR |r| 1) (|RDIV;algOrder| |d| |pp| |f| $))
                        ('T
@@ -34,78 +33,80 @@
           (|redmod|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|SparseUnivariatePolynomial| F2)))))
-         (SEQ
-          (LETT |redmod| (SPADCALL |reduce| |modulus| (QREFELT $ 26))
-                . #1=(|RDIV;algOrder|))
-          (LETT |curve|
-                (|AlgebraicFunctionField| (QREFELT $ 10)
-                                          (|SparseUnivariatePolynomial|
-                                           (QREFELT $ 10))
-                                          (|SparseUnivariatePolynomial|
-                                           (|Fraction|
-                                            (|SparseUnivariatePolynomial|
-                                             (QREFELT $ 10))))
-                                          |redmod|)
-                . #1#)
-          (EXIT
-           (SPADCALL
-            (SPADCALL |reduce| |d|
-                      (|compiledLookupCheck| '|map|
-                                             (LIST
-                                              (LIST '|FiniteDivisor|
-                                                    (|devaluate| (ELT $ 10))
-                                                    (LIST
-                                                     '|SparseUnivariatePolynomial|
-                                                     (|devaluate| (ELT $ 10)))
-                                                    (LIST
-                                                     '|SparseUnivariatePolynomial|
-                                                     (LIST '|Fraction|
-                                                           (LIST
-                                                            '|SparseUnivariatePolynomial|
-                                                            (|devaluate|
-                                                             (ELT $ 10)))))
-                                                    (|devaluate| |curve|))
-                                              (LIST '|Mapping|
-                                                    (|devaluate| (ELT $ 10))
-                                                    (|devaluate| (ELT $ 6)))
-                                              (LIST '|FiniteDivisor|
-                                                    (|devaluate| (ELT $ 6))
-                                                    (|devaluate| (ELT $ 7))
-                                                    (|devaluate| (ELT $ 8))
-                                                    (|devaluate| (ELT $ 9))))
-                                             (|FiniteDivisorFunctions2|
-                                              (ELT $ 6) (ELT $ 7) (ELT $ 8)
-                                              (ELT $ 9) (ELT $ 10)
+         (SEQ (LETT |redmod| (SPADCALL |reduce| |modulus| (QREFELT $ 26)))
+              (LETT |curve|
+                    (|AlgebraicFunctionField| (QREFELT $ 10)
                                               (|SparseUnivariatePolynomial|
-                                               (ELT $ 10))
+                                               (QREFELT $ 10))
                                               (|SparseUnivariatePolynomial|
                                                (|Fraction|
                                                 (|SparseUnivariatePolynomial|
-                                                 (ELT $ 10))))
-                                              |curve|)))
-            (|compiledLookupCheck| '|order|
-                                   (LIST (LIST '|NonNegativeInteger|)
-                                         (LIST '|FiniteDivisor|
-                                               (|devaluate| (ELT $ 10))
-                                               (LIST
-                                                '|SparseUnivariatePolynomial|
-                                                (|devaluate| (ELT $ 10)))
-                                               (LIST
-                                                '|SparseUnivariatePolynomial|
-                                                (LIST '|Fraction|
-                                                      (LIST
-                                                       '|SparseUnivariatePolynomial|
-                                                       (|devaluate|
-                                                        (ELT $ 10)))))
-                                               (|devaluate| |curve|)))
-                                   (|FindOrderFinite| (ELT $ 10)
-                                                      (|SparseUnivariatePolynomial|
-                                                       (ELT $ 10))
-                                                      (|SparseUnivariatePolynomial|
-                                                       (|Fraction|
-                                                        (|SparseUnivariatePolynomial|
-                                                         (ELT $ 10))))
-                                                      |curve|))))))) 
+                                                 (QREFELT $ 10))))
+                                              |redmod|))
+              (EXIT
+               (SPADCALL
+                (SPADCALL |reduce| |d|
+                          (|compiledLookupCheck| '|map|
+                                                 (LIST
+                                                  (LIST '|FiniteDivisor|
+                                                        (|devaluate|
+                                                         (ELT $ 10))
+                                                        (LIST
+                                                         '|SparseUnivariatePolynomial|
+                                                         (|devaluate|
+                                                          (ELT $ 10)))
+                                                        (LIST
+                                                         '|SparseUnivariatePolynomial|
+                                                         (LIST '|Fraction|
+                                                               (LIST
+                                                                '|SparseUnivariatePolynomial|
+                                                                (|devaluate|
+                                                                 (ELT $ 10)))))
+                                                        (|devaluate| |curve|))
+                                                  (LIST '|Mapping|
+                                                        (|devaluate|
+                                                         (ELT $ 10))
+                                                        (|devaluate|
+                                                         (ELT $ 6)))
+                                                  (LIST '|FiniteDivisor|
+                                                        (|devaluate| (ELT $ 6))
+                                                        (|devaluate| (ELT $ 7))
+                                                        (|devaluate| (ELT $ 8))
+                                                        (|devaluate|
+                                                         (ELT $ 9))))
+                                                 (|FiniteDivisorFunctions2|
+                                                  (ELT $ 6) (ELT $ 7) (ELT $ 8)
+                                                  (ELT $ 9) (ELT $ 10)
+                                                  (|SparseUnivariatePolynomial|
+                                                   (ELT $ 10))
+                                                  (|SparseUnivariatePolynomial|
+                                                   (|Fraction|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (ELT $ 10))))
+                                                  |curve|)))
+                (|compiledLookupCheck| '|order|
+                                       (LIST (LIST '|NonNegativeInteger|)
+                                             (LIST '|FiniteDivisor|
+                                                   (|devaluate| (ELT $ 10))
+                                                   (LIST
+                                                    '|SparseUnivariatePolynomial|
+                                                    (|devaluate| (ELT $ 10)))
+                                                   (LIST
+                                                    '|SparseUnivariatePolynomial|
+                                                    (LIST '|Fraction|
+                                                          (LIST
+                                                           '|SparseUnivariatePolynomial|
+                                                           (|devaluate|
+                                                            (ELT $ 10)))))
+                                                   (|devaluate| |curve|)))
+                                       (|FindOrderFinite| (ELT $ 10)
+                                                          (|SparseUnivariatePolynomial|
+                                                           (ELT $ 10))
+                                                          (|SparseUnivariatePolynomial|
+                                                           (|Fraction|
+                                                            (|SparseUnivariatePolynomial|
+                                                             (ELT $ 10))))
+                                                          |curve|))))))) 
 
 (SDEFUN |RDIV;rootOrder|
         ((|d| |FiniteDivisor| F1 UP UPUP R) (|radicand| UP)
@@ -118,78 +119,81 @@
                                      (|Fraction|
                                       (|SparseUnivariatePolynomial| F2)))))
           (|redrad| (|SparseUnivariatePolynomial| F2)))
-         (SEQ
-          (LETT |redrad| (SPADCALL |reduce| |radicand| (QREFELT $ 29))
-                . #1=(|RDIV;rootOrder|))
-          (LETT |curve|
-                (|RadicalFunctionField| (QREFELT $ 10)
-                                        (|SparseUnivariatePolynomial|
-                                         (QREFELT $ 10))
-                                        (|SparseUnivariatePolynomial|
-                                         (|Fraction|
-                                          (|SparseUnivariatePolynomial|
-                                           (QREFELT $ 10))))
-                                        (SPADCALL |redrad| (QREFELT $ 31)) |n|)
-                . #1#)
-          (EXIT
-           (SPADCALL
-            (SPADCALL |reduce| |d|
-                      (|compiledLookupCheck| '|map|
-                                             (LIST
-                                              (LIST '|FiniteDivisor|
-                                                    (|devaluate| (ELT $ 10))
-                                                    (LIST
-                                                     '|SparseUnivariatePolynomial|
-                                                     (|devaluate| (ELT $ 10)))
-                                                    (LIST
-                                                     '|SparseUnivariatePolynomial|
-                                                     (LIST '|Fraction|
-                                                           (LIST
-                                                            '|SparseUnivariatePolynomial|
-                                                            (|devaluate|
-                                                             (ELT $ 10)))))
-                                                    (|devaluate| |curve|))
-                                              (LIST '|Mapping|
-                                                    (|devaluate| (ELT $ 10))
-                                                    (|devaluate| (ELT $ 6)))
-                                              (LIST '|FiniteDivisor|
-                                                    (|devaluate| (ELT $ 6))
-                                                    (|devaluate| (ELT $ 7))
-                                                    (|devaluate| (ELT $ 8))
-                                                    (|devaluate| (ELT $ 9))))
-                                             (|FiniteDivisorFunctions2|
-                                              (ELT $ 6) (ELT $ 7) (ELT $ 8)
-                                              (ELT $ 9) (ELT $ 10)
+         (SEQ (LETT |redrad| (SPADCALL |reduce| |radicand| (QREFELT $ 29)))
+              (LETT |curve|
+                    (|RadicalFunctionField| (QREFELT $ 10)
+                                            (|SparseUnivariatePolynomial|
+                                             (QREFELT $ 10))
+                                            (|SparseUnivariatePolynomial|
+                                             (|Fraction|
                                               (|SparseUnivariatePolynomial|
-                                               (ELT $ 10))
-                                              (|SparseUnivariatePolynomial|
-                                               (|Fraction|
-                                                (|SparseUnivariatePolynomial|
-                                                 (ELT $ 10))))
-                                              |curve|)))
-            (|compiledLookupCheck| '|order|
-                                   (LIST (LIST '|NonNegativeInteger|)
-                                         (LIST '|FiniteDivisor|
-                                               (|devaluate| (ELT $ 10))
-                                               (LIST
-                                                '|SparseUnivariatePolynomial|
-                                                (|devaluate| (ELT $ 10)))
-                                               (LIST
-                                                '|SparseUnivariatePolynomial|
-                                                (LIST '|Fraction|
-                                                      (LIST
-                                                       '|SparseUnivariatePolynomial|
-                                                       (|devaluate|
-                                                        (ELT $ 10)))))
-                                               (|devaluate| |curve|)))
-                                   (|FindOrderFinite| (ELT $ 10)
-                                                      (|SparseUnivariatePolynomial|
-                                                       (ELT $ 10))
-                                                      (|SparseUnivariatePolynomial|
-                                                       (|Fraction|
-                                                        (|SparseUnivariatePolynomial|
-                                                         (ELT $ 10))))
-                                                      |curve|))))))) 
+                                               (QREFELT $ 10))))
+                                            (SPADCALL |redrad| (QREFELT $ 31))
+                                            |n|))
+              (EXIT
+               (SPADCALL
+                (SPADCALL |reduce| |d|
+                          (|compiledLookupCheck| '|map|
+                                                 (LIST
+                                                  (LIST '|FiniteDivisor|
+                                                        (|devaluate|
+                                                         (ELT $ 10))
+                                                        (LIST
+                                                         '|SparseUnivariatePolynomial|
+                                                         (|devaluate|
+                                                          (ELT $ 10)))
+                                                        (LIST
+                                                         '|SparseUnivariatePolynomial|
+                                                         (LIST '|Fraction|
+                                                               (LIST
+                                                                '|SparseUnivariatePolynomial|
+                                                                (|devaluate|
+                                                                 (ELT $ 10)))))
+                                                        (|devaluate| |curve|))
+                                                  (LIST '|Mapping|
+                                                        (|devaluate|
+                                                         (ELT $ 10))
+                                                        (|devaluate|
+                                                         (ELT $ 6)))
+                                                  (LIST '|FiniteDivisor|
+                                                        (|devaluate| (ELT $ 6))
+                                                        (|devaluate| (ELT $ 7))
+                                                        (|devaluate| (ELT $ 8))
+                                                        (|devaluate|
+                                                         (ELT $ 9))))
+                                                 (|FiniteDivisorFunctions2|
+                                                  (ELT $ 6) (ELT $ 7) (ELT $ 8)
+                                                  (ELT $ 9) (ELT $ 10)
+                                                  (|SparseUnivariatePolynomial|
+                                                   (ELT $ 10))
+                                                  (|SparseUnivariatePolynomial|
+                                                   (|Fraction|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (ELT $ 10))))
+                                                  |curve|)))
+                (|compiledLookupCheck| '|order|
+                                       (LIST (LIST '|NonNegativeInteger|)
+                                             (LIST '|FiniteDivisor|
+                                                   (|devaluate| (ELT $ 10))
+                                                   (LIST
+                                                    '|SparseUnivariatePolynomial|
+                                                    (|devaluate| (ELT $ 10)))
+                                                   (LIST
+                                                    '|SparseUnivariatePolynomial|
+                                                    (LIST '|Fraction|
+                                                          (LIST
+                                                           '|SparseUnivariatePolynomial|
+                                                           (|devaluate|
+                                                            (ELT $ 10)))))
+                                                   (|devaluate| |curve|)))
+                                       (|FindOrderFinite| (ELT $ 10)
+                                                          (|SparseUnivariatePolynomial|
+                                                           (ELT $ 10))
+                                                          (|SparseUnivariatePolynomial|
+                                                           (|Fraction|
+                                                            (|SparseUnivariatePolynomial|
+                                                             (ELT $ 10))))
+                                                          |curve|))))))) 
 
 (DECLAIM (NOTINLINE |ReducedDivisor;|)) 
 
@@ -202,13 +206,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|ReducedDivisor|)
-                                               '|domainEqualList|)
-                    . #3=(|ReducedDivisor|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |ReducedDivisor;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|ReducedDivisor|)))))))))) 
@@ -218,15 +221,15 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #1=(|ReducedDivisor|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
-    (LETT DV$5 (|devaluate| |#5|) . #1#)
-    (LETT |dv$| (LIST '|ReducedDivisor| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
-    (LETT $ (GETREFV 32) . #1#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
+    (LETT DV$5 (|devaluate| |#5|))
+    (LETT |dv$| (LIST '|ReducedDivisor| DV$1 DV$2 DV$3 DV$4 DV$5))
+    (LETT $ (GETREFV 32))
     (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|ReducedDivisor|
                 (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
     (|stuffDomainSlots| $)

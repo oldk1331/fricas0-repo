@@ -48,7 +48,5 @@
                                                          $))
                                                        (|has| $
                                                               (|finiteAggregate|))))
-                                                    NIL NIL NIL))
-                                           . #2=(|DictionaryOperations|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DictionaryOperations| |t#1|))))) 

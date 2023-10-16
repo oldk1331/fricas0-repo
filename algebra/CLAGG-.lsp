@@ -24,8 +24,8 @@
 
 (SDEFUN |CLAGG-;remove;S2A;6!0| ((|y| NIL) ($$ NIL))
         (PROG (|s| $)
-          (LETT |s| (QREFELT $$ 1) . #1=(|CLAGG-;remove;S2A;6|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |s| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |y| |s| (QREFELT $ 25)))))) 
 
 (SDEFUN |CLAGG-;reduce;MA3S;7|
@@ -44,22 +44,20 @@
          (SEQ
           (LETT |p_form|
                 (PROGN
-                 (LETT #2# NIL . #3=(|CLAGG-;convert;AIf;9|))
-                 (SEQ (LETT |el| NIL . #3#)
-                      (LETT #1# (SPADCALL |x| (QREFELT $ 9)) . #3#) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |el| NIL) (LETT #1# (SPADCALL |x| (QREFELT $ 9)))
+                      G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |el| (CAR #1#) . #3#) NIL))
+                       ((OR (ATOM #1#) (PROGN (LETT |el| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |el| (QREFELT $ 33)) #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #3#)
-          (LETT |l_form| (CONS (SPADCALL '|construct| (QREFELT $ 35)) |p_form|)
-                . #3#)
-          (LETT |a_form| (SPADCALL |l_form| (QREFELT $ 37)) . #3#)
+                        (LETT #2# (CONS (SPADCALL |el| (QREFELT $ 33)) #2#))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191
+                      (EXIT (NREVERSE #2#)))))
+          (LETT |l_form|
+                (CONS (SPADCALL '|construct| (QREFELT $ 35)) |p_form|))
+          (LETT |a_form| (SPADCALL |l_form| (QREFELT $ 37)))
           (EXIT (SPADCALL '|construct| (LIST |a_form|) (QREFELT $ 40)))))) 
 
 (DECLAIM (NOTINLINE |Collection&;|)) 
@@ -67,10 +65,10 @@
 (DEFUN |Collection&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|Collection&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|Collection&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 42) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|Collection&| DV$1 DV$2))
+          (LETT $ (GETREFV 42))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -82,8 +80,7 @@
                                               (|HasCategory| |#2|
                                                              '(|BasicType|))
                                               (|HasCategory| |#1|
-                                                             '(|finiteAggregate|))))
-                          . #1#))
+                                                             '(|finiteAggregate|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

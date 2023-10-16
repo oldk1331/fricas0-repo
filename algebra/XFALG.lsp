@@ -101,7 +101,5 @@
                                                      '(((|noZeroDivisors|)
                                                         (|has| |t#2|
                                                                (|noZeroDivisors|))))
-                                                     NIL NIL))
-                                            . #3=(|XFreeAlgebra|))))))
-                   . #3#)
+                                                     NIL NIL))))))))
            (SETELT #1# 0 (LIST '|XFreeAlgebra| |t#1| |t#2|))))) 

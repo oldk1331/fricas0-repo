@@ -75,7 +75,6 @@
 ; COMP_1(x) ==
 ;   [fname, lamex, :.] := x
 ;   $FUNNAME : local := fname
-;   $FUNNAME_TAIL : local := [fname]
 ;   $CLOSEDFNS : local := nil
 ;   lamex := compTran lamex
 ;   compNewnam lamex
@@ -84,14 +83,13 @@
 ;   [[fname, lamex], :$CLOSEDFNS]
  
 (DEFUN COMP_1 (|x|)
-  (PROG ($CLOSEDFNS $FUNNAME_TAIL $FUNNAME |lamex| |fname|)
-    (DECLARE (SPECIAL $CLOSEDFNS $FUNNAME_TAIL $FUNNAME))
+  (PROG ($CLOSEDFNS $FUNNAME |lamex| |fname|)
+    (DECLARE (SPECIAL $CLOSEDFNS $FUNNAME))
     (RETURN
      (PROGN
       (SETQ |fname| (CAR |x|))
       (SETQ |lamex| (CADR |x|))
       (SETQ $FUNNAME |fname|)
-      (SETQ $FUNNAME_TAIL (LIST |fname|))
       (SETQ $CLOSEDFNS NIL)
       (SETQ |lamex| (|compTran| |lamex|))
       (|compNewnam| |lamex|)
@@ -277,10 +275,8 @@
 ;     ATOM(x) => nil
 ;     u := first(x)
 ;     u = "QUOTE" => nil
-;     if u = "MAKEPROP" and $TRACELETFLAG then
-;         rplac(first x, "MAKEPROP-SAY")
+;     u = "MAKEPROP" => BREAK()
 ;     MEMQ(u, '(SPADLET SETQ LET)) =>
-;         NCONC(x, $FUNNAME_TAIL)
 ;         RPLACA(x, "LETT")
 ;         compTran1(CDDR x)
 ;         NOT(u = "SETQ") =>
@@ -305,39 +301,29 @@
            (#1='T
             (PROGN
              (SETQ |u| (CAR |x|))
-             (COND ((EQ |u| 'QUOTE) NIL)
-                   (#1#
+             (COND ((EQ |u| 'QUOTE) NIL) ((EQ |u| 'MAKEPROP) (BREAK))
+                   ((MEMQ |u| '(SPADLET SETQ LET))
                     (PROGN
+                     (RPLACA |x| 'LETT)
+                     (|compTran1| (CDDR |x|))
                      (COND
-                      ((AND (EQ |u| 'MAKEPROP) $TRACELETFLAG)
-                       (|rplac| (CAR |x|) 'MAKEPROP-SAY)))
-                     (COND
-                      ((MEMQ |u| '(SPADLET SETQ LET))
-                       (PROGN
-                        (NCONC |x| $FUNNAME_TAIL)
-                        (RPLACA |x| 'LETT)
-                        (|compTran1| (CDDR |x|))
-                        (COND
-                         ((NULL (EQ |u| 'SETQ))
-                          (COND ((IDENTP (CADR |x|)) (PUSHLOCVAR (CADR |x|)))
-                                ((EQCAR (CADR |x|) 'FLUID) (BREAK))
-                                (#1#
-                                 (PROGN
-                                  (BREAK)
-                                  (MAPC #'PUSHLOCVAR
-                                        (LISTOFATOMS (CADR |x|))))))))))
-                      ((MEMQ |u| '(PROG LAMBDA))
-                       (PROGN
-                        (SETQ |$newBindings| NIL)
-                        (MAPCAR #'|lambdaHelper1| (ELT |x| 1))
-                        (SETQ |res| (|compTran1| (CDDR |x|)))
-                        (SETQ |$locVars|
-                                (REMOVE-IF #'|lambdaHelper2| |$locVars|))
-                        (CONS |u| (CONS (CADR |x|) |res|))))
-                      (#1#
-                       (PROGN
-                        (|compTran1| |u|)
-                        (|compTran1| (CDR |x|))))))))))))))
+                      ((NULL (EQ |u| 'SETQ))
+                       (COND ((IDENTP (CADR |x|)) (PUSHLOCVAR (CADR |x|)))
+                             ((EQCAR (CADR |x|) 'FLUID) (BREAK))
+                             (#1#
+                              (PROGN
+                               (BREAK)
+                               (MAPC #'PUSHLOCVAR
+                                     (LISTOFATOMS (CADR |x|))))))))))
+                   ((MEMQ |u| '(PROG LAMBDA))
+                    (PROGN
+                     (SETQ |$newBindings| NIL)
+                     (MAPCAR #'|lambdaHelper1| (ELT |x| 1))
+                     (SETQ |res| (|compTran1| (CDDR |x|)))
+                     (SETQ |$locVars| (REMOVE-IF #'|lambdaHelper2| |$locVars|))
+                     (CONS |u| (CONS (CADR |x|) |res|))))
+                   (#1#
+                    (PROGN (|compTran1| |u|) (|compTran1| (CDR |x|)))))))))))
  
 ; compTranDryRun(x) ==
 ;     $insideCapsuleFunctionIfTrue : local := false

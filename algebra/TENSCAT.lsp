@@ -30,7 +30,5 @@
                                  (|Join| (|Module| '|t#1|)
                                          (|mkCategory|
                                           '(((|tensor| ($ |t#2| |t#3|)) T)) NIL
-                                          NIL NIL))
-                                 . #2=(|TensorProductCategory|)))))
-                   . #2#)
+                                          NIL NIL)))))))
            (SETELT #1# 0 (LIST '|TensorProductCategory| |t#1| |t#2| |t#3|))))) 

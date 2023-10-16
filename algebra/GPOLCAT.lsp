@@ -77,8 +77,6 @@
                                       (|has| |t#1| (|Comparable|)))
                                      ((|canonicalUnitNormal|)
                                       (|has| |t#1| (|canonicalUnitNormal|))))
-                                   NIL NIL))
-                                 . #2=(|MaybeSkewPolynomialCategory|)))))
-                   . #2#)
+                                   NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|MaybeSkewPolynomialCategory| |t#1| |t#2| |t#3|))))) 

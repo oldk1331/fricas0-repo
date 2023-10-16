@@ -8,59 +8,52 @@
          (SEQ
           (LETT |fdens|
                 (PROGN
-                 (LETT #5# NIL . #6=(|PFUTIL;decompose;UP2L;1|))
-                 (SEQ (LETT |nden| NIL . #6#) (LETT #4# |dens| . #6#) G190
+                 (LETT #5# NIL)
+                 (SEQ (LETT |nden| NIL) (LETT #4# |dens|) G190
                       (COND
-                       ((OR (ATOM #4#)
-                            (PROGN (LETT |nden| (CAR #4#) . #6#) NIL))
+                       ((OR (ATOM #4#) (PROGN (LETT |nden| (CAR #4#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #5# (CONS (SPADCALL |nden| 1 (QREFELT $ 12)) #5#)
-                              . #6#)))
-                      (LETT #4# (CDR #4#) . #6#) (GO G190) G191
-                      (EXIT (NREVERSE #5#))))
-                . #6#)
+                        (LETT #5#
+                              (CONS (SPADCALL |nden| 1 (QREFELT $ 12)) #5#))))
+                      (LETT #4# (CDR #4#)) (GO G190) G191
+                      (EXIT (NREVERSE #5#)))))
           (LETT |nd|
                 (SPADCALL (ELT $ 14) |fdens| (|spadConstant| $ 15)
-                          (QREFELT $ 18))
-                . #6#)
-          (LETT |pfr| (SPADCALL |nn| |nd| (QREFELT $ 20)) . #6#)
+                          (QREFELT $ 18)))
+          (LETT |pfr| (SPADCALL |nn| |nd| (QREFELT $ 20)))
           (EXIT
            (COND
             ((SPADCALL (SPADCALL |pfr| (QREFELT $ 21)) (|spadConstant| $ 22)
                        (QREFELT $ 24))
              (|error| "decompose: wholePart(pfr) ~= 0"))
             ('T
-             (SEQ (LETT |res| NIL . #6#)
-                  (SEQ (LETT |fden| NIL . #6#) (LETT #3# |fdens| . #6#) G190
+             (SEQ (LETT |res| NIL)
+                  (SEQ (LETT |fden| NIL) (LETT #3# |fdens|) G190
                        (COND
-                        ((OR (ATOM #3#)
-                             (PROGN (LETT |fden| (CAR #3#) . #6#) NIL))
+                        ((OR (ATOM #3#) (PROGN (LETT |fden| (CAR #3#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (SEQ (LETT |c| NIL . #6#)
-                              (LETT #2# (SPADCALL |pfr| (QREFELT $ 27)) . #6#)
-                              G190
+                         (SEQ (LETT |c| NIL)
+                              (LETT #2# (SPADCALL |pfr| (QREFELT $ 27))) G190
                               (COND
                                ((OR (ATOM #2#)
-                                    (PROGN (LETT |c| (CAR #2#) . #6#) NIL))
+                                    (PROGN (LETT |c| (CAR #2#)) NIL))
                                 (GO G191)))
                               (SEQ
                                (EXIT
                                 (COND
                                  ((SPADCALL (QCDR |c|) |fden| (QREFELT $ 28))
-                                  (SEQ
-                                   (LETT |res| (CONS (QCAR |c|) |res|) . #6#)
-                                   (EXIT
-                                    (PROGN
-                                     (LETT #1# |$NoValue| . #6#)
-                                     (GO #7=#:G114))))))))
-                              (LETT #2# (CDR #2#) . #6#) (GO G190) G191
-                              (EXIT NIL)))
-                        #7# (EXIT #1#))
-                       (LETT #3# (CDR #3#) . #6#) (GO G190) G191 (EXIT NIL))
+                                  (SEQ (LETT |res| (CONS (QCAR |c|) |res|))
+                                       (EXIT
+                                        (PROGN
+                                         (LETT #1# |$NoValue|)
+                                         (GO #6=#:G114))))))))
+                              (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL)))
+                        #6# (EXIT #1#))
+                       (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                   (EXIT (NREVERSE |res|))))))))) 
 
 (DECLAIM (NOTINLINE |PartialFractionUtilities;|)) 
@@ -74,13 +67,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|PartialFractionUtilities|)
-                                               '|domainEqualList|)
-                    . #3=(|PartialFractionUtilities|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |PartialFractionUtilities;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -89,12 +81,12 @@
 (DEFUN |PartialFractionUtilities;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|PartialFractionUtilities|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|PartialFractionUtilities| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 31) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|PartialFractionUtilities| DV$1 DV$2))
+          (LETT $ (GETREFV 31))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PartialFractionUtilities|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -10,8 +10,7 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|HomogeneousDistributedMultivariatePolynomial|)
-                                               '|domainEqualList|)
-                    . #3=(|HomogeneousDistributedMultivariatePolynomial|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -20,7 +19,7 @@
                        (|function|
                         |HomogeneousDistributedMultivariatePolynomial;|)
                        #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -32,13 +31,11 @@
     (#5=#:G142 NIL) (#6=#:G143 NIL) (#7=#:G144 NIL) (#8=#:G145 NIL)
     (#9=#:G146 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|)
-          . #10=(|HomogeneousDistributedMultivariatePolynomial|))
-    (LETT DV$2 (|devaluate| |#2|) . #10#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$|
-          (LIST '|HomogeneousDistributedMultivariatePolynomial| DV$1 DV$2)
-          . #10#)
-    (LETT $ (GETREFV 57) . #10#)
+          (LIST '|HomogeneousDistributedMultivariatePolynomial| DV$1 DV$2))
+    (LETT $ (GETREFV 57))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -73,8 +70,7 @@
                                         (|HasCategory| |#2| '(|EntireRing|))
                                         (LETT #9#
                                               (|HasCategory| |#2|
-                                                             '(|GcdDomain|))
-                                              . #10#)
+                                                             '(|GcdDomain|)))
                                         (OR #9#
                                             (|HasCategory| |#2|
                                                            '(|PolynomialFactorizationExplicit|)))
@@ -105,15 +101,13 @@
                                          (|HasCategory| |#2| '(|Ring|)))
                                         (LETT #8#
                                               (|HasCategory| |#2|
-                                                             '(|CommutativeRing|))
-                                              . #10#)
+                                                             '(|CommutativeRing|)))
                                         (OR #8# #9#
                                             (|HasCategory| |#2|
                                                            '(|PolynomialFactorizationExplicit|)))
                                         (LETT #7#
                                               (|HasCategory| |#2|
-                                                             '(|IntegralDomain|))
-                                              . #10#)
+                                                             '(|IntegralDomain|)))
                                         (OR #8# #9# #7#
                                             (|HasCategory| |#2|
                                                            '(|PolynomialFactorizationExplicit|)))
@@ -148,8 +142,7 @@
                                                (|HasCategory|
                                                 (|OrderedVariableList| |#1|)
                                                 '(|PatternMatchable|
-                                                  (|Float|))))
-                                              . #10#)
+                                                  (|Float|)))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#2|
@@ -217,8 +210,7 @@
                                                (|HasCategory|
                                                 (|OrderedVariableList| |#1|)
                                                 '(|PatternMatchable|
-                                                  (|Integer|))))
-                                              . #10#)
+                                                  (|Integer|)))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#2|
@@ -287,8 +279,7 @@
                                                (|HasCategory|
                                                 (|OrderedVariableList| |#1|)
                                                 '(|ConvertibleTo|
-                                                  (|Pattern| (|Float|)))))
-                                              . #10#)
+                                                  (|Pattern| (|Float|))))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#2|
@@ -369,8 +360,7 @@
                                                (|HasCategory|
                                                 (|OrderedVariableList| |#1|)
                                                 '(|ConvertibleTo|
-                                                  (|Pattern| (|Integer|)))))
-                                              . #10#)
+                                                  (|Pattern| (|Integer|))))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#2|
@@ -444,8 +434,7 @@
                                         (|HasCategory| |#2| '(|AbelianMonoid|))
                                         (LETT #2#
                                               (|HasCategory| |#2|
-                                                             '(|CancellationAbelianMonoid|))
-                                              . #10#)
+                                                             '(|CancellationAbelianMonoid|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#2|
@@ -461,8 +450,7 @@
                                          #2#)
                                         (OR
                                          (|HasCategory| |#2| '(|AbelianGroup|))
-                                         #2#)))
-                    . #10#))
+                                         #2#)))))
     (|haddProp| |$ConstructorCache|
                 '|HomogeneousDistributedMultivariatePolynomial|
                 (LIST DV$1 DV$2) (CONS 1 $))
@@ -474,8 +462,7 @@
     (AND
      (LETT #1#
            (AND (|HasCategory| |#2| '(|PolynomialFactorizationExplicit|))
-                (|HasCategory| $ '(|CharacteristicNonZero|)))
-           . #10#)
+                (|HasCategory| $ '(|CharacteristicNonZero|))))
      (|augmentPredVector| $ 1099511627776))
     (AND (OR (|HasCategory| |#2| '(|CharacteristicNonZero|)) #1#)
          (|augmentPredVector| $ 2199023255552))

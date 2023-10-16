@@ -4,29 +4,25 @@
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 11)) (|spadConstant| $ 12))
                       ('T
-                       (SEQ
-                        (LETT |res| (|spadConstant| $ 12)
-                              . #2=(|FM2;linearExtend;MM1M2;1|))
-                        (SEQ (LETT |t| NIL . #2#)
-                             (LETT #1# (SPADCALL |x| (QREFELT $ 15)) . #2#)
-                             G190
-                             (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |t| (CAR #1#) . #2#) NIL))
-                               (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT |res|
-                                     (SPADCALL |res|
-                                               (SPADCALL (QCDR |t|)
-                                                         (SPADCALL (QCAR |t|)
-                                                                   |f|)
-                                                         (QREFELT $ 16))
-                                               (QREFELT $ 17))
-                                     . #2#)))
-                             (LETT #1# (CDR #1#) . #2#) (GO G190) G191
-                             (EXIT NIL))
-                        (EXIT |res|))))))) 
+                       (SEQ (LETT |res| (|spadConstant| $ 12))
+                            (SEQ (LETT |t| NIL)
+                                 (LETT #1# (SPADCALL |x| (QREFELT $ 15))) G190
+                                 (COND
+                                  ((OR (ATOM #1#)
+                                       (PROGN (LETT |t| (CAR #1#)) NIL))
+                                   (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (LETT |res|
+                                         (SPADCALL |res|
+                                                   (SPADCALL (QCDR |t|)
+                                                             (SPADCALL
+                                                              (QCAR |t|) |f|)
+                                                             (QREFELT $ 16))
+                                                   (QREFELT $ 17)))))
+                                 (LETT #1# (CDR #1#)) (GO G190) G191
+                                 (EXIT NIL))
+                            (EXIT |res|))))))) 
 
 (DECLAIM (NOTINLINE |FreeModuleFunctions2;|)) 
 
@@ -39,13 +35,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FreeModuleFunctions2|)
-                                               '|domainEqualList|)
-                    . #3=(|FreeModuleFunctions2|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |FreeModuleFunctions2;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|FreeModuleFunctions2|)))))))))) 
@@ -55,14 +50,14 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #1=(|FreeModuleFunctions2|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
-    (LETT |dv$| (LIST '|FreeModuleFunctions2| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 20) . #1#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
+    (LETT |dv$| (LIST '|FreeModuleFunctions2| DV$1 DV$2 DV$3 DV$4))
+    (LETT $ (GETREFV 20))
     (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|FreeModuleFunctions2|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
     (|stuffDomainSlots| $)

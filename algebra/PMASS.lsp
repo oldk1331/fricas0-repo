@@ -15,8 +15,7 @@
          (PROG (#1=#:G108)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|PatternMatchAssertions|)
-                    . #2=(|PatternMatchAssertions|))
+             ((LETT #1# (HGET |$ConstructorCache| '|PatternMatchAssertions|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -26,7 +25,7 @@
                              (LIST
                               (CONS NIL
                                     (CONS 1 (|PatternMatchAssertions;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|PatternMatchAssertions|)))))))))) 
@@ -34,11 +33,10 @@
 (DEFUN |PatternMatchAssertions;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|PatternMatchAssertions|)
-                . #1=(|PatternMatchAssertions|))
-          (LETT $ (GETREFV 16) . #1#)
+          (LETT |dv$| '(|PatternMatchAssertions|))
+          (LETT $ (GETREFV 16))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PatternMatchAssertions| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

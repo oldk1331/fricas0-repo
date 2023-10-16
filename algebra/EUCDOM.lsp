@@ -35,8 +35,7 @@
                               ((|multiEuclidean|
                                 ((|Union| (|List| $) "failed") (|List| $) $))
                                T))
-                            NIL NIL NIL))
-                   |EuclideanDomain|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|EuclideanDomain|))))) 
 
 (MAKEPROP '|EuclideanDomain| 'NILADIC T) 

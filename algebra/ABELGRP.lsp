@@ -14,8 +14,7 @@
                            (|mkCategory|
                             '(((- ($ $)) T) ((- ($ $ $)) T)
                               ((* ($ (|Integer|) $)) T))
-                            NIL NIL NIL))
-                   |AbelianGroup|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|AbelianGroup|))))) 
 
 (MAKEPROP '|AbelianGroup| 'NILADIC T) 

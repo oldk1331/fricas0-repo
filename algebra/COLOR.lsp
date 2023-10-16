@@ -15,15 +15,14 @@
             (SEQ
              (COND
               ((SPADCALL (QCDR |y|) (QCDR |x|) (QREFELT $ 10))
-               (SEQ (LETT |c| |x| . #3=(|COLOR;+;3$;2|)) (LETT |x| |y| . #3#)
-                    (EXIT (LETT |y| |c| . #3#)))))
-             (LETT |diff| (- (QCAR |x|) (QCAR |y|)) . #3#)
-             (SEQ (LETT |xHueSmaller| (< |diff| 0) . #3#)
-                  (EXIT (COND (|xHueSmaller| (LETT |diff| (- |diff|) . #3#)))))
+               (SEQ (LETT |c| |x|) (LETT |x| |y|) (EXIT (LETT |y| |c|)))))
+             (LETT |diff| (- (QCAR |x|) (QCAR |y|)))
+             (SEQ (LETT |xHueSmaller| (< |diff| 0))
+                  (EXIT (COND (|xHueSmaller| (LETT |diff| (- |diff|))))))
              (SEQ
               (LETT |moreThanHalf|
-                    (SPADCALL |diff| (QUOTIENT2 27 2) (QREFELT $ 12)) . #3#)
-              (EXIT (COND (|moreThanHalf| (LETT |diff| (- 27 |diff|) . #3#)))))
+                    (SPADCALL |diff| (QUOTIENT2 27 2) (QREFELT $ 12)))
+              (EXIT (COND (|moreThanHalf| (LETT |diff| (- 27 |diff|))))))
              (LETT |offset|
                    (TRUNCATE
                     (SPADCALL
@@ -31,22 +30,21 @@
                                (SPADCALL (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
                                          (|div_DF| (QCDR |x|) (QCDR |y|))
                                          (QREFELT $ 13)))
-                     (QREFELT $ 14)))
-                   . #3#)
+                     (QREFELT $ 14))))
              (COND
               (|xHueSmaller|
                (COND
                 (|moreThanHalf|
                  (COND
                   ((OR |xHueSmaller| (NULL |moreThanHalf|))
-                   (LETT |ans| (- (QCAR |x|) |offset|) . #3#))
-                  ('T (LETT |ans| (+ (QCAR |x|) |offset|) . #3#))))
-                (#2# (LETT |ans| (+ (QCAR |x|) |offset|) . #3#))))
-              (|moreThanHalf| (LETT |ans| (+ (QCAR |x|) |offset|) . #3#))
-              (#2# (LETT |ans| (- (QCAR |x|) |offset|) . #3#)))
-             (COND ((< |ans| 0) (LETT |ans| (+ 27 |ans|) . #3#))
+                   (LETT |ans| (- (QCAR |x|) |offset|)))
+                  ('T (LETT |ans| (+ (QCAR |x|) |offset|)))))
+                (#2# (LETT |ans| (+ (QCAR |x|) |offset|)))))
+              (|moreThanHalf| (LETT |ans| (+ (QCAR |x|) |offset|)))
+              (#2# (LETT |ans| (- (QCAR |x|) |offset|))))
+             (COND ((< |ans| 0) (LETT |ans| (+ 27 |ans|)))
                    ((SPADCALL |ans| 27 (QREFELT $ 12))
-                    (LETT |ans| (- |ans| 27) . #3#)))
+                    (LETT |ans| (- |ans| 27))))
              (EXIT (CONS |ans| 1.0)))))))) 
 
 (SDEFUN |COLOR;=;2$B;3| ((|x| $) (|y| $) ($ |Boolean|))
@@ -103,7 +101,7 @@
          (PROG (#1=#:G134)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Color|) . #2=(|Color|))
+             ((LETT #1# (HGET |$ConstructorCache| '|Color|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -111,16 +109,16 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|Color|
                              (LIST (CONS NIL (CONS 1 (|Color;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Color|)))))))))) 
 
 (DEFUN |Color;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|Color|) . #1=(|Color|))
-          (LETT $ (GETREFV 36) . #1#)
+          (LETT |dv$| '(|Color|))
+          (LETT $ (GETREFV 36))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Color| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

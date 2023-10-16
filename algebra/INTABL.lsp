@@ -10,13 +10,11 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|InnerTable|)
-                                               '|domainEqualList|)
-                    . #3=(|InnerTable|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |InnerTable;|) #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (APPLY (|function| |InnerTable;|) #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|InnerTable|)))))))))) 
 
@@ -25,11 +23,11 @@
    ((#1=#:G158 NIL) (#2=#:G157 NIL) (|pv$| NIL) (#3=#:G155 NIL) (#4=#:G156 NIL)
     ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #5=(|InnerTable|))
-    (LETT DV$2 (|devaluate| |#2|) . #5#)
-    (LETT DV$3 (|devaluate| |#3|) . #5#)
-    (LETT |dv$| (LIST '|InnerTable| DV$1 DV$2 DV$3) . #5#)
-    (LETT $ (GETREFV 33) . #5#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT |dv$| (LIST '|InnerTable| DV$1 DV$2 DV$3))
+    (LETT $ (GETREFV 33))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -55,8 +53,7 @@
                                         (|HasCategory| |#2| '(|BasicType|))
                                         (LETT #4#
                                               (|HasCategory| |#2|
-                                                             '(|SetCategory|))
-                                              . #5#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#2|
                                                         (LIST '|Evalable|
@@ -67,8 +64,7 @@
                                               (|HasCategory|
                                                (|Record| (|:| |key| |#1|)
                                                          (|:| |entry| |#2|))
-                                               '(|SetCategory|))
-                                              . #5#)
+                                               '(|SetCategory|)))
                                         (AND
                                          (|HasCategory|
                                           (|Record| (|:| |key| |#1|)
@@ -98,8 +94,7 @@
                                           (|Record| (|:| |key| |#1|)
                                                     (|:| |entry| |#2|))
                                           '(|CoercibleTo| (|OutputForm|)))
-                                         #3#)))
-                    . #5#))
+                                         #3#)))))
     (|haddProp| |$ConstructorCache| '|InnerTable| (LIST DV$1 DV$2 DV$3)
                 (CONS 1 $))
     (|stuffDomainSlots| $)
@@ -107,7 +102,7 @@
     (QSETREFV $ 6 |#1|)
     (QSETREFV $ 7 |#2|)
     (QSETREFV $ 8 |#3|)
-    (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
+    (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)))
          (|augmentPredVector| $ 4096))
     (AND #2#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
@@ -116,8 +111,7 @@
     (AND
      (LETT #1#
            (AND (|HasCategory| |#2| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|)))
-           . #5#)
+                (|HasCategory| $ '(|finiteAggregate|))))
      (|augmentPredVector| $ 16384))
     (AND
      (OR #1# #4#

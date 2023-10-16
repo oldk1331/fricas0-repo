@@ -16,20 +16,19 @@
          (SEQ
           (SPADCALL
            (PROGN
-            (LETT #3# NIL . #4=(|DRAWPT;draw;2LLTdv;3|))
-            (SEQ (LETT |y| NIL . #4#) (LETT #2# |ly| . #4#)
-                 (LETT |x| NIL . #4#) (LETT #1# |lx| . #4#) G190
+            (LETT #3# NIL)
+            (SEQ (LETT |y| NIL) (LETT #2# |ly|) (LETT |x| NIL) (LETT #1# |lx|)
+                 G190
                  (COND
-                  ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #4#) NIL)
-                       (ATOM #2#) (PROGN (LETT |y| (CAR #2#) . #4#) NIL))
+                  ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL) (ATOM #2#)
+                       (PROGN (LETT |y| (CAR #2#)) NIL))
                    (GO G191)))
                  (SEQ
                   (EXIT
                    (LETT #3#
-                         (CONS (SPADCALL (LIST |x| |y|) (QREFELT $ 17)) #3#)
-                         . #4#)))
-                 (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #4#)) . #4#)
-                 (GO G190) G191 (EXIT (NREVERSE #3#))))
+                         (CONS (SPADCALL (LIST |x| |y|) (QREFELT $ 17)) #3#))))
+                 (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#)))) (GO G190)
+                 G191 (EXIT (NREVERSE #3#))))
            |l| (QREFELT $ 13))))) 
 
 (SDEFUN |DRAWPT;draw;2LTdv;4|
@@ -51,15 +50,15 @@
           (|row| (|List| (|Point| (|DoubleFloat|)))) (|zval| (|Integer|))
           (|i| NIL) (|j| NIL) (|zLen| (|Integer|)) (|n| (|Integer|))
           (|m| (|Integer|)))
-         (SEQ (LETT |m| (LENGTH |x|) . #1=(|DRAWPT;draw;3LLTdv;6|))
+         (SEQ (LETT |m| (LENGTH |x|))
               (EXIT
                (COND ((ZEROP |m|) (|error| "No X values"))
-                     (#2='T
-                      (SEQ (LETT |n| (LENGTH |y|) . #1#)
+                     (#1='T
+                      (SEQ (LETT |n| (LENGTH |y|))
                            (EXIT
                             (COND ((ZEROP |n|) (|error| "No Y values"))
-                                  (#2#
-                                   (SEQ (LETT |zLen| (LENGTH |z|) . #1#)
+                                  (#1#
+                                   (SEQ (LETT |zLen| (LENGTH |z|))
                                         (EXIT
                                          (COND
                                           ((SPADCALL |zLen| (* |m| |n|)
@@ -69,66 +68,71 @@
                                                        (QREFELT $ 26))
                                              (|error|
                                               "Too many Z-values to fit grid"))
-                                            (#2#
+                                            (#1#
                                              (|error|
                                               "Not enough Z-values to fit grid"))))
-                                          (#2#
-                                           (SEQ (LETT |points| NIL . #1#)
-                                                (SEQ (LETT |j| |n| . #1#) G190
+                                          (#1#
+                                           (SEQ (LETT |points| NIL)
+                                                (SEQ (LETT |j| |n|) G190
                                                      (COND
                                                       ((< |j| 1) (GO G191)))
-                                                     (SEQ
-                                                      (LETT |row| NIL . #1#)
-                                                      (SEQ (LETT |i| |m| . #1#)
-                                                           G190
-                                                           (COND
-                                                            ((< |i| 1)
-                                                             (GO G191)))
-                                                           (SEQ
-                                                            (LETT |zval|
-                                                                  (+
-                                                                   (* (- |j| 1)
-                                                                      |m|)
-                                                                   |i|)
-                                                                  . #1#)
-                                                            (EXIT
-                                                             (LETT |row|
-                                                                   (CONS
-                                                                    (SPADCALL
-                                                                     (LIST
-                                                                      (SPADCALL
-                                                                       |x| |i|
-                                                                       (QREFELT
-                                                                        $ 28))
-                                                                      (SPADCALL
-                                                                       |y| |j|
-                                                                       (QREFELT
-                                                                        $ 28))
-                                                                      (SPADCALL
-                                                                       |z|
-                                                                       |zval|
-                                                                       (QREFELT
-                                                                        $ 28))
-                                                                      (SPADCALL
-                                                                       |z|
-                                                                       |zval|
-                                                                       (QREFELT
-                                                                        $ 28)))
-                                                                     (QREFELT $
-                                                                              17))
-                                                                    |row|)
-                                                                   . #1#)))
-                                                           (LETT |i| (+ |i| -1)
-                                                                 . #1#)
-                                                           (GO G190) G191
-                                                           (EXIT NIL))
-                                                      (EXIT
-                                                       (LETT |points|
-                                                             (CONS |row|
-                                                                   |points|)
-                                                             . #1#)))
-                                                     (LETT |j| (+ |j| -1)
-                                                           . #1#)
+                                                     (SEQ (LETT |row| NIL)
+                                                          (SEQ (LETT |i| |m|)
+                                                               G190
+                                                               (COND
+                                                                ((< |i| 1)
+                                                                 (GO G191)))
+                                                               (SEQ
+                                                                (LETT |zval|
+                                                                      (+
+                                                                       (*
+                                                                        (- |j|
+                                                                           1)
+                                                                        |m|)
+                                                                       |i|))
+                                                                (EXIT
+                                                                 (LETT |row|
+                                                                       (CONS
+                                                                        (SPADCALL
+                                                                         (LIST
+                                                                          (SPADCALL
+                                                                           |x|
+                                                                           |i|
+                                                                           (QREFELT
+                                                                            $
+                                                                            28))
+                                                                          (SPADCALL
+                                                                           |y|
+                                                                           |j|
+                                                                           (QREFELT
+                                                                            $
+                                                                            28))
+                                                                          (SPADCALL
+                                                                           |z|
+                                                                           |zval|
+                                                                           (QREFELT
+                                                                            $
+                                                                            28))
+                                                                          (SPADCALL
+                                                                           |z|
+                                                                           |zval|
+                                                                           (QREFELT
+                                                                            $
+                                                                            28)))
+                                                                         (QREFELT
+                                                                          $
+                                                                          17))
+                                                                        |row|))))
+                                                               (LETT |i|
+                                                                     (+ |i|
+                                                                        -1))
+                                                               (GO G190) G191
+                                                               (EXIT NIL))
+                                                          (EXIT
+                                                           (LETT |points|
+                                                                 (CONS |row|
+                                                                       |points|))))
+                                                     (LETT |j| (+ |j| -1))
                                                      (GO G190) G191 (EXIT NIL))
                                                 (EXIT
                                                  (SPADCALL
@@ -147,8 +151,7 @@
             (COND
              ((LETT #1#
                     (HGET |$ConstructorCache|
-                          '|TopLevelDrawFunctionsForPoints|)
-                    . #2=(|TopLevelDrawFunctionsForPoints|))
+                          '|TopLevelDrawFunctionsForPoints|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -160,7 +163,7 @@
                               (CONS NIL
                                     (CONS 1
                                           (|TopLevelDrawFunctionsForPoints;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
@@ -169,11 +172,10 @@
 (DEFUN |TopLevelDrawFunctionsForPoints;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|TopLevelDrawFunctionsForPoints|)
-                . #1=(|TopLevelDrawFunctionsForPoints|))
-          (LETT $ (GETREFV 32) . #1#)
+          (LETT |dv$| '(|TopLevelDrawFunctionsForPoints|))
+          (LETT $ (GETREFV 32))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TopLevelDrawFunctionsForPoints| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

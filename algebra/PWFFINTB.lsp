@@ -10,29 +10,27 @@
             (|:| |coef2| (|SparseUnivariatePolynomial| (|Fraction| R)))
             (|:| |generator| (|SparseUnivariatePolynomial| (|Fraction| R)))))
           (|ff| (|SparseUnivariatePolynomial| (|Fraction| R))))
-         (SEQ
-          (LETT |ff| (SPADCALL (ELT $ 11) |f| (QREFELT $ 15))
-                . #1=(|PWFFINTB;reducedDiscriminant;UPR;1|))
-          (LETT |ee|
-                (SPADCALL |ff| (SPADCALL |ff| (QREFELT $ 16)) (QREFELT $ 18))
-                . #1#)
-          (LETT |cc|
-                (SPADCALL (SPADCALL (QVELT |ee| 0) (QREFELT $ 20))
-                          (SPADCALL (QVELT |ee| 1) (QREFELT $ 20))
-                          (QREFELT $ 21))
-                . #1#)
-          (LETT |cden| (SPADCALL |cc| (QREFELT $ 24)) . #1#)
-          (LETT |denom| (QCDR |cden|) . #1#)
-          (LETT |gg|
-                (SPADCALL (SPADCALL (ELT $ 25) (QCAR |cden|) (QREFELT $ 29))
-                          (QREFELT $ 31))
-                . #1#)
-          (LETT |ans| (SPADCALL |denom| |gg| (QREFELT $ 33)) . #1#)
-          (EXIT
-           (COND
-            ((QEQCAR |ans| 1)
-             (|error| "PWFFINTB: error in reduced discriminant computation"))
-            ('T (QCDR |ans|))))))) 
+         (SEQ (LETT |ff| (SPADCALL (ELT $ 11) |f| (QREFELT $ 15)))
+              (LETT |ee|
+                    (SPADCALL |ff| (SPADCALL |ff| (QREFELT $ 16))
+                              (QREFELT $ 18)))
+              (LETT |cc|
+                    (SPADCALL (SPADCALL (QVELT |ee| 0) (QREFELT $ 20))
+                              (SPADCALL (QVELT |ee| 1) (QREFELT $ 20))
+                              (QREFELT $ 21)))
+              (LETT |cden| (SPADCALL |cc| (QREFELT $ 24)))
+              (LETT |denom| (QCDR |cden|))
+              (LETT |gg|
+                    (SPADCALL
+                     (SPADCALL (ELT $ 25) (QCAR |cden|) (QREFELT $ 29))
+                     (QREFELT $ 31)))
+              (LETT |ans| (SPADCALL |denom| |gg| (QREFELT $ 33)))
+              (EXIT
+               (COND
+                ((QEQCAR |ans| 1)
+                 (|error|
+                  "PWFFINTB: error in reduced discriminant computation"))
+                ('T (QCDR |ans|))))))) 
 
 (SDEFUN |PWFFINTB;compLocalBasis|
         ((|poly| UP) (|prime| R)
@@ -49,8 +47,8 @@
                         |noBranch|)))))
          (SEQ
           (LETT |sae|
-                (|SimpleAlgebraicExtension| (QREFELT $ 7) (QREFELT $ 8) |poly|)
-                |PWFFINTB;compLocalBasis|)
+                (|SimpleAlgebraicExtension| (QREFELT $ 7) (QREFELT $ 8)
+                                            |poly|))
           (EXIT
            (SPADCALL |prime|
                      (|compiledLookupCheck| '|localIntegralBasis|
@@ -150,669 +148,603 @@
                         . #7#))))
           (|irrPoly| (|SparseUnivariatePolynomial| K)) (#20=#:G125 NIL)
           (|r| #21=(|NonNegativeInteger|)) (|disc0| (R)) (|n| #21#))
-         (SEQ
-          (LETT |n| (SPADCALL |poly0| (QREFELT $ 36))
-                . #22=(|PWFFINTB;compLocalBasisOverExt|))
-          (LETT |disc0| (SPADCALL |poly0| (QREFELT $ 37)) . #22#)
-          (EXIT
-           (COND
-            ((QEQCAR (SPADCALL |disc0| |prime0| (QREFELT $ 33)) 1)
-             (VECTOR (SPADCALL |n| (|spadConstant| $ 39) (QREFELT $ 41))
-                     (|spadConstant| $ 39)
-                     (SPADCALL |n| (|spadConstant| $ 39) (QREFELT $ 41))))
-            (#23='T
-             (SEQ (LETT |r| (SPADCALL |irrPoly0| (QREFELT $ 36)) . #22#)
-                  (LETT |irrPoly|
-                        (SPADCALL
-                         (PROG1 (LETT #20# |r| . #22#)
-                           (|check_subtype2| (> #20# 0) '(|PositiveInteger|)
-                                             '(|NonNegativeInteger|) #20#))
-                         (QREFELT $ 45))
-                        . #22#)
-                  (LETT E
-                        (|SimpleAlgebraicExtension| (QREFELT $ 6)
-                                                    (|SparseUnivariatePolynomial|
-                                                     (QREFELT $ 6))
-                                                    |irrPoly|)
-                        . #22#)
-                  (LETT |poly|
-                        (SPADCALL
-                         (|compiledLookupCheck| '|coerce|
-                                                (LIST '$
-                                                      (|devaluate| (ELT $ 6)))
-                                                E)
-                         |poly0|
-                         (|compiledLookupCheck| '|mapBivariate|
-                                                (LIST
-                                                 (LIST
-                                                  '|SparseUnivariatePolynomial|
-                                                  (LIST
-                                                   '|SparseUnivariatePolynomial|
-                                                   (|devaluate| E)))
-                                                 (LIST '|Mapping|
-                                                       (|devaluate| E)
-                                                       (|devaluate| (ELT $ 6)))
-                                                 (|devaluate| (ELT $ 8)))
-                                                (|IntegralBasisPolynomialTools|
-                                                 (ELT $ 6) (ELT $ 7) (ELT $ 8)
-                                                 E)))
-                        . #22#)
-                  (LETT |redDisc0| (SPADCALL |poly0| (QREFELT $ 34)) . #22#)
-                  (LETT |redDisc|
-                        (SPADCALL
-                         (|compiledLookupCheck| '|coerce|
-                                                (LIST '$
-                                                      (|devaluate| (ELT $ 6)))
-                                                E)
-                         |redDisc0|
-                         (|compiledLookupCheck| '|mapUnivariate|
-                                                (LIST
-                                                 (LIST
-                                                  '|SparseUnivariatePolynomial|
-                                                  (|devaluate| E))
-                                                 (LIST '|Mapping|
-                                                       (|devaluate| E)
-                                                       (|devaluate| (ELT $ 6)))
-                                                 (|devaluate| (ELT $ 7)))
-                                                (|IntegralBasisPolynomialTools|
-                                                 (ELT $ 6) (ELT $ 7) (ELT $ 8)
-                                                 E)))
-                        . #22#)
-                  (LETT |prime|
-                        (SPADCALL
-                         (|compiledLookupCheck| '|coerce|
-                                                (LIST '$
-                                                      (|devaluate| (ELT $ 6)))
-                                                E)
-                         |prime0|
-                         (|compiledLookupCheck| '|mapUnivariate|
-                                                (LIST
-                                                 (LIST
-                                                  '|SparseUnivariatePolynomial|
-                                                  (|devaluate| E))
-                                                 (LIST '|Mapping|
-                                                       (|devaluate| E)
-                                                       (|devaluate| (ELT $ 6)))
-                                                 (|devaluate| (ELT $ 7)))
-                                                (|IntegralBasisPolynomialTools|
-                                                 (ELT $ 6) (ELT $ 7) (ELT $ 8)
-                                                 E)))
-                        . #22#)
-                  (LETT |sae|
-                        (|SimpleAlgebraicExtension| E
-                                                    (|SparseUnivariatePolynomial|
-                                                     E)
-                                                    |prime|)
-                        . #22#)
-                  (LETT |redIrrPoly|
-                        (SEQ
-                         (LETT |pp|
-                               (SPADCALL
-                                (|compiledLookupCheck| '|coerce|
-                                                       (LIST '$
-                                                             (|devaluate|
-                                                              (ELT $ 6)))
-                                                       E)
-                                |irrPoly0|
-                                (|compiledLookupCheck| '|mapBivariate|
-                                                       (LIST
-                                                        (LIST
-                                                         '|SparseUnivariatePolynomial|
-                                                         (LIST
-                                                          '|SparseUnivariatePolynomial|
-                                                          (|devaluate| E)))
-                                                        (LIST '|Mapping|
-                                                              (|devaluate| E)
-                                                              (|devaluate|
-                                                               (ELT $ 6)))
-                                                        (|devaluate|
-                                                         (ELT $ 8)))
-                                                       (|IntegralBasisPolynomialTools|
-                                                        (ELT $ 6) (ELT $ 7)
-                                                        (ELT $ 8) E)))
-                               . #22#)
-                         (EXIT
-                          (SPADCALL
-                           (|compiledLookupCheck| '|reduce|
-                                                  (LIST '$
-                                                        (LIST
-                                                         '|SparseUnivariatePolynomial|
-                                                         (|devaluate| E)))
-                                                  |sae|)
-                           |pp|
-                           (|compiledLookupCheck| '|mapUnivariate|
-                                                  (LIST
-                                                   (LIST
-                                                    '|SparseUnivariatePolynomial|
-                                                    (|devaluate| |sae|))
-                                                   (LIST '|Mapping|
-                                                         (|devaluate| |sae|)
-                                                         (LIST
-                                                          '|SparseUnivariatePolynomial|
-                                                          (|devaluate| E)))
-                                                   (LIST
-                                                    '|SparseUnivariatePolynomial|
-                                                    (LIST
-                                                     '|SparseUnivariatePolynomial|
-                                                     (|devaluate| E))))
-                                                  (|IntegralBasisPolynomialTools|
-                                                   (|SparseUnivariatePolynomial|
+         (SEQ (LETT |n| (SPADCALL |poly0| (QREFELT $ 36)))
+              (LETT |disc0| (SPADCALL |poly0| (QREFELT $ 37)))
+              (EXIT
+               (COND
+                ((QEQCAR (SPADCALL |disc0| |prime0| (QREFELT $ 33)) 1)
+                 (VECTOR (SPADCALL |n| (|spadConstant| $ 39) (QREFELT $ 41))
+                         (|spadConstant| $ 39)
+                         (SPADCALL |n| (|spadConstant| $ 39) (QREFELT $ 41))))
+                (#22='T
+                 (SEQ (LETT |r| (SPADCALL |irrPoly0| (QREFELT $ 36)))
+                      (LETT |irrPoly|
+                            (SPADCALL
+                             (PROG1 (LETT #20# |r|)
+                               (|check_subtype2| (> #20# 0)
+                                                 '(|PositiveInteger|)
+                                                 '(|NonNegativeInteger|) #20#))
+                             (QREFELT $ 45)))
+                      (LETT E
+                            (|SimpleAlgebraicExtension| (QREFELT $ 6)
+                                                        (|SparseUnivariatePolynomial|
+                                                         (QREFELT $ 6))
+                                                        |irrPoly|))
+                      (LETT |poly|
+                            (SPADCALL
+                             (|compiledLookupCheck| '|coerce|
+                                                    (LIST '$
+                                                          (|devaluate|
+                                                           (ELT $ 6)))
                                                     E)
-                                                   (|SparseUnivariatePolynomial|
-                                                    (|SparseUnivariatePolynomial|
-                                                     E))
-                                                   (|SparseUnivariatePolynomial|
-                                                    (|SparseUnivariatePolynomial|
-                                                     (|SparseUnivariatePolynomial|
-                                                      E)))
-                                                   |sae|)))))
-                        . #22#)
-                  (LETT |factorListSAE|
-                        (SPADCALL
-                         (SPADCALL |redIrrPoly|
-                                   (|compiledLookupCheck| '|factor|
-                                                          (LIST
-                                                           (LIST '|Factored|
-                                                                 (LIST
-                                                                  '|SparseUnivariatePolynomial|
-                                                                  (|devaluate|
-                                                                   |sae|)))
+                             |poly0|
+                             (|compiledLookupCheck| '|mapBivariate|
+                                                    (LIST
+                                                     (LIST
+                                                      '|SparseUnivariatePolynomial|
+                                                      (LIST
+                                                       '|SparseUnivariatePolynomial|
+                                                       (|devaluate| E)))
+                                                     (LIST '|Mapping|
+                                                           (|devaluate| E)
+                                                           (|devaluate|
+                                                            (ELT $ 6)))
+                                                     (|devaluate| (ELT $ 8)))
+                                                    (|IntegralBasisPolynomialTools|
+                                                     (ELT $ 6) (ELT $ 7)
+                                                     (ELT $ 8) E))))
+                      (LETT |redDisc0| (SPADCALL |poly0| (QREFELT $ 34)))
+                      (LETT |redDisc|
+                            (SPADCALL
+                             (|compiledLookupCheck| '|coerce|
+                                                    (LIST '$
+                                                          (|devaluate|
+                                                           (ELT $ 6)))
+                                                    E)
+                             |redDisc0|
+                             (|compiledLookupCheck| '|mapUnivariate|
+                                                    (LIST
+                                                     (LIST
+                                                      '|SparseUnivariatePolynomial|
+                                                      (|devaluate| E))
+                                                     (LIST '|Mapping|
+                                                           (|devaluate| E)
+                                                           (|devaluate|
+                                                            (ELT $ 6)))
+                                                     (|devaluate| (ELT $ 7)))
+                                                    (|IntegralBasisPolynomialTools|
+                                                     (ELT $ 6) (ELT $ 7)
+                                                     (ELT $ 8) E))))
+                      (LETT |prime|
+                            (SPADCALL
+                             (|compiledLookupCheck| '|coerce|
+                                                    (LIST '$
+                                                          (|devaluate|
+                                                           (ELT $ 6)))
+                                                    E)
+                             |prime0|
+                             (|compiledLookupCheck| '|mapUnivariate|
+                                                    (LIST
+                                                     (LIST
+                                                      '|SparseUnivariatePolynomial|
+                                                      (|devaluate| E))
+                                                     (LIST '|Mapping|
+                                                           (|devaluate| E)
+                                                           (|devaluate|
+                                                            (ELT $ 6)))
+                                                     (|devaluate| (ELT $ 7)))
+                                                    (|IntegralBasisPolynomialTools|
+                                                     (ELT $ 6) (ELT $ 7)
+                                                     (ELT $ 8) E))))
+                      (LETT |sae|
+                            (|SimpleAlgebraicExtension| E
+                                                        (|SparseUnivariatePolynomial|
+                                                         E)
+                                                        |prime|))
+                      (LETT |redIrrPoly|
+                            (SEQ
+                             (LETT |pp|
+                                   (SPADCALL
+                                    (|compiledLookupCheck| '|coerce|
+                                                           (LIST '$
+                                                                 (|devaluate|
+                                                                  (ELT $ 6)))
+                                                           E)
+                                    |irrPoly0|
+                                    (|compiledLookupCheck| '|mapBivariate|
                                                            (LIST
-                                                            '|SparseUnivariatePolynomial|
+                                                            (LIST
+                                                             '|SparseUnivariatePolynomial|
+                                                             (LIST
+                                                              '|SparseUnivariatePolynomial|
+                                                              (|devaluate| E)))
+                                                            (LIST '|Mapping|
+                                                                  (|devaluate|
+                                                                   E)
+                                                                  (|devaluate|
+                                                                   (ELT $ 6)))
                                                             (|devaluate|
-                                                             |sae|)))
-                                                          (|DistinctDegreeFactorize|
-                                                           |sae|
-                                                           (|SparseUnivariatePolynomial|
-                                                            |sae|))))
-                         (|compiledLookupCheck| '|factorList|
-                                                (LIST
-                                                 (LIST '|List|
-                                                       (LIST '|Record|
-                                                             (LIST '|:| '|flag|
-                                                                   (LIST
-                                                                    '|Union|
-                                                                    '#14# '#15#
-                                                                    '#16#
-                                                                    '#17#))
-                                                             (LIST '|:|
-                                                                   '|factor|
-                                                                   (LIST
-                                                                    '|SparseUnivariatePolynomial|
-                                                                    (|devaluate|
-                                                                     |sae|)))
-                                                             (LIST '|:|
-                                                                   '|exponent|
-                                                                   (LIST
-                                                                    '|NonNegativeInteger|))))
-                                                 '$)
-                                                (|Factored|
-                                                 (|SparseUnivariatePolynomial|
-                                                  |sae|))))
-                        . #22#)
-                  (LETT |redFactors|
-                        (PROGN
-                         (LETT #13# NIL . #22#)
-                         (SEQ (LETT |f| NIL . #22#)
-                              (LETT #12# |factorListSAE| . #22#) G190
-                              (COND
-                               ((OR (ATOM #12#)
-                                    (PROGN (LETT |f| (CAR #12#) . #22#) NIL))
-                                (GO G191)))
-                              (SEQ
-                               (EXIT
-                                (LETT #13#
-                                      (CONS
-                                       (SPADCALL (QVELT |f| 1) |k|
-                                                 (|compiledLookupCheck| '^
-                                                                        (LIST
-                                                                         '$ '$
-                                                                         (LIST
-                                                                          '|NonNegativeInteger|))
-                                                                        (|SparseUnivariatePolynomial|
-                                                                         |sae|)))
-                                       #13#)
-                                      . #22#)))
-                              (LETT #12# (CDR #12#) . #22#) (GO G190) G191
-                              (EXIT (NREVERSE #13#))))
-                        . #22#)
-                  (LETT |primaries|
-                        (PROGN
-                         (LETT #11# NIL . #22#)
-                         (SEQ (LETT |ff| NIL . #22#)
-                              (LETT #10# |redFactors| . #22#) G190
-                              (COND
-                               ((OR (ATOM #10#)
-                                    (PROGN (LETT |ff| (CAR #10#) . #22#) NIL))
-                                (GO G191)))
-                              (SEQ
-                               (EXIT
-                                (LETT #11#
-                                      (CONS
-                                       (SPADCALL
-                                        (|compiledLookupCheck| '|lift|
+                                                             (ELT $ 8)))
+                                                           (|IntegralBasisPolynomialTools|
+                                                            (ELT $ 6) (ELT $ 7)
+                                                            (ELT $ 8) E))))
+                             (EXIT
+                              (SPADCALL
+                               (|compiledLookupCheck| '|reduce|
+                                                      (LIST '$
+                                                            (LIST
+                                                             '|SparseUnivariatePolynomial|
+                                                             (|devaluate| E)))
+                                                      |sae|)
+                               |pp|
+                               (|compiledLookupCheck| '|mapUnivariate|
+                                                      (LIST
+                                                       (LIST
+                                                        '|SparseUnivariatePolynomial|
+                                                        (|devaluate| |sae|))
+                                                       (LIST '|Mapping|
+                                                             (|devaluate|
+                                                              |sae|)
+                                                             (LIST
+                                                              '|SparseUnivariatePolynomial|
+                                                              (|devaluate| E)))
+                                                       (LIST
+                                                        '|SparseUnivariatePolynomial|
+                                                        (LIST
+                                                         '|SparseUnivariatePolynomial|
+                                                         (|devaluate| E))))
+                                                      (|IntegralBasisPolynomialTools|
+                                                       (|SparseUnivariatePolynomial|
+                                                        E)
+                                                       (|SparseUnivariatePolynomial|
+                                                        (|SparseUnivariatePolynomial|
+                                                         E))
+                                                       (|SparseUnivariatePolynomial|
+                                                        (|SparseUnivariatePolynomial|
+                                                         (|SparseUnivariatePolynomial|
+                                                          E)))
+                                                       |sae|))))))
+                      (LETT |factorListSAE|
+                            (SPADCALL
+                             (SPADCALL |redIrrPoly|
+                                       (|compiledLookupCheck| '|factor|
+                                                              (LIST
                                                                (LIST
-                                                                (LIST
-                                                                 '|SparseUnivariatePolynomial|
-                                                                 (|devaluate|
-                                                                  E))
-                                                                '$)
-                                                               |sae|)
-                                        |ff|
-                                        (|compiledLookupCheck| '|mapUnivariate|
-                                                               (LIST
-                                                                (LIST
-                                                                 '|SparseUnivariatePolynomial|
-                                                                 (LIST
-                                                                  '|SparseUnivariatePolynomial|
-                                                                  (|devaluate|
-                                                                   E)))
-                                                                (LIST
-                                                                 '|Mapping|
-                                                                 (LIST
-                                                                  '|SparseUnivariatePolynomial|
-                                                                  (|devaluate|
-                                                                   E))
-                                                                 (|devaluate|
-                                                                  |sae|))
+                                                                '|Factored|
                                                                 (LIST
                                                                  '|SparseUnivariatePolynomial|
                                                                  (|devaluate|
                                                                   |sae|)))
-                                                               (|IntegralBasisPolynomialTools|
-                                                                (|SparseUnivariatePolynomial|
-                                                                 E)
-                                                                (|SparseUnivariatePolynomial|
-                                                                 (|SparseUnivariatePolynomial|
-                                                                  E))
-                                                                (|SparseUnivariatePolynomial|
-                                                                 (|SparseUnivariatePolynomial|
-                                                                  (|SparseUnivariatePolynomial|
-                                                                   E)))
-                                                                |sae|)))
-                                       #11#)
-                                      . #22#)))
-                              (LETT #10# (CDR #10#) . #22#) (GO G190) G191
-                              (EXIT (NREVERSE #11#))))
-                        . #22#)
-                  (LETT |deg|
-                        (PROG1
-                            (LETT #9#
-                                  (+ 1
-                                     (*
-                                      (SPADCALL |redDisc| |prime|
-                                                (|compiledLookupCheck| '|order|
+                                                               (LIST
+                                                                '|SparseUnivariatePolynomial|
+                                                                (|devaluate|
+                                                                 |sae|)))
+                                                              (|DistinctDegreeFactorize|
+                                                               |sae|
+                                                               (|SparseUnivariatePolynomial|
+                                                                |sae|))))
+                             (|compiledLookupCheck| '|factorList|
+                                                    (LIST
+                                                     (LIST '|List|
+                                                           (LIST '|Record|
+                                                                 (LIST '|:|
+                                                                       '|flag|
                                                                        (LIST
-                                                                        (LIST
-                                                                         '|NonNegativeInteger|)
-                                                                        '$ '$)
-                                                                       (|SparseUnivariatePolynomial|
-                                                                        E)))
-                                      (SPADCALL |prime|
-                                                (|compiledLookupCheck|
-                                                 '|degree|
-                                                 (LIST
-                                                  (LIST '|NonNegativeInteger|)
-                                                  '$)
-                                                 (|SparseUnivariatePolynomial|
-                                                  E)))))
-                                  . #22#)
-                          (|check_subtype2| (> #9# 0) '(|PositiveInteger|)
-                                            '(|NonNegativeInteger|) #9#))
-                        . #22#)
-                  (LETT |henselInfo|
-                        (SPADCALL |poly| |primaries| |prime| |deg|
-                                  (|compiledLookupCheck| '|HenselLift|
-                                                         (LIST
-                                                          (LIST '|Record|
-                                                                (LIST '|:|
-                                                                      '|plist|
-                                                                      (LIST
-                                                                       '|List|
+                                                                        '|Union|
+                                                                        '#14#
+                                                                        '#15#
+                                                                        '#16#
+                                                                        '#17#))
+                                                                 (LIST '|:|
+                                                                       '|factor|
                                                                        (LIST
                                                                         '|SparseUnivariatePolynomial|
-                                                                        (LIST
-                                                                         '|SparseUnivariatePolynomial|
-                                                                         (|devaluate|
-                                                                          E)))))
-                                                                (LIST '|:|
-                                                                      '|modulo|
-                                                                      (LIST
-                                                                       '|SparseUnivariatePolynomial|
-                                                                       (|devaluate|
-                                                                        E))))
+                                                                        (|devaluate|
+                                                                         |sae|)))
+                                                                 (LIST '|:|
+                                                                       '|exponent|
+                                                                       (LIST
+                                                                        '|NonNegativeInteger|))))
+                                                     '$)
+                                                    (|Factored|
+                                                     (|SparseUnivariatePolynomial|
+                                                      |sae|)))))
+                      (LETT |redFactors|
+                            (PROGN
+                             (LETT #13# NIL)
+                             (SEQ (LETT |f| NIL) (LETT #12# |factorListSAE|)
+                                  G190
+                                  (COND
+                                   ((OR (ATOM #12#)
+                                        (PROGN (LETT |f| (CAR #12#)) NIL))
+                                    (GO G191)))
+                                  (SEQ
+                                   (EXIT
+                                    (LETT #13#
+                                          (CONS
+                                           (SPADCALL (QVELT |f| 1) |k|
+                                                     (|compiledLookupCheck| '^
+                                                                            (LIST
+                                                                             '$
+                                                                             '$
+                                                                             (LIST
+                                                                              '|NonNegativeInteger|))
+                                                                            (|SparseUnivariatePolynomial|
+                                                                             |sae|)))
+                                           #13#))))
+                                  (LETT #12# (CDR #12#)) (GO G190) G191
+                                  (EXIT (NREVERSE #13#)))))
+                      (LETT |primaries|
+                            (PROGN
+                             (LETT #11# NIL)
+                             (SEQ (LETT |ff| NIL) (LETT #10# |redFactors|) G190
+                                  (COND
+                                   ((OR (ATOM #10#)
+                                        (PROGN (LETT |ff| (CAR #10#)) NIL))
+                                    (GO G191)))
+                                  (SEQ
+                                   (EXIT
+                                    (LETT #11#
+                                          (CONS
+                                           (SPADCALL
+                                            (|compiledLookupCheck| '|lift|
+                                                                   (LIST
+                                                                    (LIST
+                                                                     '|SparseUnivariatePolynomial|
+                                                                     (|devaluate|
+                                                                      E))
+                                                                    '$)
+                                                                   |sae|)
+                                            |ff|
+                                            (|compiledLookupCheck|
+                                             '|mapUnivariate|
+                                             (LIST
+                                              (LIST
+                                               '|SparseUnivariatePolynomial|
+                                               (LIST
+                                                '|SparseUnivariatePolynomial|
+                                                (|devaluate| E)))
+                                              (LIST '|Mapping|
+                                                    (LIST
+                                                     '|SparseUnivariatePolynomial|
+                                                     (|devaluate| E))
+                                                    (|devaluate| |sae|))
+                                              (LIST
+                                               '|SparseUnivariatePolynomial|
+                                               (|devaluate| |sae|)))
+                                             (|IntegralBasisPolynomialTools|
+                                              (|SparseUnivariatePolynomial| E)
+                                              (|SparseUnivariatePolynomial|
+                                               (|SparseUnivariatePolynomial|
+                                                E))
+                                              (|SparseUnivariatePolynomial|
+                                               (|SparseUnivariatePolynomial|
+                                                (|SparseUnivariatePolynomial|
+                                                 E)))
+                                              |sae|)))
+                                           #11#))))
+                                  (LETT #10# (CDR #10#)) (GO G190) G191
+                                  (EXIT (NREVERSE #11#)))))
+                      (LETT |deg|
+                            (PROG1
+                                (LETT #9#
+                                      (+ 1
+                                         (*
+                                          (SPADCALL |redDisc| |prime|
+                                                    (|compiledLookupCheck|
+                                                     '|order|
+                                                     (LIST
+                                                      (LIST
+                                                       '|NonNegativeInteger|)
+                                                      '$ '$)
+                                                     (|SparseUnivariatePolynomial|
+                                                      E)))
+                                          (SPADCALL |prime|
+                                                    (|compiledLookupCheck|
+                                                     '|degree|
+                                                     (LIST
+                                                      (LIST
+                                                       '|NonNegativeInteger|)
+                                                      '$)
+                                                     (|SparseUnivariatePolynomial|
+                                                      E))))))
+                              (|check_subtype2| (> #9# 0) '(|PositiveInteger|)
+                                                '(|NonNegativeInteger|) #9#)))
+                      (LETT |henselInfo|
+                            (SPADCALL |poly| |primaries| |prime| |deg|
+                                      (|compiledLookupCheck| '|HenselLift|
+                                                             (LIST
+                                                              (LIST '|Record|
+                                                                    (LIST '|:|
+                                                                          '|plist|
+                                                                          (LIST
+                                                                           '|List|
+                                                                           (LIST
+                                                                            '|SparseUnivariatePolynomial|
+                                                                            (LIST
+                                                                             '|SparseUnivariatePolynomial|
+                                                                             (|devaluate|
+                                                                              E)))))
+                                                                    (LIST '|:|
+                                                                          '|modulo|
+                                                                          (LIST
+                                                                           '|SparseUnivariatePolynomial|
+                                                                           (|devaluate|
+                                                                            E))))
+                                                              (LIST
+                                                               '|SparseUnivariatePolynomial|
+                                                               (LIST
+                                                                '|SparseUnivariatePolynomial|
+                                                                (|devaluate|
+                                                                 E)))
+                                                              (LIST '|List|
+                                                                    (LIST
+                                                                     '|SparseUnivariatePolynomial|
+                                                                     (LIST
+                                                                      '|SparseUnivariatePolynomial|
+                                                                      (|devaluate|
+                                                                       E))))
+                                                              (LIST
+                                                               '|SparseUnivariatePolynomial|
+                                                               (|devaluate| E))
+                                                              (LIST
+                                                               '|PositiveInteger|))
+                                                             (|GeneralHenselPackage|
+                                                              (|SparseUnivariatePolynomial|
+                                                               E)
+                                                              (|SparseUnivariatePolynomial|
+                                                               (|SparseUnivariatePolynomial|
+                                                                E))))))
+                      (LETT |henselFactors| (QCAR |henselInfo|))
+                      (LETT |psi1| (|SPADfirst| |henselFactors|))
+                      (LETT FF
+                            (|SimpleAlgebraicExtension|
+                             (|SparseUnivariatePolynomial| E)
+                             (|SparseUnivariatePolynomial|
+                              (|SparseUnivariatePolynomial| E))
+                             |psi1|))
+                      (LETT |factorIb|
+                            (SPADCALL |prime|
+                                      (|compiledLookupCheck|
+                                       '|localIntegralBasis|
+                                       (LIST
+                                        (LIST '|Record|
+                                              (LIST '|:| '|basis|
+                                                    (LIST '|Matrix|
                                                           (LIST
                                                            '|SparseUnivariatePolynomial|
-                                                           (LIST
-                                                            '|SparseUnivariatePolynomial|
-                                                            (|devaluate| E)))
-                                                          (LIST '|List|
+                                                           (|devaluate| E))))
+                                              (LIST '|:| '|basisDen|
+                                                    (LIST
+                                                     '|SparseUnivariatePolynomial|
+                                                     (|devaluate| E)))
+                                              (LIST '|:| '|basisInv|
+                                                    (LIST '|Matrix|
+                                                          (LIST
+                                                           '|SparseUnivariatePolynomial|
+                                                           (|devaluate| E)))))
+                                        (LIST '|SparseUnivariatePolynomial|
+                                              (|devaluate| E)))
+                                       (|WildFunctionFieldIntegralBasis| E
+                                                                         (|SparseUnivariatePolynomial|
+                                                                          E)
+                                                                         (|SparseUnivariatePolynomial|
+                                                                          (|SparseUnivariatePolynomial|
+                                                                           E))
+                                                                         FF))))
+                      (LETT |bs|
+                            (SPADCALL |factorIb| (SPADCALL (QREFELT $ 48)) |r|
+                                      (|compiledLookupCheck|
+                                       '|listConjugateBases|
+                                       (LIST
+                                        (LIST '|List|
+                                              (LIST '|Record|
+                                                    (LIST '|:| '|basis|
+                                                          (LIST '|Matrix|
                                                                 (LIST
                                                                  '|SparseUnivariatePolynomial|
-                                                                 (LIST
-                                                                  '|SparseUnivariatePolynomial|
-                                                                  (|devaluate|
-                                                                   E))))
-                                                          (LIST
-                                                           '|SparseUnivariatePolynomial|
-                                                           (|devaluate| E))
-                                                          (LIST
-                                                           '|PositiveInteger|))
-                                                         (|GeneralHenselPackage|
-                                                          (|SparseUnivariatePolynomial|
-                                                           E)
-                                                          (|SparseUnivariatePolynomial|
-                                                           (|SparseUnivariatePolynomial|
-                                                            E)))))
-                        . #22#)
-                  (LETT |henselFactors| (QCAR |henselInfo|) . #22#)
-                  (LETT |psi1| (|SPADfirst| |henselFactors|) . #22#)
-                  (LETT FF
-                        (|SimpleAlgebraicExtension|
-                         (|SparseUnivariatePolynomial| E)
-                         (|SparseUnivariatePolynomial|
-                          (|SparseUnivariatePolynomial| E))
-                         |psi1|)
-                        . #22#)
-                  (LETT |factorIb|
-                        (SPADCALL |prime|
-                                  (|compiledLookupCheck| '|localIntegralBasis|
-                                                         (LIST
-                                                          (LIST '|Record|
-                                                                (LIST '|:|
-                                                                      '|basis|
-                                                                      (LIST
-                                                                       '|Matrix|
-                                                                       (LIST
-                                                                        '|SparseUnivariatePolynomial|
-                                                                        (|devaluate|
-                                                                         E))))
-                                                                (LIST '|:|
-                                                                      '|basisDen|
-                                                                      (LIST
-                                                                       '|SparseUnivariatePolynomial|
-                                                                       (|devaluate|
-                                                                        E)))
-                                                                (LIST '|:|
-                                                                      '|basisInv|
-                                                                      (LIST
-                                                                       '|Matrix|
-                                                                       (LIST
-                                                                        '|SparseUnivariatePolynomial|
-                                                                        (|devaluate|
-                                                                         E)))))
+                                                                 (|devaluate|
+                                                                  E))))
+                                                    (LIST '|:| '|basisDen|
                                                           (LIST
                                                            '|SparseUnivariatePolynomial|
                                                            (|devaluate| E)))
-                                                         (|WildFunctionFieldIntegralBasis|
-                                                          E
-                                                          (|SparseUnivariatePolynomial|
-                                                           E)
-                                                          (|SparseUnivariatePolynomial|
-                                                           (|SparseUnivariatePolynomial|
-                                                            E))
-                                                          FF)))
-                        . #22#)
-                  (LETT |bs|
-                        (SPADCALL |factorIb| (SPADCALL (QREFELT $ 48)) |r|
-                                  (|compiledLookupCheck| '|listConjugateBases|
-                                                         (LIST
-                                                          (LIST '|List|
-                                                                (LIST '|Record|
-                                                                      (LIST
-                                                                       '|:|
-                                                                       '|basis|
-                                                                       (LIST
-                                                                        '|Matrix|
-                                                                        (LIST
-                                                                         '|SparseUnivariatePolynomial|
-                                                                         (|devaluate|
-                                                                          E))))
-                                                                      (LIST
-                                                                       '|:|
-                                                                       '|basisDen|
-                                                                       (LIST
-                                                                        '|SparseUnivariatePolynomial|
-                                                                        (|devaluate|
-                                                                         E)))
-                                                                      (LIST
-                                                                       '|:|
-                                                                       '|basisInv|
-                                                                       (LIST
-                                                                        '|Matrix|
-                                                                        (LIST
-                                                                         '|SparseUnivariatePolynomial|
-                                                                         (|devaluate|
-                                                                          E))))))
-                                                          (LIST '|Record|
-                                                                (LIST '|:|
-                                                                      '|basis|
-                                                                      (LIST
-                                                                       '|Matrix|
-                                                                       (LIST
-                                                                        '|SparseUnivariatePolynomial|
-                                                                        (|devaluate|
-                                                                         E))))
-                                                                (LIST '|:|
-                                                                      '|basisDen|
-                                                                      (LIST
-                                                                       '|SparseUnivariatePolynomial|
-                                                                       (|devaluate|
-                                                                        E)))
-                                                                (LIST '|:|
-                                                                      '|basisInv|
-                                                                      (LIST
-                                                                       '|Matrix|
-                                                                       (LIST
-                                                                        '|SparseUnivariatePolynomial|
-                                                                        (|devaluate|
-                                                                         E)))))
-                                                          (LIST
-                                                           '|NonNegativeInteger|)
-                                                          (LIST
-                                                           '|NonNegativeInteger|))
-                                                         (|ChineseRemainderToolsForIntegralBases|
-                                                          E
-                                                          (|SparseUnivariatePolynomial|
-                                                           E)
-                                                          (|SparseUnivariatePolynomial|
-                                                           (|SparseUnivariatePolynomial|
-                                                            E)))))
-                        . #22#)
-                  (LETT |ib|
-                        (SPADCALL |henselFactors| |bs| |n|
-                                  (|compiledLookupCheck| '|chineseRemainder|
-                                                         (LIST
-                                                          (LIST '|Record|
-                                                                (LIST '|:|
-                                                                      '|basis|
-                                                                      (LIST
-                                                                       '|Matrix|
-                                                                       (LIST
-                                                                        '|SparseUnivariatePolynomial|
-                                                                        (|devaluate|
-                                                                         E))))
-                                                                (LIST '|:|
-                                                                      '|basisDen|
-                                                                      (LIST
-                                                                       '|SparseUnivariatePolynomial|
-                                                                       (|devaluate|
-                                                                        E)))
-                                                                (LIST '|:|
-                                                                      '|basisInv|
-                                                                      (LIST
-                                                                       '|Matrix|
-                                                                       (LIST
-                                                                        '|SparseUnivariatePolynomial|
-                                                                        (|devaluate|
-                                                                         E)))))
-                                                          (LIST '|List|
+                                                    (LIST '|:| '|basisInv|
+                                                          (LIST '|Matrix|
                                                                 (LIST
                                                                  '|SparseUnivariatePolynomial|
-                                                                 (LIST
-                                                                  '|SparseUnivariatePolynomial|
-                                                                  (|devaluate|
-                                                                   E))))
-                                                          (LIST '|List|
-                                                                (LIST '|Record|
-                                                                      (LIST
-                                                                       '|:|
-                                                                       '|basis|
-                                                                       (LIST
-                                                                        '|Matrix|
-                                                                        (LIST
-                                                                         '|SparseUnivariatePolynomial|
-                                                                         (|devaluate|
-                                                                          E))))
-                                                                      (LIST
-                                                                       '|:|
-                                                                       '|basisDen|
-                                                                       (LIST
-                                                                        '|SparseUnivariatePolynomial|
-                                                                        (|devaluate|
-                                                                         E)))
-                                                                      (LIST
-                                                                       '|:|
-                                                                       '|basisInv|
-                                                                       (LIST
-                                                                        '|Matrix|
-                                                                        (LIST
-                                                                         '|SparseUnivariatePolynomial|
-                                                                         (|devaluate|
-                                                                          E))))))
+                                                                 (|devaluate|
+                                                                  E))))))
+                                        (LIST '|Record|
+                                              (LIST '|:| '|basis|
+                                                    (LIST '|Matrix|
                                                           (LIST
-                                                           '|NonNegativeInteger|))
-                                                         (|ChineseRemainderToolsForIntegralBases|
-                                                          E
-                                                          (|SparseUnivariatePolynomial|
+                                                           '|SparseUnivariatePolynomial|
+                                                           (|devaluate| E))))
+                                              (LIST '|:| '|basisDen|
+                                                    (LIST
+                                                     '|SparseUnivariatePolynomial|
+                                                     (|devaluate| E)))
+                                              (LIST '|:| '|basisInv|
+                                                    (LIST '|Matrix|
+                                                          (LIST
+                                                           '|SparseUnivariatePolynomial|
+                                                           (|devaluate| E)))))
+                                        (LIST '|NonNegativeInteger|)
+                                        (LIST '|NonNegativeInteger|))
+                                       (|ChineseRemainderToolsForIntegralBases|
+                                        E (|SparseUnivariatePolynomial| E)
+                                        (|SparseUnivariatePolynomial|
+                                         (|SparseUnivariatePolynomial| E))))))
+                      (LETT |ib|
+                            (SPADCALL |henselFactors| |bs| |n|
+                                      (|compiledLookupCheck|
+                                       '|chineseRemainder|
+                                       (LIST
+                                        (LIST '|Record|
+                                              (LIST '|:| '|basis|
+                                                    (LIST '|Matrix|
+                                                          (LIST
+                                                           '|SparseUnivariatePolynomial|
+                                                           (|devaluate| E))))
+                                              (LIST '|:| '|basisDen|
+                                                    (LIST
+                                                     '|SparseUnivariatePolynomial|
+                                                     (|devaluate| E)))
+                                              (LIST '|:| '|basisInv|
+                                                    (LIST '|Matrix|
+                                                          (LIST
+                                                           '|SparseUnivariatePolynomial|
+                                                           (|devaluate| E)))))
+                                        (LIST '|List|
+                                              (LIST
+                                               '|SparseUnivariatePolynomial|
+                                               (LIST
+                                                '|SparseUnivariatePolynomial|
+                                                (|devaluate| E))))
+                                        (LIST '|List|
+                                              (LIST '|Record|
+                                                    (LIST '|:| '|basis|
+                                                          (LIST '|Matrix|
+                                                                (LIST
+                                                                 '|SparseUnivariatePolynomial|
+                                                                 (|devaluate|
+                                                                  E))))
+                                                    (LIST '|:| '|basisDen|
+                                                          (LIST
+                                                           '|SparseUnivariatePolynomial|
+                                                           (|devaluate| E)))
+                                                    (LIST '|:| '|basisInv|
+                                                          (LIST '|Matrix|
+                                                                (LIST
+                                                                 '|SparseUnivariatePolynomial|
+                                                                 (|devaluate|
+                                                                  E))))))
+                                        (LIST '|NonNegativeInteger|))
+                                       (|ChineseRemainderToolsForIntegralBases|
+                                        E (|SparseUnivariatePolynomial| E)
+                                        (|SparseUnivariatePolynomial|
+                                         (|SparseUnivariatePolynomial| E))))))
+                      (LETT |b|
+                            (SEQ
+                             (LETT |bas|
+                                   (SPADCALL
+                                    (|compiledLookupCheck| '|retractIfCan|
+                                                           (LIST
+                                                            (LIST '|Union|
+                                                                  (|devaluate|
+                                                                   (ELT $ 6))
+                                                                  '#23="failed")
+                                                            '$)
                                                            E)
-                                                          (|SparseUnivariatePolynomial|
-                                                           (|SparseUnivariatePolynomial|
-                                                            E)))))
-                        . #22#)
-                  (LETT |b|
-                        (SEQ
-                         (LETT |bas|
-                               (SPADCALL
-                                (|compiledLookupCheck| '|retractIfCan|
-                                                       (LIST
-                                                        (LIST '|Union|
-                                                              (|devaluate|
-                                                               (ELT $ 6))
-                                                              '#24="failed")
-                                                        '$)
-                                                       E)
-                                (QVELT |ib| 0)
-                                (|compiledLookupCheck| '|mapMatrixIfCan|
-                                                       (LIST
-                                                        (LIST '|Union|
-                                                              (LIST '|Matrix|
-                                                                    (|devaluate|
-                                                                     (ELT $
-                                                                          7)))
-                                                              '#2#)
-                                                        (LIST '|Mapping|
-                                                              (LIST '|Union|
-                                                                    (|devaluate|
-                                                                     (ELT $ 6))
-                                                                    '#25="failed")
-                                                              (|devaluate| E))
-                                                        (LIST '|Matrix|
-                                                              (LIST
-                                                               '|SparseUnivariatePolynomial|
-                                                               (|devaluate|
-                                                                E))))
-                                                       (|IntegralBasisPolynomialTools|
-                                                        (ELT $ 6) (ELT $ 7)
-                                                        (ELT $ 8) E)))
-                               . #22#)
-                         (EXIT
-                          (COND
-                           ((QEQCAR |bas| 1)
-                            (|error| "retraction of basis failed"))
-                           (#23# (QCDR |bas|)))))
-                        . #22#)
-                  (LETT |bInv|
-                        (SEQ
-                         (LETT |bas|
-                               (SPADCALL
-                                (|compiledLookupCheck| '|retractIfCan|
-                                                       (LIST
-                                                        (LIST '|Union|
-                                                              (|devaluate|
-                                                               (ELT $ 6))
-                                                              '#24#)
-                                                        '$)
-                                                       E)
-                                (QVELT |ib| 2)
-                                (|compiledLookupCheck| '|mapMatrixIfCan|
-                                                       (LIST
-                                                        (LIST '|Union|
-                                                              (LIST '|Matrix|
-                                                                    (|devaluate|
-                                                                     (ELT $
-                                                                          7)))
-                                                              '#2#)
-                                                        (LIST '|Mapping|
-                                                              (LIST '|Union|
-                                                                    (|devaluate|
-                                                                     (ELT $ 6))
-                                                                    '#25#)
-                                                              (|devaluate| E))
-                                                        (LIST '|Matrix|
-                                                              (LIST
-                                                               '|SparseUnivariatePolynomial|
-                                                               (|devaluate|
-                                                                E))))
-                                                       (|IntegralBasisPolynomialTools|
-                                                        (ELT $ 6) (ELT $ 7)
-                                                        (ELT $ 8) E)))
-                               . #22#)
-                         (EXIT
-                          (COND
-                           ((QEQCAR |bas| 1)
-                            (|error| "retraction of basis inverse failed"))
-                           (#23# (QCDR |bas|)))))
-                        . #22#)
-                  (LETT |bDen|
-                        (SEQ
-                         (LETT |p|
-                               (SPADCALL
-                                (|compiledLookupCheck| '|retractIfCan|
-                                                       (LIST
-                                                        (LIST '|Union|
-                                                              (|devaluate|
-                                                               (ELT $ 6))
-                                                              '#24#)
-                                                        '$)
-                                                       E)
-                                (QVELT |ib| 1)
-                                (|compiledLookupCheck| '|mapUnivariateIfCan|
-                                                       (LIST
-                                                        (LIST '|Union|
-                                                              (|devaluate|
-                                                               (ELT $ 7))
-                                                              '#1#)
-                                                        (LIST '|Mapping|
-                                                              (LIST '|Union|
-                                                                    (|devaluate|
-                                                                     (ELT $ 6))
-                                                                    '"failed")
-                                                              (|devaluate| E))
-                                                        (LIST
-                                                         '|SparseUnivariatePolynomial|
-                                                         (|devaluate| E)))
-                                                       (|IntegralBasisPolynomialTools|
-                                                        (ELT $ 6) (ELT $ 7)
-                                                        (ELT $ 8) E)))
-                               . #22#)
-                         (EXIT
-                          (COND
-                           ((QEQCAR |p| 1)
-                            (|error| "retraction of basis denominator failed"))
-                           (#23# (QCDR |p|)))))
-                        . #22#)
-                  (EXIT (VECTOR |b| |bDen| |bInv|))))))))) 
+                                    (QVELT |ib| 0)
+                                    (|compiledLookupCheck| '|mapMatrixIfCan|
+                                                           (LIST
+                                                            (LIST '|Union|
+                                                                  (LIST
+                                                                   '|Matrix|
+                                                                   (|devaluate|
+                                                                    (ELT $ 7)))
+                                                                  '#2#)
+                                                            (LIST '|Mapping|
+                                                                  (LIST
+                                                                   '|Union|
+                                                                   (|devaluate|
+                                                                    (ELT $ 6))
+                                                                   '#24="failed")
+                                                                  (|devaluate|
+                                                                   E))
+                                                            (LIST '|Matrix|
+                                                                  (LIST
+                                                                   '|SparseUnivariatePolynomial|
+                                                                   (|devaluate|
+                                                                    E))))
+                                                           (|IntegralBasisPolynomialTools|
+                                                            (ELT $ 6) (ELT $ 7)
+                                                            (ELT $ 8) E))))
+                             (EXIT
+                              (COND
+                               ((QEQCAR |bas| 1)
+                                (|error| "retraction of basis failed"))
+                               (#22# (QCDR |bas|))))))
+                      (LETT |bInv|
+                            (SEQ
+                             (LETT |bas|
+                                   (SPADCALL
+                                    (|compiledLookupCheck| '|retractIfCan|
+                                                           (LIST
+                                                            (LIST '|Union|
+                                                                  (|devaluate|
+                                                                   (ELT $ 6))
+                                                                  '#23#)
+                                                            '$)
+                                                           E)
+                                    (QVELT |ib| 2)
+                                    (|compiledLookupCheck| '|mapMatrixIfCan|
+                                                           (LIST
+                                                            (LIST '|Union|
+                                                                  (LIST
+                                                                   '|Matrix|
+                                                                   (|devaluate|
+                                                                    (ELT $ 7)))
+                                                                  '#2#)
+                                                            (LIST '|Mapping|
+                                                                  (LIST
+                                                                   '|Union|
+                                                                   (|devaluate|
+                                                                    (ELT $ 6))
+                                                                   '#24#)
+                                                                  (|devaluate|
+                                                                   E))
+                                                            (LIST '|Matrix|
+                                                                  (LIST
+                                                                   '|SparseUnivariatePolynomial|
+                                                                   (|devaluate|
+                                                                    E))))
+                                                           (|IntegralBasisPolynomialTools|
+                                                            (ELT $ 6) (ELT $ 7)
+                                                            (ELT $ 8) E))))
+                             (EXIT
+                              (COND
+                               ((QEQCAR |bas| 1)
+                                (|error| "retraction of basis inverse failed"))
+                               (#22# (QCDR |bas|))))))
+                      (LETT |bDen|
+                            (SEQ
+                             (LETT |p|
+                                   (SPADCALL
+                                    (|compiledLookupCheck| '|retractIfCan|
+                                                           (LIST
+                                                            (LIST '|Union|
+                                                                  (|devaluate|
+                                                                   (ELT $ 6))
+                                                                  '#23#)
+                                                            '$)
+                                                           E)
+                                    (QVELT |ib| 1)
+                                    (|compiledLookupCheck|
+                                     '|mapUnivariateIfCan|
+                                     (LIST
+                                      (LIST '|Union| (|devaluate| (ELT $ 7))
+                                            '#1#)
+                                      (LIST '|Mapping|
+                                            (LIST '|Union|
+                                                  (|devaluate| (ELT $ 6))
+                                                  '"failed")
+                                            (|devaluate| E))
+                                      (LIST '|SparseUnivariatePolynomial|
+                                            (|devaluate| E)))
+                                     (|IntegralBasisPolynomialTools| (ELT $ 6)
+                                                                     (ELT $ 7)
+                                                                     (ELT $ 8)
+                                                                     E))))
+                             (EXIT
+                              (COND
+                               ((QEQCAR |p| 1)
+                                (|error|
+                                 "retraction of basis denominator failed"))
+                               (#22# (QCDR |p|))))))
+                      (EXIT (VECTOR |b| |bDen| |bInv|))))))))) 
 
 (SDEFUN |PWFFINTB;padicLocalIntegralBasis|
         ((|p| UP) (|disc| R) (|redDisc| R) (|prime| R)
@@ -862,8 +794,7 @@
          (SEQ
           (LETT |sae|
                 (|SimpleAlgebraicExtension| (QREFELT $ 6) (QREFELT $ 7)
-                                            |prime|)
-                . #20=(|PWFFINTB;padicLocalIntegralBasis|))
+                                            |prime|))
           (LETT |reducedP|
                 (SPADCALL
                  (|compiledLookupCheck| '|reduce|
@@ -881,8 +812,7 @@
                                          (ELT $ 7) (ELT $ 8)
                                          (|SparseUnivariatePolynomial|
                                           (ELT $ 8))
-                                         |sae|)))
-                . #20#)
+                                         |sae|))))
           (LETT |factorListSAE|
                 (SPADCALL
                  (SPADCALL |reducedP|
@@ -918,14 +848,12 @@
                                          '$)
                                         (|Factored|
                                          (|SparseUnivariatePolynomial|
-                                          |sae|))))
-                . #20#)
+                                          |sae|)))))
           (EXIT
            (COND
             ((EQL (LENGTH |factorListSAE|) 1)
-             (SEQ (LETT |ib| (SPADCALL |prime| (QREFELT $ 53)) . #20#)
-                  (LETT |index| (SPADCALL (QVELT |ib| 2) (QREFELT $ 55))
-                        . #20#)
+             (SEQ (LETT |ib| (SPADCALL |prime| (QREFELT $ 53)))
+                  (LETT |index| (SPADCALL (QVELT |ib| 2) (QREFELT $ 55)))
                   (EXIT
                    (VECTOR (QVELT |ib| 0) (QVELT |ib| 1) (QVELT |ib| 2)
                            (SPADCALL |disc|
@@ -935,26 +863,20 @@
              (SEQ
               (LETT |redPrimes|
                     (PROGN
-                     (LETT #15# NIL . #20#)
-                     (SEQ (LETT |f| NIL . #20#)
-                          (LETT #14# |factorListSAE| . #20#) G190
+                     (LETT #15# NIL)
+                     (SEQ (LETT |f| NIL) (LETT #14# |factorListSAE|) G190
                           (COND
-                           ((OR (ATOM #14#)
-                                (PROGN (LETT |f| (CAR #14#) . #20#) NIL))
+                           ((OR (ATOM #14#) (PROGN (LETT |f| (CAR #14#)) NIL))
                             (GO G191)))
-                          (SEQ
-                           (EXIT (LETT #15# (CONS (QVELT |f| 1) #15#) . #20#)))
-                          (LETT #14# (CDR #14#) . #20#) (GO G190) G191
-                          (EXIT (NREVERSE #15#))))
-                    . #20#)
+                          (SEQ (EXIT (LETT #15# (CONS (QVELT |f| 1) #15#))))
+                          (LETT #14# (CDR #14#)) (GO G190) G191
+                          (EXIT (NREVERSE #15#)))))
               (LETT |primes|
                     (PROGN
-                     (LETT #13# NIL . #20#)
-                     (SEQ (LETT |ff| NIL . #20#) (LETT #12# |redPrimes| . #20#)
-                          G190
+                     (LETT #13# NIL)
+                     (SEQ (LETT |ff| NIL) (LETT #12# |redPrimes|) G190
                           (COND
-                           ((OR (ATOM #12#)
-                                (PROGN (LETT |ff| (CAR #12#) . #20#) NIL))
+                           ((OR (ATOM #12#) (PROGN (LETT |ff| (CAR #12#)) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
@@ -986,33 +908,25 @@
                                                             (|SparseUnivariatePolynomial|
                                                              (ELT $ 8))
                                                             |sae|)))
-                                   #13#)
-                                  . #20#)))
-                          (LETT #12# (CDR #12#) . #20#) (GO G190) G191
-                          (EXIT (NREVERSE #13#))))
-                    . #20#)
+                                   #13#))))
+                          (LETT #12# (CDR #12#)) (GO G190) G191
+                          (EXIT (NREVERSE #13#)))))
               (LETT |expons|
                     (PROGN
-                     (LETT #11# NIL . #20#)
-                     (SEQ (LETT |f| NIL . #20#)
-                          (LETT #10# |factorListSAE| . #20#) G190
+                     (LETT #11# NIL)
+                     (SEQ (LETT |f| NIL) (LETT #10# |factorListSAE|) G190
                           (COND
-                           ((OR (ATOM #10#)
-                                (PROGN (LETT |f| (CAR #10#) . #20#) NIL))
+                           ((OR (ATOM #10#) (PROGN (LETT |f| (CAR #10#)) NIL))
                             (GO G191)))
-                          (SEQ
-                           (EXIT (LETT #11# (CONS (QVELT |f| 2) #11#) . #20#)))
-                          (LETT #10# (CDR #10#) . #20#) (GO G190) G191
-                          (EXIT (NREVERSE #11#))))
-                    . #20#)
+                          (SEQ (EXIT (LETT #11# (CONS (QVELT |f| 2) #11#))))
+                          (LETT #10# (CDR #10#)) (GO G190) G191
+                          (EXIT (NREVERSE #11#)))))
               (LETT |redPrimaries|
                     (PROGN
-                     (LETT #9# NIL . #20#)
-                     (SEQ (LETT |f| NIL . #20#)
-                          (LETT #8# |factorListSAE| . #20#) G190
+                     (LETT #9# NIL)
+                     (SEQ (LETT |f| NIL) (LETT #8# |factorListSAE|) G190
                           (COND
-                           ((OR (ATOM #8#)
-                                (PROGN (LETT |f| (CAR #8#) . #20#) NIL))
+                           ((OR (ATOM #8#) (PROGN (LETT |f| (CAR #8#)) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
@@ -1025,19 +939,15 @@
                                                                            '|NonNegativeInteger|))
                                                                     (|SparseUnivariatePolynomial|
                                                                      |sae|)))
-                                   #9#)
-                                  . #20#)))
-                          (LETT #8# (CDR #8#) . #20#) (GO G190) G191
-                          (EXIT (NREVERSE #9#))))
-                    . #20#)
+                                   #9#))))
+                          (LETT #8# (CDR #8#)) (GO G190) G191
+                          (EXIT (NREVERSE #9#)))))
               (LETT |primaries|
                     (PROGN
-                     (LETT #7# NIL . #20#)
-                     (SEQ (LETT |ff| NIL . #20#)
-                          (LETT #6# |redPrimaries| . #20#) G190
+                     (LETT #7# NIL)
+                     (SEQ (LETT |ff| NIL) (LETT #6# |redPrimaries|) G190
                           (COND
-                           ((OR (ATOM #6#)
-                                (PROGN (LETT |ff| (CAR #6#) . #20#) NIL))
+                           ((OR (ATOM #6#) (PROGN (LETT |ff| (CAR #6#)) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
@@ -1069,63 +979,51 @@
                                                             (|SparseUnivariatePolynomial|
                                                              (ELT $ 8))
                                                             |sae|)))
-                                   #7#)
-                                  . #20#)))
-                          (LETT #6# (CDR #6#) . #20#) (GO G190) G191
-                          (EXIT (NREVERSE #7#))))
-                    . #20#)
+                                   #7#))))
+                          (LETT #6# (CDR #6#)) (GO G190) G191
+                          (EXIT (NREVERSE #7#)))))
               (LETT |deg|
                     (PROG1
                         (LETT #5#
                               (+ 1
                                  (* (SPADCALL |redDisc| |prime| (QREFELT $ 58))
-                                    (SPADCALL |prime| (QREFELT $ 59))))
-                              . #20#)
+                                    (SPADCALL |prime| (QREFELT $ 59)))))
                       (|check_subtype2| (> #5# 0) '(|PositiveInteger|)
-                                        '(|NonNegativeInteger|) #5#))
-                    . #20#)
+                                        '(|NonNegativeInteger|) #5#)))
               (LETT |henselInfo|
-                    (SPADCALL |p| |primaries| |prime| |deg| (QREFELT $ 63))
-                    . #20#)
-              (LETT |henselFactors| (QCAR |henselInfo|) . #20#)
-              (LETT |factorBases| NIL . #20#)
-              (LETT |degPrime| (SPADCALL |prime| (QREFELT $ 59)) . #20#)
-              (SEQ (LETT |qq| NIL . #20#) (LETT #3# |henselFactors| . #20#)
-                   (LETT |k| NIL . #20#) (LETT #2# |expons| . #20#)
-                   (LETT |pp| NIL . #20#) (LETT #1# |primes| . #20#) G190
+                    (SPADCALL |p| |primaries| |prime| |deg| (QREFELT $ 63)))
+              (LETT |henselFactors| (QCAR |henselInfo|))
+              (LETT |factorBases| NIL)
+              (LETT |degPrime| (SPADCALL |prime| (QREFELT $ 59)))
+              (SEQ (LETT |qq| NIL) (LETT #3# |henselFactors|) (LETT |k| NIL)
+                   (LETT #2# |expons|) (LETT |pp| NIL) (LETT #1# |primes|) G190
                    (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |pp| (CAR #1#) . #20#) NIL)
-                         (ATOM #2#) (PROGN (LETT |k| (CAR #2#) . #20#) NIL)
-                         (ATOM #3#) (PROGN (LETT |qq| (CAR #3#) . #20#) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |pp| (CAR #1#)) NIL)
+                         (ATOM #2#) (PROGN (LETT |k| (CAR #2#)) NIL) (ATOM #3#)
+                         (PROGN (LETT |qq| (CAR #3#)) NIL))
                      (GO G191)))
                    (SEQ
                     (LETT |base|
-                          (SEQ
-                           (LETT |degPp| (SPADCALL |pp| (QREFELT $ 36)) . #20#)
-                           (COND
-                            ((SPADCALL |degPp| 1 (QREFELT $ 65))
-                             (COND
-                              ((EQL (GCD |degPp| |degPrime|) 1)
+                          (SEQ (LETT |degPp| (SPADCALL |pp| (QREFELT $ 36)))
+                               (COND
+                                ((SPADCALL |degPp| 1 (QREFELT $ 65))
+                                 (COND
+                                  ((EQL (GCD |degPp| |degPrime|) 1)
+                                   (EXIT
+                                    (|PWFFINTB;compLocalBasisOverExt| |qq|
+                                     |prime| |pp| |k| $))))))
                                (EXIT
-                                (|PWFFINTB;compLocalBasisOverExt| |qq| |prime|
-                                 |pp| |k| $))))))
-                           (EXIT (|PWFFINTB;compLocalBasis| |qq| |prime| $)))
-                          . #20#)
-                    (EXIT
-                     (LETT |factorBases| (CONS |base| |factorBases|) . #20#)))
+                                (|PWFFINTB;compLocalBasis| |qq| |prime| $))))
+                    (EXIT (LETT |factorBases| (CONS |base| |factorBases|))))
                    (LETT #1#
                          (PROG1 (CDR #1#)
-                           (LETT #2#
-                                 (PROG1 (CDR #2#) (LETT #3# (CDR #3#) . #20#))
-                                 . #20#))
-                         . #20#)
+                           (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#))))))
                    (GO G190) G191 (EXIT NIL))
-              (LETT |factorBases| (NREVERSE |factorBases|) . #20#)
+              (LETT |factorBases| (NREVERSE |factorBases|))
               (LETT |ib|
                     (SPADCALL |henselFactors| |factorBases|
-                              (SPADCALL (QREFELT $ 66)) (QREFELT $ 69))
-                    . #20#)
-              (LETT |index| (SPADCALL (QVELT |ib| 2) (QREFELT $ 55)) . #20#)
+                              (SPADCALL (QREFELT $ 66)) (QREFELT $ 69)))
+              (LETT |index| (SPADCALL (QVELT |ib| 2) (QREFELT $ 55)))
               (EXIT
                (VECTOR (QVELT |ib| 0) (QVELT |ib| 1) (QVELT |ib| 2)
                        (SPADCALL |disc|
@@ -1141,34 +1039,30 @@
            (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
                      (|:| |basisInv| (|Matrix| R)) (|:| |discr| R)))
           (|redDisc| (R)) (|disc| (R)) (|p| (UP)))
-         (SEQ
-          (LETT |p| (SPADCALL (QREFELT $ 70))
-                . #1=(|PWFFINTB;localIntegralBasis;RR;5|))
-          (LETT |disc| (SPADCALL |p| (QREFELT $ 37)) . #1#)
-          (LETT |redDisc| (SPADCALL |p| (QREFELT $ 34)) . #1#)
-          (LETT |ib|
-                (|PWFFINTB;padicLocalIntegralBasis| |p| |disc| |redDisc|
-                 |prime| $)
-                . #1#)
-          (EXIT (VECTOR (QVELT |ib| 0) (QVELT |ib| 1) (QVELT |ib| 2)))))) 
+         (SEQ (LETT |p| (SPADCALL (QREFELT $ 70)))
+              (LETT |disc| (SPADCALL |p| (QREFELT $ 37)))
+              (LETT |redDisc| (SPADCALL |p| (QREFELT $ 34)))
+              (LETT |ib|
+                    (|PWFFINTB;padicLocalIntegralBasis| |p| |disc| |redDisc|
+                     |prime| $))
+              (EXIT (VECTOR (QVELT |ib| 0) (QVELT |ib| 1) (QVELT |ib| 2)))))) 
 
 (SDEFUN |PWFFINTB;listSquaredFactors| ((|px| R) ($ |List| R))
         (SPROG
          ((|ans| (|List| R)) (#1=#:G203 NIL) (|f| NIL)
           (|factored| (|Factored| R)))
-         (SEQ (LETT |ans| NIL . #2=(|PWFFINTB;listSquaredFactors|))
-              (LETT |factored| (SPADCALL |px| (QREFELT $ 74)) . #2#)
-              (SEQ (LETT |f| NIL . #2#)
-                   (LETT #1# (SPADCALL |factored| (QREFELT $ 78)) . #2#) G190
+         (SEQ (LETT |ans| NIL) (LETT |factored| (SPADCALL |px| (QREFELT $ 74)))
+              (SEQ (LETT |f| NIL)
+                   (LETT #1# (SPADCALL |factored| (QREFELT $ 78))) G190
                    (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#) . #2#) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (COND
                       ((SPADCALL (QVELT |f| 2) 1 (QREFELT $ 65))
-                       (LETT |ans| (CONS (QVELT |f| 1) |ans|) . #2#)))))
-                   (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                       (LETT |ans| (CONS (QVELT |f| 1) |ans|))))))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 
 (SDEFUN |PWFFINTB;integralBasis;R;7|
@@ -1183,58 +1077,51 @@
                      (|:| |discr| R)))
           (#4=#:G211 NIL) (|prime| NIL) (|redDisc| (R)) (|singList| (|List| R))
           (|n| (|PositiveInteger|)) (|p| (UP)))
-         (SEQ
-          (LETT |p| (SPADCALL (QREFELT $ 70))
-                . #5=(|PWFFINTB;integralBasis;R;7|))
-          (LETT |disc| (SPADCALL |p| (QREFELT $ 37)) . #5#)
-          (LETT |n| (SPADCALL (QREFELT $ 66)) . #5#)
-          (LETT |singList| (|PWFFINTB;listSquaredFactors| |disc| $) . #5#)
-          (LETT |redDisc| (SPADCALL |p| (QREFELT $ 34)) . #5#)
-          (LETT |runningRb|
-                (LETT |runningRbinv|
-                      (SPADCALL |n| (|spadConstant| $ 39) (QREFELT $ 41))
-                      . #5#)
-                . #5#)
-          (LETT |runningRbden| (|spadConstant| $ 39) . #5#)
-          (EXIT
-           (COND
-            ((NULL |singList|)
-             (VECTOR |runningRb| |runningRbden| |runningRbinv|))
-            ('T
-             (SEQ
-              (SEQ (LETT |prime| NIL . #5#) (LETT #4# |singList| . #5#) G190
-                   (COND
-                    ((OR (ATOM #4#) (PROGN (LETT |prime| (CAR #4#) . #5#) NIL))
-                     (GO G191)))
-                   (SEQ
-                    (LETT |lb|
-                          (|PWFFINTB;padicLocalIntegralBasis| |p| |disc|
-                           |redDisc| |prime| $)
-                          . #5#)
-                    (LETT |rb| (QVELT |lb| 0) . #5#)
-                    (LETT |rbinv| (QVELT |lb| 2) . #5#)
-                    (LETT |rbden| (QVELT |lb| 1) . #5#)
-                    (LETT |disc| (QVELT |lb| 3) . #5#)
-                    (LETT |mat|
-                          (SPADCALL
-                           (SPADCALL |rbden| |runningRb| (QREFELT $ 79))
-                           (SPADCALL |runningRbden| |rb| (QREFELT $ 79))
-                           (QREFELT $ 80))
-                          . #5#)
-                    (LETT |runningRbden|
-                          (SPADCALL |runningRbden| |rbden| (QREFELT $ 56))
-                          . #5#)
-                    (LETT |runningRb|
-                          (SPADCALL
-                           (SPADCALL |mat| |runningRbden| (QREFELT $ 82))
-                           (QREFELT $ 83))
-                          . #5#)
-                    (EXIT
-                     (LETT |runningRbinv|
-                           (SPADCALL |runningRb| |runningRbden| (QREFELT $ 85))
-                           . #5#)))
-                   (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-              (EXIT (VECTOR |runningRb| |runningRbden| |runningRbinv|))))))))) 
+         (SEQ (LETT |p| (SPADCALL (QREFELT $ 70)))
+              (LETT |disc| (SPADCALL |p| (QREFELT $ 37)))
+              (LETT |n| (SPADCALL (QREFELT $ 66)))
+              (LETT |singList| (|PWFFINTB;listSquaredFactors| |disc| $))
+              (LETT |redDisc| (SPADCALL |p| (QREFELT $ 34)))
+              (LETT |runningRb|
+                    (LETT |runningRbinv|
+                          (SPADCALL |n| (|spadConstant| $ 39) (QREFELT $ 41))))
+              (LETT |runningRbden| (|spadConstant| $ 39))
+              (EXIT
+               (COND
+                ((NULL |singList|)
+                 (VECTOR |runningRb| |runningRbden| |runningRbinv|))
+                ('T
+                 (SEQ
+                  (SEQ (LETT |prime| NIL) (LETT #4# |singList|) G190
+                       (COND
+                        ((OR (ATOM #4#) (PROGN (LETT |prime| (CAR #4#)) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (LETT |lb|
+                              (|PWFFINTB;padicLocalIntegralBasis| |p| |disc|
+                               |redDisc| |prime| $))
+                        (LETT |rb| (QVELT |lb| 0))
+                        (LETT |rbinv| (QVELT |lb| 2))
+                        (LETT |rbden| (QVELT |lb| 1))
+                        (LETT |disc| (QVELT |lb| 3))
+                        (LETT |mat|
+                              (SPADCALL
+                               (SPADCALL |rbden| |runningRb| (QREFELT $ 79))
+                               (SPADCALL |runningRbden| |rb| (QREFELT $ 79))
+                               (QREFELT $ 80)))
+                        (LETT |runningRbden|
+                              (SPADCALL |runningRbden| |rbden| (QREFELT $ 56)))
+                        (LETT |runningRb|
+                              (SPADCALL
+                               (SPADCALL |mat| |runningRbden| (QREFELT $ 82))
+                               (QREFELT $ 83)))
+                        (EXIT
+                         (LETT |runningRbinv|
+                               (SPADCALL |runningRb| |runningRbden|
+                                         (QREFELT $ 85)))))
+                       (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
+                  (EXIT
+                   (VECTOR |runningRb| |runningRbden| |runningRbinv|))))))))) 
 
 (DECLAIM (NOTINLINE |PAdicWildFunctionFieldIntegralBasis;|)) 
 
@@ -1247,15 +1134,14 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|PAdicWildFunctionFieldIntegralBasis|)
-                                               '|domainEqualList|)
-                    . #3=(|PAdicWildFunctionFieldIntegralBasis|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY
                        (|function| |PAdicWildFunctionFieldIntegralBasis;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -1266,16 +1152,15 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #1=(|PAdicWildFunctionFieldIntegralBasis|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$|
-          (LIST '|PAdicWildFunctionFieldIntegralBasis| DV$1 DV$2 DV$3 DV$4)
-          . #1#)
-    (LETT $ (GETREFV 87) . #1#)
+          (LIST '|PAdicWildFunctionFieldIntegralBasis| DV$1 DV$2 DV$3 DV$4))
+    (LETT $ (GETREFV 87))
     (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|PAdicWildFunctionFieldIntegralBasis|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
     (|stuffDomainSlots| $)

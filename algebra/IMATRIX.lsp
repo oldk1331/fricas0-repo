@@ -16,19 +16,17 @@
            ('T
             (COND ((EQL |i1| |i2|) |x|)
                   ('T
-                   (SEQ
-                    (LETT |ro| (QREFELT $ 7) . #3=(|IMATRIX;swapRows!;$2I$;1|))
-                    (LETT |co| (QREFELT $ 8) . #3#)
-                    (SEQ (LETT |j| |co| . #3#)
-                         (LETT #2# (SPADCALL |x| (QREFELT $ 14)) . #3#) G190
-                         (COND ((> |j| #2#) (GO G191)))
-                         (SEQ
-                          (LETT |t1| (QAREF2O |x| |i1| |j| |ro| |co|) . #3#)
-                          (LETT |t2| (QAREF2O |x| |i2| |j| |ro| |co|) . #3#)
-                          (QSETAREF2O |x| |i1| |j| |t2| |ro| |co|)
-                          (EXIT (QSETAREF2O |x| |i2| |j| |t1| |ro| |co|)))
-                         (LETT |j| (+ |j| 1) . #3#) (GO G190) G191 (EXIT NIL))
-                    (EXIT |x|))))))))) 
+                   (SEQ (LETT |ro| (QREFELT $ 7)) (LETT |co| (QREFELT $ 8))
+                        (SEQ (LETT |j| |co|)
+                             (LETT #2# (SPADCALL |x| (QREFELT $ 14))) G190
+                             (COND ((> |j| #2#) (GO G191)))
+                             (SEQ (LETT |t1| (QAREF2O |x| |i1| |j| |ro| |co|))
+                                  (LETT |t2| (QAREF2O |x| |i2| |j| |ro| |co|))
+                                  (QSETAREF2O |x| |i1| |j| |t2| |ro| |co|)
+                                  (EXIT
+                                   (QSETAREF2O |x| |i2| |j| |t1| |ro| |co|)))
+                             (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))
+                        (EXIT |x|))))))))) 
 
 (SDEFUN |IMATRIX;determinant;$R;2| ((|x| $) ($ R))
         (SPADCALL |x| (QREFELT $ 17))) 
@@ -61,13 +59,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|IndexedMatrix|)
-                                               '|domainEqualList|)
-                    . #3=(|IndexedMatrix|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |IndexedMatrix;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|IndexedMatrix|)))))))))) 
 
@@ -76,11 +73,11 @@
    ((|pv$| NIL) (#1=#:G138 NIL) (#2=#:G139 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #3=(|IndexedMatrix|))
-    (LETT DV$2 (|devaluate| |#2|) . #3#)
-    (LETT DV$3 (|devaluate| |#3|) . #3#)
-    (LETT |dv$| (LIST '|IndexedMatrix| DV$1 DV$2 DV$3) . #3#)
-    (LETT $ (GETREFV 59) . #3#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT |dv$| (LIST '|IndexedMatrix| DV$1 DV$2 DV$3))
+    (LETT $ (GETREFV 59))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -90,8 +87,7 @@
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #3#)
+                                                             '(|SetCategory|)))
                                         (OR (|HasCategory| |#1| '(|BasicType|))
                                             (|HasCategory| |#1|
                                                            '(|Comparable|))
@@ -121,8 +117,7 @@
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #3#)
+                                                               (|OutputForm|))))
                                         (OR #1#
                                             (AND
                                              (|HasCategory| |#1|
@@ -140,8 +135,7 @@
                                                        '(|IntegralDomain|))
                                         (|HasCategory| |#1|
                                                        '(|CommutativeRing|))
-                                        (|HasCategory| |#1| '(|Field|))))
-                    . #3#))
+                                        (|HasCategory| |#1| '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|IndexedMatrix| (LIST DV$1 DV$2 DV$3)
                 (CONS 1 $))
     (|stuffDomainSlots| $)

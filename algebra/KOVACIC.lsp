@@ -14,41 +14,34 @@
             (|Record| (|:| |factor| UP)
                       (|:| |exponent| (|NonNegativeInteger|)))))
           (|r| (|Fraction| UP)))
-         (SEQ
-          (LETT |r| (SPADCALL |a1| 2 (QREFELT $ 16))
-                . #1=(|KOVACIC;kovacic;3FMU;2|))
-          (LETT |r|
-                (SPADCALL |r|
-                          (SPADCALL (SPADCALL 2 |a2| (QREFELT $ 17))
-                                    (SPADCALL |a1| (QREFELT $ 18))
-                                    (QREFELT $ 19))
-                          (QREFELT $ 20))
-                . #1#)
-          (LETT |r|
-                (SPADCALL |r|
-                          (SPADCALL (SPADCALL 2 |a1| (QREFELT $ 17))
-                                    (SPADCALL |a2| (QREFELT $ 18))
-                                    (QREFELT $ 19))
-                          (QREFELT $ 21))
-                . #1#)
-          (LETT |r|
-                (SPADCALL |r|
-                          (SPADCALL (SPADCALL 4 |a0| (QREFELT $ 17)) |a2|
-                                    (QREFELT $ 19))
-                          (QREFELT $ 21))
-                . #1#)
-          (LETT |r|
-                (SPADCALL |r|
-                          (SPADCALL 4 (SPADCALL |a2| 2 (QREFELT $ 16))
-                                    (QREFELT $ 17))
-                          (QREFELT $ 22))
-                . #1#)
-          (LETT |lf|
-                (SPADCALL
-                 (SPADCALL (SPADCALL |r| (QREFELT $ 23)) (QREFELT $ 9))
-                 (QREFELT $ 27))
-                . #1#)
-          (EXIT (|KOVACIC;case2| |r| |lf| |ezfactor| $))))) 
+         (SEQ (LETT |r| (SPADCALL |a1| 2 (QREFELT $ 16)))
+              (LETT |r|
+                    (SPADCALL |r|
+                              (SPADCALL (SPADCALL 2 |a2| (QREFELT $ 17))
+                                        (SPADCALL |a1| (QREFELT $ 18))
+                                        (QREFELT $ 19))
+                              (QREFELT $ 20)))
+              (LETT |r|
+                    (SPADCALL |r|
+                              (SPADCALL (SPADCALL 2 |a1| (QREFELT $ 17))
+                                        (SPADCALL |a2| (QREFELT $ 18))
+                                        (QREFELT $ 19))
+                              (QREFELT $ 21)))
+              (LETT |r|
+                    (SPADCALL |r|
+                              (SPADCALL (SPADCALL 4 |a0| (QREFELT $ 17)) |a2|
+                                        (QREFELT $ 19))
+                              (QREFELT $ 21)))
+              (LETT |r|
+                    (SPADCALL |r|
+                              (SPADCALL 4 (SPADCALL |a2| 2 (QREFELT $ 16))
+                                        (QREFELT $ 17))
+                              (QREFELT $ 22)))
+              (LETT |lf|
+                    (SPADCALL
+                     (SPADCALL (SPADCALL |r| (QREFELT $ 23)) (QREFELT $ 9))
+                     (QREFELT $ 27)))
+              (EXIT (|KOVACIC;case2| |r| |lf| |ezfactor| $))))) 
 
 (SDEFUN |KOVACIC;case2|
         ((|r| |Fraction| UP)
@@ -74,16 +67,14 @@
                                    (SPADCALL (SPADCALL |r| (QREFELT $ 18))
                                              (QREFELT $ 35))
                                    (QREFELT $ 36))
-                         (QREFELT $ 34))
-                        . #2=(|KOVACIC;case2|))
+                         (QREFELT $ 34)))
                   (EXIT
                    (COND
                     ((NULL
-                      (LETT |sol| (SPADCALL |l2| |ezfactor| (QREFELT $ 39))
-                            . #2#))
+                      (LETT |sol| (SPADCALL |l2| |ezfactor| (QREFELT $ 39))))
                      (CONS 1 "failed"))
                     (#1#
-                     (SEQ (LETT |b| (|SPADfirst| |sol|) . #2#)
+                     (SEQ (LETT |b| (|SPADfirst| |sol|))
                           (EXIT
                            (CONS 0
                                  (SPADCALL
@@ -114,32 +105,27 @@
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |rec| NIL . #4=(|KOVACIC;cannotCase2?|))
-                         (LETT #3# |lf| . #4#) G190
+                    (SEQ (LETT |rec| NIL) (LETT #3# |lf|) G190
                          (COND
-                          ((OR (ATOM #3#)
-                               (PROGN (LETT |rec| (CAR #3#) . #4#) NIL))
+                          ((OR (ATOM #3#) (PROGN (LETT |rec| (CAR #3#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (COND
                             ((EQL (QCDR |rec|) 2)
                              (PROGN
-                              (LETT #1#
-                                    (PROGN (LETT #2# NIL . #4#) (GO #5=#:G139))
-                                    . #4#)
-                              (GO #6=#:G137)))
+                              (LETT #1# (PROGN (LETT #2# NIL) (GO #4=#:G139)))
+                              (GO #5=#:G137)))
                             ((ODDP (QCDR |rec|))
                              (COND
                               ((SPADCALL (QCDR |rec|) 2 (QREFELT $ 48))
                                (PROGN
-                                (LETT #1# (PROGN (LETT #2# NIL . #4#) (GO #5#))
-                                      . #4#)
-                                (GO #6#))))))))
-                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #6# (EXIT #1#))
+                                (LETT #1# (PROGN (LETT #2# NIL) (GO #4#)))
+                                (GO #5#))))))))
+                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #1#))
                   (EXIT 'T)))
-                #5# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |Kovacic;|)) 
 
@@ -152,24 +138,22 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|Kovacic|)
-                                               '|domainEqualList|)
-                    . #3=(|Kovacic|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |Kovacic;|) #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (APPLY (|function| |Kovacic;|) #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Kovacic|)))))))))) 
 
 (DEFUN |Kovacic;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|Kovacic|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|Kovacic| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 49) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|Kovacic| DV$1 DV$2))
+          (LETT $ (GETREFV 49))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Kovacic| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

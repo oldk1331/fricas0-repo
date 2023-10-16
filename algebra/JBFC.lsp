@@ -200,7 +200,5 @@
                                                 ((|autoReduce|
                                                   ((|List| $) (|List| $)))
                                                  T))
-                                              NIL NIL NIL))
-                                            . #4=(|JetBundleFunctionCategory|))))))
-                   . #4#)
+                                              NIL NIL NIL))))))))
            (SETELT #1# 0 (LIST '|JetBundleFunctionCategory| |t#1|))))) 

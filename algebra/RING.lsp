@@ -10,8 +10,7 @@
          (PROG1
              (LETT #1#
                    (|Join| (|Rng|) (|SemiRing|) (|NonAssociativeRing|)
-                           (|unitsKnown|))
-                   |Ring|)
+                           (|unitsKnown|)))
            (SETELT #1# 0 '(|Ring|))))) 
 
 (MAKEPROP '|Ring| 'NILADIC T) 

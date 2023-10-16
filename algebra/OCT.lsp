@@ -98,11 +98,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Octonion|)
-                                               '|domainEqualList|)
-                    . #3=(|Octonion|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Octonion;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Octonion;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Octonion|)))))))))) 
 
 (DEFUN |Octonion;| (|#1|)
@@ -110,9 +109,9 @@
    ((|pv$| NIL) (#1=#:G173 NIL) (#2=#:G174 NIL) (#3=#:G175 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #4=(|Octonion|))
-    (LETT |dv$| (LIST '|Octonion| DV$1) . #4#)
-    (LETT $ (GETREFV 71) . #4#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|Octonion| DV$1))
+    (LETT $ (GETREFV 71))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -122,8 +121,7 @@
                                                             '(|CharacteristicNonZero|))
                                              (LETT #3#
                                                    (|HasCategory| |#1|
-                                                                  '(|CharacteristicZero|))
-                                                   . #4#)
+                                                                  '(|CharacteristicZero|)))
                                              (OR
                                               (|HasCategory| |#1|
                                                              '(|CharacteristicNonZero|))
@@ -133,8 +131,7 @@
                                                               (|InputForm|)))
                                              (LETT #2#
                                                    (|HasCategory| |#1|
-                                                                  '(|OrderedSet|))
-                                                   . #4#)
+                                                                  '(|OrderedSet|)))
                                              (OR
                                               (|HasCategory| |#1| '(|Finite|))
                                               #2#)
@@ -172,8 +169,7 @@
                                                '(|RetractableTo| (|Integer|))))
                                              (LETT #1#
                                                    (|HasCategory| |#1|
-                                                                  '(|IntegralDomain|))
-                                                   . #4#)
+                                                                  '(|IntegralDomain|)))
                                              (OR
                                               (|HasCategory| |#1|
                                                              '(|CharacteristicNonZero|))
@@ -193,8 +189,7 @@
                                               (|HasCategory|
                                                (|Quaternion| |#1|)
                                                '(|RetractableTo|
-                                                 (|Integer|))))))
-                    . #4#))
+                                                 (|Integer|))))))))
     (|haddProp| |$ConstructorCache| '|Octonion| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)

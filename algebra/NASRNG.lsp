@@ -13,8 +13,7 @@
              (LETT #1#
                    (|Join| (|AbelianSemiGroup|) (|Magma|)
                            (|mkCategory| '(((|antiCommutator| ($ $ $)) T)) NIL
-                                         NIL NIL))
-                   |NonAssociativeSemiRng|)
+                                         NIL NIL)))
            (SETELT #1# 0 '(|NonAssociativeSemiRng|))))) 
 
 (MAKEPROP '|NonAssociativeSemiRng| 'NILADIC T) 

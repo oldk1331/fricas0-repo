@@ -6,8 +6,7 @@
          (PROG (#1=#:G123)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|GuessInteger|)
-                    . #2=(|GuessInteger|))
+             ((LETT #1# (HGET |$ConstructorCache| '|GuessInteger|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -15,15 +14,15 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|GuessInteger|
                              (LIST (CONS NIL (CONS 1 (|GuessInteger;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|GuessInteger|)))))))))) 
 
 (DEFUN |GuessInteger;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|GuessInteger|) . #1=(|GuessInteger|))
-          (LETT $ (GETREFV 30) . #1#)
+          (LETT |dv$| '(|GuessInteger|))
+          (LETT $ (GETREFV 30))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -35,8 +34,7 @@
                                                 '(|RetractableTo| (|Symbol|)))
                                                (|HasCategory| (|Integer|)
                                                               '(|RetractableTo|
-                                                                (|Symbol|))))))
-                          . #1#))
+                                                                (|Symbol|))))))))
           (|haddProp| |$ConstructorCache| '|GuessInteger| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

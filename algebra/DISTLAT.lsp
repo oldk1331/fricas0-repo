@@ -9,7 +9,7 @@
 
 (DEFUN |DistributiveLattice;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1 (LETT #1# (|Join| (|Lattice|)) |DistributiveLattice|)
+         (PROG1 (LETT #1# (|Join| (|Lattice|)))
            (SETELT #1# 0 '(|DistributiveLattice|))))) 
 
 (MAKEPROP '|DistributiveLattice| 'NILADIC T) 

@@ -18,8 +18,7 @@
                      '(((|acosh| ($ $)) T) ((|acoth| ($ $)) T)
                        ((|acsch| ($ $)) T) ((|asech| ($ $)) T)
                        ((|asinh| ($ $)) T) ((|atanh| ($ $)) T))
-                     NIL NIL NIL))
-                   |ArcHyperbolicFunctionCategory|)
+                     NIL NIL NIL)))
            (SETELT #1# 0 '(|ArcHyperbolicFunctionCategory|))))) 
 
 (MAKEPROP '|ArcHyperbolicFunctionCategory| 'NILADIC T) 

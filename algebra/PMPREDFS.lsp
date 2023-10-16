@@ -10,16 +10,14 @@
                (SEQ
                 (LETT |u|
                       (SPADCALL (SPADCALL |k| (QREFELT $ 18)) (QREFELT $ 9)
-                                (QREFELT $ 21))
-                      |PMPREDFS;preds|)
+                                (QREFELT $ 21)))
                 (EXIT (COND ((QEQCAR |u| 1) NIL) ('T (QCDR |u|))))))) 
 
 (SDEFUN |PMPREDFS;st| ((|k| |Kernel| F) (|l| |List| (|Any|)) ($ F))
         (SPROG ((|kk| (|BasicOperator|)))
                (SEQ
                 (LETT |kk|
-                      (SPADCALL (SPADCALL |k| (QREFELT $ 18)) (QREFELT $ 22))
-                      |PMPREDFS;st|)
+                      (SPADCALL (SPADCALL |k| (QREFELT $ 18)) (QREFELT $ 22)))
                 (SPADCALL |kk| (QREFELT $ 9)
                           (SPADCALL (|PMPREDFS;preds| |k| $) |l|
                                     (QREFELT $ 24))
@@ -34,17 +32,16 @@
                  ((QEQCAR (SPADCALL |p| (QREFELT $ 28)) 0)
                   (|PMPREDFS;st| (SPADCALL |p| (QREFELT $ 30))
                    (PROGN
-                    (LETT #2# NIL . #3=(|PMPREDFS;suchThat;FLF;5|))
-                    (SEQ (LETT |f| NIL . #3#) (LETT #1# |l| . #3#) G190
+                    (LETT #2# NIL)
+                    (SEQ (LETT |f| NIL) (LETT #1# |l|) G190
                          (COND
-                          ((OR (ATOM #1#)
-                               (PROGN (LETT |f| (CAR #1#) . #3#) NIL))
+                          ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
-                           (LETT #2# (CONS (SPADCALL |f| (QREFELT $ 33)) #2#)
-                                 . #3#)))
-                         (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                           (LETT #2#
+                                 (CONS (SPADCALL |f| (QREFELT $ 33)) #2#))))
+                         (LETT #1# (CDR #1#)) (GO G190) G191
                          (EXIT (NREVERSE #2#))))
                    $))
                  ('T (|error| "suchThat must be applied to symbols only")))))) 
@@ -60,14 +57,13 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FunctionSpaceAttachPredicates|)
-                                               '|domainEqualList|)
-                    . #3=(|FunctionSpaceAttachPredicates|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |FunctionSpaceAttachPredicates;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -76,14 +72,13 @@
 (DEFUN |FunctionSpaceAttachPredicates;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionSpaceAttachPredicates|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|FunctionSpaceAttachPredicates| DV$1 DV$2 DV$3)
-                . #1#)
-          (LETT $ (GETREFV 34) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|FunctionSpaceAttachPredicates| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 34))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FunctionSpaceAttachPredicates|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))
           (|stuffDomainSlots| $)

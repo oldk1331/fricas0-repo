@@ -75,9 +75,7 @@
                                       (|has| |t#1| (|DifferentialRing|)))
                                      ((|Evalable| $)
                                       (|has| |t#1| (|DifferentialRing|))))
-                                   NIL NIL))
-                                 . #2=(|DifferentialPolynomialCategory|)))))
-                   . #2#)
+                                   NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|DifferentialPolynomialCategory| |t#1| |t#2| |t#3|
                          |t#4|))))) 

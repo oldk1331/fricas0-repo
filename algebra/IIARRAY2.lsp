@@ -67,39 +67,37 @@
         (SPROG
          ((|s| (|String|)) (#1=#:G2201 NIL) (|j| NIL) (#2=#:G2200 NIL)
           (|i| NIL) (#3=#:G2199 NIL))
-         (SEQ
-          (LETT |s| "\\left[ \\begin{array}{" . #4=(|IIARRAY2;latex;$S;14|))
-          (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 17)) . #4#)
-               (LETT #3# (SPADCALL |m| (QREFELT $ 21)) . #4#) G190
-               (COND ((> |j| #3#) (GO G191)))
-               (SEQ (EXIT (LETT |s| (STRCONC |s| "c") . #4#)))
-               (LETT |j| (+ |j| 1) . #4#) (GO G190) G191 (EXIT NIL))
-          (LETT |s| (STRCONC |s| "} ") . #4#)
-          (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 16)) . #4#)
-               (LETT #2# (SPADCALL |m| (QREFELT $ 19)) . #4#) G190
-               (COND ((> |i| #2#) (GO G191)))
-               (SEQ
-                (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 17)) . #4#)
-                     (LETT #1# (SPADCALL |m| (QREFELT $ 21)) . #4#) G190
-                     (COND ((> |j| #1#) (GO G191)))
-                     (SEQ
-                      (LETT |s|
-                            (STRCONC |s|
-                                     (SPADCALL
-                                      (SPADCALL |m| |i| |j| (QREFELT $ 22))
-                                      (QREFELT $ 29)))
-                            . #4#)
-                      (EXIT
-                       (COND
-                        ((< |j| (SPADCALL |m| (QREFELT $ 21)))
-                         (LETT |s| (STRCONC |s| " & ") . #4#)))))
-                     (LETT |j| (+ |j| 1) . #4#) (GO G190) G191 (EXIT NIL))
-                (EXIT
-                 (COND
-                  ((< |i| (SPADCALL |m| (QREFELT $ 19)))
-                   (LETT |s| (STRCONC |s| " \\\\ ") . #4#)))))
-               (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
-          (EXIT (STRCONC |s| "\\end{array} \\right]"))))) 
+         (SEQ (LETT |s| "\\left[ \\begin{array}{")
+              (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 17)))
+                   (LETT #3# (SPADCALL |m| (QREFELT $ 21))) G190
+                   (COND ((> |j| #3#) (GO G191)))
+                   (SEQ (EXIT (LETT |s| (STRCONC |s| "c"))))
+                   (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))
+              (LETT |s| (STRCONC |s| "} "))
+              (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 16)))
+                   (LETT #2# (SPADCALL |m| (QREFELT $ 19))) G190
+                   (COND ((> |i| #2#) (GO G191)))
+                   (SEQ
+                    (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 17)))
+                         (LETT #1# (SPADCALL |m| (QREFELT $ 21))) G190
+                         (COND ((> |j| #1#) (GO G191)))
+                         (SEQ
+                          (LETT |s|
+                                (STRCONC |s|
+                                         (SPADCALL
+                                          (SPADCALL |m| |i| |j| (QREFELT $ 22))
+                                          (QREFELT $ 29))))
+                          (EXIT
+                           (COND
+                            ((< |j| (SPADCALL |m| (QREFELT $ 21)))
+                             (LETT |s| (STRCONC |s| " & "))))))
+                         (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))
+                    (EXIT
+                     (COND
+                      ((< |i| (SPADCALL |m| (QREFELT $ 19)))
+                       (LETT |s| (STRCONC |s| " \\\\ "))))))
+                   (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
+              (EXIT (STRCONC |s| "\\end{array} \\right]"))))) 
 
 (DECLAIM (NOTINLINE |InnerIndexedTwoDimensionalArray;|)) 
 
@@ -112,15 +110,14 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|InnerIndexedTwoDimensionalArray|)
-                                               '|domainEqualList|)
-                    . #3=(|InnerIndexedTwoDimensionalArray|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |InnerIndexedTwoDimensionalArray;|)
                              #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -131,15 +128,14 @@
    ((|pv$| NIL) (#1=#:G2205 NIL) (#2=#:G2206 NIL) ($ NIL) (|dv$| NIL)
     (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #3=(|InnerIndexedTwoDimensionalArray|))
-    (LETT DV$2 (|devaluate| |#2|) . #3#)
-    (LETT DV$3 (|devaluate| |#3|) . #3#)
-    (LETT DV$4 (|devaluate| |#4|) . #3#)
-    (LETT DV$5 (|devaluate| |#5|) . #3#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
+    (LETT DV$5 (|devaluate| |#5|))
     (LETT |dv$|
-          (LIST '|InnerIndexedTwoDimensionalArray| DV$1 DV$2 DV$3 DV$4 DV$5)
-          . #3#)
-    (LETT $ (GETREFV 48) . #3#)
+          (LIST '|InnerIndexedTwoDimensionalArray| DV$1 DV$2 DV$3 DV$4 DV$5))
+    (LETT $ (GETREFV 48))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -149,8 +145,7 @@
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #3#)
+                                                             '(|SetCategory|)))
                                         (OR (|HasCategory| |#1| '(|BasicType|))
                                             (|HasCategory| |#1|
                                                            '(|Comparable|))
@@ -180,16 +175,14 @@
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #3#)
+                                                               (|OutputForm|))))
                                         (OR #1#
                                             (AND
                                              (|HasCategory| |#1|
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #2#))))
-                    . #3#))
+                                             #2#))))))
     (|haddProp| |$ConstructorCache| '|InnerIndexedTwoDimensionalArray|
                 (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
     (|stuffDomainSlots| $)

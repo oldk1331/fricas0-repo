@@ -15,26 +15,20 @@
           (EXIT
            (COND
             ((OR (SPADCALL |x1| (QREFELT $ 14)) (SPADCALL |x2| (QREFELT $ 16)))
-             (PROGN
-              (LETT #3# (|spadConstant| $ 15) . #4=(|TENSOR;tensor;M1M2$;2|))
-              (GO #5=#:G119)))
+             (PROGN (LETT #3# (|spadConstant| $ 15)) (GO #4=#:G119)))
             ('T
-             (SEQ (LETT |ltx1| (SPADCALL |x1| (QREFELT $ 19)) . #4#)
-                  (LETT |ltx2| (SPADCALL |x2| (QREFELT $ 22)) . #4#)
-                  (LETT |res| NIL . #4#)
-                  (SEQ (LETT |s1| NIL . #4#) (LETT #2# (REVERSE |ltx1|) . #4#)
-                       G190
+             (SEQ (LETT |ltx1| (SPADCALL |x1| (QREFELT $ 19)))
+                  (LETT |ltx2| (SPADCALL |x2| (QREFELT $ 22))) (LETT |res| NIL)
+                  (SEQ (LETT |s1| NIL) (LETT #2# (REVERSE |ltx1|)) G190
                        (COND
-                        ((OR (ATOM #2#)
-                             (PROGN (LETT |s1| (CAR #2#) . #4#) NIL))
+                        ((OR (ATOM #2#) (PROGN (LETT |s1| (CAR #2#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (SEQ (LETT |s2| NIL . #4#)
-                              (LETT #1# (REVERSE |ltx2|) . #4#) G190
+                         (SEQ (LETT |s2| NIL) (LETT #1# (REVERSE |ltx2|)) G190
                               (COND
                                ((OR (ATOM #1#)
-                                    (PROGN (LETT |s2| (CAR #1#) . #4#) NIL))
+                                    (PROGN (LETT |s2| (CAR #1#)) NIL))
                                 (GO G191)))
                               (SEQ
                                (EXIT
@@ -45,13 +39,11 @@
                                                   (QREFELT $ 23))
                                         (SPADCALL (QCDR |s1|) (QCDR |s2|)
                                                   (QREFELT $ 24)))
-                                       |res|)
-                                      . #4#)))
-                              (LETT #1# (CDR #1#) . #4#) (GO G190) G191
-                              (EXIT NIL))))
-                       (LETT #2# (CDR #2#) . #4#) (GO G190) G191 (EXIT NIL))
+                                       |res|))))
+                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))))
+                       (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                   (EXIT (SPADCALL |res| (QREFELT $ 27)))))))
-          #5# (EXIT #3#)))) 
+          #4# (EXIT #3#)))) 
 
 (SDEFUN |TENSOR;*;3$;3| ((|x1| $) (|x2| $) ($ $))
         (SPROG
@@ -59,46 +51,41 @@
           (#1=#:G131 NIL) (|t| NIL) (|t2b| (M2)) (|t2a| (M1)) (|t1b| (M2))
           (|t1a| (M1)) (|t2k| #2=(|Product| B1 B2)) (|t1k| #2#) (|t2c| (R))
           (|t1c| (R)) (#3=#:G130 NIL) (|t2| NIL) (#4=#:G129 NIL) (|t1| NIL))
-         (SEQ (LETT |res| NIL . #5=(|TENSOR;*;3$;3|))
-              (SEQ (LETT |t1| NIL . #5#)
-                   (LETT #4# (SPADCALL |x1| (QREFELT $ 29)) . #5#) G190
+         (SEQ (LETT |res| NIL)
+              (SEQ (LETT |t1| NIL) (LETT #4# (SPADCALL |x1| (QREFELT $ 29)))
+                   G190
                    (COND
-                    ((OR (ATOM #4#) (PROGN (LETT |t1| (CAR #4#) . #5#) NIL))
+                    ((OR (ATOM #4#) (PROGN (LETT |t1| (CAR #4#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
-                     (SEQ (LETT |t2| NIL . #5#)
-                          (LETT #3# (SPADCALL |x2| (QREFELT $ 29)) . #5#) G190
+                     (SEQ (LETT |t2| NIL)
+                          (LETT #3# (SPADCALL |x2| (QREFELT $ 29))) G190
                           (COND
-                           ((OR (ATOM #3#)
-                                (PROGN (LETT |t2| (CAR #3#) . #5#) NIL))
+                           ((OR (ATOM #3#) (PROGN (LETT |t2| (CAR #3#)) NIL))
                             (GO G191)))
-                          (SEQ (LETT |t1c| (QCDR |t1|) . #5#)
-                               (LETT |t2c| (QCDR |t2|) . #5#)
-                               (LETT |t1k| (QCAR |t1|) . #5#)
-                               (LETT |t2k| (QCAR |t2|) . #5#)
+                          (SEQ (LETT |t1c| (QCDR |t1|))
+                               (LETT |t2c| (QCDR |t2|))
+                               (LETT |t1k| (QCAR |t1|))
+                               (LETT |t2k| (QCAR |t2|))
                                (LETT |t1a|
                                      (SPADCALL (QCDR |t1|)
                                                (SPADCALL |t1k| (QREFELT $ 30))
-                                               (QREFELT $ 31))
-                                     . #5#)
+                                               (QREFELT $ 31)))
                                (LETT |t1b|
                                      (SPADCALL (|spadConstant| $ 33)
                                                (SPADCALL |t1k| (QREFELT $ 34))
-                                               (QREFELT $ 35))
-                                     . #5#)
+                                               (QREFELT $ 35)))
                                (LETT |t2a|
                                      (SPADCALL (QCDR |t2|)
                                                (SPADCALL |t2k| (QREFELT $ 30))
-                                               (QREFELT $ 31))
-                                     . #5#)
+                                               (QREFELT $ 31)))
                                (LETT |t2b|
                                      (SPADCALL (|spadConstant| $ 33)
                                                (SPADCALL |t2k| (QREFELT $ 34))
-                                               (QREFELT $ 35))
-                                     . #5#)
+                                               (QREFELT $ 35)))
                                (EXIT
-                                (SEQ (LETT |t| NIL . #5#)
+                                (SEQ (LETT |t| NIL)
                                      (LETT #1#
                                            (SPADCALL
                                             (SPADCALL
@@ -107,23 +94,17 @@
                                              (SPADCALL |t1b| |t2b|
                                                        (QREFELT $ 37))
                                              (QREFELT $ 28))
-                                            (QREFELT $ 29))
-                                           . #5#)
+                                            (QREFELT $ 29)))
                                      G190
                                      (COND
                                       ((OR (ATOM #1#)
-                                           (PROGN
-                                            (LETT |t| (CAR #1#) . #5#)
-                                            NIL))
+                                           (PROGN (LETT |t| (CAR #1#)) NIL))
                                        (GO G191)))
-                                     (SEQ
-                                      (EXIT
-                                       (LETT |res| (CONS |t| |res|) . #5#)))
-                                     (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                                     (SEQ (EXIT (LETT |res| (CONS |t| |res|))))
+                                     (LETT #1# (CDR #1#)) (GO G190) G191
                                      (EXIT NIL))))
-                          (LETT #3# (CDR #3#) . #5#) (GO G190) G191
-                          (EXIT NIL))))
-                   (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
+                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))))
+                   (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |res| (QREFELT $ 38)))))) 
 
 (SDEFUN |TENSOR;coerce;$Of;4| ((|x| $) ($ |OutputForm|))
@@ -135,13 +116,11 @@
            ((SPADCALL |x| (QREFELT $ 40))
             (SPADCALL (|spadConstant| $ 41) (QREFELT $ 43)))
            ('T
-            (SEQ (LETT |le| NIL . #2=(|TENSOR;coerce;$Of;4|))
-                 (SEQ (LETT |rec| NIL . #2#)
-                      (LETT #1# (REVERSE (SPADCALL |x| (QREFELT $ 29))) . #2#)
-                      G190
+            (SEQ (LETT |le| NIL)
+                 (SEQ (LETT |rec| NIL)
+                      (LETT #1# (REVERSE (SPADCALL |x| (QREFELT $ 29)))) G190
                       (COND
-                       ((OR (ATOM #1#)
-                            (PROGN (LETT |rec| (CAR #1#) . #2#) NIL))
+                       ((OR (ATOM #1#) (PROGN (LETT |rec| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (LETT |ko|
@@ -150,22 +129,20 @@
                                         (QREFELT $ 44))
                               (SPADCALL (SPADCALL (QCAR |rec|) (QREFELT $ 34))
                                         (QREFELT $ 45))
-                              (QREFELT $ 46))
-                             . #2#)
+                              (QREFELT $ 46)))
                        (EXIT
                         (COND
                          ((SPADCALL (QCDR |rec|) (|spadConstant| $ 33)
                                     (QREFELT $ 47))
-                          (LETT |le| (CONS |ko| |le|) . #2#))
+                          (LETT |le| (CONS |ko| |le|)))
                          ('T
                           (LETT |le|
                                 (CONS
                                  (SPADCALL
                                   (SPADCALL (QCDR |rec|) (QREFELT $ 43)) |ko|
                                   (QREFELT $ 48))
-                                 |le|)
-                                . #2#)))))
-                      (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                                 |le|))))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                  (EXIT (SPADCALL (ELT $ 49) |le| (QREFELT $ 52))))))))) 
 
 (DECLAIM (NOTINLINE |TensorProduct;|)) 
@@ -179,13 +156,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|TensorProduct|)
-                                               '|domainEqualList|)
-                    . #3=(|TensorProduct|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |TensorProduct;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|TensorProduct|)))))))))) 
 
@@ -194,13 +170,13 @@
    ((|pv$| NIL) (#1=#:G149 NIL) ($ NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL)
     (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #2=(|TensorProduct|))
-    (LETT DV$2 (|devaluate| |#2|) . #2#)
-    (LETT DV$3 (|devaluate| |#3|) . #2#)
-    (LETT DV$4 (|devaluate| |#4|) . #2#)
-    (LETT DV$5 (|devaluate| |#5|) . #2#)
-    (LETT |dv$| (LIST '|TensorProduct| DV$1 DV$2 DV$3 DV$4 DV$5) . #2#)
-    (LETT $ (GETREFV 67) . #2#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
+    (LETT DV$5 (|devaluate| |#5|))
+    (LETT |dv$| (LIST '|TensorProduct| DV$1 DV$2 DV$3 DV$4 DV$5))
+    (LETT $ (GETREFV 67))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -281,8 +257,7 @@
                                              (LETT #1#
                                                    (|HasCategory|
                                                     (|Product| |#2| |#3|)
-                                                    '(|Comparable|))
-                                                   . #2#)
+                                                    '(|Comparable|)))
                                              (OR
                                               (AND
                                                (|HasCategory| |#1|
@@ -343,8 +318,7 @@
                                                (|HasCategory| |#5|
                                                               (LIST '|Algebra|
                                                                     (|devaluate|
-                                                                     |#1|)))))))
-                    . #2#))
+                                                                     |#1|)))))))))
     (|haddProp| |$ConstructorCache| '|TensorProduct|
                 (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
     (|stuffDomainSlots| $)

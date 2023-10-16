@@ -20,12 +20,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|RationalRetractions|)
-                                               '|domainEqualList|)
-                    . #3=(|RationalRetractions|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|RationalRetractions;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|RationalRetractions;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|RationalRetractions|)))))))))) 
@@ -33,11 +31,11 @@
 (DEFUN |RationalRetractions;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalRetractions|))
-          (LETT |dv$| (LIST '|RationalRetractions| DV$1) . #1#)
-          (LETT $ (GETREFV 15) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|RationalRetractions| DV$1))
+          (LETT $ (GETREFV 15))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RationalRetractions| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

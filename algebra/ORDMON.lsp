@@ -8,9 +8,7 @@
 
 (DEFUN |OrderedMonoid;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1
-             (LETT #1# (|Join| (|OrderedSemiGroup|) (|Monoid|))
-                   |OrderedMonoid|)
+         (PROG1 (LETT #1# (|Join| (|OrderedSemiGroup|) (|Monoid|)))
            (SETELT #1# 0 '(|OrderedMonoid|))))) 
 
 (MAKEPROP '|OrderedMonoid| 'NILADIC T) 

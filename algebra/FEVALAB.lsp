@@ -27,6 +27,5 @@
                                   ((|InnerEvalable| (|Symbol|) |t#1|)
                                    (|has| |t#1|
                                           (|InnerEvalable| (|Symbol|) |t#1|))))
-                                NIL NIL)))
-                   |FullyEvalableOver|)
+                                NIL NIL))))
            (SETELT #1# 0 (LIST '|FullyEvalableOver| |t#1|))))) 

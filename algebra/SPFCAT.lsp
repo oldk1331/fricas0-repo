@@ -49,8 +49,7 @@
                        ((|meijerG|
                          ($ (|List| $) (|List| $) (|List| $) (|List| $) $))
                         (|has| $ (|RetractableTo| (|Integer|)))))
-                     NIL NIL NIL))
-                   |SpecialFunctionCategory|)
+                     NIL NIL NIL)))
            (SETELT #1# 0 '(|SpecialFunctionCategory|))))) 
 
 (MAKEPROP '|SpecialFunctionCategory| 'NILADIC T) 

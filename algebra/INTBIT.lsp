@@ -17,8 +17,7 @@
          (PROG (#1=#:G109)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|IntegerBits|)
-                    . #2=(|IntegerBits|))
+             ((LETT #1# (HGET |$ConstructorCache| '|IntegerBits|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -26,17 +25,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|IntegerBits|
                              (LIST (CONS NIL (CONS 1 (|IntegerBits;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|IntegerBits|)))))))))) 
 
 (DEFUN |IntegerBits;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|IntegerBits|) . #1=(|IntegerBits|))
-          (LETT $ (GETREFV 11) . #1#)
+          (LETT |dv$| '(|IntegerBits|))
+          (LETT $ (GETREFV 11))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|IntegerBits| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

@@ -3,9 +3,8 @@
         (SPROG ((#1=#:G106 NIL) (#2=#:G108 NIL) (|i| NIL) (#3=#:G107 NIL))
                (SEQ
                 (PROGN
-                 (LETT #3# (GETREFV #4=(QREFELT $ 6)) . #5=(|DPMO;*;R2$;1|))
-                 (SEQ (LETT |i| 1 . #5#) (LETT #2# #4# . #5#)
-                      (LETT #1# 0 . #5#) G190
+                 (LETT #3# (GETREFV #4=(QREFELT $ 6)))
+                 (SEQ (LETT |i| 1) (LETT #2# #4#) (LETT #1# 0) G190
                       (COND ((|greater_SI| |i| #2#) (GO G191)))
                       (SEQ
                        (EXIT
@@ -13,9 +12,7 @@
                                 (SPADCALL |r| (SPADCALL |x| |i| (QREFELT $ 11))
                                           (QREFELT $ 12)))))
                       (LETT #1#
-                            (PROG1 (|inc_SI| #1#)
-                              (LETT |i| (|inc_SI| |i|) . #5#))
-                            . #5#)
+                            (PROG1 (|inc_SI| #1#) (LETT |i| (|inc_SI| |i|))))
                       (GO G190) G191 (EXIT NIL))
                  #3#)))) 
 
@@ -30,13 +27,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|DirectProductModule|)
-                                               '|domainEqualList|)
-                    . #3=(|DirectProductModule|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |DirectProductModule;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|DirectProductModule|)))))))))) 
@@ -47,11 +43,11 @@
     (#5=#:G129 NIL) (#6=#:G130 NIL) (#7=#:G131 NIL) (#8=#:G132 NIL) ($ NIL)
     (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #9=(|DirectProductModule|))
-    (LETT DV$2 (|devaluate| |#2|) . #9#)
-    (LETT DV$3 (|devaluate| |#3|) . #9#)
-    (LETT |dv$| (LIST '|DirectProductModule| DV$1 DV$2 DV$3) . #9#)
-    (LETT $ (GETREFV 46) . #9#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT |dv$| (LIST '|DirectProductModule| DV$1 DV$2 DV$3))
+    (LETT $ (GETREFV 46))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -62,8 +58,7 @@
                                                             '(|OrderedAbelianMonoidSup|))
                                              (LETT #8#
                                                    (|HasCategory| |#3|
-                                                                  '(|OrderedSet|))
-                                                   . #9#)
+                                                                  '(|OrderedSet|)))
                                              (OR
                                               (|HasCategory| |#3|
                                                              '(|OrderedAbelianMonoidSup|))
@@ -72,8 +67,7 @@
                                                             '(|unitsKnown|))
                                              (LETT #7#
                                                    (|HasCategory| |#3|
-                                                                  '(|CommutativeRing|))
-                                                   . #9#)
+                                                                  '(|CommutativeRing|)))
                                              (OR #7#
                                                  (|HasCategory| |#3|
                                                                 '(|Field|))
@@ -89,8 +83,7 @@
                                                                 '(|SemiRng|)))
                                              (LETT #6#
                                                    (|HasCategory| |#3|
-                                                                  '(|Finite|))
-                                                   . #9#)
+                                                                  '(|Finite|)))
                                              (OR #6#
                                                  (|HasCategory| |#3|
                                                                 '(|OrderedAbelianMonoidSup|))
@@ -103,8 +96,7 @@
                                                               (|Symbol|)))
                                              (LETT #5#
                                                    (|HasCategory| |#3|
-                                                                  '(|DifferentialRing|))
-                                                   . #9#)
+                                                                  '(|DifferentialRing|)))
                                              (OR
                                               (|HasCategory| |#3|
                                                              '(|LinearlyExplicitOver|
@@ -154,8 +146,7 @@
                                               (|HasCategory| |#3| '(|Ring|)))
                                              (LETT #4#
                                                    (|HasCategory| |#3|
-                                                                  '(|SemiGroup|))
-                                                   . #9#)
+                                                                  '(|SemiGroup|)))
                                              (OR
                                               (|HasCategory| |#3| '(|Monoid|))
                                               #4#)
@@ -184,8 +175,7 @@
                                                             '(|AbelianMonoid|))
                                              (LETT #3#
                                                    (|HasCategory| |#3|
-                                                                  '(|AbelianMonoid|))
-                                                   . #9#)
+                                                                  '(|AbelianMonoid|)))
                                              (AND #3#
                                                   (|HasCategory| |#3|
                                                                  '(|Monoid|)))
@@ -196,8 +186,7 @@
                                                             '(|AbelianGroup|))
                                              (LETT #2#
                                                    (|HasCategory| |#3|
-                                                                  '(|AbelianGroup|))
-                                                   . #9#)
+                                                                  '(|AbelianGroup|)))
                                              (OR
                                               (|HasCategory| |#2|
                                                              '(|AbelianGroup|))
@@ -210,8 +199,7 @@
                                               #2#)
                                              (LETT #1#
                                                    (|HasCategory| |#3|
-                                                                  '(|CancellationAbelianMonoid|))
-                                                   . #9#)
+                                                                  '(|CancellationAbelianMonoid|)))
                                              (OR
                                               (AND
                                                (|HasCategory| |#3|
@@ -498,8 +486,7 @@
                                               (|HasCategory| |#3|
                                                              '(|PartialDifferentialRing|
                                                                (|Symbol|)))
-                                              #2# #3# #1#)))
-                    . #9#))
+                                              #2# #3# #1#)))))
     (|haddProp| |$ConstructorCache| '|DirectProductModule|
                 (LIST DV$1 DV$2 DV$3) (CONS 1 $))
     (|stuffDomainSlots| $)

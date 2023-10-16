@@ -11,8 +11,7 @@
          (LETT |e|
                (SPADCALL
                 (SPADCALL (SPADCALL |var| (QREFELT $ 14)) (QREFELT $ 15)) |e|
-                (QREFELT $ 16))
-               |SPECOUT;outputAsFortran;SOfV;3|)
+                (QREFELT $ 16)))
          (EXIT (SPADCALL |e| (QREFELT $ 11))))) 
 
 (SDEFUN |SPECOUT;outputAsFortran;LV;4| ((|l| |List| (|OutputForm|)) ($ |Void|))
@@ -37,8 +36,7 @@
          (PROG (#1=#:G117)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|SpecialOutputPackage|)
-                    . #2=(|SpecialOutputPackage|))
+             ((LETT #1# (HGET |$ConstructorCache| '|SpecialOutputPackage|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -47,7 +45,7 @@
                        (HPUT |$ConstructorCache| '|SpecialOutputPackage|
                              (LIST
                               (CONS NIL (CONS 1 (|SpecialOutputPackage;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|SpecialOutputPackage|)))))))))) 
@@ -55,10 +53,10 @@
 (DEFUN |SpecialOutputPackage;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|SpecialOutputPackage|) . #1=(|SpecialOutputPackage|))
-          (LETT $ (GETREFV 24) . #1#)
+          (LETT |dv$| '(|SpecialOutputPackage|))
+          (LETT $ (GETREFV 24))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SpecialOutputPackage| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

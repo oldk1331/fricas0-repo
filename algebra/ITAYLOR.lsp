@@ -20,23 +20,22 @@
          (SEQ
           (EXIT
            (SEQ
-            (LETT |st| (|ITAYLOR;stream| (SPADCALL |x| |y| (QREFELT $ 16)) $)
-                  . #3=(|ITAYLOR;=;2$B;5|))
-            (LETT |n| |$streamCount| . #3#)
-            (SEQ (LETT |i| 0 . #3#) (LETT #2# |n| . #3#) G190
+            (LETT |st| (|ITAYLOR;stream| (SPADCALL |x| |y| (QREFELT $ 16)) $))
+            (LETT |n| |$streamCount|)
+            (SEQ (LETT |i| 0) (LETT #2# |n|) G190
                  (COND ((|greater_SI| |i| #2#) (GO G191)))
                  (SEQ
                   (EXIT
                    (COND
                     ((SPADCALL |st| (QREFELT $ 18))
-                     (PROGN (LETT #1# 'T . #3#) (GO #4=#:G118)))
+                     (PROGN (LETT #1# 'T) (GO #3=#:G118)))
                     ((SPADCALL (SPADCALL |st| (QREFELT $ 19))
                                (|spadConstant| $ 11) (QREFELT $ 20))
-                     (PROGN (LETT #1# NIL . #3#) (GO #4#)))
-                    ('T (LETT |st| (SPADCALL |st| (QREFELT $ 21)) . #3#)))))
-                 (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+                     (PROGN (LETT #1# NIL) (GO #3#)))
+                    ('T (LETT |st| (SPADCALL |st| (QREFELT $ 21)))))))
+                 (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
             (EXIT (SPADCALL |st| (QREFELT $ 18)))))
-          #4# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |ITAYLOR;coefficients;$S;6| ((|x| $) ($ |Stream| |Coef|))
         (|ITAYLOR;stream| |x| $)) 
@@ -73,8 +72,7 @@
 (SDEFUN |ITAYLOR;recip;$U;15| ((|x| $) ($ |Union| $ "failed"))
         (SPROG ((|rec| (|Union| (|Stream| |Coef|) "failed")))
                (SEQ
-                (LETT |rec| (SPADCALL (|ITAYLOR;stream| |x| $) (QREFELT $ 40))
-                      |ITAYLOR;recip;$U;15|)
+                (LETT |rec| (SPADCALL (|ITAYLOR;stream| |x| $) (QREFELT $ 40)))
                 (EXIT
                  (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
                        ('T (CONS 0 (SPADCALL (QCDR |rec|) (QREFELT $ 9))))))))) 
@@ -84,8 +82,7 @@
                (SEQ
                 (LETT |quot|
                       (SPADCALL (|ITAYLOR;stream| |x| $)
-                                (|ITAYLOR;stream| |y| $) (QREFELT $ 43))
-                      |ITAYLOR;exquo;2$U;16|)
+                                (|ITAYLOR;stream| |y| $) (QREFELT $ 43)))
                 (EXIT
                  (COND ((QEQCAR |quot| 1) (CONS 1 "failed"))
                        ('T (CONS 0 (SPADCALL (QCDR |quot|) (QREFELT $ 9))))))))) 
@@ -95,7 +92,7 @@
                (COND ((EQL |n| 0) (|spadConstant| $ 14))
                      ('T
                       (SPADCALL |x|
-                                (PROG1 (LETT #1# |n| |ITAYLOR;^;$Nni$;17|)
+                                (PROG1 (LETT #1# |n|)
                                   (|check_subtype2| (> #1# 0)
                                                     '(|PositiveInteger|)
                                                     '(|NonNegativeInteger|)
@@ -148,12 +145,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|InnerTaylorSeries|)
-                                               '|domainEqualList|)
-                    . #3=(|InnerTaylorSeries|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|InnerTaylorSeries;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|InnerTaylorSeries;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|InnerTaylorSeries|)))))))))) 
@@ -161,17 +156,16 @@
 (DEFUN |InnerTaylorSeries;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerTaylorSeries|))
-          (LETT |dv$| (LIST '|InnerTaylorSeries| DV$1) . #1#)
-          (LETT $ (GETREFV 61) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|InnerTaylorSeries| DV$1))
+          (LETT $ (GETREFV 61))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#1|
-                                                             '(|IntegralDomain|))))
-                          . #1#))
+                                                             '(|IntegralDomain|))))))
           (|haddProp| |$ConstructorCache| '|InnerTaylorSeries| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -11,35 +11,31 @@
          ((|r| (S)) (|q| (|List| S)) (#1=#:G113 NIL) (|n| (|Integer|))
           (|p| (|List| S)))
          (SEQ (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue")))
-              (LETT |p| (SPADCALL |d| (QREFELT $ 11))
-                    . #2=(|DEQUEUE;extractBottom!;$S;3|))
-              (LETT |n| (SPADCALL |p| (QREFELT $ 17)) . #2#)
+              (LETT |p| (SPADCALL |d| (QREFELT $ 11)))
+              (LETT |n| (SPADCALL |p| (QREFELT $ 17)))
               (EXIT
                (COND
                 ((EQL |n| 1)
-                 (SEQ (LETT |r| (|SPADfirst| |p|) . #2#)
+                 (SEQ (LETT |r| (|SPADfirst| |p|))
                       (SPADCALL |d| NIL (QREFELT $ 18)) (EXIT |r|)))
                 ('T
                  (SEQ
                   (LETT |q|
                         (SPADCALL |p|
-                                  (PROG1 (LETT #1# (- |n| 2) . #2#)
+                                  (PROG1 (LETT #1# (- |n| 2))
                                     (|check_subtype2| (>= #1# 0)
                                                       '(|NonNegativeInteger|)
                                                       '(|Integer|) #1#))
-                                  (QREFELT $ 20))
-                        . #2#)
-                  (LETT |r| (|SPADfirst| (CDR |q|)) . #2#)
+                                  (QREFELT $ 20)))
+                  (LETT |r| (|SPADfirst| (CDR |q|)))
                   (SPADCALL |q| '|rest| NIL (QREFELT $ 22)) (EXIT |r|)))))))) 
 
 (SDEFUN |DEQUEUE;extractTop!;$S;4| ((|d| $) ($ S))
         (SPROG ((|e| (S)))
-               (SEQ
-                (LETT |e| (SPADCALL |d| (QREFELT $ 24))
-                      |DEQUEUE;extractTop!;$S;4|)
-                (SPADCALL |d| (CDR (SPADCALL |d| (QREFELT $ 11)))
-                          (QREFELT $ 18))
-                (EXIT |e|)))) 
+               (SEQ (LETT |e| (SPADCALL |d| (QREFELT $ 24)))
+                    (SPADCALL |d| (CDR (SPADCALL |d| (QREFELT $ 11)))
+                              (QREFELT $ 18))
+                    (EXIT |e|)))) 
 
 (SDEFUN |DEQUEUE;insertTop!;S$S;5| ((|e| S) (|d| $) ($ S))
         (SEQ
@@ -81,11 +77,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Dequeue|)
-                                               '|domainEqualList|)
-                    . #3=(|Dequeue|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Dequeue;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Dequeue;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Dequeue|)))))))))) 
 
 (DEFUN |Dequeue;| (|#1|)
@@ -93,9 +88,9 @@
    ((#1=#:G139 NIL) (|pv$| NIL) (#2=#:G136 NIL) (#3=#:G137 NIL) (#4=#:G138 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #5=(|Dequeue|))
-    (LETT |dv$| (LIST '|Dequeue| DV$1) . #5#)
-    (LETT $ (GETREFV 43) . #5#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|Dequeue| DV$1))
+    (LETT $ (GETREFV 43))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -103,8 +98,7 @@
                                        (LIST
                                         (LETT #4#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #5#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -116,22 +110,19 @@
                                                          (|InputForm|)))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|BasicType|))
-                                              . #5#)
+                                                             '(|BasicType|)))
                                         (OR #3# #4#)
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #5#)
+                                                               (|OutputForm|))))
                                         (OR #2#
                                             (AND
                                              (|HasCategory| |#1|
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #4#))))
-                    . #5#))
+                                             #4#))))))
     (|haddProp| |$ConstructorCache| '|Dequeue| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
@@ -140,8 +131,7 @@
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|)))
-           . #5#)
+                (|HasCategory| $ '(|finiteAggregate|))))
      (|augmentPredVector| $ 512))
     (AND (OR #1# #4#) (|augmentPredVector| $ 1024))
     (SETF |pv$| (QREFELT $ 3))

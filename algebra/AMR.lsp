@@ -91,7 +91,5 @@
                                                               (|Algebra|
                                                                (|Fraction|
                                                                 (|Integer|))))))
-                                                    NIL NIL))
-                                           . #2=(|AbelianMonoidRing|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|AbelianMonoidRing| |t#1| |t#2|))))) 

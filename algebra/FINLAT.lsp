@@ -35,9 +35,9 @@
 
 (SDEFUN |FINLAT;coerce;$Of;11| ((|s| $) ($ |OutputForm|))
         (SPROG ((|obj| (S)) (|index| (|NonNegativeInteger|)))
-               (SEQ (LETT |index| |s| . #1=(|FINLAT;coerce;$Of;11|))
-                    (LETT |obj| (SPADCALL (QREFELT $ 7) |index| (QREFELT $ 29))
-                          . #1#)
+               (SEQ (LETT |index| |s|)
+                    (LETT |obj|
+                          (SPADCALL (QREFELT $ 7) |index| (QREFELT $ 29)))
                     (EXIT (SPADCALL |obj| (QREFELT $ 31)))))) 
 
 (DECLAIM (NOTINLINE |FiniteLattice;|)) 
@@ -51,25 +51,24 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FiniteLattice|)
-                                               '|domainEqualList|)
-                    . #3=(|FiniteLattice|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |FiniteLattice;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|FiniteLattice|)))))))))) 
 
 (DEFUN |FiniteLattice;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteLattice|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|FiniteLattice| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 37) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|FiniteLattice| DV$1 DV$2))
+          (LETT $ (GETREFV 37))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FiniteLattice| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

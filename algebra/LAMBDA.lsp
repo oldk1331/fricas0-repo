@@ -10,7 +10,7 @@
 
 (SDEFUN |LAMBDA;lambda;$UT$;4| ((|x| $) (|t1| UT) ($ $))
         (SPROG ((|lt| ($)))
-               (SEQ (LETT |lt| (CONS 3 (CONS |x| |t1|)) |LAMBDA;lambda;$UT$;4|)
+               (SEQ (LETT |lt| (CONS 3 (CONS |x| |t1|)))
                     (EXIT (SPADCALL |lt| (QREFELT $ 12)))))) 
 
 (SDEFUN |LAMBDA;getChildren;$L;5| ((|n| $) ($ |List| $))
@@ -20,21 +20,19 @@
                  (SEQ
                   (COND
                    ((SPADCALL |n| (QREFELT $ 15))
-                    (PROGN
-                     (LETT #1# NIL . #3=(|LAMBDA;getChildren;$L;5|))
-                     (GO #4=#:G173))))
+                    (PROGN (LETT #1# NIL) (GO #3=#:G173))))
                   (COND
                    ((QEQCAR |n| 2)
                     (PROGN
-                     (LETT #1# (LIST (QCAR (CDR |n|)) (QCDR (CDR |n|))) . #3#)
-                     (GO #4#))))
+                     (LETT #1# (LIST (QCAR (CDR |n|)) (QCDR (CDR |n|))))
+                     (GO #3#))))
                   (COND
                    ((QEQCAR |n| 3)
                     (PROGN
                      (LETT #1#
                            (LIST
                             (QCAR
-                             (PROG2 (LETT #2# |n| . #3#)
+                             (PROG2 (LETT #2# |n|)
                                  (QCDR #2#)
                                (|check_union2| (QEQCAR #2# 3)
                                                (|Record| (|:| |c3| $)
@@ -54,11 +52,10 @@
                                                                (|:| |nm|
                                                                     (QREFELT $
                                                                              6)))))
-                                               #2#))))
-                           . #3#)
-                     (GO #4#))))
+                                               #2#)))))
+                     (GO #3#))))
                   (EXIT NIL)))
-                #4# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;atom?;$B;6| ((|n| $) ($ |Boolean|))
         (COND ((QEQCAR |n| 0) 'T) ('T (QEQCAR |n| 1)))) 
@@ -86,9 +83,7 @@
                  (SEQ
                   (COND
                    ((QEQCAR |n| 0)
-                    (PROGN
-                     (LETT #1# (QCAR (CDR |n|)) |LAMBDA;getBoundValue;$Nni;11|)
-                     (GO #2=#:G182))))
+                    (PROGN (LETT #1# (QCAR (CDR |n|))) (GO #2=#:G182))))
                   (EXIT 0)))
                 #2# (EXIT #1#)))) 
 
@@ -99,15 +94,13 @@
                  (SEQ
                   (COND
                    ((QEQCAR |n| 1)
-                    (PROGN
-                     (LETT #1# (CDR |n|) . #3=(|LAMBDA;getVariable;$UT;12|))
-                     (GO #4=#:G186))))
+                    (PROGN (LETT #1# (CDR |n|)) (GO #3=#:G186))))
                   (COND
                    ((QEQCAR |n| 3)
                     (PROGN
                      (LETT #1#
                            (QCDR
-                            (PROG2 (LETT #2# |n| . #3#)
+                            (PROG2 (LETT #2# |n|)
                                 (QCDR #2#)
                               (|check_union2| (QEQCAR #2# 3)
                                               (|Record| (|:| |c3| $)
@@ -127,11 +120,10 @@
                                                               (|:| |nm|
                                                                    (QREFELT $
                                                                             6)))))
-                                              #2#)))
-                           . #3#)
-                     (GO #4#))))
+                                              #2#))))
+                     (GO #3#))))
                   (EXIT (SPADCALL "error" (QREFELT $ 24)))))
-                #4# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;freeVariable?| ((|n| $) (|s| UT) ($ |Boolean|))
         (SPROG ((#1=#:G201 NIL))
@@ -142,24 +134,22 @@
                    ((QEQCAR |n| 1)
                     (COND
                      ((SPADCALL (CDR |n|) |s| (QREFELT $ 26))
-                      (PROGN
-                       (LETT #1# NIL . #2=(|LAMBDA;freeVariable?|))
-                       (GO #3=#:G200))))))
+                      (PROGN (LETT #1# NIL) (GO #2=#:G200))))))
                   (COND
                    ((QEQCAR |n| 3)
                     (COND
                      ((NULL (|LAMBDA;freeVariable?| (QCAR (CDR |n|)) |s| $))
-                      (PROGN (LETT #1# NIL . #2#) (GO #3#))))))
+                      (PROGN (LETT #1# NIL) (GO #2#))))))
                   (COND
                    ((QEQCAR |n| 2)
                     (COND
                      ((|LAMBDA;freeVariable?| (QCAR (CDR |n|)) |s| $)
                       (COND
                        ((NULL (|LAMBDA;freeVariable?| (QCDR (CDR |n|)) |s| $))
-                        (PROGN (LETT #1# NIL . #2#) (GO #3#)))))
-                     ('T (PROGN (LETT #1# NIL . #2#) (GO #3#))))))
+                        (PROGN (LETT #1# NIL) (GO #2#)))))
+                     ('T (PROGN (LETT #1# NIL) (GO #2#))))))
                   (EXIT 'T)))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;freeVariable?|
         ((|n| $) (|i| |NonNegativeInteger|) ($ |Boolean|))
@@ -171,25 +161,23 @@
                    ((QEQCAR |n| 0)
                     (COND
                      ((EQL (QCAR (CDR |n|)) |i|)
-                      (PROGN
-                       (LETT #1# NIL . #2=(|LAMBDA;freeVariable?|))
-                       (GO #3=#:G214))))))
+                      (PROGN (LETT #1# NIL) (GO #2=#:G214))))))
                   (COND
                    ((QEQCAR |n| 3)
                     (COND
                      ((NULL
                        (|LAMBDA;freeVariable?| (QCAR (CDR |n|)) (+ |i| 1) $))
-                      (PROGN (LETT #1# NIL . #2#) (GO #3#))))))
+                      (PROGN (LETT #1# NIL) (GO #2#))))))
                   (COND
                    ((QEQCAR |n| 2)
                     (COND
                      ((|LAMBDA;freeVariable?| (QCAR (CDR |n|)) |i| $)
                       (COND
                        ((NULL (|LAMBDA;freeVariable?| (QCDR (CDR |n|)) |i| $))
-                        (PROGN (LETT #1# NIL . #2#) (GO #3#)))))
-                     ('T (PROGN (LETT #1# NIL . #2#) (GO #3#))))))
+                        (PROGN (LETT #1# NIL) (GO #2#)))))
+                     ('T (PROGN (LETT #1# NIL) (GO #2#))))))
                   (EXIT 'T)))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;free?;$B;15| ((|n| $) ($ |Boolean|))
         (SPROG ((#1=#:G219 NIL))
@@ -199,8 +187,7 @@
                   (COND
                    ((QEQCAR |n| 3)
                     (PROGN
-                     (LETT #1# (|LAMBDA;freeVariable?| (QCAR (CDR |n|)) 0 $)
-                           |LAMBDA;free?;$B;15|)
+                     (LETT #1# (|LAMBDA;freeVariable?| (QCAR (CDR |n|)) 0 $))
                      (GO #2=#:G218))))
                   (SPADCALL
                    (SPADCALL
@@ -221,45 +208,43 @@
           (|r| (|Record| (|:| |rft| UT) (|:| |pout| (|NonNegativeInteger|)))))
          (SEQ
           (EXIT
-           (SEQ (LETT |p1| |pin| . #3=(|LAMBDA;parseLambdaTerm|))
-                (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)
+           (SEQ (LETT |p1| |pin|) (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (COND
                  ((NULL (|eql_SI| |ch| (|STR_to_CHAR| "\\")))
                   (SEQ (|error| "lambda term must start with \\")
                        (EXIT
                         (PROGN
-                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|) . #3#)
-                         (GO #4=#:G238))))))
-                (LETT |p1| (+ |p1| 1) . #3#)
+                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|))
+                         (GO #3=#:G238))))))
+                (LETT |p1| (+ |p1| 1))
                 (COND
                  ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 35)) (QREFELT $ 36))
                   (SEQ (|error| "lambda term not complete")
                        (EXIT
                         (PROGN
-                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|) . #3#)
-                         (GO #4#))))))
-                (LETT |r| (SPADCALL |t1| |p1| (QREFELT $ 38)) . #3#)
-                (LETT |p1| (QCDR |r|) . #3#)
-                (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)
+                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|))
+                         (GO #3#))))))
+                (LETT |r| (SPADCALL |t1| |p1| (QREFELT $ 38)))
+                (LETT |p1| (QCDR |r|)) (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (COND
                  ((NULL (|eql_SI| |ch| (|STR_to_CHAR| ".")))
                   (SEQ (|error| "lambda term must have .")
                        (EXIT
                         (PROGN
-                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|) . #3#)
-                         (GO #4#))))))
-                (LETT |p1| (+ |p1| 1) . #3#)
+                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|))
+                         (GO #3#))))))
+                (LETT |p1| (+ |p1| 1))
                 (COND
                  ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 35)) (QREFELT $ 36))
                   (SEQ (|error| "lambda term must contain something")
                        (EXIT
                         (PROGN
-                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|) . #3#)
-                         (GO #4#))))))
-                (LETT |r2| (SPADCALL |t1| |p1| (QREFELT $ 39)) . #3#)
-                (LETT |ex| (QCAR |r2|) . #3#) (LETT |p1| (QCDR |r2|) . #3#)
+                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|))
+                         (GO #3#))))))
+                (LETT |r2| (SPADCALL |t1| |p1| (QREFELT $ 39)))
+                (LETT |ex| (QCAR |r2|)) (LETT |p1| (QCDR |r2|))
                 (EXIT (CONS (SPADCALL |ex| (QCAR |r|) (QREFELT $ 13)) |p1|))))
-          #4# (EXIT #2#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |LAMBDA;parseBracketTerm|
         ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|))
@@ -269,35 +254,34 @@
           (|r2| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
          (SEQ
           (EXIT
-           (SEQ (LETT |p1| |pin| . #3=(|LAMBDA;parseBracketTerm|))
-                (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)
+           (SEQ (LETT |p1| |pin|) (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (COND
                  ((NULL (|eql_SI| |ch| (|STR_to_CHAR| "(")))
                   (SEQ (|error| "bracket term must start with (")
                        (EXIT
                         (PROGN
-                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|) . #3#)
-                         (GO #4=#:G250))))))
-                (LETT |p1| (+ |p1| 1) . #3#)
+                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|))
+                         (GO #3=#:G250))))))
+                (LETT |p1| (+ |p1| 1))
                 (COND
                  ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 35)) (QREFELT $ 36))
                   (SEQ (|error| "opening but no closing bracket")
                        (EXIT
                         (PROGN
-                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|) . #3#)
-                         (GO #4#))))))
-                (LETT |r2| (SPADCALL |t1| |p1| (QREFELT $ 39)) . #3#)
-                (LETT |trm| (QCAR |r2|) . #3#) (LETT |p1| (QCDR |r2|) . #3#)
-                (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)
+                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|))
+                         (GO #3#))))))
+                (LETT |r2| (SPADCALL |t1| |p1| (QREFELT $ 39)))
+                (LETT |trm| (QCAR |r2|)) (LETT |p1| (QCDR |r2|))
+                (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (COND
                  ((NULL (|eql_SI| |ch| (|STR_to_CHAR| ")")))
                   (SEQ (|error| "can't find closing bracket")
                        (EXIT
                         (PROGN
-                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|) . #3#)
-                         (GO #4#))))))
-                (LETT |p1| (+ |p1| 1) . #3#) (EXIT (CONS |trm| |p1|))))
-          #4# (EXIT #2#)))) 
+                         (LETT #2# (CONS (CONS 0 (LIST 0)) |p1|))
+                         (GO #3#))))))
+                (LETT |p1| (+ |p1| 1)) (EXIT (CONS |trm| |p1|))))
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |LAMBDA;parseVariableTerm|
         ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|))
@@ -307,53 +291,52 @@
           (|inx| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
-           (SEQ (LETT |p1| |pin| . #3=(|LAMBDA;parseVariableTerm|))
-                (LETT |inx| 0 . #3#) (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)
+           (SEQ (LETT |p1| |pin|) (LETT |inx| 0)
+                (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (SEQ G190
                      (COND ((NULL (SPADCALL |ch| (QREFELT $ 41))) (GO G191)))
                      (SEQ
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "0"))
-                        (LETT |inx| (* |inx| 10) . #3#)))
+                        (LETT |inx| (* |inx| 10))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "1"))
-                        (LETT |inx| (+ (* |inx| 10) 1) . #3#)))
+                        (LETT |inx| (+ (* |inx| 10) 1))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "2"))
-                        (LETT |inx| (+ (* |inx| 10) 2) . #3#)))
+                        (LETT |inx| (+ (* |inx| 10) 2))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "3"))
-                        (LETT |inx| (+ (* |inx| 10) 3) . #3#)))
+                        (LETT |inx| (+ (* |inx| 10) 3))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "4"))
-                        (LETT |inx| (+ (* |inx| 10) 4) . #3#)))
+                        (LETT |inx| (+ (* |inx| 10) 4))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "5"))
-                        (LETT |inx| (+ (* |inx| 10) 5) . #3#)))
+                        (LETT |inx| (+ (* |inx| 10) 5))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "6"))
-                        (LETT |inx| (+ (* |inx| 10) 6) . #3#)))
+                        (LETT |inx| (+ (* |inx| 10) 6))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "7"))
-                        (LETT |inx| (+ (* |inx| 10) 7) . #3#)))
+                        (LETT |inx| (+ (* |inx| 10) 7))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "8"))
-                        (LETT |inx| (+ (* |inx| 10) 8) . #3#)))
+                        (LETT |inx| (+ (* |inx| 10) 8))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "9"))
-                        (LETT |inx| (+ (* |inx| 10) 9) . #3#)))
-                      (LETT |p1| (+ |p1| 1) . #3#)
+                        (LETT |inx| (+ (* |inx| 10) 9))))
+                      (LETT |p1| (+ |p1| 1))
                       (COND
                        ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 35))
                                   (QREFELT $ 36))
                         (PROGN
-                         (LETT #2# (CONS (SPADCALL |inx| (QREFELT $ 9)) |p1|)
-                               . #3#)
-                         (GO #4=#:G266))))
-                      (EXIT (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)))
+                         (LETT #2# (CONS (SPADCALL |inx| (QREFELT $ 9)) |p1|))
+                         (GO #3=#:G266))))
+                      (EXIT (LETT |ch| (STR_ELT1 |t1| |p1|))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS (SPADCALL |inx| (QREFELT $ 9)) |p1|))))
-          #4# (EXIT #2#)))) 
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |LAMBDA;parseTerm;SNniR;19|
         ((|t1| |String|) (|pin| |NonNegativeInteger|)
@@ -365,55 +348,54 @@
           (|r2| (|Record| (|:| |rft| UT) (|:| |pout| (|NonNegativeInteger|)))))
          (SEQ
           (EXIT
-           (SEQ (LETT |p1| |pin| . #2=(|LAMBDA;parseTerm;SNniR;19|))
-                (LETT |res| (CONS 0 (LIST 0)) . #2#)
-                (LETT |ch| (STR_ELT1 |t1| |p1|) . #2#)
+           (SEQ (LETT |p1| |pin|) (LETT |res| (CONS 0 (LIST 0)))
+                (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (SEQ G190
                      (COND
                       ((NULL (|eql_SI| |ch| (|STR_to_CHAR| " "))) (GO G191)))
-                     (SEQ (LETT |p1| (+ |p1| 1) . #2#)
+                     (SEQ (LETT |p1| (+ |p1| 1))
                           (COND
                            ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 35))
                                       (QREFELT $ 36))
                             (PROGN
-                             (LETT #1# (CONS |res| |p1|) . #2#)
-                             (GO #3=#:G285))))
-                          (EXIT (LETT |ch| (STR_ELT1 |t1| |p1|) . #2#)))
+                             (LETT #1# (CONS |res| |p1|))
+                             (GO #2=#:G285))))
+                          (EXIT (LETT |ch| (STR_ELT1 |t1| |p1|))))
                      NIL (GO G190) G191 (EXIT NIL))
-                (LETT |r| (CONS |res| |p1|) . #2#)
+                (LETT |r| (CONS |res| |p1|))
                 (COND
                  ((|eql_SI| |ch| (|STR_to_CHAR| "\\"))
-                  (LETT |r| (|LAMBDA;parseLambdaTerm| |t1| |p1| $) . #2#)))
+                  (LETT |r| (|LAMBDA;parseLambdaTerm| |t1| |p1| $))))
                 (COND
                  ((|eql_SI| |ch| (|STR_to_CHAR| "("))
-                  (LETT |r| (|LAMBDA;parseBracketTerm| |t1| |p1| $) . #2#)))
+                  (LETT |r| (|LAMBDA;parseBracketTerm| |t1| |p1| $))))
                 (COND
                  ((SPADCALL |ch| (QREFELT $ 41))
-                  (LETT |r| (|LAMBDA;parseVariableTerm| |t1| |p1| $) . #2#)))
-                (LETT |res| (QCAR |r|) . #2#) (LETT |p1| (QCDR |r|) . #2#)
+                  (LETT |r| (|LAMBDA;parseVariableTerm| |t1| |p1| $))))
+                (LETT |res| (QCAR |r|)) (LETT |p1| (QCDR |r|))
                 (COND
                  ((SPADCALL |ch| (QREFELT $ 42))
-                  (SEQ (LETT |r2| (SPADCALL |t1| |p1| (QREFELT $ 38)) . #2#)
-                       (LETT |res| (SPADCALL (QCAR |r2|) (QREFELT $ 10)) . #2#)
-                       (EXIT (LETT |p1| (QCDR |r2|) . #2#)))))
+                  (SEQ (LETT |r2| (SPADCALL |t1| |p1| (QREFELT $ 38)))
+                       (LETT |res| (SPADCALL (QCAR |r2|) (QREFELT $ 10)))
+                       (EXIT (LETT |p1| (QCDR |r2|))))))
                 (COND
                  ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 35)) (QREFELT $ 36))
-                  (PROGN (LETT #1# (CONS |res| |p1|) . #2#) (GO #3#))))
-                (LETT |ch| (STR_ELT1 |t1| |p1|) . #2#)
+                  (PROGN (LETT #1# (CONS |res| |p1|)) (GO #2#))))
+                (LETT |ch| (STR_ELT1 |t1| |p1|))
                 (COND
                  ((|eql_SI| |ch| (|STR_to_CHAR| " "))
-                  (SEQ (LETT |p1| (+ |p1| 1) . #2#)
+                  (SEQ (LETT |p1| (+ |p1| 1))
                        (COND
                         ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 35))
                                    (QREFELT $ 36))
-                         (PROGN (LETT #1# (CONS |res| |p1|) . #2#) (GO #3#))))
-                       (LETT |r| (SPADCALL |t1| |p1| (QREFELT $ 39)) . #2#)
-                       (LETT |p1| (QCDR |r|) . #2#)
+                         (PROGN (LETT #1# (CONS |res| |p1|)) (GO #2#))))
+                       (LETT |r| (SPADCALL |t1| |p1| (QREFELT $ 39)))
+                       (LETT |p1| (QCDR |r|))
                        (EXIT
-                        (LETT |res| (SPADCALL |res| (QCAR |r|) (QREFELT $ 11))
-                              . #2#)))))
+                        (LETT |res|
+                              (SPADCALL |res| (QCAR |r|) (QREFELT $ 11)))))))
                 (EXIT (CONS |res| |p1|))))
-          #3# (EXIT #1#)))) 
+          #2# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;parseLambda;S$;20| ((|t1| |String|) ($ $))
         (SPROG
@@ -422,14 +404,11 @@
          (SEQ
           (LETT |r|
                 (SPADCALL |t1|
-                          (PROG1
-                              (LETT #1# (SPADCALL |t1| (QREFELT $ 43))
-                                    . #2=(|LAMBDA;parseLambda;S$;20|))
+                          (PROG1 (LETT #1# (SPADCALL |t1| (QREFELT $ 43)))
                             (|check_subtype2| (>= #1# 0)
                                               '(|NonNegativeInteger|)
                                               '(|Integer|) #1#))
-                          (QREFELT $ 39))
-                . #2#)
+                          (QREFELT $ 39)))
           (EXIT (QCAR |r|))))) 
 
 (SDEFUN |LAMBDA;toStringConven;$LS;21|
@@ -439,23 +418,21 @@
           (|varName| (|String|)) (#1=#:G299 NIL) (|i| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
-           (SEQ (LETT |s| "" . #2=(|LAMBDA;toStringConven;$LS;21|))
+           (SEQ (LETT |s| "")
                 (COND
                  ((QEQCAR |n| 0)
-                  (SEQ (LETT |i| (+ (QCAR (CDR |n|)) 1) . #2#)
+                  (SEQ (LETT |i| (+ (QCAR (CDR |n|)) 1))
                        (COND
                         ((SPADCALL |i| 0 (QREFELT $ 45))
                          (COND
                           ((SPADCALL |i| (LENGTH |boundL|) (QREFELT $ 46))
                            (PROGN
-                            (LETT #1# (SPADCALL |boundL| |i| (QREFELT $ 48))
-                                  . #2#)
-                            (GO #3=#:G298))))))
-                       (EXIT
-                        (LETT |s| (STRINGIMAGE (QCAR (CDR |n|))) . #2#)))))
+                            (LETT #1# (SPADCALL |boundL| |i| (QREFELT $ 48)))
+                            (GO #2=#:G298))))))
+                       (EXIT (LETT |s| (STRINGIMAGE (QCAR (CDR |n|))))))))
                 (COND
                  ((QEQCAR |n| 1)
-                  (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 49)) . #2#)))
+                  (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 49)))))
                 (COND
                  ((QEQCAR |n| 2)
                   (LETT |s|
@@ -467,22 +444,19 @@
                                (SPADCALL (QCDR (CDR |n|)) |boundL|
                                          (QREFELT $ 50))
                                ")")
-                         (QREFELT $ 51))
-                        . #2#)))
+                         (QREFELT $ 51)))))
                 (COND
                  ((QEQCAR |n| 3)
                   (SEQ
-                   (LETT |varName| (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49))
-                         . #2#)
+                   (LETT |varName| (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49)))
                    (SEQ G190
                         (COND
                          ((NULL (SPADCALL |varName| |boundL| (QREFELT $ 52)))
                           (GO G191)))
-                        (SEQ
-                         (EXIT (LETT |varName| (STRCONC |varName| "'") . #2#)))
+                        (SEQ (EXIT (LETT |varName| (STRCONC |varName| "'"))))
                         NIL (GO G190) G191 (EXIT NIL))
-                   (LETT |boundL2| (SPADCALL |boundL| |varName| (QREFELT $ 53))
-                         . #2#)
+                   (LETT |boundL2|
+                         (SPADCALL |boundL| |varName| (QREFELT $ 53)))
                    (EXIT
                     (LETT |s|
                           (SPADCALL
@@ -490,20 +464,19 @@
                                  (SPADCALL (QCAR (CDR |n|)) |boundL2|
                                            (QREFELT $ 50))
                                  ")")
-                           (QREFELT $ 51))
-                          . #2#)))))
+                           (QREFELT $ 51)))))))
                 (EXIT |s|)))
-          #3# (EXIT #1#)))) 
+          #2# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;toString;$S;22| ((|n| $) ($ |String|))
         (SPROG ((|s| (|String|)))
-               (SEQ (LETT |s| "" . #1=(|LAMBDA;toString;$S;22|))
+               (SEQ (LETT |s| "")
                     (COND
                      ((QEQCAR |n| 0)
-                      (LETT |s| (STRINGIMAGE (QCAR (CDR |n|))) . #1#)))
+                      (LETT |s| (STRINGIMAGE (QCAR (CDR |n|))))))
                     (COND
                      ((QEQCAR |n| 1)
-                      (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 54)) . #1#)))
+                      (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 54)))))
                     (COND
                      ((QEQCAR |n| 2)
                       (LETT |s|
@@ -513,8 +486,7 @@
                                    " "
                                    (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 55))
                                    ")")
-                             (QREFELT $ 51))
-                            . #1#)))
+                             (QREFELT $ 51)))))
                     (COND
                      ((QEQCAR |n| 3)
                       (LETT |s|
@@ -524,8 +496,7 @@
                                    "."
                                    (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 55))
                                    ")")
-                             (QREFELT $ 51))
-                            . #1#)))
+                             (QREFELT $ 51)))))
                     (EXIT |s|)))) 
 
 (SDEFUN |LAMBDA;subst;4$;23| ((|n| $) (|a| $) (|b| $) ($ $))
@@ -535,9 +506,7 @@
                  (SEQ
                   (COND
                    ((SPADCALL |n| |b| (QREFELT $ 56))
-                    (PROGN
-                     (LETT #1# |a| . #3=(|LAMBDA;subst;4$;23|))
-                     (GO #4=#:G313))))
+                    (PROGN (LETT #1# |a|) (GO #3=#:G313))))
                   (COND
                    ((QEQCAR |n| 2)
                     (PROGN
@@ -545,9 +514,8 @@
                            (SPADCALL
                             (SPADCALL (QCAR (CDR |n|)) |a| |b| (QREFELT $ 57))
                             (SPADCALL (QCDR (CDR |n|)) |a| |b| (QREFELT $ 57))
-                            (QREFELT $ 11))
-                           . #3#)
-                     (GO #4#))))
+                            (QREFELT $ 11)))
+                     (GO #3#))))
                   (COND
                    ((QEQCAR |n| 3)
                     (PROGN
@@ -555,7 +523,7 @@
                            (SPADCALL
                             (SPADCALL
                              (QCAR
-                              (PROG2 (LETT #2# |n| . #3#)
+                              (PROG2 (LETT #2# |n|)
                                   (QCDR #2#)
                                 (|check_union2| (QEQCAR #2# 3)
                                                 (|Record| (|:| |c3| $)
@@ -578,7 +546,7 @@
                                                 #2#)))
                              |a| |b| (QREFELT $ 57))
                             (QCDR
-                             (PROG2 (LETT #2# |n| . #3#)
+                             (PROG2 (LETT #2# |n|)
                                  (QCDR #2#)
                                (|check_union2| (QEQCAR #2# 3)
                                                (|Record| (|:| |c3| $)
@@ -599,11 +567,10 @@
                                                                     (QREFELT $
                                                                              6)))))
                                                #2#)))
-                            (QREFELT $ 13))
-                           . #3#)
-                     (GO #4#))))
+                            (QREFELT $ 13)))
+                     (GO #3#))))
                   (EXIT |n|)))
-                #4# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;bindTerm| ((|n| $) (|i| |NonNegativeInteger|) (|s| UT) ($ $))
         (SPROG ((#1=#:G326 NIL) (#2=#:G156 NIL) (#3=#:G155 NIL))
@@ -613,15 +580,14 @@
                   (COND
                    ((QEQCAR |n| 0)
                     (PROGN
-                     (LETT #1# (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 9))
-                           . #4=(|LAMBDA;bindTerm|))
-                     (GO #5=#:G325))))
+                     (LETT #1# (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 9)))
+                     (GO #4=#:G325))))
                   (COND
                    ((QEQCAR |n| 1)
                     (SEQ
                      (COND
                       ((SPADCALL
-                        (PROG2 (LETT #3# |n| . #4#)
+                        (PROG2 (LETT #3# |n|)
                             (QCDR #3#)
                           (|check_union2| (QEQCAR #3# 1) (QREFELT $ 6)
                                           (|Union|
@@ -641,13 +607,13 @@
                                           #3#))
                         |s| (QREFELT $ 26))
                        (PROGN
-                        (LETT #1# (SPADCALL |i| (QREFELT $ 9)) . #4#)
-                        (GO #5#))))
+                        (LETT #1# (SPADCALL |i| (QREFELT $ 9)))
+                        (GO #4#))))
                      (EXIT
                       (PROGN
                        (LETT #1#
                              (SPADCALL
-                              (PROG2 (LETT #3# |n| . #4#)
+                              (PROG2 (LETT #3# |n|)
                                   (QCDR #3#)
                                 (|check_union2| (QEQCAR #3# 1) (QREFELT $ 6)
                                                 (|Union|
@@ -665,9 +631,8 @@
                                                                      (QREFELT $
                                                                               6)))))
                                                 #3#))
-                              (QREFELT $ 10))
-                             . #4#)
-                       (GO #5#))))))
+                              (QREFELT $ 10)))
+                       (GO #4#))))))
                   (COND
                    ((QEQCAR |n| 3)
                     (PROGN
@@ -676,9 +641,8 @@
                                  (CONS
                                   (|LAMBDA;bindTerm| (QCAR (CDR |n|)) (+ |i| 1)
                                    |s| $)
-                                  (QCDR (CDR |n|))))
-                           . #4#)
-                     (GO #5#))))
+                                  (QCDR (CDR |n|)))))
+                     (GO #4#))))
                   (COND
                    ((QEQCAR |n| 2)
                     (PROGN
@@ -686,7 +650,7 @@
                            (SPADCALL
                             (|LAMBDA;bindTerm|
                              (QCAR
-                              (PROG2 (LETT #2# |n| . #4#)
+                              (PROG2 (LETT #2# |n|)
                                   (QCDR #2#)
                                 (|check_union2| (QEQCAR #2# 2)
                                                 (|Record| (|:| |c1| $)
@@ -709,7 +673,7 @@
                              |i| |s| $)
                             (|LAMBDA;bindTerm|
                              (QCDR
-                              (PROG2 (LETT #2# |n| . #4#)
+                              (PROG2 (LETT #2# |n|)
                                   (QCDR #2#)
                                 (|check_union2| (QEQCAR #2# 2)
                                                 (|Record| (|:| |c1| $)
@@ -730,11 +694,10 @@
                                                                               6)))))
                                                 #2#)))
                              |i| |s| $)
-                            (QREFELT $ 11))
-                           . #4#)
-                     (GO #5#))))
+                            (QREFELT $ 11)))
+                     (GO #4#))))
                   (EXIT |n|)))
-                #5# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;bind;2$;25| ((|n| $) ($ $))
         (SPROG ((#1=#:G330 NIL))
@@ -749,8 +712,7 @@
                                  (CONS
                                   (|LAMBDA;bindTerm| (QCAR (CDR |n|)) 0
                                    (QCDR (CDR |n|)) $)
-                                  (QCDR (CDR |n|))))
-                           |LAMBDA;bind;2$;25|)
+                                  (QCDR (CDR |n|)))))
                      (GO #2=#:G329))))
                   (EXIT |n|)))
                 #2# (EXIT #1#)))) 
@@ -766,19 +728,17 @@
                      (COND
                       ((EQL (QCAR (CDR |n|)) |i|)
                        (PROGN
-                        (LETT #1# (SPADCALL |s| (QREFELT $ 10))
-                              . #4=(|LAMBDA;unbindTerm|))
-                        (GO #5=#:G341))))
+                        (LETT #1# (SPADCALL |s| (QREFELT $ 10)))
+                        (GO #4=#:G341))))
                      (EXIT
                       (PROGN
-                       (LETT #1# (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 9))
-                             . #4#)
-                       (GO #5#))))))
+                       (LETT #1# (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 9)))
+                       (GO #4#))))))
                   (COND
                    ((QEQCAR |n| 1)
                     (PROGN
-                     (LETT #1# (SPADCALL (CDR |n|) (QREFELT $ 10)) . #4#)
-                     (GO #5#))))
+                     (LETT #1# (SPADCALL (CDR |n|) (QREFELT $ 10)))
+                     (GO #4#))))
                   (COND
                    ((QEQCAR |n| 3)
                     (PROGN
@@ -787,7 +747,7 @@
                                  (CONS
                                   (|LAMBDA;unbindTerm|
                                    (QCAR
-                                    (PROG2 (LETT #3# |n| . #4#)
+                                    (PROG2 (LETT #3# |n|)
                                         (QCDR #3#)
                                       (|check_union2| (QEQCAR #3# 3)
                                                       (|Record| (|:| |c3| $)
@@ -814,7 +774,7 @@
                                                       #3#)))
                                    (+ |i| 1) |s| $)
                                   (QCDR
-                                   (PROG2 (LETT #3# |n| . #4#)
+                                   (PROG2 (LETT #3# |n|)
                                        (QCDR #3#)
                                      (|check_union2| (QEQCAR #3# 3)
                                                      (|Record| (|:| |c3| $)
@@ -838,9 +798,8 @@
                                                             (|:| |nm|
                                                                  (QREFELT $
                                                                           6)))))
-                                                     #3#)))))
-                           . #4#)
-                     (GO #5#))))
+                                                     #3#))))))
+                     (GO #4#))))
                   (COND
                    ((QEQCAR |n| 2)
                     (PROGN
@@ -848,7 +807,7 @@
                            (SPADCALL
                             (|LAMBDA;unbindTerm|
                              (QCAR
-                              (PROG2 (LETT #2# |n| . #4#)
+                              (PROG2 (LETT #2# |n|)
                                   (QCDR #2#)
                                 (|check_union2| (QEQCAR #2# 2)
                                                 (|Record| (|:| |c1| $)
@@ -871,7 +830,7 @@
                              |i| |s| $)
                             (|LAMBDA;unbindTerm|
                              (QCDR
-                              (PROG2 (LETT #2# |n| . #4#)
+                              (PROG2 (LETT #2# |n|)
                                   (QCDR #2#)
                                 (|check_union2| (QEQCAR #2# 2)
                                                 (|Record| (|:| |c1| $)
@@ -892,11 +851,10 @@
                                                                               6)))))
                                                 #2#)))
                              |i| |s| $)
-                            (QREFELT $ 11))
-                           . #4#)
-                     (GO #5#))))
+                            (QREFELT $ 11)))
+                     (GO #4#))))
                   (EXIT |n|)))
-                #5# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;unbind;2$;27| ((|n| $) ($ $))
         (SPROG ((#1=#:G346 NIL))
@@ -911,8 +869,7 @@
                                  (CONS
                                   (|LAMBDA;unbindTerm| (QCAR (CDR |n|)) 0
                                    (QCDR (CDR |n|)) $)
-                                  (QCDR (CDR |n|))))
-                           |LAMBDA;unbind;2$;27|)
+                                  (QCDR (CDR |n|)))))
                      (GO #2=#:G345))))
                   (EXIT |n|)))
                 #2# (EXIT #1#)))) 
@@ -926,20 +883,18 @@
            (SEQ
             (COND
              ((SPADCALL |n| (QREFELT $ 15))
-              (PROGN
-               (LETT #1# |n| . #3=(|LAMBDA;redux;2$;28|))
-               (GO #4=#:G359))))
+              (PROGN (LETT #1# |n|) (GO #3=#:G359))))
             (COND
              ((QEQCAR |n| 2)
-              (SEQ (LETT |term1| (QCAR (CDR |n|)) . #3#)
-                   (LETT |term2| (QCDR (CDR |n|)) . #3#)
+              (SEQ (LETT |term1| (QCAR (CDR |n|)))
+                   (LETT |term2| (QCDR (CDR |n|)))
                    (COND
                     ((SPADCALL |term1| (QREFELT $ 19))
                      (SEQ
                       (LETT |boundVarName|
                             (SPADCALL
                              (QCDR
-                              (PROG2 (LETT #2# |term1| . #3#)
+                              (PROG2 (LETT #2# |term1|)
                                   (QCDR #2#)
                                 (|check_union2| (QEQCAR #2# 3)
                                                 (|Record| (|:| |c3| $)
@@ -960,34 +915,30 @@
                                                                      (QREFELT $
                                                                               6)))))
                                                 #2#)))
-                             (QREFELT $ 49))
-                            . #3#)
+                             (QREFELT $ 49)))
                       (EXIT
                        (PROGN
                         (LETT #1#
                               (SPADCALL |term1| |term2|
                                         (SPADCALL 0 (QREFELT $ 9))
-                                        (QREFELT $ 57))
-                              . #3#)
-                        (GO #4#))))))
+                                        (QREFELT $ 57)))
+                        (GO #3#))))))
                    (EXIT
                     (PROGN
                      (LETT #1#
                            (SPADCALL (SPADCALL |term1| (QREFELT $ 59))
                                      (SPADCALL |term2| (QREFELT $ 59))
-                                     (QREFELT $ 11))
-                           . #3#)
-                     (GO #4#))))))
+                                     (QREFELT $ 11)))
+                     (GO #3#))))))
             (COND
              ((QEQCAR |n| 3)
               (PROGN
                (LETT #1#
                      (SPADCALL (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 59))
-                               (QCDR (CDR |n|)) (QREFELT $ 13))
-                     . #3#)
-               (GO #4#))))
+                               (QCDR (CDR |n|)) (QREFELT $ 13)))
+               (GO #3#))))
             (EXIT |n|)))
-          #4# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;=;2$B;29| ((|x| $) (|y| $) ($ |Boolean|))
         (SPROG ((#1=#:G379 NIL))
@@ -1001,10 +952,8 @@
                       (SEQ
                        (COND
                         ((EQL (QCAR (CDR |x|)) (QCAR (CDR |y|)))
-                         (PROGN
-                          (LETT #1# 'T . #2=(|LAMBDA;=;2$B;29|))
-                          (GO #3=#:G378))))
-                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
+                         (PROGN (LETT #1# 'T) (GO #2=#:G378))))
+                       (EXIT (PROGN (LETT #1# NIL) (GO #2#))))))))
                   (COND
                    ((QEQCAR |x| 1)
                     (COND
@@ -1012,8 +961,8 @@
                       (SEQ
                        (COND
                         ((SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 26))
-                         (PROGN (LETT #1# 'T . #2#) (GO #3#))))
-                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
+                         (PROGN (LETT #1# 'T) (GO #2#))))
+                       (EXIT (PROGN (LETT #1# NIL) (GO #2#))))))))
                   (COND
                    ((QEQCAR |x| 2)
                     (COND
@@ -1025,8 +974,8 @@
                          (COND
                           ((SPADCALL (QCDR (CDR |x|)) (QCDR (CDR |y|))
                                      (QREFELT $ 56))
-                           (PROGN (LETT #1# 'T . #2#) (GO #3#))))))
-                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
+                           (PROGN (LETT #1# 'T) (GO #2#))))))
+                       (EXIT (PROGN (LETT #1# NIL) (GO #2#))))))))
                   (COND
                    ((QEQCAR |x| 3)
                     (COND
@@ -1035,10 +984,10 @@
                        (COND
                         ((SPADCALL (QCAR (CDR |x|)) (QCAR (CDR |y|))
                                    (QREFELT $ 56))
-                         (PROGN (LETT #1# 'T . #2#) (GO #3#))))
-                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
+                         (PROGN (LETT #1# 'T) (GO #2#))))
+                       (EXIT (PROGN (LETT #1# NIL) (GO #2#))))))))
                   (EXIT NIL)))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;toOutputFormConven|
         ((|n| $) (|boundL| |List| (|String|)) ($ |OutputForm|))
@@ -1047,67 +996,62 @@
           (|varName| (|String|)) (#1=#:G389 NIL) (|i| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
-           (SEQ
-            (LETT |s| (SPADCALL (QREFELT $ 60))
-                  . #2=(|LAMBDA;toOutputFormConven|))
-            (COND
-             ((QEQCAR |n| 0)
-              (SEQ (LETT |i| (+ (QCAR (CDR |n|)) 1) . #2#)
-                   (COND
-                    ((SPADCALL |i| 0 (QREFELT $ 45))
-                     (COND
-                      ((SPADCALL |i| (LENGTH |boundL|) (QREFELT $ 46))
-                       (PROGN
-                        (LETT #1#
-                              (SPADCALL (SPADCALL |boundL| |i| (QREFELT $ 48))
-                                        (QREFELT $ 28))
-                              . #2#)
-                        (GO #3=#:G388))))))
+           (SEQ (LETT |s| (SPADCALL (QREFELT $ 60)))
+                (COND
+                 ((QEQCAR |n| 0)
+                  (SEQ (LETT |i| (+ (QCAR (CDR |n|)) 1))
+                       (COND
+                        ((SPADCALL |i| 0 (QREFELT $ 45))
+                         (COND
+                          ((SPADCALL |i| (LENGTH |boundL|) (QREFELT $ 46))
+                           (PROGN
+                            (LETT #1#
+                                  (SPADCALL
+                                   (SPADCALL |boundL| |i| (QREFELT $ 48))
+                                   (QREFELT $ 28)))
+                            (GO #2=#:G388))))))
+                       (EXIT
+                        (LETT |s|
+                              (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 61)))))))
+                (COND
+                 ((QEQCAR |n| 1)
+                  (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 62)))))
+                (COND
+                 ((QEQCAR |n| 2)
+                  (LETT |s|
+                        (SPADCALL
+                         (LIST (SPADCALL "(" (QREFELT $ 28))
+                               (|LAMBDA;toOutputFormConven| (QCAR (CDR |n|))
+                                |boundL| $)
+                               (SPADCALL " " (QREFELT $ 28))
+                               (|LAMBDA;toOutputFormConven| (QCDR (CDR |n|))
+                                |boundL| $)
+                               (SPADCALL ")" (QREFELT $ 28)))
+                         (QREFELT $ 63)))))
+                (COND
+                 ((QEQCAR |n| 3)
+                  (SEQ
+                   (LETT |varName| (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49)))
+                   (SEQ G190
+                        (COND
+                         ((NULL (SPADCALL |varName| |boundL| (QREFELT $ 52)))
+                          (GO G191)))
+                        (SEQ (EXIT (LETT |varName| (STRCONC |varName| "'"))))
+                        NIL (GO G190) G191 (EXIT NIL))
+                   (LETT |boundL2|
+                         (SPADCALL |boundL| |varName| (QREFELT $ 53)))
                    (EXIT
-                    (LETT |s| (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 61))
-                          . #2#)))))
-            (COND
-             ((QEQCAR |n| 1)
-              (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 62)) . #2#)))
-            (COND
-             ((QEQCAR |n| 2)
-              (LETT |s|
-                    (SPADCALL
-                     (LIST (SPADCALL "(" (QREFELT $ 28))
-                           (|LAMBDA;toOutputFormConven| (QCAR (CDR |n|))
-                            |boundL| $)
-                           (SPADCALL " " (QREFELT $ 28))
-                           (|LAMBDA;toOutputFormConven| (QCDR (CDR |n|))
-                            |boundL| $)
-                           (SPADCALL ")" (QREFELT $ 28)))
-                     (QREFELT $ 63))
-                    . #2#)))
-            (COND
-             ((QEQCAR |n| 3)
-              (SEQ
-               (LETT |varName| (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49))
-                     . #2#)
-               (SEQ G190
-                    (COND
-                     ((NULL (SPADCALL |varName| |boundL| (QREFELT $ 52)))
-                      (GO G191)))
-                    (SEQ (EXIT (LETT |varName| (STRCONC |varName| "'") . #2#)))
-                    NIL (GO G190) G191 (EXIT NIL))
-               (LETT |boundL2| (SPADCALL |boundL| |varName| (QREFELT $ 53))
-                     . #2#)
-               (EXIT
-                (LETT |s|
-                      (SPADCALL
-                       (LIST (SPADCALL "(\\" (QREFELT $ 28))
-                             (SPADCALL |varName| (QREFELT $ 28))
-                             (SPADCALL "." (QREFELT $ 28))
-                             (|LAMBDA;toOutputFormConven| (QCAR (CDR |n|))
-                              |boundL2| $)
-                             (SPADCALL ")" (QREFELT $ 28)))
-                       (QREFELT $ 63))
-                      . #2#)))))
-            (EXIT |s|)))
-          #3# (EXIT #1#)))) 
+                    (LETT |s|
+                          (SPADCALL
+                           (LIST (SPADCALL "(\\" (QREFELT $ 28))
+                                 (SPADCALL |varName| (QREFELT $ 28))
+                                 (SPADCALL "." (QREFELT $ 28))
+                                 (|LAMBDA;toOutputFormConven| (QCAR (CDR |n|))
+                                  |boundL2| $)
+                                 (SPADCALL ")" (QREFELT $ 28)))
+                           (QREFELT $ 63)))))))
+                (EXIT |s|)))
+          #2# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;coerce;$Of;31| ((|n| $) ($ |OutputForm|))
         (|LAMBDA;toOutputFormConven| |n| NIL $)) 
@@ -1123,21 +1067,20 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Lambda|)
-                                               '|domainEqualList|)
-                    . #3=(|Lambda|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Lambda;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Lambda;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Lambda|)))))))))) 
 
 (DEFUN |Lambda;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|Lambda|))
-          (LETT |dv$| (LIST '|Lambda| DV$1) . #1#)
-          (LETT $ (GETREFV 64) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|Lambda| DV$1))
+          (LETT $ (GETREFV 64))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Lambda| (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)

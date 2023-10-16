@@ -797,7 +797,7 @@
 ;     vl := REMDUP(append(vl, pmacs))
 ;   $e : local := $InteractiveFrame
 ;   for x in vl repeat
-;     clearDependencies(x,true)
+;     clearDependencies(x)
 ;     if option='properties and x in pmacs then clearParserMacro(x)
 ;     if option='properties and x in imacs and not (x in pmacs) then
 ;         sayMessage ['"   You cannot clear the definition of the system-defined macro ",
@@ -850,7 +850,7 @@
                     (RETURN NIL))
                    (#1#
                     (PROGN
-                     (|clearDependencies| |x| T)
+                     (|clearDependencies| |x|)
                      (COND
                       ((AND (EQ |option| '|properties|) (|member| |x| |pmacs|))
                        (|clearParserMacro| |x|)))

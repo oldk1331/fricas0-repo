@@ -40,7 +40,7 @@
          (PROG (#1=#:G1883)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|String|) . #2=(|String|))
+             ((LETT #1# (HGET |$ConstructorCache| '|String|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -48,14 +48,14 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|String|
                              (LIST (CONS NIL (CONS 1 (|String;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|String|)))))))))) 
 
 (DEFUN |String;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (#1=#:G1881 NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|String|) . #2=(|String|))
-          (LETT $ (GETREFV 40) . #2#)
+          (LETT |dv$| '(|String|))
+          (LETT $ (GETREFV 40))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -79,12 +79,10 @@
                                               (LETT #1#
                                                     (|HasCategory|
                                                      (|Character|)
-                                                     '(|Comparable|))
-                                                    . #2#)
+                                                     '(|Comparable|)))
                                               (OR #1#
                                                   (|HasCategory| (|Character|)
-                                                                 '(|OrderedSet|)))))
-                          . #2#))
+                                                                 '(|OrderedSet|)))))))
           (|haddProp| |$ConstructorCache| '|String| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (AND (|HasCategory| $ '(|shallowlyMutable|))

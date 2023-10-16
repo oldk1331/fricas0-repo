@@ -38,7 +38,5 @@
                                                ((|setnext!| ($ $ $))
                                                 (|has| $
                                                        (|shallowlyMutable|))))
-                                             NIL NIL NIL))
-                                           . #2=(|DoublyLinkedAggregate|)))))
-                   . #2#)
+                                             NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DoublyLinkedAggregate| |t#1|))))) 

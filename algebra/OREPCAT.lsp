@@ -102,7 +102,5 @@
                                             (|has| |t#1| (|Field|))))
                                          '(((|Algebra| |t#1|)
                                             (|has| |t#1| (|CommutativeRing|))))
-                                         NIL NIL))
-                                       . #4=(|UnivariateSkewPolynomialCategory|))))))
-                   . #4#)
+                                         NIL NIL))))))))
            (SETELT #1# 0 (LIST '|UnivariateSkewPolynomialCategory| |t#1|))))) 

@@ -198,8 +198,7 @@
          (PROG (#1=#:G150)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|OpenMathDevice|)
-                    . #2=(|OpenMathDevice|))
+             ((LETT #1# (HGET |$ConstructorCache| '|OpenMathDevice|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -207,7 +206,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|OpenMathDevice|
                              (LIST (CONS NIL (CONS 1 (|OpenMathDevice;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|OpenMathDevice|)))))))))) 
@@ -215,10 +214,10 @@
 (DEFUN |OpenMathDevice;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|OpenMathDevice|) . #1=(|OpenMathDevice|))
-          (LETT $ (GETREFV 56) . #1#)
+          (LETT |dv$| '(|OpenMathDevice|))
+          (LETT $ (GETREFV 56))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|OpenMathDevice| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

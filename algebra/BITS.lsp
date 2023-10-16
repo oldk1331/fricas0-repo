@@ -9,7 +9,7 @@
          (PROG (#1=#:G112)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Bits|) . #2=(|Bits|))
+             ((LETT #1# (HGET |$ConstructorCache| '|Bits|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -17,14 +17,14 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|Bits|
                              (LIST (CONS NIL (CONS 1 (|Bits;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Bits|)))))))))) 
 
 (DEFUN |Bits;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL) (#1=#:G110 NIL))
          (PROGN
-          (LETT |dv$| '(|Bits|) . #2=(|Bits|))
-          (LETT $ (GETREFV 26) . #2#)
+          (LETT |dv$| '(|Bits|))
+          (LETT $ (GETREFV 26))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -44,13 +44,12 @@
                                               (|HasCategory| (|Integer|)
                                                              '(|OrderedSet|))
                                               (|HasCategory| (|Boolean|)
-                                                             '(|BasicType|))))
-                          . #2#))
+                                                             '(|BasicType|))))))
           (|haddProp| |$ConstructorCache| '|Bits| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (AND (|HasCategory| $ '(|shallowlyMutable|))
                (|augmentPredVector| $ 32))
-          (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
+          (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)))
                (|augmentPredVector| $ 64))
           (AND #1# (|HasCategory| $ '(|shallowlyMutable|))
                (|HasCategory| (|Boolean|) '(|OrderedSet|))

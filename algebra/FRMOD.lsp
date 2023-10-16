@@ -48,7 +48,5 @@
                                                     '(((|Finite|)
                                                        (|has| |t#1|
                                                               (|Finite|))))
-                                                    NIL NIL))
-                                           . #2=(|FramedModule|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FramedModule| |t#1|))))) 

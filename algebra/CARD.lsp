@@ -79,7 +79,7 @@
                        ('T
                         (CONS -1
                               (EXPT (QCDR |x|)
-                                    (PROG1 (LETT #1# (QCDR |y|) |CARD;^;3$;12|)
+                                    (PROG1 (LETT #1# (QCDR |y|))
                                       (|check_subtype2| (>= #1# 0)
                                                         '(|NonNegativeInteger|)
                                                         '(|Integer|) #1#)))))))
@@ -101,7 +101,7 @@
         (SPROG ((#1=#:G166 NIL))
                (COND
                 ((SPADCALL |x| (QREFELT $ 26))
-                 (PROG1 (LETT #1# (QCDR |x|) |CARD;retract;$Nni;15|)
+                 (PROG1 (LETT #1# (QCDR |x|))
                    (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                      '(|Integer|) #1#)))
                 ('T (|error| "Not finite"))))) 
@@ -112,7 +112,7 @@
                (COND
                 ((SPADCALL |x| (QREFELT $ 26))
                  (CONS 0
-                       (PROG1 (LETT #1# (QCDR |x|) |CARD;retractIfCan;$U;16|)
+                       (PROG1 (LETT #1# (QCDR |x|))
                          (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                            '(|Integer|) #1#))))
                 ('T (CONS 1 "failed"))))) 
@@ -131,8 +131,7 @@
          (PROG (#1=#:G181)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|CardinalNumber|)
-                    . #2=(|CardinalNumber|))
+             ((LETT #1# (HGET |$ConstructorCache| '|CardinalNumber|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -140,7 +139,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|CardinalNumber|
                              (LIST (CONS NIL (CONS 1 (|CardinalNumber;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|CardinalNumber|)))))))))) 
@@ -148,10 +147,10 @@
 (DEFUN |CardinalNumber;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|CardinalNumber|) . #1=(|CardinalNumber|))
-          (LETT $ (GETREFV 51) . #1#)
+          (LETT |dv$| '(|CardinalNumber|))
+          (LETT $ (GETREFV 51))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CardinalNumber| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

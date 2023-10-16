@@ -12,26 +12,20 @@
             (SEQ
              (LETT |deg|
                    (PROGN
-                    (LETT #5# NIL
-                          . #9=(|FFSLPE;solveLinearPolynomialEquation;LFPPU;1|))
-                    (SEQ (LETT |u| NIL . #9#) (LETT #8# |lp| . #9#) G190
+                    (LETT #5# NIL)
+                    (SEQ (LETT |u| NIL) (LETT #8# |lp|) G190
                          (COND
-                          ((OR (ATOM #8#)
-                               (PROGN (LETT |u| (CAR #8#) . #9#) NIL))
+                          ((OR (ATOM #8#) (PROGN (LETT |u| (CAR #8#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (PROGN
-                            (LETT #7# (SPADCALL |u| (QREFELT $ 19)) . #9#)
-                            (COND (#5# (LETT #6# (+ #6# #7#) . #9#))
-                                  ('T
-                                   (PROGN
-                                    (LETT #6# #7# . #9#)
-                                    (LETT #5# 'T . #9#)))))))
-                         (LETT #8# (CDR #8#) . #9#) (GO G190) G191 (EXIT NIL))
-                    (COND (#5# #6#) ('T 0)))
-                   . #9#)
-             (LETT |ans| (CONS 1 "failed") . #9#)
+                            (LETT #7# (SPADCALL |u| (QREFELT $ 19)))
+                            (COND (#5# (LETT #6# (+ #6# #7#)))
+                                  ('T (PROGN (LETT #6# #7#) (LETT #5# 'T)))))))
+                         (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
+                    (COND (#5# #6#) ('T 0))))
+             (LETT |ans| (CONS 1 "failed"))
              (SETELT $ 14
                      (SPADCALL
                       (SPADCALL (|spadConstant| $ 10) 1 (QREFELT $ 13))
@@ -40,8 +34,7 @@
              (SEQ G190 (COND ((NULL (QEQCAR |ans| 1)) (GO G191)))
                   (SEQ
                    (LETT |ans|
-                         (SPADCALL |deg| (QREFELT $ 14) |lp| (QREFELT $ 23))
-                         . #9#)
+                         (SPADCALL |deg| (QREFELT $ 14) |lp| (QREFELT $ 23)))
                    (EXIT
                     (COND
                      ((QEQCAR |ans| 1)
@@ -50,12 +43,11 @@
                                (PROG2
                                    (LETT #2#
                                          (SPADCALL (QREFELT $ 14)
-                                                   (QREFELT $ 25))
-                                         . #9#)
+                                                   (QREFELT $ 25)))
                                    (QCDR #2#)
                                  (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
                                                  (|Union| (QREFELT $ 7)
-                                                          #10="failed")
+                                                          #9="failed")
                                                  #2#)))
                        (EXIT
                         (SEQ G190
@@ -75,19 +67,18 @@
                                        (PROG2
                                            (LETT #2#
                                                  (SPADCALL (QREFELT $ 14)
-                                                           (QREFELT $ 25))
-                                                 . #9#)
+                                                           (QREFELT $ 25)))
                                            (QCDR #2#)
                                          (|check_union2| (QEQCAR #2# 0)
                                                          (QREFELT $ 7)
                                                          (|Union| (QREFELT $ 7)
-                                                                  #10#)
+                                                                  #9#)
                                                          #2#)))))
                              NIL (GO G190) G191 (EXIT NIL))))))))
                   NIL (GO G190) G191 (EXIT NIL))
              (EXIT
               (SETELT $ 15
-                      (PROG2 (LETT #1# |ans| . #9#)
+                      (PROG2 (LETT #1# |ans|)
                           (QCDR #1#)
                         (|check_union2| (QEQCAR #1# 0)
                                         (|Vector| (|List| (QREFELT $ 8)))
@@ -95,8 +86,7 @@
                                          (|Vector| (|List| (QREFELT $ 8))) #3#)
                                         #1#)))))))
           (LETT |answer|
-                (SPADCALL |p| (QREFELT $ 14) (QREFELT $ 15) (QREFELT $ 32))
-                . #9#)
+                (SPADCALL |p| (QREFELT $ 14) (QREFELT $ 15) (QREFELT $ 32)))
           (EXIT |answer|)))) 
 
 (DECLAIM (NOTINLINE |FiniteFieldSolveLinearPolynomialEquation;|)) 
@@ -110,8 +100,7 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FiniteFieldSolveLinearPolynomialEquation|)
-                                               '|domainEqualList|)
-                    . #3=(|FiniteFieldSolveLinearPolynomialEquation|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -119,7 +108,7 @@
                       (APPLY
                        (|function| |FiniteFieldSolveLinearPolynomialEquation;|)
                        #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -128,17 +117,15 @@
 (DEFUN |FiniteFieldSolveLinearPolynomialEquation;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|FiniteFieldSolveLinearPolynomialEquation|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$|
                 (LIST '|FiniteFieldSolveLinearPolynomialEquation| DV$1 DV$2
-                      DV$3)
-                . #1#)
-          (LETT $ (GETREFV 34) . #1#)
+                      DV$3))
+          (LETT $ (GETREFV 34))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
                       '|FiniteFieldSolveLinearPolynomialEquation|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))

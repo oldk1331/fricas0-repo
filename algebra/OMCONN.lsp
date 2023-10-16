@@ -37,8 +37,7 @@
          (PROG (#1=#:G111)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|OpenMathConnection|)
-                    . #2=(|OpenMathConnection|))
+             ((LETT #1# (HGET |$ConstructorCache| '|OpenMathConnection|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -47,7 +46,7 @@
                        (HPUT |$ConstructorCache| '|OpenMathConnection|
                              (LIST
                               (CONS NIL (CONS 1 (|OpenMathConnection;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|OpenMathConnection|)))))))))) 
@@ -55,10 +54,10 @@
 (DEFUN |OpenMathConnection;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|OpenMathConnection|) . #1=(|OpenMathConnection|))
-          (LETT $ (GETREFV 17) . #1#)
+          (LETT |dv$| '(|OpenMathConnection|))
+          (LETT $ (GETREFV 17))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|OpenMathConnection| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

@@ -10,13 +10,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FiniteFieldExtension|)
-                                               '|domainEqualList|)
-                    . #3=(|FiniteFieldExtension|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |FiniteFieldExtension;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|FiniteFieldExtension|)))))))))) 
@@ -25,10 +24,10 @@
   (SPROG
    ((|pv$| NIL) (#1=#:G141 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldExtension|))
-    (LETT DV$2 (|devaluate| |#2|) . #2#)
-    (LETT |dv$| (LIST '|FiniteFieldExtension| DV$1 DV$2) . #2#)
-    (LETT $ (GETREFV 50) . #2#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT |dv$| (LIST '|FiniteFieldExtension| DV$1 DV$2))
+    (LETT $ (GETREFV 50))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -37,13 +36,11 @@
                                         (|HasCategory| |#1|
                                                        '(|CharacteristicZero|))
                                         (LETT #1#
-                                              (|HasCategory| |#1| '(|Finite|))
-                                              . #2#)
+                                              (|HasCategory| |#1| '(|Finite|)))
                                         (OR
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicNonZero|))
-                                         #1#)))
-                    . #2#))
+                                         #1#)))))
     (|haddProp| |$ConstructorCache| '|FiniteFieldExtension| (LIST DV$1 DV$2)
                 (CONS 1 $))
     (|stuffDomainSlots| $)

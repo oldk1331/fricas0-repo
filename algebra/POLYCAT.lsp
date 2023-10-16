@@ -139,7 +139,5 @@
                                      ((|PolynomialFactorizationExplicit|)
                                       (|has| |t#1|
                                              (|PolynomialFactorizationExplicit|))))
-                                   NIL NIL))
-                                 . #2=(|PolynomialCategory|)))))
-                   . #2#)
+                                   NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PolynomialCategory| |t#1| |t#2| |t#3|))))) 

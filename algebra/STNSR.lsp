@@ -14,9 +14,9 @@
 
 (SDEFUN |STNSR;tensorMap;SMS;1!0| (($$ NIL))
         (PROG (|s| $ |f|)
-          (LETT |s| (QREFELT $$ 2) . #1=(|STNSR;tensorMap;SMS;1|))
-          (LETT $ (QREFELT $$ 1) . #1#)
-          (LETT |f| (QREFELT $$ 0) . #1#)
+          (LETT |s| (QREFELT $$ 2))
+          (LETT $ (QREFELT $$ 1))
+          (LETT |f| (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL (SPADCALL |s| (QREFELT $ 14)) |f| (QREFELT $ 16)))))) 
@@ -32,22 +32,21 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|StreamTensor|)
-                                               '|domainEqualList|)
-                    . #3=(|StreamTensor|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|StreamTensor;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|StreamTensor;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|StreamTensor|)))))))))) 
 
 (DEFUN |StreamTensor;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|StreamTensor|))
-          (LETT |dv$| (LIST '|StreamTensor| DV$1) . #1#)
-          (LETT $ (GETREFV 20) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|StreamTensor| DV$1))
+          (LETT $ (GETREFV 20))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|StreamTensor| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

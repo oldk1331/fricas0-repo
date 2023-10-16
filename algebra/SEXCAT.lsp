@@ -54,8 +54,6 @@
                                             ((|elt| ($ $ (|Integer|))) T)
                                             ((|elt| ($ $ (|List| (|Integer|))))
                                              T))
-                                          NIL NIL NIL))
-                                 . #2=(|SExpressionCategory|)))))
-                   . #2#)
+                                          NIL NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|SExpressionCategory| |t#1| |t#2| |t#3| |t#4|))))) 

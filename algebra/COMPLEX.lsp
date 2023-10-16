@@ -95,11 +95,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Complex|)
-                                               '|domainEqualList|)
-                    . #3=(|Complex|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Complex;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Complex;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Complex|)))))))))) 
 
 (DEFUN |Complex;| (|#1|)
@@ -107,9 +106,9 @@
    ((|pv$| NIL) (#1=#:G2503 NIL) (#2=#:G2504 NIL) (#3=#:G2505 NIL)
     (#4=#:G2506 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #5=(|Complex|))
-    (LETT |dv$| (LIST '|Complex| DV$1) . #5#)
-    (LETT $ (GETREFV 97) . #5#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|Complex| DV$1))
+    (LETT $ (GETREFV 97))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -120,8 +119,7 @@
                                         (|HasCategory| |#1|
                                                        '(|FiniteFieldCategory|))
                                         (LETT #4#
-                                              (|HasCategory| |#1| '(|Field|))
-                                              . #5#)
+                                              (|HasCategory| |#1| '(|Field|)))
                                         (OR #4#
                                             (|HasCategory| |#1|
                                                            '(|FiniteFieldCategory|)))
@@ -144,8 +142,7 @@
                                                        '(|EuclideanDomain|))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|TranscendentalFunctionCategory|))
-                                              . #5#)
+                                                             '(|TranscendentalFunctionCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         '(|RadicalCategory|))
@@ -215,8 +212,7 @@
                                          #3#)
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|IntegerNumberSystem|))
-                                              . #5#)
+                                                             '(|IntegerNumberSystem|)))
                                         (OR
                                          (|HasCategory| |#1|
                                                         '(|EuclideanDomain|))
@@ -235,8 +231,7 @@
                                          #2#)
                                         (LETT #1#
                                               (|HasCategory| |#1|
-                                                             '(|PolynomialFactorizationExplicit|))
-                                              . #5#)
+                                                             '(|PolynomialFactorizationExplicit|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -271,8 +266,7 @@
                                                          '(|EuclideanDomain|))
                                           #1#)
                                          (|HasCategory| |#1|
-                                                        '(|IntegralDomain|)))))
-                    . #5#))
+                                                        '(|IntegralDomain|)))))))
     (|haddProp| |$ConstructorCache| '|Complex| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)

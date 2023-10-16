@@ -25,43 +25,40 @@
           (|k| (|Kernel| (|Expression| R))))
          (SEQ
           (EXIT
-           (SEQ
-            (LETT |k| (SPADCALL |x| (QREFELT $ 19)) . #4=(|DEFINTRF;nopole|))
-            (LETT |u| (SPADCALL |f| |x| (QREFELT $ 22)) . #4#)
-            (EXIT
-             (COND
-              ((QEQCAR |u| 0)
-               (SEQ
-                (LETT |v| (SPADCALL |k| (QCDR |u|) |a| |b| 'T (QREFELT $ 27))
-                      . #4#)
+           (SEQ (LETT |k| (SPADCALL |x| (QREFELT $ 19)))
+                (LETT |u| (SPADCALL |f| |x| (QREFELT $ 22)))
                 (EXIT
-                 (COND ((QEQCAR |v| 1) (CONS 2 #1#))
-                       (#5='T (CONS 0 (QCDR |v|)))))))
-              (#5#
-               (SEQ (LETT |ans| NIL . #4#)
-                    (SEQ (LETT |g| NIL . #4#) (LETT #3# (QCDR |u|) . #4#) G190
-                         (COND
-                          ((OR (ATOM #3#)
-                               (PROGN (LETT |g| (CAR #3#) . #4#) NIL))
-                           (GO G191)))
-                         (SEQ
-                          (LETT |v|
-                                (SPADCALL |k| |g| |a| |b| 'T (QREFELT $ 27))
-                                . #4#)
-                          (EXIT
-                           (COND
-                            ((QEQCAR |v| 1)
-                             (PROGN
-                              (LETT #2# (CONS 2 #1#) . #4#)
-                              (GO #6=#:G128)))
-                            ('T
-                             (LETT |ans|
-                                   (SPADCALL |ans| (LIST (QCDR |v|))
-                                             (QREFELT $ 29))
-                                   . #4#)))))
-                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
-                    (EXIT (CONS 1 |ans|))))))))
-          #6# (EXIT #2#)))) 
+                 (COND
+                  ((QEQCAR |u| 0)
+                   (SEQ
+                    (LETT |v|
+                          (SPADCALL |k| (QCDR |u|) |a| |b| 'T (QREFELT $ 27)))
+                    (EXIT
+                     (COND ((QEQCAR |v| 1) (CONS 2 #1#))
+                           (#4='T (CONS 0 (QCDR |v|)))))))
+                  (#4#
+                   (SEQ (LETT |ans| NIL)
+                        (SEQ (LETT |g| NIL) (LETT #3# (QCDR |u|)) G190
+                             (COND
+                              ((OR (ATOM #3#) (PROGN (LETT |g| (CAR #3#)) NIL))
+                               (GO G191)))
+                             (SEQ
+                              (LETT |v|
+                                    (SPADCALL |k| |g| |a| |b| 'T
+                                              (QREFELT $ 27)))
+                              (EXIT
+                               (COND
+                                ((QEQCAR |v| 1)
+                                 (PROGN
+                                  (LETT #2# (CONS 2 #1#))
+                                  (GO #5=#:G128)))
+                                ('T
+                                 (LETT |ans|
+                                       (SPADCALL |ans| (LIST (QCDR |v|))
+                                                 (QREFELT $ 29)))))))
+                             (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
+                        (EXIT (CONS 1 |ans|))))))))
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |DEFINTRF;integrate;FSbU;3|
         ((|f| |Fraction| (|Polynomial| R))
@@ -124,8 +121,7 @@
                   (SEQ
                    (LETT |z|
                          (SPADCALL (SPADCALL |f| (QREFELT $ 50)) |x| |a| |b| 'T
-                                   (QREFELT $ 52))
-                         |DEFINTRF;int|)
+                                   (QREFELT $ 52)))
                    (EXIT
                     (COND
                      ((QEQCAR |z| 1)
@@ -146,13 +142,12 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|RationalFunctionDefiniteIntegration|)
-                                               '|domainEqualList|)
-                    . #3=(|RationalFunctionDefiniteIntegration|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (|RationalFunctionDefiniteIntegration;| #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -161,12 +156,11 @@
 (DEFUN |RationalFunctionDefiniteIntegration;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|RationalFunctionDefiniteIntegration|))
-          (LETT |dv$| (LIST '|RationalFunctionDefiniteIntegration| DV$1) . #1#)
-          (LETT $ (GETREFV 53) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|RationalFunctionDefiniteIntegration| DV$1))
+          (LETT $ (GETREFV 53))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
                       '|RationalFunctionDefiniteIntegration| (LIST DV$1)
                       (CONS 1 $))

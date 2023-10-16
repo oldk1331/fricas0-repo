@@ -96,8 +96,7 @@
                                 T)
                                ((|numIndVar| ((|PositiveInteger|))) T)
                                ((|numDepVar| ((|PositiveInteger|))) T))
-                             NIL NIL NIL)))
-                   |JetBundleCategory|)
+                             NIL NIL NIL))))
            (SETELT #1# 0 '(|JetBundleCategory|))))) 
 
 (MAKEPROP '|JetBundleCategory| 'NILADIC T) 

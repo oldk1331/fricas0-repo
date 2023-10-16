@@ -35,7 +35,5 @@
                                             ((|degree| (|t#2| $)) T)
                                             ((|pole?| ((|Boolean|) $)) T)
                                             ((|complete| ($ $)) T))
-                                          NIL NIL NIL))
-                                 . #2=(|PowerSeriesCategory|)))))
-                   . #2#)
+                                          NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PowerSeriesCategory| |t#1| |t#2| |t#3|))))) 

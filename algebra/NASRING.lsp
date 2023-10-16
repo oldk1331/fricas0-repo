@@ -12,8 +12,7 @@
          (PROG1
              (LETT #1#
                    (|Join| (|NonAssociativeSemiRng|) (|AbelianMonoid|)
-                           (|MagmaWithUnit|))
-                   |NonAssociativeSemiRing|)
+                           (|MagmaWithUnit|)))
            (SETELT #1# 0 '(|NonAssociativeSemiRing|))))) 
 
 (MAKEPROP '|NonAssociativeSemiRing| 'NILADIC T) 

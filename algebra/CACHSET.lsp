@@ -16,8 +16,7 @@
                               ((|setPosition|
                                 ((|Void|) $ (|NonNegativeInteger|)))
                                T))
-                            NIL NIL NIL))
-                   |CachableSet|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|CachableSet|))))) 
 
 (MAKEPROP '|CachableSet| 'NILADIC T) 

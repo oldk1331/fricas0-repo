@@ -39,15 +39,13 @@
                   (SEQ
                    (COND
                     ((SPADCALL (SPADCALL |y| (QREFELT $ 11)) (QREFELT $ 30))
-                     (LETT |aout| (SPADCALL (QREFELT $ 7) (QREFELT $ 29))
-                           . #2=(|DIHGRP;coerce;$Of;9|)))
+                     (LETT |aout| (SPADCALL (QREFELT $ 7) (QREFELT $ 29))))
                     (#1#
                      (LETT |aout|
                            (SPADCALL (SPADCALL (QREFELT $ 7) (QREFELT $ 29))
                                      (SPADCALL (SPADCALL |y| (QREFELT $ 11))
                                                (QREFELT $ 31))
-                                     (QREFELT $ 32))
-                           . #2#)))
+                                     (QREFELT $ 32)))))
                    (EXIT
                     (COND
                      ((SPADCALL (SPADCALL |y| (QREFELT $ 13)) (QREFELT $ 24))
@@ -130,16 +128,15 @@
                  ((SPADCALL |i| (* 2 (QREFELT $ 6)) (QREFELT $ 55))
                   (|error| "out of range"))
                  (#1='T
-                  (SEQ
-                   (LETT |imodn| (SPADCALL (- |i| 1) (QREFELT $ 56))
-                         |DIHGRP;index;Pi$;17|)
-                   (EXIT
-                    (COND
-                     ((SPADCALL |i| (QREFELT $ 6) (QREFELT $ 55))
-                      (|DIHGRP;per| (CONS |imodn| (|spadConstant| $ 36)) $))
-                     (#1#
-                      (|DIHGRP;per| (CONS |imodn| (|spadConstant| $ 20))
-                       $)))))))))) 
+                  (SEQ (LETT |imodn| (SPADCALL (- |i| 1) (QREFELT $ 56)))
+                       (EXIT
+                        (COND
+                         ((SPADCALL |i| (QREFELT $ 6) (QREFELT $ 55))
+                          (|DIHGRP;per| (CONS |imodn| (|spadConstant| $ 36))
+                           $))
+                         (#1#
+                          (|DIHGRP;per| (CONS |imodn| (|spadConstant| $ 20))
+                           $)))))))))) 
 
 (SDEFUN |DIHGRP;lookup;$Pi;18| ((|x| $) ($ |PositiveInteger|))
         (SPROG ((|xa| (|PositiveInteger|)))
@@ -151,8 +148,7 @@
                       (SPADCALL (QREFELT $ 6)
                                 (SPADCALL (SPADCALL |x| (QREFELT $ 13))
                                           (QREFELT $ 17))
-                                (QREFELT $ 58)))
-                     |DIHGRP;lookup;$Pi;18|))) 
+                                (QREFELT $ 58)))))) 
 
 (SDEFUN |DIHGRP;enumerate;L;19| (($ |List| $))
         (SPROG
@@ -161,8 +157,8 @@
          (SEQ
           (SPADCALL
            (PROGN
-            (LETT #4# NIL . #5=(|DIHGRP;enumerate;L;19|))
-            (SEQ (LETT |k| 0 . #5#) (LETT #3# (- (QREFELT $ 6) 1) . #5#) G190
+            (LETT #4# NIL)
+            (SEQ (LETT |k| 0) (LETT #3# (- (QREFELT $ 6) 1)) G190
                  (COND ((|greater_SI| |k| #3#) (GO G191)))
                  (SEQ
                   (EXIT
@@ -172,13 +168,12 @@
                            (CONS (SPADCALL |k| (QREFELT $ 56))
                                  (|spadConstant| $ 20))
                            $)
-                          #4#)
-                         . #5#)))
-                 (LETT |k| (|inc_SI| |k|) . #5#) (GO G190) G191
+                          #4#))))
+                 (LETT |k| (|inc_SI| |k|)) (GO G190) G191
                  (EXIT (NREVERSE #4#))))
            (PROGN
-            (LETT #2# NIL . #5#)
-            (SEQ (LETT |k| 0 . #5#) (LETT #1# (- (QREFELT $ 6) 1) . #5#) G190
+            (LETT #2# NIL)
+            (SEQ (LETT |k| 0) (LETT #1# (- (QREFELT $ 6) 1)) G190
                  (COND ((|greater_SI| |k| #1#) (GO G191)))
                  (SEQ
                   (EXIT
@@ -188,9 +183,8 @@
                            (CONS (SPADCALL |k| (QREFELT $ 56))
                                  (|spadConstant| $ 36))
                            $)
-                          #2#)
-                         . #5#)))
-                 (LETT |k| (|inc_SI| |k|) . #5#) (GO G190) G191
+                          #2#))))
+                 (LETT |k| (|inc_SI| |k|)) (GO G190) G191
                  (EXIT (NREVERSE #2#))))
            (QREFELT $ 61))))) 
 
@@ -205,26 +199,25 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|DihedralGroup|)
-                                               '|domainEqualList|)
-                    . #3=(|DihedralGroup|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |DihedralGroup;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|DihedralGroup|)))))))))) 
 
 (DEFUN |DihedralGroup;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|DihedralGroup|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|DihedralGroup| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 68) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|DihedralGroup| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 68))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DihedralGroup|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))
           (|stuffDomainSlots| $)

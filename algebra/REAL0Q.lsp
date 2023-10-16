@@ -6,22 +6,20 @@
                 (LETT |pden|
                       (SPADCALL
                        (PROGN
-                        (LETT #2# NIL . #3=(|REAL0Q;convert2PolInt|))
-                        (SEQ (LETT |c| NIL . #3#)
-                             (LETT #1# (SPADCALL |f| (QREFELT $ 8)) . #3#) G190
+                        (LETT #2# NIL)
+                        (SEQ (LETT |c| NIL)
+                             (LETT #1# (SPADCALL |f| (QREFELT $ 8))) G190
                              (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |c| (CAR #1#) . #3#) NIL))
+                              ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#)) NIL))
                                (GO G191)))
                              (SEQ
                               (EXIT
                                (LETT #2#
-                                     (CONS (SPADCALL |c| (QREFELT $ 11)) #2#)
-                                     . #3#)))
-                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                                     (CONS (SPADCALL |c| (QREFELT $ 11))
+                                           #2#))))
+                             (LETT #1# (CDR #1#)) (GO G190) G191
                              (EXIT (NREVERSE #2#))))
-                       (QREFELT $ 13))
-                      . #3#)
+                       (QREFELT $ 13)))
                 (EXIT
                  (SPADCALL (ELT $ 14) (SPADCALL |pden| |f| (QREFELT $ 15))
                            (QREFELT $ 19)))))) 
@@ -92,12 +90,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|RealZeroPackageQ|)
-                                               '|domainEqualList|)
-                    . #3=(|RealZeroPackageQ|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|RealZeroPackageQ;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|RealZeroPackageQ;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|RealZeroPackageQ|)))))))))) 
@@ -105,11 +101,11 @@
 (DEFUN |RealZeroPackageQ;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|RealZeroPackageQ|))
-          (LETT |dv$| (LIST '|RealZeroPackageQ| DV$1) . #1#)
-          (LETT $ (GETREFV 36) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|RealZeroPackageQ| DV$1))
+          (LETT $ (GETREFV 36))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RealZeroPackageQ| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

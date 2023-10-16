@@ -13,8 +13,7 @@
              (LETT #1#
                    (|Join| (|StringAggregate|) (|SetCategory|) (|OpenMath|)
                            (|mkCategory| '(((|string| ($ (|Integer|))) T)) NIL
-                                         NIL NIL))
-                   |StringCategory|)
+                                         NIL NIL)))
            (SETELT #1# 0 '(|StringCategory|))))) 
 
 (MAKEPROP '|StringCategory| 'NILADIC T) 

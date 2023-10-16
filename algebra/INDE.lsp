@@ -13,23 +13,19 @@
                       ('T
                        (SPADCALL (ELT $ 16)
                                  (PROGN
-                                  (LETT #2# NIL . #3=(|INDE;coerce;$Of;2|))
-                                  (SEQ (LETT |t| NIL . #3#)
-                                       (LETT #1# |x| . #3#) G190
+                                  (LETT #2# NIL)
+                                  (SEQ (LETT |t| NIL) (LETT #1# |x|) G190
                                        (COND
                                         ((OR (ATOM #1#)
-                                             (PROGN
-                                              (LETT |t| (CAR #1#) . #3#)
-                                              NIL))
+                                             (PROGN (LETT |t| (CAR #1#)) NIL))
                                          (GO G191)))
                                        (SEQ
                                         (EXIT
                                          (LETT #2#
                                                (CONS (|INDE;coerceOF| |t| $)
-                                                     #2#)
-                                               . #3#)))
-                                       (LETT #1# (CDR #1#) . #3#) (GO G190)
-                                       G191 (EXIT (NREVERSE #2#))))
+                                                     #2#))))
+                                       (LETT #1# (CDR #1#)) (GO G190) G191
+                                       (EXIT (NREVERSE #2#))))
                                  (QREFELT $ 19))))))) 
 
 (DECLAIM (NOTINLINE |IndexedExponents;|)) 
@@ -43,12 +39,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|IndexedExponents|)
-                                               '|domainEqualList|)
-                    . #3=(|IndexedExponents|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|IndexedExponents;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|IndexedExponents;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|IndexedExponents|)))))))))) 
@@ -56,9 +50,9 @@
 (DEFUN |IndexedExponents;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|IndexedExponents|))
-          (LETT |dv$| (LIST '|IndexedExponents| DV$1) . #1#)
-          (LETT $ (GETREFV 30) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|IndexedExponents| DV$1))
+          (LETT $ (GETREFV 30))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -68,8 +62,7 @@
                                                (|NonNegativeInteger|)
                                                '(|AbelianGroup|))
                                               (|HasCategory| |#1|
-                                                             '(|Comparable|))))
-                          . #1#))
+                                                             '(|Comparable|))))))
           (|haddProp| |$ConstructorCache| '|IndexedExponents| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

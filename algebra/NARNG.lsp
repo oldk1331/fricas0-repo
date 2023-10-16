@@ -15,8 +15,7 @@
                            (|mkCategory|
                             '(((|associator| ($ $ $ $)) T)
                               ((|commutator| ($ $ $)) T))
-                            NIL NIL NIL))
-                   |NonAssociativeRng|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|NonAssociativeRng|))))) 
 
 (MAKEPROP '|NonAssociativeRng| 'NILADIC T) 

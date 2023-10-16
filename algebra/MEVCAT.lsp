@@ -55,6 +55,5 @@
                                      (|Polynomial| (|Integer|)) (|List| |t#2|)
                                      (|Symbol|) (|List| (|Symbol|))))
                                    T))
-                                NIL NIL NIL)))
-                   |ModularEvaluationCategory|)
+                                NIL NIL NIL))))
            (SETELT #1# 0 (LIST '|ModularEvaluationCategory| |t#1| |t#2|))))) 

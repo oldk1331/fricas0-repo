@@ -33,13 +33,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|AssociatedJordanAlgebra|)
-                                               '|domainEqualList|)
-                    . #3=(|AssociatedJordanAlgebra|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |AssociatedJordanAlgebra;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|AssociatedJordanAlgebra|)))))))))) 
@@ -48,10 +47,10 @@
   (SPROG
    ((#1=#:G106 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #2=(|AssociatedJordanAlgebra|))
-    (LETT DV$2 (|devaluate| |#2|) . #2#)
-    (LETT |dv$| (LIST '|AssociatedJordanAlgebra| DV$1 DV$2) . #2#)
-    (LETT $ (GETREFV 43) . #2#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT |dv$| (LIST '|AssociatedJordanAlgebra| DV$1 DV$2))
+    (LETT $ (GETREFV 43))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -101,8 +100,7 @@
                                                             (LIST
                                                              '|FramedNonAssociativeAlgebra|
                                                              (|devaluate|
-                                                              |#1|))))))
-                    . #2#))
+                                                              |#1|))))))))
     (|haddProp| |$ConstructorCache| '|AssociatedJordanAlgebra| (LIST DV$1 DV$2)
                 (CONS 1 $))
     (|stuffDomainSlots| $)
@@ -115,10 +113,9 @@
               (SPADCALL (|spadConstant| $ 9) (|spadConstant| $ 9)
                         (QREFELT $ 10)))
     (QSETREFV $ 14
-              (PROG2
-                  (LETT #1# #3=(SPADCALL (QREFELT $ 11) (QREFELT $ 13)) . #2#)
+              (PROG2 (LETT #1# #2=(SPADCALL (QREFELT $ 11) (QREFELT $ 13)))
                   (QCDR #1#)
-                (|check_union2| (QEQCAR #1# 0) #3# (|Union| #3# "failed")
+                (|check_union2| (QEQCAR #1# 0) #2# (|Union| #2# "failed")
                                 #1#)))
     $))) 
 

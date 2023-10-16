@@ -48,11 +48,10 @@
          (SEQ
           (SPADCALL |x|
                     (PROGN
-                     (LETT #4# NIL . #5=(|RF;eval;FLF;9|))
-                     (SEQ (LETT |eq| NIL . #5#) (LETT #3# |l| . #5#) G190
+                     (LETT #4# NIL)
+                     (SEQ (LETT |eq| NIL) (LETT #3# |l|) G190
                           (COND
-                           ((OR (ATOM #3#)
-                                (PROGN (LETT |eq| (CAR #3#) . #5#) NIL))
+                           ((OR (ATOM #3#) (PROGN (LETT |eq| (CAR #3#)) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
@@ -60,22 +59,20 @@
                                   (CONS
                                    (SPADCALL (SPADCALL |eq| (QREFELT $ 35))
                                              (QREFELT $ 36))
-                                   #4#)
-                                  . #5#)))
-                          (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                                   #4#))))
+                          (LETT #3# (CDR #3#)) (GO G190) G191
                           (EXIT (NREVERSE #4#))))
                     (PROGN
-                     (LETT #2# NIL . #5#)
-                     (SEQ (LETT |eq| NIL . #5#) (LETT #1# |l| . #5#) G190
+                     (LETT #2# NIL)
+                     (SEQ (LETT |eq| NIL) (LETT #1# |l|) G190
                           (COND
-                           ((OR (ATOM #1#)
-                                (PROGN (LETT |eq| (CAR #1#) . #5#) NIL))
+                           ((OR (ATOM #1#) (PROGN (LETT |eq| (CAR #1#)) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
-                            (LETT #2# (CONS (SPADCALL |eq| (QREFELT $ 37)) #2#)
-                                  . #5#)))
-                          (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                            (LETT #2#
+                                  (CONS (SPADCALL |eq| (QREFELT $ 37)) #2#))))
+                          (LETT #1# (CDR #1#)) (GO G190) G191
                           (EXIT (NREVERSE #2#))))
                     (QREFELT $ 26))))) 
 
@@ -97,9 +94,9 @@
 
 (SDEFUN |RF;peval!0| ((|z1| NIL) ($$ NIL))
         (PROG (|ls| |lv| $)
-          (LETT |ls| (QREFELT $$ 2) . #1=(|RF;peval|))
-          (LETT |lv| (QREFELT $$ 1) . #1#)
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |ls| (QREFELT $$ 2))
+          (LETT |lv| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|RF;foo| |ls| |lv| |z1| $))))) 
 
 (DECLAIM (NOTINLINE |RationalFunction;|)) 
@@ -113,12 +110,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|RationalFunction|)
-                                               '|domainEqualList|)
-                    . #3=(|RationalFunction|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|RationalFunction;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|RationalFunction;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|RationalFunction|)))))))))) 
@@ -126,11 +121,11 @@
 (DEFUN |RationalFunction;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalFunction|))
-          (LETT |dv$| (LIST '|RationalFunction| DV$1) . #1#)
-          (LETT $ (GETREFV 45) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|RationalFunction| DV$1))
+          (LETT $ (GETREFV 45))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RationalFunction| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

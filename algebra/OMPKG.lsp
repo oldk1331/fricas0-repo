@@ -15,22 +15,18 @@
                (SEQ
                 (LETT |dev|
                       (SPADCALL |filename| "r" (SPADCALL (QREFELT $ 17))
-                                (QREFELT $ 18))
-                      . #1=(|OMPKG;OMreadFile;SA;3|))
-                (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 13)) . #1#)
+                                (QREFELT $ 18)))
+                (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 13)))
                 (SPADCALL |dev| (QREFELT $ 20)) (EXIT |res|)))) 
 
 (SDEFUN |OMPKG;OMreadStr;SA;4| ((|str| |String|) ($ |Any|))
         (SPROG ((|res| (|Any|)) (|dev| (|OpenMathDevice|)) (|strp| (|None|)))
-               (SEQ
-                (LETT |strp| (OM-STRINGTOSTRINGPTR |str|)
-                      . #1=(|OMPKG;OMreadStr;SA;4|))
-                (LETT |dev|
-                      (SPADCALL |strp| (SPADCALL (QREFELT $ 17))
-                                (QREFELT $ 22))
-                      . #1#)
-                (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 13)) . #1#)
-                (SPADCALL |dev| (QREFELT $ 20)) (EXIT |res|)))) 
+               (SEQ (LETT |strp| (OM-STRINGTOSTRINGPTR |str|))
+                    (LETT |dev|
+                          (SPADCALL |strp| (SPADCALL (QREFELT $ 17))
+                                    (QREFELT $ 22)))
+                    (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 13)))
+                    (SPADCALL |dev| (QREFELT $ 20)) (EXIT |res|)))) 
 
 (PUT '|OMPKG;OMlistCDs;L;5| '|SPADreplace| 'OM-LISTCDS) 
 
@@ -55,8 +51,7 @@
          (PROG (#1=#:G119)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|OpenMathPackage|)
-                    . #2=(|OpenMathPackage|))
+             ((LETT #1# (HGET |$ConstructorCache| '|OpenMathPackage|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -64,7 +59,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|OpenMathPackage|
                              (LIST (CONS NIL (CONS 1 (|OpenMathPackage;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|OpenMathPackage|)))))))))) 
@@ -72,10 +67,10 @@
 (DEFUN |OpenMathPackage;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|OpenMathPackage|) . #1=(|OpenMathPackage|))
-          (LETT $ (GETREFV 32) . #1#)
+          (LETT |dv$| '(|OpenMathPackage|))
+          (LETT $ (GETREFV 32))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|OpenMathPackage| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

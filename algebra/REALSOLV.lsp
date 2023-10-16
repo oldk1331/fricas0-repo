@@ -37,8 +37,7 @@
          (PROG (#1=#:G112)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|RealSolvePackage|)
-                    . #2=(|RealSolvePackage|))
+             ((LETT #1# (HGET |$ConstructorCache| '|RealSolvePackage|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -46,7 +45,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|RealSolvePackage|
                              (LIST (CONS NIL (CONS 1 (|RealSolvePackage;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|RealSolvePackage|)))))))))) 
@@ -54,10 +53,10 @@
 (DEFUN |RealSolvePackage;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|RealSolvePackage|) . #1=(|RealSolvePackage|))
-          (LETT $ (GETREFV 37) . #1#)
+          (LETT |dv$| '(|RealSolvePackage|))
+          (LETT $ (GETREFV 37))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RealSolvePackage| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

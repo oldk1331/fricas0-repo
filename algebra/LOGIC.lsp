@@ -13,8 +13,7 @@
                            (|mkCategory|
                             '(((~ ($ $)) T) ((|true| ($) |constant|) T)
                               ((|false| ($) |constant|) T))
-                            NIL NIL NIL))
-                   |Logic|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|Logic|))))) 
 
 (MAKEPROP '|Logic| 'NILADIC T) 

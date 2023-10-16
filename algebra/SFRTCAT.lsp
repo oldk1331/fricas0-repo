@@ -36,9 +36,7 @@
                                  (|Join|
                                   (|RegularTriangularSetCategory| '|t#1| '|t#2|
                                                                   '|t#3|
-                                                                  '|t#4|))
-                                 . #2=(|SquareFreeRegularTriangularSetCategory|)))))
-                   . #2#)
+                                                                  '|t#4|)))))))
            (SETELT #1# 0
                    (LIST '|SquareFreeRegularTriangularSetCategory| |t#1| |t#2|
                          |t#3| |t#4|))))) 

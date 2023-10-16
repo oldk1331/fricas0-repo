@@ -29,11 +29,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Vector|)
-                                               '|domainEqualList|)
-                    . #3=(|Vector|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Vector;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Vector;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Vector|)))))))))) 
 
 (DEFUN |Vector;| (|#1|)
@@ -41,9 +40,9 @@
    ((|pv$| NIL) (#1=#:G2070 NIL) (#2=#:G2071 NIL) (#3=#:G2072 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #4=(|Vector|))
-    (LETT |dv$| (LIST '|Vector| DV$1) . #4#)
-    (LETT $ (GETREFV 38) . #4#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|Vector| DV$1))
+    (LETT $ (GETREFV 38))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -58,15 +57,13 @@
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|Comparable|))
-                                              . #4#)
+                                                             '(|Comparable|)))
                                         (OR #3#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|)))
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -85,8 +82,7 @@
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #1# #3#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
@@ -104,8 +100,7 @@
                                         (AND
                                          (|HasCategory| |#1|
                                                         '(|RadicalCategory|))
-                                         (|HasCategory| |#1| '(|Ring|)))))
-                    . #4#))
+                                         (|HasCategory| |#1| '(|Ring|)))))))
     (|haddProp| |$ConstructorCache| '|Vector| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)

@@ -1544,12 +1544,6 @@
        (PROGN (SETQ |$conslist| (CONS (CONS |target| T) |$conslist|)) NIL))))))
  
 ; updateCategoryTable(cname,kind) ==
-;   $updateCatTableIfTrue =>
-;     kind = 'package => nil
-;     kind = 'category => updateCategoryTableForCategory(cname)
-;     updateCategoryTableForDomain(cname,getConstrCat(
-;       GETDATABASE(cname,'CONSTRUCTORCATEGORY)))
-; --+
 ;   kind = 'domain =>
 ;     updateCategoryTableForDomain(cname,getConstrCat(
 ;       GETDATABASE(cname,'CONSTRUCTORCATEGORY)))
@@ -1558,49 +1552,10 @@
   (PROG ()
     (RETURN
      (COND
-      (|$updateCatTableIfTrue|
-       (COND ((EQ |kind| '|package|) NIL)
-             ((EQ |kind| '|category|)
-              (|updateCategoryTableForCategory| |cname|))
-             ('T
-              (|updateCategoryTableForDomain| |cname|
-               (|getConstrCat| (GETDATABASE |cname| 'CONSTRUCTORCATEGORY))))))
       ((EQ |kind| '|domain|)
-       (|updateCategoryTableForDomain| |cname|
-        (|getConstrCat| (GETDATABASE |cname| 'CONSTRUCTORCATEGORY))))))))
- 
-; updateCategoryTableForCategory(cname) ==
-;   clearTempCategoryTable([[cname,'category]])
-;   addToCategoryTable(cname)
-;   for id in HKEYS $ancestors_hash repeat
-;       for (u:=[.,:b]) in GETDATABASE(id,'ANCESTORS) repeat
-;         RPLACD(u,simpCatPredicate simpBool b)
- 
-(DEFUN |updateCategoryTableForCategory| (|cname|)
-  (PROG (|b|)
-    (RETURN
-     (PROGN
-      (|clearTempCategoryTable| (LIST (LIST |cname| '|category|)))
-      (|addToCategoryTable| |cname|)
-      ((LAMBDA (|bfVar#67| |id|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#67|) (PROGN (SETQ |id| (CAR |bfVar#67|)) NIL))
-            (RETURN NIL))
-           (#1='T
-            ((LAMBDA (|bfVar#68| |u|)
-               (LOOP
-                (COND
-                 ((OR (ATOM |bfVar#68|)
-                      (PROGN (SETQ |u| (CAR |bfVar#68|)) NIL))
-                  (RETURN NIL))
-                 (#1#
-                  (AND (CONSP |u|) (PROGN (SETQ |b| (CDR |u|)) #1#)
-                       (RPLACD |u| (|simpCatPredicate| (|simpBool| |b|))))))
-                (SETQ |bfVar#68| (CDR |bfVar#68|))))
-             (GETDATABASE |id| 'ANCESTORS) NIL)))
-          (SETQ |bfVar#67| (CDR |bfVar#67|))))
-       (HKEYS |$ancestors_hash|) NIL)))))
+       (IDENTITY
+        (|updateCategoryTableForDomain| |cname|
+         (|getConstrCat| (GETDATABASE |cname| 'CONSTRUCTORCATEGORY)))))))))
  
 ; updateCategoryTableForDomain(cname,category) ==
 ;   clearCategoryTable(cname)
@@ -1618,20 +1573,20 @@
       (SETQ |LETTMP#1| (|addDomainToTable| |cname| |category|))
       (SETQ |cname| (CAR |LETTMP#1|))
       (SETQ |domainEntry| (CDR |LETTMP#1|))
-      ((LAMBDA (|bfVar#70| |bfVar#69|)
+      ((LAMBDA (|bfVar#68| |bfVar#67|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#70|)
-                (PROGN (SETQ |bfVar#69| (CAR |bfVar#70|)) NIL))
+           ((OR (ATOM |bfVar#68|)
+                (PROGN (SETQ |bfVar#67| (CAR |bfVar#68|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#69|)
+            (AND (CONSP |bfVar#67|)
                  (PROGN
-                  (SETQ |a| (CAR |bfVar#69|))
-                  (SETQ |b| (CDR |bfVar#69|))
+                  (SETQ |a| (CAR |bfVar#67|))
+                  (SETQ |b| (CDR |bfVar#67|))
                   #1#)
                  (HPUT |$has_category_hash| (CONS |cname| |a|) |b|))))
-          (SETQ |bfVar#70| (CDR |bfVar#70|))))
+          (SETQ |bfVar#68| (CDR |bfVar#68|))))
        (|encodeCategoryAlist| |cname| |domainEntry|) NIL)
       (COND ((EQUAL |$doNotCompressHashTableIfTrue| T) |$has_category_hash|)
             (#1# (|compressHashTable| |$has_category_hash|)))))))
@@ -1666,21 +1621,21 @@
 (DEFUN |clearTempCategoryTable| (|catNames|)
   (PROG (|extensions| |catForm|)
     (RETURN
-     ((LAMBDA (|bfVar#71| |key|)
+     ((LAMBDA (|bfVar#69| |key|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#71|) (PROGN (SETQ |key| (CAR |bfVar#71|)) NIL))
+          ((OR (ATOM |bfVar#69|) (PROGN (SETQ |key| (CAR |bfVar#69|)) NIL))
            (RETURN NIL))
           (#1='T
            (COND ((MEMQ |key| |catNames|) NIL)
                  (#1#
                   (PROGN
                    (SETQ |extensions| NIL)
-                   ((LAMBDA (|bfVar#72| |extension|)
+                   ((LAMBDA (|bfVar#70| |extension|)
                       (LOOP
                        (COND
-                        ((OR (ATOM |bfVar#72|)
-                             (PROGN (SETQ |extension| (CAR |bfVar#72|)) NIL))
+                        ((OR (ATOM |bfVar#70|)
+                             (PROGN (SETQ |extension| (CAR |bfVar#70|)) NIL))
                          (RETURN NIL))
                         (#1#
                          (AND (CONSP |extension|)
@@ -1690,8 +1645,8 @@
                                      (SETQ |extensions|
                                              (CONS |extension|
                                                    |extensions|)))))))
-                       (SETQ |bfVar#72| (CDR |bfVar#72|))))
+                       (SETQ |bfVar#70| (CDR |bfVar#70|))))
                     (GETDATABASE |key| 'ANCESTORS) NIL)
                    (HPUT |$ancestors_hash| |key| |extensions|))))))
-         (SETQ |bfVar#71| (CDR |bfVar#71|))))
+         (SETQ |bfVar#69| (CDR |bfVar#69|))))
       (HKEYS |$ancestors_hash|) NIL))))

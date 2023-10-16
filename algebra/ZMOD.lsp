@@ -7,9 +7,7 @@
         (SPROG ((#1=#:G110 NIL))
                (COND ((SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 6))
                      ('T
-                      (PROG1
-                          (LETT #1# (SPADCALL |x| (QREFELT $ 13))
-                                |ZMOD;lookup;$Pi;3|)
+                      (PROG1 (LETT #1# (SPADCALL |x| (QREFELT $ 13)))
                         (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                           '(|Integer|) #1#)))))) 
 
@@ -41,8 +39,7 @@
 (SDEFUN |ZMOD;nextItem;$U;11| ((|n| $) ($ |Union| $ "failed"))
         (SPROG ((|m| ($)))
                (SEQ
-                (LETT |m| (SPADCALL |n| (|spadConstant| $ 28) (QREFELT $ 30))
-                      |ZMOD;nextItem;$U;11|)
+                (LETT |m| (SPADCALL |n| (|spadConstant| $ 28) (QREFELT $ 30)))
                 (EXIT
                  (COND
                   ((SPADCALL |m| (|spadConstant| $ 27) (QREFELT $ 31))
@@ -92,11 +89,10 @@
            (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))))
          (SEQ
           (PROGN
-           (LETT |#G24| (SPADCALL |x| (QREFELT $ 21) (QREFELT $ 45))
-                 . #1=(|ZMOD;recip;$U;21|))
-           (LETT |c1| (QVELT |#G24| 0) . #1#)
-           (LETT |c2| (QVELT |#G24| 1) . #1#)
-           (LETT |g| (QVELT |#G24| 2) . #1#)
+           (LETT |#G24| (SPADCALL |x| (QREFELT $ 21) (QREFELT $ 45)))
+           (LETT |c1| (QVELT |#G24| 0))
+           (LETT |c2| (QVELT |#G24| 1))
+           (LETT |g| (QVELT |#G24| 2))
            |#G24|)
           (EXIT
            (COND
@@ -135,8 +131,7 @@
 (SDEFUN |ZMOD;nextItem;$U;29| ((|n| $) ($ |Union| $ "failed"))
         (SPROG ((|m| ($)))
                (SEQ
-                (LETT |m| (SPADCALL |n| (|spadConstant| $ 28) (QREFELT $ 30))
-                      |ZMOD;nextItem;$U;29|)
+                (LETT |m| (SPADCALL |n| (|spadConstant| $ 28) (QREFELT $ 30)))
                 (EXIT
                  (COND
                   ((SPADCALL |m| (|spadConstant| $ 27) (QREFELT $ 31))
@@ -179,11 +174,10 @@
            (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))))
          (SEQ
           (PROGN
-           (LETT |#G46| (SPADCALL |x| (QREFELT $ 6) (QREFELT $ 45))
-                 . #1=(|ZMOD;recip;$U;39|))
-           (LETT |c1| (QVELT |#G46| 0) . #1#)
-           (LETT |c2| (QVELT |#G46| 1) . #1#)
-           (LETT |g| (QVELT |#G46| 2) . #1#)
+           (LETT |#G46| (SPADCALL |x| (QREFELT $ 6) (QREFELT $ 45)))
+           (LETT |c1| (QVELT |#G46| 0))
+           (LETT |c2| (QVELT |#G46| 1))
+           (LETT |g| (QVELT |#G46| 2))
            |#G46|)
           (EXIT
            (COND
@@ -206,22 +200,21 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|IntegerMod|)
-                                               '|domainEqualList|)
-                    . #3=(|IntegerMod|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|IntegerMod;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|IntegerMod;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|IntegerMod|)))))))))) 
 
 (DEFUN |IntegerMod;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegerMod|))
-          (LETT |dv$| (LIST '|IntegerMod| DV$1) . #1#)
-          (LETT $ (GETREFV 55) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|IntegerMod| DV$1))
+          (LETT $ (GETREFV 55))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|IntegerMod| (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)

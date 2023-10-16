@@ -42,8 +42,7 @@
                       (SPADCALL |x|
                                 (SPADCALL
                                  (PROG2
-                                     (LETT #1# (SPADCALL |n| 1 (QREFELT $ 24))
-                                           |PRTITION;*;Nni2$;8|)
+                                     (LETT #1# (SPADCALL |n| 1 (QREFELT $ 24)))
                                      (QCDR #1#)
                                    (|check_union2| (QEQCAR #1# 0)
                                                    (|NonNegativeInteger|)
@@ -74,14 +73,12 @@
                         (#1='T (CONS 1 "failed"))))
                  ((NULL |y|) (CONS 0 |x|))
                  (#1#
-                  (SEQ
-                   (LETT |aa| (|PRTITION;remv| (|SPADfirst| |y|) |x| $)
-                         |PRTITION;subtractIfCan;2$U;11|)
-                   (EXIT
-                    (COND ((QEQCAR |aa| 1) (CONS 1 "failed"))
-                          (#1#
-                           (SPADCALL (QCDR |aa|) (CDR |y|)
-                                     (QREFELT $ 27))))))))))) 
+                  (SEQ (LETT |aa| (|PRTITION;remv| (|SPADfirst| |y|) |x| $))
+                       (EXIT
+                        (COND ((QEQCAR |aa| 1) (CONS 1 "failed"))
+                              (#1#
+                               (SPADCALL (QCDR |aa|) (CDR |y|)
+                                         (QREFELT $ 27))))))))))) 
 
 (SDEFUN |PRTITION;bite|
         ((|i| |Integer|) (|li| |List| (|Integer|)) ($ |List| (|Integer|)))
@@ -89,10 +86,9 @@
                (SEQ
                 (COND ((NULL |li|) (CONS 0 NIL))
                       ((EQL (|SPADfirst| |li|) |i|)
-                       (SEQ
-                        (LETT |li1| (|PRTITION;bite| |i| (CDR |li|) $)
-                              |PRTITION;bite|)
-                        (EXIT (CONS (+ (|SPADfirst| |li1|) 1) (CDR |li1|)))))
+                       (SEQ (LETT |li1| (|PRTITION;bite| |i| (CDR |li|) $))
+                            (EXIT
+                             (CONS (+ (|SPADfirst| |li1|) 1) (CDR |li1|)))))
                       ('T (CONS 0 |li|)))))) 
 
 (SDEFUN |PRTITION;powers;LL;13|
@@ -103,8 +99,7 @@
                       ('T
                        (SEQ
                         (LETT |li|
-                              (|PRTITION;bite| (|SPADfirst| |l|) (CDR |l|) $)
-                              |PRTITION;powers;LL;13|)
+                              (|PRTITION;bite| (|SPADfirst| |l|) (CDR |l|) $))
                         (EXIT
                          (CONS
                           (LIST (|SPADfirst| |l|) (+ (|SPADfirst| |li|) 1))
@@ -128,7 +123,7 @@
                (SEQ
                 (COND ((NULL |lli|) NIL)
                       ('T
-                       (SEQ (LETT |li| (|SPADfirst| |lli|) |PRTITION;mkexp1|)
+                       (SEQ (LETT |li| (|SPADfirst| |lli|))
                             (COND
                              ((NULL (CDR |lli|))
                               (COND
@@ -158,12 +153,10 @@
           (#5=#:G183 NIL) (|a| NIL))
          (SEQ
           (PROGN
-           (LETT #1# NIL . #6=(|PRTITION;pdct;$I;18|))
-           (SEQ (LETT |a| NIL . #6#)
-                (LETT #5# (SPADCALL |x| (QREFELT $ 29)) . #6#) G190
+           (LETT #1# NIL)
+           (SEQ (LETT |a| NIL) (LETT #5# (SPADCALL |x| (QREFELT $ 29))) G190
                 (COND
-                 ((OR (ATOM #5#) (PROGN (LETT |a| (CAR #5#) . #6#) NIL))
-                  (GO G191)))
+                 ((OR (ATOM #5#) (PROGN (LETT |a| (CAR #5#)) NIL)) (GO G191)))
                 (SEQ
                  (EXIT
                   (PROGN
@@ -172,12 +165,10 @@
                           (SPADCALL (SPADCALL |a| (QREFELT $ 38))
                                     (QREFELT $ 46))
                           (EXPT (|SPADfirst| |a|)
-                                (SPADCALL |a| (QREFELT $ 38))))
-                         . #6#)
-                   (COND (#1# (LETT #2# (* #2# #4#) . #6#))
-                         ('T
-                          (PROGN (LETT #2# #4# . #6#) (LETT #1# 'T . #6#)))))))
-                (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
+                                (SPADCALL |a| (QREFELT $ 38)))))
+                   (COND (#1# (LETT #2# (* #2# #4#)))
+                         ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
+                (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
            (COND (#1# #2#) ('T 1)))))) 
 
 (DECLAIM (NOTINLINE |Partition;|)) 
@@ -187,8 +178,7 @@
          (PROG (#1=#:G185)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Partition|)
-                    . #2=(|Partition|))
+             ((LETT #1# (HGET |$ConstructorCache| '|Partition|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -196,17 +186,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|Partition|
                              (LIST (CONS NIL (CONS 1 (|Partition;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|Partition|)))))))))) 
 
 (DEFUN |Partition;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|Partition|) . #1=(|Partition|))
-          (LETT $ (GETREFV 51) . #1#)
+          (LETT |dv$| '(|Partition|))
+          (LETT $ (GETREFV 51))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Partition| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

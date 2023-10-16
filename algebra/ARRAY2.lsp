@@ -23,12 +23,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|TwoDimensionalArray|)
-                                               '|domainEqualList|)
-                    . #3=(|TwoDimensionalArray|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|TwoDimensionalArray;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|TwoDimensionalArray;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|TwoDimensionalArray|)))))))))) 
@@ -38,9 +36,9 @@
    ((|pv$| NIL) (#1=#:G2215 NIL) (#2=#:G2216 NIL) ($ NIL) (|dv$| NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #3=(|TwoDimensionalArray|))
-    (LETT |dv$| (LIST '|TwoDimensionalArray| DV$1) . #3#)
-    (LETT $ (GETREFV 31) . #3#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|TwoDimensionalArray| DV$1))
+    (LETT $ (GETREFV 31))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -50,8 +48,7 @@
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #3#)
+                                                             '(|SetCategory|)))
                                         (OR (|HasCategory| |#1| '(|BasicType|))
                                             (|HasCategory| |#1|
                                                            '(|Comparable|))
@@ -81,16 +78,14 @@
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #3#)
+                                                               (|OutputForm|))))
                                         (OR #1#
                                             (AND
                                              (|HasCategory| |#1|
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             #2#))))
-                    . #3#))
+                                             #2#))))))
     (|haddProp| |$ConstructorCache| '|TwoDimensionalArray| (LIST DV$1)
                 (CONS 1 $))
     (|stuffDomainSlots| $)

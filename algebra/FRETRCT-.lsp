@@ -7,12 +7,10 @@
 
 (SDEFUN |FRETRCT-;retractIfCan;AU;3| ((|r| A) ($ |Union| (|Integer|) "failed"))
         (SPROG ((|u| (|Union| S "failed")))
-               (SEQ
-                (LETT |u| (SPADCALL |r| (QREFELT $ 16))
-                      |FRETRCT-;retractIfCan;AU;3|)
-                (EXIT
-                 (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                       ('T (SPADCALL (QCDR |u|) (QREFELT $ 18)))))))) 
+               (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 16)))
+                    (EXIT
+                     (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                           ('T (SPADCALL (QCDR |u|) (QREFELT $ 18)))))))) 
 
 (SDEFUN |FRETRCT-;coerce;FA;4| ((|n| |Fraction| (|Integer|)) ($ A))
         (SPADCALL (SPADCALL |n| (QREFELT $ 21)) (QREFELT $ 10))) 
@@ -23,22 +21,20 @@
 (SDEFUN |FRETRCT-;retractIfCan;AU;6|
         ((|r| A) ($ |Union| (|Fraction| (|Integer|)) "failed"))
         (SPROG ((|u| (|Union| S "failed")))
-               (SEQ
-                (LETT |u| (SPADCALL |r| (QREFELT $ 16))
-                      |FRETRCT-;retractIfCan;AU;6|)
-                (EXIT
-                 (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                       ('T (SPADCALL (QCDR |u|) (QREFELT $ 26)))))))) 
+               (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 16)))
+                    (EXIT
+                     (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                           ('T (SPADCALL (QCDR |u|) (QREFELT $ 26)))))))) 
 
 (DECLAIM (NOTINLINE |FullyRetractableTo&;|)) 
 
 (DEFUN |FullyRetractableTo&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FullyRetractableTo&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|FullyRetractableTo&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 28) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|FullyRetractableTo&| DV$1 DV$2))
+          (LETT $ (GETREFV 28))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -50,8 +46,7 @@
                                                                 (|Integer|))))
                                               (|HasCategory| |#2|
                                                              '(|RetractableTo|
-                                                               (|Integer|)))))
-                          . #1#))
+                                                               (|Integer|)))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

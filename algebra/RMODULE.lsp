@@ -31,7 +31,5 @@
                                                       ((|AbelianGroup|)
                                                        (|has| |t#1|
                                                               (|AbelianGroup|))))
-                                                    NIL NIL))
-                                           . #2=(|RightModule|)))))
-                   . #2#)
+                                                    NIL NIL)))))))
            (SETELT #1# 0 (LIST '|RightModule| |t#1|))))) 

@@ -103,6 +103,5 @@
                                   ((|acschIfCan|
                                     ((|Union| |t#1| "failed") |t#1|))
                                    T))
-                                NIL NIL NIL)))
-                   |PartialTranscendentalFunctions|)
+                                NIL NIL NIL))))
            (SETELT #1# 0 (LIST '|PartialTranscendentalFunctions| |t#1|))))) 

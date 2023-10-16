@@ -16,25 +16,23 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|MakeRecord|)
-                                               '|domainEqualList|)
-                    . #3=(|MakeRecord|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |MakeRecord;|) #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (APPLY (|function| |MakeRecord;|) #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|MakeRecord|)))))))))) 
 
 (DEFUN |MakeRecord;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|MakeRecord|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|MakeRecord| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 10) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|MakeRecord| DV$1 DV$2))
+          (LETT $ (GETREFV 10))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|MakeRecord| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

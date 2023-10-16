@@ -21,8 +21,7 @@
                               ((|expressIdealMember|
                                 ((|Union| (|List| $) "failed") (|List| $) $))
                                T))
-                            NIL NIL NIL))
-                   |PrincipalIdealDomain|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|PrincipalIdealDomain|))))) 
 
 (MAKEPROP '|PrincipalIdealDomain| 'NILADIC T) 

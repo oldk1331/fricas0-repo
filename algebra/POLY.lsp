@@ -1,32 +1,27 @@
 
 (SDEFUN |POLY;coerce;$Of;1| ((|p| $) ($ |OutputForm|))
         (SPROG ((|a| (|Symbol|)) (#1=#:G108 NIL) (|r| (|Union| R "failed")))
-               (SEQ
-                (LETT |r| (SPADCALL |p| (QREFELT $ 8))
-                      . #2=(|POLY;coerce;$Of;1|))
-                (EXIT
-                 (COND ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) (QREFELT $ 10)))
-                       (#3='T
-                        (SEQ
-                         (LETT |a|
-                               (COND
-                                ((SPADCALL (QREFELT $ 13))
-                                 (SPADCALL (SPADCALL |p| (QREFELT $ 15))
-                                           (QREFELT $ 17)))
-                                (#3#
-                                 (PROG2
-                                     (LETT #1# (SPADCALL |p| (QREFELT $ 19))
-                                           . #2#)
-                                     (QCDR #1#)
-                                   (|check_union2| (QEQCAR #1# 0) (|Symbol|)
-                                                   (|Union| (|Symbol|)
-                                                            "failed")
-                                                   #1#))))
-                               . #2#)
-                         (EXIT
-                          (SPADCALL (SPADCALL |p| |a| (QREFELT $ 21))
-                                    (SPADCALL |a| (QREFELT $ 22))
-                                    (QREFELT $ 24)))))))))) 
+               (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 8)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) (QREFELT $ 10)))
+                      (#2='T
+                       (SEQ
+                        (LETT |a|
+                              (COND
+                               ((SPADCALL (QREFELT $ 13))
+                                (SPADCALL (SPADCALL |p| (QREFELT $ 15))
+                                          (QREFELT $ 17)))
+                               (#2#
+                                (PROG2 (LETT #1# (SPADCALL |p| (QREFELT $ 19)))
+                                    (QCDR #1#)
+                                  (|check_union2| (QEQCAR #1# 0) (|Symbol|)
+                                                  (|Union| (|Symbol|) "failed")
+                                                  #1#)))))
+                        (EXIT
+                         (SPADCALL (SPADCALL |p| |a| (QREFELT $ 21))
+                                   (SPADCALL |a| (QREFELT $ 22))
+                                   (QREFELT $ 24)))))))))) 
 
 (SDEFUN |POLY;integrate;$S$;2| ((|p| $) (|x| |Symbol|) ($ $))
         (SPADCALL (SPADCALL (SPADCALL |p| |x| (QREFELT $ 21)) (QREFELT $ 26))
@@ -43,11 +38,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Polynomial|)
-                                               '|domainEqualList|)
-                    . #3=(|Polynomial|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Polynomial;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Polynomial;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|Polynomial|)))))))))) 
 
@@ -57,9 +51,9 @@
     (#5=#:G146 NIL) (#6=#:G147 NIL) (#7=#:G148 NIL) (#8=#:G149 NIL)
     (#9=#:G150 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #10=(|Polynomial|))
-    (LETT |dv$| (LIST '|Polynomial| DV$1) . #10#)
-    (LETT $ (GETREFV 71) . #10#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|Polynomial| DV$1))
+    (LETT $ (GETREFV 71))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -94,8 +88,7 @@
                                         (|HasCategory| |#1| '(|EntireRing|))
                                         (LETT #9#
                                               (|HasCategory| |#1|
-                                                             '(|GcdDomain|))
-                                              . #10#)
+                                                             '(|GcdDomain|)))
                                         (OR #9#
                                             (|HasCategory| |#1|
                                                            '(|PolynomialFactorizationExplicit|)))
@@ -126,15 +119,13 @@
                                          (|HasCategory| |#1| '(|Ring|)))
                                         (LETT #8#
                                               (|HasCategory| |#1|
-                                                             '(|CommutativeRing|))
-                                              . #10#)
+                                                             '(|CommutativeRing|)))
                                         (OR #8# #9#
                                             (|HasCategory| |#1|
                                                            '(|PolynomialFactorizationExplicit|)))
                                         (LETT #7#
                                               (|HasCategory| |#1|
-                                                             '(|IntegralDomain|))
-                                              . #10#)
+                                                             '(|IntegralDomain|)))
                                         (OR #8# #9# #7#
                                             (|HasCategory| |#1|
                                                            '(|PolynomialFactorizationExplicit|)))
@@ -168,8 +159,7 @@
                                                (|HasCategory| |#1| '(|Ring|))
                                                (|HasCategory| (|Symbol|)
                                                               '(|PatternMatchable|
-                                                                (|Float|))))
-                                              . #10#)
+                                                                (|Float|)))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -236,8 +226,7 @@
                                                (|HasCategory| |#1| '(|Ring|))
                                                (|HasCategory| (|Symbol|)
                                                               '(|PatternMatchable|
-                                                                (|Integer|))))
-                                              . #10#)
+                                                                (|Integer|)))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -306,8 +295,7 @@
                                                (|HasCategory| (|Symbol|)
                                                               '(|ConvertibleTo|
                                                                 (|Pattern|
-                                                                 (|Float|)))))
-                                              . #10#)
+                                                                 (|Float|))))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -388,8 +376,7 @@
                                                (|HasCategory| (|Symbol|)
                                                               '(|ConvertibleTo|
                                                                 (|Pattern|
-                                                                 (|Integer|)))))
-                                              . #10#)
+                                                                 (|Integer|))))))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -463,8 +450,7 @@
                                         (|HasCategory| |#1| '(|AbelianMonoid|))
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|CancellationAbelianMonoid|))
-                                              . #10#)
+                                                             '(|CancellationAbelianMonoid|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -480,8 +466,7 @@
                                          #2#)
                                         (OR
                                          (|HasCategory| |#1| '(|AbelianGroup|))
-                                         #2#)))
-                    . #10#))
+                                         #2#)))))
     (|haddProp| |$ConstructorCache| '|Polynomial| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
@@ -490,8 +475,7 @@
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
-                (|HasCategory| $ '(|CharacteristicNonZero|)))
-           . #10#)
+                (|HasCategory| $ '(|CharacteristicNonZero|))))
      (|augmentPredVector| $ 1099511627776))
     (AND (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#)
          (|augmentPredVector| $ 2199023255552))

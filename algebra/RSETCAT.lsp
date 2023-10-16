@@ -107,9 +107,7 @@
                                      ((|zeroSetSplit|
                                        ((|List| $) (|List| |t#4|) (|Boolean|)))
                                       T))
-                                   NIL NIL NIL))
-                                 . #2=(|RegularTriangularSetCategory|)))))
-                   . #2#)
+                                   NIL NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|RegularTriangularSetCategory| |t#1| |t#2| |t#3|
                          |t#4|))))) 

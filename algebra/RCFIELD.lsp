@@ -71,8 +71,7 @@
                                ((|rename| ($ $ (|OutputForm|))) T)
                                ((|approximate| ((|Fraction| (|Integer|)) $ $))
                                 T))
-                             NIL NIL NIL)))
-                   |RealClosedField|)
+                             NIL NIL NIL))))
            (SETELT #1# 0 '(|RealClosedField|))))) 
 
 (MAKEPROP '|RealClosedField| 'NILADIC T) 

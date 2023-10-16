@@ -15,8 +15,7 @@
          (PROG (#1=#:G108)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Infinity|)
-                    . #2=(|Infinity|))
+             ((LETT #1# (HGET |$ConstructorCache| '|Infinity|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -24,16 +23,16 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|Infinity|
                              (LIST (CONS NIL (CONS 1 (|Infinity;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Infinity|)))))))))) 
 
 (DEFUN |Infinity;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|Infinity|) . #1=(|Infinity|))
-          (LETT $ (GETREFV 14) . #1#)
+          (LETT |dv$| '(|Infinity|))
+          (LETT $ (GETREFV 14))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Infinity| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

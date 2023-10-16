@@ -5,17 +5,13 @@
          ((|bcum2| #1=(|Sequence| R2)) (|fcum2| #1#) (|cum2| #1#) (|mom2| #1#))
          (SEQ
           (LETT |mom2|
-                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 10)) (QREFELT $ 14))
-                . #2=(|DISTRO2;mapall;MDD;1|))
+                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 10)) (QREFELT $ 14)))
           (LETT |cum2|
-                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 14))
-                . #2#)
+                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 14)))
           (LETT |fcum2|
-                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 14))
-                . #2#)
+                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 14)))
           (LETT |bcum2|
-                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 17)) (QREFELT $ 14))
-                . #2#)
+                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 17)) (QREFELT $ 14)))
           (EXIT (SPADCALL |mom2| |cum2| |fcum2| |bcum2| (QREFELT $ 19)))))) 
 
 (SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;2| ((|x| R1) ($ R2))
@@ -44,13 +40,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|DistributionFunctions2|)
-                                               '|domainEqualList|)
-                    . #3=(|DistributionFunctions2|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |DistributionFunctions2;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|DistributionFunctions2|)))))))))) 
@@ -58,12 +53,12 @@
 (DEFUN |DistributionFunctions2;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|DistributionFunctions2|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|DistributionFunctions2| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 25) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|DistributionFunctions2| DV$1 DV$2))
+          (LETT $ (GETREFV 25))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DistributionFunctions2|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

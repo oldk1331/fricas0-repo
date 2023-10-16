@@ -9,7 +9,7 @@
 
 (DEFUN |CommutativeStar;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1 (LETT #1# (|Join| (|TwoSidedRecip|)) |CommutativeStar|)
+         (PROG1 (LETT #1# (|Join| (|TwoSidedRecip|)))
            (SETELT #1# 0 '(|CommutativeStar|))))) 
 
 (MAKEPROP '|CommutativeStar| 'NILADIC T) 

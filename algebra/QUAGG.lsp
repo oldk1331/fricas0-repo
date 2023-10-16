@@ -33,7 +33,5 @@
                                                       ((|rotate!| ($ $)) T)
                                                       ((|front| (|t#1| $)) T)
                                                       ((|back| (|t#1| $)) T))
-                                                    NIL NIL NIL))
-                                           . #2=(|QueueAggregate|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|QueueAggregate| |t#1|))))) 

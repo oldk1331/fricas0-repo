@@ -20,12 +20,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|AttachPredicates|)
-                                               '|domainEqualList|)
-                    . #3=(|AttachPredicates|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|AttachPredicates;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|AttachPredicates;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|AttachPredicates|)))))))))) 
@@ -33,11 +31,11 @@
 (DEFUN |AttachPredicates;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|AttachPredicates|))
-          (LETT |dv$| (LIST '|AttachPredicates| DV$1) . #1#)
-          (LETT $ (GETREFV 17) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|AttachPredicates| DV$1))
+          (LETT $ (GETREFV 17))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|AttachPredicates| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

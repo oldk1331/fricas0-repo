@@ -23,19 +23,15 @@
 
 (SDEFUN |SARGND;min;3$;5| ((|a| $) (|b| $) ($ $))
         (SPROG ((|im| #1=(|DoubleFloat|)) (|re| #1#))
-               (SEQ
-                (LETT |re| (|min_DF| (QCAR |a|) (QCAR |b|))
-                      . #2=(|SARGND;min;3$;5|))
-                (LETT |im| (|min_DF| (QCDR |a|) (QCDR |b|)) . #2#)
-                (EXIT (CONS |re| |im|))))) 
+               (SEQ (LETT |re| (|min_DF| (QCAR |a|) (QCAR |b|)))
+                    (LETT |im| (|min_DF| (QCDR |a|) (QCDR |b|)))
+                    (EXIT (CONS |re| |im|))))) 
 
 (SDEFUN |SARGND;max;3$;6| ((|a| $) (|b| $) ($ $))
         (SPROG ((|im| #1=(|DoubleFloat|)) (|re| #1#))
-               (SEQ
-                (LETT |re| (|max_DF| (QCAR |a|) (QCAR |b|))
-                      . #2=(|SARGND;max;3$;6|))
-                (LETT |im| (|max_DF| (QCDR |a|) (QCDR |b|)) . #2#)
-                (EXIT (CONS |re| |im|))))) 
+               (SEQ (LETT |re| (|max_DF| (QCAR |a|) (QCAR |b|)))
+                    (LETT |im| (|max_DF| (QCDR |a|) (QCDR |b|)))
+                    (EXIT (CONS |re| |im|))))) 
 
 (PUT '|SARGND;dimension;$Pi;7| '|SPADreplace| '(XLAM (|p|) 2)) 
 
@@ -56,8 +52,7 @@
                       (SPADCALL
                        (|add_DF| (|mul_DF| (QCAR |p|) (QCAR |p|))
                                  (|mul_DF| (QCDR |p|) (QCDR |p|)))
-                       (QREFELT $ 19))
-                      |SARGND;unitVector;2$;10|)
+                       (QREFELT $ 19)))
                 (EXIT
                  (CONS (|div_DF| (QCAR |p|) |factor|)
                        (|div_DF| (QCDR |p|) |factor|)))))) 
@@ -142,14 +137,12 @@
                  (SEQ
                   (COND
                    ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 17))
-                    (PROGN
-                     (LETT #1# NIL . #2=(|SARGND;=;2$B;30|))
-                     (GO #3=#:G158))))
+                    (PROGN (LETT #1# NIL) (GO #2=#:G158))))
                   (COND
                    ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 17))
-                    (PROGN (LETT #1# NIL . #2#) (GO #3#))))
+                    (PROGN (LETT #1# NIL) (GO #2#))))
                   (EXIT 'T)))
-                #3# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |SARGND;~=;2$B;31| ((|x| $) (|y| $) ($ |Boolean|))
         (NULL (SPADCALL |x| |y| (QREFELT $ 47)))) 
@@ -177,7 +170,7 @@
          (PROG (#1=#:G164)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|SArgand|) . #2=(|SArgand|))
+             ((LETT #1# (HGET |$ConstructorCache| '|SArgand|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -185,16 +178,16 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|SArgand|
                              (LIST (CONS NIL (CONS 1 (|SArgand;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|SArgand|)))))))))) 
 
 (DEFUN |SArgand;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|SArgand|) . #1=(|SArgand|))
-          (LETT $ (GETREFV 60) . #1#)
+          (LETT |dv$| '(|SArgand|))
+          (LETT $ (GETREFV 60))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SArgand| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

@@ -32,12 +32,12 @@
          ((|uts|
            (|Union| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)
                     "failed")))
-         (SEQ
-          (LETT |uts| (SPADCALL |uls| (QREFELT $ 29)) |SULS;taylor;$Suts;7|)
-          (EXIT
-           (COND
-            ((QEQCAR |uts| 1) (|error| "taylor: Laurent series has a pole"))
-            ('T (QCDR |uts|))))))) 
+         (SEQ (LETT |uts| (SPADCALL |uls| (QREFELT $ 29)))
+              (EXIT
+               (COND
+                ((QEQCAR |uts| 1)
+                 (|error| "taylor: Laurent series has a pole"))
+                ('T (QCDR |uts|))))))) 
 
 (SDEFUN |SULS;retractIfCan;$U;8|
         ((|x| $)
@@ -80,8 +80,7 @@
         (SPROG ((#1=#:G145 NIL))
                (SPADCALL (|spadConstant| $ 15)
                          (PROG1
-                             (LETT #1# (- (SPADCALL |uls| 0 (QREFELT $ 24)))
-                                   |SULS;denom;$Suts;15|)
+                             (LETT #1# (- (SPADCALL |uls| 0 (QREFELT $ 24))))
                            (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                              '(|Integer|) #1#))
                          (QREFELT $ 40)))) 
@@ -110,12 +109,11 @@
 
 (SDEFUN |SULS;/;3$;21| ((|uls1| $) (|uls2| $) ($ $))
         (SPROG ((|q| (|Union| $ "failed")))
-               (SEQ
-                (LETT |q| (SPADCALL |uls1| |uls2| (QREFELT $ 49))
-                      |SULS;/;3$;21|)
-                (EXIT
-                 (COND ((QEQCAR |q| 1) (|error| "quotient cannot be computed"))
-                       ('T (QCDR |q|))))))) 
+               (SEQ (LETT |q| (SPADCALL |uls1| |uls2| (QREFELT $ 49)))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |q| 1) (|error| "quotient cannot be computed"))
+                      ('T (QCDR |q|))))))) 
 
 (SDEFUN |SULS;differentiate;$V$;22| ((|uls| $) (|v| |Variable| |var|) ($ $))
         (SPADCALL |uls| (QREFELT $ 50))) 
@@ -128,33 +126,30 @@
           (COND
            ((< (SPADCALL |uls2| 1 (QREFELT $ 24)) 1)
             (|error| "elt: second argument must have positive order"))
-           ((MINUSP
-             (LETT |ord| (SPADCALL |uls1| 0 (QREFELT $ 24))
-                   . #2=(|SULS;elt;3$;23|)))
-            (SEQ (LETT |recipr| (SPADCALL |uls2| (QREFELT $ 48)) . #2#)
+           ((MINUSP (LETT |ord| (SPADCALL |uls1| 0 (QREFELT $ 24))))
+            (SEQ (LETT |recipr| (SPADCALL |uls2| (QREFELT $ 48)))
                  (EXIT
                   (COND
                    ((QEQCAR |recipr| 1)
                     (|error| "elt: second argument not invertible"))
-                   (#3='T
+                   (#2='T
                     (SEQ
                      (LETT |uls3|
                            (SPADCALL |uls1|
                                      (SPADCALL (|spadConstant| $ 15) (- |ord|)
                                                (QREFELT $ 18))
-                                     (QREFELT $ 32))
-                           . #2#)
+                                     (QREFELT $ 32)))
                      (EXIT
                       (SPADCALL (SPADCALL |uls3| |uls2| (QREFELT $ 52))
                                 (SPADCALL (QCDR |recipr|)
-                                          (PROG1 (LETT #1# (- |ord|) . #2#)
+                                          (PROG1 (LETT #1# (- |ord|))
                                             (|check_subtype2| (>= #1# 0)
                                                               '(|NonNegativeInteger|)
                                                               '(|Integer|)
                                                               #1#))
                                           (QREFELT $ 53))
                                 (QREFELT $ 32)))))))))
-           (#3# (SPADCALL |uls1| |uls2| (QREFELT $ 52))))))) 
+           (#2# (SPADCALL |uls1| |uls2| (QREFELT $ 52))))))) 
 
 (SDEFUN |SULS;rationalFunction;$IF;24|
         ((|uls| $) (|n| |Integer|) ($ |Fraction| (|Polynomial| |Coef|)))
@@ -165,21 +160,19 @@
           (|m| (|Integer|)) (#3=#:G179 NIL) (|e| (|Integer|)))
          (SEQ
           (COND
-           ((ZEROP
-             (LETT |e| (SPADCALL |uls| 0 (QREFELT $ 24))
-                   . #4=(|SULS;rationalFunction;$IF;24|)))
+           ((ZEROP (LETT |e| (SPADCALL |uls| 0 (QREFELT $ 24))))
             (COND ((MINUSP |n|) (|spadConstant| $ 56))
-                  (#5='T
+                  (#4='T
                    (SPADCALL
                     (SPADCALL (SPADCALL |uls| (QREFELT $ 30))
-                              (PROG1 (LETT #3# |n| . #4#)
+                              (PROG1 (LETT #3# |n|)
                                 (|check_subtype2| (>= #3# 0)
                                                   '(|NonNegativeInteger|)
                                                   '(|Integer|) #3#))
                               (QREFELT $ 58))
                     (QREFELT $ 59)))))
-           ((MINUSP (LETT |m| (- |n| |e|) . #4#)) (|spadConstant| $ 56))
-           (#5#
+           ((MINUSP (LETT |m| (- |n| |e|))) (|spadConstant| $ 56))
+           (#4#
             (SEQ
              (LETT |poly|
                    (SPADCALL
@@ -189,24 +182,21 @@
                        (SPADCALL (|spadConstant| $ 15) (- |e|) (QREFELT $ 18))
                        |uls| (QREFELT $ 32))
                       (QREFELT $ 30))
-                     (PROG1 (LETT #2# |m| . #4#)
+                     (PROG1 (LETT #2# |m|)
                        (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
                                          '(|Integer|) #2#))
                      (QREFELT $ 58))
-                    (QREFELT $ 59))
-                   . #4#)
+                    (QREFELT $ 59)))
              (LETT |v|
-                   (SPADCALL (SPADCALL |uls| (QREFELT $ 11)) (QREFELT $ 60))
-                   . #4#)
+                   (SPADCALL (SPADCALL |uls| (QREFELT $ 11)) (QREFELT $ 60)))
              (LETT |c|
                    (SPADCALL
                     (SPADCALL (SPADCALL |uls| (QREFELT $ 12)) (QREFELT $ 61))
-                    (QREFELT $ 59))
-                   . #4#)
+                    (QREFELT $ 59)))
              (EXIT
               (SPADCALL |poly|
                         (SPADCALL (SPADCALL |v| |c| (QREFELT $ 62))
-                                  (PROG1 (LETT #1# (- |e|) . #4#)
+                                  (PROG1 (LETT #1# (- |e|))
                                     (|check_subtype2| (>= #1# 0)
                                                       '(|NonNegativeInteger|)
                                                       '(|Integer|) #1#))
@@ -295,19 +285,16 @@
           (|order| #1=(|Integer|)) (|ord0| #1#))
          (SEQ
           (COND
-           ((MINUSP
-             (LETT |ord0| (SPADCALL |uls| 0 (QREFELT $ 24))
-                   . #2=(|SULS;^;$F$;56|)))
-            (SEQ (LETT |order| |ord0| . #2#)
+           ((MINUSP (LETT |ord0| (SPADCALL |uls| 0 (QREFELT $ 24))))
+            (SEQ (LETT |order| |ord0|)
                  (LETT |n|
                        (SPADCALL |order| (SPADCALL |r| (QREFELT $ 129))
-                                 (QREFELT $ 130))
-                       . #2#)
+                                 (QREFELT $ 130)))
                  (EXIT
                   (COND
                    ((QEQCAR |n| 1)
                     (|error| "^: rational power does not exist"))
-                   (#3='T
+                   (#2='T
                     (SEQ
                      (LETT |uts|
                            (SPADCALL
@@ -315,20 +302,18 @@
                                       (SPADCALL (|spadConstant| $ 15)
                                                 (- |order|) (QREFELT $ 18))
                                       (QREFELT $ 32))
-                            (QREFELT $ 131))
-                           . #2#)
+                            (QREFELT $ 131)))
                      (LETT |utsPow|
                            (SPADCALL (SPADCALL |uts| |r| (QREFELT $ 132))
-                                     (QREFELT $ 27))
-                           . #2#)
+                                     (QREFELT $ 27)))
                      (EXIT
                       (SPADCALL
                        (SPADCALL (|spadConstant| $ 15)
                                  (* (QCDR |n|) (SPADCALL |r| (QREFELT $ 133)))
                                  (QREFELT $ 18))
                        |utsPow| (QREFELT $ 32)))))))))
-           (#3#
-            (SEQ (LETT |uts| (SPADCALL |uls| (QREFELT $ 131)) . #2#)
+           (#2#
+            (SEQ (LETT |uts| (SPADCALL |uls| (QREFELT $ 131)))
                  (EXIT
                   (SPADCALL (SPADCALL |uts| |r| (QREFELT $ 132))
                             (QREFELT $ 27))))))))) 
@@ -338,42 +323,39 @@
          ((|degr| (|Integer|)) (#1=#:G229 NIL) (|count| (|NonNegativeInteger|))
           (|nx| (|Union| (|Integer|) "failed"))
           (|st| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
-         (SEQ
-          (LETT |st| (SPADCALL |uls| (QREFELT $ 136))
-                . #2=(|SULS;coerce;$Of;57|))
-          (COND
-           ((NULL (SPADCALL |st| (QREFELT $ 137)))
-            (COND
-             ((NULL (SPADCALL |st| (QREFELT $ 138)))
+         (SEQ (LETT |st| (SPADCALL |uls| (QREFELT $ 136)))
               (COND
-               ((QEQCAR
-                 (LETT |nx|
-                       (SPADCALL
-                        (SPADCALL (SPADCALL |uls| (QREFELT $ 140))
-                                  (QREFELT $ 142))
-                        (QREFELT $ 144))
-                       . #2#)
-                 0)
-                (SEQ (LETT |count| |$streamCount| . #2#)
-                     (LETT |degr|
-                           (MIN |count|
-                                (+
-                                 (+
-                                  (PROG2 (LETT #1# |nx| . #2#)
-                                      (QCDR #1#)
-                                    (|check_union2| (QEQCAR #1# 0) (|Integer|)
-                                                    (|Union| (|Integer|)
-                                                             "failed")
-                                                    #1#))
-                                  |count|)
-                                 1))
-                           . #2#)
-                     (EXIT (SPADCALL |uls| |degr| (QREFELT $ 145))))))))))
-          (EXIT
-           (SPADCALL |st| (SPADCALL |uls| (QREFELT $ 140))
-                     (SPADCALL |uls| (QREFELT $ 11))
-                     (SPADCALL |uls| (QREFELT $ 12)) (|spadConstant| $ 146)
-                     (QREFELT $ 148)))))) 
+               ((NULL (SPADCALL |st| (QREFELT $ 137)))
+                (COND
+                 ((NULL (SPADCALL |st| (QREFELT $ 138)))
+                  (COND
+                   ((QEQCAR
+                     (LETT |nx|
+                           (SPADCALL
+                            (SPADCALL (SPADCALL |uls| (QREFELT $ 140))
+                                      (QREFELT $ 142))
+                            (QREFELT $ 144)))
+                     0)
+                    (SEQ (LETT |count| |$streamCount|)
+                         (LETT |degr|
+                               (MIN |count|
+                                    (+
+                                     (+
+                                      (PROG2 (LETT #1# |nx|)
+                                          (QCDR #1#)
+                                        (|check_union2| (QEQCAR #1# 0)
+                                                        (|Integer|)
+                                                        (|Union| (|Integer|)
+                                                                 "failed")
+                                                        #1#))
+                                      |count|)
+                                     1)))
+                         (EXIT (SPADCALL |uls| |degr| (QREFELT $ 145))))))))))
+              (EXIT
+               (SPADCALL |st| (SPADCALL |uls| (QREFELT $ 140))
+                         (SPADCALL |uls| (QREFELT $ 11))
+                         (SPADCALL |uls| (QREFELT $ 12)) (|spadConstant| $ 146)
+                         (QREFELT $ 148)))))) 
 
 (DECLAIM (NOTINLINE |SparseUnivariateLaurentSeries;|)) 
 
@@ -386,14 +368,13 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|SparseUnivariateLaurentSeries|)
-                                               '|domainEqualList|)
-                    . #3=(|SparseUnivariateLaurentSeries|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1
                       (APPLY (|function| |SparseUnivariateLaurentSeries;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -406,11 +387,11 @@
     (#9=#:G275 NIL) (#10=#:G276 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #11=(|SparseUnivariateLaurentSeries|))
-    (LETT DV$2 (|devaluate| |#2|) . #11#)
-    (LETT DV$3 (|devaluate| |#3|) . #11#)
-    (LETT |dv$| (LIST '|SparseUnivariateLaurentSeries| DV$1 DV$2 DV$3) . #11#)
-    (LETT $ (GETREFV 193) . #11#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT |dv$| (LIST '|SparseUnivariateLaurentSeries| DV$1 DV$2 DV$3))
+    (LETT $ (GETREFV 193))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -441,8 +422,7 @@
                                                (|HasCategory|
                                                 (|SparseUnivariateTaylorSeries|
                                                  |#1| |#2| |#3|)
-                                                '(|OrderedIntegralDomain|)))
-                                              . #11#)
+                                                '(|OrderedIntegralDomain|))))
                                         (OR
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicZero|))
@@ -529,8 +509,7 @@
                                                 (|Integer|))))
                                         (LETT #9#
                                               (|HasCategory| |#1|
-                                                             '(|CommutativeRing|))
-                                              . #11#)
+                                                             '(|CommutativeRing|)))
                                         (OR #9#
                                             (|HasCategory| |#1| '(|Field|)))
                                         (|HasSignature| |#1|
@@ -558,8 +537,7 @@
                                                                 '(|Symbol|)))))
                                         (LETT #8#
                                               (|HasCategory| |#1|
-                                                             '(|IntegralDomain|))
-                                              . #11#)
+                                                             '(|IntegralDomain|)))
                                         (OR #9# (|HasCategory| |#1| '(|Field|))
                                             #8#)
                                         (OR (|HasCategory| |#1| '(|Field|))
@@ -575,8 +553,7 @@
                                                (|HasCategory|
                                                 (|SparseUnivariateTaylorSeries|
                                                  |#1| |#2| |#3|)
-                                                '(|OrderedSet|)))
-                                              . #11#)
+                                                '(|OrderedSet|))))
                                         (OR #10# #7#)
                                         (OR
                                          (AND (|HasCategory| |#1| '(|Field|))
@@ -591,16 +568,14 @@
                                               (|HasCategory|
                                                (|SparseUnivariateTaylorSeries|
                                                 |#1| |#2| |#3|)
-                                               '(|PolynomialFactorizationExplicit|))
-                                              . #11#)
+                                               '(|PolynomialFactorizationExplicit|)))
                                         (AND (|HasCategory| |#1| '(|Field|))
                                              #6#)
                                         (LETT #5#
                                               (|HasCategory|
                                                (|SparseUnivariateTaylorSeries|
                                                 |#1| |#2| |#3|)
-                                               '(|CharacteristicNonZero|))
-                                              . #11#)
+                                               '(|CharacteristicNonZero|)))
                                         (OR
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicNonZero|))
@@ -668,8 +643,7 @@
                                                                 (|devaluate|
                                                                  |#1|)))))
                                         (LETT #4#
-                                              (|HasCategory| |#1| '(|Ring|))
-                                              . #11#)
+                                              (|HasCategory| |#1| '(|Ring|)))
                                         (OR #4#
                                             (|HasSignature| |#1|
                                                             (LIST '*
@@ -684,8 +658,7 @@
                                                        '(|CancellationAbelianMonoid|))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|AbelianGroup|))
-                                              . #11#)
+                                                             '(|AbelianGroup|)))
                                         (OR #3#
                                             (|HasCategory| |#1|
                                                            '(|CancellationAbelianMonoid|))
@@ -710,8 +683,7 @@
                                               (|HasCategory| |#1|
                                                              '(|Algebra|
                                                                (|Fraction|
-                                                                (|Integer|))))
-                                              . #11#)
+                                                                (|Integer|)))))
                                         (OR #2#
                                             (AND
                                              (|HasCategory| |#1| '(|Field|))
@@ -886,8 +858,7 @@
                                                                 '(|List|
                                                                   (|Symbol|))
                                                                 (|devaluate|
-                                                                 |#1|))))))))
-                    . #11#))
+                                                                 |#1|))))))))))
     (|haddProp| |$ConstructorCache| '|SparseUnivariateLaurentSeries|
                 (LIST DV$1 DV$2 DV$3) (CONS 1 $))
     (|stuffDomainSlots| $)
@@ -901,8 +872,7 @@
            (AND (|HasCategory| |#1| '(|Field|))
                 (|HasCategory| $ '(|CharacteristicNonZero|))
                 (|HasCategory| (|SparseUnivariateTaylorSeries| |#1| |#2| |#3|)
-                               '(|PolynomialFactorizationExplicit|)))
-           . #11#)
+                               '(|PolynomialFactorizationExplicit|))))
      (|augmentPredVector| $ 9007199254740992))
     (AND
      (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#

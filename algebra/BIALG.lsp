@@ -23,7 +23,6 @@
                                     ('T
                                      (LETT |Bialgebra;CAT|
                                            (|Join| (|Algebra| '|t#1|)
-                                                   (|Coalgebra| '|t#1| '|t#2|))
-                                           . #2=(|Bialgebra|)))))
-                   . #2#)
+                                                   (|Coalgebra| '|t#1|
+                                                                '|t#2|)))))))
            (SETELT #1# 0 (LIST '|Bialgebra| |t#1| |t#2|))))) 

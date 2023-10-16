@@ -15,7 +15,7 @@
          (PROG (#1=#:G159)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Library|) . #2=(|Library|))
+             ((LETT #1# (HGET |$ConstructorCache| '|Library|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -23,7 +23,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|Library|
                              (LIST (CONS NIL (CONS 1 (|Library;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Library|)))))))))) 
 
 (DEFUN |Library;| ()
@@ -31,8 +31,8 @@
    ((|dv$| NIL) ($ NIL) (#1=#:G155 NIL) (#2=#:G154 NIL) (|pv$| NIL)
     (#3=#:G156 NIL) (#4=#:G157 NIL))
    (PROGN
-    (LETT |dv$| '(|Library|) . #5=(|Library|))
-    (LETT $ (GETREFV 41) . #5#)
+    (LETT |dv$| '(|Library|))
+    (LETT $ (GETREFV 41))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -59,8 +59,7 @@
                                         (|HasCategory| (|Any|) '(|BasicType|))
                                         (LETT #1#
                                               (|HasCategory| (|Any|)
-                                                             '(|SetCategory|))
-                                              . #5#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| (|Any|)
                                                         '(|Evalable| (|Any|)))
@@ -69,8 +68,7 @@
                                               (|HasCategory|
                                                (|Record| (|:| |key| (|String|))
                                                          (|:| |entry| (|Any|)))
-                                               '(|SetCategory|))
-                                              . #5#)
+                                               '(|SetCategory|)))
                                         (AND
                                          (|HasCategory|
                                           (|Record| (|:| |key| (|String|))
@@ -89,11 +87,10 @@
                                           (|Record| (|:| |key| (|String|))
                                                     (|:| |entry| (|Any|)))
                                           '(|CoercibleTo| (|OutputForm|)))
-                                         #2#)))
-                    . #5#))
+                                         #2#)))))
     (|haddProp| |$ConstructorCache| '|Library| NIL (CONS 1 $))
     (|stuffDomainSlots| $)
-    (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
+    (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)))
          (|augmentPredVector| $ 2048))
     (AND #3#
          (|HasCategory| (|Record| (|:| |key| (|String|)) (|:| |entry| (|Any|)))
@@ -102,8 +99,7 @@
     (AND
      (LETT #4#
            (AND (|HasCategory| $ '(|finiteAggregate|))
-                (|HasCategory| (|Any|) '(|BasicType|)))
-           . #5#)
+                (|HasCategory| (|Any|) '(|BasicType|))))
      (|augmentPredVector| $ 8192))
     (AND
      (OR #4#

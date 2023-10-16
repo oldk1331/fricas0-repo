@@ -13,8 +13,7 @@
                    (|sublisV|
                     (PAIR '(#2=#:G104 #3=#:G105)
                           (LIST '(|DoubleFloat|) '(|Float|)))
-                    (|Join| (|ConvertibleTo| '#2#) (|ConvertibleTo| '#3#)))
-                   |RealConstant|)
+                    (|Join| (|ConvertibleTo| '#2#) (|ConvertibleTo| '#3#))))
            (SETELT #1# 0 '(|RealConstant|))))) 
 
 (MAKEPROP '|RealConstant| 'NILADIC T) 

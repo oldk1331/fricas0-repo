@@ -13,13 +13,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|OrderedDirectProduct|)
-                                               '|domainEqualList|)
-                    . #3=(|OrderedDirectProduct|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |OrderedDirectProduct;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|OrderedDirectProduct|)))))))))) 
@@ -30,11 +29,11 @@
     (#5=#:G125 NIL) (#6=#:G126 NIL) (#7=#:G127 NIL) (#8=#:G128 NIL)
     (#9=#:G129 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #10=(|OrderedDirectProduct|))
-    (LETT DV$2 (|devaluate| |#2|) . #10#)
-    (LETT DV$3 (|devaluate| |#3|) . #10#)
-    (LETT |dv$| (LIST '|OrderedDirectProduct| DV$1 DV$2 DV$3) . #10#)
-    (LETT $ (GETREFV 44) . #10#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT |dv$| (LIST '|OrderedDirectProduct| DV$1 DV$2 DV$3))
+    (LETT $ (GETREFV 44))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -47,8 +46,7 @@
                                                             '(|OrderedAbelianMonoidSup|))
                                              (LETT #9#
                                                    (|HasCategory| |#2|
-                                                                  '(|OrderedSet|))
-                                                   . #10#)
+                                                                  '(|OrderedSet|)))
                                              (OR
                                               (|HasCategory| |#2|
                                                              '(|OrderedAbelianMonoidSup|))
@@ -57,8 +55,7 @@
                                                             '(|unitsKnown|))
                                              (LETT #8#
                                                    (|HasCategory| |#2|
-                                                                  '(|CommutativeRing|))
-                                                   . #10#)
+                                                                  '(|CommutativeRing|)))
                                              (OR #8#
                                                  (|HasCategory| |#2|
                                                                 '(|Field|))
@@ -74,8 +71,7 @@
                                                                 '(|SemiRng|)))
                                              (LETT #7#
                                                    (|HasCategory| |#2|
-                                                                  '(|Finite|))
-                                                   . #10#)
+                                                                  '(|Finite|)))
                                              (OR #7#
                                                  (|HasCategory| |#2|
                                                                 '(|OrderedAbelianMonoidSup|))
@@ -88,8 +84,7 @@
                                                               (|Symbol|)))
                                              (LETT #6#
                                                    (|HasCategory| |#2|
-                                                                  '(|DifferentialRing|))
-                                                   . #10#)
+                                                                  '(|DifferentialRing|)))
                                              (OR
                                               (|HasCategory| |#2|
                                                              '(|LinearlyExplicitOver|
@@ -139,8 +134,7 @@
                                               (|HasCategory| |#2| '(|Ring|)))
                                              (LETT #5#
                                                    (|HasCategory| |#2|
-                                                                  '(|AbelianMonoid|))
-                                                   . #10#)
+                                                                  '(|AbelianMonoid|)))
                                              (AND #5#
                                                   (|HasCategory| |#2|
                                                                  '(|Monoid|)))
@@ -149,8 +143,7 @@
                                                                  '(|SemiRng|)))
                                              (LETT #4#
                                                    (|HasCategory| |#2|
-                                                                  '(|CancellationAbelianMonoid|))
-                                                   . #10#)
+                                                                  '(|CancellationAbelianMonoid|)))
                                              (OR
                                               (|HasCategory| |#2|
                                                              '(|AbelianGroup|))
@@ -175,8 +168,7 @@
                                                              '(|SemiRng|)))
                                              (LETT #3#
                                                    (|HasCategory| |#2|
-                                                                  '(|SemiGroup|))
-                                                   . #10#)
+                                                                  '(|SemiGroup|)))
                                              (OR
                                               (AND
                                                (|HasCategory| |#2|
@@ -330,8 +322,7 @@
                                                                    '(|RetractableTo|
                                                                      (|Integer|)))
                                                     (|HasCategory| |#2|
-                                                                   '(|SetCategory|)))
-                                                   . #10#)
+                                                                   '(|SetCategory|))))
                                              (OR
                                               (AND
                                                (|HasCategory| |#2|
@@ -416,8 +407,7 @@
                                                                      (|Fraction|
                                                                       (|Integer|))))
                                                     (|HasCategory| |#2|
-                                                                   '(|SetCategory|)))
-                                                   . #10#)
+                                                                   '(|SetCategory|))))
                                              (OR
                                               (|HasCategory| |#2|
                                                              '(|CoercibleTo|
@@ -531,8 +521,7 @@
                                                                  (|Integer|))))
                                                (|HasCategory| |#2|
                                                               '(|SemiRng|)))
-                                              #1#)))
-                    . #10#))
+                                              #1#)))))
     (|haddProp| |$ConstructorCache| '|OrderedDirectProduct|
                 (LIST DV$1 DV$2 DV$3) (CONS 1 $))
     (|stuffDomainSlots| $)

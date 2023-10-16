@@ -52,8 +52,7 @@
                               ((|extendedCoords| ((|List| (|DoubleFloat|)) $))
                                T)
                               ((|coerce| ((|OutputForm|) $)) T))
-                            NIL NIL NIL))
-                   |SPointCategory|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|SPointCategory|))))) 
 
 (MAKEPROP '|SPointCategory| 'NILADIC T) 

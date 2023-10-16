@@ -18,26 +18,24 @@
         (SPROG
          ((#1=#:G118 NIL) (|k| NIL) (#2=#:G117 NIL)
           (|pil| (|List| (|Integer|))))
-         (SEQ
-          (LETT |pil| (SPADCALL |pi| (QREFELT $ 18)) . #3=(|SEQU;apply;$PR;5|))
-          (EXIT
-           (SPADCALL (ELT $ 19)
-                     (PROGN
-                      (LETT #2# NIL . #3#)
-                      (SEQ (LETT |k| NIL . #3#) (LETT #1# |pil| . #3#) G190
-                           (COND
-                            ((OR (ATOM #1#)
-                                 (PROGN (LETT |k| (CAR #1#) . #3#) NIL))
-                             (GO G191)))
-                           (SEQ
-                            (EXIT
-                             (LETT #2#
-                                   (CONS (SPADCALL |mm| |k| (QREFELT $ 15))
-                                         #2#)
-                                   . #3#)))
-                           (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                           (EXIT (NREVERSE #2#))))
-                     (QREFELT $ 21)))))) 
+         (SEQ (LETT |pil| (SPADCALL |pi| (QREFELT $ 18)))
+              (EXIT
+               (SPADCALL (ELT $ 19)
+                         (PROGN
+                          (LETT #2# NIL)
+                          (SEQ (LETT |k| NIL) (LETT #1# |pil|) G190
+                               (COND
+                                ((OR (ATOM #1#)
+                                     (PROGN (LETT |k| (CAR #1#)) NIL))
+                                 (GO G191)))
+                               (SEQ
+                                (EXIT
+                                 (LETT #2#
+                                       (CONS (SPADCALL |mm| |k| (QREFELT $ 15))
+                                             #2#))))
+                               (LETT #1# (CDR #1#)) (GO G190) G191
+                               (EXIT (NREVERSE #2#))))
+                         (QREFELT $ 21)))))) 
 
 (SDEFUN |SEQU;cons;R2$;6| ((|r| R) (|s| $) ($ $))
         (|SEQU;per| (SPADCALL |r| (|SEQU;rep| |s| $) (QREFELT $ 23)) $)) 
@@ -66,8 +64,8 @@
 
 (SDEFUN |SEQU;*;R2$;10!0| ((|t| NIL) ($$ NIL))
         (PROG (|x| $)
-          (LETT |x| (QREFELT $$ 1) . #1=(|SEQU;*;R2$;10|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |x| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |t| (QREFELT $ 19)))))) 
 
 (SDEFUN |SEQU;=;2$B;11| ((|x| $) (|y| $) ($ |Boolean|))
@@ -100,14 +98,13 @@
                (SEQ
                 (LETT |apow|
                       (SPADCALL (CONS #'|SEQU;dilate;R2$;19!0| (VECTOR $ |a|))
-                                |a| (QREFELT $ 45))
-                      |SEQU;dilate;R2$;19|)
+                                |a| (QREFELT $ 45)))
                 (EXIT (|SEQU;multiply| |apow| |mm| $))))) 
 
 (SDEFUN |SEQU;dilate;R2$;19!0| ((|x| NIL) ($$ NIL))
         (PROG (|a| $)
-          (LETT |a| (QREFELT $$ 1) . #1=(|SEQU;dilate;R2$;19|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |a| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |a| (QREFELT $ 19)))))) 
 
 (DECLAIM (NOTINLINE |Sequence;|)) 
@@ -121,11 +118,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Sequence|)
-                                               '|domainEqualList|)
-                    . #3=(|Sequence|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Sequence;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Sequence;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Sequence|)))))))))) 
 
 (DEFUN |Sequence;| (|#1|)
@@ -133,9 +129,9 @@
    ((#1=#:G146 NIL) (#2=#:G148 NIL) (#3=#:G147 NIL) (|pv$| NIL) (#4=#:G145 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #5=(|Sequence|))
-    (LETT |dv$| (LIST '|Sequence| DV$1) . #5#)
-    (LETT $ (GETREFV 68) . #5#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|Sequence| DV$1))
+    (LETT $ (GETREFV 68))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -158,27 +154,24 @@
                                                        '(|OrderedSet|))
                                         (LETT #4#
                                               (|HasCategory| |#1|
-                                                             '(|AbelianMonoid|))
-                                              . #5#)
+                                                             '(|AbelianMonoid|)))
                                         (OR
                                          (|HasCategory| |#1| '(|AbelianGroup|))
-                                         #4#)))
-                    . #5#))
+                                         #4#)))))
     (|haddProp| |$ConstructorCache| '|Sequence| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
-    (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
+    (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)))
          (|augmentPredVector| $ 512))
     (AND
      (LETT #2#
            (AND (|HasCategory| |#1| '(|OrderedSet|))
-                (|HasCategory| $ '(|finiteAggregate|)))
-           . #5#)
+                (|HasCategory| $ '(|finiteAggregate|))))
      (|augmentPredVector| $ 1024))
     (AND (OR (AND (|HasCategory| |#1| '(|Comparable|)) #3#) #2#)
          (|augmentPredVector| $ 2048))
     (AND (|HasCategory| |#1| '(|BasicType|)) #3# (|augmentPredVector| $ 4096))
-    (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)) . #5#)
+    (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)))
          (|augmentPredVector| $ 8192))
     (AND (|HasCategory| |#1| '(|OrderedSet|)) #3# #1#
          (|augmentPredVector| $ 16384))

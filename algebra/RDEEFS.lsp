@@ -11,12 +11,11 @@
           (LETT |ans|
                 (SPADCALL (SPADCALL |nfp| |k| (QREFELT $ 10))
                           (SPADCALL |g1| |k| (QREFELT $ 10))
-                          (SPADCALL |g2| |k| (QREFELT $ 10)) (QREFELT $ 14))
-                . #1=(|RDEEFS;basecase|))
+                          (SPADCALL |g2| |k| (QREFELT $ 10)) (QREFELT $ 14)))
           (EXIT
            (COND ((QEQCAR |ans| 1) (CONS 1 "failed"))
                  ('T
-                  (SEQ (LETT |l| (QCDR |ans|) . #1#)
+                  (SEQ (LETT |l| (QCDR |ans|))
                        (EXIT
                         (CONS 0
                               (LIST
@@ -52,41 +51,36 @@
             ((SPADCALL
               (LETT |nfp|
                     (SPADCALL |n| (SPADCALL |f| |x| (QREFELT $ 24))
-                              (QREFELT $ 26))
-                    . #3=(|RDEEFS;rischDEsys;I3FSMMU;2|))
+                              (QREFELT $ 26)))
               (QREFELT $ 21))
              (SEQ
               (EXIT
                (SEQ
-                (SEQ (LETT |u1| (SPADCALL |g1| NIL |limint|) . #3#)
+                (SEQ (LETT |u1| (SPADCALL |g1| NIL |limint|))
                      (EXIT
                       (COND
                        ((QEQCAR |u1| 1)
-                        (PROGN
-                         (LETT #2# (CONS 1 #4="failed") . #3#)
-                         (GO #5=#:G130)))
-                       (#6='T
-                        (SEQ (LETT |u2| (SPADCALL |g1| NIL |limint|) . #3#)
+                        (PROGN (LETT #2# (CONS 1 #3="failed")) (GO #4=#:G130)))
+                       (#5='T
+                        (SEQ (LETT |u2| (SPADCALL |g1| NIL |limint|))
                              (EXIT
                               (COND
                                ((QEQCAR |u2| 1)
                                 (PROGN
-                                 (LETT #2# (CONS 1 #4#) . #3#)
-                                 (GO #5#))))))))))
+                                 (LETT #2# (CONS 1 #3#))
+                                 (GO #4#))))))))))
                 (EXIT (CONS 0 (LIST (QCAR (QCDR |u1|)) (QCAR (QCDR |u2|)))))))
-              #5# (EXIT #2#)))
-            (#6#
+              #4# (EXIT #2#)))
+            (#5#
              (SEQ
               (COND
-               ((SPADCALL
-                 (LETT |y1| (SPADCALL |g2| |nfp| (QREFELT $ 27)) . #3#) |x|
-                 (QREFELT $ 28))
+               ((SPADCALL (LETT |y1| (SPADCALL |g2| |nfp| (QREFELT $ 27))) |x|
+                          (QREFELT $ 28))
                 (COND
                  ((SPADCALL
                    (LETT |y2|
                          (SPADCALL (SPADCALL |g1| |nfp| (QREFELT $ 27))
-                                   (QREFELT $ 29))
-                         . #3#)
+                                   (QREFELT $ 29)))
                    |x| (QREFELT $ 28))
                   (EXIT (CONS 0 (LIST |y1| |y2|)))))))
               (LETT |vl|
@@ -96,16 +90,15 @@
                                          (SPADCALL |g2| (QREFELT $ 31))
                                          (QREFELT $ 34))
                                (QREFELT $ 34))
-                     |x| (QREFELT $ 35))
-                    . #3#)
+                     |x| (QREFELT $ 35)))
               (EXIT
                (COND
                 ((QEQCAR
-                  (SPADCALL (LETT |k| (SPADCALL |vl| (QREFELT $ 36)) . #3#)
+                  (SPADCALL (LETT |k| (SPADCALL |vl| (QREFELT $ 36)))
                             (QREFELT $ 38))
                   0)
                  (|RDEEFS;basecase| |nfp| |g1| |g2| |k| $))
-                (#6#
+                (#5#
                  (|error|
                   "rischDEsys: can only handle rational functions for now"))))))))))) 
 
@@ -120,13 +113,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|ElementaryRischDESystem|)
-                                               '|domainEqualList|)
-                    . #3=(|ElementaryRischDESystem|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |ElementaryRischDESystem;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|ElementaryRischDESystem|)))))))))) 
@@ -134,12 +126,12 @@
 (DEFUN |ElementaryRischDESystem;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|ElementaryRischDESystem|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|ElementaryRischDESystem| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 48) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|ElementaryRischDESystem| DV$1 DV$2))
+          (LETT $ (GETREFV 48))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ElementaryRischDESystem|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

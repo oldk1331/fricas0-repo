@@ -44,8 +44,7 @@
         (SPROG ((|x1| (S)))
                (SEQ
                 (LETT |x1|
-                      (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 19))
-                      |RNS-;floor;2S;8|)
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 19)))
                 (EXIT
                  (COND ((SPADCALL |x| |x1| (QREFELT $ 35)) |x|)
                        ((SPADCALL |x| (|spadConstant| $ 36) (QREFELT $ 37))
@@ -56,8 +55,7 @@
         (SPROG ((|x1| (S)))
                (SEQ
                 (LETT |x1|
-                      (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 19))
-                      |RNS-;ceiling;2S;9|)
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 19)))
                 (EXIT
                  (COND ((SPADCALL |x| |x1| (QREFELT $ 35)) |x|)
                        ((SPADCALL |x| (|spadConstant| $ 36) (QREFELT $ 39))
@@ -74,18 +72,16 @@
                  ((SPADCALL |p| (QREFELT $ 41))
                   (SPADCALL |p| |x| |l| (QREFELT $ 43)))
                  ((SPADCALL |p| (QREFELT $ 44))
-                  (SEQ
-                   (LETT |r| (SPADCALL |p| (QREFELT $ 46))
-                         |RNS-;patternMatch;SP2Pmr;10|)
-                   (EXIT
-                    (COND
-                     ((QEQCAR |r| 0)
-                      (COND
-                       ((SPADCALL (SPADCALL |x| (QREFELT $ 30)) (QCDR |r|)
-                                  (QREFELT $ 47))
-                        |l|)
-                       (#1='T (SPADCALL (QREFELT $ 48)))))
-                     (#1# (SPADCALL (QREFELT $ 48)))))))
+                  (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 46)))
+                       (EXIT
+                        (COND
+                         ((QEQCAR |r| 0)
+                          (COND
+                           ((SPADCALL (SPADCALL |x| (QREFELT $ 30)) (QCDR |r|)
+                                      (QREFELT $ 47))
+                            |l|)
+                           (#1='T (SPADCALL (QREFELT $ 48)))))
+                         (#1# (SPADCALL (QREFELT $ 48)))))))
                  (#1# (SPADCALL (QREFELT $ 48))))))) 
 
 (DECLAIM (NOTINLINE |RealNumberSystem&;|)) 
@@ -93,11 +89,11 @@
 (DEFUN |RealNumberSystem&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|RealNumberSystem&|))
-          (LETT |dv$| (LIST '|RealNumberSystem&| DV$1) . #1#)
-          (LETT $ (GETREFV 53) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|RealNumberSystem&| DV$1))
+          (LETT $ (GETREFV 53))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

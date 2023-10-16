@@ -6,9 +6,8 @@
         (SPROG ((|u| (|Union| F "failed")) (|k| (|Kernel| F)))
                (SEQ
                 (LETT |k|
-                      (SPADCALL (SPADCALL |s| (QREFELT $ 13)) (QREFELT $ 11))
-                      . #1=(|SUMFS;sum;FSbF;2|))
-                (LETT |u| (|SUMFS;innersum| |x| |k| $) . #1#)
+                      (SPADCALL (SPADCALL |s| (QREFELT $ 13)) (QREFELT $ 11)))
+                (LETT |u| (|SUMFS;innersum| |x| |k| $))
                 (EXIT
                  (COND ((QEQCAR |u| 1) (SPADCALL |x| |s| (QREFELT $ 15)))
                        ('T
@@ -30,8 +29,7 @@
         (SPROG ((|u| (|Union| F "failed")))
                (SEQ
                 (LETT |u|
-                      (|SUMFS;innersum| |x| (SPADCALL |v| (QREFELT $ 11)) $)
-                      |SUMFS;sum;FSF;3|)
+                      (|SUMFS;innersum| |x| (SPADCALL |v| (QREFELT $ 11)) $))
                 (EXIT
                  (COND ((QEQCAR |u| 1) (SPADCALL |x| |v| (QREFELT $ 27)))
                        ('T (QCDR |u|))))))) 
@@ -43,11 +41,10 @@
                  (SEQ
                   (SEQ
                    (EXIT
-                    (SEQ (LETT |kk| NIL . #4=(|SUMFS;notRF?|))
-                         (LETT #3# (SPADCALL |f| (QREFELT $ 30)) . #4#) G190
+                    (SEQ (LETT |kk| NIL)
+                         (LETT #3# (SPADCALL |f| (QREFELT $ 30))) G190
                          (COND
-                          ((OR (ATOM #3#)
-                               (PROGN (LETT |kk| (CAR #3#) . #4#) NIL))
+                          ((OR (ATOM #3#) (PROGN (LETT |kk| (CAR #3#)) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
@@ -59,16 +56,12 @@
                              (COND
                               ((QEQCAR (SPADCALL |kk| (QREFELT $ 36)) 1)
                                (PROGN
-                                (LETT #1#
-                                      (PROGN
-                                       (LETT #2# 'T . #4#)
-                                       (GO #5=#:G126))
-                                      . #4#)
-                                (GO #6=#:G124))))))))
-                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #6# (EXIT #1#))
+                                (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G126)))
+                                (GO #5=#:G124))))))))
+                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #1#))
                   (EXIT NIL)))
-                #5# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (SDEFUN |SUMFS;innersum| ((|x| F) (|k| |Kernel| F) ($ |Union| F "failed"))
         (SPROG ((|u| (|Union| F "failed")) (|f| (F)) (|x1| (F)))
@@ -86,22 +79,19 @@
                                                                (QREFELT $ 31))
                                                      (|spadConstant| $ 17)
                                                      (QREFELT $ 25))
-                                                    (QREFELT $ 23))
-                                          . #1=(|SUMFS;innersum|))
+                                                    (QREFELT $ 23)))
                                     (QREFELT $ 39))
-                          (QREFELT $ 41))
-                         . #1#)
+                          (QREFELT $ 41)))
                    |k| $)
                   (CONS 1 "failed"))
-                 (#2='T
+                 (#1='T
                   (SEQ
                    (LETT |u|
                          (SPADCALL |f| |k| (CONS (|function| |SUMFS;newk|) $)
-                                   (QREFELT $ 45))
-                         . #1#)
+                                   (QREFELT $ 45)))
                    (EXIT
                     (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                          (#2#
+                          (#1#
                            (CONS 0
                                  (SPADCALL |x1|
                                            (SPADCALL (QCDR |u|) |k|
@@ -124,13 +114,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FunctionSpaceSum|)
-                                               '|domainEqualList|)
-                    . #3=(|FunctionSpaceSum|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |FunctionSpaceSum;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|FunctionSpaceSum|)))))))))) 
@@ -138,12 +127,12 @@
 (DEFUN |FunctionSpaceSum;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionSpaceSum|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|FunctionSpaceSum| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 47) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|FunctionSpaceSum| DV$1 DV$2))
+          (LETT $ (GETREFV 47))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FunctionSpaceSum| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

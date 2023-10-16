@@ -695,8 +695,6 @@
 ;   --  Unfortunately, it makes various free variable references outside
 ;   --  itself.  So we build a mini-vector that contains them all, and
 ;   --  pass this as the environment to our inner function.
-;   $FUNNAME :local := nil
-;   $FUNNAME_TAIL : local := [nil]
 ;   expandedFunction := compTranDryRun CADR uu
 ;   frees := getFreeList(expandedFunction, vl, nil, e)
 ;   expandedFunction :=
@@ -733,14 +731,13 @@
  
 (DEFUN |compWithMappingMode1| (|x| |m| |oldE| |$formalArgList|)
   (DECLARE (SPECIAL |$formalArgList|))
-  (PROG ($FUNNAME_TAIL $FUNNAME |$currentFunctionLevel| |$returnMode|
-         |$killOptimizeIfTrue| |fname| |body| |i| |locals| |scode| |vec|
-         |frees| |expandedFunction| |catchTag| |uu| |t| |u| |LETTMP#1| |vln|
-         |vl1| |nx| |vl| |old_style| |ress| |ISTMP#5| |argModeList| |target|
-         |ISTMP#4| |ISTMP#3| |ISTMP#2| |ISTMP#1| |e| |sl| |m'|)
+  (PROG (|$currentFunctionLevel| |$returnMode| |$killOptimizeIfTrue| |fname|
+         |body| |i| |locals| |scode| |vec| |frees| |expandedFunction|
+         |catchTag| |uu| |t| |u| |LETTMP#1| |vln| |vl1| |nx| |vl| |old_style|
+         |ress| |ISTMP#5| |argModeList| |target| |ISTMP#4| |ISTMP#3| |ISTMP#2|
+         |ISTMP#1| |e| |sl| |m'|)
     (DECLARE
-     (SPECIAL $FUNNAME_TAIL $FUNNAME |$currentFunctionLevel| |$returnMode|
-      |$killOptimizeIfTrue|))
+     (SPECIAL |$currentFunctionLevel| |$returnMode| |$killOptimizeIfTrue|))
     (RETURN
      (PROGN
       (SETQ |m'| (CADR . #1=(|m|)))
@@ -925,8 +922,6 @@
                             (SETQ |uu|
                                     (|optimizeFunctionDef|
                                      (LIST NIL (LIST 'LAMBDA |vl| |u|))))
-                            (SETQ $FUNNAME NIL)
-                            (SETQ $FUNNAME_TAIL (LIST NIL))
                             (SETQ |expandedFunction|
                                     (|compTranDryRun| (CADR |uu|)))
                             (SETQ |frees|

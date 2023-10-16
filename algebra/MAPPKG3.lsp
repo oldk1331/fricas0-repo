@@ -5,8 +5,8 @@
 
 (SDEFUN |MAPPKG3;curryRight;MBM;1!0| ((|a| NIL) ($$ NIL))
         (PROG (|b| |fabc|)
-          (LETT |b| (QREFELT $$ 1) . #1=(|MAPPKG3;curryRight;MBM;1|))
-          (LETT |fabc| (QREFELT $$ 0) . #1#)
+          (LETT |b| (QREFELT $$ 1))
+          (LETT |fabc| (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |a| |b| |fabc|))))) 
 
 (SDEFUN |MAPPKG3;curryLeft;MAM;2|
@@ -15,8 +15,8 @@
 
 (SDEFUN |MAPPKG3;curryLeft;MAM;2!0| ((|b| NIL) ($$ NIL))
         (PROG (|a| |fabc|)
-          (LETT |a| (QREFELT $$ 1) . #1=(|MAPPKG3;curryLeft;MAM;2|))
-          (LETT |fabc| (QREFELT $$ 0) . #1#)
+          (LETT |a| (QREFELT $$ 1))
+          (LETT |fabc| (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |a| |b| |fabc|))))) 
 
 (SDEFUN |MAPPKG3;constantRight;MM;3|
@@ -44,9 +44,9 @@
 
 (SDEFUN |MAPPKG3;*;MMM;6!0| ((|a| NIL) ($$ NIL))
         (PROG (|fbc| |fab| $)
-          (LETT |fbc| (QREFELT $$ 2) . #1=(|MAPPKG3;*;MMM;6|))
-          (LETT |fab| (QREFELT $$ 1) . #1#)
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |fbc| (QREFELT $$ 2))
+          (LETT |fab| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |fbc| |fab| |a| (QREFELT $ 20)))))) 
 
 (DECLAIM (NOTINLINE |MappingPackage3;|)) 
@@ -60,13 +60,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|MappingPackage3|)
-                                               '|domainEqualList|)
-                    . #3=(|MappingPackage3|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |MappingPackage3;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|MappingPackage3|)))))))))) 
@@ -74,13 +73,13 @@
 (DEFUN |MappingPackage3;| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|MappingPackage3|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|MappingPackage3| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 22) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|MappingPackage3| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 22))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|MappingPackage3|
                       (LIST DV$1 DV$2 DV$3) (CONS 1 $))
           (|stuffDomainSlots| $)

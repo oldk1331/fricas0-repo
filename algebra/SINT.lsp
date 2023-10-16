@@ -190,14 +190,13 @@
 
 (SDEFUN |SINT;positiveRemainder;3$;46| ((|x| $) (|n| $) ($ $))
         (SPROG ((|r| ($)))
-               (SEQ
-                (LETT |r| (|rem_SI| |x| |n|) |SINT;positiveRemainder;3$;46|)
-                (EXIT
-                 (COND
-                  ((|negative?_SI| |r|)
-                   (COND ((|negative?_SI| |n|) (|sub_SI| |x| |n|))
-                         (#1='T (|add_SI| |r| |n|))))
-                  (#1# |r|)))))) 
+               (SEQ (LETT |r| (|rem_SI| |x| |n|))
+                    (EXIT
+                     (COND
+                      ((|negative?_SI| |r|)
+                       (COND ((|negative?_SI| |n|) (|sub_SI| |x| |n|))
+                             (#1='T (|add_SI| |r| |n|))))
+                      (#1# |r|)))))) 
 
 (PUT '|SINT;qconvert;I$;47| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
@@ -228,8 +227,7 @@
          (PROG (#1=#:G1865)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|SingleInteger|)
-                    . #2=(|SingleInteger|))
+             ((LETT #1# (HGET |$ConstructorCache| '|SingleInteger|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -237,17 +235,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|SingleInteger|
                              (LIST (CONS NIL (CONS 1 (|SingleInteger;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|SingleInteger|)))))))))) 
 
 (DEFUN |SingleInteger;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|SingleInteger|) . #1=(|SingleInteger|))
-          (LETT $ (GETREFV 94) . #1#)
+          (LETT |dv$| '(|SingleInteger|))
+          (LETT $ (GETREFV 94))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SingleInteger| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

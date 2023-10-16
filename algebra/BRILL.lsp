@@ -1,14 +1,12 @@
 
 (SDEFUN |BRILL;squaredPolynomial| ((|p| UP) ($ |Boolean|))
         (SPROG ((|d| (|NonNegativeInteger|)))
-               (SEQ
-                (LETT |d| (SPADCALL |p| (QREFELT $ 8))
-                      |BRILL;squaredPolynomial|)
-                (EXIT
-                 (COND ((EQL |d| 0) 'T) ((ODDP |d|) NIL)
-                       ('T
-                        (|BRILL;squaredPolynomial|
-                         (SPADCALL |p| (QREFELT $ 10)) $))))))) 
+               (SEQ (LETT |d| (SPADCALL |p| (QREFELT $ 8)))
+                    (EXIT
+                     (COND ((EQL |d| 0) 'T) ((ODDP |d|) NIL)
+                           ('T
+                            (|BRILL;squaredPolynomial|
+                             (SPADCALL |p| (QREFELT $ 10)) $))))))) 
 
 (SDEFUN |BRILL;primeEnough?| ((|n| |Integer|) (|b| |Integer|) ($ |Boolean|))
         (SPROG
@@ -16,50 +14,46 @@
           (|d| (|Union| (|Integer|) #4="failed")) (#5=#:G129 NIL) (|i| NIL))
          (SEQ
           (EXIT
-           (SEQ
-            (LETT |bb| (SPADCALL |b| (QREFELT $ 13))
-                  . #6=(|BRILL;primeEnough?|))
-            (SEQ (LETT |i| 2 . #6#) (LETT #5# |b| . #6#) G190
-                 (COND ((|greater_SI| |i| #5#) (GO G191)))
-                 (SEQ
-                  (EXIT
-                   (SEQ G190
-                        (COND
-                         ((NULL
-                           (QEQCAR
-                            (LETT |d| (SPADCALL |n| |i| (QREFELT $ 15)) . #6#)
-                            0))
-                          (GO G191)))
-                        (SEQ
-                         (EXIT
-                          (SEQ
-                           (LETT |n|
-                                 (PROG2 (LETT #3# |d| . #6#)
-                                     (QCDR #3#)
-                                   (|check_union2| (QEQCAR #3# 0) (|Integer|)
-                                                   (|Union| (|Integer|) #4#)
-                                                   #3#))
-                                 . #6#)
-                           (LETT |bb|
-                                 (SPADCALL |bb| (SPADCALL |i| (QREFELT $ 13))
-                                           (QREFELT $ 16))
-                                 . #6#)
-                           (EXIT
+           (SEQ (LETT |bb| (SPADCALL |b| (QREFELT $ 13)))
+                (SEQ (LETT |i| 2) (LETT #5# |b|) G190
+                     (COND ((|greater_SI| |i| #5#) (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (SEQ G190
                             (COND
-                             ((SPADCALL |bb| (|spadConstant| $ 17)
-                                        (QREFELT $ 19))
-                              (PROGN
-                               (LETT #1#
-                                     (PROGN
-                                      (LETT #2# NIL . #6#)
-                                      (GO #7=#:G126))
-                                     . #6#)
-                               (GO #8=#:G122)))))))
-                         #8# (EXIT #1#))
-                        NIL (GO G190) G191 (EXIT NIL))))
-                 (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
-            (EXIT (SPADCALL |n| (QREFELT $ 20)))))
-          #7# (EXIT #2#)))) 
+                             ((NULL
+                               (QEQCAR
+                                (LETT |d| (SPADCALL |n| |i| (QREFELT $ 15)))
+                                0))
+                              (GO G191)))
+                            (SEQ
+                             (EXIT
+                              (SEQ
+                               (LETT |n|
+                                     (PROG2 (LETT #3# |d|)
+                                         (QCDR #3#)
+                                       (|check_union2| (QEQCAR #3# 0)
+                                                       (|Integer|)
+                                                       (|Union| (|Integer|)
+                                                                #4#)
+                                                       #3#)))
+                               (LETT |bb|
+                                     (SPADCALL |bb|
+                                               (SPADCALL |i| (QREFELT $ 13))
+                                               (QREFELT $ 16)))
+                               (EXIT
+                                (COND
+                                 ((SPADCALL |bb| (|spadConstant| $ 17)
+                                            (QREFELT $ 19))
+                                  (PROGN
+                                   (LETT #1#
+                                         (PROGN (LETT #2# NIL) (GO #6=#:G126)))
+                                   (GO #7=#:G122)))))))
+                             #7# (EXIT #1#))
+                            NIL (GO G190) G191 (EXIT NIL))))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+                (EXIT (SPADCALL |n| (QREFELT $ 20)))))
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |BRILL;brillhartTrials;Nni;3| (($ |NonNegativeInteger|)) (QREFELT $ 21)) 
 
@@ -68,10 +62,10 @@
         (SPROG ((|#G9| (|NonNegativeInteger|)) (|#G8| (|NonNegativeInteger|)))
                (SEQ
                 (PROGN
-                 (LETT |#G8| |n| . #1=(|BRILL;brillhartTrials;2Nni;4|))
-                 (LETT |#G9| (QREFELT $ 21) . #1#)
+                 (LETT |#G8| |n|)
+                 (LETT |#G9| (QREFELT $ 21))
                  (SETELT $ 21 |#G8|)
-                 (LETT |n| |#G9| . #1#))
+                 (LETT |n| |#G9|))
                 (EXIT |n|)))) 
 
 (SDEFUN |BRILL;brillhartIrreducible?;UPB;5| ((|p| UP) ($ |Boolean|))
@@ -91,18 +85,14 @@
                   (SEQ
                    (LETT |origBound|
                          (LETT |largeEnough|
-                               (+ (SPADCALL |p| (QREFELT $ 28)) 1)
-                               . #7=(|BRILL;brillhartIrreducible?;UP2B;6|))
-                         . #7#)
+                               (+ (SPADCALL |p| (QREFELT $ 28)) 1)))
                    (LETT |even0|
                          (SPADCALL (SPADCALL |p| 0 (QREFELT $ 29))
-                                   (QREFELT $ 30))
-                         . #7#)
+                                   (QREFELT $ 30)))
                    (LETT |even1|
                          (SPADCALL (SPADCALL |p| 1 (QREFELT $ 32))
-                                   (QREFELT $ 30))
-                         . #7#)
-                   (LETT |polyx2| (|BRILL;squaredPolynomial| |p| $) . #7#)
+                                   (QREFELT $ 30)))
+                   (LETT |polyx2| (|BRILL;squaredPolynomial| |p| $))
                    (EXIT
                     (COND
                      ((SPADCALL (SPADCALL |p| |largeEnough| (QREFELT $ 32))
@@ -120,79 +110,78 @@
                        (EXIT
                         (COND ((EQL (QREFELT $ 21) 1) NIL)
                               (#6#
-                               (SEQ
-                                (LETT |largeEnough| (+ |largeEnough| 1) . #7#)
-                                (EXIT
-                                 (COND
-                                  ((|BRILL;primeEnough?|
-                                    (SPADCALL |p| |largeEnough| (QREFELT $ 32))
-                                    (COND (|noLinears| 4) (#6# 2)) $)
-                                   'T)
-                                  (#6#
-                                   (SEQ
-                                    (COND
-                                     ((NULL |polyx2|)
-                                      (COND
-                                       ((|BRILL;primeEnough?|
-                                         (SPADCALL |p| (- |largeEnough|)
-                                                   (QREFELT $ 32))
-                                         (COND (|noLinears| 4) (#6# 2)) $)
-                                        (EXIT 'T)))))
-                                    (COND
-                                     ((ODDP |largeEnough|)
-                                      (COND
-                                       (|even0|
-                                        (LETT |largeEnough| (+ |largeEnough| 1)
-                                              . #7#))))
-                                     (|even1|
-                                      (LETT |largeEnough| (+ |largeEnough| 1)
-                                            . #7#)))
-                                    (LETT |count|
-                                          (+
-                                           (SPADCALL
-                                            (COND (|polyx2| 2) (#6# 1))
-                                            (- (QREFELT $ 21) 2)
-                                            (QREFELT $ 33))
-                                           |largeEnough|)
-                                          . #7#)
-                                    (SEQ (LETT |i| (+ |largeEnough| 1) . #7#)
-                                         (LETT #3# |count| . #7#) G190
-                                         (COND ((> |i| #3#) (GO G191)))
-                                         (SEQ
-                                          (LETT |small|
-                                                (COND
-                                                 (|noLinears|
-                                                  (EXPT (- |i| |origBound|) 2))
-                                                 ('T (- |i| |origBound|)))
-                                                . #7#)
-                                          (EXIT
-                                           (COND
-                                            ((|BRILL;primeEnough?|
-                                              (SPADCALL |p| |i| (QREFELT $ 32))
-                                              |small| $)
-                                             (PROGN
-                                              (LETT #2# 'T . #7#)
-                                              (GO #8=#:G145)))
-                                            ((NULL |polyx2|)
+                               (SEQ (LETT |largeEnough| (+ |largeEnough| 1))
+                                    (EXIT
+                                     (COND
+                                      ((|BRILL;primeEnough?|
+                                        (SPADCALL |p| |largeEnough|
+                                                  (QREFELT $ 32))
+                                        (COND (|noLinears| 4) (#6# 2)) $)
+                                       'T)
+                                      (#6#
+                                       (SEQ
+                                        (COND
+                                         ((NULL |polyx2|)
+                                          (COND
+                                           ((|BRILL;primeEnough?|
+                                             (SPADCALL |p| (- |largeEnough|)
+                                                       (QREFELT $ 32))
+                                             (COND (|noLinears| 4) (#6# 2)) $)
+                                            (EXIT 'T)))))
+                                        (COND
+                                         ((ODDP |largeEnough|)
+                                          (COND
+                                           (|even0|
+                                            (LETT |largeEnough|
+                                                  (+ |largeEnough| 1)))))
+                                         (|even1|
+                                          (LETT |largeEnough|
+                                                (+ |largeEnough| 1))))
+                                        (LETT |count|
+                                              (+
+                                               (SPADCALL
+                                                (COND (|polyx2| 2) (#6# 1))
+                                                (- (QREFELT $ 21) 2)
+                                                (QREFELT $ 33))
+                                               |largeEnough|))
+                                        (SEQ (LETT |i| (+ |largeEnough| 1))
+                                             (LETT #3# |count|) G190
+                                             (COND ((> |i| #3#) (GO G191)))
                                              (SEQ
+                                              (LETT |small|
+                                                    (COND
+                                                     (|noLinears|
+                                                      (EXPT (- |i| |origBound|)
+                                                            2))
+                                                     ('T (- |i| |origBound|))))
                                               (EXIT
                                                (COND
                                                 ((|BRILL;primeEnough?|
-                                                  (SPADCALL |p| (- |i|)
+                                                  (SPADCALL |p| |i|
                                                             (QREFELT $ 32))
                                                   |small| $)
                                                  (PROGN
-                                                  (LETT #1#
-                                                        (PROGN
-                                                         (LETT #2# 'T . #7#)
-                                                         (GO #8#))
-                                                        . #7#)
-                                                  (GO #9=#:G137)))))
-                                              #9# (EXIT #1#))))))
-                                         (LETT |i| (+ |i| 1) . #7#) (GO G190)
-                                         G191 (EXIT NIL))
-                                    (EXIT NIL)))))))))))))))))
-          #8# (EXIT #2#)))) 
+                                                  (LETT #2# 'T)
+                                                  (GO #7=#:G145)))
+                                                ((NULL |polyx2|)
+                                                 (SEQ
+                                                  (EXIT
+                                                   (COND
+                                                    ((|BRILL;primeEnough?|
+                                                      (SPADCALL |p| (- |i|)
+                                                                (QREFELT $ 32))
+                                                      |small| $)
+                                                     (PROGN
+                                                      (LETT #1#
+                                                            (PROGN
+                                                             (LETT #2# 'T)
+                                                             (GO #7#)))
+                                                      (GO #8=#:G137)))))
+                                                  #8# (EXIT #1#))))))
+                                             (LETT |i| (+ |i| 1)) (GO G190)
+                                             G191 (EXIT NIL))
+                                        (EXIT NIL)))))))))))))))))
+          #7# (EXIT #2#)))) 
 
 (SDEFUN |BRILL;noLinearFactor?;UPB;7| ((|p| UP) ($ |Boolean|))
         (COND
@@ -214,12 +203,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|BrillhartTests|)
-                                               '|domainEqualList|)
-                    . #3=(|BrillhartTests|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|BrillhartTests;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|BrillhartTests;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|BrillhartTests|)))))))))) 
@@ -227,11 +214,11 @@
 (DEFUN |BrillhartTests;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|BrillhartTests|))
-          (LETT |dv$| (LIST '|BrillhartTests| DV$1) . #1#)
-          (LETT $ (GETREFV 35) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|BrillhartTests| DV$1))
+          (LETT $ (GETREFV 35))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|BrillhartTests| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

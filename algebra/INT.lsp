@@ -72,12 +72,12 @@
 
 (SDEFUN |INT;addmod;4$;17| ((|a| $) (|b| $) (|p| $) ($ $))
         (SPROG ((|c| ($)))
-               (SEQ (LETT |c| (+ |a| |b|) |INT;addmod;4$;17|)
+               (SEQ (LETT |c| (+ |a| |b|))
                     (EXIT (COND ((>= |c| |p|) (- |c| |p|)) ('T |c|)))))) 
 
 (SDEFUN |INT;submod;4$;18| ((|a| $) (|b| $) (|p| $) ($ $))
         (SPROG ((|c| ($)))
-               (SEQ (LETT |c| (- |a| |b|) |INT;submod;4$;18|)
+               (SEQ (LETT |c| (- |a| |b|))
                     (EXIT (COND ((< |c| 0) (+ |c| |p|)) ('T |c|)))))) 
 
 (SDEFUN |INT;mulmod;4$;19| ((|a| $) (|b| $) (|p| $) ($ $))
@@ -100,7 +100,7 @@
 
 (SDEFUN |INT;latex;$S;24| ((|x| $) ($ |String|))
         (SPROG ((|s| (|String|)))
-               (SEQ (LETT |s| (STRINGIMAGE |x|) |INT;latex;$S;24|)
+               (SEQ (LETT |s| (STRINGIMAGE |x|))
                     (COND
                      ((SPADCALL 0 |x| (QREFELT $ 47))
                       (COND ((< |x| 10) (EXIT |s|)))))
@@ -109,8 +109,7 @@
 (SDEFUN |INT;positiveRemainder;3$;25| ((|a| $) (|b| $) ($ $))
         (SPROG ((|r| ($)))
                (COND
-                ((MINUSP
-                  (LETT |r| (REM |a| |b|) |INT;positiveRemainder;3$;25|))
+                ((MINUSP (LETT |r| (REM |a| |b|)))
                  (COND ((MINUSP |b|) (- |r| |b|)) (#1='T (+ |r| |b|))))
                 (#1# |r|)))) 
 
@@ -208,7 +207,7 @@
                (SEQ
                 (COND ((ZEROP |y|) (CONS 1 "failed"))
                       (#1='T
-                       (SEQ (LETT |z| (INTEXQUO |x| |y|) |INT;exquo;2$U;46|)
+                       (SEQ (LETT |z| (INTEXQUO |x| |y|))
                             (EXIT
                              (COND ((SPADCALL |z| (QREFELT $ 77)) (CONS 0 |z|))
                                    (#1# (CONS 1 "failed")))))))))) 
@@ -245,34 +244,34 @@
         ((|p| |SparseUnivariatePolynomial| $)
          ($ |Factored| (|SparseUnivariatePolynomial| $)))
         (SPROG ((#1=#:G1467 NIL) (|pp| (|SparseUnivariatePolynomial| $)))
-               (SEQ
-                (LETT |pp| (SPADCALL |p| (QREFELT $ 100))
-                      . #2=(|INT;factorPolynomial;SupF;53|))
-                (EXIT
-                 (COND
-                  ((EQL (SPADCALL |pp| (QREFELT $ 101))
-                        (SPADCALL |p| (QREFELT $ 101)))
-                   (SPADCALL |p| (QREFELT $ 103)))
-                  ('T
-                   (SPADCALL (SPADCALL |pp| (QREFELT $ 103))
-                             (SPADCALL (ELT $ 104)
-                                       (SPADCALL
-                                        (PROG2
-                                            (LETT #1#
-                                                  (SPADCALL
-                                                   (SPADCALL |p|
-                                                             (QREFELT $ 101))
-                                                   (SPADCALL |pp|
-                                                             (QREFELT $ 101))
-                                                   (QREFELT $ 79))
-                                                  . #2#)
-                                            (QCDR #1#)
-                                          (|check_union2| (QEQCAR #1# 0) $
-                                                          (|Union| $ "failed")
-                                                          #1#))
-                                        (QREFELT $ 106))
-                                       (QREFELT $ 110))
-                             (QREFELT $ 111)))))))) 
+               (SEQ (LETT |pp| (SPADCALL |p| (QREFELT $ 100)))
+                    (EXIT
+                     (COND
+                      ((EQL (SPADCALL |pp| (QREFELT $ 101))
+                            (SPADCALL |p| (QREFELT $ 101)))
+                       (SPADCALL |p| (QREFELT $ 103)))
+                      ('T
+                       (SPADCALL (SPADCALL |pp| (QREFELT $ 103))
+                                 (SPADCALL (ELT $ 104)
+                                           (SPADCALL
+                                            (PROG2
+                                                (LETT #1#
+                                                      (SPADCALL
+                                                       (SPADCALL |p|
+                                                                 (QREFELT $
+                                                                          101))
+                                                       (SPADCALL |pp|
+                                                                 (QREFELT $
+                                                                          101))
+                                                       (QREFELT $ 79)))
+                                                (QCDR #1#)
+                                              (|check_union2| (QEQCAR #1# 0) $
+                                                              (|Union| $
+                                                                       "failed")
+                                                              #1#))
+                                            (QREFELT $ 106))
+                                           (QREFELT $ 110))
+                                 (QREFELT $ 111)))))))) 
 
 (SDEFUN |INT;factorSquareFreePolynomial;SupF;54|
         ((|p| |SparseUnivariatePolynomial| $)
@@ -299,7 +298,7 @@
          (PROG (#1=#:G1498)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|Integer|) . #2=(|Integer|))
+             ((LETT #1# (HGET |$ConstructorCache| '|Integer|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -307,16 +306,16 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|Integer|
                              (LIST (CONS NIL (CONS 1 (|Integer;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|Integer|)))))))))) 
 
 (DEFUN |Integer;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|Integer|) . #1=(|Integer|))
-          (LETT $ (GETREFV 138) . #1#)
+          (LETT |dv$| '(|Integer|))
+          (LETT $ (GETREFV 138))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Integer| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (AND (|HasCategory| $ '(|CharacteristicNonZero|))

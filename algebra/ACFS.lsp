@@ -53,7 +53,5 @@
                                                   (|has| |t#1|
                                                          (|RetractableTo|
                                                           (|Integer|)))))
-                                               NIL NIL))
-                                      . #2=(|AlgebraicallyClosedFunctionSpace|)))))
-                   . #2#)
+                                               NIL NIL)))))))
            (SETELT #1# 0 (LIST '|AlgebraicallyClosedFunctionSpace| |t#1|))))) 

@@ -38,12 +38,11 @@
 (SDEFUN |ONECOMP;rationalIfCan;$U;11|
         ((|x| $) ($ |Union| (|Fraction| (|Integer|)) "failed"))
         (SPROG ((|r| (|Union| R "failed")))
-               (SEQ
-                (LETT |r| (SPADCALL |x| (QREFELT $ 15))
-                      |ONECOMP;rationalIfCan;$U;11|)
-                (EXIT
-                 (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
-                       ('T (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 26))))))))) 
+               (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 15)))
+                    (EXIT
+                     (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
+                           ('T
+                            (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 26))))))))) 
 
 (DECLAIM (NOTINLINE |OnePointCompletion;|)) 
 
@@ -56,12 +55,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|OnePointCompletion|)
-                                               '|domainEqualList|)
-                    . #3=(|OnePointCompletion|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|OnePointCompletion;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|OnePointCompletion;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|OnePointCompletion|)))))))))) 
@@ -69,9 +66,9 @@
 (DEFUN |OnePointCompletion;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|OnePointCompletion|))
-          (LETT |dv$| (LIST '|OnePointCompletion| DV$1) . #1#)
-          (LETT $ (GETREFV 34) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|OnePointCompletion| DV$1))
+          (LETT $ (GETREFV 34))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -85,8 +82,7 @@
                                                              '(|RetractableTo|
                                                                (|Integer|)))
                                               (|HasCategory| |#1|
-                                                             '(|IntegerNumberSystem|))))
-                          . #1#))
+                                                             '(|IntegerNumberSystem|))))))
           (|haddProp| |$ConstructorCache| '|OnePointCompletion| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

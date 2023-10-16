@@ -27,17 +27,11 @@
  
 (DEFPARAMETER |$definingMap| NIL)
  
-; DEFPARAMETER($specialMapNameSuffix, NIL)
- 
-(DEFPARAMETER |$specialMapNameSuffix| NIL)
- 
 ; makeInternalMapName(userName,numArgs,numMms,extraPart) ==
 ;   name := CONCAT('"*",STRINGIMAGE numArgs,'";",
 ;     object2String userName,'";",STRINGIMAGE numMms,'";",
 ;       object2String frameName first $interpreterFrameRing )
 ;   if extraPart then name := CONCAT(name,'";",extraPart)
-;   if $specialMapNameSuffix then
-;     name := CONCAT(name,'";",$specialMapNameSuffix)
 ;   INTERN name
  
 (DEFUN |makeInternalMapName| (|userName| |numArgs| |numMms| |extraPart|)
@@ -51,9 +45,6 @@
                       (|object2String|
                        (|frameName| (CAR |$interpreterFrameRing|)))))
       (COND (|extraPart| (SETQ |name| (CONCAT |name| ";" |extraPart|))))
-      (COND
-       (|$specialMapNameSuffix|
-        (SETQ |name| (CONCAT |name| ";" |$specialMapNameSuffix|))))
       (INTERN |name|)))))
  
 ; isInternalMapName name ==
@@ -193,7 +184,7 @@
 ;   --figure out the new dependencies for the new map (what it depends on)
 ;   newDependencies := makeNewDependencies (op, userVariables4)
 ;   putDependencies (op, newDependencies)
-;   clearDependencies(op,'T)
+;   clearDependencies(op)
 ;   addMap(lhs,rhs,pred)
  
 (DEFUN |addDefMap| (|bfVar#5| |pred|)
@@ -298,7 +289,7 @@
                  (REMDUP (SETDIFFERENCE |userVariables3| (LIST |op|))))
          (SETQ |newDependencies| (|makeNewDependencies| |op| |userVariables4|))
          (|putDependencies| |op| |newDependencies|)
-         (|clearDependencies| |op| 'T)
+         (|clearDependencies| |op|)
          (|addMap| |lhs| |rhs| |pred|))))))))
  
 ; addMap(lhs,rhs,pred) ==
@@ -1037,17 +1028,12 @@
                   (|putDependencies,removeObsoleteDependencies| |op|
                    (CDR |oldDep|))))))))
  
-; clearDependencies(x,clearLocalModemapsIfTrue) ==
-;   $dependencies: local:= COPY getFlag "$dependencies"
-;   clearDep1(x,nil,nil,$dependencies)
+; clearDependencies(x) ==
+;     clearDep1(x, [], [], COPY getFlag "$dependencies")
  
-(DEFUN |clearDependencies| (|x| |clearLocalModemapsIfTrue|)
-  (PROG (|$dependencies|)
-    (DECLARE (SPECIAL |$dependencies|))
-    (RETURN
-     (PROGN
-      (SETQ |$dependencies| (COPY (|getFlag| '|$dependencies|)))
-      (|clearDep1| |x| NIL NIL |$dependencies|)))))
+(DEFUN |clearDependencies| (|x|)
+  (PROG ()
+    (RETURN (|clearDep1| |x| NIL NIL (COPY (|getFlag| '|$dependencies|))))))
  
 ; clearDep1(x,toDoList,doneList,depList) ==
 ;   x in doneList => nil

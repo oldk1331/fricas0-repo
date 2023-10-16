@@ -10,22 +10,21 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|PAdicInteger|)
-                                               '|domainEqualList|)
-                    . #3=(|PAdicInteger|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|PAdicInteger;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|PAdicInteger;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|PAdicInteger|)))))))))) 
 
 (DEFUN |PAdicInteger;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|PAdicInteger|))
-          (LETT |dv$| (LIST '|PAdicInteger| DV$1) . #1#)
-          (LETT $ (GETREFV 28) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|PAdicInteger| DV$1))
+          (LETT $ (GETREFV 28))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PAdicInteger| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

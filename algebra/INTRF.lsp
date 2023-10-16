@@ -10,8 +10,8 @@
 
 (SDEFUN |INTRF;infieldIntegrate;FSU;1!0| ((|x1| NIL) ($$ NIL))
         (PROG (|x| $)
-          (LETT |x| (QREFELT $$ 1) . #1=(|INTRF;infieldIntegrate;FSU;1|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |x| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 11)))))) 
 
 (SDEFUN |INTRF;internalIntegrate;FSIr;2|
@@ -25,8 +25,8 @@
 
 (SDEFUN |INTRF;internalIntegrate;FSIr;2!0| ((|x1| NIL) ($$ NIL))
         (PROG (|x| $)
-          (LETT |x| (QREFELT $$ 1) . #1=(|INTRF;internalIntegrate;FSIr;2|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |x| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 11)))))) 
 
 (DECLAIM (NOTINLINE |RationalFunctionIntegration;|)) 
@@ -40,13 +40,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|RationalFunctionIntegration|)
-                                               '|domainEqualList|)
-                    . #3=(|RationalFunctionIntegration|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|RationalFunctionIntegration;| #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (|RationalFunctionIntegration;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -55,11 +53,11 @@
 (DEFUN |RationalFunctionIntegration;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalFunctionIntegration|))
-          (LETT |dv$| (LIST '|RationalFunctionIntegration| DV$1) . #1#)
-          (LETT $ (GETREFV 26) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|RationalFunctionIntegration| DV$1))
+          (LETT $ (GETREFV 26))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RationalFunctionIntegration|
                       (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -25,28 +25,24 @@
           (LETT |pden|
                 (SPADCALL
                  (PROGN
-                  (LETT #7# NIL . #8=(|MRATFAC;factor;PF;5|))
-                  (SEQ (LETT |c| NIL . #8#)
-                       (LETT #6# (SPADCALL |p| (QREFELT $ 27)) . #8#) G190
+                  (LETT #7# NIL)
+                  (SEQ (LETT |c| NIL) (LETT #6# (SPADCALL |p| (QREFELT $ 27)))
+                       G190
                        (COND
-                        ((OR (ATOM #6#) (PROGN (LETT |c| (CAR #6#) . #8#) NIL))
+                        ((OR (ATOM #6#) (PROGN (LETT |c| (CAR #6#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #7# (CONS (SPADCALL |c| (QREFELT $ 28)) #7#)
-                               . #8#)))
-                       (LETT #6# (CDR #6#) . #8#) (GO G190) G191
+                         (LETT #7# (CONS (SPADCALL |c| (QREFELT $ 28)) #7#))))
+                       (LETT #6# (CDR #6#)) (GO G190) G191
                        (EXIT (NREVERSE #7#))))
-                 (QREFELT $ 30))
-                . #8#)
+                 (QREFELT $ 30)))
           (LETT |pol|
-                (SPADCALL (SPADCALL |pden| (QREFELT $ 19)) |p| (QREFELT $ 31))
-                . #8#)
+                (SPADCALL (SPADCALL |pden| (QREFELT $ 19)) |p| (QREFELT $ 31)))
           (LETT |ipol|
                 (SPADCALL (ELT $ 14) (CONS (|function| |MRATFAC;numer1|) $)
-                          |pol| (QREFELT $ 18))
-                . #8#)
-          (LETT |ffact| (SPADCALL |ipol| (QREFELT $ 34)) . #8#)
+                          |pol| (QREFELT $ 18)))
+          (LETT |ffact| (SPADCALL |ipol| (QREFELT $ 34)))
           (EXIT
            (SPADCALL
             (SPADCALL (SPADCALL (|spadConstant| $ 35) |pden| (QREFELT $ 38))
@@ -56,11 +52,11 @@
                                 (QREFELT $ 25))
                       (QREFELT $ 31))
             (PROGN
-             (LETT #1# NIL . #8#)
-             (SEQ (LETT |u| NIL . #8#)
-                  (LETT #5# (SPADCALL |ffact| (QREFELT $ 43)) . #8#) G190
+             (LETT #1# NIL)
+             (SEQ (LETT |u| NIL) (LETT #5# (SPADCALL |ffact| (QREFELT $ 43)))
+                  G190
                   (COND
-                   ((OR (ATOM #5#) (PROGN (LETT |u| (CAR #5#) . #8#) NIL))
+                   ((OR (ATOM #5#) (PROGN (LETT |u| (CAR #5#)) NIL))
                     (GO G191)))
                   (SEQ
                    (EXIT
@@ -70,12 +66,10 @@
                             (SPADCALL (ELT $ 21)
                                       (CONS (|function| |MRATFAC;coerce1|) $)
                                       (QVELT |u| 1) (QREFELT $ 25))
-                            (QVELT |u| 2) (QREFELT $ 46))
-                           . #8#)
-                     (COND
-                      (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 47)) . #8#))
-                      ('T (PROGN (LETT #2# #4# . #8#) (LETT #1# 'T . #8#)))))))
-                  (LETT #5# (CDR #5#) . #8#) (GO G190) G191 (EXIT NIL))
+                            (QVELT |u| 2) (QREFELT $ 46)))
+                     (COND (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 47))))
+                           ('T (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
+                  (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
              (COND (#1# #2#) ('T (|spadConstant| $ 48))))
             (QREFELT $ 49)))))) 
 
@@ -90,13 +84,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|MRationalFactorize|)
-                                               '|domainEqualList|)
-                    . #3=(|MRationalFactorize|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |MRationalFactorize;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|MRationalFactorize|)))))))))) 
@@ -106,14 +99,14 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #1=(|MRationalFactorize|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
-    (LETT |dv$| (LIST '|MRationalFactorize| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 51) . #1#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
+    (LETT |dv$| (LIST '|MRationalFactorize| DV$1 DV$2 DV$3 DV$4))
+    (LETT $ (GETREFV 51))
     (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|MRationalFactorize|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
     (|stuffDomainSlots| $)

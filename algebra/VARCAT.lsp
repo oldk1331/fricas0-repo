@@ -25,8 +25,7 @@
                                             (|String|) (|NonNegativeInteger|)))
                                           T)
                                          ((= ((|Boolean|) $ $)) T))
-                                       NIL NIL NIL)))
-                   |VarCat|)
+                                       NIL NIL NIL))))
            (SETELT #1# 0 '(|VarCat|))))) 
 
 (MAKEPROP '|VarCat| 'NILADIC T) 

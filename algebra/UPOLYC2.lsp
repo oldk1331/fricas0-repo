@@ -1,7 +1,7 @@
 
 (SDEFUN |UPOLYC2;map;MPRPS;1| ((|f| |Mapping| S R) (|p| PR) ($ PS))
         (SPROG ((|ans| (|RepPS|)) (|nc| (S)))
-               (SEQ (LETT |ans| NIL . #1=(|UPOLYC2;map;MPRPS;1|))
+               (SEQ (LETT |ans| NIL)
                     (SEQ G190
                          (COND
                           ((NULL
@@ -11,24 +11,21 @@
                            (GO G191)))
                          (SEQ
                           (LETT |nc|
-                                (SPADCALL (SPADCALL |p| (QREFELT $ 17)) |f|)
-                                . #1#)
+                                (SPADCALL (SPADCALL |p| (QREFELT $ 17)) |f|))
                           (COND
                            ((SPADCALL |nc| (|spadConstant| $ 18)
                                       (QREFELT $ 19))
                             (LETT |ans|
                                   (CONS
                                    (CONS (SPADCALL |p| (QREFELT $ 21)) |nc|)
-                                   |ans|)
-                                  . #1#)))
-                          (EXIT
-                           (LETT |p| (SPADCALL |p| (QREFELT $ 22)) . #1#)))
+                                   |ans|))))
+                          (EXIT (LETT |p| (SPADCALL |p| (QREFELT $ 22)))))
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT (NREVERSE |ans|))))) 
 
 (SDEFUN |UPOLYC2;map;MPRPS;2| ((|f| |Mapping| S R) (|p| PR) ($ PS))
         (SPROG ((|ans| (|RepPS|)) (|nc| (S)))
-               (SEQ (LETT |ans| NIL . #1=(|UPOLYC2;map;MPRPS;2|))
+               (SEQ (LETT |ans| NIL)
                     (SEQ G190
                          (COND
                           ((NULL
@@ -38,44 +35,40 @@
                            (GO G191)))
                          (SEQ
                           (LETT |nc|
-                                (SPADCALL (SPADCALL |p| (QREFELT $ 17)) |f|)
-                                . #1#)
+                                (SPADCALL (SPADCALL |p| (QREFELT $ 17)) |f|))
                           (COND
                            ((SPADCALL |nc| (|spadConstant| $ 18)
                                       (QREFELT $ 19))
                             (LETT |ans|
                                   (CONS
                                    (CONS (SPADCALL |p| (QREFELT $ 21)) |nc|)
-                                   |ans|)
-                                  . #1#)))
-                          (EXIT
-                           (LETT |p| (SPADCALL |p| (QREFELT $ 22)) . #1#)))
+                                   |ans|))))
+                          (EXIT (LETT |p| (SPADCALL |p| (QREFELT $ 22)))))
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT (NREVERSE |ans|))))) 
 
 (SDEFUN |UPOLYC2;map;MPRPS;3| ((|f| |Mapping| S R) (|p| PR) ($ PS))
         (SPROG ((|ans| (PS)))
-               (SEQ
-                (LETT |ans| (|spadConstant| $ 25) . #1=(|UPOLYC2;map;MPRPS;3|))
-                (SEQ G190
-                     (COND
-                      ((NULL
-                        (NULL
-                         (SPADCALL |p| (|spadConstant| $ 14) (QREFELT $ 16))))
-                       (GO G191)))
-                     (SEQ
-                      (LETT |ans|
-                            (SPADCALL |ans|
-                                      (SPADCALL
-                                       (SPADCALL (SPADCALL |p| (QREFELT $ 17))
-                                                 |f|)
-                                       (SPADCALL |p| (QREFELT $ 21))
-                                       (QREFELT $ 26))
-                                      (QREFELT $ 27))
-                            . #1#)
-                      (EXIT (LETT |p| (SPADCALL |p| (QREFELT $ 22)) . #1#)))
-                     NIL (GO G190) G191 (EXIT NIL))
-                (EXIT |ans|)))) 
+               (SEQ (LETT |ans| (|spadConstant| $ 25))
+                    (SEQ G190
+                         (COND
+                          ((NULL
+                            (NULL
+                             (SPADCALL |p| (|spadConstant| $ 14)
+                                       (QREFELT $ 16))))
+                           (GO G191)))
+                         (SEQ
+                          (LETT |ans|
+                                (SPADCALL |ans|
+                                          (SPADCALL
+                                           (SPADCALL
+                                            (SPADCALL |p| (QREFELT $ 17)) |f|)
+                                           (SPADCALL |p| (QREFELT $ 21))
+                                           (QREFELT $ 26))
+                                          (QREFELT $ 27)))
+                          (EXIT (LETT |p| (SPADCALL |p| (QREFELT $ 22)))))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT |ans|)))) 
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialCategoryFunctions2;|)) 
 
@@ -88,8 +81,7 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|UnivariatePolynomialCategoryFunctions2|)
-                                               '|domainEqualList|)
-                    . #3=(|UnivariatePolynomialCategoryFunctions2|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -97,7 +89,7 @@
                       (APPLY
                        (|function| |UnivariatePolynomialCategoryFunctions2;|)
                        #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -108,17 +100,15 @@
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|)
-          . #1=(|UnivariatePolynomialCategoryFunctions2|))
-    (LETT DV$2 (|devaluate| |#2|) . #1#)
-    (LETT DV$3 (|devaluate| |#3|) . #1#)
-    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$|
-          (LIST '|UnivariatePolynomialCategoryFunctions2| DV$1 DV$2 DV$3 DV$4)
-          . #1#)
-    (LETT $ (GETREFV 28) . #1#)
+          (LIST '|UnivariatePolynomialCategoryFunctions2| DV$1 DV$2 DV$3 DV$4))
+    (LETT $ (GETREFV 28))
     (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|UnivariatePolynomialCategoryFunctions2|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
     (|stuffDomainSlots| $)

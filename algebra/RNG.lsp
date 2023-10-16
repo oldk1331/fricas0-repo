@@ -12,8 +12,7 @@
                    (|Join| (|NonAssociativeRng|) (|SemiRng|)
                            (|mkCategory|
                             '(((|annihilate?| ((|Boolean|) $ $)) T)) NIL NIL
-                            NIL))
-                   |Rng|)
+                            NIL)))
            (SETELT #1# 0 '(|Rng|))))) 
 
 (MAKEPROP '|Rng| 'NILADIC T) 

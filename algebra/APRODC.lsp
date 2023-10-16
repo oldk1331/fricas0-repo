@@ -29,6 +29,5 @@
                                                ((|AbelianGroup|)
                                                 (|has| |t#1|
                                                        (|AbelianGroup|))))
-                                             NIL NIL)))
-                   |AbelianProductCategory|)
+                                             NIL NIL))))
            (SETELT #1# 0 (LIST '|AbelianProductCategory| |t#1|))))) 

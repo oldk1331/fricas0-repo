@@ -15,8 +15,7 @@
                 ('T
                  (PROG1
                      (LETT #1#
-                           (QUOTIENT2 (QREFELT $ 22) (GCD (QREFELT $ 22) |x|))
-                           |FFCGP;order;$Pi;3|)
+                           (QUOTIENT2 (QREFELT $ 22) (GCD (QREFELT $ 22) |x|)))
                    (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                      '(|Integer|) #1#)))))) 
 
@@ -42,8 +41,7 @@
             (SEQ
              (LETT |primElement|
                    (SPADCALL (SPADCALL (|spadConstant| $ 50) 1 (QREFELT $ 51))
-                             (QREFELT $ 53))
-                   |FFCGP;coordinates;$V;5|)
+                             (QREFELT $ 53)))
              (EXIT
               (SPADCALL (SPADCALL |primElement| |x| (QREFELT $ 54))
                         (QREFELT $ 56))))))))) 
@@ -55,8 +53,7 @@
                      (COND ((|eql_SI| |x| -1) |y|) ((|eql_SI| |y| -1) |x|)
                            (#1='T
                             (SEQ
-                             (LETT |d| (|submod_SI| |y| |x| (QREFELT $ 22))
-                                   . #2=(|FFCGP;+;3$;6|))
+                             (LETT |d| (|submod_SI| |y| |x| (QREFELT $ 22)))
                              (EXIT
                               (COND
                                ((SPADCALL |d| (|lshift_SI| (QREFELT $ 22) -1)
@@ -67,11 +64,11 @@
                                   (|addmod_SI| |x| (QAREF1 (QREFELT $ 24) |d|)
                                                (QREFELT $ 22)))))
                                (#1#
-                                (SEQ
-                                 (LETT |d| (|sub_SI| (QREFELT $ 22) |d|) . #2#)
-                                 (EXIT
-                                  (|addmod_SI| |y| (QAREF1 (QREFELT $ 24) |d|)
-                                               (QREFELT $ 22)))))))))))))) 
+                                (SEQ (LETT |d| (|sub_SI| (QREFELT $ 22) |d|))
+                                     (EXIT
+                                      (|addmod_SI| |y|
+                                                   (QAREF1 (QREFELT $ 24) |d|)
+                                                   (QREFELT $ 22)))))))))))))) 
 
 (SDEFUN |FFCGP;initializeZech| (($ |Void|))
         (SEQ (SETELT $ 24 (SPADCALL (QREFELT $ 7) (QREFELT $ 61)))
@@ -92,12 +89,11 @@
                               (-
                                (SPADCALL (SPADCALL (QREFELT $ 13)) |n|
                                          (QREFELT $ 16))
-                               1))
-                   . #4=(|FFCGP;basis;PiV;8|))
+                               1)))
              (EXIT
               (PROGN
-               (LETT #3# (GETREFV |n|) . #4#)
-               (SEQ (LETT |i| 0 . #4#) (LETT #2# (- |n| 1) . #4#) G190
+               (LETT #3# (GETREFV |n|))
+               (SEQ (LETT |i| 0) (LETT #2# (- |n| 1)) G190
                     (COND ((|greater_SI| |i| #2#) (GO G191)))
                     (SEQ
                      (EXIT
@@ -106,13 +102,12 @@
                                (PROG1
                                    (LETT #1#
                                          (+ 1
-                                            (SPADCALL |i| |m| (QREFELT $ 68)))
-                                         . #4#)
+                                            (SPADCALL |i| |m| (QREFELT $ 68))))
                                  (|check_subtype2| (> #1# 0)
                                                    '(|PositiveInteger|)
                                                    '(|Integer|) #1#))
                                (QREFELT $ 69)))))
-                    (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                #3#)))))))) 
 
 (SDEFUN |FFCGP;*;I2$;9| ((|n| |Integer|) (|x| $) ($ $))
@@ -127,9 +122,8 @@
          (SEQ
           (LETT |f|
                 (SPADCALL (SPADCALL (|spadConstant| $ 21) 1 (QREFELT $ 77))
-                          (SPADCALL |a| 0 (QREFELT $ 77)) (QREFELT $ 78))
-                . #1=(|FFCGP;minimalPolynomial;$Sup;10|))
-          (LETT |u| (SPADCALL |a| (QREFELT $ 79)) . #1#)
+                          (SPADCALL |a| 0 (QREFELT $ 77)) (QREFELT $ 78)))
+          (LETT |u| (SPADCALL |a| (QREFELT $ 79)))
           (SEQ G190
                (COND
                 ((NULL (NULL (SPADCALL |u| |a| (QREFELT $ 47)))) (GO G191)))
@@ -141,24 +135,21 @@
                                            (QREFELT $ 77))
                                  (SPADCALL |u| 0 (QREFELT $ 77))
                                  (QREFELT $ 78))
-                                (QREFELT $ 80))
-                      . #1#)
-                (EXIT (LETT |u| (SPADCALL |u| (QREFELT $ 79)) . #1#)))
+                                (QREFELT $ 80)))
+                (EXIT (LETT |u| (SPADCALL |u| (QREFELT $ 79)))))
                NIL (GO G190) G191 (EXIT NIL))
-          (LETT |p| (|spadConstant| $ 30) . #1#)
+          (LETT |p| (|spadConstant| $ 30))
           (SEQ G190
                (COND ((NULL (NULL (SPADCALL |f| (QREFELT $ 81)))) (GO G191)))
                (SEQ
                 (LETT |g|
-                      (SPADCALL (SPADCALL |f| (QREFELT $ 82)) (QREFELT $ 83))
-                      . #1#)
+                      (SPADCALL (SPADCALL |f| (QREFELT $ 82)) (QREFELT $ 83)))
                 (LETT |p|
                       (SPADCALL |p|
                                 (SPADCALL |g| (SPADCALL |f| (QREFELT $ 84))
                                           (QREFELT $ 51))
-                                (QREFELT $ 85))
-                      . #1#)
-                (EXIT (LETT |f| (SPADCALL |f| (QREFELT $ 86)) . #1#)))
+                                (QREFELT $ 85)))
+                (EXIT (LETT |f| (SPADCALL |f| (QREFELT $ 86)))))
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |p|)))) 
 
@@ -182,14 +173,12 @@
 
 (SDEFUN |FFCGP;represents;V$;15| ((|v| |Vector| GF) ($ $))
         (SPROG ((|u| (|FiniteFieldExtensionByPolynomial| GF |defpol|)))
-               (SEQ
-                (LETT |u| (SPADCALL |v| (QREFELT $ 96))
-                      |FFCGP;represents;V$;15|)
-                (EXIT
-                 (COND
-                  ((SPADCALL |u| (|spadConstant| $ 97) (QREFELT $ 98))
-                   (|spadConstant| $ 31))
-                  ('T (SPADCALL |u| (QREFELT $ 99)))))))) 
+               (SEQ (LETT |u| (SPADCALL |v| (QREFELT $ 96)))
+                    (EXIT
+                     (COND
+                      ((SPADCALL |u| (|spadConstant| $ 97) (QREFELT $ 98))
+                       (|spadConstant| $ 31))
+                      ('T (SPADCALL |u| (QREFELT $ 99)))))))) 
 
 (SDEFUN |FFCGP;coerce;GF$;16| ((|e| GF) ($ $))
         (SPROG ((|log| (|Integer|)) (#1=#:G181 NIL))
@@ -202,8 +191,7 @@
                                (PROG2
                                    (LETT #1#
                                          (SPADCALL (QREFELT $ 34) |e|
-                                                   (QREFELT $ 103))
-                                         . #2=(|FFCGP;coerce;GF$;16|))
+                                                   (QREFELT $ 103)))
                                    (QCDR #1#)
                                  (|check_union2| (QEQCAR #1# 0)
                                                  (|NonNegativeInteger|)
@@ -211,8 +199,7 @@
                                                   (|NonNegativeInteger|)
                                                   "failed")
                                                  #1#))
-                               (QREFELT $ 23) (QREFELT $ 68))
-                              . #2#)
+                               (QREFELT $ 23) (QREFELT $ 68)))
                         (EXIT
                          (SPADCALL |log| (QREFELT $ 22) (QREFELT $ 104))))))))) 
 
@@ -222,36 +209,33 @@
                 (COND
                  ((SPADCALL |x| (QREFELT $ 45)) (CONS 0 (|spadConstant| $ 49)))
                  (#3='T
-                  (SEQ
-                   (LETT |u| (SPADCALL |x| (QREFELT $ 23) (QREFELT $ 106))
-                         . #4=(|FFCGP;retractIfCan;$U;17|))
-                   (EXIT
-                    (COND
-                     ((SPADCALL |u| (CONS 1 "failed") (QREFELT $ 108))
-                      (CONS 1 "failed"))
-                     (#3#
-                      (CONS 0
-                            (SPADCALL (QREFELT $ 34)
-                                      (PROG2 (LETT #1# |u| . #4#)
-                                          (QCDR #1#)
-                                        (|check_union2| (QEQCAR #1# 0) $
-                                                        (|Union| $ #2#) #1#))
-                                      (QREFELT $ 109)))))))))))) 
+                  (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 23) (QREFELT $ 106)))
+                       (EXIT
+                        (COND
+                         ((SPADCALL |u| (CONS 1 "failed") (QREFELT $ 108))
+                          (CONS 1 "failed"))
+                         (#3#
+                          (CONS 0
+                                (SPADCALL (QREFELT $ 34)
+                                          (PROG2 (LETT #1# |u|)
+                                              (QCDR #1#)
+                                            (|check_union2| (QEQCAR #1# 0) $
+                                                            (|Union| $ #2#)
+                                                            #1#))
+                                          (QREFELT $ 109)))))))))))) 
 
 (SDEFUN |FFCGP;retract;$GF;18| ((|x| $) ($ GF))
         (SPROG ((#1=#:G202 NIL) (|a| (|Union| GF #2="failed")))
-               (SEQ
-                (LETT |a| (SPADCALL |x| (QREFELT $ 111))
-                      . #3=(|FFCGP;retract;$GF;18|))
-                (EXIT
-                 (COND
-                  ((SPADCALL |a| (CONS 1 "failed") (QREFELT $ 112))
-                   (|error| "element not in ground field"))
-                  ('T
-                   (PROG2 (LETT #1# |a| . #3#)
-                       (QCDR #1#)
-                     (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
-                                     (|Union| (QREFELT $ 6) #2#) #1#)))))))) 
+               (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 111)))
+                    (EXIT
+                     (COND
+                      ((SPADCALL |a| (CONS 1 "failed") (QREFELT $ 112))
+                       (|error| "element not in ground field"))
+                      ('T
+                       (PROG2 (LETT #1# |a|)
+                           (QCDR #1#)
+                         (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                         (|Union| (QREFELT $ 6) #2#) #1#)))))))) 
 
 (SDEFUN |FFCGP;basis;V;19| (($ |Vector| $))
         (SPROG
@@ -259,20 +243,18 @@
           (#4=#:G211 NIL))
          (SEQ
           (PROGN
-           (LETT #4# (GETREFV #5=(QREFELT $ 12)) . #6=(|FFCGP;basis;V;19|))
-           (SEQ (LETT |i| 1 . #6#) (LETT #3# #5# . #6#) (LETT #2# 0 . #6#) G190
+           (LETT #4# (GETREFV #5=(QREFELT $ 12)))
+           (SEQ (LETT |i| 1) (LETT #3# #5#) (LETT #2# 0) G190
                 (COND ((|greater_SI| |i| #3#) (GO G191)))
                 (SEQ
                  (EXIT
                   (SETELT #4# #2#
                           (SPADCALL
-                           (PROG1 (LETT #1# |i| . #6#)
+                           (PROG1 (LETT #1# |i|)
                              (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                                '(|NonNegativeInteger|) #1#))
                            (QREFELT $ 69)))))
-                (LETT #2#
-                      (PROG1 (|inc_SI| #2#) (LETT |i| (|inc_SI| |i|) . #6#))
-                      . #6#)
+                (LETT #2# (PROG1 (|inc_SI| #2#) (LETT |i| (|inc_SI| |i|))))
                 (GO G190) G191 (EXIT NIL))
            #4#)))) 
 
@@ -293,8 +275,7 @@
           (COND ((SPADCALL |x| (QREFELT $ 45)) (CONS 1 "failed"))
                 (#3='T
                  (SEQ
-                  (LETT |e| (SPADCALL |b| (QREFELT $ 22) |x| (QREFELT $ 118))
-                        . #4=(|FFCGP;discreteLog;2$U;21|))
+                  (LETT |e| (SPADCALL |b| (QREFELT $ 22) |x| (QREFELT $ 118)))
                   (EXIT
                    (COND
                     ((SPADCALL |e| (CONS 1 "failed") (QREFELT $ 121))
@@ -302,7 +283,7 @@
                     (#3#
                      (SEQ
                       (LETT |e1|
-                            (PROG2 (LETT #1# |e| . #4#)
+                            (PROG2 (LETT #1# |e|)
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0)
                                               (|Record| (|:| |coef1| $)
@@ -311,8 +292,7 @@
                                                (|Record| (|:| |coef1| $)
                                                          (|:| |coef2| $))
                                                #2#)
-                                              #1#))
-                            . #4#)
+                                              #1#)))
                       (EXIT
                        (CONS 0
                              (SPADCALL (QCAR |e1|) (QREFELT $ 22)
@@ -378,13 +358,11 @@
                 (COND ((|eql_SI| |x| -1) (SPADCALL "0" (QREFELT $ 140)))
                       ((|eql_SI| |x| 0) (SPADCALL "1" (QREFELT $ 140)))
                       ('T
-                       (SEQ
-                        (LETT |y| (- (SPADCALL |x| (QREFELT $ 138)) 1)
-                              |FFCGP;coerce;$Of;35|)
-                        (EXIT
-                         (SPADCALL (QREFELT $ 29)
-                                   (SPADCALL |y| (QREFELT $ 141))
-                                   (QREFELT $ 142))))))))) 
+                       (SEQ (LETT |y| (- (SPADCALL |x| (QREFELT $ 138)) 1))
+                            (EXIT
+                             (SPADCALL (QREFELT $ 29)
+                                       (SPADCALL |y| (QREFELT $ 141))
+                                       (QREFELT $ 142))))))))) 
 
 (PUT '|FFCGP;=;2$B;36| '|SPADreplace| '|eql_SI|) 
 
@@ -414,14 +392,12 @@
 
 (SDEFUN |FFCGP;^;$I$;43| ((|x| $) (|n| |Integer|) ($ $))
         (SPROG ((|m| (|Rep|)))
-               (SEQ
-                (LETT |m| (SPADCALL |n| (QREFELT $ 22) (QREFELT $ 104))
-                      |FFCGP;^;$I$;43|)
-                (EXIT
-                 (COND ((|eql_SI| |m| 0) (|spadConstant| $ 21))
-                       ((SPADCALL |x| (|spadConstant| $ 31) (QREFELT $ 47))
-                        (|spadConstant| $ 31))
-                       ('T (|mulmod_SI| |m| |x| (QREFELT $ 22)))))))) 
+               (SEQ (LETT |m| (SPADCALL |n| (QREFELT $ 22) (QREFELT $ 104)))
+                    (EXIT
+                     (COND ((|eql_SI| |m| 0) (|spadConstant| $ 21))
+                           ((SPADCALL |x| (|spadConstant| $ 31) (QREFELT $ 47))
+                            (|spadConstant| $ 31))
+                           ('T (|mulmod_SI| |m| |x| (QREFELT $ 22)))))))) 
 
 (DECLAIM (NOTINLINE |FiniteFieldCyclicGroupExtensionByPolynomial;|)) 
 
@@ -434,8 +410,7 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|FiniteFieldCyclicGroupExtensionByPolynomial|)
-                                               '|domainEqualList|)
-                    . #3=(|FiniteFieldCyclicGroupExtensionByPolynomial|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -444,7 +419,7 @@
                        (|function|
                         |FiniteFieldCyclicGroupExtensionByPolynomial;|)
                        #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -454,12 +429,11 @@
   (SPROG
    ((|pv$| NIL) (#1=#:G278 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|)
-          . #2=(|FiniteFieldCyclicGroupExtensionByPolynomial|))
-    (LETT DV$2 (|devaluate| |#2|) . #2#)
-    (LETT |dv$| (LIST '|FiniteFieldCyclicGroupExtensionByPolynomial| DV$1 DV$2)
-          . #2#)
-    (LETT $ (GETREFV 171) . #2#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT |dv$|
+          (LIST '|FiniteFieldCyclicGroupExtensionByPolynomial| DV$1 DV$2))
+    (LETT $ (GETREFV 171))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -468,13 +442,11 @@
                                         (|HasCategory| |#1|
                                                        '(|CharacteristicZero|))
                                         (LETT #1#
-                                              (|HasCategory| |#1| '(|Finite|))
-                                              . #2#)
+                                              (|HasCategory| |#1| '(|Finite|)))
                                         (OR
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicNonZero|))
-                                         #1#)))
-                    . #2#))
+                                         #1#)))))
     (|haddProp| |$ConstructorCache|
                 '|FiniteFieldCyclicGroupExtensionByPolynomial| (LIST DV$1 DV$2)
                 (CONS 1 $))

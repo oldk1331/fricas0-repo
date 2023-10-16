@@ -17,8 +17,7 @@
                     (|mkCategory|
                      '(((|cos| ($ $)) T) ((|cot| ($ $)) T) ((|csc| ($ $)) T)
                        ((|sec| ($ $)) T) ((|sin| ($ $)) T) ((|tan| ($ $)) T))
-                     NIL NIL NIL))
-                   |TrigonometricFunctionCategory|)
+                     NIL NIL NIL)))
            (SETELT #1# 0 '(|TrigonometricFunctionCategory|))))) 
 
 (MAKEPROP '|TrigonometricFunctionCategory| 'NILADIC T) 

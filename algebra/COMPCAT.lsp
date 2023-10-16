@@ -133,7 +133,5 @@
                                                          (|EuclideanDomain|))
                                                   (|has| |t#1|
                                                          (|PolynomialFactorizationExplicit|)))))
-                                              NIL NIL))
-                                            . #3=(|ComplexCategory|))))))
-                   . #3#)
+                                              NIL NIL))))))))
            (SETELT #1# 0 (LIST '|ComplexCategory| |t#1|))))) 

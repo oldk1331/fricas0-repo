@@ -6,11 +6,9 @@
 
 (SDEFUN |COCHNC;coChainComplex;Cc$;2| ((|s| |ChainComplex|) ($ $))
         (SPROG ((|tm| ($)))
-               (SEQ
-                (LETT |tm| (SPADCALL |s| (QREFELT $ 11))
-                      . #1=(|COCHNC;coChainComplex;Cc$;2|))
-                (LETT |tm| (NREVERSE |tm|) . #1#)
-                (EXIT (SPADCALL (ELT $ 13) |tm| (QREFELT $ 15)))))) 
+               (SEQ (LETT |tm| (SPADCALL |s| (QREFELT $ 11)))
+                    (LETT |tm| (NREVERSE |tm|))
+                    (EXIT (SPADCALL (ELT $ 13) |tm| (QREFELT $ 15)))))) 
 
 (SDEFUN |COCHNC;validate;$B;3| ((|a| $) ($ |Boolean|))
         (SPROG
@@ -19,12 +17,12 @@
           (|len| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
-           (SEQ (LETT |len| (LENGTH |a|) . #4=(|COCHNC;validate;$B;3|))
-                (COND ((< |len| 2) (PROGN (LETT #2# 'T . #4#) (GO #5=#:G118))))
-                (LETT |last| (SPADCALL |a| 1 (QREFELT $ 18)) . #4#)
-                (SEQ (LETT |x| 2 . #4#) (LETT #3# |len| . #4#) G190
+           (SEQ (LETT |len| (LENGTH |a|))
+                (COND ((< |len| 2) (PROGN (LETT #2# 'T) (GO #4=#:G118))))
+                (LETT |last| (SPADCALL |a| 1 (QREFELT $ 18)))
+                (SEQ (LETT |x| 2) (LETT #3# |len|) G190
                      (COND ((|greater_SI| |x| #3#) (GO G191)))
-                     (SEQ (LETT |m| (SPADCALL |a| |x| (QREFELT $ 18)) . #4#)
+                     (SEQ (LETT |m| (SPADCALL |a| |x| (QREFELT $ 18)))
                           (COND
                            ((SPADCALL (SPADCALL |m| (QREFELT $ 19))
                                       (SPADCALL |last| (QREFELT $ 20))
@@ -46,9 +44,8 @@
                                          (QREFELT $ 26))
                                (QREFELT $ 27))
                               (QREFELT $ 29))
-                             (EXIT (PROGN (LETT #2# NIL . #4#) (GO #5#))))))
-                          (LETT |prod| (SPADCALL |last| |m| (QREFELT $ 30))
-                                . #4#)
+                             (EXIT (PROGN (LETT #2# NIL) (GO #4#))))))
+                          (LETT |prod| (SPADCALL |last| |m| (QREFELT $ 30)))
                           (COND
                            ((NULL (SPADCALL |prod| (QREFELT $ 31)))
                             (SEQ
@@ -69,11 +66,11 @@
                                 (SPADCALL " = " (QREFELT $ 25)) (QREFELT $ 27))
                                (SPADCALL |prod| (QREFELT $ 32)) (QREFELT $ 27))
                               (QREFELT $ 29))
-                             (EXIT (PROGN (LETT #2# NIL . #4#) (GO #5#))))))
-                          (EXIT (LETT |last| |m| . #4#)))
-                     (LETT |x| (|inc_SI| |x|) . #4#) (GO G190) G191 (EXIT NIL))
+                             (EXIT (PROGN (LETT #2# NIL) (GO #4#))))))
+                          (EXIT (LETT |last| |m|)))
+                     (LETT |x| (|inc_SI| |x|)) (GO G190) G191 (EXIT NIL))
                 (EXIT 'T)))
-          #5# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |COCHNC;coboundary;$Nni2L;4|
         ((|a| $) (|n| |NonNegativeInteger|) (|inp| |List| VS) ($ |List| VS))
@@ -86,69 +83,61 @@
           (#5=#:G130 NIL) (#6=#:G129 NIL) (|p| NIL)
           (|inpn| (|NonNegativeInteger|))
           (|maps| (|List| (|Matrix| (|Integer|)))))
-         (SEQ (LETT |maps| (REVERSE |a|) . #7=(|COCHNC;coboundary;$Nni2L;4|))
-              (LETT |res| NIL . #7#) (LETT |inpn| (LENGTH |inp|) . #7#)
-              (SEQ (LETT |p| 1 . #7#) (LETT #6# |inpn| . #7#) G190
+         (SEQ (LETT |maps| (REVERSE |a|)) (LETT |res| NIL)
+              (LETT |inpn| (LENGTH |inp|))
+              (SEQ (LETT |p| 1) (LETT #6# |inpn|) G190
                    (COND ((|greater_SI| |p| #6#) (GO G191)))
                    (SEQ
                     (LETT |base|
                           (PROGN
-                           (LETT #5# NIL . #7#)
-                           (SEQ (LETT |x| 1 . #7#) (LETT #4# |inpn| . #7#) G190
+                           (LETT #5# NIL)
+                           (SEQ (LETT |x| 1) (LETT #4# |inpn|) G190
                                 (COND ((|greater_SI| |x| #4#) (GO G191)))
                                 (SEQ
                                  (EXIT
                                   (LETT #5#
                                         (CONS (COND ((EQL |x| |p|) 1) ('T 0))
-                                              #5#)
-                                        . #7#)))
-                                (LETT |x| (|inc_SI| |x|) . #7#) (GO G190) G191
-                                (EXIT (NREVERSE #5#))))
-                          . #7#)
-                    (LETT |b| (SPADCALL |base| (QREFELT $ 36)) . #7#)
+                                              #5#))))
+                                (LETT |x| (|inc_SI| |x|)) (GO G190) G191
+                                (EXIT (NREVERSE #5#)))))
+                    (LETT |b| (SPADCALL |base| (QREFELT $ 36)))
                     (LETT |m|
                           (SPADCALL (SPADCALL |maps| |n| (QREFELT $ 18))
-                                    (QREFELT $ 13))
-                          . #7#)
-                    (LETT |vs| (SPADCALL |b| |m| (QREFELT $ 37)) . #7#)
-                    (LETT |fst| 'T . #7#) (LETT |res1| NIL . #7#)
-                    (SEQ (LETT |v| NIL . #7#)
-                         (LETT #3# (SPADCALL |vs| (QREFELT $ 38)) . #7#) G190
+                                    (QREFELT $ 13)))
+                    (LETT |vs| (SPADCALL |b| |m| (QREFELT $ 37)))
+                    (LETT |fst| 'T) (LETT |res1| NIL)
+                    (SEQ (LETT |v| NIL)
+                         (LETT #3# (SPADCALL |vs| (QREFELT $ 38))) G190
                          (COND
-                          ((OR (ATOM #3#)
-                               (PROGN (LETT |v| (CAR #3#) . #7#) NIL))
+                          ((OR (ATOM #3#) (PROGN (LETT |v| (CAR #3#)) NIL))
                            (GO G191)))
-                         (SEQ
-                          (LETT |val| (SPADCALL |inp| |p| (QREFELT $ 40))
-                                . #7#)
-                          (COND
-                           ((EQL |v| 0)
-                            (LETT |res1|
-                                  (SPADCALL |res1| (|spadConstant| $ 41)
-                                            (QREFELT $ 42))
-                                  . #7#)))
-                          (COND
-                           ((SPADCALL |v| 0 (QREFELT $ 43))
-                            (LETT |res1|
-                                  (SPADCALL |res1|
-                                            (SPADCALL |val| (QREFELT $ 44))
-                                            (QREFELT $ 42))
-                                  . #7#)))
-                          (EXIT
-                           (COND
-                            ((< |v| 0)
-                             (LETT |res1|
-                                   (SPADCALL |res1| |val| (QREFELT $ 42))
-                                   . #7#)))))
-                         (LETT #3# (CDR #3#) . #7#) (GO G190) G191 (EXIT NIL))
+                         (SEQ (LETT |val| (SPADCALL |inp| |p| (QREFELT $ 40)))
+                              (COND
+                               ((EQL |v| 0)
+                                (LETT |res1|
+                                      (SPADCALL |res1| (|spadConstant| $ 41)
+                                                (QREFELT $ 42)))))
+                              (COND
+                               ((SPADCALL |v| 0 (QREFELT $ 43))
+                                (LETT |res1|
+                                      (SPADCALL |res1|
+                                                (SPADCALL |val| (QREFELT $ 44))
+                                                (QREFELT $ 42)))))
+                              (EXIT
+                               (COND
+                                ((< |v| 0)
+                                 (LETT |res1|
+                                       (SPADCALL |res1| |val|
+                                                 (QREFELT $ 42)))))))
+                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                     (EXIT
-                     (COND ((NULL |res|) (LETT |res| |res1| . #7#))
+                     (COND ((NULL |res|) (LETT |res| |res1|))
                            ('T
                             (LETT |res|
                                   (PROGN
-                                   (LETT #2# NIL . #7#)
-                                   (SEQ (LETT |i| 1 . #7#)
-                                        (LETT #1# (LENGTH |res1|) . #7#) G190
+                                   (LETT #2# NIL)
+                                   (SEQ (LETT |i| 1) (LETT #1# (LENGTH |res1|))
+                                        G190
                                         (COND
                                          ((|greater_SI| |i| #1#) (GO G191)))
                                         (SEQ
@@ -161,12 +150,10 @@
                                                   (SPADCALL |res1| |i|
                                                             (QREFELT $ 40))
                                                   (QREFELT $ 45))
-                                                 #2#)
-                                                . #7#)))
-                                        (LETT |i| (|inc_SI| |i|) . #7#)
-                                        (GO G190) G191 (EXIT (NREVERSE #2#))))
-                                  . #7#)))))
-                   (LETT |p| (|inc_SI| |p|) . #7#) (GO G190) G191 (EXIT NIL))
+                                                 #2#))))
+                                        (LETT |i| (|inc_SI| |i|)) (GO G190)
+                                        G191 (EXIT (NREVERSE #2#)))))))))
+                   (LETT |p| (|inc_SI| |p|)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
 (SDEFUN |COCHNC;coHomology;$L;5| ((|a| $) ($ |List| (|Homology|)))
@@ -174,22 +161,21 @@
          ((|prev| (|Matrix| (|Integer|))) (|notFirst| (|Boolean|))
           (|res| (|List| (|Homology|))) (|m2| (|Homology|)) (#1=#:G140 NIL)
           (|m1| NIL))
-         (SEQ (LETT |res| NIL . #2=(|COCHNC;coHomology;$L;5|))
-              (LETT |prev| (MAKE_MATRIX 0 0) . #2#) (LETT |notFirst| NIL . #2#)
-              (SEQ (LETT |m1| NIL . #2#) (LETT #1# |a| . #2#) G190
+         (SEQ (LETT |res| NIL) (LETT |prev| (MAKE_MATRIX 0 0))
+              (LETT |notFirst| NIL)
+              (SEQ (LETT |m1| NIL) (LETT #1# |a|) G190
                    (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |m1| (CAR #1#) . #2#) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |m1| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ
                     (COND
                      (|notFirst|
-                      (SEQ
-                       (LETT |m2| (SPADCALL |m1| |prev| (QREFELT $ 49)) . #2#)
-                       (EXIT
-                        (LETT |res| (SPADCALL |res| |m2| (QREFELT $ 51))
-                              . #2#)))))
-                    (LETT |notFirst| 'T . #2#) (EXIT (LETT |prev| |m1| . #2#)))
-                   (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                      (SEQ (LETT |m2| (SPADCALL |m1| |prev| (QREFELT $ 49)))
+                           (EXIT
+                            (LETT |res|
+                                  (SPADCALL |res| |m2| (QREFELT $ 51)))))))
+                    (LETT |notFirst| 'T) (EXIT (LETT |prev| |m1|)))
+                   (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
 (SDEFUN |COCHNC;coerce;$Of;6| ((|s| $) ($ |OutputForm|))
@@ -199,18 +185,16 @@
          (SEQ
           (LETT |lst|
                 (PROGN
-                 (LETT #2# NIL . #3=(|COCHNC;coerce;$Of;6|))
-                 (SEQ (LETT |x| NIL . #3#) (LETT #1# |s| . #3#) G190
+                 (LETT #2# NIL)
+                 (SEQ (LETT |x| NIL) (LETT #1# |s|) G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
+                       ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 32)) #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #3#)
+                        (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 32)) #2#))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191
+                      (EXIT (NREVERSE #2#)))))
           (EXIT (SPADCALL |lst| (QREFELT $ 54)))))) 
 
 (DECLAIM (NOTINLINE |CoChainComplex;|)) 
@@ -224,12 +208,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|CoChainComplex|)
-                                               '|domainEqualList|)
-                    . #3=(|CoChainComplex|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|CoChainComplex;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|CoChainComplex;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|CoChainComplex|)))))))))) 
@@ -237,11 +219,11 @@
 (DEFUN |CoChainComplex;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|CoChainComplex|))
-          (LETT |dv$| (LIST '|CoChainComplex| DV$1) . #1#)
-          (LETT $ (GETREFV 58) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|CoChainComplex| DV$1))
+          (LETT $ (GETREFV 58))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CoChainComplex| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

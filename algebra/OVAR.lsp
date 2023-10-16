@@ -31,10 +31,9 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |exp2| NIL . #4=(|OVAR;variable;SU;9|))
-                 (LETT #3# (QREFELT $ 6) . #4#) (LETT |i| 1 . #4#) G190
+            (SEQ (LETT |exp2| NIL) (LETT #3# (QREFELT $ 6)) (LETT |i| 1) G190
                  (COND
-                  ((OR (ATOM #3#) (PROGN (LETT |exp2| (CAR #3#) . #4#) NIL))
+                  ((OR (ATOM #3#) (PROGN (LETT |exp2| (CAR #3#)) NIL))
                    (GO G191)))
                  (SEQ
                   (EXIT
@@ -43,18 +42,16 @@
                      (PROGN
                       (LETT #1#
                             (CONS 0
-                                  (PROG1 (LETT #2# |i| . #4#)
+                                  (PROG1 (LETT #2# |i|)
                                     (|check_subtype2| (> #2# 0)
                                                       '(|PositiveInteger|)
                                                       '(|NonNegativeInteger|)
-                                                      #2#)))
-                            . #4#)
-                      (GO #5=#:G122))))))
-                 (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #3# (CDR #3#) . #4#))
-                       . #4#)
+                                                      #2#))))
+                      (GO #4=#:G122))))))
+                 (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #3# (CDR #3#))))
                  (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 1 "failed"))))
-          #5# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (PUT '|OVAR;<;2$B;10| '|SPADreplace| '(XLAM (|s1| |s2|) (< |s2| |s1|))) 
 
@@ -82,12 +79,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|OrderedVariableList|)
-                                               '|domainEqualList|)
-                    . #3=(|OrderedVariableList|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|OrderedVariableList;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|OrderedVariableList;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|OrderedVariableList|)))))))))) 
@@ -95,11 +90,11 @@
 (DEFUN |OrderedVariableList;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|OrderedVariableList|))
-          (LETT |dv$| (LIST '|OrderedVariableList| DV$1) . #1#)
-          (LETT $ (GETREFV 43) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|OrderedVariableList| DV$1))
+          (LETT $ (GETREFV 43))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|OrderedVariableList| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

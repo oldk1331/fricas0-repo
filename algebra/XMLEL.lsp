@@ -24,20 +24,17 @@
           (LETT |atts|
                 (SPADCALL
                  (PROGN
-                  (LETT #4# NIL . #5=(|XMLEL;outputStructured|))
-                  (SEQ (LETT |s| NIL . #5#) (LETT #3# (QVELT |rp| 2) . #5#)
-                       G190
+                  (LETT #4# NIL)
+                  (SEQ (LETT |s| NIL) (LETT #3# (QVELT |rp| 2)) G190
                        (COND
-                        ((OR (ATOM #3#) (PROGN (LETT |s| (CAR #3#) . #5#) NIL))
+                        ((OR (ATOM #3#) (PROGN (LETT |s| (CAR #3#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #4# (CONS (SPADCALL |s| (QREFELT $ 13)) #4#)
-                               . #5#)))
-                       (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                         (LETT #4# (CONS (SPADCALL |s| (QREFELT $ 13)) #4#))))
+                       (LETT #3# (CDR #3#)) (GO G190) G191
                        (EXIT (NREVERSE #4#))))
-                 (QREFELT $ 14))
-                . #5#)
+                 (QREFELT $ 14)))
           (EXIT
            (COND
             ((< (SPADCALL (QVELT |rp| 1) (QREFELT $ 17)) 1)
@@ -49,19 +46,17 @@
               (LETT |res|
                     (LIST
                      (SPADCALL (LIST "<" (QVELT |rp| 0) |atts| ">")
-                               (QREFELT $ 14)))
-                    . #5#)
-              (SEQ (LETT |el| NIL . #5#) (LETT #2# (QVELT |rp| 1) . #5#) G190
+                               (QREFELT $ 14))))
+              (SEQ (LETT |el| NIL) (LETT #2# (QVELT |rp| 1)) G190
                    (COND
-                    ((OR (ATOM #2#) (PROGN (LETT |el| (CAR #2#) . #5#) NIL))
+                    ((OR (ATOM #2#) (PROGN (LETT |el| (CAR #2#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (LETT |res|
                            (SPADCALL |res| (SPADCALL |el| (QREFELT $ 19))
-                                     (QREFELT $ 20))
-                           . #5#)))
-                   (LETT #2# (CDR #2#) . #5#) (GO G190) G191 (EXIT NIL))
+                                     (QREFELT $ 20)))))
+                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT
                (SPADCALL |res|
                          (SPADCALL (LIST "</" (QVELT |rp| 0) ">")
@@ -76,26 +71,22 @@
           (LETT |atts|
                 (SPADCALL
                  (PROGN
-                  (LETT #3# NIL . #4=(|XMLEL;outputUnstructured|))
-                  (SEQ (LETT |s| NIL . #4#) (LETT #2# (QVELT |rp| 2) . #4#)
-                       G190
+                  (LETT #3# NIL)
+                  (SEQ (LETT |s| NIL) (LETT #2# (QVELT |rp| 2)) G190
                        (COND
-                        ((OR (ATOM #2#) (PROGN (LETT |s| (CAR #2#) . #4#) NIL))
+                        ((OR (ATOM #2#) (PROGN (LETT |s| (CAR #2#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #3# (CONS (SPADCALL |s| (QREFELT $ 13)) #3#)
-                               . #4#)))
-                       (LETT #2# (CDR #2#) . #4#) (GO G190) G191
+                         (LETT #3# (CONS (SPADCALL |s| (QREFELT $ 13)) #3#))))
+                       (LETT #2# (CDR #2#)) (GO G190) G191
                        (EXIT (NREVERSE #3#))))
-                 (QREFELT $ 14))
-                . #4#)
+                 (QREFELT $ 14)))
           (LETT |res|
                 (LIST
                  (SPADCALL (LIST "<" (QVELT |rp| 0) |atts| ">")
-                           (QREFELT $ 14)))
-                . #4#)
-          (LETT |res| (SPADCALL |res| (QVELT |rp| 3) (QREFELT $ 21)) . #4#)
+                           (QREFELT $ 14))))
+          (LETT |res| (SPADCALL |res| (QVELT |rp| 3) (QREFELT $ 21)))
           (EXIT
            (SPADCALL |res|
                      (SPADCALL (LIST "</" (QVELT |rp| 0) ">") (QREFELT $ 14))
@@ -118,24 +109,23 @@
             (COND
              ((OR (EQUAL (QVELT |rp| 0) "X3D") (EQUAL (QVELT |rp| 0) "Scene"))
               (SEQ
-               (SEQ (LETT |el| NIL . #5=(|XMLEL;outputVRML;$TfV;7|))
-                    (LETT #4# (QVELT |rp| 1) . #5#) G190
+               (SEQ (LETT |el| NIL) (LETT #4# (QVELT |rp| 1)) G190
                     (COND
-                     ((OR (ATOM #4#) (PROGN (LETT |el| (CAR #4#) . #5#) NIL))
+                     ((OR (ATOM #4#) (PROGN (LETT |el| (CAR #4#)) NIL))
                       (GO G191)))
                     (SEQ (EXIT (SPADCALL |el| |f1| (QREFELT $ 26))))
-                    (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-               (EXIT (PROGN (LETT #3# (|Void|) . #5#) (GO #6=#:G150))))))
+                    (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
+               (EXIT (PROGN (LETT #3# (|Void|)) (GO #5=#:G150))))))
             (SPADCALL |f1| (STRCONC (QVELT |rp| 0) "{") (QREFELT $ 27))
             (COND
              ((EQUAL (QVELT |rp| 0) "Shape")
               (SPADCALL |f1| "geometry" (QREFELT $ 27))))
-            (SEQ (LETT |att| NIL . #5#) (LETT #2# (QVELT |rp| 2) . #5#) G190
+            (SEQ (LETT |att| NIL) (LETT #2# (QVELT |rp| 2)) G190
                  (COND
-                  ((OR (ATOM #2#) (PROGN (LETT |att| (CAR #2#) . #5#) NIL))
+                  ((OR (ATOM #2#) (PROGN (LETT |att| (CAR #2#)) NIL))
                    (GO G191)))
                  (SEQ (EXIT (SPADCALL |att| |f1| (QREFELT $ 28))))
-                 (LETT #2# (CDR #2#) . #5#) (GO G190) G191 (EXIT NIL))
+                 (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
             (COND
              ((SPADCALL (SPADCALL (QVELT |rp| 1) (QREFELT $ 17)) 0
                         (QREFELT $ 29))
@@ -143,18 +133,18 @@
                (COND
                 ((EQUAL (QVELT |rp| 0) "Transform")
                  (SPADCALL |f1| "children[" (QREFELT $ 27))))
-               (SEQ (LETT |el| NIL . #5#) (LETT #1# (QVELT |rp| 1) . #5#) G190
+               (SEQ (LETT |el| NIL) (LETT #1# (QVELT |rp| 1)) G190
                     (COND
-                     ((OR (ATOM #1#) (PROGN (LETT |el| (CAR #1#) . #5#) NIL))
+                     ((OR (ATOM #1#) (PROGN (LETT |el| (CAR #1#)) NIL))
                       (GO G191)))
                     (SEQ (EXIT (SPADCALL |el| |f1| (QREFELT $ 26))))
-                    (LETT #1# (CDR #1#) . #5#) (GO G190) G191 (EXIT NIL))
+                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                (EXIT
                 (COND
                  ((EQUAL (QVELT |rp| 0) "Transform")
                   (SPADCALL |f1| "]" (QREFELT $ 27))))))))
             (SPADCALL |f1| "}" (QREFELT $ 27)) (EXIT (|Void|))))
-          #6# (EXIT #3#)))) 
+          #5# (EXIT #3#)))) 
 
 (DECLAIM (NOTINLINE |XmlElement;|)) 
 
@@ -163,8 +153,7 @@
          (PROG (#1=#:G156)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|XmlElement|)
-                    . #2=(|XmlElement|))
+             ((LETT #1# (HGET |$ConstructorCache| '|XmlElement|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -172,17 +161,17 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|XmlElement|
                              (LIST (CONS NIL (CONS 1 (|XmlElement;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#) (HREM |$ConstructorCache| '|XmlElement|)))))))))) 
 
 (DEFUN |XmlElement;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|XmlElement|) . #1=(|XmlElement|))
-          (LETT $ (GETREFV 30) . #1#)
+          (LETT |dv$| '(|XmlElement|))
+          (LETT $ (GETREFV 30))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|XmlElement| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

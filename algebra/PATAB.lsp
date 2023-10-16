@@ -31,6 +31,5 @@
                                                        (|ConvertibleTo|
                                                         (|Pattern|
                                                          (|Float|))))))
-                                             NIL NIL)))
-                   |Patternable|)
+                                             NIL NIL))))
            (SETELT #1# 0 (LIST '|Patternable| |t#1|))))) 

@@ -17,8 +17,7 @@
                     (|mkCategory|
                      '(((|binomial| ($ $ $)) T) ((|factorial| ($ $)) T)
                        ((|permutation| ($ $ $)) T))
-                     NIL NIL NIL))
-                   |CombinatorialFunctionCategory|)
+                     NIL NIL NIL)))
            (SETELT #1# 0 '(|CombinatorialFunctionCategory|))))) 
 
 (MAKEPROP '|CombinatorialFunctionCategory| 'NILADIC T) 

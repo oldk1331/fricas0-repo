@@ -7,7 +7,7 @@
 
 (DEFUN |Type;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1 (LETT #1# (|Join| (|mkCategory| NIL NIL NIL NIL)) |Type|)
+         (PROG1 (LETT #1# (|Join| (|mkCategory| NIL NIL NIL NIL)))
            (SETELT #1# 0 '(|Type|))))) 
 
 (MAKEPROP '|Type| 'NILADIC T) 

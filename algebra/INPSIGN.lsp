@@ -4,22 +4,20 @@
          (|rsign| |Mapping| (|Union| (|Integer|) #1="failed") R)
          ($ |Union| (|Integer|) #1#))
         (SPROG ((|ul| #2=(|Union| (|Integer|) #1#)) (|ur| #2#))
-               (SEQ
-                (LETT |ur| (SPADCALL |p| |x| 1 |rsign| (QREFELT $ 13))
-                      . #3=(|INPSIGN;signAround;UPRMU;1|))
-                (EXIT
-                 (COND ((QEQCAR |ur| 1) (CONS 1 "failed"))
-                       ('T
-                        (SEQ
-                         (LETT |ul|
-                               (SPADCALL |p| |x| -1 |rsign| (QREFELT $ 13))
-                               . #3#)
-                         (EXIT
-                          (COND
-                           ((OR (QEQCAR |ul| 1)
-                                (NULL (EQL (QCDR |ur|) (QCDR |ul|))))
-                            (CONS 1 "failed"))
-                           ('T |ur|)))))))))) 
+               (SEQ (LETT |ur| (SPADCALL |p| |x| 1 |rsign| (QREFELT $ 13)))
+                    (EXIT
+                     (COND ((QEQCAR |ur| 1) (CONS 1 "failed"))
+                           ('T
+                            (SEQ
+                             (LETT |ul|
+                                   (SPADCALL |p| |x| -1 |rsign|
+                                             (QREFELT $ 13)))
+                             (EXIT
+                              (COND
+                               ((OR (QEQCAR |ul| 1)
+                                    (NULL (EQL (QCDR |ur|) (QCDR |ul|))))
+                                (CONS 1 "failed"))
+                               ('T |ur|)))))))))) 
 
 (SDEFUN |INPSIGN;signAround;UPRIMU;2|
         ((|p| UP) (|x| R) (|dir| |Integer|)
@@ -28,19 +26,16 @@
         (SPROG ((|u| (|Union| (|Integer|) #1#)) (|r| (R)))
                (SEQ
                 (COND ((SPADCALL |p| (QREFELT $ 16)) (CONS 0 0))
-                      ((SPADCALL
-                        (LETT |r| (SPADCALL |p| |x| (QREFELT $ 17))
-                              . #2=(|INPSIGN;signAround;UPRIMU;2|))
-                        (QREFELT $ 18))
+                      ((SPADCALL (LETT |r| (SPADCALL |p| |x| (QREFELT $ 17)))
+                                 (QREFELT $ 18))
                        (SEQ
                         (LETT |u|
                               (SPADCALL (SPADCALL |p| (QREFELT $ 19)) |x| |dir|
-                                        |rsign| (QREFELT $ 13))
-                              . #2#)
+                                        |rsign| (QREFELT $ 13)))
                         (EXIT
                          (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                               (#3='T (CONS 0 (* |dir| (QCDR |u|))))))))
-                      (#3# (SPADCALL |r| |rsign|)))))) 
+                               (#2='T (CONS 0 (* |dir| (QCDR |u|))))))))
+                      (#2# (SPADCALL |r| |rsign|)))))) 
 
 (SDEFUN |INPSIGN;signAround;UPIMU;3|
         ((|p| UP) (|dir| |Integer|)
@@ -52,8 +47,7 @@
                       ('T
                        (SEQ
                         (LETT |u|
-                              (SPADCALL (SPADCALL |p| (QREFELT $ 20)) |rsign|)
-                              |INPSIGN;signAround;UPIMU;3|)
+                              (SPADCALL (SPADCALL |p| (QREFELT $ 20)) |rsign|))
                         (EXIT
                          (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                                ((OR (SPADCALL |dir| 0 (QREFELT $ 23))
@@ -73,25 +67,24 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|InnerPolySign|)
-                                               '|domainEqualList|)
-                    . #3=(|InnerPolySign|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |InnerPolySign;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|InnerPolySign|)))))))))) 
 
 (DEFUN |InnerPolySign;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerPolySign|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|InnerPolySign| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 28) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|InnerPolySign| DV$1 DV$2))
+          (LETT $ (GETREFV 28))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|InnerPolySign| (LIST DV$1 DV$2)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

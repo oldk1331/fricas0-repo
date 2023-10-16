@@ -191,7 +191,5 @@
                                                '(((|unitsKnown|)
                                                   (|has| |t#1|
                                                          (|IntegralDomain|))))
-                                               NIL NIL))
-                                      . #2=(|FiniteRankNonAssociativeAlgebra|)))))
-                   . #2#)
+                                               NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FiniteRankNonAssociativeAlgebra| |t#1|))))) 

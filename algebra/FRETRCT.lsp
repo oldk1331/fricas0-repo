@@ -38,7 +38,5 @@
                                                                      (|RetractableTo|
                                                                       (|Fraction|
                                                                        (|Integer|))))))
-                                                                 NIL NIL))
-                                           . #2=(|FullyRetractableTo|)))))
-                   . #2#)
+                                                                 NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FullyRetractableTo| |t#1|))))) 

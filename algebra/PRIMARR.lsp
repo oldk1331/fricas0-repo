@@ -37,25 +37,23 @@
 (SDEFUN |PRIMARR;fill!;$S$;9| ((|x| $) (|s| S) ($ $))
         (SPROG ((#1=#:G1750 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 0 . #2=(|PRIMARR;fill!;$S$;9|))
-                     (LETT #1# (QVMAXINDEX |x|) . #2#) G190
+                (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ (EXIT (QSETAREF1 |x| |i| |s|)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (SDEFUN |PRIMARR;hashUpdate!;Hs$Hs;10|
         ((|s| |HashState|) (|x| $) ($ |HashState|))
         (SPROG ((#1=#:G1754 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 0 . #2=(|PRIMARR;hashUpdate!;Hs$Hs;10|))
-                     (LETT #1# (QVMAXINDEX |x|) . #2#) G190
+                (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ
                       (EXIT
-                       (LETT |s| (SPADCALL |s| (QAREF1 |x| |i|) (QREFELT $ 19))
-                             . #2#)))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                       (LETT |s|
+                             (SPADCALL |s| (QAREF1 |x| |i|) (QREFELT $ 19)))))
+                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |s|)))) 
 
 (DECLAIM (NOTINLINE |PrimitiveArray;|)) 
@@ -69,12 +67,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|PrimitiveArray|)
-                                               '|domainEqualList|)
-                    . #3=(|PrimitiveArray|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|PrimitiveArray;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|PrimitiveArray;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|PrimitiveArray|)))))))))) 
@@ -84,9 +80,9 @@
    ((|pv$| NIL) (#1=#:G1762 NIL) (#2=#:G1763 NIL) (#3=#:G1764 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #4=(|PrimitiveArray|))
-    (LETT |dv$| (LIST '|PrimitiveArray| DV$1) . #4#)
-    (LETT $ (GETREFV 38) . #4#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|PrimitiveArray| DV$1))
+    (LETT $ (GETREFV 38))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -101,15 +97,13 @@
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|Comparable|))
-                                              . #4#)
+                                                             '(|Comparable|)))
                                         (OR #3#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|)))
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -128,13 +122,11 @@
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #1# #3#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
-                                            #2#)))
-                    . #4#))
+                                            #2#)))))
     (|haddProp| |$ConstructorCache| '|PrimitiveArray| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)

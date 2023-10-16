@@ -17,8 +17,7 @@
          (PROG (#1=#:G1738)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|PositiveInteger|)
-                    . #2=(|PositiveInteger|))
+             ((LETT #1# (HGET |$ConstructorCache| '|PositiveInteger|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -26,7 +25,7 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|PositiveInteger|
                              (LIST (CONS NIL (CONS 1 (|PositiveInteger;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|PositiveInteger|)))))))))) 
@@ -34,10 +33,10 @@
 (DEFUN |PositiveInteger;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|PositiveInteger|) . #1=(|PositiveInteger|))
-          (LETT $ (GETREFV 17) . #1#)
+          (LETT |dv$| '(|PositiveInteger|))
+          (LETT $ (GETREFV 17))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PositiveInteger| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

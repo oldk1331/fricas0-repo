@@ -3,37 +3,35 @@
         (SPROG
          ((#1=#:G112 NIL) (|j| NIL) (#2=#:G111 NIL) (|i| NIL) (B (|Matrix| R))
           (|dimA| (|NonNegativeInteger|)))
-         (SEQ
-          (LETT |dimA| (ANROWS A)
-                . #3=(|CHARPOL;characteristicPolynomial;M2R;1|))
-          (EXIT
-           (COND
-            ((SPADCALL |dimA| (ANCOLS A) (QREFELT $ 9))
-             (|error| " The matrix is not square"))
-            ((EQL |dimA| 0) (|spadConstant| $ 11))
-            ('T
-             (SEQ (LETT B (SPADCALL |dimA| |dimA| (QREFELT $ 13)) . #3#)
-                  (SEQ (LETT |i| 1 . #3#) (LETT #2# |dimA| . #3#) G190
-                       (COND ((|greater_SI| |i| #2#) (GO G191)))
-                       (SEQ
-                        (SEQ (LETT |j| 1 . #3#) (LETT #1# |dimA| . #3#) G190
-                             (COND ((|greater_SI| |j| #1#) (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (SPADCALL B |i| |j|
-                                         (SPADCALL A |i| |j| (QREFELT $ 15))
-                                         (QREFELT $ 16))))
-                             (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
-                             (EXIT NIL))
-                        (EXIT
-                         (SPADCALL B |i| |i|
-                                   (SPADCALL
-                                    (SPADCALL B |i| |i| (QREFELT $ 15)) |v|
-                                    (QREFELT $ 17))
-                                   (QREFELT $ 16))))
-                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                       (EXIT NIL))
-                  (EXIT (SPADCALL B (QREFELT $ 18)))))))))) 
+         (SEQ (LETT |dimA| (ANROWS A))
+              (EXIT
+               (COND
+                ((SPADCALL |dimA| (ANCOLS A) (QREFELT $ 9))
+                 (|error| " The matrix is not square"))
+                ((EQL |dimA| 0) (|spadConstant| $ 11))
+                ('T
+                 (SEQ (LETT B (SPADCALL |dimA| |dimA| (QREFELT $ 13)))
+                      (SEQ (LETT |i| 1) (LETT #2# |dimA|) G190
+                           (COND ((|greater_SI| |i| #2#) (GO G191)))
+                           (SEQ
+                            (SEQ (LETT |j| 1) (LETT #1# |dimA|) G190
+                                 (COND ((|greater_SI| |j| #1#) (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (SPADCALL B |i| |j|
+                                             (SPADCALL A |i| |j|
+                                                       (QREFELT $ 15))
+                                             (QREFELT $ 16))))
+                                 (LETT |j| (|inc_SI| |j|)) (GO G190) G191
+                                 (EXIT NIL))
+                            (EXIT
+                             (SPADCALL B |i| |i|
+                                       (SPADCALL
+                                        (SPADCALL B |i| |i| (QREFELT $ 15)) |v|
+                                        (QREFELT $ 17))
+                                       (QREFELT $ 16))))
+                           (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+                      (EXIT (SPADCALL B (QREFELT $ 18)))))))))) 
 
 (DECLAIM (NOTINLINE |CharacteristicPolynomialPackage;|)) 
 
@@ -46,13 +44,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|CharacteristicPolynomialPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|CharacteristicPolynomialPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|CharacteristicPolynomialPackage;| #1#)
-                    (LETT #2# T . #3#))
+                  (PROG1 (|CharacteristicPolynomialPackage;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -61,12 +57,11 @@
 (DEFUN |CharacteristicPolynomialPackage;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|CharacteristicPolynomialPackage|))
-          (LETT |dv$| (LIST '|CharacteristicPolynomialPackage| DV$1) . #1#)
-          (LETT $ (GETREFV 20) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|CharacteristicPolynomialPackage| DV$1))
+          (LETT $ (GETREFV 20))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CharacteristicPolynomialPackage|
                       (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)

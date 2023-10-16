@@ -88,13 +88,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|GeneralQuaternion|)
-                                               '|domainEqualList|)
-                    . #3=(|GeneralQuaternion|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |GeneralQuaternion;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|GeneralQuaternion|)))))))))) 
@@ -104,11 +103,11 @@
    ((|pv$| NIL) (#1=#:G130 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #2=(|GeneralQuaternion|))
-    (LETT DV$2 (|devaluate| |#2|) . #2#)
-    (LETT DV$3 (|devaluate| |#3|) . #2#)
-    (LETT |dv$| (LIST '|GeneralQuaternion| DV$1 DV$2 DV$3) . #2#)
-    (LETT $ (GETREFV 51) . #2#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT |dv$| (LIST '|GeneralQuaternion| DV$1 DV$2 DV$3))
+    (LETT $ (GETREFV 51))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -124,8 +123,7 @@
                                         (|HasCategory| |#1| '(|Field|))
                                         (LETT #1#
                                               (|HasCategory| |#1|
-                                                             '(|EntireRing|))
-                                              . #2#)
+                                                             '(|EntireRing|)))
                                         (OR #1#
                                             (|HasCategory| |#1| '(|Field|)))
                                         (|HasCategory| |#1| '(|OrderedSet|))
@@ -167,8 +165,7 @@
                                                         '(|RetractableTo|
                                                           (|Fraction|
                                                            (|Integer|))))
-                                         (|HasCategory| |#1| '(|Field|)))))
-                    . #2#))
+                                         (|HasCategory| |#1| '(|Field|)))))))
     (|haddProp| |$ConstructorCache| '|GeneralQuaternion| (LIST DV$1 DV$2 DV$3)
                 (CONS 1 $))
     (|stuffDomainSlots| $)

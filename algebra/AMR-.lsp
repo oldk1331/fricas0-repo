@@ -9,8 +9,8 @@
                 (COND ((SPADCALL |x| (QREFELT $ 10)) (|spadConstant| $ 13))
                       (#1='T
                        (SEQ
-                        (LETT |r| (SPADCALL (SPADCALL |x| (QREFELT $ 14)) |fn|)
-                              |AMR-;map;M2S;2|)
+                        (LETT |r|
+                              (SPADCALL (SPADCALL |x| (QREFELT $ 14)) |fn|))
                         (EXIT
                          (COND
                           ((SPADCALL |r| (QREFELT $ 15))
@@ -31,8 +31,8 @@
 
 (SDEFUN |AMR-;*;F2S;3!0| ((|x1| NIL) ($$ NIL))
         (PROG (|q| $)
-          (LETT |q| (QREFELT $$ 1) . #1=(|AMR-;*;F2S;3|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |q| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |q| |x1| (QREFELT $ 23)))))) 
 
 (DECLAIM (NOTINLINE |AbelianMonoidRing&;|)) 
@@ -40,11 +40,11 @@
 (DEFUN |AbelianMonoidRing&| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|AbelianMonoidRing&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|AbelianMonoidRing&| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 28) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|AbelianMonoidRing&| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 28))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -69,8 +69,7 @@
                                               (|HasCategory| |#2|
                                                              '(|SemiRing|))
                                               (|HasCategory| |#2|
-                                                             '(|CancellationAbelianMonoid|))))
-                          . #1#))
+                                                             '(|CancellationAbelianMonoid|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

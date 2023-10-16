@@ -83,7 +83,5 @@
                                                          (SIGNATURE *
                                                           (|t#1| |t#2|
                                                            |t#1|))))))
-                                              NIL NIL))
-                                            . #3=(|UnivariatePowerSeriesCategory|))))))
-                   . #3#)
+                                              NIL NIL))))))))
            (SETELT #1# 0 (LIST '|UnivariatePowerSeriesCategory| |t#1| |t#2|))))) 

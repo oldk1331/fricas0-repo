@@ -62,8 +62,6 @@
                                                  ((|relativeApprox|
                                                    (|t#1| |t#2| $ |t#1|))
                                                   T))
-                                               NIL NIL NIL))
-                                      . #2=(|RealRootCharacterizationCategory|)))))
-                   . #2#)
+                                               NIL NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|RealRootCharacterizationCategory| |t#1| |t#2|))))) 

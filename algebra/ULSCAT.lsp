@@ -91,7 +91,5 @@
                                                    (|Algebra|
                                                     (|Fraction| (|Integer|)))))
                                            ((|Field|) (|has| |t#1| (|Field|))))
-                                         NIL NIL))
-                                       . #3=(|UnivariateLaurentSeriesCategory|))))))
-                   . #3#)
+                                         NIL NIL))))))))
            (SETELT #1# 0 (LIST '|UnivariateLaurentSeriesCategory| |t#1|))))) 

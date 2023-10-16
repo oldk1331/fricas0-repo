@@ -5,27 +5,24 @@
 
 (SDEFUN |TRANFUN-;acsch;2S;2| ((|x| S) ($ S))
         (SPROG ((|a| (|Union| S "failed")))
-               (SEQ
-                (LETT |a| (SPADCALL |x| (QREFELT $ 13)) |TRANFUN-;acsch;2S;2|)
-                (EXIT
-                 (COND ((QEQCAR |a| 1) (|error| "acsch: no reciprocal"))
-                       ('T (SPADCALL (QCDR |a|) (QREFELT $ 14)))))))) 
+               (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 13)))
+                    (EXIT
+                     (COND ((QEQCAR |a| 1) (|error| "acsch: no reciprocal"))
+                           ('T (SPADCALL (QCDR |a|) (QREFELT $ 14)))))))) 
 
 (SDEFUN |TRANFUN-;asech;2S;3| ((|x| S) ($ S))
         (SPROG ((|a| (|Union| S "failed")))
-               (SEQ
-                (LETT |a| (SPADCALL |x| (QREFELT $ 13)) |TRANFUN-;asech;2S;3|)
-                (EXIT
-                 (COND ((QEQCAR |a| 1) (|error| "asech: no reciprocal"))
-                       ('T (SPADCALL (QCDR |a|) (QREFELT $ 16)))))))) 
+               (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 13)))
+                    (EXIT
+                     (COND ((QEQCAR |a| 1) (|error| "asech: no reciprocal"))
+                           ('T (SPADCALL (QCDR |a|) (QREFELT $ 16)))))))) 
 
 (SDEFUN |TRANFUN-;acoth;2S;4| ((|x| S) ($ S))
         (SPROG ((|a| (|Union| S "failed")))
-               (SEQ
-                (LETT |a| (SPADCALL |x| (QREFELT $ 13)) |TRANFUN-;acoth;2S;4|)
-                (EXIT
-                 (COND ((QEQCAR |a| 1) (|error| "acoth: no reciprocal"))
-                       ('T (SPADCALL (QCDR |a|) (QREFELT $ 18)))))))) 
+               (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 13)))
+                    (EXIT
+                     (COND ((QEQCAR |a| 1) (|error| "acoth: no reciprocal"))
+                           ('T (SPADCALL (QCDR |a|) (QREFELT $ 18)))))))) 
 
 (SDEFUN |TRANFUN-;asin;2S;5| ((|x| S) ($ S))
         (SPADCALL
@@ -92,12 +89,11 @@
 (DEFUN |TranscendentalFunctionCategory&| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|TranscendentalFunctionCategory&|))
-          (LETT |dv$| (LIST '|TranscendentalFunctionCategory&| DV$1) . #1#)
-          (LETT $ (GETREFV 36) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|TranscendentalFunctionCategory&| DV$1))
+          (LETT $ (GETREFV 36))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))

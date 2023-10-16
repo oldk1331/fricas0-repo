@@ -11,37 +11,34 @@
           (|vecti|
            (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
           (#2=#:G112 NIL) (|i| NIL) (Z (|Symbol|)))
-         (SEQ
-          (LETT Z (SPADCALL (QREFELT $ 8))
-                . #3=(|SOLVESER;unvectorise;VFIF;1|))
-          (LETT |polyvar| (|spadConstant| $ 10) . #3#)
-          (SEQ (LETT |i| 1 . #3#) (LETT #2# (+ |n| 1) . #3#) G190
-               (COND ((|greater_SI| |i| #2#) (GO G191)))
-               (SEQ
-                (LETT |vecti|
-                      (SPADCALL (SPADCALL |vect| |i| (QREFELT $ 17))
-                                (SPADCALL Z (QREFELT $ 19)) (QREFELT $ 22))
-                      . #3#)
-                (EXIT
-                 (LETT |polyvar|
-                       (SPADCALL |polyvar|
-                                 (SPADCALL |vecti|
-                                           (SPADCALL |var|
-                                                     (PROG1
-                                                         (LETT #1#
-                                                               (+ (- |n| |i|)
-                                                                  1)
-                                                               . #3#)
-                                                       (|check_subtype2|
-                                                        (>= #1# 0)
-                                                        '(|NonNegativeInteger|)
-                                                        '(|Integer|) #1#))
-                                                     (QREFELT $ 23))
-                                           (QREFELT $ 24))
-                                 (QREFELT $ 25))
-                       . #3#)))
-               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-          (EXIT |polyvar|)))) 
+         (SEQ (LETT Z (SPADCALL (QREFELT $ 8)))
+              (LETT |polyvar| (|spadConstant| $ 10))
+              (SEQ (LETT |i| 1) (LETT #2# (+ |n| 1)) G190
+                   (COND ((|greater_SI| |i| #2#) (GO G191)))
+                   (SEQ
+                    (LETT |vecti|
+                          (SPADCALL (SPADCALL |vect| |i| (QREFELT $ 17))
+                                    (SPADCALL Z (QREFELT $ 19))
+                                    (QREFELT $ 22)))
+                    (EXIT
+                     (LETT |polyvar|
+                           (SPADCALL |polyvar|
+                                     (SPADCALL |vecti|
+                                               (SPADCALL |var|
+                                                         (PROG1
+                                                             (LETT #1#
+                                                                   (+
+                                                                    (- |n| |i|)
+                                                                    1))
+                                                           (|check_subtype2|
+                                                            (>= #1# 0)
+                                                            '(|NonNegativeInteger|)
+                                                            '(|Integer|) #1#))
+                                                         (QREFELT $ 23))
+                                               (QREFELT $ 24))
+                                     (QREFELT $ 25)))))
+                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+              (EXIT |polyvar|)))) 
 
 (SDEFUN |SOLVESER;decomposeFunc;4F;2|
         ((|exprf| |Fraction| (|SparseUnivariatePolynomial| (|Expression| R)))
@@ -62,50 +59,45 @@
           (|f1| #4#) (X (|Symbol|)))
          (SEQ
           (EXIT
-           (SEQ
-            (LETT X (SPADCALL (QREFELT $ 8))
-                  . #5=(|SOLVESER;decomposeFunc;4F;2|))
-            (LETT |f1| (SPADCALL |exprf| (QREFELT $ 28)) . #5#)
-            (LETT |f2| (SPADCALL |exprf| (QREFELT $ 29)) . #5#)
-            (LETT |g1| (SPADCALL |exprg| (QREFELT $ 28)) . #5#)
-            (LETT |g2| (SPADCALL |exprg| (QREFELT $ 29)) . #5#)
-            (LETT |degF|
-                  (MAX
-                   (SPADCALL (SPADCALL |exprf| (QREFELT $ 28)) (QREFELT $ 31))
-                   (SPADCALL (SPADCALL |exprf| (QREFELT $ 29)) (QREFELT $ 31)))
-                  . #5#)
-            (LETT |degG|
-                  (MAX (SPADCALL |g1| (QREFELT $ 31))
-                       (SPADCALL |g2| (QREFELT $ 31)))
-                  . #5#)
-            (LETT N (SPADCALL |degF| |degG| (QREFELT $ 33)) . #5#)
-            (EXIT
-             (COND
-              ((QEQCAR N 1) (PROGN (LETT #1# |exprf| . #5#) (GO #6=#:G121)))
-              (#7='T
-               (SEQ (LETT |m| (QCDR N) . #5#)
-                    (LETT |newF1|
-                          (|SOLVESER;subsSolve| |f1| |degF| |g1| |g2| |m|
-                           |newH| $)
-                          . #5#)
-                    (COND
-                     ((SPADCALL |f2| (|spadConstant| $ 34) (QREFELT $ 36))
-                      (LETT |newF2| (CONS 0 (|spadConstant| $ 34)) . #5#))
-                     (#7#
-                      (LETT |newF2|
-                            (|SOLVESER;subsSolve| |f2| |degF| |g1| |g2| |m|
-                             |newH| $)
-                            . #5#)))
-                    (EXIT
-                     (COND
-                      ((OR (QEQCAR |newF1| 1) (QEQCAR |newF2| 1))
-                       (PROGN (LETT #1# |exprf| . #5#) (GO #6#)))
-                      ('T
-                       (LETT |newF|
-                             (SPADCALL (QCDR |newF1|) (QCDR |newF2|)
-                                       (QREFELT $ 37))
-                             . #5#))))))))))
-          #6# (EXIT #1#)))) 
+           (SEQ (LETT X (SPADCALL (QREFELT $ 8)))
+                (LETT |f1| (SPADCALL |exprf| (QREFELT $ 28)))
+                (LETT |f2| (SPADCALL |exprf| (QREFELT $ 29)))
+                (LETT |g1| (SPADCALL |exprg| (QREFELT $ 28)))
+                (LETT |g2| (SPADCALL |exprg| (QREFELT $ 29)))
+                (LETT |degF|
+                      (MAX
+                       (SPADCALL (SPADCALL |exprf| (QREFELT $ 28))
+                                 (QREFELT $ 31))
+                       (SPADCALL (SPADCALL |exprf| (QREFELT $ 29))
+                                 (QREFELT $ 31))))
+                (LETT |degG|
+                      (MAX (SPADCALL |g1| (QREFELT $ 31))
+                           (SPADCALL |g2| (QREFELT $ 31))))
+                (LETT N (SPADCALL |degF| |degG| (QREFELT $ 33)))
+                (EXIT
+                 (COND ((QEQCAR N 1) (PROGN (LETT #1# |exprf|) (GO #5=#:G121)))
+                       (#6='T
+                        (SEQ (LETT |m| (QCDR N))
+                             (LETT |newF1|
+                                   (|SOLVESER;subsSolve| |f1| |degF| |g1| |g2|
+                                    |m| |newH| $))
+                             (COND
+                              ((SPADCALL |f2| (|spadConstant| $ 34)
+                                         (QREFELT $ 36))
+                               (LETT |newF2| (CONS 0 (|spadConstant| $ 34))))
+                              (#6#
+                               (LETT |newF2|
+                                     (|SOLVESER;subsSolve| |f2| |degF| |g1|
+                                      |g2| |m| |newH| $))))
+                             (EXIT
+                              (COND
+                               ((OR (QEQCAR |newF1| 1) (QEQCAR |newF2| 1))
+                                (PROGN (LETT #1# |exprf|) (GO #5#)))
+                               ('T
+                                (LETT |newF|
+                                      (SPADCALL (QCDR |newF1|) (QCDR |newF2|)
+                                                (QREFELT $ 37))))))))))))
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |SOLVESER;subsSolve|
         ((F |SparseUnivariatePolynomial| (|Expression| R))
@@ -131,9 +123,8 @@
           (EXIT
            (SEQ
             (LETT |coeffmat|
-                  (MAKE_MATRIX1 (+ |DegF| 1) 1 (|spadConstant| $ 39))
-                  . #6=(|SOLVESER;subsSolve|))
-            (SEQ (LETT |i| 0 . #6#) (LETT #5# M . #6#) G190
+                  (MAKE_MATRIX1 (+ |DegF| 1) 1 (|spadConstant| $ 39)))
+            (SEQ (LETT |i| 0) (LETT #5# M) G190
                  (COND ((|greater_SI| |i| #5#) (GO G191)))
                  (SEQ
                   (EXIT
@@ -143,8 +134,7 @@
                                     (SPADCALL
                                      (SPADCALL
                                       (SPADCALL G1
-                                                (PROG1
-                                                    (LETT #4# (- M |i|) . #6#)
+                                                (PROG1 (LETT #4# (- M |i|))
                                                   (|check_subtype2| (>= #4# 0)
                                                                     '(|NonNegativeInteger|)
                                                                     '(|Integer|)
@@ -154,22 +144,21 @@
                                       (QREFELT $ 41))
                                      (+ |DegF| 1) (QREFELT $ 42))
                                     (QREFELT $ 44))
-                                   (QREFELT $ 45))
-                         . #6#)))
-                 (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
-            (LETT |vec| (SPADCALL F (+ |DegF| 1) (QREFELT $ 42)) . #6#)
+                                   (QREFELT $ 45)))))
+                 (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+            (LETT |vec| (SPADCALL F (+ |DegF| 1) (QREFELT $ 42)))
             (LETT |coeffma|
-                  (SPADCALL |coeffmat| 1 (+ |DegF| 1) 2 (+ M 2) (QREFELT $ 46))
-                  . #6#)
-            (LETT |solvar| (SPADCALL |coeffma| |vec| (QREFELT $ 50)) . #6#)
+                  (SPADCALL |coeffmat| 1 (+ |DegF| 1) 2 (+ M 2)
+                            (QREFELT $ 46)))
+            (LETT |solvar| (SPADCALL |coeffma| |vec| (QREFELT $ 50)))
             (EXIT
              (COND
               ((QEQCAR (QCAR |solvar|) 1)
-               (PROGN (LETT #2# (CONS 1 "failed") . #6#) (GO #7=#:G180)))
+               (PROGN (LETT #2# (CONS 1 "failed")) (GO #6=#:G180)))
               ('T
                (SEQ
                 (LETT |solvevarlist|
-                      (PROG2 (LETT #1# (QCAR |solvar|) . #6#)
+                      (PROG2 (LETT #1# (QCAR |solvar|))
                           (QCDR #1#)
                         (|check_union2| (QEQCAR #1# 0)
                                         (|Vector| (|Expression| (QREFELT $ 6)))
@@ -177,14 +166,12 @@
                                          (|Vector|
                                           (|Expression| (QREFELT $ 6)))
                                          #3#)
-                                        #1#))
-                      . #6#)
+                                        #1#)))
                 (LETT |resul|
                       (SPADCALL (SPADCALL |solvevarlist| HH M (QREFELT $ 26))
-                                (QREFELT $ 28))
-                      . #6#)
+                                (QREFELT $ 28)))
                 (EXIT (CONS 0 |resul|))))))))
-          #7# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |TransSolvePackageService;|)) 
 
@@ -197,12 +184,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|TransSolvePackageService|)
-                                               '|domainEqualList|)
-                    . #3=(|TransSolvePackageService|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|TransSolvePackageService;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|TransSolvePackageService;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -211,11 +197,11 @@
 (DEFUN |TransSolvePackageService;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|TransSolvePackageService|))
-          (LETT |dv$| (LIST '|TransSolvePackageService| DV$1) . #1#)
-          (LETT $ (GETREFV 51) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|TransSolvePackageService| DV$1))
+          (LETT $ (GETREFV 51))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TransSolvePackageService|
                       (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)

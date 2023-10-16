@@ -1,10 +1,9 @@
 
 (SDEFUN |GSTBL;elt;$KeyEntry;1| ((|t| $) (|k| |Key|) ($ |Entry|))
         (SPROG ((|u| (|Union| |Entry| "failed")))
-               (SEQ
-                (LETT |u| (SPADCALL |k| |t| (QREFELT $ 12))
-                      |GSTBL;elt;$KeyEntry;1|)
-                (EXIT (COND ((QEQCAR |u| 1) (QREFELT $ 9)) ('T (QCDR |u|))))))) 
+               (SEQ (LETT |u| (SPADCALL |k| |t| (QREFELT $ 12)))
+                    (EXIT
+                     (COND ((QEQCAR |u| 1) (QREFELT $ 9)) ('T (QCDR |u|))))))) 
 
 (SDEFUN |GSTBL;setelt!;$Key2Entry;2|
         ((|t| $) (|k| |Key|) (|e| |Entry|) ($ |Entry|))
@@ -17,11 +16,9 @@
 (SDEFUN |GSTBL;search;Key$U;3|
         ((|k| |Key|) (|t| $) ($ |Union| |Entry| #1="failed"))
         (SPROG ((|u| (|Union| |Entry| #1#)))
-               (SEQ
-                (LETT |u| (SPADCALL |k| |t| (QREFELT $ 12))
-                      |GSTBL;search;Key$U;3|)
-                (EXIT
-                 (COND ((QEQCAR |u| 1) (CONS 0 (QREFELT $ 9))) ('T |u|)))))) 
+               (SEQ (LETT |u| (SPADCALL |k| |t| (QREFELT $ 12)))
+                    (EXIT
+                     (COND ((QEQCAR |u| 1) (CONS 0 (QREFELT $ 9))) ('T |u|)))))) 
 
 (DECLAIM (NOTINLINE |GeneralSparseTable;|)) 
 
@@ -34,13 +31,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|GeneralSparseTable|)
-                                               '|domainEqualList|)
-                    . #3=(|GeneralSparseTable|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |GeneralSparseTable;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|GeneralSparseTable|)))))))))) 
@@ -50,12 +46,12 @@
    ((#1=#:G167 NIL) (#2=#:G166 NIL) (|pv$| NIL) (#3=#:G164 NIL) (#4=#:G165 NIL)
     ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #5=(|GeneralSparseTable|))
-    (LETT DV$2 (|devaluate| |#2|) . #5#)
-    (LETT DV$3 (|devaluate| |#3|) . #5#)
-    (LETT DV$4 (|devaluate| |#4|) . #5#)
-    (LETT |dv$| (LIST '|GeneralSparseTable| DV$1 DV$2 DV$3 DV$4) . #5#)
-    (LETT $ (GETREFV 42) . #5#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT DV$3 (|devaluate| |#3|))
+    (LETT DV$4 (|devaluate| |#4|))
+    (LETT |dv$| (LIST '|GeneralSparseTable| DV$1 DV$2 DV$3 DV$4))
+    (LETT $ (GETREFV 42))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -81,8 +77,7 @@
                                         (|HasCategory| |#2| '(|BasicType|))
                                         (LETT #4#
                                               (|HasCategory| |#2|
-                                                             '(|SetCategory|))
-                                              . #5#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#2|
                                                         (LIST '|Evalable|
@@ -93,8 +88,7 @@
                                               (|HasCategory|
                                                (|Record| (|:| |key| |#1|)
                                                          (|:| |entry| |#2|))
-                                               '(|SetCategory|))
-                                              . #5#)
+                                               '(|SetCategory|)))
                                         (AND
                                          (|HasCategory|
                                           (|Record| (|:| |key| |#1|)
@@ -117,8 +111,7 @@
                                           (|Record| (|:| |key| |#1|)
                                                     (|:| |entry| |#2|))
                                           '(|CoercibleTo| (|OutputForm|)))
-                                         #3#)))
-                    . #5#))
+                                         #3#)))))
     (|haddProp| |$ConstructorCache| '|GeneralSparseTable|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
     (|stuffDomainSlots| $)
@@ -127,7 +120,7 @@
     (QSETREFV $ 7 |#2|)
     (QSETREFV $ 8 |#3|)
     (QSETREFV $ 9 |#4|)
-    (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
+    (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)))
          (|augmentPredVector| $ 2048))
     (AND #2#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
@@ -136,8 +129,7 @@
     (AND
      (LETT #1#
            (AND (|HasCategory| |#2| '(|BasicType|))
-                (|HasCategory| $ '(|finiteAggregate|)))
-           . #5#)
+                (|HasCategory| $ '(|finiteAggregate|))))
      (|augmentPredVector| $ 8192))
     (AND
      (OR #1# #4#

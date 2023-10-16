@@ -16,7 +16,7 @@
          ((|r|
            (|Record| (|:| |low| (|List| (|Symbol|)))
                      (|:| |high| (|List| (|Symbol|))))))
-         (SEQ (LETT |r| (SPADCALL (QREFELT $ 15)) |UDVO;getVariableOrder;R;4|)
+         (SEQ (LETT |r| (SPADCALL (QREFELT $ 15)))
               (EXIT (CONS (REVERSE (QCDR |r|)) (REVERSE (QCAR |r|))))))) 
 
 (DECLAIM (NOTINLINE |UserDefinedVariableOrdering;|)) 
@@ -27,8 +27,7 @@
            (RETURN
             (COND
              ((LETT #1#
-                    (HGET |$ConstructorCache| '|UserDefinedVariableOrdering|)
-                    . #2=(|UserDefinedVariableOrdering|))
+                    (HGET |$ConstructorCache| '|UserDefinedVariableOrdering|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -39,7 +38,7 @@
                               (CONS NIL
                                     (CONS 1
                                           (|UserDefinedVariableOrdering;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
@@ -48,11 +47,10 @@
 (DEFUN |UserDefinedVariableOrdering;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|UserDefinedVariableOrdering|)
-                . #1=(|UserDefinedVariableOrdering|))
-          (LETT $ (GETREFV 18) . #1#)
+          (LETT |dv$| '(|UserDefinedVariableOrdering|))
+          (LETT $ (GETREFV 18))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|UserDefinedVariableOrdering| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

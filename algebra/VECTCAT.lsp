@@ -59,7 +59,5 @@
                                                 (AND (|has| |t#1| (|Ring|))
                                                      (|has| |t#1|
                                                             (|RadicalCategory|)))))
-                                             NIL NIL NIL))
-                                           . #2=(|VectorCategory|)))))
-                   . #2#)
+                                             NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|VectorCategory| |t#1|))))) 

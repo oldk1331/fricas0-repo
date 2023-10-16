@@ -11,8 +11,7 @@
                    (LETT |expx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 22))
-                         |STTFNC;exp;2S;1|)
+                          (QREFELT $ 22)))
                    (EXIT (SPADCALL |expx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "exp: " (QREFELT $ 7)))))))) 
 
@@ -33,8 +32,7 @@
                            (SPADCALL (|spadConstant| $ 13) 0 (QREFELT $ 20))
                            (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
                            (QREFELT $ 25))
-                          (QREFELT $ 26))
-                         |STTFNC;log;2S;2|)
+                          (QREFELT $ 26)))
                    (EXIT
                     (SPADCALL |log1PlusX|
                               (SPADCALL |z|
@@ -60,8 +58,7 @@
                    (LETT |sinx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 31))
-                         |STTFNC;sin;2S;4|)
+                          (QREFELT $ 31)))
                    (EXIT (SPADCALL |sinx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "sin: " (QREFELT $ 7)))))))) 
 
@@ -77,8 +74,7 @@
                    (LETT |cosx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 33))
-                         |STTFNC;cos;2S;5|)
+                          (QREFELT $ 33)))
                    (EXIT (SPADCALL |cosx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "cos: " (QREFELT $ 7)))))))) 
 
@@ -94,8 +90,7 @@
                    (LETT |tanx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 35))
-                         |STTFNC;tan;2S;6|)
+                          (QREFELT $ 35)))
                    (EXIT (SPADCALL |tanx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "tan: " (QREFELT $ 7)))))))) 
 
@@ -119,8 +114,7 @@
                    (LETT |secx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 38))
-                         |STTFNC;sec;2S;8|)
+                          (QREFELT $ 38)))
                    (EXIT (SPADCALL |secx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "sec: " (QREFELT $ 7)))))))) 
 
@@ -144,8 +138,7 @@
                    (LETT |asinx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 41))
-                         |STTFNC;asin;2S;10|)
+                          (QREFELT $ 41)))
                    (EXIT (SPADCALL |asinx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "asin: " (QREFELT $ 7)))))))) 
 
@@ -161,8 +154,7 @@
                    (LETT |atanx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 43))
-                         |STTFNC;atan;2S;11|)
+                          (QREFELT $ 43)))
                    (EXIT (SPADCALL |atanx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "atan: " (QREFELT $ 7)))))))) 
 
@@ -202,8 +194,7 @@
                    (LETT |sinhx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 49))
-                         |STTFNC;sinh;2S;16|)
+                          (QREFELT $ 49)))
                    (EXIT (SPADCALL |sinhx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "sinh: " (QREFELT $ 7)))))))) 
 
@@ -219,8 +210,7 @@
                    (LETT |coshx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 51))
-                         |STTFNC;cosh;2S;17|)
+                          (QREFELT $ 51)))
                    (EXIT (SPADCALL |coshx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "cosh: " (QREFELT $ 7)))))))) 
 
@@ -236,8 +226,7 @@
                    (LETT |tanhx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 53))
-                         |STTFNC;tanh;2S;18|)
+                          (QREFELT $ 53)))
                    (EXIT (SPADCALL |tanhx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "tanh: " (QREFELT $ 7)))))))) 
 
@@ -261,8 +250,7 @@
                    (LETT |sechx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 56))
-                         |STTFNC;sech;2S;20|)
+                          (QREFELT $ 56)))
                    (EXIT (SPADCALL |sechx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "sech: " (QREFELT $ 7)))))))) 
 
@@ -286,8 +274,7 @@
                    (LETT |asinhx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 59))
-                         |STTFNC;asinh;2S;22|)
+                          (QREFELT $ 59)))
                    (EXIT (SPADCALL |asinhx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "asinh: " (QREFELT $ 7)))))))) 
 
@@ -303,8 +290,7 @@
                    (LETT |atanhx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 61))
-                         |STTFNC;atanh;2S;23|)
+                          (QREFELT $ 61)))
                    (EXIT (SPADCALL |atanhx| |z| (QREFELT $ 23)))))
                  ('T (|error| (STRCONC "atanh: " (QREFELT $ 7)))))))) 
 
@@ -347,13 +333,12 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|StreamTranscendentalFunctionsNonCommutative|)
-                                               '|domainEqualList|)
-                    . #3=(|StreamTranscendentalFunctionsNonCommutative|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (|StreamTranscendentalFunctionsNonCommutative;| #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -362,14 +347,12 @@
 (DEFUN |StreamTranscendentalFunctionsNonCommutative;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|StreamTranscendentalFunctionsNonCommutative|))
+          (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$|
-                (LIST '|StreamTranscendentalFunctionsNonCommutative| DV$1)
-                . #1#)
-          (LETT $ (GETREFV 67) . #1#)
+                (LIST '|StreamTranscendentalFunctionsNonCommutative| DV$1))
+          (LETT $ (GETREFV 67))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
                       '|StreamTranscendentalFunctionsNonCommutative|
                       (LIST DV$1) (CONS 1 $))

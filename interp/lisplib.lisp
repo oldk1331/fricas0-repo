@@ -3,6 +3,10 @@
  
 (IN-PACKAGE "BOOT")
  
+; $spadLibFT := 'NRLIB
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ |$spadLibFT| 'NRLIB))
+ 
 ; readLib(fn, ft) ==
 ;   -- see if it exists first
 ;   p := pathname [fn, ft]

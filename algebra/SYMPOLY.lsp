@@ -10,26 +10,21 @@
                 ((SPADCALL |p2| (|spadConstant| $ 14) (QREFELT $ 16)) |p1|)
                 (#7='T
                  (PROGN
-                  (LETT #1# NIL . #8=(|SYMPOLY;*;3$;1|))
-                  (SEQ (LETT |t1| NIL . #8#) (LETT #6# (REVERSE |p1|) . #8#)
-                       G190
+                  (LETT #1# NIL)
+                  (SEQ (LETT |t1| NIL) (LETT #6# (REVERSE |p1|)) G190
                        (COND
-                        ((OR (ATOM #6#)
-                             (PROGN (LETT |t1| (CAR #6#) . #8#) NIL))
+                        ((OR (ATOM #6#) (PROGN (LETT |t1| (CAR #6#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
                          (PROGN
                           (LETT #3#
                                 (PROGN
-                                 (LETT #5# NIL . #8#)
-                                 (SEQ (LETT |t2| NIL . #8#)
-                                      (LETT #4# |p2| . #8#) G190
+                                 (LETT #5# NIL)
+                                 (SEQ (LETT |t2| NIL) (LETT #4# |p2|) G190
                                       (COND
                                        ((OR (ATOM #4#)
-                                            (PROGN
-                                             (LETT |t2| (CAR #4#) . #8#)
-                                             NIL))
+                                            (PROGN (LETT |t2| (CAR #4#)) NIL))
                                         (GO G191)))
                                       (SEQ
                                        (EXIT
@@ -42,19 +37,13 @@
                                                 (SPADCALL (QCDR |t1|)
                                                           (QCDR |t2|)
                                                           (QREFELT $ 18)))
-                                               #5#)
-                                              . #8#)))
-                                      (LETT #4# (CDR #4#) . #8#) (GO G190) G191
-                                      (EXIT (NREVERSE #5#))))
-                                . #8#)
+                                               #5#))))
+                                      (LETT #4# (CDR #4#)) (GO G190) G191
+                                      (EXIT (NREVERSE #5#)))))
                           (COND
-                           (#1#
-                            (LETT #2# (SPADCALL #2# #3# (QREFELT $ 19)) . #8#))
-                           ('T
-                            (PROGN
-                             (LETT #2# #3# . #8#)
-                             (LETT #1# 'T . #8#)))))))
-                       (LETT #6# (CDR #6#) . #8#) (GO G190) G191 (EXIT NIL))
+                           (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 19))))
+                           ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
+                       (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
                   (COND (#1# #2#) (#7# (|spadConstant| $ 9))))))))) 
 
 (SDEFUN |SYMPOLY;*;3$;2| ((|p1| $) (|p2| $) ($ $))
@@ -69,26 +58,21 @@
                 ((SPADCALL |p2| (|spadConstant| $ 14) (QREFELT $ 16)) |p1|)
                 (#7='T
                  (PROGN
-                  (LETT #1# NIL . #8=(|SYMPOLY;*;3$;2|))
-                  (SEQ (LETT |t1| NIL . #8#) (LETT #6# (REVERSE |p1|) . #8#)
-                       G190
+                  (LETT #1# NIL)
+                  (SEQ (LETT |t1| NIL) (LETT #6# (REVERSE |p1|)) G190
                        (COND
-                        ((OR (ATOM #6#)
-                             (PROGN (LETT |t1| (CAR #6#) . #8#) NIL))
+                        ((OR (ATOM #6#) (PROGN (LETT |t1| (CAR #6#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
                          (PROGN
                           (LETT #3#
                                 (PROGN
-                                 (LETT #5# NIL . #8#)
-                                 (SEQ (LETT |t2| NIL . #8#)
-                                      (LETT #4# |p2| . #8#) G190
+                                 (LETT #5# NIL)
+                                 (SEQ (LETT |t2| NIL) (LETT #4# |p2|) G190
                                       (COND
                                        ((OR (ATOM #4#)
-                                            (PROGN
-                                             (LETT |t2| (CAR #4#) . #8#)
-                                             NIL))
+                                            (PROGN (LETT |t2| (CAR #4#)) NIL))
                                         (GO G191)))
                                       (SEQ
                                        (EXIT
@@ -97,8 +81,7 @@
                                            (LETT |r|
                                                  (SPADCALL (QCDR |t1|)
                                                            (QCDR |t2|)
-                                                           (QREFELT $ 18))
-                                                 . #8#)
+                                                           (QREFELT $ 18)))
                                            (|spadConstant| $ 21)
                                            (QREFELT $ 22))
                                           (LETT #5#
@@ -108,19 +91,13 @@
                                                             (QCAR |t2|)
                                                             (QREFELT $ 17))
                                                   |r|)
-                                                 #5#)
-                                                . #8#)))))
-                                      (LETT #4# (CDR #4#) . #8#) (GO G190) G191
-                                      (EXIT (NREVERSE #5#))))
-                                . #8#)
+                                                 #5#))))))
+                                      (LETT #4# (CDR #4#)) (GO G190) G191
+                                      (EXIT (NREVERSE #5#)))))
                           (COND
-                           (#1#
-                            (LETT #2# (SPADCALL #2# #3# (QREFELT $ 19)) . #8#))
-                           ('T
-                            (PROGN
-                             (LETT #2# #3# . #8#)
-                             (LETT #1# 'T . #8#)))))))
-                       (LETT #6# (CDR #6#) . #8#) (GO G190) G191 (EXIT NIL))
+                           (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 19))))
+                           ('T (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
+                       (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
                   (COND (#1# #2#) (#7# (|spadConstant| $ 9))))))))) 
 
 (DECLAIM (NOTINLINE |SymmetricPolynomial;|)) 
@@ -134,12 +111,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|SymmetricPolynomial|)
-                                               '|domainEqualList|)
-                    . #3=(|SymmetricPolynomial|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT
-                  (PROG1 (|SymmetricPolynomial;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|SymmetricPolynomial;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|SymmetricPolynomial|)))))))))) 
@@ -149,9 +124,9 @@
    ((|pv$| NIL) (#1=#:G149 NIL) (#2=#:G150 NIL) (#3=#:G151 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #4=(|SymmetricPolynomial|))
-    (LETT |dv$| (LIST '|SymmetricPolynomial| DV$1) . #4#)
-    (LETT $ (GETREFV 39) . #4#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|SymmetricPolynomial| DV$1))
+    (LETT $ (GETREFV 39))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -169,8 +144,7 @@
                                                        '(|CharacteristicZero|))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|CommutativeRing|))
-                                              . #4#)
+                                                             '(|CommutativeRing|)))
                                         (OR #3#
                                             (|HasCategory| |#1|
                                                            '(|IntegralDomain|)))
@@ -178,8 +152,7 @@
                                         (|HasCategory| |#1| '(|AbelianGroup|))
                                         (|HasCategory| |#1| '(|SemiRing|))
                                         (LETT #2#
-                                              (|HasCategory| |#1| '(|Ring|))
-                                              . #4#)
+                                              (|HasCategory| |#1| '(|Ring|)))
                                         (OR
                                          (|HasCategory| |#1|
                                                         '(|Algebra|
@@ -218,8 +191,7 @@
                                         (|HasCategory| |#1| '(|AbelianMonoid|))
                                         (LETT #1#
                                               (|HasCategory| |#1|
-                                                             '(|CancellationAbelianMonoid|))
-                                              . #4#)
+                                                             '(|CancellationAbelianMonoid|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -235,8 +207,7 @@
                                          #1#)
                                         (OR
                                          (|HasCategory| |#1| '(|AbelianGroup|))
-                                         #1#)))
-                    . #4#))
+                                         #1#)))))
     (|haddProp| |$ConstructorCache| '|SymmetricPolynomial| (LIST DV$1)
                 (CONS 1 $))
     (|stuffDomainSlots| $)

@@ -25,8 +25,7 @@
                               ((|readable?| ((|Boolean|) $)) T)
                               ((|writable?| ((|Boolean|) $)) T)
                               ((|new| ($ (|String|) (|String|) (|String|))) T))
-                            NIL NIL NIL))
-                   |FileNameCategory|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|FileNameCategory|))))) 
 
 (MAKEPROP '|FileNameCategory| 'NILADIC T) 

@@ -21,8 +21,7 @@
                               ((|recip| ((|Union| $ "failed") $)) T)
                               ((|leftRecip| ((|Union| $ "failed") $)) T)
                               ((|rightRecip| ((|Union| $ "failed") $)) T))
-                            NIL NIL NIL))
-                   |MagmaWithUnit|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|MagmaWithUnit|))))) 
 
 (MAKEPROP '|MagmaWithUnit| 'NILADIC T) 

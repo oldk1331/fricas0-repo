@@ -9,8 +9,7 @@
          (SEQ
           (LETT |f1|
                 (SPADCALL (SPADCALL |filename| (QREFELT $ 8)) "output"
-                          (QREFELT $ 10))
-                . #3=(|GDRAW;gnuDraw;ESbSLV;1|))
+                          (QREFELT $ 10)))
           (SPADCALL |f1|
                     (SPADCALL
                      (LIST "set title \"" (SPADCALL |opts| "" (QREFELT $ 13))
@@ -20,16 +19,14 @@
           (SPADCALL |f1| "plot '-' title '' lw 3 with lines" (QREFELT $ 16))
           (LETT |p2|
                 (SPADCALL (SPADCALL |f| |segbind| |opts| (QREFELT $ 21))
-                          (QREFELT $ 23))
-                . #3#)
-          (SEQ (LETT |p1| NIL . #3#) (LETT #2# |p2| . #3#) G190
+                          (QREFELT $ 23)))
+          (SEQ (LETT |p1| NIL) (LETT #2# |p2|) G190
                (COND
-                ((OR (ATOM #2#) (PROGN (LETT |p1| (CAR #2#) . #3#) NIL))
-                 (GO G191)))
+                ((OR (ATOM #2#) (PROGN (LETT |p1| (CAR #2#)) NIL)) (GO G191)))
                (SEQ
-                (SEQ (LETT |p| NIL . #3#) (LETT #1# |p1| . #3#) G190
+                (SEQ (LETT |p| NIL) (LETT #1# |p1|) G190
                      (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#) . #3#) NIL))
+                      ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ
                       (EXIT
@@ -47,9 +44,9 @@
                                     (QREFELT $ 32)))
                                   (QREFELT $ 15))
                                  (QREFELT $ 16))))
-                     (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT NIL))
+                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT (SPADCALL |f1| (QREFELT $ 33))))
-               (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+               (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |f1| (QREFELT $ 34)))))) 
 
 (SDEFUN |GDRAW;gnuDraw;2LSLV;2|
@@ -63,8 +60,7 @@
          (SEQ
           (LETT |f1|
                 (SPADCALL (SPADCALL |filename| (QREFELT $ 8)) "output"
-                          (QREFELT $ 10))
-                . #6=(|GDRAW;gnuDraw;2LSLV;2|))
+                          (QREFELT $ 10)))
           (SPADCALL |f1|
                     (SPADCALL
                      (LIST "set title \"" (SPADCALL |opts| "" (QREFELT $ 13))
@@ -74,34 +70,30 @@
           (SPADCALL |f1| "plot '-' title '' lw 3 with lines" (QREFELT $ 16))
           (LETT |lp|
                 (PROGN
-                 (LETT #5# NIL . #6#)
-                 (SEQ (LETT |y| NIL . #6#) (LETT #4# |l2| . #6#)
-                      (LETT |x| NIL . #6#) (LETT #3# |l1| . #6#) G190
+                 (LETT #5# NIL)
+                 (SEQ (LETT |y| NIL) (LETT #4# |l2|) (LETT |x| NIL)
+                      (LETT #3# |l1|) G190
                       (COND
-                       ((OR (ATOM #3#) (PROGN (LETT |x| (CAR #3#) . #6#) NIL)
-                            (ATOM #4#) (PROGN (LETT |y| (CAR #4#) . #6#) NIL))
+                       ((OR (ATOM #3#) (PROGN (LETT |x| (CAR #3#)) NIL)
+                            (ATOM #4#) (PROGN (LETT |y| (CAR #4#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
                         (LETT #5#
                               (CONS (SPADCALL (LIST |x| |y|) (QREFELT $ 38))
-                                    #5#)
-                              . #6#)))
-                      (LETT #3# (PROG1 (CDR #3#) (LETT #4# (CDR #4#) . #6#))
-                            . #6#)
-                      (GO G190) G191 (EXIT (NREVERSE #5#))))
-                . #6#)
+                                    #5#))))
+                      (LETT #3# (PROG1 (CDR #3#) (LETT #4# (CDR #4#))))
+                      (GO G190) G191 (EXIT (NREVERSE #5#)))))
           (LETT |p2|
-                (SPADCALL (SPADCALL (LIST |lp|) (QREFELT $ 39)) (QREFELT $ 23))
-                . #6#)
-          (SEQ (LETT |p1| NIL . #6#) (LETT #2# |p2| . #6#) G190
+                (SPADCALL (SPADCALL (LIST |lp|) (QREFELT $ 39))
+                          (QREFELT $ 23)))
+          (SEQ (LETT |p1| NIL) (LETT #2# |p2|) G190
                (COND
-                ((OR (ATOM #2#) (PROGN (LETT |p1| (CAR #2#) . #6#) NIL))
-                 (GO G191)))
+                ((OR (ATOM #2#) (PROGN (LETT |p1| (CAR #2#)) NIL)) (GO G191)))
                (SEQ
-                (SEQ (LETT |p| NIL . #6#) (LETT #1# |p1| . #6#) G190
+                (SEQ (LETT |p| NIL) (LETT #1# |p1|) G190
                      (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#) . #6#) NIL))
+                      ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ
                       (EXIT
@@ -119,9 +111,9 @@
                                     (QREFELT $ 32)))
                                   (QREFELT $ 15))
                                  (QREFELT $ 16))))
-                     (LETT #1# (CDR #1#) . #6#) (GO G190) G191 (EXIT NIL))
+                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT (SPADCALL |f1| (QREFELT $ 33))))
-               (LETT #2# (CDR #2#) . #6#) (GO G190) G191 (EXIT NIL))
+               (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |f1| (QREFELT $ 34)))))) 
 
 (SDEFUN |GDRAW;gnuDraw;ESbSV;3|
@@ -147,8 +139,7 @@
          (SEQ
           (LETT |f1|
                 (SPADCALL (SPADCALL |filename| (QREFELT $ 8)) "output"
-                          (QREFELT $ 10))
-                . #3=(|GDRAW;gnuDraw;E2SbSLV;5|))
+                          (QREFELT $ 10)))
           (SPADCALL |f1|
                     (SPADCALL
                      (LIST "set title \"" (SPADCALL |opts| "" (QREFELT $ 13))
@@ -158,16 +149,14 @@
           (SPADCALL |f1| "splot '-' title '' with pm3d" (QREFELT $ 16))
           (LETT |p2|
                 (SPADCALL (SPADCALL |f| |segbind1| |segbind2| (QREFELT $ 47))
-                          (QREFELT $ 48))
-                . #3#)
-          (SEQ (LETT |p1| NIL . #3#) (LETT #2# |p2| . #3#) G190
+                          (QREFELT $ 48)))
+          (SEQ (LETT |p1| NIL) (LETT #2# |p2|) G190
                (COND
-                ((OR (ATOM #2#) (PROGN (LETT |p1| (CAR #2#) . #3#) NIL))
-                 (GO G191)))
+                ((OR (ATOM #2#) (PROGN (LETT |p1| (CAR #2#)) NIL)) (GO G191)))
                (SEQ
-                (SEQ (LETT |p| NIL . #3#) (LETT #1# |p1| . #3#) G190
+                (SEQ (LETT |p| NIL) (LETT #1# |p1|) G190
                      (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#) . #3#) NIL))
+                      ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#)) NIL))
                        (GO G191)))
                      (SEQ
                       (EXIT
@@ -190,9 +179,9 @@
                                     (QREFELT $ 32)))
                                   (QREFELT $ 15))
                                  (QREFELT $ 16))))
-                     (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT NIL))
+                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT (SPADCALL |f1| (QREFELT $ 33))))
-               (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+               (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |f1| (QREFELT $ 34)))))) 
 
 (SDEFUN |GDRAW;gnuDraw;E2SbSV;6|
@@ -209,7 +198,7 @@
          (PROG (#1=#:G133)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|GnuDraw|) . #2=(|GnuDraw|))
+             ((LETT #1# (HGET |$ConstructorCache| '|GnuDraw|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -217,16 +206,16 @@
                       (CDDAR
                        (HPUT |$ConstructorCache| '|GnuDraw|
                              (LIST (CONS NIL (CONS 1 (|GnuDraw;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|GnuDraw|)))))))))) 
 
 (DEFUN |GnuDraw;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|GnuDraw|) . #1=(|GnuDraw|))
-          (LETT $ (GETREFV 51) . #1#)
+          (LETT |dv$| '(|GnuDraw|))
+          (LETT $ (GETREFV 51))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|GnuDraw| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))

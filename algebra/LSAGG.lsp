@@ -29,7 +29,5 @@
                                                     '|t#1|)
                                                    (|mkCategory|
                                                     '(((|list| ($ |t#1|)) T))
-                                                    NIL NIL NIL))
-                                           . #2=(|ListAggregate|)))))
-                   . #2#)
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|ListAggregate| |t#1|))))) 

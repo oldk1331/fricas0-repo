@@ -34,7 +34,5 @@
                                                ((|regularRepresentation|
                                                  ((|Matrix| |t#1|) $))
                                                 T))
-                                             NIL NIL NIL))
-                                           . #2=(|FramedAlgebra|)))))
-                   . #2#)
+                                             NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FramedAlgebra| |t#1| |t#2|))))) 

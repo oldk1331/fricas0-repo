@@ -9,20 +9,18 @@
           (|:| |vec| (|Vector| (|Integer|)))))
         (SPROG
          ((|rec| (|Record| (|:| |mat| (|Matrix| R)) (|:| |vec| (|Vector| R)))))
-         (SEQ
-          (LETT |rec| (SPADCALL |m| |v| (QREFELT $ 16))
-                |FLINEXP-;reducedSystem;MVR;2|)
-          (EXIT (SPADCALL (QCAR |rec|) (QCDR |rec|) (QREFELT $ 18)))))) 
+         (SEQ (LETT |rec| (SPADCALL |m| |v| (QREFELT $ 16)))
+              (EXIT (SPADCALL (QCAR |rec|) (QCDR |rec|) (QREFELT $ 18)))))) 
 
 (DECLAIM (NOTINLINE |FullyLinearlyExplicitOver&;|)) 
 
 (DEFUN |FullyLinearlyExplicitOver&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|FullyLinearlyExplicitOver&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|FullyLinearlyExplicitOver&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 20) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|FullyLinearlyExplicitOver&| DV$1 DV$2))
+          (LETT $ (GETREFV 20))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -30,8 +28,7 @@
                                              (LIST
                                               (|HasCategory| |#2|
                                                              '(|LinearlyExplicitOver|
-                                                               (|Integer|)))))
-                          . #1#))
+                                                               (|Integer|)))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

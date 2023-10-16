@@ -102,10 +102,9 @@
                (SEQ
                 (COND
                  ((SPADCALL |n| (QREFELT $ 34))
-                  (LETT |n| (|add_DF| |n| (QREFELT $ 31))
-                        . #1=(|DFSFUN;besselY;3Df;17|))))
-                (LETT |vp| (|mul_DF| |n| (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT))
-                      . #1#)
+                  (LETT |n| (|add_DF| |n| (QREFELT $ 31)))))
+                (LETT |vp|
+                      (|mul_DF| |n| (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)))
                 (EXIT
                  (|div_DF|
                   (|sub_DF|
@@ -122,11 +121,9 @@
                  ((SPADCALL |v| (QREFELT $ 37))
                   (LETT |v|
                         (SPADCALL |v| (SPADCALL (QREFELT $ 31) (QREFELT $ 20))
-                                  (QREFELT $ 28))
-                        . #1=(|DFSFUN;besselY;3C;18|))))
+                                  (QREFELT $ 28)))))
                 (LETT |vp|
-                      (SPADCALL |v| (SPADCALL (QREFELT $ 38)) (QREFELT $ 27))
-                      . #1#)
+                      (SPADCALL |v| (SPADCALL (QREFELT $ 38)) (QREFELT $ 27)))
                 (EXIT
                  (SPADCALL
                   (SPADCALL
@@ -144,12 +141,10 @@
          (SEQ
           (COND
            ((SPADCALL |n| (QREFELT $ 34))
-            (LETT |n| (|add_DF| |n| (QREFELT $ 31))
-                  . #1=(|DFSFUN;besselK;3Df;19|))))
-          (LETT |p| (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT) . #1#)
-          (LETT |vp| (|mul_DF| |n| |p|) . #1#)
-          (LETT |ahalf| (|div_DF| 1.0 (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT))
-                . #1#)
+            (LETT |n| (|add_DF| |n| (QREFELT $ 31)))))
+          (LETT |p| (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT))
+          (LETT |vp| (|mul_DF| |n| |p|))
+          (LETT |ahalf| (|div_DF| 1.0 (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)))
           (EXIT
            (|div_DF|
             (|mul_DF| (|mul_DF| |p| |ahalf|)
@@ -168,14 +163,12 @@
            ((SPADCALL |v| (QREFELT $ 37))
             (LETT |v|
                   (SPADCALL |v| (SPADCALL (QREFELT $ 31) (QREFELT $ 20))
-                            (QREFELT $ 28))
-                  . #1=(|DFSFUN;besselK;3C;20|))))
-          (LETT |p| (SPADCALL (QREFELT $ 38)) . #1#)
-          (LETT |vp| (SPADCALL |v| |p| (QREFELT $ 27)) . #1#)
+                            (QREFELT $ 28)))))
+          (LETT |p| (SPADCALL (QREFELT $ 38)))
+          (LETT |vp| (SPADCALL |v| |p| (QREFELT $ 27)))
           (LETT |ahalf|
                 (SPADCALL (|spadConstant| $ 44) (SPADCALL 2 (QREFELT $ 47))
-                          (QREFELT $ 29))
-                . #1#)
+                          (QREFELT $ 29)))
           (EXIT
            (SPADCALL
             (SPADCALL (SPADCALL |p| |ahalf| (QREFELT $ 27))
@@ -195,28 +188,23 @@
                 (PROG2
                     (LETT #1#
                           (SPADCALL (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
-                                    (QREFELT $ 50))
-                          . #2=(|DFSFUN;airyAi;2Df;21|))
+                                    (QREFELT $ 50)))
                     (QCDR #1#)
                   (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
-                                  (|Union| (|DoubleFloat|) #3="failed") #1#))
-                . #2#)
+                                  (|Union| (|DoubleFloat|) #2="failed") #1#)))
           (LETT |athird|
                 (PROG2
                     (LETT #1#
                           (SPADCALL (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                                    (QREFELT $ 50))
-                          . #2#)
+                                    (QREFELT $ 50)))
                     (QCDR #1#)
                   (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
-                                  (|Union| (|DoubleFloat|) #3#) #1#))
-                . #2#)
+                                  (|Union| (|DoubleFloat|) #2#) #1#)))
           (LETT |eta|
                 (|mul_DF| (SPADCALL 2 |athird| (QREFELT $ 52))
                           (SPADCALL (|minus_DF| |x|)
                                     (SPADCALL 3 |ahalf| (QREFELT $ 52))
-                                    (QREFELT $ 53)))
-                . #2#)
+                                    (QREFELT $ 53))))
           (EXIT
            (|mul_DF|
             (|mul_DF| (SPADCALL (|minus_DF| |x|) |ahalf| (QREFELT $ 53))
@@ -234,31 +222,28 @@
           (LETT |ahalf|
                 (PROG2
                     (LETT #1#
-                          (SPADCALL (SPADCALL 2 (QREFELT $ 47)) (QREFELT $ 55))
-                          . #2=(|DFSFUN;airyAi;2C;22|))
+                          (SPADCALL (SPADCALL 2 (QREFELT $ 47))
+                                    (QREFELT $ 55)))
                     (QCDR #1#)
                   (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
                                   (|Union| (|Complex| (|DoubleFloat|))
-                                           #3="failed")
-                                  #1#))
-                . #2#)
+                                           #2="failed")
+                                  #1#)))
           (LETT |athird|
                 (PROG2
                     (LETT #1#
-                          (SPADCALL (SPADCALL 3 (QREFELT $ 47)) (QREFELT $ 55))
-                          . #2#)
+                          (SPADCALL (SPADCALL 3 (QREFELT $ 47))
+                                    (QREFELT $ 55)))
                     (QCDR #1#)
                   (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
-                                  (|Union| (|Complex| (|DoubleFloat|)) #3#)
-                                  #1#))
-                . #2#)
+                                  (|Union| (|Complex| (|DoubleFloat|)) #2#)
+                                  #1#)))
           (LETT |eta|
                 (SPADCALL (SPADCALL 2 |athird| (QREFELT $ 56))
                           (SPADCALL (SPADCALL |z| (QREFELT $ 40))
                                     (SPADCALL 3 |ahalf| (QREFELT $ 56))
                                     (QREFELT $ 57))
-                          (QREFELT $ 27))
-                . #2#)
+                          (QREFELT $ 27)))
           (EXIT
            (SPADCALL
             (SPADCALL
@@ -278,28 +263,23 @@
                 (PROG2
                     (LETT #1#
                           (SPADCALL (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
-                                    (QREFELT $ 50))
-                          . #2=(|DFSFUN;airyBi;2Df;23|))
+                                    (QREFELT $ 50)))
                     (QCDR #1#)
                   (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
-                                  (|Union| (|DoubleFloat|) #3="failed") #1#))
-                . #2#)
+                                  (|Union| (|DoubleFloat|) #2="failed") #1#)))
           (LETT |athird|
                 (PROG2
                     (LETT #1#
                           (SPADCALL (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                                    (QREFELT $ 50))
-                          . #2#)
+                                    (QREFELT $ 50)))
                     (QCDR #1#)
                   (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
-                                  (|Union| (|DoubleFloat|) #3#) #1#))
-                . #2#)
+                                  (|Union| (|DoubleFloat|) #2#) #1#)))
           (LETT |eta|
                 (|mul_DF| (SPADCALL 2 |athird| (QREFELT $ 52))
                           (SPADCALL (|minus_DF| |x|)
                                     (SPADCALL 3 |ahalf| (QREFELT $ 52))
-                                    (QREFELT $ 53)))
-                . #2#)
+                                    (QREFELT $ 53))))
           (EXIT
            (|mul_DF|
             (SPADCALL (|minus_DF| (|mul_DF| |x| |athird|)) |ahalf|
@@ -317,31 +297,28 @@
           (LETT |ahalf|
                 (PROG2
                     (LETT #1#
-                          (SPADCALL (SPADCALL 2 (QREFELT $ 47)) (QREFELT $ 55))
-                          . #2=(|DFSFUN;airyBi;2C;24|))
+                          (SPADCALL (SPADCALL 2 (QREFELT $ 47))
+                                    (QREFELT $ 55)))
                     (QCDR #1#)
                   (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
                                   (|Union| (|Complex| (|DoubleFloat|))
-                                           #3="failed")
-                                  #1#))
-                . #2#)
+                                           #2="failed")
+                                  #1#)))
           (LETT |athird|
                 (PROG2
                     (LETT #1#
-                          (SPADCALL (SPADCALL 3 (QREFELT $ 47)) (QREFELT $ 55))
-                          . #2#)
+                          (SPADCALL (SPADCALL 3 (QREFELT $ 47))
+                                    (QREFELT $ 55)))
                     (QCDR #1#)
                   (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
-                                  (|Union| (|Complex| (|DoubleFloat|)) #3#)
-                                  #1#))
-                . #2#)
+                                  (|Union| (|Complex| (|DoubleFloat|)) #2#)
+                                  #1#)))
           (LETT |eta|
                 (SPADCALL (SPADCALL 2 |athird| (QREFELT $ 56))
                           (SPADCALL (SPADCALL |z| (QREFELT $ 40))
                                     (SPADCALL 3 |ahalf| (QREFELT $ 56))
                                     (QREFELT $ 57))
-                          (QREFELT $ 27))
-                . #2#)
+                          (QREFELT $ 27)))
           (EXIT
            (SPADCALL
             (SPADCALL
@@ -360,8 +337,7 @@
            (RETURN
             (COND
              ((LETT #1#
-                    (HGET |$ConstructorCache| '|DoubleFloatSpecialFunctions|)
-                    . #2=(|DoubleFloatSpecialFunctions|))
+                    (HGET |$ConstructorCache| '|DoubleFloatSpecialFunctions|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -372,7 +348,7 @@
                               (CONS NIL
                                     (CONS 1
                                           (|DoubleFloatSpecialFunctions;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache|
@@ -381,11 +357,10 @@
 (DEFUN |DoubleFloatSpecialFunctions;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|DoubleFloatSpecialFunctions|)
-                . #1=(|DoubleFloatSpecialFunctions|))
-          (LETT $ (GETREFV 61) . #1#)
+          (LETT |dv$| '(|DoubleFloatSpecialFunctions|))
+          (LETT $ (GETREFV 61))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DoubleFloatSpecialFunctions| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

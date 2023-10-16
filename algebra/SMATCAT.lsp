@@ -68,8 +68,6 @@
                                             ((|Algebra| |t#2|)
                                              (|has| |t#2|
                                                     (|CommutativeRing|))))
-                                          NIL NIL))
-                                 . #2=(|SquareMatrixCategory|)))))
-                   . #2#)
+                                          NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|SquareMatrixCategory| |t#1| |t#2| |t#3| |t#4|))))) 

@@ -4,8 +4,7 @@
         (SPROG ((|df| (|Factored| (|Polynomial| R))))
                (SEQ
                 (LETT |df|
-                      (SPADCALL (SPADCALL |rf| (QREFELT $ 9)) (QREFELT $ 12))
-                      |PFRPAC;partialFraction;FSA;1|)
+                      (SPADCALL (SPADCALL |rf| (QREFELT $ 9)) (QREFELT $ 12)))
                 (EXIT
                  (SPADCALL (SPADCALL |rf| (QREFELT $ 13)) |df| |v|
                            (QREFELT $ 16)))))) 
@@ -14,9 +13,8 @@
         ((|p| |Polynomial| R) (|v| |Symbol|)
          ($ |SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
         (SPROG ((|up| (|SparseUnivariatePolynomial| (|Polynomial| R))))
-               (SEQ
-                (LETT |up| (SPADCALL |p| |v| (QREFELT $ 19)) |PFRPAC;makeSup|)
-                (EXIT (SPADCALL (ELT $ 20) |up| (QREFELT $ 25)))))) 
+               (SEQ (LETT |up| (SPADCALL |p| |v| (QREFELT $ 19)))
+                    (EXIT (SPADCALL (ELT $ 20) |up| (QREFELT $ 25)))))) 
 
 (SDEFUN |PFRPAC;partialFraction;PFSA;3|
         ((|p| |Polynomial| R) (|facq| |Factored| (|Polynomial| R))
@@ -98,23 +96,20 @@
           (LETT |up|
                 (|UnivariatePolynomial| |v|
                                         (|Fraction|
-                                         (|Polynomial| (QREFELT $ 6))))
-                . #9=(|PFRPAC;partialFraction;PFSA;3|))
-          (LETT |fup| (|Factored| |up|) . #9#)
+                                         (|Polynomial| (QREFELT $ 6)))))
+          (LETT |fup| (|Factored| |up|))
           (LETT |fcont|
-                (|PFRPAC;makeSup| (SPADCALL |facq| (QREFELT $ 26)) |v| $)
-                . #9#)
+                (|PFRPAC;makeSup| (SPADCALL |facq| (QREFELT $ 26)) |v| $))
           (LETT |nflist|
                 (SPADCALL |fcont|
                           (PROGN
-                           (LETT #1# NIL . #9#)
-                           (SEQ (LETT |u| NIL . #9#)
-                                (LETT #4# (SPADCALL |facq| (QREFELT $ 30))
-                                      . #9#)
+                           (LETT #1# NIL)
+                           (SEQ (LETT |u| NIL)
+                                (LETT #4# (SPADCALL |facq| (QREFELT $ 30)))
                                 G190
                                 (COND
                                  ((OR (ATOM #4#)
-                                      (PROGN (LETT |u| (CAR #4#) . #9#) NIL))
+                                      (PROGN (LETT |u| (CAR #4#)) NIL))
                                   (GO G191)))
                                 (SEQ
                                  (EXIT
@@ -130,8 +125,7 @@
                                                                         |up|)
                                                                        (LIST
                                                                         '|NonNegativeInteger|))
-                                                                 |fup|))
-                                         . #9#)
+                                                                 |fup|)))
                                    (COND
                                     (#1#
                                      (LETT #2#
@@ -141,14 +135,10 @@
                                                                              '$
                                                                              '$
                                                                              '$)
-                                                                            |fup|))
-                                           . #9#))
+                                                                            |fup|))))
                                     ('T
-                                     (PROGN
-                                      (LETT #2# #3# . #9#)
-                                      (LETT #1# 'T . #9#)))))))
-                                (LETT #4# (CDR #4#) . #9#) (GO G190) G191
-                                (EXIT NIL))
+                                     (PROGN (LETT #2# #3#) (LETT #1# 'T)))))))
+                                (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                            (COND (#1# #2#)
                                  ('T
                                   (SPADCALL
@@ -157,8 +147,7 @@
                           (|compiledLookupCheck| '*
                                                  (LIST '$ (|devaluate| |up|)
                                                        '$)
-                                                 |fup|))
-                . #9#)
+                                                 |fup|)))
           (LETT |pfup|
                 (SPADCALL (|PFRPAC;makeSup| |p| |v| $) |nflist|
                           (|compiledLookupCheck| '|partialFraction|
@@ -166,8 +155,7 @@
                                                        (LIST '|Factored|
                                                              (|devaluate|
                                                               |up|)))
-                                                 (|PartialFraction| |up|)))
-                . #9#)
+                                                 (|PartialFraction| |up|))))
           (EXIT
            (SPADCALL |pfup|
                      (|compiledLookupCheck| '|coerce|
@@ -188,12 +176,11 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|PartialFractionPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|PartialFractionPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (|PartialFractionPackage;| #1#) (LETT #2# T . #3#))
+                  (PROG1 (|PartialFractionPackage;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|PartialFractionPackage|)))))))))) 
@@ -201,11 +188,11 @@
 (DEFUN |PartialFractionPackage;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|PartialFractionPackage|))
-          (LETT |dv$| (LIST '|PartialFractionPackage| DV$1) . #1#)
-          (LETT $ (GETREFV 31) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|PartialFractionPackage| DV$1))
+          (LETT $ (GETREFV 31))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PartialFractionPackage| (LIST DV$1)
                       (CONS 1 $))
           (|stuffDomainSlots| $)

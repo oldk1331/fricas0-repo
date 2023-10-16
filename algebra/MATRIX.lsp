@@ -37,41 +37,36 @@
                   (COND ((EQL |i1| |i2|) |x|)
                         ('T
                          (SEQ
-                          (SEQ
-                           (LETT |j| (SPADCALL |x| (QREFELT $ 9))
-                                 . #3=(|MATRIX;swapRows!;$2I$;5|))
-                           (LETT #2# (SPADCALL |x| (QREFELT $ 15)) . #3#) G190
-                           (COND ((> |j| #2#) (GO G191)))
-                           (SEQ (LETT |t1| (QAREF2O |x| |i1| |j| 1 1) . #3#)
-                                (LETT |t2| (QAREF2O |x| |i2| |j| 1 1) . #3#)
-                                (QSETAREF2O |x| |i1| |j| |t2| 1 1)
-                                (EXIT (QSETAREF2O |x| |i2| |j| |t1| 1 1)))
-                           (LETT |j| (+ |j| 1) . #3#) (GO G190) G191
-                           (EXIT NIL))
+                          (SEQ (LETT |j| (SPADCALL |x| (QREFELT $ 9)))
+                               (LETT #2# (SPADCALL |x| (QREFELT $ 15))) G190
+                               (COND ((> |j| #2#) (GO G191)))
+                               (SEQ (LETT |t1| (QAREF2O |x| |i1| |j| 1 1))
+                                    (LETT |t2| (QAREF2O |x| |i2| |j| 1 1))
+                                    (QSETAREF2O |x| |i1| |j| |t2| 1 1)
+                                    (EXIT (QSETAREF2O |x| |i2| |j| |t1| 1 1)))
+                               (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))
                           (EXIT |x|))))))))) 
 
 (SDEFUN |MATRIX;copy;2$;6| ((|m| $) ($ $))
         (SPROG
          ((#1=#:G2100 NIL) (|j| NIL) (#2=#:G2099 NIL) (|i| NIL) (|ans| ($)))
-         (SEQ
-          (LETT |ans| (MAKE_MATRIX (ANROWS |m|) (ANCOLS |m|))
-                . #3=(|MATRIX;copy;2$;6|))
-          (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 8)) . #3#)
-               (LETT #2# (SPADCALL |m| (QREFELT $ 12)) . #3#) G190
-               (COND ((> |i| #2#) (GO G191)))
-               (SEQ
-                (EXIT
-                 (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 9)) . #3#)
-                      (LETT #1# (SPADCALL |m| (QREFELT $ 15)) . #3#) G190
-                      (COND ((> |j| #1#) (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (SPADCALL |ans| |i| |j|
-                                  (SPADCALL |m| |i| |j| (QREFELT $ 10))
-                                  (QREFELT $ 11))))
-                      (LETT |j| (+ |j| 1) . #3#) (GO G190) G191 (EXIT NIL))))
-               (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
-          (EXIT |ans|)))) 
+         (SEQ (LETT |ans| (MAKE_MATRIX (ANROWS |m|) (ANCOLS |m|)))
+              (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 8)))
+                   (LETT #2# (SPADCALL |m| (QREFELT $ 12))) G190
+                   (COND ((> |i| #2#) (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 9)))
+                          (LETT #1# (SPADCALL |m| (QREFELT $ 15))) G190
+                          (COND ((> |j| #1#) (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (SPADCALL |ans| |i| |j|
+                                      (SPADCALL |m| |i| |j| (QREFELT $ 10))
+                                      (QREFELT $ 11))))
+                          (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))))
+                   (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
+              (EXIT |ans|)))) 
 
 (SDEFUN |MATRIX;determinant;$R;7| ((|x| $) ($ R)) (SPADCALL |x| (QREFELT $ 19))) 
 
@@ -98,14 +93,14 @@
         (SPROG
          ((#1=#:G2121 NIL) (|i| NIL) (#2=#:G2122 NIL) (|j| NIL)
           (#3=#:G2123 NIL) (|k| NIL) (|ans| ($)) (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |n| (QVSIZE |v|) . #4=(|MATRIX;diagonalMatrix;V$;15|))
-              (LETT |ans| (SPADCALL |n| |n| (QREFELT $ 39)) . #4#)
-              (SEQ (LETT |k| (SPADCALL |v| (QREFELT $ 41)) . #4#)
-                   (LETT #3# (QVSIZE |v|) . #4#)
-                   (LETT |j| (SPADCALL |ans| (QREFELT $ 9)) . #4#)
-                   (LETT #2# (SPADCALL |ans| (QREFELT $ 15)) . #4#)
-                   (LETT |i| (SPADCALL |ans| (QREFELT $ 8)) . #4#)
-                   (LETT #1# (SPADCALL |ans| (QREFELT $ 12)) . #4#) G190
+         (SEQ (LETT |n| (QVSIZE |v|))
+              (LETT |ans| (SPADCALL |n| |n| (QREFELT $ 39)))
+              (SEQ (LETT |k| (SPADCALL |v| (QREFELT $ 41)))
+                   (LETT #3# (QVSIZE |v|))
+                   (LETT |j| (SPADCALL |ans| (QREFELT $ 9)))
+                   (LETT #2# (SPADCALL |ans| (QREFELT $ 15)))
+                   (LETT |i| (SPADCALL |ans| (QREFELT $ 8)))
+                   (LETT #1# (SPADCALL |ans| (QREFELT $ 12))) G190
                    (COND ((OR (> |i| #1#) (> |j| #2#) (> |k| #3#)) (GO G191)))
                    (SEQ
                     (EXIT
@@ -113,10 +108,7 @@
                                (QREFELT $ 11))))
                    (LETT |i|
                          (PROG1 (+ |i| 1)
-                           (LETT |j|
-                                 (PROG1 (+ |j| 1) (LETT |k| (+ |k| 1) . #4#))
-                                 . #4#))
-                         . #4#)
+                           (LETT |j| (PROG1 (+ |j| 1) (LETT |k| (+ |k| 1))))))
                    (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 
@@ -137,11 +129,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Matrix|)
-                                               '|domainEqualList|)
-                    . #3=(|Matrix|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Matrix;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Matrix;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Matrix|)))))))))) 
 
 (DEFUN |Matrix;| (|#1|)
@@ -149,9 +140,9 @@
    ((|pv$| NIL) (#1=#:G2132 NIL) (#2=#:G2133 NIL) (#3=#:G2134 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #4=(|Matrix|))
-    (LETT |dv$| (LIST '|Matrix| DV$1) . #4#)
-    (LETT $ (GETREFV 72) . #4#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|Matrix| DV$1))
+    (LETT $ (GETREFV 72))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -164,8 +155,7 @@
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (OR (|HasCategory| |#1| '(|BasicType|))
                                             (|HasCategory| |#1|
                                                            '(|Comparable|))
@@ -182,8 +172,7 @@
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #2#
                                             (AND
                                              (|HasCategory| |#1|
@@ -202,8 +191,7 @@
                                         (|HasCategory| |#1| '(|Field|))
                                         (LETT #1#
                                               (|HasCategory| |#1|
-                                                             '(|IntegralDomain|))
-                                              . #4#)
+                                                             '(|IntegralDomain|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -222,8 +210,7 @@
                                                          (LIST '|Evalable|
                                                                (|devaluate|
                                                                 |#1|)))
-                                          #3#))))
-                    . #4#))
+                                          #3#))))))
     (|haddProp| |$ConstructorCache| '|Matrix| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)

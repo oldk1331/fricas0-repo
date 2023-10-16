@@ -8,23 +8,19 @@
          (SEQ
           (SPADCALL |f|
                     (PROGN
-                     (LETT #3# NIL . #4=(|EVALAB-;eval;S2LS;2|))
-                     (SEQ (LETT |v| NIL . #4#) (LETT #2# |vs| . #4#)
-                          (LETT |x| NIL . #4#) (LETT #1# |xs| . #4#) G190
+                     (LETT #3# NIL)
+                     (SEQ (LETT |v| NIL) (LETT #2# |vs|) (LETT |x| NIL)
+                          (LETT #1# |xs|) G190
                           (COND
-                           ((OR (ATOM #1#)
-                                (PROGN (LETT |x| (CAR #1#) . #4#) NIL)
-                                (ATOM #2#)
-                                (PROGN (LETT |v| (CAR #2#) . #4#) NIL))
+                           ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL)
+                                (ATOM #2#) (PROGN (LETT |v| (CAR #2#)) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
                             (LETT #3#
-                                  (CONS (SPADCALL |x| |v| (QREFELT $ 12)) #3#)
-                                  . #4#)))
-                          (LETT #1#
-                                (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #4#))
-                                . #4#)
+                                  (CONS (SPADCALL |x| |v| (QREFELT $ 12))
+                                        #3#))))
+                          (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#))))
                           (GO G190) G191 (EXIT (NREVERSE #3#))))
                     (QREFELT $ 9))))) 
 
@@ -33,12 +29,12 @@
 (DEFUN |Evalable&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|Evalable&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|Evalable&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 15) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|Evalable&| DV$1 DV$2))
+          (LETT $ (GETREFV 15))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

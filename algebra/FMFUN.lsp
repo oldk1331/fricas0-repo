@@ -71,8 +71,7 @@
                                  (|Matrix|
                                   (|Fraction| (|Polynomial| (|Integer|))))))
                                T))
-                            NIL NIL NIL))
-                   |FortranMatrixFunctionCategory|)
+                            NIL NIL NIL)))
            (SETELT #1# 0 '(|FortranMatrixFunctionCategory|))))) 
 
 (MAKEPROP '|FortranMatrixFunctionCategory| 'NILADIC T) 

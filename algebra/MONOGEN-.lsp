@@ -24,14 +24,11 @@
                  (LETT #2#
                        (GETREFV
                         (|inc_SI|
-                         #4=(PROG1
-                                (LETT #3# (- (SPADCALL (QREFELT $ 27)) 1)
-                                      . #5=(|MONOGEN-;basis;V;7|))
+                         #4=(PROG1 (LETT #3# (- (SPADCALL (QREFELT $ 27)) 1))
                               (|check_subtype2| (>= #3# 0)
                                                 '(|NonNegativeInteger|)
-                                                '(|Integer|) #3#))))
-                       . #5#)
-                 (SEQ (LETT |i| 0 . #5#) (LETT #1# #4# . #5#) G190
+                                                '(|Integer|) #3#)))))
+                 (SEQ (LETT |i| 0) (LETT #1# #4#) G190
                       (COND ((|greater_SI| |i| #1#) (GO G191)))
                       (SEQ
                        (EXIT
@@ -40,8 +37,7 @@
                                  (SPADCALL (|spadConstant| $ 14) |i|
                                            (QREFELT $ 16))
                                  (QREFELT $ 11)))))
-                      (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
-                      (EXIT NIL))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                  #2#)))) 
 
 (SDEFUN |MONOGEN-;characteristicPolynomial;SUP;8| ((|x| S) ($ UP))
@@ -54,30 +50,29 @@
 
 (SDEFUN |MONOGEN-;differentiate;SMS;10| ((|x| S) (|d| |Mapping| R R) ($ S))
         (SPROG ((|yprime| (S)) (|p| (UP)))
-               (SEQ
-                (LETT |p| (SPADCALL (QREFELT $ 18))
-                      . #1=(|MONOGEN-;differentiate;SMS;10|))
-                (LETT |yprime|
+               (SEQ (LETT |p| (SPADCALL (QREFELT $ 18)))
+                    (LETT |yprime|
+                          (SPADCALL
+                           (SPADCALL
+                            (SPADCALL (SPADCALL |d| |p| (QREFELT $ 40))
+                                      (QREFELT $ 11))
+                            (SPADCALL (SPADCALL |p| (QREFELT $ 41))
+                                      (QREFELT $ 11))
+                            (QREFELT $ 42))
+                           (QREFELT $ 43)))
+                    (EXIT
+                     (SPADCALL
                       (SPADCALL
-                       (SPADCALL
-                        (SPADCALL (SPADCALL |d| |p| (QREFELT $ 40))
-                                  (QREFELT $ 11))
-                        (SPADCALL (SPADCALL |p| (QREFELT $ 41)) (QREFELT $ 11))
-                        (QREFELT $ 42))
-                       (QREFELT $ 43))
-                      . #1#)
-                (EXIT
-                 (SPADCALL
-                  (SPADCALL
-                   (SPADCALL |d| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 40))
-                   (QREFELT $ 11))
-                  (SPADCALL |yprime|
-                            (SPADCALL
-                             (SPADCALL (SPADCALL |x| (QREFELT $ 9))
-                                       (QREFELT $ 41))
-                             (QREFELT $ 11))
-                            (QREFELT $ 44))
-                  (QREFELT $ 45)))))) 
+                       (SPADCALL |d| (SPADCALL |x| (QREFELT $ 9))
+                                 (QREFELT $ 40))
+                       (QREFELT $ 11))
+                      (SPADCALL |yprime|
+                                (SPADCALL
+                                 (SPADCALL (SPADCALL |x| (QREFELT $ 9))
+                                           (QREFELT $ 41))
+                                 (QREFELT $ 11))
+                                (QREFELT $ 44))
+                      (QREFELT $ 45)))))) 
 
 (SDEFUN |MONOGEN-;derivationCoordinates;VMM;11|
         ((|b| |Vector| S) (|d| |Mapping| R R) ($ |Matrix| R))
@@ -91,9 +86,8 @@
 
 (SDEFUN |MONOGEN-;derivationCoordinates;VMM;11!0| ((|x| NIL) ($$ NIL))
         (PROG (|d| $)
-          (LETT |d| (QREFELT $$ 1)
-                . #1=(|MONOGEN-;derivationCoordinates;VMM;11|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |d| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |d| (QREFELT $ 47)))))) 
 
 (SDEFUN |MONOGEN-;recip;SU;12| ((|x| S) ($ |Union| S "failed"))
@@ -104,8 +98,7 @@
           (LETT |bc|
                 (SPADCALL (SPADCALL |x| (QREFELT $ 9))
                           (SPADCALL (QREFELT $ 18)) (|spadConstant| $ 54)
-                          (QREFELT $ 57))
-                |MONOGEN-;recip;SU;12|)
+                          (QREFELT $ 57)))
           (EXIT
            (COND ((QEQCAR |bc| 1) (CONS 1 "failed"))
                  ('T (CONS 0 (SPADCALL (QCAR (QCDR |bc|)) (QREFELT $ 11))))))))) 
@@ -115,11 +108,11 @@
 (DEFUN |MonogenicAlgebra&| (|#1| |#2| |#3|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|MonogenicAlgebra&|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT DV$3 (|devaluate| |#3|) . #1#)
-          (LETT |dv$| (LIST '|MonogenicAlgebra&| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 68) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT DV$3 (|devaluate| |#3|))
+          (LETT |dv$| (LIST '|MonogenicAlgebra&| DV$1 DV$2 DV$3))
+          (LETT $ (GETREFV 68))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -127,8 +120,8 @@
                                              (LIST
                                               (|HasCategory| |#2|
                                                              '(|FiniteFieldCategory|))
-                                              (|HasCategory| |#2| '(|Field|))))
-                          . #1#))
+                                              (|HasCategory| |#2|
+                                                             '(|Field|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)

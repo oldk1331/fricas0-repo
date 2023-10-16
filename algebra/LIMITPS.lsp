@@ -4,16 +4,15 @@
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |k| NIL . #3=(|LIMITPS;is_exp_log|))
-                       (LETT #2# (SPADCALL |fcn| (QREFELT $ 11)) . #3#) G190
+                  (SEQ (LETT |k| NIL)
+                       (LETT #2# (SPADCALL |fcn| (QREFELT $ 11))) G190
                        (COND
-                        ((OR (ATOM #2#) (PROGN (LETT |k| (CAR #2#) . #3#) NIL))
+                        ((OR (ATOM #2#) (PROGN (LETT |k| (CAR #2#)) NIL))
                          (GO G191)))
                        (SEQ
                         (LETT |nm|
                               (SPADCALL (SPADCALL |k| (QREFELT $ 14))
-                                        (QREFELT $ 16))
-                              . #3#)
+                                        (QREFELT $ 16)))
                         (COND
                          ((OR (EQUAL |nm| |x|)
                               (OR (EQUAL |nm| '|log|)
@@ -79,10 +78,10 @@
                                       (QREFELT $ 19))
                             (|spadConstant| $ 8) (QREFELT $ 21))
                            "iterate")
-                          ('T (PROGN (LETT #1# NIL . #3#) (GO #4=#:G283))))))
-                       (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+                          ('T (PROGN (LETT #1# NIL) (GO #3=#:G283))))))
+                       (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
-                #4# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |LIMITPS;noX?| ((|fcn| FE) (|x| |Symbol|) ($ |Boolean|))
         (NULL (SPADCALL |x| (SPADCALL |fcn| (QREFELT $ 23)) (QREFELT $ 24)))) 
@@ -97,28 +96,28 @@
           (|ker| (|Kernel| FE)))
          (SEQ
           (EXIT
-           (SEQ
-            (LETT |list| (SPADCALL |fcn| (QREFELT $ 25))
-                  . #2=(|LIMITPS;firstNonLogPtr|))
-            (SEQ G190 (COND ((NULL (NULL (NULL |list|))) (GO G191)))
-                 (SEQ (LETT |ker| (|SPADfirst| |list|) . #2#)
-                      (COND
-                       ((NULL (SPADCALL |ker| '|log| (QREFELT $ 26)))
-                        (COND
-                         ((SPADCALL |x|
-                                    (SPADCALL (SPADCALL |ker| (QREFELT $ 18))
-                                              (QREFELT $ 23))
-                                    (QREFELT $ 24))
+           (SEQ (LETT |list| (SPADCALL |fcn| (QREFELT $ 25)))
+                (SEQ G190 (COND ((NULL (NULL (NULL |list|))) (GO G191)))
+                     (SEQ (LETT |ker| (|SPADfirst| |list|))
                           (COND
-                           ((NULL (EQUAL |x| (SPADCALL |ker| (QREFELT $ 27))))
-                            (EXIT
-                             (PROGN
-                              (LETT #1# |list| . #2#)
-                              (GO #3=#:G296)))))))))
-                      (EXIT (LETT |list| (CDR |list|) . #2#)))
-                 NIL (GO G190) G191 (EXIT NIL))
-            (EXIT NIL)))
-          #3# (EXIT #1#)))) 
+                           ((NULL (SPADCALL |ker| '|log| (QREFELT $ 26)))
+                            (COND
+                             ((SPADCALL |x|
+                                        (SPADCALL
+                                         (SPADCALL |ker| (QREFELT $ 18))
+                                         (QREFELT $ 23))
+                                        (QREFELT $ 24))
+                              (COND
+                               ((NULL
+                                 (EQUAL |x| (SPADCALL |ker| (QREFELT $ 27))))
+                                (EXIT
+                                 (PROGN
+                                  (LETT #1# |list|)
+                                  (GO #2=#:G296)))))))))
+                          (EXIT (LETT |list| (CDR |list|))))
+                     NIL (GO G190) G191 (EXIT NIL))
+                (EXIT NIL)))
+          #2# (EXIT #1#)))) 
 
 (SDEFUN |LIMITPS;finiteValueAtInfinity?| ((|ker| |Kernel| FE) ($ |Boolean|))
         (COND
@@ -203,21 +202,18 @@
                 (|LIMITPS;limitPlus|
                  (SPADCALL (SPADCALL |fcn| |limVal| (QREFELT $ 28))
                            (QREFELT $ 29))
-                 |x| $)
-                . #1=(|LIMITPS;leftOrRight|))
+                 |x| $))
           (EXIT
            (COND ((QEQCAR |value| 1) 0)
-                 (#2='T
+                 (#1='T
                   (SEQ
                    (LETT |inf|
-                         (SPADCALL (LETT |val| (QCDR |value|) . #1#)
-                                   (QREFELT $ 32))
-                         . #1#)
+                         (SPADCALL (LETT |val| (QCDR |value|)) (QREFELT $ 32)))
                    (EXIT
                     (COND
                      ((|eql_SI| |inf| 0)
                       (|error| "limit package: internal error"))
-                     (#2# |inf|)))))))))) 
+                     (#1# |inf|)))))))))) 
 
 (SDEFUN |LIMITPS;specialLimit|
         ((|fcn| FE) (|x| |Symbol|)
@@ -233,12 +229,11 @@
            (SEQ
             (LETT |xkers|
                   (PROGN
-                   (LETT #5# NIL . #6=(|LIMITPS;specialLimit|))
-                   (SEQ (LETT |k| NIL . #6#)
-                        (LETT #4# (SPADCALL |fcn| (QREFELT $ 25)) . #6#) G190
+                   (LETT #5# NIL)
+                   (SEQ (LETT |k| NIL)
+                        (LETT #4# (SPADCALL |fcn| (QREFELT $ 25))) G190
                         (COND
-                         ((OR (ATOM #4#)
-                              (PROGN (LETT |k| (CAR #4#) . #6#) NIL))
+                         ((OR (ATOM #4#) (PROGN (LETT |k| (CAR #4#)) NIL))
                           (GO G191)))
                         (SEQ
                          (EXIT
@@ -247,78 +242,69 @@
                                       (SPADCALL (SPADCALL |k| (QREFELT $ 18))
                                                 (QREFELT $ 23))
                                       (QREFELT $ 24))
-                            (LETT #5# (CONS |k| #5#) . #6#)))))
-                        (LETT #4# (CDR #4#) . #6#) (GO G190) G191
-                        (EXIT (NREVERSE #5#))))
-                  . #6#)
+                            (LETT #5# (CONS |k| #5#))))))
+                        (LETT #4# (CDR #4#)) (GO G190) G191
+                        (EXIT (NREVERSE #5#)))))
             (EXIT
              (COND
               ((EQL (LENGTH |xkers|) 1) (|LIMITPS;specialLimit1| |fcn| |x| $))
               ('T
-               (SEQ (LETT |num| (SPADCALL |fcn| (QREFELT $ 35)) . #6#)
-                    (LETT |den| (SPADCALL |fcn| (QREFELT $ 36)) . #6#)
-                    (SEQ (LETT |k| NIL . #6#) (LETT #3# |xkers| . #6#) G190
+               (SEQ (LETT |num| (SPADCALL |fcn| (QREFELT $ 35)))
+                    (LETT |den| (SPADCALL |fcn| (QREFELT $ 36)))
+                    (SEQ (LETT |k| NIL) (LETT #3# |xkers|) G190
                          (COND
-                          ((OR (ATOM #3#)
-                               (PROGN (LETT |k| (CAR #3#) . #6#) NIL))
+                          ((OR (ATOM #3#) (PROGN (LETT |k| (CAR #3#)) NIL))
                            (GO G191)))
                          (SEQ
                           (LETT |fval|
                                 (|LIMITPS;limitPlus|
-                                 (SPADCALL |k| (QREFELT $ 18)) |x| $)
-                                . #6#)
+                                 (SPADCALL |k| (QREFELT $ 18)) |x| $))
                           (EXIT
                            (COND
                             ((OR (QEQCAR |fval| 1)
                                  (SPADCALL
-                                  (SPADCALL (LETT |val| (QCDR |fval|) . #6#)
+                                  (SPADCALL (LETT |val| (QCDR |fval|))
                                             (QREFELT $ 32))
                                   0 (QREFELT $ 38)))
                              (PROGN
                               (LETT #2#
                                     (|LIMITPS;specialLimitNormalize| |fcn| |x|
-                                     $)
-                                    . #6#)
-                              (GO #7=#:G353)))
+                                     $))
+                              (GO #6=#:G353)))
                             ('T
-                             (SEQ
-                              (LETT |valu| (SPADCALL |val| (QREFELT $ 40))
-                                    . #6#)
-                              (EXIT
-                               (COND
-                                ((QEQCAR |valu| 1)
-                                 (PROGN
-                                  (LETT #2#
-                                        (|LIMITPS;specialLimitNormalize| |fcn|
-                                         |x| $)
-                                        . #6#)
-                                  (GO #7#)))
-                                ('T
-                                 (SEQ (LETT |finVal| (QCDR |valu|) . #6#)
-                                      (LETT |num|
-                                            (SPADCALL |num| |k| |finVal|
-                                                      (QREFELT $ 41))
-                                            . #6#)
-                                      (LETT |den|
-                                            (SPADCALL |den| |k| |finVal|
-                                                      (QREFELT $ 41))
-                                            . #6#)
-                                      (EXIT
-                                       (COND
-                                        ((SPADCALL |den| (|spadConstant| $ 8)
-                                                   (QREFELT $ 21))
-                                         (PROGN
-                                          (LETT #2#
-                                                (|LIMITPS;specialLimitNormalize|
-                                                 |fcn| |x| $)
-                                                . #6#)
-                                          (GO #7#))))))))))))))
-                         (LETT #3# (CDR #3#) . #6#) (GO G190) G191 (EXIT NIL))
+                             (SEQ (LETT |valu| (SPADCALL |val| (QREFELT $ 40)))
+                                  (EXIT
+                                   (COND
+                                    ((QEQCAR |valu| 1)
+                                     (PROGN
+                                      (LETT #2#
+                                            (|LIMITPS;specialLimitNormalize|
+                                             |fcn| |x| $))
+                                      (GO #6#)))
+                                    ('T
+                                     (SEQ (LETT |finVal| (QCDR |valu|))
+                                          (LETT |num|
+                                                (SPADCALL |num| |k| |finVal|
+                                                          (QREFELT $ 41)))
+                                          (LETT |den|
+                                                (SPADCALL |den| |k| |finVal|
+                                                          (QREFELT $ 41)))
+                                          (EXIT
+                                           (COND
+                                            ((SPADCALL |den|
+                                                       (|spadConstant| $ 8)
+                                                       (QREFELT $ 21))
+                                             (PROGN
+                                              (LETT #2#
+                                                    (|LIMITPS;specialLimitNormalize|
+                                                     |fcn| |x| $))
+                                              (GO #6#))))))))))))))
+                         (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                     (EXIT
                      (CONS 0
                            (SPADCALL (SPADCALL |num| |den| (QREFELT $ 42))
                                      (QREFELT $ 43))))))))))
-          #7# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |LIMITPS;specialLimitNormalize|
         ((|fcn| FE) (|x| |Symbol|)
@@ -339,105 +325,99 @@
           (|expKer| (|Kernel| FE)) (|expKers| (|List| #2=(|Kernel| FE)))
           (#3=#:G381 NIL) (|k| NIL) (#4=#:G380 NIL) (|xkers| (|List| #2#))
           (#5=#:G379 NIL) (#6=#:G378 NIL) (|nfcn| (FE)))
-         (SEQ
-          (LETT |nfcn| (SPADCALL |fcn| (QREFELT $ 45))
-                . #7=(|LIMITPS;specialLimitNormalize|))
-          (EXIT
-           (COND
-            ((SPADCALL |fcn| |nfcn| (QREFELT $ 46))
-             (|LIMITPS;limitPlus| |nfcn| |x| $))
-            (#8='T
-             (SEQ
-              (LETT |xkers|
-                    (PROGN
-                     (LETT #6# NIL . #7#)
-                     (SEQ (LETT |k| NIL . #7#)
-                          (LETT #5# (SPADCALL |fcn| (QREFELT $ 11)) . #7#) G190
-                          (COND
-                           ((OR (ATOM #5#)
-                                (PROGN (LETT |k| (CAR #5#) . #7#) NIL))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (COND
-                             ((SPADCALL |x|
-                                        (SPADCALL (SPADCALL |k| (QREFELT $ 18))
-                                                  (QREFELT $ 23))
-                                        (QREFELT $ 24))
-                              (LETT #6# (CONS |k| #6#) . #7#)))))
-                          (LETT #5# (CDR #5#) . #7#) (GO G190) G191
-                          (EXIT (NREVERSE #6#))))
-                    . #7#)
+         (SEQ (LETT |nfcn| (SPADCALL |fcn| (QREFELT $ 45)))
               (EXIT
                (COND
-                ((SPADCALL (LENGTH |xkers|) 2 (QREFELT $ 48))
-                 (CONS 1 "failed"))
-                (#8#
+                ((SPADCALL |fcn| |nfcn| (QREFELT $ 46))
+                 (|LIMITPS;limitPlus| |nfcn| |x| $))
+                (#7='T
                  (SEQ
-                  (LETT |expKers|
+                  (LETT |xkers|
                         (PROGN
-                         (LETT #4# NIL . #7#)
-                         (SEQ (LETT |k| NIL . #7#) (LETT #3# |xkers| . #7#)
-                              G190
+                         (LETT #6# NIL)
+                         (SEQ (LETT |k| NIL)
+                              (LETT #5# (SPADCALL |fcn| (QREFELT $ 11))) G190
                               (COND
-                               ((OR (ATOM #3#)
-                                    (PROGN (LETT |k| (CAR #3#) . #7#) NIL))
+                               ((OR (ATOM #5#)
+                                    (PROGN (LETT |k| (CAR #5#)) NIL))
                                 (GO G191)))
                               (SEQ
                                (EXIT
                                 (COND
-                                 ((SPADCALL |k| '|exp| (QREFELT $ 26))
-                                  (LETT #4# (CONS |k| #4#) . #7#)))))
-                              (LETT #3# (CDR #3#) . #7#) (GO G190) G191
-                              (EXIT (NREVERSE #4#))))
-                        . #7#)
+                                 ((SPADCALL |x|
+                                            (SPADCALL
+                                             (SPADCALL |k| (QREFELT $ 18))
+                                             (QREFELT $ 23))
+                                            (QREFELT $ 24))
+                                  (LETT #6# (CONS |k| #6#))))))
+                              (LETT #5# (CDR #5#)) (GO G190) G191
+                              (EXIT (NREVERSE #6#)))))
                   (EXIT
                    (COND
-                    ((SPADCALL (LENGTH |expKers|) 1 (QREFELT $ 48))
+                    ((SPADCALL (LENGTH |xkers|) 2 (QREFELT $ 48))
                      (CONS 1 "failed"))
-                    (#8#
-                     (SEQ (LETT |expKer| (|SPADfirst| |expKers|) . #7#)
-                          (LETT |fval|
-                                (|LIMITPS;limitPlus|
-                                 (SPADCALL |expKer| (QREFELT $ 18)) |x| $)
-                                . #7#)
-                          (EXIT
-                           (COND ((QEQCAR |fval| 1) (CONS 1 "failed"))
-                                 (#8#
+                    (#7#
+                     (SEQ
+                      (LETT |expKers|
+                            (PROGN
+                             (LETT #4# NIL)
+                             (SEQ (LETT |k| NIL) (LETT #3# |xkers|) G190
+                                  (COND
+                                   ((OR (ATOM #3#)
+                                        (PROGN (LETT |k| (CAR #3#)) NIL))
+                                    (GO G191)))
                                   (SEQ
-                                   (LETT |vv| (SPADCALL (QREFELT $ 49)) . #7#)
-                                   (LETT |eq|
-                                         (SPADCALL
-                                          (SPADCALL |expKer| (QREFELT $ 18))
-                                          (SPADCALL |vv| (QREFELT $ 50))
-                                          (QREFELT $ 52))
-                                         . #7#)
-                                   (LETT |cc|
-                                         (SPADCALL |fcn| |eq| (QREFELT $ 54))
-                                         . #7#)
-                                   (LETT |expKerLim| (QCDR |fval|) . #7#)
-                                   (LETT |limVal|
-                                         (|LIMITPS;locallimit| |cc| |vv|
-                                          |expKerLim| $)
-                                         . #7#)
                                    (EXIT
                                     (COND
-                                     ((OR (QEQCAR |limVal| 2)
-                                          (NULL (QEQCAR |limVal| 0)))
-                                      (CONS 1 "failed"))
-                                     ('T
-                                      (SEQ (LETT |limm| (QCDR |limVal|) . #7#)
-                                           (LETT |lim|
-                                                 (SPADCALL |limm|
-                                                           (QREFELT $ 40))
-                                                 . #7#)
-                                           (EXIT
-                                            (COND
-                                             ((QEQCAR |lim| 1)
-                                              (CONS 1 "failed"))
-                                             (#8#
-                                              (|LIMITPS;limitPlus| (QCDR |lim|)
-                                               |x| $))))))))))))))))))))))))))) 
+                                     ((SPADCALL |k| '|exp| (QREFELT $ 26))
+                                      (LETT #4# (CONS |k| #4#))))))
+                                  (LETT #3# (CDR #3#)) (GO G190) G191
+                                  (EXIT (NREVERSE #4#)))))
+                      (EXIT
+                       (COND
+                        ((SPADCALL (LENGTH |expKers|) 1 (QREFELT $ 48))
+                         (CONS 1 "failed"))
+                        (#7#
+                         (SEQ (LETT |expKer| (|SPADfirst| |expKers|))
+                              (LETT |fval|
+                                    (|LIMITPS;limitPlus|
+                                     (SPADCALL |expKer| (QREFELT $ 18)) |x| $))
+                              (EXIT
+                               (COND ((QEQCAR |fval| 1) (CONS 1 "failed"))
+                                     (#7#
+                                      (SEQ
+                                       (LETT |vv| (SPADCALL (QREFELT $ 49)))
+                                       (LETT |eq|
+                                             (SPADCALL
+                                              (SPADCALL |expKer|
+                                                        (QREFELT $ 18))
+                                              (SPADCALL |vv| (QREFELT $ 50))
+                                              (QREFELT $ 52)))
+                                       (LETT |cc|
+                                             (SPADCALL |fcn| |eq|
+                                                       (QREFELT $ 54)))
+                                       (LETT |expKerLim| (QCDR |fval|))
+                                       (LETT |limVal|
+                                             (|LIMITPS;locallimit| |cc| |vv|
+                                              |expKerLim| $))
+                                       (EXIT
+                                        (COND
+                                         ((OR (QEQCAR |limVal| 2)
+                                              (NULL (QEQCAR |limVal| 0)))
+                                          (CONS 1 "failed"))
+                                         ('T
+                                          (SEQ (LETT |limm| (QCDR |limVal|))
+                                               (LETT |lim|
+                                                     (SPADCALL |limm|
+                                                               (QREFELT $ 40)))
+                                               (EXIT
+                                                (COND
+                                                 ((QEQCAR |lim| 1)
+                                                  (CONS 1 "failed"))
+                                                 (#7#
+                                                  (|LIMITPS;limitPlus|
+                                                   (QCDR |lim|) |x|
+                                                   $))))))))))))))))))))))))))) 
 
 (SDEFUN |LIMITPS;specialLimit1|
         ((|fcn| FE) (|x| |Symbol|)
@@ -459,11 +439,11 @@
          (SEQ
           (LETT |xkers|
                 (PROGN
-                 (LETT #3# NIL . #4=(|LIMITPS;specialLimit1|))
-                 (SEQ (LETT |k| NIL . #4#)
-                      (LETT #2# (SPADCALL |fcn| (QREFELT $ 25)) . #4#) G190
+                 (LETT #3# NIL)
+                 (SEQ (LETT |k| NIL) (LETT #2# (SPADCALL |fcn| (QREFELT $ 25)))
+                      G190
                       (COND
-                       ((OR (ATOM #2#) (PROGN (LETT |k| (CAR #2#) . #4#) NIL))
+                       ((OR (ATOM #2#) (PROGN (LETT |k| (CAR #2#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
@@ -472,39 +452,35 @@
                                     (SPADCALL (SPADCALL |k| (QREFELT $ 18))
                                               (QREFELT $ 23))
                                     (QREFELT $ 24))
-                          (LETT #3# (CONS |k| #3#) . #4#)))))
-                      (LETT #2# (CDR #2#) . #4#) (GO G190) G191
-                      (EXIT (NREVERSE #3#))))
-                . #4#)
+                          (LETT #3# (CONS |k| #3#))))))
+                      (LETT #2# (CDR #2#)) (GO G190) G191
+                      (EXIT (NREVERSE #3#)))))
           (EXIT
            (COND
             ((SPADCALL (LENGTH |xkers|) 1 (QREFELT $ 48)) (CONS 1 "failed"))
-            (#5='T
-             (SEQ (LETT |ker| (|SPADfirst| |xkers|) . #4#)
-                  (LETT |vv| (SPADCALL (QREFELT $ 49)) . #4#)
+            (#4='T
+             (SEQ (LETT |ker| (|SPADfirst| |xkers|))
+                  (LETT |vv| (SPADCALL (QREFELT $ 49)))
                   (LETT |eq|
                         (SPADCALL (SPADCALL |ker| (QREFELT $ 18))
                                   (SPADCALL |vv| (QREFELT $ 50))
-                                  (QREFELT $ 52))
-                        . #4#)
-                  (LETT |cc| (SPADCALL |fcn| |eq| (QREFELT $ 54)) . #4#)
+                                  (QREFELT $ 52)))
+                  (LETT |cc| (SPADCALL |fcn| |eq| (QREFELT $ 54)))
                   (EXIT
                    (COND
                     ((SPADCALL |x| (SPADCALL |cc| (QREFELT $ 23))
                                (QREFELT $ 24))
                      (CONS 1 "failed"))
-                    (#5#
+                    (#4#
                      (SEQ
-                      (LETT |lim| (|LIMITPS;specialLimitKernel| |ker| |x| $)
-                            . #4#)
+                      (LETT |lim| (|LIMITPS;specialLimitKernel| |ker| |x| $))
                       (EXIT
                        (COND ((QEQCAR |lim| 1) |lim|)
-                             (#5#
-                              (SEQ (LETT |argLim| (QCDR |lim|) . #4#)
+                             (#4#
+                              (SEQ (LETT |argLim| (QCDR |lim|))
                                    (LETT |limVal|
                                          (|LIMITPS;locallimit| |cc| |vv|
-                                          |argLim| $)
-                                         . #4#)
+                                          |argLim| $))
                                    (EXIT
                                     (COND
                                      ((OR (QEQCAR |limVal| 2)
@@ -535,109 +511,106 @@
           (EXIT
            (COND
             ((SPADCALL |ker| '|log| (QREFELT $ 26))
-             (SEQ
-              (LETT |args| (SPADCALL |ker| (QREFELT $ 56))
-                    . #4=(|LIMITPS;specialLimitKernel|))
-              (EXIT
-               (COND
-                ((OR (NULL |args|) (NULL (NULL (CDR |args|))))
-                 (CONS 1 "failed"))
-                ('T
-                 (SEQ (LETT |arg| (|SPADfirst| |args|) . #4#)
-                      (LETT |limm| (|LIMITPS;limitPlus| |arg| |x| $) . #4#)
-                      (EXIT
-                       (COND ((QEQCAR |limm| 1) (CONS 1 "failed"))
-                             (#5='T
-                              (SEQ (LETT |lim| (QCDR |limm|) . #4#)
-                                   (EXIT
-                                    (COND
-                                     ((|eql_SI|
-                                       (LETT |inf|
-                                             (SPADCALL |lim| (QREFELT $ 32))
-                                             . #4#)
-                                       -1)
-                                      (CONS 1 "failed"))
-                                     (#5#
-                                      (LETT |argLim|
-                                            (CONS 0
-                                                  (COND
-                                                   ((|eql_SI| |inf| 1) |lim|)
-                                                   (#5#
-                                                    (SEQ
-                                                     (LETT |li|
-                                                           (PROG2
-                                                               (LETT #3#
-                                                                     (SPADCALL
-                                                                      |lim|
-                                                                      (QREFELT
-                                                                       $ 40))
-                                                                     . #4#)
-                                                               (QCDR #3#)
-                                                             (|check_union2|
-                                                              (QEQCAR #3# 0)
-                                                              (QREFELT $ 7)
-                                                              (|Union|
-                                                               (QREFELT $ 7)
-                                                               "failed")
-                                                              #3#))
-                                                           . #4#)
-                                                     (EXIT
-                                                      (COND
-                                                       ((SPADCALL |li|
-                                                                  (|spadConstant|
-                                                                   $ 8)
-                                                                  (QREFELT $
-                                                                           21))
-                                                        (COND
-                                                         ((|eql_SI|
-                                                           (|LIMITPS;leftOrRight|
-                                                            |arg| |x|
-                                                            (|spadConstant| $
-                                                                            8)
-                                                            $)
-                                                           1)
-                                                          (SPADCALL
-                                                           (QREFELT $ 59)))
-                                                         (#5#
-                                                          (PROGN
-                                                           (LETT #2#
-                                                                 (CONS 1
-                                                                       "failed")
-                                                                 . #4#)
-                                                           (GO #6=#:G464)))))
-                                                       (#5#
-                                                        (SPADCALL
-                                                         (SPADCALL |li|
-                                                                   (QREFELT $
-                                                                            60))
-                                                         (QREFELT $ 43)))))))))
-                                            . #4#))))))))))))))
-            (#5#
-             (SEQ (LETT |args| (SPADCALL |ker| (QREFELT $ 56)) . #4#)
+             (SEQ (LETT |args| (SPADCALL |ker| (QREFELT $ 56)))
                   (EXIT
                    (COND
                     ((OR (NULL |args|) (NULL (NULL (CDR |args|))))
                      (CONS 1 "failed"))
                     ('T
-                     (SEQ (LETT |arg| (|SPADfirst| |args|) . #4#)
-                          (LETT |limm| (|LIMITPS;limitPlus| |arg| |x| $) . #4#)
+                     (SEQ (LETT |arg| (|SPADfirst| |args|))
+                          (LETT |limm| (|LIMITPS;limitPlus| |arg| |x| $))
                           (EXIT
                            (COND ((QEQCAR |limm| 1) (CONS 1 "failed"))
-                                 (#5#
-                                  (SEQ (LETT |lim| (QCDR |limm|) . #4#)
+                                 (#4='T
+                                  (SEQ (LETT |lim| (QCDR |limm|))
+                                       (EXIT
+                                        (COND
+                                         ((|eql_SI|
+                                           (LETT |inf|
+                                                 (SPADCALL |lim|
+                                                           (QREFELT $ 32)))
+                                           -1)
+                                          (CONS 1 "failed"))
+                                         (#4#
+                                          (LETT |argLim|
+                                                (CONS 0
+                                                      (COND
+                                                       ((|eql_SI| |inf| 1)
+                                                        |lim|)
+                                                       (#4#
+                                                        (SEQ
+                                                         (LETT |li|
+                                                               (PROG2
+                                                                   (LETT #3#
+                                                                         (SPADCALL
+                                                                          |lim|
+                                                                          (QREFELT
+                                                                           $
+                                                                           40)))
+                                                                   (QCDR #3#)
+                                                                 (|check_union2|
+                                                                  (QEQCAR #3#
+                                                                          0)
+                                                                  (QREFELT $ 7)
+                                                                  (|Union|
+                                                                   (QREFELT $
+                                                                            7)
+                                                                   "failed")
+                                                                  #3#)))
+                                                         (EXIT
+                                                          (COND
+                                                           ((SPADCALL |li|
+                                                                      (|spadConstant|
+                                                                       $ 8)
+                                                                      (QREFELT
+                                                                       $ 21))
+                                                            (COND
+                                                             ((|eql_SI|
+                                                               (|LIMITPS;leftOrRight|
+                                                                |arg| |x|
+                                                                (|spadConstant|
+                                                                 $ 8)
+                                                                $)
+                                                               1)
+                                                              (SPADCALL
+                                                               (QREFELT $ 59)))
+                                                             (#4#
+                                                              (PROGN
+                                                               (LETT #2#
+                                                                     (CONS 1
+                                                                           "failed"))
+                                                               (GO
+                                                                #5=#:G464)))))
+                                                           (#4#
+                                                            (SPADCALL
+                                                             (SPADCALL |li|
+                                                                       (QREFELT
+                                                                        $ 60))
+                                                             (QREFELT $
+                                                                      43)))))))))))))))))))))))
+            (#4#
+             (SEQ (LETT |args| (SPADCALL |ker| (QREFELT $ 56)))
+                  (EXIT
+                   (COND
+                    ((OR (NULL |args|) (NULL (NULL (CDR |args|))))
+                     (CONS 1 "failed"))
+                    ('T
+                     (SEQ (LETT |arg| (|SPADfirst| |args|))
+                          (LETT |limm| (|LIMITPS;limitPlus| |arg| |x| $))
+                          (EXIT
+                           (COND ((QEQCAR |limm| 1) (CONS 1 "failed"))
+                                 (#4#
+                                  (SEQ (LETT |lim| (QCDR |limm|))
                                        (LETT |f|
                                              (SPADCALL
                                               (SPADCALL |ker| (QREFELT $ 14))
                                               (SPADCALL
                                                (LETT |var|
-                                                     (SPADCALL (QREFELT $ 49))
-                                                     . #4#)
+                                                     (SPADCALL (QREFELT $ 49)))
                                                (QREFELT $ 50))
-                                              (QREFELT $ 61))
-                                             . #4#)
+                                              (QREFELT $ 61)))
                                        (LETT |inf|
-                                             (SPADCALL |lim| (QREFELT $ 32))
-                                             . #4#)
+                                             (SPADCALL |lim| (QREFELT $ 32)))
                                        (EXIT
                                         (COND
                                          ((|eql_SI| |inf| 0)
@@ -651,12 +624,11 @@
                                                               (QREFELT $ 62))
                                                     (QREFELT $ 64))
                                                    (QREFELT $ 43))))
-                                           (#5#
+                                           (#4#
                                             (SEQ
                                              (LETT |kerValue|
                                                    (|LIMITPS;locallimit| |f|
-                                                    |var| |lim| $)
-                                                   . #4#)
+                                                    |var| |lim| $))
                                              (EXIT
                                               (COND
                                                ((OR (QEQCAR |kerValue| 2)
@@ -758,8 +730,7 @@
                                                      (|spadConstant| $ 8))
                                                     ('T
                                                      (|error|
-                                                      "Finite but unknown value at infinity")))
-                                                   . #4#)
+                                                      "Finite but unknown value at infinity"))))
                                              (EXIT
                                               (CONS 0
                                                     (SPADCALL |val|
@@ -768,8 +739,8 @@
                                            ((|LIMITPS;knownValueAtPlusInfinity?|
                                              |ker| $)
                                             (CONS 0 |lim|))
-                                           (#5# (CONS 1 "failed"))))
-                                         (#5#
+                                           (#4# (CONS 1 "failed"))))
+                                         (#4#
                                           (COND
                                            ((|LIMITPS;finiteValueAtMinusInfinity?|
                                              |ker| $)
@@ -872,8 +843,7 @@
                                                      (|spadConstant| $ 8))
                                                     ('T
                                                      (|error|
-                                                      "Finite but unknown value at minus infinity")))
-                                                   . #4#)
+                                                      "Finite but unknown value at minus infinity"))))
                                              (EXIT
                                               (CONS 0
                                                     (SPADCALL |val|
@@ -895,39 +865,37 @@
                                                         (QREFELT $ 26))
                                               (CONS 0
                                                     (SPADCALL (QREFELT $ 69))))
-                                             (#5#
+                                             (#4#
                                               (|error|
                                                "knownValueAtMinusInfinity? true but value unknown"))))
-                                           (#5#
+                                           (#4#
                                             (CONS 1 "failed"))))))))))))))))))
-          #6# (EXIT #2#)))) 
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |LIMITPS;logOnlyLimit|
         ((|coef| FE) (|x| |Symbol|)
          ($ |Union| (|OrderedCompletion| FE) "failed"))
         (SPROG ((|cc| (FE)) (|eq| (|Equation| FE)) (|vv| (|Symbol|)))
-               (SEQ
-                (LETT |vv| (SPADCALL (QREFELT $ 49))
-                      . #1=(|LIMITPS;logOnlyLimit|))
-                (LETT |eq|
-                      (SPADCALL
-                       (SPADCALL (SPADCALL |x| (QREFELT $ 50)) (QREFELT $ 60))
-                       (SPADCALL
-                        (SPADCALL (SPADCALL |vv| (QREFELT $ 50))
-                                  (QREFELT $ 29))
-                        (QREFELT $ 68))
-                       (QREFELT $ 52))
-                      . #1#)
-                (EXIT
-                 (COND
-                  ((SPADCALL |x|
-                             (SPADCALL
-                              (LETT |cc| (SPADCALL |coef| |eq| (QREFELT $ 54))
-                                    . #1#)
-                              (QREFELT $ 23))
-                             (QREFELT $ 24))
-                   (CONS 1 "failed"))
-                  ('T (|LIMITPS;limitPlus| |cc| |vv| $))))))) 
+               (SEQ (LETT |vv| (SPADCALL (QREFELT $ 49)))
+                    (LETT |eq|
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |x| (QREFELT $ 50))
+                                     (QREFELT $ 60))
+                           (SPADCALL
+                            (SPADCALL (SPADCALL |vv| (QREFELT $ 50))
+                                      (QREFELT $ 29))
+                            (QREFELT $ 68))
+                           (QREFELT $ 52)))
+                    (EXIT
+                     (COND
+                      ((SPADCALL |x|
+                                 (SPADCALL
+                                  (LETT |cc|
+                                        (SPADCALL |coef| |eq| (QREFELT $ 54)))
+                                  (QREFELT $ 23))
+                                 (QREFELT $ 24))
+                       (CONS 1 "failed"))
+                      ('T (|LIMITPS;limitPlus| |cc| |vv| $))))))) 
 
 (SDEFUN |LIMITPS;locallimit|
         ((|fcn| FE) (|x| |Symbol|) (|a| |OrderedCompletion| FE)
@@ -940,9 +908,8 @@
          ((|u| (|Union| (|OrderedCompletion| FE) #1#)) (|n| (|SingleInteger|))
           (|xK| (|Kernel| FE)))
          (SEQ
-          (LETT |xK| (SPADCALL (SPADCALL |x| (QREFELT $ 50)) (QREFELT $ 70))
-                . #2=(|LIMITPS;locallimit|))
-          (LETT |n| (SPADCALL |a| (QREFELT $ 32)) . #2#)
+          (LETT |xK| (SPADCALL (SPADCALL |x| (QREFELT $ 50)) (QREFELT $ 70)))
+          (LETT |n| (SPADCALL |a| (QREFELT $ 32)))
           (EXIT
            (COND
             ((|eql_SI| |n| 0)
@@ -950,7 +917,7 @@
               (|LIMITPS;localsubst| |fcn| |xK| 1 (SPADCALL |a| (QREFELT $ 62))
                $)
               |x| $))
-            (#3='T
+            (#2='T
              (SEQ
               (LETT |u|
                     (|LIMITPS;limitPlus|
@@ -961,11 +928,10 @@
                                           (QREFELT $ 29))
                                          (QREFELT $ 71))
                                (QREFELT $ 41))
-                     |x| $)
-                    . #2#)
+                     |x| $))
               (EXIT
                (COND ((QEQCAR |u| 1) (CONS 2 "failed"))
-                     (#3# (CONS 0 (QCDR |u|)))))))))))) 
+                     (#2# (CONS 0 (QCDR |u|)))))))))))) 
 
 (SDEFUN |LIMITPS;localsubst|
         ((|fcn| FE) (|k| |Kernel| FE) (|n| |Integer|) (|a| FE) ($ FE))
@@ -987,9 +953,8 @@
         (SPROG ((|g| (|Union| FE "failed")) (|xK| (|Kernel| FE)))
                (SEQ
                 (LETT |xK|
-                      (SPADCALL (SPADCALL |x| (QREFELT $ 50)) (QREFELT $ 70))
-                      . #1=(|LIMITPS;locallimitcomplex|))
-                (LETT |g| (SPADCALL |a| (QREFELT $ 74)) . #1#)
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 50)) (QREFELT $ 70)))
+                (LETT |g| (SPADCALL |a| (QREFELT $ 74)))
                 (EXIT
                  (COND
                   ((QEQCAR |g| 0)
@@ -1010,17 +975,15 @@
                (SEQ
                 (COND ((QEQCAR |r| 1) |r|)
                       (#2='T
-                       (SEQ
-                        (LETT |ru| (SPADCALL (QCDR |r|) (QREFELT $ 40))
-                              |LIMITPS;subst_in_result|)
-                        (EXIT
-                         (COND ((QEQCAR |ru| 1) |r|)
-                               (#2#
-                                (CONS 0
-                                      (SPADCALL
-                                       (SPADCALL (QCDR |ru|) (LIST |k|)
-                                                 (LIST |f|) (QREFELT $ 76))
-                                       (QREFELT $ 43)))))))))))) 
+                       (SEQ (LETT |ru| (SPADCALL (QCDR |r|) (QREFELT $ 40)))
+                            (EXIT
+                             (COND ((QEQCAR |ru| 1) |r|)
+                                   (#2#
+                                    (CONS 0
+                                          (SPADCALL
+                                           (SPADCALL (QCDR |ru|) (LIST |k|)
+                                                     (LIST |f|) (QREFELT $ 76))
+                                           (QREFELT $ 43)))))))))))) 
 
 (SDEFUN |LIMITPS;limit2|
         ((|fcn| FE) (|eq| |Equation| FE) (|str| |String|)
@@ -1031,33 +994,31 @@
          ((|a1| (FE)) (|knx| (|Kernel| FE)) (|a| (FE)) (|x| (|Symbol|))
           (|xx| (|Union| (|Symbol|) "failed")))
          (SEQ
-          (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT $ 77)) (QREFELT $ 79))
-                . #2=(|LIMITPS;limit2|))
+          (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT $ 77)) (QREFELT $ 79)))
           (EXIT
            (COND
             ((QEQCAR |xx| 1)
              (|error| "limit:left hand side must be a variable"))
-            (#3='T
-             (SEQ (LETT |x| (QCDR |xx|) . #2#)
-                  (LETT |a| (SPADCALL |eq| (QREFELT $ 80)) . #2#)
+            (#2='T
+             (SEQ (LETT |x| (QCDR |xx|))
+                  (LETT |a| (SPADCALL |eq| (QREFELT $ 80)))
                   (EXIT
                    (COND
                     ((SPADCALL |x| (SPADCALL |a| (QREFELT $ 23))
                                (QREFELT $ 24))
                      (SEQ
                       (LETT |knx|
-                            (SPADCALL (SPADCALL (QREFELT $ 49)) (QREFELT $ 81))
-                            . #2#)
+                            (SPADCALL (SPADCALL (QREFELT $ 49))
+                                      (QREFELT $ 81)))
                       (LETT |a1|
                             (SPADCALL |a| (LIST (SPADCALL |x| (QREFELT $ 81)))
                                       (LIST (SPADCALL |knx| (QREFELT $ 18)))
-                                      (QREFELT $ 76))
-                            . #2#)
+                                      (QREFELT $ 76)))
                       (EXIT
                        (|LIMITPS;subst_in_result|
                         (SPADCALL |fcn| |x| |a1| |str| |do_lim|) |knx|
                         (SPADCALL |eq| (QREFELT $ 77)) $))))
-                    (#3# (SPADCALL |fcn| |x| |a| |str| |do_lim|))))))))))) 
+                    (#2# (SPADCALL |fcn| |x| |a| |str| |do_lim|))))))))))) 
 
 (SDEFUN |LIMITPS;limit3|
         ((|fcn| FE) (|x| |Symbol|) (|a| FE) (|str| |String|)
@@ -1065,8 +1026,7 @@
         (SPROG ((|xK| (|Kernel| FE)))
                (SEQ
                 (LETT |xK|
-                      (SPADCALL (SPADCALL |x| (QREFELT $ 50)) (QREFELT $ 70))
-                      |LIMITPS;limit3|)
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 50)) (QREFELT $ 70)))
                 (EXIT
                  (|LIMITPS;limitPlus|
                   (|LIMITPS;localsubst| |fcn| |xK|
@@ -1103,11 +1063,10 @@
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |kernel| NIL . #4=(|LIMITPS;anyRootsOrAtrigs?|))
-                       (LETT #3# (SPADCALL |fcn| (QREFELT $ 11)) . #4#) G190
+                  (SEQ (LETT |kernel| NIL)
+                       (LETT #3# (SPADCALL |fcn| (QREFELT $ 11))) G190
                        (COND
-                        ((OR (ATOM #3#)
-                             (PROGN (LETT |kernel| (CAR #3#) . #4#) NIL))
+                        ((OR (ATOM #3#) (PROGN (LETT |kernel| (CAR #3#)) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
@@ -1118,20 +1077,19 @@
                                     (SPADCALL |kernel| '|acos| (QREFELT $ 26))
                                     (SPADCALL |kernel| '|asec|
                                               (QREFELT $ 26)))))
-                           (PROGN (LETT #2# 'T . #4#) (GO #5=#:G532)))
+                           (PROGN (LETT #2# 'T) (GO #4=#:G532)))
                           ('T
                            (SEQ
                             (EXIT
                              (COND
                               ((SPADCALL |kernel| '|acsc| (QREFELT $ 26))
                                (PROGN
-                                (LETT #1# (PROGN (LETT #2# 'T . #4#) (GO #5#))
-                                      . #4#)
-                                (GO #6=#:G525)))))
-                            #6# (EXIT #1#))))))
-                       (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
+                                (LETT #1# (PROGN (LETT #2# 'T) (GO #4#)))
+                                (GO #5=#:G525)))))
+                            #5# (EXIT #1#))))))
+                       (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                   (EXIT NIL)))
-                #5# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (SDEFUN |LIMITPS;complLimit|
         ((|fcn| FE) (|x| |Symbol|)
@@ -1272,24 +1230,20 @@
                   (SEQ
                    (LETT |Uts|
                          (|UnivariateTaylorSeries| (QREFELT $ 7) |x|
-                                                   (QREFELT $ 9))
-                         . #22=(|LIMITPS;complLimit|))
+                                                   (QREFELT $ 9)))
                    (LETT |Uls|
                          (|UnivariateLaurentSeries| (QREFELT $ 7) |x|
-                                                    (QREFELT $ 9))
-                         . #22#)
+                                                    (QREFELT $ 9)))
                    (LETT |Efuls|
                          (|ElementaryFunctionsUnivariateLaurentSeries|
-                          (QREFELT $ 7) |Uts| |Uls|)
-                         . #22#)
+                          (QREFELT $ 7) |Uts| |Uls|))
                    (EXIT
                     (COND
                      ((|LIMITPS;anyRootsOrAtrigs?| |fcn| $)
                       (SEQ
                        (LETT |Upx|
                              (|UnivariatePuiseuxSeries| (QREFELT $ 7) |x|
-                                                        (QREFELT $ 9))
-                             . #22#)
+                                                        (QREFELT $ 9)))
                        (LETT |ppack|
                              (|FunctionSpaceToUnivariatePowerSeries|
                               (QREFELT $ 6) (QREFELT $ 7)
@@ -1300,8 +1254,7 @@
                               (|TaylorSeriesExpansionPuiseux| (QREFELT $ 7)
                                                               |Uts| |Uls|
                                                               |Upx|)
-                              |x|)
-                             . #22#)
+                              |x|))
                        (LETT |pseries|
                              (SPADCALL |fcn| NIL (CONS 0 "complex")
                                        (|compiledLookupCheck| '|exprToUPS|
@@ -1330,23 +1283,20 @@
                                                                (LIST
                                                                 '|Boolean|)
                                                                (LIST '|Union|
-                                                                     '#23="complex"
-                                                                     '#24="real: two sides"
-                                                                     '#25="real: left side"
-                                                                     '#26="real: right side"
-                                                                     '#27="just do it"))
-                                                              |ppack|))
-                             . #22#)
+                                                                     '#22="complex"
+                                                                     '#23="real: two sides"
+                                                                     '#24="real: left side"
+                                                                     '#25="real: right side"
+                                                                     '#26="just do it"))
+                                                              |ppack|)))
                        (EXIT
                         (COND
                          ((QEQCAR |pseries| 1)
-                          (PROGN
-                           (LETT #1# (CONS 1 "failed") . #22#)
-                           (GO #28=#:G562)))
-                         (#29='T
+                          (PROGN (LETT #1# (CONS 1 "failed")) (GO #27=#:G562)))
+                         (#28='T
                           (SEQ
                            (COND
-                            ((SPADCALL (LETT |upxs| (CDR |pseries|) . #22#)
+                            ((SPADCALL (LETT |upxs| (CDR |pseries|))
                                        (|compiledLookupCheck| '|pole?|
                                                               (LIST
                                                                (LIST
@@ -1368,8 +1318,7 @@
                                                                              $
                                                                              7)))
                                                                           '$)
-                                                                    |Upx|))
-                                   . #22#)))
+                                                                    |Upx|)))))
                            (EXIT
                             (COND
                              ((SPADCALL |upxs|
@@ -1380,10 +1329,9 @@
                                                                 '$)
                                                                |Upx|))
                               (PROGN
-                               (LETT #1# (CONS 0 (SPADCALL (QREFELT $ 91)))
-                                     . #22#)
-                               (GO #28#)))
-                             (#29#
+                               (LETT #1# (CONS 0 (SPADCALL (QREFELT $ 91))))
+                               (GO #27#)))
+                             (#28#
                               (SPADCALL |upxs| (|spadConstant| $ 93)
                                         (|compiledLookupCheck| '|coefficient|
                                                                (LIST
@@ -1395,7 +1343,7 @@
                                                                  (LIST
                                                                   '|Integer|)))
                                                                |Upx|)))))))))))
-                     (#29#
+                     (#28#
                       (SEQ
                        (LETT |lpack|
                              (|FunctionSpaceToUnivariatePowerSeries|
@@ -1403,8 +1351,7 @@
                               |Efuls| |Uts|
                               (|TaylorSeriesExpansionLaurent| (QREFELT $ 7)
                                                               |Uts| |Uls|)
-                              |x|)
-                             . #22#)
+                              |x|))
                        (LETT |lseries|
                              (SPADCALL |fcn| NIL (CONS 0 "complex")
                                        (|compiledLookupCheck| '|exprToUPS|
@@ -1433,23 +1380,20 @@
                                                                (LIST
                                                                 '|Boolean|)
                                                                (LIST '|Union|
+                                                                     '#22#
                                                                      '#23#
                                                                      '#24#
                                                                      '#25#
-                                                                     '#26#
-                                                                     '#27#))
-                                                              |lpack|))
-                             . #22#)
+                                                                     '#26#))
+                                                              |lpack|)))
                        (EXIT
                         (COND
                          ((QEQCAR |lseries| 1)
-                          (PROGN
-                           (LETT #1# (CONS 1 "failed") . #22#)
-                           (GO #28#)))
-                         (#29#
+                          (PROGN (LETT #1# (CONS 1 "failed")) (GO #27#)))
+                         (#28#
                           (SEQ
                            (COND
-                            ((SPADCALL (LETT |uls| (CDR |lseries|) . #22#)
+                            ((SPADCALL (LETT |uls| (CDR |lseries|))
                                        (|compiledLookupCheck| '|pole?|
                                                               (LIST
                                                                (LIST
@@ -1471,8 +1415,7 @@
                                                                              $
                                                                              7)))
                                                                           '$)
-                                                                    |Uls|))
-                                   . #22#)))
+                                                                    |Uls|)))))
                            (EXIT
                             (COND
                              ((SPADCALL |uls|
@@ -1483,10 +1426,9 @@
                                                                 '$)
                                                                |Uls|))
                               (PROGN
-                               (LETT #1# (CONS 0 (SPADCALL (QREFELT $ 91)))
-                                     . #22#)
-                               (GO #28#)))
-                             (#29#
+                               (LETT #1# (CONS 0 (SPADCALL (QREFELT $ 91))))
+                               (GO #27#)))
+                             (#28#
                               (SPADCALL |uls| 0
                                         (|compiledLookupCheck| '|coefficient|
                                                                (LIST
@@ -1495,22 +1437,20 @@
                                                                 '$
                                                                 (LIST
                                                                  '|Integer|))
-                                                               |Uls|))))))))))))))
-                  . #22#)
+                                                               |Uls|)))))))))))))))
             (EXIT
              (COND
               ((SPADCALL |x| (SPADCALL |lim| (QREFELT $ 23)) (QREFELT $ 24))
                (COND
                 ((SPADCALL |x|
                            (SPADCALL
-                            (LETT |answer| (SPADCALL |lim| (QREFELT $ 45))
-                                  . #22#)
+                            (LETT |answer| (SPADCALL |lim| (QREFELT $ 45)))
                             (QREFELT $ 23))
                            (QREFELT $ 24))
                  (|error| "limit: can't evaluate limit"))
-                (#29# (CONS 0 (SPADCALL |answer| (QREFELT $ 94))))))
-              (#29# (CONS 0 (SPADCALL |lim| (QREFELT $ 94))))))))
-          #28# (EXIT #1#)))) 
+                (#28# (CONS 0 (SPADCALL |answer| (QREFELT $ 94))))))
+              (#28# (CONS 0 (SPADCALL |lim| (QREFELT $ 94))))))))
+          #27# (EXIT #1#)))) 
 
 (SDEFUN |LIMITPS;okProblem?|
         ((|function| |String|) (|problem| |String|) ($ |Boolean|))
@@ -1537,41 +1477,40 @@
           (COND
            ((NULL
              (SPADCALL |x| (SPADCALL |coef| (QREFELT $ 23)) (QREFELT $ 24)))
-            (SEQ
-             (LETT |s| (SPADCALL |coef| (QREFELT $ 97))
-                   . #2=(|LIMITPS;poleLimit|))
-             (EXIT
-              (COND
-               ((QEQCAR |s| 0)
-                (SEQ (LETT |si| (QCDR |s|) . #2#)
-                     (EXIT
-                      (COND ((EQL |si| 0) (|error| "poleLimit: coef = 0"))
-                            (#3='T
-                             (SEQ
-                              (LETT |rtLim|
-                                    (COND
-                                     ((SPADCALL |si| 0 (QREFELT $ 98))
-                                      (SPADCALL (QREFELT $ 69)))
-                                     (#3# (SPADCALL (QREFELT $ 59))))
-                                    . #2#)
-                              (EXIT
-                               (COND
-                                ((SPADCALL (SPADCALL |order| (QREFELT $ 99))
-                                           (QREFELT $ 100))
-                                 (CONS 0 |rtLim|))
-                                ((SPADCALL (SPADCALL |order| (QREFELT $ 101))
-                                           (QREFELT $ 100))
-                                 (CONS 1
-                                       (CONS (CONS 1 "failed")
-                                             (CONS 0 |rtLim|))))
-                                (#3#
-                                 (CONS 1
-                                       (CONS
-                                        (CONS 0
-                                              (SPADCALL |rtLim|
-                                                        (QREFELT $ 102)))
-                                        (CONS 0 |rtLim|))))))))))))
-               (#3# (CONS 2 "failed"))))))
+            (SEQ (LETT |s| (SPADCALL |coef| (QREFELT $ 97)))
+                 (EXIT
+                  (COND
+                   ((QEQCAR |s| 0)
+                    (SEQ (LETT |si| (QCDR |s|))
+                         (EXIT
+                          (COND ((EQL |si| 0) (|error| "poleLimit: coef = 0"))
+                                (#2='T
+                                 (SEQ
+                                  (LETT |rtLim|
+                                        (COND
+                                         ((SPADCALL |si| 0 (QREFELT $ 98))
+                                          (SPADCALL (QREFELT $ 69)))
+                                         (#2# (SPADCALL (QREFELT $ 59)))))
+                                  (EXIT
+                                   (COND
+                                    ((SPADCALL
+                                      (SPADCALL |order| (QREFELT $ 99))
+                                      (QREFELT $ 100))
+                                     (CONS 0 |rtLim|))
+                                    ((SPADCALL
+                                      (SPADCALL |order| (QREFELT $ 101))
+                                      (QREFELT $ 100))
+                                     (CONS 1
+                                           (CONS (CONS 1 "failed")
+                                                 (CONS 0 |rtLim|))))
+                                    (#2#
+                                     (CONS 1
+                                           (CONS
+                                            (CONS 0
+                                                  (SPADCALL |rtLim|
+                                                            (QREFELT $ 102)))
+                                            (CONS 0 |rtLim|))))))))))))
+                   (#2# (CONS 2 "failed"))))))
            ('T (|error| "limit: can't evaluate limit")))))) 
 
 (SDEFUN |LIMITPS;poleLimitPlus|
@@ -1587,25 +1526,24 @@
           (COND
            ((NULL
              (SPADCALL |x| (SPADCALL |coef| (QREFELT $ 23)) (QREFELT $ 24)))
-            (SEQ
-             (LETT |s| (SPADCALL |coef| (QREFELT $ 97))
-                   . #4=(|LIMITPS;poleLimitPlus|))
-             (EXIT
-              (COND
-               ((QEQCAR |s| 0)
-                (SEQ (LETT |si| (QCDR |s|) . #4#)
-                     (EXIT
-                      (COND ((EQL |si| 0) (|error| "poleLimitPlus: coef = 0"))
-                            ((SPADCALL |si| 0 (QREFELT $ 98))
-                             (CONS 0 (SPADCALL (QREFELT $ 69))))
-                            (#5='T (CONS 0 (SPADCALL (QREFELT $ 59))))))))
-               (#5# (CONS 1 "failed"))))))
+            (SEQ (LETT |s| (SPADCALL |coef| (QREFELT $ 97)))
+                 (EXIT
+                  (COND
+                   ((QEQCAR |s| 0)
+                    (SEQ (LETT |si| (QCDR |s|))
+                         (EXIT
+                          (COND
+                           ((EQL |si| 0) (|error| "poleLimitPlus: coef = 0"))
+                           ((SPADCALL |si| 0 (QREFELT $ 98))
+                            (CONS 0 (SPADCALL (QREFELT $ 69))))
+                           (#4='T (CONS 0 (SPADCALL (QREFELT $ 59))))))))
+                   (#4# (CONS 1 "failed"))))))
            ('T
-            (SEQ (LETT |clim| (|LIMITPS;specialLimit| |coef| |x| $) . #4#)
+            (SEQ (LETT |clim| (|LIMITPS;specialLimit| |coef| |x| $))
                  (EXIT
                   (COND ((QEQCAR |clim| 1) (CONS 1 "failed"))
-                        (#5#
-                         (SEQ (LETT |lim| (QCDR |clim|) . #4#)
+                        (#4#
+                         (SEQ (LETT |lim| (QCDR |clim|))
                               (COND
                                ((EQL (SPADCALL |lim| (QREFELT $ 32)) 0)
                                 (COND
@@ -1616,38 +1554,35 @@
                                     (LETT |cclim|
                                           (|LIMITPS;specialLimit|
                                            (SPADCALL |coef| (QREFELT $ 29)) |x|
-                                           $)
-                                          . #4#)
+                                           $))
                                     (EXIT
                                      (COND
                                       ((QEQCAR |cclim| 1) (CONS 1 "failed"))
-                                      (#5#
+                                      (#4#
                                        (SEQ
                                         (LETT |ss|
                                               (SPADCALL (QCDR |cclim|)
-                                                        (QREFELT $ 32))
-                                              . #4#)
+                                                        (QREFELT $ 32)))
                                         (EXIT
                                          (COND
                                           ((ZEROP |ss|)
                                            (|error| "limit: internal error"))
                                           ((SPADCALL |ss| 0 (QREFELT $ 98))
                                            (CONS 0 (SPADCALL (QREFELT $ 69))))
-                                          (#5#
+                                          (#4#
                                            (CONS 0
                                                  (SPADCALL
                                                   (QREFELT $ 59))))))))))))))))
-                              (LETT |t| (SPADCALL |lim| (QREFELT $ 32)) . #4#)
+                              (LETT |t| (SPADCALL |lim| (QREFELT $ 32)))
                               (EXIT
                                (COND
                                 ((ZEROP |t|)
                                  (SEQ
-                                  (LETT |tt| (SPADCALL |coef| (QREFELT $ 97))
-                                        . #4#)
+                                  (LETT |tt| (SPADCALL |coef| (QREFELT $ 97)))
                                   (EXIT
                                    (COND
                                     ((QEQCAR |tt| 0)
-                                     (SEQ (LETT |tti| (QCDR |tt|) . #4#)
+                                     (SEQ (LETT |tti| (QCDR |tt|))
                                           (EXIT
                                            (COND
                                             ((EQL |tti| 0)
@@ -1656,14 +1591,14 @@
                                             ((SPADCALL |tti| 0 (QREFELT $ 98))
                                              (CONS 0
                                                    (SPADCALL (QREFELT $ 69))))
-                                            (#5#
+                                            (#4#
                                              (CONS 0
                                                    (SPADCALL
                                                     (QREFELT $ 59))))))))
-                                    (#5# (CONS 1 "failed"))))))
+                                    (#4# (CONS 1 "failed"))))))
                                 ((SPADCALL |t| 0 (QREFELT $ 98))
                                  (CONS 0 (SPADCALL (QREFELT $ 69))))
-                                (#5#
+                                (#4#
                                  (CONS 0 (SPADCALL (QREFELT $ 59)))))))))))))))) 
 
 (SDEFUN |LIMITPS;realLimit|
@@ -1810,24 +1745,20 @@
                   (SEQ
                    (LETT |Uts|
                          (|UnivariateTaylorSeries| (QREFELT $ 7) |x|
-                                                   (QREFELT $ 9))
-                         . #27=(|LIMITPS;realLimit|))
+                                                   (QREFELT $ 9)))
                    (LETT |Uls|
                          (|UnivariateLaurentSeries| (QREFELT $ 7) |x|
-                                                    (QREFELT $ 9))
-                         . #27#)
+                                                    (QREFELT $ 9)))
                    (LETT |Efuls|
                          (|ElementaryFunctionsUnivariateLaurentSeries|
-                          (QREFELT $ 7) |Uts| |Uls|)
-                         . #27#)
+                          (QREFELT $ 7) |Uts| |Uls|))
                    (EXIT
                     (COND
                      ((|LIMITPS;anyRootsOrAtrigs?| |fcn| $)
                       (SEQ
                        (LETT |Upx|
                              (|UnivariatePuiseuxSeries| (QREFELT $ 7) |x|
-                                                        (QREFELT $ 9))
-                             . #27#)
+                                                        (QREFELT $ 9)))
                        (LETT |ppack|
                              (|FunctionSpaceToUnivariatePowerSeries|
                               (QREFELT $ 6) (QREFELT $ 7)
@@ -1838,8 +1769,7 @@
                               (|TaylorSeriesExpansionPuiseux| (QREFELT $ 7)
                                                               |Uts| |Uls|
                                                               |Upx|)
-                              |x|)
-                             . #27#)
+                              |x|))
                        (LETT |pseries|
                              (SPADCALL |fcn| 'T (CONS 1 "real: two sides")
                                        (|compiledLookupCheck| '|exprToUPS|
@@ -1868,19 +1798,18 @@
                                                                (LIST
                                                                 '|Boolean|)
                                                                (LIST '|Union|
-                                                                     '#28="complex"
-                                                                     '#29="real: two sides"
-                                                                     '#30="real: left side"
-                                                                     '#31="real: right side"
-                                                                     '#32="just do it"))
-                                                              |ppack|))
-                             . #27#)
+                                                                     '#27="complex"
+                                                                     '#28="real: two sides"
+                                                                     '#29="real: left side"
+                                                                     '#30="real: right side"
+                                                                     '#31="just do it"))
+                                                              |ppack|)))
                        (EXIT
                         (COND
                          ((QEQCAR |pseries| 1)
-                          (SEQ (LETT |trouble| (CDR |pseries|) . #27#)
-                               (LETT |function| (QCAR |trouble|) . #27#)
-                               (LETT |problem| (QCDR |trouble|) . #27#)
+                          (SEQ (LETT |trouble| (CDR |pseries|))
+                               (LETT |function| (QCAR |trouble|))
+                               (LETT |problem| (QCDR |trouble|))
                                (EXIT
                                 (COND
                                  ((|LIMITPS;okProblem?| |function| |problem| $)
@@ -1888,8 +1817,7 @@
                                    (LETT |left|
                                          (SEQ
                                           (LETT |xK|
-                                                (SPADCALL |x| (QREFELT $ 81))
-                                                . #27#)
+                                                (SPADCALL |x| (QREFELT $ 81)))
                                           (LETT |fcn0|
                                                 (SPADCALL |fcn| |xK|
                                                           (SPADCALL
@@ -1897,22 +1825,20 @@
                                                                      (QREFELT $
                                                                               18))
                                                            (QREFELT $ 68))
-                                                          (QREFELT $ 41))
-                                                . #27#)
+                                                          (QREFELT $ 41)))
                                           (EXIT
-                                           (|LIMITPS;limitPlus| |fcn0| |x| $)))
-                                         . #27#)
+                                           (|LIMITPS;limitPlus| |fcn0| |x|
+                                            $))))
                                    (LETT |right|
-                                         (|LIMITPS;limitPlus| |fcn| |x| $)
-                                         . #27#)
+                                         (|LIMITPS;limitPlus| |fcn| |x| $))
                                    (COND
                                     ((QEQCAR |left| 1)
                                      (COND
                                       ((QEQCAR |right| 1)
                                        (EXIT
                                         (PROGN
-                                         (LETT #2# (CONS 2 "failed") . #27#)
-                                         (GO #33=#:G636)))))))
+                                         (LETT #2# (CONS 2 "failed"))
+                                         (GO #32=#:G636)))))))
                                    (COND
                                     ((QEQCAR |left| 0)
                                      (COND
@@ -1922,22 +1848,20 @@
                                                    (QREFELT $ 104))
                                          (EXIT
                                           (PROGN
-                                           (LETT #2# (CONS 0 (QCDR |left|))
-                                                 . #27#)
-                                           (GO #33#)))))))))
+                                           (LETT #2# (CONS 0 (QCDR |left|)))
+                                           (GO #32#)))))))))
                                    (EXIT
                                     (PROGN
-                                     (LETT #2# (CONS 1 (CONS |left| |right|))
-                                           . #27#)
-                                     (GO #33#)))))
-                                 (#34='T
+                                     (LETT #2# (CONS 1 (CONS |left| |right|)))
+                                     (GO #32#)))))
+                                 (#33='T
                                   (PROGN
-                                   (LETT #2# (CONS 2 "failed") . #27#)
-                                   (GO #33#)))))))
-                         (#34#
+                                   (LETT #2# (CONS 2 "failed"))
+                                   (GO #32#)))))))
+                         (#33#
                           (SEQ
                            (COND
-                            ((SPADCALL (LETT |upxs| (CDR |pseries|) . #27#)
+                            ((SPADCALL (LETT |upxs| (CDR |pseries|))
                                        (|compiledLookupCheck| '|pole?|
                                                               (LIST
                                                                (LIST
@@ -1959,8 +1883,7 @@
                                                                              $
                                                                              7)))
                                                                           '$)
-                                                                    |Upx|))
-                                   . #27#)))
+                                                                    |Upx|)))))
                            (EXIT
                             (COND
                              ((SPADCALL |upxs|
@@ -1983,23 +1906,20 @@
                                                                   (LIST
                                                                    '|Integer|))
                                                                  '$)
-                                                                |Upx|))
-                                                     . #27#)
+                                                                |Upx|)))
                                                (|compiledLookupCheck|
                                                 '|coefficient|
                                                 (LIST (|devaluate| (ELT $ 7))
                                                       '$
                                                       (LIST '|Fraction|
                                                             (LIST '|Integer|)))
-                                                |Upx|))
-                                     . #27#)
+                                                |Upx|)))
                                (EXIT
                                 (PROGN
                                  (LETT #2#
-                                       (|LIMITPS;poleLimit| |ordp| |cp| |x| $)
-                                       . #27#)
-                                 (GO #33#)))))
-                             (#34#
+                                       (|LIMITPS;poleLimit| |ordp| |cp| |x| $))
+                                 (GO #32#)))))
+                             (#33#
                               (CONS 0
                                     (SPADCALL |upxs| (|spadConstant| $ 93)
                                               (|compiledLookupCheck|
@@ -2008,7 +1928,7 @@
                                                      (LIST '|Fraction|
                                                            (LIST '|Integer|)))
                                                |Upx|))))))))))))
-                     (#34#
+                     (#33#
                       (SEQ
                        (LETT |lpack|
                              (|FunctionSpaceToUnivariatePowerSeries|
@@ -2016,8 +1936,7 @@
                               |Efuls| |Uts|
                               (|TaylorSeriesExpansionLaurent| (QREFELT $ 7)
                                                               |Uts| |Uls|)
-                              |x|)
-                             . #27#)
+                              |x|))
                        (LETT |lseries|
                              (SPADCALL |fcn| 'T (CONS 1 "real: two sides")
                                        (|compiledLookupCheck| '|exprToUPS|
@@ -2046,19 +1965,18 @@
                                                                (LIST
                                                                 '|Boolean|)
                                                                (LIST '|Union|
+                                                                     '#27#
                                                                      '#28#
                                                                      '#29#
                                                                      '#30#
-                                                                     '#31#
-                                                                     '#32#))
-                                                              |lpack|))
-                             . #27#)
+                                                                     '#31#))
+                                                              |lpack|)))
                        (EXIT
                         (COND
                          ((QEQCAR |lseries| 1)
-                          (SEQ (LETT |trouble| (CDR |lseries|) . #27#)
-                               (LETT |function| (QCAR |trouble|) . #27#)
-                               (LETT |problem| (QCDR |trouble|) . #27#)
+                          (SEQ (LETT |trouble| (CDR |lseries|))
+                               (LETT |function| (QCAR |trouble|))
+                               (LETT |problem| (QCDR |trouble|))
                                (EXIT
                                 (COND
                                  ((|LIMITPS;okProblem?| |function| |problem| $)
@@ -2066,8 +1984,7 @@
                                    (LETT |left|
                                          (SEQ
                                           (LETT |xK|
-                                                (SPADCALL |x| (QREFELT $ 81))
-                                                . #27#)
+                                                (SPADCALL |x| (QREFELT $ 81)))
                                           (LETT |fcn0|
                                                 (SPADCALL |fcn| |xK|
                                                           (SPADCALL
@@ -2075,22 +1992,20 @@
                                                                      (QREFELT $
                                                                               18))
                                                            (QREFELT $ 68))
-                                                          (QREFELT $ 41))
-                                                . #27#)
+                                                          (QREFELT $ 41)))
                                           (EXIT
-                                           (|LIMITPS;limitPlus| |fcn0| |x| $)))
-                                         . #27#)
+                                           (|LIMITPS;limitPlus| |fcn0| |x|
+                                            $))))
                                    (LETT |right|
-                                         (|LIMITPS;limitPlus| |fcn| |x| $)
-                                         . #27#)
+                                         (|LIMITPS;limitPlus| |fcn| |x| $))
                                    (COND
                                     ((QEQCAR |left| 1)
                                      (COND
                                       ((QEQCAR |right| 1)
                                        (EXIT
                                         (PROGN
-                                         (LETT #2# (CONS 2 "failed") . #27#)
-                                         (GO #33#)))))))
+                                         (LETT #2# (CONS 2 "failed"))
+                                         (GO #32#)))))))
                                    (COND
                                     ((QEQCAR |left| 0)
                                      (COND
@@ -2100,22 +2015,20 @@
                                                    (QREFELT $ 104))
                                          (EXIT
                                           (PROGN
-                                           (LETT #2# (CONS 0 (QCDR |left|))
-                                                 . #27#)
-                                           (GO #33#)))))))))
+                                           (LETT #2# (CONS 0 (QCDR |left|)))
+                                           (GO #32#)))))))))
                                    (EXIT
                                     (PROGN
-                                     (LETT #2# (CONS 1 (CONS |left| |right|))
-                                           . #27#)
-                                     (GO #33#)))))
-                                 (#34#
+                                     (LETT #2# (CONS 1 (CONS |left| |right|)))
+                                     (GO #32#)))))
+                                 (#33#
                                   (PROGN
-                                   (LETT #2# (CONS 2 "failed") . #27#)
-                                   (GO #33#)))))))
-                         (#34#
+                                   (LETT #2# (CONS 2 "failed"))
+                                   (GO #32#)))))))
+                         (#33#
                           (SEQ
                            (COND
-                            ((SPADCALL (LETT |uls| (CDR |lseries|) . #27#)
+                            ((SPADCALL (LETT |uls| (CDR |lseries|))
                                        (|compiledLookupCheck| '|pole?|
                                                               (LIST
                                                                (LIST
@@ -2137,8 +2050,7 @@
                                                                              $
                                                                              7)))
                                                                           '$)
-                                                                    |Uls|))
-                                   . #27#)))
+                                                                    |Uls|)))))
                            (EXIT
                             (COND
                              ((SPADCALL |uls|
@@ -2159,31 +2071,27 @@
                                                                  (LIST
                                                                   '|Integer|)
                                                                  '$)
-                                                                |Uls|))
-                                                     . #27#)
+                                                                |Uls|)))
                                                (|compiledLookupCheck|
                                                 '|coefficient|
                                                 (LIST (|devaluate| (ELT $ 7))
                                                       '$ (LIST '|Integer|))
-                                                |Uls|))
-                                     . #27#)
+                                                |Uls|)))
                                (EXIT
                                 (PROGN
                                  (LETT #2#
                                        (|LIMITPS;poleLimit|
                                         (SPADCALL |ordl| (QREFELT $ 105)) |cl|
-                                        |x| $)
-                                       . #27#)
-                                 (GO #33#)))))
-                             (#34#
+                                        |x| $))
+                                 (GO #32#)))))
+                             (#33#
                               (CONS 0
                                     (SPADCALL |uls| 0
                                               (|compiledLookupCheck|
                                                '|coefficient|
                                                (LIST (|devaluate| (ELT $ 7)) '$
                                                      (LIST '|Integer|))
-                                               |Uls|)))))))))))))))
-                  . #27#)
+                                               |Uls|))))))))))))))))
             (EXIT
              (COND ((QEQCAR |lim| 1) (CONS 2 "failed"))
                    ((SPADCALL |x| (SPADCALL (QCDR |lim|) (QREFELT $ 23))
@@ -2192,14 +2100,13 @@
                      ((SPADCALL |x|
                                 (SPADCALL
                                  (LETT |answer|
-                                       (SPADCALL (QCDR |lim|) (QREFELT $ 45))
-                                       . #27#)
+                                       (SPADCALL (QCDR |lim|) (QREFELT $ 45)))
                                  (QREFELT $ 23))
                                 (QREFELT $ 24))
                       (|error| "limit: can't evaluate limit"))
-                     (#34# (CONS 0 (SPADCALL |answer| (QREFELT $ 43))))))
-                   (#34# (CONS 0 (SPADCALL (QCDR |lim|) (QREFELT $ 43))))))))
-          #33# (EXIT #2#)))) 
+                     (#33# (CONS 0 (SPADCALL |answer| (QREFELT $ 43))))))
+                   (#33# (CONS 0 (SPADCALL (QCDR |lim|) (QREFELT $ 43))))))))
+          #32# (EXIT #2#)))) 
 
 (SDEFUN |LIMITPS;xxpLimit|
         ((|fcn| FE) (|x| |Symbol|)
@@ -2224,8 +2131,7 @@
           (LETT |xpack|
                 (|FunctionSpaceToExponentialExpansion| (QREFELT $ 6)
                                                        (QREFELT $ 7) |x|
-                                                       (QREFELT $ 9))
-                . #1=(|LIMITPS;xxpLimit|))
+                                                       (QREFELT $ 9)))
           (LETT |xxp|
                 (SPADCALL |fcn| 'T
                           (|compiledLookupCheck| '|exprToXXP|
@@ -2254,8 +2160,7 @@
                                                                            '|String|)))))
                                                   (|devaluate| (ELT $ 7))
                                                   (LIST '|Boolean|))
-                                                 |xpack|))
-                . #1#)
+                                                 |xpack|)))
           (EXIT
            (COND ((QEQCAR |xxp| 1) (CONS 1 "failed"))
                  ('T
@@ -2412,24 +2317,20 @@
                   (SEQ
                    (LETT |Uts|
                          (|UnivariateTaylorSeries| (QREFELT $ 7) |x|
-                                                   (QREFELT $ 9))
-                         . #26=(|LIMITPS;limitPlus|))
+                                                   (QREFELT $ 9)))
                    (LETT |Uls|
                          (|UnivariateLaurentSeries| (QREFELT $ 7) |x|
-                                                    (QREFELT $ 9))
-                         . #26#)
+                                                    (QREFELT $ 9)))
                    (LETT |Efuls|
                          (|ElementaryFunctionsUnivariateLaurentSeries|
-                          (QREFELT $ 7) |Uts| |Uls|)
-                         . #26#)
+                          (QREFELT $ 7) |Uts| |Uls|))
                    (EXIT
                     (COND
                      ((|LIMITPS;anyRootsOrAtrigs?| |fcn| $)
                       (SEQ
                        (LETT |Upx|
                              (|UnivariatePuiseuxSeries| (QREFELT $ 7) |x|
-                                                        (QREFELT $ 9))
-                             . #26#)
+                                                        (QREFELT $ 9)))
                        (LETT |ppack|
                              (|FunctionSpaceToUnivariatePowerSeries|
                               (QREFELT $ 6) (QREFELT $ 7)
@@ -2440,8 +2341,7 @@
                               (|TaylorSeriesExpansionPuiseux| (QREFELT $ 7)
                                                               |Uts| |Uls|
                                                               |Upx|)
-                              |x|)
-                             . #26#)
+                              |x|))
                        (LETT |pseries|
                              (SPADCALL |fcn| 'T (CONS 3 "real: right side")
                                        (|compiledLookupCheck| '|exprToGenUPS|
@@ -2470,30 +2370,29 @@
                                                                (LIST
                                                                 '|Boolean|)
                                                                (LIST '|Union|
-                                                                     '#27="complex"
-                                                                     '#28="real: two sides"
-                                                                     '#29="real: left side"
-                                                                     '#30="real: right side"
-                                                                     '#31="just do it"))
-                                                              |ppack|))
-                             . #26#)
+                                                                     '#26="complex"
+                                                                     '#27="real: two sides"
+                                                                     '#28="real: left side"
+                                                                     '#29="real: right side"
+                                                                     '#30="just do it"))
+                                                              |ppack|)))
                        (EXIT
                         (COND
                          ((QEQCAR |pseries| 1)
-                          (SEQ (LETT |trouble| (CDR |pseries|) . #26#)
-                               (LETT |ff| (QCAR |trouble|) . #26#)
-                               (LETT |pp| (QCDR |trouble|) . #26#)
+                          (SEQ (LETT |trouble| (CDR |pseries|))
+                               (LETT |ff| (QCAR |trouble|))
+                               (LETT |pp| (QCDR |trouble|))
                                (EXIT
                                 (COND
                                  ((EQUAL |pp| "negative leading coefficient")
                                   (PROGN
-                                   (LETT #2# (CONS 1 "failed") . #26#)
-                                   (GO #32=#:G676)))
-                                 (#33='T (CONS 1 "failed"))))))
-                         (#33#
+                                   (LETT #2# (CONS 1 "failed"))
+                                   (GO #31=#:G676)))
+                                 (#32='T (CONS 1 "failed"))))))
+                         (#32#
                           (SEQ
                            (COND
-                            ((SPADCALL (LETT |upxs| (CDR |pseries|) . #26#)
+                            ((SPADCALL (LETT |upxs| (CDR |pseries|))
                                        (|compiledLookupCheck| '|pole?|
                                                               (LIST
                                                                (LIST
@@ -2515,8 +2414,7 @@
                                                                              $
                                                                              7)))
                                                                           '$)
-                                                                    |Upx|))
-                                   . #26#)))
+                                                                    |Upx|)))))
                            (EXIT
                             (COND
                              ((SPADCALL |upxs|
@@ -2539,24 +2437,21 @@
                                                                   (LIST
                                                                    '|Integer|))
                                                                  '$)
-                                                                |Upx|))
-                                                     . #26#)
+                                                                |Upx|)))
                                                (|compiledLookupCheck|
                                                 '|coefficient|
                                                 (LIST (|devaluate| (ELT $ 7))
                                                       '$
                                                       (LIST '|Fraction|
                                                             (LIST '|Integer|)))
-                                                |Upx|))
-                                     . #26#)
+                                                |Upx|)))
                                (EXIT
                                 (PROGN
                                  (LETT #2#
                                        (|LIMITPS;poleLimitPlus| |ordp| |cp| |x|
-                                        $)
-                                       . #26#)
-                                 (GO #32#)))))
-                             (#33#
+                                        $))
+                                 (GO #31#)))))
+                             (#32#
                               (CONS 0
                                     (SPADCALL |upxs| (|spadConstant| $ 93)
                                               (|compiledLookupCheck|
@@ -2565,7 +2460,7 @@
                                                      (LIST '|Fraction|
                                                            (LIST '|Integer|)))
                                                |Upx|))))))))))))
-                     (#33#
+                     (#32#
                       (SEQ
                        (LETT |lpack|
                              (|FunctionSpaceToUnivariatePowerSeries|
@@ -2573,8 +2468,7 @@
                               |Efuls| |Uts|
                               (|TaylorSeriesExpansionLaurent| (QREFELT $ 7)
                                                               |Uts| |Uls|)
-                              |x|)
-                             . #26#)
+                              |x|))
                        (LETT |lseries|
                              (SPADCALL |fcn| 'T (CONS 3 "real: right side")
                                        (|compiledLookupCheck| '|exprToGenUPS|
@@ -2603,30 +2497,29 @@
                                                                (LIST
                                                                 '|Boolean|)
                                                                (LIST '|Union|
+                                                                     '#26#
                                                                      '#27#
                                                                      '#28#
                                                                      '#29#
-                                                                     '#30#
-                                                                     '#31#))
-                                                              |lpack|))
-                             . #26#)
+                                                                     '#30#))
+                                                              |lpack|)))
                        (EXIT
                         (COND
                          ((QEQCAR |lseries| 1)
-                          (SEQ (LETT |trouble| (CDR |lseries|) . #26#)
-                               (LETT |ff| (QCAR |trouble|) . #26#)
-                               (LETT |pp| (QCDR |trouble|) . #26#)
+                          (SEQ (LETT |trouble| (CDR |lseries|))
+                               (LETT |ff| (QCAR |trouble|))
+                               (LETT |pp| (QCDR |trouble|))
                                (EXIT
                                 (COND
                                  ((EQUAL |pp| "negative leading coefficient")
                                   (PROGN
-                                   (LETT #2# (CONS 1 "failed") . #26#)
-                                   (GO #32#)))
-                                 (#33# (CONS 1 "failed"))))))
-                         (#33#
+                                   (LETT #2# (CONS 1 "failed"))
+                                   (GO #31#)))
+                                 (#32# (CONS 1 "failed"))))))
+                         (#32#
                           (SEQ
                            (COND
-                            ((SPADCALL (LETT |uls| (CDR |lseries|) . #26#)
+                            ((SPADCALL (LETT |uls| (CDR |lseries|))
                                        (|compiledLookupCheck| '|pole?|
                                                               (LIST
                                                                (LIST
@@ -2648,8 +2541,7 @@
                                                                              $
                                                                              7)))
                                                                           '$)
-                                                                    |Uls|))
-                                   . #26#)))
+                                                                    |Uls|)))))
                            (EXIT
                             (COND
                              ((SPADCALL |uls|
@@ -2670,58 +2562,53 @@
                                                                  (LIST
                                                                   '|Integer|)
                                                                  '$)
-                                                                |Uls|))
-                                                     . #26#)
+                                                                |Uls|)))
                                                (|compiledLookupCheck|
                                                 '|coefficient|
                                                 (LIST (|devaluate| (ELT $ 7))
                                                       '$ (LIST '|Integer|))
-                                                |Uls|))
-                                     . #26#)
+                                                |Uls|)))
                                (EXIT
                                 (PROGN
                                  (LETT #2#
                                        (|LIMITPS;poleLimitPlus|
                                         (SPADCALL |ordl| (QREFELT $ 105)) |cl|
-                                        |x| $)
-                                       . #26#)
-                                 (GO #32#)))))
-                             (#33#
+                                        |x| $))
+                                 (GO #31#)))))
+                             (#32#
                               (CONS 0
                                     (SPADCALL |uls| 0
                                               (|compiledLookupCheck|
                                                '|coefficient|
                                                (LIST (|devaluate| (ELT $ 7)) '$
                                                      (LIST '|Integer|))
-                                               |Uls|)))))))))))))))
-                  . #26#)
+                                               |Uls|))))))))))))))))
             (EXIT
              (COND
               ((QEQCAR |lim| 1)
-               (SEQ (LETT |xLim| (|LIMITPS;xxpLimit| |fcn| |x| $) . #26#)
+               (SEQ (LETT |xLim| (|LIMITPS;xxpLimit| |fcn| |x| $))
                     (EXIT
                      (COND
                       ((QEQCAR |xLim| 1) (|LIMITPS;specialLimit| |fcn| |x| $))
-                      (#33# |xLim|)))))
+                      (#32# |xLim|)))))
               ((SPADCALL |x| (SPADCALL (QCDR |lim|) (QREFELT $ 23))
                          (QREFELT $ 24))
                (COND
                 ((SPADCALL |x|
                            (SPADCALL
                             (LETT |answer|
-                                  (SPADCALL (QCDR |lim|) (QREFELT $ 45))
-                                  . #26#)
+                                  (SPADCALL (QCDR |lim|) (QREFELT $ 45)))
                             (QREFELT $ 23))
                            (QREFELT $ 24))
-                 (SEQ (LETT |xLim| (|LIMITPS;xxpLimit| |answer| |x| $) . #26#)
+                 (SEQ (LETT |xLim| (|LIMITPS;xxpLimit| |answer| |x| $))
                       (EXIT
                        (COND
                         ((QEQCAR |xLim| 1)
                          (|LIMITPS;specialLimit| |answer| |x| $))
-                        (#33# |xLim|)))))
-                (#33# (CONS 0 (SPADCALL |answer| (QREFELT $ 43))))))
-              (#33# (CONS 0 (SPADCALL (QCDR |lim|) (QREFELT $ 43))))))))
-          #32# (EXIT #2#)))) 
+                        (#32# |xLim|)))))
+                (#32# (CONS 0 (SPADCALL |answer| (QREFELT $ 43))))))
+              (#32# (CONS 0 (SPADCALL (QCDR |lim|) (QREFELT $ 43))))))))
+          #31# (EXIT #2#)))) 
 
 (SDEFUN |LIMITPS;limit1|
         ((|fcn| FE) (|eq| |Equation| (|OrderedCompletion| FE))
@@ -2745,84 +2632,82 @@
           (|ae| #5=(|Union| FE "failed")) (|a| (|OrderedCompletion| FE))
           (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")) (|f| #5#))
          (SEQ
-          (LETT |f| (SPADCALL (SPADCALL |eq| (QREFELT $ 107)) (QREFELT $ 40))
-                . #6=(|LIMITPS;limit1|))
+          (LETT |f| (SPADCALL (SPADCALL |eq| (QREFELT $ 107)) (QREFELT $ 40)))
           (EXIT
            (COND
             ((QEQCAR |f| 1)
              (|error| "limit:left hand side must be a variable"))
-            (#7='T
-             (SEQ (LETT |xx| (SPADCALL (QCDR |f|) (QREFELT $ 79)) . #6#)
+            (#6='T
+             (SEQ (LETT |xx| (SPADCALL (QCDR |f|) (QREFELT $ 79)))
                   (EXIT
                    (COND
                     ((QEQCAR |xx| 1)
                      (|error| "limit:left hand side must be a variable"))
-                    (#7#
+                    (#6#
                      (SEQ
                       (EXIT
-                       (SEQ (LETT |x| (QCDR |xx|) . #6#)
-                            (LETT |a| (SPADCALL |eq| (QREFELT $ 108)) . #6#)
-                            (SEQ
-                             (LETT |ae| (SPADCALL |a| (QREFELT $ 40)) . #6#)
-                             (EXIT
-                              (COND
-                               ((QEQCAR |ae| 0)
-                                (COND
-                                 ((SPADCALL |x|
-                                            (SPADCALL (QCDR |ae|)
-                                                      (QREFELT $ 23))
-                                            (QREFELT $ 24))
-                                  (PROGN
-                                   (LETT #4#
-                                         (SEQ
-                                          (LETT |knx|
-                                                (SPADCALL
-                                                 (SPADCALL (QREFELT $ 49))
-                                                 (QREFELT $ 81))
-                                                . #6#)
-                                          (LETT |a1|
+                       (SEQ (LETT |x| (QCDR |xx|))
+                            (LETT |a| (SPADCALL |eq| (QREFELT $ 108)))
+                            (SEQ (LETT |ae| (SPADCALL |a| (QREFELT $ 40)))
+                                 (EXIT
+                                  (COND
+                                   ((QEQCAR |ae| 0)
+                                    (COND
+                                     ((SPADCALL |x|
                                                 (SPADCALL (QCDR |ae|)
-                                                          (LIST
-                                                           (SPADCALL |x|
-                                                                     (QREFELT $
-                                                                              81)))
-                                                          (LIST
-                                                           (SPADCALL |knx|
-                                                                     (QREFELT $
-                                                                              18)))
-                                                          (QREFELT $ 76))
-                                                . #6#)
-                                          (LETT |res1|
-                                                (SPADCALL |fcn| |x|
-                                                          (SPADCALL |a1|
-                                                                    (QREFELT $
-                                                                             43))
-                                                          |do_lim|)
-                                                . #6#)
-                                          (EXIT
-                                           (COND ((QEQCAR |res1| 2) |res1|)
-                                                 ((QEQCAR |res1| 1)
-                                                  (|error| "impossible"))
-                                                 (#7#
-                                                  (SEQ
-                                                   (LETT |res2|
-                                                         (|LIMITPS;subst_in_result|
-                                                          (CONS 0
-                                                                (QCDR |res1|))
-                                                          |knx| (QCDR |f|) $)
-                                                         . #6#)
-                                                   (EXIT
-                                                    (COND
-                                                     ((QEQCAR |res2| 1)
+                                                          (QREFELT $ 23))
+                                                (QREFELT $ 24))
+                                      (PROGN
+                                       (LETT #4#
+                                             (SEQ
+                                              (LETT |knx|
+                                                    (SPADCALL
+                                                     (SPADCALL (QREFELT $ 49))
+                                                     (QREFELT $ 81)))
+                                              (LETT |a1|
+                                                    (SPADCALL (QCDR |ae|)
+                                                              (LIST
+                                                               (SPADCALL |x|
+                                                                         (QREFELT
+                                                                          $
+                                                                          81)))
+                                                              (LIST
+                                                               (SPADCALL |knx|
+                                                                         (QREFELT
+                                                                          $
+                                                                          18)))
+                                                              (QREFELT $ 76)))
+                                              (LETT |res1|
+                                                    (SPADCALL |fcn| |x|
+                                                              (SPADCALL |a1|
+                                                                        (QREFELT
+                                                                         $ 43))
+                                                              |do_lim|))
+                                              (EXIT
+                                               (COND ((QEQCAR |res1| 2) |res1|)
+                                                     ((QEQCAR |res1| 1)
                                                       (|error| "impossible"))
-                                                     (#7#
-                                                      (CONS 0
-                                                            (QCDR
-                                                             |res2|))))))))))
-                                         . #6#)
-                                   (GO #8=#:G693))))))))
+                                                     (#6#
+                                                      (SEQ
+                                                       (LETT |res2|
+                                                             (|LIMITPS;subst_in_result|
+                                                              (CONS 0
+                                                                    (QCDR
+                                                                     |res1|))
+                                                              |knx| (QCDR |f|)
+                                                              $))
+                                                       (EXIT
+                                                        (COND
+                                                         ((QEQCAR |res2| 1)
+                                                          (|error|
+                                                           "impossible"))
+                                                         (#6#
+                                                          (CONS 0
+                                                                (QCDR
+                                                                 |res2|)))))))))))
+                                       (GO #7=#:G693))))))))
                             (EXIT (SPADCALL |fcn| |x| |a| |do_lim|))))
-                      #8# (EXIT #4#)))))))))))) 
+                      #7# (EXIT #4#)))))))))))) 
 
 (SDEFUN |LIMITPS;limit;FEEU;35|
         ((|fcn| FE) (|eq| |Equation| (|OrderedCompletion| FE))
@@ -2868,89 +2753,88 @@
           (|knx| (|Kernel| FE)) (|ae| #2#) (|a| (|OnePointCompletion| FE))
           (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")) (|f| #2#))
          (SEQ
-          (LETT |f| (SPADCALL (SPADCALL |eq| (QREFELT $ 117)) (QREFELT $ 74))
-                . #3=(|LIMITPS;complexLimit;FEEU;38|))
+          (LETT |f| (SPADCALL (SPADCALL |eq| (QREFELT $ 117)) (QREFELT $ 74)))
           (EXIT
            (COND
             ((QEQCAR |f| 1)
              (|error| "limit:left hand side must be a variable"))
-            (#4='T
-             (SEQ (LETT |xx| (SPADCALL (QCDR |f|) (QREFELT $ 79)) . #3#)
+            (#3='T
+             (SEQ (LETT |xx| (SPADCALL (QCDR |f|) (QREFELT $ 79)))
                   (EXIT
                    (COND
                     ((QEQCAR |xx| 1)
                      (|error| "limit:left hand side must be a variable"))
-                    (#4#
+                    (#3#
                      (SEQ
                       (EXIT
-                       (SEQ (LETT |x| (QCDR |xx|) . #3#)
-                            (LETT |a| (SPADCALL |eq| (QREFELT $ 118)) . #3#)
-                            (SEQ
-                             (LETT |ae| (SPADCALL |a| (QREFELT $ 74)) . #3#)
-                             (EXIT
-                              (COND
-                               ((QEQCAR |ae| 0)
-                                (COND
-                                 ((SPADCALL |x|
-                                            (SPADCALL (QCDR |ae|)
-                                                      (QREFELT $ 23))
-                                            (QREFELT $ 24))
-                                  (PROGN
-                                   (LETT #1#
-                                         (SEQ
-                                          (LETT |knx|
-                                                (SPADCALL
-                                                 (SPADCALL (QREFELT $ 49))
-                                                 (QREFELT $ 81))
-                                                . #3#)
-                                          (LETT |a1|
+                       (SEQ (LETT |x| (QCDR |xx|))
+                            (LETT |a| (SPADCALL |eq| (QREFELT $ 118)))
+                            (SEQ (LETT |ae| (SPADCALL |a| (QREFELT $ 74)))
+                                 (EXIT
+                                  (COND
+                                   ((QEQCAR |ae| 0)
+                                    (COND
+                                     ((SPADCALL |x|
                                                 (SPADCALL (QCDR |ae|)
-                                                          (LIST
-                                                           (SPADCALL |x|
-                                                                     (QREFELT $
-                                                                              81)))
-                                                          (LIST
-                                                           (SPADCALL |knx|
-                                                                     (QREFELT $
-                                                                              18)))
-                                                          (QREFELT $ 76))
-                                                . #3#)
-                                          (LETT |res1|
-                                                (|LIMITPS;locallimitcomplex|
-                                                 |fcn| |x|
-                                                 (SPADCALL |a1| (QREFELT $ 94))
-                                                 $)
-                                                . #3#)
-                                          (EXIT
-                                           (COND ((QEQCAR |res1| 1) |res1|)
-                                                 (#4#
-                                                  (SEQ
-                                                   (LETT |res2|
-                                                         (SPADCALL
-                                                          (QCDR |res1|)
-                                                          (QREFELT $ 74))
-                                                         . #3#)
-                                                   (EXIT
-                                                    (COND
-                                                     ((OR (QEQCAR |res2| 1)
-                                                          (NULL
-                                                           (QEQCAR |res2| 0)))
-                                                      |res1|)
-                                                     ('T
-                                                      (CONS 0
-                                                            (SPADCALL
+                                                          (QREFELT $ 23))
+                                                (QREFELT $ 24))
+                                      (PROGN
+                                       (LETT #1#
+                                             (SEQ
+                                              (LETT |knx|
+                                                    (SPADCALL
+                                                     (SPADCALL (QREFELT $ 49))
+                                                     (QREFELT $ 81)))
+                                              (LETT |a1|
+                                                    (SPADCALL (QCDR |ae|)
+                                                              (LIST
+                                                               (SPADCALL |x|
+                                                                         (QREFELT
+                                                                          $
+                                                                          81)))
+                                                              (LIST
+                                                               (SPADCALL |knx|
+                                                                         (QREFELT
+                                                                          $
+                                                                          18)))
+                                                              (QREFELT $ 76)))
+                                              (LETT |res1|
+                                                    (|LIMITPS;locallimitcomplex|
+                                                     |fcn| |x|
+                                                     (SPADCALL |a1|
+                                                               (QREFELT $ 94))
+                                                     $))
+                                              (EXIT
+                                               (COND ((QEQCAR |res1| 1) |res1|)
+                                                     (#3#
+                                                      (SEQ
+                                                       (LETT |res2|
                                                              (SPADCALL
-                                                              (QCDR |res2|)
-                                                              (LIST |knx|)
-                                                              (LIST (QCDR |f|))
-                                                              (QREFELT $ 76))
-                                                             (QREFELT $
-                                                                      94)))))))))))
-                                         . #3#)
-                                   (GO #5=#:G727))))))))
+                                                              (QCDR |res1|)
+                                                              (QREFELT $ 74)))
+                                                       (EXIT
+                                                        (COND
+                                                         ((OR (QEQCAR |res2| 1)
+                                                              (NULL
+                                                               (QEQCAR |res2|
+                                                                       0)))
+                                                          |res1|)
+                                                         ('T
+                                                          (CONS 0
+                                                                (SPADCALL
+                                                                 (SPADCALL
+                                                                  (QCDR |res2|)
+                                                                  (LIST |knx|)
+                                                                  (LIST
+                                                                   (QCDR |f|))
+                                                                  (QREFELT $
+                                                                           76))
+                                                                 (QREFELT $
+                                                                          94))))))))))))
+                                       (GO #4=#:G727))))))))
                             (EXIT
                              (|LIMITPS;locallimitcomplex| |fcn| |x| |a| $))))
-                      #5# (EXIT #1#)))))))))))) 
+                      #4# (EXIT #1#)))))))))))) 
 
 (DECLAIM (NOTINLINE |PowerSeriesLimitPackage;|)) 
 
@@ -2963,13 +2847,12 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|PowerSeriesLimitPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|PowerSeriesLimitPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
                   (PROG1 (APPLY (|function| |PowerSeriesLimitPackage;|) #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache| '|PowerSeriesLimitPackage|)))))))))) 
@@ -2977,12 +2860,12 @@
 (DEFUN |PowerSeriesLimitPackage;| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|PowerSeriesLimitPackage|))
-          (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|PowerSeriesLimitPackage| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 121) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT DV$2 (|devaluate| |#2|))
+          (LETT |dv$| (LIST '|PowerSeriesLimitPackage| DV$1 DV$2))
+          (LETT $ (GETREFV 121))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PowerSeriesLimitPackage|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)

@@ -6,9 +6,8 @@
                       (|mul_DF|
                        (|add_DF| (|mul_DF| |a| |a|) (|mul_DF| |b| |b|))
                        (SPADCALL (SPADCALL 5 -1 10 (QREFELT $ 13))
-                                 (QREFELT $ 15)))
-                      . #2=(|SCONF;spnt;2Df$;1|))
-                (LETT |z| (MAKEARR1 (QREFELT $ 9) 0.0) . #2#)
+                                 (QREFELT $ 15))))
+                (LETT |z| (MAKEARR1 (QREFELT $ 9) 0.0))
                 (QSETAREF1 |z| 1 (|minus_DF| 1.0)) (QSETAREF1 |z| 2 |inf|)
                 (QSETAREF1 |z| 4 |a|) (QSETAREF1 |z| 8 |b|) (EXIT |z|)))) 
 
@@ -22,9 +21,8 @@
                         (|add_DF| (|mul_DF| |a| |a|) (|mul_DF| |b| |b|))
                         (|mul_DF| |c| |c|))
                        (SPADCALL (SPADCALL 5 -1 10 (QREFELT $ 13))
-                                 (QREFELT $ 15)))
-                      . #2=(|SCONF;spnt;3Df$;2|))
-                (LETT |z| (MAKEARR1 (QREFELT $ 9) 0.0) . #2#)
+                                 (QREFELT $ 15))))
+                (LETT |z| (MAKEARR1 (QREFELT $ 9) 0.0))
                 (QSETAREF1 |z| 1 (|minus_DF| 1.0)) (QSETAREF1 |z| 2 |inf|)
                 (QSETAREF1 |z| 4 |a|) (QSETAREF1 |z| 8 |b|)
                 (COND
@@ -34,14 +32,14 @@
 
 (SDEFUN |SCONF;svec;2Df$;3| ((|a| . #1=(|DoubleFloat|)) (|b| . #1#) ($ $))
         (SPROG ((|z| ($)))
-               (SEQ (LETT |z| (MAKEARR1 (QREFELT $ 9) 0.0) |SCONF;svec;2Df$;3|)
+               (SEQ (LETT |z| (MAKEARR1 (QREFELT $ 9) 0.0))
                     (QSETAREF1 |z| 1 0.0) (QSETAREF1 |z| 2 0.0)
                     (QSETAREF1 |z| 4 |a|) (QSETAREF1 |z| 8 |b|) (EXIT |z|)))) 
 
 (SDEFUN |SCONF;svec;3Df$;4|
         ((|a| . #1=(|DoubleFloat|)) (|b| . #1#) (|c| . #1#) ($ $))
         (SPROG ((|z| ($)))
-               (SEQ (LETT |z| (MAKEARR1 (QREFELT $ 9) 0.0) |SCONF;svec;3Df$;4|)
+               (SEQ (LETT |z| (MAKEARR1 (QREFELT $ 9) 0.0))
                     (QSETAREF1 |z| 1 0.0) (QSETAREF1 |z| 2 0.0)
                     (QSETAREF1 |z| 4 |a|) (QSETAREF1 |z| 8 |b|)
                     (COND
@@ -51,7 +49,7 @@
 
 (SDEFUN |SCONF;min;3$;5| ((|a| $) (|b| $) ($ $))
         (SPROG ((|pt| ($)))
-               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0) |SCONF;min;3$;5|)
+               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0))
                     (QSETAREF1 |pt| 8 (|min_DF| (QAREF1 |a| 8) (QAREF1 |b| 8)))
                     (QSETAREF1 |pt| 4 (|min_DF| (QAREF1 |a| 4) (QAREF1 |b| 4)))
                     (QSETAREF1 |pt| 2
@@ -65,7 +63,7 @@
 
 (SDEFUN |SCONF;max;3$;6| ((|a| $) (|b| $) ($ $))
         (SPROG ((|pt| ($)))
-               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0) |SCONF;max;3$;6|)
+               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0))
                     (QSETAREF1 |pt| 8 (|max_DF| (QAREF1 |a| 8) (QAREF1 |b| 8)))
                     (QSETAREF1 |pt| 4 (|max_DF| (QAREF1 |a| 4) (QAREF1 |b| 4)))
                     (QSETAREF1 |pt| 2
@@ -89,18 +87,16 @@
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |i| 0 . #3=(|SCONF;Pnan?;$B;9|))
-                       (LETT #2# (- (QREFELT $ 9) 1) . #3#) G190
+                  (SEQ (LETT |i| 0) (LETT #2# (- (QREFELT $ 9) 1)) G190
                        (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ
                         (EXIT
                          (COND
                           ((|SCONF;nan?| (QAREF1 |p| |i|) $)
-                           (PROGN (LETT #1# 'T . #3#) (GO #4=#:G131))))))
-                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                       (EXIT NIL))
+                           (PROGN (LETT #1# 'T) (GO #3=#:G131))))))
+                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                   (EXIT NIL)))
-                #4# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |SCONF;unitVector;2$;10| ((|p| $) ($ $))
         (SPROG ((|pt| ($)) (|factor| (|DoubleFloat|)))
@@ -109,9 +105,8 @@
                       (SPADCALL
                        (|add_DF| (|mul_DF| (QAREF1 |p| 4) (QAREF1 |p| 4))
                                  (|mul_DF| (QAREF1 |p| 8) (QAREF1 |p| 8)))
-                       (QREFELT $ 27))
-                      . #1=(|SCONF;unitVector;2$;10|))
-                (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0) . #1#)
+                       (QREFELT $ 27)))
+                (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0))
                 (QSETAREF1 |pt| 4 (|div_DF| (QAREF1 |p| 4) |factor|))
                 (QSETAREF1 |pt| 8 (|div_DF| (QAREF1 |p| 8) |factor|))
                 (QSETAREF1 |pt| 2
@@ -134,22 +129,20 @@
 
 (SDEFUN |SCONF;perpendicular;3$;13| ((|x| $) (|y| $) ($ $))
         (SPROG ((|pt| ($)))
-               (SEQ
-                (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0)
-                      |SCONF;perpendicular;3$;13|)
-                (QSETAREF1 |pt| 4 0.0) (QSETAREF1 |pt| 8 1.0)
-                (QSETAREF1 |pt| 2
-                           (|mul_DF|
-                            (|add_DF|
-                             (|mul_DF| (QAREF1 |pt| 4) (QAREF1 |pt| 4))
-                             (|mul_DF| (QAREF1 |pt| 8) (QAREF1 |pt| 8)))
-                            (SPADCALL (SPADCALL 5 -1 10 (QREFELT $ 13))
-                                      (QREFELT $ 15))))
-                (QSETAREF1 |pt| 1 (|minus_DF| 1.0)) (EXIT |pt|)))) 
+               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0))
+                    (QSETAREF1 |pt| 4 0.0) (QSETAREF1 |pt| 8 1.0)
+                    (QSETAREF1 |pt| 2
+                               (|mul_DF|
+                                (|add_DF|
+                                 (|mul_DF| (QAREF1 |pt| 4) (QAREF1 |pt| 4))
+                                 (|mul_DF| (QAREF1 |pt| 8) (QAREF1 |pt| 8)))
+                                (SPADCALL (SPADCALL 5 -1 10 (QREFELT $ 13))
+                                          (QREFELT $ 15))))
+                    (QSETAREF1 |pt| 1 (|minus_DF| 1.0)) (EXIT |pt|)))) 
 
 (SDEFUN |SCONF;*;Df2$;14| ((|s| |DoubleFloat|) (|x| $) ($ $))
         (SPROG ((|pt| ($)))
-               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0) |SCONF;*;Df2$;14|)
+               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0))
                     (QSETAREF1 |pt| 4 (|mul_DF| (QAREF1 |x| 4) |s|))
                     (QSETAREF1 |pt| 8 (|mul_DF| (QAREF1 |x| 8) |s|))
                     (QSETAREF1 |pt| 2
@@ -163,7 +156,7 @@
 
 (SDEFUN |SCONF;+;3$;15| ((|x| $) (|y| $) ($ $))
         (SPROG ((|pt| ($)))
-               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0) |SCONF;+;3$;15|)
+               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0))
                     (QSETAREF1 |pt| 4 (|add_DF| (QAREF1 |x| 4) (QAREF1 |y| 4)))
                     (QSETAREF1 |pt| 8 (|add_DF| (QAREF1 |x| 8) (QAREF1 |y| 8)))
                     (QSETAREF1 |pt| 2
@@ -177,7 +170,7 @@
 
 (SDEFUN |SCONF;-;3$;16| ((|x| $) (|y| $) ($ $))
         (SPROG ((|pt| ($)))
-               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0) |SCONF;-;3$;16|)
+               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0))
                     (QSETAREF1 |pt| 4 (|sub_DF| (QAREF1 |x| 4) (QAREF1 |y| 4)))
                     (QSETAREF1 |pt| 8 (|sub_DF| (QAREF1 |x| 8) (QAREF1 |y| 8)))
                     (QSETAREF1 |pt| 2
@@ -222,8 +215,7 @@
                     (PROGN
                      (LETT #1#
                            (LIST (QAREF1 |pt| 4) (QAREF1 |pt| 8)
-                                 (QAREF1 |pt| 16))
-                           |SCONF;screenCoords;$L;21|)
+                                 (QAREF1 |pt| 16)))
                      (GO #2=#:G155))))
                   (EXIT (LIST (QAREF1 |pt| 4) (QAREF1 |pt| 8)))))
                 #2# (EXIT #1#)))) 
@@ -238,81 +230,73 @@
           (|scaleFactor| (|DoubleFloat|)))
          (SEQ
           (EXIT
-           (SEQ
-            (LETT |scaleFactor| (QAREF1 |pt| 1)
-                  . #3=(|SCONF;normalisePoint;2$;23|))
-            (COND
-             ((|less_DF| |scaleFactor|
-                         (SPADCALL (SPADCALL 1 -2 10 (QREFELT $ 13))
-                                   (QREFELT $ 15)))
-              (COND
-               ((SPADCALL |scaleFactor|
-                          (|minus_DF|
-                           (SPADCALL (SPADCALL 1 -2 10 (QREFELT $ 13))
-                                     (QREFELT $ 15)))
-                          (QREFELT $ 35))
-                (SEQ
-                 (SPADCALL
-                  (SPADCALL "can't apply normalisePoint to a vector"
-                            (QREFELT $ 46))
-                  (QREFELT $ 48))
-                 (EXIT (PROGN (LETT #2# |pt| . #3#) (GO #4=#:G166))))))))
-            (COND
-             ((|less_DF| |scaleFactor|
-                         (|minus_DF|
-                          (SPADCALL (SPADCALL 99 -2 10 (QREFELT $ 13))
-                                    (QREFELT $ 15))))
-              (COND
-               ((SPADCALL |scaleFactor|
-                          (|minus_DF|
-                           (SPADCALL (SPADCALL 101 -2 10 (QREFELT $ 13))
-                                     (QREFELT $ 15)))
-                          (QREFELT $ 35))
-                (PROGN (LETT #2# |pt| . #3#) (GO #4#))))))
-            (LETT |pt2| (MAKEARR1 (QREFELT $ 9) 0.0) . #3#)
-            (LETT |infin| 0.0 . #3#)
-            (SEQ (LETT |x| 1 . #3#) (LETT #1# (QREFELT $ 6) . #3#) G190
-                 (COND ((|greater_SI| |x| #1#) (GO G191)))
-                 (SEQ (LETT |index| (EXPT 2 (+ |x| 1)) . #3#)
-                      (QSETAREF1 |pt2| |index|
-                                 (|div_DF| (QAREF1 |pt| |index|)
-                                           (|minus_DF| |scaleFactor|)))
-                      (EXIT
-                       (LETT |infin|
-                             (|add_DF| |infin|
-                                       (|mul_DF|
-                                        (|mul_DF| (QAREF1 |pt2| |index|)
-                                                  (QAREF1 |pt2| |index|))
-                                        (SPADCALL
-                                         (SPADCALL 5 -1 10 (QREFELT $ 13))
-                                         (QREFELT $ 15))))
-                             . #3#)))
-                 (LETT |x| (|inc_SI| |x|) . #3#) (GO G190) G191 (EXIT NIL))
-            (QSETAREF1 |pt2| 1 (|minus_DF| 1.0)) (QSETAREF1 |pt2| 2 |infin|)
-            (EXIT |pt2|)))
-          #4# (EXIT #2#)))) 
+           (SEQ (LETT |scaleFactor| (QAREF1 |pt| 1))
+                (COND
+                 ((|less_DF| |scaleFactor|
+                             (SPADCALL (SPADCALL 1 -2 10 (QREFELT $ 13))
+                                       (QREFELT $ 15)))
+                  (COND
+                   ((SPADCALL |scaleFactor|
+                              (|minus_DF|
+                               (SPADCALL (SPADCALL 1 -2 10 (QREFELT $ 13))
+                                         (QREFELT $ 15)))
+                              (QREFELT $ 35))
+                    (SEQ
+                     (SPADCALL
+                      (SPADCALL "can't apply normalisePoint to a vector"
+                                (QREFELT $ 46))
+                      (QREFELT $ 48))
+                     (EXIT (PROGN (LETT #2# |pt|) (GO #3=#:G166))))))))
+                (COND
+                 ((|less_DF| |scaleFactor|
+                             (|minus_DF|
+                              (SPADCALL (SPADCALL 99 -2 10 (QREFELT $ 13))
+                                        (QREFELT $ 15))))
+                  (COND
+                   ((SPADCALL |scaleFactor|
+                              (|minus_DF|
+                               (SPADCALL (SPADCALL 101 -2 10 (QREFELT $ 13))
+                                         (QREFELT $ 15)))
+                              (QREFELT $ 35))
+                    (PROGN (LETT #2# |pt|) (GO #3#))))))
+                (LETT |pt2| (MAKEARR1 (QREFELT $ 9) 0.0)) (LETT |infin| 0.0)
+                (SEQ (LETT |x| 1) (LETT #1# (QREFELT $ 6)) G190
+                     (COND ((|greater_SI| |x| #1#) (GO G191)))
+                     (SEQ (LETT |index| (EXPT 2 (+ |x| 1)))
+                          (QSETAREF1 |pt2| |index|
+                                     (|div_DF| (QAREF1 |pt| |index|)
+                                               (|minus_DF| |scaleFactor|)))
+                          (EXIT
+                           (LETT |infin|
+                                 (|add_DF| |infin|
+                                           (|mul_DF|
+                                            (|mul_DF| (QAREF1 |pt2| |index|)
+                                                      (QAREF1 |pt2| |index|))
+                                            (SPADCALL
+                                             (SPADCALL 5 -1 10 (QREFELT $ 13))
+                                             (QREFELT $ 15)))))))
+                     (LETT |x| (|inc_SI| |x|)) (GO G190) G191 (EXIT NIL))
+                (QSETAREF1 |pt2| 1 (|minus_DF| 1.0))
+                (QSETAREF1 |pt2| 2 |infin|) (EXIT |pt2|)))
+          #3# (EXIT #2#)))) 
 
 (SDEFUN |SCONF;toPoint;2$;24| ((|p| $) ($ $))
         (SPROG ((#1=#:G172 NIL) (|i| NIL) (|pt| ($)))
-               (SEQ
-                (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0)
-                      . #2=(|SCONF;toPoint;2$;24|))
-                (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 9) 1) . #2#)
-                     G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
-                     (SEQ (EXIT (QSETAREF1 |pt| |i| (QAREF1 |p| |i|))))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-                (QSETAREF1 |pt| 1 (|minus_DF| 1.0)) (EXIT |pt|)))) 
+               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0))
+                    (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 9) 1)) G190
+                         (COND ((|greater_SI| |i| #1#) (GO G191)))
+                         (SEQ (EXIT (QSETAREF1 |pt| |i| (QAREF1 |p| |i|))))
+                         (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+                    (QSETAREF1 |pt| 1 (|minus_DF| 1.0)) (EXIT |pt|)))) 
 
 (SDEFUN |SCONF;toVector;2$;25| ((|p| $) ($ $))
         (SPROG ((#1=#:G176 NIL) (|i| NIL) (|pt| ($)))
-               (SEQ
-                (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0)
-                      . #2=(|SCONF;toVector;2$;25|))
-                (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 9) 1) . #2#)
-                     G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
-                     (SEQ (EXIT (QSETAREF1 |pt| |i| (QAREF1 |p| |i|))))
-                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-                (QSETAREF1 |pt| 1 0.0) (EXIT |pt|)))) 
+               (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0))
+                    (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 9) 1)) G190
+                         (COND ((|greater_SI| |i| #1#) (GO G191)))
+                         (SEQ (EXIT (QSETAREF1 |pt| |i| (QAREF1 |p| |i|))))
+                         (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+                    (QSETAREF1 |pt| 1 0.0) (EXIT |pt|)))) 
 
 (SDEFUN |SCONF;isPoint?;$B;26| ((|p| $) ($ |Boolean|))
         (|less_DF| (QAREF1 |p| 1)
@@ -335,19 +319,17 @@
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |i| 0 . #3=(|SCONF;=;2$B;29|))
-                       (LETT #2# (- (QREFELT $ 9) 1) . #3#) G190
+                  (SEQ (LETT |i| 0) (LETT #2# (- (QREFELT $ 9) 1)) G190
                        (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ
                         (EXIT
                          (COND
                           ((SPADCALL (QAREF1 |x| |i|) (QAREF1 |y| |i|)
                                      (QREFELT $ 25))
-                           (PROGN (LETT #1# NIL . #3#) (GO #4=#:G183))))))
-                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                       (EXIT NIL))
+                           (PROGN (LETT #1# NIL) (GO #3=#:G183))))))
+                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
-                #4# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |SCONF;~=;2$B;30| ((|x| $) (|y| $) ($ |Boolean|))
         (NULL (SPADCALL |x| |y| (QREFELT $ 56)))) 
@@ -359,18 +341,16 @@
          (SEQ
           (LETT |eles|
                 (PROGN
-                 (LETT #2# NIL . #3=(|SCONF;coerce;$Of;31|))
-                 (SEQ (LETT |i| 0 . #3#) (LETT #1# (- (QREFELT $ 9) 1) . #3#)
-                      G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
+                 (LETT #2# NIL)
+                 (SEQ (LETT |i| 0) (LETT #1# (- (QREFELT $ 9) 1)) G190
+                      (COND ((|greater_SI| |i| #1#) (GO G191)))
                       (SEQ
                        (EXIT
                         (LETT #2#
                               (CONS (SPADCALL (QAREF1 |pt| |i|) (QREFELT $ 58))
-                                    #2#)
-                              . #3#)))
-                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #3#)
+                                    #2#))))
+                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                      (EXIT (NREVERSE #2#)))))
           (EXIT (SPADCALL |eles| (QREFELT $ 60)))))) 
 
 (DECLAIM (NOTINLINE |SConformal;|)) 
@@ -384,22 +364,21 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|SConformal|)
-                                               '|domainEqualList|)
-                    . #3=(|SConformal|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|SConformal;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|SConformal;| #1#) (LETT #2# T))
                 (COND
                  ((NOT #2#) (HREM |$ConstructorCache| '|SConformal|)))))))))) 
 
 (DEFUN |SConformal;| (|#1|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #1=(|SConformal|))
-          (LETT |dv$| (LIST '|SConformal| DV$1) . #1#)
-          (LETT $ (GETREFV 63) . #1#)
+          (LETT DV$1 (|devaluate| |#1|))
+          (LETT |dv$| (LIST '|SConformal| DV$1))
+          (LETT $ (GETREFV 63))
           (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SConformal| (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)

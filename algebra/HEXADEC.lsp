@@ -13,8 +13,7 @@
          (PROG (#1=#:G140)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|HexadecimalExpansion|)
-                    . #2=(|HexadecimalExpansion|))
+             ((LETT #1# (HGET |$ConstructorCache| '|HexadecimalExpansion|))
               (|CDRwithIncrement| (CDAR #1#)))
              ('T
               (UNWIND-PROTECT
@@ -23,7 +22,7 @@
                        (HPUT |$ConstructorCache| '|HexadecimalExpansion|
                              (LIST
                               (CONS NIL (CONS 1 (|HexadecimalExpansion;|))))))
-                    (LETT #1# T . #2#))
+                    (LETT #1# T))
                 (COND
                  ((NOT #1#)
                   (HREM |$ConstructorCache| '|HexadecimalExpansion|)))))))))) 
@@ -31,8 +30,8 @@
 (DEFUN |HexadecimalExpansion;| ()
   (SPROG ((|dv$| NIL) ($ NIL) (#1=#:G138 NIL) (|pv$| NIL))
          (PROGN
-          (LETT |dv$| '(|HexadecimalExpansion|) . #2=(|HexadecimalExpansion|))
-          (LETT $ (GETREFV 55) . #2#)
+          (LETT |dv$| '(|HexadecimalExpansion|))
+          (LETT $ (GETREFV 55))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -105,14 +104,12 @@
                                                              '(|IntegerNumberSystem|))
                                               (LETT #1#
                                                     (|HasCategory| (|Integer|)
-                                                                   '(|Comparable|))
-                                                    . #2#)
+                                                                   '(|Comparable|)))
                                               (OR #1#
                                                   (|HasCategory| (|Integer|)
                                                                  '(|OrderedIntegralDomain|))
                                                   (|HasCategory| (|Integer|)
-                                                                 '(|OrderedSet|)))))
-                          . #2#))
+                                                                 '(|OrderedSet|)))))))
           (|haddProp| |$ConstructorCache| '|HexadecimalExpansion| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)

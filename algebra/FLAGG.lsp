@@ -24,7 +24,5 @@
                                     ('T
                                      (LETT |FiniteLinearAggregate;CAT|
                                            (|Join| (|LinearAggregate| '|t#1|)
-                                                   (|finiteAggregate|))
-                                           . #2=(|FiniteLinearAggregate|)))))
-                   . #2#)
+                                                   (|finiteAggregate|)))))))
            (SETELT #1# 0 (LIST '|FiniteLinearAggregate| |t#1|))))) 

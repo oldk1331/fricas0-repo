@@ -71,8 +71,6 @@
                                               ($ |t#4| |t#2| |t#2| |t#2|
                                                |t#1|))
                                              T))
-                                          NIL NIL NIL))
-                                 . #2=(|FiniteDivisorCategory|)))))
-                   . #2#)
+                                          NIL NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|FiniteDivisorCategory| |t#1| |t#2| |t#3| |t#4|))))) 

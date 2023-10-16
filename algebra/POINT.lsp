@@ -1,25 +1,20 @@
 
 (SDEFUN |POINT;point;L$;1| ((|l| |List| R) ($ $))
         (SPROG ((#1=#:G109 NIL) (|x| NIL) (|i| NIL) (|pt| ($)))
-               (SEQ
-                (LETT |pt| (SPADCALL (LENGTH |l|) 'R (QREFELT $ 8))
-                      . #2=(|POINT;point;L$;1|))
-                (SEQ (LETT |i| (SPADCALL |pt| (QREFELT $ 10)) . #2#)
-                     (LETT |x| NIL . #2#) (LETT #1# |l| . #2#) G190
-                     (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
-                       (GO G191)))
-                     (SEQ (EXIT (SPADCALL |pt| |i| |x| (QREFELT $ 11))))
-                     (LETT #1# (PROG1 (CDR #1#) (LETT |i| (+ |i| 1) . #2#))
-                           . #2#)
-                     (GO G190) G191 (EXIT NIL))
-                (EXIT |pt|)))) 
+               (SEQ (LETT |pt| (SPADCALL (LENGTH |l|) 'R (QREFELT $ 8)))
+                    (SEQ (LETT |i| (SPADCALL |pt| (QREFELT $ 10)))
+                         (LETT |x| NIL) (LETT #1# |l|) G190
+                         (COND
+                          ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#)) NIL))
+                           (GO G191)))
+                         (SEQ (EXIT (SPADCALL |pt| |i| |x| (QREFELT $ 11))))
+                         (LETT #1# (PROG1 (CDR #1#) (LETT |i| (+ |i| 1))))
+                         (GO G190) G191 (EXIT NIL))
+                    (EXIT |pt|)))) 
 
 (SDEFUN |POINT;dimension;$Pi;2| ((|p| $) ($ |PositiveInteger|))
         (SPROG ((#1=#:G110 NIL))
-               (PROG1
-                   (LETT #1# (SPADCALL |p| (QREFELT $ 14))
-                         |POINT;dimension;$Pi;2|)
+               (PROG1 (LETT #1# (SPADCALL |p| (QREFELT $ 14)))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
 
@@ -68,11 +63,10 @@
                     (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
                                                (HGET |$ConstructorCache|
                                                      '|Point|)
-                                               '|domainEqualList|)
-                    . #3=(|Point|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
-              (UNWIND-PROTECT (PROG1 (|Point;| #1#) (LETT #2# T . #3#))
+              (UNWIND-PROTECT (PROG1 (|Point;| #1#) (LETT #2# T))
                 (COND ((NOT #2#) (HREM |$ConstructorCache| '|Point|)))))))))) 
 
 (DEFUN |Point;| (|#1|)
@@ -80,9 +74,9 @@
    ((|pv$| NIL) (#1=#:G125 NIL) (#2=#:G126 NIL) (#3=#:G127 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #4=(|Point|))
-    (LETT |dv$| (LIST '|Point| DV$1) . #4#)
-    (LETT $ (GETREFV 44) . #4#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT |dv$| (LIST '|Point| DV$1))
+    (LETT $ (GETREFV 44))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -97,15 +91,13 @@
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|Comparable|))
-                                              . #4#)
+                                                             '(|Comparable|)))
                                         (OR #3#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|)))
                                         (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #4#)
+                                                             '(|SetCategory|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -124,8 +116,7 @@
                                         (LETT #1#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
-                                                               (|OutputForm|)))
-                                              . #4#)
+                                                               (|OutputForm|))))
                                         (OR #1# #3#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
@@ -143,8 +134,7 @@
                                         (AND
                                          (|HasCategory| |#1|
                                                         '(|RadicalCategory|))
-                                         (|HasCategory| |#1| '(|Ring|)))))
-                    . #4#))
+                                         (|HasCategory| |#1| '(|Ring|)))))))
     (|haddProp| |$ConstructorCache| '|Point| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)

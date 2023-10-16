@@ -5,23 +5,20 @@
         (SPROG
          ((|bn1| #1=(|Stream| (|UnivariatePolynomial| |z| R))) (|an1| #1#)
           (|jac| (|Record| (|:| |an| (|Stream| R)) (|:| |bn| (|Stream| R)))))
-         (SEQ
-          (LETT |jac| (SPADCALL |x| (QREFELT $ 10))
-                . #2=(|DSTCFPG;JContinuedFraction;DUpCf;1|))
-          (LETT |an1|
-                (SPADCALL
-                 (CONS #'|DSTCFPG;JContinuedFraction;DUpCf;1!0|
-                       (VECTOR $ |zz|))
-                 (QCAR |jac|) (QREFELT $ 22))
-                . #2#)
-          (LETT |bn1|
-                (SPADCALL (CONS #'|DSTCFPG;JContinuedFraction;DUpCf;1!1| $)
-                          (QCDR |jac|) (QREFELT $ 22))
-                . #2#)
-          (EXIT
-           (SPADCALL (|spadConstant| $ 13)
-                     (SPADCALL (|spadConstant| $ 25) |bn1| (QREFELT $ 26))
-                     (SPADCALL |zz| |an1| (QREFELT $ 26)) (QREFELT $ 28)))))) 
+         (SEQ (LETT |jac| (SPADCALL |x| (QREFELT $ 10)))
+              (LETT |an1|
+                    (SPADCALL
+                     (CONS #'|DSTCFPG;JContinuedFraction;DUpCf;1!0|
+                           (VECTOR $ |zz|))
+                     (QCAR |jac|) (QREFELT $ 22)))
+              (LETT |bn1|
+                    (SPADCALL (CONS #'|DSTCFPG;JContinuedFraction;DUpCf;1!1| $)
+                              (QCDR |jac|) (QREFELT $ 22)))
+              (EXIT
+               (SPADCALL (|spadConstant| $ 13)
+                         (SPADCALL (|spadConstant| $ 25) |bn1| (QREFELT $ 26))
+                         (SPADCALL |zz| |an1| (QREFELT $ 26))
+                         (QREFELT $ 28)))))) 
 
 (SDEFUN |DSTCFPG;JContinuedFraction;DUpCf;1!1| ((|b| NIL) ($ NIL))
         (SPADCALL (SPADCALL |b| (QREFELT $ 23)) (|spadConstant| $ 15)
@@ -29,9 +26,8 @@
 
 (SDEFUN |DSTCFPG;JContinuedFraction;DUpCf;1!0| ((|a| NIL) ($$ NIL))
         (PROG (|zz| $)
-          (LETT |zz| (QREFELT $$ 1)
-                . #1=(|DSTCFPG;JContinuedFraction;DUpCf;1|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |zz| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL |zz| (SPADCALL |a| (|spadConstant| $ 15) (QREFELT $ 16))
@@ -47,23 +43,20 @@
           (|jac|
            (|Record| (|:| |an| (|Stream| (|Fraction| R)))
                      (|:| |bn| (|Stream| (|Fraction| R))))))
-         (SEQ
-          (LETT |jac| (SPADCALL |x| (QREFELT $ 31))
-                . #2=(|DSTCFPG;JContinuedFraction;DUpCf;2|))
-          (LETT |an1|
-                (SPADCALL
-                 (CONS #'|DSTCFPG;JContinuedFraction;DUpCf;2!0|
-                       (VECTOR $ |zz|))
-                 (QCAR |jac|) (QREFELT $ 41))
-                . #2#)
-          (LETT |bn1|
-                (SPADCALL (CONS #'|DSTCFPG;JContinuedFraction;DUpCf;2!1| $)
-                          (QCDR |jac|) (QREFELT $ 41))
-                . #2#)
-          (EXIT
-           (SPADCALL (|spadConstant| $ 33)
-                     (SPADCALL (|spadConstant| $ 43) |bn1| (QREFELT $ 44))
-                     (SPADCALL |zz| |an1| (QREFELT $ 44)) (QREFELT $ 46)))))) 
+         (SEQ (LETT |jac| (SPADCALL |x| (QREFELT $ 31)))
+              (LETT |an1|
+                    (SPADCALL
+                     (CONS #'|DSTCFPG;JContinuedFraction;DUpCf;2!0|
+                           (VECTOR $ |zz|))
+                     (QCAR |jac|) (QREFELT $ 41)))
+              (LETT |bn1|
+                    (SPADCALL (CONS #'|DSTCFPG;JContinuedFraction;DUpCf;2!1| $)
+                              (QCDR |jac|) (QREFELT $ 41)))
+              (EXIT
+               (SPADCALL (|spadConstant| $ 33)
+                         (SPADCALL (|spadConstant| $ 43) |bn1| (QREFELT $ 44))
+                         (SPADCALL |zz| |an1| (QREFELT $ 44))
+                         (QREFELT $ 46)))))) 
 
 (SDEFUN |DSTCFPG;JContinuedFraction;DUpCf;2!1| ((|b| NIL) ($ NIL))
         (SPADCALL (SPADCALL |b| (QREFELT $ 42)) (|spadConstant| $ 15)
@@ -71,9 +64,8 @@
 
 (SDEFUN |DSTCFPG;JContinuedFraction;DUpCf;2!0| ((|a| NIL) ($$ NIL))
         (PROG (|zz| $)
-          (LETT |zz| (QREFELT $$ 1)
-                . #1=(|DSTCFPG;JContinuedFraction;DUpCf;2|))
-          (LETT $ (QREFELT $$ 0) . #1#)
+          (LETT |zz| (QREFELT $$ 1))
+          (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
             (SPADCALL |zz| (SPADCALL |a| (|spadConstant| $ 15) (QREFELT $ 35))
@@ -90,8 +82,7 @@
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
                                                      '|DistributionContinuedFractionPackage|)
-                                               '|domainEqualList|)
-                    . #3=(|DistributionContinuedFractionPackage|))
+                                               '|domainEqualList|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
@@ -99,7 +90,7 @@
                       (APPLY
                        (|function| |DistributionContinuedFractionPackage;|)
                        #1#)
-                    (LETT #2# T . #3#))
+                    (LETT #2# T))
                 (COND
                  ((NOT #2#)
                   (HREM |$ConstructorCache|
@@ -109,24 +100,21 @@
   (SPROG
    ((|pv$| NIL) (#1=#:G114 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|)
-          . #2=(|DistributionContinuedFractionPackage|))
-    (LETT DV$2 (|devaluate| |#2|) . #2#)
-    (LETT |dv$| (LIST '|DistributionContinuedFractionPackage| DV$1 DV$2) . #2#)
-    (LETT $ (GETREFV 48) . #2#)
+    (LETT DV$1 (|devaluate| |#1|))
+    (LETT DV$2 (|devaluate| |#2|))
+    (LETT |dv$| (LIST '|DistributionContinuedFractionPackage| DV$1 DV$2))
+    (LETT $ (GETREFV 48))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
                                         (LETT #1#
-                                              (|HasCategory| |#1| '(|Field|))
-                                              . #2#)
+                                              (|HasCategory| |#1| '(|Field|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         '(|IntegralDomain|))
-                                         (|not| #1#))))
-                    . #2#))
+                                         (|not| #1#))))))
     (|haddProp| |$ConstructorCache| '|DistributionContinuedFractionPackage|
                 (LIST DV$1 DV$2) (CONS 1 $))
     (|stuffDomainSlots| $)
