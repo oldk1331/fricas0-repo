@@ -2038,7 +2038,7 @@
 ; htSaySourceFile conname ==
 ;   sourceFileName := (GETDATABASE(conname,'SOURCEFILE) or '"none")
 ;   filename :=  extractFileNameFromPath sourceFileName
-;   htMakePage [['text,'"\unixcommand{",filename,'"}{_\$AXIOM/lib/SPADEDIT ",
+;   htMakePage [['text,'"\unixcommand{",filename,'"}{_\$FRICAS/lib/SPADEDIT ",
 ;               sourceFileName, '" ", conname, '"}"]]
  
 (DEFUN |htSaySourceFile| (|conname|)
@@ -2049,7 +2049,7 @@
       (SETQ |filename| (|extractFileNameFromPath| |sourceFileName|))
       (|htMakePage|
        (LIST
-        (LIST '|text| "\\unixcommand{" |filename| "}{\\$AXIOM/lib/SPADEDIT "
+        (LIST '|text| "\\unixcommand{" |filename| "}{\\$FRICAS/lib/SPADEDIT "
               |sourceFileName| " " |conname| "}")))))))
  
 ; htSayIndentRel(n) == htSayIndentRel2(n, false)

@@ -72,7 +72,7 @@
  
 ; buildHtMacroTable() ==
 ;   $htMacroTable := MAKE_HASHTABLE('UEQUAL)
-;   fn := CONCAT(getEnv '"AXIOM", '"/share/hypertex/pages/util.ht")
+;   fn := CONCAT(getEnv '"FRICAS", '"/share/hypertex/pages/util.ht")
 ;   if PROBE_-FILE(fn) then
 ;     instream := MAKE_INSTREAM(fn)
 ;     while not EOFP instream repeat
@@ -90,7 +90,7 @@
     (RETURN
      (PROGN
       (SETQ |$htMacroTable| (MAKE_HASHTABLE 'UEQUAL))
-      (SETQ |fn| (CONCAT (|getEnv| "AXIOM") "/share/hypertex/pages/util.ht"))
+      (SETQ |fn| (CONCAT (|getEnv| "FRICAS") "/share/hypertex/pages/util.ht"))
       (COND
        ((PROBE-FILE |fn|) (SETQ |instream| (MAKE_INSTREAM |fn|))
         ((LAMBDA ()

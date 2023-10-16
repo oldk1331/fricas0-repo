@@ -1685,17 +1685,17 @@
     (RETURN (PROGN (SETQ |$options| NIL) (LOCALDATABASE |args| |$options|)))))
  
 ; summary l ==
-;  OBEY STRCONC ('"cat ",getEnv('"AXIOM"),'"/lib/summary")
+;  OBEY STRCONC ('"cat ",getEnv('"FRICAS"),'"/lib/summary")
  
 (DEFUN |summary| (|l|)
-  (PROG () (RETURN (OBEY (STRCONC "cat " (|getEnv| "AXIOM") "/lib/summary")))))
+  (PROG () (RETURN (OBEY (STRCONC "cat " (|getEnv| "FRICAS") "/lib/summary")))))
  
 ; copyright () ==
-;  OBEY STRCONC ('"cat ",getEnv('"AXIOM"),'"/lib/copyright")
+;  OBEY STRCONC ('"cat ",getEnv('"FRICAS"),'"/lib/copyright")
  
 (DEFUN |copyright| ()
   (PROG ()
-    (RETURN (OBEY (STRCONC "cat " (|getEnv| "AXIOM") "/lib/copyright")))))
+    (RETURN (OBEY (STRCONC "cat " (|getEnv| "FRICAS") "/lib/copyright")))))
  
 ; credits() ==
 ;  for i in CREDITS repeat
@@ -2716,7 +2716,7 @@
 ;   null(helpFile := make_input_filename([narg, 'HELPSPAD])) => nil
 ; 
 ;   $useFullScreenHelp =>
-;     OBEY STRCONC('"$AXIOM/lib/SPADEDIT ",namestring helpFile)
+;     OBEY STRCONC('"$FRICAS/lib/SPADEDIT ",namestring helpFile)
 ;     true
 ; 
 ;   filestream := MAKE_INSTREAM(helpFile)
@@ -2751,7 +2751,7 @@
                (|$useFullScreenHelp|
                 (PROGN
                  (OBEY
-                  (STRCONC "$AXIOM/lib/SPADEDIT " (|namestring| |helpFile|)))
+                  (STRCONC "$FRICAS/lib/SPADEDIT " (|namestring| |helpFile|)))
                  T))
                (#1#
                 (PROGN

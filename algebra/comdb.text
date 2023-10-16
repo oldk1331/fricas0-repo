@@ -5660,7 +5660,7 @@
 644829`\spad{OMgetSymbol(dev)} reads a symbol from \spad{dev}.
 644906`\spad{OMgetType(dev)} returns the type of the next object on \spad{dev}.
 644958`\spad{OMgetVariable(dev)} reads a variable from \spad{dev}.
-645014`\spad{OMlistCDs()} lists all the \spad{CDs} supported by AXIOM.
+645014`\spad{OMlistCDs()} lists all the \spad{CDs} supported by FriCAS.
 645071`\spad{OMlistSymbols(cd)} lists all the symbols in \spad{cd}.
 645138`\spad{OMmakeConn}
 645202`\spad{OMopenFile(f,{} mode,{} enc)} opens file \spad{f} for reading or writing OpenMath objects (depending on \spad{mode} which can be \spad{"r"},{} \spad{"w"} or "a" for read,{} write and append respectively),{} in the encoding \spad{enc}.
@@ -5685,17 +5685,17 @@
 646258`\spad{OMputString(dev,{} i)} writes the string \spad{i} to \spad{dev}.
 646317`\spad{OMputSymbol(dev,{} cd,{} s)} writes the symbol \spad{s} from \spad{CD} \spad{cd} to \spad{dev}.
 646383`\spad{OMputVariable(dev,{} i)} writes the variable \spad{i} to \spad{dev}.
-646444`\spad{OMread(dev)} reads an OpenMath object from \spad{dev} and passes it to AXIOM.
+646444`\spad{OMread(dev)} reads an OpenMath object from \spad{dev} and passes it to FriCAS.
 646503`\spad{OMReadError?(u)} tests whether \spad{u} is an OpenMath read error.
-646562`\spad{OMreadFile(f)} reads an OpenMath object from \spad{f} and passes it to AXIOM.
-646617`\spad{OMreadStr(f)} reads an OpenMath object from \spad{f} and passes it to AXIOM.
-646671`\spad{OMreceive(c)} reads an OpenMath object from connection \spad{c} and returns the appropriate AXIOM object.
+646562`\spad{OMreadFile(f)} reads an OpenMath object from \spad{f} and passes it to FriCAS.
+646617`\spad{OMreadStr(f)} reads an OpenMath object from \spad{f} and passes it to FriCAS.
+646671`\spad{OMreceive(c)} reads an OpenMath object from connection \spad{c} and returns the appropriate FriCAS object.
 646743`\spad{OMsend(c,{} u)} attempts to output \spad{u} on \aciom{\spad{c}} in OpenMath.
-646817`\spad{OMserve(portnum,{} timeout)} puts AXIOM into server mode on port number \spad{portnum}. The parameter \spad{timeout} specifies the timeout period for the connection.
+646817`\spad{OMserve(portnum,{} timeout)} puts FriCAS into server mode on port number \spad{portnum}. The parameter \spad{timeout} specifies the timeout period for the connection.
 646897`\spad{OMsetEncoding(dev,{} enc)} sets the encoding used for reading or writing OpenMath objects to or from \spad{dev} to \spad{enc}.
-646968`\spad{OMsupportsCD?(cd)} returns \spad{true} if AXIOM supports \spad{cd},{} \spad{false} otherwise.
-647030`\spad{OMsupportsSymbol?(s,{} cd)} returns \spad{true} if AXIOM supports symbol \spad{s} from \spad{CD} \spad{cd},{} \spad{false} otherwise.
-647103`\spad{OMunhandledSymbol(s,{} cd)} raises an error if AXIOM reads a symbol which it is unable to handle. Note that this is different from an unexpected symbol.
+646968`\spad{OMsupportsCD?(cd)} returns \spad{true} if FriCAS supports \spad{cd},{} \spad{false} otherwise.
+647030`\spad{OMsupportsSymbol?(s,{} cd)} returns \spad{true} if FriCAS supports symbol \spad{s} from \spad{CD} \spad{cd},{} \spad{false} otherwise.
+647103`\spad{OMunhandledSymbol(s,{} cd)} raises an error if FriCAS reads a symbol which it is unable to handle. Note that this is different from an unexpected symbol.
 647173`\spad{OMUnknownCD?(u)} tests whether \spad{u} is an OpenMath unknown \spad{CD} error.
 647232`\spad{OMUnknownSymbol?(u)} tests whether \spad{u} is an OpenMath unknown symbol error.
 647337`\spad{OMwrite(u)} returns the OpenMath \spad{XML} encoding of \spad{u} as a complete OpenMath object.
@@ -8607,7 +8607,7 @@
 997648`\spadtype{GenerateUnivariatePowerSeries} provides functions that create power series from explicit formulas for their \spad{n}th coefficient.
 997777`\indented{1}{Author : \spad{P}.Gianni.} January 1990 The equation \spad{Af+Bg=h} and its generalization to \spad{n} polynomials is solved for solutions over the \spad{R},{} euclidean domain. A table containing the solutions of \spad{Af+Bg=x^k} is used. The operations are performed modulus a prime which are in principle big enough,{} but the solutions are tested and,{} in case of failure,{} a hensel lifting process is used to get to the right solutions. It will be used in the factorization of multivariate polynomials over finite field,{} with \spad{R=F[x]}.
 997876`This internal package rationalises integrands on curves of the form: \indented{2}{\spad{y\^2 = a x\^2 + b x + c}} \indented{2}{\spad{y\^2 = (a x + b) / (c x + d)}} \indented{2}{\spad{f(x,{} y) = 0} where \spad{f} has degree 1 in \spad{x}} The rationalization is done for integration,{} limited integration,{} extended integration and the risch differential equation.
-997996`This package provides support for gnuplot. These routines generate output files contain gnuplot scripts that may be processed directly by gnuplot. This is especially convenient in the axiom-wiki environment where gnuplot is called from LaTeX via gnuplottex.
+997996`This package provides support for gnuplot. These routines generate output files contain gnuplot scripts that may be processed directly by gnuplot. This is especially convenient in the fricas-wiki environment where gnuplot is called from LaTeX via gnuplottex.
 998032`Gosper\spad{'s} summation algorithm.
 998222`TwoDimensionalPlotSettings sets global flags and constants for 2-dimensional plotting.
 998267`GrayCode provides a function for efficiently running through all subsets of a finite set,{} only changing one element by another one.
@@ -8763,7 +8763,7 @@
 1014750`\indented{1}{This package provides tools for operating on one-dimensional arrays} with unary and binary functions involving different underlying types
 1014826`Lifting of maps to one-point completions. Date Created: 4 Oct 1989
 1014916`\spadtype{OpenMathPackage} provides some simple utilities to make reading OpenMath objects easier.
-1014960`\spadtype{OpenMathServerPackage} provides the necessary operations to run AXIOM as an OpenMath server,{} reading/writing objects to/from a port. Please note the facilities available here are very basic. The idea is that a user calls \spadignore{e.g.} \spad{Omserve(4000,{} 60)} and then another process sends OpenMath objects to port 4000 and reads the result.
+1014960`\spadtype{OpenMathServerPackage} provides the necessary operations to run FriCAS as an OpenMath server,{} reading/writing objects to/from a port. Please note the facilities available here are very basic. The idea is that a user calls \spadignore{e.g.} \spad{Omserve(4000,{} 60)} and then another process sends OpenMath objects to port 4000 and reads the result.
 1015013`This package exports tools to create FriCAS Library information databases.
 1015059`Lifting of maps to ordered completions. Date Created: 4 Oct 1989
 1015148`\indented{3}{This package provides ordering functions on vectors which} are suitable parameters for OrderedDirectProduct.

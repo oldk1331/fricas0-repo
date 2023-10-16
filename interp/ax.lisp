@@ -99,7 +99,7 @@
 ;         [[$foreignTag, ['Declare, 'dummyDefault, 'Exit], 'Lisp], :axForms]
 ;   axForms := APPEND(axDoLiterals(), axForms)
 ;   axForm := ['Sequence, _
-;                ['Import, [], 'AxiomLib], ['Import, [], 'Boolean], :axForms]
+;                ['Import, [], 'FriCASLib], ['Import, [], 'Boolean], :axForms]
 ;   axForm
  
 (DEFUN |makeAxExportForm| (|filename| |constructors|)
@@ -136,7 +136,7 @@
       (SETQ |axForms| (APPEND (|axDoLiterals|) |axForms|))
       (SETQ |axForm|
               (CONS '|Sequence|
-                    (CONS (LIST '|Import| NIL '|AxiomLib|)
+                    (CONS (LIST '|Import| NIL '|FriCASLib|)
                           (CONS (LIST '|Import| NIL '|Boolean|) |axForms|))))
       |axForm|))))
  

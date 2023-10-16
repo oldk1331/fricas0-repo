@@ -602,7 +602,7 @@
  
 ; setAsharpArgs arg ==
 ;   arg = "%initialize%" =>
-;     $asharpCmdlineFlags := '"-O -Fasy -Fao -Flsp -laxiom -Mno-ALDOR__W__WillObsolete -DAxiom -Y $AXIOM/algebra -I $AXIOM/algebra"
+;     $asharpCmdlineFlags := '"-O -Fasy -Fao -Flsp -lfricas -Mno-ALDOR__W__WillObsolete -DFriCAS -Y $FRICAS/algebra -I $FRICAS/algebra"
 ;   arg = "%display%" =>
 ;     $asharpCmdlineFlags
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
@@ -615,7 +615,7 @@
      (COND
       ((EQ |arg| '|%initialize%|)
        (SETQ |$asharpCmdlineFlags|
-               "-O -Fasy -Fao -Flsp -laxiom -Mno-ALDOR_W_WillObsolete -DAxiom -Y $AXIOM/algebra -I $AXIOM/algebra"))
+               "-O -Fasy -Fao -Flsp -lfricas -Mno-ALDOR_W_WillObsolete -DFriCAS -Y $FRICAS/algebra -I $FRICAS/algebra"))
       ((EQ |arg| '|%display%|) |$asharpCmdlineFlags|)
       ((OR (NULL |arg|) (EQ |arg| '|%describe%|) (EQ (CAR |arg|) '?))
        (|describeAsharpArgs|))

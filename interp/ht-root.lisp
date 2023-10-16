@@ -375,7 +375,7 @@
 ;   results := applyGrep(grepForm,'gloss)
 ;   --pathname := STRCONC('"/tmp/",PNAME resultFile,'".text.", getEnv '"SPADNUM")
 ;   --instream := MAKE_INSTREAM(pathname)
-;   defstream := MAKE_INSTREAM(STRCONC(getEnv '"AXIOM",
+;   defstream := MAKE_INSTREAM(STRCONC(getEnv '"FRICAS",
 ;                                      '"/algebra/glossdef.text"))
 ;   lines := gatherGlossLines(results,defstream)
 ;   -- OBEY STRCONC('"rm -f ", pathname)
@@ -423,7 +423,7 @@
               (SETQ |results| (|applyGrep| |grepForm| '|gloss|))
               (SETQ |defstream|
                       (MAKE_INSTREAM
-                       (STRCONC (|getEnv| "AXIOM") "/algebra/glossdef.text")))
+                       (STRCONC (|getEnv| "FRICAS") "/algebra/glossdef.text")))
               (SETQ |lines| (|gatherGlossLines| |results| |defstream|))
               (SETQ |heading|
                       (COND ((EQUAL |pattern| "") "Glossary")

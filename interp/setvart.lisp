@@ -41,7 +41,7 @@
 ;           STRING
 ;           $asharpCmdlineFlags
 ;           chkDirectory
-;           "-O -Fasy -Fao -Flsp -laxiom -Mno-ALDOR__W__WillObsolete -DAxiom -Y $AXIOM/algebra -I $AXIOM/algebra"))
+;           "-O -Fasy -Fao -Flsp -lfricas -Mno-ALDOR__W__WillObsolete -DFriCAS -Y $FRICAS/algebra -I $FRICAS/algebra"))
 ;        NIL)
 ;     ))
 ;   (expose
@@ -618,7 +618,7 @@
       (|args| "arguments for compiling FriCAS code" |interpreter| FUNCTION
        |setAsharpArgs|
        (("enter compiler options " STRING |$asharpCmdlineFlags| |chkDirectory|
-         "-O -Fasy -Fao -Flsp -laxiom -Mno-ALDOR_W_WillObsolete -DAxiom -Y $AXIOM/algebra -I $AXIOM/algebra"))
+         "-O -Fasy -Fao -Flsp -lfricas -Mno-ALDOR_W_WillObsolete -DFriCAS -Y $FRICAS/algebra -I $FRICAS/algebra"))
        NIL)))
     (|expose| "control interpreter constructor exposure" |interpreter| FUNCTION
      |setExpose| NIL |htSetExpose|)

@@ -3,7 +3,7 @@
         ((|u| |String|) (|v| |String|) ($ |Exit|))
         (|error|
          (SPADCALL
-          (LIST "AXIOM is unable to process the symbol " |u| " from CD " |v|
+          (LIST "FriCAS is unable to process the symbol " |u| " from CD " |v|
                 ".")
           (QREFELT $ 8)))) 
 

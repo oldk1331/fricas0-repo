@@ -114,7 +114,7 @@
 ;   if filename ~= '"" then
 ;     htSayStandard '"\newline{}"
 ;     htSay('"The source code for the constructor is found in ")
-;   htMakePage [['text,'"\unixcommand{",filename,'"}{_\$AXIOM/lib/SPADEDIT ",
+;   htMakePage [['text,'"\unixcommand{",filename,'"}{_\$FRICAS/lib/SPADEDIT ",
 ;               sourceFileName, '" ", name, '"}"]]
 ;   if nargs ~= 0 then htSay '"."
  
@@ -146,7 +146,7 @@
         (|htSay| "The source code for the constructor is found in ")))
       (|htMakePage|
        (LIST
-        (LIST '|text| "\\unixcommand{" |filename| "}{\\$AXIOM/lib/SPADEDIT "
+        (LIST '|text| "\\unixcommand{" |filename| "}{\\$FRICAS/lib/SPADEDIT "
               |sourceFileName| " " |name| "}")))
       (COND ((NOT (EQL |nargs| 0)) (|htSay| ".")))))))
  
@@ -2914,7 +2914,7 @@
 ;       isAsharpFileName? x => '("AS")
 ;       '("SPAD")
 ;     filename := NAMESTRING find_file(STRINGIMAGE x, ft)
-;     htMakePage [['text, '"\unixcommand{",PATHNAME_-NAME x, '"}{$AXIOM/lib/SPADEDIT ", filename, '"} "]]
+;     htMakePage [['text, '"\unixcommand{",PATHNAME_-NAME x, '"}{$FRICAS/lib/SPADEDIT ", filename, '"} "]]
 ;     htSay '"}"
 ;   htEndTable()
  
@@ -2940,7 +2940,7 @@
              (|htMakePage|
               (LIST
                (LIST '|text| "\\unixcommand{" (PATHNAME-NAME |x|)
-                     "}{$AXIOM/lib/SPADEDIT " |filename| "} ")))
+                     "}{$FRICAS/lib/SPADEDIT " |filename| "} ")))
              (|htSay| "}"))))
           (SETQ |bfVar#98| (CDR |bfVar#98|))))
        |u| NIL)

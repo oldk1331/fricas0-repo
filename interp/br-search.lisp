@@ -643,7 +643,7 @@
  
 ; grepSplit(lines,doc?) ==
 ;   if doc? then
-;     instream2 := OPEN STRCONC(getEnv '"AXIOM",'"/algebra/libdb.text")
+;     instream2 := OPEN STRCONC(getEnv '"FRICAS",'"/algebra/libdb.text")
 ;   cons := atts := doms := nil
 ;   while lines is [line, :lines] repeat
 ;     if doc? then
@@ -665,7 +665,7 @@
 ;       systemError 'kind
 ;   if doc? then CLOSE instream2
 ;   not(atts = []) => BREAK()
-;   [ 
+;   [
 ;      -- no attributes
 ;      -- ['"attribute",:NREVERSE atts],
 ;      ['"operation",:NREVERSE ops],
@@ -683,7 +683,7 @@
       (COND
        (|doc?|
         (SETQ |instream2|
-                (OPEN (STRCONC (|getEnv| "AXIOM") "/algebra/libdb.text")))))
+                (OPEN (STRCONC (|getEnv| "FRICAS") "/algebra/libdb.text")))))
       (SETQ CONS (SETQ |atts| (SETQ |doms| NIL)))
       ((LAMBDA ()
          (LOOP

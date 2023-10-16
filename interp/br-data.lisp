@@ -553,7 +553,7 @@
 ;   sname    := STRINGIMAGE conname
 ;   abb      := constructor? conname
 ;   ucname   := UPCASE STRINGIMAGE abb
-;   pathname :=STRCONC(getEnv '"AXIOM",'"/share/hypertex/pages/",ucname,'".ht")
+;   pathname :=STRCONC(getEnv '"FRICAS",'"/share/hypertex/pages/",ucname,'".ht")
 ;   isExistingFile pathname => INTERN STRCONC(sname,'"XmpPage")
 ;   nil
  
@@ -565,7 +565,7 @@
       (SETQ |abb| (|constructor?| |conname|))
       (SETQ |ucname| (UPCASE (STRINGIMAGE |abb|)))
       (SETQ |pathname|
-              (STRCONC (|getEnv| "AXIOM") "/share/hypertex/pages/" |ucname|
+              (STRCONC (|getEnv| "FRICAS") "/share/hypertex/pages/" |ucname|
                ".ht"))
       (COND
        ((|isExistingFile| |pathname|) (INTERN (STRCONC |sname| "XmpPage")))
@@ -573,7 +573,7 @@
  
 ; dbReadComments(n) ==
 ;   n = 0 => '""
-;   instream := MAKE_INSTREAM(STRCONC(getEnv('"AXIOM"), '"/algebra/comdb.text"))
+;   instream := MAKE_INSTREAM(STRCONC(getEnv('"FRICAS"), '"/algebra/comdb.text"))
 ;   FILE_-POSITION(instream,n)
 ;   line := read_line instream
 ;   k := dbTickIndex(line,1,1)
@@ -593,7 +593,7 @@
             (PROGN
              (SETQ |instream|
                      (MAKE_INSTREAM
-                      (STRCONC (|getEnv| "AXIOM") "/algebra/comdb.text")))
+                      (STRCONC (|getEnv| "FRICAS") "/algebra/comdb.text")))
              (FILE-POSITION |instream| |n|)
              (SETQ |line| (|read_line| |instream|))
              (SETQ |k| (|dbTickIndex| |line| 1 1))

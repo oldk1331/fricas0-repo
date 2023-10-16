@@ -3452,7 +3452,7 @@
 ;   (FUNCTIONP(opOf domain)) and (not(SYMBOLP(opOf domain))) and
 ;     (printfun := compiledLookup("<<",'(TextWriter TextWriter $), evalDomain domain))
 ;        and (textwrit := compiledLookup("print", '($), TextWriter())) =>
-;      sayMSGNT [:bright '"AXIOM-XL",'"output:   "]
+;      sayMSGNT [:bright '"Aldor",'"output:   "]
 ;      SPADCALL(SPADCALL textwrit, expr, printfun)
 ;      sayMSGNT '%l
 ; 
@@ -3501,7 +3501,7 @@
                       (|evalDomain| |domain|)))
              (SETQ |textwrit| (|compiledLookup| '|print| '($) (|TextWriter|))))
         (PROGN
-         (|sayMSGNT| (APPEND (|bright| "AXIOM-XL") (CONS "output:   " NIL)))
+         (|sayMSGNT| (APPEND (|bright| "Aldor") (CONS "output:   " NIL)))
          (SPADCALL (SPADCALL |textwrit|) |expr| |printfun|)
          (|sayMSGNT| '|%l|)))
        ((AND (CONSP |domain|) (EQ (CAR |domain|) '|Tuple|)
