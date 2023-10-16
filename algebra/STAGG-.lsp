@@ -219,8 +219,8 @@
               (56 . |concat!|) (62 . |concat|) (|List| $) (68 . |concat|)
               (73 . |setfirst!|) (79 . |rest|) (84 . |fill!|) (90 . |setelt!|)
               (97 . |maxIndex|) (102 . |eq?|) (108 . |setelt!|) (115 . |tail|)
-              (120 . |setrest!|) (126 . |concat!|) '#1="last" '#2="first"
-              '#3="rest" '#4="value")
+              (120 . |setrest!|) (126 . |concat!|) '#1="last" '#2="rest"
+              '#3="first" '#4="value")
            '#(|setelt!| 132 |possiblyInfinite?| 146 |fill!| 151
               |explicitlyFinite?| 157 |elt| 162 |concat!| 174 |concat| 180)
            'NIL
@@ -246,13 +246,14 @@
                                   |#2|))
                                 T)
                               '((|setelt!| (|#2| |#1| #1# |#2|)) T)
-                              '((|setelt!| (|#1| |#1| #3# |#1|)) T)
-                              '((|setelt!| (|#2| |#1| #2# |#2|)) T)
+                              '((|setelt!| (|#1| |#1| #2# |#1|)) T)
+                              '((|setelt!| (|#2| |#1| #3# |#2|)) T)
+                              '((|concat!| (|#1| (|List| |#1|))) T)
                               '((|concat!| (|#1| |#1| |#2|)) T)
                               '((|concat!| (|#1| |#1| |#1|)) T)
                               '((|elt| (|#2| |#1| #1#)) T)
-                              '((|elt| (|#1| |#1| #3#)) T)
-                              '((|elt| (|#2| |#1| #2#)) T)
+                              '((|elt| (|#1| |#1| #2#)) T)
+                              '((|elt| (|#2| |#1| #3#)) T)
                               '((|concat| (|#1| |#2| |#1|)) T)
                               '((|concat| (|#1| |#1| |#1|)) T)
                               '((|setelt!| (|#2| |#1| #4# |#2|)) T)
