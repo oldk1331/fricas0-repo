@@ -168,17 +168,7 @@
                                                 ((|rationalPoints|
                                                   ((|List| (|List| |t#1|))))
                                                  (|has| |t#1| (|Finite|))))
-                                              NIL
-                                              '((|List| (|List| |t#1|))
-                                                (|List| (|Polynomial| |t#1|))
-                                                (|Symbol|) (|Vector| |t#2|)
-                                                (|Boolean|)
-                                                (|Matrix| (|Fraction| |t#2|))
-                                                (|Vector| $)
-                                                (|NonNegativeInteger|))
-                                              NIL))
+                                              NIL NIL NIL))
                                             . #3=(|FunctionFieldCategory|))))))
                    . #3#)
-           (SETELT #1# 0
-                   (LIST '|FunctionFieldCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|) (|devaluate| |t#3|)))))) 
+           (SETELT #1# 0 (LIST '|FunctionFieldCategory| |t#1| |t#2| |t#3|))))) 

@@ -8,8 +8,7 @@
 
 (DEFUN |unitsKnown;| ()
   (SPROG ((#1=#:G104 NIL))
-         (PROG1
-             (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL)) |unitsKnown|)
+         (PROG1 (LETT #1# (|Join| (|mkCategory| NIL NIL NIL NIL)) |unitsKnown|)
            (SETELT #1# 0 '(|unitsKnown|))))) 
 
 (MAKEPROP '|unitsKnown| 'NILADIC T) 

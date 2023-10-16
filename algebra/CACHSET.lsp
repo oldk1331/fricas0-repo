@@ -16,7 +16,7 @@
                               ((|setPosition|
                                 ((|Void|) $ (|NonNegativeInteger|)))
                                T))
-                            NIL '((|Void|) (|NonNegativeInteger|)) NIL))
+                            NIL NIL NIL))
                    |CachableSet|)
            (SETELT #1# 0 '(|CachableSet|))))) 
 

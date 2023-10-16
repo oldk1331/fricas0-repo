@@ -45,94 +45,6 @@
       ($LISPLIB (|rwrite| |key| |form| |$libFile|)
        (|output_lisp_form| |form|))))))
  
-; unInstantiate(clist) ==
-;   for c in clist repeat
-;     clearConstructorCache(c)
-;   killNestedInstantiations(clist)
- 
-(DEFUN |unInstantiate| (|clist|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      ((LAMBDA (|bfVar#1| |c|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#1|) (PROGN (SETQ |c| (CAR |bfVar#1|)) NIL))
-            (RETURN NIL))
-           ('T (|clearConstructorCache| |c|)))
-          (SETQ |bfVar#1| (CDR |bfVar#1|))))
-       |clist| NIL)
-      (|killNestedInstantiations| |clist|)))))
- 
-; killNestedInstantiations(deps) ==
-;   for key in HKEYS($ConstructorCache)
-;     repeat
-;       for [arg,count,:inst] in HGET($ConstructorCache,key) repeat
-;         isNestedInstantiation(inst.0,deps) =>
-;           HREMPROP($ConstructorCache,key,arg)
- 
-(DEFUN |killNestedInstantiations| (|deps|)
-  (PROG (|arg| |ISTMP#1| |count| |inst|)
-    (RETURN
-     ((LAMBDA (|bfVar#2| |key|)
-        (LOOP
-         (COND
-          ((OR (ATOM |bfVar#2|) (PROGN (SETQ |key| (CAR |bfVar#2|)) NIL))
-           (RETURN NIL))
-          (#1='T
-           ((LAMBDA (|bfVar#4| |bfVar#3|)
-              (LOOP
-               (COND
-                ((OR (ATOM |bfVar#4|)
-                     (PROGN (SETQ |bfVar#3| (CAR |bfVar#4|)) NIL))
-                 (RETURN NIL))
-                (#1#
-                 (AND (CONSP |bfVar#3|)
-                      (PROGN
-                       (SETQ |arg| (CAR |bfVar#3|))
-                       (SETQ |ISTMP#1| (CDR |bfVar#3|))
-                       (AND (CONSP |ISTMP#1|)
-                            (PROGN
-                             (SETQ |count| (CAR |ISTMP#1|))
-                             (SETQ |inst| (CDR |ISTMP#1|))
-                             #1#)))
-                      (COND
-                       ((|isNestedInstantiation| (ELT |inst| 0) |deps|)
-                        (IDENTITY
-                         (HREMPROP |$ConstructorCache| |key| |arg|)))))))
-               (SETQ |bfVar#4| (CDR |bfVar#4|))))
-            (HGET |$ConstructorCache| |key|) NIL)))
-         (SETQ |bfVar#2| (CDR |bfVar#2|))))
-      (HKEYS |$ConstructorCache|) NIL))))
- 
-; isNestedInstantiation(form,deps) ==
-;   form is [op,:argl] =>
-;     op in deps => true
-;     or/[isNestedInstantiation(x,deps) for x in argl]
-;   false
- 
-(DEFUN |isNestedInstantiation| (|form| |deps|)
-  (PROG (|op| |argl|)
-    (RETURN
-     (COND
-      ((AND (CONSP |form|)
-            (PROGN (SETQ |op| (CAR |form|)) (SETQ |argl| (CDR |form|)) #1='T))
-       (COND ((|member| |op| |deps|) T)
-             (#1#
-              ((LAMBDA (|bfVar#6| |bfVar#5| |x|)
-                 (LOOP
-                  (COND
-                   ((OR (ATOM |bfVar#5|)
-                        (PROGN (SETQ |x| (CAR |bfVar#5|)) NIL))
-                    (RETURN |bfVar#6|))
-                   (#1#
-                    (PROGN
-                     (SETQ |bfVar#6| (|isNestedInstantiation| |x| |deps|))
-                     (COND (|bfVar#6| (RETURN |bfVar#6|))))))
-                  (SETQ |bfVar#5| (CDR |bfVar#5|))))
-               NIL |argl| NIL))))
-      (#1# NIL)))))
- 
 ; loadLibIfNotLoaded libName ==
 ;   -- replaces old SpadCondLoad
 ;   -- loads is library is not already loaded
@@ -205,17 +117,17 @@
                    (PROGN
                     (SETQ |sig| (CDAR |u|))
                     (CONS NIL
-                          ((LAMBDA (|bfVar#8| |bfVar#7| |x|)
+                          ((LAMBDA (|bfVar#2| |bfVar#1| |x|)
                              (LOOP
                               (COND
-                               ((OR (ATOM |bfVar#7|)
-                                    (PROGN (SETQ |x| (CAR |bfVar#7|)) NIL))
-                                (RETURN (NREVERSE |bfVar#8|)))
+                               ((OR (ATOM |bfVar#1|)
+                                    (PROGN (SETQ |x| (CAR |bfVar#1|)) NIL))
+                                (RETURN (NREVERSE |bfVar#2|)))
                                (#1#
-                                (SETQ |bfVar#8|
+                                (SETQ |bfVar#2|
                                         (CONS (|categoryForm?| |x|)
-                                              |bfVar#8|))))
-                              (SETQ |bfVar#7| (CDR |bfVar#7|))))
+                                              |bfVar#2|))))
+                              (SETQ |bfVar#1| (CDR |bfVar#1|))))
                            NIL (CDR |sig|) NIL))))
                   (#1# NIL)))
          (COND
@@ -324,44 +236,43 @@
 (DEFUN |convertOpAlist2compilerInfo| (|opalist|)
   (PROG (|op| |siglist|)
     (RETURN
-     ((LAMBDA (|bfVar#13| |bfVar#12| |bfVar#11|)
+     ((LAMBDA (|bfVar#7| |bfVar#6| |bfVar#5|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#12|)
-               (PROGN (SETQ |bfVar#11| (CAR |bfVar#12|)) NIL))
-           (RETURN |bfVar#13|))
+          ((OR (ATOM |bfVar#6|) (PROGN (SETQ |bfVar#5| (CAR |bfVar#6|)) NIL))
+           (RETURN |bfVar#7|))
           (#1='T
-           (AND (CONSP |bfVar#11|)
+           (AND (CONSP |bfVar#5|)
                 (PROGN
-                 (SETQ |op| (CAR |bfVar#11|))
-                 (SETQ |siglist| (CDR |bfVar#11|))
+                 (SETQ |op| (CAR |bfVar#5|))
+                 (SETQ |siglist| (CDR |bfVar#5|))
                  #1#)
-                (SETQ |bfVar#13|
-                        (APPEND |bfVar#13|
-                                ((LAMBDA (|bfVar#10| |bfVar#9| |sig|)
+                (SETQ |bfVar#7|
+                        (APPEND |bfVar#7|
+                                ((LAMBDA (|bfVar#4| |bfVar#3| |sig|)
                                    (LOOP
                                     (COND
-                                     ((OR (ATOM |bfVar#9|)
+                                     ((OR (ATOM |bfVar#3|)
                                           (PROGN
-                                           (SETQ |sig| (CAR |bfVar#9|))
+                                           (SETQ |sig| (CAR |bfVar#3|))
                                            NIL))
-                                      (RETURN (NREVERSE |bfVar#10|)))
+                                      (RETURN (NREVERSE |bfVar#4|)))
                                      (#1#
-                                      (SETQ |bfVar#10|
+                                      (SETQ |bfVar#4|
                                               (CONS
                                                (|convertOpAlist2compilerInfo,formatSig|
                                                 |op| |sig|)
-                                               |bfVar#10|))))
-                                    (SETQ |bfVar#9| (CDR |bfVar#9|))))
+                                               |bfVar#4|))))
+                                    (SETQ |bfVar#3| (CDR |bfVar#3|))))
                                  NIL |siglist| NIL))))))
-         (SETQ |bfVar#12| (CDR |bfVar#12|))))
+         (SETQ |bfVar#6| (CDR |bfVar#6|))))
       NIL |opalist| NIL))))
-(DEFUN |convertOpAlist2compilerInfo,formatSig| (|op| |bfVar#14|)
+(DEFUN |convertOpAlist2compilerInfo,formatSig| (|op| |bfVar#8|)
   (PROG (|typelist| |slot| |stuff| |pred| |impl|)
     (RETURN
      (PROGN
-      (SETQ |typelist| (CAR |bfVar#14|))
-      (SETQ |slot| (CADR . #1=(|bfVar#14|)))
+      (SETQ |typelist| (CAR |bfVar#8|))
+      (SETQ |slot| (CADR . #1=(|bfVar#8|)))
       (SETQ |stuff| (CDDR . #1#))
       (SETQ |pred| (COND (|stuff| (CAR |stuff|)) (#2='T 'T)))
       (SETQ |impl| (COND ((CDR |stuff|) (CADR |stuff|)) (#2# 'ELT)))
@@ -436,10 +347,10 @@
 (DEFUN |makeConstructorsAutoLoad| ()
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#15| |cnam|)
+     ((LAMBDA (|bfVar#9| |cnam|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#15|) (PROGN (SETQ |cnam| (CAR |bfVar#15|)) NIL))
+          ((OR (ATOM |bfVar#9|) (PROGN (SETQ |cnam| (CAR |bfVar#9|)) NIL))
            (RETURN NIL))
           (#1='T
            (PROGN
@@ -447,7 +358,7 @@
             (COND ((GETDATABASE |cnam| 'NILADIC) (PUT |cnam| 'NILADIC 'T))
                   (#1# (REMPROP |cnam| 'NILADIC)))
             (|systemDependentMkAutoload| |cnam| |cnam|))))
-         (SETQ |bfVar#15| (CDR |bfVar#15|))))
+         (SETQ |bfVar#9| (CDR |bfVar#9|))))
       (|allConstructors|) NIL))))
  
 ; systemDependentMkAutoload(fn,cnam) ==
@@ -650,8 +561,8 @@
 ;   lisplibWrite('"constructorCategory",$lisplibCategory,$libFile)
 ;   lisplibWrite('"sourceFile", namestring($edit_file), $libFile)
 ;   lisplibWrite('"modemaps",removeZeroOne $lisplibModemapAlist,$libFile)
-;   opsAndAtts:= getConstructorOpsAndAtts($lisplibForm, kind)
-;   lisplibWrite('"operationAlist", removeZeroOne first opsAndAtts, $libFile)
+;   ops := getConstructorOps($lisplibForm, kind)
+;   lisplibWrite('"operationAlist", removeZeroOne ops, $libFile)
 ;   lisplibWrite('"superDomain",removeZeroOne $lisplibSuperDomain,$libFile)
 ;   lisplibWrite('"predicates",removeZeroOne  $lisplibPredicates,$libFile)
 ;   lisplibWrite('"abbreviation",$lisplibAbbreviation,$libFile)
@@ -662,7 +573,7 @@
 ;     MAKEPROP(first $lisplibForm, 'NILADIC, 'T)
  
 (DEFUN |finalizeLisplib| (|libName|)
-  (PROG (|kind| |opsAndAtts|)
+  (PROG (|kind| |ops|)
     (RETURN
      (PROGN
       (|lisplibWrite| "constructorForm" (|removeZeroOne| |$lisplibForm|)
@@ -677,9 +588,8 @@
       (|lisplibWrite| "sourceFile" (|namestring| |$edit_file|) |$libFile|)
       (|lisplibWrite| "modemaps" (|removeZeroOne| |$lisplibModemapAlist|)
        |$libFile|)
-      (SETQ |opsAndAtts| (|getConstructorOpsAndAtts| |$lisplibForm| |kind|))
-      (|lisplibWrite| "operationAlist" (|removeZeroOne| (CAR |opsAndAtts|))
-       |$libFile|)
+      (SETQ |ops| (|getConstructorOps| |$lisplibForm| |kind|))
+      (|lisplibWrite| "operationAlist" (|removeZeroOne| |ops|) |$libFile|)
       (|lisplibWrite| "superDomain" (|removeZeroOne| |$lisplibSuperDomain|)
        |$libFile|)
       (|lisplibWrite| "predicates" (|removeZeroOne| |$lisplibPredicates|)
@@ -737,32 +647,30 @@
      (COND ((SETQ |s| (|getConstructorSignature| |c|)) (CDR |s|))
            ('T (|throwEvalTypeMsg| 'S2IL0015 (LIST |c|)))))))
  
-; getConstructorOpsAndAtts(form, kind) ==
-;   kind is 'category => getCategoryOpsAndAtts(form)
-;   getFunctorOpsAndAtts(form)
+; getConstructorOps(form, kind) ==
+;     kind is 'category => getCategoryOps(form)
+;     getFunctorOps(form)
  
-(DEFUN |getConstructorOpsAndAtts| (|form| |kind|)
+(DEFUN |getConstructorOps| (|form| |kind|)
   (PROG ()
     (RETURN
-     (COND ((EQ |kind| '|category|) (|getCategoryOpsAndAtts| |form|))
-           ('T (|getFunctorOpsAndAtts| |form|))))))
+     (COND ((EQ |kind| '|category|) (|getCategoryOps| |form|))
+           ('T (|getFunctorOps| |form|))))))
  
-; getCategoryOpsAndAtts(catForm) ==
-;   -- returns [operations, :attributes] of first catForm
-;   [transformOperationAlist getSlot1FromCategoryForm(catForm)]
+; getCategoryOps(catForm) ==
+;     -- returns operations of first catForm
+;     transformOperationAlist getSlot1FromCategoryForm(catForm)
  
-(DEFUN |getCategoryOpsAndAtts| (|catForm|)
+(DEFUN |getCategoryOps| (|catForm|)
   (PROG ()
     (RETURN
-     (LIST
-      (|transformOperationAlist| (|getSlot1FromCategoryForm| |catForm|))))))
+     (|transformOperationAlist| (|getSlot1FromCategoryForm| |catForm|)))))
  
-; getFunctorOpsAndAtts(form) ==
-;   [transformOperationAlist $lisplibOperationAlist]
+; getFunctorOps(form) ==
+;     transformOperationAlist $lisplibOperationAlist
  
-(DEFUN |getFunctorOpsAndAtts| (|form|)
-  (PROG ()
-    (RETURN (LIST (|transformOperationAlist| |$lisplibOperationAlist|)))))
+(DEFUN |getFunctorOps| (|form|)
+  (PROG () (RETURN (|transformOperationAlist| |$lisplibOperationAlist|))))
  
 ; transformOperationAlist operationAlist ==
 ;   --  this transforms the operationAlist which is written out onto LISPLIBs.
@@ -801,16 +709,16 @@
     (RETURN
      (PROGN
       (SETQ |newAlist| NIL)
-      ((LAMBDA (|bfVar#17| |bfVar#16|)
+      ((LAMBDA (|bfVar#11| |bfVar#10|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#17|)
-                (PROGN (SETQ |bfVar#16| (CAR |bfVar#17|)) NIL))
+           ((OR (ATOM |bfVar#11|)
+                (PROGN (SETQ |bfVar#10| (CAR |bfVar#11|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#16|)
+            (AND (CONSP |bfVar#10|)
                  (PROGN
-                  (SETQ |ISTMP#1| (CAR |bfVar#16|))
+                  (SETQ |ISTMP#1| (CAR |bfVar#10|))
                   (AND (CONSP |ISTMP#1|)
                        (PROGN
                         (SETQ |op| (CAR |ISTMP#1|))
@@ -818,7 +726,7 @@
                         (AND (CONSP |ISTMP#2|)
                              (PROGN (SETQ |sig| (CAR |ISTMP#2|)) #1#)))))
                  (PROGN
-                  (SETQ |ISTMP#3| (CDR |bfVar#16|))
+                  (SETQ |ISTMP#3| (CDR |bfVar#10|))
                   (AND (CONSP |ISTMP#3|)
                        (PROGN
                         (SETQ |condition| (CAR |ISTMP#3|))
@@ -873,7 +781,7 @@
                           (|insert| |signatureItem| (QLASSQ |op| |newAlist|)))
                   (SETQ |newAlist|
                           (|insertAlist| |op| |itemList| |newAlist|))))))
-          (SETQ |bfVar#17| (CDR |bfVar#17|))))
+          (SETQ |bfVar#11| (CDR |bfVar#11|))))
        |operationAlist| NIL)
       |newAlist|))))
  
@@ -937,12 +845,12 @@
 ;     systemErrorHere '"getSlot1FromCategoryForm"
 ;   u.1
  
-(DEFUN |getSlot1FromCategoryForm| (|bfVar#18|)
+(DEFUN |getSlot1FromCategoryForm| (|bfVar#12|)
   (PROG (|op| |argl| |u|)
     (RETURN
      (PROGN
-      (SETQ |op| (CAR |bfVar#18|))
-      (SETQ |argl| (CDR |bfVar#18|))
+      (SETQ |op| (CAR |bfVar#12|))
+      (SETQ |argl| (CDR |bfVar#12|))
       (SETQ |u|
               (|eval|
                (CONS |op|
@@ -958,15 +866,11 @@
 ;         nargs := [mkEvalableCategoryForm(x, e) or return nil for x in argl]
 ;         nargs => ["Join", :nargs]
 ;     op is "DomainSubstitutionMacro" =>
-;         --$extraParms :local
-;         --catobj := EVAL c -- DomainSubstitutionFunction makes $extraParms
-;         --mkEvalableCategoryForm sublisV($extraParms, catobj)
 ;         mkEvalableCategoryForm(CADR argl, e)
 ;     op is "mkCategory" => c
 ;     MEMQ(op,$CategoryNames) =>
 ;         [x, m, e] := compOrCroak(c, $EmptyMode, e)
 ;         m=$Category => optFunctorBody x
-;     --loadIfNecessary op
 ;     GETDATABASE(op,'CONSTRUCTORKIND) = 'category or
 ;       get(op,"isCategory",$CategoryFrame) =>
 ;         [op,:[quotifyCategoryArgument x for x in argl]]
@@ -984,19 +888,19 @@
         ((EQ |op| '|Join|)
          (PROGN
           (SETQ |nargs|
-                  ((LAMBDA (|bfVar#20| |bfVar#19| |x|)
+                  ((LAMBDA (|bfVar#14| |bfVar#13| |x|)
                      (LOOP
                       (COND
-                       ((OR (ATOM |bfVar#19|)
-                            (PROGN (SETQ |x| (CAR |bfVar#19|)) NIL))
-                        (RETURN (NREVERSE |bfVar#20|)))
+                       ((OR (ATOM |bfVar#13|)
+                            (PROGN (SETQ |x| (CAR |bfVar#13|)) NIL))
+                        (RETURN (NREVERSE |bfVar#14|)))
                        (#1#
-                        (SETQ |bfVar#20|
+                        (SETQ |bfVar#14|
                                 (CONS
                                  (OR (|mkEvalableCategoryForm| |x| |e|)
                                      (RETURN NIL))
-                                 |bfVar#20|))))
-                      (SETQ |bfVar#19| (CDR |bfVar#19|))))
+                                 |bfVar#14|))))
+                      (SETQ |bfVar#13| (CDR |bfVar#13|))))
                    NIL |argl| NIL))
           (COND (|nargs| (CONS '|Join| |nargs|)))))
         ((EQ |op| '|DomainSubstitutionMacro|)
@@ -1012,17 +916,17 @@
         ((OR (EQ (GETDATABASE |op| 'CONSTRUCTORKIND) '|category|)
              (|get| |op| '|isCategory| |$CategoryFrame|))
          (CONS |op|
-               ((LAMBDA (|bfVar#22| |bfVar#21| |x|)
+               ((LAMBDA (|bfVar#16| |bfVar#15| |x|)
                   (LOOP
                    (COND
-                    ((OR (ATOM |bfVar#21|)
-                         (PROGN (SETQ |x| (CAR |bfVar#21|)) NIL))
-                     (RETURN (NREVERSE |bfVar#22|)))
+                    ((OR (ATOM |bfVar#15|)
+                         (PROGN (SETQ |x| (CAR |bfVar#15|)) NIL))
+                     (RETURN (NREVERSE |bfVar#16|)))
                     (#1#
-                     (SETQ |bfVar#22|
+                     (SETQ |bfVar#16|
                              (CONS (|quotifyCategoryArgument| |x|)
-                                   |bfVar#22|))))
-                   (SETQ |bfVar#21| (CDR |bfVar#21|))))
+                                   |bfVar#16|))))
+                   (SETQ |bfVar#15| (CDR |bfVar#15|))))
                 NIL |argl| NIL)))
         (#1#
          (PROGN

@@ -18,10 +18,7 @@
                                            ((|HashState|) (|HashState|) $))
                                           T)
                                          ((|latex| ((|String|) $)) T))
-                                       NIL
-                                       '((|String|) (|HashState|)
-                                         (|SingleInteger|))
-                                       NIL)))
+                                       NIL NIL NIL)))
                    |SetCategory|)
            (SETELT #1# 0 '(|SetCategory|))))) 
 

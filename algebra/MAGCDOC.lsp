@@ -46,12 +46,7 @@
                         ((|repack1|
                           ((|Void|) |t#2| (|U32Vector|) (|Integer|) |t#3|))
                          T))
-                      NIL
-                      '((|Void|) (|U32Vector|) (|Integer|)
-                        (|SortedExponentVector|) (|Boolean|) (|Symbol|)
-                        (|List| (|Symbol|)) (|List| |t#1|))
-                      NIL)))
+                      NIL NIL NIL)))
                    |ModularAlgebraicGcdOperations|)
            (SETELT #1# 0
-                   (LIST '|ModularAlgebraicGcdOperations| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|) (|devaluate| |t#3|)))))) 
+                   (LIST '|ModularAlgebraicGcdOperations| |t#1| |t#2| |t#3|))))) 

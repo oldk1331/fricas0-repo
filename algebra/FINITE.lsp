@@ -18,10 +18,7 @@
                                          ((|lookup| ((|PositiveInteger|) $)) T)
                                          ((|random| ($)) T)
                                          ((|enumerate| ((|List| $))) T))
-                                       NIL
-                                       '((|List| $) (|PositiveInteger|)
-                                         (|NonNegativeInteger|))
-                                       NIL)))
+                                       NIL NIL NIL)))
                    |Finite|)
            (SETELT #1# 0 '(|Finite|))))) 
 

@@ -12,7 +12,7 @@
          (PROG1
              (LETT #1#
                    (|Join| (|MeetSemilattice|)
-                           (|mkCategory| '(((T$ ($) |constant|) T)) NIL 'NIL
+                           (|mkCategory| '(((T$ ($) |constant|) T)) NIL NIL
                                          NIL))
                    |BoundedMeetSemilattice|)
            (SETELT #1# 0 '(|BoundedMeetSemilattice|))))) 

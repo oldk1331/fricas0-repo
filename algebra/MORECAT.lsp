@@ -37,6 +37,5 @@
                                  . #2=(|MultivariateSkewPolynomialCategory|)))))
                    . #2#)
            (SETELT #1# 0
-                   (LIST '|MultivariateSkewPolynomialCategory|
-                         (|devaluate| |t#1|) (|devaluate| |t#2|)
-                         (|devaluate| |t#3|)))))) 
+                   (LIST '|MultivariateSkewPolynomialCategory| |t#1| |t#2|
+                         |t#3|))))) 

@@ -15,7 +15,7 @@
                            (|mkCategory|
                             '(((|associator| ($ $ $ $)) T)
                               ((|commutator| ($ $ $)) T))
-                            NIL 'NIL NIL))
+                            NIL NIL NIL))
                    |NonAssociativeRng|)
            (SETELT #1# 0 '(|NonAssociativeRng|))))) 
 

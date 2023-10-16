@@ -26,6 +26,4 @@
                                                    (|Coalgebra| '|t#1| '|t#2|))
                                            . #2=(|Bialgebra|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|Bialgebra| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|Bialgebra| |t#1| |t#2|))))) 

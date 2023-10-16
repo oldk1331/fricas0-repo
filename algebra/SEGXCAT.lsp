@@ -36,9 +36,7 @@
                                                                     |t#1|)
                                                          $))
                                                        T))
-                                                    NIL '((|List| $)) NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|SegmentExpansionCategory|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|SegmentExpansionCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|SegmentExpansionCategory| |t#1| |t#2|))))) 

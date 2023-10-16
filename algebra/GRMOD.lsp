@@ -32,9 +32,7 @@
                                                       ((- ($ $)) T)
                                                       ((+ ($ $ $)) T)
                                                       ((- ($ $ $)) T))
-                                                    NIL 'NIL NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|GradedModule|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|GradedModule| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|GradedModule| |t#1| |t#2|))))) 

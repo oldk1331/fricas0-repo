@@ -333,37 +333,7 @@
                                                                     (|Integer|)))
                                                             (|has| |t#1|
                                                                    (|IntegralDomain|)))))
-                                                        '((|Fraction|
-                                                           (|SparseUnivariatePolynomial|
-                                                            $))
-                                                          (|Kernel| $)
-                                                          (|Fraction|
-                                                           (|Polynomial|
-                                                            (|Fraction|
-                                                             |t#1|)))
-                                                          (|Polynomial|
-                                                           (|Fraction| |t#1|))
-                                                          (|Fraction| |t#1|)
-                                                          (|SparseMultivariatePolynomial|
-                                                           |t#1| (|Kernel| $))
-                                                          (|Factored| $)
-                                                          (|List| (|Kernel| $))
-                                                          (|List| $) (|Symbol|)
-                                                          (|NonNegativeInteger|)
-                                                          (|List| (|Symbol|))
-                                                          (|List|
-                                                           (|NonNegativeInteger|))
-                                                          (|List|
-                                                           (|Mapping| $
-                                                                      (|List|
-                                                                       $)))
-                                                          (|List|
-                                                           (|Mapping| $ $))
-                                                          (|BasicOperator|)
-                                                          (|List|
-                                                           (|BasicOperator|))
-                                                          (|Boolean|))
-                                                        NIL))
+                                                        NIL NIL))
                                                       . #3=(|FunctionSpace|))))))
                    . #3#)
-           (SETELT #1# 0 (LIST '|FunctionSpace| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|FunctionSpace| |t#1|))))) 

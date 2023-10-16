@@ -22,10 +22,7 @@
                                            (|:| |code|
                                                 (|List| (|FortranCode|))))))
                                T))
-                            NIL
-                            '((|FortranCode|) (|List| (|FortranCode|))
-                              (|Vector| (|MachineFloat|)))
-                            NIL))
+                            NIL NIL NIL))
                    |FortranVectorCategory|)
            (SETELT #1# 0 '(|FortranVectorCategory|))))) 
 

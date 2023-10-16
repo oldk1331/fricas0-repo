@@ -112,15 +112,7 @@
                                         (|NonNegativeInteger|)
                                         (|Union| |t#1| "one")))
                                       T))
-                                   NIL
-                                   '((|Void|) (|Integer|)
-                                     (|List| (|List| (|NonNegativeInteger|)))
-                                     (|List| $) (|NonNegativeInteger|)
-                                     (|List| |t#3|) (|List| |t#1|)
-                                     (|List| (|List| |t#1|)) (|Boolean|))
-                                   NIL))
+                                   NIL NIL NIL))
                                  . #2=(|MatrixCategory|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|MatrixCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|) (|devaluate| |t#3|)))))) 
+           (SETELT #1# 0 (LIST '|MatrixCategory| |t#1| |t#2| |t#3|))))) 

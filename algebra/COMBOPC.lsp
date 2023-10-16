@@ -19,7 +19,7 @@
                               ((|summation| ($ $ (|SegmentBinding| $))) T)
                               ((|product| ($ $ (|Symbol|))) T)
                               ((|product| ($ $ (|SegmentBinding| $))) T))
-                            NIL '((|SegmentBinding| $) (|Symbol|)) NIL))
+                            NIL NIL NIL))
                    |CombinatorialOpsCategory|)
            (SETELT #1# 0 '(|CombinatorialOpsCategory|))))) 
 

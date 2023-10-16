@@ -10,7 +10,7 @@
 (DEFUN |canonicalsClosed;| ()
   (SPROG ((#1=#:G104 NIL))
          (PROG1
-             (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))
+             (LETT #1# (|Join| (|mkCategory| NIL NIL NIL NIL))
                    |canonicalsClosed|)
            (SETELT #1# 0 '(|canonicalsClosed|))))) 
 

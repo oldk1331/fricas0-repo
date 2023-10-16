@@ -3,20 +3,20 @@
  
 (IN-PACKAGE "BOOT")
  
-; getInfovecCode() ==
+; getInfovecCode(NRTslot1Info) ==
 ; --Function called by compDefineFunctor1 to create infovec at compile time
 ;   ['LIST,
 ;     MKQ makeDomainTemplate $template,
-;       MKQ makeCompactDirect $NRTslot1Info,
+;       MKQ makeCompactDirect NRTslot1Info,
 ;         MKQ [],
 ;           NRTmakeCategoryAlist(),
 ;             MKQ $lookupFunction]
  
-(DEFUN |getInfovecCode| ()
+(DEFUN |getInfovecCode| (|NRTslot1Info|)
   (PROG ()
     (RETURN
      (LIST 'LIST (MKQ (|makeDomainTemplate| |$template|))
-           (MKQ (|makeCompactDirect| |$NRTslot1Info|)) (MKQ NIL)
+           (MKQ (|makeCompactDirect| |NRTslot1Info|)) (MKQ NIL)
            (|NRTmakeCategoryAlist|) (MKQ |$lookupFunction|)))))
  
 ; makeDomainTemplate vec ==

@@ -46,10 +46,7 @@
                                                       ((|union| ($ $ |t#1|)) T)
                                                       ((|union| ($ |t#1| $))
                                                        T))
-                                                    NIL
-                                                    '((|Boolean|)
-                                                      (|List| |t#1|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|SetAggregate|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|SetAggregate| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|SetAggregate| |t#1|))))) 

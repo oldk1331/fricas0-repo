@@ -15,9 +15,7 @@
                             '(((|getMult| ((|Integer|) $)) T)
                               ((|order| ((|NonNegativeInteger|) $)) T)
                               ((|empty?| ((|Boolean|) $)) T))
-                            NIL
-                            '((|Boolean|) (|NonNegativeInteger|) (|Integer|))
-                            NIL))
+                            NIL NIL NIL))
                    |FacetCategory|)
            (SETELT #1# 0 '(|FacetCategory|))))) 
 

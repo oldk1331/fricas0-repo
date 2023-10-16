@@ -256,36 +256,7 @@
                                                       ((|coerce|
                                                         ((|OutputForm|) $))
                                                        T))
-                                                    NIL
-                                                    '((|OutputForm|)
-                                                      (|SubSpace| 3 |t#1|)
-                                                      (|List|
-                                                       (|SubSpaceComponentProperty|))
-                                                      (|List|
-                                                       (|List|
-                                                        (|SubSpaceComponentProperty|)))
-                                                      (|List|
-                                                       (|List|
-                                                        (|List|
-                                                         (|Point| |t#1|))))
-                                                      (|List|
-                                                       (|List|
-                                                        (|List|
-                                                         (|NonNegativeInteger|))))
-                                                      (|List| (|Point| |t#1|))
-                                                      (|Boolean|)
-                                                      (|List|
-                                                       (|List|
-                                                        (|Point| |t#1|)))
-                                                      (|List|
-                                                       (|List| (|List| |t#1|)))
-                                                      (|SubSpaceComponentProperty|)
-                                                      (|List| (|List| |t#1|))
-                                                      (|Point| |t#1|)
-                                                      (|NonNegativeInteger|)
-                                                      (|List| |t#1|)
-                                                      (|List| $))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|ThreeSpaceCategory|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|ThreeSpaceCategory| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|ThreeSpaceCategory| |t#1|))))) 

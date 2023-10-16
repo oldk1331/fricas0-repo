@@ -21,7 +21,7 @@
                               ((|recip| ((|Union| $ "failed") $)) T)
                               ((|leftRecip| ((|Union| $ "failed") $)) T)
                               ((|rightRecip| ((|Union| $ "failed") $)) T))
-                            NIL '((|NonNegativeInteger|) (|Boolean|)) NIL))
+                            NIL NIL NIL))
                    |MagmaWithUnit|)
            (SETELT #1# 0 '(|MagmaWithUnit|))))) 
 

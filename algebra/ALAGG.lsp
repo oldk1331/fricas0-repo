@@ -41,9 +41,7 @@
                                                     "failed")
                                                    |t#1| $))
                                                  T))
-                                              NIL 'NIL NIL))
+                                              NIL NIL NIL))
                                             . #3=(|AssociationListAggregate|))))))
                    . #3#)
-           (SETELT #1# 0
-                   (LIST '|AssociationListAggregate| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|AssociationListAggregate| |t#1| |t#2|))))) 

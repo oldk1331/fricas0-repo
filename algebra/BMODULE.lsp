@@ -26,6 +26,4 @@
                                                    (|RightModule| '|t#2|))
                                            . #2=(|BiModule|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|BiModule| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|BiModule| |t#1| |t#2|))))) 

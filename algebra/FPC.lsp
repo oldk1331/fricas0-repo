@@ -25,10 +25,7 @@
                               ((|primeFrobenius| ($ $)) T)
                               ((|primeFrobenius| ($ $ (|NonNegativeInteger|)))
                                T))
-                            NIL
-                            '((|NonNegativeInteger|)
-                              (|OnePointCompletion| (|PositiveInteger|)))
-                            NIL))
+                            NIL NIL NIL))
                    |FieldOfPrimeCharacteristic|)
            (SETELT #1# 0 '(|FieldOfPrimeCharacteristic|))))) 
 

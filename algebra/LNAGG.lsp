@@ -176,12 +176,7 @@
                                                   (|has| |t#1| (|OrderedSet|))
                                                   (|has| $
                                                          (|finiteAggregate|)))))
-                                              '((|Integer|) (|Boolean|)
-                                                (|UniversalSegment|
-                                                 (|Integer|))
-                                                (|NonNegativeInteger|)
-                                                (|List| $))
-                                              NIL))
+                                              NIL NIL))
                                             . #4=(|LinearAggregate|))))))
                    . #4#)
-           (SETELT #1# 0 (LIST '|LinearAggregate| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|LinearAggregate| |t#1|))))) 

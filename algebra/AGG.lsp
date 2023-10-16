@@ -23,7 +23,7 @@
                               ((|sample| ($) |constant|) T)
                               ((|#| ((|NonNegativeInteger|) $))
                                (|has| $ (|finiteAggregate|))))
-                            NIL '((|NonNegativeInteger|) (|Boolean|)) NIL))
+                            NIL NIL NIL))
                    |Aggregate|)
            (SETELT #1# 0 '(|Aggregate|))))) 
 

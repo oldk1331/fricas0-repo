@@ -31,7 +31,7 @@
                                                       ((|AbelianGroup|)
                                                        (|has| |t#1|
                                                               (|AbelianGroup|))))
-                                                    'NIL NIL))
+                                                    NIL NIL))
                                            . #2=(|RightModule|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|RightModule| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|RightModule| |t#1|))))) 

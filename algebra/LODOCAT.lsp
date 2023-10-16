@@ -44,9 +44,9 @@
                                       (|has| |t#1| (|Field|)))
                                      ((|directSum| ($ $ $))
                                       (|has| |t#1| (|Field|))))
-                                   NIL '((|NonNegativeInteger|)) NIL))
+                                   NIL NIL NIL))
                                  . #2=(|LinearOrdinaryDifferentialOperatorCategory|)))))
                    . #2#)
            (SETELT #1# 0
                    (LIST '|LinearOrdinaryDifferentialOperatorCategory|
-                         (|devaluate| |t#1|)))))) 
+                         |t#1|))))) 

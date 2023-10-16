@@ -28,11 +28,7 @@
                                          ((|yRange|
                                            ((|Segment| (|DoubleFloat|)) $))
                                           T))
-                                       NIL
-                                       '((|Segment| (|DoubleFloat|))
-                                         (|List|
-                                          (|List| (|Point| (|DoubleFloat|)))))
-                                       NIL)))
+                                       NIL NIL NIL)))
                    |PlottablePlaneCurveCategory|)
            (SETELT #1# 0 '(|PlottablePlaneCurveCategory|))))) 
 

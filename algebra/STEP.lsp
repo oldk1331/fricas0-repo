@@ -14,7 +14,7 @@
                            (|mkCategory|
                             '(((|init| ($) |constant|) T)
                               ((|nextItem| ((|Union| $ "failed") $)) T))
-                            NIL 'NIL NIL))
+                            NIL NIL NIL))
                    |StepThrough|)
            (SETELT #1# 0 '(|StepThrough|))))) 
 

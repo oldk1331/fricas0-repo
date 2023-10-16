@@ -18,7 +18,7 @@
                                          ((|nor| ($ $ $)) T)
                                          ((|and| ($ $ $)) T) ((|or| ($ $ $)) T)
                                          ((|xor| ($ $ $)) T))
-                                       NIL 'NIL NIL)))
+                                       NIL NIL NIL)))
                    |BitAggregate|)
            (SETELT #1# 0 '(|BitAggregate|))))) 
 

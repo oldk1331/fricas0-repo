@@ -42,10 +42,7 @@
                                                        T)
                                                       ((|flush| ((|Void|) $))
                                                        T))
-                                                    NIL '((|Void|) (|String|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|FileCategory|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|FileCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|FileCategory| |t#1| |t#2|))))) 

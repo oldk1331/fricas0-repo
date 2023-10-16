@@ -12,8 +12,8 @@
          (PROG1
              (LETT #1#
                    (|Join|
-                    (|mkCategory| '(((|generators| ((|List| $))) T)) NIL
-                                  '((|List| $)) NIL))
+                    (|mkCategory| '(((|generators| ((|List| $))) T)) NIL NIL
+                                  NIL))
                    |FinitelyGenerated|)
            (SETELT #1# 0 '(|FinitelyGenerated|))))) 
 

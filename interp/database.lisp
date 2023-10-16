@@ -7,13 +7,14 @@
  
 (DEFPARAMETER |$getUnexposedOperations| T)
  
-; augLisplibModemapsFromCategory(form is [op,:argl],body,signature) ==
+; augLisplibModemapsFromCategory(form is [op,:argl], body, signature,
+;                                domainShell) ==
 ;   sl := [["$",:"*1"],:[[a,:p] for a in argl
 ;     for p in rest $PatternVariableList]]
 ;   form:= SUBLIS(sl,form)
 ;   body:= SUBLIS(sl,body)
 ;   signature:= SUBLIS(sl,signature)
-;   opAlist:= SUBLIS(sl,$domainShell.(1)) or return nil
+;   opAlist:= SUBLIS(sl, domainShell.(1)) or return nil
 ;   nonCategorySigAlist:=
 ;     mkAlistOfExplicitCategoryOps substitute("*1","$",body)
 ;   domainList:=
@@ -27,7 +28,8 @@
 ;       $lisplibModemapAlist:=
 ;         [[op,:interactiveModemapForm modemap],:$lisplibModemapAlist]
  
-(DEFUN |augLisplibModemapsFromCategory| (|form| |body| |signature|)
+(DEFUN |augLisplibModemapsFromCategory|
+       (|form| |body| |signature| |domainShell|)
   (PROG (|op| |argl| |sl| |opAlist| |nonCategorySigAlist| |domainList|
          |catPredList| |ISTMP#1| |ISTMP#2| |sig| |ISTMP#3| |pred| |ISTMP#4|
          |sel| |pred'| |modemap|)
@@ -53,7 +55,7 @@
       (SETQ |form| (SUBLIS |sl| |form|))
       (SETQ |body| (SUBLIS |sl| |body|))
       (SETQ |signature| (SUBLIS |sl| |signature|))
-      (SETQ |opAlist| (OR (SUBLIS |sl| (ELT |$domainShell| 1)) (RETURN NIL)))
+      (SETQ |opAlist| (OR (SUBLIS |sl| (ELT |domainShell| 1)) (RETURN NIL)))
       (SETQ |nonCategorySigAlist|
               (|mkAlistOfExplicitCategoryOps| (|substitute| '*1 '$ |body|)))
       (SETQ |domainList|

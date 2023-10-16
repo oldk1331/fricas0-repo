@@ -29,8 +29,7 @@
                                                     '(((|max| (|t#1| $)) T)
                                                       ((|merge| ($ $ $)) T)
                                                       ((|merge!| ($ $ $)) T))
-                                                    NIL 'NIL NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|PriorityQueueAggregate|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|PriorityQueueAggregate| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|PriorityQueueAggregate| |t#1|))))) 

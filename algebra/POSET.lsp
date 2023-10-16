@@ -158,18 +158,7 @@
                                                           (|Integer|) |t#1|)
                                                          $))
                                                        T))
-                                                    NIL
-                                                    '((|IncidenceAlgebra|
-                                                       (|Integer|) |t#1|)
-                                                      (|Boolean|)
-                                                      (|NonNegativeInteger|)
-                                                      (|List|
-                                                       (|NonNegativeInteger|))
-                                                      (|Void|)
-                                                      (|List|
-                                                       (|List| (|Boolean|)))
-                                                      (|List| |t#1|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|Poset|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|Poset| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|Poset| |t#1|))))) 

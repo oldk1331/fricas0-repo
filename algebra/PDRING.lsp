@@ -52,13 +52,7 @@
                                                          (|List|
                                                           (|NonNegativeInteger|))))
                                                        T))
-                                                    NIL
-                                                    '((|List| |t#1|)
-                                                      (|List|
-                                                       (|NonNegativeInteger|))
-                                                      (|NonNegativeInteger|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|PartialDifferentialRing|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|PartialDifferentialRing| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|PartialDifferentialRing| |t#1|))))) 

@@ -123,18 +123,7 @@
                                                         ($ $
                                                          (|PositiveInteger|)))
                                                        T))
-                                                    NIL
-                                                    '((|PositiveInteger|)
-                                                      (|Stream|
-                                                       (|SparseUnivariatePolynomial|
-                                                        (|Fraction| |t#1|)))
-                                                      (|Stream|
-                                                       (|SparseUnivariatePolynomial|
-                                                        |t#1|))
-                                                      (|Sequence| |t#1|)
-                                                      (|Stream| |t#1|)
-                                                      (|NonNegativeInteger|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|DistributionCategory|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|DistributionCategory| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|DistributionCategory| |t#1|))))) 

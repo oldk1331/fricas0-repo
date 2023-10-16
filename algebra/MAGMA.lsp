@@ -15,7 +15,7 @@
                               ((|rightPower| ($ $ (|PositiveInteger|))) T)
                               ((|leftPower| ($ $ (|PositiveInteger|))) T)
                               ((^ ($ $ (|PositiveInteger|))) T))
-                            NIL '((|PositiveInteger|)) NIL))
+                            NIL NIL NIL))
                    |Magma|)
            (SETELT #1# 0 '(|Magma|))))) 
 

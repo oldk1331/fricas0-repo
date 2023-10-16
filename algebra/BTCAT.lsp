@@ -28,7 +28,7 @@
                                             (|finiteAggregate|)
                                             (|mkCategory|
                                              '(((|node| ($ $ |t#1| $)) T)) NIL
-                                             'NIL NIL))
+                                             NIL NIL))
                                            . #2=(|BinaryTreeCategory|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|BinaryTreeCategory| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|BinaryTreeCategory| |t#1|))))) 

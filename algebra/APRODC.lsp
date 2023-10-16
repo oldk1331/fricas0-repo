@@ -29,7 +29,6 @@
                                                ((|AbelianGroup|)
                                                 (|has| |t#1|
                                                        (|AbelianGroup|))))
-                                             'NIL NIL)))
+                                             NIL NIL)))
                    |AbelianProductCategory|)
-           (SETELT #1# 0
-                   (LIST '|AbelianProductCategory| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|AbelianProductCategory| |t#1|))))) 

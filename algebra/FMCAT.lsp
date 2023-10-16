@@ -60,11 +60,7 @@
                                                                (|Comparable|))
                                                         (|has| |t#1|
                                                                (|Comparable|)))))
-                                                    '((|List| $) (|List| |t#2|)
-                                                      (|List| |t#1|))
-                                                    NIL))
+                                                    NIL NIL))
                                            . #2=(|FreeModuleCategory|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|FreeModuleCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|FreeModuleCategory| |t#1| |t#2|))))) 

@@ -38,13 +38,7 @@
                                                          (|NonNegativeInteger|))))
                                                   $))
                                                 T))
-                                             NIL
-                                             '((|List|
-                                                (|Record| (|:| |entry| |t#1|)
-                                                          (|:| |count|
-                                                               (|NonNegativeInteger|))))
-                                               (|NonNegativeInteger|))
-                                             NIL))
+                                             NIL NIL NIL))
                                            . #2=(|MultiDictionary|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|MultiDictionary| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|MultiDictionary| |t#1|))))) 

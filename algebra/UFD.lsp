@@ -18,7 +18,7 @@
                               ((|squareFree| ((|Factored| $) $)) T)
                               ((|squareFreePart| ($ $)) T)
                               ((|factor| ((|Factored| $) $)) T))
-                            NIL '((|Factored| $) (|Boolean|)) NIL))
+                            NIL NIL NIL))
                    |UniqueFactorizationDomain|)
            (SETELT #1# 0 '(|UniqueFactorizationDomain|))))) 
 

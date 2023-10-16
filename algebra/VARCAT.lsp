@@ -25,10 +25,7 @@
                                             (|String|) (|NonNegativeInteger|)))
                                           T)
                                          ((= ((|Boolean|) $ $)) T))
-                                       NIL
-                                       '((|Boolean|) (|String|)
-                                         (|NonNegativeInteger|) (|ILogic|))
-                                       NIL)))
+                                       NIL NIL NIL)))
                    |VarCat|)
            (SETELT #1# 0 '(|VarCat|))))) 
 

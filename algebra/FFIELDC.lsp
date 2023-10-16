@@ -36,17 +36,7 @@
                                 ((|Union| "prime" "polynomial" "normal"
                                           "cyclic")))
                                T))
-                            NIL
-                            '((|PositiveInteger|) (|NonNegativeInteger|)
-                              (|Boolean|)
-                              (|Table| (|PositiveInteger|)
-                                       (|NonNegativeInteger|))
-                              (|Integer|)
-                              (|List|
-                               (|Record| (|:| |factor| (|Integer|))
-                                         (|:| |exponent|
-                                              (|NonNegativeInteger|)))))
-                            NIL))
+                            NIL NIL NIL))
                    |FiniteFieldCategory|)
            (SETELT #1# 0 '(|FiniteFieldCategory|))))) 
 

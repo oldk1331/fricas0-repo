@@ -1280,16 +1280,7 @@
              (APPEND (|pop_stack_1|) (CONS (|pop_stack_1|) NIL)))))))))
  
 ; parse_IteratorTail() ==
-;     match_symbol("repeat") =>
-;         repetition(nil, FUNCTION parse_Iterator) => true
-;         push_reduction("null_Tail", nil)
 ;     repetition(nil, FUNCTION parse_Iterator)
  
 (DEFUN |parse_IteratorTail| ()
-  (PROG ()
-    (RETURN
-     (COND
-      ((|match_symbol| '|repeat|)
-       (COND ((|repetition| NIL #'|parse_Iterator|) T)
-             (#1='T (|push_reduction| '|null_Tail| NIL))))
-      (#1# (|repetition| NIL #'|parse_Iterator|))))))
+  (PROG () (RETURN (|repetition| NIL #'|parse_Iterator|))))

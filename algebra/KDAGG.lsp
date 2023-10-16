@@ -46,12 +46,7 @@
                                                                    "failed")
                                                           |t#1| $))
                                                         T))
-                                                     NIL
-                                                     '((|List| |t#1|)
-                                                       (|Boolean|))
-                                                     NIL))
+                                                     NIL NIL NIL))
                                             . #3=(|KeyedDictionary|))))))
                    . #3#)
-           (SETELT #1# 0
-                   (LIST '|KeyedDictionary| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|KeyedDictionary| |t#1| |t#2|))))) 

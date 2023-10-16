@@ -59,11 +59,7 @@
                                                 (AND (|has| |t#1| (|Ring|))
                                                      (|has| |t#1|
                                                             (|RadicalCategory|)))))
-                                             NIL
-                                             '((|Matrix| |t#1|) (|Integer|)
-                                               (|Boolean|)
-                                               (|NonNegativeInteger|))
-                                             NIL))
+                                             NIL NIL NIL))
                                            . #2=(|VectorCategory|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|VectorCategory| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|VectorCategory| |t#1|))))) 

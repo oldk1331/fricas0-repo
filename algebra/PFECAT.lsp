@@ -44,12 +44,7 @@
                                (|has| $ (|CharacteristicNonZero|)))
                               ((|charthRoot| ((|Union| $ "failed") $))
                                (|has| $ (|CharacteristicNonZero|))))
-                            NIL
-                            '((|Matrix| $)
-                              (|List| (|SparseUnivariatePolynomial| $))
-                              (|SparseUnivariatePolynomial| $)
-                              (|Factored| (|SparseUnivariatePolynomial| $)))
-                            NIL))
+                            NIL NIL NIL))
                    |PolynomialFactorizationExplicit|)
            (SETELT #1# 0 '(|PolynomialFactorizationExplicit|))))) 
 

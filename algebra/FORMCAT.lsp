@@ -15,7 +15,7 @@
                     (|mkCategory|
                      '(((|convert| ($ (|OutputForm|) (|Integer|))) T)
                        ((|display| ((|Void|) $)) T))
-                     NIL '((|Void|) (|OutputForm|) (|Integer|)) NIL))
+                     NIL NIL NIL))
                    |OutputFormatterCategory|)
            (SETELT #1# 0 '(|OutputFormatterCategory|))))) 
 

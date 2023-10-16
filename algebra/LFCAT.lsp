@@ -22,7 +22,7 @@
                               ((|dilog| ($ $)) T) ((|erf| ($ $)) T)
                               ((|erfi| ($ $)) T) ((|fresnelS| ($ $)) T)
                               ((|fresnelC| ($ $)) T))
-                            NIL 'NIL NIL))
+                            NIL NIL NIL))
                    |LiouvillianFunctionCategory|)
            (SETELT #1# 0 '(|LiouvillianFunctionCategory|))))) 
 

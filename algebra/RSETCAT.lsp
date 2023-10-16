@@ -107,18 +107,9 @@
                                      ((|zeroSetSplit|
                                        ((|List| $) (|List| |t#4|) (|Boolean|)))
                                       T))
-                                   NIL
-                                   '((|List| $) (|List| |t#4|) (|Boolean|)
-                                     (|List|
-                                      (|Record| (|:| |val| |t#4|)
-                                                (|:| |tower| $)))
-                                     (|List|
-                                      (|Record| (|:| |val| (|Boolean|))
-                                                (|:| |tower| $))))
-                                   NIL))
+                                   NIL NIL NIL))
                                  . #2=(|RegularTriangularSetCategory|)))))
                    . #2#)
            (SETELT #1# 0
-                   (LIST '|RegularTriangularSetCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|) (|devaluate| |t#3|)
-                         (|devaluate| |t#4|)))))) 
+                   (LIST '|RegularTriangularSetCategory| |t#1| |t#2| |t#3|
+                         |t#4|))))) 

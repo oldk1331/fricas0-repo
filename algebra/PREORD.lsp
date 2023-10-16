@@ -29,10 +29,7 @@
                                                          (|NonNegativeInteger|)
                                                          (|NonNegativeInteger|)))
                                                        T))
-                                                    NIL
-                                                    '((|Boolean|)
-                                                      (|NonNegativeInteger|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|Preorder|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|Preorder| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|Preorder| |t#1|))))) 

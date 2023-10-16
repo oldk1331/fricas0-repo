@@ -16,7 +16,7 @@
                    (|Join|
                     (|mkCategory|
                      '(((|log| ($ $)) T) ((|exp| ($ $)) T) ((^ ($ $ $)) T)) NIL
-                     'NIL NIL))
+                     NIL NIL))
                    |ElementaryFunctionCategory|)
            (SETELT #1# 0 '(|ElementaryFunctionCategory|))))) 
 

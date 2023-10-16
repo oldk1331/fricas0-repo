@@ -49,7 +49,7 @@
                        ((|meijerG|
                          ($ (|List| $) (|List| $) (|List| $) (|List| $) $))
                         (|has| $ (|RetractableTo| (|Integer|)))))
-                     NIL '((|List| $)) NIL))
+                     NIL NIL NIL))
                    |SpecialFunctionCategory|)
            (SETELT #1# 0 '(|SpecialFunctionCategory|))))) 
 

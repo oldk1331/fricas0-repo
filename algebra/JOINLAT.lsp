@@ -12,7 +12,7 @@
          (PROG1
              (LETT #1#
                    (|Join| (|SetCategory|)
-                           (|mkCategory| '(((|\\/| ($ $ $)) T)) NIL 'NIL NIL))
+                           (|mkCategory| '(((|\\/| ($ $ $)) T)) NIL NIL NIL))
                    |JoinSemilattice|)
            (SETELT #1# 0 '(|JoinSemilattice|))))) 
 

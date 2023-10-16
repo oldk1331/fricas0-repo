@@ -65,10 +65,7 @@
                                             (|has| $ (|arbitraryPrecision|)))
                                            (|not|
                                             (|has| $ (|arbitraryExponent|))))))
-                                       NIL
-                                       '((|PositiveInteger|) (|Integer|)
-                                         (|String|) (|NonNegativeInteger|))
-                                       NIL)))
+                                       NIL NIL NIL)))
                    |FloatingPointSystem|)
            (SETELT #1# 0 '(|FloatingPointSystem|))))) 
 

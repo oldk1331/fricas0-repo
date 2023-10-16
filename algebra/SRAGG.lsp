@@ -52,12 +52,7 @@
                                            ($ $ (|CharacterClass|)))
                                           T)
                                          ((|elt| ($ $ $)) T))
-                                       NIL
-                                       '((|CharacterClass|) (|List| $)
-                                         (|Character|) (|Integer|)
-                                         (|UniversalSegment| (|Integer|))
-                                         (|Boolean|))
-                                       NIL)))
+                                       NIL NIL NIL)))
                    |StringAggregate|)
            (SETELT #1# 0 '(|StringAggregate|))))) 
 

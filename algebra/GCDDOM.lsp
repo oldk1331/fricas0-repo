@@ -19,8 +19,7 @@
                                  (|SparseUnivariatePolynomial| $)
                                  (|SparseUnivariatePolynomial| $)))
                                T))
-                            NIL '((|SparseUnivariatePolynomial| $) (|List| $))
-                            NIL))
+                            NIL NIL NIL))
                    |GcdDomain|)
            (SETELT #1# 0 '(|GcdDomain|))))) 
 

@@ -71,16 +71,8 @@
                                               ($ |t#4| |t#2| |t#2| |t#2|
                                                |t#1|))
                                              T))
-                                          NIL
-                                          '((|Boolean|) (|Integer|)
-                                            (|FractionalIdeal| |t#2|
-                                                               (|Fraction|
-                                                                |t#2|)
-                                                               |t#3| |t#4|))
-                                          NIL))
+                                          NIL NIL NIL))
                                  . #2=(|FiniteDivisorCategory|)))))
                    . #2#)
            (SETELT #1# 0
-                   (LIST '|FiniteDivisorCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|) (|devaluate| |t#3|)
-                         (|devaluate| |t#4|)))))) 
+                   (LIST '|FiniteDivisorCategory| |t#1| |t#2| |t#3| |t#4|))))) 

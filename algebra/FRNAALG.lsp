@@ -63,15 +63,7 @@
                                                ((|apply|
                                                  ($ (|Matrix| |t#1|) $))
                                                 T))
-                                             NIL
-                                             '((|Matrix| |t#1|)
-                                               (|SparseUnivariatePolynomial|
-                                                (|Polynomial| |t#1|))
-                                               (|List| (|Polynomial| |t#1|))
-                                               (|Vector| (|Matrix| |t#1|))
-                                               (|Integer|))
-                                             NIL))
+                                             NIL NIL NIL))
                                            . #2=(|FramedNonAssociativeAlgebra|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|FramedNonAssociativeAlgebra| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|FramedNonAssociativeAlgebra| |t#1|))))) 

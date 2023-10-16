@@ -24,6 +24,6 @@
                                     ((|Union| $ "failed") |t#1|))
                                    T)
                                   ((|retract| ($ |t#1|)) T))
-                                NIL 'NIL NIL)))
+                                NIL NIL NIL)))
                    |RetractableFrom|)
-           (SETELT #1# 0 (LIST '|RetractableFrom| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|RetractableFrom| |t#1|))))) 

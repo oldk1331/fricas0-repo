@@ -12,7 +12,7 @@
                    (|Join| (|EuclideanDomain|) (|UniqueFactorizationDomain|)
                            (|DivisionRing|) (|canonicalUnitNormal|)
                            (|canonicalsClosed|)
-                           (|mkCategory| '(((/ ($ $ $)) T)) NIL 'NIL NIL))
+                           (|mkCategory| '(((/ ($ $ $)) T)) NIL NIL NIL))
                    |Field|)
            (SETELT #1# 0 '(|Field|))))) 
 

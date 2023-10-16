@@ -43,14 +43,7 @@
                                                   (|Mapping| |t#2| |t#2| |t#2|)
                                                   $ $))
                                                 T))
-                                             NIL
-                                             '((|List|
-                                                (|Record| (|:| |key| |t#1|)
-                                                          (|:| |entry|
-                                                               |t#2|))))
-                                             NIL))
+                                             NIL NIL NIL))
                                            . #2=(|TableAggregate|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|TableAggregate| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|TableAggregate| |t#1| |t#2|))))) 

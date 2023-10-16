@@ -96,13 +96,7 @@
                                 T)
                                ((|numIndVar| ((|PositiveInteger|))) T)
                                ((|numDepVar| ((|PositiveInteger|))) T))
-                             NIL
-                             '((|PositiveInteger|) (|NonNegativeInteger|)
-                               (|List| $) (|List| (|NonNegativeInteger|))
-                               (|Boolean|) (|List| (|PositiveInteger|))
-                               (|Symbol|)
-                               (|List| (|List| (|PositiveInteger|))))
-                             NIL)))
+                             NIL NIL NIL)))
                    |JetBundleCategory|)
            (SETELT #1# 0 '(|JetBundleCategory|))))) 
 

@@ -25,7 +25,7 @@
                                ((|wholePart| ((|Integer|) $)) T)
                                ((|fractionPart| ($ $)) T)
                                ((|truncate| ($ $)) T) ((|round| ($ $)) T))
-                             NIL '((|Integer|)) NIL)))
+                             NIL NIL NIL)))
                    |RealNumberSystem|)
            (SETELT #1# 0 '(|RealNumberSystem|))))) 
 

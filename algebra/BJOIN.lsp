@@ -12,8 +12,8 @@
          (PROG1
              (LETT #1#
                    (|Join| (|JoinSemilattice|)
-                           (|mkCategory| '(((|_\|_| ($) |constant|) T)) NIL
-                                         'NIL NIL))
+                           (|mkCategory| '(((|_\|_| ($) |constant|) T)) NIL NIL
+                                         NIL))
                    |BoundedJoinSemilattice|)
            (SETELT #1# 0 '(|BoundedJoinSemilattice|))))) 
 

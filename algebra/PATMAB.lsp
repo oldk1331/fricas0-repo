@@ -31,11 +31,7 @@
                                                          (|PatternMatchResult|
                                                           |t#1| $)))
                                                        T))
-                                                    NIL
-                                                    '((|PatternMatchResult|
-                                                       |t#1| $)
-                                                      (|Pattern| |t#1|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|PatternMatchable|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|PatternMatchable| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|PatternMatchable| |t#1|))))) 

@@ -151,14 +151,7 @@
                                                  (|has| |t#1| (|Field|)))
                                                 ((|additiveValuation|)
                                                  (|has| |t#1| (|Field|))))
-                                              '((|Fraction| $)
-                                                (|NonNegativeInteger|)
-                                                (|SparseUnivariatePolynomial|
-                                                 |t#1|)
-                                                (|Vector| |t#1|))
-                                              NIL))
+                                              NIL NIL))
                                             . #4=(|UnivariatePolynomialCategory|))))))
                    . #4#)
-           (SETELT #1# 0
-                   (LIST '|UnivariatePolynomialCategory|
-                         (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|UnivariatePolynomialCategory| |t#1|))))) 

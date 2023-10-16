@@ -91,16 +91,7 @@
                                                         |t#1| |t#2|)
                                                        (|has| |t#2|
                                                               (|Comparable|))))
-                                                    '((|NonNegativeInteger|)
-                                                      (|List| $) (|List| |t#1|)
-                                                      (|Boolean|)
-                                                      (|List|
-                                                       (|Record|
-                                                        (|:| |k| |t#2|)
-                                                        (|:| |c| |t#1|))))
-                                                    NIL))
+                                                    NIL NIL))
                                            . #2=(|MonoidRingCategory|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|MonoidRingCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|MonoidRingCategory| |t#1| |t#2|))))) 

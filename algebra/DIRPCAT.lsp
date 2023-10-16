@@ -83,11 +83,7 @@
                                                         (|OrderedAbelianMonoidSup|)))
                                                 ((|VectorSpace| |t#2|)
                                                  (|has| |t#2| (|Field|))))
-                                              '((|PositiveInteger|)
-                                                (|Vector| |t#2|))
-                                              NIL))
+                                              NIL NIL))
                                             . #4=(|DirectProductCategory|))))))
                    . #4#)
-           (SETELT #1# 0
-                   (LIST '|DirectProductCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|DirectProductCategory| |t#1| |t#2|))))) 

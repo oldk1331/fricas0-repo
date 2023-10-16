@@ -561,7 +561,6 @@
  
 ; evalAndSub(domainName, viewName, functorForm, form, e) ==
 ;   $tmp_e : local := e
-;   isCategory form => [substNames(domainName,viewName,functorForm,form.(1)), e]
 ;   --next lines necessary-- see MPOLY for which $ is actual arg. --- RDJ 3/83
 ;   if CONTAINED("$$",form) then
 ;       e := put("$$", "mode", get("$", "mode", e), e)
@@ -577,22 +576,13 @@
      (PROGN
       (SETQ |$tmp_e| |e|)
       (COND
-       ((|isCategory| |form|)
-        (LIST
-         (|substNames| |domainName| |viewName| |functorForm| (ELT |form| 1))
-         |e|))
-       ('T
-        (PROGN
-         (COND
-          ((CONTAINED '$$ |form|)
-           (SETQ |e| (|put| '$$ '|mode| (|get| '$ '|mode| |e|) |e|))))
-         (SETQ |$tmp_e| |e|)
-         (SETQ |opAlist|
-                 (|getOperationAlist| |domainName| |functorForm| |form|))
-         (SETQ |substAlist|
-                 (|substNames| |domainName| |viewName| |functorForm|
-                  |opAlist|))
-         (LIST |substAlist| |$tmp_e|))))))))
+       ((CONTAINED '$$ |form|)
+        (SETQ |e| (|put| '$$ '|mode| (|get| '$ '|mode| |e|) |e|))))
+      (SETQ |$tmp_e| |e|)
+      (SETQ |opAlist| (|getOperationAlist| |domainName| |functorForm| |form|))
+      (SETQ |substAlist|
+              (|substNames| |domainName| |viewName| |functorForm| |opAlist|))
+      (LIST |substAlist| |$tmp_e|)))))
  
 ; getOperationAlist(name,functorForm,form) ==
 ;   if atom name and GETDATABASE(name,'NILADIC) then functorForm:= [functorForm]

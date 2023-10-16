@@ -30,8 +30,7 @@
                                                         ($ $
                                                          (|PositiveInteger|)))
                                                        T))
-                                                    NIL '((|PositiveInteger|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|NonAssociativeAlgebra|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|NonAssociativeAlgebra| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|NonAssociativeAlgebra| |t#1|))))) 

@@ -38,9 +38,7 @@
                                                         (|t#2| $ |t#1| |t#2|))
                                                        (|has| $
                                                               (|shallowlyMutable|))))
-                                                    NIL 'NIL NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|EltableAggregate|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|EltableAggregate| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|EltableAggregate| |t#1| |t#2|))))) 

@@ -21,7 +21,7 @@
                               ((|unitCanonical| ($ $)) T)
                               ((|associates?| ((|Boolean|) $ $)) T)
                               ((|unit?| ((|Boolean|) $)) T))
-                            NIL '((|Boolean|)) NIL))
+                            NIL NIL NIL))
                    |EntireRing|)
            (SETELT #1# 0 '(|EntireRing|))))) 
 

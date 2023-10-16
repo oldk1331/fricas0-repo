@@ -99,16 +99,7 @@
                                                    (|Algebra|
                                                     (|Fraction|
                                                      (|Integer|))))))
-                                         '((|Symbol|) (|Polynomial| |t#1|)
-                                           (|NonNegativeInteger|)
-                                           (|Stream| |t#1|)
-                                           (|Stream|
-                                            (|Record|
-                                             (|:| |k| (|NonNegativeInteger|))
-                                             (|:| |c| |t#1|))))
-                                         NIL))
+                                         NIL NIL))
                                        . #3=(|UnivariateTaylorSeriesCategory|))))))
                    . #3#)
-           (SETELT #1# 0
-                   (LIST '|UnivariateTaylorSeriesCategory|
-                         (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|UnivariateTaylorSeriesCategory| |t#1|))))) 

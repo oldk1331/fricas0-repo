@@ -26,7 +26,7 @@
                                                    (|LeftModule| '|t#1|)
                                                    (|mkCategory|
                                                     '(((|coerce| ($ |t#1|)) T))
-                                                    NIL 'NIL NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|LeftAlgebra|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|LeftAlgebra| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|LeftAlgebra| |t#1|))))) 

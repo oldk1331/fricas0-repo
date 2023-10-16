@@ -25,4 +25,4 @@
                                                    (|CoDcpo| '|t#1|))
                                            . #2=(|BiCPO|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|BiCPO| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|BiCPO| |t#1|))))) 

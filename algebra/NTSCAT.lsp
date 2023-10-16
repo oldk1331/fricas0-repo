@@ -38,6 +38,5 @@
                                  . #2=(|NormalizedTriangularSetCategory|)))))
                    . #2#)
            (SETELT #1# 0
-                   (LIST '|NormalizedTriangularSetCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|) (|devaluate| |t#3|)
-                         (|devaluate| |t#4|)))))) 
+                   (LIST '|NormalizedTriangularSetCategory| |t#1| |t#2| |t#3|
+                         |t#4|))))) 

@@ -21,7 +21,7 @@
                               ((|expressIdealMember|
                                 ((|Union| (|List| $) "failed") (|List| $) $))
                                T))
-                            NIL '((|List| $)) NIL))
+                            NIL NIL NIL))
                    |PrincipalIdealDomain|)
            (SETELT #1# 0 '(|PrincipalIdealDomain|))))) 
 

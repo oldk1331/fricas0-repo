@@ -82,15 +82,7 @@
                                                    (|Algebra|
                                                     (|Fraction| (|Integer|)))))
                                            ((|Field|) (|has| |t#1| (|Field|))))
-                                         '((|Symbol|) (|Fraction| (|Integer|))
-                                           (|NonNegativeInteger|)
-                                           (|Stream|
-                                            (|Record|
-                                             (|:| |k| (|Fraction| (|Integer|)))
-                                             (|:| |c| |t#1|))))
-                                         NIL))
+                                         NIL NIL))
                                        . #3=(|UnivariatePuiseuxSeriesCategory|))))))
                    . #3#)
-           (SETELT #1# 0
-                   (LIST '|UnivariatePuiseuxSeriesCategory|
-                         (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|UnivariatePuiseuxSeriesCategory| |t#1|))))) 

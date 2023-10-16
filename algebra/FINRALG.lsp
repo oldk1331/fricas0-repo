@@ -68,13 +68,7 @@
                                                       ((|CharacteristicNonZero|)
                                                        (|has| |t#1|
                                                               (|CharacteristicNonZero|))))
-                                                    '((|Matrix| |t#1|)
-                                                      (|Vector| $)
-                                                      (|Vector| |t#1|)
-                                                      (|PositiveInteger|))
-                                                    NIL))
+                                                    NIL NIL))
                                            . #2=(|FiniteRankAlgebra|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|FiniteRankAlgebra| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|FiniteRankAlgebra| |t#1| |t#2|))))) 

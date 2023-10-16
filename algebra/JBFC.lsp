@@ -200,18 +200,7 @@
                                                 ((|autoReduce|
                                                   ((|List| $) (|List| $)))
                                                  T))
-                                              NIL
-                                              '((|List| $)
-                                                (|SparseEchelonMatrix| |t#1| $)
-                                                (|Boolean|)
-                                                (|NonNegativeInteger|)
-                                                (|PositiveInteger|)
-                                                (|List| (|NonNegativeInteger|))
-                                                (|List| (|List| |t#1|))
-                                                (|List| |t#1|) (|Symbol|)
-                                                (|Void|))
-                                              NIL))
+                                              NIL NIL NIL))
                                             . #4=(|JetBundleFunctionCategory|))))))
                    . #4#)
-           (SETELT #1# 0
-                   (LIST '|JetBundleFunctionCategory| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|JetBundleFunctionCategory| |t#1|))))) 

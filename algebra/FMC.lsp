@@ -22,10 +22,7 @@
                                            (|:| |code|
                                                 (|List| (|FortranCode|))))))
                                T))
-                            NIL
-                            '((|FortranCode|) (|List| (|FortranCode|))
-                              (|Matrix| (|MachineFloat|)))
-                            NIL))
+                            NIL NIL NIL))
                    |FortranMatrixCategory|)
            (SETELT #1# 0 '(|FortranMatrixCategory|))))) 
 

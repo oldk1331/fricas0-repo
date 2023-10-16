@@ -42,7 +42,7 @@
                                ((|submod| ($ $ $ $)) T)
                                ((|mulmod| ($ $ $ $)) T)
                                ((|powmod| ($ $ $ $)) T) ((|invmod| ($ $ $)) T))
-                             NIL '((|Fraction| (|Integer|)) (|Boolean|)) NIL)))
+                             NIL NIL NIL)))
                    |IntegerNumberSystem|)
            (SETELT #1# 0 '(|IntegerNumberSystem|))))) 
 

@@ -52,11 +52,7 @@
                               ((|extendedCoords| ((|List| (|DoubleFloat|)) $))
                                T)
                               ((|coerce| ((|OutputForm|) $)) T))
-                            NIL
-                            '((|OutputForm|) (|List| (|DoubleFloat|))
-                              (|DoubleFloat|) (|Boolean|) (|PositiveInteger|)
-                              (|Integer|))
-                            NIL))
+                            NIL NIL NIL))
                    |SPointCategory|)
            (SETELT #1# 0 '(|SPointCategory|))))) 
 

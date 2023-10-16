@@ -43,10 +43,7 @@
                                 ((|List| $) (|SparseUnivariatePolynomial| $)
                                  (|Symbol|)))
                                T))
-                            NIL
-                            '((|List| $) (|SparseUnivariatePolynomial| $)
-                              (|Symbol|) (|Polynomial| $))
-                            NIL))
+                            NIL NIL NIL))
                    |AlgebraicallyClosedField|)
            (SETELT #1# 0 '(|AlgebraicallyClosedField|))))) 
 

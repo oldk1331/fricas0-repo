@@ -222,7 +222,7 @@
 ;   if not(PrincipalAncestor = nil) then
 ;       v.4 := [first PrincipalAncestor.4, CADR PrincipalAncestor.4, OldLocals]
 ;    else v.4 := [nil,nil,OldLocals] --associated categories and domains
-;   v.5:= domList
+;   v.5:= nil
 ;   v
  
 (DEFUN |mkCategory| (|sigList| |attList| |domList| |PrincipalAncestor|)
@@ -339,16 +339,8 @@
                 (LIST (CAR (ELT |PrincipalAncestor| 4))
                       (CADR (ELT |PrincipalAncestor| 4)) |OldLocals|)))
        (#1# (SETF (ELT |v| 4) (LIST NIL NIL |OldLocals|))))
-      (SETF (ELT |v| 5) |domList|)
+      (SETF (ELT |v| 5) NIL)
       |v|))))
- 
-; isCategory a == REFVECP a and #a>5 and a.3=["Category"]
- 
-(DEFUN |isCategory| (|a|)
-  (PROG ()
-    (RETURN
-     (AND (REFVECP |a|) (< 5 (LENGTH |a|))
-          (EQUAL (ELT |a| 3) (LIST '|Category|))))))
  
 ; DropImplementations (a is [sig,pred,:implem]) ==
 ;   if implem is [[q,:.]] and (q="ELT" or q="CONST")
@@ -1350,13 +1342,11 @@
 ;     -- This is a list of all the categories that this extends
 ;     -- conditionally or unconditionally
 ;   sigl := NewCatVec.(1)
-;   globalDomains := NewCatVec.5
 ;   NewCatVec := COPY_-SEQ NewCatVec
 ;   FundamentalAncestors := join_fundamental_ancestors(NewCatVec, l')
 ; 
 ;   for b in l repeat
 ;     sigl:= SigListUnion([DropImplementations u for u in b.(1)],sigl)
-;     globalDomains:= [:globalDomains, :set_difference(b.5, globalDomains)]
 ;   for b in CondList repeat
 ;     newpred:= first rest b
 ;     sigl:=
@@ -1374,11 +1364,11 @@
 ;       FundamentalAncestors :=
 ;           [x for x in FundamentalAncestors | first(x) ~= pName]
 ;   NewCatVec.4 := [c,FundamentalAncestors, CADDR NewCatVec.4]
-;   mkCategory(sigl, nil, globalDomains, NewCatVec)
+;   mkCategory(sigl, nil, nil, NewCatVec)
  
 (DEFUN |JoinInner| (|l|)
   (PROG (|NewCatVec| |CondList| |at2| |pred| |LETTMP#1| |l'| |sigl|
-         |globalDomains| |FundamentalAncestors| |newpred| |c| |pName|)
+         |FundamentalAncestors| |newpred| |c| |pName|)
     (RETURN
      (PROGN
       (SETQ |NewCatVec| NIL)
@@ -1426,7 +1416,6 @@
                           (SETQ |bfVar#51| (CDR |bfVar#51|))))
                        NIL |l| NIL)))
       (SETQ |sigl| (ELT |NewCatVec| 1))
-      (SETQ |globalDomains| (ELT |NewCatVec| 5))
       (SETQ |NewCatVec| (COPY-SEQ |NewCatVec|))
       (SETQ |FundamentalAncestors|
               (|join_fundamental_ancestors| |NewCatVec| |l'|))
@@ -1436,26 +1425,21 @@
            ((OR (ATOM |bfVar#53|) (PROGN (SETQ |b| (CAR |bfVar#53|)) NIL))
             (RETURN NIL))
            (#1#
-            (PROGN
-             (SETQ |sigl|
-                     (|SigListUnion|
-                      ((LAMBDA (|bfVar#55| |bfVar#54| |u|)
-                         (LOOP
-                          (COND
-                           ((OR (ATOM |bfVar#54|)
-                                (PROGN (SETQ |u| (CAR |bfVar#54|)) NIL))
-                            (RETURN (NREVERSE |bfVar#55|)))
-                           (#1#
-                            (SETQ |bfVar#55|
-                                    (CONS (|DropImplementations| |u|)
-                                          |bfVar#55|))))
-                          (SETQ |bfVar#54| (CDR |bfVar#54|))))
-                       NIL (ELT |b| 1) NIL)
-                      |sigl|))
-             (SETQ |globalDomains|
-                     (APPEND |globalDomains|
-                             (|set_difference| (ELT |b| 5)
-                              |globalDomains|))))))
+            (SETQ |sigl|
+                    (|SigListUnion|
+                     ((LAMBDA (|bfVar#55| |bfVar#54| |u|)
+                        (LOOP
+                         (COND
+                          ((OR (ATOM |bfVar#54|)
+                               (PROGN (SETQ |u| (CAR |bfVar#54|)) NIL))
+                           (RETURN (NREVERSE |bfVar#55|)))
+                          (#1#
+                           (SETQ |bfVar#55|
+                                   (CONS (|DropImplementations| |u|)
+                                         |bfVar#55|))))
+                         (SETQ |bfVar#54| (CDR |bfVar#54|))))
+                      NIL (ELT |b| 1) NIL)
+                     |sigl|))))
           (SETQ |bfVar#53| (CDR |bfVar#53|))))
        |l| NIL)
       ((LAMBDA (|bfVar#56| |b|)
@@ -1506,7 +1490,7 @@
                  NIL |FundamentalAncestors| NIL))))
       (SETF (ELT |NewCatVec| 4)
               (LIST |c| |FundamentalAncestors| (CADDR (ELT |NewCatVec| 4))))
-      (|mkCategory| |sigl| NIL |globalDomains| |NewCatVec|)))))
+      (|mkCategory| |sigl| NIL NIL |NewCatVec|)))))
 (DEFUN |JoinInner,AddPredicate| (|op| |newpred|)
   (PROG (|sig| |oldpred| |implem|)
     (RETURN

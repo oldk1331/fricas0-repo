@@ -55,8 +55,7 @@
                                                        (|has| |t#1|
                                                               (|PartialDifferentialRing|
                                                                (|Symbol|)))))
-                                                    '((|NonNegativeInteger|))
-                                                    NIL))
+                                                    NIL NIL))
                                            . #2=(|DifferentialExtension|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|DifferentialExtension| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|DifferentialExtension| |t#1|))))) 

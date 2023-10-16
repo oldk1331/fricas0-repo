@@ -29,6 +29,4 @@
                                              '|t#1|))
                                            . #2=(|JetBundleBaseFunctionCategory|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|JetBundleBaseFunctionCategory|
-                         (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|JetBundleBaseFunctionCategory| |t#1|))))) 

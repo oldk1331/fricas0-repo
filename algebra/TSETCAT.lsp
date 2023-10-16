@@ -121,17 +121,8 @@
                                      ((|extend| ($ $ |t#4|)) T)
                                      ((|coHeight| ((|NonNegativeInteger|) $))
                                       (|has| |t#3| (|Finite|))))
-                                   NIL
-                                   '((|NonNegativeInteger|) (|Boolean|)
-                                     (|List| |t#3|)
-                                     (|List|
-                                      (|Record| (|:| |close| $)
-                                                (|:| |open| (|List| |t#4|))))
-                                     (|List| |t#4|) (|List| $))
-                                   NIL))
+                                   NIL NIL NIL))
                                  . #2=(|TriangularSetCategory|)))))
                    . #2#)
            (SETELT #1# 0
-                   (LIST '|TriangularSetCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|) (|devaluate| |t#3|)
-                         (|devaluate| |t#4|)))))) 
+                   (LIST '|TriangularSetCategory| |t#1| |t#2| |t#3| |t#4|))))) 

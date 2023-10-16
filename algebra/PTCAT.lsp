@@ -38,10 +38,7 @@
                                                       ((|extend|
                                                         ($ $ (|List| |t#1|)))
                                                        T))
-                                                    NIL
-                                                    '((|List| |t#1|)
-                                                      (|PositiveInteger|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|PointCategory|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|PointCategory| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|PointCategory| |t#1|))))) 

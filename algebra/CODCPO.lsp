@@ -29,9 +29,7 @@
                                                          (|NonNegativeInteger|)
                                                          (|NonNegativeInteger|)))
                                                        T))
-                                                    NIL
-                                                    '((|NonNegativeInteger|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|CoDcpo|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|CoDcpo| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|CoDcpo| |t#1|))))) 

@@ -139,14 +139,7 @@
                                      ((|PolynomialFactorizationExplicit|)
                                       (|has| |t#1|
                                              (|PolynomialFactorizationExplicit|))))
-                                   '((|Factored| $)
-                                     (|SparseUnivariatePolynomial| $)
-                                     (|SparseUnivariatePolynomial| |t#1|)
-                                     (|List| (|NonNegativeInteger|))
-                                     (|List| |t#3|) (|NonNegativeInteger|))
-                                   NIL))
+                                   NIL NIL))
                                  . #2=(|PolynomialCategory|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|PolynomialCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|) (|devaluate| |t#3|)))))) 
+           (SETELT #1# 0 (LIST '|PolynomialCategory| |t#1| |t#2| |t#3|))))) 

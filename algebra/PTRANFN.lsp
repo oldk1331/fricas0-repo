@@ -103,8 +103,6 @@
                                   ((|acschIfCan|
                                     ((|Union| |t#1| "failed") |t#1|))
                                    T))
-                                NIL '((|NonNegativeInteger|)) NIL)))
+                                NIL NIL NIL)))
                    |PartialTranscendentalFunctions|)
-           (SETELT #1# 0
-                   (LIST '|PartialTranscendentalFunctions|
-                         (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|PartialTranscendentalFunctions| |t#1|))))) 

@@ -48,11 +48,7 @@
                                                     '(((|Finite|)
                                                        (|has| |t#1|
                                                               (|Finite|))))
-                                                    '((|Vector| |t#1|)
-                                                      (|Matrix| |t#1|)
-                                                      (|Vector| $)
-                                                      (|PositiveInteger|))
-                                                    NIL))
+                                                    NIL NIL))
                                            . #2=(|FramedModule|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|FramedModule| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|FramedModule| |t#1|))))) 

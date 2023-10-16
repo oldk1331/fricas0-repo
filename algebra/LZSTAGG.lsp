@@ -57,11 +57,7 @@
                                                         ($ $ (|Integer|)))
                                                        T)
                                                       ((|complete| ($ $)) T))
-                                                    NIL
-                                                    '((|Integer|)
-                                                      (|NonNegativeInteger|)
-                                                      (|Boolean|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|LazyStreamAggregate|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|LazyStreamAggregate| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|LazyStreamAggregate| |t#1|))))) 

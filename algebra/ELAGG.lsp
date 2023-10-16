@@ -73,12 +73,7 @@
                                                       ((|merge!| ($ $ $))
                                                        (|has| |t#1|
                                                               (|OrderedSet|))))
-                                                    NIL
-                                                    '((|Integer|)
-                                                      (|UniversalSegment|
-                                                       (|Integer|)))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|ExtensibleLinearAggregate|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|ExtensibleLinearAggregate| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|ExtensibleLinearAggregate| |t#1|))))) 

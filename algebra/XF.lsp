@@ -64,11 +64,7 @@
                                                       ((|FieldOfPrimeCharacteristic|)
                                                        (|has| |t#1|
                                                               (|Finite|))))
-                                                    '((|NonNegativeInteger|)
-                                                      (|OnePointCompletion|
-                                                       (|PositiveInteger|))
-                                                      (|Boolean|))
-                                                    NIL))
+                                                    NIL NIL))
                                            . #2=(|ExtensionField|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|ExtensionField| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|ExtensionField| |t#1|))))) 

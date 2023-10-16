@@ -62,12 +62,8 @@
                                                  ((|relativeApprox|
                                                    (|t#1| |t#2| $ |t#1|))
                                                   T))
-                                               NIL
-                                               '((|PositiveInteger|) (|List| $)
-                                                 (|Boolean|) (|Integer|))
-                                               NIL))
+                                               NIL NIL NIL))
                                       . #2=(|RealRootCharacterizationCategory|)))))
                    . #2#)
            (SETELT #1# 0
-                   (LIST '|RealRootCharacterizationCategory|
-                         (|devaluate| |t#1|) (|devaluate| |t#2|)))))) 
+                   (LIST '|RealRootCharacterizationCategory| |t#1| |t#2|))))) 

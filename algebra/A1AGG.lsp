@@ -29,6 +29,4 @@
                                             (|shallowlyMutable|))
                                            . #2=(|OneDimensionalArrayAggregate|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|OneDimensionalArrayAggregate|
-                         (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|OneDimensionalArrayAggregate| |t#1|))))) 

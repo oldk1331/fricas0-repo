@@ -37,7 +37,7 @@
                                                                      |t#1|
                                                                      (|PatternMatchable|
                                                                       (|Float|)))))
-                                                                 'NIL NIL))
+                                                                 NIL NIL))
                                            . #2=(|FullyPatternMatchable|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|FullyPatternMatchable| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|FullyPatternMatchable| |t#1|))))) 

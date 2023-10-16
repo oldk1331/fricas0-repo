@@ -25,7 +25,7 @@
                                            (|Join| (|Ring|) (|Module| '|t#1|)
                                                    (|mkCategory|
                                                     '(((|coerce| ($ |t#1|)) T))
-                                                    NIL 'NIL NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|Algebra|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|Algebra| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|Algebra| |t#1|))))) 

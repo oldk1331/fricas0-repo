@@ -78,17 +78,7 @@
                                                         ($ $ (|List| |t#1|)
                                                          (|List| $)))
                                                        T))
-                                                    NIL
-                                                    '((|List| |t#1|) (|List| $)
-                                                      (|NonNegativeInteger|)
-                                                      (|LyndonWord| |t#1|)
-                                                      (|XRecursivePolynomial|
-                                                       |t#1| |t#2|)
-                                                      (|XDistributedPolynomial|
-                                                       |t#1| |t#2|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|FreeLieAlgebra|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|FreeLieAlgebra| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|FreeLieAlgebra| |t#1| |t#2|))))) 

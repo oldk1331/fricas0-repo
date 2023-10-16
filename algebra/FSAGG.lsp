@@ -48,8 +48,7 @@
                                                       ((|Comparable|)
                                                        (|has| |t#1|
                                                               (|Comparable|))))
-                                                    '((|NonNegativeInteger|))
-                                                    NIL))
+                                                    NIL NIL))
                                            . #2=(|FiniteSetAggregate|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|FiniteSetAggregate| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|FiniteSetAggregate| |t#1|))))) 

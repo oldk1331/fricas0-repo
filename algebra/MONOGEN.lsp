@@ -52,11 +52,7 @@
                                                ((|FiniteFieldCategory|)
                                                 (|has| |t#1|
                                                        (|FiniteFieldCategory|))))
-                                             '((|Matrix| |t#1|) (|Vector| $)
-                                               (|Fraction| |t#2|))
-                                             NIL))
+                                             NIL NIL))
                                            . #2=(|MonogenicAlgebra|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|MonogenicAlgebra| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|MonogenicAlgebra| |t#1| |t#2|))))) 

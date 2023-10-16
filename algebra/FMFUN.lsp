@@ -71,16 +71,7 @@
                                  (|Matrix|
                                   (|Fraction| (|Polynomial| (|Integer|))))))
                                T))
-                            NIL
-                            '((|Matrix|
-                               (|Fraction| (|Polynomial| (|Integer|))))
-                              (|Matrix| (|Fraction| (|Polynomial| (|Float|))))
-                              (|Matrix| (|Polynomial| (|Integer|)))
-                              (|Matrix| (|Polynomial| (|Float|)))
-                              (|Matrix| (|Expression| (|Integer|)))
-                              (|Matrix| (|Expression| (|Float|)))
-                              (|FortranCode|) (|List| (|FortranCode|)))
-                            NIL))
+                            NIL NIL NIL))
                    |FortranMatrixFunctionCategory|)
            (SETELT #1# 0 '(|FortranMatrixFunctionCategory|))))) 
 

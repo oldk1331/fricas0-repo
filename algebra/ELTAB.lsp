@@ -19,7 +19,6 @@
                    (|sublisV| (PAIR '(|t#1| |t#2|) (LIST |t#1| |t#2|))
                               (|Join|
                                (|mkCategory| '(((|elt| (|t#2| $ |t#1|)) T)) NIL
-                                             'NIL NIL)))
+                                             NIL NIL)))
                    |Eltable|)
-           (SETELT #1# 0
-                   (LIST '|Eltable| (|devaluate| |t#1|) (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|Eltable| |t#1| |t#2|))))) 

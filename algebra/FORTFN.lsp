@@ -55,15 +55,7 @@
                                 ((|Union| $ "failed")
                                  (|Fraction| (|Polynomial| (|Integer|)))))
                                T))
-                            NIL
-                            '((|Fraction| (|Polynomial| (|Integer|)))
-                              (|Fraction| (|Polynomial| (|Float|)))
-                              (|Polynomial| (|Integer|))
-                              (|Polynomial| (|Float|))
-                              (|Expression| (|Integer|))
-                              (|Expression| (|Float|)) (|FortranCode|)
-                              (|List| (|FortranCode|)))
-                            NIL))
+                            NIL NIL NIL))
                    |FortranFunctionCategory|)
            (SETELT #1# 0 '(|FortranFunctionCategory|))))) 
 

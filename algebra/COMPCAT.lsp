@@ -133,9 +133,7 @@
                                                          (|EuclideanDomain|))
                                                   (|has| |t#1|
                                                          (|PolynomialFactorizationExplicit|)))))
-                                              '((|Fraction| (|Integer|))
-                                                (|Boolean|))
-                                              NIL))
+                                              NIL NIL))
                                             . #3=(|ComplexCategory|))))))
                    . #3#)
-           (SETELT #1# 0 (LIST '|ComplexCategory| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|ComplexCategory| |t#1|))))) 

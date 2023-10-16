@@ -12,7 +12,7 @@
              (LETT #1#
                    (|Join| (|SetCategory|)
                            (|mkCategory| '(((|smaller?| ((|Boolean|) $ $)) T))
-                                         NIL '((|Boolean|)) NIL))
+                                         NIL NIL NIL))
                    |Comparable|)
            (SETELT #1# 0 '(|Comparable|))))) 
 

@@ -95,16 +95,7 @@
                                 (|has| $ (|RetractableTo| (|Integer|))))
                                ((|odd?| ((|Boolean|) $))
                                 (|has| $ (|RetractableTo| (|Integer|)))))
-                             NIL
-                             '((|Boolean|) (|SparseUnivariatePolynomial| $)
-                               (|Kernel| $) (|BasicOperator|)
-                               (|List| (|BasicOperator|))
-                               (|List| (|Mapping| $ (|List| $)))
-                               (|List| (|Mapping| $ $)) (|Symbol|)
-                               (|List| (|Symbol|)) (|List| $)
-                               (|List| (|Kernel| $)) (|NonNegativeInteger|)
-                               (|List| (|Equation| $)) (|Equation| $))
-                             NIL)))
+                             NIL NIL NIL)))
                    |ExpressionSpace|)
            (SETELT #1# 0 '(|ExpressionSpace|))))) 
 

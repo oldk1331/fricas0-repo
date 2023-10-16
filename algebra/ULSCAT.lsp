@@ -91,15 +91,7 @@
                                                    (|Algebra|
                                                     (|Fraction| (|Integer|)))))
                                            ((|Field|) (|has| |t#1| (|Field|))))
-                                         '((|Symbol|)
-                                           (|Fraction| (|Polynomial| |t#1|))
-                                           (|Integer|) (|Stream| |t#1|)
-                                           (|Stream|
-                                            (|Record| (|:| |k| (|Integer|))
-                                                      (|:| |c| |t#1|))))
-                                         NIL))
+                                         NIL NIL))
                                        . #3=(|UnivariateLaurentSeriesCategory|))))))
                    . #3#)
-           (SETELT #1# 0
-                   (LIST '|UnivariateLaurentSeriesCategory|
-                         (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|UnivariateLaurentSeriesCategory| |t#1|))))) 

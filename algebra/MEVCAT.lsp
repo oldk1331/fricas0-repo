@@ -55,12 +55,6 @@
                                      (|Polynomial| (|Integer|)) (|List| |t#2|)
                                      (|Symbol|) (|List| (|Symbol|))))
                                    T))
-                                NIL
-                                '((|Boolean|) (|Polynomial| (|Integer|))
-                                  (|List| |t#2|) (|Symbol|) (|List| (|Symbol|))
-                                  (|Integer|) (|NonNegativeInteger|))
-                                NIL)))
+                                NIL NIL NIL)))
                    |ModularEvaluationCategory|)
-           (SETELT #1# 0
-                   (LIST '|ModularEvaluationCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|ModularEvaluationCategory| |t#1| |t#2|))))) 

@@ -48,10 +48,7 @@
                                                ((|setvalue!| (|t#1| $ |t#1|))
                                                 (|has| $
                                                        (|shallowlyMutable|))))
-                                             NIL
-                                             '((|List| $) (|Boolean|)
-                                               (|Integer|) (|List| |t#1|))
-                                             NIL))
+                                             NIL NIL NIL))
                                            . #2=(|RecursiveAggregate|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|RecursiveAggregate| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|RecursiveAggregate| |t#1|))))) 

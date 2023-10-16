@@ -25,7 +25,7 @@
                               ((|readable?| ((|Boolean|) $)) T)
                               ((|writable?| ((|Boolean|) $)) T)
                               ((|new| ($ (|String|) (|String|) (|String|))) T))
-                            NIL '((|String|) (|Boolean|)) NIL))
+                            NIL NIL NIL))
                    |FileNameCategory|)
            (SETELT #1# 0 '(|FileNameCategory|))))) 
 

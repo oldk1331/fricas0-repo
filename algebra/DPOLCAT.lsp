@@ -75,13 +75,9 @@
                                       (|has| |t#1| (|DifferentialRing|)))
                                      ((|Evalable| $)
                                       (|has| |t#1| (|DifferentialRing|))))
-                                   '((|Boolean|) (|NonNegativeInteger|)
-                                     (|List| (|NonNegativeInteger|))
-                                     (|List| |t#2|))
-                                   NIL))
+                                   NIL NIL))
                                  . #2=(|DifferentialPolynomialCategory|)))))
                    . #2#)
            (SETELT #1# 0
-                   (LIST '|DifferentialPolynomialCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|) (|devaluate| |t#3|)
-                         (|devaluate| |t#4|)))))) 
+                   (LIST '|DifferentialPolynomialCategory| |t#1| |t#2| |t#3|
+                         |t#4|))))) 

@@ -51,12 +51,7 @@
                                                  ((|Void|) $ |t#1| |t#1|))
                                                 (|has| $
                                                        (|shallowlyMutable|))))
-                                             NIL
-                                             '((|Void|) (|Boolean|)
-                                               (|List| |t#1|) (|List| |t#2|))
-                                             NIL))
+                                             NIL NIL NIL))
                                            . #2=(|IndexedAggregate|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|IndexedAggregate| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|IndexedAggregate| |t#1| |t#2|))))) 

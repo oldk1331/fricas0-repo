@@ -73,9 +73,7 @@
                                                ((|CharacteristicNonZero|)
                                                 (|has| |t#1|
                                                        (|CharacteristicNonZero|))))
-                                             '((|Fraction| (|Integer|))
-                                               (|Boolean|))
-                                             NIL))
+                                             NIL NIL))
                                            . #2=(|OctonionCategory|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|OctonionCategory| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|OctonionCategory| |t#1|))))) 

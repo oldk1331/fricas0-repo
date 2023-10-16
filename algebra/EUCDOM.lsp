@@ -35,9 +35,7 @@
                               ((|multiEuclidean|
                                 ((|Union| (|List| $) "failed") (|List| $) $))
                                T))
-                            NIL
-                            '((|List| $) (|NonNegativeInteger|) (|Boolean|))
-                            NIL))
+                            NIL NIL NIL))
                    |EuclideanDomain|)
            (SETELT #1# 0 '(|EuclideanDomain|))))) 
 

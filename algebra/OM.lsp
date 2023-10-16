@@ -17,8 +17,7 @@
                        ((|OMwrite| ((|Void|) (|OpenMathDevice|) $)) T)
                        ((|OMwrite| ((|Void|) (|OpenMathDevice|) $ (|Boolean|)))
                         T))
-                     NIL '((|Void|) (|OpenMathDevice|) (|Boolean|) (|String|))
-                     NIL))
+                     NIL NIL NIL))
                    |OpenMath|)
            (SETELT #1# 0 '(|OpenMath|))))) 
 

@@ -53,12 +53,7 @@
                                                   (|has| |t#1|
                                                          (|RetractableTo|
                                                           (|Integer|)))))
-                                               '((|SparseUnivariatePolynomial|
-                                                  $)
-                                                 (|Symbol|) (|List| $))
-                                               NIL))
+                                               NIL NIL))
                                       . #2=(|AlgebraicallyClosedFunctionSpace|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|AlgebraicallyClosedFunctionSpace|
-                         (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|AlgebraicallyClosedFunctionSpace| |t#1|))))) 

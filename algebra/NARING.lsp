@@ -15,7 +15,7 @@
                            (|mkCategory|
                             '(((|characteristic| ((|NonNegativeInteger|))) T)
                               ((|coerce| ($ (|Integer|))) T))
-                            NIL '((|Integer|) (|NonNegativeInteger|)) NIL))
+                            NIL NIL NIL))
                    |NonAssociativeRing|)
            (SETELT #1# 0 '(|NonAssociativeRing|))))) 
 

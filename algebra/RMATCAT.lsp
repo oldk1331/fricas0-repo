@@ -101,14 +101,9 @@
                                             ((|Module| |t#3|)
                                              (|has| |t#3|
                                                     (|CommutativeRing|))))
-                                          '((|List| |t#5|)
-                                            (|NonNegativeInteger|) (|Integer|)
-                                            (|List| (|List| |t#3|))
-                                            (|Boolean|))
-                                          NIL))
+                                          NIL NIL))
                                  . #2=(|RectangularMatrixCategory|)))))
                    . #2#)
            (SETELT #1# 0
-                   (LIST '|RectangularMatrixCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|) (|devaluate| |t#3|)
-                         (|devaluate| |t#4|) (|devaluate| |t#5|)))))) 
+                   (LIST '|RectangularMatrixCategory| |t#1| |t#2| |t#3| |t#4|
+                         |t#5|))))) 

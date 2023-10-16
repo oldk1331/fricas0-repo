@@ -57,13 +57,7 @@
                                                           (|Integer|))
                                                          (|Integer|)))
                                                        T))
-                                                    NIL
-                                                    '((|SparseUnivariatePolynomial|
-                                                       (|Integer|))
-                                                      (|Integer|)
-                                                      (|NonNegativeInteger|)
-                                                      (|Stream| (|Integer|)))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|PAdicIntegerCategory|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|PAdicIntegerCategory| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|PAdicIntegerCategory| |t#1|))))) 

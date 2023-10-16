@@ -71,17 +71,7 @@
                                ((|rename| ($ $ (|OutputForm|))) T)
                                ((|approximate| ((|Fraction| (|Integer|)) $ $))
                                 T))
-                             NIL
-                             '((|Fraction| (|Integer|)) (|OutputForm|)
-                               (|Integer|) (|PositiveInteger|) (|List| $)
-                               (|Polynomial| (|Integer|))
-                               (|Polynomial| (|Fraction| (|Integer|)))
-                               (|Polynomial| $)
-                               (|SparseUnivariatePolynomial| (|Integer|))
-                               (|SparseUnivariatePolynomial|
-                                (|Fraction| (|Integer|)))
-                               (|SparseUnivariatePolynomial| $))
-                             NIL)))
+                             NIL NIL NIL)))
                    |RealClosedField|)
            (SETELT #1# 0 '(|RealClosedField|))))) 
 

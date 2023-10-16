@@ -15,7 +15,7 @@
                               ((^ ($ $ (|Integer|))) T)
                               ((|conjugate| ($ $ $)) T)
                               ((|commutator| ($ $ $)) T))
-                            NIL '((|Integer|)) NIL))
+                            NIL NIL NIL))
                    |Group|)
            (SETELT #1# 0 '(|Group|))))) 
 

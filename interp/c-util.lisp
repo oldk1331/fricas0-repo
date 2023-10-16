@@ -1872,13 +1872,10 @@
                       (SETQ |bfVar#61| (CDR |bfVar#61|))))
                    NIL (CDR |x|) NIL)))))))
  
-; sublisV(p,e) ==
-;   (atom p => e; suba(p,e)) where
+; sublisV(p,e) == 
+;   LIST2REFVEC [suba(p, e.i) for i in 0..MAXINDEX e] where
 ;     suba(p,e) ==
 ;       STRINGP e => e
-;       -- no need to descend vectors unless they are categories
-;       --REFVECP e => LIST2REFVEC [suba(p,e.i) for i in 0..MAXINDEX e]
-;       isCategory e => LIST2REFVEC [suba(p,e.i) for i in 0..MAXINDEX e]
 ;       atom e => (y:= ASSQ(e,p) => rest y; e)
 ;       u:= suba(p,QCAR e)
 ;       v:= suba(p,QCDR e)
@@ -1886,23 +1883,24 @@
 ;       [u,:v]
  
 (DEFUN |sublisV| (|p| |e|)
-  (PROG () (RETURN (COND ((ATOM |p|) |e|) ('T (|sublisV,suba| |p| |e|))))))
+  (PROG ()
+    (RETURN
+     (LIST2REFVEC
+      ((LAMBDA (|bfVar#64| |bfVar#63| |i|)
+         (LOOP
+          (COND ((> |i| |bfVar#63|) (RETURN (NREVERSE |bfVar#64|)))
+                ('T
+                 (SETQ |bfVar#64|
+                         (CONS (|sublisV,suba| |p| (ELT |e| |i|))
+                               |bfVar#64|))))
+          (SETQ |i| (+ |i| 1))))
+       NIL (MAXINDEX |e|) 0)))))
 (DEFUN |sublisV,suba| (|p| |e|)
   (PROG (|y| |u| |v|)
     (RETURN
      (COND ((STRINGP |e|) |e|)
-           ((|isCategory| |e|)
-            (LIST2REFVEC
-             ((LAMBDA (|bfVar#64| |bfVar#63| |i|)
-                (LOOP
-                 (COND ((> |i| |bfVar#63|) (RETURN (NREVERSE |bfVar#64|)))
-                       (#1='T
-                        (SETQ |bfVar#64|
-                                (CONS (|sublisV,suba| |p| (ELT |e| |i|))
-                                      |bfVar#64|))))
-                 (SETQ |i| (+ |i| 1))))
-              NIL (MAXINDEX |e|) 0)))
-           ((ATOM |e|) (COND ((SETQ |y| (ASSQ |e| |p|)) (CDR |y|)) (#1# |e|)))
+           ((ATOM |e|)
+            (COND ((SETQ |y| (ASSQ |e| |p|)) (CDR |y|)) (#1='T |e|)))
            (#1#
             (PROGN
              (SETQ |u| (|sublisV,suba| |p| (QCAR |e|)))

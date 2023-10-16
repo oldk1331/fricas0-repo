@@ -28,7 +28,7 @@
                                                       ((/ ($ $ |t#1|))
                                                        (|has| |t#1|
                                                               (|Field|))))
-                                                    NIL 'NIL NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|LieAlgebra|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|LieAlgebra| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|LieAlgebra| |t#1|))))) 

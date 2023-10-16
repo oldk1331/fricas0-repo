@@ -16,7 +16,7 @@
                             '(((|positive?| ((|Boolean|) $)) T)
                               ((|negative?| ((|Boolean|) $)) T)
                               ((|sign| ((|Integer|) $)) T) ((|abs| ($ $)) T))
-                            NIL '((|Integer|) (|Boolean|)) NIL))
+                            NIL NIL NIL))
                    |OrderedRing|)
            (SETELT #1# 0 '(|OrderedRing|))))) 
 

@@ -191,17 +191,7 @@
                                                '(((|unitsKnown|)
                                                   (|has| |t#1|
                                                          (|IntegralDomain|))))
-                                               '((|SparseUnivariatePolynomial|
-                                                  |t#1|)
-                                                 (|List| (|Vector| |t#1|))
-                                                 (|Boolean|) (|Matrix| |t#1|)
-                                                 (|Vector| $) (|Vector| |t#1|)
-                                                 (|Vector| (|Matrix| |t#1|))
-                                                 (|List| (|Polynomial| |t#1|))
-                                                 (|PositiveInteger|))
-                                               NIL))
+                                               NIL NIL))
                                       . #2=(|FiniteRankNonAssociativeAlgebra|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|FiniteRankNonAssociativeAlgebra|
-                         (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|FiniteRankNonAssociativeAlgebra| |t#1|))))) 

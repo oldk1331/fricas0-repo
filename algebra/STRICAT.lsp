@@ -13,7 +13,7 @@
              (LETT #1#
                    (|Join| (|StringAggregate|) (|SetCategory|) (|OpenMath|)
                            (|mkCategory| '(((|string| ($ (|Integer|))) T)) NIL
-                                         '((|Integer|)) NIL))
+                                         NIL NIL))
                    |StringCategory|)
            (SETELT #1# 0 '(|StringCategory|))))) 
 

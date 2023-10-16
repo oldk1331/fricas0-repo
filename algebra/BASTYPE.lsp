@@ -13,7 +13,7 @@
                    (|Join|
                     (|mkCategory|
                      '(((= ((|Boolean|) $ $)) T) ((~= ((|Boolean|) $ $)) T))
-                     NIL '((|Boolean|)) NIL))
+                     NIL NIL NIL))
                    |BasicType|)
            (SETELT #1# 0 '(|BasicType|))))) 
 

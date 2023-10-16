@@ -14,7 +14,7 @@
                     (|mkCategory|
                      '(((< ((|Boolean|) $ $)) T) ((> ((|Boolean|) $ $)) T)
                        ((>= ((|Boolean|) $ $)) T) ((<= ((|Boolean|) $ $)) T))
-                     NIL '((|Boolean|)) NIL))
+                     NIL NIL NIL))
                    |PartialOrder|)
            (SETELT #1# 0 '(|PartialOrder|))))) 
 

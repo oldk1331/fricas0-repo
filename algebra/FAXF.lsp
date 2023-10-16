@@ -121,18 +121,7 @@
                                                     '(((|FiniteFieldCategory|)
                                                        (|has| |t#1|
                                                               (|Finite|))))
-                                                    '((|SparseUnivariatePolynomial|
-                                                       |t#1|)
-                                                      (|Boolean|)
-                                                      (|PositiveInteger|)
-                                                      (|SparseUnivariatePolynomial|
-                                                       $)
-                                                      (|Vector| |t#1|)
-                                                      (|Matrix| |t#1|)
-                                                      (|Vector| $))
-                                                    NIL))
+                                                    NIL NIL))
                                            . #2=(|FiniteAlgebraicExtensionField|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|FiniteAlgebraicExtensionField|
-                         (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|FiniteAlgebraicExtensionField| |t#1|))))) 

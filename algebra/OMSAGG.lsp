@@ -28,8 +28,7 @@
                                                     '|t#1|)
                                                    (|mkCategory|
                                                     '(((|min| (|t#1| $)) T))
-                                                    NIL 'NIL NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|OrderedMultisetAggregate|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|OrderedMultisetAggregate| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|OrderedMultisetAggregate| |t#1|))))) 

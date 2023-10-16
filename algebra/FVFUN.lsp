@@ -71,16 +71,7 @@
                                  (|Vector|
                                   (|Fraction| (|Polynomial| (|Integer|))))))
                                T))
-                            NIL
-                            '((|Vector|
-                               (|Fraction| (|Polynomial| (|Integer|))))
-                              (|Vector| (|Fraction| (|Polynomial| (|Float|))))
-                              (|Vector| (|Polynomial| (|Integer|)))
-                              (|Vector| (|Polynomial| (|Float|)))
-                              (|Vector| (|Expression| (|Integer|)))
-                              (|Vector| (|Expression| (|Float|)))
-                              (|FortranCode|) (|List| (|FortranCode|)))
-                            NIL))
+                            NIL NIL NIL))
                    |FortranVectorFunctionCategory|)
            (SETELT #1# 0 '(|FortranVectorFunctionCategory|))))) 
 

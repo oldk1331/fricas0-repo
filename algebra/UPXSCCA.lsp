@@ -49,9 +49,9 @@
                                      ((|laurentIfCan|
                                        ((|Union| |t#2| "failed") $))
                                       T))
-                                   NIL '((|Fraction| (|Integer|))) NIL))
+                                   NIL NIL NIL))
                                  . #2=(|UnivariatePuiseuxSeriesConstructorCategory|)))))
                    . #2#)
            (SETELT #1# 0
-                   (LIST '|UnivariatePuiseuxSeriesConstructorCategory|
-                         (|devaluate| |t#1|) (|devaluate| |t#2|)))))) 
+                   (LIST '|UnivariatePuiseuxSeriesConstructorCategory| |t#1|
+                         |t#2|))))) 

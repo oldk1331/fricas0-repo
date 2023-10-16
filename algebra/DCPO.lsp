@@ -29,9 +29,7 @@
                                                          (|NonNegativeInteger|)
                                                          (|NonNegativeInteger|)))
                                                        T))
-                                                    NIL
-                                                    '((|NonNegativeInteger|))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|Dcpo|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|Dcpo| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|Dcpo| |t#1|))))) 

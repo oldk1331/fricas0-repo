@@ -12,7 +12,7 @@
              (LETT #1#
                    (|Join| (|Group|) (|Finite|)
                            (|mkCategory| '(((|order| ((|Integer|) $)) T)) NIL
-                                         '((|Integer|)) NIL))
+                                         NIL NIL))
                    |FiniteGroup|)
            (SETELT #1# 0 '(|FiniteGroup|))))) 
 

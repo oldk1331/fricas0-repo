@@ -29,7 +29,7 @@
                                                     '(((|Algebra| |t#1|)
                                                        (|has| |t#1|
                                                               (|CommutativeRing|))))
-                                                    'NIL NIL))
+                                                    NIL NIL))
                                            . #2=(|XAlgebra|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|XAlgebra| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|XAlgebra| |t#1|))))) 

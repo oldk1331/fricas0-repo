@@ -87,13 +87,8 @@
                                                    (|Algebra|
                                                     (|Fraction|
                                                      (|Integer|))))))
-                                         '((|Polynomial| |t#1|)
-                                           (|NonNegativeInteger|)
-                                           (|List| |t#2|)
-                                           (|List| (|NonNegativeInteger|)))
-                                         NIL))
+                                         NIL NIL))
                                        . #3=(|MultivariateTaylorSeriesCategory|))))))
                    . #3#)
            (SETELT #1# 0
-                   (LIST '|MultivariateTaylorSeriesCategory|
-                         (|devaluate| |t#1|) (|devaluate| |t#2|)))))) 
+                   (LIST '|MultivariateTaylorSeriesCategory| |t#1| |t#2|))))) 

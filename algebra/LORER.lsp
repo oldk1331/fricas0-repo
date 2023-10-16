@@ -17,7 +17,7 @@
                                            (|:| |coeff2| $))
                                  $ $))
                                T))
-                            NIL 'NIL NIL))
+                            NIL NIL NIL))
                    |LeftOreRing|)
            (SETELT #1# 0 '(|LeftOreRing|))))) 
 

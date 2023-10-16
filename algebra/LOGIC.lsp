@@ -13,7 +13,7 @@
                            (|mkCategory|
                             '(((~ ($ $)) T) ((|true| ($) |constant|) T)
                               ((|false| ($) |constant|) T))
-                            NIL 'NIL NIL))
+                            NIL NIL NIL))
                    |Logic|)
            (SETELT #1# 0 '(|Logic|))))) 
 

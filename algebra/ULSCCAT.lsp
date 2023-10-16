@@ -47,9 +47,9 @@
                                       T))
                                    '(((|QuotientFieldCategory| |t#2|)
                                       (|has| |t#1| (|Field|))))
-                                   '((|Integer|)) NIL))
+                                   NIL NIL))
                                  . #2=(|UnivariateLaurentSeriesConstructorCategory|)))))
                    . #2#)
            (SETELT #1# 0
-                   (LIST '|UnivariateLaurentSeriesConstructorCategory|
-                         (|devaluate| |t#1|) (|devaluate| |t#2|)))))) 
+                   (LIST '|UnivariateLaurentSeriesConstructorCategory| |t#1|
+                         |t#2|))))) 

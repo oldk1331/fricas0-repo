@@ -101,13 +101,7 @@
                                                      '(((|noZeroDivisors|)
                                                         (|has| |t#2|
                                                                (|noZeroDivisors|))))
-                                                     '((|List| |t#1|)
-                                                       (|NonNegativeInteger|)
-                                                       (|Boolean|)
-                                                       (|FreeMonoid| |t#1|))
-                                                     NIL))
+                                                     NIL NIL))
                                             . #3=(|XFreeAlgebra|))))))
                    . #3#)
-           (SETELT #1# 0
-                   (LIST '|XFreeAlgebra| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|XFreeAlgebra| |t#1| |t#2|))))) 

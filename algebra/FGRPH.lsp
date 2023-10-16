@@ -367,48 +367,7 @@
                                                          (|Integer|)
                                                          (|Integer|)))
                                                        T))
-                                                    NIL
-                                                    '((|List|
-                                                       (|NonNegativeInteger|))
-                                                      (|List| |t#1|)
-                                                      (|Integer|) (|Boolean|)
-                                                      (|NonNegativeInteger|)
-                                                      (|Void|) (|String|)
-                                                      (|List| $)
-                                                      (|Scene|
-                                                       (|SCartesian| 2))
-                                                      (|Matrix| (|Integer|))
-                                                      (|Matrix|
-                                                       (|NonNegativeInteger|))
-                                                      (|List| (|Loop|))
-                                                      (|List|
-                                                       (|Tree| (|Integer|)))
-                                                      (|Tree| (|Integer|))
-                                                      (|DirectedGraph| $)
-                                                      (|List|
-                                                       (|Record|
-                                                        (|:| |name| (|String|))
-                                                        (|:| |arrType|
-                                                             (|NonNegativeInteger|))
-                                                        (|:| |fromOb|
-                                                             (|NonNegativeInteger|))
-                                                        (|:| |toOb|
-                                                             (|NonNegativeInteger|))
-                                                        (|:| |xOffset|
-                                                             (|Integer|))
-                                                        (|:| |yOffset|
-                                                             (|Integer|))
-                                                        (|:| |map|
-                                                             (|List|
-                                                              (|NonNegativeInteger|)))))
-                                                      (|List|
-                                                       (|Record|
-                                                        (|:| |value| |t#1|)
-                                                        (|:| |posX|
-                                                             (|NonNegativeInteger|))
-                                                        (|:| |posY|
-                                                             (|NonNegativeInteger|)))))
-                                                    NIL))
+                                                    NIL NIL NIL))
                                            . #2=(|FiniteGraph|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|FiniteGraph| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|FiniteGraph| |t#1|))))) 

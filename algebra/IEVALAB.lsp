@@ -23,8 +23,6 @@
                                 '(((|eval| ($ $ |t#1| |t#2|)) T)
                                   ((|eval| ($ $ (|List| |t#1|) (|List| |t#2|)))
                                    T))
-                                NIL '((|List| |t#1|) (|List| |t#2|)) NIL)))
+                                NIL NIL NIL)))
                    |InnerEvalable|)
-           (SETELT #1# 0
-                   (LIST '|InnerEvalable| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|InnerEvalable| |t#1| |t#2|))))) 

@@ -15,7 +15,7 @@
                            (|mkCategory|
                             '(((+ ($ $ $)) T)
                               ((* ($ (|PositiveInteger|) $)) T))
-                            NIL '((|PositiveInteger|)) NIL))
+                            NIL NIL NIL))
                    |AbelianSemiGroup|)
            (SETELT #1# 0 '(|AbelianSemiGroup|))))) 
 

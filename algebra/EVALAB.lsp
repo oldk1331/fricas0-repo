@@ -32,10 +32,7 @@
                                                  ($ $
                                                   (|List| (|Equation| |t#1|))))
                                                 T))
-                                             NIL
-                                             '((|List| (|Equation| |t#1|))
-                                               (|Equation| |t#1|))
-                                             NIL))
+                                             NIL NIL NIL))
                                            . #2=(|Evalable|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|Evalable| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|Evalable| |t#1|))))) 

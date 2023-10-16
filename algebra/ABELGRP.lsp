@@ -14,7 +14,7 @@
                            (|mkCategory|
                             '(((- ($ $)) T) ((- ($ $ $)) T)
                               ((* ($ (|Integer|) $)) T))
-                            NIL '((|Integer|)) NIL))
+                            NIL NIL NIL))
                    |AbelianGroup|)
            (SETELT #1# 0 '(|AbelianGroup|))))) 
 

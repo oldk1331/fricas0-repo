@@ -83,14 +83,7 @@
                                                          (SIGNATURE *
                                                           (|t#1| |t#2|
                                                            |t#1|))))))
-                                              '((|Stream| |t#1|)
-                                                (|PositiveInteger|) (|Symbol|)
-                                                (|Stream|
-                                                 (|Record| (|:| |k| |t#2|)
-                                                           (|:| |c| |t#1|))))
-                                              NIL))
+                                              NIL NIL))
                                             . #3=(|UnivariatePowerSeriesCategory|))))))
                    . #3#)
-           (SETELT #1# 0
-                   (LIST '|UnivariatePowerSeriesCategory| (|devaluate| |t#1|)
-                         (|devaluate| |t#2|)))))) 
+           (SETELT #1# 0 (LIST '|UnivariatePowerSeriesCategory| |t#1| |t#2|))))) 

@@ -96,7 +96,7 @@
                                                       ((|PolynomialFactorizationExplicit|)
                                                        (|has| |t#1|
                                                               (|PolynomialFactorizationExplicit|))))
-                                                    'NIL NIL))
+                                                    NIL NIL))
                                            . #2=(|QuotientFieldCategory|)))))
                    . #2#)
-           (SETELT #1# 0 (LIST '|QuotientFieldCategory| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|QuotientFieldCategory| |t#1|))))) 
