@@ -1699,19 +1699,14 @@
  
 ; get0(x,prop,e) ==
 ;   null atom x => get(QCAR x,prop,e)
-;   u := QLASSQ(x, first QCAR e) => QLASSQ(prop, u)
-;   (tail := rest QCAR e) and (u := fastSearchCurrentEnv(x, tail)) =>
-;     QLASSQ(prop,u)
+;   (pl := getProplist(x, e)) => QLASSQ(prop, pl)
 ;   nil
  
 (DEFUN |get0| (|x| |prop| |e|)
-  (PROG (|u| |tail|)
+  (PROG (|pl|)
     (RETURN
      (COND ((NULL (ATOM |x|)) (|get| (QCAR |x|) |prop| |e|))
-           ((SETQ |u| (QLASSQ |x| (CAR (QCAR |e|)))) (QLASSQ |prop| |u|))
-           ((AND (SETQ |tail| (CDR (QCAR |e|)))
-                 (SETQ |u| (|fastSearchCurrentEnv| |x| |tail|)))
-            (QLASSQ |prop| |u|))
+           ((SETQ |pl| (|getProplist| |x| |e|)) (QLASSQ |prop| |pl|))
            ('T NIL)))))
  
 ; get1(x,prop,e) ==
