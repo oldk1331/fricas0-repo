@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5150 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5151 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -629,7 +629,7 @@
  |topFortranOutputStack| |fracPart| |polyPart| |fullPartialFraction|
  |primeFrobenius| |discreteLog| |decreasePrecision| |increasePrecision| |bits|
  |mergeFactors| |unitNormalize| |unit| |flagFactor| |sqfrFactor| |primeFactor|
- |irreducibleFactor| |factors| |nilFactor| |factorFraction|
+ |irreducibleFactor| |factors| |nilFactor| |map_preserving| |factorFraction|
  |regularRepresentation| |traceMatrix| |randomLC| |minimize| |module|
  |represents| |rightRegularRepresentation| |leftRegularRepresentation|
  |rightTraceMatrix| |leftTraceMatrix| |rightDiscriminant| |leftDiscriminant|

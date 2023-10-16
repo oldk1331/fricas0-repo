@@ -150,7 +150,11 @@
                        (COND ((< |n| 1) (SPADCALL |cnp| NIL (QREFELT $ 49)))
                              ((EQL |n| 1)
                               (SPADCALL |cnp|
-                                        (LIST (VECTOR (CONS 3 "prime") |p| 1))
+                                        (LIST
+                                         (VECTOR (CONS 3 "prime")
+                                                 (SPADCALL |p| |cn|
+                                                           (QREFELT $ 37))
+                                                 1))
                                         (QREFELT $ 49)))
                              (#5#
                               (COND

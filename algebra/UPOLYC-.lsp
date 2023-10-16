@@ -1143,9 +1143,10 @@
               (|Record| (|:| |flag| 86) (|:| |factor| 6) (|:| |exponent| 10))
               (|List| 90) (|Factored| 6) (214 . |makeFR|)
               (220 . |factorPolynomial|) (|Mapping| 6 51) (|Factored| 51)
-              (|FactoredFunctions2| 51 6) (225 . |map|) (231 . |factor|)
-              (236 . |Zero|) (|Integer|) (|Vector| 7) (240 . |minIndex|)
-              (245 . |coefficient|) |UPOLYC-;vectorise;SNniV;21| (251 . |elt|)
+              (|FactoredFunctions2| 51 6) (225 . |map_preserving|)
+              (231 . |factor|) (236 . |Zero|) (|Integer|) (|Vector| 7)
+              (240 . |minIndex|) (245 . |coefficient|)
+              |UPOLYC-;vectorise;SNniV;21| (251 . |elt|)
               |UPOLYC-;unvectorise;VS;22| |UPOLYC-;retract;SR;23|
               (|Union| 7 '"failed") |UPOLYC-;retractIfCan;SU;24| (257 . |init|)
               (261 . |init|) (|Union| $ '#3="failed") (265 . |nextItem|)
