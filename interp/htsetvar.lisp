@@ -594,7 +594,7 @@
 ;   string := STRCONC('"{\em ",whatToType,'"}")
 ;   htMakePage [
 ;      '(text "\vspace{1}\newline"
-;         "{Sorry, but this system command is not available through HyperDoc. Please directly issue this command in an FriCAS window for more information:}"
+;         "{Sorry, but this system command is not available through HyperDoc. Please directly issue this command in a FriCAS window for more information:}"
 ;             "\vspace{2}\newline\centerline{\tt"),
 ;       ['text,:string]]
 ;   htMakePage '((text . "}\vspace{1}\newline"))
@@ -613,7 +613,7 @@
       (|htMakePage|
        (LIST
         '(|text| "\\vspace{1}\\newline"
-          "{Sorry, but this system command is not available through HyperDoc. Please directly issue this command in an FriCAS window for more information:}"
+          "{Sorry, but this system command is not available through HyperDoc. Please directly issue this command in a FriCAS window for more information:}"
           "\\vspace{2}\\newline\\centerline{\\tt")
         (CONS '|text| |string|)))
       (|htMakePage| '((|text| . "}\\vspace{1}\\newline")))
