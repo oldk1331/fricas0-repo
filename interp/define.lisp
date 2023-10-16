@@ -3349,7 +3349,7 @@
 ;     RPLACA(item,first u)
 ;     RPLACD(item,rest u)
 ;     doIt(item,$predl)
-;   item is ['LET,lhs,rhs,:.] =>
+;   item is [":=", lhs, rhs, :.] =>
 ;     not (compOrCroak(item,$EmptyMode,$e) is [code,.,$e]) =>
 ;       stackSemanticError(["cannot compile assigned value to",:bright lhs],nil)
 ;     not (code is ['LET,lhs',rhs',:.] and atom lhs') =>
@@ -3448,7 +3448,7 @@
          (RPLACA |item| (CAR |u|))
          (RPLACD |item| (CDR |u|))
          (|doIt| |item| |$predl|)))
-       ((AND (CONSP |item|) (EQ (CAR |item|) 'LET)
+       ((AND (CONSP |item|) (EQ (CAR |item|) '|:=|)
              (PROGN
               (SETQ |ISTMP#1| (CDR |item|))
               (AND (CONSP |ISTMP#1|)

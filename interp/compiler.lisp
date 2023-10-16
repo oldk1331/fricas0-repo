@@ -1916,7 +1916,7 @@
          (LIST (SUBLIS |substitutionList| |modemap|) |e|)))
        (#2# NIL))))))
  
-; compSetq(["LET",form,val],m,E) == compSetq1(form,val,m,E)
+; compSetq([":=", form, val], m, E) == compSetq1(form, val, m, E)
  
 (DEFUN |compSetq| (|bfVar#61| |m| E)
   (PROG (|form| |val|)
@@ -1930,7 +1930,7 @@
 ;   IDENTP form => setqSingle(form,val,m,E)
 ;   form is [":",x,y] =>
 ;     [.,.,E']:= compMakeDeclaration(form,$EmptyMode,E)
-;     compSetq(["LET",x,val],m,E')
+;     compSetq([":=", x, val], m, E')
 ;   form is [op,:l] =>
 ;     op="CONS"  => setqMultiple(uncons form,val,m,E)
 ;     op = "@Tuple" => setqMultiple(l, val, m, E)
@@ -1952,7 +1952,7 @@
             (PROGN
              (SETQ |LETTMP#1| (|compMakeDeclaration| |form| |$EmptyMode| E))
              (SETQ |E'| (CADDR |LETTMP#1|))
-             (|compSetq| (LIST 'LET |x| |val|) |m| |E'|)))
+             (|compSetq| (LIST '|:=| |x| |val|) |m| |E'|)))
            ((AND (CONSP |form|)
                  (PROGN (SETQ |op| (CAR |form|)) (SETQ |l| (CDR |form|)) #1#))
             (COND

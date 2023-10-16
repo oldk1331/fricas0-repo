@@ -23,7 +23,7 @@
 (DEFUN |record_on_docList| (|key| |item|)
   (PROG () (RETURN (SETQ |$docList| (CONS (CONS |key| |item|) |$docList|)))))
  
-; recordAttributeDocumentation(['Attribute,att],lineno) ==
+; recordAttributeDocumentation(['ATTRIBUTE, att], lineno) ==
 ;   name := opOf att
 ;   UPPER_-CASE_-P (PNAME name).0 => nil
 ;   recordDocumentation([name,['attribute,:IFCDR postTransform att]],lineno)

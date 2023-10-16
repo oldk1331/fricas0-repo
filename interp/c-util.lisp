@@ -1155,9 +1155,10 @@
 ;         [op,y,:l]:= x
 ;         op="has" => x
 ;         op="is" => x
-;         op="LET" =>
+;         op = ":=" =>
 ;           IDENTP y => (setAssignment LIST x; y)
-;           true => (setAssignment [["LET",g:= genVariable(),:l],["LET",y,g]]; g)
+;           true => (setAssignment [[":=", g := genVariable(), :l],
+;                                   [":=", y, g]]; g)
 ;         isSideEffectFree op => [op, :mapInto(rest x, function fn)]
 ;         true => $assignmentList:= "failed"
 ;       setAssignment x ==
@@ -1187,15 +1188,16 @@
              (SETQ |y| (CADR |x|))
              (SETQ |l| (CDDR |x|))
              (COND ((EQ |op| '|has|) |x|) ((EQ |op| '|is|) |x|)
-                   ((EQ |op| 'LET)
+                   ((EQ |op| '|:=|)
                     (COND
                      ((IDENTP |y|)
                       (PROGN (|isAlmostSimple,setAssignment| (LIST |x|)) |y|))
                      (T
                       (PROGN
                        (|isAlmostSimple,setAssignment|
-                        (LIST (CONS 'LET (CONS (SETQ |g| (|genVariable|)) |l|))
-                              (LIST 'LET |y| |g|)))
+                        (LIST
+                         (CONS '|:=| (CONS (SETQ |g| (|genVariable|)) |l|))
+                         (LIST '|:=| |y| |g|)))
                        |g|))))
                    ((|isSideEffectFree| |op|)
                     (CONS |op| (|mapInto| (CDR |x|) #'|isAlmostSimple,fn|)))

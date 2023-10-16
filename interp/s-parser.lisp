@@ -515,7 +515,7 @@
 ;               AND(match_symbol ":", MUST parse_Expression(),
 ;                   push_form3("Signature", pop_stack_2(), pop_stack_1(),
 ;                       getSignatureDocumentation2(G1, current_line_number()))),
-;               AND(push_form1("Attribute", pop_stack_1()),
+;               AND(push_form1("ATTRIBUTE", pop_stack_1()),
 ;                   ACTION recordAttributeDocumentation(top_of_stack(), G1)))
  
 (DEFUN |parse_Category| ()
@@ -549,7 +549,7 @@
                        (|pop_stack_1|)
                        (|getSignatureDocumentation2| G1
                         (|current_line_number|))))
-                 (AND (|push_form1| '|Attribute| (|pop_stack_1|))
+                 (AND (|push_form1| 'ATTRIBUTE (|pop_stack_1|))
                       (ACTION
                        (|recordAttributeDocumentation| (|top_of_stack|)
                         G1)))))))))))))

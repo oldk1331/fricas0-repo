@@ -23,9 +23,10 @@
 ;   acc:= GENSYM()
 ;   afterFirst:= GENSYM()
 ;   bodyVal:= GENSYM()
-;   [part1,m,e]:= comp(["LET",bodyVal,body],m,e) or return nil
-;   [part2,.,e]:= comp(["LET",acc,bodyVal],m,e) or return nil
-;   [part3,.,e]:= comp(["LET",acc,parseTran [op,acc,bodyVal]],m,e) or return nil
+;   [part1, m, e] := comp([":=", bodyVal, body], m, e) or return nil
+;   [part2, ., e] := comp([":=", acc, bodyVal], m, e) or return nil
+;   [part3, ., e] := comp([":=", acc, parseTran [op, acc, bodyVal]], m, e)
+;                      or return nil
 ;   identityCode:=
 ;     id:= getIdentity(op,e) => u.expr where u() == comp(id,m,e) or return nil
 ;     ["IdentityError",MKQ op]
@@ -95,20 +96,20 @@
                  (SETQ |afterFirst| (GENSYM))
                  (SETQ |bodyVal| (GENSYM))
                  (SETQ |LETTMP#1|
-                         (OR (|comp| (LIST 'LET |bodyVal| |body|) |m| |e|)
+                         (OR (|comp| (LIST '|:=| |bodyVal| |body|) |m| |e|)
                              (RETURN NIL)))
                  (SETQ |part1| (CAR |LETTMP#1|))
                  (SETQ |m| (CADR . #3=(|LETTMP#1|)))
                  (SETQ |e| (CADDR . #3#))
                  (SETQ |LETTMP#1|
-                         (OR (|comp| (LIST 'LET |acc| |bodyVal|) |m| |e|)
+                         (OR (|comp| (LIST '|:=| |acc| |bodyVal|) |m| |e|)
                              (RETURN NIL)))
                  (SETQ |part2| (CAR |LETTMP#1|))
                  (SETQ |e| (CADDR |LETTMP#1|))
                  (SETQ |LETTMP#1|
                          (OR
                           (|comp|
-                           (LIST 'LET |acc|
+                           (LIST '|:=| |acc|
                                  (|parseTran| (LIST |op| |acc| |bodyVal|)))
                            |m| |e|)
                           (RETURN NIL)))
@@ -346,19 +347,19 @@
  
 ; genLetHelper(op, arg, d, var) ==
 ;     form0 := [["elt", d, op], arg]
-;     ["LET", var, form0]
+;     [":=", var, form0]
  
 (DEFUN |genLetHelper| (|op| |arg| |d| |var|)
   (PROG (|form0|)
     (RETURN
      (PROGN
       (SETQ |form0| (LIST (LIST '|elt| |d| |op|) |arg|))
-      (LIST 'LET |var| |form0|)))))
+      (LIST '|:=| |var| |form0|)))))
  
 ; compInitGstep(y, ef, sf, mOver, e) ==
 ;     gvar := genSomeVariable()
 ;     [., ., e] := compMakeDeclaration([":", gvar, mOver], $EmptyMode, e)
-;     form := ["SEQ", ["LET", gvar, y],
+;     form := ["SEQ", [":=", gvar, y],
 ;                     genLetHelper("emptyFun", gvar, mOver, ef),
 ;                        genLetHelper("stepFun", gvar, mOver, sf),
 ;                          ["exit", 1, 1]]
@@ -376,7 +377,7 @@
                |e|))
       (SETQ |e| (CADDR |LETTMP#1|))
       (SETQ |form|
-              (LIST 'SEQ (LIST 'LET |gvar| |y|)
+              (LIST 'SEQ (LIST '|:=| |gvar| |y|)
                     (|genLetHelper| '|emptyFun| |gvar| |mOver| |ef|)
                     (|genLetHelper| '|stepFun| |gvar| |mOver| |sf|)
                     (LIST '|exit| 1 1)))
