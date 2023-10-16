@@ -16,7 +16,6 @@
     (RETURN (PROGN (SETQ |result| (|compDefine1| |form| |m| |e|)) |result|))))
  
 ; compDefine1(form,m,e) ==
-;   $insideExpressionIfTrue: local:= false
 ;   --1. decompose after macro-expanding form
 ;   ['DEF,lhs,signature,specialCases,rhs]:= form:= macroExpand(form,e)
 ;   $insideWhereIfTrue and isMacro(form,e) and (m=$EmptyMode or m=$NoValueMode)
@@ -54,12 +53,9 @@
 ;   compDefineCapsuleFunction(form,m,e,newPrefix,$formalArgList)
  
 (DEFUN |compDefine1| (|form| |m| |e|)
-  (PROG (|$insideExpressionIfTrue| |newPrefix| |sig| |rhs| |specialCases|
-         |signature| |lhs|)
-    (DECLARE (SPECIAL |$insideExpressionIfTrue|))
+  (PROG (|lhs| |signature| |specialCases| |rhs| |sig| |newPrefix|)
     (RETURN
      (PROGN
-      (SETQ |$insideExpressionIfTrue| NIL)
       (SETQ |form| (|macroExpand| |form| |e|))
       (SETQ |lhs| (CADR . #1=(|form|)))
       (SETQ |signature| (CADDR . #1#))
@@ -2160,7 +2156,6 @@
               (REMDUP (NREVERSE |orderedVarList|)))))))))
  
 ; compInternalFunction(df is ['DEF,form,signature,specialCases,body], m, e) ==
-;     -- $insideExpressionIfTrue := false
 ;     [op, :argl] := form
 ;     not(IDENTP(op)) =>
 ;         stackAndThrow ['"Bad name for internal function:", op]
@@ -2214,7 +2209,6 @@
 ;     $insideCapsuleFunctionIfTrue: local:= true
 ;     $CapsuleModemapFrame: local:= e
 ;     $CapsuleDomainsInScope: local:= get("$DomainsInScope","special",e)
-;     $insideExpressionIfTrue: local:= true
 ;     $returnMode:= m
 ;     [$op,:argl]:= form
 ;     $form:= [$op,:argl]
@@ -2293,18 +2287,16 @@
  
 (DEFUN |compDefineCapsuleFunction| (|df| |m| |oldE| |$prefix| |$formalArgList|)
   (DECLARE (SPECIAL |$prefix| |$formalArgList|))
-  (PROG (|$insideExpressionIfTrue| |$CapsuleDomainsInScope|
-         |$CapsuleModemapFrame| |$insideCapsuleFunctionIfTrue|
-         |$initCapsuleErrorCount| |$locVarsTypes| |$finalEnv| |$functionStats|
-         |$op| |$form| |val| |fun| |finalBody| |body'| |catchTag| T$
-         |formattedSig| |localOrExported| |ISTMP#1| |rettype| |signature'|
-         |argModeList| |identSig| |argl| |e| |lineNumber| |LETTMP#1| |body|
-         |specialCases| |signature| |form|)
+  (PROG (|$CapsuleDomainsInScope| |$CapsuleModemapFrame|
+         |$insideCapsuleFunctionIfTrue| |$initCapsuleErrorCount|
+         |$locVarsTypes| |$finalEnv| |$functionStats| |$op| |$form| |val| |fun|
+         |finalBody| |body'| |catchTag| T$ |formattedSig| |localOrExported|
+         |ISTMP#1| |rettype| |signature'| |argModeList| |identSig| |argl| |e|
+         |lineNumber| |LETTMP#1| |body| |specialCases| |signature| |form|)
     (DECLARE
-     (SPECIAL |$insideExpressionIfTrue| |$CapsuleDomainsInScope|
-      |$CapsuleModemapFrame| |$insideCapsuleFunctionIfTrue|
-      |$initCapsuleErrorCount| |$locVarsTypes| |$finalEnv| |$functionStats|
-      |$op| |$form|))
+     (SPECIAL |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
+      |$insideCapsuleFunctionIfTrue| |$initCapsuleErrorCount| |$locVarsTypes|
+      |$finalEnv| |$functionStats| |$op| |$form|))
     (RETURN
      (PROGN
       (SETQ |form| (CADR . #1=(|df|)))
@@ -2324,7 +2316,6 @@
       (SETQ |$insideCapsuleFunctionIfTrue| T)
       (SETQ |$CapsuleModemapFrame| |e|)
       (SETQ |$CapsuleDomainsInScope| (|get| '|$DomainsInScope| '|special| |e|))
-      (SETQ |$insideExpressionIfTrue| T)
       (SETQ |$returnMode| |m|)
       (SETQ |$op| (CAR |form|))
       (SETQ |argl| (CDR |form|))
@@ -3327,22 +3318,17 @@
 ; compCapsule(['CAPSULE,:itemList],m,e) ==
 ;   $bootStrapMode = true =>
 ;       [bootStrapError($functorForm, $edit_file), m, e]
-;   $insideExpressionIfTrue: local:= false
 ;   compCapsuleInner(itemList,m,addDomain('_$,e))
  
 (DEFUN |compCapsule| (|bfVar#138| |m| |e|)
-  (PROG (|$insideExpressionIfTrue| |itemList|)
-    (DECLARE (SPECIAL |$insideExpressionIfTrue|))
+  (PROG (|itemList|)
     (RETURN
      (PROGN
       (SETQ |itemList| (CDR |bfVar#138|))
       (COND
        ((EQUAL |$bootStrapMode| T)
         (LIST (|bootStrapError| |$functorForm| |$edit_file|) |m| |e|))
-       ('T
-        (PROGN
-         (SETQ |$insideExpressionIfTrue| NIL)
-         (|compCapsuleInner| |itemList| |m| (|addDomain| '$ |e|)))))))))
+       ('T (|compCapsuleInner| |itemList| |m| (|addDomain| '$ |e|))))))))
  
 ; compSubDomain(["SubDomain",domainForm,predicate],m,e) ==
 ;   $addFormLhs: local:= domainForm
@@ -3827,7 +3813,6 @@
       (RPLACD |item| (LIST (LIST |p'| |x|) (LIST ''T |y|)))))))
  
 ; doItWhere(item is [.,form,:exprList], $predl, eInit) ==
-;   $insideExpressionIfTrue: local:= false
 ;   $insideWhereIfTrue: local:= true
 ;   e:= eInit
 ;   u:=
@@ -3845,14 +3830,13 @@
  
 (DEFUN |doItWhere| (|item| |$predl| |eInit|)
   (DECLARE (SPECIAL |$predl|))
-  (PROG (|$insideWhereIfTrue| |$insideExpressionIfTrue| |eFinal| |del| |eAfter|
-         |form1| |eBefore| |u| |e| |exprList| |form|)
-    (DECLARE (SPECIAL |$insideWhereIfTrue| |$insideExpressionIfTrue|))
+  (PROG (|$insideWhereIfTrue| |eFinal| |del| |eAfter| |form1| |eBefore| |u| |e|
+         |exprList| |form|)
+    (DECLARE (SPECIAL |$insideWhereIfTrue|))
     (RETURN
      (PROGN
       (SETQ |form| (CADR . #1=(|item|)))
       (SETQ |exprList| (CDDR . #1#))
-      (SETQ |$insideExpressionIfTrue| NIL)
       (SETQ |$insideWhereIfTrue| T)
       (SETQ |e| |eInit|)
       (SETQ |u|

@@ -157,7 +157,6 @@
 ; makeCompactDirect1(op,items) ==
 ; --NOTES: creates byte codes for ops implemented by the domain
 ;     curAddress := $byteAddress
-;     $op: local := op  --temp hack by RDJ 8/90 (see orderBySubsumption)
 ;     newcodes :=
 ;       "append"/[u for y in orderBySubsumption items | u := fn y] or return nil
 ;     $byteVecAcc := [newcodes,:$byteVecAcc]
@@ -183,12 +182,10 @@
 ;   res
  
 (DEFUN |makeCompactDirect1| (|op| |items|)
-  (PROG (|$op| |newcodes| |u| |curAddress|)
-    (DECLARE (SPECIAL |$op|))
+  (PROG (|curAddress| |u| |newcodes|)
     (RETURN
      (PROGN
       (SETQ |curAddress| |$byteAddress|)
-      (SETQ |$op| |op|)
       (SETQ |newcodes|
               (OR
                ((LAMBDA (|bfVar#15| |bfVar#14| |y|)

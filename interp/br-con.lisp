@@ -965,12 +965,6 @@
 ;       ['"Constructors {\em used by} the ",kind]
 ;     htMakePage [['bcLinks,['"\menuitemstyle{Benefactors}",
 ;       [['text,'"\tab{12}",:message]],'kcnPage,nil]]]
-;   --to remove "Capsule Information", comment out the next 5 lines
-;   if not asharpConstructorName? conname and hasNewInfoAlist conname then
-;     satBreak()
-;     message := ['"Cross reference for capsule implementation"]
-;     htMakePage [['bcLinks,['"\menuitemstyle{CapsuleInfo}",
-;       [['text,'"\tab{12}",:message]],'kciPage,nil]]]
 ;   htEndMenu(3)
 ;   htShowPage()
  
@@ -1117,17 +1111,6 @@
                    (LIST "\\menuitemstyle{Benefactors}"
                          (LIST (CONS '|text| (CONS "\\tab{12}" |message|)))
                          '|kcnPage| NIL))))))
-         (COND
-          ((AND (NULL (|asharpConstructorName?| |conname|))
-                (|hasNewInfoAlist| |conname|))
-           (|satBreak|)
-           (SETQ |message| (LIST "Cross reference for capsule implementation"))
-           (|htMakePage|
-            (LIST
-             (LIST '|bcLinks|
-                   (LIST "\\menuitemstyle{CapsuleInfo}"
-                         (LIST (CONS '|text| (CONS "\\tab{12}" |message|)))
-                         '|kciPage| NIL))))))
          (|htEndMenu| 3)
          (|htShowPage|))))))))
  

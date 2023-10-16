@@ -117,7 +117,6 @@
 ;   STRINGP(t2) =>
 ;     t1 = $String => t1
 ;     NIL
-;   null acceptableTypesToResolve(t1,t2) => NIL
 ;   if compareTT(t1,t2) then
 ;      t := t1
 ;      t1 := t2
@@ -151,7 +150,6 @@
             (|resolveTTUnion| |t2| |t1|))
            ((STRINGP |t1|) (COND ((EQUAL |t2| |$String|) |t2|) (#1='T NIL)))
            ((STRINGP |t2|) (COND ((EQUAL |t1| |$String|) |t1|) (#1# NIL)))
-           ((NULL (|acceptableTypesToResolve| |t1| |t2|)) NIL)
            (#1#
             (PROGN
              (COND
@@ -191,39 +189,6 @@
                                  (OR (|resolveTT2| |c1| |c2| |arg1| |arg2| |t|)
                                      (|resolveTT2| |c2| |c1| |arg2| |arg1|
                                       |t|))))))))))))))))
- 
-; acceptableTypesToResolve(t1,t2) ==
-;   -- this is temporary. It ensures that two types that have coerces
-;   -- that really should be converts don't automatically resolve.
-;   -- when the coerces go away, so will this.
-;   acceptableTypesToResolve1(t1,t2) and
-;     acceptableTypesToResolve1(t2,t1)
- 
-(DEFUN |acceptableTypesToResolve| (|t1| |t2|)
-  (PROG ()
-    (RETURN
-     (AND (|acceptableTypesToResolve1| |t1| |t2|)
-          (|acceptableTypesToResolve1| |t2| |t1|)))))
- 
-; acceptableTypesToResolve1(t1,t2) ==
-;   t1 = $Integer =>
-;     t2 = $String => NIL
-;     true
-;   t1 = $DoubleFloat or t1 = $Float =>
-;     t2 = $String => NIL
-;     t2 = [$QuotientField, $Integer] => NIL
-;     true
-;   true
- 
-(DEFUN |acceptableTypesToResolve1| (|t1| |t2|)
-  (PROG ()
-    (RETURN
-     (COND
-      ((EQUAL |t1| |$Integer|) (COND ((EQUAL |t2| |$String|) NIL) (#1='T T)))
-      ((OR (EQUAL |t1| |$DoubleFloat|) (EQUAL |t1| |$Float|))
-       (COND ((EQUAL |t2| |$String|) NIL)
-             ((EQUAL |t2| (LIST |$QuotientField| |$Integer|)) NIL) (#1# T)))
-      (#1# T)))))
  
 ; resolveTT2(c1,c2,arg1,arg2,t) ==
 ;   -- builds a tower and tests for all the necessary coercions

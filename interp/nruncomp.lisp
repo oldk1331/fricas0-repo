@@ -1434,14 +1434,13 @@
 ; --LOCAL BOUND FLUID VARIABLES:
 ;   $GENNO: local:= 0     --bound in compDefineFunctor1, then as parameter here
 ;   $catvecList: local    --list of vectors v1..vn for each view
-;   $hasCategoryAlist: local  --list of GENSYMs bound to (HasCategory ..) items
 ;   $SetFunctions: local  --copy of p view with preds telling when fnct defined
 ;   $MissingFunctionInfo: local --vector marking which functions are assigned
 ;   $ConstantAssignments: local --code for creation of constants
 ;   $epilogue: local := nil     --code to set slot 5, things to be done last
 ;   $extraParms:local  --Set in DomainSubstitutionFunction, used in setVector12
-;   $devaluateList: local --Bound to ((#1 . dv$1)..) where &1 := devaluate #1 later
-;   $devaluateList:= [[arg,:b] for arg in args for b in $ModeVariableList]
+;   $devaluateList : local := [[arg,:b] for arg in args
+;                                       for b in $ModeVariableList]
 ; ------------------------
 ;   oldtime := get_run_time()
 ;   [catsig, :argsig] := sig
@@ -1518,18 +1517,17 @@
 (DEFUN |buildFunctor| (|$definition| |sig| |code| |$locals| |$e|)
   (DECLARE (SPECIAL |$definition| |$locals| |$e|))
   (PROG (|$devaluateList| |$extraParms| |$epilogue| |$ConstantAssignments|
-         |$MissingFunctionInfo| |$SetFunctions| |$hasCategoryAlist|
-         |$catvecList| $GENNO |ans| |codePart3| |codePart1| |slamCode|
-         |slot3Code| |setVector0Code| |createViewCode| |createDomainCode|
-         |devaluateCode| |b| |a| |codePart2| |addargname| |argStuffCode|
-         |outsideFunctionCode| |storeOperationCode| |predBitVectorCode2|
-         |predBitVectorCode1| |LETTMP#1| |domname| |catNames| |domainShell|
-         |emptyVector| |makeCatvecCode| |condCats| |catvecListMaker| |argsig|
-         |catsig| |oldtime| |newstuff| |ISTMP#2| |ISTMP#1| |args| |name|)
+         |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO |ans|
+         |codePart3| |codePart1| |slamCode| |slot3Code| |setVector0Code|
+         |createViewCode| |createDomainCode| |devaluateCode| |b| |a|
+         |codePart2| |addargname| |argStuffCode| |outsideFunctionCode|
+         |storeOperationCode| |predBitVectorCode2| |predBitVectorCode1|
+         |LETTMP#1| |domname| |catNames| |domainShell| |emptyVector|
+         |makeCatvecCode| |condCats| |catvecListMaker| |argsig| |catsig|
+         |oldtime| |newstuff| |ISTMP#2| |ISTMP#1| |args| |name|)
     (DECLARE
      (SPECIAL |$devaluateList| |$extraParms| |$epilogue| |$ConstantAssignments|
-      |$MissingFunctionInfo| |$SetFunctions| |$hasCategoryAlist| |$catvecList|
-      $GENNO))
+      |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO))
     (RETURN
      (PROGN
       (SETQ |name| (CAR |$definition|))
@@ -1547,13 +1545,11 @@
       (|changeDirectoryInSlot1|)
       (SETQ $GENNO 0)
       (SETQ |$catvecList| NIL)
-      (SETQ |$hasCategoryAlist| NIL)
       (SETQ |$SetFunctions| NIL)
       (SETQ |$MissingFunctionInfo| NIL)
       (SETQ |$ConstantAssignments| NIL)
       (SETQ |$epilogue| NIL)
       (SETQ |$extraParms| NIL)
-      (SETQ |$devaluateList| NIL)
       (SETQ |$devaluateList|
               ((LAMBDA (|bfVar#61| |bfVar#59| |arg| |bfVar#60| |b|)
                  (LOOP
@@ -2063,39 +2059,6 @@
                  NIL |l| NIL))
         (CONS |op| |u|))
        (#1# NIL))))))
- 
-; NRToptimizeHas u ==
-; --u is a list ((pred cond)...) -- see optFunctorBody
-; --produces an alist: (((HasCategory a b) . GENSYM)...)
-;   u is [a,:b] =>
-;     a='HasCategory => LASSOC(u,$hasCategoryAlist) or
-;       $hasCategoryAlist := [[u,:(y:=GENSYM())],:$hasCategoryAlist]
-;       y
-;     a='has => NRToptimizeHas ['HasCategory,first b,MKQ first rest b]
-;     a = 'QUOTE => u
-;     [NRToptimizeHas a,:NRToptimizeHas b]
-;   u
- 
-(DEFUN |NRToptimizeHas| (|u|)
-  (PROG (|a| |b| |y|)
-    (RETURN
-     (COND
-      ((AND (CONSP |u|)
-            (PROGN (SETQ |a| (CAR |u|)) (SETQ |b| (CDR |u|)) #1='T))
-       (COND
-        ((EQ |a| '|HasCategory|)
-         (OR (LASSOC |u| |$hasCategoryAlist|)
-             (PROGN
-              (SETQ |$hasCategoryAlist|
-                      (CONS (CONS |u| (SETQ |y| (GENSYM)))
-                            |$hasCategoryAlist|))
-              |y|)))
-        ((EQ |a| '|has|)
-         (|NRToptimizeHas|
-          (LIST '|HasCategory| (CAR |b|) (MKQ (CAR (CDR |b|))))))
-        ((EQ |a| 'QUOTE) |u|)
-        (#1# (CONS (|NRToptimizeHas| |a|) (|NRToptimizeHas| |b|)))))
-      (#1# |u|)))))
  
 ; NRTaddToSlam([name,:argnames],shell) ==
 ;   $mutableDomain => return nil

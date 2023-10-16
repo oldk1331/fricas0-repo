@@ -938,7 +938,6 @@
 ;     $leaveLevelStack : local := []
 ;     $CategoryFrame : local := [[[]]]
 ;     $insideFunctorIfTrue : local := false
-;     $insideExpressionIfTrue : local := false
 ;     $insideWhereIfTrue : local := false
 ;     $insideCategoryIfTrue : local := false
 ;     $insideCapsuleFunctionIfTrue : local := false
@@ -952,16 +951,16 @@
 (DEFUN |boo_comp1| (|x|)
   (PROG (|$previousTime| |$genSDVar| |$e| |$form|
          |$insideCapsuleFunctionIfTrue| |$insideCategoryIfTrue|
-         |$insideWhereIfTrue| |$insideExpressionIfTrue| |$insideFunctorIfTrue|
-         |$CategoryFrame| |$leaveLevelStack| |$returnMode| |$exitModeStack|
-         |$exitMode| |$warningStack| |$semanticErrorStack| |$topOp|
-         |$postStack| |$compUniquelyIfTrue| $MACROASSOC |$Index|)
+         |$insideWhereIfTrue| |$insideFunctorIfTrue| |$CategoryFrame|
+         |$leaveLevelStack| |$returnMode| |$exitModeStack| |$exitMode|
+         |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
+         |$compUniquelyIfTrue| $MACROASSOC |$Index|)
     (DECLARE
      (SPECIAL |$previousTime| |$genSDVar| |$e| |$form|
       |$insideCapsuleFunctionIfTrue| |$insideCategoryIfTrue|
-      |$insideWhereIfTrue| |$insideExpressionIfTrue| |$insideFunctorIfTrue|
-      |$CategoryFrame| |$leaveLevelStack| |$returnMode| |$exitModeStack|
-      |$exitMode| |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
+      |$insideWhereIfTrue| |$insideFunctorIfTrue| |$CategoryFrame|
+      |$leaveLevelStack| |$returnMode| |$exitModeStack| |$exitMode|
+      |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
       |$compUniquelyIfTrue| $MACROASSOC |$Index|))
     (RETURN
      (PROGN
@@ -978,7 +977,6 @@
       (SETQ |$leaveLevelStack| NIL)
       (SETQ |$CategoryFrame| (LIST (LIST NIL)))
       (SETQ |$insideFunctorIfTrue| NIL)
-      (SETQ |$insideExpressionIfTrue| NIL)
       (SETQ |$insideWhereIfTrue| NIL)
       (SETQ |$insideCategoryIfTrue| NIL)
       (SETQ |$insideCapsuleFunctionIfTrue| NIL)
@@ -1150,7 +1148,6 @@
 ;     $leaveLevelStack : local := nil
 ;     $CategoryFrame : local := [[[]]]
 ;     $insideFunctorIfTrue : local := false
-;     $insideExpressionIfTrue : local := false
 ;     $insideWhereIfTrue : local := false
 ;     $insideCategoryIfTrue : local := false
 ;     $insideCapsuleFunctionIfTrue : local := false
@@ -1188,16 +1185,16 @@
 (DEFUN |S_process| (|x|)
   (PROG (|$m| |$x| |$s| |$previousTime| |$genSDVar| |$e| |$form|
          |$insideCapsuleFunctionIfTrue| |$insideCategoryIfTrue|
-         |$insideWhereIfTrue| |$insideExpressionIfTrue| |$insideFunctorIfTrue|
-         |$CategoryFrame| |$leaveLevelStack| |$returnMode| |$exitModeStack|
-         |$exitMode| |$warningStack| |$semanticErrorStack| |$topOp|
-         |$postStack| |$compUniquelyIfTrue| $MACROASSOC |$Index| |u| |nform|)
+         |$insideWhereIfTrue| |$insideFunctorIfTrue| |$CategoryFrame|
+         |$leaveLevelStack| |$returnMode| |$exitModeStack| |$exitMode|
+         |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
+         |$compUniquelyIfTrue| $MACROASSOC |$Index| |u| |nform|)
     (DECLARE
      (SPECIAL |$m| |$x| |$s| |$previousTime| |$genSDVar| |$e| |$form|
       |$insideCapsuleFunctionIfTrue| |$insideCategoryIfTrue|
-      |$insideWhereIfTrue| |$insideExpressionIfTrue| |$insideFunctorIfTrue|
-      |$CategoryFrame| |$leaveLevelStack| |$returnMode| |$exitModeStack|
-      |$exitMode| |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
+      |$insideWhereIfTrue| |$insideFunctorIfTrue| |$CategoryFrame|
+      |$leaveLevelStack| |$returnMode| |$exitModeStack| |$exitMode|
+      |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
       |$compUniquelyIfTrue| $MACROASSOC |$Index|))
     (RETURN
      (PROGN
@@ -1214,7 +1211,6 @@
       (SETQ |$leaveLevelStack| NIL)
       (SETQ |$CategoryFrame| (LIST (LIST NIL)))
       (SETQ |$insideFunctorIfTrue| NIL)
-      (SETQ |$insideExpressionIfTrue| NIL)
       (SETQ |$insideWhereIfTrue| NIL)
       (SETQ |$insideCategoryIfTrue| NIL)
       (SETQ |$insideCapsuleFunctionIfTrue| NIL)

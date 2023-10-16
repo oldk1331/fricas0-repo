@@ -3226,10 +3226,6 @@
 ;     htSayIndentRel(15)
 ;     htSaySourceFile conname
 ;     htSayIndentRel(-15)
-;   ------------------> remove profile printouts for now <-------------------
-;   if $standard and
-;     exactlyOneOpSig and (infoAlist := htpProperty(htPage,'infoAlist)) then
-;       displayInfoOp(htPage,infoAlist,op,sig)
 ;   -----------------------------------------------------------
 ;   htSaySaturn '"\end{tabular}"
  
@@ -3239,8 +3235,8 @@
   (DECLARE (SPECIAL |$generalSearch?|))
   (PROG (|$displayReturnValue| |$signature| |$conargs| |$conform| |$conlength|
          |$conkind| |$DomainList| |$FunctionList| |$ElementList| |$NumberList|
-         |$whereList| |$chooseDownCaseOfType| |infoAlist| |link| |abbr| |ndoc|
-         |t| |key| |ISTMP#1| |d| |count| |pred| |relatives| |position| |coSig|
+         |$whereList| |$chooseDownCaseOfType| |link| |abbr| |ndoc| |t| |key|
+         |ISTMP#1| |d| |count| |pred| |relatives| |position| |coSig|
          |firstTime| |symbolsUsed| |tvarlist| |conname| |constring| |n| |ops|
          |args| |opform| |conform| |exactlyOneOpSig|)
     (DECLARE
@@ -3535,10 +3531,6 @@
         (|htSaySaturnAmpersand|)
         (|htSayStandard| "\\tab{2}{\\em Source File:}") (|htSayIndentRel| 15)
         (|htSaySourceFile| |conname|) (|htSayIndentRel| (- 15))))
-      (COND
-       ((AND |$standard| |exactlyOneOpSig|
-             (SETQ |infoAlist| (|htpProperty| |htPage| '|infoAlist|)))
-        (|displayInfoOp| |htPage| |infoAlist| |op| |sig|)))
       (|htSaySaturn| "\\end{tabular}")))))
  
 ; htSaySourceFile conname ==
