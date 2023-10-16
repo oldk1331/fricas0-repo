@@ -34,11 +34,23 @@
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
-                                              (|HasCategory| |#2|
-                                                             (LIST
-                                                              '|FunctionSpace|
-                                                              (|devaluate|
-                                                               |#1|)))))))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|)))))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|))))))))
           (|haddProp| |$ConstructorCache| '|GenerateUnivariatePowerSeries|
                       (LIST DV$1 DV$2) (CONS 1 $))
           (|stuffDomainSlots| $)
@@ -49,12 +61,12 @@
 
 (MAKEPROP '|GenerateUnivariatePowerSeries| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|GenerateUnivariatePowerSeries2| 6 7)
+           '#(NIL NIL NIL NIL NIL (|GenerateUnivariatePowerSeries2| 7)
               (|local| |#1|) (|local| |#2|) (|Any|) (|Symbol|) (|Equation| 7)
+              (|UniversalSegment| 12) (|Fraction| (|Integer|))
               (|UniversalSegment| (|Integer|))
               (|UniversalSegment| (|NonNegativeInteger|))
-              (|UniversalSegment| 14) (|Fraction| (|Integer|))
-              (|Mapping| 7 (|Integer|)) (|Mapping| 7 14))
+              (|Mapping| 7 (|Integer|)) (|Mapping| 7 12))
            '#() 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -101,32 +113,39 @@
                                 T)
                               '((|taylor|
                                  ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)))
-                                (|has| 7 (|FunctionSpace| 6)))
+                                (AND (|has| 7 (|Evalable| 7))
+                                     (|has| 7 (|RetractableTo| (|Integer|)))))
                               '((|taylor|
                                  ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)
                                   (|UniversalSegment| (|NonNegativeInteger|))))
-                                (|has| 7 (|FunctionSpace| 6)))
+                                (AND (|has| 7 (|Evalable| 7))
+                                     (|has| 7 (|RetractableTo| (|Integer|)))))
                               '((|laurent|
                                  ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)
                                   (|UniversalSegment| (|Integer|))))
-                                (|has| 7 (|FunctionSpace| 6)))
+                                (AND (|has| 7 (|Evalable| 7))
+                                     (|has| 7 (|RetractableTo| (|Integer|)))))
                               '((|puiseux|
                                  ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)
                                   (|UniversalSegment| (|Fraction| (|Integer|)))
                                   (|Fraction| (|Integer|))))
-                                (|has| 7 (|FunctionSpace| 6)))
+                                (AND (|has| 7 (|Evalable| 7))
+                                     (|has| 7 (|RetractableTo| 12))))
                               '((|series|
                                  ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)))
-                                (|has| 7 (|FunctionSpace| 6)))
+                                (AND (|has| 7 (|Evalable| 7))
+                                     (|has| 7 (|RetractableTo| 12))))
                               '((|series|
                                  ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)
                                   (|UniversalSegment| (|Integer|))))
-                                (|has| 7 (|FunctionSpace| 6)))
+                                (AND (|has| 7 (|Evalable| 7))
+                                     (|has| 7 (|RetractableTo| 12))))
                               '((|series|
                                  ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)
                                   (|UniversalSegment| (|Fraction| (|Integer|)))
                                   (|Fraction| (|Integer|))))
-                                (|has| 7 (|FunctionSpace| 6))))
+                                (AND (|has| 7 (|Evalable| 7))
+                                     (|has| 7 (|RetractableTo| 12)))))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

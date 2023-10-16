@@ -463,7 +463,7 @@
               (85 . |low|) (90 . |high|) (95 . <) (101 . |numer|)
               (106 . |denom|) (111 . |lcm|) (117 . |segment|) (123 . |One|)
               (127 . |segment|) (|Mapping| 6 33) |GENUPS1;puiseux;MSRUsFA;8|)
-           '#(|taylor| 132 |series| 147 |puiseux| 171 |laurent| 180) 'NIL
+           '#(|taylor| 132 |puiseux| 147 |laurent| 156) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -490,22 +490,6 @@
                                   (|Symbol|) |#1|
                                   (|UniversalSegment| (|Fraction| (|Integer|)))
                                   (|Fraction| (|Integer|))))
-                                T)
-                              '((|series|
-                                 ((|Any|) (|Mapping| |#1| (|Integer|))
-                                  (|Symbol|) |#1|))
-                                T)
-                              '((|series|
-                                 ((|Any|) (|Mapping| |#1| (|Integer|))
-                                  (|Symbol|) |#1|
-                                  (|UniversalSegment| (|Integer|))))
-                                T)
-                              '((|series|
-                                 ((|Any|)
-                                  (|Mapping| |#1| (|Fraction| (|Integer|)))
-                                  (|Symbol|) |#1|
-                                  (|UniversalSegment| (|Fraction| (|Integer|)))
-                                  (|Fraction| (|Integer|))))
                                 T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 49
@@ -518,10 +502,8 @@
                                               0 38 1 37 33 0 39 1 37 33 0 40 2
                                               33 16 0 0 41 1 33 8 0 42 1 33 8 0
                                               43 2 8 0 0 0 44 2 28 0 8 8 45 0
-                                              33 0 46 1 28 0 8 47 3 0 18 19 20
-                                              6 21 4 0 18 19 20 6 22 27 3 0 18
-                                              19 20 6 1 5 0 18 48 20 6 37 33 1
-                                              4 0 18 19 20 6 28 1 5 0 18 48 20
-                                              6 37 33 49 4 0 18 19 20 6 28
-                                              32)))))
+                                              33 0 46 1 28 0 8 47 4 0 18 19 20
+                                              6 22 27 3 0 18 19 20 6 21 5 0 18
+                                              48 20 6 37 33 49 4 0 18 19 20 6
+                                              28 32)))))
            '|lookupComplete|)) 
