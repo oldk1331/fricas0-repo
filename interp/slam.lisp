@@ -707,7 +707,7 @@
 ; clearCache x ==
 ;   get(x,'localModemap,$e) or get(x,'mapBody,$e) =>
 ;     for [map,:sub] in $mapSubNameAlist repeat
-;       map=x => _/UNTRACE_-2(sub,NIL)
+;       map=x => untrace2(sub,[])
 ;     $e:= putHist(x,'localModemap,nil,$e)
 ;     $e:= putHist(x,'mapBody,nil,$e)
 ;     $e:= putHist(x,'localVars,nil,$e)
@@ -733,7 +733,7 @@
                      (SETQ |sub| (CDR |bfVar#23|))
                      #1#)
                     (COND
-                     ((EQUAL |map| |x|) (IDENTITY (/UNTRACE-2 |sub| NIL)))))))
+                     ((EQUAL |map| |x|) (IDENTITY (|untrace2| |sub| NIL)))))))
              (SETQ |bfVar#24| (CDR |bfVar#24|))))
           |$mapSubNameAlist| NIL)
          (SETQ |$e| (|putHist| |x| '|localModemap| NIL |$e|))
