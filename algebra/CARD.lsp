@@ -16,64 +16,64 @@
 (SDEFUN |CARD;Aleph;Nni$;4| ((|n| |NonNegativeInteger|) ($ $)) (CONS |n| -1)) 
 
 (SDEFUN |CARD;coerce;$Of;5| ((|x| $) ($ |OutputForm|))
-        (COND ((EQL (QCAR |x|) -1) (SPADCALL (QCDR |x|) (QREFELT $ 21)))
+        (COND ((EQL (QCAR |x|) -1) (SPADCALL (QCDR |x|) (QREFELT $ 18)))
               ('T
-               (SPADCALL (QREFELT $ 19)
-                         (LIST (SPADCALL (QCAR |x|) (QREFELT $ 21)))
-                         (QREFELT $ 23))))) 
+               (SPADCALL (QREFELT $ 16)
+                         (LIST (SPADCALL (QCAR |x|) (QREFELT $ 18)))
+                         (QREFELT $ 20))))) 
 
 (SDEFUN |CARD;=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
-        (COND ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 25)) NIL)
-              ((SPADCALL |x| (QREFELT $ 26)) (EQL (QCDR |x|) (QCDR |y|)))
+        (COND ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 23)) NIL)
+              ((SPADCALL |x| (QREFELT $ 24)) (EQL (QCDR |x|) (QCDR |y|)))
               ('T 'T))) 
 
 (SDEFUN |CARD;<;2$B;7| ((|x| $) (|y| $) ($ |Boolean|))
         (COND ((< (QCAR |x|) (QCAR |y|)) 'T)
               ((OR (> (QCAR |x|) (QCAR |y|))
-                   (NULL (SPADCALL |x| (QREFELT $ 26))))
+                   (NULL (SPADCALL |x| (QREFELT $ 24))))
                NIL)
               ('T (< (QCDR |x|) (QCDR |y|))))) 
 
 (SDEFUN |CARD;+;3$;8| ((|x| $) (|y| $) ($ $))
         (SEQ
          (COND
-          ((SPADCALL |x| (QREFELT $ 26))
+          ((SPADCALL |x| (QREFELT $ 24))
            (COND
-            ((SPADCALL |y| (QREFELT $ 26))
+            ((SPADCALL |y| (QREFELT $ 24))
              (EXIT (CONS -1 (+ (QCDR |x|) (QCDR |y|))))))))
-         (EXIT (SPADCALL |x| |y| (QREFELT $ 29))))) 
+         (EXIT (SPADCALL |x| |y| (QREFELT $ 27))))) 
 
 (SDEFUN |CARD;-;2$U;9| ((|x| $) (|y| $) ($ |Union| $ "failed"))
-        (COND ((SPADCALL |x| |y| (QREFELT $ 28)) (CONS 1 "failed"))
-              ((SPADCALL |x| (QREFELT $ 26))
+        (COND ((SPADCALL |x| |y| (QREFELT $ 26)) (CONS 1 "failed"))
+              ((SPADCALL |x| (QREFELT $ 24))
                (CONS 0 (CONS -1 (- (QCDR |x|) (QCDR |y|)))))
-              ((SPADCALL |x| |y| (QREFELT $ 31)) (CONS 0 |x|))
+              ((SPADCALL |x| |y| (QREFELT $ 29)) (CONS 0 |x|))
               ('T (CONS 1 "failed")))) 
 
 (SDEFUN |CARD;*;3$;10| ((|x| $) (|y| $) ($ $))
         (SEQ
          (COND
-          ((SPADCALL |x| (QREFELT $ 26))
+          ((SPADCALL |x| (QREFELT $ 24))
            (COND
-            ((SPADCALL |y| (QREFELT $ 26))
+            ((SPADCALL |y| (QREFELT $ 24))
              (EXIT (CONS -1 (* (QCDR |x|) (QCDR |y|))))))))
          (COND
-          ((OR (SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 27))
-               (SPADCALL |y| (|spadConstant| $ 12) (QREFELT $ 27)))
-           (EXIT (|spadConstant| $ 12))))
-         (EXIT (SPADCALL |x| |y| (QREFELT $ 29))))) 
+          ((OR (SPADCALL |x| (|spadConstant| $ 9) (QREFELT $ 25))
+               (SPADCALL |y| (|spadConstant| $ 9) (QREFELT $ 25)))
+           (EXIT (|spadConstant| $ 9))))
+         (EXIT (SPADCALL |x| |y| (QREFELT $ 27))))) 
 
 (SDEFUN |CARD;*;Nni2$;11| ((|n| |NonNegativeInteger|) (|x| $) ($ $))
-        (COND ((SPADCALL |x| (QREFELT $ 26)) (CONS -1 (* |n| (QCDR |x|))))
-              ((EQL |n| 0) (|spadConstant| $ 12)) ('T |x|))) 
+        (COND ((SPADCALL |x| (QREFELT $ 24)) (CONS -1 (* |n| (QCDR |x|))))
+              ((EQL |n| 0) (|spadConstant| $ 9)) ('T |x|))) 
 
 (SDEFUN |CARD;^;3$;12| ((|x| $) (|y| $) ($ $))
         (SPROG ((#1=#:G157 NIL))
                (COND
-                ((SPADCALL |y| (|spadConstant| $ 12) (QREFELT $ 27))
-                 (|spadConstant| $ 11))
-                ((SPADCALL |y| (QREFELT $ 26))
-                 (COND ((NULL (SPADCALL |x| (QREFELT $ 26))) |x|)
+                ((SPADCALL |y| (|spadConstant| $ 9) (QREFELT $ 25))
+                 (|spadConstant| $ 8))
+                ((SPADCALL |y| (QREFELT $ 24))
+                 (COND ((NULL (SPADCALL |x| (QREFELT $ 24))) |x|)
                        ('T
                         (CONS -1
                               (EXPT (QCDR |x|)
@@ -81,11 +81,11 @@
                                       (|check_subtype2| (>= #1# 0)
                                                         '(|NonNegativeInteger|)
                                                         '(|Integer|) #1#)))))))
-                ((SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 27))
-                 (|spadConstant| $ 12))
-                ((SPADCALL |x| (|spadConstant| $ 11) (QREFELT $ 27))
-                 (|spadConstant| $ 11))
-                ((SPADCALL (QREFELT $ 10) (QREFELT $ 36))
+                ((SPADCALL |x| (|spadConstant| $ 9) (QREFELT $ 25))
+                 (|spadConstant| $ 9))
+                ((SPADCALL |x| (|spadConstant| $ 8) (QREFELT $ 25))
+                 (|spadConstant| $ 8))
+                ((QREFELT $ 7)
                  (CONS (+ (MAX (- (QCAR |x|) 1) (QCAR |y|)) 1) -1))
                 ('T
                  (|error|
@@ -98,7 +98,7 @@
 (SDEFUN |CARD;retract;$Nni;15| ((|x| $) ($ |NonNegativeInteger|))
         (SPROG ((#1=#:G166 NIL))
                (COND
-                ((SPADCALL |x| (QREFELT $ 26))
+                ((SPADCALL |x| (QREFELT $ 24))
                  (PROG1 (LETT #1# (QCDR |x|))
                    (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                      '(|Integer|) #1#)))
@@ -108,7 +108,7 @@
         ((|x| $) ($ |Union| (|NonNegativeInteger|) "failed"))
         (SPROG ((#1=#:G172 NIL))
                (COND
-                ((SPADCALL |x| (QREFELT $ 26))
+                ((SPADCALL |x| (QREFELT $ 24))
                  (CONS 0
                        (PROG1 (LETT #1# (QCDR |x|))
                          (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
@@ -116,11 +116,10 @@
                 ('T (CONS 1 "failed"))))) 
 
 (SDEFUN |CARD;generalizedContinuumHypothesisAssumed?;B;17| (($ |Boolean|))
-        (SPADCALL (QREFELT $ 10) (QREFELT $ 36))) 
+        (QREFELT $ 7)) 
 
 (SDEFUN |CARD;generalizedContinuumHypothesisAssumed;2B;18|
-        ((|b| |Boolean|) ($ |Boolean|))
-        (SPADCALL (QREFELT $ 10) |b| (QREFELT $ 43))) 
+        ((|b| |Boolean|) ($ |Boolean|)) (SETELT $ 7 |b|)) 
 
 (DECLAIM (NOTINLINE |CardinalNumber;|)) 
 
@@ -146,7 +145,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|CardinalNumber|))
-          (LETT $ (GETREFV 49))
+          (LETT $ (GETREFV 45))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CardinalNumber| NIL (CONS 1 $))
@@ -155,36 +154,35 @@
           (QSETREFV $ 6
                     (|Record| (|:| |order| (|Integer|))
                               (|:| |ival| (|Integer|))))
-          (QSETREFV $ 10 (SPADCALL NIL (QREFELT $ 9)))
-          (QSETREFV $ 19 (SPADCALL '|Aleph| (QREFELT $ 18)))
+          (QSETREFV $ 7 NIL)
+          (QSETREFV $ 16 (SPADCALL '|Aleph| (QREFELT $ 15)))
           $))) 
 
 (MAKEPROP '|CardinalNumber| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|) (|Reference| 7)
-              (0 . |ref|) '|GCHypothesis|
+           '#(NIL NIL NIL NIL NIL NIL '|Rep| '|GCHypothesis|
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |CARD;One;$;2|) $))
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |CARD;Zero;$;1|) $))
               (|NonNegativeInteger|) |CARD;coerce;Nni$;3| |CARD;Aleph;Nni$;4|
-              (|OutputForm|) (|Symbol|) (5 . |coerce|) '|ALEPHexpr| (|Integer|)
-              (10 . |coerce|) (|List| $) (15 . |prefix|) |CARD;coerce;$Of;5|
-              (21 . ~=) |CARD;finite?;$B;13| |CARD;=;2$B;6| |CARD;<;2$B;7|
-              (27 . |max|) |CARD;+;3$;8| (33 . >) (|Union| $ '"failed")
-              |CARD;-;2$U;9| |CARD;*;3$;10| |CARD;*;Nni2$;11| (39 . |elt|)
-              |CARD;^;3$;12| |CARD;countable?;$B;14| |CARD;retract;$Nni;15|
-              (|Union| 13 '"failed") |CARD;retractIfCan;$U;16|
+              (|OutputForm|) (|Symbol|) (0 . |coerce|) '|ALEPHexpr| (|Integer|)
+              (5 . |coerce|) (|List| $) (10 . |prefix|) |CARD;coerce;$Of;5|
+              (|Boolean|) (16 . ~=) |CARD;finite?;$B;13| |CARD;=;2$B;6|
+              |CARD;<;2$B;7| (22 . |max|) |CARD;+;3$;8| (28 . >)
+              (|Union| $ '"failed") |CARD;-;2$U;9| |CARD;*;3$;10|
+              |CARD;*;Nni2$;11| |CARD;^;3$;12| |CARD;countable?;$B;14|
+              |CARD;retract;$Nni;15| (|Union| 10 '"failed")
+              |CARD;retractIfCan;$U;16|
               |CARD;generalizedContinuumHypothesisAssumed?;B;17|
-              (44 . |setelt!|)
               |CARD;generalizedContinuumHypothesisAssumed;2B;18|
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
-           '#(~= 50 |zero?| 56 |smaller?| 61 |sample| 67 |rightRecip| 71
-              |rightPower| 76 |retractIfCan| 88 |retract| 93 |recip| 98
-              |opposite?| 103 |one?| 109 |min| 114 |max| 120 |leftRecip| 126
-              |leftPower| 131 |latex| 143 |hashUpdate!| 148 |hash| 154
-              |generalizedContinuumHypothesisAssumed?| 159
-              |generalizedContinuumHypothesisAssumed| 163 |finite?| 168
-              |countable?| 173 |coerce| 178 ^ 188 |Zero| 206 |One| 210 |Aleph|
-              214 >= 219 > 225 = 231 <= 237 < 243 - 249 + 255 * 261)
+           '#(~= 34 |zero?| 40 |smaller?| 45 |sample| 51 |rightRecip| 55
+              |rightPower| 60 |retractIfCan| 72 |retract| 77 |recip| 82
+              |opposite?| 87 |one?| 93 |min| 98 |max| 104 |leftRecip| 110
+              |leftPower| 115 |latex| 127 |hashUpdate!| 132 |hash| 138
+              |generalizedContinuumHypothesisAssumed?| 143
+              |generalizedContinuumHypothesisAssumed| 147 |finite?| 152
+              |countable?| 157 |coerce| 162 ^ 172 |Zero| 190 |One| 194 |Aleph|
+              198 >= 203 > 209 = 215 <= 221 < 227 - 233 + 239 * 245)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -195,26 +193,25 @@
                    '#((|Monoid|) (|OrderedSet|) (|MagmaWithUnit|) (|SemiGroup|)
                       (|AbelianMonoid|) (|Comparable|) (|Magma|)
                       (|AbelianSemiGroup|) (|CommutativeStar|) (|SetCategory|)
-                      (|TwoSidedRecip|) (|RetractableTo| 13) (|BasicType|)
-                      (|PartialOrder|) (|CoercibleTo| 16))
-                   (|makeByteWordVec2| 48
-                                       '(1 8 0 7 9 1 17 16 0 18 1 20 16 0 21 2
-                                         16 0 0 22 23 2 20 7 0 0 25 2 0 0 0 0
-                                         29 2 0 7 0 0 31 1 8 7 0 36 2 8 7 0 7
-                                         43 2 0 7 0 0 1 1 0 7 0 1 2 0 7 0 0 1 0
-                                         0 0 1 1 0 32 0 1 2 0 0 0 45 1 2 0 0 0
-                                         13 1 1 0 40 0 41 1 0 13 0 39 1 0 32 0
-                                         1 2 0 7 0 0 1 1 0 7 0 1 2 0 0 0 0 1 2
-                                         0 0 0 0 29 1 0 32 0 1 2 0 0 0 45 1 2 0
-                                         0 0 13 1 1 0 46 0 1 2 0 48 48 0 1 1 0
-                                         47 0 1 0 0 7 42 1 0 7 7 44 1 0 7 0 26
-                                         1 0 7 0 38 1 0 0 13 14 1 0 16 0 24 2 0
-                                         0 0 0 37 2 0 0 0 45 1 2 0 0 0 13 1 0 0
-                                         0 12 0 0 0 11 1 0 0 13 15 2 0 7 0 0 1
-                                         2 0 7 0 0 31 2 0 7 0 0 27 2 0 7 0 0 1
-                                         2 0 7 0 0 28 2 0 32 0 0 33 2 0 0 0 0
-                                         30 2 0 0 0 0 34 2 0 0 45 0 1 2 0 0 13
-                                         0 35)))))
+                      (|TwoSidedRecip|) (|RetractableTo| 10) (|BasicType|)
+                      (|PartialOrder|) (|CoercibleTo| 13))
+                   (|makeByteWordVec2| 44
+                                       '(1 14 13 0 15 1 17 13 0 18 2 13 0 0 19
+                                         20 2 17 22 0 0 23 2 0 0 0 0 27 2 0 22
+                                         0 0 29 2 0 22 0 0 1 1 0 22 0 1 2 0 22
+                                         0 0 1 0 0 0 1 1 0 30 0 1 2 0 0 0 41 1
+                                         2 0 0 0 10 1 1 0 37 0 38 1 0 10 0 36 1
+                                         0 30 0 1 2 0 22 0 0 1 1 0 22 0 1 2 0 0
+                                         0 0 1 2 0 0 0 0 27 1 0 30 0 1 2 0 0 0
+                                         41 1 2 0 0 0 10 1 1 0 42 0 1 2 0 44 44
+                                         0 1 1 0 43 0 1 0 0 22 39 1 0 22 22 40
+                                         1 0 22 0 24 1 0 22 0 35 1 0 0 10 11 1
+                                         0 13 0 21 2 0 0 0 0 34 2 0 0 0 41 1 2
+                                         0 0 0 10 1 0 0 0 9 0 0 0 8 1 0 0 10 12
+                                         2 0 22 0 0 1 2 0 22 0 0 29 2 0 22 0 0
+                                         25 2 0 22 0 0 1 2 0 22 0 0 26 2 0 30 0
+                                         0 31 2 0 0 0 0 28 2 0 0 0 0 32 2 0 0
+                                         41 0 1 2 0 0 10 0 33)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CardinalNumber| 'NILADIC T) 
