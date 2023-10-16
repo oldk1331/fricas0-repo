@@ -162,48 +162,6 @@
 ;        $fortranArrayStartingIndex
 ;        (0 1)
 ;        1)
-;       (calling
-;       "options for external FORTRAN calls"
-;       interpreter
-;       TREE
-;       novar
-;       (
-;         (tempfile
-;          "set location of temporary data files"
-;          interpreter
-;          FUNCTION
-;          setFortTmpDir
-;          (("enter directory name for which you have write-permission"
-;            DIRECTORY
-;            $fortranTmpDir
-;            chkDirectory
-;            "/tmp/"))
-;          NIL)
-;         (directory
-;          "set location of generated FORTRAN files"
-;          interpreter
-;          FUNCTION
-;          setFortDir
-;          (("enter directory name for which you have write-permission"
-;            DIRECTORY
-;            $fortranDirectory
-;            chkDirectory
-;            "./"))
-;          NIL)
-;         (linker
-;          "linker arguments (e.g. libraries to search)"
-;          interpreter
-;          FUNCTION
-;          setLinkerArgs
-;          (("enter linker arguments "
-;            STRING
-;            $fortranLibraries
-;            chkDirectory
-;            "-lxlf"))
-;          NIL
-;          )
-;        )
-;       )
 ;   ))
 ;   (hyperdoc
 ;    "options in using HyperDoc"
@@ -695,24 +653,7 @@
       (|optlevel| "FORTRAN optimisation level" |interpreter| INTEGER
        |$fortranOptimizationLevel| (0 2) 0)
       (|startindex| "starting index for FORTRAN arrays" |interpreter| INTEGER
-       |$fortranArrayStartingIndex| (0 1) 1)
-      (|calling| "options for external FORTRAN calls" |interpreter| TREE
-       |novar|
-       ((|tempfile| "set location of temporary data files" |interpreter|
-         FUNCTION |setFortTmpDir|
-         (("enter directory name for which you have write-permission" DIRECTORY
-           |$fortranTmpDir| |chkDirectory| "/tmp/"))
-         NIL)
-        (|directory| "set location of generated FORTRAN files" |interpreter|
-         FUNCTION |setFortDir|
-         (("enter directory name for which you have write-permission" DIRECTORY
-           |$fortranDirectory| |chkDirectory| "./"))
-         NIL)
-        (|linker| "linker arguments (e.g. libraries to search)" |interpreter|
-         FUNCTION |setLinkerArgs|
-         (("enter linker arguments " STRING |$fortranLibraries| |chkDirectory|
-           "-lxlf"))
-         NIL)))))
+       |$fortranArrayStartingIndex| (0 1) 1)))
     (|hyperdoc| "options in using HyperDoc" |interpreter| TREE |novar|
      ((|fullscreen| "use full screen for this facility" |interpreter| LITERALS
        |$fullScreenSysVars| (|on| |off|) |off|)
