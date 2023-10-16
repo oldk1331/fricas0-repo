@@ -356,8 +356,7 @@
         (SEQ
          (COND
           ((SPADCALL |s1| (|spadConstant| $ 9) (QREFELT $ 61))
-           (COND
-            ((SPADCALL |n| 0 (QREFELT $ 64)) (EXIT (|spadConstant| $ 9))))))
+           (COND ((> |n| 0) (EXIT (|spadConstant| $ 9))))))
          (COND
           ((OR (SPADCALL |s1| (|spadConstant| $ 10) (QREFELT $ 61))
                (ZEROP |n|))
@@ -371,7 +370,7 @@
                   $)))))) 
 
 (SDEFUN |INFORM;^;$Nni$;24| ((|s1| $) (|n| |NonNegativeInteger|) ($ $))
-        (SPADCALL |s1| |n| (QREFELT $ 65))) 
+        (SPADCALL |s1| |n| (QREFELT $ 64))) 
 
 (SDEFUN |INFORM;/;3$;25| ((|s1| $) (|s2| $) ($ $))
         (COND ((SPADCALL |s2| (|spadConstant| $ 10) (QREFELT $ 61)) |s1|)
@@ -402,7 +401,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|InputForm|))
-          (LETT $ (GETREFV 72))
+          (LETT $ (GETREFV 71))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|InputForm| NIL (CONS 1 $))
@@ -433,22 +432,22 @@
               |INFORM;compile;SLS;16| (|NonNegativeInteger|) (112 . |#|)
               (117 . |last|) (122 . |convert|) |INFORM;binary;$L$;18|
               (127 . |new|) (133 . |cons|) |INFORM;function;$LS$;20| (139 . =)
-              |INFORM;+;3$;21| |INFORM;*;3$;22| (145 . >) |INFORM;^;$I$;23|
+              |INFORM;+;3$;21| |INFORM;*;3$;22| |INFORM;^;$I$;23|
               |INFORM;^;$Nni$;24| |INFORM;/;3$;25| (|List| 7) (|SingleInteger|)
               (|HashState|) (|OutputForm|))
-           '#(|unparse| 151 |symbol?| 156 |symbol| 161 |string?| 166 |string|
-              171 |parse| 176 |lambda| 181 |interpret| 187 |function| 192
-              |flatten| 199 |destruct| 204 |declare| 209 |convert| 214
-              |compile| 244 |cdr| 250 |car| 255 |binary| 260 |atom?| 266 ^ 271
-              |Zero| 283 |One| 287 = 291 / 297 + 303 * 309)
+           '#(|unparse| 145 |symbol?| 150 |symbol| 155 |string?| 160 |string|
+              165 |parse| 170 |lambda| 175 |interpret| 181 |function| 186
+              |flatten| 193 |destruct| 198 |declare| 203 |convert| 208
+              |compile| 238 |cdr| 244 |car| 249 |binary| 254 |atom?| 260 ^ 265
+              |Zero| 277 |One| 281 = 285 / 291 + 297 * 303)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL NIL)
                        (CONS
                         '#((|SExpressionCategory| 39 14 7 23) (|SetCategory|)
                            (|BasicType|) (|ConvertibleTo| 5)
-                           (|CoercibleTo| 71))
-                        (|makeByteWordVec2| 67
+                           (|CoercibleTo| 70))
+                        (|makeByteWordVec2| 66
                                             '(1 0 0 7 8 1 14 13 0 15 1 5 0 17
                                               18 1 6 0 23 24 1 0 26 0 27 1 0 17
                                               0 28 2 30 26 29 0 31 0 14 0 32 1
@@ -459,19 +458,19 @@
                                               0 45 1 39 0 17 46 1 0 0 0 50 1 0
                                               0 0 51 1 30 53 0 54 1 30 2 0 55 1
                                               0 0 17 56 2 30 0 53 2 58 2 30 0 2
-                                              0 59 2 0 26 0 0 61 2 7 26 0 0 64
-                                              1 0 39 0 47 1 0 26 0 44 1 0 14 0
-                                              45 1 0 26 0 42 1 0 39 0 43 1 0 0
-                                              39 48 2 0 0 0 19 20 1 0 21 0 22 3
-                                              0 0 0 19 14 60 1 0 0 0 38 1 0 17
-                                              0 28 1 0 14 17 49 1 0 0 5 12 1 0
-                                              5 0 11 1 0 0 23 25 1 0 0 7 8 1 0
-                                              0 14 16 1 0 0 17 56 2 0 14 14 17
-                                              52 1 0 0 0 51 1 0 0 0 50 2 0 0 0
-                                              17 57 1 0 26 0 27 2 0 0 0 53 66 2
-                                              0 0 0 7 65 0 0 0 9 0 0 0 10 2 0
-                                              26 0 0 61 2 0 0 0 0 67 2 0 0 0 0
-                                              62 2 0 0 0 0 63)))))
+                                              0 59 2 0 26 0 0 61 1 0 39 0 47 1
+                                              0 26 0 44 1 0 14 0 45 1 0 26 0 42
+                                              1 0 39 0 43 1 0 0 39 48 2 0 0 0
+                                              19 20 1 0 21 0 22 3 0 0 0 19 14
+                                              60 1 0 0 0 38 1 0 17 0 28 1 0 14
+                                              17 49 1 0 0 5 12 1 0 5 0 11 1 0 0
+                                              23 25 1 0 0 7 8 1 0 0 14 16 1 0 0
+                                              17 56 2 0 14 14 17 52 1 0 0 0 51
+                                              1 0 0 0 50 2 0 0 0 17 57 1 0 26 0
+                                              27 2 0 0 0 53 65 2 0 0 0 7 64 0 0
+                                              0 9 0 0 0 10 2 0 26 0 0 61 2 0 0
+                                              0 0 66 2 0 0 0 0 62 2 0 0 0 0
+                                              63)))))
            '|lookupIncomplete|)) 
 
 (MAKEPROP '|InputForm| 'NILADIC T) 

@@ -306,7 +306,7 @@
         (SPROG ((|#G41| #1#) (|#G40| #1#))
                (SEQ
                 (COND
-                 ((SPADCALL |n1| |n2| (QREFELT $ 49))
+                 ((> |n1| |n2|)
                   (PROGN
                    (LETT |#G40| |n2|)
                    (LETT |#G41| |n1|)
@@ -328,13 +328,11 @@
             (SEQ (LETT |term| (SPADCALL |st| (QREFELT $ 32)))
                  (LETT |expon| (|ISUPS;getExpon| |term| $))
                  (EXIT
-                  (COND
-                   ((SPADCALL |expon| |n| (QREFELT $ 49))
-                    (|spadConstant| $ 30))
-                   ((EQL |expon| |n|) (|ISUPS;getCoef| |term| $))
-                   (#1='T
-                    (|ISUPS;iCoefficient| (SPADCALL |st| (QREFELT $ 24)) |n|
-                     $))))))
+                  (COND ((> |expon| |n|) (|spadConstant| $ 30))
+                        ((EQL |expon| |n|) (|ISUPS;getCoef| |term| $))
+                        (#1='T
+                         (|ISUPS;iCoefficient| (SPADCALL |st| (QREFELT $ 24))
+                          |n| $))))))
            (#1# (|spadConstant| $ 30)))))) 
 
 (SDEFUN |ISUPS;coefficient;$ICoef;24| ((|x| $) (|n| |Integer|) ($ |Coef|))
@@ -1494,7 +1492,7 @@
                                 (LETT |n| (+ |n| 1))
                                 (EXIT
                                  (COND
-                                  ((SPADCALL |n| 1000 (QREFELT $ 49))
+                                  ((> |n| 1000)
                                    (PROGN
                                     (LETT #4#
                                           (PROGN

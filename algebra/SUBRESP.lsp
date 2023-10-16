@@ -57,8 +57,7 @@
               ((ZEROP (SPADCALL |p1| (QREFELT $ 21)))
                (SEQ (QSETAREF1 |res| (SPADCALL |p2| (QREFELT $ 21)) |p2|)
                     (COND
-                     ((SPADCALL (SPADCALL |p2| (QREFELT $ 21)) 0
-                                (QREFELT $ 27))
+                     ((> (SPADCALL |p2| (QREFELT $ 21)) 0)
                       (SEQ
                        (QSETAREF1 |res|
                                   (PROG1
@@ -74,14 +73,14 @@
                                    (SPADCALL
                                     (SPADCALL (SPADCALL |p1| (QREFELT $ 8))
                                               (SPADCALL |p2| (QREFELT $ 21))
-                                              (QREFELT $ 29))
-                                    (QREFELT $ 30))))))
-                     (#5='T (QSETAREF1 |res| 0 (|spadConstant| $ 31))))
+                                              (QREFELT $ 27))
+                                    (QREFELT $ 28))))))
+                     (#5='T (QSETAREF1 |res| 0 (|spadConstant| $ 29))))
                     (EXIT |res|)))
               ((ZEROP (SPADCALL |p2| (QREFELT $ 21)))
                (SEQ
                 (COND
-                 ((SPADCALL (SPADCALL |p1| (QREFELT $ 21)) 0 (QREFELT $ 27))
+                 ((> (SPADCALL |p1| (QREFELT $ 21)) 0)
                   (SEQ
                    (QSETAREF1 |res|
                               (PROG1
@@ -96,9 +95,9 @@
                                (SPADCALL
                                 (SPADCALL (SPADCALL |p2| (QREFELT $ 8))
                                           (SPADCALL |p1| (QREFELT $ 21))
-                                          (QREFELT $ 29))
-                                (QREFELT $ 30))))))
-                 (#5# (QSETAREF1 |res| 0 (|spadConstant| $ 31))))
+                                          (QREFELT $ 27))
+                                (QREFELT $ 28))))))
+                 (#5# (QSETAREF1 |res| 0 (|spadConstant| $ 29))))
                 (EXIT |res|)))
               (#5# (|error| "SUBRESP: strange Subresultant chain from PRS"))))
             (#5#
@@ -107,7 +106,7 @@
                   (QSETAREF1 |res| |n| F)
                   (SEQ G190
                        (COND
-                        ((NULL (SPADCALL |l| NIL (QREFELT $ 32))) (GO G191)))
+                        ((NULL (SPADCALL |l| NIL (QREFELT $ 31))) (GO G191)))
                        (SEQ (LETT F (|SPADfirst| |l|)) (LETT |l| (CDR |l|))
                             (EXIT
                              (COND
@@ -141,8 +140,8 @@
                          (SPADCALL |p2| (QREFELT $ 21)))
                     (QSETAREF1 |res| (+ (SPADCALL |p1| (QREFELT $ 21)) 1)
                                |p1|))
-                   ((SPADCALL (SPADCALL |p1| (QREFELT $ 21))
-                              (SPADCALL |p2| (QREFELT $ 21)) (QREFELT $ 27))
+                   ((> (SPADCALL |p1| (QREFELT $ 21))
+                       (SPADCALL |p2| (QREFELT $ 21)))
                     (QSETAREF1 |res| (SPADCALL |p1| (QREFELT $ 21)) |p1|))
                    (#5# (QSETAREF1 |res| (SPADCALL |p2| (QREFELT $ 21)) |p2|)))
                   (EXIT |res|)))))))) 
@@ -174,7 +173,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|SubResultantPackage| DV$1 DV$2))
-          (LETT $ (GETREFV 35))
+          (LETT $ (GETREFV 34))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -205,10 +204,10 @@
               (28 . |map|) (34 . |primitivePart|) (39 . |unitCanonical|)
               (44 . |primitivePart|) (|NonNegativeInteger|) (50 . |degree|)
               (55 . |Zero|) (|List| 7) (|PseudoRemainderSequence| 6 7)
-              (59 . |chainSubResultants|) (|Boolean|) (65 . >) (71 . |Zero|)
-              (75 . ^) (81 . |coerce|) (86 . |One|) (90 . ~=)
+              (59 . |chainSubResultants|) (65 . |Zero|) (69 . ^)
+              (75 . |coerce|) (80 . |One|) (|Boolean|) (84 . ~=)
               (|PrimitiveArray| 7) |SUBRESP;subresultantVector;2UPPa;2|)
-           '#(|subresultantVector| 96 |primitivePart| 102) 'NIL
+           '#(|subresultantVector| 90 |primitivePart| 96) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -221,13 +220,13 @@
                               '((|primitivePart| (|#2| |#2| |#1|))
                                 (|has| 6 (|EuclideanDomain|))))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 34
+                        (|makeByteWordVec2| 33
                                             '(1 7 6 0 8 0 6 0 9 3 6 11 0 0 0 12
                                               2 6 0 0 0 13 2 6 0 0 0 14 2 7 0
                                               15 0 16 1 7 0 0 17 1 7 0 0 18 2 0
                                               7 7 6 19 1 7 20 0 21 0 7 0 22 2
-                                              24 23 7 7 25 2 20 26 0 0 27 0 6 0
-                                              28 2 6 0 0 20 29 1 7 0 6 30 0 7 0
-                                              31 2 23 26 0 0 32 2 0 33 7 7 34 2
-                                              1 7 7 6 19)))))
+                                              24 23 7 7 25 0 6 0 26 2 6 0 0 20
+                                              27 1 7 0 6 28 0 7 0 29 2 23 30 0
+                                              0 31 2 0 32 7 7 33 2 1 7 7 6
+                                              19)))))
            '|lookupComplete|)) 

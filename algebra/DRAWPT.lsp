@@ -64,8 +64,7 @@
                                           ((SPADCALL |zLen| (* |m| |n|)
                                                      (QREFELT $ 25))
                                            (COND
-                                            ((SPADCALL |zLen| (* |m| |n|)
-                                                       (QREFELT $ 26))
+                                            ((> |zLen| (* |m| |n|))
                                              (|error|
                                               "Too many Z-values to fit grid"))
                                             (#1#
@@ -100,25 +99,25 @@
                                                                            |i|
                                                                            (QREFELT
                                                                             $
-                                                                            28))
+                                                                            27))
                                                                           (SPADCALL
                                                                            |y|
                                                                            |j|
                                                                            (QREFELT
                                                                             $
-                                                                            28))
+                                                                            27))
                                                                           (SPADCALL
                                                                            |z|
                                                                            |zval|
                                                                            (QREFELT
                                                                             $
-                                                                            28))
+                                                                            27))
                                                                           (SPADCALL
                                                                            |z|
                                                                            |zval|
                                                                            (QREFELT
                                                                             $
-                                                                            28)))
+                                                                            27)))
                                                                          (QREFELT
                                                                           $
                                                                           17))
@@ -137,10 +136,10 @@
                                                 (EXIT
                                                  (SPADCALL
                                                   (SPADCALL |points|
-                                                            (QREFELT $ 30))
+                                                            (QREFELT $ 29))
                                                   |l|
                                                   (QREFELT $
-                                                           31)))))))))))))))))) 
+                                                           30)))))))))))))))))) 
 
 (DECLAIM (NOTINLINE |TopLevelDrawFunctionsForPoints;|)) 
 
@@ -173,7 +172,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|TopLevelDrawFunctionsForPoints|))
-          (LETT $ (GETREFV 32))
+          (LETT $ (GETREFV 31))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TopLevelDrawFunctionsForPoints| NIL
@@ -187,13 +186,13 @@
            '#(NIL NIL NIL NIL NIL NIL (|List| 12) (|GraphImage|)
               (0 . |makeGraphImage|) (|List| (|DrawOption|))
               (|TwoDimensionalViewport|) (5 . |makeViewport2D|) (|List| 16)
-              |DRAWPT;draw;LLTdv;1| |DRAWPT;draw;LTdv;2| (|List| 27)
-              (|Point| 27) (11 . |point|) |DRAWPT;draw;2LLTdv;3|
+              |DRAWPT;draw;LLTdv;1| |DRAWPT;draw;LTdv;2| (|List| 26)
+              (|Point| 26) (11 . |point|) |DRAWPT;draw;2LLTdv;3|
               |DRAWPT;draw;2LTdv;4| (|ThreeDimensionalViewport|)
               |DRAWPT;draw;3LLTdv;6| |DRAWPT;draw;3LTdv;5| (|Boolean|)
-              (|Integer|) (16 . ~=) (22 . >) (|DoubleFloat|) (28 . |elt|)
-              (|ThreeSpace| 27) (34 . |mesh|) (39 . |makeViewport3D|))
-           '#(|draw| 45) 'NIL
+              (|Integer|) (16 . ~=) (|DoubleFloat|) (22 . |elt|)
+              (|ThreeSpace| 26) (28 . |mesh|) (33 . |makeViewport3D|))
+           '#(|draw| 39) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -234,14 +233,14 @@
                                   (|List| (|DrawOption|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 31
+                        (|makeByteWordVec2| 30
                                             '(1 7 0 6 8 2 10 0 7 9 11 1 16 0 15
-                                              17 2 24 23 0 0 25 2 24 23 0 0 26
-                                              2 15 27 0 24 28 1 29 0 6 30 2 20
-                                              0 29 9 31 2 0 10 15 15 19 1 0 10
-                                              12 14 3 0 10 15 15 9 18 2 0 10 12
-                                              9 13 4 0 20 15 15 15 9 21 3 0 20
-                                              15 15 15 22)))))
+                                              17 2 24 23 0 0 25 2 15 26 0 24 27
+                                              1 28 0 6 29 2 20 0 28 9 30 2 0 10
+                                              15 15 19 1 0 10 12 14 3 0 10 15
+                                              15 9 18 2 0 10 12 9 13 4 0 20 15
+                                              15 15 9 21 3 0 20 15 15 15
+                                              22)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TopLevelDrawFunctionsForPoints| 'NILADIC T) 

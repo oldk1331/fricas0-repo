@@ -147,7 +147,7 @@
                               (MIN (SPADCALL |dps| (QREFELT $ 34))
                                    (SPADCALL |gps| (QREFELT $ 34))))
                         (COND
-                         ((SPADCALL |ldeg| 0 (QREFELT $ 37))
+                         ((> |ldeg| 0)
                           (SEQ
                            (LETT |dps| (|PADE;divOutDegree| |dps| |ldeg| $))
                            (EXIT
@@ -176,13 +176,13 @@
           (EXIT
            (SEQ
             (COND
-             ((SPADCALL (SPADCALL |gps| 0 (QREFELT $ 13)) (QREFELT $ 38))
+             ((SPADCALL (SPADCALL |gps| 0 (QREFELT $ 13)) (QREFELT $ 37))
               (COND
-               ((SPADCALL (SPADCALL |dps| 0 (QREFELT $ 13)) (QREFELT $ 38))
+               ((SPADCALL (SPADCALL |dps| 0 (QREFELT $ 13)) (QREFELT $ 37))
                 (EXIT (|error| "Pade' problem not normalized."))))))
             (LETT |plist| NIL) (LETT |alist| NIL)
             (COND
-             ((SPADCALL (SPADCALL |dps| 0 (QREFELT $ 13)) (QREFELT $ 38))
+             ((SPADCALL (SPADCALL |dps| 0 (QREFELT $ 13)) (QREFELT $ 37))
               (SEQ
                (PROGN
                 (LETT |#G33| |dps|)
@@ -200,7 +200,7 @@
              ((< |l| |m|)
               (SEQ (LETT |alpha| (SPADCALL |gps| (QREFELT $ 34)))
                    (COND
-                    ((SPADCALL |alpha| |l| (QREFELT $ 37))
+                    ((> |alpha| |l|)
                      (PROGN (LETT #6# (CONS 1 "failed")) (GO #11=#:G177))))
                    (LETT |gps| (|PADE;divOutDegree| |gps| |alpha| $))
                    (PROGN
@@ -224,17 +224,17 @@
             (LETT |d| (|PADE;truncSeries| |dps| |degbd| $))
             (EXIT
              (SEQ (LETT |j| 0) G190 NIL
-                  (SEQ (LETT |d0| (SPADCALL |d| 0 (QREFELT $ 39)))
+                  (SEQ (LETT |d0| (SPADCALL |d| 0 (QREFELT $ 38)))
                        (LETT |d|
                              (SPADCALL
-                              (SPADCALL (|spadConstant| $ 40) |d0|
-                                        (QREFELT $ 41))
-                              |d| (QREFELT $ 42)))
+                              (SPADCALL (|spadConstant| $ 39) |d0|
+                                        (QREFELT $ 40))
+                              |d| (QREFELT $ 41)))
                        (LETT |g|
                              (SPADCALL
-                              (SPADCALL (|spadConstant| $ 40) |d0|
-                                        (QREFELT $ 41))
-                              |g| (QREFELT $ 42)))
+                              (SPADCALL (|spadConstant| $ 39) |d0|
+                                        (QREFELT $ 40))
+                              |g| (QREFELT $ 41)))
                        (LETT |p| (|spadConstant| $ 12)) (LETT |s| |g|)
                        (COND
                         ((< (+ (- |l| |m|) 1) 0)
@@ -246,7 +246,7 @@
                                                  '(|Integer|) #9#)))
                        (SEQ (LETT |k| 1) (LETT #8# |degbd|) G190
                             (COND ((|greater_SI| |k| #8#) (GO G191)))
-                            (SEQ (LETT |pk| (SPADCALL |s| 0 (QREFELT $ 39)))
+                            (SEQ (LETT |pk| (SPADCALL |s| 0 (QREFELT $ 38)))
                                  (LETT |p|
                                        (SPADCALL |p|
                                                  (SPADCALL |pk|
@@ -263,8 +263,8 @@
                                  (LETT |s|
                                        (SPADCALL |s|
                                                  (SPADCALL |pk| |d|
-                                                           (QREFELT $ 43))
-                                                 (QREFELT $ 44)))
+                                                           (QREFELT $ 42))
+                                                 (QREFELT $ 43)))
                                  (EXIT
                                   (LETT |s|
                                         (PROG2
@@ -274,7 +274,7 @@
                                                              (|spadConstant| $
                                                                              19)
                                                              1 (QREFELT $ 14))
-                                                            (QREFELT $ 47)))
+                                                            (QREFELT $ 46)))
                                             (QCDR #5#)
                                           (|check_union2| (QEQCAR #5# 0)
                                                           (QREFELT $ 8)
@@ -287,21 +287,21 @@
                        (LETT |plist| (CONS |p| |plist|))
                        (EXIT
                         (COND
-                         ((SPADCALL |s| (|spadConstant| $ 12) (QREFELT $ 48))
+                         ((SPADCALL |s| (|spadConstant| $ 12) (QREFELT $ 47))
                           (PROGN
                            (LETT #6# (CONS 0 (CONS |plist| |alist|)))
                            (GO #11#)))
                          ('T
                           (SEQ
                            (LETT |alpha|
-                                 (+ (SPADCALL |s| (QREFELT $ 49)) |degbd|))
+                                 (+ (SPADCALL |s| (QREFELT $ 48)) |degbd|))
                            (EXIT
                             (COND
-                             ((SPADCALL |alpha| (+ |l| |m|) (QREFELT $ 37))
+                             ((> |alpha| (+ |l| |m|))
                               (PROGN
                                (LETT #6# (CONS 0 (CONS |plist| |alist|)))
                                (GO #11#)))
-                             ((SPADCALL |alpha| |l| (QREFELT $ 37))
+                             ((> |alpha| |l|)
                               (PROGN (LETT #6# (CONS 1 "failed")) (GO #11#)))
                              ('T
                               (SEQ (LETT |alist| (CONS |alpha| |alist|))
@@ -314,9 +314,9 @@
                                                                               19)
                                                               (SPADCALL |s|
                                                                         (QREFELT
-                                                                         $ 49))
+                                                                         $ 48))
                                                               (QREFELT $ 14))
-                                                             (QREFELT $ 47)))
+                                                             (QREFELT $ 46)))
                                              (QCDR #5#)
                                            (|check_union2| (QEQCAR #5# 0)
                                                            (QREFELT $ 8)
@@ -374,7 +374,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$| (LIST '|PadeApproximants| DV$1 DV$2 DV$3))
-          (LETT $ (GETREFV 50))
+          (LETT $ (GETREFV 49))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PadeApproximants|
@@ -397,12 +397,11 @@
               (|Stream| 8) (62 . |coerce|) (|ContinuedFraction| 8)
               (67 . |continuedFraction|) (|Union| 28 '#2="failed")
               |PADE;padecf;2Nni2PSU;6| (|Boolean|) (74 . |zero?|)
-              (79 . |order|) (84 . |Zero|) (88 . |Zero|) (92 . >)
-              (98 . |zero?|) (103 . |coefficient|) (109 . |One|) (113 . /)
-              (119 . *) (125 . *) (131 . -) (137 . |monomial|)
-              (|Union| $ '"failed") (143 . |exquo|) (149 . =)
-              (155 . |minimumDegree|))
-           '#(|padecf| 160 |pade| 168) 'NIL
+              (79 . |order|) (84 . |Zero|) (88 . |Zero|) (92 . |zero?|)
+              (97 . |coefficient|) (103 . |One|) (107 . /) (113 . *) (119 . *)
+              (125 . -) (131 . |monomial|) (|Union| $ '"failed")
+              (137 . |exquo|) (143 . =) (149 . |minimumDegree|))
+           '#(|padecf| 154 |pade| 162) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -420,18 +419,17 @@
                                   |#2| |#2|))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 49
+                        (|makeByteWordVec2| 48
                                             '(1 8 9 0 10 1 8 0 0 11 0 8 0 12 2
                                               7 6 0 9 13 2 8 0 6 9 14 2 8 0 0 0
                                               15 1 7 0 0 16 1 17 0 8 18 0 6 0
                                               19 0 7 0 20 2 17 0 0 0 21 2 17 0
                                               0 0 22 1 26 0 25 27 3 28 0 8 26
                                               26 29 1 7 32 0 33 1 7 9 0 34 0 6
-                                              0 35 0 7 0 36 2 9 32 0 0 37 1 6
-                                              32 0 38 2 8 6 0 9 39 0 8 0 40 2 8
-                                              0 0 6 41 2 8 0 0 0 42 2 8 0 6 0
-                                              43 2 8 0 0 0 44 2 7 0 6 9 45 2 8
-                                              46 0 0 47 2 8 32 0 0 48 1 8 9 0
-                                              49 4 0 30 9 9 7 7 31 4 0 23 9 9 7
-                                              7 24)))))
+                                              0 35 0 7 0 36 1 6 32 0 37 2 8 6 0
+                                              9 38 0 8 0 39 2 8 0 0 6 40 2 8 0
+                                              0 0 41 2 8 0 6 0 42 2 8 0 0 0 43
+                                              2 7 0 6 9 44 2 8 45 0 0 46 2 8 32
+                                              0 0 47 1 8 9 0 48 4 0 30 9 9 7 7
+                                              31 4 0 23 9 9 7 7 24)))))
            '|lookupComplete|)) 

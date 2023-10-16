@@ -54,8 +54,7 @@
                                 (LETT |basis|
                                       (|CADU;gcdBasisAdd| |p| (CDR |lpols|) $))
                                 (COND
-                                 ((SPADCALL (SPADCALL |p1| (QREFELT $ 16)) 0
-                                            (QREFELT $ 21))
+                                 ((> (SPADCALL |p1| (QREFELT $ 16)) 0)
                                   (LETT |basis| (CONS |p1| |basis|))))
                                 (EXIT
                                  (|CADU;gcdBasisAdd| |g| |basis| $)))))))))))) 
@@ -63,7 +62,7 @@
 (SDEFUN |CADU;gcdBasis;2L;3| ((|lpols| |List| P) ($ |List| P))
         (SPROG ((|basis| (|List| P)))
                (SEQ
-                (COND ((SPADCALL (LENGTH |lpols|) 1 (QREFELT $ 23)) |lpols|)
+                (COND ((<= (LENGTH |lpols|) 1) |lpols|)
                       ('T
                        (SEQ
                         (LETT |basis| (SPADCALL (CDR |lpols|) (QREFELT $ 14)))
@@ -104,7 +103,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$|
                 (LIST '|CylindricalAlgebraicDecompositionUtilities| DV$1 DV$2))
-          (LETT $ (GETREFV 24))
+          (LETT $ (GETREFV 22))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
@@ -122,9 +121,8 @@
               (|List| 7) (0 . =) (6 . |squareFreePart|) (11 . |unitCanonical|)
               |CADU;squareFreeBasis;2L;1| |CADU;gcdBasis;2L;3|
               (|NonNegativeInteger|) (16 . |degree|) (21 . |Zero|) (25 . |gcd|)
-              (|Union| $ '"failed") (31 . |exquo|) (37 . >) (43 . |One|)
-              (47 . <=))
-           '#(|squareFreeBasis| 53 |gcdBasis| 58) 'NIL
+              (|Union| $ '"failed") (31 . |exquo|) (37 . |One|))
+           '#(|squareFreeBasis| 41 |gcdBasis| 46) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -136,10 +134,9 @@
                                 T)
                               '((|gcdBasis| ((|List| |#2|) (|List| |#2|))) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 23
+                        (|makeByteWordVec2| 21
                                             '(2 9 8 0 0 10 1 7 0 0 11 1 7 0 0
                                               12 1 7 15 0 16 0 6 0 17 2 7 0 0 0
-                                              18 2 7 19 0 0 20 2 15 8 0 0 21 0
-                                              6 0 22 2 15 8 0 0 23 1 0 9 9 13 1
-                                              0 9 9 14)))))
+                                              18 2 7 19 0 0 20 0 6 0 21 1 0 9 9
+                                              13 1 0 9 9 14)))))
            '|lookupComplete|)) 

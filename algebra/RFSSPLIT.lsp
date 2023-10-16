@@ -239,17 +239,16 @@
                                                        (QREFELT $ 53)))
                                        (LETT |nrr|
                                              (COND
-                                              ((SPADCALL (+ |pow1| |pow2|) 0
-                                                         (QREFELT $ 54))
+                                              ((> (+ |pow1| |pow2|) 0)
                                                (SPADCALL |rop|
                                                          (LIST
                                                           (SPADCALL |bb1| |bb2|
                                                                     (QREFELT $
-                                                                             55))
+                                                                             54))
                                                           (SPADCALL |nn|
                                                                     (QREFELT $
                                                                              14)))
-                                                         (QREFELT $ 57)))
+                                                         (QREFELT $ 56)))
                                               ('T (|spadConstant| $ 33))))
                                        (LETT |nl|
                                              (PROGN
@@ -269,7 +268,7 @@
                                                             (SPADCALL |f1|
                                                                       |nrr|
                                                                       (QREFELT
-                                                                       $ 55))
+                                                                       $ 54))
                                                             #2#))))
                                                    (LETT #1# (CDR #1#))
                                                    (GO G190) G191
@@ -319,7 +318,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|RootFSSplit| DV$1 DV$2))
-          (LETT $ (GETREFV 61))
+          (LETT $ (GETREFV 60))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RootFSSplit| (LIST DV$1 DV$2)
@@ -351,11 +350,11 @@
               (|BasicOperator|) (109 . |operator|) (114 . |Zero|)
               (118 . |Zero|) (122 . =) (|Mapping| 19 7) (128 . |every?|)
               (|Union| $ '"failed") (134 . |exquo|) (140 . |lcm|) (146 . ^)
-              (152 . >) (158 . *) (|List| $) (164 . |kernel|)
+              (152 . *) (|List| $) (158 . |kernel|)
               (|Record| (|:| |funs| 36) (|:| |nroot| 7) (|:| |npow1| 13)
                         (|:| |npow2| 13))
-              (|List| 58) |RFSSPLIT;alg_split_roots;L2KL;3|)
-           '#(|alg_split_roots| 170 |alg_split_root0| 177) 'NIL
+              (|List| 57) |RFSSPLIT;alg_split_roots;L2KL;3|)
+           '#(|alg_split_roots| 164 |alg_split_root0| 171) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -376,7 +375,7 @@
                                   (|Integer|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 60
+                        (|makeByteWordVec2| 59
                                             '(1 7 0 8 9 1 7 0 0 10 3 7 0 0 8 0
                                               11 2 7 0 0 0 12 1 7 0 13 14 2 7 0
                                               0 0 15 2 7 0 0 0 16 1 7 17 0 18 2
@@ -387,8 +386,7 @@
                                               36 7 0 13 41 1 7 13 0 42 1 20 43
                                               0 44 0 6 0 45 0 7 0 46 2 7 19 0 0
                                               47 2 36 19 48 0 49 2 13 50 0 0 51
-                                              2 13 0 0 0 52 2 7 0 0 13 53 2 13
-                                              19 0 0 54 2 7 0 0 0 55 2 7 0 43
-                                              56 57 3 0 59 36 20 20 60 3 0 36 7
-                                              20 13 37)))))
+                                              2 13 0 0 0 52 2 7 0 0 13 53 2 7 0
+                                              0 0 54 2 7 0 43 55 56 3 0 58 36
+                                              20 20 59 3 0 36 7 20 13 37)))))
            '|lookupComplete|)) 

@@ -85,21 +85,21 @@
                  ((SPADCALL |n| (QREFELT $ 16))
                   (SEQ (LETT |i| (+ (SPADCALL |n| (QREFELT $ 18)) 1))
                        (COND
-                        ((SPADCALL |i| 0 (QREFELT $ 19))
+                        ((> |i| 0)
                          (COND
-                          ((SPADCALL |i| (LENGTH |boundL|) (QREFELT $ 20))
+                          ((<= |i| (LENGTH |boundL|))
                            (PROGN
-                            (LETT #1# (SPADCALL |boundL| |i| (QREFELT $ 23)))
+                            (LETT #1# (SPADCALL |boundL| |i| (QREFELT $ 21)))
                             (GO #2=#:G133))))))
                        (EXIT (LETT |s| (STRINGIMAGE (- |i| 1)))))))
                 (COND
-                 ((SPADCALL |n| (QREFELT $ 24))
+                 ((SPADCALL |n| (QREFELT $ 22))
                   (LETT |s|
-                        (SPADCALL (SPADCALL |n| (QREFELT $ 26))
-                                  (QREFELT $ 27)))))
+                        (SPADCALL (SPADCALL |n| (QREFELT $ 24))
+                                  (QREFELT $ 25)))))
                 (COND
-                 ((SPADCALL |n| (QREFELT $ 28))
-                  (SEQ (LETT |ch| (SPADCALL |n| (QREFELT $ 29)))
+                 ((SPADCALL |n| (QREFELT $ 26))
+                  (SEQ (LETT |ch| (SPADCALL |n| (QREFELT $ 27)))
                        (EXIT
                         (LETT |s|
                               (SPADCALL
@@ -108,25 +108,25 @@
                                       (|SPADfirst| |ch|) |boundL| $)
                                      "("
                                      (|COMPCODE;genLambdaTerm|
-                                      (SPADCALL |ch| (QREFELT $ 31)) |boundL|
+                                      (SPADCALL |ch| (QREFELT $ 29)) |boundL|
                                       $)
                                      ")")
                                (QREFELT $ 8)))))))
                 (COND
-                 ((SPADCALL |n| (QREFELT $ 32))
+                 ((SPADCALL |n| (QREFELT $ 30))
                   (SEQ
                    (LETT |varName|
-                         (SPADCALL (SPADCALL |n| (QREFELT $ 26))
-                                   (QREFELT $ 27)))
+                         (SPADCALL (SPADCALL |n| (QREFELT $ 24))
+                                   (QREFELT $ 25)))
                    (SEQ G190
                         (COND
-                         ((NULL (SPADCALL |varName| |boundL| (QREFELT $ 33)))
+                         ((NULL (SPADCALL |varName| |boundL| (QREFELT $ 31)))
                           (GO G191)))
                         (SEQ (EXIT (LETT |varName| (STRCONC |varName| "'"))))
                         NIL (GO G190) G191 (EXIT NIL))
                    (LETT |boundL2|
-                         (SPADCALL |boundL| |varName| (QREFELT $ 34)))
-                   (LETT |ch| (SPADCALL |n| (QREFELT $ 29)))
+                         (SPADCALL |boundL| |varName| (QREFELT $ 32)))
+                   (LETT |ch| (SPADCALL |n| (QREFELT $ 27)))
                    (EXIT
                     (LETT |s|
                           (SPADCALL
@@ -148,12 +148,12 @@
           (EXIT
            (SEQ (LETT |sl| (LIST ""))
                 (COND
-                 ((SPADCALL |content| (QREFELT $ 32))
-                  (SEQ (LETT |var| (SPADCALL |content| (QREFELT $ 26)))
-                       (LETT |lhs| (SPADCALL |var| (QREFELT $ 35)))
-                       (LETT |lhsn| (SPADCALL |var| (QREFELT $ 27)))
+                 ((SPADCALL |content| (QREFELT $ 30))
+                  (SEQ (LETT |var| (SPADCALL |content| (QREFELT $ 24)))
+                       (LETT |lhs| (SPADCALL |var| (QREFELT $ 33)))
+                       (LETT |lhsn| (SPADCALL |var| (QREFELT $ 25)))
                        (LETT |lhst|
-                             (SPADCALL (SPADCALL |var| (QREFELT $ 36))
+                             (SPADCALL (SPADCALL |var| (QREFELT $ 34))
                                        (QREFELT $ 13)))
                        (EXIT
                         (PROGN
@@ -164,7 +164,7 @@
                                        "):" |lhst| " == "
                                        (|COMPCODE;genLambdaTerm|
                                         (|SPADfirst|
-                                         (SPADCALL |content| (QREFELT $ 29)))
+                                         (SPADCALL |content| (QREFELT $ 27)))
                                         (LIST |lhsn|) $))
                                  (QREFELT $ 8))))
                          (GO #2=#:G138))))))
@@ -184,8 +184,8 @@
           (|f1| (|TextFile|)))
          (SEQ
           (LETT |f1|
-                (SPADCALL (SPADCALL |filename| (QREFELT $ 38)) "output"
-                          (QREFELT $ 40)))
+                (SPADCALL (SPADCALL |filename| (QREFELT $ 36)) "output"
+                          (QREFELT $ 38)))
           (LETT |lines| (|COMPCODE;genCatHeader| |shortName| |longName| $))
           (LETT |fnNum| 1)
           (SEQ (LETT |thisEq| NIL) (LETT #2# |content|) G190
@@ -196,18 +196,18 @@
                 (LETT |lines|
                       (SPADCALL |lines|
                                 (|COMPCODE;genFuncDeclar| |thisEq| |fnNum| $)
-                                (QREFELT $ 41)))
+                                (QREFELT $ 39)))
                 (EXIT (LETT |fnNum| (+ |fnNum| 1))))
                (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
           (LETT |lines|
-                (SPADCALL |lines| (|COMPCODE;genCatFooter| $) (QREFELT $ 41)))
+                (SPADCALL |lines| (|COMPCODE;genCatFooter| $) (QREFELT $ 39)))
           (SEQ (LETT |line| NIL) (LETT #1# |lines|) G190
                (COND
                 ((OR (ATOM #1#) (PROGN (LETT |line| (CAR #1#)) NIL))
                  (GO G191)))
-               (SEQ (EXIT (SPADCALL |f1| |line| (QREFELT $ 42))))
+               (SEQ (EXIT (SPADCALL |f1| |line| (QREFELT $ 40))))
                (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |f1| (QREFELT $ 43)))))) 
+          (EXIT (SPADCALL |f1| (QREFELT $ 41)))))) 
 
 (SDEFUN |COMPCODE;writePackage;L4SV;9|
         ((|content| |List| (|Lambda| (|Typed|))) (|filename| |String|)
@@ -219,8 +219,8 @@
           (|f1| (|TextFile|)))
          (SEQ
           (LETT |f1|
-                (SPADCALL (SPADCALL |filename| (QREFELT $ 38)) "output"
-                          (QREFELT $ 40)))
+                (SPADCALL (SPADCALL |filename| (QREFELT $ 36)) "output"
+                          (QREFELT $ 38)))
           (LETT |lines|
                 (|COMPCODE;genPackageHeader| |shortName| |longName| |catName|
                  $))
@@ -233,19 +233,19 @@
                 (LETT |lines|
                       (SPADCALL |lines|
                                 (|COMPCODE;genFuncDefn| |thisEq| |fnNum| $)
-                                (QREFELT $ 41)))
+                                (QREFELT $ 39)))
                 (EXIT (LETT |fnNum| (+ |fnNum| 1))))
                (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
           (LETT |lines|
                 (SPADCALL |lines| (|COMPCODE;genPackageFooter| $)
-                          (QREFELT $ 41)))
+                          (QREFELT $ 39)))
           (SEQ (LETT |line| NIL) (LETT #1# |lines|) G190
                (COND
                 ((OR (ATOM #1#) (PROGN (LETT |line| (CAR #1#)) NIL))
                  (GO G191)))
-               (SEQ (EXIT (SPADCALL |f1| |line| (QREFELT $ 42))))
+               (SEQ (EXIT (SPADCALL |f1| |line| (QREFELT $ 40))))
                (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |f1| (QREFELT $ 43)))))) 
+          (EXIT (SPADCALL |f1| (QREFELT $ 41)))))) 
 
 (DECLAIM (NOTINLINE |compCode;|)) 
 
@@ -269,7 +269,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|compCode|))
-          (LETT $ (GETREFV 48))
+          (LETT $ (GETREFV 46))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|compCode| NIL (CONS 1 $))
@@ -281,17 +281,17 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|List| $) (|String|) (0 . |concat|)
               (|ILogic|) (5 . |factor|) (10 . |toString|) (15 . |deductions|)
-              (20 . |toStringUnwrapped|) (|Boolean|) (|Lambda| 25)
+              (20 . |toStringUnwrapped|) (|Boolean|) (|Lambda| 23)
               (25 . |isBoundNode?|) (|NonNegativeInteger|)
-              (30 . |getBoundValue|) (35 . >) (41 . <=) (|Integer|) (|List| 7)
-              (47 . |elt|) (53 . |isFreeNode?|) (|Typed|) (58 . |getVariable|)
-              (63 . |getName|) (68 . |isCompound?|) (73 . |getChildren|)
-              (|List| 15) (78 . |second|) (83 . |isLambda?|) (88 . |member?|)
-              (94 . |concat|) (100 . |toString|) (105 . |getType|) (|FileName|)
-              (110 . |coerce|) (|TextFile|) (115 . |open|) (121 . |concat|)
-              (127 . |writeLine!|) (133 . |close!|) (|Void|) (|List| 9)
+              (30 . |getBoundValue|) (|Integer|) (|List| 7) (35 . |elt|)
+              (41 . |isFreeNode?|) (|Typed|) (46 . |getVariable|)
+              (51 . |getName|) (56 . |isCompound?|) (61 . |getChildren|)
+              (|List| 15) (66 . |second|) (71 . |isLambda?|) (76 . |member?|)
+              (82 . |concat|) (88 . |toString|) (93 . |getType|) (|FileName|)
+              (98 . |coerce|) (|TextFile|) (103 . |open|) (109 . |concat|)
+              (115 . |writeLine!|) (121 . |close!|) (|Void|) (|List| 9)
               |COMPCODE;writeCategory;L3SV;8| |COMPCODE;writePackage;L4SV;9|)
-           '#(|writePackage| 138 |writeCategory| 147) 'NIL
+           '#(|writePackage| 126 |writeCategory| 135) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -307,19 +307,18 @@
                                   (|String|) (|String|) (|String|) (|String|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 47
+                        (|makeByteWordVec2| 45
                                             '(1 7 0 6 8 1 9 6 0 10 1 9 7 0 11 1
                                               9 6 6 12 1 9 7 0 13 1 15 14 0 16
-                                              1 15 17 0 18 2 17 14 0 0 19 2 17
-                                              14 0 0 20 2 22 7 0 21 23 1 15 14
-                                              0 24 1 15 25 0 26 1 25 7 0 27 1
-                                              15 14 0 28 1 15 6 0 29 1 30 15 0
-                                              31 1 15 14 0 32 2 22 14 7 0 33 2
-                                              22 0 0 7 34 1 25 7 0 35 1 25 9 0
-                                              36 1 37 0 7 38 2 39 0 37 7 40 2
-                                              22 0 0 0 41 2 39 7 0 7 42 1 39 0
-                                              0 43 5 0 44 30 7 7 7 7 47 4 0 44
-                                              45 7 7 7 46)))))
+                                              1 15 17 0 18 2 20 7 0 19 21 1 15
+                                              14 0 22 1 15 23 0 24 1 23 7 0 25
+                                              1 15 14 0 26 1 15 6 0 27 1 28 15
+                                              0 29 1 15 14 0 30 2 20 14 7 0 31
+                                              2 20 0 0 7 32 1 23 7 0 33 1 23 9
+                                              0 34 1 35 0 7 36 2 37 0 35 7 38 2
+                                              20 0 0 0 39 2 37 7 0 7 40 1 37 0
+                                              0 41 5 0 42 28 7 7 7 7 45 4 0 42
+                                              43 7 7 7 44)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|compCode| 'NILADIC T) 

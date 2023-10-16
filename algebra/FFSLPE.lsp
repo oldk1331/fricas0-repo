@@ -54,11 +54,10 @@
                              (COND
                               ((NULL
                                 (COND
-                                 ((SPADCALL
-                                   (SPADCALL (QREFELT $ 14) (QREFELT $ 26)) 1
-                                   (QREFELT $ 27))
+                                 ((> (SPADCALL (QREFELT $ 14) (QREFELT $ 26))
+                                     1)
                                   (NULL
-                                   (SPADCALL (QREFELT $ 14) (QREFELT $ 29))))
+                                   (SPADCALL (QREFELT $ 14) (QREFELT $ 28))))
                                  ('T NIL)))
                                (GO G191)))
                              (SEQ
@@ -86,7 +85,7 @@
                                          (|Vector| (|List| (QREFELT $ 8))) #3#)
                                         #1#)))))))
           (LETT |answer|
-                (SPADCALL |p| (QREFELT $ 14) (QREFELT $ 15) (QREFELT $ 32)))
+                (SPADCALL |p| (QREFELT $ 14) (QREFELT $ 15) (QREFELT $ 31)))
           (EXIT |answer|)))) 
 
 (DECLAIM (NOTINLINE |FiniteFieldSolveLinearPolynomialEquation;|)) 
@@ -123,7 +122,7 @@
           (LETT |dv$|
                 (LIST '|FiniteFieldSolveLinearPolynomialEquation| DV$1 DV$2
                       DV$3))
-          (LETT $ (GETREFV 34))
+          (LETT $ (GETREFV 33))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
@@ -145,12 +144,12 @@
               (|local| |#3|) '|oldlp| (0 . |One|) (4 . |One|)
               (|NonNegativeInteger|) (8 . |monomial|) '|slpePrime| '|oldtable|
               (|Boolean|) (|List| 8) (14 . ~=) (20 . |degree|) (25 . +)
-              (|Union| 31 '"failed") (|GenExEuclid| 7 8) (31 . |tablePow|)
-              (|Union| $ '"failed") (38 . |nextItem|) (43 . |degree|) (48 . >)
-              (|DistinctDegreeFactorize| 6 7) (54 . |irreducible?|)
-              (|Union| 17 '"failed") (|Vector| 17) (59 . |solveid|)
+              (|Union| 30 '"failed") (|GenExEuclid| 7 8) (31 . |tablePow|)
+              (|Union| $ '"failed") (38 . |nextItem|) (43 . |degree|)
+              (|DistinctDegreeFactorize| 6 7) (48 . |irreducible?|)
+              (|Union| 17 '"failed") (|Vector| 17) (53 . |solveid|)
               |FFSLPE;solveLinearPolynomialEquation;LFPPU;1|)
-           '#(|solveLinearPolynomialEquation| 66) 'NIL
+           '#(|solveLinearPolynomialEquation| 60) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -162,11 +161,10 @@
                                   (|List| |#3|) |#3|))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 33
+                        (|makeByteWordVec2| 32
                                             '(0 6 0 10 0 7 0 11 2 7 0 6 12 13 2
                                               17 16 0 0 18 1 8 12 0 19 2 7 0 0
                                               0 20 3 22 21 12 7 17 23 1 7 24 0
-                                              25 1 7 12 0 26 2 12 16 0 0 27 1
-                                              28 16 7 29 3 22 30 8 7 31 32 2 0
-                                              30 17 8 33)))))
+                                              25 1 7 12 0 26 1 27 16 7 28 3 22
+                                              29 8 7 30 31 2 0 29 17 8 32)))))
            '|lookupComplete|)) 

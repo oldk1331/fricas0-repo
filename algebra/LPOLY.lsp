@@ -470,8 +470,8 @@
 
 (SDEFUN |LPOLY;trunc;$Nni$;28| ((|p| $) (|n| |NonNegativeInteger|) ($ $))
         (COND
-         ((SPADCALL (SPADCALL |p| (QREFELT $ 88)) |n| (QREFELT $ 89))
-          (SPADCALL (SPADCALL |p| (QREFELT $ 90)) |n| (QREFELT $ 91)))
+         ((> (SPADCALL |p| (QREFELT $ 88)) |n|)
+          (SPADCALL (SPADCALL |p| (QREFELT $ 89)) |n| (QREFELT $ 90)))
          ('T |p|))) 
 
 (SDEFUN |LPOLY;degree;$Nni;29| ((|p| $) ($ |NonNegativeInteger|))
@@ -480,19 +480,19 @@
 
 (SDEFUN |LPOLY;outTerm| ((|r| R) (|lw| |LyndonWord| |VarSet|) ($ |OutputForm|))
         (COND
-         ((SPADCALL |r| (|spadConstant| $ 67) (QREFELT $ 92))
-          (SPADCALL |lw| (QREFELT $ 94)))
+         ((SPADCALL |r| (|spadConstant| $ 67) (QREFELT $ 91))
+          (SPADCALL |lw| (QREFELT $ 93)))
          ('T
-          (SPADCALL (SPADCALL |r| (QREFELT $ 95))
-                    (SPADCALL |lw| (QREFELT $ 94)) (QREFELT $ 96))))) 
+          (SPADCALL (SPADCALL |r| (QREFELT $ 94))
+                    (SPADCALL |lw| (QREFELT $ 93)) (QREFELT $ 95))))) 
 
 (SDEFUN |LPOLY;coerce;$Of;31| ((|a| $) ($ |OutputForm|))
         (SPROG ((#1=#:G242 NIL) (|t| NIL) (#2=#:G241 NIL))
                (SEQ
                 (COND
-                 ((NULL |a|) (SPADCALL (|spadConstant| $ 24) (QREFELT $ 95)))
+                 ((NULL |a|) (SPADCALL (|spadConstant| $ 24) (QREFELT $ 94)))
                  ('T
-                  (SPADCALL (ELT $ 97)
+                  (SPADCALL (ELT $ 96)
                             (NREVERSE
                              (PROGN
                               (LETT #2# NIL)
@@ -510,7 +510,7 @@
                                             #2#))))
                                    (LETT #1# (CDR #1#)) (GO G190) G191
                                    (EXIT (NREVERSE #2#)))))
-                            (QREFELT $ 100))))))) 
+                            (QREFELT $ 99))))))) 
 
 (DECLAIM (NOTINLINE |LiePolynomial;|)) 
 
@@ -539,7 +539,7 @@
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|LiePolynomial| DV$1 DV$2))
-    (LETT $ (GETREFV 112))
+    (LETT $ (GETREFV 111))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -653,26 +653,25 @@
               |LPOLY;construct;2Lw$;22| (226 . *) (232 . +) (238 . |setUnion|)
               (244 . |sort|) |LPOLY;varList;$L;26| (|PositiveInteger|)
               (249 . |length|) (254 . -) |LPOLY;mirror;2$;27|
-              (|NonNegativeInteger|) |LPOLY;degree;$Nni;29| (259 . >)
-              (265 . |reductum|) |LPOLY;trunc;$Nni$;28| (270 . =)
-              (|OutputForm|) (276 . |coerce|) (281 . |coerce|) (286 . *)
-              (292 . +) (|Mapping| 93 93 93) (|List| 93) (298 . |reduce|)
-              |LPOLY;coerce;$Of;31| (|Record| (|:| |k| 10) (|:| |c| 7))
-              (|List| 102) (|Mapping| 7 10) (|Union| 10 '"failed")
-              (|Mapping| 7 7) (|List| 10) (|List| 7) (|String|)
-              (|SingleInteger|) (|HashState|))
-           '#(~= 304 |zero?| 310 |varList| 315 |trunc| 320 |support| 326 |sup|
-              331 |subtractIfCan| 337 |smaller?| 343 |sample| 349 |rquo| 353
-              |retractIfCan| 359 |retract| 364 |reductum| 369 |opposite?| 374
-              |numberOfMonomials| 380 |monomials| 385 |monomial?| 390
-              |monomial| 395 |mirror| 401 |min| 406 |max| 412 |map| 418 |lquo|
-              424 |listOfTerms| 430 |linearExtend| 435 |leadingTerm| 441
-              |leadingSupport| 446 |leadingMonomial| 451 |leadingCoefficient|
-              456 |latex| 461 |hashUpdate!| 466 |hash| 472 |eval| 477 |degree|
-              491 |constructOrdered| 496 |construct| 501 |coerce| 530
-              |coefficients| 555 |coefficient| 560 |coef| 566 |Zero| 572
-              |LiePolyIfCan| 576 |LiePoly| 581 >= 586 > 592 = 598 <= 604 < 610
-              / 616 - 622 + 633 * 639)
+              (|NonNegativeInteger|) |LPOLY;degree;$Nni;29| (259 . |reductum|)
+              |LPOLY;trunc;$Nni$;28| (264 . =) (|OutputForm|) (270 . |coerce|)
+              (275 . |coerce|) (280 . *) (286 . +) (|Mapping| 92 92 92)
+              (|List| 92) (292 . |reduce|) |LPOLY;coerce;$Of;31|
+              (|Record| (|:| |k| 10) (|:| |c| 7)) (|List| 101) (|Mapping| 7 10)
+              (|Union| 10 '"failed") (|Mapping| 7 7) (|List| 10) (|List| 7)
+              (|String|) (|SingleInteger|) (|HashState|))
+           '#(~= 298 |zero?| 304 |varList| 309 |trunc| 314 |support| 320 |sup|
+              325 |subtractIfCan| 331 |smaller?| 337 |sample| 343 |rquo| 347
+              |retractIfCan| 353 |retract| 358 |reductum| 363 |opposite?| 368
+              |numberOfMonomials| 374 |monomials| 379 |monomial?| 384
+              |monomial| 389 |mirror| 395 |min| 400 |max| 406 |map| 412 |lquo|
+              418 |listOfTerms| 424 |linearExtend| 429 |leadingTerm| 435
+              |leadingSupport| 440 |leadingMonomial| 445 |leadingCoefficient|
+              450 |latex| 455 |hashUpdate!| 460 |hash| 466 |eval| 471 |degree|
+              485 |constructOrdered| 490 |construct| 495 |coerce| 524
+              |coefficients| 549 |coefficient| 554 |coef| 560 |Zero| 566
+              |LiePolyIfCan| 570 |LiePoly| 575 >= 580 > 586 = 592 <= 598 < 604
+              / 610 - 616 + 627 * 633)
            'NIL
            (CONS
             (|makeByteWordVec2| 12
@@ -694,9 +693,9 @@
                  (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
                  (|OrderedSet|) (|AbelianMonoid|) (|AbelianSemiGroup|)
                  (|Comparable|) (|SetCategory|) (|BasicType|)
-                 (|CoercibleTo| 93) (|RetractableTo| (|LyndonWord| 6))
+                 (|CoercibleTo| 92) (|RetractableTo| (|LyndonWord| 6))
                  (|PartialOrder|))
-              (|makeByteWordVec2| 111
+              (|makeByteWordVec2| 110
                                   '(1 10 9 0 11 2 9 12 6 0 13 1 10 15 0 16 2 6
                                     12 0 0 17 1 10 0 0 18 1 10 0 0 19 2 9 21 6
                                     0 22 0 0 0 23 0 7 0 24 1 0 0 10 25 2 26 2 0
@@ -711,27 +710,27 @@
                                     68 1 49 0 6 69 2 49 0 0 0 70 1 33 0 6 71 2
                                     33 0 0 0 72 1 10 0 6 73 2 49 0 7 0 78 2 49
                                     0 0 0 79 2 9 0 0 0 80 1 9 0 0 81 1 10 83 0
-                                    84 1 7 0 0 85 2 87 12 0 0 89 1 0 0 0 90 2 7
-                                    12 0 0 92 1 10 93 0 94 1 7 93 0 95 2 93 0 0
-                                    0 96 2 93 0 0 0 97 2 99 93 98 0 100 2 0 12
-                                    0 0 1 1 8 12 0 1 1 0 9 0 82 2 0 0 0 87 91 1
-                                    0 107 0 1 2 3 0 0 0 1 2 9 55 0 0 1 2 12 12
-                                    0 0 1 0 8 0 1 2 0 33 33 0 48 1 2 105 0 1 1
-                                    2 10 0 1 1 11 0 0 90 2 8 12 0 0 1 1 0 87 0
-                                    1 1 0 31 0 1 1 0 12 0 1 2 0 0 7 10 68 1 0 0
-                                    0 86 2 4 0 0 0 1 2 4 0 0 0 1 2 0 0 106 0 1
-                                    2 0 33 33 0 47 1 0 103 0 1 2 10 7 104 0 1 1
-                                    11 102 0 1 1 11 10 0 1 1 11 0 0 1 1 11 7 0
-                                    1 1 0 109 0 1 2 0 111 111 0 1 1 0 110 0 1 3
-                                    0 0 0 9 31 32 3 0 0 0 6 0 30 1 0 87 0 88 1
-                                    11 0 103 1 2 0 0 10 0 75 2 0 0 0 10 76 2 0
-                                    0 10 10 77 1 0 0 103 1 2 0 0 0 0 20 1 2 0
-                                    10 25 1 0 33 0 41 1 0 0 6 74 1 0 49 0 58 1
-                                    0 93 0 101 1 0 108 0 1 2 0 7 0 10 1 2 0 7
-                                    33 0 43 0 8 0 23 1 0 55 49 60 1 0 0 10 14 2
-                                    4 12 0 0 1 2 4 12 0 0 1 2 0 12 0 0 44 2 4
-                                    12 0 0 1 2 4 12 0 0 1 2 7 0 0 7 1 1 1 0 0
-                                    66 2 1 0 0 0 1 2 0 0 0 0 29 2 8 0 87 0 1 2
-                                    1 0 21 0 1 2 0 0 10 7 1 2 0 0 7 10 1 2 0 0
-                                    0 7 1 2 0 0 83 0 1 2 0 0 7 0 28)))))
+                                    84 1 7 0 0 85 1 0 0 0 89 2 7 12 0 0 91 1 10
+                                    92 0 93 1 7 92 0 94 2 92 0 0 0 95 2 92 0 0
+                                    0 96 2 98 92 97 0 99 2 0 12 0 0 1 1 8 12 0
+                                    1 1 0 9 0 82 2 0 0 0 87 90 1 0 106 0 1 2 3
+                                    0 0 0 1 2 9 55 0 0 1 2 12 12 0 0 1 0 8 0 1
+                                    2 0 33 33 0 48 1 2 104 0 1 1 2 10 0 1 1 11
+                                    0 0 89 2 8 12 0 0 1 1 0 87 0 1 1 0 31 0 1 1
+                                    0 12 0 1 2 0 0 7 10 68 1 0 0 0 86 2 4 0 0 0
+                                    1 2 4 0 0 0 1 2 0 0 105 0 1 2 0 33 33 0 47
+                                    1 0 102 0 1 2 10 7 103 0 1 1 11 101 0 1 1
+                                    11 10 0 1 1 11 0 0 1 1 11 7 0 1 1 0 108 0 1
+                                    2 0 110 110 0 1 1 0 109 0 1 3 0 0 0 9 31 32
+                                    3 0 0 0 6 0 30 1 0 87 0 88 1 11 0 102 1 2 0
+                                    0 10 0 75 2 0 0 0 10 76 2 0 0 10 10 77 1 0
+                                    0 102 1 2 0 0 0 0 20 1 2 0 10 25 1 0 33 0
+                                    41 1 0 0 6 74 1 0 49 0 58 1 0 92 0 100 1 0
+                                    107 0 1 2 0 7 0 10 1 2 0 7 33 0 43 0 8 0 23
+                                    1 0 55 49 60 1 0 0 10 14 2 4 12 0 0 1 2 4
+                                    12 0 0 1 2 0 12 0 0 44 2 4 12 0 0 1 2 4 12
+                                    0 0 1 2 7 0 0 7 1 1 1 0 0 66 2 1 0 0 0 1 2
+                                    0 0 0 0 29 2 8 0 87 0 1 2 1 0 21 0 1 2 0 0
+                                    10 7 1 2 0 0 7 10 1 2 0 0 0 7 1 2 0 0 83 0
+                                    1 2 0 0 7 0 28)))))
            '|lookupComplete|)) 

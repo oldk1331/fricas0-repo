@@ -654,13 +654,11 @@
         (SPROG
          ((|sp| (|OutputForm|)) (|cnt| (#1="CONTINUE")) (|lab| (|String|)))
          (SEQ (LETT |lab| (STRINGIMAGE |label|))
-              (COND
-               ((SPADCALL (QCSIZE |lab|) 6 (QREFELT $ 58))
-                (|error| "Label too big")))
+              (COND ((> (QCSIZE |lab|) 6) (|error| "Label too big")))
               (LETT |cnt| #1#)
               (LETT |sp|
-                    (SPADCALL (- (SPADCALL (QREFELT $ 59)) (QCSIZE |lab|))
-                              (QREFELT $ 60)))
+                    (SPADCALL (- (SPADCALL (QREFELT $ 58)) (QCSIZE |lab|))
+                              (QREFELT $ 59)))
               (EXIT (STRCONC |lab| |sp| |cnt|))))) 
 
 (SDEFUN |FC;getGoto| ((|label| |SingleInteger|) ($ |List| (|String|)))
@@ -671,7 +669,7 @@
         ((|repRec| |Record| (|:| |switch| (|Switch|)) (|:| |body| $))
          ($ |List| (|String|)))
         (SPROG ((|bod| ($)) (|lab| (|SingleInteger|)) (|sw| (|Switch|)))
-               (SEQ (LETT |sw| (SPADCALL (QCAR |repRec|) (QREFELT $ 61)))
+               (SEQ (LETT |sw| (SPADCALL (QCAR |repRec|) (QREFELT $ 60)))
                     (LETT |lab| (|FC;newLabel| $)) (LETT |bod| (QCDR |repRec|))
                     (EXIT
                      (SPADCALL (|FC;getContinue| |lab| $)
@@ -689,7 +687,7 @@
          ((|rl1| (|List| (|List| (|String|)))) (|ig| (|List| (|String|)))
           (|bod| ($)) (|lab2| #1=(|SingleInteger|)) (|lab1| #1#)
           (|sw| (|Switch|)))
-         (SEQ (LETT |sw| (SPADCALL (QCAR |whileRec|) (QREFELT $ 61)))
+         (SEQ (LETT |sw| (SPADCALL (QCAR |whileRec|) (QREFELT $ 60)))
               (LETT |lab1| (|FC;newLabel| $)) (LETT |lab2| (|FC;newLabel| $))
               (LETT |bod| (QCDR |whileRec|))
               (LETT |ig|
@@ -697,9 +695,9 @@
                      (SPADCALL |sw| (QREFELT $ 57)) |lab1| |lab2| $))
               (LETT |rl1|
                     (LIST |ig| (|FC;getBody| |bod| $)
-                          (|FC;getBody| (SPADCALL |lab1| (QREFELT $ 62)) $)
+                          (|FC;getBody| (SPADCALL |lab1| (QREFELT $ 61)) $)
                           (|FC;getContinue| |lab2| $)))
-              (EXIT (SPADCALL |rl1| (QREFELT $ 63)))))) 
+              (EXIT (SPADCALL |rl1| (QREFELT $ 62)))))) 
 
 (SDEFUN |FC;getArrayAssign|
         ((|rec| |Record| (|:| |var| (|Symbol|)) (|:| |rand| (|OutputForm|))
@@ -726,7 +724,7 @@
                ((NULL (NULL |indices|))
                 (LETT |lhs|
                       (SPADCALL |lhs|
-                                (SPADCALL (ELT $ 64) |indices| (QREFELT $ 69))
+                                (SPADCALL (ELT $ 63) |indices| (QREFELT $ 68))
                                 (QREFELT $ 10)))))
               (LETT |ass| (QVELT |rec| 2)) (LETT |ex| (QCDR |ass|))
               (EXIT (|FC;get_assignment| |lhs| |ex| (QCAR |ass|) $))))) 
@@ -783,7 +781,7 @@
                (SEQ (LETT |expr| (STRCONC "CALL " |rec|))
                     (EXIT
                      (COND
-                      ((SPADCALL (QCSIZE |expr|) 1320 (QREFELT $ 58))
+                      ((> (QCSIZE |expr|) 1320)
                        (|error| "Fortran CALL too large"))
                       ('T (SPADCALL (LIST |expr|) (QREFELT $ 22)))))))) 
 
@@ -797,19 +795,19 @@
           (|increment| #2#) (|rnge| #1#))
          (SEQ (LETT |rnge| (QVELT |rec| 0)) (LETT |increment| (QVELT |rec| 1))
               (LETT |lab| (|FC;newLabel| $))
-              (SPADCALL (SPADCALL |rnge| (QREFELT $ 71))
-                        (SPADCALL (QREFELT $ 73)) (QREFELT $ 75))
+              (SPADCALL (SPADCALL |rnge| (QREFELT $ 70))
+                        (SPADCALL (QREFELT $ 72)) (QREFELT $ 74))
               (LETT |expr|
-                    (|FC;fortFormatDo| (SPADCALL |rnge| (QREFELT $ 71))
+                    (|FC;fortFormatDo| (SPADCALL |rnge| (QREFELT $ 70))
                      (SPADCALL
-                      (SPADCALL (SPADCALL |rnge| (QREFELT $ 77))
+                      (SPADCALL (SPADCALL |rnge| (QREFELT $ 76))
+                                (QREFELT $ 77))
+                      (QREFELT $ 63))
+                     (SPADCALL
+                      (SPADCALL (SPADCALL |rnge| (QREFELT $ 76))
                                 (QREFELT $ 78))
-                      (QREFELT $ 64))
-                     (SPADCALL
-                      (SPADCALL (SPADCALL |rnge| (QREFELT $ 77))
-                                (QREFELT $ 79))
-                      (QREFELT $ 64))
-                     (SPADCALL |increment| (QREFELT $ 64)) |lab| $))
+                      (QREFELT $ 63))
+                     (SPADCALL |increment| (QREFELT $ 63)) |lab| $))
               (EXIT
                (SPADCALL |expr|
                          (SPADCALL (|FC;getBody| (QVELT |rec| 2) $)
@@ -1868,8 +1866,8 @@
                 ('T (|error| "Unsupported program construct."))))))) 
 
 (SDEFUN |FC;printCode;$V;37| ((|f| $) ($ |Void|))
-        (SEQ (SPADCALL (SPADCALL |f| (QREFELT $ 43)) (QREFELT $ 80))
-             (EXIT (SPADCALL (QREFELT $ 81))))) 
+        (SEQ (SPADCALL (SPADCALL |f| (QREFELT $ 43)) (QREFELT $ 79))
+             (EXIT (SPADCALL (QREFELT $ 80))))) 
 
 (PUT '|FC;code;$U;38| '|SPADreplace| 'QCDR) 
 
@@ -1937,7 +1935,7 @@
         (CONS (CONS 5 "comment") (CONS 6 |s|))) 
 
 (SDEFUN |FC;comment;S$;45| ((|s| |String|) ($ $))
-        (CONS (CONS 5 "comment") (CONS 6 (SPADCALL |s| (QREFELT $ 89))))) 
+        (CONS (CONS 5 "comment") (CONS 6 (SPADCALL |s| (QREFELT $ 88))))) 
 
 (SDEFUN |FC;forLoop;Sb2$;46|
         ((|r| |SegmentBinding| (|Polynomial| (|Integer|))) (|body| $) ($ $))
@@ -1945,9 +1943,9 @@
               (CONS 8
                     (VECTOR |r|
                             (SPADCALL
-                             (SPADCALL (SPADCALL |r| (QREFELT $ 77))
-                                       (QREFELT $ 91))
-                             (QREFELT $ 92))
+                             (SPADCALL (SPADCALL |r| (QREFELT $ 76))
+                                       (QREFELT $ 90))
+                             (QREFELT $ 91))
                             |body|)))) 
 
 (SDEFUN |FC;forLoop;SbP2$;47|
@@ -1973,32 +1971,32 @@
            (|Record| (|:| |ints2Floats?| (|Boolean|))
                      (|:| |expr| (|OutputForm|)))))
          (SEQ
-          (LETT |v| (CONS NIL (SPADCALL (|spadConstant| $ 98) (QREFELT $ 64))))
+          (LETT |v| (CONS NIL (SPADCALL (|spadConstant| $ 97) (QREFELT $ 63))))
           (EXIT (CONS (CONS 3 "return") (CONS 4 (CONS 'T |v|))))))) 
 
 (SDEFUN |FC;returns;E$;53| ((|v| |Expression| (|MachineInteger|)) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 101))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 100))))))) 
 
 (SDEFUN |FC;returns;E$;54| ((|v| |Expression| (|MachineFloat|)) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 104))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 103))))))) 
 
 (SDEFUN |FC;returns;E$;55| ((|v| |Expression| (|MachineComplex|)) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 107))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 106))))))) 
 
 (SDEFUN |FC;returns;E$;56| ((|v| |Expression| (|Integer|)) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 110))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 109))))))) 
 
 (SDEFUN |FC;returns;E$;57| ((|v| |Expression| (|Float|)) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 113))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 112))))))) 
 
 (SDEFUN |FC;returns;E$;58| ((|v| |Expression| (|Complex| (|Float|))) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 116))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 115))))))) 
 
 (SDEFUN |FC;block;L$;59| ((|l| |List| $) ($ $))
         (CONS (CONS 4 "block") (CONS 5 |l|))) 
@@ -2013,77 +2011,77 @@
         (CONS (CONS 2 "conditional") (CONS 3 (VECTOR |sw| |thenC| |elseC|)))) 
 
 (SDEFUN |FC;coerce;$Of;62| ((|f| $) ($ |OutputForm|))
-        (SPADCALL (QCAR |f|) (QREFELT $ 121))) 
+        (SPADCALL (QCAR |f|) (QREFELT $ 120))) 
 
 (SDEFUN |FC;assign;SS$;63| ((|v| |Symbol|) (|rhs| |String|) ($ $))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
-                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 123))))))) 
+                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 122))))))) 
 
 (SDEFUN |FC;assign;SM$;64|
         ((|v| |Symbol|) (|rhs| |Matrix| (|MachineInteger|)) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 126)) NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 125)) NIL)))) 
 
 (SDEFUN |FC;assign;SM$;65|
         ((|v| |Symbol|) (|rhs| |Matrix| (|MachineFloat|)) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 129)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 128)) 'T)))) 
 
 (SDEFUN |FC;assign;SM$;66|
         ((|v| |Symbol|) (|rhs| |Matrix| (|MachineComplex|)) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 132)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 131)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;67|
         ((|v| |Symbol|) (|rhs| |Vector| (|MachineInteger|)) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 135)) NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 134)) NIL)))) 
 
 (SDEFUN |FC;assign;SV$;68|
         ((|v| |Symbol|) (|rhs| |Vector| (|MachineFloat|)) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 138)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 137)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;69|
         ((|v| |Symbol|) (|rhs| |Vector| (|MachineComplex|)) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 141)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 140)) 'T)))) 
 
 (SDEFUN |FC;assign;SM$;70|
         ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|MachineInteger|)))
          ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 144)) NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 143)) NIL)))) 
 
 (SDEFUN |FC;assign;SM$;71|
         ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|MachineFloat|))) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 147)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 146)) 'T)))) 
 
 (SDEFUN |FC;assign;SM$;72|
         ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|MachineComplex|)))
          ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 150)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 149)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;73|
         ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|MachineInteger|)))
          ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 153)) NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 152)) NIL)))) 
 
 (SDEFUN |FC;assign;SV$;74|
         ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|MachineFloat|))) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 156)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 155)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;75|
         ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|MachineComplex|)))
          ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 159)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 158)) 'T)))) 
 
 (SDEFUN |FC;assign;SLE$;76|
         ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
@@ -2091,7 +2089,7 @@
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
-                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 101))))))) 
+                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 100))))))) 
 
 (SDEFUN |FC;assign;SLE$;77|
         ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
@@ -2099,7 +2097,7 @@
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
-                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 104))))))) 
+                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 103))))))) 
 
 (SDEFUN |FC;assign;SLE$;78|
         ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
@@ -2107,60 +2105,60 @@
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
-                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 107))))))) 
+                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 106))))))) 
 
 (SDEFUN |FC;assign;SE$;79|
         ((|v| |Symbol|) (|rhs| |Expression| (|MachineInteger|)) ($ $))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
-                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 101))))))) 
+                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 100))))))) 
 
 (SDEFUN |FC;assign;SE$;80|
         ((|v| |Symbol|) (|rhs| |Expression| (|MachineFloat|)) ($ $))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
-                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 104))))))) 
+                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 103))))))) 
 
 (SDEFUN |FC;assign;SE$;81|
         ((|v| |Symbol|) (|rhs| |Expression| (|MachineComplex|)) ($ $))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
-                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 107))))))) 
+                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 106))))))) 
 
 (SDEFUN |FC;assign;SM$;82|
         ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|Integer|))) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 168)) NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 167)) NIL)))) 
 
 (SDEFUN |FC;assign;SM$;83|
         ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|Float|))) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 171)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 170)) 'T)))) 
 
 (SDEFUN |FC;assign;SM$;84|
         ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|Complex| (|Float|))))
          ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 174)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 173)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;85|
         ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|Integer|))) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 177)) NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 176)) NIL)))) 
 
 (SDEFUN |FC;assign;SV$;86|
         ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|Float|))) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 180)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 179)) 'T)))) 
 
 (SDEFUN |FC;assign;SV$;87|
         ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|Complex| (|Float|))))
          ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 183)) 'T)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 182)) 'T)))) 
 
 (SDEFUN |FC;assign;SLE$;88|
         ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
@@ -2168,7 +2166,7 @@
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
-                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 110))))))) 
+                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 109))))))) 
 
 (SDEFUN |FC;assign;SLE$;89|
         ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
@@ -2176,7 +2174,7 @@
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
-                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 113))))))) 
+                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 112))))))) 
 
 (SDEFUN |FC;assign;SLE$;90|
         ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
@@ -2184,28 +2182,28 @@
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
-                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 116))))))) 
+                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 115))))))) 
 
 (SDEFUN |FC;assign;SE$;91|
         ((|v| |Symbol|) (|rhs| |Expression| (|Integer|)) ($ $))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
-                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 110))))))) 
+                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 109))))))) 
 
 (SDEFUN |FC;assign;SE$;92|
         ((|v| |Symbol|) (|rhs| |Expression| (|Float|)) ($ $))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
-                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 113))))))) 
+                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 112))))))) 
 
 (SDEFUN |FC;assign;SE$;93|
         ((|v| |Symbol|) (|rhs| |Expression| (|Complex| (|Float|))) ($ $))
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
-                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 116))))))) 
+                            (CONS 'T (SPADCALL |rhs| (QREFELT $ 115))))))) 
 
 (SDEFUN |FC;call;S$;94| ((|s| |String|) ($ $))
         (CONS (CONS 6 "call") (CONS 7 |s|))) 
@@ -2233,7 +2231,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|FortranCode|))
-          (LETT $ (GETREFV 193))
+          (LETT $ (GETREFV 192))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FortranCode| NIL (CONS 1 $))
@@ -2338,80 +2336,80 @@
                        (|:| |Common| '"common") (|:| |Print| '"print"))
               |FC;operation;$U;39|
               (|Record| (|:| |ints2Floats?| 12) (|:| |expr| 6))
-              (|Record| (|:| |var| 7) (|:| |arrayIndex| 67) (|:| |rand| 46))
+              (|Record| (|:| |var| 7) (|:| |arrayIndex| 66) (|:| |rand| 46))
               (|Record| (|:| |var| 7) (|:| |rand| 6) (|:| |ints2Floats?| 12))
               (|Record| (|:| |switch| 56) (|:| |thenClause| $)
                         (|:| |elseClause| $))
               (|Record| (|:| |empty?| 12) (|:| |value| 46))
-              (|Record| (|:| |range| 70) (|:| |span| 38) (|:| |body| $))
+              (|Record| (|:| |range| 69) (|:| |span| 38) (|:| |body| $))
               (|Record| (|:| |switch| 56) (|:| |body| $))
-              (|Record| (|:| |name| 7) (|:| |contents| 83))
+              (|Record| (|:| |name| 7) (|:| |contents| 82))
               (|Union| (|:| |nullBranch| '"null") (|:| |assignmentBranch| 47)
                        (|:| |arrayAssignmentBranch| 48)
                        (|:| |conditionalBranch| 49) (|:| |returnBranch| 50)
                        (|:| |blockBranch| 9) (|:| |commentBranch| 11)
                        (|:| |callBranch| 25) (|:| |forBranch| 51)
                        (|:| |labelBranch| 34) (|:| |loopBranch| 52)
-                       (|:| |commonBranch| 53) (|:| |printBranch| 65))
-              |FC;code;$U;38| (|Switch|) (103 . |coerce|) (108 . >)
-              (114 . |get_fort_indent|) (118 . |hspace|) (123 . NOT)
-              |FC;gotoJump;Si$;48| (128 . |concat|) (133 . |coerce|) (|List| 6)
+                       (|:| |commonBranch| 53) (|:| |printBranch| 64))
+              |FC;code;$U;38| (|Switch|) (103 . |coerce|)
+              (108 . |get_fort_indent|) (112 . |hspace|) (117 . NOT)
+              |FC;gotoJump;Si$;48| (122 . |concat|) (127 . |coerce|) (|List| 6)
               (|Mapping| 6 38) (|List| 38) (|ListFunctions2| 38 6)
-              (138 . |map|) (|SegmentBinding| 38) (144 . |variable|)
-              (|FortranType|) (149 . |fortranInteger|) (|TheSymbolTable|)
-              (153 . |declare!|) (|Segment| 38) (159 . |segment|) (164 . |low|)
-              (169 . |high|) (174 . |displayLines|) (179 . |void|)
+              (132 . |map|) (|SegmentBinding| 38) (138 . |variable|)
+              (|FortranType|) (143 . |fortranInteger|) (|TheSymbolTable|)
+              (147 . |declare!|) (|Segment| 38) (153 . |segment|) (158 . |low|)
+              (163 . |high|) (168 . |displayLines|) (173 . |void|)
               |FC;printCode;$V;37| (|List| 7) |FC;common;SL$;40| |FC;stop;$;41|
               |FC;save;$;42| |FC;printStatement;L$;43| |FC;comment;L$;44|
-              (183 . |list|) |FC;comment;S$;45| (188 . |incr|) (193 . |coerce|)
+              (177 . |list|) |FC;comment;S$;45| (182 . |incr|) (187 . |coerce|)
               |FC;forLoop;Sb2$;46| |FC;forLoop;SbP2$;47| |FC;continue;Si$;49|
-              |FC;whileLoop;S2$;50| |FC;repeatUntilLoop;S2$;51| (198 . |Zero|)
+              |FC;whileLoop;S2$;50| |FC;repeatUntilLoop;S2$;51| (192 . |Zero|)
               |FC;returns;$;52| (|Expression| (|MachineInteger|))
-              (202 . |coerce|) |FC;returns;E$;53|
-              (|Expression| (|MachineFloat|)) (207 . |coerce|)
+              (196 . |coerce|) |FC;returns;E$;53|
+              (|Expression| (|MachineFloat|)) (201 . |coerce|)
               |FC;returns;E$;54| (|Expression| (|MachineComplex|))
-              (212 . |coerce|) |FC;returns;E$;55| (|Expression| 17)
-              (217 . |coerce|) |FC;returns;E$;56| (|Expression| (|Float|))
-              (222 . |coerce|) |FC;returns;E$;57|
-              (|Expression| (|Complex| (|Float|))) (227 . |coerce|)
+              (206 . |coerce|) |FC;returns;E$;55| (|Expression| 17)
+              (211 . |coerce|) |FC;returns;E$;56| (|Expression| (|Float|))
+              (216 . |coerce|) |FC;returns;E$;57|
+              (|Expression| (|Complex| (|Float|))) (221 . |coerce|)
               |FC;returns;E$;58| |FC;block;L$;59| |FC;cond;S2$;60|
-              |FC;cond;S3$;61| (232 . |coerce|) |FC;coerce;$Of;62|
-              (237 . |coerce|) |FC;assign;SS$;63| (|Matrix| (|MachineInteger|))
-              (242 . |coerce|) |FC;assign;SM$;64| (|Matrix| (|MachineFloat|))
-              (247 . |coerce|) |FC;assign;SM$;65| (|Matrix| (|MachineComplex|))
-              (252 . |coerce|) |FC;assign;SM$;66| (|Vector| (|MachineInteger|))
-              (257 . |coerce|) |FC;assign;SV$;67| (|Vector| (|MachineFloat|))
-              (262 . |coerce|) |FC;assign;SV$;68| (|Vector| (|MachineComplex|))
-              (267 . |coerce|) |FC;assign;SV$;69| (|Matrix| 100)
-              (272 . |coerce|) |FC;assign;SM$;70| (|Matrix| 103)
-              (277 . |coerce|) |FC;assign;SM$;71| (|Matrix| 106)
-              (282 . |coerce|) |FC;assign;SM$;72| (|Vector| 100)
-              (287 . |coerce|) |FC;assign;SV$;73| (|Vector| 103)
-              (292 . |coerce|) |FC;assign;SV$;74| (|Vector| 106)
-              (297 . |coerce|) |FC;assign;SV$;75| |FC;assign;SLE$;76|
+              |FC;cond;S3$;61| (226 . |coerce|) |FC;coerce;$Of;62|
+              (231 . |coerce|) |FC;assign;SS$;63| (|Matrix| (|MachineInteger|))
+              (236 . |coerce|) |FC;assign;SM$;64| (|Matrix| (|MachineFloat|))
+              (241 . |coerce|) |FC;assign;SM$;65| (|Matrix| (|MachineComplex|))
+              (246 . |coerce|) |FC;assign;SM$;66| (|Vector| (|MachineInteger|))
+              (251 . |coerce|) |FC;assign;SV$;67| (|Vector| (|MachineFloat|))
+              (256 . |coerce|) |FC;assign;SV$;68| (|Vector| (|MachineComplex|))
+              (261 . |coerce|) |FC;assign;SV$;69| (|Matrix| 99)
+              (266 . |coerce|) |FC;assign;SM$;70| (|Matrix| 102)
+              (271 . |coerce|) |FC;assign;SM$;71| (|Matrix| 105)
+              (276 . |coerce|) |FC;assign;SM$;72| (|Vector| 99)
+              (281 . |coerce|) |FC;assign;SV$;73| (|Vector| 102)
+              (286 . |coerce|) |FC;assign;SV$;74| (|Vector| 105)
+              (291 . |coerce|) |FC;assign;SV$;75| |FC;assign;SLE$;76|
               |FC;assign;SLE$;77| |FC;assign;SLE$;78| |FC;assign;SE$;79|
-              |FC;assign;SE$;80| |FC;assign;SE$;81| (|Matrix| 109)
-              (302 . |coerce|) |FC;assign;SM$;82| (|Matrix| 112)
-              (307 . |coerce|) |FC;assign;SM$;83| (|Matrix| 115)
-              (312 . |coerce|) |FC;assign;SM$;84| (|Vector| 109)
-              (317 . |coerce|) |FC;assign;SV$;85| (|Vector| 112)
-              (322 . |coerce|) |FC;assign;SV$;86| (|Vector| 115)
-              (327 . |coerce|) |FC;assign;SV$;87| |FC;assign;SLE$;88|
+              |FC;assign;SE$;80| |FC;assign;SE$;81| (|Matrix| 108)
+              (296 . |coerce|) |FC;assign;SM$;82| (|Matrix| 111)
+              (301 . |coerce|) |FC;assign;SM$;83| (|Matrix| 114)
+              (306 . |coerce|) |FC;assign;SM$;84| (|Vector| 108)
+              (311 . |coerce|) |FC;assign;SV$;85| (|Vector| 111)
+              (316 . |coerce|) |FC;assign;SV$;86| (|Vector| 114)
+              (321 . |coerce|) |FC;assign;SV$;87| |FC;assign;SLE$;88|
               |FC;assign;SLE$;89| |FC;assign;SLE$;90| |FC;assign;SE$;91|
               |FC;assign;SE$;92| |FC;assign;SE$;93| |FC;call;S$;94|
               (|HashState|))
-           '#(~= 332 |whileLoop| 338 |stop| 344 |setLabelValue| 348 |save| 353
-              |returns| 357 |repeatUntilLoop| 391 |printStatement| 397
-              |printCode| 402 |operation| 407 |latex| 412 |hashUpdate!| 417
-              |hash| 423 |gotoJump| 428 |getCode| 433 |forLoop| 438 |continue|
-              451 |cond| 456 |common| 469 |comment| 475 |coerce| 485 |code| 490
-              |call| 495 |block| 500 |assign| 505 = 697)
+           '#(~= 326 |whileLoop| 332 |stop| 338 |setLabelValue| 342 |save| 347
+              |returns| 351 |repeatUntilLoop| 385 |printStatement| 391
+              |printCode| 396 |operation| 401 |latex| 406 |hashUpdate!| 411
+              |hash| 417 |gotoJump| 422 |getCode| 427 |forLoop| 432 |continue|
+              445 |cond| 450 |common| 463 |comment| 469 |coerce| 479 |code| 484
+              |call| 489 |block| 494 |assign| 499 = 691)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 6))
-                        (|makeByteWordVec2| 192
+                        (|makeByteWordVec2| 191
                                             '(1 7 6 0 8 2 6 0 0 9 10 2 13 11 6
                                               12 14 1 13 11 6 15 1 13 16 17 18
                                               2 11 0 0 0 19 1 13 11 20 21 1 13
@@ -2420,54 +2418,53 @@
                                               30 2 13 11 12 20 31 1 7 25 0 32 1
                                               34 0 17 35 0 38 0 39 2 11 25 0 17
                                               40 1 13 11 6 41 1 13 16 17 42 1
-                                              56 6 0 57 2 29 12 0 0 58 0 13 17
-                                              59 1 6 0 17 60 1 56 0 0 61 1 11 0
-                                              9 63 1 38 6 0 64 2 68 65 66 67 69
-                                              1 70 7 0 71 0 72 0 73 2 74 72 7
-                                              72 75 1 70 76 0 77 1 76 38 0 78 1
-                                              76 38 0 79 1 13 16 11 80 0 16 0
-                                              81 1 11 0 25 89 1 76 17 0 91 1 38
-                                              0 17 92 0 38 0 98 1 100 6 0 101 1
-                                              103 6 0 104 1 106 6 0 107 1 109 6
-                                              0 110 1 112 6 0 113 1 115 6 0 116
-                                              1 44 6 0 121 1 25 6 0 123 1 125 6
-                                              0 126 1 128 6 0 129 1 131 6 0 132
-                                              1 134 6 0 135 1 137 6 0 138 1 140
-                                              6 0 141 1 143 6 0 144 1 146 6 0
-                                              147 1 149 6 0 150 1 152 6 0 153 1
-                                              155 6 0 156 1 158 6 0 159 1 167 6
-                                              0 168 1 170 6 0 171 1 173 6 0 174
-                                              1 176 6 0 177 1 179 6 0 180 1 182
-                                              6 0 183 2 0 12 0 0 1 2 0 0 56 0
-                                              96 0 0 0 85 1 0 34 34 37 0 0 0 86
-                                              1 0 0 115 117 1 0 0 112 114 1 0 0
-                                              109 111 1 0 0 100 102 1 0 0 106
-                                              108 0 0 0 99 1 0 0 103 105 2 0 0
-                                              56 0 97 1 0 0 65 87 1 0 16 0 82 1
-                                              0 44 0 45 1 0 25 0 1 2 0 192 192
-                                              0 1 1 0 34 0 1 1 0 0 34 62 1 0 11
-                                              0 43 3 0 0 70 38 0 94 2 0 0 70 0
-                                              93 1 0 0 34 95 3 0 0 56 0 0 120 2
-                                              0 0 56 0 119 2 0 0 7 83 84 1 0 0
-                                              11 88 1 0 0 25 90 1 0 6 0 122 1 0
-                                              54 0 55 1 0 0 25 191 1 0 0 9 118
-                                              3 0 0 7 67 112 186 3 0 0 7 67 115
-                                              187 2 0 0 7 182 184 3 0 0 7 67
-                                              109 185 2 0 0 7 176 178 2 0 0 7
-                                              179 181 2 0 0 7 170 172 2 0 0 7
-                                              173 175 2 0 0 7 115 190 2 0 0 7
-                                              167 169 2 0 0 7 109 188 2 0 0 7
-                                              112 189 3 0 0 7 67 103 162 3 0 0
-                                              7 67 106 163 2 0 0 7 158 160 3 0
-                                              0 7 67 100 161 2 0 0 7 152 154 2
-                                              0 0 7 155 157 2 0 0 7 146 148 2 0
-                                              0 7 149 151 2 0 0 7 140 142 2 0 0
-                                              7 143 145 2 0 0 7 134 136 2 0 0 7
-                                              137 139 2 0 0 7 128 130 2 0 0 7
-                                              131 133 2 0 0 7 106 166 2 0 0 7
-                                              125 127 2 0 0 7 100 164 2 0 0 7
-                                              103 165 2 0 0 7 25 124 2 0 12 0 0
-                                              1)))))
+                                              56 6 0 57 0 13 17 58 1 6 0 17 59
+                                              1 56 0 0 60 1 11 0 9 62 1 38 6 0
+                                              63 2 67 64 65 66 68 1 69 7 0 70 0
+                                              71 0 72 2 73 71 7 71 74 1 69 75 0
+                                              76 1 75 38 0 77 1 75 38 0 78 1 13
+                                              16 11 79 0 16 0 80 1 11 0 25 88 1
+                                              75 17 0 90 1 38 0 17 91 0 38 0 97
+                                              1 99 6 0 100 1 102 6 0 103 1 105
+                                              6 0 106 1 108 6 0 109 1 111 6 0
+                                              112 1 114 6 0 115 1 44 6 0 120 1
+                                              25 6 0 122 1 124 6 0 125 1 127 6
+                                              0 128 1 130 6 0 131 1 133 6 0 134
+                                              1 136 6 0 137 1 139 6 0 140 1 142
+                                              6 0 143 1 145 6 0 146 1 148 6 0
+                                              149 1 151 6 0 152 1 154 6 0 155 1
+                                              157 6 0 158 1 166 6 0 167 1 169 6
+                                              0 170 1 172 6 0 173 1 175 6 0 176
+                                              1 178 6 0 179 1 181 6 0 182 2 0
+                                              12 0 0 1 2 0 0 56 0 95 0 0 0 84 1
+                                              0 34 34 37 0 0 0 85 1 0 0 114 116
+                                              1 0 0 111 113 1 0 0 108 110 1 0 0
+                                              99 101 1 0 0 105 107 0 0 0 98 1 0
+                                              0 102 104 2 0 0 56 0 96 1 0 0 64
+                                              86 1 0 16 0 81 1 0 44 0 45 1 0 25
+                                              0 1 2 0 191 191 0 1 1 0 34 0 1 1
+                                              0 0 34 61 1 0 11 0 43 3 0 0 69 38
+                                              0 93 2 0 0 69 0 92 1 0 0 34 94 3
+                                              0 0 56 0 0 119 2 0 0 56 0 118 2 0
+                                              0 7 82 83 1 0 0 11 87 1 0 0 25 89
+                                              1 0 6 0 121 1 0 54 0 55 1 0 0 25
+                                              190 1 0 0 9 117 3 0 0 7 66 111
+                                              185 3 0 0 7 66 114 186 2 0 0 7
+                                              181 183 3 0 0 7 66 108 184 2 0 0
+                                              7 175 177 2 0 0 7 178 180 2 0 0 7
+                                              169 171 2 0 0 7 172 174 2 0 0 7
+                                              114 189 2 0 0 7 166 168 2 0 0 7
+                                              108 187 2 0 0 7 111 188 3 0 0 7
+                                              66 102 161 3 0 0 7 66 105 162 2 0
+                                              0 7 157 159 3 0 0 7 66 99 160 2 0
+                                              0 7 151 153 2 0 0 7 154 156 2 0 0
+                                              7 145 147 2 0 0 7 148 150 2 0 0 7
+                                              139 141 2 0 0 7 142 144 2 0 0 7
+                                              133 135 2 0 0 7 136 138 2 0 0 7
+                                              127 129 2 0 0 7 130 132 2 0 0 7
+                                              105 165 2 0 0 7 124 126 2 0 0 7
+                                              99 163 2 0 0 7 102 164 2 0 0 7 25
+                                              123 2 0 12 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FortranCode| 'NILADIC T) 

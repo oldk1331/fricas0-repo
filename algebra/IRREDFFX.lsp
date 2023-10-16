@@ -37,7 +37,7 @@
           (|end| (|Integer|)) (|mon| (|SparseUnivariatePolynomial| GF)))
          (SEQ (LETT |mon| (SPADCALL (|spadConstant| $ 12) |n| (QREFELT $ 14)))
               (LETT |pol| (|spadConstant| $ 20)) (LETT |found| NIL)
-              (LETT |end| (- (SPADCALL (QREFELT $ 11) |n| (QREFELT $ 21)) 1))
+              (LETT |end| (- (EXPT (QREFELT $ 11) |n|) 1))
               (SEQ G190
                    (COND
                     ((NULL (NULL (OR (< |end| |start|) |found|))) (GO G191)))
@@ -50,13 +50,13 @@
                                (SPADCALL |mon|
                                          (|IRREDFFX;qAdicExpansion| |start| $)
                                          (QREFELT $ 19)))
-                         (QREFELT $ 24))
+                         (QREFELT $ 23))
                         (LETT |found| 'T)))))
                     (EXIT (LETT |start| (+ |start| 1))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT
                (COND
-                ((SPADCALL |pol| (QREFELT $ 25))
+                ((SPADCALL |pol| (QREFELT $ 24))
                  (|error| "no irreducible poly found"))
                 ('T |pol|)))))) 
 
@@ -95,7 +95,7 @@
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|IrredPolyOverFiniteField| DV$1))
-    (LETT $ (GETREFV 27))
+    (LETT $ (GETREFV 26))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|IrredPolyOverFiniteField| (LIST DV$1)
@@ -119,10 +119,10 @@
               (0 . |characteristic|) '|p| (4 . |size|) '|q| (8 . |One|)
               (|SparseUnivariatePolynomial| 6) (12 . |monomial|) (18 . *)
               (|PositiveInteger|) (24 . |index|) (29 . |coerce|) (34 . +)
-              (40 . |Zero|) (44 . ^) (|Boolean|)
-              (|DistinctDegreeFactorize| 6 13) (50 . |irreducible?|)
-              (55 . |zero?|) |IRREDFFX;generateIrredPoly;PiSup;3|)
-           '#(|generateIrredPoly| 60) 'NIL
+              (40 . |Zero|) (|Boolean|) (|DistinctDegreeFactorize| 6 13)
+              (44 . |irreducible?|) (49 . |zero?|)
+              |IRREDFFX;generateIrredPoly;PiSup;3|)
+           '#(|generateIrredPoly| 54) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -134,10 +134,10 @@
                                   (|PositiveInteger|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 26
+                        (|makeByteWordVec2| 25
                                             '(0 6 7 8 0 6 7 10 0 6 0 12 2 13 0
                                               6 7 14 2 13 0 0 0 15 1 6 0 16 17
                                               1 13 0 6 18 2 13 0 0 0 19 0 13 0
-                                              20 2 16 0 0 16 21 1 23 22 13 24 1
-                                              13 22 0 25 1 0 13 16 26)))))
+                                              20 1 22 21 13 23 1 13 21 0 24 1 0
+                                              13 16 25)))))
            '|lookupComplete|)) 

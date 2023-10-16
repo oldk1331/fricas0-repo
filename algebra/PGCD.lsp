@@ -3,8 +3,8 @@
         ((|f| |SparseUnivariatePolynomial| P)
          (|p1| |SparseUnivariatePolynomial| P)
          (|p2| |SparseUnivariatePolynomial| P) ($ |Boolean|))
-        (COND ((QEQCAR (SPADCALL |p1| |f| (QREFELT $ 19)) 1) 'T)
-              ('T (QEQCAR (SPADCALL |p2| |f| (QREFELT $ 19)) 1)))) 
+        (COND ((QEQCAR (SPADCALL |p1| |f| (QREFELT $ 17)) 1) 'T)
+              ('T (QEQCAR (SPADCALL |p2| |f| (QREFELT $ 17)) 1)))) 
 
 (SDEFUN |PGCD;chooseVal|
         ((|p1| |SparseUnivariatePolynomial| P)
@@ -31,12 +31,12 @@
           (|d2| #9=(|NonNegativeInteger|)) (|d1| #9#))
          (SEQ
           (EXIT
-           (SEQ (LETT |d1| (SPADCALL |p1| (QREFELT $ 21)))
-                (LETT |d2| (SPADCALL |p2| (QREFELT $ 21))) (LETT |dd| 0)
+           (SEQ (LETT |d1| (SPADCALL |p1| (QREFELT $ 19)))
+                (LETT |d2| (SPADCALL |p2| (QREFELT $ 19))) (LETT |dd| 0)
                 (LETT |nvr| (LENGTH |lvr|)) (LETT |lval| NIL) (LETT |range| 8)
                 (EXIT
                  (SEQ G190 NIL
-                      (SEQ (LETT |range| (SPADCALL 2 |range| (QREFELT $ 22)))
+                      (SEQ (LETT |range| (* 2 |range|))
                            (LETT |lval|
                                  (PROGN
                                   (LETT #8# NIL)
@@ -48,42 +48,42 @@
                                          (LETT #8#
                                                (CONS
                                                 (SPADCALL |range|
-                                                          (QREFELT $ 24))
+                                                          (QREFELT $ 21))
                                                 #8#))))
                                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                        (EXIT (NREVERSE #8#)))))
                            (EXIT
                             (COND
-                             ((SPADCALL |lval| |ltry| (QREFELT $ 28))
+                             ((SPADCALL |lval| |ltry| (QREFELT $ 25))
                               "new point")
                              ('T
                               (SEQ (LETT |ltry| (CONS |lval| |ltry|))
                                    (LETT |uf1|
                                          (SPADCALL |p1| |lvr| |lval|
-                                                   (QREFELT $ 31)))
+                                                   (QREFELT $ 28)))
                                    (EXIT
                                     (COND
-                                     ((SPADCALL (SPADCALL |uf1| (QREFELT $ 32))
-                                                |d1| (QREFELT $ 33))
+                                     ((SPADCALL (SPADCALL |uf1| (QREFELT $ 29))
+                                                |d1| (QREFELT $ 30))
                                       "new point")
                                      ('T
                                       (SEQ
                                        (LETT |uf2|
                                              (SPADCALL |p2| |lvr| |lval|
-                                                       (QREFELT $ 31)))
+                                                       (QREFELT $ 28)))
                                        (EXIT
                                         (COND
                                          ((SPADCALL
-                                           (SPADCALL |uf2| (QREFELT $ 32)) |d2|
-                                           (QREFELT $ 33))
+                                           (SPADCALL |uf2| (QREFELT $ 29)) |d2|
+                                           (QREFELT $ 30))
                                           "new point")
                                          ('T
                                           (SEQ
                                            (LETT |u|
                                                  (SPADCALL |uf1| |uf2|
-                                                           (QREFELT $ 34)))
+                                                           (QREFELT $ 31)))
                                            (LETT |du|
-                                                 (SPADCALL |u| (QREFELT $ 32)))
+                                                 (SPADCALL |u| (QREFELT $ 29)))
                                            (COND
                                             ((EQL |du| 0)
                                              (PROGN
@@ -92,10 +92,10 @@
                                                           (VECTOR
                                                            (LIST
                                                             (|spadConstant| $
-                                                                            37))
+                                                                            34))
                                                            |ltry|
                                                            (|spadConstant| $
-                                                                           38))))
+                                                                           35))))
                                               (GO #10=#:G176))))
                                            (LETT |ugcd|
                                                  (LIST |u|
@@ -104,7 +104,7 @@
                                                                  (SPADCALL
                                                                   |uf1| |u|
                                                                   (QREFELT $
-                                                                           39)))
+                                                                           36)))
                                                            (QCDR #5#)
                                                          (|check_union2|
                                                           (QEQCAR #5# 0)
@@ -120,7 +120,7 @@
                                                                  (SPADCALL
                                                                   |uf2| |u|
                                                                   (QREFELT $
-                                                                           39)))
+                                                                           36)))
                                                            (QCDR #5#)
                                                          (|check_union2|
                                                           (QEQCAR #5# 0)
@@ -134,7 +134,7 @@
                                            (LETT |uterm|
                                                  (VECTOR |ugcd| |ltry|
                                                          (|spadConstant| $
-                                                                         38)))
+                                                                         35)))
                                            (EXIT
                                             (COND
                                              ((EQL |dd| 0) (LETT |dd| |du|))
@@ -146,7 +146,7 @@
                                                   (LETT |f|
                                                         (SPADCALL |p2| |p1|
                                                                   (QREFELT $
-                                                                           19)))
+                                                                           17)))
                                                   (EXIT
                                                    (COND
                                                     ((NULL (QEQCAR |f| 1))
@@ -161,7 +161,7 @@
                                                  (EXIT
                                                   (COND
                                                    ((SPADCALL |dd| |d2|
-                                                              (QREFELT $ 33))
+                                                              (QREFELT $ 30))
                                                     (LETT |dd|
                                                           (PROG1
                                                               (LETT #4#
@@ -177,7 +177,7 @@
                                                   (LETT |f|
                                                         (SPADCALL |p1| |p2|
                                                                   (QREFELT $
-                                                                           19)))
+                                                                           17)))
                                                   (EXIT
                                                    (COND
                                                     ((NULL (QEQCAR |f| 1))
@@ -222,7 +222,7 @@
            (SEQ (LETT |nvr| (LENGTH |lvr|)) (LETT |range| 1)
                 (EXIT
                  (SEQ G190 (COND ((NULL 'T) (GO G191)))
-                      (SEQ (LETT |range| (SPADCALL 2 |range| (QREFELT $ 22)))
+                      (SEQ (LETT |range| (* 2 |range|))
                            (LETT |lval|
                                  (PROGN
                                   (LETT #3# NIL)
@@ -234,28 +234,28 @@
                                          (LETT #3#
                                                (CONS
                                                 (SPADCALL |range|
-                                                          (QREFELT $ 24))
+                                                          (QREFELT $ 21))
                                                 #3#))))
                                        (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                        (EXIT (NREVERSE #3#)))))
                            (EXIT
                             (COND
-                             ((SPADCALL |lval| |ltry| (QREFELT $ 28))
+                             ((SPADCALL |lval| |ltry| (QREFELT $ 25))
                               "new point")
                              ('T
                               (SEQ (LETT |ltry| (CONS |lval| |ltry|))
                                    (LETT |uf|
                                          (SPADCALL |f| |lvr| |lval|
-                                                   (QREFELT $ 31)))
+                                                   (QREFELT $ 28)))
                                    (EXIT
                                     (COND
                                      ((EQL
                                        (SPADCALL
                                         (SPADCALL |uf|
                                                   (SPADCALL |uf|
-                                                            (QREFELT $ 42))
-                                                  (QREFELT $ 34))
-                                        (QREFELT $ 32))
+                                                            (QREFELT $ 39))
+                                                  (QREFELT $ 31))
+                                        (QREFELT $ 29))
                                        0)
                                       (PROGN
                                        (LETT #1# (CONS |uf| |ltry|))
@@ -285,12 +285,12 @@
                       (LETT |p1|
                             (SPADCALL
                              (SPADCALL
-                              (SPADCALL |leadpol| |lvar| |lval| (QREFELT $ 43))
-                              (QREFELT $ 44))
-                             |pol| (QREFELT $ 45)))
+                              (SPADCALL |leadpol| |lvar| |lval| (QREFELT $ 40))
+                              (QREFELT $ 41))
+                             |pol| (QREFELT $ 42)))
                       (LETT |p1u|
-                            (SPADCALL |p1| (SPADCALL |pol| (QREFELT $ 46))
-                                      (QREFELT $ 47)))
+                            (SPADCALL |p1| (SPADCALL |pol| (QREFELT $ 43))
+                                      (QREFELT $ 44)))
                       (EXIT
                        (COND
                         ((QEQCAR |p1u| 1)
@@ -327,9 +327,9 @@
           (EXIT
            (SEQ
             (LETT |g1|
-                  (SPADCALL |g| (SPADCALL |g| (QREFELT $ 48)) (QREFELT $ 49)))
+                  (SPADCALL |g| (SPADCALL |g| (QREFELT $ 45)) (QREFELT $ 46)))
             (LETT |l1|
-                  (PROG2 (LETT #4# (SPADCALL |g| |g1| (QREFELT $ 19)))
+                  (PROG2 (LETT #4# (SPADCALL |g| |g1| (QREFELT $ 17)))
                       (QCDR #4#)
                     (|check_union2| (QEQCAR #4# 0)
                                     (|SparseUnivariatePolynomial|
@@ -348,7 +348,7 @@
                      (LETT |l| (QCAR |#G30|))
                      (LETT |ltry| (QCDR |#G30|))
                      |#G30|)
-                    (LETT |p2u| (SPADCALL |p2| |l| (QREFELT $ 19)))
+                    (LETT |p2u| (SPADCALL |p2| |l| (QREFELT $ 17)))
                     (EXIT
                      (COND
                       ((NULL (QEQCAR |p2u| 1))
@@ -356,7 +356,7 @@
                    NIL (GO G190) G191 (EXIT NIL)))
              #8# (EXIT #5#))
             (LETT |lval| (|SPADfirst| |ltry|))
-            (LETT |dl| (SPADCALL |l| (QREFELT $ 21)))
+            (LETT |dl| (SPADCALL |l| (QREFELT $ 19)))
             (LETT |p2l|
                   (PROG2 (LETT #4# |p2u|)
                       (QCDR #4#)
@@ -368,29 +368,29 @@
                                       (QREFELT $ 9))
                                      #6#)
                                     #4#)))
-            (LETT |ul| (SPADCALL |l| |lvar1| |lval| (QREFELT $ 31)))
-            (LETT |dg1| (SPADCALL |g1| (QREFELT $ 21)))
-            (LETT |dp2l| (SPADCALL |p2l| (QREFELT $ 21)))
+            (LETT |ul| (SPADCALL |l| |lvar1| |lval| (QREFELT $ 28)))
+            (LETT |dg1| (SPADCALL |g1| (QREFELT $ 19)))
+            (LETT |dp2l| (SPADCALL |p2l| (QREFELT $ 19)))
             (LETT |lcpol|
-                  (LIST (SPADCALL |g1| (QREFELT $ 50))
-                        (SPADCALL |p2| (QREFELT $ 50))))
+                  (LIST (SPADCALL |g1| (QREFELT $ 47))
+                        (SPADCALL |p2| (QREFELT $ 47))))
             (EXIT
              (SEQ G190 NIL
                   (SEQ
                    (COND
-                    ((EQL |dl| (SPADCALL |ul| (QREFELT $ 32)))
+                    ((EQL |dl| (SPADCALL |ul| (QREFELT $ 29)))
                      (COND
                       ((EQL
                         (SPADCALL
-                         (SPADCALL |ul| (SPADCALL |ul| (QREFELT $ 42))
-                                   (QREFELT $ 34))
-                         (QREFELT $ 32))
+                         (SPADCALL |ul| (SPADCALL |ul| (QREFELT $ 39))
+                                   (QREFELT $ 31))
+                         (QREFELT $ 29))
                         0)
                        (SEQ
                         (LETT |ug1|
-                              (SPADCALL |g1| |lvar1| |lval| (QREFELT $ 31)))
+                              (SPADCALL |g1| |lvar1| |lval| (QREFELT $ 28)))
                         (LETT |ug2|
-                              (SPADCALL |p2l| |lvar1| |lval| (QREFELT $ 31)))
+                              (SPADCALL |p2l| |lvar1| |lval| (QREFELT $ 28)))
                         (LETT |resu|
                               (|PGCD;not_coprime2| |l| |ul| (LIST |ug1| |ug2|)
                                |lcpol| |ldeg| |lvar1| |lval| $))
@@ -426,13 +426,13 @@
                 (EXIT
                  (SEQ G190 (COND ((NULL 'T) (GO G191)))
                       (SEQ
-                       (LETT |d| (SPADCALL (CONS |ul| |ulist|) (QREFELT $ 52)))
+                       (LETT |d| (SPADCALL (CONS |ul| |ulist|) (QREFELT $ 49)))
                        (COND
-                        ((EQL (SPADCALL |d| (QREFELT $ 32)) 0)
+                        ((EQL (SPADCALL |d| (QREFELT $ 29)) 0)
                          (PROGN (LETT #5# (CONS 0 |gd1|)) (GO #6=#:G232))))
                        (LETT |lquo|
                              (PROG2
-                                 (LETT #2# (SPADCALL |ul| |d| (QREFELT $ 39)))
+                                 (LETT #2# (SPADCALL |ul| |d| (QREFELT $ 36)))
                                  (QCDR #2#)
                                (|check_union2| (QEQCAR #2# 0)
                                                (|SparseUnivariatePolynomial|
@@ -443,13 +443,13 @@
                                                 #7="failed")
                                                #2#)))
                        (COND
-                        ((SPADCALL (SPADCALL |lquo| (QREFELT $ 32)) 0
-                                   (QREFELT $ 33))
+                        ((SPADCALL (SPADCALL |lquo| (QREFELT $ 29)) 0
+                                   (QREFELT $ 30))
                          (SEQ
                           (LETT |lgcd|
                                 (SPADCALL
-                                 (CONS (SPADCALL |l| (QREFELT $ 50)) |lcpol|)
-                                 (QREFELT $ 54)))
+                                 (CONS (SPADCALL |l| (QREFELT $ 47)) |lcpol|)
+                                 (QREFELT $ 51)))
                           (LETT |gdl|
                                 (|PGCD;lift| |l| |d| |lquo| |lgcd| |lvar1|
                                  |ldeg| |lval| $))
@@ -462,8 +462,8 @@
                                   (EXIT
                                    (LETT |ul|
                                          (SPADCALL |l| |lvar1| |lval|
-                                                   (QREFELT $ 31)))))))))))
-                       (LETT |gd1| (SPADCALL |gd1| |l| (QREFELT $ 55)))
+                                                   (QREFELT $ 28)))))))))))
+                       (LETT |gd1| (SPADCALL |gd1| |l| (QREFELT $ 52)))
                        (EXIT
                         (LETT |ulist|
                               (PROGN
@@ -481,7 +481,7 @@
                                                  (LETT #2#
                                                        (SPADCALL |uf| |d|
                                                                  (QREFELT $
-                                                                          39)))
+                                                                          36)))
                                                  (QCDR #2#)
                                                (|check_union2| (QEQCAR #2# 0)
                                                                (|SparseUnivariatePolynomial|
@@ -512,11 +512,11 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ (LETT |d1| (SPADCALL |p1| (QREFELT $ 21)))
-                 (LETT |d2| (SPADCALL |p2| (QREFELT $ 21)))
+            (SEQ (LETT |d1| (SPADCALL |p1| (QREFELT $ 19)))
+                 (LETT |d2| (SPADCALL |p2| (QREFELT $ 19)))
                  (EXIT
                   (COND
-                   ((SPADCALL |d1| |d2| (QREFELT $ 56))
+                   ((> |d1| |d2|)
                     (SEQ
                      (PROGN
                       (LETT |#G41| |p2|)
@@ -531,28 +531,28 @@
                        (LETT |d2| |#G44|))))))))
             (EXIT
              (COND
-              ((EQL (SPADCALL |p1| (QREFELT $ 21)) 0)
+              ((EQL (SPADCALL |p1| (QREFELT $ 19)) 0)
                (COND
-                ((SPADCALL |p1| (|spadConstant| $ 38) (QREFELT $ 57))
-                 (SPADCALL |p2| (QREFELT $ 58)))
-                (#4='T (SPADCALL |p1| (QREFELT $ 58)))))
+                ((SPADCALL |p1| (|spadConstant| $ 35) (QREFELT $ 53))
+                 (SPADCALL |p2| (QREFELT $ 54)))
+                (#4='T (SPADCALL |p1| (QREFELT $ 54)))))
               (#4#
                (SEQ
                 (LETT |lvar|
-                      (SPADCALL (ELT $ 59)
-                                (SPADCALL (SPADCALL |p1| (QREFELT $ 60))
-                                          (SPADCALL |p2| (QREFELT $ 60))
-                                          (QREFELT $ 61))
-                                (QREFELT $ 63)))
+                      (SPADCALL (ELT $ 55)
+                                (SPADCALL (SPADCALL |p1| (QREFELT $ 56))
+                                          (SPADCALL |p2| (QREFELT $ 56))
+                                          (QREFELT $ 57))
+                                (QREFELT $ 59)))
                 (EXIT
                  (COND
                   ((NULL |lvar|)
                    (SPADCALL
-                    (SPADCALL (SPADCALL |p1| (QREFELT $ 64))
-                              (SPADCALL |p2| (QREFELT $ 64)) (QREFELT $ 34))
-                    (QREFELT $ 65)))
-                  ((QEQCAR (SPADCALL |p2| |p1| (QREFELT $ 19)) 0)
-                   (SPADCALL |p1| (QREFELT $ 58)))
+                    (SPADCALL (SPADCALL |p1| (QREFELT $ 60))
+                              (SPADCALL |p2| (QREFELT $ 60)) (QREFELT $ 31))
+                    (QREFELT $ 61)))
+                  ((QEQCAR (SPADCALL |p2| |p1| (QREFELT $ 17)) 0)
+                   (SPADCALL |p1| (QREFELT $ 54)))
                   (#4#
                    (SEQ (LETT |ltry| NIL)
                         (EXIT
@@ -567,10 +567,10 @@
                                 |#G45|)
                                (EXIT
                                 (COND
-                                 ((SPADCALL |result| (|spadConstant| $ 66)
-                                            (QREFELT $ 57))
+                                 ((SPADCALL |result| (|spadConstant| $ 62)
+                                            (QREFELT $ 53))
                                   (PROGN
-                                   (LETT #1# (|spadConstant| $ 66))
+                                   (LETT #1# (|spadConstant| $ 62))
                                    (GO #5=#:G246)))
                                  ((NULL (|PGCD;failtest| |result| |p1| |p2| $))
                                   (PROGN (LETT #1# |result|) (GO #5#))))))
@@ -626,19 +626,19 @@
                                   #4#)))
           (LETT |ltry| (QVELT |uterm| 1)) (LETT |listpol| (QVELT |uterm| 0))
           (LETT |ud| (|SPADfirst| |listpol|))
-          (LETT |dd| (SPADCALL |ud| (QREFELT $ 32)))
+          (LETT |dd| (SPADCALL |ud| (QREFELT $ 29)))
           (EXIT
-           (COND ((EQL |dd| 0) (CONS (|spadConstant| $ 66) |ltry|))
-                 ((OR (EQL |dd| (SPADCALL |p1| (QREFELT $ 21)))
-                      (EQL |dd| (SPADCALL |p2| (QREFELT $ 21))))
+           (COND ((EQL |dd| 0) (CONS (|spadConstant| $ 62) |ltry|))
+                 ((OR (EQL |dd| (SPADCALL |p1| (QREFELT $ 19)))
+                      (EQL |dd| (SPADCALL |p2| (QREFELT $ 19))))
                   (CONS (QVELT |uterm| 2) |ltry|))
                  ('T
                   (SEQ
                    (LETT |ldeg|
-                         (SPADCALL (ELT $ 68)
-                                   (SPADCALL |p1| |lvar| (QREFELT $ 70))
-                                   (SPADCALL |p2| |lvar| (QREFELT $ 70))
-                                   (QREFELT $ 72)))
+                         (SPADCALL (ELT $ 64)
+                                   (SPADCALL |p1| |lvar| (QREFELT $ 66))
+                                   (SPADCALL |p2| |lvar| (QREFELT $ 66))
+                                   (QREFELT $ 68)))
                    (LETT |h| (|PGCD;lift?| |p1| |p2| |uterm| |ldeg| |lvar| $))
                    (EXIT
                     (COND
@@ -670,38 +670,38 @@
         (SPROG ((|md| (|NonNegativeInteger|)))
                (SEQ
                 (COND
-                 ((EQL (SPADCALL |p| (QREFELT $ 21)) 0) (|spadConstant| $ 66))
+                 ((EQL (SPADCALL |p| (QREFELT $ 19)) 0) (|spadConstant| $ 62))
                  ('T
-                  (SEQ (LETT |md| (SPADCALL |p| (QREFELT $ 73)))
+                  (SEQ (LETT |md| (SPADCALL |p| (QREFELT $ 69)))
                        (EXIT
                         (SPADCALL
-                         (SPADCALL (SPADCALL |p| (QREFELT $ 74))
-                                   (QREFELT $ 54))
-                         |md| (QREFELT $ 75))))))))) 
+                         (SPADCALL (SPADCALL |p| (QREFELT $ 70))
+                                   (QREFELT $ 51))
+                         |md| (QREFELT $ 71))))))))) 
 
 (SDEFUN |PGCD;better| ((|p1| P) (|p2| P) ($ |Boolean|))
         (SPROG ((#1=#:G263 NIL))
-               (COND ((SPADCALL |p1| (QREFELT $ 76)) 'T)
-                     ((SPADCALL |p2| (QREFELT $ 76)) NIL)
+               (COND ((SPADCALL |p1| (QREFELT $ 72)) 'T)
+                     ((SPADCALL |p2| (QREFELT $ 72)) NIL)
                      ('T
                       (<
                        (SPADCALL |p1|
                                  (PROG2
-                                     (LETT #1# (SPADCALL |p1| (QREFELT $ 78)))
+                                     (LETT #1# (SPADCALL |p1| (QREFELT $ 74)))
                                      (QCDR #1#)
                                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                                    (|Union| (QREFELT $ 7)
                                                             #2="failed")
                                                    #1#))
-                                 (QREFELT $ 79))
+                                 (QREFELT $ 75))
                        (SPADCALL |p2|
                                  (PROG2
-                                     (LETT #1# (SPADCALL |p2| (QREFELT $ 78)))
+                                     (LETT #1# (SPADCALL |p2| (QREFELT $ 74)))
                                      (QCDR #1#)
                                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                                    (|Union| (QREFELT $ 7) #2#)
                                                    #1#))
-                                 (QREFELT $ 79))))))) 
+                                 (QREFELT $ 75))))))) 
 
 (SDEFUN |PGCD;best_to_front| ((|l| |List| P) ($ |List| P))
         (SPROG ((|ress| (|List| P)) (|best| (P)) (#1=#:G273 NIL) (|p| NIL))
@@ -731,15 +731,15 @@
                        (SPADCALL
                         (SPADCALL |p2|
                                   (PROG2
-                                      (LETT #3# (SPADCALL |p2| (QREFELT $ 78)))
+                                      (LETT #3# (SPADCALL |p2| (QREFELT $ 74)))
                                       (QCDR #3#)
                                     (|check_union2| (QEQCAR #3# 0)
                                                     (QREFELT $ 7)
                                                     (|Union| (QREFELT $ 7)
                                                              "failed")
                                                     #3#))
-                                  (QREFELT $ 81))
-                        (QREFELT $ 74)))
+                                  (QREFELT $ 77))
+                        (QREFELT $ 70)))
                  $))
           (LETT |q| (|SPADfirst| |termList|))
           (SEQ (LETT #2# NIL) (LETT |term| NIL) (LETT #1# (CDR |termList|))
@@ -747,12 +747,12 @@
                (COND
                 ((OR (ATOM #1#) (PROGN (LETT |term| (CAR #1#)) NIL) #2#)
                  (GO G191)))
-               (SEQ (EXIT (LETT |q| (SPADCALL |q| |term| (QREFELT $ 82)))))
+               (SEQ (EXIT (LETT |q| (SPADCALL |q| |term| (QREFELT $ 78)))))
                (LETT #1#
                      (PROG1 (CDR #1#)
                        (LETT #2#
-                             (SPADCALL |q| (|spadConstant| $ 41)
-                                       (QREFELT $ 83)))))
+                             (SPADCALL |q| (|spadConstant| $ 38)
+                                       (QREFELT $ 79)))))
                (GO G190) G191 (EXIT NIL))
           (EXIT |q|)))) 
 
@@ -766,8 +766,7 @@
           (|#G62| (|SparseUnivariatePolynomial| P)))
          (SEQ
           (COND
-           ((SPADCALL (SPADCALL |p1| (QREFELT $ 21))
-                      (SPADCALL |p2| (QREFELT $ 21)) (QREFELT $ 56))
+           ((> (SPADCALL |p1| (QREFELT $ 19)) (SPADCALL |p2| (QREFELT $ 19)))
             (PROGN
              (LETT |#G62| |p2|)
              (LETT |#G63| |p1|)
@@ -775,33 +774,33 @@
              (LETT |p2| |#G63|))))
           (EXIT
            (COND
-            ((EQL (SPADCALL |p1| (QREFELT $ 21)) 0)
+            ((EQL (SPADCALL |p1| (QREFELT $ 19)) 0)
              (COND
-              ((SPADCALL |p1| (|spadConstant| $ 38) (QREFELT $ 57))
-               (SPADCALL |p2| (QREFELT $ 58)))
-              ((SPADCALL |p1| (|spadConstant| $ 66) (QREFELT $ 57))
-               (SPADCALL |p1| (QREFELT $ 58)))
+              ((SPADCALL |p1| (|spadConstant| $ 35) (QREFELT $ 53))
+               (SPADCALL |p2| (QREFELT $ 54)))
+              ((SPADCALL |p1| (|spadConstant| $ 62) (QREFELT $ 53))
+               (SPADCALL |p1| (QREFELT $ 54)))
               (#3='T
                (SPADCALL
-                (SPADCALL (SPADCALL |p1| (QREFELT $ 50))
-                          (SPADCALL |p2| (QREFELT $ 84)) (QREFELT $ 82))
-                (QREFELT $ 85)))))
-            ((SPADCALL (SPADCALL |p1| (QREFELT $ 86)) (|spadConstant| $ 38)
-                       (QREFELT $ 57))
+                (SPADCALL (SPADCALL |p1| (QREFELT $ 47))
+                          (SPADCALL |p2| (QREFELT $ 80)) (QREFELT $ 78))
+                (QREFELT $ 81)))))
+            ((SPADCALL (SPADCALL |p1| (QREFELT $ 82)) (|spadConstant| $ 35)
+                       (QREFELT $ 53))
              (|PGCD;gcdMonom| |p1| (|PGCD;monomContent| |p2| $) $))
             (#3#
              (SEQ (LETT |c1| (|PGCD;monomContent| |p1| $))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |p2| (QREFELT $ 86))
-                               (|spadConstant| $ 38) (QREFELT $ 57))
+                    ((SPADCALL (SPADCALL |p2| (QREFELT $ 82))
+                               (|spadConstant| $ 35) (QREFELT $ 53))
                      (|PGCD;gcdMonom| |c1| |p2| $))
                     (#3#
                      (SEQ (LETT |c2| (|PGCD;monomContent| |p2| $))
                           (LETT |p1|
                                 (PROG2
                                     (LETT #1#
-                                          (SPADCALL |p1| |c1| (QREFELT $ 19)))
+                                          (SPADCALL |p1| |c1| (QREFELT $ 17)))
                                     (QCDR #1#)
                                   (|check_union2| (QEQCAR #1# 0)
                                                   (|SparseUnivariatePolynomial|
@@ -814,7 +813,7 @@
                           (LETT |p2|
                                 (PROG2
                                     (LETT #1#
-                                          (SPADCALL |p2| |c2| (QREFELT $ 19)))
+                                          (SPADCALL |p2| |c2| (QREFELT $ 17)))
                                     (QCDR #1#)
                                   (|check_union2| (QEQCAR #1# 0)
                                                   (|SparseUnivariatePolynomial|
@@ -825,19 +824,19 @@
                                                    #4#)
                                                   #1#)))
                           (EXIT
-                           (SPADCALL (SPADCALL |p1| |p2| (QREFELT $ 67))
+                           (SPADCALL (SPADCALL |p1| |p2| (QREFELT $ 63))
                                      (|PGCD;gcdMonom| |c1| |c2| $)
-                                     (QREFELT $ 55)))))))))))))) 
+                                     (QREFELT $ 52)))))))))))))) 
 
 (SDEFUN |PGCD;gcdMonom|
         ((|m1| |SparseUnivariatePolynomial| P)
          (|m2| |SparseUnivariatePolynomial| P)
          ($ |SparseUnivariatePolynomial| P))
         (SPADCALL
-         (SPADCALL (SPADCALL |m1| (QREFELT $ 50))
-                   (SPADCALL |m2| (QREFELT $ 50)) (QREFELT $ 82))
-         (MIN (SPADCALL |m1| (QREFELT $ 21)) (SPADCALL |m2| (QREFELT $ 21)))
-         (QREFELT $ 75))) 
+         (SPADCALL (SPADCALL |m1| (QREFELT $ 47))
+                   (SPADCALL |m2| (QREFELT $ 47)) (QREFELT $ 78))
+         (MIN (SPADCALL |m1| (QREFELT $ 19)) (SPADCALL |m2| (QREFELT $ 19)))
+         (QREFELT $ 71))) 
 
 (SDEFUN |PGCD;lift?|
         ((|p1| . #1=(|SparseUnivariatePolynomial| P))
@@ -865,23 +864,23 @@
              (LETT |listpol| |#G71|)
              (LETT |lval| |#G72|))
             (LETT |d| (|SPADfirst| |listpol|)) (LETT |listpol| (CDR |listpol|))
-            (LETT |uf| (SPADCALL |listpol| 1 (QREFELT $ 88))) (LETT |f| |p1|)
+            (LETT |uf| (SPADCALL |listpol| 1 (QREFELT $ 84))) (LETT |f| |p1|)
             (COND
              ((SPADCALL
-               (SPADCALL (SPADCALL |uf| |d| (QREFELT $ 34)) (QREFELT $ 32)) 0
-               (QREFELT $ 33))
-              (SEQ (LETT |uf| (SPADCALL |listpol| 2 (QREFELT $ 88)))
+               (SPADCALL (SPADCALL |uf| |d| (QREFELT $ 31)) (QREFELT $ 29)) 0
+               (QREFELT $ 30))
+              (SEQ (LETT |uf| (SPADCALL |listpol| 2 (QREFELT $ 84)))
                    (LETT |f| |p2|)
                    (EXIT
                     (COND
                      ((SPADCALL
-                       (SPADCALL (SPADCALL |uf| |d| (QREFELT $ 34))
-                                 (QREFELT $ 32))
-                       0 (QREFELT $ 33))
+                       (SPADCALL (SPADCALL |uf| |d| (QREFELT $ 31))
+                                 (QREFELT $ 29))
+                       0 (QREFELT $ 30))
                       (PROGN (LETT #4# (CONS 2 #3#)) (GO #7=#:G295))))))))
             (LETT |lgcd|
-                  (SPADCALL (SPADCALL |p1| (QREFELT $ 50))
-                            (SPADCALL |p2| (QREFELT $ 50)) (QREFELT $ 82)))
+                  (SPADCALL (SPADCALL |p1| (QREFELT $ 47))
+                            (SPADCALL |p2| (QREFELT $ 47)) (QREFELT $ 78)))
             (LETT |l| (|PGCD;lift| |f| |d| |uf| |lgcd| |lvar| |ldeg| |lval| $))
             (EXIT
              (COND ((QEQCAR |l| 1) (CONS 1 #2#)) ('T (CONS 0 (QCDR |l|)))))))
@@ -906,18 +905,18 @@
           (|lgcd1| (R)) (|lcd| (R)) (#3=#:G314 NIL) (|n0| NIL) (#4=#:G315 NIL)
           (|n1| NIL) (#5=#:G313 NIL) (|leadpol| (|Boolean|))
           (|df| (|NonNegativeInteger|)) (|lcf| (P)))
-         (SEQ (LETT |leadpol| NIL) (LETT |lcf| (SPADCALL |f| (QREFELT $ 50)))
-              (LETT |df| (SPADCALL |f| (QREFELT $ 21))) (LETT |leadlist| NIL)
+         (SEQ (LETT |leadpol| NIL) (LETT |lcf| (SPADCALL |f| (QREFELT $ 47)))
+              (LETT |df| (SPADCALL |f| (QREFELT $ 19))) (LETT |leadlist| NIL)
               (COND
-               ((SPADCALL |lgcd| (|spadConstant| $ 41) (QREFELT $ 89))
+               ((SPADCALL |lgcd| (|spadConstant| $ 38) (QREFELT $ 85))
                 (SEQ (LETT |leadpol| 'T)
-                     (LETT |f| (SPADCALL |lgcd| |f| (QREFELT $ 90)))
+                     (LETT |f| (SPADCALL |lgcd| |f| (QREFELT $ 86)))
                      (LETT |ldeg|
                            (PROGN
                             (LETT #5# NIL)
                             (SEQ (LETT |n1| NIL)
                                  (LETT #4#
-                                       (SPADCALL |lgcd| |lvar| (QREFELT $ 91)))
+                                       (SPADCALL |lgcd| |lvar| (QREFELT $ 87)))
                                  (LETT |n0| NIL) (LETT #3# |ldeg|) G190
                                  (COND
                                   ((OR (ATOM #3#)
@@ -930,19 +929,19 @@
                                  (LETT #3#
                                        (PROG1 (CDR #3#) (LETT #4# (CDR #4#))))
                                  (GO G190) G191 (EXIT (NREVERSE #5#)))))
-                     (LETT |lcd| (SPADCALL |d| (QREFELT $ 46)))
+                     (LETT |lcd| (SPADCALL |d| (QREFELT $ 43)))
                      (LETT |lgcd1|
                            (COND
-                            ((SPADCALL (SPADCALL |lgcd| (QREFELT $ 92))
-                                       (|spadConstant| $ 35) (QREFELT $ 93))
-                             (SPADCALL |lgcd| (QREFELT $ 94)))
+                            ((SPADCALL (SPADCALL |lgcd| (QREFELT $ 88))
+                                       (|spadConstant| $ 32) (QREFELT $ 89))
+                             (SPADCALL |lgcd| (QREFELT $ 90)))
                             (#6='T
                              (SPADCALL
-                              (SPADCALL |lgcd| |lvar| |lval| (QREFELT $ 43))
-                              (QREFELT $ 94)))))
+                              (SPADCALL |lgcd| |lvar| |lval| (QREFELT $ 40))
+                              (QREFELT $ 90)))))
                      (LETT |du|
-                           (SPADCALL (SPADCALL |lgcd1| |d| (QREFELT $ 95))
-                                     |lcd| (QREFELT $ 47)))
+                           (SPADCALL (SPADCALL |lgcd1| |d| (QREFELT $ 91))
+                                     |lcd| (QREFELT $ 44)))
                      (EXIT
                       (COND ((QEQCAR |du| 1) "failed")
                             (#6#
@@ -950,7 +949,7 @@
                                   (EXIT
                                    (LETT |uf|
                                          (SPADCALL |lcd| |uf|
-                                                   (QREFELT $ 95)))))))))))
+                                                   (QREFELT $ 91)))))))))))
               (LETT |leadlist| (LIST |lgcd| |lcf|))
               (LETT |lgu|
                     (|PGCD;imposelc| (LIST |d| |uf|) |lvar| |lval| |leadlist|
@@ -961,8 +960,8 @@
                       (SEQ (LETT |lg| (QCDR |lgu|))
                            (LETT |pl|
                                  (SPADCALL |f| |lvar| |lg| |lval| |leadlist|
-                                           |ldeg| (QREFELT $ 16)
-                                           (QREFELT $ 98)))
+                                           |ldeg| (QREFELT $ 14)
+                                           (QREFELT $ 94)))
                            (EXIT
                             (COND ((QEQCAR |pl| 1) (CONS 1 "failed"))
                                   (#6#
@@ -971,14 +970,14 @@
                                          (LETT |#G82| (|SPADfirst| |plist|))
                                          (LETT |#G83|
                                                (SPADCALL |plist| 2
-                                                         (QREFELT $ 100)))
+                                                         (QREFELT $ 96)))
                                          (LETT |p0| |#G82|)
                                          (LETT |p1| |#G83|))
                                         (COND
                                          ((SPADCALL
                                            (SPADCALL |p0| |lvar| |lval|
-                                                     (QREFELT $ 31))
-                                           (|SPADfirst| |lg|) (QREFELT $ 101))
+                                                     (QREFELT $ 28))
+                                           (|SPADfirst| |lg|) (QREFELT $ 97))
                                           (PROGN
                                            (LETT |#G84| |p1|)
                                            (LETT |#G85| |p0|)
@@ -989,49 +988,49 @@
                                           (|leadpol|
                                            (SPADCALL |p0|
                                                      (SPADCALL |p0|
-                                                               (QREFELT $ 84))
-                                                     (QREFELT $ 102)))
+                                                               (QREFELT $ 80))
+                                                     (QREFELT $ 98)))
                                           (#6# (CONS 0 |p0|))))))))))))))) 
 
 (SDEFUN |PGCD;gcd;3P;17| ((|p1| P) (|p2| P) ($ P))
         (SPROG ((|mv2| (OV)) (#1=#:G322 NIL) (|mv1| (OV)))
                (SEQ
                 (COND
-                 ((SPADCALL |p1| (QREFELT $ 76))
-                  (SEQ (LETT |p1| (SPADCALL |p1| (QREFELT $ 103)))
+                 ((SPADCALL |p1| (QREFELT $ 72))
+                  (SEQ (LETT |p1| (SPADCALL |p1| (QREFELT $ 99)))
                        (EXIT
                         (COND
-                         ((SPADCALL |p1| (|spadConstant| $ 41) (QREFELT $ 83))
+                         ((SPADCALL |p1| (|spadConstant| $ 38) (QREFELT $ 79))
                           |p1|)
-                         ((SPADCALL |p1| (|spadConstant| $ 104) (QREFELT $ 83))
-                          (SPADCALL |p2| (QREFELT $ 103)))
-                         ((SPADCALL |p2| (QREFELT $ 76))
+                         ((SPADCALL |p1| (|spadConstant| $ 100) (QREFELT $ 79))
+                          (SPADCALL |p2| (QREFELT $ 99)))
+                         ((SPADCALL |p2| (QREFELT $ 72))
                           (SPADCALL
-                           (SPADCALL (SPADCALL |p1| (QREFELT $ 94))
-                                     (SPADCALL |p2| (QREFELT $ 94))
-                                     (QREFELT $ 105))
-                           (QREFELT $ 106)))
+                           (SPADCALL (SPADCALL |p1| (QREFELT $ 90))
+                                     (SPADCALL |p2| (QREFELT $ 90))
+                                     (QREFELT $ 101))
+                           (QREFELT $ 102)))
                          (#2='T (|PGCD;gcdTermList| |p1| |p2| $))))))
-                 ((SPADCALL |p2| (QREFELT $ 76))
-                  (SEQ (LETT |p2| (SPADCALL |p2| (QREFELT $ 103)))
+                 ((SPADCALL |p2| (QREFELT $ 72))
+                  (SEQ (LETT |p2| (SPADCALL |p2| (QREFELT $ 99)))
                        (EXIT
                         (COND
-                         ((SPADCALL |p2| (|spadConstant| $ 41) (QREFELT $ 83))
+                         ((SPADCALL |p2| (|spadConstant| $ 38) (QREFELT $ 79))
                           |p2|)
-                         ((SPADCALL |p2| (|spadConstant| $ 104) (QREFELT $ 83))
-                          (SPADCALL |p1| (QREFELT $ 103)))
+                         ((SPADCALL |p2| (|spadConstant| $ 100) (QREFELT $ 79))
+                          (SPADCALL |p1| (QREFELT $ 99)))
                          (#2# (|PGCD;gcdTermList| |p2| |p1| $))))))
                  (#2#
-                  (SEQ (LETT |p1| (SPADCALL |p1| (QREFELT $ 103)))
-                       (LETT |p2| (SPADCALL |p2| (QREFELT $ 103)))
+                  (SEQ (LETT |p1| (SPADCALL |p1| (QREFELT $ 99)))
+                       (LETT |p2| (SPADCALL |p2| (QREFELT $ 99)))
                        (EXIT
-                        (COND ((SPADCALL |p1| |p2| (QREFELT $ 83)) |p1|)
+                        (COND ((SPADCALL |p1| |p2| (QREFELT $ 79)) |p1|)
                               (#2#
                                (SEQ
                                 (LETT |mv1|
                                       (PROG2
                                           (LETT #1#
-                                                (SPADCALL |p1| (QREFELT $ 78)))
+                                                (SPADCALL |p1| (QREFELT $ 74)))
                                           (QCDR #1#)
                                         (|check_union2| (QEQCAR #1# 0)
                                                         (QREFELT $ 7)
@@ -1041,7 +1040,7 @@
                                 (LETT |mv2|
                                       (PROG2
                                           (LETT #1#
-                                                (SPADCALL |p2| (QREFELT $ 78)))
+                                                (SPADCALL |p2| (QREFELT $ 74)))
                                           (QCDR #1#)
                                         (|check_union2| (QEQCAR #1# 0)
                                                         (QREFELT $ 7)
@@ -1050,14 +1049,14 @@
                                                         #1#)))
                                 (EXIT
                                  (COND
-                                  ((SPADCALL |mv1| |mv2| (QREFELT $ 107))
+                                  ((SPADCALL |mv1| |mv2| (QREFELT $ 103))
                                    (SPADCALL
                                     (SPADCALL
-                                     (SPADCALL |p1| |mv1| (QREFELT $ 81))
-                                     (SPADCALL |p2| |mv1| (QREFELT $ 81))
-                                     (QREFELT $ 49))
-                                    |mv1| (QREFELT $ 108)))
-                                  ((SPADCALL |mv1| |mv2| (QREFELT $ 109))
+                                     (SPADCALL |p1| |mv1| (QREFELT $ 77))
+                                     (SPADCALL |p2| |mv1| (QREFELT $ 77))
+                                     (QREFELT $ 46))
+                                    |mv1| (QREFELT $ 104)))
+                                  ((SPADCALL |mv1| |mv2| (QREFELT $ 105))
                                    (|PGCD;gcdTermList| |p1| |p2| $))
                                   (#2#
                                    (|PGCD;gcdTermList| |p2| |p1| $)))))))))))))) 
@@ -1074,11 +1073,11 @@
                      (COND
                       ((OR (ATOM #2#) (PROGN (LETT |g| (CAR #2#)) NIL))
                        (GO G191)))
-                     (SEQ (LETT |f| (SPADCALL |f| |g| (QREFELT $ 82)))
+                     (SEQ (LETT |f| (SPADCALL |f| |g| (QREFELT $ 78)))
                           (EXIT
                            (COND
-                            ((SPADCALL |f| (|spadConstant| $ 41)
-                                       (QREFELT $ 83))
+                            ((SPADCALL |f| (|spadConstant| $ 38)
+                                       (QREFELT $ 79))
                              (PROGN (LETT #1# |f|) (GO #3=#:G332))))))
                      (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |f|)))
@@ -1096,83 +1095,83 @@
            (SEQ
             (LETT |lf|
                   (SPADCALL (CONS #'|PGCD;gcd;LSup;19!0| $) |listp|
-                            (QREFELT $ 112)))
+                            (QREFELT $ 108)))
             (LETT |f| (|SPADfirst| |lf|))
             (SEQ (LETT |g| NIL) (LETT #2# (CDR |lf|)) G190
                  (COND
                   ((OR (ATOM #2#) (PROGN (LETT |g| (CAR #2#)) NIL)) (GO G191)))
-                 (SEQ (LETT |f| (SPADCALL |f| |g| (QREFELT $ 49)))
+                 (SEQ (LETT |f| (SPADCALL |f| |g| (QREFELT $ 46)))
                       (EXIT
                        (COND
-                        ((SPADCALL |f| (|spadConstant| $ 66) (QREFELT $ 57))
+                        ((SPADCALL |f| (|spadConstant| $ 62) (QREFELT $ 53))
                          (PROGN (LETT #1# |f|) (GO #3=#:G343))))))
                  (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
             (EXIT |f|)))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |PGCD;gcd;LSup;19!0| ((|z1| NIL) (|z2| NIL) ($ NIL))
-        (SPADCALL (SPADCALL |z1| (QREFELT $ 21)) (SPADCALL |z2| (QREFELT $ 21))
-                  (QREFELT $ 110))) 
+        (SPADCALL (SPADCALL |z1| (QREFELT $ 19)) (SPADCALL |z2| (QREFELT $ 19))
+                  (QREFELT $ 106))) 
 
 (SDEFUN |PGCD;gcdPrimitive;3P;20| ((|p1| P) (|p2| P) ($ P))
         (SPROG
          ((|up2| #1=(|SparseUnivariatePolynomial| P)) (|up1| #1#)
           (#2=#:G353 NIL) (|mp| (P)) (|md| (|NonNegativeInteger|)) (|mv2| (OV))
           (#3=#:G350 NIL) (|mv1| (OV)))
-         (SEQ (LETT |p1| (SPADCALL |p1| (QREFELT $ 103)))
-              (LETT |p2| (SPADCALL |p2| (QREFELT $ 103)))
+         (SEQ (LETT |p1| (SPADCALL |p1| (QREFELT $ 99)))
+              (LETT |p2| (SPADCALL |p2| (QREFELT $ 99)))
               (EXIT
-               (COND ((SPADCALL |p1| |p2| (QREFELT $ 83)) |p1|)
-                     ((SPADCALL |p1| (QREFELT $ 76))
+               (COND ((SPADCALL |p1| |p2| (QREFELT $ 79)) |p1|)
+                     ((SPADCALL |p1| (QREFELT $ 72))
                       (COND
-                       ((SPADCALL |p2| (QREFELT $ 76))
+                       ((SPADCALL |p2| (QREFELT $ 72))
                         (SPADCALL
-                         (SPADCALL (SPADCALL |p1| (QREFELT $ 94))
-                                   (SPADCALL |p2| (QREFELT $ 94))
-                                   (QREFELT $ 105))
-                         (QREFELT $ 106)))
-                       ((SPADCALL |p1| (|spadConstant| $ 104) (QREFELT $ 83))
+                         (SPADCALL (SPADCALL |p1| (QREFELT $ 90))
+                                   (SPADCALL |p2| (QREFELT $ 90))
+                                   (QREFELT $ 101))
+                         (QREFELT $ 102)))
+                       ((SPADCALL |p1| (|spadConstant| $ 100) (QREFELT $ 79))
                         |p2|)
-                       (#4='T (|spadConstant| $ 41))))
-                     ((SPADCALL |p2| (QREFELT $ 76))
+                       (#4='T (|spadConstant| $ 38))))
+                     ((SPADCALL |p2| (QREFELT $ 72))
                       (COND
-                       ((SPADCALL |p2| (|spadConstant| $ 104) (QREFELT $ 83))
+                       ((SPADCALL |p2| (|spadConstant| $ 100) (QREFELT $ 79))
                         |p1|)
-                       (#4# (|spadConstant| $ 41))))
+                       (#4# (|spadConstant| $ 38))))
                      (#4#
                       (SEQ
                        (LETT |mv1|
-                             (PROG2 (LETT #3# (SPADCALL |p1| (QREFELT $ 78)))
+                             (PROG2 (LETT #3# (SPADCALL |p1| (QREFELT $ 74)))
                                  (QCDR #3#)
                                (|check_union2| (QEQCAR #3# 0) (QREFELT $ 7)
                                                (|Union| (QREFELT $ 7)
                                                         #5="failed")
                                                #3#)))
                        (LETT |mv2|
-                             (PROG2 (LETT #3# (SPADCALL |p2| (QREFELT $ 78)))
+                             (PROG2 (LETT #3# (SPADCALL |p2| (QREFELT $ 74)))
                                  (QCDR #3#)
                                (|check_union2| (QEQCAR #3# 0) (QREFELT $ 7)
                                                (|Union| (QREFELT $ 7) #5#)
                                                #3#)))
                        (EXIT
                         (COND
-                         ((SPADCALL |mv1| |mv2| (QREFELT $ 107))
+                         ((SPADCALL |mv1| |mv2| (QREFELT $ 103))
                           (SEQ
                            (LETT |md|
-                                 (MIN (SPADCALL |p1| |mv1| (QREFELT $ 114))
-                                      (SPADCALL |p2| |mv2| (QREFELT $ 114))))
-                           (LETT |mp| (|spadConstant| $ 41))
+                                 (MIN (SPADCALL |p1| |mv1| (QREFELT $ 110))
+                                      (SPADCALL |p2| |mv2| (QREFELT $ 110))))
+                           (LETT |mp| (|spadConstant| $ 38))
                            (COND
-                            ((SPADCALL |md| 1 (QREFELT $ 56))
+                            ((> |md| 1)
                              (SEQ
                               (LETT |mp|
-                                    (SPADCALL (SPADCALL |mv1| (QREFELT $ 115))
-                                              |md| (QREFELT $ 116)))
+                                    (SPADCALL (SPADCALL |mv1| (QREFELT $ 111))
+                                              |md| (QREFELT $ 112)))
                               (LETT |p1|
                                     (PROG2
                                         (LETT #2#
                                               (SPADCALL |p1| |mp|
-                                                        (QREFELT $ 117)))
+                                                        (QREFELT $ 113)))
                                         (QCDR #2#)
                                       (|check_union2| (QEQCAR #2# 0)
                                                       (QREFELT $ 9)
@@ -1184,22 +1183,22 @@
                                      (PROG2
                                          (LETT #2#
                                                (SPADCALL |p2| |mp|
-                                                         (QREFELT $ 117)))
+                                                         (QREFELT $ 113)))
                                          (QCDR #2#)
                                        (|check_union2| (QEQCAR #2# 0)
                                                        (QREFELT $ 9)
                                                        (|Union| (QREFELT $ 9)
                                                                 #6#)
                                                        #2#)))))))
-                           (LETT |up1| (SPADCALL |p1| |mv1| (QREFELT $ 81)))
-                           (LETT |up2| (SPADCALL |p2| |mv2| (QREFELT $ 81)))
+                           (LETT |up1| (SPADCALL |p1| |mv1| (QREFELT $ 77)))
+                           (LETT |up2| (SPADCALL |p2| |mv2| (QREFELT $ 77)))
                            (EXIT
                             (SPADCALL |mp|
                                       (SPADCALL
-                                       (SPADCALL |up1| |up2| (QREFELT $ 67))
-                                       |mv1| (QREFELT $ 108))
-                                      (QREFELT $ 118)))))
-                         (#4# (|spadConstant| $ 41))))))))))) 
+                                       (SPADCALL |up1| |up2| (QREFELT $ 63))
+                                       |mv1| (QREFELT $ 104))
+                                      (QREFELT $ 114)))))
+                         (#4# (|spadConstant| $ 38))))))))))) 
 
 (SDEFUN |PGCD;gcdPrimitive;LP;21| ((|listp| |List| P) ($ P))
         (SPROG
@@ -1210,15 +1209,15 @@
            (SEQ
             (LETT |lf|
                   (SPADCALL (CONS (|function| |PGCD;better|) $) |listp|
-                            (QREFELT $ 121)))
+                            (QREFELT $ 117)))
             (LETT |f| (|SPADfirst| |lf|))
             (SEQ (LETT |g| NIL) (LETT #2# (CDR |lf|)) G190
                  (COND
                   ((OR (ATOM #2#) (PROGN (LETT |g| (CAR #2#)) NIL)) (GO G191)))
-                 (SEQ (LETT |f| (SPADCALL |f| |g| (QREFELT $ 119)))
+                 (SEQ (LETT |f| (SPADCALL |f| |g| (QREFELT $ 115)))
                       (EXIT
                        (COND
-                        ((SPADCALL |f| (|spadConstant| $ 41) (QREFELT $ 83))
+                        ((SPADCALL |f| (|spadConstant| $ 38) (QREFELT $ 79))
                          (PROGN (LETT #1# |f|) (GO #3=#:G367))))))
                  (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
             (EXIT |f|)))
@@ -1255,7 +1254,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|PolynomialGcdPackage| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 123))
+    (LETT $ (GETREFV 119))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|PolynomialGcdPackage|
@@ -1266,49 +1265,48 @@
     (QSETREFV $ 8 |#3|)
     (QSETREFV $ 9 |#4|)
     (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 16
-              (SPADCALL (SPADCALL (EXPT 2 26) (QREFELT $ 14)) (QREFELT $ 15)))
+    (QSETREFV $ 14
+              (SPADCALL (SPADCALL (EXPT 2 26) (QREFELT $ 12)) (QREFELT $ 13)))
     $))) 
 
 (MAKEPROP '|PolynomialGcdPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (|PositiveInteger|) (0 . ^)
-              (|Integer|) (|IntegerPrimesPackage| 12) (6 . |prevPrime|)
-              (11 . |coerce|) '|pmod| (|Union| $ '"failed")
-              (|SparseUnivariatePolynomial| 9) (16 . |exquo|)
-              (|NonNegativeInteger|) (22 . |degree|) (27 . *)
-              (|FactoringUtilities| 6 7 8 9) (33 . |ran|) (|Boolean|)
-              (|List| 8) (|List| 26) (38 . |member?|)
-              (|SparseUnivariatePolynomial| 8) (|List| 7) (44 . |completeEval|)
-              (51 . |degree|) (56 . ~=) (62 . |gcd|) (68 . |Zero|)
-              (72 . |Zero|) (76 . |One|) (80 . |Zero|) (84 . |exquo|)
-              (90 . |One|) (94 . |One|) (98 . |differentiate|) (103 . |eval|)
-              (110 . |univariate|) (115 . *) (121 . |leadingCoefficient|)
-              (126 . |exquo|) (132 . |differentiate|) |PGCD;gcd;3Sup;13|
-              (137 . |leadingCoefficient|) (|List| $) (142 . |gcd|) (|List| 9)
-              |PGCD;gcd;LP;18| (147 . *) (153 . >) (159 . =)
-              (165 . |unitCanonical|) (170 . >) (176 . |variables|)
-              (181 . |setUnion|) (|Mapping| 25 7 7) (187 . |sort|)
-              (193 . |lowerPolynomial|) (198 . |raisePolynomial|) (203 . |One|)
-              |PGCD;gcdPrimitive;3Sup;7| (207 . |min|) (|List| 20)
-              (213 . |degree|) (|Mapping| 20 20 20) (219 . |map|)
-              (226 . |minimumDegree|) (231 . |coefficients|) (236 . |monomial|)
-              (242 . |ground?|) (|Union| 7 '"failed") (247 . |mainVariable|)
-              (252 . |degree|) (|SparseUnivariatePolynomial| $)
-              (258 . |univariate|) |PGCD;gcd;3P;17| (264 . =) (270 . |content|)
-              (275 . |coerce|) (280 . |reductum|) (|List| 29) (285 . |elt|)
-              (291 . ~=) (297 . *) (303 . |degree|) (309 . |degree|) (314 . =)
-              (320 . |retract|) (325 . *) (|Union| 99 '"failed")
-              (|MultivariateLifting| 6 7 8 9) (331 . |lifting|) (|List| 18)
-              (342 . |elt|) (348 . ~=) (354 . |exquo|) (360 . |unitCanonical|)
-              (365 . |Zero|) (369 . |gcd|) (375 . |coerce|) (380 . =)
-              (386 . |multivariate|) (392 . <) (398 . <) (|Mapping| 25 18 18)
-              (404 . |sort|) |PGCD;gcd;LSup;19| (410 . |minimumDegree|)
-              (416 . |coerce|) (421 . ^) (427 . |exquo|) (433 . *)
-              |PGCD;gcdPrimitive;3P;20| (|Mapping| 25 9 9) (439 . |sort|)
+              (|local| |#3|) (|local| |#4|) (|Integer|)
+              (|IntegerPrimesPackage| 10) (0 . |prevPrime|) (5 . |coerce|)
+              '|pmod| (|Union| $ '"failed") (|SparseUnivariatePolynomial| 9)
+              (10 . |exquo|) (|NonNegativeInteger|) (16 . |degree|)
+              (|FactoringUtilities| 6 7 8 9) (21 . |ran|) (|Boolean|)
+              (|List| 8) (|List| 23) (26 . |member?|)
+              (|SparseUnivariatePolynomial| 8) (|List| 7) (32 . |completeEval|)
+              (39 . |degree|) (44 . ~=) (50 . |gcd|) (56 . |Zero|)
+              (60 . |Zero|) (64 . |One|) (68 . |Zero|) (72 . |exquo|)
+              (78 . |One|) (82 . |One|) (86 . |differentiate|) (91 . |eval|)
+              (98 . |univariate|) (103 . *) (109 . |leadingCoefficient|)
+              (114 . |exquo|) (120 . |differentiate|) |PGCD;gcd;3Sup;13|
+              (125 . |leadingCoefficient|) (|List| $) (130 . |gcd|) (|List| 9)
+              |PGCD;gcd;LP;18| (135 . *) (141 . =) (147 . |unitCanonical|)
+              (152 . >) (158 . |variables|) (163 . |setUnion|)
+              (|Mapping| 22 7 7) (169 . |sort|) (175 . |lowerPolynomial|)
+              (180 . |raisePolynomial|) (185 . |One|)
+              |PGCD;gcdPrimitive;3Sup;7| (189 . |min|) (|List| 18)
+              (195 . |degree|) (|Mapping| 18 18 18) (201 . |map|)
+              (208 . |minimumDegree|) (213 . |coefficients|) (218 . |monomial|)
+              (224 . |ground?|) (|Union| 7 '"failed") (229 . |mainVariable|)
+              (234 . |degree|) (|SparseUnivariatePolynomial| $)
+              (240 . |univariate|) |PGCD;gcd;3P;17| (246 . =) (252 . |content|)
+              (257 . |coerce|) (262 . |reductum|) (|List| 26) (267 . |elt|)
+              (273 . ~=) (279 . *) (285 . |degree|) (291 . |degree|) (296 . =)
+              (302 . |retract|) (307 . *) (|Union| 95 '"failed")
+              (|MultivariateLifting| 6 7 8 9) (313 . |lifting|) (|List| 16)
+              (324 . |elt|) (330 . ~=) (336 . |exquo|) (342 . |unitCanonical|)
+              (347 . |Zero|) (351 . |gcd|) (357 . |coerce|) (362 . =)
+              (368 . |multivariate|) (374 . <) (380 . <) (|Mapping| 22 16 16)
+              (386 . |sort|) |PGCD;gcd;LSup;19| (392 . |minimumDegree|)
+              (398 . |coerce|) (403 . ^) (409 . |exquo|) (415 . *)
+              |PGCD;gcdPrimitive;3P;20| (|Mapping| 22 9 9) (421 . |sort|)
               |PGCD;gcdPrimitive;LP;21|)
-           '#(|gcdPrimitive| 445 |gcd| 462) 'NIL
+           '#(|gcdPrimitive| 427 |gcd| 444) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -1334,42 +1332,41 @@
                                      T)
                                    '((|gcdPrimitive| (|#4| (|List| |#4|))) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 122
-                                            '(2 10 0 0 10 11 1 13 12 12 14 1 8
-                                              0 12 15 2 18 17 0 0 19 1 18 20 0
-                                              21 2 12 0 10 0 22 1 23 8 12 24 2
-                                              27 25 26 0 28 3 23 29 18 30 26 31
-                                              1 29 20 0 32 2 20 25 0 0 33 2 29
-                                              0 0 0 34 0 6 0 35 0 8 0 36 0 29 0
-                                              37 0 18 0 38 2 29 17 0 0 39 0 8 0
-                                              40 0 9 0 41 1 29 0 0 42 3 9 0 0
-                                              30 26 43 1 9 29 0 44 2 29 0 0 0
-                                              45 1 29 8 0 46 2 29 17 0 8 47 1
-                                              18 0 0 48 1 18 9 0 50 1 29 0 51
-                                              52 2 18 0 0 0 55 2 20 25 0 0 56 2
-                                              18 25 0 0 57 1 18 0 0 58 2 7 25 0
-                                              0 59 1 23 30 18 60 2 30 0 0 0 61
-                                              2 30 0 62 0 63 1 23 29 18 64 1 23
-                                              18 29 65 0 18 0 66 2 20 0 0 0 68
-                                              2 23 69 18 30 70 3 69 0 71 0 0 72
-                                              1 18 20 0 73 1 18 53 0 74 2 18 0
-                                              9 20 75 1 9 25 0 76 1 9 77 0 78 2
-                                              9 20 0 7 79 2 9 80 0 7 81 2 9 25
-                                              0 0 83 1 18 9 0 84 1 18 0 9 85 1
-                                              18 0 0 86 2 87 29 0 12 88 2 9 25
-                                              0 0 89 2 18 0 9 0 90 2 9 69 0 30
-                                              91 1 9 6 0 92 2 6 25 0 0 93 1 9 8
-                                              0 94 2 29 0 8 0 95 7 97 96 18 30
-                                              87 26 53 69 8 98 2 99 18 0 12 100
-                                              2 29 25 0 0 101 2 18 17 0 9 102 1
-                                              9 0 0 103 0 9 0 104 2 8 0 0 0 105
-                                              1 9 0 8 106 2 7 25 0 0 107 2 9 0
-                                              80 7 108 2 7 25 0 0 109 2 20 25 0
-                                              0 110 2 99 0 111 0 112 2 9 20 0 7
-                                              114 1 9 0 7 115 2 9 0 0 20 116 2
-                                              9 17 0 0 117 2 9 0 0 0 118 2 53 0
-                                              120 0 121 2 0 9 9 9 119 1 0 9 53
-                                              122 2 0 18 18 18 67 2 0 9 9 9 82
-                                              2 0 18 18 18 49 1 0 9 53 54 1 0
-                                              18 99 113)))))
+                        (|makeByteWordVec2| 118
+                                            '(1 11 10 10 12 1 8 0 10 13 2 16 15
+                                              0 0 17 1 16 18 0 19 1 20 8 10 21
+                                              2 24 22 23 0 25 3 20 26 16 27 23
+                                              28 1 26 18 0 29 2 18 22 0 0 30 2
+                                              26 0 0 0 31 0 6 0 32 0 8 0 33 0
+                                              26 0 34 0 16 0 35 2 26 15 0 0 36
+                                              0 8 0 37 0 9 0 38 1 26 0 0 39 3 9
+                                              0 0 27 23 40 1 9 26 0 41 2 26 0 0
+                                              0 42 1 26 8 0 43 2 26 15 0 8 44 1
+                                              16 0 0 45 1 16 9 0 47 1 26 0 48
+                                              49 2 16 0 0 0 52 2 16 22 0 0 53 1
+                                              16 0 0 54 2 7 22 0 0 55 1 20 27
+                                              16 56 2 27 0 0 0 57 2 27 0 58 0
+                                              59 1 20 26 16 60 1 20 16 26 61 0
+                                              16 0 62 2 18 0 0 0 64 2 20 65 16
+                                              27 66 3 65 0 67 0 0 68 1 16 18 0
+                                              69 1 16 50 0 70 2 16 0 9 18 71 1
+                                              9 22 0 72 1 9 73 0 74 2 9 18 0 7
+                                              75 2 9 76 0 7 77 2 9 22 0 0 79 1
+                                              16 9 0 80 1 16 0 9 81 1 16 0 0 82
+                                              2 83 26 0 10 84 2 9 22 0 0 85 2
+                                              16 0 9 0 86 2 9 65 0 27 87 1 9 6
+                                              0 88 2 6 22 0 0 89 1 9 8 0 90 2
+                                              26 0 8 0 91 7 93 92 16 27 83 23
+                                              50 65 8 94 2 95 16 0 10 96 2 26
+                                              22 0 0 97 2 16 15 0 9 98 1 9 0 0
+                                              99 0 9 0 100 2 8 0 0 0 101 1 9 0
+                                              8 102 2 7 22 0 0 103 2 9 0 76 7
+                                              104 2 7 22 0 0 105 2 18 22 0 0
+                                              106 2 95 0 107 0 108 2 9 18 0 7
+                                              110 1 9 0 7 111 2 9 0 0 18 112 2
+                                              9 15 0 0 113 2 9 0 0 0 114 2 50 0
+                                              116 0 117 2 0 9 9 9 115 1 0 9 50
+                                              118 2 0 16 16 16 63 2 0 9 9 9 78
+                                              2 0 16 16 16 46 1 0 9 50 51 1 0
+                                              16 95 109)))))
            '|lookupComplete|)) 

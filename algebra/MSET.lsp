@@ -63,15 +63,15 @@
                         (LETT |n| (|MSET;elt| |t| |e| $))
                         (LETT |item|
                               (COND
-                               ((SPADCALL |n| 1 (QREFELT $ 39))
+                               ((> |n| 1)
                                 (SPADCALL
-                                 (LIST (SPADCALL |n| (QREFELT $ 40)) |colon|
+                                 (LIST (SPADCALL |n| (QREFELT $ 38)) |colon|
                                        |ex|)
-                                 (QREFELT $ 41)))
+                                 (QREFELT $ 39)))
                                ('T |ex|)))
                         (EXIT (LETT |l| (CONS |item| |l|))))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |l| (QREFELT $ 42)))))) 
+              (EXIT (SPADCALL |l| (QREFELT $ 40)))))) 
 
 (SDEFUN |MSET;duplicates;$L;14|
         ((|ms| $)
@@ -91,8 +91,7 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((SPADCALL (LETT |n| (|MSET;elt| |t| |e| $)) 1
-                                 (QREFELT $ 39))
+                      ((> (LETT |n| (|MSET;elt| |t| |e| $)) 1)
                        (LETT |ld|
                              (CONS
                               (CONS |e|
@@ -108,22 +107,22 @@
         (SPROG ((|n| (|Integer|)) (|e| (S)) (|t| (|Table| S (|Integer|))))
                (SEQ
                 (COND
-                 ((SPADCALL |ms| (QREFELT $ 47))
+                 ((SPADCALL |ms| (QREFELT $ 46))
                   (|error| "extract: Empty multiset"))
                  (#1='T
                   (SEQ (PROGN (RPLACA |ms| (- (QCAR |ms|) 1)) (QCAR |ms|))
                        (LETT |t| (QCDR |ms|))
-                       (LETT |e| (QCAR (SPADCALL |t| (QREFELT $ 49))))
+                       (LETT |e| (QCAR (SPADCALL |t| (QREFELT $ 48))))
                        (SEQ (LETT |n| (|MSET;elt| |t| |e| $))
                             (EXIT
                              (COND
-                              ((SPADCALL |n| 1 (QREFELT $ 39))
+                              ((> |n| 1)
                                (SPADCALL |t| |e| (- |n| 1) (QREFELT $ 17)))
-                              (#1# (SPADCALL |e| |t| (QREFELT $ 50))))))
+                              (#1# (SPADCALL |e| |t| (QREFELT $ 49))))))
                        (EXIT |e|))))))) 
 
 (SDEFUN |MSET;inspect;$S;16| ((|ms| $) ($ S))
-        (QCAR (SPADCALL (QCDR |ms|) (QREFELT $ 49)))) 
+        (QCAR (SPADCALL (QCDR |ms|) (QREFELT $ 48)))) 
 
 (SDEFUN |MSET;insert!;S2$;17| ((|e| S) (|ms| $) ($ $))
         (SEQ (PROGN (RPLACA |ms| (+ (QCAR |ms|) 1)) (QCAR |ms|))
@@ -132,7 +131,7 @@
              (EXIT |ms|))) 
 
 (SDEFUN |MSET;member?;S$B;18| ((|e| S) (|ms| $) ($ |Boolean|))
-        (SPADCALL |e| (SPADCALL (QCDR |ms|) (QREFELT $ 32)) (QREFELT $ 54))) 
+        (SPADCALL |e| (SPADCALL (QCDR |ms|) (QREFELT $ 32)) (QREFELT $ 53))) 
 
 (SDEFUN |MSET;empty?;$B;19| ((|ms| $) ($ |Boolean|)) (EQL (QCAR |ms|) 0)) 
 
@@ -151,22 +150,22 @@
 (SDEFUN |MSET;remove!;S$I$;22| ((|e| S) (|ms| $) (|max| |Integer|) ($ $))
         (SPROG ((|n| (|Integer|)) (|t| (|Table| S (|Integer|))))
                (SEQ
-                (COND ((ZEROP |max|) (SPADCALL |e| |ms| (QREFELT $ 59)))
+                (COND ((ZEROP |max|) (SPADCALL |e| |ms| (QREFELT $ 58)))
                       (#1='T
                        (SEQ (LETT |t| (QCDR |ms|))
                             (COND
                              ((SPADCALL |e| (SPADCALL |t| (QREFELT $ 32))
-                                        (QREFELT $ 54))
+                                        (QREFELT $ 53))
                               (SEQ (LETT |n| (|MSET;elt| |t| |e| $))
                                    (EXIT
                                     (COND
-                                     ((SPADCALL |n| |max| (QREFELT $ 60))
-                                      (SEQ (SPADCALL |e| |t| (QREFELT $ 50))
+                                     ((<= |n| |max|)
+                                      (SEQ (SPADCALL |e| |t| (QREFELT $ 49))
                                            (EXIT
                                             (PROGN
                                              (RPLACA |ms| (- (QCAR |ms|) |n|))
                                              (QCAR |ms|)))))
-                                     ((SPADCALL |max| 0 (QREFELT $ 39))
+                                     ((> |max| 0)
                                       (SEQ
                                        (SPADCALL |t| |e| (- |n| |max|)
                                                  (QREFELT $ 17))
@@ -178,7 +177,7 @@
                                       (SEQ (LETT |n| (+ |n| |max|))
                                            (EXIT
                                             (COND
-                                             ((SPADCALL |n| 0 (QREFELT $ 39))
+                                             ((> |n| 0)
                                               (SEQ
                                                (SPADCALL |t| |e| (- |max|)
                                                          (QREFELT $ 17))
@@ -195,7 +194,7 @@
          ((#1=#:G196 NIL) (|n| (|Integer|)) (#2=#:G197 NIL) (|e| NIL)
           (|t| (|Table| S (|Integer|))))
          (SEQ
-          (COND ((ZEROP |max|) (SPADCALL |p| |ms| (QREFELT $ 63)))
+          (COND ((ZEROP |max|) (SPADCALL |p| |ms| (QREFELT $ 61)))
                 ('T
                  (SEQ (LETT |t| (QCDR |ms|))
                       (SEQ (LETT |e| NIL)
@@ -210,13 +209,13 @@
                                (SEQ (LETT |n| (|MSET;elt| |t| |e| $))
                                     (EXIT
                                      (COND
-                                      ((SPADCALL |n| |max| (QREFELT $ 60))
-                                       (SEQ (SPADCALL |e| |t| (QREFELT $ 50))
+                                      ((<= |n| |max|)
+                                       (SEQ (SPADCALL |e| |t| (QREFELT $ 49))
                                             (EXIT
                                              (PROGN
                                               (RPLACA |ms| (- (QCAR |ms|) |n|))
                                               (QCAR |ms|)))))
-                                      ((SPADCALL |max| 0 (QREFELT $ 39))
+                                      ((> |max| 0)
                                        (SEQ
                                         (SPADCALL |t| |e| (- |n| |max|)
                                                   (QREFELT $ 17))
@@ -230,8 +229,7 @@
                                          (SEQ (LETT |n| (+ |n| |max|))
                                               (EXIT
                                                (COND
-                                                ((SPADCALL |n| 0
-                                                           (QREFELT $ 39))
+                                                ((> |n| 0)
                                                  (PROGN
                                                   (LETT #1#
                                                         (SEQ
@@ -252,23 +250,23 @@
                       (EXIT |ms|))))))) 
 
 (SDEFUN |MSET;remove;S$I$;24| ((|e| S) (|ms| $) (|max| |Integer|) ($ $))
-        (SPADCALL |e| (SPADCALL |ms| (QREFELT $ 65)) |max| (QREFELT $ 61))) 
+        (SPADCALL |e| (SPADCALL |ms| (QREFELT $ 63)) |max| (QREFELT $ 59))) 
 
 (SDEFUN |MSET;remove;M$I$;25|
         ((|p| |Mapping| (|Boolean|) S) (|ms| $) (|max| |Integer|) ($ $))
-        (SPADCALL |p| (SPADCALL |ms| (QREFELT $ 65)) |max| (QREFELT $ 64))) 
+        (SPADCALL |p| (SPADCALL |ms| (QREFELT $ 63)) |max| (QREFELT $ 62))) 
 
 (SDEFUN |MSET;remove!;S2$;26| ((|e| S) (|ms| $) ($ $))
         (SPROG ((|t| (|Table| S (|Integer|))))
                (SEQ (LETT |t| (QCDR |ms|))
                     (COND
                      ((SPADCALL |e| (SPADCALL |t| (QREFELT $ 32))
-                                (QREFELT $ 54))
+                                (QREFELT $ 53))
                       (SEQ
                        (PROGN
                         (RPLACA |ms| (- (QCAR |ms|) (|MSET;elt| |t| |e| $)))
                         (QCAR |ms|))
-                       (EXIT (SPADCALL |e| |t| (QREFELT $ 50))))))
+                       (EXIT (SPADCALL |e| |t| (QREFELT $ 49))))))
                     (EXIT |ms|)))) 
 
 (SDEFUN |MSET;remove!;M2$;27| ((|p| |Mapping| (|Boolean|) S) (|ms| $) ($ $))
@@ -288,12 +286,12 @@
                                (RPLACA |ms|
                                        (- (QCAR |ms|) (|MSET;elt| |t| |e| $)))
                                (QCAR |ms|))
-                              (EXIT (SPADCALL |e| |t| (QREFELT $ 50))))))))
+                              (EXIT (SPADCALL |e| |t| (QREFELT $ 49))))))))
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |ms|)))) 
 
 (SDEFUN |MSET;select!;M2$;28| ((|p| |Mapping| (|Boolean|) S) (|ms| $) ($ $))
-        (SPADCALL (CONS #'|MSET;select!;M2$;28!0| |p|) |ms| (QREFELT $ 63))) 
+        (SPADCALL (CONS #'|MSET;select!;M2$;28!0| |p|) |ms| (QREFELT $ 61))) 
 
 (SDEFUN |MSET;select!;M2$;28!0| ((|s1| NIL) (|p| NIL))
         (NULL (SPADCALL |s1| |p|))) 
@@ -331,12 +329,12 @@
                    (SEQ
                     (SPADCALL |t1| (SPADCALL |e| |f|) (|MSET;elt| |t| |e| $)
                               (QREFELT $ 17))
-                    (EXIT (SPADCALL |e| |t| (QREFELT $ 50))))
+                    (EXIT (SPADCALL |e| |t| (QREFELT $ 49))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (PROGN (RPLACD |ms| |t1|) (QCDR |ms|)) (EXIT |ms|)))) 
 
 (SDEFUN |MSET;map;M2$;32| ((|f| |Mapping| S S) (|ms| $) ($ $))
-        (SPADCALL |f| (SPADCALL |ms| (QREFELT $ 65)) (QREFELT $ 72))) 
+        (SPADCALL |f| (SPADCALL |ms| (QREFELT $ 63)) (QREFELT $ 70))) 
 
 (SDEFUN |MSET;parts;$L;33| ((|m| $) ($ |List| S))
         (SPROG
@@ -406,7 +404,7 @@
                                (|MSET;elt| |t2| |e| $)))
                     (EXIT
                      (COND
-                      ((SPADCALL |m| 0 (QREFELT $ 39))
+                      ((> |m| 0)
                        (SEQ
                         (LETT |m|
                               (+ (|MSET;elt| |t1| |e| $)
@@ -432,7 +430,7 @@
                         (LETT |k2| (|MSET;elt| |t2| |e| $))
                         (EXIT
                          (COND
-                          ((SPADCALL |k1| 0 (QREFELT $ 39))
+                          ((> |k1| 0)
                            (COND
                             ((EQL |k2| 0)
                              (SEQ (SPADCALL |t| |e| |k1| (QREFELT $ 17))
@@ -443,8 +441,8 @@
                      ('T (CONS |n| |t|))))))) 
 
 (SDEFUN |MSET;symmetricDifference;3$;37| ((|m1| $) (|m2| $) ($ $))
-        (SPADCALL (SPADCALL |m1| |m2| (QREFELT $ 76))
-                  (SPADCALL |m2| |m1| (QREFELT $ 76)) (QREFELT $ 74))) 
+        (SPADCALL (SPADCALL |m1| |m2| (QREFELT $ 74))
+                  (SPADCALL |m2| |m1| (QREFELT $ 74)) (QREFELT $ 72))) 
 
 (SDEFUN |MSET;=;2$B;38| ((|m1| $) (|m2| $) ($ |Boolean|))
         (SPROG
@@ -453,7 +451,7 @@
           (|t1| #6#))
          (SEQ
           (EXIT
-           (COND ((SPADCALL (QCAR |m1|) (QCAR |m2|) (QREFELT $ 78)) NIL)
+           (COND ((SPADCALL (QCAR |m1|) (QCAR |m2|) (QREFELT $ 76)) NIL)
                  ('T
                   (SEQ (LETT |t1| (QCDR |m1|)) (LETT |t2| (QCDR |m2|))
                        (SEQ
@@ -469,7 +467,7 @@
                                 (COND
                                  ((SPADCALL (|MSET;elt| |t1| |e| $)
                                             (|MSET;elt| |t2| |e| $)
-                                            (QREFELT $ 78))
+                                            (QREFELT $ 76))
                                   (PROGN
                                    (LETT #4#
                                          (PROGN (LETT #2# NIL) (GO #7=#:G266)))
@@ -489,7 +487,7 @@
                                 (COND
                                  ((SPADCALL (|MSET;elt| |t1| |e| $)
                                             (|MSET;elt| |t2| |e| $)
-                                            (QREFELT $ 78))
+                                            (QREFELT $ 76))
                                   (PROGN
                                    (LETT #1# (PROGN (LETT #2# NIL) (GO #7#)))
                                    (GO #9=#:G263))))))
@@ -518,9 +516,8 @@
                               (SEQ
                                (EXIT
                                 (COND
-                                 ((SPADCALL (|MSET;elt| |t1| |e| $)
-                                            (|MSET;elt| |t2| |e| $)
-                                            (QREFELT $ 39))
+                                 ((> (|MSET;elt| |t1| |e| $)
+                                     (|MSET;elt| |t2| |e| $))
                                   (PROGN
                                    (LETT #1#
                                          (PROGN (LETT #2# NIL) (GO #5=#:G277)))
@@ -536,7 +533,7 @@
           (|t2| #4=(|Table| S (|Integer|))) (|t1| #4#))
          (SEQ
           (EXIT
-           (COND ((SPADCALL (QCAR |m1|) (QCAR |m2|) (QREFELT $ 39)) NIL)
+           (COND ((> (QCAR |m1|) (QCAR |m2|)) NIL)
                  ('T
                   (SEQ (LETT |t1| (QCDR |m1|)) (LETT |t2| (QCDR |m2|))
                        (SEQ
@@ -550,9 +547,8 @@
                               (SEQ
                                (EXIT
                                 (COND
-                                 ((SPADCALL (|MSET;elt| |t1| |e| $)
-                                            (|MSET;elt| |t2| |e| $)
-                                            (QREFELT $ 39))
+                                 ((> (|MSET;elt| |t1| |e| $)
+                                     (|MSET;elt| |t2| |e| $))
                                   (PROGN
                                    (LETT #1#
                                          (PROGN (LETT #2# NIL) (GO #5=#:G286)))
@@ -563,7 +559,7 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |MSET;<=;2$B;41| ((|m1| $) (|m2| $) ($ |Boolean|))
-        (SPADCALL |m1| |m2| (QREFELT $ 81))) 
+        (SPADCALL |m1| |m2| (QREFELT $ 79))) 
 
 (DECLAIM (NOTINLINE |Multiset;|)) 
 
@@ -587,7 +583,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Multiset| DV$1))
-          (LETT $ (GETREFV 90))
+          (LETT $ (GETREFV 88))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -639,36 +635,35 @@
               (|Symbol|) (|InputForm|) (17 . |convert|) |MSET;parts;$L;33|
               (22 . |convert|) (|List| $) (27 . |convert|) (32 . |convert|)
               (37 . |keys|) |MSET;members;$L;12| (|String|) (|OutputForm|)
-              (42 . |message|) (47 . |coerce|) (|Boolean|) (52 . >)
-              (58 . |coerce|) (63 . |hconcat|) (68 . |brace|)
-              |MSET;coerce;$Of;13| (|Record| (|:| |entry| 6) (|:| |count| 56))
-              (|List| 44) |MSET;duplicates;$L;14| |MSET;empty?;$B;19|
-              (|Record| (|:| |key| 6) (|:| |entry| 16)) (73 . |inspect|)
-              (78 . |remove!|) |MSET;extract!;$S;15| |MSET;inspect;$S;16|
-              |MSET;insert!;S2$;17| (84 . |member?|) |MSET;member?;S$B;18|
+              (42 . |message|) (47 . |coerce|) (52 . |coerce|) (57 . |hconcat|)
+              (62 . |brace|) |MSET;coerce;$Of;13|
+              (|Record| (|:| |entry| 6) (|:| |count| 55)) (|List| 42)
+              |MSET;duplicates;$L;14| (|Boolean|) |MSET;empty?;$B;19|
+              (|Record| (|:| |key| 6) (|:| |entry| 16)) (67 . |inspect|)
+              (72 . |remove!|) |MSET;extract!;$S;15| |MSET;inspect;$S;16|
+              |MSET;insert!;S2$;17| (78 . |member?|) |MSET;member?;S$B;18|
               (|NonNegativeInteger|) |MSET;#;$Nni;20| |MSET;count;S$Nni;21|
-              |MSET;remove!;S2$;26| (90 . <=) |MSET;remove!;S$I$;22|
-              (|Mapping| 38 6) |MSET;remove!;M2$;27| |MSET;remove!;M$I$;23|
-              (96 . |copy|) |MSET;remove;S$I$;24| |MSET;remove;M$I$;25|
-              |MSET;select!;M2$;28| |MSET;removeDuplicates!;2$;29|
-              |MSET;insert!;S$Nni$;30| (|Mapping| 6 6) |MSET;map!;M2$;31|
-              |MSET;map;M2$;32| |MSET;union;3$;34| |MSET;intersect;3$;35|
-              |MSET;difference;3$;36| |MSET;symmetricDifference;3$;37|
-              (101 . ~=) |MSET;=;2$B;38| |MSET;<;2$B;39| |MSET;subset?;2$B;40|
-              |MSET;<=;2$B;41| (|Mapping| 6 6 6) (|Equation| 6) (|List| 84)
-              (|Mapping| 38 6 6) (|SingleInteger|) (|HashState|)
-              (|Union| 6 '"failed"))
-           '#(~= 107 |union| 113 |symmetricDifference| 131 |subset?| 137
-              |size?| 143 |set| 149 |select!| 158 |select| 164 |sample| 170
-              |removeDuplicates!| 174 |removeDuplicates| 179 |remove!| 184
-              |remove| 210 |reduce| 236 |parts| 257 |multiset| 262 |more?| 276
-              |min| 282 |members| 287 |member?| 292 |max| 298 |map!| 309 |map|
-              315 |less?| 321 |latex| 327 |intersect| 332 |inspect| 338
-              |insert!| 343 |hashUpdate!| 356 |hash| 362 |find| 367 |extract!|
-              373 |every?| 378 |eval| 384 |eq?| 410 |empty?| 416 |empty| 421
-              |duplicates| 425 |difference| 430 |dictionary| 442 |count| 451
-              |copy| 463 |convert| 468 |construct| 473 |coerce| 478 |any?| 483
-              >= 489 > 495 = 501 <= 507 < 513 |#| 519)
+              |MSET;remove!;S2$;26| |MSET;remove!;S$I$;22| (|Mapping| 45 6)
+              |MSET;remove!;M2$;27| |MSET;remove!;M$I$;23| (84 . |copy|)
+              |MSET;remove;S$I$;24| |MSET;remove;M$I$;25| |MSET;select!;M2$;28|
+              |MSET;removeDuplicates!;2$;29| |MSET;insert!;S$Nni$;30|
+              (|Mapping| 6 6) |MSET;map!;M2$;31| |MSET;map;M2$;32|
+              |MSET;union;3$;34| |MSET;intersect;3$;35| |MSET;difference;3$;36|
+              |MSET;symmetricDifference;3$;37| (89 . ~=) |MSET;=;2$B;38|
+              |MSET;<;2$B;39| |MSET;subset?;2$B;40| |MSET;<=;2$B;41|
+              (|Mapping| 6 6 6) (|Equation| 6) (|List| 82) (|Mapping| 45 6 6)
+              (|SingleInteger|) (|HashState|) (|Union| 6 '"failed"))
+           '#(~= 95 |union| 101 |symmetricDifference| 119 |subset?| 125 |size?|
+              131 |set| 137 |select!| 146 |select| 152 |sample| 158
+              |removeDuplicates!| 162 |removeDuplicates| 167 |remove!| 172
+              |remove| 198 |reduce| 224 |parts| 245 |multiset| 250 |more?| 264
+              |min| 270 |members| 275 |member?| 280 |max| 286 |map!| 297 |map|
+              303 |less?| 309 |latex| 315 |intersect| 320 |inspect| 326
+              |insert!| 331 |hashUpdate!| 344 |hash| 350 |find| 355 |extract!|
+              361 |every?| 366 |eval| 372 |eq?| 398 |empty?| 404 |empty| 409
+              |duplicates| 413 |difference| 418 |dictionary| 430 |count| 439
+              |copy| 451 |convert| 456 |construct| 461 |coerce| 466 |any?| 471
+              >= 477 > 483 = 489 <= 495 < 501 |#| 507)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 2))
                  (CONS
@@ -685,37 +680,36 @@
                       (|PartialOrder|) (|CoercibleTo| 35) (|BasicType|)
                       (|shallowlyMutable|) (|InnerEvalable| 6 6)
                       (|ConvertibleTo| 25))
-                   (|makeByteWordVec2| 89
+                   (|makeByteWordVec2| 87
                                        '(2 9 8 6 0 10 0 9 0 11 3 9 16 0 6 16 17
                                          1 25 0 24 26 1 18 25 0 28 1 25 0 29 30
                                          1 0 25 0 31 1 9 18 0 32 1 35 0 34 36 1
-                                         6 35 0 37 2 16 38 0 0 39 1 16 35 0 40
-                                         1 35 0 29 41 1 35 0 29 42 1 9 48 0 49
-                                         2 9 8 6 0 50 2 18 38 6 0 54 2 16 38 0
-                                         0 60 1 0 0 0 65 2 16 38 0 0 78 2 0 38
-                                         0 0 1 2 0 0 0 0 74 2 0 0 6 0 1 2 0 0 0
-                                         6 1 2 0 0 0 0 77 2 0 38 0 0 81 2 0 38
-                                         0 56 1 0 0 0 15 1 0 0 18 22 2 6 0 62 0
-                                         68 2 6 0 62 0 1 0 0 0 1 1 0 0 0 69 1 8
-                                         0 0 1 2 8 0 6 0 59 2 6 0 62 0 63 3 0 0
-                                         6 0 16 61 3 0 0 62 0 16 64 2 8 0 6 0 1
-                                         2 6 0 62 0 1 3 0 0 6 0 16 66 3 0 0 62
-                                         0 16 67 4 8 6 83 0 6 6 1 3 6 6 83 0 6
-                                         1 2 6 6 83 0 1 1 6 18 0 27 1 0 0 6 23
-                                         1 0 0 18 20 0 0 0 13 2 0 38 0 56 1 1 7
-                                         6 0 1 1 6 18 0 33 2 8 38 6 0 55 1 7 6
-                                         0 1 2 6 6 86 0 1 2 5 0 71 0 72 2 0 0
-                                         71 0 73 2 0 38 0 56 1 1 0 34 0 1 2 0 0
-                                         0 0 75 1 0 6 0 52 3 0 0 6 0 56 70 2 0
-                                         0 6 0 53 2 0 88 88 0 1 1 0 87 0 1 2 0
-                                         89 62 0 1 1 0 6 0 51 2 6 38 62 0 1 3 1
-                                         0 0 18 18 1 2 1 0 0 84 1 3 1 0 0 6 6 1
-                                         2 1 0 0 85 1 2 0 38 0 0 1 1 0 38 0 47
-                                         0 0 0 12 1 0 45 0 46 2 0 0 0 6 1 2 0 0
-                                         0 0 76 1 0 0 18 21 0 0 0 14 2 8 56 6 0
-                                         58 2 6 56 62 0 1 1 0 0 0 65 1 2 25 0
-                                         31 1 0 0 18 19 1 0 35 0 43 2 6 38 62 0
-                                         1 2 0 38 0 0 1 2 0 38 0 0 1 2 0 38 0 0
-                                         79 2 0 38 0 0 82 2 0 38 0 0 80 1 6 56
-                                         0 57)))))
+                                         6 35 0 37 1 16 35 0 38 1 35 0 29 39 1
+                                         35 0 29 40 1 9 47 0 48 2 9 8 6 0 49 2
+                                         18 45 6 0 53 1 0 0 0 63 2 16 45 0 0 76
+                                         2 0 45 0 0 1 2 0 0 0 0 72 2 0 0 6 0 1
+                                         2 0 0 0 6 1 2 0 0 0 0 75 2 0 45 0 0 79
+                                         2 0 45 0 55 1 0 0 0 15 1 0 0 18 22 2 6
+                                         0 60 0 66 2 6 0 60 0 1 0 0 0 1 1 0 0 0
+                                         67 1 8 0 0 1 2 8 0 6 0 58 2 6 0 60 0
+                                         61 3 0 0 6 0 16 59 3 0 0 60 0 16 62 2
+                                         8 0 6 0 1 2 6 0 60 0 1 3 0 0 6 0 16 64
+                                         3 0 0 60 0 16 65 4 8 6 81 0 6 6 1 3 6
+                                         6 81 0 6 1 2 6 6 81 0 1 1 6 18 0 27 1
+                                         0 0 6 23 1 0 0 18 20 0 0 0 13 2 0 45 0
+                                         55 1 1 7 6 0 1 1 6 18 0 33 2 8 45 6 0
+                                         54 1 7 6 0 1 2 6 6 84 0 1 2 5 0 69 0
+                                         70 2 0 0 69 0 71 2 0 45 0 55 1 1 0 34
+                                         0 1 2 0 0 0 0 73 1 0 6 0 51 3 0 0 6 0
+                                         55 68 2 0 0 6 0 52 2 0 86 86 0 1 1 0
+                                         85 0 1 2 0 87 60 0 1 1 0 6 0 50 2 6 45
+                                         60 0 1 3 1 0 0 18 18 1 2 1 0 0 82 1 3
+                                         1 0 0 6 6 1 2 1 0 0 83 1 2 0 45 0 0 1
+                                         1 0 45 0 46 0 0 0 12 1 0 43 0 44 2 0 0
+                                         0 6 1 2 0 0 0 0 74 1 0 0 18 21 0 0 0
+                                         14 2 8 55 6 0 57 2 6 55 60 0 1 1 0 0 0
+                                         63 1 2 25 0 31 1 0 0 18 19 1 0 35 0 41
+                                         2 6 45 60 0 1 2 0 45 0 0 1 2 0 45 0 0
+                                         1 2 0 45 0 0 77 2 0 45 0 0 80 2 0 45 0
+                                         0 78 1 6 55 0 56)))))
            '|lookupComplete|)) 

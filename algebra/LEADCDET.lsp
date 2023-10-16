@@ -232,10 +232,8 @@
                                   ((SPADCALL |h| 0 (QREFELT $ 42))
                                    (SEQ
                                     (COND
-                                     ((SPADCALL |h|
-                                                (SPADCALL |lexp| |k|
-                                                          (QREFELT $ 39))
-                                                (QREFELT $ 43))
+                                     ((> |h|
+                                         (SPADCALL |lexp| |k| (QREFELT $ 39)))
                                       (PROGN
                                        (LETT #3# (CONS 1 "failed"))
                                        (GO #13=#:G178))))
@@ -244,7 +242,7 @@
                                                (SPADCALL |lexp| |k|
                                                          (QREFELT $ 39))
                                                |h|)
-                                              (QREFELT $ 44))
+                                              (QREFELT $ 43))
                                     (SPADCALL |aux| |i|
                                               (SPADCALL
                                                (SPADCALL |aux| |i|
@@ -252,19 +250,19 @@
                                                (SPADCALL
                                                 (SPADCALL |lpol| |k|
                                                           (QREFELT $ 31))
-                                                |h| (QREFELT $ 45))
-                                               (QREFELT $ 46))
+                                                |h| (QREFELT $ 44))
+                                               (QREFELT $ 45))
                                               (QREFELT $ 33))
                                     (LETT |d|
                                           (SPADCALL
                                            (SPADCALL |vl| |k| (QREFELT $ 12))
-                                           |h| (QREFELT $ 47)))
+                                           |h| (QREFELT $ 46)))
                                     (SPADCALL |vlp| |i|
                                               (SPADCALL
                                                (SPADCALL |vlp| |i|
                                                          (QREFELT $ 12))
                                                |d| (QREFELT $ 36))
-                                              (QREFELT $ 48))
+                                              (QREFELT $ 47))
                                     (EXIT
                                      (LETT |c|
                                            (PROG2
@@ -283,7 +281,7 @@
                        (COND
                         ((SPADCALL |contm| (|spadConstant| $ 15)
                                    (QREFELT $ 22))
-                         (SPADCALL |vlp| |i| |c| (QREFELT $ 48))))))
+                         (SPADCALL |vlp| |i| |c| (QREFELT $ 47))))))
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (SEQ (LETT |k| 1) (LETT #4# (LENGTH |lpol|)) G190
                      (COND ((|greater_SI| |k| #4#) (GO G191)))
@@ -291,7 +289,7 @@
                       (EXIT
                        (COND
                         ((SPADCALL (SPADCALL |lexp| |k| (QREFELT $ 39)) 0
-                                   (QREFELT $ 49))
+                                   (QREFELT $ 48))
                          (PROGN (LETT #3# (CONS 1 "failed")) (GO #13#))))))
                      (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
                 (EXIT
@@ -353,7 +351,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|LeadingCoefDetermination| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 56))
+    (LETT $ (GETREFV 55))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|LeadingCoefDetermination|
@@ -378,14 +376,14 @@
               (|List| 26) (49 . |elt|) (55 . |leadingCoefficient|) (|List| 9)
               (60 . |elt|) (66 . *) (72 . |setelt!|) (79 . *) (85 . |setelt!|)
               (92 . *) (98 . -) (|List| 10) (103 . |elt|) (109 . |Zero|)
-              (113 . |Zero|) (117 . ~=) (123 . >) (129 . |setelt!|) (136 . ^)
-              (142 . *) (148 . ^) (154 . |setelt!|) (161 . ~=)
+              (113 . |Zero|) (117 . ~=) (123 . |setelt!|) (130 . ^) (136 . *)
+              (142 . ^) (148 . |setelt!|) (155 . ~=)
               (|Record| (|:| |polfac| 30) (|:| |correct| 8)
                         (|:| |corrfact| 27))
-              (|Union| 50 '"failed") (|Record| (|:| |irr| 9) (|:| |pow| 24))
-              (|Record| (|:| |contp| 8) (|:| |factors| (|List| 52))) (|List| 6)
+              (|Union| 49 '"failed") (|Record| (|:| |irr| 9) (|:| |pow| 24))
+              (|Record| (|:| |contp| 8) (|:| |factors| (|List| 51))) (|List| 6)
               |LEADCDET;distFact;ZLRLLLU;4|)
-           '#(|polCase| 167 |distFact| 174) 'NIL
+           '#(|polCase| 161 |distFact| 168) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -416,7 +414,7 @@
                                   (|List| |#3|) (|List| |#1|) (|List| |#3|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 55
+                        (|makeByteWordVec2| 54
                                             '(2 11 8 0 10 12 1 8 13 0 14 0 8 0
                                               15 0 9 0 16 2 8 17 0 0 18 2 8 0 0
                                               0 19 2 8 20 0 0 21 2 8 17 0 0 22
@@ -425,10 +423,10 @@
                                               0 32 3 30 9 0 10 9 33 2 26 0 8 0
                                               34 3 27 26 0 10 26 35 2 8 0 0 0
                                               36 1 8 0 0 37 2 38 10 0 10 39 0 7
-                                              0 40 0 8 0 41 2 24 17 0 0 42 2 10
-                                              17 0 0 43 3 38 10 0 10 10 44 2 9
-                                              0 0 24 45 2 9 0 0 0 46 2 8 0 0 24
-                                              47 3 11 8 0 10 8 48 2 10 17 0 0
-                                              49 3 0 17 8 24 11 25 6 0 51 8 27
-                                              53 11 54 11 55)))))
+                                              0 40 0 8 0 41 2 24 17 0 0 42 3 38
+                                              10 0 10 10 43 2 9 0 0 24 44 2 9 0
+                                              0 0 45 2 8 0 0 24 46 3 11 8 0 10
+                                              8 47 2 10 17 0 0 48 3 0 17 8 24
+                                              11 25 6 0 50 8 27 52 11 53 11
+                                              54)))))
            '|lookupComplete|)) 

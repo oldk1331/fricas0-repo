@@ -58,14 +58,13 @@
           (|dl| (|Integer|)))
          (SEQ
           (COND
-           ((SPADCALL |n| (- |nc| 1) (QREFELT $ 33))
-            (|error| "requested diagonal out of range"))
+           ((> |n| (- |nc| 1)) (|error| "requested diagonal out of range"))
            (#2='T
             (SEQ
              (COND
               ((< |n| 0)
                (COND
-                ((SPADCALL (ABS |n|) (- |nr| 1) (QREFELT $ 33))
+                ((> (ABS |n|) (- |nr| 1))
                  (EXIT (|error| "requested diagonal out of range"))))))
              (COND
               ((>= |n| 0)
@@ -83,8 +82,8 @@
                     (EXIT
                      (SPADCALL B (+ |sr| |i|) (+ |sc| |i|)
                                (SPADCALL A (+ |sr| |i|) (+ |sc| |i|)
-                                         (QREFELT $ 34))
-                               (QREFELT $ 35))))
+                                         (QREFELT $ 32))
+                               (QREFELT $ 33))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))))))))) 
 
 (SDEFUN |MAMA;diagonalMatrix;MIM;9| ((A M) (|n| |Integer|) ($ M))
@@ -93,10 +92,10 @@
          (SEQ (LETT |nr| (SPADCALL A (QREFELT $ 29)))
               (LETT |nc| (SPADCALL A (QREFELT $ 17)))
               (LETT B
-                    (SPADCALL |nr| |nc| (|spadConstant| $ 36) (QREFELT $ 37)))
+                    (SPADCALL |nr| |nc| (|spadConstant| $ 34) (QREFELT $ 35)))
               (|MAMA;fill_diagonal| B A |nr| |nc| |n| $) (EXIT B)))) 
 
-(SDEFUN |MAMA;diagonalMatrix;2M;10| ((A M) ($ M)) (SPADCALL A 0 (QREFELT $ 38))) 
+(SDEFUN |MAMA;diagonalMatrix;2M;10| ((A M) ($ M)) (SPADCALL A 0 (QREFELT $ 36))) 
 
 (SDEFUN |MAMA;bandMatrix;MLM;11| ((A M) (|ln| |List| (|Integer|)) ($ M))
         (SPROG
@@ -105,7 +104,7 @@
          (SEQ (LETT |nr| (SPADCALL A (QREFELT $ 29)))
               (LETT |nc| (SPADCALL A (QREFELT $ 17)))
               (LETT B
-                    (SPADCALL |nr| |nc| (|spadConstant| $ 36) (QREFELT $ 37)))
+                    (SPADCALL |nr| |nc| (|spadConstant| $ 34) (QREFELT $ 35)))
               (SEQ (LETT |n| NIL) (LETT #1# |ln|) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |n| (CAR #1#)) NIL))
@@ -115,7 +114,7 @@
               (EXIT B)))) 
 
 (SDEFUN |MAMA;bandMatrix;MSM;12| ((A M) (|si| |Segment| (|Integer|)) ($ M))
-        (SPADCALL A (SPADCALL |si| (QREFELT $ 22)) (QREFELT $ 40))) 
+        (SPADCALL A (SPADCALL |si| (QREFELT $ 22)) (QREFELT $ 38))) 
 
 (SDEFUN |MAMA;subMatrix;M2LM;13|
         ((A M) (|lr| |List| (|Integer|)) (|lc| |List| (|Integer|)) ($ M))
@@ -145,8 +144,8 @@
                            (EXIT
                             (SPADCALL |res| (+ (- |minR| 1) |i|)
                                       (+ (- |minC| 1) |j|)
-                                      (SPADCALL A |ii| |jj| (QREFELT $ 42))
-                                      (QREFELT $ 35))))
+                                      (SPADCALL A |ii| |jj| (QREFELT $ 40))
+                                      (QREFELT $ 33))))
                           (LETT |j|
                                 (PROG1 (|inc_SI| |j|) (LETT #2# (CDR #2#))))
                           (GO G190) G191 (EXIT NIL))))
@@ -156,9 +155,9 @@
 
 (SDEFUN |MAMA;subMatrix;M2SM;14|
         ((A M) (|sr| |Segment| (|Integer|)) (|sc| |Segment| (|Integer|)) ($ M))
-        (SPADCALL A (SPADCALL |sr| (QREFELT $ 43))
-                  (SPADCALL |sr| (QREFELT $ 44)) (SPADCALL |sc| (QREFELT $ 43))
-                  (SPADCALL |sc| (QREFELT $ 44)) (QREFELT $ 11))) 
+        (SPADCALL A (SPADCALL |sr| (QREFELT $ 41))
+                  (SPADCALL |sr| (QREFELT $ 42)) (SPADCALL |sc| (QREFELT $ 41))
+                  (SPADCALL |sc| (QREFELT $ 42)) (QREFELT $ 11))) 
 
 (SDEFUN |MAMA;blockSplit;MLPiL;15|
         ((A M) (|lr| |List| (|NonNegativeInteger|)) (|nc| |PositiveInteger|)
@@ -167,7 +166,7 @@
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
-                 (SEQ (LETT X NIL) (LETT #1# (SPADCALL A |lr| (QREFELT $ 48)))
+                 (SEQ (LETT X NIL) (LETT #1# (SPADCALL A |lr| (QREFELT $ 46)))
                       G190
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT X (CAR #1#)) NIL))
@@ -175,7 +174,7 @@
                       (SEQ
                        (EXIT
                         (LETT #2#
-                              (CONS (SPADCALL X |nc| (QREFELT $ 50)) #2#))))
+                              (CONS (SPADCALL X |nc| (QREFELT $ 48)) #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
@@ -186,7 +185,7 @@
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
-                 (SEQ (LETT X NIL) (LETT #1# (SPADCALL A |nr| (QREFELT $ 53)))
+                 (SEQ (LETT X NIL) (LETT #1# (SPADCALL A |nr| (QREFELT $ 51)))
                       G190
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT X (CAR #1#)) NIL))
@@ -194,7 +193,7 @@
                       (SEQ
                        (EXIT
                         (LETT #2#
-                              (CONS (SPADCALL X |lc| (QREFELT $ 54)) #2#))))
+                              (CONS (SPADCALL X |lc| (QREFELT $ 52)) #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
@@ -229,7 +228,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|MatrixManipulation| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 56))
+    (LETT $ (GETREFV 54))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -248,12 +247,12 @@
     (COND
      ((|testBitVector| |pv$| 1)
       (PROGN
-       (QSETREFV $ 38
+       (QSETREFV $ 36
                  (CONS (|dispatchFunction| |MAMA;diagonalMatrix;MIM;9|) $))
-       (QSETREFV $ 39
+       (QSETREFV $ 37
                  (CONS (|dispatchFunction| |MAMA;diagonalMatrix;2M;10|) $))
-       (QSETREFV $ 40 (CONS (|dispatchFunction| |MAMA;bandMatrix;MLM;11|) $))
-       (QSETREFV $ 41
+       (QSETREFV $ 38 (CONS (|dispatchFunction| |MAMA;bandMatrix;MLM;11|) $))
+       (QSETREFV $ 39
                  (CONS (|dispatchFunction| |MAMA;bandMatrix;MSM;12|) $)))))
     $))) 
 
@@ -267,18 +266,17 @@
               (36 . |expand|) |MAMA;subMatrix;M2LM;13| |MAMA;rows;MLM;3|
               |MAMA;rows;MSM;4| (41 . |minRowIndex|) (46 . |maxRowIndex|)
               |MAMA;columnMatrix;MIM;5| (51 . |nrows|) |MAMA;columns;MLM;6|
-              |MAMA;columns;MSM;7| (|Boolean|) (56 . >) (62 . |elt|)
-              (69 . |qsetelt!|) (77 . |Zero|) (81 . |new|)
-              (88 . |diagonalMatrix|) (94 . |diagonalMatrix|)
-              (99 . |bandMatrix|) (105 . |bandMatrix|) (111 . |qelt|)
-              (118 . |low|) (123 . |high|) |MAMA;subMatrix;M2SM;14| (|List| $)
-              (|List| 16) (128 . |vertSplit|) (|PositiveInteger|)
-              (134 . |horizSplit|) (|List| (|List| 9))
-              |MAMA;blockSplit;MLPiL;15| (140 . |vertSplit|)
-              (146 . |horizSplit|) |MAMA;blockSplit;MPiLL;16|)
-           '#(|subMatrix| 152 |rows| 166 |rowMatrix| 178 |element| 184
-              |diagonalMatrix| 191 |columns| 202 |columnMatrix| 214
-              |blockSplit| 220 |bandMatrix| 234)
+              |MAMA;columns;MSM;7| (56 . |elt|) (63 . |qsetelt!|) (71 . |Zero|)
+              (75 . |new|) (82 . |diagonalMatrix|) (88 . |diagonalMatrix|)
+              (93 . |bandMatrix|) (99 . |bandMatrix|) (105 . |qelt|)
+              (112 . |low|) (117 . |high|) |MAMA;subMatrix;M2SM;14| (|List| $)
+              (|List| 16) (122 . |vertSplit|) (|PositiveInteger|)
+              (128 . |horizSplit|) (|List| (|List| 9))
+              |MAMA;blockSplit;MLPiL;15| (134 . |vertSplit|)
+              (140 . |horizSplit|) |MAMA;blockSplit;MPiLL;16|)
+           '#(|subMatrix| 146 |rows| 160 |rowMatrix| 172 |element| 178
+              |diagonalMatrix| 185 |columns| 196 |columnMatrix| 208
+              |blockSplit| 214 |bandMatrix| 228)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -323,24 +321,23 @@
                                   (|List| (|NonNegativeInteger|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 55
+                        (|makeByteWordVec2| 53
                                             '(5 9 0 0 10 10 10 10 11 1 9 10 0
                                               13 1 9 10 0 14 1 9 16 0 17 2 9 0
                                               16 16 18 2 19 0 10 10 20 1 19 21
                                               0 22 1 9 10 0 26 1 9 10 0 27 1 9
-                                              16 0 29 2 10 32 0 0 33 3 9 6 0 10
-                                              10 34 4 9 6 0 10 10 6 35 0 6 0 36
-                                              3 9 0 16 16 6 37 2 0 9 9 10 38 1
-                                              0 9 9 39 2 0 9 9 21 40 2 0 9 9 19
-                                              41 3 9 6 0 10 10 42 1 19 10 0 43
-                                              1 19 10 0 44 2 9 46 0 47 48 2 9
-                                              46 0 49 50 2 9 46 0 49 53 2 9 46
-                                              0 47 54 3 0 9 9 19 19 45 3 0 9 9
-                                              21 21 23 2 0 9 9 21 24 2 0 9 9 19
-                                              25 2 0 9 9 10 15 3 0 9 9 10 10 12
-                                              1 1 9 9 39 2 1 9 9 10 38 2 0 9 9
-                                              19 31 2 0 9 9 21 30 2 0 9 9 10 28
-                                              3 0 51 9 49 47 55 3 0 51 9 47 49
-                                              52 2 1 9 9 19 41 2 1 9 9 21
-                                              40)))))
+                                              16 0 29 3 9 6 0 10 10 32 4 9 6 0
+                                              10 10 6 33 0 6 0 34 3 9 0 16 16 6
+                                              35 2 0 9 9 10 36 1 0 9 9 37 2 0 9
+                                              9 21 38 2 0 9 9 19 39 3 9 6 0 10
+                                              10 40 1 19 10 0 41 1 19 10 0 42 2
+                                              9 44 0 45 46 2 9 44 0 47 48 2 9
+                                              44 0 47 51 2 9 44 0 45 52 3 0 9 9
+                                              19 19 43 3 0 9 9 21 21 23 2 0 9 9
+                                              21 24 2 0 9 9 19 25 2 0 9 9 10 15
+                                              3 0 9 9 10 10 12 1 1 9 9 37 2 1 9
+                                              9 10 36 2 0 9 9 19 31 2 0 9 9 21
+                                              30 2 0 9 9 10 28 3 0 49 9 47 45
+                                              53 3 0 49 9 45 47 50 2 1 9 9 19
+                                              39 2 1 9 9 21 38)))))
            '|lookupComplete|)) 

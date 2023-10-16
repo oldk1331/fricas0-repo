@@ -57,18 +57,18 @@
                 (COND
                  ((ZEROP |n|)
                   (SPADCALL NIL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9)))
-                 ((OR (OR (ZEROP M) (SPADCALL N 0 (QREFELT $ 24))) (< |n| 0))
+                 ((OR (OR (ZEROP M) (<= N 0)) (< |n| 0))
                   (SPADCALL (QREFELT $ 7)))
                  ('T
-                  (SEQ (COND ((SPADCALL N (QREFELT $ 25)) (LETT N (- N 1))))
+                  (SEQ (COND ((EVENP N) (LETT N (- N 1))))
                        (LETT |c|
                              (SPADCALL
                               (CONS #'|PARTPERM;odd_partitions;3IS;4!0|
                                     (VECTOR $ N))
-                              (SPADCALL (- M 1) N (- |n| N) (QREFELT $ 26))
+                              (SPADCALL (- M 1) N (- |n| N) (QREFELT $ 23))
                               (QREFELT $ 14)))
                        (EXIT
-                        (SPADCALL |c| (SPADCALL M (- N 2) |n| (QREFELT $ 26))
+                        (SPADCALL |c| (SPADCALL M (- N 2) |n| (QREFELT $ 23))
                                   (QREFELT $ 15))))))))) 
 
 (SDEFUN |PARTPERM;odd_partitions;3IS;4!0| ((|l1| NIL) ($$ NIL))
@@ -79,7 +79,7 @@
 
 (SDEFUN |PARTPERM;odd_partitions;IS;5|
         ((|n| |Integer|) ($ |Stream| (|List| (|Integer|))))
-        (SPADCALL |n| |n| |n| (QREFELT $ 26))) 
+        (SPADCALL |n| |n| |n| (QREFELT $ 23))) 
 
 (SDEFUN |PARTPERM;distinct_partitions;3IS;6|
         ((M |Integer|) (N |Integer|) (|n| |Integer|)
@@ -97,10 +97,10 @@
                          (SPADCALL
                           (CONS #'|PARTPERM;distinct_partitions;3IS;6!0|
                                 (VECTOR $ N))
-                          (SPADCALL (- M 1) (- N 1) (- |n| N) (QREFELT $ 28))
+                          (SPADCALL (- M 1) (- N 1) (- |n| N) (QREFELT $ 25))
                           (QREFELT $ 14)))
                    (EXIT
-                    (SPADCALL |c| (SPADCALL M (- N 1) |n| (QREFELT $ 28))
+                    (SPADCALL |c| (SPADCALL M (- N 1) |n| (QREFELT $ 25))
                               (QREFELT $ 15))))))))) 
 
 (SDEFUN |PARTPERM;distinct_partitions;3IS;6!0| ((|l1| NIL) ($$ NIL))
@@ -111,7 +111,7 @@
 
 (SDEFUN |PARTPERM;distinct_partitions;IS;7|
         ((|n| |Integer|) ($ |Stream| (|List| (|Integer|))))
-        (SPADCALL |n| |n| |n| (QREFELT $ 28))) 
+        (SPADCALL |n| |n| |n| (QREFELT $ 25))) 
 
 (SDEFUN |PARTPERM;nogreq|
         ((|n| |Integer|) (|x| |List| (|Integer|)) ($ |Integer|))
@@ -155,7 +155,7 @@
 
 (SDEFUN |PARTPERM;conjugates;2S;10|
         ((|z| |Stream| (|List| (|Integer|))) ($ |Stream| (|List| (|Integer|))))
-        (SPADCALL (ELT $ 30) |z| (QREFELT $ 14))) 
+        (SPADCALL (ELT $ 27) |z| (QREFELT $ 14))) 
 
 (SDEFUN |PARTPERM;shuffle;2LS;11|
         ((|x| |List| (|Integer|)) (|y| |List| (|Integer|))
@@ -169,10 +169,10 @@
                 ('T
                  (SPADCALL
                   (SPADCALL (CONS #'|PARTPERM;shuffle;2LS;11!0| (VECTOR $ |x|))
-                            (SPADCALL (CDR |x|) |y| (QREFELT $ 33))
+                            (SPADCALL (CDR |x|) |y| (QREFELT $ 30))
                             (QREFELT $ 14))
                   (SPADCALL (CONS #'|PARTPERM;shuffle;2LS;11!1| (VECTOR $ |y|))
-                            (SPADCALL |x| (CDR |y|) (QREFELT $ 33))
+                            (SPADCALL |x| (CDR |y|) (QREFELT $ 30))
                             (QREFELT $ 14))
                   (QREFELT $ 15)))))) 
 
@@ -182,7 +182,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |y| (QREFELT $ 32)) |l1| (QREFELT $ 11)))))) 
+            (SPADCALL (SPADCALL |y| (QREFELT $ 29)) |l1| (QREFELT $ 11)))))) 
 
 (SDEFUN |PARTPERM;shuffle;2LS;11!0| ((|l1| NIL) ($$ NIL))
         (PROG (|x| $)
@@ -190,7 +190,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |x| (QREFELT $ 32)) |l1| (QREFELT $ 11)))))) 
+            (SPADCALL (SPADCALL |x| (QREFELT $ 29)) |l1| (QREFELT $ 11)))))) 
 
 (SDEFUN |PARTPERM;shufflein;L2S;12|
         ((|x| |List| (|Integer|)) (|yy| |Stream| (|List| (|Integer|)))
@@ -198,14 +198,14 @@
         (SPROG NIL
                (SPADCALL
                 (SPADCALL (CONS #'|PARTPERM;shufflein;L2S;12!0| (VECTOR $ |x|))
-                          |yy| (QREFELT $ 36))
+                          |yy| (QREFELT $ 33))
                 (QREFELT $ 21)))) 
 
 (SDEFUN |PARTPERM;shufflein;L2S;12!0| ((|l1| NIL) ($$ NIL))
         (PROG (|x| $)
           (LETT |x| (QREFELT $$ 1))
           (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL |x| |l1| (QREFELT $ 33)))))) 
+          (RETURN (PROGN (SPADCALL |x| |l1| (QREFELT $ 30)))))) 
 
 (SDEFUN |PARTPERM;rpt| ((|n| |Integer|) (|m| |Integer|) ($ |List| (|Integer|)))
         (SPROG ((#1=#:G175 NIL) (|i| NIL) (#2=#:G174 NIL))
@@ -222,14 +222,14 @@
         ((|x| |List| (|Integer|)) (|y| |List| (|Integer|))
          ($ |Stream| (|List| (|Integer|))))
         (SPADCALL (CONS (|function| |PARTPERM;rpt|) $)
-                  (SPADCALL |x| (QREFELT $ 39)) (SPADCALL |y| (QREFELT $ 39))
-                  (QREFELT $ 42))) 
+                  (SPADCALL |x| (QREFELT $ 36)) (SPADCALL |y| (QREFELT $ 36))
+                  (QREFELT $ 39))) 
 
 (SDEFUN |PARTPERM;sequences;2LS;15|
         ((|x| |List| (|Integer|)) (|y| |List| (|Integer|))
          ($ |Stream| (|List| (|Integer|))))
         (SPADCALL (SPADCALL NIL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9))
-                  (ELT $ 37) (|PARTPERM;zrpt| |x| |y| $) (QREFELT $ 44))) 
+                  (ELT $ 34) (|PARTPERM;zrpt| |x| |y| $) (QREFELT $ 41))) 
 
 (SDEFUN |PARTPERM;sequences;LS;16|
         ((|x| |List| (|Integer|)) ($ |Stream| (|List| (|Integer|))))
@@ -243,7 +243,7 @@
                                 (SEQ (EXIT (LETT #2# (CONS |i| #2#))))
                                 (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                 (EXIT (NREVERSE #2#))))
-                          (QREFELT $ 45))))) 
+                          (QREFELT $ 42))))) 
 
 (SDEFUN |PARTPERM;permutations;IS;17|
         ((|n| |Integer|) ($ |Stream| (|List| (|Integer|))))
@@ -257,7 +257,7 @@
                                 (SEQ (EXIT (LETT #2# (CONS |i| #2#))))
                                 (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                 (EXIT (NREVERSE #2#))))
-                          (QREFELT $ 45))))) 
+                          (QREFELT $ 42))))) 
 
 (DECLAIM (NOTINLINE |PartitionsAndPermutations;|)) 
 
@@ -287,7 +287,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|PartitionsAndPermutations|))
-          (LETT $ (GETREFV 48))
+          (LETT $ (GETREFV 45))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PartitionsAndPermutations| NIL
@@ -303,21 +303,20 @@
               |PARTPERM;partitions;3IS;1| (|Mapping| 8 8) (16 . |map|)
               (22 . |concat|) |PARTPERM;partitions;IS;2| (|List| 6)
               (|Stream| 6) (28 . |coerce|) (|StreamFunctions1| 8)
-              (33 . |concat|) |PARTPERM;partitions;2IS;3| (|Boolean|) (38 . <=)
-              (44 . |even?|) |PARTPERM;odd_partitions;3IS;4|
-              |PARTPERM;odd_partitions;IS;5|
+              (33 . |concat|) |PARTPERM;partitions;2IS;3|
+              |PARTPERM;odd_partitions;3IS;4| |PARTPERM;odd_partitions;IS;5|
               |PARTPERM;distinct_partitions;3IS;6|
               |PARTPERM;distinct_partitions;IS;7| |PARTPERM;conjugate;2L;9|
-              |PARTPERM;conjugates;2S;10| (49 . |first|)
+              |PARTPERM;conjugates;2S;10| (38 . |first|)
               |PARTPERM;shuffle;2LS;11| (|Mapping| 6 8)
-              (|StreamFunctions2| 8 6) (54 . |map|) |PARTPERM;shufflein;L2S;12|
-              (|Stream| 10) (60 . |coerce|) (|Mapping| 8 10 10)
-              (|StreamFunctions3| 10 10 8) (65 . |map|) (|Mapping| 6 8 6)
-              (72 . |reduce|) |PARTPERM;sequences;2LS;15|
+              (|StreamFunctions2| 8 6) (43 . |map|) |PARTPERM;shufflein;L2S;12|
+              (|Stream| 10) (49 . |coerce|) (|Mapping| 8 10 10)
+              (|StreamFunctions3| 10 10 8) (54 . |map|) (|Mapping| 6 8 6)
+              (61 . |reduce|) |PARTPERM;sequences;2LS;15|
               |PARTPERM;sequences;LS;16| |PARTPERM;permutations;IS;17|)
-           '#(|shufflein| 79 |shuffle| 85 |sequences| 91 |permutations| 102
-              |partitions| 107 |odd_partitions| 125 |distinct_partitions| 137
-              |conjugates| 149 |conjugate| 154)
+           '#(|shufflein| 68 |shuffle| 74 |sequences| 80 |permutations| 91
+              |partitions| 96 |odd_partitions| 114 |distinct_partitions| 126
+              |conjugates| 138 |conjugate| 143)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -378,19 +377,18 @@
                                  ((|Stream| (|List| (|Integer|))) (|Integer|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 47
+                        (|makeByteWordVec2| 44
                                             '(0 6 0 7 2 6 0 8 0 9 2 8 0 10 0 11
                                               2 6 0 13 0 14 2 6 0 0 0 15 1 18 0
-                                              17 19 1 20 6 18 21 2 10 23 0 0 24
-                                              1 10 23 0 25 1 8 10 0 32 2 35 18
-                                              34 6 36 1 38 0 8 39 3 41 6 40 38
-                                              38 42 3 35 6 6 43 6 44 2 0 6 8 6
-                                              37 2 0 6 8 8 33 2 0 6 8 8 45 1 0
-                                              6 8 46 1 0 6 10 47 3 0 6 10 10 10
-                                              12 2 0 6 10 10 22 1 0 6 10 16 1 0
-                                              6 10 27 3 0 6 10 10 10 26 1 0 6
-                                              10 29 3 0 6 10 10 10 28 1 0 6 6
-                                              31 1 0 8 8 30)))))
+                                              17 19 1 20 6 18 21 1 8 10 0 29 2
+                                              32 18 31 6 33 1 35 0 8 36 3 38 6
+                                              37 35 35 39 3 32 6 6 40 6 41 2 0
+                                              6 8 6 34 2 0 6 8 8 30 2 0 6 8 8
+                                              42 1 0 6 8 43 1 0 6 10 44 3 0 6
+                                              10 10 10 12 2 0 6 10 10 22 1 0 6
+                                              10 16 1 0 6 10 24 3 0 6 10 10 10
+                                              23 1 0 6 10 26 3 0 6 10 10 10 25
+                                              1 0 6 6 28 1 0 8 8 27)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|PartitionsAndPermutations| 'NILADIC T) 

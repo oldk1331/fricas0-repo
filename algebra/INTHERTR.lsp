@@ -64,9 +64,7 @@
                                       #1#)))
               (SEQ G190
                    (COND
-                    ((NULL
-                      (SPADCALL (SPADCALL (LETT |qbar| |g|) (QREFELT $ 30)) 0
-                                (QREFELT $ 32)))
+                    ((NULL (> (SPADCALL (LETT |qbar| |g|) (QREFELT $ 30)) 0))
                      (GO G191)))
                    (SEQ
                     (LETT |qbarhat|
@@ -90,17 +88,17 @@
                                      (SPADCALL
                                       (SPADCALL |qhat|
                                                 (SPADCALL |qbar| |derivation|)
-                                                (QREFELT $ 33))
+                                                (QREFELT $ 31))
                                       |qbar| (QREFELT $ 28)))
                                (QCDR #1#)
                              (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                              (|Union| (QREFELT $ 7) #3#) #1#))
-                           (QREFELT $ 34)))
+                           (QREFELT $ 32)))
                     (LETT |bc|
                           (PROG2
                               (LETT #2#
                                     (SPADCALL |qtil| |qbarhat| |a|
-                                              (QREFELT $ 37)))
+                                              (QREFELT $ 35)))
                               (QCDR #2#)
                             (|check_union2| (QEQCAR #2# 0)
                                             (|Record|
@@ -118,11 +116,11 @@
                           (SPADCALL
                            (SPADCALL (QCDR |bc|)
                                      (SPADCALL |qtil| (QCAR |qr|)
-                                               (QREFELT $ 33))
+                                               (QREFELT $ 31))
                                      (QREFELT $ 16))
                            (SPADCALL
                             (SPADCALL (SPADCALL |qr_rem| |derivation|)
-                                      (SPADCALL |d0| |qr_rem| (QREFELT $ 33))
+                                      (SPADCALL |d0| |qr_rem| (QREFELT $ 31))
                                       (QREFELT $ 16))
                             (PROG2
                                 (LETT #1#
@@ -131,14 +129,14 @@
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                               (|Union| (QREFELT $ 7) #3#) #1#))
-                            (QREFELT $ 33))
-                           (QREFELT $ 38)))
+                            (QREFELT $ 31))
+                           (QREFELT $ 36)))
                     (LETT |p|
                           (SPADCALL |p|
-                                    (SPADCALL |mult| |qr_rem| (QREFELT $ 33))
+                                    (SPADCALL |mult| |qr_rem| (QREFELT $ 31))
                                     (QREFELT $ 16)))
                     (EXIT
-                     (LETT |mult| (SPADCALL |mult| |qbarhat| (QREFELT $ 33)))))
+                     (LETT |mult| (SPADCALL |mult| |qbarhat| (QREFELT $ 31)))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (VECTOR (SPADCALL |p| |g0| (QREFELT $ 15)) |a| |qhat|))))) 
 
@@ -172,7 +170,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|TranscendentalHermiteIntegration| DV$1 DV$2))
-          (LETT $ (GETREFV 39))
+          (LETT $ (GETREFV 37))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TranscendentalHermiteIntegration|
@@ -197,10 +195,10 @@
               |INTHERTR;HermiteIntegrate;FMR;2| (32 . |numer|) (37 . |denom|)
               (42 . |One|) (46 . |differentiate|) (51 . |gcd|)
               (|Union| $ '"failed") (57 . |exquo|) (|NonNegativeInteger|)
-              (63 . |degree|) (|Boolean|) (68 . >) (74 . *) (80 . -)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 35 '"failed")
-              (85 . |extendedEuclidean|) (92 . -))
-           '#(|HermiteIntegrate| 98) 'NIL
+              (63 . |degree|) (68 . *) (74 . -)
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 33 '"failed")
+              (79 . |extendedEuclidean|) (86 . -))
+           '#(|HermiteIntegrate| 92) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -223,13 +221,13 @@
                                   |#2|))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 38
+                        (|makeByteWordVec2| 36
                                             '(2 11 8 9 10 12 2 7 13 0 0 14 2 9
                                               0 7 7 15 2 7 0 0 0 16 0 6 0 19 0
                                               7 0 20 1 9 7 0 22 1 9 7 0 23 0 7
                                               0 24 1 7 0 0 25 2 7 0 0 0 26 2 7
-                                              27 0 0 28 1 7 29 0 30 2 29 31 0 0
-                                              32 2 7 0 0 0 33 1 7 0 0 34 3 7 36
-                                              0 0 0 37 2 7 0 0 0 38 3 0 17 9 10
-                                              7 18 2 0 17 9 10 21)))))
+                                              27 0 0 28 1 7 29 0 30 2 7 0 0 0
+                                              31 1 7 0 0 32 3 7 34 0 0 0 35 2 7
+                                              0 0 0 36 3 0 17 9 10 7 18 2 0 17
+                                              9 10 21)))))
            '|lookupComplete|)) 

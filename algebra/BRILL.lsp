@@ -86,16 +86,12 @@
                    (LETT |origBound|
                          (LETT |largeEnough|
                                (+ (SPADCALL |p| (QREFELT $ 28)) 1)))
-                   (LETT |even0|
-                         (SPADCALL (SPADCALL |p| 0 (QREFELT $ 29))
-                                   (QREFELT $ 30)))
-                   (LETT |even1|
-                         (SPADCALL (SPADCALL |p| 1 (QREFELT $ 32))
-                                   (QREFELT $ 30)))
+                   (LETT |even0| (EVENP (SPADCALL |p| 0 (QREFELT $ 29))))
+                   (LETT |even1| (EVENP (SPADCALL |p| 1 (QREFELT $ 31))))
                    (LETT |polyx2| (|BRILL;squaredPolynomial| |p| $))
                    (EXIT
                     (COND
-                     ((SPADCALL (SPADCALL |p| |largeEnough| (QREFELT $ 32))
+                     ((SPADCALL (SPADCALL |p| |largeEnough| (QREFELT $ 31))
                                 (QREFELT $ 20))
                       'T)
                      (#6#
@@ -104,7 +100,7 @@
                         ((NULL |polyx2|)
                          (COND
                           ((SPADCALL
-                            (SPADCALL |p| (- |largeEnough|) (QREFELT $ 32))
+                            (SPADCALL |p| (- |largeEnough|) (QREFELT $ 31))
                             (QREFELT $ 20))
                            (EXIT 'T)))))
                        (EXIT
@@ -115,7 +111,7 @@
                                      (COND
                                       ((|BRILL;primeEnough?|
                                         (SPADCALL |p| |largeEnough|
-                                                  (QREFELT $ 32))
+                                                  (QREFELT $ 31))
                                         (COND (|noLinears| 4) (#6# 2)) $)
                                        'T)
                                       (#6#
@@ -125,7 +121,7 @@
                                           (COND
                                            ((|BRILL;primeEnough?|
                                              (SPADCALL |p| (- |largeEnough|)
-                                                       (QREFELT $ 32))
+                                                       (QREFELT $ 31))
                                              (COND (|noLinears| 4) (#6# 2)) $)
                                             (EXIT 'T)))))
                                         (COND
@@ -139,10 +135,8 @@
                                                 (+ |largeEnough| 1))))
                                         (LETT |count|
                                               (+
-                                               (SPADCALL
-                                                (COND (|polyx2| 2) (#6# 1))
-                                                (- (QREFELT $ 21) 2)
-                                                (QREFELT $ 33))
+                                               (* (COND (|polyx2| 2) (#6# 1))
+                                                  (- (QREFELT $ 21) 2))
                                                |largeEnough|))
                                         (SEQ (LETT |i| (+ |largeEnough| 1))
                                              (LETT #3# |count|) G190
@@ -158,7 +152,7 @@
                                                (COND
                                                 ((|BRILL;primeEnough?|
                                                   (SPADCALL |p| |i|
-                                                            (QREFELT $ 32))
+                                                            (QREFELT $ 31))
                                                   |small| $)
                                                  (PROGN
                                                   (LETT #2# 'T)
@@ -169,7 +163,7 @@
                                                    (COND
                                                     ((|BRILL;primeEnough?|
                                                       (SPADCALL |p| (- |i|)
-                                                                (QREFELT $ 32))
+                                                                (QREFELT $ 31))
                                                       |small| $)
                                                      (PROGN
                                                       (LETT #1#
@@ -185,10 +179,10 @@
 
 (SDEFUN |BRILL;noLinearFactor?;UPB;7| ((|p| UP) ($ |Boolean|))
         (COND
-         ((ODDP (SPADCALL |p| (QREFELT $ 34)))
+         ((ODDP (SPADCALL |p| (QREFELT $ 32)))
           (COND
            ((ODDP (SPADCALL |p| 0 (QREFELT $ 29)))
-            (ODDP (SPADCALL |p| 1 (QREFELT $ 32))))
+            (ODDP (SPADCALL |p| 1 (QREFELT $ 31))))
            (#1='T NIL)))
          (#1# NIL))) 
 
@@ -216,7 +210,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|BrillhartTests| DV$1))
-          (LETT $ (GETREFV 35))
+          (LETT $ (GETREFV 33))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|BrillhartTests| (LIST DV$1)
@@ -238,10 +232,10 @@
               |BRILL;brillhartIrreducible?;UP2B;6|
               |BRILL;brillhartIrreducible?;UPB;5|
               (|GaloisGroupFactorizationUtilities| 11 6 12) (46 . |rootBound|)
-              (51 . |coefficient|) (57 . |even?|) (62 . |One|) (66 . |elt|)
-              (72 . *) (78 . |leadingCoefficient|))
-           '#(|noLinearFactor?| 83 |brillhartTrials| 88 |brillhartIrreducible?|
-              97)
+              (51 . |coefficient|) (57 . |One|) (61 . |elt|)
+              (67 . |leadingCoefficient|))
+           '#(|noLinearFactor?| 72 |brillhartTrials| 77 |brillhartIrreducible?|
+              86)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -260,13 +254,13 @@
                                 T)
                               '((|noLinearFactor?| ((|Boolean|) |#1|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 34
+                        (|makeByteWordVec2| 32
                                             '(1 6 7 0 8 0 6 0 9 1 6 0 0 10 1 12
                                               0 11 13 2 11 14 0 0 15 2 12 0 0 0
                                               16 0 12 0 17 2 12 18 0 0 19 1 11
                                               18 0 20 1 27 11 6 28 2 6 11 0 7
-                                              29 1 11 18 0 30 0 6 0 31 2 6 11 0
-                                              11 32 2 11 0 7 0 33 1 6 11 0 34 1
-                                              0 18 6 24 0 0 7 22 1 0 7 7 23 2 0
-                                              18 6 18 25 1 0 18 6 26)))))
+                                              29 0 6 0 30 2 6 11 0 11 31 1 6 11
+                                              0 32 1 0 18 6 24 0 0 7 22 1 0 7 7
+                                              23 2 0 18 6 18 25 1 0 18 6
+                                              26)))))
            '|lookupComplete|)) 

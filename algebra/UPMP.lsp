@@ -70,14 +70,12 @@
               (EXIT
                (COND
                 ((ZEROP |d|)
-                 (SPADCALL
-                  (SPADCALL |v| (SPADCALL 2 |n| (QREFELT $ 29)) (QREFELT $ 27))
-                  |w| (QREFELT $ 26)))
+                 (SPADCALL (SPADCALL |v| (* 2 |n|) (QREFELT $ 27)) |w|
+                           (QREFELT $ 26)))
                 ('T
-                 (SPADCALL
-                  (SPADCALL |v| (+ (SPADCALL 2 |n| (QREFELT $ 29)) |d|)
-                            (QREFELT $ 27))
-                  (SPADCALL |w| |d| (QREFELT $ 27)) (QREFELT $ 26)))))))) 
+                 (SPADCALL (SPADCALL |v| (+ (* 2 |n|) |d|) (QREFELT $ 27))
+                           (SPADCALL |w| |d| (QREFELT $ 27))
+                           (QREFELT $ 26)))))))) 
 
 (SDEFUN |UPMP;karatsuba;2U2NniU;3|
         ((|a| U) (|b| U) (|l| |NonNegativeInteger|) (|k| |NonNegativeInteger|)
@@ -93,8 +91,8 @@
            ((OR (ZEROP |k|)
                 (OR (< (SPADCALL |a| (QREFELT $ 11)) |l|)
                     (OR (< (SPADCALL |b| (QREFELT $ 11)) |l|)
-                        (OR (< (SPADCALL |a| (QREFELT $ 31)) |l|)
-                            (< (SPADCALL |b| (QREFELT $ 31)) |l|)))))
+                        (OR (< (SPADCALL |a| (QREFELT $ 29)) |l|)
+                            (< (SPADCALL |b| (QREFELT $ 29)) |l|)))))
             (SPADCALL |a| |b| (QREFELT $ 19)))
            ('T
             (SEQ (LETT |da| (SPADCALL |a| (QREFELT $ 20)))
@@ -112,7 +110,7 @@
                              (SPADCALL |b| (QREFELT $ 11)))
                         2))
                  (LETT |k|
-                       (PROG2 (LETT #1# (SPADCALL |k| 1 (QREFELT $ 35)))
+                       (PROG2 (LETT #1# (SPADCALL |k| 1 (QREFELT $ 33)))
                            (QCDR #1#)
                          (|check_union2| (QEQCAR #1# 0) (|NonNegativeInteger|)
                                          (|Union| (|NonNegativeInteger|)
@@ -125,9 +123,9 @@
                  (LETT |w|
                        (SPADCALL (SPADCALL |ha| |la| (QREFELT $ 24))
                                  (SPADCALL |lb| |hb| (QREFELT $ 24)) |l| |k|
-                                 (QREFELT $ 36)))
-                 (LETT |u| (SPADCALL |la| |lb| |l| |k| (QREFELT $ 36)))
-                 (LETT |v| (SPADCALL |ha| |hb| |l| |k| (QREFELT $ 36)))
+                                 (QREFELT $ 34)))
+                 (LETT |u| (SPADCALL |la| |lb| |l| |k| (QREFELT $ 34)))
+                 (LETT |v| (SPADCALL |ha| |hb| |l| |k| (QREFELT $ 34)))
                  (LETT |w|
                        (SPADCALL |w| (SPADCALL |u| |v| (QREFELT $ 26))
                                  (QREFELT $ 26)))
@@ -137,15 +135,12 @@
                  (EXIT
                   (COND
                    ((ZEROP |d|)
-                    (SPADCALL
-                     (SPADCALL |v| (SPADCALL 2 |n| (QREFELT $ 29))
-                               (QREFELT $ 27))
-                     |w| (QREFELT $ 26)))
+                    (SPADCALL (SPADCALL |v| (* 2 |n|) (QREFELT $ 27)) |w|
+                              (QREFELT $ 26)))
                    ('T
-                    (SPADCALL
-                     (SPADCALL |v| (+ (SPADCALL 2 |n| (QREFELT $ 29)) |d|)
-                               (QREFELT $ 27))
-                     (SPADCALL |w| |d| (QREFELT $ 27)) (QREFELT $ 26))))))))))) 
+                    (SPADCALL (SPADCALL |v| (+ (* 2 |n|) |d|) (QREFELT $ 27))
+                              (SPADCALL |w| |d| (QREFELT $ 27))
+                              (QREFELT $ 26))))))))))) 
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialMultiplicationPackage;|)) 
 
@@ -180,7 +175,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$|
                 (LIST '|UnivariatePolynomialMultiplicationPackage| DV$1 DV$2))
-          (LETT $ (GETREFV 37))
+          (LETT $ (GETREFV 35))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
@@ -202,11 +197,11 @@
               (49 . |shiftRight|)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (55 . |karatsubaDivide|) (61 . -) (67 . *) (73 . +)
-              (79 . |shiftLeft|) (|PositiveInteger|) (85 . *)
-              |UPMP;karatsubaOnce;3U;2| (91 . |numberOfMonomials|) (96 . |One|)
-              (100 . |One|) (|Union| $ '"failed") (104 . |subtractIfCan|)
+              (79 . |shiftLeft|) |UPMP;karatsubaOnce;3U;2|
+              (85 . |numberOfMonomials|) (90 . |One|) (94 . |One|)
+              (|Union| $ '"failed") (98 . |subtractIfCan|)
               |UPMP;karatsuba;2U2NniU;3|)
-           '#(|noKaratsuba| 110 |karatsubaOnce| 116 |karatsuba| 122) 'NIL
+           '#(|noKaratsuba| 104 |karatsubaOnce| 110 |karatsuba| 116) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -219,15 +214,14 @@
                                        (|NonNegativeInteger|)))
                                      T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 36
+                        (|makeByteWordVec2| 34
                                             '(1 7 8 0 9 1 7 10 0 11 1 7 6 0 12
                                               2 7 0 6 0 13 2 7 0 0 6 14 1 7 15
                                               0 16 0 7 0 17 4 7 0 0 6 10 0 18 1
                                               7 10 0 20 2 7 0 0 10 21 2 7 22 0
                                               10 23 2 7 0 0 0 24 2 7 0 0 0 25 2
-                                              7 0 0 0 26 2 7 0 0 10 27 2 10 0
-                                              28 0 29 1 7 10 0 31 0 6 0 32 0 7
-                                              0 33 2 10 34 0 0 35 2 0 7 7 7 19
-                                              2 0 7 7 7 30 4 0 7 7 7 10 10
-                                              36)))))
+                                              7 0 0 0 26 2 7 0 0 10 27 1 7 10 0
+                                              29 0 6 0 30 0 7 0 31 2 10 32 0 0
+                                              33 2 0 7 7 7 19 2 0 7 7 7 28 4 0
+                                              7 7 7 10 10 34)))))
            '|lookupComplete|)) 

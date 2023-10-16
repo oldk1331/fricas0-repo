@@ -221,10 +221,10 @@
                                 (SEQ (LETT |c1| (QCDR |r1|))
                                      (EXIT
                                       (COND
-                                       ((SPADCALL
+                                       ((>
                                          (SPADCALL (QCDR |c1|) |s|
                                                    (QREFELT $ 37))
-                                         0 (QREFELT $ 38))
+                                         0)
                                         (|error|
                                          "degree: not a polynomial in given variable"))
                                        ('T
@@ -271,13 +271,13 @@
                           ('T
                            (SEQ
                             (LETT |cr|
-                                  (SPADCALL |n1| (QCDR |c1|) (QREFELT $ 40)))
+                                  (SPADCALL |n1| (QCDR |c1|) (QREFELT $ 39)))
                             (EXIT
                              (LETT |res0|
                                    (SPADCALL |res0|
                                              (SPADCALL |cr| (QCAR |r1|)
-                                                       (QREFELT $ 41))
-                                             (QREFELT $ 42)))))))))
+                                                       (QREFELT $ 40))
+                                             (QREFELT $ 41)))))))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |res0|)))) 
 
@@ -331,7 +331,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|FakePolynomial|))
-          (LETT $ (GETREFV 46))
+          (LETT $ (GETREFV 45))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FakePolynomial| NIL (CONS 1 $))
@@ -365,10 +365,10 @@
               |FAKEPOL;map;MR$;3| (|SparseUnivariatePolynomial| 7)
               (49 . |Zero|) (53 . |monomial|) (59 . +) (|Union| 28 '"failed")
               (|Union| 7 '#1="failed") (|Mapping| 33 10) |FAKEPOL;map;M$U;4|
-              (|Symbol|) (65 . |degree|) (71 . >) |FAKEPOL;degree;$SNni;5|
-              (77 . /) (83 . |monomial|) (89 . +) |FAKEPOL;to_UP;$Sup;6|
-              (|List| 36) |FAKEPOL;subst_var;$2L$;7|)
-           '#(|to_UP| 95 |subst_var| 100 |map| 107 |ground| 125 |degree| 130)
+              (|Symbol|) (65 . |degree|) |FAKEPOL;degree;$SNni;5| (71 . /)
+              (77 . |monomial|) (83 . +) |FAKEPOL;to_UP;$Sup;6| (|List| 36)
+              |FAKEPOL;subst_var;$2L$;7|)
+           '#(|to_UP| 89 |subst_var| 94 |map| 101 |ground| 119 |degree| 124)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -424,18 +424,17 @@
                                   $$))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 45
+                        (|makeByteWordVec2| 44
                                             '(0 7 0 8 0 7 0 9 2 7 12 0 0 13 0
                                               16 0 17 2 16 12 0 0 18 1 16 19 0
                                               20 1 16 21 0 22 1 16 0 0 23 1 21
                                               7 0 24 1 21 7 0 25 0 28 0 29 2 28
                                               0 7 19 30 2 28 0 0 0 31 2 7 19 0
-                                              36 37 2 19 12 0 0 38 2 21 0 7 7
-                                              40 2 16 0 21 19 41 2 16 0 0 0 42
-                                              1 0 16 0 43 3 0 0 0 44 44 45 2 0
-                                              0 14 0 15 2 0 32 34 0 35 2 0 0 14
-                                              26 27 1 0 10 0 11 2 0 19 0 36
-                                              39)))))
+                                              36 37 2 21 0 7 7 39 2 16 0 21 19
+                                              40 2 16 0 0 0 41 1 0 16 0 42 3 0
+                                              0 0 43 43 44 2 0 0 14 0 15 2 0 32
+                                              34 0 35 2 0 0 14 26 27 1 0 10 0
+                                              11 2 0 19 0 36 38)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FakePolynomial| 'NILADIC T) 

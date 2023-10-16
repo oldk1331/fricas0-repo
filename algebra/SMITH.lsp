@@ -326,7 +326,7 @@
                              (LETT |t1| (SPADCALL |t| (QREFELT $ 52)))
                              (LETT |mm| (SPADCALL |m| (QREFELT $ 52)))
                              (COND
-                              ((SPADCALL |j| 1 (QREFELT $ 53))
+                              ((> |j| 1)
                                (SEQ
                                 (LETT |t1|
                                       (SPADCALL |t| 1 |m1| |j| |n1|
@@ -462,7 +462,7 @@
                                                                          $
                                                                          19))))
                                                                      (QREFELT $
-                                                                              54))
+                                                                              53))
                                                                     |tjj|
                                                                     (QREFELT $
                                                                              18)))
@@ -480,15 +480,15 @@
                                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                                   (EXIT NIL))
                              (LETT |u1|
-                                   (SPADCALL (ELT $ 56) |u| (QREFELT $ 60)))
+                                   (SPADCALL (ELT $ 55) |u| (QREFELT $ 59)))
                              (EXIT
                               (CONS |t|
-                                    (SPADCALL (ELT $ 61)
+                                    (SPADCALL (ELT $ 60)
                                               (PROG2
                                                   (LETT #1#
                                                         (SPADCALL |u1|
                                                                   (QREFELT $
-                                                                           62)))
+                                                                           61)))
                                                   (QCDR #1#)
                                                 (|check_union2| (QEQCAR #1# 0)
                                                                 (|Matrix|
@@ -502,7 +502,7 @@
                                                                             6)))
                                                                  "failed")
                                                                 #1#))
-                                              (QREFELT $ 65))))))))))
+                                              (QREFELT $ 64))))))))))
           #20# (EXIT #9#)))) 
 
 (SDEFUN |SMITH;hermite;2M;10| ((|m| M) ($ M)) (SPADCALL |m| (QREFELT $ 49))) 
@@ -514,13 +514,13 @@
 (SDEFUN |SMITH;smith0| ((|m| M) ($ M)) (QVELT (|SMITH;completeSmith0| |m| $) 0)) 
 
 (SDEFUN |SMITH;smith;2M;13| ((|m| M) ($ M))
-        (SPADCALL |m| (CONS (|function| |SMITH;smith0|) $) (QREFELT $ 72))) 
+        (SPADCALL |m| (CONS (|function| |SMITH;smith0|) $) (QREFELT $ 71))) 
 
 (SDEFUN |SMITH;completeSmith;MR;14|
         ((|m| M)
          ($ |Record| (|:| |Smith| M) (|:| |leftEqMat| M) (|:| |rightEqMat| M)))
         (SPADCALL |m| (CONS (|function| |SMITH;completeSmith0|) $)
-                  (QREFELT $ 76))) 
+                  (QREFELT $ 75))) 
 
 (SDEFUN |SMITH;smith;2M;15| ((|m| M) ($ M)) (|SMITH;smith0| |m| $)) 
 
@@ -538,7 +538,7 @@
           (|m1| (M)) (|rightm| (M))
           (|cm1| (|Record| (|:| |Hermite| M) (|:| |eqMat| M)))
           (|nr| (|NonNegativeInteger|)) (|leftm| (M)))
-         (SEQ (LETT |cm1| (SPADCALL |m| (QREFELT $ 68)))
+         (SEQ (LETT |cm1| (SPADCALL |m| (QREFELT $ 67)))
               (LETT |leftm| (QCDR |cm1|)) (LETT |m1| (QCAR |cm1|))
               (EXIT
                (COND
@@ -551,9 +551,9 @@
                 (#1='T
                  (SEQ (LETT |nr| (SPADCALL |m| (QREFELT $ 23)))
                       (LETT |cm1|
-                            (SPADCALL (SPADCALL |m1| (QREFELT $ 79))
-                                      (QREFELT $ 68)))
-                      (LETT |rightm| (SPADCALL (QCDR |cm1|) (QREFELT $ 79)))
+                            (SPADCALL (SPADCALL |m1| (QREFELT $ 78))
+                                      (QREFELT $ 67)))
+                      (LETT |rightm| (SPADCALL (QCDR |cm1|) (QREFELT $ 78)))
                       (LETT |m1| (QCAR |cm1|))
                       (EXIT
                        (COND
@@ -570,22 +570,22 @@
                               |nr|)
                              |cm2|)
                             (#1#
-                             (VECTOR (SPADCALL |m| (QREFELT $ 79))
+                             (VECTOR (SPADCALL |m| (QREFELT $ 78))
                                      (QVELT |cm2| 1) (QVELT |cm2| 2)))))))
                         (#1#
-                         (SEQ (LETT |cm2| (SPADCALL |m1| (QREFELT $ 78)))
+                         (SEQ (LETT |cm2| (SPADCALL |m1| (QREFELT $ 77)))
                               (LETT |cm2|
                                     (|SMITH;lastStep|
                                      (VECTOR (QVELT |cm2| 0)
                                              (SPADCALL
                                               (SPADCALL (QVELT |cm2| 2)
-                                                        (QREFELT $ 79))
-                                              |leftm| (QREFELT $ 80))
+                                                        (QREFELT $ 78))
+                                              |leftm| (QREFELT $ 79))
                                              (SPADCALL |rightm|
                                                        (SPADCALL
                                                         (QVELT |cm2| 1)
-                                                        (QREFELT $ 79))
-                                                       (QREFELT $ 80)))
+                                                        (QREFELT $ 78))
+                                                       (QREFELT $ 79)))
                                      $))
                               (EXIT
                                (COND
@@ -595,7 +595,7 @@
                                   |nr|)
                                  |cm2|)
                                 (#1#
-                                 (VECTOR (SPADCALL |m| (QREFELT $ 79))
+                                 (VECTOR (SPADCALL |m| (QREFELT $ 78))
                                          (QVELT |cm2| 1)
                                          (QVELT |cm2| 2)))))))))))))))) 
 
@@ -612,11 +612,11 @@
           (|sf|
            (|Record| (|:| |Smith| M) (|:| |leftEqMat| M)
                      (|:| |rightEqMat| M))))
-         (SEQ (LETT |sf| (SPADCALL |m| (QREFELT $ 78)))
+         (SEQ (LETT |sf| (SPADCALL |m| (QREFELT $ 77)))
               (LETT |sm| (QVELT |sf| 0))
               (LETT |m1| (SPADCALL |sm| (QREFELT $ 23)))
               (LETT |lm| (QVELT |sf| 1))
-              (LETT |b1| (SPADCALL |lm| |b| (QREFELT $ 81)))
+              (LETT |b1| (SPADCALL |lm| |b| (QREFELT $ 80)))
               (LETT |t1| (|SMITH;test1| |sm| |b1| |m1| $))
               (EXIT
                (COND ((QEQCAR |t1| 1) (CONS (CONS 1 "failed") NIL))
@@ -631,7 +631,7 @@
                               (SEQ (LETT |rm| (QVELT |sf| 2))
                                    (LETT |sol|
                                          (SPADCALL |rm| (QCDR |t2|)
-                                                   (QREFELT $ 81)))
+                                                   (QREFELT $ 80)))
                                    (LETT |lsol|
                                          (PROGN
                                           (LETT #2# NIL)
@@ -682,7 +682,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|SmithNormalForm| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 85))
+    (LETT $ (GETREFV 84))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|SmithNormalForm|
@@ -696,13 +696,13 @@
     (COND
      ((|domainEqual| |#4| (|Matrix| (|Integer|)))
       (PROGN
-       (QSETREFV $ 73 (CONS (|dispatchFunction| |SMITH;smith;2M;13|) $))
-       (QSETREFV $ 78
+       (QSETREFV $ 72 (CONS (|dispatchFunction| |SMITH;smith;2M;13|) $))
+       (QSETREFV $ 77
                  (CONS (|dispatchFunction| |SMITH;completeSmith;MR;14|) $))))
      ('T
       (PROGN
-       (QSETREFV $ 73 (CONS (|dispatchFunction| |SMITH;smith;2M;15|) $))
-       (QSETREFV $ 78
+       (QSETREFV $ 72 (CONS (|dispatchFunction| |SMITH;smith;2M;15|) $))
+       (QSETREFV $ 77
                  (CONS (|dispatchFunction| |SMITH;completeSmith;MR;16|) $)))))
     $))) 
 
@@ -722,29 +722,29 @@
               (|PositiveInteger|) (141 . |One|) (145 . *) (151 . ~=)
               (157 . |zero|) (163 . |scalarMatrix|) (169 . |horizConcat|)
               (175 . |rowEchelon|) (180 . |subMatrix|) (189 . =) (195 . |copy|)
-              (200 . >) (206 . -) (|Fraction| 6) (212 . |coerce|) (|Matrix| 55)
-              (|Mapping| 55 6)
-              (|MatrixCategoryFunctions2| 6 7 8 9 55 (|Vector| 55)
-                                          (|Vector| 55) 57)
-              (217 . |map|) (223 . |retract|) (228 . |inverse|)
-              (|Mapping| 6 55)
-              (|MatrixCategoryFunctions2| 55 (|Vector| 55) (|Vector| 55) 57 6 7
+              (200 . -) (|Fraction| 6) (206 . |coerce|) (|Matrix| 54)
+              (|Mapping| 54 6)
+              (|MatrixCategoryFunctions2| 6 7 8 9 54 (|Vector| 54)
+                                          (|Vector| 54) 56)
+              (211 . |map|) (217 . |retract|) (222 . |inverse|)
+              (|Mapping| 6 54)
+              (|MatrixCategoryFunctions2| 54 (|Vector| 54) (|Vector| 54) 56 6 7
                                           8 9)
-              (233 . |map|) |SMITH;hermite;2M;10|
+              (227 . |map|) |SMITH;hermite;2M;10|
               (|Record| (|:| |Hermite| 9) (|:| |eqMat| 9))
-              |SMITH;completeHermite;MR;11| (|Matrix| 10) (|Mapping| 69 69)
-              (|IntegerSmithNormalForm|) (239 . |smith|) (245 . |smith|)
-              (|Record| (|:| |Smith| 69) (|:| |leftEqMat| 69)
-                        (|:| |rightEqMat| 69))
-              (|Mapping| 74 69) (250 . |completeSmith|)
+              |SMITH;completeHermite;MR;11| (|Matrix| 10) (|Mapping| 68 68)
+              (|IntegerSmithNormalForm|) (233 . |smith|) (239 . |smith|)
+              (|Record| (|:| |Smith| 68) (|:| |leftEqMat| 68)
+                        (|:| |rightEqMat| 68))
+              (|Mapping| 73 68) (244 . |completeSmith|)
               (|Record| (|:| |Smith| 9) (|:| |leftEqMat| 9)
                         (|:| |rightEqMat| 9))
-              (256 . |completeSmith|) (261 . |transpose|) (266 . *) (272 . *)
+              (250 . |completeSmith|) (255 . |transpose|) (260 . *) (266 . *)
               (|Union| 8 '#1="failed")
-              (|Record| (|:| |particular| 82) (|:| |basis| (|List| 8)))
+              (|Record| (|:| |particular| 81) (|:| |basis| (|List| 8)))
               |SMITH;diophantineSystem;MColR;18|)
-           '#(|smith| 278 |hermite| 283 |diophantineSystem| 288 |completeSmith|
-              294 |completeHermite| 299)
+           '#(|smith| 272 |hermite| 277 |diophantineSystem| 282 |completeSmith|
+              288 |completeHermite| 293)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -771,7 +771,7 @@
                                        |#4| |#3|))
                                      T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 84
+                        (|makeByteWordVec2| 83
                                             '(1 9 10 0 11 3 9 6 0 10 10 12 1 6
                                               13 0 14 2 8 6 0 10 15 0 6 0 16 2
                                               6 17 0 0 18 0 6 0 19 1 8 0 20 21
@@ -786,12 +786,12 @@
                                               45 2 9 0 22 22 46 2 9 0 22 6 47 2
                                               9 0 0 0 48 1 9 0 0 49 5 9 0 0 10
                                               10 10 10 50 2 6 13 0 0 51 1 9 0 0
-                                              52 2 22 13 0 0 53 2 6 0 0 0 54 1
-                                              55 0 6 56 2 59 57 58 9 60 1 55 6
-                                              0 61 1 57 17 0 62 2 64 9 63 57 65
-                                              2 71 69 69 70 72 1 0 9 9 73 2 71
-                                              74 69 75 76 1 0 77 9 78 1 9 0 0
-                                              79 2 9 0 0 0 80 2 9 8 0 8 81 1 0
-                                              9 9 73 1 0 9 9 66 2 0 83 9 8 84 1
-                                              0 77 9 78 1 0 67 9 68)))))
+                                              52 2 6 0 0 0 53 1 54 0 6 55 2 58
+                                              56 57 9 59 1 54 6 0 60 1 56 17 0
+                                              61 2 63 9 62 56 64 2 70 68 68 69
+                                              71 1 0 9 9 72 2 70 73 68 74 75 1
+                                              0 76 9 77 1 9 0 0 78 2 9 0 0 0 79
+                                              2 9 8 0 8 80 1 0 9 9 72 1 0 9 9
+                                              65 2 0 82 9 8 83 1 0 76 9 77 1 0
+                                              66 9 67)))))
            '|lookupComplete|)) 

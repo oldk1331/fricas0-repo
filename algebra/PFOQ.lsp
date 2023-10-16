@@ -52,9 +52,7 @@
                   (SEQ
                    (LETT |m|
                          (|PFOQ;rat| |modulus| |d|
-                          (SPADCALL (SPADCALL |p| |bad| (QREFELT $ 43))
-                                    (QREFELT $ 42))
-                          $))
+                          (SPADCALL (* |p| |bad|) (QREFELT $ 42)) $))
                    (EXIT (COND ((EQL |n| |m|) |n|) (#2# 0)))))))))) 
 
 (SDEFUN |PFOQ;rat|
@@ -112,7 +110,7 @@
         (SPROG ((|r| (UPUP)))
                (SEQ
                 (COND
-                 ((OR (ZEROP (SPADCALL (QREFELT $ 45)))
+                 ((OR (ZEROP (SPADCALL (QREFELT $ 44)))
                       (EQL
                        (QVSIZE
                         (SPADCALL (SPADCALL |d| (QREFELT $ 15))
@@ -122,9 +120,9 @@
                  ('T
                   (SEQ
                    (LETT |r|
-                         (SPADCALL (SPADCALL (QREFELT $ 46)) (QREFELT $ 47)))
+                         (SPADCALL (SPADCALL (QREFELT $ 45)) (QREFELT $ 46)))
                    (EXIT
-                    (|PFOQ;ratcurve| |d| |r| (SPADCALL |r| (QREFELT $ 48))
+                    (|PFOQ;ratcurve| |d| |r| (SPADCALL |r| (QREFELT $ 47))
                      $)))))))) 
 
 (SDEFUN |PFOQ;order;FdU;5|
@@ -136,11 +134,11 @@
                   (ZEROP
                    (LETT |n|
                          (|PFOQ;possibleOrder|
-                          (LETT |d| (SPADCALL |d| (QREFELT $ 49))) $)))
+                          (LETT |d| (SPADCALL |d| (QREFELT $ 48))) $)))
                   (NULL
                    (SPADCALL
-                    (SPADCALL (SPADCALL |n| |d| (QREFELT $ 50)) (QREFELT $ 49))
-                    (QREFELT $ 51))))
+                    (SPADCALL (SPADCALL |n| |d| (QREFELT $ 49)) (QREFELT $ 48))
+                    (QREFELT $ 50))))
                  (CONS 1 "failed"))
                 ('T (CONS 0 |n|))))) 
 
@@ -155,15 +153,15 @@
                  ((ZEROP
                    (LETT |n|
                          (|PFOQ;possibleOrder|
-                          (LETT |d| (SPADCALL |d| (QREFELT $ 49))) $)))
+                          (LETT |d| (SPADCALL |d| (QREFELT $ 48))) $)))
                   (CONS 1 "failed"))
                  (#1='T
                   (SEQ
                    (LETT |g|
                          (SPADCALL
-                          (SPADCALL (SPADCALL |n| |d| (QREFELT $ 50))
-                                    (QREFELT $ 49))
-                          (QREFELT $ 53)))
+                          (SPADCALL (SPADCALL |n| |d| (QREFELT $ 49))
+                                    (QREFELT $ 48))
+                          (QREFELT $ 52)))
                    (EXIT
                     (COND ((QEQCAR |g| 1) (CONS 1 "failed"))
                           (#1# (CONS 0 (CONS |n| (QCDR |g|)))))))))))) 
@@ -198,7 +196,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$| (LIST '|PointsOfFiniteOrderRational| DV$1 DV$2 DV$3))
-          (LETT $ (GETREFV 57))
+          (LETT $ (GETREFV 56))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PointsOfFiniteOrderRational|
@@ -213,7 +211,7 @@
 (MAKEPROP '|PointsOfFiniteOrderRational| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|Union| 44 '#1="failed")
+              (|local| |#3|) (|Union| 43 '#1="failed")
               (|FiniteDivisor| 34 6 7 8) |PFOQ;order;FdU;5| (|Boolean|)
               |PFOQ;torsion?;FdB;1| (|FractionalIdeal| 6 24 7 8) (0 . |ideal|)
               (|Vector| 8) (5 . |numer|) (|Integer|) (10 . |minIndex|)
@@ -225,13 +223,13 @@
               (|PointsOfFiniteOrderTools| 6 7) (60 . |badNum|) (|Fraction| 18)
               (65 . |resultant|) (71 . |numer|) (76 . |denom|) (81 . |badNum|)
               (|List| $) (86 . |lcm|) (|PositiveInteger|) (91 . |getGoodPrime|)
-              (96 . *) (|NonNegativeInteger|) (102 . |genus|)
-              (106 . |definingPolynomial|) (110 . |polyred|)
-              (115 . |doubleDisc|) (120 . |reduce|) (125 . *)
-              (131 . |principal?|) (|Union| 8 '"failed") (136 . |generator|)
-              (|Record| (|:| |order| 44) (|:| |function| 8))
-              (|Union| 54 '#2="failed") |PFOQ;torsionIfCan;FdU;6|)
-           '#(|torsionIfCan| 141 |torsion?| 146 |order| 151) 'NIL
+              (|NonNegativeInteger|) (96 . |genus|)
+              (100 . |definingPolynomial|) (104 . |polyred|)
+              (109 . |doubleDisc|) (114 . |reduce|) (119 . *)
+              (125 . |principal?|) (|Union| 8 '"failed") (130 . |generator|)
+              (|Record| (|:| |order| 43) (|:| |function| 8))
+              (|Union| 53 '#2="failed") |PFOQ;torsionIfCan;FdU;6|)
+           '#(|torsionIfCan| 135 |torsion?| 140 |order| 145) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -258,7 +256,7 @@
                                                    |#1| |#2| |#3|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 56
+                        (|makeByteWordVec2| 55
                                             '(1 10 14 0 15 1 14 16 0 17 1 16 18
                                               0 19 0 6 0 20 0 7 0 21 2 16 8 0
                                               18 22 1 8 7 0 23 1 8 24 0 25 1 24
@@ -266,9 +264,9 @@
                                               1 14 6 0 30 1 32 31 6 33 2 6 34 0
                                               0 35 1 34 18 0 36 1 34 18 0 37 1
                                               32 18 7 38 1 18 0 39 40 1 32 41
-                                              18 42 2 18 0 41 0 43 0 8 44 45 0
-                                              8 7 46 1 32 7 7 47 1 32 18 7 48 1
-                                              10 0 0 49 2 10 0 18 0 50 1 10 12
-                                              0 51 1 10 52 0 53 1 0 55 10 56 1
-                                              0 12 10 13 1 0 9 10 11)))))
+                                              18 42 0 8 43 44 0 8 7 45 1 32 7 7
+                                              46 1 32 18 7 47 1 10 0 0 48 2 10
+                                              0 18 0 49 1 10 12 0 50 1 10 51 0
+                                              52 1 0 54 10 55 1 0 12 10 13 1 0
+                                              9 10 11)))))
            '|lookupComplete|)) 

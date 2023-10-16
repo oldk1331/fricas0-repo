@@ -30,7 +30,7 @@
                             |l| (QREFELT $ 21))))
                     (EXIT
                      (COND
-                      ((SPADCALL (QVELT |u| 2) 1 (QREFELT $ 23))
+                      ((> (QVELT |u| 2) 1)
                        (LETT |l|
                              (SPADCALL |l|
                                        (PROG1
@@ -104,7 +104,7 @@
                                 (EXIT (NREVERSE #7#)))))
                     (SEQ (LETT |rr| 1) (LETT #4# (- (QVELT |u| 2) 1)) G190
                          (COND ((|greater_SI| |rr| #4#) (GO G191)))
-                         (SEQ (LETT |l| (SPADCALL |l| |m| (QREFELT $ 26)))
+                         (SEQ (LETT |l| (SPADCALL |l| |m| (QREFELT $ 24)))
                               (EXIT
                                (LETT |m|
                                      (PROGN
@@ -136,7 +136,7 @@
                                            (LETT #2# (CDR #2#)) (GO G190) G191
                                            (EXIT (NREVERSE #3#)))))))
                          (LETT |rr| (|inc_SI| |rr|)) (GO G190) G191 (EXIT NIL))
-                    (EXIT (LETT |l| (SPADCALL |l| |m| (QREFELT $ 26)))))
+                    (EXIT (LETT |l| (SPADCALL |l| |m| (QREFELT $ 24)))))
                    (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
               (EXIT |l|)))) 
 
@@ -146,16 +146,16 @@
         (SPROG
          ((|fr| (|Factored| (|SparseUnivariatePolynomial| (|Integer|))))
           (#1=#:G139 NIL) (|f| NIL))
-         (SEQ (LETT |fr| (|spadConstant| $ 29))
-              (SEQ (LETT |f| NIL) (LETT #1# (SPADCALL |n| (QREFELT $ 27))) G190
+         (SEQ (LETT |fr| (|spadConstant| $ 27))
+              (SEQ (LETT |f| NIL) (LETT #1# (SPADCALL |n| (QREFELT $ 25))) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (LETT |fr|
-                           (SPADCALL |fr| (SPADCALL |f| 1 (QREFELT $ 30))
-                                     (QREFELT $ 31)))))
+                           (SPADCALL |fr| (SPADCALL |f| 1 (QREFELT $ 28))
+                                     (QREFELT $ 29)))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |fr|)))) 
 
@@ -188,7 +188,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|CyclotomicPolynomialPackage|))
-          (LETT $ (GETREFV 33))
+          (LETT $ (GETREFV 31))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CyclotomicPolynomialPackage| NIL
@@ -207,13 +207,12 @@
               (10 . |One|) (|NonNegativeInteger|) (14 . |monomial|) (20 . -)
               (26 . |multiplyExponents|)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (32 . |monicDivide|) (|Boolean|) (38 . >)
-              |CYCLOTOM;cyclotomic;ISup;1| (|List| 14) (44 . |append|)
-              |CYCLOTOM;cyclotomicDecomposition;IL;2| (|Factored| 14)
-              (50 . |One|) (54 . |primeFactor|) (60 . *)
+              (32 . |monicDivide|) |CYCLOTOM;cyclotomic;ISup;1| (|List| 14)
+              (38 . |append|) |CYCLOTOM;cyclotomicDecomposition;IL;2|
+              (|Factored| 14) (44 . |One|) (48 . |primeFactor|) (54 . *)
               |CYCLOTOM;cyclotomicFactorization;IF;3|)
-           '#(|cyclotomicFactorization| 66 |cyclotomicDecomposition| 71
-              |cyclotomic| 76)
+           '#(|cyclotomicFactorization| 60 |cyclotomicDecomposition| 65
+              |cyclotomic| 70)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -236,13 +235,13 @@
                                   (|Integer|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 32
+                        (|makeByteWordVec2| 30
                                             '(1 8 6 7 9 1 6 12 0 13 0 14 0 15 2
                                               14 0 7 16 17 2 14 0 0 0 18 2 14 0
-                                              0 16 19 2 14 20 0 0 21 2 16 22 0
-                                              0 23 2 25 0 0 0 26 0 28 0 29 2 28
-                                              0 14 16 30 2 28 0 0 0 31 1 0 28 7
-                                              32 1 0 25 7 27 1 0 14 7 24)))))
+                                              0 16 19 2 14 20 0 0 21 2 23 0 0 0
+                                              24 0 26 0 27 2 26 0 14 16 28 2 26
+                                              0 0 0 29 1 0 26 7 30 1 0 23 7 25
+                                              1 0 14 7 22)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CyclotomicPolynomialPackage| 'NILADIC T) 

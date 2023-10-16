@@ -293,7 +293,7 @@
                                (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                (EXIT NIL))
                           (COND
-                           ((SPADCALL |n| |nmin| (QREFELT $ 44))
+                           ((> |n| |nmin|)
                             (SEQ
                              (LETT |change|
                                    (SPADCALL
@@ -315,20 +315,18 @@
                                  (LETT #1#
                                        (VECTOR
                                         (SPADCALL |table| 1 (QREFELT $ 43))
-                                        |change|
-                                        (+ (SPADCALL 2 |pts| (QREFELT $ 45)) 1)
-                                        'T))
+                                        |change| (+ (* 2 |pts|) 1) 'T))
                                  (GO #5#))))))))
                           (LETT |oldsum| |newsum|) (LETT |oldest| |newest|)
                           (LETT |delta| (SPADCALL |delta| 2 (QREFELT $ 10)))
-                          (LETT |pts| (SPADCALL 2 |pts| (QREFELT $ 45)))
+                          (LETT |pts| (* 2 |pts|))
                           (EXIT
                            (LETT |qx1| (SPADCALL |table| 1 (QREFELT $ 43)))))
                      (LETT |n| (|inc_SI| |n|)) (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (VECTOR (SPADCALL |table| 1 (QREFELT $ 43))
-                         (SPADCALL (SPADCALL 5 4 (QREFELT $ 47)) |change|
-                                   (QREFELT $ 48))
+                         (SPADCALL (SPADCALL 5 4 (QREFELT $ 45)) |change|
+                                   (QREFELT $ 46))
                          (+ |pts| 1) NIL))))
           #5# (EXIT #1#)))) 
 
@@ -426,7 +424,7 @@
                                            |oldsum| (QREFELT $ 8))
                                  3 (QREFELT $ 10)))
                           (COND
-                           ((SPADCALL |n| |nmin| (QREFELT $ 44))
+                           ((> |n| |nmin|)
                             (SEQ
                              (LETT |change|
                                    (SPADCALL
@@ -446,23 +444,18 @@
                                  (LETT #1#
                                        (VECTOR |newest|
                                                (SPADCALL
-                                                (SPADCALL 5 4 (QREFELT $ 47))
-                                                |change| (QREFELT $ 48))
-                                               (+
-                                                (SPADCALL 2 |pts|
-                                                          (QREFELT $ 45))
-                                                1)
-                                               'T))
+                                                (SPADCALL 5 4 (QREFELT $ 45))
+                                                |change| (QREFELT $ 46))
+                                               (+ (* 2 |pts|) 1) 'T))
                                  (GO #3#))))))))
                           (LETT |oldsum| |newsum|) (LETT |oldest| |newest|)
                           (LETT |delta| (SPADCALL |delta| 2 (QREFELT $ 10)))
-                          (EXIT
-                           (LETT |pts| (SPADCALL 2 |pts| (QREFELT $ 45)))))
+                          (EXIT (LETT |pts| (* 2 |pts|))))
                      (LETT |n| (|inc_SI| |n|)) (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (VECTOR |newest|
-                         (SPADCALL (SPADCALL 5 4 (QREFELT $ 47)) |change|
-                                   (QREFELT $ 48))
+                         (SPADCALL (SPADCALL 5 4 (QREFELT $ 45)) |change|
+                                   (QREFELT $ 46))
                          (+ |pts| 1) NIL))))
           #3# (EXIT #1#)))) 
 
@@ -552,7 +545,7 @@
                                 (|NUMQUAD;trapclosed| |func| |a| |delta|
                                  |oldsum| |pts| $))
                           (COND
-                           ((SPADCALL |n| |nmin| (QREFELT $ 44))
+                           ((> |n| |nmin|)
                             (SEQ
                              (LETT |change|
                                    (SPADCALL
@@ -572,22 +565,17 @@
                                  (LETT #1#
                                        (VECTOR |newsum|
                                                (SPADCALL
-                                                (SPADCALL 5 4 (QREFELT $ 47))
-                                                |change| (QREFELT $ 48))
-                                               (+
-                                                (SPADCALL 2 |pts|
-                                                          (QREFELT $ 45))
-                                                1)
-                                               'T))
+                                                (SPADCALL 5 4 (QREFELT $ 45))
+                                                |change| (QREFELT $ 46))
+                                               (+ (* 2 |pts|) 1) 'T))
                                  (GO #3#))))))))
                           (LETT |delta| (SPADCALL |delta| 2 (QREFELT $ 10)))
-                          (EXIT
-                           (LETT |pts| (SPADCALL 2 |pts| (QREFELT $ 45)))))
+                          (EXIT (LETT |pts| (* 2 |pts|))))
                      (LETT |n| (|inc_SI| |n|)) (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (VECTOR |newsum|
-                         (SPADCALL (SPADCALL 5 4 (QREFELT $ 47)) |change|
-                                   (QREFELT $ 48))
+                         (SPADCALL (SPADCALL 5 4 (QREFELT $ 45)) |change|
+                                   (QREFELT $ 46))
                          (+ |pts| 1) NIL))))
           #3# (EXIT #1#)))) 
 
@@ -638,7 +626,7 @@
                           (SPADCALL |table| |n| |newest| (QREFELT $ 42))
                           (LETT |nine| 9)
                           (SPADCALL (SPADCALL |newest| (QREFELT $ 13))
-                                    (QREFELT $ 49))
+                                    (QREFELT $ 47))
                           (SEQ (LETT |j| 2) (LETT #2# |n|) G190
                                (COND ((|greater_SI| |j| #2#) (GO G191)))
                                (SEQ (LETT |i| (- (+ |n| 1) |j|))
@@ -661,7 +649,7 @@
                                (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                (EXIT NIL))
                           (COND
-                           ((SPADCALL |n| |nmin| (QREFELT $ 44))
+                           ((> |n| |nmin|)
                             (SEQ
                              (LETT |change|
                                    (SPADCALL
@@ -683,22 +671,22 @@
                                  (LETT #1#
                                        (VECTOR
                                         (SPADCALL |table| 1 (QREFELT $ 43))
-                                        (SPADCALL (SPADCALL 3 2 (QREFELT $ 47))
-                                                  |change| (QREFELT $ 48))
-                                        (SPADCALL 3 |pts| (QREFELT $ 45)) 'T))
+                                        (SPADCALL (SPADCALL 3 2 (QREFELT $ 45))
+                                                  |change| (QREFELT $ 46))
+                                        (* 3 |pts|) 'T))
                                  (GO #5=#:G195))))))))
-                          (SPADCALL (SPADCALL |table| (QREFELT $ 50))
-                                    (QREFELT $ 49))
+                          (SPADCALL (SPADCALL |table| (QREFELT $ 48))
+                                    (QREFELT $ 47))
                           (LETT |oldsum| |newsum|) (LETT |oldest| |newest|)
                           (LETT |delta| (SPADCALL |delta| 3 (QREFELT $ 10)))
-                          (LETT |pts| (SPADCALL 3 |pts| (QREFELT $ 45)))
+                          (LETT |pts| (* 3 |pts|))
                           (EXIT
                            (LETT |qx1| (SPADCALL |table| 1 (QREFELT $ 43)))))
                      (LETT |n| (|inc_SI| |n|)) (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (VECTOR (SPADCALL |table| 1 (QREFELT $ 43))
-                         (SPADCALL (SPADCALL 3 2 (QREFELT $ 47)) |change|
-                                   (QREFELT $ 48))
+                         (SPADCALL (SPADCALL 3 2 (QREFELT $ 45)) |change|
+                                   (QREFELT $ 46))
                          |pts| NIL))))
           #5# (EXIT #1#)))) 
 
@@ -738,9 +726,9 @@
                                            |oldsum| (QREFELT $ 8))
                                  8 (QREFELT $ 10)))
                           (SPADCALL (SPADCALL |newest| (QREFELT $ 13))
-                                    (QREFELT $ 49))
+                                    (QREFELT $ 47))
                           (COND
-                           ((SPADCALL |n| |nmin| (QREFELT $ 44))
+                           ((> |n| |nmin|)
                             (SEQ
                              (LETT |change|
                                    (SPADCALL
@@ -760,21 +748,18 @@
                                  (LETT #1#
                                        (VECTOR |newest|
                                                (SPADCALL
-                                                (SPADCALL 3 2 (QREFELT $ 47))
-                                                |change| (QREFELT $ 48))
-                                               (SPADCALL 3 |pts|
-                                                         (QREFELT $ 45))
-                                               'T))
+                                                (SPADCALL 3 2 (QREFELT $ 45))
+                                                |change| (QREFELT $ 46))
+                                               (* 3 |pts|) 'T))
                                  (GO #3=#:G205))))))))
                           (LETT |oldsum| |newsum|) (LETT |oldest| |newest|)
                           (LETT |delta| (SPADCALL |delta| 3 (QREFELT $ 10)))
-                          (EXIT
-                           (LETT |pts| (SPADCALL 3 |pts| (QREFELT $ 45)))))
+                          (EXIT (LETT |pts| (* 3 |pts|))))
                      (LETT |n| (|inc_SI| |n|)) (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (VECTOR |newest|
-                         (SPADCALL (SPADCALL 3 2 (QREFELT $ 47)) |change|
-                                   (QREFELT $ 48))
+                         (SPADCALL (SPADCALL 3 2 (QREFELT $ 45)) |change|
+                                   (QREFELT $ 46))
                          |pts| NIL))))
           #3# (EXIT #1#)))) 
 
@@ -806,9 +791,9 @@
                                 (|NUMQUAD;trapopen| |func| |a| |delta| |oldsum|
                                  |pts| $))
                           (SPADCALL (SPADCALL |newsum| (QREFELT $ 13))
-                                    (QREFELT $ 49))
+                                    (QREFELT $ 47))
                           (COND
-                           ((SPADCALL |n| |nmin| (QREFELT $ 44))
+                           ((> |n| |nmin|)
                             (SEQ
                              (LETT |change|
                                    (SPADCALL
@@ -828,20 +813,17 @@
                                  (LETT #1#
                                        (VECTOR |newsum|
                                                (SPADCALL
-                                                (SPADCALL 3 2 (QREFELT $ 47))
-                                                |change| (QREFELT $ 48))
-                                               (SPADCALL 3 |pts|
-                                                         (QREFELT $ 45))
-                                               'T))
+                                                (SPADCALL 3 2 (QREFELT $ 45))
+                                                |change| (QREFELT $ 46))
+                                               (* 3 |pts|) 'T))
                                  (GO #3=#:G214))))))))
                           (LETT |delta| (SPADCALL |delta| 3 (QREFELT $ 10)))
-                          (EXIT
-                           (LETT |pts| (SPADCALL 3 |pts| (QREFELT $ 45)))))
+                          (EXIT (LETT |pts| (* 3 |pts|))))
                      (LETT |n| (|inc_SI| |n|)) (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (VECTOR |newsum|
-                         (SPADCALL (SPADCALL 3 2 (QREFELT $ 47)) |change|
-                                   (QREFELT $ 48))
+                         (SPADCALL (SPADCALL 3 2 (QREFELT $ 45)) |change|
+                                   (QREFELT $ 46))
                          |pts| NIL))))
           #3# (EXIT #1#)))) 
 
@@ -919,7 +901,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|NumericalQuadrature| DV$1))
-          (LETT $ (GETREFV 54))
+          (LETT $ (GETREFV 52))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|NumericalQuadrature| (LIST DV$1)
@@ -943,13 +925,13 @@
               |NUMQUAD;trapezoidal;M4F2IR;6| |NUMQUAD;atrapezoidal;M4F3IR;3|
               (58 . *) (64 . |coerce|) (|OutputPackage|) (69 . |output|)
               (|Boolean|) (75 . =) (81 . <) (|PositiveInteger|) (87 . *)
-              (|Vector| 6) (93 . |setelt!|) (100 . |elt|) (106 . >) (112 . *)
-              (|Fraction| 9) (118 . /) (124 . *) (130 . |output|)
-              (135 . |coerce|) |NUMQUAD;rombergo;M4F2IR;7|
-              |NUMQUAD;simpsono;M4F2IR;8| |NUMQUAD;trapezoidalo;M4F2IR;9|)
-           '#(|trapezoidalo| 140 |trapezoidal| 151 |simpsono| 162 |simpson| 173
-              |rombergo| 184 |romberg| 195 |atrapezoidal| 206 |asimpson| 218
-              |aromberg| 230)
+              (|Vector| 6) (93 . |setelt!|) (100 . |elt|) (|Fraction| 9)
+              (106 . /) (112 . *) (118 . |output|) (123 . |coerce|)
+              |NUMQUAD;rombergo;M4F2IR;7| |NUMQUAD;simpsono;M4F2IR;8|
+              |NUMQUAD;trapezoidalo;M4F2IR;9|)
+           '#(|trapezoidalo| 128 |trapezoidal| 139 |simpsono| 150 |simpson| 161
+              |rombergo| 172 |romberg| 183 |atrapezoidal| 194 |asimpson| 206
+              |aromberg| 218)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -1030,7 +1012,7 @@
                                   (|Integer|) (|Integer|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 53
+                        (|makeByteWordVec2| 51
                                             '(0 6 0 7 2 6 0 0 0 8 2 6 0 0 9 10
                                               2 6 0 0 0 11 1 6 12 0 13 0 6 0 17
                                               3 18 12 0 9 12 19 1 12 0 20 21 1
@@ -1038,13 +1020,12 @@
                                               26 2 6 0 0 0 32 1 9 12 0 33 2 34
                                               24 20 12 35 2 6 36 0 0 37 2 6 36
                                               0 0 38 2 6 0 39 0 40 3 41 6 0 9 6
-                                              42 2 41 6 0 9 43 2 9 36 0 0 44 2
-                                              9 0 39 0 45 2 46 0 9 9 47 2 6 0
-                                              46 0 48 1 34 24 12 49 1 41 12 0
-                                              50 7 0 14 15 6 6 6 6 9 9 53 7 0
+                                              42 2 41 6 0 9 43 2 44 0 9 9 45 2
+                                              6 0 44 0 46 1 34 24 12 47 1 41 12
+                                              0 48 7 0 14 15 6 6 6 6 9 9 51 7 0
                                               14 15 6 6 6 6 9 9 30 7 0 14 15 6
-                                              6 6 6 9 9 52 7 0 14 15 6 6 6 6 9
-                                              9 28 7 0 14 15 6 6 6 6 9 9 51 7 0
+                                              6 6 6 9 9 50 7 0 14 15 6 6 6 6 9
+                                              9 28 7 0 14 15 6 6 6 6 9 9 49 7 0
                                               14 15 6 6 6 6 9 9 16 8 0 14 15 6
                                               6 6 6 9 9 9 31 8 0 14 15 6 6 6 6
                                               9 9 9 29 8 0 14 15 6 6 6 6 9 9 9

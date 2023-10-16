@@ -5,18 +5,17 @@
           (|ba| (|Vector| AS)) (|vs| (|Vector| S)) (|vr| (|Vector| R)))
          (SEQ
           (COND
-           ((SPADCALL (SPADCALL (QREFELT $ 11)) (SPADCALL (QREFELT $ 12))
-                      (QREFELT $ 14))
+           ((> (SPADCALL (QREFELT $ 11)) (SPADCALL (QREFELT $ 12)))
             (|error| "map: ranks of algebras do not fit"))
            (#4='T
-            (SEQ (LETT |vr| (SPADCALL |u| (QREFELT $ 16)))
-                 (LETT |vs| (SPADCALL |fn| |vr| (QREFELT $ 20)))
+            (SEQ (LETT |vr| (SPADCALL |u| (QREFELT $ 14)))
+                 (LETT |vs| (SPADCALL |fn| |vr| (QREFELT $ 18)))
                  (EXIT
                   (COND
                    ((EQL (SPADCALL (QREFELT $ 11)) (SPADCALL (QREFELT $ 12)))
-                    (SPADCALL |vs| (QREFELT $ 21)))
+                    (SPADCALL |vs| (QREFELT $ 19)))
                    (#4#
-                    (SEQ (LETT |ba| (SPADCALL (QREFELT $ 23)))
+                    (SEQ (LETT |ba| (SPADCALL (QREFELT $ 21)))
                          (EXIT
                           (SPADCALL |vs|
                                     (PROGN
@@ -32,13 +31,13 @@
                                             (SETELT #3# #1#
                                                     (SPADCALL |ba| |i|
                                                               (QREFELT $
-                                                                       26)))))
+                                                                       24)))))
                                           (LETT #1#
                                                 (PROG1 (|inc_SI| #1#)
                                                   (LETT |i| (|inc_SI| |i|))))
                                           (GO G190) G191 (EXIT NIL))
                                      #3#)
-                                    (QREFELT $ 27))))))))))))) 
+                                    (QREFELT $ 25))))))))))))) 
 
 (DECLAIM (NOTINLINE |FramedNonAssociativeAlgebraFunctions2;|)) 
 
@@ -76,7 +75,7 @@
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$|
           (LIST '|FramedNonAssociativeAlgebraFunctions2| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 29))
+    (LETT $ (GETREFV 27))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|FramedNonAssociativeAlgebraFunctions2|
@@ -93,12 +92,12 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|PositiveInteger|) (0 . |rank|)
-              (4 . |rank|) (|Boolean|) (8 . >) (|Vector| 7)
-              (14 . |coordinates|) (|Vector| 9) (|Mapping| 9 7)
-              (|VectorFunctions2| 7 9) (19 . |map|) (25 . |represents|)
-              (|Vector| $) (30 . |basis|) (|Integer|) (|Vector| 8) (34 . |elt|)
-              (40 . |represents|) |FRNAAF2;map;MARAS;1|)
-           '#(|map| 46) 'NIL
+              (4 . |rank|) (|Vector| 7) (8 . |coordinates|) (|Vector| 9)
+              (|Mapping| 9 7) (|VectorFunctions2| 7 9) (13 . |map|)
+              (19 . |represents|) (|Vector| $) (24 . |basis|) (|Integer|)
+              (|Vector| 8) (28 . |elt|) (34 . |represents|)
+              |FRNAAF2;map;MARAS;1|)
+           '#(|map| 40) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -107,10 +106,9 @@
                              (LIST
                               '((|map| (|#3| (|Mapping| |#4| |#2|) |#1|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 28
-                                            '(0 6 10 11 0 8 10 12 2 10 13 0 0
-                                              14 1 6 15 0 16 2 19 17 18 15 20 1
-                                              8 0 17 21 0 8 22 23 2 25 8 0 24
-                                              26 2 8 0 17 22 27 2 0 8 18 6
-                                              28)))))
+                        (|makeByteWordVec2| 26
+                                            '(0 6 10 11 0 8 10 12 1 6 13 0 14 2
+                                              17 15 16 13 18 1 8 0 15 19 0 8 20
+                                              21 2 23 8 0 22 24 2 8 0 15 20 25
+                                              2 0 8 16 6 26)))))
            '|lookupComplete|)) 

@@ -127,8 +127,7 @@
                  (SEQ (EXIT (SPADCALL |att| |f1| (QREFELT $ 28))))
                  (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
             (COND
-             ((SPADCALL (SPADCALL (QVELT |rp| 1) (QREFELT $ 17)) 0
-                        (QREFELT $ 29))
+             ((> (SPADCALL (QVELT |rp| 1) (QREFELT $ 17)) 0)
               (SEQ
                (COND
                 ((EQUAL (QVELT |rp| 0) "Transform")
@@ -169,7 +168,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|XmlElement|))
-          (LETT $ (GETREFV 30))
+          (LETT $ (GETREFV 29))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|XmlElement| NIL (CONS 1 $))
@@ -189,9 +188,9 @@
               (|NonNegativeInteger|) (|List| $$) (10 . |#|) (|List| 7)
               |XMLEL;coerce;$L;5| (15 . |concat|) (21 . |concat|) (|Boolean|)
               |XMLEL;empty?;$B;6| (|Void|) (|TextFile|)
-              |XMLEL;outputVRML;$TfV;7| (27 . |writeLine!|) (33 . |outputVRML|)
-              (39 . >))
-           '#(|xmlElement| 45 |outputVRML| 59 |empty?| 65 |coerce| 70) 'NIL
+              |XMLEL;outputVRML;$TfV;7| (27 . |writeLine!|)
+              (33 . |outputVRML|))
+           '#(|xmlElement| 39 |outputVRML| 53 |empty?| 59 |coerce| 64) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -210,13 +209,13 @@
                               '((|coerce| ((|List| (|String|)) $$)) T)
                               '((|outputVRML| ((|Void|) $$ (|TextFile|))) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 29
+                        (|makeByteWordVec2| 28
                                             '(1 12 7 0 13 1 7 0 8 14 1 16 15 0
                                               17 2 18 0 0 0 20 2 18 0 0 7 21 2
-                                              25 7 0 7 27 2 12 24 0 25 28 2 15
-                                              22 0 0 29 3 0 0 7 7 9 11 3 0 0 7
-                                              8 9 10 2 0 24 0 25 26 1 0 22 0 23
-                                              1 0 18 0 19)))))
+                                              25 7 0 7 27 2 12 24 0 25 28 3 0 0
+                                              7 7 9 11 3 0 0 7 8 9 10 2 0 24 0
+                                              25 26 1 0 22 0 23 1 0 18 0
+                                              19)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|XmlElement| 'NILADIC T) 

@@ -178,7 +178,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -261,7 +261,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -369,7 +369,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -452,7 +452,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -584,7 +584,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -667,7 +667,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -775,7 +775,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -858,7 +858,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -1051,7 +1051,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -1134,7 +1134,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -1242,7 +1242,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -1325,7 +1325,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -1457,7 +1457,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -1540,7 +1540,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -1648,7 +1648,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -1731,7 +1731,7 @@
            (SEQ (LETT |checkPF| |check|)
                 (LETT |pp|
                       (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
-                                |checkPF| (QREFELT $ 61)))
+                                |checkPF| (QREFELT $ 60)))
                 (EXIT
                  (COND
                   ((QEQCAR |pp| 0)
@@ -1813,7 +1813,7 @@
          (SEQ
           (EXIT
            (COND
-            ((SPADCALL (LENGTH |list|) 1 (QREFELT $ 62))
+            ((SPADCALL (LENGTH |list|) 1 (QREFELT $ 61))
              (|error| "check_sol_mod_diff: #list ~= 1"))
             (#8='T
              (SEQ (LETT |n0| (LENGTH (|SPADfirst| |list|)))
@@ -1828,7 +1828,7 @@
                                 (SEQ
                                  (SETELT $ 56
                                          (SPADCALL (+ (RANDOM 2000000) 2000000)
-                                                   (QREFELT $ 65)))
+                                                   (QREFELT $ 64)))
                                  (LETT |lpt| NIL) (LETT |qval| 0)
                                  (SEQ (LETT |var| NIL) (LETT #7# |vars|) G190
                                       (COND
@@ -1857,7 +1857,7 @@
                                               (EXIT
                                                (COND
                                                 ((SPADCALL (LENGTH |gvl|) 1
-                                                           (QREFELT $ 66))
+                                                           (QREFELT $ 65))
                                                  "check_sol_mod_diff: #gvl ~= 1")
                                                 ('T
                                                  (SEQ
@@ -1878,7 +1878,7 @@
                                                                   (QREFELT $
                                                                            56)
                                                                   (QREFELT $
-                                                                           69)))
+                                                                           68)))
                                                   (LETT |ord| |sigma0|)
                                                   (SEQ
                                                    (EXIT
@@ -1896,7 +1896,7 @@
                                                             ((SPADCALL
                                                               (ELT_U32 |pa|
                                                                        |i|)
-                                                              0 (QREFELT $ 62))
+                                                              0 (QREFELT $ 61))
                                                              (SEQ
                                                               (LETT |ord| |i|)
                                                               (EXIT
@@ -1951,7 +1951,7 @@
                                                                      (QREFELT $
                                                                               56)
                                                                      (QREFELT $
-                                                                              69)))
+                                                                              68)))
                                                               (EXIT
                                                                (COND
                                                                 ((SPADCALL
@@ -1959,7 +1959,7 @@
                                                                            |ord|)
                                                                   |c0|
                                                                   (QREFELT $
-                                                                           62))
+                                                                           61))
                                                                  (SEQ
                                                                   (LETT
                                                                    |sigma0|
@@ -2039,7 +2039,7 @@
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|ModularHermitePadeSolver| DV$1 DV$2))
-    (LETT $ (GETREFV 72))
+    (LETT $ (GETREFV 71))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|ModularHermitePadeSolver|
@@ -2113,7 +2113,7 @@
               (PROGN
                (QSETREFV $ 56 (SPADCALL (QREFELT $ 55)))
                (COND
-                ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+                ((> (QREFELT $ 56) 0)
                  (COND
                   ((< (QREFELT $ 56) 32000000)
                    (COND
@@ -2170,7 +2170,7 @@
             (PROGN
              (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
              (COND
-              ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+              ((> (QREFELT $ 56) 0)
                (COND
                 ((< (QREFELT $ 56) 32000000)
                  (COND
@@ -2239,7 +2239,7 @@
             (PROGN
              (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
              (COND
-              ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+              ((> (QREFELT $ 56) 0)
                (COND
                 ((< (QREFELT $ 56) 32000000)
                  (COND
@@ -2295,7 +2295,7 @@
           (PROGN
            (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+            ((> (QREFELT $ 56) 0)
              (COND
               ((< (QREFELT $ 56) 32000000)
                (COND
@@ -2375,7 +2375,7 @@
             (PROGN
              (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
              (COND
-              ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+              ((> (QREFELT $ 56) 0)
                (COND
                 ((< (QREFELT $ 56) 32000000)
                  (COND
@@ -2431,7 +2431,7 @@
           (PROGN
            (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+            ((> (QREFELT $ 56) 0)
              (COND
               ((< (QREFELT $ 56) 32000000)
                (COND
@@ -2498,7 +2498,7 @@
           (PROGN
            (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+            ((> (QREFELT $ 56) 0)
              (COND
               ((< (QREFELT $ 56) 32000000)
                (COND
@@ -2553,7 +2553,7 @@
         (PROGN
          (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
          (COND
-          ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+          ((> (QREFELT $ 56) 0)
            (COND
             ((< (QREFELT $ 56) 32000000)
              (COND
@@ -2648,7 +2648,7 @@
             (PROGN
              (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
              (COND
-              ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+              ((> (QREFELT $ 56) 0)
                (COND
                 ((< (QREFELT $ 56) 32000000)
                  (COND
@@ -2704,7 +2704,7 @@
           (PROGN
            (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+            ((> (QREFELT $ 56) 0)
              (COND
               ((< (QREFELT $ 56) 32000000)
                (COND
@@ -2771,7 +2771,7 @@
           (PROGN
            (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+            ((> (QREFELT $ 56) 0)
              (COND
               ((< (QREFELT $ 56) 32000000)
                (COND
@@ -2826,7 +2826,7 @@
         (PROGN
          (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
          (COND
-          ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+          ((> (QREFELT $ 56) 0)
            (COND
             ((< (QREFELT $ 56) 32000000)
              (COND
@@ -2904,7 +2904,7 @@
           (PROGN
            (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+            ((> (QREFELT $ 56) 0)
              (COND
               ((< (QREFELT $ 56) 32000000)
                (COND
@@ -2959,7 +2959,7 @@
         (PROGN
          (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
          (COND
-          ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+          ((> (QREFELT $ 56) 0)
            (COND
             ((< (QREFELT $ 56) 32000000)
              (COND
@@ -3025,7 +3025,7 @@
         (PROGN
          (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
          (COND
-          ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+          ((> (QREFELT $ 56) 0)
            (COND
             ((< (QREFELT $ 56) 32000000)
              (COND
@@ -3079,7 +3079,7 @@
       (PROGN
        (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
        (COND
-        ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
+        ((> (QREFELT $ 56) 0)
          (COND
           ((< (QREFELT $ 56) 32000000)
            (COND
@@ -3132,14 +3132,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|Union| (|Matrix| (|SparseUnivariatePolynomial| 23)) 32)
               (|List| (|List| (|Fraction| 23))) (|List| 23) (|Symbol|)
-              (|NonNegativeInteger|) (|Mapping| 27 68 23 23)
+              (|NonNegativeInteger|) (|Mapping| 27 67 23 23)
               (|Union| '"good" '"reject" '"no_solution")
               (|Mapping| 14 (|List| (|SparseUnivariatePolynomial| 23)))
               (|ModularHermitePade|) (0 . |HP_solve_I|)
               (|Union| (|Matrix| (|SparseUnivariatePolynomial| 7)) 32)
               (|List| (|List| 6)) (|Mapping| 14 34) (10 . |HP_solve|)
-              (|Union| 68 '"failed") (|Integer|) (21 . |LLFI_to_LPA|)
-              (|List| 11) (28 . |LLF_to_LPA|) (|Vector| 67)
+              (|Union| 67 '"failed") (|Integer|) (21 . |LLFI_to_LPA|)
+              (|List| 11) (28 . |LLF_to_LPA|) (|Vector| 66)
               (|Vector| (|SparseUnivariatePolynomial| 23))
               (37 . |VSUPI_to_VPA|) (|Vector| (|SparseUnivariatePolynomial| 7))
               (43 . |VSUPS_to_VPA|) (|Boolean|) (51 . ~=)
@@ -3174,13 +3174,12 @@
                           (|SparseUnivariatePolynomial|
                            (|Polynomial| (|AlgebraicNumber|)))))
               (128 . |HP_solve_PA|) (139 . |characteristic|) '|p|
-              (143 . |Zero|) (147 . |Zero|) (151 . >) (|List| 10)
-              (157 . |HP_solve_M|) (168 . ~=) (174 . |random|)
-              (|IntegerPrimesPackage| 23) (178 . |nextPrime|) (183 . ~=)
-              (|U32Vector|) (|List| 67) (189 . |check_sol1a|) (199 . |One|)
-              (203 . |One|))
-           '#(|gen_Monte_Carlo_check| 207 |VSUPS_to_VPA| 217 |LLF_to_LPA| 225
-              |HP_solve| 234)
+              (143 . |Zero|) (147 . |Zero|) (|List| 10) (151 . |HP_solve_M|)
+              (162 . ~=) (168 . |random|) (|IntegerPrimesPackage| 23)
+              (172 . |nextPrime|) (177 . ~=) (|U32Vector|) (|List| 66)
+              (183 . |check_sol1a|) (193 . |One|) (197 . |One|))
+           '#(|gen_Monte_Carlo_check| 201 |VSUPS_to_VPA| 211 |LLF_to_LPA| 219
+              |HP_solve| 228)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -3233,7 +3232,7 @@
                                   (|Integer|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 71
+                        (|makeByteWordVec2| 70
                                             '(6 16 8 9 10 11 12 13 15 17 7 0 18
                                               19 10 11 11 12 13 20 21 3 16 22 9
                                               23 23 24 5 0 22 19 23 25 10 23 26
@@ -3246,13 +3245,12 @@
                                               25 38 11 11 45 1 25 0 0 46 6 16
                                               47 48 10 11 12 13 49 50 7 16 51
                                               52 10 11 11 12 13 53 54 0 6 12 55
-                                              0 6 0 57 0 7 0 58 2 12 32 0 0 59
-                                              7 16 8 60 10 11 23 12 13 15 61 2
-                                              23 32 0 0 62 0 32 0 63 1 64 23 23
-                                              65 2 12 32 0 0 66 6 16 67 27 68
-                                              13 23 23 23 69 0 6 0 70 0 7 0 71
-                                              6 0 20 20 19 11 11 12 13 36 4 0
-                                              27 30 25 10 23 31 5 0 22 19 23 25
-                                              10 23 26 7 0 18 19 10 11 11 12 13
-                                              20 21)))))
+                                              0 6 0 57 0 7 0 58 7 16 8 59 10 11
+                                              23 12 13 15 60 2 23 32 0 0 61 0
+                                              32 0 62 1 63 23 23 64 2 12 32 0 0
+                                              65 6 16 66 27 67 13 23 23 23 68 0
+                                              6 0 69 0 7 0 70 6 0 20 20 19 11
+                                              11 12 13 36 4 0 27 30 25 10 23 31
+                                              5 0 22 19 23 25 10 23 26 7 0 18
+                                              19 10 11 11 12 13 20 21)))))
            '|lookupComplete|)) 

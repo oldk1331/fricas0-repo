@@ -104,11 +104,11 @@
                                 (SPADCALL |op| (QREFELT $ 18) (QREFELT $ 36)))
                           (EXIT
                            (COND
-                            ((SPADCALL |p| 0 (QREFELT $ 37))
+                            ((> |p| 0)
                              (SEQ
                               (LETT |nprec|
                                     (SPADCALL (QREFELT $ 19) |p|
-                                              (QREFELT $ 39)))
+                                              (QREFELT $ 38)))
                               (LETT |s|
                                     (SPADCALL
                                      (|FCTOOL;exp2Fort2| (|SPADfirst| |args|)
@@ -122,7 +122,7 @@
                                   (EXIT |s|)))))
                               (EXIT
                                (COND
-                                ((SPADCALL |nprec| |prec| (QREFELT $ 40))
+                                ((<= |nprec| |prec|)
                                  (CONS ")"
                                        (SPADCALL |s| (CONS "(" NIL)
                                                  (QREFELT $ 25))))
@@ -131,13 +131,13 @@
                              (|FCTOOL;exp2FortFn| |op| |args| |nargs| $))))))
                         ((EQUAL |op| "CMPLX")
                          (COND
-                          ((SPADCALL |nargs| 2 (QREFELT $ 42))
+                          ((SPADCALL |nargs| 2 (QREFELT $ 40))
                            (|error| "Bad number of arguments to CMPLX"))
                           (#4#
                            (CONS ")"
                                  (SPADCALL
                                   (|FCTOOL;exp2Fort2|
-                                   (SPADCALL |args| (QREFELT $ 43)) |prec| |op|
+                                   (SPADCALL |args| (QREFELT $ 41)) |prec| |op|
                                    $)
                                   (CONS ","
                                         (SPADCALL
@@ -147,7 +147,7 @@
                                   (QREFELT $ 25))))))
                         (#4#
                          (COND
-                          ((SPADCALL |op| (QREFELT $ 26) (QREFELT $ 44))
+                          ((SPADCALL |op| (QREFELT $ 26) (QREFELT $ 42))
                            (SEQ
                             (LETT |p|
                                   (SPADCALL |op| (QREFELT $ 20)
@@ -161,11 +161,11 @@
                                (EXIT
                                 (LETT |nprec|
                                       (SPADCALL (QREFELT $ 23) |p|
-                                                (QREFELT $ 39))))))
+                                                (QREFELT $ 38))))))
                              (#4#
                               (LETT |nprec|
                                     (SPADCALL (QREFELT $ 21) |p|
-                                              (QREFELT $ 39)))))
+                                              (QREFELT $ 38)))))
                             (LETT |s| NIL)
                             (SEQ (LETT |arg| NIL) (LETT #3# |args|) G190
                                  (COND
@@ -234,7 +234,7 @@
                                 (EXIT |s|)))))
                             (EXIT
                              (COND
-                              ((SPADCALL |nprec| |prec| (QREFELT $ 40))
+                              ((<= |nprec| |prec|)
                                (CONS ")"
                                      (SPADCALL |s| (CONS "(" NIL)
                                                (QREFELT $ 25))))
@@ -301,9 +301,9 @@
                 ((OR (SPADCALL |e| (QREFELT $ 30))
                      (NULL
                       (SPADCALL (LETT |op2| (SPADCALL |e| (QREFELT $ 31)))
-                                (QREFELT $ 45))))
+                                (QREFELT $ 43))))
                  NIL)
-                ('T (EQUAL |op| (SPADCALL |op2| (QREFELT $ 46))))))) 
+                ('T (EQUAL |op| (SPADCALL |op2| (QREFELT $ 44))))))) 
 
 (SDEFUN |FCTOOL;fortExpSize| ((|e| |OutputForm|) ($ |Integer|))
         (SPROG
@@ -320,8 +320,7 @@
                  (LETT |args| (SPADCALL |e| (QREFELT $ 33)))
                  (EXIT
                   (COND
-                   ((OR (SPADCALL (LENGTH |args|) 2 (QREFELT $ 37))
-                        (< (LENGTH |args|) 2))
+                   ((OR (> (LENGTH |args|) 2) (< (LENGTH |args|) 2))
                     (|FCTOOL;fortExpSize_f| |op| |args| $))
                    ('T
                     (SEQ (LETT |arg1| (SPADCALL |args| 1 (QREFELT $ 35)))
@@ -336,7 +335,7 @@
                             (SEQ (LETT |narys| (LIST "+" "*"))
                                  (EXIT
                                   (COND
-                                   ((SPADCALL |ops| |narys| (QREFELT $ 44))
+                                   ((SPADCALL |ops| |narys| (QREFELT $ 42))
                                     (SEQ
                                      (COND
                                       ((|FCTOOL;same_subtree| |ops| |arg1| $)
@@ -360,11 +359,11 @@
 
 (SDEFUN |FCTOOL;mk_assign2|
         ((|name| |OutputForm|) (|val| |OutputForm|) ($ |OutputForm|))
-        (SPADCALL (QREFELT $ 48) (LIST |name| |val|) (QREFELT $ 50))) 
+        (SPADCALL (QREFELT $ 46) (LIST |name| |val|) (QREFELT $ 48))) 
 
 (SDEFUN |FCTOOL;mk_assign1|
         ((|name| |Symbol|) (|val| |OutputForm|) ($ |OutputForm|))
-        (|FCTOOL;mk_assign2| (SPADCALL |name| (QREFELT $ 47)) |val| $)) 
+        (|FCTOOL;mk_assign2| (SPADCALL |name| (QREFELT $ 45)) |val| $)) 
 
 (SDEFUN |FCTOOL;segment2l|
         ((|op| |OutputForm|) (|args| |List| (|OutputForm|))
@@ -382,7 +381,7 @@
           (LETT |exprs| NIL) (LETT |newE| NIL)
           (LETT |topSize|
                 (- |topSize|
-                   (|FCTOOL;fortExpSize| (SPADCALL |op| NIL (QREFELT $ 50))
+                   (|FCTOOL;fortExpSize| (SPADCALL |op| NIL (QREFELT $ 48))
                     $)))
           (SEQ (LETT |e| NIL) (LETT #2# |args|) G190
                (COND
@@ -390,32 +389,32 @@
                (SEQ (LETT |subSize| (|FCTOOL;fortExpSize| |e| $))
                     (EXIT
                      (COND
-                      ((SPADCALL |subSize| |maxSize| (QREFELT $ 37))
+                      ((> |subSize| |maxSize|)
                        (SEQ (LETT |subE| (|FCTOOL;segment2| |e| |maxSize| $))
                             (LETT |exprs|
                                   (SPADCALL (CDR |subE|) |exprs|
-                                            (QREFELT $ 51)))
+                                            (QREFELT $ 49)))
                             (LETT |subSize|
                                   (|FCTOOL;fortExpSize| (|SPADfirst| |subE|)
                                    $))
                             (EXIT
                              (COND
-                              ((SPADCALL |subSize| |topSize| (QREFELT $ 40))
+                              ((<= |subSize| |topSize|)
                                (SEQ
                                 (LETT |newE|
                                       (SPADCALL |newE|
                                                 (CONS (|SPADfirst| |subE|) NIL)
-                                                (QREFELT $ 51)))
+                                                (QREFELT $ 49)))
                                 (EXIT
                                  (LETT |topSize| (- |topSize| |subSize|)))))
                               ('T
                                (SEQ (LETT |new_var| (SPADCALL (QREFELT $ 16)))
                                     (LETT |new_var_f|
-                                          (SPADCALL |new_var| (QREFELT $ 47)))
+                                          (SPADCALL |new_var| (QREFELT $ 45)))
                                     (LETT |newE|
                                           (SPADCALL |newE|
                                                     (CONS |new_var_f| NIL)
-                                                    (QREFELT $ 51)))
+                                                    (QREFELT $ 49)))
                                     (LETT |exprs|
                                           (CONS
                                            (|FCTOOL;mk_assign1| |new_var|
@@ -429,19 +428,18 @@
                       ('T
                        (SEQ
                         (LETT |newE|
-                              (SPADCALL |newE| (CONS |e| NIL) (QREFELT $ 51)))
+                              (SPADCALL |newE| (CONS |e| NIL) (QREFELT $ 49)))
                         (EXIT (LETT |topSize| (- |topSize| |subSize|))))))))
                (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
-          (LETT |new_e1| (SPADCALL |op| |newE| (QREFELT $ 50)))
+          (LETT |new_e1| (SPADCALL |op| |newE| (QREFELT $ 48)))
           (EXIT
-           (COND
-            ((SPADCALL |topSize| 0 (QREFELT $ 37)) (CONS |new_e1| |exprs|))
-            ('T
-             (SEQ (LETT |newVar| (SPADCALL (QREFELT $ 16)))
-                  (EXIT
-                   (CONS (SPADCALL |newVar| (QREFELT $ 47))
-                         (CONS (|FCTOOL;mk_assign1| |newVar| |new_e1| $)
-                               |exprs|)))))))))) 
+           (COND ((> |topSize| 0) (CONS |new_e1| |exprs|))
+                 ('T
+                  (SEQ (LETT |newVar| (SPADCALL (QREFELT $ 16)))
+                       (EXIT
+                        (CONS (SPADCALL |newVar| (QREFELT $ 45))
+                              (CONS (|FCTOOL;mk_assign1| |newVar| |new_e1| $)
+                                    |exprs|)))))))))) 
 
 (SDEFUN |FCTOOL;segment2|
         ((|e| |OutputForm|) (|topSize| |Integer|) ($ |List| (|OutputForm|)))
@@ -462,9 +460,8 @@
               (LETT |safeSize|
                     (-
                      (- |maxSize|
-                        (SPADCALL (LENGTH |args|) (+ (|FCTOOL;tempLen| $) 1)
-                                  (QREFELT $ 52)))
-                     (|FCTOOL;fortExpSize| (SPADCALL |op| NIL (QREFELT $ 50))
+                        (* (LENGTH |args|) (+ (|FCTOOL;tempLen| $) 1)))
+                     (|FCTOOL;fortExpSize| (SPADCALL |op| NIL (QREFELT $ 48))
                       $)))
               (SEQ (LETT |e| NIL) (LETT #1# |args|) G190
                    (COND
@@ -473,22 +470,22 @@
                    (SEQ (LETT |subSize| (|FCTOOL;fortExpSize| |e| $))
                         (EXIT
                          (COND
-                          ((SPADCALL |subSize| |safeSize| (QREFELT $ 40))
+                          ((<= |subSize| |safeSize|)
                            (SEQ (LETT |safeSize| (- |safeSize| |subSize|))
                                 (EXIT
                                  (LETT |new_args|
                                        (SPADCALL |new_args| (CONS |e| NIL)
-                                                 (QREFELT $ 51))))))
+                                                 (QREFELT $ 49))))))
                           ('T
                            (SEQ
                             (LETT |exprs| (|FCTOOL;segment2| |e| |safeSize| $))
                             (LETT |expressions|
                                   (SPADCALL (CDR |exprs|) |expressions|
-                                            (QREFELT $ 51)))
+                                            (QREFELT $ 49)))
                             (LETT |new_args|
                                   (SPADCALL |new_args|
                                             (CONS (|SPADfirst| |exprs|) NIL)
-                                            (QREFELT $ 51)))
+                                            (QREFELT $ 49)))
                             (EXIT
                              (LETT |safeSize|
                                    (- |safeSize|
@@ -496,7 +493,7 @@
                                        (|SPADfirst| |exprs|) $)))))))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT
-               (CONS (SPADCALL |op| |new_args| (QREFELT $ 50))
+               (CONS (SPADCALL |op| |new_args| (QREFELT $ 48))
                      |expressions|))))) 
 
 (SDEFUN |FCTOOL;segment1|
@@ -530,10 +527,10 @@
                               ('T
                                (SEQ (LETT |e1f| (SPADCALL |e| (QREFELT $ 31)))
                                     (COND
-                                     ((NULL (SPADCALL |e1f| (QREFELT $ 45)))
+                                     ((NULL (SPADCALL |e1f| (QREFELT $ 43)))
                                       (EXIT (LETT |s| (CONS |e| |s|)))))
                                     (LETT |e1s|
-                                          (SPADCALL |e1f| (QREFELT $ 46)))
+                                          (SPADCALL |e1f| (QREFELT $ 44)))
                                     (LETT |args| (SPADCALL |e| (QREFELT $ 33)))
                                     (EXIT
                                      (COND
@@ -559,9 +556,9 @@
                                                           (LIST |var|
                                                                 (|SPADfirst|
                                                                  |exprs|))
-                                                          (QREFELT $ 50))
+                                                          (QREFELT $ 48))
                                                 (SPADCALL (CDR |exprs|) |s|
-                                                          (QREFELT $ 51)))))))
+                                                          (QREFELT $ 49)))))))
                                       ((EQUAL |e1s| 'RETURN)
                                        (SEQ
                                         (LETT |exprs|
@@ -584,9 +581,9 @@
                                                           (LIST
                                                            (|SPADfirst|
                                                             |exprs|))
-                                                          (QREFELT $ 50))
+                                                          (QREFELT $ 48))
                                                 (SPADCALL (CDR |exprs|) |s|
-                                                          (QREFELT $ 51)))))))
+                                                          (QREFELT $ 49)))))))
                                       ('T (LETT |s| (CONS |e| |s|))))))))))
                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                       (EXIT (NREVERSE |s|)))))))) 
@@ -602,37 +599,37 @@
 (SDEFUN |FCTOOL;fortError1l|
         ((|op| |Symbol|) (|args| |List| (|OutputForm|)) ($ |Exit|))
         (|FCTOOL;fortError1|
-         (SPADCALL (SPADCALL |op| (QREFELT $ 47)) |args| (QREFELT $ 50)) $)) 
+         (SPADCALL (SPADCALL |op| (QREFELT $ 45)) |args| (QREFELT $ 48)) $)) 
 
 (SDEFUN |FCTOOL;push_expr_stack| ((|e| |OutputForm|) ($ |Void|))
-        (SETELT $ 53 (CONS |e| (QREFELT $ 53)))) 
+        (SETELT $ 50 (CONS |e| (QREFELT $ 50)))) 
 
 (SDEFUN |FCTOOL;pop_expr_stack| (($ |OutputForm|))
         (SPROG ((|res| (|OutputForm|)))
-               (SEQ (LETT |res| (|SPADfirst| (QREFELT $ 53)))
-                    (SETELT $ 53 (CDR (QREFELT $ 53))) (EXIT |res|)))) 
+               (SEQ (LETT |res| (|SPADfirst| (QREFELT $ 50)))
+                    (SETELT $ 50 (CDR (QREFELT $ 50))) (EXIT |res|)))) 
 
-(SDEFUN |FCTOOL;clear_used_intrinsics;V;24| (($ |Void|)) (SETELT $ 54 NIL)) 
+(SDEFUN |FCTOOL;clear_used_intrinsics;V;24| (($ |Void|)) (SETELT $ 51 NIL)) 
 
 (SDEFUN |FCTOOL;get_used_intrinsics;L;25| (($ |List| (|String|)))
         (SPROG ((#1=#:G353 NIL) (|sy| NIL) (#2=#:G352 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
-                 (SEQ (LETT |sy| NIL) (LETT #1# (QREFELT $ 54)) G190
+                 (SEQ (LETT |sy| NIL) (LETT #1# (QREFELT $ 51)) G190
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT |sy| (CAR #1#)) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |sy| (QREFELT $ 57)) #2#))))
+                        (LETT #2# (CONS (SPADCALL |sy| (QREFELT $ 54)) #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |FCTOOL;record_intrinsic| ((|sy| |Symbol|) ($ |Void|))
         (COND
-         ((NULL (SPADCALL |sy| (QREFELT $ 54) (QREFELT $ 60)))
-          (SETELT $ 54 (CONS |sy| (QREFELT $ 54)))))) 
+         ((NULL (SPADCALL |sy| (QREFELT $ 51) (QREFELT $ 57)))
+          (SETELT $ 51 (CONS |sy| (QREFELT $ 51)))))) 
 
 (SDEFUN |FCTOOL;fortranifyIntrinsicFunctionName|
         ((|sy| |Symbol|) (|nargs| |Integer|) ($ |Symbol|))
@@ -654,7 +651,7 @@
                   (|$useIntrinsicFunctions|
                    (SEQ (|FCTOOL;record_intrinsic| 'ATAN2 $) (EXIT 'ATAN2)))
                   (|use_double| 'DATAN2) (#3# 'ATAN2)))))))
-            (SEQ (LETT |r1| NIL) (LETT #2# (QREFELT $ 61)) G190
+            (SEQ (LETT |r1| NIL) (LETT #2# (QREFELT $ 58)) G190
                  (COND
                   ((OR (ATOM #2#) (PROGN (LETT |r1| (CAR #2#)) NIL))
                    (GO G191)))
@@ -681,7 +678,7 @@
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |p1| NIL) (LETT #2# (QREFELT $ 62)) G190
+                  (SEQ (LETT |p1| NIL) (LETT #2# (QREFELT $ 59)) G190
                        (COND
                         ((OR (ATOM #2#) (PROGN (LETT |p1| (CAR #2#)) NIL))
                          (GO G191)))
@@ -701,12 +698,12 @@
         (SPROG ((#2=#:G382 NIL) (|arg| NIL) (#3=#:G381 NIL) (|nn| #1#))
                (SEQ
                 (LETT |nn|
-                      (COND ((NULL (SPADCALL |name| (QREFELT $ 45))) |name|)
+                      (COND ((NULL (SPADCALL |name| (QREFELT $ 43))) |name|)
                             ('T
                              (SPADCALL
                               (|FCTOOL;fortranifyFunctionName|
-                               (SPADCALL |name| (QREFELT $ 46)) |nargs| $)
-                              (QREFELT $ 47)))))
+                               (SPADCALL |name| (QREFELT $ 44)) |nargs| $)
+                              (QREFELT $ 45)))))
                 (EXIT
                  (SPADCALL |nn|
                            (PROGN
@@ -723,7 +720,7 @@
                                                #3#))))
                                  (LETT #2# (CDR #2#)) (GO G190) G191
                                  (EXIT (NREVERSE #3#))))
-                           (QREFELT $ 50)))))) 
+                           (QREFELT $ 48)))))) 
 
 (SDEFUN |FCTOOL;mkMat| ((|args| |List| (|OutputForm|)) ($ |OutputForm|))
         (SPROG ((|save_fortInts2Floats| (|Boolean|)))
@@ -762,11 +759,11 @@
           (COND
            ((EQUAL |op| 'CONCAT)
             (COND
-             ((SPADCALL (SPADCALL |args| 1 (QREFELT $ 35)) (QREFELT $ 45))
+             ((SPADCALL (SPADCALL |args| 1 (QREFELT $ 35)) (QREFELT $ 43))
               (COND
                ((SPADCALL
-                 (SPADCALL (SPADCALL |args| 1 (QREFELT $ 35)) (QREFELT $ 46))
-                 (LIST '< '> '<= '>= '~ '|and| '|or|) (QREFELT $ 60))
+                 (SPADCALL (SPADCALL |args| 1 (QREFELT $ 35)) (QREFELT $ 44))
+                 (LIST '< '> '<= '>= '~ '|and| '|or|) (QREFELT $ 57))
                 (EXIT
                  (SEQ
                   (LETT |n_args|
@@ -782,10 +779,10 @@
           (COND
            ((EQUAL |op| 'CONCAT)
             (COND
-             ((SPADCALL (SPADCALL |args| 2 (QREFELT $ 35)) (QREFELT $ 45))
+             ((SPADCALL (SPADCALL |args| 2 (QREFELT $ 35)) (QREFELT $ 43))
               (COND
                ((EQUAL
-                 (SPADCALL (SPADCALL |args| 2 (QREFELT $ 35)) (QREFELT $ 46))
+                 (SPADCALL (SPADCALL |args| 2 (QREFELT $ 35)) (QREFELT $ 44))
                  'EQ)
                 (EXIT
                  (|FCTOOL;mkFortFn| (SPADCALL |args| 2 (QREFELT $ 35))
@@ -814,7 +811,7 @@
                                         (CONS
                                          (STRCONC ","
                                                   (SPADCALL |x|
-                                                            (QREFELT $ 63)))
+                                                            (QREFELT $ 60)))
                                          #9#))))
                                 (LETT #8# (CDR #8#)) (GO G190) G191
                                 (EXIT (NREVERSE #9#)))))
@@ -824,20 +821,20 @@
                        (CONS "["
                              (CONS
                               (SPADCALL (SPADCALL |arg| (QREFELT $ 31))
-                                        (QREFELT $ 63))
+                                        (QREFELT $ 60))
                               (SPADCALL |tailPart| (CONS "]" NIL)
                                         (QREFELT $ 25))))
-                       (QREFELT $ 64))
-                      (QREFELT $ 65)))))))
+                       (QREFELT $ 61))
+                      (QREFELT $ 62)))))))
             ((EQUAL |op| 'PAREN)
              (SEQ
               (LETT |op1|
                     (SPADCALL (SPADCALL |args| 1 (QREFELT $ 35))
                               (QREFELT $ 31)))
               (COND
-               ((SPADCALL |op1| (QREFELT $ 45))
+               ((SPADCALL |op1| (QREFELT $ 43))
                 (COND
-                 ((NULL (EQUAL (SPADCALL |op1| (QREFELT $ 46)) 'CONCATB))
+                 ((NULL (EQUAL (SPADCALL |op1| (QREFELT $ 44)) 'CONCATB))
                   (EXIT
                    (|FCTOOL;fortPre1| (SPADCALL |args| 1 (QREFELT $ 35)) $)))))
                (#10#
@@ -869,9 +866,9 @@
                      (LETT |op1|
                            (SPADCALL (SPADCALL |args| 2 (QREFELT $ 35))
                                      (QREFELT $ 31)))
-                     (QREFELT $ 45))
+                     (QREFELT $ 43))
                     (COND
-                     ((EQUAL (SPADCALL |op1| (QREFELT $ 46)) 'AGGLST)
+                     ((EQUAL (SPADCALL |op1| (QREFELT $ 44)) 'AGGLST)
                       (EXIT
                        (SEQ (LETT |var| (SPADCALL |args| 1 (QREFELT $ 35)))
                             (LETT |elts|
@@ -895,9 +892,9 @@
                                         (QREFELT $ 33)))
                                  (EXIT
                                   (COND
-                                   ((SPADCALL |sOp| (QREFELT $ 45))
+                                   ((SPADCALL |sOp| (QREFELT $ 43))
                                     (COND
-                                     ((EQUAL (SPADCALL |sOp| (QREFELT $ 46))
+                                     ((EQUAL (SPADCALL |sOp| (QREFELT $ 44))
                                              'SEGMENT)
                                       (COND
                                        ((EQL (LENGTH |sArgs|) 1)
@@ -908,13 +905,13 @@
                                          (COND
                                           ((SPADCALL
                                             (SPADCALL |sArgs| 1 (QREFELT $ 35))
-                                            (QREFELT $ 66))
+                                            (QREFELT $ 63))
                                            (COND
                                             ((NULL
                                               (SPADCALL
                                                (SPADCALL |sArgs| 2
                                                          (QREFELT $ 35))
-                                               (QREFELT $ 66)))
+                                               (QREFELT $ 63)))
                                              (EXIT
                                               (|FCTOOL;fortError2|
                                                #11="   Cannot expand segment: "
@@ -927,19 +924,19 @@
                                                (SPADCALL
                                                 (SPADCALL |sArgs| 1
                                                           (QREFELT $ 35))
-                                                (QREFELT $ 67)))
+                                                (QREFELT $ 64)))
                                          (LETT |i2|
                                                (SPADCALL
                                                 (SPADCALL |sArgs| 2
                                                           (QREFELT $ 35))
-                                                (QREFELT $ 67)))
+                                                (QREFELT $ 64)))
                                          (EXIT
                                           (COND
-                                           ((SPADCALL |i1| |i2| (QREFELT $ 37))
+                                           ((> |i1| |i2|)
                                             (|FCTOOL;fortError1|
                                              (SPADCALL
                                               "Lower bound of segment exceeds upper bound."
-                                              (QREFELT $ 65))
+                                              (QREFELT $ 62))
                                              $))
                                            (#10#
                                             (SEQ
@@ -956,13 +953,13 @@
                                                                      (SPADCALL
                                                                       |i|
                                                                       (QREFELT
-                                                                       $ 68)))
+                                                                       $ 65)))
                                                                     (QREFELT $
-                                                                             50))
+                                                                             48))
                                                           (|FCTOOL;fortPre1|
                                                            (SPADCALL |ii|
                                                                      (QREFELT $
-                                                                              68))
+                                                                              65))
                                                            $)
                                                           $))
                                                    (EXIT
@@ -988,8 +985,8 @@
                                          (SPADCALL |var|
                                                    (LIST
                                                     (SPADCALL |i|
-                                                              (QREFELT $ 68)))
-                                                   (QREFELT $ 50))
+                                                              (QREFELT $ 65)))
+                                                   (QREFELT $ 48))
                                          (|FCTOOL;fortPre1| |e| $) $))
                                   (EXIT (|FCTOOL;push_expr_stack| |as1| $)))
                                  (LETT #3#
@@ -1009,11 +1006,11 @@
                       ((EQL |nargs| 2)
                        (COND
                         ((SPADCALL (SPADCALL |args| 2 (QREFELT $ 35))
-                                   (QREFELT $ 45))
+                                   (QREFELT $ 43))
                          (COND
                           ((EQUAL
                             (SPADCALL (SPADCALL |args| 2 (QREFELT $ 35))
-                                      (QREFELT $ 46))
+                                      (QREFELT $ 44))
                             '!)
                            (EXIT
                             (|FCTOOL;mkFortFn| 'FACTORIAL
@@ -1032,7 +1029,7 @@
                          (COND
                           ((OR (ATOM #2#) (PROGN (LETT |r| (CAR #2#)) NIL))
                            (GO G191)))
-                         (SEQ (LETT |rx_f| (SPADCALL |rx| (QREFELT $ 68)))
+                         (SEQ (LETT |rx_f| (SPADCALL |rx| (QREFELT $ 65)))
                               (EXIT
                                (SEQ (LETT |cx| |si|) (LETT |c| NIL)
                                     (LETT #1# (SPADCALL |r| (QREFELT $ 33)))
@@ -1048,8 +1045,8 @@
                                                       (LIST |rx_f|
                                                             (SPADCALL |cx|
                                                                       (QREFELT
-                                                                       $ 68)))
-                                                      (QREFELT $ 50))
+                                                                       $ 65)))
+                                                      (QREFELT $ 48))
                                             (|FCTOOL;fortPre1| |c| $) $))
                                      (EXIT (|FCTOOL;push_expr_stack| |as1| $)))
                                     (LETT #1#
@@ -1065,8 +1062,8 @@
                 (|userError| #12#)))))))))) 
 
 (SDEFUN |FCTOOL;is_imaginary| ((|x| |OutputForm|) ($ |Boolean|))
-        (COND ((NULL (SPADCALL |x| (QREFELT $ 45))) NIL)
-              ('T (EQUAL (SPADCALL |x| (QREFELT $ 46)) '|%i|)))) 
+        (COND ((NULL (SPADCALL |x| (QREFELT $ 43))) NIL)
+              ('T (EQUAL (SPADCALL |x| (QREFELT $ 44)) '|%i|)))) 
 
 (SDEFUN |FCTOOL;fix2FortranFloat| ((|i| |Integer|) ($ |OutputForm|))
         (SPROG ((|ss| (|String|)))
@@ -1077,13 +1074,13 @@
                                     ((EQUAL |$fortranPrecision| '|double|)
                                      ".0D0")
                                     ('T ".0"))))
-                    (EXIT (SPADCALL |ss| (QREFELT $ 65)))))) 
+                    (EXIT (SPADCALL |ss| (QREFELT $ 62)))))) 
 
 (SDEFUN |FCTOOL;checkPrecision1| ((|s| |String|) ($ |String|))
         (SPROG ((|p2| #1=(|Integer|)) (|p1| #1#) (|s2| (|String|)))
                (SEQ
                 (COND
-                 ((|eql_SI| (SPADCALL |s| 1 (QREFELT $ 72))
+                 ((|eql_SI| (SPADCALL |s| 1 (QREFELT $ 69))
                             (|STR_to_CHAR| "\""))
                   |s|)
                  (#2='T
@@ -1091,32 +1088,32 @@
                    (LETT |s2|
                          (SPADCALL (|STR_to_CHAR| " ")
                                    (SPADCALL (|STR_to_CHAR| "_") |s|
-                                             (QREFELT $ 74))
-                                   (QREFELT $ 74)))
+                                             (QREFELT $ 71))
+                                   (QREFELT $ 71)))
                    (LETT |p1|
-                         (SPADCALL (|STR_to_CHAR| ".") |s2| (QREFELT $ 75)))
+                         (SPADCALL (|STR_to_CHAR| ".") |s2| (QREFELT $ 72)))
                    (EXIT
                     (COND ((< |p1| 1) |s|)
                           ((SPADCALL |$fortranPrecision| '|double|
-                                     (QREFELT $ 76))
+                                     (QREFELT $ 73))
                            |s2|)
                           (#2#
                            (SEQ
                             (LETT |p2|
                                   (SPADCALL (|STR_to_CHAR| "E") |s2|
-                                            (QREFELT $ 75)))
+                                            (QREFELT $ 72)))
                             (EXIT
                              (COND
-                              ((SPADCALL |p2| 0 (QREFELT $ 37))
+                              ((> |p2| 0)
                                (SEQ
                                 (SPADCALL |s2| |p2|
-                                          (SPADCALL "D" 1 (QREFELT $ 72))
-                                          (QREFELT $ 77))
+                                          (SPADCALL "D" 1 (QREFELT $ 69))
+                                          (QREFELT $ 74))
                                 (EXIT |s2|)))
                               (#2# (STRCONC |s2| "D0")))))))))))))) 
 
 (SDEFUN |FCTOOL;checkPrecision| ((|s| |String|) ($ |OutputForm|))
-        (SPADCALL (|FCTOOL;checkPrecision1| |s| $) (QREFELT $ 65))) 
+        (SPADCALL (|FCTOOL;checkPrecision1| |s| $) (QREFELT $ 62))) 
 
 (SDEFUN |FCTOOL;fortPre1| ((|e| |OutputForm|) ($ . #1=(|OutputForm|)))
         (SPROG
@@ -1130,49 +1127,49 @@
            (COND
             ((SPADCALL |e| (QREFELT $ 30))
              (COND
-              ((SPADCALL |e| (QREFELT $ 66))
+              ((SPADCALL |e| (QREFELT $ 63))
                (COND
                 (|$fortInts2Floats|
-                 (SEQ (LETT |ii| (SPADCALL |e| (QREFELT $ 67)))
+                 (SEQ (LETT |ii| (SPADCALL |e| (QREFELT $ 64)))
                       (EXIT
                        (COND ((>= |ii| 0) (|FCTOOL;fix2FortranFloat| |ii| $))
                              (#7='T
-                              (SPADCALL (SPADCALL '- (QREFELT $ 78))
+                              (SPADCALL (SPADCALL '- (QREFELT $ 75))
                                         (LIST
                                          (|FCTOOL;fix2FortranFloat| (- |ii|)
                                           $))
-                                        (QREFELT $ 50)))))))
+                                        (QREFELT $ 48)))))))
                 (#7# |e|)))
-              ((SPADCALL |e| (QREFELT $ 79))
-               (|FCTOOL;checkPrecision| (SPADCALL |e| (QREFELT $ 63)) $))
-              ((SPADCALL |e| (QREFELT $ 45))
-               (SEQ (LETT |sy| (SPADCALL |e| (QREFELT $ 46)))
+              ((SPADCALL |e| (QREFELT $ 76))
+               (|FCTOOL;checkPrecision| (SPADCALL |e| (QREFELT $ 60)) $))
+              ((SPADCALL |e| (QREFELT $ 43))
+               (SEQ (LETT |sy| (SPADCALL |e| (QREFELT $ 44)))
                     (EXIT
                      (COND
                       ((EQUAL |sy| '|%e|)
                        (|FCTOOL;fortPre1|
-                        (SPADCALL (SPADCALL '|exp| (QREFELT $ 47))
-                                  (LIST (SPADCALL 1 (QREFELT $ 68)))
-                                  (QREFELT $ 50))
+                        (SPADCALL (SPADCALL '|exp| (QREFELT $ 45))
+                                  (LIST (SPADCALL 1 (QREFELT $ 65)))
+                                  (QREFELT $ 48))
                         $))
                       ((EQUAL |sy| '|%i|)
-                       (SPADCALL (SPADCALL 'CMPLX (QREFELT $ 47))
+                       (SPADCALL (SPADCALL 'CMPLX (QREFELT $ 45))
                                  (LIST
                                   (|FCTOOL;fortPre1|
-                                   (SPADCALL 0 (QREFELT $ 68)) $)
+                                   (SPADCALL 0 (QREFELT $ 65)) $)
                                   (|FCTOOL;fortPre1|
-                                   (SPADCALL 1 (QREFELT $ 68)) $))
-                                 (QREFELT $ 50)))
+                                   (SPADCALL 1 (QREFELT $ 65)) $))
+                                 (QREFELT $ 48)))
                       (#7#
-                       (SEQ (LETT |ss| (SPADCALL |sy| (QREFELT $ 57)))
+                       (SEQ (LETT |ss| (SPADCALL |sy| (QREFELT $ 54)))
                             (EXIT
                              (COND
-                              ((|eql_SI| (SPADCALL |ss| 1 (QREFELT $ 72))
+                              ((|eql_SI| (SPADCALL |ss| 1 (QREFELT $ 69))
                                          (|STR_to_CHAR| "%"))
                                (SPADCALL
-                                (SPADCALL |ss| (SPADCALL 2 (QREFELT $ 81))
-                                          (QREFELT $ 82))
-                                (QREFELT $ 65)))
+                                (SPADCALL |ss| (SPADCALL 2 (QREFELT $ 78))
+                                          (QREFELT $ 79))
+                                (QREFELT $ 62)))
                               (#7# |e|)))))))))
               (#7# |e|)))
             (#7#
@@ -1180,8 +1177,8 @@
                   (LETT |args| (SPADCALL |e| (QREFELT $ 33)))
                   (EXIT
                    (COND
-                    ((SPADCALL |op| (QREFELT $ 45))
-                     (SEQ (LETT |sy| (SPADCALL |op| (QREFELT $ 46)))
+                    ((SPADCALL |op| (QREFELT $ 43))
+                     (SEQ (LETT |sy| (SPADCALL |op| (QREFELT $ 44)))
                           (EXIT
                            (COND
                             ((EQUAL |sy| '^)
@@ -1190,9 +1187,9 @@
                               (LETT |exponent|
                                     (SPADCALL |args| 2 (QREFELT $ 35)))
                               (COND
-                               ((SPADCALL |rand| (QREFELT $ 45))
+                               ((SPADCALL |rand| (QREFELT $ 43))
                                 (SEQ
-                                 (LETT |sr| (SPADCALL |rand| (QREFELT $ 46)))
+                                 (LETT |sr| (SPADCALL |rand| (QREFELT $ 44)))
                                  (EXIT
                                   (COND
                                    ((EQUAL |sr| '|%e|)
@@ -1200,59 +1197,59 @@
                                      (LETT #6#
                                            (|FCTOOL;fortPre1|
                                             (SPADCALL
-                                             (SPADCALL '|exp| (QREFELT $ 47))
-                                             (LIST |exponent|) (QREFELT $ 50))
+                                             (SPADCALL '|exp| (QREFELT $ 45))
+                                             (LIST |exponent|) (QREFELT $ 48))
                                             $))
                                      (GO #8=#:G523)))
-                                   ((SPADCALL |exponent| (QREFELT $ 66))
+                                   ((SPADCALL |exponent| (QREFELT $ 63))
                                     (COND
-                                     ((EQL (SPADCALL |exponent| (QREFELT $ 67))
+                                     ((EQL (SPADCALL |exponent| (QREFELT $ 64))
                                            2)
                                       (PROGN
                                        (LETT #6#
                                              (SPADCALL
-                                              (SPADCALL '* (QREFELT $ 47))
+                                              (SPADCALL '* (QREFELT $ 45))
                                               (LIST |rand| |rand|)
-                                              (QREFELT $ 50)))
+                                              (QREFELT $ 48)))
                                        (GO #8#))))))))))
                               (COND
-                               ((SPADCALL |exponent| (QREFELT $ 66))
+                               ((SPADCALL |exponent| (QREFELT $ 63))
                                 (COND
-                                 ((< (ABS (SPADCALL |exponent| (QREFELT $ 67)))
+                                 ((< (ABS (SPADCALL |exponent| (QREFELT $ 64)))
                                      32768)
                                   (EXIT
-                                   (SPADCALL (QREFELT $ 70)
+                                   (SPADCALL (QREFELT $ 67)
                                              (LIST (|FCTOOL;fortPre1| |rand| $)
                                                    |exponent|)
-                                             (QREFELT $ 50)))))))
+                                             (QREFELT $ 48)))))))
                               (EXIT
-                               (SPADCALL (QREFELT $ 70)
+                               (SPADCALL (QREFELT $ 67)
                                          (LIST (|FCTOOL;fortPre1| |rand| $)
                                                (|FCTOOL;fortPre1| |exponent|
                                                 $))
-                                         (QREFELT $ 50)))))
+                                         (QREFELT $ 48)))))
                             ((EQUAL |sy| 'ROOT)
                              (COND
                               ((EQL (LENGTH |args|) 1)
                                (|FCTOOL;fortPreRoot|
-                                (SPADCALL (SPADCALL '|sqrt| (QREFELT $ 47))
+                                (SPADCALL (SPADCALL '|sqrt| (QREFELT $ 45))
                                           (LIST (|SPADfirst| |args|))
-                                          (QREFELT $ 50))
+                                          (QREFELT $ 48))
                                 $))
                               (#7#
-                               (SPADCALL (QREFELT $ 70)
+                               (SPADCALL (QREFELT $ 67)
                                          (LIST
                                           (|FCTOOL;fortPreRoot|
                                            (|SPADfirst| |args|) $)
                                           (SPADCALL
-                                           (SPADCALL '/ (QREFELT $ 47))
-                                           (LIST (SPADCALL 1 (QREFELT $ 68))
+                                           (SPADCALL '/ (QREFELT $ 45))
+                                           (LIST (SPADCALL 1 (QREFELT $ 65))
                                                  (|FCTOOL;fortPreRoot|
                                                   (SPADCALL |args| 2
                                                             (QREFELT $ 35))
                                                   $))
-                                           (QREFELT $ 50)))
-                                         (QREFELT $ 50)))))
+                                           (QREFELT $ 48)))
+                                         (QREFELT $ 48)))))
                             (#7#
                              (SEQ
                               (COND
@@ -1260,20 +1257,19 @@
                                 (SEQ (LETT |sy| '/)
                                      (EXIT
                                       (LETT |op|
-                                            (SPADCALL |sy| (QREFELT $ 47)))))))
+                                            (SPADCALL |sy| (QREFELT $ 45)))))))
                               (EXIT
                                (COND
-                                ((SPADCALL |sy| (QREFELT $ 69) (QREFELT $ 60))
+                                ((SPADCALL |sy| (QREFELT $ 66) (QREFELT $ 57))
                                  (|FCTOOL;exp2FortSpecial| |sy| |args|
                                   (LENGTH |args|) $))
                                 (#7#
                                  (SEQ
                                   (COND
                                    ((SPADCALL |sy| (LIST '* '+ '-)
-                                              (QREFELT $ 60))
+                                              (QREFELT $ 57))
                                     (COND
-                                     ((SPADCALL (LENGTH |args|) 2
-                                                (QREFELT $ 83))
+                                     ((> (LENGTH |args|) 2)
                                       (EXIT
                                        (SEQ
                                         (LETT |binaryExpr|
@@ -1286,7 +1282,7 @@
                                                           (SPADCALL |args| 2
                                                                     (QREFELT $
                                                                              35)))
-                                                         (QREFELT $ 50))
+                                                         (QREFELT $ 48))
                                                $))
                                         (SEQ (LETT |e1| NIL)
                                              (LETT #4# (CDR (CDR |args|))) G190
@@ -1305,7 +1301,7 @@
                                                                 (|FCTOOL;fortPre1|
                                                                  |e1| $))
                                                                (QREFELT $
-                                                                        50)))))
+                                                                        48)))))
                                              (LETT #4# (CDR #4#)) (GO G190)
                                              G191 (EXIT NIL))
                                         (EXIT |binaryExpr|)))))))
@@ -1314,7 +1310,7 @@
                                     ((EQL (LENGTH |args|) 2)
                                      (SEQ
                                       (LETT |im_op|
-                                            (SPADCALL 'CMPLX (QREFELT $ 47)))
+                                            (SPADCALL 'CMPLX (QREFELT $ 45)))
                                       (LETT |arg1|
                                             (SPADCALL |args| 1 (QREFELT $ 35)))
                                       (LETT |arg2|
@@ -1329,11 +1325,11 @@
                                                       (|FCTOOL;fortPre1|
                                                        (SPADCALL 0
                                                                  (QREFELT $
-                                                                          68))
+                                                                          65))
                                                        $)
                                                       (|FCTOOL;fortPre1| |arg1|
                                                        $))
-                                                     (QREFELT $ 50)))
+                                                     (QREFELT $ 48)))
                                           ((EQUAL |sy| '+)
                                            (SPADCALL |im_op|
                                                      (LIST
@@ -1342,9 +1338,9 @@
                                                       (|FCTOOL;fortPre1|
                                                        (SPADCALL 1
                                                                  (QREFELT $
-                                                                          68))
+                                                                          65))
                                                        $))
-                                                     (QREFELT $ 50)))
+                                                     (QREFELT $ 48)))
                                           (#7#
                                            (|FCTOOL;mkFortFn| |op| |args| 2
                                             $))))
@@ -1372,7 +1368,7 @@
                                                                      (QREFELT $
                                                                               35))
                                                            $))
-                                                         (QREFELT $ 50)))
+                                                         (QREFELT $ 48)))
                                               ((|FCTOOL;is_imaginary|
                                                 (SPADCALL |n_args| 1
                                                           (QREFELT $ 35))
@@ -1386,7 +1382,7 @@
                                                                      (QREFELT $
                                                                               35))
                                                            $))
-                                                         (QREFELT $ 50)))
+                                                         (QREFELT $ 48)))
                                               (#7#
                                                (|FCTOOL;mkFortFn| |op| |args| 2
                                                 $))))))
@@ -1410,7 +1406,7 @@
                                                                      (QREFELT $
                                                                               35))
                                                            $))
-                                                         (QREFELT $ 50)))
+                                                         (QREFELT $ 48)))
                                               ((|FCTOOL;is_imaginary|
                                                 (SPADCALL |n_args| 1
                                                           (QREFELT $ 35))
@@ -1424,7 +1420,7 @@
                                                                      (QREFELT $
                                                                               35))
                                                            $))
-                                                         (QREFELT $ 50)))
+                                                         (QREFELT $ 48)))
                                               (#7#
                                                (|FCTOOL;mkFortFn| |op| |args| 2
                                                 $))))))
@@ -1443,7 +1439,7 @@
         (SPROG
          ((|res| (|List| (|OutputForm|))) (|new| (|OutputForm|))
           (#1=#:G530 NIL) (|e| NIL))
-         (SEQ (SETELT $ 53 NIL)
+         (SEQ (SETELT $ 50 NIL)
               (SEQ (LETT |e| NIL) (LETT #1# |l|) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |e| (CAR #1#)) NIL))
@@ -1451,18 +1447,16 @@
                    (SEQ (LETT |new| (|FCTOOL;fortPre1| |e| $))
                         (EXIT (|FCTOOL;push_expr_stack| |new| $)))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
-              (LETT |res| (NREVERSE (QREFELT $ 53))) (SETELT $ 53 NIL)
+              (LETT |res| (NREVERSE (QREFELT $ 50))) (SETELT $ 50 NIL)
               (EXIT |res|)))) 
 
-(SDEFUN |FCTOOL;get_fort_indent;I;39| (($ |Integer|)) (QREFELT $ 84)) 
+(SDEFUN |FCTOOL;get_fort_indent;I;39| (($ |Integer|)) (QREFELT $ 80)) 
 
 (SDEFUN |FCTOOL;indentFortLevel;IV;40| ((|i| |Integer|) ($ |Void|))
         (SEQ
          (SETF |$maximumFortranExpressionLength|
-                 (- |$maximumFortranExpressionLength|
-                    (SPADCALL 2 |i| (QREFELT $ 87))))
-         (EXIT
-          (SETELT $ 84 (+ (QREFELT $ 84) (SPADCALL 2 |i| (QREFELT $ 87))))))) 
+                 (- |$maximumFortranExpressionLength| (* 2 |i|)))
+         (EXIT (SETELT $ 80 (+ (QREFELT $ 80) (* 2 |i|)))))) 
 
 (SDEFUN |FCTOOL;make_spaces| ((|x| |Integer|) ($ |String|))
         (SPROG ((#1=#:G535 NIL))
@@ -1470,7 +1464,7 @@
                 (PROG1 (LETT #1# |x|)
                   (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                     '(|Integer|) #1#))
-                (SPADCALL (QREFELT $ 89))))) 
+                (SPADCALL (QREFELT $ 83))))) 
 
 (SDEFUN |FCTOOL;fortran2Lines1|
         ((|f| |List| (|String|)) (|res| |List| (|String|))
@@ -1479,11 +1473,11 @@
          ((|line| #1=(|String|)) (|ll| (|Integer|)) (|ff| (|String|))
           (|spaceLeft| (|Integer|)) (#2=#:G547 NIL) (|sff| (|Integer|))
           (|contPref| (|String|)) (|normPref| #1#))
-         (SEQ (LETT |normPref| (|FCTOOL;make_spaces| (QREFELT $ 84) $))
+         (SEQ (LETT |normPref| (|FCTOOL;make_spaces| (QREFELT $ 80) $))
               (LETT |contPref|
                     (STRCONC "     &"
-                             (|FCTOOL;make_spaces| (- (QREFELT $ 84) 6) $)))
-              (LETT |ll| (QREFELT $ 84))
+                             (|FCTOOL;make_spaces| (- (QREFELT $ 80) 6) $)))
+              (LETT |ll| (QREFELT $ 80))
               (SEQ G190 (COND ((NULL (NULL (NULL |f|))) (GO G191)))
                    (SEQ (LETT |line| |normPref|) (LETT |ff| (|SPADfirst| |f|))
                         (SEQ
@@ -1492,9 +1486,8 @@
                                (SEQ
                                 (EXIT
                                  (COND
-                                  ((SPADCALL
-                                    (+ |ll| (LETT |sff| (QCSIZE |ff|)))
-                                    |$fortLength| (QREFELT $ 40))
+                                  ((<= (+ |ll| (LETT |sff| (QCSIZE |ff|)))
+                                       |$fortLength|)
                                    (SEQ (LETT |ll| (+ |ll| |sff|))
                                         (LETT |line| (STRCONC |line| |ff|))
                                         (LETT |f| (CDR |f|))
@@ -1522,24 +1515,24 @@
                                                                            |spaceLeft|
                                                                            (QREFELT
                                                                             $
-                                                                            90))
+                                                                            84))
                                                                  (QREFELT $
-                                                                          82))))
+                                                                          79))))
                                         (LETT |ff|
                                               (SPADCALL |ff|
                                                         (SPADCALL
                                                          (+ |spaceLeft| 1)
-                                                         (QREFELT $ 81))
-                                                        (QREFELT $ 82)))
+                                                         (QREFELT $ 78))
+                                                        (QREFELT $ 79)))
                                         (LETT |res| (CONS |line| |res|))
-                                        (LETT |ll| (QREFELT $ 84))
+                                        (LETT |ll| (QREFELT $ 80))
                                         (EXIT
                                          (LETT |line| |contPref|)))))))))))
                                NIL (GO G190) G191 (EXIT NIL)))
                          #3# (EXIT #2#))
                         (EXIT
                          (COND
-                          ((SPADCALL |ll| (QREFELT $ 84) (QREFELT $ 37))
+                          ((> |ll| (QREFELT $ 80))
                            (LETT |res| (CONS |line| |res|))))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
@@ -1558,7 +1551,7 @@
                             (COND ((NULL |l|) NIL)
                                   ('T
                                    (SPADCALL (LETT |el| (|SPADfirst| |l|)) "%l"
-                                             (QREFELT $ 91)))))
+                                             (QREFELT $ 85)))))
                            (GO G191)))
                          (SEQ (LETT |nl| (CONS |el| |nl|))
                               (EXIT (LETT |l| (CDR |l|))))
@@ -1577,13 +1570,13 @@
                (SPADCALL |int_to_floats?|
                          (CONS #'|FCTOOL;do_with_error_env2;BML;44!0|
                                (VECTOR $ |f|))
-                         (QREFELT $ 94)))) 
+                         (QREFELT $ 88)))) 
 
 (SDEFUN |FCTOOL;do_with_error_env2;BML;44!0| (($$ NIL))
         (PROG (|f| $)
           (LETT |f| (QREFELT $$ 1))
           (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL (SPADCALL |f|) (QREFELT $ 92)))))) 
+          (RETURN (PROGN (SPADCALL (SPADCALL |f|) (QREFELT $ 86)))))) 
 
 (SDEFUN |FCTOOL;do_with_error_env3;BML;45|
         ((|int_to_floats?| |Boolean|) (|f| |Mapping| (|List| (|String|)))
@@ -1598,7 +1591,7 @@
 
 (SDEFUN |FCTOOL;do_with_error_env1;ML;46|
         ((|f| |Mapping| (|List| (|String|))) ($ |List| (|String|)))
-        (SPADCALL (SPADCALL |f|) (QREFELT $ 92))) 
+        (SPADCALL (SPADCALL |f|) (QREFELT $ 86))) 
 
 (SDEFUN |FCTOOL;beenHere|
         ((|e| |OutputForm|)
@@ -1613,21 +1606,21 @@
                (COND
                 ((|eql_SI| |nn| 2)
                  (SEQ (QSETVELT |n| 1 (SPADCALL (QREFELT $ 16)))
-                      (LETT |var| (SPADCALL (QVELT |n| 1) (QREFELT $ 78)))
+                      (LETT |var| (SPADCALL (QVELT |n| 1) (QREFELT $ 75)))
                       (LETT |loc| (QVELT |n| 2))
                       (COND
                        ((NULL (NULL |loc|))
                         (SEQ
                          (LETT |csl1|
                                (CONS
-                                (SPADCALL (SPADCALL '= (QREFELT $ 78))
-                                          (LIST |var| |e|) (QREFELT $ 97))
+                                (SPADCALL (SPADCALL '= (QREFELT $ 75))
+                                          (LIST |var| |e|) (QREFELT $ 91))
                                 (CDR |fortCsList|)))
                          (SPADCALL |fortCsList| (COPY-TREE |csl1|)
-                                   (QREFELT $ 98))
-                         (EXIT (SPADCALL |loc| |var| (QREFELT $ 99))))))
+                                   (QREFELT $ 92))
+                         (EXIT (SPADCALL |loc| |var| (QREFELT $ 93))))))
                       (EXIT |var|)))
-                ('T (SPADCALL (QVELT |n| 1) (QREFELT $ 78)))))))) 
+                ('T (SPADCALL (QVELT |n| 1) (QREFELT $ 75)))))))) 
 
 (SDEFUN |FCTOOL;exp2FortOptimizeCS1|
         ((|e| |OutputForm|) (|fortCsHash| |None|)
@@ -1651,19 +1644,19 @@
                          ((SPADCALL |op| (QREFELT $ 30))
                           (COND ((NULL |args|) (EXIT |e|)))))
                         (COND
-                         ((SPADCALL |op| '- (QREFELT $ 100))
+                         ((SPADCALL |op| '- (QREFELT $ 94))
                           (COND
                            ((EQL (LENGTH |args|) 1)
                             (COND
                              ((SPADCALL (|SPADfirst| |args|) (QREFELT $ 30))
                               (EXIT |e|)))))))
                         (COND
-                         ((SPADCALL |op| (QREFELT $ 45))
+                         ((SPADCALL |op| (QREFELT $ 43))
                           (COND
                            ((NULL
                              (SPADCALL
-                              (LETT |sy| (SPADCALL |op| (QREFELT $ 46)))
-                              (LIST 'ROW 'AGGLST) (QREFELT $ 60)))
+                              (LETT |sy| (SPADCALL |op| (QREFELT $ 44)))
+                              (LIST 'ROW 'AGGLST) (QREFELT $ 57)))
                             (SEQ (LETT |n| (HGET |fortCsHash| |e|))
                                  (EXIT
                                   (COND
@@ -1680,16 +1673,16 @@
                                         (|FCTOOL;exp2FortOptimizeCS1|
                                          (|SPADfirst| |f|) |fortCsHash|
                                          |fortCsList| |f| $)
-                                        (QREFELT $ 99))
+                                        (QREFELT $ 93))
                               (LETT |f| (CDR |f|))
                               (EXIT (COND ((ATOM |f|) (LETT |f| NIL)))))
                              NIL (GO G190) G191 (EXIT NIL))
                         (COND
-                         ((SPADCALL |op| (QREFELT $ 45))
+                         ((SPADCALL |op| (QREFELT $ 43))
                           (COND
                            ((SPADCALL
-                             (LETT |sy| (SPADCALL |op| (QREFELT $ 46)))
-                             (LIST 'ROW 'AGGLST) (QREFELT $ 60))
+                             (LETT |sy| (SPADCALL |op| (QREFELT $ 44)))
+                             (LIST 'ROW 'AGGLST) (QREFELT $ 57))
                             (EXIT |e|)))))
                         (LETT |n| (HGET |fortCsHash| |e|))
                         (EXIT
@@ -1705,7 +1698,7 @@
         (SPROG
          ((|f| (|OutputForm|)) (|fortCsHash| (|None|))
           (|fortCsList| (|List| (|OutputForm|))))
-         (SEQ (LETT |fortCsList| (LIST (SPADCALL (QREFELT $ 101))))
+         (SEQ (LETT |fortCsList| (LIST (SPADCALL (QREFELT $ 95))))
               (LETT |fortCsHash| (MAKE_HASHTABLE 'EQ))
               (LETT |f|
                     (|FCTOOL;exp2FortOptimizeCS1| |e| |fortCsHash| |fortCsList|
@@ -1727,7 +1720,7 @@
                  (SEQ (LETT |op| (SPADCALL |e| (QREFELT $ 31)))
                       (LETT |args| (SPADCALL |e| (QREFELT $ 33)))
                       (LETT |rop|
-                            (|FCTOOL;exp2FortOptimizeArray| |op| (QREFELT $ 53)
+                            (|FCTOOL;exp2FortOptimizeArray| |op| (QREFELT $ 50)
                              |fort_name| $))
                       (LETT |rargs|
                             (PROGN
@@ -1742,23 +1735,23 @@
                                     (LETT #6#
                                           (CONS
                                            (|FCTOOL;exp2FortOptimizeArray|
-                                            |arg| (QREFELT $ 53) |fort_name| $)
+                                            |arg| (QREFELT $ 50) |fort_name| $)
                                            #6#))))
                                   (LETT #5# (CDR #5#)) (GO G190) G191
                                   (EXIT (NREVERSE #6#)))))
                       (EXIT
                        (COND
-                        ((SPADCALL |op| (QREFELT $ 45))
-                         (SEQ (LETT |sy| (SPADCALL |op| (QREFELT $ 46)))
+                        ((SPADCALL |op| (QREFELT $ 43))
+                         (SEQ (LETT |sy| (SPADCALL |op| (QREFELT $ 44)))
                               (EXIT
                                (COND
                                 ((SPADCALL |sy| (LIST 'BRACE 'BRACKET)
-                                           (QREFELT $ 60))
+                                           (QREFELT $ 57))
                                  (COND
                                   ((OR
                                     (OR
                                      (SPADCALL (LENGTH |args|) 1
-                                               (QREFELT $ 102))
+                                               (QREFELT $ 96))
                                      (SPADCALL
                                       (LETT |arg1| (|SPADfirst| |args|))
                                       (QREFELT $ 30)))
@@ -1766,15 +1759,14 @@
                                      (SPADCALL
                                       (LETT |op1|
                                             (SPADCALL |arg1| (QREFELT $ 31)))
-                                      'AGGLST (QREFELT $ 100))))
-                                   (SPADCALL (QREFELT $ 101)))
+                                      'AGGLST (QREFELT $ 94))))
+                                   (SPADCALL (QREFELT $ 95)))
                                   ('T
                                    (SEQ
                                     (LETT |args1|
                                           (SPADCALL |arg1| (QREFELT $ 33)))
                                     (COND
-                                     ((SPADCALL (LENGTH |args1|) 0
-                                                (QREFELT $ 37))
+                                     ((> (LENGTH |args1|) 0)
                                       (COND
                                        ((NULL
                                          (SPADCALL
@@ -1785,12 +1777,12 @@
                                            (LETT |op2|
                                                  (SPADCALL |arg11|
                                                            (QREFELT $ 31)))
-                                           (QREFELT $ 45))
+                                           (QREFELT $ 43))
                                           (COND
                                            ((SPADCALL
-                                             (SPADCALL |op2| (QREFELT $ 46))
+                                             (SPADCALL |op2| (QREFELT $ 44))
                                              (LIST 'BRACE 'BRACKET)
-                                             (QREFELT $ 60))
+                                             (QREFELT $ 57))
                                             (EXIT
                                              (PROGN
                                               (|FCTOOL;fortError1| |e| $)
@@ -1798,43 +1790,43 @@
                                                "Did not really exit.")))))))))))
                                     (LETT |var|
                                           (SPADCALL |fort_name|
-                                                    (QREFELT $ 78)))
+                                                    (QREFELT $ 75)))
                                     (LETT |res1|
                                           (SPADCALL |op| (CONS |var| |rargs|)
-                                                    (QREFELT $ 97)))
-                                    (SPADCALL (QREFELT $ 53)
+                                                    (QREFELT $ 91)))
+                                    (SPADCALL (QREFELT $ 50)
                                               (CONS |res1|
-                                                    (CDR (QREFELT $ 53)))
-                                              (QREFELT $ 98))
+                                                    (CDR (QREFELT $ 50)))
+                                              (QREFELT $ 92))
                                     (EXIT |var|)))))
                                 ((EQUAL |sy| 'MATRIX)
                                  (SEQ
                                   (LETT |var|
-                                        (SPADCALL |fort_name| (QREFELT $ 78)))
+                                        (SPADCALL |fort_name| (QREFELT $ 75)))
                                   (LETT |res1|
                                         (SPADCALL |op| (CONS |var| |rargs|)
-                                                  (QREFELT $ 97)))
-                                  (SPADCALL (QREFELT $ 53)
-                                            (CONS |res1| (CDR (QREFELT $ 53)))
-                                            (QREFELT $ 98))
+                                                  (QREFELT $ 91)))
+                                  (SPADCALL (QREFELT $ 50)
+                                            (CONS |res1| (CDR (QREFELT $ 50)))
+                                            (QREFELT $ 92))
                                   (EXIT |var|)))
                                 (#7#
-                                 (SPADCALL |rop| |rargs| (QREFELT $ 97)))))))
-                        (#7# (SPADCALL |rop| |rargs| (QREFELT $ 97))))))))))) 
+                                 (SPADCALL |rop| |rargs| (QREFELT $ 91)))))))
+                        (#7# (SPADCALL |rop| |rargs| (QREFELT $ 91))))))))))) 
 
 (SDEFUN |FCTOOL;exp2FortOptimize|
         ((|e| |OutputForm|) (|fort_name| |Symbol|) ($ |List| (|OutputForm|)))
         (SPROG ((|e2| #1=(|OutputForm|)) (#2=#:G615 NIL) (|e1| #1#))
-               (SEQ (SETELT $ 53 (LIST (SPADCALL (QREFELT $ 101))))
+               (SEQ (SETELT $ 50 (LIST (SPADCALL (QREFELT $ 95))))
                     (EXIT
                      (COND ((SPADCALL |e| (QREFELT $ 30)) (LIST |e|))
                            ((EQL |$fortranOptimizationLevel| 0)
                             (SEQ
                              (LETT |e1|
                                    (|FCTOOL;exp2FortOptimizeArray| |e|
-                                    (QREFELT $ 53) |fort_name| $))
+                                    (QREFELT $ 50) |fort_name| $))
                              (EXIT
-                              (NREVERSE (CONS |e1| (CDR (QREFELT $ 53)))))))
+                              (NREVERSE (CONS |e1| (CDR (QREFELT $ 50)))))))
                            ('T
                             (SEQ (LETT |e| (|minimalise| |e|))
                                  (SEQ (LETT |e1| NIL)
@@ -1849,16 +1841,16 @@
                                       (SEQ
                                        (LETT |e2|
                                              (|FCTOOL;exp2FortOptimizeArray|
-                                              |e1| (QREFELT $ 53) |fort_name|
+                                              |e1| (QREFELT $ 50) |fort_name|
                                               $))
                                        (EXIT
-                                        (SPADCALL (QREFELT $ 53)
+                                        (SPADCALL (QREFELT $ 50)
                                                   (CONS |e2|
-                                                        (CDR (QREFELT $ 53)))
-                                                  (QREFELT $ 98))))
+                                                        (CDR (QREFELT $ 50)))
+                                                  (QREFELT $ 92))))
                                       (LETT #2# (CDR #2#)) (GO G190) G191
                                       (EXIT NIL))
-                                 (EXIT (NREVERSE (CDR (QREFELT $ 53))))))))))) 
+                                 (EXIT (NREVERSE (CDR (QREFELT $ 50))))))))))) 
 
 (SDEFUN |FCTOOL;expression2Fortran1;MOfBL;52|
         ((|nf| |Mapping| (|Symbol|)) (|of| |OutputForm|)
@@ -1874,7 +1866,7 @@
                 (SEQ (SETF |$fortInts2Floats| NIL) (SETELT $ 6 0)
                      (LETT |ol|
                            (|FCTOOL;exp2FortOptimize|
-                            (SPADCALL |of| (QREFELT $ 103)) (SPADCALL |nf|) $))
+                            (SPADCALL |of| (QREFELT $ 97)) (SPADCALL |nf|) $))
                      (EXIT
                       (|FCTOOL;fortranCleanUp|
                        (|FCTOOL;exp2Fort1|
@@ -1886,13 +1878,13 @@
 (SDEFUN |FCTOOL;statement2Fortran;OfL;53|
         ((|of| |OutputForm|) ($ |List| (|String|)))
         (SPADCALL (LIST #'|FCTOOL;statement2Fortran;OfL;53!0|) |of| NIL
-                  (QREFELT $ 105))) 
+                  (QREFELT $ 99))) 
 
 (SDEFUN |FCTOOL;statement2Fortran;OfL;53!0| (($$ NIL)) 'DUMMY) 
 
 (SDEFUN |FCTOOL;expression2Fortran;OfL;54|
         ((|of| |OutputForm|) ($ |List| (|String|)))
-        (SPADCALL (ELT $ 16) |of| NIL (QREFELT $ 105))) 
+        (SPADCALL (ELT $ 16) |of| NIL (QREFELT $ 99))) 
 
 (SDEFUN |FCTOOL;changeExprLength;IV;55| ((|i| |Integer|) ($ |Void|))
         (SPROG ((|nl| (|Integer|)))
@@ -1906,13 +1898,13 @@
                (SPADCALL |int_to_floats?|
                          (CONS #'|FCTOOL;getStatement;OfBL;56!0|
                                (VECTOR $ |of|))
-                         (QREFELT $ 95)))) 
+                         (QREFELT $ 89)))) 
 
 (SDEFUN |FCTOOL;getStatement;OfBL;56!0| (($$ NIL))
         (PROG (|of| $)
           (LETT |of| (QREFELT $$ 1))
           (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL |of| (QREFELT $ 106)))))) 
+          (RETURN (PROGN (SPADCALL |of| (QREFELT $ 100)))))) 
 
 (SDEFUN |FCTOOL;displayLines;LV;57| ((|ls| |List| (|String|)) ($ |Void|))
         (SPROG ((#1=#:G631 NIL) (|l| NIL))
@@ -1926,8 +1918,8 @@
 
 (SDEFUN |FCTOOL;dispStatement;OfV;58| ((|of| |OutputForm|) ($ |Void|))
         (SPROG ((|l| (|List| (|String|))))
-               (SEQ (LETT |l| (SPADCALL |of| NIL (QREFELT $ 109)))
-                    (EXIT (SPADCALL |l| (QREFELT $ 110)))))) 
+               (SEQ (LETT |l| (SPADCALL |of| NIL (QREFELT $ 103)))
+                    (EXIT (SPADCALL |l| (QREFELT $ 104)))))) 
 
 (SDEFUN |FCTOOL;fortFormatHead1|
         ((|name| |Symbol|) (|asp| |List| (|String|)) (|args| |List| (|Symbol|))
@@ -1936,7 +1928,7 @@
          ((|of| (|OutputForm|)) (#1=#:G638 NIL) (|arg| NIL) (#2=#:G637 NIL))
          (SEQ
           (LETT |of|
-                (SPADCALL (SPADCALL |name| (QREFELT $ 78))
+                (SPADCALL (SPADCALL |name| (QREFELT $ 75))
                           (PROGN
                            (LETT #2# NIL)
                            (SEQ (LETT |arg| NIL) (LETT #1# |args|) G190
@@ -1947,13 +1939,13 @@
                                 (SEQ
                                  (EXIT
                                   (LETT #2#
-                                        (CONS (SPADCALL |arg| (QREFELT $ 78))
+                                        (CONS (SPADCALL |arg| (QREFELT $ 75))
                                               #2#))))
                                 (LETT #1# (CDR #1#)) (GO G190) G191
                                 (EXIT (NREVERSE #2#))))
-                          (QREFELT $ 50)))
+                          (QREFELT $ 48)))
           (EXIT
-           (SPADCALL |asp| (SPADCALL |of| (QREFELT $ 106)) (QREFELT $ 25)))))) 
+           (SPADCALL |asp| (SPADCALL |of| (QREFELT $ 100)) (QREFELT $ 25)))))) 
 
 (SDEFUN |FCTOOL;fortFormatHead;SULV;60|
         ((|name| |Symbol|)
@@ -1967,7 +1959,7 @@
           (COND
            ((QEQCAR |returnType| 1)
             (SEQ (LETT |asp| (LIST "SUBROUTINE "))
-                 (EXIT (SPADCALL (LETT |l| -11) (QREFELT $ 108)))))
+                 (EXIT (SPADCALL (LETT |l| -11) (QREFELT $ 102)))))
            ('T
             (SEQ
              (LETT |s|
@@ -1980,18 +1972,18 @@
                                         (|:| |fst| (|FortranScalarType|))
                                         (|:| |void| "void"))
                                        #1#))
-                     (QREFELT $ 112))
+                     (QREFELT $ 106))
                     (QREFELT $ 17)))
              (LETT |asp| (LIST |s| " FUNCTION "))
              (EXIT
-              (SPADCALL (LETT |l| (- -10 (QCSIZE |s|))) (QREFELT $ 108))))))
+              (SPADCALL (LETT |l| (- -10 (QCSIZE |s|))) (QREFELT $ 102))))))
           (LETT |lines|
                 (SPADCALL
                  (CONS #'|FCTOOL;fortFormatHead;SULV;60!0|
                        (VECTOR $ |args| |asp| |name|))
-                 (QREFELT $ 96)))
-          (SPADCALL |lines| (QREFELT $ 110))
-          (EXIT (SPADCALL (- |l|) (QREFELT $ 108)))))) 
+                 (QREFELT $ 90)))
+          (SPADCALL |lines| (QREFELT $ 104))
+          (EXIT (SPADCALL (- |l|) (QREFELT $ 102)))))) 
 
 (SDEFUN |FCTOOL;fortFormatHead;SULV;60!0| (($$ NIL))
         (PROG (|name| |asp| |args| $)
@@ -2044,7 +2036,7 @@
                 (LETT |l1|
                       (CONS |typeName| (CONS " " (|FCTOOL;addCommas| |l| $))))
                 (EXIT
-                 (SPADCALL (SPADCALL |l1| (QREFELT $ 92)) (QREFELT $ 110)))))) 
+                 (SPADCALL (SPADCALL |l1| (QREFELT $ 86)) (QREFELT $ 104)))))) 
 
 (SDEFUN |FCTOOL;fortFormatTypes1|
         ((|typeName| |String|) (|names| |List| (|String|)) ($ |Void|))
@@ -2055,10 +2047,7 @@
                          (QCSIZE |typeName|)))
                 (SEQ G190
                      (COND
-                      ((NULL
-                        (SPADCALL (|FCTOOL;nameLen| |names| $) |l|
-                                  (QREFELT $ 37)))
-                       (GO G191)))
+                      ((NULL (> (|FCTOOL;nameLen| |names| $) |l|)) (GO G191)))
                      (SEQ (LETT |n| NIL) (LETT |ln| 0)
                           (SEQ G190
                                (COND
@@ -2074,9 +2063,9 @@
                                (SEQ (LETT |n| (CONS (|SPADfirst| |names|) |n|))
                                     (EXIT (LETT |names| (CDR |names|))))
                                NIL (GO G190) G191 (EXIT NIL))
-                          (EXIT (SPADCALL |typeName| |n| (QREFELT $ 115))))
+                          (EXIT (SPADCALL |typeName| |n| (QREFELT $ 109))))
                      NIL (GO G190) G191 (EXIT NIL))
-                (EXIT (SPADCALL |typeName| |names| (QREFELT $ 115)))))) 
+                (EXIT (SPADCALL |typeName| |names| (QREFELT $ 109)))))) 
 
 (SDEFUN |FCTOOL;par2string2| ((|u| |List| (|OutputForm|)) ($ |String|))
         (SPROG
@@ -2093,18 +2082,18 @@
                       (SEQ
                        (EXIT
                         (LETT #2#
-                              (CONS (CONS "," (SPADCALL |v| (QREFELT $ 106)))
+                              (CONS (CONS "," (SPADCALL |v| (QREFELT $ 100)))
                                     #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#)))))
           (LETT |l|
-                (SPADCALL (CDR (SPADCALL |ll| (QREFELT $ 116))) ")"
-                          (QREFELT $ 117)))
+                (SPADCALL (CDR (SPADCALL |ll| (QREFELT $ 110))) ")"
+                          (QREFELT $ 111)))
           (EXIT
            (SPADCALL
             (SPADCALL (LIST (STRINGIMAGE (|SPADfirst| |u|)) "(") |l|
                       (QREFELT $ 25))
-            (QREFELT $ 64)))))) 
+            (QREFELT $ 61)))))) 
 
 (SDEFUN |FCTOOL;unravel_par| ((|u| |OutputForm|) ($ |OutputForm|))
         (SEQ
@@ -2157,14 +2146,14 @@
          (|Tabl| |AssociationList| (|Integer|) (|List| (|OutputForm|)))
          ($ |Void|))
         (SPROG ((|u| (|Union| (|List| (|OutputForm|)) "failed")))
-               (SEQ (LETT |u| (SPADCALL |m| |Tabl| (QREFELT $ 120)))
+               (SEQ (LETT |u| (SPADCALL |m| |Tabl| (QREFELT $ 114)))
                     (EXIT
                      (COND
                       ((QEQCAR |u| 1)
-                       (SPADCALL |Tabl| |m| (LIST |n|) (QREFELT $ 121)))
+                       (SPADCALL |Tabl| |m| (LIST |n|) (QREFELT $ 115)))
                       ('T
                        (SPADCALL |Tabl| |m| (CONS |n| (QCDR |u|))
-                                 (QREFELT $ 121)))))))) 
+                                 (QREFELT $ 115)))))))) 
 
 (SDEFUN |FCTOOL;fortFormatCharacterTypes|
         ((|names| |List| (|OutputForm|)) ($ |Void|))
@@ -2174,7 +2163,7 @@
           (|u1| (|List| (|OutputForm|))) (#2=#:G698 NIL) (|u| NIL)
           (|sortedByLength|
            (|AssociationList| (|Integer|) (|List| (|OutputForm|)))))
-         (SEQ (LETT |sortedByLength| (SPADCALL (QREFELT $ 122)))
+         (SEQ (LETT |sortedByLength| (SPADCALL (QREFELT $ 116)))
               (LETT |genuineArrays| NIL)
               (SEQ (LETT |u| NIL) (LETT #2# |names|) G190
                    (COND
@@ -2191,14 +2180,14 @@
                              (COND
                               ((EQL (LENGTH |u1|) 2)
                                (|FCTOOL;insertEntry|
-                                (SPADCALL |u1| (QREFELT $ 43))
+                                (SPADCALL |u1| (QREFELT $ 41))
                                 (|SPADfirst| |u1|) |sortedByLength| $))
                               ('T
                                (LETT |genuineArrays|
                                      (CONS |u1| |genuineArrays|))))))))))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (SEQ (LETT |u2| NIL)
-                   (LETT #1# (SPADCALL |sortedByLength| (QREFELT $ 125))) G190
+                   (LETT #1# (SPADCALL |sortedByLength| (QREFELT $ 119))) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |u2| (CAR #1#)) NIL))
                      (GO G191)))
@@ -2241,7 +2230,7 @@
         ((|typeName| |String|) (|names| |List| (|OutputForm|)) ($ |Void|))
         (SPROG ((|save_fortranSegment| (|Boolean|)))
                (SEQ
-                (COND ((NULL |names|) (SPADCALL (QREFELT $ 126)))
+                (COND ((NULL |names|) (SPADCALL (QREFELT $ 120)))
                       ('T
                        (SEQ (LETT |save_fortranSegment| |$fortranSegment|)
                             (EXIT
@@ -2252,7 +2241,7 @@
                                               (CONS
                                                #'|FCTOOL;fort_format_types;SLV;74!0|
                                                (VECTOR |names| $ |typeName|))
-                                              (QREFELT $ 94))))
+                                              (QREFELT $ 88))))
                               (SETF |$fortranSegment|
                                       |save_fortranSegment|))))))))) 
 
@@ -2292,7 +2281,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|FortranCodeTools|))
-          (LETT $ (GETREFV 128))
+          (LETT $ (GETREFV 122))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FortranCodeTools| NIL (CONS 1 $))
@@ -2309,10 +2298,10 @@
           (QSETREFV $ 23 (LIST 700 700 800 110 0 0 0))
           (QSETREFV $ 26
                     (SPADCALL (QREFELT $ 20) (QREFELT $ 22) (QREFELT $ 25)))
-          (QSETREFV $ 48 (SPADCALL '= (QREFELT $ 47)))
-          (QSETREFV $ 53 NIL)
-          (QSETREFV $ 54 NIL)
-          (QSETREFV $ 61
+          (QSETREFV $ 46 (SPADCALL '= (QREFELT $ 45)))
+          (QSETREFV $ 50 NIL)
+          (QSETREFV $ 51 NIL)
+          (QSETREFV $ 58
                     (LIST (VECTOR '|abs| 'ABS 'DABS)
                           (VECTOR '|acos| 'ACOS 'DACOS)
                           (VECTOR '|asin| 'ASIN 'DASIN)
@@ -2328,17 +2317,17 @@
                           (VECTOR '|sqrt| 'SQRT 'DSQRT)
                           (VECTOR '|tan| 'TAN 'DTAN)
                           (VECTOR '|tanh| 'TANH 'DTANH)))
-          (QSETREFV $ 62
+          (QSETREFV $ 59
                     (LIST (CONS '< '.LT.) (CONS '> '.GT.) (CONS '<= '.LE.)
                           (CONS '>= '.GE.) (CONS 'EQ '.EQ.)
                           (CONS '|and| '.AND.) (CONS '|or| '.OR.)
                           (CONS '~ '.NOT.)))
-          (QSETREFV $ 69
+          (QSETREFV $ 66
                     '(BRACKET BRACE SUB AGGLST SUPERSUB MATRIX SEGMENT
                       ALTSUPERSUB PAREN CONCAT CONCATB QUOTE STRING SIGMA STEP
                       IN SIGMA2 INTSIGN PI PI2))
-          (QSETREFV $ 70 (SPADCALL '** (QREFELT $ 47)))
-          (QSETREFV $ 84 6)
+          (QSETREFV $ 67 (SPADCALL '** (QREFELT $ 45)))
+          (QSETREFV $ 80 6)
           $))) 
 
 (MAKEPROP '|FortranCodeTools| '|infovec|
@@ -2351,49 +2340,49 @@
               '|binaryPrecs| '|naryOps| '|naryPrecs| (|List| 7) (21 . |append|)
               '|nonUnaryOps| (|Boolean|) (|OutputForm|) (|OutputFormTools|)
               (27 . |atom?|) (32 . |operator|) (|List| 28) (37 . |arguments|)
-              (|Integer|) (42 . |elt|) (48 . |position|) (54 . >) (|List| 34)
-              (60 . |elt|) (66 . <=) (|NonNegativeInteger|) (72 . ~=)
-              (78 . |second|) (83 . |member?|) (89 . |symbol?|) (94 . |symbol|)
-              (99 . |outputForm|) '|ass_form| (|List| $) (104 . |elt|)
-              (110 . |append|) (116 . *) '|exprStack| '|used_intrinsics|
-              (|Void|) |FCTOOL;clear_used_intrinsics;V;24| (122 . |string|)
-              |FCTOOL;get_used_intrinsics;L;25| (|List| 8) (127 . |member?|)
-              '|fort_intrinsics| '|fort_ops| (133 . |string|) (138 . |concat|)
-              (143 . |message|) (148 . |integer?|) (153 . |integer|)
-              (158 . |outputForm|) '|specialOps| '|pow_form| (|Character|)
-              (163 . |elt|) (169 . |char|) (174 . |remove|) (180 . |position|)
-              (186 . ~=) (192 . |setelt!|) (199 . |coerce|) (204 . |string?|)
-              (|UniversalSegment| 34) (209 . SEGMENT) (214 . |elt|) (220 . >)
-              '|fort_indent| |FCTOOL;get_fort_indent;I;39| (|PositiveInteger|)
-              (226 . *) |FCTOOL;indentFortLevel;IV;40| (232 . |space|)
-              (236 . SEGMENT) (242 . ~=) |FCTOOL;fort_clean_lines;2L;43|
-              (|Mapping| 24) |FCTOOL;do_with_error_env3;BML;45|
+              (|Integer|) (42 . |elt|) (48 . |position|) (|List| 34)
+              (54 . |elt|) (|NonNegativeInteger|) (60 . ~=) (66 . |second|)
+              (71 . |member?|) (77 . |symbol?|) (82 . |symbol|)
+              (87 . |outputForm|) '|ass_form| (|List| $) (92 . |elt|)
+              (98 . |append|) '|exprStack| '|used_intrinsics| (|Void|)
+              |FCTOOL;clear_used_intrinsics;V;24| (104 . |string|)
+              |FCTOOL;get_used_intrinsics;L;25| (|List| 8) (109 . |member?|)
+              '|fort_intrinsics| '|fort_ops| (115 . |string|) (120 . |concat|)
+              (125 . |message|) (130 . |integer?|) (135 . |integer|)
+              (140 . |outputForm|) '|specialOps| '|pow_form| (|Character|)
+              (145 . |elt|) (151 . |char|) (156 . |remove|) (162 . |position|)
+              (168 . ~=) (174 . |setelt!|) (181 . |coerce|) (186 . |string?|)
+              (|UniversalSegment| 34) (191 . SEGMENT) (196 . |elt|)
+              '|fort_indent| |FCTOOL;get_fort_indent;I;39|
+              |FCTOOL;indentFortLevel;IV;40| (202 . |space|) (206 . SEGMENT)
+              (212 . ~=) |FCTOOL;fort_clean_lines;2L;43| (|Mapping| 24)
+              |FCTOOL;do_with_error_env3;BML;45|
               |FCTOOL;do_with_error_env2;BML;44|
-              |FCTOOL;do_with_error_env1;ML;46| (248 . |construct|)
-              (254 . |setrest!|) (260 . |setfirst!|) (266 . |is_symbol?|)
-              (272 . |empty|) (276 . ~=) (282 . |precondition|) (|Mapping| 8)
+              |FCTOOL;do_with_error_env1;ML;46| (218 . |construct|)
+              (224 . |setrest!|) (230 . |setfirst!|) (236 . |is_symbol?|)
+              (242 . |empty|) (246 . ~=) (252 . |precondition|) (|Mapping| 8)
               |FCTOOL;expression2Fortran1;MOfBL;52|
               |FCTOOL;statement2Fortran;OfL;53|
               |FCTOOL;expression2Fortran;OfL;54|
               |FCTOOL;changeExprLength;IV;55| |FCTOOL;getStatement;OfBL;56|
               |FCTOOL;displayLines;LV;57| |FCTOOL;dispStatement;OfV;58|
-              (287 . |coerce|) (|Union| (|:| |fst| 10) (|:| |void| '#1="void"))
+              (257 . |coerce|) (|Union| (|:| |fst| 10) (|:| |void| '#1="void"))
               |FCTOOL;fortFormatHead;SULV;60|
-              |FCTOOL;fortFormatTypeLines;SLV;63| (292 . |concat|)
-              (297 . |concat|) (|Union| 32 '"failed") (|AssociationList| 34 32)
-              (303 . |search|) (309 . |setelt!|) (316 . |empty|)
-              (|Record| (|:| |key| 34) (|:| |entry| 32)) (|List| 123)
-              (320 . |entries|) (325 . |void|)
+              |FCTOOL;fortFormatTypeLines;SLV;63| (262 . |concat|)
+              (267 . |concat|) (|Union| 32 '"failed") (|AssociationList| 34 32)
+              (273 . |search|) (279 . |setelt!|) (286 . |empty|)
+              (|Record| (|:| |key| 34) (|:| |entry| 32)) (|List| 117)
+              (290 . |entries|) (295 . |void|)
               |FCTOOL;fort_format_types;SLV;74|)
-           '#(|statement2Fortran| 329 |newFortranTempVar| 334 |indentFortLevel|
-              338 |get_used_intrinsics| 343 |get_fort_indent| 347
-              |getStatement| 351 |fort_format_types| 357 |fort_clean_lines| 363
-              |fortFormatTypeLines| 368 |fortFormatHead| 374
-              |expression2Fortran1| 381 |expression2Fortran| 388
-              |do_with_error_env3| 393 |do_with_error_env2| 399
-              |do_with_error_env1| 405 |displayLines| 410 |dispStatement| 415
-              |clear_used_intrinsics| 420 |checkType| 424 |changeExprLength|
-              429)
+           '#(|statement2Fortran| 299 |newFortranTempVar| 304 |indentFortLevel|
+              308 |get_used_intrinsics| 313 |get_fort_indent| 317
+              |getStatement| 321 |fort_format_types| 327 |fort_clean_lines| 333
+              |fortFormatTypeLines| 338 |fortFormatHead| 344
+              |expression2Fortran1| 351 |expression2Fortran| 358
+              |do_with_error_env3| 363 |do_with_error_env2| 369
+              |do_with_error_env1| 375 |displayLines| 380 |dispStatement| 385
+              |clear_used_intrinsics| 390 |checkType| 394 |changeExprLength|
+              399)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -2454,42 +2443,40 @@
                                 T)
                               '((|get_fort_indent| ((|Integer|))) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 127
+                        (|makeByteWordVec2| 121
                                             '(1 8 0 7 9 1 10 0 8 11 1 12 0 10
                                               13 2 14 12 8 12 15 2 24 0 0 0 25
                                               1 29 27 28 30 1 29 28 28 31 1 29
                                               32 28 33 2 32 28 0 34 35 2 24 34
-                                              7 0 36 2 34 27 0 0 37 2 38 34 0
-                                              34 39 2 34 27 0 0 40 2 41 27 0 0
-                                              42 1 32 28 0 43 2 24 27 7 0 44 1
-                                              29 27 28 45 1 29 8 28 46 1 28 0 8
-                                              47 2 28 0 0 49 50 2 32 0 0 0 51 2
-                                              34 0 41 0 52 1 8 7 0 57 2 59 27 8
-                                              0 60 1 29 7 28 63 1 7 0 49 64 1
-                                              28 0 7 65 1 29 27 28 66 1 29 34
-                                              28 67 1 28 0 34 68 2 7 71 0 34 72
-                                              1 71 0 7 73 2 7 0 71 0 74 2 7 34
-                                              71 0 75 2 8 27 0 0 76 3 7 71 0 34
-                                              71 77 1 8 28 0 78 1 29 27 28 79 1
-                                              80 0 34 81 2 7 0 0 80 82 2 41 27
-                                              0 0 83 2 34 0 86 0 87 0 71 0 89 2
-                                              80 0 34 34 90 2 7 27 0 0 91 2 29
-                                              28 28 32 97 2 32 0 0 0 98 2 32 28
-                                              0 28 99 2 29 27 28 8 100 0 28 0
-                                              101 2 34 27 0 0 102 1 29 28 28
-                                              103 1 10 7 0 112 1 24 0 49 116 2
-                                              24 0 0 7 117 2 119 118 34 0 120 3
-                                              119 32 0 34 32 121 0 119 0 122 1
-                                              119 124 0 125 0 55 0 126 1 0 24
-                                              28 106 0 0 8 16 1 0 55 34 88 0 0
-                                              24 58 0 0 34 85 2 0 24 28 27 109
-                                              2 0 55 7 32 127 1 0 24 24 92 2 0
-                                              55 7 24 115 3 0 55 8 113 59 114 3
-                                              0 24 104 28 27 105 1 0 24 28 107
-                                              2 0 24 27 93 94 2 0 24 27 93 95 1
-                                              0 24 93 96 1 0 55 24 110 1 0 55
-                                              28 111 0 0 55 56 1 0 7 7 17 1 0
-                                              55 34 108)))))
+                                              7 0 36 2 37 34 0 34 38 2 39 27 0
+                                              0 40 1 32 28 0 41 2 24 27 7 0 42
+                                              1 29 27 28 43 1 29 8 28 44 1 28 0
+                                              8 45 2 28 0 0 47 48 2 32 0 0 0 49
+                                              1 8 7 0 54 2 56 27 8 0 57 1 29 7
+                                              28 60 1 7 0 47 61 1 28 0 7 62 1
+                                              29 27 28 63 1 29 34 28 64 1 28 0
+                                              34 65 2 7 68 0 34 69 1 68 0 7 70
+                                              2 7 0 68 0 71 2 7 34 68 0 72 2 8
+                                              27 0 0 73 3 7 68 0 34 68 74 1 8
+                                              28 0 75 1 29 27 28 76 1 77 0 34
+                                              78 2 7 0 0 77 79 0 68 0 83 2 77 0
+                                              34 34 84 2 7 27 0 0 85 2 29 28 28
+                                              32 91 2 32 0 0 0 92 2 32 28 0 28
+                                              93 2 29 27 28 8 94 0 28 0 95 2 34
+                                              27 0 0 96 1 29 28 28 97 1 10 7 0
+                                              106 1 24 0 47 110 2 24 0 0 7 111
+                                              2 113 112 34 0 114 3 113 32 0 34
+                                              32 115 0 113 0 116 1 113 118 0
+                                              119 0 52 0 120 1 0 24 28 100 0 0
+                                              8 16 1 0 52 34 82 0 0 24 55 0 0
+                                              34 81 2 0 24 28 27 103 2 0 52 7
+                                              32 121 1 0 24 24 86 2 0 52 7 24
+                                              109 3 0 52 8 107 56 108 3 0 24 98
+                                              28 27 99 1 0 24 28 101 2 0 24 27
+                                              87 88 2 0 24 27 87 89 1 0 24 87
+                                              90 1 0 52 24 104 1 0 52 28 105 0
+                                              0 52 53 1 0 7 7 17 1 0 52 34
+                                              102)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FortranCodeTools| 'NILADIC T) 

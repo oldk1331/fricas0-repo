@@ -118,7 +118,7 @@
                               (GO #5=#:G137)))
                             ((ODDP (QCDR |rec|))
                              (COND
-                              ((SPADCALL (QCDR |rec|) 2 (QREFELT $ 48))
+                              ((> (QCDR |rec|) 2)
                                (PROGN
                                 (LETT #1# (PROGN (LETT #2# NIL) (GO #4#)))
                                 (GO #5#))))))))
@@ -151,7 +151,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|Kovacic| DV$1 DV$2))
-          (LETT $ (GETREFV 49))
+          (LETT $ (GETREFV 47))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Kovacic| (LIST DV$1 DV$2)
@@ -176,9 +176,8 @@
               (74 . -) (80 . |coerce|) (85 . *) (|List| 11)
               (|RationalRicDE| 6 7) (91 . |ricDsolve|)
               (|SparseUnivariatePolynomial| 11) (97 . |monomial|) (103 . -)
-              (|Integer|) (109 . |coerce|) (114 . |coerce|) (119 . +)
-              (|Boolean|) (125 . >))
-           '#(|kovacic| 131) 'NIL
+              (|Integer|) (109 . |coerce|) (114 . |coerce|) (119 . +))
+           '#(|kovacic| 125) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -203,7 +202,7 @@
                                   (|Mapping| (|Factored| |#2|) |#2|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 48
+                        (|makeByteWordVec2| 46
                                             '(1 7 8 0 9 2 11 0 0 15 16 2 11 0
                                               15 0 17 1 11 0 0 18 2 11 0 0 0 19
                                               2 11 0 0 0 20 2 11 0 0 0 21 2 11
@@ -213,7 +212,6 @@
                                               11 35 2 32 0 15 0 36 2 38 37 32
                                               12 39 2 40 0 11 31 41 2 40 0 0 0
                                               42 1 11 0 43 44 1 40 0 11 45 2 40
-                                              0 0 0 46 2 31 47 0 0 48 4 0 10 11
-                                              11 11 12 13 3 0 10 11 11 11
-                                              14)))))
+                                              0 0 0 46 4 0 10 11 11 11 12 13 3
+                                              0 10 11 11 11 14)))))
            '|lookupComplete|)) 

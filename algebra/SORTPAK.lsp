@@ -34,7 +34,7 @@
                                 (COND
                                  ((NULL
                                    (COND
-                                    ((SPADCALL |j| 1 (QREFELT $ 17))
+                                    ((> |j| 1)
                                      (SPADCALL
                                       (SPADCALL |m| |j| (QREFELT $ 11))
                                       (SPADCALL |m| (- |j| 1) (QREFELT $ 11))
@@ -49,16 +49,16 @@
                 (EXIT |m|)))) 
 
 (SDEFUN |SORTPAK;bubbleSort!;2A;3| ((|m| A) ($ A))
-        (SPADCALL |m| (ELT $ 19) (QREFELT $ 15))) 
+        (SPADCALL |m| (ELT $ 18) (QREFELT $ 15))) 
 
 (SDEFUN |SORTPAK;insertionSort!;2A;4| ((|m| A) ($ A))
-        (SPADCALL |m| (ELT $ 19) (QREFELT $ 18))) 
+        (SPADCALL |m| (ELT $ 18) (QREFELT $ 16))) 
 
 (SDEFUN |SORTPAK;bubbleSort!;AMA;5|
         ((|m| A) (|fn| |Mapping| (|Boolean|) S S) ($ A))
         (SPROG ((|l| (A)) (|x| (S)) (|r| (A)))
                (SEQ
-                (COND ((SPADCALL |m| (QREFELT $ 22)) |m|)
+                (COND ((SPADCALL |m| (QREFELT $ 21)) |m|)
                       ('T
                        (SEQ (LETT |l| |m|)
                             (SEQ G190
@@ -68,30 +68,30 @@
                                      (SPADCALL
                                       (LETT |r|
                                             (SPADCALL |l| '|rest|
-                                                      (QREFELT $ 24)))
-                                      (QREFELT $ 22))))
+                                                      (QREFELT $ 23)))
+                                      (QREFELT $ 21))))
                                    (GO G191)))
                                  (SEQ
                                   (LETT |r| (SPADCALL |r| |fn| (QREFELT $ 15)))
                                   (LETT |x|
-                                        (SPADCALL |l| '|first| (QREFELT $ 26)))
+                                        (SPADCALL |l| '|first| (QREFELT $ 25)))
                                   (COND
                                    ((SPADCALL
-                                     (SPADCALL |r| '|first| (QREFELT $ 26)) |x|
+                                     (SPADCALL |r| '|first| (QREFELT $ 25)) |x|
                                      |fn|)
                                     (SEQ
                                      (SPADCALL |l| '|first|
                                                (SPADCALL |r| '|first|
-                                                         (QREFELT $ 26))
-                                               (QREFELT $ 27))
+                                                         (QREFELT $ 25))
+                                               (QREFELT $ 26))
                                      (EXIT
                                       (SPADCALL |r| '|first| |x|
-                                                (QREFELT $ 27))))))
-                                  (SPADCALL |l| '|rest| |r| (QREFELT $ 28))
+                                                (QREFELT $ 26))))))
+                                  (SPADCALL |l| '|rest| |r| (QREFELT $ 27))
                                   (EXIT
                                    (LETT |l|
                                          (SPADCALL |l| '|rest|
-                                                   (QREFELT $ 24)))))
+                                                   (QREFELT $ 23)))))
                                  NIL (GO G190) G191 (EXIT NIL))
                             (EXIT |m|))))))) 
 
@@ -120,7 +120,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|SortPackage| DV$1 DV$2))
-          (LETT $ (GETREFV 29))
+          (LETT $ (GETREFV 28))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -137,10 +137,10 @@
           (COND
            ((|testBitVector| |pv$| 1)
             (PROGN
-             (QSETREFV $ 20
+             (QSETREFV $ 19
                        (CONS (|dispatchFunction| |SORTPAK;bubbleSort!;2A;3|)
                              $))
-             (QSETREFV $ 21
+             (QSETREFV $ 20
                        (CONS (|dispatchFunction| |SORTPAK;insertionSort!;2A;4|)
                              $)))))
           (COND
@@ -156,12 +156,12 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|NonNegativeInteger|) (0 . |#|) (|Integer|) (5 . |elt|) (|Void|)
-              (11 . |swap!|) (|Mapping| 16 6 6) |SORTPAK;bubbleSort!;AMA;1|
-              (|Boolean|) (18 . >) |SORTPAK;insertionSort!;AMA;2| (24 . <)
-              (30 . |bubbleSort!|) (35 . |insertionSort!|) (40 . |empty?|)
-              '"rest" (45 . |elt|) '"first" (51 . |elt|) (57 . |setelt!|)
-              (64 . |setelt!|))
-           '#(|insertionSort!| 71 |bubbleSort!| 82) 'NIL
+              (11 . |swap!|) (|Mapping| 17 6 6) |SORTPAK;bubbleSort!;AMA;1|
+              |SORTPAK;insertionSort!;AMA;2| (|Boolean|) (18 . <)
+              (24 . |bubbleSort!|) (29 . |insertionSort!|) (34 . |empty?|)
+              '"rest" (39 . |elt|) '"first" (45 . |elt|) (51 . |setelt!|)
+              (58 . |setelt!|))
+           '#(|insertionSort!| 65 |bubbleSort!| 76) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -179,12 +179,12 @@
                               '((|insertionSort!| (|#2| |#2|))
                                 (|has| 6 (|OrderedSet|))))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 28
+                        (|makeByteWordVec2| 27
                                             '(1 7 8 0 9 2 7 6 0 10 11 3 7 12 0
-                                              10 10 13 2 8 16 0 0 17 2 6 16 0 0
-                                              19 1 0 7 7 20 1 0 7 7 21 1 7 16 0
-                                              22 2 7 0 0 23 24 2 7 6 0 25 26 3
-                                              7 6 0 25 6 27 3 7 0 0 23 0 28 1 1
-                                              7 7 21 2 0 7 7 14 18 1 1 7 7 20 2
-                                              0 7 7 14 15)))))
+                                              10 10 13 2 6 17 0 0 18 1 0 7 7 19
+                                              1 0 7 7 20 1 7 17 0 21 2 7 0 0 22
+                                              23 2 7 6 0 24 25 3 7 6 0 24 6 26
+                                              3 7 0 0 22 0 27 1 1 7 7 20 2 0 7
+                                              7 14 16 1 1 7 7 19 2 0 7 7 14
+                                              15)))))
            '|lookupComplete|)) 

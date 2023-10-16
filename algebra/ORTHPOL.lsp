@@ -29,8 +29,7 @@
                                     (|spadConstant| $ 8) (QREFELT $ 10))
                                    |x| (QREFELT $ 15))
                                   |p1| (QREFELT $ 16))
-                                 (SPADCALL (SPADCALL |i| 2 (QREFELT $ 18)) |p0|
-                                           (QREFELT $ 19))
+                                 (SPADCALL (EXPT |i| 2) |p0| (QREFELT $ 17))
                                  (QREFELT $ 15)))
                           (LETT |#G9| |p1|)
                           (LETT |p1| |#G8|)
@@ -47,8 +46,8 @@
               (LETT |cx|
                     (*
                      (* (EXPT -1 |m|)
-                        (SPADCALL |ni| (- |ni| |mi|) (QREFELT $ 22)))
-                     (SPADCALL |ni| (QREFELT $ 23))))
+                        (SPADCALL |ni| (- |ni| |mi|) (QREFELT $ 21)))
+                     (SPADCALL |ni| (QREFELT $ 22))))
               (LETT |p0| (|spadConstant| $ 8))
               (LETT |p1| (SPADCALL |cx| (QREFELT $ 12)))
               (SEQ (LETT |j| 1) (LETT #2# (- |ni| |mi|)) G190
@@ -58,7 +57,7 @@
                               (PROG2
                                   (LETT #1#
                                         (SPADCALL |cx| (* (+ |mi| |j|) |j|)
-                                                  (QREFELT $ 25)))
+                                                  (QREFELT $ 24)))
                                   (QCDR #1#)
                                 (|check_union2| (QEQCAR #1# 0) (|Integer|)
                                                 (|Union| (|Integer|) "failed")
@@ -67,7 +66,7 @@
                         (EXIT
                          (LETT |p1|
                                (SPADCALL |p1|
-                                         (SPADCALL |cx| |p0| (QREFELT $ 19))
+                                         (SPADCALL |cx| |p0| (QREFELT $ 17))
                                          (QREFELT $ 10)))))
                    (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))
               (EXIT |p1|)))) 
@@ -152,8 +151,7 @@
                                 (SPADCALL
                                  (SPADCALL (SPADCALL 2 |x| (QREFELT $ 14)) |p1|
                                            (QREFELT $ 16))
-                                 (SPADCALL (SPADCALL 2 |i| (QREFELT $ 29)) |p0|
-                                           (QREFELT $ 19))
+                                 (SPADCALL (* 2 |i|) |p0| (QREFELT $ 17))
                                  (QREFELT $ 15)))
                           (LETT |#G34| |p1|)
                           (LETT |p1| |#G33|)
@@ -172,24 +170,20 @@
                       (SEQ (LETT |i| 1) (LETT #1# (- |n| 1)) G190
                            (COND ((|greater_SI| |i| #1#) (GO G191)))
                            (SEQ
-                            (LETT |c| (SPADCALL 1 (+ |i| 1) (QREFELT $ 32)))
+                            (LETT |c| (SPADCALL 1 (+ |i| 1) (QREFELT $ 30)))
                             (EXIT
                              (PROGN
                               (LETT |#G38|
                                     (SPADCALL |c|
                                               (SPADCALL
                                                (SPADCALL
-                                                (SPADCALL
-                                                 (+
-                                                  (SPADCALL 2 |i|
-                                                            (QREFELT $ 29))
-                                                  1)
-                                                 |x| (QREFELT $ 19))
+                                                (SPADCALL (+ (* 2 |i|) 1) |x|
+                                                          (QREFELT $ 17))
                                                 |p1| (QREFELT $ 16))
                                                (SPADCALL |i| |p0|
-                                                         (QREFELT $ 33))
+                                                         (QREFELT $ 31))
                                                (QREFELT $ 15))
-                                              (QREFELT $ 34)))
+                                              (QREFELT $ 32)))
                               (LETT |#G39| |p1|)
                               (LETT |p1| |#G38|)
                               (LETT |p0| |#G39|))))
@@ -222,7 +216,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|OrthogonalPolynomialFunctions| DV$1))
-          (LETT $ (GETREFV 36))
+          (LETT $ (GETREFV 34))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -239,7 +233,7 @@
           (SETF |pv$| (QREFELT $ 3))
           (COND
            ((|testBitVector| |pv$| 1)
-            (QSETREFV $ 35
+            (QSETREFV $ 33
                       (CONS (|dispatchFunction| |ORTHPOL;legendreP;Nni2R;6|)
                             $))))
           $))) 
@@ -248,14 +242,14 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (4 . |One|)
               (8 . -) (13 . +) (|Integer|) (19 . |coerce|) (|PositiveInteger|)
-              (24 . *) (30 . -) (36 . *) (|NonNegativeInteger|) (42 . ^)
-              (48 . *) |ORTHPOL;laguerreL;Nni2R;1| (54 . ^) (60 . |binomial|)
-              (66 . |factorial|) (|Union| $ '"failed") (71 . |exquo|)
+              (24 . *) (30 . -) (36 . *) (42 . *) (|NonNegativeInteger|)
+              |ORTHPOL;laguerreL;Nni2R;1| (48 . ^) (54 . |binomial|)
+              (60 . |factorial|) (|Union| $ '"failed") (65 . |exquo|)
               |ORTHPOL;laguerreL;2Nni2R;2| |ORTHPOL;chebyshevT;Nni2R;3|
-              |ORTHPOL;chebyshevU;Nni2R;4| (77 . *) |ORTHPOL;hermiteH;Nni2R;5|
-              (|Fraction| 11) (83 . /) (89 . *) (95 . *) (101 . |legendreP|))
-           '#(|legendreP| 107 |laguerreL| 113 |hermiteH| 126 |chebyshevU| 132
-              |chebyshevT| 138)
+              |ORTHPOL;chebyshevU;Nni2R;4| |ORTHPOL;hermiteH;Nni2R;5|
+              (|Fraction| 11) (71 . /) (77 . *) (83 . *) (89 . |legendreP|))
+           '#(|legendreP| 95 |laguerreL| 101 |hermiteH| 114 |chebyshevU| 120
+              |chebyshevT| 126)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -280,18 +274,17 @@
                                 T)
                               '((|legendreP|
                                  (|#1| (|NonNegativeInteger|) |#1|))
-                                (|has| 6 (|Algebra| 31))))
+                                (|has| 6 (|Algebra| 29))))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 35
+                        (|makeByteWordVec2| 33
                                             '(0 6 0 7 0 6 0 8 1 6 0 0 9 2 6 0 0
                                               0 10 1 6 0 11 12 2 6 0 13 0 14 2
-                                              6 0 0 0 15 2 6 0 0 0 16 2 17 0 0
-                                              13 18 2 6 0 11 0 19 2 6 0 0 17 21
-                                              2 11 0 0 0 22 1 11 0 0 23 2 11 24
-                                              0 0 25 2 17 0 13 0 29 2 31 0 11
-                                              11 32 2 6 0 17 0 33 2 6 0 31 0 34
-                                              2 0 6 17 6 35 2 1 6 17 6 35 2 0 6
-                                              17 6 20 3 0 6 17 17 6 26 2 0 6 17
-                                              6 30 2 0 6 17 6 28 2 0 6 17 6
-                                              27)))))
+                                              6 0 0 0 15 2 6 0 0 0 16 2 6 0 11
+                                              0 17 2 6 0 0 18 20 2 11 0 0 0 21
+                                              1 11 0 0 22 2 11 23 0 0 24 2 29 0
+                                              11 11 30 2 6 0 18 0 31 2 6 0 29 0
+                                              32 2 0 6 18 6 33 2 1 6 18 6 33 2
+                                              0 6 18 6 19 3 0 6 18 18 6 25 2 0
+                                              6 18 6 28 2 0 6 18 6 27 2 0 6 18
+                                              6 26)))))
            '|lookupComplete|)) 

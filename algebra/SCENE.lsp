@@ -868,20 +868,20 @@
           (LETT |maxPrimaryNorm| (|div_DF| |maxPrimary| |divn|))
           (LETT |suffix| "") (LETT |zeroes| |expStep|)
           (COND
-           ((SPADCALL |zeroes| 2 (QREFELT $ 118))
+           ((> |zeroes| 2)
             (SEQ (LETT |zeroes| (- |zeroes| 3)) (LETT |suffix| "K")
                  (EXIT
                   (COND
-                   ((SPADCALL |zeroes| 2 (QREFELT $ 118))
+                   ((> |zeroes| 2)
                     (SEQ (LETT |zeroes| (- |zeroes| 3)) (LETT |suffix| "M")
                          (EXIT
                           (COND
-                           ((SPADCALL |zeroes| 2 (QREFELT $ 118))
+                           ((> |zeroes| 2)
                             (SEQ (LETT |zeroes| (- |zeroes| 3))
                                  (LETT |suffix| "G")
                                  (EXIT
                                   (COND
-                                   ((SPADCALL |zeroes| 2 (QREFELT $ 118))
+                                   ((> |zeroes| 2)
                                     (SEQ (LETT |zeroes| (- |zeroes| 3))
                                          (EXIT
                                           (LETT |suffix| "T")))))))))))))))))
@@ -903,12 +903,8 @@
                                     (SEQ (LETT |zeroes| (+ |zeroes| 3))
                                          (EXIT
                                           (LETT |suffix| "p")))))))))))))))))
-          (COND
-           ((SPADCALL |zeroes| 0 (QREFELT $ 118))
-            (LETT |suffix| (STRCONC "0" |suffix|))))
-          (COND
-           ((SPADCALL |zeroes| 1 (QREFELT $ 118))
-            (LETT |suffix| (STRCONC "0" |suffix|))))
+          (COND ((> |zeroes| 0) (LETT |suffix| (STRCONC "0" |suffix|))))
+          (COND ((> |zeroes| 1) (LETT |suffix| (STRCONC "0" |suffix|))))
           (LETT |gp| (SPADCALL (QREFELT $ 18)))
           (LETT |stepI| (COND ((EQUAL |ptype| 'HORIZONTAL) 2) ('T 1)))
           (SEQ (LETT |x| (TRUNCATE |minPrimaryNorm|))
@@ -940,27 +936,27 @@
                      ((EQL |expStep| -1)
                       (SEQ
                        (COND
-                        ((SPADCALL |x| 0 (QREFELT $ 118))
+                        ((> |x| 0)
                          (COND
                           ((< |x| 10) (LETT |str| (STRCONC "0." |str|))))))
                        (COND ((EQL |x| 10) (LETT |str| "1")))
                        (COND
-                        ((SPADCALL |x| 10 (QREFELT $ 118))
+                        ((> |x| 10)
                          (SEQ (LETT |d| (DIVIDE2 |x| 10))
                               (EXIT
                                (LETT |str|
                                      (SPADCALL
                                       (LIST (STRINGIMAGE (QCAR |d|)) "."
                                             (STRINGIMAGE (QCDR |d|)))
-                                      (QREFELT $ 120)))))))
+                                      (QREFELT $ 119)))))))
                        (COND
                         ((< |x| 0)
                          (COND
-                          ((SPADCALL |x| -10 (QREFELT $ 118))
+                          ((> |x| -10)
                            (LETT |str|
                                  (SPADCALL
                                   (LIST "-0." (|mathObject2String| (- |x|)))
-                                  (QREFELT $ 120)))))))
+                                  (QREFELT $ 119)))))))
                        (COND ((EQL |x| -10) (LETT |str| "-1")))
                        (EXIT
                         (COND
@@ -971,8 +967,8 @@
                                       (SPADCALL
                                        (LIST "-" (STRINGIMAGE (QCAR |d|)) "."
                                              (STRINGIMAGE (QCDR |d|)))
-                                       (QREFELT $ 120))))))))))
-                     ((SPADCALL |x| 0 (QREFELT $ 121))
+                                       (QREFELT $ 119))))))))))
+                     ((SPADCALL |x| 0 (QREFELT $ 120))
                       (LETT |str| (STRCONC |str| |suffix|))))
                     (EXIT (SPADCALL |gp| |str| 10 |pz| (QREFELT $ 76))))
                (LETT |x| (+ |x| #1#)) (GO G190) G191 (EXIT NIL))
@@ -981,7 +977,7 @@
 (SDEFUN |SCENE;addSceneRuler;$SPTSb$;64|
         ((|n| $) (|ptype| |Symbol|) (|offset| PT) (|bb| |SBoundary| PT) ($ $))
         (SPROG ((|c| ($)))
-               (SEQ (LETT |c| (SPADCALL |ptype| |offset| |bb| (QREFELT $ 122)))
+               (SEQ (LETT |c| (SPADCALL |ptype| |offset| |bb| (QREFELT $ 121)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneRuler;SPTR$;65|
@@ -989,13 +985,13 @@
          (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
         (SPADCALL |ptype| |offset|
                   (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10))
-                  (QREFELT $ 122))) 
+                  (QREFELT $ 121))) 
 
 (SDEFUN |SCENE;addSceneRuler;$SPTR$;66|
         ((|n| $) (|ptype| |Symbol|) (|offset| PT)
          (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ $))
         (SPROG ((|c| ($)))
-               (SEQ (LETT |c| (SPADCALL |ptype| |offset| |bb| (QREFELT $ 124)))
+               (SEQ (LETT |c| (SPADCALL |ptype| |offset| |bb| (QREFELT $ 123)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneGraph;Dg2NniB$;67|
@@ -1013,9 +1009,9 @@
                                            (QREFELT $ 94))
                                  (SPADCALL (SPADCALL 25 -2 10 (QREFELT $ 93))
                                            (QREFELT $ 94))
-                                 (QREFELT $ 127))
-                       (QREFELT $ 129)))
-                (SPADCALL |tr| |g| |dispArrowName| NIL (QREFELT $ 131))
+                                 (QREFELT $ 126))
+                       (QREFELT $ 128)))
+                (SPADCALL |tr| |g| |dispArrowName| NIL (QREFELT $ 130))
                 (EXIT |tr|)))) 
 
 (SDEFUN |SCENE;addSceneGraph;$Dg2NniB$;68|
@@ -1024,7 +1020,7 @@
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
-                      (SPADCALL |g| |x| |y| |dispArrowName| (QREFELT $ 132)))
+                      (SPADCALL |g| |x| |y| |dispArrowName| (QREFELT $ 131)))
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneMaterial;R$;69|
@@ -1041,7 +1037,7 @@
           (|:| |matOpacity| (|DoubleFloat|)))
          ($ $))
         (SPROG ((|c| ($)))
-               (SEQ (LETT |c| (SPADCALL |mat| (QREFELT $ 134)))
+               (SEQ (LETT |c| (SPADCALL |mat| (QREFELT $ 133)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneMaterial;Df2S$;71|
@@ -1059,7 +1055,7 @@
          ($ $))
         (SPROG ((|c| ($)))
                (SEQ
-                (LETT |c| (SPADCALL |lineW| |lineC| |fillC| (QREFELT $ 135)))
+                (LETT |c| (SPADCALL |lineW| |lineC| |fillC| (QREFELT $ 134)))
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createSceneTransform;St$;73| ((|tran| |STransform| PT) ($ $))
@@ -1068,7 +1064,7 @@
 (SDEFUN |SCENE;addSceneTransform;$St$;74|
         ((|n| $) (|tran| |STransform| PT) ($ $))
         (SPROG ((|c| ($)))
-               (SEQ (LETT |c| (SPADCALL |tran| (QREFELT $ 138)))
+               (SEQ (LETT |c| (SPADCALL |tran| (QREFELT $ 137)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createArrows2Din2D;M2SNni$;75|
@@ -1082,28 +1078,28 @@
          (SEQ (LETT |arrows| NIL)
               (LETT |ustep|
                     (|div_DF_I|
-                     (|sub_DF| (SPADCALL |uSeg| (QREFELT $ 141))
-                               (SPADCALL |uSeg| (QREFELT $ 142)))
+                     (|sub_DF| (SPADCALL |uSeg| (QREFELT $ 140))
+                               (SPADCALL |uSeg| (QREFELT $ 141)))
                      |numPts|))
               (LETT |vstep|
                     (|div_DF_I|
-                     (|sub_DF| (SPADCALL |vSeg| (QREFELT $ 141))
-                               (SPADCALL |vSeg| (QREFELT $ 142)))
+                     (|sub_DF| (SPADCALL |vSeg| (QREFELT $ 140))
+                               (SPADCALL |vSeg| (QREFELT $ 141)))
                      |numPts|))
-              (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 142)))
+              (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 141)))
               (SEQ (LETT |iv| |numPts|) G190 (COND ((< |iv| 0) (GO G191)))
                    (SEQ
                     (COND
                      ((ZEROP |iv|)
-                      (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 141)))))
+                      (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 140)))))
                     (LETT |lp| NIL)
-                    (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 142)))
+                    (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 141)))
                     (SEQ (LETT |iu| |numPts|) G190
                          (COND ((< |iu| 0) (GO G191)))
                          (SEQ
                           (COND
                            ((ZEROP |iu|)
-                            (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 141)))))
+                            (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 140)))))
                           (LETT |inPt|
                                 (SPADCALL |someU| |someV| (QREFELT $ 86)))
                           (LETT |outpt| (SPADCALL |inPt| |ptFun|))
@@ -1127,11 +1123,11 @@
                (SEQ
                 (LETT |c|
                       (SPADCALL |ptFun| |uSeg| |vSeg| |numPts|
-                                (QREFELT $ 144)))
+                                (QREFELT $ 143)))
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;addChild!;2$V;77| ((|n| $) (|c| $) ($ |Void|))
-        (QSETVELT |n| 1 (SPADCALL (QVELT |n| 1) |c| (QREFELT $ 147)))) 
+        (QSETVELT |n| 1 (SPADCALL (QVELT |n| 1) |c| (QREFELT $ 146)))) 
 
 (PUT '|SCENE;removeChild!;2$V;78| '|SPADreplace|
      '(XLAM (|n| |c|) (|error| "removeChild! not yet implemented"))) 
@@ -1142,7 +1138,7 @@
 (SDEFUN |SCENE;setTransform!;$StV;79|
         ((|n| $) (|tran| |STransform| PT) ($ |Void|))
         (COND
-         ((SPADCALL (QVELT |n| 0) 'TRANSFORM (QREFELT $ 149))
+         ((SPADCALL (QVELT |n| 0) 'TRANSFORM (QREFELT $ 148))
           (|error| "use setTransform! on transform only"))
          ('T (QSETVELT |n| 2 (CONS 4 |tran|))))) 
 
@@ -1169,17 +1165,17 @@
                                 (GO G191)))
                               (SEQ
                                (LETT |param2|
-                                     (SPADCALL |tran| |param| (QREFELT $ 151)))
+                                     (SPADCALL |tran| |param| (QREFELT $ 150)))
                                (LETT |valid|
                                      (COND
                                       (|clipEn|
-                                       (SPADCALL |bb| |param| (QREFELT $ 152)))
+                                       (SPADCALL |bb| |param| (QREFELT $ 151)))
                                       ('T 'T)))
                                (COND
                                 (|valid|
                                  (SEQ (LETT |pntNum| (+ |pntNum| 1))
                                       (COND
-                                       ((SPADCALL |ptStr| "" (QREFELT $ 153))
+                                       ((SPADCALL |ptStr| "" (QREFELT $ 152))
                                         (LETT |ptStr| (STRCONC |ptStr| " "))))
                                       (COND
                                        (|lastValid|
@@ -1216,7 +1212,7 @@
                                                 ","
                                                 (STRINGIMAGE
                                                  (TRUNCATE |minusy|)))
-                                               (QREFELT $ 120))))
+                                               (QREFELT $ 119))))
                                        ('T
                                         (LETT |thisStr|
                                               (SPADCALL
@@ -1228,7 +1224,7 @@
                                                   |sc|))
                                                 ","
                                                 (|mathObject2String| |minusy|))
-                                               (QREFELT $ 120)))))
+                                               (QREFELT $ 119)))))
                                       (EXIT
                                        (LETT |ptStr|
                                              (STRCONC |ptStr| |thisStr|))))))
@@ -1253,7 +1249,7 @@
                              (SPADCALL |bb| (QREFELT $ 41)) (QREFELT $ 42))
                    (QREFELT $ 84)))
             (LETT |startpt| (QCAR |pts|)) (LETT |endpt| (QCDR |pts|))
-            (LETT |arrLength| (SPADCALL |startpt| |endpt| (QREFELT $ 154)))
+            (LETT |arrLength| (SPADCALL |startpt| |endpt| (QREFELT $ 153)))
             (COND
              ((|less_DF| |arrLength|
                          (SPADCALL (SPADCALL 1 -1 10 (QREFELT $ 93))
@@ -1269,7 +1265,7 @@
              ((SPADCALL |reductionFactor|
                         (SPADCALL (SPADCALL 4 -1 10 (QREFELT $ 93))
                                   (QREFELT $ 94))
-                        (QREFELT $ 157))
+                        (QREFELT $ 156))
               (PROGN (LETT #1# |pts|) (GO #2#))))
             (LETT |relpt| (SPADCALL |endpt| |startpt| (QREFELT $ 42)))
             (LETT |newstart|
@@ -1321,18 +1317,18 @@
                                (GO G191)))
                              (SEQ
                               (LETT |param2|
-                                    (SPADCALL |tran| |param| (QREFELT $ 151)))
+                                    (SPADCALL |tran| |param| (QREFELT $ 150)))
                               (LETT |valid|
                                     (COND
                                      (|clipEn|
-                                      (SPADCALL |bb| |param| (QREFELT $ 152)))
+                                      (SPADCALL |bb| |param| (QREFELT $ 151)))
                                      ('T 'T)))
                               (EXIT
                                (COND
                                 (|valid|
                                  (SEQ (LETT |pntNum| (+ |pntNum| 1))
                                       (COND
-                                       ((SPADCALL |ptStr| "" (QREFELT $ 153))
+                                       ((SPADCALL |ptStr| "" (QREFELT $ 152))
                                         (LETT |ptStr| (STRCONC |ptStr| " "))))
                                       (COND
                                        ((EQL |pntNum| 1)
@@ -1386,14 +1382,14 @@
                                                      ","
                                                      (|mathObject2String|
                                                       |minusEndy|))
-                                                    (QREFELT $ 120)))
+                                                    (QREFELT $ 119)))
                                              (EXIT
                                               (LETT |ptStr|
                                                     (STRCONC |ptStr|
                                                              |thisStr|))))))
                                       (EXIT
                                        (COND
-                                        ((SPADCALL |pntNum| 2 (QREFELT $ 158))
+                                        ((> |pntNum| 2)
                                          (SEQ (LETT |endPoint| |param2|)
                                               (LETT |minusEndy|
                                                     (|minus_DF|
@@ -1413,7 +1409,7 @@
                                                            ","
                                                            (|mathObject2String|
                                                             |minusEndy|))
-                                                     (QREFELT $ 120)))
+                                                     (QREFELT $ 119)))
                                               (EXIT
                                                (LETT |ptStr|
                                                      (STRCONC |ptStr|
@@ -1421,12 +1417,12 @@
                              (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                         (EXIT
                          (COND
-                          ((SPADCALL |ptStr| "" (QREFELT $ 153))
+                          ((SPADCALL |ptStr| "" (QREFELT $ 152))
                            (SEQ
                             (COND
                              ((|less_DF|
                                (SPADCALL |startPoint| |endPoint|
-                                         (QREFELT $ 154))
+                                         (QREFELT $ 153))
                                (SPADCALL (SPADCALL 1 -2 10 (QREFELT $ 93))
                                          (QREFELT $ 94)))
                               (LETT |ptStr|
@@ -1445,7 +1441,7 @@
                                                         (QREFELT $ 85))
                                               |sc|)))
                                            "c -50,25 -50,-50 0,-25")
-                                     (QREFELT $ 120)))))
+                                     (QREFELT $ 119)))))
                             (LETT |linWidth|
                                   (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT))
                             (COND
@@ -1463,28 +1459,28 @@
                               (LETT |linWidth|
                                     (|mul_DF|
                                      (SPADCALL |startPoint| |endPoint|
-                                               (QREFELT $ 154))
+                                               (QREFELT $ 153))
                                      |size|))))
                             (LETT |nodeAtts|
-                                  (LIST (SPADCALL "d" |ptStr| (QREFELT $ 160))
+                                  (LIST (SPADCALL "d" |ptStr| (QREFELT $ 158))
                                         (SPADCALL "fill" "none"
-                                                  (QREFELT $ 160))
+                                                  (QREFELT $ 158))
                                         (SPADCALL "stroke" (QVELT |mat| 1)
-                                                  (QREFELT $ 160))
+                                                  (QREFELT $ 158))
                                         (SPADCALL "stroke-width"
                                                   (|mathObject2String|
                                                    |linWidth|)
-                                                  (QREFELT $ 160))
+                                                  (QREFELT $ 158))
                                         (SPADCALL "style"
                                                   "marker-end:url(#Arrow)"
-                                                  (QREFELT $ 160))))
+                                                  (QREFELT $ 158))))
                             (LETT |x|
                                   (SPADCALL "path" NIL |nodeAtts|
-                                            (QREFELT $ 163)))
+                                            (QREFELT $ 161)))
                             (EXIT
                              (LETT |nodeEles|
                                    (SPADCALL |nodeEles| |x|
-                                             (QREFELT $ 165)))))))))
+                                             (QREFELT $ 163)))))))))
                    (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
               (EXIT |nodeEles|)))) 
 
@@ -1514,17 +1510,17 @@
                                     (SPADCALL (QCDR |faces|) (+ |i| 1)
                                               (QREFELT $ 104)))
                               (LETT |param2|
-                                    (SPADCALL |tran| |param| (QREFELT $ 151)))
+                                    (SPADCALL |tran| |param| (QREFELT $ 150)))
                               (LETT |valid|
                                     (COND
                                      (|clipEn|
-                                      (SPADCALL |bb| |param| (QREFELT $ 152)))
+                                      (SPADCALL |bb| |param| (QREFELT $ 151)))
                                      ('T 'T)))
                               (COND
                                (|valid|
                                 (SEQ (LETT |pntNum| (+ |pntNum| 1))
                                      (COND
-                                      ((SPADCALL |ptStr| "" (QREFELT $ 153))
+                                      ((SPADCALL |ptStr| "" (QREFELT $ 152))
                                        (LETT |ptStr| (STRCONC |ptStr| " "))))
                                      (COND
                                       (|lastValid|
@@ -1556,7 +1552,7 @@
                                                |sc|))
                                              ","
                                              (|mathObject2String| |minusy|))
-                                            (QREFELT $ 120)))
+                                            (QREFELT $ 119)))
                                      (EXIT
                                       (LETT |ptStr|
                                             (STRCONC |ptStr| |thisStr|))))))
@@ -1614,29 +1610,29 @@
                              (LIST
                               (SPADCALL "d"
                                         "M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-                                        (QREFELT $ 160))
+                                        (QREFELT $ 158))
                               (SPADCALL "style"
                                         "fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
-                                        (QREFELT $ 160))
+                                        (QREFELT $ 158))
                               (SPADCALL "transform"
                                         "scale(0.4) rotate(180) translate(10,0)"
-                                        (QREFELT $ 160))))
+                                        (QREFELT $ 158))))
                        (LETT |pth|
-                             (SPADCALL "path" NIL |pthAtts| (QREFELT $ 163)))
+                             (SPADCALL "path" NIL |pthAtts| (QREFELT $ 161)))
                        (LETT |mkrAtts|
-                             (LIST (SPADCALL "orient" "auto" (QREFELT $ 160))
-                                   (SPADCALL "refY" "0.0" (QREFELT $ 160))
-                                   (SPADCALL "refX" "0.0" (QREFELT $ 160))
-                                   (SPADCALL "id" "Arrow" (QREFELT $ 160))
+                             (LIST (SPADCALL "orient" "auto" (QREFELT $ 158))
+                                   (SPADCALL "refY" "0.0" (QREFELT $ 158))
+                                   (SPADCALL "refX" "0.0" (QREFELT $ 158))
+                                   (SPADCALL "id" "Arrow" (QREFELT $ 158))
                                    (SPADCALL "style" "overflow:visible"
-                                             (QREFELT $ 160))))
+                                             (QREFELT $ 158))))
                        (LETT |mkr|
                              (SPADCALL "marker" (LIST |pth|) |mkrAtts|
-                                       (QREFELT $ 163)))
+                                       (QREFELT $ 161)))
                        (LETT |nodeEles|
                              (LIST
                               (SPADCALL "defs" (LIST |mkr|) NIL
-                                        (QREFELT $ 163))))
+                                        (QREFELT $ 161))))
                        (COND
                         ((NULL (QEQCAR (QVELT |n| 2) 3))
                          (|error|
@@ -1722,10 +1718,10 @@
                                                 (|:| |empty| #23="empty"))
                                                #11#)))
                        (COND
-                        ((SPADCALL |bb2| (QREFELT $ 166))
+                        ((SPADCALL |bb2| (QREFELT $ 164))
                          (LETT |bb2| (SPADCALL |n| 1.0 (QREFELT $ 31)))))
                        (COND
-                        ((SPADCALL |bb2| (QREFELT $ 166))
+                        ((SPADCALL |bb2| (QREFELT $ 164))
                          (|error| "scene contains no drawable elements")))
                        (LETT |minx|
                              (SPADCALL (SPADCALL |bb2| (QREFELT $ 41))
@@ -1746,7 +1742,7 @@
                        (LETT |offsety| (|minus_DF| |maxy|))
                        (LETT |tran2|
                              (SPADCALL |offsetx| |offsety| 0.0 1.0 1.0 1.0
-                                       (QREFELT $ 167)))
+                                       (QREFELT $ 165)))
                        (COND
                         (|useInteger|
                          (LETT |viewBoxStr|
@@ -1761,7 +1757,7 @@
                                        (TRUNCATE
                                         (|mul_DF| (|sub_DF| |maxy| |miny|)
                                                   |scale2|))))
-                                (QREFELT $ 120))))
+                                (QREFELT $ 119))))
                         (#24='T
                          (LETT |viewBoxStr|
                                (SPADCALL
@@ -1773,16 +1769,16 @@
                                       (|mathObject2String|
                                        (|mul_DF| (|sub_DF| |maxy| |miny|)
                                                  |scale2|)))
-                                (QREFELT $ 120)))))
+                                (QREFELT $ 119)))))
                        (EXIT
                         (LETT |nodeAtts|
                               (LIST
                                (SPADCALL "xmlns" "http://www.w3.org/2000/svg"
-                                         (QREFELT $ 160))
-                               (SPADCALL "width" "12cm" (QREFELT $ 160))
-                               (SPADCALL "height" "8cm" (QREFELT $ 160))
+                                         (QREFELT $ 158))
+                               (SPADCALL "width" "12cm" (QREFELT $ 158))
+                               (SPADCALL "height" "8cm" (QREFELT $ 158))
                                (SPADCALL "viewBox" |viewBoxStr|
-                                         (QREFELT $ 160))))))))
+                                         (QREFELT $ 158))))))))
                 (COND ((EQUAL (QVELT |n| 0) 'GROUP) (LETT |nodeName| "g")))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'LINE)
@@ -1891,15 +1887,15 @@
                                                        #19#))
                                      |tran2| |bb2| |scale2| |clipEn2|
                                      |useInteger| $)
-                                    (QREFELT $ 160))
-                          (SPADCALL "fill" "none" (QREFELT $ 160))
-                          (SPADCALL "stroke" (QVELT |mat2| 1) (QREFELT $ 160))
+                                    (QREFELT $ 158))
+                          (SPADCALL "fill" "none" (QREFELT $ 158))
+                          (SPADCALL "stroke" (QVELT |mat2| 1) (QREFELT $ 158))
                           (SPADCALL "stroke-width"
                                     (|mathObject2String| (QVELT |mat2| 0))
-                                    (QREFELT $ 160))
-                          (SPADCALL "stroke-linecap" "butt" (QREFELT $ 160))
+                                    (QREFELT $ 158))
+                          (SPADCALL "stroke-linecap" "butt" (QREFELT $ 158))
                           (SPADCALL "stroke-linejoin" "miter"
-                                    (QREFELT $ 160))))
+                                    (QREFELT $ 158))))
                    (EXIT
                     (COND
                      ((|less_DF| (QVELT |mat2| 3)
@@ -1910,8 +1906,8 @@
                                       (SPADCALL "stroke-opacity"
                                                 (|mathObject2String|
                                                  (QVELT |mat2| 3))
-                                                (QREFELT $ 160))
-                                      (QREFELT $ 168)))))))))
+                                                (QREFELT $ 158))
+                                      (QREFELT $ 166)))))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'SHAPE)
                   (SEQ
@@ -2024,7 +2020,7 @@
                                                        (|:| |empty| #23#))
                                                       #18#))
                                     1)
-                                   (QREFELT $ 151)))
+                                   (QREFELT $ 150)))
                    (LETT |r2|
                          (QVELT
                           (PROG2 (LETT #18# (QVELT |n| 2))
@@ -2417,27 +2413,27 @@
                           (EXIT (LETT |sh| "ry")))))
                    (LETT |nodeAtts|
                          (LIST
-                          (SPADCALL "stroke" (QVELT |mat2| 1) (QREFELT $ 160))
+                          (SPADCALL "stroke" (QVELT |mat2| 1) (QREFELT $ 158))
                           (SPADCALL "stroke-width"
                                     (|mathObject2String| (QVELT |mat2| 0))
-                                    (QREFELT $ 160))
+                                    (QREFELT $ 158))
                           (SPADCALL |sx|
                                     (|mathObject2String|
                                      (|mul_DF|
                                       (SPADCALL |param2| (QREFELT $ 84))
                                       |scale2|))
-                                    (QREFELT $ 160))
+                                    (QREFELT $ 158))
                           (SPADCALL |sy|
                                     (|mathObject2String|
                                      (|minus_DF|
                                       (|mul_DF|
                                        (SPADCALL |param2| (QREFELT $ 85))
                                        |scale2|)))
-                                    (QREFELT $ 160))
+                                    (QREFELT $ 158))
                           (SPADCALL |sw| (|mathObject2String| (|abs_DF| |rx|))
-                                    (QREFELT $ 160))
+                                    (QREFELT $ 158))
                           (SPADCALL |sh| (|mathObject2String| (|abs_DF| |ry|))
-                                    (QREFELT $ 160))))
+                                    (QREFELT $ 158))))
                    (COND
                     ((QVELT
                       (PROG2 (LETT #18# (QVELT |n| 2))
@@ -2514,13 +2510,13 @@
                                      (SPADCALL "fill"
                                                (|mathObject2String|
                                                 (QVELT |mat2| 2))
-                                               (QREFELT $ 160))
-                                     (QREFELT $ 168))))
+                                               (QREFELT $ 158))
+                                     (QREFELT $ 166))))
                     (#24#
                      (LETT |nodeAtts|
                            (SPADCALL |nodeAtts|
-                                     (SPADCALL "fill" "none" (QREFELT $ 160))
-                                     (QREFELT $ 168)))))
+                                     (SPADCALL "fill" "none" (QREFELT $ 158))
+                                     (QREFELT $ 166)))))
                    (EXIT
                     (COND
                      ((|less_DF| (QVELT |mat2| 3)
@@ -2531,8 +2527,8 @@
                                       (SPADCALL "opacity"
                                                 (|mathObject2String|
                                                  (QVELT |mat2| 3))
-                                                (QREFELT $ 160))
-                                      (QREFELT $ 168)))))))))
+                                                (QREFELT $ 158))
+                                      (QREFELT $ 166)))))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'MATERIAL)
                   (SEQ (LETT |nodeName| "g")
@@ -2718,7 +2714,7 @@
                                               (|:| |empty| #23#))
                                              #13#))
                            3)
-                          NIL (QREFELT $ 169))
+                          NIL (QREFELT $ 167))
                          (SEQ
                           (SEQ (LETT |nam| NIL)
                                (LETT #16#
@@ -2837,7 +2833,7 @@
                                       (SPADCALL |tran|
                                                 (SPADCALL
                                                  (SPADCALL |np2| |nam|
-                                                           (QREFELT $ 170))
+                                                           (QREFELT $ 168))
                                                  (QVELT
                                                   (PROG2
                                                       (LETT #13# (QVELT |n| 2))
@@ -2939,7 +2935,7 @@
                                                      #13#))
                                                   2)
                                                  (QREFELT $ 105))
-                                                (QREFELT $ 151)))
+                                                (QREFELT $ 150)))
                                 (LETT |nodeAttsTxt|
                                       (LIST
                                        (SPADCALL "font-size"
@@ -3050,7 +3046,7 @@
                                                        (|:| |empty| #23#))
                                                       #13#))
                                                    1))
-                                                 (QREFELT $ 160))
+                                                 (QREFELT $ 158))
                                        (SPADCALL "transform"
                                                  (SPADCALL
                                                   (LIST "scale("
@@ -3064,8 +3060,8 @@
                                                                    (FLOAT 2
                                                                           MOST-POSITIVE-DOUBLE-FLOAT)))
                                                         ")")
-                                                  (QREFELT $ 120))
-                                                 (QREFELT $ 160))
+                                                  (QREFELT $ 119))
+                                                 (QREFELT $ 158))
                                        (SPADCALL "x"
                                                  (|mathObject2String|
                                                   (|mul_DF|
@@ -3073,7 +3069,7 @@
                                                              (QREFELT $ 84))
                                                    (FLOAT 2
                                                           MOST-POSITIVE-DOUBLE-FLOAT)))
-                                                 (QREFELT $ 160))
+                                                 (QREFELT $ 158))
                                        (SPADCALL "y"
                                                  (|mathObject2String|
                                                   (|minus_DF|
@@ -3082,27 +3078,27 @@
                                                               (QREFELT $ 85))
                                                     (FLOAT 2
                                                            MOST-POSITIVE-DOUBLE-FLOAT))))
-                                                 (QREFELT $ 160))
+                                                 (QREFELT $ 158))
                                        (SPADCALL "style"
                                                  (STRCONC "fill:"
                                                           (QVELT |mat2| 2))
-                                                 (QREFELT $ 160))))
+                                                 (QREFELT $ 158))))
                                 (LETT |xch|
                                       (SPADCALL |nodeName| |nam| |nodeAttsTxt|
-                                                (QREFELT $ 171)))
+                                                (QREFELT $ 169)))
                                 (EXIT
                                  (COND
-                                  ((NULL (SPADCALL |xch| (QREFELT $ 172)))
+                                  ((NULL (SPADCALL |xch| (QREFELT $ 170)))
                                    (LETT |nodeEles|
                                          (SPADCALL |nodeEles| |xch|
-                                                   (QREFELT $ 165)))))))
+                                                   (QREFELT $ 163)))))))
                                (LETT #16# (CDR #16#)) (GO G190) G191
                                (EXIT NIL))
                           (EXIT
                            (PROGN
                             (LETT #9#
                                   (SPADCALL "g" |nodeEles| |nodeAtts|
-                                            (QREFELT $ 163)))
+                                            (QREFELT $ 161)))
                             (GO #25=#:G1088))))))
                        (LETT |param2|
                              (SPADCALL |tran|
@@ -3219,7 +3215,7 @@
                                                            (|:| |empty| #23#))
                                                           #13#))
                                         2)
-                                       (QREFELT $ 151)))
+                                       (QREFELT $ 150)))
                        (LETT |textScale|
                              (|div_DF| |scale2|
                                        (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)))
@@ -3233,7 +3229,7 @@
                        (COND
                         ((SPADCALL |textScale|
                                    (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
-                                   (QREFELT $ 157))
+                                   (QREFELT $ 156))
                          (SEQ
                           (LETT |x|
                                 (|div_DF| (|mul_DF| |x| |textScale|)
@@ -3370,7 +3366,7 @@
                                                                   #23#))
                                                             #13#))
                                           1))
-                                        (QREFELT $ 160))
+                                        (QREFELT $ 158))
                               (SPADCALL "transform"
                                         (SPADCALL
                                          (LIST "scale("
@@ -3380,15 +3376,15 @@
                                                (|mathObject2String|
                                                 |textScale|)
                                                ")")
-                                         (QREFELT $ 120))
-                                        (QREFELT $ 160))
+                                         (QREFELT $ 119))
+                                        (QREFELT $ 158))
                               (SPADCALL "x" (|mathObject2String| |x|)
-                                        (QREFELT $ 160))
+                                        (QREFELT $ 158))
                               (SPADCALL "y" (|mathObject2String| |y|)
-                                        (QREFELT $ 160))
+                                        (QREFELT $ 158))
                               (SPADCALL "style"
                                         (STRCONC "fill:" (QVELT |mat2| 2))
-                                        (QREFELT $ 160))))
+                                        (QREFELT $ 158))))
                        (EXIT
                         (PROGN
                          (LETT #9#
@@ -3513,7 +3509,7 @@
                                                                   #23#))
                                                             #13#))
                                           0)
-                                         |nodeAtts| (QREFELT $ 171)))
+                                         |nodeAtts| (QREFELT $ 169)))
                          (GO #25#))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'TRANSFORM)
@@ -3606,7 +3602,7 @@
                                                         (QREFELT $ 6)))
                                                   (|:| |empty| #23#))
                                                  #12#))
-                               |tran| (QREFELT $ 173)))))))
+                               |tran| (QREFELT $ 171)))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'CLIP)
                   (SEQ (LETT |nodeName| "g") (LETT |clipEn2| 'T)
@@ -3821,19 +3817,19 @@
                                                             (|:| |empty| #23#))
                                                            #10#))
                                          |tran2| |bb2| |scale2| |clipEn2| $)
-                                        (QREFELT $ 160))
+                                        (QREFELT $ 158))
                               (SPADCALL "fill" (QVELT |mat2| 2)
-                                        (QREFELT $ 160))
+                                        (QREFELT $ 158))
                               (SPADCALL "stroke" (QVELT |mat2| 1)
-                                        (QREFELT $ 160))
+                                        (QREFELT $ 158))
                               (SPADCALL "stroke-width"
                                         (|mathObject2String| (QVELT |mat2| 0))
-                                        (QREFELT $ 160))))
+                                        (QREFELT $ 158))))
                        (EXIT
                         (PROGN
                          (LETT #9#
                                (SPADCALL |nodeName| NIL |nodeAtts|
-                                         (QREFELT $ 163)))
+                                         (QREFELT $ 161)))
                          (GO #25#))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'ARROWS)
@@ -4279,7 +4275,7 @@
                                                                        #23#))
                                                                  #5#))
                                                0)
-                                              (QREFELT $ 170))
+                                              (QREFELT $ 168))
                                     (QVELT
                                      (PROG2 (LETT #5# (QVELT |n| 2))
                                          (QCDR #5#)
@@ -4383,7 +4379,7 @@
                                                        #5#))
                                      2)
                                     (QREFELT $ 105))
-                                   (QREFELT $ 151)))
+                                   (QREFELT $ 150)))
                    (LETT |endPoint|
                          (SPADCALL |tran|
                                    (SPADCALL
@@ -4528,7 +4524,7 @@
                                                                        #23#))
                                                                  #5#))
                                                1)
-                                              (QREFELT $ 170))
+                                              (QREFELT $ 168))
                                     (QVELT
                                      (PROG2 (LETT #5# (QVELT |n| 2))
                                          (QCDR #5#)
@@ -4632,7 +4628,7 @@
                                                        #5#))
                                      2)
                                     (QREFELT $ 105))
-                                   (QREFELT $ 151)))
+                                   (QREFELT $ 150)))
                    (LETT |startPointM|
                          (|minus_DF|
                           (|mul_DF| (SPADCALL |startPoint| (QREFELT $ 85))
@@ -4798,7 +4794,7 @@
                                     |scale|))
                                   "," (|mathObject2String| |startPointM|)
                                   "c -50,25 -50,-50 0,-25")
-                            (QREFELT $ 120))))
+                            (QREFELT $ 119))))
                     (#24#
                      (LETT |ptStr|
                            (SPADCALL
@@ -4813,7 +4809,7 @@
                                     (SPADCALL |endPoint| (QREFELT $ 84))
                                     |scale|))
                                   "," (|mathObject2String| |endPointM|))
-                            (QREFELT $ 120)))))
+                            (QREFELT $ 119)))))
                    (LETT |linWidth|
                          (QVELT
                           (PROG2 (LETT #5# (QVELT |n| 2))
@@ -5141,7 +5137,7 @@
                       '|variable|)
                      (LETT |linWidth|
                            (|mul_DF|
-                            (SPADCALL |startPoint| |endPoint| (QREFELT $ 154))
+                            (SPADCALL |startPoint| |endPoint| (QREFELT $ 153))
                             (QVELT
                              (PROG2 (LETT #5# (QVELT |n| 2))
                                  (QCDR #5#)
@@ -5231,18 +5227,18 @@
                                                #5#))
                              4)))))
                    (LETT |nodeAtts|
-                         (LIST (SPADCALL "d" |ptStr| (QREFELT $ 160))
-                               (SPADCALL "fill" "none" (QREFELT $ 160))
+                         (LIST (SPADCALL "d" |ptStr| (QREFELT $ 158))
+                               (SPADCALL "fill" "none" (QREFELT $ 158))
                                (SPADCALL "stroke" (QVELT |mat| 1)
-                                         (QREFELT $ 160))
+                                         (QREFELT $ 158))
                                (SPADCALL "stroke-width"
                                          (|mathObject2String| |linWidth|)
-                                         (QREFELT $ 160))
+                                         (QREFELT $ 158))
                                (SPADCALL "style" "marker-end:url(#Arrow)"
-                                         (QREFELT $ 160))))
+                                         (QREFELT $ 158))))
                    (LETT |nodeEles|
                          (LIST
-                          (SPADCALL "path" NIL |nodeAtts| (QREFELT $ 163))))
+                          (SPADCALL "path" NIL |nodeAtts| (QREFELT $ 161))))
                    (EXIT (LETT |nodeName| "g")))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'NAMEDPOINTS)
@@ -5331,7 +5327,7 @@
                                                       (QREFELT $ 6)))
                                                 (|:| |empty| #23#))
                                                #4#))
-                             (QREFELT $ 174))
+                             (QREFELT $ 172))
                    (EXIT (LETT |nodeName| "g")))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'DEF)
@@ -5412,16 +5408,16 @@
                                            #3#)))
                    (LETT |name| (QCAR |nn|)) (LETT |nde| (QCDR |nn|))
                    (LETT |nodeName| "g")
-                   (SPADCALL |np2| |name| |nde| (QREFELT $ 176))
+                   (SPADCALL |np2| |name| |nde| (QREFELT $ 174))
                    (LETT |xch|
                          (SPADCALL |nde| |mat2| |tran2| |bb2| |scale2|
                                    |clipEn2| |useInteger| |np2|
-                                   (QREFELT $ 177)))
+                                   (QREFELT $ 175)))
                    (EXIT
                     (COND
-                     ((NULL (SPADCALL |xch| (QREFELT $ 172)))
+                     ((NULL (SPADCALL |xch| (QREFELT $ 170)))
                       (LETT |nodeEles|
-                            (SPADCALL |nodeEles| |xch| (QREFELT $ 165)))))))))
+                            (SPADCALL |nodeEles| |xch| (QREFELT $ 163)))))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'USE)
                   (SEQ
@@ -5500,21 +5496,21 @@
                                             (|:| |empty| #23#))
                                            #3#)))
                    (LETT |name| (QCAR |nn|))
-                   (LETT |nde| (SPADCALL |np2| |name| (QREFELT $ 178)))
+                   (LETT |nde| (SPADCALL |np2| |name| (QREFELT $ 176)))
                    (LETT |nodeName| "g")
                    (LETT |xch|
                          (SPADCALL |nde| |mat2| |tran2| |bb2| |scale2|
                                    |clipEn2| |useInteger| |np2|
-                                   (QREFELT $ 177)))
+                                   (QREFELT $ 175)))
                    (EXIT
                     (COND
-                     ((NULL (SPADCALL |xch| (QREFELT $ 172)))
+                     ((NULL (SPADCALL |xch| (QREFELT $ 170)))
                       (LETT |nodeEles|
-                            (SPADCALL |nodeEles| |xch| (QREFELT $ 165)))))))))
+                            (SPADCALL |nodeEles| |xch| (QREFELT $ 163)))))))))
                 (EXIT
                  (COND
-                  ((< (SPADCALL (QVELT |n| 1) (QREFELT $ 179)) 1)
-                   (SPADCALL |nodeName| |nodeEles| |nodeAtts| (QREFELT $ 163)))
+                  ((< (SPADCALL (QVELT |n| 1) (QREFELT $ 177)) 1)
+                   (SPADCALL |nodeName| |nodeEles| |nodeAtts| (QREFELT $ 161)))
                   (#24#
                    (SEQ
                     (SEQ (LETT |ch| NIL) (LETT #1# (QVELT |n| 1)) G190
@@ -5525,17 +5521,17 @@
                           (LETT |xch|
                                 (SPADCALL |ch| |mat2| |tran2| |bb2| |scale2|
                                           |clipEn2| |useInteger| |np2|
-                                          (QREFELT $ 177)))
+                                          (QREFELT $ 175)))
                           (EXIT
                            (COND
-                            ((NULL (SPADCALL |xch| (QREFELT $ 172)))
+                            ((NULL (SPADCALL |xch| (QREFELT $ 170)))
                              (LETT |nodeEles|
                                    (SPADCALL |nodeEles| |xch|
-                                             (QREFELT $ 165)))))))
+                                             (QREFELT $ 163)))))))
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT
                      (SPADCALL |nodeName| |nodeEles| |nodeAtts|
-                               (QREFELT $ 163)))))))))
+                               (QREFELT $ 161)))))))))
           #25# (EXIT #9#)))) 
 
 (SDEFUN |SCENE;toSVG;$RStRDf2BSnpXe;85|
@@ -5549,7 +5545,7 @@
          (|npt| |SceneNamedPoints| PT) ($ |XmlElement|))
         (SPADCALL |n| |mat| |tran|
                   (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10)) |scale|
-                  |clipEn| |useInteger| |npt| (QREFELT $ 177))) 
+                  |clipEn| |useInteger| |npt| (QREFELT $ 175))) 
 
 (SDEFUN |SCENE;writeSvg;$SV;86| ((|n| $) (|filename| |String|) ($ |Void|))
         (SPROG
@@ -5563,14 +5559,14 @@
           (LETT |defaultMaterial|
                 (VECTOR (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT) "black" "black"
                         1.0))
-          (LETT |defaultTransform| (SPADCALL (QREFELT $ 181)))
+          (LETT |defaultTransform| (SPADCALL (QREFELT $ 179)))
           (LETT |defaultBounds| (SPADCALL (QREFELT $ 16)))
           (EXIT
            (SPADCALL
             (SPADCALL |n| |defaultMaterial| |defaultTransform| |defaultBounds|
-                      1.0 NIL NIL (SPADCALL NIL NIL (QREFELT $ 182))
-                      (QREFELT $ 177))
-            |filename| (QREFELT $ 184)))))) 
+                      1.0 NIL NIL (SPADCALL NIL NIL (QREFELT $ 180))
+                      (QREFELT $ 175))
+            |filename| (QREFELT $ 182)))))) 
 
 (SDEFUN |SCENE;writeSvgQuantised;$SV;87|
         ((|n| $) (|filename| |String|) ($ |Void|))
@@ -5585,14 +5581,14 @@
           (LETT |defaultMaterial|
                 (VECTOR (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT) "black" "black"
                         1.0))
-          (LETT |defaultTransform| (SPADCALL (QREFELT $ 181)))
+          (LETT |defaultTransform| (SPADCALL (QREFELT $ 179)))
           (LETT |defaultBounds| (SPADCALL (QREFELT $ 16)))
           (EXIT
            (SPADCALL
             (SPADCALL |n| |defaultMaterial| |defaultTransform| |defaultBounds|
-                      1.0 NIL 'T (SPADCALL NIL NIL (QREFELT $ 182))
-                      (QREFELT $ 177))
-            |filename| (QREFELT $ 184)))))) 
+                      1.0 NIL 'T (SPADCALL NIL NIL (QREFELT $ 180))
+                      (QREFELT $ 175))
+            |filename| (QREFELT $ 182)))))) 
 
 (SDEFUN |SCENE;boundary1|
         ((|n| $) (|tran| . #1=(|STransform| PT)) (|scale| |DoubleFloat|)
@@ -5686,7 +5682,7 @@
                                             (|:| |empty| #20="empty"))
                                            #19#)))
                    (COND
-                    ((NULL (SPADCALL |bb2| (QREFELT $ 166)))
+                    ((NULL (SPADCALL |bb2| (QREFELT $ 164)))
                      (SEQ
                       (LETT |minx|
                             (SPADCALL (SPADCALL |bb2| (QREFELT $ 41))
@@ -5793,8 +5789,8 @@
                                   (LETT |res|
                                         (SPADCALL |res|
                                                   (SPADCALL |tran| |p|
-                                                            (QREFELT $ 151))
-                                                  (QREFELT $ 187)))))
+                                                            (QREFELT $ 150))
+                                                  (QREFELT $ 185)))))
                                 (LETT #15# (CDR #15#)) (GO G190) G191
                                 (EXIT NIL))))
                          (LETT #16# (CDR #16#)) (GO G190) G191 (EXIT NIL))))))
@@ -6029,21 +6025,21 @@
                       '|ellipse|)
                      (PROGN
                       (LETT #13#
-                            (SPADCALL (SPADCALL |tran| |pt1| (QREFELT $ 151))
-                                      |pt2| (QREFELT $ 188)))
+                            (SPADCALL (SPADCALL |tran| |pt1| (QREFELT $ 150))
+                                      |pt2| (QREFELT $ 186)))
                       (GO #21=#:G1152))))
                    (LETT |res|
                          (SPADCALL |res|
-                                   (SPADCALL |tran| |pt1| (QREFELT $ 151))
-                                   (QREFELT $ 187)))
+                                   (SPADCALL |tran| |pt1| (QREFELT $ 150))
+                                   (QREFELT $ 185)))
                    (EXIT
                     (LETT |res|
                           (SPADCALL |res|
                                     (SPADCALL |tran|
                                               (SPADCALL |pt1| |pt2|
                                                         (QREFELT $ 105))
-                                              (QREFELT $ 151))
-                                    (QREFELT $ 187)))))))
+                                              (QREFELT $ 150))
+                                    (QREFELT $ 185)))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'MATERIAL)
                   (LETT |res| (SPADCALL (QREFELT $ 16)))))
@@ -6334,16 +6330,16 @@
                           2))
                    (LETT |res|
                          (SPADCALL |res|
-                                   (SPADCALL |tran| |pt1| (QREFELT $ 151))
-                                   (QREFELT $ 187)))
+                                   (SPADCALL |tran| |pt1| (QREFELT $ 150))
+                                   (QREFELT $ 185)))
                    (LETT |pt2|
                          (SPADCALL |pt1| (SPADCALL |w| |h| (QREFELT $ 86))
                                    (QREFELT $ 105)))
                    (EXIT
                     (LETT |res|
                           (SPADCALL |res|
-                                    (SPADCALL |tran| |pt2| (QREFELT $ 151))
-                                    (QREFELT $ 187)))))))
+                                    (SPADCALL |tran| |pt2| (QREFELT $ 150))
+                                    (QREFELT $ 185)))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'TRANSFORM)
                   (LETT |tran2|
@@ -6417,7 +6413,7 @@
                                                   (QREFELT $ 6)))
                                             (|:| |empty| #20#))
                                            #10#))
-                         |tran| (QREFELT $ 173)))))
+                         |tran| (QREFELT $ 171)))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'CLIP)
                   (LETT |res| (SPADCALL (QREFELT $ 16)))))
@@ -6511,8 +6507,8 @@
                            (LETT |res|
                                  (SPADCALL |res|
                                            (SPADCALL |tran| |p|
-                                                     (QREFELT $ 151))
-                                           (QREFELT $ 187)))))
+                                                     (QREFELT $ 150))
+                                           (QREFELT $ 185)))))
                          (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'ARROWS)
@@ -6611,8 +6607,8 @@
                                   (LETT |res|
                                         (SPADCALL |res|
                                                   (SPADCALL |tran| |p|
-                                                            (QREFELT $ 151))
-                                                  (QREFELT $ 187)))))
+                                                            (QREFELT $ 150))
+                                                  (QREFELT $ 185)))))
                                 (LETT #5# (CDR #5#)) (GO G190) G191
                                 (EXIT NIL))))
                          (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))))))
@@ -6637,7 +6633,7 @@
                             (|SCENE;boundary1| |ch| |tran2| |scale|
                              |useInteger| |npt| |fontScale2| $))
                       (EXIT
-                       (LETT |res| (SPADCALL |res| |res2| (QREFELT $ 189)))))
+                       (LETT |res| (SPADCALL |res| |res2| (QREFELT $ 187)))))
                      (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |res|)))
           #21# (EXIT #13#)))) 
@@ -6645,10 +6641,10 @@
 (SDEFUN |SCENE;boundary;$DfSb;89|
         ((|n| $) (|fontScale| |DoubleFloat|) ($ |SBoundary| PT))
         (SPROG ((|defaultTransform| (|STransform| PT)))
-               (SEQ (LETT |defaultTransform| (SPADCALL (QREFELT $ 181)))
+               (SEQ (LETT |defaultTransform| (SPADCALL (QREFELT $ 179)))
                     (EXIT
                      (|SCENE;boundary1| |n| |defaultTransform| 1.0 NIL
-                      (SPADCALL NIL NIL (QREFELT $ 182))
+                      (SPADCALL NIL NIL (QREFELT $ 180))
                       (|div_DF| |fontScale|
                                 (FLOAT 1000 MOST-POSITIVE-DOUBLE-FLOAT))
                       $))))) 
@@ -6665,7 +6661,7 @@
                     ((OR (ATOM #1#) (PROGN (LETT |param| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ
-                    (LETT |param2| (SPADCALL |tran| |param| (QREFELT $ 151)))
+                    (LETT |param2| (SPADCALL |tran| |param| (QREFELT $ 150)))
                     (LETT |thisStr|
                           (SPADCALL
                            (LIST
@@ -6676,11 +6672,11 @@
                              (SPADCALL |param2| (QREFELT $ 85)))
                             " "
                             (|mathObject2String|
-                             (SPADCALL |param2| (QREFELT $ 190))))
-                           (QREFELT $ 120)))
+                             (SPADCALL |param2| (QREFELT $ 188))))
+                           (QREFELT $ 119)))
                     (EXIT
                      (LETT |ptStr|
-                           (SPADCALL |ptStr| |thisStr| (QREFELT $ 191)))))
+                           (SPADCALL |ptStr| |thisStr| (QREFELT $ 189)))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |ptStr|)))) 
 
@@ -6705,10 +6701,10 @@
                            (LETT |ptStr|
                                  (SPADCALL |ptStr|
                                            (|mathObject2String| |param|)
-                                           (QREFELT $ 191)))))
+                                           (QREFELT $ 189)))))
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT
-                     (LETT |ptStr| (SPADCALL |ptStr| "-1" (QREFELT $ 191)))))
+                     (LETT |ptStr| (SPADCALL |ptStr| "-1" (QREFELT $ 189)))))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |ptStr|)))) 
 
@@ -6836,10 +6832,10 @@
                                             (|:| |empty| #12="empty"))
                                            #8#)))
                    (COND
-                    ((SPADCALL |bb2| (QREFELT $ 166))
+                    ((SPADCALL |bb2| (QREFELT $ 164))
                      (LETT |bb2| (SPADCALL |n| 1.0 (QREFELT $ 31)))))
                    (COND
-                    ((SPADCALL |bb2| (QREFELT $ 166))
+                    ((SPADCALL |bb2| (QREFELT $ 164))
                      (|error| "scene contains no drawable elements")))
                    (LETT |nodeEles| NIL)
                    (SEQ (LETT |ch| NIL) (LETT #11# (QVELT |n| 1)) G190
@@ -6849,22 +6845,22 @@
                         (SEQ
                          (LETT |xch|
                                (SPADCALL |ch| |mat2| |tran2| |bb2|
-                                         (QREFELT $ 192)))
+                                         (QREFELT $ 190)))
                          (EXIT
                           (COND
-                           ((NULL (SPADCALL |xch| (QREFELT $ 172)))
+                           ((NULL (SPADCALL |xch| (QREFELT $ 170)))
                             (LETT |nodeEles|
                                   (SPADCALL |nodeEles| |xch|
-                                            (QREFELT $ 165)))))))
+                                            (QREFELT $ 163)))))))
                         (LETT #11# (CDR #11#)) (GO G190) G191 (EXIT NIL))
                    (LETT |inner|
                          (SPADCALL "Scene" |nodeEles| |nodeAtts|
-                                   (QREFELT $ 163)))
+                                   (QREFELT $ 161)))
                    (EXIT
                     (PROGN
                      (LETT #2#
                            (SPADCALL |nodeName| (LIST |inner|) |nodeAtts|
-                                     (QREFELT $ 163)))
+                                     (QREFELT $ 161)))
                      (GO #13=#:G1232))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'MATERIAL)
@@ -7022,7 +7018,7 @@
                                                     (QREFELT $ 6)))
                                               (|:| |empty| #12#))
                                              #9#))
-                           |tran| (QREFELT $ 173)))))))
+                           |tran| (QREFELT $ 171)))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'CLIP)
                   (SEQ
@@ -7215,7 +7211,7 @@
                                                          (|:| |empty| #12#))
                                                         #7#))
                                       0)
-                                     (QREFELT $ 160))))))))
+                                     (QREFELT $ 158))))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'LINE)
                   (SEQ
@@ -7299,15 +7295,15 @@
                                              #6#)))
                           (SPADCALL (SPADCALL 25 -2 10 (QREFELT $ 93))
                                     (QREFELT $ 94))
-                          8 (QREFELT $ 193)))
-                   (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 194)))
+                          8 (QREFELT $ 191)))
+                   (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 192)))
                    (LETT |nodeAtts|
                          (LIST
                           (SPADCALL "coordIndex"
                                     (|SCENE;pointIndexString|
                                      (SPADCALL |ifsR| (QREFELT $ 64)) |tran|
                                      |bb| $)
-                                    (QREFELT $ 195))))
+                                    (QREFELT $ 193))))
                    (LETT |coord|
                          (SPADCALL "Coordinate" NIL
                                    (LIST
@@ -7315,16 +7311,16 @@
                                               (|SCENE;pointString|
                                                (SPADCALL |ifsR| (QREFELT $ 65))
                                                |tran| |bb| $)
-                                              (QREFELT $ 195)))
-                                   (QREFELT $ 163)))
+                                              (QREFELT $ 193)))
+                                   (QREFELT $ 161)))
                    (LETT |ifset|
                          (SPADCALL |nodeName| (LIST |coord|) |nodeAtts|
-                                   (QREFELT $ 163)))
+                                   (QREFELT $ 161)))
                    (EXIT
                     (PROGN
                      (LETT #2#
                            (SPADCALL "Shape" (LIST |ifset|) NIL
-                                     (QREFELT $ 163)))
+                                     (QREFELT $ 161)))
                      (GO #13#))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'SHAPE)
@@ -7425,15 +7421,15 @@
                             0))
                           (SPADCALL (SPADCALL 25 -2 10 (QREFELT $ 93))
                                     (QREFELT $ 94))
-                          8 (QREFELT $ 193)))
-                   (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 194)))
+                          8 (QREFELT $ 191)))
+                   (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 192)))
                    (LETT |nodeAtts|
                          (LIST
                           (SPADCALL "coordIndex"
                                     (|SCENE;pointIndexString|
                                      (SPADCALL |ifsR| (QREFELT $ 64)) |tran|
                                      |bb| $)
-                                    (QREFELT $ 195))))
+                                    (QREFELT $ 193))))
                    (LETT |coord|
                          (SPADCALL "Coordinate" NIL
                                    (LIST
@@ -7441,16 +7437,16 @@
                                               (|SCENE;pointString|
                                                (SPADCALL |ifsR| (QREFELT $ 65))
                                                |tran| |bb| $)
-                                              (QREFELT $ 195)))
-                                   (QREFELT $ 163)))
+                                              (QREFELT $ 193)))
+                                   (QREFELT $ 161)))
                    (LETT |ifset|
                          (SPADCALL |nodeName| (LIST |coord|) |nodeAtts|
-                                   (QREFELT $ 163)))
+                                   (QREFELT $ 161)))
                    (EXIT
                     (PROGN
                      (LETT #2#
                            (SPADCALL "Shape" (LIST |ifset|) NIL
-                                     (QREFELT $ 163)))
+                                     (QREFELT $ 161)))
                      (GO #13#))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'IFS)
@@ -7566,7 +7562,7 @@
                                                          (|:| |empty| #12#))
                                                         #4#)))
                                      |tran| |bb| $)
-                                    (QREFELT $ 195))))
+                                    (QREFELT $ 193))))
                    (LETT |coord|
                          (SPADCALL "Coordinate" NIL
                                    (LIST
@@ -7669,16 +7665,16 @@
                                                     (|:| |empty| #12#))
                                                    #4#)))
                                                |tran2| |bb2| $)
-                                              (QREFELT $ 195)))
-                                   (QREFELT $ 163)))
+                                              (QREFELT $ 193)))
+                                   (QREFELT $ 161)))
                    (LETT |ifset|
                          (SPADCALL |nodeName| (LIST |coord|) |nodeAtts|
-                                   (QREFELT $ 163)))
+                                   (QREFELT $ 161)))
                    (EXIT
                     (PROGN
                      (LETT #2#
                            (SPADCALL "Shape" (LIST |ifset|) NIL
-                                     (QREFELT $ 163)))
+                                     (QREFELT $ 161)))
                      (GO #13#))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'DEF)
@@ -7692,8 +7688,8 @@
                     (|error| "toSVG parameter type not valid for use node")))))
                 (EXIT
                  (COND
-                  ((< (SPADCALL (QVELT |n| 1) (QREFELT $ 179)) 1)
-                   (SPADCALL |nodeName| NIL |nodeAtts| (QREFELT $ 163)))
+                  ((< (SPADCALL (QVELT |n| 1) (QREFELT $ 177)) 1)
+                   (SPADCALL |nodeName| NIL |nodeAtts| (QREFELT $ 161)))
                   ('T
                    (SEQ (LETT |nodeEles| NIL)
                         (SEQ (LETT |ch| NIL) (LETT #1# (QVELT |n| 1)) G190
@@ -7704,17 +7700,17 @@
                              (SEQ
                               (LETT |xch|
                                     (SPADCALL |ch| |mat2| |tran2| |bb2|
-                                              (QREFELT $ 192)))
+                                              (QREFELT $ 190)))
                               (EXIT
                                (COND
-                                ((NULL (SPADCALL |xch| (QREFELT $ 172)))
+                                ((NULL (SPADCALL |xch| (QREFELT $ 170)))
                                  (LETT |nodeEles|
                                        (SPADCALL |nodeEles| |xch|
-                                                 (QREFELT $ 165)))))))
+                                                 (QREFELT $ 163)))))))
                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                         (EXIT
                          (SPADCALL |nodeName| |nodeEles| |nodeAtts|
-                                   (QREFELT $ 163)))))))))
+                                   (QREFELT $ 161)))))))))
           #13# (EXIT #2#)))) 
 
 (SDEFUN |SCENE;toX3D;$RStRXe;94|
@@ -7726,7 +7722,7 @@
          (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ |XmlElement|))
         (SPADCALL |n| |mat| |tran|
                   (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10))
-                  (QREFELT $ 192))) 
+                  (QREFELT $ 190))) 
 
 (SDEFUN |SCENE;writeX3d;$SV;95| ((|n| $) (|filename| |String|) ($ |Void|))
         (SPROG
@@ -7740,13 +7736,13 @@
           (LETT |defaultMaterial|
                 (VECTOR (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT) "black" "black"
                         1.0))
-          (LETT |defaultTransform| (SPADCALL (QREFELT $ 181)))
+          (LETT |defaultTransform| (SPADCALL (QREFELT $ 179)))
           (LETT |defaultBounds| (SPADCALL (QREFELT $ 16)))
           (EXIT
            (SPADCALL
             (SPADCALL |n| |defaultMaterial| |defaultTransform| |defaultBounds|
-                      (QREFELT $ 192))
-            |filename| (QREFELT $ 184)))))) 
+                      (QREFELT $ 190))
+            |filename| (QREFELT $ 182)))))) 
 
 (SDEFUN |SCENE;toObj;$RRRStSbV;96|
         ((|n| $) (|ptLst| |Reference| (|List| PT))
@@ -7849,10 +7845,10 @@
                                             (|:| |empty| #21="empty"))
                                            #17#)))
                    (COND
-                    ((SPADCALL |bb2| (QREFELT $ 166))
+                    ((SPADCALL |bb2| (QREFELT $ 164))
                      (LETT |bb2| (SPADCALL |n| 1.0 (QREFELT $ 31)))))
                    (COND
-                    ((SPADCALL |bb2| (QREFELT $ 166))
+                    ((SPADCALL |bb2| (QREFELT $ 164))
                      (|error| "scene contains no drawable elements")))
                    (LETT |minx|
                          (SPADCALL (SPADCALL |bb2| (QREFELT $ 41))
@@ -7899,7 +7895,7 @@
                       (EXIT
                        (LETT |tran2|
                              (SPADCALL |offsetx| |offsety| 0.0 1.0 1.0 1.0
-                                       (QREFELT $ 167)))))))
+                                       (QREFELT $ 165)))))))
                    (SEQ (LETT |ch| NIL) (LETT #19# (QVELT |n| 1)) G190
                         (COND
                          ((OR (ATOM #19#) (PROGN (LETT |ch| (CAR #19#)) NIL))
@@ -7907,7 +7903,7 @@
                         (SEQ
                          (EXIT
                           (SPADCALL |ch| |ptLst| |indexLst| |indexNxt| |tran2|
-                                    |bb2| (QREFELT $ 201))))
+                                    |bb2| (QREFELT $ 199))))
                         (LETT #19# (CDR #19#)) (GO G190) G191 (EXIT NIL))
                    (EXIT (PROGN (LETT #2# (|Void|)) (GO #22=#:G1301))))))
                 (COND
@@ -7992,7 +7988,7 @@
                                                     (QREFELT $ 6)))
                                               (|:| |empty| #21#))
                                              #18#))
-                           |tran| (QREFELT $ 173)))))))
+                           |tran| (QREFELT $ 171)))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'CLIP)
                   (SEQ
@@ -8153,8 +8149,8 @@
                                              #12#)))
                           (SPADCALL (SPADCALL 25 -2 10 (QREFELT $ 93))
                                     (QREFELT $ 94))
-                          8 (QREFELT $ 193)))
-                   (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 194)))
+                          8 (QREFELT $ 191)))
+                   (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 192)))
                    (LETT |i1| (SPADCALL |ifsR| (QREFELT $ 64)))
                    (LETT |p1| (SPADCALL |ifsR| (QREFELT $ 65)))
                    (LETT |i2|
@@ -8186,7 +8182,7 @@
                                                        (+ |j|
                                                           (SPADCALL |indexNxt|
                                                                     (QREFELT $
-                                                                             202)))
+                                                                             200)))
                                                        #14#))))
                                               (LETT #13# (CDR #13#)) (GO G190)
                                               G191 (EXIT (NREVERSE #14#))))
@@ -8194,17 +8190,17 @@
                                (LETT #15# (CDR #15#)) (GO G190) G191
                                (EXIT (NREVERSE #16#)))))
                    (SPADCALL |ptLst|
-                             (SPADCALL (SPADCALL |ptLst| (QREFELT $ 203)) |p1|
-                                       (QREFELT $ 204))
-                             (QREFELT $ 205))
+                             (SPADCALL (SPADCALL |ptLst| (QREFELT $ 201)) |p1|
+                                       (QREFELT $ 202))
+                             (QREFELT $ 203))
                    (SPADCALL |indexLst|
-                             (SPADCALL (SPADCALL |indexLst| (QREFELT $ 206))
-                                       |i2| (QREFELT $ 207))
-                             (QREFELT $ 208))
+                             (SPADCALL (SPADCALL |indexLst| (QREFELT $ 204))
+                                       |i2| (QREFELT $ 205))
+                             (QREFELT $ 206))
                    (SPADCALL |indexNxt|
-                             (+ (SPADCALL |indexNxt| (QREFELT $ 202))
+                             (+ (SPADCALL |indexNxt| (QREFELT $ 200))
                                 (LENGTH |p1|))
-                             (QREFELT $ 209))
+                             (QREFELT $ 207))
                    (EXIT (PROGN (LETT #2# (|Void|)) (GO #22#))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'SHAPE)
@@ -8296,8 +8292,8 @@
                                              #12#)))
                           (SPADCALL (SPADCALL 25 -2 10 (QREFELT $ 93))
                                     (QREFELT $ 94))
-                          8 (QREFELT $ 193)))
-                   (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 194)))
+                          8 (QREFELT $ 191)))
+                   (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 192)))
                    (LETT |i1| (SPADCALL |ifsR| (QREFELT $ 64)))
                    (LETT |p1| (SPADCALL |ifsR| (QREFELT $ 65)))
                    (LETT |i2|
@@ -8329,7 +8325,7 @@
                                                        (+ |j|
                                                           (SPADCALL |indexNxt|
                                                                     (QREFELT $
-                                                                             202)))
+                                                                             200)))
                                                        #9#))))
                                               (LETT #8# (CDR #8#)) (GO G190)
                                               G191 (EXIT (NREVERSE #9#))))
@@ -8337,17 +8333,17 @@
                                (LETT #10# (CDR #10#)) (GO G190) G191
                                (EXIT (NREVERSE #11#)))))
                    (SPADCALL |ptLst|
-                             (SPADCALL (SPADCALL |ptLst| (QREFELT $ 203)) |p1|
-                                       (QREFELT $ 204))
-                             (QREFELT $ 205))
+                             (SPADCALL (SPADCALL |ptLst| (QREFELT $ 201)) |p1|
+                                       (QREFELT $ 202))
+                             (QREFELT $ 203))
                    (SPADCALL |indexLst|
-                             (SPADCALL (SPADCALL |indexLst| (QREFELT $ 206))
-                                       |i2| (QREFELT $ 207))
-                             (QREFELT $ 208))
+                             (SPADCALL (SPADCALL |indexLst| (QREFELT $ 204))
+                                       |i2| (QREFELT $ 205))
+                             (QREFELT $ 206))
                    (SPADCALL |indexNxt|
-                             (+ (SPADCALL |indexNxt| (QREFELT $ 202))
+                             (+ (SPADCALL |indexNxt| (QREFELT $ 200))
                                 (LENGTH |p1|))
-                             (QREFELT $ 209))
+                             (QREFELT $ 207))
                    (EXIT (PROGN (LETT #2# (|Void|)) (GO #22#))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'IFS)
@@ -8538,7 +8534,7 @@
                                                        (+ |j|
                                                           (SPADCALL |indexNxt|
                                                                     (QREFELT $
-                                                                             202)))
+                                                                             200)))
                                                        #4#))))
                                               (LETT #3# (CDR #3#)) (GO G190)
                                               G191 (EXIT (NREVERSE #4#))))
@@ -8546,17 +8542,17 @@
                                (LETT #5# (CDR #5#)) (GO G190) G191
                                (EXIT (NREVERSE #6#)))))
                    (SPADCALL |ptLst|
-                             (SPADCALL (SPADCALL |ptLst| (QREFELT $ 203)) |p1|
-                                       (QREFELT $ 204))
-                             (QREFELT $ 205))
+                             (SPADCALL (SPADCALL |ptLst| (QREFELT $ 201)) |p1|
+                                       (QREFELT $ 202))
+                             (QREFELT $ 203))
                    (SPADCALL |indexLst|
-                             (SPADCALL (SPADCALL |indexLst| (QREFELT $ 206))
-                                       |i2| (QREFELT $ 207))
-                             (QREFELT $ 208))
+                             (SPADCALL (SPADCALL |indexLst| (QREFELT $ 204))
+                                       |i2| (QREFELT $ 205))
+                             (QREFELT $ 206))
                    (SPADCALL |indexNxt|
-                             (+ (SPADCALL |indexNxt| (QREFELT $ 202))
+                             (+ (SPADCALL |indexNxt| (QREFELT $ 200))
                                 (LENGTH |p1|))
-                             (QREFELT $ 209))
+                             (QREFELT $ 207))
                    (EXIT (PROGN (LETT #2# (|Void|)) (GO #22#))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'DEF)
@@ -8570,7 +8566,7 @@
                     (|error| "toSVG parameter type not valid for use node")))))
                 (EXIT
                  (COND
-                  ((< (SPADCALL (QVELT |n| 1) (QREFELT $ 179)) 1) (|Void|))
+                  ((< (SPADCALL (QVELT |n| 1) (QREFELT $ 177)) 1) (|Void|))
                   ('T
                    (SEQ
                     (SEQ (LETT |ch| NIL) (LETT #1# (QVELT |n| 1)) G190
@@ -8580,7 +8576,7 @@
                          (SEQ
                           (EXIT
                            (SPADCALL |ch| |ptLst| |indexLst| |indexNxt| |tran2|
-                                     |bb2| (QREFELT $ 201))))
+                                     |bb2| (QREFELT $ 199))))
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT (|Void|))))))))
           #22# (EXIT #2#)))) 
@@ -8593,7 +8589,7 @@
          (|bb| |Record| (|:| |mins| PT) (|:| |maxs| PT)) ($ |Void|))
         (SPADCALL |n| |ptLst| |indexLst| |indexNxt| |tran|
                   (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10))
-                  (QREFELT $ 201))) 
+                  (QREFELT $ 199))) 
 
 (SDEFUN |SCENE;writeObj;$SV;98| ((|n| $) (|filename| |String|) ($ |Void|))
         (SPROG
@@ -8604,18 +8600,18 @@
           (|indexNxt| (|Reference| (|NonNegativeInteger|)))
           (|indexLst| (|Reference| (|List| (|List| (|NonNegativeInteger|)))))
           (|ptLst| (|Reference| (|List| PT))))
-         (SEQ (LETT |ptLst| (SPADCALL NIL (QREFELT $ 211)))
-              (LETT |indexLst| (SPADCALL NIL (QREFELT $ 212)))
-              (LETT |indexNxt| (SPADCALL 0 (QREFELT $ 213)))
-              (LETT |defaultTransform| (SPADCALL (QREFELT $ 181)))
+         (SEQ (LETT |ptLst| (SPADCALL NIL (QREFELT $ 209)))
+              (LETT |indexLst| (SPADCALL NIL (QREFELT $ 210)))
+              (LETT |indexNxt| (SPADCALL 0 (QREFELT $ 211)))
+              (LETT |defaultTransform| (SPADCALL (QREFELT $ 179)))
               (LETT |defaultBounds| (SPADCALL (QREFELT $ 16)))
               (SPADCALL |n| |ptLst| |indexLst| |indexNxt| |defaultTransform|
-                        |defaultBounds| (QREFELT $ 201))
+                        |defaultBounds| (QREFELT $ 199))
               (LETT |f1|
-                    (SPADCALL (SPADCALL |filename| (QREFELT $ 215)) "output"
-                              (QREFELT $ 217)))
-              (SPADCALL |f1| "# mesh generated by axiom" (QREFELT $ 218))
-              (SEQ (LETT |v| NIL) (LETT #3# (SPADCALL |ptLst| (QREFELT $ 203)))
+                    (SPADCALL (SPADCALL |filename| (QREFELT $ 213)) "output"
+                              (QREFELT $ 215)))
+              (SPADCALL |f1| "# mesh generated by axiom" (QREFELT $ 216))
+              (SEQ (LETT |v| NIL) (LETT #3# (SPADCALL |ptLst| (QREFELT $ 201)))
                    G190
                    (COND
                     ((OR (ATOM #3#) (PROGN (LETT |v| (CAR #3#)) NIL))
@@ -8632,13 +8628,13 @@
                                        (SPADCALL |v| (QREFELT $ 85)))
                                       " "
                                       (|mathObject2String|
-                                       (SPADCALL |v| (QREFELT $ 190))))
-                                (QREFELT $ 120))
-                               (QREFELT $ 218))))
+                                       (SPADCALL |v| (QREFELT $ 188))))
+                                (QREFELT $ 119))
+                               (QREFELT $ 216))))
                    (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
               (LETT |s| "")
               (SEQ (LETT |row| NIL)
-                   (LETT #2# (SPADCALL |indexLst| (QREFELT $ 206))) G190
+                   (LETT #2# (SPADCALL |indexLst| (QREFELT $ 204))) G190
                    (COND
                     ((OR (ATOM #2#) (PROGN (LETT |row| (CAR #2#)) NIL))
                      (GO G191)))
@@ -8652,11 +8648,11 @@
                                (LETT |s|
                                      (SPADCALL
                                       (LIST |s| " " (STRINGIMAGE (+ |i| 1)))
-                                      (QREFELT $ 120)))))
+                                      (QREFELT $ 119)))))
                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
-                        (EXIT (SPADCALL |f1| |s| (QREFELT $ 218))))
+                        (EXIT (SPADCALL |f1| |s| (QREFELT $ 216))))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
-              (SPADCALL |f1| (QREFELT $ 219)) (EXIT (|Void|))))) 
+              (SPADCALL |f1| (QREFELT $ 217)) (EXIT (|Void|))))) 
 
 (SDEFUN |SCENE;writeVRML;$SV;99| ((|n| $) (|filename| |String|) ($ |Void|))
         (SPROG
@@ -8670,16 +8666,16 @@
           (LETT |defaultMaterial|
                 (VECTOR (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT) "black" "black"
                         1.0))
-          (LETT |defaultTransform| (SPADCALL (QREFELT $ 181)))
+          (LETT |defaultTransform| (SPADCALL (QREFELT $ 179)))
           (LETT |defaultBounds| (SPADCALL (QREFELT $ 16)))
           (EXIT
            (SPADCALL
             (SPADCALL |n| |defaultMaterial| |defaultTransform| |defaultBounds|
-                      (QREFELT $ 192))
-            |filename| (QREFELT $ 221)))))) 
+                      (QREFELT $ 190))
+            |filename| (QREFELT $ 219)))))) 
 
 (SDEFUN |SCENE;Fnan?| ((|x| |DoubleFloat|) ($ |Boolean|))
-        (SPADCALL |x| |x| (QREFELT $ 223))) 
+        (SPADCALL |x| |x| (QREFELT $ 221))) 
 
 (SDEFUN |SCENE;applyfxTrap|
         ((|ff| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) (|f| |DoubleFloat|)
@@ -8693,7 +8689,7 @@
                                  (EXIT
                                   (COND
                                    ((SPADCALL |r| MOST-POSITIVE-DOUBLE-FLOAT
-                                              (QREFELT $ 157))
+                                              (QREFELT $ 156))
                                     MOST-POSITIVE-DOUBLE-FLOAT)
                                    ((|less_DF| |r| MOST-NEGATIVE-DOUBLE-FLOAT)
                                     MOST-NEGATIVE-DOUBLE-FLOAT)
@@ -8711,7 +8707,7 @@
                                  (EXIT
                                   (COND
                                    ((SPADCALL |r| MOST-POSITIVE-DOUBLE-FLOAT
-                                              (QREFELT $ 157))
+                                              (QREFELT $ 156))
                                     MOST-POSITIVE-DOUBLE-FLOAT)
                                    ((|less_DF| |r| MOST-NEGATIVE-DOUBLE-FLOAT)
                                     MOST-NEGATIVE-DOUBLE-FLOAT)
@@ -8720,20 +8716,20 @@
 (SDEFUN |SCENE;normalize|
         ((|seg| |Segment| (|DoubleFloat|)) ($ |Segment| (|DoubleFloat|)))
         (SPROG ((|b| #1=(|DoubleFloat|)) (|a| #1#))
-               (SEQ (LETT |a| (SPADCALL |seg| (QREFELT $ 141)))
-                    (LETT |b| (SPADCALL |seg| (QREFELT $ 142)))
+               (SEQ (LETT |a| (SPADCALL |seg| (QREFELT $ 140)))
+                    (LETT |b| (SPADCALL |seg| (QREFELT $ 141)))
                     (EXIT
                      (COND
                       ((|eql_DF| |a| |b|)
                        (|error| "The range specified is too small"))
-                      ((|less_DF| |a| |b|) (SPADCALL |a| |b| (QREFELT $ 224)))
-                      ('T (SPADCALL |b| |a| (QREFELT $ 224)))))))) 
+                      ((|less_DF| |a| |b|) (SPADCALL |a| |b| (QREFELT $ 222)))
+                      ('T (SPADCALL |b| |a| (QREFELT $ 222)))))))) 
 
 (SDEFUN |SCENE;checkRange|
         ((|r| |Segment| (|DoubleFloat|)) ($ |Segment| (|DoubleFloat|)))
         (COND
-         ((SPADCALL (SPADCALL |r| (QREFELT $ 141))
-                    (SPADCALL |r| (QREFELT $ 142)) (QREFELT $ 157))
+         ((SPADCALL (SPADCALL |r| (QREFELT $ 140))
+                    (SPADCALL |r| (QREFELT $ 141)) (QREFELT $ 156))
           (|error| "ranges cannot be negative"))
          ('T |r|))) 
 
@@ -8747,10 +8743,10 @@
           (|t| (|List| (|DoubleFloat|))) (|l| (|DoubleFloat|)) (#2=#:G1358 NIL)
           (|i| NIL) (|s| (|DoubleFloat|)) (|h| (|DoubleFloat|)))
          (SEQ (|SCENE;checkRange| |tRange| $)
-              (LETT |l| (SPADCALL |tRange| (QREFELT $ 141)))
-              (LETT |h| (SPADCALL |tRange| (QREFELT $ 142)))
-              (LETT |t| (SPADCALL |l| (QREFELT $ 226)))
-              (LETT |p0| (SPADCALL (SPADCALL |l| |f|) (QREFELT $ 227)))
+              (LETT |l| (SPADCALL |tRange| (QREFELT $ 140)))
+              (LETT |h| (SPADCALL |tRange| (QREFELT $ 141)))
+              (LETT |t| (SPADCALL |l| (QREFELT $ 224)))
+              (LETT |p0| (SPADCALL (SPADCALL |l| |f|) (QREFELT $ 225)))
               (LETT |s|
                     (|div_DF| (|sub_DF| |h| |l|)
                               (FLOAT (- |numPts| 1)
@@ -8770,7 +8766,7 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((SPADCALL |p| (QREFELT $ 228))
+                      ((SPADCALL |p| (QREFELT $ 226))
                        (COND
                         ((NULL (NULL |newl|))
                          (SEQ
@@ -8791,7 +8787,7 @@
          (|tRange| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
          ($ $))
         (SPROG ((|c| ($)))
-               (SEQ (LETT |c| (SPADCALL |f| |tRange| |numPts| (QREFELT $ 230)))
+               (SEQ (LETT |c| (SPADCALL |f| |tRange| |numPts| (QREFELT $ 228)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot1Din2D;MSNni$;107|
@@ -8805,9 +8801,9 @@
                        (CONS #'|SCENE;createPlot1Din2D;MSNni$;107!0|
                              (VECTOR $ |f|))))
                 (EXIT
-                 (SPADCALL (SPADCALL |ff| (QREFELT $ 233))
+                 (SPADCALL (SPADCALL |ff| (QREFELT $ 231))
                            (|SCENE;normalize| |seg| $) |numPts|
-                           (QREFELT $ 230)))))) 
+                           (QREFELT $ 228)))))) 
 
 (SDEFUN |SCENE;createPlot1Din2D;MSNni$;107!0| ((|x| NIL) ($$ NIL))
         (PROG (|f| $)
@@ -8822,7 +8818,7 @@
          (|seg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
          ($ $))
         (SPROG ((|c| ($)))
-               (SEQ (LETT |c| (SPADCALL |f| |seg| |numPts| (QREFELT $ 235)))
+               (SEQ (LETT |c| (SPADCALL |f| |seg| |numPts| (QREFELT $ 233)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot1Din2Dparametric;PpcSNni$;109|
@@ -8833,16 +8829,16 @@
         (SPROG
          ((|fcn| (|List| (|Mapping| PT (|DoubleFloat|))))
           (|g| #1=(|Mapping| (|DoubleFloat|) (|DoubleFloat|))) (|f| #1#))
-         (SEQ (LETT |f| (SPADCALL |ppc| 1 (QREFELT $ 238)))
-              (LETT |g| (SPADCALL |ppc| 2 (QREFELT $ 238)))
+         (SEQ (LETT |f| (SPADCALL |ppc| 1 (QREFELT $ 236)))
+              (LETT |g| (SPADCALL |ppc| 2 (QREFELT $ 236)))
               (LETT |fcn|
                     (LIST
                      (CONS #'|SCENE;createPlot1Din2Dparametric;PpcSNni$;109!0|
                            (VECTOR |g| $ |f|))))
               (EXIT
-               (SPADCALL (SPADCALL |fcn| (QREFELT $ 233))
+               (SPADCALL (SPADCALL |fcn| (QREFELT $ 231))
                          (|SCENE;normalize| |seg| $) |numPts|
-                         (QREFELT $ 230)))))) 
+                         (QREFELT $ 228)))))) 
 
 (SDEFUN |SCENE;createPlot1Din2Dparametric;PpcSNni$;109!0| ((|x| NIL) ($$ NIL))
         (PROG (|f| $ |g|)
@@ -8861,7 +8857,7 @@
          (|seg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
          ($ $))
         (SPROG ((|c| ($)))
-               (SEQ (LETT |c| (SPADCALL |ppc| |seg| |numPts| (QREFELT $ 239)))
+               (SEQ (LETT |c| (SPADCALL |ppc| |seg| |numPts| (QREFELT $ 237)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot1Din3Dparametric;PscSNni$;111|
@@ -8873,13 +8869,13 @@
          ((|fcn| (|Mapping| PT (|DoubleFloat|)))
           (|h| #1=(|Mapping| (|DoubleFloat|) (|DoubleFloat|))) (|g| #1#)
           (|f| #1#))
-         (SEQ (LETT |f| (SPADCALL |psc| 1 (QREFELT $ 242)))
-              (LETT |g| (SPADCALL |psc| 2 (QREFELT $ 242)))
-              (LETT |h| (SPADCALL |psc| 3 (QREFELT $ 242)))
+         (SEQ (LETT |f| (SPADCALL |psc| 1 (QREFELT $ 240)))
+              (LETT |g| (SPADCALL |psc| 2 (QREFELT $ 240)))
+              (LETT |h| (SPADCALL |psc| 3 (QREFELT $ 240)))
               (LETT |fcn|
                     (CONS #'|SCENE;createPlot1Din3Dparametric;PscSNni$;111!0|
                           (VECTOR |h| |g| $ |f|)))
-              (EXIT (SPADCALL |fcn| |seg| |numPts| (QREFELT $ 243)))))) 
+              (EXIT (SPADCALL |fcn| |seg| |numPts| (QREFELT $ 241)))))) 
 
 (SDEFUN |SCENE;createPlot1Din3Dparametric;PscSNni$;111!0| ((|x| NIL) ($$ NIL))
         (PROG (|f| $ |g| |h|)
@@ -8900,7 +8896,7 @@
          (|seg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
          ($ $))
         (SPROG ((|c| ($)))
-               (SEQ (LETT |c| (SPADCALL |psc| |seg| |numPts| (QREFELT $ 244)))
+               (SEQ (LETT |c| (SPADCALL |psc| |seg| |numPts| (QREFELT $ 242)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot1Din3Dparametric;MSNni$;113|
@@ -8914,10 +8910,10 @@
           (|f| (|Mapping| PT (|DoubleFloat|))))
          (SEQ (LETT |f| |psc|) (LETT |tRange| (|SCENE;normalize| |seg| $))
               (|SCENE;checkRange| |tRange| $)
-              (LETT |l| (SPADCALL |tRange| (QREFELT $ 141)))
-              (LETT |h| (SPADCALL |tRange| (QREFELT $ 142)))
-              (LETT |t| (SPADCALL |l| (QREFELT $ 226)))
-              (LETT |p| (SPADCALL (SPADCALL |l| |f|) (QREFELT $ 227)))
+              (LETT |l| (SPADCALL |tRange| (QREFELT $ 140)))
+              (LETT |h| (SPADCALL |tRange| (QREFELT $ 141)))
+              (LETT |t| (SPADCALL |l| (QREFELT $ 224)))
+              (LETT |p| (SPADCALL (SPADCALL |l| |f|) (QREFELT $ 225)))
               (LETT |s|
                     (|div_DF| (|sub_DF| |h| |l|)
                               (FLOAT (- |numPts| 1)
@@ -8936,7 +8932,7 @@
          (|seg| |Segment| (|DoubleFloat|)) (|numPts| |NonNegativeInteger|)
          ($ $))
         (SPROG ((|c| ($)))
-               (SEQ (LETT |c| (SPADCALL |psc| |seg| |numPts| (QREFELT $ 243)))
+               (SEQ (LETT |c| (SPADCALL |psc| |seg| |numPts| (QREFELT $ 241)))
                     (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot2Din3D;M2SNni$;115|
@@ -8950,28 +8946,28 @@
          (SEQ (LETT |llp| NIL)
               (LETT |ustep|
                     (|div_DF_I|
-                     (|sub_DF| (SPADCALL |uSeg| (QREFELT $ 141))
-                               (SPADCALL |uSeg| (QREFELT $ 142)))
+                     (|sub_DF| (SPADCALL |uSeg| (QREFELT $ 140))
+                               (SPADCALL |uSeg| (QREFELT $ 141)))
                      |numPts|))
               (LETT |vstep|
                     (|div_DF_I|
-                     (|sub_DF| (SPADCALL |vSeg| (QREFELT $ 141))
-                               (SPADCALL |vSeg| (QREFELT $ 142)))
+                     (|sub_DF| (SPADCALL |vSeg| (QREFELT $ 140))
+                               (SPADCALL |vSeg| (QREFELT $ 141)))
                      |numPts|))
-              (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 142)))
+              (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 141)))
               (SEQ (LETT |iv| |numPts|) G190 (COND ((< |iv| 0) (GO G191)))
                    (SEQ
                     (COND
                      ((ZEROP |iv|)
-                      (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 141)))))
+                      (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 140)))))
                     (LETT |lp| NIL)
-                    (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 142)))
+                    (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 141)))
                     (SEQ (LETT |iu| |numPts|) G190
                          (COND ((< |iu| 0) (GO G191)))
                          (SEQ
                           (COND
                            ((ZEROP |iu|)
-                            (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 141)))))
+                            (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 140)))))
                           (LETT |pt| (SPADCALL |someU| |someV| |ptFun|))
                           (LETT |lp| (CONS |pt| |lp|))
                           (EXIT (LETT |someU| (|add_DF| |someU| |ustep|))))
@@ -8980,7 +8976,7 @@
                     (EXIT (LETT |someV| (|add_DF| |someV| |vstep|))))
                    (LETT |iv| (+ |iv| -1)) (GO G190) G191 (EXIT NIL))
               (EXIT
-               (SPADCALL (SPADCALL |llp| NIL (QREFELT $ 194))
+               (SPADCALL (SPADCALL |llp| NIL (QREFELT $ 192))
                          (QREFELT $ 66)))))) 
 
 (SDEFUN |SCENE;createPlot2Din3D;M2SNni$;116|
@@ -8995,9 +8991,9 @@
                  (CONS #'|SCENE;createPlot2Din3D;M2SNni$;116!0|
                        (VECTOR $ |f|))))
           (EXIT
-           (SPADCALL (SPADCALL |fcn| (QREFELT $ 250))
+           (SPADCALL (SPADCALL |fcn| (QREFELT $ 248))
                      (|SCENE;normalize| |xSeg| $) (|SCENE;normalize| |ySeg| $)
-                     |numPts| (QREFELT $ 248)))))) 
+                     |numPts| (QREFELT $ 246)))))) 
 
 (SDEFUN |SCENE;createPlot2Din3D;M2SNni$;116!0| ((|x| NIL) (|y| NIL) ($$ NIL))
         (PROG (|f| $)
@@ -9016,7 +9012,7 @@
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
-                      (SPADCALL |f| |xSeg| |ySeg| |numPts| (QREFELT $ 252)))
+                      (SPADCALL |f| |xSeg| |ySeg| |numPts| (QREFELT $ 250)))
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot2Din3Dparametric;Ps2SNni$;118|
@@ -9037,17 +9033,17 @@
             (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))))
          (SEQ
           (LETT |f|
-                (LIST (SPADCALL |s| (|spadConstant| $ 255) (QREFELT $ 257))))
-          (LETT |g| (LIST (SPADCALL |s| 2 (QREFELT $ 257))))
-          (LETT |h| (LIST (SPADCALL |s| 3 (QREFELT $ 257))))
+                (LIST (SPADCALL |s| (|spadConstant| $ 253) (QREFELT $ 255))))
+          (LETT |g| (LIST (SPADCALL |s| 2 (QREFELT $ 255))))
+          (LETT |h| (LIST (SPADCALL |s| 3 (QREFELT $ 255))))
           (LETT |fcn|
                 (LIST
                  (CONS #'|SCENE;createPlot2Din3Dparametric;Ps2SNni$;118!0|
                        (VECTOR |h| |g| $ |f|))))
           (EXIT
-           (SPADCALL (SPADCALL |fcn| (QREFELT $ 250))
+           (SPADCALL (SPADCALL |fcn| (QREFELT $ 248))
                      (|SCENE;normalize| |uSeg| $) (|SCENE;normalize| |vSeg| $)
-                     |numPts| (QREFELT $ 248)))))) 
+                     |numPts| (QREFELT $ 246)))))) 
 
 (SDEFUN |SCENE;createPlot2Din3Dparametric;Ps2SNni$;118!0|
         ((|x| NIL) (|y| NIL) ($$ NIL))
@@ -9059,9 +9055,9 @@
           (RETURN
            (PROGN
             (SPADCALL
-             (|SCENE;applyfxyTrap| (SPADCALL |f| (QREFELT $ 259)) |x| |y| $)
-             (|SCENE;applyfxyTrap| (SPADCALL |g| (QREFELT $ 259)) |x| |y| $)
-             (|SCENE;applyfxyTrap| (SPADCALL |h| (QREFELT $ 259)) |x| |y| $)
+             (|SCENE;applyfxyTrap| (SPADCALL |f| (QREFELT $ 257)) |x| |y| $)
+             (|SCENE;applyfxyTrap| (SPADCALL |g| (QREFELT $ 257)) |x| |y| $)
+             (|SCENE;applyfxyTrap| (SPADCALL |h| (QREFELT $ 257)) |x| |y| $)
              (QREFELT $ 68)))))) 
 
 (SDEFUN |SCENE;addPlot2Din3Dparametric;$Ps2SNni$;119|
@@ -9073,7 +9069,7 @@
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
-                      (SPADCALL |s| |uSeg| |vSeg| |numPts| (QREFELT $ 260)))
+                      (SPADCALL |s| |uSeg| |vSeg| |numPts| (QREFELT $ 258)))
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;createPlot2Din3Dparametric;M2SNni$;120|
@@ -9084,10 +9080,10 @@
          ((|fcn| (|List| (|Mapping| PT (|DoubleFloat|) (|DoubleFloat|)))))
          (SEQ (LETT |fcn| (LIST |s|))
               (EXIT
-               (SPADCALL (SPADCALL |fcn| (QREFELT $ 250))
+               (SPADCALL (SPADCALL |fcn| (QREFELT $ 248))
                          (|SCENE;normalize| |uSeg| $)
                          (|SCENE;normalize| |vSeg| $) |numPts|
-                         (QREFELT $ 248)))))) 
+                         (QREFELT $ 246)))))) 
 
 (SDEFUN |SCENE;addPlot2Din3Dparametric;$M2SNni$;121|
         ((|n| $) (|s| |Mapping| PT (|DoubleFloat|) (|DoubleFloat|))
@@ -9096,7 +9092,7 @@
         (SPROG ((|c| ($)))
                (SEQ
                 (LETT |c|
-                      (SPADCALL |s| |uSeg| |vSeg| |numPts| (QREFELT $ 262)))
+                      (SPADCALL |s| |uSeg| |vSeg| |numPts| (QREFELT $ 260)))
                 (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|)))) 
 
 (SDEFUN |SCENE;outputLPoints| ((|ps| |List| PT) ($ |OutputForm|))
@@ -9107,15 +9103,15 @@
                   (COND
                    ((< (LENGTH |ps|) 4)
                     (PROGN
-                     (LETT #1# (SPADCALL |ps| (QREFELT $ 265)))
+                     (LETT #1# (SPADCALL |ps| (QREFELT $ 263)))
                      (GO #2=#:G1463))))
                   (EXIT
                    (SPADCALL
-                    (LIST (SPADCALL (|SPADfirst| |ps|) (QREFELT $ 266))
-                          (SPADCALL (SPADCALL |ps| (QREFELT $ 267))
-                                    (QREFELT $ 266))
-                          (SPADCALL "...." (QREFELT $ 268)))
-                    (QREFELT $ 269)))))
+                    (LIST (SPADCALL (|SPADfirst| |ps|) (QREFELT $ 264))
+                          (SPADCALL (SPADCALL |ps| (QREFELT $ 265))
+                                    (QREFELT $ 264))
+                          (SPADCALL "...." (QREFELT $ 266)))
+                    (QREFELT $ 267)))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SCENE;outputLLPoints| ((|ps| |List| (|List| PT)) ($ |OutputForm|))
@@ -9142,15 +9138,15 @@
                                                 #3#))))
                                   (LETT #2# (CDR #2#)) (GO G190) G191
                                   (EXIT (NREVERSE #3#))))
-                            (QREFELT $ 269)))
+                            (QREFELT $ 267)))
                      (GO #4=#:G1468))))
                   (EXIT
                    (SPADCALL
                     (LIST (|SCENE;outputLPoints| (|SPADfirst| |ps|) $)
                           (|SCENE;outputLPoints|
-                           (SPADCALL |ps| (QREFELT $ 270)) $)
-                          (SPADCALL "...." (QREFELT $ 268)))
-                    (QREFELT $ 269)))))
+                           (SPADCALL |ps| (QREFELT $ 268)) $)
+                          (SPADCALL "...." (QREFELT $ 266)))
+                    (QREFELT $ 267)))))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |SCENE;outputLIndexes|
@@ -9162,15 +9158,15 @@
                   (COND
                    ((< (SPADCALL |ps| (QREFELT $ 110)) 4)
                     (PROGN
-                     (LETT #1# (SPADCALL |ps| (QREFELT $ 271)))
+                     (LETT #1# (SPADCALL |ps| (QREFELT $ 269)))
                      (GO #2=#:G1474))))
                   (EXIT
                    (SPADCALL
-                    (LIST (SPADCALL (|SPADfirst| |ps|) (QREFELT $ 272))
-                          (SPADCALL (SPADCALL |ps| (QREFELT $ 273))
-                                    (QREFELT $ 272))
-                          (SPADCALL "...." (QREFELT $ 268)))
-                    (QREFELT $ 269)))))
+                    (LIST (SPADCALL (|SPADfirst| |ps|) (QREFELT $ 270))
+                          (SPADCALL (SPADCALL |ps| (QREFELT $ 271))
+                                    (QREFELT $ 270))
+                          (SPADCALL "...." (QREFELT $ 266)))
+                    (QREFELT $ 267)))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SCENE;outputLLIndexes|
@@ -9198,15 +9194,15 @@
                                                 #3#))))
                                   (LETT #2# (CDR #2#)) (GO G190) G191
                                   (EXIT (NREVERSE #3#))))
-                            (QREFELT $ 269)))
+                            (QREFELT $ 267)))
                      (GO #4=#:G1479))))
                   (EXIT
                    (SPADCALL
                     (LIST (|SCENE;outputLIndexes| (|SPADfirst| |ps|) $)
                           (|SCENE;outputLIndexes|
-                           (SPADCALL |ps| (QREFELT $ 274)) $)
-                          (SPADCALL "...." (QREFELT $ 268)))
-                    (QREFELT $ 269)))))
+                           (SPADCALL |ps| (QREFELT $ 272)) $)
+                          (SPADCALL "...." (QREFELT $ 266)))
+                    (QREFELT $ 267)))))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |SCENE;coerce;$Of;126| ((|n| $) ($ |OutputForm|))
@@ -9223,12 +9219,12 @@
           (|fc| (|String|)) (|lc| (|String|)) (|lw| (|DoubleFloat|))
           (|pt2| (PT)) (#10=#:G1499 NIL) (|pt1| (PT)) (|tp| (|Symbol|))
           (#11=#:G1491 NIL))
-         (SEQ (LETT |s| (SPADCALL "scene " (QREFELT $ 268)))
+         (SEQ (LETT |s| (SPADCALL "scene " (QREFELT $ 266)))
               (COND
                ((EQUAL (QVELT |n| 0) 'ROOT)
                 (LETT |s|
                       (SPADCALL
-                       (LIST |s| (SPADCALL "root " (QREFELT $ 268))
+                       (LIST |s| (SPADCALL "root " (QREFELT $ 266))
                              (SPADCALL
                               (PROG2 (LETT #6# (QVELT |n| 2))
                                   (QCDR #6#)
@@ -9310,18 +9306,18 @@
                                                        (QREFELT $ 6)))
                                                  (|:| |empty| #12="empty"))
                                                 #6#))
-                              (QREFELT $ 275)))
-                       (QREFELT $ 276)))))
+                              (QREFELT $ 273)))
+                       (QREFELT $ 274)))))
               (COND
                ((EQUAL (QVELT |n| 0) 'GROUP)
                 (LETT |s|
-                      (SPADCALL |s| (SPADCALL "group" (QREFELT $ 268))
-                                (QREFELT $ 277)))))
+                      (SPADCALL |s| (SPADCALL "group" (QREFELT $ 266))
+                                (QREFELT $ 275)))))
               (COND
                ((EQUAL (QVELT |n| 0) 'LINE)
                 (LETT |s|
                       (SPADCALL
-                       (LIST |s| (SPADCALL "line " (QREFELT $ 268))
+                       (LIST |s| (SPADCALL "line " (QREFELT $ 266))
                              (|SCENE;outputLLPoints|
                               (PROG2 (LETT #11# (QVELT |n| 2))
                                   (QCDR #11#)
@@ -9404,7 +9400,7 @@
                                                  (|:| |empty| #12#))
                                                 #11#))
                               $))
-                       (QREFELT $ 276)))))
+                       (QREFELT $ 274)))))
               (COND
                ((EQUAL (QVELT |n| 0) 'SHAPE)
                 (SEQ
@@ -9633,14 +9629,14 @@
                  (EXIT
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL "shape" (QREFELT $ 268))
-                               (SPADCALL " type=" (QREFELT $ 268))
-                               (SPADCALL |tp| (QREFELT $ 278))
-                               (SPADCALL " pt1=" (QREFELT $ 268))
-                               (SPADCALL |pt1| (QREFELT $ 266))
-                               (SPADCALL " pt2=" (QREFELT $ 268))
-                               (SPADCALL |pt2| (QREFELT $ 266)))
-                         (QREFELT $ 276)))))))
+                         (LIST |s| (SPADCALL "shape" (QREFELT $ 266))
+                               (SPADCALL " type=" (QREFELT $ 266))
+                               (SPADCALL |tp| (QREFELT $ 276))
+                               (SPADCALL " pt1=" (QREFELT $ 266))
+                               (SPADCALL |pt1| (QREFELT $ 264))
+                               (SPADCALL " pt2=" (QREFELT $ 266))
+                               (SPADCALL |pt2| (QREFELT $ 264)))
+                         (QREFELT $ 274)))))))
               (COND
                ((EQUAL (QVELT |n| 0) 'MATERIAL)
                 (SEQ
@@ -9943,16 +9939,16 @@
                  (EXIT
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL "material" (QREFELT $ 268))
-                               (SPADCALL " lw=" (QREFELT $ 268))
-                               (SPADCALL |lw| (QREFELT $ 279))
-                               (SPADCALL " lc=" (QREFELT $ 268))
-                               (SPADCALL |lc| (QREFELT $ 280))
-                               (SPADCALL " fc=" (QREFELT $ 268))
-                               (SPADCALL |fc| (QREFELT $ 280))
-                               (SPADCALL " mo=" (QREFELT $ 268))
-                               (SPADCALL |mo| (QREFELT $ 279)))
-                         (QREFELT $ 276)))))))
+                         (LIST |s| (SPADCALL "material" (QREFELT $ 266))
+                               (SPADCALL " lw=" (QREFELT $ 266))
+                               (SPADCALL |lw| (QREFELT $ 277))
+                               (SPADCALL " lc=" (QREFELT $ 266))
+                               (SPADCALL |lc| (QREFELT $ 278))
+                               (SPADCALL " fc=" (QREFELT $ 266))
+                               (SPADCALL |fc| (QREFELT $ 278))
+                               (SPADCALL " mo=" (QREFELT $ 266))
+                               (SPADCALL |mo| (QREFELT $ 277)))
+                         (QREFELT $ 274)))))))
               (COND
                ((EQUAL (QVELT |n| 0) 'TEXT)
                 (SEQ
@@ -10259,15 +10255,15 @@
                  (EXIT
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL "text=" (QREFELT $ 268))
-                               (SPADCALL |t| (QREFELT $ 280))
-                               (SPADCALL " sz=" (QREFELT $ 268))
-                               (SPADCALL |sz1| (QREFELT $ 272))
-                               (SPADCALL " p=" (QREFELT $ 268))
-                               (SPADCALL |p| (QREFELT $ 266))
-                               (SPADCALL " npt=" (QREFELT $ 268))
-                               (SPADCALL |npt| (QREFELT $ 281)))
-                         (QREFELT $ 276)))))))
+                         (LIST |s| (SPADCALL "text=" (QREFELT $ 266))
+                               (SPADCALL |t| (QREFELT $ 278))
+                               (SPADCALL " sz=" (QREFELT $ 266))
+                               (SPADCALL |sz1| (QREFELT $ 270))
+                               (SPADCALL " p=" (QREFELT $ 266))
+                               (SPADCALL |p| (QREFELT $ 264))
+                               (SPADCALL " npt=" (QREFELT $ 266))
+                               (SPADCALL |npt| (QREFELT $ 279)))
+                         (QREFELT $ 274)))))))
               (COND
                ((EQUAL (QVELT |n| 0) 'TRANSFORM)
                 (SEQ
@@ -10341,15 +10337,15 @@
                  (EXIT
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL "transform" (QREFELT $ 268))
-                               (SPADCALL " tr=" (QREFELT $ 268))
-                               (SPADCALL |tr| (QREFELT $ 282)))
-                         (QREFELT $ 276)))))))
+                         (LIST |s| (SPADCALL "transform" (QREFELT $ 266))
+                               (SPADCALL " tr=" (QREFELT $ 266))
+                               (SPADCALL |tr| (QREFELT $ 280)))
+                         (QREFELT $ 274)))))))
               (COND
                ((EQUAL (QVELT |n| 0) 'CLIP)
                 (LETT |s|
                       (SPADCALL
-                       (LIST |s| (SPADCALL "clip " (QREFELT $ 268))
+                       (LIST |s| (SPADCALL "clip " (QREFELT $ 266))
                              (SPADCALL
                               (PROG2 (LETT #6# (QVELT |n| 2))
                                   (QCDR #6#)
@@ -10431,8 +10427,8 @@
                                                        (QREFELT $ 6)))
                                                  (|:| |empty| #12#))
                                                 #6#))
-                              (QREFELT $ 275)))
-                       (QREFELT $ 276)))))
+                              (QREFELT $ 273)))
+                       (QREFELT $ 274)))))
               (COND
                ((EQUAL (QVELT |n| 0) 'IFS)
                 (SEQ
@@ -10587,12 +10583,12 @@
                  (EXIT
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL "ifs" (QREFELT $ 268))
-                               (SPADCALL " ix=" (QREFELT $ 268))
+                         (LIST |s| (SPADCALL "ifs" (QREFELT $ 266))
+                               (SPADCALL " ix=" (QREFELT $ 266))
                                (|SCENE;outputLLIndexes| |ix| $)
-                               (SPADCALL " pt=" (QREFELT $ 268))
+                               (SPADCALL " pt=" (QREFELT $ 266))
                                (|SCENE;outputLPoints| |pt| $))
-                         (QREFELT $ 276)))))))
+                         (QREFELT $ 274)))))))
               (COND
                ((EQUAL (QVELT |n| 0) 'ARROWS)
                 (SEQ
@@ -10824,14 +10820,14 @@
                  (EXIT
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL "arrows" (QREFELT $ 268))
-                               (SPADCALL " pts=" (QREFELT $ 268))
+                         (LIST |s| (SPADCALL "arrows" (QREFELT $ 266))
+                               (SPADCALL " pts=" (QREFELT $ 266))
                                (|SCENE;outputLLPoints| |pts| $)
-                               (SPADCALL " m=" (QREFELT $ 268))
-                               (SPADCALL |m| (QREFELT $ 278))
-                               (SPADCALL " sz=" (QREFELT $ 268))
-                               (SPADCALL |sz| (QREFELT $ 279)))
-                         (QREFELT $ 276)))))))
+                               (SPADCALL " m=" (QREFELT $ 266))
+                               (SPADCALL |m| (QREFELT $ 276))
+                               (SPADCALL " sz=" (QREFELT $ 266))
+                               (SPADCALL |sz| (QREFELT $ 277)))
+                         (QREFELT $ 274)))))))
               (COND
                ((EQUAL (QVELT |n| 0) 'ARROW)
                 (SEQ
@@ -11218,18 +11214,18 @@
                  (EXIT
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL "arrows" (QREFELT $ 268))
-                               (SPADCALL " str=" (QREFELT $ 268))
-                               (SPADCALL |str| (QREFELT $ 280))
-                               (SPADCALL " ena=" (QREFELT $ 268))
-                               (SPADCALL |ena| (QREFELT $ 280))
-                               (SPADCALL " ofs=" (QREFELT $ 268))
-                               (SPADCALL |ofs| (QREFELT $ 266))
-                               (SPADCALL " md=" (QREFELT $ 268))
-                               (SPADCALL |md| (QREFELT $ 278))
-                               (SPADCALL " sz=" (QREFELT $ 268))
-                               (SPADCALL |sz| (QREFELT $ 279)))
-                         (QREFELT $ 276)))))))
+                         (LIST |s| (SPADCALL "arrows" (QREFELT $ 266))
+                               (SPADCALL " str=" (QREFELT $ 266))
+                               (SPADCALL |str| (QREFELT $ 278))
+                               (SPADCALL " ena=" (QREFELT $ 266))
+                               (SPADCALL |ena| (QREFELT $ 278))
+                               (SPADCALL " ofs=" (QREFELT $ 266))
+                               (SPADCALL |ofs| (QREFELT $ 264))
+                               (SPADCALL " md=" (QREFELT $ 266))
+                               (SPADCALL |md| (QREFELT $ 276))
+                               (SPADCALL " sz=" (QREFELT $ 266))
+                               (SPADCALL |sz| (QREFELT $ 277)))
+                         (QREFELT $ 274)))))))
               (COND
                ((EQUAL (QVELT |n| 0) 'DEF)
                 (SEQ
@@ -11306,10 +11302,10 @@
                  (EXIT
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL "def" (QREFELT $ 268))
-                               (SPADCALL " nn=" (QREFELT $ 268))
-                               (SPADCALL |nn| (QREFELT $ 280)))
-                         (QREFELT $ 276)))))))
+                         (LIST |s| (SPADCALL "def" (QREFELT $ 266))
+                               (SPADCALL " nn=" (QREFELT $ 266))
+                               (SPADCALL |nn| (QREFELT $ 278)))
+                         (QREFELT $ 274)))))))
               (COND
                ((EQUAL (QVELT |n| 0) 'USE)
                 (SEQ
@@ -11386,10 +11382,10 @@
                  (EXIT
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL "use" (QREFELT $ 268))
-                               (SPADCALL " nn=" (QREFELT $ 268))
-                               (SPADCALL |nn| (QREFELT $ 280)))
-                         (QREFELT $ 276)))))))
+                         (LIST |s| (SPADCALL "use" (QREFELT $ 266))
+                               (SPADCALL " nn=" (QREFELT $ 266))
+                               (SPADCALL |nn| (QREFELT $ 278)))
+                         (QREFELT $ 274)))))))
               (COND
                ((EQUAL (QVELT |n| 0) 'NAMEDPOINTS)
                 (SEQ
@@ -11463,16 +11459,16 @@
                  (EXIT
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL "namedpoints" (QREFELT $ 268))
-                               (SPADCALL " n=" (QREFELT $ 268))
-                               (SPADCALL |nam| (QREFELT $ 283)))
-                         (QREFELT $ 276)))))))
+                         (LIST |s| (SPADCALL "namedpoints" (QREFELT $ 266))
+                               (SPADCALL " n=" (QREFELT $ 266))
+                               (SPADCALL |nam| (QREFELT $ 281)))
+                         (QREFELT $ 274)))))))
               (LETT |s|
                     (SPADCALL
-                     (LIST |s| (SPADCALL " #ch=" (QREFELT $ 268))
-                           (SPADCALL (SPADCALL (QVELT |n| 1) (QREFELT $ 179))
-                                     (QREFELT $ 272)))
-                     (QREFELT $ 276)))
+                     (LIST |s| (SPADCALL " #ch=" (QREFELT $ 266))
+                           (SPADCALL (SPADCALL (QVELT |n| 1) (QREFELT $ 177))
+                                     (QREFELT $ 270)))
+                     (QREFELT $ 274)))
               (EXIT |s|)))) 
 
 (DECLAIM (NOTINLINE |Scene;|)) 
@@ -11497,7 +11493,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Scene| DV$1))
-          (LETT $ (GETREFV 285))
+          (LETT $ (GETREFV 283))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Scene| (LIST DV$1) (CONS 1 $))
@@ -11616,102 +11612,101 @@
               |SCENE;createScenePattern;SNniSb$;59|
               |SCENE;addScenePattern;$SNniSb$;60|
               |SCENE;createScenePattern;SNniR$;61|
-              |SCENE;addScenePattern;$SNniR$;62| (152 . |log10|) (157 . >)
-              (|List| $) (163 . |concat|) (168 . ~=)
-              |SCENE;createSceneRuler;SPTSb$;63|
+              |SCENE;addScenePattern;$SNniR$;62| (152 . |log10|) (|List| $)
+              (157 . |concat|) (162 . ~=) |SCENE;createSceneRuler;SPTSb$;63|
               |SCENE;addSceneRuler;$SPTSb$;64|
               |SCENE;createSceneRuler;SPTR$;65| |SCENE;addSceneRuler;$SPTR$;66|
-              (|STransform| (|SCartesian| '2)) (174 . |stranslate|)
-              (|Scene| (|SCartesian| '2)) (184 . |createSceneTransform|)
-              (|DirectedGraph| 45) (189 . |subdiagramSvg|)
+              (|STransform| (|SCartesian| '2)) (168 . |stranslate|)
+              (|Scene| (|SCartesian| '2)) (178 . |createSceneTransform|)
+              (|DirectedGraph| 45) (183 . |subdiagramSvg|)
               |SCENE;createSceneGraph;Dg2NniB$;67|
               |SCENE;addSceneGraph;$Dg2NniB$;68|
               |SCENE;createSceneMaterial;R$;69|
               |SCENE;createSceneMaterial;Df2S$;71|
               |SCENE;addSceneMaterial;$Df2S$;72| (|STransform| 6)
               |SCENE;createSceneTransform;St$;73|
-              |SCENE;addSceneTransform;$St$;74| (|Segment| 25) (197 . |low|)
-              (202 . |high|) (|Mapping| 6 6)
+              |SCENE;addSceneTransform;$St$;74| (|Segment| 25) (191 . |low|)
+              (196 . |high|) (|Mapping| 6 6)
               |SCENE;createArrows2Din2D;M2SNni$;75|
-              |SCENE;addArrows2Din2D;$M2SNni$;76| (|List| $$) (207 . |concat|)
-              |SCENE;removeChild!;2$V;78| (213 . ~=)
-              |SCENE;setTransform!;$StV;79| (219 . |xform|)
-              (225 . |containsPoint?|) (231 . ~=) (237 . |distance|)
-              (243 . |One|) (247 . |Zero|) (251 . >) (257 . >) (|XmlAttribute|)
-              (263 . |xmlAttribute|) (|List| 159) (|XmlElement|)
-              (269 . |xmlElement|) (|List| 162) (276 . |concat|)
-              (282 . |isNull?|) (287 . |stranslate|) (297 . |concat|)
-              (303 . ~=) (309 . |findPoint|) (315 . |xmlElement|)
-              (322 . |empty?|) (327 . |compound|) (333 . |addPoints!|)
-              (|Scene| 6) (340 . |addNode!|) |SCENE;toSVG;$RStSbDf2BSnpXe;84|
-              (347 . |findNode|) (353 . |#|) |SCENE;toSVG;$RStRDf2BSnpXe;85|
-              (358 . |identity|) (362 . |namedBranch|) (|ExportXml|)
-              (368 . |writeXml|) |SCENE;writeSvg;$SV;86|
-              |SCENE;writeSvgQuantised;$SV;87| (374 . |extendToPoint|)
-              (380 . |ellipseBoundary|) (386 . |sunion|) (392 . |screenCoordZ|)
-              (397 . |concat|) |SCENE;toX3D;$RStSbXe;93| (403 . |curveLoops|)
-              (410 . |smesh|) (416 . |xmlAttribute|) |SCENE;toX3D;$RStRXe;94|
+              |SCENE;addArrows2Din2D;$M2SNni$;76| (|List| $$) (201 . |concat|)
+              |SCENE;removeChild!;2$V;78| (207 . ~=)
+              |SCENE;setTransform!;$StV;79| (213 . |xform|)
+              (219 . |containsPoint?|) (225 . ~=) (231 . |distance|)
+              (237 . |One|) (241 . |Zero|) (245 . >) (|XmlAttribute|)
+              (251 . |xmlAttribute|) (|List| 157) (|XmlElement|)
+              (257 . |xmlElement|) (|List| 160) (264 . |concat|)
+              (270 . |isNull?|) (275 . |stranslate|) (285 . |concat|)
+              (291 . ~=) (297 . |findPoint|) (303 . |xmlElement|)
+              (310 . |empty?|) (315 . |compound|) (321 . |addPoints!|)
+              (|Scene| 6) (328 . |addNode!|) |SCENE;toSVG;$RStSbDf2BSnpXe;84|
+              (335 . |findNode|) (341 . |#|) |SCENE;toSVG;$RStRDf2BSnpXe;85|
+              (346 . |identity|) (350 . |namedBranch|) (|ExportXml|)
+              (356 . |writeXml|) |SCENE;writeSvg;$SV;86|
+              |SCENE;writeSvgQuantised;$SV;87| (362 . |extendToPoint|)
+              (368 . |ellipseBoundary|) (374 . |sunion|) (380 . |screenCoordZ|)
+              (385 . |concat|) |SCENE;toX3D;$RStSbXe;93| (391 . |curveLoops|)
+              (398 . |smesh|) (404 . |xmlAttribute|) |SCENE;toX3D;$RStRXe;94|
               |SCENE;writeX3d;$SV;95| (|Reference| 22) (|Reference| 60)
-              (|Reference| 74) |SCENE;toObj;$RRRStSbV;96| (422 . |elt|)
-              (427 . |elt|) (432 . |concat|) (438 . |setelt!|) (444 . |elt|)
-              (449 . |concat|) (455 . |setelt!|) (461 . |setelt!|)
-              |SCENE;toObj;$RRRStRV;97| (467 . |ref|) (472 . |ref|)
-              (477 . |ref|) (|FileName|) (482 . |coerce|) (|TextFile|)
-              (487 . |open|) (493 . |writeLine!|) (499 . |close!|)
-              |SCENE;writeObj;$SV;98| (504 . |writeVRML|)
-              |SCENE;writeVRML;$SV;99| (510 . ~=) (516 . |segment|) (|List| 25)
-              (522 . |list|) (527 . |list|) (532 . |Pnan?|) (|Mapping| 6 25)
+              (|Reference| 74) |SCENE;toObj;$RRRStSbV;96| (410 . |elt|)
+              (415 . |elt|) (420 . |concat|) (426 . |setelt!|) (432 . |elt|)
+              (437 . |concat|) (443 . |setelt!|) (449 . |setelt!|)
+              |SCENE;toObj;$RRRStRV;97| (455 . |ref|) (460 . |ref|)
+              (465 . |ref|) (|FileName|) (470 . |coerce|) (|TextFile|)
+              (475 . |open|) (481 . |writeLine!|) (487 . |close!|)
+              |SCENE;writeObj;$SV;98| (492 . |writeVRML|)
+              |SCENE;writeVRML;$SV;99| (498 . ~=) (504 . |segment|) (|List| 25)
+              (510 . |list|) (515 . |list|) (520 . |Pnan?|) (|Mapping| 6 25)
               |SCENE;createPlot1Din2D;MSNni$;105|
-              |SCENE;addPlot1Din2D;$MSNni$;106| (|List| 229) (537 . |first|)
+              |SCENE;addPlot1Din2D;$MSNni$;106| (|List| 227) (525 . |first|)
               (|Mapping| 25 25) |SCENE;createPlot1Din2D;MSNni$;107|
-              |SCENE;addPlot1Din2D;$MSNni$;108| (|ParametricPlaneCurve| 234)
-              (542 . |coordinate|)
+              |SCENE;addPlot1Din2D;$MSNni$;108| (|ParametricPlaneCurve| 232)
+              (530 . |coordinate|)
               |SCENE;createPlot1Din2Dparametric;PpcSNni$;109|
               |SCENE;addPlot1Din2Dparametric;$PpcSNni$;110|
-              (|ParametricSpaceCurve| 234) (548 . |coordinate|)
+              (|ParametricSpaceCurve| 232) (536 . |coordinate|)
               |SCENE;createPlot1Din3Dparametric;MSNni$;113|
               |SCENE;createPlot1Din3Dparametric;PscSNni$;111|
               |SCENE;addPlot1Din3Dparametric;$PscSNni$;112|
               |SCENE;addPlot1Din3Dparametric;$MSNni$;114| (|Mapping| 6 25 25)
-              |SCENE;createPlot2Din3D;M2SNni$;115| (|List| 247) (554 . |first|)
+              |SCENE;createPlot2Din3D;M2SNni$;115| (|List| 245) (542 . |first|)
               (|Mapping| 25 25 25) |SCENE;createPlot2Din3D;M2SNni$;116|
-              |SCENE;addPlot2Din3D;$M2SNni$;117| (559 . |One|) (563 . |One|)
-              (|ParametricSurface| 251) (567 . |coordinate|) (|List| 251)
-              (573 . |first|) |SCENE;createPlot2Din3Dparametric;Ps2SNni$;118|
+              |SCENE;addPlot2Din3D;$M2SNni$;117| (547 . |One|) (551 . |One|)
+              (|ParametricSurface| 249) (555 . |coordinate|) (|List| 249)
+              (561 . |first|) |SCENE;createPlot2Din3Dparametric;Ps2SNni$;118|
               |SCENE;addPlot2Din3Dparametric;$Ps2SNni$;119|
               |SCENE;createPlot2Din3Dparametric;M2SNni$;120|
               |SCENE;addPlot2Din3Dparametric;$M2SNni$;121| (|OutputForm|)
-              (578 . |coerce|) (583 . |coerce|) (588 . |second|)
-              (593 . |message|) (598 . |bracket|) (603 . |second|)
-              (608 . |coerce|) (613 . |coerce|) (618 . |second|)
-              (623 . |second|) (628 . |coerce|) (633 . |hconcat|)
-              (638 . |hconcat|) (644 . |coerce|) (649 . |coerce|)
-              (654 . |coerce|) (659 . |coerce|) (664 . |coerce|)
-              (669 . |coerce|) |SCENE;coerce;$Of;126|)
-           '#(|writeX3d| 674 |writeVRML| 680 |writeSvgQuantised| 686 |writeSvg|
-              692 |writeObj| 698 |toX3D| 704 |toSVG| 720 |toObj| 744
-              |setTransform!| 764 |removeChild!| 770 |createSceneUse| 776
-              |createSceneTransform| 781 |createSceneText| 786
-              |createSceneShape| 805 |createSceneRuler| 815 |createSceneRoot|
-              829 |createScenePattern| 851 |createSceneNamedPoints| 865
-              |createSceneMaterial| 870 |createSceneLines| 882
-              |createSceneLine| 887 |createSceneIFS| 907 |createSceneGroup| 918
-              |createSceneGrid| 922 |createSceneGraph| 944 |createSceneDef| 952
-              |createSceneClip| 958 |createSceneBox| 968 |createSceneArrows|
-              973 |createSceneArrow| 980 |createPlot2Din3Dparametric| 999
-              |createPlot2Din3D| 1015 |createPlot1Din3Dparametric| 1031
-              |createPlot1Din2Dparametric| 1045 |createPlot1Din2D| 1052
-              |createArrows2Din2D| 1066 |coerce| 1074 |boundary| 1079
-              |addSceneUse| 1085 |addSceneTransform| 1091 |addSceneText| 1097
-              |addSceneShape| 1119 |addSceneRuler| 1131 |addScenePattern| 1147
-              |addSceneNamedPoints| 1163 |addSceneMaterial| 1169
-              |addSceneLines| 1183 |addSceneLine| 1189 |addSceneIFS| 1212
-              |addSceneGroup| 1225 |addSceneGrid| 1230 |addSceneGraph| 1256
-              |addSceneDef| 1265 |addSceneClip| 1272 |addSceneBox| 1284
-              |addSceneArrows| 1290 |addSceneArrow| 1298
-              |addPlot2Din3Dparametric| 1319 |addPlot2Din3D| 1337
-              |addPlot1Din3Dparametric| 1346 |addPlot1Din2Dparametric| 1362
-              |addPlot1Din2D| 1370 |addChild!| 1386 |addArrows2Din2D| 1392)
+              (566 . |coerce|) (571 . |coerce|) (576 . |second|)
+              (581 . |message|) (586 . |bracket|) (591 . |second|)
+              (596 . |coerce|) (601 . |coerce|) (606 . |second|)
+              (611 . |second|) (616 . |coerce|) (621 . |hconcat|)
+              (626 . |hconcat|) (632 . |coerce|) (637 . |coerce|)
+              (642 . |coerce|) (647 . |coerce|) (652 . |coerce|)
+              (657 . |coerce|) |SCENE;coerce;$Of;126|)
+           '#(|writeX3d| 662 |writeVRML| 668 |writeSvgQuantised| 674 |writeSvg|
+              680 |writeObj| 686 |toX3D| 692 |toSVG| 708 |toObj| 732
+              |setTransform!| 752 |removeChild!| 758 |createSceneUse| 764
+              |createSceneTransform| 769 |createSceneText| 774
+              |createSceneShape| 793 |createSceneRuler| 803 |createSceneRoot|
+              817 |createScenePattern| 839 |createSceneNamedPoints| 853
+              |createSceneMaterial| 858 |createSceneLines| 870
+              |createSceneLine| 875 |createSceneIFS| 895 |createSceneGroup| 906
+              |createSceneGrid| 910 |createSceneGraph| 932 |createSceneDef| 940
+              |createSceneClip| 946 |createSceneBox| 956 |createSceneArrows|
+              961 |createSceneArrow| 968 |createPlot2Din3Dparametric| 987
+              |createPlot2Din3D| 1003 |createPlot1Din3Dparametric| 1019
+              |createPlot1Din2Dparametric| 1033 |createPlot1Din2D| 1040
+              |createArrows2Din2D| 1054 |coerce| 1062 |boundary| 1067
+              |addSceneUse| 1073 |addSceneTransform| 1079 |addSceneText| 1085
+              |addSceneShape| 1107 |addSceneRuler| 1119 |addScenePattern| 1135
+              |addSceneNamedPoints| 1151 |addSceneMaterial| 1157
+              |addSceneLines| 1171 |addSceneLine| 1177 |addSceneIFS| 1200
+              |addSceneGroup| 1213 |addSceneGrid| 1218 |addSceneGraph| 1244
+              |addSceneDef| 1253 |addSceneClip| 1260 |addSceneBox| 1272
+              |addSceneArrows| 1278 |addSceneArrow| 1286
+              |addPlot2Din3Dparametric| 1307 |addPlot2Din3D| 1325
+              |addPlot1Din3Dparametric| 1334 |addPlot1Din2Dparametric| 1350
+              |addPlot1Din2D| 1358 |addChild!| 1374 |addArrows2Din2D| 1380)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -12201,7 +12196,7 @@
                                    '((|writeObj| ((|Void|) $$ (|String|))) T)
                                    '((|coerce| ((|OutputForm|) $$)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 284
+                        (|makeByteWordVec2| 282
                                             '(2 8 0 6 6 10 2 6 0 13 13 14 0 8 0
                                               16 1 8 6 0 32 2 8 6 0 6 33 1 8 6
                                               0 40 1 8 6 0 41 2 6 0 0 0 42 1 63
@@ -12214,108 +12209,107 @@
                                               106 2 22 0 0 6 107 2 60 108 0 13
                                               109 1 108 74 0 110 2 108 74 0 13
                                               111 2 34 0 0 22 112 1 25 0 0 117
-                                              2 13 26 0 0 118 1 45 0 119 120 2
-                                              13 26 0 0 121 6 126 0 25 25 25 25
-                                              25 25 127 1 128 0 126 129 4 130
-                                              19 128 0 26 26 131 1 140 25 0 141
-                                              1 140 25 0 142 2 146 0 0 2 147 2
-                                              50 26 0 0 149 2 137 6 0 6 151 2 8
-                                              26 0 6 152 2 45 26 0 0 153 2 6 25
-                                              0 0 154 0 92 0 155 0 92 0 156 2
-                                              25 26 0 0 157 2 74 26 0 0 158 2
-                                              159 0 45 45 160 3 162 0 45 119
-                                              161 163 2 164 0 0 162 165 1 8 26
-                                              0 166 6 137 0 25 25 25 25 25 25
-                                              167 2 161 0 0 159 168 2 77 26 0 0
-                                              169 2 57 6 0 45 170 3 162 0 45 45
-                                              161 171 1 162 26 0 172 2 137 0 0
-                                              0 173 3 57 0 0 45 0 174 3 57 0 0
-                                              45 175 176 2 57 175 0 45 178 1
-                                              146 74 0 179 0 137 0 181 2 57 0
-                                              119 77 182 2 183 19 162 45 184 2
-                                              8 0 0 6 187 2 8 0 6 6 188 2 8 0 0
-                                              0 189 1 6 25 0 190 2 77 0 0 45
-                                              191 3 63 34 22 25 13 193 2 63 0
-                                              34 26 194 2 159 0 45 77 195 1 200
-                                              74 0 202 1 198 22 0 203 2 22 0 0
-                                              0 204 2 198 22 0 22 205 1 199 60
-                                              0 206 2 60 0 0 0 207 2 199 60 0
-                                              60 208 2 200 74 0 74 209 1 198 0
-                                              22 211 1 199 0 60 212 1 200 0 74
-                                              213 1 214 0 45 215 2 216 0 214 45
-                                              217 2 216 45 0 45 218 1 216 0 0
-                                              219 2 183 19 162 45 221 2 25 26 0
-                                              0 223 2 140 0 25 25 224 1 225 0
-                                              25 226 1 22 0 6 227 1 6 26 0 228
-                                              1 232 229 0 233 2 237 234 0 74
-                                              238 2 241 234 0 74 242 1 249 247
-                                              0 250 0 25 0 254 0 74 0 255 2 256
-                                              251 0 74 257 1 258 251 0 259 1 22
-                                              264 0 265 1 6 264 0 266 1 22 6 0
-                                              267 1 264 0 45 268 1 264 0 119
-                                              269 1 34 22 0 270 1 108 264 0 271
-                                              1 74 264 0 272 1 108 74 0 273 1
-                                              60 108 0 274 1 8 264 0 275 1 264
-                                              0 119 276 2 264 0 0 0 277 1 50
-                                              264 0 278 1 25 264 0 279 1 45 264
-                                              0 280 1 77 264 0 281 1 137 264 0
-                                              282 1 57 264 0 283 2 0 19 0 45
-                                              197 2 0 19 0 45 222 2 0 19 0 45
-                                              186 2 0 19 0 45 185 2 0 19 0 45
-                                              220 4 0 162 0 95 137 8 192 4 0
-                                              162 0 95 137 11 196 8 0 162 0 95
-                                              137 8 25 26 26 57 177 8 0 162 0
-                                              95 137 11 25 26 26 57 180 6 0 19
-                                              0 198 199 200 137 8 201 6 0 19 0
-                                              198 199 200 137 11 210 2 0 19 0
-                                              137 150 2 0 19 0 0 148 1 0 0 45
-                                              48 1 0 0 137 138 1 0 0 71 72 3 0
+                                              1 45 0 118 119 2 13 26 0 0 120 6
+                                              125 0 25 25 25 25 25 25 126 1 127
+                                              0 125 128 4 129 19 127 0 26 26
+                                              130 1 139 25 0 140 1 139 25 0 141
+                                              2 145 0 0 2 146 2 50 26 0 0 148 2
+                                              136 6 0 6 150 2 8 26 0 6 151 2 45
+                                              26 0 0 152 2 6 25 0 0 153 0 92 0
+                                              154 0 92 0 155 2 25 26 0 0 156 2
+                                              157 0 45 45 158 3 160 0 45 118
+                                              159 161 2 162 0 0 160 163 1 8 26
+                                              0 164 6 136 0 25 25 25 25 25 25
+                                              165 2 159 0 0 157 166 2 77 26 0 0
+                                              167 2 57 6 0 45 168 3 160 0 45 45
+                                              159 169 1 160 26 0 170 2 136 0 0
+                                              0 171 3 57 0 0 45 0 172 3 57 0 0
+                                              45 173 174 2 57 173 0 45 176 1
+                                              145 74 0 177 0 136 0 179 2 57 0
+                                              118 77 180 2 181 19 160 45 182 2
+                                              8 0 0 6 185 2 8 0 6 6 186 2 8 0 0
+                                              0 187 1 6 25 0 188 2 77 0 0 45
+                                              189 3 63 34 22 25 13 191 2 63 0
+                                              34 26 192 2 157 0 45 77 193 1 198
+                                              74 0 200 1 196 22 0 201 2 22 0 0
+                                              0 202 2 196 22 0 22 203 1 197 60
+                                              0 204 2 60 0 0 0 205 2 197 60 0
+                                              60 206 2 198 74 0 74 207 1 196 0
+                                              22 209 1 197 0 60 210 1 198 0 74
+                                              211 1 212 0 45 213 2 214 0 212 45
+                                              215 2 214 45 0 45 216 1 214 0 0
+                                              217 2 181 19 160 45 219 2 25 26 0
+                                              0 221 2 139 0 25 25 222 1 223 0
+                                              25 224 1 22 0 6 225 1 6 26 0 226
+                                              1 230 227 0 231 2 235 232 0 74
+                                              236 2 239 232 0 74 240 1 247 245
+                                              0 248 0 25 0 252 0 74 0 253 2 254
+                                              249 0 74 255 1 256 249 0 257 1 22
+                                              262 0 263 1 6 262 0 264 1 22 6 0
+                                              265 1 262 0 45 266 1 262 0 118
+                                              267 1 34 22 0 268 1 108 262 0 269
+                                              1 74 262 0 270 1 108 74 0 271 1
+                                              60 108 0 272 1 8 262 0 273 1 262
+                                              0 118 274 2 262 0 0 0 275 1 50
+                                              262 0 276 1 25 262 0 277 1 45 262
+                                              0 278 1 77 262 0 279 1 136 262 0
+                                              280 1 57 262 0 281 2 0 19 0 45
+                                              195 2 0 19 0 45 220 2 0 19 0 45
+                                              184 2 0 19 0 45 183 2 0 19 0 45
+                                              218 4 0 160 0 95 136 8 190 4 0
+                                              160 0 95 136 11 194 8 0 160 0 95
+                                              136 8 25 26 26 57 175 8 0 160 0
+                                              95 136 11 25 26 26 57 178 6 0 19
+                                              0 196 197 198 136 8 199 6 0 19 0
+                                              196 197 198 136 11 208 2 0 19 0
+                                              136 149 2 0 19 0 0 147 1 0 0 45
+                                              48 1 0 0 136 137 1 0 0 71 72 3 0
                                               0 45 74 6 75 3 0 0 77 74 6 78 1 0
                                               0 37 38 1 0 0 8 43 3 0 0 50 6 8
-                                              122 3 0 0 50 6 11 124 0 0 0 17 1
+                                              121 3 0 0 50 6 11 123 0 0 0 17 1
                                               0 0 11 12 1 0 0 8 9 4 0 0 13 13
                                               13 13 15 3 0 0 50 74 8 113 3 0 0
                                               50 74 11 115 1 0 0 57 58 1 0 0 95
-                                              134 3 0 0 25 45 45 135 1 0 0 34
+                                              133 3 0 0 25 45 45 134 1 0 0 34
                                               35 1 0 0 22 23 3 0 0 0 0 25 28 4
                                               0 0 0 0 25 26 27 2 0 0 60 22 61 1
                                               0 0 63 66 0 0 0 18 2 0 0 25 8 87
                                               2 0 0 25 11 89 1 0 0 8 97 1 0 0
-                                              11 99 4 0 0 130 74 74 26 132 2 0
+                                              11 99 4 0 0 129 74 74 26 131 2 0
                                               0 45 0 46 1 0 0 8 80 1 0 0 11 82
                                               1 0 0 25 69 3 0 0 34 50 25 51 5 0
                                               0 45 45 6 50 25 53 6 0 0 0 0 6 50
-                                              25 25 55 4 0 0 247 140 140 74 262
-                                              4 0 0 256 140 140 74 260 4 0 0
-                                              247 140 140 74 248 4 0 0 251 140
-                                              140 74 252 3 0 0 241 140 74 244 3
-                                              0 0 229 140 74 243 3 0 0 237 140
-                                              74 239 3 0 0 229 140 74 230 3 0 0
-                                              234 140 74 235 4 0 0 143 140 140
-                                              74 144 1 0 264 0 284 2 0 8 0 25
-                                              31 2 0 0 0 45 49 2 0 0 0 137 139
+                                              25 25 55 4 0 0 245 139 139 74 260
+                                              4 0 0 254 139 139 74 258 4 0 0
+                                              245 139 139 74 246 4 0 0 249 139
+                                              139 74 250 3 0 0 239 139 74 242 3
+                                              0 0 227 139 74 241 3 0 0 235 139
+                                              74 237 3 0 0 227 139 74 228 3 0 0
+                                              232 139 74 233 4 0 0 142 139 139
+                                              74 143 1 0 262 0 282 2 0 8 0 25
+                                              31 2 0 0 0 45 49 2 0 0 0 136 138
                                               2 0 0 0 71 73 4 0 0 0 45 74 6 76
                                               4 0 0 0 77 74 6 79 2 0 0 0 37 39
-                                              2 0 0 0 8 44 4 0 0 0 50 6 8 123 4
-                                              0 0 0 50 6 11 125 4 0 0 0 50 74 8
+                                              2 0 0 0 8 44 4 0 0 0 50 6 8 122 4
+                                              0 0 0 50 6 11 124 4 0 0 0 50 74 8
                                               114 4 0 0 0 50 74 11 116 2 0 0 0
                                               57 59 2 0 0 0 95 96 4 0 0 0 25 45
-                                              45 136 2 0 0 0 34 36 2 0 0 0 22
+                                              45 135 2 0 0 0 34 36 2 0 0 0 22
                                               24 4 0 0 0 0 0 25 30 5 0 0 0 0 0
                                               25 26 29 3 0 0 0 60 22 62 2 0 0 0
                                               63 67 1 0 0 0 21 3 0 0 0 25 8 88
                                               3 0 0 0 25 11 90 2 0 0 0 8 98 2 0
-                                              0 0 11 100 5 0 0 0 130 74 74 26
-                                              133 3 0 0 0 45 0 47 2 0 0 0 8 81
+                                              0 0 11 100 5 0 0 0 129 74 74 26
+                                              132 3 0 0 0 45 0 47 2 0 0 0 8 81
                                               2 0 0 0 11 83 2 0 0 0 25 70 4 0 0
                                               0 34 50 25 52 6 0 0 0 45 45 6 50
                                               25 54 7 0 0 0 0 0 6 50 25 25 56 5
-                                              0 0 0 247 140 140 74 263 5 0 0 0
-                                              256 140 140 74 261 5 0 0 0 251
-                                              140 140 74 253 4 0 0 0 241 140 74
-                                              245 4 0 0 0 229 140 74 246 4 0 0
-                                              0 237 140 74 240 4 0 0 0 229 140
-                                              74 231 4 0 0 0 234 140 74 236 2 0
-                                              19 0 0 20 5 0 0 0 143 140 140 74
-                                              145)))))
+                                              0 0 0 245 139 139 74 261 5 0 0 0
+                                              254 139 139 74 259 5 0 0 0 249
+                                              139 139 74 251 4 0 0 0 239 139 74
+                                              243 4 0 0 0 227 139 74 244 4 0 0
+                                              0 235 139 74 238 4 0 0 0 227 139
+                                              74 229 4 0 0 0 232 139 74 234 2 0
+                                              19 0 0 20 5 0 0 0 142 139 139 74
+                                              144)))))
            '|lookupComplete|)) 

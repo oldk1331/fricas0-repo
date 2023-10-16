@@ -398,10 +398,10 @@
                            (SEQ (EXIT (LETT |List1| (CDR |List1|))))
                            (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))
                       (COND
-                       ((SPADCALL |cont2| 0 (QREFELT $ 48))
+                       ((> |cont2| 0)
                         (LETT |ind2|
                               (|SHP;epsil| |cont2|
-                               (SPADCALL |List2| (QREFELT $ 49))
+                               (SPADCALL |List2| (QREFELT $ 48))
                                (|SPADfirst| |List1|) $))))
                       (LETT |ind3|
                             (- (|SHP;permanence| |List2| $)
@@ -441,7 +441,7 @@
                    $)))))))) 
 
 (SDEFUN |SHP;countRealRoots;UPI;16| ((|p1| UP) ($ |Integer|))
-        (SPADCALL |p1| (|spadConstant| $ 9) (QREFELT $ 50))) 
+        (SPADCALL |p1| (|spadConstant| $ 9) (QREFELT $ 49))) 
 
 (SDEFUN |SHP;SturmHabichtMultiple;2UPI;17| ((|p1| UP) (|p2| UP) ($ |Integer|))
         (SPROG
@@ -503,21 +503,21 @@
                    ((EQL (SPADCALL (|SPADfirst| SH) (QREFELT $ 23)) 0) |ans|)
                    ((QEQCAR
                      (SPADCALL (SPADCALL |p1| (QREFELT $ 18)) (|SPADfirst| SH)
-                               (QREFELT $ 52))
+                               (QREFELT $ 51))
                      0)
-                    (+ |ans| (SPADCALL (|SPADfirst| SH) |p2| (QREFELT $ 53))))
+                    (+ |ans| (SPADCALL (|SPADfirst| SH) |p2| (QREFELT $ 52))))
                    ('T
                     (SEQ
                      (LETT |sqfr|
-                           (SPADCALL (SPADCALL |p1| (QREFELT $ 55))
-                                     (QREFELT $ 60)))
+                           (SPADCALL (SPADCALL |p1| (QREFELT $ 54))
+                                     (QREFELT $ 59)))
                      (COND
                       ((EQL (LENGTH |sqfr|) 1)
                        (COND
                         ((EQL (QVELT (|SPADfirst| |sqfr|) 2) 1)
                          (EXIT |ans|)))))
                      (EXIT
-                      (SPADCALL (ELT $ 62)
+                      (SPADCALL (ELT $ 60)
                                 (PROGN
                                  (LETT #2# NIL)
                                  (SEQ (LETT |f| NIL) (LETT #1# |sqfr|) G190
@@ -529,18 +529,16 @@
                                        (EXIT
                                         (LETT #2#
                                               (CONS
-                                               (SPADCALL (QVELT |f| 2)
-                                                         (SPADCALL
-                                                          (QVELT |f| 1) |p2|
-                                                          (QREFELT $ 50))
-                                                         (QREFELT $ 61))
+                                               (* (QVELT |f| 2)
+                                                  (SPADCALL (QVELT |f| 1) |p2|
+                                                            (QREFELT $ 49)))
                                                #2#))))
                                       (LETT #1# (CDR #1#)) (GO G190) G191
                                       (EXIT (NREVERSE #2#))))
-                                (QREFELT $ 65))))))))))))) 
+                                (QREFELT $ 63))))))))))))) 
 
 (SDEFUN |SHP;countRealRootsMultiple;UPI;18| ((|p1| UP) ($ |Integer|))
-        (SPADCALL |p1| (|spadConstant| $ 9) (QREFELT $ 53))) 
+        (SPADCALL |p1| (|spadConstant| $ 9) (QREFELT $ 52))) 
 
 (DECLAIM (NOTINLINE |SturmHabichtPackage;|)) 
 
@@ -569,7 +567,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|SturmHabichtPackage| DV$1 DV$2))
-          (LETT $ (GETREFV 67))
+          (LETT $ (GETREFV 65))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -586,11 +584,11 @@
           (COND
            ((|testBitVector| |pv$| 1)
             (PROGN
-             (QSETREFV $ 53
+             (QSETREFV $ 52
                        (CONS
                         (|dispatchFunction| |SHP;SturmHabichtMultiple;2UPI;17|)
                         $))
-             (QSETREFV $ 66
+             (QSETREFV $ 64
                        (CONS
                         (|dispatchFunction|
                          |SHP;countRealRootsMultiple;UPI;18|)
@@ -610,18 +608,18 @@
               (106 . |subresultantVector|) (112 . |parts|) (117 . |elt|)
               (123 . =) |SHP;SturmHabichtSequence;2UPL;5| (129 . |coefficient|)
               (|List| 6) |SHP;SturmHabichtCoefficients;2UPL;6| (135 . |size?|)
-              (141 . |elt|) (147 . >) (153 . ~=) (159 . |append|) (165 . >)
-              (171 . |last|) |SHP;SturmHabicht;2UPI;15|
-              |SHP;countRealRoots;UPI;16| (176 . |exquo|)
-              (182 . |SturmHabichtMultiple|) (|Factored| $)
-              (188 . |squareFree|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 56) (|:| |factor| 7) (|:| |exponent| 12))
-              (|List| 57) (|Factored| 7) (193 . |factorList|) (198 . *)
-              (204 . +) (|Mapping| 15 15 15) (|List| 15) (210 . |reduce|)
-              (216 . |countRealRootsMultiple|))
-           '#(|countRealRootsMultiple| 221 |countRealRoots| 226
-              |SturmHabichtSequence| 231 |SturmHabichtMultiple| 237
-              |SturmHabichtCoefficients| 243 |SturmHabicht| 249)
+              (141 . |elt|) (147 . >) (153 . ~=) (159 . |append|)
+              (165 . |last|) |SHP;SturmHabicht;2UPI;15|
+              |SHP;countRealRoots;UPI;16| (170 . |exquo|)
+              (176 . |SturmHabichtMultiple|) (|Factored| $)
+              (182 . |squareFree|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 55) (|:| |factor| 7) (|:| |exponent| 12))
+              (|List| 56) (|Factored| 7) (187 . |factorList|) (192 . +)
+              (|Mapping| 15 15 15) (|List| 15) (198 . |reduce|)
+              (204 . |countRealRootsMultiple|))
+           '#(|countRealRootsMultiple| 209 |countRealRoots| 214
+              |SturmHabichtSequence| 219 |SturmHabichtMultiple| 225
+              |SturmHabichtCoefficients| 231 |SturmHabicht| 237)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -643,7 +641,7 @@
                               '((|countRealRootsMultiple| ((|Integer|) |#2|))
                                 (|has| 6 (|GcdDomain|))))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 66
+                        (|makeByteWordVec2| 64
                                             '(0 6 0 8 0 7 0 9 1 6 0 0 10 2 12
                                               11 0 0 13 2 6 0 0 12 14 1 6 15 0
                                               16 1 6 0 15 17 1 7 0 0 18 2 7 0 0
@@ -655,12 +653,11 @@
                                               36 2 28 7 0 15 37 2 6 31 0 0 38 2
                                               7 6 0 12 40 2 41 31 0 12 43 2 41
                                               6 0 15 44 2 6 31 0 0 45 2 6 31 0
-                                              0 46 2 41 0 0 0 47 2 12 31 0 0 48
-                                              1 41 6 0 49 2 7 11 0 0 52 2 0 15
-                                              7 7 53 1 7 54 0 55 1 59 58 0 60 2
-                                              15 0 12 0 61 2 15 0 0 0 62 2 64
-                                              15 63 0 65 1 0 15 7 66 1 1 15 7
-                                              66 1 0 15 7 51 2 0 28 7 7 39 2 1
-                                              15 7 7 53 2 0 41 7 7 42 2 0 15 7
-                                              7 50)))))
+                                              0 46 2 41 0 0 0 47 1 41 6 0 48 2
+                                              7 11 0 0 51 2 0 15 7 7 52 1 7 53
+                                              0 54 1 58 57 0 59 2 15 0 0 0 60 2
+                                              62 15 61 0 63 1 0 15 7 64 1 1 15
+                                              7 64 1 0 15 7 50 2 0 28 7 7 39 2
+                                              1 15 7 7 52 2 0 41 7 7 42 2 0 15
+                                              7 7 49)))))
            '|lookupComplete|)) 

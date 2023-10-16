@@ -248,8 +248,8 @@
           (|a| (UP)))
          (SEQ
           (COND ((QVELT |d| 3) |d|)
-                ((SPADCALL (SPADCALL (LETT |a| (QVELT |d| 0)) (QREFELT $ 17))
-                           (QREFELT $ 22) (QREFELT $ 101))
+                ((<= (SPADCALL (LETT |a| (QVELT |d| 0)) (QREFELT $ 17))
+                     (QREFELT $ 22))
                  (SEQ
                   (COND
                    ((SPADCALL |a| (QREFELT $ 92))
@@ -269,7 +269,7 @@
                          (SPADCALL (QVELT |d| 2)
                                    (SPADCALL (SPADCALL |a| (QREFELT $ 45))
                                              (QREFELT $ 46))
-                                   (QREFELT $ 102))
+                                   (QREFELT $ 101))
                          $)
                         (QREFELT $ 67)))))))
                   (QSETVELT |d| 3 'T) (EXIT |d|)))
@@ -282,14 +282,14 @@
                                        (SPADCALL (QREFELT $ 15)
                                                  (SPADCALL |b| 2
                                                            (QREFELT $ 59))
-                                                 (QREFELT $ 103))
+                                                 (QREFELT $ 102))
                                        |a| (QREFELT $ 60)))
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                               (|Union| (QREFELT $ 7) #2#)
                                               #1#)))
                       (LETT |b0|
-                            (SPADCALL (SPADCALL |b| (QREFELT $ 104)) |a0|
+                            (SPADCALL (SPADCALL |b| (QREFELT $ 103)) |a0|
                                       (QREFELT $ 64)))
                       (LETT |g|
                             (SPADCALL
@@ -306,7 +306,7 @@
                                        (QREFELT $ 66))
                              (SPADCALL (SPADCALL |a0| (QREFELT $ 45))
                                        (QREFELT $ 46))
-                             (QREFELT $ 102)))
+                             (QREFELT $ 101)))
                       (EXIT
                        (SPADCALL (|HELLFDIV;makeDivisor| |a0| |b0| |g| $)
                                  (QREFELT $ 67))))))))) 
@@ -322,11 +322,11 @@
                (SEQ (LETT |a| (QVELT |d| 0))
                     (LETT |di|
                           (|HELLFDIV;makeDivisor| |a|
-                           (SPADCALL (QVELT |d| 1) (QREFELT $ 104))
+                           (SPADCALL (QVELT |d| 1) (QREFELT $ 103))
                            (SPADCALL
                             (SPADCALL (SPADCALL |a| (QREFELT $ 45))
                                       (QVELT |d| 2) (QREFELT $ 65))
-                            (QREFELT $ 107))
+                            (QREFELT $ 106))
                            $))
                     (QSETVELT |di| 3 (QVELT |d| 3)) (EXIT |di|)))) 
 
@@ -345,27 +345,27 @@
 (SDEFUN |HELLFDIV;divisor;2F$;18| ((|a| F) (|b| F) ($ $))
         (SPROG ((|d| (UP)) (|x| (UP)))
                (SEQ
-                (LETT |x| (SPADCALL (|spadConstant| $ 18) 1 (QREFELT $ 109)))
+                (LETT |x| (SPADCALL (|spadConstant| $ 18) 1 (QREFELT $ 108)))
                 (COND
                  ((NULL
                    (SPADCALL
                     (SPADCALL
                      (LETT |d|
-                           (SPADCALL |x| (SPADCALL |a| (QREFELT $ 110))
-                                     (QREFELT $ 103)))
-                     (SPADCALL (SPADCALL (QREFELT $ 111)) (QREFELT $ 112))
-                     (QREFELT $ 113))
+                           (SPADCALL |x| (SPADCALL |a| (QREFELT $ 109))
+                                     (QREFELT $ 102)))
+                     (SPADCALL (SPADCALL (QREFELT $ 110)) (QREFELT $ 111))
+                     (QREFELT $ 112))
                     (QREFELT $ 92)))
                   (EXIT (|error| "divisor: point is singular"))))
                 (EXIT
-                 (|HELLFDIV;makeDivisor| |d| (SPADCALL |b| (QREFELT $ 110))
+                 (|HELLFDIV;makeDivisor| |d| (SPADCALL |b| (QREFELT $ 109))
                   (|spadConstant| $ 29) $))))) 
 
 (SDEFUN |HELLFDIV;intReduce| ((|h| R) (|b| UP) ($ R))
         (SPROG
          ((#1=#:G201 NIL) (#2=#:G203 NIL) (|i| NIL) (#3=#:G202 NIL)
           (|v| (|Vector| UP)))
-         (SEQ (LETT |v| (QCAR (SPADCALL |h| (QREFELT $ 116))))
+         (SEQ (LETT |v| (QCAR (SPADCALL |h| (QREFELT $ 115))))
               (EXIT
                (SPADCALL
                 (PROGN
@@ -373,7 +373,7 @@
                        (GETREFV
                         (|inc_SI|
                          (- #4=(QVSIZE |v|)
-                            #5=(SPADCALL |v| (QREFELT $ 118))))))
+                            #5=(SPADCALL |v| (QREFELT $ 117))))))
                  (SEQ (LETT |i| #5#) (LETT #2# #4#) (LETT #1# 0) G190
                       (COND ((> |i| #2#) (GO G191)))
                       (SEQ
@@ -384,7 +384,7 @@
                       (LETT #1# (PROG1 (|inc_SI| #1#) (LETT |i| (+ |i| 1))))
                       (GO G190) G191 (EXIT NIL))
                  #3#)
-                (|spadConstant| $ 32) (QREFELT $ 119)))))) 
+                (|spadConstant| $ 32) (QREFELT $ 118)))))) 
 
 (SDEFUN |HELLFDIV;divisor;R3UPF$;20|
         ((|h| R) (|a| UP) (|dp| UP) (|g| UP) (|r| F) ($ $))
@@ -397,21 +397,21 @@
           (LETT |h|
                 (SPADCALL |h|
                           (SPADCALL
-                           (SPADCALL (SPADCALL |r| |dp| (QREFELT $ 120))
+                           (SPADCALL (SPADCALL |r| |dp| (QREFELT $ 119))
                                      (QREFELT $ 45))
                            (QREFELT $ 46))
-                          (QREFELT $ 121)))
+                          (QREFELT $ 120)))
           (LETT |a|
                 (SPADCALL |a|
-                          (SPADCALL (SPADCALL |h| (QREFELT $ 122))
-                                    (QREFELT $ 112))
-                          (QREFELT $ 113)))
+                          (SPADCALL (SPADCALL |h| (QREFELT $ 121))
+                                    (QREFELT $ 111))
+                          (QREFELT $ 112)))
           (LETT |h| (|HELLFDIV;intReduce| |h| |a| $))
           (COND
-           ((NULL (SPADCALL (SPADCALL |g| |a| (QREFELT $ 113)) (QREFELT $ 92)))
+           ((NULL (SPADCALL (SPADCALL |g| |a| (QREFELT $ 112)) (QREFELT $ 92)))
             (LETT |h|
                   (|HELLFDIV;intReduce|
-                   (SPADCALL |h| (SPADCALL (QREFELT $ 123)) (QREFELT $ 124))
+                   (SPADCALL |h| (SPADCALL (QREFELT $ 122)) (QREFELT $ 123))
                    |a| $))))
           (LETT |hh| (SPADCALL |h| (QREFELT $ 83)))
           (LETT |b|
@@ -474,7 +474,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|HyperellipticFiniteDivisor| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 129))
+    (LETT $ (GETREFV 128))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|HyperellipticFiniteDivisor|
@@ -545,19 +545,19 @@
               (251 . |extendedEuclidean|) (257 . |ground?|) (262 . |numer|)
               (267 . |coerce|) (272 . |bracket|) (277 . |coerce|)
               (282 . |prefix|) (288 . =) (294 . +) |HELLFDIV;coerce;$Of;13|
-              (300 . <=) (306 . /) (312 . -) (318 . -) (|Union| 9 '"failed")
-              |HELLFDIV;generator;$U;15| (323 . |inv|) |HELLFDIV;=;2$B;17|
-              (328 . |monomial|) (334 . |coerce|) (339 . |discriminant|)
-              (343 . |retract|) (348 . |gcd|) |HELLFDIV;divisor;2F$;18|
-              (|Record| (|:| |num| 117) (|:| |den| 7))
-              (354 . |integralCoordinates|) (|Vector| 7) (359 . |minIndex|)
-              (364 . |integralRepresents|) (370 . *) (376 . -) (382 . |norm|)
-              (387 . |rank|) (391 . ^) |HELLFDIV;divisor;R3UPF$;20|
+              (300 . /) (306 . -) (312 . -) (|Union| 9 '"failed")
+              |HELLFDIV;generator;$U;15| (317 . |inv|) |HELLFDIV;=;2$B;17|
+              (322 . |monomial|) (328 . |coerce|) (333 . |discriminant|)
+              (337 . |retract|) (342 . |gcd|) |HELLFDIV;divisor;2F$;18|
+              (|Record| (|:| |num| 116) (|:| |den| 7))
+              (348 . |integralCoordinates|) (|Vector| 7) (353 . |minIndex|)
+              (358 . |integralRepresents|) (364 . *) (370 . -) (376 . |norm|)
+              (381 . |rank|) (385 . ^) |HELLFDIV;divisor;R3UPF$;20|
               (|HashState|) (|String|) (|SingleInteger|))
-           '#(~= 397 |zero?| 403 |subtractIfCan| 408 |sample| 414 |reduce| 418
-              |principal?| 423 |opposite?| 428 |latex| 434 |ideal| 439
-              |hashUpdate!| 444 |hash| 450 |generator| 455 |divisor| 460
-              |decompose| 492 |coerce| 497 |Zero| 502 = 506 - 512 + 523 * 529)
+           '#(~= 391 |zero?| 397 |subtractIfCan| 402 |sample| 408 |reduce| 412
+              |principal?| 417 |opposite?| 422 |latex| 428 |ideal| 433
+              |hashUpdate!| 438 |hash| 444 |generator| 449 |divisor| 454
+              |decompose| 486 |coerce| 491 |Zero| 496 = 500 - 506 + 517 * 523)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -569,7 +569,7 @@
                       (|CancellationAbelianMonoid|) (|AbelianMonoid|)
                       (|AbelianSemiGroup|) (|SetCategory|) (|BasicType|)
                       (|CoercibleTo| 23))
-                   (|makeByteWordVec2| 128
+                   (|makeByteWordVec2| 127
                                        '(0 9 10 11 1 7 16 0 17 0 6 0 18 2 20 19
                                          0 0 21 1 24 23 0 25 1 20 23 0 27 0 9 0
                                          29 0 7 0 32 0 7 0 33 2 7 34 0 0 35 1 7
@@ -588,21 +588,20 @@
                                          44 0 0 88 1 44 7 0 89 2 7 90 0 0 91 1
                                          7 34 0 92 1 44 7 0 93 1 7 23 0 94 1 23
                                          0 54 95 1 9 23 0 96 2 23 0 0 54 97 2 9
-                                         34 0 0 98 2 23 0 0 0 99 2 20 34 0 0
-                                         101 2 9 0 0 0 102 2 7 0 0 0 103 1 7 0
-                                         0 104 1 9 0 0 107 2 7 0 6 16 109 1 7 0
-                                         6 110 0 9 44 111 1 44 7 0 112 2 7 0 0
-                                         0 113 1 9 115 0 116 1 117 20 0 118 2 9
-                                         0 117 7 119 2 7 0 6 0 120 2 9 0 0 0
-                                         121 1 9 44 0 122 0 9 58 123 2 9 0 0 58
-                                         124 2 0 34 0 0 1 1 0 34 0 1 2 0 19 0 0
-                                         1 0 0 0 1 1 0 0 0 67 1 0 34 0 1 2 0 34
-                                         0 0 1 1 0 127 0 1 1 0 38 0 41 2 0 126
-                                         126 0 1 1 0 128 0 1 1 0 105 0 106 5 0
-                                         0 9 7 7 7 6 125 3 0 0 6 6 20 1 2 0 0 6
-                                         6 114 1 0 0 38 74 1 0 0 9 30 1 0 42 0
-                                         43 1 0 23 0 100 0 0 0 31 2 0 34 0 0
-                                         108 1 0 0 0 70 2 0 0 0 0 1 2 0 0 0 0
-                                         68 2 0 0 20 0 71 2 0 0 16 0 1 2 0 0 58
-                                         0 1)))))
+                                         34 0 0 98 2 23 0 0 0 99 2 9 0 0 0 101
+                                         2 7 0 0 0 102 1 7 0 0 103 1 9 0 0 106
+                                         2 7 0 6 16 108 1 7 0 6 109 0 9 44 110
+                                         1 44 7 0 111 2 7 0 0 0 112 1 9 114 0
+                                         115 1 116 20 0 117 2 9 0 116 7 118 2 7
+                                         0 6 0 119 2 9 0 0 0 120 1 9 44 0 121 0
+                                         9 58 122 2 9 0 0 58 123 2 0 34 0 0 1 1
+                                         0 34 0 1 2 0 19 0 0 1 0 0 0 1 1 0 0 0
+                                         67 1 0 34 0 1 2 0 34 0 0 1 1 0 126 0 1
+                                         1 0 38 0 41 2 0 125 125 0 1 1 0 127 0
+                                         1 1 0 104 0 105 5 0 0 9 7 7 7 6 124 3
+                                         0 0 6 6 20 1 2 0 0 6 6 113 1 0 0 38 74
+                                         1 0 0 9 30 1 0 42 0 43 1 0 23 0 100 0
+                                         0 0 31 2 0 34 0 0 107 1 0 0 0 70 2 0 0
+                                         0 0 1 2 0 0 0 0 68 2 0 0 20 0 71 2 0 0
+                                         16 0 1 2 0 0 58 0 1)))))
            '|lookupComplete|)) 

@@ -896,10 +896,7 @@
                            (SEQ G190 (COND ((NULL (>= |n| |m|)) (GO G191)))
                                 (SEQ
                                  (SEQ G190
-                                      (COND
-                                       ((NULL
-                                         (SPADCALL |n1| |n| (QREFELT $ 86)))
-                                        (GO G191)))
+                                      (COND ((NULL (> |n1| |n|)) (GO G191)))
                                       (SEQ
                                        (LETT |k|
                                              (QUOTIENT2 (* |k| (- |n1| |m|))
@@ -913,13 +910,13 @@
                                                             (SPADCALL |f|
                                                                       (QREFELT
                                                                        $ 55))
-                                                            (QREFELT $ 87))
+                                                            (QREFELT $ 86))
                                                   (PROG1 (LETT #2# (- |n| |m|))
                                                     (|check_subtype2|
                                                      (>= #2# 0)
                                                      '(|NonNegativeInteger|)
                                                      '(|Integer|) #2#))
-                                                  (QREFELT $ 88))
+                                                  (QREFELT $ 87))
                                                  (QREFELT $ 43)))
                                  (LETT |f| (SPADCALL |f| (QREFELT $ 57)))
                                  (EXIT
@@ -933,7 +930,7 @@
         (SPROG ((|dm| (|NonNegativeInteger|)))
                (SEQ (LETT |dm| (SPADCALL |m| (QREFELT $ 83)))
                     (EXIT
-                     (SPADCALL (SPADCALL |pol| |dm| (QREFELT $ 88))
+                     (SPADCALL (SPADCALL |pol| |dm| (QREFELT $ 87))
                                (SPADCALL |m| (QREFELT $ 57)) (QREFELT $ 43)))))) 
 
 (SDEFUN |MLIFT;subscoef|
@@ -947,7 +944,7 @@
          (SEQ (LETT |dm| (SPADCALL |um| (QREFELT $ 83)))
               (LETT |new|
                     (SPADCALL (SPADCALL |um| (QREFELT $ 55)) |dm|
-                              (QREFELT $ 88)))
+                              (QREFELT $ 87)))
               (SEQ (LETT |k| (- |dm| 1)) G190 (COND ((< |k| 0) (GO G191)))
                    (SEQ
                     (LETT |i|
@@ -963,13 +960,13 @@
                        (LETT |new|
                              (SPADCALL |new|
                                        (SPADCALL
-                                        (SPADCALL |um| |i| (QREFELT $ 89)) |i|
-                                        (QREFELT $ 88))
+                                        (SPADCALL |um| |i| (QREFELT $ 88)) |i|
+                                        (QREFELT $ 87))
                                        (QREFELT $ 43))))))
                     (LETT |new|
                           (SPADCALL |new|
                                     (SPADCALL (QCDR (|SPADfirst| |lterm|)) |i|
-                                              (QREFELT $ 88))
+                                              (QREFELT $ 87))
                                     (QREFELT $ 43)))
                     (EXIT (LETT |lterm| (CDR |lterm|))))
                    (LETT |k| (+ |k| -1)) (GO G190) G191 (EXIT NIL))
@@ -1006,7 +1003,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|MultivariateLifting| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 90))
+    (LETT $ (GETREFV 89))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -1059,9 +1056,9 @@
               (|Vector| 60) (214 . |solveid|) (221 . |lifting|)
               (|SparseUnivariatePolynomial| $) (232 . |univariate|)
               (238 . |multivariate|) (244 . |degree|)
-              (|IntegerCombinatoricFunctions| 34) (249 . |binomial|) (255 . >)
-              (261 . *) (267 . |monomial|) (273 . |coefficient|))
-           '#(|lifting| 279 |corrPoly| 301) 'NIL
+              (|IntegerCombinatoricFunctions| 34) (249 . |binomial|) (255 . *)
+              (261 . |monomial|) (267 . |coefficient|))
+           '#(|lifting| 273 |corrPoly| 295) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -1113,7 +1110,7 @@
                                   (|List| (|NonNegativeInteger|)) |#3|))
                                 (|has| 8 (|EuclideanDomain|))))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 89
+                        (|makeByteWordVec2| 88
                                             '(1 9 8 0 10 2 14 11 12 13 15 1 9 0
                                               8 16 2 18 13 17 11 19 3 9 0 0 7 0
                                               20 2 13 0 21 0 22 2 32 31 0 0 33
@@ -1132,10 +1129,9 @@
                                               73 3 75 74 32 8 60 76 3 75 28 11
                                               8 77 78 7 0 23 13 24 60 25 61 26
                                               8 79 2 9 80 0 7 81 2 9 0 80 7 82
-                                              1 13 32 0 83 2 84 34 34 34 85 2
-                                              34 31 0 0 86 2 9 0 34 0 87 2 13 0
-                                              9 32 88 2 13 9 0 32 89 7 1 23 13
-                                              24 60 25 61 26 8 79 7 0 23 13 24
-                                              60 25 61 26 67 68 6 0 23 13 24 25
-                                              26 27 29 30)))))
+                                              1 13 32 0 83 2 84 34 34 34 85 2 9
+                                              0 34 0 86 2 13 0 9 32 87 2 13 9 0
+                                              32 88 7 1 23 13 24 60 25 61 26 8
+                                              79 7 0 23 13 24 60 25 61 26 67 68
+                                              6 0 23 13 24 25 26 27 29 30)))))
            '|lookupComplete|)) 

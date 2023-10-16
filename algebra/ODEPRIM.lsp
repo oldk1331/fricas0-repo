@@ -181,7 +181,7 @@
                                  (SPADCALL |a| |c| (QREFELT $ 53))))
                         (EXIT
                          (COND
-                          ((SPADCALL |m| |mup| (QREFELT $ 72))
+                          ((> |m| |mup|)
                            (SEQ (LETT |mup| |m|) (LETT |lamb| (LIST |d|))
                                 (EXIT (LETT |lf| (LIST |a|)))))
                           ((EQL |m| |mup|)
@@ -204,10 +204,10 @@
                           (SPADCALL
                            (|ODEPRIM;indicialEq| |c| (QVELT |rec| 1)
                             (QVELT |rec| 2) $)
-                           (QREFELT $ 74)))))
+                           (QREFELT $ 73)))))
               (EXIT
                (COND
-                ((SPADCALL |e| (QREFELT $ 75))
+                ((SPADCALL |e| (QREFELT $ 74))
                  (PROG1 (LETT #2# |n|)
                    (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
                                      '(|Integer|) #2#)))
@@ -230,9 +230,9 @@
            (SEQ (LETT |dd| NIL)
                 (LETT #4#
                       (SPADCALL
-                       (SPADCALL |d| (SPADCALL |l| (QREFELT $ 77))
-                                 (QREFELT $ 80))
-                       (QREFELT $ 84)))
+                       (SPADCALL |d| (SPADCALL |l| (QREFELT $ 76))
+                                 (QREFELT $ 79))
+                       (QREFELT $ 83)))
                 G190
                 (COND
                  ((OR (ATOM #4#) (PROGN (LETT |dd| (CAR #4#)) NIL)) (GO G191)))
@@ -259,8 +259,8 @@
                      (LETT #1# NIL)
                      (SEQ (LETT |hh| NIL)
                           (LETT #5#
-                                (SPADCALL (SPADCALL |h| |e| (QREFELT $ 85))
-                                          (QREFELT $ 84)))
+                                (SPADCALL (SPADCALL |h| |e| (QREFELT $ 84))
+                                          (QREFELT $ 83)))
                           G190
                           (COND
                            ((OR (ATOM #5#) (PROGN (LETT |hh| (CAR #5#)) NIL))
@@ -297,9 +297,9 @@
         (SPROG ((#1=#:G180 NIL) (|g| (UP)))
                (PROG2
                    (LETT #1#
-                         (SPADCALL (LETT |g| (SPADCALL |e| (QREFELT $ 86)))
-                                   (SPADCALL |g| (SPADCALL |d| (QREFELT $ 86))
-                                             (QREFELT $ 87))
+                         (SPADCALL (LETT |g| (SPADCALL |e| (QREFELT $ 85)))
+                                   (SPADCALL |g| (SPADCALL |d| (QREFELT $ 85))
+                                             (QREFELT $ 86))
                                    (QREFELT $ 55)))
                    (QCDR #1#)
                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
@@ -325,9 +325,9 @@
                  (SEQ (LETT |dd| NIL)
                       (LETT #1#
                             (SPADCALL
-                             (SPADCALL |p| (SPADCALL |op| (QREFELT $ 77))
-                                       (QREFELT $ 80))
-                             (QREFELT $ 84)))
+                             (SPADCALL |p| (SPADCALL |op| (QREFELT $ 76))
+                                       (QREFELT $ 79))
+                             (QREFELT $ 83)))
                       G190
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT |dd| (CAR #1#)) NIL))
@@ -348,7 +348,7 @@
                (SEQ (LETT |d| (SPADCALL |l| (QREFELT $ 17)))
                     (EXIT
                      (COND
-                      ((SPADCALL |g| (QREFELT $ 88))
+                      ((SPADCALL |g| (QREFELT $ 87))
                        (CONS 0
                              (|ODEPRIM;hdenom| |l| |d| (|spadConstant| $ 39)
                               $)))
@@ -356,7 +356,7 @@
                        (SEQ
                         (LETT |h|
                               (|ODEPRIM;separateZeros| |d|
-                               (LETT |e| (SPADCALL |g| (QREFELT $ 89))) $))
+                               (LETT |e| (SPADCALL |g| (QREFELT $ 88))) $))
                         (LETT |n| (SPADCALL |l| (QREFELT $ 69)))
                         (EXIT
                          (COND
@@ -381,7 +381,7 @@
           (COND
            ((NULL |lg|)
             (PROG2
-                (LETT #5# (SPADCALL |l| (|spadConstant| $ 92) (QREFELT $ 91)))
+                (LETT #5# (SPADCALL |l| (|spadConstant| $ 91) (QREFELT $ 90)))
                 (QCDR #5#)
               (|check_union2| (QEQCAR #5# 0) (QREFELT $ 7)
                               (|Union| (QREFELT $ 7) "failed") #5#)))
@@ -400,12 +400,12 @@
                                     (SEQ
                                      (EXIT
                                       (PROGN
-                                       (LETT #3# (SPADCALL |g| (QREFELT $ 89)))
+                                       (LETT #3# (SPADCALL |g| (QREFELT $ 88)))
                                        (COND
                                         (#1#
                                          (LETT #2#
                                                (SPADCALL #2# #3#
-                                                         (QREFELT $ 93))))
+                                                         (QREFELT $ 92))))
                                         ('T
                                          (PROGN
                                           (LETT #2# #3#)
@@ -449,7 +449,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|PrimitiveRatDE| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 95))
+    (LETT $ (GETREFV 94))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|PrimitiveRatDE|
@@ -475,8 +475,8 @@
               |ODEPRIM;indicialEquations;LL;2| (20 . |One|) (24 . |One|)
               (|NonNegativeInteger|) (28 . |monomial|) (34 . -)
               |ODEPRIM;indicialEquation;LFUP;3| (|List| 35)
-              (40 . |coefficients|) (|Record| (|:| |num| 76) (|:| |den| 7))
-              (|InnerCommonDenominator| 7 35 76 28) (45 . |splitDenominator|)
+              (40 . |coefficients|) (|Record| (|:| |num| 75) (|:| |den| 7))
+              (|InnerCommonDenominator| 7 35 75 28) (45 . |splitDenominator|)
               (|List| $) (50 . |gcd|) (|Fraction| 7) (55 . /) (61 . |Zero|)
               (65 . |Zero|) (69 . |Zero|) (73 . |Zero|) (|Boolean|) (77 . ~=)
               (83 . |leadingCoefficient|) (88 . *) (94 . |retract|)
@@ -489,19 +489,19 @@
               |ODEPRIM;indicialEquation;LQFUP;8| (|Integer|) (151 . |coerce|)
               (156 . |elt|) (162 . |Zero|) (166 . *) (172 . +)
               (178 . |resultant|) (184 . |primitivePart|) (189 . |degree|)
-              (194 . |reductum|) (199 . ~=) (205 . >) (|BoundIntegerRoots| 6 7)
-              (211 . |integerBound|) (216 . |zero?|) (|List| 7)
-              (221 . |coefficients|) (|Factored| 7)
-              (|BalancedFactorisation| 6 7) (226 . |balancedFactorisation|)
+              (194 . |reductum|) (199 . ~=) (|BoundIntegerRoots| 6 7)
+              (205 . |integerBound|) (210 . |zero?|) (|List| 7)
+              (215 . |coefficients|) (|Factored| 7)
+              (|BalancedFactorisation| 6 7) (220 . |balancedFactorisation|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 81) (|:| |factor| 7) (|:| |exponent| 24))
-              (|List| 82) (232 . |factorList|) (237 . |balancedFactorisation|)
-              (243 . |squareFreePart|) (248 . |gcd|) (254 . |zero?|)
-              (259 . |denom|) (|Union| 7 '#1="failed")
-              |ODEPRIM;denomLODE;LFU;18| (264 . |Zero|) (268 . |lcm|)
+              (|Record| (|:| |flag| 80) (|:| |factor| 7) (|:| |exponent| 24))
+              (|List| 81) (226 . |factorList|) (231 . |balancedFactorisation|)
+              (237 . |squareFreePart|) (242 . |gcd|) (248 . |zero?|)
+              (253 . |denom|) (|Union| 7 '#1="failed")
+              |ODEPRIM;denomLODE;LFU;18| (258 . |Zero|) (262 . |lcm|)
               |ODEPRIM;denomLODE;LLUP;19|)
-           '#(|splitDenominator| 274 |indicialEquations| 280 |indicialEquation|
-              302 |denomLODE| 314)
+           '#(|splitDenominator| 268 |indicialEquations| 274 |indicialEquation|
+              296 |denomLODE| 308)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -548,7 +548,7 @@
                                   |#4| (|List| (|Fraction| |#2|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 94
+                        (|makeByteWordVec2| 93
                                             '(0 8 0 10 1 7 0 6 12 2 15 13 14 7
                                               16 1 8 7 0 17 0 6 0 22 0 7 0 23 2
                                               7 0 6 24 25 2 7 0 0 0 26 1 9 28 0
@@ -563,14 +563,13 @@
                                               0 7 63 0 13 0 64 2 13 0 7 0 65 2
                                               13 0 0 0 66 2 13 7 0 0 67 1 7 0 0
                                               68 1 8 24 0 69 1 8 0 0 70 2 8 41
-                                              0 0 71 2 61 41 0 0 72 1 73 61 7
-                                              74 1 7 41 0 75 1 8 76 0 77 2 79
-                                              78 7 76 80 1 78 83 0 84 2 79 78 7
-                                              7 85 1 7 0 0 86 2 7 0 0 0 87 1 35
-                                              41 0 88 1 35 7 0 89 0 35 0 92 2 7
-                                              0 0 0 93 2 0 50 9 28 51 2 0 19 8
-                                              7 20 1 0 19 8 21 1 0 19 9 58 2 0
-                                              19 9 7 59 2 0 7 8 6 27 2 0 7 9 6
-                                              60 2 0 7 8 28 94 2 0 90 8 35
-                                              91)))))
+                                              0 0 71 1 72 61 7 73 1 7 41 0 74 1
+                                              8 75 0 76 2 78 77 7 75 79 1 77 82
+                                              0 83 2 78 77 7 7 84 1 7 0 0 85 2
+                                              7 0 0 0 86 1 35 41 0 87 1 35 7 0
+                                              88 0 35 0 91 2 7 0 0 0 92 2 0 50
+                                              9 28 51 2 0 19 8 7 20 1 0 19 8 21
+                                              1 0 19 9 58 2 0 19 9 7 59 2 0 7 8
+                                              6 27 2 0 7 9 6 60 2 0 7 8 28 93 2
+                                              0 89 8 35 90)))))
            '|lookupComplete|)) 

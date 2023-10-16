@@ -64,15 +64,15 @@
                       (SEQ (LETT |e1| (SPADCALL |p1| (QREFELT $ 29)))
                            (EXIT
                             (COND
-                             ((SPADCALL |e1| 0 (QREFELT $ 31))
+                             ((> |e1| 0)
                               (LETT |p1|
                                     (PROG2
                                         (LETT #1#
                                               (SPADCALL |p1|
                                                         (SPADCALL
                                                          (|spadConstant| $ 16)
-                                                         |e1| (QREFELT $ 33))
-                                                        (QREFELT $ 34)))
+                                                         |e1| (QREFELT $ 32))
+                                                        (QREFELT $ 33)))
                                         (QCDR #1#)
                                       (|check_union2| (QEQCAR #1# 0)
                                                       (|SparseUnivariatePolynomial|
@@ -85,15 +85,15 @@
                       (SEQ (LETT |e2| (SPADCALL |p2| (QREFELT $ 29)))
                            (EXIT
                             (COND
-                             ((SPADCALL |e2| 0 (QREFELT $ 31))
+                             ((> |e2| 0)
                               (LETT |p2|
                                     (PROG2
                                         (LETT #1#
                                               (SPADCALL |p2|
                                                         (SPADCALL
                                                          (|spadConstant| $ 16)
-                                                         |e2| (QREFELT $ 33))
-                                                        (QREFELT $ 34)))
+                                                         |e2| (QREFELT $ 32))
+                                                        (QREFELT $ 33)))
                                         (QCDR #1#)
                                       (|check_union2| (QEQCAR #1# 0)
                                                       (|SparseUnivariatePolynomial|
@@ -107,22 +107,22 @@
                       (LETT |c1| (SPADCALL |c1| |c2| (QREFELT $ 10)))
                       (LETT |p1|
                             (COND
-                             ((OR (EQL (SPADCALL |p1| (QREFELT $ 35)) 0)
-                                  (EQL (SPADCALL |p2| (QREFELT $ 35)) 0))
-                              (SPADCALL |c1| 0 (QREFELT $ 33)))
+                             ((OR (EQL (SPADCALL |p1| (QREFELT $ 34)) 0)
+                                  (EQL (SPADCALL |p2| (QREFELT $ 34)) 0))
+                              (SPADCALL |c1| 0 (QREFELT $ 32)))
                              ('T
                               (SEQ
-                               (LETT |p| (SPADCALL |p1| |p2| (QREFELT $ 36)))
+                               (LETT |p| (SPADCALL |p1| |p2| (QREFELT $ 35)))
                                (EXIT
                                 (COND
-                                 ((EQL (SPADCALL |p| (QREFELT $ 35)) 0)
-                                  (SPADCALL |c1| 0 (QREFELT $ 33)))
+                                 ((EQL (SPADCALL |p| (QREFELT $ 34)) 0)
+                                  (SPADCALL |c1| 0 (QREFELT $ 32)))
                                  (#3#
                                   (SEQ
                                    (LETT |c2|
                                          (SPADCALL
-                                          (SPADCALL |p1| (QREFELT $ 37))
-                                          (SPADCALL |p2| (QREFELT $ 37))
+                                          (SPADCALL |p1| (QREFELT $ 36))
+                                          (SPADCALL |p2| (QREFELT $ 36))
                                           (QREFELT $ 10)))
                                    (EXIT
                                     (SPADCALL
@@ -133,10 +133,10 @@
                                                           (SPADCALL
                                                            (SPADCALL |c2| |p|
                                                                      (QREFELT $
-                                                                              38))
+                                                                              37))
                                                            (SPADCALL |p|
                                                                      (QREFELT $
-                                                                              37))
+                                                                              36))
                                                            (QREFELT $ 27)))
                                                     (QCDR #1#)
                                                   (|check_union2|
@@ -148,16 +148,16 @@
                                                      (QREFELT $ 6))
                                                     #4#)
                                                    #1#))
-                                                (QREFELT $ 39))
-                                               (QREFELT $ 38))
+                                                (QREFELT $ 38))
+                                               (QREFELT $ 37))
                                      (QREFELT $ 25)))))))))))
                       (EXIT
                        (COND ((ZEROP |e1|) |p1|)
                              (#3#
                               (SPADCALL
                                (SPADCALL (|spadConstant| $ 16) |e1|
-                                         (QREFELT $ 33))
-                               |p1| (QREFELT $ 40))))))))))) 
+                                         (QREFELT $ 32))
+                               |p1| (QREFELT $ 39))))))))))) 
 
 (SDEFUN |GCDDOM-;lcmCoef;2SR;5|
         ((|c1| S) (|c2| S)
@@ -186,7 +186,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|GcdDomain&| DV$1))
-          (LETT $ (GETREFV 45))
+          (LETT $ (GETREFV 44))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
@@ -204,14 +204,13 @@
               (|SparseUnivariatePolynomial| 6) (46 . |zero?|)
               (51 . |unitCanonical|) (56 . |content|) (61 . |exquo|)
               (|NonNegativeInteger|) (67 . |minimumDegree|) (72 . |Zero|)
-              (76 . >) (82 . |One|) (86 . |monomial|) (92 . |exquo|)
-              (98 . |degree|) (103 . |subResultantGcd|)
-              (109 . |leadingCoefficient|) (114 . *) (120 . |primitivePart|)
-              (125 . *) (|SparseUnivariatePolynomial| $)
-              |GCDDOM-;gcdPolynomial;3Sup;4|
+              (76 . |One|) (80 . |monomial|) (86 . |exquo|) (92 . |degree|)
+              (97 . |subResultantGcd|) (103 . |leadingCoefficient|) (108 . *)
+              (114 . |primitivePart|) (119 . *)
+              (|SparseUnivariatePolynomial| $) |GCDDOM-;gcdPolynomial;3Sup;4|
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               |GCDDOM-;lcmCoef;2SR;5|)
-           '#(|lcmCoef| 131 |lcm| 137 |gcdPolynomial| 148 |gcd| 154) 'NIL
+           '#(|lcmCoef| 125 |lcm| 131 |gcdPolynomial| 142 |gcd| 148) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -234,17 +233,17 @@
                                   |#1| |#1|))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 44
+                        (|makeByteWordVec2| 43
                                             '(0 6 0 7 2 6 8 0 0 9 2 6 0 0 0 10
                                               2 6 11 0 0 12 2 6 0 0 0 13 2 6 0
                                               0 0 15 0 6 0 16 4 18 6 17 0 6 6
                                               19 1 23 8 0 24 1 23 0 0 25 1 23 6
                                               0 26 2 23 11 0 6 27 1 23 28 0 29
-                                              0 23 0 30 2 28 8 0 0 31 0 23 0 32
-                                              2 23 0 6 28 33 2 23 11 0 0 34 1
-                                              23 28 0 35 2 23 0 0 0 36 1 23 6 0
-                                              37 2 23 0 6 0 38 1 23 0 0 39 2 23
-                                              0 0 0 40 2 0 43 0 0 44 2 0 0 0 0
-                                              14 1 0 0 20 21 2 0 41 41 41 42 1
-                                              0 0 20 22)))))
+                                              0 23 0 30 0 23 0 31 2 23 0 6 28
+                                              32 2 23 11 0 0 33 1 23 28 0 34 2
+                                              23 0 0 0 35 1 23 6 0 36 2 23 0 6
+                                              0 37 1 23 0 0 38 2 23 0 0 0 39 2
+                                              0 42 0 0 43 2 0 0 0 0 14 1 0 0 20
+                                              21 2 0 40 40 40 41 1 0 0 20
+                                              22)))))
            '|lookupComplete|)) 

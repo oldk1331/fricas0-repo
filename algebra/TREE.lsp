@@ -205,7 +205,7 @@
                               (EXIT (NREVERSE #8#)))))
                   (EXIT
                    (COND
-                    ((SPADCALL (LENGTH |u|) 0 (QREFELT $ 33))
+                    ((> (LENGTH |u|) 0)
                      (+ 1
                         (PROGN
                          (LETT #2# NIL)
@@ -241,29 +241,29 @@
                      ('T
                       (SPADCALL (CONS #'|TREE;node?;2$B;17!0| (VECTOR $ |t1|))
                                 (SPADCALL |t2| (QREFELT $ 12))
-                                (QREFELT $ 37)))))) 
+                                (QREFELT $ 36)))))) 
 
 (SDEFUN |TREE;node?;2$B;17!0| ((|t| NIL) ($$ NIL))
         (PROG (|t1| $)
           (LETT |t1| (QREFELT $$ 1))
           (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL |t1| |t| (QREFELT $ 35)))))) 
+          (RETURN (PROGN (SPADCALL |t1| |t| (QREFELT $ 34)))))) 
 
 (SDEFUN |TREE;leaf?;$B;18| ((|t| $) ($ |Boolean|))
         (COND ((QEQCAR |t| 1) NIL)
-              ('T (SPADCALL (SPADCALL |t| (QREFELT $ 12)) (QREFELT $ 38))))) 
+              ('T (SPADCALL (SPADCALL |t| (QREFELT $ 12)) (QREFELT $ 37))))) 
 
 (SDEFUN |TREE;less?;$NniB;19|
         ((|t| $) (|n| |NonNegativeInteger|) ($ |Boolean|))
-        (< (SPADCALL |t| (QREFELT $ 40)) |n|)) 
+        (< (SPADCALL |t| (QREFELT $ 39)) |n|)) 
 
 (SDEFUN |TREE;more?;$NniB;20|
         ((|t| $) (|n| |NonNegativeInteger|) ($ |Boolean|))
-        (SPADCALL (SPADCALL |t| (QREFELT $ 40)) |n| (QREFELT $ 42))) 
+        (> (SPADCALL |t| (QREFELT $ 39)) |n|)) 
 
 (SDEFUN |TREE;size?;$NniB;21|
         ((|t| $) (|n| |NonNegativeInteger|) ($ |Boolean|))
-        (EQL (SPADCALL |t| (QREFELT $ 40)) |n|)) 
+        (EQL (SPADCALL |t| (QREFELT $ 39)) |n|)) 
 
 (SDEFUN |TREE;any?;M$B;22|
         ((|fn| |Mapping| #1=(|Boolean|) S) (|t| $) ($ . #1#))
@@ -283,7 +283,7 @@
                               (SEQ
                                (EXIT
                                 (COND
-                                 ((SPADCALL |fn| |c| (QREFELT $ 45))
+                                 ((SPADCALL |fn| |c| (QREFELT $ 43))
                                   (PROGN (LETT #2# 'T) (GO #4=#:G231))))))
                               (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                          (EXIT NIL)))))
@@ -308,7 +308,7 @@
                               (SEQ
                                (EXIT
                                 (COND
-                                 ((NULL (SPADCALL |fn| |c| (QREFELT $ 46)))
+                                 ((NULL (SPADCALL |fn| |c| (QREFELT $ 44)))
                                   (PROGN (LETT #2# NIL) (GO #4=#:G239))))))
                               (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                          (EXIT 'T)))))
@@ -323,16 +323,16 @@
                      ('T
                       (SPADCALL (CONS #'|TREE;member?;S$B;24!0| (VECTOR $ |n|))
                                 (SPADCALL |t| (QREFELT $ 12))
-                                (QREFELT $ 37)))))) 
+                                (QREFELT $ 36)))))) 
 
 (SDEFUN |TREE;member?;S$B;24!0| ((|c| NIL) ($$ NIL))
         (PROG (|n| $)
           (LETT |n| (QREFELT $$ 1))
           (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL |n| |c| (QREFELT $ 47)))))) 
+          (RETURN (PROGN (SPADCALL |n| |c| (QREFELT $ 45)))))) 
 
 (SDEFUN |TREE;members;$L;25| ((|t| $) ($ |List| S))
-        (SPADCALL |t| (QREFELT $ 48))) 
+        (SPADCALL |t| (QREFELT $ 46))) 
 
 (SDEFUN |TREE;parts;$L;26| ((|t| $) ($ |List| S))
         (SPROG
@@ -355,13 +355,13 @@
                               (SEQ
                                (EXIT
                                 (LETT #8#
-                                      (CONS (SPADCALL |c| (QREFELT $ 48))
+                                      (CONS (SPADCALL |c| (QREFELT $ 46))
                                             #8#))))
                               (LETT #7# (CDR #7#)) (GO G190) G191
                               (EXIT (NREVERSE #8#)))))
                   (EXIT
                    (COND
-                    ((SPADCALL |u| NIL (QREFELT $ 51))
+                    ((SPADCALL |u| NIL (QREFELT $ 49))
                      (LIST (SPADCALL |t| (QREFELT $ 17))))
                     (#9#
                      (CONS (SPADCALL |t| (QREFELT $ 17))
@@ -379,7 +379,7 @@
                                     (COND
                                      (#1#
                                       (LETT #2#
-                                            (SPADCALL #2# #4# (QREFELT $ 52))))
+                                            (SPADCALL #2# #4# (QREFELT $ 50))))
                                      ('T
                                       (PROGN (LETT #2# #4#) (LETT #1# 'T)))))))
                                  (LETT #5# (CDR #5#)) (GO G190) G191
@@ -394,7 +394,7 @@
                        (SEQ
                         (LETT |s|
                               (SPADCALL |s| (SPADCALL |t| (QREFELT $ 17))
-                                        (QREFELT $ 54)))
+                                        (QREFELT $ 52)))
                         (SEQ (LETT |subt| NIL)
                              (LETT #1# (SPADCALL |t| (QREFELT $ 12))) G190
                              (COND
@@ -404,7 +404,7 @@
                              (SEQ
                               (EXIT
                                (LETT |s|
-                                     (SPADCALL |s| |subt| (QREFELT $ 55)))))
+                                     (SPADCALL |s| |subt| (QREFELT $ 53)))))
                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                         (EXIT |s|))))))) 
 
@@ -422,8 +422,8 @@
             (COND
              ((EQL |k| 5)
               (COND
-               ((OR (SPADCALL |ot1| (QREFELT $ 56))
-                    (SPADCALL |ot2| (QREFELT $ 56)))
+               ((OR (SPADCALL |ot1| (QREFELT $ 54))
+                    (SPADCALL |ot2| (QREFELT $ 54)))
                 (EXIT
                  (|error|
                   "use cyclicEqual? to test equality on cyclic trees"))))))
@@ -441,7 +441,7 @@
                               (LETT |c2| (SPADCALL |t2| (QREFELT $ 12)))
                               (EXIT
                                (COND
-                                ((NULL (SPADCALL |c1| |c2| (QREFELT $ 57)))
+                                ((NULL (SPADCALL |c1| |c2| (QREFELT $ 55)))
                                  (PROGN (LETT #4# NIL) (GO #7=#:G275)))))))
                         (#6# (EXIT NIL)))
                        (SEQ (LETT |y| NIL) (LETT #3# |c2|) (LETT |x| NIL)
@@ -476,7 +476,7 @@
           (COND
            ((EQL |k| 5)
             (COND
-             ((SPADCALL |origTree| (QREFELT $ 56))
+             ((SPADCALL |origTree| (QREFELT $ 54))
               (EXIT (|error| "# is not defined on cyclic trees"))))))
           (EXIT
            (COND ((QEQCAR |t| 1) 0)
@@ -509,11 +509,11 @@
                 (COND
                  ((EQL |k| 5)
                   (COND
-                   ((SPADCALL |origTree| (QREFELT $ 56))
+                   ((SPADCALL |origTree| (QREFELT $ 54))
                     (EXIT (|error| "use cyclicCopy to copy a cyclic tree"))))))
                 (EXIT
                  (COND ((QEQCAR |t| 1) |t|)
-                       ((SPADCALL (SPADCALL |t| (QREFELT $ 12)) (QREFELT $ 38))
+                       ((SPADCALL (SPADCALL |t| (QREFELT $ 12)) (QREFELT $ 37))
                         (SPADCALL (SPADCALL |t| (QREFELT $ 17))
                                   (QREFELT $ 25)))
                        ('T
@@ -540,8 +540,8 @@
                                   (QREFELT $ 23)))))))) 
 
 (SDEFUN |TREE;coerce;$Of;34| ((|t| $) ($ |OutputForm|))
-        (|TREE;coerce1| |t| (SPADCALL (QREFELT $ 59))
-         (SPADCALL |t| (QREFELT $ 60)) $)) 
+        (|TREE;coerce1| |t| (SPADCALL (QREFELT $ 57))
+         (SPADCALL |t| (QREFELT $ 58)) $)) 
 
 (SDEFUN |TREE;coerce1|
         ((|t| $) (|parents| |List| $) (|pl| |List| $) ($ |OutputForm|))
@@ -549,21 +549,21 @@
          ((#1=#:G315 NIL) (|br| NIL) (#2=#:G314 NIL)
           (|nodeForm| (|OutputForm|)) (|k| (|Integer|)))
          (SEQ
-          (COND ((QEQCAR |t| 1) (SPADCALL NIL (QREFELT $ 63)))
+          (COND ((QEQCAR |t| 1) (SPADCALL NIL (QREFELT $ 61)))
                 ((|TREE;eqMember?| |t| |parents| $)
-                 (|TREE;multipleOverbar| (SPADCALL "." (QREFELT $ 65))
+                 (|TREE;multipleOverbar| (SPADCALL "." (QREFELT $ 63))
                   (|TREE;eqMemberIndex| |t| |pl| 0 $) |pl| $))
-                ((SPADCALL (SPADCALL |t| (QREFELT $ 12)) (QREFELT $ 38))
-                 (SPADCALL (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 66)))
+                ((SPADCALL (SPADCALL |t| (QREFELT $ 12)) (QREFELT $ 37))
+                 (SPADCALL (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 64)))
                 ('T
                  (SEQ
                   (LETT |nodeForm|
                         (SPADCALL (SPADCALL |t| (QREFELT $ 17))
-                                  (QREFELT $ 66)))
+                                  (QREFELT $ 64)))
                   (SEQ (LETT |k| (|TREE;eqMemberIndex| |t| |pl| 0 $))
                        (EXIT
                         (COND
-                         ((SPADCALL |k| 0 (QREFELT $ 33))
+                         ((> |k| 0)
                           (LETT |nodeForm|
                                 (|TREE;multipleOverbar| |nodeForm| |k| |pl|
                                  $))))))
@@ -584,31 +584,31 @@
                                            (CONS
                                             (|TREE;coerce1| |br|
                                              (SPADCALL |t| |parents|
-                                                       (QREFELT $ 67))
+                                                       (QREFELT $ 65))
                                              |pl| $)
                                             #2#))))
                                    (LETT #1# (CDR #1#)) (GO G190) G191
                                    (EXIT (NREVERSE #2#))))
-                             (QREFELT $ 68))))))))) 
+                             (QREFELT $ 66))))))))) 
 
 (SDEFUN |TREE;multipleOverbar|
         ((|x| |OutputForm|) (|k| |Integer|) (|pl| |List| $) ($ |OutputForm|))
         (SPROG ((|c| (|Character|)) (|s| (|String|)))
                (SEQ
                 (COND ((< |k| 1) |x|)
-                      ((EQL (SPADCALL |pl| (QREFELT $ 69)) 1)
-                       (SPADCALL |x| (QREFELT $ 70)))
+                      ((EQL (SPADCALL |pl| (QREFELT $ 67)) 1)
+                       (SPADCALL |x| (QREFELT $ 68)))
                       ('T
                        (SEQ (LETT |s| "abcdefghijklmnopqrstuvwxyz")
                             (LETT |c|
                                   (SPADCALL |s| (+ 1 (REM (- |k| 1) 26))
-                                            (QREFELT $ 72)))
+                                            (QREFELT $ 70)))
                             (EXIT
-                             (SPADCALL (SPADCALL |c| (QREFELT $ 73)) |x|
-                                       (QREFELT $ 74))))))))) 
+                             (SPADCALL (SPADCALL |c| (QREFELT $ 71)) |x|
+                                       (QREFELT $ 72))))))))) 
 
 (SDEFUN |TREE;cyclic?;$B;37| ((|t| $) ($ |Boolean|))
-        (|TREE;cyclic2?| |t| (SPADCALL (QREFELT $ 59)) $)) 
+        (|TREE;cyclic2?| |t| (SPADCALL (QREFELT $ 57)) $)) 
 
 (SDEFUN |TREE;cyclic2?| ((|x| $) (|parents| |List| $) ($ |Boolean|))
         (SPROG ((#1=#:G328 NIL) (#2=#:G329 NIL) (#3=#:G330 NIL) (|y| NIL))
@@ -630,7 +630,7 @@
                                  (EXIT
                                   (COND
                                    ((|TREE;cyclic2?| |y|
-                                     (SPADCALL |x| |parents| (QREFELT $ 67)) $)
+                                     (SPADCALL |x| |parents| (QREFELT $ 65)) $)
                                     (PROGN
                                      (LETT #1#
                                            (PROGN
@@ -644,7 +644,7 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |TREE;cyclicCopy;2$;39| ((|t| $) ($ $))
-        (|TREE;cyclicCopy2| |t| (SPADCALL |t| (QREFELT $ 75)) $)) 
+        (|TREE;cyclicCopy2| |t| (SPADCALL |t| (QREFELT $ 73)) $)) 
 
 (SDEFUN |TREE;cyclicCopy2| ((|t| $) (|cycles| |List| $) ($ $))
         (SPROG ((#1=#:G336 NIL) (|c| NIL) (#2=#:G335 NIL))
@@ -706,7 +706,7 @@
                (SEQ
                 (COND
                  ((SPADCALL |cycle| (QREFELT $ 9)) (SPADCALL (QREFELT $ 10)))
-                 ((SPADCALL |t| |cycle| (QREFELT $ 77)) |newCycle|)
+                 ((SPADCALL |t| |cycle| (QREFELT $ 75)) |newCycle|)
                  ((|TREE;eqMember?| |t| |cycleList| $)
                   (|TREE;copyCycle2| |t| |cycleList| $))
                  ('T
@@ -731,8 +731,8 @@
                             (QREFELT $ 23))))))) 
 
 (SDEFUN |TREE;cyclicEntries;$L;43| ((|t| $) ($ |List| $))
-        (|TREE;cyclicEntries3| |t| (SPADCALL (QREFELT $ 59))
-         (SPADCALL (QREFELT $ 59)) $)) 
+        (|TREE;cyclicEntries3| |t| (SPADCALL (QREFELT $ 57))
+         (SPADCALL (QREFELT $ 57)) $)) 
 
 (SDEFUN |TREE;cyclicEntries3|
         ((|t| $) (|parents| |List| $) (|cl| |List| $) ($ |List| $))
@@ -744,7 +744,7 @@
                       ('T
                        (SEQ
                         (LETT |parents|
-                              (SPADCALL |t| |parents| (QREFELT $ 67)))
+                              (SPADCALL |t| |parents| (QREFELT $ 65)))
                         (SEQ (LETT |y| NIL)
                              (LETT #1# (SPADCALL |t| (QREFELT $ 12))) G190
                              (COND
@@ -760,14 +760,14 @@
 
 (SDEFUN |TREE;cyclicEqual?;2$B;45| ((|t1| $) (|t2| $) ($ |Boolean|))
         (SPROG ((|cp2| #1=(|List| $)) (|cp1| #1#))
-               (SEQ (LETT |cp1| (SPADCALL |t1| (QREFELT $ 60)))
-                    (LETT |cp2| (SPADCALL |t2| (QREFELT $ 60)))
+               (SEQ (LETT |cp1| (SPADCALL |t1| (QREFELT $ 58)))
+                    (LETT |cp2| (SPADCALL |t2| (QREFELT $ 58)))
                     (COND
                      ((OR
-                       (SPADCALL (SPADCALL |cp1| (QREFELT $ 69))
-                                 (SPADCALL |cp2| (QREFELT $ 69))
-                                 (QREFELT $ 78))
-                       (SPADCALL |cp1| (QREFELT $ 38)))
+                       (SPADCALL (SPADCALL |cp1| (QREFELT $ 67))
+                                 (SPADCALL |cp2| (QREFELT $ 67))
+                                 (QREFELT $ 76))
+                       (SPADCALL |cp1| (QREFELT $ 37)))
                       (EXIT (SPADCALL |t1| |t2| (QREFELT $ 31)))))
                     (EXIT (|TREE;cyclicEqual4?| |t1| |t2| |cp1| |cp2| $))))) 
 
@@ -783,11 +783,11 @@
                   (COND
                    ((SPADCALL 0
                               (LETT |k| (|TREE;eqMemberIndex| |t1| |cp1| 0 $))
-                              (QREFELT $ 78))
-                    (SPADCALL |t2| (SPADCALL |cp2| |k| (QREFELT $ 80))
-                              (QREFELT $ 77)))
+                              (QREFELT $ 76))
+                    (SPADCALL |t2| (SPADCALL |cp2| |k| (QREFELT $ 78))
+                              (QREFELT $ 75)))
                    ((SPADCALL (SPADCALL |t1| (QREFELT $ 17))
-                              (SPADCALL |t2| (QREFELT $ 17)) (QREFELT $ 81))
+                              (SPADCALL |t2| (QREFELT $ 17)) (QREFELT $ 79))
                     NIL)
                    (#4#
                     (SEQ
@@ -811,8 +811,8 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |TREE;cyclicParents;$L;47| ((|t| $) ($ |List| $))
-        (|TREE;cyclicParents3| |t| (SPADCALL (QREFELT $ 59))
-         (SPADCALL (QREFELT $ 59)) $)) 
+        (|TREE;cyclicParents3| |t| (SPADCALL (QREFELT $ 57))
+         (SPADCALL (QREFELT $ 57)) $)) 
 
 (SDEFUN |TREE;cyclicParents3|
         ((|x| $) (|parents| |List| $) (|pl| |List| $) ($ |List| $))
@@ -830,16 +830,16 @@
                               (COND
                                ((OR (ATOM #2#) (PROGN (LETT |y| (CAR #2#)) NIL)
                                     (NULL
-                                     (NULL (SPADCALL |x| |y| (QREFELT $ 77)))))
+                                     (NULL (SPADCALL |x| |y| (QREFELT $ 75)))))
                                 (GO G191)))
                               (SEQ (EXIT (LETT #3# (CONS |y| #3#))))
                               (LETT #2# (CDR #2#)) (GO G190) G191
                               (EXIT (NREVERSE #3#)))))
                   (EXIT
-                   (|TREE;eqUnion| (SPADCALL |x| |cycleMembers| (QREFELT $ 67))
+                   (|TREE;eqUnion| (SPADCALL |x| |cycleMembers| (QREFELT $ 65))
                     |pl| $))))
                 ('T
-                 (SEQ (LETT |parents| (SPADCALL |x| |parents| (QREFELT $ 67)))
+                 (SEQ (LETT |parents| (SPADCALL |x| |parents| (QREFELT $ 65)))
                       (SEQ (LETT |y| NIL)
                            (LETT #1# (SPADCALL |x| (QREFELT $ 12))) G190
                            (COND
@@ -855,12 +855,12 @@
 
 (SDEFUN |TREE;insert| ((|x| $) (|l| |List| $) ($ |List| $))
         (COND ((|TREE;eqMember?| |x| |l| $) |l|)
-              ('T (SPADCALL |x| |l| (QREFELT $ 67))))) 
+              ('T (SPADCALL |x| |l| (QREFELT $ 65))))) 
 
 (SDEFUN |TREE;lastNode| ((|l| |List| $) ($ |List| $))
         (SEQ
          (COND
-          ((SPADCALL |l| (QREFELT $ 38))
+          ((SPADCALL |l| (QREFELT $ 37))
            (|error| "empty tree has no last node"))
           ('T
            (SEQ
@@ -868,9 +868,9 @@
                  (COND
                   ((NULL
                     (NULL
-                     (SPADCALL (SPADCALL |l| (QREFELT $ 82)) (QREFELT $ 38))))
+                     (SPADCALL (SPADCALL |l| (QREFELT $ 80)) (QREFELT $ 37))))
                    (GO G191)))
-                 (SEQ (EXIT (LETT |l| (SPADCALL |l| (QREFELT $ 82))))) NIL
+                 (SEQ (EXIT (LETT |l| (SPADCALL |l| (QREFELT $ 80))))) NIL
                  (GO G190) G191 (EXIT NIL))
             (EXIT |l|)))))) 
 
@@ -888,7 +888,7 @@
                          (SEQ
                           (EXIT
                            (COND
-                            ((SPADCALL |x| |y| (QREFELT $ 77))
+                            ((SPADCALL |x| |y| (QREFELT $ 75))
                              (PROGN
                               (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G397)))
                               (GO #5=#:G395))))))
@@ -900,30 +900,30 @@
 (SDEFUN |TREE;eqMemberIndex|
         ((|x| $) (|l| |List| $) (|k| |Integer|) ($ |Integer|))
         (SEQ
-         (COND ((SPADCALL |l| (QREFELT $ 38)) |k|)
+         (COND ((SPADCALL |l| (QREFELT $ 37)) |k|)
                (#1='T
                 (SEQ (LETT |k| (+ |k| 1))
                      (EXIT
                       (COND
-                       ((SPADCALL |x| (SPADCALL |l| (QREFELT $ 83))
-                                  (QREFELT $ 77))
+                       ((SPADCALL |x| (SPADCALL |l| (QREFELT $ 81))
+                                  (QREFELT $ 75))
                         |k|)
                        (#1#
-                        (|TREE;eqMemberIndex| |x| (SPADCALL |l| (QREFELT $ 82))
+                        (|TREE;eqMemberIndex| |x| (SPADCALL |l| (QREFELT $ 80))
                          |k| $))))))))) 
 
 (SDEFUN |TREE;eqUnion| ((|u| |List| $) (|v| |List| $) ($ |List| $))
         (SPROG ((|newV| (|List| $)) (|x| ($)))
                (SEQ
-                (COND ((SPADCALL |u| (QREFELT $ 38)) |v|)
+                (COND ((SPADCALL |u| (QREFELT $ 37)) |v|)
                       (#1='T
-                       (SEQ (LETT |x| (SPADCALL |u| (QREFELT $ 83)))
+                       (SEQ (LETT |x| (SPADCALL |u| (QREFELT $ 81)))
                             (LETT |newV|
                                   (COND ((|TREE;eqMember?| |x| |v| $) |v|)
                                         (#1#
-                                         (SPADCALL |x| |v| (QREFELT $ 67)))))
+                                         (SPADCALL |x| |v| (QREFELT $ 65)))))
                             (EXIT
-                             (|TREE;eqUnion| (SPADCALL |u| (QREFELT $ 82))
+                             (|TREE;eqUnion| (SPADCALL |u| (QREFELT $ 80))
                               |newV| $)))))))) 
 
 (DECLAIM (NOTINLINE |Tree;|)) 
@@ -950,7 +950,7 @@
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Tree| DV$1))
-    (LETT $ (GETREFV 89))
+    (LETT $ (GETREFV 87))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -1010,32 +1010,32 @@
               |TREE;count;M$Nni;7| (|Mapping| 6 6) |TREE;map;M2$;8|
               |TREE;tree;SL$;10| |TREE;map!;M2$;9| |TREE;tree;S$;11| (|List| 6)
               |TREE;tree;L$;12| (|List| $$) (6 . |member?|)
-              |TREE;child?;2$B;14| |TREE;=;2$B;28| (|Integer|) (12 . >)
+              |TREE;child?;2$B;14| |TREE;=;2$B;28| (|Integer|)
               |TREE;distance;2$I;16| |TREE;node?;2$B;17| (|Mapping| 8 $$)
-              (18 . |any?|) (24 . |empty?|) |TREE;leaf?;$B;18| |TREE;#;$Nni;30|
-              |TREE;less?;$NniB;19| (29 . >) |TREE;more?;$NniB;20|
-              |TREE;size?;$NniB;21| |TREE;any?;M$B;22| |TREE;every?;M$B;23|
-              |TREE;member?;S$B;24| |TREE;parts;$L;26| |TREE;members;$L;25|
-              (|List| 26) (35 . =) (41 . |append|) (|HashState|)
-              (47 . |hashUpdate!|) |TREE;hashUpdate!;Hs$Hs;27|
-              |TREE;cyclic?;$B;37| (53 . =) |TREE;copy;2$;32| (59 . |empty|)
-              |TREE;cyclicParents;$L;47| (|OutputForm|) |TREE;coerce;$Of;34|
-              (63 . |coerce|) (|String|) (68 . |message|) (73 . |coerce|)
-              (78 . |cons|) (84 . |prefix|) (90 . |#|) (95 . |overbar|)
-              (|Character|) (100 . |elt|) (106 . |coerce|) (111 . |overlabel|)
-              |TREE;cyclicEntries;$L;43| |TREE;cyclicCopy;2$;39| (117 . |eq?|)
-              (123 . ~=) |TREE;cyclicEqual?;2$B;45| (129 . |elt|) (135 . ~=)
-              (141 . |rest|) (146 . |first|) (|Equation| 6) (|List| 84)
+              (12 . |any?|) (18 . |empty?|) |TREE;leaf?;$B;18| |TREE;#;$Nni;30|
+              |TREE;less?;$NniB;19| |TREE;more?;$NniB;20| |TREE;size?;$NniB;21|
+              |TREE;any?;M$B;22| |TREE;every?;M$B;23| |TREE;member?;S$B;24|
+              |TREE;parts;$L;26| |TREE;members;$L;25| (|List| 26) (23 . =)
+              (29 . |append|) (|HashState|) (35 . |hashUpdate!|)
+              |TREE;hashUpdate!;Hs$Hs;27| |TREE;cyclic?;$B;37| (41 . =)
+              |TREE;copy;2$;32| (47 . |empty|) |TREE;cyclicParents;$L;47|
+              (|OutputForm|) |TREE;coerce;$Of;34| (51 . |coerce|) (|String|)
+              (56 . |message|) (61 . |coerce|) (66 . |cons|) (72 . |prefix|)
+              (78 . |#|) (83 . |overbar|) (|Character|) (88 . |elt|)
+              (94 . |coerce|) (99 . |overlabel|) |TREE;cyclicEntries;$L;43|
+              |TREE;cyclicCopy;2$;39| (105 . |eq?|) (111 . ~=)
+              |TREE;cyclicEqual?;2$B;45| (117 . |elt|) (123 . ~=)
+              (129 . |rest|) (134 . |first|) (|Equation| 6) (|List| 82)
               (|Mapping| 8 6 6) '"value" (|SingleInteger|))
-           '#(~= 151 |value| 157 |tree| 162 |size?| 178 |setvalue!| 184
-              |setelt!| 190 |setchildren!| 197 |sample| 203 |parts| 207 |nodes|
-              212 |node?| 217 |more?| 223 |min| 229 |members| 234 |member?| 239
-              |max| 245 |map!| 256 |map| 262 |less?| 268 |leaves| 274 |leaf?|
-              279 |latex| 284 |hashUpdate!| 289 |hash| 295 |every?| 300 |eval|
-              306 |eq?| 332 |empty?| 338 |empty| 343 |elt| 347 |distance| 353
-              |cyclicParents| 359 |cyclicEqual?| 364 |cyclicEntries| 370
-              |cyclicCopy| 375 |cyclic?| 380 |count| 385 |copy| 397 |coerce|
-              402 |children| 407 |child?| 412 |any?| 418 = 424 |#| 430)
+           '#(~= 139 |value| 145 |tree| 150 |size?| 166 |setvalue!| 172
+              |setelt!| 178 |setchildren!| 185 |sample| 191 |parts| 195 |nodes|
+              200 |node?| 205 |more?| 211 |min| 217 |members| 222 |member?| 227
+              |max| 233 |map!| 244 |map| 250 |less?| 256 |leaves| 262 |leaf?|
+              267 |latex| 272 |hashUpdate!| 277 |hash| 283 |every?| 288 |eval|
+              294 |eq?| 320 |empty?| 326 |empty| 331 |elt| 335 |distance| 341
+              |cyclicParents| 347 |cyclicEqual?| 352 |cyclicEntries| 358
+              |cyclicCopy| 363 |cyclic?| 368 |count| 373 |copy| 385 |coerce|
+              390 |children| 395 |child?| 400 |any?| 406 = 412 |#| 418)
            'NIL
            (CONS (|makeByteWordVec2| 7 '(0 0 0 2 1 0 0 0 2 5 7))
                  (CONS
@@ -1046,33 +1046,32 @@
                    '#((|RecursiveAggregate| 6) (|HomogeneousAggregate| 6)
                       (|Aggregate|) (|Evalable| 6) (|SetCategory|) (|Type|)
                       (|shallowlyMutable|) (|finiteAggregate|)
-                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 61))
-                   (|makeByteWordVec2| 88
-                                       '(2 6 8 0 0 18 2 28 8 2 0 29 2 32 8 0 0
-                                         33 2 28 8 36 0 37 1 28 8 0 38 2 15 8 0
-                                         0 42 2 50 8 0 0 51 2 26 0 0 0 52 2 6
-                                         53 53 0 54 2 28 8 0 0 57 0 28 0 59 1
-                                         26 61 0 63 1 61 0 64 65 1 6 61 0 66 2
-                                         28 0 2 0 67 2 61 0 0 11 68 1 28 15 0
-                                         69 1 61 0 0 70 2 64 71 0 32 72 1 71 61
-                                         0 73 2 61 0 0 0 74 2 0 8 0 0 77 2 32 8
-                                         0 0 78 2 28 2 0 32 80 2 6 8 0 0 81 1
-                                         28 0 0 82 1 28 2 0 83 2 11 8 0 0 1 1 0
-                                         6 0 17 1 0 0 26 27 1 0 0 6 25 2 0 0 6
-                                         11 23 2 0 8 0 15 44 2 12 6 0 6 14 3 12
-                                         6 0 87 6 1 2 12 0 0 11 13 0 0 0 1 1 8
-                                         26 0 48 1 0 11 0 1 2 4 8 0 0 35 2 0 8
-                                         0 15 43 1 9 6 0 1 1 8 26 0 49 2 10 8 6
-                                         0 47 1 9 6 0 1 2 8 6 86 0 1 2 12 0 21
-                                         0 24 2 0 0 21 0 22 2 0 8 0 15 41 1 0
-                                         26 0 1 1 0 8 0 39 1 1 64 0 1 2 1 53 53
-                                         0 55 1 1 88 0 1 2 8 8 19 0 46 3 2 0 0
-                                         6 6 1 3 2 0 0 26 26 1 2 2 0 0 84 1 2 2
-                                         0 0 85 1 2 0 8 0 0 77 1 0 8 0 9 0 0 0
-                                         10 2 0 6 0 87 1 2 0 32 0 0 34 1 0 11 0
-                                         60 2 0 8 0 0 79 1 0 11 0 75 1 0 0 0 76
-                                         1 0 8 0 56 2 10 15 6 0 16 2 8 15 19 0
-                                         20 1 0 0 0 58 1 6 61 0 62 1 0 11 0 12
-                                         2 4 8 0 0 30 2 8 8 19 0 45 2 11 8 0 0
-                                         31 1 8 15 0 40)))))
+                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 59))
+                   (|makeByteWordVec2| 86
+                                       '(2 6 8 0 0 18 2 28 8 2 0 29 2 28 8 35 0
+                                         36 1 28 8 0 37 2 48 8 0 0 49 2 26 0 0
+                                         0 50 2 6 51 51 0 52 2 28 8 0 0 55 0 28
+                                         0 57 1 26 59 0 61 1 59 0 62 63 1 6 59
+                                         0 64 2 28 0 2 0 65 2 59 0 0 11 66 1 28
+                                         15 0 67 1 59 0 0 68 2 62 69 0 32 70 1
+                                         69 59 0 71 2 59 0 0 0 72 2 0 8 0 0 75
+                                         2 32 8 0 0 76 2 28 2 0 32 78 2 6 8 0 0
+                                         79 1 28 0 0 80 1 28 2 0 81 2 11 8 0 0
+                                         1 1 0 6 0 17 1 0 0 26 27 1 0 0 6 25 2
+                                         0 0 6 11 23 2 0 8 0 15 42 2 12 6 0 6
+                                         14 3 12 6 0 85 6 1 2 12 0 0 11 13 0 0
+                                         0 1 1 8 26 0 46 1 0 11 0 1 2 4 8 0 0
+                                         34 2 0 8 0 15 41 1 9 6 0 1 1 8 26 0 47
+                                         2 10 8 6 0 45 1 9 6 0 1 2 8 6 84 0 1 2
+                                         12 0 21 0 24 2 0 0 21 0 22 2 0 8 0 15
+                                         40 1 0 26 0 1 1 0 8 0 38 1 1 62 0 1 2
+                                         1 51 51 0 53 1 1 86 0 1 2 8 8 19 0 44
+                                         3 2 0 0 6 6 1 3 2 0 0 26 26 1 2 2 0 0
+                                         82 1 2 2 0 0 83 1 2 0 8 0 0 75 1 0 8 0
+                                         9 0 0 0 10 2 0 6 0 85 1 2 0 32 0 0 33
+                                         1 0 11 0 58 2 0 8 0 0 77 1 0 11 0 73 1
+                                         0 0 0 74 1 0 8 0 54 2 10 15 6 0 16 2 8
+                                         15 19 0 20 1 0 0 0 56 1 6 59 0 60 1 0
+                                         11 0 12 2 4 8 0 0 30 2 8 8 19 0 43 2
+                                         11 8 0 0 31 1 8 15 0 39)))))
            '|lookupComplete|)) 

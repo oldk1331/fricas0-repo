@@ -53,8 +53,7 @@
               (LETT |n| (QVSIZE (SPADCALL A (QREFELT $ 18))))
               (COND
                ((OR (< (SPADCALL |mp| (QREFELT $ 27)) 1)
-                    (SPADCALL (SPADCALL |mp| (QREFELT $ 28)) |n|
-                              (QREFELT $ 29)))
+                    (> (SPADCALL |mp| (QREFELT $ 28)) |n|))
                 (|error| "Permutation out of range")))
               (LETT |newindices|
                     (SPADCALL
@@ -67,8 +66,8 @@
                              (LETT #4#
                                    (CONS
                                     (SPADCALL (SPADCALL A (QREFELT $ 18))
-                                              (SPADCALL |p| |i| (QREFELT $ 30))
-                                              (QREFELT $ 31))
+                                              (SPADCALL |p| |i| (QREFELT $ 29))
+                                              (QREFELT $ 30))
                                     #4#))))
                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                            (EXIT (NREVERSE #4#))))
@@ -81,27 +80,27 @@
                           (SEQ
                            (EXIT
                             (LETT #2#
-                                  (CONS (SPADCALL |p| |i| (QREFELT $ 30))
+                                  (CONS (SPADCALL |p| |i| (QREFELT $ 29))
                                         #2#))))
                           (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                           (EXIT (NREVERSE #2#)))))
               (LETT |newA|
                     (SPADCALL (SPADCALL A (QREFELT $ 19)) |indic| |indic|
-                              (QREFELT $ 33)))
+                              (QREFELT $ 32)))
               (EXIT (CONS |newA| |newindices|))))) 
 
 (SDEFUN |INCALG;coerce;$Of;8| ((A $) ($ |OutputForm|))
         (SPADCALL
-         (LIST (SPADCALL (SPADCALL A (QREFELT $ 19)) (QREFELT $ 36))
-               (SPADCALL (SPADCALL A (QREFELT $ 18)) (QREFELT $ 37)))
-         (QREFELT $ 39))) 
+         (LIST (SPADCALL (SPADCALL A (QREFELT $ 19)) (QREFELT $ 35))
+               (SPADCALL (SPADCALL A (QREFELT $ 18)) (QREFELT $ 36)))
+         (QREFELT $ 38))) 
 
 (SDEFUN |INCALG;=;2$B;9| ((A1 $) (A2 $) ($ |Boolean|))
         (COND
          ((SPADCALL (SPADCALL A1 (QREFELT $ 18)) (SPADCALL A2 (QREFELT $ 18))
-                    (QREFELT $ 41))
+                    (QREFELT $ 40))
           (SPADCALL (SPADCALL A1 (QREFELT $ 19)) (SPADCALL A2 (QREFELT $ 19))
-                    (QREFELT $ 42)))
+                    (QREFELT $ 41)))
          ('T NIL))) 
 
 (SDEFUN |INCALG;+;3$;10| ((A $) (B $) ($ $))
@@ -111,11 +110,11 @@
          (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
               (LETT |Bind| (SPADCALL B (QREFELT $ 18)))
               (COND
-               ((SPADCALL |Aind| |Bind| (QREFELT $ 44))
+               ((SPADCALL |Aind| |Bind| (QREFELT $ 43))
                 (|error| "incompatible indices")))
               (LETT |Ci|
                     (SPADCALL (SPADCALL A (QREFELT $ 19))
-                              (SPADCALL B (QREFELT $ 19)) (QREFELT $ 45)))
+                              (SPADCALL B (QREFELT $ 19)) (QREFELT $ 44)))
               (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
 (SDEFUN |INCALG;*;3$;11| ((A $) (B $) ($ $))
@@ -125,11 +124,11 @@
          (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
               (LETT |Bind| (SPADCALL B (QREFELT $ 18)))
               (COND
-               ((SPADCALL |Aind| |Bind| (QREFELT $ 44))
+               ((SPADCALL |Aind| |Bind| (QREFELT $ 43))
                 (|error| "incompatible indices")))
               (LETT |Ci|
                     (SPADCALL (SPADCALL A (QREFELT $ 19))
-                              (SPADCALL B (QREFELT $ 19)) (QREFELT $ 47)))
+                              (SPADCALL B (QREFELT $ 19)) (QREFELT $ 46)))
               (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
 (SDEFUN |INCALG;*;R2$;12| ((|r| R) (A $) ($ $))
@@ -137,7 +136,7 @@
                (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
                     (LETT |Ci|
                           (SPADCALL |r| (SPADCALL A (QREFELT $ 19))
-                                    (QREFELT $ 49)))
+                                    (QREFELT $ 48)))
                     (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
 (SDEFUN |INCALG;*;$R$;13| ((A $) (|r| R) ($ $))
@@ -145,7 +144,7 @@
                (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
                     (LETT |Ci|
                           (SPADCALL (SPADCALL A (QREFELT $ 19)) |r|
-                                    (QREFELT $ 51)))
+                                    (QREFELT $ 50)))
                     (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
 (SDEFUN |INCALG;^;$Nni$;14| ((A $) (|n| |NonNegativeInteger|) ($ $))
@@ -153,7 +152,7 @@
                (SEQ (LETT |Aind| (SPADCALL A (QREFELT $ 18)))
                     (LETT |Ci|
                           (SPADCALL (SPADCALL A (QREFELT $ 19)) |n|
-                                    (QREFELT $ 54)))
+                                    (QREFELT $ 53)))
                     (EXIT (SPADCALL |Ci| |Aind| (QREFELT $ 14)))))) 
 
 (DECLAIM (NOTINLINE |IncidenceAlgebra;|)) 
@@ -183,7 +182,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|IncidenceAlgebra| DV$1 DV$2))
-          (LETT $ (GETREFV 59))
+          (LETT $ (GETREFV 58))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|IncidenceAlgebra| (LIST DV$1 DV$2)
@@ -207,37 +206,37 @@
               |INCALG;matrix;$M;4| (11 . |elt|) |INCALG;apply;$2IR;5|
               (18 . |position|) |INCALG;apply;$2SR;6| (|Set| 10)
               (|Permutation| 10) (24 . |movedPoints|) (29 . |min|) (34 . |max|)
-              (39 . >) (45 . |eval|) (51 . |elt|) (|List| 10) (57 . |elt|)
-              |INCALG;*;P2$;7| (|OutputForm|) (64 . |coerce|) (69 . |coerce|)
-              (|List| $) (74 . |bracket|) |INCALG;coerce;$Of;8| (79 . =)
-              (85 . =) |INCALG;=;2$B;9| (91 . ~=) (97 . +) |INCALG;+;3$;10|
-              (103 . *) |INCALG;*;3$;11| (109 . *) |INCALG;*;R2$;12| (115 . *)
-              |INCALG;*;$R$;13| (|NonNegativeInteger|) (121 . ^)
+              (39 . |eval|) (45 . |elt|) (|List| 10) (51 . |elt|)
+              |INCALG;*;P2$;7| (|OutputForm|) (58 . |coerce|) (63 . |coerce|)
+              (|List| $) (68 . |bracket|) |INCALG;coerce;$Of;8| (73 . =)
+              (79 . =) |INCALG;=;2$B;9| (85 . ~=) (91 . +) |INCALG;+;3$;10|
+              (97 . *) |INCALG;*;3$;11| (103 . *) |INCALG;*;R2$;12| (109 . *)
+              |INCALG;*;$R$;13| (|NonNegativeInteger|) (115 . ^)
               |INCALG;^;$Nni$;14| (|String|) (|SingleInteger|) (|HashState|))
-           '#(~= 127 |matrix| 133 |latex| 138 |indices| 143 |incidenceAlgebra|
-              148 |hashUpdate!| 160 |hash| 166 |coerce| 171 |apply| 176 ^ 190 =
-              196 + 202 * 208)
+           '#(~= 121 |matrix| 127 |latex| 132 |indices| 137 |incidenceAlgebra|
+              142 |hashUpdate!| 154 |hash| 160 |coerce| 165 |apply| 170 ^ 184 =
+              190 + 196 * 202)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 35))
-                        (|makeByteWordVec2| 58
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 34))
+                        (|makeByteWordVec2| 57
                                             '(2 10 9 0 0 11 1 13 0 15 16 3 12 6
                                               0 10 10 20 2 13 10 7 0 22 1 25 24
                                               0 26 1 24 10 0 27 1 24 10 0 28 2
-                                              10 9 0 0 29 2 25 10 0 10 30 2 13
-                                              7 0 10 31 3 12 0 0 32 32 33 1 12
-                                              35 0 36 1 13 35 0 37 1 35 0 38 39
-                                              2 13 9 0 0 41 2 12 9 0 0 42 2 13
-                                              9 0 0 44 2 12 0 0 0 45 2 12 0 0 0
-                                              47 2 12 0 6 0 49 2 12 0 0 6 51 2
-                                              12 0 0 53 54 2 0 9 0 0 1 1 0 12 0
-                                              19 1 0 56 0 1 1 0 13 0 18 2 0 0
-                                              12 13 14 2 0 0 12 15 17 2 0 58 58
-                                              0 1 1 0 57 0 1 1 0 35 0 40 3 0 6
-                                              0 7 7 23 3 0 6 0 10 10 21 2 0 0 0
-                                              53 55 2 0 9 0 0 43 2 0 0 0 0 46 2
-                                              0 0 0 6 52 2 0 0 0 0 48 2 0 0 6 0
-                                              50 2 0 0 25 0 34)))))
+                                              25 10 0 10 29 2 13 7 0 10 30 3 12
+                                              0 0 31 31 32 1 12 34 0 35 1 13 34
+                                              0 36 1 34 0 37 38 2 13 9 0 0 40 2
+                                              12 9 0 0 41 2 13 9 0 0 43 2 12 0
+                                              0 0 44 2 12 0 0 0 46 2 12 0 6 0
+                                              48 2 12 0 0 6 50 2 12 0 0 52 53 2
+                                              0 9 0 0 1 1 0 12 0 19 1 0 55 0 1
+                                              1 0 13 0 18 2 0 0 12 13 14 2 0 0
+                                              12 15 17 2 0 57 57 0 1 1 0 56 0 1
+                                              1 0 34 0 39 3 0 6 0 7 7 23 3 0 6
+                                              0 10 10 21 2 0 0 0 52 54 2 0 9 0
+                                              0 42 2 0 0 0 0 45 2 0 0 0 6 51 2
+                                              0 0 0 0 47 2 0 0 6 0 49 2 0 0 25
+                                              0 33)))))
            '|lookupComplete|)) 

@@ -77,9 +77,7 @@
                       ((OR (ATOM #5#) (PROGN (LETT |lfi| (CAR #5#)) NIL))
                        (GO G191)))
                      (SEQ
-                      (LETT |nn|
-                            (COND ((SPADCALL |n| 0 (QREFELT $ 33)) |n|)
-                                  ('T (LENGTH |lfi|))))
+                      (LETT |nn| (COND ((> |n| 0) |n|) ('T (LENGTH |lfi|))))
                       (LETT |pa| (GETREFV_U32 |nn| 0))
                       (SEQ (LETT |el| NIL) (LETT #4# |lfi|) (LETT |j| 0)
                            (LETT #3# (- |nn| 1)) G190
@@ -89,11 +87,11 @@
                              (GO G191)))
                            (SEQ
                             (LETT |nm|
-                                  (SPADCALL (SPADCALL |el| (QREFELT $ 34))
-                                            |prime| (QREFELT $ 35)))
+                                  (SPADCALL (SPADCALL |el| (QREFELT $ 33))
+                                            |prime| (QREFELT $ 34)))
                             (LETT |dm|
-                                  (SPADCALL (SPADCALL |el| (QREFELT $ 36))
-                                            |prime| (QREFELT $ 35)))
+                                  (SPADCALL (SPADCALL |el| (QREFELT $ 35))
+                                            |prime| (QREFELT $ 34)))
                             (EXIT
                              (COND
                               ((EQL |dm| 0)
@@ -105,7 +103,7 @@
                                     (LETT |nlc|
                                           (QSMULMOD32 |nm|
                                                       (SPADCALL |dms| |prime|
-                                                                (QREFELT $ 38))
+                                                                (QREFELT $ 37))
                                                       |prime|))
                                     (EXIT (SETELT_U32 |pa| |j| |nlc|)))))))
                            (LETT |j|
@@ -141,11 +139,11 @@
                                  (GO G191)))
                                (SEQ
                                 (LETT |nm|
-                                      (SPADCALL (SPADCALL |el| (QREFELT $ 43))
+                                      (SPADCALL (SPADCALL |el| (QREFELT $ 42))
                                                 |vars| |pts| |prime|
                                                 (QREFELT $ 26)))
                                 (LETT |dm|
-                                      (SPADCALL (SPADCALL |el| (QREFELT $ 44))
+                                      (SPADCALL (SPADCALL |el| (QREFELT $ 43))
                                                 |vars| |pts| |prime|
                                                 (QREFELT $ 26)))
                                 (EXIT
@@ -161,7 +159,7 @@
                                                           (SPADCALL |dms|
                                                                     |prime|
                                                                     (QREFELT $
-                                                                             38))
+                                                                             37))
                                                           |prime|))
                                         (EXIT (SETELT_U32 |pa| |j| |nlc|)))))))
                                (LETT |j|
@@ -183,15 +181,15 @@
          (SEQ (LETT |pa| (GETREFV_U32 |sigma| 0)) (LETT |prime| |psi|)
               (SEQ G190
                    (COND
-                    ((NULL (NULL (SPADCALL |pfi| (QREFELT $ 47)))) (GO G191)))
-                   (SEQ (LETT |m| (SPADCALL |pfi| (QREFELT $ 48)))
+                    ((NULL (NULL (SPADCALL |pfi| (QREFELT $ 46)))) (GO G191)))
+                   (SEQ (LETT |m| (SPADCALL |pfi| (QREFELT $ 47)))
                         (COND
                          ((< |m| |sigma|)
-                          (SEQ (LETT |nlcq| (SPADCALL |pfi| (QREFELT $ 49)))
+                          (SEQ (LETT |nlcq| (SPADCALL |pfi| (QREFELT $ 48)))
                                (LETT |nc|
-                                     (SPADCALL |nlcq| |prime| (QREFELT $ 35)))
+                                     (SPADCALL |nlcq| |prime| (QREFELT $ 34)))
                                (EXIT (SETELT_U32 |pa| |m| |nc|)))))
-                        (EXIT (LETT |pfi| (SPADCALL |pfi| (QREFELT $ 50)))))
+                        (EXIT (LETT |pfi| (SPADCALL |pfi| (QREFELT $ 49)))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (CONS 0 |pa|))))) 
 
@@ -231,7 +229,7 @@
 (SDEFUN |MODHP;intpoly_to_PFI|
         ((|p| |SparseUnivariatePolynomial| (|Integer|))
          ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-        (SPADCALL (ELT $ 51) |p| (QREFELT $ 55))) 
+        (SPADCALL (ELT $ 50) |p| (QREFELT $ 54))) 
 
 (SDEFUN |MODHP;check_sol1a;VLM3IUv;9|
         ((|nres| |Vector| (|U32Vector|)) (|gv0| |List| (|U32Vector|))
@@ -249,9 +247,9 @@
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
                    (SEQ
                     (EXIT
-                     (SPADCALL (SPADCALL |gvp| |i| (QREFELT $ 56))
-                               (SPADCALL |nres| |i| (QREFELT $ 56)) |res|
-                               (- |sigma| 1) |p| (QREFELT $ 59))))
+                     (SPADCALL (SPADCALL |gvp| |i| (QREFELT $ 55))
+                               (SPADCALL |nres| |i| (QREFELT $ 55)) |res|
+                               (- |sigma| 1) |p| (QREFELT $ 58))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
@@ -315,7 +313,7 @@
                   (EXIT (CONS 1 'T))))
                 (LETT |m| (LENGTH |degs|))
                 (LETT |degs_sum|
-                      (+ (SPADCALL (ELT $ 63) |degs| (QREFELT $ 65)) |m|))
+                      (+ (SPADCALL (ELT $ 62) |degs| (QREFELT $ 64)) |m|))
                 (LETT |ve|
                       (SPADCALL
                        (PROGN
@@ -328,7 +326,7 @@
                              (SEQ (EXIT (LETT #29# (CONS |d| #29#))))
                              (LETT #28# (CDR #28#)) (GO G190) G191
                              (EXIT (NREVERSE #29#))))
-                       (QREFELT $ 67)))
+                       (QREFELT $ 66)))
                 (LETT |pts|
                       (COND ((EQUAL |kind| '|diffHP|) (GETREFV_U32 0 0))
                             ('T
@@ -365,10 +363,10 @@
                                (SEQ
                                 (LETT |prime|
                                       (SPADCALL (+ (RANDOM 2000000) 2000000)
-                                                (QREFELT $ 70)))
+                                                (QREFELT $ 69)))
                                 (EXIT
                                  (COND
-                                  ((SPADCALL |prime| |lp| (QREFELT $ 71))
+                                  ((SPADCALL |prime| |lp| (QREFELT $ 70))
                                    "iterate")
                                   ('T
                                    (SEQ (LETT |lp| (CONS |prime| |lp|))
@@ -380,10 +378,10 @@
                             (|ok|
                              (SEQ (LETT |nprimes| (+ |nprimes| 1))
                                   (LETT |psi|
-                                        (SPADCALL |prime| (QREFELT $ 72)))
+                                        (SPADCALL |prime| (QREFELT $ 71)))
                                   (LETT |gv0p|
                                         (SPADCALL |list| 0 |psi|
-                                                  (QREFELT $ 41)))
+                                                  (QREFELT $ 40)))
                                   (EXIT
                                    (COND ((QEQCAR |gv0p| 1) "iterate")
                                          ('T
@@ -395,7 +393,7 @@
                                                      (SPADCALL |gv2| |ve|
                                                                |sigma| |pts|
                                                                |prime| |kind|
-                                                               (QREFELT $ 77)))
+                                                               (QREFELT $ 76)))
                                                (EXIT
                                                 (COND
                                                  ((QEQCAR |blr| 1)
@@ -411,9 +409,7 @@
                                                          (QVELT |rblr| 2))
                                                    (EXIT
                                                     (COND
-                                                     ((SPADCALL (QVSIZE |va|)
-                                                                |nsols|
-                                                                (QREFELT $ 33))
+                                                     ((> (QVSIZE |va|) |nsols|)
                                                       "iterate")
                                                      ('T
                                                       (SEQ (LETT |is_bad| NIL)
@@ -442,12 +438,12 @@
                                                                      (SPADCALL
                                                                       |va| |i|
                                                                       (QREFELT
-                                                                       $ 78))
+                                                                       $ 77))
                                                                      (SPADCALL
                                                                       |oldva|
                                                                       |i|
                                                                       (QREFELT
-                                                                       $ 78)))
+                                                                       $ 77)))
                                                                     (SEQ
                                                                      (LETT
                                                                       |all_bad|
@@ -459,18 +455,16 @@
                                                                         |$NoValue|)
                                                                        (GO
                                                                         #32=#:G237)))))
-                                                                   ((SPADCALL
+                                                                   ((>
                                                                      (SPADCALL
                                                                       |va| |i|
                                                                       (QREFELT
-                                                                       $ 78))
+                                                                       $ 77))
                                                                      (SPADCALL
                                                                       |oldva|
                                                                       |i|
                                                                       (QREFELT
-                                                                       $ 78))
-                                                                     (QREFELT $
-                                                                              33))
+                                                                       $ 77)))
                                                                     (SEQ
                                                                      (LETT
                                                                       |is_bad|
@@ -486,12 +480,12 @@
                                                                      (SPADCALL
                                                                       |civ| |i|
                                                                       (QREFELT
-                                                                       $ 78))
+                                                                       $ 77))
                                                                      (SPADCALL
                                                                       |oldciv|
                                                                       |i|
                                                                       (QREFELT
-                                                                       $ 78)))
+                                                                       $ 77)))
                                                                     (SEQ
                                                                      (LETT
                                                                       |all_bad|
@@ -503,18 +497,16 @@
                                                                         |$NoValue|)
                                                                        (GO
                                                                         #32#)))))
-                                                                   ((SPADCALL
+                                                                   ((>
                                                                      (SPADCALL
                                                                       |civ| |i|
                                                                       (QREFELT
-                                                                       $ 78))
+                                                                       $ 77))
                                                                      (SPADCALL
                                                                       |oldciv|
                                                                       |i|
                                                                       (QREFELT
-                                                                       $ 78))
-                                                                     (QREFELT $
-                                                                              33))
+                                                                       $ 77)))
                                                                     (SEQ
                                                                      (LETT
                                                                       |is_bad|
@@ -556,10 +548,10 @@
                                                                     (* |nsols|
                                                                        |degs_sum|)
                                                                     (QREFELT $
-                                                                             80)))
+                                                                             79)))
                                                                   (LETT |rv|
                                                                         (GETREFV_U32
-                                                                         (SPADCALL
+                                                                         (*
                                                                           (PROG1
                                                                               (LETT
                                                                                #20#
@@ -571,10 +563,7 @@
                                                                              '(|PositiveInteger|)
                                                                              '(|Integer|)
                                                                              #20#))
-                                                                          |degs_sum|
-                                                                          (QREFELT
-                                                                           $
-                                                                           82))
+                                                                          |degs_sum|)
                                                                          0))
                                                                   (EXIT
                                                                    (LETT
@@ -587,24 +576,24 @@
                                                                    |nprimes|
                                                                    100
                                                                    (QREFELT $
-                                                                            35))
+                                                                            34))
                                                                   0)
                                                                  (SEQ
                                                                   (SPADCALL
                                                                    (SPADCALL
                                                                     "number of primes"
                                                                     (QREFELT $
-                                                                             85))
+                                                                             82))
                                                                    (QREFELT $
-                                                                            87))
+                                                                            84))
                                                                   (EXIT
                                                                    (SPADCALL
                                                                     (SPADCALL
                                                                      |nprimes|
                                                                      (QREFELT $
-                                                                              88))
+                                                                              85))
                                                                     (QREFELT $
-                                                                             87))))))
+                                                                             84))))))
                                                                (SEQ
                                                                 (LETT |i| 1)
                                                                 (LETT #18#
@@ -633,7 +622,7 @@
                                                                            |j|
                                                                            (QREFELT
                                                                             $
-                                                                            78)))
+                                                                            77)))
                                                                     (LETT |cp|
                                                                           (SPADCALL
                                                                            |bm|
@@ -641,7 +630,7 @@
                                                                            |j|
                                                                            (QREFELT
                                                                             $
-                                                                            90)))
+                                                                            87)))
                                                                     (EXIT
                                                                      (SEQ
                                                                       (LETT |l|
@@ -692,7 +681,7 @@
                                                                          |rstate|
                                                                          (QREFELT
                                                                           $
-                                                                          91))
+                                                                          88))
                                                                (COND
                                                                 (|empty_offsets|
                                                                  (SEQ
@@ -726,7 +715,7 @@
                                                                      |offsets|
                                                                      |i| |j|
                                                                      (QREFELT $
-                                                                              92))
+                                                                              89))
                                                                     (EXIT
                                                                      (LETT |j|
                                                                            (+
@@ -747,7 +736,7 @@
                                                                       |rstate|
                                                                       |offsets|
                                                                       (QREFELT
-                                                                       $ 94)))
+                                                                       $ 91)))
                                                                (EXIT
                                                                 (COND
                                                                  ((QEQCAR |pp|
@@ -801,7 +790,7 @@
                                                                          |m|
                                                                          (|spadConstant|
                                                                           $
-                                                                          95)))
+                                                                          92)))
                                                                        (SEQ
                                                                         (LETT
                                                                          |j| 1)
@@ -823,12 +812,12 @@
                                                                            |j|
                                                                            (QREFELT
                                                                             $
-                                                                            78)))
+                                                                            77)))
                                                                          (LETT
                                                                           |s|
                                                                           (|spadConstant|
                                                                            $
-                                                                           95))
+                                                                           92))
                                                                          (SEQ
                                                                           (LETT
                                                                            |l|
@@ -855,10 +844,10 @@
                                                                               |l|
                                                                               (QREFELT
                                                                                $
-                                                                               96))
+                                                                               93))
                                                                              (QREFELT
                                                                               $
-                                                                              97)))
+                                                                              94)))
                                                                            (EXIT
                                                                             (LETT
                                                                              |k|
@@ -881,7 +870,7 @@
                                                                            |s|
                                                                            (QREFELT
                                                                             $
-                                                                            98))))
+                                                                            95))))
                                                                         (LETT
                                                                          |j|
                                                                          (|inc_SI|
@@ -898,7 +887,7 @@
                                                                           |resvi|
                                                                           (QREFELT
                                                                            $
-                                                                           100))
+                                                                           97))
                                                                          |check|))
                                                                        (EXIT
                                                                         (COND
@@ -928,7 +917,7 @@
                                                                             |resvi|
                                                                             (QREFELT
                                                                              $
-                                                                             102))
+                                                                             99))
                                                                            (EXIT
                                                                             (LETT
                                                                              |ii|
@@ -967,7 +956,7 @@
                                                                             #7#))
                                                                          (|spadConstant|
                                                                           $
-                                                                          95)))
+                                                                          92)))
                                                                        (SEQ
                                                                         (LETT
                                                                          |i| 1)
@@ -1011,14 +1000,14 @@
                                                                                 |i|
                                                                                 (QREFELT
                                                                                  $
-                                                                                 103))
+                                                                                 100))
                                                                                |l|
                                                                                (QREFELT
                                                                                 $
                                                                                 9))
                                                                               (QREFELT
                                                                                $
-                                                                               105))))
+                                                                               102))))
                                                                            (LETT
                                                                             |l|
                                                                             (|inc_SI|
@@ -1072,16 +1061,16 @@
                            (LETT |res|
                                  (SPADCALL |res|
                                            (SPADCALL
-                                            (SPADCALL |p| (QREFELT $ 43))
-                                            (QREFELT $ 110))
-                                           (QREFELT $ 111)))
+                                            (SPADCALL |p| (QREFELT $ 42))
+                                            (QREFELT $ 107))
+                                           (QREFELT $ 108)))
                            (EXIT
                             (LETT |res|
                                   (SPADCALL |res|
                                             (SPADCALL
-                                             (SPADCALL |p| (QREFELT $ 44))
-                                             (QREFELT $ 110))
-                                            (QREFELT $ 111)))))
+                                             (SPADCALL |p| (QREFELT $ 43))
+                                             (QREFELT $ 107))
+                                            (QREFELT $ 108)))))
                           (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
@@ -1098,7 +1087,7 @@
           (|k| NIL) (#4=#:G333 NIL) (|var| NIL) (|j| (|Integer|))
           (#5=#:G318 NIL) (|jj| (|Integer|)) (#6=#:G331 NIL) (|i0| NIL)
           (|nn| (|NonNegativeInteger|)) (|nvars| (|NonNegativeInteger|)))
-         (SEQ (LETT |res| (|spadConstant| $ 112))
+         (SEQ (LETT |res| (|spadConstant| $ 109))
               (LETT |nvars| (LENGTH |vars|)) (LETT |nn| (+ |nvars| 1))
               (LETT |vars| (REVERSE |vars|)) (LETT |j| -1)
               (LETT |i| (* |lo| |nn|))
@@ -1113,7 +1102,7 @@
                           ('T
                            (SEQ
                             (COND
-                             ((SPADCALL |jj| |j| (QREFELT $ 33))
+                             ((> |jj| |j|)
                               (SEQ
                                (COND
                                 ((>= |j| 0)
@@ -1127,13 +1116,13 @@
                                                               '(|NonNegativeInteger|)
                                                               '(|Integer|)
                                                               #5#))
-                                                           (QREFELT $ 113))
-                                                 (QREFELT $ 114)))))
+                                                           (QREFELT $ 110))
+                                                 (QREFELT $ 111)))))
                                (LETT |j| |jj|)
-                               (EXIT (LETT |term| (|spadConstant| $ 115))))))
+                               (EXIT (LETT |term| (|spadConstant| $ 112))))))
                             (LETT |term1|
                                   (SPADCALL (QAREF1 |coeffs| |i0|)
-                                            (QREFELT $ 116)))
+                                            (QREFELT $ 113)))
                             (SEQ (LETT |var| NIL) (LETT #4# |vars|)
                                  (LETT |k| 1) (LETT #3# |nvars|) G190
                                  (COND
@@ -1145,7 +1134,7 @@
                                    (LETT |term1|
                                          (SPADCALL |term1|
                                                    (SPADCALL
-                                                    (|spadConstant| $ 117)
+                                                    (|spadConstant| $ 114)
                                                     |var|
                                                     (PROG1
                                                         (LETT #2#
@@ -1156,14 +1145,14 @@
                                                        (>= #2# 0)
                                                        '(|NonNegativeInteger|)
                                                        '(|Integer|) #2#))
-                                                    (QREFELT $ 118))
-                                                   (QREFELT $ 119)))))
+                                                    (QREFELT $ 115))
+                                                   (QREFELT $ 116)))))
                                  (LETT |k|
                                        (PROG1 (|inc_SI| |k|)
                                          (LETT #4# (CDR #4#))))
                                  (GO G190) G191 (EXIT NIL))
                             (LETT |term|
-                                  (SPADCALL |term1| |term| (QREFELT $ 120)))
+                                  (SPADCALL |term1| |term| (QREFELT $ 117)))
                             (EXIT (LETT |i| (+ |i| |nn|))))))))
                    (LETT |i0| (+ |i0| 1)) (GO G190) G191 (EXIT NIL))
               (COND
@@ -1176,15 +1165,15 @@
                                                               '(|NonNegativeInteger|)
                                                               '(|Integer|)
                                                               #1#))
-                                          (QREFELT $ 113))
-                                (QREFELT $ 114)))))
+                                          (QREFELT $ 110))
+                                (QREFELT $ 111)))))
               (EXIT |res|)))) 
 
 (SDEFUN |MODHP;intpoly_to_PFPI|
         ((|p| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
          ($ |SparseUnivariatePolynomial|
           (|Fraction| (|Polynomial| (|Integer|)))))
-        (SPADCALL (ELT $ 124) |p| (QREFELT $ 128))) 
+        (SPADCALL (ELT $ 121) |p| (QREFELT $ 125))) 
 
 (SDEFUN |MODHP;PFPI_to_PFI|
         ((|p| |SparseUnivariatePolynomial|
@@ -1195,18 +1184,18 @@
           (|iq| (|Fraction| (|Integer|)))
           (|q| (|Fraction| (|Polynomial| (|Integer|))))
           (|m| (|NonNegativeInteger|)))
-         (SEQ (LETT |res| (|spadConstant| $ 68))
+         (SEQ (LETT |res| (|spadConstant| $ 67))
               (SEQ G190
                    (COND
-                    ((NULL (NULL (SPADCALL |p| (QREFELT $ 129)))) (GO G191)))
-                   (SEQ (LETT |m| (SPADCALL |p| (QREFELT $ 130)))
-                        (LETT |q| (SPADCALL |p| (QREFELT $ 131)))
-                        (LETT |p| (SPADCALL |p| (QREFELT $ 132)))
-                        (LETT |iq| (SPADCALL |q| (QREFELT $ 133)))
+                    ((NULL (NULL (SPADCALL |p| (QREFELT $ 126)))) (GO G191)))
+                   (SEQ (LETT |m| (SPADCALL |p| (QREFELT $ 127)))
+                        (LETT |q| (SPADCALL |p| (QREFELT $ 128)))
+                        (LETT |p| (SPADCALL |p| (QREFELT $ 129)))
+                        (LETT |iq| (SPADCALL |q| (QREFELT $ 130)))
                         (EXIT
                          (LETT |res|
-                               (SPADCALL (SPADCALL |iq| |m| (QREFELT $ 134))
-                                         |res| (QREFELT $ 135)))))
+                               (SPADCALL (SPADCALL |iq| |m| (QREFELT $ 131))
+                                         |res| (QREFELT $ 132)))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
@@ -1217,18 +1206,18 @@
          ((|res| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|mq| (|Polynomial| (|Integer|))) (|q| (|Integer|))
           (|m| (|NonNegativeInteger|)))
-         (SEQ (LETT |res| (|spadConstant| $ 112))
+         (SEQ (LETT |res| (|spadConstant| $ 109))
               (SEQ G190
                    (COND
-                    ((NULL (NULL (SPADCALL |p| (QREFELT $ 47)))) (GO G191)))
-                   (SEQ (LETT |m| (SPADCALL |p| (QREFELT $ 48)))
-                        (LETT |q| (SPADCALL |p| (QREFELT $ 49)))
-                        (LETT |p| (SPADCALL |p| (QREFELT $ 50)))
-                        (LETT |mq| (SPADCALL |q| (QREFELT $ 116)))
+                    ((NULL (NULL (SPADCALL |p| (QREFELT $ 46)))) (GO G191)))
+                   (SEQ (LETT |m| (SPADCALL |p| (QREFELT $ 47)))
+                        (LETT |q| (SPADCALL |p| (QREFELT $ 48)))
+                        (LETT |p| (SPADCALL |p| (QREFELT $ 49)))
+                        (LETT |mq| (SPADCALL |q| (QREFELT $ 113)))
                         (EXIT
                          (LETT |res|
-                               (SPADCALL (SPADCALL |mq| |m| (QREFELT $ 113))
-                                         |res| (QREFELT $ 114)))))
+                               (SPADCALL (SPADCALL |mq| |m| (QREFELT $ 110))
+                                         |res| (QREFELT $ 111)))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
@@ -1307,7 +1296,7 @@
                                                      (CONS
                                                       (SPADCALL |q|
                                                                 (QREFELT $
-                                                                         133))
+                                                                         130))
                                                       #5#))))
                                              (LETT #4# (CDR #4#)) (GO G190)
                                              G191 (EXIT (NREVERSE #5#))))
@@ -1318,7 +1307,7 @@
                         (SPADCALL |nlist| |degs| |kind| |sigma| |gen|
                                   (CONS #'|MODHP;trivial_poly_solve!0|
                                         (VECTOR |check| $))
-                                  (QREFELT $ 109)))
+                                  (QREFELT $ 106)))
                   (EXIT
                    (COND
                     ((QEQCAR |pres| 1)
@@ -1329,7 +1318,7 @@
                           (LETT |nc| (ANCOLS |resi|))
                           (LETT |res|
                                 (MAKE_MATRIX1 |nr| |nc|
-                                              (|spadConstant| $ 112)))
+                                              (|spadConstant| $ 109)))
                           (SEQ (LETT |i| 1) (LETT #2# |nr|) G190
                                (COND ((|greater_SI| |i| #2#) (GO G191)))
                                (SEQ
@@ -1341,9 +1330,9 @@
                                         (SPADCALL |res| |i| |j|
                                                   (|MODHP;PI_to_PPI|
                                                    (SPADCALL |resi| |i| |j|
-                                                             (QREFELT $ 137))
+                                                             (QREFELT $ 134))
                                                    $)
-                                                  (QREFELT $ 139))))
+                                                  (QREFELT $ 136))))
                                       (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                       (EXIT NIL))))
                                (LETT |i| (|inc_SI| |i|)) (GO G190) G191
@@ -1368,9 +1357,9 @@
                               (EQUAL |kind| '|qmixed|)))
                       (LETT |vars|
                             (COND
-                             ((SPADCALL |qvar| |vars| (QREFELT $ 140)) |vars|)
+                             ((SPADCALL |qvar| |vars| (QREFELT $ 137)) |vars|)
                              ('T (CONS |qvar| |vars|))))))
-                    (EXIT (SPADCALL |vars| (QREFELT $ 141)))))) 
+                    (EXIT (SPADCALL |vars| (QREFELT $ 138)))))) 
 
 (SDEFUN |MODHP;HP_solve_P;LL2SNniMMU;19|
         ((|list| |List| (|List| (|Fraction| (|Polynomial| (|Integer|)))))
@@ -1439,7 +1428,7 @@
                              (SEQ (EXIT (LETT #18# (CONS |d| #18#))))
                              (LETT #17# (CDR #17#)) (GO G190) G191
                              (EXIT (NREVERSE #18#))))
-                       (QREFELT $ 67)))
+                       (QREFELT $ 66)))
                 (LETT |pts|
                       (SEQ
                        (EXIT
@@ -1463,7 +1452,7 @@
                              (LETT #15# (GETREFV_U32 |sigma| 0))
                              (GO #19=#:G396)))))))
                        #19# (EXIT #15#)))
-                (LETT |vars| (SPADCALL |list| |kind| |qvar| (QREFELT $ 142)))
+                (LETT |vars| (SPADCALL |list| |kind| |qvar| (QREFELT $ 139)))
                 (EXIT
                  (COND
                   ((NULL |vars|)
@@ -1482,7 +1471,7 @@
                                 (SEQ
                                  (EXIT
                                   (LETT #14#
-                                        (CONS (SPADCALL |li| (QREFELT $ 146))
+                                        (CONS (SPADCALL |li| (QREFELT $ 143))
                                               #14#))))
                                 (LETT #13# (CDR #13#)) (GO G190) G191
                                 (EXIT (NREVERSE #14#)))))
@@ -1492,7 +1481,7 @@
                            (LETT |pp|
                                  (SPADCALL |vars| |gv0| |ve| |sigma| |pts|
                                            |kind| |qvar| |gen|
-                                           (QREFELT $ 150)))
+                                           (QREFELT $ 147)))
                            (EXIT
                             (COND
                              ((QEQCAR |pp| 1)
@@ -1508,7 +1497,7 @@
                                          (QUOTIENT2 (QVSIZE |offsets|) |m|))
                                    (LETT |ok| 'T) (LETT |kk| 1)
                                    (LETT |ohi|
-                                         (SPADCALL |offsets| 1 (QREFELT $ 78)))
+                                         (SPADCALL |offsets| 1 (QREFELT $ 77)))
                                    (LETT |resv|
                                          (MAKEARR1 |nsols| (MAKE-ARRAY 0)))
                                    (LETT |ii| 1)
@@ -1521,7 +1510,7 @@
                                            (LETT |resvi|
                                                  (MAKEARR1 |m|
                                                            (|spadConstant| $
-                                                                           112)))
+                                                                           109)))
                                            (SEQ (LETT |j| 1) (LETT #8# |m|)
                                                 G190
                                                 (COND
@@ -1534,15 +1523,11 @@
                                                                   (+ |kk| 1))
                                                             (EXIT
                                                              (COND
-                                                              ((SPADCALL |kk|
-                                                                         |oc|
-                                                                         (QREFELT
-                                                                          $
-                                                                          151))
+                                                              ((<= |kk| |oc|)
                                                                (SPADCALL
                                                                 |offsets| |kk|
                                                                 (QREFELT $
-                                                                         78)))
+                                                                         77)))
                                                               ('T |cc|)))))
                                                      (LETT |hi| (- |ohi| 1))
                                                      (EXIT
@@ -1552,15 +1537,15 @@
                                                                  |coeffs| |lo|
                                                                  |hi|
                                                                  (QREFELT $
-                                                                          123))
+                                                                          120))
                                                                 (QREFELT $
-                                                                         152))))
+                                                                         148))))
                                                 (LETT |j| (|inc_SI| |j|))
                                                 (GO G190) G191 (EXIT NIL))
                                            (LETT |sol_okp|
                                                  (SPADCALL
                                                   (SPADCALL |resvi|
-                                                            (QREFELT $ 154))
+                                                            (QREFELT $ 150))
                                                   |check|))
                                            (EXIT
                                             (COND
@@ -1574,7 +1559,7 @@
                                              ('T
                                               (SEQ
                                                (SPADCALL |resv| |ii| |resvi|
-                                                         (QREFELT $ 156))
+                                                         (QREFELT $ 152))
                                                (EXIT
                                                 (LETT |ii| (+ |ii| 1))))))))
                                           (LETT |i| (|inc_SI| |i|)) (GO G190)
@@ -1596,7 +1581,7 @@
                                                               '(|Integer|)
                                                               #5#))
                                                            (|spadConstant| $
-                                                                           112)))
+                                                                           109)))
                                        (SEQ (LETT |i| 1) (LETT #4# (- |ii| 1))
                                             G190
                                             (COND
@@ -1616,11 +1601,11 @@
                                                                 (SPADCALL
                                                                  |resv| |i|
                                                                  (QREFELT $
-                                                                          157))
+                                                                          153))
                                                                 |l|
                                                                 (QREFELT $ 29))
                                                                (QREFELT $
-                                                                        139))))
+                                                                        136))))
                                                    (LETT |l| (|inc_SI| |l|))
                                                    (GO G190) G191 (EXIT NIL))))
                                             (LETT |i| (|inc_SI| |i|)) (GO G190)
@@ -1634,11 +1619,11 @@
                                        (SPADCALL
                                         (SPADCALL
                                          "check_sol_poly rejected solution"
-                                         (QREFELT $ 85))
-                                        (QREFELT $ 87))
+                                         (QREFELT $ 82))
+                                        (QREFELT $ 84))
                                        (SPADCALL
-                                        (SPADCALL |resvi| (QREFELT $ 158))
-                                        (QREFELT $ 87))
+                                        (SPADCALL |resvi| (QREFELT $ 154))
+                                        (QREFELT $ 84))
                                        (EXIT (|error| "giving up")))))))))))
                           NIL (GO G190) G191 (EXIT NIL)))))))))
           #20# (EXIT #2#)))) 
@@ -1697,7 +1682,7 @@
                              (SEQ (EXIT (LETT #17# (CONS |d| #17#))))
                              (LETT #16# (CDR #16#)) (GO G190) G191
                              (EXIT (NREVERSE #17#))))
-                       (QREFELT $ 67)))
+                       (QREFELT $ 66)))
                 (LETT |pts|
                       (COND ((EQUAL |kind| '|diffHP|) (GETREFV_U32 0 0))
                             (#18='T
@@ -1733,14 +1718,14 @@
                             (SEQ
                              (EXIT
                               (LETT #13#
-                                    (CONS (SPADCALL |li| (QREFELT $ 162))
+                                    (CONS (SPADCALL |li| (QREFELT $ 158))
                                           #13#))))
                             (LETT #12# (CDR #12#)) (GO G190) G191
                             (EXIT (NREVERSE #13#)))))
                 (LETT |gv| (SPADCALL |gv0| |prime| 1 |gen|))
                 (LETT |blr|
                       (SPADCALL |gv| |ve| |sigma| |pts| |prime| |kind|
-                                (QREFELT $ 77)))
+                                (QREFELT $ 76)))
                 (EXIT
                  (COND
                   ((QEQCAR |blr| 1)
@@ -1755,16 +1740,16 @@
                              (COND ((|greater_SI| |i| #9#) (GO G191)))
                              (SEQ
                               (LETT |resvi|
-                                    (MAKEARR1 |m| (|spadConstant| $ 95)))
+                                    (MAKEARR1 |m| (|spadConstant| $ 92)))
                               (SEQ (LETT |j| 1) (LETT #8# |m|) G190
                                    (COND ((|greater_SI| |j| #8#) (GO G191)))
                                    (SEQ
                                     (LETT |mm|
-                                          (SPADCALL |ve| |j| (QREFELT $ 78)))
+                                          (SPADCALL |ve| |j| (QREFELT $ 77)))
                                     (LETT |bmij|
                                           (SPADCALL |bm| |i| |j|
-                                                    (QREFELT $ 90)))
-                                    (LETT |s| (|spadConstant| $ 95))
+                                                    (QREFELT $ 87)))
+                                    (LETT |s| (|spadConstant| $ 92))
                                     (SEQ (LETT |l| 0) (LETT #7# |mm|) G190
                                          (COND
                                           ((|greater_SI| |l| #7#) (GO G191)))
@@ -1775,19 +1760,18 @@
                                                            (SPADCALL
                                                             (ELT_U32 |bmij|
                                                                      |l|)
-                                                            |l| (QREFELT $ 96))
-                                                           (QREFELT $ 97)))))
+                                                            |l| (QREFELT $ 93))
+                                                           (QREFELT $ 94)))))
                                          (LETT |l| (|inc_SI| |l|)) (GO G190)
                                          G191 (EXIT NIL))
                                     (EXIT
                                      (SPADCALL |resvi| |j| |s|
-                                               (QREFELT $ 98))))
+                                               (QREFELT $ 95))))
                                    (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                    (EXIT NIL))
                               (LETT |sol_okp|
-                                    (SPADCALL
-                                     (SPADCALL |resvi| (QREFELT $ 100))
-                                     |check|))
+                                    (SPADCALL (SPADCALL |resvi| (QREFELT $ 97))
+                                              |check|))
                               (EXIT
                                (COND ((QEQCAR |sol_okp| 1) "iterate")
                                      ((QEQCAR |sol_okp| 2)
@@ -1796,7 +1780,7 @@
                                      ('T
                                       (SEQ
                                        (SPADCALL |resv| |ii| |resvi|
-                                                 (QREFELT $ 102))
+                                                 (QREFELT $ 99))
                                        (EXIT (LETT |ii| (+ |ii| 1))))))))
                              (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                              (EXIT NIL))
@@ -1807,7 +1791,7 @@
                                                                 '(|NonNegativeInteger|)
                                                                 '(|Integer|)
                                                                 #6#))
-                                            (|spadConstant| $ 95)))
+                                            (|spadConstant| $ 92)))
                         (SEQ (LETT |i| 1) (LETT #5# (- |ii| 1)) G190
                              (COND ((|greater_SI| |i| #5#) (GO G191)))
                              (SEQ
@@ -1819,9 +1803,9 @@
                                       (SPADCALL |mress| |l| |i|
                                                 (SPADCALL
                                                  (SPADCALL |resv| |i|
-                                                           (QREFELT $ 103))
+                                                           (QREFELT $ 100))
                                                  |l| (QREFELT $ 9))
-                                                (QREFELT $ 105))))
+                                                (QREFELT $ 102))))
                                     (LETT |l| (|inc_SI| |l|)) (GO G190) G191
                                     (EXIT NIL))))
                              (LETT |i| (|inc_SI| |i|)) (GO G190) G191
@@ -1884,7 +1868,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ModularHermitePade|))
-          (LETT $ (GETREFV 173))
+          (LETT $ (GETREFV 169))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ModularHermitePade| NIL (CONS 1 $))
@@ -1900,64 +1884,63 @@
               (12 . |setelt!|) |MODHP;VSUPI_to_VPA;VIV;1|
               (|NonNegativeInteger|) (|SparseUnivariatePolynomial| 21)
               (19 . |degree|) (|Boolean|) (24 . |zero?|) (|Polynomial| 7)
-              (29 . |leadingCoefficient|) (|List| 75) (|List| 7)
+              (29 . |leadingCoefficient|) (|List| 74) (|List| 7)
               (|PolynomialEvaluationUtilities|) (34 . |modpeval|)
               (42 . |reductum|) (|Vector| 17) (47 . |elt|)
               |MODHP;VSUPPI_to_VPA;VLLIV;3| (|Fraction| 7) (53 . |Zero|)
-              (57 . >) (63 . |numer|) (68 . |positiveRemainder|) (74 . |denom|)
-              (|SingleInteger|) (79 . |invmod|) (|Union| 60 '"failed")
+              (57 . |numer|) (62 . |positiveRemainder|) (68 . |denom|)
+              (|SingleInteger|) (73 . |invmod|) (|Union| 59 '"failed")
               (|List| (|List| 31)) |MODHP;LLFI_to_LPA;L2IU;4| (|Fraction| 21)
-              (85 . |numer|) (90 . |denom|) (|List| 144)
-              |MODHP;LLFPI_to_LPA;LILLIU;5| (95 . |zero?|) (100 . |degree|)
-              (105 . |leadingCoefficient|) (110 . |reductum|) (115 . |coerce|)
+              (79 . |numer|) (84 . |denom|) (|List| 141)
+              |MODHP;LLFPI_to_LPA;LILLIU;5| (89 . |zero?|) (94 . |degree|)
+              (99 . |leadingCoefficient|) (104 . |reductum|) (109 . |coerce|)
               (|SparseUnivariatePolynomial| 31) (|Mapping| 31 7)
-              (|SparseUnivariatePolynomialFunctions2| 7 31) (120 . |map|)
-              (126 . |elt|) (132 . |One|) (|Void|) (136 . |truncated_mul_add|)
-              (|List| 10) (|Mapping| 13 60 7 7) |MODHP;check_sol1a;VLM3IUv;9|
-              (145 . +) (|Mapping| 7 7 7) (151 . |reduce|) (|Vector| 7)
-              (157 . |vector|) (162 . |Zero|) (|IntegerPrimesPackage| 7)
-              (166 . |nextPrime|) (171 . |member?|) (177 . |coerce|)
-              (|Record| (|:| |basis| 89) (|:| |defects| 66) (|:| |cinds| 66))
-              (|Union| 73 '"no_solution") (|Symbol|)
-              (|InnerModularHermitePade|) (182 . |do_modular_solve|)
-              (192 . |elt|) (|VectorIntegerReconstructor|) (198 . |empty|)
-              (|PositiveInteger|) (203 . *) (|String|) (|OutputForm|)
-              (209 . |message|) (|PrintPackage|) (214 . |print|)
-              (219 . |coerce|) (|TwoDimensionalArray| 10) (224 . |elt|)
-              (231 . |chinese_update|) (238 . |setelt!|)
-              (|Union| 122 '"failed") (245 . |reconstruct|) (251 . |Zero|)
-              (255 . |monomial|) (261 . +) (267 . |setelt!|) (|List| 6)
-              (274 . |entries|) (|Vector| 8) (279 . |setelt!|) (286 . |elt|)
-              (|Matrix| 6) (292 . |setelt!|) (|Union| 104 19)
+              (|SparseUnivariatePolynomialFunctions2| 7 31) (114 . |map|)
+              (120 . |elt|) (126 . |One|) (|Void|) (130 . |truncated_mul_add|)
+              (|List| 10) (|Mapping| 13 59 7 7) |MODHP;check_sol1a;VLM3IUv;9|
+              (139 . +) (|Mapping| 7 7 7) (145 . |reduce|) (|Vector| 7)
+              (151 . |vector|) (156 . |Zero|) (|IntegerPrimesPackage| 7)
+              (160 . |nextPrime|) (165 . |member?|) (171 . |coerce|)
+              (|Record| (|:| |basis| 86) (|:| |defects| 65) (|:| |cinds| 65))
+              (|Union| 72 '"no_solution") (|Symbol|)
+              (|InnerModularHermitePade|) (176 . |do_modular_solve|)
+              (186 . |elt|) (|VectorIntegerReconstructor|) (192 . |empty|)
+              (|String|) (|OutputForm|) (197 . |message|) (|PrintPackage|)
+              (202 . |print|) (207 . |coerce|) (|TwoDimensionalArray| 10)
+              (212 . |elt|) (219 . |chinese_update|) (226 . |setelt!|)
+              (|Union| 119 '"failed") (233 . |reconstruct|) (239 . |Zero|)
+              (243 . |monomial|) (249 . +) (255 . |setelt!|) (|List| 6)
+              (262 . |entries|) (|Vector| 8) (267 . |setelt!|) (274 . |elt|)
+              (|Matrix| 6) (280 . |setelt!|) (|Union| 101 19)
               (|Union| '#1="good" '#2="reject" '#3="no_solution")
-              (|Mapping| 107 99) |MODHP;HP_solve_I;LLSNniMMU;10|
-              (300 . |variables|) (305 . |setUnion|) (311 . |Zero|)
-              (315 . |monomial|) (321 . +) (327 . |Zero|) (331 . |coerce|)
-              (336 . |One|) (340 . |monomial|) (347 . *) (353 . +)
+              (|Mapping| 104 96) |MODHP;HP_solve_I;LLSNniMMU;10|
+              (288 . |variables|) (293 . |setUnion|) (299 . |Zero|)
+              (303 . |monomial|) (309 . +) (315 . |Zero|) (319 . |coerce|)
+              (324 . |One|) (328 . |monomial|) (335 . *) (341 . +)
               (|SortedExponentVector|) (|PrimitiveArray| 7)
-              |MODHP;unpack_poly;LSevPa2ISup;12| (359 . |coerce|)
-              (|SparseUnivariatePolynomial| 42) (|Mapping| 42 21)
-              (|SparseUnivariatePolynomialFunctions2| 21 42) (364 . |map|)
-              (370 . |zero?|) (375 . |degree|) (380 . |leadingCoefficient|)
-              (385 . |reductum|) (390 . |retract|) (395 . |monomial|) (401 . +)
-              (407 . |Zero|) (411 . |elt|) (|Matrix| 17) (418 . |setelt!|)
-              (426 . |member?|) (432 . |sort|) |MODHP;get_variables;L2SL;18|
-              (437 . |One|) (|List| 42) (|PrimitiveArray| 42)
-              (441 . |construct|)
-              (|Record| (|:| |defects| 66) (|:| |cinds| 66) (|:| |rowlen| 7)
-                        (|:| |offsetdata| 66) (|:| |expdata| 121)
-                        (|:| |coeffdata| 122))
-              (|Union| 147 '"no_solution") (|List| 145)
-              (446 . |do_poly_integer|) (458 . <=) (464 . |setelt!|)
-              (|List| 17) (471 . |entries|) (|Vector| 28) (476 . |setelt!|)
-              (483 . |elt|) (489 . |coerce|) (|Union| 138 19)
-              (|Mapping| 107 153) |MODHP;HP_solve_P;LL2SNniMMU;19|
-              (494 . |construct|) (|List| 24) |MODHP;HP_solve_M;LLSINniMMU;20|
+              |MODHP;unpack_poly;LSevPa2ISup;12| (347 . |coerce|)
+              (|SparseUnivariatePolynomial| 41) (|Mapping| 41 21)
+              (|SparseUnivariatePolynomialFunctions2| 21 41) (352 . |map|)
+              (358 . |zero?|) (363 . |degree|) (368 . |leadingCoefficient|)
+              (373 . |reductum|) (378 . |retract|) (383 . |monomial|) (389 . +)
+              (395 . |Zero|) (399 . |elt|) (|Matrix| 17) (406 . |setelt!|)
+              (414 . |member?|) (420 . |sort|) |MODHP;get_variables;L2SL;18|
+              (425 . |One|) (|List| 41) (|PrimitiveArray| 41)
+              (429 . |construct|)
+              (|Record| (|:| |defects| 65) (|:| |cinds| 65) (|:| |rowlen| 7)
+                        (|:| |offsetdata| 65) (|:| |expdata| 118)
+                        (|:| |coeffdata| 119))
+              (|Union| 144 '"no_solution") (|List| 142)
+              (434 . |do_poly_integer|) (446 . |setelt!|) (|List| 17)
+              (453 . |entries|) (|Vector| 28) (458 . |setelt!|) (465 . |elt|)
+              (471 . |coerce|) (|Union| 135 19) (|Mapping| 104 149)
+              |MODHP;HP_solve_P;LL2SNniMMU;19| (476 . |construct|) (|List| 24)
+              |MODHP;HP_solve_M;LLSINniMMU;20|
               (|Union|
                (|Matrix| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
                19)
               (|List| (|List| (|AlgebraicNumber|)))
-              (|Mapping| 107
+              (|Mapping| 104
                          (|List|
                           (|SparseUnivariatePolynomial| (|AlgebraicNumber|))))
               |MODHP;HP_solve_A;LLSNniMMU;21|
@@ -1967,15 +1950,15 @@
                  (|Polynomial| (|AlgebraicNumber|))))
                19)
               (|List| (|List| (|Fraction| (|Polynomial| (|AlgebraicNumber|)))))
-              (|Mapping| 107
+              (|Mapping| 104
                          (|List|
                           (|SparseUnivariatePolynomial|
                            (|Polynomial| (|AlgebraicNumber|)))))
               |MODHP;HP_solve_PA;LL2SNniMMU;22|)
-           '#(|unpack_poly| 499 |get_variables| 508 |check_sol1a| 515
-              |VSUPPI_to_VPA| 525 |VSUPI_to_VPA| 533 |LLFPI_to_LPA| 539
-              |LLFI_to_LPA| 548 |HP_solve_PA| 555 |HP_solve_P| 566 |HP_solve_M|
-              577 |HP_solve_I| 588 |HP_solve_A| 598)
+           '#(|unpack_poly| 481 |get_variables| 490 |check_sol1a| 497
+              |VSUPPI_to_VPA| 507 |VSUPI_to_VPA| 515 |LLFPI_to_LPA| 521
+              |LLFI_to_LPA| 530 |HP_solve_PA| 537 |HP_solve_P| 548 |HP_solve_M|
+              559 |HP_solve_I| 570 |HP_solve_A| 580)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -2122,56 +2105,55 @@
                                   (|Integer|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 172
+                        (|makeByteWordVec2| 168
                                             '(2 8 6 0 7 9 2 11 10 6 7 12 3 13
                                               10 0 7 10 14 1 17 16 0 18 1 17 19
                                               0 20 1 17 21 0 22 4 25 7 21 23 24
                                               7 26 1 17 0 0 27 2 28 17 0 7 29 0
-                                              31 0 32 2 7 19 0 0 33 1 31 7 0 34
-                                              2 7 0 0 0 35 1 31 7 0 36 2 37 0 0
-                                              0 38 1 42 21 0 43 1 42 21 0 44 1
-                                              6 19 0 47 1 6 16 0 48 1 6 7 0 49
-                                              1 6 0 0 50 1 31 0 7 51 2 54 52 53
-                                              6 55 2 13 10 0 7 56 0 52 0 57 5
-                                              11 58 10 10 10 7 7 59 2 7 0 0 0
-                                              63 2 24 7 64 0 65 1 66 0 24 67 0
-                                              52 0 68 1 69 7 7 70 2 24 19 7 0
-                                              71 1 37 0 7 72 6 76 74 13 66 16
-                                              10 7 75 77 2 66 7 0 7 78 1 79 0 7
-                                              80 2 16 0 81 0 82 1 84 0 83 85 1
-                                              86 58 84 87 1 7 84 0 88 3 89 10 0
-                                              7 7 90 3 79 58 10 7 0 91 3 66 7 0
-                                              7 7 92 2 79 93 0 66 94 0 6 0 95 2
-                                              6 0 7 16 96 2 6 0 0 0 97 3 8 6 0
-                                              7 6 98 1 8 99 0 100 3 101 8 0 7 8
-                                              102 2 101 8 0 7 103 4 104 6 0 7 7
-                                              6 105 1 21 23 0 110 2 23 0 0 0
-                                              111 0 17 0 112 2 17 0 21 16 113 2
-                                              17 0 0 0 114 0 21 0 115 1 21 0 7
-                                              116 0 21 0 117 3 21 0 0 75 16 118
-                                              2 21 0 0 0 119 2 21 0 0 0 120 1
-                                              42 0 21 124 2 127 125 126 17 128
-                                              1 125 19 0 129 1 125 16 0 130 1
-                                              125 42 0 131 1 125 0 0 132 1 42
-                                              31 0 133 2 52 0 31 16 134 2 52 0
-                                              0 0 135 0 125 0 136 3 104 6 0 7 7
-                                              137 4 138 17 0 7 7 17 139 2 23 19
-                                              75 0 140 1 23 0 0 141 0 125 0 143
-                                              1 145 0 144 146 8 76 148 23 149
-                                              66 16 10 75 75 61 150 2 7 19 0 0
-                                              151 3 28 17 0 7 17 152 1 28 153 0
-                                              154 3 155 28 0 7 28 156 2 155 28
-                                              0 7 157 1 28 84 0 158 1 10 0 24
-                                              162 5 0 17 23 121 122 7 7 123 3 0
-                                              23 45 75 75 142 6 0 10 13 60 61 7
-                                              7 7 62 4 0 13 28 23 24 7 30 2 0
-                                              13 8 7 15 5 0 39 45 7 23 24 7 46
-                                              3 0 39 40 7 7 41 7 0 169 170 24
-                                              75 75 16 61 171 172 7 0 159 45 24
-                                              75 75 16 61 160 161 7 0 106 163
-                                              24 75 7 16 61 108 164 6 0 106 40
-                                              24 75 16 61 108 109 6 0 165 166
-                                              24 75 16 61 167 168)))))
+                                              31 0 32 1 31 7 0 33 2 7 0 0 0 34
+                                              1 31 7 0 35 2 36 0 0 0 37 1 41 21
+                                              0 42 1 41 21 0 43 1 6 19 0 46 1 6
+                                              16 0 47 1 6 7 0 48 1 6 0 0 49 1
+                                              31 0 7 50 2 53 51 52 6 54 2 13 10
+                                              0 7 55 0 51 0 56 5 11 57 10 10 10
+                                              7 7 58 2 7 0 0 0 62 2 24 7 63 0
+                                              64 1 65 0 24 66 0 51 0 67 1 68 7
+                                              7 69 2 24 19 7 0 70 1 36 0 7 71 6
+                                              75 73 13 65 16 10 7 74 76 2 65 7
+                                              0 7 77 1 78 0 7 79 1 81 0 80 82 1
+                                              83 57 81 84 1 7 81 0 85 3 86 10 0
+                                              7 7 87 3 78 57 10 7 0 88 3 65 7 0
+                                              7 7 89 2 78 90 0 65 91 0 6 0 92 2
+                                              6 0 7 16 93 2 6 0 0 0 94 3 8 6 0
+                                              7 6 95 1 8 96 0 97 3 98 8 0 7 8
+                                              99 2 98 8 0 7 100 4 101 6 0 7 7 6
+                                              102 1 21 23 0 107 2 23 0 0 0 108
+                                              0 17 0 109 2 17 0 21 16 110 2 17
+                                              0 0 0 111 0 21 0 112 1 21 0 7 113
+                                              0 21 0 114 3 21 0 0 74 16 115 2
+                                              21 0 0 0 116 2 21 0 0 0 117 1 41
+                                              0 21 121 2 124 122 123 17 125 1
+                                              122 19 0 126 1 122 16 0 127 1 122
+                                              41 0 128 1 122 0 0 129 1 41 31 0
+                                              130 2 51 0 31 16 131 2 51 0 0 0
+                                              132 0 122 0 133 3 101 6 0 7 7 134
+                                              4 135 17 0 7 7 17 136 2 23 19 74
+                                              0 137 1 23 0 0 138 0 122 0 140 1
+                                              142 0 141 143 8 75 145 23 146 65
+                                              16 10 74 74 60 147 3 28 17 0 7 17
+                                              148 1 28 149 0 150 3 151 28 0 7
+                                              28 152 2 151 28 0 7 153 1 28 81 0
+                                              154 1 10 0 24 158 5 0 17 23 118
+                                              119 7 7 120 3 0 23 44 74 74 139 6
+                                              0 10 13 59 60 7 7 7 61 4 0 13 28
+                                              23 24 7 30 2 0 13 8 7 15 5 0 38
+                                              44 7 23 24 7 45 3 0 38 39 7 7 40
+                                              7 0 165 166 24 74 74 16 60 167
+                                              168 7 0 155 44 24 74 74 16 60 156
+                                              157 7 0 103 159 24 74 7 16 60 105
+                                              160 6 0 103 39 24 74 16 60 105
+                                              106 6 0 161 162 24 74 16 60 163
+                                              164)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ModularHermitePade| 'NILADIC T) 

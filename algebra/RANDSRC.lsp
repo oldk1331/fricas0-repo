@@ -4,8 +4,8 @@
                (SEQ
                 (LETT |t|
                       (REM
-                       (- (SPADCALL 271828183 (QREFELT $ 8) (QREFELT $ 11))
-                          (SPADCALL 314159269 (QREFELT $ 7) (QREFELT $ 11)))
+                       (- (* 271828183 (QREFELT $ 8))
+                          (* 314159269 (QREFELT $ 7)))
                        (QREFELT $ 6)))
                 (COND ((< |t| 0) (LETT |t| (+ |t| (QREFELT $ 6)))))
                 (SETELT $ 7 (QREFELT $ 8)) (EXIT (SETELT $ 8 |t|))))) 
@@ -20,7 +20,7 @@
         (+ (* (QREFELT $ 8) (QREFELT $ 6)) (QREFELT $ 7))) 
 
 (SDEFUN |RANDSRC;randnum;2I;5| ((|n| |Integer|) ($ |Integer|))
-        (QUOTIENT2 (* |n| (SPADCALL (QREFELT $ 12))) (QREFELT $ 6))) 
+        (QUOTIENT2 (* |n| (SPADCALL (QREFELT $ 10))) (QREFELT $ 6))) 
 
 (DECLAIM (NOTINLINE |RandomNumberSource;|)) 
 
@@ -47,7 +47,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|RandomNumberSource|))
-          (LETT $ (GETREFV 18))
+          (LETT $ (GETREFV 16))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RandomNumberSource| NIL (CONS 1 $))
@@ -60,11 +60,10 @@
 
 (MAKEPROP '|RandomNumberSource| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL '|ranbase| '|x0| '|x1|
-              (|PositiveInteger|) (|Integer|) (0 . *) |RANDSRC;randnum;I;1|
-              |RANDSRC;size;I;2| (|Void|) |RANDSRC;reseed;IV;3|
-              |RANDSRC;seed;I;4| |RANDSRC;randnum;2I;5|)
-           '#(|size| 6 |seed| 10 |reseed| 14 |randnum| 19) 'NIL
+           '#(NIL NIL NIL NIL NIL NIL '|ranbase| '|x0| '|x1| (|Integer|)
+              |RANDSRC;randnum;I;1| |RANDSRC;size;I;2| (|Void|)
+              |RANDSRC;reseed;IV;3| |RANDSRC;seed;I;4| |RANDSRC;randnum;2I;5|)
+           '#(|size| 0 |seed| 4 |reseed| 8 |randnum| 13) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -76,10 +75,9 @@
                                    '((|reseed| ((|Void|) (|Integer|))) T)
                                    '((|seed| ((|Integer|))) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 17
-                                            '(2 10 0 9 0 11 0 0 10 13 0 0 10 16
-                                              1 0 14 10 15 0 0 10 12 1 0 10 10
-                                              17)))))
+                        (|makeByteWordVec2| 15
+                                            '(0 0 9 11 0 0 9 14 1 0 12 9 13 0 0
+                                              9 10 1 0 9 9 15)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|RandomNumberSource| 'NILADIC T) 

@@ -112,8 +112,7 @@
 (SDEFUN |FACUTIL;ran;IR;6| ((|k| |Integer|) ($ R)) (SPADCALL (QREFELT $ 44))) 
 
 (SDEFUN |FACUTIL;ran;IR;7| ((|k| |Integer|) ($ R))
-        (SPADCALL (- (RANDOM (+ (SPADCALL 2 |k| (QREFELT $ 48)) 1)) |k|)
-                  (QREFELT $ 49))) 
+        (SPADCALL (- (RANDOM (+ (* 2 |k|) 1)) |k|) (QREFELT $ 47))) 
 
 (SDEFUN |FACUTIL;normalDeriv;SupISup;8|
         ((|f| |SparseUnivariatePolynomial| P) (|m| |Integer|)
@@ -126,17 +125,14 @@
               (EXIT
                (COND ((< |#G1| |m|) (|spadConstant| $ 24))
                      ((EQL |n1| |m|)
-                      (SPADCALL (SPADCALL |f| (QREFELT $ 15)) (QREFELT $ 50)))
+                      (SPADCALL (SPADCALL |f| (QREFELT $ 15)) (QREFELT $ 48)))
                      ('T
-                      (SEQ (LETT |k| (SPADCALL |n1| |m| (QREFELT $ 51)))
+                      (SEQ (LETT |k| (SPADCALL |n1| |m| (QREFELT $ 49)))
                            (LETT |ris| (|spadConstant| $ 24)) (LETT |n| |n1|)
                            (SEQ G190 (COND ((NULL (>= |n| |m|)) (GO G191)))
                                 (SEQ
                                  (SEQ G190
-                                      (COND
-                                       ((NULL
-                                         (SPADCALL |n1| |n| (QREFELT $ 52)))
-                                        (GO G191)))
+                                      (COND ((NULL (> |n1| |n|)) (GO G191)))
                                       (SEQ
                                        (LETT |k|
                                              (QUOTIENT2 (* |k| (- |n1| |m|))
@@ -150,7 +146,7 @@
                                                             (SPADCALL |f|
                                                                       (QREFELT
                                                                        $ 15))
-                                                            (QREFELT $ 55))
+                                                            (QREFELT $ 52))
                                                   (PROG1 (LETT #2# (- |n| |m|))
                                                     (|check_subtype2|
                                                      (>= #2# 0)
@@ -195,7 +191,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|FactoringUtilities| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 57))
+    (LETT $ (GETREFV 54))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|FactoringUtilities|
@@ -228,11 +224,11 @@
               (89 . |coefficients|) (94 . |degree|) (|List| 17)
               |FACUTIL;degree;SupLL;4| (100 . |variables|) (105 . |setUnion|)
               |FACUTIL;variables;SupL;5| (111 . |random|) (|Integer|)
-              (115 . |ran|) (|PositiveInteger|) (120 . *) (126 . |coerce|)
-              (131 . |coerce|) (136 . |binomial|) (142 . >) (148 . |One|)
-              (152 . |One|) (156 . *) |FACUTIL;normalDeriv;SupISup;8|)
-           '#(|variables| 162 |ran| 167 |raisePolynomial| 172 |normalDeriv| 177
-              |lowerPolynomial| 183 |degree| 188 |completeEval| 194)
+              (115 . |ran|) (120 . |coerce|) (125 . |coerce|)
+              (130 . |binomial|) (136 . |One|) (140 . |One|) (144 . *)
+              |FACUTIL;normalDeriv;SupISup;8|)
+           '#(|variables| 150 |ran| 155 |raisePolynomial| 160 |normalDeriv| 165
+              |lowerPolynomial| 171 |degree| 176 |completeEval| 182)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -269,7 +265,7 @@
                                 T)
                               '((|ran| (|#3| (|Integer|))) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 56
+                        (|makeByteWordVec2| 53
                                             '(1 11 10 0 12 0 13 0 14 1 11 9 0
                                               15 1 9 8 0 16 1 11 17 0 18 2 13 0
                                               8 17 19 1 11 0 0 20 2 13 0 0 0 22
@@ -278,11 +274,11 @@
                                               9 17 28 1 13 0 0 29 2 11 0 0 0 31
                                               3 9 0 0 32 33 34 1 11 36 0 37 2 9
                                               17 0 7 38 1 9 32 0 41 2 32 0 0 0
-                                              42 0 8 0 44 1 0 8 45 46 2 45 0 47
-                                              0 48 1 8 0 45 49 1 11 0 9 50 2 45
-                                              0 0 0 51 2 45 10 0 0 52 0 8 0 53
-                                              0 9 0 54 2 9 0 45 0 55 1 0 32 11
-                                              43 1 0 8 45 46 1 0 11 13 30 2 0
-                                              11 11 45 56 1 0 13 11 21 2 0 39
-                                              11 32 40 3 0 13 11 32 33 35)))))
+                                              42 0 8 0 44 1 0 8 45 46 1 8 0 45
+                                              47 1 11 0 9 48 2 45 0 0 0 49 0 8
+                                              0 50 0 9 0 51 2 9 0 45 0 52 1 0
+                                              32 11 43 1 0 8 45 46 1 0 11 13 30
+                                              2 0 11 11 45 53 1 0 13 11 21 2 0
+                                              39 11 32 40 3 0 13 11 32 33
+                                              35)))))
            '|lookupComplete|)) 

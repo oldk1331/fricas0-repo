@@ -181,9 +181,7 @@
                 (LETT |mon| (SPADCALL (|spadConstant| $ 17) 1 (QREFELT $ 15)))
                 (LETT |v| |mon|)
                 (SEQ (LETT |k1| 1) G190
-                     (COND
-                      ((NULL (SPADCALL |k1| (QUOTIENT2 |du| 2) (QREFELT $ 48)))
-                       (GO G191)))
+                     (COND ((NULL (<= |k1| (QUOTIENT2 |du| 2))) (GO G191)))
                      (SEQ
                       (LETT |v|
                             (SPADCALL
@@ -191,8 +189,8 @@
                                        (QREFELT $ 41))
                              (QREFELT $ 43)))
                       (LETT |g|
-                            (SPADCALL (SPADCALL |v| |mon| (QREFELT $ 49)) |u|
-                                      (QREFELT $ 50)))
+                            (SPADCALL (SPADCALL |v| |mon| (QREFELT $ 48)) |u|
+                                      (QREFELT $ 49)))
                       (LETT |dg| (SPADCALL |g| (QREFELT $ 31)))
                       (EXIT
                        (COND ((EQL |dg| 0) "next k1")
@@ -214,7 +212,7 @@
                                   (PROGN (LETT #1# |ddfact|) (GO #2=#:G157)))
                                  ('T
                                   (SEQ
-                                   (LETT |u| (SPADCALL |u| |g| (QREFELT $ 51)))
+                                   (LETT |u| (SPADCALL |u| |g| (QREFELT $ 50)))
                                    (LETT |du| (SPADCALL |u| (QREFELT $ 31)))
                                    (EXIT
                                     (COND
@@ -272,10 +270,7 @@
                                       (COND
                                        ((NULL (NULL (NULL |aux|))) (GO G191)))
                                       (SEQ
-                                       (LETT |t|
-                                             (|DDFACT;ranpol|
-                                              (SPADCALL 2 |d| (QREFELT $ 57))
-                                              $))
+                                       (LETT |t| (|DDFACT;ranpol| (* 2 |d|) $))
                                        (COND
                                         ((QREFELT $ 11)
                                          (LETT |t|
@@ -310,7 +305,7 @@
                                                  (QUOTIENT2 |p1| 2) |fprod|
                                                  (QREFELT $ 38))
                                                 (|spadConstant| $ 18)
-                                                (QREFELT $ 49)))))
+                                                (QREFELT $ 48)))))
                                        (LETT |newaux| NIL)
                                        (SEQ (LETT |u| NIL) (LETT #2# |aux|)
                                             G190
@@ -323,7 +318,7 @@
                                             (SEQ
                                              (LETT |g|
                                                    (SPADCALL |u| |t|
-                                                             (QREFELT $ 50)))
+                                                             (QREFELT $ 49)))
                                              (LETT |dg|
                                                    (SPADCALL |g|
                                                              (QREFELT $ 31)))
@@ -338,7 +333,7 @@
                                                       (CONS |u| |newaux|)))))
                                              (LETT |v|
                                                    (SPADCALL |u| |g|
-                                                             (QREFELT $ 51)))
+                                                             (QREFELT $ 50)))
                                              (COND
                                               ((EQL |dg| |d|)
                                                (LETT |ris|
@@ -387,7 +382,7 @@
          (SEQ (LETT |ddfact| (|DDFACT;ddffact1| |m| NIL $))
               (EXIT
                (COND ((NULL |ddfact|) (LIST |m|))
-                     ('T (SPADCALL |ddfact| (QREFELT $ 59)))))))) 
+                     ('T (SPADCALL |ddfact| (QREFELT $ 56)))))))) 
 
 (SDEFUN |DDFACT;distdfact;FPBR;12|
         ((|m| FP) (|test| |Boolean|)
@@ -409,17 +404,17 @@
                 (LETT |m|
                       (SPADCALL (SPADCALL |lcm| (QREFELT $ 22)) |m|
                                 (QREFELT $ 23)))))
-              (SEQ (LETT |d| (SPADCALL |m| (QREFELT $ 60)))
+              (SEQ (LETT |d| (SPADCALL |m| (QREFELT $ 57)))
                    (EXIT
                     (COND
-                     ((SPADCALL |d| 0 (QREFELT $ 61))
+                     ((> |d| 0)
                       (SEQ
                        (LETT |m|
                              (QCAR
                               (SPADCALL |m|
                                         (SPADCALL (|spadConstant| $ 17) |d|
                                                   (QREFELT $ 15))
-                                        (QREFELT $ 63))))
+                                        (QREFELT $ 59))))
                        (EXIT
                         (LETT |factlist|
                               (LIST
@@ -473,12 +468,12 @@
                                      (|:| |pow| (|NonNegativeInteger|))))))))
          (SEQ
           (COND
-           ((SPADCALL |m| (|spadConstant| $ 13) (QREFELT $ 66))
-            (|spadConstant| $ 67))
+           ((SPADCALL |m| (|spadConstant| $ 13) (QREFELT $ 62))
+            (|spadConstant| $ 63))
            ('T
-            (SEQ (LETT |flist| (SPADCALL |m| NIL (QREFELT $ 65)))
+            (SEQ (LETT |flist| (SPADCALL |m| NIL (QREFELT $ 61)))
                  (EXIT
-                  (SPADCALL (SPADCALL (QCAR |flist|) (QREFELT $ 68))
+                  (SPADCALL (SPADCALL (QCAR |flist|) (QREFELT $ 64))
                             (PROGN
                              (LETT #2# NIL)
                              (SEQ (LETT |u| NIL) (LETT #1# (QCDR |flist|)) G190
@@ -495,7 +490,7 @@
                                            #2#))))
                                   (LETT #1# (CDR #1#)) (GO G190) G191
                                   (EXIT (NREVERSE #2#))))
-                            (QREFELT $ 71))))))))) 
+                            (QREFELT $ 67))))))))) 
 
 (SDEFUN |DDFACT;factorSquareFree;FPF;14| ((|m| FP) ($ |Factored| FP))
         (SPROG
@@ -508,12 +503,12 @@
                                      (|:| |pow| (|NonNegativeInteger|))))))))
          (SEQ
           (COND
-           ((SPADCALL |m| (|spadConstant| $ 13) (QREFELT $ 66))
-            (|spadConstant| $ 67))
+           ((SPADCALL |m| (|spadConstant| $ 13) (QREFELT $ 62))
+            (|spadConstant| $ 63))
            ('T
-            (SEQ (LETT |flist| (SPADCALL |m| 'T (QREFELT $ 65)))
+            (SEQ (LETT |flist| (SPADCALL |m| 'T (QREFELT $ 61)))
                  (EXIT
-                  (SPADCALL (SPADCALL (QCAR |flist|) (QREFELT $ 68))
+                  (SPADCALL (SPADCALL (QCAR |flist|) (QREFELT $ 64))
                             (PROGN
                              (LETT #2# NIL)
                              (SEQ (LETT |u| NIL) (LETT #1# (QCDR |flist|)) G190
@@ -530,7 +525,7 @@
                                            #2#))))
                                   (LETT #1# (CDR #1#)) (GO G190) G191
                                   (EXIT (NREVERSE #2#))))
-                            (QREFELT $ 71))))))))) 
+                            (QREFELT $ 67))))))))) 
 
 (DECLAIM (NOTINLINE |DistinctDegreeFactorize;|)) 
 
@@ -559,7 +554,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|DistinctDegreeFactorize| DV$1 DV$2))
-          (LETT $ (GETREFV 74))
+          (LETT $ (GETREFV 70))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DistinctDegreeFactorize|
@@ -587,21 +582,21 @@
               |DDFACT;exptMod;FPNni2FP;3| (96 . *)
               |DDFACT;trace2PowMod;FPNni2FP;4| (102 . |frobenius|) (107 . +)
               (113 . |lift|) |DDFACT;tracePowMod;FPNni2FP;5| (118 . *)
-              (124 . |size|) (128 . |setPoly|) (133 . <=) (139 . -)
-              (145 . |gcd|) (151 . |quo|) |DDFACT;irreducible?;FPB;8|
-              (|Record| (|:| |deg| 9) (|:| |prod| 7)) (|List| 53)
-              |DDFACT;separateDegrees;FPL;9| (|PositiveInteger|) (157 . *)
-              (|List| 7) |DDFACT;separateFactors;LL;10| (163 . |minimumDegree|)
-              (168 . >) (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (174 . |monicDivide|)
+              (124 . |size|) (128 . |setPoly|) (133 . -) (139 . |gcd|)
+              (145 . |quo|) |DDFACT;irreducible?;FPB;8|
+              (|Record| (|:| |deg| 9) (|:| |prod| 7)) (|List| 52)
+              |DDFACT;separateDegrees;FPL;9| (|List| 7)
+              |DDFACT;separateFactors;LL;10| (151 . |minimumDegree|)
+              (|Record| (|:| |quotient| $) (|:| |remainder| $))
+              (156 . |monicDivide|)
               (|Record| (|:| |cont| 6) (|:| |factors| 33))
-              |DDFACT;distdfact;FPBR;12| (180 . =) (186 . |Zero|)
-              (190 . |coerce|) (|PrimitiveArray| $) (195 . |pow|)
-              (199 . |makeFR|) |DDFACT;factor;FPF;13|
+              |DDFACT;distdfact;FPBR;12| (162 . =) (168 . |Zero|)
+              (172 . |coerce|) (|PrimitiveArray| $) (177 . |pow|)
+              (181 . |makeFR|) |DDFACT;factor;FPF;13|
               |DDFACT;factorSquareFree;FPF;14|)
-           '#(|tracePowMod| 205 |trace2PowMod| 212 |separateFactors| 219
-              |separateDegrees| 224 |irreducible?| 229 |factorSquareFree| 234
-              |factor| 239 |exptMod| 244 |distdfact| 251)
+           '#(|tracePowMod| 187 |trace2PowMod| 194 |separateFactors| 201
+              |separateDegrees| 206 |irreducible?| 211 |factorSquareFree| 216
+              |factor| 221 |exptMod| 226 |distdfact| 233)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -647,7 +642,7 @@
                                      T)
                                    '((|irreducible?| ((|Boolean|) |#2|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 73
+                        (|makeByteWordVec2| 69
                                             '(0 6 9 10 0 6 0 12 0 7 0 13 0 6 0
                                               14 2 7 0 6 9 15 2 7 0 0 0 16 0 6
                                               0 17 0 7 0 18 1 7 6 0 19 2 6 20 0
@@ -657,13 +652,12 @@
                                               36 2 7 0 0 0 37 2 7 0 0 0 39 1 8
                                               0 0 41 2 8 0 0 0 42 1 8 7 0 43 2
                                               8 0 0 0 45 0 6 9 46 1 8 7 7 47 2
-                                              9 20 0 0 48 2 7 0 0 0 49 2 7 0 0
-                                              0 50 2 7 0 0 0 51 2 9 0 56 0 57 1
-                                              7 9 0 60 2 9 20 0 0 61 2 7 62 0 0
-                                              63 2 7 20 0 0 66 0 29 0 67 1 7 0
-                                              6 68 0 8 69 70 2 29 0 7 28 71 3 0
-                                              7 7 9 7 44 3 0 7 7 9 7 40 1 0 58
-                                              54 59 1 0 54 7 55 1 0 20 7 52 1 0
-                                              29 7 73 1 0 29 7 72 3 0 7 7 9 7
-                                              38 2 0 64 7 20 65)))))
+                                              7 0 0 0 48 2 7 0 0 0 49 2 7 0 0 0
+                                              50 1 7 9 0 57 2 7 58 0 0 59 2 7
+                                              20 0 0 62 0 29 0 63 1 7 0 6 64 0
+                                              8 65 66 2 29 0 7 28 67 3 0 7 7 9
+                                              7 44 3 0 7 7 9 7 40 1 0 55 53 56
+                                              1 0 53 7 54 1 0 20 7 51 1 0 29 7
+                                              69 1 0 29 7 68 3 0 7 7 9 7 38 2 0
+                                              60 7 20 61)))))
            '|lookupComplete|)) 

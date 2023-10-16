@@ -193,8 +193,7 @@
                      (COND
                       ((QEQCAR |v| 0)
                        (COND
-                        ((SPADCALL (LENGTH (LETT |l| (QCDR |v|))) 3
-                                   (QREFELT $ 61))
+                        ((<= (LENGTH (LETT |l| (QCDR |v|))) 3)
                          (PROGN
                           (LETT #1#
                                 (SEQ
@@ -202,8 +201,8 @@
                                   (SEQ
                                    (LETT |l|
                                          (NREVERSE
-                                          (SPADCALL (ELT $ 62) |l|
-                                                    (QREFELT $ 64))))
+                                          (SPADCALL (ELT $ 60) |l|
+                                                    (QREFELT $ 62))))
                                    (COND
                                     ((SPADCALL (|SPADfirst| |l|) '|log|
                                                (QREFELT $ 52))
@@ -258,7 +257,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|ODEIntegration| DV$1 DV$2))
-          (LETT $ (GETREFV 65))
+          (LETT $ (GETREFV 63))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ODEIntegration| (LIST DV$1 DV$2)
@@ -288,9 +287,9 @@
               |ODEINT;expint;FSF;4| (110 . |One|) (|Union| 18 '"failed")
               (114 . |retractIfCan|) (119 . *) (125 . |is?|) (131 . |One|)
               (|Kernel| $) (135 . |retract|) (|List| 7) (|Kernel| 7)
-              (140 . |argument|) (145 . |isTimes|) (|NonNegativeInteger|)
-              (150 . <=) (156 . |smaller?|) (|Mapping| 20 7 7) (162 . |sort!|))
-           '#(|int| 168 |expint| 174 |diff| 180) 'NIL
+              (140 . |argument|) (145 . |isTimes|) (150 . |smaller?|)
+              (|Mapping| 20 7 7) (156 . |sort!|))
+           '#(|int| 162 |expint| 168 |diff| 174) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -302,7 +301,7 @@
                                       ((|Mapping| |#2| |#2|) (|Symbol|)))
                                      T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 64
+                        (|makeByteWordVec2| 62
                                             '(2 7 0 0 8 9 2 13 12 7 8 14 0 7 0
                                               16 1 18 17 0 19 2 17 20 0 0 21 2
                                               24 0 23 0 25 1 18 17 0 26 2 7 0 0
@@ -313,8 +312,8 @@
                                               37 44 2 41 0 0 0 45 1 7 0 0 46 0
                                               18 0 48 1 7 49 0 50 2 18 0 0 18
                                               51 2 7 20 0 8 52 0 6 0 53 1 7 54
-                                              0 55 1 57 56 0 58 1 7 40 0 59 2
-                                              60 20 0 0 61 2 7 20 0 0 62 2 56 0
-                                              63 0 64 2 0 7 7 8 15 2 0 7 7 8 47
-                                              1 0 10 8 11)))))
+                                              0 55 1 57 56 0 58 1 7 40 0 59 2 7
+                                              20 0 0 60 2 56 0 61 0 62 2 0 7 7
+                                              8 15 2 0 7 7 8 47 1 0 10 8
+                                              11)))))
            '|lookupComplete|)) 

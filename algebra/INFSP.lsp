@@ -412,10 +412,8 @@
                                      (LETT #1# (REVERSE |sol|))
                                      (GO #7=#:G170)))))
                              ('T
-                              (SEQ
-                               (LETT |etol|
-                                     (SPADCALL |etol| 2 (QREFELT $ 119)))
-                               (EXIT (LETT |ebits| (* 2 |ebits|))))))))
+                              (SEQ (LETT |etol| (EXPT |etol| 2))
+                                   (EXIT (LETT |ebits| (* 2 |ebits|))))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
           #7# (EXIT #1#)))) 
 
@@ -445,7 +443,7 @@
                                           (PROGN
                                            (LETT #3#
                                                  (SPADCALL |n| |nr|
-                                                           (QREFELT $ 120)))
+                                                           (QREFELT $ 119)))
                                            (COND
                                             (#1#
                                              (LETT #2#
@@ -461,7 +459,7 @@
                                         (GO G190) G191 (EXIT NIL))
                                    (COND (#1# #2#) ('T (|spadConstant| $ 41))))
                                   (QREFELT $ 67))
-                        (QREFELT $ 122))
+                        (QREFELT $ 121))
               (EXIT (REVERSE |rnumres|))))) 
 
 (SDEFUN |INFSP;innerSolve2|
@@ -475,32 +473,32 @@
           (|up1| #1#) (|mainvar| (|Symbol|)))
          (SEQ (LETT |mainvar| (|SPADfirst| |lv|))
               (LETT |up1|
-                    (SPADCALL (SPADCALL |lp| 1 (QREFELT $ 124)) |mainvar|
-                              (QREFELT $ 125)))
+                    (SPADCALL (SPADCALL |lp| 1 (QREFELT $ 123)) |mainvar|
+                              (QREFELT $ 124)))
               (LETT |up2|
-                    (SPADCALL (SPADCALL |lp| 2 (QREFELT $ 124)) |mainvar|
-                              (QREFELT $ 125)))
-              (LETT |vec| (SPADCALL |up1| |up2| (QREFELT $ 129)))
+                    (SPADCALL (SPADCALL |lp| 2 (QREFELT $ 123)) |mainvar|
+                              (QREFELT $ 124)))
+              (LETT |vec| (SPADCALL |up1| |up2| (QREFELT $ 128)))
               (LETT |p0|
                     (SPADCALL
-                     (SPADCALL (QAREF1 |vec| 0) |mainvar| (QREFELT $ 130))
-                     (QREFELT $ 131)))
+                     (SPADCALL (QAREF1 |vec| 0) |mainvar| (QREFELT $ 129))
+                     (QREFELT $ 130)))
               (LETT |p1|
                     (SPADCALL
-                     (SPADCALL (QAREF1 |vec| 1) |mainvar| (QREFELT $ 130))
-                     |mainvar| (QREFELT $ 132)))
+                     (SPADCALL (QAREF1 |vec| 1) |mainvar| (QREFELT $ 129))
+                     |mainvar| (QREFELT $ 131)))
               (COND
-               ((OR (SPADCALL |p1| (QREFELT $ 133))
+               ((OR (SPADCALL |p1| (QREFELT $ 132))
                     (SPADCALL
                      (SPADCALL |p0|
                                (SPADCALL
-                                (SPADCALL |p1| |mainvar| (QREFELT $ 125))
-                                (QREFELT $ 137))
-                               (QREFELT $ 138))
-                     (|spadConstant| $ 139) (QREFELT $ 140)))
+                                (SPADCALL |p1| |mainvar| (QREFELT $ 124))
+                                (QREFELT $ 136))
+                               (QREFELT $ 137))
+                     (|spadConstant| $ 138) (QREFELT $ 139)))
                 (EXIT
-                 (SPADCALL (CONS (|spadConstant| $ 134) |lp|) NIL |lv| |eps|
-                           (QREFELT $ 136)))))
+                 (SPADCALL (CONS (|spadConstant| $ 133) |lp|) NIL |lv| |eps|
+                           (QREFELT $ 135)))))
               (EXIT
                (|INFSP;findGenZeros| (LIST |p1| |p0|) (REVERSE |lv|) |eps|
                 $))))) 
@@ -728,7 +726,7 @@
           (LETT |dmp| (|DistributedMultivariatePolynomial| |lv| (QREFELT $ 6)))
           (LETT |lq| NIL)
           (COND
-           ((SPADCALL |ld| NIL (QREFELT $ 141))
+           ((SPADCALL |ld| NIL (QREFELT $ 140))
             (LETT |lq|
                   (PROGN
                    (LETT #42# NIL)
@@ -1051,7 +1049,7 @@
                                 (COND
                                  (#12#
                                   (LETT #13#
-                                        (SPADCALL #13# #14# (QREFELT $ 142))))
+                                        (SPADCALL #13# #14# (QREFELT $ 141))))
                                  ('T
                                   (PROGN (LETT #13# #14#) (LETT #12# 'T)))))))
                              (LETT #15# (CDR #15#)) (GO G190) G191 (EXIT NIL))
@@ -1146,7 +1144,7 @@
                                 (LETT #6# (CDR #6#)) (GO G190) G191
                                 (EXIT (NREVERSE #7#)))))
                     (LETT |lnorm|
-                          (SPADCALL (ELT $ 144) |laval| (QREFELT $ 147)))
+                          (SPADCALL (ELT $ 143) |laval| (QREFELT $ 146)))
                     (LETT |neps|
                           (SPADCALL (SPADCALL 1 (+ 1 |lnorm|) (QREFELT $ 63))
                                     |eps| (QREFELT $ 112)))
@@ -1196,7 +1194,7 @@
                                                 #2#))))
                                   (LETT #1# (CDR #1#)) (GO G190) G191
                                   (EXIT (NREVERSE #2#))))
-                            |result| (QREFELT $ 142)))))
+                            |result| (QREFELT $ 141)))))
                    (LETT #10# (CDR #10#)) (GO G190) G191 (EXIT NIL))
               (EXIT |result|)))))))) 
 
@@ -1230,7 +1228,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$| (LIST '|InnerNumericFloatSolvePackage| DV$1 DV$2 DV$3))
-          (LETT $ (GETREFV 151))
+          (LETT $ (GETREFV 150))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|InnerNumericFloatSolvePackage|
@@ -1278,18 +1276,18 @@
               (317 . |retract|) (|Union| $ '"failed") (322 . |recip|)
               (327 . |coefficient|) (333 . -) (338 . *) (344 . |coerce|)
               (349 . |One|) (353 . |One|) (357 . *) (363 . *) (369 . |bits|)
-              (373 . |bits|) (378 . |width|) (|Boolean|) (383 . >) (389 . ^)
-              (395 . *) '"first" (401 . |setelt!|) (|List| 34) (408 . |elt|)
-              (414 . |univariate|) (|PrimitiveArray| 127)
-              (|SparseUnivariatePolynomial| 34) (|SubResultantPackage| 34 127)
-              (420 . |subresultantVector|) (426 . |multivariate|)
-              (432 . |primitivePart|) (437 . |primitivePart|) (443 . |zero?|)
-              (448 . |Zero|) (|List| 30) |INFSP;innerSolve;2LLParL;18|
-              (452 . |leadingCoefficient|) (457 . |gcd|) (463 . |One|)
-              (467 . ~=) (473 . ~=) (479 . |append|) (485 . +) (491 . +)
-              (|Mapping| 9 9 9) (|List| 9) (497 . |reduce|) (503 . |One|)
-              (507 . |One|) (511 . |One|))
-           '#(|makeEq| 515 |innerSolve1| 521 |innerSolve| 533) 'NIL
+              (373 . |bits|) (378 . |width|) (|Boolean|) (383 . >) (389 . *)
+              '"first" (395 . |setelt!|) (|List| 34) (402 . |elt|)
+              (408 . |univariate|) (|PrimitiveArray| 126)
+              (|SparseUnivariatePolynomial| 34) (|SubResultantPackage| 34 126)
+              (414 . |subresultantVector|) (420 . |multivariate|)
+              (426 . |primitivePart|) (431 . |primitivePart|) (437 . |zero?|)
+              (442 . |Zero|) (|List| 30) |INFSP;innerSolve;2LLParL;18|
+              (446 . |leadingCoefficient|) (451 . |gcd|) (457 . |One|)
+              (461 . ~=) (467 . ~=) (473 . |append|) (479 . +) (485 . +)
+              (|Mapping| 9 9 9) (|List| 9) (491 . |reduce|) (497 . |One|)
+              (501 . |One|) (505 . |One|))
+           '#(|makeEq| 509 |innerSolve1| 515 |innerSolve| 527) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -1314,7 +1312,7 @@
                                   (|List| |#2|) (|List| (|Symbol|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 150
+                        (|makeByteWordVec2| 149
                                             '(1 10 0 9 11 1 12 0 9 13 1 14 0 9
                                               15 1 16 0 9 17 1 18 9 0 19 1 18 9
                                               0 20 2 16 0 12 12 21 1 18 14 0 22
@@ -1345,17 +1343,17 @@
                                               110 0 8 0 111 2 8 0 12 0 112 2 10
                                               0 12 0 113 0 10 88 114 1 10 88 88
                                               115 1 69 10 0 116 2 10 117 0 0
-                                              118 2 9 0 0 88 119 2 7 0 9 0 120
-                                              3 30 7 0 121 7 122 2 123 34 0 9
-                                              124 2 34 38 0 23 125 2 128 126
-                                              127 127 129 2 34 0 38 23 130 1 34
-                                              0 0 131 2 34 0 0 23 132 1 34 117
-                                              0 133 0 34 0 134 1 127 34 0 137 2
-                                              34 0 0 0 138 0 34 0 139 2 34 117
-                                              0 0 140 2 123 117 0 0 141 2 135 0
-                                              0 0 142 2 42 0 0 0 143 2 9 0 0 0
-                                              144 2 146 9 145 0 147 0 12 0 148
-                                              0 72 0 149 0 10 0 150 2 0 29 30
-                                              31 32 2 0 30 34 8 53 2 0 30 50 8
-                                              52 4 0 135 123 123 31 8 136)))))
+                                              118 2 7 0 9 0 119 3 30 7 0 120 7
+                                              121 2 122 34 0 9 123 2 34 38 0 23
+                                              124 2 127 125 126 126 128 2 34 0
+                                              38 23 129 1 34 0 0 130 2 34 0 0
+                                              23 131 1 34 117 0 132 0 34 0 133
+                                              1 126 34 0 136 2 34 0 0 0 137 0
+                                              34 0 138 2 34 117 0 0 139 2 122
+                                              117 0 0 140 2 134 0 0 0 141 2 42
+                                              0 0 0 142 2 9 0 0 0 143 2 145 9
+                                              144 0 146 0 12 0 147 0 72 0 148 0
+                                              10 0 149 2 0 29 30 31 32 2 0 30
+                                              34 8 53 2 0 30 50 8 52 4 0 134
+                                              122 122 31 8 135)))))
            '|lookupComplete|)) 

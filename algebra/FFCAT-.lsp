@@ -611,19 +611,17 @@
                       (#1='T
                        (SEQ (LETT |n| (|FFCAT-;infOrder| |f| $))
                             (EXIT
-                             (COND
-                              ((SPADCALL |n| 0 (QREFELT $ 169))
-                               (|spadConstant| $ 168))
-                              ((ZEROP |n|)
-                               (SPADCALL
-                                (SPADCALL (SPADCALL |f| (QREFELT $ 19))
-                                          (QREFELT $ 170))
-                                (SPADCALL (SPADCALL |f| (QREFELT $ 16))
-                                          (QREFELT $ 170))
-                                (QREFELT $ 171)))
-                              (#1#
-                               (|error|
-                                "f not locally integral at infinity")))))))))) 
+                             (COND ((> |n| 0) (|spadConstant| $ 168))
+                                   ((ZEROP |n|)
+                                    (SPADCALL
+                                     (SPADCALL (SPADCALL |f| (QREFELT $ 19))
+                                               (QREFELT $ 169))
+                                     (SPADCALL (SPADCALL |f| (QREFELT $ 16))
+                                               (QREFELT $ 169))
+                                     (QREFELT $ 170)))
+                                   (#1#
+                                    (|error|
+                                     "f not locally integral at infinity")))))))))) 
 
 (SDEFUN |FFCAT-;rfmonom| ((|n| |Integer|) ($ |Fraction| UP))
         (SPROG ((#1=#:G271 NIL) (#2=#:G270 NIL))
@@ -658,14 +656,14 @@
          (SEQ (LETT |nostart| 'T) (LETT |k| 0)
               (LETT |ii|
                     (- (PROGN |m| 1)
-                       (LETT |i0| (SPADCALL |v| (QREFELT $ 173)))))
-              (SEQ (LETT |i| (SPADCALL |v| (QREFELT $ 173)))
+                       (LETT |i0| (SPADCALL |v| (QREFELT $ 172)))))
+              (SEQ (LETT |i| (SPADCALL |v| (QREFELT $ 172)))
                    (LETT #1# (QVSIZE |v|)) G190 (COND ((> |i| #1#) (GO G191)))
                    (SEQ
                     (EXIT
                      (COND
                       ((SPADCALL (QAREF1O |v| |i| 1) (|spadConstant| $ 168)
-                                 (QREFELT $ 174))
+                                 (QREFELT $ 173))
                        (SEQ (LETT |nk| (|FFCAT-;repOrder| |m| (+ |i| |ii|) $))
                             (EXIT
                              (COND
@@ -694,11 +692,11 @@
           (|infm| (|Matrix| (|Fraction| UP))) (|ans| (|Vector| S)))
          (SEQ
           (EXIT
-           (SEQ (LETT |ans| (SPADCALL |w| (QREFELT $ 175)))
+           (SEQ (LETT |ans| (SPADCALL |w| (QREFELT $ 174)))
                 (LETT |infm| (SPADCALL (QREFELT $ 147)))
                 (LETT |mhat|
                       (SPADCALL (SPADCALL (QREFELT $ 163))
-                                (SPADCALL (QREFELT $ 163)) (QREFELT $ 176)))
+                                (SPADCALL (QREFELT $ 163)) (QREFELT $ 175)))
                 (LETT |ii| (- (SPADCALL |w| (QREFELT $ 115)) (PROGN |mhat| 1)))
                 (EXIT
                  (SEQ G190 NIL
@@ -732,7 +730,7 @@
                             (SEQ
                              (EXIT
                               (SEQ (LETT |j| (PROGN |m| 1))
-                                   (LETT #6# (SPADCALL |m| (QREFELT $ 177)))
+                                   (LETT #6# (SPADCALL |m| (QREFELT $ 176)))
                                    G190 (COND ((> |j| #6#) (GO G191)))
                                    (SEQ
                                     (EXIT
@@ -750,9 +748,9 @@
                               (SPADCALL
                                (SPADCALL
                                 (CONS (|function| |FFCAT-;infValue|) $) |mhat|
-                                (QREFELT $ 181))
-                               (QREFELT $ 182))
-                              (QREFELT $ 184)))
+                                (QREFELT $ 180))
+                               (QREFELT $ 181))
+                              (QREFELT $ 183)))
                        (EXIT
                         (COND
                          ((NULL |solList|)
@@ -767,7 +765,7 @@
                                              (SEQ
                                               (LETT |i|
                                                     (SPADCALL |sol|
-                                                              (QREFELT $ 173)))
+                                                              (QREFELT $ 172)))
                                               (LETT #4# (QVSIZE |sol|)) G190
                                               (COND ((> |i| #4#) (GO G191)))
                                               (SEQ
@@ -809,11 +807,11 @@
 
 (SDEFUN |FFCAT-;integral?;SUPB;30| ((|f| S) (|p| UP) ($ |Boolean|))
         (SPROG ((|r| (|Union| F "failed")))
-               (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 187)))
+               (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 186)))
                     (EXIT
                      (COND
                       ((QEQCAR |r| 0)
-                       (SPADCALL |f| (QCDR |r|) (QREFELT $ 188)))
+                       (SPADCALL |f| (QCDR |r|) (QREFELT $ 187)))
                       ('T
                        (QEQCAR
                         (SPADCALL (QCDR (SPADCALL |f| (QREFELT $ 21))) |p|
@@ -825,13 +823,13 @@
                (SPADCALL |f|
                          (CONS #'|FFCAT-;differentiate;SMS;31!0|
                                (VECTOR $ |d|))
-                         (QREFELT $ 192)))) 
+                         (QREFELT $ 191)))) 
 
 (SDEFUN |FFCAT-;differentiate;SMS;31!0| ((|x| NIL) ($$ NIL))
         (PROG (|d| $)
           (LETT |d| (QREFELT $$ 1))
           (LETT $ (QREFELT $$ 0))
-          (RETURN (PROGN (SPADCALL |x| |d| (QREFELT $ 190)))))) 
+          (RETURN (PROGN (SPADCALL |x| |d| (QREFELT $ 189)))))) 
 
 (DECLAIM (NOTINLINE |FunctionFieldCategory&;|)) 
 
@@ -845,7 +843,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|FunctionFieldCategory&| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 195))
+    (LETT $ (GETREFV 194))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -933,24 +931,24 @@
               (489 . |inverseIntegralMatrix|) (493 . *) (499 . |determinant|)
               (504 . ^) (510 . *) (516 . |exquo|) (522 . |rank|)
               |FFCAT-;genus;Nni;24| (526 . |minIndex|) (531 . |Zero|)
-              (535 . ~=) (541 . |Zero|) (545 . >) (551 . |leadingCoefficient|)
-              (556 . /) (|Vector| 10) (562 . |minIndex|) (567 . ~=)
-              (573 . |copy|) (578 . |zero|) (584 . |maxColIndex|) (|Matrix| 10)
+              (535 . ~=) (541 . |Zero|) (545 . |leadingCoefficient|) (550 . /)
+              (|Vector| 10) (556 . |minIndex|) (561 . ~=) (567 . |copy|)
+              (572 . |zero|) (578 . |maxColIndex|) (|Matrix| 10)
               (|Mapping| 10 14)
-              (|MatrixCategoryFunctions2| 14 31 31 83 10 172 172 178)
-              (589 . |map|) (595 . |transpose|) (|List| 172)
-              (600 . |nullSpace|) |FFCAT-;normalizeAtInfinity;2V;29|
-              (|Union| 7 '#1#) (605 . |retractIfCan|) (610 . |integral?|)
-              |FFCAT-;integral?;SUPB;30| (616 . |differentiate|)
-              (|Mapping| 14 14) (622 . |differentiate|)
+              (|MatrixCategoryFunctions2| 14 31 31 83 10 171 171 177)
+              (583 . |map|) (589 . |transpose|) (|List| 171)
+              (594 . |nullSpace|) |FFCAT-;normalizeAtInfinity;2V;29|
+              (|Union| 7 '#1#) (599 . |retractIfCan|) (604 . |integral?|)
+              |FFCAT-;integral?;SUPB;30| (610 . |differentiate|)
+              (|Mapping| 14 14) (616 . |differentiate|)
               |FFCAT-;differentiate;SMS;31| (|List| 17))
-           '#(|yCoordinates| 628 |represents| 633 |reduceBasisAtInfinity| 639
-              |rationalPoints| 644 |rationalPoint?| 648 |primitivePart| 654
-              |numberOfComponents| 659 |normalizeAtInfinity| 663
-              |nonSingularModel| 668 |integralAtInfinity?| 673 |integral?| 678
-              |hyperelliptic| 695 |genus| 699 |elt| 703 |elliptic| 710
-              |differentiate| 714 |complementaryBasis| 720 |algSplitSimple| 725
-              |absolutelyIrreducible?| 731)
+           '#(|yCoordinates| 622 |represents| 627 |reduceBasisAtInfinity| 633
+              |rationalPoints| 638 |rationalPoint?| 642 |primitivePart| 648
+              |numberOfComponents| 653 |normalizeAtInfinity| 657
+              |nonSingularModel| 662 |integralAtInfinity?| 667 |integral?| 672
+              |hyperelliptic| 689 |genus| 693 |elt| 697 |elliptic| 704
+              |differentiate| 708 |complementaryBasis| 714 |algSplitSimple| 719
+              |absolutelyIrreducible?| 725)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -1033,7 +1031,7 @@
                                   (|Vector| |#1|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 193
+                        (|makeByteWordVec2| 192
                                             '(1 10 7 0 11 1 8 0 7 12 1 10 7 0
                                               13 2 14 0 8 8 15 1 14 8 0 16 1 8
                                               17 0 18 1 14 8 0 19 1 6 20 0 21 1
@@ -1076,20 +1074,20 @@
                                               2 14 0 0 94 160 2 14 0 0 0 161 2
                                               94 53 0 0 162 0 6 108 163 1 31 94
                                               0 165 0 14 0 166 2 14 22 0 0 167
-                                              0 10 0 168 2 94 22 0 0 169 1 8 7
-                                              0 170 2 10 0 7 7 171 1 172 94 0
-                                              173 2 10 22 0 0 174 1 95 0 0 175
-                                              2 83 0 17 17 176 1 83 94 0 177 2
-                                              180 178 179 83 181 1 178 0 0 182
-                                              1 178 183 0 184 1 8 186 0 187 2 6
-                                              22 0 7 188 2 14 0 0 62 190 2 6 0
-                                              0 191 192 1 0 20 0 35 2 0 0 125 8
-                                              155 1 0 81 81 139 0 0 111 113 2 0
-                                              22 7 7 70 1 0 0 0 132 0 0 17 154
-                                              1 0 81 81 185 1 0 101 88 106 1 0
-                                              22 0 151 2 0 22 0 7 28 2 0 22 0 8
-                                              189 1 0 22 0 24 0 0 45 47 0 0 17
-                                              164 3 0 7 0 7 7 124 0 0 45 65 2 0
-                                              0 0 62 193 1 0 81 81 144 2 0 61 0
-                                              62 63 0 0 22 30)))))
+                                              0 10 0 168 1 8 7 0 169 2 10 0 7 7
+                                              170 1 171 94 0 172 2 10 22 0 0
+                                              173 1 95 0 0 174 2 83 0 17 17 175
+                                              1 83 94 0 176 2 179 177 178 83
+                                              180 1 177 0 0 181 1 177 182 0 183
+                                              1 8 185 0 186 2 6 22 0 7 187 2 14
+                                              0 0 62 189 2 6 0 0 190 191 1 0 20
+                                              0 35 2 0 0 125 8 155 1 0 81 81
+                                              139 0 0 111 113 2 0 22 7 7 70 1 0
+                                              0 0 132 0 0 17 154 1 0 81 81 184
+                                              1 0 101 88 106 1 0 22 0 151 2 0
+                                              22 0 7 28 2 0 22 0 8 188 1 0 22 0
+                                              24 0 0 45 47 0 0 17 164 3 0 7 0 7
+                                              7 124 0 0 45 65 2 0 0 0 62 192 1
+                                              0 81 81 144 2 0 61 0 62 63 0 0 22
+                                              30)))))
            '|lookupComplete|)) 

@@ -175,10 +175,10 @@
                (SEQ (LETT |xs| (SPADCALL |x| (QREFELT $ 58)))
                     (EXIT
                      (COND
-                      ((SPADCALL
+                      ((>
                         (SPADCALL (SPADCALL |r| (QREFELT $ 69)) |xs|
                                   (QREFELT $ 70))
-                        0 (QREFELT $ 71))
+                        0)
                        (|error| "bad polynomial form"))
                       ('T
                        (SPADCALL
@@ -187,23 +187,23 @@
                                    (QREFELT $ 16))
                          (QREFELT $ 17))
                         (SPADCALL
-                         (SPADCALL (SPADCALL |r| (QREFELT $ 72)) |xs|
-                                   (QREFELT $ 73))
-                         |x| (QREFELT $ 75))
+                         (SPADCALL (SPADCALL |r| (QREFELT $ 71)) |xs|
+                                   (QREFELT $ 72))
+                         |x| (QREFELT $ 74))
                         (QREFELT $ 32)))))))) 
 
 (SDEFUN |MPRFF;pushucoef;SupOVPRF;6|
         ((|c| |SparseUnivariatePolynomial| (|Polynomial| R)) (|x| OV) ($ PRF))
         (COND
-         ((SPADCALL |c| (|spadConstant| $ 76) (QREFELT $ 77))
+         ((SPADCALL |c| (|spadConstant| $ 75) (QREFELT $ 76))
           (|spadConstant| $ 42))
          ('T
           (SPADCALL
            (SPADCALL
-            (SPADCALL (SPADCALL (SPADCALL |c| (QREFELT $ 78)) (QREFELT $ 16))
+            (SPADCALL (SPADCALL (SPADCALL |c| (QREFELT $ 77)) (QREFELT $ 16))
                       (QREFELT $ 29))
-            |x| (SPADCALL |c| (QREFELT $ 79)) (QREFELT $ 80))
-           (SPADCALL (SPADCALL |c| (QREFELT $ 81)) |x| (QREFELT $ 75))
+            |x| (SPADCALL |c| (QREFELT $ 78)) (QREFELT $ 79))
+           (SPADCALL (SPADCALL |c| (QREFELT $ 80)) |x| (QREFELT $ 74))
            (QREFELT $ 51))))) 
 
 (SDEFUN |MPRFF;totalfract;PRFR;7|
@@ -213,8 +213,8 @@
         (SPROG ((|g| (|Fraction| (|Polynomial| R))) (#1=#:G151 NIL) (|x| NIL))
                (SEQ
                 (COND
-                 ((SPADCALL |p| (|spadConstant| $ 42) (QREFELT $ 82))
-                  (CONS (|spadConstant| $ 83) (|spadConstant| $ 59)))
+                 ((SPADCALL |p| (|spadConstant| $ 42) (QREFELT $ 81))
+                  (CONS (|spadConstant| $ 82) (|spadConstant| $ 59)))
                  ('T
                   (SEQ
                    (SEQ (LETT |x| NIL) (LETT #1# (SPADCALL |p| (QREFELT $ 11)))
@@ -227,7 +227,7 @@
                         (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                    (LETT |g| (SPADCALL |p| (QREFELT $ 62)))
                    (EXIT
-                    (CONS (SPADCALL |g| (QREFELT $ 72))
+                    (CONS (SPADCALL |g| (QREFELT $ 71))
                           (SPADCALL |g| (QREFELT $ 69)))))))))) 
 
 (DECLAIM (NOTINLINE |MPolyCatRationalFunctionFactorizer;|)) 
@@ -265,7 +265,7 @@
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$|
           (LIST '|MPolyCatRationalFunctionFactorizer| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 84))
+    (LETT $ (GETREFV 83))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|MPolyCatRationalFunctionFactorizer|
@@ -305,14 +305,14 @@
               (139 . |monomial|) (146 . |leadingCoefficient|) (151 . |retract|)
               |MPRFF;pushuconst;FOVPRF;5| (|Union| 7 '"failed")
               (156 . |mainVariable|) (|Mapping| 9 9) (161 . |map|)
-              (167 . |multivariate|) (173 . |denom|) (178 . |degree|) (184 . >)
-              (190 . |numer|) (195 . |univariate|)
+              (167 . |multivariate|) (173 . |denom|) (178 . |degree|)
+              (184 . |numer|) (189 . |univariate|)
               (|SparseUnivariatePolynomial| 14) |MPRFF;pushucoef;SupOVPRF;6|
-              (201 . |Zero|) (205 . =) (211 . |leadingCoefficient|)
-              (216 . |degree|) (221 . |monomial|) (228 . |reductum|) (233 . =)
-              (239 . |Zero|))
-           '#(|totalfract| 243 |pushup| 248 |pushuconst| 254 |pushucoef| 260
-              |pushdterm| 266 |pushdown| 272 |factor| 278)
+              (195 . |Zero|) (199 . =) (205 . |leadingCoefficient|)
+              (210 . |degree|) (215 . |monomial|) (222 . |reductum|) (227 . =)
+              (233 . |Zero|))
+           '#(|totalfract| 237 |pushup| 242 |pushuconst| 248 |pushucoef| 254
+              |pushdterm| 260 |pushdown| 266 |factor| 272)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -342,7 +342,7 @@
                                 T)
                               '((|factor| ((|Factored| |#4|) |#4|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 83
+                        (|makeByteWordVec2| 82
                                             '(1 9 10 0 11 1 15 0 14 16 1 15 0 0
                                               17 1 19 18 14 20 1 21 18 14 22 1
                                               23 18 14 24 1 18 27 0 28 1 9 0 15
@@ -356,12 +356,12 @@
                                               0 59 3 14 0 0 57 33 60 1 47 9 0
                                               61 1 9 15 0 62 1 9 64 0 65 2 47 0
                                               66 0 67 2 9 0 43 7 68 1 15 14 0
-                                              69 2 14 33 0 57 70 2 33 40 0 0 71
-                                              1 15 14 0 72 2 14 43 0 57 73 0 74
-                                              0 76 2 74 40 0 0 77 1 74 14 0 78
-                                              1 74 33 0 79 3 9 0 0 7 33 80 1 74
-                                              0 0 81 2 9 40 0 0 82 0 14 0 83 1
-                                              0 12 9 13 2 0 9 9 7 31 2 0 9 15 7
-                                              63 2 0 9 74 7 75 2 0 9 47 7 50 2
-                                              0 9 9 7 53 1 0 34 9 39)))))
+                                              69 2 14 33 0 57 70 1 15 14 0 71 2
+                                              14 43 0 57 72 0 73 0 75 2 73 40 0
+                                              0 76 1 73 14 0 77 1 73 33 0 78 3
+                                              9 0 0 7 33 79 1 73 0 0 80 2 9 40
+                                              0 0 81 0 14 0 82 1 0 12 9 13 2 0
+                                              9 9 7 31 2 0 9 15 7 63 2 0 9 73 7
+                                              74 2 0 9 47 7 50 2 0 9 9 7 53 1 0
+                                              34 9 39)))))
            '|lookupComplete|)) 

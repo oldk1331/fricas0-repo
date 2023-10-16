@@ -241,9 +241,9 @@
                             (QREFELT $ 29))
                            |res1| (QREFELT $ 30)))
                     (COND
-                     ((SPADCALL (- |i1| |i0|) (QREFELT $ 32))
-                      (LETT |res1| (SPADCALL |res1| (QREFELT $ 33)))))
-                    (EXIT (LETT |res| (SPADCALL |res| |res1| (QREFELT $ 34)))))
+                     ((EVENP (- |i1| |i0|))
+                      (LETT |res1| (SPADCALL |res1| (QREFELT $ 32)))))
+                    (EXIT (LETT |res| (SPADCALL |res| |res1| (QREFELT $ 33)))))
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |res|)))) 
 
@@ -273,7 +273,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|CharacteristicPolynomial2| DV$1))
-          (LETT $ (GETREFV 36))
+          (LETT $ (GETREFV 35))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CharacteristicPolynomial2|
@@ -292,9 +292,9 @@
               (|Record| (|:| |matrix| 15) (|:| |block_list| (|List| 14)))
               |CHARPOL2;danilewski;MR;1| (64 . |copy|)
               (|SparseUnivariatePolynomial| 6) (69 . |One|) (73 . |Zero|)
-              (77 . |elt|) (84 . |monomial|) (90 . +) (96 . -) (101 . |even?|)
-              (106 . -) (111 . *) |CHARPOL2;char_pol;MSup;2|)
-           '#(|danilewski| 117 |char_pol| 122) 'NIL
+              (77 . |elt|) (84 . |monomial|) (90 . +) (96 . -) (101 . -)
+              (106 . *) |CHARPOL2;char_pol;MSup;2|)
+           '#(|danilewski| 112 |char_pol| 117) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -312,7 +312,7 @@
                                   (|Matrix| |#1|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 35
+                        (|makeByteWordVec2| 34
                                             '(2 8 7 0 0 9 0 6 0 10 0 6 0 11 2 6
                                               7 0 0 12 2 6 7 0 0 13 3 15 0 0 14
                                               14 16 3 15 0 0 14 14 17 2 6 0 0 0
@@ -320,6 +320,6 @@
                                               0 0 0 21 1 15 0 0 24 0 25 0 26 0
                                               25 0 27 3 15 6 0 14 14 28 2 25 0
                                               6 8 29 2 25 0 0 0 30 1 6 0 0 31 1
-                                              14 7 0 32 1 25 0 0 33 2 25 0 0 0
-                                              34 1 0 22 15 23 1 0 25 15 35)))))
+                                              25 0 0 32 2 25 0 0 0 33 1 0 22 15
+                                              23 1 0 25 15 34)))))
            '|lookupComplete|)) 

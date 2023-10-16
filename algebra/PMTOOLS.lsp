@@ -307,12 +307,12 @@
                         (LETT |ls| (QCDR (QCDR |rc|)))
                         (EXIT
                          (COND ((NULL |lp|) |l|)
-                               ((SPADCALL
+                               ((>
                                  (LENGTH
                                   (LETT |lpm|
                                         (SPADCALL (ELT $ 44) |lp|
                                                   (QREFELT $ 46))))
-                                 1 (QREFELT $ 49))
+                                 1)
                                 (|error|
                                  "More than one optional pattern in sum/product"))
                                ((< (+ (LENGTH |ls|) (LENGTH |lpm|))
@@ -334,26 +334,25 @@
                                           (LETT |l|
                                                 (SPADCALL (|SPADfirst| |lpm|)
                                                           |ident| |l|
-                                                          (QREFELT $ 50)))
+                                                          (QREFELT $ 48)))
                                           (QREFELT $ 21))
                                          (PROGN
                                           (LETT #2# |l|)
                                           (GO #3#))))))))))
                                  (EXIT
                                   (COND
-                                   ((SPADCALL
+                                   ((>
                                      (LENGTH
                                       (LETT |lpm|
-                                            (SPADCALL (ELT $ 51) |lp|
+                                            (SPADCALL (ELT $ 49) |lp|
                                                       (QREFELT $ 46))))
-                                     1 (QREFELT $ 49))
+                                     1)
                                     (|error|
                                      "More than one expandable pattern in sum/product"))
                                    (#4#
                                     (SEQ
                                      (COND
-                                      ((SPADCALL (LENGTH |ls|) (LENGTH |lp|)
-                                                 (QREFELT $ 49))
+                                      ((> (LENGTH |ls|) (LENGTH |lp|))
                                        (COND
                                         ((NULL |lpm|)
                                          (COND
@@ -369,7 +368,7 @@
                                              (SPADCALL (|SPADfirst| |lpm|) |lp|
                                                        (QREFELT $ 28)))))
                                      (LETT |l1|
-                                           (SPADCALL (ELT $ 52) |lp|
+                                           (SPADCALL (ELT $ 50) |lp|
                                                      (QREFELT $ 46)))
                                      (LETT |l2|
                                            (SPADCALL
@@ -478,29 +477,29 @@
                                                                            |op|)
                                                                  |l|
                                                                  (QREFELT $
-                                                                          50)))))))))))))))))))))))))))))))))))))))
+                                                                          48)))))))))))))))))))))))))))))))))))))))
           #3# (EXIT #2#)))) 
 
 (SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!3| ((|p1| NIL) ($ NIL))
         (COND
          ((SPADCALL |p1| (QREFELT $ 34))
           (COND ((SPADCALL |p1| (QREFELT $ 43)) NIL)
-                ('T (NULL (SPADCALL |p1| (QREFELT $ 52))))))
+                ('T (NULL (SPADCALL |p1| (QREFELT $ 50))))))
          ('T NIL))) 
 
 (SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!2| ((|p1| NIL) ($ NIL))
         (COND
          ((OR (SPADCALL |p1| (QREFELT $ 43)) (SPADCALL |p1| (QREFELT $ 34)))
           NIL)
-         ('T (NULL (SPADCALL |p1| (QREFELT $ 52)))))) 
+         ('T (NULL (SPADCALL |p1| (QREFELT $ 50)))))) 
 
 (SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!1| ((|z1| NIL) (|z2| NIL) ($ NIL))
-        (SPADCALL (SPADCALL |z1| (QREFELT $ 53)) (SPADCALL |z2| (QREFELT $ 53))
-                  (QREFELT $ 49))) 
+        (SPADCALL (SPADCALL |z1| (QREFELT $ 52)) (SPADCALL |z2| (QREFELT $ 52))
+                  (QREFELT $ 53))) 
 
 (SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!0| ((|p1| NIL) ($ NIL))
         (COND
-         ((SPADCALL |p1| (QREFELT $ 43)) (NULL (SPADCALL |p1| (QREFELT $ 52))))
+         ((SPADCALL |p1| (QREFELT $ 43)) (NULL (SPADCALL |p1| (QREFELT $ 50))))
          ('T NIL))) 
 
 (DECLAIM (NOTINLINE |PatternMatchTools;|)) 
@@ -562,9 +561,9 @@
               (94 . |addMatchRestricted|) (|Union| 8 '"failed")
               (102 . |getMatch|) (108 . |member?|) (114 . |hasPredicate?|)
               (119 . |optional?|) (|Mapping| 18 11) (124 . |select|)
-              (130 . |One|) (|NonNegativeInteger|) (134 . >) (140 . |addMatch|)
-              (147 . |multiple?|) (152 . |constant?|) (157 . |depth|)
-              (|Mapping| 18 11 11) (162 . |sort!|))
+              (130 . |One|) (134 . |addMatch|) (141 . |multiple?|)
+              (146 . |constant?|) (|NonNegativeInteger|) (151 . |depth|)
+              (156 . >) (|Mapping| 18 11 11) (162 . |sort!|))
            '#(|patternMatchTimes| 168 |patternMatch| 176) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -602,9 +601,9 @@
                                               26 0 0 0 37 2 26 0 0 0 38 4 20 0
                                               11 8 0 8 39 2 20 40 11 0 41 2 26
                                               18 8 0 42 1 11 18 0 43 1 11 18 0
-                                              44 2 22 0 45 0 46 0 7 0 47 2 48
-                                              18 0 0 49 3 20 0 11 8 0 50 1 11
-                                              18 0 51 1 11 18 0 52 1 11 48 0 53
-                                              2 22 0 54 0 55 4 0 20 26 22 20 31
+                                              44 2 22 0 45 0 46 0 7 0 47 3 20 0
+                                              11 8 0 48 1 11 18 0 49 1 11 18 0
+                                              50 1 11 51 0 52 2 51 18 0 0 53 2
+                                              22 0 54 0 55 4 0 20 26 22 20 31
                                               33 5 0 20 26 22 30 20 31 32)))))
            '|lookupComplete|)) 

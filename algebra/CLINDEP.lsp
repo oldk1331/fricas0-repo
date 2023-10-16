@@ -320,7 +320,7 @@
                                     ((SPADCALL
                                       (SPADCALL |m1| |i| |k1| (QREFELT $ 93))
                                       (|spadConstant| $ 14) (QREFELT $ 94))
-                                     (SPADCALL |k1| |nc| (QREFELT $ 95)))
+                                     (<= |k1| |nc|))
                                     ('T NIL)))
                                   (GO G191)))
                                 (SEQ (EXIT (LETT |k1| (+ |k1| 1)))) NIL
@@ -386,12 +386,12 @@
                            (LETT |ll| (CONS |ll1| |ll|))
                            (EXIT
                             (LETT |lr|
-                                  (CONS (SPADCALL |m1| |i| (QREFELT $ 96))
+                                  (CONS (SPADCALL |m1| |i| (QREFELT $ 95))
                                         |lr|))))
                       (LETT #12# (CDR #12#)) (GO G190) G191 (EXIT NIL))
                  (LETT |m|
                        (SPADCALL (SPADCALL |ll| (QREFELT $ 87))
-                                 (QREFELT $ 97)))
+                                 (QREFELT $ 96)))
                  (LETT |s1| (SPADCALL |m| |ld| (QREFELT $ 82)))
                  (LETT |l3|
                        (PROGN
@@ -404,7 +404,7 @@
                              (SEQ
                               (EXIT
                                (LETT #9#
-                                     (CONS (SPADCALL |bv| |lr| (QREFELT $ 99))
+                                     (CONS (SPADCALL |bv| |lr| (QREFELT $ 98))
                                            #9#))))
                              (LETT #8# (CDR #8#)) (GO G190) G191
                              (EXIT (NREVERSE #9#)))))
@@ -431,8 +431,7 @@
                                                (LETT #5#
                                                      (CONS
                                                       (SPADCALL |bv| |i|
-                                                                (QREFELT $
-                                                                         100))
+                                                                (QREFELT $ 99))
                                                       #5#))))
                                              (LETT |i| (+ |i| 1)) (GO G190)
                                              G191 (EXIT (NREVERSE #5#))))
@@ -455,8 +454,8 @@
                                       (CONS
                                        (SPADCALL |bv|
                                                  (SPADCALL 1 |nc|
-                                                           (QREFELT $ 102))
-                                                 (QREFELT $ 103))
+                                                           (QREFELT $ 101))
+                                                 (QREFELT $ 102))
                                        #2#))))
                               (LETT #1# (CDR #1#)) (GO G190) G191
                               (EXIT (NREVERSE #2#)))))))))))) 
@@ -489,7 +488,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|ConstantLinearDependence| DV$1 DV$2))
-          (LETT $ (GETREFV 106))
+          (LETT $ (GETREFV 105))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ConstantLinearDependence|
@@ -540,17 +539,16 @@
               (180 . |Zero|) (184 . |One|) (188 . |entries|) (|List| 21)
               (193 . |matrix|) (198 . |One|) (|NonNegativeInteger|)
               (202 . |scalarMatrix|) (208 . |horizConcat|) (214 . |rowEchelon|)
-              (219 . |elt|) (226 . =) (232 . <=) (238 . |row|)
-              (244 . |transpose|)
+              (219 . |elt|) (226 . =) (232 . |row|) (238 . |transpose|)
               (|LinearCombinationUtilities| 7 (|SparseUnivariatePolynomial| 7))
-              (249 . |lin_comb|) (255 . |elt|) (|UniversalSegment| 34)
-              (261 . SEGMENT) (267 . |elt|)
+              (243 . |lin_comb|) (249 . |elt|) (|UniversalSegment| 34)
+              (255 . SEGMENT) (261 . |elt|)
               (|Record| (|:| |transform| 54) (|:| |basis| 81))
               |CLINDEP;constant_subspace;LLR;15|)
-           '#(|solveLinearOverConstants| 273 |reducedSystem| 287
-              |particularSolutionOverConstants| 300 |nullSpaceOverConstants|
-              314 |linearlyDependentOverConstants?| 320
-              |linearDependenceOverConstants| 326 |constant_subspace| 332)
+           '#(|solveLinearOverConstants| 267 |reducedSystem| 281
+              |particularSolutionOverConstants| 294 |nullSpaceOverConstants|
+              308 |linearlyDependentOverConstants?| 314
+              |linearDependenceOverConstants| 320 |constant_subspace| 326)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -615,7 +613,7 @@
                                   (|List| (|Mapping| |#2| |#2|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 105
+                        (|makeByteWordVec2| 104
                                             '(2 10 9 0 0 11 1 7 0 12 13 0 7 0
                                               14 2 7 9 0 0 15 1 16 0 7 17 1 10
                                               18 0 19 1 16 18 18 20 1 10 21 0
@@ -633,14 +631,14 @@
                                               0 6 0 83 0 7 0 84 1 50 21 0 85 1
                                               54 0 86 87 0 6 0 88 2 54 0 89 7
                                               90 2 54 0 0 0 91 1 54 0 0 92 3 54
-                                              7 0 34 34 93 2 7 9 0 0 94 2 34 9
-                                              0 0 95 2 54 50 0 34 96 1 54 0 0
-                                              97 2 98 50 50 81 99 2 50 7 0 34
-                                              100 2 101 0 34 34 102 2 50 0 0
-                                              101 103 3 0 69 50 7 60 71 3 0 69
-                                              54 50 60 73 3 0 77 54 50 60 80 2
-                                              0 54 54 60 76 3 0 62 50 7 60 66 3
-                                              0 62 54 50 60 68 2 0 81 54 60 82
-                                              2 0 9 50 60 61 2 0 62 50 60 64 2
-                                              0 104 81 60 105)))))
+                                              7 0 34 34 93 2 7 9 0 0 94 2 54 50
+                                              0 34 95 1 54 0 0 96 2 97 50 50 81
+                                              98 2 50 7 0 34 99 2 100 0 34 34
+                                              101 2 50 0 0 100 102 3 0 69 50 7
+                                              60 71 3 0 69 54 50 60 73 3 0 77
+                                              54 50 60 80 2 0 54 54 60 76 3 0
+                                              62 50 7 60 66 3 0 62 54 50 60 68
+                                              2 0 81 54 60 82 2 0 9 50 60 61 2
+                                              0 62 50 60 64 2 0 103 81 60
+                                              104)))))
            '|lookupComplete|)) 

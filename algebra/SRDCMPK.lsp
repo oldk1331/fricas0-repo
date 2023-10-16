@@ -595,21 +595,19 @@
                      (GO G191)))
                    (SEQ (LETT |us| (QCDR |branch|))
                         (EXIT
-                         (COND
-                          ((SPADCALL (SPADCALL |us| (QREFELT $ 12)) |n|
-                                     (QREFELT $ 95))
-                           "leave")
-                          ('T
-                           (SEQ
-                            (LETT |newleq|
-                                  (SPADCALL (ELT $ 97)
-                                            (SPADCALL |leq| (QCAR |branch|)
-                                                      (QREFELT $ 98))
-                                            (QREFELT $ 100)))
-                            (EXIT
-                             (LETT |branches1|
-                                   (CONS (CONS |newleq| |us|)
-                                         |branches1|))))))))
+                         (COND ((> (SPADCALL |us| (QREFELT $ 12)) |n|) "leave")
+                               ('T
+                                (SEQ
+                                 (LETT |newleq|
+                                       (SPADCALL (ELT $ 96)
+                                                 (SPADCALL |leq|
+                                                           (QCAR |branch|)
+                                                           (QREFELT $ 97))
+                                                 (QREFELT $ 99)))
+                                 (EXIT
+                                  (LETT |branches1|
+                                        (CONS (CONS |newleq| |us|)
+                                              |branches1|))))))))
                    (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
               (SEQ (LETT |us| NIL) (LETT #2# |newComponents|) G190
                    (COND
@@ -618,10 +616,8 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((OR
-                        (SPADCALL (SPADCALL |us| (QREFELT $ 12)) |n|
-                                  (QREFELT $ 95))
-                        (SPADCALL |us| |lts| (QREFELT $ 101)))
+                      ((OR (> (SPADCALL |us| (QREFELT $ 12)) |n|)
+                           (SPADCALL |us| |lts| (QREFELT $ 100)))
                        "leave")
                       ('T
                        (LETT |branches2|
@@ -637,8 +633,8 @@
                  (SEQ
                   (LETT |branches|
                         (SPADCALL (LIST |branches2| |branches1| |current|)
-                                  (QREFELT $ 102)))
-                  (EXIT (SPADCALL |branches| (QREFELT $ 103)))))))))) 
+                                  (QREFELT $ 101)))
+                  (EXIT (SPADCALL |branches| (QREFELT $ 102)))))))))) 
 
 (DECLAIM (NOTINLINE |SquareFreeRegularSetDecompositionPackage;|)) 
 
@@ -678,7 +674,7 @@
     (LETT |dv$|
           (LIST '|SquareFreeRegularSetDecompositionPackage| DV$1 DV$2 DV$3 DV$4
                 DV$5))
-    (LETT $ (GETREFV 104))
+    (LETT $ (GETREFV 103))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|SquareFreeRegularSetDecompositionPackage|
@@ -735,13 +731,13 @@
               (221 . |prepareDecompose|) (229 . |empty?|)
               (|Record| (|:| |rnum| 6) (|:| |polnum| 9) (|:| |den| 6))
               (234 . |remainder|) |SRDCMPK;upDateBranches;LLLRNniL;13|
-              (240 . |removeSuperfluousQuasiComponents|) (245 . >)
-              (251 . |infRittWu?|) (257 . |infRittWu?|) (263 . |concat|)
-              (|Mapping| 28 9 9) (269 . |sort|) (275 . |subQuasiComponent?|)
-              (281 . |concat|) (286 . |removeSuperfluousCases|))
-           '#(|upDateBranches| 291 |transcendentalDecompose| 300 |printInfo|
-              313 |numberOfVariables| 319 |internalDecompose| 325 |decompose|
-              346 |convert| 365 |algebraicDecompose| 370 |KrullNumber| 376)
+              (240 . |removeSuperfluousQuasiComponents|) (245 . |infRittWu?|)
+              (251 . |infRittWu?|) (257 . |concat|) (|Mapping| 28 9 9)
+              (263 . |sort|) (269 . |subQuasiComponent?|) (275 . |concat|)
+              (280 . |removeSuperfluousCases|))
+           '#(|upDateBranches| 285 |transcendentalDecompose| 294 |printInfo|
+              307 |numberOfVariables| 313 |internalDecompose| 319 |decompose|
+              340 |convert| 359 |algebraicDecompose| 364 |KrullNumber| 370)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -850,7 +846,7 @@
                                   (|NonNegativeInteger|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 103
+                        (|makeByteWordVec2| 102
                                             '(1 10 11 0 12 2 11 0 0 0 13 2 15
                                               11 14 0 16 1 20 0 17 21 1 20 22 0
                                               23 1 10 22 0 24 2 22 0 0 0 25 1
@@ -869,16 +865,15 @@
                                               75 1 78 0 43 79 1 82 81 78 83 0
                                               81 0 84 4 88 87 17 18 28 28 89 1
                                               10 28 0 90 2 10 91 9 0 92 1 88 18
-                                              18 94 2 11 28 0 0 95 2 10 28 0 0
-                                              96 2 9 28 0 0 97 2 17 0 0 0 98 2
-                                              17 0 99 0 100 2 88 28 10 18 101 1
-                                              70 0 43 102 1 88 70 70 103 5 0 70
-                                              17 18 70 51 11 93 3 0 51 9 10 11
-                                              53 2 0 51 9 10 54 2 0 81 70 11 85
-                                              2 0 11 17 18 27 4 0 51 9 10 11 28
-                                              57 3 0 51 9 10 11 55 2 0 51 9 10
-                                              56 4 0 18 17 18 28 28 77 7 0 18
-                                              17 18 28 28 28 28 28 76 1 0 78 50
-                                              80 2 0 51 9 10 52 2 0 11 17 18
-                                              19)))))
+                                              18 94 2 10 28 0 0 95 2 9 28 0 0
+                                              96 2 17 0 0 0 97 2 17 0 98 0 99 2
+                                              88 28 10 18 100 1 70 0 43 101 1
+                                              88 70 70 102 5 0 70 17 18 70 51
+                                              11 93 3 0 51 9 10 11 53 2 0 51 9
+                                              10 54 2 0 81 70 11 85 2 0 11 17
+                                              18 27 4 0 51 9 10 11 28 57 3 0 51
+                                              9 10 11 55 2 0 51 9 10 56 4 0 18
+                                              17 18 28 28 77 7 0 18 17 18 28 28
+                                              28 28 28 76 1 0 78 50 80 2 0 51 9
+                                              10 52 2 0 11 17 18 19)))))
            '|lookupComplete|)) 

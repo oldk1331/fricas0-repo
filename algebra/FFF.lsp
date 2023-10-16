@@ -716,11 +716,9 @@
                     (PROG1 (LETT #6# (SPADCALL |f| (QREFELT $ 40)))
                       (|check_subtype2| (> #6# 0) '(|PositiveInteger|)
                                         '(|NonNegativeInteger|) #6#)))
-              (LETT |qm1| (- (SPADCALL |sizeGF| |m| (QREFELT $ 74)) 1))
+              (LETT |qm1| (- (EXPT |sizeGF| |m|) 1))
               (LETT |zechlog|
-                    (MAKEARR1
-                     (QUOTIENT2 (+ (SPADCALL |sizeGF| |m| (QREFELT $ 74)) 1) 2)
-                     -1))
+                    (MAKEARR1 (QUOTIENT2 (+ (EXPT |sizeGF| |m|) 1) 2) -1))
               (LETT |helparr| (MAKEARR1 (EXPT |sizeGF| |m|) 0))
               (LETT |primElement|
                     (SPADCALL (SPADCALL (|spadConstant| $ 19) 1 (QREFELT $ 47))
@@ -905,7 +903,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FiniteFieldFunctions| DV$1))
-          (LETT $ (GETREFV 78))
+          (LETT $ (GETREFV 77))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FiniteFieldFunctions| (LIST DV$1)
@@ -940,12 +938,12 @@
               (|Union| $ '#2="failed") (204 . |inverse|) (|Union| 53 '#2#)
               (209 . =) (215 . *) (|SingleInteger|) (221 . |coerce|)
               (226 . |elt|) (232 . ~=) |FFF;createMultiplicationTable;SupV;4|
-              (238 . ^) (|PrimitiveArray| 69) |FFF;createZechTable;SupPa;5|
+              (|PrimitiveArray| 69) |FFF;createZechTable;SupPa;5|
               |FFF;createMultiplicationMatrix;VM;6|)
-           '#(|sizeMultiplication| 244 |createZechTable| 249
-              |createMultiplicationTable| 254 |createMultiplicationMatrix| 259
-              |createLowComplexityTable| 264 |createLowComplexityNormalBasis|
-              269)
+           '#(|sizeMultiplication| 238 |createZechTable| 243
+              |createMultiplicationTable| 248 |createMultiplicationMatrix| 253
+              |createLowComplexityTable| 258 |createLowComplexityNormalBasis|
+              263)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -1001,7 +999,7 @@
                                   (|PositiveInteger|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 77
+                        (|makeByteWordVec2| 76
                                             '(1 12 11 9 13 0 6 16 17 0 6 16 18
                                               0 6 0 19 0 6 0 20 1 22 21 0 23 2
                                               22 0 0 0 24 1 25 0 16 26 3 25 22
@@ -1020,7 +1018,7 @@
                                               0 62 1 45 0 0 63 1 53 64 0 65 2
                                               66 21 0 0 67 2 53 55 0 55 68 1 69
                                               0 22 70 2 55 6 0 22 71 2 6 21 0 0
-                                              72 2 16 0 0 9 74 1 0 16 37 39 1 0
-                                              75 11 76 1 0 37 11 73 1 0 53 37
-                                              77 1 0 8 9 10 1 0 14 9 15)))))
+                                              72 1 0 16 37 39 1 0 74 11 75 1 0
+                                              37 11 73 1 0 53 37 76 1 0 8 9 10
+                                              1 0 14 9 15)))))
            '|lookupComplete|)) 

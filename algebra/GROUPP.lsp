@@ -167,16 +167,16 @@
                   (SPADCALL (SPADCALL |letters| (+ |i| 1) (QREFELT $ 38))
                             (QREFELT $ 40)))
             (COND
-             ((SPADCALL |suffix| 0 (QREFELT $ 41))
+             ((> |suffix| 0)
               (LETT |n|
-                    (SPADCALL |n| (SPADCALL (+ |suffix| 1) (QREFELT $ 42))
-                              (QREFELT $ 43)))))
+                    (SPADCALL |n| (SPADCALL (+ |suffix| 1) (QREFELT $ 41))
+                              (QREFELT $ 42)))))
             (COND
              ((< |i2| 0)
               (PROGN
                (LETT #1#
-                     (SPADCALL (SPADCALL "-" (QREFELT $ 44)) |n|
-                               (QREFELT $ 43)))
+                     (SPADCALL (SPADCALL "-" (QREFELT $ 43)) |n|
+                               (QREFELT $ 42)))
                (GO #4=#:G201))))
             (EXIT |n|)))
           #4# (EXIT #1#)))) 
@@ -185,8 +185,8 @@
         (SPROG
          ((|seperator| #1=(|OutputForm|)) (|eleout| #1#)
           (|newterm| (|OutputForm|)) (#2=#:G207 NIL) (|ele| NIL))
-         (SEQ (LETT |eleout| (SPADCALL "" (QREFELT $ 44)))
-              (LETT |seperator| (SPADCALL " " (QREFELT $ 44)))
+         (SEQ (LETT |eleout| (SPADCALL "" (QREFELT $ 43)))
+              (LETT |seperator| (SPADCALL " " (QREFELT $ 43)))
               (SEQ (LETT |ele| NIL) (LETT #2# |r|) G190
                    (COND
                     ((OR (ATOM #2#) (PROGN (LETT |ele| (CAR #2#)) NIL))
@@ -194,9 +194,9 @@
                    (SEQ (LETT |newterm| (|GROUPP;outputGen| |ele| $))
                         (LETT |eleout|
                               (SPADCALL (LIST |eleout| |seperator| |newterm|)
-                                        (QREFELT $ 45)))
+                                        (QREFELT $ 44)))
                         (EXIT
-                         (LETT |seperator| (SPADCALL "*" (QREFELT $ 44)))))
+                         (LETT |seperator| (SPADCALL "*" (QREFELT $ 43)))))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |eleout|)))) 
 
@@ -216,14 +216,14 @@
                       (EXIT
                        (LETT |rels1|
                              (SPADCALL |rels1| (|GROUPP;outputRel| |r| $)
-                                       (QREFELT $ 47)))))
+                                       (QREFELT $ 46)))))
                      (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                 (COND
-                 ((SPADCALL (LENGTH |rels1|) 0 (QREFELT $ 41))
+                 ((> (LENGTH |rels1|) 0)
                   (PROGN
-                   (LETT #1# (SPADCALL |rels1| (QREFELT $ 48)))
+                   (LETT #1# (SPADCALL |rels1| (QREFELT $ 47)))
                    (GO #3=#:G211))))
-                (EXIT (SPADCALL " " (QREFELT $ 44)))))
+                (EXIT (SPADCALL " " (QREFELT $ 43)))))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |GROUPP;outputGenList|
@@ -242,14 +242,14 @@
                       (EXIT
                        (LETT |gens1|
                              (SPADCALL |gens1| (|GROUPP;outputGen| |p| $)
-                                       (QREFELT $ 47)))))
+                                       (QREFELT $ 46)))))
                      (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                 (COND
-                 ((SPADCALL (LENGTH |gens1|) 0 (QREFELT $ 49))
+                 ((> (LENGTH |gens1|) 0)
                   (PROGN
-                   (LETT #1# (SPADCALL |gens1| (QREFELT $ 50)))
+                   (LETT #1# (SPADCALL |gens1| (QREFELT $ 48)))
                    (GO #3=#:G217))))
-                (EXIT (SPADCALL " " (QREFELT $ 44)))))
+                (EXIT (SPADCALL " " (QREFELT $ 43)))))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |GROUPP;indexesOfRelUsingGen|
@@ -267,15 +267,15 @@
                      (GO G191)))
                    (SEQ
                     (COND
-                     ((SPADCALL |gen| |rel| (QREFELT $ 51))
-                      (LETT |res| (SPADCALL |res| |reln| (QREFELT $ 52)))))
+                     ((SPADCALL |gen| |rel| (QREFELT $ 49))
+                      (LETT |res| (SPADCALL |res| |reln| (QREFELT $ 50)))))
                     (EXIT
                      (COND
-                      ((SPADCALL |gen| 0 (QREFELT $ 49))
+                      ((> |gen| 0)
                        (COND
-                        ((SPADCALL (- |gen|) |rel| (QREFELT $ 51))
+                        ((SPADCALL (- |gen|) |rel| (QREFELT $ 49))
                          (LETT |res|
-                               (SPADCALL |res| |reln| (QREFELT $ 52)))))))))
+                               (SPADCALL |res| |reln| (QREFELT $ 50)))))))))
                    (LETT #1# (PROG1 (CDR #1#) (LETT |reln| (|inc_SI| |reln|))))
                    (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
@@ -284,7 +284,7 @@
         ((|gens1| |PrimitiveArray| (|NonNegativeInteger|))
          (|val| |NonNegativeInteger|)
          ($ |PrimitiveArray| (|NonNegativeInteger|)))
-        (SPADCALL |val| |gens1| (QREFELT $ 53))) 
+        (SPADCALL |val| |gens1| (QREFELT $ 51))) 
 
 (SDEFUN |GROUPP;removeGen2|
         ((|rels1| |List| (|List| (|Integer|))) (|val| |NonNegativeInteger|)
@@ -302,8 +302,8 @@
                         (LETT #2#
                               (CONS
                                (SPADCALL (- |val|)
-                                         (SPADCALL |val| |rel| (QREFELT $ 54))
-                                         (QREFELT $ 54))
+                                         (SPADCALL |val| |rel| (QREFELT $ 52))
+                                         (QREFELT $ 52))
                                #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
@@ -368,18 +368,18 @@
                  (|trace|
                   (SPADCALL
                    (SPADCALL
-                    (LIST (SPADCALL "simplify: generator '" (QREFELT $ 44))
+                    (LIST (SPADCALL "simplify: generator '" (QREFELT $ 43))
                           (|GROUPP;outputGen| |toBeRemoved| $)
                           (SPADCALL "' is identity so remove it"
-                                    (QREFELT $ 44)))
-                    (QREFELT $ 45))
-                   (QREFELT $ 56))))
+                                    (QREFELT $ 43)))
+                    (QREFELT $ 44))
+                   (QREFELT $ 54))))
                 (LETT |gens1| (|GROUPP;removeGen| |gens1| |toBeRemoved| $))
                 (LETT |rels1| (|GROUPP;removeGen2| |rels1| |toBeRemoved| $))
                 (COND
                  (|trace|
                   (SPADCALL (|GROUPP;outputRelList| |rels1| $)
-                            (QREFELT $ 56))))
+                            (QREFELT $ 54))))
                 (EXIT (CONS |gens1| |rels1|))))
           #3# (EXIT #1#)))) 
 
@@ -404,10 +404,10 @@
                          (COND
                           ((EQL |replaceFrom| 0)
                            (SEQ
-                            (LETT |replaceTo| (SPADCALL |rel| (QREFELT $ 57)))
+                            (LETT |replaceTo| (SPADCALL |rel| (QREFELT $ 55)))
                             (LETT |replaceFrom| (ABS (|SPADfirst| |rel|)))
                             (COND
-                             ((SPADCALL (|SPADfirst| |rel|) 0 (QREFELT $ 41))
+                             ((> (|SPADfirst| |rel|) 0)
                               (LETT |replaceTo| (- |replaceTo|))))
                             (EXIT
                              (COND
@@ -420,13 +420,13 @@
                  (|trace|
                   (SPADCALL
                    (SPADCALL
-                    (LIST (SPADCALL "simplify: generator '" (QREFELT $ 44))
+                    (LIST (SPADCALL "simplify: generator '" (QREFELT $ 43))
                           (|GROUPP;outputGen| |replaceFrom| $)
-                          (SPADCALL "' is replaced by '" (QREFELT $ 44))
+                          (SPADCALL "' is replaced by '" (QREFELT $ 43))
                           (|GROUPP;outputGen| |replaceTo| $)
-                          (SPADCALL "'" (QREFELT $ 44)))
-                    (QREFELT $ 45))
-                   (QREFELT $ 56))))
+                          (SPADCALL "'" (QREFELT $ 43)))
+                    (QREFELT $ 44))
+                   (QREFELT $ 54))))
                 (LETT |gens1| (|GROUPP;removeGen| |gens1| |replaceFrom| $))
                 (LETT |rels1|
                       (|GROUPP;replaceGen| |rels1| |replaceFrom| |replaceTo|
@@ -434,7 +434,7 @@
                 (COND
                  (|trace|
                   (SPADCALL (|GROUPP;outputRelList| |rels1| $)
-                            (QREFELT $ 56))))
+                            (QREFELT $ 54))))
                 (EXIT (CONS |gens1| |rels1|))))
           #3# (EXIT #1#)))) 
 
@@ -491,10 +491,10 @@
                                (COND
                                 ((EQL (ABS |ele|) (ABS |lastele|))
                                  (COND
-                                  ((SPADCALL (SPADCALL |ele| (QREFELT $ 58))
+                                  ((SPADCALL (SPADCALL |ele| (QREFELT $ 56))
                                              (SPADCALL |lastele|
-                                                       (QREFELT $ 58))
-                                             (QREFELT $ 59))
+                                                       (QREFELT $ 56))
+                                             (QREFELT $ 57))
                                    (SEQ
                                     (COND
                                      (|trace|
@@ -502,19 +502,19 @@
                                        (SPADCALL
                                         (LIST
                                          (SPADCALL "simplify: generator '"
-                                                   (QREFELT $ 44))
+                                                   (QREFELT $ 43))
                                          (|GROUPP;outputGen| |ele| $)
                                          (SPADCALL
                                           "' is adjacent to its inverse"
-                                          (QREFELT $ 44)))
-                                        (QREFELT $ 45))
-                                       (QREFELT $ 56))))
+                                          (QREFELT $ 43)))
+                                        (QREFELT $ 44))
+                                       (QREFELT $ 54))))
                                     (LETT |changed| 'T)
                                     (EXIT (LETT |lastele| 0))))
                                   ('T
                                    (SEQ
                                     (COND
-                                     ((SPADCALL |lastele| 0 (QREFELT $ 59))
+                                     ((SPADCALL |lastele| 0 (QREFELT $ 57))
                                       (LETT |rel2|
                                             (SPADCALL |rel2| |lastele|
                                                       (QREFELT $ 25)))))
@@ -522,14 +522,14 @@
                                 ('T
                                  (SEQ
                                   (COND
-                                   ((SPADCALL |lastele| 0 (QREFELT $ 59))
+                                   ((SPADCALL |lastele| 0 (QREFELT $ 57))
                                     (LETT |rel2|
                                           (SPADCALL |rel2| |lastele|
                                                     (QREFELT $ 25)))))
                                   (EXIT (LETT |lastele| |ele|)))))))
                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                         (COND
-                         ((SPADCALL |lastele| 0 (QREFELT $ 59))
+                         ((SPADCALL |lastele| 0 (QREFELT $ 57))
                           (LETT |rel2|
                                 (SPADCALL |rel2| |lastele| (QREFELT $ 25)))))
                         (EXIT
@@ -543,7 +543,7 @@
                 (COND
                  (|changed|
                   (SPADCALL (|GROUPP;outputRelList| |rels2| $)
-                            (QREFELT $ 56))))))
+                            (QREFELT $ 54))))))
               (EXIT (CONS |gens1| |rels2|))))) 
 
 (SDEFUN |GROUPP;invertRelation|
@@ -578,27 +578,27 @@
           (EXIT
            (SEQ
             (COND
-             ((SPADCALL (LENGTH |relA|) (LENGTH |relB|) (QREFELT $ 60))
+             ((SPADCALL (LENGTH |relA|) (LENGTH |relB|) (QREFELT $ 58))
               (PROGN (LETT #1# NIL) (GO #3=#:G293))))
             (COND
-             ((SPADCALL |relA| |relB| (QREFELT $ 61))
+             ((SPADCALL |relA| |relB| (QREFELT $ 59))
               (PROGN (LETT #1# 'T) (GO #3#))))
             (COND
              ((SPADCALL |relA| (|GROUPP;invertRelation| |relB| $)
-                        (QREFELT $ 61))
+                        (QREFELT $ 59))
               (PROGN (LETT #1# 'T) (GO #3#))))
-            (LETT |relBCycle| (SPADCALL |relB| (QREFELT $ 62)))
+            (LETT |relBCycle| (SPADCALL |relB| (QREFELT $ 60)))
             (SEQ (LETT |n| 1) (LETT #2# (LENGTH |relA|)) G190
                  (COND ((|greater_SI| |n| #2#) (GO G191)))
                  (SEQ (LETT |relBCycle| (|GROUPP;cycleRelation| |relBCycle| $))
                       (COND
-                       ((SPADCALL |relA| |relBCycle| (QREFELT $ 61))
+                       ((SPADCALL |relA| |relBCycle| (QREFELT $ 59))
                         (PROGN (LETT #1# 'T) (GO #3#))))
                       (EXIT
                        (COND
                         ((SPADCALL |relA|
                                    (|GROUPP;invertRelation| |relBCycle| $)
-                                   (QREFELT $ 61))
+                                   (QREFELT $ 59))
                          (PROGN (LETT #1# 'T) (GO #3#))))))
                  (LETT |n| (|inc_SI| |n|)) (GO G190) G191 (EXIT NIL))
             (EXIT NIL)))
@@ -630,7 +630,7 @@
                              (SEQ
                               (EXIT
                                (COND
-                                ((SPADCALL |nrela| |nrelb| (QREFELT $ 49))
+                                ((> |nrela| |nrelb|)
                                  (COND
                                   ((|GROUPP;relationEquivalent| |rela| |relb|
                                     $)
@@ -644,14 +644,14 @@
                                               (SPADCALL
                                                (SPADCALL
                                                 "TTRemoveDuplicateRelation duplicate found "
-                                                (QREFELT $ 44))
-                                               (SPADCALL |rela| (QREFELT $ 63))
-                                               (QREFELT $ 43))
-                                              (SPADCALL "=" (QREFELT $ 44))
-                                              (QREFELT $ 43))
-                                             (SPADCALL |relb| (QREFELT $ 63))
-                                             (QREFELT $ 43))
-                                            (QREFELT $ 56))))))))))))
+                                                (QREFELT $ 43))
+                                               (SPADCALL |rela| (QREFELT $ 61))
+                                               (QREFELT $ 42))
+                                              (SPADCALL "=" (QREFELT $ 43))
+                                              (QREFELT $ 42))
+                                             (SPADCALL |relb| (QREFELT $ 61))
+                                             (QREFELT $ 42))
+                                            (QREFELT $ 54))))))))))))
                              (LETT #1#
                                    (PROG1 (CDR #1#)
                                      (LETT |nrelb| (|inc_SI| |nrelb|))))
@@ -696,8 +696,7 @@
                              (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                         (EXIT
                          (COND
-                          ((SPADCALL |numInverts| |numNonInverts|
-                                     (QREFELT $ 49))
+                          ((> |numInverts| |numNonInverts|)
                            (LETT |rels2|
                                  (SPADCALL |rels2|
                                            (|GROUPP;invertRelation| |rel| $)
@@ -720,7 +719,7 @@
                          (SEQ (COND ((EQL |g| |gen|) (LETT |res| (+ |res| 1))))
                               (EXIT
                                (COND
-                                ((SPADCALL |gen| 0 (QREFELT $ 49))
+                                ((> |gen| 0)
                                  (COND
                                   ((EQL |g| (- |gen|))
                                    (LETT |res| (+ |res| 1))))))))
@@ -740,9 +739,9 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((NULL (SPADCALL |val| |rel| (QREFELT $ 51)))
+                      ((NULL (SPADCALL |val| |rel| (QREFELT $ 49)))
                        (COND
-                        ((NULL (SPADCALL (- |val|) |rel| (QREFELT $ 51)))
+                        ((NULL (SPADCALL (- |val|) |rel| (QREFELT $ 49)))
                          (LETT |res|
                                (SPADCALL |res| |rel| (QREFELT $ 26)))))))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
@@ -775,20 +774,20 @@
                             (|GROUPP;indexesOfRelUsingGen| |s| |g| $))
                       (EXIT
                        (COND
-                        ((EQL (SPADCALL |indexes| (QREFELT $ 64)) 2)
+                        ((EQL (SPADCALL |indexes| (QREFELT $ 62)) 2)
                          (COND
                           ((EQL |genToBeRemoved| 0)
                            (SEQ (LETT |genToBeRemoved| |g|)
                                 (LETT |r1|
                                       (SPADCALL |rs|
                                                 (SPADCALL |indexes| 1
-                                                          (QREFELT $ 65))
-                                                (QREFELT $ 66)))
+                                                          (QREFELT $ 63))
+                                                (QREFELT $ 64)))
                                 (LETT |r2|
                                       (SPADCALL |rs|
                                                 (SPADCALL |indexes| 2
-                                                          (QREFELT $ 65))
-                                                (QREFELT $ 66)))
+                                                          (QREFELT $ 63))
+                                                (QREFELT $ 64)))
                                 (LETT |n1|
                                       (|GROUPP;generatorOccurrences| |r1| |g|
                                        $))
@@ -796,18 +795,18 @@
                                       (|GROUPP;generatorOccurrences| |r2| |g|
                                        $))
                                 (COND
-                                 ((SPADCALL |n1| 1 (QREFELT $ 60))
+                                 ((SPADCALL |n1| 1 (QREFELT $ 58))
                                   (SEQ (LETT |r3| |r1|) (LETT |n3| |n1|)
                                        (LETT |r1| |r2|) (LETT |n1| |n2|)
                                        (LETT |r2| |r3|)
                                        (EXIT (LETT |n2| |n3|)))))
                                 (EXIT
                                  (COND
-                                  ((SPADCALL |n1| 1 (QREFELT $ 60))
+                                  ((SPADCALL |n1| 1 (QREFELT $ 58))
                                    (LETT |genToBeRemoved| 0)))))))))))
                      (LETT #7# (CDR #7#)) (GO G190) G191 (EXIT NIL))
                 (COND
-                 ((SPADCALL |n1| 1 (QREFELT $ 60))
+                 ((SPADCALL |n1| 1 (QREFELT $ 58))
                   (PROGN (LETT #5# |s|) (GO #8=#:G348))))
                 (COND
                  (|trace|
@@ -815,32 +814,32 @@
                    (SPADCALL
                     (SPADCALL
                      (SPADCALL
-                      (SPADCALL "simplify: TTSubstitute (" (QREFELT $ 44))
-                      (SPADCALL |s| (QREFELT $ 67)) (QREFELT $ 43))
-                     (SPADCALL ")" (QREFELT $ 44)) (QREFELT $ 43))
-                    (QREFELT $ 56))
+                      (SPADCALL "simplify: TTSubstitute (" (QREFELT $ 43))
+                      (SPADCALL |s| (QREFELT $ 65)) (QREFELT $ 42))
+                     (SPADCALL ")" (QREFELT $ 43)) (QREFELT $ 42))
+                    (QREFELT $ 54))
                    (SPADCALL
                     (SPADCALL
                      (SPADCALL
                       (SPADCALL
                        (SPADCALL
-                        (SPADCALL (SPADCALL "genToBeRemoved=" (QREFELT $ 44))
+                        (SPADCALL (SPADCALL "genToBeRemoved=" (QREFELT $ 43))
                                   (|GROUPP;outputGen| |genToBeRemoved| $)
-                                  (QREFELT $ 43))
-                        (SPADCALL " r1=" (QREFELT $ 44)) (QREFELT $ 43))
-                       (|GROUPP;outputRel| |r1| $) (QREFELT $ 43))
-                      (SPADCALL " r2=" (QREFELT $ 44)) (QREFELT $ 43))
-                     (|GROUPP;outputRel| |r2| $) (QREFELT $ 43))
-                    (QREFELT $ 56))
+                                  (QREFELT $ 42))
+                        (SPADCALL " r1=" (QREFELT $ 43)) (QREFELT $ 42))
+                       (|GROUPP;outputRel| |r1| $) (QREFELT $ 42))
+                      (SPADCALL " r2=" (QREFELT $ 43)) (QREFELT $ 42))
+                     (|GROUPP;outputRel| |r2| $) (QREFELT $ 42))
+                    (QREFELT $ 54))
                    (EXIT
                     (SPADCALL
                      (SPADCALL
                       (SPADCALL
-                       (SPADCALL (SPADCALL "n1=" (QREFELT $ 44))
-                                 (SPADCALL |n1| (QREFELT $ 68)) (QREFELT $ 43))
-                       (SPADCALL " n2=" (QREFELT $ 44)) (QREFELT $ 43))
-                      (SPADCALL |n2| (QREFELT $ 68)) (QREFELT $ 43))
-                     (QREFELT $ 56))))))
+                       (SPADCALL (SPADCALL "n1=" (QREFELT $ 43))
+                                 (SPADCALL |n1| (QREFELT $ 66)) (QREFELT $ 42))
+                       (SPADCALL " n2=" (QREFELT $ 43)) (QREFELT $ 42))
+                      (SPADCALL |n2| (QREFELT $ 66)) (QREFELT $ 42))
+                     (QREFELT $ 54))))))
                 (LETT |restr| |r1|) (LETT |prer| NIL) (LETT |found| NIL)
                 (LETT |genInverted| NIL)
                 (SEQ G190
@@ -871,7 +870,7 @@
                 (LETT |replacement|
                       (SPADCALL (|GROUPP;invertRelation| |prer| $)
                                 (|GROUPP;invertRelation| |postr| $)
-                                (QREFELT $ 69)))
+                                (QREFELT $ 67)))
                 (COND
                  (|trace|
                   (SPADCALL
@@ -880,13 +879,13 @@
                      (SPADCALL
                       (SPADCALL
                        (SPADCALL
-                        (SPADCALL "we will substitute " (QREFELT $ 44))
-                        (|GROUPP;outputRel| |replacement| $) (QREFELT $ 43))
-                       (SPADCALL " for " (QREFELT $ 44)) (QREFELT $ 43))
-                      (|GROUPP;outputGen| |genToBeRemoved| $) (QREFELT $ 43))
-                     (SPADCALL " in " (QREFELT $ 44)) (QREFELT $ 43))
-                    (|GROUPP;outputRel| |r2| $) (QREFELT $ 43))
-                   (QREFELT $ 56))))
+                        (SPADCALL "we will substitute " (QREFELT $ 43))
+                        (|GROUPP;outputRel| |replacement| $) (QREFELT $ 42))
+                       (SPADCALL " for " (QREFELT $ 43)) (QREFELT $ 42))
+                      (|GROUPP;outputGen| |genToBeRemoved| $) (QREFELT $ 42))
+                     (SPADCALL " in " (QREFELT $ 43)) (QREFELT $ 42))
+                    (|GROUPP;outputRel| |r2| $) (QREFELT $ 42))
+                   (QREFELT $ 54))))
                 (LETT |newRel| NIL)
                 (SEQ (LETT |x| NIL) (LETT #2# |r2|) G190
                      (COND
@@ -902,11 +901,11 @@
                                  (SPADCALL |newRel|
                                            (|GROUPP;invertRelation|
                                             |replacement| $)
-                                           (QREFELT $ 69))))
+                                           (QREFELT $ 67))))
                           ('T
                            (LETT |newRel|
                                  (SPADCALL |newRel| |replacement|
-                                           (QREFELT $ 69))))))
+                                           (QREFELT $ 67))))))
                         ('T
                          (LETT |newRel|
                                (SPADCALL |newRel| |x| (QREFELT $ 25)))))))
@@ -914,9 +913,9 @@
                 (COND
                  (|trace|
                   (SPADCALL
-                   (SPADCALL (SPADCALL "newRel=" (QREFELT $ 44))
-                             (|GROUPP;outputRel| |newRel| $) (QREFELT $ 43))
-                   (QREFELT $ 56))))
+                   (SPADCALL (SPADCALL "newRel=" (QREFELT $ 43))
+                             (|GROUPP;outputRel| |newRel| $) (QREFELT $ 42))
+                   (QREFELT $ 54))))
                 (LETT |gens1| (QCAR |s|)) (LETT |rels1| (QCDR |s|))
                 (LETT |gens1| (|GROUPP;removeGen| |gens1| |genToBeRemoved| $))
                 (LETT |rels1|
@@ -927,13 +926,13 @@
                   (SPADCALL
                    (SPADCALL
                     (SPADCALL
-                     (SPADCALL (SPADCALL "gens=" (QREFELT $ 44))
+                     (SPADCALL (SPADCALL "gens=" (QREFELT $ 43))
                                (|GROUPP;outputGenList|
                                 (SPADCALL |gens1| (QREFELT $ 17)) $)
-                               (QREFELT $ 43))
-                     (SPADCALL " rels=" (QREFELT $ 44)) (QREFELT $ 43))
-                    (|GROUPP;outputRelList| |rels1| $) (QREFELT $ 43))
-                   (QREFELT $ 56))))
+                               (QREFELT $ 42))
+                     (SPADCALL " rels=" (QREFELT $ 43)) (QREFELT $ 42))
+                    (|GROUPP;outputRelList| |rels1| $) (QREFELT $ 42))
+                   (QREFELT $ 54))))
                 (EXIT (CONS |gens1| |rels1|))))
           #8# (EXIT #5#)))) 
 
@@ -982,7 +981,7 @@
           #7# (EXIT #1#)))) 
 
 (SDEFUN |GROUPP;simplify;2$;29| ((|s| $) ($ $))
-        (SPADCALL |s| NIL (QREFELT $ 70))) 
+        (SPADCALL |s| NIL (QREFELT $ 68))) 
 
 (SDEFUN |GROUPP;simplify;$B$;30| ((|s| $) (|trace| |Boolean|) ($ $))
         (SPROG
@@ -995,10 +994,10 @@
              (|trace|
               (SPADCALL
                (SPADCALL
-                (SPADCALL (SPADCALL "simplify(" (QREFELT $ 44))
-                          (SPADCALL |s| (QREFELT $ 67)) (QREFELT $ 43))
-                (SPADCALL ")" (QREFELT $ 44)) (QREFELT $ 43))
-               (QREFELT $ 56))))
+                (SPADCALL (SPADCALL "simplify(" (QREFELT $ 43))
+                          (SPADCALL |s| (QREFELT $ 65)) (QREFELT $ 42))
+                (SPADCALL ")" (QREFELT $ 43)) (QREFELT $ 42))
+               (QREFELT $ 54))))
             (LETT |res| |s|) (LETT |lastpass| |s|) (LETT |level| 0)
             (LETT |loopBreaker| 0)
             (SEQ G190 (COND ((NULL (< |loopBreaker| 10000)) (GO G191)))
@@ -1048,23 +1047,23 @@
                           (SPADCALL
                            (SPADCALL
                             (SPADCALL
-                             (SPADCALL (SPADCALL " level=" (QREFELT $ 44))
-                                       (SPADCALL |level| (QREFELT $ 68))
-                                       (QREFELT $ 43))
-                             (SPADCALL " loop=" (QREFELT $ 44)) (QREFELT $ 43))
-                            (SPADCALL |loopBreaker| (QREFELT $ 68))
-                            (QREFELT $ 43))
-                           (SPADCALL " res=" (QREFELT $ 44)) (QREFELT $ 43))
-                          (SPADCALL |res| (QREFELT $ 67)) (QREFELT $ 43))
-                         (QREFELT $ 56))))
+                             (SPADCALL (SPADCALL " level=" (QREFELT $ 43))
+                                       (SPADCALL |level| (QREFELT $ 66))
+                                       (QREFELT $ 42))
+                             (SPADCALL " loop=" (QREFELT $ 43)) (QREFELT $ 42))
+                            (SPADCALL |loopBreaker| (QREFELT $ 66))
+                            (QREFELT $ 42))
+                           (SPADCALL " res=" (QREFELT $ 43)) (QREFELT $ 42))
+                          (SPADCALL |res| (QREFELT $ 65)) (QREFELT $ 42))
+                         (QREFELT $ 54))))
                       (EXIT (LETT |lastpass| |res|)))
                  NIL (GO G190) G191 (EXIT NIL))
             (SPADCALL
              (SPADCALL
               (SPADCALL "simplify excessive time - loop suspected"
-                        (QREFELT $ 44))
-              (SPADCALL |s| (QREFELT $ 67)) (QREFELT $ 43))
-             (QREFELT $ 56))
+                        (QREFELT $ 43))
+              (SPADCALL |s| (QREFELT $ 65)) (QREFELT $ 42))
+             (QREFELT $ 54))
             (EXIT |res|)))
           #3# (EXIT #2#)))) 
 
@@ -1112,9 +1111,7 @@
                                            (LETT #2#
                                                  (CONS
                                                   (COND
-                                                   ((SPADCALL |y| 0
-                                                              (QREFELT $ 41))
-                                                    (+ |y| |offset|))
+                                                   ((> |y| 0) (+ |y| |offset|))
                                                    ('T (- |y| |offset|)))
                                                   #2#))))
                                          (LETT #1# (CDR #1#)) (GO G190) G191
@@ -1145,7 +1142,7 @@
                (SPADCALL
                 (SPADCALL (SPADCALL |gens1| (QREFELT $ 17)) |rels1|
                           (QREFELT $ 11))
-                (QREFELT $ 71)))))) 
+                (QREFELT $ 69)))))) 
 
 (SDEFUN |GROUPP;quotient;$L$;33|
         ((|a| $) (|addrel| |List| (|List| (|Integer|))) ($ $))
@@ -1156,10 +1153,10 @@
               (LETT |rels1| (QCDR |a|))
               (EXIT
                (SPADCALL
-                (SPADCALL (SPADCALL |gens1| (QREFELT $ 73))
-                          (SPADCALL |rels1| |addrel| (QREFELT $ 74))
+                (SPADCALL (SPADCALL |gens1| (QREFELT $ 71))
+                          (SPADCALL |rels1| |addrel| (QREFELT $ 72))
                           (QREFELT $ 11))
-                (QREFELT $ 71)))))) 
+                (QREFELT $ 69)))))) 
 
 (SDEFUN |GROUPP;directProduct;3$;34| ((|a| $) (|b| $) ($ $))
         (SPROG
@@ -1171,7 +1168,7 @@
          (SEQ (LETT |a2| (SPADCALL |a| (QREFELT $ 27)))
               (LETT |ga| (SPADCALL (QCAR |a2|) (QREFELT $ 17)))
               (LETT |ra| (QCDR |a2|))
-              (LETT |sa| (SPADCALL |ga| (QREFELT $ 64)))
+              (LETT |sa| (SPADCALL |ga| (QREFELT $ 62)))
               (LETT |b2|
                     (|GROUPP;offsetIndexes| (SPADCALL |b| (QREFELT $ 27)) |sa|
                      $))
@@ -1195,8 +1192,8 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT
                (SPADCALL
-                (SPADCALL (SPADCALL |ga| (QREFELT $ 73)) |gb| (QREFELT $ 76))
-                (SPADCALL (LIST |ra| |rb| |rc|) (QREFELT $ 77))
+                (SPADCALL (SPADCALL |ga| (QREFELT $ 71)) |gb| (QREFELT $ 74))
+                (SPADCALL (LIST |ra| |rb| |rc|) (QREFELT $ 75))
                 (QREFELT $ 11)))))) 
 
 (SDEFUN |GROUPP;cyclicGroup;Pi$;35| ((|n| |PositiveInteger|) ($ $))
@@ -1217,9 +1214,9 @@
 
 (SDEFUN |GROUPP;dihedralGroup;Pi$;36| ((|n| |PositiveInteger|) ($ $))
         (SPROG ((|c2| ($)) (|c1| ($)))
-               (SEQ (LETT |c1| (SPADCALL |n| (QREFELT $ 80)))
-                    (LETT |c2| (SPADCALL 2 (QREFELT $ 80)))
-                    (EXIT (SPADCALL |c1| |c2| (QREFELT $ 78)))))) 
+               (SEQ (LETT |c1| (SPADCALL |n| (QREFELT $ 78)))
+                    (LETT |c2| (SPADCALL 2 (QREFELT $ 78)))
+                    (EXIT (SPADCALL |c1| |c2| (QREFELT $ 76)))))) 
 
 (SDEFUN |GROUPP;symmetricGroup;Pi$;37| ((|n| |PositiveInteger|) ($ $))
         (SPROG
@@ -1285,16 +1282,16 @@
             (COND
              ((< |np| 1)
               (PROGN
-               (LETT #3# (SPADCALL |ct| (QREFELT $ 84)))
+               (LETT #3# (SPADCALL |ct| (QREFELT $ 82)))
                (GO #4=#:G424))))
             (COND
-             ((SPADCALL (SPADCALL |ct| (QREFELT $ 85)) |np| (QREFELT $ 49))
+             ((> (SPADCALL |ct| (QREFELT $ 83)) |np|)
               (SEQ (LETT |part1| |np|)
                    (LETT |part2|
                          (PROG2
                              (LETT #2#
-                                   (SPADCALL (SPADCALL |ct| (QREFELT $ 85))
-                                             |np| (QREFELT $ 87)))
+                                   (SPADCALL (SPADCALL |ct| (QREFELT $ 83))
+                                             |np| (QREFELT $ 85)))
                              (QCDR #2#)
                            (|check_union2| (QEQCAR #2# 0)
                                            (|NonNegativeInteger|)
@@ -1302,9 +1299,9 @@
                                                     "failed")
                                            #2#)))
                    (LETT |cts|
-                         (SPADCALL |ct| (LIST |part1| |part2|) (QREFELT $ 88)))
-                   (EXIT (LETT |ct| (SPADCALL |cts| 1 (QREFELT $ 90)))))))
-            (EXIT (SPADCALL |ct| (QREFELT $ 84)))))
+                         (SPADCALL |ct| (LIST |part1| |part2|) (QREFELT $ 86)))
+                   (EXIT (LETT |ct| (SPADCALL |cts| 1 (QREFELT $ 88)))))))
+            (EXIT (SPADCALL |ct| (QREFELT $ 82)))))
           #4# (EXIT #3#)))) 
 
 (SDEFUN |GROUPP;outStatus|
@@ -1358,11 +1355,11 @@
             (SPADCALL
              (SPADCALL
               (SPADCALL
-               (SPADCALL (SPADCALL "coincidence: begin=" (QREFELT $ 44))
-                         (SPADCALL |pb| (QREFELT $ 68)) (QREFELT $ 43))
-               (SPADCALL " end=" (QREFELT $ 44)) (QREFELT $ 43))
-              (SPADCALL |pe| (QREFELT $ 68)) (QREFELT $ 43))
-             (QREFELT $ 56))))
+               (SPADCALL (SPADCALL "coincidence: begin=" (QREFELT $ 43))
+                         (SPADCALL |pb| (QREFELT $ 66)) (QREFELT $ 42))
+               (SPADCALL " end=" (QREFELT $ 43)) (QREFELT $ 42))
+              (SPADCALL |pe| (QREFELT $ 66)) (QREFELT $ 42))
+             (QREFELT $ 54))))
           (COND
            ((< |pe| |pb|)
             (PROGN
@@ -1371,7 +1368,7 @@
              (LETT |pb| |#G134|)
              (LETT |pe| |#G135|))))
           (QSETAREF1O |et| |pe| |pb| 1)
-          (LETT |nn| (SPADCALL |ct| (QREFELT $ 91)))
+          (LETT |nn| (SPADCALL |ct| (QREFELT $ 89)))
           (SEQ (LETT |i| 1) (LETT #5# |nn|) G190
                (COND ((|greater_SI| |i| #5#) (GO G191)))
                (SEQ (LETT |i1| (QAREF2O |ct| |pb| |i| 1 1))
@@ -1446,19 +1443,19 @@
                  (|trace|
                   (SPADCALL
                    (SPADCALL
-                    (SPADCALL "inferFromRelations rels=" (QREFELT $ 44))
-                    (SPADCALL |rels| (QREFELT $ 93)) (QREFELT $ 43))
-                   (QREFELT $ 56))))
+                    (SPADCALL "inferFromRelations rels=" (QREFELT $ 43))
+                    (SPADCALL |rels| (QREFELT $ 91)) (QREFELT $ 42))
+                   (QREFELT $ 54))))
                 (LETT |add_to| 0) (LETT |add_gen| 0) (LETT |add_gap| 0)
                 (LETT |pn| (+ (QVELT |state| 3) 1))
                 (EXIT
-                 (COND ((SPADCALL |pn| |n_ind| (QREFELT $ 49)) NIL)
+                 (COND ((> |pn| |n_ind|) NIL)
                        ('T
                         (SEQ (QSETVELT |state| 3 |pn|)
                              (COND
                               ((NULL (EQL (QAREF1O |et| |pn| 1) |pn|))
                                (EXIT 'T)))
-                             (LETT |o_size| (SPADCALL |ct| (QREFELT $ 94)))
+                             (LETT |o_size| (SPADCALL |ct| (QREFELT $ 92)))
                              (LETT |closed| NIL)
                              (SEQ
                               (EXIT
@@ -1599,8 +1596,7 @@
                                                     #28# (EXIT #18#))
                                                    (LETT |gap| (- |gap| |ge|))
                                                    (COND
-                                                    ((SPADCALL |gap| 1
-                                                               (QREFELT $ 41))
+                                                    ((> |gap| 1)
                                                      (SEQ (LETT |add_to| |pb|)
                                                           (LETT |add_gen|
                                                                 |genIn|)
@@ -1621,11 +1617,8 @@
                                                                (SEQ
                                                                 (LETT |n_size|
                                                                       (MIN
-                                                                       (SPADCALL
-                                                                        2
-                                                                        |o_size|
-                                                                        (QREFELT
-                                                                         $ 95))
+                                                                       (* 2
+                                                                          |o_size|)
                                                                        (QVELT
                                                                         |state|
                                                                         7)))
@@ -1634,20 +1627,20 @@
                                                                  (SPADCALL |ct|
                                                                            (QREFELT
                                                                             $
-                                                                            91)))
+                                                                            89)))
                                                                 (LETT |nct|
                                                                       (SPADCALL
                                                                        |n_size|
                                                                        |n_ct_cols|
                                                                        0
                                                                        (QREFELT
-                                                                        $ 96)))
+                                                                        $ 93)))
                                                                 (LETT |net|
                                                                       (SPADCALL
                                                                        |n_size|
                                                                        0
                                                                        (QREFELT
-                                                                        $ 98)))
+                                                                        $ 95)))
                                                                 (SEQ
                                                                  (LETT |i| 1)
                                                                  (LETT #17#
@@ -1745,35 +1738,35 @@
                                                                    (SPADCALL
                                                                     #30="adding action of "
                                                                     (QREFELT $
-                                                                             44))
+                                                                             43))
                                                                    (SPADCALL
                                                                     |add_gen|
                                                                     (QREFELT $
-                                                                             99))
+                                                                             96))
                                                                    (QREFELT $
-                                                                            43))
+                                                                            42))
                                                                   (SPADCALL
                                                                    #31=" on "
                                                                    (QREFELT $
-                                                                            44))
+                                                                            43))
                                                                   (QREFELT $
-                                                                           43))
+                                                                           42))
                                                                  (SPADCALL
                                                                   |add_to|
                                                                   (QREFELT $
-                                                                           68))
+                                                                           66))
                                                                  (QREFELT $
-                                                                          43))
+                                                                          42))
                                                                 (SPADCALL
                                                                  #32=" to be "
                                                                  (QREFELT $
-                                                                          44))
-                                                                (QREFELT $ 43))
+                                                                          43))
+                                                                (QREFELT $ 42))
                                                                (SPADCALL
                                                                 |n_ind|
-                                                                (QREFELT $ 68))
-                                                               (QREFELT $ 43))
-                                                              (QREFELT $ 56))))
+                                                                (QREFELT $ 66))
+                                                               (QREFELT $ 42))
+                                                              (QREFELT $ 54))))
                                                            (QSETAREF2O |ct|
                                                                        |add_to|
                                                                        |add_gen|
@@ -1784,7 +1777,7 @@
                                                                   |inv_tab|
                                                                   |add_gen|
                                                                   (QREFELT $
-                                                                           100)))
+                                                                           97)))
                                                            (QSETAREF2O |ct|
                                                                        |n_ind|
                                                                        |add_gen|
@@ -1795,7 +1788,7 @@
                                                              (SPADCALL
                                                               (|GROUPP;outStatus|
                                                                |state| $)
-                                                              (QREFELT $ 56))))
+                                                              (QREFELT $ 54))))
                                                            (EXIT
                                                             (QSETVELT |state| 5
                                                                       |n_ind|)))
@@ -1824,10 +1817,7 @@
                                                           (SEQ G190
                                                                (COND
                                                                 ((NULL
-                                                                  (SPADCALL
-                                                                   |gap| 1
-                                                                   (QREFELT $
-                                                                            41)))
+                                                                  (> |gap| 1))
                                                                  (GO G191)))
                                                                (SEQ
                                                                 (LETT |add_to|
@@ -1858,12 +1848,8 @@
                                                                       (LETT
                                                                        |n_size|
                                                                        (MIN
-                                                                        (SPADCALL
-                                                                         2
-                                                                         |o_size|
-                                                                         (QREFELT
-                                                                          $
-                                                                          95))
+                                                                        (* 2
+                                                                           |o_size|)
                                                                         (QVELT
                                                                          |state|
                                                                          7)))
@@ -1873,7 +1859,7 @@
                                                                         |ct|
                                                                         (QREFELT
                                                                          $
-                                                                         91)))
+                                                                         89)))
                                                                       (LETT
                                                                        |nct|
                                                                        (SPADCALL
@@ -1882,7 +1868,7 @@
                                                                         0
                                                                         (QREFELT
                                                                          $
-                                                                         96)))
+                                                                         93)))
                                                                       (LETT
                                                                        |net|
                                                                        (SPADCALL
@@ -1890,7 +1876,7 @@
                                                                         0
                                                                         (QREFELT
                                                                          $
-                                                                         98)))
+                                                                         95)))
                                                                       (SEQ
                                                                        (LETT
                                                                         |i| 1)
@@ -2024,42 +2010,42 @@
                                                                           #30#
                                                                           (QREFELT
                                                                            $
-                                                                           44))
+                                                                           43))
                                                                          (SPADCALL
                                                                           |add_gen|
                                                                           (QREFELT
                                                                            $
-                                                                           99))
+                                                                           96))
                                                                          (QREFELT
                                                                           $
-                                                                          43))
+                                                                          42))
                                                                         (SPADCALL
                                                                          #31#
                                                                          (QREFELT
                                                                           $
-                                                                          44))
+                                                                          43))
                                                                         (QREFELT
-                                                                         $ 43))
+                                                                         $ 42))
                                                                        (SPADCALL
                                                                         |add_to|
                                                                         (QREFELT
-                                                                         $ 68))
+                                                                         $ 66))
                                                                        (QREFELT
-                                                                        $ 43))
+                                                                        $ 42))
                                                                       (SPADCALL
                                                                        #32#
                                                                        (QREFELT
-                                                                        $ 44))
+                                                                        $ 43))
                                                                       (QREFELT
-                                                                       $ 43))
+                                                                       $ 42))
                                                                      (SPADCALL
                                                                       |n_ind|
                                                                       (QREFELT
-                                                                       $ 68))
+                                                                       $ 66))
                                                                      (QREFELT $
-                                                                              43))
+                                                                              42))
                                                                     (QREFELT $
-                                                                             56))))
+                                                                             54))))
                                                                  (QSETAREF2O
                                                                   |ct| |add_to|
                                                                   |add_gen|
@@ -2070,7 +2056,7 @@
                                                                    |inv_tab|
                                                                    |add_gen|
                                                                    (QREFELT $
-                                                                            100)))
+                                                                            97)))
                                                                  (QSETAREF2O
                                                                   |ct| |n_ind|
                                                                   |add_gen|
@@ -2081,7 +2067,7 @@
                                                                     (|GROUPP;outStatus|
                                                                      |state| $)
                                                                     (QREFELT $
-                                                                             56))))
+                                                                             54))))
                                                                  (EXIT
                                                                   (QSETVELT
                                                                    |state| 5
@@ -2139,66 +2125,66 @@
                                                                                   "coincidence: "
                                                                                   (QREFELT
                                                                                    $
-                                                                                   44))
+                                                                                   43))
                                                                                  (SPADCALL
                                                                                   |pe|
                                                                                   (QREFELT
                                                                                    $
-                                                                                   68))
+                                                                                   66))
                                                                                  (QREFELT
                                                                                   $
-                                                                                  43))
+                                                                                  42))
                                                                                 (SPADCALL
                                                                                  " "
                                                                                  (QREFELT
                                                                                   $
-                                                                                  44))
+                                                                                  43))
                                                                                 (QREFELT
                                                                                  $
-                                                                                 43))
+                                                                                 42))
                                                                                (SPADCALL
                                                                                 |npe|
                                                                                 (QREFELT
                                                                                  $
-                                                                                 68))
+                                                                                 66))
                                                                                (QREFELT
                                                                                 $
-                                                                                43))
+                                                                                42))
                                                                               (SPADCALL
                                                                                " rel = "
                                                                                (QREFELT
                                                                                 $
-                                                                                44))
+                                                                                43))
                                                                               (QREFELT
                                                                                $
-                                                                               43))
+                                                                               42))
                                                                              (SPADCALL
                                                                               |rel|
                                                                               (QREFELT
                                                                                $
-                                                                               101))
+                                                                               98))
                                                                              (QREFELT
                                                                               $
-                                                                              43))
+                                                                              42))
                                                                             (SPADCALL
                                                                              " pn = "
                                                                              (QREFELT
                                                                               $
-                                                                              44))
+                                                                              43))
                                                                             (QREFELT
                                                                              $
-                                                                             43))
+                                                                             42))
                                                                            (SPADCALL
                                                                             |pn|
                                                                             (QREFELT
                                                                              $
-                                                                             68))
+                                                                             66))
                                                                            (QREFELT
                                                                             $
-                                                                            43))
+                                                                            42))
                                                                           (QREFELT
                                                                            $
-                                                                           56))))
+                                                                           54))))
                                                                        (EXIT
                                                                         (|GROUPP;infer_coincidencies|
                                                                          |ct|
@@ -2217,20 +2203,20 @@
                                                               (SPADCALL
                                                                (SPADCALL
                                                                 "inferFromRelations genIn="
-                                                                (QREFELT $ 44))
+                                                                (QREFELT $ 43))
                                                                (SPADCALL
                                                                 |genIn|
-                                                                (QREFELT $ 99))
-                                                               (QREFELT $ 43))
+                                                                (QREFELT $ 96))
+                                                               (QREFELT $ 42))
                                                               (SPADCALL " gb="
                                                                         (QREFELT
-                                                                         $ 44))
-                                                              (QREFELT $ 43))
+                                                                         $ 43))
+                                                              (QREFELT $ 42))
                                                              (SPADCALL |gb|
                                                                        (QREFELT
-                                                                        $ 68))
-                                                             (QREFELT $ 43))
-                                                            (QREFELT $ 56))))
+                                                                        $ 66))
+                                                             (QREFELT $ 42))
+                                                            (QREFELT $ 54))))
                                                          (COND
                                                           ((NULL
                                                             (EQL
@@ -2277,66 +2263,66 @@
                                                                                   "coincidence: "
                                                                                   (QREFELT
                                                                                    $
-                                                                                   44))
+                                                                                   43))
                                                                                  (SPADCALL
                                                                                   |npb|
                                                                                   (QREFELT
                                                                                    $
-                                                                                   68))
+                                                                                   66))
                                                                                  (QREFELT
                                                                                   $
-                                                                                  43))
+                                                                                  42))
                                                                                 (SPADCALL
                                                                                  " "
                                                                                  (QREFELT
                                                                                   $
-                                                                                  44))
+                                                                                  43))
                                                                                 (QREFELT
                                                                                  $
-                                                                                 43))
+                                                                                 42))
                                                                                (SPADCALL
                                                                                 |pb|
                                                                                 (QREFELT
                                                                                  $
-                                                                                 68))
+                                                                                 66))
                                                                                (QREFELT
                                                                                 $
-                                                                                43))
+                                                                                42))
                                                                               (SPADCALL
                                                                                " rel = "
                                                                                (QREFELT
                                                                                 $
-                                                                                44))
+                                                                                43))
                                                                               (QREFELT
                                                                                $
-                                                                               43))
+                                                                               42))
                                                                              (SPADCALL
                                                                               |rel|
                                                                               (QREFELT
                                                                                $
-                                                                               101))
+                                                                               98))
                                                                              (QREFELT
                                                                               $
-                                                                              43))
+                                                                              42))
                                                                             (SPADCALL
                                                                              " pn = "
                                                                              (QREFELT
                                                                               $
-                                                                              44))
+                                                                              43))
                                                                             (QREFELT
                                                                              $
-                                                                             43))
+                                                                             42))
                                                                            (SPADCALL
                                                                             |pn|
                                                                             (QREFELT
                                                                              $
-                                                                             68))
+                                                                             66))
                                                                            (QREFELT
                                                                             $
-                                                                            43))
+                                                                            42))
                                                                           (QREFELT
                                                                            $
-                                                                           56))))
+                                                                           54))))
                                                                        (EXIT
                                                                         (|GROUPP;infer_coincidencies|
                                                                          |ct|
@@ -2370,44 +2356,44 @@
                                                                    (SPADCALL
                                                                     "coincidence: "
                                                                     (QREFELT $
-                                                                             44))
+                                                                             43))
                                                                    (SPADCALL
                                                                     |pb|
                                                                     (QREFELT $
-                                                                             68))
+                                                                             66))
                                                                    (QREFELT $
-                                                                            43))
+                                                                            42))
                                                                   (SPADCALL " "
                                                                             (QREFELT
                                                                              $
-                                                                             44))
+                                                                             43))
                                                                   (QREFELT $
-                                                                           43))
+                                                                           42))
                                                                  (SPADCALL |pe|
                                                                            (QREFELT
                                                                             $
-                                                                            68))
+                                                                            66))
                                                                  (QREFELT $
-                                                                          43))
+                                                                          42))
                                                                 (SPADCALL
                                                                  " rel = "
                                                                  (QREFELT $
-                                                                          44))
-                                                                (QREFELT $ 43))
+                                                                          43))
+                                                                (QREFELT $ 42))
                                                                (SPADCALL |rel|
                                                                          (QREFELT
                                                                           $
-                                                                          101))
-                                                               (QREFELT $ 43))
+                                                                          98))
+                                                               (QREFELT $ 42))
                                                               (SPADCALL
                                                                " pn = "
-                                                               (QREFELT $ 44))
-                                                              (QREFELT $ 43))
+                                                               (QREFELT $ 43))
+                                                              (QREFELT $ 42))
                                                              (SPADCALL |pn|
                                                                        (QREFELT
-                                                                        $ 68))
-                                                             (QREFELT $ 43))
-                                                            (QREFELT $ 56))))
+                                                                        $ 66))
+                                                             (QREFELT $ 42))
+                                                            (QREFELT $ 54))))
                                                          (EXIT
                                                           (|GROUPP;infer_coincidencies|
                                                            |ct| |et| |pb| |pe|
@@ -2440,15 +2426,15 @@
           (|invm| (|TwoDimensionalArray| (|NonNegativeInteger|))))
          (SEQ
           (LETT |invm|
-                (SPADCALL (SPADCALL |a| (QREFELT $ 85))
-                          (SPADCALL |a| (QREFELT $ 102)) 0 (QREFELT $ 96)))
-          (SEQ (LETT |x| 1) (LETT #1# (SPADCALL |a| (QREFELT $ 85))) G190
+                (SPADCALL (SPADCALL |a| (QREFELT $ 83))
+                          (SPADCALL |a| (QREFELT $ 99)) 0 (QREFELT $ 93)))
+          (SEQ (LETT |x| 1) (LETT #1# (SPADCALL |a| (QREFELT $ 83))) G190
                (COND ((|greater_SI| |x| #1#) (GO G191)))
-               (SEQ (LETT |i| (SPADCALL |a| |x| 1 (QREFELT $ 103)))
+               (SEQ (LETT |i| (SPADCALL |a| |x| 1 (QREFELT $ 100)))
                     (EXIT
                      (COND
-                      ((SPADCALL |i| 0 (QREFELT $ 60))
-                       (SPADCALL |invm| |i| 1 |x| (QREFELT $ 104))))))
+                      ((SPADCALL |i| 0 (QREFELT $ 58))
+                       (SPADCALL |invm| |i| 1 |x| (QREFELT $ 101))))))
                (LETT |x| (|inc_SI| |x|)) (GO G190) G191 (EXIT NIL))
           (EXIT |invm|)))) 
 
@@ -2480,13 +2466,12 @@
          (SEQ (LETT |ct| (QVELT |state| 0)) (LETT |np| (QVELT |state| 5))
               (LETT |genLists|
                     (SPADCALL |ct|
-                              (PROG1
-                                  (LETT #10# (SPADCALL |ct| (QREFELT $ 102)))
+                              (PROG1 (LETT #10# (SPADCALL |ct| (QREFELT $ 99)))
                                 (|check_subtype2| (> #10# 0)
                                                   '(|PositiveInteger|)
                                                   '(|NonNegativeInteger|)
                                                   #10#))
-                              (QREFELT $ 105)))
+                              (QREFELT $ 102)))
               (LETT |invGenLists|
                     (PROGN
                      (LETT #9# NIL)
@@ -2504,7 +2489,7 @@
                    (COND
                     ((OR (ATOM #7#) (PROGN (LETT |r| (CAR #7#)) NIL))
                      (GO G191)))
-                   (SEQ (LETT |relator| (SPADCALL 0 0 0 (QREFELT $ 96)))
+                   (SEQ (LETT |relator| (SPADCALL 0 0 0 (QREFELT $ 93)))
                         (LETT |fst| 'T)
                         (SEQ (LETT |g| NIL) (LETT #6# |r|) G190
                              (COND
@@ -2518,12 +2503,12 @@
                                                         '(|Integer|) #5#)))
                               (LETT |relatorn|
                                     (COND
-                                     ((SPADCALL |g| 0 (QREFELT $ 41))
+                                     ((> |g| 0)
                                       (SPADCALL |genLists| |gNum|
-                                                (QREFELT $ 90)))
+                                                (QREFELT $ 88)))
                                      ('T
                                       (SPADCALL |invGenLists| |gNum|
-                                                (QREFELT $ 90)))))
+                                                (QREFELT $ 88)))))
                               (EXIT
                                (COND
                                 (|fst|
@@ -2532,20 +2517,19 @@
                                 ('T
                                  (LETT |relator|
                                        (SPADCALL |relator| |relatorn|
-                                                 (QREFELT $ 106)))))))
+                                                 (QREFELT $ 103)))))))
                              (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
                         (LETT |relatorTrim| |relator|)
                         (COND
-                         ((SPADCALL (SPADCALL |relatorTrim| (QREFELT $ 85))
-                                    |np| (QREFELT $ 49))
+                         ((> (SPADCALL |relatorTrim| (QREFELT $ 83)) |np|)
                           (SEQ (LETT |part1| |np|)
                                (LETT |part2|
                                      (PROG2
                                          (LETT #4#
                                                (SPADCALL
                                                 (SPADCALL |relatorTrim|
-                                                          (QREFELT $ 85))
-                                                |np| (QREFELT $ 87)))
+                                                          (QREFELT $ 83))
+                                                |np| (QREFELT $ 85)))
                                          (QCDR #4#)
                                        (|check_union2| (QEQCAR #4# 0)
                                                        (|NonNegativeInteger|)
@@ -2556,14 +2540,14 @@
                                (LETT |cts|
                                      (SPADCALL |relatorTrim|
                                                (LIST |part1| |part2|)
-                                               (QREFELT $ 88)))
+                                               (QREFELT $ 86)))
                                (EXIT
                                 (LETT |relatorTrim|
-                                      (SPADCALL |cts| 1 (QREFELT $ 90)))))))
+                                      (SPADCALL |cts| 1 (QREFELT $ 88)))))))
                         (EXIT
                          (LETT |relators|
                                (SPADCALL |relators| |relatorTrim|
-                                         (QREFELT $ 107)))))
+                                         (QREFELT $ 104)))))
                    (LETT #7# (CDR #7#)) (GO G190) G191 (EXIT NIL))
               (EXIT |relators|)))) 
 
@@ -2590,11 +2574,11 @@
               (COND
                (|trace|
                 (SPADCALL
-                 (SPADCALL "generators2Permutation generators=" (QREFELT $ 44))
-                 (QREFELT $ 56))))
+                 (SPADCALL "generators2Permutation generators=" (QREFELT $ 43))
+                 (QREFELT $ 54))))
               (LETT |n_gens| (QVELT |state| 4))
               (LETT |n_inds| (QVELT |state| 5)) (LETT |et| (QVELT |state| 1))
-              (LETT |net| (SPADCALL |n_inds| 0 (QREFELT $ 98))) (LETT |j| 0)
+              (LETT |net| (SPADCALL |n_inds| 0 (QREFELT $ 95))) (LETT |j| 0)
               (SEQ (LETT |i| 1) (LETT #8# |n_inds|) G190
                    (COND ((|greater_SI| |i| #8#) (GO G191)))
                    (SEQ
@@ -2625,23 +2609,23 @@
                                               (SPADCALL
                                                (SPADCALL
                                                 (SPADCALL "i = "
-                                                          (QREFELT $ 44))
-                                                (SPADCALL |i| (QREFELT $ 68))
-                                                (QREFELT $ 43))
+                                                          (QREFELT $ 43))
+                                                (SPADCALL |i| (QREFELT $ 66))
+                                                (QREFELT $ 42))
                                                (SPADCALL " j = "
-                                                         (QREFELT $ 44))
-                                               (QREFELT $ 43))
-                                              (SPADCALL |j| (QREFELT $ 68))
-                                              (QREFELT $ 43))
+                                                         (QREFELT $ 43))
+                                               (QREFELT $ 42))
+                                              (SPADCALL |j| (QREFELT $ 66))
+                                              (QREFELT $ 42))
                                              (SPADCALL " ct(i) = "
-                                                       (QREFELT $ 44))
-                                             (QREFELT $ 43))
+                                                       (QREFELT $ 43))
+                                             (QREFELT $ 42))
                                             (SPADCALL
                                              (SPADCALL |ct| |i|
-                                                       (QREFELT $ 108))
-                                             (QREFELT $ 109))
-                                            (QREFELT $ 43))
-                                           (QREFELT $ 56))
+                                                       (QREFELT $ 105))
+                                             (QREFELT $ 106))
+                                            (QREFELT $ 42))
+                                           (QREFELT $ 54))
                                           (EXIT
                                            (|error|
                                             "incomplete coset table"))))
@@ -2665,28 +2649,28 @@
               (LETT |pl| NIL)
               (COND
                (|trace|
-                (SPADCALL (SPADCALL |perm_lists| (QREFELT $ 111))
-                          (QREFELT $ 56))))
+                (SPADCALL (SPADCALL |perm_lists| (QREFELT $ 108))
+                          (QREFELT $ 54))))
               (SEQ (LETT |j| 1) (LETT #5# |n_gens|) G190
                    (COND ((|greater_SI| |j| #5#) (GO G191)))
                    (SEQ
                     (LETT |gl|
                           (NREVERSE
-                           (SPADCALL |perm_lists| |j| (QREFELT $ 112))))
-                    (LETT |p| (SPADCALL |gl| (QREFELT $ 114)))
+                           (SPADCALL |perm_lists| |j| (QREFELT $ 109))))
+                    (LETT |p| (SPADCALL |gl| (QREFELT $ 111)))
                     (EXIT (LETT |pl| (CONS |p| |pl|))))
                    (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))
               (LETT |pl| (NREVERSE |pl|))
-              (EXIT (SPADCALL |pl| (QREFELT $ 117)))))) 
+              (EXIT (SPADCALL |pl| (QREFELT $ 114)))))) 
 
 (SDEFUN |GROUPP;toPermutationIfCan;$U;46|
         ((|a| $) ($ |Union| (|PermutationGroup| (|Integer|)) "failed"))
-        (SPADCALL |a| NIL (QREFELT $ 119))) 
+        (SPADCALL |a| NIL (QREFELT $ 116))) 
 
 (SDEFUN |GROUPP;toPermutationIfCan;$BU;47|
         ((|a| $) (|trace| |Boolean|)
          ($ |Union| (|PermutationGroup| (|Integer|)) "failed"))
-        (SPADCALL |a| NIL |trace| (QREFELT $ 121))) 
+        (SPADCALL |a| NIL |trace| (QREFELT $ 118))) 
 
 (SDEFUN |GROUPP;convert_words|
         ((|words| |List| (|List| #1=(|Integer|)))
@@ -2709,10 +2693,10 @@
                                (GO G191)))
                              (SEQ
                               (LETT |gen|
-                                    (COND ((SPADCALL |i| 0 (QREFELT $ 41)) |i|)
+                                    (COND ((> |i| 0) |i|)
                                           ('T
                                            (SPADCALL |inv_tab| (- |i|)
-                                                     (QREFELT $ 100)))))
+                                                     (QREFELT $ 97)))))
                               (EXIT (LETT |nword| (CONS |gen| |nword|))))
                              (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                         (LETT |nwords| (CONS |nword| |nwords|))
@@ -2732,7 +2716,7 @@
                                          (LETT #3#
                                                (CONS
                                                 (SPADCALL |inv_tab| |i|
-                                                          (QREFELT $ 100))
+                                                          (QREFELT $ 97))
                                                 #3#))))
                                        (LETT #2# (CDR #2#)) (GO G190) G191
                                        (EXIT (NREVERSE #3#)))))
@@ -2779,32 +2763,27 @@
                 (LETT |gs| (SPADCALL (QCAR |a|) (QREFELT $ 17)))
                 (LETT |rs| (QCDR |a|))
                 (COND
-                 ((EQL (SPADCALL |gs| (QREFELT $ 64)) 0)
+                 ((EQL (SPADCALL |gs| (QREFELT $ 62)) 0)
                   (COND
                    ((EQL (LENGTH |rs|) 0)
-                    (SEQ (LETT |unit| (|spadConstant| $ 122))
+                    (SEQ (LETT |unit| (|spadConstant| $ 119))
                          (EXIT
                           (PROGN
                            (LETT #3#
                                  (CONS 0
                                        (SPADCALL (LIST |unit|)
-                                                 (QREFELT $ 117))))
+                                                 (QREFELT $ 114))))
                            (GO #13=#:G589))))))))
                 (COND
-                 ((SPADCALL (SPADCALL |gs| (QREFELT $ 64)) (LENGTH |rs|)
-                            (QREFELT $ 49))
+                 ((> (SPADCALL |gs| (QREFELT $ 62)) (LENGTH |rs|))
                   (PROGN (LETT #3# (CONS 1 "failed")) (GO #13#))))
-                (LETT |numGens| (SPADCALL |gs| (QREFELT $ 64)))
-                (LETT |ct|
-                      (SPADCALL 10 (SPADCALL 2 |numGens| (QREFELT $ 123)) 0
-                                (QREFELT $ 96)))
-                (LETT |et| (SPADCALL 10 0 (QREFELT $ 98)))
+                (LETT |numGens| (SPADCALL |gs| (QREFELT $ 62)))
+                (LETT |ct| (SPADCALL 10 (* 2 |numGens|) 0 (QREFELT $ 93)))
+                (LETT |et| (SPADCALL 10 0 (QREFELT $ 95)))
                 (SEQ (LETT |i| 1) G190 (COND ((|greater_SI| |i| 10) (GO G191)))
                      (SEQ (EXIT (QSETAREF1O |et| |i| |i| 1)))
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-                (LETT |inv_tab|
-                      (SPADCALL (SPADCALL 2 |numGens| (QREFELT $ 123)) 0
-                                (QREFELT $ 98)))
+                (LETT |inv_tab| (SPADCALL (* 2 |numGens|) 0 (QREFELT $ 95)))
                 (SEQ (LETT |i| 1) (LETT #11# |numGens|) G190
                      (COND ((|greater_SI| |i| #11#) (GO G191)))
                      (SEQ (QSETAREF1O |inv_tab| |i| (+ |i| |numGens|) 1)
@@ -2829,7 +2808,7 @@
                             (SEQ
                              (EXIT
                               (LETT #10#
-                                    (CONS (SPADCALL |rel| (QREFELT $ 64))
+                                    (CONS (SPADCALL |rel| (QREFELT $ 62))
                                           #10#))))
                             (LETT #9# (CDR #9#)) (GO G190) G191
                             (EXIT (NREVERSE #10#)))))
@@ -2854,15 +2833,15 @@
                             (SEQ
                              (EXIT
                               (LETT #7#
-                                    (CONS (SPADCALL |word| (QREFELT $ 64))
+                                    (CONS (SPADCALL |word| (QREFELT $ 62))
                                           #7#))))
                             (LETT #6# (CDR #6#)) (GO G190) G191
                             (EXIT (NREVERSE #7#)))))
                 (LETT |dummy|
                       (|GROUPP;inferFromRelations| |state|
-                       (SPADCALL |nsgens| |nrels| (QREFELT $ 124))
-                       (SPADCALL |nrsgens| |nrrels| (QREFELT $ 124))
-                       (SPADCALL |sgens_lens| |rel_lens| (QREFELT $ 76))
+                       (SPADCALL |nsgens| |nrels| (QREFELT $ 120))
+                       (SPADCALL |nrsgens| |nrrels| (QREFELT $ 120))
+                       (SPADCALL |sgens_lens| |rel_lens| (QREFELT $ 74))
                        |trace| $))
                 (SEQ
                  (EXIT
@@ -2880,10 +2859,10 @@
                               (|trace|
                                (SPADCALL
                                 (SPADCALL
-                                 (SPADCALL "finished using " (QREFELT $ 44))
-                                 (SPADCALL (QVELT |state| 5) (QREFELT $ 68))
-                                 (QREFELT $ 43))
-                                (QREFELT $ 56))))
+                                 (SPADCALL "finished using " (QREFELT $ 43))
+                                 (SPADCALL (QVELT |state| 5) (QREFELT $ 66))
+                                 (QREFELT $ 42))
+                                (QREFELT $ 54))))
                              (EXIT
                               (PROGN
                                (LETT #3#
@@ -2895,11 +2874,11 @@
                            (|trace|
                             (SPADCALL
                              (SPADCALL
-                              (SPADCALL "relatorTables=" (QREFELT $ 44))
+                              (SPADCALL "relatorTables=" (QREFELT $ 43))
                               (SPADCALL (|GROUPP;relatorTables| |state| |rs| $)
-                                        (QREFELT $ 125))
-                              (QREFELT $ 43))
-                             (QREFELT $ 56))))
+                                        (QREFELT $ 121))
+                              (QREFELT $ 42))
+                             (QREFELT $ 54))))
                           (EXIT
                            (COND
                             ((>= (QVELT |state| 5) |loopLimit|)
@@ -2919,15 +2898,15 @@
         (SPROG
          ((|r| (|OutputForm|)) (|rs| (|List| (|List| (|Integer|))))
           (|g| (|OutputForm|)) (|ps| (|List| (|NonNegativeInteger|))))
-         (SEQ (LETT |ps| (SPADCALL (QCAR |s|) (QREFELT $ 126)))
+         (SEQ (LETT |ps| (SPADCALL (QCAR |s|) (QREFELT $ 122)))
               (LETT |g| (|GROUPP;outputGenList| |ps| $)) (LETT |rs| (QCDR |s|))
               (LETT |r| (|GROUPP;outputRelList| |rs| $))
               (EXIT
                (SPADCALL
-                (LIST (SPADCALL "<" (QREFELT $ 44)) |g|
-                      (SPADCALL " | " (QREFELT $ 44)) |r|
-                      (SPADCALL ">" (QREFELT $ 44)))
-                (QREFELT $ 45)))))) 
+                (LIST (SPADCALL "<" (QREFELT $ 43)) |g|
+                      (SPADCALL " | " (QREFELT $ 43)) |r|
+                      (SPADCALL ">" (QREFELT $ 43)))
+                (QREFELT $ 44)))))) 
 
 (DECLAIM (NOTINLINE |GroupPresentation;|)) 
 
@@ -2954,7 +2933,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|GroupPresentation|))
-          (LETT $ (GETREFV 129))
+          (LETT $ (GETREFV 125))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|GroupPresentation| NIL (CONS 1 $))
@@ -2978,87 +2957,84 @@
               (32 . |concat|) |GROUPP;refactor;2$;5| (|Set| 18) (38 . |set|)
               (|Boolean|) (43 . ~=) (49 . |entries|) (|Set| 24) (54 . |set|)
               (59 . =) |GROUPP;=;2$B;6| (|Character|) (65 . |elt|)
-              (|OutputForm|) (71 . |coerce|) (76 . >) (82 . |outputForm|)
-              (87 . |hconcat|) (93 . |message|) (98 . |hconcat|) (|List| 39)
-              (103 . |concat|) (109 . |commaSeparate|) (114 . >)
-              (120 . |blankSeparate|) (125 . |member?|) (131 . |concat|)
-              (137 . |remove|) (143 . |remove|) (|Void|) (149 . |print|)
-              (154 . |second|) (159 . |sign|) (164 . ~=) (170 . ~=) (176 . =)
-              (182 . |copy|) (187 . |coerce|) (192 . |#|) (197 . |elt|)
-              (203 . |elt|) |GROUPP;coerce;$Of;50| (209 . |coerce|)
-              (214 . |concat|) |GROUPP;simplify;$B$;30| |GROUPP;simplify;2$;29|
-              |GROUPP;quotient;$L$;32| (220 . |entries|) (225 . |concat|)
-              |GROUPP;quotient;$L$;33| (231 . |concat|) (237 . |concat|)
+              (|OutputForm|) (71 . |coerce|) (76 . |outputForm|)
+              (81 . |hconcat|) (87 . |message|) (92 . |hconcat|) (|List| 39)
+              (97 . |concat|) (103 . |commaSeparate|) (108 . |blankSeparate|)
+              (113 . |member?|) (119 . |concat|) (125 . |remove|)
+              (131 . |remove|) (|Void|) (137 . |print|) (142 . |second|)
+              (147 . |sign|) (152 . ~=) (158 . ~=) (164 . =) (170 . |copy|)
+              (175 . |coerce|) (180 . |#|) (185 . |elt|) (191 . |elt|)
+              |GROUPP;coerce;$Of;50| (197 . |coerce|) (202 . |concat|)
+              |GROUPP;simplify;$B$;30| |GROUPP;simplify;2$;29|
+              |GROUPP;quotient;$L$;32| (208 . |entries|) (213 . |concat|)
+              |GROUPP;quotient;$L$;33| (219 . |concat|) (225 . |concat|)
               |GROUPP;directProduct;3$;34| (|PositiveInteger|)
               |GROUPP;cyclicGroup;Pi$;35| |GROUPP;dihedralGroup;Pi$;36|
               |GROUPP;symmetricGroup;Pi$;37| (|TwoDimensionalArray| 18)
-              (242 . |coerce|) (247 . |nrows|) (|Union| $ '"failed")
-              (252 . |subtractIfCan|) (258 . |vertSplit|) (|List| 83)
-              (264 . |elt|) (270 . |maxColIndex|) (|List| 7) (275 . |coerce|)
-              (280 . |maxRowIndex|) (285 . *) (291 . |new|)
-              (|OneDimensionalArray| 18) (298 . |new|) (304 . |coerce|)
-              (309 . |elt|) (315 . |coerce|) (320 . |ncols|) (325 . |elt|)
-              (332 . |setelt!|) (340 . |horizSplit|) (346 . |horizConcat|)
-              (352 . |concat|) (358 . |row|) (364 . |coerce|) (|Vector| 24)
-              (369 . |coerce|) (374 . |elt|) (|Permutation| 23)
-              (380 . |coerceImages|) (|List| 113) (|PermutationGroup| 23)
-              (385 . |permutationGroup|) (|Union| 116 '"failed")
-              |GROUPP;toPermutationIfCan;$BU;47|
+              (230 . |coerce|) (235 . |nrows|) (|Union| $ '"failed")
+              (240 . |subtractIfCan|) (246 . |vertSplit|) (|List| 81)
+              (252 . |elt|) (258 . |maxColIndex|) (|List| 7) (263 . |coerce|)
+              (268 . |maxRowIndex|) (273 . |new|) (|OneDimensionalArray| 18)
+              (280 . |new|) (286 . |coerce|) (291 . |elt|) (297 . |coerce|)
+              (302 . |ncols|) (307 . |elt|) (314 . |setelt!|)
+              (322 . |horizSplit|) (328 . |horizConcat|) (334 . |concat|)
+              (340 . |row|) (346 . |coerce|) (|Vector| 24) (351 . |coerce|)
+              (356 . |elt|) (|Permutation| 23) (362 . |coerceImages|)
+              (|List| 110) (|PermutationGroup| 23) (367 . |permutationGroup|)
+              (|Union| 113 '"failed") |GROUPP;toPermutationIfCan;$BU;47|
               |GROUPP;toPermutationIfCan;$U;46|
-              |GROUPP;toPermutationIfCan;$LBU;49| (390 . |One|) (394 . *)
-              (400 . |concat|) (406 . |coerce|) (411 . |parts|)
+              |GROUPP;toPermutationIfCan;$LBU;49| (372 . |One|)
+              (376 . |concat|) (382 . |coerce|) (387 . |parts|)
               (|SingleInteger|) (|HashState|))
-           '#(~= 416 |toPermutationIfCan| 422 |symmetricGroup| 440 |simplify|
-              445 |refactor| 456 |quotient| 461 |latex| 473 |hashUpdate!| 478
-              |hash| 484 |groupPresentation| 489 |directProduct| 504
-              |dihedralGroup| 510 |cyclicGroup| 515 |coerce| 520 = 525)
+           '#(~= 392 |toPermutationIfCan| 398 |symmetricGroup| 416 |simplify|
+              421 |refactor| 432 |quotient| 437 |latex| 449 |hashUpdate!| 454
+              |hash| 460 |groupPresentation| 465 |directProduct| 480
+              |dihedralGroup| 486 |cyclicGroup| 491 |coerce| 496 = 501)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 39))
-                        (|makeByteWordVec2| 128
+                        (|makeByteWordVec2| 124
                                             '(1 8 0 7 9 1 15 0 14 16 1 8 7 0 17
                                               1 8 18 0 19 2 21 0 0 20 22 2 24 0
                                               0 23 25 2 10 0 0 24 26 1 28 0 7
                                               29 2 28 30 0 0 31 1 10 10 0 32 1
                                               33 0 10 34 2 33 30 0 0 35 2 15 37
-                                              0 23 38 1 37 39 0 40 2 23 30 0 0
-                                              41 1 39 0 23 42 2 39 0 0 0 43 1
-                                              39 0 15 44 1 39 0 14 45 2 46 0 0
-                                              39 47 1 39 0 14 48 2 18 30 0 0 49
-                                              1 39 0 14 50 2 24 30 23 0 51 2 7
-                                              0 0 18 52 2 8 0 18 0 53 2 24 0 23
-                                              0 54 1 39 55 0 56 1 24 23 0 57 1
-                                              23 23 0 58 2 23 30 0 0 59 2 18 30
-                                              0 0 60 2 24 30 0 0 61 1 24 0 0 62
-                                              1 24 39 0 63 1 7 18 0 64 2 7 18 0
-                                              23 65 2 10 24 0 23 66 1 18 39 0
-                                              68 2 24 0 0 0 69 1 7 7 0 73 2 10
-                                              0 0 0 74 2 7 0 0 0 76 1 10 0 14
-                                              77 1 83 39 0 84 1 83 18 0 85 2 18
-                                              86 0 0 87 2 83 14 0 7 88 2 89 83
-                                              0 23 90 1 83 23 0 91 1 92 39 0 93
-                                              1 83 23 0 94 2 23 0 79 0 95 3 83
-                                              0 18 18 18 96 2 97 0 18 18 98 1
-                                              23 39 0 99 2 97 18 0 23 100 1 7
-                                              39 0 101 1 83 18 0 102 3 83 18 0
-                                              23 23 103 4 83 18 0 23 23 18 104
-                                              2 83 14 0 79 105 2 83 0 0 0 106 2
-                                              89 0 0 83 107 2 83 97 0 23 108 1
-                                              97 39 0 109 1 110 39 0 111 2 110
-                                              24 0 23 112 1 113 0 24 114 1 116
-                                              0 115 117 0 113 0 122 2 18 0 79 0
-                                              123 2 92 0 0 0 124 1 89 39 0 125
-                                              1 8 7 0 126 2 0 30 0 0 1 2 0 118
-                                              0 30 119 3 0 118 0 10 30 121 1 0
-                                              118 0 120 1 0 0 79 82 1 0 0 0 71
-                                              2 0 0 0 30 70 1 0 0 0 27 2 0 0 0
-                                              10 75 2 0 0 0 7 72 1 0 15 0 1 2 0
-                                              128 128 0 1 1 0 127 0 1 0 0 0 13
+                                              0 23 38 1 37 39 0 40 1 39 0 23 41
+                                              2 39 0 0 0 42 1 39 0 15 43 1 39 0
+                                              14 44 2 45 0 0 39 46 1 39 0 14 47
+                                              1 39 0 14 48 2 24 30 23 0 49 2 7
+                                              0 0 18 50 2 8 0 18 0 51 2 24 0 23
+                                              0 52 1 39 53 0 54 1 24 23 0 55 1
+                                              23 23 0 56 2 23 30 0 0 57 2 18 30
+                                              0 0 58 2 24 30 0 0 59 1 24 0 0 60
+                                              1 24 39 0 61 1 7 18 0 62 2 7 18 0
+                                              23 63 2 10 24 0 23 64 1 18 39 0
+                                              66 2 24 0 0 0 67 1 7 7 0 71 2 10
+                                              0 0 0 72 2 7 0 0 0 74 1 10 0 14
+                                              75 1 81 39 0 82 1 81 18 0 83 2 18
+                                              84 0 0 85 2 81 14 0 7 86 2 87 81
+                                              0 23 88 1 81 23 0 89 1 90 39 0 91
+                                              1 81 23 0 92 3 81 0 18 18 18 93 2
+                                              94 0 18 18 95 1 23 39 0 96 2 94
+                                              18 0 23 97 1 7 39 0 98 1 81 18 0
+                                              99 3 81 18 0 23 23 100 4 81 18 0
+                                              23 23 18 101 2 81 14 0 77 102 2
+                                              81 0 0 0 103 2 87 0 0 81 104 2 81
+                                              94 0 23 105 1 94 39 0 106 1 107
+                                              39 0 108 2 107 24 0 23 109 1 110
+                                              0 24 111 1 113 0 112 114 0 110 0
+                                              119 2 90 0 0 0 120 1 87 39 0 121
+                                              1 8 7 0 122 2 0 30 0 0 1 2 0 115
+                                              0 30 116 3 0 115 0 10 30 118 1 0
+                                              115 0 117 1 0 0 77 80 1 0 0 0 69
+                                              2 0 0 0 30 68 1 0 0 0 27 2 0 0 0
+                                              10 73 2 0 0 0 7 70 1 0 15 0 1 2 0
+                                              124 124 0 1 1 0 123 0 1 0 0 0 13
                                               2 0 0 7 10 11 1 0 0 7 12 2 0 0 0
-                                              0 78 1 0 0 79 81 1 0 0 79 80 1 0
-                                              39 0 67 2 0 30 0 0 36)))))
+                                              0 76 1 0 0 77 79 1 0 0 77 78 1 0
+                                              39 0 65 2 0 30 0 0 36)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|GroupPresentation| 'NILADIC T) 

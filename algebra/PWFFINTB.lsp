@@ -1006,7 +1006,7 @@
                     (LETT |base|
                           (SEQ (LETT |degPp| (SPADCALL |pp| (QREFELT $ 36)))
                                (COND
-                                ((SPADCALL |degPp| 1 (QREFELT $ 65))
+                                ((> |degPp| 1)
                                  (COND
                                   ((EQL (GCD |degPp| |degPrime|) 1)
                                    (EXIT
@@ -1022,7 +1022,7 @@
               (LETT |factorBases| (NREVERSE |factorBases|))
               (LETT |ib|
                     (SPADCALL |henselFactors| |factorBases|
-                              (SPADCALL (QREFELT $ 66)) (QREFELT $ 69)))
+                              (SPADCALL (QREFELT $ 64)) (QREFELT $ 67)))
               (LETT |index| (SPADCALL (QVELT |ib| 2) (QREFELT $ 55)))
               (EXIT
                (VECTOR (QVELT |ib| 0) (QVELT |ib| 1) (QVELT |ib| 2)
@@ -1039,7 +1039,7 @@
            (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
                      (|:| |basisInv| (|Matrix| R)) (|:| |discr| R)))
           (|redDisc| (R)) (|disc| (R)) (|p| (UP)))
-         (SEQ (LETT |p| (SPADCALL (QREFELT $ 70)))
+         (SEQ (LETT |p| (SPADCALL (QREFELT $ 68)))
               (LETT |disc| (SPADCALL |p| (QREFELT $ 37)))
               (LETT |redDisc| (SPADCALL |p| (QREFELT $ 34)))
               (LETT |ib|
@@ -1051,16 +1051,16 @@
         (SPROG
          ((|ans| (|List| R)) (#1=#:G203 NIL) (|f| NIL)
           (|factored| (|Factored| R)))
-         (SEQ (LETT |ans| NIL) (LETT |factored| (SPADCALL |px| (QREFELT $ 74)))
+         (SEQ (LETT |ans| NIL) (LETT |factored| (SPADCALL |px| (QREFELT $ 72)))
               (SEQ (LETT |f| NIL)
-                   (LETT #1# (SPADCALL |factored| (QREFELT $ 78))) G190
+                   (LETT #1# (SPADCALL |factored| (QREFELT $ 76))) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#)) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
                      (COND
-                      ((SPADCALL (QVELT |f| 2) 1 (QREFELT $ 65))
+                      ((> (QVELT |f| 2) 1)
                        (LETT |ans| (CONS (QVELT |f| 1) |ans|))))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
@@ -1077,9 +1077,9 @@
                      (|:| |discr| R)))
           (#4=#:G211 NIL) (|prime| NIL) (|redDisc| (R)) (|singList| (|List| R))
           (|n| (|PositiveInteger|)) (|p| (UP)))
-         (SEQ (LETT |p| (SPADCALL (QREFELT $ 70)))
+         (SEQ (LETT |p| (SPADCALL (QREFELT $ 68)))
               (LETT |disc| (SPADCALL |p| (QREFELT $ 37)))
-              (LETT |n| (SPADCALL (QREFELT $ 66)))
+              (LETT |n| (SPADCALL (QREFELT $ 64)))
               (LETT |singList| (|PWFFINTB;listSquaredFactors| |disc| $))
               (LETT |redDisc| (SPADCALL |p| (QREFELT $ 34)))
               (LETT |runningRb|
@@ -1106,19 +1106,19 @@
                         (LETT |disc| (QVELT |lb| 3))
                         (LETT |mat|
                               (SPADCALL
-                               (SPADCALL |rbden| |runningRb| (QREFELT $ 79))
-                               (SPADCALL |runningRbden| |rb| (QREFELT $ 79))
-                               (QREFELT $ 80)))
+                               (SPADCALL |rbden| |runningRb| (QREFELT $ 77))
+                               (SPADCALL |runningRbden| |rb| (QREFELT $ 77))
+                               (QREFELT $ 78)))
                         (LETT |runningRbden|
                               (SPADCALL |runningRbden| |rbden| (QREFELT $ 56)))
                         (LETT |runningRb|
                               (SPADCALL
-                               (SPADCALL |mat| |runningRbden| (QREFELT $ 82))
-                               (QREFELT $ 83)))
+                               (SPADCALL |mat| |runningRbden| (QREFELT $ 80))
+                               (QREFELT $ 81)))
                         (EXIT
                          (LETT |runningRbinv|
                                (SPADCALL |runningRb| |runningRbden|
-                                         (QREFELT $ 85)))))
+                                         (QREFELT $ 83)))))
                        (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                   (EXIT
                    (VECTOR |runningRb| |runningRbden| |runningRbinv|))))))))) 
@@ -1158,7 +1158,7 @@
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$|
           (LIST '|PAdicWildFunctionFieldIntegralBasis| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 87))
+    (LETT $ (GETREFV 85))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|PAdicWildFunctionFieldIntegralBasis|
@@ -1201,20 +1201,20 @@
               (110 . |diagonalProduct|) (115 . *) (121 . |quo|) (127 . |order|)
               (133 . |degree|) (|Record| (|:| |plist| 61) (|:| |modulo| 7))
               (|List| 8) (|GeneralHenselPackage| 7 8) (138 . |HenselLift|)
-              (|Boolean|) (146 . >) (152 . |rank|) (|List| 51)
+              (146 . |rank|) (|List| 51)
               (|ChineseRemainderToolsForIntegralBases| 6 7 8)
-              (156 . |chineseRemainder|) (163 . |definingPolynomial|)
+              (150 . |chineseRemainder|) (157 . |definingPolynomial|)
               |PWFFINTB;localIntegralBasis;RR;5| (|Factored| 7)
-              (|DistinctDegreeFactorize| 6 7) (167 . |factor|)
+              (|DistinctDegreeFactorize| 6 7) (161 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 75) (|:| |factor| 7) (|:| |exponent| 35))
-              (|List| 76) (172 . |factorList|) (177 . *) (183 . |vertConcat|)
-              (|ModularHermitianRowReduction| 7) (189 . |rowEchelon|)
-              (195 . |squareTop|)
+              (|Record| (|:| |flag| 73) (|:| |factor| 7) (|:| |exponent| 35))
+              (|List| 74) (166 . |factorList|) (171 . *) (177 . |vertConcat|)
+              (|ModularHermitianRowReduction| 7) (183 . |rowEchelon|)
+              (189 . |squareTop|)
               (|TriangularMatrixOperations| 7 (|Vector| 7) (|Vector| 7) 40)
-              (200 . |UpTriBddDenomInv|) |PWFFINTB;integralBasis;R;7|)
-           '#(|reducedDiscriminant| 206 |localIntegralBasis| 211
-              |integralBasis| 216)
+              (194 . |UpTriBddDenomInv|) |PWFFINTB;integralBasis;R;7|)
+           '#(|reducedDiscriminant| 200 |localIntegralBasis| 205
+              |integralBasis| 210)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -1235,7 +1235,7 @@
                                 T)
                               '((|reducedDiscriminant| (|#2| |#3|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 86
+                        (|makeByteWordVec2| 84
                                             '(1 10 0 7 11 2 14 12 13 8 15 1 12
                                               0 0 16 2 12 17 0 0 18 1 12 19 0
                                               20 2 19 0 0 0 21 1 23 22 19 24 1
@@ -1246,11 +1246,11 @@
                                               9 0 47 0 6 35 48 0 9 49 50 1 52
                                               51 7 53 1 54 7 40 55 2 7 0 0 0 56
                                               2 7 0 0 0 57 2 7 35 0 0 58 1 7 35
-                                              0 59 4 62 60 8 61 7 43 63 2 35 64
-                                              0 0 65 0 9 43 66 3 68 51 61 67 35
-                                              69 0 9 8 70 1 73 72 7 74 1 72 77
-                                              0 78 2 40 0 7 0 79 2 40 0 0 0 80
-                                              2 81 40 40 7 82 1 40 0 0 83 2 84
-                                              40 40 7 85 1 0 7 8 34 1 0 51 7 71
-                                              0 0 51 86)))))
+                                              0 59 4 62 60 8 61 7 43 63 0 9 43
+                                              64 3 66 51 61 65 35 67 0 9 8 68 1
+                                              71 70 7 72 1 70 75 0 76 2 40 0 7
+                                              0 77 2 40 0 0 0 78 2 79 40 40 7
+                                              80 1 40 0 0 81 2 82 40 40 7 83 1
+                                              0 7 8 34 1 0 51 7 69 0 0 51
+                                              84)))))
            '|lookupComplete|)) 

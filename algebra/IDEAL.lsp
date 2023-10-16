@@ -172,7 +172,7 @@
                      (SEQ (LETT |mvset| (SPADCALL |f| (QREFELT $ 36)))
                           (EXIT
                            (COND
-                            ((SPADCALL (LENGTH |mvset|) 1 (QREFELT $ 58))
+                            ((> (LENGTH |mvset|) 1)
                              (LETT |monvar| (CONS |mvset| |monvar|)))
                             ('T
                              (LETT |lv|
@@ -180,8 +180,8 @@
                                              (SPADCALL
                                               (SPADCALL |mvset| 1
                                                         (QREFELT $ 53))
-                                              |lv| (QREFELT $ 60))
-                                             (QREFELT $ 61)))))))
+                                              |lv| (QREFELT $ 59))
+                                             (QREFELT $ 60)))))))
                      (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (COND ((NULL |lv|) 0)
@@ -226,8 +226,8 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |IDEAL;monomDim!0| ((|z1| NIL) (|z2| NIL) ($ NIL))
-        (SPADCALL (SPADCALL |z1| (QREFELT $ 62)) (SPADCALL |z2| (QREFELT $ 62))
-                  (QREFELT $ 58))) 
+        (SPADCALL (SPADCALL |z1| (QREFELT $ 61)) (SPADCALL |z2| (QREFELT $ 61))
+                  (QREFELT $ 62))) 
 
 (SDEFUN |IDEAL;=;2$B;10| ((I $) (J $) ($ |Boolean|))
         (COND ((SPADCALL I J (QREFELT $ 67)) (SPADCALL J I (QREFELT $ 67)))
@@ -702,8 +702,8 @@
                                               (SPADCALL |lvar|
                                                         (SPADCALL |x| |lvar|
                                                                   (QREFELT $
-                                                                           60))
-                                                        (QREFELT $ 61)))))))
+                                                                           59))
+                                                        (QREFELT $ 60)))))))
                                     (LETT #2# (CDR #2#)) (GO G190) G191
                                     (EXIT NIL))
                                (EXIT (NULL |lvar|))))))))))))) 
@@ -1582,22 +1582,21 @@
               (|GroebnerPackage| 6 11 12) (132 . |groebner|) (137 . |member?|)
               (143 . |append|) (149 . |ground?|) (154 . |One|) (158 . |One|)
               (|Integer|) (162 . |elt|) (|List| 35) (168 . |concat|) (|List| 9)
-              |IDEAL;generators;$L;35| (174 . >) (180 . |One|)
-              (184 . |position|) (190 . |delete|) (196 . |#|)
-              (|Mapping| 14 35 35) (201 . |sort|) (207 . ~=)
-              (213 . |setDifference|) |IDEAL;in?;2$B;12| |IDEAL;=;2$B;10|
-              |IDEAL;groebner;2$;13| (|GroebnerPackage| 6 7 9)
-              (219 . |normalForm|) |IDEAL;element?;DPoly$B;11| (225 . |zero?|)
-              (230 . |groebner|) (235 . |One|) (239 . -) (245 . *)
-              (251 . |concat|) |IDEAL;intersect;3$;14| (|List| $)
-              |IDEAL;intersect;L$;15| |IDEAL;coerce;L$;31|
-              (|GroebnerInternalPackage| 6 7 9) (257 . |minGbasis|)
-              |IDEAL;quotient;$DPoly$;16| |IDEAL;ideal;L$;33|
-              |IDEAL;quotient;3$;17| (262 . |concat|) |IDEAL;+;3$;18| (268 . *)
-              (274 . |append|) |IDEAL;*;3$;19| |IDEAL;^;$Nni$;20|
-              |IDEAL;saturate;$DPoly$;21| (280 . |setUnion|) (286 . |monomial|)
-              (293 . |eval|) |IDEAL;saturate;$DPolyL$;22| (300 . =)
-              (|Union| 8 '"failed") (306 . |mainVariable|)
+              |IDEAL;generators;$L;35| (174 . |One|) (178 . |position|)
+              (184 . |delete|) (190 . |#|) (195 . >) (|Mapping| 14 35 35)
+              (201 . |sort|) (207 . ~=) (213 . |setDifference|)
+              |IDEAL;in?;2$B;12| |IDEAL;=;2$B;10| |IDEAL;groebner;2$;13|
+              (|GroebnerPackage| 6 7 9) (219 . |normalForm|)
+              |IDEAL;element?;DPoly$B;11| (225 . |zero?|) (230 . |groebner|)
+              (235 . |One|) (239 . -) (245 . *) (251 . |concat|)
+              |IDEAL;intersect;3$;14| (|List| $) |IDEAL;intersect;L$;15|
+              |IDEAL;coerce;L$;31| (|GroebnerInternalPackage| 6 7 9)
+              (257 . |minGbasis|) |IDEAL;quotient;$DPoly$;16|
+              |IDEAL;ideal;L$;33| |IDEAL;quotient;3$;17| (262 . |concat|)
+              |IDEAL;+;3$;18| (268 . *) (274 . |append|) |IDEAL;*;3$;19|
+              |IDEAL;^;$Nni$;20| |IDEAL;saturate;$DPoly$;21| (280 . |setUnion|)
+              (286 . |monomial|) (293 . |eval|) |IDEAL;saturate;$DPolyL$;22|
+              (300 . =) (|Union| 8 '"failed") (306 . |mainVariable|)
               |IDEAL;zeroDim?;$LB;23| |IDEAL;zeroDim?;$B;24|
               (311 . |normalForm|) |IDEAL;inRadical?;DPoly$B;25|
               |IDEAL;leadingIdeal;2$;28| |IDEAL;dimension;$LI;26|
@@ -1641,9 +1640,9 @@
                                               41 2 9 42 0 0 43 1 45 44 44 46 2
                                               35 14 8 0 47 2 35 0 0 0 48 1 9 14
                                               0 49 0 6 0 50 0 9 0 51 2 35 8 0
-                                              52 53 2 54 0 0 0 55 2 21 14 0 0
-                                              58 0 21 0 59 2 35 52 8 0 60 2 35
-                                              0 0 52 61 1 35 21 0 62 2 54 0 63
+                                              52 53 2 54 0 0 0 55 0 21 0 58 2
+                                              35 52 8 0 59 2 35 0 0 52 60 1 35
+                                              21 0 61 2 21 14 0 0 62 2 54 0 63
                                               0 64 2 35 14 0 0 65 2 35 0 0 0 66
                                               2 70 9 9 56 71 1 9 14 0 73 1 70
                                               56 56 74 0 12 0 75 2 12 0 0 0 76

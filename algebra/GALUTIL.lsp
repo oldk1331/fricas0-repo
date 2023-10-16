@@ -63,10 +63,10 @@
                        (COND ((< |d| |r|) (SPADCALL |n| |d| (QREFELT $ 29)))
                              ((ZEROP |r|) (|spadConstant| $ 13))
                              ((EQL |r| 1) (SPADCALL |n| (QREFELT $ 30)))
-                             ((SPADCALL |n| (QREFELT $ 28) (QREFELT $ 32))
-                              (SPADCALL (SPADCALL |n| |r| (QREFELT $ 34))
+                             ((> |n| (QREFELT $ 28))
+                              (SPADCALL (SPADCALL |n| |r| (QREFELT $ 32))
                                         (QREFELT $ 30)))
-                             ((SPADCALL |n| (QREFELT $ 27) (QREFELT $ 35))
+                             ((<= |n| (QREFELT $ 27))
                               (SEQ (LETT |m| (DIVIDE2 (- |n| 4) 2))
                                    (LETT |mq| (QCAR |m|))
                                    (EXIT
@@ -77,7 +77,7 @@
                                                    (+ |mq| (QCDR |m|)))
                                                 |r|)
                                                1)
-                                              (QREFELT $ 36)))))
+                                              (QREFELT $ 33)))))
                              (#6#
                               (SEQ
                                (SEQ (LETT |i| (+ (QREFELT $ 27) 1))
@@ -121,7 +121,7 @@
                                                                 (QREFELT $ 29))
                                                                (QREFELT $ 15))
                                                               (QREFELT $
-                                                                       37)))))
+                                                                       34)))))
                                           (LETT |j| (|inc_SI| |j|)) (GO G190)
                                           G191 (EXIT NIL))
                                      (EXIT (SETELT $ 27 |i|)))
@@ -146,9 +146,9 @@
                        (SPADCALL (QREFELT $ 26)
                                  (SPADCALL 1
                                            (SPADCALL (QREFELT $ 26)
-                                                     (QREFELT $ 38))
-                                           (QREFELT $ 40))
-                                 (QREFELT $ 41)))
+                                                     (QREFELT $ 35))
+                                           (QREFELT $ 37))
+                                 (QREFELT $ 38)))
                (EXIT (SETELT $ 27 3))))
              ('T
               (SEQ (LETT |d| (DIVIDE2 (- |n| 3) 2)) (LETT |dq| (QCAR |d|))
@@ -156,9 +156,9 @@
                            (SPADCALL (QREFELT $ 26)
                                      (SPADCALL
                                       (+ (* (+ |dq| 1) (+ |dq| (QCDR |d|))) 1)
-                                      (SPADCALL (QREFELT $ 26) (QREFELT $ 38))
-                                      (QREFELT $ 40))
-                                     (QREFELT $ 41)))
+                                      (SPADCALL (QREFELT $ 26) (QREFELT $ 35))
+                                      (QREFELT $ 37))
+                                     (QREFELT $ 38)))
                    (EXIT (SETELT $ 27 |n|)))))))
           (PROGN
            (LETT |#G17| |n|)
@@ -171,7 +171,7 @@
         (QREFELT $ 28)) 
 
 (SDEFUN |GALUTIL;sizePascalTriangle;Nni;8| (($ |NonNegativeInteger|))
-        (SPADCALL (QREFELT $ 26) (QREFELT $ 38))) 
+        (SPADCALL (QREFELT $ 26) (QREFELT $ 35))) 
 
 (SDEFUN |GALUTIL;fillPascalTriangle;V;9| (($ |Void|))
         (SPADCALL (QREFELT $ 28) 2 (QREFELT $ 29))) 
@@ -201,7 +201,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|GaloisGroupUtilities| DV$1))
-          (LETT $ (GETREFV 47))
+          (LETT $ (GETREFV 44))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -243,17 +243,16 @@
               (49 . |safeCeiling|) (|NonNegativeInteger|) (54 . |safetyMargin|)
               (59 . |safetyMargin|) (|FlexibleArray| 6) (63 . |empty|)
               '|pascaltriangle| '|ncomputed| '|rangepascaltriangle|
-              |GALUTIL;pascalTriangle;NniIR;5| (67 . |coerce|) (|Boolean|)
-              (72 . >) (|IntegerCombinatoricFunctions| 8) (78 . |binomial|)
-              (84 . <=) (90 . |elt|) (96 . |concat!|) (102 . |#|)
-              (|UniversalSegment| 8) (107 . SEGMENT) (113 . |delete!|)
-              |GALUTIL;rangePascalTriangle;2Nni;6|
+              |GALUTIL;pascalTriangle;NniIR;5| (67 . |coerce|)
+              (|IntegerCombinatoricFunctions| 8) (72 . |binomial|) (78 . |elt|)
+              (84 . |concat!|) (90 . |#|) (|UniversalSegment| 8) (95 . SEGMENT)
+              (101 . |delete!|) |GALUTIL;rangePascalTriangle;2Nni;6|
               |GALUTIL;rangePascalTriangle;Nni;7|
               |GALUTIL;sizePascalTriangle;Nni;8| (|Void|)
               |GALUTIL;fillPascalTriangle;V;9|)
-           '#(|sizePascalTriangle| 119 |safetyMargin| 123 |safeFloor| 132
-              |safeCeiling| 137 |rangePascalTriangle| 142 |pascalTriangle| 151
-              |fillPascalTriangle| 157)
+           '#(|sizePascalTriangle| 107 |safetyMargin| 111 |safeFloor| 120
+              |safeCeiling| 125 |rangePascalTriangle| 130 |pascalTriangle| 139
+              |fillPascalTriangle| 145)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -285,17 +284,16 @@
                               '((|safetyMargin| ((|NonNegativeInteger|)))
                                 (|has| 6 (|FloatingPointSystem|))))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 46
+                        (|makeByteWordVec2| 43
                                             '(1 6 8 0 9 0 6 10 11 0 6 0 12 0 6
                                               0 13 2 6 0 8 8 14 2 6 0 0 0 15 1
                                               6 0 0 16 1 6 8 0 17 1 0 8 6 18 1
                                               6 0 0 19 1 0 8 6 20 1 0 21 21 22
                                               0 0 21 23 0 24 0 25 1 6 0 8 30 2
-                                              21 31 0 0 32 2 33 8 8 8 34 2 21
-                                              31 0 0 35 2 24 6 0 8 36 2 24 0 0
-                                              6 37 1 24 21 0 38 2 39 0 8 8 40 2
-                                              24 0 0 39 41 0 0 21 44 0 1 21 23
-                                              1 1 21 21 22 1 1 8 6 18 1 1 8 6
-                                              20 1 0 21 21 42 0 0 21 43 2 0 6
-                                              21 8 29 0 0 45 46)))))
+                                              31 8 8 8 32 2 24 6 0 8 33 2 24 0
+                                              0 6 34 1 24 21 0 35 2 36 0 8 8 37
+                                              2 24 0 0 36 38 0 0 21 41 0 1 21
+                                              23 1 1 21 21 22 1 1 8 6 18 1 1 8
+                                              6 20 1 0 21 21 39 0 0 21 40 2 0 6
+                                              21 8 29 0 0 42 43)))))
            '|lookupComplete|)) 

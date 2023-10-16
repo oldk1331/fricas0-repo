@@ -30,31 +30,31 @@
          ($ |Void|))
         (SEQ
          (COND
-          ((OR (SPADCALL |which| 9 (QREFELT $ 25)) (< |which| 1))
+          ((OR (> |which| 9) (< |which| 1))
            (|error|
             "Trying to put a graph with a negative index or too big an index")))
          (EXIT
           (SPADCALL (QVELT |viewport| 1) |which| (CONS 0 |aGraph|)
-                    (QREFELT $ 29))))) 
+                    (QREFELT $ 27))))) 
 
 (SDEFUN |VIEW2D;getGraph;$PiGi;6|
         ((|viewport| $) (|which| |PositiveInteger|) ($ |GraphImage|))
         (SPROG ((#1=#:G168 NIL))
                (SEQ
                 (COND
-                 ((OR (SPADCALL |which| 9 (QREFELT $ 25)) (< |which| 1))
+                 ((OR (> |which| 9) (< |which| 1))
                   (|error|
                    "Trying to get a graph with a negative index or too big an index")))
                 (EXIT
                  (COND
                   ((QEQCAR
-                    (SPADCALL (QVELT |viewport| 1) |which| (QREFELT $ 33)) 1)
+                    (SPADCALL (QVELT |viewport| 1) |which| (QREFELT $ 31)) 1)
                    (|error| "Graph is undefined!"))
                   ('T
                    (PROG2
                        (LETT #1#
                              (SPADCALL (QVELT |viewport| 1) |which|
-                                       (QREFELT $ 33)))
+                                       (QREFELT $ 31)))
                        (QCDR #1#)
                      (|check_union2| (QEQCAR #1# 0) (|GraphImage|)
                                      (|Union| (|GraphImage|) "undefined")
@@ -104,8 +104,8 @@
                  (SEQ (QSETVELT |viewport| 4 (CONS |xLoc| |yLoc|))
                       (EXIT
                        (COND
-                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                                   (QREFELT $ 42))
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                                   (QREFELT $ 41))
                          (PROGN
                           (LETT #1#
                                 (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -129,7 +129,7 @@
          ($ |Void|))
         (SEQ
          (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
+          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0 (QREFELT $ 41))
            (SEQ (|sockSendInt| |$ViewportServer| 3)
                 (|sockSendInt| |$ViewportServer| 106)
                 (EXIT
@@ -137,10 +137,10 @@
                   ((|VIEW2D;checkViewport| |viewport| $)
                    (SEQ
                     (|sockSendInt| |$ViewportServer|
-                                   (SPADCALL |graph| (QREFELT $ 44)))
+                                   (SPADCALL |graph| (QREFELT $ 43)))
                     (|sockSendInt| |$ViewportServer| |slot|)
                     (EXIT (|sockGetInt| |$ViewportServer|))))))))
-          ('T (SPADCALL (QREFELT $ 45)))))) 
+          ('T (SPADCALL (QREFELT $ 44)))))) 
 
 (SDEFUN |VIEW2D;resize;$2PiV;13|
         ((|viewport| $) (|xSize| |PositiveInteger|) (|ySize| |PositiveInteger|)
@@ -151,8 +151,8 @@
                  (SEQ (QSETVELT |viewport| 5 (CONS |xSize| |ySize|))
                       (EXIT
                        (COND
-                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                                   (QREFELT $ 42))
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                                   (QREFELT $ 41))
                          (PROGN
                           (LETT #1#
                                 (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -181,18 +181,18 @@
            (SEQ (LETT |xTranslate| (SPADCALL |xTranslateF| (QREFELT $ 12)))
                 (LETT |yTranslate| (SPADCALL |yTranslateF| (QREFELT $ 12)))
                 (COND
-                 ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                 ((> |graphIndex| 9)
                   (|error| "Referring to a graph with too big an index")))
                 (QSETVELT
-                 (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 2
+                 (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 47)) 2
                  |xTranslate|)
                 (QSETVELT
-                 (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 3
+                 (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 47)) 3
                  |yTranslate|)
                 (EXIT
                  (COND
-                  ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                             (QREFELT $ 42))
+                  ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                             (QREFELT $ 41))
                    (PROGN
                     (LETT #1#
                           (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -221,21 +221,21 @@
                  (SEQ (LETT |xScale| (SPADCALL |xScaleF| (QREFELT $ 12)))
                       (LETT |yScale| (SPADCALL |yScaleF| (QREFELT $ 12)))
                       (COND
-                       ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                       ((> |graphIndex| 9)
                         (|error|
                          "Referring to a graph with too big an index")))
                       (QSETVELT
                        (SPADCALL (QVELT |viewport| 2) |graphIndex|
-                                 (QREFELT $ 48))
+                                 (QREFELT $ 47))
                        0 |xScale|)
                       (QSETVELT
                        (SPADCALL (QVELT |viewport| 2) |graphIndex|
-                                 (QREFELT $ 48))
+                                 (QREFELT $ 47))
                        1 |yScale|)
                       (EXIT
                        (COND
-                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                                   (QREFELT $ 42))
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                                   (QREFELT $ 41))
                          (PROGN
                           (LETT #1#
                                 (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -259,18 +259,18 @@
 (SDEFUN |VIEW2D;viewport2D;$;16| (($ $))
         (VECTOR 0 (MAKEARR1 9 (CONS 1 "undefined"))
                 (MAKEARR1 9 (MOVEVEC (MAKE_VEC 12) (QREFELT $ 17))) "FriCAS2D"
-                (CONS (SPADCALL (SPADCALL (QREFELT $ 53)) 1 (QREFELT $ 54))
-                      (SPADCALL (SPADCALL (QREFELT $ 53)) 2 (QREFELT $ 54)))
-                (CONS (SPADCALL (SPADCALL (QREFELT $ 56)) 1 (QREFELT $ 57))
-                      (SPADCALL (SPADCALL (QREFELT $ 56)) 2 (QREFELT $ 57)))
+                (CONS (SPADCALL (SPADCALL (QREFELT $ 52)) 1 (QREFELT $ 53))
+                      (SPADCALL (SPADCALL (QREFELT $ 52)) 2 (QREFELT $ 53)))
+                (CONS (SPADCALL (SPADCALL (QREFELT $ 55)) 1 (QREFELT $ 56))
+                      (SPADCALL (SPADCALL (QREFELT $ 55)) 2 (QREFELT $ 56)))
                 (LIST 0) NIL)) 
 
 (SDEFUN |VIEW2D;makeViewport2D;GiL$;17|
         ((|g| |GraphImage|) (|opts| |List| (|DrawOption|)) ($ $))
         (SPROG ((|viewport| ($)))
-               (SEQ (LETT |viewport| (SPADCALL (QREFELT $ 58)))
+               (SEQ (LETT |viewport| (SPADCALL (QREFELT $ 57)))
                     (SPADCALL (QVELT |viewport| 1) 1 (CONS 0 |g|)
-                              (QREFELT $ 29))
+                              (QREFELT $ 27))
                     (QSETVELT |viewport| 7 |opts|)
                     (EXIT (|VIEW2D;makeViewport2D0| |viewport| $))))) 
 
@@ -284,15 +284,15 @@
           (#2=#:G243 NIL) (|i| NIL))
          (SEQ (LETT |i| 1) (LETT #2# (QVSIZE |vg|)) G190
               (COND ((|greater_SI| |i| #2#) (GO G191)))
-              (SEQ (LETT |gu| (SPADCALL |vg| |i| (QREFELT $ 33)))
+              (SEQ (LETT |gu| (SPADCALL |vg| |i| (QREFELT $ 31)))
                    (EXIT
                     (COND ((QEQCAR |gu| 1) "iterate")
                           ('T
                            (SEQ (LETT |g| (QCDR |gu|))
                                 (EXIT
                                  (COND
-                                  ((EQL (SPADCALL |g| (QREFELT $ 44)) 0)
-                                   (SPADCALL |g| (QREFELT $ 61))))))))))
+                                  ((EQL (SPADCALL |g| (QREFELT $ 43)) 0)
+                                   (SPADCALL |g| (QREFELT $ 60))))))))))
               (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |VIEW2D;makeViewport2D0| ((|viewportDollar| $) ($ $))
@@ -314,7 +314,7 @@
               (|VIEW2D;doOptions| |viewport| $)
               (SPADCALL
                "   FriCAS2D data being transmitted to the viewport manager..."
-               (QREFELT $ 63))
+               (QREFELT $ 62))
               (|sockSendInt| |$ViewportServer| 3)
               (|sockSendInt| |$ViewportServer| -1)
               (|sockSendString| |$ViewportServer| (QVELT |viewport| 3))
@@ -326,19 +326,19 @@
               (SEQ (LETT |i| 1) G190 (COND ((|greater_SI| |i| 9) (GO G191)))
                    (SEQ
                     (LETT |g|
-                          (SPADCALL (SPADCALL |viewport| (QREFELT $ 38)) |i|
-                                    (QREFELT $ 33)))
+                          (SPADCALL (SPADCALL |viewport| (QREFELT $ 36)) |i|
+                                    (QREFELT $ 31)))
                     (EXIT
                      (COND ((QEQCAR |g| 1) (|sockSendInt| |$ViewportServer| 0))
                            ('T
                             (SEQ
                              (|sockSendInt| |$ViewportServer|
                                             (SPADCALL (QCDR |g|)
-                                                      (QREFELT $ 44)))
+                                                      (QREFELT $ 43)))
                              (LETT |gs|
                                    (SPADCALL
-                                    (SPADCALL |viewport| (QREFELT $ 37)) |i|
-                                    (QREFELT $ 48)))
+                                    (SPADCALL |viewport| (QREFELT $ 35)) |i|
+                                    (QREFELT $ 47)))
                              (|sockSendFloat| |$ViewportServer| (QVELT |gs| 0))
                              (|sockSendFloat| |$ViewportServer| (QVELT |gs| 1))
                              (|sockSendFloat| |$ViewportServer| (QVELT |gs| 2))
@@ -350,20 +350,20 @@
                              (LETT |hueShade|
                                    (+
                                     (SPADCALL
-                                     (SPADCALL (QVELT |gs| 8) (QREFELT $ 65))
-                                     (QREFELT $ 66))
-                                    (* (SPADCALL (QVELT |gs| 8) (QREFELT $ 67))
-                                       (SPADCALL (QREFELT $ 68)))))
+                                     (SPADCALL (QVELT |gs| 8) (QREFELT $ 64))
+                                     (QREFELT $ 65))
+                                    (* (SPADCALL (QVELT |gs| 8) (QREFELT $ 66))
+                                       (SPADCALL (QREFELT $ 67)))))
                              (|sockSendInt| |$ViewportServer| |hueShade|)
                              (|sockSendInt| |$ViewportServer| (QVELT |gs| 9))
                              (LETT |hueShade|
                                    (+
                                     (SPADCALL
-                                     (SPADCALL (QVELT |gs| 10) (QREFELT $ 65))
-                                     (QREFELT $ 66))
+                                     (SPADCALL (QVELT |gs| 10) (QREFELT $ 64))
+                                     (QREFELT $ 65))
                                     (*
-                                     (SPADCALL (QVELT |gs| 10) (QREFELT $ 67))
-                                     (SPADCALL (QREFELT $ 68)))))
+                                     (SPADCALL (QVELT |gs| 10) (QREFELT $ 66))
+                                     (SPADCALL (QREFELT $ 67)))))
                              (|sockSendInt| |$ViewportServer| |hueShade|)
                              (EXIT
                               (|sockSendInt| |$ViewportServer|
@@ -381,7 +381,7 @@
         (SPADCALL (QVELT |viewport| 2) |num|
                   (VECTOR |sX| |sY| |dX| |dY| |Points| |Lines| |Spline| |Axes|
                           |AxesColor| |Units| |UnitsColor| |Showing|)
-                  (QREFELT $ 69))) 
+                  (QREFELT $ 68))) 
 
 (SDEFUN |VIEW2D;title;$SV;22| ((|viewport| $) (|Title| |String|) ($ |Void|))
         (SPROG ((#1=#:G263 NIL))
@@ -390,8 +390,8 @@
                  (SEQ (QSETVELT |viewport| 3 |Title|)
                       (EXIT
                        (COND
-                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                                   (QREFELT $ 42))
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                                   (QREFELT $ 41))
                          (PROGN
                           (LETT #1#
                                 (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -411,7 +411,7 @@
 (SDEFUN |VIEW2D;reset;$V;23| ((|viewport| $) ($ |Void|))
         (SEQ
          (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
+          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0 (QREFELT $ 41))
            (SEQ (|sockSendInt| |$ViewportServer| 3)
                 (|sockSendInt| |$ViewportServer| 100)
                 (EXIT
@@ -419,7 +419,7 @@
                   ((|VIEW2D;checkViewport| |viewport| $)
                    (SEQ (|sockSendInt| |$ViewportServer| 5)
                         (EXIT (|sockGetInt| |$ViewportServer|))))))))
-          ('T (SPADCALL (QREFELT $ 45)))))) 
+          ('T (SPADCALL (QREFELT $ 44)))))) 
 
 (SDEFUN |VIEW2D;axes;$PiSV;24|
         ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
@@ -429,17 +429,17 @@
                 (EXIT
                  (SEQ
                   (COND
-                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                   ((> |graphIndex| 9)
                     (|error| "Referring to a graph with too big an index")))
                   (COND ((EQUAL |onOff| "on") (LETT |status| 1))
                         ('T (LETT |status| 0)))
                   (QSETVELT
-                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 47))
                    7 |status|)
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                               (QREFELT $ 42))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                               (QREFELT $ 41))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -464,15 +464,15 @@
                 (EXIT
                  (SEQ
                   (COND
-                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                   ((> |graphIndex| 9)
                     (|error| "Referring to a graph with too big an index")))
                   (QSETVELT
-                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 47))
                    8 |color|)
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                               (QREFELT $ 42))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                               (QREFELT $ 41))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -486,11 +486,11 @@
                                      (LETT |hueShade|
                                            (+
                                             (SPADCALL
-                                             (SPADCALL |color| (QREFELT $ 65))
-                                             (QREFELT $ 66))
+                                             (SPADCALL |color| (QREFELT $ 64))
+                                             (QREFELT $ 65))
                                             (*
-                                             (SPADCALL |color| (QREFELT $ 67))
-                                             (SPADCALL (QREFELT $ 68)))))
+                                             (SPADCALL |color| (QREFELT $ 66))
+                                             (SPADCALL (QREFELT $ 67)))))
                                      (|sockSendInt| |$ViewportServer|
                                                     |hueShade|)
                                      (EXIT
@@ -506,17 +506,17 @@
                 (EXIT
                  (SEQ
                   (COND
-                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                   ((> |graphIndex| 9)
                     (|error| "Referring to a graph with too big an index")))
                   (COND ((EQUAL |onOff| "on") (LETT |status| 1))
                         ('T (LETT |status| 0)))
                   (QSETVELT
-                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 47))
                    9 |status|)
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                               (QREFELT $ 42))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                               (QREFELT $ 41))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -541,15 +541,15 @@
                 (EXIT
                  (SEQ
                   (COND
-                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                   ((> |graphIndex| 9)
                     (|error| "Referring to a graph with too big an index")))
                   (QSETVELT
-                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 47))
                    10 |color|)
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                               (QREFELT $ 42))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                               (QREFELT $ 41))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -563,11 +563,11 @@
                                      (LETT |hueShade|
                                            (+
                                             (SPADCALL
-                                             (SPADCALL |color| (QREFELT $ 65))
-                                             (QREFELT $ 66))
+                                             (SPADCALL |color| (QREFELT $ 64))
+                                             (QREFELT $ 65))
                                             (*
-                                             (SPADCALL |color| (QREFELT $ 67))
-                                             (SPADCALL (QREFELT $ 68)))))
+                                             (SPADCALL |color| (QREFELT $ 66))
+                                             (SPADCALL (QREFELT $ 67)))))
                                      (|sockSendInt| |$ViewportServer|
                                                     |hueShade|)
                                      (EXIT
@@ -583,17 +583,17 @@
                 (EXIT
                  (SEQ
                   (COND
-                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                   ((> |graphIndex| 9)
                     (|error| "Referring to a graph with too big an index")))
                   (COND ((EQUAL |onOff| "on") (LETT |status| 1))
                         ('T (LETT |status| 0)))
                   (QSETVELT
-                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 47))
                    5 |status|)
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                               (QREFELT $ 42))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                               (QREFELT $ 41))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -618,17 +618,17 @@
                 (EXIT
                  (SEQ
                   (COND
-                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                   ((> |graphIndex| 9)
                     (|error| "Referring to a graph with too big an index")))
                   (COND ((EQUAL |onOff| "on") (LETT |status| 1))
                         ('T (LETT |status| 0)))
                   (QSETVELT
-                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 47))
                    4 |status|)
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                               (QREFELT $ 42))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                               (QREFELT $ 41))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -653,17 +653,17 @@
                 (EXIT
                  (SEQ
                   (COND
-                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                   ((> |graphIndex| 9)
                     (|error| "Referring to a graph with too big an index")))
                   (COND ((EQUAL |onOff| "on") (LETT |status| 1))
                         ('T (LETT |status| 0)))
                   (QSETVELT
-                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 47))
                    6 |status|)
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                               (QREFELT $ 42))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                               (QREFELT $ 41))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -688,17 +688,17 @@
                 (EXIT
                  (SEQ
                   (COND
-                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                   ((> |graphIndex| 9)
                     (|error| "Referring to a graph with too big an index")))
                   (COND ((EQUAL |onOff| "on") (LETT |status| 1))
                         ('T (LETT |status| 0)))
                   (QSETVELT
-                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 47))
                    11 |status|)
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                               (QREFELT $ 42))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                               (QREFELT $ 41))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -727,8 +727,8 @@
                    ('T (PROGN (RPLACA #3=(QVELT |viewport| 6) 0) (QCAR #3#))))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                               (QREFELT $ 42))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                               (QREFELT $ 41))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -748,7 +748,7 @@
 (SDEFUN |VIEW2D;close;$V;33| ((|viewport| $) ($ |Void|))
         (SEQ
          (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
+          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0 (QREFELT $ 41))
            (SEQ (|sockSendInt| |$ViewportServer| 3)
                 (|sockSendInt| |$ViewportServer| 7)
                 (EXIT
@@ -756,32 +756,32 @@
                   ((|VIEW2D;checkViewport| |viewport| $)
                    (SEQ (|sockGetInt| |$ViewportServer|)
                         (EXIT (QSETVELT |viewport| 0 0))))))))
-          ('T (SPADCALL (QREFELT $ 45)))))) 
+          ('T (SPADCALL (QREFELT $ 44)))))) 
 
 (SDEFUN |VIEW2D;coerce;$Of;34| ((|viewport| $) ($ |OutputForm|))
         (COND
-         ((EQL (SPADCALL |viewport| (QREFELT $ 39)) 0)
+         ((EQL (SPADCALL |viewport| (QREFELT $ 37)) 0)
           (SPADCALL
            (LIST
             (SPADCALL "Closed or Undefined TwoDimensionalViewport: "
-                      (QREFELT $ 84))
-            (SPADCALL (QVELT |viewport| 3) (QREFELT $ 85)))
-           (QREFELT $ 87)))
+                      (QREFELT $ 83))
+            (SPADCALL (QVELT |viewport| 3) (QREFELT $ 84)))
+           (QREFELT $ 86)))
          ('T
           (SPADCALL
-           (LIST (SPADCALL "TwoDimensionalViewport: " (QREFELT $ 84))
-                 (SPADCALL (QVELT |viewport| 3) (QREFELT $ 85)))
-           (QREFELT $ 87))))) 
+           (LIST (SPADCALL "TwoDimensionalViewport: " (QREFELT $ 83))
+                 (SPADCALL (QVELT |viewport| 3) (QREFELT $ 84)))
+           (QREFELT $ 86))))) 
 
 (SDEFUN |VIEW2D;write;$3S;35|
         ((|viewport| $) (|Filename| |String|) (|aThingToWrite| |String|)
          ($ |String|))
-        (SPADCALL |viewport| |Filename| (LIST |aThingToWrite|) (QREFELT $ 90))) 
+        (SPADCALL |viewport| |Filename| (LIST |aThingToWrite|) (QREFELT $ 89))) 
 
 (SDEFUN |VIEW2D;write;$2S;36|
         ((|viewport| $) (|Filename| |String|) ($ |String|))
-        (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 92))
-                  (QREFELT $ 90))) 
+        (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 91))
+                  (QREFELT $ 89))) 
 
 (SDEFUN |VIEW2D;write;$SLS;37|
         ((|viewport| $) (|Filename| |String|)
@@ -795,8 +795,8 @@
            (SEQ (LETT |stringToSend| "")
                 (EXIT
                  (COND
-                  ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
-                             (QREFELT $ 42))
+                  ((SPADCALL (SPADCALL |viewport| (QREFELT $ 37)) 0
+                             (QREFELT $ 41))
                    (PROGN
                     (LETT #1#
                           (SEQ (|sockSendInt| |$ViewportServer| 3)
@@ -810,8 +810,8 @@
                                    (LETT |m|
                                          (SPADCALL
                                           (LETT |avail|
-                                                (SPADCALL (QREFELT $ 94)))
-                                          (QREFELT $ 95)))
+                                                (SPADCALL (QREFELT $ 93)))
+                                          (QREFELT $ 94)))
                                    (SEQ (LETT |aTypeOfFile| NIL)
                                         (LETT #2# |thingsToWrite|) G190
                                         (COND
@@ -825,8 +825,8 @@
                                                (-
                                                 (SPADCALL
                                                  (SPADCALL |aTypeOfFile|
-                                                           (QREFELT $ 96))
-                                                 |avail| (QREFELT $ 97))
+                                                           (QREFELT $ 95))
+                                                 |avail| (QREFELT $ 96))
                                                 |m|))
                                          (EXIT
                                           (COND
@@ -834,7 +834,7 @@
                                             (SPADCALL
                                              (LIST "  > " |aTypeOfFile|
                                                    " is not a valid file type for writing a 2D viewport")
-                                             (QREFELT $ 98)))
+                                             (QREFELT $ 97)))
                                            ('T
                                             (|sockSendInt| |$ViewportServer|
                                                            (+ |writeTypeInt|
@@ -873,7 +873,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|TwoDimensionalViewport|))
-          (LETT $ (GETREFV 102))
+          (LETT $ (GETREFV 101))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TwoDimensionalViewport| NIL
@@ -926,87 +926,87 @@
               (|Palette|) (|ViewDefaultsPackage|) (12 . |axesColorDefault|)
               (16 . |unitsColorDefault|) '|defaultGS| (|String|)
               (|List| (|DrawOption|)) (|DrawOptionFunctions0|) (20 . |title|)
-              |VIEW2D;options;$L;3| |VIEW2D;options;$L$;4| (|Boolean|) (26 . >)
-              (32 . |One|) (|Union| 31 '"undefined") (|Vector| 27)
-              (36 . |setelt!|) (|Void|) (|GraphImage|)
-              |VIEW2D;putGraph;$GiPiV;5| (43 . |elt|) |VIEW2D;getGraph;$PiGi;6|
+              |VIEW2D;options;$L;3| |VIEW2D;options;$L$;4| (26 . |One|)
+              (|Union| 29 '"undefined") (|Vector| 25) (30 . |setelt!|) (|Void|)
+              (|GraphImage|) |VIEW2D;putGraph;$GiPiV;5| (37 . |elt|)
+              |VIEW2D;getGraph;$PiGi;6|
               (|Record| (|:| |scaleX| 11) (|:| |scaleY| 11) (|:| |deltaX| 11)
                         (|:| |deltaY| 11) (|:| |points| 7) (|:| |connect| 7)
                         (|:| |spline| 7) (|:| |axes| 7) (|:| |axesColor| 13)
                         (|:| |units| 7) (|:| |unitsColor| 13)
                         (|:| |showing| 7))
-              (|Vector| 35) |VIEW2D;graphStates;$V;7| |VIEW2D;graphs;$V;8|
+              (|Vector| 33) |VIEW2D;graphStates;$V;7| |VIEW2D;graphs;$V;8|
               |VIEW2D;key;$I;9| (|NonNegativeInteger|)
-              |VIEW2D;dimensions;$2Nni2PiV;10| (49 . ~=)
-              |VIEW2D;move;$2NniV;11| (55 . |key|) (60 . |void|)
-              |VIEW2D;update;$GiPiV;12| |VIEW2D;resize;$2PiV;13| (64 . |elt|)
+              |VIEW2D;dimensions;$2Nni2PiV;10| (|Boolean|) (43 . ~=)
+              |VIEW2D;move;$2NniV;11| (49 . |key|) (54 . |void|)
+              |VIEW2D;update;$GiPiV;12| |VIEW2D;resize;$2PiV;13| (58 . |elt|)
               |VIEW2D;translate;$Pi2FV;14| |VIEW2D;scale;$Pi2FV;15|
-              (70 . |Zero|) (|List| 40) (74 . |viewPosDefault|) (78 . |elt|)
-              (|List| 8) (84 . |viewSizeDefault|) (88 . |elt|)
+              (64 . |Zero|) (|List| 38) (68 . |viewPosDefault|) (72 . |elt|)
+              (|List| 8) (78 . |viewSizeDefault|) (82 . |elt|)
               |VIEW2D;viewport2D;$;16| |VIEW2D;makeViewport2D;GiL$;17|
-              |VIEW2D;makeViewport2D;2$;18| (94 . |sendGraphImage|)
-              (|DisplayPackage|) (99 . |say|) (|Color|) (104 . |hue|)
-              (109 . |hue|) (114 . |shade|) (119 . |numberOfHues|)
-              (123 . |setelt!|) |VIEW2D;graphState;$Pi4Df4IPIPIV;21|
+              |VIEW2D;makeViewport2D;2$;18| (88 . |sendGraphImage|)
+              (|DisplayPackage|) (93 . |say|) (|Color|) (98 . |hue|)
+              (103 . |hue|) (108 . |shade|) (113 . |numberOfHues|)
+              (117 . |setelt!|) |VIEW2D;graphState;$Pi4Df4IPIPIV;21|
               |VIEW2D;title;$SV;22| |VIEW2D;reset;$V;23| |VIEW2D;axes;$PiSV;24|
               |VIEW2D;axes;$PiPV;25| |VIEW2D;units;$PiSV;26|
               |VIEW2D;units;$PiPV;27| |VIEW2D;connect;$PiSV;28|
               |VIEW2D;points;$PiSV;29| |VIEW2D;region;$PiSV;30|
               |VIEW2D;show;$PiSV;31| |VIEW2D;controlPanel;$SV;32|
-              |VIEW2D;close;$V;33| (|OutputForm|) (130 . |message|)
-              (135 . |coerce|) (|List| $) (140 . |hconcat|)
+              |VIEW2D;close;$V;33| (|OutputForm|) (124 . |message|)
+              (129 . |coerce|) (|List| $) (134 . |hconcat|)
               |VIEW2D;coerce;$Of;34| (|List| 18) |VIEW2D;write;$SLS;37|
-              |VIEW2D;write;$3S;35| (145 . |viewWriteDefault|)
-              |VIEW2D;write;$2S;36| (149 . |viewWriteAvailable|)
-              (153 . |minIndex|) (158 . |upperCase|) (163 . |position|)
-              (169 . |say|) (|List| (|Point| 11)) (|SingleInteger|)
+              |VIEW2D;write;$3S;35| (139 . |viewWriteDefault|)
+              |VIEW2D;write;$2S;36| (143 . |viewWriteAvailable|)
+              (147 . |minIndex|) (152 . |upperCase|) (157 . |position|)
+              (163 . |say|) (|List| (|Point| 11)) (|SingleInteger|)
               (|HashState|))
-           '#(~= 174 |write| 180 |viewport2D| 200 |update| 204 |units| 211
-              |translate| 225 |title| 233 |show| 239 |scale| 246 |resize| 254
-              |reset| 261 |region| 266 |putGraph| 273 |points| 280 |options|
-              287 |move| 298 |makeViewport2D| 305 |latex| 316 |key| 321
-              |hashUpdate!| 326 |hash| 332 |graphs| 337 |graphStates| 342
-              |graphState| 347 |getPickedPoints| 365 |getGraph| 370
-              |dimensions| 376 |controlPanel| 385 |connect| 391 |coerce| 398
-              |close| 403 |axes| 408 = 422)
+           '#(~= 168 |write| 174 |viewport2D| 194 |update| 198 |units| 205
+              |translate| 219 |title| 227 |show| 233 |scale| 240 |resize| 248
+              |reset| 255 |region| 260 |putGraph| 267 |points| 274 |options|
+              281 |move| 292 |makeViewport2D| 299 |latex| 310 |key| 315
+              |hashUpdate!| 320 |hash| 326 |graphs| 331 |graphStates| 336
+              |graphState| 341 |getPickedPoints| 359 |getGraph| 364
+              |dimensions| 370 |controlPanel| 379 |connect| 385 |coerce| 392
+              |close| 397 |axes| 402 = 416)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 83))
-                        (|makeByteWordVec2| 101
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 82))
+                        (|makeByteWordVec2| 100
                                             '(3 9 0 7 7 8 10 1 9 11 0 12 0 14
                                               13 15 0 14 13 16 2 20 18 19 18 21
-                                              2 8 24 0 0 25 0 9 0 26 3 28 27 0
-                                              7 27 29 2 28 27 0 7 33 2 7 24 0 0
-                                              42 1 31 7 0 44 0 30 0 45 2 36 35
-                                              0 7 48 0 9 0 51 0 14 52 53 2 52
-                                              40 0 7 54 0 14 55 56 2 55 8 0 7
-                                              57 1 31 30 0 61 1 62 30 18 63 1
-                                              13 64 0 65 1 64 7 0 66 1 13 7 0
-                                              67 0 64 8 68 3 36 35 0 7 35 69 1
-                                              83 0 18 84 1 18 83 0 85 1 83 0 86
-                                              87 0 14 89 92 0 14 89 94 1 89 7 0
-                                              95 1 18 0 0 96 2 89 7 18 0 97 1
-                                              62 30 89 98 2 0 24 0 0 1 3 0 18 0
-                                              18 18 91 3 0 18 0 18 89 90 2 0 18
-                                              0 18 93 0 0 0 58 3 0 30 0 31 8 46
-                                              3 0 30 0 8 18 75 3 0 30 0 8 13 76
-                                              4 0 30 0 8 9 9 49 2 0 30 0 18 71
-                                              3 0 30 0 8 18 80 4 0 30 0 8 9 9
-                                              50 3 0 30 0 8 8 47 1 0 30 0 72 3
-                                              0 30 0 8 18 79 3 0 30 0 31 8 32 3
-                                              0 30 0 8 18 78 2 0 0 0 19 23 1 0
-                                              19 0 22 3 0 30 0 40 40 43 2 0 0
-                                              31 19 59 1 0 0 0 60 1 0 18 0 1 1
-                                              0 7 0 39 2 0 101 101 0 1 1 0 100
-                                              0 1 1 0 28 0 38 1 0 36 0 37 14 0
-                                              30 0 8 11 11 11 11 7 7 7 7 13 7
-                                              13 7 70 1 0 99 0 1 2 0 31 0 8 34
-                                              5 0 30 0 40 40 8 8 41 2 0 30 0 18
-                                              81 3 0 30 0 8 18 77 1 0 83 0 88 1
-                                              0 30 0 82 3 0 30 0 8 18 73 3 0 30
-                                              0 8 13 74 2 0 24 0 0 1)))))
+                                              0 9 0 24 3 26 25 0 7 25 27 2 26
+                                              25 0 7 31 2 7 40 0 0 41 1 29 7 0
+                                              43 0 28 0 44 2 34 33 0 7 47 0 9 0
+                                              50 0 14 51 52 2 51 38 0 7 53 0 14
+                                              54 55 2 54 8 0 7 56 1 29 28 0 60
+                                              1 61 28 18 62 1 13 63 0 64 1 63 7
+                                              0 65 1 13 7 0 66 0 63 8 67 3 34
+                                              33 0 7 33 68 1 82 0 18 83 1 18 82
+                                              0 84 1 82 0 85 86 0 14 88 91 0 14
+                                              88 93 1 88 7 0 94 1 18 0 0 95 2
+                                              88 7 18 0 96 1 61 28 88 97 2 0 40
+                                              0 0 1 3 0 18 0 18 18 90 3 0 18 0
+                                              18 88 89 2 0 18 0 18 92 0 0 0 57
+                                              3 0 28 0 29 8 45 3 0 28 0 8 18 74
+                                              3 0 28 0 8 13 75 4 0 28 0 8 9 9
+                                              48 2 0 28 0 18 70 3 0 28 0 8 18
+                                              79 4 0 28 0 8 9 9 49 3 0 28 0 8 8
+                                              46 1 0 28 0 71 3 0 28 0 8 18 78 3
+                                              0 28 0 29 8 30 3 0 28 0 8 18 77 2
+                                              0 0 0 19 23 1 0 19 0 22 3 0 28 0
+                                              38 38 42 2 0 0 29 19 58 1 0 0 0
+                                              59 1 0 18 0 1 1 0 7 0 37 2 0 100
+                                              100 0 1 1 0 99 0 1 1 0 26 0 36 1
+                                              0 34 0 35 14 0 28 0 8 11 11 11 11
+                                              7 7 7 7 13 7 13 7 69 1 0 98 0 1 2
+                                              0 29 0 8 32 5 0 28 0 38 38 8 8 39
+                                              2 0 28 0 18 80 3 0 28 0 8 18 76 1
+                                              0 82 0 87 1 0 28 0 81 3 0 28 0 8
+                                              18 72 3 0 28 0 8 13 73 2 0 40 0 0
+                                              1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TwoDimensionalViewport| 'NILADIC T) 

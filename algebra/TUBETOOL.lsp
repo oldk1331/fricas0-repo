@@ -7,18 +7,15 @@
 
 (SDEFUN |TUBETOOL;getColor| ((|pt| |Point| (|DoubleFloat|)) ($ |DoubleFloat|))
         (COND
-         ((SPADCALL (SPADCALL |pt| (QREFELT $ 12)) 3 (QREFELT $ 14))
-          (SPADCALL |pt| (QREFELT $ 16)))
+         ((> (SPADCALL |pt| (QREFELT $ 12)) 3) (SPADCALL |pt| (QREFELT $ 14)))
          ('T 0.0))) 
 
 (SDEFUN |TUBETOOL;getColor2|
         ((|p0| |Point| (|DoubleFloat|)) (|p1| |Point| (|DoubleFloat|))
          ($ |DoubleFloat|))
         (COND
-         ((SPADCALL (SPADCALL |p0| (QREFELT $ 12)) 3 (QREFELT $ 14))
-          (SPADCALL |p0| (QREFELT $ 16)))
-         ((SPADCALL (SPADCALL |p1| (QREFELT $ 12)) 3 (QREFELT $ 14))
-          (SPADCALL |p1| (QREFELT $ 16)))
+         ((> (SPADCALL |p0| (QREFELT $ 12)) 3) (SPADCALL |p0| (QREFELT $ 14)))
+         ((> (SPADCALL |p1| (QREFELT $ 12)) 3) (SPADCALL |p1| (QREFELT $ 14)))
          ('T 0.0))) 
 
 (SDEFUN |TUBETOOL;*;Df2P;4|
@@ -27,9 +24,9 @@
         (SPROG ((|l| (|List| (|DoubleFloat|))))
                (SEQ
                 (LETT |l|
-                      (LIST (|mul_DF| |a| (SPADCALL |p| (QREFELT $ 17)))
-                            (|mul_DF| |a| (SPADCALL |p| (QREFELT $ 18)))
-                            (|mul_DF| |a| (SPADCALL |p| (QREFELT $ 19)))
+                      (LIST (|mul_DF| |a| (SPADCALL |p| (QREFELT $ 15)))
+                            (|mul_DF| |a| (SPADCALL |p| (QREFELT $ 16)))
+                            (|mul_DF| |a| (SPADCALL |p| (QREFELT $ 17)))
                             (|TUBETOOL;getColor| |p| $)))
                 (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
 
@@ -40,12 +37,12 @@
                (SEQ
                 (LETT |l|
                       (LIST
+                       (|add_DF| (SPADCALL |p0| (QREFELT $ 15))
+                                 (SPADCALL |p1| (QREFELT $ 15)))
+                       (|add_DF| (SPADCALL |p0| (QREFELT $ 16))
+                                 (SPADCALL |p1| (QREFELT $ 16)))
                        (|add_DF| (SPADCALL |p0| (QREFELT $ 17))
                                  (SPADCALL |p1| (QREFELT $ 17)))
-                       (|add_DF| (SPADCALL |p0| (QREFELT $ 18))
-                                 (SPADCALL |p1| (QREFELT $ 18)))
-                       (|add_DF| (SPADCALL |p0| (QREFELT $ 19))
-                                 (SPADCALL |p1| (QREFELT $ 19)))
                        (|TUBETOOL;getColor2| |p0| |p1| $)))
                 (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
 
@@ -56,12 +53,12 @@
                (SEQ
                 (LETT |l|
                       (LIST
+                       (|sub_DF| (SPADCALL |p0| (QREFELT $ 15))
+                                 (SPADCALL |p1| (QREFELT $ 15)))
+                       (|sub_DF| (SPADCALL |p0| (QREFELT $ 16))
+                                 (SPADCALL |p1| (QREFELT $ 16)))
                        (|sub_DF| (SPADCALL |p0| (QREFELT $ 17))
                                  (SPADCALL |p1| (QREFELT $ 17)))
-                       (|sub_DF| (SPADCALL |p0| (QREFELT $ 18))
-                                 (SPADCALL |p1| (QREFELT $ 18)))
-                       (|sub_DF| (SPADCALL |p0| (QREFELT $ 19))
-                                 (SPADCALL |p1| (QREFELT $ 19)))
                        (|TUBETOOL;getColor2| |p0| |p1| $)))
                 (EXIT (SPADCALL |l| (QREFELT $ 8)))))) 
 
@@ -70,12 +67,12 @@
          ($ |DoubleFloat|))
         (|add_DF|
          (|add_DF|
-          (|mul_DF| (SPADCALL |p0| (QREFELT $ 17))
-                    (SPADCALL |p1| (QREFELT $ 17)))
-          (|mul_DF| (SPADCALL |p0| (QREFELT $ 18))
-                    (SPADCALL |p1| (QREFELT $ 18))))
-         (|mul_DF| (SPADCALL |p0| (QREFELT $ 19))
-                   (SPADCALL |p1| (QREFELT $ 19))))) 
+          (|mul_DF| (SPADCALL |p0| (QREFELT $ 15))
+                    (SPADCALL |p1| (QREFELT $ 15)))
+          (|mul_DF| (SPADCALL |p0| (QREFELT $ 16))
+                    (SPADCALL |p1| (QREFELT $ 16))))
+         (|mul_DF| (SPADCALL |p0| (QREFELT $ 17))
+                   (SPADCALL |p1| (QREFELT $ 17))))) 
 
 (SDEFUN |TUBETOOL;cross;3P;8|
         ((|p0| |Point| (|DoubleFloat|)) (|p1| |Point| (|DoubleFloat|))
@@ -84,12 +81,12 @@
          ((|l| (|List| (|DoubleFloat|))) (|z1| #1=(|DoubleFloat|))
           (|y1| #2=(|DoubleFloat|)) (|x1| #3=(|DoubleFloat|)) (|z0| #1#)
           (|y0| #2#) (|x0| #3#))
-         (SEQ (LETT |x0| (SPADCALL |p0| (QREFELT $ 17)))
-              (LETT |y0| (SPADCALL |p0| (QREFELT $ 18)))
-              (LETT |z0| (SPADCALL |p0| (QREFELT $ 19)))
-              (LETT |x1| (SPADCALL |p1| (QREFELT $ 17)))
-              (LETT |y1| (SPADCALL |p1| (QREFELT $ 18)))
-              (LETT |z1| (SPADCALL |p1| (QREFELT $ 19)))
+         (SEQ (LETT |x0| (SPADCALL |p0| (QREFELT $ 15)))
+              (LETT |y0| (SPADCALL |p0| (QREFELT $ 16)))
+              (LETT |z0| (SPADCALL |p0| (QREFELT $ 17)))
+              (LETT |x1| (SPADCALL |p1| (QREFELT $ 15)))
+              (LETT |y1| (SPADCALL |p1| (QREFELT $ 16)))
+              (LETT |z1| (SPADCALL |p1| (QREFELT $ 17)))
               (LETT |l|
                     (LIST (|sub_DF| (|mul_DF| |y0| |z1|) (|mul_DF| |y1| |z0|))
                           (|sub_DF| (|mul_DF| |z0| |x1|) (|mul_DF| |z1| |x0|))
@@ -100,9 +97,9 @@
 (SDEFUN |TUBETOOL;unitVector;2P;9|
         ((|p| |Point| (|DoubleFloat|)) ($ |Point| (|DoubleFloat|)))
         (SPADCALL
-         (SPADCALL (SPADCALL (SPADCALL |p| |p| (QREFELT $ 23)) (QREFELT $ 25))
-                   (QREFELT $ 26))
-         |p| (QREFELT $ 20))) 
+         (SPADCALL (SPADCALL (SPADCALL |p| |p| (QREFELT $ 21)) (QREFELT $ 23))
+                   (QREFELT $ 24))
+         |p| (QREFELT $ 18))) 
 
 (SDEFUN |TUBETOOL;cosSinInfo;IL;10|
         ((|n| |Integer|) ($ |List| (|List| (|DoubleFloat|))))
@@ -113,11 +110,11 @@
               (LETT |theta|
                     (|div_DF_I|
                      (SPADCALL 2 (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)
-                               (QREFELT $ 29))
+                               (QREFELT $ 27))
                      |n|))
               (SEQ (LETT |i| 1) (LETT #1# (- |n| 1)) G190
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
-                   (SEQ (LETT |angle| (SPADCALL |i| |theta| (QREFELT $ 31)))
+                   (SEQ (LETT |angle| (SPADCALL |i| |theta| (QREFELT $ 29)))
                         (EXIT
                          (LETT |ans|
                                (CONS
@@ -139,26 +136,26 @@
               (SEQ G190 (COND ((NULL (NULL (NULL |cosSin|))) (GO G191)))
                    (SEQ (LETT |cossin| (|SPADfirst| |cosSin|))
                         (LETT |cos| (|SPADfirst| |cossin|))
-                        (LETT |sin| (SPADCALL |cossin| (QREFELT $ 34)))
+                        (LETT |sin| (SPADCALL |cossin| (QREFELT $ 32)))
                         (LETT |ans|
                               (CONS
                                (SPADCALL |ctr|
                                          (SPADCALL |rad|
                                                    (SPADCALL
                                                     (SPADCALL |cos| |pNorm|
-                                                              (QREFELT $ 20))
+                                                              (QREFELT $ 18))
                                                     (SPADCALL |sin| |bNorm|
-                                                              (QREFELT $ 20))
-                                                    (QREFELT $ 21))
-                                                   (QREFELT $ 20))
-                                         (QREFELT $ 21))
+                                                              (QREFELT $ 18))
+                                                    (QREFELT $ 19))
+                                                   (QREFELT $ 18))
+                                         (QREFELT $ 19))
                                |ans|))
                         (EXIT (LETT |cosSin| (CDR |cosSin|))))
                    NIL (GO G190) G191 (EXIT NIL))
               (LETT |pt|
-                    (SPADCALL |ctr| (SPADCALL |rad| |pNorm| (QREFELT $ 20))
-                              (QREFELT $ 21)))
-              (EXIT (CONS |pt| (SPADCALL |ans| |pt| (QREFELT $ 36))))))) 
+                    (SPADCALL |ctr| (SPADCALL |rad| |pNorm| (QREFELT $ 18))
+                              (QREFELT $ 19)))
+              (EXIT (CONS |pt| (SPADCALL |ans| |pt| (QREFELT $ 34))))))) 
 
 (DECLAIM (NOTINLINE |TubePlotTools;|)) 
 
@@ -183,7 +180,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|TubePlotTools|))
-          (LETT $ (GETREFV 38))
+          (LETT $ (GETREFV 36))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TubePlotTools| NIL (CONS 1 $))
@@ -195,16 +192,16 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|List| 9) (|Point| 9) (0 . |point|)
               (|DoubleFloat|) |TUBETOOL;point;4DfP;1| (|Integer|)
-              (5 . |maxIndex|) (|Boolean|) (10 . >) (|PointPackage| 9)
-              (16 . |color|) (21 . |xCoord|) (26 . |yCoord|) (31 . |zCoord|)
+              (5 . |maxIndex|) (|PointPackage| 9) (10 . |color|)
+              (15 . |xCoord|) (20 . |yCoord|) (25 . |zCoord|)
               |TUBETOOL;*;Df2P;4| |TUBETOOL;+;3P;5| |TUBETOOL;-;3P;6|
-              |TUBETOOL;dot;2PDf;7| |TUBETOOL;cross;3P;8| (36 . |sqrt|)
-              (41 . |inv|) |TUBETOOL;unitVector;2P;9| (|PositiveInteger|)
-              (46 . *) (|NonNegativeInteger|) (52 . *) (|List| 6)
-              |TUBETOOL;cosSinInfo;IL;10| (58 . |second|) (|List| 7)
-              (63 . |concat|) |TUBETOOL;loopPoints;3PDfLL;11|)
-           '#(|unitVector| 69 |point| 74 |loopPoints| 82 |dot| 91 |cross| 97
-              |cosSinInfo| 103 - 108 + 114 * 120)
+              |TUBETOOL;dot;2PDf;7| |TUBETOOL;cross;3P;8| (30 . |sqrt|)
+              (35 . |inv|) |TUBETOOL;unitVector;2P;9| (|PositiveInteger|)
+              (40 . *) (|NonNegativeInteger|) (46 . *) (|List| 6)
+              |TUBETOOL;cosSinInfo;IL;10| (52 . |second|) (|List| 7)
+              (57 . |concat|) |TUBETOOL;loopPoints;3PDfLL;11|)
+           '#(|unitVector| 63 |point| 68 |loopPoints| 76 |dot| 85 |cross| 91
+              |cosSinInfo| 97 - 102 + 108 * 114)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -256,16 +253,16 @@
                                   (|List| (|List| (|DoubleFloat|)))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 37
-                                            '(1 7 0 6 8 1 7 11 0 12 2 11 13 0 0
-                                              14 1 15 9 7 16 1 15 9 7 17 1 15 9
-                                              7 18 1 15 9 7 19 1 9 0 0 25 1 9 0
-                                              0 26 2 9 0 28 0 29 2 9 0 30 0 31
-                                              1 6 9 0 34 2 35 0 0 7 36 1 0 7 7
-                                              27 4 0 7 9 9 9 9 10 5 0 35 7 7 7
-                                              9 32 37 2 0 9 7 7 23 2 0 7 7 7 24
-                                              1 0 32 11 33 2 0 7 7 7 22 2 0 7 7
-                                              7 21 2 0 7 9 7 20)))))
+                        (|makeByteWordVec2| 35
+                                            '(1 7 0 6 8 1 7 11 0 12 1 13 9 7 14
+                                              1 13 9 7 15 1 13 9 7 16 1 13 9 7
+                                              17 1 9 0 0 23 1 9 0 0 24 2 9 0 26
+                                              0 27 2 9 0 28 0 29 1 6 9 0 32 2
+                                              33 0 0 7 34 1 0 7 7 25 4 0 7 9 9
+                                              9 9 10 5 0 33 7 7 7 9 30 35 2 0 9
+                                              7 7 21 2 0 7 7 7 22 1 0 30 11 31
+                                              2 0 7 7 7 20 2 0 7 7 7 19 2 0 7 9
+                                              7 18)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TubePlotTools| 'NILADIC T) 

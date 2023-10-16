@@ -164,23 +164,23 @@
                                 (QREFELT $ 36))))
                     (EXIT
                      (COND
-                      ((SPADCALL (LENGTH |curves|) 1 (QREFELT $ 38))
+                      ((> (LENGTH |curves|) 1)
                        (SEQ
                         (COND
                          ((EQL
-                           (SPADCALL (SPADCALL |curves| 1 (QREFELT $ 40))
-                                     (QREFELT $ 41))
+                           (SPADCALL (SPADCALL |curves| 1 (QREFELT $ 38))
+                                     (QREFELT $ 39))
                            1)
                           (|EXP3D;writePolygon| |f1| |curves| $)))
                         (EXIT
                          (COND
-                          ((SPADCALL
-                            (SPADCALL (SPADCALL |curves| 1 (QREFELT $ 40))
-                                      (QREFELT $ 41))
-                            1 (QREFELT $ 38))
+                          ((>
+                            (SPADCALL (SPADCALL |curves| 1 (QREFELT $ 38))
+                                      (QREFELT $ 39))
+                            1)
                            (|EXP3D;writeMesh| |f1| |curves| $)))))))))
                (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |f1| (QREFELT $ 42)))))) 
+          (EXIT (SPADCALL |f1| (QREFELT $ 40)))))) 
 
 (DECLAIM (NOTINLINE |Export3D;|)) 
 
@@ -204,7 +204,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Export3D|))
-          (LETT $ (GETREFV 44))
+          (LETT $ (GETREFV 42))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Export3D| NIL (CONS 1 $))
@@ -222,10 +222,9 @@
               (|DoubleFloat|) (44 . |convert|) (49 . |unparse|) (|FileName|)
               (54 . |coerce|) (59 . |open|) (|List| 31) (65 . |pointData|)
               (|Point| 23) (70 . |#|) (75 . |elt|) (|Void|) (|DisplayPackage|)
-              (81 . |say|) (|Boolean|) (86 . >) (|List| 7) (92 . |elt|)
-              (98 . |numberOfChildren|) (103 . |close!|)
-              |EXP3D;writeObj;SsSV;5|)
-           '#(|writeObj| 108) 'NIL
+              (81 . |say|) (|List| 7) (86 . |elt|) (92 . |numberOfChildren|)
+              (97 . |close!|) |EXP3D;writeObj;SsSV;5|)
+           '#(|writeObj| 102) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -237,16 +236,16 @@
                                   (|String|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 43
+                        (|makeByteWordVec2| 41
                                             '(1 7 6 0 8 1 7 9 0 10 2 11 0 0 0
                                               12 2 14 13 0 13 15 2 17 11 0 16
                                               18 1 11 9 0 19 2 11 9 0 16 20 1
                                               13 0 6 21 1 23 22 0 24 1 22 13 0
                                               25 1 26 0 13 27 2 14 0 26 13 28 1
                                               7 29 0 30 1 31 9 0 32 2 31 23 0
-                                              16 33 1 35 34 13 36 2 9 37 0 0 38
-                                              2 39 7 0 16 40 1 7 9 0 41 1 14 0
-                                              0 42 2 0 34 7 13 43)))))
+                                              16 33 1 35 34 13 36 2 37 7 0 16
+                                              38 1 7 9 0 39 1 14 0 0 40 2 0 34
+                                              7 13 41)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Export3D| 'NILADIC T) 

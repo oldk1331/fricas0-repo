@@ -118,10 +118,10 @@
                                       (SPADCALL |res1| (|spadConstant| $ 41)
                                                 (QREFELT $ 42)))))
                               (COND
-                               ((SPADCALL |v| 0 (QREFELT $ 43))
+                               ((> |v| 0)
                                 (LETT |res1|
                                       (SPADCALL |res1|
-                                                (SPADCALL |val| (QREFELT $ 44))
+                                                (SPADCALL |val| (QREFELT $ 43))
                                                 (QREFELT $ 42)))))
                               (EXIT
                                (COND
@@ -149,7 +149,7 @@
                                                             (QREFELT $ 40))
                                                   (SPADCALL |res1| |i|
                                                             (QREFELT $ 40))
-                                                  (QREFELT $ 45))
+                                                  (QREFELT $ 44))
                                                  #2#))))
                                         (LETT |i| (|inc_SI| |i|)) (GO G190)
                                         G191 (EXIT (NREVERSE #2#)))))))))
@@ -170,10 +170,10 @@
                    (SEQ
                     (COND
                      (|notFirst|
-                      (SEQ (LETT |m2| (SPADCALL |m1| |prev| (QREFELT $ 49)))
+                      (SEQ (LETT |m2| (SPADCALL |m1| |prev| (QREFELT $ 48)))
                            (EXIT
                             (LETT |res|
-                                  (SPADCALL |res| |m2| (QREFELT $ 51)))))))
+                                  (SPADCALL |res| |m2| (QREFELT $ 50)))))))
                     (LETT |notFirst| 'T) (EXIT (LETT |prev| |m1|)))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
@@ -195,7 +195,7 @@
                         (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 32)) #2#))))
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#)))))
-          (EXIT (SPADCALL |lst| (QREFELT $ 54)))))) 
+          (EXIT (SPADCALL |lst| (QREFELT $ 53)))))) 
 
 (DECLAIM (NOTINLINE |CoChainComplex;|)) 
 
@@ -221,7 +221,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|CoChainComplex| DV$1))
-          (LETT $ (GETREFV 58))
+          (LETT $ (GETREFV 57))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CoChainComplex| (LIST DV$1)
@@ -244,20 +244,20 @@
               (|Void|) (54 . |print|) (59 . *) (65 . |zero?|) (70 . |coerce|)
               |COCHNC;validate;$B;3| (|List| 17) (|Vector| 17) (75 . |vector|)
               (80 . *) (86 . |entries|) (|List| 6) (91 . |elt|) (97 . |Zero|)
-              (101 . |concat|) (107 . >) (113 . -) (118 . +)
-              (|NonNegativeInteger|) |COCHNC;coboundary;$Nni2L;4| (|Homology|)
-              (124 . |homologyGroup|) (|List| 48) (130 . |concat|)
-              |COCHNC;coHomology;$L;5| (|List| $) (136 . |commaSeparate|)
-              |COCHNC;coerce;$Of;6| (|SingleInteger|) (|HashState|))
-           '#(~= 141 |validate| 147 |latex| 152 |hashUpdate!| 157 |hash| 163
-              |coerce| 168 |coboundary| 173 |coHomology| 180 |coChainComplex|
-              185 = 195)
+              (101 . |concat|) (107 . -) (112 . +) (|NonNegativeInteger|)
+              |COCHNC;coboundary;$Nni2L;4| (|Homology|) (118 . |homologyGroup|)
+              (|List| 47) (124 . |concat|) |COCHNC;coHomology;$L;5| (|List| $)
+              (130 . |commaSeparate|) |COCHNC;coerce;$Of;6| (|SingleInteger|)
+              (|HashState|))
+           '#(~= 135 |validate| 141 |latex| 146 |hashUpdate!| 151 |hash| 157
+              |coerce| 162 |coboundary| 167 |coHomology| 174 |coChainComplex|
+              179 = 189)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 24))
-                        (|makeByteWordVec2| 57
+                        (|makeByteWordVec2| 56
                                             '(1 10 8 0 11 1 12 0 0 13 2 7 0 14
                                               0 15 2 7 12 0 17 18 1 12 17 0 19
                                               1 12 17 0 20 2 17 21 0 0 22 1 24
@@ -266,11 +266,11 @@
                                               12 21 0 31 1 12 24 0 32 1 35 0 34
                                               36 2 12 35 35 0 37 1 35 34 0 38 2
                                               39 6 0 17 40 0 6 0 41 2 39 0 0 6
-                                              42 2 17 21 0 0 43 1 6 0 0 44 2 6
-                                              0 0 0 45 2 48 0 12 12 49 2 50 0 0
-                                              48 51 1 24 0 53 54 2 0 21 0 0 1 1
-                                              0 21 0 33 1 0 23 0 1 2 0 57 57 0
-                                              1 1 0 56 0 1 1 0 24 0 55 3 0 39 0
-                                              46 39 47 1 0 50 0 52 1 0 0 8 9 1
-                                              0 0 10 16 2 0 21 0 0 1)))))
+                                              42 1 6 0 0 43 2 6 0 0 0 44 2 47 0
+                                              12 12 48 2 49 0 0 47 50 1 24 0 52
+                                              53 2 0 21 0 0 1 1 0 21 0 33 1 0
+                                              23 0 1 2 0 56 56 0 1 1 0 55 0 1 1
+                                              0 24 0 54 3 0 39 0 45 39 46 1 0
+                                              49 0 51 1 0 0 8 9 1 0 0 10 16 2 0
+                                              21 0 0 1)))))
            '|lookupComplete|)) 

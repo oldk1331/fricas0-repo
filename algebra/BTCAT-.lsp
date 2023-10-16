@@ -81,7 +81,7 @@
                               (EXIT (NREVERSE #8#)))))
                   (EXIT
                    (COND
-                    ((SPADCALL (LENGTH |u|) 0 (QREFELT $ 32))
+                    ((> (LENGTH |u|) 0)
                      (+ 1
                         (PROGN
                          (LETT #2# NIL)
@@ -118,13 +118,13 @@
                 (SEQ
                  (LETT |s|
                        (SPADCALL |s| (SPADCALL |t| (QREFELT $ 13))
-                                 (QREFELT $ 35)))
+                                 (QREFELT $ 34)))
                  (LETT |s|
                        (SPADCALL |s| (SPADCALL |t| (QREFELT $ 11))
-                                 (QREFELT $ 36)))
+                                 (QREFELT $ 35)))
                  (EXIT
                   (SPADCALL |s| (SPADCALL |t| (QREFELT $ 14))
-                            (QREFELT $ 36)))))))) 
+                            (QREFELT $ 35)))))))) 
 
 (DECLAIM (NOTINLINE |BinaryTreeCategory&;|)) 
 
@@ -134,7 +134,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|BinaryTreeCategory&| DV$1 DV$2))
-          (LETT $ (GETREFV 38))
+          (LETT $ (GETREFV 37))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
@@ -151,11 +151,11 @@
               (|Mapping| 7 7) (36 . |map|) |BTCAT-;map;M2A;2| '"value"
               (42 . |elt|) (48 . |setelt!|) (55 . |map!|) |BTCAT-;map!;M2A;3|
               (|NonNegativeInteger|) |BTCAT-;#;ANni;4| (61 . |cyclic?|)
-              (66 . =) (|List| $) (72 . |children|) (|Integer|) (77 . >)
-              |BTCAT-;distance;2AI;7| (|HashState|) (83 . |hashUpdate!|)
-              (89 . |hashUpdate!|) |BTCAT-;hashUpdate!;HsAHs;8|)
-           '#(|map!| 95 |map| 101 |hashUpdate!| 107 |distance| 113 |copy| 119
-              |#| 124)
+              (66 . =) (|List| $) (72 . |children|) (|Integer|)
+              |BTCAT-;distance;2AI;7| (|HashState|) (77 . |hashUpdate!|)
+              (83 . |hashUpdate!|) |BTCAT-;hashUpdate!;HsAHs;8|)
+           '#(|map!| 89 |map| 95 |hashUpdate!| 101 |distance| 107 |copy| 113
+              |#| 118)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -173,14 +173,14 @@
                                    '((|#| ((|NonNegativeInteger|) |#1|)) T)
                                    '((|copy| (|#1| |#1|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 37
+                        (|makeByteWordVec2| 36
                                             '(1 6 8 0 9 0 6 0 10 1 6 0 0 11 1 6
                                               0 0 12 1 6 7 0 13 1 6 0 0 14 3 6
                                               0 0 7 0 15 2 6 0 17 0 18 2 6 7 0
                                               20 21 3 6 7 0 20 7 22 2 6 0 17 0
                                               23 1 6 8 0 27 2 6 8 0 0 28 1 6 29
-                                              0 30 2 31 8 0 0 32 2 7 34 34 0 35
-                                              2 6 34 34 0 36 2 0 0 17 0 24 2 0
-                                              0 17 0 19 2 0 34 34 0 37 2 0 31 0
-                                              0 33 1 0 0 0 16 1 0 25 0 26)))))
+                                              0 30 2 7 33 33 0 34 2 6 33 33 0
+                                              35 2 0 0 17 0 24 2 0 0 17 0 19 2
+                                              0 33 33 0 36 2 0 31 0 0 32 1 0 0
+                                              0 16 1 0 25 0 26)))))
            '|lookupComplete|)) 

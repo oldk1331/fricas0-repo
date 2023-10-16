@@ -136,16 +136,15 @@
                                 (SEQ (LETT |p| (QAREF2O |mt| |i| |j| 1 1))
                                      (EXIT
                                       (COND
-                                       ((SPADCALL
-                                         (SPADCALL |p| |ls| (QREFELT $ 41)) 1
-                                         (QREFELT $ 42))
+                                       ((> (SPADCALL |p| |ls| (QREFELT $ 41))
+                                           1)
                                         (|error|
                                          "structuralConstants: entries of second argument must be linear polynomials in the generators"))
                                        ((SPADCALL
                                          (LETT |c|
                                                (SPADCALL |p| |s| 1
-                                                         (QREFELT $ 44)))
-                                         (|spadConstant| $ 40) (QREFELT $ 45))
+                                                         (QREFELT $ 43)))
+                                         (|spadConstant| $ 40) (QREFELT $ 44))
                                         (QSETAREF2O |mat| |i| |j| |c| 1 1)))))
                                 (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                 (EXIT NIL))))
@@ -153,7 +152,7 @@
                     (LETT |gamma| (CONS |mat| |gamma|))
                     (EXIT (LETT |lscopy| (CDR |lscopy|))))
                    NIL (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL (REVERSE |gamma|) (QREFELT $ 48)))))) 
+              (EXIT (SPADCALL (REVERSE |gamma|) (QREFELT $ 47)))))) 
 
 (SDEFUN |SCPKG;structuralConstants;LMV;5|
         ((|ls| |List| (|Symbol|)) (|mt| |Matrix| (|Fraction| (|Polynomial| R)))
@@ -176,7 +175,7 @@
               (LETT |gamma| NIL) (LETT |lscopy| (SPADCALL |ls| (QREFELT $ 38)))
               (SEQ G190 (COND ((NULL (NULL (NULL |lscopy|))) (GO G191)))
                    (SEQ
-                    (LETT |mat| (MAKE_MATRIX1 |nn| |nn| (|spadConstant| $ 52)))
+                    (LETT |mat| (MAKE_MATRIX1 |nn| |nn| (|spadConstant| $ 51)))
                     (LETT |s| (|SPADfirst| |lscopy|))
                     (SEQ (LETT |i| 1) (LETT #2# |nn|) G190
                          (COND ((|greater_SI| |i| #2#) (GO G191)))
@@ -185,7 +184,7 @@
                            (SEQ (LETT |j| 1) (LETT #1# |nn|) G190
                                 (COND ((|greater_SI| |j| #1#) (GO G191)))
                                 (SEQ (LETT |r| (QAREF2O |mt| |i| |j| 1 1))
-                                     (LETT |q| (SPADCALL |r| (QREFELT $ 53)))
+                                     (LETT |q| (SPADCALL |r| (QREFELT $ 52)))
                                      (EXIT
                                       (COND
                                        ((SPADCALL
@@ -196,24 +195,24 @@
                                        ('T
                                         (SEQ
                                          (LETT |p|
-                                               (SPADCALL |r| (QREFELT $ 54)))
+                                               (SPADCALL |r| (QREFELT $ 53)))
                                          (EXIT
                                           (COND
-                                           ((SPADCALL
+                                           ((>
                                              (SPADCALL |p| |ls| (QREFELT $ 41))
-                                             1 (QREFELT $ 42))
+                                             1)
                                             (|error|
                                              "structuralConstants: entries of second argument must be linear polynomials in the generators"))
                                            ((SPADCALL
                                              (LETT |c|
                                                    (SPADCALL |p| |s| 1
-                                                             (QREFELT $ 44)))
+                                                             (QREFELT $ 43)))
                                              (|spadConstant| $ 40)
-                                             (QREFELT $ 45))
+                                             (QREFELT $ 44))
                                             (QSETAREF2O |mat| |i| |j|
                                                         (SPADCALL |c| |q|
                                                                   (QREFELT $
-                                                                           55))
+                                                                           54))
                                                         1 1)))))))))
                                 (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                 (EXIT NIL))))
@@ -221,7 +220,7 @@
                     (LETT |gamma| (CONS |mat| |gamma|))
                     (EXIT (LETT |lscopy| (CDR |lscopy|))))
                    NIL (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL (REVERSE |gamma|) (QREFELT $ 58)))))) 
+              (EXIT (SPADCALL (REVERSE |gamma|) (QREFELT $ 57)))))) 
 
 (DECLAIM (NOTINLINE |StructuralConstantsPackage;|)) 
 
@@ -249,7 +248,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|StructuralConstantsPackage| DV$1))
-          (LETT $ (GETREFV 61))
+          (LETT $ (GETREFV 60))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|StructuralConstantsPackage|
@@ -271,15 +270,15 @@
               (|LinearSystemMatrixPackage| 6 14 14 8) (48 . |solve|)
               |SCPKG;coordinates;MLV;2| (54 . *) (|Vector| 8) (60 . |elt|)
               (66 . |elt|) (72 . |setelt!|) |SCPKG;structuralConstants;LV;3|
-              (|Boolean|) (|NonNegativeInteger|) (80 . ~=) (|List| 43)
+              (|Boolean|) (|NonNegativeInteger|) (80 . ~=) (|List| 42)
               (86 . |copy|) (|Polynomial| 6) (91 . |Zero|) (95 . |totalDegree|)
-              (101 . >) (|Symbol|) (107 . |coefficient|) (114 . ~=) (|List| 49)
-              (|Vector| 49) (120 . |vector|) (|Matrix| 39)
-              |SCPKG;structuralConstants;LMV;4| (|Fraction| 39) (125 . |Zero|)
-              (129 . |denom|) (134 . |numer|) (139 . /) (|List| 59)
-              (|Vector| 59) (145 . |vector|) (|Matrix| 51)
+              (|Symbol|) (101 . |coefficient|) (108 . ~=) (|List| 48)
+              (|Vector| 48) (114 . |vector|) (|Matrix| 39)
+              |SCPKG;structuralConstants;LMV;4| (|Fraction| 39) (119 . |Zero|)
+              (123 . |denom|) (128 . |numer|) (133 . /) (|List| 58)
+              (|Vector| 58) (139 . |vector|) (|Matrix| 50)
               |SCPKG;structuralConstants;LMV;5|)
-           '#(|structuralConstants| 150 |coordinates| 167) 'NIL
+           '#(|structuralConstants| 144 |coordinates| 161) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -306,7 +305,7 @@
                                   (|List| (|Matrix| |#1|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 60
+                        (|makeByteWordVec2| 59
                                             '(1 8 7 0 9 2 10 0 0 0 11 2 7 10 12
                                               0 13 1 14 0 10 15 1 17 16 0 18 0
                                               6 0 19 2 17 8 0 16 20 0 6 0 21 3
@@ -314,11 +313,10 @@
                                               8 0 0 0 28 2 29 8 0 16 30 2 14 6
                                               0 16 31 4 8 6 0 16 16 6 32 2 35
                                               34 0 0 36 1 37 0 0 38 0 39 0 40 2
-                                              39 35 0 37 41 2 35 34 0 0 42 3 39
-                                              0 0 43 35 44 2 39 34 0 0 45 1 47
-                                              0 46 48 0 51 0 52 1 51 39 0 53 1
-                                              51 39 0 54 2 51 0 39 39 55 1 57 0
-                                              56 58 2 0 47 37 49 50 2 0 57 37
-                                              59 60 1 0 29 17 33 2 0 14 8 17
-                                              27)))))
+                                              39 35 0 37 41 3 39 0 0 42 35 43 2
+                                              39 34 0 0 44 1 46 0 45 47 0 50 0
+                                              51 1 50 39 0 52 1 50 39 0 53 2 50
+                                              0 39 39 54 1 56 0 55 57 2 0 46 37
+                                              48 49 2 0 56 37 58 59 1 0 29 17
+                                              33 2 0 14 8 17 27)))))
            '|lookupComplete|)) 

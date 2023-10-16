@@ -111,10 +111,9 @@
                          (SEQ
                           (EXIT
                            (COND
-                            ((SPADCALL (SPADCALL |p| |v| (QREFELT $ 26)) 0
-                                       (QREFELT $ 42))
+                            ((> (SPADCALL |p| |v| (QREFELT $ 26)) 0)
                              (COND
-                              ((|PRIMELT;incl?| (SPADCALL |p| (QREFELT $ 43))
+                              ((|PRIMELT;incl?| (SPADCALL |p| (QREFELT $ 42))
                                 (LIST |v| |opt|) $)
                                (PROGN
                                 (LETT #1#
@@ -167,9 +166,9 @@
                                               (SPADCALL
                                                (LETT |p|
                                                      (SPADCALL (QCDR |u|) |v|
-                                                               (QREFELT $ 45)))
-                                               (QREFELT $ 47))
-                                              1 (QREFELT $ 48)))
+                                                               (QREFELT $ 44)))
+                                               (QREFELT $ 46))
+                                              1 (QREFELT $ 47)))
                                          (PROGN
                                           (LETT #1#
                                                 (PROGN
@@ -179,10 +178,10 @@
                                      (LETT |bc|
                                            (SPADCALL
                                             (SPADCALL
-                                             (SPADCALL |p| (QREFELT $ 49))
+                                             (SPADCALL |p| (QREFELT $ 48))
                                              (QREFELT $ 31))
-                                            |pw| (|spadConstant| $ 50)
-                                            (QREFELT $ 53)))
+                                            |pw| (|spadConstant| $ 49)
+                                            (QREFELT $ 52)))
                                      (EXIT
                                       (COND
                                        ((QEQCAR |bc| 1)
@@ -198,12 +197,12 @@
                                                   (SPADCALL
                                                    (SPADCALL
                                                     (SPADCALL |p| 0
-                                                              (QREFELT $ 55))
+                                                              (QREFELT $ 54))
                                                     (QREFELT $ 31))
                                                    (QCAR (QCDR |bc|))
-                                                   (QREFELT $ 56))
-                                                  (QREFELT $ 57))
-                                                 |pw| (QREFELT $ 58))
+                                                   (QREFELT $ 55))
+                                                  (QREFELT $ 56))
+                                                 |pw| (QREFELT $ 57))
                                                 (QREFELT $ 9))
                                                |ll|)))))))
                                    #5# (EXIT #1#))
@@ -256,7 +255,7 @@
                                           #10#))))
                             (LETT #9# (CDR #9#)) (GO G190) G191
                             (EXIT (NREVERSE #10#)))))
-                (LETT |elim| (SPADCALL |vars| |uu| (QREFELT $ 59)))
+                (LETT |elim| (SPADCALL |vars| |uu| (QREFELT $ 58)))
                 (LETT |w| (SPADCALL |uu| (QREFELT $ 32)))
                 (LETT |n| (LENGTH |l|))
                 (EXIT
@@ -303,7 +302,7 @@
                                                                            #6#
                                                                            (QREFELT
                                                                             $
-                                                                            60))))
+                                                                            59))))
                                                           ('T
                                                            (PROGN
                                                             (LETT #4# #6#)
@@ -321,7 +320,7 @@
                                                                         29))))
                                                 (QREFELT $ 34))
                                       |l|)
-                                     |elim| (QREFELT $ 62))
+                                     |elim| (QREFELT $ 61))
                                     |vars| |uu| $))
                              (EXIT
                               (COND
@@ -365,7 +364,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|PrimitiveElement| DV$1))
-          (LETT $ (GETREFV 63))
+          (LETT $ (GETREFV 62))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PrimitiveElement| (LIST DV$1)
@@ -391,15 +390,15 @@
               (75 . -) (81 . |eval|) (88 . |zero?|) (93 . |squareFreePart|)
               (98 . =) (104 . |One|)
               (|Record| (|:| |coef1| 13) (|:| |coef2| 13) (|:| |prim| 8))
-              |PRIMELT;primitiveElement;PSPSR;5| (108 . >) (114 . |variables|)
-              (|SparseUnivariatePolynomial| $) (119 . |univariate|)
-              (|SparseUnivariatePolynomial| 11) (125 . |degree|) (130 . ~=)
-              (136 . |leadingCoefficient|) (141 . |One|)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 51 '"failed")
-              (145 . |extendedEuclidean|) (152 . |Zero|) (156 . |coefficient|)
-              (162 . *) (168 . -) (173 . |rem|) (179 . |concat|) (185 . +)
-              (|PolyGroebner| 6) (191 . |lexGroebner|))
-           '#(|primitiveElement| 197) 'NIL
+              |PRIMELT;primitiveElement;PSPSR;5| (108 . |variables|)
+              (|SparseUnivariatePolynomial| $) (113 . |univariate|)
+              (|SparseUnivariatePolynomial| 11) (119 . |degree|) (124 . ~=)
+              (130 . |leadingCoefficient|) (135 . |One|)
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 50 '"failed")
+              (139 . |extendedEuclidean|) (146 . |Zero|) (150 . |coefficient|)
+              (156 . *) (162 . -) (167 . |rem|) (173 . |concat|) (179 . +)
+              (|PolyGroebner| 6) (185 . |lexGroebner|))
+           '#(|primitiveElement| 191) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -440,7 +439,7 @@
                                   (|List| (|Symbol|)) (|Symbol|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 62
+                        (|makeByteWordVec2| 61
                                             '(2 8 0 7 0 9 2 11 0 8 10 12 2 13 0
                                               0 0 14 2 16 15 10 0 17 2 16 15 18
                                               0 19 0 10 0 20 2 11 25 0 10 26 0
@@ -448,14 +447,13 @@
                                               0 0 10 30 1 11 8 0 31 1 11 0 10
                                               32 2 11 0 13 0 33 2 11 0 0 0 34 3
                                               11 0 0 10 0 35 1 8 15 0 36 1 8 0
-                                              0 37 2 8 15 0 0 38 0 11 0 39 2 25
-                                              15 0 0 42 1 11 16 0 43 2 11 44 0
-                                              10 45 1 46 25 0 47 2 25 15 0 0 48
-                                              1 46 11 0 49 0 8 0 50 3 8 52 0 0
-                                              0 53 0 8 0 54 2 46 11 0 25 55 2 8
-                                              0 0 0 56 1 8 0 0 57 2 8 0 0 0 58
-                                              2 16 0 0 10 59 2 11 0 0 0 60 2 61
-                                              22 22 16 62 4 0 40 11 10 11 10 41
-                                              3 0 21 22 16 10 23 2 0 21 22 16
-                                              24)))))
+                                              0 37 2 8 15 0 0 38 0 11 0 39 1 11
+                                              16 0 42 2 11 43 0 10 44 1 45 25 0
+                                              46 2 25 15 0 0 47 1 45 11 0 48 0
+                                              8 0 49 3 8 51 0 0 0 52 0 8 0 53 2
+                                              45 11 0 25 54 2 8 0 0 0 55 1 8 0
+                                              0 56 2 8 0 0 0 57 2 16 0 0 10 58
+                                              2 11 0 0 0 59 2 60 22 22 16 61 4
+                                              0 40 11 10 11 10 41 3 0 21 22 16
+                                              10 23 2 0 21 22 16 24)))))
            '|lookupComplete|)) 

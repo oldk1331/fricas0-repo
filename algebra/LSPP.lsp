@@ -54,16 +54,15 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((SPADCALL (SPADCALL |p| |vs| (QREFELT $ 34)) 1
-                                 (QREFELT $ 35))
+                      ((> (SPADCALL |p| |vs| (QREFELT $ 34)) 1)
                        (|error| "The system is not linear"))
                       ('T
                        (SEQ (LETT |r| (|LSPP;poly2vect| |p| |vs| $))
                             (LETT |m|
-                                  (SPADCALL |m| |i| (QCAR |r|) (QREFELT $ 36)))
+                                  (SPADCALL |m| |i| (QCAR |r|) (QREFELT $ 35)))
                             (EXIT
                              (SPADCALL |v| |i|
-                                       (SPADCALL (QCDR |r|) (QREFELT $ 37))
+                                       (SPADCALL (QCDR |r|) (QREFELT $ 36))
                                        (QREFELT $ 26))))))))
                    (LETT #1# (PROG1 (CDR #1#) (LETT |i| (|inc_SI| |i|))))
                    (GO G190) G191 (EXIT NIL))
@@ -78,8 +77,8 @@
          ((|r|
            (|Record| (|:| |mat| (|Matrix| (|Fraction| P)))
                      (|:| |vec| (|Vector| (|Fraction| P))))))
-         (SEQ (LETT |r| (SPADCALL |ps| |vs| (QREFELT $ 40)))
-              (EXIT (SPADCALL (QCAR |r|) (QCDR |r|) (QREFELT $ 44)))))) 
+         (SEQ (LETT |r| (SPADCALL |ps| |vs| (QREFELT $ 39)))
+              (EXIT (SPADCALL (QCAR |r|) (QCDR |r|) (QREFELT $ 43)))))) 
 
 (DECLAIM (NOTINLINE |LinearSystemPolynomialPackage;|)) 
 
@@ -114,7 +113,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|LinearSystemPolynomialPackage| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 46))
+    (LETT $ (GETREFV 45))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|LinearSystemPolynomialPackage|
@@ -137,14 +136,13 @@
               (28 . |degree|) (33 . |leadingCoefficient|) (38 . |coerce|)
               (|Integer|) (|Vector| 10) (43 . |setelt!|) (50 . |One|)
               (54 . |One|) (58 . |monomial|) (65 . -) (|Matrix| 10)
-              (71 . |zero|) (|List| 8) (77 . |totalDegree|) (83 . >)
-              (89 . |setRow!|) (96 . -)
-              (|Record| (|:| |mat| 31) (|:| |vec| 25)) (|List| 9)
+              (71 . |zero|) (|List| 8) (77 . |totalDegree|) (83 . |setRow!|)
+              (90 . -) (|Record| (|:| |mat| 31) (|:| |vec| 25)) (|List| 9)
               |LSPP;intoMatrix;LLR;2| (|Union| 25 '"failed")
-              (|Record| (|:| |particular| 41) (|:| |basis| (|List| 25)))
-              (|LinearSystemMatrixPackage| 10 25 25 31) (101 . |solve|)
+              (|Record| (|:| |particular| 40) (|:| |basis| (|List| 25)))
+              (|LinearSystemMatrixPackage| 10 25 25 31) (95 . |solve|)
               |LSPP;linSolve;LLR;3|)
-           '#(|linSolve| 107 |intoMatrix| 113) 'NIL
+           '#(|linSolve| 101 |intoMatrix| 107) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -167,14 +165,14 @@
                                   (|List| |#4|) (|List| |#3|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 45
+                        (|makeByteWordVec2| 44
                                             '(0 10 0 11 0 6 0 12 0 7 0 13 0 9 0
                                               14 2 9 15 0 0 16 2 9 17 0 8 18 1
                                               20 19 0 21 1 20 9 0 22 1 10 0 9
                                               23 3 25 10 0 24 10 26 0 6 0 27 0
                                               9 0 28 3 9 0 0 8 19 29 2 9 0 0 0
                                               30 2 31 0 19 19 32 2 9 19 0 33 34
-                                              2 19 15 0 0 35 3 31 0 0 24 25 36
-                                              1 10 0 0 37 2 43 42 31 25 44 2 0
-                                              42 39 33 45 2 0 38 39 33 40)))))
+                                              3 31 0 0 24 25 35 1 10 0 0 36 2
+                                              42 41 31 25 43 2 0 41 38 33 44 2
+                                              0 37 38 33 39)))))
            '|lookupComplete|)) 

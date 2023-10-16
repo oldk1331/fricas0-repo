@@ -278,8 +278,7 @@
           (|i| NIL) (#3=#:G175 NIL))
          (SEQ
           (COND
-           ((SPADCALL (QVSIZE |vs|) (SPADCALL |ve| (QREFELT $ 97))
-                      (QREFELT $ 99))
+           ((> (QVSIZE |vs|) (SPADCALL |ve| (QREFELT $ 97)))
             (|error| "generic: too little symbols"))
            ('T
             (SEQ
@@ -303,7 +302,7 @@
                     #3#))
              (EXIT
               (SPADCALL (SPADCALL (ELT $ 28) |v| (QREFELT $ 33)) |ve|
-                        (QREFELT $ 100))))))))) 
+                        (QREFELT $ 98))))))))) 
 
 (SDEFUN |GCNAALG;generic;SV$;20| ((|s| |Symbol|) (|ve| |Vector| $) ($ $))
         (SPROG
@@ -333,7 +332,7 @@
                       (LETT #1# (PROG1 (|inc_SI| #1#) (LETT #2# (CDR #2#))))
                       (GO G190) G191 (EXIT NIL))
                  #3#))
-          (EXIT (SPADCALL |sFC| |ve| (QREFELT $ 101)))))) 
+          (EXIT (SPADCALL |sFC| |ve| (QREFELT $ 99)))))) 
 
 (SDEFUN |GCNAALG;generic;V$;21| ((|ve| |Vector| $) ($ $))
         (SPROG
@@ -384,13 +383,13 @@
                  #3#))
           (EXIT
            (SPADCALL (SPADCALL (ELT $ 28) |v| (QREFELT $ 33)) |ve|
-                     (QREFELT $ 100)))))) 
+                     (QREFELT $ 98)))))) 
 
 (SDEFUN |GCNAALG;generic;V$;22| ((|vs| |Vector| (|Symbol|)) ($ $))
-        (SPADCALL |vs| (SPADCALL (QREFELT $ 56)) (QREFELT $ 101))) 
+        (SPADCALL |vs| (SPADCALL (QREFELT $ 56)) (QREFELT $ 99))) 
 
 (SDEFUN |GCNAALG;generic;S$;23| ((|s| |Symbol|) ($ $))
-        (SPADCALL |s| (SPADCALL (QREFELT $ 56)) (QREFELT $ 102))) 
+        (SPADCALL |s| (SPADCALL (QREFELT $ 56)) (QREFELT $ 100))) 
 
 (DECLAIM (NOTINLINE |GenericNonAssociativeAlgebra;|)) 
 
@@ -428,7 +427,7 @@
      (LETT DV$3 (|devaluate| |#3|))
      (LETT DV$4 (|devaluate| |#4|))
      (LETT |dv$| (LIST '|GenericNonAssociativeAlgebra| DV$1 DV$2 DV$3 DV$4))
-     (LETT $ (GETREFV 118))
+     (LETT $ (GETREFV 117))
      (QSETREFV $ 0 |dv$|)
      (QSETREFV $ 3
                (LETT |pv$|
@@ -594,25 +593,26 @@
               |GCNAALG;generic;V$;21| (227 . -) (233 . |coordinates|)
               |GCNAALG;conditionsForIdempotents;VL;16|
               |GCNAALG;conditionsForIdempotents;L;17| |GCNAALG;generic;$;18|
-              (239 . |maxIndex|) (|Boolean|) (244 . >) (250 . |represents|)
-              |GCNAALG;generic;VV$;19| |GCNAALG;generic;SV$;20|
-              |GCNAALG;generic;V$;22| |GCNAALG;generic;S$;23|
+              (239 . |maxIndex|) (244 . |represents|) |GCNAALG;generic;VV$;19|
+              |GCNAALG;generic;SV$;20| |GCNAALG;generic;V$;22|
+              |GCNAALG;generic;S$;23|
               (|SparseUnivariatePolynomial| (|Polynomial| 27)) (|List| $)
-              (|PositiveInteger|) (|InputForm|) (|Union| $ '"failed")
-              (|List| 29) (|Record| (|:| |particular| $) (|:| |basis| 106))
-              (|Union| 111 '"failed")
+              (|PositiveInteger|) (|InputForm|) (|Boolean|)
+              (|Union| $ '"failed") (|List| 29)
+              (|Record| (|:| |particular| $) (|:| |basis| 104))
+              (|Union| 110 '"failed")
               (|SquareMatrix| (NRTEVAL (QREFELT $ 7)) 27)
               (|List| (|Polynomial| 27)) (|HashState|) (|OutputForm|)
               (|SingleInteger|))
-           '#(|rightRankPolynomial| 256 |rightMinimalPolynomial| 260
-              |represents| 265 |leftRankPolynomial| 271 |leftMinimalPolynomial|
-              275 |genericRightTraceForm| 280 |genericRightTrace| 286
-              |genericRightNorm| 291 |genericRightMinimalPolynomial| 296
-              |genericRightDiscriminant| 301 |genericLeftTraceForm| 305
-              |genericLeftTrace| 311 |genericLeftNorm| 316
-              |genericLeftMinimalPolynomial| 321 |genericLeftDiscriminant| 326
-              |generic| 330 |coordinates| 361 |convert| 372
-              |conditionsForIdempotents| 377 |basis| 386 - 390 * 396)
+           '#(|rightRankPolynomial| 250 |rightMinimalPolynomial| 254
+              |represents| 259 |leftRankPolynomial| 265 |leftMinimalPolynomial|
+              269 |genericRightTraceForm| 274 |genericRightTrace| 280
+              |genericRightNorm| 285 |genericRightMinimalPolynomial| 290
+              |genericRightDiscriminant| 295 |genericLeftTraceForm| 299
+              |genericLeftTrace| 305 |genericLeftNorm| 310
+              |genericLeftMinimalPolynomial| 315 |genericLeftDiscriminant| 320
+              |generic| 324 |coordinates| 355 |convert| 366
+              |conditionsForIdempotents| 371 |basis| 380 - 384 * 390)
            'NIL
            (CONS
             (|makeByteWordVec2| 2
@@ -642,8 +642,8 @@
                  (|CancellationAbelianMonoid|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Finite|) (|AbelianSemiGroup|) (|Magma|)
                  (|Comparable|) (|SetCategory|) (|BasicType|)
-                 (|CoercibleTo| 116) (|unitsKnown|) (|ConvertibleTo| 108))
-              (|makeByteWordVec2| 104
+                 (|CoercibleTo| 115) (|unitsKnown|) (|ConvertibleTo| 106))
+              (|makeByteWordVec2| 102
                                   '(1 12 10 11 13 1 16 0 15 17 0 19 0 20 2 22
                                     16 0 21 23 3 19 0 0 24 25 26 1 27 0 19 28 2
                                     32 29 30 31 33 1 0 0 29 34 1 27 19 0 36 1 0
@@ -658,14 +658,13 @@
                                     82 1 0 68 0 83 1 68 84 0 85 2 84 0 0 0 86 2
                                     68 27 0 84 87 1 27 0 0 88 1 0 27 0 89 1 0
                                     27 0 90 2 0 0 0 0 92 2 0 29 0 55 93 1 58 21
-                                    0 97 2 21 98 0 0 99 2 0 0 29 55 100 0 4 68
-                                    79 1 1 68 0 77 2 0 0 29 55 100 0 4 68 78 1
-                                    1 68 0 72 2 4 27 0 0 66 1 4 27 0 65 1 4 27
-                                    0 90 1 4 68 0 83 0 4 27 67 2 4 27 0 0 54 1
-                                    4 27 0 53 1 4 27 0 89 1 4 68 0 82 0 4 27 64
-                                    2 0 0 22 55 101 1 0 0 55 91 2 0 0 16 55 102
-                                    1 0 0 16 104 1 0 0 22 103 0 0 0 96 1 0 29 0
-                                    37 2 0 29 0 55 93 1 0 0 29 34 0 4 40 95 1 4
-                                    40 55 94 0 0 55 56 2 0 0 0 0 92 2 0 0 0 0
-                                    52)))))
+                                    0 97 2 0 0 29 55 98 0 4 68 79 1 1 68 0 77 2
+                                    0 0 29 55 98 0 4 68 78 1 1 68 0 72 2 4 27 0
+                                    0 66 1 4 27 0 65 1 4 27 0 90 1 4 68 0 83 0
+                                    4 27 67 2 4 27 0 0 54 1 4 27 0 53 1 4 27 0
+                                    89 1 4 68 0 82 0 4 27 64 2 0 0 22 55 99 1 0
+                                    0 55 91 2 0 0 16 55 100 1 0 0 16 102 1 0 0
+                                    22 101 0 0 0 96 1 0 29 0 37 2 0 29 0 55 93
+                                    1 0 0 29 34 0 4 40 95 1 4 40 55 94 0 0 55
+                                    56 2 0 0 0 0 92 2 0 0 0 0 52)))))
            '|lookupIncomplete|)) 

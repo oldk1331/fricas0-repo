@@ -172,10 +172,9 @@
                (SEQ
                 (COND
                  ((ZEROP |n|) (SPADCALL (|spadConstant| $ 12) (QREFELT $ 13)))
-                 ((SPADCALL |n| (QREFELT $ 69))
-                  (|SMATCAT-;positivePower| |x| |n| $))
+                 ((PLUSP |n|) (|SMATCAT-;positivePower| |x| |n| $))
                  (#1='T
-                  (SEQ (LETT |xInv| (SPADCALL |x| (QREFELT $ 71)))
+                  (SEQ (LETT |xInv| (SPADCALL |x| (QREFELT $ 70)))
                        (EXIT
                         (COND
                          ((QEQCAR |xInv| 1)
@@ -197,7 +196,7 @@
     (LETT DV$4 (|devaluate| |#4|))
     (LETT DV$5 (|devaluate| |#5|))
     (LETT |dv$| (LIST '|SquareMatrixCategory&| DV$1 DV$2 DV$3 DV$4 DV$5))
-    (LETT $ (GETREFV 83))
+    (LETT $ (GETREFV 82))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -228,7 +227,7 @@
                        $)))))
     (COND
      ((|testBitVector| |pv$| 1)
-      (QSETREFV $ 72 (CONS (|dispatchFunction| |SMATCAT-;^;SIS;13|) $))))
+      (QSETREFV $ 71 (CONS (|dispatchFunction| |SMATCAT-;^;SIS;13|) $))))
     $))) 
 
 (MAKEPROP '|SquareMatrixCategory&| '|infovec|
@@ -254,14 +253,14 @@
               (|Record| (|:| |mat| 44) (|:| |vec| 26)) (|Vector| $)
               (167 . |reducedSystem|) (173 . |elt|) (180 . +)
               |SMATCAT-;trace;SR;11| (186 . *) |SMATCAT-;diagonalProduct;SR;12|
-              (192 . |positive?|) (|Union| $ '"failed") (197 . |inverse|)
-              (202 . ^) (|List| 75) (|List| 14) (|Symbol|) (|Matrix| 21)
-              (|Record| (|:| |mat| 76) (|:| |vec| (|Vector| 21)))
-              (|Fraction| 21) (|Union| 78 '#1#) (|Union| 21 '#1#)
+              (|Union| $ '"failed") (192 . |inverse|) (197 . ^) (|List| 74)
+              (|List| 14) (|Symbol|) (|Matrix| 21)
+              (|Record| (|:| |mat| 75) (|:| |vec| (|Vector| 21)))
+              (|Fraction| 21) (|Union| 77 '#1#) (|Union| 21 '#1#)
               (|OutputForm|) (|PositiveInteger|))
-           '#(|trace| 208 |retractIfCan| 213 |retract| 218 |reducedSystem| 223
-              |differentiate| 234 |diagonalProduct| 240 |diagonal| 245 |coerce|
-              250 ^ 255)
+           '#(|trace| 203 |retractIfCan| 208 |retract| 213 |reducedSystem| 218
+              |differentiate| 229 |diagonalProduct| 235 |diagonal| 240 |coerce|
+              245 ^ 250)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -335,7 +334,7 @@
                                    '((^ (|#1| |#1| (|PositiveInteger|))) T)
                                    '((|coerce| ((|OutputForm|) |#1|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 72
+                        (|makeByteWordVec2| 71
                                             '(2 6 0 0 0 11 0 8 0 12 1 6 0 8 13
                                               2 0 0 0 14 15 2 6 0 17 0 18 0 8 0
                                               20 1 6 21 0 22 1 6 21 0 23 1 6 21
@@ -350,10 +349,10 @@
                                               1 47 0 51 58 1 6 44 45 59 2 44 26
                                               0 21 60 2 0 61 45 62 63 3 6 8 0
                                               21 21 64 2 8 0 0 0 65 2 8 0 0 0
-                                              67 1 21 31 0 69 1 6 70 0 71 2 0 0
-                                              0 21 72 1 0 8 0 66 1 0 36 0 38 1
-                                              0 8 0 35 2 0 61 45 62 63 1 0 44
-                                              45 56 2 0 0 0 17 19 1 0 8 0 68 1
-                                              0 9 0 30 1 0 0 8 16 2 0 0 0 14 15
-                                              2 0 0 0 21 72)))))
+                                              67 1 6 69 0 70 2 0 0 0 21 71 1 0
+                                              8 0 66 1 0 36 0 38 1 0 8 0 35 2 0
+                                              61 45 62 63 1 0 44 45 56 2 0 0 0
+                                              17 19 1 0 8 0 68 1 0 9 0 30 1 0 0
+                                              8 16 2 0 0 0 14 15 2 0 0 0 21
+                                              71)))))
            '|lookupComplete|)) 

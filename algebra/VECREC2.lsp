@@ -174,8 +174,7 @@
                      (|:| |remainder| (|Integer|)))))
          (SEQ (LETT |r0| |y|) (LETT |s0| 0)
               (LETT |r1| (SPADCALL |x| |y| (QREFELT $ 12))) (LETT |s1| 1)
-              (SEQ G190
-                   (COND ((NULL (SPADCALL |r1| |i| (QREFELT $ 20))) (GO G191)))
+              (SEQ G190 (COND ((NULL (> |r1| |i|)) (GO G191)))
                    (SEQ (LETT |qr| (DIVIDE2 |r0| |r1|)) (LETT |r0| |r1|)
                         (LETT |r1| (QCDR |qr|))
                         (LETT |tmp| (- |s0| (* (QCAR |qr|) |s1|)))
@@ -186,8 +185,7 @@
                 (SEQ (LETT |s1| (- |s1|)) (EXIT (LETT |r1| (- |r1|))))))
               (EXIT
                (COND
-                ((OR (SPADCALL |s1| |j| (QREFELT $ 20))
-                     (SPADCALL (GCD |s1| |y|) 1 (QREFELT $ 21)))
+                ((OR (> |s1| |j|) (SPADCALL (GCD |s1| |y|) 1 (QREFELT $ 20)))
                  (CONS 1 "failed"))
                 ('T (CONS 0 (CONS |r1| |s1|)))))))) 
 
@@ -221,7 +219,7 @@
                    (COND
                     ((< (- (QVELT |state| 2) (QVELT |state| 8)) 150)
                      (COND
-                      ((SPADCALL (QVELT |state| 0) 1 (QREFELT $ 21))
+                      ((SPADCALL (QVELT |state| 0) 1 (QREFELT $ 20))
                        (EXIT
                         (COND
                          ((EQL (SPADCALL (QVELT |state| 2) 100 (QREFELT $ 12))
@@ -236,11 +234,11 @@
                    (EXIT (LETT |intvec| (QVELT |state| 5))))))
                 (LETT |j0| (QVELT |state| 1))
                 (LETT |bound|
-                      (QUOTIENT2 (SPADCALL |modulus| (QREFELT $ 26)) 10))
+                      (QUOTIENT2 (SPADCALL |modulus| (QREFELT $ 25)) 10))
                 (LETT |bound2| (- |modulus| |bound|)) (LETT |ok| 'T)
                 (LETT |pp|
                       (SPADCALL (QAREF1 |intvec| |j0|) |modulus| |bound|
-                                |bound| (QREFELT $ 24)))
+                                |bound| (QREFELT $ 23)))
                 (EXIT
                  (COND ((QEQCAR |pp| 1) (CONS 1 "failed"))
                        (#8#
@@ -280,10 +278,10 @@
                                     (SEQ
                                      (LETT |ctmp|
                                            (SPADCALL |block_offsets| |jj|
-                                                     (QREFELT $ 28)))
+                                                     (QREFELT $ 27)))
                                      (EXIT
                                       (COND
-                                       ((SPADCALL |ctmp| |j0| (QREFELT $ 20))
+                                       ((> |ctmp| |j0|)
                                         (SEQ (LETT |cb| |jj|)
                                              (LETT |co| |ctmp|)
                                              (EXIT
@@ -302,7 +300,7 @@
                                         (COND
                                          ((EQL |j| |co|)
                                           (COND
-                                           ((SPADCALL |mm| 1 (QREFELT $ 30))
+                                           ((> |mm| 1)
                                             (SEQ (LETT |cden| 1)
                                                  (LETT |cb|
                                                        (COND
@@ -312,7 +310,7 @@
                                                   (LETT |co|
                                                         (SPADCALL
                                                          |block_offsets| |cb|
-                                                         (QREFELT $ 28)))))))))
+                                                         (QREFELT $ 27)))))))))
                                         (EXIT
                                          (COND
                                           ((EQL |j| |j0|)
@@ -335,8 +333,7 @@
                                                     (EXIT
                                                      (QSETAREF1 |dens| |j|
                                                                 |cden|))))
-                                              ((SPADCALL |r1| |bound2|
-                                                         (QREFELT $ 20))
+                                              ((> |r1| |bound2|)
                                                (SEQ
                                                 (QSETAREF1 |nums| |j|
                                                            (- |r1| |modulus|))
@@ -349,7 +346,7 @@
                                                       (SPADCALL |r1| |modulus|
                                                                 |bound| |bound|
                                                                 (QREFELT $
-                                                                         24)))
+                                                                         23)))
                                                 (EXIT
                                                  (COND
                                                   ((QEQCAR |pp| 1)
@@ -368,9 +365,7 @@
                                                              (QCDR |ppr|)))
                                                     (EXIT
                                                      (COND
-                                                      ((SPADCALL |cden| |bound|
-                                                                 (QREFELT $
-                                                                          20))
+                                                      ((> |cden| |bound|)
                                                        (SEQ
                                                         (QSETVELT |state| 1
                                                                   |j|)
@@ -410,7 +405,7 @@
                           (EXIT
                            (LETT |res|
                                  (SPADCALL |res| (QAREF1 |nums| |i|)
-                                           (QREFELT $ 34)))))
+                                           (QREFELT $ 31)))))
                          (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
                     (EXIT |res|)))) 
 
@@ -442,12 +437,12 @@
               (SEQ (LETT |ib| 1) (LETT #5# |nb|) G190
                    (COND ((|greater_SI| |ib| #5#) (GO G191)))
                    (SEQ
-                    (LETT |li| (SPADCALL |block_offsets| |ib| (QREFELT $ 28)))
+                    (LETT |li| (SPADCALL |block_offsets| |ib| (QREFELT $ 27)))
                     (LETT |hi|
                           (COND ((EQL |ib| |nb|) |np|)
                                 ('T
                                  (SPADCALL |block_offsets| (+ |ib| 1)
-                                           (QREFELT $ 28)))))
+                                           (QREFELT $ 27)))))
                     (LETT |hi| (- |hi| 1))
                     (LETT |cden| (|VECREC2;lcm| |dens| |li| |hi| $))
                     (SEQ (LETT |i| |li|) (LETT #3# |hi|) G190
@@ -457,7 +452,7 @@
                                 (PROG2
                                     (LETT #1#
                                           (SPADCALL |cden| (QAREF1 |dens| |i|)
-                                                    (QREFELT $ 36)))
+                                                    (QREFELT $ 33)))
                                     (QCDR #1#)
                                   (|check_union2| (QEQCAR #1# 0) (|Integer|)
                                                   (|Union| (|Integer|)
@@ -470,9 +465,9 @@
                     (LETT |cfactor| (|VECREC2;gcd| |res| |li| |hi| $))
                     (EXIT
                      (COND
-                      ((SPADCALL |cfactor| 1 (QREFELT $ 21))
+                      ((SPADCALL |cfactor| 1 (QREFELT $ 20))
                        (COND
-                        ((SPADCALL |cfactor| 0 (QREFELT $ 21))
+                        ((SPADCALL |cfactor| 0 (QREFELT $ 20))
                          (SEQ (LETT |i| |li|) (LETT #2# |hi|) G190
                               (COND ((> |i| #2#) (GO G191)))
                               (SEQ
@@ -483,7 +478,7 @@
                                                      (SPADCALL
                                                       (QAREF1 |res| |i|)
                                                       |cfactor|
-                                                      (QREFELT $ 36)))
+                                                      (QREFELT $ 33)))
                                                (QCDR #1#)
                                              (|check_union2| (QEQCAR #1# 0)
                                                              (|Integer|)
@@ -523,7 +518,7 @@
                     (EXIT
                      (CONS 0
                            (SPADCALL |block_offsets| (QCAR |ppr|) (QCDR |ppr|)
-                                     (QREFELT $ 37))))))))))
+                                     (QREFELT $ 34))))))))))
           #2# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |VectorIntegerReconstructor;|)) 
@@ -555,7 +550,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|VectorIntegerReconstructor|))
-          (LETT $ (GETREFV 40))
+          (LETT $ (GETREFV 37))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|VectorIntegerReconstructor| NIL
@@ -583,17 +578,16 @@
               (7 . |positiveRemainder|) (|Boolean|) (|PrimitiveArray| 9)
               (13 . |empty?|) (|Void|) (|U32Vector|)
               |VECREC2;chinese_update;UvI$V;3| |VECREC2;hensel_update;UvI$V;4|
-              (18 . >) (24 . ~=) (|Record| (|:| |num| 9) (|:| |den| 9))
-              (|Union| 22 '"failed") |VECREC2;rational_reconstruction;4IU;5|
-              (|IntegerRoots| 9) (30 . |approxSqrt|) (|Vector| 9) (35 . |elt|)
-              (|NonNegativeInteger|) (41 . >)
+              (18 . ~=) (|Record| (|:| |num| 9) (|:| |den| 9))
+              (|Union| 21 '"failed") |VECREC2;rational_reconstruction;4IU;5|
+              (|IntegerRoots| 9) (24 . |approxSqrt|) (|Vector| 9) (29 . |elt|)
               (|Record| (|:| |numers| 14) (|:| |denoms| 14))
-              (|Union| 31 '"failed") |VECREC2;rational_reconstruction;$U;7|
-              (47 . |lcm|) (|Union| $ '"failed") (53 . |exquo|)
+              (|Union| 28 '"failed") |VECREC2;rational_reconstruction;$U;7|
+              (35 . |lcm|) (|Union| $ '"failed") (41 . |exquo|)
               |VECREC2;remove_denoms;V3Pa;10| (|Union| 14 '"failed")
               |VECREC2;reconstruct;$VU;11|)
-           '#(|remove_denoms| 59 |reconstruct| 66 |rational_reconstruction| 72
-              |hensel_update| 85 |empty| 92 |chinese_update| 97)
+           '#(|remove_denoms| 47 |reconstruct| 54 |rational_reconstruction| 60
+              |hensel_update| 73 |empty| 80 |chinese_update| 85)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -637,15 +631,14 @@
                                        $$ (|Vector| (|Integer|))))
                                      T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 39
+                        (|makeByteWordVec2| 36
                                             '(3 9 8 0 0 0 10 2 9 0 0 0 12 1 14
-                                              13 0 15 2 9 13 0 0 20 2 9 13 0 0
-                                              21 1 25 9 9 26 2 27 9 0 9 28 2 29
-                                              13 0 0 30 2 9 0 0 0 34 2 9 35 0 0
-                                              36 3 0 14 27 14 14 37 2 0 38 0 27
-                                              39 1 0 32 0 33 4 0 23 9 9 9 9 24
-                                              3 0 16 17 9 0 19 1 0 0 9 11 3 0
-                                              16 17 9 0 18)))))
+                                              13 0 15 2 9 13 0 0 20 1 24 9 9 25
+                                              2 26 9 0 9 27 2 9 0 0 0 31 2 9 32
+                                              0 0 33 3 0 14 26 14 14 34 2 0 35
+                                              0 26 36 1 0 29 0 30 4 0 22 9 9 9
+                                              9 23 3 0 16 17 9 0 19 1 0 0 9 11
+                                              3 0 16 17 9 0 18)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|VectorIntegerReconstructor| 'NILADIC T) 

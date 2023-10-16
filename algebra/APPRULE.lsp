@@ -317,8 +317,7 @@
                                                (QCAR |ee|) $))
                                         (EXIT
                                          (COND
-                                          ((SPADCALL (QCDR |ee|)
-                                                     (QREFELT $ 73))
+                                          ((PLUSP (QCDR |ee|))
                                            (SPADCALL |f|
                                                      (PROG1
                                                          (LETT #3# (QCDR |ee|))
@@ -326,14 +325,14 @@
                                                         (>= #3# 0)
                                                         '(|NonNegativeInteger|)
                                                         '(|Integer|) #3#))
-                                                     (QREFELT $ 75)))
+                                                     (QREFELT $ 73)))
                                           (#20#
                                            (SPADCALL
                                             (PROG2
                                                 (LETT #2#
                                                       (SPADCALL |f|
                                                                 (QREFELT $
-                                                                         77)))
+                                                                         75)))
                                                 (QCDR #2#)
                                               (|check_union2| (QEQCAR #2# 0)
                                                               (QREFELT $ 8)
@@ -346,7 +345,7 @@
                                                                 '(|NonNegativeInteger|)
                                                                 '(|Integer|)
                                                                 #1#))
-                                            (QREFELT $ 75)))))))
+                                            (QREFELT $ 73)))))))
                                   (#20# |subject|)))))))))))))))))
           #18# (EXIT #16#)))) 
 
@@ -376,7 +375,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$| (LIST '|ApplyRules| DV$1 DV$2 DV$3))
-          (LETT $ (GETREFV 78))
+          (LETT $ (GETREFV 76))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ApplyRules| (LIST DV$1 DV$2 DV$3)
@@ -410,11 +409,10 @@
               (|List| 8) (134 . |argument|) (139 . |elt|)
               (|Union| 32 '#1="failed") (145 . |isPlus|) (150 . +)
               (156 . |Zero|) (160 . |isTimes|) (165 . *) (171 . |One|)
-              (|Record| (|:| |val| $) (|:| |exponent| 72)) (|Union| 69 '#1#)
-              (175 . |isPower|) (|Integer|) (180 . |positive?|)
-              (|NonNegativeInteger|) (185 . ^) (|Union| $ '"failed")
-              (191 . |recip|))
-           '#(|applyRules| 196) 'NIL
+              (|Record| (|:| |val| $) (|:| |exponent| (|Integer|)))
+              (|Union| 69 '#1#) (175 . |isPower|) (|NonNegativeInteger|)
+              (180 . ^) (|Union| $ '"failed") (186 . |recip|))
+           '#(|applyRules| 191) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -430,7 +428,7 @@
                                   |#3| (|PositiveInteger|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 77
+                        (|makeByteWordVec2| 75
                                             '(1 10 9 0 11 1 12 8 0 13 1 8 14 0
                                               15 1 12 8 0 16 2 8 17 0 0 18 3 8
                                               0 0 14 0 23 1 26 25 0 27 1 29 0
@@ -444,7 +442,7 @@
                                               57 0 58 1 29 59 0 60 2 8 0 57 32
                                               61 1 8 62 0 63 2 8 0 0 0 64 0 8 0
                                               65 1 8 62 0 66 2 8 0 0 0 67 0 8 0
-                                              68 1 8 70 0 71 1 72 17 0 73 2 8 0
-                                              0 74 75 1 8 76 0 77 3 0 8 19 8 21
-                                              22 2 0 8 19 8 20)))))
+                                              68 1 8 70 0 71 2 8 0 0 72 73 1 8
+                                              74 0 75 3 0 8 19 8 21 22 2 0 8 19
+                                              8 20)))))
            '|lookupComplete|)) 

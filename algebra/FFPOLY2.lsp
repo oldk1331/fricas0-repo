@@ -75,9 +75,7 @@
                                       (EXIT NIL))
                                  (EXIT
                                   (COND
-                                   ((SPADCALL
-                                     (SPADCALL |trModp| (QREFELT $ 39)) 0
-                                     (QREFELT $ 40))
+                                   ((> (SPADCALL |trModp| (QREFELT $ 39)) 0)
                                     (SEQ (LETT |j| 1) (LETT #3# |sizeGF|) G190
                                          (COND
                                           ((|greater_SI| |j| #3#) (GO G191)))
@@ -90,25 +88,25 @@
                                                                       (SPADCALL
                                                                        |j|
                                                                        (QREFELT
-                                                                        $ 41))
+                                                                        $ 40))
                                                                       (QREFELT
                                                                        $ 17))
                                                                      (QREFELT $
-                                                                              42))
+                                                                              41))
                                                                     (QREFELT $
                                                                              38))
-                                                          (QREFELT $ 43)))
+                                                          (QREFELT $ 42)))
                                           (COND
                                            ((SPADCALL
-                                             (SPADCALL |h| (QREFELT $ 44))
+                                             (SPADCALL |h| (QREFELT $ 43))
                                              (|spadConstant| $ 14)
-                                             (QREFELT $ 45))
+                                             (QREFELT $ 44))
                                             (LETT |h|
                                                   (SPADCALL
                                                    (SPADCALL
                                                     (SPADCALL |h|
-                                                              (QREFELT $ 44))
-                                                    (QREFELT $ 46))
+                                                              (QREFELT $ 43))
+                                                    (QREFELT $ 45))
                                                    |h| (QREFELT $ 37)))))
                                           (LETT |degh|
                                                 (SPADCALL |h| (QREFELT $ 39)))
@@ -121,7 +119,7 @@
                                              (LETT |root|
                                                    (SPADCALL
                                                     (SPADCALL |h| 0
-                                                              (QREFELT $ 47))
+                                                              (QREFELT $ 46))
                                                     (QREFELT $ 18))))
                                             ((EQL (- |degSTF| |degh|) 1)
                                              (LETT |root|
@@ -129,21 +127,18 @@
                                                     (SPADCALL
                                                      (SPADCALL |stillToFactor|
                                                                |h|
-                                                               (QREFELT $ 48))
-                                                     0 (QREFELT $ 47))
+                                                               (QREFELT $ 47))
+                                                     0 (QREFELT $ 46))
                                                     (QREFELT $ 18))))
-                                            ((SPADCALL |degh| 1 (QREFELT $ 40))
+                                            ((> |degh| 1)
                                              (COND
                                               ((< |degh| |degSTF|)
                                                (COND
-                                                ((SPADCALL
-                                                  (SPADCALL 2 |degh|
-                                                            (QREFELT $ 49))
-                                                  |degSTF| (QREFELT $ 40))
+                                                ((> (* 2 |degh|) |degSTF|)
                                                  (LETT |stillToFactor|
                                                        (SPADCALL
                                                         |stillToFactor| |h|
-                                                        (QREFELT $ 48))))
+                                                        (QREFELT $ 47))))
                                                 ('T
                                                  (LETT |stillToFactor|
                                                        |h|)))))))))
@@ -181,7 +176,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|FiniteFieldPolynomialPackage2| DV$1 DV$2))
-          (LETT $ (GETREFV 51))
+          (LETT $ (GETREFV 49))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FiniteFieldPolynomialPackage2|
@@ -205,11 +200,11 @@
               (|Vector| $) (|PositiveInteger|) (52 . |basis|) (|Boolean|)
               (57 . |zero?|) (|Integer|) (|Vector| 6) (62 . |elt|) (68 . =)
               (74 . *) (80 . |Frobenius|) (85 . *) (91 . +) (97 . |degree|)
-              (102 . >) (108 . |index|) (113 . |coerce|) (118 . |gcd|)
-              (124 . |leadingCoefficient|) (129 . ~=) (135 . |inv|)
-              (140 . |coefficient|) (146 . |quo|) (152 . *)
+              (102 . |index|) (107 . |coerce|) (112 . |gcd|)
+              (118 . |leadingCoefficient|) (123 . ~=) (129 . |inv|)
+              (134 . |coefficient|) (140 . |quo|)
               |FFPOLY2;rootOfIrreduciblePoly;SupF;1|)
-           '#(|rootOfIrreduciblePoly| 158) 'NIL
+           '#(|rootOfIrreduciblePoly| 146) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -220,7 +215,7 @@
                                  (|#1| (|SparseUnivariatePolynomial| |#2|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 50
+                        (|makeByteWordVec2| 48
                                             '(0 7 8 9 1 10 8 0 11 0 6 0 12 0 7
                                               0 13 0 6 0 14 0 7 0 15 2 10 7 0 8
                                               16 1 6 0 7 17 1 6 0 0 18 2 21 19
@@ -228,9 +223,8 @@
                                               28 1 6 29 0 30 2 32 6 0 31 33 2 6
                                               29 0 0 34 2 19 0 0 6 35 1 6 0 0
                                               36 2 19 0 6 0 37 2 19 0 0 0 38 1
-                                              19 8 0 39 2 8 29 0 0 40 1 7 0 27
-                                              41 1 19 0 6 42 2 19 0 0 0 43 1 19
-                                              6 0 44 2 6 29 0 0 45 1 6 0 0 46 2
-                                              19 6 0 8 47 2 19 0 0 0 48 2 8 0
-                                              27 0 49 1 0 6 10 50)))))
+                                              19 8 0 39 1 7 0 27 40 1 19 0 6 41
+                                              2 19 0 0 0 42 1 19 6 0 43 2 6 29
+                                              0 0 44 1 6 0 0 45 2 19 6 0 8 46 2
+                                              19 0 0 0 47 1 0 6 10 48)))))
            '|lookupComplete|)) 

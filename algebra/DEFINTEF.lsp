@@ -752,12 +752,12 @@
                   (COND
                    (|b1|
                     (COND
-                     ((SPADCALL
+                     ((>
                        (PROG2 (LETT #3# |z|)
                            (QCDR #3#)
                          (|check_union2| (QEQCAR #3# 0) (|Integer|)
                                          (|Union| (|Integer|) #5#) #3#))
-                       0 (QREFELT $ 78))
+                       0)
                       (PROGN (LETT #2# (CONS 0 'T)) (GO #7=#:G357))))))))
             (LETT |z|
                   (SEQ (LETT |r| (SPADCALL |b| (QREFELT $ 51)))
@@ -772,12 +772,12 @@
                   (COND
                    (|b2|
                     (COND
-                     ((SPADCALL
+                     ((>
                        (PROG2 (LETT #3# |z|)
                            (QCDR #3#)
                          (|check_union2| (QEQCAR #3# 0) (|Integer|)
                                          (|Union| (|Integer|) #5#) #3#))
-                       0 (QREFELT $ 78))
+                       0)
                       (PROGN (LETT #2# (CONS 0 'T)) (GO #7#))))))))
             (COND
              (|b1|
@@ -882,12 +882,12 @@
           (|ans| (|SparseUnivariatePolynomial| F)) (#1=#:G388 NIL) (|c| (F)))
          (SEQ
           (EXIT
-           (SEQ (LETT |q| (SPADCALL |p| |x| (QREFELT $ 80)))
-                (LETT |ans| (|spadConstant| $ 81))
+           (SEQ (LETT |q| (SPADCALL |p| |x| (QREFELT $ 79)))
+                (LETT |ans| (|spadConstant| $ 80))
                 (SEQ G190
                      (COND
                       ((NULL
-                        (SPADCALL |q| (|spadConstant| $ 83) (QREFELT $ 84)))
+                        (SPADCALL |q| (|spadConstant| $ 82) (QREFELT $ 83)))
                        (GO G191)))
                      (SEQ
                       (EXIT
@@ -896,10 +896,10 @@
                                    (SPADCALL
                                     (LETT |c|
                                           (SPADCALL
-                                           (SPADCALL |q| (QREFELT $ 85))
-                                           (QREFELT $ 86)))
-                                    (QREFELT $ 88))
-                                   (QREFELT $ 90))
+                                           (SPADCALL |q| (QREFELT $ 84))
+                                           (QREFELT $ 85)))
+                                    (QREFELT $ 87))
+                                   (QREFELT $ 89))
                          (PROGN (LETT #1# (CONS 1 "failed")) (GO #2=#:G387)))
                         ('T
                          (SEQ
@@ -907,10 +907,10 @@
                                 (SPADCALL |ans|
                                           (SPADCALL |c|
                                                     (SPADCALL |q|
-                                                              (QREFELT $ 92))
-                                                    (QREFELT $ 93))
-                                          (QREFELT $ 94)))
-                          (EXIT (LETT |q| (SPADCALL |q| (QREFELT $ 95)))))))))
+                                                              (QREFELT $ 91))
+                                                    (QREFELT $ 92))
+                                          (QREFELT $ 93)))
+                          (EXIT (LETT |q| (SPADCALL |q| (QREFELT $ 94)))))))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 |ans|))))
           #2# (EXIT #1#)))) 
@@ -927,14 +927,13 @@
           (|g| NIL) (|u| (|Union| F (|List| F))))
          (SEQ
           (EXIT
-           (SEQ (LETT |u| (SPADCALL |f| |x| (QREFELT $ 98)))
+           (SEQ (LETT |u| (SPADCALL |f| |x| (QREFELT $ 97)))
                 (EXIT
                  (COND
                   ((QEQCAR |u| 0)
                    (SEQ
                     (LETT |v|
-                          (SPADCALL |k| (QCDR |u|) |a| |b| NIL
-                                    (QREFELT $ 100)))
+                          (SPADCALL |k| (QCDR |u|) |a| |b| NIL (QREFELT $ 99)))
                     (EXIT
                      (COND ((QEQCAR |v| 1) (CONS 2 #1#))
                            (#4='T (CONS 0 (QCDR |v|)))))))
@@ -947,7 +946,7 @@
                              (SEQ
                               (LETT |v|
                                     (SPADCALL |k| |g| |a| |b| NIL
-                                              (QREFELT $ 100)))
+                                              (QREFELT $ 99)))
                               (EXIT
                                (COND
                                 ((QEQCAR |v| 1)
@@ -957,7 +956,7 @@
                                 ('T
                                  (LETT |ans|
                                        (SPADCALL |ans| (LIST (QCDR |v|))
-                                                 (QREFELT $ 102)))))))
+                                                 (QREFELT $ 101)))))))
                              (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                         (EXIT (CONS 1 |ans|))))))))
           #5# (EXIT #2#)))) 
@@ -994,7 +993,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$|
                 (LIST '|ElementaryFunctionDefiniteIntegration| DV$1 DV$2))
-          (LETT $ (GETREFV 103))
+          (LETT $ (GETREFV 102))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache|
@@ -1037,7 +1036,7 @@
               (|Union| 7 '"failed") (|Symbol|) (|OrderedCompletion| 7)
               (|PatternMatchIntegration| 6 7) (0 . |pmintegrate|)
               (8 . |coerce|)
-              (|Union| (|:| |f1| 10) (|:| |f2| 101) (|:| |fail| '#1="failed")
+              (|Union| (|:| |f1| 10) (|:| |f2| 100) (|:| |fail| '#1="failed")
                        (|:| |pole| '#2="potentialPole"))
               (|Boolean|) (13 . |innerint|) (|SegmentBinding| 10)
               (22 . |variable|) (|Segment| 10) (27 . |segment|) (32 . |low|)
@@ -1049,7 +1048,7 @@
               (|SparseUnivariatePolynomial| 7) (72 . |checkForZero|)
               (|Union| (|List| $) '#3="failed")
               (|SparseMultivariatePolynomial| 6 30) (80 . |isTimes|)
-              (|Record| (|:| |var| 30) (|:| |exponent| 91)) (|Union| 41 '#3#)
+              (|Record| (|:| |var| 30) (|:| |exponent| 90)) (|Union| 41 '#3#)
               (85 . |isExpt|) (90 . |is?|) (|Fraction| 72) (96 . |One|)
               (100 . -) (105 . |One|) (109 . |One|) (113 . -)
               (118 . |retractIfCan|) (|SingleInteger|) (123 . |whatInfinity|)
@@ -1059,17 +1058,17 @@
               (176 . |nullary?|) (|List| 7) (181 . |argument|) (186 . -)
               (192 . +) (198 . D) (204 . =) (|Integer|) (210 . |elt|)
               (|Union| 72 '"failed") (|ElementaryFunctionSign| 6 7)
-              (216 . |sign|) (223 . |sign|) (231 . >)
-              (|SparseUnivariatePolynomial| $) (237 . |univariate|)
-              (243 . |Zero|) (|SparseUnivariatePolynomial| 39) (247 . |Zero|)
-              (251 . ~=) (257 . |leadingCoefficient|) (262 . |coerce|)
-              (|List| (|Kernel| $)) (267 . |tower|) (|List| 30)
-              (272 . |member?|) (|NonNegativeInteger|) (278 . |degree|)
-              (283 . |monomial|) (289 . +) (295 . |reductum|) (|Union| 7 66)
-              (|FunctionSpaceIntegration| 6 7) (300 . |integrate|)
-              (|Union| 10 '"failed") (306 . |computeInt|) (|List| 10)
-              (315 . |concat!|))
-           '#(|integrate| 321 |innerint| 334) 'NIL
+              (216 . |sign|) (223 . |sign|) (|SparseUnivariatePolynomial| $)
+              (231 . |univariate|) (237 . |Zero|)
+              (|SparseUnivariatePolynomial| 39) (241 . |Zero|) (245 . ~=)
+              (251 . |leadingCoefficient|) (256 . |coerce|)
+              (|List| (|Kernel| $)) (261 . |tower|) (|List| 30)
+              (266 . |member?|) (|NonNegativeInteger|) (272 . |degree|)
+              (277 . |monomial|) (283 . +) (289 . |reductum|) (|Union| 7 66)
+              (|FunctionSpaceIntegration| 6 7) (294 . |integrate|)
+              (|Union| 10 '"failed") (300 . |computeInt|) (|List| 10)
+              (309 . |concat!|))
+           '#(|integrate| 315 |innerint| 328) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -1106,7 +1105,7 @@
                                   (|OrderedCompletion| |#2|) (|Boolean|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 102
+                        (|makeByteWordVec2| 101
                                             '(4 11 8 7 9 10 10 12 1 10 0 7 13 5
                                               0 14 7 9 10 10 15 16 1 17 9 0 18
                                               1 17 19 0 20 1 19 10 0 21 1 19 10
@@ -1124,13 +1123,13 @@
                                               0 0 0 68 2 7 0 0 0 69 2 7 0 0 9
                                               70 2 7 15 0 0 71 2 66 7 0 72 73 3
                                               75 74 7 9 10 76 4 75 74 7 9 7 24
-                                              77 2 72 15 0 0 78 2 39 79 0 30 80
-                                              0 36 0 81 0 82 0 83 2 82 15 0 0
-                                              84 1 82 39 0 85 1 7 0 32 86 1 7
-                                              87 0 88 2 89 15 30 0 90 1 82 91 0
-                                              92 2 36 0 7 91 93 2 36 0 0 0 94 1
-                                              82 0 0 95 2 97 96 7 9 98 5 25 99
-                                              30 7 10 10 15 100 2 101 0 0 0 102
-                                              2 0 14 7 17 23 3 0 14 7 17 24 27
-                                              5 0 14 7 9 10 10 15 16)))))
+                                              77 2 39 78 0 30 79 0 36 0 80 0 81
+                                              0 82 2 81 15 0 0 83 1 81 39 0 84
+                                              1 7 0 32 85 1 7 86 0 87 2 88 15
+                                              30 0 89 1 81 90 0 91 2 36 0 7 90
+                                              92 2 36 0 0 0 93 1 81 0 0 94 2 96
+                                              95 7 9 97 5 25 98 30 7 10 10 15
+                                              99 2 100 0 0 0 101 2 0 14 7 17 23
+                                              3 0 14 7 17 24 27 5 0 14 7 9 10
+                                              10 15 16)))))
            '|lookupComplete|)) 

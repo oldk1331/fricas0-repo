@@ -542,7 +542,7 @@
               (LETT |degp| (|GOSPER;deg0| |pn| |n| $))
               (LETT |k| (- |degp| (MAX (- |lplus| 1) |lminus|)))
               (EXIT
-               (COND ((SPADCALL |lplus| |lminus| (QREFELT $ 97)) |k|)
+               (COND ((<= |lplus| |lminus|) |k|)
                      (#4='T
                       (SEQ
                        (LETT |kk| (SPADCALL (SPADCALL |newV|) (QREFELT $ 43)))
@@ -577,7 +577,7 @@
                               $))
                        (LETT |k0|
                              (|GOSPER;linearAndNNIntRoot| |lcpk|
-                              (PROG2 (LETT #1# (SPADCALL |kk| (QREFELT $ 99)))
+                              (PROG2 (LETT #1# (SPADCALL |kk| (QREFELT $ 98)))
                                   (QCDR #1#)
                                 (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                                 (|Union| (QREFELT $ 7)
@@ -600,23 +600,23 @@
           (|vlist| (|List| V)))
          (SEQ
           (COND
-           ((NULL (SPADCALL |nom| (QREFELT $ 100)))
+           ((NULL (SPADCALL |nom| (QREFELT $ 99)))
             (|error| "pCoef requires a monomial 2nd arg"))
            ('T
-            (SEQ (LETT |vlist| (SPADCALL |nom| (QREFELT $ 102)))
+            (SEQ (LETT |vlist| (SPADCALL |nom| (QREFELT $ 101)))
                  (SEQ (LETT |v| NIL) (LETT #2# |vlist|) G190
                       (COND
                        ((OR (ATOM #2#) (PROGN (LETT |v| (CAR #2#)) NIL)
                             (NULL
                              (SPADCALL |p| (|spadConstant| $ 60)
-                                       (QREFELT $ 103))))
+                                       (QREFELT $ 102))))
                         (GO G191)))
                       (SEQ (LETT |unom| (SPADCALL |nom| |v| (QREFELT $ 63)))
                            (LETT |pow| (SPADCALL |unom| (QREFELT $ 65)))
                            (LETT |nom| (SPADCALL |unom| (QREFELT $ 71)))
                            (LETT |up| (SPADCALL |p| |v| (QREFELT $ 63)))
                            (EXIT
-                            (LETT |p| (SPADCALL |up| |pow| (QREFELT $ 104)))))
+                            (LETT |p| (SPADCALL |up| |pow| (QREFELT $ 103)))))
                       (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                  (EXIT |p|))))))) 
 
@@ -632,7 +632,7 @@
          (SEQ (LETT |p| (SPADCALL |mp| |v| (QREFELT $ 63)))
               (EXIT
                (COND
-                ((SPADCALL (SPADCALL |p| (QREFELT $ 65)) 1 (QREFELT $ 105))
+                ((SPADCALL (SPADCALL |p| (QREFELT $ 65)) 1 (QREFELT $ 104))
                  (CONS 1 "failed"))
                 (#3='T
                  (SEQ
@@ -640,8 +640,8 @@
                    (SEQ
                     (SEQ
                      (LETT |p1|
-                           (SPADCALL (SPADCALL |p| 1 (QREFELT $ 104))
-                                     (QREFELT $ 106)))
+                           (SPADCALL (SPADCALL |p| 1 (QREFELT $ 103))
+                                     (QREFELT $ 105)))
                      (EXIT
                       (COND
                        ((QEQCAR |p1| 1)
@@ -649,23 +649,23 @@
                        (#3#
                         (SEQ
                          (LETT |p0|
-                               (SPADCALL (SPADCALL |p| 0 (QREFELT $ 104))
-                                         (QREFELT $ 106)))
+                               (SPADCALL (SPADCALL |p| 0 (QREFELT $ 103))
+                                         (QREFELT $ 105)))
                          (EXIT
                           (COND
                            ((QEQCAR |p0| 1)
                             (PROGN (LETT #1# (CONS 1 #4#)) (GO #5#))))))))))
                     (LETT |rt|
                           (SPADCALL
-                           (SPADCALL (QCDR |p0|) (QCDR |p1|) (QREFELT $ 107))
-                           (QREFELT $ 108)))
+                           (SPADCALL (QCDR |p0|) (QCDR |p1|) (QREFELT $ 106))
+                           (QREFELT $ 107)))
                     (COND
                      ((OR
-                       (SPADCALL |rt| (|spadConstant| $ 109) (QREFELT $ 110))
-                       (SPADCALL (SPADCALL |rt| (QREFELT $ 111)) 1
-                                 (QREFELT $ 105)))
+                       (SPADCALL |rt| (|spadConstant| $ 108) (QREFELT $ 109))
+                       (SPADCALL (SPADCALL |rt| (QREFELT $ 110)) 1
+                                 (QREFELT $ 104)))
                       (EXIT (CONS 1 "failed"))))
-                    (EXIT (CONS 0 (SPADCALL |rt| (QREFELT $ 112))))))
+                    (EXIT (CONS 0 (SPADCALL |rt| (QREFELT $ 111))))))
                   #5# (EXIT #1#)))))))) 
 
 (DECLAIM (NOTINLINE |GosperSummationMethod;|)) 
@@ -700,7 +700,7 @@
     (LETT DV$4 (|devaluate| |#4|))
     (LETT DV$5 (|devaluate| |#5|))
     (LETT |dv$| (LIST '|GosperSummationMethod| DV$1 DV$2 DV$3 DV$4 DV$5))
-    (LETT $ (GETREFV 113))
+    (LETT $ (GETREFV 112))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|GosperSummationMethod|
@@ -746,12 +746,12 @@
               (268 . |factor|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 89) (|:| |factor| 12) (|:| |exponent| 16))
               (|List| 90) (273 . |factorList|) (278 . |coerce|) (283 . |gcd|)
-              (|Union| $ '"failed") (289 . |exquo|) (295 . <=)
-              (|Union| 7 '"failed") (301 . |mainVariable|) (306 . |monomial?|)
-              (|List| 7) (311 . |variables|) (316 . ~=) (322 . |coefficient|)
-              (328 . ~=) (334 . |retractIfCan|) (339 . /) (345 . -)
-              (350 . |Zero|) (354 . <) (360 . |denom|) (365 . |numer|))
-           '#(|GospersMethod| 370) 'NIL
+              (|Union| $ '"failed") (289 . |exquo|) (|Union| 7 '"failed")
+              (295 . |mainVariable|) (300 . |monomial?|) (|List| 7)
+              (305 . |variables|) (310 . ~=) (316 . |coefficient|) (322 . ~=)
+              (328 . |retractIfCan|) (333 . /) (339 . -) (344 . |Zero|)
+              (348 . <) (354 . |denom|) (359 . |numer|))
+           '#(|GospersMethod| 364) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -763,7 +763,7 @@
                                   (|Mapping| |#2|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 112
+                        (|makeByteWordVec2| 111
                                             '(1 12 11 0 13 0 8 0 14 0 9 0 15 2
                                               12 16 0 7 17 1 9 0 8 18 1 10 0 9
                                               19 1 10 20 0 21 1 22 12 0 23 1 22
@@ -786,11 +786,11 @@
                                               83 2 22 0 0 0 84 3 12 0 0 0 7 85
                                               1 87 86 12 88 1 86 91 0 92 1 12 0
                                               74 93 2 12 0 0 0 94 2 12 95 0 0
-                                              96 2 74 11 0 0 97 1 12 98 0 99 1
-                                              12 11 0 100 1 12 101 0 102 2 12
-                                              11 0 0 103 2 64 12 0 16 104 2 74
-                                              11 0 0 105 1 12 20 0 106 2 27 0 0
-                                              0 107 1 27 0 0 108 0 27 0 109 2
-                                              27 11 0 0 110 1 27 74 0 111 1 27
-                                              74 0 112 3 0 33 10 7 34 35)))))
+                                              96 1 12 97 0 98 1 12 11 0 99 1 12
+                                              100 0 101 2 12 11 0 0 102 2 64 12
+                                              0 16 103 2 74 11 0 0 104 1 12 20
+                                              0 105 2 27 0 0 0 106 1 27 0 0 107
+                                              0 27 0 108 2 27 11 0 0 109 1 27
+                                              74 0 110 1 27 74 0 111 3 0 33 10
+                                              7 34 35)))))
            '|lookupComplete|)) 

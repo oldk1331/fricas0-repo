@@ -331,10 +331,10 @@
                       (SEQ
                        (EXIT
                         (COND
-                         ((SPADCALL |ind| |dim| (QREFELT $ 62))
+                         ((<= |ind| |dim|)
                           (COND
-                           ((SPADCALL (SPADCALL M |ind| |k| (QREFELT $ 63))
-                                      (|spadConstant| $ 20) (QREFELT $ 64))
+                           ((SPADCALL (SPADCALL M |ind| |k| (QREFELT $ 62))
+                                      (|spadConstant| $ 20) (QREFELT $ 63))
                             (LETT |ind| (+ |ind| 1))))))))
                       (LETT |k| (PROG1 (|inc_SI| |k|) (LETT #4# (CDR #4#))))
                       (GO G190) G191 (EXIT NIL))
@@ -348,10 +348,10 @@
                       (SEQ
                        (EXIT
                         (COND
-                         ((SPADCALL |ind| |dim| (QREFELT $ 62))
+                         ((<= |ind| |dim|)
                           (COND
-                           ((SPADCALL (SPADCALL M |ind| |k| (QREFELT $ 63))
-                                      (|spadConstant| $ 20) (QREFELT $ 64))
+                           ((SPADCALL (SPADCALL M |ind| |k| (QREFELT $ 62))
+                                      (|spadConstant| $ 20) (QREFELT $ 63))
                             (SEQ (LETT RES (CONS |v| RES))
                                  (EXIT (LETT |ind| (+ |ind| 1))))))))))
                       (LETT |k| (PROG1 (+ |k| 1) (LETT #2# (CDR #2#))))
@@ -365,7 +365,7 @@
          ((SPADCALL |n| (QVSIZE (SPADCALL |Lv| 1 (QREFELT $ 19)))
                     (QREFELT $ 23))
           (|error| "Inconsistant vector length in complementSpace"))
-         ('T (SPADCALL |Lv| (QREFELT $ 66))))) 
+         ('T (SPADCALL |Lv| (QREFELT $ 65))))) 
 
 (SDEFUN |VSBASIS;complementSpace;2$;29| ((B $) ($ $))
         (SPROG
@@ -399,10 +399,10 @@
                       (SEQ
                        (EXIT
                         (COND
-                         ((SPADCALL |ind| |dim| (QREFELT $ 62))
+                         ((<= |ind| |dim|)
                           (COND
-                           ((SPADCALL (SPADCALL M |ind| |k| (QREFELT $ 63))
-                                      (|spadConstant| $ 20) (QREFELT $ 64))
+                           ((SPADCALL (SPADCALL M |ind| |k| (QREFELT $ 62))
+                                      (|spadConstant| $ 20) (QREFELT $ 63))
                             (SEQ (LETT RES (CONS |v| RES))
                                  (EXIT (LETT |ind| (+ |ind| 1))))))))))
                       (LETT |k| (PROG1 (+ |k| 1) (LETT #2# (CDR #2#))))
@@ -415,21 +415,21 @@
               ((SPADCALL |n| (QVSIZE (SPADCALL B 1 (QREFELT $ 19)))
                          (QREFELT $ 23))
                (|error| "Inconsistant vector length in complementSpace"))
-              ('T (SPADCALL B (QREFELT $ 66))))) 
+              ('T (SPADCALL B (QREFELT $ 65))))) 
 
 (SDEFUN |VSBASIS;member?;V$B;31| ((|v| |Vector| R) (B $) ($ |Boolean|))
-        (SPADCALL (|VSBASIS;column2matrix| B $) |v| (QREFELT $ 70))) 
+        (SPADCALL (|VSBASIS;column2matrix| B $) |v| (QREFELT $ 69))) 
 
 (SDEFUN |VSBASIS;coordinatesIfCan;V$U;32|
         ((|v| |Vector| R) (B $) ($ |Union| (|Vector| R) "failed"))
-        (SPADCALL (|VSBASIS;column2matrix| B $) |v| (QREFELT $ 73))) 
+        (SPADCALL (|VSBASIS;column2matrix| B $) |v| (QREFELT $ 72))) 
 
 (SDEFUN |VSBASIS;coordinates;V$V;33| ((V |Vector| R) (B $) ($ |Vector| R))
         (SPROG ((|res| (|Union| (|Vector| R) "failed")))
                (SEQ
                 (LETT |res|
                       (SPADCALL (|VSBASIS;column2matrix| B $) V
-                                (QREFELT $ 73)))
+                                (QREFELT $ 72)))
                 (EXIT
                  (COND
                   ((QEQCAR |res| 1) (|error| "Vector not in the subspace"))
@@ -459,7 +459,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|VectorSpaceBasis| DV$1))
-          (LETT $ (GETREFV 76))
+          (LETT $ (GETREFV 75))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|VectorSpaceBasis| (LIST DV$1)
@@ -491,24 +491,24 @@
               |VSBASIS;rank;$Nni;21| |VSBASIS;rank;LNni;22|
               |VSBASIS;isBasis?;LB;23| |VSBASIS;subspace?;2$B;24|
               |VSBASIS;=;2$B;25| |VSBASIS;canonicalBasis;Nni$;26|
-              (116 . |rowEchelon|) (121 . <=) (127 . |elt|) (134 . ~=)
+              (116 . |rowEchelon|) (121 . |elt|) (128 . ~=)
               |VSBASIS;complementSpace;L$;27| |VSBASIS;complementSpace;2$;29|
               |VSBASIS;complementSpace;LNni$;28|
               |VSBASIS;complementSpace;$Nni$;30|
-              (|LinearSystemMatrixPackage1| 6) (140 . |hasSolution?|)
+              (|LinearSystemMatrixPackage1| 6) (134 . |hasSolution?|)
               |VSBASIS;member?;V$B;31| (|Union| 17 '"failed")
-              (146 . |particularSolution|) |VSBASIS;coordinatesIfCan;V$U;32|
+              (140 . |particularSolution|) |VSBASIS;coordinatesIfCan;V$U;32|
               |VSBASIS;coordinates;V$V;33|)
-           '#(~= 152 |sumBasis| 158 |subspace?| 180 |rank| 186 |nullSpace| 196
-              |member?| 201 |isBasis?| 207 |intBasis| 212 |coordinatesIfCan|
-              234 |coordinates| 240 |complementSpace| 246 |columnSpace| 268
-              |coerce| 273 |canonicalBasis| 283 |basis| 288 |Zero| 293 = 297 +
-              303 * 309)
+           '#(~= 146 |sumBasis| 152 |subspace?| 174 |rank| 180 |nullSpace| 190
+              |member?| 195 |isBasis?| 201 |intBasis| 206 |coordinatesIfCan|
+              228 |coordinates| 234 |complementSpace| 240 |columnSpace| 262
+              |coerce| 267 |canonicalBasis| 277 |basis| 282 |Zero| 287 = 291 +
+              297 * 303)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0))
                  (CONS '#(|BasicType&| NIL)
                        (CONS '#((|BasicType|) (|CoercibleTo| 11))
-                             (|makeByteWordVec2| 75
+                             (|makeByteWordVec2| 74
                                                  '(1 11 0 10 12 1 5 11 0 13 2
                                                    11 0 0 0 14 0 6 0 16 2 7 17
                                                    0 18 19 0 6 0 20 2 22 21 0 0
@@ -519,21 +519,20 @@
                                                    6 0 0 0 43 3 17 6 0 18 6 44
                                                    2 36 5 0 18 47 1 49 22 0 50
                                                    2 49 2 0 18 51 1 49 0 0 52 1
-                                                   24 0 0 61 2 22 21 0 0 62 3
-                                                   24 6 0 18 18 63 2 6 21 0 0
-                                                   64 2 69 21 24 17 70 2 69 72
-                                                   24 17 73 2 0 21 0 0 1 1 0 0
-                                                   36 37 2 0 0 5 5 32 1 0 0 34
-                                                   39 2 0 0 0 0 33 2 0 21 0 0
-                                                   58 1 0 22 5 56 1 0 22 0 55 1
-                                                   0 0 24 30 2 0 21 17 0 71 1 0
-                                                   21 5 57 1 0 0 36 48 1 0 0 34
-                                                   53 2 0 0 5 5 45 2 0 0 0 0 46
-                                                   2 0 72 17 0 74 2 0 17 17 0
-                                                   75 1 0 0 5 65 2 0 0 5 22 67
-                                                   1 0 0 0 66 2 0 0 0 22 68 1 0
-                                                   0 24 28 1 0 5 0 9 1 0 11 0
-                                                   15 1 0 0 22 60 1 0 0 5 27 0
-                                                   0 0 8 2 0 21 0 0 59 2 0 0 0
-                                                   0 40 2 0 0 0 0 54)))))
+                                                   24 0 0 61 3 24 6 0 18 18 62
+                                                   2 6 21 0 0 63 2 68 21 24 17
+                                                   69 2 68 71 24 17 72 2 0 21 0
+                                                   0 1 1 0 0 36 37 2 0 0 5 5 32
+                                                   1 0 0 34 39 2 0 0 0 0 33 2 0
+                                                   21 0 0 58 1 0 22 5 56 1 0 22
+                                                   0 55 1 0 0 24 30 2 0 21 17 0
+                                                   70 1 0 21 5 57 1 0 0 36 48 1
+                                                   0 0 34 53 2 0 0 5 5 45 2 0 0
+                                                   0 0 46 2 0 71 17 0 73 2 0 17
+                                                   17 0 74 1 0 0 5 64 2 0 0 5
+                                                   22 66 1 0 0 0 65 2 0 0 0 22
+                                                   67 1 0 0 24 28 1 0 5 0 9 1 0
+                                                   11 0 15 1 0 0 22 60 1 0 0 5
+                                                   27 0 0 0 8 2 0 21 0 0 59 2 0
+                                                   0 0 0 40 2 0 0 0 0 54)))))
            '|lookupComplete|)) 

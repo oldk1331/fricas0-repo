@@ -262,11 +262,7 @@
                                                           (LETT |k1| |k|)
                                                           (EXIT
                                                            (LETT |k|
-                                                                 (SPADCALL 2
-                                                                           |k|
-                                                                           (QREFELT
-                                                                            $
-                                                                            37)))))))
+                                                                 (* 2 |k|))))))
                                                        (LETT |c|
                                                              (SPADCALL |p1|
                                                                        (- |dp|
@@ -353,7 +349,7 @@
 
 (SDEFUN |UPDECOMP;monicRightFactorIfCan;UPNniU;3|
         ((|p| UP) (|dq| |NonNegativeInteger|) ($ |Union| UP "failed"))
-        (SPADCALL |p| |dq| (|spadConstant| $ 10) (QREFELT $ 39))) 
+        (SPADCALL |p| |dq| (|spadConstant| $ 10) (QREFELT $ 37))) 
 
 (SDEFUN |UPDECOMP;leftFactorIfCan;2UPU;4|
         ((|f| UP) (|h| UP) ($ |Union| UP "failed"))
@@ -373,10 +369,10 @@
                         (SEQ
                          (SEQ (LETT |i| 0) G190
                               (COND
-                               ((NULL (NULL (SPADCALL |f| (QREFELT $ 41))))
+                               ((NULL (NULL (SPADCALL |f| (QREFELT $ 39))))
                                 (GO G191)))
                               (SEQ
-                               (LETT |qrf| (SPADCALL |f| |h| (QREFELT $ 45)))
+                               (LETT |qrf| (SPADCALL |f| |h| (QREFELT $ 43)))
                                (EXIT
                                 (COND
                                  ((QEQCAR |qrf| 1)
@@ -387,7 +383,7 @@
                                   (SEQ (LETT |qr| (QCDR |qrf|))
                                        (LETT |r| (QCDR |qr|))
                                        (COND
-                                        ((NULL (SPADCALL |r| (QREFELT $ 46)))
+                                        ((NULL (SPADCALL |r| (QREFELT $ 44)))
                                          (EXIT
                                           (PROGN
                                            (LETT #1# (CONS 1 "failed"))
@@ -397,7 +393,7 @@
                                                        (SPADCALL
                                                         (SPADCALL |r|
                                                                   (QREFELT $
-                                                                           47))
+                                                                           45))
                                                         |i| (QREFELT $ 15))
                                                        (QREFELT $ 24)))
                                        (EXIT (LETT |f| (QCAR |qr|))))))))
@@ -439,14 +435,14 @@
                                  ((ZEROP (REM |df| |dh|))
                                   (SEQ
                                    (LETT |h|
-                                         (SPADCALL |f| |dh| (QREFELT $ 40)))
+                                         (SPADCALL |f| |dh| (QREFELT $ 38)))
                                    (EXIT
                                     (COND
                                      ((QEQCAR |h| 0)
                                       (SEQ
                                        (LETT |g|
                                              (SPADCALL |f| (QCDR |h|)
-                                                       (QREFELT $ 48)))
+                                                       (QREFELT $ 46)))
                                        (EXIT
                                         (COND
                                          ((QEQCAR |g| 0)
@@ -466,14 +462,14 @@
          ((|lr| (|Record| (|:| |left| UP) (|:| |right| UP)))
           (|cf|
            (|Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed")))
-         (SEQ (LETT |cf| (SPADCALL |f| (QREFELT $ 51)))
+         (SEQ (LETT |cf| (SPADCALL |f| (QREFELT $ 49)))
               (EXIT
                (COND ((QEQCAR |cf| 1) (LIST |f|))
                      ('T
                       (SEQ (LETT |lr| (QCDR |cf|))
                            (EXIT
-                            (SPADCALL (SPADCALL (QCAR |lr|) (QREFELT $ 53))
-                                      (LIST (QCDR |lr|)) (QREFELT $ 54)))))))))) 
+                            (SPADCALL (SPADCALL (QCAR |lr|) (QREFELT $ 51))
+                                      (LIST (QCDR |lr|)) (QREFELT $ 52)))))))))) 
 
 (SDEFUN |UPDECOMP;decomposeIfCan;UPU;7|
         ((|f| UP)
@@ -484,8 +480,8 @@
            (|Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed"))
           (|lc| (R)))
          (SEQ (LETT |lc| (SPADCALL |f| (QREFELT $ 14)))
-              (LETT |f| (SPADCALL |f| |lc| (QREFELT $ 55)))
-              (LETT |res1| (SPADCALL |f| (QREFELT $ 51)))
+              (LETT |f| (SPADCALL |f| |lc| (QREFELT $ 53)))
+              (LETT |res1| (SPADCALL |f| (QREFELT $ 49)))
               (EXIT
                (COND ((QEQCAR |res1| 1) (CONS 1 "failed"))
                      ('T
@@ -499,8 +495,8 @@
 (SDEFUN |UPDECOMP;completeDecompose;UPL;8| ((|f| UP) ($ |List| UP))
         (SPROG ((|res1| (|List| UP)) (|lc| (R)))
                (SEQ (LETT |lc| (SPADCALL |f| (QREFELT $ 14)))
-                    (LETT |f| (SPADCALL |f| |lc| (QREFELT $ 55)))
-                    (LETT |res1| (SPADCALL |f| (QREFELT $ 53)))
+                    (LETT |f| (SPADCALL |f| |lc| (QREFELT $ 53)))
+                    (LETT |res1| (SPADCALL |f| (QREFELT $ 51)))
                     (EXIT
                      (CONS (SPADCALL |lc| (|SPADfirst| |res1|) (QREFELT $ 34))
                            (CDR |res1|)))))) 
@@ -537,7 +533,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$|
                 (LIST '|UnivariatePolynomialDecompositionPackage| DV$1 DV$2))
-          (LETT $ (GETREFV 58))
+          (LETT $ (GETREFV 56))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -556,11 +552,11 @@
           (COND
            ((|testBitVector| |pv$| 1)
             (PROGN
-             (QSETREFV $ 56
+             (QSETREFV $ 54
                        (CONS
                         (|dispatchFunction| |UPDECOMP;decomposeIfCan;UPU;7|)
                         $))
-             (QSETREFV $ 57
+             (QSETREFV $ 55
                        (CONS
                         (|dispatchFunction| |UPDECOMP;completeDecompose;UPL;8|)
                         $)))))
@@ -576,23 +572,23 @@
               (57 . |coefficient|) (63 . |exquo|) (69 . +)
               (75 . |characteristic|) '|char_R| (|Boolean|) (79 . |zero?|)
               (84 . |exquo|) (90 . |Zero|) (94 . =) (100 . ^) (106 . *)
-              (112 . *) (118 . -) (|PositiveInteger|) (124 . *)
-              (|Union| 7 '#1="failed") |UPDECOMP;rightFactorIfCan;UPNniRU;2|
-              |UPDECOMP;monicRightFactorIfCan;UPNniU;3| (130 . |zero?|)
+              (112 . *) (118 . -) (|Union| 7 '#1="failed")
+              |UPDECOMP;rightFactorIfCan;UPNniRU;2|
+              |UPDECOMP;monicRightFactorIfCan;UPNniU;3| (124 . |zero?|)
               (|Record| (|:| |quotient| 7) (|:| |remainder| 7))
-              (|Union| 42 '"failed")
-              (|UnivariatePolynomialDivisionPackage| 6 7) (135 . |divideIfCan|)
-              (141 . |ground?|) (146 . |ground|)
+              (|Union| 40 '"failed")
+              (|UnivariatePolynomialDivisionPackage| 6 7) (129 . |divideIfCan|)
+              (135 . |ground?|) (140 . |ground|)
               |UPDECOMP;leftFactorIfCan;2UPU;4|
               (|Record| (|:| |left| 7) (|:| |right| 7))
-              (|Union| 49 '#2="failed") |UPDECOMP;monicDecomposeIfCan;UPU;5|
+              (|Union| 47 '#2="failed") |UPDECOMP;monicDecomposeIfCan;UPU;5|
               (|List| 7) |UPDECOMP;monicCompleteDecompose;UPL;6|
-              (151 . |append|) (157 . /) (163 . |decomposeIfCan|)
-              (168 . |completeDecompose|))
-           '#(|rightFactorIfCan| 173 |monicRightFactorIfCan| 180
-              |monicDecomposeIfCan| 186 |monicCompleteDecompose| 191
-              |leftFactorIfCan| 196 |decomposeIfCan| 202 |completeDecompose|
-              207)
+              (145 . |append|) (151 . /) (157 . |decomposeIfCan|)
+              (162 . |completeDecompose|))
+           '#(|rightFactorIfCan| 167 |monicRightFactorIfCan| 174
+              |monicDecomposeIfCan| 180 |monicCompleteDecompose| 185
+              |leftFactorIfCan| 190 |decomposeIfCan| 196 |completeDecompose|
+              201)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -630,7 +626,7 @@
                               '((|completeDecompose| ((|List| |#2|) |#2|))
                                 (|has| 6 (|Field|))))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 57
+                        (|makeByteWordVec2| 55
                                             '(1 7 8 0 9 0 6 0 10 0 7 0 11 2 8
                                               12 0 0 13 1 7 6 0 14 2 7 0 6 8 15
                                               0 6 0 16 1 6 0 17 18 2 6 0 0 0 19
@@ -639,11 +635,11 @@
                                               6 8 25 1 6 27 0 28 2 8 12 0 0 29
                                               0 7 0 30 2 6 27 0 0 31 2 7 0 0 8
                                               32 2 7 0 0 0 33 2 7 0 6 0 34 2 7
-                                              0 0 0 35 2 8 0 36 0 37 1 7 27 0
-                                              41 2 44 43 7 7 45 1 7 27 0 46 1 7
-                                              6 0 47 2 52 0 0 0 54 2 7 0 0 6 55
-                                              1 0 50 7 56 1 0 52 7 57 3 0 38 7
-                                              8 6 39 2 0 38 7 8 40 1 0 50 7 51
-                                              1 0 52 7 53 2 0 38 7 7 48 1 1 50
-                                              7 56 1 1 52 7 57)))))
+                                              0 0 0 35 1 7 27 0 39 2 42 41 7 7
+                                              43 1 7 27 0 44 1 7 6 0 45 2 50 0
+                                              0 0 52 2 7 0 0 6 53 1 0 48 7 54 1
+                                              0 50 7 55 3 0 36 7 8 6 37 2 0 36
+                                              7 8 38 1 0 48 7 49 1 0 50 7 51 2
+                                              0 36 7 7 46 1 1 48 7 54 1 1 50 7
+                                              55)))))
            '|lookupComplete|)) 

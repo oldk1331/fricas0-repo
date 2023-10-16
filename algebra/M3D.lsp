@@ -142,10 +142,8 @@
                ((OR
                  (OR
                   (OR
-                   (OR
-                    (OR (SPADCALL |i| |iLength| (QREFELT $ 26))
-                        (SPADCALL |j| |jLength| (QREFELT $ 26)))
-                    (SPADCALL |k| |kLength| (QREFELT $ 26)))
+                   (OR (OR (> |i| |iLength|) (> |j| |jLength|))
+                       (> |k| |kLength|))
                    (EQL |i| 0))
                   (EQL |j| 0))
                  (EQL |k| 0))
@@ -175,10 +173,8 @@
                ((OR
                  (OR
                   (OR
-                   (OR
-                    (OR (SPADCALL |i| |iLength| (QREFELT $ 26))
-                        (SPADCALL |j| |jLength| (QREFELT $ 26)))
-                    (SPADCALL |k| |kLength| (QREFELT $ 26)))
+                   (OR (OR (> |i| |iLength|) (> |j| |jLength|))
+                       (> |k| |kLength|))
                    (EQL |i| 0))
                   (EQL |j| 0))
                  (EQL |k| 0))
@@ -188,7 +184,7 @@
               (LETT |matrixRep| (SPADCALL |mat| (QREFELT $ 12)))
               (LETT |row2|
                     (SPADCALL (QAREF1 |matrixRep| (- |i| 1)) (QREFELT $ 18)))
-              (LETT |row1| (SPADCALL (QAREF1 |row2| (- |j| 1)) (QREFELT $ 28)))
+              (LETT |row1| (SPADCALL (QAREF1 |row2| (- |j| 1)) (QREFELT $ 26)))
               (QSETAREF1 |row1| (- |k| 1) |val|)
               (QSETAREF1 |row2| (- |j| 1) |row1|)
               (QSETAREF1 |matrixRep| (- |i| 1) |row2|) (EXIT |val|)))) 
@@ -199,7 +195,7 @@
         (SPADCALL
          (MAKEARR1 |iLength|
                    (MAKEARR1 |jLength|
-                             (MAKEARR1 |kLength| (|spadConstant| $ 30))))
+                             (MAKEARR1 |kLength| (|spadConstant| $ 28))))
          (QREFELT $ 15))) 
 
 (SDEFUN |M3D;identityMatrix;Nni$;8| ((|iLength| |NonNegativeInteger|) ($ $))
@@ -213,17 +209,17 @@
          (SEQ
           (LETT |retValueRep|
                 (SPADCALL
-                 (SPADCALL |iLength| |iLength| |iLength| (QREFELT $ 31))
+                 (SPADCALL |iLength| |iLength| |iLength| (QREFELT $ 29))
                  (QREFELT $ 12)))
-          (LETT |row1empty| (MAKEARR1 |iLength| (|spadConstant| $ 30)))
+          (LETT |row1empty| (MAKEARR1 |iLength| (|spadConstant| $ 28)))
           (LETT |row2empty|
-                (MAKEARR1 |iLength| (SPADCALL |row1empty| (QREFELT $ 28))))
+                (MAKEARR1 |iLength| (SPADCALL |row1empty| (QREFELT $ 26))))
           (SEQ (LETT |count| 0) (LETT #1# (- |iLength| 1)) G190
                (COND ((|greater_SI| |count| #1#) (GO G191)))
-               (SEQ (LETT |row1| (SPADCALL |row1empty| (QREFELT $ 28)))
-                    (QSETAREF1 |row1| |count| (|spadConstant| $ 32))
+               (SEQ (LETT |row1| (SPADCALL |row1empty| (QREFELT $ 26)))
+                    (QSETAREF1 |row1| |count| (|spadConstant| $ 30))
                     (LETT |row2| (SPADCALL |row2empty| (QREFELT $ 18)))
-                    (QSETAREF1 |row2| |count| (SPADCALL |row1| (QREFELT $ 28)))
+                    (QSETAREF1 |row2| |count| (SPADCALL |row1| (QREFELT $ 26)))
                     (EXIT
                      (QSETAREF1 |retValueRep| |count|
                                 (SPADCALL |row2| (QREFELT $ 18)))))
@@ -258,9 +254,9 @@
                      (|error| #6="error the matrices are different sizes")))))
                  (#7='T (EXIT (|error| #6#)))))
                (#7# (EXIT (|error| #6#))))
-              (LETT |row1| (MAKEARR1 |kLength1| (|spadConstant| $ 30)))
+              (LETT |row1| (MAKEARR1 |kLength1| (|spadConstant| $ 28)))
               (LETT |row2|
-                    (MAKEARR1 |jLength1| (SPADCALL |row1| (QREFELT $ 28))))
+                    (MAKEARR1 |jLength1| (SPADCALL |row1| (QREFELT $ 26))))
               (LETT |row3|
                     (MAKEARR1 |iLength1| (SPADCALL |row2| (QREFELT $ 18))))
               (SEQ (LETT |i| 1) (LETT #3# |iLength1|) G190
@@ -275,16 +271,16 @@
                                 (LETT |sum|
                                       (SPADCALL
                                        (SPADCALL |mat1| |i| |j| |k|
-                                                 (QREFELT $ 27))
+                                                 (QREFELT $ 25))
                                        (SPADCALL |mat2| |i| |j| |k|
-                                                 (QREFELT $ 27))
-                                       (QREFELT $ 34)))
+                                                 (QREFELT $ 25))
+                                       (QREFELT $ 32)))
                                 (EXIT (QSETAREF1 |row1| (- |k| 1) |sum|)))
                                (LETT |k| (|inc_SI| |k|)) (GO G190) G191
                                (EXIT NIL))
                           (EXIT
                            (QSETAREF1 |row2| (- |j| 1)
-                                      (SPADCALL |row1| (QREFELT $ 28)))))
+                                      (SPADCALL |row1| (QREFELT $ 26)))))
                          (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))
                     (EXIT
                      (QSETAREF1 |row3| (- |i| 1)
@@ -305,21 +301,21 @@
          (SEQ
           (COND
            ((OR (EQL (LENGTH |listRep|) 0)
-                (OR (EQL (LENGTH (SPADCALL |listRep| 1 (QREFELT $ 38))) 0)
+                (OR (EQL (LENGTH (SPADCALL |listRep| 1 (QREFELT $ 36))) 0)
                     (EQL
                      (LENGTH
-                      (SPADCALL (SPADCALL |listRep| 1 (QREFELT $ 38)) 1
-                                (QREFELT $ 40)))
+                      (SPADCALL (SPADCALL |listRep| 1 (QREFELT $ 36)) 1
+                                (QREFELT $ 38)))
                      0)))
             (|error| "empty list"))
            ('T
             (SEQ (LETT |iLength| (LENGTH |listRep|))
                  (LETT |jLength|
-                       (LENGTH (SPADCALL |listRep| 1 (QREFELT $ 38))))
+                       (LENGTH (SPADCALL |listRep| 1 (QREFELT $ 36))))
                  (LETT |kLength|
                        (LENGTH
-                        (SPADCALL (SPADCALL |listRep| 1 (QREFELT $ 38)) 1
-                                  (QREFELT $ 40))))
+                        (SPADCALL (SPADCALL |listRep| 1 (QREFELT $ 36)) 1
+                                  (QREFELT $ 38))))
                  (SEQ (LETT |subList| NIL) (LETT #6# |listRep|) G190
                       (COND
                        ((OR (ATOM #6#) (PROGN (LETT |subList| (CAR #6#)) NIL))
@@ -358,11 +354,11 @@
                        (MAKEARR1 |kLength|
                                  (SPADCALL
                                   (SPADCALL
-                                   (SPADCALL |listRep| 1 (QREFELT $ 38)) 1
-                                   (QREFELT $ 40))
-                                  1 (QREFELT $ 41))))
+                                   (SPADCALL |listRep| 1 (QREFELT $ 36)) 1
+                                   (QREFELT $ 38))
+                                  1 (QREFELT $ 39))))
                  (LETT |row2|
-                       (MAKEARR1 |jLength| (SPADCALL |row1| (QREFELT $ 28))))
+                       (MAKEARR1 |jLength| (SPADCALL |row1| (QREFELT $ 26))))
                  (LETT |row3|
                        (MAKEARR1 |iLength| (SPADCALL |row2| (QREFELT $ 18))))
                  (SEQ (LETT |i| 1) (LETT #3# |iLength|) G190
@@ -378,16 +374,16 @@
                                          (SPADCALL
                                           (SPADCALL
                                            (SPADCALL |listRep| |i|
-                                                     (QREFELT $ 38))
-                                           |j| (QREFELT $ 40))
-                                          |k| (QREFELT $ 41)))
+                                                     (QREFELT $ 36))
+                                           |j| (QREFELT $ 38))
+                                          |k| (QREFELT $ 39)))
                                    (EXIT
                                     (QSETAREF1 |row1| (- |k| 1) |element|)))
                                   (LETT |k| (|inc_SI| |k|)) (GO G190) G191
                                   (EXIT NIL))
                              (EXIT
                               (QSETAREF1 |row2| (- |j| 1)
-                                         (SPADCALL |row1| (QREFELT $ 28)))))
+                                         (SPADCALL |row1| (QREFELT $ 26)))))
                             (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                             (EXIT NIL))
                        (EXIT
@@ -422,7 +418,7 @@
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|ThreeDimensionalMatrix| DV$1))
-    (LETT $ (GETREFV 52))
+    (LETT $ (GETREFV 51))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -485,10 +481,10 @@
     (COND
      ((|testBitVector| |pv$| 7)
       (PROGN
-       (QSETREFV $ 31 (CONS (|dispatchFunction| |M3D;zeroMatrix;3Nni$;7|) $))
-       (QSETREFV $ 33
+       (QSETREFV $ 29 (CONS (|dispatchFunction| |M3D;zeroMatrix;3Nni$;7|) $))
+       (QSETREFV $ 31
                  (CONS (|dispatchFunction| |M3D;identityMatrix;Nni$;8|) $))
-       (QSETREFV $ 35 (CONS (|dispatchFunction| |M3D;plus;3$;9|) $)))))
+       (QSETREFV $ 33 (CONS (|dispatchFunction| |M3D;plus;3$;9|) $)))))
     $))) 
 
 (MAKEPROP '|ThreeDimensionalMatrix| '|infovec|
@@ -499,21 +495,21 @@
               (11 . |concat|) |M3D;coerce;Pa$;3| (|PrimitiveArray| 19)
               (17 . |concat|) (23 . |copy|) (|PrimitiveArray| 6)
               (28 . |concat|) (|Symbol|) |M3D;matrixConcat3D;S3$;1|
-              (34 . |new|) (40 . |setelt!|) (|Boolean|) (47 . >)
-              |M3D;elt;$3NniR;5| (53 . |copy|) |M3D;setelt!;$3Nni2R;6|
-              (58 . |Zero|) (62 . |zeroMatrix|) (69 . |One|)
-              (73 . |identityMatrix|) (78 . +) (84 . |plus|) (|List| 39)
-              (|List| 36) (90 . |elt|) (|List| 6) (96 . |elt|) (102 . |elt|)
-              |M3D;construct;L$;10| (|List| 44) (|Equation| 6)
-              (|Mapping| 25 6 6) (|Mapping| 25 6) (|Mapping| 6 6)
-              (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|))
-           '#(~= 108 |zeroMatrix| 114 |size?| 121 |setelt!| 127 |sample| 136
-              |plus| 140 |parts| 146 |more?| 151 |min| 157 |members| 162
-              |member?| 167 |max| 173 |matrixDimensions| 184 |matrixConcat3D|
-              189 |map!| 196 |map| 202 |less?| 208 |latex| 214 |identityMatrix|
-              219 |hashUpdate!| 224 |hash| 230 |every?| 235 |eval| 241 |eq?|
-              267 |empty?| 273 |empty| 278 |elt| 282 |count| 290 |copy| 302
-              |construct| 307 |coerce| 312 |any?| 327 = 333 |#| 339)
+              (34 . |new|) (40 . |setelt!|) |M3D;elt;$3NniR;5| (47 . |copy|)
+              |M3D;setelt!;$3Nni2R;6| (52 . |Zero|) (56 . |zeroMatrix|)
+              (63 . |One|) (67 . |identityMatrix|) (72 . +) (78 . |plus|)
+              (|List| 37) (|List| 34) (84 . |elt|) (|List| 6) (90 . |elt|)
+              (96 . |elt|) |M3D;construct;L$;10| (|Boolean|) (|List| 43)
+              (|Equation| 6) (|Mapping| 41 6 6) (|Mapping| 41 6)
+              (|Mapping| 6 6) (|OutputForm|) (|HashState|) (|SingleInteger|)
+              (|String|))
+           '#(~= 102 |zeroMatrix| 108 |size?| 115 |setelt!| 121 |sample| 130
+              |plus| 134 |parts| 140 |more?| 145 |min| 151 |members| 156
+              |member?| 161 |max| 167 |matrixDimensions| 178 |matrixConcat3D|
+              183 |map!| 190 |map| 196 |less?| 202 |latex| 208 |identityMatrix|
+              213 |hashUpdate!| 218 |hash| 224 |every?| 229 |eval| 235 |eq?|
+              261 |empty?| 267 |empty| 272 |elt| 276 |count| 284 |copy| 296
+              |construct| 301 |coerce| 306 |any?| 321 = 327 |#| 333)
            'NIL
            (CONS (|makeByteWordVec2| 8 '(0 0 8 1 0 8 1 6))
                  (CONS
@@ -522,27 +518,26 @@
                   (CONS
                    '#((|HomogeneousAggregate| 6) (|Aggregate|) (|Evalable| 6)
                       (|SetCategory|) (|Type|) (|InnerEvalable| 6 6)
-                      (|BasicType|) (|CoercibleTo| 48))
-                   (|makeByteWordVec2| 51
+                      (|BasicType|) (|CoercibleTo| 47))
+                   (|makeByteWordVec2| 50
                                        '(2 7 9 0 10 11 1 5 0 0 13 2 5 0 0 0 14
                                          2 16 0 0 0 17 1 16 0 0 18 2 19 0 0 0
-                                         20 2 7 0 9 9 23 3 7 9 0 10 9 24 2 9 25
-                                         0 0 26 1 19 0 0 28 0 6 0 30 3 0 0 9 9
-                                         9 31 0 6 0 32 1 0 0 9 33 2 6 0 0 0 34
-                                         2 0 0 0 0 35 2 37 36 0 10 38 2 36 39 0
-                                         10 40 2 39 6 0 10 41 2 13 25 0 0 1 3 7
-                                         0 9 9 9 31 2 0 25 0 9 1 5 0 6 0 9 9 9
-                                         6 29 0 0 0 1 2 7 0 0 0 35 1 10 39 0 1
-                                         2 0 25 0 9 1 1 11 6 0 1 1 10 39 0 1 2
-                                         12 25 6 0 1 1 11 6 0 1 2 10 6 45 0 1 1
-                                         0 7 0 8 3 0 0 21 0 0 22 2 9 0 47 0 1 2
-                                         0 0 47 0 1 2 0 25 0 9 1 1 1 51 0 1 1 7
-                                         0 9 33 2 1 49 49 0 1 1 1 50 0 1 2 10
-                                         25 46 0 1 3 4 0 0 39 39 1 3 4 0 0 6 6
-                                         1 2 4 0 0 43 1 2 4 0 0 44 1 2 0 25 0 0
-                                         1 1 0 25 0 1 0 0 0 1 4 0 6 0 9 9 9 27
-                                         2 12 9 6 0 1 2 10 9 46 0 1 1 0 0 0 1 1
-                                         0 0 37 42 1 5 48 0 1 1 0 5 0 12 1 0 0
-                                         5 15 2 10 25 46 0 1 2 13 25 0 0 1 1 10
-                                         9 0 1)))))
+                                         20 2 7 0 9 9 23 3 7 9 0 10 9 24 1 19 0
+                                         0 26 0 6 0 28 3 0 0 9 9 9 29 0 6 0 30
+                                         1 0 0 9 31 2 6 0 0 0 32 2 0 0 0 0 33 2
+                                         35 34 0 10 36 2 34 37 0 10 38 2 37 6 0
+                                         10 39 2 13 41 0 0 1 3 7 0 9 9 9 29 2 0
+                                         41 0 9 1 5 0 6 0 9 9 9 6 27 0 0 0 1 2
+                                         7 0 0 0 33 1 10 37 0 1 2 0 41 0 9 1 1
+                                         11 6 0 1 1 10 37 0 1 2 12 41 6 0 1 1
+                                         11 6 0 1 2 10 6 44 0 1 1 0 7 0 8 3 0 0
+                                         21 0 0 22 2 9 0 46 0 1 2 0 0 46 0 1 2
+                                         0 41 0 9 1 1 1 50 0 1 1 7 0 9 31 2 1
+                                         48 48 0 1 1 1 49 0 1 2 10 41 45 0 1 3
+                                         4 0 0 37 37 1 3 4 0 0 6 6 1 2 4 0 0 42
+                                         1 2 4 0 0 43 1 2 0 41 0 0 1 1 0 41 0 1
+                                         0 0 0 1 4 0 6 0 9 9 9 25 2 12 9 6 0 1
+                                         2 10 9 45 0 1 1 0 0 0 1 1 0 0 35 40 1
+                                         5 47 0 1 1 0 5 0 12 1 0 0 5 15 2 10 41
+                                         45 0 1 2 13 41 0 0 1 1 10 9 0 1)))))
            '|lookupComplete|)) 

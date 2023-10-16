@@ -129,8 +129,7 @@
 
 (SDEFUN |PLOT;setMaxPoints;2I;12| ((|n| |Integer|) ($ |Integer|))
         (SEQ (COND ((< |n| 3) (|error| "three points minimum required")))
-             (COND
-              ((SPADCALL (QREFELT $ 8) |n| (QREFELT $ 35)) (SETELT $ 8 |n|)))
+             (COND ((> (QREFELT $ 8) |n|) (SETELT $ 8 |n|)))
              (EXIT (SETELT $ 9 |n|)))) 
 
 (SDEFUN |PLOT;screenResolution;I;13| (($ |Integer|)) (QREFELT $ 11)) 
@@ -221,7 +220,7 @@
                         (COND ((NULL |t|) NIL)
                               ('T
                                (SPADCALL (|SPADfirst| |t|) |h|
-                                         (QREFELT $ 47)))))
+                                         (QREFELT $ 46)))))
                        (GO G191)))
                      (SEQ (LETT |c| (CONS (|SPADfirst| |t|) |c|))
                           (LETT |q| (CONS (|SPADfirst| |p|) |q|))
@@ -255,12 +254,12 @@
                       (LETT |n|
                             (TRUNCATE
                              (|div_DF|
-                              (|sub_DF| (SPADCALL |t| (QREFELT $ 49))
+                              (|sub_DF| (SPADCALL |t| (QREFELT $ 48))
                                         (|SPADfirst| |t|))
                               |s|)))
                       (LETT |d|
                             (|div_DF|
-                             (|sub_DF| (SPADCALL |t| (QREFELT $ 49))
+                             (|sub_DF| (SPADCALL |t| (QREFELT $ 48))
                                        (|SPADfirst| |t|))
                              (FLOAT (+ |n| 1) MOST-POSITIVE-DOUBLE-FLOAT)))
                       (SEQ (LETT |i| 1) (LETT #5# |n|) G190
@@ -269,25 +268,25 @@
                             (SPADCALL |t| '|rest|
                                       (CONS (|add_DF| (|SPADfirst| |t|) |d|)
                                             (CDR |t|))
-                                      (QREFELT $ 51))
+                                      (QREFELT $ 50))
                             (SPADCALL |p| '|rest|
                                       (CONS
-                                       (SPADCALL (SPADCALL |t| (QREFELT $ 49))
+                                       (SPADCALL (SPADCALL |t| (QREFELT $ 48))
                                                  |f|)
                                        (CDR |p|))
-                                      (QREFELT $ 53))
+                                      (QREFELT $ 52))
                             (SETELT $ 10 (+ (QREFELT $ 10) 1))
                             (LETT |t| (CDR |t|)) (EXIT (LETT |p| (CDR |p|))))
                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                       (LETT |t| (CDR |t|)) (EXIT (LETT |p| (CDR |p|))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (LETT |xRange|
-                      (SPADCALL (|PLOT;select| |q| (ELT $ 55) (ELT $ 56) $)
-                                (|PLOT;select| |q| (ELT $ 55) (ELT $ 57) $)
+                      (SPADCALL (|PLOT;select| |q| (ELT $ 54) (ELT $ 55) $)
+                                (|PLOT;select| |q| (ELT $ 54) (ELT $ 56) $)
                                 (QREFELT $ 27)))
                 (LETT |yRange|
-                      (SPADCALL (|PLOT;select| |q| (ELT $ 58) (ELT $ 56) $)
-                                (|PLOT;select| |q| (ELT $ 58) (ELT $ 57) $)
+                      (SPADCALL (|PLOT;select| |q| (ELT $ 57) (ELT $ 55) $)
+                                (|PLOT;select| |q| (ELT $ 57) (ELT $ 56) $)
                                 (QREFELT $ 27)))
                 (EXIT (VECTOR |f| (LIST |nRange| |xRange| |yRange|) |c| |q|))))
           #8# (EXIT #7#)))) 
@@ -390,12 +389,12 @@
                                                                (SPADCALL |st|
                                                                          (QREFELT
                                                                           $
-                                                                          49)))
+                                                                          48)))
                                                          (LETT |t2|
                                                                (SPADCALL |st|
                                                                          (QREFELT
                                                                           $
-                                                                          59)))
+                                                                          58)))
                                                          (COND
                                                           ((SPADCALL |t2| |h|
                                                                      (QREFELT $
@@ -424,45 +423,45 @@
                                                                     (|SPADfirst|
                                                                      |sp|)
                                                                     (QREFELT $
-                                                                             55)))
+                                                                             54)))
                                                              (LETT |y0|
                                                                    (SPADCALL
                                                                     (|SPADfirst|
                                                                      |sp|)
                                                                     (QREFELT $
-                                                                             58)))
+                                                                             57)))
                                                              (LETT |x1|
                                                                    (SPADCALL
                                                                     (SPADCALL
                                                                      |sp|
                                                                      (QREFELT $
-                                                                              60))
+                                                                              59))
                                                                     (QREFELT $
-                                                                             55)))
+                                                                             54)))
                                                              (LETT |y1|
                                                                    (SPADCALL
                                                                     (SPADCALL
                                                                      |sp|
                                                                      (QREFELT $
-                                                                              60))
+                                                                              59))
                                                                     (QREFELT $
-                                                                             58)))
+                                                                             57)))
                                                              (LETT |x2|
                                                                    (SPADCALL
                                                                     (SPADCALL
                                                                      |sp|
                                                                      (QREFELT $
-                                                                              61))
+                                                                              60))
                                                                     (QREFELT $
-                                                                             55)))
+                                                                             54)))
                                                              (LETT |y2|
                                                                    (SPADCALL
                                                                     (SPADCALL
                                                                      |sp|
                                                                      (QREFELT $
-                                                                              61))
+                                                                              60))
                                                                     (QREFELT $
-                                                                             58)))
+                                                                             57)))
                                                              (LETT |a1|
                                                                    (|div_DF|
                                                                     (|sub_DF|
@@ -489,26 +488,26 @@
                                                                      (SPADCALL
                                                                       |a1| 2
                                                                       (QREFELT
-                                                                       $ 63))
+                                                                       $ 62))
                                                                      (SPADCALL
                                                                       |b1| 2
                                                                       (QREFELT
-                                                                       $ 63)))
+                                                                       $ 62)))
                                                                     (QREFELT $
-                                                                             64)))
+                                                                             63)))
                                                              (LETT |s2|
                                                                    (SPADCALL
                                                                     (|add_DF|
                                                                      (SPADCALL
                                                                       |a2| 2
                                                                       (QREFELT
-                                                                       $ 63))
+                                                                       $ 62))
                                                                      (SPADCALL
                                                                       |b2| 2
                                                                       (QREFELT
-                                                                       $ 63)))
+                                                                       $ 62)))
                                                                     (QREFELT $
-                                                                             64)))
+                                                                             63)))
                                                              (LETT |dp|
                                                                    (|add_DF|
                                                                     (|mul_DF|
@@ -592,12 +591,9 @@
                                                                          (CDR
                                                                           |sp|)))))))))))))
                                                              (COND
-                                                              ((SPADCALL |n|
-                                                                         (QREFELT
-                                                                          $ 9)
-                                                                         (QREFELT
-                                                                          $
-                                                                          35))
+                                                              ((> |n|
+                                                                  (QREFELT $
+                                                                           9))
                                                                (PROGN
                                                                 (LETT #5#
                                                                       |$NoValue|)
@@ -658,8 +654,7 @@
                                                   #13# (EXIT #5#))
                                                  (EXIT
                                                   (COND
-                                                   ((SPADCALL |n| 0
-                                                              (QREFELT $ 35))
+                                                   ((> |n| 0)
                                                     (SEQ
                                                      (SETELT $ 10
                                                              (+ (QREFELT $ 10)
@@ -671,20 +666,20 @@
                                                      (LETT |xRange|
                                                            (SPADCALL
                                                             (|PLOT;select| |p|
-                                                             (ELT $ 55)
-                                                             (ELT $ 56) $)
+                                                             (ELT $ 54)
+                                                             (ELT $ 55) $)
                                                             (|PLOT;select| |p|
-                                                             (ELT $ 55)
-                                                             (ELT $ 57) $)
+                                                             (ELT $ 54)
+                                                             (ELT $ 56) $)
                                                             (QREFELT $ 27)))
                                                      (LETT |yRange|
                                                            (SPADCALL
                                                             (|PLOT;select| |p|
-                                                             (ELT $ 58)
-                                                             (ELT $ 56) $)
+                                                             (ELT $ 57)
+                                                             (ELT $ 55) $)
                                                             (|PLOT;select| |p|
-                                                             (ELT $ 58)
-                                                             (ELT $ 57) $)
+                                                             (ELT $ 57)
+                                                             (ELT $ 56) $)
                                                             (QREFELT $ 27)))
                                                      (EXIT
                                                       (VECTOR (QVELT |curve| 0)
@@ -711,8 +706,8 @@
          (SEQ (|PLOT;checkRange| |tRange| $)
               (LETT |l| (SPADCALL |tRange| (QREFELT $ 24)))
               (LETT |h| (SPADCALL |tRange| (QREFELT $ 25)))
-              (LETT |t| (SPADCALL |l| (QREFELT $ 65)))
-              (LETT |p| (SPADCALL (SPADCALL |l| |f|) (QREFELT $ 66)))
+              (LETT |t| (SPADCALL |l| (QREFELT $ 64)))
+              (LETT |p| (SPADCALL (SPADCALL |l| |f|) (QREFELT $ 65)))
               (LETT |s|
                     (|div_DF| (|sub_DF| |h| |l|)
                               (FLOAT (- (SPADCALL (QREFELT $ 32)) 1)
@@ -725,12 +720,12 @@
               (LETT |t| (NREVERSE (CONS |h| |t|)))
               (LETT |p| (NREVERSE (CONS (SPADCALL |h| |f|) |p|)))
               (LETT |xRange|
-                    (SPADCALL (|PLOT;select| |p| (ELT $ 55) (ELT $ 56) $)
-                              (|PLOT;select| |p| (ELT $ 55) (ELT $ 57) $)
+                    (SPADCALL (|PLOT;select| |p| (ELT $ 54) (ELT $ 55) $)
+                              (|PLOT;select| |p| (ELT $ 54) (ELT $ 56) $)
                               (QREFELT $ 27)))
               (LETT |yRange|
-                    (SPADCALL (|PLOT;select| |p| (ELT $ 58) (ELT $ 56) $)
-                              (|PLOT;select| |p| (ELT $ 58) (ELT $ 57) $)
+                    (SPADCALL (|PLOT;select| |p| (ELT $ 57) (ELT $ 55) $)
+                              (|PLOT;select| |p| (ELT $ 57) (ELT $ 56) $)
                               (QREFELT $ 27)))
               (EXIT (VECTOR |f| (LIST |tRange| |xRange| |yRange|) |t| |p|))))) 
 
@@ -769,10 +764,10 @@
                             (QVELT |curve| 2) (QVELT |curve| 3)))
               (LETT |t|
                     (QSETVELT |curve| 2
-                              (SPADCALL (QVELT |curve| 2) (QREFELT $ 69))))
+                              (SPADCALL (QVELT |curve| 2) (QREFELT $ 68))))
               (LETT |p|
                     (QSETVELT |curve| 3
-                              (SPADCALL (QVELT |curve| 3) (QREFELT $ 70))))
+                              (SPADCALL (QVELT |curve| 3) (QREFELT $ 69))))
               (LETT |l| (SPADCALL |nRange| (QREFELT $ 24)))
               (LETT |h| (SPADCALL |nRange| (QREFELT $ 25)))
               (LETT |f| (QVELT |curve| 0))
@@ -785,39 +780,39 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((|less_DF| (SPADCALL |t| (QREFELT $ 49)) |l|)
+                      ((|less_DF| (SPADCALL |t| (QREFELT $ 48)) |l|)
                        (SEQ (LETT |t| (CDR |t|)) (EXIT (LETT |p| (CDR |p|)))))
                       ('T
                        (SEQ
                         (LETT |tm|
                               (|div_DF|
                                (|add_DF| (|SPADfirst| |t|)
-                                         (SPADCALL |t| (QREFELT $ 49)))
+                                         (SPADCALL |t| (QREFELT $ 48)))
                                (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)))
                         (LETT |pm| (SPADCALL |tm| |f|))
                         (SETELT $ 10 (+ (QREFELT $ 10) 1))
                         (SPADCALL |t| '|rest| (CONS |tm| (CDR |t|))
-                                  (QREFELT $ 51))
+                                  (QREFELT $ 50))
                         (LETT |t| (CDR (CDR |t|)))
                         (SPADCALL |p| '|rest| (CONS |pm| (CDR |p|))
-                                  (QREFELT $ 53))
+                                  (QREFELT $ 52))
                         (EXIT (LETT |p| (CDR (CDR |p|)))))))))
                    NIL (GO G190) G191 (EXIT NIL))
               (LETT |t| (QVELT |curve| 2)) (LETT |p| (QVELT |curve| 3))
               (LETT |xRange|
-                    (SPADCALL (|PLOT;select| |p| (ELT $ 55) (ELT $ 56) $)
-                              (|PLOT;select| |p| (ELT $ 55) (ELT $ 57) $)
+                    (SPADCALL (|PLOT;select| |p| (ELT $ 54) (ELT $ 55) $)
+                              (|PLOT;select| |p| (ELT $ 54) (ELT $ 56) $)
                               (QREFELT $ 27)))
               (LETT |yRange|
-                    (SPADCALL (|PLOT;select| |p| (ELT $ 58) (ELT $ 56) $)
-                              (|PLOT;select| |p| (ELT $ 58) (ELT $ 57) $)
+                    (SPADCALL (|PLOT;select| |p| (ELT $ 57) (ELT $ 55) $)
+                              (|PLOT;select| |p| (ELT $ 57) (ELT $ 56) $)
                               (QREFELT $ 27)))
               (EXIT
                (VECTOR (QVELT |curve| 0) (LIST |tRange| |xRange| |yRange|) |t|
                        |p|))))) 
 
 (SDEFUN |PLOT;refine;2$;30| ((|p| $) ($ $))
-        (SPADCALL |p| (|PLOT;parametricRange| |p| $) (QREFELT $ 71))) 
+        (SPADCALL |p| (|PLOT;parametricRange| |p| $) (QREFELT $ 70))) 
 
 (SDEFUN |PLOT;refine;$S$;31|
         ((|p| $) (|nRange| |Segment| (|DoubleFloat|)) ($ $))
@@ -853,10 +848,10 @@
               (LETT |xRange| (|PLOT;join| |curves| 1 $))
               (LETT |yRange| (|PLOT;join| |curves| 2 $))
               (COND
-               ((SPADCALL (QREFELT $ 39))
+               ((SPADCALL (QREFELT $ 38))
                 (SEQ
                  (LETT |tlimit|
-                       (COND ((SPADCALL |p| (QREFELT $ 41)) 8) ('T 1)))
+                       (COND ((SPADCALL |p| (QREFELT $ 40)) 8) ('T 1)))
                  (LETT |curves|
                        (PROGN
                         (LETT #3# NIL)
@@ -911,10 +906,10 @@
               (LETT |xRange| (|PLOT;join| |curves| 1 $))
               (LETT |yRange| (|PLOT;join| |curves| 2 $))
               (COND
-               ((SPADCALL (QREFELT $ 39))
+               ((SPADCALL (QREFELT $ 38))
                 (SEQ
                  (LETT |tlimit|
-                       (COND ((SPADCALL |p| (QREFELT $ 41)) 8) ('T 1)))
+                       (COND ((SPADCALL |p| (QREFELT $ 40)) 8) ('T 1)))
                  (LETT |curves|
                        (PROGN
                         (LETT #3# NIL)
@@ -942,7 +937,7 @@
         ((|xx| |DoubleFloat|) (|yy| . #1=(|DoubleFloat|))
          ($ |Point| (|DoubleFloat|)))
         (SPROG ((|l| (|List| #1#)))
-               (SPADCALL (LETT |l| (LIST |xx| |yy|)) (QREFELT $ 74)))) 
+               (SPADCALL (LETT |l| (LIST |xx| |yy|)) (QREFELT $ 73)))) 
 
 (SDEFUN |PLOT;myTrap|
         ((|ff| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) (|f| |DoubleFloat|)
@@ -979,7 +974,7 @@
                  |xRange| $))
           (LETT |r| (QVELT |p| 1)) (SETELT $ 10 (SPADCALL (QREFELT $ 32)))
           (COND
-           ((SPADCALL (QREFELT $ 39))
+           ((SPADCALL (QREFELT $ 38))
             (SEQ
              (LETT |p|
                    (|PLOT;adaptivePlot| |p| (|SPADfirst| |r|)
@@ -999,7 +994,7 @@
          (|xRange| |Segment| (|DoubleFloat|))
          (|yRange| |Segment| (|DoubleFloat|)) ($ $))
         (SPROG ((|p| ($)))
-               (SEQ (LETT |p| (SPADCALL |f| |xRange| (QREFELT $ 76)))
+               (SEQ (LETT |p| (SPADCALL |f| |xRange| (QREFELT $ 75)))
                     (QSETVELT |p| 1
                               (LIST |xRange| (|PLOT;checkRange| |yRange| $)))
                     (EXIT |p|)))) 
@@ -1022,7 +1017,7 @@
                  (CONS #'|PLOT;plot;2MS$;37!0| (VECTOR |g| $ |f|)) |tRange| $))
           (LETT |r| (QVELT |p| 1)) (SETELT $ 10 (SPADCALL (QREFELT $ 32)))
           (COND
-           ((SPADCALL (QREFELT $ 39))
+           ((SPADCALL (QREFELT $ 38))
             (SEQ
              (LETT |p|
                    (|PLOT;adaptivePlot| |p| (|SPADfirst| |r|)
@@ -1048,7 +1043,7 @@
          (|xRange| |Segment| (|DoubleFloat|))
          (|yRange| |Segment| (|DoubleFloat|)) ($ $))
         (SPROG ((|p| ($)))
-               (SEQ (LETT |p| (SPADCALL |f| |g| |tRange| (QREFELT $ 78)))
+               (SEQ (LETT |p| (SPADCALL |f| |g| |tRange| (QREFELT $ 77)))
                     (QSETVELT |p| 1
                               (LIST (|PLOT;checkRange| |xRange| $)
                                     (|PLOT;checkRange| |yRange| $)))
@@ -1068,7 +1063,7 @@
          (SEQ (LETT |p| (|PLOT;basicPlot| |f| |tRange| $))
               (LETT |r| (QVELT |p| 1)) (SETELT $ 10 (SPADCALL (QREFELT $ 32)))
               (COND
-               ((SPADCALL (QREFELT $ 39))
+               ((SPADCALL (QREFELT $ 38))
                 (SEQ
                  (LETT |p|
                        (|PLOT;adaptivePlot| |p| (|SPADfirst| |r|)
@@ -1083,7 +1078,7 @@
          (|xRange| |Segment| (|DoubleFloat|))
          (|yRange| |Segment| (|DoubleFloat|)) ($ $))
         (SPROG ((|p| ($)))
-               (SEQ (LETT |p| (SPADCALL |f| |tRange| (QREFELT $ 81)))
+               (SEQ (LETT |p| (SPADCALL |f| |tRange| (QREFELT $ 80)))
                     (QSETVELT |p| 1
                               (LIST (|PLOT;checkRange| |xRange| $)
                                     (|PLOT;checkRange| |yRange| $)))
@@ -1124,11 +1119,9 @@
                           (LETT #4# (CDR #4#)) (GO G190) G191
                           (EXIT (NREVERSE #5#)))))
               (LETT |yRange| (|PLOT;join| |t| 2 $))
-              (SETELT $ 10
-                      (SPADCALL (LENGTH |l|) (SPADCALL (QREFELT $ 32))
-                                (QREFELT $ 84)))
+              (SETELT $ 10 (* (LENGTH |l|) (SPADCALL (QREFELT $ 32))))
               (COND
-               ((SPADCALL (QREFELT $ 39))
+               ((SPADCALL (QREFELT $ 38))
                 (SEQ
                  (LETT |t|
                        (PROGN
@@ -1164,7 +1157,7 @@
          (|xRange| |Segment| (|DoubleFloat|))
          (|yRange| |Segment| (|DoubleFloat|)) ($ $))
         (SPROG ((|p| ($)))
-               (SEQ (LETT |p| (SPADCALL |l| |xRange| (QREFELT $ 86)))
+               (SEQ (LETT |p| (SPADCALL |l| |xRange| (QREFELT $ 83)))
                     (QSETVELT |p| 1
                               (LIST |xRange| (|PLOT;checkRange| |yRange| $)))
                     (EXIT |p|)))) 
@@ -1175,7 +1168,7 @@
         (SPROG NIL
                (SPADCALL (CONS #'|PLOT;plotPolar;MS$;43!0| (VECTOR $ |f|))
                          (CONS #'|PLOT;plotPolar;MS$;43!1| (VECTOR $ |f|))
-                         |thetaRange| (QREFELT $ 78)))) 
+                         |thetaRange| (QREFELT $ 77)))) 
 
 (SDEFUN |PLOT;plotPolar;MS$;43!1| ((|v1| NIL) ($$ NIL))
         (PROG (|f| $)
@@ -1183,8 +1176,8 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |v1| |f|) (SPADCALL |v1| (QREFELT $ 90))
-                      (QREFELT $ 89)))))) 
+            (SPADCALL (SPADCALL |v1| |f|) (SPADCALL |v1| (QREFELT $ 87))
+                      (QREFELT $ 86)))))) 
 
 (SDEFUN |PLOT;plotPolar;MS$;43!0| ((|u1| NIL) ($$ NIL))
         (PROG (|f| $)
@@ -1192,17 +1185,17 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |u1| |f|) (SPADCALL |u1| (QREFELT $ 88))
-                      (QREFELT $ 89)))))) 
+            (SPADCALL (SPADCALL |u1| |f|) (SPADCALL |u1| (QREFELT $ 85))
+                      (QREFELT $ 86)))))) 
 
 (SDEFUN |PLOT;plotPolar;M$;44|
         ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) ($ $))
         (SPADCALL |f|
                   (SPADCALL 0.0
                             (SPADCALL 2 (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)
-                                      (QREFELT $ 92))
-                            (QREFELT $ 93))
-                  (QREFELT $ 91))) 
+                                      (QREFELT $ 89))
+                            (QREFELT $ 90))
+                  (QREFELT $ 88))) 
 
 (SDEFUN |PLOT;coerce;$Of;45| ((|r| $) ($ |OutputForm|))
         (SPROG
@@ -1212,13 +1205,13 @@
           (|curve| NIL) (|tRange| (|OutputForm|))
           (|plotSymbol| #5=(|OutputForm|)) (|tSymbol| #5#) (|ySymbol| #5#)
           (|xSymbol| #5#) (|spaces| #5#))
-         (SEQ (LETT |spaces| (SPADCALL "   " (QREFELT $ 97)))
-              (LETT |xSymbol| (SPADCALL "x = " (QREFELT $ 97)))
-              (LETT |ySymbol| (SPADCALL "y = " (QREFELT $ 97)))
-              (LETT |tSymbol| (SPADCALL "t = " (QREFELT $ 97)))
-              (LETT |plotSymbol| (SPADCALL "PLOT" (QREFELT $ 97)))
+         (SEQ (LETT |spaces| (SPADCALL "   " (QREFELT $ 94)))
+              (LETT |xSymbol| (SPADCALL "x = " (QREFELT $ 94)))
+              (LETT |ySymbol| (SPADCALL "y = " (QREFELT $ 94)))
+              (LETT |tSymbol| (SPADCALL "t = " (QREFELT $ 94)))
+              (LETT |plotSymbol| (SPADCALL "PLOT" (QREFELT $ 94)))
               (LETT |tRange|
-                    (SPADCALL (|PLOT;parametricRange| |r| $) (QREFELT $ 98)))
+                    (SPADCALL (|PLOT;parametricRange| |r| $) (QREFELT $ 95)))
               (LETT |f| NIL)
               (SEQ (LETT |curve| NIL) (LETT #4# (QVELT |r| 4)) G190
                    (COND
@@ -1227,19 +1220,19 @@
                    (SEQ
                     (LETT |xRange|
                           (SPADCALL (SPADCALL (QVELT |curve| 1) (QREFELT $ 29))
-                                    (QREFELT $ 98)))
+                                    (QREFELT $ 95)))
                     (LETT |yRange|
                           (SPADCALL (SPADCALL (QVELT |curve| 1) (QREFELT $ 30))
-                                    (QREFELT $ 98)))
+                                    (QREFELT $ 95)))
                     (LETT |l|
                           (LIST |xSymbol| |xRange| |spaces| |ySymbol|
                                 |yRange|))
                     (COND
-                     ((SPADCALL |r| (QREFELT $ 41))
+                     ((SPADCALL |r| (QREFELT $ 40))
                       (LETT |l|
                             (SPADCALL (LIST |tSymbol| |tRange| |spaces|) |l|
-                                      (QREFELT $ 100)))))
-                    (LETT |h| (SPADCALL |l| (QREFELT $ 102)))
+                                      (QREFELT $ 97)))))
+                    (LETT |h| (SPADCALL |l| (QREFELT $ 99)))
                     (LETT |l|
                           (PROGN
                            (LETT #3# NIL)
@@ -1252,16 +1245,16 @@
                                 (SEQ
                                  (EXIT
                                   (LETT #3#
-                                        (CONS (SPADCALL |p| (QREFELT $ 103))
+                                        (CONS (SPADCALL |p| (QREFELT $ 100))
                                               #3#))))
                                 (LETT #2# (CDR #2#)) (GO G190) G191
                                 (EXIT (NREVERSE #3#)))))
                     (EXIT
                      (LETT |f|
-                           (CONS (SPADCALL (CONS |h| |l|) (QREFELT $ 104))
+                           (CONS (SPADCALL (CONS |h| |l|) (QREFELT $ 101))
                                  |f|))))
                    (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |plotSymbol| (NREVERSE |f|) (QREFELT $ 105)))))) 
+              (EXIT (SPADCALL |plotSymbol| (NREVERSE |f|) (QREFELT $ 102)))))) 
 
 (DECLAIM (NOTINLINE |Plot;|)) 
 
@@ -1285,7 +1278,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Plot|))
-          (LETT $ (GETREFV 107))
+          (LETT $ (GETREFV 104))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Plot| NIL (CONS 1 $))
@@ -1327,75 +1320,74 @@
            '#(NIL NIL NIL NIL NIL NIL '|Rep| 'ADAPTIVE 'MINPOINTS 'MAXPOINTS
               'NUMFUNEVALS 'SCREENRES (|DoubleFloat|) (0 . |inv|) 'ANGLEBOUND
               'DEBUG (|Boolean|) (5 . ~=) (|Mapping| 16 12) (|Point| 12)
-              (11 . |any?|) (|List| 52) |PLOT;listBranches;$L;3| (|Segment| 12)
+              (11 . |any?|) (|List| 51) |PLOT;listBranches;$L;3| (|Segment| 12)
               (17 . |low|) (22 . |high|) (27 . >) (33 . SEGMENT) (|List| 23)
               (39 . |second|) (44 . |third|) (|Integer|) |PLOT;minPoints;I;9|
-              |PLOT;setMinPoints;2I;10| |PLOT;maxPoints;I;11| (49 . >)
+              |PLOT;setMinPoints;2I;10| |PLOT;maxPoints;I;11|
               |PLOT;setMaxPoints;2I;12| |PLOT;screenResolution;I;13|
               |PLOT;setScreenResolution;2I;14| |PLOT;adaptive?;B;15|
               |PLOT;setAdaptive;2B;16| |PLOT;parametric?;$B;17|
               |PLOT;numFunEvals;I;18| |PLOT;debug;2B;19| |PLOT;xRange;$S;20|
-              |PLOT;yRange;$S;21| |PLOT;tRange;$S;22| (55 . <=) (|List| 12)
-              (61 . |second|) '"rest" (66 . |setelt!|) (|List| 19)
-              (73 . |setelt!|) (|PointPackage| 12) (80 . |xCoord|) (85 . |min|)
-              (91 . |max|) (97 . |yCoord|) (102 . |third|) (107 . |second|)
-              (112 . |third|) (|PositiveInteger|) (117 . ^) (123 . |sqrt|)
-              (128 . |list|) (133 . |list|) |PLOT;zoom;$S$;27|
-              |PLOT;zoom;$2S$;28| (138 . |copy|) (143 . |copy|)
+              |PLOT;yRange;$S;21| |PLOT;tRange;$S;22| (49 . <=) (|List| 12)
+              (55 . |second|) '"rest" (60 . |setelt!|) (|List| 19)
+              (67 . |setelt!|) (|PointPackage| 12) (74 . |xCoord|) (79 . |min|)
+              (85 . |max|) (91 . |yCoord|) (96 . |third|) (101 . |second|)
+              (106 . |third|) (|PositiveInteger|) (111 . ^) (117 . |sqrt|)
+              (122 . |list|) (127 . |list|) |PLOT;zoom;$S$;27|
+              |PLOT;zoom;$2S$;28| (132 . |copy|) (137 . |copy|)
               |PLOT;refine;$S$;31| |PLOT;refine;2$;30| |PLOT;plot;$S$;32|
-              (148 . |point|) (|Mapping| 12 12) |PLOT;plot;MS$;35|
+              (142 . |point|) (|Mapping| 12 12) |PLOT;plot;MS$;35|
               |PLOT;plot;M2S$;36| |PLOT;plot;2MS$;37| |PLOT;plot;2M3S$;38|
               (|Mapping| 19 12) |PLOT;pointPlot;MS$;39|
-              |PLOT;pointPlot;M3S$;40| (|NonNegativeInteger|) (153 . *)
-              (|List| 75) |PLOT;plot;LS$;41| |PLOT;plot;L2S$;42| (159 . |cos|)
-              (164 . *) (170 . |sin|) |PLOT;plotPolar;MS$;43| (175 . *)
-              (181 . |segment|) |PLOT;plotPolar;M$;44| (|String|)
-              (|OutputForm|) (187 . |message|) (192 . |coerce|) (|List| 96)
-              (197 . |concat!|) (|List| $) (203 . |hconcat|) (208 . |coerce|)
-              (213 . |vconcat|) (218 . |prefix|) |PLOT;coerce;$Of;45|)
-           '#(|zoom| 224 |yRange| 237 |xRange| 242 |tRange| 247
-              |setScreenResolution| 252 |setMinPoints| 257 |setMaxPoints| 262
-              |setAdaptive| 267 |screenResolution| 272 |refine| 276 |pointPlot|
-              287 |plotPolar| 301 |plot| 312 |parametric?| 360 |numFunEvals|
-              365 |minPoints| 369 |maxPoints| 373 |listBranches| 377 |debug|
-              382 |coerce| 387 |adaptive?| 392)
+              |PLOT;pointPlot;M3S$;40| (|List| 74) |PLOT;plot;LS$;41|
+              |PLOT;plot;L2S$;42| (147 . |cos|) (152 . *) (158 . |sin|)
+              |PLOT;plotPolar;MS$;43| (163 . *) (169 . |segment|)
+              |PLOT;plotPolar;M$;44| (|String|) (|OutputForm|)
+              (175 . |message|) (180 . |coerce|) (|List| 93) (185 . |concat!|)
+              (|List| $) (191 . |hconcat|) (196 . |coerce|) (201 . |vconcat|)
+              (206 . |prefix|) |PLOT;coerce;$Of;45|)
+           '#(|zoom| 212 |yRange| 225 |xRange| 230 |tRange| 235
+              |setScreenResolution| 240 |setMinPoints| 245 |setMaxPoints| 250
+              |setAdaptive| 255 |screenResolution| 260 |refine| 264 |pointPlot|
+              275 |plotPolar| 289 |plot| 300 |parametric?| 348 |numFunEvals|
+              353 |minPoints| 357 |maxPoints| 361 |listBranches| 365 |debug|
+              370 |coerce| 375 |adaptive?| 380)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0))
                  (CONS '#(NIL NIL)
                        (CONS
-                        '#((|PlottablePlaneCurveCategory|) (|CoercibleTo| 96))
-                        (|makeByteWordVec2| 106
+                        '#((|PlottablePlaneCurveCategory|) (|CoercibleTo| 93))
+                        (|makeByteWordVec2| 103
                                             '(1 12 0 0 13 2 12 16 0 0 17 2 19
                                               16 18 0 20 1 23 12 0 24 1 23 12 0
                                               25 2 12 16 0 0 26 2 23 0 12 12 27
-                                              1 28 23 0 29 1 28 23 0 30 2 31 16
-                                              0 0 35 2 12 16 0 0 47 1 48 12 0
-                                              49 3 48 0 0 50 0 51 3 52 0 0 50 0
-                                              53 1 54 12 19 55 2 12 0 0 0 56 2
-                                              12 0 0 0 57 1 54 12 19 58 1 48 12
-                                              0 59 1 52 19 0 60 1 52 19 0 61 2
-                                              12 0 0 62 63 1 12 0 0 64 1 48 0
-                                              12 65 1 52 0 19 66 1 48 0 0 69 1
-                                              52 0 0 70 1 19 0 48 74 2 31 0 83
-                                              0 84 1 12 0 0 88 2 12 0 0 0 89 1
-                                              12 0 0 90 2 12 0 62 0 92 2 23 0
-                                              12 12 93 1 96 0 95 97 1 23 96 0
-                                              98 2 99 0 0 0 100 1 96 0 101 102
-                                              1 19 96 0 103 1 96 0 101 104 2 96
-                                              0 0 101 105 2 0 0 0 23 67 3 0 0 0
-                                              23 23 68 1 0 23 0 45 1 0 23 0 44
-                                              1 0 23 0 46 1 0 31 31 38 1 0 31
-                                              31 33 1 0 31 31 36 1 0 16 16 40 0
-                                              0 31 37 2 0 0 0 23 71 1 0 0 0 72
-                                              2 0 0 80 23 81 4 0 0 80 23 23 23
-                                              82 2 0 0 75 23 91 1 0 0 75 94 2 0
-                                              0 0 23 73 3 0 0 75 75 23 78 5 0 0
-                                              75 75 23 23 23 79 2 0 0 85 23 86
-                                              3 0 0 85 23 23 87 2 0 0 75 23 76
-                                              3 0 0 75 23 23 77 1 0 16 0 41 0 0
-                                              31 42 0 0 31 32 0 0 31 34 1 0 21
-                                              0 22 1 0 16 16 43 1 0 96 0 106 0
-                                              0 16 39)))))
+                                              1 28 23 0 29 1 28 23 0 30 2 12 16
+                                              0 0 46 1 47 12 0 48 3 47 0 0 49 0
+                                              50 3 51 0 0 49 0 52 1 53 12 19 54
+                                              2 12 0 0 0 55 2 12 0 0 0 56 1 53
+                                              12 19 57 1 47 12 0 58 1 51 19 0
+                                              59 1 51 19 0 60 2 12 0 0 61 62 1
+                                              12 0 0 63 1 47 0 12 64 1 51 0 19
+                                              65 1 47 0 0 68 1 51 0 0 69 1 19 0
+                                              47 73 1 12 0 0 85 2 12 0 0 0 86 1
+                                              12 0 0 87 2 12 0 61 0 89 2 23 0
+                                              12 12 90 1 93 0 92 94 1 23 93 0
+                                              95 2 96 0 0 0 97 1 93 0 98 99 1
+                                              19 93 0 100 1 93 0 98 101 2 93 0
+                                              0 98 102 2 0 0 0 23 66 3 0 0 0 23
+                                              23 67 1 0 23 0 44 1 0 23 0 43 1 0
+                                              23 0 45 1 0 31 31 37 1 0 31 31 33
+                                              1 0 31 31 35 1 0 16 16 39 0 0 31
+                                              36 2 0 0 0 23 70 1 0 0 0 71 2 0 0
+                                              79 23 80 4 0 0 79 23 23 23 81 2 0
+                                              0 74 23 88 1 0 0 74 91 2 0 0 0 23
+                                              72 3 0 0 74 74 23 77 5 0 0 74 74
+                                              23 23 23 78 2 0 0 82 23 83 3 0 0
+                                              82 23 23 84 2 0 0 74 23 75 3 0 0
+                                              74 23 23 76 1 0 16 0 40 0 0 31 41
+                                              0 0 31 32 0 0 31 34 1 0 21 0 22 1
+                                              0 16 16 42 1 0 93 0 103 0 0 16
+                                              38)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Plot| 'NILADIC T) 

@@ -296,7 +296,7 @@
                                 (LETT #6#
                                       (CONS
                                        (SPADCALL |a|
-                                                 (SPADCALL
+                                                 (EXPT
                                                   (PROG1
                                                       (LETT #4# (QVELT |f| 1))
                                                     (|check_subtype2| (> #4# 0)
@@ -308,8 +308,7 @@
                                                     (|check_subtype2| (> #3# 0)
                                                                       '(|PositiveInteger|)
                                                                       '(|NonNegativeInteger|)
-                                                                      #3#))
-                                                  (QREFELT $ 63))
+                                                                      #3#)))
                                                  (QREFELT $ 9))
                                        #6#))))
                               (LETT #5# (CDR #5#)) (GO G190) G191
@@ -324,10 +323,10 @@
                                                     '(|NonNegativeInteger|)
                                                     #2#))
                                 (QREFELT $ 9))
-                      (SPADCALL (ELT $ 41) |rl| (QREFELT $ 64)) (QREFELT $ 65))
+                      (SPADCALL (ELT $ 41) |rl| (QREFELT $ 63)) (QREFELT $ 64))
                      (SEQ
-                      (SPADCALL (SPADCALL |i| (QREFELT $ 67)) (QREFELT $ 70))
-                      (SPADCALL (SPADCALL |rl| (QREFELT $ 71)) (QREFELT $ 70))
+                      (SPADCALL (SPADCALL |i| (QREFELT $ 66)) (QREFELT $ 69))
+                      (SPADCALL (SPADCALL |rl| (QREFELT $ 70)) (QREFELT $ 69))
                       (EXIT (PROGN (LETT #1# NIL) (GO #8=#:G254))))))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
@@ -367,7 +366,7 @@
                                 (LETT #6#
                                       (CONS
                                        (SPADCALL |a|
-                                                 (SPADCALL
+                                                 (EXPT
                                                   (PROG1
                                                       (LETT #4# (QVELT |f| 1))
                                                     (|check_subtype2| (> #4# 0)
@@ -379,8 +378,7 @@
                                                     (|check_subtype2| (> #3# 0)
                                                                       '(|PositiveInteger|)
                                                                       '(|NonNegativeInteger|)
-                                                                      #3#))
-                                                  (QREFELT $ 63))
+                                                                      #3#)))
                                                  (QREFELT $ 9))
                                        #6#))))
                               (LETT #5# (CDR #5#)) (GO G190) G191
@@ -395,10 +393,10 @@
                                                     '(|NonNegativeInteger|)
                                                     #2#))
                                 (QREFELT $ 9))
-                      (SPADCALL (ELT $ 35) |rl| (QREFELT $ 64)) (QREFELT $ 65))
+                      (SPADCALL (ELT $ 35) |rl| (QREFELT $ 63)) (QREFELT $ 64))
                      (SEQ
-                      (SPADCALL (SPADCALL |i| (QREFELT $ 67)) (QREFELT $ 70))
-                      (SPADCALL (SPADCALL |rl| (QREFELT $ 71)) (QREFELT $ 70))
+                      (SPADCALL (SPADCALL |i| (QREFELT $ 66)) (QREFELT $ 69))
+                      (SPADCALL (SPADCALL |rl| (QREFELT $ 70)) (QREFELT $ 69))
                       (EXIT (PROGN (LETT #1# NIL) (GO #8=#:G290))))))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
@@ -427,7 +425,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|DirichletRing| DV$1))
-          (LETT $ (GETREFV 78))
+          (LETT $ (GETREFV 77))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -471,23 +469,22 @@
               (76 . |recip|) |DIRRING;unit?;$B;17| |DIRRING;recip;$U;19|
               (|Factored| $) (81 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 58) (|:| |factor| 16) (|:| |exponent| 66))
-              (|List| 59) (|Factored| 16) (86 . |factorList|) (91 . ^)
-              (97 . |reduce|) (103 . ~=) (|NonNegativeInteger|)
-              (109 . |coerce|) (|Void|) (|OutputPackage|) (114 . |output|)
-              (119 . |coerce|) |DIRRING;multiplicative?;$PiB;20|
-              |DIRRING;additive?;$PiB;21|
+              (|Record| (|:| |flag| 58) (|:| |factor| 16) (|:| |exponent| 65))
+              (|List| 59) (|Factored| 16) (86 . |factorList|) (91 . |reduce|)
+              (97 . ~=) (|NonNegativeInteger|) (103 . |coerce|) (|Void|)
+              (|OutputPackage|) (108 . |output|) (113 . |coerce|)
+              |DIRRING;multiplicative?;$PiB;20| |DIRRING;additive?;$PiB;21|
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|HashState|) (|String|) (|SingleInteger|))
-           '#(~= 124 |zeta| 130 |zero?| 134 |unitNormal| 139 |unitCanonical|
-              144 |unit?| 149 |subtractIfCan| 154 |sample| 160 |rightRecip| 164
-              |rightPower| 169 |recip| 181 |opposite?| 186 |one?| 192
-              |multiplicative?| 197 |leftRecip| 203 |leftPower| 208 |latex| 220
-              |hashUpdate!| 225 |hash| 231 |exquo| 236 |elt| 242 |commutator|
-              248 |coerce| 254 |characteristic| 294 |associator| 298
-              |associates?| 305 |antiCommutator| 311 |annihilate?| 317
-              |additive?| 323 ^ 329 |Zero| 341 |One| 345 = 349 - 355 + 366 *
-              372)
+           '#(~= 118 |zeta| 124 |zero?| 128 |unitNormal| 133 |unitCanonical|
+              138 |unit?| 143 |subtractIfCan| 148 |sample| 154 |rightRecip| 158
+              |rightPower| 163 |recip| 175 |opposite?| 180 |one?| 186
+              |multiplicative?| 191 |leftRecip| 197 |leftPower| 202 |latex| 214
+              |hashUpdate!| 219 |hash| 225 |exquo| 230 |elt| 236 |commutator|
+              242 |coerce| 248 |characteristic| 288 |associator| 292
+              |associates?| 299 |antiCommutator| 305 |annihilate?| 311
+              |additive?| 317 ^ 323 |Zero| 335 |One| 339 = 343 - 349 + 360 *
+              366)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -513,27 +510,27 @@
                  (|SetCategory|) (|CommutativeStar|) (|Eltable| 8 6)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 27)
                  (|TwoSidedRecip|) (|noZeroDivisors|))
-              (|makeByteWordVec2| 77
+              (|makeByteWordVec2| 76
                                   '(0 6 0 14 1 17 15 16 18 2 22 20 21 15 23 2
                                     20 6 0 16 25 1 20 27 0 28 1 8 30 0 31 0 6 0
                                     32 2 6 0 0 0 35 1 6 0 0 37 2 6 0 16 0 39 2
                                     6 0 0 0 41 1 44 43 16 45 2 16 0 0 0 46 3 49
                                     6 47 48 6 50 1 6 52 0 53 1 16 56 0 57 1 61
-                                    60 0 62 2 8 0 0 8 63 2 48 6 47 0 64 2 6 30
-                                    0 0 65 1 66 27 0 67 1 69 68 27 70 1 48 27 0
-                                    71 2 0 30 0 0 1 0 0 0 34 1 0 30 0 1 1 1 74
-                                    0 1 1 1 0 0 1 1 1 30 0 54 2 0 52 0 0 1 0 0
-                                    0 1 1 0 52 0 1 2 0 0 0 66 1 2 0 0 0 8 1 1 0
-                                    52 0 55 2 0 30 0 0 1 1 0 30 0 1 2 0 30 0 8
-                                    72 1 0 52 0 1 2 0 0 0 66 1 2 0 0 0 8 1 1 0
-                                    76 0 1 2 0 75 75 0 1 1 0 77 0 1 2 1 52 0 0
-                                    1 2 0 6 0 8 9 2 0 0 0 0 1 1 1 0 6 1 1 1 0 0
-                                    1 1 0 20 0 24 1 0 10 0 11 1 0 0 20 26 1 0 0
-                                    10 12 1 0 0 16 1 1 0 27 0 29 0 0 66 1 3 0 0
-                                    0 0 0 1 2 1 30 0 0 1 2 0 0 0 0 1 2 0 30 0 0
-                                    1 2 0 30 0 8 73 2 0 0 0 66 1 2 0 0 0 8 1 0
-                                    0 0 33 0 0 0 13 2 0 30 0 0 1 1 0 0 0 38 2 0
-                                    0 0 0 1 2 0 0 0 0 36 2 1 0 6 0 42 2 1 0 0 6
-                                    1 2 0 0 66 0 1 2 0 0 16 0 40 2 0 0 0 0 51 2
-                                    0 0 8 0 1)))))
+                                    60 0 62 2 48 6 47 0 63 2 6 30 0 0 64 1 65
+                                    27 0 66 1 68 67 27 69 1 48 27 0 70 2 0 30 0
+                                    0 1 0 0 0 34 1 0 30 0 1 1 1 73 0 1 1 1 0 0
+                                    1 1 1 30 0 54 2 0 52 0 0 1 0 0 0 1 1 0 52 0
+                                    1 2 0 0 0 65 1 2 0 0 0 8 1 1 0 52 0 55 2 0
+                                    30 0 0 1 1 0 30 0 1 2 0 30 0 8 71 1 0 52 0
+                                    1 2 0 0 0 65 1 2 0 0 0 8 1 1 0 75 0 1 2 0
+                                    74 74 0 1 1 0 76 0 1 2 1 52 0 0 1 2 0 6 0 8
+                                    9 2 0 0 0 0 1 1 1 0 6 1 1 1 0 0 1 1 0 20 0
+                                    24 1 0 10 0 11 1 0 0 20 26 1 0 0 10 12 1 0
+                                    0 16 1 1 0 27 0 29 0 0 65 1 3 0 0 0 0 0 1 2
+                                    1 30 0 0 1 2 0 0 0 0 1 2 0 30 0 0 1 2 0 30
+                                    0 8 72 2 0 0 0 65 1 2 0 0 0 8 1 0 0 0 33 0
+                                    0 0 13 2 0 30 0 0 1 1 0 0 0 38 2 0 0 0 0 1
+                                    2 0 0 0 0 36 2 1 0 6 0 42 2 1 0 0 6 1 2 0 0
+                                    65 0 1 2 0 0 16 0 40 2 0 0 0 0 51 2 0 0 8 0
+                                    1)))))
            '|lookupComplete|)) 

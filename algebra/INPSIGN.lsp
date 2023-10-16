@@ -50,9 +50,8 @@
                               (SPADCALL (SPADCALL |p| (QREFELT $ 20)) |rsign|))
                         (EXIT
                          (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                               ((OR (SPADCALL |dir| 0 (QREFELT $ 23))
-                                    (SPADCALL (SPADCALL |p| (QREFELT $ 25))
-                                              (QREFELT $ 26)))
+                               ((OR (> |dir| 0)
+                                    (EVENP (SPADCALL |p| (QREFELT $ 24))))
                                 (CONS 0 (QCDR |u|)))
                                ('T (CONS 0 (- (QCDR |u|)))))))))))) 
 
@@ -82,7 +81,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|InnerPolySign| DV$1 DV$2))
-          (LETT $ (GETREFV 28))
+          (LETT $ (GETREFV 26))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|InnerPolySign| (LIST DV$1 DV$2)
@@ -100,10 +99,10 @@
               (|Mapping| 10 6) |INPSIGN;signAround;UPRIMU;2|
               |INPSIGN;signAround;UPRMU;1| (|Boolean|) (8 . |zero?|)
               (13 . |elt|) (19 . |zero?|) (24 . |differentiate|)
-              (29 . |leadingCoefficient|) (34 . |Zero|) (38 . |Zero|) (42 . >)
-              (|NonNegativeInteger|) (48 . |degree|) (53 . |even?|)
+              (29 . |leadingCoefficient|) (34 . |Zero|) (38 . |Zero|)
+              (|NonNegativeInteger|) (42 . |degree|)
               |INPSIGN;signAround;UPIMU;3|)
-           '#(|signAround| 58) 'NIL
+           '#(|signAround| 47) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -124,11 +123,10 @@
                                   (|Mapping| (|Union| (|Integer|) #1#) |#1|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 27
+                        (|makeByteWordVec2| 25
                                             '(0 6 0 8 0 7 0 9 1 7 15 0 16 2 7 6
                                               0 6 17 1 6 15 0 18 1 7 0 0 19 1 7
-                                              6 0 20 0 6 0 21 0 7 0 22 2 11 15
-                                              0 0 23 1 7 24 0 25 1 11 15 0 26 3
-                                              0 10 7 11 12 27 3 0 10 7 6 12 14
-                                              4 0 10 7 6 11 12 13)))))
+                                              6 0 20 0 6 0 21 0 7 0 22 1 7 23 0
+                                              24 3 0 10 7 11 12 25 3 0 10 7 6
+                                              12 14 4 0 10 7 6 11 12 13)))))
            '|lookupComplete|)) 

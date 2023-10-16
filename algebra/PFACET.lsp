@@ -37,8 +37,7 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((SPADCALL (QCAR |index|) |m| (QREFELT $ 17))
-                       (LETT |m| (QCAR |index|))))))
+                      ((> (QCAR |index|) |m|) (LETT |m| (QCAR |index|))))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |m|)))) 
 
@@ -57,8 +56,7 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((SPADCALL (QCDR |index|) |m| (QREFELT $ 17))
-                       (LETT |m| (QCDR |index|))))))
+                      ((> (QCDR |index|) |m|) (LETT |m| (QCDR |index|))))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |m|)))) 
 
@@ -83,7 +81,7 @@
             (|Record| (|:| |left| (|NonNegativeInteger|))
                       (|:| |right| (|NonNegativeInteger|))))))
          (SEQ (LETT |f| (SPADCALL |sa| (QREFELT $ 14)))
-              (LETT |f| (SPADCALL |f| |v| (QREFELT $ 23)))
+              (LETT |f| (SPADCALL |f| |v| (QREFELT $ 21)))
               (EXIT (SPADCALL 1 |f| (QREFELT $ 10)))))) 
 
 (SDEFUN |PFACET;=;2$B;10| ((|a| $) (|b| $) ($ |Boolean|))
@@ -99,12 +97,12 @@
           (EXIT
            (SEQ
             (COND
-             ((SPADCALL (QCAR |a|) (QCAR |b|) (QREFELT $ 25))
+             ((SPADCALL (QCAR |a|) (QCAR |b|) (QREFELT $ 24))
               (PROGN (LETT #1# NIL) (GO #5=#:G155))))
             (LETT |indas| (SPADCALL |a| (QREFELT $ 14)))
             (LETT |indbs| (SPADCALL |b| (QREFELT $ 14)))
             (COND
-             ((SPADCALL (LENGTH |indas|) (LENGTH |indbs|) (QREFELT $ 25))
+             ((SPADCALL (LENGTH |indas|) (LENGTH |indbs|) (QREFELT $ 24))
               (PROGN (LETT #1# NIL) (GO #5#))))
             (SEQ (LETT |indb| NIL) (LETT #3# |indbs|) (LETT |inda| NIL)
                  (LETT #2# |indas|) G190
@@ -114,11 +112,11 @@
                    (GO G191)))
                  (SEQ
                   (COND
-                   ((SPADCALL (QCAR |inda|) (QCAR |indb|) (QREFELT $ 25))
+                   ((SPADCALL (QCAR |inda|) (QCAR |indb|) (QREFELT $ 24))
                     (PROGN (LETT #1# NIL) (GO #5#))))
                   (EXIT
                    (COND
-                    ((SPADCALL (QCDR |inda|) (QCDR |indb|) (QREFELT $ 25))
+                    ((SPADCALL (QCDR |inda|) (QCDR |indb|) (QREFELT $ 24))
                      (PROGN (LETT #1# NIL) (GO #5#))))))
                  (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#)))) (GO G190)
                  G191 (EXIT NIL))
@@ -131,16 +129,16 @@
           (|element| (|OutputForm|)) (|r| (|NonNegativeInteger|))
           (|l| (|NonNegativeInteger|)) (#1=#:G167 NIL) (|x| NIL)
           (|prefix| (|OutputForm|)) (|m| (|Integer|)))
-         (SEQ (LETT |prefix| (SPADCALL "" (QREFELT $ 29)))
+         (SEQ (LETT |prefix| (SPADCALL "" (QREFELT $ 28)))
               (LETT |m| (QCAR |s|))
               (COND
-               ((SPADCALL (ABS |m|) 1 (QREFELT $ 25))
+               ((SPADCALL (ABS |m|) 1 (QREFELT $ 24))
                 (LETT |prefix|
-                      (SPADCALL (SPADCALL |m| (QREFELT $ 30))
-                                (SPADCALL "*" (QREFELT $ 29))
-                                (QREFELT $ 31)))))
+                      (SPADCALL (SPADCALL |m| (QREFELT $ 29))
+                                (SPADCALL "*" (QREFELT $ 28))
+                                (QREFELT $ 30)))))
               (COND
-               ((EQL |m| -1) (LETT |prefix| (SPADCALL "-" (QREFELT $ 29)))))
+               ((EQL |m| -1) (LETT |prefix| (SPADCALL "-" (QREFELT $ 28)))))
               (LETT |elements| NIL)
               (SEQ (LETT |x| NIL) (LETT #1# (QCDR |s|)) G190
                    (COND
@@ -149,16 +147,16 @@
                    (SEQ (LETT |l| (QCAR |x|)) (LETT |r| (QCDR |x|))
                         (LETT |element|
                               (SPADCALL
-                               (LIST (SPADCALL |l| (QREFELT $ 32))
-                                     (SPADCALL |r| (QREFELT $ 32)))
-                               (QREFELT $ 34)))
+                               (LIST (SPADCALL |l| (QREFELT $ 31))
+                                     (SPADCALL |r| (QREFELT $ 31)))
+                               (QREFELT $ 33)))
                         (EXIT
                          (LETT |elements|
                                (SPADCALL |elements| |element|
-                                         (QREFELT $ 36)))))
+                                         (QREFELT $ 35)))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
-              (LETT |body| (SPADCALL |elements| (QREFELT $ 37)))
-              (EXIT (SPADCALL |prefix| |body| (QREFELT $ 31)))))) 
+              (LETT |body| (SPADCALL |elements| (QREFELT $ 36)))
+              (EXIT (SPADCALL |prefix| |body| (QREFELT $ 30)))))) 
 
 (DECLAIM (NOTINLINE |ProductFacet;|)) 
 
@@ -183,7 +181,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ProductFacet|))
-          (LETT $ (GETREFV 41))
+          (LETT $ (GETREFV 40))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ProductFacet| NIL (CONS 1 $))
@@ -201,22 +199,22 @@
 (MAKEPROP '|ProductFacet| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Integer|)
-              (|Record| (|:| |left| 16) (|:| |right| 16)) (|List| 8)
+              (|Record| (|:| |left| 15) (|:| |right| 15)) (|List| 8)
               |PFACET;productFacet;IL$;1| (|ProductFacet|) (0 . |getIndexs|)
-              |PFACET;productFacet;I2$;2| |PFACET;getIndexs;$L;3| (|Boolean|)
-              (|NonNegativeInteger|) (5 . >) |PFACET;getMaxLeft;$Nni;4|
+              |PFACET;productFacet;I2$;2| |PFACET;getIndexs;$L;3|
+              (|NonNegativeInteger|) |PFACET;getMaxLeft;$Nni;4|
               |PFACET;getMaxRight;$Nni;5| |PFACET;order;$Nni;6|
-              |PFACET;getMult;$I;7| |PFACET;setMult!;$I$;8| (11 . |concat|)
-              |PFACET;addVertex2;$R$;9| (17 . ~=) |PFACET;=;2$B;10| (|String|)
-              (|OutputForm|) (23 . |message|) (28 . |coerce|) (33 . |hconcat|)
-              (39 . |coerce|) (|List| $) (44 . |bracket|) (|List| 28)
-              (49 . |concat|) (55 . |paren|) |PFACET;coerce;$Of;11|
+              |PFACET;getMult;$I;7| |PFACET;setMult!;$I$;8| (5 . |concat|)
+              |PFACET;addVertex2;$R$;9| (|Boolean|) (11 . ~=) |PFACET;=;2$B;10|
+              (|String|) (|OutputForm|) (17 . |message|) (22 . |coerce|)
+              (27 . |hconcat|) (33 . |coerce|) (|List| $) (38 . |bracket|)
+              (|List| 27) (43 . |concat|) (49 . |paren|) |PFACET;coerce;$Of;11|
               (|SingleInteger|) (|HashState|))
-           '#(~= 60 |smaller?| 66 |setMult!| 72 |productFacet| 78 |order| 90
-              |min| 95 |max| 101 |latex| 107 |hashUpdate!| 112 |hash| 118
-              |getMult| 123 |getMaxRight| 128 |getMaxLeft| 133 |getIndexs| 138
-              |empty?| 143 |coerce| 148 |addVertex2| 153 >= 159 > 165 = 171 <=
-              177 < 183)
+           '#(~= 54 |smaller?| 60 |setMult!| 66 |productFacet| 72 |order| 84
+              |min| 89 |max| 95 |latex| 101 |hashUpdate!| 106 |hash| 112
+              |getMult| 117 |getMaxRight| 122 |getMaxLeft| 127 |getIndexs| 132
+              |empty?| 137 |coerce| 142 |addVertex2| 147 >= 153 > 159 = 165 <=
+              171 < 177)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -225,20 +223,19 @@
                   (CONS
                    '#((|FacetCategory|) (|OrderedSet|) (|Comparable|)
                       (|SetCategory|) (|PartialOrder|) (|BasicType|)
-                      (|CoercibleTo| 28))
-                   (|makeByteWordVec2| 40
-                                       '(1 11 9 0 12 2 16 15 0 0 17 2 9 0 0 8
-                                         23 2 7 15 0 0 25 1 28 0 27 29 1 7 28 0
-                                         30 2 28 0 0 0 31 1 16 28 0 32 1 28 0
-                                         33 34 2 35 0 0 28 36 1 28 0 33 37 2 0
-                                         15 0 0 1 2 0 15 0 0 1 2 0 0 0 7 22 2 0
-                                         0 7 11 13 2 0 0 7 9 10 1 0 16 0 20 2 0
-                                         0 0 0 1 2 0 0 0 0 1 1 0 27 0 1 2 0 40
-                                         40 0 1 1 0 39 0 1 1 0 7 0 21 1 0 16 0
-                                         19 1 0 16 0 18 1 0 9 0 14 1 0 15 0 1 1
-                                         0 28 0 38 2 0 0 0 8 24 2 0 15 0 0 1 2
-                                         0 15 0 0 1 2 0 15 0 0 26 2 0 15 0 0 1
-                                         2 0 15 0 0 1)))))
+                      (|CoercibleTo| 27))
+                   (|makeByteWordVec2| 39
+                                       '(1 11 9 0 12 2 9 0 0 8 21 2 7 23 0 0 24
+                                         1 27 0 26 28 1 7 27 0 29 2 27 0 0 0 30
+                                         1 15 27 0 31 1 27 0 32 33 2 34 0 0 27
+                                         35 1 27 0 32 36 2 0 23 0 0 1 2 0 23 0
+                                         0 1 2 0 0 0 7 20 2 0 0 7 11 13 2 0 0 7
+                                         9 10 1 0 15 0 18 2 0 0 0 0 1 2 0 0 0 0
+                                         1 1 0 26 0 1 2 0 39 39 0 1 1 0 38 0 1
+                                         1 0 7 0 19 1 0 15 0 17 1 0 15 0 16 1 0
+                                         9 0 14 1 0 23 0 1 1 0 27 0 37 2 0 0 0
+                                         8 22 2 0 23 0 0 1 2 0 23 0 0 1 2 0 23
+                                         0 0 25 2 0 23 0 0 1 2 0 23 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ProductFacet| 'NILADIC T) 

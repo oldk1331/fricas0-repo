@@ -10,13 +10,12 @@
 
 (SDEFUN |ABELGRP-;*;I2S;4| ((|n| |Integer|) (|x| S) ($ S))
         (COND ((ZEROP |n|) (|spadConstant| $ 17))
-              ((SPADCALL |n| 0 (QREFELT $ 19))
-               (SPADCALL |n| |x| (QREFELT $ 22)))
+              ((> |n| 0) (SPADCALL |n| |x| (QREFELT $ 20)))
               ('T
-               (SPADCALL (- |n|) (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 22))))) 
+               (SPADCALL (- |n|) (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 20))))) 
 
 (SDEFUN |ABELGRP-;opposite?;2SB;5| ((|x| S) (|y| S) ($ |Boolean|))
-        (SPADCALL |x| (SPADCALL |y| (QREFELT $ 7)) (QREFELT $ 24))) 
+        (SPADCALL |x| (SPADCALL |y| (QREFELT $ 7)) (QREFELT $ 23))) 
 
 (DECLAIM (NOTINLINE |AbelianGroup&;|)) 
 
@@ -25,7 +24,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|AbelianGroup&| DV$1))
-          (LETT $ (GETREFV 26))
+          (LETT $ (GETREFV 25))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
@@ -33,7 +32,7 @@
           (SETF |pv$| (QREFELT $ 3))
           (COND ((|HasCategory| |#1| '(|Ring|)))
                 ('T
-                 (QSETREFV $ 23
+                 (QSETREFV $ 21
                            (CONS (|dispatchFunction| |ABELGRP-;*;I2S;4|) $))))
           $))) 
 
@@ -43,9 +42,9 @@
               |ABELGRP-;-;3S;1| (11 . -) (|Union| $ '"failed")
               |ABELGRP-;subtractIfCan;2SU;2| (|Integer|) (17 . *)
               (|NonNegativeInteger|) |ABELGRP-;*;Nni2S;3| (23 . |Zero|)
-              (|Boolean|) (27 . >) (|PositiveInteger|) (|RepeatedDoubling| 6)
-              (33 . |double|) (39 . *) (45 . =) |ABELGRP-;opposite?;2SB;5|)
-           '#(|subtractIfCan| 51 |opposite?| 57 - 63 * 69) 'NIL
+              (|PositiveInteger|) (|RepeatedDoubling| 6) (27 . |double|)
+              (33 . *) (|Boolean|) (39 . =) |ABELGRP-;opposite?;2SB;5|)
+           '#(|subtractIfCan| 45 |opposite?| 51 - 57 * 63) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -61,11 +60,11 @@
                                    '((* (|#1| (|NonNegativeInteger|) |#1|)) T)
                                    '((* (|#1| (|PositiveInteger|) |#1|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 25
+                        (|makeByteWordVec2| 24
                                             '(1 6 0 0 7 2 6 0 0 0 8 2 6 0 0 0
-                                              10 2 6 0 13 0 14 0 6 0 17 2 13 18
-                                              0 0 19 2 21 6 20 6 22 2 0 0 13 0
-                                              23 2 6 18 0 0 24 2 0 11 0 0 12 2
-                                              0 18 0 0 25 2 0 0 0 0 9 2 0 0 13
-                                              0 23 2 0 0 15 0 16)))))
+                                              10 2 6 0 13 0 14 0 6 0 17 2 19 6
+                                              18 6 20 2 0 0 13 0 21 2 6 22 0 0
+                                              23 2 0 11 0 0 12 2 0 22 0 0 24 2
+                                              0 0 0 0 9 2 0 0 13 0 21 2 0 0 15
+                                              0 16)))))
            '|lookupComplete|)) 

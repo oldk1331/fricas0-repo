@@ -6,8 +6,7 @@
         (COND ((NULL |x|) (NULL (NULL |y|))) ((NULL |y|) NIL)
               ((EQL (|SPADfirst| |x|) (|SPADfirst| |y|))
                (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 10)))
-              ('T
-               (SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|) (QREFELT $ 12))))) 
+              ('T (> (|SPADfirst| |x|) (|SPADfirst| |y|))))) 
 
 (SDEFUN |EAB;coerce;L$;3| ((|li| |List| (|Integer|)) ($ $))
         (SPROG ((#1=#:G122 NIL) (|x| NIL))
@@ -19,9 +18,9 @@
                      (SEQ
                       (EXIT
                        (COND
-                        ((SPADCALL |x| 1 (QREFELT $ 13))
+                        ((SPADCALL |x| 1 (QREFELT $ 12))
                          (COND
-                          ((SPADCALL |x| 0 (QREFELT $ 13))
+                          ((SPADCALL |x| 0 (QREFELT $ 12))
                            (|error| "coerce: values can only be 0 and 1")))))))
                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |li|)))) 
@@ -52,7 +51,7 @@
                               #1#))))) 
 
 (SDEFUN |EAB;exponents;$L;5| ((|x| $) ($ |List| (|Integer|)))
-        (SPADCALL |x| (QREFELT $ 18))) 
+        (SPADCALL |x| (QREFELT $ 17))) 
 
 (SDEFUN |EAB;Nul;Nni$;6| ((|n| |NonNegativeInteger|) ($ $))
         (SPROG ((#1=#:G136 NIL) (|i| NIL) (#2=#:G135 NIL))
@@ -66,7 +65,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |EAB;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
-        (SPADCALL |x| (QREFELT $ 22))) 
+        (SPADCALL |x| (QREFELT $ 21))) 
 
 (DECLAIM (NOTINLINE |ExtAlgBasis;|)) 
 
@@ -91,7 +90,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ExtAlgBasis|))
-          (LETT $ (GETREFV 27))
+          (LETT $ (GETREFV 26))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ExtAlgBasis| NIL (CONS 1 $))
@@ -103,14 +102,14 @@
 (MAKEPROP '|ExtAlgBasis| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|) (0 . =) |EAB;=;2$B;1|
-              |EAB;<;2$B;2| (|Integer|) (6 . >) (12 . ~=) (|List| 11)
-              |EAB;coerce;L$;3| (|NonNegativeInteger|) |EAB;degree;$Nni;4|
-              (18 . |copy|) |EAB;exponents;$L;5| |EAB;Nul;Nni$;6|
-              (|OutputForm|) (23 . |coerce|) |EAB;coerce;$Of;7| (|String|)
-              (|SingleInteger|) (|HashState|))
-           '#(~= 28 |smaller?| 34 |min| 40 |max| 46 |latex| 52 |hashUpdate!| 57
-              |hash| 63 |exponents| 68 |degree| 73 |coerce| 78 |Nul| 88 >= 93 >
-              99 = 105 <= 111 < 117)
+              |EAB;<;2$B;2| (|Integer|) (6 . ~=) (|List| 11) |EAB;coerce;L$;3|
+              (|NonNegativeInteger|) |EAB;degree;$Nni;4| (12 . |copy|)
+              |EAB;exponents;$L;5| |EAB;Nul;Nni$;6| (|OutputForm|)
+              (17 . |coerce|) |EAB;coerce;$Of;7| (|String|) (|SingleInteger|)
+              (|HashState|))
+           '#(~= 22 |smaller?| 28 |min| 34 |max| 40 |latex| 46 |hashUpdate!| 51
+              |hash| 57 |exponents| 62 |degree| 67 |coerce| 72 |Nul| 82 >= 87 >
+              93 = 99 <= 105 < 111)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
                  (CONS
@@ -118,16 +117,15 @@
                      |PartialOrder&| NIL)
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
-                      (|BasicType|) (|PartialOrder|) (|CoercibleTo| 21))
-                   (|makeByteWordVec2| 26
-                                       '(2 6 7 0 0 8 2 11 7 0 0 12 2 11 7 0 0
-                                         13 1 14 0 0 18 1 14 21 0 22 2 0 7 0 0
-                                         1 2 0 7 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1
-                                         1 0 24 0 1 2 0 26 26 0 1 1 0 25 0 1 1
-                                         0 14 0 19 1 0 16 0 17 1 0 0 14 15 1 0
-                                         21 0 23 1 0 0 16 20 2 0 7 0 0 1 2 0 7
-                                         0 0 1 2 0 7 0 0 9 2 0 7 0 0 1 2 0 7 0
-                                         0 10)))))
+                      (|BasicType|) (|PartialOrder|) (|CoercibleTo| 20))
+                   (|makeByteWordVec2| 25
+                                       '(2 6 7 0 0 8 2 11 7 0 0 12 1 13 0 0 17
+                                         1 13 20 0 21 2 0 7 0 0 1 2 0 7 0 0 1 2
+                                         0 0 0 0 1 2 0 0 0 0 1 1 0 23 0 1 2 0
+                                         25 25 0 1 1 0 24 0 1 1 0 13 0 18 1 0
+                                         15 0 16 1 0 0 13 14 1 0 20 0 22 1 0 0
+                                         15 19 2 0 7 0 0 1 2 0 7 0 0 1 2 0 7 0
+                                         0 9 2 0 7 0 0 1 2 0 7 0 0 10)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ExtAlgBasis| 'NILADIC T) 
