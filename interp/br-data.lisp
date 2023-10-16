@@ -19,7 +19,7 @@
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       NIL (HKEYS |$has_category_hash|) NIL))))
  
-; buildLibdb(domainList) ==  --called by make-databases (daase.lisp.pamphlet)
+; buildLibdb(domainList) ==  --called by make-databases (daase.lisp)
 ;   $OpLst: local := nil
 ;   $AttrLst: local := nil
 ;   $DomLst : local := nil
@@ -1097,7 +1097,7 @@
             (SETQ |bfVar#34| (CDR |bfVar#34|))))
          NIL |keys| NIL |text| NIL)))))))
  
-; mkUsersHashTable() ==  --called by make-databases (daase.lisp.pamphlet)
+; mkUsersHashTable() ==  --called by make-databases (daase.lisp)
 ;   $usersTb := MAKE_-HASH_-TABLE()
 ;   for x in allConstructors() repeat
 ;     for conform in getImports x repeat
