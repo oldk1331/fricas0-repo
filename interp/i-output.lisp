@@ -1491,6 +1491,8 @@
 ;   wasSimple =>
 ;     atom cur or keyp cur="SUB" or keyp cur = "OVERBAR" or op="**" or
 ;       op = "^" or (atom op and not NUMBERP op and not GETL(op,"APP"))
+;         -- deal with cases like "x*f'(x)"
+;         or (keyp op = "PRIME" or keyp op = "SUB")
  
 (DEFUN |needStar| (|wasSimple| |wasQuotient| |wasNumber| |cur| |op|)
   (PROG ()
@@ -1499,8 +1501,8 @@
            (|wasSimple|
             (OR (ATOM |cur|) (EQ (|keyp| |cur|) 'SUB)
                 (EQ (|keyp| |cur|) 'OVERBAR) (EQ |op| '**) (EQ |op| '^)
-                (AND (ATOM |op|) (NULL (NUMBERP |op|))
-                     (NULL (GETL |op| 'APP)))))))))
+                (AND (ATOM |op|) (NULL (NUMBERP |op|)) (NULL (GETL |op| 'APP)))
+                (EQ (|keyp| |op|) 'PRIME) (EQ (|keyp| |op|) 'SUB)))))))
  
 ; isQuotient op ==
 ;   op="/" or op="OVER"
