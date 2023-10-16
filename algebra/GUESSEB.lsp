@@ -1991,7 +1991,7 @@
               (467 . |primitivePart|) (|Factored| 38)
               (|GeneralizedMultivariateFactorize| (|SingletonAsOrderedSet|) 57
                                                   6 6 38)
-              (472 . |factor|) (|Record| (|:| |factor| 38) (|:| |exponent| 13))
+              (472 . |factor|) (|Record| (|:| |factor| 38) (|:| |exponent| 57))
               (|List| 144) (477 . |factors|) (482 . |coefficient|) (488 . /)
               (494 . -) (499 . |eval|) (506 . |zero?|) (511 . |univariate|)
               (516 . |numer|) (521 . |denom|) (526 . /) (532 . |numer|)

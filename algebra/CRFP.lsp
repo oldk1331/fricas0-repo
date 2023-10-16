@@ -694,11 +694,13 @@
         ((|poly| UP) (|eps| R) (|info| |Boolean|) ($ |Factored| UP))
         (SPROG
          ((|listOfFactors|
-           (|List| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
-          (|result| (|Factored| UP)) (|expOfFactor| (|Integer|))
+           (|List|
+            (|Record| (|:| |factor| UP)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
+          (|result| (|Factored| UP)) (|expOfFactor| (|NonNegativeInteger|))
           (|newFactor| (UP)) (#1=#:G238 NIL) (|rec| NIL)
           (|lof| (|List| (|OutputForm|))) (|split| (|Factored| UP))
-          (|exponentOfp| (|Integer|)) (|p| (UP)) (|eps0| (R))
+          (|exponentOfp| (|NonNegativeInteger|)) (|p| (UP)) (|eps0| (R))
           (|d| (|NonNegativeInteger|)))
          (SEQ
           (LETT |result|
@@ -1048,7 +1050,7 @@
               '|one| (|PositiveInteger|) (29 . *) '|two| '|ten| '|eleven|
               '|weakEps| (|NonNegativeInteger|) (35 . |degree|) (40 . ^)
               (|Factored| 7) |CRFP;factor;UPRF;15|
-              (|Record| (|:| |factor| 7) (|:| |exponent| 10)) (|List| 35)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 30)) (|List| 35)
               (46 . |factors|) (|Complex| 6) (51 . |coefficient|) (57 . -)
               (|List| 38) |CRFP;complexZeros;UPRL;1| |CRFP;complexZeros;UPL;2|
               (62 . |Zero|) (66 . |Zero|) (|Boolean|) (70 . <=)
@@ -1106,12 +1108,12 @@
                                                    17 0 49 1 17 0 50 51 1 17 52
                                                    0 53 1 17 52 16 54 1 7 30 0
                                                    56 0 38 0 57 2 7 0 38 30 58
-                                                   2 33 0 7 10 59 2 7 0 0 0 60
+                                                   2 33 0 7 30 59 2 7 0 0 0 60
                                                    0 33 0 63 2 33 46 0 0 64 1
                                                    33 7 0 65 2 7 66 0 0 67 1 8
                                                    7 7 68 1 8 0 7 69 2 8 0 0 30
                                                    70 2 8 0 0 0 71 1 8 7 0 72 2
-                                                   33 0 7 10 73 2 75 74 77 0 78
+                                                   33 0 7 30 73 2 75 74 77 0 78
                                                    2 33 0 0 0 79 2 6 46 0 0 83
                                                    2 7 0 0 0 85 1 38 0 6 86 2 7
                                                    0 0 38 87 2 38 0 6 6 88 1 6

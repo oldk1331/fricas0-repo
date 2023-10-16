@@ -168,7 +168,8 @@
         ((|contm| Z) (|unilist| |List| (|SparseUnivariatePolynomial| Z))
          (|plead| |Record| (|:| |contp| Z)
           (|:| |factors|
-               (|List| (|Record| (|:| |irr| P) (|:| |pow| (|Integer|))))))
+               (|List|
+                (|Record| (|:| |irr| P) (|:| |pow| (|NonNegativeInteger|))))))
          (|vl| |List| Z) (|lvar| |List| OV) (|lval| |List| Z)
          ($ |Union|
           (|Record| (|:| |polfac| (|List| P)) (|:| |correct| Z)
@@ -418,7 +419,7 @@
               (142 . *) (148 . ^) (154 . |setelt!|) (161 . ~=)
               (|Record| (|:| |polfac| 30) (|:| |correct| 8)
                         (|:| |corrfact| 27))
-              (|Union| 50 '"failed") (|Record| (|:| |irr| 9) (|:| |pow| 10))
+              (|Union| 50 '"failed") (|Record| (|:| |irr| 9) (|:| |pow| 24))
               (|Record| (|:| |contp| 8) (|:| |factors| (|List| 52))) (|List| 6)
               |LEADCDET;distFact;ZLRLLLU;4|)
            '#(|polCase| 167 |distFact| 174) 'NIL

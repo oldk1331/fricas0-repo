@@ -511,7 +511,7 @@
               (26 . |maxColIndex|) (31 . *) (37 . +) (|NonNegativeInteger|)
               (43 . ^) (49 . |coordinates|) (54 . |transpose|) (59 . *)
               (|Union| $ '"failed") (65 . |exquo|)
-              (|Record| (|:| |factor| 14) (|:| |exponent| 14)) (|List| 29)
+              (|Record| (|:| |factor| 14) (|:| |exponent| 22)) (|List| 29)
               (|Factored| 14) (71 . |factors|) (|Boolean|) (76 . >) (82 . <=)
               (88 . |traceMatrix|) (92 . |determinant|)
               (|IntegerFactorizationPackage| 14) (97 . |factor|) (102 . |One|)

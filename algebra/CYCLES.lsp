@@ -162,7 +162,7 @@
           (|b|
            (|List|
             (|Record| (|:| |factor| (|Integer|))
-                      (|:| |exponent| (|Integer|))))))
+                      (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ
           (LETT |b| (SPADCALL (SPADCALL |n| (QREFELT $ 34)) (QREFELT $ 37))
                 . #8=(|CYCLES;divisors|))
@@ -760,15 +760,16 @@
               (|Boolean|) (55 . |even?|) (|PositiveInteger|) (60 . *)
               |CYCLES;alternating;ISp;5| (66 . -) |CYCLES;elementary;ISp;6|
               (|Factored| 6) (71 . |coerce|)
-              (|Record| (|:| |factor| 6) (|:| |exponent| 6)) (|List| 35)
-              (76 . |factors|) (81 . |One|) (85 . |append|) (91 . |One|)
-              |CYCLES;powerSum;ISp;9| (|IntegerNumberTheoryFunctions|)
-              (95 . |eulerPhi|) (100 . /) (106 . |numer|) (111 . *)
-              |CYCLES;cyclic;ISp;10| (117 . *) |CYCLES;dihedral;ISp;11|
-              (123 . |powers|) (128 . |second|) (133 . |lcm|)
-              |CYCLES;graphs;ISp;13| (139 . |zero?|) (144 . |degree|) (149 . <)
-              (155 . =) (161 . |leadingCoefficient|) (166 . *)
-              (172 . |reductum|) |CYCLES;cup;3Sp;15| (177 . |Zero|)
+              (|Record| (|:| |factor| 6)
+                        (|:| |exponent| (|NonNegativeInteger|)))
+              (|List| 35) (76 . |factors|) (81 . |One|) (85 . |append|)
+              (91 . |One|) |CYCLES;powerSum;ISp;9|
+              (|IntegerNumberTheoryFunctions|) (95 . |eulerPhi|) (100 . /)
+              (106 . |numer|) (111 . *) |CYCLES;cyclic;ISp;10| (117 . *)
+              |CYCLES;dihedral;ISp;11| (123 . |powers|) (128 . |second|)
+              (133 . |lcm|) |CYCLES;graphs;ISp;13| (139 . |zero?|)
+              (144 . |degree|) (149 . <) (155 . =) (161 . |leadingCoefficient|)
+              (166 . *) (172 . |reductum|) |CYCLES;cup;3Sp;15| (177 . |Zero|)
               |CYCLES;eval;SpF;16| (181 . +) |CYCLES;cap;2SpF;17|
               (187 . |coerce|) |CYCLES;wreath;3Sp;20| (|List| (|List| 12))
               (|Matrix| 12) (192 . |matrix|) (197 . |determinant|)

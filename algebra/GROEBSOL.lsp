@@ -944,7 +944,7 @@
                                                     (LENGTH (QREFELT $ 6)))
                                                    10)
                                                   8 7 40)
-              (174 . |factor|) (|Record| (|:| |factor| 40) (|:| |exponent| 17))
+              (174 . |factor|) (|Record| (|:| |factor| 40) (|:| |exponent| 10))
               (|List| 66) (179 . |factors|) (184 . -) (190 . |One|) (194 . ~=)
               (200 . |reductum|) (205 . |mainVariable|)
               (210 . |leadingCoefficient|) (215 . |ground?|) (220 . |remove|)

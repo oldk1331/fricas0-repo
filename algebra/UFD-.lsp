@@ -1,7 +1,7 @@
 
 (SDEFUN |UFD-;squareFreePart;2S;1| ((|x| S) ($ S))
         (SPROG
-         ((#1=#:G115 NIL) (#2=#:G114 (S)) (#3=#:G116 (S)) (#4=#:G118 NIL)
+         ((#1=#:G114 NIL) (#2=#:G113 (S)) (#3=#:G115 (S)) (#4=#:G117 NIL)
           (|f| NIL) (|s| (|Factored| S)))
          (SEQ
           (SPADCALL
@@ -28,8 +28,7 @@
            (QREFELT $ 14))))) 
 
 (SDEFUN |UFD-;prime?;SB;2| ((|x| S) ($ |Boolean|))
-        (EQL (LENGTH (SPADCALL (SPADCALL |x| (QREFELT $ 17)) (QREFELT $ 21)))
-             1)) 
+        (EQL (SPADCALL (SPADCALL |x| (QREFELT $ 17)) (QREFELT $ 19)) 1)) 
 
 (DECLAIM (NOTINLINE |UniqueFactorizationDomain&;|)) 
 
@@ -38,7 +37,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|UniqueFactorizationDomain&|))
           (LETT |dv$| (LIST '|UniqueFactorizationDomain&| DV$1) . #1#)
-          (LETT $ (GETREFV 24) . #1#)
+          (LETT $ (GETREFV 22) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|stuffDomainSlots| $)
@@ -50,20 +49,17 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Factored| $)
               (0 . |squareFree|) (|Factored| 6) (5 . |unit|)
-              (|Record| (|:| |factor| 6) (|:| |exponent| (|Integer|)))
-              (|List| 11) (10 . |factors|) (15 . *) (21 . |One|)
-              |UFD-;squareFreePart;2S;1| (25 . |factor|)
-              (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 18) (|:| |factor| 6)
-                        (|:| |exponent| (|Integer|)))
-              (|List| 19) (30 . |factorList|) (|Boolean|) |UFD-;prime?;SB;2|)
+              (|Record| (|:| |factor| 6) (|:| |exponent| 18)) (|List| 11)
+              (10 . |factors|) (15 . *) (21 . |One|) |UFD-;squareFreePart;2S;1|
+              (25 . |factor|) (|NonNegativeInteger|) (30 . |numberOfFactors|)
+              (|Boolean|) |UFD-;prime?;SB;2|)
            '#(|squareFreePart| 35 |prime?| 40) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 23
+                             (|makeByteWordVec2| 21
                                                  '(1 6 7 0 8 1 9 6 0 10 1 9 12
                                                    0 13 2 6 0 0 0 14 0 6 0 15 1
-                                                   6 7 0 17 1 9 20 0 21 1 0 0 0
-                                                   16 1 0 22 0 23)))))
+                                                   6 7 0 17 1 9 18 0 19 1 0 0 0
+                                                   16 1 0 20 0 21)))))
            '|lookupComplete|)) 

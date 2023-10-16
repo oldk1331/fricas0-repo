@@ -1817,7 +1817,7 @@
                                                                          '|:|
                                                                          '|exponent|
                                                                          (LIST
-                                                                          '|Integer|))))
+                                                                          '|NonNegativeInteger|))))
                                                                  '$)
                                                                 (|Factored|
                                                                  (|SparseUnivariatePolynomial|
@@ -2074,7 +2074,7 @@
               (90 . |map|) (|List| 7) (96 . |coefficients|) (|List| 32)
               (|List| $) (101 . |algtower|) (|Factored| 29)
               (|RationalFactorize| 29) (106 . |factor|)
-              (|Record| (|:| |factor| 29) (|:| |exponent| 18)) (|List| 66)
+              (|Record| (|:| |factor| 29) (|:| |exponent| 70)) (|List| 66)
               (111 . |factors|) (116 . |One|) (|NonNegativeInteger|) (120 . >)
               (|List| 29) (126 . |coefficients|) (131 . |rem|)
               (|Record| (|:| |den| 18) (|:| |gcdnum| 18))

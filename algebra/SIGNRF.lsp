@@ -308,7 +308,7 @@
               |SIGNRF;sign;FSFSU;4| (|Union| 6 '"failed") (63 . |retractIfCan|)
               (68 . |sign|) (|Factored| $) (73 . |squareFree|) (|Factored| 7)
               (78 . |unit|) (83 . |retract|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 27)) (|List| 43)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 52)) (|List| 43)
               (88 . |factors|) (|List| $) (93 . |monomials|) (|Boolean|)
               (98 . ~=) (|List| 20) (104 . |variables|) (|NonNegativeInteger|)
               (109 . |degree|) (115 . |leadingCoefficient|))

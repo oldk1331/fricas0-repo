@@ -10,7 +10,9 @@
          ($ |Union| (|SparseUnivariatePolynomial| (|Fraction| UP)) "failed"))
         (SPROG
          ((|lf|
-           (|List| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
+           (|List|
+            (|Record| (|:| |factor| UP)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|r| (|Fraction| UP)))
          (SEQ
           (LETT |r| (SPADCALL |a1| 2 (QREFELT $ 16))
@@ -51,7 +53,7 @@
 (SDEFUN |KOVACIC;case2|
         ((|r| |Fraction| UP)
          (|lf| |List|
-          (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|))))
+          (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))))
          (|ezfactor| |Mapping| (|Factored| UP) UP)
          ($ |Union| (|SparseUnivariatePolynomial| (|Fraction| UP)) "failed"))
         (SPROG
@@ -104,7 +106,7 @@
 
 (SDEFUN |KOVACIC;cannotCase2?|
         ((|lf| |List|
-          (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|))))
+          (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))))
          ($ |Boolean|))
         (SPROG ((#1=#:G140 NIL) (#2=#:G141 NIL) (#3=#:G142 NIL) (|rec| NIL))
                (SEQ
@@ -183,7 +185,7 @@
               (|Fraction| 7) (|Mapping| 26 7) |KOVACIC;kovacic;3FMU;2|
               |KOVACIC;kovacic;3FU;1| (|PositiveInteger|) (5 . ^) (11 . *)
               (17 . |differentiate|) (22 . *) (28 . +) (34 . -) (40 . /)
-              (46 . |denom|) (|Record| (|:| |factor| 7) (|:| |exponent| 43))
+              (46 . |denom|) (|Record| (|:| |factor| 7) (|:| |exponent| 31))
               (|List| 24) (|Factored| 7) (51 . |factors|) (56 . |One|)
               (60 . |One|) (64 . |One|) (|NonNegativeInteger|)
               (|LinearOrdinaryDifferentialOperator1| 11) (68 . |monomial|)
@@ -208,7 +210,7 @@
                                                    37 32 12 39 2 40 0 11 31 41
                                                    2 40 0 0 0 42 1 11 0 43 44 1
                                                    40 0 11 45 2 40 0 0 0 46 2
-                                                   43 47 0 0 48 4 0 10 11 11 11
+                                                   31 47 0 0 48 4 0 10 11 11 11
                                                    12 13 3 0 10 11 11 11
                                                    14)))))
            '|lookupComplete|)) 

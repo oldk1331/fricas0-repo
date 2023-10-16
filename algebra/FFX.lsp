@@ -68,7 +68,7 @@
               (|Union| 17 '"failed") (|NonNegativeInteger|) (|List| $)
               (|InputForm|) (|Boolean|) (|Factored| 22)
               (|SparseUnivariatePolynomial| $) (|Union| 24 '#1#) (|List| 22)
-              (|Record| (|:| |factor| 28) (|:| |exponent| 28)) (|List| 25)
+              (|Record| (|:| |factor| 28) (|:| |exponent| 17)) (|List| 25)
               (|Table| 9 17) (|Integer|)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Union| 8 '"failed") (|Matrix| 6) (|Vector| $) (|Vector| 6)

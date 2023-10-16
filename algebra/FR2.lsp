@@ -5,7 +5,8 @@
          ((|l|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |factor| S) (|:| |exponent| (|Integer|)))))
+                      (|:| |factor| S)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (#1=#:G117 NIL) (|f| NIL) (#2=#:G116 NIL))
          (SEQ
           (LETT |l|
@@ -75,11 +76,12 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|Factored| 6) (0 . |unit|)
-              (|Record| (|:| |factor| 6) (|:| |exponent| (|Integer|)))
+              (|Record| (|:| |factor| 6)
+                        (|:| |exponent| (|NonNegativeInteger|)))
               (|List| 10) (5 . |factors|) (10 . |One|) (14 . |One|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 15) (|:| |factor| 7)
-                        (|:| |exponent| (|Integer|)))
+                        (|:| |exponent| (|NonNegativeInteger|)))
               (|List| 16) (|Factored| 7) (18 . |makeFR|) (|Mapping| 7 6)
               |FR2;map;MFF;1|)
            '#(|map| 24) 'NIL

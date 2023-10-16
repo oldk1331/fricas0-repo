@@ -1964,7 +1964,7 @@
               (|Record| (|:| |rgl| 111) (|:| |rgsz| 20))
               |PLEQN;bsolve;MLNniSIR;5| (|Factored| 9)
               (|MultivariateFactorize| 7 8 6 9) (207 . |factor|)
-              (|Record| (|:| |factor| 9) (|:| |exponent| 20)) (|List| 92)
+              (|Record| (|:| |factor| 9) (|:| |exponent| 30)) (|List| 92)
               (212 . |factors|) (|List| 70) |PLEQN;ParCond;MNniL;34|
               (217 . |elt|) (223 . |euclideanNormalForm|) (229 . |Zero|)
               (233 . =) (239 . |zero|) (245 . |setelt!|) (253 . |denom|)

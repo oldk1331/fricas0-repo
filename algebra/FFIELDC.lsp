@@ -20,7 +20,8 @@
                               ((|factorsOfCyclicGroupSize|
                                 ((|List|
                                   (|Record| (|:| |factor| (|Integer|))
-                                            (|:| |exponent| (|Integer|))))))
+                                            (|:| |exponent|
+                                                 (|NonNegativeInteger|))))))
                                T)
                               ((|tableForDiscreteLogarithm|
                                 ((|Table| (|PositiveInteger|)
@@ -44,7 +45,8 @@
                               (|Integer|)
                               (|List|
                                (|Record| (|:| |factor| (|Integer|))
-                                         (|:| |exponent| (|Integer|)))))
+                                         (|:| |exponent|
+                                              (|NonNegativeInteger|)))))
                             NIL))
                    |FiniteFieldCategory|)
            (SETELT #1# 0 '(|FiniteFieldCategory|))))) 

@@ -1215,7 +1215,8 @@
           (|fac| NIL)
           (|fl|
            (|List|
-            (|Record| (|:| |factor| |Smp|) (|:| |exponent| (|Integer|)))))
+            (|Record| (|:| |factor| |Smp|)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|mp| (|Smp|)))
          (SEQ
           (EXIT
@@ -1648,7 +1649,7 @@
               (363 . |degree|) (368 . ~=) (374 . |leadingCoefficient|)
               (379 . *) (385 . |reductum|) (|Factored| 73)
               (|DistinctDegreeFactorize| 6 73) (390 . |factor|)
-              (|Record| (|:| |factor| 73) (|:| |exponent| 7)) (|List| 97)
+              (|Record| (|:| |factor| 73) (|:| |exponent| 22)) (|List| 97)
               (395 . |factors|) (400 . >) (406 . |size|) (|PositiveInteger|)
               (410 . >) (416 . |even?|) (421 . >) (427 . |scanOneDimSubspaces|)
               (433 . |meatAxe|) (441 . |meatAxe|) (446 . |meatAxe|)

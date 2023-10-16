@@ -502,8 +502,8 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) '|Rep| (|Boolean|) (0 . |ground?|)
               (|Factored| 9) (|MultivariateFactorize| 7 8 6 9) (5 . |factor|)
-              (|Record| (|:| |factor| 9) (|:| |exponent| (|Integer|)))
-              (|List| 16) (10 . |factors|) (|List| 9) (|GroebnerPackage| 6 8 9)
+              (|Record| (|:| |factor| 9) (|:| |exponent| 41)) (|List| 16)
+              (10 . |factors|) (|List| 9) (|GroebnerPackage| 6 8 9)
               (15 . |groebner|) (|GroebnerInternalPackage| 6 8 9)
               (20 . |redPol|) |QALGSET;quasiAlgebraicSet;LDpoly$;12|
               (26 . |Zero|) (30 . |Zero|) (34 . |Zero|) (38 . =)

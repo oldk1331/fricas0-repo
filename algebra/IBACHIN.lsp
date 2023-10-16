@@ -392,13 +392,13 @@
         ((|list| |List| UP) (|polyList| |List| UP) (|i| |Integer|) (|den| R)
          ($ |List| UP))
         (SPROG
-         ((#1=#:G179 NIL) (|pp| NIL) (#2=#:G178 NIL) (|invPoly| (UP))
-          (|n| (|NonNegativeInteger|)) (#3=#:G171 NIL) (|prime| (R))
+         ((#1=#:G178 NIL) (|pp| NIL) (#2=#:G177 NIL) (|invPoly| (UP))
+          (|n| #3=(|NonNegativeInteger|)) (|prime| (R))
           (|factoredDen|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |factor| R) (|:| |exponent| (|Integer|)))))
-          (|q| (UP)) (|j| NIL) (|p| (UP)) (#4=#:G177 NIL))
+                      (|:| |factor| R) (|:| |exponent| #3#))))
+          (|q| (UP)) (|j| NIL) (|p| (UP)) (#4=#:G176 NIL))
          (SEQ
           (LETT |q| (|spadConstant| $ 36) . #5=(|IBACHIN;mapChineseToList|))
           (SEQ (LETT |j| 1 . #5#) (LETT #4# (- |i| 1) . #5#) G190
@@ -423,11 +423,7 @@
                 (SPADCALL (SPADCALL |den| (QREFELT $ 52)) (QREFELT $ 56))
                 . #5#)
           (LETT |prime| (QVELT (|SPADfirst| |factoredDen|) 1) . #5#)
-          (LETT |n|
-                (PROG1 (LETT #3# (QVELT (|SPADfirst| |factoredDen|) 2) . #5#)
-                  (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
-                                    '(|Integer|) #3#))
-                . #5#)
+          (LETT |n| (QVELT (|SPADfirst| |factoredDen|) 2) . #5#)
           (LETT |invPoly|
                 (QCAR
                  (|IBACHIN;approximateExtendedEuclidean| |q| |p| |prime| |n|
@@ -457,7 +453,7 @@
 (SDEFUN |IBACHIN;polyListToMatrix|
         ((|polyList| |List| UP) (|n| |NonNegativeInteger|) ($ |Matrix| R))
         (SPROG
-         ((|poly| (UP)) (#1=#:G186 NIL) (|i| NIL) (#2=#:G187 NIL)
+         ((|poly| (UP)) (#1=#:G185 NIL) (|i| NIL) (#2=#:G186 NIL)
           (|mat| (|Matrix| R)))
          (SEQ
           (LETT |mat| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 10))
@@ -498,9 +494,9 @@
         (SPROG
          ((|matInv| (|Matrix| R)) (|mat| (|Matrix| R))
           (|basisPolys| (|List| UP)) (|basisPolyLists| (|List| (|List| UP)))
-          (|polyList| (|List| UP)) (|i| NIL) (#1=#:G200 NIL) (|pList| NIL)
+          (|polyList| (|List| UP)) (|i| NIL) (#1=#:G199 NIL) (|pList| NIL)
           (|factorBasisPolyLists| (|List| (|List| UP))) (|denLCM| (R))
-          (#2=#:G199 NIL) (|base| NIL) (#3=#:G198 NIL))
+          (#2=#:G198 NIL) (|base| NIL) (#3=#:G197 NIL))
          (SEQ
           (LETT |denLCM|
                 (SPADCALL (ELT $ 66)
@@ -566,9 +562,9 @@
 
 (DECLAIM (NOTINLINE |ChineseRemainderToolsForIntegralBases;|)) 
 
-(DEFUN |ChineseRemainderToolsForIntegralBases| (&REST #1=#:G201)
+(DEFUN |ChineseRemainderToolsForIntegralBases| (&REST #1=#:G200)
   (SPROG NIL
-         (PROG (#2=#:G202)
+         (PROG (#2=#:G201)
            (RETURN
             (COND
              ((LETT #2#
@@ -633,7 +629,7 @@
               (139 . |monicDivide|) (145 . |unmakeSUP|) (150 . *)
               (|Factored| 7) (|DistinctDegreeFactorize| 6 7) (156 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 53) (|:| |factor| 7) (|:| |exponent| 62))
+              (|Record| (|:| |flag| 53) (|:| |factor| 7) (|:| |exponent| 11))
               (|List| 54) (161 . |factorList|) (166 . |monicDivide|)
               (|Boolean|) (172 . |zero?|) (177 . |degree|)
               (182 . |leadingCoefficient|) (|Integer|) (|Matrix| 7)

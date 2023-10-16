@@ -749,7 +749,9 @@
          ((|newlp| (|List| P)) (|lf| (|List| P)) (#1=#:G410 NIL) (|rrz| NIL)
           (#2=#:G409 NIL)
           (|lrrz|
-           (|List| (|Record| (|:| |factor| P) (|:| |exponent| (|Integer|)))))
+           (|List|
+            (|Record| (|:| |factor| P)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|fp| (|Factored| P)) (|p| (P)))
          (SEQ (LETT |newlp| NIL . #3=(|PSETPK;irreducibleFactors;2L;26|))
               (SEQ G190 (COND ((NULL (NULL (NULL |lp|))) (GO G191)))
@@ -791,7 +793,9 @@
          ((|newlp| (|List| P)) (|lf| (|List| P)) (#1=#:G420 NIL) (|rrz| NIL)
           (#2=#:G419 NIL)
           (|lrrz|
-           (|List| (|Record| (|:| |factor| P) (|:| |exponent| (|Integer|)))))
+           (|List|
+            (|Record| (|:| |factor| P)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|fp| (|Factored| P)) (|p| (P)))
          (SEQ
           (LETT |lp| (SPADCALL |lp| (QREFELT $ 89))
@@ -1803,8 +1807,8 @@
               |PSETPK;removeRedundantFactors;2L;43|
               |PSETPK;removeRedundantFactors;3L;25| (|Factored| 9)
               (|MultivariateFactorize| 8 7 6 9) (216 . |factor|)
-              (|Record| (|:| |factor| 9) (|:| |exponent| (|Integer|)))
-              (|List| 94) (221 . |factors|) (226 . |irreducibleFactors|)
+              (|Record| (|:| |factor| 9) (|:| |exponent| 24)) (|List| 94)
+              (221 . |factors|) (226 . |irreducibleFactors|)
               (231 . |lazyIrreducibleFactors|)
               (236 . |removeIrreducibleRedundantFactors|) (|Factored| $)
               (242 . |squareFree|) (247 . |squareFreeFactors|) (|List| $)

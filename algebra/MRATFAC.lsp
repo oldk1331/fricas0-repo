@@ -139,9 +139,9 @@
               (|MultivariateFactorize| 7 (|IndexedExponents| 7) 8 12)
               (65 . |factor|) (70 . |One|) (74 . |One|) (78 . |One|) (82 . /)
               (88 . |unit|) (|Record| (|:| |factor| 12) (|:| |exponent| 43))
-              (|List| 40) (93 . |factors|) (|Integer|) (|Factored| 9)
-              (98 . |primeFactor|) (104 . *) (110 . |One|) (114 . *)
-              |MRATFAC;factor;PF;5|)
+              (|List| 40) (93 . |factors|) (|NonNegativeInteger|)
+              (|Factored| 9) (98 . |primeFactor|) (104 . *) (110 . |One|)
+              (114 . *) |MRATFAC;factor;PF;5|)
            '#(|factor| 120) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()

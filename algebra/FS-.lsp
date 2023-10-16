@@ -2478,7 +2478,7 @@
               (1150 . |algtower|) (1155 . |algtower|) (1160 . |algtower|)
               (1165 . |One|) (1169 . =) (1175 . /) (1181 . -) (1187 . ^)
               (1193 . |paren|) (|Factored| 6) (1198 . |unit|)
-              (|Record| (|:| |factor| 6) (|:| |exponent| 122)) (|List| 332)
+              (|Record| (|:| |factor| 6) (|:| |exponent| 83)) (|List| 332)
               (1203 . |factors|) (|Factored| $) (1208 . |convert|)
               (|Union| 300 '#1#) (1213 . |retractIfCan|)
               (1218 . |retractIfCan|) (1223 . |retractIfCan|) (1228 . |coerce|)

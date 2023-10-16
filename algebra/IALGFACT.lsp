@@ -49,7 +49,9 @@
          ((|listerm| (|List| |AlPol|)) (|newf| (|AlPol|)) (#1=#:G119 NIL)
           (|g| (|AlPol|)) (#2=#:G129 NIL) (|pelt| NIL)
           (|listfact|
-           (|List| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
+           (|List|
+            (|Record| (|:| |factor| UP)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|nn| (UP)))
          (SEQ
           (COND ((EQL (SPADCALL |f| (QREFELT $ 22)) 1) (LIST |f|))
@@ -250,11 +252,11 @@
               (|NonNegativeInteger|) (8 . |monomial|) (|Integer|)
               (14 . |coerce|) (19 . |One|) (23 . |monomial|) (29 . |reduce|)
               (34 . -) (40 . |elt|) (46 . +) (52 . |degree|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 14)) (|List| 23)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 12)) (|List| 23)
               (|Factored| 7) (57 . |factors|) (62 . |gcd|)
               (|Union| $ '"failed") (68 . |exquo|) (|List| 9) (74 . |append|)
               (|Factored| $) (80 . |squareFree|) (|Factored| 9) (85 . |unit|)
-              (|Record| (|:| |factor| 9) (|:| |exponent| 14)) (|List| 36)
+              (|Record| (|:| |factor| 9) (|:| |exponent| 12)) (|List| 36)
               (90 . |factors|) (95 . |primeFactor|) (101 . *) (107 . |One|)
               (111 . *) (|Mapping| 25 7) |IALGFACT;factor;AlPolMF;3|
               (117 . |definingPolynomial|) '|p| (121 . |coerce|)
@@ -278,7 +280,7 @@
                                                    2 9 0 0 0 27 2 9 28 0 0 29 2
                                                    30 0 0 0 31 1 9 32 0 33 1 34
                                                    9 0 35 1 34 37 0 38 2 34 0 9
-                                                   14 39 2 34 0 0 0 40 0 34 0
+                                                   12 39 2 34 0 0 0 40 0 34 0
                                                    41 2 34 0 9 0 42 0 8 7 45 1
                                                    7 0 6 47 2 50 48 49 7 51 2
                                                    48 7 0 0 53 1 8 0 6 54 2 56

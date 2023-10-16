@@ -902,7 +902,7 @@
               (163 . |leadingCoefficient|) (168 . |primitivePart|)
               (|Record| (|:| |normal| 64) (|:| |special| 64))
               (|MonomialExtensionTools| 6 7) (173 . |splitSquarefree|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 86)) (|List| 62)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 34)) (|List| 62)
               (|Factored| 7) (179 . |factors|) (|Fraction| 86) (184 . |One|)
               (188 . |primitivePart|)
               (|CommuteUnivariatePolynomialCategory| 6 7 15) (194 . |swap|)

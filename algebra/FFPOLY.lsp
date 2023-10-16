@@ -369,7 +369,7 @@
           (|lrec|
            (|List|
             (|Record| (|:| |factor| (|Integer|))
-                      (|:| |exponent| (|Integer|)))))
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|x| (MM)) (|qn1| (|PositiveInteger|)) (#6=#:G458 NIL)
           (#7=#:G457 NIL) (|q| (|PositiveInteger|))
           (|n| (|NonNegativeInteger|)))
@@ -2628,7 +2628,7 @@
               |FFPOLY;numberOfPrimitivePoly;2Pi;6| (189 . |characteristic|)
               (193 . *) (199 . ~=) |FFPOLY;numberOfNormalPoly;2Pi;7| (205 . ~=)
               (211 . ^) (|Factored| $) (217 . |factor|)
-              (|Record| (|:| |factor| 44) (|:| |exponent| 44)) (|List| 70)
+              (|Record| (|:| |factor| 44) (|:| |exponent| 8)) (|List| 70)
               (|Factored| 44) (222 . |factors|) (227 . =)
               |FFPOLY;primitive?;SupB;8| (|DistinctDegreeFactorize| 6 11)
               (233 . |irreducible?|) (238 . |rank|) |FFPOLY;normal?;SupB;9|

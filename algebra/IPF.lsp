@@ -56,7 +56,8 @@
 
 (SDEFUN |IPF;factorsOfCyclicGroupSize;L;9|
         (($ |List|
-          (|Record| (|:| |factor| . #1=((|Integer|))) (|:| |exponent| . #1#))))
+          (|Record| (|:| |factor| (|Integer|))
+                    (|:| |exponent| (|NonNegativeInteger|)))))
         (SEQ
          (COND ((EQL (QREFELT $ 6) 2) (QREFELT $ 9))
                ('T
@@ -279,7 +280,7 @@
               (|Union| $ '"failed") (51 . |recip|) (56 . |invmod|)
               |IPF;normalElement;$;6| |IPF;createNormalElement;$;7|
               |IPF;characteristic;Nni;8|
-              (|Record| (|:| |factor| 20) (|:| |exponent| 20)) (|List| 39)
+              (|Record| (|:| |factor| 20) (|:| |exponent| 22)) (|List| 39)
               |IPF;factorsOfCyclicGroupSize;L;9|
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               |IPF;representationType;U;10| (|Union| 47 '"failed")

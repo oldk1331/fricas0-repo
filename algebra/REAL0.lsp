@@ -926,7 +926,7 @@
               (|Record| (|:| |left| 7) (|:| |right| 7)) |REAL0;midpoint;RF;2|
               (|List| 7) (|List| 15) |REAL0;midpoints;LL;3| (|Factored| $)
               (31 . |squareFree|)
-              (|Record| (|:| |factor| 6) (|:| |exponent| 11)) (|List| 22)
+              (|Record| (|:| |factor| 6) (|:| |exponent| 37)) (|List| 22)
               (|Factored| 6) (36 . |factors|) (41 . *) |REAL0;realZeros;PolL;5|
               |REAL0;refine;PolRFR;20| |REAL0;realZeros;PolFL;6|
               (|Union| 15 '"failed") |REAL0;refine;Pol2RU;19|

@@ -9,7 +9,9 @@
           (|pp| #4=(|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
           (#5=#:G112 NIL) (|pf| NIL)
           (|lpf|
-           (|List| (|Record| (|:| |factor| #4#) (|:| |exponent| (|Integer|)))))
+           (|List|
+            (|Record| (|:| |factor| #4#)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|np| (|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
           (|vv| #6=(|Symbol|)) (|x2| #6#) (|x1| #6#))
          (SEQ
@@ -115,8 +117,9 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Symbol|)
               (0 . |new|) (|SparseUnivariatePolynomial| 25) (4 . |makeSUP|)
               (|Factored| $) (9 . |factor|)
-              (|Record| (|:| |factor| 10) (|:| |exponent| 24)) (|List| 14)
-              (|Factored| 10) (14 . |factors|) (|Polynomial| 25)
+              (|Record| (|:| |factor| 10)
+                        (|:| |exponent| (|NonNegativeInteger|)))
+              (|List| 14) (|Factored| 10) (14 . |factors|) (|Polynomial| 25)
               (19 . |multivariate|) (25 . |coerce|) (30 . |Zero|) (34 . |Zero|)
               (38 . |One|) (|Integer|) (|Complex| 24) (42 . |complex|) (48 . *)
               (54 . +) (60 . |eval|) (67 . |real|) (|Polynomial| 24)

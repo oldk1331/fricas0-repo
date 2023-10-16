@@ -121,7 +121,9 @@
           (|pol| #9=(|SparseUnivariatePolynomial| K)) (#10=#:G164 NIL)
           (|ff| NIL)
           (|lff|
-           (|List| (|Record| (|:| |factor| #9#) (|:| |exponent| (|Integer|)))))
+           (|List|
+            (|Record| (|:| |factor| #9#)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (AM
            (|Join| (|MatrixCategory| MM (|Vector| MM) (|Vector| MM))
                    (CATEGORY |domain|
@@ -695,7 +697,7 @@
               (|Mapping| 7 6)
               (|UnivariatePolynomialCategoryFunctions2| 6 18 7 40) (99 . |map|)
               (105 . |elt|) (111 . |setelt!|)
-              (|Record| (|:| |factor| 18) (|:| |exponent| 37)) (|List| 46)
+              (|Record| (|:| |factor| 18) (|:| |exponent| 34)) (|List| 46)
               (|Factored| 18) (119 . |factors|) (124 . |degree|)
               (129 . |coefficient|) (135 . /) (141 . -) (|Matrix| 6)
               (146 . |zero|) (152 . |elt|) (159 . |setelt!|) (167 . -)

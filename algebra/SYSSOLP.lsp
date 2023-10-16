@@ -1131,7 +1131,7 @@
               (|Factored| 7)
               (|GeneralizedMultivariateFactorize| 17 (|IndexedExponents| 17) 6
                                                   6 7)
-              (125 . |factor|) (|Record| (|:| |factor| 7) (|:| |exponent| 77))
+              (125 . |factor|) (|Record| (|:| |factor| 7) (|:| |exponent| 26))
               (|List| 45) (130 . |factors|) (135 . |denom|) (140 . |One|)
               (144 . ~=) (|List| 71) (|List| 9)
               |SYSSOLP;triangularSystems;LLL;7| (150 . |zero?|)

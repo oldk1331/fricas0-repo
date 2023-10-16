@@ -663,7 +663,7 @@
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Mapping| 6 6) (|Fraction| 7) (|InputForm|)
               (|OnePointCompletion| 79) (|Union| 15 '"failed")
-              (|Record| (|:| |factor| 49) (|:| |exponent| 49)) (|List| 168)
+              (|Record| (|:| |factor| 49) (|:| |exponent| 15)) (|List| 168)
               (|Table| 79 15)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Record| (|:| |mat| 173) (|:| |vec| (|Vector| 49)))

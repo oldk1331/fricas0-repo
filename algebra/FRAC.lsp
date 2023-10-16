@@ -634,7 +634,7 @@
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| (|SparseUnivariatePolynomial| $))
-                      (|:| |exponent| (|Integer|)))))
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|den1| ($)) (|lc| ($)) (#2=#:G880 NIL) (|w| NIL) (#3=#:G879 NIL)
           (|ff| (|Factored| (|SparseUnivariatePolynomial| S)))
           (|ppD| (|SparseUnivariatePolynomial| S)) (|denpp| (S))
@@ -774,7 +774,7 @@
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| (|SparseUnivariatePolynomial| $))
-                      (|:| |exponent| (|Integer|)))))
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|den1| ($)) (|lc| ($)) (#2=#:G905 NIL) (|w| NIL) (#3=#:G904 NIL)
           (|ff| (|Factored| (|SparseUnivariatePolynomial| S)))
           (|ppD| (|SparseUnivariatePolynomial| S)) (|denpp| (S))
@@ -1212,10 +1212,10 @@
               (399 . |conditionP|) (|Factored| 79) (404 . |Zero|)
               (|Factored| 92) (408 . |factorPolynomial|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 121) (|:| |factor| 88) (|:| |exponent| 61))
+              (|Record| (|:| |flag| 121) (|:| |factor| 88) (|:| |exponent| 81))
               (|List| 122) (|Factored| 88) (413 . |factorList|) (418 . ^)
               (424 . /) (430 . |unit|)
-              (|Record| (|:| |flag| 121) (|:| |factor| 79) (|:| |exponent| 61))
+              (|Record| (|:| |flag| 121) (|:| |factor| 79) (|:| |exponent| 81))
               (|List| 129) (435 . |makeFR|) (441 . |factorPolynomial|)
               (446 . |leadingCoefficient|) (451 . /)
               (457 . |factorSquareFreePolynomial|)
@@ -1342,7 +1342,7 @@
                                     104 1 106 105 0 107 1 109 0 108 110 1 6 111
                                     112 113 2 114 6 0 61 115 1 0 111 112 116 0
                                     117 0 118 1 6 119 92 120 1 124 123 0 125 2
-                                    0 0 0 61 126 2 0 0 0 0 127 1 124 88 0 128 2
+                                    0 0 0 81 126 2 0 0 0 0 127 1 124 88 0 128 2
                                     117 0 79 130 131 1 0 119 92 132 1 79 2 0
                                     133 2 79 0 0 2 134 1 6 119 92 135 1 0 119
                                     92 136 2 0 11 0 0 1 1 0 11 0 13 1 21 6 0 32
@@ -1379,7 +1379,7 @@
                                     0 0 1 1 0 0 61 1 1 0 167 0 1 1 34 29 0 101
                                     0 0 81 102 1 22 6 0 37 3 0 0 0 0 0 1 2 0 11
                                     0 0 1 2 0 0 0 0 1 2 0 11 0 0 1 1 6 0 0 1 2
-                                    0 0 0 61 126 2 0 0 0 81 1 2 0 0 0 165 1 0 0
+                                    0 0 0 61 1 2 0 0 0 81 126 2 0 0 0 165 1 0 0
                                     0 33 0 0 0 8 1 23 44 0 1 2 23 41 42 0 1 2
                                     23 44 0 11 1 3 23 41 42 0 11 50 2 14 0 0 81
                                     1 1 14 0 0 1 3 13 0 0 143 148 1 2 13 0 0

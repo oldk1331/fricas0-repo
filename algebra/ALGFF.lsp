@@ -713,7 +713,7 @@
               (|Factored| $) (|Fraction| 8) (|PositiveInteger|) (|InputForm|)
               (|Union| 22 '"failed") (|OnePointCompletion| 146)
               (|Union| 151 '#2#) (|List| 137) (|Factored| 137)
-              (|Record| (|:| |factor| 52) (|:| |exponent| 52)) (|List| 153)
+              (|Record| (|:| |factor| 52) (|:| |exponent| 22)) (|List| 153)
               (|Table| 146 22)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Matrix| 52)

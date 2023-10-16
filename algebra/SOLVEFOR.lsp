@@ -871,7 +871,7 @@
               (|Record| (|:| |solns| 11) (|:| |maps| (|List| 13)))
               (|Mapping| 7 7) |SOLVEFOR;mapSolve;UPMR;1| (|Boolean|) (0 . =)
               (|Factored| $) (6 . |squareFree|)
-              (|Record| (|:| |factor| 6) (|:| |exponent| 25)) (|List| 21)
+              (|Record| (|:| |factor| 6) (|:| |exponent| 27)) (|List| 21)
               (|Factored| 6) (11 . |factors|) (|Integer|) (16 . |elt|)
               (|NonNegativeInteger|) (22 . |degree|) (27 . |One|) (31 . |One|)
               (35 . |coefficient|) (41 . |Zero|) (45 . |Zero|)

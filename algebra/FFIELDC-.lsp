@@ -77,7 +77,7 @@
           (|explist|
            (|List|
             (|Record| (|:| |factor| (|Integer|))
-                      (|:| |exponent| (|Integer|))))))
+                      (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ
           (COND ((SPADCALL |a| (QREFELT $ 14)) NIL)
                 ('T
@@ -110,7 +110,8 @@
           (#3=#:G169 NIL) (|rec| NIL)
           (|lof|
            (|List|
-            (|Record| (|:| |factor| #2#) (|:| |exponent| (|Integer|))))))
+            (|Record| (|:| |factor| #2#)
+                      (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ
           (COND
            ((SPADCALL |e| (|spadConstant| $ 7) (QREFELT $ 47))
@@ -163,7 +164,8 @@
           (|gen| (S))
           (|faclist|
            (|List|
-            (|Record| (|:| |factor| #4#) (|:| |exponent| (|Integer|))))))
+            (|Record| (|:| |factor| #4#)
+                      (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ
           (COND
            ((SPADCALL |b| (QREFELT $ 14))
@@ -295,7 +297,9 @@
           (|exp| (|Integer|)) (#2=#:G212 NIL) (|t| NIL) (|primroot| (S))
           (|fac| #3=(|Integer|)) (#4=#:G211 NIL) (|f| NIL)
           (|faclist|
-           (|List| (|Record| (|:| |factor| #3#) (|:| |exponent| (|Integer|)))))
+           (|List|
+            (|Record| (|:| |factor| #3#)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|groupord| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -403,7 +407,7 @@
                           (|List|
                            (|Record|
                             (|:| |irr| (|SparseUnivariatePolynomial| S))
-                            (|:| |pow| (|Integer|))))))))
+                            (|:| |pow| (|NonNegativeInteger|))))))))
          (SEQ
           (COND
            ((SPADCALL |f| (|spadConstant| $ 82) (QREFELT $ 83))
@@ -479,7 +483,7 @@
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (59 . |representationType|) (63 . =)
               |FFIELDC-;createPrimitiveElement;S;8|
-              (|Record| (|:| |factor| 44) (|:| |exponent| 44)) (|List| 41)
+              (|Record| (|:| |factor| 44) (|:| |exponent| 31)) (|List| 41)
               (69 . |factorsOfCyclicGroupSize|) (|Integer|) (73 . ^)
               (79 . |One|) (83 . =) |FFIELDC-;primitive?;SB;9| (|Factored| 44)
               (89 . |Zero|) |FFIELDC-;order;SPi;10| (93 . |primitiveElement|)
@@ -496,7 +500,7 @@
               |FFIELDC-;squareFreePolynomial;SupF;13|
               (|DistinctDegreeFactorize| 6 73) (156 . |factor|)
               |FFIELDC-;factorPolynomial;SupF;14| (161 . |Zero|) (165 . =)
-              (171 . |Zero|) (|Record| (|:| |irr| 73) (|:| |pow| 44))
+              (171 . |Zero|) (|Record| (|:| |irr| 73) (|:| |pow| 31))
               (|Record| (|:| |cont| 6) (|:| |factors| (|List| 85)))
               (175 . |distdfact|) (181 . |coerce|) (186 . |primeFactor|)
               (192 . *) (198 . |One|) (202 . *)
@@ -529,7 +533,7 @@
                                                    1 74 72 73 75 1 79 72 73 80
                                                    0 73 0 82 2 73 13 0 0 83 0
                                                    72 0 84 2 79 86 73 13 87 1
-                                                   73 0 6 88 2 72 0 73 44 89 2
+                                                   73 0 6 88 2 72 0 73 31 89 2
                                                    72 0 0 0 90 0 72 0 91 2 72 0
                                                    73 0 92 2 94 0 0 0 95 1 0 76
                                                    77 78 1 0 13 0 48 1 0 10 0

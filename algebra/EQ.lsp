@@ -577,7 +577,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (0 . |rightZero|)
               |EQ;lhs;$S;4| (|Factored| $) (5 . |factor|)
-              (|Record| (|:| |factor| 6) (|:| |exponent| 74)) (|List| 12)
+              (|Record| (|:| |factor| 6) (|:| |exponent| 71)) (|List| 12)
               (|Factored| 6) (10 . |factors|) (15 . |Zero|) |EQ;equation;2S$;3|
               (|List| $) (19 . |factorAndSplit|) |EQ;=;2S$;2| |EQ;rhs;$S;5|
               |EQ;swap;2$;6| (|Mapping| 6 6) |EQ;map;M2$;7| (|Symbol|)
@@ -595,7 +595,7 @@
               (242 . |characteristic|) (|Integer|) (246 . |coerce|) (251 . *)
               (|Factored| 78) (|Polynomial| 74)
               (|MultivariateFactorize| 25 (|IndexedExponents| 25) 74 78)
-              (257 . |factor|) (|Record| (|:| |factor| 78) (|:| |exponent| 74))
+              (257 . |factor|) (|Record| (|:| |factor| 78) (|:| |exponent| 71))
               (|List| 81) (262 . |factors|) (267 . |differentiate|)
               (273 . |differentiate|) (|CardinalNumber|) (279 . |coerce|)
               (284 . |dimension|) (288 . /) (294 . /) (|Equation| $)

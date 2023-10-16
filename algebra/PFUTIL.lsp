@@ -106,10 +106,11 @@
 (MAKEPROP '|PartialFractionUtilities| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
-              (4 . |One|) (|Integer|) (|Factored| 7) (8 . |nilFactor|) (14 . *)
-              (20 . *) (26 . |One|) (|Mapping| 11 11 11) (|List| 11)
-              (30 . |reduce|) (|PartialFraction| 7) (37 . |partialFraction|)
-              (43 . |wholePart|) (48 . |Zero|) (|Boolean|) (52 . ~=)
+              (4 . |One|) (|NonNegativeInteger|) (|Factored| 7)
+              (8 . |nilFactor|) (14 . *) (20 . *) (26 . |One|)
+              (|Mapping| 11 11 11) (|List| 11) (30 . |reduce|)
+              (|PartialFraction| 7) (37 . |partialFraction|) (43 . |wholePart|)
+              (48 . |Zero|) (|Boolean|) (52 . ~=)
               (|Record| (|:| |num| 7) (|:| |den| 11)) (|List| 25)
               (58 . |fractionalTerms|) (63 . =) (|List| 7)
               |PFUTIL;decompose;UP2L;1|)

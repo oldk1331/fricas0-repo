@@ -195,13 +195,12 @@
 (MAKEPROP '|GaloisGroupPolynomialUtilities| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| (|Integer|)))
-              (|List| 8) (|Factored| 7) (0 . |factors|) (|NonNegativeInteger|)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 12)) (|List| 8)
+              (|Factored| 7) (0 . |factors|) (|NonNegativeInteger|)
               (5 . |degree|) (|List| 7) (|PositiveInteger|)
               |GALPOLYU;factorsOfDegree;PiFL;1| (10 . |Zero|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 18) (|:| |factor| 7)
-                        (|:| |exponent| (|Integer|)))
+              (|Record| (|:| |flag| 18) (|:| |factor| 7) (|:| |exponent| 12))
               (|List| 19) (14 . |factorList|) |GALPOLYU;factorOfDegree;PiFUP;2|
               (|List| 12) (|Multiset| 12) (19 . |multiset|)
               |GALPOLYU;degreePartition;FM;3| (24 . |leadingCoefficient|)

@@ -9,7 +9,7 @@
                            (|Record|
                             (|:| |irr|
                                  (|SparseUnivariatePolynomial| (|Integer|)))
-                            (|:| |pow| (|Integer|)))))))
+                            (|:| |pow| (|NonNegativeInteger|)))))))
           (|ipol| (|SparseUnivariatePolynomial| (|Integer|))) (|pol| (RP))
           (|pden| (|Integer|)) (#3=#:G119 NIL) (|c| NIL) (#4=#:G118 NIL))
          (SEQ
@@ -73,7 +73,7 @@
                            (|Record|
                             (|:| |irr|
                                  (|SparseUnivariatePolynomial| (|Integer|)))
-                            (|:| |pow| (|Integer|)))))))
+                            (|:| |pow| (|NonNegativeInteger|)))))))
           (|ipol| (|SparseUnivariatePolynomial| (|Integer|))) (|pol| (RP))
           (|pden| (|Integer|)) (#3=#:G137 NIL) (|c| NIL) (#4=#:G136 NIL))
          (SEQ
@@ -171,13 +171,15 @@
               (|List| $) (24 . |lcm|) (29 . *) (35 . |numer|)
               (|SparseUnivariatePolynomial| 14) (|Mapping| 14 15)
               (|UnivariatePolynomialCategoryFunctions2| 15 6 14 21)
-              (40 . |map|) (|Record| (|:| |irr| 21) (|:| |pow| 14))
+              (40 . |map|)
+              (|Record| (|:| |irr| 21) (|:| |pow| (|NonNegativeInteger|)))
               (|Record| (|:| |contp| 14) (|:| |factors| (|List| 25)))
               (|GaloisGroupFactorizer| 21) (46 . |henselFact|) (52 . /)
               (58 . |coerce|) (63 . |coerce|) (|Mapping| 15 14)
               (|UnivariatePolynomialCategoryFunctions2| 14 21 15 6)
               (68 . |map|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 35) (|:| |factor| 6) (|:| |exponent| 14))
+              (|Record| (|:| |flag| 35) (|:| |factor| 6)
+                        (|:| |exponent| (|NonNegativeInteger|)))
               (|List| 36) (74 . |makeFR|) |RATFACT;factor;RPF;1|
               |RATFACT;factorSquareFree;RPF;2|)
            '#(|factorSquareFree| 80 |factor| 85) 'NIL

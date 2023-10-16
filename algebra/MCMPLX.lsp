@@ -229,7 +229,7 @@
               (|SparseUnivariatePolynomial| 9) (|Matrix| 9) (|Vector| $)
               (|Mapping| 9 9) (|Fraction| 60) (|PositiveInteger|)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|Table| 65 48) (|Record| (|:| |factor| 14) (|:| |exponent| 14))
+              (|Table| 65 48) (|Record| (|:| |factor| 14) (|:| |exponent| 48))
               (|List| 68) (|OnePointCompletion| 65) (|Union| 48 '"failed")
               (|Symbol|) (|List| 72) (|Union| 34 '"failed") (|Matrix| 14)
               (|Record| (|:| |mat| 75) (|:| |vec| (|Vector| 14))) (|List| 48)

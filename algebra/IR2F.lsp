@@ -908,7 +908,7 @@
               (|PolynomialRoots| (|IndexedExponents| 25) 25 6 73 7)
               (376 . |froot|) (382 . |primitivePart|) (|Factored| 8)
               (|ExpressionFactorPolynomial| 6 7) (387 . |factorPolynomial|)
-              (|Record| (|:| |factor| 8) (|:| |exponent| 30)) (|List| 122)
+              (|Record| (|:| |factor| 8) (|:| |exponent| 47)) (|List| 122)
               (392 . |factors|) (397 . *))
            '#(|split| 403 |expand| 408 |complexExpand| 414) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
@@ -949,7 +949,7 @@
                                                    30 0 112 2 27 0 0 0 113 1 27
                                                    0 0 114 2 116 115 7 47 117 1
                                                    8 0 0 118 1 120 119 8 121 1
-                                                   119 123 0 124 2 40 0 30 0
+                                                   119 123 0 124 2 40 0 47 0
                                                    125 1 0 12 12 35 2 0 27 12
                                                    24 37 1 0 7 12 44)))))
            '|lookupComplete|)) 

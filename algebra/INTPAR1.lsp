@@ -1963,7 +1963,7 @@
               (105 . |lin_comb|) (111 . |denom|) (|Vector| 7) (116 . |vector|)
               (|Record| (|:| |basis| 56) (|:| |transform| 81)) (|GcdBasis| 7)
               (121 . |gcdDecomposition|) (126 . |entries|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 30)) (|List| 62)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 10)) (|List| 62)
               (|Factored| 7) (131 . |factors|) (136 . |concat|)
               (142 . |concat|) (148 . |concat|) (|Mapping| 40 40 40)
               (154 . |reduce|) (161 . +) (167 . +) (173 . +) (179 . +)

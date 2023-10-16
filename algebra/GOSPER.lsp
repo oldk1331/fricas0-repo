@@ -789,7 +789,7 @@
               (237 . |particularSolution|) (243 . |elt|) (249 . *) (255 . +)
               (261 . |resultant|) (|Factored| 12)
               (|MRationalFactorize| (|IndexedExponents| 7) 7 74 12)
-              (268 . |factor|) (|Record| (|:| |factor| 12) (|:| |exponent| 74))
+              (268 . |factor|) (|Record| (|:| |factor| 12) (|:| |exponent| 16))
               (|List| 89) (273 . |factors|) (278 . |coerce|) (283 . |gcd|)
               (|Union| $ '"failed") (289 . |exquo|) (295 . <=)
               (|Union| 7 '"failed") (301 . |mainVariable|) (306 . |monomial?|)

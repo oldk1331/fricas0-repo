@@ -283,7 +283,7 @@
           (|fl|
            (|List|
             (|Record| (|:| |factor| (|Integer|))
-                      (|:| |exponent| (|Integer|)))))
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (#7=#:G256 NIL) (|i| NIL))
          (SEQ
           (EXIT
@@ -321,7 +321,7 @@
                                                             . #8#)
                                                     (|check_subtype2| (> #3# 0)
                                                                       '(|PositiveInteger|)
-                                                                      '(|Integer|)
+                                                                      '(|NonNegativeInteger|)
                                                                       #3#))
                                                   (QREFELT $ 62))
                                                  (QREFELT $ 9))
@@ -358,7 +358,7 @@
           (|fl|
            (|List|
             (|Record| (|:| |factor| (|Integer|))
-                      (|:| |exponent| (|Integer|)))))
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (#7=#:G292 NIL) (|i| NIL))
          (SEQ
           (EXIT
@@ -396,7 +396,7 @@
                                                             . #8#)
                                                     (|check_subtype2| (> #3# 0)
                                                                       '(|PositiveInteger|)
-                                                                      '(|Integer|)
+                                                                      '(|NonNegativeInteger|)
                                                                       #3#))
                                                   (QREFELT $ 62))
                                                  (QREFELT $ 9))
@@ -492,7 +492,7 @@
               (69 . |reduce|) |DIRRING;*;3$;16| (|Union| $ '"failed")
               (76 . |recip|) |DIRRING;unit?;$B;17| |DIRRING;recip;$U;19|
               (|Factored| $) (81 . |factor|)
-              (|Record| (|:| |factor| 16) (|:| |exponent| 16)) (|List| 58)
+              (|Record| (|:| |factor| 16) (|:| |exponent| 65)) (|List| 58)
               (|Factored| 16) (86 . |factors|) (91 . ^) (97 . |reduce|)
               (103 . ~=) (|NonNegativeInteger|) (109 . |coerce|) (|Void|)
               (|OutputPackage|) (114 . |output|) (119 . |coerce|)

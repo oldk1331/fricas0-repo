@@ -22,12 +22,9 @@
         ((|p| |Polynomial| R) (|facq| |Factored| (|Polynomial| R))
          (|v| |Symbol|) ($ |Any|))
         (SPROG
-         ((|pfup| (|PartialFraction| |up|)) (|nflist| (|fup|)) (#1=#:G112 NIL)
-          (#2=#:G111 (|fup|)) (#3=#:G113 (|fup|)) (#4=#:G118 NIL) (|ff| NIL)
+         ((|pfup| (|PartialFraction| |up|)) (|nflist| (|fup|)) (#1=#:G110 NIL)
+          (#2=#:G109 (|fup|)) (#3=#:G111 (|fup|)) (#4=#:G114 NIL) (|u| NIL)
           (|fcont| (|up|))
-          (|ffact|
-           (|List| (|Record| (|:| |irr| |up|) (|:| |pow| (|Integer|)))))
-          (#5=#:G117 NIL) (|u| NIL) (#6=#:G116 NIL)
           (|fup|
            (|Join| (|IntegralDomain|) (|DifferentialExtension| |up|)
                    (|Algebra| |up|) (|FullyEvalableOver| |up|)
@@ -38,27 +35,29 @@
                       (|List|
                        (|Record|
                         (|:| |flag|
-                             (|Union| #7="nil" #8="sqfr" #9="irred"
-                                      #10="prime"))
-                        (|:| |factor| |up|) (|:| |exponent| (|Integer|))))))
+                             (|Union| #5="nil" #6="sqfr" #7="irred"
+                                      #8="prime"))
+                        (|:| |factor| |up|)
+                        (|:| |exponent| (|NonNegativeInteger|))))))
                     (SIGNATURE |factorList|
                      ((|List|
-                       (|Record| (|:| |flag| (|Union| #7# #8# #9# #10#))
+                       (|Record| (|:| |flag| (|Union| #5# #6# #7# #8#))
                                  (|:| |factor| |up|)
-                                 (|:| |exponent| (|Integer|))))
+                                 (|:| |exponent| (|NonNegativeInteger|))))
                       $))
-                    (SIGNATURE |nilFactor| ($ |up| (|Integer|)))
+                    (SIGNATURE |nilFactor| ($ |up| (|NonNegativeInteger|)))
                     (SIGNATURE |factors|
                      ((|List|
                        (|Record| (|:| |factor| |up|)
-                                 (|:| |exponent| (|Integer|))))
+                                 (|:| |exponent| (|NonNegativeInteger|))))
                       $))
-                    (SIGNATURE |irreducibleFactor| ($ |up| (|Integer|)))
+                    (SIGNATURE |irreducibleFactor|
+                     ($ |up| (|NonNegativeInteger|)))
                     (SIGNATURE |numberOfFactors| ((|NonNegativeInteger|) $))
-                    (SIGNATURE |primeFactor| ($ |up| (|Integer|)))
-                    (SIGNATURE |sqfrFactor| ($ |up| (|Integer|)))
+                    (SIGNATURE |primeFactor| ($ |up| (|NonNegativeInteger|)))
+                    (SIGNATURE |sqfrFactor| ($ |up| (|NonNegativeInteger|)))
                     (SIGNATURE |flagFactor|
-                     ($ |up| (|Integer|) (|Union| #7# #8# #9# #10#)))
+                     ($ |up| (|NonNegativeInteger|) (|Union| #5# #6# #7# #8#)))
                     (SIGNATURE |unit| (|up| $))
                     (SIGNATURE |unitNormalize| ($ $))
                     (SIGNATURE |map| ($ (|Mapping| |up| |up|) $))
@@ -100,51 +99,39 @@
                 (|UnivariatePolynomial| |v|
                                         (|Fraction|
                                          (|Polynomial| (QREFELT $ 6))))
-                . #11=(|PFRPAC;partialFraction;PFSA;3|))
-          (LETT |fup| (|Factored| |up|) . #11#)
-          (LETT |ffact|
-                (PROGN
-                 (LETT #6# NIL . #11#)
-                 (SEQ (LETT |u| NIL . #11#)
-                      (LETT #5# (SPADCALL |facq| (QREFELT $ 28)) . #11#) G190
-                      (COND
-                       ((OR (ATOM #5#) (PROGN (LETT |u| (CAR #5#) . #11#) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #6#
-                              (CONS
-                               (CONS (|PFRPAC;makeSup| (QCAR |u|) |v| $)
-                                     (QCDR |u|))
-                               #6#)
-                              . #11#)))
-                      (LETT #5# (CDR #5#) . #11#) (GO G190) G191
-                      (EXIT (NREVERSE #6#))))
-                . #11#)
+                . #9=(|PFRPAC;partialFraction;PFSA;3|))
+          (LETT |fup| (|Factored| |up|) . #9#)
           (LETT |fcont|
-                (|PFRPAC;makeSup| (SPADCALL |facq| (QREFELT $ 29)) |v| $)
-                . #11#)
+                (|PFRPAC;makeSup| (SPADCALL |facq| (QREFELT $ 26)) |v| $)
+                . #9#)
           (LETT |nflist|
                 (SPADCALL |fcont|
                           (PROGN
-                           (LETT #1# NIL . #11#)
-                           (SEQ (LETT |ff| NIL . #11#)
-                                (LETT #4# |ffact| . #11#) G190
+                           (LETT #1# NIL . #9#)
+                           (SEQ (LETT |u| NIL . #9#)
+                                (LETT #4# (SPADCALL |facq| (QREFELT $ 30))
+                                      . #9#)
+                                G190
                                 (COND
                                  ((OR (ATOM #4#)
-                                      (PROGN (LETT |ff| (CAR #4#) . #11#) NIL))
+                                      (PROGN (LETT |u| (CAR #4#) . #9#) NIL))
                                   (GO G191)))
                                 (SEQ
                                  (EXIT
                                   (PROGN
                                    (LETT #3#
-                                         (SPADCALL (QCAR |ff|) (QCDR |ff|)
-                                                   (|compiledLookupCheck|
-                                                    '|primeFactor|
-                                                    (LIST '$ (|devaluate| |up|)
-                                                          (LIST '|Integer|))
-                                                    |fup|))
-                                         . #11#)
+                                         (SPADCALL
+                                          (|PFRPAC;makeSup| (QVELT |u| 1) |v|
+                                           $)
+                                          (QVELT |u| 2)
+                                          (|compiledLookupCheck| '|primeFactor|
+                                                                 (LIST '$
+                                                                       (|devaluate|
+                                                                        |up|)
+                                                                       (LIST
+                                                                        '|NonNegativeInteger|))
+                                                                 |fup|))
+                                         . #9#)
                                    (COND
                                     (#1#
                                      (LETT #2#
@@ -155,12 +142,12 @@
                                                                              '$
                                                                              '$)
                                                                             |fup|))
-                                           . #11#))
+                                           . #9#))
                                     ('T
                                      (PROGN
-                                      (LETT #2# #3# . #11#)
-                                      (LETT #1# 'T . #11#)))))))
-                                (LETT #4# (CDR #4#) . #11#) (GO G190) G191
+                                      (LETT #2# #3# . #9#)
+                                      (LETT #1# 'T . #9#)))))))
+                                (LETT #4# (CDR #4#) . #9#) (GO G190) G191
                                 (EXIT NIL))
                            (COND (#1# #2#)
                                  ('T
@@ -171,7 +158,7 @@
                                                  (LIST '$ (|devaluate| |up|)
                                                        '$)
                                                  |fup|))
-                . #11#)
+                . #9#)
           (LETT |pfup|
                 (SPADCALL (|PFRPAC;makeSup| |p| |v| $) |nflist|
                           (|compiledLookupCheck| '|partialFraction|
@@ -180,7 +167,7 @@
                                                              (|devaluate|
                                                               |up|)))
                                                  (|PartialFraction| |up|)))
-                . #11#)
+                . #9#)
           (EXIT
            (SPADCALL |pfup|
                      (|compiledLookupCheck| '|coerce|
@@ -192,9 +179,9 @@
 
 (DECLAIM (NOTINLINE |PartialFractionPackage;|)) 
 
-(DEFUN |PartialFractionPackage| (#1=#:G119)
+(DEFUN |PartialFractionPackage| (#1=#:G115)
   (SPROG NIL
-         (PROG (#2=#:G120)
+         (PROG (#2=#:G116)
            (RETURN
             (COND
              ((LETT #2#
@@ -216,7 +203,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|PartialFractionPackage|))
           (LETT |dv$| (LIST '|PartialFractionPackage| DV$1) . #1#)
-          (LETT $ (GETREFV 30) . #1#)
+          (LETT $ (GETREFV 31) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|PartialFractionPackage| (LIST DV$1)
@@ -237,16 +224,18 @@
               (21 . |coerce|) (|SparseUnivariatePolynomial| 8) (|Mapping| 8 7)
               (|SparseUnivariatePolynomial| 7)
               (|UnivariatePolynomialCategoryFunctions2| 7 23 8 21) (26 . |map|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| (|Integer|)))
-              (|List| 26) (32 . |factors|) (37 . |unit|))
+              (32 . |unit|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 27) (|:| |factor| 7)
+                        (|:| |exponent| (|NonNegativeInteger|)))
+              (|List| 28) (37 . |factorList|))
            '#(|partialFraction| 42) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 29
+                             (|makeByteWordVec2| 30
                                                  '(1 8 7 0 9 1 11 10 7 12 1 8 7
                                                    0 13 2 7 18 0 15 19 1 8 0 7
-                                                   20 2 24 21 22 23 25 1 10 27
-                                                   0 28 1 10 7 0 29 3 0 14 7 10
+                                                   20 2 24 21 22 23 25 1 10 7 0
+                                                   26 1 10 29 0 30 3 0 14 7 10
                                                    15 16 2 0 14 8 15 17)))))
            '|lookupComplete|)) 

@@ -4,7 +4,7 @@
         (SPADCALL |a| (LIST |b|) (QREFELT $ 10))) 
 
 (SDEFUN |BALFACT;balSqfr1|
-        ((|a| UP) (|n| |Integer|) (|b| UP) ($ |Factored| UP))
+        ((|a| UP) (|n| |NonNegativeInteger|) (|b| UP) ($ |Factored| UP))
         (SPROG ((#1=#:G109 NIL) (|fa| (|Factored| UP)) (|g| (UP)))
                (SEQ
                 (LETT |g| (SPADCALL |a| |b| (QREFELT $ 12))
@@ -32,9 +32,9 @@
                                                                            |g|
                                                                            (QREFELT
                                                                             $
-                                                                            20))
+                                                                            19))
                                                                  (QREFELT $
-                                                                          21))
+                                                                          20))
                                                        (QREFELT $ 14))
                                              . #2#)
                                        (QCDR #1#)
@@ -44,10 +44,10 @@
                                                               #3#)
                                                      #1#))
                                    $)
-                                  (QREFELT $ 22)))))))) 
+                                  (QREFELT $ 21)))))))) 
 
 (SDEFUN |BALFACT;balSqfr|
-        ((|a| UP) (|n| |Integer|) (|l| |List| UP) ($ |Factored| UP))
+        ((|a| UP) (|n| |NonNegativeInteger|) (|l| |List| UP) ($ |Factored| UP))
         (SPROG
          ((#1=#:G115 NIL) (#2=#:G114 #3=(|Factored| UP)) (#4=#:G116 #3#)
           (#5=#:G119 NIL) (|f| NIL) (|b| (UP)))
@@ -61,7 +61,7 @@
                             (LETT #5#
                                   (SPADCALL
                                    (|BALFACT;balSqfr| |a| |n| (CDR |l|) $)
-                                   (QREFELT $ 25))
+                                   (QREFELT $ 24))
                                   . #6#)
                             G190
                             (COND
@@ -76,7 +76,7 @@
                                      . #6#)
                                (COND
                                 (#1#
-                                 (LETT #2# (SPADCALL #2# #4# (QREFELT $ 22))
+                                 (LETT #2# (SPADCALL #2# #4# (QREFELT $ 21))
                                        . #6#))
                                 ('T
                                  (PROGN
@@ -84,7 +84,7 @@
                                   (LETT #1# 'T . #6#)))))))
                             (LETT #5# (CDR #5#) . #6#) (GO G190) G191
                             (EXIT NIL))
-                       (COND (#1# #2#) (#7# (|spadConstant| $ 26)))))))))) 
+                       (COND (#1# #2#) (#7# (|spadConstant| $ 25)))))))))) 
 
 (SDEFUN |BALFACT;balancedFactorisation;UPLF;4|
         ((|a| UP) (|l| |List| UP) ($ |Factored| UP))
@@ -97,17 +97,17 @@
              (LETT |ll|
                    (SPADCALL
                     (CONS #'|BALFACT;balancedFactorisation;UPLF;4!0| $) |l|
-                    (QREFELT $ 31))
+                    (QREFELT $ 30))
                    . #6=(|BALFACT;balancedFactorisation;UPLF;4|)))
             (|error| "balancedFactorisation: 2nd argument is empty or all 0"))
            (#7='T
-            (SEQ (LETT |sa| (SPADCALL |a| (QREFELT $ 33)) . #6#)
+            (SEQ (LETT |sa| (SPADCALL |a| (QREFELT $ 32)) . #6#)
                  (EXIT
-                  (SPADCALL (SPADCALL |sa| (QREFELT $ 34))
+                  (SPADCALL (SPADCALL |sa| (QREFELT $ 33))
                             (PROGN
                              (LETT #1# NIL . #6#)
                              (SEQ (LETT |f| NIL . #6#)
-                                  (LETT #5# (SPADCALL |sa| (QREFELT $ 25))
+                                  (LETT #5# (SPADCALL |sa| (QREFELT $ 24))
                                         . #6#)
                                   G190
                                   (COND
@@ -124,7 +124,7 @@
                                      (COND
                                       (#1#
                                        (LETT #2#
-                                             (SPADCALL #2# #4# (QREFELT $ 22))
+                                             (SPADCALL #2# #4# (QREFELT $ 21))
                                              . #6#))
                                       ('T
                                        (PROGN
@@ -132,11 +132,11 @@
                                         (LETT #1# 'T . #6#)))))))
                                   (LETT #5# (CDR #5#) . #6#) (GO G190) G191
                                   (EXIT NIL))
-                             (COND (#1# #2#) (#7# (|spadConstant| $ 26))))
-                            (QREFELT $ 35))))))))) 
+                             (COND (#1# #2#) (#7# (|spadConstant| $ 25))))
+                            (QREFELT $ 34))))))))) 
 
 (SDEFUN |BALFACT;balancedFactorisation;UPLF;4!0| ((|z1| NIL) ($ NIL))
-        (SPADCALL |z1| (|spadConstant| $ 28) (QREFELT $ 29))) 
+        (SPADCALL |z1| (|spadConstant| $ 27) (QREFELT $ 28))) 
 
 (DECLAIM (NOTINLINE |BalancedFactorisation;|)) 
 
@@ -166,7 +166,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|BalancedFactorisation|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|BalancedFactorisation| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 36) . #1#)
+          (LETT $ (GETREFV 35) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|BalancedFactorisation|
@@ -182,25 +182,24 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|Factored| 7) (|List| 7) |BALFACT;balancedFactorisation;UPLF;4|
               |BALFACT;balancedFactorisation;2UPF;1| (0 . |gcd|)
-              (|Union| $ '"failed") (6 . |exquo|) (|Integer|)
-              (12 . |sqfrFactor|) (|Boolean|) (18 . |ground?|)
-              (|NonNegativeInteger|) (23 . |order|) (29 . ^) (35 . *)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 15)) (|List| 23)
-              (41 . |factors|) (46 . |One|) (50 . |Zero|) (54 . |Zero|)
-              (58 . ~=) (|Mapping| 17 7) (64 . |select|) (|Factored| $)
-              (70 . |squareFree|) (75 . |unit|) (80 . *))
+              (|Union| $ '"failed") (6 . |exquo|) (|NonNegativeInteger|)
+              (12 . |sqfrFactor|) (|Boolean|) (18 . |ground?|) (23 . |order|)
+              (29 . ^) (35 . *) (|Record| (|:| |factor| 7) (|:| |exponent| 15))
+              (|List| 22) (41 . |factors|) (46 . |One|) (50 . |Zero|)
+              (54 . |Zero|) (58 . ~=) (|Mapping| 17 7) (64 . |select|)
+              (|Factored| $) (70 . |squareFree|) (75 . |unit|) (80 . *))
            '#(|balancedFactorisation| 86) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 35
+                             (|makeByteWordVec2| 34
                                                  '(2 7 0 0 0 12 2 7 13 0 0 14 2
                                                    8 0 7 15 16 1 7 17 0 18 2 7
-                                                   19 0 0 20 2 7 0 0 19 21 2 8
-                                                   0 0 0 22 1 8 24 0 25 0 8 0
-                                                   26 0 6 0 27 0 7 0 28 2 7 17
-                                                   0 0 29 2 9 0 30 0 31 1 7 32
-                                                   0 33 1 8 7 0 34 2 8 0 7 0 35
+                                                   15 0 0 19 2 7 0 0 15 20 2 8
+                                                   0 0 0 21 1 8 23 0 24 0 8 0
+                                                   25 0 6 0 26 0 7 0 27 2 7 17
+                                                   0 0 28 2 9 0 29 0 30 1 7 31
+                                                   0 32 1 8 7 0 33 2 8 0 7 0 34
                                                    2 0 8 7 9 10 2 0 8 7 7
                                                    11)))))
            '|lookupComplete|)) 

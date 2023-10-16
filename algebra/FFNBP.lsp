@@ -361,7 +361,8 @@
 
 (SDEFUN |FFNBP;factorsOfCyclicGroupSize;L;28|
         (($ |List|
-          (|Record| (|:| |factor| . #1=((|Integer|))) (|:| |exponent| . #1#))))
+          (|Record| (|:| |factor| (|Integer|))
+                    (|:| |exponent| (|NonNegativeInteger|)))))
         (SEQ (COND ((NULL (QREFELT $ 44)) (|FFNBP;initializeElt| $)))
              (EXIT (QREFELT $ 44)))) 
 
@@ -682,7 +683,7 @@
               (207 . |zero?|) (212 . =) (218 . *) (224 . |coerce|) (229 . +)
               (|Mapping| 11 11 11) (235 . |reduce|) |FFNBP;coerce;$Of;22|
               (241 . |size|) (245 . ^) (|Factored| $) (251 . |factor|)
-              (|Record| (|:| |factor| 28) (|:| |exponent| 28)) (|List| 123)
+              (|Record| (|:| |factor| 28) (|:| |exponent| 37)) (|List| 123)
               (|Factored| 28) (256 . |factors|)
               (261 . |createPrimitiveElement|) |FFNBP;lookup;$Pi;39|
               (265 . |void|) (269 . |createMultiplicationTable|)

@@ -544,7 +544,7 @@
               (211 . |integerBound|) (216 . |zero?|) (|List| 7)
               (221 . |coefficients|) (|Factored| 7)
               (|BalancedFactorisation| 6 7) (226 . |balancedFactorisation|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 61)) (|List| 81)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 24)) (|List| 81)
               (232 . |factors|) (237 . |balancedFactorisation|)
               (243 . |squareFreePart|) (248 . |gcd|) (254 . |zero?|)
               (259 . |denom|) (|Union| 7 '"failed") |ODEPRIM;denomLODE;LFU;18|

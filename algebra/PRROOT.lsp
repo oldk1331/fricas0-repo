@@ -7,7 +7,9 @@
           (|fac| #1=(|SparseUnivariatePolynomial| (|Integer|))) (#2=#:G114 NIL)
           (|facr| NIL)
           (|facl|
-           (|List| (|Record| (|:| |factor| #1#) (|:| |exponent| (|Integer|)))))
+           (|List|
+            (|Record| (|:| |factor| #1#)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|ff| (|Factored| (|SparseUnivariatePolynomial| (|Integer|))))
           (|eq2z| (|SparseUnivariatePolynomial| (|Integer|)))
           (|pl2| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
@@ -139,7 +141,7 @@
               (|SparseUnivariatePolynomial| 21) (32 . |unvectorise|) (|List| $)
               (37 . |gcd|) (|Factored| 28) (|SparseUnivariatePolynomial| $)
               (42 . |factorPolynomial|)
-              (|Record| (|:| |factor| 23) (|:| |exponent| 21)) (|List| 30)
+              (|Record| (|:| |factor| 23) (|:| |exponent| 8)) (|List| 30)
               (|Factored| 23) (47 . |factors|) (52 . |degree|) (|Boolean|)
               (57 . ~=) (63 . |Zero|) (67 . |Zero|) (71 . |coefficient|)
               (77 . |leadingCoefficient|) (|Fraction| 21) (82 . /) (88 . -)

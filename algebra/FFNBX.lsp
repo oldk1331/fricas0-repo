@@ -74,7 +74,7 @@
               (|OnePointCompletion| 10) (|NonNegativeInteger|) (|List| $)
               (|Boolean|) (|InputForm|) (|Union| 23 '#1#) (|List| 24)
               (|SparseUnivariatePolynomial| $) (|Factored| 24) (|Table| 10 18)
-              (|Integer|) (|Record| (|:| |factor| 27) (|:| |exponent| 27))
+              (|Integer|) (|Record| (|:| |factor| 27) (|:| |exponent| 18))
               (|List| 28) (|Union| 32 '"failed")
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|SparseUnivariatePolynomial| 6) (|Matrix| 6)

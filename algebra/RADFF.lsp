@@ -255,11 +255,15 @@
          ($ |PrimitiveArray| UP))
         (SPROG
          ((|u|
-           (|Union| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))
-                    "failed"))
+           (|Union|
+            (|Record| (|:| |factor| UP)
+                      (|:| |exponent| (|NonNegativeInteger|)))
+            "failed"))
           (#1=#:G216 NIL) (|i| NIL)
           (|l|
-           (|List| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
+           (|List|
+            (|Record| (|:| |factor| UP)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|ans| (|PrimitiveArray| UP)))
          (SEQ
           (LETT |ans| (MAKEARR1 |m| (|spadConstant| $ 25))
@@ -816,7 +820,7 @@
               |RADFF;integralDerivationMatrix;MR;18| (|Factored| $)
               (158 . |squareFree|) (163 . ^) (169 . *) (175 . |One|)
               (|Factored| 7) (179 . |unit|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 35)) (|List| 91)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 13)) (|List| 91)
               (184 . |factors|) (|PrimitiveArray| 7) (189 . |maxIndex|)
               (194 . =) (|Union| 91 '"failed") (|Mapping| 17 91) (200 . |find|)
               (206 . |One|) (210 . |monomial|) (216 . |coerce|) (221 . |inv|)
@@ -850,7 +854,7 @@
               (|Mapping| 11 11) (|Fraction| 8) (|InputForm|)
               (|Union| 13 '"failed") (|OnePointCompletion| 140)
               (|Union| 169 '#2#) (|List| 156) (|Factored| 156)
-              (|Record| (|:| |factor| 35) (|:| |exponent| 35)) (|List| 171)
+              (|Record| (|:| |factor| 35) (|:| |exponent| 13)) (|List| 171)
               (|Table| 140 13)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Matrix| 35)
@@ -970,7 +974,7 @@
                                     72 71 36 73 2 11 0 0 75 76 2 11 0 13 0 77 2
                                     11 0 35 0 78 2 11 0 0 0 79 1 80 0 67 81 1 7
                                     84 0 85 2 7 0 0 13 86 2 7 0 0 0 87 0 7 0 88
-                                    1 89 7 0 90 1 89 92 0 93 1 94 35 0 95 2 35
+                                    1 89 7 0 90 1 89 92 0 93 1 94 35 0 95 2 13
                                     17 0 0 96 2 92 97 98 0 99 0 6 0 100 2 7 0 6
                                     13 101 1 11 0 7 102 1 11 0 0 103 2 7 104
                                     104 104 105 2 107 106 11 13 108 2 13 17 0 0

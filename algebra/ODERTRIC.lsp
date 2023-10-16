@@ -933,7 +933,7 @@
               (|List| (|List| 66)) (|NonLinearSolvePackage| 6) (390 . |solve|)
               (396 . |ricDsolve|) (402 . |ricDsolve|) (407 . |ricDsolve|)
               (413 . |ricDsolve|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 98)) (|List| 139)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 63)) (|List| 139)
               (|Factored| 7) (418 . |factors|) (|List| $) (423 . |concat|)
               (|SparseUnivariatePolynomial| 6) (|Mapping| 6 6)
               (|UnivariatePolynomialCategoryFunctions2| 6 7 6 145)

@@ -3,7 +3,9 @@
         (SPROG
          ((#1=#:G118 NIL) (#2=#:G117 #3=(|Factored| PPR)) (#4=#:G119 #3#)
           (#5=#:G125 NIL) (|ff| NIL) (|fcont| (PPR))
-          (|ffact| (|List| (|Record| (|:| |irr| PPR) (|:| |pow| (|Integer|)))))
+          (|ffact|
+           (|List|
+            (|Record| (|:| |irr| PPR) (|:| |pow| (|NonNegativeInteger|)))))
           (#6=#:G124 NIL) (|u| NIL) (#7=#:G123 NIL)
           (|flist| (|Factored| (|Polynomial| R))) (|g| (|Polynomial| R))
           (|vars| (|List| OV)) (#8=#:G106 NIL) (|c| (|Polynomial| R)))
@@ -136,7 +138,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|Boolean|) (0 . |ground?|)
-              (5 . |One|) (9 . |One|) (|Integer|) (|Factored| 9)
+              (5 . |One|) (9 . |One|) (|NonNegativeInteger|) (|Factored| 9)
               (13 . |nilFactor|) (|Polynomial| 8) (19 . |content|)
               (|Union| $ '"failed") (24 . |exquo|) (|List| 7)
               (30 . |variables|) (|PushVariables| 8 6 7 9) (35 . |pushdown|)

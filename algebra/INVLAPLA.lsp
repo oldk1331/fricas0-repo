@@ -357,7 +357,7 @@
                         (|:| |specpart| 24) (|:| |polypart| 12))
               (|Mapping| 12 12) (82 . |HermiteIntegrate|) (88 . *) (94 . -)
               (99 . +) (|Factored| $) (105 . |squareFree|)
-              (|Record| (|:| |factor| 12) (|:| |exponent| 59)) (|List| 43)
+              (|Record| (|:| |factor| 12) (|:| |exponent| 51)) (|List| 43)
               (|Factored| 12) (110 . |factors|) (115 . |One|)
               (|Union| 49 '"failed") (|List| $) (119 . |multiEuclidean|)
               (|NonNegativeInteger|) (125 . |degree|) (130 . |coefficient|)

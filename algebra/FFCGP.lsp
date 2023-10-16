@@ -164,7 +164,8 @@
 
 (SDEFUN |FFCGP;factorsOfCyclicGroupSize;L;11|
         (($ |List|
-          (|Record| (|:| |factor| . #1=((|Integer|))) (|:| |exponent| . #1#))))
+          (|Record| (|:| |factor| (|Integer|))
+                    (|:| |exponent| (|NonNegativeInteger|)))))
         (SEQ (COND ((NULL (QREFELT $ 35)) (|FFCGP;initializeElt| $)))
              (EXIT (QREFELT $ 35)))) 
 
@@ -536,7 +537,7 @@
               (147 . |zero?|) (152 . |leadingCoefficient|)
               |FFCGP;retract;$GF;18| (157 . |degree|) (162 . +)
               (168 . |reductum|) |FFCGP;minimalPolynomial;$Sup;10|
-              (|Record| (|:| |factor| 41) (|:| |exponent| 41)) (|List| 88)
+              (|Record| (|:| |factor| 41) (|:| |exponent| 9)) (|List| 88)
               |FFCGP;factorsOfCyclicGroupSize;L;11|
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               |FFCGP;representationType;U;12| |FFCGP;definingPolynomial;Sup;13|

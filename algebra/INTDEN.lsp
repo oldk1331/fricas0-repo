@@ -28,7 +28,8 @@
           (|dummy| (|SingletonAsOrderedSet|))
           (|lfac|
            (|List|
-            (|Record| (|:| |factor| #14#) (|:| |exponent| (|Integer|))))))
+            (|Record| (|:| |factor| #14#)
+                      (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ
           (LETT |lfac| (SPADCALL (SPADCALL |df| (QREFELT $ 11)) (QREFELT $ 14))
                 . #16=(|INTDEN;li_factors|))
@@ -445,7 +446,8 @@
           (|dummy| (|SingletonAsOrderedSet|))
           (|lfac|
            (|List|
-            (|Record| (|:| |factor| #14#) (|:| |exponent| (|Integer|))))))
+            (|Record| (|:| |factor| #14#)
+                      (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ
           (LETT |lfac| (SPADCALL (SPADCALL |df| (QREFELT $ 11)) (QREFELT $ 14))
                 . #16=(|INTDEN;poly_factors|))
@@ -2419,7 +2421,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|Factored| 9) (|SparseUnivariatePolynomial| 7)
               (|ExpressionFactorPolynomial| 6 7) (0 . |factorPolynomial|)
-              (|Record| (|:| |factor| 9) (|:| |exponent| 20)) (|List| 12)
+              (|Record| (|:| |factor| 9) (|:| |exponent| 25)) (|List| 12)
               (5 . |factors|) (|SingletonAsOrderedSet|) (10 . |create|)
               (|List| 7) (|Kernel| 7) (14 . |argument|) (|Integer|)
               (19 . |elt|) (25 . |leadingCoefficient|) (30 . |inv|) (35 . *)

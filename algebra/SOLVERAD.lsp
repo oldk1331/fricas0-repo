@@ -723,7 +723,8 @@
           (#4=#:G238 NIL) (|f| NIL)
           (|factors|
            (|List|
-            (|Record| (|:| |factor| #3#) (|:| |exponent| (|Integer|))))))
+            (|Record| (|:| |factor| #3#)
+                      (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ (SETELT $ 7 NIL) (SETELT $ 8 |contractFlag|)
               (LETT |factors|
                     (SPADCALL (SPADCALL |pq| (QREFELT $ 104)) (QREFELT $ 107))
@@ -859,7 +860,7 @@
               |SOLVERAD;contractSolve;FSSt;20| (252 . |lhs|) (257 . |degree|)
               (263 . =) (269 . |list|) (|Factored| 18)
               (|MultivariateFactorize| 16 (|IndexedExponents| 16) 6 18)
-              (274 . |factor|) (|Record| (|:| |factor| 18) (|:| |exponent| 43))
+              (274 . |factor|) (|Record| (|:| |factor| 18) (|:| |exponent| 26))
               (|List| 105) (279 . |factors|) (284 . |member?|)
               (|Record| (|:| |pol| 27) (|:| |deg| 113))
               (|DegreeReductionPackage| 18 6) (290 . |reduce|) (295 . |degree|)

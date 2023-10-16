@@ -7,7 +7,7 @@
           (|g|
            (|List|
             (|Record| (|:| |factor| (|Integer|))
-                      (|:| |exponent| (|Integer|))))))
+                      (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ
           (LETT |g| (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 12))
                 . #5=(|CYCLOTOM;cyclotomic;ISup;1|))
@@ -67,7 +67,7 @@
           (|g|
            (|List|
             (|Record| (|:| |factor| (|Integer|))
-                      (|:| |exponent| (|Integer|))))))
+                      (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ
           (LETT |g| (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 12))
                 . #9=(|CYCLOTOM;cyclotomicDecomposition;IL;2|))
@@ -217,7 +217,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Factored| 7) (|Integer|)
               (|IntegerFactorizationPackage| 7) (0 . |factor|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 7)) (|List| 10)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 15)) (|List| 10)
               (5 . |factors|) (|SparseUnivariatePolynomial| 7) (10 . |One|)
               (|NonNegativeInteger|) (14 . |monomial|) (20 . -)
               (26 . |multiplyExponents|)
@@ -237,8 +237,8 @@
                                                  '(1 8 6 7 9 1 6 11 0 12 0 13 0
                                                    14 2 13 0 7 15 16 2 13 0 0 0
                                                    17 2 13 0 0 15 18 2 13 19 0
-                                                   0 20 2 7 21 0 0 22 2 24 0 0
-                                                   0 25 0 27 0 28 2 27 0 13 7
+                                                   0 20 2 15 21 0 0 22 2 24 0 0
+                                                   0 25 0 27 0 28 2 27 0 13 15
                                                    29 2 27 0 0 0 30 1 0 27 7 31
                                                    1 0 24 7 26 1 0 13 7 23)))))
            '|lookupComplete|)) 

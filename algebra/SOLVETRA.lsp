@@ -92,7 +92,7 @@
              (|:| |factor|
                   (|SparseMultivariatePolynomial| R
                                                   (|Kernel| (|Expression| R))))
-             (|:| |exponent| (|Integer|)))))
+             (|:| |exponent| (|NonNegativeInteger|)))))
           (|listofkernels| #3=(|List| (|Expression| R)))
           (|newlside| (|Expression| R))
           (|newlist| (|List| (|Equation| (|Expression| R)))) (#4=#:G249 NIL)
@@ -102,7 +102,7 @@
            (|List|
             (|Record|
              (|:| |factor| (|SparseUnivariatePolynomial| (|Expression| R)))
-             (|:| |exponent| (|Integer|)))))
+             (|:| |exponent| (|NonNegativeInteger|)))))
           (|f| (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
           (|elR| (|Expression| R)) (#10=#:G247 NIL) (|i| NIL) (#11=#:G224 NIL)
           (#12=#:G223 #13=(|List| (|Equation| (|Expression| R))))
@@ -2131,7 +2131,7 @@
               (|SparseUnivariatePolynomial| 8) (|Fraction| 42) (89 . |numer|)
               (|Factored| 42) (|ExpressionFactorPolynomial| 6 8)
               (94 . |factorPolynomial|)
-              (|Record| (|:| |factor| 42) (|:| |exponent| 56)) (|List| 48)
+              (|Record| (|:| |factor| 42) (|:| |exponent| 13)) (|List| 48)
               (99 . |factors|) (|List| $) (|SparseUnivariatePolynomial| $)
               (104 . |zerosOf|) (|List| 8) (110 . |append|) (|Integer|)
               (116 . |elt|) (122 . |append|)
@@ -2140,7 +2140,7 @@
               (|AlgebraicManipulations| 6 8) (143 . |rootSimp|) (|Factored| 67)
               (|SparseMultivariatePolynomial| 6 37)
               (|MultivariateFactorize| 37 (|IndexedExponents| 37) 6 67)
-              (148 . |factor|) (|Record| (|:| |factor| 67) (|:| |exponent| 56))
+              (148 . |factor|) (|Record| (|:| |factor| 67) (|:| |exponent| 13))
               (|List| 70) (153 . |factors|)
               (|Record| (|:| |var| 40) (|:| |exponent| 56))
               (|Union| 73 '"failed") (158 . |isExpt|) (164 . |argument|)

@@ -47,7 +47,7 @@
               (|PositiveInteger|) (|Union| 15 '"failed") (|Union| $ '"failed")
               (|CardinalNumber|) (|OnePointCompletion| 16) (|Vector| $)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|Record| (|:| |factor| 8) (|:| |exponent| 8)) (|List| 23)
+              (|Record| (|:| |factor| 8) (|:| |exponent| 14)) (|List| 23)
               (|Table| 16 14) (|Factored| 15) (|Union| 28 '#1#) (|List| 15)
               (|InputForm|) (|List| $) (|Union| 14 '"failed") (|Fraction| 8)
               (|Factored| $) (|Record| (|:| |coef1| $) (|:| |coef2| $))

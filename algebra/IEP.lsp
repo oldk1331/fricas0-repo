@@ -497,21 +497,22 @@
                 (|:| |eigmult| (|NonNegativeInteger|))
                 (|:| |eigvec|
                      (|List| (|Vector| (|SparseUnivariatePolynomial| F)))))))
-          (#2=#:G227 NIL) (|alpha| #3=(|SparseUnivariatePolynomial| F))
-          (|ratSol| #1#) (#4=#:G225 NIL) (|vec| (F)) (|pol| #3#)
-          (#5=#:G233 NIL) (|fact| NIL)
+          (|alpha| #2=(|SparseUnivariatePolynomial| F)) (|ratSol| #1#)
+          (|vec| (F)) (|pol| #2#) (#3=#:G231 NIL) (|fact| NIL)
           (|lff|
-           (|List| (|Record| (|:| |factor| #3#) (|:| |exponent| (|Integer|)))))
+           (|List|
+            (|Record| (|:| |factor| #2#)
+                      (|:| |exponent| (|NonNegativeInteger|)))))
           (|p| (|SparseUnivariatePolynomial| F)) (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |n| (ANROWS A) . #6=(|IEP;eigenvectors;MML;16|))
-              (LETT |p| (SPADCALL A (QREFELT $ 49)) . #6#)
-              (LETT |ratSol| NIL . #6#) (LETT |algSol| NIL . #6#)
-              (LETT |lff| (SPADCALL (SPADCALL |p| |fac|) (QREFELT $ 53)) . #6#)
-              (SEQ (LETT |fact| NIL . #6#) (LETT #5# |lff| . #6#) G190
+         (SEQ (LETT |n| (ANROWS A) . #4=(|IEP;eigenvectors;MML;16|))
+              (LETT |p| (SPADCALL A (QREFELT $ 49)) . #4#)
+              (LETT |ratSol| NIL . #4#) (LETT |algSol| NIL . #4#)
+              (LETT |lff| (SPADCALL (SPADCALL |p| |fac|) (QREFELT $ 53)) . #4#)
+              (SEQ (LETT |fact| NIL . #4#) (LETT #3# |lff| . #4#) G190
                    (COND
-                    ((OR (ATOM #5#) (PROGN (LETT |fact| (CAR #5#) . #6#) NIL))
+                    ((OR (ATOM #3#) (PROGN (LETT |fact| (CAR #3#) . #4#) NIL))
                      (GO G191)))
-                   (SEQ (LETT |pol| (QCAR |fact|) . #6#)
+                   (SEQ (LETT |pol| (QCAR |fact|) . #4#)
                         (EXIT
                          (COND
                           ((EQL (SPADCALL |pol| (QREFELT $ 54)) 1)
@@ -522,45 +523,32 @@
                                              (SPADCALL |pol| (QREFELT $ 56))
                                              (QREFELT $ 57))
                                    (QREFELT $ 58))
-                                  . #6#)
+                                  . #4#)
                             (EXIT
                              (LETT |ratSol|
                                    (CONS
-                                    (VECTOR (CONS 0 |vec|)
-                                            (PROG1
-                                                (LETT #4# (QCDR |fact|) . #6#)
-                                              (|check_subtype2| (>= #4# 0)
-                                                                '(|NonNegativeInteger|)
-                                                                '(|Integer|)
-                                                                #4#))
+                                    (VECTOR (CONS 0 |vec|) (QCDR |fact|)
                                             (|IEP;intRatEig| |vec| A 1 $))
                                     |ratSol|)
-                                   . #6#))))
+                                   . #4#))))
                           ('T
-                           (SEQ (LETT |alpha| |pol| . #6#)
+                           (SEQ (LETT |alpha| |pol| . #4#)
                                 (EXIT
                                  (LETT |algSol|
                                        (CONS
-                                        (VECTOR (CONS 1 |alpha|)
-                                                (PROG1
-                                                    (LETT #2# (QCDR |fact|)
-                                                          . #6#)
-                                                  (|check_subtype2| (>= #2# 0)
-                                                                    '(|NonNegativeInteger|)
-                                                                    '(|Integer|)
-                                                                    #2#))
+                                        (VECTOR (CONS 1 |alpha|) (QCDR |fact|)
                                                 (|IEP;intAlgEig| |alpha| A 1
                                                  $))
                                         |algSol|)
-                                       . #6#)))))))
-                   (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
+                                       . #4#)))))))
+                   (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |ratSol| |algSol| (QREFELT $ 73)))))) 
 
 (DECLAIM (NOTINLINE |InnerEigenPackage;|)) 
 
-(DEFUN |InnerEigenPackage| (#1=#:G234)
+(DEFUN |InnerEigenPackage| (#1=#:G232)
   (SPROG NIL
-         (PROG (#2=#:G235)
+         (PROG (#2=#:G233)
            (RETURN
             (COND
              ((LETT #2#
@@ -628,7 +616,7 @@
               (70 . |coerce|) (75 . |setelt!|) (83 . |elt|) (90 . |One|)
               (94 . |monomial|) (100 . -) (106 . |determinant|)
               |IEP;characteristicPolynomial;MSup;8|
-              (|Record| (|:| |factor| 24) (|:| |exponent| 40)) (|List| 50)
+              (|Record| (|:| |factor| 24) (|:| |exponent| 34)) (|List| 50)
               (|Factored| 24) (111 . |factors|) (116 . |degree|)
               (121 . |coefficient|) (127 . |leadingCoefficient|) (132 . /)
               (138 . -) (143 . |append|) |IEP;eigenvector;UML;10|

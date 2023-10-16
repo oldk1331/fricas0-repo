@@ -344,7 +344,7 @@
               (|Matrix| 6) (|Vector| $) (|Mapping| 6 6)
               (|SparseUnivariatePolynomial| 6) (|PositiveInteger|)
               (|OnePointCompletion| 73) (|Union| 56 '"failed") (|Table| 73 56)
-              (|Record| (|:| |factor| 43) (|:| |exponent| 43)) (|List| 77)
+              (|Record| (|:| |factor| 43) (|:| |exponent| 56)) (|List| 77)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic") (|List| 81)
               (|Symbol|) (|Union| 42 '#1#)
               (|Record| (|:| |mat| 84) (|:| |vec| (|Vector| 43))) (|Matrix| 43)

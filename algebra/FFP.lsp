@@ -175,7 +175,8 @@
 
 (SDEFUN |FFP;factorsOfCyclicGroupSize;L;28|
         (($ |List|
-          (|Record| (|:| |factor| . #1=((|Integer|))) (|:| |exponent| . #1#))))
+          (|Record| (|:| |factor| (|Integer|))
+                    (|:| |exponent| (|NonNegativeInteger|)))))
         (SEQ (COND ((NULL (QREFELT $ 22)) (|FFP;initializeElt| $)))
              (EXIT (QREFELT $ 22)))) 
 
@@ -427,7 +428,7 @@
               |FFP;-;3$;23| (229 . =) |FFP;=;2$B;24| (235 . |basis|)
               |FFP;basis;V;25| (239 . |Zero|)
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFP;Zero;$;26|) $))
-              (243 . |One|) (|Record| (|:| |factor| 53) (|:| |exponent| 53))
+              (243 . |One|) (|Record| (|:| |factor| 53) (|:| |exponent| 9))
               (|List| 112) |FFP;factorsOfCyclicGroupSize;L;28|
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               |FFP;representationType;U;29| (|Union| 119 '"failed")

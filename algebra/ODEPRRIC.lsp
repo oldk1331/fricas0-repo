@@ -652,7 +652,9 @@
         (SPROG
          ((#1=#:G298 NIL) (|dd| NIL) (#2=#:G297 NIL)
           (|bd|
-           (|List| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|))))))
+           (|List|
+            (|Record| (|:| |factor| UP)
+                      (|:| |exponent| (|NonNegativeInteger|))))))
          (SEQ
           (LETT |bd|
                 (SPADCALL
@@ -1062,7 +1064,7 @@
               |ODEPRRIC;denomRicDE;LUP;8| (99 . |Zero|) (103 . |Zero|)
               (|Record| (|:| |poly| 7) (|:| |eq| 8)) (|List| 40)
               (|Mapping| (|List| 6) 7) |ODEPRRIC;polyRicDE;LML;9|
-              (|Record| (|:| |factor| 7) (|:| |exponent| 17)) (|List| 44)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 14)) (|List| 44)
               (|Factored| 7) (107 . |factors|) (|List| 7) (112 . |concat|)
               (|Boolean|) (117 . <=) (|Record| (|:| |deg| 14) (|:| |eq| 25))
               (|Mapping| 50 52) (|List| 52) (123 . |select!|) (129 . ~=)
