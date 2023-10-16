@@ -462,7 +462,7 @@
          (SEQ
           (COND
            ((OR (SPADCALL |u| (QREFELT $ 47)) (SPADCALL |v| (QREFELT $ 47)))
-            |u|)
+            (|spadConstant| $ 44))
            ('T
             (COND ((SPADCALL |u| (QREFELT $ 48)) |v|)
                   ((SPADCALL |v| (QREFELT $ 48)) |u|)
@@ -1027,7 +1027,7 @@
          (SEQ
           (COND
            ((OR (SPADCALL |u| (QREFELT $ 48)) (SPADCALL |v| (QREFELT $ 48)))
-            |u|)
+            (|spadConstant| $ 43))
            ('T
             (COND ((SPADCALL |u| (QREFELT $ 47)) |v|)
                   ((SPADCALL |v| (QREFELT $ 47)) |u|)
