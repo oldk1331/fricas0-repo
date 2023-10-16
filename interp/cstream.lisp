@@ -7,8 +7,16 @@
  
 (DEFUN |npNull| (|x|) (PROG () (RETURN (|StreamNull| |x|))))
  
+; StreamExplicitlyNull(x) ==
+;     null x or EQCAR (x, "nullstream") => true
+;     false
+ 
+(DEFUN |StreamExplicitlyNull| (|x|)
+  (PROG ()
+    (RETURN (COND ((OR (NULL |x|) (EQCAR |x| '|nullstream|)) T) ('T NIL)))))
+ 
 ; StreamNull x==
-;   null x or EQCAR (x,"nullstream") => true
+;   StreamExplicitlyNull(x) => true
 ;   while EQCAR(x,"nonnullstream") repeat
 ;           st:=APPLY(CADR x,CDDR x)
 ;           RPLACA(x, first st)
@@ -18,7 +26,7 @@
 (DEFUN |StreamNull| (|x|)
   (PROG (|st|)
     (RETURN
-     (COND ((OR (NULL |x|) (EQCAR |x| '|nullstream|)) T)
+     (COND ((|StreamExplicitlyNull| |x|) T)
            (#1='T
             (PROGN
              ((LAMBDA ()
@@ -101,10 +109,15 @@
              (CONS (FUNCALL |g| (CAR |f1|) (CAR |f2|))
                    (|incZip| |g| (CDR |f1|) (CDR |f2|)))))))))
  
-; incAppend(x,y)==Delay(function incAppend1,[x,y])
+; incAppend(x, y) ==
+;     StreamExplicitlyNull(x) => y
+;     Delay(function incAppend1,[x,y])
  
 (DEFUN |incAppend| (|x| |y|)
-  (PROG () (RETURN (|Delay| #'|incAppend1| (LIST |x| |y|)))))
+  (PROG ()
+    (RETURN
+     (COND ((|StreamExplicitlyNull| |x|) |y|)
+           ('T (|Delay| #'|incAppend1| (LIST |x| |y|)))))))
  
 ; incAppend1(:z)==
 ;      [x,y]:=z
