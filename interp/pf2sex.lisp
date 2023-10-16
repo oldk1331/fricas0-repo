@@ -382,29 +382,12 @@
  
 (DEFUN |SymMemQ| (|sy| |l|) (PROG () (RETURN (MEMQ |sy| |l|))))
  
-; pmDontQuote? sy ==
-;    SymMemQ(sy, '(_+ _- _* _*_* _^ _/ log exp pi sqrt ei li erf ci si dilog _
-;               sin cos tan cot sec csc asin acos atan acot asec acsc _
-;               sinh cosh tanh coth sech csch asinh acosh atanh acoth asech acsc))
- 
-(DEFUN |pmDontQuote?| (|sy|)
-  (PROG ()
-    (RETURN
-     (|SymMemQ| |sy|
-      '(+ - * ** ^ / |log| |exp| |pi| |sqrt| |ei| |li| |erf| |ci| |si| |dilog|
-          |sin| |cos| |tan| |cot| |sec| |csc| |asin| |acos| |atan| |acot|
-          |asec| |acsc| |sinh| |cosh| |tanh| |coth| |sech| |csch| |asinh|
-          |acosh| |atanh| |acoth| |asech| |acsc|)))))
- 
 ; pfOp2Sex pf ==
 ;   alreadyQuoted := pfSymbol? pf
 ;   op := pf2Sex1 pf
 ;   op is ["QUOTE", realOp] =>
 ;     $insideRule = 'left => realOp
-;     $insideRule = 'right =>
-;       pmDontQuote? realOp => realOp
-;       $quotedOpList := [op, :$quotedOpList]
-;       op
+;     $insideRule = 'right => realOp
 ;     symEqual(realOp, "|") => realOp
 ;     symEqual(realOp, ":") => realOp
 ;     symEqual(realOp, "?") => realOp
@@ -424,12 +407,7 @@
               (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                    (PROGN (SETQ |realOp| (CAR |ISTMP#1|)) #1='T))))
         (COND ((EQ |$insideRule| '|left|) |realOp|)
-              ((EQ |$insideRule| '|right|)
-               (COND ((|pmDontQuote?| |realOp|) |realOp|)
-                     (#1#
-                      (PROGN
-                       (SETQ |$quotedOpList| (CONS |op| |$quotedOpList|))
-                       |op|))))
+              ((EQ |$insideRule| '|right|) |realOp|)
               ((|symEqual| |realOp| '|\||) |realOp|)
               ((|symEqual| |realOp| '|:|) |realOp|)
               ((|symEqual| |realOp| '?) |realOp|) (#1# |op|)))

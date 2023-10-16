@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |FunctionSpace;AL| 'NIL) 
 
-(DEFUN |FunctionSpace| (#1=#:G154)
-  (LET (#2=#:G155)
+(DEFUN |FunctionSpace| (#1=#:G148)
+  (LET (#2=#:G149)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |FunctionSpace;AL|)) (CDR #2#))
      (T
@@ -16,11 +16,11 @@
       #2#)))) 
 
 (DEFUN |FunctionSpace;| (|t#1|)
-  (SPROG ((#1=#:G153 NIL))
+  (SPROG ((#1=#:G147 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                              (|sublisV| (PAIR '(#2=#:G152) (LIST '(|Symbol|)))
+                              (|sublisV| (PAIR '(#2=#:G146) (LIST '(|Symbol|)))
                                          (COND (|FunctionSpace;CAT|)
                                                ('T
                                                 (LETT |FunctionSpace;CAT|
@@ -66,22 +66,6 @@
                                                             ($ (|Symbol|)
                                                              (|List| $)))
                                                            T)
-                                                          ((|eval|
-                                                            ($ $ (|Symbol|)))
-                                                           (|has| |t#1|
-                                                                  (|ConvertibleTo|
-                                                                   (|InputForm|))))
-                                                          ((|eval|
-                                                            ($ $
-                                                             (|List|
-                                                              (|Symbol|))))
-                                                           (|has| |t#1|
-                                                                  (|ConvertibleTo|
-                                                                   (|InputForm|))))
-                                                          ((|eval| ($ $))
-                                                           (|has| |t#1|
-                                                                  (|ConvertibleTo|
-                                                                   (|InputForm|))))
                                                           ((|eval|
                                                             ($ $
                                                              (|BasicOperator|)

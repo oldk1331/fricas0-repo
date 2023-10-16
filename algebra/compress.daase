@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5028 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5027 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -463,22 +463,21 @@
  |basisOfLeftNucleus| |basisOfRightNucleus| |basisOfMiddleNucleus|
  |basisOfNucleus| |basisOfCenter| |basisOfLeftNucloid| |basisOfRightNucloid|
  |basisOfCentroid| |radicalOfLeftTraceForm| |trueEqual| |showTypeInOutput|
- |obj| |dom| |objectOf| |domainOf| |any| |applyRules| |localUnquote|
- |vertSplit| |blockConcat| |vertConcat| |horizConcat| |squareTop|
- |swapColumns!| |swapRows!| |setsubMatrix!| |setColumn!| |colSlice| |rowSlice|
- |oneDimensionalArray| |associatedSystem| |uncouplingMatrices|
- |associatedEquations| |arrayStack| |morphism| |balancedFactorisation|
- |mapDown!| |mapUp!| |setleaves!| |balancedBinaryTree| |sylvesterMatrix|
- |subSylvesterMatrix| |bezoutMatrix| |subresultants| |bezoutResultant|
- |bezoutDiscriminant| |inspect| |extract!| |position!| |starts| |_\|_| T$
- |test| |setProperties| |setProperty| |property| |deleteProperty!| |assert|
- |has?| |input| |comparison| |equality| |nary?| |unary?| |nullary?| |arity|
- |properties| |derivative| |constantOperator| |constantOpIfCan| |setright!|
- |setleft!| |brillhartIrreducible?| |brillhartTrials| |noLinearFactor?|
- |insertRoot!| |binarySearchTree| |nor| |nand| |node| |binaryTournament|
- |binaryTree| |subtractIfCan| |setPosition| |cylindricalDecomposition|
- |projectionSet| |coefficientSet| |discriminantSet| |resultantSet|
- |principalSubResultantSet| |specialise| |squareFreeBasis|
+ |obj| |dom| |objectOf| |domainOf| |any| |applyRules| |vertSplit| |blockConcat|
+ |vertConcat| |horizConcat| |squareTop| |swapColumns!| |swapRows!|
+ |setsubMatrix!| |setColumn!| |colSlice| |rowSlice| |oneDimensionalArray|
+ |associatedSystem| |uncouplingMatrices| |associatedEquations| |arrayStack|
+ |morphism| |balancedFactorisation| |mapDown!| |mapUp!| |setleaves!|
+ |balancedBinaryTree| |sylvesterMatrix| |subSylvesterMatrix| |bezoutMatrix|
+ |subresultants| |bezoutResultant| |bezoutDiscriminant| |inspect| |extract!|
+ |position!| |starts| |_\|_| T$ |test| |setProperties| |setProperty| |property|
+ |deleteProperty!| |assert| |has?| |input| |comparison| |equality| |nary?|
+ |unary?| |nullary?| |arity| |properties| |derivative| |constantOperator|
+ |constantOpIfCan| |setright!| |setleft!| |brillhartIrreducible?|
+ |brillhartTrials| |noLinearFactor?| |insertRoot!| |binarySearchTree| |nor|
+ |nand| |node| |binaryTournament| |binaryTree| |subtractIfCan| |setPosition|
+ |cylindricalDecomposition| |projectionSet| |coefficientSet| |discriminantSet|
+ |resultantSet| |principalSubResultantSet| |specialise| |squareFreeBasis|
  |generalizedContinuumHypothesisAssumed|
  |generalizedContinuumHypothesisAssumed?| |countable?| |Aleph| |unravel|
  |ravel| |leviCivitaSymbol| |kroneckerDelta| |reshape| |alphanumeric|
