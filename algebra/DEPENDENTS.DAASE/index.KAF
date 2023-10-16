@@ -986,10 +986,12 @@
                      |FiniteAbelianMonoidRingFunctions2|
                      |FunctionSpaceToUnivariatePowerSeries|
                      |FunctionSpaceToUnivariatePowerSeries2|
-                     |GeneralizedUnivariatePowerSeries| |OrderingFunctions|
-                     |PolynomialRing| |PowerSeriesCategory|
+                     |GeneralizedUnivariatePowerSeries|
+                     |HomogeneousDirectProduct| |OrderedDirectProduct|
+                     |OrderingFunctions| |PolynomialRing| |PowerSeriesCategory|
                      |PowerSeriesCategory&| |SmallOrdinal|
-                     |TaylorSeriesExpansion| |TaylorSeriesExpansion&|
+                     |SplitHomogeneousDirectProduct| |TaylorSeriesExpansion|
+                     |TaylorSeriesExpansion&|
                      |TaylorSeriesExpansionGeneralized|
                      |UnivariatePowerSeriesCategory|
                      |UnivariatePowerSeriesCategory&| |WeightedGraph|)
@@ -1001,8 +1003,7 @@
                      |GeneralTriangularSet| |GeneralizedMultivariateFactorize|
                      |GosperSummationMethod| |GroebnerFactorizationPackage|
                      |GroebnerInternalPackage| |GroebnerPackage|
-                     |HomogeneousDirectProduct| |IndexedExponents|
-                     |InnerMultFact| |InnerPolySum|
+                     |IndexedExponents| |InnerMultFact| |InnerPolySum|
                      |InternalRationalUnivariateRepresentationPackage|
                      |LazardSetSolvingPackage| |LeadingCoefDetermination|
                      |LinearSystemPolynomialPackage| |MPolyCatFunctions2|
@@ -1014,7 +1015,7 @@
                      |MultivariateSkewPolynomialCategory|
                      |MultivariateSquareFree| |NGroebnerPackage| |NPCoef|
                      |NonNegativeInteger| |NormalizationPackage|
-                     |NormalizedTriangularSetCategory| |OrderedDirectProduct|
+                     |NormalizedTriangularSetCategory|
                      |ParametricLinearEquations|
                      |PatternMatchPolynomialCategory| |PolynomialCategory|
                      |PolynomialCategory&| |PolynomialCategoryLifting|
@@ -1032,7 +1033,6 @@
                      |RegularTriangularSetCategory&|
                      |RegularTriangularSetGcdPackage| |ResidueRing|
                      |SolvableSkewPolynomialCategory|
-                     |SplitHomogeneousDirectProduct|
                      |SquareFreeNormalizedTriangularSetCategory|
                      |SquareFreeQuasiComponentPackage|
                      |SquareFreeRegularSetDecompositionPackage|
@@ -1967,7 +1967,7 @@
  ("OrderedSet" 0 67027) ("OrderedRing" 0 66142) ("OrderedMonoid" 0 66082)
  ("OrderedIntegralDomain" 0 66058) ("OrderedFinite" 0 66022)
  ("OrderedCancellationAbelianMonoid" 0 66008)
- ("OrderedAbelianSemiGroup" 0 65988) ("OrderedAbelianMonoidSup" 0 62876)
+ ("OrderedAbelianSemiGroup" 0 65988) ("OrderedAbelianMonoidSup" 0 63000)
  ("OrderedAbelianMonoid" 0 62002) ("OpenMath" 0 61893)
  ("OneDimensionalArrayAggregate" 0 61643) ("OneDimensionalArray" 0 61619)
  ("OctonionCategory" 0 61557) ("NonNegativeInteger" 0 60026)

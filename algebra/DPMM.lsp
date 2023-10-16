@@ -95,10 +95,17 @@
                                              (|HasCategory| |#4| '(|SemiRng|))
                                              (|HasCategory| |#4|
                                                             '(|OrderedAbelianMonoidSup|))
+                                             (OR
+                                              (|HasCategory| |#4|
+                                                             '(|OrderedAbelianMonoid|))
+                                              (|HasCategory| |#4|
+                                                             '(|OrderedAbelianMonoidSup|)))
                                              (LETT #8#
                                                    (|HasCategory| |#4|
                                                                   '(|OrderedSet|)))
                                              (OR
+                                              (|HasCategory| |#4|
+                                                             '(|OrderedAbelianMonoid|))
                                               (|HasCategory| |#4|
                                                              '(|OrderedAbelianMonoidSup|))
                                               #8#)
@@ -124,6 +131,8 @@
                                                    (|HasCategory| |#4|
                                                                   '(|Finite|)))
                                              (OR #6#
+                                                 (|HasCategory| |#4|
+                                                                '(|OrderedAbelianMonoid|))
                                                  (|HasCategory| |#4|
                                                                 '(|OrderedAbelianMonoidSup|))
                                                  #8#)
@@ -305,6 +314,13 @@
                                                                     (|devaluate|
                                                                      |#4|)))
                                                (|HasCategory| |#4|
+                                                              '(|OrderedAbelianMonoid|)))
+                                              (AND
+                                               (|HasCategory| |#4|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#4|)))
+                                               (|HasCategory| |#4|
                                                               '(|OrderedAbelianMonoidSup|)))
                                               (AND
                                                (|HasCategory| |#4|
@@ -398,6 +414,13 @@
                                                                 (|Fraction|
                                                                  (|Integer|))))
                                                (|HasCategory| |#4|
+                                                              '(|OrderedAbelianMonoid|)))
+                                              (AND
+                                               (|HasCategory| |#4|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               (|HasCategory| |#4|
                                                               '(|OrderedAbelianMonoidSup|)))
                                               (AND
                                                (|HasCategory| |#4|
@@ -477,6 +500,12 @@
                                                                 (|Integer|)))
                                                (|HasCategory| |#4|
                                                               '(|Monoid|)))
+                                              (AND
+                                               (|HasCategory| |#4|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               (|HasCategory| |#4|
+                                                              '(|OrderedAbelianMonoid|)))
                                               (AND
                                                (|HasCategory| |#4|
                                                               '(|RetractableTo|
@@ -546,20 +575,20 @@
     (QSETREFV $ 8 |#3|)
     (QSETREFV $ 9 |#4|)
     (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 140737488355328))
-    (AND #8# (|HasCategory| $ '(|finiteAggregate|))
          (|augmentPredVector| $ 281474976710656))
+    (AND #8# (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 562949953421312))
     (AND (|HasCategory| |#4| '(|BasicType|))
          (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 562949953421312))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
          (|augmentPredVector| $ 1125899906842624))
+    (AND (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| $ 2251799813685248))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianMonoid|))
          (|HasCategory| |#3| '(|AbelianMonoid|)) #3#
          (AND (|HasCategory| |#4| '(|SemiRng|))
               (|HasCategory| $ '(|AbelianMonoid|))))
-     (|augmentPredVector| $ 2251799813685248))
+     (|augmentPredVector| $ 4503599627370496))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianGroup|))
          (|HasCategory| |#3| '(|AbelianGroup|))
@@ -567,13 +596,13 @@
          (AND #2# (|HasCategory| |#4| '(|SemiRng|))) #1#
          (AND (|HasCategory| |#4| '(|SemiRng|))
               (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 4503599627370496))
+     (|augmentPredVector| $ 9007199254740992))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianGroup|))
          (|HasCategory| |#3| '(|AbelianGroup|)) #2#
          (AND (|HasCategory| |#4| '(|SemiRng|))
               (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 9007199254740992))
+     (|augmentPredVector| $ 18014398509481984))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 10 (|Vector| |#4|))
     $))) 
@@ -596,11 +625,11 @@
               (|HashState|) (|Vector| 9) (|List| 11))
            '#(|elt| 29 * 35) 'NIL
            (CONS
-            (|makeByteWordVec2| 47
-                                '(0 7 10 10 7 7 10 15 16 17 19 1 10 19 9 2 7 8
-                                  3 10 12 0 0 0 8 2 3 2 12 19 3 41 3 10 11 46 0
-                                  5 11 13 29 18 47 0 0 14 29 0 0 0 43 7 20 0 0
-                                  0 0 0 0 43 4 6 7 13 20 44 45))
+            (|makeByteWordVec2| 48
+                                '(0 8 11 11 8 8 11 16 17 18 20 1 11 20 10 2 8 9
+                                  3 11 13 0 0 0 9 2 3 2 13 20 4 42 4 11 12 47 0
+                                  6 12 14 30 19 48 0 0 15 30 0 0 0 44 8 21 0 0
+                                  0 0 0 0 44 5 7 8 14 21 45 46))
             (CONS
              '#(|DirectProductCategory&| NIL |FullyLinearlyExplicitOver&|
                 |DifferentialExtension&| |Algebra&| |Algebra&| NIL NIL

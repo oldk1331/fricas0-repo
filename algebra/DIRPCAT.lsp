@@ -79,6 +79,9 @@
                                                  (|has| |t#2| (|unitsKnown|)))
                                                 ((|OrderedSet|)
                                                  (|has| |t#2| (|OrderedSet|)))
+                                                ((|OrderedAbelianMonoid|)
+                                                 (|has| |t#2|
+                                                        (|OrderedAbelianMonoid|)))
                                                 ((|OrderedAbelianMonoidSup|)
                                                  (|has| |t#2|
                                                         (|OrderedAbelianMonoidSup|)))

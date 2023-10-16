@@ -155,6 +155,8 @@
                                               (|HasCategory| |#3|
                                                              '(|OrderedAbelianMonoidSup|))
                                               (|HasCategory| |#3|
+                                                             '(|OrderedAbelianMonoid|))
+                                              (|HasCategory| |#3|
                                                              '(|OrderedSet|))
                                               (|HasCategory| |#3|
                                                              '(|unitsKnown|))
@@ -176,7 +178,7 @@
           (QSETREFV $ 8 |#3|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 11)
+           ((|testBitVector| |pv$| 12)
             (PROGN
              (QSETREFV $ 12
                        (CONS (|dispatchFunction| |DIRPCAT-;coerce;IS;1|) $))
@@ -202,7 +204,7 @@
                        (CONS (|dispatchFunction| |DIRPCAT-;dimension;Cn;8|)
                              $)))))
           (COND
-           ((|testBitVector| |pv$| 6)
+           ((|testBitVector| |pv$| 7)
             (PROGN
              (QSETREFV $ 51
                        (CONS (|dispatchFunction| |DIRPCAT-;size;Nni;9|) $))

@@ -397,7 +397,7 @@ dHashState`0`n`()->etc``HASHSTAT`99819
 dHashTable`3`n`(SetCategory,Entry:Type,String)->Join(TableAggregate(Key,Entry),etc)`(Key,Entry,hashfn)`HASHTBL`99886
 dHeap`1`x`(OrderedSet)->Join(PriorityQueueAggregate(S),etc)`(S)`HEAP`100045
 dHexadecimalExpansion`0`x`()->Join(QuotientFieldCategory(Integer),etc)``HEXADEC`100112
-dHomogeneousDirectProduct`2`n`(NonNegativeInteger,S:OrderedAbelianMonoidSup)->DirectProductCategory(dim,S)`(dim,S)`HDP`100207
+dHomogeneousDirectProduct`2`n`(NonNegativeInteger,S:OrderedAbelianMonoid)->DirectProductCategory(dim,S)`(dim,S)`HDP`100207
 dHomogeneousDistributedMultivariatePolynomial`2`n`(List(Symbol),R:Ring)->Join(PolynomialCategory(R,HomogeneousDirectProduct(#(vl),NonNegativeInteger),OrderedVariableList(vl)),etc)`(vl,R)`HDMP`100545
 dHomology`0`n`()->Join(SetCategory,etc)``HOMOL`100945
 dHTMLFormat`0`n`()->Join(SetCategory,etc)``HTMLFORM`101286
@@ -499,7 +499,7 @@ dOpenMathError`0`x`()->Join(SetCategory,etc)``OMERR`121626
 dOpenMathErrorKind`0`x`()->Join(SetCategory,etc)``OMERRK`121691
 dOperator`1`n`(Ring)->Join(Ring,etc)`(R)`OP`121857
 dOrderedCompletion`1`x`(SetCategory)->Join(SetCategory,etc)`(R)`ORDCOMP`121906
-dOrderedDirectProduct`3`n`(NonNegativeInteger,S:OrderedAbelianMonoidSup,(Vector(S),Vector(S))->Boolean)->DirectProductCategory(dim,S)`(dim,S,f)`ODP`121991
+dOrderedDirectProduct`3`n`(NonNegativeInteger,S:OrderedAbelianMonoid,(Vector(S),Vector(S))->Boolean)->DirectProductCategory(dim,S)`(dim,S,f)`ODP`121991
 dOrderedExpression`0`n`()->Join(OrderedRing,etc)``OEXPR`0
 dOrderedVariableList`1`n`(List(Symbol))->Join(OrderedFinite,etc)`(VariableList)`OVAR`122321
 dOrderlyDifferentialPolynomial`1`n`(Ring)->Join(DifferentialPolynomialCategory(R,Symbol,OrderlyDifferentialVariable(Symbol),IndexedExponents(OrderlyDifferentialVariable(Symbol))),etc)`(R)`ODPOL`122368
@@ -595,7 +595,7 @@ dSparseUnivariatePolynomial`1`n`(Join(SemiRng,etc))->Join(UnivariatePolynomialCa
 dSparseUnivariatePuiseuxSeries`3`n`(Coef:Ring,var:Symbol,cen:Coef)->Join(UnivariatePuiseuxSeriesConstructorCategory(Coef,SparseUnivariateLaurentSeries(Coef,var,cen)),etc)`(Coef,var,cen)`SUPXS`145683
 dSparseUnivariateSkewPolynomial`3`n`(R:Ring,Automorphism(R),(R)->R)->Join(UnivariateSkewPolynomialCategory(R),etc)`(R,sigma,delta)`ORESUP`146251
 dSparseUnivariateTaylorSeries`3`n`(Coef:Ring,var:Symbol,Coef)->Join(UnivariateTaylorSeriesCategory(Coef),etc)`(Coef,var,cen)`SUTS`146413
-dSplitHomogeneousDirectProduct`3`n`(NonNegativeInteger,NonNegativeInteger,S:OrderedAbelianMonoidSup)->DirectProductCategory(dimtot,S)`(dimtot,dim1,S)`SHDP`146987
+dSplitHomogeneousDirectProduct`3`n`(NonNegativeInteger,NonNegativeInteger,S:OrderedAbelianMonoid)->DirectProductCategory(dimtot,S)`(dimtot,dim1,S)`SHDP`146987
 dSplittingNode`2`n`(Join(SetCategory,etc),C:Join(SetCategory,etc))->Join(SetCategory,etc)`(V,C)`SPLNODE`147452
 dSplittingTree`2`n`(Join(SetCategory,etc),C:Join(SetCategory,etc))->Join(RecursiveAggregate(SplittingNode(V,C)),etc)`(V,C)`SPLTREE`148066
 dSquareFreeRegularTriangularSet`4`x`(R:GcdDomain,E:OrderedAbelianMonoidSup,V:OrderedSet,P:RecursivePolynomialCategory(R,E,V))->Join(SquareFreeRegularTriangularSetCategory(R,E,V,P),etc)`(R,E,V,P)`SREGSET`149040
