@@ -6225,7 +6225,7 @@
 663378`\spad{plus(x,{} y)} adds two matrices,{} term by term we note that they must be the same size
 663446`\spad{plus!(c,{} a,{} b)} computes the matrix sum \spad{a + b} and stores the result in the matrix \spad{c}. Error: if \spad{a},{} \spad{b},{} and \spad{c} do not have the same dimensions.
 663545`\spad{plusInfinity()} returns +infinity.
-663600`\spad{plusInfinity()} returns plusIinfinity.
+663600`\spad{plusInfinity()} returns plusInfinity.
 663667`\spad{Pm(i,{} ind)} is like \spad{P(i,{} ind)} but \spad{ind} is always a multi-index.
 663749`\spad{pmComplexintegrate(f,{} x)} returns either "failed" or \spad{[g,{} h]} such that \spad{integrate(f,{} x) = g + integrate(h,{} x)}. It only looks for special complex integrals that pmintegrate does not return.
 663980`\spad{pmintegrate(f,{} x)} returns either "failed" or \spad{[g,{}h]} such that \spad{integrate(f,{} x) = g + integrate(h,{} x)}.
