@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5036 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5035 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -353,8 +353,8 @@
  |RepeatedSquaring| |ResolveLatticeCompletion| |ResidueRing| |Result|
  |RetractableFrom&| |RetractableFrom| |RetractableTo&| |RetractableTo|
  |RetractSolvePackage| |RationalFunction| |RandomFloatDistributions|
- |RationalFunctionFactor| |RationalFunctionFactorizer| |RootFSSplit|
- |RegularChain| |RandomIntegerDistributions| |Ring| |RationalInterpolation|
+ |RationalFunctionFactor| |RootFSSplit| |RegularChain|
+ |RandomIntegerDistributions| |Ring| |RationalInterpolation|
  |RectangularMatrixCategory&| |RectangularMatrixCategory| |RectangularMatrix|
  |RectangularMatrixCategoryFunctions2| |RightModule| |Rng&| |Rng|
  |RealNumberSystem&| |RealNumberSystem| |RightOpenIntervalRootCharacterization|
@@ -614,22 +614,22 @@
  |setLegalFortranSourceExtensions| |fracPart| |polyPart| |fullPartialFraction|
  |primeFrobenius| |discreteLog| |decreasePrecision| |increasePrecision| |bits|
  |unitNormalize| |unit| |flagFactor| |sqfrFactor| |primeFactor|
- |irreducibleFactor| |factors| |nilFactor| |regularRepresentation|
- |traceMatrix| |randomLC| |minimize| |module| |represents|
- |rightRegularRepresentation| |leftRegularRepresentation| |rightTraceMatrix|
- |leftTraceMatrix| |rightDiscriminant| |leftDiscriminant| |mergeFactors|
- |algtower| |isMult| |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS|
- |exprToPS| |localAbs| |atan1| |integ| |integ_df| |powToUPS| |universe|
- |cardinality| |internalIntegrate0| |makeCos| |makeSin| |logGamma| |li2| |rabs|
- |lambert_via_newton1| |lambert_via_newton2| |lambert_inverse_series| |iiGamma|
- |iiabs| |iiconjugate| |iiBeta| |iidigamma| |iipolygamma| |iiBesselJ|
- |iiBesselY| |iiBesselI| |iiBesselK| |iiAiryAi| |iiAiryAiPrime| |iiAiryBi|
- |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime| |iAiryBi| |iAiryBiPrime|
- |iiHypergeometricF| |iiPolylog| |iLambertW| |bringDown| |newReduc| |logical?|
- |character?| |doubleComplex?| |complex?| |double?| |fortranCharacter|
- |fortranDoubleComplex| |fortranComplex| |fortranLogical| |fortranInteger|
- |fortranDouble| |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
- |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
+ |irreducibleFactor| |factors| |nilFactor| |factorFraction|
+ |regularRepresentation| |traceMatrix| |randomLC| |minimize| |module|
+ |represents| |rightRegularRepresentation| |leftRegularRepresentation|
+ |rightTraceMatrix| |leftTraceMatrix| |rightDiscriminant| |leftDiscriminant|
+ |mergeFactors| |algtower| |isMult| |applyQuote| |exprToXXP| |exprToUPS|
+ |exprToGenUPS| |exprToPS| |localAbs| |atan1| |integ| |integ_df| |powToUPS|
+ |universe| |cardinality| |internalIntegrate0| |makeCos| |makeSin| |logGamma|
+ |li2| |rabs| |lambert_via_newton1| |lambert_via_newton2|
+ |lambert_inverse_series| |iiGamma| |iiabs| |iiconjugate| |iiBeta| |iidigamma|
+ |iipolygamma| |iiBesselJ| |iiBesselY| |iiBesselI| |iiBesselK| |iiAiryAi|
+ |iiAiryAiPrime| |iiAiryBi| |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime| |iAiryBi|
+ |iAiryBiPrime| |iiHypergeometricF| |iiPolylog| |iLambertW| |bringDown|
+ |newReduc| |logical?| |character?| |doubleComplex?| |complex?| |double?|
+ |fortranCharacter| |fortranDoubleComplex| |fortranComplex| |fortranLogical|
+ |fortranInteger| |fortranDouble| |fortranReal| |external?| |dimensionsOf|
+ |scalarTypeOf| |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
  |processTemplate| |makeFR| |musserTrials| |stopMusserTrials| |numberOfFactors|
  |modularFactor| |useSingleFactorBound?| |useSingleFactorBound|
  |useEisensteinCriterion?| |useEisensteinCriterion| |eisensteinIrreducible?|
@@ -938,19 +938,18 @@
  |meatAxe| |scanOneDimSubspaces| |double| |expt| |lift| |showArrayValues|
  |showScalarValues| |solveRetract| |variables| |mainVariable| |univariate|
  |multivariate| |uniform01| |normal01| |exponential1| |chiSquare1| |normal|
- |exponential| |chiSquare| F |t| |factorFraction| |alg_split_roots|
- |alg_split_root0| |uniform| |binomial| |poisson| |geometric| |ridHack1|
- |interpolate| |nullity| |column| |qelt| |maxColIndex| |minColIndex|
- |maxRowIndex| |minRowIndex| |antisymmetric?| |symmetric?| |diagonal?|
- |square?| |matrix| |rectangularMatrix| |annihilate?| |characteristic| |round|
- |fractionPart| |wholePart| |floor| |ceiling| |norm| |mightHaveRoots| |refine|
- |middle| |size| |right| |left| |roman| |mainSquareFreePart|
- |mainPrimitivePart| |mainContent| |primitivePart!| |gcd| |iexactQuo|
- |next_subResultant2| |LazardQuotient2| |LazardQuotient| |subResultantChain|
- |halfExtendedSubResultantGcd2| |halfExtendedSubResultantGcd1|
- |extendedSubResultantGcd| |exactQuotient!| |exactQuotient|
- |primPartElseUnitCanonical!| |primPartElseUnitCanonical| |retract|
- |retractIfCan| |lazyResidueClass| |monicModulo| |lazyPseudoDivide|
+ |exponential| |chiSquare| F |t| |alg_split_roots| |alg_split_root0| |uniform|
+ |binomial| |poisson| |geometric| |ridHack1| |interpolate| |nullity| |column|
+ |qelt| |maxColIndex| |minColIndex| |maxRowIndex| |minRowIndex|
+ |antisymmetric?| |symmetric?| |diagonal?| |square?| |matrix|
+ |rectangularMatrix| |annihilate?| |characteristic| |round| |fractionPart|
+ |wholePart| |floor| |ceiling| |norm| |mightHaveRoots| |refine| |middle| |size|
+ |right| |left| |roman| |mainSquareFreePart| |mainPrimitivePart| |mainContent|
+ |primitivePart!| |gcd| |iexactQuo| |next_subResultant2| |LazardQuotient2|
+ |LazardQuotient| |subResultantChain| |halfExtendedSubResultantGcd2|
+ |halfExtendedSubResultantGcd1| |extendedSubResultantGcd| |exactQuotient!|
+ |exactQuotient| |primPartElseUnitCanonical!| |primPartElseUnitCanonical|
+ |retract| |retractIfCan| |lazyResidueClass| |monicModulo| |lazyPseudoDivide|
  |lazyPremWithDefault| |lazyPquo| |lazyPrem| |pquo| |prem| |supRittWu?|
  |RittWuCompare| |mainMonomials| |mainCoefficients| |leastMonomial|
  |mainMonomial| |quasiMonic?| |monic?| |deepestInitial| |iteratedInitials|

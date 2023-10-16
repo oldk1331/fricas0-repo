@@ -1092,7 +1092,7 @@
                    (CATEGORY |domain| (SIGNATURE |vector| ($ (|List| FSUP))))))
           (FSUP
            (|Join| (|QuotientFieldCategory| SUP)
-                   (CATEGORY |package|
+                   (CATEGORY |domain|
                     (IF (|has| SUP (|IntegerNumberSystem|))
                         (IF (|has| SUP (|OpenMath|))
                             (ATTRIBUTE (|OpenMath|))
@@ -1104,6 +1104,10 @@
                                 (ATTRIBUTE (|Canonical|))
                                 |noBranch|)
                             |noBranch|)
+                        |noBranch|)
+                    (IF (|has| SUP (|UniqueFactorizationDomain|))
+                        (SIGNATURE |factorFraction|
+                         ((|Fraction| (|Factored| SUP)) $))
                         |noBranch|))))
           (SUP
            (|Join| (|UnivariatePolynomialCategory| R)

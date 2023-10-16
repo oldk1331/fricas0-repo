@@ -140,7 +140,7 @@
                 |noBranch|)))
           (|qf|
            (|Join| (|QuotientFieldCategory| R)
-                   (CATEGORY |package|
+                   (CATEGORY |domain|
                     (IF (|has| R (|IntegerNumberSystem|))
                         (IF (|has| R (|OpenMath|))
                             (ATTRIBUTE (|OpenMath|))
@@ -152,6 +152,10 @@
                                 (ATTRIBUTE (|Canonical|))
                                 |noBranch|)
                             |noBranch|)
+                        |noBranch|)
+                    (IF (|has| R (|UniqueFactorizationDomain|))
+                        (SIGNATURE |factorFraction|
+                         ((|Fraction| (|Factored| R)) $))
                         |noBranch|)))))
          (SEQ
           (LETT |qf| (|Fraction| (QREFELT $ 6))
