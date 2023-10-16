@@ -4850,7 +4850,6 @@
 ;     -- should be unhooked
 ; 
 ;     $scanIfTrue              : local := nil
-;     $compileOnlyCertainItems : local := nil
 ;     $f                       : local := nil  -- compiler
 ;     $m                       : local := nil  --   variables
 ; 
@@ -4883,7 +4882,7 @@
 ;         fullopt = 'functions   =>
 ;             null optargs =>
 ;               throwKeyedMsg("S2IZ0037",['")functions"])
-;             $compileOnlyCertainItems := optargs
+;             throwKeyedMsg(")functions unsupported", [])
 ;         fullopt = 'constructor =>
 ;             null optargs =>
 ;               throwKeyedMsg("S2IZ0037",['")constructor"])
@@ -4892,22 +4891,17 @@
 ;         throwKeyedMsg("S2IZ0036",[STRCONC('")",object2String optname)])
 ; 
 ;     $InteractiveMode : local := nil
-;     if $compileOnlyCertainItems then
-;         null constructor => sayKeyedMsg("S2IZ0040",NIL)
-;         compilerDoitWithScreenedLisplib(constructor, fun)
-;     else
-;         compilerDoit(constructor, fun)
+;     compilerDoit(constructor, fun)
 ;     extendLocalLibdb $newConlist
 ;     terminateSystemCommand()
 ;     spadPrompt()
  
 (DEFUN |compileSpad2Cmd| (|args|)
-  (PROG (|$InteractiveMode| |$QuickCode| |$QuickLet| |$m| |$f|
-         |$compileOnlyCertainItems| |$scanIfTrue| |fullopt| |optargs| |optname|
-         |constructor| |fun| |optList| |path|)
+  (PROG (|$InteractiveMode| |$QuickCode| |$QuickLet| |$m| |$f| |$scanIfTrue|
+         |fullopt| |optargs| |optname| |constructor| |fun| |optList| |path|)
     (DECLARE
      (SPECIAL |$InteractiveMode| |$QuickCode| |$QuickLet| |$m| |$f|
-      |$compileOnlyCertainItems| |$scanIfTrue|))
+      |$scanIfTrue|))
     (RETURN
      (PROGN
       (SETQ |path| (|pathname| |args|))
@@ -4924,7 +4918,6 @@
                  '(|break| |constructor| |functions| |library| |lisp| |new|
                    |old| |nobreak| |nolibrary| |noquiet| |vartrace| |quiet|))
          (SETQ |$scanIfTrue| NIL)
-         (SETQ |$compileOnlyCertainItems| NIL)
          (SETQ |$f| NIL)
          (SETQ |$m| NIL)
          (SETQ |$QuickLet| T)
@@ -4963,7 +4956,7 @@
                   (COND
                    ((NULL |optargs|)
                     (|throwKeyedMsg| 'S2IZ0037 (LIST ")functions")))
-                   (#1# (SETQ |$compileOnlyCertainItems| |optargs|))))
+                   (#1# (|throwKeyedMsg| '|)functions unsupported| NIL))))
                  ((EQ |fullopt| '|constructor|)
                   (COND
                    ((NULL |optargs|)
@@ -4992,12 +4985,7 @@
              (SETQ |bfVar#172| (CDR |bfVar#172|))))
           |$options| NIL)
          (SETQ |$InteractiveMode| NIL)
-         (COND
-          (|$compileOnlyCertainItems|
-           (COND ((NULL |constructor|) (|sayKeyedMsg| 'S2IZ0040 NIL))
-                 (#1#
-                  (|compilerDoitWithScreenedLisplib| |constructor| |fun|))))
-          (#1# (|compilerDoit| |constructor| |fun|)))
+         (|compilerDoit| |constructor| |fun|)
          (|extendLocalLibdb| |$newConlist|)
          (|terminateSystemCommand|)
          (|spadPrompt|))))))))
@@ -5057,27 +5045,3 @@
                               " was not found")))))))
                   (SETQ |bfVar#177| (CDR |bfVar#177|))))
                |$byConstructors| NIL))))))))
- 
-; compilerDoitWithScreenedLisplib(constructor, fun) ==
-;     EMBED('RWRITE,
-;           '(LAMBDA (KEY VALUE STREAM)
-;                    (COND ((AND (EQ STREAM $libFile)
-;                                (NOT (MEMBER KEY $saveableItems)))
-;                           VALUE)
-;                          ((NOT NIL)
-;                           (RWRITE KEY VALUE STREAM)))) )
-;     UNWIND_-PROTECT(compilerDoit(constructor,fun),
-;                    UNEMBED 'RWRITE)
- 
-(DEFUN |compilerDoitWithScreenedLisplib| (|constructor| |fun|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      (EMBED 'RWRITE
-       '(LAMBDA (KEY VALUE STREAM)
-          (COND
-           ((AND (EQ STREAM |$libFile|) (NOT (MEMBER KEY |$saveableItems|)))
-            VALUE)
-           ((NOT NIL) (RWRITE KEY VALUE STREAM)))))
-      (UNWIND-PROTECT (|compilerDoit| |constructor| |fun|)
-        (UNEMBED 'RWRITE))))))

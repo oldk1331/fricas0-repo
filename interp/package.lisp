@@ -77,45 +77,6 @@
                (STRINGIMAGE |count|)))
       |encodedName|))))
  
-; splitEncodedFunctionName(encodedName, sep) ==
-;     -- [encodedPackage, encodedItem, encodedSig, sequenceNo] or NIL
-;     -- sep0 is the separator used in "encodeFunctionName".
-;     sep0 := '";"
-;     if not STRINGP encodedName then
-;         encodedName := STRINGIMAGE encodedName
-;     null (p1 := STRPOS(sep0, encodedName, 0, false)) => nil
-;     null (p2 := STRPOS(sep0, encodedName, p1+1, false)) => 'inner
-; --  This is picked up in compile for inner functions in partial compilation
-;     null (p3 := STRPOS(sep,  encodedName, p2+1, false)) => nil
-;     s1 := SUBSTRING(encodedName, 0,    p1)
-;     s2 := SUBSTRING(encodedName, p1+1, p2-p1-1)
-;     s3 := SUBSTRING(encodedName, p2+1, p3-p2-1)
-;     s4 := SUBSTRING(encodedName, p3+1, nil)
-;     [s1, s2, s3, s4]
- 
-(DEFUN |splitEncodedFunctionName| (|encodedName| |sep|)
-  (PROG (|sep0| |p1| |p2| |p3| |s1| |s2| |s3| |s4|)
-    (RETURN
-     (PROGN
-      (SETQ |sep0| ";")
-      (COND
-       ((NULL (STRINGP |encodedName|))
-        (SETQ |encodedName| (STRINGIMAGE |encodedName|))))
-      (COND ((NULL (SETQ |p1| (STRPOS |sep0| |encodedName| 0 NIL))) NIL)
-            ((NULL (SETQ |p2| (STRPOS |sep0| |encodedName| (+ |p1| 1) NIL)))
-             '|inner|)
-            ((NULL (SETQ |p3| (STRPOS |sep| |encodedName| (+ |p2| 1) NIL)))
-             NIL)
-            ('T
-             (PROGN
-              (SETQ |s1| (SUBSTRING |encodedName| 0 |p1|))
-              (SETQ |s2|
-                      (SUBSTRING |encodedName| (+ |p1| 1) (- (- |p2| |p1|) 1)))
-              (SETQ |s3|
-                      (SUBSTRING |encodedName| (+ |p2| 1) (- (- |p3| |p2|) 1)))
-              (SETQ |s4| (SUBSTRING |encodedName| (+ |p3| 1) NIL))
-              (LIST |s1| |s2| |s3| |s4|))))))))
- 
 ; mkRepititionAssoc l ==
 ;   mkRepfun(l,1) where
 ;     mkRepfun(l,n) ==
