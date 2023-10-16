@@ -9811,6 +9811,7 @@ osmaller?`2`n`(_$,_$)->Boolean`cComparable``1176704
 osmaller?`2`n`(A,A)->Boolean`xFiniteSetAggregate&(A,S)``0
 osmaller?`2`n`(A,A)->Boolean`xFreeModuleCategory&(A,R,S)``0
 osmaller?`2`n`(A,A)->Boolean`xListAggregate&(A,S)``0
+osmaller?`2`n`(A,A)->Boolean`xOneDimensionalArrayAggregate&(A,S)``0
 osmaller?`2`n`(A,A)->Boolean`xQuotientFieldCategory&(A,S)``0
 osmaller?`2`n`(S,S)->Boolean`xComplexCategory&(S,R)``0
 osmaller?`2`n`(S,S)->Boolean`xFinite&(S)``0
