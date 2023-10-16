@@ -32,26 +32,23 @@
                          (QREFELT $ 26))))) 
 
 (SDEFUN |BRAGG-;children;AL;6| ((|x| A) ($ |List| A))
-        (SPROG ((|l| (|List| A)))
-               (SEQ (LETT |l| NIL)
-                    (EXIT
-                     (COND ((SPADCALL |x| (QREFELT $ 15)) |l|)
-                           ((SPADCALL (SPADCALL |x| (QREFELT $ 8))
-                                      (QREFELT $ 15))
-                            (LIST (SPADCALL |x| (QREFELT $ 11))))
-                           ((SPADCALL (SPADCALL |x| (QREFELT $ 11))
-                                      (QREFELT $ 15))
-                            (LIST (SPADCALL |x| (QREFELT $ 8))))
-                           ('T
-                            (LIST (SPADCALL |x| (QREFELT $ 8))
-                                  (SPADCALL |x| (QREFELT $ 11))))))))) 
+        (COND ((SPADCALL |x| (QREFELT $ 15)) NIL)
+              ((SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 15))
+               (COND
+                ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15)) NIL)
+                (#1='T (LIST (SPADCALL |x| (QREFELT $ 11))))))
+              ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15))
+               (LIST (SPADCALL |x| (QREFELT $ 8))))
+              (#1#
+               (LIST (SPADCALL |x| (QREFELT $ 8))
+                     (SPADCALL |x| (QREFELT $ 11)))))) 
 
 (SDEFUN |BRAGG-;#;ANni;7| ((|x| A) ($ |NonNegativeInteger|))
         (|BRAGG-;aggCount| |x| 0 $)) 
 
 (SDEFUN |BRAGG-;aggCount|
         ((|x| A) (|k| |NonNegativeInteger|) ($ |NonNegativeInteger|))
-        (SPROG ((#1=#:G161 NIL) (|y| NIL))
+        (SPROG ((#1=#:G163 NIL) (|y| NIL))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 15)) 0)
                       ('T
@@ -75,7 +72,7 @@
                             (EXIT |k|))))))) 
 
 (SDEFUN |BRAGG-;node?;2AB;9| ((|u| A) (|v| A) ($ |Boolean|))
-        (SPROG ((#1=#:G167 NIL))
+        (SPROG ((#1=#:G169 NIL))
                (SEQ
                 (EXIT
                  (COND ((SPADCALL |v| (QREFELT $ 15)) NIL)
@@ -87,7 +84,7 @@
                                      (QREFELT $ 34))
                            (SPADCALL |u| (SPADCALL |v| (QREFELT $ 11))
                                      (QREFELT $ 34)))
-                          (PROGN (LETT #1# 'T) (GO #2=#:G166)))
+                          (PROGN (LETT #1# 'T) (GO #2=#:G168)))
                          ('T NIL)))))
                 #2# (EXIT #1#)))) 
 
@@ -159,7 +156,7 @@
               ('T (|BRAGG-;isCycle?| |x| NIL $)))) 
 
 (SDEFUN |BRAGG-;isCycle?| ((|x| A) (|acc| |List| A) ($ |Boolean|))
-        (SPROG ((#1=#:G193 NIL) (#2=#:G194 NIL) (#3=#:G195 NIL) (|y| NIL))
+        (SPROG ((#1=#:G195 NIL) (#2=#:G196 NIL) (#3=#:G197 NIL) (|y| NIL))
                (SEQ
                 (EXIT
                  (COND ((SPADCALL |x| (QREFELT $ 15)) NIL)
@@ -184,8 +181,8 @@
                                        (LETT #1#
                                              (PROGN
                                               (LETT #2# 'T)
-                                              (GO #4=#:G192)))
-                                       (GO #5=#:G188))))))))
+                                              (GO #4=#:G194)))
+                                       (GO #5=#:G190))))))))
                                 (LETT #3# (CDR #3#)) (GO G190) G191
                                 (EXIT NIL)))
                           #5# (EXIT #1#))
@@ -193,7 +190,7 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |BRAGG-;eqMember?| ((|y| A) (|l| |List| A) ($ |Boolean|))
-        (SPROG ((#1=#:G200 NIL) (#2=#:G201 NIL) (#3=#:G202 NIL) (|x| NIL))
+        (SPROG ((#1=#:G202 NIL) (#2=#:G203 NIL) (#3=#:G204 NIL) (|x| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -208,8 +205,8 @@
                            (COND
                             ((SPADCALL |x| |y| (QREFELT $ 48))
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G199)))
-                              (GO #5=#:G197))))))
+                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G201)))
+                              (GO #5=#:G199))))))
                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT NIL)))
