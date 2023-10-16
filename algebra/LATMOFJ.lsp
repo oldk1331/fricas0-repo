@@ -397,21 +397,19 @@
 (SDEFUN |LATMOFJ;=;2$B;24| ((|a| $) (|b| $) ($ |Boolean|)) NIL) 
 
 (SDEFUN |LATMOFJ;toString;$S;25| ((|n| $) ($ |String|))
-        (SPROG ((|a| (|String|)))
-               (SEQ (LETT |a| (STRCONC "(" (SPADCALL |n| (QREFELT $ 41))))
-                    (LETT |a| (STRCONC |a| ")")) (EXIT |a|)))) 
+        (SPADCALL (LIST "(" (SPADCALL |n| (QREFELT $ 41)) ")") (QREFELT $ 42))) 
 
 (SDEFUN |LATMOFJ;stringVarOrLit|
         ((|a| |Union| (|:| |const| (|Record| (|:| |val| (|Symbol|))))
           (|:| |var| (|Record| (|:| |str| (|String|)))))
          ($ |String|))
-        (SPROG ((#1=#:G288 NIL) (#2=#:G209 NIL))
+        (SPROG ((#1=#:G287 NIL) (#2=#:G209 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((QEQCAR |a| 1)
-                    (PROGN (LETT #1# (QCAR (CDR |a|))) (GO #3=#:G287))))
+                    (PROGN (LETT #1# (QCAR (CDR |a|))) (GO #3=#:G286))))
                   (COND
                    ((QEQCAR |a| 0)
                     (SEQ
@@ -438,9 +436,9 @@
 
 (SDEFUN |LATMOFJ;toStringUnwrapped;$S;27| ((|n| $) ($ |String|))
         (SPROG
-         ((|r| (|String|)) (#1=#:G301 NIL) (|inner| NIL) (#2=#:G302 NIL)
-          (|innern| NIL) (|innerList| (|List| (|String|))) (#3=#:G299 NIL)
-          (|outer| NIL) (#4=#:G300 NIL) (|outern| NIL)
+         ((|r| (|String|)) (#1=#:G300 NIL) (|inner| NIL) (#2=#:G301 NIL)
+          (|innern| NIL) (|innerList| (|List| (|String|))) (#3=#:G298 NIL)
+          (|outer| NIL) (#4=#:G299 NIL) (|outern| NIL)
           (|outerList| (|List| (|String|))))
          (SEQ (LETT |outerList| NIL) (LETT |r| "")
               (SEQ (LETT |outern| 1) (LETT #4# (LENGTH |n|)) (LETT |outer| NIL)
@@ -484,15 +482,15 @@
         ((|a| |Union| (|:| |const| (|Record| (|:| |val| (|Symbol|))))
           (|:| |var| (|Record| (|:| |str| (|String|)))))
          ($ |OutputForm|))
-        (SPROG ((#1=#:G305 NIL) (#2=#:G209 NIL))
+        (SPROG ((#1=#:G304 NIL) (#2=#:G209 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((QEQCAR |a| 1)
                     (PROGN
-                     (LETT #1# (SPADCALL (QCAR (CDR |a|)) (QREFELT $ 44)))
-                     (GO #3=#:G304))))
+                     (LETT #1# (SPADCALL (QCAR (CDR |a|)) (QREFELT $ 45)))
+                     (GO #3=#:G303))))
                   (COND
                    ((QEQCAR |a| 0)
                     (PROGN
@@ -512,18 +510,18 @@
                                                      (|Record|
                                                       (|:| |str| (|String|)))))
                                                #2#)))
-                            (QREFELT $ 45)))
+                            (QREFELT $ 46)))
                      (GO #3#))))
                   (EXIT (|error| "outputVarOrLit"))))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |LATMOFJ;coerce;$Of;29| ((|n| $) ($ |OutputForm|))
         (SPROG
-         ((|r| (|OutputForm|)) (#1=#:G318 NIL) (|inner| NIL) (#2=#:G319 NIL)
-          (|innern| NIL) (|innerList| (|List| (|OutputForm|))) (#3=#:G316 NIL)
-          (|outer| NIL) (#4=#:G317 NIL) (|outern| NIL)
+         ((|r| (|OutputForm|)) (#1=#:G317 NIL) (|inner| NIL) (#2=#:G318 NIL)
+          (|innern| NIL) (|innerList| (|List| (|OutputForm|))) (#3=#:G315 NIL)
+          (|outer| NIL) (#4=#:G316 NIL) (|outern| NIL)
           (|outerList| (|List| (|OutputForm|))))
-         (SEQ (LETT |outerList| NIL) (LETT |r| (SPADCALL "(" (QREFELT $ 46)))
+         (SEQ (LETT |outerList| NIL) (LETT |r| (SPADCALL "(" (QREFELT $ 47)))
               (SEQ (LETT |outern| 1) (LETT #4# (LENGTH |n|)) (LETT |outer| NIL)
                    (LETT #3# |n|) G190
                    (COND
@@ -543,7 +541,7 @@
                                     (SPADCALL |r|
                                               (|LATMOFJ;outputVarOrLit| |inner|
                                                $)
-                                              (QREFELT $ 47)))
+                                              (QREFELT $ 48)))
                               (EXIT
                                (COND
                                 ((SPADCALL |innern| (LENGTH |outer|)
@@ -551,8 +549,8 @@
                                  (LETT |r|
                                        (SPADCALL |r|
                                                  (SPADCALL "\\/"
-                                                           (QREFELT $ 46))
-                                                 (QREFELT $ 47)))))))
+                                                           (QREFELT $ 47))
+                                                 (QREFELT $ 48)))))))
                              (LETT #1#
                                    (PROG1 (CDR #1#)
                                      (LETT |innern| (|inc_SI| |innern|))))
@@ -562,19 +560,19 @@
                           ((SPADCALL |outern| (LENGTH |n|) (QREFELT $ 32))
                            (LETT |r|
                                  (SPADCALL |r|
-                                           (SPADCALL ")/\\(" (QREFELT $ 46))
-                                           (QREFELT $ 47)))))))
+                                           (SPADCALL ")/\\(" (QREFELT $ 47))
+                                           (QREFELT $ 48)))))))
                    (LETT #3#
                          (PROG1 (CDR #3#) (LETT |outern| (|inc_SI| |outern|))))
                    (GO G190) G191 (EXIT NIL))
               (EXIT
-               (SPADCALL |r| (SPADCALL ")" (QREFELT $ 46)) (QREFELT $ 47)))))) 
+               (SPADCALL |r| (SPADCALL ")" (QREFELT $ 47)) (QREFELT $ 48)))))) 
 
 (DECLAIM (NOTINLINE |LatticeMeetOfJoins;|)) 
 
 (DEFUN |LatticeMeetOfJoins| ()
   (SPROG NIL
-         (PROG (#1=#:G321)
+         (PROG (#1=#:G320)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|LatticeMeetOfJoins|))
@@ -595,7 +593,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|LatticeMeetOfJoins|))
-          (LETT $ (GETREFV 51))
+          (LETT $ (GETREFV 52))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|LatticeMeetOfJoins| NIL (CONS 1 $))
@@ -625,15 +623,15 @@
               |LATMOFJ;opType;$S;20| |LATMOFJ;atom?;$B;21|
               |LATMOFJ;value;$S;22| |LATMOFJ;getChildren;$L;23|
               |LATMOFJ;=;2$B;24| |LATMOFJ;toStringUnwrapped;$S;27|
-              |LATMOFJ;toString;$S;25| (|OutputForm|) (36 . |coerce|)
-              (41 . |coerce|) (46 . |message|) (51 . |hconcat|)
+              (36 . |concat|) |LATMOFJ;toString;$S;25| (|OutputForm|)
+              (41 . |coerce|) (46 . |coerce|) (51 . |message|) (56 . |hconcat|)
               |LATMOFJ;coerce;$Of;29| (|HashState|) (|SingleInteger|))
-           '#(~= 57 |variable| 63 |value| 68 |toStringUnwrapped| 73 |toString|
-              78 |redux| 83 |opType| 88 |meet| 93 |logicT| 98 |logicF| 102
-              |latticeMeetOfJoins| 106 |latex| 111 |join| 116 |hashUpdate!| 121
-              |hash| 127 |getChildren| 132 |factor| 137 |emptyLattice| 142
-              |empty?| 146 |deductions| 151 |coerce| 156 |atom?| 161 |_\|_| 166
-              |\\/| 170 T$ 176 = 180 |/\\| 186)
+           '#(~= 62 |variable| 68 |value| 73 |toStringUnwrapped| 78 |toString|
+              83 |redux| 88 |opType| 93 |meet| 98 |logicT| 103 |logicF| 107
+              |latticeMeetOfJoins| 111 |latex| 116 |join| 121 |hashUpdate!| 126
+              |hash| 132 |getChildren| 137 |factor| 142 |emptyLattice| 147
+              |empty?| 151 |deductions| 156 |coerce| 161 |atom?| 166 |_\|_| 171
+              |\\/| 175 T$ 181 = 185 |/\\| 191)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -644,20 +642,21 @@
                       (|DistributiveLattice|) (|BoundedMeetSemilattice|)
                       (|Lattice|) (|BoundedJoinSemilattice|)
                       (|MeetSemilattice|) (|JoinSemilattice|) (|SetCategory|)
-                      (|BasicType|) (|CoercibleTo| 43))
-                   (|makeByteWordVec2| 50
+                      (|BasicType|) (|CoercibleTo| 44))
+                   (|makeByteWordVec2| 51
                                        '(2 18 0 0 0 19 2 22 0 0 0 23 2 18 0 0
                                          22 24 2 13 16 0 0 29 2 22 0 0 13 30 2
-                                         31 16 0 0 32 1 9 43 0 44 1 35 43 0 45
-                                         1 43 0 9 46 2 43 0 0 0 47 2 0 16 0 0 1
-                                         1 0 0 9 10 1 0 35 0 38 1 0 9 0 41 1 0
-                                         9 0 42 1 0 0 0 20 1 0 35 0 36 1 0 0 26
-                                         27 0 0 0 7 0 0 0 8 1 0 0 13 14 1 0 9 0
-                                         1 1 0 0 26 28 2 0 49 49 0 1 1 0 50 0 1
-                                         1 0 26 0 39 1 0 26 0 33 0 0 0 15 1 0
-                                         16 0 17 1 0 26 26 34 1 0 43 0 48 1 0
-                                         16 0 37 0 0 0 1 2 0 0 0 0 25 0 0 0 1 2
-                                         0 16 0 0 40 2 0 0 0 0 21)))))
+                                         31 16 0 0 32 1 9 0 26 42 1 9 44 0 45 1
+                                         35 44 0 46 1 44 0 9 47 2 44 0 0 0 48 2
+                                         0 16 0 0 1 1 0 0 9 10 1 0 35 0 38 1 0
+                                         9 0 41 1 0 9 0 43 1 0 0 0 20 1 0 35 0
+                                         36 1 0 0 26 27 0 0 0 7 0 0 0 8 1 0 0
+                                         13 14 1 0 9 0 1 1 0 0 26 28 2 0 50 50
+                                         0 1 1 0 51 0 1 1 0 26 0 39 1 0 26 0 33
+                                         0 0 0 15 1 0 16 0 17 1 0 26 26 34 1 0
+                                         44 0 49 1 0 16 0 37 0 0 0 1 2 0 0 0 0
+                                         25 0 0 0 1 2 0 16 0 0 40 2 0 0 0 0
+                                         21)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|LatticeMeetOfJoins| 'NILADIC T) 

@@ -897,7 +897,7 @@
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 8 (|Vector| |#2|))
     (COND
-     ((|testBitVector| |pv$| 21)
+     ((|testBitVector| |pv$| 23)
       (PROGN
        (COND
         ((|domainEqual| |#2| (|NonNegativeInteger|))

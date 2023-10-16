@@ -554,7 +554,7 @@
                         (|:| |f| (|PrimitiveArray| |#1|))))
     (QSETREFV $ 9 'T)
     (COND
-     ((|testBitVector| |pv$| 7)
+     ((|testBitVector| |pv$| 4)
       (PROGN
        (QSETREFV $ 55
                  (CONS (|dispatchFunction| |IFARRAY;removeDuplicates!;2$;29|)

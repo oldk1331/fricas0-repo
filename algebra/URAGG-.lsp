@@ -35,11 +35,8 @@
                     (EXIT (NREVERSE |l|))))) 
 
 (SDEFUN |URAGG-;children;AL;9| ((|x| A) ($ |List| A))
-        (SPROG ((|l| (|List| A)))
-               (SEQ (LETT |l| NIL)
-                    (EXIT
-                     (COND ((SPADCALL |x| (QREFELT $ 20)) |l|)
-                           ('T (CONS (SPADCALL |x| (QREFELT $ 14)) |l|))))))) 
+        (COND ((SPADCALL |x| (QREFELT $ 20)) NIL)
+              ('T (LIST (SPADCALL |x| (QREFELT $ 14)))))) 
 
 (SDEFUN |URAGG-;leaf?;AB;10| ((|x| A) ($ |Boolean|))
         (COND ((SPADCALL |x| (QREFELT $ 20)) NIL)

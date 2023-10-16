@@ -33,7 +33,7 @@
               (LETT |res|
                     (LIST (STRINGIMAGE (SPADCALL |x1| (QREFELT $ 24))) "."
                           (STRINGIMAGE (SPADCALL |x2| (QREFELT $ 24)))))
-              (EXIT (SPADCALL (ELT $ 25) |res| (QREFELT $ 28)))))) 
+              (EXIT (SPADCALL |res| (QREFELT $ 26)))))) 
 
 (DECLAIM (NOTINLINE |FloatingPointSystem&;|)) 
 
@@ -42,7 +42,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FloatingPointSystem&| DV$1))
-          (LETT $ (GETREFV 31))
+          (LETT $ (GETREFV 29))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -64,10 +64,9 @@
               (11 . |One|) (15 . |bits|) (19 . *) (25 . |max|)
               |FPS-;digits;Pi;2| (|String|) (29 . |convert|)
               |FPS-;toString;SS;3| (34 . |round|) (39 . -) (45 . |abs|)
-              (50 . *) (56 . |retract|) (61 . |concat|) (|Mapping| 17 17 17)
-              (|List| 17) (67 . |reduce|) (|NonNegativeInteger|)
-              |FPS-;toString;SNniS;4|)
-           '#(|toString| 73 |float| 84 |digits| 90) 'NIL
+              (50 . *) (56 . |retract|) (|List| $) (61 . |concat|)
+              (|NonNegativeInteger|) |FPS-;toString;SNniS;4|)
+           '#(|toString| 66 |float| 77 |digits| 83) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -88,12 +87,12 @@
                                 T)
                               '((|float| (|#1| (|Integer|) (|Integer|))) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 30
+                        (|makeByteWordVec2| 28
                                             '(0 6 7 8 3 6 0 9 9 7 10 0 6 0 12 0
                                               6 7 13 2 9 0 7 0 14 0 6 0 15 1 6
                                               17 0 18 1 6 0 0 20 2 6 0 0 0 21 1
                                               6 0 0 22 2 6 0 0 0 23 1 6 9 0 24
-                                              2 17 0 0 0 25 2 27 17 26 0 28 2 0
-                                              17 0 29 30 1 0 17 0 19 2 0 0 9 9
-                                              11 0 0 7 16)))))
+                                              1 17 0 25 26 2 0 17 0 27 28 1 0
+                                              17 0 19 2 0 0 9 9 11 0 0 7
+                                              16)))))
            '|lookupComplete|)) 

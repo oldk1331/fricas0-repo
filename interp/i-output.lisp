@@ -4508,7 +4508,7 @@
 ;   sc :=
 ;     syminusp first u => '"-"
 ;     true => '"+"
-;   dp := member(keyp absym first u, '(_+ _-))
+;   dp := member(keyp ac, '(_+ _-))
 ;   tempx := x + WIDTH ac + (dp => 5; true => 3)
 ;   tempdblock :=
 ;     temparg1 := APP(sc, x + 1, y, d)
@@ -4530,7 +4530,7 @@
             (PROGN
              (SETQ |ac| (|absym| (CAR |u|)))
              (SETQ |sc| (COND ((|syminusp| (CAR |u|)) "-") (T "+")))
-             (SETQ |dp| (|member| (|keyp| (|absym| (CAR |u|))) '(+ -)))
+             (SETQ |dp| (|member| (|keyp| |ac|) '(+ -)))
              (SETQ |tempx| (+ (+ |x| (WIDTH |ac|)) (COND (|dp| 5) (T 3))))
              (SETQ |tempdblock|
                      (PROGN
@@ -6150,21 +6150,20 @@
  
 ; mathPrintTran u ==
 ;   atom u => u
-;   true =>
-;     for x in tails u repeat
-;           rplac(first x, mathPrintTran first x)
-;     u
+;   for x in tails u repeat
+;       rplac(first x, mathPrintTran first x)
+;   u
  
 (DEFUN |mathPrintTran| (|u|)
   (PROG ()
     (RETURN
      (COND ((ATOM |u|) |u|)
-           (T
+           (#1='T
             (PROGN
              ((LAMBDA (|x|)
                 (LOOP
                  (COND ((ATOM |x|) (RETURN NIL))
-                       ('T (|rplac| (CAR |x|) (|mathPrintTran| (CAR |x|)))))
+                       (#1# (|rplac| (CAR |x|) (|mathPrintTran| (CAR |x|)))))
                  (SETQ |x| (CDR |x|))))
               |u|)
              |u|))))))

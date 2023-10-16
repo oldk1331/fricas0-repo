@@ -61,20 +61,17 @@
 
 (SDEFUN |KERNEL;kerEqual|
         ((|k1| $) (|k2| $) (|f| |Mapping| (|Boolean|) $ $) ($ |Boolean|))
-        (SPROG ((|n2| #1=(|NonNegativeInteger|)) (|n1| #1#))
-               (COND
-                ((OR
-                  (SPADCALL (SPADCALL |k1| (QREFELT $ 12))
-                            (SPADCALL |k2| (QREFELT $ 12)) (QREFELT $ 43))
-                  (OR
-                   (SPADCALL (SPADCALL |k1| (QREFELT $ 8))
-                             (SPADCALL |k2| (QREFELT $ 8)) (QREFELT $ 44))
-                   (SPADCALL
-                    (LETT |n1| (LENGTH (SPADCALL |k1| (QREFELT $ 10))))
-                    (LETT |n2| (LENGTH (SPADCALL |k2| (QREFELT $ 10))))
-                    (QREFELT $ 43))))
-                 NIL)
-                ('T (SPADCALL |k1| |k2| |f|))))) 
+        (COND
+         ((OR
+           (SPADCALL (SPADCALL |k1| (QREFELT $ 12))
+                     (SPADCALL |k2| (QREFELT $ 12)) (QREFELT $ 43))
+           (OR
+            (SPADCALL (SPADCALL |k1| (QREFELT $ 8))
+                      (SPADCALL |k2| (QREFELT $ 8)) (QREFELT $ 44))
+            (SPADCALL (LENGTH (SPADCALL |k1| (QREFELT $ 10)))
+                      (LENGTH (SPADCALL |k2| (QREFELT $ 10))) (QREFELT $ 43))))
+          NIL)
+         ('T (SPADCALL |k1| |k2| |f|)))) 
 
 (SDEFUN |KERNEL;kernelEnterInCache| ((|k| $) ($ $))
         (SPROG

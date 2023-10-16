@@ -116,8 +116,8 @@
           (|ns| (|List| (|Integer|))))
          (SEQ
           (LETT |ns|
-                (LIST (LENGTH (QVELT |sc| 3)) (LENGTH (QVELT |sc| 2))
-                      (LENGTH (QVELT |sc| 1)) (LENGTH (QVELT |sc| 0))))
+                (LIST (LENGTH (QVELT |sc| 0)) (LENGTH (QVELT |sc| 1))
+                      (LENGTH (QVELT |sc| 2)) (LENGTH (QVELT |sc| 3))))
           (EXIT
            (SPADCALL
             (CONS
@@ -125,7 +125,7 @@
                       (|SYMBOL;istring| (LENGTH (QVELT |sc| 4)) $))
              (PROGN
               (LETT #2# NIL)
-              (SEQ (LETT |n| NIL) (LETT #1# (NREVERSE |ns|)) G190
+              (SEQ (LETT |n| NIL) (LETT #1# |ns|) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |n| (CAR #1#)) NIL))
                      (GO G191)))

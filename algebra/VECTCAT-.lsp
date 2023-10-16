@@ -1,11 +1,10 @@
 
 (SDEFUN |VECTCAT-;+;3S;1| ((|u| S) (|v| S) ($ S))
-        (SPROG ((|n| (|Integer|)))
-               (COND
-                ((SPADCALL (LETT |n| (SPADCALL |u| (QREFELT $ 9)))
-                           (SPADCALL |v| (QREFELT $ 9)) (QREFELT $ 12))
-                 (|error| "Vectors must be of the same length"))
-                ('T (SPADCALL (ELT $ 13) |u| |v| (QREFELT $ 15)))))) 
+        (COND
+         ((SPADCALL (SPADCALL |u| (QREFELT $ 9)) (SPADCALL |v| (QREFELT $ 9))
+                    (QREFELT $ 12))
+          (|error| "Vectors must be of the same length"))
+         ('T (SPADCALL (ELT $ 13) |u| |v| (QREFELT $ 15))))) 
 
 (SDEFUN |VECTCAT-;zero;NniS;2| ((|n| |NonNegativeInteger|) ($ S))
         (SPADCALL |n| (|spadConstant| $ 17) (QREFELT $ 18))) 

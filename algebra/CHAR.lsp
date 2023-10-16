@@ -28,17 +28,11 @@
 
 (SDEFUN |CHAR;random;$;8| (($ $)) (SPADCALL (RANDOM 128) (QREFELT $ 13))) 
 
-(PUT '|CHAR;space;$;9| '|SPADreplace| '(XLAM NIL (STR_ELT "   " 0))) 
+(SDEFUN |CHAR;space;$;9| (($ $)) (SPADCALL 32 (QREFELT $ 13))) 
 
-(SDEFUN |CHAR;space;$;9| (($ $)) (STR_ELT "   " 0)) 
+(SDEFUN |CHAR;quote;$;10| (($ $)) (SPADCALL 34 (QREFELT $ 13))) 
 
-(PUT '|CHAR;quote;$;10| '|SPADreplace| '(XLAM NIL (STR_ELT "\" " 0))) 
-
-(SDEFUN |CHAR;quote;$;10| (($ $)) (STR_ELT "\" " 0)) 
-
-(PUT '|CHAR;escape;$;11| '|SPADreplace| '(XLAM NIL (STR_ELT "_ " 0))) 
-
-(SDEFUN |CHAR;escape;$;11| (($ $)) (STR_ELT "_ " 0)) 
+(SDEFUN |CHAR;escape;$;11| (($ $)) (SPADCALL 95 (QREFELT $ 13))) 
 
 (SDEFUN |CHAR;newline;$;12| (($ $)) (SPADCALL 10 (QREFELT $ 13))) 
 
