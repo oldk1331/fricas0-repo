@@ -232,7 +232,7 @@
           "failed"))
         (SPROG
          ((|res0| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
-          (|c1u| (|Union| (|Polynomial| (|Integer|)) "failed"))
+          (#1=#:G180 NIL) (|c1u| (|Union| (|Polynomial| (|Integer|)) "failed"))
           (|pr|
            (|List|
             (|Record| (|:| |deg| (|NonNegativeInteger|))
@@ -247,22 +247,28 @@
                                     (|:| |denom|
                                          (|Polynomial| (|Integer|)))))))
           (|pr1| (|Rep|)))
-         (SEQ (LETT |pr1| |p|) (LETT |pr| (QCDR |pr1|))
-              (LETT |res0| (|spadConstant| $ 44))
-              (SEQ G190 (COND ((NULL (NULL (NULL |pr|))) (GO G191)))
-                   (SEQ (LETT |r1| (|SPADfirst| |pr|)) (LETT |pr| (CDR |pr|))
-                        (LETT |c1u| (SPADCALL (QCDR |r1|) |f|))
-                        (EXIT
-                         (COND ((QEQCAR |c1u| 1) "failed")
-                               ('T
-                                (LETT |res0|
-                                      (SPADCALL |res0|
-                                                (SPADCALL (QCDR |c1u|)
-                                                          (QCAR |r1|)
-                                                          (QREFELT $ 45))
-                                                (QREFELT $ 46)))))))
-                   NIL (GO G190) G191 (EXIT NIL))
-              (EXIT (CONS 0 |res0|))))) 
+         (SEQ
+          (EXIT
+           (SEQ (LETT |pr1| |p|) (LETT |pr| (QCDR |pr1|))
+                (LETT |res0| (|spadConstant| $ 44))
+                (SEQ G190 (COND ((NULL (NULL (NULL |pr|))) (GO G191)))
+                     (SEQ (LETT |r1| (|SPADfirst| |pr|)) (LETT |pr| (CDR |pr|))
+                          (LETT |c1u| (SPADCALL (QCDR |r1|) |f|))
+                          (EXIT
+                           (COND
+                            ((QEQCAR |c1u| 1)
+                             (PROGN
+                              (LETT #1# (CONS 1 "failed"))
+                              (GO #2=#:G179)))
+                            ('T
+                             (LETT |res0|
+                                   (SPADCALL |res0|
+                                             (SPADCALL (QCDR |c1u|) (QCAR |r1|)
+                                                       (QREFELT $ 45))
+                                             (QREFELT $ 46)))))))
+                     NIL (GO G190) G191 (EXIT NIL))
+                (EXIT (CONS 0 |res0|))))
+          #2# (EXIT #1#)))) 
 
 (SDEFUN |FAKEPOL;degree;$SNni;8|
         ((|p| $) (|s| |Symbol|) ($ |NonNegativeInteger|))
@@ -271,7 +277,7 @@
           (|c1|
            #1=(|Record| (|:| |numer| (|Polynomial| (|Integer|)))
                         (|:| |denom| (|Polynomial| (|Integer|)))))
-          (#2=#:G189 NIL) (|r1| NIL)
+          (#2=#:G190 NIL) (|r1| NIL)
           (|pr|
            (|List|
             (|Record| (|:| |deg| (|NonNegativeInteger|)) (|:| |coef| #1#))))
@@ -353,7 +359,7 @@
 (SDEFUN |FAKEPOL;subst_var;$2L$;10|
         ((|p| $) (|ls1| |List| (|Symbol|)) (|ls2| |List| (|Symbol|)) ($ $))
         (SPROG
-         ((#1=#:G202 NIL) (#2=#:G203 NIL) (|s1| NIL) (#3=#:G204 NIL) (|s2| NIL)
+         ((#1=#:G203 NIL) (#2=#:G204 NIL) (|s1| NIL) (#3=#:G205 NIL) (|s2| NIL)
           (|v1| (|Symbol|)) (|pr1| (|Rep|)))
          (SEQ
           (EXIT
@@ -370,7 +376,7 @@
                         ((EQUAL |v1| |s1|)
                          (PROGN
                           (LETT #1# (CONS |s2| (QCDR |pr1|)))
-                          (GO #4=#:G201))))))
+                          (GO #4=#:G202))))))
                      (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#))))
                      (GO G190) G191 (EXIT NIL))
                 (EXIT |p|)))
@@ -380,7 +386,7 @@
 
 (DEFUN |FakePolynomial| ()
   (SPROG NIL
-         (PROG (#1=#:G206)
+         (PROG (#1=#:G207)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FakePolynomial|))
