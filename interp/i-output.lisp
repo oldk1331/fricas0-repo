@@ -3478,6 +3478,7 @@
       NIL))))
  
 ; output(expr,domain) ==
+;   $resolve_level : local := 0
 ;   if isWrapped expr then expr := unwrap expr
 ;   isMapExpr expr and not(domain is ["FunctionCalled", .]) => BREAK()
 ;   categoryForm? domain or domain = ["Mode"] =>
@@ -3508,9 +3509,11 @@
 ;   sayALGEBRA [:bright '"LISP",'"output:",'%l,expr or '"NIL"]
  
 (DEFUN |output| (|expr| |domain|)
-  (PROG (|ISTMP#1| T$ |x| |printfun| |textwrit| S)
+  (PROG (|$resolve_level| S |textwrit| |printfun| |x| T$ |ISTMP#1|)
+    (DECLARE (SPECIAL |$resolve_level|))
     (RETURN
      (PROGN
+      (SETQ |$resolve_level| 0)
       (COND ((|isWrapped| |expr|) (SETQ |expr| (|unwrap| |expr|))))
       (COND
        ((AND (|isMapExpr| |expr|)
