@@ -99,11 +99,34 @@
                    (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
               (EXIT (STRCONC |s| "\\end{array} \\right]"))))) 
 
+(SDEFUN |IIARRAY2;hashUpdate!;Hs$Hs;15|
+        ((|s| |HashState|) (|m| $) ($ |HashState|))
+        (SPROG ((#1=#:G2280 NIL) (|j| NIL) (#2=#:G2279 NIL) (|i| NIL))
+               (SEQ
+                (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 16)))
+                     (LETT #2# (SPADCALL |m| (QREFELT $ 19))) G190
+                     (COND ((> |i| #2#) (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 17)))
+                            (LETT #1# (SPADCALL |m| (QREFELT $ 21))) G190
+                            (COND ((> |j| #1#) (GO G191)))
+                            (SEQ
+                             (EXIT
+                              (LETT |s|
+                                    (SPADCALL |s|
+                                              (SPADCALL |m| |i| |j|
+                                                        (QREFELT $ 22))
+                                              (QREFELT $ 30)))))
+                            (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))))
+                     (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
+                (EXIT |s|)))) 
+
 (DECLAIM (NOTINLINE |InnerIndexedTwoDimensionalArray;|)) 
 
-(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2282)
+(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2288)
   (SPROG NIL
-         (PROG (#2=#:G2283)
+         (PROG (#2=#:G2289)
            (RETURN
             (COND
              ((LETT #2#
@@ -125,7 +148,7 @@
 
 (DEFUN |InnerIndexedTwoDimensionalArray;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2279 NIL) (#2=#:G2280 NIL) ($ NIL) (|dv$| NIL)
+   ((|pv$| NIL) (#1=#:G2285 NIL) (#2=#:G2286 NIL) ($ NIL) (|dv$| NIL)
     (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -135,7 +158,7 @@
     (LETT DV$5 (|devaluate| |#5|))
     (LETT |dv$|
           (LIST '|InnerIndexedTwoDimensionalArray| DV$1 DV$2 DV$3 DV$4 DV$5))
-    (LETT $ (GETREFV 48))
+    (LETT $ (GETREFV 50))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -206,7 +229,11 @@
     (SETF |pv$| (QREFELT $ 3))
     (COND
      ((|testBitVector| |pv$| 4)
-      (QSETREFV $ 28 (CONS (|dispatchFunction| |IIARRAY2;latex;$S;14|) $))))
+      (PROGN
+       (QSETREFV $ 28 (CONS (|dispatchFunction| |IIARRAY2;latex;$S;14|) $))
+       (QSETREFV $ 31
+                 (CONS (|dispatchFunction| |IIARRAY2;hashUpdate!;Hs$Hs;15|)
+                       $)))))
     $))) 
 
 (MAKEPROP '|InnerIndexedTwoDimensionalArray| '|infovec|
@@ -220,24 +247,25 @@
               |IIARRAY2;maxColIndex;$I;7| |IIARRAY2;qelt;$2IR;10|
               |IIARRAY2;elt;$2IR;11| |IIARRAY2;qsetelt!;$2I2R;12|
               |IIARRAY2;setelt!;$2I2R;13| (|String|) (0 . |latex|)
-              (5 . |latex|) (|Boolean|) (|List| 6) (|Equation| 6) (|List| 31)
-              (|Mapping| 29 6 6) (|Mapping| 29 6) (|OutputForm|) (|HashState|)
-              (|SingleInteger|) (|Mapping| 6 6 6) (|List| 43) (|List| 12)
-              (|Mapping| 6 6) (|PositiveInteger|) (|List| $) (|List| 45)
-              (|Segment| 15) (|List| 15) (|List| 30))
-           '#(~= 10 |vertSplit| 16 |vertConcat| 28 |transpose| 39 |swapRows!|
-              44 |swapColumns!| 51 |subMatrix| 58 |squareTop| 67 |smaller?| 72
-              |size?| 78 |setsubMatrix!| 84 |setelt!| 92 |setRow!| 188
-              |setColumn!| 195 |sample| 202 |rowSlice| 206 |row| 211 |qsetelt!|
-              217 |qnew| 225 |qelt| 231 |parts| 238 |nrows| 243 |new| 248
-              |ncols| 255 |more?| 260 |minRowIndex| 266 |minColIndex| 271 |min|
-              276 |members| 281 |member?| 286 |maxRowIndex| 292 |maxColIndex|
-              297 |max| 302 |map!| 313 |map| 319 |listOfLists| 340 |less?| 345
-              |latex| 351 |horizSplit| 356 |horizConcat| 368 |hashUpdate!| 379
-              |hash| 385 |fill!| 390 |every?| 396 |eval| 402 |eq?| 428 |empty?|
-              434 |empty| 439 |elt| 443 |count| 535 |copy| 547 |column| 552
-              |colSlice| 558 |coerce| 563 |blockSplit| 568 |blockConcat| 582
-              |any?| 587 = 593 |#| 599)
+              (5 . |latex|) (|HashState|) (10 . |hashUpdate!|)
+              (16 . |hashUpdate!|) (|Boolean|) (|List| 6) (|Equation| 6)
+              (|List| 34) (|Mapping| 32 6 6) (|Mapping| 32 6) (|OutputForm|)
+              (|SingleInteger|) (|Mapping| 6 6 6) (|List| 45) (|List| 12)
+              (|Mapping| 6 6) (|PositiveInteger|) (|List| $) (|List| 47)
+              (|Segment| 15) (|List| 15) (|List| 33))
+           '#(~= 22 |vertSplit| 28 |vertConcat| 40 |transpose| 51 |swapRows!|
+              56 |swapColumns!| 63 |subMatrix| 70 |squareTop| 79 |smaller?| 84
+              |size?| 90 |setsubMatrix!| 96 |setelt!| 104 |setRow!| 200
+              |setColumn!| 207 |sample| 214 |rowSlice| 218 |row| 223 |qsetelt!|
+              229 |qnew| 237 |qelt| 243 |parts| 250 |nrows| 255 |new| 260
+              |ncols| 267 |more?| 272 |minRowIndex| 278 |minColIndex| 283 |min|
+              288 |members| 293 |member?| 298 |maxRowIndex| 304 |maxColIndex|
+              309 |max| 314 |map!| 325 |map| 331 |listOfLists| 352 |less?| 357
+              |latex| 363 |horizSplit| 368 |horizConcat| 380 |hashUpdate!| 391
+              |hash| 397 |fill!| 402 |every?| 408 |eval| 414 |eq?| 440 |empty?|
+              446 |empty| 451 |elt| 455 |count| 547 |copy| 559 |column| 564
+              |colSlice| 570 |coerce| 575 |blockSplit| 580 |blockConcat| 594
+              |any?| 599 = 605 |#| 611)
            'NIL
            (CONS (|makeByteWordVec2| 10 '(0 0 1 0 8 6 0 0 0 8 5 10))
                  (CONS
@@ -249,42 +277,43 @@
                       (|HomogeneousAggregate| 6) (|Comparable|) (|Aggregate|)
                       (|Evalable| 6) (|SetCategory|) (|Type|)
                       (|finiteAggregate|) (|shallowlyMutable|)
-                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 35))
-                   (|makeByteWordVec2| 47
-                                       '(1 6 26 0 27 1 0 26 0 28 2 14 29 0 0 1
-                                         2 0 43 0 40 1 2 0 43 0 42 1 1 0 0 43 1
-                                         2 0 0 0 0 1 1 0 0 0 1 3 0 0 0 15 15 1
-                                         3 0 0 0 15 15 1 5 0 0 0 15 15 15 15 1
-                                         1 0 0 0 1 2 1 29 0 0 1 2 0 29 0 12 1 4
-                                         0 0 0 15 15 0 1 4 0 0 0 44 44 0 1 4 0
-                                         0 0 45 44 0 1 4 0 0 0 44 45 0 1 4 0 0
-                                         0 45 46 0 1 4 0 0 0 45 45 0 1 4 0 0 0
-                                         46 45 0 1 4 0 0 0 46 46 0 1 4 0 0 0 15
-                                         46 0 1 4 0 0 0 46 15 0 1 4 0 6 0 15 15
-                                         6 25 4 0 0 0 44 15 0 1 4 0 0 0 15 44 0
-                                         1 3 0 0 0 15 9 1 3 0 0 0 15 10 1 0 0 0
-                                         1 1 0 45 0 1 2 0 9 0 15 1 4 0 6 0 15
-                                         15 6 24 2 0 0 12 12 13 3 0 6 0 15 15
-                                         22 1 0 30 0 1 1 0 12 0 18 3 0 0 12 12
-                                         6 14 1 0 12 0 20 2 0 29 0 12 1 1 0 15
-                                         0 16 1 0 15 0 17 1 12 6 0 1 1 11 30 0
-                                         1 2 13 29 6 0 1 1 0 15 0 19 1 0 15 0
-                                         21 1 12 6 0 1 2 11 6 33 0 1 2 0 0 41 0
-                                         1 4 0 0 38 0 0 6 1 3 0 0 38 0 0 1 2 0
-                                         0 41 0 1 1 0 47 0 1 2 0 29 0 12 1 1 4
-                                         26 0 28 2 0 43 0 42 1 2 0 43 0 40 1 1
-                                         0 0 43 1 2 0 0 0 0 1 2 4 36 36 0 1 1 4
-                                         37 0 1 2 0 0 0 6 1 2 11 29 34 0 1 3 7
-                                         0 0 6 6 1 3 7 0 0 30 30 1 2 7 0 0 31 1
-                                         2 7 0 0 32 1 2 0 29 0 0 1 1 0 29 0 1 0
-                                         0 0 11 3 0 0 0 44 44 1 3 0 0 0 45 44 1
-                                         3 0 0 0 44 45 1 3 0 0 0 44 15 1 3 0 0
-                                         0 45 46 1 3 0 0 0 15 44 1 3 0 0 0 46
-                                         45 1 3 0 0 0 46 46 1 3 0 0 0 45 45 1 3
-                                         0 0 0 46 15 1 3 0 0 0 15 46 1 4 0 6 0
-                                         15 15 6 1 3 0 6 0 15 15 23 2 13 12 6 0
-                                         1 2 11 12 34 0 1 1 0 0 0 1 2 0 10 0 15
-                                         1 1 0 45 0 1 1 9 35 0 1 3 0 39 0 40 40
-                                         1 3 0 39 0 42 42 1 1 0 0 39 1 2 11 29
-                                         34 0 1 2 14 29 0 0 1 1 11 12 0 1)))))
+                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 38))
+                   (|makeByteWordVec2| 49
+                                       '(1 6 26 0 27 1 0 26 0 28 2 6 29 29 0 30
+                                         2 0 29 29 0 31 2 14 32 0 0 1 2 0 45 0
+                                         42 1 2 0 45 0 44 1 1 0 0 45 1 2 0 0 0
+                                         0 1 1 0 0 0 1 3 0 0 0 15 15 1 3 0 0 0
+                                         15 15 1 5 0 0 0 15 15 15 15 1 1 0 0 0
+                                         1 2 1 32 0 0 1 2 0 32 0 12 1 4 0 0 0
+                                         15 15 0 1 4 0 0 0 46 46 0 1 4 0 0 0 47
+                                         46 0 1 4 0 0 0 46 47 0 1 4 0 0 0 47 48
+                                         0 1 4 0 0 0 47 47 0 1 4 0 0 0 48 47 0
+                                         1 4 0 0 0 48 48 0 1 4 0 0 0 15 48 0 1
+                                         4 0 0 0 48 15 0 1 4 0 6 0 15 15 6 25 4
+                                         0 0 0 46 15 0 1 4 0 0 0 15 46 0 1 3 0
+                                         0 0 15 9 1 3 0 0 0 15 10 1 0 0 0 1 1 0
+                                         47 0 1 2 0 9 0 15 1 4 0 6 0 15 15 6 24
+                                         2 0 0 12 12 13 3 0 6 0 15 15 22 1 0 33
+                                         0 1 1 0 12 0 18 3 0 0 12 12 6 14 1 0
+                                         12 0 20 2 0 32 0 12 1 1 0 15 0 16 1 0
+                                         15 0 17 1 12 6 0 1 1 11 33 0 1 2 13 32
+                                         6 0 1 1 0 15 0 19 1 0 15 0 21 1 12 6 0
+                                         1 2 11 6 36 0 1 2 0 0 43 0 1 4 0 0 40
+                                         0 0 6 1 3 0 0 40 0 0 1 2 0 0 43 0 1 1
+                                         0 49 0 1 2 0 32 0 12 1 1 4 26 0 28 2 0
+                                         45 0 44 1 2 0 45 0 42 1 1 0 0 45 1 2 0
+                                         0 0 0 1 2 4 29 29 0 31 1 4 39 0 1 2 0
+                                         0 0 6 1 2 11 32 37 0 1 3 7 0 0 6 6 1 3
+                                         7 0 0 33 33 1 2 7 0 0 34 1 2 7 0 0 35
+                                         1 2 0 32 0 0 1 1 0 32 0 1 0 0 0 11 3 0
+                                         0 0 46 46 1 3 0 0 0 47 46 1 3 0 0 0 46
+                                         47 1 3 0 0 0 46 15 1 3 0 0 0 47 48 1 3
+                                         0 0 0 15 46 1 3 0 0 0 48 47 1 3 0 0 0
+                                         48 48 1 3 0 0 0 47 47 1 3 0 0 0 48 15
+                                         1 3 0 0 0 15 48 1 4 0 6 0 15 15 6 1 3
+                                         0 6 0 15 15 23 2 13 12 6 0 1 2 11 12
+                                         37 0 1 1 0 0 0 1 2 0 10 0 15 1 1 0 47
+                                         0 1 1 9 38 0 1 3 0 41 0 42 42 1 3 0 41
+                                         0 44 44 1 1 0 0 41 1 2 11 32 37 0 1 2
+                                         14 32 0 0 1 1 11 12 0 1)))))
            '|lookupComplete|)) 
