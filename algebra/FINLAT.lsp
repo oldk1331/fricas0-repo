@@ -17,28 +17,24 @@
 
 (SDEFUN |FINLAT;hash;$Si;5| ((|s| $) ($ |SingleInteger|)) 0) 
 
-(SDEFUN |FINLAT;latex;$S;6| ((|n| $) ($ |String|))
-        (SPROG ((|s| (|String|)))
-               (SEQ (LETT |s| "" |FINLAT;latex;$S;6|) (EXIT |s|)))) 
+(SDEFUN |FINLAT;=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPADCALL |x| |y| (QREFELT $ 21))) 
 
-(SDEFUN |FINLAT;=;2$B;7| ((|x| $) (|y| $) ($ |Boolean|))
-        (SPADCALL |x| |y| (QREFELT $ 23))) 
+(SDEFUN |FINLAT;~=;2$B;7| ((|x| $) (|y| $) ($ |Boolean|))
+        (NULL (SPADCALL |x| |y| (QREFELT $ 21)))) 
 
-(SDEFUN |FINLAT;~=;2$B;8| ((|x| $) (|y| $) ($ |Boolean|))
-        (NULL (SPADCALL |x| |y| (QREFELT $ 23)))) 
-
-(SDEFUN |FINLAT;coerce;$Of;9| ((|s| $) ($ |OutputForm|))
+(SDEFUN |FINLAT;coerce;$Of;8| ((|s| $) ($ |OutputForm|))
         (SPROG ((|obj| (S)) (|index| (|NonNegativeInteger|)))
-               (SEQ (LETT |index| |s| . #1=(|FINLAT;coerce;$Of;9|))
-                    (LETT |obj| (SPADCALL (QREFELT $ 7) |index| (QREFELT $ 25))
+               (SEQ (LETT |index| |s| . #1=(|FINLAT;coerce;$Of;8|))
+                    (LETT |obj| (SPADCALL (QREFELT $ 7) |index| (QREFELT $ 23))
                           . #1#)
-                    (EXIT (SPADCALL |obj| (QREFELT $ 27)))))) 
+                    (EXIT (SPADCALL |obj| (QREFELT $ 25)))))) 
 
 (DECLAIM (NOTINLINE |FiniteLattice;|)) 
 
-(DEFUN |FiniteLattice| (&REST #1=#:G115)
+(DEFUN |FiniteLattice| (&REST #1=#:G113)
   (SPROG NIL
-         (PROG (#2=#:G116)
+         (PROG (#2=#:G114)
            (RETURN
             (COND
              ((LETT #2#
@@ -61,7 +57,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteLattice|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|FiniteLattice| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 30) . #1#)
+          (LETT $ (GETREFV 29) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FiniteLattice| (LIST DV$1 DV$2)
@@ -80,10 +76,9 @@
               (|FiniteBiCPO| 6) (0 . |objectToIndex|)
               |FINLAT;finiteLattice;S$;2| (6 . |meet|) |FINLAT;/\\;3$;3|
               (13 . |join|) |FINLAT;\\/;3$;4| (|SingleInteger|)
-              |FINLAT;hash;$Si;5| (|String|) |FINLAT;latex;$S;6| (|Boolean|)
-              |FINLAT;=;2$B;7| |FINLAT;~=;2$B;8| (20 . |indexToObject|)
-              (|OutputForm|) (26 . |coerce|) |FINLAT;coerce;$Of;9|
-              (|HashState|))
+              |FINLAT;hash;$Si;5| (|Boolean|) |FINLAT;=;2$B;6|
+              |FINLAT;~=;2$B;7| (20 . |indexToObject|) (|OutputForm|)
+              (26 . |coerce|) |FINLAT;coerce;$Of;8| (|String|) (|HashState|))
            '#(~= 31 |latex| 37 |hashUpdate!| 42 |hash| 48 |finiteLattice| 53
               |coerce| 63 |\\/| 68 = 74 |/\\| 80)
            'NIL
@@ -91,13 +86,13 @@
                  (CONS '#(NIL NIL NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|Lattice|) (|MeetSemilattice|) (|JoinSemilattice|)
-                           (|SetCategory|) (|BasicType|) (|CoercibleTo| 26))
-                        (|makeByteWordVec2| 29
+                           (|SetCategory|) (|BasicType|) (|CoercibleTo| 24))
+                        (|makeByteWordVec2| 28
                                             '(2 11 9 0 6 12 3 11 9 0 9 9 14 3
-                                              11 9 0 9 9 16 2 11 6 0 9 25 1 6
-                                              26 0 27 2 0 22 0 0 24 1 0 20 0 21
-                                              2 0 29 29 0 1 1 0 18 0 19 1 0 0 9
-                                              10 1 0 0 6 13 1 0 26 0 28 2 0 0 0
-                                              0 17 2 0 22 0 0 23 2 0 0 0 0
+                                              11 9 0 9 9 16 2 11 6 0 9 23 1 6
+                                              24 0 25 2 0 20 0 0 22 1 0 27 0 1
+                                              2 0 28 28 0 1 1 0 18 0 19 1 0 0 9
+                                              10 1 0 0 6 13 1 0 24 0 26 2 0 0 0
+                                              0 17 2 0 20 0 0 21 2 0 0 0 0
                                               15)))))
            '|lookupComplete|)) 

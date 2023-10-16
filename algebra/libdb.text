@@ -5921,7 +5921,6 @@ olastSubResultant`3`x`(P,P,_$)->List(Record(val:P,tower:_$))`cRegularTriangularS
 olastSubResultantElseSplit`3`x`(P,P,_$)->Union(P,List(_$))`cRegularTriangularSetCategory(R,E,V,P)``699134
 olastSubResultantEuclidean`2`n`(polR,polR)->Record(coef1:polR,coef2:polR,subResultant:polR)`pPseudoRemainderSequence(R,polR)``699493
 olatex`1`n`(A)->String`xFiniteGraph&(A,S)``0
-olatex`1`n`(A)->String`xPoset&(A,S)``0
 olatex`1`n`(S)->String`xSetCategory&(S)``0
 olatex`1`x`(_$)->String`cSetCategory``699649
 olatticeJoinOfMeets`1`n`(Union(const:Record(val:Symbol),var:Record(str:String)))->_$`dLatticeJoinOfMeets``699733
