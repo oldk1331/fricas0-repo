@@ -1186,19 +1186,23 @@
  
 (DEFUN |sayMessage| (|msg|) (PROG () (RETURN (|sayMSG| (|mkMessage| |msg|)))))
  
-; sayNewLine() ==
+; sayNewLine() == TERPRI()
+ 
+(DEFUN |sayNewLine| () (PROG () (RETURN (TERPRI))))
+ 
+; say_new_line(str) ==
 ;   -- Note: this function should *always* be used by sayBrightly and
 ;   -- friends rather than TERPRI
-;   TERPRI($fricasOutput)
+;   TERPRI(str)
  
-(DEFUN |sayNewLine| () (PROG () (RETURN (TERPRI |$fricasOutput|))))
+(DEFUN |say_new_line| (|str|) (PROG () (RETURN (TERPRI |str|))))
  
-; sayString x ==
+; sayString(x, str) ==
 ;   -- Note: this function should *always* be used by sayBrightly and
 ;   -- friends rather than PRINTEXP
-;   PRINTEXP (x, $fricasOutput)
+;   PRINTEXP(x, str)
  
-(DEFUN |sayString| (|x|) (PROG () (RETURN (PRINTEXP |x| |$fricasOutput|))))
+(DEFUN |sayString| (|x| |str|) (PROG () (RETURN (PRINTEXP |x| |str|))))
  
 ; spadStartUpMsgs() ==
 ;   -- messages displayed when the system starts up
@@ -1240,28 +1244,28 @@
  
 (DEFUN HELP () (PROG () (RETURN (|sayKeyedMsg| 'S2GL0019 NIL))))
  
-; brightPrint x ==
-;   $MARG : local := 0
-;   for y in x repeat brightPrint0 y
+; brightPrint(x, str) ==
+;   marg := 0
+;   for y in x repeat
+;       marg := brightPrint0(y, str, marg)
 ;   NIL
  
-(DEFUN |brightPrint| (|x|)
-  (PROG ($MARG)
-    (DECLARE (SPECIAL $MARG))
+(DEFUN |brightPrint| (|x| |str|)
+  (PROG (|marg|)
     (RETURN
      (PROGN
-      (SETQ $MARG 0)
+      (SETQ |marg| 0)
       ((LAMBDA (|bfVar#15| |y|)
          (LOOP
           (COND
            ((OR (ATOM |bfVar#15|) (PROGN (SETQ |y| (CAR |bfVar#15|)) NIL))
             (RETURN NIL))
-           ('T (|brightPrint0| |y|)))
+           ('T (SETQ |marg| (|brightPrint0| |y| |str| |marg|))))
           (SETQ |bfVar#15| (CDR |bfVar#15|))))
        |x| NIL)
       NIL))))
  
-; brightPrint0 x ==
+; brightPrint0(x, str, marg) ==
 ;   if IDENTP x then x := PNAME x
 ; 
 ;   -- if the first character is a backslash and the second is a percent sign,
@@ -1269,32 +1273,48 @@
 ;   -- it without the backslash.
 ; 
 ;   STRINGP x and STRINGLENGTH x > 1 and x.0 = char "\" and x.1 = char "%" =>
-;     sayString SUBSTRING(x,1,NIL)
+;       sayString(SUBSTRING(x, 1, NIL), str)
+;       marg
 ;   x = '"%l" =>
-;     sayNewLine()
-;     for i in 1..$MARG repeat sayString '" "
+;       say_new_line(str)
+;       for i in 1..marg repeat
+;           sayString('" ", str)
+;       marg
 ;   x = '"%i" =>
-;     $MARG := $MARG + 3
+;       marg + 3
 ;   x = '"%u" =>
-;     $MARG := $MARG - 3
-;     if $MARG < 0 then $MARG := 0
+;       marg := marg - 3
+;       marg < 0 => 0
+;       marg
 ;   x = '"%U" =>
-;     $MARG := 0
+;       0
 ;   x = '"%" =>
-;     sayString '" "
+;       sayString('" ", str)
+;       marg
 ;   x = '"%%" =>
-;     sayString  '"%"
+;       sayString('"%", str)
+;       marg
 ;   x = '"%b" =>
-;     NULL $highlightAllowed        => sayString '" "
-;     sayString $highlightFontOn
-;   k := blankIndicator x => BLANKS (k, $fricasOutput)
+;       NULL $highlightAllowed =>
+;           sayString('" ", str)
+;           marg
+;       sayString($highlightFontOn, str)
+;       marg
+;   k := blankIndicator x =>
+;       BLANKS(k, str)
+;       marg
 ;   x = '"%d" =>
-;     NULL $highlightAllowed        => sayString '" "
-;     sayString $highlightFontOff
-;   STRINGP x => sayString x
-;   brightPrintHighlight x
+;       NULL $highlightAllowed =>
+;           sayString('" ", str)
+;           marg
+;       sayString($highlightFontOff, str)
+;       marg
+;   STRINGP x =>
+;       sayString(x, str)
+;       marg
+;   brightPrintHighlight(x, str, marg)
  
-(DEFUN |brightPrint0| (|x|)
+(DEFUN |brightPrint0| (|x| |str| |marg|)
   (PROG (|k|)
     (RETURN
      (PROGN
@@ -1303,29 +1323,36 @@
        ((AND (STRINGP |x|) (< 1 (STRINGLENGTH |x|))
              (EQUAL (ELT |x| 0) (|char| '|\\|))
              (EQUAL (ELT |x| 1) (|char| '%)))
-        (|sayString| (SUBSTRING |x| 1 NIL)))
+        (PROGN (|sayString| (SUBSTRING |x| 1 NIL) |str|) |marg|))
        ((EQUAL |x| "%l")
         (PROGN
-         (|sayNewLine|)
+         (|say_new_line| |str|)
          ((LAMBDA (|i|)
-            (LOOP (COND ((> |i| $MARG) (RETURN NIL)) (#1='T (|sayString| " ")))
-                  (SETQ |i| (+ |i| 1))))
-          1)))
-       ((EQUAL |x| "%i") (SETQ $MARG (+ $MARG 3)))
+            (LOOP
+             (COND ((> |i| |marg|) (RETURN NIL))
+                   (#1='T (|sayString| " " |str|)))
+             (SETQ |i| (+ |i| 1))))
+          1)
+         |marg|))
+       ((EQUAL |x| "%i") (+ |marg| 3))
        ((EQUAL |x| "%u")
         (PROGN
-         (SETQ $MARG (- $MARG 3))
-         (COND ((MINUSP $MARG) (SETQ $MARG 0)))))
-       ((EQUAL |x| "%U") (SETQ $MARG 0)) ((EQUAL |x| "%") (|sayString| " "))
-       ((EQUAL |x| "%%") (|sayString| "%"))
+         (SETQ |marg| (- |marg| 3))
+         (COND ((MINUSP |marg|) 0) (#1# |marg|))))
+       ((EQUAL |x| "%U") 0)
+       ((EQUAL |x| "%") (PROGN (|sayString| " " |str|) |marg|))
+       ((EQUAL |x| "%%") (PROGN (|sayString| "%" |str|) |marg|))
        ((EQUAL |x| "%b")
-        (COND ((NULL |$highlightAllowed|) (|sayString| " "))
-              (#1# (|sayString| |$highlightFontOn|))))
-       ((SETQ |k| (|blankIndicator| |x|)) (BLANKS |k| |$fricasOutput|))
+        (COND
+         ((NULL |$highlightAllowed|) (PROGN (|sayString| " " |str|) |marg|))
+         (#1# (PROGN (|sayString| |$highlightFontOn| |str|) |marg|))))
+       ((SETQ |k| (|blankIndicator| |x|)) (PROGN (BLANKS |k| |str|) |marg|))
        ((EQUAL |x| "%d")
-        (COND ((NULL |$highlightAllowed|) (|sayString| " "))
-              (#1# (|sayString| |$highlightFontOff|))))
-       ((STRINGP |x|) (|sayString| |x|)) (#1# (|brightPrintHighlight| |x|)))))))
+        (COND
+         ((NULL |$highlightAllowed|) (PROGN (|sayString| " " |str|) |marg|))
+         (#1# (PROGN (|sayString| |$highlightFontOff| |str|) |marg|))))
+       ((STRINGP |x|) (PROGN (|sayString| |x| |str|) |marg|))
+       (#1# (|brightPrintHighlight| |x| |str| |marg|)))))))
  
 ; blankIndicator x ==
 ;   if IDENTP x then x := PNAME x
@@ -1347,86 +1374,105 @@
                    (#1='T 1)))
             (#1# NIL))))))
  
-; brightPrint1 x ==
-;   if x in '(%l "%l") then sayNewLine()
-;   else if STRINGP x then sayString x
-;        else brightPrintHighlight x
-;   NIL
+; brightPrint1(x, str, marg) ==
+;   if x in '(%l "%l") then say_new_line(str)
+;   else if STRINGP x then sayString(x, str)
+;        else marg := brightPrintHighlight(x, str, marg)
+;   marg
  
-(DEFUN |brightPrint1| (|x|)
+(DEFUN |brightPrint1| (|x| |str| |marg|)
   (PROG ()
     (RETURN
      (PROGN
-      (COND ((|member| |x| '(|%l| "%l")) (|sayNewLine|))
-            ((STRINGP |x|) (|sayString| |x|))
-            ('T (|brightPrintHighlight| |x|)))
-      NIL))))
+      (COND ((|member| |x| '(|%l| "%l")) (|say_new_line| |str|))
+            ((STRINGP |x|) (|sayString| |x| |str|))
+            ('T (SETQ |marg| (|brightPrintHighlight| |x| |str| |marg|))))
+      |marg|))))
  
-; brightPrintHighlight x ==
+; brightPrintHighlight(x, str, marg) ==
 ;   IDENTP x =>
 ;     pn := PNAME x
-;     sayString pn
+;     sayString(pn, str)
+;     marg
 ;   -- following line helps find certain bugs that slip through
 ;   -- also see sayBrightlyLength1
-;   VECP x => sayString '"UNPRINTABLE"
-;   ATOM x => sayString object2String x
+;   VECP x =>
+;       sayString('"UNPRINTABLE", str)
+;       marg
+;   ATOM x =>
+;       sayString(object2String(x), str)
+;       marg
 ;   [key,:rst] := x
 ;   if IDENTP key then key:=PNAME key
-;   key = '"%m" => mathprint rst
-;   key in '("%p" "%s") => PRETTYPRIN0 rst
-;   key = '"%ce" => brightPrintCenter rst
-;   key = '"%rj" => brightPrintRightJustify rst
-;   key = '"%t"  => $MARG := $MARG + tabber rst
-;   sayString '"("
-;   brightPrint1 key
+;   key = '"%m" =>
+;       mathprint rst
+;       marg
+;   key in '("%p" "%s") =>
+;       PRETTYPRIN0(rst, str)
+;       marg
+;   key = '"%ce" => brightPrintCenter(rst, str, marg)
+;   key = '"%rj" => brightPrintRightJustify(rst, str, marg)
+;   key = '"%t"  => marg + tabber(rst)
+;   sayString('"(", str)
+;   marg := brightPrint1(key, str, marg)
 ;   if EQ(key,'TAGGEDreturn) then
 ;     rst := [first rst, CADR rst, CADDR rst, '"environment (omitted)"]
 ;   for y in rst repeat
-;     sayString '" "
-;     brightPrint1 y
+;     sayString('" ", str)
+;     marg := brightPrint1(y, str, marg)
 ;   if rst and (la := LASTATOM rst) then
-;     sayString '" . "
-;     brightPrint1 la
-;   sayString '")"
+;     sayString('" . ", str)
+;     marg := brightPrint1(la, str, marg)
+;   sayString('")", str)
+;   marg
  
-(DEFUN |brightPrintHighlight| (|x|)
+(DEFUN |brightPrintHighlight| (|x| |str| |marg|)
   (PROG (|pn| |key| |rst| |la|)
     (RETURN
-     (COND ((IDENTP |x|) (PROGN (SETQ |pn| (PNAME |x|)) (|sayString| |pn|)))
-           ((VECP |x|) (|sayString| "UNPRINTABLE"))
-           ((ATOM |x|) (|sayString| (|object2String| |x|)))
-           (#1='T
-            (PROGN
-             (SETQ |key| (CAR |x|))
-             (SETQ |rst| (CDR |x|))
-             (COND ((IDENTP |key|) (SETQ |key| (PNAME |key|))))
-             (COND ((EQUAL |key| "%m") (|mathprint| |rst|))
-                   ((|member| |key| '("%p" "%s")) (PRETTYPRIN0 |rst|))
-                   ((EQUAL |key| "%ce") (|brightPrintCenter| |rst|))
-                   ((EQUAL |key| "%rj") (|brightPrintRightJustify| |rst|))
-                   ((EQUAL |key| "%t") (SETQ $MARG (+ $MARG (|tabber| |rst|))))
-                   (#1#
-                    (PROGN
-                     (|sayString| "(")
-                     (|brightPrint1| |key|)
-                     (COND
-                      ((EQ |key| '|TAGGEDreturn|)
-                       (SETQ |rst|
-                               (LIST (CAR |rst|) (CADR |rst|) (CADDR |rst|)
-                                     "environment (omitted)"))))
-                     ((LAMBDA (|bfVar#16| |y|)
-                        (LOOP
-                         (COND
-                          ((OR (ATOM |bfVar#16|)
-                               (PROGN (SETQ |y| (CAR |bfVar#16|)) NIL))
-                           (RETURN NIL))
-                          (#1# (PROGN (|sayString| " ") (|brightPrint1| |y|))))
-                         (SETQ |bfVar#16| (CDR |bfVar#16|))))
-                      |rst| NIL)
-                     (COND
-                      ((AND |rst| (SETQ |la| (LASTATOM |rst|)))
-                       (|sayString| " . ") (|brightPrint1| |la|)))
-                     (|sayString| ")"))))))))))
+     (COND
+      ((IDENTP |x|)
+       (PROGN (SETQ |pn| (PNAME |x|)) (|sayString| |pn| |str|) |marg|))
+      ((VECP |x|) (PROGN (|sayString| "UNPRINTABLE" |str|) |marg|))
+      ((ATOM |x|) (PROGN (|sayString| (|object2String| |x|) |str|) |marg|))
+      (#1='T
+       (PROGN
+        (SETQ |key| (CAR |x|))
+        (SETQ |rst| (CDR |x|))
+        (COND ((IDENTP |key|) (SETQ |key| (PNAME |key|))))
+        (COND ((EQUAL |key| "%m") (PROGN (|mathprint| |rst|) |marg|))
+              ((|member| |key| '("%p" "%s"))
+               (PROGN (PRETTYPRIN0 |rst| |str|) |marg|))
+              ((EQUAL |key| "%ce") (|brightPrintCenter| |rst| |str| |marg|))
+              ((EQUAL |key| "%rj")
+               (|brightPrintRightJustify| |rst| |str| |marg|))
+              ((EQUAL |key| "%t") (+ |marg| (|tabber| |rst|)))
+              (#1#
+               (PROGN
+                (|sayString| "(" |str|)
+                (SETQ |marg| (|brightPrint1| |key| |str| |marg|))
+                (COND
+                 ((EQ |key| '|TAGGEDreturn|)
+                  (SETQ |rst|
+                          (LIST (CAR |rst|) (CADR |rst|) (CADDR |rst|)
+                                "environment (omitted)"))))
+                ((LAMBDA (|bfVar#16| |y|)
+                   (LOOP
+                    (COND
+                     ((OR (ATOM |bfVar#16|)
+                          (PROGN (SETQ |y| (CAR |bfVar#16|)) NIL))
+                      (RETURN NIL))
+                     (#1#
+                      (PROGN
+                       (|sayString| " " |str|)
+                       (SETQ |marg| (|brightPrint1| |y| |str| |marg|)))))
+                    (SETQ |bfVar#16| (CDR |bfVar#16|))))
+                 |rst| NIL)
+                (COND
+                 ((AND |rst| (SETQ |la| (LASTATOM |rst|)))
+                  (|sayString| " . " |str|)
+                  (SETQ |marg| (|brightPrint1| |la| |str| |marg|))))
+                (|sayString| ")" |str|)
+                |marg|)))))))))
  
 ; tabber num ==
 ;     maxTab := 50
@@ -1440,7 +1486,7 @@
       (SETQ |maxTab| 50)
       (COND ((< |maxTab| |num|) |maxTab|) ('T |num|))))))
  
-; brightPrintCenter x ==
+; brightPrintCenter(x, str, marg) ==
 ;   -- centers rst within $LINELENGTH, checking for %l's
 ;   ATOM x =>
 ;     x := object2String x
@@ -1448,8 +1494,9 @@
 ;     if wid < $LINELENGTH then
 ;       f := DIVIDE($LINELENGTH - wid,2)
 ;       x := LIST(fillerSpaces(f.0,'" "),x)
-;     for y in x repeat brightPrint0 y
-;     NIL
+;     for y in x repeat
+;         marg := brightPrint0(y, str, marg)
+;     marg
 ;   y := NIL
 ;   ok := true
 ;   while x and ok repeat
@@ -1461,13 +1508,14 @@
 ;   if wid < $LINELENGTH then
 ;     f := DIVIDE($LINELENGTH - wid,2)
 ;     y := CONS(fillerSpaces(f.0,'" "),y)
-;   for z in y repeat brightPrint0 z
+;   for z in y repeat
+;       marg := brightPrint0(z, str, marg)
 ;   if x then
-;     sayNewLine()
-;     brightPrintCenter x
-;   NIL
+;       say_new_line(str)
+;       marg := brightPrintCenter(x, str, marg)
+;   marg
  
-(DEFUN |brightPrintCenter| (|x|)
+(DEFUN |brightPrintCenter| (|x| |str| |marg|)
   (PROG (|wid| |f| |y| |ok|)
     (RETURN
      (COND
@@ -1483,10 +1531,10 @@
             (COND
              ((OR (ATOM |bfVar#17|) (PROGN (SETQ |y| (CAR |bfVar#17|)) NIL))
               (RETURN NIL))
-             (#1='T (|brightPrint0| |y|)))
+             (#1='T (SETQ |marg| (|brightPrint0| |y| |str| |marg|))))
             (SETQ |bfVar#17| (CDR |bfVar#17|))))
          |x| NIL)
-        NIL))
+        |marg|))
       (#1#
        (PROGN
         (SETQ |y| NIL)
@@ -1509,23 +1557,25 @@
             (COND
              ((OR (ATOM |bfVar#18|) (PROGN (SETQ |z| (CAR |bfVar#18|)) NIL))
               (RETURN NIL))
-             (#1# (|brightPrint0| |z|)))
+             (#1# (SETQ |marg| (|brightPrint0| |z| |str| |marg|))))
             (SETQ |bfVar#18| (CDR |bfVar#18|))))
          |y| NIL)
-        (COND (|x| (|sayNewLine|) (|brightPrintCenter| |x|)))
-        NIL))))))
+        (COND
+         (|x| (|say_new_line| |str|)
+          (SETQ |marg| (|brightPrintCenter| |x| |str| |marg|))))
+        |marg|))))))
  
-; brightPrintRightJustify x ==
+; brightPrintRightJustify(x, str, marg) ==
 ;   -- right justifies rst within $LINELENGTH, checking for %l's
 ;   ATOM x =>
 ;     x := object2String x
 ;     wid := STRINGLENGTH x
 ;     wid < $LINELENGTH =>
 ;       x := LIST(fillerSpaces($LINELENGTH-wid,'" "),x)
-;       for y in x repeat brightPrint0 y
-;       NIL
-;     brightPrint0 x
-;     NIL
+;       for y in x repeat
+;           marg := brightPrint0(y, str, marg)
+;       marg
+;     brightPrint0(x, str, marg)
 ;   y := NIL
 ;   ok := true
 ;   while x and ok repeat
@@ -1536,13 +1586,14 @@
 ;   wid := sayBrightlyLength y
 ;   if wid < $LINELENGTH then
 ;     y := CONS(fillerSpaces($LINELENGTH-wid,'" "),y)
-;   for z in y repeat brightPrint0 z
+;   for z in y repeat
+;       marg := brightPrint0(z, str, marg)
 ;   if x then
-;     sayNewLine()
-;     brightPrintRightJustify x
-;   NIL
+;     say_new_line(str)
+;     marg := brightPrintRightJustify(x, str, marg)
+;   marg
  
-(DEFUN |brightPrintRightJustify| (|x|)
+(DEFUN |brightPrintRightJustify| (|x| |str| |marg|)
   (PROG (|wid| |y| |ok|)
     (RETURN
      (COND
@@ -1559,11 +1610,11 @@
                (COND
                 ((OR (ATOM |bfVar#19|) (PROGN (SETQ |y| (CAR |bfVar#19|)) NIL))
                  (RETURN NIL))
-                (#1='T (|brightPrint0| |y|)))
+                (#1='T (SETQ |marg| (|brightPrint0| |y| |str| |marg|))))
                (SETQ |bfVar#19| (CDR |bfVar#19|))))
             |x| NIL)
-           NIL))
-         (#1# (PROGN (|brightPrint0| |x|) NIL)))))
+           |marg|))
+         (#1# (|brightPrint0| |x| |str| |marg|)))))
       (#1#
        (PROGN
         (SETQ |y| NIL)
@@ -1586,11 +1637,13 @@
             (COND
              ((OR (ATOM |bfVar#20|) (PROGN (SETQ |z| (CAR |bfVar#20|)) NIL))
               (RETURN NIL))
-             (#1# (|brightPrint0| |z|)))
+             (#1# (SETQ |marg| (|brightPrint0| |z| |str| |marg|))))
             (SETQ |bfVar#20| (CDR |bfVar#20|))))
          |y| NIL)
-        (COND (|x| (|sayNewLine|) (|brightPrintRightJustify| |x|)))
-        NIL))))))
+        (COND
+         (|x| (|say_new_line| |str|)
+          (SETQ |marg| (|brightPrintRightJustify| |x| |str| |marg|))))
+        |marg|))))))
  
 ; sayBrightlyLength l ==
 ;   null l => 0
@@ -2150,18 +2203,19 @@
            (|$sayBrightlyStream| (|sayBrightlyNT1| |x| |$sayBrightlyStream|))
            ('T (|sayBrightlyNT1| |x| |str|))))))
  
-; sayBrightlyNT1(x, $fricasOutput) ==
+; sayBrightlyNT1(x, str) ==
 ;     if x then
-;         ATOM(x) => brightPrint0(x)
-;         brightPrint(x)
+;         ATOM(x) =>
+;             brightPrint0(x, str, 0)
+;         brightPrint(x, str)
  
-(DEFUN |sayBrightlyNT1| (|x| |$fricasOutput|)
-  (DECLARE (SPECIAL |$fricasOutput|))
+(DEFUN |sayBrightlyNT1| (|x| |str|)
   (PROG ()
     (RETURN
      (COND
       (|x|
-       (COND ((ATOM |x|) (|brightPrint0| |x|)) ('T (|brightPrint| |x|))))))))
+       (COND ((ATOM |x|) (|brightPrint0| |x| |str| 0))
+             ('T (|brightPrint| |x| |str|))))))))
  
 ; sayBrightlyNT(x) == sayBrightlyNT2(x, get_lisp_std_out())
  
