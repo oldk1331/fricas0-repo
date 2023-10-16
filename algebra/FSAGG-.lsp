@@ -68,7 +68,7 @@
                  (QREFELT $ 35))))) 
 
 (SDEFUN |FSAGG-;intersect;3A;10| ((|s| A) (|t| A) ($ A))
-        (SPROG ((#1=#:G142 NIL) (|x| NIL) (|i| (A)))
+        (SPROG ((|i| (A)) (#1=#:G142 NIL) (|x| NIL))
                (SEQ (LETT |i| (SPADCALL (QREFELT $ 23)))
                     (SEQ (LETT |x| NIL)
                          (LETT #1# (SPADCALL |s| (QREFELT $ 28))) G190
@@ -79,7 +79,7 @@
                           (EXIT
                            (COND
                             ((SPADCALL |x| |t| (QREFELT $ 26))
-                             (LETT |t| (SPADCALL |x| |i| (QREFELT $ 24)))))))
+                             (LETT |i| (SPADCALL |x| |i| (QREFELT $ 24)))))))
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |i|)))) 
 
