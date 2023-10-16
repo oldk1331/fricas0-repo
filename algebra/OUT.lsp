@@ -74,15 +74,25 @@
               (19 . |message|) (24 . |coerce|) (29 . |hconcat|) (|List| 16)
               |OUT;outputList;LV;4|)
            '#(|outputList| 34 |output| 39) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 24
-                                                 '(0 6 0 7 1 8 0 12 13 1 17 15
-                                                   16 18 1 17 10 16 19 1 8 0 10
-                                                   20 1 16 8 0 21 1 8 0 12 22 1
-                                                   0 6 23 24 1 0 6 8 9 1 0 6 10
-                                                   11 2 0 6 10 8 14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|output| ((|Void|) (|String|))) T)
+                                   '((|output| ((|Void|) (|OutputForm|))) T)
+                                   '((|output|
+                                      ((|Void|) (|String|) (|OutputForm|)))
+                                     T)
+                                   '((|outputList| ((|Void|) (|List| (|Any|))))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 24
+                                            '(0 6 0 7 1 8 0 12 13 1 17 15 16 18
+                                              1 17 10 16 19 1 8 0 10 20 1 16 8
+                                              0 21 1 8 0 12 22 1 0 6 23 24 1 0
+                                              6 8 9 1 0 6 10 11 2 0 6 10 8
+                                              14)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OutputPackage| 'NILADIC T) 

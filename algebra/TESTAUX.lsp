@@ -403,34 +403,73 @@
               |testEqualsAuxCmp| 274 |testEqualsAux| 280 |testComplexEqualsAux|
               287 |testAbsolutePrecision| 294)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 62
-                                                 '(0 8 7 9 2 8 7 10 11 12 2 8 7
-                                                   10 11 13 0 8 7 14 1 6 15 0
-                                                   16 2 15 17 0 0 18 2 0 17 6 6
-                                                   19 2 6 17 0 0 20 1 21 0 10
-                                                   22 1 8 7 21 23 1 6 21 0 24 1
-                                                   6 0 27 28 2 6 0 0 27 29 1 0
-                                                   6 6 32 1 0 6 6 33 2 6 0 0 0
-                                                   34 1 6 0 0 35 1 6 17 0 36 0
-                                                   6 0 37 2 6 0 0 0 38 0 6 0 39
-                                                   2 6 17 0 0 40 2 21 0 0 0 41
-                                                   2 11 0 0 0 42 3 0 7 10 6 6
-                                                   43 3 0 7 10 6 6 44 2 45 0 0
-                                                   0 46 1 45 6 0 47 1 45 17 0
-                                                   48 2 45 0 0 0 49 0 45 0 50 1
-                                                   45 21 0 51 3 0 7 10 45 45 52
-                                                   3 0 7 10 45 45 53 1 17 21 0
-                                                   56 2 8 7 10 11 59 2 8 7 10
-                                                   11 61 2 0 7 10 6 58 3 1 7 10
-                                                   6 6 44 3 0 7 10 6 6 55 2 0 7
-                                                   10 6 62 3 0 7 10 6 6 26 3 1
-                                                   7 10 45 45 53 2 0 7 10 6 57
-                                                   1 1 6 6 32 3 1 7 10 6 6 43 3
-                                                   0 7 10 6 6 54 2 0 7 10 6 60
-                                                   2 0 17 6 6 19 3 0 7 10 6 6
-                                                   25 3 1 7 10 45 45 52 1 1 6 6
-                                                   33)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|testEqualsAux|
+                                 ((|Void|) (|String|) |#1| |#1|))
+                                T)
+                              '((|xftestEqualsAux|
+                                 ((|Void|) (|String|) |#1| |#1|))
+                                T)
+                              '((|testNotEqualsAux|
+                                 ((|Void|) (|String|) |#1| |#1|))
+                                T)
+                              '((|xftestNotEqualsAux|
+                                 ((|Void|) (|String|) |#1| |#1|))
+                                T)
+                              '((|testTrueAux| ((|Void|) (|String|) |#1|)) T)
+                              '((|xftestTrueAux| ((|Void|) (|String|) |#1|)) T)
+                              '((|testLibraryErrorAux|
+                                 ((|Void|) (|String|) |#1|))
+                                T)
+                              '((|xftestLibraryErrorAux|
+                                 ((|Void|) (|String|) |#1|))
+                                T)
+                              '((|testEqualsAuxCmp| ((|Boolean|) |#1| |#1|)) T)
+                              '((|testRealEqualsAux|
+                                 ((|Void|) (|String|) |#1| |#1|))
+                                (|has| 6 (|RealNumberSystem|)))
+                              '((|xftestRealEqualsAux|
+                                 ((|Void|) (|String|) |#1| |#1|))
+                                (|has| 6 (|RealNumberSystem|)))
+                              '((|testComplexEqualsAux|
+                                 ((|Void|) (|String|) (|Complex| |#1|)
+                                  (|Complex| |#1|)))
+                                (|has| 6 (|RealNumberSystem|)))
+                              '((|xftestComplexEqualsAux|
+                                 ((|Void|) (|String|) (|Complex| |#1|)
+                                  (|Complex| |#1|)))
+                                (|has| 6 (|RealNumberSystem|)))
+                              '((|testAbsolutePrecision| (|#1| |#1|))
+                                (|has| 6 (|RealNumberSystem|)))
+                              '((|testRelativePrecision| (|#1| |#1|))
+                                (|has| 6 (|RealNumberSystem|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 62
+                                            '(0 8 7 9 2 8 7 10 11 12 2 8 7 10
+                                              11 13 0 8 7 14 1 6 15 0 16 2 15
+                                              17 0 0 18 2 0 17 6 6 19 2 6 17 0
+                                              0 20 1 21 0 10 22 1 8 7 21 23 1 6
+                                              21 0 24 1 6 0 27 28 2 6 0 0 27 29
+                                              1 0 6 6 32 1 0 6 6 33 2 6 0 0 0
+                                              34 1 6 0 0 35 1 6 17 0 36 0 6 0
+                                              37 2 6 0 0 0 38 0 6 0 39 2 6 17 0
+                                              0 40 2 21 0 0 0 41 2 11 0 0 0 42
+                                              3 0 7 10 6 6 43 3 0 7 10 6 6 44 2
+                                              45 0 0 0 46 1 45 6 0 47 1 45 17 0
+                                              48 2 45 0 0 0 49 0 45 0 50 1 45
+                                              21 0 51 3 0 7 10 45 45 52 3 0 7
+                                              10 45 45 53 1 17 21 0 56 2 8 7 10
+                                              11 59 2 8 7 10 11 61 2 0 7 10 6
+                                              58 3 1 7 10 6 6 44 3 0 7 10 6 6
+                                              55 2 0 7 10 6 62 3 0 7 10 6 6 26
+                                              3 1 7 10 45 45 53 2 0 7 10 6 57 1
+                                              1 6 6 32 3 1 7 10 6 6 43 3 0 7 10
+                                              6 6 54 2 0 7 10 6 60 2 0 17 6 6
+                                              19 3 0 7 10 6 6 25 3 1 7 10 45 45
+                                              52 1 1 6 6 33)))))
            '|lookupComplete|)) 

@@ -33,10 +33,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (0 . |empty|) (4 . |insert!|) (|List| 7) |BGAGG-;construct;LA;1|)
            '#(|construct| 10) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 11
-                                                 '(0 6 0 8 2 6 0 7 0 9 1 0 0 10
-                                                   11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|construct| (|#1| (|List| |#2|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 11
+                                            '(0 6 0 8 2 6 0 7 0 9 1 0 0 10
+                                              11)))))
            '|lookupComplete|)) 

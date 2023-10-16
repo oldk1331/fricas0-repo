@@ -69,13 +69,21 @@
               (|OutputForm|) (|String|) (19 . |coerce|) (24 . |coerce|)
               (|List| $) (29 . |prefix|) (35 . |coerce|))
            '#(|dictionary| 40 |copy| 44 |construct| 49 |coerce| 54) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(1 6 0 8 9 0 6 0 11 1 6 8 0
-                                                   13 1 0 0 0 14 1 16 15 0 17 1
-                                                   7 15 0 18 2 15 0 0 19 20 1 0
-                                                   15 0 21 0 0 0 12 1 0 0 0 14
-                                                   1 0 0 8 10 1 0 15 0 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|dictionary| (|#1| (|List| |#2|))) T)
+                                   '((|dictionary| (|#1|)) T)
+                                   '((|construct| (|#1| (|List| |#2|))) T)
+                                   '((|coerce| ((|OutputForm|) |#1|)) T)
+                                   '((|copy| (|#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(1 6 0 8 9 0 6 0 11 1 6 8 0 13 1 0
+                                              0 0 14 1 16 15 0 17 1 7 15 0 18 2
+                                              15 0 0 19 20 1 0 15 0 21 0 0 0 12
+                                              1 0 0 0 14 1 0 0 8 10 1 0 15 0
+                                              21)))))
            '|lookupComplete|)) 

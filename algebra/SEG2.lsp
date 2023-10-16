@@ -88,15 +88,26 @@
               (16 . |incr|) (21 . |coerce|) (26 . |Zero|) (|Boolean|) (30 . >)
               (36 . <=) (42 . +) (48 . >=) (|List| 7) (54 . |map|))
            '#(|map| 60) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(1 8 6 0 9 1 8 6 0 10 2 11 0
-                                                   7 7 12 1 8 15 0 16 1 6 0 15
-                                                   17 0 6 0 18 2 6 19 0 0 20 2
-                                                   6 19 0 0 21 2 6 0 0 0 22 2 6
-                                                   19 0 0 23 2 0 24 13 8 25 2 1
-                                                   24 13 8 25 2 0 11 13 8
-                                                   14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|Segment| |#2|) (|Mapping| |#2| |#1|)
+                                  (|Segment| |#1|)))
+                                T)
+                              '((|map|
+                                 ((|List| |#2|) (|Mapping| |#2| |#1|)
+                                  (|Segment| |#1|)))
+                                (|has| 6 (|OrderedRing|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(1 8 6 0 9 1 8 6 0 10 2 11 0 7 7
+                                              12 1 8 15 0 16 1 6 0 15 17 0 6 0
+                                              18 2 6 19 0 0 20 2 6 19 0 0 21 2
+                                              6 0 0 0 22 2 6 19 0 0 23 2 0 24
+                                              13 8 25 2 1 24 13 8 25 2 0 11 13
+                                              8 14)))))
            '|lookupComplete|)) 

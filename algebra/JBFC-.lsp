@@ -1722,7 +1722,7 @@
               |JBFC-;sortLD;2L;34| (315 . ~=) (|Union| $ '"failed")
               (321 . |solveFor|) (327 . ~=) (333 . |simpOne|) (338 . |append|)
               (344 . |merge|) (351 . |second|) (356 . |setRow!|) (363 . |#|)
-              (|Union| '"failed" (|List| 16))
+              (|Union| '#2="failed" (|List| 16))
               (|Record| (|:| |Sys| 69) (|:| JM 70) (|:| |Depend| 135))
               |JBFC-;simplify;LSemR;36| (368 . |numerator|)
               |JBFC-;simpOne;2S;37| (373 . |insert|) (380 . |insert|)
@@ -1738,66 +1738,173 @@
               564 |dimension| 569 |dSubst| 576 |const?| 583 |class| 588
               |characteristic| 593 |autoReduce| 597 X 602 U 611 P 620)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 153
-                                                 '(0 7 8 9 1 7 0 8 11 1 6 0 7
-                                                   12 1 7 0 8 14 2 7 0 8 16 17
-                                                   0 7 0 19 0 7 0 21 1 7 0 16
-                                                   23 2 7 0 8 25 26 1 7 0 25 28
-                                                   1 7 30 30 31 0 7 30 34 0 7 8
-                                                   37 0 6 0 39 1 6 41 0 42 2 6
-                                                   0 0 7 43 1 6 44 0 45 2 25 44
-                                                   0 0 48 0 7 0 49 2 7 44 0 0
-                                                   50 1 6 7 0 52 1 7 25 0 53 1
-                                                   7 25 0 55 2 41 44 7 0 58 0 6
-                                                   0 61 2 6 44 0 0 62 2 7 16 0
-                                                   0 63 2 6 0 0 16 64 3 6 0 0 7
-                                                   0 65 2 7 44 0 0 66 1 7 25 25
-                                                   68 1 7 25 25 72 2 6 70 69 75
-                                                   76 2 7 44 0 0 78 3 41 0 79 0
-                                                   0 80 1 41 0 0 81 2 83 0 41
-                                                   82 84 1 6 44 0 85 4 83 32 0
-                                                   82 41 86 87 2 7 0 0 0 89 2
-                                                   41 0 0 0 90 2 25 0 0 0 91 3
-                                                   16 25 92 0 25 93 1 83 41 0
-                                                   95 2 83 96 0 7 97 1 6 70 69
-                                                   99 3 6 100 69 8 70 101 2 6
-                                                   69 69 8 103 3 6 105 0 8 70
-                                                   106 1 83 25 0 108 2 83 109 0
-                                                   82 110 2 7 111 0 8 112 2 113
-                                                   44 0 0 114 2 6 0 0 0 115 2 6
-                                                   0 0 0 116 2 41 0 79 0 117 2
-                                                   122 0 121 0 123 2 7 44 0 0
-                                                   125 2 6 126 0 7 127 2 120 44
-                                                   0 0 128 1 6 0 0 129 2 16 0 0
-                                                   0 130 3 122 0 121 0 0 131 1
-                                                   41 7 0 132 3 83 32 0 82 109
-                                                   133 1 16 25 0 134 1 6 0 0
-                                                   138 3 41 0 7 0 82 140 3 86 0
-                                                   6 0 82 141 2 86 0 142 0 143
-                                                   1 6 69 69 144 3 6 0 0 7 0
-                                                   147 2 6 44 0 0 148 3 122 0
-                                                   121 0 0 150 2 6 0 0 0 151 2
-                                                   122 0 0 0 152 1 0 70 69 94 1
-                                                   0 69 69 124 2 0 136 69 70
-                                                   137 1 0 0 0 139 3 0 136 69
-                                                   70 69 146 2 0 69 69 69 145 1
-                                                   0 32 30 33 1 0 46 0 47 2 0
-                                                   69 69 69 149 3 0 25 69 70 25
-                                                   73 1 0 25 0 54 0 0 8 36 0 0
-                                                   8 38 1 0 7 0 57 2 0 70 69 75
-                                                   88 1 0 70 69 77 0 0 30 35 2
-                                                   0 0 0 0 40 2 0 44 0 7 59 3 0
-                                                   100 69 8 70 118 3 0 105 0 8
-                                                   70 119 2 0 69 69 8 102 2 0 0
-                                                   0 8 104 2 0 0 0 16 107 1 0
-                                                   70 70 98 3 0 25 69 70 25 71
-                                                   3 0 0 0 7 0 67 1 0 44 0 51 1
-                                                   0 25 0 56 0 0 25 60 1 0 69
-                                                   69 153 0 0 0 20 1 0 0 8 13 0
-                                                   0 0 22 1 0 0 8 15 2 0 0 8 25
-                                                   27 1 0 0 25 29 1 0 0 16 24 2
-                                                   0 0 8 16 18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|autoReduce| ((|List| |#1|) (|List| |#1|))) T)
+                              '((|reduceMod|
+                                 ((|List| |#1|) (|List| |#1|) (|List| |#1|)))
+                                T)
+                              '((|simpMod|
+                                 ((|Record| (|:| |Sys| (|List| |#1|))
+                                            (|:| JM
+                                                 (|SparseEchelonMatrix| |#2|
+                                                                        |#1|))
+                                            (|:| |Depend|
+                                                 (|Union| #2#
+                                                          (|List|
+                                                           (|List|
+                                                            (|NonNegativeInteger|))))))
+                                  (|List| |#1|)
+                                  (|SparseEchelonMatrix| |#2| |#1|)
+                                  (|List| |#1|)))
+                                T)
+                              '((|simpMod|
+                                 ((|List| |#1|) (|List| |#1|) (|List| |#1|)))
+                                T)
+                              '((|simpOne| (|#1| |#1|)) T)
+                              '((|simplify|
+                                 ((|Record| (|:| |Sys| (|List| |#1|))
+                                            (|:| JM
+                                                 (|SparseEchelonMatrix| |#2|
+                                                                        |#1|))
+                                            (|:| |Depend|
+                                                 (|Union| #2#
+                                                          (|List|
+                                                           (|List|
+                                                            (|NonNegativeInteger|))))))
+                                  (|List| |#1|)
+                                  (|SparseEchelonMatrix| |#2| |#1|)))
+                                T)
+                              '((|dSubst| (|#1| |#1| |#2| |#1|)) T)
+                              '((|sortLD| ((|List| |#1|) (|List| |#1|))) T)
+                              '((|leadingDer| (|#2| |#1|)) T)
+                              '((|freeOf?| ((|Boolean|) |#1| |#2|)) T)
+                              '((|orderDim|
+                                 ((|NonNegativeInteger|) (|List| |#1|)
+                                  (|SparseEchelonMatrix| |#2| |#1|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|dimension|
+                                 ((|NonNegativeInteger|) (|List| |#1|)
+                                  (|SparseEchelonMatrix| |#2| |#1|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|formalDiff2|
+                                 ((|Record| (|:| |DSys| (|List| |#1|))
+                                            (|:| |JVars|
+                                                 (|List| (|List| |#2|))))
+                                  (|List| |#1|) (|PositiveInteger|)
+                                  (|SparseEchelonMatrix| |#2| |#1|)))
+                                T)
+                              '((|formalDiff2|
+                                 ((|Record| (|:| |DPhi| |#1|)
+                                            (|:| |JVars| (|List| |#2|)))
+                                  |#1| (|PositiveInteger|)
+                                  (|SparseEchelonMatrix| |#2| |#1|)))
+                                T)
+                              '((|formalDiff|
+                                 ((|List| |#1|) (|List| |#1|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|formalDiff|
+                                 (|#1| |#1| (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|formalDiff| (|#1| |#1| (|PositiveInteger|)))
+                                T)
+                              '((|symbol|
+                                 ((|SparseEchelonMatrix| |#2| |#1|)
+                                  (|List| |#1|)))
+                                T)
+                              '((|extractSymbol|
+                                 ((|SparseEchelonMatrix| |#2| |#1|)
+                                  (|SparseEchelonMatrix| |#2| |#1|)))
+                                T)
+                              '((|jacobiMatrix|
+                                 ((|SparseEchelonMatrix| |#2| |#1|)
+                                  (|List| |#1|) (|List| (|List| |#2|))))
+                                T)
+                              '((|jacobiMatrix|
+                                 ((|SparseEchelonMatrix| |#2| |#1|)
+                                  (|List| |#1|)))
+                                T)
+                              '((|class| ((|NonNegativeInteger|) |#1|)) T)
+                              '((|order| ((|NonNegativeInteger|) |#1|)) T)
+                              '((|const?| ((|Boolean|) |#1|)) T)
+                              '((|numDepVar| ((|PositiveInteger|))) T)
+                              '((|numIndVar| ((|PositiveInteger|))) T)
+                              '((|getNotation| ((|Symbol|))) T)
+                              '((|setNotation| ((|Void|) (|Symbol|))) T)
+                              '((P (|#1| (|NonNegativeInteger|))) T)
+                              '((P
+                                 (|#1| (|PositiveInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((P (|#1| (|List| (|NonNegativeInteger|)))) T)
+                              '((U (|#1|)) T) '((X (|#1|)) T)
+                              '((P
+                                 (|#1| (|PositiveInteger|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((U (|#1| (|PositiveInteger|))) T)
+                              '((X (|#1| (|PositiveInteger|))) T)
+                              '((|retractIfCan| ((|Union| |#2| "failed") |#1|))
+                                T)
+                              '((|gcd| (|#1| |#1| |#1|)) T)
+                              '((|gcd| (|#1| (|List| |#1|))) T)
+                              '((|characteristic| ((|NonNegativeInteger|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 153
+                                            '(0 7 8 9 1 7 0 8 11 1 6 0 7 12 1 7
+                                              0 8 14 2 7 0 8 16 17 0 7 0 19 0 7
+                                              0 21 1 7 0 16 23 2 7 0 8 25 26 1
+                                              7 0 25 28 1 7 30 30 31 0 7 30 34
+                                              0 7 8 37 0 6 0 39 1 6 41 0 42 2 6
+                                              0 0 7 43 1 6 44 0 45 2 25 44 0 0
+                                              48 0 7 0 49 2 7 44 0 0 50 1 6 7 0
+                                              52 1 7 25 0 53 1 7 25 0 55 2 41
+                                              44 7 0 58 0 6 0 61 2 6 44 0 0 62
+                                              2 7 16 0 0 63 2 6 0 0 16 64 3 6 0
+                                              0 7 0 65 2 7 44 0 0 66 1 7 25 25
+                                              68 1 7 25 25 72 2 6 70 69 75 76 2
+                                              7 44 0 0 78 3 41 0 79 0 0 80 1 41
+                                              0 0 81 2 83 0 41 82 84 1 6 44 0
+                                              85 4 83 32 0 82 41 86 87 2 7 0 0
+                                              0 89 2 41 0 0 0 90 2 25 0 0 0 91
+                                              3 16 25 92 0 25 93 1 83 41 0 95 2
+                                              83 96 0 7 97 1 6 70 69 99 3 6 100
+                                              69 8 70 101 2 6 69 69 8 103 3 6
+                                              105 0 8 70 106 1 83 25 0 108 2 83
+                                              109 0 82 110 2 7 111 0 8 112 2
+                                              113 44 0 0 114 2 6 0 0 0 115 2 6
+                                              0 0 0 116 2 41 0 79 0 117 2 122 0
+                                              121 0 123 2 7 44 0 0 125 2 6 126
+                                              0 7 127 2 120 44 0 0 128 1 6 0 0
+                                              129 2 16 0 0 0 130 3 122 0 121 0
+                                              0 131 1 41 7 0 132 3 83 32 0 82
+                                              109 133 1 16 25 0 134 1 6 0 0 138
+                                              3 41 0 7 0 82 140 3 86 0 6 0 82
+                                              141 2 86 0 142 0 143 1 6 69 69
+                                              144 3 6 0 0 7 0 147 2 6 44 0 0
+                                              148 3 122 0 121 0 0 150 2 6 0 0 0
+                                              151 2 122 0 0 0 152 1 0 70 69 94
+                                              1 0 69 69 124 2 0 136 69 70 137 1
+                                              0 0 0 139 3 0 136 69 70 69 146 2
+                                              0 69 69 69 145 1 0 32 30 33 1 0
+                                              46 0 47 2 0 69 69 69 149 3 0 25
+                                              69 70 25 73 1 0 25 0 54 0 0 8 36
+                                              0 0 8 38 1 0 7 0 57 2 0 70 69 75
+                                              88 1 0 70 69 77 0 0 30 35 2 0 0 0
+                                              0 40 2 0 44 0 7 59 3 0 100 69 8
+                                              70 118 3 0 105 0 8 70 119 2 0 69
+                                              69 8 102 2 0 0 0 8 104 2 0 0 0 16
+                                              107 1 0 70 70 98 3 0 25 69 70 25
+                                              71 3 0 0 0 7 0 67 1 0 44 0 51 1 0
+                                              25 0 56 0 0 25 60 1 0 69 69 153 0
+                                              0 0 20 1 0 0 8 13 0 0 0 22 1 0 0
+                                              8 15 2 0 0 8 25 27 1 0 0 25 29 1
+                                              0 0 16 24 2 0 0 8 16 18)))))
            '|lookupComplete|)) 

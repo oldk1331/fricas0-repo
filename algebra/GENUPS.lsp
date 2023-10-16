@@ -687,37 +687,102 @@
               (208 . |map|) |GENUPS;series;MEUsA;15| |GENUPS;series;FESEUsA;16|
               |GENUPS;series;MEUsFA;17| |GENUPS;series;FESEUsFA;18|)
            '#(|taylor| 214 |series| 242 |puiseux| 287 |laurent| 304) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 81
-                                                 '(0 6 0 8 0 7 0 9 0 10 0 11 2
-                                                   10 0 0 0 12 2 13 0 7 0 14 1
-                                                   13 0 15 16 2 10 17 0 0 18 0
-                                                   13 0 19 2 10 17 0 0 20 1 21
-                                                   7 0 22 1 7 23 0 24 1 21 7 0
-                                                   25 1 7 0 29 30 1 7 0 10 31 2
-                                                   7 17 0 0 32 2 21 0 7 7 33 2
-                                                   7 0 0 34 35 1 37 17 0 38 1
-                                                   37 39 0 40 1 37 39 0 41 1 44
-                                                   17 0 45 1 44 10 0 46 1 44 10
-                                                   0 47 2 50 0 10 10 51 0 7 0
-                                                   52 1 50 17 0 53 1 54 17 0 55
-                                                   1 54 50 0 56 1 54 50 0 57 2
-                                                   50 17 0 0 58 1 50 10 0 59 1
-                                                   50 10 0 60 2 10 0 0 0 61 2
-                                                   44 0 10 10 62 1 44 0 10 63 1
-                                                   7 0 50 66 0 6 0 68 0 50 0 69
-                                                   1 54 0 50 70 0 50 0 71 1 50
-                                                   0 10 74 2 76 54 75 44 77 2 0
-                                                   26 27 21 28 3 0 26 27 21 37
-                                                   42 3 0 26 7 29 21 36 4 0 26
-                                                   7 29 21 37 43 3 0 26 7 29 21
-                                                   73 2 0 26 27 21 72 4 0 26 7
-                                                   29 21 44 79 3 0 26 27 21 44
-                                                   78 5 0 26 7 29 21 54 50 81 4
-                                                   0 26 64 21 54 50 80 4 0 26
-                                                   64 21 54 50 65 5 0 26 7 29
-                                                   21 54 50 67 3 0 26 27 21 44
-                                                   48 4 0 26 7 29 21 44 49)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|taylor|
+                                 ((|Any|) (|Mapping| |#2| (|Integer|))
+                                  (|Equation| |#2|)))
+                                T)
+                              '((|taylor|
+                                 ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)))
+                                T)
+                              '((|taylor|
+                                 ((|Any|) (|Mapping| |#2| (|Integer|))
+                                  (|Equation| |#2|)
+                                  (|UniversalSegment| (|NonNegativeInteger|))))
+                                T)
+                              '((|taylor|
+                                 ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)
+                                  (|UniversalSegment| (|NonNegativeInteger|))))
+                                T)
+                              '((|laurent|
+                                 ((|Any|) (|Mapping| |#2| (|Integer|))
+                                  (|Equation| |#2|)
+                                  (|UniversalSegment| (|Integer|))))
+                                T)
+                              '((|laurent|
+                                 ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)
+                                  (|UniversalSegment| (|Integer|))))
+                                T)
+                              '((|puiseux|
+                                 ((|Any|)
+                                  (|Mapping| |#2| (|Fraction| (|Integer|)))
+                                  (|Equation| |#2|)
+                                  (|UniversalSegment| (|Fraction| (|Integer|)))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|puiseux|
+                                 ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)
+                                  (|UniversalSegment| (|Fraction| (|Integer|)))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|series|
+                                 ((|Any|) (|Mapping| |#2| (|Integer|))
+                                  (|Equation| |#2|)))
+                                T)
+                              '((|series|
+                                 ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)))
+                                T)
+                              '((|series|
+                                 ((|Any|) (|Mapping| |#2| (|Integer|))
+                                  (|Equation| |#2|)
+                                  (|UniversalSegment| (|Integer|))))
+                                T)
+                              '((|series|
+                                 ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)
+                                  (|UniversalSegment| (|Integer|))))
+                                T)
+                              '((|series|
+                                 ((|Any|)
+                                  (|Mapping| |#2| (|Fraction| (|Integer|)))
+                                  (|Equation| |#2|)
+                                  (|UniversalSegment| (|Fraction| (|Integer|)))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|series|
+                                 ((|Any|) |#2| (|Symbol|) (|Equation| |#2|)
+                                  (|UniversalSegment| (|Fraction| (|Integer|)))
+                                  (|Fraction| (|Integer|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 81
+                                            '(0 6 0 8 0 7 0 9 0 10 0 11 2 10 0
+                                              0 0 12 2 13 0 7 0 14 1 13 0 15 16
+                                              2 10 17 0 0 18 0 13 0 19 2 10 17
+                                              0 0 20 1 21 7 0 22 1 7 23 0 24 1
+                                              21 7 0 25 1 7 0 29 30 1 7 0 10 31
+                                              2 7 17 0 0 32 2 21 0 7 7 33 2 7 0
+                                              0 34 35 1 37 17 0 38 1 37 39 0 40
+                                              1 37 39 0 41 1 44 17 0 45 1 44 10
+                                              0 46 1 44 10 0 47 2 50 0 10 10 51
+                                              0 7 0 52 1 50 17 0 53 1 54 17 0
+                                              55 1 54 50 0 56 1 54 50 0 57 2 50
+                                              17 0 0 58 1 50 10 0 59 1 50 10 0
+                                              60 2 10 0 0 0 61 2 44 0 10 10 62
+                                              1 44 0 10 63 1 7 0 50 66 0 6 0 68
+                                              0 50 0 69 1 54 0 50 70 0 50 0 71
+                                              1 50 0 10 74 2 76 54 75 44 77 2 0
+                                              26 27 21 28 3 0 26 27 21 37 42 3
+                                              0 26 7 29 21 36 4 0 26 7 29 21 37
+                                              43 3 0 26 7 29 21 73 2 0 26 27 21
+                                              72 4 0 26 7 29 21 44 79 3 0 26 27
+                                              21 44 78 5 0 26 7 29 21 54 50 81
+                                              4 0 26 64 21 54 50 80 4 0 26 64
+                                              21 54 50 65 5 0 26 7 29 21 54 50
+                                              67 3 0 26 27 21 44 48 4 0 26 7 29
+                                              21 44 49)))))
            '|lookupComplete|)) 

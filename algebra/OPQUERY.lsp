@@ -41,8 +41,17 @@
            '#(NIL NIL NIL NIL NIL NIL (|Database| (|IndexCard|)) (|String|)
               |OPQUERY;getDatabase;SD;1|)
            '#(|getDatabase| 0) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#() (CONS '#() (|makeByteWordVec2| 8 '(1 0 6 7 8)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|getDatabase|
+                                 ((|Database| (|IndexCard|)) (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 8 '(1 0 6 7 8)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OperationsQuery| 'NILADIC T) 

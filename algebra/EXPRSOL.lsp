@@ -157,20 +157,29 @@
               (|Mapping| 9 9) (|TaylorSolve| 7 8 9) (109 . |seriesSolve|)
               |EXPRSOL;seriesSolve;FBoSLUTSF;2|)
            '#(|seriesSolve| 115 |replaceDiffs| 123) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 51
-                                                 '(1 11 0 10 12 1 7 16 0 17 2
-                                                   19 18 0 11 20 1 19 21 0 22 1
-                                                   7 0 10 23 2 7 18 0 0 24 1 11
-                                                   10 0 25 3 7 0 0 16 26 27 2 7
-                                                   0 11 26 29 2 19 18 0 10 30 0
-                                                   6 0 31 0 7 0 32 2 21 7 0 33
-                                                   34 2 35 0 7 7 36 2 7 0 0 37
-                                                   38 2 7 0 11 0 39 3 41 40 7
-                                                   10 10 42 0 43 0 44 0 45 0 46
-                                                   2 9 0 43 45 47 2 49 8 48 21
-                                                   50 4 0 8 7 11 10 21 51 3 0 7
-                                                   7 11 10 28)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|seriesSolve|
+                                 (|#3| |#2| (|BasicOperator|) (|Symbol|)
+                                  (|List| |#2|)))
+                                T)
+                              '((|replaceDiffs|
+                                 (|#2| |#2| (|BasicOperator|) (|Symbol|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 51
+                                            '(1 11 0 10 12 1 7 16 0 17 2 19 18
+                                              0 11 20 1 19 21 0 22 1 7 0 10 23
+                                              2 7 18 0 0 24 1 11 10 0 25 3 7 0
+                                              0 16 26 27 2 7 0 11 26 29 2 19 18
+                                              0 10 30 0 6 0 31 0 7 0 32 2 21 7
+                                              0 33 34 2 35 0 7 7 36 2 7 0 0 37
+                                              38 2 7 0 11 0 39 3 41 40 7 10 10
+                                              42 0 43 0 44 0 45 0 46 2 9 0 43
+                                              45 47 2 49 8 48 21 50 4 0 8 7 11
+                                              10 21 51 3 0 7 7 11 10 28)))))
            '|lookupComplete|)) 

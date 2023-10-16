@@ -202,18 +202,42 @@
               (58 . |tower|) (|IntegrationTools| 6 7) (63 . |union|)
               (69 . |varselect|) (75 . *))
            '#(|risch_de_ext| 81 |do_risch_DE| 89 |do_param_RDE| 97) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 39
-                                                 '(3 13 9 10 11 12 14 3 13 15
-                                                   10 11 12 16 0 6 0 17 0 7 0
-                                                   18 8 24 20 21 7 7 12 10 11
-                                                   22 23 25 0 6 0 27 0 7 0 28 4
-                                                   31 29 21 7 7 10 32 4 0 29 21
-                                                   7 7 10 33 1 7 34 0 35 2 36
-                                                   11 11 11 37 2 36 11 11 10 38
-                                                   2 7 0 21 0 39 4 0 29 21 7 7
-                                                   10 33 4 0 29 7 7 10 11 30 5
-                                                   0 19 7 7 12 10 11 26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|risch_de_ext|
+                                 ((|Record| (|:| |ans| |#2|) (|:| |right| |#2|)
+                                            (|:| |primpart| |#2|)
+                                            (|:| |sol?| (|Boolean|)))
+                                  (|Integer|) |#2| |#2| (|Symbol|)))
+                                T)
+                              '((|do_risch_DE|
+                                 ((|Record| (|:| |ans| |#2|) (|:| |right| |#2|)
+                                            (|:| |primpart| |#2|)
+                                            (|:| |sol?| (|Boolean|)))
+                                  |#2| |#2| (|Symbol|)
+                                  (|List| (|Kernel| |#2|))))
+                                T)
+                              '((|do_param_RDE|
+                                 ((|Union|
+                                   (|Record| (|:| |ratpart| |#2|)
+                                             (|:| |coeffs| (|Vector| |#2|)))
+                                   "failed")
+                                  |#2| |#2| (|List| |#2|) (|Symbol|)
+                                  (|List| (|Kernel| |#2|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 39
+                                            '(3 13 9 10 11 12 14 3 13 15 10 11
+                                              12 16 0 6 0 17 0 7 0 18 8 24 20
+                                              21 7 7 12 10 11 22 23 25 0 6 0 27
+                                              0 7 0 28 4 31 29 21 7 7 10 32 4 0
+                                              29 21 7 7 10 33 1 7 34 0 35 2 36
+                                              11 11 11 37 2 36 11 11 10 38 2 7
+                                              0 21 0 39 4 0 29 21 7 7 10 33 4 0
+                                              29 7 7 10 11 30 5 0 19 7 7 12 10
+                                              11 26)))))
            '|lookupComplete|)) 

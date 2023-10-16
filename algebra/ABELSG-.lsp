@@ -26,10 +26,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|PositiveInteger|)
               (|RepeatedDoubling| 6) (0 . |double|) (6 . *))
            '#(* 12) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10
-                                                 '(2 8 6 7 6 9 2 0 0 7 0 10 2 0
-                                                   0 7 0 10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((* (|#1| (|PositiveInteger|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10
+                                            '(2 8 6 7 6 9 2 0 0 7 0 10 2 0 0 7
+                                              0 10)))))
            '|lookupComplete|)) 

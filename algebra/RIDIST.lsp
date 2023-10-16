@@ -115,20 +115,43 @@
            '#(|uniform| 93 |ridHack1| 98 |poisson| 106 |geometric| 111
               |binomial| 116)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 33
-                                                 '(1 7 6 0 8 1 7 6 0 9 2 6 0 0
-                                                   0 10 2 6 0 0 0 11 1 6 0 0 12
-                                                   0 6 0 13 2 6 0 0 0 14 0 15 6
-                                                   16 1 6 0 0 17 2 6 0 0 0 18 2
-                                                   6 0 0 19 20 0 19 0 21 2 6 22
-                                                   0 0 23 0 24 0 25 0 19 0 26 2
-                                                   19 0 0 0 27 2 24 0 0 19 29 1
-                                                   15 6 6 32 1 0 30 7 31 4 0 6
-                                                   6 6 6 6 28 1 0 30 33 1 1 0
-                                                   30 33 1 2 0 30 6 33 1)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|uniform|
+                                 ((|Mapping| (|Integer|))
+                                  (|Segment| (|Integer|))))
+                                T)
+                              '((|binomial|
+                                 ((|Mapping| (|Integer|)) (|Integer|)
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|poisson|
+                                 ((|Mapping| (|Integer|))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|geometric|
+                                 ((|Mapping| (|Integer|))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|ridHack1|
+                                 ((|Integer|) (|Integer|) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 33
+                                            '(1 7 6 0 8 1 7 6 0 9 2 6 0 0 0 10
+                                              2 6 0 0 0 11 1 6 0 0 12 0 6 0 13
+                                              2 6 0 0 0 14 0 15 6 16 1 6 0 0 17
+                                              2 6 0 0 0 18 2 6 0 0 19 20 0 19 0
+                                              21 2 6 22 0 0 23 0 24 0 25 0 19 0
+                                              26 2 19 0 0 0 27 2 24 0 0 19 29 1
+                                              15 6 6 32 1 0 30 7 31 4 0 6 6 6 6
+                                              6 28 1 0 30 33 1 1 0 30 33 1 2 0
+                                              30 6 33 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|RandomIntegerDistributions| 'NILADIC T) 

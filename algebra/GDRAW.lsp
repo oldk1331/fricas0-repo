@@ -239,24 +239,55 @@
               (101 . |mesh|) |GDRAW;gnuDraw;E2SbSLV;5|
               |GDRAW;gnuDraw;E2SbSV;6|)
            '#(|gnuDraw| 106) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 50
-                                                 '(1 7 0 6 8 2 9 0 7 6 10 2 12
-                                                   6 11 6 13 1 6 0 14 15 2 9 6
-                                                   0 6 16 3 20 17 18 19 11 21 1
-                                                   17 22 0 23 0 18 0 24 0 25 0
-                                                   26 2 29 27 0 28 30 1 25 0 27
-                                                   31 1 25 6 0 32 1 9 6 0 33 1
-                                                   9 0 0 34 1 29 0 37 38 1 17 0
-                                                   22 39 1 27 25 0 40 1 42 0 6
-                                                   43 3 20 46 18 19 19 47 1 46
-                                                   22 0 48 4 0 35 18 19 6 11 36
-                                                   3 0 35 18 19 6 44 4 0 35 37
-                                                   37 6 11 41 3 0 35 37 37 6 45
-                                                   4 0 35 18 19 19 6 50 5 0 35
-                                                   18 19 19 6 11 49)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|gnuDraw|
+                                 ((|Void|) (|Expression| (|Float|))
+                                  (|SegmentBinding| (|Float|)) (|String|)
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|gnuDraw|
+                                 ((|Void|) (|List| (|DoubleFloat|))
+                                  (|List| (|DoubleFloat|)) (|String|)
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|gnuDraw|
+                                 ((|Void|) (|Expression| (|Float|))
+                                  (|SegmentBinding| (|Float|)) (|String|)))
+                                T)
+                              '((|gnuDraw|
+                                 ((|Void|) (|List| (|DoubleFloat|))
+                                  (|List| (|DoubleFloat|)) (|String|)))
+                                T)
+                              '((|gnuDraw|
+                                 ((|Void|) (|Expression| (|Float|))
+                                  (|SegmentBinding| (|Float|))
+                                  (|SegmentBinding| (|Float|)) (|String|)
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|gnuDraw|
+                                 ((|Void|) (|Expression| (|Float|))
+                                  (|SegmentBinding| (|Float|))
+                                  (|SegmentBinding| (|Float|)) (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 50
+                                            '(1 7 0 6 8 2 9 0 7 6 10 2 12 6 11
+                                              6 13 1 6 0 14 15 2 9 6 0 6 16 3
+                                              20 17 18 19 11 21 1 17 22 0 23 0
+                                              18 0 24 0 25 0 26 2 29 27 0 28 30
+                                              1 25 0 27 31 1 25 6 0 32 1 9 6 0
+                                              33 1 9 0 0 34 1 29 0 37 38 1 17 0
+                                              22 39 1 27 25 0 40 1 42 0 6 43 3
+                                              20 46 18 19 19 47 1 46 22 0 48 4
+                                              0 35 18 19 6 11 36 3 0 35 18 19 6
+                                              44 4 0 35 37 37 6 11 41 3 0 35 37
+                                              37 6 45 4 0 35 18 19 19 6 50 5 0
+                                              35 18 19 19 6 11 49)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|GnuDraw| 'NILADIC T) 

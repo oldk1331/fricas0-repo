@@ -94,13 +94,25 @@
               (26 . |map|) (|List| 23) (|Vector| 23) (32 . |vector|)
               |CVMP;coerce;VV;4|)
            '#(|coerceP| 37 |coerce| 42) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 30
-                                                 '(1 7 0 6 8 1 9 0 7 10 1 12 11
-                                                   0 13 2 17 14 15 16 18 1 20 0
-                                                   19 21 2 25 23 24 16 26 1 28
-                                                   0 27 29 1 0 20 12 22 1 0 28
-                                                   12 30)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|coerceP|
+                                 ((|Vector| (|Matrix| (|Polynomial| |#1|)))
+                                  (|Vector| (|Matrix| |#1|))))
+                                T)
+                              '((|coerce|
+                                 ((|Vector|
+                                   (|Matrix| (|Fraction| (|Polynomial| |#1|))))
+                                  (|Vector| (|Matrix| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 30
+                                            '(1 7 0 6 8 1 9 0 7 10 1 12 11 0 13
+                                              2 17 14 15 16 18 1 20 0 19 21 2
+                                              25 23 24 16 26 1 28 0 27 29 1 0
+                                              20 12 22 1 0 28 12 30)))))
            '|lookupComplete|)) 

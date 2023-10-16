@@ -457,21 +457,52 @@
               75 |operator| 80 |is_symbol?| 85 |integer?| 91 |integer| 96
               |has_op?| 101 |construct| 107 |atom?| 113 |arguments| 118)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 36
-                                                 '(1 7 0 13 24 1 7 0 10 25 1 7
-                                                   0 27 28 2 29 6 0 0 30 2 29 6
-                                                   0 0 31 1 7 0 0 32 2 19 7 0
-                                                   10 33 2 7 0 0 0 34 1 7 0 0
-                                                   35 2 29 6 0 0 36 1 0 6 7 12
-                                                   1 0 13 7 14 1 0 6 7 15 1 0
-                                                   16 7 17 1 0 7 7 26 1 0 7 7
-                                                   18 2 0 6 7 13 22 1 0 6 7 9 1
-                                                   0 10 7 11 2 0 6 7 13 21 2 0
-                                                   7 7 19 23 1 0 6 7 8 1 0 19 7
-                                                   20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|atom?| ((|Boolean|) (|OutputForm|))) T)
+                                   '((|integer?| ((|Boolean|) (|OutputForm|)))
+                                     T)
+                                   '((|integer| ((|Integer|) (|OutputForm|)))
+                                     T)
+                                   '((|symbol?| ((|Boolean|) (|OutputForm|)))
+                                     T)
+                                   '((|symbol| ((|Symbol|) (|OutputForm|))) T)
+                                   '((|string?| ((|Boolean|) (|OutputForm|)))
+                                     T)
+                                   '((|string| ((|String|) (|OutputForm|))) T)
+                                   '((|operator|
+                                      ((|OutputForm|) (|OutputForm|)))
+                                     T)
+                                   '((|arguments|
+                                      ((|List| (|OutputForm|)) (|OutputForm|)))
+                                     T)
+                                   '((|has_op?|
+                                      ((|Boolean|) (|OutputForm|) (|Symbol|)))
+                                     T)
+                                   '((|is_symbol?|
+                                      ((|Boolean|) (|OutputForm|) (|Symbol|)))
+                                     T)
+                                   '((|construct|
+                                      ((|OutputForm|) (|OutputForm|)
+                                       (|List| (|OutputForm|))))
+                                     T)
+                                   '((|precondition|
+                                      ((|OutputForm|) (|OutputForm|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 36
+                                            '(1 7 0 13 24 1 7 0 10 25 1 7 0 27
+                                              28 2 29 6 0 0 30 2 29 6 0 0 31 1
+                                              7 0 0 32 2 19 7 0 10 33 2 7 0 0 0
+                                              34 1 7 0 0 35 2 29 6 0 0 36 1 0 6
+                                              7 12 1 0 13 7 14 1 0 6 7 15 1 0
+                                              16 7 17 1 0 7 7 26 1 0 7 7 18 2 0
+                                              6 7 13 22 1 0 6 7 9 1 0 10 7 11 2
+                                              0 6 7 13 21 2 0 7 7 19 23 1 0 6 7
+                                              8 1 0 19 7 20)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OutputFormTools| 'NILADIC T) 

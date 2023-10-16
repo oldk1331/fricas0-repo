@@ -771,33 +771,101 @@
               |CLIP;clipParametric;PR;15| (208 . |list|) |CLIP;clip;LR;16|
               |CLIP;clip;LR;17|)
            '#(|clipWithRanges| 213 |clipParametric| 222 |clip| 234) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 72
-                                                 '(2 7 6 0 0 8 2 10 6 9 0 11 0
-                                                   12 0 13 2 12 6 0 0 14 0 12 0
-                                                   15 2 12 6 0 0 16 2 17 0 7 7
-                                                   18 2 7 6 0 0 19 1 21 0 20 22
-                                                   2 21 0 23 0 24 2 21 0 25 0
-                                                   26 1 12 27 0 28 1 12 27 0 29
-                                                   2 27 0 30 0 31 1 32 7 10 33
-                                                   1 32 7 10 34 3 36 0 27 27 35
-                                                   37 1 36 7 0 38 2 30 6 0 0 42
-                                                   2 45 43 44 21 46 2 7 0 0 0
-                                                   47 2 43 7 48 0 49 2 7 0 0 0
-                                                   50 2 17 0 7 7 51 1 10 0 43
-                                                   52 2 7 6 0 0 53 2 12 0 27 27
-                                                   54 1 55 17 0 56 1 55 40 0 57
-                                                   2 40 6 0 30 58 2 21 10 0 27
-                                                   59 1 17 7 0 60 1 17 7 0 61 2
-                                                   7 0 0 35 64 2 7 6 0 0 65 2 7
-                                                   6 0 0 66 2 40 0 0 0 67 1 40
-                                                   0 21 70 5 0 39 40 7 7 7 7 41
-                                                   1 0 39 55 69 3 0 39 55 12 12
-                                                   68 1 0 39 55 63 3 0 39 55 12
-                                                   12 62 1 0 39 40 72 1 0 39 21
-                                                   71)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|clip|
+                                 ((|Record|
+                                   (|:| |brans|
+                                        (|List|
+                                         (|List| (|Point| (|DoubleFloat|)))))
+                                   (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                                   (|:| |yValues| (|Segment| (|DoubleFloat|))))
+                                  (|Plot|)))
+                                T)
+                              '((|clip|
+                                 ((|Record|
+                                   (|:| |brans|
+                                        (|List|
+                                         (|List| (|Point| (|DoubleFloat|)))))
+                                   (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                                   (|:| |yValues| (|Segment| (|DoubleFloat|))))
+                                  (|Plot|) (|Fraction| (|Integer|))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|clipParametric|
+                                 ((|Record|
+                                   (|:| |brans|
+                                        (|List|
+                                         (|List| (|Point| (|DoubleFloat|)))))
+                                   (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                                   (|:| |yValues| (|Segment| (|DoubleFloat|))))
+                                  (|Plot|)))
+                                T)
+                              '((|clipParametric|
+                                 ((|Record|
+                                   (|:| |brans|
+                                        (|List|
+                                         (|List| (|Point| (|DoubleFloat|)))))
+                                   (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                                   (|:| |yValues| (|Segment| (|DoubleFloat|))))
+                                  (|Plot|) (|Fraction| (|Integer|))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|clipWithRanges|
+                                 ((|Record|
+                                   (|:| |brans|
+                                        (|List|
+                                         (|List| (|Point| (|DoubleFloat|)))))
+                                   (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                                   (|:| |yValues| (|Segment| (|DoubleFloat|))))
+                                  (|List| (|List| (|Point| (|DoubleFloat|))))
+                                  (|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|) (|DoubleFloat|)))
+                                T)
+                              '((|clip|
+                                 ((|Record|
+                                   (|:| |brans|
+                                        (|List|
+                                         (|List| (|Point| (|DoubleFloat|)))))
+                                   (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                                   (|:| |yValues| (|Segment| (|DoubleFloat|))))
+                                  (|List| (|Point| (|DoubleFloat|)))))
+                                T)
+                              '((|clip|
+                                 ((|Record|
+                                   (|:| |brans|
+                                        (|List|
+                                         (|List| (|Point| (|DoubleFloat|)))))
+                                   (|:| |xValues| (|Segment| (|DoubleFloat|)))
+                                   (|:| |yValues| (|Segment| (|DoubleFloat|))))
+                                  (|List| (|List| (|Point| (|DoubleFloat|))))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 72
+                                            '(2 7 6 0 0 8 2 10 6 9 0 11 0 12 0
+                                              13 2 12 6 0 0 14 0 12 0 15 2 12 6
+                                              0 0 16 2 17 0 7 7 18 2 7 6 0 0 19
+                                              1 21 0 20 22 2 21 0 23 0 24 2 21
+                                              0 25 0 26 1 12 27 0 28 1 12 27 0
+                                              29 2 27 0 30 0 31 1 32 7 10 33 1
+                                              32 7 10 34 3 36 0 27 27 35 37 1
+                                              36 7 0 38 2 30 6 0 0 42 2 45 43
+                                              44 21 46 2 7 0 0 0 47 2 43 7 48 0
+                                              49 2 7 0 0 0 50 2 17 0 7 7 51 1
+                                              10 0 43 52 2 7 6 0 0 53 2 12 0 27
+                                              27 54 1 55 17 0 56 1 55 40 0 57 2
+                                              40 6 0 30 58 2 21 10 0 27 59 1 17
+                                              7 0 60 1 17 7 0 61 2 7 0 0 35 64
+                                              2 7 6 0 0 65 2 7 6 0 0 66 2 40 0
+                                              0 0 67 1 40 0 21 70 5 0 39 40 7 7
+                                              7 7 41 1 0 39 55 69 3 0 39 55 12
+                                              12 68 1 0 39 55 63 3 0 39 55 12
+                                              12 62 1 0 39 40 72 1 0 39 21
+                                              71)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TwoDimensionalPlotClipping| 'NILADIC T) 

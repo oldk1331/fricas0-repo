@@ -1306,43 +1306,79 @@
            '#(|twoFactor| 371 |tryTwoFactor| 377 |generalTwoFactor| 382
               |generalSqFr| 387 |doFactor| 392)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 106
-                                                 '(0 6 0 7 0 8 0 9 2 8 10 0 0
-                                                   11 1 8 12 0 13 1 8 14 0 15 1
-                                                   8 0 0 16 2 8 0 0 0 17 0 12 0
-                                                   18 2 12 10 0 0 19 1 12 6 0
-                                                   20 2 12 0 6 14 21 1 12 14 0
-                                                   22 2 8 0 12 14 23 1 12 0 0
-                                                   24 2 6 0 0 14 25 2 12 0 26 0
-                                                   27 2 12 28 0 14 29 0 30 0 31
-                                                   1 12 32 0 33 1 34 12 0 35 1
-                                                   8 0 12 36 1 34 39 0 40 2 30
-                                                   0 8 42 43 1 8 12 0 44 2 8 28
-                                                   0 12 45 1 8 32 0 46 1 30 8 0
-                                                   47 1 30 42 0 48 2 37 10 0 0
-                                                   49 2 8 0 0 14 50 2 8 0 0 0
-                                                   51 0 6 0 52 0 8 0 53 0 12 0
-                                                   54 2 12 10 0 0 55 2 42 0 0 0
-                                                   56 2 8 0 12 0 57 1 61 34 12
-                                                   62 2 14 10 0 0 63 1 8 0 0 64
-                                                   1 12 0 0 65 2 8 0 66 0 67 0
-                                                   6 14 68 0 6 14 69 2 14 28 0
-                                                   0 70 2 8 28 0 14 71 1 72 8 8
-                                                   73 1 8 74 0 75 2 42 41 0 76
-                                                   78 2 8 10 0 0 80 2 30 0 8 14
-                                                   81 2 30 0 8 14 82 2 30 0 0 0
-                                                   83 0 30 0 84 2 14 0 0 85 86
-                                                   2 76 0 85 0 87 0 6 0 88 1 6
-                                                   0 85 89 2 12 6 0 6 90 1 6 10
-                                                   0 91 2 93 12 92 8 94 2 12 0
-                                                   0 0 95 2 14 10 0 0 96 2 12 0
-                                                   0 0 97 1 12 0 6 98 2 100 8
-                                                   99 12 101 4 103 102 8 102 12
-                                                   85 104 2 6 10 0 0 105 1 6 0
-                                                   0 106 2 0 30 8 76 79 1 0 30
-                                                   8 59 1 0 30 8 60 1 0 30 8 58
-                                                   3 0 30 8 76 10 77)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|generalTwoFactor|
+                                 ((|Factored|
+                                   (|SparseUnivariatePolynomial|
+                                    (|SparseUnivariatePolynomial| |#1|)))
+                                  (|SparseUnivariatePolynomial|
+                                   (|SparseUnivariatePolynomial| |#1|))))
+                                T)
+                              '((|tryTwoFactor|
+                                 ((|Factored|
+                                   (|SparseUnivariatePolynomial|
+                                    (|SparseUnivariatePolynomial| |#1|)))
+                                  (|SparseUnivariatePolynomial|
+                                   (|SparseUnivariatePolynomial| |#1|))))
+                                T)
+                              '((|generalSqFr|
+                                 ((|Factored|
+                                   (|SparseUnivariatePolynomial|
+                                    (|SparseUnivariatePolynomial| |#1|)))
+                                  (|SparseUnivariatePolynomial|
+                                   (|SparseUnivariatePolynomial| |#1|))))
+                                T)
+                              '((|twoFactor|
+                                 ((|Factored|
+                                   (|SparseUnivariatePolynomial|
+                                    (|SparseUnivariatePolynomial| |#1|)))
+                                  (|SparseUnivariatePolynomial|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|Integer|)))
+                                T)
+                              '((|doFactor|
+                                 ((|Factored|
+                                   (|SparseUnivariatePolynomial|
+                                    (|SparseUnivariatePolynomial| |#1|)))
+                                  (|SparseUnivariatePolynomial|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|Integer|) (|Boolean|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 106
+                                            '(0 6 0 7 0 8 0 9 2 8 10 0 0 11 1 8
+                                              12 0 13 1 8 14 0 15 1 8 0 0 16 2
+                                              8 0 0 0 17 0 12 0 18 2 12 10 0 0
+                                              19 1 12 6 0 20 2 12 0 6 14 21 1
+                                              12 14 0 22 2 8 0 12 14 23 1 12 0
+                                              0 24 2 6 0 0 14 25 2 12 0 26 0 27
+                                              2 12 28 0 14 29 0 30 0 31 1 12 32
+                                              0 33 1 34 12 0 35 1 8 0 12 36 1
+                                              34 39 0 40 2 30 0 8 42 43 1 8 12
+                                              0 44 2 8 28 0 12 45 1 8 32 0 46 1
+                                              30 8 0 47 1 30 42 0 48 2 37 10 0
+                                              0 49 2 8 0 0 14 50 2 8 0 0 0 51 0
+                                              6 0 52 0 8 0 53 0 12 0 54 2 12 10
+                                              0 0 55 2 42 0 0 0 56 2 8 0 12 0
+                                              57 1 61 34 12 62 2 14 10 0 0 63 1
+                                              8 0 0 64 1 12 0 0 65 2 8 0 66 0
+                                              67 0 6 14 68 0 6 14 69 2 14 28 0
+                                              0 70 2 8 28 0 14 71 1 72 8 8 73 1
+                                              8 74 0 75 2 42 41 0 76 78 2 8 10
+                                              0 0 80 2 30 0 8 14 81 2 30 0 8 14
+                                              82 2 30 0 0 0 83 0 30 0 84 2 14 0
+                                              0 85 86 2 76 0 85 0 87 0 6 0 88 1
+                                              6 0 85 89 2 12 6 0 6 90 1 6 10 0
+                                              91 2 93 12 92 8 94 2 12 0 0 0 95
+                                              2 14 10 0 0 96 2 12 0 0 0 97 1 12
+                                              0 6 98 2 100 8 99 12 101 4 103
+                                              102 8 102 12 85 104 2 6 10 0 0
+                                              105 1 6 0 0 106 2 0 30 8 76 79 1
+                                              0 30 8 59 1 0 30 8 60 1 0 30 8 58
+                                              3 0 30 8 76 10 77)))))
            '|lookupComplete|)) 

@@ -100,13 +100,39 @@
               |LIST2MAP;match;LLAMB;6| |LIST2MAP;match;LL2M;4|
               (12 . |minIndex|))
            '#(|match| 17) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 20
-                                                 '(2 8 13 6 0 14 2 9 7 0 13 15
-                                                   1 8 13 0 20 2 0 11 8 9 12 3
-                                                   0 11 8 9 7 17 3 0 7 8 9 6 10
-                                                   4 0 7 8 9 6 7 16 4 0 7 8 9 6
-                                                   11 18 3 0 11 8 9 11 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|match|
+                                 ((|Mapping| |#2| |#1|) (|List| |#1|)
+                                  (|List| |#2|)))
+                                T)
+                              '((|match|
+                                 (|#2| (|List| |#1|) (|List| |#2|) |#1|))
+                                T)
+                              '((|match|
+                                 ((|Mapping| |#2| |#1|) (|List| |#1|)
+                                  (|List| |#2|) |#2|))
+                                T)
+                              '((|match|
+                                 (|#2| (|List| |#1|) (|List| |#2|) |#1| |#2|))
+                                T)
+                              '((|match|
+                                 ((|Mapping| |#2| |#1|) (|List| |#1|)
+                                  (|List| |#2|) (|Mapping| |#2| |#1|)))
+                                T)
+                              '((|match|
+                                 (|#2| (|List| |#1|) (|List| |#2|) |#1|
+                                  (|Mapping| |#2| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 20
+                                            '(2 8 13 6 0 14 2 9 7 0 13 15 1 8
+                                              13 0 20 2 0 11 8 9 12 3 0 11 8 9
+                                              7 17 3 0 7 8 9 6 10 4 0 7 8 9 6 7
+                                              16 4 0 7 8 9 6 11 18 3 0 11 8 9
+                                              11 19)))))
            '|lookupComplete|)) 

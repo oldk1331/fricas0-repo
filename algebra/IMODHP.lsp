@@ -1993,34 +1993,85 @@
            '#(|merge_exponents| 221 |merge2| 230 |do_poly_integer| 241
               |do_modular_solve| 253)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 85
-                                                 '(3 9 6 7 6 8 10 2 11 0 0 0 12
-                                                   0 7 0 13 0 7 0 14 4 9 16 15
-                                                   17 6 8 18 2 9 16 19 6 20 4
-                                                   25 21 22 23 24 6 26 4 25 21
-                                                   22 23 27 6 28 2 23 6 0 6 29
-                                                   2 22 27 0 6 30 3 22 27 0 6
-                                                   27 31 3 23 6 0 6 6 32 2 21
-                                                   33 0 6 34 1 35 23 33 36 1 37
-                                                   22 33 38 4 25 39 22 23 23 6
-                                                   40 2 6 43 0 0 44 2 6 43 0 0
-                                                   45 2 6 43 0 0 46 3 53 27 0 6
-                                                   6 54 2 51 43 6 0 55 2 6 0 0
-                                                   0 56 1 58 0 57 59 1 58 60 0
-                                                   61 1 6 58 0 62 2 63 0 6 6 64
-                                                   2 47 51 0 6 65 2 51 43 0 0
-                                                   66 1 23 58 0 67 2 6 0 0 0 68
-                                                   3 63 60 27 6 0 69 5 63 71 0
-                                                   6 23 23 48 72 1 73 6 6 74 1
-                                                   75 0 6 76 3 75 60 27 6 0 77
-                                                   2 75 78 0 23 79 5 0 47 6 23
-                                                   48 23 48 49 7 0 50 6 51 51
-                                                   23 48 23 48 52 8 0 81 82 83
-                                                   23 24 27 17 17 84 85 6 0 41
-                                                   22 23 24 27 6 17 42)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|do_modular_solve|
+                                 ((|Union|
+                                   (|Record|
+                                    (|:| |basis|
+                                         (|TwoDimensionalArray| (|U32Vector|)))
+                                    (|:| |defects| (|Vector| (|Integer|)))
+                                    (|:| |cinds| (|Vector| (|Integer|))))
+                                   "no_solution")
+                                  (|Vector| (|U32Vector|))
+                                  (|Vector| (|Integer|)) (|NonNegativeInteger|)
+                                  (|U32Vector|) (|Integer|) (|Symbol|)))
+                                T)
+                              '((|do_poly_integer|
+                                 ((|Union|
+                                   (|Record|
+                                    (|:| |defects| (|Vector| (|Integer|)))
+                                    (|:| |cinds| (|Vector| (|Integer|)))
+                                    (|:| |rowlen| (|Integer|))
+                                    (|:| |offsetdata| (|Vector| (|Integer|)))
+                                    (|:| |expdata| (|SortedExponentVector|))
+                                    (|:| |coeffdata|
+                                         (|PrimitiveArray| (|Integer|))))
+                                   "no_solution")
+                                  (|List| (|Symbol|))
+                                  (|List|
+                                   (|PrimitiveArray|
+                                    (|Fraction| (|Polynomial| (|Integer|)))))
+                                  (|Vector| (|Integer|)) (|NonNegativeInteger|)
+                                  (|U32Vector|) (|Symbol|) (|Symbol|)
+                                  (|Mapping| (|Vector| (|U32Vector|))
+                                             (|List| (|U32Vector|)) (|Integer|)
+                                             (|Integer|))))
+                                T)
+                              '((|merge_exponents|
+                                 ((|List| (|List| (|Integer|))) (|Integer|)
+                                  (|Vector| (|Integer|))
+                                  (|SortedExponentVector|)
+                                  (|Vector| (|Integer|))
+                                  (|SortedExponentVector|)))
+                                T)
+                              '((|merge2|
+                                 ((|Record|
+                                   (|:| |offsetdata| (|Vector| (|Integer|)))
+                                   (|:| |expdata| (|SortedExponentVector|)))
+                                  (|Integer|) (|List| (|Integer|))
+                                  (|List| (|Integer|)) (|Vector| (|Integer|))
+                                  (|SortedExponentVector|)
+                                  (|Vector| (|Integer|))
+                                  (|SortedExponentVector|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 85
+                                            '(3 9 6 7 6 8 10 2 11 0 0 0 12 0 7
+                                              0 13 0 7 0 14 4 9 16 15 17 6 8 18
+                                              2 9 16 19 6 20 4 25 21 22 23 24 6
+                                              26 4 25 21 22 23 27 6 28 2 23 6 0
+                                              6 29 2 22 27 0 6 30 3 22 27 0 6
+                                              27 31 3 23 6 0 6 6 32 2 21 33 0 6
+                                              34 1 35 23 33 36 1 37 22 33 38 4
+                                              25 39 22 23 23 6 40 2 6 43 0 0 44
+                                              2 6 43 0 0 45 2 6 43 0 0 46 3 53
+                                              27 0 6 6 54 2 51 43 6 0 55 2 6 0
+                                              0 0 56 1 58 0 57 59 1 58 60 0 61
+                                              1 6 58 0 62 2 63 0 6 6 64 2 47 51
+                                              0 6 65 2 51 43 0 0 66 1 23 58 0
+                                              67 2 6 0 0 0 68 3 63 60 27 6 0 69
+                                              5 63 71 0 6 23 23 48 72 1 73 6 6
+                                              74 1 75 0 6 76 3 75 60 27 6 0 77
+                                              2 75 78 0 23 79 5 0 47 6 23 48 23
+                                              48 49 7 0 50 6 51 51 23 48 23 48
+                                              52 8 0 81 82 83 23 24 27 17 17 84
+                                              85 6 0 41 22 23 24 27 6 17
+                                              42)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|InnerModularHermitePade| 'NILADIC T) 

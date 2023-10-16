@@ -91,11 +91,23 @@
            '#(|torusSurface| 7 |projectiveSpace| 11 |kleinBottle| 16 |dunceHat|
               20 |circle| 24)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(3 10 0 7 8 9 11 0 0 10 14 1
-                                                   0 10 15 16 0 0 10 17 0 0 10
-                                                   13 0 0 10 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|circle| ((|DeltaComplex| |#1|))) T)
+                                   '((|dunceHat| ((|DeltaComplex| |#1|))) T)
+                                   '((|torusSurface| ((|DeltaComplex| |#1|)))
+                                     T)
+                                   '((|projectiveSpace|
+                                      ((|DeltaComplex| |#1|) (|Integer|)))
+                                     T)
+                                   '((|kleinBottle| ((|DeltaComplex| |#1|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(3 10 0 7 8 9 11 0 0 10 14 1 0 10
+                                              15 16 0 0 10 17 0 0 10 13 0 0 10
+                                              12)))))
            '|lookupComplete|)) 

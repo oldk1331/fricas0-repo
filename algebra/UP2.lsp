@@ -61,10 +61,19 @@
               (|UnivariatePolynomialCategoryFunctions2| 7 12 9 10) (0 . |map|)
               |UP2;map;MUpUp;1|)
            '#(|map| 6) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 15
-                                                 '(2 13 10 11 12 14 2 0 10 11
-                                                   12 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|UnivariatePolynomial| |#3| |#4|)
+                                  (|Mapping| |#4| |#2|)
+                                  (|UnivariatePolynomial| |#1| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 15
+                                            '(2 13 10 11 12 14 2 0 10 11 12
+                                              15)))))
            '|lookupComplete|)) 

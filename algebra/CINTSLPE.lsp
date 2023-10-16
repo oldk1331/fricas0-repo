@@ -148,14 +148,24 @@
               (|Vector| 14) (48 . |solveid|)
               |CINTSLPE;solveLinearPolynomialEquation;LSupU;1|)
            '#(|solveLinearPolynomialEquation| 55) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 31
-                                                 '(1 6 0 9 10 2 14 13 0 0 15 1
-                                                   17 16 0 18 0 6 0 19 0 7 0 20
-                                                   2 7 0 6 6 21 3 23 22 16 7 14
-                                                   24 2 6 0 0 0 25 1 26 13 6 27
-                                                   3 23 28 17 7 29 30 2 0 28 14
-                                                   17 31)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solveLinearPolynomialEquation|
+                                 ((|Union|
+                                   (|List| (|SparseUnivariatePolynomial| |#2|))
+                                   "failed")
+                                  (|List| (|SparseUnivariatePolynomial| |#2|))
+                                  (|SparseUnivariatePolynomial| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 31
+                                            '(1 6 0 9 10 2 14 13 0 0 15 1 17 16
+                                              0 18 0 6 0 19 0 7 0 20 2 7 0 6 6
+                                              21 3 23 22 16 7 14 24 2 6 0 0 0
+                                              25 1 26 13 6 27 3 23 28 17 7 29
+                                              30 2 0 28 14 17 31)))))
            '|lookupComplete|)) 

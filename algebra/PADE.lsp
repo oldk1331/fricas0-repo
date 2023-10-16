@@ -393,9 +393,9 @@
               (5 . |reductum|) (10 . |Zero|) (14 . |coefficient|)
               (20 . |monomial|) (26 . +) (32 . |quoByVar|) (|Fraction| 8)
               (37 . |coerce|) (42 . |One|) (46 . |One|) (50 . /) (56 . +)
-              (|Union| 17 '"failed") |PADE;pade;2Nni2PSU;5| (|List| 8)
+              (|Union| 17 '#1="failed") |PADE;pade;2Nni2PSU;5| (|List| 8)
               (|Stream| 8) (62 . |coerce|) (|ContinuedFraction| 8)
-              (67 . |continuedFraction|) (|Union| 28 '"failed")
+              (67 . |continuedFraction|) (|Union| 28 '#2="failed")
               |PADE;padecf;2Nni2PSU;6| (|Boolean|) (74 . |zero?|)
               (79 . |order|) (84 . |Zero|) (88 . |Zero|) (92 . >)
               (98 . |zero?|) (103 . |coefficient|) (109 . |One|) (113 . /)
@@ -403,23 +403,35 @@
               (|Union| $ '"failed") (143 . |exquo|) (149 . =)
               (155 . |minimumDegree|))
            '#(|padecf| 160 |pade| 168) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 49
-                                                 '(1 8 9 0 10 1 8 0 0 11 0 8 0
-                                                   12 2 7 6 0 9 13 2 8 0 6 9 14
-                                                   2 8 0 0 0 15 1 7 0 0 16 1 17
-                                                   0 8 18 0 6 0 19 0 7 0 20 2
-                                                   17 0 0 0 21 2 17 0 0 0 22 1
-                                                   26 0 25 27 3 28 0 8 26 26 29
-                                                   1 7 32 0 33 1 7 9 0 34 0 6 0
-                                                   35 0 7 0 36 2 9 32 0 0 37 1
-                                                   6 32 0 38 2 8 6 0 9 39 0 8 0
-                                                   40 2 8 0 0 6 41 2 8 0 0 0 42
-                                                   2 8 0 6 0 43 2 8 0 0 0 44 2
-                                                   7 0 6 9 45 2 8 46 0 0 47 2 8
-                                                   32 0 0 48 1 8 9 0 49 4 0 30
-                                                   9 9 7 7 31 4 0 23 9 9 7 7
-                                                   24)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|pade|
+                                 ((|Union| (|Fraction| |#3|) #1#)
+                                  (|NonNegativeInteger|) (|NonNegativeInteger|)
+                                  |#2| |#2|))
+                                T)
+                              '((|padecf|
+                                 ((|Union| (|ContinuedFraction| |#3|) #2#)
+                                  (|NonNegativeInteger|) (|NonNegativeInteger|)
+                                  |#2| |#2|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 49
+                                            '(1 8 9 0 10 1 8 0 0 11 0 8 0 12 2
+                                              7 6 0 9 13 2 8 0 6 9 14 2 8 0 0 0
+                                              15 1 7 0 0 16 1 17 0 8 18 0 6 0
+                                              19 0 7 0 20 2 17 0 0 0 21 2 17 0
+                                              0 0 22 1 26 0 25 27 3 28 0 8 26
+                                              26 29 1 7 32 0 33 1 7 9 0 34 0 6
+                                              0 35 0 7 0 36 2 9 32 0 0 37 1 6
+                                              32 0 38 2 8 6 0 9 39 0 8 0 40 2 8
+                                              0 0 6 41 2 8 0 0 0 42 2 8 0 6 0
+                                              43 2 8 0 0 0 44 2 7 0 6 9 45 2 8
+                                              46 0 0 47 2 8 32 0 0 48 1 8 9 0
+                                              49 4 0 30 9 9 7 7 31 4 0 23 9 9 7
+                                              7 24)))))
            '|lookupComplete|)) 

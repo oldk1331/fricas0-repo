@@ -54,10 +54,19 @@
               (|ParametricSurface| 7) (6 . |surface|) (|Mapping| 7 6)
               |PARSU2;map;MPsPs;1|)
            '#(|map| 13) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 14
-                                                 '(2 9 6 0 8 10 3 11 0 7 7 7 12
-                                                   2 0 11 13 9 14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|ParametricSurface| |#2|)
+                                  (|Mapping| |#2| |#1|)
+                                  (|ParametricSurface| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 14
+                                            '(2 9 6 0 8 10 3 11 0 7 7 7 12 2 0
+                                              11 13 9 14)))))
            '|lookupComplete|)) 

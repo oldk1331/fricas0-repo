@@ -125,19 +125,50 @@
               (38 . |makeViewport2D|) (43 . |makeViewport2D|)
               |VIEW;coerce;GiTdv;6|)
            '#(|graphCurves| 49 |drawCurves| 69 |coerce| 84) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 30
-                                                 '(0 7 6 8 0 7 6 9 0 7 10 11 5
-                                                   12 0 13 18 18 19 14 20 0 21
-                                                   0 24 2 21 0 0 14 25 3 21 26
-                                                   0 12 10 27 1 21 0 0 28 2 21
-                                                   0 12 14 29 5 0 12 13 6 6 10
-                                                   14 15 2 0 12 13 14 17 1 0 12
-                                                   13 16 5 0 21 13 6 6 10 14 22
-                                                   2 0 21 13 14 23 1 0 21 12
-                                                   30)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|graphCurves|
+                                 ((|GraphImage|)
+                                  (|List| (|List| (|Point| (|DoubleFloat|))))
+                                  (|Palette|) (|Palette|) (|PositiveInteger|)
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|graphCurves|
+                                 ((|GraphImage|)
+                                  (|List| (|List| (|Point| (|DoubleFloat|))))))
+                                T)
+                              '((|graphCurves|
+                                 ((|GraphImage|)
+                                  (|List| (|List| (|Point| (|DoubleFloat|))))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|drawCurves|
+                                 ((|TwoDimensionalViewport|)
+                                  (|List| (|List| (|Point| (|DoubleFloat|))))
+                                  (|Palette|) (|Palette|) (|PositiveInteger|)
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|drawCurves|
+                                 ((|TwoDimensionalViewport|)
+                                  (|List| (|List| (|Point| (|DoubleFloat|))))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|coerce|
+                                 ((|TwoDimensionalViewport|) (|GraphImage|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 30
+                                            '(0 7 6 8 0 7 6 9 0 7 10 11 5 12 0
+                                              13 18 18 19 14 20 0 21 0 24 2 21
+                                              0 0 14 25 3 21 26 0 12 10 27 1 21
+                                              0 0 28 2 21 0 12 14 29 5 0 12 13
+                                              6 6 10 14 15 2 0 12 13 14 17 1 0
+                                              12 13 16 5 0 21 13 6 6 10 14 22 2
+                                              0 21 13 14 23 1 0 21 12 30)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ViewportPackage| 'NILADIC T) 

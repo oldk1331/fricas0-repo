@@ -73,13 +73,30 @@
            '#(|OMmakeConn| 0 |OMconnectTCP| 5 |OMconnOutDevice| 12
               |OMconnInDevice| 17 |OMcloseConn| 22 |OMbindTCP| 27)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(1 0 0 6 7 3 0 13 0 14 6 15 1
-                                                   0 10 0 12 1 0 10 0 11 1 0 8
-                                                   0 9 2 0 13 0 6 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|OMmakeConn| ($$ (|SingleInteger|))) T)
+                                   '((|OMcloseConn| ((|Void|) $$)) T)
+                                   '((|OMconnInDevice| ((|OpenMathDevice|) $$))
+                                     T)
+                                   '((|OMconnOutDevice|
+                                      ((|OpenMathDevice|) $$))
+                                     T)
+                                   '((|OMconnectTCP|
+                                      ((|Boolean|) $$ (|String|)
+                                       (|SingleInteger|)))
+                                     T)
+                                   '((|OMbindTCP|
+                                      ((|Boolean|) $$ (|SingleInteger|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(1 0 0 6 7 3 0 13 0 14 6 15 1 0 10
+                                              0 12 1 0 10 0 11 1 0 8 0 9 2 0 13
+                                              0 6 16)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OpenMathConnection| 'NILADIC T) 

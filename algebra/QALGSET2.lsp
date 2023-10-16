@@ -283,24 +283,48 @@
               (151 . |quasiAlgebraicSet|) (157 . |setStatus|)
               |QALGSET2;radicalSimplify;2Qas;5|)
            '#(|radicalSimplify| 163) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 63
-                                                 '(0 7 0 8 1 12 11 7 13 1 15 7
-                                                   0 16 1 17 0 12 18 2 12 19 0
-                                                   0 20 0 21 0 22 1 12 7 0 23 1
-                                                   15 11 7 24 1 21 0 15 25 1 17
-                                                   0 26 27 3 30 17 28 29 21 31
-                                                   1 17 32 0 33 1 17 26 0 34 1
-                                                   21 0 26 35 3 38 21 36 37 17
-                                                   39 1 41 40 0 42 2 40 19 0 0
-                                                   43 1 41 44 0 45 1 41 21 0 46
-                                                   2 17 0 0 0 47 0 17 0 48 2 17
-                                                   0 0 0 49 1 51 0 50 52 1 53
-                                                   51 51 54 1 51 50 0 55 2 50
-                                                   19 17 0 56 0 41 0 57 2 58 21
-                                                   21 44 59 1 21 0 0 60 2 41 0
-                                                   44 21 61 2 41 0 0 40 62 1 0
-                                                   41 41 63)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|radicalSimplify|
+                                 ((|QuasiAlgebraicSet| (|Fraction| (|Integer|))
+                                                       (|OrderedVariableList|
+                                                        |#1|)
+                                                       (|DirectProduct|
+                                                        (|#| |#1|)
+                                                        (|NonNegativeInteger|))
+                                                       (|DistributedMultivariatePolynomial|
+                                                        |#1|
+                                                        (|Fraction|
+                                                         (|Integer|))))
+                                  (|QuasiAlgebraicSet| (|Fraction| (|Integer|))
+                                                       (|OrderedVariableList|
+                                                        |#1|)
+                                                       (|DirectProduct|
+                                                        (|#| |#1|)
+                                                        (|NonNegativeInteger|))
+                                                       (|DistributedMultivariatePolynomial|
+                                                        |#1|
+                                                        (|Fraction|
+                                                         (|Integer|))))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 63
+                                            '(0 7 0 8 1 12 11 7 13 1 15 7 0 16
+                                              1 17 0 12 18 2 12 19 0 0 20 0 21
+                                              0 22 1 12 7 0 23 1 15 11 7 24 1
+                                              21 0 15 25 1 17 0 26 27 3 30 17
+                                              28 29 21 31 1 17 32 0 33 1 17 26
+                                              0 34 1 21 0 26 35 3 38 21 36 37
+                                              17 39 1 41 40 0 42 2 40 19 0 0 43
+                                              1 41 44 0 45 1 41 21 0 46 2 17 0
+                                              0 0 47 0 17 0 48 2 17 0 0 0 49 1
+                                              51 0 50 52 1 53 51 51 54 1 51 50
+                                              0 55 2 50 19 17 0 56 0 41 0 57 2
+                                              58 21 21 44 59 1 21 0 0 60 2 41 0
+                                              44 21 61 2 41 0 0 40 62 1 0 41 41
+                                              63)))))
            '|lookupComplete|)) 

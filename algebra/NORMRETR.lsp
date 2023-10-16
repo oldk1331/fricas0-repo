@@ -166,19 +166,30 @@
               (99 . |reductum|) (104 . |monomial|) (110 . +)
               (|Union| 27 '"failed") |NORMRETR;retractIfCan;ExtPU;3|)
            '#(|retractIfCan| 116 |normFactors| 121 |Frobenius| 126) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 43
-                                                 '(2 13 12 9 0 14 0 9 0 16 2 9
-                                                   12 0 0 17 1 7 0 0 18 1 9 8 0
-                                                   19 2 8 0 20 0 21 1 9 22 0 23
-                                                   2 9 0 8 22 24 2 9 0 0 0 25 1
-                                                   9 0 0 26 0 27 0 28 0 29 0 30
-                                                   0 8 0 31 2 8 12 0 0 32 1 8 7
-                                                   0 33 1 7 34 0 35 1 8 22 0 36
-                                                   2 29 0 6 22 37 2 29 0 0 0 38
-                                                   1 8 0 0 39 2 27 0 29 22 40 2
-                                                   27 0 0 0 41 1 0 42 9 43 1 0
-                                                   13 9 15 1 0 9 9 11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|normFactors| ((|List| |#4|) |#4|)) T)
+                                   '((|retractIfCan|
+                                      ((|Union|
+                                        (|SparseUnivariatePolynomial|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                        "failed")
+                                       |#4|))
+                                     T)
+                                   '((|Frobenius| (|#4| |#4|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 43
+                                            '(2 13 12 9 0 14 0 9 0 16 2 9 12 0
+                                              0 17 1 7 0 0 18 1 9 8 0 19 2 8 0
+                                              20 0 21 1 9 22 0 23 2 9 0 8 22 24
+                                              2 9 0 0 0 25 1 9 0 0 26 0 27 0 28
+                                              0 29 0 30 0 8 0 31 2 8 12 0 0 32
+                                              1 8 7 0 33 1 7 34 0 35 1 8 22 0
+                                              36 2 29 0 6 22 37 2 29 0 0 0 38 1
+                                              8 0 0 39 2 27 0 29 22 40 2 27 0 0
+                                              0 41 1 0 42 9 43 1 0 13 9 15 1 0
+                                              9 9 11)))))
            '|lookupComplete|)) 

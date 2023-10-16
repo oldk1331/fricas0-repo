@@ -486,19 +486,93 @@
            '#(|lcz| 50 |lcx0| 56 |coeffs1| 62 |coeffs0| 68 |alg_trial_division|
               75 |alg_reduce0| 84 |alg_reduce| 92)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 32
-                                                 '(0 6 0 7 3 6 0 0 11 12 13 2 6
-                                                   0 0 0 14 0 6 0 15 2 19 18 0
-                                                   0 20 1 6 0 24 25 2 6 26 0 0
-                                                   27 2 6 0 0 0 28 2 6 18 0 0
-                                                   31 2 0 16 6 11 17 2 0 8 6 9
-                                                   10 2 0 21 6 9 23 3 0 21 6 9
-                                                   21 22 5 0 18 6 6 21 9 9 32 4
-                                                   0 6 6 6 9 11 29 4 0 6 6 21 9
-                                                   9 30)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|lcx0|
+                                 ((|Record|
+                                   (|:| |lcx0lc|
+                                        (|SparseMultivariatePolynomial|
+                                         (|Integer|) (|Symbol|)))
+                                   (|:| |lcx0m|
+                                        (|SparseMultivariatePolynomial|
+                                         (|Integer|) (|Symbol|))))
+                                  (|SparseMultivariatePolynomial| (|Integer|)
+                                                                  (|Symbol|))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|lcz|
+                                 ((|Record|
+                                   (|:| |lczlc|
+                                        (|SparseMultivariatePolynomial|
+                                         (|Integer|) (|Symbol|)))
+                                   (|:| |k| (|Integer|)))
+                                  (|SparseMultivariatePolynomial| (|Integer|)
+                                                                  (|Symbol|))
+                                  (|Symbol|)))
+                                T)
+                              '((|coeffs0|
+                                 ((|List|
+                                   (|SparseMultivariatePolynomial| (|Integer|)
+                                                                   (|Symbol|)))
+                                  (|SparseMultivariatePolynomial| (|Integer|)
+                                                                  (|Symbol|))
+                                  (|List| (|Symbol|))
+                                  (|List|
+                                   (|SparseMultivariatePolynomial| (|Integer|)
+                                                                   (|Symbol|)))))
+                                T)
+                              '((|coeffs1|
+                                 ((|List|
+                                   (|SparseMultivariatePolynomial| (|Integer|)
+                                                                   (|Symbol|)))
+                                  (|SparseMultivariatePolynomial| (|Integer|)
+                                                                  (|Symbol|))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|alg_reduce0|
+                                 ((|SparseMultivariatePolynomial| (|Integer|)
+                                                                  (|Symbol|))
+                                  (|SparseMultivariatePolynomial| (|Integer|)
+                                                                  (|Symbol|))
+                                  (|SparseMultivariatePolynomial| (|Integer|)
+                                                                  (|Symbol|))
+                                  (|List| (|Symbol|)) (|Symbol|)))
+                                T)
+                              '((|alg_reduce|
+                                 ((|SparseMultivariatePolynomial| (|Integer|)
+                                                                  (|Symbol|))
+                                  (|SparseMultivariatePolynomial| (|Integer|)
+                                                                  (|Symbol|))
+                                  (|List|
+                                   (|SparseMultivariatePolynomial| (|Integer|)
+                                                                   (|Symbol|)))
+                                  (|List| (|Symbol|)) (|List| (|Symbol|))))
+                                T)
+                              '((|alg_trial_division|
+                                 ((|Boolean|)
+                                  (|SparseMultivariatePolynomial| (|Integer|)
+                                                                  (|Symbol|))
+                                  (|SparseMultivariatePolynomial| (|Integer|)
+                                                                  (|Symbol|))
+                                  (|List|
+                                   (|SparseMultivariatePolynomial| (|Integer|)
+                                                                   (|Symbol|)))
+                                  (|List| (|Symbol|)) (|List| (|Symbol|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 32
+                                            '(0 6 0 7 3 6 0 0 11 12 13 2 6 0 0
+                                              0 14 0 6 0 15 2 19 18 0 0 20 1 6
+                                              0 24 25 2 6 26 0 0 27 2 6 0 0 0
+                                              28 2 6 18 0 0 31 2 0 16 6 11 17 2
+                                              0 8 6 9 10 2 0 21 6 9 23 3 0 21 6
+                                              9 21 22 5 0 18 6 6 21 9 9 32 4 0
+                                              6 6 6 9 11 29 4 0 6 6 21 9 9
+                                              30)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|PrimGCD| 'NILADIC T) 

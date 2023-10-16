@@ -62,12 +62,19 @@
               |STNSR;tensorMap;SMS;1| (|Mapping| $) (24 . |delay|)
               (29 . |concat|))
            '#(|tensorMap| 35) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(1 8 7 0 9 0 8 0 10 1 8 6 0
-                                                   11 1 8 0 12 13 1 8 0 0 14 1
-                                                   8 0 17 18 2 8 0 0 0 19 2 0 8
-                                                   8 15 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|tensorMap|
+                                 ((|Stream| |#1|) (|Stream| |#1|)
+                                  (|Mapping| (|List| |#1|) |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(1 8 7 0 9 0 8 0 10 1 8 6 0 11 1 8
+                                              0 12 13 1 8 0 0 14 1 8 0 17 18 2
+                                              8 0 0 0 19 2 0 8 8 15 16)))))
            '|lookupComplete|)) 

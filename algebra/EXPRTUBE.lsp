@@ -287,25 +287,69 @@
               |EXPRTUBE;constantToUnaryFunction;DfM;5|
               |EXPRTUBE;tubePlot;3EMSDfISTp;6| |EXPRTUBE;tubePlot;3EMSDfITp;7|)
            '#(|tubePlot| 107 |constantToUnaryFunction| 153) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 48
-                                                 '(1 7 6 0 8 0 7 0 9 2 11 10 0
-                                                   0 12 2 15 13 7 14 16 2 7 0 0
-                                                   14 17 2 7 0 0 18 19 2 7 0 0
-                                                   0 20 1 7 0 0 21 2 7 0 0 0 22
-                                                   2 7 0 0 0 23 2 7 0 0 0 24 5
-                                                   26 0 13 13 13 13 25 27 1 26
-                                                   28 0 29 1 26 30 0 31 1 33 28
-                                                   32 34 1 36 0 35 37 5 33 38
-                                                   36 36 36 39 28 40 3 41 0 26
-                                                   30 10 42 7 0 41 7 7 7 13 25
-                                                   13 32 45 8 0 41 7 7 7 13 25
-                                                   13 32 43 44 8 0 41 7 7 7 13
-                                                   25 39 32 43 47 7 0 41 7 7 7
-                                                   13 25 39 32 48 1 0 13 39
-                                                   46)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|constantToUnaryFunction|
+                                 ((|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|tubePlot|
+                                 ((|TubePlot| (|Plot3D|))
+                                  (|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Integer|)))
+                                T)
+                              '((|tubePlot|
+                                 ((|TubePlot| (|Plot3D|))
+                                  (|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Integer|) (|String|)))
+                                T)
+                              '((|tubePlot|
+                                 ((|TubePlot| (|Plot3D|))
+                                  (|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|)) (|DoubleFloat|)
+                                  (|Integer|)))
+                                T)
+                              '((|tubePlot|
+                                 ((|TubePlot| (|Plot3D|))
+                                  (|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|)) (|DoubleFloat|)
+                                  (|Integer|) (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 48
+                                            '(1 7 6 0 8 0 7 0 9 2 11 10 0 0 12
+                                              2 15 13 7 14 16 2 7 0 0 14 17 2 7
+                                              0 0 18 19 2 7 0 0 0 20 1 7 0 0 21
+                                              2 7 0 0 0 22 2 7 0 0 0 23 2 7 0 0
+                                              0 24 5 26 0 13 13 13 13 25 27 1
+                                              26 28 0 29 1 26 30 0 31 1 33 28
+                                              32 34 1 36 0 35 37 5 33 38 36 36
+                                              36 39 28 40 3 41 0 26 30 10 42 7
+                                              0 41 7 7 7 13 25 13 32 45 8 0 41
+                                              7 7 7 13 25 13 32 43 44 8 0 41 7
+                                              7 7 13 25 39 32 43 47 7 0 41 7 7
+                                              7 13 25 39 32 48 1 0 13 39
+                                              46)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ExpressionTubePlot| 'NILADIC T) 

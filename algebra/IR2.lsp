@@ -151,7 +151,7 @@
 (MAKEPROP '|IntegrationResultFunctions2| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|Union| 7 '"failed") (|Mapping| 7 6) (|Union| 6 '"failed")
+              (|Union| 7 '#1="failed") (|Mapping| 7 6) (|Union| 6 '#2="failed")
               |IR2;map;MUU;3| (|IntegrationResult| 6) (0 . |ratpart|)
               (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
                         (|:| |coeff| 40) (|:| |logand| 40))
@@ -163,25 +163,68 @@
               (|List| 20) (|Record| (|:| |integrand| 7) (|:| |intvar| 7))
               (|List| 22) (|IntegrationResult| 7) (15 . |mkAnswer|)
               |IR2;map;MIrIr;4| (|Record| (|:| |ratpart| 7) (|:| |coeff| 7))
-              (|Union| 27 '"failed")
+              (|Union| 27 '#3="failed")
               (|Record| (|:| |ratpart| 6) (|:| |coeff| 6))
-              (|Union| 29 '"failed") |IR2;map;MUU;5|
+              (|Union| 29 '#4="failed") |IR2;map;MUU;5|
               (|Record| (|:| |coeff| 7) (|:| |logand| 7))
               (|Record| (|:| |mainpart| 7) (|:| |limitedlogs| (|List| 32)))
-              (|Union| 33 '"failed")
+              (|Union| 33 '#5="failed")
               (|Record| (|:| |coeff| 6) (|:| |logand| 6))
               (|Record| (|:| |mainpart| 6) (|:| |limitedlogs| (|List| 35)))
-              (|Union| 36 '"failed") |IR2;map;MUU;6|
+              (|Union| 36 '#6="failed") |IR2;map;MUU;6|
               (|SparseUnivariatePolynomial| 7) (|SparseUnivariatePolynomial| 6)
               (|SparseUnivariatePolynomialFunctions2| 6 7) (22 . |map|))
            '#(|map| 28) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 42
-                                                 '(1 12 6 0 13 1 12 15 0 16 1
-                                                   12 18 0 19 3 24 0 7 21 23 25
-                                                   2 41 39 9 40 42 2 0 28 9 30
-                                                   31 2 0 24 9 12 26 2 0 34 9
-                                                   37 38 2 0 8 9 10 11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|IntegrationResult| |#2|)
+                                  (|Mapping| |#2| |#1|)
+                                  (|IntegrationResult| |#1|)))
+                                T)
+                              '((|map|
+                                 ((|Union|
+                                   (|Record| (|:| |ratpart| |#2|)
+                                             (|:| |coeff| |#2|))
+                                   #3#)
+                                  (|Mapping| |#2| |#1|)
+                                  (|Union|
+                                   (|Record| (|:| |ratpart| |#1|)
+                                             (|:| |coeff| |#1|))
+                                   #4#)))
+                                T)
+                              '((|map|
+                                 ((|Union| |#2| #1#) (|Mapping| |#2| |#1|)
+                                  (|Union| |#1| #2#)))
+                                T)
+                              '((|map|
+                                 ((|Union|
+                                   (|Record| (|:| |mainpart| |#2|)
+                                             (|:| |limitedlogs|
+                                                  (|List|
+                                                   (|Record| (|:| |coeff| |#2|)
+                                                             (|:| |logand|
+                                                                  |#2|)))))
+                                   #5#)
+                                  (|Mapping| |#2| |#1|)
+                                  (|Union|
+                                   (|Record| (|:| |mainpart| |#1|)
+                                             (|:| |limitedlogs|
+                                                  (|List|
+                                                   (|Record| (|:| |coeff| |#1|)
+                                                             (|:| |logand|
+                                                                  |#1|)))))
+                                   #6#)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 42
+                                            '(1 12 6 0 13 1 12 15 0 16 1 12 18
+                                              0 19 3 24 0 7 21 23 25 2 41 39 9
+                                              40 42 2 0 28 9 30 31 2 0 24 9 12
+                                              26 2 0 34 9 37 38 2 0 8 9 10
+                                              11)))))
            '|lookupComplete|)) 

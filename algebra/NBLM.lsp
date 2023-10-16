@@ -777,30 +777,108 @@
               |naiveBeckermannLabahnMultipoint| 139 |naiveBeckermannLabahn1|
               155 |naiveBeckermannLabahn0| 177 |naiveBeckermannLabahn| 189)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 55
-                                                 '(0 6 0 7 2 11 19 0 0 20 2 21
-                                                   11 0 11 22 3 24 23 21 11 11
-                                                   25 2 6 19 0 0 28 1 16 0 29
-                                                   30 2 9 31 0 11 32 2 16 21 0
-                                                   11 33 1 31 19 0 34 1 31 6 0
-                                                   35 1 31 11 0 36 1 31 0 0 37
-                                                   2 10 11 0 11 38 3 16 21 0 11
-                                                   21 39 1 10 0 40 41 1 44 43
-                                                   16 45 1 46 43 10 47 3 10 11
-                                                   0 11 11 48 2 11 19 0 0 49 2
-                                                   11 0 0 0 50 6 24 23 21 21 11
-                                                   11 11 11 51 4 0 52 53 10 10
-                                                   11 54 4 0 52 16 10 10 11 55
-                                                   4 0 8 9 10 21 11 26 4 0 8 16
-                                                   10 21 11 27 7 0 8 16 10 6 11
-                                                   12 13 13 17 7 0 8 9 10 6 11
-                                                   12 13 13 14 8 0 23 16 16 10
-                                                   6 11 12 13 13 42 4 0 8 9 10
-                                                   6 11 15 4 0 8 16 10 6 11
-                                                   18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|naiveBeckermannLabahn|
+                                 ((|List| (|Any|)) (|Vector| (|U32Vector|))
+                                  (|Vector| (|Integer|)) (|NonNegativeInteger|)
+                                  (|Integer|)))
+                                T)
+                              '((|naiveBeckermannLabahn|
+                                 ((|List| (|Any|))
+                                  (|Vector|
+                                   (|SparseUnivariatePolynomial| (|Integer|)))
+                                  (|Vector| (|Integer|)) (|NonNegativeInteger|)
+                                  (|Integer|)))
+                                T)
+                              '((|naiveBeckermannLabahnMultipoint|
+                                 ((|List| (|Any|)) (|Vector| (|U32Vector|))
+                                  (|Vector| (|Integer|)) (|U32Vector|)
+                                  (|Integer|)))
+                                T)
+                              '((|naiveBeckermannLabahnMultipoint|
+                                 ((|List| (|Any|))
+                                  (|Vector|
+                                   (|SparseUnivariatePolynomial| (|Integer|)))
+                                  (|Vector| (|Integer|)) (|U32Vector|)
+                                  (|Integer|)))
+                                T)
+                              '((|naiveBeckermannLabahn1|
+                                 ((|List| (|Any|))
+                                  (|Vector|
+                                   (|SparseUnivariatePolynomial| (|Integer|)))
+                                  (|Vector| (|Integer|)) (|NonNegativeInteger|)
+                                  (|Integer|)
+                                  (|Mapping| (|Integer|) (|Integer|))
+                                  (|Mapping| (|Void|) (|U32Vector|) (|Integer|)
+                                             (|Integer|))
+                                  (|Mapping| (|Void|) (|U32Vector|) (|Integer|)
+                                             (|Integer|))))
+                                T)
+                              '((|naiveBeckermannLabahn1|
+                                 ((|List| (|Any|)) (|Vector| (|U32Vector|))
+                                  (|Vector| (|Integer|)) (|NonNegativeInteger|)
+                                  (|Integer|)
+                                  (|Mapping| (|Integer|) (|Integer|))
+                                  (|Mapping| (|Void|) (|U32Vector|) (|Integer|)
+                                             (|Integer|))
+                                  (|Mapping| (|Void|) (|U32Vector|) (|Integer|)
+                                             (|Integer|))))
+                                T)
+                              '((|naiveBeckermannLabahn0|
+                                 ((|Void|) (|Vector| (|U32Vector|))
+                                  (|Vector| (|U32Vector|))
+                                  (|Vector| (|Integer|)) (|NonNegativeInteger|)
+                                  (|Integer|)
+                                  (|Mapping| (|Integer|) (|Integer|))
+                                  (|Mapping| (|Void|) (|U32Vector|) (|Integer|)
+                                             (|Integer|))
+                                  (|Mapping| (|Void|) (|U32Vector|) (|Integer|)
+                                             (|Integer|))))
+                                T)
+                              '((|reduceBasis0|
+                                 ((|Record|
+                                   (|:| |basis|
+                                        (|TwoDimensionalArray| (|U32Vector|)))
+                                   (|:| |defects| (|Vector| (|Integer|)))
+                                   (|:| |cinds| (|Vector| (|Integer|))))
+                                  (|TwoDimensionalArray| (|U32Vector|))
+                                  (|Vector| (|Integer|)) (|Vector| (|Integer|))
+                                  (|Integer|)))
+                                T)
+                              '((|reduceBasis|
+                                 ((|Record|
+                                   (|:| |basis|
+                                        (|TwoDimensionalArray| (|U32Vector|)))
+                                   (|:| |defects| (|Vector| (|Integer|)))
+                                   (|:| |cinds| (|Vector| (|Integer|))))
+                                  (|Vector| (|U32Vector|))
+                                  (|Vector| (|Integer|)) (|Vector| (|Integer|))
+                                  (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 55
+                                            '(0 6 0 7 2 11 19 0 0 20 2 21 11 0
+                                              11 22 3 24 23 21 11 11 25 2 6 19
+                                              0 0 28 1 16 0 29 30 2 9 31 0 11
+                                              32 2 16 21 0 11 33 1 31 19 0 34 1
+                                              31 6 0 35 1 31 11 0 36 1 31 0 0
+                                              37 2 10 11 0 11 38 3 16 21 0 11
+                                              21 39 1 10 0 40 41 1 44 43 16 45
+                                              1 46 43 10 47 3 10 11 0 11 11 48
+                                              2 11 19 0 0 49 2 11 0 0 0 50 6 24
+                                              23 21 21 11 11 11 11 51 4 0 52 53
+                                              10 10 11 54 4 0 52 16 10 10 11 55
+                                              4 0 8 9 10 21 11 26 4 0 8 16 10
+                                              21 11 27 7 0 8 16 10 6 11 12 13
+                                              13 17 7 0 8 9 10 6 11 12 13 13 14
+                                              8 0 23 16 16 10 6 11 12 13 13 42
+                                              4 0 8 9 10 6 11 15 4 0 8 16 10 6
+                                              11 18)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|NaiveBeckermannLabahnModular| 'NILADIC T) 

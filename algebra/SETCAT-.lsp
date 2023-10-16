@@ -34,12 +34,17 @@
               (|List| 17) (16 . |tex|) (|String|) (21 . |concat|)
               (|Mapping| 17 17 17) (27 . |reduce|) |SETCAT-;latex;SS;2|)
            '#(|latex| 33 |hash| 38) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(2 6 7 7 0 8 1 6 11 0 12 1 13
-                                                   0 11 14 1 13 15 0 16 2 17 0
-                                                   0 0 18 2 15 17 19 0 20 1 0
-                                                   17 0 21 1 0 9 0 10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|latex| ((|String|) |#1|)) T)
+                                   '((|hash| ((|SingleInteger|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(2 6 7 7 0 8 1 6 11 0 12 1 13 0 11
+                                              14 1 13 15 0 16 2 17 0 0 0 18 2
+                                              15 17 19 0 20 1 0 17 0 21 1 0 9 0
+                                              10)))))
            '|lookupComplete|)) 

@@ -143,25 +143,55 @@
               |minimalPolynomial| 173 |discriminant| 178 |coordinates| 182
               |characteristicPolynomial| 187)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 54
-                                                 '(0 6 9 10 1 6 11 9 12 1 6 7 9
-                                                   14 2 6 11 0 9 16 2 6 18 0 9
-                                                   19 2 6 0 18 9 21 0 6 23 24 0
-                                                   7 0 25 1 27 26 0 28 2 6 0 0
-                                                   0 29 1 6 18 0 30 3 11 0 0 26
-                                                   18 31 1 11 0 0 32 1 6 11 0
-                                                   33 1 8 0 7 34 2 37 35 36 11
-                                                   38 0 6 0 39 0 7 0 40 2 8 0 7
-                                                   41 42 2 35 0 41 8 43 2 35 0
-                                                   0 0 44 1 35 8 0 45 1 0 8 0
-                                                   46 2 11 0 41 41 47 3 11 0 0
-                                                   26 18 48 1 11 49 0 50 2 18 7
-                                                   0 26 51 2 8 0 0 0 52 0 8 0
-                                                   53 1 0 8 0 54 0 0 11 13 1 0
-                                                   0 18 22 1 0 11 0 17 1 0 8 0
-                                                   54 0 0 7 15 1 0 18 0 20 1 0
-                                                   8 0 46)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|regularRepresentation|
+                                 ((|Matrix| |#2|) |#1|))
+                                T)
+                              '((|discriminant| (|#2|)) T)
+                              '((|traceMatrix| ((|Matrix| |#2|))) T)
+                              '((|coordinates| ((|Vector| |#2|) |#1|)) T)
+                              '((|coordinates|
+                                 ((|Matrix| |#2|) (|Vector| |#1|)))
+                                T)
+                              '((|represents| (|#1| (|Vector| |#2|))) T)
+                              '((|minimalPolynomial| (|#3| |#1|)) T)
+                              '((|characteristicPolynomial| (|#3| |#1|)) T)
+                              '((|traceMatrix|
+                                 ((|Matrix| |#2|) (|Vector| |#1|)))
+                                T)
+                              '((|discriminant| (|#2| (|Vector| |#1|))) T)
+                              '((|represents|
+                                 (|#1| (|Vector| |#2|) (|Vector| |#1|)))
+                                T)
+                              '((|coordinates|
+                                 ((|Matrix| |#2|) (|Vector| |#1|)
+                                  (|Vector| |#1|)))
+                                T)
+                              '((|coordinates|
+                                 ((|Vector| |#2|) |#1| (|Vector| |#1|)))
+                                T)
+                              '((|regularRepresentation|
+                                 ((|Matrix| |#2|) |#1| (|Vector| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 54
+                                            '(0 6 9 10 1 6 11 9 12 1 6 7 9 14 2
+                                              6 11 0 9 16 2 6 18 0 9 19 2 6 0
+                                              18 9 21 0 6 23 24 0 7 0 25 1 27
+                                              26 0 28 2 6 0 0 0 29 1 6 18 0 30
+                                              3 11 0 0 26 18 31 1 11 0 0 32 1 6
+                                              11 0 33 1 8 0 7 34 2 37 35 36 11
+                                              38 0 6 0 39 0 7 0 40 2 8 0 7 41
+                                              42 2 35 0 41 8 43 2 35 0 0 0 44 1
+                                              35 8 0 45 1 0 8 0 46 2 11 0 41 41
+                                              47 3 11 0 0 26 18 48 1 11 49 0 50
+                                              2 18 7 0 26 51 2 8 0 0 0 52 0 8 0
+                                              53 1 0 8 0 54 0 0 11 13 1 0 0 18
+                                              22 1 0 11 0 17 1 0 8 0 54 0 0 7
+                                              15 1 0 18 0 20 1 0 8 0 46)))))
            '|lookupComplete|)) 

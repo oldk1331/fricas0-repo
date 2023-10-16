@@ -226,21 +226,27 @@
               (98 . |numberOfChildren|) (103 . |close!|)
               |EXP3D;writeObj;SsSV;5|)
            '#(|writeObj| 108) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 43
-                                                 '(1 7 6 0 8 1 7 9 0 10 2 11 0
-                                                   0 0 12 2 14 13 0 13 15 2 17
-                                                   11 0 16 18 1 11 9 0 19 2 11
-                                                   9 0 16 20 1 13 0 6 21 1 23
-                                                   22 0 24 1 22 13 0 25 1 26 0
-                                                   13 27 2 14 0 26 13 28 1 7 29
-                                                   0 30 1 31 9 0 32 2 31 23 0
-                                                   16 33 1 35 34 13 36 2 9 37 0
-                                                   0 38 2 39 7 0 16 40 1 7 9 0
-                                                   41 1 14 0 0 42 2 0 34 7 13
-                                                   43)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|writeObj|
+                                 ((|Void|) (|SubSpace| 3 (|DoubleFloat|))
+                                  (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 43
+                                            '(1 7 6 0 8 1 7 9 0 10 2 11 0 0 0
+                                              12 2 14 13 0 13 15 2 17 11 0 16
+                                              18 1 11 9 0 19 2 11 9 0 16 20 1
+                                              13 0 6 21 1 23 22 0 24 1 22 13 0
+                                              25 1 26 0 13 27 2 14 0 26 13 28 1
+                                              7 29 0 30 1 31 9 0 32 2 31 23 0
+                                              16 33 1 35 34 13 36 2 9 37 0 0 38
+                                              2 39 7 0 16 40 1 7 9 0 41 1 14 0
+                                              0 42 2 0 34 7 13 43)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Export3D| 'NILADIC T) 

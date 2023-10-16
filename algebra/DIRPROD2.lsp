@@ -68,13 +68,30 @@
               (16 . |scan|) |DIRPROD2;scan;MDpBDp;2| (23 . |reduce|)
               |DIRPROD2;reduce;MDp2B;3|)
            '#(|scan| 30 |reduce| 37 |map| 44) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 23
-                                                 '(1 10 9 0 11 2 14 12 13 9 15
-                                                   1 16 0 12 17 3 14 12 19 9 8
-                                                   20 3 14 8 19 9 8 22 3 0 16
-                                                   19 10 8 21 3 0 8 19 10 8 23
-                                                   2 0 16 13 10 18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|scan|
+                                 ((|DirectProduct| |#1| |#3|)
+                                  (|Mapping| |#3| |#2| |#3|)
+                                  (|DirectProduct| |#1| |#2|) |#3|))
+                                T)
+                              '((|reduce|
+                                 (|#3| (|Mapping| |#3| |#2| |#3|)
+                                  (|DirectProduct| |#1| |#2|) |#3|))
+                                T)
+                              '((|map|
+                                 ((|DirectProduct| |#1| |#3|)
+                                  (|Mapping| |#3| |#2|)
+                                  (|DirectProduct| |#1| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 23
+                                            '(1 10 9 0 11 2 14 12 13 9 15 1 16
+                                              0 12 17 3 14 12 19 9 8 20 3 14 8
+                                              19 9 8 22 3 0 16 19 10 8 21 3 0 8
+                                              19 10 8 23 2 0 16 13 10 18)))))
            '|lookupComplete|)) 

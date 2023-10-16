@@ -91,14 +91,18 @@
               (36 . |monomial|) 'X (42 . |lift|) (47 . -) (53 . |resultant|)
               (59 . |characteristicPolynomial|))
            '#(|characteristicPolynomial| 64) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 27
-                                                 '(0 6 0 9 0 7 0 10 0 11 0 12 2
-                                                   7 0 6 11 13 2 16 14 15 7 17
-                                                   0 8 7 18 0 6 0 20 0 7 0 21 2
-                                                   14 0 7 11 22 1 8 7 0 24 2 14
-                                                   0 0 0 25 2 14 7 0 0 26 1 0 7
-                                                   8 27 1 0 7 8 27)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|characteristicPolynomial| (|#2| |#3|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 27
+                                            '(0 6 0 9 0 7 0 10 0 11 0 12 2 7 0
+                                              6 11 13 2 16 14 15 7 17 0 8 7 18
+                                              0 6 0 20 0 7 0 21 2 14 0 7 11 22
+                                              1 8 7 0 24 2 14 0 0 0 25 2 14 7 0
+                                              0 26 1 0 7 8 27 1 0 7 8 27)))))
            '|lookupComplete|)) 

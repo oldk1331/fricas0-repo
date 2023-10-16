@@ -360,19 +360,35 @@
            '#(|laplacian| 79 |jacobian| 85 |hessian| 91 |gradient| 97
               |divergence| 103 |bandedJacobian| 109 |bandedHessian| 117)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 37
-                                                 '(2 7 0 0 6 10 1 12 0 11 13 1
-                                                   9 14 0 15 0 7 0 17 2 12 7 0
-                                                   18 19 2 14 6 0 18 20 2 7 0 0
-                                                   0 21 1 8 18 0 22 2 8 7 0 18
-                                                   23 2 7 0 0 14 26 1 28 0 27
-                                                   29 0 7 0 32 3 7 0 0 6 33 34
-                                                   4 28 7 0 18 18 7 35 2 0 7 7
-                                                   9 25 2 0 28 8 9 31 2 0 28 7
-                                                   9 30 2 0 12 7 9 16 2 0 7 8 9
-                                                   24 4 0 28 8 9 33 33 37 3 0
-                                                   28 7 9 33 36)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|gradient| ((|Vector| |#2|) |#2| |#4|)) T)
+                              '((|divergence| (|#2| |#3| |#4|)) T)
+                              '((|laplacian| (|#2| |#2| |#4|)) T)
+                              '((|hessian| ((|Matrix| |#2|) |#2| |#4|)) T)
+                              '((|bandedHessian|
+                                 ((|Matrix| |#2|) |#2| |#4|
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|jacobian| ((|Matrix| |#2|) |#3| |#4|)) T)
+                              '((|bandedJacobian|
+                                 ((|Matrix| |#2|) |#3| |#4|
+                                  (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 37
+                                            '(2 7 0 0 6 10 1 12 0 11 13 1 9 14
+                                              0 15 0 7 0 17 2 12 7 0 18 19 2 14
+                                              6 0 18 20 2 7 0 0 0 21 1 8 18 0
+                                              22 2 8 7 0 18 23 2 7 0 0 14 26 1
+                                              28 0 27 29 0 7 0 32 3 7 0 0 6 33
+                                              34 4 28 7 0 18 18 7 35 2 0 7 7 9
+                                              25 2 0 28 8 9 31 2 0 28 7 9 30 2
+                                              0 12 7 9 16 2 0 7 8 9 24 4 0 28 8
+                                              9 33 33 37 3 0 28 7 9 33 36)))))
            '|lookupComplete|)) 

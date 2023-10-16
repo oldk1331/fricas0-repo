@@ -101,14 +101,21 @@
               (32 . |coerce|) (37 . -) (43 . +) (49 . *) (55 . *) (61 . +)
               |NEWTON;newton;LSup;3|)
            '#(|newton| 67) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(2 6 0 0 0 7 0 6 0 8 0 9 0 10
-                                                   2 9 0 6 11 12 2 15 6 0 14 16
-                                                   2 6 17 0 0 18 1 9 0 6 19 2 9
-                                                   0 0 0 20 2 6 0 0 0 21 2 6 0
-                                                   0 0 22 2 9 0 0 0 23 2 9 0 0
-                                                   0 24 1 0 9 15 25)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|newton|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|List| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(2 6 0 0 0 7 0 6 0 8 0 9 0 10 2 9
+                                              0 6 11 12 2 15 6 0 14 16 2 6 17 0
+                                              0 18 1 9 0 6 19 2 9 0 0 0 20 2 6
+                                              0 0 0 21 2 6 0 0 0 22 2 9 0 0 0
+                                              23 2 9 0 0 0 24 1 0 9 15 25)))))
            '|lookupComplete|)) 

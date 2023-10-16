@@ -404,27 +404,51 @@
               (|SparseUnivariatePolynomial| $) (185 . |zeroOf|)
               (190 . |factor|) (195 . |factor|) (200 . |factor1|))
            '#(|factor1| 205 |factor| 210) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 73
-                                                 '(0 8 0 9 1 7 11 0 12 0 6 0 16
-                                                   0 7 0 17 0 18 0 19 2 22 21 8
-                                                   18 23 2 18 24 0 0 25 1 18 0
-                                                   0 26 2 18 0 0 0 27 3 30 28 8
-                                                   14 29 31 2 28 0 0 0 32 0 8 0
-                                                   33 0 8 0 34 1 8 35 0 36 2 8
-                                                   18 0 35 37 2 8 0 18 0 38 2 8
-                                                   0 0 0 39 2 8 0 0 0 40 2 8 41
-                                                   0 0 42 0 6 0 43 2 35 24 0 0
-                                                   44 1 8 18 0 45 0 18 0 46 2
-                                                   18 24 0 0 47 1 8 0 18 48 2 8
-                                                   0 0 0 49 2 13 0 50 0 51 0 7
-                                                   0 52 2 35 24 0 0 53 1 8 0 0
-                                                   54 2 13 0 0 8 55 2 35 0 56 0
-                                                   57 1 60 59 0 61 1 63 0 62 64
-                                                   2 67 65 66 7 68 1 6 0 69 70
-                                                   1 7 11 0 71 1 0 13 8 72 1 0
-                                                   13 8 73 1 1 13 8 73 1 1 13 8
-                                                   72 2 0 13 8 14 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|factor|
+                                 ((|List|
+                                   (|LinearOrdinaryDifferentialOperator1|
+                                    (|Fraction| |#2|)))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| |#2|))
+                                  (|Mapping| (|List| |#1|) |#2|)))
+                                T)
+                              '((|factor|
+                                 ((|List|
+                                   (|LinearOrdinaryDifferentialOperator1|
+                                    (|Fraction| |#2|)))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| |#2|))))
+                                (|has| 6 (|AlgebraicallyClosedField|)))
+                              '((|factor1|
+                                 ((|List|
+                                   (|LinearOrdinaryDifferentialOperator1|
+                                    (|Fraction| |#2|)))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| |#2|))))
+                                (|has| 6 (|AlgebraicallyClosedField|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 73
+                                            '(0 8 0 9 1 7 11 0 12 0 6 0 16 0 7
+                                              0 17 0 18 0 19 2 22 21 8 18 23 2
+                                              18 24 0 0 25 1 18 0 0 26 2 18 0 0
+                                              0 27 3 30 28 8 14 29 31 2 28 0 0
+                                              0 32 0 8 0 33 0 8 0 34 1 8 35 0
+                                              36 2 8 18 0 35 37 2 8 0 18 0 38 2
+                                              8 0 0 0 39 2 8 0 0 0 40 2 8 41 0
+                                              0 42 0 6 0 43 2 35 24 0 0 44 1 8
+                                              18 0 45 0 18 0 46 2 18 24 0 0 47
+                                              1 8 0 18 48 2 8 0 0 0 49 2 13 0
+                                              50 0 51 0 7 0 52 2 35 24 0 0 53 1
+                                              8 0 0 54 2 13 0 0 8 55 2 35 0 56
+                                              0 57 1 60 59 0 61 1 63 0 62 64 2
+                                              67 65 66 7 68 1 6 0 69 70 1 7 11
+                                              0 71 1 0 13 8 72 1 0 13 8 73 1 1
+                                              13 8 73 1 1 13 8 72 2 0 13 8 14
+                                              15)))))
            '|lookupComplete|)) 

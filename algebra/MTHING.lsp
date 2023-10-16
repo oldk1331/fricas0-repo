@@ -96,11 +96,17 @@
               (|List| 6) |MTHING;mergeDifference;3L;1| (6 . <) '"rest"
               (12 . |setelt!|))
            '#(|mergeDifference| 19) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 13
-                                                 '(2 6 7 0 0 8 2 6 7 0 0 11 3 9
-                                                   0 0 12 0 13 2 0 9 9 9
-                                                   10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|mergeDifference|
+                                 ((|List| |#1|) (|List| |#1|) (|List| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 13
+                                            '(2 6 7 0 0 8 2 6 7 0 0 11 3 9 0 0
+                                              12 0 13 2 0 9 9 9 10)))))
            '|lookupComplete|)) 

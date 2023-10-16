@@ -307,35 +307,134 @@
               |DRAW;makeObject;Ps2SbLTs;18| |DRAW;makeObject;Ps2SbTs;19|
               (151 . |draw|) |DRAW;draw;Ps2SbLTdv;20| |DRAW;draw;Ps2SbTdv;21|)
            '#(|makeObject| 159 |draw| 216) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 75
-                                                 '(1 8 7 0 9 2 11 10 6 7 12 1 8
-                                                   13 0 14 3 17 15 10 13 16 18
-                                                   2 22 20 21 7 23 1 6 24 0 25
-                                                   1 24 26 0 27 1 29 28 26 30 2
-                                                   28 20 0 0 31 1 22 0 26 32 2
-                                                   33 0 15 16 34 2 38 6 0 37 39
-                                                   2 40 0 10 10 41 3 17 15 40
-                                                   13 16 42 2 46 6 0 37 47 3 48
-                                                   0 10 10 10 49 3 17 50 48 13
-                                                   16 51 3 17 54 48 13 16 55 3
-                                                   11 58 6 7 7 59 4 17 50 58 13
-                                                   13 16 60 4 17 54 58 13 13 16
-                                                   63 2 66 6 0 37 67 3 68 0 58
-                                                   58 58 69 4 17 50 68 13 13 16
-                                                   70 4 17 54 68 13 13 16 73 3
-                                                   0 15 6 8 16 19 3 0 15 38 8
-                                                   16 43 3 0 50 46 8 16 52 2 0
-                                                   50 46 8 53 4 0 50 6 8 8 16
-                                                   61 3 0 50 6 8 8 62 3 0 50 66
-                                                   8 8 72 4 0 50 66 8 8 16 71 2
-                                                   0 33 6 8 36 3 0 33 6 8 16 35
-                                                   3 0 33 38 8 16 44 2 0 33 38
-                                                   8 45 3 0 54 46 8 16 56 2 0
-                                                   54 46 8 57 4 0 54 6 8 8 16
-                                                   64 3 0 54 6 8 8 65 4 0 54 66
-                                                   8 8 16 74 3 0 54 66 8 8
-                                                   75)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|) |#1|
+                                  (|SegmentBinding| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|) |#1|
+                                  (|SegmentBinding| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|GraphImage|) |#1|
+                                  (|SegmentBinding| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|)
+                                  (|ParametricPlaneCurve| |#1|)
+                                  (|SegmentBinding| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|)
+                                  (|ParametricPlaneCurve| |#1|)
+                                  (|SegmentBinding| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|GraphImage|) (|ParametricPlaneCurve| |#1|)
+                                  (|SegmentBinding| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|ParametricSpaceCurve| |#1|)
+                                  (|SegmentBinding| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|ParametricSpaceCurve| |#1|)
+                                  (|SegmentBinding| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|ParametricSpaceCurve| |#1|)
+                                  (|SegmentBinding| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|ParametricSpaceCurve| |#1|)
+                                  (|SegmentBinding| (|Float|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|) |#1|
+                                  (|SegmentBinding| (|Float|))
+                                  (|SegmentBinding| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|) |#1|
+                                  (|SegmentBinding| (|Float|))
+                                  (|SegmentBinding| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|)) |#1|
+                                  (|SegmentBinding| (|Float|))
+                                  (|SegmentBinding| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|)) |#1|
+                                  (|SegmentBinding| (|Float|))
+                                  (|SegmentBinding| (|Float|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|ParametricSurface| |#1|)
+                                  (|SegmentBinding| (|Float|))
+                                  (|SegmentBinding| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|ParametricSurface| |#1|)
+                                  (|SegmentBinding| (|Float|))
+                                  (|SegmentBinding| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|ParametricSurface| |#1|)
+                                  (|SegmentBinding| (|Float|))
+                                  (|SegmentBinding| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|ParametricSurface| |#1|)
+                                  (|SegmentBinding| (|Float|))
+                                  (|SegmentBinding| (|Float|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 75
+                                            '(1 8 7 0 9 2 11 10 6 7 12 1 8 13 0
+                                              14 3 17 15 10 13 16 18 2 22 20 21
+                                              7 23 1 6 24 0 25 1 24 26 0 27 1
+                                              29 28 26 30 2 28 20 0 0 31 1 22 0
+                                              26 32 2 33 0 15 16 34 2 38 6 0 37
+                                              39 2 40 0 10 10 41 3 17 15 40 13
+                                              16 42 2 46 6 0 37 47 3 48 0 10 10
+                                              10 49 3 17 50 48 13 16 51 3 17 54
+                                              48 13 16 55 3 11 58 6 7 7 59 4 17
+                                              50 58 13 13 16 60 4 17 54 58 13
+                                              13 16 63 2 66 6 0 37 67 3 68 0 58
+                                              58 58 69 4 17 50 68 13 13 16 70 4
+                                              17 54 68 13 13 16 73 3 0 15 6 8
+                                              16 19 3 0 15 38 8 16 43 3 0 50 46
+                                              8 16 52 2 0 50 46 8 53 4 0 50 6 8
+                                              8 16 61 3 0 50 6 8 8 62 3 0 50 66
+                                              8 8 72 4 0 50 66 8 8 16 71 2 0 33
+                                              6 8 36 3 0 33 6 8 16 35 3 0 33 38
+                                              8 16 44 2 0 33 38 8 45 3 0 54 46
+                                              8 16 56 2 0 54 46 8 57 4 0 54 6 8
+                                              8 16 64 3 0 54 6 8 8 65 4 0 54 66
+                                              8 8 16 74 3 0 54 66 8 8 75)))))
            '|lookupComplete|)) 

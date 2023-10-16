@@ -164,14 +164,29 @@
               |PARRPKG;jacobiPathArray;2SS;4| (42 . |first|) (|Mapping| 6 16)
               (|StreamFunctions2| 16 6) (47 . |map|) |PARRPKG;bottom;SS;5|)
            '#(|motzkinPathArray| 53 |jacobiPathArray| 60 |bottom| 66) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(0 6 0 7 2 8 0 6 0 9 1 8 6 0
-                                                   10 2 6 0 0 0 11 2 6 0 0 0 12
-                                                   1 8 0 0 13 0 6 0 14 2 17 0
-                                                   15 16 18 1 16 6 0 21 2 23 8
-                                                   22 17 24 3 0 17 8 8 8 19 2 0
-                                                   17 8 8 20 1 0 8 17 25)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|motzkinPathArray|
+                                 ((|Stream| (|List| |#1|)) (|Stream| |#1|)
+                                  (|Stream| |#1|) (|Stream| |#1|)))
+                                T)
+                              '((|jacobiPathArray|
+                                 ((|Stream| (|List| |#1|)) (|Stream| |#1|)
+                                  (|Stream| |#1|)))
+                                T)
+                              '((|bottom|
+                                 ((|Stream| |#1|) (|Stream| (|List| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(0 6 0 7 2 8 0 6 0 9 1 8 6 0 10 2
+                                              6 0 0 0 11 2 6 0 0 0 12 1 8 0 0
+                                              13 0 6 0 14 2 17 0 15 16 18 1 16
+                                              6 0 21 2 23 8 22 17 24 3 0 17 8 8
+                                              8 19 2 0 17 8 8 20 1 0 8 17
+                                              25)))))
            '|lookupComplete|)) 

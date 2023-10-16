@@ -792,11 +792,11 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Union| 11 '#1="failed")
               (|Polynomial| 11) (0 . |retractIfCan|) (|Complex| 21)
-              (|Complex| 6) (5 . |complexNumeric|) (|Union| 10 '"failed")
+              (|Complex| 6) (5 . |complexNumeric|) (|Union| 10 '#2="failed")
               (10 . |complexNumericIfCan|) (|PositiveInteger|)
               (15 . |complexNumeric|) (21 . |complexNumericIfCan|)
               (|Union| 6 '#1#) (|Polynomial| 6) (27 . |retractIfCan|) (|Float|)
-              |NUMERIC;numeric;SF;22| (|Union| 21 '"failed")
+              |NUMERIC;numeric;SF;22| (|Union| 21 '#3="failed")
               (32 . |numericIfCan|) (37 . |complexNumeric|)
               (42 . |complexNumericIfCan|) (47 . |complexNumeric|)
               (53 . |complexNumericIfCan|) (59 . |digits|)
@@ -830,61 +830,249 @@
            '#(|numericIfCan| 346 |numeric| 379 |complexNumericIfCan| 423
               |complexNumeric| 489)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 97
-                                                 '(1 8 7 0 9 1 0 10 11 12 1 0
-                                                   13 8 14 2 0 10 11 15 16 2 0
-                                                   13 8 15 17 1 19 18 0 20 1 0
-                                                   23 19 24 1 0 10 6 25 1 0 13
-                                                   19 26 2 0 10 6 15 27 2 0 13
-                                                   19 15 28 1 21 15 15 29 2 0
-                                                   23 19 15 30 1 31 19 0 32 1
-                                                   31 19 0 33 2 21 0 0 0 34 1 0
-                                                   23 31 35 2 10 0 0 0 36 1 0
-                                                   13 31 37 2 0 13 31 15 38 2 0
-                                                   23 31 15 39 1 40 8 0 41 1 40
-                                                   8 0 42 1 0 13 40 43 2 0 13
-                                                   40 15 44 1 6 21 0 45 2 49 46
-                                                   47 48 50 1 46 23 0 51 1 0 23
-                                                   48 52 1 11 0 6 53 2 56 54 55
-                                                   48 57 1 0 13 54 58 1 0 13 48
-                                                   59 0 21 15 60 1 21 15 15 61
-                                                   2 0 23 48 15 62 2 0 13 48 15
-                                                   63 1 11 10 0 64 2 67 65 66
-                                                   54 68 1 65 13 0 69 2 0 13 54
-                                                   15 70 2 71 10 47 11 72 1 6
-                                                   10 0 73 1 10 0 21 74 1 0 10
-                                                   8 76 2 0 10 8 15 77 1 11 18
-                                                   0 78 1 0 21 19 79 1 0 10 19
-                                                   80 2 0 10 19 15 81 2 0 21 19
-                                                   15 82 1 0 21 31 83 1 0 10 31
-                                                   84 2 0 10 31 15 85 2 0 21 31
-                                                   15 86 1 0 10 40 87 2 0 10 40
-                                                   15 88 1 0 21 48 89 2 91 65
-                                                   90 48 92 1 0 10 48 93 2 0 21
-                                                   48 15 94 2 0 10 48 15 95 1 0
-                                                   10 54 96 2 0 10 54 15 97 1 2
-                                                   23 48 52 2 2 23 48 15 62 1 1
-                                                   23 31 35 2 1 23 31 15 39 2 3
-                                                   23 19 15 30 1 3 23 19 24 1 2
-                                                   21 48 89 2 2 21 48 15 94 1 1
-                                                   21 31 83 2 1 21 31 15 86 2 3
-                                                   21 19 15 82 1 3 21 19 79 2 0
-                                                   21 6 15 75 1 0 21 6 22 1 2
-                                                   13 48 59 2 2 13 48 15 63 2 2
-                                                   13 54 15 70 1 2 13 54 58 2 4
-                                                   13 8 15 17 1 4 13 8 14 1 1
-                                                   13 31 37 2 1 13 31 15 38 2 1
-                                                   13 40 15 44 1 1 13 40 43 1 3
-                                                   13 19 26 2 3 13 19 15 28 1 2
-                                                   10 48 93 1 2 10 54 96 2 2 10
-                                                   48 15 95 2 2 10 54 15 97 1 4
-                                                   10 11 12 1 4 10 8 76 2 4 10
-                                                   11 15 16 2 4 10 8 15 77 1 1
-                                                   10 31 84 2 1 10 31 15 85 2 1
-                                                   10 40 15 88 1 1 10 40 87 2 3
-                                                   10 19 15 81 1 3 10 19 80 1 0
-                                                   10 6 25 2 0 10 6 15 27)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|numeric| ((|Float|) |#1|)) T)
+                                   '((|numeric|
+                                      ((|Float|) |#1| (|PositiveInteger|)))
+                                     T)
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|)) |#1|))
+                                     T)
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|)) |#1|
+                                       (|PositiveInteger|)))
+                                     T)
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|)) (|Complex| |#1|)))
+                                     (|has| 6 (|CommutativeRing|)))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|)) (|Complex| |#1|)
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|CommutativeRing|)))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Polynomial| (|Complex| |#1|))))
+                                     (|has| 6 (|CommutativeRing|)))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Polynomial| (|Complex| |#1|))
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|CommutativeRing|)))
+                                   '((|numeric|
+                                      ((|Float|) (|Polynomial| |#1|)))
+                                     (|has| 6 (|Ring|)))
+                                   '((|numeric|
+                                      ((|Float|) (|Polynomial| |#1|)
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|Ring|)))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Polynomial| |#1|)))
+                                     (|has| 6 (|Ring|)))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Polynomial| |#1|)
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|Ring|)))
+                                   '((|numeric|
+                                      ((|Float|)
+                                       (|Fraction| (|Polynomial| |#1|))))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|numeric|
+                                      ((|Float|)
+                                       (|Fraction| (|Polynomial| |#1|))
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Fraction| (|Polynomial| |#1|))))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Fraction| (|Polynomial| |#1|))
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Fraction|
+                                        (|Polynomial| (|Complex| |#1|)))))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Fraction|
+                                        (|Polynomial| (|Complex| |#1|)))
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|numeric|
+                                      ((|Float|) (|Expression| |#1|)))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|))))
+                                   '((|numeric|
+                                      ((|Float|) (|Expression| |#1|)
+                                       (|PositiveInteger|)))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|))))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Expression| |#1|)))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|))))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Expression| |#1|)
+                                       (|PositiveInteger|)))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|))))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Expression| (|Complex| |#1|))))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|))))
+                                   '((|complexNumeric|
+                                      ((|Complex| (|Float|))
+                                       (|Expression| (|Complex| |#1|))
+                                       (|PositiveInteger|)))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|))))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) #2#)
+                                       (|Polynomial| (|Complex| |#1|))))
+                                     (|has| 6 (|CommutativeRing|)))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) "failed")
+                                       (|Polynomial| (|Complex| |#1|))
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|CommutativeRing|)))
+                                   '((|numericIfCan|
+                                      ((|Union| (|Float|) #3#)
+                                       (|Polynomial| |#1|)))
+                                     (|has| 6 (|Ring|)))
+                                   '((|numericIfCan|
+                                      ((|Union| (|Float|) "failed")
+                                       (|Polynomial| |#1|)
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|Ring|)))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) "failed")
+                                       (|Polynomial| |#1|)))
+                                     (|has| 6 (|Ring|)))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) "failed")
+                                       (|Polynomial| |#1|)
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|Ring|)))
+                                   '((|numericIfCan|
+                                      ((|Union| (|Float|) "failed")
+                                       (|Fraction| (|Polynomial| |#1|))))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|numericIfCan|
+                                      ((|Union| (|Float|) "failed")
+                                       (|Fraction| (|Polynomial| |#1|))
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) "failed")
+                                       (|Fraction| (|Polynomial| |#1|))))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) "failed")
+                                       (|Fraction| (|Polynomial| |#1|))
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) "failed")
+                                       (|Fraction|
+                                        (|Polynomial| (|Complex| |#1|)))))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) "failed")
+                                       (|Fraction|
+                                        (|Polynomial| (|Complex| |#1|)))
+                                       (|PositiveInteger|)))
+                                     (|has| 6 (|IntegralDomain|)))
+                                   '((|numericIfCan|
+                                      ((|Union| (|Float|) "failed")
+                                       (|Expression| |#1|)))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|))))
+                                   '((|numericIfCan|
+                                      ((|Union| (|Float|) "failed")
+                                       (|Expression| |#1|)
+                                       (|PositiveInteger|)))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|))))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) "failed")
+                                       (|Expression| |#1|)))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|))))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) "failed")
+                                       (|Expression| |#1|)
+                                       (|PositiveInteger|)))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|))))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) "failed")
+                                       (|Expression| (|Complex| |#1|))))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|))))
+                                   '((|complexNumericIfCan|
+                                      ((|Union| (|Complex| (|Float|)) "failed")
+                                       (|Expression| (|Complex| |#1|))
+                                       (|PositiveInteger|)))
+                                     (AND (|has| 6 (|OrderedSet|))
+                                          (|has| 6 (|IntegralDomain|)))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 97
+                                            '(1 8 7 0 9 1 0 10 11 12 1 0 13 8
+                                              14 2 0 10 11 15 16 2 0 13 8 15 17
+                                              1 19 18 0 20 1 0 23 19 24 1 0 10
+                                              6 25 1 0 13 19 26 2 0 10 6 15 27
+                                              2 0 13 19 15 28 1 21 15 15 29 2 0
+                                              23 19 15 30 1 31 19 0 32 1 31 19
+                                              0 33 2 21 0 0 0 34 1 0 23 31 35 2
+                                              10 0 0 0 36 1 0 13 31 37 2 0 13
+                                              31 15 38 2 0 23 31 15 39 1 40 8 0
+                                              41 1 40 8 0 42 1 0 13 40 43 2 0
+                                              13 40 15 44 1 6 21 0 45 2 49 46
+                                              47 48 50 1 46 23 0 51 1 0 23 48
+                                              52 1 11 0 6 53 2 56 54 55 48 57 1
+                                              0 13 54 58 1 0 13 48 59 0 21 15
+                                              60 1 21 15 15 61 2 0 23 48 15 62
+                                              2 0 13 48 15 63 1 11 10 0 64 2 67
+                                              65 66 54 68 1 65 13 0 69 2 0 13
+                                              54 15 70 2 71 10 47 11 72 1 6 10
+                                              0 73 1 10 0 21 74 1 0 10 8 76 2 0
+                                              10 8 15 77 1 11 18 0 78 1 0 21 19
+                                              79 1 0 10 19 80 2 0 10 19 15 81 2
+                                              0 21 19 15 82 1 0 21 31 83 1 0 10
+                                              31 84 2 0 10 31 15 85 2 0 21 31
+                                              15 86 1 0 10 40 87 2 0 10 40 15
+                                              88 1 0 21 48 89 2 91 65 90 48 92
+                                              1 0 10 48 93 2 0 21 48 15 94 2 0
+                                              10 48 15 95 1 0 10 54 96 2 0 10
+                                              54 15 97 1 2 23 48 52 2 2 23 48
+                                              15 62 1 1 23 31 35 2 1 23 31 15
+                                              39 2 3 23 19 15 30 1 3 23 19 24 1
+                                              2 21 48 89 2 2 21 48 15 94 1 1 21
+                                              31 83 2 1 21 31 15 86 2 3 21 19
+                                              15 82 1 3 21 19 79 2 0 21 6 15 75
+                                              1 0 21 6 22 1 2 13 48 59 2 2 13
+                                              48 15 63 2 2 13 54 15 70 1 2 13
+                                              54 58 2 4 13 8 15 17 1 4 13 8 14
+                                              1 1 13 31 37 2 1 13 31 15 38 2 1
+                                              13 40 15 44 1 1 13 40 43 1 3 13
+                                              19 26 2 3 13 19 15 28 1 2 10 48
+                                              93 1 2 10 54 96 2 2 10 48 15 95 2
+                                              2 10 54 15 97 1 4 10 11 12 1 4 10
+                                              8 76 2 4 10 11 15 16 2 4 10 8 15
+                                              77 1 1 10 31 84 2 1 10 31 15 85 2
+                                              1 10 40 15 88 1 1 10 40 87 2 3 10
+                                              19 15 81 1 3 10 19 80 1 0 10 6 25
+                                              2 0 10 6 15 27)))))
            '|lookupComplete|)) 

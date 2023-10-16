@@ -50,11 +50,20 @@
               (5 . |retractIfCan|) (|Boolean|) |RATRET;rational?;SB;2|
               |RATRET;rationalIfCan;SU;3|)
            '#(|rationalIfCan| 10 |rational?| 15 |rational| 20) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 14
-                                                 '(1 6 7 0 8 1 6 10 0 11 1 0 10
-                                                   6 14 1 0 12 6 13 1 0 7 6
-                                                   9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|rational| ((|Fraction| (|Integer|)) |#1|)) T)
+                              '((|rational?| ((|Boolean|) |#1|)) T)
+                              '((|rationalIfCan|
+                                 ((|Union| (|Fraction| (|Integer|)) "failed")
+                                  |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 14
+                                            '(1 6 7 0 8 1 6 10 0 11 1 0 10 6 14
+                                              1 0 12 6 13 1 0 7 6 9)))))
            '|lookupComplete|)) 

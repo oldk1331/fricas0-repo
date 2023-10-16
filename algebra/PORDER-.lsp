@@ -31,11 +31,17 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Boolean|) (0 . <=)
               |PORDER-;>=;2SB;1| (6 . <) |PORDER-;>;2SB;2| |PORDER-;<;2SB;3|)
            '#(>= 12 > 18 < 24) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 12
-                                                 '(2 6 7 0 0 8 2 6 7 0 0 10 2 0
-                                                   7 0 0 9 2 0 7 0 0 11 2 0 7 0
-                                                   0 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((< ((|Boolean|) |#1| |#1|)) T)
+                                   '((> ((|Boolean|) |#1| |#1|)) T)
+                                   '((>= ((|Boolean|) |#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 12
+                                            '(2 6 7 0 0 8 2 6 7 0 0 10 2 0 7 0
+                                              0 9 2 0 7 0 0 11 2 0 7 0 0
+                                              12)))))
            '|lookupComplete|)) 

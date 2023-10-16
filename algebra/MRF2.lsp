@@ -67,11 +67,20 @@
               (4 . |terms|) (9 . |monomial|) (15 . +) (|Mapping| 7 6)
               |MRF2;map;MMrMr;1|)
            '#(|map| 21) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(0 9 0 10 1 13 12 0 14 2 9 0
-                                                   7 8 15 2 9 0 0 0 16 2 0 9 17
-                                                   13 18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|MonoidRing| |#2| |#3|)
+                                  (|Mapping| |#2| |#1|)
+                                  (|MonoidRing| |#1| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(0 9 0 10 1 13 12 0 14 2 9 0 7 8
+                                              15 2 9 0 0 0 16 2 0 9 17 13
+                                              18)))))
            '|lookupComplete|)) 

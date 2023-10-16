@@ -190,18 +190,44 @@
            '#(|zeroVector| 52 |zeroSquareMatrix| 58 |zeroMatrix| 64
               |identitySquareMatrix| 78)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(0 6 0 7 0 8 0 9 2 10 0 8 8
-                                                   11 2 13 0 12 10 14 1 8 0 12
-                                                   15 3 17 0 12 16 6 18 2 17 0
-                                                   13 0 19 1 13 12 0 22 0 6 0
-                                                   25 1 17 0 26 27 2 0 17 12 8
-                                                   20 2 0 17 12 8 24 3 0 17 12
-                                                   8 8 21 3 0 17 12 13 13 23 2
-                                                   0 17 12 8 28)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|zeroVector|
+                                 ((|FortranCode|) (|Symbol|)
+                                  (|Polynomial| (|Integer|))))
+                                T)
+                              '((|zeroMatrix|
+                                 ((|FortranCode|) (|Symbol|)
+                                  (|Polynomial| (|Integer|))
+                                  (|Polynomial| (|Integer|))))
+                                T)
+                              '((|zeroMatrix|
+                                 ((|FortranCode|) (|Symbol|)
+                                  (|SegmentBinding| (|Polynomial| (|Integer|)))
+                                  (|SegmentBinding|
+                                   (|Polynomial| (|Integer|)))))
+                                T)
+                              '((|zeroSquareMatrix|
+                                 ((|FortranCode|) (|Symbol|)
+                                  (|Polynomial| (|Integer|))))
+                                T)
+                              '((|identitySquareMatrix|
+                                 ((|FortranCode|) (|Symbol|)
+                                  (|Polynomial| (|Integer|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(0 6 0 7 0 8 0 9 2 10 0 8 8 11 2
+                                              13 0 12 10 14 1 8 0 12 15 3 17 0
+                                              12 16 6 18 2 17 0 13 0 19 1 13 12
+                                              0 22 0 6 0 25 1 17 0 26 27 2 0 17
+                                              12 8 20 2 0 17 12 8 24 3 0 17 12
+                                              8 8 21 3 0 17 12 13 13 23 2 0 17
+                                              12 8 28)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FortranCodePackage1| 'NILADIC T) 

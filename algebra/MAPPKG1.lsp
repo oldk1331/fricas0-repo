@@ -76,12 +76,28 @@
               |MAPPKG1;^;MNniM;4| (|Mapping| 6 12 6) (7 . |recur|)
               |MAPPKG1;recur;2M;5|)
            '#(|recur| 14 |nullary| 19 |id| 24 |coerce| 29 ^ 34) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(3 13 6 11 12 6 14 3 13 6 16
-                                                   12 6 17 1 0 16 16 18 1 0 7 6
-                                                   8 1 0 6 6 10 1 0 7 6 9 2 0
-                                                   11 11 12 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|nullary| ((|Mapping| |#1|) |#1|)) T)
+                                   '((|coerce| ((|Mapping| |#1|) |#1|)) T)
+                                   '((|id| (|#1| |#1|)) T)
+                                   '((^
+                                      ((|Mapping| |#1| |#1|)
+                                       (|Mapping| |#1| |#1|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|recur|
+                                      ((|Mapping| |#1| (|NonNegativeInteger|)
+                                                  |#1|)
+                                       (|Mapping| |#1| (|NonNegativeInteger|)
+                                                  |#1|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(3 13 6 11 12 6 14 3 13 6 16 12 6
+                                              17 1 0 16 16 18 1 0 7 6 8 1 0 6 6
+                                              10 1 0 7 6 9 2 0 11 11 12 15)))))
            '|lookupComplete|)) 

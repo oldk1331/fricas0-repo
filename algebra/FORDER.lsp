@@ -72,11 +72,18 @@
               (0 . |reduce|) (|Boolean|) (5 . |principal?|) (10 . +)
               (|NonNegativeInteger|) |FORDER;order;FdNni;1|)
            '#(|order| 16) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(1 10 0 0 11 1 10 12 0 13 2
-                                                   10 0 0 0 14 1 0 15 10
-                                                   16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|order|
+                                 ((|NonNegativeInteger|)
+                                  (|FiniteDivisor| |#1| |#2| |#3| |#4|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(1 10 0 0 11 1 10 12 0 13 2 10 0 0
+                                              0 14 1 0 15 10 16)))))
            '|lookupComplete|)) 

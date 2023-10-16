@@ -183,19 +183,42 @@
            '#(|splitSquarefree| 107 |split| 113 |normalDenom| 119 |decompose|
               125)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 47
-                                                 '(1 8 7 0 9 2 7 0 0 0 14 1 7 0
-                                                   0 15 2 7 16 0 0 17 1 7 18 0
-                                                   19 0 6 0 20 0 7 0 21 2 7 0 0
-                                                   0 22 0 23 0 24 1 7 25 0 26 1
-                                                   23 29 0 30 1 7 31 0 32 2 23
-                                                   0 7 18 33 2 23 0 0 0 34 1 23
-                                                   7 0 35 2 23 0 7 0 36 1 8 7 0
-                                                   39 2 7 40 0 0 41 3 7 43 0 0
-                                                   0 44 2 8 0 7 7 45 2 0 37 7
-                                                   11 38 2 0 10 7 11 12 2 0 7 8
-                                                   11 13 2 0 46 8 11 47)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|split|
+                                 ((|Record| (|:| |normal| |#2|)
+                                            (|:| |special| |#2|))
+                                  |#2| (|Mapping| |#2| |#2|)))
+                                T)
+                              '((|splitSquarefree|
+                                 ((|Record| (|:| |normal| (|Factored| |#2|))
+                                            (|:| |special| (|Factored| |#2|)))
+                                  |#2| (|Mapping| |#2| |#2|)))
+                                T)
+                              '((|normalDenom|
+                                 (|#2| (|Fraction| |#2|)
+                                  (|Mapping| |#2| |#2|)))
+                                T)
+                              '((|decompose|
+                                 ((|Record| (|:| |poly| |#2|)
+                                            (|:| |normal| (|Fraction| |#2|))
+                                            (|:| |special| (|Fraction| |#2|)))
+                                  (|Fraction| |#2|) (|Mapping| |#2| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 47
+                                            '(1 8 7 0 9 2 7 0 0 0 14 1 7 0 0 15
+                                              2 7 16 0 0 17 1 7 18 0 19 0 6 0
+                                              20 0 7 0 21 2 7 0 0 0 22 0 23 0
+                                              24 1 7 25 0 26 1 23 29 0 30 1 7
+                                              31 0 32 2 23 0 7 18 33 2 23 0 0 0
+                                              34 1 23 7 0 35 2 23 0 7 0 36 1 8
+                                              7 0 39 2 7 40 0 0 41 3 7 43 0 0 0
+                                              44 2 8 0 7 7 45 2 0 37 7 11 38 2
+                                              0 10 7 11 12 2 0 7 8 11 13 2 0 46
+                                              8 11 47)))))
            '|lookupComplete|)) 

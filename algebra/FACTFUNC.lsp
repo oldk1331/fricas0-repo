@@ -156,13 +156,31 @@
               (|Record| (|:| |coef| 19) (|:| |logand| 6)) (|List| 27)
               |FACTFUNC;log;FL;2|)
            '#(|nthRoot| 47 |log| 53) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 29
-                                                 '(0 6 0 7 1 8 6 0 9 2 6 10 0 0
-                                                   11 1 8 14 0 15 1 17 0 16 18
-                                                   2 6 0 0 19 20 2 6 0 0 0 21 2
-                                                   22 0 0 6 23 0 8 0 26 2 0 24
-                                                   8 19 25 1 0 28 8 29)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|nthRoot|
+                                 ((|Record|
+                                   (|:| |exponent| (|NonNegativeInteger|))
+                                   (|:| |coef| |#1|)
+                                   (|:| |radicand| (|List| |#1|)))
+                                  (|Factored| |#1|) (|NonNegativeInteger|)))
+                                T)
+                              '((|log|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |coef| (|NonNegativeInteger|))
+                                    (|:| |logand| |#1|)))
+                                  (|Factored| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 29
+                                            '(0 6 0 7 1 8 6 0 9 2 6 10 0 0 11 1
+                                              8 14 0 15 1 17 0 16 18 2 6 0 0 19
+                                              20 2 6 0 0 0 21 2 22 0 0 6 23 0 8
+                                              0 26 2 0 24 8 19 25 1 0 28 8
+                                              29)))))
            '|lookupComplete|)) 

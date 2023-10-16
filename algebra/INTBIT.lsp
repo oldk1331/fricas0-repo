@@ -47,12 +47,22 @@
               (|NonNegativeInteger|) |INTBIT;bitTruth;INniB;1|
               |INTBIT;bitCoef;INniI;2|)
            '#(|bitTruth| 0 |bitCoef| 6) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10
-                                                 '(2 0 6 7 8 9 2 0 7 7 8
-                                                   10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|bitCoef|
+                                 ((|Integer|) (|Integer|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|bitTruth|
+                                 ((|Boolean|) (|Integer|)
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10 '(2 0 6 7 8 9 2 0 7 7 8 10)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|IntegerBits| 'NILADIC T) 

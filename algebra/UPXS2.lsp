@@ -83,11 +83,20 @@
                                          (NRTEVAL (QREFELT $ 11)))
               (16 . |puiseux|) |UPXS2;map;MUpsUps;1|)
            '#(|map| 22) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 23
-                                                 '(1 13 12 0 14 1 13 15 0 16 2
-                                                   19 17 18 15 20 2 21 0 12 17
-                                                   22 2 0 21 18 13 23)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|UnivariatePuiseuxSeries| |#2| |#4| |#6|)
+                                  (|Mapping| |#2| |#1|)
+                                  (|UnivariatePuiseuxSeries| |#1| |#3| |#5|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 23
+                                            '(1 13 12 0 14 1 13 15 0 16 2 19 17
+                                              18 15 20 2 21 0 12 17 22 2 0 21
+                                              18 13 23)))))
            '|lookupComplete|)) 

@@ -52,11 +52,19 @@
               (12 . |operator|) (|Union| 6 '"failed") (17 . |constantOpIfCan|)
               |KERNEL2;constantIfCan;KU;2|)
            '#(|constantKernel| 22 |constantIfCan| 27) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(1 9 8 6 10 3 13 0 8 11 12 14
-                                                   1 13 8 0 16 1 9 17 8 18 1 0
-                                                   13 6 15 1 0 17 13 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|constantKernel| ((|Kernel| |#2|) |#1|)) T)
+                              '((|constantIfCan|
+                                 ((|Union| |#1| "failed") (|Kernel| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(1 9 8 6 10 3 13 0 8 11 12 14 1 13
+                                              8 0 16 1 9 17 8 18 1 0 13 6 15 1
+                                              0 17 13 19)))))
            '|lookupComplete|)) 

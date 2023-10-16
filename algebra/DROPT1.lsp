@@ -47,13 +47,21 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Union| 12 '"failed")
               (|List| $) (|Symbol|) (|DrawOption|) (0 . |option|) (|Any|)
-              (|AnyFunctions1| 6) (6 . |retract|) (|Union| 6 '"failed")
+              (|AnyFunctions1| 6) (6 . |retract|) (|Union| 6 '#1="failed")
               (|List| 10) |DROPT1;option;LSU;1|)
            '#(|option| 11) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(2 10 7 8 9 11 1 13 6 12 14 2
-                                                   0 15 16 9 17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|option|
+                                 ((|Union| |#1| #1#) (|List| (|DrawOption|))
+                                  (|Symbol|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(2 10 7 8 9 11 1 13 6 12 14 2 0 15
+                                              16 9 17)))))
            '|lookupComplete|)) 

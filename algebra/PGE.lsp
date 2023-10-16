@@ -804,27 +804,117 @@
               132 |janko2| 141 |dihedralGroup| 150 |cyclicGroup| 160
               |alternatingGroup| 170 |abelianGroup| 180)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 55
-                                                 '(1 7 0 6 8 2 12 9 10 11 13 1
-                                                   14 0 9 15 0 7 0 16 2 18 17 0
-                                                   0 19 1 6 0 20 21 1 23 20 0
-                                                   24 1 20 0 0 27 2 18 17 0 0
-                                                   28 2 20 18 0 18 29 2 42 17 0
-                                                   0 43 2 11 6 0 18 46 3 11 6 0
-                                                   18 6 47 1 0 14 23 25 1 0 14
-                                                   20 22 1 0 14 42 51 1 0 14 20
-                                                   50 0 0 14 26 1 0 14 20 38 0
-                                                   0 14 39 1 0 14 20 36 0 0 14
-                                                   37 0 0 14 35 1 0 14 20 34 1
-                                                   0 14 20 32 0 0 14 33 1 0 14
-                                                   20 30 0 0 14 31 0 0 14 41 1
-                                                   0 14 20 40 1 0 14 20 54 1 0
-                                                   14 42 55 1 0 14 42 53 1 0 14
-                                                   20 52 1 0 14 42 49 1 0 14 20
-                                                   48 1 0 14 44 45)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|symmetricGroup|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|symmetricGroup|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|alternatingGroup|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|alternatingGroup|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|abelianGroup|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|PositiveInteger|))))
+                                T)
+                              '((|cyclicGroup|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|cyclicGroup|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|dihedralGroup|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|dihedralGroup|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|mathieu11|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|mathieu11|
+                                 ((|PermutationGroup| (|Integer|))))
+                                T)
+                              '((|mathieu12|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|mathieu12|
+                                 ((|PermutationGroup| (|Integer|))))
+                                T)
+                              '((|mathieu22|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|mathieu22|
+                                 ((|PermutationGroup| (|Integer|))))
+                                T)
+                              '((|mathieu23|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|mathieu23|
+                                 ((|PermutationGroup| (|Integer|))))
+                                T)
+                              '((|mathieu24|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|mathieu24|
+                                 ((|PermutationGroup| (|Integer|))))
+                                T)
+                              '((|janko2|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|janko2| ((|PermutationGroup| (|Integer|))))
+                                T)
+                              '((|rubiksGroup|
+                                 ((|PermutationGroup| (|Integer|))))
+                                T)
+                              '((|youngGroup|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|youngGroup|
+                                 ((|PermutationGroup| (|Integer|))
+                                  (|Partition|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 55
+                                            '(1 7 0 6 8 2 12 9 10 11 13 1 14 0
+                                              9 15 0 7 0 16 2 18 17 0 0 19 1 6
+                                              0 20 21 1 23 20 0 24 1 20 0 0 27
+                                              2 18 17 0 0 28 2 20 18 0 18 29 2
+                                              42 17 0 0 43 2 11 6 0 18 46 3 11
+                                              6 0 18 6 47 1 0 14 23 25 1 0 14
+                                              20 22 1 0 14 42 51 1 0 14 20 50 0
+                                              0 14 26 1 0 14 20 38 0 0 14 39 1
+                                              0 14 20 36 0 0 14 37 0 0 14 35 1
+                                              0 14 20 34 1 0 14 20 32 0 0 14 33
+                                              1 0 14 20 30 0 0 14 31 0 0 14 41
+                                              1 0 14 20 40 1 0 14 20 54 1 0 14
+                                              42 55 1 0 14 42 53 1 0 14 20 52 1
+                                              0 14 42 49 1 0 14 20 48 1 0 14 44
+                                              45)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|PermutationGroupExamples| 'NILADIC T) 

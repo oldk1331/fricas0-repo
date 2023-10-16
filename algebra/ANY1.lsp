@@ -53,17 +53,25 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Sexpr| (|SExpression|)
               (|Any|) (0 . |dom|) (|Boolean|) (5 . =) |ANY1;retractable?;AB;1|
               (|None|) (|NoneFunctions1| 6) (11 . |coerce|) (16 . |any|)
-              |ANY1;coerce;SA;2| (22 . |obj|) (|Union| 6 '"failed")
+              |ANY1;coerce;SA;2| (22 . |obj|) (|Union| 6 '#1="failed")
               |ANY1;retractIfCan;AU;3| |ANY1;retract;AS;4|)
            '#(|retractable?| 27 |retractIfCan| 32 |retract| 37 |coerce| 42)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 22
-                                                 '(1 9 8 0 10 2 8 11 0 0 12 1
-                                                   15 14 6 16 2 9 0 8 14 17 1 9
-                                                   14 0 19 1 0 11 9 13 1 0 20 9
-                                                   21 1 0 6 9 22 1 0 9 6
-                                                   18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|coerce| ((|Any|) |#1|)) T)
+                                   '((|retractIfCan|
+                                      ((|Union| |#1| #1#) (|Any|)))
+                                     T)
+                                   '((|retractable?| ((|Boolean|) (|Any|))) T)
+                                   '((|retract| (|#1| (|Any|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 22
+                                            '(1 9 8 0 10 2 8 11 0 0 12 1 15 14
+                                              6 16 2 9 0 8 14 17 1 9 14 0 19 1
+                                              0 11 9 13 1 0 20 9 21 1 0 6 9 22
+                                              1 0 9 6 18)))))
            '|lookupComplete|)) 

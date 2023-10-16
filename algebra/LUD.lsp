@@ -247,16 +247,34 @@
               (|Record| (|:| |Inv| 7) (|:| |Pivots| (|List| 6)))
               |LUD;LUInverse;MR;3|)
            '#(|LUSolve| 71 |LUInverse| 78 |LUDecomp| 83) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 29
-                                                 '(1 7 0 0 8 1 7 9 0 10 1 7 9 0
-                                                   11 2 9 12 0 0 13 0 6 0 14 2
-                                                   6 0 0 0 15 2 6 0 0 0 16 1 6
-                                                   12 0 17 0 6 0 18 3 7 0 0 9 9
-                                                   19 2 6 0 0 0 20 1 23 0 0 24
-                                                   3 7 0 0 9 23 27 3 0 23 7 25
-                                                   23 26 1 0 28 7 29 1 0 21 7
-                                                   22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|LUDecomp|
+                                 ((|Record| (|:| LU (|Matrix| |#1|))
+                                            (|:| |Perm| (|Vector| (|Integer|)))
+                                            (|:| |Pivots| (|List| |#1|)))
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|LUSolve|
+                                 ((|Vector| |#1|) (|Matrix| |#1|)
+                                  (|Vector| (|Integer|)) (|Vector| |#1|)))
+                                T)
+                              '((|LUInverse|
+                                 ((|Record| (|:| |Inv| (|Matrix| |#1|))
+                                            (|:| |Pivots| (|List| |#1|)))
+                                  (|Matrix| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 29
+                                            '(1 7 0 0 8 1 7 9 0 10 1 7 9 0 11 2
+                                              9 12 0 0 13 0 6 0 14 2 6 0 0 0 15
+                                              2 6 0 0 0 16 1 6 12 0 17 0 6 0 18
+                                              3 7 0 0 9 9 19 2 6 0 0 0 20 1 23
+                                              0 0 24 3 7 0 0 9 23 27 3 0 23 7
+                                              25 23 26 1 0 28 7 29 1 0 21 7
+                                              22)))))
            '|lookupComplete|)) 

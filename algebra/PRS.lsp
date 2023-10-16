@@ -3603,47 +3603,167 @@
               |chainSubResultants| 452 |LazardQuotient2| 458 |LazardQuotient|
               466)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 107
-                                                 '(0 6 0 8 2 7 0 6 9 10 1 7 0 6
-                                                   12 2 13 0 7 0 14 2 7 15 0 6
-                                                   16 2 13 0 17 0 18 1 7 6 0 19
-                                                   1 7 9 0 20 0 6 0 21 0 7 0 22
-                                                   1 7 0 0 23 2 6 15 0 0 24 2 7
-                                                   0 0 0 25 2 7 0 0 0 26 2 7 0
-                                                   0 0 27 1 7 30 0 31 1 6 0 0
-                                                   32 2 6 0 0 9 33 2 6 0 0 0 34
-                                                   0 7 0 35 2 7 0 6 0 36 2 9 0
-                                                   37 0 38 1 7 0 0 41 2 7 6 0 9
-                                                   42 2 13 7 0 44 45 2 13 0 0 0
-                                                   46 2 13 0 0 0 47 3 13 7 0 44
-                                                   7 48 1 13 0 0 49 2 7 0 0 0
-                                                   50 2 6 0 0 44 51 2 0 6 7 7
-                                                   52 2 7 53 0 0 54 2 7 0 44 0
-                                                   55 2 0 56 7 7 57 2 0 58 7 7
-                                                   59 2 9 30 0 0 62 1 13 0 0 73
-                                                   1 7 0 0 86 2 6 0 44 0 87 2 7
-                                                   0 0 6 89 1 7 94 0 95 2 94 0
-                                                   0 0 96 1 6 0 97 98 2 0 6 7 7
-                                                   99 2 0 100 7 7 101 2 0 102 7
-                                                   7 103 2 0 7 7 7 104 1 7 6 0
-                                                   105 2 6 0 0 0 106 1 7 0 0
-                                                   107 2 0 80 7 7 81 2 0 7 7 7
-                                                   79 2 0 82 7 7 83 2 0 84 7 7
-                                                   85 2 1 102 7 7 103 2 0 58 7
-                                                   7 59 2 0 60 7 7 61 2 0 66 7
-                                                   7 74 3 0 66 7 7 9 67 1 0 92
-                                                   7 93 3 0 66 7 7 9 70 2 0 77
-                                                   7 7 78 2 1 100 7 7 101 2 1 6
-                                                   7 7 99 2 0 56 7 7 57 2 0 6 7
-                                                   7 52 4 0 7 7 7 7 6 43 2 0 64
-                                                   7 7 72 2 0 7 7 7 71 3 0 64 7
-                                                   7 9 65 3 0 7 7 7 9 63 2 1 7
-                                                   7 7 104 2 0 28 7 7 29 1 0 90
-                                                   7 91 1 0 6 7 88 3 0 64 7 7 9
-                                                   69 3 0 7 7 7 9 68 2 0 75 7 7
-                                                   76 4 0 7 7 6 6 9 40 3 0 6 6
-                                                   6 9 39)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|resultant| (|#1| |#2| |#2|)) T)
+                                   '((|resultantEuclidean|
+                                      ((|Record| (|:| |coef1| |#2|)
+                                                 (|:| |coef2| |#2|)
+                                                 (|:| |resultant| |#1|))
+                                       |#2| |#2|))
+                                     T)
+                                   '((|semiResultantEuclidean2|
+                                      ((|Record| (|:| |coef2| |#2|)
+                                                 (|:| |resultant| |#1|))
+                                       |#2| |#2|))
+                                     T)
+                                   '((|semiResultantEuclidean1|
+                                      ((|Record| (|:| |coef1| |#2|)
+                                                 (|:| |resultant| |#1|))
+                                       |#2| |#2|))
+                                     T)
+                                   '((|indiceSubResultant|
+                                      (|#2| |#2| |#2| (|NonNegativeInteger|)))
+                                     T)
+                                   '((|indiceSubResultantEuclidean|
+                                      ((|Record| (|:| |coef1| |#2|)
+                                                 (|:| |coef2| |#2|)
+                                                 (|:| |subResultant| |#2|))
+                                       |#2| |#2| (|NonNegativeInteger|)))
+                                     T)
+                                   '((|semiIndiceSubResultantEuclidean|
+                                      ((|Record| (|:| |coef2| |#2|)
+                                                 (|:| |subResultant| |#2|))
+                                       |#2| |#2| (|NonNegativeInteger|)))
+                                     T)
+                                   '((|degreeSubResultant|
+                                      (|#2| |#2| |#2| (|NonNegativeInteger|)))
+                                     T)
+                                   '((|degreeSubResultantEuclidean|
+                                      ((|Record| (|:| |coef1| |#2|)
+                                                 (|:| |coef2| |#2|)
+                                                 (|:| |subResultant| |#2|))
+                                       |#2| |#2| (|NonNegativeInteger|)))
+                                     T)
+                                   '((|semiDegreeSubResultantEuclidean|
+                                      ((|Record| (|:| |coef2| |#2|)
+                                                 (|:| |subResultant| |#2|))
+                                       |#2| |#2| (|NonNegativeInteger|)))
+                                     T)
+                                   '((|lastSubResultant| (|#2| |#2| |#2|)) T)
+                                   '((|lastSubResultantEuclidean|
+                                      ((|Record| (|:| |coef1| |#2|)
+                                                 (|:| |coef2| |#2|)
+                                                 (|:| |subResultant| |#2|))
+                                       |#2| |#2|))
+                                     T)
+                                   '((|semiLastSubResultantEuclidean|
+                                      ((|Record| (|:| |coef2| |#2|)
+                                                 (|:| |subResultant| |#2|))
+                                       |#2| |#2|))
+                                     T)
+                                   '((|subResultantGcd| (|#2| |#2| |#2|)) T)
+                                   '((|subResultantGcdEuclidean|
+                                      ((|Record| (|:| |coef1| |#2|)
+                                                 (|:| |coef2| |#2|)
+                                                 (|:| |gcd| |#2|))
+                                       |#2| |#2|))
+                                     T)
+                                   '((|semiSubResultantGcdEuclidean2|
+                                      ((|Record| (|:| |coef2| |#2|)
+                                                 (|:| |gcd| |#2|))
+                                       |#2| |#2|))
+                                     T)
+                                   '((|semiSubResultantGcdEuclidean1|
+                                      ((|Record| (|:| |coef1| |#2|)
+                                                 (|:| |gcd| |#2|))
+                                       |#2| |#2|))
+                                     T)
+                                   '((|discriminant| (|#1| |#2|)) T)
+                                   '((|discriminantEuclidean|
+                                      ((|Record| (|:| |coef1| |#2|)
+                                                 (|:| |coef2| |#2|)
+                                                 (|:| |discriminant| |#1|))
+                                       |#2|))
+                                     T)
+                                   '((|semiDiscriminantEuclidean|
+                                      ((|Record| (|:| |coef2| |#2|)
+                                                 (|:| |discriminant| |#1|))
+                                       |#2|))
+                                     T)
+                                   '((|chainSubResultants|
+                                      ((|List| |#2|) |#2| |#2|))
+                                     T)
+                                   '((|schema|
+                                      ((|List| (|NonNegativeInteger|)) |#2|
+                                       |#2|))
+                                     T)
+                                   '((|resultantReduit| (|#1| |#2| |#2|))
+                                     (|has| 6 (|GcdDomain|)))
+                                   '((|resultantReduitEuclidean|
+                                      ((|Record| (|:| |coef1| |#2|)
+                                                 (|:| |coef2| |#2|)
+                                                 (|:| |resultantReduit| |#1|))
+                                       |#2| |#2|))
+                                     (|has| 6 (|GcdDomain|)))
+                                   '((|semiResultantReduitEuclidean|
+                                      ((|Record| (|:| |coef2| |#2|)
+                                                 (|:| |resultantReduit| |#1|))
+                                       |#2| |#2|))
+                                     (|has| 6 (|GcdDomain|)))
+                                   '((|gcd| (|#2| |#2| |#2|))
+                                     (|has| 6 (|GcdDomain|)))
+                                   '((|divide|
+                                      ((|Record| (|:| |quotient| |#2|)
+                                                 (|:| |remainder| |#2|))
+                                       |#2| |#2|))
+                                     T)
+                                   '((|LazardQuotient|
+                                      (|#1| |#1| |#1| (|NonNegativeInteger|)))
+                                     T)
+                                   '((|LazardQuotient2|
+                                      (|#2| |#2| |#1| |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|next_sousResultant2|
+                                      (|#2| |#2| |#2| |#2| |#1|))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 107
+                                            '(0 6 0 8 2 7 0 6 9 10 1 7 0 6 12 2
+                                              13 0 7 0 14 2 7 15 0 6 16 2 13 0
+                                              17 0 18 1 7 6 0 19 1 7 9 0 20 0 6
+                                              0 21 0 7 0 22 1 7 0 0 23 2 6 15 0
+                                              0 24 2 7 0 0 0 25 2 7 0 0 0 26 2
+                                              7 0 0 0 27 1 7 30 0 31 1 6 0 0 32
+                                              2 6 0 0 9 33 2 6 0 0 0 34 0 7 0
+                                              35 2 7 0 6 0 36 2 9 0 37 0 38 1 7
+                                              0 0 41 2 7 6 0 9 42 2 13 7 0 44
+                                              45 2 13 0 0 0 46 2 13 0 0 0 47 3
+                                              13 7 0 44 7 48 1 13 0 0 49 2 7 0
+                                              0 0 50 2 6 0 0 44 51 2 0 6 7 7 52
+                                              2 7 53 0 0 54 2 7 0 44 0 55 2 0
+                                              56 7 7 57 2 0 58 7 7 59 2 9 30 0
+                                              0 62 1 13 0 0 73 1 7 0 0 86 2 6 0
+                                              44 0 87 2 7 0 0 6 89 1 7 94 0 95
+                                              2 94 0 0 0 96 1 6 0 97 98 2 0 6 7
+                                              7 99 2 0 100 7 7 101 2 0 102 7 7
+                                              103 2 0 7 7 7 104 1 7 6 0 105 2 6
+                                              0 0 0 106 1 7 0 0 107 2 0 80 7 7
+                                              81 2 0 7 7 7 79 2 0 82 7 7 83 2 0
+                                              84 7 7 85 2 1 102 7 7 103 2 0 58
+                                              7 7 59 2 0 60 7 7 61 2 0 66 7 7
+                                              74 3 0 66 7 7 9 67 1 0 92 7 93 3
+                                              0 66 7 7 9 70 2 0 77 7 7 78 2 1
+                                              100 7 7 101 2 1 6 7 7 99 2 0 56 7
+                                              7 57 2 0 6 7 7 52 4 0 7 7 7 7 6
+                                              43 2 0 64 7 7 72 2 0 7 7 7 71 3 0
+                                              64 7 7 9 65 3 0 7 7 7 9 63 2 1 7
+                                              7 7 104 2 0 28 7 7 29 1 0 90 7 91
+                                              1 0 6 7 88 3 0 64 7 7 9 69 3 0 7
+                                              7 7 9 68 2 0 75 7 7 76 4 0 7 7 6
+                                              6 9 40 3 0 6 6 6 9 39)))))
            '|lookupComplete|)) 

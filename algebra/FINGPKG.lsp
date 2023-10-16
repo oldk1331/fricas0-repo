@@ -99,12 +99,22 @@
               (25 . |permutationRepresentation|)
               |FINGPKG;regularRepresentation;GM;2|)
            '#(|regularRepresentation| 31 |permutationRepresentation| 36) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 22
-                                                 '(0 6 7 8 2 6 0 0 0 9 2 11 10
-                                                   6 0 12 1 14 0 13 15 0 6 17
-                                                   18 2 20 19 14 10 21 1 0 19 6
-                                                   22 1 0 14 6 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|permutationRepresentation|
+                                 ((|Permutation| (|Integer|)) |#1|))
+                                T)
+                              '((|regularRepresentation|
+                                 ((|Matrix| (|Integer|)) |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 22
+                                            '(0 6 7 8 2 6 0 0 0 9 2 11 10 6 0
+                                              12 1 14 0 13 15 0 6 17 18 2 20 19
+                                              14 10 21 1 0 19 6 22 1 0 14 6
+                                              16)))))
            '|lookupComplete|)) 

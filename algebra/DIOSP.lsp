@@ -400,7 +400,7 @@
               (16 . |totalDegree|) (|Boolean|) (21 . >) (|List| $)
               (27 . |monomials|) (32 . |ground?|) (|Integer|) (37 . |ground|)
               (|Vector| 11) (42 . |zero|) (|List| (|Symbol|))
-              (47 . |variables|) (|Union| 45 '"failed")
+              (47 . |variables|) (|Union| 45 '#1="failed")
               (|Record| (|:| |varOrder| 22) (|:| |inhom| 24) (|:| |hom| 45))
               |DIOSP;dioSolve;ER;1| (|List| 18) (52 . |coefficients|)
               (|Vector| 18) (57 . |vector|) (62 . |min|) (|Mapping| 18 18 18)
@@ -409,23 +409,38 @@
               (|Vector| 39) (104 . |elt|) (110 . |elt|) (116 . |setelt!|)
               (123 . |copy|) (|List| 20) (128 . |append|))
            '#(|dioSolve| 134) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 46
-                                                 '(1 7 6 0 8 1 7 6 0 9 2 6 0 0
-                                                   0 10 1 6 11 0 12 2 11 13 0 0
-                                                   14 1 6 15 0 16 1 6 13 0 17 1
-                                                   6 18 0 19 1 20 0 11 21 1 6
-                                                   22 0 23 1 6 27 0 28 1 29 0
-                                                   27 30 2 18 0 0 0 31 2 29 18
-                                                   32 0 33 2 18 0 0 0 34 1 29 0
-                                                   11 35 2 18 13 0 0 36 2 29 18
-                                                   0 18 37 3 29 18 0 18 18 38 2
-                                                   40 39 0 18 41 2 20 11 0 18
-                                                   42 3 20 11 0 18 11 43 1 20 0
-                                                   0 44 2 45 0 0 0 46 1 0 25 7
-                                                   26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|dioSolve|
+                                 ((|Record|
+                                   (|:| |varOrder| (|List| (|Symbol|)))
+                                   (|:| |inhom|
+                                        (|Union|
+                                         (|List|
+                                          (|Vector| (|NonNegativeInteger|)))
+                                         #1#))
+                                   (|:| |hom|
+                                        (|List|
+                                         (|Vector| (|NonNegativeInteger|)))))
+                                  (|Equation| (|Polynomial| (|Integer|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 46
+                                            '(1 7 6 0 8 1 7 6 0 9 2 6 0 0 0 10
+                                              1 6 11 0 12 2 11 13 0 0 14 1 6 15
+                                              0 16 1 6 13 0 17 1 6 18 0 19 1 20
+                                              0 11 21 1 6 22 0 23 1 6 27 0 28 1
+                                              29 0 27 30 2 18 0 0 0 31 2 29 18
+                                              32 0 33 2 18 0 0 0 34 1 29 0 11
+                                              35 2 18 13 0 0 36 2 29 18 0 18 37
+                                              3 29 18 0 18 18 38 2 40 39 0 18
+                                              41 2 20 11 0 18 42 3 20 11 0 18
+                                              11 43 1 20 0 0 44 2 45 0 0 0 46 1
+                                              0 25 7 26)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DiophantineSolutionPackage| 'NILADIC T) 

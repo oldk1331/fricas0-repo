@@ -66,12 +66,17 @@
               (14 . |degree|) (19 . |monomial|) (25 . |reductum|)
               (|Mapping| 9 7) |FAMR2;map;MA1A2;1| (30 . +))
            '#(|map| 36) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 20
-                                                 '(1 8 11 0 12 0 10 0 13 1 8 7
-                                                   0 14 1 8 6 0 15 2 10 0 9 6
-                                                   16 1 8 0 0 17 2 10 0 0 0 20
-                                                   2 0 10 18 8 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#5| (|Mapping| |#4| |#2|) |#3|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 20
+                                            '(1 8 11 0 12 0 10 0 13 1 8 7 0 14
+                                              1 8 6 0 15 2 10 0 9 6 16 1 8 0 0
+                                              17 2 10 0 0 0 20 2 0 10 18 8
+                                              19)))))
            '|lookupComplete|)) 

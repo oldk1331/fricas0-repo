@@ -74,16 +74,35 @@
               |SPECOUT;outputAsScript;LV;6| |SPECOUT;outputAsTex;OfV;7|
               |SPECOUT;outputAsTex;LV;8|)
            '#(|outputAsTex| 25 |outputAsScript| 35 |outputAsFortran| 45) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 23
-                                                 '(1 7 0 6 8 0 9 0 10 1 13 0 12
-                                                   14 1 13 7 0 15 2 7 0 0 0 16
-                                                   1 0 9 7 22 1 0 9 18 23 1 0 9
-                                                   7 20 1 0 9 18 21 2 0 9 12 7
-                                                   17 1 0 9 7 11 1 0 9 18
-                                                   19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|outputAsFortran|
+                                 ((|Void|) (|String|) (|OutputForm|)))
+                                T)
+                              '((|outputAsFortran| ((|Void|) (|OutputForm|)))
+                                T)
+                              '((|outputAsScript| ((|Void|) (|OutputForm|))) T)
+                              '((|outputAsTex| ((|Void|) (|OutputForm|))) T)
+                              '((|outputAsFortran|
+                                 ((|Void|) (|List| (|OutputForm|))))
+                                T)
+                              '((|outputAsScript|
+                                 ((|Void|) (|List| (|OutputForm|))))
+                                T)
+                              '((|outputAsTex|
+                                 ((|Void|) (|List| (|OutputForm|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 23
+                                            '(1 7 0 6 8 0 9 0 10 1 13 0 12 14 1
+                                              13 7 0 15 2 7 0 0 0 16 1 0 9 7 22
+                                              1 0 9 18 23 1 0 9 7 20 1 0 9 18
+                                              21 2 0 9 12 7 17 1 0 9 7 11 1 0 9
+                                              18 19)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|SpecialOutputPackage| 'NILADIC T) 

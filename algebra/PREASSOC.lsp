@@ -481,7 +481,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . D)
               '|diff| (|NonNegativeInteger|) (4 . |degree|)
-              (|Union| 31 '"failed") (|PositiveInteger|)
+              (|Union| 31 '#1="failed") (|PositiveInteger|)
               |PREASSOC;firstUncouplingMatrix;LPiU;1|
               (9 . |leadingCoefficient|) (14 . |Zero|) (18 . |One|)
               (22 . |One|) (26 . |coefficient|) (|Union| $ '"failed")
@@ -489,17 +489,23 @@
               (61 . |Zero|) (65 . -) (71 . ^) (77 . *) (|List| (|List| 6))
               (|Matrix| 6) (83 . |matrix|) (|Integer|) (88 . |coerce|))
            '#(|firstUncouplingMatrix| 93) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 34
-                                                 '(0 7 0 8 1 7 10 0 11 1 7 6 0
-                                                   15 0 6 0 16 0 6 0 17 0 7 0
-                                                   18 2 7 6 0 10 19 2 6 20 0 0
-                                                   21 1 6 0 0 22 2 7 6 0 6 23 2
-                                                   6 0 0 0 24 2 6 0 0 0 25 0 7
-                                                   0 26 2 6 0 0 0 27 2 6 0 0 13
-                                                   28 2 6 0 13 0 29 1 31 0 30
-                                                   32 1 6 0 33 34 2 0 12 7 13
-                                                   14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|firstUncouplingMatrix|
+                                 ((|Union| (|Matrix| |#1|) #1#) |#2|
+                                  (|PositiveInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 34
+                                            '(0 7 0 8 1 7 10 0 11 1 7 6 0 15 0
+                                              6 0 16 0 6 0 17 0 7 0 18 2 7 6 0
+                                              10 19 2 6 20 0 0 21 1 6 0 0 22 2
+                                              7 6 0 6 23 2 6 0 0 0 24 2 6 0 0 0
+                                              25 0 7 0 26 2 6 0 0 0 27 2 6 0 0
+                                              13 28 2 6 0 13 0 29 1 31 0 30 32
+                                              1 6 0 33 34 2 0 12 7 13 14)))))
            '|lookupComplete|)) 

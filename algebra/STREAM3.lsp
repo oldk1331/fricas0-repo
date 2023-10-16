@@ -109,16 +109,23 @@
               (56 . |map|) (62 . |explicitlyEmpty?|) (67 . |eq?|)
               (|Mapping| 8 6) (|StreamFunctions2| 6 8) (73 . |map|))
            '#(|map| 79) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 34
-                                                 '(1 10 9 0 11 0 12 0 13 1 14 9
-                                                   0 15 1 10 6 0 16 1 14 7 0 17
-                                                   1 10 0 0 18 1 14 0 0 19 2 12
-                                                   0 8 0 22 1 12 0 23 24 1 10 9
-                                                   0 25 2 10 9 0 0 26 2 28 12
-                                                   27 14 29 1 14 9 0 30 2 14 9
-                                                   0 0 31 2 33 12 32 10 34 3 0
-                                                   12 20 10 14 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|Stream| |#3|) (|Mapping| |#3| |#1| |#2|)
+                                  (|Stream| |#1|) (|Stream| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 34
+                                            '(1 10 9 0 11 0 12 0 13 1 14 9 0 15
+                                              1 10 6 0 16 1 14 7 0 17 1 10 0 0
+                                              18 1 14 0 0 19 2 12 0 8 0 22 1 12
+                                              0 23 24 1 10 9 0 25 2 10 9 0 0 26
+                                              2 28 12 27 14 29 1 14 9 0 30 2 14
+                                              9 0 0 31 2 33 12 32 10 34 3 0 12
+                                              20 10 14 21)))))
            '|lookupComplete|)) 

@@ -232,7 +232,7 @@
               (|local| |#3|) (|local| |#4|) (|NonNegativeInteger|) (0 . |rank|)
               (|Boolean|) |LSMP;hasSolution?;MColB;1| (5 . |coerce|) (10 . -)
               (15 . |horizConcat|) |LSMP;rank;MColNni;3| (21 . |rowEchelon|)
-              (|Union| 8 '"failed") |LSMP;particularSolution;MColU;4|
+              (|Union| 8 '#1="failed") |LSMP;particularSolution;MColU;4|
               (26 . |ncols|) (31 . |One|) (|Integer|) (35 . |maxRowIndex|)
               (40 . |minRowIndex|) (45 . |zero?|) (50 . |row|) (|Mapping| 12 6)
               (56 . |every?|) (62 . |Zero|) (66 . |new|) (72 . |minColIndex|)
@@ -244,22 +244,42 @@
            '#(|solve| 126 |rank| 138 |particularSolution| 144 |hasSolution?|
               150)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 45
-                                                 '(1 9 10 0 11 1 9 0 8 14 1 9 0
-                                                   0 15 2 9 0 0 0 16 1 9 0 0 18
-                                                   1 9 10 0 21 0 6 0 22 1 9 23
-                                                   0 24 1 9 23 0 25 1 6 12 0 26
-                                                   2 9 7 0 23 27 2 7 12 28 0 29
-                                                   0 6 0 30 2 8 0 10 6 31 1 9
-                                                   23 0 32 1 9 23 0 33 3 9 6 0
-                                                   23 23 34 1 8 23 0 35 1 6 0 0
-                                                   36 3 8 6 0 23 6 37 2 8 12 28
-                                                   0 38 1 9 39 0 40 5 9 0 0 23
-                                                   23 23 23 41 2 0 44 9 39 45 2
-                                                   0 42 9 8 43 2 0 10 9 8 17 2
-                                                   0 19 9 8 20 2 0 12 9 8
-                                                   13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solve|
+                                 ((|Record|
+                                   (|:| |particular| (|Union| |#3| #1#))
+                                   (|:| |basis| (|List| |#3|)))
+                                  |#4| |#3|))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |particular| (|Union| |#3| #1#))
+                                    (|:| |basis| (|List| |#3|))))
+                                  |#4| (|List| |#3|)))
+                                T)
+                              '((|particularSolution|
+                                 ((|Union| |#3| #1#) |#4| |#3|))
+                                T)
+                              '((|hasSolution?| ((|Boolean|) |#4| |#3|)) T)
+                              '((|rank| ((|NonNegativeInteger|) |#4| |#3|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 45
+                                            '(1 9 10 0 11 1 9 0 8 14 1 9 0 0 15
+                                              2 9 0 0 0 16 1 9 0 0 18 1 9 10 0
+                                              21 0 6 0 22 1 9 23 0 24 1 9 23 0
+                                              25 1 6 12 0 26 2 9 7 0 23 27 2 7
+                                              12 28 0 29 0 6 0 30 2 8 0 10 6 31
+                                              1 9 23 0 32 1 9 23 0 33 3 9 6 0
+                                              23 23 34 1 8 23 0 35 1 6 0 0 36 3
+                                              8 6 0 23 6 37 2 8 12 28 0 38 1 9
+                                              39 0 40 5 9 0 0 23 23 23 23 41 2
+                                              0 44 9 39 45 2 0 42 9 8 43 2 0 10
+                                              9 8 17 2 0 19 9 8 20 2 0 12 9 8
+                                              13)))))
            '|lookupComplete|)) 

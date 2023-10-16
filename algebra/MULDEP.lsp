@@ -175,16 +175,25 @@
               (|List| 11) (45 . |matrix|) (50 . |One|)
               |MULDEP;logDependenceQ;LFU;2|)
            '#(|logDependenceQ| 54) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 29
-                                                 '(2 9 6 7 8 10 2 11 0 0 0 12 1
-                                                   8 0 11 13 1 15 14 8 16 2 18
-                                                   17 0 17 19 1 17 20 0 21 3 22
-                                                   17 0 17 17 23 1 24 0 17 25 1
-                                                   7 0 26 27 0 24 0 28 2 0 6 11
-                                                   24 29)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|logDependenceQ|
+                                 ((|Union| (|Vector| (|Fraction| (|Integer|)))
+                                           "failed")
+                                  (|List| (|Fraction| (|Integer|)))
+                                  (|Fraction| (|Integer|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 29
+                                            '(2 9 6 7 8 10 2 11 0 0 0 12 1 8 0
+                                              11 13 1 15 14 8 16 2 18 17 0 17
+                                              19 1 17 20 0 21 3 22 17 0 17 17
+                                              23 1 24 0 17 25 1 7 0 26 27 0 24
+                                              0 28 2 0 6 11 24 29)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|MultiplicativeDependence| 'NILADIC T) 

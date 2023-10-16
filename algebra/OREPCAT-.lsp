@@ -417,9 +417,9 @@
               (20 . |leadingCoefficient|) (25 . |reductum|) (|List| 7)
               |OREPCAT-;coefficients;SL;2| (30 . *) (36 . |degree|) (41 . +)
               |OREPCAT-;*;R2S;3| (47 . |zero?|) (|Union| 7 '"failed")
-              |OREPCAT-;retractIfCan;SU;4| (|Union| $ '"failed") (52 . |exquo|)
-              (58 . |exquo|) (64 . |coefficients|) (|List| $) (69 . |gcd|)
-              (74 . |content|) (79 . |content|) (84 . |exquo|)
+              |OREPCAT-;retractIfCan;SU;4| (|Union| $ '#1="failed")
+              (52 . |exquo|) (58 . |exquo|) (64 . |coefficients|) (|List| $)
+              (69 . |gcd|) (74 . |content|) (79 . |content|) (84 . |exquo|)
               (90 . |primitivePart|)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (95 . |leftDivide|) (101 . |leftQuotient|)
@@ -435,8 +435,8 @@
               (|Record| (|:| |generator| $) (|:| |coef1| $) (|:| |coef2| $)
                         (|:| |coefu| $) (|:| |coefv| $))
               (211 . |right_ext_ext_GCD|) (217 . |right_ext_ext_GCD|)
-              (|Integer|) (|Union| 63 '#1="failed") (|Fraction| 61)
-              (|Union| 61 '#1#) (|OutputForm|) (|PositiveInteger|))
+              (|Integer|) (|Union| 63 '#2="failed") (|Fraction| 61)
+              (|Union| 61 '#2#) (|OutputForm|) (|PositiveInteger|))
            '#(|right_ext_ext_GCD| 223 |rightRemainder| 229 |rightQuotient| 235
               |rightLcm| 241 |rightGcd| 247 |rightExtendedGcd| 253
               |rightExactQuotient| 259 |retractIfCan| 265 |primitivePart| 270
@@ -444,35 +444,101 @@
               293 |leftExtendedGcd| 299 |leftExactQuotient| 305 |exquo| 311
               |content| 317 |coerce| 322 |coefficients| 327 * 332)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 60
-                                                 '(0 6 0 8 0 7 0 9 2 6 0 7 10
-                                                   11 2 6 13 0 0 14 1 6 7 0 15
-                                                   1 6 0 0 16 2 7 0 0 0 19 1 6
-                                                   10 0 20 2 6 0 0 0 21 1 6 13
-                                                   0 23 2 7 26 0 0 27 2 0 26 0
-                                                   7 28 1 6 17 0 29 1 7 0 30 31
-                                                   1 0 7 0 32 1 6 7 0 33 2 6 26
-                                                   0 7 34 1 0 0 0 35 2 6 36 0 0
-                                                   37 2 0 0 0 0 38 2 0 0 0 0 39
-                                                   2 0 40 0 0 41 2 0 0 0 0 42 2
-                                                   6 36 0 0 43 2 0 0 0 0 44 2 0
-                                                   0 0 0 45 2 0 40 0 0 46 2 0 0
-                                                   0 0 47 2 0 26 0 0 48 2 0 26
-                                                   0 0 49 2 6 0 0 0 50 2 0 0 0
-                                                   0 51 2 6 0 0 0 52 2 0 0 0 0
-                                                   53 0 6 0 54 2 6 0 0 0 55 2 6
-                                                   0 0 0 56 0 7 0 57 2 0 58 0 0
-                                                   59 2 6 58 0 0 60 2 0 58 0 0
-                                                   59 2 0 0 0 0 45 2 0 0 0 0 44
-                                                   2 0 0 0 0 42 2 0 0 0 0 51 2
-                                                   0 40 0 0 46 2 0 26 0 0 49 1
-                                                   0 24 0 25 1 0 0 0 35 2 0 0 0
-                                                   0 39 2 0 0 0 0 38 2 0 0 0 0
-                                                   47 2 0 0 0 0 53 2 0 40 0 0
-                                                   41 2 0 26 0 0 48 2 0 26 0 7
-                                                   28 1 0 7 0 32 1 0 0 7 12 1 0
-                                                   17 0 18 2 0 0 7 0 22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((* (|#1| (|Integer|) |#1|)) T)
+                                   '((* (|#1| (|NonNegativeInteger|) |#1|)) T)
+                                   '((|coerce| (|#1| (|Integer|))) T)
+                                   '((|leftLcm| (|#1| |#1| |#1|)) T)
+                                   '((|right_ext_ext_GCD|
+                                      ((|Record| (|:| |generator| |#1|)
+                                                 (|:| |coef1| |#1|)
+                                                 (|:| |coef2| |#1|)
+                                                 (|:| |coefu| |#1|)
+                                                 (|:| |coefv| |#1|))
+                                       |#1| |#1|))
+                                     T)
+                                   '((|rightExtendedGcd|
+                                      ((|Record| (|:| |coef1| |#1|)
+                                                 (|:| |coef2| |#1|)
+                                                 (|:| |generator| |#1|))
+                                       |#1| |#1|))
+                                     T)
+                                   '((|rightGcd| (|#1| |#1| |#1|)) T)
+                                   '((|rightExactQuotient|
+                                      ((|Union| |#1| "failed") |#1| |#1|))
+                                     T)
+                                   '((|rightRemainder| (|#1| |#1| |#1|)) T)
+                                   '((|rightQuotient| (|#1| |#1| |#1|)) T)
+                                   '((|rightLcm| (|#1| |#1| |#1|)) T)
+                                   '((|leftExtendedGcd|
+                                      ((|Record| (|:| |coef1| |#1|)
+                                                 (|:| |coef2| |#1|)
+                                                 (|:| |generator| |#1|))
+                                       |#1| |#1|))
+                                     T)
+                                   '((|leftGcd| (|#1| |#1| |#1|)) T)
+                                   '((|leftExactQuotient|
+                                      ((|Union| |#1| "failed") |#1| |#1|))
+                                     T)
+                                   '((|leftRemainder| (|#1| |#1| |#1|)) T)
+                                   '((|leftQuotient| (|#1| |#1| |#1|)) T)
+                                   '((|exquo|
+                                      ((|Union| |#1| "failed") |#1| |#2|))
+                                     T)
+                                   '((|exquo| ((|Union| |#1| #1#) |#1| |#1|))
+                                     T)
+                                   '((|primitivePart| (|#1| |#1|)) T)
+                                   '((|content| (|#2| |#1|)) T)
+                                   '((|coefficients| ((|List| |#2|) |#1|)) T)
+                                   '((|retractIfCan| ((|Union| |#2| #2#) |#1|))
+                                     T)
+                                   '((|coerce| (|#1| |#2|)) T)
+                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
+                                     T)
+                                   '((|retractIfCan|
+                                      ((|Union| (|Fraction| (|Integer|)) #2#)
+                                       |#1|))
+                                     T)
+                                   '((|retractIfCan|
+                                      ((|Union| (|Integer|) #2#) |#1|))
+                                     T)
+                                   '((|coerce| (|#1| |#1|)) T)
+                                   '((* (|#1| |#1| (|Fraction| (|Integer|))))
+                                     T)
+                                   '((* (|#1| (|Fraction| (|Integer|)) |#1|))
+                                     T)
+                                   '((* (|#1| |#2| |#1|)) T)
+                                   '((* (|#1| |#1| |#2|)) T)
+                                   '((* (|#1| |#1| |#1|)) T)
+                                   '((* (|#1| (|PositiveInteger|) |#1|)) T)
+                                   '((|coerce| ((|OutputForm|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 60
+                                            '(0 6 0 8 0 7 0 9 2 6 0 7 10 11 2 6
+                                              13 0 0 14 1 6 7 0 15 1 6 0 0 16 2
+                                              7 0 0 0 19 1 6 10 0 20 2 6 0 0 0
+                                              21 1 6 13 0 23 2 7 26 0 0 27 2 0
+                                              26 0 7 28 1 6 17 0 29 1 7 0 30 31
+                                              1 0 7 0 32 1 6 7 0 33 2 6 26 0 7
+                                              34 1 0 0 0 35 2 6 36 0 0 37 2 0 0
+                                              0 0 38 2 0 0 0 0 39 2 0 40 0 0 41
+                                              2 0 0 0 0 42 2 6 36 0 0 43 2 0 0
+                                              0 0 44 2 0 0 0 0 45 2 0 40 0 0 46
+                                              2 0 0 0 0 47 2 0 26 0 0 48 2 0 26
+                                              0 0 49 2 6 0 0 0 50 2 0 0 0 0 51
+                                              2 6 0 0 0 52 2 0 0 0 0 53 0 6 0
+                                              54 2 6 0 0 0 55 2 6 0 0 0 56 0 7
+                                              0 57 2 0 58 0 0 59 2 6 58 0 0 60
+                                              2 0 58 0 0 59 2 0 0 0 0 45 2 0 0
+                                              0 0 44 2 0 0 0 0 42 2 0 0 0 0 51
+                                              2 0 40 0 0 46 2 0 26 0 0 49 1 0
+                                              24 0 25 1 0 0 0 35 2 0 0 0 0 39 2
+                                              0 0 0 0 38 2 0 0 0 0 47 2 0 0 0 0
+                                              53 2 0 40 0 0 41 2 0 26 0 0 48 2
+                                              0 26 0 7 28 1 0 7 0 32 1 0 0 7 12
+                                              1 0 17 0 18 2 0 0 7 0 22)))))
            '|lookupComplete|)) 

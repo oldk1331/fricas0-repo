@@ -344,28 +344,47 @@
               (|Record| (|:| |ratpart| 9) (|:| |coeffs| 24))
               (|Record| (|:| |particular| (|List| 66)) (|:| |basis| 53))
               |ODEPAL;algDsolve;LodoLR;4| (144 . |elt|) (150 . |inv|) (155 . *)
-              (|Union| 9 '"failed")
+              (|Union| 9 '#1="failed")
               (|Record| (|:| |particular| 72) (|:| |basis| 53))
               |ODEPAL;algDsolve;LodoRR;5|)
            '#(|algDsolve| 161) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 74
-                                                 '(2 13 10 11 12 14 0 9 15 16 1
-                                                   18 17 0 19 2 21 20 0 0 22 1
-                                                   24 23 0 25 1 18 0 26 27 1 18
-                                                   0 0 28 0 6 0 29 0 7 0 30 2
-                                                   31 20 0 0 32 3 18 6 0 31 31
-                                                   33 0 6 0 34 2 6 20 0 0 35 2
-                                                   31 20 0 0 36 0 7 0 37 0 38 0
-                                                   39 1 7 0 6 40 1 38 0 7 41 3
-                                                   42 38 0 31 38 43 2 38 0 7 0
-                                                   44 2 38 0 0 0 45 1 38 7 0 46
-                                                   1 7 6 0 47 2 49 24 48 42 50
-                                                   2 54 51 52 53 55 3 63 57 58
-                                                   59 62 64 1 9 0 42 65 2 24 6
-                                                   0 31 69 1 6 0 0 70 2 9 0 38
-                                                   0 71 2 0 67 52 53 68 2 0 73
-                                                   52 9 74)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|algDsolve|
+                                 ((|Record|
+                                   (|:| |particular| (|Union| |#4| #1#))
+                                   (|:| |basis| (|List| |#4|)))
+                                  (|LinearOrdinaryDifferentialOperator1| |#4|)
+                                  |#4|))
+                                T)
+                              '((|algDsolve|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|List|
+                                         (|Record| (|:| |ratpart| |#4|)
+                                                   (|:| |coeffs|
+                                                        (|Vector| |#1|)))))
+                                   (|:| |basis| (|List| |#4|)))
+                                  (|LinearOrdinaryDifferentialOperator1| |#4|)
+                                  (|List| |#4|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 74
+                                            '(2 13 10 11 12 14 0 9 15 16 1 18
+                                              17 0 19 2 21 20 0 0 22 1 24 23 0
+                                              25 1 18 0 26 27 1 18 0 0 28 0 6 0
+                                              29 0 7 0 30 2 31 20 0 0 32 3 18 6
+                                              0 31 31 33 0 6 0 34 2 6 20 0 0 35
+                                              2 31 20 0 0 36 0 7 0 37 0 38 0 39
+                                              1 7 0 6 40 1 38 0 7 41 3 42 38 0
+                                              31 38 43 2 38 0 7 0 44 2 38 0 0 0
+                                              45 1 38 7 0 46 1 7 6 0 47 2 49 24
+                                              48 42 50 2 54 51 52 53 55 3 63 57
+                                              58 59 62 64 1 9 0 42 65 2 24 6 0
+                                              31 69 1 6 0 0 70 2 9 0 38 0 71 2
+                                              0 67 52 53 68 2 0 73 52 9 74)))))
            '|lookupComplete|)) 

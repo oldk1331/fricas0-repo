@@ -145,19 +145,36 @@
               (|LinearSystemMatrixPackage| 10 25 25 31) (101 . |solve|)
               |LSPP;linSolve;LLR;3|)
            '#(|linSolve| 107 |intoMatrix| 113) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 45
-                                                 '(0 10 0 11 0 6 0 12 0 7 0 13
-                                                   0 9 0 14 2 9 15 0 0 16 2 9
-                                                   17 0 8 18 1 20 19 0 21 1 20
-                                                   9 0 22 1 10 0 9 23 3 25 10 0
-                                                   24 10 26 0 6 0 27 0 9 0 28 3
-                                                   9 0 0 8 19 29 2 9 0 0 0 30 2
-                                                   31 0 19 19 32 2 9 19 0 33 34
-                                                   2 19 15 0 0 35 3 31 0 0 24
-                                                   25 36 1 10 0 0 37 2 43 42 31
-                                                   25 44 2 0 42 39 33 45 2 0 38
-                                                   39 33 40)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|linSolve|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Vector| (|Fraction| |#4|))
+                                                 "failed"))
+                                   (|:| |basis|
+                                        (|List| (|Vector| (|Fraction| |#4|)))))
+                                  (|List| |#4|) (|List| |#3|)))
+                                T)
+                              '((|intoMatrix|
+                                 ((|Record|
+                                   (|:| |mat| (|Matrix| (|Fraction| |#4|)))
+                                   (|:| |vec| (|Vector| (|Fraction| |#4|))))
+                                  (|List| |#4|) (|List| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 45
+                                            '(0 10 0 11 0 6 0 12 0 7 0 13 0 9 0
+                                              14 2 9 15 0 0 16 2 9 17 0 8 18 1
+                                              20 19 0 21 1 20 9 0 22 1 10 0 9
+                                              23 3 25 10 0 24 10 26 0 6 0 27 0
+                                              9 0 28 3 9 0 0 8 19 29 2 9 0 0 0
+                                              30 2 31 0 19 19 32 2 9 19 0 33 34
+                                              2 19 15 0 0 35 3 31 0 0 24 25 36
+                                              1 10 0 0 37 2 43 42 31 25 44 2 0
+                                              42 39 33 45 2 0 38 39 33 40)))))
            '|lookupComplete|)) 

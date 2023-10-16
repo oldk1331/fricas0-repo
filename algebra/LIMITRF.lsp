@@ -414,9 +414,9 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Fraction| 27)
               (|Equation| 7) (0 . |lhs|) (|Union| 67 '"failed")
               (5 . |retractIfCan|) (10 . |rhs|) (|OrderedCompletion| 7)
-              (15 . |coerce|) (|Union| 13 '"failed")
+              (15 . |coerce|) (|Union| 13 '#1="failed")
               (|Record| (|:| |leftHandLimit| 15) (|:| |rightHandLimit| 15))
-              (|Union| 13 16 '"failed") |LIMITRF;limit;FEU;1|
+              (|Union| 13 16 '#2="failed") |LIMITRF;limit;FEU;1|
               (|OnePointCompletion| 7) (20 . |coerce|)
               |LIMITRF;complexLimit;FEOpc;2| (|OrderedCompletion| 27)
               (|Equation| 22) (25 . |lhs|) (|Union| 27 '"failed")
@@ -444,30 +444,95 @@
               |LIMITRF;limit;FESU;9| (|Union| 7 '"failed")
               (201 . |retractIfCan|))
            '#(|limit| 206 |complexLimit| 225) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 83
-                                                 '(1 8 7 0 9 1 7 10 0 11 1 8 7
-                                                   0 12 1 13 0 7 14 1 19 0 7 20
-                                                   1 23 22 0 24 1 22 25 0 26 1
-                                                   27 10 0 28 1 7 0 27 29 1 23
-                                                   22 0 30 2 32 13 31 22 33 1
-                                                   36 35 0 37 1 35 25 0 38 1 36
-                                                   35 0 39 2 40 19 31 35 41 1
-                                                   44 43 7 45 4 49 43 46 7 47
-                                                   48 50 0 6 0 51 2 47 52 0 0
-                                                   53 0 13 0 54 0 13 0 55 1 56
-                                                   46 0 57 2 46 7 0 7 58 1 7 52
-                                                   0 59 0 7 0 60 1 56 46 0 61 0
-                                                   19 0 62 2 7 0 0 0 63 0 6 0
-                                                   64 0 56 0 65 2 13 52 0 0 66
-                                                   2 68 56 7 67 69 1 13 70 0 71
-                                                   1 13 7 0 72 1 46 73 0 74 2
-                                                   73 52 0 0 75 3 49 43 46 47
-                                                   48 76 1 46 7 0 77 1 79 47 78
-                                                   80 1 19 82 0 83 2 0 17 7 8
-                                                   18 2 0 17 7 23 34 3 0 15 7 8
-                                                   78 81 2 0 19 7 36 42 2 0 19
-                                                   7 8 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|limit|
+                                 ((|Union|
+                                   (|OrderedCompletion|
+                                    (|Fraction| (|Polynomial| |#1|)))
+                                   (|Record|
+                                    (|:| |leftHandLimit|
+                                         (|Union|
+                                          (|OrderedCompletion|
+                                           (|Fraction| (|Polynomial| |#1|)))
+                                          #1#))
+                                    (|:| |rightHandLimit|
+                                         (|Union|
+                                          (|OrderedCompletion|
+                                           (|Fraction| (|Polynomial| |#1|)))
+                                          #1#)))
+                                   #2#)
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|Equation|
+                                   (|OrderedCompletion| (|Polynomial| |#1|)))))
+                                T)
+                              '((|limit|
+                                 ((|Union|
+                                   (|OrderedCompletion|
+                                    (|Fraction| (|Polynomial| |#1|)))
+                                   (|Record|
+                                    (|:| |leftHandLimit|
+                                         (|Union|
+                                          (|OrderedCompletion|
+                                           (|Fraction| (|Polynomial| |#1|)))
+                                          #1#))
+                                    (|:| |rightHandLimit|
+                                         (|Union|
+                                          (|OrderedCompletion|
+                                           (|Fraction| (|Polynomial| |#1|)))
+                                          #1#)))
+                                   #2#)
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|Equation|
+                                   (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|complexLimit|
+                                 ((|OnePointCompletion|
+                                   (|Fraction| (|Polynomial| |#1|)))
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|Equation|
+                                   (|OnePointCompletion|
+                                    (|Polynomial| |#1|)))))
+                                T)
+                              '((|complexLimit|
+                                 ((|OnePointCompletion|
+                                   (|Fraction| (|Polynomial| |#1|)))
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|Equation|
+                                   (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|limit|
+                                 ((|Union|
+                                   (|OrderedCompletion|
+                                    (|Fraction| (|Polynomial| |#1|)))
+                                   #1#)
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|Equation| (|Fraction| (|Polynomial| |#1|)))
+                                  (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 83
+                                            '(1 8 7 0 9 1 7 10 0 11 1 8 7 0 12
+                                              1 13 0 7 14 1 19 0 7 20 1 23 22 0
+                                              24 1 22 25 0 26 1 27 10 0 28 1 7
+                                              0 27 29 1 23 22 0 30 2 32 13 31
+                                              22 33 1 36 35 0 37 1 35 25 0 38 1
+                                              36 35 0 39 2 40 19 31 35 41 1 44
+                                              43 7 45 4 49 43 46 7 47 48 50 0 6
+                                              0 51 2 47 52 0 0 53 0 13 0 54 0
+                                              13 0 55 1 56 46 0 57 2 46 7 0 7
+                                              58 1 7 52 0 59 0 7 0 60 1 56 46 0
+                                              61 0 19 0 62 2 7 0 0 0 63 0 6 0
+                                              64 0 56 0 65 2 13 52 0 0 66 2 68
+                                              56 7 67 69 1 13 70 0 71 1 13 7 0
+                                              72 1 46 73 0 74 2 73 52 0 0 75 3
+                                              49 43 46 47 48 76 1 46 7 0 77 1
+                                              79 47 78 80 1 19 82 0 83 2 0 17 7
+                                              8 18 2 0 17 7 23 34 3 0 15 7 8 78
+                                              81 2 0 19 7 36 42 2 0 19 7 8
+                                              21)))))
            '|lookupComplete|)) 

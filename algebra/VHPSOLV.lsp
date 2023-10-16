@@ -187,20 +187,34 @@
               (97 . |setelt!|) (|List| 16) (|List| 6)
               |VHPSOLV;hp_solve;LLNniM;2|)
            '#(|hp_solve| 105) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 39
-                                                 '(2 6 0 0 0 7 3 10 8 6 6 9 11
-                                                   2 6 12 0 0 13 0 9 0 14 2 16
-                                                   9 0 15 17 2 9 0 0 6 18 0 9 0
-                                                   19 0 8 0 20 2 9 0 8 6 21 2 9
-                                                   0 0 0 22 2 9 0 0 0 23 1 25 0
-                                                   24 26 0 8 0 27 1 16 0 28 29
-                                                   5 10 30 31 32 16 25 6 33 2
-                                                   25 15 0 15 34 3 30 9 0 15 15
-                                                   35 4 30 9 0 15 15 9 36 3 0
-                                                   30 37 38 6 39)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|hp_solve|
+                                 ((|Matrix|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| (|Integer|))))
+                                  (|List|
+                                   (|Vector|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Expression| (|Integer|)))))
+                                  (|List| (|NonNegativeInteger|))
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 39
+                                            '(2 6 0 0 0 7 3 10 8 6 6 9 11 2 6
+                                              12 0 0 13 0 9 0 14 2 16 9 0 15 17
+                                              2 9 0 0 6 18 0 9 0 19 0 8 0 20 2
+                                              9 0 8 6 21 2 9 0 0 0 22 2 9 0 0 0
+                                              23 1 25 0 24 26 0 8 0 27 1 16 0
+                                              28 29 5 10 30 31 32 16 25 6 33 2
+                                              25 15 0 15 34 3 30 9 0 15 15 35 4
+                                              30 9 0 15 15 9 36 3 0 30 37 38 6
+                                              39)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|VectorHermitePadeSolver| 'NILADIC T) 

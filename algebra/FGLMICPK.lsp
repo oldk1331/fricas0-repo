@@ -265,16 +265,31 @@
                                  35)
               (62 . |groebner|) |FGLMICPK;groebner;2L;4|)
            '#(|zeroDimensional?| 67 |groebner| 72 |fglmIfCan| 77) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 42
-                                                 '(1 9 8 8 10 1 13 11 12 14 1
-                                                   15 0 0 16 1 15 17 0 18 2 15
-                                                   19 0 13 20 1 21 15 0 22 1 15
-                                                   23 0 24 2 25 0 13 0 26 1 28
-                                                   15 27 29 1 33 32 8 34 1 28
-                                                   27 35 36 1 28 35 27 39 1 40
-                                                   32 32 41 1 0 23 30 31 1 0 30
-                                                   30 42 1 0 37 30 38)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|zeroDimensional?|
+                                 ((|Boolean|) (|List| (|Polynomial| |#1|))))
+                                T)
+                              '((|fglmIfCan|
+                                 ((|Union| (|List| (|Polynomial| |#1|))
+                                           "failed")
+                                  (|List| (|Polynomial| |#1|))))
+                                T)
+                              '((|groebner|
+                                 ((|List| (|Polynomial| |#1|))
+                                  (|List| (|Polynomial| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 42
+                                            '(1 9 8 8 10 1 13 11 12 14 1 15 0 0
+                                              16 1 15 17 0 18 2 15 19 0 13 20 1
+                                              21 15 0 22 1 15 23 0 24 2 25 0 13
+                                              0 26 1 28 15 27 29 1 33 32 8 34 1
+                                              28 27 35 36 1 28 35 27 39 1 40 32
+                                              32 41 1 0 23 30 31 1 0 30 30 42 1
+                                              0 37 30 38)))))
            '|lookupComplete|)) 

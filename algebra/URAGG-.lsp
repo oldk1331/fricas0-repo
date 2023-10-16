@@ -509,8 +509,8 @@
 (MAKEPROP '|UnaryRecursiveAggregate&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (0 . |first|) '"first" |URAGG-;elt;AfirstS;1| (5 . |last|)
-              '"last" |URAGG-;elt;AlastS;2| (10 . |rest|) '"rest"
+              (0 . |first|) '#1="first" |URAGG-;elt;AfirstS;1| (5 . |last|)
+              '#2="last" |URAGG-;elt;AlastS;2| (10 . |rest|) '#3="rest"
               |URAGG-;elt;ArestA;3| |URAGG-;second;AS;4| |URAGG-;third;AS;5|
               (|Boolean|) (15 . |empty?|) |URAGG-;cyclic?;AB;6| (20 . |tail|)
               |URAGG-;last;AS;7| (|List| $) |URAGG-;nodes;AL;8|
@@ -528,7 +528,7 @@
               (144 . |concat|) (150 . |qsetfirst!|) (156 . |qsetrest!|)
               (162 . |setlast!|) (168 . |setchildren!|) (174 . |setvalue!|)
               (180 . |empty|) (184 . |split!|) (190 . |cycleSplit!|)
-              (|Mapping| 7 7) (195 . |map!|) '"value")
+              (|Mapping| 7 7) (195 . |map!|) '#4="value")
            '#(|value| 201 |third| 206 |tail| 211 |split!| 216 |size?| 222
               |setvalue!| 228 |setlast!| 234 |setelt!| 240 |setchildren!| 261
               |second| 267 |rest| 272 |qsetrest!| 278 |qsetfirst!| 284 |nodes|
@@ -537,41 +537,87 @@
               363 |cycleLength| 368 |cycleEntry| 373 |concat| 378 |children|
               384 = 389 |#| 395)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 70
-                                                 '(1 6 7 0 8 1 6 7 0 11 1 6 0 0
-                                                   14 1 6 19 0 20 1 6 0 0 22 2
-                                                   29 19 0 0 30 1 6 19 0 35 2 6
-                                                   19 0 0 38 1 6 0 0 39 1 6 31
-                                                   0 44 2 31 19 0 0 45 2 6 0 0
-                                                   31 46 1 6 0 0 47 2 0 0 0 31
-                                                   48 2 7 19 0 0 49 2 0 19 0 0
-                                                   50 2 6 19 0 0 51 2 0 19 0 0
-                                                   52 2 6 7 0 7 53 3 0 7 0 9 7
-                                                   54 2 6 7 0 7 55 3 0 7 0 12 7
-                                                   56 2 6 0 0 0 57 3 0 0 0 15 0
-                                                   58 2 6 0 0 0 59 2 0 0 0 0 60
-                                                   2 0 7 0 7 61 2 0 0 0 0 62 2
-                                                   0 7 0 7 63 2 0 0 0 24 64 2 0
-                                                   7 0 7 65 0 6 0 66 2 0 0 0 31
-                                                   67 1 0 0 0 68 2 0 0 69 0 70
-                                                   1 0 7 0 28 1 0 7 0 18 1 0 0
-                                                   0 37 2 0 0 0 31 67 2 0 19 0
-                                                   31 34 2 0 7 0 7 65 2 0 7 0 7
-                                                   63 3 0 7 0 12 7 56 3 0 0 0
-                                                   15 0 58 3 0 7 0 9 7 54 2 0 0
-                                                   0 24 64 1 0 7 0 17 2 0 0 0
-                                                   31 43 2 0 0 0 0 62 2 0 7 0 7
-                                                   61 1 0 24 0 25 2 0 19 0 0 52
-                                                   2 0 19 0 31 33 2 0 0 69 0 70
-                                                   2 0 19 0 31 32 1 0 19 0 27 2
-                                                   0 0 0 31 48 1 0 7 0 23 2 0 7
-                                                   0 12 13 2 0 0 0 15 16 2 0 7
-                                                   0 9 10 1 0 19 0 21 1 0 0 0
-                                                   40 1 0 0 0 68 1 0 31 0 42 1
-                                                   0 0 0 41 2 0 0 0 0 60 1 0 24
-                                                   0 26 2 0 19 0 0 50 1 0 31 0
-                                                   36)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|split!| (|#1| |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|setelt!| (|#2| |#1| "last" |#2|)) T)
+                              '((|setlast!| (|#2| |#1| |#2|)) T)
+                              '((|setelt!| (|#1| |#1| "rest" |#1|)) T)
+                              '((|qsetrest!| (|#1| |#1| |#1|)) T)
+                              '((|setelt!| (|#2| |#1| "first" |#2|)) T)
+                              '((|qsetfirst!| (|#2| |#1| |#2|)) T)
+                              '((|cycleSplit!| (|#1| |#1|)) T)
+                              '((|cycleTail| (|#1| |#1|)) T)
+                              '((|cycleLength| ((|NonNegativeInteger|) |#1|))
+                                T)
+                              '((|cycleEntry| (|#1| |#1|)) T)
+                              '((|third| (|#2| |#1|)) T)
+                              '((|second| (|#2| |#1|)) T)
+                              '((|tail| (|#1| |#1|)) T)
+                              '((|last| (|#1| |#1| (|NonNegativeInteger|))) T)
+                              '((|elt| (|#2| |#1| #2#)) T)
+                              '((|last| (|#2| |#1|)) T)
+                              '((|rest| (|#1| |#1| (|NonNegativeInteger|))) T)
+                              '((|elt| (|#1| |#1| #3#)) T)
+                              '((|rest| (|#1| |#1|)) T)
+                              '((|elt| (|#2| |#1| #1#)) T)
+                              '((|concat| (|#1| |#2| |#1|)) T)
+                              '((|concat| (|#1| |#1| |#1|)) T)
+                              '((|setvalue!| (|#2| |#1| |#2|)) T)
+                              '((|setelt!| (|#2| |#1| #4# |#2|)) T)
+                              '((|setchildren!| (|#1| |#1| (|List| |#1|))) T)
+                              '((|node?| ((|Boolean|) |#1| |#1|)) T)
+                              '((|cyclic?| ((|Boolean|) |#1|)) T)
+                              '((|elt| (|#2| |#1| #4#)) T)
+                              '((|value| (|#2| |#1|)) T)
+                              '((|leaf?| ((|Boolean|) |#1|)) T)
+                              '((|nodes| ((|List| |#1|) |#1|)) T)
+                              '((|children| ((|List| |#1|) |#1|)) T)
+                              '((= ((|Boolean|) |#1| |#1|)) T)
+                              '((|map!| (|#1| (|Mapping| |#2| |#2|) |#1|)) T)
+                              '((|#| ((|NonNegativeInteger|) |#1|)) T)
+                              '((|size?|
+                                 ((|Boolean|) |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|more?|
+                                 ((|Boolean|) |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|less?|
+                                 ((|Boolean|) |#1| (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 70
+                                            '(1 6 7 0 8 1 6 7 0 11 1 6 0 0 14 1
+                                              6 19 0 20 1 6 0 0 22 2 29 19 0 0
+                                              30 1 6 19 0 35 2 6 19 0 0 38 1 6
+                                              0 0 39 1 6 31 0 44 2 31 19 0 0 45
+                                              2 6 0 0 31 46 1 6 0 0 47 2 0 0 0
+                                              31 48 2 7 19 0 0 49 2 0 19 0 0 50
+                                              2 6 19 0 0 51 2 0 19 0 0 52 2 6 7
+                                              0 7 53 3 0 7 0 9 7 54 2 6 7 0 7
+                                              55 3 0 7 0 12 7 56 2 6 0 0 0 57 3
+                                              0 0 0 15 0 58 2 6 0 0 0 59 2 0 0
+                                              0 0 60 2 0 7 0 7 61 2 0 0 0 0 62
+                                              2 0 7 0 7 63 2 0 0 0 24 64 2 0 7
+                                              0 7 65 0 6 0 66 2 0 0 0 31 67 1 0
+                                              0 0 68 2 0 0 69 0 70 1 0 7 0 28 1
+                                              0 7 0 18 1 0 0 0 37 2 0 0 0 31 67
+                                              2 0 19 0 31 34 2 0 7 0 7 65 2 0 7
+                                              0 7 63 3 0 7 0 12 7 56 3 0 0 0 15
+                                              0 58 3 0 7 0 9 7 54 2 0 0 0 24 64
+                                              1 0 7 0 17 2 0 0 0 31 43 2 0 0 0
+                                              0 62 2 0 7 0 7 61 1 0 24 0 25 2 0
+                                              19 0 0 52 2 0 19 0 31 33 2 0 0 69
+                                              0 70 2 0 19 0 31 32 1 0 19 0 27 2
+                                              0 0 0 31 48 1 0 7 0 23 2 0 7 0 12
+                                              13 2 0 0 0 15 16 2 0 7 0 9 10 1 0
+                                              19 0 21 1 0 0 0 40 1 0 0 0 68 1 0
+                                              31 0 42 1 0 0 0 41 2 0 0 0 0 60 1
+                                              0 24 0 26 2 0 19 0 0 50 1 0 31 0
+                                              36)))))
            '|lookupComplete|)) 

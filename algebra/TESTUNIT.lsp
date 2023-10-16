@@ -260,21 +260,52 @@
               86 |testTrue| 92 |testRealEquals| 97 |testNotEquals| 103
               |testLibraryError| 109 |testEquals| 114 |testComplexEquals| 120)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 37
-                                                 '(1 7 0 6 8 1 9 7 0 10 1 7 0
-                                                   11 12 1 7 13 0 14 2 6 0 0 0
-                                                   15 1 17 16 6 18 0 17 16 19 1
-                                                   17 16 6 21 0 17 16 22 0 17
-                                                   16 32 2 17 16 6 34 35 0 17
-                                                   16 36 1 0 16 6 31 2 0 16 6 6
-                                                   25 2 0 16 6 6 29 1 0 16 6 37
-                                                   2 0 16 6 6 23 2 0 16 6 6 27
-                                                   1 0 16 6 30 2 0 16 6 6 24 2
-                                                   0 16 6 6 28 1 0 16 6 33 2 0
-                                                   16 6 6 20 2 0 16 6 6 26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|testEquals| ((|Void|) (|String|) (|String|)))
+                                T)
+                              '((|xftestEquals|
+                                 ((|Void|) (|String|) (|String|)))
+                                T)
+                              '((|testRealEquals|
+                                 ((|Void|) (|String|) (|String|)))
+                                T)
+                              '((|xftestRealEquals|
+                                 ((|Void|) (|String|) (|String|)))
+                                T)
+                              '((|testComplexEquals|
+                                 ((|Void|) (|String|) (|String|)))
+                                T)
+                              '((|xftestComplexEquals|
+                                 ((|Void|) (|String|) (|String|)))
+                                T)
+                              '((|testNotEquals|
+                                 ((|Void|) (|String|) (|String|)))
+                                T)
+                              '((|xftestNotEquals|
+                                 ((|Void|) (|String|) (|String|)))
+                                T)
+                              '((|testTrue| ((|Void|) (|String|))) T)
+                              '((|xftestTrue| ((|Void|) (|String|))) T)
+                              '((|testLibraryError| ((|Void|) (|String|))) T)
+                              '((|xftestLibraryError| ((|Void|) (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 37
+                                            '(1 7 0 6 8 1 9 7 0 10 1 7 0 11 12
+                                              1 7 13 0 14 2 6 0 0 0 15 1 17 16
+                                              6 18 0 17 16 19 1 17 16 6 21 0 17
+                                              16 22 0 17 16 32 2 17 16 6 34 35
+                                              0 17 16 36 1 0 16 6 31 2 0 16 6 6
+                                              25 2 0 16 6 6 29 1 0 16 6 37 2 0
+                                              16 6 6 23 2 0 16 6 6 27 1 0 16 6
+                                              30 2 0 16 6 6 24 2 0 16 6 6 28 1
+                                              0 16 6 33 2 0 16 6 6 20 2 0 16 6
+                                              6 26)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Unittest| 'NILADIC T) 

@@ -79,16 +79,21 @@
               |LODOCAT-;adjoint;2S;3| (65 . |symmetricPower|)
               (71 . |symmetricSquare|))
            '#(|symmetricSquare| 76 |adjoint| 81 D 86) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 26
-                                                 '(0 6 0 8 0 7 0 9 2 6 0 7 10
-                                                   11 1 7 0 0 13 0 6 0 14 0 7 0
-                                                   15 2 6 16 0 0 17 1 6 10 0 18
-                                                   1 6 7 0 19 1 6 0 7 20 2 6 0
-                                                   0 0 21 2 6 0 0 0 22 1 6 0 0
-                                                   23 2 6 0 0 10 25 1 0 0 0 26
-                                                   1 0 0 0 26 1 0 0 0 24 0 0 0
-                                                   12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|symmetricSquare| (|#1| |#1|)) T)
+                                   '((|adjoint| (|#1| |#1|)) T)
+                                   '((D (|#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 26
+                                            '(0 6 0 8 0 7 0 9 2 6 0 7 10 11 1 7
+                                              0 0 13 0 6 0 14 0 7 0 15 2 6 16 0
+                                              0 17 1 6 10 0 18 1 6 7 0 19 1 6 0
+                                              7 20 2 6 0 0 0 21 2 6 0 0 0 22 1
+                                              6 0 0 23 2 6 0 0 10 25 1 0 0 0 26
+                                              1 0 0 0 26 1 0 0 0 24 0 0 0
+                                              12)))))
            '|lookupComplete|)) 

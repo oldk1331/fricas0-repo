@@ -154,20 +154,70 @@
            '#(|variables| 83 |univariate| 88 |multivariate| 94 |mainVariable|
               100 |eval| 105 |coerce| 131)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 44
-                                                 '(1 7 0 6 8 1 9 0 7 10 1 13 12
-                                                   9 14 1 13 16 9 17 2 13 19 9
-                                                   20 21 2 13 9 19 20 23 1 9 0
-                                                   20 32 4 33 9 12 25 20 9 34 1
-                                                   30 9 0 35 1 9 20 0 36 1 30 9
-                                                   0 37 1 9 7 0 38 1 9 7 0 39 2
-                                                   9 0 0 0 40 3 43 9 41 42 7 44
-                                                   1 0 12 9 15 2 0 19 9 20 22 2
-                                                   0 9 19 20 24 1 0 16 9 18 3 0
-                                                   9 9 12 25 26 3 0 9 9 20 9 27
-                                                   2 0 9 9 30 31 2 0 9 9 28 29
-                                                   1 0 9 6 11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|variables|
+                                 ((|List| (|Symbol|))
+                                  (|Fraction| (|Polynomial| |#1|))))
+                                T)
+                              '((|mainVariable|
+                                 ((|Union| (|Symbol|) "failed")
+                                  (|Fraction| (|Polynomial| |#1|))))
+                                T)
+                              '((|univariate|
+                                 ((|Fraction|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Fraction| (|Polynomial| |#1|))))
+                                  (|Fraction| (|Polynomial| |#1|)) (|Symbol|)))
+                                T)
+                              '((|multivariate|
+                                 ((|Fraction| (|Polynomial| |#1|))
+                                  (|Fraction|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Fraction| (|Polynomial| |#1|))))
+                                  (|Symbol|)))
+                                T)
+                              '((|eval|
+                                 ((|Fraction| (|Polynomial| |#1|))
+                                  (|Fraction| (|Polynomial| |#1|)) (|Symbol|)
+                                  (|Fraction| (|Polynomial| |#1|))))
+                                T)
+                              '((|eval|
+                                 ((|Fraction| (|Polynomial| |#1|))
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|List| (|Symbol|))
+                                  (|List| (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|eval|
+                                 ((|Fraction| (|Polynomial| |#1|))
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|Equation|
+                                   (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|eval|
+                                 ((|Fraction| (|Polynomial| |#1|))
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|List|
+                                   (|Equation|
+                                    (|Fraction| (|Polynomial| |#1|))))))
+                                T)
+                              '((|coerce|
+                                 ((|Fraction| (|Polynomial| |#1|)) |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 44
+                                            '(1 7 0 6 8 1 9 0 7 10 1 13 12 9 14
+                                              1 13 16 9 17 2 13 19 9 20 21 2 13
+                                              9 19 20 23 1 9 0 20 32 4 33 9 12
+                                              25 20 9 34 1 30 9 0 35 1 9 20 0
+                                              36 1 30 9 0 37 1 9 7 0 38 1 9 7 0
+                                              39 2 9 0 0 0 40 3 43 9 41 42 7 44
+                                              1 0 12 9 15 2 0 19 9 20 22 2 0 9
+                                              19 20 24 1 0 16 9 18 3 0 9 9 12
+                                              25 26 3 0 9 9 20 9 27 2 0 9 9 30
+                                              31 2 0 9 9 28 29 1 0 9 6 11)))))
            '|lookupComplete|)) 

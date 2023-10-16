@@ -1555,25 +1555,71 @@
               |EXPR2UPS;series;FEEA;24| |EXPR2UPS;series;FEA;22|
               |EXPR2UPS;series;FEFA;23| |EXPR2UPS;series;FEEFA;25|)
            '#(|taylor| 68 |series| 97 |puiseux| 126 |laurent| 155) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 51
-                                                 '(1 7 8 0 9 1 7 0 10 11 2 7 0
-                                                   0 0 12 2 13 0 7 7 14 2 7 0 0
-                                                   15 16 0 7 0 17 0 6 0 18 0 7
-                                                   0 19 1 7 22 0 23 0 6 0 26 1
-                                                   13 7 0 29 1 7 30 0 31 1 13 7
-                                                   0 32 0 40 0 41 1 0 20 7 25 1
-                                                   0 20 10 21 2 0 20 7 27 28 3
-                                                   0 20 7 13 27 33 2 0 20 7 13
-                                                   24 1 0 20 7 49 1 0 20 10 47
-                                                   2 0 20 7 40 50 3 0 20 7 13
-                                                   40 51 2 0 20 7 13 48 1 0 20
-                                                   7 44 1 0 20 10 42 2 0 20 7
-                                                   40 45 3 0 20 7 13 40 46 2 0
-                                                   20 7 13 43 1 0 20 7 36 1 0
-                                                   20 10 34 2 0 20 7 37 38 3 0
-                                                   20 7 13 37 39 2 0 20 7 13
-                                                   35)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|taylor| ((|Any|) (|Symbol|))) T)
+                                   '((|taylor| ((|Any|) |#2|)) T)
+                                   '((|taylor|
+                                      ((|Any|) |#2| (|NonNegativeInteger|)))
+                                     T)
+                                   '((|taylor|
+                                      ((|Any|) |#2| (|Equation| |#2|)))
+                                     T)
+                                   '((|taylor|
+                                      ((|Any|) |#2| (|Equation| |#2|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|laurent| ((|Any|) (|Symbol|))) T)
+                                   '((|laurent| ((|Any|) |#2|)) T)
+                                   '((|laurent| ((|Any|) |#2| (|Integer|))) T)
+                                   '((|laurent|
+                                      ((|Any|) |#2| (|Equation| |#2|)))
+                                     T)
+                                   '((|laurent|
+                                      ((|Any|) |#2| (|Equation| |#2|)
+                                       (|Integer|)))
+                                     T)
+                                   '((|puiseux| ((|Any|) (|Symbol|))) T)
+                                   '((|puiseux| ((|Any|) |#2|)) T)
+                                   '((|puiseux|
+                                      ((|Any|) |#2| (|Fraction| (|Integer|))))
+                                     T)
+                                   '((|puiseux|
+                                      ((|Any|) |#2| (|Equation| |#2|)))
+                                     T)
+                                   '((|puiseux|
+                                      ((|Any|) |#2| (|Equation| |#2|)
+                                       (|Fraction| (|Integer|))))
+                                     T)
+                                   '((|series| ((|Any|) (|Symbol|))) T)
+                                   '((|series| ((|Any|) |#2|)) T)
+                                   '((|series|
+                                      ((|Any|) |#2| (|Fraction| (|Integer|))))
+                                     T)
+                                   '((|series|
+                                      ((|Any|) |#2| (|Equation| |#2|)))
+                                     T)
+                                   '((|series|
+                                      ((|Any|) |#2| (|Equation| |#2|)
+                                       (|Fraction| (|Integer|))))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 51
+                                            '(1 7 8 0 9 1 7 0 10 11 2 7 0 0 0
+                                              12 2 13 0 7 7 14 2 7 0 0 15 16 0
+                                              7 0 17 0 6 0 18 0 7 0 19 1 7 22 0
+                                              23 0 6 0 26 1 13 7 0 29 1 7 30 0
+                                              31 1 13 7 0 32 0 40 0 41 1 0 20 7
+                                              25 1 0 20 10 21 2 0 20 7 27 28 3
+                                              0 20 7 13 27 33 2 0 20 7 13 24 1
+                                              0 20 7 49 1 0 20 10 47 2 0 20 7
+                                              40 50 3 0 20 7 13 40 51 2 0 20 7
+                                              13 48 1 0 20 7 44 1 0 20 10 42 2
+                                              0 20 7 40 45 3 0 20 7 13 40 46 2
+                                              0 20 7 13 43 1 0 20 7 36 1 0 20
+                                              10 34 2 0 20 7 37 38 3 0 20 7 13
+                                              37 39 2 0 20 7 13 35)))))
            '|lookupComplete|)) 

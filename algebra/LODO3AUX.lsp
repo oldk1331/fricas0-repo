@@ -57,11 +57,14 @@
               (4 . |monomial|) (10 . |differentiate|) (15 . *)
               |LODO3AUX;delta_deriv;2R;1|)
            '#(|delta_deriv| 21) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 14
-                                                 '(0 6 0 9 2 7 0 6 10 11 1 8 0
-                                                   0 12 2 8 0 7 0 13 1 0 8 8
-                                                   14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|delta_deriv| (|#3| |#3|)) T)) (LIST) NIL
+                             NIL)))
+                        (|makeByteWordVec2| 14
+                                            '(0 6 0 9 2 7 0 6 10 11 1 8 0 0 12
+                                              2 8 0 7 0 13 1 0 8 8 14)))))
            '|lookupComplete|)) 

@@ -56,15 +56,22 @@
               |TEMUTL;stripCommentsAndBlanks;2S;2| (32 . |parse|) (|Any|)
               (37 . |interpret|) |TEMUTL;interpretString;SA;3|)
            '#(|stripCommentsAndBlanks| 42 |interpretString| 47) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(0 6 0 7 3 9 8 0 0 8 10 0 6 0
-                                                   11 1 12 0 8 13 2 9 0 0 12 14
-                                                   2 9 0 0 15 16 1 6 0 9 18 1 6
-                                                   19 0 20 1 0 9 9 17 1 0 19 9
-                                                   21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|interpretString| ((|Any|) (|String|))) T)
+                              '((|stripCommentsAndBlanks|
+                                 ((|String|) (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(0 6 0 7 3 9 8 0 0 8 10 0 6 0 11 1
+                                              12 0 8 13 2 9 0 0 12 14 2 9 0 0
+                                              15 16 1 6 0 9 18 1 6 19 0 20 1 0
+                                              9 9 17 1 0 19 9 21)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TemplateUtilities| 'NILADIC T) 

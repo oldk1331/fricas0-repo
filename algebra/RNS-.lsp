@@ -119,24 +119,50 @@
               |fractionPart| 153 |floor| 158 |convert| 163 |coerce| 168
               |characteristic| 173 |ceiling| 177)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 50
-                                                 '(1 6 0 0 9 2 6 0 0 0 10 1 6
-                                                   12 0 13 1 6 0 0 14 1 6 0 0
-                                                   15 0 6 0 17 1 6 0 18 19 2 6
-                                                   0 0 0 20 2 6 0 0 0 21 1 6 0
-                                                   0 23 1 25 18 0 26 1 25 18 0
-                                                   27 1 6 29 0 30 1 31 0 29 32
-                                                   1 6 18 0 34 2 6 12 0 0 35 0
-                                                   6 0 36 2 6 12 0 0 37 2 6 12
-                                                   0 0 39 1 31 12 0 41 3 42 0
-                                                   31 6 0 43 1 31 12 0 44 1 31
-                                                   45 0 46 2 29 12 0 0 47 0 42
-                                                   0 48 1 0 0 0 16 1 0 0 0 22 3
-                                                   0 49 0 31 49 50 1 0 0 0 24 1
-                                                   0 0 0 11 1 0 0 0 38 1 0 31 0
-                                                   33 1 0 0 25 28 0 0 7 8 1 0 0
-                                                   0 40)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|round| (|#1| |#1|)) T)
+                                   '((|truncate| (|#1| |#1|)) T)
+                                   '((|fractionPart| (|#1| |#1|)) T)
+                                   '((|floor| (|#1| |#1|)) T)
+                                   '((|ceiling| (|#1| |#1|)) T)
+                                   '((|norm| (|#1| |#1|)) T)
+                                   '((|patternMatch|
+                                      ((|PatternMatchResult| (|Float|) |#1|)
+                                       |#1| (|Pattern| (|Float|))
+                                       (|PatternMatchResult| (|Float|) |#1|)))
+                                     T)
+                                   '((|convert| ((|Pattern| (|Float|)) |#1|))
+                                     T)
+                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
+                                     T)
+                                   '((|coerce| (|#1| (|Integer|))) T)
+                                   '((|convert| ((|DoubleFloat|) |#1|)) T)
+                                   '((|convert| ((|Float|) |#1|)) T)
+                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
+                                     T)
+                                   '((|coerce| (|#1| |#1|)) T)
+                                   '((|characteristic|
+                                      ((|NonNegativeInteger|)))
+                                     T)
+                                   '((|coerce| (|#1| (|Integer|))) T)
+                                   '((|coerce| ((|OutputForm|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 50
+                                            '(1 6 0 0 9 2 6 0 0 0 10 1 6 12 0
+                                              13 1 6 0 0 14 1 6 0 0 15 0 6 0 17
+                                              1 6 0 18 19 2 6 0 0 0 20 2 6 0 0
+                                              0 21 1 6 0 0 23 1 25 18 0 26 1 25
+                                              18 0 27 1 6 29 0 30 1 31 0 29 32
+                                              1 6 18 0 34 2 6 12 0 0 35 0 6 0
+                                              36 2 6 12 0 0 37 2 6 12 0 0 39 1
+                                              31 12 0 41 3 42 0 31 6 0 43 1 31
+                                              12 0 44 1 31 45 0 46 2 29 12 0 0
+                                              47 0 42 0 48 1 0 0 0 16 1 0 0 0
+                                              22 3 0 49 0 31 49 50 1 0 0 0 24 1
+                                              0 0 0 11 1 0 0 0 38 1 0 31 0 33 1
+                                              0 0 25 28 0 0 7 8 1 0 0 0 40)))))
            '|lookupComplete|)) 

@@ -257,20 +257,41 @@
            '#(|legendreP| 107 |laguerreL| 113 |hermiteH| 126 |chebyshevU| 132
               |chebyshevT| 138)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 35
-                                                 '(0 6 0 7 0 6 0 8 1 6 0 0 9 2
-                                                   6 0 0 0 10 1 6 0 11 12 2 6 0
-                                                   13 0 14 2 6 0 0 0 15 2 6 0 0
-                                                   0 16 2 17 0 0 13 18 2 6 0 11
-                                                   0 19 2 6 0 0 17 21 2 11 0 0
-                                                   0 22 1 11 0 0 23 2 11 24 0 0
-                                                   25 2 17 0 13 0 29 2 31 0 11
-                                                   11 32 2 6 0 17 0 33 2 6 0 31
-                                                   0 34 2 0 6 17 6 35 2 1 6 17
-                                                   6 35 2 0 6 17 6 20 3 0 6 17
-                                                   17 6 26 2 0 6 17 6 30 2 0 6
-                                                   17 6 28 2 0 6 17 6 27)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|chebyshevT|
+                                 (|#1| (|NonNegativeInteger|) |#1|))
+                                T)
+                              '((|chebyshevU|
+                                 (|#1| (|NonNegativeInteger|) |#1|))
+                                T)
+                              '((|hermiteH| (|#1| (|NonNegativeInteger|) |#1|))
+                                T)
+                              '((|laguerreL|
+                                 (|#1| (|NonNegativeInteger|) |#1|))
+                                T)
+                              '((|laguerreL|
+                                 (|#1| (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|) |#1|))
+                                T)
+                              '((|legendreP|
+                                 (|#1| (|NonNegativeInteger|) |#1|))
+                                (|has| 6 (|Algebra| 31))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 35
+                                            '(0 6 0 7 0 6 0 8 1 6 0 0 9 2 6 0 0
+                                              0 10 1 6 0 11 12 2 6 0 13 0 14 2
+                                              6 0 0 0 15 2 6 0 0 0 16 2 17 0 0
+                                              13 18 2 6 0 11 0 19 2 6 0 0 17 21
+                                              2 11 0 0 0 22 1 11 0 0 23 2 11 24
+                                              0 0 25 2 17 0 13 0 29 2 31 0 11
+                                              11 32 2 6 0 17 0 33 2 6 0 31 0 34
+                                              2 0 6 17 6 35 2 1 6 17 6 35 2 0 6
+                                              17 6 20 3 0 6 17 17 6 26 2 0 6 17
+                                              6 30 2 0 6 17 6 28 2 0 6 17 6
+                                              27)))))
            '|lookupComplete|)) 

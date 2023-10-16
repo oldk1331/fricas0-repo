@@ -48,10 +48,18 @@
               (|StreamFunctions2| 6 7) (0 . |map|) (|InfiniteTuple| 7)
               (|InfiniteTuple| 6) |ITFUN2;map;MItIt;1|)
            '#(|map| 6) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 15
-                                                 '(2 11 8 9 10 12 2 0 13 9 14
-                                                   15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|InfiniteTuple| |#2|) (|Mapping| |#2| |#1|)
+                                  (|InfiniteTuple| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 15
+                                            '(2 11 8 9 10 12 2 0 13 9 14
+                                              15)))))
            '|lookupComplete|)) 

@@ -66,13 +66,23 @@
               |FSAGG2;map;MAB;1| (|Mapping| 8 6 8) (16 . |reduce|)
               |FSAGG2;reduce;MA2R;2| (23 . |scan|) |FSAGG2;scan;MARB;3|)
            '#(|scan| 30 |reduce| 37 |map| 44) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 22
-                                                 '(1 7 10 0 11 2 14 12 13 10 15
-                                                   1 9 0 12 16 3 14 8 18 10 8
-                                                   19 3 14 12 18 10 8 21 3 0 9
-                                                   18 7 8 22 3 0 8 18 7 8 20 2
-                                                   0 9 13 7 17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#4| (|Mapping| |#3| |#1|) |#2|)) T)
+                              '((|reduce|
+                                 (|#3| (|Mapping| |#3| |#1| |#3|) |#2| |#3|))
+                                T)
+                              '((|scan|
+                                 (|#4| (|Mapping| |#3| |#1| |#3|) |#2| |#3|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 22
+                                            '(1 7 10 0 11 2 14 12 13 10 15 1 9
+                                              0 12 16 3 14 8 18 10 8 19 3 14 12
+                                              18 10 8 21 3 0 9 18 7 8 22 3 0 8
+                                              18 7 8 20 2 0 9 13 7 17)))))
            '|lookupComplete|)) 

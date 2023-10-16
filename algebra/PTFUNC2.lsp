@@ -72,11 +72,19 @@
               (|List| 7) (|Point| 7) (16 . |point|) (|Mapping| 7 6)
               |PTFUNC2;map;MPP;1|)
            '#(|map| 21) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(1 9 8 0 10 1 9 8 0 11 2 9 6
-                                                   0 8 12 1 14 0 13 15 2 0 14
-                                                   16 9 17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|Point| |#2|) (|Mapping| |#2| |#1|)
+                                  (|Point| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(1 9 8 0 10 1 9 8 0 11 2 9 6 0 8
+                                              12 1 14 0 13 15 2 0 14 16 9
+                                              17)))))
            '|lookupComplete|)) 

@@ -46,10 +46,18 @@
               (|SegmentBindingFunctions2| 8 7) (5 . |map|)
               |DRAWHACK;coerce;SbSb;1|)
            '#(|coerce| 11) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(1 9 7 8 10 2 14 11 12 13 15
-                                                   1 0 11 13 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|coerce|
+                                 ((|SegmentBinding| (|Float|))
+                                  (|SegmentBinding| (|Expression| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(1 9 7 8 10 2 14 11 12 13 15 1 0
+                                              11 13 16)))))
            '|lookupComplete|)) 

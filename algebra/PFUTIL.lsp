@@ -107,15 +107,21 @@
               (58 . |fractionalTerms|) (63 . =) (|List| 7)
               |PFUTIL;decompose;UP2L;1|)
            '#(|decompose| 69) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 30
-                                                 '(0 6 0 8 0 7 0 9 2 11 0 7 10
-                                                   12 2 7 0 0 0 13 2 11 0 0 0
-                                                   14 0 11 0 15 3 17 11 16 0 11
-                                                   18 2 19 0 7 11 20 1 19 7 0
-                                                   21 0 7 0 22 2 7 23 0 0 24 1
-                                                   19 26 0 27 2 11 23 0 0 28 2
-                                                   0 29 7 29 30)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|decompose|
+                                 ((|List| |#2|) |#2| (|List| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 30
+                                            '(0 6 0 8 0 7 0 9 2 11 0 7 10 12 2
+                                              7 0 0 0 13 2 11 0 0 0 14 0 11 0
+                                              15 3 17 11 16 0 11 18 2 19 0 7 11
+                                              20 1 19 7 0 21 0 7 0 22 2 7 23 0
+                                              0 24 1 19 26 0 27 2 11 23 0 0 28
+                                              2 0 29 7 29 30)))))
            '|lookupComplete|)) 

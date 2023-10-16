@@ -11713,144 +11713,609 @@
               |addPlot1Din3Dparametric| 1346 |addPlot1Din2Dparametric| 1362
               |addPlot1Din2D| 1370 |addChild!| 1386 |addArrows2Din2D| 1392)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 284
-                                                 '(2 8 0 6 6 10 2 6 0 13 13 14
-                                                   0 8 0 16 1 8 6 0 32 2 8 6 0
-                                                   6 33 1 8 6 0 40 1 8 6 0 41 2
-                                                   6 0 0 0 42 1 63 60 0 64 1 63
-                                                   22 0 65 3 6 0 25 25 25 68 1
-                                                   6 25 0 84 1 6 25 0 85 2 6 0
-                                                   25 25 86 3 92 0 13 13 91 93
-                                                   1 92 25 0 94 1 63 0 22 101 2
-                                                   63 0 0 74 102 2 74 26 0 0
-                                                   103 2 22 6 0 13 104 2 6 0 0
-                                                   0 105 2 6 0 25 0 106 2 22 0
-                                                   0 6 107 2 60 108 0 13 109 1
-                                                   108 74 0 110 2 108 74 0 13
-                                                   111 2 34 0 0 22 112 1 25 0 0
-                                                   117 2 13 26 0 0 118 1 45 0
-                                                   119 120 2 13 26 0 0 121 6
-                                                   126 0 25 25 25 25 25 25 127
-                                                   1 128 0 126 129 4 130 19 128
-                                                   0 26 26 131 1 140 25 0 141 1
-                                                   140 25 0 142 2 146 0 0 2 147
-                                                   2 50 26 0 0 149 2 137 6 0 6
-                                                   151 2 8 26 0 6 152 2 45 26 0
-                                                   0 153 2 6 25 0 0 154 0 92 0
-                                                   155 0 92 0 156 2 25 26 0 0
-                                                   157 2 74 26 0 0 158 2 159 0
-                                                   45 45 160 3 162 0 45 119 161
-                                                   163 2 164 0 0 162 165 1 8 26
-                                                   0 166 6 137 0 25 25 25 25 25
-                                                   25 167 2 161 0 0 159 168 2
-                                                   77 26 0 0 169 2 57 6 0 45
-                                                   170 3 162 0 45 45 161 171 1
-                                                   162 26 0 172 2 137 0 0 0 173
-                                                   3 57 0 0 45 0 174 3 57 0 0
-                                                   45 175 176 2 57 175 0 45 178
-                                                   1 146 74 0 179 0 137 0 181 2
-                                                   57 0 119 77 182 2 183 19 162
-                                                   45 184 2 8 0 0 6 187 2 8 0 6
-                                                   6 188 2 8 0 0 0 189 1 6 25 0
-                                                   190 2 77 0 0 45 191 3 63 34
-                                                   22 25 13 193 2 63 0 34 26
-                                                   194 2 159 0 45 77 195 1 200
-                                                   74 0 202 1 198 22 0 203 2 22
-                                                   0 0 0 204 2 198 22 0 22 205
-                                                   1 199 60 0 206 2 60 0 0 0
-                                                   207 2 199 60 0 60 208 2 200
-                                                   74 0 74 209 1 198 0 22 211 1
-                                                   199 0 60 212 1 200 0 74 213
-                                                   1 214 0 45 215 2 216 0 214
-                                                   45 217 2 216 45 0 45 218 1
-                                                   216 0 0 219 2 183 19 162 45
-                                                   221 2 25 26 0 0 223 2 140 0
-                                                   25 25 224 1 225 0 25 226 1
-                                                   22 0 6 227 1 6 26 0 228 1
-                                                   232 229 0 233 2 237 234 0 74
-                                                   238 2 241 234 0 74 242 1 249
-                                                   247 0 250 0 25 0 254 0 74 0
-                                                   255 2 256 251 0 74 257 1 258
-                                                   251 0 259 1 22 264 0 265 1 6
-                                                   264 0 266 1 22 6 0 267 1 264
-                                                   0 45 268 1 264 0 119 269 1
-                                                   34 22 0 270 1 108 264 0 271
-                                                   1 74 264 0 272 1 108 74 0
-                                                   273 1 60 108 0 274 1 8 264 0
-                                                   275 1 264 0 119 276 2 264 0
-                                                   0 0 277 1 50 264 0 278 1 25
-                                                   264 0 279 1 45 264 0 280 1
-                                                   77 264 0 281 1 137 264 0 282
-                                                   1 57 264 0 283 2 0 19 0 45
-                                                   197 2 0 19 0 45 222 2 0 19 0
-                                                   45 186 2 0 19 0 45 185 2 0
-                                                   19 0 45 220 4 0 162 0 95 137
-                                                   8 192 4 0 162 0 95 137 11
-                                                   196 8 0 162 0 95 137 8 25 26
-                                                   26 57 177 8 0 162 0 95 137
-                                                   11 25 26 26 57 180 6 0 19 0
-                                                   198 199 200 137 8 201 6 0 19
-                                                   0 198 199 200 137 11 210 2 0
-                                                   19 0 137 150 2 0 19 0 0 148
-                                                   1 0 0 45 48 1 0 0 137 138 1
-                                                   0 0 71 72 3 0 0 45 74 6 75 3
-                                                   0 0 77 74 6 78 1 0 0 37 38 1
-                                                   0 0 8 43 3 0 0 50 6 8 122 3
-                                                   0 0 50 6 11 124 0 0 0 17 1 0
-                                                   0 11 12 1 0 0 8 9 4 0 0 13
-                                                   13 13 13 15 3 0 0 50 74 8
-                                                   113 3 0 0 50 74 11 115 1 0 0
-                                                   57 58 1 0 0 95 134 3 0 0 25
-                                                   45 45 135 1 0 0 34 35 1 0 0
-                                                   22 23 3 0 0 0 0 25 28 4 0 0
-                                                   0 0 25 26 27 2 0 0 60 22 61
-                                                   1 0 0 63 66 0 0 0 18 2 0 0
-                                                   25 8 87 2 0 0 25 11 89 1 0 0
-                                                   8 97 1 0 0 11 99 4 0 0 130
-                                                   74 74 26 132 2 0 0 45 0 46 1
-                                                   0 0 8 80 1 0 0 11 82 1 0 0
-                                                   25 69 3 0 0 34 50 25 51 5 0
-                                                   0 45 45 6 50 25 53 6 0 0 0 0
-                                                   6 50 25 25 55 4 0 0 247 140
-                                                   140 74 262 4 0 0 256 140 140
-                                                   74 260 4 0 0 247 140 140 74
-                                                   248 4 0 0 251 140 140 74 252
-                                                   3 0 0 241 140 74 244 3 0 0
-                                                   229 140 74 243 3 0 0 237 140
-                                                   74 239 3 0 0 229 140 74 230
-                                                   3 0 0 234 140 74 235 4 0 0
-                                                   143 140 140 74 144 1 0 264 0
-                                                   284 2 0 8 0 25 31 2 0 0 0 45
-                                                   49 2 0 0 0 137 139 2 0 0 0
-                                                   71 73 4 0 0 0 45 74 6 76 4 0
-                                                   0 0 77 74 6 79 2 0 0 0 37 39
-                                                   2 0 0 0 8 44 4 0 0 0 50 6 8
-                                                   123 4 0 0 0 50 6 11 125 4 0
-                                                   0 0 50 74 8 114 4 0 0 0 50
-                                                   74 11 116 2 0 0 0 57 59 2 0
-                                                   0 0 95 96 4 0 0 0 25 45 45
-                                                   136 2 0 0 0 34 36 2 0 0 0 22
-                                                   24 4 0 0 0 0 0 25 30 5 0 0 0
-                                                   0 0 25 26 29 3 0 0 0 60 22
-                                                   62 2 0 0 0 63 67 1 0 0 0 21
-                                                   3 0 0 0 25 8 88 3 0 0 0 25
-                                                   11 90 2 0 0 0 8 98 2 0 0 0
-                                                   11 100 5 0 0 0 130 74 74 26
-                                                   133 3 0 0 0 45 0 47 2 0 0 0
-                                                   8 81 2 0 0 0 11 83 2 0 0 0
-                                                   25 70 4 0 0 0 34 50 25 52 6
-                                                   0 0 0 45 45 6 50 25 54 7 0 0
-                                                   0 0 0 6 50 25 25 56 5 0 0 0
-                                                   247 140 140 74 263 5 0 0 0
-                                                   256 140 140 74 261 5 0 0 0
-                                                   251 140 140 74 253 4 0 0 0
-                                                   241 140 74 245 4 0 0 0 229
-                                                   140 74 246 4 0 0 0 237 140
-                                                   74 240 4 0 0 0 229 140 74
-                                                   231 4 0 0 0 234 140 74 236 2
-                                                   0 19 0 0 20 5 0 0 0 143 140
-                                                   140 74 145)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|createSceneRoot| ($$)) T)
+                                   '((|createSceneRoot|
+                                      ($$ (|SBoundary| |#1|)))
+                                     T)
+                                   '((|createSceneRoot|
+                                      ($$
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|createSceneRoot|
+                                      ($$ (|Integer|) (|Integer|) (|Integer|)
+                                       (|Integer|)))
+                                     T)
+                                   '((|createSceneGroup| ($$)) T)
+                                   '((|addSceneGroup| ($$ $$)) T)
+                                   '((|createSceneLine| ($$ (|List| |#1|))) T)
+                                   '((|addSceneLine| ($$ $$ (|List| |#1|))) T)
+                                   '((|createSceneLine|
+                                      ($$ $$ $$ (|DoubleFloat|)))
+                                     T)
+                                   '((|addSceneLine|
+                                      ($$ $$ $$ $$ (|DoubleFloat|)))
+                                     T)
+                                   '((|createSceneLine|
+                                      ($$ $$ $$ (|DoubleFloat|) (|Boolean|)))
+                                     T)
+                                   '((|addSceneLine|
+                                      ($$ $$ $$ $$ (|DoubleFloat|)
+                                       (|Boolean|)))
+                                     T)
+                                   '((|createSceneLines|
+                                      ($$ (|List| (|List| |#1|))))
+                                     T)
+                                   '((|addSceneLines|
+                                      ($$ $$ (|List| (|List| |#1|))))
+                                     T)
+                                   '((|createSceneShape|
+                                      ($$
+                                       (|Record| (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| |#1|)
+                                                 (|:| |size| |#1|)
+                                                 (|:| |fill| (|Boolean|)))))
+                                     T)
+                                   '((|addSceneShape|
+                                      ($$ $$
+                                       (|Record| (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| |#1|)
+                                                 (|:| |size| |#1|)
+                                                 (|:| |fill| (|Boolean|)))))
+                                     T)
+                                   '((|createSceneShape|
+                                      ($$ (|SBoundary| |#1|)))
+                                     T)
+                                   '((|addSceneShape|
+                                      ($$ $$ (|SBoundary| |#1|)))
+                                     T)
+                                   '((|createSceneDef| ($$ (|String|) $$)) T)
+                                   '((|addSceneDef| ($$ $$ (|String|) $$)) T)
+                                   '((|createSceneUse| ($$ (|String|))) T)
+                                   '((|addSceneUse| ($$ $$ (|String|))) T)
+                                   '((|createSceneArrows|
+                                      ($$ (|List| (|List| |#1|)) (|Symbol|)
+                                       (|DoubleFloat|)))
+                                     T)
+                                   '((|addSceneArrows|
+                                      ($$ $$ (|List| (|List| |#1|)) (|Symbol|)
+                                       (|DoubleFloat|)))
+                                     T)
+                                   '((|createSceneArrow|
+                                      ($$ (|String|) (|String|) |#1| (|Symbol|)
+                                       (|DoubleFloat|)))
+                                     T)
+                                   '((|addSceneArrow|
+                                      ($$ $$ (|String|) (|String|) |#1|
+                                       (|Symbol|) (|DoubleFloat|)))
+                                     T)
+                                   '((|createSceneArrow|
+                                      ($$ $$ $$ |#1| (|Symbol|) (|DoubleFloat|)
+                                       (|DoubleFloat|)))
+                                     T)
+                                   '((|addSceneArrow|
+                                      ($$ $$ $$ $$ |#1| (|Symbol|)
+                                       (|DoubleFloat|) (|DoubleFloat|)))
+                                     T)
+                                   '((|createSceneNamedPoints|
+                                      ($$ (|SceneNamedPoints| |#1|)))
+                                     T)
+                                   '((|addSceneNamedPoints|
+                                      ($$ $$ (|SceneNamedPoints| |#1|)))
+                                     T)
+                                   '((|createSceneIFS|
+                                      ($$
+                                       (|List| (|List| (|NonNegativeInteger|)))
+                                       (|List| |#1|)))
+                                     T)
+                                   '((|addSceneIFS|
+                                      ($$ $$
+                                       (|List| (|List| (|NonNegativeInteger|)))
+                                       (|List| |#1|)))
+                                     T)
+                                   '((|createSceneIFS| ($$ (|SceneIFS| |#1|)))
+                                     T)
+                                   '((|addSceneIFS| ($$ $$ (|SceneIFS| |#1|)))
+                                     T)
+                                   '((|createSceneBox| ($$ (|DoubleFloat|))) T)
+                                   '((|addSceneBox| ($$ $$ (|DoubleFloat|))) T)
+                                   '((|createSceneText|
+                                      ($$
+                                       (|Record| (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| |#1|)
+                                                 (|:| |np|
+                                                      (|List| (|String|))))))
+                                     T)
+                                   '((|addSceneText|
+                                      ($$ $$
+                                       (|Record| (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| |#1|)
+                                                 (|:| |np|
+                                                      (|List| (|String|))))))
+                                     T)
+                                   '((|createSceneText|
+                                      ($$ (|String|) (|NonNegativeInteger|)
+                                       |#1|))
+                                     T)
+                                   '((|addSceneText|
+                                      ($$ $$ (|String|) (|NonNegativeInteger|)
+                                       |#1|))
+                                     T)
+                                   '((|createSceneText|
+                                      ($$ (|List| (|String|))
+                                       (|NonNegativeInteger|) |#1|))
+                                     T)
+                                   '((|addSceneText|
+                                      ($$ $$ (|List| (|String|))
+                                       (|NonNegativeInteger|) |#1|))
+                                     T)
+                                   '((|createSceneClip|
+                                      ($$ (|SBoundary| |#1|)))
+                                     T)
+                                   '((|addSceneClip|
+                                      ($$ $$ (|SBoundary| |#1|)))
+                                     T)
+                                   '((|createSceneClip|
+                                      ($$
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|addSceneClip|
+                                      ($$ $$
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|createSceneGrid|
+                                      ($$ (|DoubleFloat|) (|SBoundary| |#1|)))
+                                     T)
+                                   '((|addSceneGrid|
+                                      ($$ $$ (|DoubleFloat|)
+                                       (|SBoundary| |#1|)))
+                                     T)
+                                   '((|createSceneGrid|
+                                      ($$ (|DoubleFloat|)
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|addSceneGrid|
+                                      ($$ $$ (|DoubleFloat|)
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|createSceneGrid|
+                                      ($$ (|SBoundary| |#1|)))
+                                     T)
+                                   '((|addSceneGrid|
+                                      ($$ $$ (|SBoundary| |#1|)))
+                                     T)
+                                   '((|createSceneGrid|
+                                      ($$
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|addSceneGrid|
+                                      ($$ $$
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|createScenePattern|
+                                      ($$ (|Symbol|) (|NonNegativeInteger|)
+                                       (|SBoundary| |#1|)))
+                                     T)
+                                   '((|addScenePattern|
+                                      ($$ $$ (|Symbol|) (|NonNegativeInteger|)
+                                       (|SBoundary| |#1|)))
+                                     T)
+                                   '((|createScenePattern|
+                                      ($$ (|Symbol|) (|NonNegativeInteger|)
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|addScenePattern|
+                                      ($$ $$ (|Symbol|) (|NonNegativeInteger|)
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|createSceneRuler|
+                                      ($$ (|Symbol|) |#1| (|SBoundary| |#1|)))
+                                     T)
+                                   '((|addSceneRuler|
+                                      ($$ $$ (|Symbol|) |#1|
+                                       (|SBoundary| |#1|)))
+                                     T)
+                                   '((|createSceneRuler|
+                                      ($$ (|Symbol|) |#1|
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|addSceneRuler|
+                                      ($$ $$ (|Symbol|) |#1|
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|createSceneGraph|
+                                      ($$ (|DirectedGraph| (|String|))
+                                       (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|) (|Boolean|)))
+                                     T)
+                                   '((|addSceneGraph|
+                                      ($$ $$ (|DirectedGraph| (|String|))
+                                       (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|) (|Boolean|)))
+                                     T)
+                                   '((|createSceneMaterial|
+                                      ($$
+                                       (|Record|
+                                        (|:| |lineWidth| (|DoubleFloat|))
+                                        (|:| |lineCol| (|String|))
+                                        (|:| |fillCol| (|String|))
+                                        (|:| |matOpacity| (|DoubleFloat|)))))
+                                     T)
+                                   '((|addSceneMaterial|
+                                      ($$ $$
+                                       (|Record|
+                                        (|:| |lineWidth| (|DoubleFloat|))
+                                        (|:| |lineCol| (|String|))
+                                        (|:| |fillCol| (|String|))
+                                        (|:| |matOpacity| (|DoubleFloat|)))))
+                                     T)
+                                   '((|createSceneMaterial|
+                                      ($$ (|DoubleFloat|) (|String|)
+                                       (|String|)))
+                                     T)
+                                   '((|addSceneMaterial|
+                                      ($$ $$ (|DoubleFloat|) (|String|)
+                                       (|String|)))
+                                     T)
+                                   '((|createSceneTransform|
+                                      ($$ (|STransform| |#1|)))
+                                     T)
+                                   '((|addSceneTransform|
+                                      ($$ $$ (|STransform| |#1|)))
+                                     T)
+                                   '((|createPlot1Din2D|
+                                      ($$ (|Mapping| |#1| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|addPlot1Din2D|
+                                      ($$ $$ (|Mapping| |#1| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|createPlot1Din2D|
+                                      ($$
+                                       (|Mapping| (|DoubleFloat|)
+                                                  (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|addPlot1Din2D|
+                                      ($$ $$
+                                       (|Mapping| (|DoubleFloat|)
+                                                  (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|createPlot1Din2Dparametric|
+                                      ($$
+                                       (|ParametricPlaneCurve|
+                                        (|Mapping| (|DoubleFloat|)
+                                                   (|DoubleFloat|)))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|addPlot1Din2Dparametric|
+                                      ($$ $$
+                                       (|ParametricPlaneCurve|
+                                        (|Mapping| (|DoubleFloat|)
+                                                   (|DoubleFloat|)))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|createPlot1Din3Dparametric|
+                                      ($$
+                                       (|ParametricSpaceCurve|
+                                        (|Mapping| (|DoubleFloat|)
+                                                   (|DoubleFloat|)))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|addPlot1Din3Dparametric|
+                                      ($$ $$
+                                       (|ParametricSpaceCurve|
+                                        (|Mapping| (|DoubleFloat|)
+                                                   (|DoubleFloat|)))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|createPlot1Din3Dparametric|
+                                      ($$ (|Mapping| |#1| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|addPlot1Din3Dparametric|
+                                      ($$ $$ (|Mapping| |#1| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|createPlot2Din3D|
+                                      ($$
+                                       (|Mapping| |#1| (|DoubleFloat|)
+                                                  (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|createPlot2Din3D|
+                                      ($$
+                                       (|Mapping| (|DoubleFloat|)
+                                                  (|DoubleFloat|)
+                                                  (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|addPlot2Din3D|
+                                      ($$ $$
+                                       (|Mapping| (|DoubleFloat|)
+                                                  (|DoubleFloat|)
+                                                  (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|createPlot2Din3Dparametric|
+                                      ($$
+                                       (|Mapping| |#1| (|DoubleFloat|)
+                                                  (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|addPlot2Din3Dparametric|
+                                      ($$ $$
+                                       (|Mapping| |#1| (|DoubleFloat|)
+                                                  (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|createPlot2Din3Dparametric|
+                                      ($$
+                                       (|ParametricSurface|
+                                        (|Mapping| (|DoubleFloat|)
+                                                   (|DoubleFloat|)
+                                                   (|DoubleFloat|)))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|addPlot2Din3Dparametric|
+                                      ($$ $$
+                                       (|ParametricSurface|
+                                        (|Mapping| (|DoubleFloat|)
+                                                   (|DoubleFloat|)
+                                                   (|DoubleFloat|)))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|createArrows2Din2D|
+                                      ($$ (|Mapping| |#1| |#1|)
+                                       (|Segment| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|addArrows2Din2D|
+                                      ($$ $$ (|Mapping| |#1| |#1|)
+                                       (|Segment| (|DoubleFloat|))
+                                       (|Segment| (|DoubleFloat|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|boundary|
+                                      ((|SBoundary| |#1|) $$ (|DoubleFloat|)))
+                                     T)
+                                   '((|addChild!| ((|Void|) $$ $$)) T)
+                                   '((|removeChild!| ((|Void|) $$ $$)) T)
+                                   '((|setTransform!|
+                                      ((|Void|) $$ (|STransform| |#1|)))
+                                     T)
+                                   '((|toSVG|
+                                      ((|XmlElement|) $$
+                                       (|Record|
+                                        (|:| |lineWidth| (|DoubleFloat|))
+                                        (|:| |lineCol| (|String|))
+                                        (|:| |fillCol| (|String|))
+                                        (|:| |matOpacity| (|DoubleFloat|)))
+                                       (|STransform| |#1|) (|SBoundary| |#1|)
+                                       (|DoubleFloat|) (|Boolean|) (|Boolean|)
+                                       (|SceneNamedPoints| |#1|)))
+                                     T)
+                                   '((|toSVG|
+                                      ((|XmlElement|) $$
+                                       (|Record|
+                                        (|:| |lineWidth| (|DoubleFloat|))
+                                        (|:| |lineCol| (|String|))
+                                        (|:| |fillCol| (|String|))
+                                        (|:| |matOpacity| (|DoubleFloat|)))
+                                       (|STransform| |#1|)
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))
+                                       (|DoubleFloat|) (|Boolean|) (|Boolean|)
+                                       (|SceneNamedPoints| |#1|)))
+                                     T)
+                                   '((|toX3D|
+                                      ((|XmlElement|) $$
+                                       (|Record|
+                                        (|:| |lineWidth| (|DoubleFloat|))
+                                        (|:| |lineCol| (|String|))
+                                        (|:| |fillCol| (|String|))
+                                        (|:| |matOpacity| (|DoubleFloat|)))
+                                       (|STransform| |#1|) (|SBoundary| |#1|)))
+                                     T)
+                                   '((|toX3D|
+                                      ((|XmlElement|) $$
+                                       (|Record|
+                                        (|:| |lineWidth| (|DoubleFloat|))
+                                        (|:| |lineCol| (|String|))
+                                        (|:| |fillCol| (|String|))
+                                        (|:| |matOpacity| (|DoubleFloat|)))
+                                       (|STransform| |#1|)
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|toObj|
+                                      ((|Void|) $$ (|Reference| (|List| |#1|))
+                                       (|Reference|
+                                        (|List|
+                                         (|List| (|NonNegativeInteger|))))
+                                       (|Reference| (|NonNegativeInteger|))
+                                       (|STransform| |#1|) (|SBoundary| |#1|)))
+                                     T)
+                                   '((|toObj|
+                                      ((|Void|) $$ (|Reference| (|List| |#1|))
+                                       (|Reference|
+                                        (|List|
+                                         (|List| (|NonNegativeInteger|))))
+                                       (|Reference| (|NonNegativeInteger|))
+                                       (|STransform| |#1|)
+                                       (|Record| (|:| |mins| |#1|)
+                                                 (|:| |maxs| |#1|))))
+                                     T)
+                                   '((|writeSvg| ((|Void|) $$ (|String|))) T)
+                                   '((|writeSvgQuantised|
+                                      ((|Void|) $$ (|String|)))
+                                     T)
+                                   '((|writeX3d| ((|Void|) $$ (|String|))) T)
+                                   '((|writeVRML| ((|Void|) $$ (|String|))) T)
+                                   '((|writeObj| ((|Void|) $$ (|String|))) T)
+                                   '((|coerce| ((|OutputForm|) $$)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 284
+                                            '(2 8 0 6 6 10 2 6 0 13 13 14 0 8 0
+                                              16 1 8 6 0 32 2 8 6 0 6 33 1 8 6
+                                              0 40 1 8 6 0 41 2 6 0 0 0 42 1 63
+                                              60 0 64 1 63 22 0 65 3 6 0 25 25
+                                              25 68 1 6 25 0 84 1 6 25 0 85 2 6
+                                              0 25 25 86 3 92 0 13 13 91 93 1
+                                              92 25 0 94 1 63 0 22 101 2 63 0 0
+                                              74 102 2 74 26 0 0 103 2 22 6 0
+                                              13 104 2 6 0 0 0 105 2 6 0 25 0
+                                              106 2 22 0 0 6 107 2 60 108 0 13
+                                              109 1 108 74 0 110 2 108 74 0 13
+                                              111 2 34 0 0 22 112 1 25 0 0 117
+                                              2 13 26 0 0 118 1 45 0 119 120 2
+                                              13 26 0 0 121 6 126 0 25 25 25 25
+                                              25 25 127 1 128 0 126 129 4 130
+                                              19 128 0 26 26 131 1 140 25 0 141
+                                              1 140 25 0 142 2 146 0 0 2 147 2
+                                              50 26 0 0 149 2 137 6 0 6 151 2 8
+                                              26 0 6 152 2 45 26 0 0 153 2 6 25
+                                              0 0 154 0 92 0 155 0 92 0 156 2
+                                              25 26 0 0 157 2 74 26 0 0 158 2
+                                              159 0 45 45 160 3 162 0 45 119
+                                              161 163 2 164 0 0 162 165 1 8 26
+                                              0 166 6 137 0 25 25 25 25 25 25
+                                              167 2 161 0 0 159 168 2 77 26 0 0
+                                              169 2 57 6 0 45 170 3 162 0 45 45
+                                              161 171 1 162 26 0 172 2 137 0 0
+                                              0 173 3 57 0 0 45 0 174 3 57 0 0
+                                              45 175 176 2 57 175 0 45 178 1
+                                              146 74 0 179 0 137 0 181 2 57 0
+                                              119 77 182 2 183 19 162 45 184 2
+                                              8 0 0 6 187 2 8 0 6 6 188 2 8 0 0
+                                              0 189 1 6 25 0 190 2 77 0 0 45
+                                              191 3 63 34 22 25 13 193 2 63 0
+                                              34 26 194 2 159 0 45 77 195 1 200
+                                              74 0 202 1 198 22 0 203 2 22 0 0
+                                              0 204 2 198 22 0 22 205 1 199 60
+                                              0 206 2 60 0 0 0 207 2 199 60 0
+                                              60 208 2 200 74 0 74 209 1 198 0
+                                              22 211 1 199 0 60 212 1 200 0 74
+                                              213 1 214 0 45 215 2 216 0 214 45
+                                              217 2 216 45 0 45 218 1 216 0 0
+                                              219 2 183 19 162 45 221 2 25 26 0
+                                              0 223 2 140 0 25 25 224 1 225 0
+                                              25 226 1 22 0 6 227 1 6 26 0 228
+                                              1 232 229 0 233 2 237 234 0 74
+                                              238 2 241 234 0 74 242 1 249 247
+                                              0 250 0 25 0 254 0 74 0 255 2 256
+                                              251 0 74 257 1 258 251 0 259 1 22
+                                              264 0 265 1 6 264 0 266 1 22 6 0
+                                              267 1 264 0 45 268 1 264 0 119
+                                              269 1 34 22 0 270 1 108 264 0 271
+                                              1 74 264 0 272 1 108 74 0 273 1
+                                              60 108 0 274 1 8 264 0 275 1 264
+                                              0 119 276 2 264 0 0 0 277 1 50
+                                              264 0 278 1 25 264 0 279 1 45 264
+                                              0 280 1 77 264 0 281 1 137 264 0
+                                              282 1 57 264 0 283 2 0 19 0 45
+                                              197 2 0 19 0 45 222 2 0 19 0 45
+                                              186 2 0 19 0 45 185 2 0 19 0 45
+                                              220 4 0 162 0 95 137 8 192 4 0
+                                              162 0 95 137 11 196 8 0 162 0 95
+                                              137 8 25 26 26 57 177 8 0 162 0
+                                              95 137 11 25 26 26 57 180 6 0 19
+                                              0 198 199 200 137 8 201 6 0 19 0
+                                              198 199 200 137 11 210 2 0 19 0
+                                              137 150 2 0 19 0 0 148 1 0 0 45
+                                              48 1 0 0 137 138 1 0 0 71 72 3 0
+                                              0 45 74 6 75 3 0 0 77 74 6 78 1 0
+                                              0 37 38 1 0 0 8 43 3 0 0 50 6 8
+                                              122 3 0 0 50 6 11 124 0 0 0 17 1
+                                              0 0 11 12 1 0 0 8 9 4 0 0 13 13
+                                              13 13 15 3 0 0 50 74 8 113 3 0 0
+                                              50 74 11 115 1 0 0 57 58 1 0 0 95
+                                              134 3 0 0 25 45 45 135 1 0 0 34
+                                              35 1 0 0 22 23 3 0 0 0 0 25 28 4
+                                              0 0 0 0 25 26 27 2 0 0 60 22 61 1
+                                              0 0 63 66 0 0 0 18 2 0 0 25 8 87
+                                              2 0 0 25 11 89 1 0 0 8 97 1 0 0
+                                              11 99 4 0 0 130 74 74 26 132 2 0
+                                              0 45 0 46 1 0 0 8 80 1 0 0 11 82
+                                              1 0 0 25 69 3 0 0 34 50 25 51 5 0
+                                              0 45 45 6 50 25 53 6 0 0 0 0 6 50
+                                              25 25 55 4 0 0 247 140 140 74 262
+                                              4 0 0 256 140 140 74 260 4 0 0
+                                              247 140 140 74 248 4 0 0 251 140
+                                              140 74 252 3 0 0 241 140 74 244 3
+                                              0 0 229 140 74 243 3 0 0 237 140
+                                              74 239 3 0 0 229 140 74 230 3 0 0
+                                              234 140 74 235 4 0 0 143 140 140
+                                              74 144 1 0 264 0 284 2 0 8 0 25
+                                              31 2 0 0 0 45 49 2 0 0 0 137 139
+                                              2 0 0 0 71 73 4 0 0 0 45 74 6 76
+                                              4 0 0 0 77 74 6 79 2 0 0 0 37 39
+                                              2 0 0 0 8 44 4 0 0 0 50 6 8 123 4
+                                              0 0 0 50 6 11 125 4 0 0 0 50 74 8
+                                              114 4 0 0 0 50 74 11 116 2 0 0 0
+                                              57 59 2 0 0 0 95 96 4 0 0 0 25 45
+                                              45 136 2 0 0 0 34 36 2 0 0 0 22
+                                              24 4 0 0 0 0 0 25 30 5 0 0 0 0 0
+                                              25 26 29 3 0 0 0 60 22 62 2 0 0 0
+                                              63 67 1 0 0 0 21 3 0 0 0 25 8 88
+                                              3 0 0 0 25 11 90 2 0 0 0 8 98 2 0
+                                              0 0 11 100 5 0 0 0 130 74 74 26
+                                              133 3 0 0 0 45 0 47 2 0 0 0 8 81
+                                              2 0 0 0 11 83 2 0 0 0 25 70 4 0 0
+                                              0 34 50 25 52 6 0 0 0 45 45 6 50
+                                              25 54 7 0 0 0 0 0 6 50 25 25 56 5
+                                              0 0 0 247 140 140 74 263 5 0 0 0
+                                              256 140 140 74 261 5 0 0 0 251
+                                              140 140 74 253 4 0 0 0 241 140 74
+                                              245 4 0 0 0 229 140 74 246 4 0 0
+                                              0 237 140 74 240 4 0 0 0 229 140
+                                              74 231 4 0 0 0 234 140 74 236 2 0
+                                              19 0 0 20 5 0 0 0 143 140 140 74
+                                              145)))))
            '|lookupComplete|)) 

@@ -54,10 +54,19 @@
               (0 . |coordinate|) (|ParametricPlaneCurve| 7) (6 . |curve|)
               (|Mapping| 7 6) |PARPC2;map;MPpcPpc;1|)
            '#(|map| 12) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 14
-                                                 '(2 9 6 0 8 10 2 11 0 7 7 12 2
-                                                   0 11 13 9 14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|ParametricPlaneCurve| |#2|)
+                                  (|Mapping| |#2| |#1|)
+                                  (|ParametricPlaneCurve| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 14
+                                            '(2 9 6 0 8 10 2 11 0 7 7 12 2 0 11
+                                              13 9 14)))))
            '|lookupComplete|)) 

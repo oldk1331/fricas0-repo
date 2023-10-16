@@ -3182,32 +3182,77 @@
            '#(|gen_Monte_Carlo_check| 207 |VSUPS_to_VPA| 217 |LLF_to_LPA| 225
               |HP_solve| 234)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 71
-                                                 '(6 16 8 9 10 11 12 13 15 17 7
-                                                   0 18 19 10 11 11 12 13 20 21
-                                                   3 16 22 9 23 23 24 5 0 22 19
-                                                   23 25 10 23 26 2 16 27 28 23
-                                                   29 4 0 27 30 25 10 23 31 2
-                                                   11 32 0 0 33 1 30 0 34 35 6
-                                                   0 20 20 19 11 11 12 13 36 7
-                                                   16 37 38 10 11 11 12 13 39
-                                                   40 5 16 22 38 23 25 10 23 41
-                                                   4 16 27 42 25 10 23 43 2 11
-                                                   32 0 0 44 3 16 25 38 11 11
-                                                   45 1 25 0 0 46 6 16 47 48 10
-                                                   11 12 13 49 50 7 16 51 52 10
-                                                   11 11 12 13 53 54 0 6 12 55
-                                                   0 6 0 57 0 7 0 58 2 12 32 0
-                                                   0 59 7 16 8 60 10 11 23 12
-                                                   13 15 61 2 23 32 0 0 62 0 32
-                                                   0 63 1 64 23 23 65 2 12 32 0
-                                                   0 66 6 16 67 27 68 13 23 23
-                                                   23 69 0 6 0 70 0 7 0 71 6 0
-                                                   20 20 19 11 11 12 13 36 4 0
-                                                   27 30 25 10 23 31 5 0 22 19
-                                                   23 25 10 23 26 7 0 18 19 10
-                                                   11 11 12 13 20 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|HP_solve|
+                                 ((|Union|
+                                   (|Matrix|
+                                    (|SparseUnivariatePolynomial| |#2|))
+                                   (|Boolean|))
+                                  (|List| (|List| |#1|)) (|List| (|Integer|))
+                                  (|Symbol|) (|Symbol|) (|NonNegativeInteger|)
+                                  (|Mapping| (|Vector| (|U32Vector|))
+                                             (|List| (|U32Vector|)) (|Integer|)
+                                             (|Integer|))
+                                  (|Mapping|
+                                   (|Union| #1="good" #2="reject"
+                                            #3="no_solution")
+                                   (|List|
+                                    (|SparseUnivariatePolynomial| |#2|)))))
+                                T)
+                              '((|gen_Monte_Carlo_check|
+                                 ((|Mapping| (|Union| #1# #2# #3#)
+                                             (|List|
+                                              (|SparseUnivariatePolynomial|
+                                               |#2|)))
+                                  (|Mapping| (|Union| #1# #2# #3#)
+                                             (|List|
+                                              (|SparseUnivariatePolynomial|
+                                               |#2|)))
+                                  (|List| (|List| |#1|)) (|Symbol|) (|Symbol|)
+                                  (|NonNegativeInteger|)
+                                  (|Mapping| (|Vector| (|U32Vector|))
+                                             (|List| (|U32Vector|)) (|Integer|)
+                                             (|Integer|))))
+                                T)
+                              '((|LLF_to_LPA|
+                                 ((|Union| (|List| (|U32Vector|)) "failed")
+                                  (|List| (|List| |#1|)) (|Integer|)
+                                  (|List| (|Symbol|)) (|List| (|Integer|))
+                                  (|Integer|)))
+                                T)
+                              '((|VSUPS_to_VPA|
+                                 ((|Vector| (|U32Vector|))
+                                  (|Vector|
+                                   (|SparseUnivariatePolynomial| |#2|))
+                                  (|List| (|Symbol|)) (|List| (|Integer|))
+                                  (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 71
+                                            '(6 16 8 9 10 11 12 13 15 17 7 0 18
+                                              19 10 11 11 12 13 20 21 3 16 22 9
+                                              23 23 24 5 0 22 19 23 25 10 23 26
+                                              2 16 27 28 23 29 4 0 27 30 25 10
+                                              23 31 2 11 32 0 0 33 1 30 0 34 35
+                                              6 0 20 20 19 11 11 12 13 36 7 16
+                                              37 38 10 11 11 12 13 39 40 5 16
+                                              22 38 23 25 10 23 41 4 16 27 42
+                                              25 10 23 43 2 11 32 0 0 44 3 16
+                                              25 38 11 11 45 1 25 0 0 46 6 16
+                                              47 48 10 11 12 13 49 50 7 16 51
+                                              52 10 11 11 12 13 53 54 0 6 12 55
+                                              0 6 0 57 0 7 0 58 2 12 32 0 0 59
+                                              7 16 8 60 10 11 23 12 13 15 61 2
+                                              23 32 0 0 62 0 32 0 63 1 64 23 23
+                                              65 2 12 32 0 0 66 6 16 67 27 68
+                                              13 23 23 23 69 0 6 0 70 0 7 0 71
+                                              6 0 20 20 19 11 11 12 13 36 4 0
+                                              27 30 25 10 23 31 5 0 22 19 23 25
+                                              10 23 26 7 0 18 19 10 11 11 12 13
+                                              20 21)))))
            '|lookupComplete|)) 

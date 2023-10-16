@@ -89,17 +89,37 @@
               (50 . |coerce|) (55 . |retract|) (60 . |retract|)
               (|Union| 20 '#1#) (65 . |retractIfCan|) (70 . |retractIfCan|))
            '#(|retractIfCan| 75 |retract| 85 |coerce| 95) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 27
-                                                 '(1 7 0 8 9 1 6 0 7 10 1 0 0 8
-                                                   11 1 6 7 0 12 1 7 8 0 13 1 0
-                                                   8 0 14 1 6 15 0 16 1 7 17 0
-                                                   18 1 0 17 0 19 1 7 0 20 21 1
-                                                   0 0 20 22 1 7 20 0 23 1 0 20
-                                                   0 24 1 7 25 0 26 1 0 25 0 27
-                                                   1 0 17 0 19 1 0 25 0 27 1 0
-                                                   8 0 14 1 0 20 0 24 1 0 0 8
-                                                   11 1 0 0 20 22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|retract| ((|Integer|) |#1|)) T)
+                                   '((|retractIfCan|
+                                      ((|Union| (|Integer|) #1#) |#1|))
+                                     T)
+                                   '((|coerce| (|#1| (|Integer|))) T)
+                                   '((|retract|
+                                      ((|Fraction| (|Integer|)) |#1|))
+                                     T)
+                                   '((|retractIfCan|
+                                      ((|Union| (|Fraction| (|Integer|)) #1#)
+                                       |#1|))
+                                     T)
+                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
+                                     T)
+                                   '((|coerce| (|#1| |#2|)) T)
+                                   '((|retractIfCan| ((|Union| |#2| #1#) |#1|))
+                                     T)
+                                   '((|retract| (|#2| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 27
+                                            '(1 7 0 8 9 1 6 0 7 10 1 0 0 8 11 1
+                                              6 7 0 12 1 7 8 0 13 1 0 8 0 14 1
+                                              6 15 0 16 1 7 17 0 18 1 0 17 0 19
+                                              1 7 0 20 21 1 0 0 20 22 1 7 20 0
+                                              23 1 0 20 0 24 1 7 25 0 26 1 0 25
+                                              0 27 1 0 17 0 19 1 0 25 0 27 1 0
+                                              8 0 14 1 0 20 0 24 1 0 0 8 11 1 0
+                                              0 20 22)))))
            '|lookupComplete|)) 

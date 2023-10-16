@@ -52,11 +52,19 @@
               (|SegmentFunctions2| 6 7) (10 . |map|) (|SegmentBinding| 7)
               (16 . |equation|) |SEGBIND2;map;MSbSb;1|)
            '#(|map| 22) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(1 9 8 0 10 1 9 11 0 12 2 15
-                                                   13 14 11 16 2 17 0 8 13 18 2
-                                                   0 17 14 9 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|SegmentBinding| |#2|) (|Mapping| |#2| |#1|)
+                                  (|SegmentBinding| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(1 9 8 0 10 1 9 11 0 12 2 15 13 14
+                                              11 16 2 17 0 8 13 18 2 0 17 14 9
+                                              19)))))
            '|lookupComplete|)) 

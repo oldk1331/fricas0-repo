@@ -459,28 +459,72 @@
               |principalSubResultantSet| 194 |discriminantSet| 200
               |cylindricalDecomposition| 205 |coefficientSet| 216)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 68
-                                                 '(1 8 7 0 9 1 8 10 0 11 2 10 0
-                                                   0 0 12 1 10 0 0 13 1 10 0 0
-                                                   14 2 10 7 0 0 19 1 8 20 0 21
-                                                   2 25 22 23 24 26 1 28 0 27
-                                                   29 2 8 30 0 24 31 2 28 0 25
-                                                   0 35 2 15 0 0 0 36 2 16 7 0
-                                                   0 37 1 28 38 0 39 1 28 10 0
-                                                   40 3 8 0 0 10 38 41 1 20 42
-                                                   0 43 0 6 0 44 1 45 16 0 46 1
-                                                   45 0 0 48 2 50 49 45 45 51 0
-                                                   8 0 52 1 45 42 0 53 1 45 8 0
-                                                   54 1 8 7 0 55 2 45 0 0 0 57
-                                                   2 45 8 0 42 58 1 45 8 0 61 1
-                                                   45 0 0 62 2 42 7 0 0 63 2 32
-                                                   0 64 0 65 1 66 32 32 67 2 16
-                                                   0 0 0 68 2 0 23 16 28 34 1 0
-                                                   16 32 60 1 0 16 32 33 2 0 16
-                                                   45 45 59 1 0 16 32 56 2 0 15
-                                                   16 10 17 1 0 15 16 18 1 0 16
-                                                   45 47)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|cylindricalDecomposition|
+                                 ((|List| (|Cell| |#1|))
+                                  (|List| (|Polynomial| |#1|))))
+                                T)
+                              '((|cylindricalDecomposition|
+                                 ((|List| (|Cell| |#1|))
+                                  (|List| (|Polynomial| |#1|))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|projectionSet|
+                                 ((|List| (|Polynomial| |#1|))
+                                  (|List|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Polynomial| |#1|)))))
+                                T)
+                              '((|coefficientSet|
+                                 ((|List| (|Polynomial| |#1|))
+                                  (|SparseUnivariatePolynomial|
+                                   (|Polynomial| |#1|))))
+                                T)
+                              '((|discriminantSet|
+                                 ((|List| (|Polynomial| |#1|))
+                                  (|List|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Polynomial| |#1|)))))
+                                T)
+                              '((|resultantSet|
+                                 ((|List| (|Polynomial| |#1|))
+                                  (|List|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Polynomial| |#1|)))))
+                                T)
+                              '((|principalSubResultantSet|
+                                 ((|List| (|Polynomial| |#1|))
+                                  (|SparseUnivariatePolynomial|
+                                   (|Polynomial| |#1|))
+                                  (|SparseUnivariatePolynomial|
+                                   (|Polynomial| |#1|))))
+                                T)
+                              '((|specialise|
+                                 ((|List| (|SparseUnivariatePolynomial| |#1|))
+                                  (|List| (|Polynomial| |#1|)) (|Cell| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 68
+                                            '(1 8 7 0 9 1 8 10 0 11 2 10 0 0 0
+                                              12 1 10 0 0 13 1 10 0 0 14 2 10 7
+                                              0 0 19 1 8 20 0 21 2 25 22 23 24
+                                              26 1 28 0 27 29 2 8 30 0 24 31 2
+                                              28 0 25 0 35 2 15 0 0 0 36 2 16 7
+                                              0 0 37 1 28 38 0 39 1 28 10 0 40
+                                              3 8 0 0 10 38 41 1 20 42 0 43 0 6
+                                              0 44 1 45 16 0 46 1 45 0 0 48 2
+                                              50 49 45 45 51 0 8 0 52 1 45 42 0
+                                              53 1 45 8 0 54 1 8 7 0 55 2 45 0
+                                              0 0 57 2 45 8 0 42 58 1 45 8 0 61
+                                              1 45 0 0 62 2 42 7 0 0 63 2 32 0
+                                              64 0 65 1 66 32 32 67 2 16 0 0 0
+                                              68 2 0 23 16 28 34 1 0 16 32 60 1
+                                              0 16 32 33 2 0 16 45 45 59 1 0 16
+                                              32 56 2 0 15 16 10 17 1 0 15 16
+                                              18 1 0 16 45 47)))))
            '|lookupComplete|)) 

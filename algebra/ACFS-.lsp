@@ -173,24 +173,72 @@
               |ACFS-;rootsOf;SupSL;9| (96 . |zerosOf|) |ACFS-;zerosOf;SupSL;10|
               (102 . |zeroOf|) |ACFS-;zeroOf;SupSS;11| (|Polynomial| $))
            '#(|zerosOf| 108 |zeroOf| 125 |rootsOf| 142 |rootOf| 159) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 51
-                                                 '(1 6 8 0 9 2 6 0 0 10 11 2 6
-                                                   13 0 10 14 2 6 0 0 10 16 2 6
-                                                   13 0 10 18 1 20 0 10 21 2 6
-                                                   22 0 23 24 1 26 25 0 27 1 26
-                                                   25 0 28 1 25 29 0 30 2 32 31
-                                                   0 0 33 2 6 0 34 10 35 2 6 0
-                                                   34 10 37 2 6 13 34 10 39 2 6
-                                                   13 34 10 41 1 25 43 0 44 2
-                                                   45 13 34 10 46 2 45 13 34 10
-                                                   48 2 45 0 34 10 50 2 0 13 0
-                                                   10 40 1 0 13 0 19 2 0 13 34
-                                                   10 49 2 0 0 0 10 36 1 0 0 0
-                                                   17 2 0 0 34 10 51 2 0 13 0
-                                                   10 42 1 0 13 0 15 2 0 13 34
-                                                   10 47 2 0 0 0 10 38 1 0 0 0
-                                                   12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|zerosOf| ((|List| |#1|) |#1| (|Symbol|))) T)
+                              '((|zeroOf| (|#1| |#1| (|Symbol|))) T)
+                              '((|zerosOf| ((|List| |#1|) |#1|)) T)
+                              '((|zeroOf| (|#1| |#1|)) T)
+                              '((|rootsOf| ((|List| |#1|) |#1| (|Symbol|))) T)
+                              '((|rootOf| (|#1| |#1| (|Symbol|))) T)
+                              '((|rootsOf| ((|List| |#1|) |#1|)) T)
+                              '((|rootOf| (|#1| |#1|)) T)
+                              '((|zerosOf|
+                                 ((|List| |#1|)
+                                  (|SparseUnivariatePolynomial| |#1|)
+                                  (|Symbol|)))
+                                T)
+                              '((|zerosOf|
+                                 ((|List| |#1|)
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|zerosOf| ((|List| |#1|) (|Polynomial| |#1|)))
+                                T)
+                              '((|zeroOf|
+                                 (|#1| (|SparseUnivariatePolynomial| |#1|)
+                                  (|Symbol|)))
+                                T)
+                              '((|zeroOf|
+                                 (|#1| (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|zeroOf| (|#1| (|Polynomial| |#1|))) T)
+                              '((|rootsOf|
+                                 ((|List| |#1|)
+                                  (|SparseUnivariatePolynomial| |#1|)
+                                  (|Symbol|)))
+                                T)
+                              '((|rootsOf|
+                                 ((|List| |#1|)
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|rootsOf| ((|List| |#1|) (|Polynomial| |#1|)))
+                                T)
+                              '((|rootOf|
+                                 (|#1| (|SparseUnivariatePolynomial| |#1|)
+                                  (|Symbol|)))
+                                T)
+                              '((|rootOf|
+                                 (|#1| (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|rootOf| (|#1| (|Polynomial| |#1|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 51
+                                            '(1 6 8 0 9 2 6 0 0 10 11 2 6 13 0
+                                              10 14 2 6 0 0 10 16 2 6 13 0 10
+                                              18 1 20 0 10 21 2 6 22 0 23 24 1
+                                              26 25 0 27 1 26 25 0 28 1 25 29 0
+                                              30 2 32 31 0 0 33 2 6 0 34 10 35
+                                              2 6 0 34 10 37 2 6 13 34 10 39 2
+                                              6 13 34 10 41 1 25 43 0 44 2 45
+                                              13 34 10 46 2 45 13 34 10 48 2 45
+                                              0 34 10 50 2 0 13 0 10 40 1 0 13
+                                              0 19 2 0 13 34 10 49 2 0 0 0 10
+                                              36 1 0 0 0 17 2 0 0 34 10 51 2 0
+                                              13 0 10 42 1 0 13 0 15 2 0 13 34
+                                              10 47 2 0 0 0 10 38 1 0 0 0
+                                              12)))))
            '|lookupComplete|)) 

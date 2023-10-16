@@ -260,16 +260,20 @@
               (72 . -) |TRIMAT;UpTriBddDenomInv;MRM;1|
               |TRIMAT;LowTriBddDenomInv;MRM;2|)
            '#(|UpTriBddDenomInv| 77 |LowTriBddDenomInv| 83) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(1 9 10 0 11 2 9 0 10 10 12 1
-                                                   9 13 0 14 1 9 13 0 15 1 9 13
-                                                   0 16 1 9 13 0 17 3 9 6 0 13
-                                                   13 18 2 6 19 0 0 20 4 9 6 0
-                                                   13 13 6 21 0 6 0 22 2 6 0 0
-                                                   0 23 2 6 0 0 0 24 0 6 0 25 1
-                                                   6 0 0 26 2 0 9 9 6 27 2 0 9
-                                                   9 6 28)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|UpTriBddDenomInv| (|#4| |#4| |#1|)) T)
+                                   '((|LowTriBddDenomInv| (|#4| |#4| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(1 9 10 0 11 2 9 0 10 10 12 1 9 13
+                                              0 14 1 9 13 0 15 1 9 13 0 16 1 9
+                                              13 0 17 3 9 6 0 13 13 18 2 6 19 0
+                                              0 20 4 9 6 0 13 13 6 21 0 6 0 22
+                                              2 6 0 0 0 23 2 6 0 0 0 24 0 6 0
+                                              25 1 6 0 0 26 2 0 9 9 6 27 2 0 9
+                                              9 6 28)))))
            '|lookupComplete|)) 

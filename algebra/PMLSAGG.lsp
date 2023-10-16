@@ -103,16 +103,24 @@
               (52 . |reverse|) (57 . |first|) (|PatternMatchResult| 6 $)
               (62 . |patternMatch|) (69 . |failed?|) (74 . |rest|))
            '#(|patternMatch| 79) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 31
-                                                 '(1 10 9 0 11 0 12 0 13 1 8 15
-                                                   0 16 1 10 15 0 17 1 8 0 0 18
-                                                   1 12 19 0 20 1 12 21 0 22 0
-                                                   8 0 23 4 21 0 10 8 0 8 24 2
-                                                   12 0 19 21 25 1 8 0 0 26 1 8
-                                                   7 0 27 3 7 28 0 10 28 29 1
-                                                   12 15 0 30 1 8 0 0 31 3 0 12
-                                                   8 10 12 14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|patternMatch|
+                                 ((|PatternMatchListResult| |#1| |#2| |#3|)
+                                  |#3| (|Pattern| |#1|)
+                                  (|PatternMatchListResult| |#1| |#2| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 31
+                                            '(1 10 9 0 11 0 12 0 13 1 8 15 0 16
+                                              1 10 15 0 17 1 8 0 0 18 1 12 19 0
+                                              20 1 12 21 0 22 0 8 0 23 4 21 0
+                                              10 8 0 8 24 2 12 0 19 21 25 1 8 0
+                                              0 26 1 8 7 0 27 3 7 28 0 10 28 29
+                                              1 12 15 0 30 1 8 0 0 31 3 0 12 8
+                                              10 12 14)))))
            '|lookupComplete|)) 

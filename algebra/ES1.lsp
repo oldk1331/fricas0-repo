@@ -68,11 +68,18 @@
               (|Union| (|None|) '"failed") (|Symbol|) (10 . |property|)
               (|Mapping| 7 6) |ES1;map;MSKS;1|)
            '#(|map| 16) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(1 9 8 0 10 1 9 11 0 12 2 11
-                                                   13 0 14 15 3 0 7 16 14 9
-                                                   17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 (|#2| (|Mapping| |#2| |#1|) (|Symbol|)
+                                  (|Kernel| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(1 9 8 0 10 1 9 11 0 12 2 11 13 0
+                                              14 15 3 0 7 16 14 9 17)))))
            '|lookupComplete|)) 

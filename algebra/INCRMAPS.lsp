@@ -54,10 +54,17 @@
               (|Mapping| 6 6) |INCRMAPS;increment;M;1|
               |INCRMAPS;incrementBy;RM;2|)
            '#(|incrementBy| 10 |increment| 15) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 11
-                                                 '(0 6 0 7 2 6 0 0 0 8 1 0 9 6
-                                                   11 0 0 9 10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|increment| ((|Mapping| |#1| |#1|))) T)
+                                   '((|incrementBy|
+                                      ((|Mapping| |#1| |#1|) |#1|))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 11
+                                            '(0 6 0 7 2 6 0 0 0 8 1 0 9 6 11 0
+                                              0 9 10)))))
            '|lookupComplete|)) 

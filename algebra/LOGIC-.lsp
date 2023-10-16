@@ -23,10 +23,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |true|)
               |LOGIC-;T$;S;1| (4 . |false|) |LOGIC-;_\|_;S;2|)
            '#(|_\|_| 8 T$ 12) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10
-                                                 '(0 6 0 7 0 6 0 9 0 0 0 10 0 0
-                                                   0 8)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|_\|_| (|#1|)) T) '((T$ (|#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10
+                                            '(0 6 0 7 0 6 0 9 0 0 0 10 0 0 0
+                                              8)))))
            '|lookupComplete|)) 

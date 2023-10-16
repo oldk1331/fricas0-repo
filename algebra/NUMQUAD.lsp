@@ -951,28 +951,102 @@
               |rombergo| 184 |romberg| 195 |atrapezoidal| 206 |asimpson| 218
               |aromberg| 230)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 53
-                                                 '(0 6 0 7 2 6 0 0 0 8 2 6 0 0
-                                                   9 10 2 6 0 0 0 11 1 6 12 0
-                                                   13 0 6 0 17 3 18 12 0 9 12
-                                                   19 1 12 0 20 21 1 12 0 22 23
-                                                   1 12 24 0 25 1 6 0 0 26 2 6
-                                                   0 0 0 32 1 9 12 0 33 2 34 24
-                                                   20 12 35 2 6 36 0 0 37 2 6
-                                                   36 0 0 38 2 6 0 39 0 40 3 41
-                                                   6 0 9 6 42 2 41 6 0 9 43 2 9
-                                                   36 0 0 44 2 9 0 39 0 45 2 46
-                                                   0 9 9 47 2 6 0 46 0 48 1 34
-                                                   24 12 49 1 41 12 0 50 7 0 14
-                                                   15 6 6 6 6 9 9 53 7 0 14 15
-                                                   6 6 6 6 9 9 30 7 0 14 15 6 6
-                                                   6 6 9 9 52 7 0 14 15 6 6 6 6
-                                                   9 9 28 7 0 14 15 6 6 6 6 9 9
-                                                   51 7 0 14 15 6 6 6 6 9 9 16
-                                                   8 0 14 15 6 6 6 6 9 9 9 31 8
-                                                   0 14 15 6 6 6 6 9 9 9 29 8 0
-                                                   14 15 6 6 6 6 9 9 9 27)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|aromberg|
+                                 ((|Record| (|:| |value| |#1|)
+                                            (|:| |error| |#1|)
+                                            (|:| |totalpts| (|Integer|))
+                                            (|:| |success| (|Boolean|)))
+                                  (|Mapping| |#1| |#1|) |#1| |#1| |#1| |#1|
+                                  (|Integer|) (|Integer|) (|Integer|)))
+                                T)
+                              '((|asimpson|
+                                 ((|Record| (|:| |value| |#1|)
+                                            (|:| |error| |#1|)
+                                            (|:| |totalpts| (|Integer|))
+                                            (|:| |success| (|Boolean|)))
+                                  (|Mapping| |#1| |#1|) |#1| |#1| |#1| |#1|
+                                  (|Integer|) (|Integer|) (|Integer|)))
+                                T)
+                              '((|atrapezoidal|
+                                 ((|Record| (|:| |value| |#1|)
+                                            (|:| |error| |#1|)
+                                            (|:| |totalpts| (|Integer|))
+                                            (|:| |success| (|Boolean|)))
+                                  (|Mapping| |#1| |#1|) |#1| |#1| |#1| |#1|
+                                  (|Integer|) (|Integer|) (|Integer|)))
+                                T)
+                              '((|romberg|
+                                 ((|Record| (|:| |value| |#1|)
+                                            (|:| |error| |#1|)
+                                            (|:| |totalpts| (|Integer|))
+                                            (|:| |success| (|Boolean|)))
+                                  (|Mapping| |#1| |#1|) |#1| |#1| |#1| |#1|
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|simpson|
+                                 ((|Record| (|:| |value| |#1|)
+                                            (|:| |error| |#1|)
+                                            (|:| |totalpts| (|Integer|))
+                                            (|:| |success| (|Boolean|)))
+                                  (|Mapping| |#1| |#1|) |#1| |#1| |#1| |#1|
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|trapezoidal|
+                                 ((|Record| (|:| |value| |#1|)
+                                            (|:| |error| |#1|)
+                                            (|:| |totalpts| (|Integer|))
+                                            (|:| |success| (|Boolean|)))
+                                  (|Mapping| |#1| |#1|) |#1| |#1| |#1| |#1|
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|rombergo|
+                                 ((|Record| (|:| |value| |#1|)
+                                            (|:| |error| |#1|)
+                                            (|:| |totalpts| (|Integer|))
+                                            (|:| |success| (|Boolean|)))
+                                  (|Mapping| |#1| |#1|) |#1| |#1| |#1| |#1|
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|simpsono|
+                                 ((|Record| (|:| |value| |#1|)
+                                            (|:| |error| |#1|)
+                                            (|:| |totalpts| (|Integer|))
+                                            (|:| |success| (|Boolean|)))
+                                  (|Mapping| |#1| |#1|) |#1| |#1| |#1| |#1|
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|trapezoidalo|
+                                 ((|Record| (|:| |value| |#1|)
+                                            (|:| |error| |#1|)
+                                            (|:| |totalpts| (|Integer|))
+                                            (|:| |success| (|Boolean|)))
+                                  (|Mapping| |#1| |#1|) |#1| |#1| |#1| |#1|
+                                  (|Integer|) (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 53
+                                            '(0 6 0 7 2 6 0 0 0 8 2 6 0 0 9 10
+                                              2 6 0 0 0 11 1 6 12 0 13 0 6 0 17
+                                              3 18 12 0 9 12 19 1 12 0 20 21 1
+                                              12 0 22 23 1 12 24 0 25 1 6 0 0
+                                              26 2 6 0 0 0 32 1 9 12 0 33 2 34
+                                              24 20 12 35 2 6 36 0 0 37 2 6 36
+                                              0 0 38 2 6 0 39 0 40 3 41 6 0 9 6
+                                              42 2 41 6 0 9 43 2 9 36 0 0 44 2
+                                              9 0 39 0 45 2 46 0 9 9 47 2 6 0
+                                              46 0 48 1 34 24 12 49 1 41 12 0
+                                              50 7 0 14 15 6 6 6 6 9 9 53 7 0
+                                              14 15 6 6 6 6 9 9 30 7 0 14 15 6
+                                              6 6 6 9 9 52 7 0 14 15 6 6 6 6 9
+                                              9 28 7 0 14 15 6 6 6 6 9 9 51 7 0
+                                              14 15 6 6 6 6 9 9 16 8 0 14 15 6
+                                              6 6 6 9 9 9 31 8 0 14 15 6 6 6 6
+                                              9 9 9 29 8 0 14 15 6 6 6 6 9 9 9
+                                              27)))))
            '|lookupComplete|)) 

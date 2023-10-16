@@ -56,10 +56,15 @@
               (|local| |#3|) (|local| |#4|) (0 . |numer|) (5 . |denom|)
               (10 . /) (|Mapping| 7 6) |QFCAT2;map;MRS;1|)
            '#(|map| 16) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 14
-                                                 '(1 8 6 0 10 1 8 6 0 11 2 9 0
-                                                   7 7 12 2 0 9 13 8 14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#4| (|Mapping| |#2| |#1|) |#3|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 14
+                                            '(1 8 6 0 10 1 8 6 0 11 2 9 0 7 7
+                                              12 2 0 9 13 8 14)))))
            '|lookupComplete|)) 

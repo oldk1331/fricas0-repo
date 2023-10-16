@@ -119,18 +119,28 @@
               (|Sequence| 7) (83 . |sequence|) (|Distribution| 7)
               (88 . |distributionByMoments|) |DISTPOL;apply;UPSDD;3|)
            '#(|integrate| 93 |eval| 99 |apply| 105) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 42
-                                                 '(1 8 9 0 10 1 8 7 0 11 0 7 0
-                                                   12 2 7 0 0 0 13 0 7 0 14 1 8
-                                                   9 0 15 1 8 16 0 17 2 18 6 0
-                                                   16 19 2 7 0 6 0 20 2 7 0 0 0
-                                                   21 1 8 0 0 22 0 6 0 25 1 27
-                                                   0 26 28 1 27 29 30 31 2 8 0
-                                                   0 32 33 2 36 34 35 29 37 1
-                                                   38 0 34 39 1 40 0 38 41 2 0
-                                                   7 8 18 24 2 0 7 18 8 23 2 0
-                                                   40 8 18 42)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|eval| (|#2| (|Distribution| |#1|) |#3|)) T)
+                              '((|integrate| (|#2| |#3| (|Distribution| |#1|)))
+                                T)
+                              '((|apply|
+                                 ((|Distribution| |#2|) |#3|
+                                  (|Distribution| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 42
+                                            '(1 8 9 0 10 1 8 7 0 11 0 7 0 12 2
+                                              7 0 0 0 13 0 7 0 14 1 8 9 0 15 1
+                                              8 16 0 17 2 18 6 0 16 19 2 7 0 6
+                                              0 20 2 7 0 0 0 21 1 8 0 0 22 0 6
+                                              0 25 1 27 0 26 28 1 27 29 30 31 2
+                                              8 0 0 32 33 2 36 34 35 29 37 1 38
+                                              0 34 39 1 40 0 38 41 2 0 7 8 18
+                                              24 2 0 7 18 8 23 2 0 40 8 18
+                                              42)))))
            '|lookupComplete|)) 

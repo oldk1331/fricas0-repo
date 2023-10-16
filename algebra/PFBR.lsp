@@ -1166,7 +1166,7 @@
               (31 . |map|) (37 . |solveLinearPolynomialEquation|)
               (43 . |multivariate|) (49 . |multivariate|) (|Mapping| 9 20)
               (|UnivariatePolynomialCategoryFunctions2| 20 22 9 24)
-              (55 . |map|) (|Union| 34 '"failed") (|List| 24)
+              (55 . |map|) (|Union| 34 '#1="failed") (|List| 24)
               (61 . |bivariateSLPEBR|)
               (|LinearPolynomialEquationByFractions| 9)
               (68 . |solveLinearPolynomialEquationByFractions|)
@@ -1213,48 +1213,71 @@
               |factorSquareFreeByRecursion| 406 |factorByRecursion| 411
               |bivariateSLPEBR| 416)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 137
-                                                 '(2 6 10 11 12 13 0 6 0 14 1 0
-                                                   6 15 16 2 15 0 17 0 18 1 6 0
-                                                   15 19 1 9 20 0 21 2 25 22 23
-                                                   24 26 2 20 10 11 12 27 2 9 0
-                                                   12 8 28 2 9 0 20 8 29 2 31
-                                                   24 30 22 32 3 0 33 34 24 8
-                                                   35 2 36 33 34 24 37 1 24 9 0
-                                                   38 3 9 0 0 39 40 41 1 9 42 0
-                                                   43 1 9 6 0 44 2 46 20 45 24
-                                                   47 1 20 0 0 48 2 20 0 0 0 49
-                                                   1 20 50 0 51 2 50 42 0 0 52
-                                                   1 9 0 6 53 2 55 24 54 20 56
-                                                   2 39 0 0 0 57 2 39 0 8 0 58
-                                                   2 9 12 0 8 59 2 62 60 61 24
-                                                   63 1 64 60 60 65 0 60 0 66 1
-                                                   60 67 0 68 1 60 24 0 69 1 60
-                                                   50 0 70 2 60 0 24 50 71 2 60
-                                                   0 0 0 72 2 74 24 73 60 75 0
-                                                   6 0 76 0 7 0 77 0 24 0 78 2
-                                                   24 42 0 0 79 1 24 80 0 81 1
-                                                   9 39 0 82 1 39 0 67 83 1 39
-                                                   0 0 84 1 6 86 12 87 2 91 88
-                                                   89 90 92 1 24 9 0 93 1 9 42
-                                                   0 94 1 24 95 0 96 2 99 88 88
-                                                   98 100 2 24 101 0 9 102 1 24
-                                                   0 9 103 1 9 95 0 104 2 106
-                                                   88 61 105 107 2 88 0 0 0 108
-                                                   2 9 50 0 8 110 0 9 0 111 1
-                                                   24 50 0 112 1 20 0 0 113 1 6
-                                                   86 12 114 1 90 50 0 115 0 6
-                                                   0 116 2 88 0 24 119 120 1 90
-                                                   122 0 123 1 20 6 0 124 2 6
-                                                   101 0 0 125 2 20 0 6 0 126 2
-                                                   9 0 0 50 127 2 24 0 9 0 128
-                                                   7 134 33 24 39 129 40 80 130
-                                                   133 135 2 9 101 0 0 136 1 9
-                                                   101 0 137 2 0 33 34 24 85 1
-                                                   0 6 15 16 1 0 88 24 97 1 0
-                                                   88 24 109 3 0 33 34 24 8
-                                                   35)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solveLinearPolynomialEquationByRecursion|
+                                 ((|Union|
+                                   (|List| (|SparseUnivariatePolynomial| |#4|))
+                                   "failed")
+                                  (|List| (|SparseUnivariatePolynomial| |#4|))
+                                  (|SparseUnivariatePolynomial| |#4|)))
+                                T)
+                              '((|factorByRecursion|
+                                 ((|Factored|
+                                   (|SparseUnivariatePolynomial| |#4|))
+                                  (|SparseUnivariatePolynomial| |#4|)))
+                                T)
+                              '((|factorSquareFreeByRecursion|
+                                 ((|Factored|
+                                   (|SparseUnivariatePolynomial| |#4|))
+                                  (|SparseUnivariatePolynomial| |#4|)))
+                                T)
+                              '((|randomR| (|#1| (|Integer|))) T)
+                              '((|bivariateSLPEBR|
+                                 ((|Union|
+                                   (|List| (|SparseUnivariatePolynomial| |#4|))
+                                   #1#)
+                                  (|List| (|SparseUnivariatePolynomial| |#4|))
+                                  (|SparseUnivariatePolynomial| |#4|) |#3|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 137
+                                            '(2 6 10 11 12 13 0 6 0 14 1 0 6 15
+                                              16 2 15 0 17 0 18 1 6 0 15 19 1 9
+                                              20 0 21 2 25 22 23 24 26 2 20 10
+                                              11 12 27 2 9 0 12 8 28 2 9 0 20 8
+                                              29 2 31 24 30 22 32 3 0 33 34 24
+                                              8 35 2 36 33 34 24 37 1 24 9 0 38
+                                              3 9 0 0 39 40 41 1 9 42 0 43 1 9
+                                              6 0 44 2 46 20 45 24 47 1 20 0 0
+                                              48 2 20 0 0 0 49 1 20 50 0 51 2
+                                              50 42 0 0 52 1 9 0 6 53 2 55 24
+                                              54 20 56 2 39 0 0 0 57 2 39 0 8 0
+                                              58 2 9 12 0 8 59 2 62 60 61 24 63
+                                              1 64 60 60 65 0 60 0 66 1 60 67 0
+                                              68 1 60 24 0 69 1 60 50 0 70 2 60
+                                              0 24 50 71 2 60 0 0 0 72 2 74 24
+                                              73 60 75 0 6 0 76 0 7 0 77 0 24 0
+                                              78 2 24 42 0 0 79 1 24 80 0 81 1
+                                              9 39 0 82 1 39 0 67 83 1 39 0 0
+                                              84 1 6 86 12 87 2 91 88 89 90 92
+                                              1 24 9 0 93 1 9 42 0 94 1 24 95 0
+                                              96 2 99 88 88 98 100 2 24 101 0 9
+                                              102 1 24 0 9 103 1 9 95 0 104 2
+                                              106 88 61 105 107 2 88 0 0 0 108
+                                              2 9 50 0 8 110 0 9 0 111 1 24 50
+                                              0 112 1 20 0 0 113 1 6 86 12 114
+                                              1 90 50 0 115 0 6 0 116 2 88 0 24
+                                              119 120 1 90 122 0 123 1 20 6 0
+                                              124 2 6 101 0 0 125 2 20 0 6 0
+                                              126 2 9 0 0 50 127 2 24 0 9 0 128
+                                              7 134 33 24 39 129 40 80 130 133
+                                              135 2 9 101 0 0 136 1 9 101 0 137
+                                              2 0 33 34 24 85 1 0 6 15 16 1 0
+                                              88 24 97 1 0 88 24 109 3 0 33 34
+                                              24 8 35)))))
            '|lookupComplete|)) 

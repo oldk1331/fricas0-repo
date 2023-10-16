@@ -55,11 +55,21 @@
               (|RepeatedSquaring| 6) (0 . |expt|) |MAGMA-;^;SPiS;1| (6 . *)
               |MAGMA-;rightPower;SPiS;2| |MAGMA-;leftPower;SPiS;3|)
            '#(|rightPower| 12 |leftPower| 18 ^ 24) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 13
-                                                 '(2 8 6 6 7 9 2 6 0 0 0 11 2 0
-                                                   0 0 7 12 2 0 0 0 7 13 2 0 0
-                                                   0 7 10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((^ (|#1| |#1| (|PositiveInteger|))) T)
+                                   '((|leftPower|
+                                      (|#1| |#1| (|PositiveInteger|)))
+                                     T)
+                                   '((|rightPower|
+                                      (|#1| |#1| (|PositiveInteger|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 13
+                                            '(2 8 6 6 7 9 2 6 0 0 0 11 2 0 0 0
+                                              7 12 2 0 0 0 7 13 2 0 0 0 7
+                                              10)))))
            '|lookupComplete|)) 

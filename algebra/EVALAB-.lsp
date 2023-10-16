@@ -47,11 +47,21 @@
               (0 . |eval|) (|Equation| 7) |EVALAB-;eval;SES;1| (6 . =)
               (|List| 7) |EVALAB-;eval;S2LS;2|)
            '#(|eval| 12) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 14
-                                                 '(2 6 0 0 8 9 2 10 0 7 7 12 2
-                                                   0 0 0 10 11 3 0 0 0 13 13
-                                                   14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|eval| (|#1| |#1| (|List| (|Equation| |#2|))))
+                                T)
+                              '((|eval| (|#1| |#1| (|Equation| |#2|))) T)
+                              '((|eval| (|#1| |#1| |#2| |#2|)) T)
+                              '((|eval|
+                                 (|#1| |#1| (|List| |#2|) (|List| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 14
+                                            '(2 6 0 0 8 9 2 10 0 7 7 12 2 0 0 0
+                                              10 11 3 0 0 0 13 13 14)))))
            '|lookupComplete|)) 

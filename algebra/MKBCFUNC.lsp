@@ -88,12 +88,22 @@
               (0 . |declare|) (|MakeFunction| 6) (5 . |function|)
               (13 . |compile|) |MKBCFUNC;compiledFunction;S2SM;3|)
            '#(|compiledFunction| 19 |binaryFunction| 26) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(1 14 11 13 15 4 16 11 6 11
-                                                   11 11 17 2 14 11 11 13 18 3
-                                                   0 10 6 11 11 19 1 0 10 11
-                                                   12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|binaryFunction|
+                                 ((|Mapping| |#4| |#2| |#3|) (|Symbol|)))
+                                T)
+                              '((|compiledFunction|
+                                 ((|Mapping| |#4| |#2| |#3|) |#1| (|Symbol|)
+                                  (|Symbol|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(1 14 11 13 15 4 16 11 6 11 11 11
+                                              17 2 14 11 11 13 18 3 0 10 6 11
+                                              11 19 1 0 10 11 12)))))
            '|lookupComplete|)) 

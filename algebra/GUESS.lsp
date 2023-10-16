@@ -6423,241 +6423,710 @@
               |guessAlg| 2176 |guessADE| 2187 |guess| 2203 |diffHP| 2229
               |algDepHP| 2239)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 565
-                                                 '(2 14 11 12 13 15 2 14 11 12
-                                                   13 18 1 14 21 22 23 1 0 21
-                                                   22 24 1 14 21 22 25 1 0 21
-                                                   22 26 1 7 27 0 28 2 32 29 30
-                                                   31 33 1 34 7 0 35 1 34 7 0
-                                                   36 2 27 0 0 0 37 2 39 29 38
-                                                   12 40 2 41 0 0 0 42 2 29 27
-                                                   43 0 44 1 8 0 22 45 2 47 11
-                                                   46 27 48 1 34 0 7 49 2 53 50
-                                                   51 52 54 1 56 55 13 57 1 56
-                                                   58 13 59 1 56 60 13 61 1 56
-                                                   58 13 62 0 6 0 63 0 7 0 64 2
-                                                   67 65 66 66 68 1 66 0 0 69 2
-                                                   71 0 70 66 72 0 73 0 74 2 75
-                                                   0 0 0 76 3 67 65 66 66 66 77
-                                                   2 80 78 79 71 81 1 67 65 66
-                                                   82 1 83 65 78 84 2 65 0 85 0
-                                                   86 1 67 65 65 87 1 85 75 0
-                                                   88 2 75 89 0 0 90 2 65 0 91
-                                                   0 92 2 8 0 0 0 93 2 66 0 0 0
-                                                   94 0 75 0 95 3 85 66 96 0 66
-                                                   97 2 66 89 0 0 98 1 100 99
-                                                   85 101 1 85 66 0 102 2 8 0 0
-                                                   75 103 2 8 0 0 0 104 2 11 8
-                                                   105 0 106 1 107 0 85 108 3
-                                                   109 107 107 75 66 110 4 109
-                                                   107 107 73 75 66 111 4 109
-                                                   107 107 107 66 66 112 2 114
-                                                   107 113 0 115 3 109 116 107
-                                                   107 66 117 2 118 0 0 75 119
-                                                   2 118 0 0 0 120 2 122 118
-                                                   121 0 123 2 6 0 0 75 124 2
-                                                   118 0 125 0 126 2 127 118
-                                                   118 118 128 2 129 0 0 75 130
-                                                   2 132 0 131 0 133 2 134 132
-                                                   132 132 135 2 137 132 136 0
-                                                   138 2 141 139 140 65 142 0 6
-                                                   0 143 0 7 0 144 3 145 107 0
-                                                   66 107 146 2 75 89 0 0 147 2
-                                                   109 107 107 66 148 0 132 0
-                                                   149 2 132 0 0 0 150 3 151
-                                                   132 0 66 132 152 2 66 89 0 0
-                                                   153 2 100 154 0 0 155 2 156
-                                                   66 100 0 157 2 66 89 0 0 158
-                                                   1 159 156 0 160 1 100 85 0
-                                                   161 1 100 0 85 162 1 163 99
-                                                   0 164 2 163 99 0 99 165 2
-                                                   159 156 0 156 166 2 66 0 0 0
-                                                   167 1 85 66 0 168 2 170 85
-                                                   169 99 171 2 85 66 96 0 172
-                                                   1 163 0 99 173 1 159 0 156
-                                                   174 1 114 75 0 175 0 75 0
-                                                   176 1 114 107 0 177 1 145 0
-                                                   114 178 1 151 0 137 179 2
-                                                   182 180 181 65 183 1 85 89 0
-                                                   184 2 66 0 0 0 185 2 75 0 0
-                                                   0 186 3 189 187 75 188 65
-                                                   190 3 8 0 0 22 75 191 2 118
-                                                   0 0 75 192 2 132 0 0 75 193
-                                                   3 194 7 75 75 52 195 3 196
-                                                   129 75 75 132 197 1 194 31
-                                                   75 198 0 8 0 199 1 56 75 13
-                                                   200 1 56 22 13 201 0 118 0
-                                                   202 2 65 0 0 75 203 1 65 0 0
-                                                   204 1 65 99 0 205 2 65 85 0
-                                                   66 206 0 132 0 207 2 11 8 0
-                                                   66 220 1 56 27 13 221 2 75
-                                                   89 0 0 222 2 66 89 0 0 223 1
-                                                   22 0 41 224 2 22 89 0 0 225
-                                                   2 226 12 0 66 227 2 189 187
-                                                   228 65 229 3 8 0 0 0 0 231 2
-                                                   118 0 0 73 232 2 132 0 0 73
-                                                   233 1 6 0 22 235 2 66 0 75 0
-                                                   236 2 118 0 237 0 238 1 129
-                                                   0 6 239 2 132 0 240 0 241 1
-                                                   66 89 0 242 2 22 89 0 0 243
-                                                   1 0 244 22 245 1 8 0 66 246
-                                                   1 66 0 0 247 2 8 0 0 0 248 0
-                                                   8 0 249 2 8 0 0 0 250 1 118
-                                                   0 0 251 2 253 252 252 75 254
-                                                   1 132 0 0 255 2 257 256 256
-                                                   75 258 2 259 66 66 66 260 3
-                                                   194 7 75 75 52 261 3 196 129
-                                                   75 75 132 262 1 194 31 75
-                                                   263 2 118 0 6 75 264 2 118 0
-                                                   0 0 265 0 266 0 267 1 266 0
-                                                   0 268 2 118 0 0 266 269 2
-                                                   187 75 0 66 270 0 129 0 271
-                                                   2 132 0 129 75 272 2 132 0 0
-                                                   0 273 2 132 0 0 266 274 2 8
-                                                   0 75 0 276 2 8 0 0 0 277 1 7
-                                                   0 22 278 4 194 7 7 75 75 52
-                                                   279 4 196 129 129 75 75 132
-                                                   280 2 194 31 7 75 281 2 118
-                                                   0 6 0 282 2 118 0 0 0 283 2
-                                                   285 139 139 284 286 1 107 75
-                                                   0 287 2 107 0 75 66 288 0
-                                                   289 0 290 2 66 0 0 75 291 2
-                                                   66 0 0 0 292 3 107 66 0 66
-                                                   66 293 2 266 0 66 66 294 1
-                                                   266 66 0 295 1 114 0 0 296 1
-                                                   107 0 0 297 2 107 66 0 66
-                                                   298 2 114 0 107 0 299 1 114
-                                                   0 0 300 2 301 0 145 0 302 2
-                                                   75 0 0 0 303 1 289 0 0 304 1
-                                                   301 0 0 305 1 145 0 306 307
-                                                   0 289 0 308 2 310 187 187
-                                                   309 311 1 312 73 0 313 2 73
-                                                   89 0 0 314 2 132 0 129 0 315
-                                                   2 132 0 0 0 316 2 137 0 0 0
-                                                   317 2 318 0 75 0 319 1 137 0
-                                                   0 320 2 322 180 180 321 323
-                                                   1 0 244 22 324 1 50 89 0 325
-                                                   1 50 6 0 326 1 50 75 0 327 1
-                                                   50 0 0 328 1 329 0 12 330 1
-                                                   118 0 329 331 1 333 0 332
-                                                   334 2 335 0 75 75 336 2 129
-                                                   0 6 335 337 2 338 333 240 71
-                                                   339 2 333 0 0 0 340 1 132 0
-                                                   333 341 2 344 342 343 50 345
-                                                   2 118 346 0 75 347 1 346 50
-                                                   0 348 2 351 349 350 122 352
-                                                   1 6 89 0 353 1 56 89 13 354
-                                                   1 56 60 13 355 2 75 89 0 0
-                                                   356 1 56 357 13 358 6 361
-                                                   360 360 226 22 22 75 209 362
-                                                   1 56 89 13 363 1 364 116 41
-                                                   365 7 361 366 226 85 22 22
-                                                   75 209 360 367 2 318 75 0 66
-                                                   368 3 318 75 0 66 75 369 2
-                                                   118 0 0 0 370 2 132 0 0 0
-                                                   371 2 7 0 0 0 372 2 50 0 0 0
-                                                   373 2 6 0 0 0 374 2 318 75
-                                                   375 0 376 2 139 0 0 75 377 1
-                                                   139 0 0 378 1 139 122 0 379
-                                                   1 381 0 380 382 4 194 383 31
-                                                   214 381 318 384 1 385 0 349
-                                                   386 4 387 383 31 214 385 318
-                                                   388 2 383 381 0 66 389 1 381
-                                                   380 0 390 0 52 0 391 1 7 89
-                                                   0 392 3 383 52 0 66 66 393 1
-                                                   52 7 0 394 1 52 7 0 395 1 7
-                                                   0 306 396 2 52 154 0 7 397 4
-                                                   383 52 0 66 66 52 398 1 65
-                                                   89 0 399 0 400 0 401 1 65 89
-                                                   0 402 1 65 85 0 403 2 66 89
-                                                   0 0 404 2 85 89 405 0 406 1
-                                                   65 0 0 407 2 400 0 383 0 408
-                                                   1 400 0 409 410 2 412 85 411
-                                                   318 413 3 194 414 75 75 75
-                                                   415 2 417 65 416 414 418 0
-                                                   65 0 419 2 65 0 85 0 420 1
-                                                   421 0 12 422 1 56 89 13 423
-                                                   0 424 0 425 1 7 0 66 426 2
-                                                   381 52 0 66 427 3 52 0 0 424
-                                                   7 428 1 52 7 0 429 2 421 6 0
-                                                   66 430 2 7 0 0 0 431 2 7 154
-                                                   0 0 432 2 7 0 0 0 433 2 7 89
-                                                   0 0 434 2 34 0 7 0 435 2 34
-                                                   0 0 0 436 2 34 89 0 0 437 2
-                                                   438 7 0 66 439 2 380 52 0 66
-                                                   440 1 52 89 0 441 1 8 89 0
-                                                   442 1 118 89 0 443 1 132 89
-                                                   0 444 1 75 89 0 445 1 383 89
-                                                   0 446 2 12 89 447 0 448 2 75
-                                                   0 73 0 449 1 451 0 450 452 4
-                                                   196 129 215 151 75 451 453 1
-                                                   129 89 0 454 1 455 0 41 456
-                                                   1 455 116 0 457 1 66 455 0
-                                                   458 2 455 0 0 0 459 1 129 89
-                                                   0 460 1 56 22 13 461 1 8 0 0
-                                                   462 1 56 22 13 463 2 465 180
-                                                   464 329 466 6 468 8 467 22
-                                                   22 8 11 180 469 5 468 8 467
-                                                   22 8 11 180 470 1 56 75 13
-                                                   471 1 56 22 13 472 1 467 0
-                                                   22 473 2 8 0 467 0 474 2 187
-                                                   0 0 75 475 1 187 89 0 476 1
-                                                   75 455 0 477 1 455 0 306 478
-                                                   1 364 116 455 479 2 180 0 0
-                                                   75 480 1 180 0 0 481 1 180
-                                                   11 0 482 1 11 455 0 483 1
-                                                   400 89 0 484 1 400 383 0 485
-                                                   1 400 0 0 486 2 11 89 8 0
-                                                   487 1 56 89 13 488 1 489 0
-                                                   58 490 1 491 0 306 492 1 489
-                                                   0 58 493 1 489 0 55 494 2 13
-                                                   0 0 0 495 1 56 116 13 496 1
-                                                   489 0 22 497 1 489 0 55 498
-                                                   2 13 0 0 0 499 2 11 0 0 0
-                                                   500 1 489 0 60 505 1 489 0
-                                                   89 510 1 13 0 306 511 2 13 0
-                                                   489 0 516 1 11 89 0 517 1 11
-                                                   0 0 518 1 0 21 22 519 1 0 21
-                                                   22 520 1 489 0 60 525 1 0 21
-                                                   22 528 1 0 21 22 529 1 0 21
-                                                   22 530 1 56 60 13 531 1 60
-                                                   455 0 532 2 73 89 0 0 533 2
-                                                   27 89 22 0 534 2 12 89 6 0
-                                                   535 2 12 6 0 66 536 2 6 0 0
-                                                   0 537 1 8 89 0 538 1 118 89
-                                                   0 539 1 66 89 0 540 1 132 89
-                                                   0 541 1 75 89 0 542 1 7 89 0
-                                                   543 1 50 89 0 544 1 52 89 0
-                                                   545 1 6 89 0 546 1 73 455 0
-                                                   547 2 22 0 0 548 549 1 489 0
-                                                   22 550 1 489 0 60 551 2 554
-                                                   0 8 8 555 2 556 0 22 554 557
-                                                   2 8 0 0 558 559 2 6 0 0 0
-                                                   560 2 6 89 0 0 561 2 8 0 0
-                                                   558 562 1 0 218 13 234 1 1
-                                                   244 22 324 1 0 218 13 275 1
-                                                   1 21 22 528 2 0 11 12 13 521
-                                                   1 0 11 12 522 1 1 21 22 530
-                                                   2 0 11 12 13 526 1 0 11 12
-                                                   527 2 0 11 12 13 512 1 0 11
-                                                   12 513 1 1 21 22 529 1 0 11
-                                                   12 524 2 0 11 12 13 523 1 1
-                                                   21 22 520 1 0 11 12 509 2 0
-                                                   11 12 13 508 2 0 11 12 13
-                                                   514 1 0 11 12 515 1 1 21 22
-                                                   24 2 0 11 12 13 17 1 0 11 12
-                                                   16 1 1 21 22 26 1 0 11 12 19
-                                                   2 0 11 12 13 20 1 0 11 226
-                                                   502 2 0 11 226 13 501 1 0 11
-                                                   12 507 2 0 11 12 13 506 1 1
-                                                   21 22 519 2 0 11 12 13 503 1
-                                                   0 11 12 504 2 0 11 12 13 564
-                                                   1 0 11 12 563 4 0 11 12 552
-                                                   27 13 553 3 0 11 12 552 27
-                                                   565 1 1 244 22 245 1 0 218
-                                                   13 219 2 0 218 226 13
-                                                   230)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|guess| ((|List| |#3|) (|List| |#1|))) T)
+                                   '((|guess|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guess|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List|
+                                        (|Mapping| (|List| |#3|) (|List| |#1|)
+                                                   (|List| (|GuessOption|))))
+                                       (|List| (|Symbol|))))
+                                     T)
+                                   '((|guess|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List|
+                                        (|Mapping| (|List| |#3|) (|List| |#1|)
+                                                   (|List| (|GuessOption|))))
+                                       (|List| (|Symbol|))
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessExpRat|
+                                      ((|List| |#3|) (|List| |#1|)))
+                                     T)
+                                   '((|guessExpRat|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessBinRat|
+                                      ((|List| |#3|) (|List| |#1|)))
+                                     T)
+                                   '((|guessBinRat|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessExpRat|
+                                      ((|Mapping| (|List| |#3|) (|List| |#1|)
+                                                  (|List| (|GuessOption|)))
+                                       (|Symbol|)))
+                                     (AND (|has| 7 (|RetractableTo| 22))
+                                          (|has| 6 (|RetractableTo| 22))))
+                                   '((|guessBinRat|
+                                      ((|Mapping| (|List| |#3|) (|List| |#1|)
+                                                  (|List| (|GuessOption|)))
+                                       (|Symbol|)))
+                                     (AND (|has| 7 (|RetractableTo| 22))
+                                          (|has| 6 (|RetractableTo| 22))))
+                                   '((|guessAlgDep|
+                                      ((|List| |#3|) (|List| (|List| |#1|))))
+                                     T)
+                                   '((|guessAlgDep|
+                                      ((|List| |#3|) (|List| (|List| |#1|))
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessADE| ((|List| |#3|) (|List| |#1|)))
+                                     T)
+                                   '((|guessADE|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessFE| ((|List| |#3|) (|List| |#1|)))
+                                     T)
+                                   '((|guessFE|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessAlg| ((|List| |#3|) (|List| |#1|)))
+                                     T)
+                                   '((|guessAlg|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessHolo|
+                                      ((|List| |#3|) (|List| |#1|)))
+                                     T)
+                                   '((|guessHolo|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessPade|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessPade|
+                                      ((|List| |#3|) (|List| |#1|)))
+                                     T)
+                                   '((|guessRec| ((|List| |#3|) (|List| |#1|)))
+                                     T)
+                                   '((|guessRec|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessPRec|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessPRec|
+                                      ((|List| |#3|) (|List| |#1|)))
+                                     T)
+                                   '((|guessRat|
+                                      ((|List| |#3|) (|List| |#1|)
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|guessRat| ((|List| |#3|) (|List| |#1|)))
+                                     T)
+                                   '((|algDepHP|
+                                      ((|Record|
+                                        (|:| |degreeStream|
+                                             (|Stream| (|NonNegativeInteger|)))
+                                        (|:| |guessStream|
+                                             (|Mapping|
+                                              (|Stream|
+                                               (|UnivariateFormalPowerSeries|
+                                                |#1|))
+                                              (|UnivariateFormalPowerSeries|
+                                               |#1|)))
+                                        (|:| |guessModGen|
+                                             (|Mapping|
+                                              (|Mapping|
+                                               (|Vector| (|U32Vector|))
+                                               (|List| (|U32Vector|))
+                                               (|Integer|) (|Integer|))
+                                              (|NonNegativeInteger|)))
+                                        (|:| |testGen|
+                                             (|Mapping|
+                                              (|Mapping|
+                                               (|Vector|
+                                                (|UnivariateFormalPowerSeries|
+                                                 (|SparseMultivariatePolynomial|
+                                                  |#1|
+                                                  (|NonNegativeInteger|))))
+                                               (|UnivariateFormalPowerSeries|
+                                                (|SparseMultivariatePolynomial|
+                                                 |#1| (|NonNegativeInteger|))))
+                                              (|List| (|PositiveInteger|))))
+                                        (|:| |exprStream|
+                                             (|Mapping| (|Stream| |#3|) |#3|
+                                                        (|Symbol|)))
+                                        (|:| |kind| (|Symbol|))
+                                        (|:| |qvar| (|Symbol|))
+                                        (|:| A
+                                             (|Mapping| |#2|
+                                                        (|NonNegativeInteger|)
+                                                        (|NonNegativeInteger|)
+                                                        (|SparseUnivariatePolynomial|
+                                                         |#2|)))
+                                        (|:| AF
+                                             (|Mapping|
+                                              (|SparseMultivariatePolynomial|
+                                               |#1| (|NonNegativeInteger|))
+                                              (|NonNegativeInteger|)
+                                              (|NonNegativeInteger|)
+                                              (|UnivariateFormalPowerSeries|
+                                               (|SparseMultivariatePolynomial|
+                                                |#1| (|NonNegativeInteger|)))))
+                                        (|:| AX
+                                             (|Mapping| |#3|
+                                                        (|NonNegativeInteger|)
+                                                        (|Symbol|) |#3|))
+                                        (|:| C
+                                             (|Mapping| (|List| |#2|)
+                                                        (|NonNegativeInteger|))))
+                                       (|List| (|List| |#1|))
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|diffHP|
+                                      ((|Record|
+                                        (|:| |degreeStream|
+                                             (|Stream| (|NonNegativeInteger|)))
+                                        (|:| |guessStream|
+                                             (|Mapping|
+                                              (|Stream|
+                                               (|UnivariateFormalPowerSeries|
+                                                |#1|))
+                                              (|UnivariateFormalPowerSeries|
+                                               |#1|)))
+                                        (|:| |guessModGen|
+                                             (|Mapping|
+                                              (|Mapping|
+                                               (|Vector| (|U32Vector|))
+                                               (|List| (|U32Vector|))
+                                               (|Integer|) (|Integer|))
+                                              (|NonNegativeInteger|)))
+                                        (|:| |testGen|
+                                             (|Mapping|
+                                              (|Mapping|
+                                               (|Vector|
+                                                (|UnivariateFormalPowerSeries|
+                                                 (|SparseMultivariatePolynomial|
+                                                  |#1|
+                                                  (|NonNegativeInteger|))))
+                                               (|UnivariateFormalPowerSeries|
+                                                (|SparseMultivariatePolynomial|
+                                                 |#1| (|NonNegativeInteger|))))
+                                              (|List| (|PositiveInteger|))))
+                                        (|:| |exprStream|
+                                             (|Mapping| (|Stream| |#3|) |#3|
+                                                        (|Symbol|)))
+                                        (|:| |kind| (|Symbol|))
+                                        (|:| |qvar| (|Symbol|))
+                                        (|:| A
+                                             (|Mapping| |#2|
+                                                        (|NonNegativeInteger|)
+                                                        (|NonNegativeInteger|)
+                                                        (|SparseUnivariatePolynomial|
+                                                         |#2|)))
+                                        (|:| AF
+                                             (|Mapping|
+                                              (|SparseMultivariatePolynomial|
+                                               |#1| (|NonNegativeInteger|))
+                                              (|NonNegativeInteger|)
+                                              (|NonNegativeInteger|)
+                                              (|UnivariateFormalPowerSeries|
+                                               (|SparseMultivariatePolynomial|
+                                                |#1| (|NonNegativeInteger|)))))
+                                        (|:| AX
+                                             (|Mapping| |#3|
+                                                        (|NonNegativeInteger|)
+                                                        (|Symbol|) |#3|))
+                                        (|:| C
+                                             (|Mapping| (|List| |#2|)
+                                                        (|NonNegativeInteger|))))
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|substHP|
+                                      ((|Record|
+                                        (|:| |degreeStream|
+                                             (|Stream| (|NonNegativeInteger|)))
+                                        (|:| |guessStream|
+                                             (|Mapping|
+                                              (|Stream|
+                                               (|UnivariateFormalPowerSeries|
+                                                |#1|))
+                                              (|UnivariateFormalPowerSeries|
+                                               |#1|)))
+                                        (|:| |guessModGen|
+                                             (|Mapping|
+                                              (|Mapping|
+                                               (|Vector| (|U32Vector|))
+                                               (|List| (|U32Vector|))
+                                               (|Integer|) (|Integer|))
+                                              (|NonNegativeInteger|)))
+                                        (|:| |testGen|
+                                             (|Mapping|
+                                              (|Mapping|
+                                               (|Vector|
+                                                (|UnivariateFormalPowerSeries|
+                                                 (|SparseMultivariatePolynomial|
+                                                  |#1|
+                                                  (|NonNegativeInteger|))))
+                                               (|UnivariateFormalPowerSeries|
+                                                (|SparseMultivariatePolynomial|
+                                                 |#1| (|NonNegativeInteger|))))
+                                              (|List| (|PositiveInteger|))))
+                                        (|:| |exprStream|
+                                             (|Mapping| (|Stream| |#3|) |#3|
+                                                        (|Symbol|)))
+                                        (|:| |kind| (|Symbol|))
+                                        (|:| |qvar| (|Symbol|))
+                                        (|:| A
+                                             (|Mapping| |#2|
+                                                        (|NonNegativeInteger|)
+                                                        (|NonNegativeInteger|)
+                                                        (|SparseUnivariatePolynomial|
+                                                         |#2|)))
+                                        (|:| AF
+                                             (|Mapping|
+                                              (|SparseMultivariatePolynomial|
+                                               |#1| (|NonNegativeInteger|))
+                                              (|NonNegativeInteger|)
+                                              (|NonNegativeInteger|)
+                                              (|UnivariateFormalPowerSeries|
+                                               (|SparseMultivariatePolynomial|
+                                                |#1| (|NonNegativeInteger|)))))
+                                        (|:| AX
+                                             (|Mapping| |#3|
+                                                        (|NonNegativeInteger|)
+                                                        (|Symbol|) |#3|))
+                                        (|:| C
+                                             (|Mapping| (|List| |#2|)
+                                                        (|NonNegativeInteger|))))
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|shiftHP|
+                                      ((|Record|
+                                        (|:| |degreeStream|
+                                             (|Stream| (|NonNegativeInteger|)))
+                                        (|:| |guessStream|
+                                             (|Mapping|
+                                              (|Stream|
+                                               (|UnivariateFormalPowerSeries|
+                                                |#1|))
+                                              (|UnivariateFormalPowerSeries|
+                                               |#1|)))
+                                        (|:| |guessModGen|
+                                             (|Mapping|
+                                              (|Mapping|
+                                               (|Vector| (|U32Vector|))
+                                               (|List| (|U32Vector|))
+                                               (|Integer|) (|Integer|))
+                                              (|NonNegativeInteger|)))
+                                        (|:| |testGen|
+                                             (|Mapping|
+                                              (|Mapping|
+                                               (|Vector|
+                                                (|UnivariateFormalPowerSeries|
+                                                 (|SparseMultivariatePolynomial|
+                                                  |#1|
+                                                  (|NonNegativeInteger|))))
+                                               (|UnivariateFormalPowerSeries|
+                                                (|SparseMultivariatePolynomial|
+                                                 |#1| (|NonNegativeInteger|))))
+                                              (|List| (|PositiveInteger|))))
+                                        (|:| |exprStream|
+                                             (|Mapping| (|Stream| |#3|) |#3|
+                                                        (|Symbol|)))
+                                        (|:| |kind| (|Symbol|))
+                                        (|:| |qvar| (|Symbol|))
+                                        (|:| A
+                                             (|Mapping| |#2|
+                                                        (|NonNegativeInteger|)
+                                                        (|NonNegativeInteger|)
+                                                        (|SparseUnivariatePolynomial|
+                                                         |#2|)))
+                                        (|:| AF
+                                             (|Mapping|
+                                              (|SparseMultivariatePolynomial|
+                                               |#1| (|NonNegativeInteger|))
+                                              (|NonNegativeInteger|)
+                                              (|NonNegativeInteger|)
+                                              (|UnivariateFormalPowerSeries|
+                                               (|SparseMultivariatePolynomial|
+                                                |#1| (|NonNegativeInteger|)))))
+                                        (|:| AX
+                                             (|Mapping| |#3|
+                                                        (|NonNegativeInteger|)
+                                                        (|Symbol|) |#3|))
+                                        (|:| C
+                                             (|Mapping| (|List| |#2|)
+                                                        (|NonNegativeInteger|))))
+                                       (|List| (|GuessOption|))))
+                                     T)
+                                   '((|shiftHP|
+                                      ((|Mapping|
+                                        (|Record|
+                                         (|:| |degreeStream|
+                                              (|Stream|
+                                               (|NonNegativeInteger|)))
+                                         (|:| |guessStream|
+                                              (|Mapping|
+                                               (|Stream|
+                                                (|UnivariateFormalPowerSeries|
+                                                 |#1|))
+                                               (|UnivariateFormalPowerSeries|
+                                                |#1|)))
+                                         (|:| |guessModGen|
+                                              (|Mapping|
+                                               (|Mapping|
+                                                (|Vector| (|U32Vector|))
+                                                (|List| (|U32Vector|))
+                                                (|Integer|) (|Integer|))
+                                               (|NonNegativeInteger|)))
+                                         (|:| |testGen|
+                                              (|Mapping|
+                                               (|Mapping|
+                                                (|Vector|
+                                                 (|UnivariateFormalPowerSeries|
+                                                  (|SparseMultivariatePolynomial|
+                                                   |#1|
+                                                   (|NonNegativeInteger|))))
+                                                (|UnivariateFormalPowerSeries|
+                                                 (|SparseMultivariatePolynomial|
+                                                  |#1|
+                                                  (|NonNegativeInteger|))))
+                                               (|List| (|PositiveInteger|))))
+                                         (|:| |exprStream|
+                                              (|Mapping| (|Stream| |#3|) |#3|
+                                                         (|Symbol|)))
+                                         (|:| |kind| (|Symbol|))
+                                         (|:| |qvar| (|Symbol|))
+                                         (|:| A
+                                              (|Mapping| |#2|
+                                                         (|NonNegativeInteger|)
+                                                         (|NonNegativeInteger|)
+                                                         (|SparseUnivariatePolynomial|
+                                                          |#2|)))
+                                         (|:| AF
+                                              (|Mapping|
+                                               (|SparseMultivariatePolynomial|
+                                                |#1| (|NonNegativeInteger|))
+                                               (|NonNegativeInteger|)
+                                               (|NonNegativeInteger|)
+                                               (|UnivariateFormalPowerSeries|
+                                                (|SparseMultivariatePolynomial|
+                                                 |#1|
+                                                 (|NonNegativeInteger|)))))
+                                         (|:| AX
+                                              (|Mapping| |#3|
+                                                         (|NonNegativeInteger|)
+                                                         (|Symbol|) |#3|))
+                                         (|:| C
+                                              (|Mapping| (|List| |#2|)
+                                                         (|NonNegativeInteger|))))
+                                        (|List| (|GuessOption|)))
+                                       (|Symbol|)))
+                                     (AND (|has| 7 (|RetractableTo| 22))
+                                          (|has| 6 (|RetractableTo| 22))))
+                                   '((|diffHP|
+                                      ((|Mapping|
+                                        (|Record|
+                                         (|:| |degreeStream|
+                                              (|Stream|
+                                               (|NonNegativeInteger|)))
+                                         (|:| |guessStream|
+                                              (|Mapping|
+                                               (|Stream|
+                                                (|UnivariateFormalPowerSeries|
+                                                 |#1|))
+                                               (|UnivariateFormalPowerSeries|
+                                                |#1|)))
+                                         (|:| |guessModGen|
+                                              (|Mapping|
+                                               (|Mapping|
+                                                (|Vector| (|U32Vector|))
+                                                (|List| (|U32Vector|))
+                                                (|Integer|) (|Integer|))
+                                               (|NonNegativeInteger|)))
+                                         (|:| |testGen|
+                                              (|Mapping|
+                                               (|Mapping|
+                                                (|Vector|
+                                                 (|UnivariateFormalPowerSeries|
+                                                  (|SparseMultivariatePolynomial|
+                                                   |#1|
+                                                   (|NonNegativeInteger|))))
+                                                (|UnivariateFormalPowerSeries|
+                                                 (|SparseMultivariatePolynomial|
+                                                  |#1|
+                                                  (|NonNegativeInteger|))))
+                                               (|List| (|PositiveInteger|))))
+                                         (|:| |exprStream|
+                                              (|Mapping| (|Stream| |#3|) |#3|
+                                                         (|Symbol|)))
+                                         (|:| |kind| (|Symbol|))
+                                         (|:| |qvar| (|Symbol|))
+                                         (|:| A
+                                              (|Mapping| |#2|
+                                                         (|NonNegativeInteger|)
+                                                         (|NonNegativeInteger|)
+                                                         (|SparseUnivariatePolynomial|
+                                                          |#2|)))
+                                         (|:| AF
+                                              (|Mapping|
+                                               (|SparseMultivariatePolynomial|
+                                                |#1| (|NonNegativeInteger|))
+                                               (|NonNegativeInteger|)
+                                               (|NonNegativeInteger|)
+                                               (|UnivariateFormalPowerSeries|
+                                                (|SparseMultivariatePolynomial|
+                                                 |#1|
+                                                 (|NonNegativeInteger|)))))
+                                         (|:| AX
+                                              (|Mapping| |#3|
+                                                         (|NonNegativeInteger|)
+                                                         (|Symbol|) |#3|))
+                                         (|:| C
+                                              (|Mapping| (|List| |#2|)
+                                                         (|NonNegativeInteger|))))
+                                        (|List| (|GuessOption|)))
+                                       (|Symbol|)))
+                                     (AND (|has| 7 (|RetractableTo| 22))
+                                          (|has| 6 (|RetractableTo| 22))))
+                                   '((|guessRec|
+                                      ((|Mapping| (|List| |#3|) (|List| |#1|)
+                                                  (|List| (|GuessOption|)))
+                                       (|Symbol|)))
+                                     (AND (|has| 7 (|RetractableTo| 22))
+                                          (|has| 6 (|RetractableTo| 22))))
+                                   '((|guessPRec|
+                                      ((|Mapping| (|List| |#3|) (|List| |#1|)
+                                                  (|List| (|GuessOption|)))
+                                       (|Symbol|)))
+                                     (AND (|has| 7 (|RetractableTo| 22))
+                                          (|has| 6 (|RetractableTo| 22))))
+                                   '((|guessRat|
+                                      ((|Mapping| (|List| |#3|) (|List| |#1|)
+                                                  (|List| (|GuessOption|)))
+                                       (|Symbol|)))
+                                     (AND (|has| 7 (|RetractableTo| 22))
+                                          (|has| 6 (|RetractableTo| 22))))
+                                   '((|guessADE|
+                                      ((|Mapping| (|List| |#3|) (|List| |#1|)
+                                                  (|List| (|GuessOption|)))
+                                       (|Symbol|)))
+                                     (AND (|has| 7 (|RetractableTo| 22))
+                                          (|has| 6 (|RetractableTo| 22))))
+                                   '((|guessHolo|
+                                      ((|Mapping| (|List| |#3|) (|List| |#1|)
+                                                  (|List| (|GuessOption|)))
+                                       (|Symbol|)))
+                                     (AND (|has| 7 (|RetractableTo| 22))
+                                          (|has| 6 (|RetractableTo| 22)))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 565
+                                            '(2 14 11 12 13 15 2 14 11 12 13 18
+                                              1 14 21 22 23 1 0 21 22 24 1 14
+                                              21 22 25 1 0 21 22 26 1 7 27 0 28
+                                              2 32 29 30 31 33 1 34 7 0 35 1 34
+                                              7 0 36 2 27 0 0 0 37 2 39 29 38
+                                              12 40 2 41 0 0 0 42 2 29 27 43 0
+                                              44 1 8 0 22 45 2 47 11 46 27 48 1
+                                              34 0 7 49 2 53 50 51 52 54 1 56
+                                              55 13 57 1 56 58 13 59 1 56 60 13
+                                              61 1 56 58 13 62 0 6 0 63 0 7 0
+                                              64 2 67 65 66 66 68 1 66 0 0 69 2
+                                              71 0 70 66 72 0 73 0 74 2 75 0 0
+                                              0 76 3 67 65 66 66 66 77 2 80 78
+                                              79 71 81 1 67 65 66 82 1 83 65 78
+                                              84 2 65 0 85 0 86 1 67 65 65 87 1
+                                              85 75 0 88 2 75 89 0 0 90 2 65 0
+                                              91 0 92 2 8 0 0 0 93 2 66 0 0 0
+                                              94 0 75 0 95 3 85 66 96 0 66 97 2
+                                              66 89 0 0 98 1 100 99 85 101 1 85
+                                              66 0 102 2 8 0 0 75 103 2 8 0 0 0
+                                              104 2 11 8 105 0 106 1 107 0 85
+                                              108 3 109 107 107 75 66 110 4 109
+                                              107 107 73 75 66 111 4 109 107
+                                              107 107 66 66 112 2 114 107 113 0
+                                              115 3 109 116 107 107 66 117 2
+                                              118 0 0 75 119 2 118 0 0 0 120 2
+                                              122 118 121 0 123 2 6 0 0 75 124
+                                              2 118 0 125 0 126 2 127 118 118
+                                              118 128 2 129 0 0 75 130 2 132 0
+                                              131 0 133 2 134 132 132 132 135 2
+                                              137 132 136 0 138 2 141 139 140
+                                              65 142 0 6 0 143 0 7 0 144 3 145
+                                              107 0 66 107 146 2 75 89 0 0 147
+                                              2 109 107 107 66 148 0 132 0 149
+                                              2 132 0 0 0 150 3 151 132 0 66
+                                              132 152 2 66 89 0 0 153 2 100 154
+                                              0 0 155 2 156 66 100 0 157 2 66
+                                              89 0 0 158 1 159 156 0 160 1 100
+                                              85 0 161 1 100 0 85 162 1 163 99
+                                              0 164 2 163 99 0 99 165 2 159 156
+                                              0 156 166 2 66 0 0 0 167 1 85 66
+                                              0 168 2 170 85 169 99 171 2 85 66
+                                              96 0 172 1 163 0 99 173 1 159 0
+                                              156 174 1 114 75 0 175 0 75 0 176
+                                              1 114 107 0 177 1 145 0 114 178 1
+                                              151 0 137 179 2 182 180 181 65
+                                              183 1 85 89 0 184 2 66 0 0 0 185
+                                              2 75 0 0 0 186 3 189 187 75 188
+                                              65 190 3 8 0 0 22 75 191 2 118 0
+                                              0 75 192 2 132 0 0 75 193 3 194 7
+                                              75 75 52 195 3 196 129 75 75 132
+                                              197 1 194 31 75 198 0 8 0 199 1
+                                              56 75 13 200 1 56 22 13 201 0 118
+                                              0 202 2 65 0 0 75 203 1 65 0 0
+                                              204 1 65 99 0 205 2 65 85 0 66
+                                              206 0 132 0 207 2 11 8 0 66 220 1
+                                              56 27 13 221 2 75 89 0 0 222 2 66
+                                              89 0 0 223 1 22 0 41 224 2 22 89
+                                              0 0 225 2 226 12 0 66 227 2 189
+                                              187 228 65 229 3 8 0 0 0 0 231 2
+                                              118 0 0 73 232 2 132 0 0 73 233 1
+                                              6 0 22 235 2 66 0 75 0 236 2 118
+                                              0 237 0 238 1 129 0 6 239 2 132 0
+                                              240 0 241 1 66 89 0 242 2 22 89 0
+                                              0 243 1 0 244 22 245 1 8 0 66 246
+                                              1 66 0 0 247 2 8 0 0 0 248 0 8 0
+                                              249 2 8 0 0 0 250 1 118 0 0 251 2
+                                              253 252 252 75 254 1 132 0 0 255
+                                              2 257 256 256 75 258 2 259 66 66
+                                              66 260 3 194 7 75 75 52 261 3 196
+                                              129 75 75 132 262 1 194 31 75 263
+                                              2 118 0 6 75 264 2 118 0 0 0 265
+                                              0 266 0 267 1 266 0 0 268 2 118 0
+                                              0 266 269 2 187 75 0 66 270 0 129
+                                              0 271 2 132 0 129 75 272 2 132 0
+                                              0 0 273 2 132 0 0 266 274 2 8 0
+                                              75 0 276 2 8 0 0 0 277 1 7 0 22
+                                              278 4 194 7 7 75 75 52 279 4 196
+                                              129 129 75 75 132 280 2 194 31 7
+                                              75 281 2 118 0 6 0 282 2 118 0 0
+                                              0 283 2 285 139 139 284 286 1 107
+                                              75 0 287 2 107 0 75 66 288 0 289
+                                              0 290 2 66 0 0 75 291 2 66 0 0 0
+                                              292 3 107 66 0 66 66 293 2 266 0
+                                              66 66 294 1 266 66 0 295 1 114 0
+                                              0 296 1 107 0 0 297 2 107 66 0 66
+                                              298 2 114 0 107 0 299 1 114 0 0
+                                              300 2 301 0 145 0 302 2 75 0 0 0
+                                              303 1 289 0 0 304 1 301 0 0 305 1
+                                              145 0 306 307 0 289 0 308 2 310
+                                              187 187 309 311 1 312 73 0 313 2
+                                              73 89 0 0 314 2 132 0 129 0 315 2
+                                              132 0 0 0 316 2 137 0 0 0 317 2
+                                              318 0 75 0 319 1 137 0 0 320 2
+                                              322 180 180 321 323 1 0 244 22
+                                              324 1 50 89 0 325 1 50 6 0 326 1
+                                              50 75 0 327 1 50 0 0 328 1 329 0
+                                              12 330 1 118 0 329 331 1 333 0
+                                              332 334 2 335 0 75 75 336 2 129 0
+                                              6 335 337 2 338 333 240 71 339 2
+                                              333 0 0 0 340 1 132 0 333 341 2
+                                              344 342 343 50 345 2 118 346 0 75
+                                              347 1 346 50 0 348 2 351 349 350
+                                              122 352 1 6 89 0 353 1 56 89 13
+                                              354 1 56 60 13 355 2 75 89 0 0
+                                              356 1 56 357 13 358 6 361 360 360
+                                              226 22 22 75 209 362 1 56 89 13
+                                              363 1 364 116 41 365 7 361 366
+                                              226 85 22 22 75 209 360 367 2 318
+                                              75 0 66 368 3 318 75 0 66 75 369
+                                              2 118 0 0 0 370 2 132 0 0 0 371 2
+                                              7 0 0 0 372 2 50 0 0 0 373 2 6 0
+                                              0 0 374 2 318 75 375 0 376 2 139
+                                              0 0 75 377 1 139 0 0 378 1 139
+                                              122 0 379 1 381 0 380 382 4 194
+                                              383 31 214 381 318 384 1 385 0
+                                              349 386 4 387 383 31 214 385 318
+                                              388 2 383 381 0 66 389 1 381 380
+                                              0 390 0 52 0 391 1 7 89 0 392 3
+                                              383 52 0 66 66 393 1 52 7 0 394 1
+                                              52 7 0 395 1 7 0 306 396 2 52 154
+                                              0 7 397 4 383 52 0 66 66 52 398 1
+                                              65 89 0 399 0 400 0 401 1 65 89 0
+                                              402 1 65 85 0 403 2 66 89 0 0 404
+                                              2 85 89 405 0 406 1 65 0 0 407 2
+                                              400 0 383 0 408 1 400 0 409 410 2
+                                              412 85 411 318 413 3 194 414 75
+                                              75 75 415 2 417 65 416 414 418 0
+                                              65 0 419 2 65 0 85 0 420 1 421 0
+                                              12 422 1 56 89 13 423 0 424 0 425
+                                              1 7 0 66 426 2 381 52 0 66 427 3
+                                              52 0 0 424 7 428 1 52 7 0 429 2
+                                              421 6 0 66 430 2 7 0 0 0 431 2 7
+                                              154 0 0 432 2 7 0 0 0 433 2 7 89
+                                              0 0 434 2 34 0 7 0 435 2 34 0 0 0
+                                              436 2 34 89 0 0 437 2 438 7 0 66
+                                              439 2 380 52 0 66 440 1 52 89 0
+                                              441 1 8 89 0 442 1 118 89 0 443 1
+                                              132 89 0 444 1 75 89 0 445 1 383
+                                              89 0 446 2 12 89 447 0 448 2 75 0
+                                              73 0 449 1 451 0 450 452 4 196
+                                              129 215 151 75 451 453 1 129 89 0
+                                              454 1 455 0 41 456 1 455 116 0
+                                              457 1 66 455 0 458 2 455 0 0 0
+                                              459 1 129 89 0 460 1 56 22 13 461
+                                              1 8 0 0 462 1 56 22 13 463 2 465
+                                              180 464 329 466 6 468 8 467 22 22
+                                              8 11 180 469 5 468 8 467 22 8 11
+                                              180 470 1 56 75 13 471 1 56 22 13
+                                              472 1 467 0 22 473 2 8 0 467 0
+                                              474 2 187 0 0 75 475 1 187 89 0
+                                              476 1 75 455 0 477 1 455 0 306
+                                              478 1 364 116 455 479 2 180 0 0
+                                              75 480 1 180 0 0 481 1 180 11 0
+                                              482 1 11 455 0 483 1 400 89 0 484
+                                              1 400 383 0 485 1 400 0 0 486 2
+                                              11 89 8 0 487 1 56 89 13 488 1
+                                              489 0 58 490 1 491 0 306 492 1
+                                              489 0 58 493 1 489 0 55 494 2 13
+                                              0 0 0 495 1 56 116 13 496 1 489 0
+                                              22 497 1 489 0 55 498 2 13 0 0 0
+                                              499 2 11 0 0 0 500 1 489 0 60 505
+                                              1 489 0 89 510 1 13 0 306 511 2
+                                              13 0 489 0 516 1 11 89 0 517 1 11
+                                              0 0 518 1 0 21 22 519 1 0 21 22
+                                              520 1 489 0 60 525 1 0 21 22 528
+                                              1 0 21 22 529 1 0 21 22 530 1 56
+                                              60 13 531 1 60 455 0 532 2 73 89
+                                              0 0 533 2 27 89 22 0 534 2 12 89
+                                              6 0 535 2 12 6 0 66 536 2 6 0 0 0
+                                              537 1 8 89 0 538 1 118 89 0 539 1
+                                              66 89 0 540 1 132 89 0 541 1 75
+                                              89 0 542 1 7 89 0 543 1 50 89 0
+                                              544 1 52 89 0 545 1 6 89 0 546 1
+                                              73 455 0 547 2 22 0 0 548 549 1
+                                              489 0 22 550 1 489 0 60 551 2 554
+                                              0 8 8 555 2 556 0 22 554 557 2 8
+                                              0 0 558 559 2 6 0 0 0 560 2 6 89
+                                              0 0 561 2 8 0 0 558 562 1 0 218
+                                              13 234 1 1 244 22 324 1 0 218 13
+                                              275 1 1 21 22 528 2 0 11 12 13
+                                              521 1 0 11 12 522 1 1 21 22 530 2
+                                              0 11 12 13 526 1 0 11 12 527 2 0
+                                              11 12 13 512 1 0 11 12 513 1 1 21
+                                              22 529 1 0 11 12 524 2 0 11 12 13
+                                              523 1 1 21 22 520 1 0 11 12 509 2
+                                              0 11 12 13 508 2 0 11 12 13 514 1
+                                              0 11 12 515 1 1 21 22 24 2 0 11
+                                              12 13 17 1 0 11 12 16 1 1 21 22
+                                              26 1 0 11 12 19 2 0 11 12 13 20 1
+                                              0 11 226 502 2 0 11 226 13 501 1
+                                              0 11 12 507 2 0 11 12 13 506 1 1
+                                              21 22 519 2 0 11 12 13 503 1 0 11
+                                              12 504 2 0 11 12 13 564 1 0 11 12
+                                              563 4 0 11 12 552 27 13 553 3 0
+                                              11 12 552 27 565 1 1 244 22 245 1
+                                              0 218 13 219 2 0 218 226 13
+                                              230)))))
            '|lookupComplete|)) 

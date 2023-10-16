@@ -47,6 +47,17 @@
               (|Record| (|:| |part1| 6) (|:| |part2| 7))
               |MKRECORD;makeRecord;ST$R;1|)
            '#(|makeRecord| 0) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#() (CONS '#() (|makeByteWordVec2| 9 '(2 0 8 6 7 9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|makeRecord|
+                                 ((|Record| (|:| |part1| |#1|)
+                                            (|:| |part2| |#2|))
+                                  |#1| |#2|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 9 '(2 0 8 6 7 9)))))
            '|lookupComplete|)) 

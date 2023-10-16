@@ -49,10 +49,15 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Void|) (0 . |void|)
               |RESLATC;coerce;SV;1| (|Exit|) |RESLATC;coerce;ES;2|)
            '#(|coerce| 4) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 11
-                                                 '(0 7 0 8 1 0 6 10 11 1 0 7 6
-                                                   9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|coerce| ((|Void|) |#1|)) T)
+                                   '((|coerce| (|#1| (|Exit|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 11
+                                            '(0 7 0 8 1 0 6 10 11 1 0 7 6
+                                              9)))))
            '|lookupComplete|)) 

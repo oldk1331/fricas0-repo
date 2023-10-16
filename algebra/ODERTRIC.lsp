@@ -878,55 +878,126 @@
               (|UnivariatePolynomialCategoryFunctions2| 6 7 6 146)
               (428 . |map|) (|SparseUnivariatePolynomial| $) (434 . |zeroOf|))
            '#(|singRicDE| 439 |ricDsolve| 445 |polyRicDE| 493) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 151
-                                                 '(0 8 0 9 1 11 0 6 12 2 15 13
-                                                   14 7 16 0 6 0 17 0 7 0 18 0
-                                                   19 0 20 2 24 22 23 19 25 1
-                                                   19 0 0 26 2 19 0 0 0 27 1 7
-                                                   28 0 29 3 41 39 23 40 33 42
-                                                   2 45 44 31 30 46 3 11 0 0 47
-                                                   48 49 1 11 6 0 50 2 52 7 51
-                                                   13 53 1 54 11 0 55 1 11 56 0
-                                                   57 1 54 11 0 58 2 6 0 0 0 59
-                                                   0 13 0 60 1 8 0 0 61 1 11 0
-                                                   8 62 2 13 0 11 63 64 2 13 0
-                                                   0 0 65 1 66 54 0 67 1 66 54
-                                                   0 68 1 54 69 0 70 1 41 72 23
-                                                   73 2 6 74 0 0 75 2 7 74 0 0
-                                                   76 2 41 23 23 7 77 0 81 0 82
-                                                   1 7 63 0 83 1 7 6 0 84 2 81
-                                                   0 6 63 85 2 81 0 0 0 86 1 7
-                                                   0 0 87 2 81 6 0 63 88 2 7 0
-                                                   6 63 89 2 7 0 0 0 90 0 91 0
-                                                   92 0 23 0 93 2 23 74 0 0 94
-                                                   1 23 63 0 95 1 23 7 0 96 1
-                                                   23 0 0 97 2 98 74 0 0 99 0 6
-                                                   0 100 0 7 0 101 2 81 0 0 0
-                                                   102 2 91 0 81 63 103 2 91 0
-                                                   0 0 104 1 91 0 0 105 1 81 0
-                                                   6 106 2 91 81 0 81 107 2 81
-                                                   108 0 0 109 2 81 0 0 0 110 2
-                                                   81 0 0 63 111 2 19 0 0 0 112
-                                                   2 30 0 0 0 113 1 30 0 0 114
-                                                   1 7 0 0 115 2 41 117 23 32
-                                                   118 1 7 0 6 119 1 19 0 7 120
-                                                   1 121 74 0 122 1 121 7 0 123
-                                                   1 121 63 0 124 2 13 0 0 63
-                                                   125 2 13 0 0 0 126 1 121 0 0
-                                                   127 2 13 128 0 0 129 1 13
-                                                   130 0 131 2 133 132 130 47
-                                                   134 2 0 30 23 33 135 1 0 30
-                                                   23 136 2 0 30 31 33 137 1 0
-                                                   30 31 138 1 142 141 0 143 1
-                                                   48 0 144 145 2 148 146 147 7
-                                                   149 1 6 0 150 151 2 0 39 23
-                                                   33 43 1 1 30 31 138 2 1 30
-                                                   31 33 137 2 1 30 23 33 135 1
-                                                   1 30 23 136 3 0 30 31 32 33
-                                                   34 2 0 30 31 32 35 2 0 30 23
-                                                   32 37 3 0 30 23 32 33 36 2 0
-                                                   79 23 32 80)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|ricDsolve|
+                                 ((|List| (|Fraction| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| |#2|))
+                                  (|Mapping| (|List| |#1|) |#2|)))
+                                T)
+                              '((|ricDsolve|
+                                 ((|List| (|Fraction| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| |#2|))
+                                  (|Mapping| (|List| |#1|) |#2|)
+                                  (|Mapping| (|Factored| |#2|) |#2|)))
+                                T)
+                              '((|ricDsolve|
+                                 ((|List| (|Fraction| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator2| |#2|
+                                                                         (|Fraction|
+                                                                          |#2|))
+                                  (|Mapping| (|List| |#1|) |#2|)))
+                                T)
+                              '((|ricDsolve|
+                                 ((|List| (|Fraction| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator2| |#2|
+                                                                         (|Fraction|
+                                                                          |#2|))
+                                  (|Mapping| (|List| |#1|) |#2|)
+                                  (|Mapping| (|Factored| |#2|) |#2|)))
+                                T)
+                              '((|singRicDE|
+                                 ((|List|
+                                   (|Record| (|:| |frac| (|Fraction| |#2|))
+                                             (|:| |eq|
+                                                  (|LinearOrdinaryDifferentialOperator2|
+                                                   |#2| (|Fraction| |#2|)))))
+                                  (|LinearOrdinaryDifferentialOperator2| |#2|
+                                                                         (|Fraction|
+                                                                          |#2|))
+                                  (|Mapping| (|Factored| |#2|) |#2|)))
+                                T)
+                              '((|polyRicDE|
+                                 ((|List|
+                                   (|Record| (|:| |poly| |#2|)
+                                             (|:| |eq|
+                                                  (|LinearOrdinaryDifferentialOperator2|
+                                                   |#2| (|Fraction| |#2|)))))
+                                  (|LinearOrdinaryDifferentialOperator2| |#2|
+                                                                         (|Fraction|
+                                                                          |#2|))
+                                  (|Mapping| (|List| |#1|) |#2|)))
+                                T)
+                              '((|ricDsolve|
+                                 ((|List| (|Fraction| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| |#2|))))
+                                (|has| 6 (|AlgebraicallyClosedField|)))
+                              '((|ricDsolve|
+                                 ((|List| (|Fraction| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| |#2|))
+                                  (|Mapping| (|Factored| |#2|) |#2|)))
+                                (|has| 6 (|AlgebraicallyClosedField|)))
+                              '((|ricDsolve|
+                                 ((|List| (|Fraction| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator2| |#2|
+                                                                         (|Fraction|
+                                                                          |#2|))))
+                                (|has| 6 (|AlgebraicallyClosedField|)))
+                              '((|ricDsolve|
+                                 ((|List| (|Fraction| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator2| |#2|
+                                                                         (|Fraction|
+                                                                          |#2|))
+                                  (|Mapping| (|Factored| |#2|) |#2|)))
+                                (|has| 6 (|AlgebraicallyClosedField|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 151
+                                            '(0 8 0 9 1 11 0 6 12 2 15 13 14 7
+                                              16 0 6 0 17 0 7 0 18 0 19 0 20 2
+                                              24 22 23 19 25 1 19 0 0 26 2 19 0
+                                              0 0 27 1 7 28 0 29 3 41 39 23 40
+                                              33 42 2 45 44 31 30 46 3 11 0 0
+                                              47 48 49 1 11 6 0 50 2 52 7 51 13
+                                              53 1 54 11 0 55 1 11 56 0 57 1 54
+                                              11 0 58 2 6 0 0 0 59 0 13 0 60 1
+                                              8 0 0 61 1 11 0 8 62 2 13 0 11 63
+                                              64 2 13 0 0 0 65 1 66 54 0 67 1
+                                              66 54 0 68 1 54 69 0 70 1 41 72
+                                              23 73 2 6 74 0 0 75 2 7 74 0 0 76
+                                              2 41 23 23 7 77 0 81 0 82 1 7 63
+                                              0 83 1 7 6 0 84 2 81 0 6 63 85 2
+                                              81 0 0 0 86 1 7 0 0 87 2 81 6 0
+                                              63 88 2 7 0 6 63 89 2 7 0 0 0 90
+                                              0 91 0 92 0 23 0 93 2 23 74 0 0
+                                              94 1 23 63 0 95 1 23 7 0 96 1 23
+                                              0 0 97 2 98 74 0 0 99 0 6 0 100 0
+                                              7 0 101 2 81 0 0 0 102 2 91 0 81
+                                              63 103 2 91 0 0 0 104 1 91 0 0
+                                              105 1 81 0 6 106 2 91 81 0 81 107
+                                              2 81 108 0 0 109 2 81 0 0 0 110 2
+                                              81 0 0 63 111 2 19 0 0 0 112 2 30
+                                              0 0 0 113 1 30 0 0 114 1 7 0 0
+                                              115 2 41 117 23 32 118 1 7 0 6
+                                              119 1 19 0 7 120 1 121 74 0 122 1
+                                              121 7 0 123 1 121 63 0 124 2 13 0
+                                              0 63 125 2 13 0 0 0 126 1 121 0 0
+                                              127 2 13 128 0 0 129 1 13 130 0
+                                              131 2 133 132 130 47 134 2 0 30
+                                              23 33 135 1 0 30 23 136 2 0 30 31
+                                              33 137 1 0 30 31 138 1 142 141 0
+                                              143 1 48 0 144 145 2 148 146 147
+                                              7 149 1 6 0 150 151 2 0 39 23 33
+                                              43 1 1 30 31 138 2 1 30 31 33 137
+                                              2 1 30 23 33 135 1 1 30 23 136 3
+                                              0 30 31 32 33 34 2 0 30 31 32 35
+                                              2 0 30 23 32 37 3 0 30 23 32 33
+                                              36 2 0 79 23 32 80)))))
            '|lookupComplete|)) 

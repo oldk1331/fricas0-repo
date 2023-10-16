@@ -364,28 +364,78 @@
               (44 . |denom|) (|Record| (|:| |var| 36) (|:| |coef| 16))
               |FAKEPOL;map;MR$;3| (|SparseUnivariatePolynomial| 7)
               (49 . |Zero|) (53 . |monomial|) (59 . +) (|Union| 28 '"failed")
-              (|Union| 7 '"failed") (|Mapping| 33 10) |FAKEPOL;map;M$U;4|
+              (|Union| 7 '#1="failed") (|Mapping| 33 10) |FAKEPOL;map;M$U;4|
               (|Symbol|) (65 . |degree|) (71 . >) |FAKEPOL;degree;$SNni;5|
               (77 . /) (83 . |monomial|) (89 . +) |FAKEPOL;to_UP;$Sup;6|
               (|List| 36) |FAKEPOL;subst_var;$2L$;7|)
            '#(|to_UP| 95 |subst_var| 100 |map| 107 |ground| 125 |degree| 130)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 45
-                                                 '(0 7 0 8 0 7 0 9 2 7 12 0 0
-                                                   13 0 16 0 17 2 16 12 0 0 18
-                                                   1 16 19 0 20 1 16 21 0 22 1
-                                                   16 0 0 23 1 21 7 0 24 1 21 7
-                                                   0 25 0 28 0 29 2 28 0 7 19
-                                                   30 2 28 0 0 0 31 2 7 19 0 36
-                                                   37 2 19 12 0 0 38 2 21 0 7 7
-                                                   40 2 16 0 21 19 41 2 16 0 0
-                                                   0 42 1 0 16 0 43 3 0 0 0 44
-                                                   44 45 2 0 0 14 0 15 2 0 32
-                                                   34 0 35 2 0 0 14 26 27 1 0
-                                                   10 0 11 2 0 19 0 36 39)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|degree|
+                                 ((|NonNegativeInteger|) $$ (|Symbol|)))
+                                T)
+                              '((|ground|
+                                 ((|Record|
+                                   (|:| |numer| (|Polynomial| (|Integer|)))
+                                   (|:| |denom| (|Polynomial| (|Integer|))))
+                                  $$))
+                                T)
+                              '((|map|
+                                 ($$
+                                  (|Mapping| (|Polynomial| (|Integer|))
+                                             (|Polynomial| (|Integer|)))
+                                  $$))
+                                T)
+                              '((|map|
+                                 ($$
+                                  (|Mapping| (|Polynomial| (|Integer|))
+                                             (|Polynomial| (|Integer|)))
+                                  (|Record| (|:| |var| (|Symbol|))
+                                            (|:| |coef|
+                                                 (|SparseUnivariatePolynomial|
+                                                  (|Fraction|
+                                                   (|Polynomial|
+                                                    (|Integer|))))))))
+                                T)
+                              '((|map|
+                                 ((|Union|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Polynomial| (|Integer|)))
+                                   "failed")
+                                  (|Mapping|
+                                   (|Union| (|Polynomial| (|Integer|)) #1#)
+                                   (|Record|
+                                    (|:| |numer| (|Polynomial| (|Integer|)))
+                                    (|:| |denom| (|Polynomial| (|Integer|)))))
+                                  $$))
+                                T)
+                              '((|subst_var|
+                                 ($$ $$ (|List| (|Symbol|))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|to_UP|
+                                 ((|SparseUnivariatePolynomial|
+                                   (|Fraction| (|Polynomial| (|Integer|))))
+                                  $$))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 45
+                                            '(0 7 0 8 0 7 0 9 2 7 12 0 0 13 0
+                                              16 0 17 2 16 12 0 0 18 1 16 19 0
+                                              20 1 16 21 0 22 1 16 0 0 23 1 21
+                                              7 0 24 1 21 7 0 25 0 28 0 29 2 28
+                                              0 7 19 30 2 28 0 0 0 31 2 7 19 0
+                                              36 37 2 19 12 0 0 38 2 21 0 7 7
+                                              40 2 16 0 21 19 41 2 16 0 0 0 42
+                                              1 0 16 0 43 3 0 0 0 44 44 45 2 0
+                                              0 14 0 15 2 0 32 34 0 35 2 0 0 14
+                                              26 27 1 0 10 0 11 2 0 19 0 36
+                                              39)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FakePolynomial| 'NILADIC T) 

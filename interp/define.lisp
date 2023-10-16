@@ -4003,74 +4003,16 @@
       (#1# (|systemErrorHere| "compCategory"))))))
  
 ; mkExplicitCategoryFunction(sigList, atList) ==
-;   body:= ["Join",
+;   ["Join",
 ;     ["mkCategory", ['LIST, :REVERSE sigList], ['LIST,
 ;       :REVERSE atList], nil, nil]]
-;   parameters:=
-;     REMDUP
-;       ("append"/
-;         [[x for x in sig | IDENTP x and x~='_$]
-;           for ["QUOTE",[[.,sig,:.],:.]] in sigList])
-;   wrapDomainSub(parameters,body)
  
 (DEFUN |mkExplicitCategoryFunction| (|sigList| |atList|)
-  (PROG (|body| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |sig| |parameters|)
+  (PROG ()
     (RETURN
-     (PROGN
-      (SETQ |body|
-              (LIST '|Join|
-                    (LIST '|mkCategory| (CONS 'LIST (REVERSE |sigList|))
-                          (CONS 'LIST (REVERSE |atList|)) NIL NIL)))
-      (SETQ |parameters|
-              (REMDUP
-               ((LAMBDA (|bfVar#151| |bfVar#150| |bfVar#149|)
-                  (LOOP
-                   (COND
-                    ((OR (ATOM |bfVar#150|)
-                         (PROGN (SETQ |bfVar#149| (CAR |bfVar#150|)) NIL))
-                     (RETURN |bfVar#151|))
-                    (#1='T
-                     (AND (CONSP |bfVar#149|) (EQ (CAR |bfVar#149|) 'QUOTE)
-                          (PROGN
-                           (SETQ |ISTMP#1| (CDR |bfVar#149|))
-                           (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                                (PROGN
-                                 (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                                 (AND (CONSP |ISTMP#2|)
-                                      (PROGN
-                                       (SETQ |ISTMP#3| (CAR |ISTMP#2|))
-                                       (AND (CONSP |ISTMP#3|)
-                                            (PROGN
-                                             (SETQ |ISTMP#4| (CDR |ISTMP#3|))
-                                             (AND (CONSP |ISTMP#4|)
-                                                  (PROGN
-                                                   (SETQ |sig| (CAR |ISTMP#4|))
-                                                   #1#)))))))))
-                          (SETQ |bfVar#151|
-                                  (APPEND |bfVar#151|
-                                          ((LAMBDA
-                                               (|bfVar#148| |bfVar#147| |x|)
-                                             (LOOP
-                                              (COND
-                                               ((OR (ATOM |bfVar#147|)
-                                                    (PROGN
-                                                     (SETQ |x|
-                                                             (CAR |bfVar#147|))
-                                                     NIL))
-                                                (RETURN
-                                                 (NREVERSE |bfVar#148|)))
-                                               (#1#
-                                                (AND (IDENTP |x|)
-                                                     (NOT (EQ |x| '$))
-                                                     (SETQ |bfVar#148|
-                                                             (CONS |x|
-                                                                   |bfVar#148|)))))
-                                              (SETQ |bfVar#147|
-                                                      (CDR |bfVar#147|))))
-                                           NIL |sig| NIL))))))
-                   (SETQ |bfVar#150| (CDR |bfVar#150|))))
-                NIL |sigList| NIL)))
-      (|wrapDomainSub| |parameters| |body|)))))
+     (LIST '|Join|
+           (LIST '|mkCategory| (CONS 'LIST (REVERSE |sigList|))
+                 (CONS 'LIST (REVERSE |atList|)) NIL NIL)))))
  
 ; wrapDomainSub(parameters,x) ==
 ;    ["DomainSubstitutionMacro",parameters,x]
@@ -4153,18 +4095,18 @@
             (NOT (EQUAL (CAR |body|) (CAR |definition|))))
        (LIST 'QUOTE (|optimize| |body|)))
       (#1#
-       ((LAMBDA (|bfVar#153| |bfVar#152| |u|)
+       ((LAMBDA (|bfVar#148| |bfVar#147| |u|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#152|) (PROGN (SETQ |u| (CAR |bfVar#152|)) NIL))
-             (RETURN (NREVERSE |bfVar#153|)))
+            ((OR (ATOM |bfVar#147|) (PROGN (SETQ |u| (CAR |bfVar#147|)) NIL))
+             (RETURN (NREVERSE |bfVar#148|)))
             (#1#
-             (SETQ |bfVar#153|
+             (SETQ |bfVar#148|
                      (CONS
                       (|DomainSubstitutionFunction,Subst| |definition|
                        |parameters| |u|)
-                      |bfVar#153|))))
-           (SETQ |bfVar#152| (CDR |bfVar#152|))))
+                      |bfVar#148|))))
+           (SETQ |bfVar#147| (CDR |bfVar#147|))))
         NIL |body| NIL))))))
  
 ; compCategoryItem(x, predl, acc) ==
@@ -4266,14 +4208,14 @@
                (|push_at_list| (MKQ (LIST |y| |pred|)) |acc|))
               ((AND (CONSP |x|) (EQ (CAR |x|) 'PROGN)
                     (PROGN (SETQ |l| (CDR |x|)) #1#))
-               ((LAMBDA (|bfVar#154| |u|)
+               ((LAMBDA (|bfVar#149| |u|)
                   (LOOP
                    (COND
-                    ((OR (ATOM |bfVar#154|)
-                         (PROGN (SETQ |u| (CAR |bfVar#154|)) NIL))
+                    ((OR (ATOM |bfVar#149|)
+                         (PROGN (SETQ |u| (CAR |bfVar#149|)) NIL))
                      (RETURN NIL))
                     (#1# (|compCategoryItem| |u| |predl| |acc|)))
-                   (SETQ |bfVar#154| (CDR |bfVar#154|))))
+                   (SETQ |bfVar#149| (CDR |bfVar#149|))))
                 |l| NIL))
               (#1#
                (PROGN
@@ -4281,16 +4223,16 @@
                 (SETQ |sig| (CDDR . #2#))
                 (COND
                  ((NULL (ATOM |op|))
-                  ((LAMBDA (|bfVar#155| |y|)
+                  ((LAMBDA (|bfVar#150| |y|)
                      (LOOP
                       (COND
-                       ((OR (ATOM |bfVar#155|)
-                            (PROGN (SETQ |y| (CAR |bfVar#155|)) NIL))
+                       ((OR (ATOM |bfVar#150|)
+                            (PROGN (SETQ |y| (CAR |bfVar#150|)) NIL))
                         (RETURN NIL))
                        (#1#
                         (|compCategoryItem| (CONS 'SIGNATURE (CONS |y| |sig|))
                          |predl| |acc|)))
-                      (SETQ |bfVar#155| (CDR |bfVar#155|))))
+                      (SETQ |bfVar#150| (CDR |bfVar#150|))))
                    |op| NIL))
                  (#1#
                   (|push_sig_list| (MKQ (LIST (CDR |x|) |pred|))

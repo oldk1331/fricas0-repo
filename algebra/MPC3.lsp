@@ -100,15 +100,19 @@
               |MPC3;map;MPR1PR2;1| (|NonNegativeInteger|) (48 . |degree|)
               (53 . |monomial|) (60 . +) (66 . |reductum|))
            '#(|map| 71) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 33
-                                                 '(1 11 13 0 14 1 11 10 0 15 1
-                                                   12 0 10 16 2 11 17 0 6 18 0
-                                                   12 0 19 0 8 0 20 0 9 0 21 0
-                                                   22 0 23 2 22 24 0 0 25 1 22
-                                                   11 0 26 1 22 29 0 30 3 12 0
-                                                   0 7 29 31 2 12 0 0 0 32 1 22
-                                                   0 0 33 2 0 12 27 11 28)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#7| (|Mapping| |#2| |#1|) |#6|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 33
+                                            '(1 11 13 0 14 1 11 10 0 15 1 12 0
+                                              10 16 2 11 17 0 6 18 0 12 0 19 0
+                                              8 0 20 0 9 0 21 0 22 0 23 2 22 24
+                                              0 0 25 1 22 11 0 26 1 22 29 0 30
+                                              3 12 0 0 7 29 31 2 12 0 0 0 32 1
+                                              22 0 0 33 2 0 12 27 11 28)))))
            '|lookupComplete|)) 

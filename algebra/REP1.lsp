@@ -619,34 +619,88 @@
               |permutationRepresentation| 254 |createGenericMatrix| 276
               |antisymmetricTensors| 281)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 74
-                                                 '(1 8 7 0 9 2 8 7 0 7 10 2 12
-                                                   11 0 7 13 1 11 8 0 14 2 15 7
-                                                   7 8 16 0 6 0 17 0 6 0 18 3
-                                                   11 7 0 7 7 19 2 21 20 0 0 22
-                                                   2 15 7 7 7 23 3 24 8 7 7 7
-                                                   25 2 26 0 21 21 27 3 26 6 0
-                                                   7 7 28 4 26 6 0 7 7 6 29 1
-                                                   26 6 0 30 2 0 26 26 31 32 2
-                                                   0 33 33 31 34 3 24 8 7 7 7
-                                                   35 3 24 12 8 8 12 36 2 12 20
-                                                   0 0 37 3 24 8 8 8 12 38 1 6
-                                                   0 7 39 2 11 7 0 7 40 2 6 0 0
-                                                   0 41 2 6 0 0 0 42 2 26 0 0 0
-                                                   45 1 33 7 0 47 2 33 26 0 7
-                                                   48 2 12 0 21 21 52 2 53 7 0
-                                                   7 54 4 12 7 0 7 7 7 55 0 63
-                                                   0 64 1 7 65 0 66 1 67 0 65
-                                                   68 2 69 0 0 67 70 1 63 0 69
-                                                   71 4 72 63 0 7 7 63 73 2 0
-                                                   26 26 26 46 2 0 33 33 33 49
-                                                   1 0 33 33 51 1 0 26 26 50 2
-                                                   0 26 26 31 43 2 0 33 33 31
-                                                   44 1 0 12 8 57 2 0 12 53 7
-                                                   56 1 0 58 61 62 2 0 58 59 7
-                                                   60 1 0 72 21 74 2 1 26 26 31
-                                                   32 2 1 33 33 31 34)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|antisymmetricTensors|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|PositiveInteger|)))
+                                (|has| 6 (|CommutativeRing|)))
+                              '((|antisymmetricTensors|
+                                 ((|List| (|Matrix| |#1|))
+                                  (|List| (|Matrix| |#1|))
+                                  (|PositiveInteger|)))
+                                (|has| 6 (|CommutativeRing|)))
+                              '((|createGenericMatrix|
+                                 ((|Matrix| (|Polynomial| |#1|))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|symmetricTensors|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|symmetricTensors|
+                                 ((|List| (|Matrix| |#1|))
+                                  (|List| (|Matrix| |#1|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|tensorProduct|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|tensorProduct|
+                                 ((|List| (|Matrix| |#1|))
+                                  (|List| (|Matrix| |#1|))
+                                  (|List| (|Matrix| |#1|))))
+                                T)
+                              '((|tensorProduct|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)))
+                                T)
+                              '((|tensorProduct|
+                                 ((|List| (|Matrix| |#1|))
+                                  (|List| (|Matrix| |#1|))))
+                                T)
+                              '((|permutationRepresentation|
+                                 ((|Matrix| (|Integer|))
+                                  (|Permutation| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|permutationRepresentation|
+                                 ((|Matrix| (|Integer|)) (|List| (|Integer|))))
+                                T)
+                              '((|permutationRepresentation|
+                                 ((|List| (|Matrix| (|Integer|)))
+                                  (|List| (|Permutation| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|permutationRepresentation|
+                                 ((|List| (|Matrix| (|Integer|)))
+                                  (|List| (|List| (|Integer|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 74
+                                            '(1 8 7 0 9 2 8 7 0 7 10 2 12 11 0
+                                              7 13 1 11 8 0 14 2 15 7 7 8 16 0
+                                              6 0 17 0 6 0 18 3 11 7 0 7 7 19 2
+                                              21 20 0 0 22 2 15 7 7 7 23 3 24 8
+                                              7 7 7 25 2 26 0 21 21 27 3 26 6 0
+                                              7 7 28 4 26 6 0 7 7 6 29 1 26 6 0
+                                              30 2 0 26 26 31 32 2 0 33 33 31
+                                              34 3 24 8 7 7 7 35 3 24 12 8 8 12
+                                              36 2 12 20 0 0 37 3 24 8 8 8 12
+                                              38 1 6 0 7 39 2 11 7 0 7 40 2 6 0
+                                              0 0 41 2 6 0 0 0 42 2 26 0 0 0 45
+                                              1 33 7 0 47 2 33 26 0 7 48 2 12 0
+                                              21 21 52 2 53 7 0 7 54 4 12 7 0 7
+                                              7 7 55 0 63 0 64 1 7 65 0 66 1 67
+                                              0 65 68 2 69 0 0 67 70 1 63 0 69
+                                              71 4 72 63 0 7 7 63 73 2 0 26 26
+                                              26 46 2 0 33 33 33 49 1 0 33 33
+                                              51 1 0 26 26 50 2 0 26 26 31 43 2
+                                              0 33 33 31 44 1 0 12 8 57 2 0 12
+                                              53 7 56 1 0 58 61 62 2 0 58 59 7
+                                              60 1 0 72 21 74 2 1 26 26 31 32 2
+                                              1 33 33 31 34)))))
            '|lookupComplete|)) 

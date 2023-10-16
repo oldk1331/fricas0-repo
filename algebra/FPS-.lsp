@@ -68,16 +68,32 @@
               (|List| 17) (67 . |reduce|) (|NonNegativeInteger|)
               |FPS-;toString;SNniS;4|)
            '#(|toString| 73 |float| 84 |digits| 90) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 30
-                                                 '(0 6 7 8 3 6 0 9 9 7 10 0 6 0
-                                                   12 0 6 7 13 2 9 0 7 0 14 0 6
-                                                   0 15 1 6 17 0 18 1 6 0 0 20
-                                                   2 6 0 0 0 21 1 6 0 0 22 2 6
-                                                   0 0 0 23 1 6 9 0 24 2 17 0 0
-                                                   0 25 2 27 17 26 0 28 2 0 17
-                                                   0 29 30 1 0 17 0 19 2 0 0 9
-                                                   9 11 0 0 7 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|digits|
+                                 ((|PositiveInteger|) (|PositiveInteger|)))
+                                T)
+                              '((|digits| ((|PositiveInteger|))) T)
+                              '((|toString|
+                                 ((|String|) |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|toString| ((|String|) |#1|)) T)
+                              '((|float|
+                                 (|#1| (|Integer|) (|Integer|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|float| (|#1| (|Integer|) (|Integer|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 30
+                                            '(0 6 7 8 3 6 0 9 9 7 10 0 6 0 12 0
+                                              6 7 13 2 9 0 7 0 14 0 6 0 15 1 6
+                                              17 0 18 1 6 0 0 20 2 6 0 0 0 21 1
+                                              6 0 0 22 2 6 0 0 0 23 1 6 9 0 24
+                                              2 17 0 0 0 25 2 27 17 26 0 28 2 0
+                                              17 0 29 30 1 0 17 0 19 2 0 0 9 9
+                                              11 0 0 7 16)))))
            '|lookupComplete|)) 

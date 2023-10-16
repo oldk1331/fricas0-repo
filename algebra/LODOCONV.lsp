@@ -134,22 +134,37 @@
               (119 . *) (125 . |degree|) (130 . ^) (136 . +) (142 . |reductum|)
               |LODOCONV;convert;LodoLodo;2|)
            '#(|convert| 147) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 45
-                                                 '(0 9 0 10 0 6 0 11 0 7 0 12 0
-                                                   13 0 14 2 13 15 0 0 16 1 13
-                                                   8 0 17 0 6 0 18 0 7 0 19 2 7
-                                                   0 6 20 21 0 8 0 22 2 8 0 7 0
-                                                   23 1 8 24 0 25 0 9 0 26 2 9
-                                                   0 8 0 27 1 13 20 0 28 2 9 0
-                                                   0 20 29 2 9 0 0 0 30 1 13 0
-                                                   0 31 2 9 15 0 0 33 1 9 8 0
-                                                   34 2 13 0 8 20 35 0 36 0 37
-                                                   2 13 0 0 8 38 0 13 0 39 2 13
-                                                   0 8 0 40 1 9 20 0 41 2 13 0
-                                                   0 20 42 2 13 0 0 0 43 1 9 0
-                                                   0 44 1 0 13 9 45 1 0 9 13
-                                                   32)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|convert|
+                                 ((|LinearOrdinaryDifferentialOperator3| |#1|
+                                                                         |#2|
+                                                                         |#3|)
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   |#3|)))
+                                T)
+                              '((|convert|
+                                 ((|LinearOrdinaryDifferentialOperator1| |#3|)
+                                  (|LinearOrdinaryDifferentialOperator3| |#1|
+                                                                         |#2|
+                                                                         |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 45
+                                            '(0 9 0 10 0 6 0 11 0 7 0 12 0 13 0
+                                              14 2 13 15 0 0 16 1 13 8 0 17 0 6
+                                              0 18 0 7 0 19 2 7 0 6 20 21 0 8 0
+                                              22 2 8 0 7 0 23 1 8 24 0 25 0 9 0
+                                              26 2 9 0 8 0 27 1 13 20 0 28 2 9
+                                              0 0 20 29 2 9 0 0 0 30 1 13 0 0
+                                              31 2 9 15 0 0 33 1 9 8 0 34 2 13
+                                              0 8 20 35 0 36 0 37 2 13 0 0 8 38
+                                              0 13 0 39 2 13 0 8 0 40 1 9 20 0
+                                              41 2 13 0 0 20 42 2 13 0 0 0 43 1
+                                              9 0 0 44 1 0 13 9 45 1 0 9 13
+                                              32)))))
            '|lookupComplete|)) 

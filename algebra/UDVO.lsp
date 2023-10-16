@@ -69,13 +69,29 @@
            '#(|setVariableOrder| 15 |resetVariableOrder| 26 |getVariableOrder|
               30)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(1 8 6 7 9 2 8 6 7 7 11 0 8
-                                                   14 15 2 0 6 7 7 12 1 0 6 7
-                                                   10 0 0 6 13 0 0 16 17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|setVariableOrder|
+                                 ((|Void|) (|List| (|Symbol|))))
+                                T)
+                              '((|setVariableOrder|
+                                 ((|Void|) (|List| (|Symbol|))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|getVariableOrder|
+                                 ((|Record| (|:| |high| (|List| (|Symbol|)))
+                                            (|:| |low| (|List| (|Symbol|))))))
+                                T)
+                              '((|resetVariableOrder| ((|Void|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(1 8 6 7 9 2 8 6 7 7 11 0 8 14 15
+                                              2 0 6 7 7 12 1 0 6 7 10 0 0 6 13
+                                              0 0 16 17)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|UserDefinedVariableOrdering| 'NILADIC T) 

@@ -151,15 +151,22 @@
               (|Union| 17 '"failed") (|Vector| 17) (59 . |solveid|)
               |FFSLPE;solveLinearPolynomialEquation;LFPPU;1|)
            '#(|solveLinearPolynomialEquation| 66) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 33
-                                                 '(0 6 0 10 0 7 0 11 2 7 0 6 12
-                                                   13 2 17 16 0 0 18 1 8 12 0
-                                                   19 2 7 0 0 0 20 3 22 21 12 7
-                                                   17 23 1 7 24 0 25 1 7 12 0
-                                                   26 2 12 16 0 0 27 1 28 16 7
-                                                   29 3 22 30 8 7 31 32 2 0 30
-                                                   17 8 33)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solveLinearPolynomialEquation|
+                                 ((|Union| (|List| |#3|) "failed")
+                                  (|List| |#3|) |#3|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 33
+                                            '(0 6 0 10 0 7 0 11 2 7 0 6 12 13 2
+                                              17 16 0 0 18 1 8 12 0 19 2 7 0 0
+                                              0 20 3 22 21 12 7 17 23 1 7 24 0
+                                              25 1 7 12 0 26 2 12 16 0 0 27 1
+                                              28 16 7 29 3 22 30 8 7 31 32 2 0
+                                              30 17 8 33)))))
            '|lookupComplete|)) 

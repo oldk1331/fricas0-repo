@@ -39,10 +39,13 @@
               (|local| |#3|) (|local| |#4|) (|List| 9) (0 . |tensor|)
               |TENSPC-;tensor;2MS;1|)
            '#(|tensor| 5) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 12
-                                                 '(1 6 0 10 11 2 0 0 9 9
-                                                   12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|tensor| (|#1| |#4| |#4|)) T)
+                                   '((|tensor| (|#1| (|List| |#4|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 12 '(1 6 0 10 11 2 0 0 9 9 12)))))
            '|lookupComplete|)) 

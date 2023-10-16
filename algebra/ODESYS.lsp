@@ -692,10 +692,10 @@
               (68 . |inv|) (73 . *) (79 . |entries|) (|List| 22)
               (84 . |matrix|) (89 . |transpose|)
               (|Record| (|:| |particular| 20) (|:| |basis| 12))
-              (|Union| 43 '"failed")
+              (|Union| 43 '#1="failed")
               (|Record| (|:| |particular| 6) (|:| |basis| 22))
-              (|Union| 45 '"failed") (|Mapping| 46 7 6) |ODESYS;solve;MVMU;3|
-              (|Automorphism| 6) (94 . |One|) (98 . -)
+              (|Union| 45 '#2="failed") (|Mapping| 46 7 6)
+              |ODESYS;solve;MVMU;3| (|Automorphism| 6) (94 . |One|) (98 . -)
               (|Record| (|:| R 12) (|:| A 12) (|:| |Ainv| 12)) (|Mapping| 6 6)
               (|PseudoLinearNormalForm| 6) (103 . |normalForm|)
               (|Record| (|:| C 12) (|:| |lg| 13)) (|List| 56)
@@ -712,37 +712,136 @@
               (|Record| (|:| |mat| 70) (|:| |vecs| 13)) (202 . |rowEchelon|)
               |ODESYS;triangulate;MLR;8|
               (|Record| (|:| |mat| 70) (|:| |vec| 20))
-              |ODESYS;triangulate;MVR;9| (|Union| 20 '"failed")
+              |ODESYS;triangulate;MVR;9| (|Union| 20 '#3="failed")
               (|Record| (|:| |particular| 88) (|:| |basis| 13))
               (|Record| (|:| |particular| 80) (|:| |basis| 22))
               (|Mapping| 90 7 6))
            '#(|triangulate| 209 |solveInField| 233 |solve| 247) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 91
-                                                 '(0 7 0 8 0 6 0 15 0 7 0 16 0
-                                                   6 0 17 0 7 0 18 3 20 6 0 19
-                                                   6 21 2 23 6 20 22 24 2 23 20
-                                                   20 13 25 2 20 6 0 19 26 2 7
-                                                   6 0 6 27 2 6 0 0 0 28 2 12
-                                                   20 0 20 29 1 22 6 0 36 1 6 0
-                                                   0 37 2 20 0 6 0 38 1 20 22 0
-                                                   39 1 12 0 40 41 1 12 0 0 42
-                                                   0 49 0 50 1 6 0 0 51 3 54 52
-                                                   12 49 53 55 2 54 57 12 13 58
-                                                   3 12 6 0 19 19 59 2 7 0 6 60
-                                                   61 2 7 0 0 0 62 2 7 0 0 0 63
-                                                   2 6 0 0 0 64 2 6 0 0 0 65 1
-                                                   70 0 69 71 2 70 0 0 0 72 4
-                                                   74 73 70 6 13 34 75 1 70 19
-                                                   0 77 1 70 19 0 78 3 70 7 0
-                                                   19 19 79 1 7 80 0 81 4 12 6
-                                                   0 19 19 6 82 3 74 83 70 6 13
-                                                   84 2 0 11 12 13 14 2 0 67 12
-                                                   20 68 2 0 83 70 13 85 2 0 86
-                                                   70 20 87 3 0 31 70 13 34 76
-                                                   3 0 89 70 20 91 1 3 0 31 12
-                                                   13 34 35 3 0 44 12 20 47
-                                                   48)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|triangulate|
+                                 ((|Record| (|:| A (|Matrix| |#1|))
+                                            (|:| |eqs|
+                                                 (|List|
+                                                  (|Record|
+                                                   (|:| C (|Matrix| |#1|))
+                                                   (|:| |g| (|Vector| |#1|))
+                                                   (|:| |eq| |#2|)
+                                                   (|:| |rh| |#1|)))))
+                                  (|Matrix| |#1|) (|Vector| |#1|)))
+                                T)
+                              '((|triangulate|
+                                 ((|Record| (|:| A (|Matrix| |#1|))
+                                            (|:| |eqs|
+                                                 (|List|
+                                                  (|Record|
+                                                   (|:| C (|Matrix| |#1|))
+                                                   (|:| |lg|
+                                                        (|List|
+                                                         (|Vector| |#1|)))
+                                                   (|:| |eq| |#2|)
+                                                   (|:| |lrh|
+                                                        (|List| |#1|))))))
+                                  (|Matrix| |#1|) (|List| (|Vector| |#1|))))
+                                T)
+                              '((|triangulate|
+                                 ((|Record| (|:| |mat| (|Matrix| |#2|))
+                                            (|:| |vec| (|Vector| |#1|)))
+                                  (|Matrix| |#2|) (|Vector| |#1|)))
+                                T)
+                              '((|triangulate|
+                                 ((|Record| (|:| |mat| (|Matrix| |#2|))
+                                            (|:| |vecs|
+                                                 (|List| (|Vector| |#1|))))
+                                  (|Matrix| |#2|) (|List| (|Vector| |#1|))))
+                                T)
+                              '((|solve|
+                                 ((|Union|
+                                   (|Record| (|:| |particular| (|Vector| |#1|))
+                                             (|:| |basis| (|Matrix| |#1|)))
+                                   #1#)
+                                  (|Matrix| |#1|) (|Vector| |#1|)
+                                  (|Mapping|
+                                   (|Union|
+                                    (|Record| (|:| |particular| |#1|)
+                                              (|:| |basis| (|List| |#1|)))
+                                    #2#)
+                                   |#2| |#1|)))
+                                T)
+                              '((|solve|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|List|
+                                         (|Record|
+                                          (|:| |ratpart| (|Vector| |#1|))
+                                          (|:| |coeffs| (|Vector| |#1|)))))
+                                   (|:| |basis| (|List| (|Vector| |#1|))))
+                                  (|Matrix| |#1|) (|List| (|Vector| |#1|))
+                                  (|Mapping|
+                                   (|Record|
+                                    (|:| |particular|
+                                         (|List|
+                                          (|Record| (|:| |ratpart| |#1|)
+                                                    (|:| |coeffs|
+                                                         (|Vector| |#1|)))))
+                                    (|:| |basis| (|List| |#1|)))
+                                   |#2| (|List| |#1|))))
+                                T)
+                              '((|solveInField|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Vector| |#1|) #3#))
+                                   (|:| |basis| (|List| (|Vector| |#1|))))
+                                  (|Matrix| |#2|) (|Vector| |#1|)
+                                  (|Mapping|
+                                   (|Record|
+                                    (|:| |particular| (|Union| |#1| "failed"))
+                                    (|:| |basis| (|List| |#1|)))
+                                   |#2| |#1|)))
+                                T)
+                              '((|solveInField|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|List|
+                                         (|Record|
+                                          (|:| |ratpart| (|Vector| |#1|))
+                                          (|:| |coeffs| (|Vector| |#1|)))))
+                                   (|:| |basis| (|List| (|Vector| |#1|))))
+                                  (|Matrix| |#2|) (|List| (|Vector| |#1|))
+                                  (|Mapping|
+                                   (|Record|
+                                    (|:| |particular|
+                                         (|List|
+                                          (|Record| (|:| |ratpart| |#1|)
+                                                    (|:| |coeffs|
+                                                         (|Vector| |#1|)))))
+                                    (|:| |basis| (|List| |#1|)))
+                                   |#2| (|List| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 91
+                                            '(0 7 0 8 0 6 0 15 0 7 0 16 0 6 0
+                                              17 0 7 0 18 3 20 6 0 19 6 21 2 23
+                                              6 20 22 24 2 23 20 20 13 25 2 20
+                                              6 0 19 26 2 7 6 0 6 27 2 6 0 0 0
+                                              28 2 12 20 0 20 29 1 22 6 0 36 1
+                                              6 0 0 37 2 20 0 6 0 38 1 20 22 0
+                                              39 1 12 0 40 41 1 12 0 0 42 0 49
+                                              0 50 1 6 0 0 51 3 54 52 12 49 53
+                                              55 2 54 57 12 13 58 3 12 6 0 19
+                                              19 59 2 7 0 6 60 61 2 7 0 0 0 62
+                                              2 7 0 0 0 63 2 6 0 0 0 64 2 6 0 0
+                                              0 65 1 70 0 69 71 2 70 0 0 0 72 4
+                                              74 73 70 6 13 34 75 1 70 19 0 77
+                                              1 70 19 0 78 3 70 7 0 19 19 79 1
+                                              7 80 0 81 4 12 6 0 19 19 6 82 3
+                                              74 83 70 6 13 84 2 0 11 12 13 14
+                                              2 0 67 12 20 68 2 0 83 70 13 85 2
+                                              0 86 70 20 87 3 0 31 70 13 34 76
+                                              3 0 89 70 20 91 1 3 0 31 12 13 34
+                                              35 3 0 44 12 20 47 48)))))
            '|lookupComplete|)) 

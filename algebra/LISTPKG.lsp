@@ -283,16 +283,49 @@
            '#(|topologicalSort!| 50 |topologicalSort| 56 |splitList| 68
               |shiftLeft| 74 |minShift| 79 |cartesianPower| 84 |cartesian| 90)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 34
-                                                 '(1 9 0 11 12 1 9 0 0 15 2 19
-                                                   17 0 18 20 2 17 21 0 18 22 1
-                                                   23 0 11 24 2 9 6 0 18 25 2 9
-                                                   0 0 6 27 2 9 21 0 0 29 1 0 9
-                                                   9 30 2 0 9 13 9 14 2 0 9 19
-                                                   9 26 2 0 9 13 9 16 2 0 7 8 9
-                                                   10 1 0 9 9 28 1 1 9 9 30 2 0
-                                                   31 9 33 34 1 0 31 31 32)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|splitList|
+                                 ((|Record| (|:| |yes| (|List| |#1|))
+                                            (|:| |no| (|List| |#1|)))
+                                  (|Mapping| (|Boolean|) |#1|) (|List| |#1|)))
+                                T)
+                              '((|topologicalSort!|
+                                 ((|List| |#1|)
+                                  (|Mapping| (|Boolean|) |#1| |#1|)
+                                  (|List| |#1|)))
+                                T)
+                              '((|topologicalSort|
+                                 ((|List| |#1|)
+                                  (|Mapping| (|Boolean|) |#1| |#1|)
+                                  (|List| |#1|)))
+                                T)
+                              '((|topologicalSort|
+                                 ((|List| |#1|) (|List| (|List| (|Boolean|)))
+                                  (|List| |#1|)))
+                                T)
+                              '((|shiftLeft| ((|List| |#1|) (|List| |#1|))) T)
+                              '((|cartesian|
+                                 ((|List| (|List| |#1|))
+                                  (|List| (|List| |#1|))))
+                                T)
+                              '((|cartesianPower|
+                                 ((|List| (|List| |#1|)) (|List| |#1|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|minShift| ((|List| |#1|) (|List| |#1|)))
+                                (|has| 6 (|OrderedSet|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 34
+                                            '(1 9 0 11 12 1 9 0 0 15 2 19 17 0
+                                              18 20 2 17 21 0 18 22 1 23 0 11
+                                              24 2 9 6 0 18 25 2 9 0 0 6 27 2 9
+                                              21 0 0 29 1 0 9 9 30 2 0 9 13 9
+                                              14 2 0 9 19 9 26 2 0 9 13 9 16 2
+                                              0 7 8 9 10 1 0 9 9 28 1 1 9 9 30
+                                              2 0 31 9 33 34 1 0 31 31 32)))))
            '|lookupComplete|)) 

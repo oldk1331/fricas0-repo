@@ -919,7 +919,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|)
               (|Record| (|:| |value| 6) (|:| |index| 69))
-              (|Union| 37 '"failed") (|PositiveInteger|)
+              (|Union| 37 '#1="failed") (|PositiveInteger|)
               |FFF;createLowComplexityTable;PiU;2|
               (|SparseUnivariatePolynomial| 6)
               (|FiniteFieldPolynomialPackage| 6) (0 . |createNormalPoly|)
@@ -937,7 +937,7 @@
               (|Matrix| 6) (153 . |zero|) (|Vector| 6) (159 . |Vectorise|)
               (164 . |setColumn!|) (171 . ~=) (177 . |leadingCoefficient|)
               (182 . |degree|) (187 . *) (193 . +) (199 . |reductum|)
-              (|Union| $ '#1="failed") (204 . |inverse|) (|Union| 53 '#1#)
+              (|Union| $ '#2="failed") (204 . |inverse|) (|Union| 53 '#2#)
               (209 . =) (215 . *) (|SingleInteger|) (221 . |coerce|)
               (226 . |elt|) (232 . ~=) |FFF;createMultiplicationTable;SupV;4|
               (238 . ^) (|PrimitiveArray| 69) |FFF;createZechTable;SupPa;5|
@@ -947,33 +947,80 @@
               |createLowComplexityTable| 264 |createLowComplexityNormalBasis|
               269)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 77
-                                                 '(1 12 11 9 13 0 6 16 17 0 6
-                                                   16 18 0 6 0 19 0 6 0 20 1 22
-                                                   21 0 23 2 22 0 0 0 24 1 25 0
-                                                   16 26 3 25 22 0 22 22 27 2
-                                                   28 0 16 16 29 2 22 21 0 0 30
-                                                   2 25 22 0 22 31 4 28 22 0 22
-                                                   22 22 32 3 28 22 0 22 22 33
-                                                   1 6 0 22 34 1 35 0 0 36 2 37
-                                                   35 0 22 38 1 11 16 0 40 0 11
-                                                   0 41 0 11 0 42 2 11 6 0 16
-                                                   43 1 6 0 0 44 1 45 11 11 46
-                                                   2 11 0 6 16 47 1 45 0 11 48
-                                                   2 45 0 0 16 49 0 45 0 50 0
-                                                   45 0 51 2 45 0 0 0 52 2 53 0
-                                                   16 16 54 1 45 55 0 56 3 53 0
-                                                   0 22 55 57 2 45 21 0 0 58 1
-                                                   45 6 0 59 1 45 16 0 60 2 45
-                                                   0 6 0 61 2 45 0 0 0 62 1 45
-                                                   0 0 63 1 53 64 0 65 2 66 21
-                                                   0 0 67 2 53 55 0 55 68 1 69
-                                                   0 22 70 2 55 6 0 22 71 2 6
-                                                   21 0 0 72 2 16 0 0 9 74 1 0
-                                                   16 37 39 1 0 75 11 76 1 0 37
-                                                   11 73 1 0 53 37 77 1 0 8 9
-                                                   10 1 0 14 9 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|createZechTable|
+                                 ((|PrimitiveArray| (|SingleInteger|))
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|createMultiplicationTable|
+                                 ((|Vector|
+                                   (|List|
+                                    (|Record| (|:| |value| |#1|)
+                                              (|:| |index|
+                                                   (|SingleInteger|)))))
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|createMultiplicationMatrix|
+                                 ((|Matrix| |#1|)
+                                  (|Vector|
+                                   (|List|
+                                    (|Record| (|:| |value| |#1|)
+                                              (|:| |index|
+                                                   (|SingleInteger|)))))))
+                                T)
+                              '((|sizeMultiplication|
+                                 ((|NonNegativeInteger|)
+                                  (|Vector|
+                                   (|List|
+                                    (|Record| (|:| |value| |#1|)
+                                              (|:| |index|
+                                                   (|SingleInteger|)))))))
+                                T)
+                              '((|createLowComplexityTable|
+                                 ((|Union|
+                                   (|Vector|
+                                    (|List|
+                                     (|Record| (|:| |value| |#1|)
+                                               (|:| |index|
+                                                    (|SingleInteger|)))))
+                                   #1#)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|createLowComplexityNormalBasis|
+                                 ((|Union| (|SparseUnivariatePolynomial| |#1|)
+                                           (|Vector|
+                                            (|List|
+                                             (|Record| (|:| |value| |#1|)
+                                                       (|:| |index|
+                                                            (|SingleInteger|))))))
+                                  (|PositiveInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 77
+                                            '(1 12 11 9 13 0 6 16 17 0 6 16 18
+                                              0 6 0 19 0 6 0 20 1 22 21 0 23 2
+                                              22 0 0 0 24 1 25 0 16 26 3 25 22
+                                              0 22 22 27 2 28 0 16 16 29 2 22
+                                              21 0 0 30 2 25 22 0 22 31 4 28 22
+                                              0 22 22 22 32 3 28 22 0 22 22 33
+                                              1 6 0 22 34 1 35 0 0 36 2 37 35 0
+                                              22 38 1 11 16 0 40 0 11 0 41 0 11
+                                              0 42 2 11 6 0 16 43 1 6 0 0 44 1
+                                              45 11 11 46 2 11 0 6 16 47 1 45 0
+                                              11 48 2 45 0 0 16 49 0 45 0 50 0
+                                              45 0 51 2 45 0 0 0 52 2 53 0 16
+                                              16 54 1 45 55 0 56 3 53 0 0 22 55
+                                              57 2 45 21 0 0 58 1 45 6 0 59 1
+                                              45 16 0 60 2 45 0 6 0 61 2 45 0 0
+                                              0 62 1 45 0 0 63 1 53 64 0 65 2
+                                              66 21 0 0 67 2 53 55 0 55 68 1 69
+                                              0 22 70 2 55 6 0 22 71 2 6 21 0 0
+                                              72 2 16 0 0 9 74 1 0 16 37 39 1 0
+                                              75 11 76 1 0 37 11 73 1 0 53 37
+                                              77 1 0 8 9 10 1 0 14 9 15)))))
            '|lookupComplete|)) 

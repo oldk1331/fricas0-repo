@@ -34,9 +34,12 @@
               (|Union| 10 '"failed") (0 . |generator|) (|Boolean|)
               |FDIVCAT-;principal?;SB;1|)
            '#(|principal?| 5) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 14
-                                                 '(1 6 11 0 12 1 0 13 0 14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|principal?| ((|Boolean|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 14 '(1 6 11 0 12 1 0 13 0 14)))))
            '|lookupComplete|)) 

@@ -37,10 +37,24 @@
               (|NonNegativeInteger|) |MTSCAT-;coefficient;SVarNniS;1|
               (|IndexedExponents| 8))
            '#(|coefficient| 7) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 13
-                                                 '(3 6 0 0 9 10 11 3 0 0 0 8 12
-                                                   13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|coefficient|
+                                 (|#1| |#1| (|List| |#3|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|coefficient|
+                                 (|#1| |#1| |#3| (|NonNegativeInteger|)))
+                                T)
+                              '((|coefficient|
+                                 (|#2| |#1| (|IndexedExponents| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 13
+                                            '(3 6 0 0 9 10 11 3 0 0 0 8 12
+                                              13)))))
            '|lookupComplete|)) 

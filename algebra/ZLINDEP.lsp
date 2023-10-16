@@ -87,14 +87,56 @@
            '#(|solveLinearlyOverQ| 34 |particularSolutionOverQ| 46
               |linearlyDependentOverZ?| 58 |linearDependenceOverZ| 63)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(1 9 7 8 10 1 9 12 8 13 2 9
-                                                   15 8 6 16 2 9 15 18 8 19 2 9
-                                                   21 8 6 22 2 9 21 18 8 24 2 0
-                                                   21 18 8 25 2 0 21 8 6 23 2 0
-                                                   15 8 6 17 2 0 15 18 8 20 1 0
-                                                   7 8 11 1 0 12 8 14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|linearlyDependentOverZ?|
+                                 ((|Boolean|) (|Vector| |#1|)))
+                                T)
+                              '((|linearDependenceOverZ|
+                                 ((|Union| (|Vector| (|Integer|)) "failed")
+                                  (|Vector| |#1|)))
+                                T)
+                              '((|particularSolutionOverQ|
+                                 ((|Union| (|Vector| (|Fraction| (|Integer|)))
+                                           #1="failed")
+                                  (|Vector| |#1|) |#1|))
+                                T)
+                              '((|particularSolutionOverQ|
+                                 ((|Union| (|Vector| (|Fraction| (|Integer|)))
+                                           #1#)
+                                  (|Matrix| |#1|) (|Vector| |#1|)))
+                                T)
+                              '((|solveLinearlyOverQ|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union|
+                                         (|Vector| (|Fraction| (|Integer|)))
+                                         #1#))
+                                   (|:| |basis|
+                                        (|List|
+                                         (|Vector| (|Fraction| (|Integer|))))))
+                                  (|Vector| |#1|) |#1|))
+                                T)
+                              '((|solveLinearlyOverQ|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union|
+                                         (|Vector| (|Fraction| (|Integer|)))
+                                         #1#))
+                                   (|:| |basis|
+                                        (|List|
+                                         (|Vector| (|Fraction| (|Integer|))))))
+                                  (|Matrix| |#1|) (|Vector| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(1 9 7 8 10 1 9 12 8 13 2 9 15 8 6
+                                              16 2 9 15 18 8 19 2 9 21 8 6 22 2
+                                              9 21 18 8 24 2 0 21 18 8 25 2 0
+                                              21 8 6 23 2 0 15 8 6 17 2 0 15 18
+                                              8 20 1 0 7 8 11 1 0 12 8 14)))))
            '|lookupComplete|)) 

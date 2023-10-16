@@ -112,14 +112,29 @@
               (41 . |repeating|) (|Mapping| 7 6 7) |STREAM2;scan;BMSS;3|
               |STREAM2;reduce;BMSB;4|)
            '#(|scan| 46 |reduce| 53 |map| 60) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 26
-                                                 '(1 9 8 0 10 0 11 0 12 1 9 6 0
-                                                   13 1 9 0 0 14 2 11 0 7 0 17
-                                                   1 11 0 18 19 1 9 8 0 20 2 9
-                                                   8 0 0 21 1 11 0 22 23 3 0 11
-                                                   7 24 9 25 3 0 7 7 24 9 26 2
-                                                   0 11 15 9 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|Stream| |#2|) (|Mapping| |#2| |#1|)
+                                  (|Stream| |#1|)))
+                                T)
+                              '((|scan|
+                                 ((|Stream| |#2|) |#2|
+                                  (|Mapping| |#2| |#1| |#2|) (|Stream| |#1|)))
+                                T)
+                              '((|reduce|
+                                 (|#2| |#2| (|Mapping| |#2| |#1| |#2|)
+                                  (|Stream| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 26
+                                            '(1 9 8 0 10 0 11 0 12 1 9 6 0 13 1
+                                              9 0 0 14 2 11 0 7 0 17 1 11 0 18
+                                              19 1 9 8 0 20 2 9 8 0 0 21 1 11 0
+                                              22 23 3 0 11 7 24 9 25 3 0 7 7 24
+                                              9 26 2 0 11 15 9 16)))))
            '|lookupComplete|)) 

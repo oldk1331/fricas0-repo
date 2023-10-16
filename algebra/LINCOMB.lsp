@@ -327,7 +327,8 @@
               (|Integer|) (|List| 10) (8 . |elt|) (|Vector| 6) (14 . |elt|)
               (20 . |Zero|) (24 . |Zero|) (|Boolean|) (28 . =) (34 . /)
               (40 . *) (46 . *) (|UniversalSegment| 11) (52 . SEGMENT)
-              (58 . |elt|) (64 . ~=) (70 . -) (76 . -) (|Union| 10 '"failed")
+              (58 . |elt|) (64 . ~=) (70 . -) (76 . -)
+              (|Union| 10 '#1="failed")
               (|Record| (|:| |particular| 29) (|:| |basis| 12))
               |LINCOMB;dehomogenize;LR;1| (82 . +) (|List| 6)
               |LINCOMB;lin_comb;VLF;2| (|Fraction| 11) (|Vector| 35)
@@ -341,28 +342,78 @@
               |LINCOMB;lin_comb;VLLp;8| (159 . *) (165 . +) (|List| 7)
               |LINCOMB;lin_comb;VLUP;9|)
            '#(|lin_comb!| 171 |lin_comb| 178 |dehomogenize| 220) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 64
-                                                 '(0 6 0 8 0 7 0 9 2 12 10 0 11
-                                                   13 2 14 6 0 11 15 0 6 0 16 0
-                                                   7 0 17 2 6 18 0 0 19 2 6 0 0
-                                                   0 20 2 6 0 0 0 21 2 14 0 6 0
-                                                   22 2 23 0 11 11 24 2 14 0 0
-                                                   23 25 2 6 18 0 0 26 2 6 0 0
-                                                   0 27 2 14 0 0 0 28 2 6 0 0 0
-                                                   32 2 36 35 0 11 37 1 6 0 35
-                                                   38 3 14 6 0 11 6 40 0 44 0
-                                                   45 1 7 0 6 46 2 44 0 7 0 47
-                                                   2 44 0 0 0 48 1 44 0 7 51 2
-                                                   44 0 0 0 52 0 54 0 55 1 54 0
-                                                   6 56 2 54 0 0 0 57 2 54 0 0
-                                                   0 58 2 7 0 6 0 61 2 7 0 0 0
-                                                   62 3 0 14 14 14 41 42 2 0 6
-                                                   14 33 34 2 0 6 36 33 39 2 0
-                                                   44 14 49 50 2 0 14 14 41 43
-                                                   2 0 44 36 49 53 2 0 7 14 63
-                                                   64 2 0 54 14 59 60 1 0 30 12
-                                                   31)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|dehomogenize|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union|
+                                         (|Record| (|:| |ratpart| |#1|)
+                                                   (|:| |coeffs|
+                                                        (|Vector| |#1|)))
+                                         #1#))
+                                   (|:| |basis|
+                                        (|List|
+                                         (|Record| (|:| |ratpart| |#1|)
+                                                   (|:| |coeffs|
+                                                        (|Vector| |#1|))))))
+                                  (|List|
+                                   (|Record| (|:| |ratpart| |#1|)
+                                             (|:| |coeffs| (|Vector| |#1|))))))
+                                T)
+                              '((|lin_comb|
+                                 (|#1| (|Vector| |#1|) (|List| |#1|)))
+                                T)
+                              '((|lin_comb|
+                                 (|#1| (|Vector| (|Fraction| (|Integer|)))
+                                  (|List| |#1|)))
+                                T)
+                              '((|lin_comb!|
+                                 ((|Vector| |#1|) (|Vector| |#1|)
+                                  (|Vector| |#1|) (|List| (|Vector| |#1|))))
+                                T)
+                              '((|lin_comb|
+                                 ((|Vector| |#1|) (|Vector| |#1|)
+                                  (|List| (|Vector| |#1|))))
+                                T)
+                              '((|lin_comb|
+                                 ((|Fraction| |#2|) (|Vector| |#1|)
+                                  (|List| (|Fraction| |#2|))))
+                                T)
+                              '((|lin_comb|
+                                 ((|Fraction| |#2|)
+                                  (|Vector| (|Fraction| (|Integer|)))
+                                  (|List| (|Fraction| |#2|))))
+                                T)
+                              '((|lin_comb|
+                                 ((|LaurentPolynomial| |#1| |#2|)
+                                  (|Vector| |#1|)
+                                  (|List| (|LaurentPolynomial| |#1| |#2|))))
+                                T)
+                              '((|lin_comb|
+                                 (|#2| (|Vector| |#1|) (|List| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 64
+                                            '(0 6 0 8 0 7 0 9 2 12 10 0 11 13 2
+                                              14 6 0 11 15 0 6 0 16 0 7 0 17 2
+                                              6 18 0 0 19 2 6 0 0 0 20 2 6 0 0
+                                              0 21 2 14 0 6 0 22 2 23 0 11 11
+                                              24 2 14 0 0 23 25 2 6 18 0 0 26 2
+                                              6 0 0 0 27 2 14 0 0 0 28 2 6 0 0
+                                              0 32 2 36 35 0 11 37 1 6 0 35 38
+                                              3 14 6 0 11 6 40 0 44 0 45 1 7 0
+                                              6 46 2 44 0 7 0 47 2 44 0 0 0 48
+                                              1 44 0 7 51 2 44 0 0 0 52 0 54 0
+                                              55 1 54 0 6 56 2 54 0 0 0 57 2 54
+                                              0 0 0 58 2 7 0 6 0 61 2 7 0 0 0
+                                              62 3 0 14 14 14 41 42 2 0 6 14 33
+                                              34 2 0 6 36 33 39 2 0 44 14 49 50
+                                              2 0 14 14 41 43 2 0 44 36 49 53 2
+                                              0 7 14 63 64 2 0 54 14 59 60 1 0
+                                              30 12 31)))))
            '|lookupComplete|)) 

@@ -102,12 +102,40 @@
            '#(|twist| 7 |curryRight| 12 |curryLeft| 18 |constantRight| 24
               |constantLeft| 29 * 34)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(3 19 8 12 18 6 20 1 0 16 10
-                                                   17 2 0 9 10 7 11 2 0 12 10 6
-                                                   13 1 0 10 9 14 1 0 10 12 15
-                                                   2 0 9 12 18 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|curryRight|
+                                 ((|Mapping| |#3| |#1|)
+                                  (|Mapping| |#3| |#1| |#2|) |#2|))
+                                T)
+                              '((|curryLeft|
+                                 ((|Mapping| |#3| |#2|)
+                                  (|Mapping| |#3| |#1| |#2|) |#1|))
+                                T)
+                              '((|constantRight|
+                                 ((|Mapping| |#3| |#1| |#2|)
+                                  (|Mapping| |#3| |#1|)))
+                                T)
+                              '((|constantLeft|
+                                 ((|Mapping| |#3| |#1| |#2|)
+                                  (|Mapping| |#3| |#2|)))
+                                T)
+                              '((|twist|
+                                 ((|Mapping| |#3| |#2| |#1|)
+                                  (|Mapping| |#3| |#1| |#2|)))
+                                T)
+                              '((*
+                                 ((|Mapping| |#3| |#1|) (|Mapping| |#3| |#2|)
+                                  (|Mapping| |#2| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(3 19 8 12 18 6 20 1 0 16 10 17 2
+                                              0 9 10 7 11 2 0 12 10 6 13 1 0 10
+                                              9 14 1 0 10 12 15 2 0 9 12 18
+                                              21)))))
            '|lookupComplete|)) 

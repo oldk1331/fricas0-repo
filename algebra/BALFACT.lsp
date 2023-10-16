@@ -174,17 +174,25 @@
               (54 . |Zero|) (58 . ~=) (|Mapping| 17 7) (64 . |select|)
               (|Factored| $) (70 . |squareFree|) (75 . |unit|) (80 . *))
            '#(|balancedFactorisation| 86) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 35
-                                                 '(2 7 0 0 0 12 2 7 13 0 0 14 2
-                                                   8 0 7 15 16 1 7 17 0 18 2 7
-                                                   15 0 0 19 2 7 0 0 15 20 2 8
-                                                   0 0 0 21 1 8 24 0 25 0 8 0
-                                                   26 0 6 0 27 0 7 0 28 2 7 17
-                                                   0 0 29 2 9 0 30 0 31 1 7 32
-                                                   0 33 1 8 7 0 34 2 8 0 7 0 35
-                                                   2 0 8 7 9 10 2 0 8 7 7
-                                                   11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|balancedFactorisation|
+                                 ((|Factored| |#2|) |#2| |#2|))
+                                T)
+                              '((|balancedFactorisation|
+                                 ((|Factored| |#2|) |#2| (|List| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 35
+                                            '(2 7 0 0 0 12 2 7 13 0 0 14 2 8 0
+                                              7 15 16 1 7 17 0 18 2 7 15 0 0 19
+                                              2 7 0 0 15 20 2 8 0 0 0 21 1 8 24
+                                              0 25 0 8 0 26 0 6 0 27 0 7 0 28 2
+                                              7 17 0 0 29 2 9 0 30 0 31 1 7 32
+                                              0 33 1 8 7 0 34 2 8 0 7 0 35 2 0
+                                              8 7 9 10 2 0 8 7 7 11)))))
            '|lookupComplete|)) 

@@ -76,18 +76,34 @@
               (|List| 22) (|List| 6) (50 . |realRoots|)
               |REALSOLV;realSolve;LLFL;5|)
            '#(|solve| 57 |realSolve| 69) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 36
-                                                 '(1 7 0 6 8 1 10 9 0 11 1 7 0
-                                                   9 12 1 10 9 0 13 2 7 0 0 0
-                                                   14 3 18 7 15 16 17 19 1 7 0
-                                                   20 21 2 24 22 7 23 25 2 31
-                                                   28 29 30 32 3 24 33 28 34 23
-                                                   35 2 0 22 17 23 26 2 0 22 20
-                                                   23 27 3 0 33 30 34 23
-                                                   36)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solve|
+                                 ((|List| (|Float|))
+                                  (|Polynomial| (|Fraction| (|Integer|)))
+                                  (|Float|)))
+                                T)
+                              '((|solve|
+                                 ((|List| (|Float|)) (|Polynomial| (|Integer|))
+                                  (|Float|)))
+                                T)
+                              '((|realSolve|
+                                 ((|List| (|List| (|Float|)))
+                                  (|List| (|Polynomial| (|Integer|)))
+                                  (|List| (|Symbol|)) (|Float|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 36
+                                            '(1 7 0 6 8 1 10 9 0 11 1 7 0 9 12
+                                              1 10 9 0 13 2 7 0 0 0 14 3 18 7
+                                              15 16 17 19 1 7 0 20 21 2 24 22 7
+                                              23 25 2 31 28 29 30 32 3 24 33 28
+                                              34 23 35 2 0 22 17 23 26 2 0 22
+                                              20 23 27 3 0 33 30 34 23 36)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|RealSolvePackage| 'NILADIC T) 

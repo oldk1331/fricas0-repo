@@ -694,10 +694,10 @@
               (29 . *) (35 . *) (41 . -)
               (|Record| (|:| |a| 7) (|:| |b| 8) (|:| |h| 7) (|:| |c1| 8)
                         (|:| |c2| 8) (|:| |t| 7))
-              (|Union| 20 '"failed") |RDETRS;monomRDEsys;3FMU;1| (|Boolean|)
+              (|Union| 20 '#1="failed") |RDETRS;monomRDEsys;3FMU;1| (|Boolean|)
               (46 . |zero?|) (51 . |Zero|) (55 . |retract|) (60 . |coerce|)
               (65 . /) (|List| 7) (71 . |second|)
-              (|Union| (|List| 8) '"failed") |RDETRS;baseRDEsys;3FU;2|
+              (|Union| (|List| 8) '#2="failed") |RDETRS;baseRDEsys;3FU;2|
               (76 . |Zero|) (|List| 29) (|Matrix| 7) (80 . |matrix|)
               (|Vector| 7) (85 . |vector|) (|Union| 37 '"failed")
               (|Record| (|:| |particular| 39) (|:| |basis| (|List| 37)))
@@ -707,32 +707,51 @@
               (102 . |divide|) (108 . |One|) (112 . |One|) (116 . +) (122 . -)
               (128 . |zero?|) (133 . |Zero|) (|NonNegativeInteger|)
               (137 . |degree|) (142 . >) (148 . |retract|)
-              (|Union| 6 '#1="failed") (153 . |retractIfCan|)
+              (|Union| 6 '#3="failed") (153 . |retractIfCan|)
               (158 . |leadingCoefficient|) (163 . >) (169 . *) (175 . +)
               (181 . *) (187 . /) (193 . -) (199 . |monomial|) (205 . -)
-              (|Union| 43 '#1#) (210 . |retractIfCan|))
+              (|Union| 43 '#3#) (210 . |retractIfCan|))
            '#(|monomRDEsys| 215 |baseRDEsys| 223) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 69
-                                                 '(2 10 7 8 9 11 2 7 0 0 0 12 2
-                                                   7 0 0 0 13 1 7 0 0 14 2 7 15
-                                                   0 0 16 2 7 0 0 0 17 2 8 0 7
-                                                   0 18 1 7 0 0 19 1 8 23 0 24
-                                                   0 8 0 25 1 8 7 0 26 1 7 0 6
-                                                   27 2 8 0 7 7 28 1 29 7 0 30
-                                                   0 7 0 33 1 35 0 34 36 1 37 0
-                                                   29 38 2 41 40 35 37 42 2 37
-                                                   7 0 43 44 2 7 45 0 0 46 0 6
-                                                   0 47 0 7 0 48 2 7 0 0 0 49 2
-                                                   7 0 0 0 50 1 7 23 0 51 0 6 0
-                                                   52 1 7 53 0 54 2 53 23 0 0
-                                                   55 1 7 6 0 56 1 7 57 0 58 1
-                                                   7 6 0 59 2 43 23 0 0 60 2 6
-                                                   0 0 0 61 2 6 0 0 0 62 2 7 0
-                                                   6 0 63 2 6 0 0 0 64 2 6 0 0
-                                                   0 65 2 7 0 6 53 66 1 6 0 0
-                                                   67 1 6 68 0 69 4 0 21 8 8 8
-                                                   9 22 3 0 31 8 8 8 32)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|monomRDEsys|
+                                 ((|Union|
+                                   (|Record| (|:| |a| |#2|)
+                                             (|:| |b| (|Fraction| |#2|))
+                                             (|:| |h| |#2|)
+                                             (|:| |c1| (|Fraction| |#2|))
+                                             (|:| |c2| (|Fraction| |#2|))
+                                             (|:| |t| |#2|))
+                                   #1#)
+                                  (|Fraction| |#2|) (|Fraction| |#2|)
+                                  (|Fraction| |#2|) (|Mapping| |#2| |#2|)))
+                                T)
+                              '((|baseRDEsys|
+                                 ((|Union| (|List| (|Fraction| |#2|)) #2#)
+                                  (|Fraction| |#2|) (|Fraction| |#2|)
+                                  (|Fraction| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 69
+                                            '(2 10 7 8 9 11 2 7 0 0 0 12 2 7 0
+                                              0 0 13 1 7 0 0 14 2 7 15 0 0 16 2
+                                              7 0 0 0 17 2 8 0 7 0 18 1 7 0 0
+                                              19 1 8 23 0 24 0 8 0 25 1 8 7 0
+                                              26 1 7 0 6 27 2 8 0 7 7 28 1 29 7
+                                              0 30 0 7 0 33 1 35 0 34 36 1 37 0
+                                              29 38 2 41 40 35 37 42 2 37 7 0
+                                              43 44 2 7 45 0 0 46 0 6 0 47 0 7
+                                              0 48 2 7 0 0 0 49 2 7 0 0 0 50 1
+                                              7 23 0 51 0 6 0 52 1 7 53 0 54 2
+                                              53 23 0 0 55 1 7 6 0 56 1 7 57 0
+                                              58 1 7 6 0 59 2 43 23 0 0 60 2 6
+                                              0 0 0 61 2 6 0 0 0 62 2 7 0 6 0
+                                              63 2 6 0 0 0 64 2 6 0 0 0 65 2 7
+                                              0 6 53 66 1 6 0 0 67 1 6 68 0 69
+                                              4 0 21 8 8 8 9 22 3 0 31 8 8 8
+                                              32)))))
            '|lookupComplete|)) 

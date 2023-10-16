@@ -49,10 +49,18 @@
               (|Equation| 6) (0 . |lhs|) (5 . |rhs|) (|Equation| 7)
               (10 . |equation|) (|Mapping| 7 6) |EQ2;map;MEE;1|)
            '#(|map| 16) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 14
-                                                 '(1 8 6 0 9 1 8 6 0 10 2 11 0
-                                                   7 7 12 2 0 11 13 8 14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|Equation| |#2|) (|Mapping| |#2| |#1|)
+                                  (|Equation| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 14
+                                            '(1 8 6 0 9 1 8 6 0 10 2 11 0 7 7
+                                              12 2 0 11 13 8 14)))))
            '|lookupComplete|)) 

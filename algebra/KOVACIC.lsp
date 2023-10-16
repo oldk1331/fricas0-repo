@@ -165,7 +165,7 @@
 (MAKEPROP '|Kovacic| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|Factored| $) (0 . |squareFree|) (|Union| 40 '"failed")
+              (|Factored| $) (0 . |squareFree|) (|Union| 40 '#1="failed")
               (|Fraction| 7) (|Mapping| 26 7) |KOVACIC;kovacic;3FMU;2|
               |KOVACIC;kovacic;3FU;1| (|PositiveInteger|) (5 . ^) (11 . *)
               (17 . |differentiate|) (22 . *) (28 . +) (34 . -) (40 . /)
@@ -179,22 +179,41 @@
               (|Integer|) (109 . |coerce|) (114 . |coerce|) (119 . +)
               (|Boolean|) (125 . >))
            '#(|kovacic| 131) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 48
-                                                 '(1 7 8 0 9 2 11 0 0 15 16 2
-                                                   11 0 15 0 17 1 11 0 0 18 2
-                                                   11 0 0 0 19 2 11 0 0 0 20 2
-                                                   11 0 0 0 21 2 11 0 0 0 22 1
-                                                   11 7 0 23 1 26 25 0 27 0 6 0
-                                                   28 0 7 0 29 0 11 0 30 2 32 0
-                                                   11 31 33 2 32 0 0 0 34 1 32
-                                                   0 11 35 2 32 0 15 0 36 2 38
-                                                   37 32 12 39 2 40 0 11 31 41
-                                                   2 40 0 0 0 42 1 11 0 43 44 1
-                                                   40 0 11 45 2 40 0 0 0 46 2
-                                                   31 47 0 0 48 4 0 10 11 11 11
-                                                   12 13 3 0 10 11 11 11
-                                                   14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|kovacic|
+                                 ((|Union|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Fraction| |#2|))
+                                   "failed")
+                                  (|Fraction| |#2|) (|Fraction| |#2|)
+                                  (|Fraction| |#2|)))
+                                T)
+                              '((|kovacic|
+                                 ((|Union|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Fraction| |#2|))
+                                   #1#)
+                                  (|Fraction| |#2|) (|Fraction| |#2|)
+                                  (|Fraction| |#2|)
+                                  (|Mapping| (|Factored| |#2|) |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 48
+                                            '(1 7 8 0 9 2 11 0 0 15 16 2 11 0
+                                              15 0 17 1 11 0 0 18 2 11 0 0 0 19
+                                              2 11 0 0 0 20 2 11 0 0 0 21 2 11
+                                              0 0 0 22 1 11 7 0 23 1 26 25 0 27
+                                              0 6 0 28 0 7 0 29 0 11 0 30 2 32
+                                              0 11 31 33 2 32 0 0 0 34 1 32 0
+                                              11 35 2 32 0 15 0 36 2 38 37 32
+                                              12 39 2 40 0 11 31 41 2 40 0 0 0
+                                              42 1 11 0 43 44 1 40 0 11 45 2 40
+                                              0 0 0 46 2 31 47 0 0 48 4 0 10 11
+                                              11 11 12 13 3 0 10 11 11 11
+                                              14)))))
            '|lookupComplete|)) 

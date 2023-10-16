@@ -62,10 +62,19 @@
               (6 . |map|) (|Variable| (NRTEVAL (QREFELT $ 6)))
               |POLY2UP;univariate;PVUp;1|)
            '#(|univariate| 12) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(2 10 8 0 9 11 2 15 12 13 14
-                                                   16 2 0 12 10 17 18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|univariate|
+                                 ((|UnivariatePolynomial| |#1|
+                                                          (|Polynomial| |#2|))
+                                  (|Polynomial| |#2|) (|Variable| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(2 10 8 0 9 11 2 15 12 13 14 16 2
+                                              0 12 10 17 18)))))
            '|lookupComplete|)) 

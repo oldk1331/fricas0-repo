@@ -23,10 +23,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . *) (6 . +)
               |NASRNG-;antiCommutator;3S;1|)
            '#(|antiCommutator| 12) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 9
-                                                 '(2 6 0 0 0 7 2 6 0 0 0 8 2 0
-                                                   0 0 0 9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|antiCommutator| (|#1| |#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 9
+                                            '(2 6 0 0 0 7 2 6 0 0 0 8 2 0 0 0 0
+                                              9)))))
            '|lookupComplete|)) 

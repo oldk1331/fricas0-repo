@@ -96,15 +96,24 @@
               (35 . |sign|) (|Boolean|) (40 . |zero?|) (45 . |One|) (49 . =)
               (55 . -) (|String|) |TOOLSIGN;direction;SI;6|)
            '#(|sign| 60 |nonQsign| 65 |direction| 70) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(1 8 0 7 9 1 11 10 8 12 1 0
-                                                   10 6 13 1 6 14 0 15 1 17 16
-                                                   0 18 1 0 10 6 19 1 6 10 0 20
-                                                   1 16 16 0 21 1 6 22 0 23 0 6
-                                                   0 24 2 6 22 0 0 25 1 6 0 0
-                                                   26 1 0 10 6 19 1 0 10 6 13 1
-                                                   0 16 27 28)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|sign| ((|Union| (|Integer|) "failed") |#1|))
+                                T)
+                              '((|nonQsign|
+                                 ((|Union| (|Integer|) "failed") |#1|))
+                                T)
+                              '((|direction| ((|Integer|) (|String|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(1 8 0 7 9 1 11 10 8 12 1 0 10 6
+                                              13 1 6 14 0 15 1 17 16 0 18 1 0
+                                              10 6 19 1 6 10 0 20 1 16 16 0 21
+                                              1 6 22 0 23 0 6 0 24 2 6 22 0 0
+                                              25 1 6 0 0 26 1 0 10 6 19 1 0 10
+                                              6 13 1 0 16 27 28)))))
            '|lookupComplete|)) 

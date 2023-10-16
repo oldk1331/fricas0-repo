@@ -92,18 +92,38 @@
               (|FiniteLinearAggregateFunctions2| 6 10 7 8) (0 . |scan|)
               |VECTOR2;scan;MVBV;1| (7 . |reduce|) |VECTOR2;reduce;MV2B;2|
               (|Mapping| 7 6) (14 . |map|) |VECTOR2;map;MVV;3| (|List| 6)
-              (20 . |entries|) (|Boolean|) (|Union| 7 '"failed") (25 . =)
+              (20 . |entries|) (|Boolean|) (|Union| 7 '#1="failed") (25 . =)
               (|List| 7) (31 . |vector|) (|Union| 8 '"failed") (|Mapping| 22 6)
               |VECTOR2;map;MVU;4|)
            '#(|scan| 36 |reduce| 43 |map| 50) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(3 11 8 9 10 7 12 3 11 7 9 10
-                                                   7 14 2 11 8 16 10 17 1 10 19
-                                                   0 20 2 22 21 0 0 23 1 8 0 24
-                                                   25 3 0 8 9 10 7 13 3 0 7 9
-                                                   10 7 15 2 0 26 27 10 28 2 0
-                                                   8 16 10 18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|scan|
+                                 ((|Vector| |#2|) (|Mapping| |#2| |#1| |#2|)
+                                  (|Vector| |#1|) |#2|))
+                                T)
+                              '((|reduce|
+                                 (|#2| (|Mapping| |#2| |#1| |#2|)
+                                  (|Vector| |#1|) |#2|))
+                                T)
+                              '((|map|
+                                 ((|Vector| |#2|) (|Mapping| |#2| |#1|)
+                                  (|Vector| |#1|)))
+                                T)
+                              '((|map|
+                                 ((|Union| (|Vector| |#2|) "failed")
+                                  (|Mapping| (|Union| |#2| #1#) |#1|)
+                                  (|Vector| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(3 11 8 9 10 7 12 3 11 7 9 10 7 14
+                                              2 11 8 16 10 17 1 10 19 0 20 2 22
+                                              21 0 0 23 1 8 0 24 25 3 0 8 9 10
+                                              7 13 3 0 7 9 10 7 15 2 0 26 27 10
+                                              28 2 0 8 16 10 18)))))
            '|lookupComplete|)) 

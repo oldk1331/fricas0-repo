@@ -216,27 +216,95 @@
               (39 . |close|) (45 . |solid|) (|List| (|List| 7)) (|List| 25)
               (|ThreeSpace| 21) (51 . |mesh|) |MESH;meshPar2Var;TsM2SLTs;3|
               (59 . |create3Space|) |MESH;meshPar2Var;M2SLTs;4|
-              (|Union| 11 '"undefined") |MESH;meshPar2Var;3MU2SLTs;6|
+              (|Union| 11 '#1="undefined") |MESH;meshPar2Var;3MU2SLTs;6|
               |MESH;meshFun2Var;MU2SLTs;7| (|Expression| (|Integer|))
               (|Mapping| 21 21))
            '#(|ptFunc| 63 |meshPar2Var| 71 |meshPar1Var| 99 |meshFun2Var| 109)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 41
-                                                 '(1 7 0 6 8 0 14 13 15 2 17 13
-                                                   16 13 18 0 14 13 19 2 17 13
-                                                   16 13 20 1 22 21 0 23 1 22
-                                                   21 0 24 0 25 0 26 2 25 27 0
-                                                   27 28 2 25 27 0 27 29 4 32 0
-                                                   0 30 31 25 33 0 32 0 35 4 0
-                                                   9 10 10 10 11 12 7 0 32 10
-                                                   10 10 37 22 22 16 38 5 0 32
-                                                   32 9 22 22 16 34 4 0 32 9 22
-                                                   22 16 36 6 0 32 40 40 40 41
-                                                   22 16 1 5 0 32 10 37 22 22
-                                                   16 39)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|meshPar2Var|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|))
+                                  (|Union|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                              (|DoubleFloat|) (|DoubleFloat|))
+                                   #1#)
+                                  (|Segment| (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|meshPar2Var|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|meshPar2Var|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|ThreeSpace| (|DoubleFloat|))
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|meshFun2Var|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|))
+                                  (|Union|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                              (|DoubleFloat|) (|DoubleFloat|))
+                                   #1#)
+                                  (|Segment| (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|meshPar1Var|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|ptFunc|
+                                 ((|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|) (|DoubleFloat|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 41
+                                            '(1 7 0 6 8 0 14 13 15 2 17 13 16
+                                              13 18 0 14 13 19 2 17 13 16 13 20
+                                              1 22 21 0 23 1 22 21 0 24 0 25 0
+                                              26 2 25 27 0 27 28 2 25 27 0 27
+                                              29 4 32 0 0 30 31 25 33 0 32 0 35
+                                              4 0 9 10 10 10 11 12 7 0 32 10 10
+                                              10 37 22 22 16 38 5 0 32 32 9 22
+                                              22 16 34 4 0 32 9 22 22 16 36 6 0
+                                              32 40 40 40 41 22 16 1 5 0 32 10
+                                              37 22 22 16 39)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|MeshCreationRoutinesForThreeDimensions| 'NILADIC T) 

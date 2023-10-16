@@ -62,11 +62,17 @@
               (|List| 6) (10 . |argument|) (|List| $) (15 . |elt|)
               (|Mapping| 7 6) |ES2;map;MKF;1|)
            '#(|map| 21) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(1 9 8 0 10 1 7 8 8 11 1 9 12
-                                                   0 13 2 7 0 8 14 15 2 0 7 16
-                                                   9 17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 (|#2| (|Mapping| |#2| |#1|) (|Kernel| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(1 9 8 0 10 1 7 8 8 11 1 9 12 0 13
+                                              2 7 0 8 14 15 2 0 7 16 9 17)))))
            '|lookupComplete|)) 

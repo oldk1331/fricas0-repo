@@ -133,19 +133,29 @@
               (72 . |leadingCoefficient|) (77 . |reductum|) (82 . *)
               (88 . |eulerE|) (94 . |bernoulli|) (99 . |bernoulliB|))
            '#(|eulerE| 105 |cyclotomic| 111 |bernoulliB| 117) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 34
-                                                 '(1 9 7 8 10 0 6 0 11 0 7 0 12
-                                                   2 7 13 0 0 14 1 7 15 0 16 1
-                                                   7 8 0 17 1 7 0 0 18 2 6 0 0
-                                                   15 19 2 6 0 8 0 20 2 6 0 0 0
-                                                   21 1 9 23 8 24 0 23 0 25 2
-                                                   23 13 0 0 26 1 23 15 0 27 1
-                                                   23 28 0 29 1 23 0 0 30 2 6 0
-                                                   28 0 31 2 0 6 15 6 32 1 9 23
-                                                   8 33 2 0 6 15 6 34 2 1 6 15
-                                                   6 32 2 0 6 15 6 22 2 1 6 15
-                                                   6 34)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|cyclotomic|
+                                 (|#1| (|NonNegativeInteger|) |#1|))
+                                T)
+                              '((|bernoulliB|
+                                 (|#1| (|NonNegativeInteger|) |#1|))
+                                (|has| 6 (|Algebra| 28)))
+                              '((|eulerE| (|#1| (|NonNegativeInteger|) |#1|))
+                                (|has| 6 (|Algebra| 28))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 34
+                                            '(1 9 7 8 10 0 6 0 11 0 7 0 12 2 7
+                                              13 0 0 14 1 7 15 0 16 1 7 8 0 17
+                                              1 7 0 0 18 2 6 0 0 15 19 2 6 0 8
+                                              0 20 2 6 0 0 0 21 1 9 23 8 24 0
+                                              23 0 25 2 23 13 0 0 26 1 23 15 0
+                                              27 1 23 28 0 29 1 23 0 0 30 2 6 0
+                                              28 0 31 2 0 6 15 6 32 1 9 23 8 33
+                                              2 0 6 15 6 34 2 1 6 15 6 32 2 0 6
+                                              15 6 22 2 1 6 15 6 34)))))
            '|lookupComplete|)) 

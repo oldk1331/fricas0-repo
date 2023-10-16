@@ -254,14 +254,22 @@
               (|UnivariatePolynomialCategoryFunctions2| 6 7 10 27) (42 . |map|)
               (|Fraction| 27) (48 . |coerce|))
            '#(|order| 53) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 31
-                                                 '(1 8 0 0 11 1 8 12 0 13 1 8
-                                                   14 0 15 2 14 0 0 0 16 1 14 7
-                                                   0 17 1 7 0 0 18 1 8 19 0 20
-                                                   2 25 24 22 8 26 2 28 27 22 7
-                                                   29 1 30 0 27 31 3 0 19 21 8
-                                                   22 23)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|order|
+                                 ((|NonNegativeInteger|)
+                                  (|FiniteDivisor| |#1| |#2| |#3| |#4|) |#3|
+                                  (|Mapping| |#5| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 31
+                                            '(1 8 0 0 11 1 8 12 0 13 1 8 14 0
+                                              15 2 14 0 0 0 16 1 14 7 0 17 1 7
+                                              0 0 18 1 8 19 0 20 2 25 24 22 8
+                                              26 2 28 27 22 7 29 1 30 0 27 31 3
+                                              0 19 21 8 22 23)))))
            '|lookupComplete|)) 

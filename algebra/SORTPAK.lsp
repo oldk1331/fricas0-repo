@@ -162,16 +162,29 @@
               '"rest" (45 . |elt|) '"first" (51 . |elt|) (57 . |setelt!|)
               (64 . |setelt!|))
            '#(|insertionSort!| 71 |bubbleSort!| 82) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(1 7 8 0 9 2 7 6 0 10 11 3 7
-                                                   12 0 10 10 13 2 8 16 0 0 17
-                                                   2 6 16 0 0 19 1 0 7 7 20 1 0
-                                                   7 7 21 1 7 16 0 22 2 7 0 0
-                                                   23 24 2 7 6 0 25 26 3 7 6 0
-                                                   25 6 27 3 7 0 0 23 0 28 1 1
-                                                   7 7 21 2 0 7 7 14 18 1 1 7 7
-                                                   20 2 0 7 7 14 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|bubbleSort!|
+                                 (|#2| |#2| (|Mapping| (|Boolean|) |#1| |#1|)))
+                                T)
+                              '((|insertionSort!|
+                                 (|#2| |#2| (|Mapping| (|Boolean|) |#1| |#1|)))
+                                T)
+                              '((|bubbleSort!| (|#2| |#2|))
+                                (|has| 6 (|OrderedSet|)))
+                              '((|insertionSort!| (|#2| |#2|))
+                                (|has| 6 (|OrderedSet|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(1 7 8 0 9 2 7 6 0 10 11 3 7 12 0
+                                              10 10 13 2 8 16 0 0 17 2 6 16 0 0
+                                              19 1 0 7 7 20 1 0 7 7 21 1 7 16 0
+                                              22 2 7 0 0 23 24 2 7 6 0 25 26 3
+                                              7 6 0 25 6 27 3 7 0 0 23 0 28 1 1
+                                              7 7 21 2 0 7 7 14 18 1 1 7 7 20 2
+                                              0 7 7 14 15)))))
            '|lookupComplete|)) 

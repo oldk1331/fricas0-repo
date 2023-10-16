@@ -272,19 +272,33 @@
               |CRAPACK;multiEuclideanTree;LRL;5|)
            '#(|multiEuclideanTree| 103 |modTree| 109 |chineseRemainder| 115)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 40
-                                                 '(0 6 0 8 2 7 0 9 6 10 2 7 0 0
-                                                   11 12 2 6 0 0 0 13 2 7 6 0
-                                                   14 15 2 6 0 0 0 16 3 7 0 0 6
-                                                   14 17 1 7 11 0 18 2 9 20 0 0
-                                                   21 0 6 0 22 1 7 0 0 23 2 6 0
-                                                   0 0 24 3 7 0 0 0 25 26 1 7 6
-                                                   0 27 3 6 29 0 0 0 30 1 6 34
-                                                   0 35 1 36 34 0 37 3 7 0 0 6
-                                                   38 39 2 0 11 11 6 40 2 0 11
-                                                   6 11 19 2 0 6 11 11 31 2 0
-                                                   11 32 11 33)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|modTree| ((|List| |#1|) |#1| (|List| |#1|)))
+                                T)
+                              '((|chineseRemainder|
+                                 (|#1| (|List| |#1|) (|List| |#1|)))
+                                T)
+                              '((|chineseRemainder|
+                                 ((|List| |#1|) (|List| (|List| |#1|))
+                                  (|List| |#1|)))
+                                T)
+                              '((|multiEuclideanTree|
+                                 ((|List| |#1|) (|List| |#1|) |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 40
+                                            '(0 6 0 8 2 7 0 9 6 10 2 7 0 0 11
+                                              12 2 6 0 0 0 13 2 7 6 0 14 15 2 6
+                                              0 0 0 16 3 7 0 0 6 14 17 1 7 11 0
+                                              18 2 9 20 0 0 21 0 6 0 22 1 7 0 0
+                                              23 2 6 0 0 0 24 3 7 0 0 0 25 26 1
+                                              7 6 0 27 3 6 29 0 0 0 30 1 6 34 0
+                                              35 1 36 34 0 37 3 7 0 0 6 38 39 2
+                                              0 11 11 6 40 2 0 11 6 11 19 2 0 6
+                                              11 11 31 2 0 11 32 11 33)))))
            '|lookupComplete|)) 

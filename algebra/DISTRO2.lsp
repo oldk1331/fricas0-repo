@@ -99,14 +99,25 @@
               |DISTRO2;mapall;MDD;1| (34 . |coerce|) (39 . |R1_to_R2_coercion|)
               (44 . |coerce|) |DISTRO2;coerce;DD;5|)
            '#(|mapall| 49 |coerce| 55 |R1_to_R2_coercion| 60) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 24
-                                                 '(1 9 8 0 10 2 13 11 12 8 14 1
-                                                   9 8 0 15 1 9 8 0 16 1 9 8 0
-                                                   17 4 18 0 11 11 11 11 19 1 7
-                                                   0 6 21 1 0 7 6 22 1 6 7 0 23
-                                                   2 0 18 12 9 20 1 0 18 9 24 1
-                                                   0 7 6 22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|mapall|
+                                 ((|Distribution| |#2|) (|Mapping| |#2| |#1|)
+                                  (|Distribution| |#1|)))
+                                T)
+                              '((|coerce|
+                                 ((|Distribution| |#2|) (|Distribution| |#1|)))
+                                T)
+                              '((|R1_to_R2_coercion| (|#2| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 24
+                                            '(1 9 8 0 10 2 13 11 12 8 14 1 9 8
+                                              0 15 1 9 8 0 16 1 9 8 0 17 4 18 0
+                                              11 11 11 11 19 1 7 0 6 21 1 0 7 6
+                                              22 1 6 7 0 23 2 0 18 12 9 20 1 0
+                                              18 9 24 1 0 7 6 22)))))
            '|lookupComplete|)) 

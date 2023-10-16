@@ -39,12 +39,21 @@
               |ORDSET-;min;3S;3| |ORDSET-;>;2SB;4| |ORDSET-;>=;2SB;5|
               |ORDSET-;<=;2SB;6|)
            '#(|smaller?| 12 |min| 18 |max| 24 >= 30 > 36 <= 42) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 15
-                                                 '(2 6 7 0 0 8 2 6 7 0 0 10 2 0
-                                                   7 0 0 9 2 0 0 0 0 12 2 0 0 0
-                                                   0 11 2 0 7 0 0 14 2 0 7 0 0
-                                                   13 2 0 7 0 0 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|min| (|#1| |#1| |#1|)) T)
+                                   '((|max| (|#1| |#1| |#1|)) T)
+                                   '((<= ((|Boolean|) |#1| |#1|)) T)
+                                   '((>= ((|Boolean|) |#1| |#1|)) T)
+                                   '((> ((|Boolean|) |#1| |#1|)) T)
+                                   '((|smaller?| ((|Boolean|) |#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 15
+                                            '(2 6 7 0 0 8 2 6 7 0 0 10 2 0 7 0
+                                              0 9 2 0 0 0 0 12 2 0 0 0 0 11 2 0
+                                              7 0 0 14 2 0 7 0 0 13 2 0 7 0 0
+                                              15)))))
            '|lookupComplete|)) 

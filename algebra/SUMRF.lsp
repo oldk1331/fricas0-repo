@@ -177,25 +177,48 @@
               (|InnerPolySum| (|IndexedExponents| 7) 7 6 35) (148 . |sum|)
               (|Integer|) (154 . |coerce|) (159 . /))
            '#(|sum| 165) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 62
-                                                 '(1 8 7 0 9 1 11 0 10 12 2 15
-                                                   13 14 8 16 2 11 0 0 17 18 0
-                                                   6 0 19 0 10 0 20 1 8 21 0 22
-                                                   1 21 10 0 23 2 10 0 0 0 24 3
-                                                   25 10 10 7 10 26 1 21 10 0
-                                                   27 2 10 0 0 0 28 2 11 0 0 7
-                                                   31 1 33 7 0 34 0 35 0 37 1
-                                                   33 38 0 39 1 38 35 0 40 2 35
-                                                   0 0 0 41 1 10 0 35 42 1 38
-                                                   35 0 43 1 10 45 0 46 1 10 0
-                                                   0 47 1 10 0 7 48 2 10 0 0 0
-                                                   49 0 7 0 50 3 53 51 10 7 52
-                                                   54 1 6 0 0 55 2 10 0 0 0 56
-                                                   2 58 57 35 7 59 1 35 0 60 61
-                                                   2 10 0 35 35 62 2 0 29 10 7
-                                                   32 2 0 10 35 7 36 2 0 29 10
-                                                   8 30 2 0 10 35 33 44)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|sum|
+                                 ((|Fraction| (|Polynomial| |#1|))
+                                  (|Polynomial| |#1|) (|Symbol|)))
+                                T)
+                              '((|sum|
+                                 ((|Union| (|Fraction| (|Polynomial| |#1|))
+                                           (|Expression| |#1|))
+                                  (|Fraction| (|Polynomial| |#1|)) (|Symbol|)))
+                                T)
+                              '((|sum|
+                                 ((|Fraction| (|Polynomial| |#1|))
+                                  (|Polynomial| |#1|)
+                                  (|SegmentBinding| (|Polynomial| |#1|))))
+                                T)
+                              '((|sum|
+                                 ((|Union| (|Fraction| (|Polynomial| |#1|))
+                                           (|Expression| |#1|))
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|SegmentBinding|
+                                   (|Fraction| (|Polynomial| |#1|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 62
+                                            '(1 8 7 0 9 1 11 0 10 12 2 15 13 14
+                                              8 16 2 11 0 0 17 18 0 6 0 19 0 10
+                                              0 20 1 8 21 0 22 1 21 10 0 23 2
+                                              10 0 0 0 24 3 25 10 10 7 10 26 1
+                                              21 10 0 27 2 10 0 0 0 28 2 11 0 0
+                                              7 31 1 33 7 0 34 0 35 0 37 1 33
+                                              38 0 39 1 38 35 0 40 2 35 0 0 0
+                                              41 1 10 0 35 42 1 38 35 0 43 1 10
+                                              45 0 46 1 10 0 0 47 1 10 0 7 48 2
+                                              10 0 0 0 49 0 7 0 50 3 53 51 10 7
+                                              52 54 1 6 0 0 55 2 10 0 0 0 56 2
+                                              58 57 35 7 59 1 35 0 60 61 2 10 0
+                                              35 35 62 2 0 29 10 7 32 2 0 10 35
+                                              7 36 2 0 29 10 8 30 2 0 10 35 33
+                                              44)))))
            '|lookupComplete|)) 

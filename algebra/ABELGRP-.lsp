@@ -46,15 +46,26 @@
               (|Boolean|) (27 . >) (|PositiveInteger|) (|RepeatedDoubling| 6)
               (33 . |double|) (39 . *) (45 . =) |ABELGRP-;opposite?;2SB;5|)
            '#(|subtractIfCan| 51 |opposite?| 57 - 63 * 69) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(1 6 0 0 7 2 6 0 0 0 8 2 6 0
-                                                   0 0 10 2 6 0 13 0 14 0 6 0
-                                                   17 2 13 18 0 0 19 2 21 6 20
-                                                   6 22 2 0 0 13 0 23 2 6 18 0
-                                                   0 24 2 0 11 0 0 12 2 0 18 0
-                                                   0 25 2 0 0 0 0 9 2 0 0 13 0
-                                                   23 2 0 0 15 0 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((* (|#1| (|Integer|) |#1|)) T)
+                                   '((- (|#1| |#1| |#1|)) T)
+                                   '((- (|#1| |#1|)) T)
+                                   '((|subtractIfCan|
+                                      ((|Union| |#1| "failed") |#1| |#1|))
+                                     T)
+                                   '((|opposite?| ((|Boolean|) |#1| |#1|)) T)
+                                   '((* (|#1| (|NonNegativeInteger|) |#1|)) T)
+                                   '((* (|#1| (|PositiveInteger|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(1 6 0 0 7 2 6 0 0 0 8 2 6 0 0 0
+                                              10 2 6 0 13 0 14 0 6 0 17 2 13 18
+                                              0 0 19 2 21 6 20 6 22 2 0 0 13 0
+                                              23 2 6 18 0 0 24 2 0 11 0 0 12 2
+                                              0 18 0 0 25 2 0 0 0 0 9 2 0 0 13
+                                              0 23 2 0 0 15 0 16)))))
            '|lookupComplete|)) 

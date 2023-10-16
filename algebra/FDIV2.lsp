@@ -94,13 +94,21 @@
                                            (|Fraction| 11) 12 13)
               (22 . |map|) (28 . |divisor|) (33 . +) |FDIV2;map;MFdFd;1|)
            '#(|map| 39) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 31
-                                                 '(1 15 14 0 16 2 18 13 17 9 19
-                                                   1 20 0 13 21 2 22 11 17 7 23
-                                                   2 27 24 25 26 28 1 20 0 24
-                                                   29 2 20 0 0 0 30 2 0 20 17
-                                                   15 31)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|FiniteDivisor| |#5| |#6| |#7| |#8|)
+                                  (|Mapping| |#5| |#1|)
+                                  (|FiniteDivisor| |#1| |#2| |#3| |#4|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 31
+                                            '(1 15 14 0 16 2 18 13 17 9 19 1 20
+                                              0 13 21 2 22 11 17 7 23 2 27 24
+                                              25 26 28 1 20 0 24 29 2 20 0 0 0
+                                              30 2 0 20 17 15 31)))))
            '|lookupComplete|)) 

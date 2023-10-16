@@ -38,12 +38,25 @@
               (13 . |OMencodingXML|) (17 . |OMopenString|) (23 . |OMclose|)
               |OM-;OMwrite;SBS;3|)
            '#(|OMwrite| 28) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(2 6 7 0 8 9 3 6 11 12 0 8 13
-                                                   0 15 0 16 2 12 0 7 15 17 1
-                                                   12 11 0 18 2 0 7 0 8 19 1 0
-                                                   7 0 10 2 0 11 12 0 14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|OMwrite| ((|String|) |#1|)) T)
+                                   '((|OMwrite| ((|String|) |#1| (|Boolean|)))
+                                     T)
+                                   '((|OMwrite|
+                                      ((|Void|) (|OpenMathDevice|) |#1|))
+                                     T)
+                                   '((|OMwrite|
+                                      ((|Void|) (|OpenMathDevice|) |#1|
+                                       (|Boolean|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(2 6 7 0 8 9 3 6 11 12 0 8 13 0 15
+                                              0 16 2 12 0 7 15 17 1 12 11 0 18
+                                              2 0 7 0 8 19 1 0 7 0 10 2 0 11 12
+                                              0 14)))))
            '|lookupComplete|)) 

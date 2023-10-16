@@ -26,11 +26,13 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |log|) (5 . *)
               (11 . |exp|) (16 . ^))
            '#(^ 22) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10
-                                                 '(1 6 0 0 7 2 6 0 0 0 8 1 6 0
-                                                   0 9 2 0 0 0 0 10 2 0 0 0 0
-                                                   10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory| (LIST '((^ (|#1| |#1| |#1|)) T))
+                                          (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10
+                                            '(1 6 0 0 7 2 6 0 0 0 8 1 6 0 0 9 2
+                                              0 0 0 0 10 2 0 0 0 0 10)))))
            '|lookupComplete|)) 

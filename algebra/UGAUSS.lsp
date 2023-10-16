@@ -323,15 +323,31 @@
               (25 . |zero|) |UGAUSS;pre_gauss;2M;3| (30 . |zero|)
               |UGAUSS;pre_smith;2M;4|)
            '#(|pre_smith| 36 |pre_lr| 41 |pre_gauss| 48) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(2 7 6 0 6 8 2 6 9 0 0 10 3 7
-                                                   6 0 6 6 11 2 13 0 12 6 14 1
-                                                   7 0 12 16 2 13 0 12 12 18 1
-                                                   0 13 13 19 3 0 13 13 7 7 15
-                                                   1 0 13 13 17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|pre_gauss|
+                                 ((|Matrix| (|Integer|))
+                                  (|Matrix| (|Integer|))))
+                                T)
+                              '((|pre_smith|
+                                 ((|Matrix| (|Integer|))
+                                  (|Matrix| (|Integer|))))
+                                T)
+                              '((|pre_lr|
+                                 ((|Matrix| (|Integer|)) (|Matrix| (|Integer|))
+                                  (|Vector| (|Integer|))
+                                  (|Vector| (|Integer|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(2 7 6 0 6 8 2 6 9 0 0 10 3 7 6 0
+                                              6 6 11 2 13 0 12 6 14 1 7 0 12 16
+                                              2 13 0 12 12 18 1 0 13 13 19 3 0
+                                              13 13 7 7 15 1 0 13 13 17)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|UnitGaussianElimination| 'NILADIC T) 

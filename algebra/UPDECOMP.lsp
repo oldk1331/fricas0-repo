@@ -577,42 +577,73 @@
               (75 . |characteristic|) '|char_R| (|Boolean|) (79 . |zero?|)
               (84 . |exquo|) (90 . |Zero|) (94 . =) (100 . ^) (106 . *)
               (112 . *) (118 . -) (|PositiveInteger|) (124 . *)
-              (|Union| 7 '"failed") |UPDECOMP;rightFactorIfCan;UPNniRU;2|
+              (|Union| 7 '#1="failed") |UPDECOMP;rightFactorIfCan;UPNniRU;2|
               |UPDECOMP;monicRightFactorIfCan;UPNniU;3| (130 . |zero?|)
               (|Record| (|:| |quotient| 7) (|:| |remainder| 7))
               (|Union| 42 '"failed")
               (|UnivariatePolynomialDivisionPackage| 6 7) (135 . |divideIfCan|)
               (141 . |ground?|) (146 . |ground|)
               |UPDECOMP;leftFactorIfCan;2UPU;4|
-              (|Record| (|:| |left| 7) (|:| |right| 7)) (|Union| 49 '"failed")
-              |UPDECOMP;monicDecomposeIfCan;UPU;5| (|List| 7)
-              |UPDECOMP;monicCompleteDecompose;UPL;6| (151 . |append|)
-              (157 . /) (163 . |decomposeIfCan|) (168 . |completeDecompose|))
+              (|Record| (|:| |left| 7) (|:| |right| 7))
+              (|Union| 49 '#2="failed") |UPDECOMP;monicDecomposeIfCan;UPU;5|
+              (|List| 7) |UPDECOMP;monicCompleteDecompose;UPL;6|
+              (151 . |append|) (157 . /) (163 . |decomposeIfCan|)
+              (168 . |completeDecompose|))
            '#(|rightFactorIfCan| 173 |monicRightFactorIfCan| 180
               |monicDecomposeIfCan| 186 |monicCompleteDecompose| 191
               |leftFactorIfCan| 196 |decomposeIfCan| 202 |completeDecompose|
               207)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 57
-                                                 '(1 7 8 0 9 0 6 0 10 0 7 0 11
-                                                   2 8 12 0 0 13 1 7 6 0 14 2 7
-                                                   0 6 8 15 0 6 0 16 1 6 0 17
-                                                   18 2 6 0 0 0 19 2 6 0 0 0 20
-                                                   2 6 0 0 0 21 2 7 6 0 8 22 2
-                                                   6 12 0 0 23 2 7 0 0 0 24 0 6
-                                                   8 25 1 6 27 0 28 2 8 12 0 0
-                                                   29 0 7 0 30 2 6 27 0 0 31 2
-                                                   7 0 0 8 32 2 7 0 0 0 33 2 7
-                                                   0 6 0 34 2 7 0 0 0 35 2 8 0
-                                                   36 0 37 1 7 27 0 41 2 44 43
-                                                   7 7 45 1 7 27 0 46 1 7 6 0
-                                                   47 2 52 0 0 0 54 2 7 0 0 6
-                                                   55 1 0 50 7 56 1 0 52 7 57 3
-                                                   0 38 7 8 6 39 2 0 38 7 8 40
-                                                   1 0 50 7 51 1 0 52 7 53 2 0
-                                                   38 7 7 48 1 1 50 7 56 1 1 52
-                                                   7 57)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|monicRightFactorIfCan|
+                                 ((|Union| |#2| "failed") |#2|
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|rightFactorIfCan|
+                                 ((|Union| |#2| #1#) |#2|
+                                  (|NonNegativeInteger|) |#1|))
+                                T)
+                              '((|leftFactorIfCan|
+                                 ((|Union| |#2| "failed") |#2| |#2|))
+                                T)
+                              '((|monicDecomposeIfCan|
+                                 ((|Union|
+                                   (|Record| (|:| |left| |#2|)
+                                             (|:| |right| |#2|))
+                                   #2#)
+                                  |#2|))
+                                T)
+                              '((|monicCompleteDecompose| ((|List| |#2|) |#2|))
+                                T)
+                              '((|decomposeIfCan|
+                                 ((|Union|
+                                   (|Record| (|:| |left| |#2|)
+                                             (|:| |right| |#2|))
+                                   "failed")
+                                  |#2|))
+                                (|has| 6 (|Field|)))
+                              '((|completeDecompose| ((|List| |#2|) |#2|))
+                                (|has| 6 (|Field|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 57
+                                            '(1 7 8 0 9 0 6 0 10 0 7 0 11 2 8
+                                              12 0 0 13 1 7 6 0 14 2 7 0 6 8 15
+                                              0 6 0 16 1 6 0 17 18 2 6 0 0 0 19
+                                              2 6 0 0 0 20 2 6 0 0 0 21 2 7 6 0
+                                              8 22 2 6 12 0 0 23 2 7 0 0 0 24 0
+                                              6 8 25 1 6 27 0 28 2 8 12 0 0 29
+                                              0 7 0 30 2 6 27 0 0 31 2 7 0 0 8
+                                              32 2 7 0 0 0 33 2 7 0 6 0 34 2 7
+                                              0 0 0 35 2 8 0 36 0 37 1 7 27 0
+                                              41 2 44 43 7 7 45 1 7 27 0 46 1 7
+                                              6 0 47 2 52 0 0 0 54 2 7 0 0 6 55
+                                              1 0 50 7 56 1 0 52 7 57 3 0 38 7
+                                              8 6 39 2 0 38 7 8 40 1 0 50 7 51
+                                              1 0 52 7 53 2 0 38 7 7 48 1 1 50
+                                              7 56 1 1 52 7 57)))))
            '|lookupComplete|)) 

@@ -41,10 +41,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|String|) (|Symbol|) (0 . |coerce|)
               (|Void|) |IPRNTPK;iprint;SV;1|)
            '#(|iprint| 5) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10 '(1 7 0 6 8 1 0 9 6 10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|iprint| ((|Void|) (|String|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10 '(1 7 0 6 8 1 0 9 6 10)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|InternalPrintPackage| 'NILADIC T) 

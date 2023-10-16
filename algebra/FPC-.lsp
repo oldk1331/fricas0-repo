@@ -27,10 +27,18 @@
               (0 . |characteristic|) (4 . ^) |FPC-;primeFrobenius;2S;1|
               |FPC-;primeFrobenius;SNniS;2|)
            '#(|primeFrobenius| 10) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 11
-                                                 '(0 6 7 8 2 6 0 0 7 9 1 0 0 0
-                                                   10 2 0 0 0 7 11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|primeFrobenius|
+                                 (|#1| |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|primeFrobenius| (|#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 11
+                                            '(0 6 7 8 2 6 0 0 7 9 1 0 0 0 10 2
+                                              0 0 0 7 11)))))
            '|lookupComplete|)) 

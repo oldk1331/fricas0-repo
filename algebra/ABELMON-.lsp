@@ -42,14 +42,21 @@
               (|RepeatedDoubling| 6) (16 . |double|) (22 . *) (28 . +)
               (34 . |zero?|) |ABELMON-;opposite?;2SB;5|)
            '#(|zero?| 39 |sample| 44 |opposite?| 48 * 54) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(0 6 0 7 2 6 8 0 0 9 2 6 0 11
-                                                   0 12 2 16 6 13 6 17 2 0 0 11
-                                                   0 18 2 6 0 0 0 19 1 6 8 0 20
-                                                   1 0 8 0 10 0 0 0 15 2 0 8 0
-                                                   0 21 2 0 0 11 0 18 2 0 0 13
-                                                   0 14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|opposite?| ((|Boolean|) |#1| |#1|)) T)
+                                   '((* (|#1| (|NonNegativeInteger|) |#1|)) T)
+                                   '((|zero?| ((|Boolean|) |#1|)) T)
+                                   '((|sample| (|#1|)) T)
+                                   '((* (|#1| (|PositiveInteger|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(0 6 0 7 2 6 8 0 0 9 2 6 0 11 0 12
+                                              2 16 6 13 6 17 2 0 0 11 0 18 2 6
+                                              0 0 0 19 1 6 8 0 20 1 0 8 0 10 0
+                                              0 0 15 2 0 8 0 0 21 2 0 0 11 0 18
+                                              2 0 0 13 0 14)))))
            '|lookupComplete|)) 

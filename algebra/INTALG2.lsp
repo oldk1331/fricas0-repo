@@ -917,33 +917,79 @@
               (|Mapping| (|List| 95) 60) (|Mapping| (|List| 95) 11 60)
               |INTALG2;algextint;MMMMLL;12|)
            '#(|algextint_base| 261 |algextint| 268) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 98
-                                                 '(1 8 9 0 10 0 11 0 12 0 6 0
-                                                   13 0 7 0 14 1 16 15 0 17 2
-                                                   11 0 18 18 19 1 21 20 11 22
-                                                   1 21 11 0 23 0 8 24 25 2 8 0
-                                                   26 24 27 2 30 28 8 29 31 1 8
-                                                   32 0 33 0 8 0 34 2 18 35 0 0
-                                                   36 1 11 0 18 37 2 38 7 0 15
-                                                   39 1 18 0 7 40 2 8 0 11 0 41
-                                                   2 8 0 0 0 42 1 11 18 0 43 2
-                                                   18 0 0 0 44 1 18 32 0 45 2
-                                                   18 46 0 0 47 2 11 0 0 0 48 1
-                                                   11 18 0 49 3 18 51 0 0 0 52
-                                                   0 6 0 53 0 7 0 54 2 26 11 0
-                                                   15 55 2 56 8 0 15 57 3 58 18
-                                                   0 15 15 59 2 61 11 38 60 62
-                                                   1 64 0 63 65 1 11 58 66 67 1
-                                                   18 68 66 69 2 61 38 38 70 71
-                                                   2 8 0 0 0 72 2 16 18 0 15 73
-                                                   3 26 11 0 15 11 74 1 8 75 29
-                                                   76 0 8 0 77 2 8 32 0 0 78 1
-                                                   58 32 0 79 1 81 0 80 82 1 8
-                                                   64 66 83 1 8 0 0 84 2 18 0 7
-                                                   90 91 1 18 90 0 92 1 18 93 0
-                                                   94 3 0 86 29 87 88 89 5 0 86
-                                                   29 96 97 87 88 98)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|algextint|
+                                 ((|List|
+                                   (|Record| (|:| |ratpart| |#3|)
+                                             (|:| |coeffs| (|Vector| |#2|))))
+                                  (|Mapping|
+                                   (|SparseUnivariatePolynomial| |#2|)
+                                   (|SparseUnivariatePolynomial| |#2|))
+                                  (|Mapping|
+                                   (|List|
+                                    (|Record|
+                                     (|:| |ratpart|
+                                          (|Fraction|
+                                           (|SparseUnivariatePolynomial|
+                                            |#2|)))
+                                     (|:| |coeffs| (|Vector| |#2|))))
+                                   (|List|
+                                    (|Fraction|
+                                     (|SparseUnivariatePolynomial| |#2|))))
+                                  (|Mapping|
+                                   (|List|
+                                    (|Record|
+                                     (|:| |ratpart|
+                                          (|Fraction|
+                                           (|SparseUnivariatePolynomial|
+                                            |#2|)))
+                                     (|:| |coeffs| (|Vector| |#2|))))
+                                   (|Fraction|
+                                    (|SparseUnivariatePolynomial| |#2|))
+                                   (|List|
+                                    (|Fraction|
+                                     (|SparseUnivariatePolynomial| |#2|))))
+                                  (|Mapping| (|List| (|Vector| |#2|))
+                                             (|Matrix| |#2|))
+                                  (|List| |#3|)))
+                                T)
+                              '((|algextint_base|
+                                 ((|List|
+                                   (|Record| (|:| |ratpart| |#3|)
+                                             (|:| |coeffs| (|Vector| |#2|))))
+                                  (|Mapping|
+                                   (|SparseUnivariatePolynomial| |#2|)
+                                   (|SparseUnivariatePolynomial| |#2|))
+                                  (|Mapping| (|List| (|Vector| |#2|))
+                                             (|Matrix| |#2|))
+                                  (|List| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 98
+                                            '(1 8 9 0 10 0 11 0 12 0 6 0 13 0 7
+                                              0 14 1 16 15 0 17 2 11 0 18 18 19
+                                              1 21 20 11 22 1 21 11 0 23 0 8 24
+                                              25 2 8 0 26 24 27 2 30 28 8 29 31
+                                              1 8 32 0 33 0 8 0 34 2 18 35 0 0
+                                              36 1 11 0 18 37 2 38 7 0 15 39 1
+                                              18 0 7 40 2 8 0 11 0 41 2 8 0 0 0
+                                              42 1 11 18 0 43 2 18 0 0 0 44 1
+                                              18 32 0 45 2 18 46 0 0 47 2 11 0
+                                              0 0 48 1 11 18 0 49 3 18 51 0 0 0
+                                              52 0 6 0 53 0 7 0 54 2 26 11 0 15
+                                              55 2 56 8 0 15 57 3 58 18 0 15 15
+                                              59 2 61 11 38 60 62 1 64 0 63 65
+                                              1 11 58 66 67 1 18 68 66 69 2 61
+                                              38 38 70 71 2 8 0 0 0 72 2 16 18
+                                              0 15 73 3 26 11 0 15 11 74 1 8 75
+                                              29 76 0 8 0 77 2 8 32 0 0 78 1 58
+                                              32 0 79 1 81 0 80 82 1 8 64 66 83
+                                              1 8 0 0 84 2 18 0 7 90 91 1 18 90
+                                              0 92 1 18 93 0 94 3 0 86 29 87 88
+                                              89 5 0 86 29 96 97 87 88 98)))))
            '|lookupComplete|)) 

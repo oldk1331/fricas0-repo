@@ -658,34 +658,66 @@
               |divisors| 268 |chineseRemainder| 273 |carmichaelLambda| 281
               |bernoulli| 286)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 76
-                                                 '(2 8 0 6 7 9 0 11 0 12 2 13 0
-                                                   6 11 14 0 11 0 17 2 11 0 7 7
-                                                   18 2 11 0 0 0 19 2 7 0 0 22
-                                                   23 2 7 0 22 0 24 2 7 25 0 0
-                                                   26 2 7 25 0 0 27 1 7 28 0 29
-                                                   1 33 32 0 34 2 6 25 0 0 35 1
-                                                   7 0 36 37 1 8 6 0 39 2 8 7 0
-                                                   7 40 2 8 0 0 0 41 3 8 7 0 7
-                                                   7 42 2 7 0 6 0 43 1 11 0 0
-                                                   45 1 13 6 0 46 2 13 11 0 7
-                                                   47 2 13 0 0 0 48 3 13 11 0 7
-                                                   11 49 1 11 0 7 50 2 11 0 0
-                                                   11 51 2 11 0 0 0 52 2 7 25 0
-                                                   0 54 2 7 0 0 0 55 1 7 25 0
-                                                   57 2 7 25 0 0 58 1 60 25 7
-                                                   61 2 11 0 7 0 63 1 11 7 0 64
-                                                   2 7 25 0 0 66 2 68 0 67 0 69
-                                                   2 6 25 0 0 74 1 33 6 0 75 2
-                                                   0 7 7 6 73 1 0 7 7 72 1 0 7
-                                                   7 71 1 0 7 7 76 2 0 7 7 7 62
-                                                   2 0 7 7 7 59 1 0 11 7 20 1 0
-                                                   7 7 21 1 0 7 7 65 1 0 7 7 44
-                                                   1 0 68 7 70 4 0 7 7 7 7 7 56
-                                                   1 0 7 7 38 1 0 11 7 53)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|bernoulli|
+                                 ((|Fraction| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|carmichaelLambda| ((|Integer|) (|Integer|)))
+                                T)
+                              '((|chineseRemainder|
+                                 ((|Integer|) (|Integer|) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|divisors| ((|List| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|euler| ((|Integer|) (|Integer|))) T)
+                              '((|eulerPhi| ((|Integer|) (|Integer|))) T)
+                              '((|fibonacci| ((|Integer|) (|Integer|))) T)
+                              '((|harmonic|
+                                 ((|Fraction| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|jacobi|
+                                 ((|Integer|) (|Integer|) (|Integer|)))
+                                T)
+                              '((|legendre|
+                                 ((|Integer|) (|Integer|) (|Integer|)))
+                                T)
+                              '((|moebiusMu| ((|Integer|) (|Integer|))) T)
+                              '((|numberOfDivisors| ((|Integer|) (|Integer|)))
+                                T)
+                              '((|sumOfDivisors| ((|Integer|) (|Integer|))) T)
+                              '((|sumOfKthPowerDivisors|
+                                 ((|Integer|) (|Integer|)
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 76
+                                            '(2 8 0 6 7 9 0 11 0 12 2 13 0 6 11
+                                              14 0 11 0 17 2 11 0 7 7 18 2 11 0
+                                              0 0 19 2 7 0 0 22 23 2 7 0 22 0
+                                              24 2 7 25 0 0 26 2 7 25 0 0 27 1
+                                              7 28 0 29 1 33 32 0 34 2 6 25 0 0
+                                              35 1 7 0 36 37 1 8 6 0 39 2 8 7 0
+                                              7 40 2 8 0 0 0 41 3 8 7 0 7 7 42
+                                              2 7 0 6 0 43 1 11 0 0 45 1 13 6 0
+                                              46 2 13 11 0 7 47 2 13 0 0 0 48 3
+                                              13 11 0 7 11 49 1 11 0 7 50 2 11
+                                              0 0 11 51 2 11 0 0 0 52 2 7 25 0
+                                              0 54 2 7 0 0 0 55 1 7 25 0 57 2 7
+                                              25 0 0 58 1 60 25 7 61 2 11 0 7 0
+                                              63 1 11 7 0 64 2 7 25 0 0 66 2 68
+                                              0 67 0 69 2 6 25 0 0 74 1 33 6 0
+                                              75 2 0 7 7 6 73 1 0 7 7 72 1 0 7
+                                              7 71 1 0 7 7 76 2 0 7 7 7 62 2 0
+                                              7 7 7 59 1 0 11 7 20 1 0 7 7 21 1
+                                              0 7 7 65 1 0 7 7 44 1 0 68 7 70 4
+                                              0 7 7 7 7 7 56 1 0 7 7 38 1 0 11
+                                              7 53)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|IntegerNumberTheoryFunctions| 'NILADIC T) 

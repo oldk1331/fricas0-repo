@@ -9958,7 +9958,7 @@
               (1052 . *) (1058 . +) (1064 . |One|) (1068 . /) (1074 . /)
               (1080 . |adjoint|) (|LinearOrdinaryDifferentialOperator1| 25)
               (|LODOConvertions| 11 8 25) (1085 . |convert|) (1090 . |Zero|)
-              (|Union| 11 '"infinity") (1094 . =) (1100 . /) (1106 . ^)
+              (|Union| 11 '#1="infinity") (1094 . =) (1100 . /) (1106 . ^)
               (1112 . D) (1116 . *) (1122 . -) (1127 . ~=)
               (1133 . |leadingCoefficient|) (1138 . |degree|) (1143 . ^)
               (1149 . +) (1155 . |reductum|) (1160 . ~=) (1166 . |rightGcd|)
@@ -10013,177 +10013,813 @@
               |testcp| 1671 |testco| 1678 |gen_exp| 1685 |ge_minimal| 1693
               |factor| 1700)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 434
-                                                 '(1 9 0 8 10 0 11 0 12 0 13 0
-                                                   14 2 9 8 0 15 16 0 17 0 18 0
-                                                   11 0 19 0 13 0 20 0 21 0 22
-                                                   2 21 23 0 0 24 1 21 25 0 26
-                                                   1 25 8 0 27 1 13 0 9 28 1 25
-                                                   8 0 29 1 13 30 0 31 2 13 0 9
-                                                   0 32 1 21 15 0 33 2 17 0 13
-                                                   15 34 2 17 0 0 0 35 1 21 0 0
-                                                   36 1 17 13 0 37 1 13 38 0 39
-                                                   2 17 23 0 0 40 1 17 15 0 41
-                                                   2 13 38 0 38 42 2 15 23 0 0
-                                                   43 1 17 0 0 44 2 46 45 0 38
-                                                   47 2 15 23 0 0 48 2 38 23 0
-                                                   0 49 2 50 0 38 38 51 0 8 0
-                                                   52 1 50 38 0 53 2 17 13 0 15
-                                                   54 1 50 38 0 55 2 38 0 15 0
-                                                   56 2 13 11 0 38 57 2 8 0 11
-                                                   15 58 2 8 0 0 0 59 2 61 0 0
-                                                   0 62 1 66 65 0 67 0 50 0 68
-                                                   2 50 23 0 0 69 2 8 0 0 15 70
-                                                   3 71 8 0 38 8 72 1 65 73 0
-                                                   74 1 8 15 0 75 2 8 11 0 15
-                                                   76 2 11 0 0 0 77 1 11 0 38
-                                                   78 2 11 0 0 0 79 1 80 23 11
-                                                   81 2 11 23 0 0 82 1 80 38 11
-                                                   83 1 8 0 38 84 3 8 0 0 0 0
-                                                   85 2 8 0 0 0 86 2 8 23 0 0
-                                                   87 2 38 23 0 0 88 2 71 8 0
-                                                   38 89 2 8 0 0 0 90 2 65 0 0
-                                                   0 91 2 65 38 64 0 92 2 65 64
-                                                   0 38 93 2 94 0 0 0 95 1 8 99
-                                                   0 100 1 8 0 99 101 2 104 66
-                                                   102 103 105 1 50 0 38 106 2
-                                                   50 0 38 0 107 2 50 0 0 0 108
-                                                   2 50 0 0 0 109 2 8 0 0 0 110
-                                                   2 50 23 0 0 111 2 114 13 0
-                                                   38 115 2 120 119 0 38 121 1
-                                                   13 0 119 122 2 114 0 0 0 123
-                                                   2 127 124 125 126 128 1 50
-                                                   38 0 129 0 132 0 133 2 38 0
-                                                   0 0 134 2 136 0 135 38 137 2
-                                                   38 0 0 0 138 2 38 0 0 0 139
-                                                   1 50 140 0 141 2 140 23 0 0
-                                                   142 3 144 119 143 124 136
-                                                   145 2 120 0 0 0 146 1 119 0
-                                                   147 148 2 13 0 11 38 149 2
-                                                   17 0 0 13 150 2 8 151 0 0
-                                                   152 0 8 0 153 2 8 23 0 0 154
-                                                   2 8 0 0 0 155 1 8 0 0 156 0
-                                                   11 0 157 0 13 0 158 0 9 0
-                                                   159 2 17 0 13 0 160 1 17 0 0
-                                                   161 2 17 0 0 0 162 3 8 164 0
-                                                   0 0 165 2 38 0 166 0 167 2
-                                                   17 0 0 0 168 1 17 169 0 170
-                                                   1 169 171 0 172 0 166 0 175
-                                                   2 166 0 0 0 176 2 179 0 178
-                                                   177 180 2 182 126 181 179
-                                                   183 2 38 151 0 0 185 2 38 0
-                                                   0 0 186 1 50 38 0 187 1 50
-                                                   38 0 189 1 8 11 0 192 1 13 0
-                                                   11 193 1 8 0 0 194 2 61 60 0
-                                                   38 196 1 199 198 0 200 1 17
-                                                   0 13 201 1 66 204 0 205 1 8
-                                                   140 0 206 2 140 23 0 0 207 2
-                                                   38 23 0 0 208 2 38 0 0 0 209
-                                                   2 211 38 210 0 212 2 204 203
-                                                   0 38 213 2 15 23 0 0 214 2
-                                                   13 0 0 38 215 1 13 0 0 216 2
-                                                   13 0 11 0 217 1 13 218 0 219
-                                                   2 13 0 0 38 220 1 11 0 0 221
-                                                   2 11 0 15 0 222 2 13 0 0 0
-                                                   223 2 225 0 0 0 226 2 17 23
-                                                   0 0 227 2 17 0 0 0 228 2 199
-                                                   0 0 0 229 1 11 0 230 231 1 8
-                                                   0 11 232 2 11 0 0 38 233 2
-                                                   11 0 38 0 234 1 25 0 8 237 1
-                                                   21 0 25 238 2 17 0 0 15 239
-                                                   2 11 23 0 0 242 2 13 0 243 0
-                                                   244 2 13 0 0 166 245 2 50 0
-                                                   0 38 246 1 11 0 50 247 2 17
-                                                   0 38 0 248 3 251 13 0 38 13
-                                                   252 0 17 0 253 3 17 13 0 13
-                                                   13 254 2 13 0 0 0 255 2 13 0
-                                                   0 11 256 2 13 0 0 0 257 2
-                                                   251 0 258 0 259 2 15 0 0 0
-                                                   260 2 262 0 261 15 263 2 251
-                                                   13 0 38 264 2 15 0 0 0 265 2
-                                                   11 0 0 15 266 2 268 119 267
-                                                   262 269 2 270 251 0 38 271 2
-                                                   274 272 273 11 275 2 272 23
-                                                   0 0 276 2 277 50 0 38 278 2
-                                                   13 0 279 0 280 2 281 114 0
-                                                   38 282 3 114 13 0 38 13 283
-                                                   1 284 0 281 285 2 13 23 0 0
-                                                   286 0 17 0 287 2 17 0 0 13
-                                                   288 0 50 0 289 0 9 0 290 2
-                                                   293 291 292 94 294 2 291 61
-                                                   0 38 295 2 61 23 0 0 296 2 8
-                                                   0 0 11 297 1 13 9 0 299 2
-                                                   300 23 0 0 301 2 302 99 0 38
-                                                   303 0 25 0 304 2 21 0 25 15
-                                                   305 2 21 0 25 0 306 2 21 0 0
-                                                   0 307 0 21 0 308 2 21 0 0 25
-                                                   309 2 25 0 0 0 310 1 21 0 0
-                                                   311 1 313 312 21 314 0 312 0
-                                                   315 2 316 23 0 0 317 2 25 0
-                                                   8 8 318 2 8 0 0 166 319 0
-                                                   312 0 320 2 312 0 25 0 321 1
-                                                   312 0 0 322 2 312 23 0 0 323
-                                                   1 312 25 0 324 1 312 15 0
-                                                   325 2 312 0 0 15 326 2 312 0
-                                                   0 0 327 1 312 0 0 328 2 97
-                                                   23 0 0 329 2 312 0 0 0 330 2
-                                                   312 0 0 0 331 1 312 0 25 332
-                                                   2 312 0 0 25 333 2 312 0 0 0
-                                                   334 2 312 0 0 0 335 2 312 0
-                                                   0 0 336 2 337 50 0 38 338 2
-                                                   132 0 38 0 339 1 340 0 302
-                                                   341 3 345 342 343 344 15 346
-                                                   2 342 340 0 38 347 1 340 302
-                                                   0 348 2 50 0 0 38 349 2 281
-                                                   0 0 0 350 2 351 312 0 38 352
-                                                   2 351 0 0 0 356 2 351 0 0 0
-                                                   357 1 25 0 0 358 0 312 0 359
-                                                   2 312 25 0 15 360 2 312 0 0
-                                                   25 361 1 312 15 0 362 1 8 0
-                                                   73 363 2 25 23 0 0 365 1 169
-                                                   0 97 366 2 337 0 0 0 371 2
-                                                   50 0 15 0 372 3 337 50 0 38
-                                                   50 373 1 50 0 0 374 0 132 0
-                                                   375 2 376 0 0 0 377 2 166 0
-                                                   0 0 378 2 380 166 379 0 381
-                                                   2 369 0 368 0 382 2 384 0 0
-                                                   0 385 2 199 198 0 38 386 2
-                                                   387 23 0 0 388 1 17 0 0 389
-                                                   1 313 21 312 391 0 25 0 393
-                                                   2 25 0 0 15 394 2 25 0 8 0
-                                                   395 2 25 0 0 0 396 1 11 230
-                                                   397 398 3 400 99 11 399 99
-                                                   401 0 99 0 403 2 99 0 11 15
-                                                   404 2 99 0 0 0 405 2 114 0 0
-                                                   15 406 2 225 0 0 15 407 2 11
-                                                   0 0 0 408 1 11 409 0 410 1
-                                                   11 0 397 411 1 11 412 0 413
-                                                   1 11 0 0 414 3 11 0 0 397 0
-                                                   415 1 99 15 0 416 1 11 50 0
-                                                   417 2 418 23 0 0 419 2 50 0
-                                                   0 0 420 1 103 422 0 423 1 11
-                                                   0 230 424 2 426 0 0 0 427 1
-                                                   430 429 429 431 2 65 0 0 0
-                                                   432 2 337 50 433 0 434 3 0
-                                                   23 21 21 96 298 2 0 17 240
-                                                   21 241 3 0 17 21 11 166 249
-                                                   1 0 17 8 195 1 0 61 21 63 6
-                                                   0 126 50 21 8 8 50 38 184 2
-                                                   0 17 312 316 392 6 0 173 50
-                                                   21 8 8 50 38 174 6 0 116 50
-                                                   21 8 8 50 38 117 6 0 130 50
-                                                   21 8 8 50 38 131 1 0 23 312
-                                                   364 2 0 11 11 399 402 3 0
-                                                   235 21 96 97 236 3 0 235 21
-                                                   96 97 250 3 0 94 21 96 97 98
-                                                   2 0 351 312 96 390 3 0 112
-                                                   21 8 50 113 2 0 8 21 50 191
-                                                   3 0 17 21 50 38 188 3 0 23
-                                                   21 50 38 190 4 0 426 312 316
-                                                   353 354 428 3 0 369 312 96
-                                                   97 370 3 0 351 312 353 354
-                                                   355)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|testnp|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |point|
+                                         (|Record| (|:| |x| (|Integer|))
+                                                   (|:| |y| (|Integer|))))
+                                    (|:| |slope| (|Fraction| (|Integer|)))
+                                    (|:| |npoly|
+                                         (|UnivariatePolynomial| |#1|
+                                                                 (|Expression|
+                                                                  (|Integer|))))))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))))
+                                T)
+                              '((|testfn|
+                                 ((|List|
+                                   (|LinearOrdinaryDifferentialOperator3|
+                                    (|Expression| (|Integer|))
+                                    (|UnivariateTaylorSeries|
+                                     (|Expression| (|Integer|)) |#1| |#2|)
+                                    (|UnivariateLaurentSeries|
+                                     (|Expression| (|Integer|)) |#1| |#2|)))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Mapping|
+                                   (|Factored|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Expression| (|Integer|))))
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| (|Integer|))))
+                                  (|String|)))
+                                T)
+                              '((|testf2|
+                                 ((|Record|
+                                   (|:| |Qt|
+                                        (|LinearOrdinaryDifferentialOperator3|
+                                         (|Expression| (|Integer|))
+                                         (|UnivariateTaylorSeries|
+                                          (|Expression| (|Integer|)) |#1| |#2|)
+                                         (|UnivariateLaurentSeries|
+                                          (|Expression| (|Integer|)) |#1|
+                                          |#2|)))
+                                   (|:| |Rt|
+                                        (|LinearOrdinaryDifferentialOperator3|
+                                         (|Expression| (|Integer|))
+                                         (|UnivariateTaylorSeries|
+                                          (|Expression| (|Integer|)) |#1| |#2|)
+                                         (|UnivariateLaurentSeries|
+                                          (|Expression| (|Integer|)) |#1|
+                                          |#2|))))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|UnivariatePolynomial| |#1|
+                                                          (|Expression|
+                                                           (|Integer|)))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|testll|
+                                 ((|Record|
+                                   (|:| |laurl|
+                                        (|List|
+                                         (|UnivariateLaurentSeries|
+                                          (|Expression| (|Integer|)) |#1|
+                                          |#2|)))
+                                   (|:| |laurr|
+                                        (|List|
+                                         (|UnivariateLaurentSeries|
+                                          (|Expression| (|Integer|)) |#1|
+                                          |#2|))))
+                                  (|Fraction| (|Integer|))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|UnivariatePolynomial| |#1|
+                                                          (|Expression|
+                                                           (|Integer|)))
+                                  (|UnivariatePolynomial| |#1|
+                                                          (|Expression|
+                                                           (|Integer|)))
+                                  (|Fraction| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|testlc|
+                                 ((|Record|
+                                   (|:| |llc|
+                                        (|List|
+                                         (|Stream|
+                                          (|Record| (|:| |k| (|Integer|))
+                                                    (|:| |c|
+                                                         (|Expression|
+                                                          (|Integer|)))))))
+                                   (|:| |rlc|
+                                        (|List|
+                                         (|Stream|
+                                          (|Record| (|:| |k| (|Integer|))
+                                                    (|:| |c|
+                                                         (|Expression|
+                                                          (|Integer|))))))))
+                                  (|Fraction| (|Integer|))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|UnivariatePolynomial| |#1|
+                                                          (|Expression|
+                                                           (|Integer|)))
+                                  (|UnivariatePolynomial| |#1|
+                                                          (|Expression|
+                                                           (|Integer|)))
+                                  (|Fraction| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|testln|
+                                 ((|Record|
+                                   (|:| |main|
+                                        (|Record|
+                                         (|:| |Qt|
+                                              (|LinearOrdinaryDifferentialOperator3|
+                                               (|Expression| (|Integer|))
+                                               (|UnivariateTaylorSeries|
+                                                (|Expression| (|Integer|)) |#1|
+                                                |#2|)
+                                               (|UnivariateLaurentSeries|
+                                                (|Expression| (|Integer|)) |#1|
+                                                |#2|)))
+                                         (|:| |Rt|
+                                              (|LinearOrdinaryDifferentialOperator3|
+                                               (|Expression| (|Integer|))
+                                               (|UnivariateTaylorSeries|
+                                                (|Expression| (|Integer|)) |#1|
+                                                |#2|)
+                                               (|UnivariateLaurentSeries|
+                                                (|Expression| (|Integer|)) |#1|
+                                                |#2|)))))
+                                   (|:| |nf|
+                                        (|Record|
+                                         (|:| |Qt|
+                                              (|LinearOrdinaryDifferentialOperator3|
+                                               (|Expression| (|Integer|))
+                                               (|UnivariateTaylorSeries|
+                                                (|Expression| (|Integer|)) |#1|
+                                                |#2|)
+                                               (|UnivariateLaurentSeries|
+                                                (|Expression| (|Integer|)) |#1|
+                                                |#2|)))
+                                         (|:| |Rt|
+                                              (|LinearOrdinaryDifferentialOperator3|
+                                               (|Expression| (|Integer|))
+                                               (|UnivariateTaylorSeries|
+                                                (|Expression| (|Integer|)) |#1|
+                                                |#2|)
+                                               (|UnivariateLaurentSeries|
+                                                (|Expression| (|Integer|)) |#1|
+                                                |#2|)))))
+                                   (|:| |error|
+                                        (|LinearOrdinaryDifferentialOperator3|
+                                         (|Expression| (|Integer|))
+                                         (|UnivariateTaylorSeries|
+                                          (|Expression| (|Integer|)) |#1| |#2|)
+                                         (|UnivariateLaurentSeries|
+                                          (|Expression| (|Integer|)) |#1|
+                                          |#2|))))
+                                  (|Fraction| (|Integer|))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|UnivariatePolynomial| |#1|
+                                                          (|Expression|
+                                                           (|Integer|)))
+                                  (|UnivariatePolynomial| |#1|
+                                                          (|Expression|
+                                                           (|Integer|)))
+                                  (|Fraction| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|testlw|
+                                 ((|Stream|
+                                   (|Record|
+                                    (|:| |Qt|
+                                         (|LinearOrdinaryDifferentialOperator3|
+                                          (|Expression| (|Integer|))
+                                          (|UnivariateTaylorSeries|
+                                           (|Expression| (|Integer|)) |#1|
+                                           |#2|)
+                                          (|UnivariateLaurentSeries|
+                                           (|Expression| (|Integer|)) |#1|
+                                           |#2|)))
+                                    (|:| |Rt|
+                                         (|LinearOrdinaryDifferentialOperator3|
+                                          (|Expression| (|Integer|))
+                                          (|UnivariateTaylorSeries|
+                                           (|Expression| (|Integer|)) |#1|
+                                           |#2|)
+                                          (|UnivariateLaurentSeries|
+                                           (|Expression| (|Integer|)) |#1|
+                                           |#2|)))))
+                                  (|Fraction| (|Integer|))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|UnivariatePolynomial| |#1|
+                                                          (|Expression|
+                                                           (|Integer|)))
+                                  (|UnivariatePolynomial| |#1|
+                                                          (|Expression|
+                                                           (|Integer|)))
+                                  (|Fraction| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|testcp|
+                                 ((|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariateTaylorSeries|
+                                    (|Expression| (|Integer|)) |#1| |#2|)
+                                   (|UnivariateLaurentSeries|
+                                    (|Expression| (|Integer|)) |#1| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Fraction| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|testco|
+                                 ((|Boolean|)
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Fraction| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|testcx|
+                                 ((|UnivariatePolynomial| |#1|
+                                                          (|Expression|
+                                                           (|Integer|)))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|testpd|
+                                 ((|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariateTaylorSeries|
+                                    (|Expression| (|Integer|)) |#1| |#2|)
+                                   (|UnivariateLaurentSeries|
+                                    (|Expression| (|Integer|)) |#1| |#2|))
+                                  (|UnivariatePolynomial| |#1|
+                                                          (|Expression|
+                                                           (|Integer|)))))
+                                T)
+                              '((|testfr|
+                                 ((|Union|
+                                   (|List|
+                                    (|Record|
+                                     (|:| |op|
+                                          (|LinearOrdinaryDifferentialOperator3|
+                                           (|Expression| (|Integer|))
+                                           (|UnivariateTaylorSeries|
+                                            (|Expression| (|Integer|)) |#1|
+                                            |#2|)
+                                           (|UnivariateLaurentSeries|
+                                            (|Expression| (|Integer|)) |#1|
+                                            |#2|)))
+                                     (|:| |ram|
+                                          (|UnivariatePolynomial| |#1|
+                                                                  (|Expression|
+                                                                   (|Integer|))))
+                                     (|:| |expart|
+                                          (|UnivariateLaurentSeries|
+                                           (|Expression| (|Integer|)) |#1|
+                                           |#2|))))
+                                   (|List|
+                                    (|Union|
+                                     (|LinearOrdinaryDifferentialOperator3|
+                                      (|Expression| (|Integer|))
+                                      (|UnivariateTaylorSeries|
+                                       (|Expression| (|Integer|)) |#1| |#2|)
+                                      (|UnivariateLaurentSeries|
+                                       (|Expression| (|Integer|)) |#1| |#2|))
+                                     (|Record|
+                                      (|:| |ope|
+                                           (|LinearOrdinaryDifferentialOperator3|
+                                            (|Expression| (|Integer|))
+                                            (|UnivariateTaylorSeries|
+                                             (|Expression| (|Integer|)) |#1|
+                                             |#2|)
+                                            (|UnivariateLaurentSeries|
+                                             (|Expression| (|Integer|)) |#1|
+                                             |#2|)))
+                                      (|:| |dext| (|PositiveInteger|))
+                                      (|:| |alpha| (|Expression| (|Integer|)))
+                                      (|:| |rami|
+                                           (|UnivariatePolynomial| |#1|
+                                                                   (|Expression|
+                                                                    (|Integer|))))))))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Mapping|
+                                   (|Factored|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Expression| (|Integer|))))
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| (|Integer|))))
+                                  (|String|)))
+                                T)
+                              '((|testsb|
+                                 ((|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariateTaylorSeries|
+                                    (|Expression| (|Integer|)) |#1| |#2|)
+                                   (|UnivariateLaurentSeries|
+                                    (|Expression| (|Integer|)) |#1| |#2|))
+                                  (|Union|
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|UnivariateLaurentSeries|
+                                    (|Expression| (|Integer|)) |#1| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))))
+                                T)
+                              '((|testro|
+                                 ((|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariateTaylorSeries|
+                                    (|Expression| (|Integer|)) |#1| |#2|)
+                                   (|UnivariateLaurentSeries|
+                                    (|Expression| (|Integer|)) |#1| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Expression| (|Integer|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|testfo|
+                                 ((|Union|
+                                   (|List|
+                                    (|Record|
+                                     (|:| |op|
+                                          (|LinearOrdinaryDifferentialOperator3|
+                                           (|Expression| (|Integer|))
+                                           (|UnivariateTaylorSeries|
+                                            (|Expression| (|Integer|)) |#1|
+                                            |#2|)
+                                           (|UnivariateLaurentSeries|
+                                            (|Expression| (|Integer|)) |#1|
+                                            |#2|)))
+                                     (|:| |ram|
+                                          (|UnivariatePolynomial| |#1|
+                                                                  (|Expression|
+                                                                   (|Integer|))))
+                                     (|:| |expart|
+                                          (|UnivariateLaurentSeries|
+                                           (|Expression| (|Integer|)) |#1|
+                                           |#2|))))
+                                   (|List|
+                                    (|Union|
+                                     (|LinearOrdinaryDifferentialOperator3|
+                                      (|Expression| (|Integer|))
+                                      (|UnivariateTaylorSeries|
+                                       (|Expression| (|Integer|)) |#1| |#2|)
+                                      (|UnivariateLaurentSeries|
+                                       (|Expression| (|Integer|)) |#1| |#2|))
+                                     (|Record|
+                                      (|:| |ope|
+                                           (|LinearOrdinaryDifferentialOperator3|
+                                            (|Expression| (|Integer|))
+                                            (|UnivariateTaylorSeries|
+                                             (|Expression| (|Integer|)) |#1|
+                                             |#2|)
+                                            (|UnivariateLaurentSeries|
+                                             (|Expression| (|Integer|)) |#1|
+                                             |#2|)))
+                                      (|:| |dext| (|PositiveInteger|))
+                                      (|:| |alpha| (|Expression| (|Integer|)))
+                                      (|:| |rami|
+                                           (|UnivariatePolynomial| |#1|
+                                                                   (|Expression|
+                                                                    (|Integer|))))))))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Mapping|
+                                   (|Factored|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Expression| (|Integer|))))
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| (|Integer|))))
+                                  (|String|)))
+                                T)
+                              '((|testsc|
+                                 ((|Boolean|)
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariatePolynomial| |#1|
+                                                           (|Expression|
+                                                            (|Integer|)))
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Mapping|
+                                   (|Factored|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Expression| (|Integer|))))
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| (|Integer|))))))
+                                T)
+                              '((|testfg|
+                                 ((|List|
+                                   (|LinearOrdinaryDifferentialOperator1|
+                                    (|Fraction|
+                                     (|UnivariatePolynomial| |#1|
+                                                             (|Expression|
+                                                              (|Integer|))))))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Mapping|
+                                   (|Factored|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Expression| (|Integer|))))
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| (|Integer|))))))
+                                T)
+                              '((|testlp|
+                                 ((|LinearOrdinaryDifferentialOperator3|
+                                   (|Expression| (|Integer|))
+                                   (|UnivariateTaylorSeries|
+                                    (|Expression| (|Integer|)) |#1| |#2|)
+                                   (|UnivariateLaurentSeries|
+                                    (|Expression| (|Integer|)) |#1| |#2|))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Union| (|Expression| (|Integer|))
+                                           "infinity")))
+                                T)
+                              '((|factor|
+                                 ((|List|
+                                   (|LinearOrdinaryDifferentialOperator1|
+                                    (|Fraction|
+                                     (|UnivariatePolynomial| |#1|
+                                                             (|Expression|
+                                                              (|Integer|))))))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Mapping|
+                                   (|Factored|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Expression| (|Integer|))))
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| (|Integer|)))
+                                   (|List| (|Expression| (|Integer|))))
+                                  (|List| (|Expression| (|Integer|)))))
+                                T)
+                              '((|testis|
+                                 ((|Boolean|)
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))))
+                                T)
+                              '((|testgt|
+                                 ((|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|Kernel| (|Expression| (|Integer|)))))
+                                T)
+                              '((|gen_exp|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |ecs|
+                                         (|List|
+                                          (|UnivariateLaurentSeries|
+                                           (|Expression| (|Integer|)) |#1|
+                                           |#2|)))
+                                    (|:| |ecr|
+                                         (|UnivariatePolynomial| |#1|
+                                                                 (|Expression|
+                                                                  (|Integer|))))
+                                    (|:| |ect|
+                                         (|Fraction|
+                                          (|UnivariatePolynomial| |#1|
+                                                                  (|Expression|
+                                                                   (|Integer|)))))))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Union| (|Expression| (|Integer|))
+                                           "infinity")
+                                  (|Mapping|
+                                   (|Factored|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Expression| (|Integer|))))
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| (|Integer|)))
+                                   (|List| (|Expression| (|Integer|))))
+                                  (|List| (|Expression| (|Integer|)))))
+                                T)
+                              '((|ge_minimal|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |singularity|
+                                         (|Record|
+                                          (|:| |point|
+                                               (|Union|
+                                                (|Expression| (|Integer|))
+                                                #1#))
+                                          (|:| |lpf|
+                                               (|LinearOrdinaryDifferentialOperator3|
+                                                (|Expression| (|Integer|))
+                                                (|UnivariateTaylorSeries|
+                                                 (|Expression| (|Integer|))
+                                                 |#1| |#2|)
+                                                (|UnivariateLaurentSeries|
+                                                 (|Expression| (|Integer|))
+                                                 |#1| |#2|)))
+                                          (|:| |dxt| (|PositiveInteger|))))
+                                    (|:| |fos|
+                                         (|List|
+                                          (|Record|
+                                           (|:| |op|
+                                                (|LinearOrdinaryDifferentialOperator3|
+                                                 (|Expression| (|Integer|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |#1| |#2|)
+                                                 (|UnivariateLaurentSeries|
+                                                  (|Expression| (|Integer|))
+                                                  |#1| |#2|)))
+                                           (|:| |ram|
+                                                (|UnivariatePolynomial| |#1|
+                                                                        (|Expression|
+                                                                         (|Integer|))))
+                                           (|:| |expart|
+                                                (|UnivariateLaurentSeries|
+                                                 (|Expression| (|Integer|))
+                                                 |#1| |#2|)))))
+                                    (|:| |mge|
+                                         (|List|
+                                          (|UnivariateLaurentSeries|
+                                           (|Expression| (|Integer|)) |#1|
+                                           |#2|)))))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#1|
+                                                            (|Expression|
+                                                             (|Integer|)))))
+                                  (|Mapping|
+                                   (|Factored|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Expression| (|Integer|))))
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| (|Integer|))))
+                                  (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 434
+                                            '(1 9 0 8 10 0 11 0 12 0 13 0 14 2
+                                              9 8 0 15 16 0 17 0 18 0 11 0 19 0
+                                              13 0 20 0 21 0 22 2 21 23 0 0 24
+                                              1 21 25 0 26 1 25 8 0 27 1 13 0 9
+                                              28 1 25 8 0 29 1 13 30 0 31 2 13
+                                              0 9 0 32 1 21 15 0 33 2 17 0 13
+                                              15 34 2 17 0 0 0 35 1 21 0 0 36 1
+                                              17 13 0 37 1 13 38 0 39 2 17 23 0
+                                              0 40 1 17 15 0 41 2 13 38 0 38 42
+                                              2 15 23 0 0 43 1 17 0 0 44 2 46
+                                              45 0 38 47 2 15 23 0 0 48 2 38 23
+                                              0 0 49 2 50 0 38 38 51 0 8 0 52 1
+                                              50 38 0 53 2 17 13 0 15 54 1 50
+                                              38 0 55 2 38 0 15 0 56 2 13 11 0
+                                              38 57 2 8 0 11 15 58 2 8 0 0 0 59
+                                              2 61 0 0 0 62 1 66 65 0 67 0 50 0
+                                              68 2 50 23 0 0 69 2 8 0 0 15 70 3
+                                              71 8 0 38 8 72 1 65 73 0 74 1 8
+                                              15 0 75 2 8 11 0 15 76 2 11 0 0 0
+                                              77 1 11 0 38 78 2 11 0 0 0 79 1
+                                              80 23 11 81 2 11 23 0 0 82 1 80
+                                              38 11 83 1 8 0 38 84 3 8 0 0 0 0
+                                              85 2 8 0 0 0 86 2 8 23 0 0 87 2
+                                              38 23 0 0 88 2 71 8 0 38 89 2 8 0
+                                              0 0 90 2 65 0 0 0 91 2 65 38 64 0
+                                              92 2 65 64 0 38 93 2 94 0 0 0 95
+                                              1 8 99 0 100 1 8 0 99 101 2 104
+                                              66 102 103 105 1 50 0 38 106 2 50
+                                              0 38 0 107 2 50 0 0 0 108 2 50 0
+                                              0 0 109 2 8 0 0 0 110 2 50 23 0 0
+                                              111 2 114 13 0 38 115 2 120 119 0
+                                              38 121 1 13 0 119 122 2 114 0 0 0
+                                              123 2 127 124 125 126 128 1 50 38
+                                              0 129 0 132 0 133 2 38 0 0 0 134
+                                              2 136 0 135 38 137 2 38 0 0 0 138
+                                              2 38 0 0 0 139 1 50 140 0 141 2
+                                              140 23 0 0 142 3 144 119 143 124
+                                              136 145 2 120 0 0 0 146 1 119 0
+                                              147 148 2 13 0 11 38 149 2 17 0 0
+                                              13 150 2 8 151 0 0 152 0 8 0 153
+                                              2 8 23 0 0 154 2 8 0 0 0 155 1 8
+                                              0 0 156 0 11 0 157 0 13 0 158 0 9
+                                              0 159 2 17 0 13 0 160 1 17 0 0
+                                              161 2 17 0 0 0 162 3 8 164 0 0 0
+                                              165 2 38 0 166 0 167 2 17 0 0 0
+                                              168 1 17 169 0 170 1 169 171 0
+                                              172 0 166 0 175 2 166 0 0 0 176 2
+                                              179 0 178 177 180 2 182 126 181
+                                              179 183 2 38 151 0 0 185 2 38 0 0
+                                              0 186 1 50 38 0 187 1 50 38 0 189
+                                              1 8 11 0 192 1 13 0 11 193 1 8 0
+                                              0 194 2 61 60 0 38 196 1 199 198
+                                              0 200 1 17 0 13 201 1 66 204 0
+                                              205 1 8 140 0 206 2 140 23 0 0
+                                              207 2 38 23 0 0 208 2 38 0 0 0
+                                              209 2 211 38 210 0 212 2 204 203
+                                              0 38 213 2 15 23 0 0 214 2 13 0 0
+                                              38 215 1 13 0 0 216 2 13 0 11 0
+                                              217 1 13 218 0 219 2 13 0 0 38
+                                              220 1 11 0 0 221 2 11 0 15 0 222
+                                              2 13 0 0 0 223 2 225 0 0 0 226 2
+                                              17 23 0 0 227 2 17 0 0 0 228 2
+                                              199 0 0 0 229 1 11 0 230 231 1 8
+                                              0 11 232 2 11 0 0 38 233 2 11 0
+                                              38 0 234 1 25 0 8 237 1 21 0 25
+                                              238 2 17 0 0 15 239 2 11 23 0 0
+                                              242 2 13 0 243 0 244 2 13 0 0 166
+                                              245 2 50 0 0 38 246 1 11 0 50 247
+                                              2 17 0 38 0 248 3 251 13 0 38 13
+                                              252 0 17 0 253 3 17 13 0 13 13
+                                              254 2 13 0 0 0 255 2 13 0 0 11
+                                              256 2 13 0 0 0 257 2 251 0 258 0
+                                              259 2 15 0 0 0 260 2 262 0 261 15
+                                              263 2 251 13 0 38 264 2 15 0 0 0
+                                              265 2 11 0 0 15 266 2 268 119 267
+                                              262 269 2 270 251 0 38 271 2 274
+                                              272 273 11 275 2 272 23 0 0 276 2
+                                              277 50 0 38 278 2 13 0 279 0 280
+                                              2 281 114 0 38 282 3 114 13 0 38
+                                              13 283 1 284 0 281 285 2 13 23 0
+                                              0 286 0 17 0 287 2 17 0 0 13 288
+                                              0 50 0 289 0 9 0 290 2 293 291
+                                              292 94 294 2 291 61 0 38 295 2 61
+                                              23 0 0 296 2 8 0 0 11 297 1 13 9
+                                              0 299 2 300 23 0 0 301 2 302 99 0
+                                              38 303 0 25 0 304 2 21 0 25 15
+                                              305 2 21 0 25 0 306 2 21 0 0 0
+                                              307 0 21 0 308 2 21 0 0 25 309 2
+                                              25 0 0 0 310 1 21 0 0 311 1 313
+                                              312 21 314 0 312 0 315 2 316 23 0
+                                              0 317 2 25 0 8 8 318 2 8 0 0 166
+                                              319 0 312 0 320 2 312 0 25 0 321
+                                              1 312 0 0 322 2 312 23 0 0 323 1
+                                              312 25 0 324 1 312 15 0 325 2 312
+                                              0 0 15 326 2 312 0 0 0 327 1 312
+                                              0 0 328 2 97 23 0 0 329 2 312 0 0
+                                              0 330 2 312 0 0 0 331 1 312 0 25
+                                              332 2 312 0 0 25 333 2 312 0 0 0
+                                              334 2 312 0 0 0 335 2 312 0 0 0
+                                              336 2 337 50 0 38 338 2 132 0 38
+                                              0 339 1 340 0 302 341 3 345 342
+                                              343 344 15 346 2 342 340 0 38 347
+                                              1 340 302 0 348 2 50 0 0 38 349 2
+                                              281 0 0 0 350 2 351 312 0 38 352
+                                              2 351 0 0 0 356 2 351 0 0 0 357 1
+                                              25 0 0 358 0 312 0 359 2 312 25 0
+                                              15 360 2 312 0 0 25 361 1 312 15
+                                              0 362 1 8 0 73 363 2 25 23 0 0
+                                              365 1 169 0 97 366 2 337 0 0 0
+                                              371 2 50 0 15 0 372 3 337 50 0 38
+                                              50 373 1 50 0 0 374 0 132 0 375 2
+                                              376 0 0 0 377 2 166 0 0 0 378 2
+                                              380 166 379 0 381 2 369 0 368 0
+                                              382 2 384 0 0 0 385 2 199 198 0
+                                              38 386 2 387 23 0 0 388 1 17 0 0
+                                              389 1 313 21 312 391 0 25 0 393 2
+                                              25 0 0 15 394 2 25 0 8 0 395 2 25
+                                              0 0 0 396 1 11 230 397 398 3 400
+                                              99 11 399 99 401 0 99 0 403 2 99
+                                              0 11 15 404 2 99 0 0 0 405 2 114
+                                              0 0 15 406 2 225 0 0 15 407 2 11
+                                              0 0 0 408 1 11 409 0 410 1 11 0
+                                              397 411 1 11 412 0 413 1 11 0 0
+                                              414 3 11 0 0 397 0 415 1 99 15 0
+                                              416 1 11 50 0 417 2 418 23 0 0
+                                              419 2 50 0 0 0 420 1 103 422 0
+                                              423 1 11 0 230 424 2 426 0 0 0
+                                              427 1 430 429 429 431 2 65 0 0 0
+                                              432 2 337 50 433 0 434 3 0 23 21
+                                              21 96 298 2 0 17 240 21 241 3 0
+                                              17 21 11 166 249 1 0 17 8 195 1 0
+                                              61 21 63 6 0 126 50 21 8 8 50 38
+                                              184 2 0 17 312 316 392 6 0 173 50
+                                              21 8 8 50 38 174 6 0 116 50 21 8
+                                              8 50 38 117 6 0 130 50 21 8 8 50
+                                              38 131 1 0 23 312 364 2 0 11 11
+                                              399 402 3 0 235 21 96 97 236 3 0
+                                              235 21 96 97 250 3 0 94 21 96 97
+                                              98 2 0 351 312 96 390 3 0 112 21
+                                              8 50 113 2 0 8 21 50 191 3 0 17
+                                              21 50 38 188 3 0 23 21 50 38 190
+                                              4 0 426 312 316 353 354 428 3 0
+                                              369 312 96 97 370 3 0 351 312 353
+                                              354 355)))))
            '|lookupComplete|)) 

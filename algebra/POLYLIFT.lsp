@@ -102,14 +102,21 @@
               (26 . ^) (32 . *) (38 . |reductum|) (|Boolean|) (43 . |zero?|)
               (48 . +))
            '#(|map| 54) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(1 9 11 0 12 1 9 8 0 13 2 9
-                                                   14 0 7 15 1 16 9 0 17 1 16
-                                                   21 0 22 2 10 0 0 21 23 2 10
-                                                   0 0 0 24 1 16 0 0 25 1 16 26
-                                                   0 27 2 10 0 0 0 28 3 0 10 18
-                                                   19 9 20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 (|#5| (|Mapping| |#5| |#2|)
+                                  (|Mapping| |#5| |#3|) |#4|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(1 9 11 0 12 1 9 8 0 13 2 9 14 0 7
+                                              15 1 16 9 0 17 1 16 21 0 22 2 10
+                                              0 0 21 23 2 10 0 0 0 24 1 16 0 0
+                                              25 1 16 26 0 27 2 10 0 0 0 28 3 0
+                                              10 18 19 9 20)))))
            '|lookupComplete|)) 

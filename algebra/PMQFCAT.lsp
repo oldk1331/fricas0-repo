@@ -94,13 +94,22 @@
               (34 . |failed?|) (39 . |denom|) (44 . |failed|)
               |PMQFCAT;patternMatch;QP2Pmr;1|)
            '#(|patternMatch| 48) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(1 10 9 0 11 3 12 0 10 8 0 13
-                                                   1 8 14 0 15 3 16 12 7 10 12
-                                                   17 1 10 19 0 20 1 8 7 0 21 1
-                                                   12 9 0 22 1 8 7 0 23 0 12 0
-                                                   24 3 0 12 8 10 12 25)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|patternMatch|
+                                 ((|PatternMatchResult| |#1| |#3|) |#3|
+                                  (|Pattern| |#1|)
+                                  (|PatternMatchResult| |#1| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(1 10 9 0 11 3 12 0 10 8 0 13 1 8
+                                              14 0 15 3 16 12 7 10 12 17 1 10
+                                              19 0 20 1 8 7 0 21 1 12 9 0 22 1
+                                              8 7 0 23 0 12 0 24 3 0 12 8 10 12
+                                              25)))))
            '|lookupComplete|)) 

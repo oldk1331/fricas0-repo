@@ -95,15 +95,35 @@
               |PADEPAC;pade;2Nni2UtsU;1| (56 . |One|)
               |PADEPAC;pade;2NniUtsU;2|)
            '#(|pade| 60) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(4 9 10 11 11 12 12 13 0 6 0
-                                                   14 2 6 15 0 0 16 1 18 17 0
-                                                   19 1 18 17 0 20 0 6 0 21 2
-                                                   17 0 6 11 22 2 17 0 0 0 23 2
-                                                   17 0 0 0 24 2 18 0 17 17 25
-                                                   0 12 0 27 3 0 10 11 11 12 28
-                                                   4 0 10 11 11 12 12 26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|pade|
+                                 ((|Union|
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#2| |#1|))
+                                   "failed")
+                                  (|NonNegativeInteger|) (|NonNegativeInteger|)
+                                  (|UnivariateTaylorSeries| |#1| |#2| |#3|)
+                                  (|UnivariateTaylorSeries| |#1| |#2| |#3|)))
+                                T)
+                              '((|pade|
+                                 ((|Union|
+                                   (|Fraction|
+                                    (|UnivariatePolynomial| |#2| |#1|))
+                                   "failed")
+                                  (|NonNegativeInteger|) (|NonNegativeInteger|)
+                                  (|UnivariateTaylorSeries| |#1| |#2| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(4 9 10 11 11 12 12 13 0 6 0 14 2
+                                              6 15 0 0 16 1 18 17 0 19 1 18 17
+                                              0 20 0 6 0 21 2 17 0 6 11 22 2 17
+                                              0 0 0 23 2 17 0 0 0 24 2 18 0 17
+                                              17 25 0 12 0 27 3 0 10 11 11 12
+                                              28 4 0 10 11 11 12 12 26)))))
            '|lookupComplete|)) 

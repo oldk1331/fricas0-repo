@@ -308,17 +308,62 @@
               |RDEAUX;multi_SPDE;2SupLIMU;1| (64 . |leadingCoefficient|)
               (69 . /) (75 . |monomial|) |RDEAUX;SPDE1;2SupMR;2|)
            '#(|multi_SPDE| 81 SPDE1 90) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 35
-                                                 '(0 6 0 7 0 8 0 9 1 8 10 0 11
-                                                   2 13 10 12 0 14 2 8 15 0 0
-                                                   16 0 8 0 17 2 8 10 0 0 18 2
-                                                   8 0 0 0 19 2 8 20 0 0 21 2 8
-                                                   0 0 0 22 2 8 0 0 0 23 1 8 24
-                                                   0 25 1 8 6 0 32 2 6 0 0 0 33
-                                                   2 8 0 6 24 34 5 0 28 8 8 13
-                                                   29 30 31 3 0 26 8 8 30
-                                                   35)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|multi_SPDE|
+                                 ((|Union|
+                                   (|List|
+                                    (|Record|
+                                     (|:| |ans|
+                                          (|SparseUnivariatePolynomial| |#1|))
+                                     (|:| |remainder|
+                                          (|SparseUnivariatePolynomial|
+                                           |#1|))))
+                                   (|Record|
+                                    (|:| |ans|
+                                         (|List|
+                                          (|SparseUnivariatePolynomial| |#1|)))
+                                    (|:| |acoeff|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                    (|:| |eegen|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                    (|:| |bpar|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                    (|:| |lcpar|
+                                         (|List|
+                                          (|SparseUnivariatePolynomial| |#1|)))
+                                    (|:| |dpar| (|Integer|))))
+                                  (|SparseUnivariatePolynomial| |#1|)
+                                  (|SparseUnivariatePolynomial| |#1|)
+                                  (|List| (|SparseUnivariatePolynomial| |#1|))
+                                  (|Integer|)
+                                  (|Mapping|
+                                   (|SparseUnivariatePolynomial| |#1|)
+                                   (|SparseUnivariatePolynomial| |#1|))))
+                                T)
+                              '((SPDE1
+                                 ((|Record|
+                                   (|:| |ans|
+                                        (|SparseUnivariatePolynomial| |#1|))
+                                   (|:| |remainder|
+                                        (|SparseUnivariatePolynomial| |#1|)))
+                                  (|SparseUnivariatePolynomial| |#1|)
+                                  (|SparseUnivariatePolynomial| |#1|)
+                                  (|Mapping|
+                                   (|SparseUnivariatePolynomial| |#1|)
+                                   (|SparseUnivariatePolynomial| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 35
+                                            '(0 6 0 7 0 8 0 9 1 8 10 0 11 2 13
+                                              10 12 0 14 2 8 15 0 0 16 0 8 0 17
+                                              2 8 10 0 0 18 2 8 0 0 0 19 2 8 20
+                                              0 0 21 2 8 0 0 0 22 2 8 0 0 0 23
+                                              1 8 24 0 25 1 8 6 0 32 2 6 0 0 0
+                                              33 2 8 0 6 24 34 5 0 28 8 8 13 29
+                                              30 31 3 0 26 8 8 30 35)))))
            '|lookupComplete|)) 

@@ -678,51 +678,125 @@
               |LSAGG-;insert!;SAIA;7| (72 . |concat!|) |LSAGG-;insert!;2AIA;8|
               |LSAGG-;remove!;M2A;9| |LSAGG-;delete!;AIA;10|
               (|UniversalSegment| 30) (78 . |low|) (83 . |hasHi|) (88 . |high|)
-              (93 . |maxIndex|) |LSAGG-;delete!;AUsA;11| (|Union| 7 '"failed")
-              |LSAGG-;find;MAU;12| |LSAGG-;position;MAI;13| (98 . |reverse!|)
-              (103 . |split!|) |LSAGG-;sorted?;MAB;15| |LSAGG-;reduce;MA2S;16|
-              (109 . ~=) (115 . |reduce|) |LSAGG-;new;NniSA;18|
-              |LSAGG-;map;M3A;19| |LSAGG-;reverse!;2A;20| (123 . |cyclic?|)
-              |LSAGG-;copy;2A;21| (128 . |setfirst!|)
-              |LSAGG-;copyInto!;2AIA;22| (134 . |position|) (141 . =)
-              (147 . |remove!|) (153 . |removeDuplicates!|) (158 . <) (164 . <)
-              (170 . |smaller?|) (176 . |smaller?|) (|Mapping| 7 7))
+              (93 . |maxIndex|) |LSAGG-;delete!;AUsA;11|
+              (|Union| 7 '#1="failed") |LSAGG-;find;MAU;12|
+              |LSAGG-;position;MAI;13| (98 . |reverse!|) (103 . |split!|)
+              |LSAGG-;sorted?;MAB;15| |LSAGG-;reduce;MA2S;16| (109 . ~=)
+              (115 . |reduce|) |LSAGG-;new;NniSA;18| |LSAGG-;map;M3A;19|
+              |LSAGG-;reverse!;2A;20| (123 . |cyclic?|) |LSAGG-;copy;2A;21|
+              (128 . |setfirst!|) |LSAGG-;copyInto!;2AIA;22| (134 . |position|)
+              (141 . =) (147 . |remove!|) (153 . |removeDuplicates!|) (158 . <)
+              (164 . <) (170 . |smaller?|) (176 . |smaller?|) (|Mapping| 7 7))
            '#(|sorted?| 182 |sort!| 188 |smaller?| 194 |select!| 200 |reverse!|
               206 |removeDuplicates!| 211 |remove!| 216 |reduce| 222 |position|
               243 |new| 256 |merge!| 262 |merge| 269 |map| 276 |list| 283
               |insert!| 288 |find| 302 |delete!| 308 |copyInto!| 320 |copy| 327
               < 332)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 67
-                                                 '(1 6 8 0 9 0 6 0 12 2 6 0 7 0
-                                                   13 1 6 15 0 16 1 6 0 0 17 1
-                                                   6 7 0 18 3 6 7 19 0 7 20 1 6
-                                                   0 0 22 3 6 0 10 0 0 23 2 6 0
-                                                   0 0 25 2 6 15 0 0 28 1 6 30
-                                                   0 31 2 6 0 0 8 32 2 6 0 0 0
-                                                   34 1 38 30 0 39 1 38 15 0 40
-                                                   1 38 30 0 41 1 6 30 0 42 1 6
-                                                   0 0 47 2 6 0 0 8 48 2 7 15 0
-                                                   0 51 4 0 7 19 0 7 7 52 1 6
-                                                   15 0 56 2 6 7 0 7 58 3 0 30
-                                                   7 0 30 60 2 7 15 0 0 61 2 6
-                                                   0 26 0 62 1 0 0 0 63 2 7 15
-                                                   0 0 64 2 0 15 0 0 65 2 7 15
-                                                   0 0 66 2 0 15 0 0 67 2 0 15
-                                                   10 0 49 2 0 0 10 0 11 2 0 15
-                                                   0 0 67 2 0 0 26 0 27 1 0 0 0
-                                                   55 1 0 0 0 63 2 0 0 26 0 36
-                                                   4 0 7 19 0 7 7 52 2 0 7 19 0
-                                                   21 3 0 7 19 0 7 50 2 0 30 26
-                                                   0 46 3 0 30 7 0 30 60 2 0 0
-                                                   8 7 53 3 0 0 10 0 0 29 3 0 0
-                                                   10 0 0 24 3 0 0 19 0 0 54 1
-                                                   0 0 7 14 3 0 0 0 0 30 35 3 0
-                                                   0 7 0 30 33 2 0 44 26 0 45 2
-                                                   0 0 0 30 37 2 0 0 0 38 43 3
-                                                   0 0 0 0 30 59 1 0 0 0 57 2 0
-                                                   15 0 0 65)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|list| (|#1| |#2|)) T)
+                                   '((|delete!| (|#1| |#1| (|Integer|))) T)
+                                   '((|delete!|
+                                      (|#1| |#1|
+                                       (|UniversalSegment| (|Integer|))))
+                                     T)
+                                   '((|remove!|
+                                      (|#1| (|Mapping| (|Boolean|) |#2|) |#1|))
+                                     T)
+                                   '((|insert!| (|#1| |#2| |#1| (|Integer|)))
+                                     T)
+                                   '((|insert!| (|#1| |#1| |#1| (|Integer|)))
+                                     T)
+                                   '((|merge!|
+                                      (|#1| (|Mapping| (|Boolean|) |#2| |#2|)
+                                       |#1| |#1|))
+                                     T)
+                                   '((|select!|
+                                      (|#1| (|Mapping| (|Boolean|) |#2|) |#1|))
+                                     T)
+                                   '((|remove!| (|#1| |#2| |#1|)) T)
+                                   '((|removeDuplicates!| (|#1| |#1|)) T)
+                                   '((|merge!| (|#1| |#1| |#1|)) T)
+                                   '((|reduce|
+                                      (|#2| (|Mapping| |#2| |#2| |#2|) |#1|
+                                       |#2| |#2|))
+                                     T)
+                                   '((|reduce|
+                                      (|#2| (|Mapping| |#2| |#2| |#2|) |#1|
+                                       |#2|))
+                                     T)
+                                   '((|reduce|
+                                      (|#2| (|Mapping| |#2| |#2| |#2|) |#1|))
+                                     T)
+                                   '((|find|
+                                      ((|Union| |#2| #1#)
+                                       (|Mapping| (|Boolean|) |#2|) |#1|))
+                                     T)
+                                   '((|new| (|#1| (|NonNegativeInteger|) |#2|))
+                                     T)
+                                   '((|map|
+                                      (|#1| (|Mapping| |#2| |#2| |#2|) |#1|
+                                       |#1|))
+                                     T)
+                                   '((|merge|
+                                      (|#1| (|Mapping| (|Boolean|) |#2| |#2|)
+                                       |#1| |#1|))
+                                     T)
+                                   '((|sorted?|
+                                      ((|Boolean|)
+                                       (|Mapping| (|Boolean|) |#2| |#2|) |#1|))
+                                     T)
+                                   '((|position|
+                                      ((|Integer|) (|Mapping| (|Boolean|) |#2|)
+                                       |#1|))
+                                     T)
+                                   '((|position| ((|Integer|) |#2| |#1|)) T)
+                                   '((|position|
+                                      ((|Integer|) |#2| |#1| (|Integer|)))
+                                     T)
+                                   '((|merge| (|#1| |#1| |#1|)) T)
+                                   '((|sorted?| ((|Boolean|) |#1|)) T)
+                                   '((|copyInto!| (|#1| |#1| |#1| (|Integer|)))
+                                     T)
+                                   '((|reverse!| (|#1| |#1|)) T)
+                                   '((|sort!|
+                                      (|#1| (|Mapping| (|Boolean|) |#2| |#2|)
+                                       |#1|))
+                                     T)
+                                   '((|sort!| (|#1| |#1|)) T)
+                                   '((< ((|Boolean|) |#1| |#1|)) T)
+                                   '((|smaller?| ((|Boolean|) |#1| |#1|)) T)
+                                   '((|map| (|#1| (|Mapping| |#2| |#2|) |#1|))
+                                     T)
+                                   '((|copy| (|#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 67
+                                            '(1 6 8 0 9 0 6 0 12 2 6 0 7 0 13 1
+                                              6 15 0 16 1 6 0 0 17 1 6 7 0 18 3
+                                              6 7 19 0 7 20 1 6 0 0 22 3 6 0 10
+                                              0 0 23 2 6 0 0 0 25 2 6 15 0 0 28
+                                              1 6 30 0 31 2 6 0 0 8 32 2 6 0 0
+                                              0 34 1 38 30 0 39 1 38 15 0 40 1
+                                              38 30 0 41 1 6 30 0 42 1 6 0 0 47
+                                              2 6 0 0 8 48 2 7 15 0 0 51 4 0 7
+                                              19 0 7 7 52 1 6 15 0 56 2 6 7 0 7
+                                              58 3 0 30 7 0 30 60 2 7 15 0 0 61
+                                              2 6 0 26 0 62 1 0 0 0 63 2 7 15 0
+                                              0 64 2 0 15 0 0 65 2 7 15 0 0 66
+                                              2 0 15 0 0 67 2 0 15 10 0 49 2 0
+                                              0 10 0 11 2 0 15 0 0 67 2 0 0 26
+                                              0 27 1 0 0 0 55 1 0 0 0 63 2 0 0
+                                              26 0 36 4 0 7 19 0 7 7 52 2 0 7
+                                              19 0 21 3 0 7 19 0 7 50 2 0 30 26
+                                              0 46 3 0 30 7 0 30 60 2 0 0 8 7
+                                              53 3 0 0 10 0 0 29 3 0 0 10 0 0
+                                              24 3 0 0 19 0 0 54 1 0 0 7 14 3 0
+                                              0 0 0 30 35 3 0 0 7 0 30 33 2 0
+                                              44 26 0 45 2 0 0 0 30 37 2 0 0 0
+                                              38 43 3 0 0 0 0 30 59 1 0 0 0 57
+                                              2 0 15 0 0 65)))))
            '|lookupComplete|)) 

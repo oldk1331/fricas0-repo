@@ -43,10 +43,15 @@
               (0 . |coerce|) (|ScriptFormulaFormat|) (5 . |coerce|)
               |FORMULA1;coerce;SSff;1|)
            '#(|coerce| 10) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 11
-                                                 '(1 6 7 0 8 1 9 0 7 10 1 0 9 6
-                                                   11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|coerce| ((|ScriptFormulaFormat|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 11
+                                            '(1 6 7 0 8 1 9 0 7 10 1 0 9 6
+                                              11)))))
            '|lookupComplete|)) 

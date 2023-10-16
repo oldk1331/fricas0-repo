@@ -1533,25 +1533,46 @@
            '#(|xform| 134 |stranslate| 140 |stransform| 150 |identity| 170
               |compound| 174 |coerce| 180)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 63
-                                                 '(2 10 8 0 9 11 2 8 12 0 9 13
-                                                   1 19 18 0 20 1 19 0 18 21 1
-                                                   24 0 8 25 0 12 0 27 0 12 0
-                                                   28 1 29 0 10 30 1 31 0 29 32
-                                                   3 34 0 9 9 33 35 1 34 12 0
-                                                   36 2 18 0 12 12 37 2 18 0 0
-                                                   0 38 1 41 0 40 42 1 41 43 0
-                                                   44 1 45 8 0 46 2 45 0 12 12
-                                                   47 1 48 8 0 49 3 48 0 12 12
-                                                   12 50 1 52 0 0 53 2 55 16 16
-                                                   16 56 1 12 41 0 58 1 41 0 59
-                                                   60 1 41 0 61 62 2 41 0 0 0
-                                                   63 2 0 6 0 6 54 6 0 0 12 12
-                                                   12 12 12 12 39 1 0 0 16 17 1
-                                                   0 0 10 15 1 0 0 8 26 1 0 0
-                                                   22 23 0 0 0 14 2 0 0 0 0 57
-                                                   1 0 41 0 51)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|stransform|
+                                 ($$ (|List| (|List| (|DoubleFloat|)))))
+                                T)
+                              '((|stransform| ($$ (|Mapping| |#1| |#1|))) T)
+                              '((|stransform|
+                                 ($$
+                                  (|Mapping| (|Complex| (|DoubleFloat|))
+                                             (|Complex| (|DoubleFloat|)))))
+                                T)
+                              '((|stransform| ($$ (|List| (|DoubleFloat|)))) T)
+                              '((|stranslate|
+                                 ($$ (|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|) (|DoubleFloat|)))
+                                T)
+                              '((|identity| ($$)) T)
+                              '((|xform| (|#1| $$ |#1|)) T)
+                              '((|compound| ($$ $$ $$)) T)
+                              '((|coerce| ((|OutputForm|) $$)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 63
+                                            '(2 10 8 0 9 11 2 8 12 0 9 13 1 19
+                                              18 0 20 1 19 0 18 21 1 24 0 8 25
+                                              0 12 0 27 0 12 0 28 1 29 0 10 30
+                                              1 31 0 29 32 3 34 0 9 9 33 35 1
+                                              34 12 0 36 2 18 0 12 12 37 2 18 0
+                                              0 0 38 1 41 0 40 42 1 41 43 0 44
+                                              1 45 8 0 46 2 45 0 12 12 47 1 48
+                                              8 0 49 3 48 0 12 12 12 50 1 52 0
+                                              0 53 2 55 16 16 16 56 1 12 41 0
+                                              58 1 41 0 59 60 1 41 0 61 62 2 41
+                                              0 0 0 63 2 0 6 0 6 54 6 0 0 12 12
+                                              12 12 12 12 39 1 0 0 16 17 1 0 0
+                                              10 15 1 0 0 8 26 1 0 0 22 23 0 0
+                                              0 14 2 0 0 0 0 57 1 0 41 0
+                                              51)))))
            '|lookupComplete|)) 

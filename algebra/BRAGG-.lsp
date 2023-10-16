@@ -279,8 +279,8 @@
 (MAKEPROP '|BinaryRecursiveAggregate&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (0 . |left|) '"left" |BRAGG-;elt;AleftA;1| (5 . |right|) '"right"
-              |BRAGG-;elt;ArightA;2| (|Boolean|) (10 . |empty?|)
+              (0 . |left|) '#1="left" |BRAGG-;elt;AleftA;1| (5 . |right|)
+              '#2="right" |BRAGG-;elt;ArightA;2| (|Boolean|) (10 . |empty?|)
               |BRAGG-;leaf?;AB;3| (15 . |leaf?|) (20 . |value|) (|List| 7)
               (25 . |leaves|) (30 . |concat|) |BRAGG-;leaves;AL;4| (|List| $)
               (36 . |nodes|) (|List| 6) (41 . |concat|) |BRAGG-;nodes;AL;5|
@@ -291,33 +291,50 @@
               (109 . |coerce|) (114 . |coerce|) (119 . |bracket|)
               (124 . |coerce|) |BRAGG-;cyclic?;AB;13| (129 . |eq?|)
               (135 . |setleft!|) (141 . |setelt!|) (148 . |setright!|)
-              (154 . |setelt!|) '"value")
+              (154 . |setelt!|) '#3="value")
            '#(|setelt!| 161 |nodes| 175 |node?| 180 |member?| 186 |leaves| 192
               |leaf?| 197 |elt| 202 |cyclic?| 214 |coerce| 219 |children| 224 =
               229 |#| 235)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 52
-                                                 '(1 6 0 0 8 1 6 0 0 11 1 6 14
-                                                   0 15 1 6 14 0 17 1 6 7 0 18
-                                                   1 6 19 0 20 2 19 0 0 0 21 1
-                                                   6 23 0 24 2 25 0 0 0 26 1 0
-                                                   29 0 30 1 6 14 0 31 1 6 23 0
-                                                   32 2 6 14 0 0 33 2 6 14 0 0
-                                                   34 2 0 14 0 0 35 2 7 14 0 0
-                                                   36 2 0 14 0 0 37 2 6 14 7 0
-                                                   38 2 0 14 7 0 39 1 41 0 40
-                                                   42 1 7 41 0 43 1 6 41 0 44 1
-                                                   41 0 23 45 1 0 41 0 46 2 6
-                                                   14 0 0 48 2 6 0 0 0 49 3 0 0
-                                                   0 9 0 50 2 6 0 0 0 51 3 0 0
-                                                   0 12 0 52 3 0 0 0 9 0 50 3 0
-                                                   0 0 12 0 52 1 0 23 0 27 2 0
-                                                   14 0 0 35 2 0 14 7 0 39 1 0
-                                                   19 0 22 1 0 14 0 16 2 0 0 0
-                                                   9 10 2 0 0 0 12 13 1 0 14 0
-                                                   47 1 0 41 0 46 1 0 23 0 28 2
-                                                   0 14 0 0 37 1 0 29 0 30)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|setelt!| (|#1| |#1| "right" |#1|)) T)
+                                   '((|setelt!| (|#1| |#1| "left" |#1|)) T)
+                                   '((|elt| (|#1| |#1| #2#)) T)
+                                   '((|elt| (|#1| |#1| #1#)) T)
+                                   '((|setelt!| (|#2| |#1| #3# |#2|)) T)
+                                   '((|node?| ((|Boolean|) |#1| |#1|)) T)
+                                   '((|leaves| ((|List| |#2|) |#1|)) T)
+                                   '((|cyclic?| ((|Boolean|) |#1|)) T)
+                                   '((|elt| (|#2| |#1| #3#)) T)
+                                   '((|leaf?| ((|Boolean|) |#1|)) T)
+                                   '((|nodes| ((|List| |#1|) |#1|)) T)
+                                   '((|children| ((|List| |#1|) |#1|)) T)
+                                   '((|coerce| ((|OutputForm|) |#1|)) T)
+                                   '((= ((|Boolean|) |#1| |#1|)) T)
+                                   '((|member?| ((|Boolean|) |#2| |#1|)) T)
+                                   '((|#| ((|NonNegativeInteger|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 52
+                                            '(1 6 0 0 8 1 6 0 0 11 1 6 14 0 15
+                                              1 6 14 0 17 1 6 7 0 18 1 6 19 0
+                                              20 2 19 0 0 0 21 1 6 23 0 24 2 25
+                                              0 0 0 26 1 0 29 0 30 1 6 14 0 31
+                                              1 6 23 0 32 2 6 14 0 0 33 2 6 14
+                                              0 0 34 2 0 14 0 0 35 2 7 14 0 0
+                                              36 2 0 14 0 0 37 2 6 14 7 0 38 2
+                                              0 14 7 0 39 1 41 0 40 42 1 7 41 0
+                                              43 1 6 41 0 44 1 41 0 23 45 1 0
+                                              41 0 46 2 6 14 0 0 48 2 6 0 0 0
+                                              49 3 0 0 0 9 0 50 2 6 0 0 0 51 3
+                                              0 0 0 12 0 52 3 0 0 0 9 0 50 3 0
+                                              0 0 12 0 52 1 0 23 0 27 2 0 14 0
+                                              0 35 2 0 14 7 0 39 1 0 19 0 22 1
+                                              0 14 0 16 2 0 0 0 9 10 2 0 0 0 12
+                                              13 1 0 14 0 47 1 0 41 0 46 1 0 23
+                                              0 28 2 0 14 0 0 37 1 0 29 0
+                                              30)))))
            '|lookupComplete|)) 

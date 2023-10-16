@@ -142,13 +142,41 @@
               |projectiveSpace| 25 |moebiusBand| 30 |line| 34 |kleinBottle| 38
               |dunceHat| 42 |band| 46)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 22
-                                                 '(2 9 0 7 8 10 1 9 0 0 13 0 0
-                                                   9 16 1 0 9 11 14 1 0 9 11 12
-                                                   1 0 9 19 20 0 0 9 18 0 0 9
-                                                   15 0 0 9 21 0 0 9 22 0 0 9
-                                                   17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|sphereSolid|
+                                 ((|FiniteSimplicialComplex| |#1|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|sphereSurface|
+                                 ((|FiniteSimplicialComplex| |#1|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|line| ((|FiniteSimplicialComplex| |#1|))) T)
+                              '((|torusSurface|
+                                 ((|FiniteSimplicialComplex| |#1|)))
+                                T)
+                              '((|band| ((|FiniteSimplicialComplex| |#1|))) T)
+                              '((|moebiusBand|
+                                 ((|FiniteSimplicialComplex| |#1|)))
+                                T)
+                              '((|projectiveSpace|
+                                 ((|FiniteSimplicialComplex| |#1|)
+                                  (|Integer|)))
+                                T)
+                              '((|kleinBottle|
+                                 ((|FiniteSimplicialComplex| |#1|)))
+                                T)
+                              '((|dunceHat| ((|FiniteSimplicialComplex| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 22
+                                            '(2 9 0 7 8 10 1 9 0 0 13 0 0 9 16
+                                              1 0 9 11 14 1 0 9 11 12 1 0 9 19
+                                              20 0 0 9 18 0 0 9 15 0 0 9 21 0 0
+                                              9 22 0 0 9 17)))))
            '|lookupComplete|)) 

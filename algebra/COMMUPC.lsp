@@ -98,15 +98,17 @@
               (39 . ~=) (45 . |leadingCoefficient|) (50 . |monomial|)
               (56 . |degree|) (61 . |monomial|) (67 . |reductum|))
            '#(|swap| 72) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(0 8 0 9 0 6 0 10 0 7 0 11 2
-                                                   8 12 0 0 13 1 8 7 0 14 1 8
-                                                   15 0 16 2 8 0 0 0 17 1 8 0 0
-                                                   18 2 7 12 0 0 20 1 7 6 0 21
-                                                   2 7 0 6 15 22 1 7 15 0 23 2
-                                                   8 0 7 15 24 1 7 0 0 25 1 0 8
-                                                   8 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory| (LIST '((|swap| (|#3| |#3|)) T))
+                                          (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(0 8 0 9 0 6 0 10 0 7 0 11 2 8 12
+                                              0 0 13 1 8 7 0 14 1 8 15 0 16 2 8
+                                              0 0 0 17 1 8 0 0 18 2 7 12 0 0 20
+                                              1 7 6 0 21 2 7 0 6 15 22 1 7 15 0
+                                              23 2 8 0 7 15 24 1 7 0 0 25 1 0 8
+                                              8 19)))))
            '|lookupComplete|)) 

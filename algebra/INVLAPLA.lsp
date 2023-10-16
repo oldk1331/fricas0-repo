@@ -310,13 +310,14 @@
 (MAKEPROP '|InverseLaplaceTransform| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|Union| 7 '"failed") (|Symbol|) |INVLAPLA;inverseLaplace;F2SU;1|
-              (|List| 7) (|SparseUnivariatePolynomial| 7) (0 . |coefficients|)
-              (|Boolean|) (5 . |freeOf?|) (11 . |Zero|) (15 . |Zero|) (19 . =)
-              (|Kernel| 7) (25 . |kernel|) (|Fraction| 75) (|Kernel| $)
-              (30 . |univariate|) (|Fraction| 12) (36 . |numer|) (41 . |denom|)
-              (46 . |quo|) (52 . |Zero|) (56 . =) (62 . |coerce|) '|hintpac|
-              (67 . |Zero|) (71 . =) (77 . |differentiate|)
+              (|Union| 7 '#1="failed") (|Symbol|)
+              |INVLAPLA;inverseLaplace;F2SU;1| (|List| 7)
+              (|SparseUnivariatePolynomial| 7) (0 . |coefficients|) (|Boolean|)
+              (5 . |freeOf?|) (11 . |Zero|) (15 . |Zero|) (19 . =) (|Kernel| 7)
+              (25 . |kernel|) (|Fraction| 75) (|Kernel| $) (30 . |univariate|)
+              (|Fraction| 12) (36 . |numer|) (41 . |denom|) (46 . |quo|)
+              (52 . |Zero|) (56 . =) (62 . |coerce|) '|hintpac| (67 . |Zero|)
+              (71 . =) (77 . |differentiate|)
               (|Record| (|:| |answer| 24) (|:| |logpart| 24)
                         (|:| |specpart| 24) (|:| |polypart| 12))
               (|Mapping| 12 12) (82 . |HermiteIntegrate|) (88 . *) (94 . -)
@@ -333,29 +334,34 @@
               (203 . /) (209 . |cosh|) (214 . |sinh|)
               (|SparseUnivariatePolynomial| $) (219 . |zerosOf|) (224 . |elt|))
            '#(|inverseLaplace| 230) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 77
-                                                 '(1 12 11 0 13 2 7 14 0 9 15 0
-                                                   6 0 16 0 7 0 17 2 7 14 0 0
-                                                   18 1 19 0 9 20 2 7 21 0 22
-                                                   23 1 24 12 0 25 1 24 12 0 26
-                                                   2 12 0 0 0 27 0 12 0 28 2 12
-                                                   14 0 0 29 1 7 0 9 30 0 24 0
-                                                   32 2 24 14 0 0 33 1 12 0 0
-                                                   34 2 31 35 24 36 37 2 7 0 0
-                                                   0 38 1 7 0 0 39 2 7 0 0 0 40
-                                                   1 12 41 0 42 1 46 45 0 47 0
-                                                   6 0 48 2 12 49 50 0 51 1 12
-                                                   52 0 53 2 12 7 0 52 54 1 7 0
-                                                   0 55 0 7 0 56 0 57 0 58 0 12
-                                                   0 59 2 61 0 60 60 62 1 61 0
-                                                   0 63 2 7 0 61 0 64 2 7 0 0
-                                                   65 66 2 7 0 0 0 67 2 7 14 0
-                                                   0 68 1 7 0 0 69 1 7 0 0 70 1
-                                                   7 0 0 71 2 7 0 0 0 72 1 7 0
-                                                   0 73 1 7 0 0 74 1 7 50 75 76
-                                                   2 12 7 0 7 77 3 0 8 7 9 9
-                                                   10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|inverseLaplace|
+                                 ((|Union| |#2| #1#) |#2| (|Symbol|)
+                                  (|Symbol|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 77
+                                            '(1 12 11 0 13 2 7 14 0 9 15 0 6 0
+                                              16 0 7 0 17 2 7 14 0 0 18 1 19 0
+                                              9 20 2 7 21 0 22 23 1 24 12 0 25
+                                              1 24 12 0 26 2 12 0 0 0 27 0 12 0
+                                              28 2 12 14 0 0 29 1 7 0 9 30 0 24
+                                              0 32 2 24 14 0 0 33 1 12 0 0 34 2
+                                              31 35 24 36 37 2 7 0 0 0 38 1 7 0
+                                              0 39 2 7 0 0 0 40 1 12 41 0 42 1
+                                              46 45 0 47 0 6 0 48 2 12 49 50 0
+                                              51 1 12 52 0 53 2 12 7 0 52 54 1
+                                              7 0 0 55 0 7 0 56 0 57 0 58 0 12
+                                              0 59 2 61 0 60 60 62 1 61 0 0 63
+                                              2 7 0 61 0 64 2 7 0 0 65 66 2 7 0
+                                              0 0 67 2 7 14 0 0 68 1 7 0 0 69 1
+                                              7 0 0 70 1 7 0 0 71 2 7 0 0 0 72
+                                              1 7 0 0 73 1 7 0 0 74 1 7 50 75
+                                              76 2 12 7 0 7 77 3 0 8 7 9 9
+                                              10)))))
            '|lookupComplete|)) 

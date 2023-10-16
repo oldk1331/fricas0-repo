@@ -1863,68 +1863,169 @@
               |lambert_via_newton1| 535 |lambert_inverse_series| 563 |lambertW|
               587 |dilog| 607 |digamma| 612 |Gamma| 622 |Beta| 632)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 135
-                                                 '(0 6 0 7 2 6 0 0 0 8 2 6 0 0
-                                                   0 9 2 11 0 10 10 12 1 6 0 11
-                                                   13 0 14 0 15 2 17 0 16 0 18
-                                                   1 14 0 10 19 2 14 0 0 0 20 1
-                                                   21 11 10 22 1 14 0 11 23 2
-                                                   14 0 0 0 24 1 6 0 14 25 2 6
-                                                   0 0 0 26 2 6 0 0 0 27 1 6 0
-                                                   0 28 0 6 0 29 2 6 0 14 0 30
-                                                   1 14 0 0 31 1 6 0 0 32 1 6 0
-                                                   10 33 1 14 0 0 34 1 14 0 0
-                                                   35 0 14 16 36 0 14 16 37 1 6
-                                                   14 0 38 2 14 0 0 10 39 2 14
-                                                   40 0 0 41 1 14 16 16 42 1 14
-                                                   0 0 43 1 14 10 0 44 0 6 0 45
-                                                   2 6 40 0 0 46 1 6 0 0 48 1 6
-                                                   0 0 49 2 14 0 16 0 50 2 14
-                                                   40 0 0 51 1 14 10 0 52 2 14
-                                                   0 0 0 53 0 14 0 54 2 14 0 0
-                                                   0 55 1 14 10 0 56 2 10 0 16
-                                                   0 57 1 6 14 0 58 0 14 0 59 0
-                                                   6 0 60 0 14 0 61 2 6 0 14 14
-                                                   62 2 14 40 0 0 65 1 14 0 0
-                                                   69 1 74 0 0 75 1 74 72 0 76
-                                                   1 6 0 0 78 1 6 14 0 79 1 14
-                                                   0 0 80 1 6 0 0 81 1 72 0 0
-                                                   84 1 14 72 0 85 1 72 0 0 86
-                                                   1 72 10 0 87 0 11 0 88 2 14
-                                                   40 0 0 89 1 72 0 11 100 1 74
-                                                   0 0 102 2 74 0 0 0 103 2 74
-                                                   0 0 0 104 0 74 0 105 2 74 0
-                                                   0 0 106 1 74 0 0 108 1 74 0
-                                                   11 110 2 74 0 0 0 111 2 72 0
-                                                   10 10 113 1 72 10 0 114 2 10
-                                                   40 0 0 115 2 72 40 0 0 116 1
-                                                   11 0 0 117 2 72 0 16 0 118 1
-                                                   72 0 0 119 0 74 0 121 2 74
-                                                   40 0 0 122 1 74 72 0 123 2
-                                                   74 0 72 72 124 2 74 0 72 0
-                                                   125 1 74 0 0 126 2 14 40 0 0
-                                                   128 2 14 0 10 10 129 3 14 0
-                                                   10 10 16 130 1 14 72 0 132 1
-                                                   14 0 72 133 1 6 0 0 134 1 0
-                                                   14 14 70 1 0 14 6 71 1 0 72
-                                                   74 77 1 0 72 72 73 1 0 14 14
-                                                   66 1 0 6 6 63 1 0 6 6 90 3 0
-                                                   72 72 72 72 99 3 0 14 14 14
-                                                   14 93 3 0 74 74 74 72 109 3
-                                                   0 6 6 6 14 96 3 0 72 72 72
-                                                   72 98 3 0 14 14 14 14 92 3 0
-                                                   74 74 74 72 107 3 0 6 6 6 14
-                                                   95 2 0 72 72 72 101 2 0 14
-                                                   14 14 94 2 0 74 74 74 112 2
-                                                   0 6 6 6 97 1 0 14 14 131 1 0
-                                                   6 6 135 1 0 72 72 120 1 0 74
-                                                   74 127 1 0 6 6 91 1 0 14 14
-                                                   83 1 0 6 6 82 1 0 14 14 64 1
-                                                   0 6 6 47 2 0 14 14 14 68 2 0
-                                                   6 6 6 67)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|logGamma| ((|Float|) (|Float|))) T)
+                                   '((|logGamma|
+                                      ((|Complex| (|Float|))
+                                       (|Complex| (|Float|))))
+                                     T)
+                                   '((|Gamma| ((|Float|) (|Float|))) T)
+                                   '((|Gamma|
+                                      ((|Complex| (|Float|))
+                                       (|Complex| (|Float|))))
+                                     T)
+                                   '((|digamma| ((|Float|) (|Float|))) T)
+                                   '((|digamma|
+                                      ((|Complex| (|Float|))
+                                       (|Complex| (|Float|))))
+                                     T)
+                                   '((|Beta| ((|Float|) (|Float|) (|Float|)))
+                                     T)
+                                   '((|Beta|
+                                      ((|Complex| (|Float|))
+                                       (|Complex| (|Float|))
+                                       (|Complex| (|Float|))))
+                                     T)
+                                   '((|lambertW| ((|Float|) (|Float|))) T)
+                                   '((|lambertW|
+                                      ((|DoubleFloat|) (|DoubleFloat|)))
+                                     T)
+                                   '((|lambertW|
+                                      ((|Complex| (|Float|))
+                                       (|Complex| (|Float|))))
+                                     T)
+                                   '((|lambertW|
+                                      ((|Complex| (|DoubleFloat|))
+                                       (|Complex| (|DoubleFloat|))))
+                                     T)
+                                   '((|dilog|
+                                      ((|Complex| (|Float|))
+                                       (|Complex| (|Float|))))
+                                     T)
+                                   '((|li2|
+                                      ((|Complex| (|Float|))
+                                       (|Complex| (|Float|))))
+                                     T)
+                                   '((|rabs| ((|Float|) (|Float|))) T)
+                                   '((|rabs| ((|Float|) (|Complex| (|Float|))))
+                                     T)
+                                   '((|rabs| ((|DoubleFloat|) (|DoubleFloat|)))
+                                     T)
+                                   '((|rabs|
+                                      ((|DoubleFloat|)
+                                       (|Complex| (|DoubleFloat|))))
+                                     T)
+                                   '((|lambert_via_newton1|
+                                      ((|Float|) (|Float|) (|Float|)
+                                       (|Float|)))
+                                     T)
+                                   '((|lambert_via_newton1|
+                                      ((|DoubleFloat|) (|DoubleFloat|)
+                                       (|DoubleFloat|) (|DoubleFloat|)))
+                                     T)
+                                   '((|lambert_via_newton1|
+                                      ((|Complex| (|Float|))
+                                       (|Complex| (|Float|))
+                                       (|Complex| (|Float|)) (|Float|)))
+                                     T)
+                                   '((|lambert_via_newton1|
+                                      ((|Complex| (|DoubleFloat|))
+                                       (|Complex| (|DoubleFloat|))
+                                       (|Complex| (|DoubleFloat|))
+                                       (|DoubleFloat|)))
+                                     T)
+                                   '((|lambert_via_newton2|
+                                      ((|Float|) (|Float|) (|Float|)
+                                       (|Float|)))
+                                     T)
+                                   '((|lambert_via_newton2|
+                                      ((|DoubleFloat|) (|DoubleFloat|)
+                                       (|DoubleFloat|) (|DoubleFloat|)))
+                                     T)
+                                   '((|lambert_via_newton2|
+                                      ((|Complex| (|Float|))
+                                       (|Complex| (|Float|))
+                                       (|Complex| (|Float|)) (|Float|)))
+                                     T)
+                                   '((|lambert_via_newton2|
+                                      ((|Complex| (|DoubleFloat|))
+                                       (|Complex| (|DoubleFloat|))
+                                       (|Complex| (|DoubleFloat|))
+                                       (|DoubleFloat|)))
+                                     T)
+                                   '((|lambert_inverse_series|
+                                      ((|Float|) (|Float|) (|Float|)))
+                                     T)
+                                   '((|lambert_inverse_series|
+                                      ((|DoubleFloat|) (|DoubleFloat|)
+                                       (|DoubleFloat|)))
+                                     T)
+                                   '((|lambert_inverse_series|
+                                      ((|Complex| (|Float|))
+                                       (|Complex| (|Float|))
+                                       (|Complex| (|Float|))))
+                                     T)
+                                   '((|lambert_inverse_series|
+                                      ((|Complex| (|DoubleFloat|))
+                                       (|Complex| (|DoubleFloat|))
+                                       (|Complex| (|DoubleFloat|))))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 135
+                                            '(0 6 0 7 2 6 0 0 0 8 2 6 0 0 0 9 2
+                                              11 0 10 10 12 1 6 0 11 13 0 14 0
+                                              15 2 17 0 16 0 18 1 14 0 10 19 2
+                                              14 0 0 0 20 1 21 11 10 22 1 14 0
+                                              11 23 2 14 0 0 0 24 1 6 0 14 25 2
+                                              6 0 0 0 26 2 6 0 0 0 27 1 6 0 0
+                                              28 0 6 0 29 2 6 0 14 0 30 1 14 0
+                                              0 31 1 6 0 0 32 1 6 0 10 33 1 14
+                                              0 0 34 1 14 0 0 35 0 14 16 36 0
+                                              14 16 37 1 6 14 0 38 2 14 0 0 10
+                                              39 2 14 40 0 0 41 1 14 16 16 42 1
+                                              14 0 0 43 1 14 10 0 44 0 6 0 45 2
+                                              6 40 0 0 46 1 6 0 0 48 1 6 0 0 49
+                                              2 14 0 16 0 50 2 14 40 0 0 51 1
+                                              14 10 0 52 2 14 0 0 0 53 0 14 0
+                                              54 2 14 0 0 0 55 1 14 10 0 56 2
+                                              10 0 16 0 57 1 6 14 0 58 0 14 0
+                                              59 0 6 0 60 0 14 0 61 2 6 0 14 14
+                                              62 2 14 40 0 0 65 1 14 0 0 69 1
+                                              74 0 0 75 1 74 72 0 76 1 6 0 0 78
+                                              1 6 14 0 79 1 14 0 0 80 1 6 0 0
+                                              81 1 72 0 0 84 1 14 72 0 85 1 72
+                                              0 0 86 1 72 10 0 87 0 11 0 88 2
+                                              14 40 0 0 89 1 72 0 11 100 1 74 0
+                                              0 102 2 74 0 0 0 103 2 74 0 0 0
+                                              104 0 74 0 105 2 74 0 0 0 106 1
+                                              74 0 0 108 1 74 0 11 110 2 74 0 0
+                                              0 111 2 72 0 10 10 113 1 72 10 0
+                                              114 2 10 40 0 0 115 2 72 40 0 0
+                                              116 1 11 0 0 117 2 72 0 16 0 118
+                                              1 72 0 0 119 0 74 0 121 2 74 40 0
+                                              0 122 1 74 72 0 123 2 74 0 72 72
+                                              124 2 74 0 72 0 125 1 74 0 0 126
+                                              2 14 40 0 0 128 2 14 0 10 10 129
+                                              3 14 0 10 10 16 130 1 14 72 0 132
+                                              1 14 0 72 133 1 6 0 0 134 1 0 14
+                                              14 70 1 0 14 6 71 1 0 72 74 77 1
+                                              0 72 72 73 1 0 14 14 66 1 0 6 6
+                                              63 1 0 6 6 90 3 0 72 72 72 72 99
+                                              3 0 14 14 14 14 93 3 0 74 74 74
+                                              72 109 3 0 6 6 6 14 96 3 0 72 72
+                                              72 72 98 3 0 14 14 14 14 92 3 0
+                                              74 74 74 72 107 3 0 6 6 6 14 95 2
+                                              0 72 72 72 101 2 0 14 14 14 94 2
+                                              0 74 74 74 112 2 0 6 6 6 97 1 0
+                                              14 14 131 1 0 6 6 135 1 0 72 72
+                                              120 1 0 74 74 127 1 0 6 6 91 1 0
+                                              14 14 83 1 0 6 6 82 1 0 14 14 64
+                                              1 0 6 6 47 2 0 14 14 14 68 2 0 6
+                                              6 6 67)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FloatSpecialFunctions| 'NILADIC T) 

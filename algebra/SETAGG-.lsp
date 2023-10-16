@@ -37,12 +37,21 @@
               |SETAGG-;union;ASA;2| |SETAGG-;union;S2A;3|
               |SETAGG-;difference;ASA;4|)
            '#(|union| 17 |symmetricDifference| 29 |difference| 35) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 15
-                                                 '(2 6 0 0 0 8 2 6 0 0 0 9 1 6
-                                                   0 11 12 2 0 0 7 0 14 2 0 0 0
-                                                   7 13 2 0 0 0 0 10 2 0 0 0 7
-                                                   15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|union| (|#1| |#2| |#1|)) T)
+                                   '((|union| (|#1| |#1| |#2|)) T)
+                                   '((|union| (|#1| |#1| |#1|)) T)
+                                   '((|symmetricDifference| (|#1| |#1| |#1|))
+                                     T)
+                                   '((|difference| (|#1| |#1| |#2|)) T)
+                                   '((|difference| (|#1| |#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 15
+                                            '(2 6 0 0 0 8 2 6 0 0 0 9 1 6 0 11
+                                              12 2 0 0 7 0 14 2 0 0 0 7 13 2 0
+                                              0 0 0 10 2 0 0 0 7 15)))))
            '|lookupComplete|)) 

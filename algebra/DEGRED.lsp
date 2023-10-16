@@ -165,21 +165,34 @@
               (103 . ^) (109 . |sin|) (114 . *) (120 . +) (|List| 21)
               |DEGRED;expand;EPiL;4|)
            '#(|reduce| 126 |expand| 131) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 45
-                                                 '(0 6 0 8 0 7 0 9 0 10 0 11 2
-                                                   10 12 0 0 13 1 10 14 0 15 1
-                                                   10 0 0 16 2 10 17 0 14 18 0
-                                                   21 0 22 2 24 0 23 0 25 0 21
-                                                   0 26 2 21 0 24 0 27 1 21 0
-                                                   24 28 2 21 0 0 0 29 1 21 0 0
-                                                   30 0 6 0 31 0 7 0 32 1 7 0 0
-                                                   33 1 6 0 0 34 2 35 0 24 24
-                                                   36 1 21 0 0 37 0 38 0 39 2
-                                                   21 0 0 35 40 1 21 0 0 41 2
-                                                   21 0 0 0 42 2 21 0 0 0 43 1
-                                                   0 19 10 20 2 0 44 21 23
-                                                   45)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|reduce|
+                                 ((|Record|
+                                   (|:| |pol|
+                                        (|SparseUnivariatePolynomial| |#1|))
+                                   (|:| |deg| (|PositiveInteger|)))
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|expand|
+                                 ((|List| (|Expression| |#2|))
+                                  (|Expression| |#2|) (|PositiveInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 45
+                                            '(0 6 0 8 0 7 0 9 0 10 0 11 2 10 12
+                                              0 0 13 1 10 14 0 15 1 10 0 0 16 2
+                                              10 17 0 14 18 0 21 0 22 2 24 0 23
+                                              0 25 0 21 0 26 2 21 0 24 0 27 1
+                                              21 0 24 28 2 21 0 0 0 29 1 21 0 0
+                                              30 0 6 0 31 0 7 0 32 1 7 0 0 33 1
+                                              6 0 0 34 2 35 0 24 24 36 1 21 0 0
+                                              37 0 38 0 39 2 21 0 0 35 40 1 21
+                                              0 0 41 2 21 0 0 0 42 2 21 0 0 0
+                                              43 1 0 19 10 20 2 0 44 21 23
+                                              45)))))
            '|lookupComplete|)) 

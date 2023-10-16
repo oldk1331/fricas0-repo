@@ -58,11 +58,16 @@
               (10 . |imagJ|) (15 . |imagK|) (20 . |quatern|) (|Mapping| 9 7)
               |QUATCT2;map;MQRQS;1|)
            '#(|map| 28) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(1 6 7 0 10 1 6 7 0 11 1 6 7
-                                                   0 12 1 6 7 0 13 4 8 0 9 9 9
-                                                   9 14 2 0 8 15 6 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#3| (|Mapping| |#4| |#2|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(1 6 7 0 10 1 6 7 0 11 1 6 7 0 12
+                                              1 6 7 0 13 4 8 0 9 9 9 9 14 2 0 8
+                                              15 6 16)))))
            '|lookupComplete|)) 

@@ -2348,78 +2348,200 @@
               |factorSquareFree| 611 |factorOfDegree| 642 |factor| 679
               |eisensteinIrreducible?| 710 |degreePartition| 715 |btwFact| 720)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 189
-                                                 '(1 6 0 0 24 1 6 25 0 26 1 25
-                                                   12 0 27 1 6 25 0 28 1 6 12 0
-                                                   29 1 25 30 0 31 1 35 34 0 36
-                                                   1 6 38 0 39 1 44 43 0 45 1
-                                                   44 0 43 46 0 6 0 47 1 6 48 0
-                                                   49 2 51 50 48 25 52 3 51 50
-                                                   50 50 25 53 1 51 25 50 54 2
-                                                   25 12 0 0 55 3 56 6 6 6 25
-                                                   57 0 6 0 58 1 51 48 50 59 1
-                                                   6 0 48 60 1 6 0 25 61 2 25
-                                                   12 0 0 62 2 25 0 0 0 63 4 51
-                                                   64 50 25 25 25 65 2 69 68 50
-                                                   25 70 2 56 41 6 25 71 2 56
-                                                   72 41 25 73 0 44 0 74 1 6 0
-                                                   0 75 2 38 12 0 0 76 2 25 0
-                                                   38 0 77 1 78 25 25 79 2 44 0
-                                                   0 0 80 2 44 0 0 0 81 2 44 12
-                                                   0 0 82 1 43 38 0 83 2 25 12
-                                                   0 0 84 0 87 0 88 2 87 0 38 0
-                                                   89 3 87 0 38 0 38 90 2 38 12
-                                                   0 0 92 2 38 0 0 0 93 0 38 0
-                                                   94 2 38 12 0 0 95 2 44 0 96
-                                                   0 97 1 98 12 6 99 1 102 101
-                                                   6 103 2 25 0 19 0 104 1 105
-                                                   25 6 106 4 107 72 6 72 25 19
-                                                   108 2 6 0 0 0 109 2 72 0 0 0
-                                                   110 2 6 25 0 38 111 2 25 12
-                                                   0 0 112 2 72 6 0 25 113 2 25
-                                                   0 0 0 114 2 44 12 38 0 115 2
-                                                   25 116 0 0 117 2 6 0 0 0 118
-                                                   2 107 6 6 25 119 1 6 0 0 120
-                                                   2 6 116 0 0 121 3 72 64 0 25
-                                                   25 122 2 72 0 0 38 123 2 72
-                                                   0 0 0 124 2 105 25 6 38 125
-                                                   2 19 12 0 0 126 4 107 127 6
-                                                   72 25 19 128 2 38 116 0 0
-                                                   129 1 44 38 0 130 1 131 6 6
-                                                   132 1 6 0 0 133 1 98 12 6
-                                                   134 2 44 0 38 0 135 1 6 12 0
-                                                   136 2 38 116 0 0 137 3 72 6
-                                                   0 25 6 138 1 35 25 0 139 2
-                                                   142 0 6 141 143 2 25 0 0 19
-                                                   147 1 149 148 25 150 2 6 0
-                                                   25 38 151 2 6 0 0 0 152 2 48
-                                                   0 25 38 153 2 48 0 0 0 154 2
-                                                   6 116 0 25 155 1 6 38 0 156
-                                                   2 6 157 0 0 158 2 6 12 0 0
-                                                   159 1 161 160 25 162 2 164
-                                                   72 163 160 165 2 166 0 0 0
-                                                   167 1 6 30 0 168 1 142 141 0
-                                                   169 2 38 0 19 0 171 2 43 0
-                                                   38 38 177 0 0 12 17 1 0 12
-                                                   12 18 0 0 12 13 1 0 12 12 14
-                                                   0 0 12 15 1 0 12 12 16 1 0
-                                                   19 19 21 0 0 19 20 1 0 38 41
-                                                   42 1 0 19 19 23 0 0 19 22 2
-                                                   0 85 6 44 86 1 0 142 145 146
-                                                   2 0 145 6 12 170 2 0 142 6
-                                                   38 181 1 0 142 6 179 3 0 142
-                                                   6 43 38 180 2 0 142 6 43 182
-                                                   3 0 142 6 38 38 183 2 0 184
-                                                   19 6 189 3 0 184 19 6 43 188
-                                                   3 0 184 19 6 38 187 5 0 184
-                                                   19 6 43 38 12 185 4 0 184 19
-                                                   6 43 38 186 1 0 142 6 173 2
-                                                   0 142 6 43 176 2 0 142 6 38
-                                                   175 3 0 142 6 38 38 178 3 0
-                                                   142 6 43 38 174 1 0 12 6 37
-                                                   1 0 87 41 91 4 0 145 6 12 44
-                                                   38 172)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|makeFR|
+                                 ((|Factored| |#1|)
+                                  (|Record| (|:| |contp| (|Integer|))
+                                            (|:| |factors|
+                                                 (|List|
+                                                  (|Record| (|:| |irr| |#1|)
+                                                            (|:| |pow|
+                                                                 (|NonNegativeInteger|))))))))
+                                T)
+                              '((|degreePartition|
+                                 ((|Multiset| (|NonNegativeInteger|))
+                                  (|List|
+                                   (|Record| (|:| |factor| |#1|)
+                                             (|:| |degree| (|Integer|))))))
+                                T)
+                              '((|musserTrials| ((|PositiveInteger|))) T)
+                              '((|musserTrials|
+                                 ((|PositiveInteger|) (|PositiveInteger|)))
+                                T)
+                              '((|stopMusserTrials| ((|PositiveInteger|))) T)
+                              '((|stopMusserTrials|
+                                 ((|PositiveInteger|) (|PositiveInteger|)))
+                                T)
+                              '((|numberOfFactors|
+                                 ((|NonNegativeInteger|)
+                                  (|List|
+                                   (|Record| (|:| |factor| |#1|)
+                                             (|:| |degree| (|Integer|))))))
+                                T)
+                              '((|modularFactor|
+                                 ((|Record| (|:| |prime| (|Integer|))
+                                            (|:| |factors| (|List| |#1|)))
+                                  |#1| (|Set| (|NonNegativeInteger|))))
+                                T)
+                              '((|useSingleFactorBound?| ((|Boolean|))) T)
+                              '((|useSingleFactorBound|
+                                 ((|Boolean|) (|Boolean|)))
+                                T)
+                              '((|useEisensteinCriterion?| ((|Boolean|))) T)
+                              '((|useEisensteinCriterion|
+                                 ((|Boolean|) (|Boolean|)))
+                                T)
+                              '((|eisensteinIrreducible?| ((|Boolean|) |#1|))
+                                T)
+                              '((|tryFunctionalDecomposition?| ((|Boolean|)))
+                                T)
+                              '((|tryFunctionalDecomposition|
+                                 ((|Boolean|) (|Boolean|)))
+                                T)
+                              '((|factor| ((|Factored| |#1|) |#1|)) T)
+                              '((|factor|
+                                 ((|Factored| |#1|) |#1|
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|factor|
+                                 ((|Factored| |#1|) |#1|
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|factor|
+                                 ((|Factored| |#1|) |#1|
+                                  (|List| (|NonNegativeInteger|))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|factor|
+                                 ((|Factored| |#1|) |#1| (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|factorSquareFree| ((|Factored| |#1|) |#1|))
+                                T)
+                              '((|factorSquareFree|
+                                 ((|Factored| |#1|) |#1|
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|factorSquareFree|
+                                 ((|Factored| |#1|) |#1|
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|factorSquareFree|
+                                 ((|Factored| |#1|) |#1|
+                                  (|List| (|NonNegativeInteger|))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|factorSquareFree|
+                                 ((|Factored| |#1|) |#1| (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|factorOfDegree|
+                                 ((|Union| |#1| "failed") (|PositiveInteger|)
+                                  |#1|))
+                                T)
+                              '((|factorOfDegree|
+                                 ((|Union| |#1| "failed") (|PositiveInteger|)
+                                  |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|factorOfDegree|
+                                 ((|Union| |#1| "failed") (|PositiveInteger|)
+                                  |#1| (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|factorOfDegree|
+                                 ((|Union| |#1| "failed") (|PositiveInteger|)
+                                  |#1| (|List| (|NonNegativeInteger|))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|factorOfDegree|
+                                 ((|Union| |#1| "failed") (|PositiveInteger|)
+                                  |#1| (|List| (|NonNegativeInteger|))
+                                  (|NonNegativeInteger|) (|Boolean|)))
+                                T)
+                              '((|henselFact|
+                                 ((|Record| (|:| |contp| (|Integer|))
+                                            (|:| |factors|
+                                                 (|List|
+                                                  (|Record| (|:| |irr| |#1|)
+                                                            (|:| |pow|
+                                                                 (|NonNegativeInteger|))))))
+                                  |#1| (|Boolean|)))
+                                T)
+                              '((|btwFact|
+                                 ((|Record| (|:| |contp| (|Integer|))
+                                            (|:| |factors|
+                                                 (|List|
+                                                  (|Record| (|:| |irr| |#1|)
+                                                            (|:| |pow|
+                                                                 (|NonNegativeInteger|))))))
+                                  |#1| (|Boolean|)
+                                  (|Set| (|NonNegativeInteger|))
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 189
+                                            '(1 6 0 0 24 1 6 25 0 26 1 25 12 0
+                                              27 1 6 25 0 28 1 6 12 0 29 1 25
+                                              30 0 31 1 35 34 0 36 1 6 38 0 39
+                                              1 44 43 0 45 1 44 0 43 46 0 6 0
+                                              47 1 6 48 0 49 2 51 50 48 25 52 3
+                                              51 50 50 50 25 53 1 51 25 50 54 2
+                                              25 12 0 0 55 3 56 6 6 6 25 57 0 6
+                                              0 58 1 51 48 50 59 1 6 0 48 60 1
+                                              6 0 25 61 2 25 12 0 0 62 2 25 0 0
+                                              0 63 4 51 64 50 25 25 25 65 2 69
+                                              68 50 25 70 2 56 41 6 25 71 2 56
+                                              72 41 25 73 0 44 0 74 1 6 0 0 75
+                                              2 38 12 0 0 76 2 25 0 38 0 77 1
+                                              78 25 25 79 2 44 0 0 0 80 2 44 0
+                                              0 0 81 2 44 12 0 0 82 1 43 38 0
+                                              83 2 25 12 0 0 84 0 87 0 88 2 87
+                                              0 38 0 89 3 87 0 38 0 38 90 2 38
+                                              12 0 0 92 2 38 0 0 0 93 0 38 0 94
+                                              2 38 12 0 0 95 2 44 0 96 0 97 1
+                                              98 12 6 99 1 102 101 6 103 2 25 0
+                                              19 0 104 1 105 25 6 106 4 107 72
+                                              6 72 25 19 108 2 6 0 0 0 109 2 72
+                                              0 0 0 110 2 6 25 0 38 111 2 25 12
+                                              0 0 112 2 72 6 0 25 113 2 25 0 0
+                                              0 114 2 44 12 38 0 115 2 25 116 0
+                                              0 117 2 6 0 0 0 118 2 107 6 6 25
+                                              119 1 6 0 0 120 2 6 116 0 0 121 3
+                                              72 64 0 25 25 122 2 72 0 0 38 123
+                                              2 72 0 0 0 124 2 105 25 6 38 125
+                                              2 19 12 0 0 126 4 107 127 6 72 25
+                                              19 128 2 38 116 0 0 129 1 44 38 0
+                                              130 1 131 6 6 132 1 6 0 0 133 1
+                                              98 12 6 134 2 44 0 38 0 135 1 6
+                                              12 0 136 2 38 116 0 0 137 3 72 6
+                                              0 25 6 138 1 35 25 0 139 2 142 0
+                                              6 141 143 2 25 0 0 19 147 1 149
+                                              148 25 150 2 6 0 25 38 151 2 6 0
+                                              0 0 152 2 48 0 25 38 153 2 48 0 0
+                                              0 154 2 6 116 0 25 155 1 6 38 0
+                                              156 2 6 157 0 0 158 2 6 12 0 0
+                                              159 1 161 160 25 162 2 164 72 163
+                                              160 165 2 166 0 0 0 167 1 6 30 0
+                                              168 1 142 141 0 169 2 38 0 19 0
+                                              171 2 43 0 38 38 177 0 0 12 17 1
+                                              0 12 12 18 0 0 12 13 1 0 12 12 14
+                                              0 0 12 15 1 0 12 12 16 1 0 19 19
+                                              21 0 0 19 20 1 0 38 41 42 1 0 19
+                                              19 23 0 0 19 22 2 0 85 6 44 86 1
+                                              0 142 145 146 2 0 145 6 12 170 2
+                                              0 142 6 38 181 1 0 142 6 179 3 0
+                                              142 6 43 38 180 2 0 142 6 43 182
+                                              3 0 142 6 38 38 183 2 0 184 19 6
+                                              189 3 0 184 19 6 43 188 3 0 184
+                                              19 6 38 187 5 0 184 19 6 43 38 12
+                                              185 4 0 184 19 6 43 38 186 1 0
+                                              142 6 173 2 0 142 6 43 176 2 0
+                                              142 6 38 175 3 0 142 6 38 38 178
+                                              3 0 142 6 43 38 174 1 0 12 6 37 1
+                                              0 87 41 91 4 0 145 6 12 44 38
+                                              172)))))
            '|lookupComplete|)) 

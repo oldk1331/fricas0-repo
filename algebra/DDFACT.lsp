@@ -603,29 +603,67 @@
               |separateDegrees| 224 |irreducible?| 229 |factorSquareFree| 234
               |factor| 239 |exptMod| 244 |distdfact| 251)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 73
-                                                 '(0 6 9 10 0 6 0 12 0 7 0 13 0
-                                                   6 0 14 2 7 0 6 9 15 2 7 0 0
-                                                   0 16 0 6 0 17 0 7 0 18 1 7 6
-                                                   0 19 2 6 20 0 0 21 1 6 0 0
-                                                   22 2 7 0 6 0 23 1 7 24 0 25
-                                                   1 29 28 0 30 1 7 9 0 31 2 33
-                                                   0 0 0 34 1 8 0 7 35 2 8 0 0
-                                                   9 36 2 7 0 0 0 37 2 7 0 0 0
-                                                   39 1 8 0 0 41 2 8 0 0 0 42 1
-                                                   8 7 0 43 2 8 0 0 0 45 0 6 9
-                                                   46 1 8 7 7 47 2 9 20 0 0 48
-                                                   2 7 0 0 0 49 2 7 0 0 0 50 2
-                                                   7 0 0 0 51 2 9 0 56 0 57 1 7
-                                                   9 0 60 2 9 20 0 0 61 2 7 62
-                                                   0 0 63 2 7 20 0 0 66 0 29 0
-                                                   67 1 7 0 6 68 0 8 69 70 2 29
-                                                   0 7 28 71 3 0 7 7 9 7 44 3 0
-                                                   7 7 9 7 40 1 0 58 54 59 1 0
-                                                   54 7 55 1 0 20 7 52 1 0 29 7
-                                                   73 1 0 29 7 72 3 0 7 7 9 7
-                                                   38 2 0 64 7 20 65)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|factor| ((|Factored| |#2|) |#2|)) T)
+                                   '((|factorSquareFree|
+                                      ((|Factored| |#2|) |#2|))
+                                     T)
+                                   '((|distdfact|
+                                      ((|Record| (|:| |cont| |#1|)
+                                                 (|:| |factors|
+                                                      (|List|
+                                                       (|Record|
+                                                        (|:| |irr| |#2|)
+                                                        (|:| |pow|
+                                                             (|NonNegativeInteger|))))))
+                                       |#2| (|Boolean|)))
+                                     T)
+                                   '((|separateDegrees|
+                                      ((|List|
+                                        (|Record|
+                                         (|:| |deg| (|NonNegativeInteger|))
+                                         (|:| |prod| |#2|)))
+                                       |#2|))
+                                     T)
+                                   '((|separateFactors|
+                                      ((|List| |#2|)
+                                       (|List|
+                                        (|Record|
+                                         (|:| |deg| (|NonNegativeInteger|))
+                                         (|:| |prod| |#2|)))))
+                                     T)
+                                   '((|exptMod|
+                                      (|#2| |#2| (|NonNegativeInteger|) |#2|))
+                                     T)
+                                   '((|trace2PowMod|
+                                      (|#2| |#2| (|NonNegativeInteger|) |#2|))
+                                     T)
+                                   '((|tracePowMod|
+                                      (|#2| |#2| (|NonNegativeInteger|) |#2|))
+                                     T)
+                                   '((|irreducible?| ((|Boolean|) |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 73
+                                            '(0 6 9 10 0 6 0 12 0 7 0 13 0 6 0
+                                              14 2 7 0 6 9 15 2 7 0 0 0 16 0 6
+                                              0 17 0 7 0 18 1 7 6 0 19 2 6 20 0
+                                              0 21 1 6 0 0 22 2 7 0 6 0 23 1 7
+                                              24 0 25 1 29 28 0 30 1 7 9 0 31 2
+                                              33 0 0 0 34 1 8 0 7 35 2 8 0 0 9
+                                              36 2 7 0 0 0 37 2 7 0 0 0 39 1 8
+                                              0 0 41 2 8 0 0 0 42 1 8 7 0 43 2
+                                              8 0 0 0 45 0 6 9 46 1 8 7 7 47 2
+                                              9 20 0 0 48 2 7 0 0 0 49 2 7 0 0
+                                              0 50 2 7 0 0 0 51 2 9 0 56 0 57 1
+                                              7 9 0 60 2 9 20 0 0 61 2 7 62 0 0
+                                              63 2 7 20 0 0 66 0 29 0 67 1 7 0
+                                              6 68 0 8 69 70 2 29 0 7 28 71 3 0
+                                              7 7 9 7 44 3 0 7 7 9 7 40 1 0 58
+                                              54 59 1 0 54 7 55 1 0 20 7 52 1 0
+                                              29 7 73 1 0 29 7 72 3 0 7 7 9 7
+                                              38 2 0 64 7 20 65)))))
            '|lookupComplete|)) 

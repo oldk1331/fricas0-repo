@@ -65,12 +65,21 @@
            '#(|oddInfiniteProduct| 25 |infiniteProduct| 30
               |generalInfiniteProduct| 35 |evenInfiniteProduct| 42)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(0 6 0 8 0 7 0 9 1 7 15 0 16
-                                                   3 17 15 15 10 10 18 1 7 0 15
-                                                   19 1 0 7 7 14 1 0 7 7 12 3 0
-                                                   7 7 10 10 11 1 0 7 7 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|infiniteProduct| (|#2| |#2|)) T)
+                                   '((|evenInfiniteProduct| (|#2| |#2|)) T)
+                                   '((|oddInfiniteProduct| (|#2| |#2|)) T)
+                                   '((|generalInfiniteProduct|
+                                      (|#2| |#2| (|Integer|) (|Integer|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(0 6 0 8 0 7 0 9 1 7 15 0 16 3 17
+                                              15 15 10 10 18 1 7 0 15 19 1 0 7
+                                              7 14 1 0 7 7 12 3 0 7 7 10 10 11
+                                              1 0 7 7 13)))))
            '|lookupComplete|)) 

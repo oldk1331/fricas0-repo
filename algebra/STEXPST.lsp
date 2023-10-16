@@ -144,15 +144,20 @@
               |STEXPST;exp;2S;2| (61 . |log|)
               (|StreamTaylorSeriesOperations| 6) (66 . -) |STEXPST;log;2S;3|)
            '#(|log| 71 |exp| 76) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 29
-                                                 '(2 8 7 7 7 9 2 8 7 6 10 11 1
-                                                   7 12 0 13 0 6 0 14 0 7 0 15
-                                                   2 7 0 6 0 16 1 7 6 0 17 0 6
-                                                   0 18 2 6 12 0 0 19 1 8 7 7
-                                                   20 1 22 7 21 23 1 6 0 0 24 1
-                                                   6 0 0 26 1 27 7 7 28 1 0 7 7
-                                                   29 1 0 7 7 25)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|exp| ((|Stream| |#1|) (|Stream| |#1|))) T)
+                              '((|log| ((|Stream| |#1|) (|Stream| |#1|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 29
+                                            '(2 8 7 7 7 9 2 8 7 6 10 11 1 7 12
+                                              0 13 0 6 0 14 0 7 0 15 2 7 0 6 0
+                                              16 1 7 6 0 17 0 6 0 18 2 6 12 0 0
+                                              19 1 8 7 7 20 1 22 7 21 23 1 6 0
+                                              0 24 1 6 0 0 26 1 27 7 7 28 1 0 7
+                                              7 29 1 0 7 7 25)))))
            '|lookupComplete|)) 

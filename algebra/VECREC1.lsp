@@ -752,31 +752,105 @@
               |rational_reconstruction| 198 |empty| 211 |chinese_update| 217
               |add_slots| 224)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 55
-                                                 '(1 10 9 0 11 2 7 0 15 0 16 3
-                                                   18 12 17 17 7 19 4 18 7 17 7
-                                                   7 7 20 2 7 0 0 0 21 2 7 9 0
-                                                   0 22 2 7 0 0 0 23 6 18 12 17
-                                                   17 7 7 7 7 24 2 25 0 15 0 26
-                                                   4 18 12 17 7 7 7 27 1 18 7
-                                                   17 29 7 18 12 17 7 17 7 7 7
-                                                   7 30 3 18 17 17 17 7 31 2 7
-                                                   9 0 0 32 4 18 12 17 7 7 7 33
-                                                   2 7 9 0 0 37 3 18 17 17 17 7
-                                                   38 3 18 12 17 17 7 39 2 43 7
-                                                   0 7 44 3 43 7 0 7 7 45 4 18
-                                                   17 10 7 7 7 49 4 18 12 17 17
-                                                   17 7 50 4 18 17 10 7 7 7 51
-                                                   4 0 46 7 43 47 10 48 4 0 10
-                                                   43 10 10 7 52 5 0 54 0 7 43
-                                                   43 47 55 7 0 46 7 43 43 47
-                                                   10 10 7 53 1 0 41 0 42 4 0
-                                                   35 17 17 7 7 36 2 0 0 7 7 8
-                                                   3 0 12 17 7 0 28 2 0 12 13 0
-                                                   14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|empty| ($$ (|Integer|) (|Integer|))) T)
+                                   '((|add_slots|
+                                      ((|Void|) (|List| (|Integer|)) $$))
+                                     T)
+                                   '((|chinese_update|
+                                      ((|Void|) (|U32Vector|) (|Integer|) $$))
+                                     T)
+                                   '((|rational_reconstruction|
+                                      ((|Union|
+                                        (|Record|
+                                         (|:| |numers|
+                                              (|PrimitiveArray| (|U32Vector|)))
+                                         (|:| |denoms|
+                                              (|PrimitiveArray|
+                                               (|U32Vector|))))
+                                        "failed")
+                                       $$))
+                                     T)
+                                   '((|rational_reconstruction|
+                                      ((|Union|
+                                        (|Record| (|:| |numer| (|U32Vector|))
+                                                  (|:| |denom| (|U32Vector|)))
+                                        "failed")
+                                       (|U32Vector|) (|U32Vector|) (|Integer|)
+                                       (|Integer|)))
+                                     T)
+                                   '((|repack_polys|
+                                      ((|Record| (|:| |nvars| (|Integer|))
+                                                 (|:| |offsetdata|
+                                                      (|Vector| (|Integer|)))
+                                                 (|:| |expdata|
+                                                      (|SortedExponentVector|))
+                                                 (|:| |coeffdata|
+                                                      (|U32Vector|)))
+                                       (|Integer|) (|Vector| (|Integer|))
+                                       (|SortedExponentVector|)
+                                       (|PrimitiveArray| (|U32Vector|))))
+                                     T)
+                                   '((|remove_denoms|
+                                      ((|PrimitiveArray| (|U32Vector|))
+                                       (|Vector| (|Integer|))
+                                       (|PrimitiveArray| (|U32Vector|))
+                                       (|PrimitiveArray| (|U32Vector|))
+                                       (|Integer|)))
+                                     T)
+                                   '((|reconstruct|
+                                      ((|Record| (|:| |nvars| (|Integer|))
+                                                 (|:| |offsetdata|
+                                                      (|Vector| (|Integer|)))
+                                                 (|:| |expdata|
+                                                      (|SortedExponentVector|))
+                                                 (|:| |coeffdata|
+                                                      (|U32Vector|)))
+                                       (|Integer|) (|Vector| (|Integer|))
+                                       (|Vector| (|Integer|))
+                                       (|SortedExponentVector|)
+                                       (|PrimitiveArray| (|U32Vector|))
+                                       (|PrimitiveArray| (|U32Vector|))
+                                       (|Integer|)))
+                                     T)
+                                   '((|reconstruct|
+                                      ((|Union|
+                                        (|Record| (|:| |nvars| (|Integer|))
+                                                  (|:| |offsetdata|
+                                                       (|Vector| (|Integer|)))
+                                                  (|:| |expdata|
+                                                       (|SortedExponentVector|))
+                                                  (|:| |coeffdata|
+                                                       (|U32Vector|)))
+                                        "failed")
+                                       $$ (|Integer|) (|Vector| (|Integer|))
+                                       (|Vector| (|Integer|))
+                                       (|SortedExponentVector|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 55
+                                            '(1 10 9 0 11 2 7 0 15 0 16 3 18 12
+                                              17 17 7 19 4 18 7 17 7 7 7 20 2 7
+                                              0 0 0 21 2 7 9 0 0 22 2 7 0 0 0
+                                              23 6 18 12 17 17 7 7 7 7 24 2 25
+                                              0 15 0 26 4 18 12 17 7 7 7 27 1
+                                              18 7 17 29 7 18 12 17 7 17 7 7 7
+                                              7 30 3 18 17 17 17 7 31 2 7 9 0 0
+                                              32 4 18 12 17 7 7 7 33 2 7 9 0 0
+                                              37 3 18 17 17 17 7 38 3 18 12 17
+                                              17 7 39 2 43 7 0 7 44 3 43 7 0 7
+                                              7 45 4 18 17 10 7 7 7 49 4 18 12
+                                              17 17 17 7 50 4 18 17 10 7 7 7 51
+                                              4 0 46 7 43 47 10 48 4 0 10 43 10
+                                              10 7 52 5 0 54 0 7 43 43 47 55 7
+                                              0 46 7 43 43 47 10 10 7 53 1 0 41
+                                              0 42 4 0 35 17 17 7 7 36 2 0 0 7
+                                              7 8 3 0 12 17 7 0 28 2 0 12 13 0
+                                              14)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|VectorModularReconstructor| 'NILADIC T) 

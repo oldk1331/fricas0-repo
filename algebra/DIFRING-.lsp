@@ -36,11 +36,19 @@
               |DIFRING-;differentiate;SNniS;2| (5 . |differentiate|)
               |DIFRING-;D;SNniS;3|)
            '#(|differentiate| 11 D 17) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 12
-                                                 '(1 6 0 0 7 2 6 0 0 9 11 2 0 0
-                                                   0 9 10 2 0 0 0 9 12 1 0 0 0
-                                                   8)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((D (|#1| |#1| (|NonNegativeInteger|))) T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|NonNegativeInteger|)))
+                                     T)
+                                   '((D (|#1| |#1|)) T)
+                                   '((|differentiate| (|#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 12
+                                            '(1 6 0 0 7 2 6 0 0 9 11 2 0 0 0 9
+                                              10 2 0 0 0 9 12 1 0 0 0 8)))))
            '|lookupComplete|)) 

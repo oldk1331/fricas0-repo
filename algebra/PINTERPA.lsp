@@ -114,15 +114,21 @@
               (40 . -) (46 . *) (52 . /) (58 . *) (64 . +) (|List| 6)
               |PINTERPA;LagrangeInterpolation;2LP;1|)
            '#(|LagrangeInterpolation| 70) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 24
-                                                 '(2 9 8 0 0 10 0 7 0 11 0 7 0
-                                                   12 0 6 0 13 2 7 0 6 9 14 0 6
-                                                   0 15 2 7 0 0 0 16 2 7 0 0 0
-                                                   17 2 6 0 0 0 18 2 6 0 0 0 19
-                                                   2 6 0 0 0 20 2 7 0 6 0 21 2
-                                                   7 0 0 0 22 2 0 7 23 23
-                                                   24)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|LagrangeInterpolation|
+                                 (|#2| (|List| |#1|) (|List| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 24
+                                            '(2 9 8 0 0 10 0 7 0 11 0 7 0 12 0
+                                              6 0 13 2 7 0 6 9 14 0 6 0 15 2 7
+                                              0 0 0 16 2 7 0 0 0 17 2 6 0 0 0
+                                              18 2 6 0 0 0 19 2 6 0 0 0 20 2 7
+                                              0 6 0 21 2 7 0 0 0 22 2 0 7 23 23
+                                              24)))))
            '|lookupComplete|)) 

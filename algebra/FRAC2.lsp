@@ -48,10 +48,17 @@
               (|QuotientFieldCategoryFunctions2| 6 7 10 8) (0 . |map|)
               |FRAC2;map;MFF;1|)
            '#(|map| 6) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 13
-                                                 '(2 11 8 9 10 12 2 0 8 9 10
-                                                   13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|Fraction| |#2|) (|Mapping| |#2| |#1|)
+                                  (|Fraction| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 13
+                                            '(2 11 8 9 10 12 2 0 8 9 10 13)))))
            '|lookupComplete|)) 

@@ -52,11 +52,23 @@
               (5 . |suchThat|) |PMPRED;suchThat;SME;1| (|List| 10)
               (11 . |suchThat|) |PMPRED;suchThat;SLE;2|)
            '#(|suchThat| 17) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(1 8 0 7 9 2 11 8 8 10 12 2
-                                                   11 8 8 14 15 2 0 8 7 14 16 2
-                                                   0 8 7 10 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|suchThat|
+                                 ((|Expression| (|Integer|)) (|Symbol|)
+                                  (|Mapping| (|Boolean|) |#1|)))
+                                T)
+                              '((|suchThat|
+                                 ((|Expression| (|Integer|)) (|Symbol|)
+                                  (|List| (|Mapping| (|Boolean|) |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(1 8 0 7 9 2 11 8 8 10 12 2 11 8 8
+                                              14 15 2 0 8 7 14 16 2 0 8 7 10
+                                              13)))))
            '|lookupComplete|)) 

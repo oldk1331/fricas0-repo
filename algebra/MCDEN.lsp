@@ -108,15 +108,27 @@
            '#(|splitDenominator| 60 |commonDenominator| 65 |clearDenominator|
               70)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 30
-                                                 '(1 0 6 8 9 2 7 0 6 0 10 1 7 6
-                                                   0 11 2 14 12 13 8 15 1 7 6 0
-                                                   19 1 8 20 0 21 2 23 22 13 20
-                                                   24 1 6 0 25 26 2 6 0 0 0 27
-                                                   0 6 0 28 3 22 6 29 0 6 30 1
-                                                   0 17 8 18 1 0 6 8 9 1 0 12 8
-                                                   16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|commonDenominator| (|#1| (|Matrix| |#2|))) T)
+                              '((|clearDenominator|
+                                 ((|Matrix| |#1|) (|Matrix| |#2|)))
+                                T)
+                              '((|splitDenominator|
+                                 ((|Record| (|:| |num| (|Matrix| |#1|))
+                                            (|:| |den| |#1|))
+                                  (|Matrix| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 30
+                                            '(1 0 6 8 9 2 7 0 6 0 10 1 7 6 0 11
+                                              2 14 12 13 8 15 1 7 6 0 19 1 8 20
+                                              0 21 2 23 22 13 20 24 1 6 0 25 26
+                                              2 6 0 0 0 27 0 6 0 28 3 22 6 29 0
+                                              6 30 1 0 17 8 18 1 0 6 8 9 1 0 12
+                                              8 16)))))
            '|lookupComplete|)) 

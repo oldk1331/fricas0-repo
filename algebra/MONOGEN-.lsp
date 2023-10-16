@@ -173,26 +173,78 @@
               174 |generator| 179 |differentiate| 183 |derivationCoordinates|
               189 |convert| 195 |characteristicPolynomial| 205 |basis| 210)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 58
-                                                 '(1 6 8 0 9 1 6 0 8 11 0 6 0
-                                                   13 0 7 0 14 2 8 0 7 15 16 0
-                                                   6 8 18 2 8 7 0 0 19 1 8 7 0
-                                                   21 1 8 23 0 24 0 6 26 27 1
-                                                   30 8 6 31 1 33 8 0 34 1 33 8
-                                                   0 35 2 6 36 0 0 37 1 0 36 33
-                                                   38 2 8 0 39 0 40 1 8 0 0 41
-                                                   2 6 0 0 0 42 1 6 0 0 43 2 6
-                                                   0 0 0 44 2 6 0 0 0 45 2 0 0
-                                                   0 39 46 2 6 0 0 39 47 2 49 0
-                                                   48 0 50 2 6 51 28 28 52 2 0
-                                                   51 28 39 53 0 8 0 54 3 8 56
-                                                   0 0 0 57 1 0 36 0 58 1 0 23
-                                                   0 25 1 0 7 0 22 1 0 36 33 38
-                                                   1 0 36 0 58 1 0 7 0 20 0 0 0
-                                                   17 2 0 0 0 39 46 2 0 51 28
-                                                   39 53 1 0 0 8 12 1 0 8 0 10
-                                                   1 0 8 0 32 0 0 28 29)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|differentiate|
+                                 (|#1| |#1| (|Mapping| |#2| |#2|)))
+                                T)
+                              '((|differentiate|
+                                 (|#1| |#1| (|Mapping| |#2| |#2|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|differentiate|
+                                 (|#1| |#1| (|List| (|Symbol|))
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|differentiate|
+                                 (|#1| |#1| (|Symbol|) (|NonNegativeInteger|)))
+                                T)
+                              '((|differentiate|
+                                 (|#1| |#1| (|List| (|Symbol|))))
+                                T)
+                              '((|differentiate| (|#1| |#1| (|Symbol|))) T)
+                              '((|differentiate|
+                                 (|#1| |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|differentiate| (|#1| |#1|)) T)
+                              '((|convert| ((|InputForm|) |#1|)) T)
+                              '((|derivationCoordinates|
+                                 ((|Matrix| |#2|) (|Vector| |#1|)
+                                  (|Mapping| |#2| |#2|)))
+                                T)
+                              '((|reduce|
+                                 ((|Union| |#1| "failed") (|Fraction| |#3|)))
+                                T)
+                              '((|convert| (|#1| |#3|)) T)
+                              '((|reduce| (|#1| |#3|)) T)
+                              '((|generator| (|#1|)) T)
+                              '((|retract| (|#2| |#1|)) T)
+                              '((|retractIfCan| ((|Union| |#2| #1#) |#1|)) T)
+                              '((|retractIfCan|
+                                 ((|Union| (|Fraction| (|Integer|)) #1#) |#1|))
+                                T)
+                              '((|retract| ((|Fraction| (|Integer|)) |#1|)) T)
+                              '((|retractIfCan|
+                                 ((|Union| (|Integer|) #1#) |#1|))
+                                T)
+                              '((|retract| ((|Integer|) |#1|)) T)
+                              '((|convert| (|#3| |#1|)) T)
+                              '((|basis| ((|Vector| |#1|))) T)
+                              '((|convert| ((|Vector| |#2|) |#1|)) T)
+                              '((|convert| (|#1| (|Vector| |#2|))) T)
+                              '((|characteristicPolynomial| (|#3| |#1|)) T)
+                              '((|norm| (|#2| |#1|)) T)
+                              '((|recip| ((|Union| |#1| "failed") |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 58
+                                            '(1 6 8 0 9 1 6 0 8 11 0 6 0 13 0 7
+                                              0 14 2 8 0 7 15 16 0 6 8 18 2 8 7
+                                              0 0 19 1 8 7 0 21 1 8 23 0 24 0 6
+                                              26 27 1 30 8 6 31 1 33 8 0 34 1
+                                              33 8 0 35 2 6 36 0 0 37 1 0 36 33
+                                              38 2 8 0 39 0 40 1 8 0 0 41 2 6 0
+                                              0 0 42 1 6 0 0 43 2 6 0 0 0 44 2
+                                              6 0 0 0 45 2 0 0 0 39 46 2 6 0 0
+                                              39 47 2 49 0 48 0 50 2 6 51 28 28
+                                              52 2 0 51 28 39 53 0 8 0 54 3 8
+                                              56 0 0 0 57 1 0 36 0 58 1 0 23 0
+                                              25 1 0 7 0 22 1 0 36 33 38 1 0 36
+                                              0 58 1 0 7 0 20 0 0 0 17 2 0 0 0
+                                              39 46 2 0 51 28 39 53 1 0 0 8 12
+                                              1 0 8 0 10 1 0 8 0 32 0 0 28
+                                              29)))))
            '|lookupComplete|)) 

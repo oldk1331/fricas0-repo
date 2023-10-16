@@ -65,11 +65,20 @@
               (17 . |retractIfCan|) (22 . |failed|)
               |PMSYM;patternMatch;SP2Pmr;1|)
            '#(|patternMatch| 26) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(1 8 7 0 9 3 11 0 8 10 0 12 1
-                                                   8 7 0 13 1 8 14 0 15 0 11 0
-                                                   16 3 0 11 10 8 11 17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|patternMatch|
+                                 ((|PatternMatchResult| |#1| (|Symbol|))
+                                  (|Symbol|) (|Pattern| |#1|)
+                                  (|PatternMatchResult| |#1| (|Symbol|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(1 8 7 0 9 3 11 0 8 10 0 12 1 8 7
+                                              0 13 1 8 14 0 15 0 11 0 16 3 0 11
+                                              10 8 11 17)))))
            '|lookupComplete|)) 

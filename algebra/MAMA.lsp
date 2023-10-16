@@ -280,30 +280,67 @@
               |diagonalMatrix| 191 |columns| 202 |columnMatrix| 214
               |blockSplit| 220 |bandMatrix| 234)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 55
-                                                 '(5 9 0 0 10 10 10 10 11 1 9
-                                                   10 0 13 1 9 10 0 14 1 9 16 0
-                                                   17 2 9 0 16 16 18 2 19 0 10
-                                                   10 20 1 19 21 0 22 1 9 10 0
-                                                   26 1 9 10 0 27 1 9 16 0 29 2
-                                                   10 32 0 0 33 3 9 6 0 10 10
-                                                   34 4 9 6 0 10 10 6 35 0 6 0
-                                                   36 3 9 0 16 16 6 37 2 0 9 9
-                                                   10 38 1 0 9 9 39 2 0 9 9 21
-                                                   40 2 0 9 9 19 41 3 9 6 0 10
-                                                   10 42 1 19 10 0 43 1 19 10 0
-                                                   44 2 9 46 0 47 48 2 9 46 0
-                                                   49 50 2 9 46 0 49 53 2 9 46
-                                                   0 47 54 3 0 9 9 19 19 45 3 0
-                                                   9 9 21 21 23 2 0 9 9 21 24 2
-                                                   0 9 9 19 25 2 0 9 9 10 15 3
-                                                   0 9 9 10 10 12 1 1 9 9 39 2
-                                                   1 9 9 10 38 2 0 9 9 19 31 2
-                                                   0 9 9 21 30 2 0 9 9 10 28 3
-                                                   0 51 9 49 47 55 3 0 51 9 47
-                                                   49 52 2 1 9 9 19 41 2 1 9 9
-                                                   21 40)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|element| (|#4| |#4| (|Integer|) (|Integer|)))
+                                T)
+                              '((|rowMatrix| (|#4| |#4| (|Integer|))) T)
+                              '((|rows| (|#4| |#4| (|List| (|Integer|)))) T)
+                              '((|rows| (|#4| |#4| (|Segment| (|Integer|)))) T)
+                              '((|columnMatrix| (|#4| |#4| (|Integer|))) T)
+                              '((|columns| (|#4| |#4| (|List| (|Integer|)))) T)
+                              '((|columns| (|#4| |#4| (|Segment| (|Integer|))))
+                                T)
+                              '((|subMatrix|
+                                 (|#4| |#4| (|List| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|subMatrix|
+                                 (|#4| |#4| (|Segment| (|Integer|))
+                                  (|Segment| (|Integer|))))
+                                T)
+                              '((|diagonalMatrix| (|#4| |#4| (|Integer|)))
+                                (|has| 6 (|AbelianMonoid|)))
+                              '((|diagonalMatrix| (|#4| |#4|))
+                                (|has| 6 (|AbelianMonoid|)))
+                              '((|bandMatrix| (|#4| |#4| (|List| (|Integer|))))
+                                (|has| 6 (|AbelianMonoid|)))
+                              '((|bandMatrix|
+                                 (|#4| |#4| (|Segment| (|Integer|))))
+                                (|has| 6 (|AbelianMonoid|)))
+                              '((|blockSplit|
+                                 ((|List| (|List| |#4|)) |#4|
+                                  (|List| (|NonNegativeInteger|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|blockSplit|
+                                 ((|List| (|List| |#4|)) |#4|
+                                  (|PositiveInteger|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 55
+                                            '(5 9 0 0 10 10 10 10 11 1 9 10 0
+                                              13 1 9 10 0 14 1 9 16 0 17 2 9 0
+                                              16 16 18 2 19 0 10 10 20 1 19 21
+                                              0 22 1 9 10 0 26 1 9 10 0 27 1 9
+                                              16 0 29 2 10 32 0 0 33 3 9 6 0 10
+                                              10 34 4 9 6 0 10 10 6 35 0 6 0 36
+                                              3 9 0 16 16 6 37 2 0 9 9 10 38 1
+                                              0 9 9 39 2 0 9 9 21 40 2 0 9 9 19
+                                              41 3 9 6 0 10 10 42 1 19 10 0 43
+                                              1 19 10 0 44 2 9 46 0 47 48 2 9
+                                              46 0 49 50 2 9 46 0 49 53 2 9 46
+                                              0 47 54 3 0 9 9 19 19 45 3 0 9 9
+                                              21 21 23 2 0 9 9 21 24 2 0 9 9 19
+                                              25 2 0 9 9 10 15 3 0 9 9 10 10 12
+                                              1 1 9 9 39 2 1 9 9 10 38 2 0 9 9
+                                              19 31 2 0 9 9 21 30 2 0 9 9 10 28
+                                              3 0 51 9 49 47 55 3 0 51 9 47 49
+                                              52 2 1 9 9 19 41 2 1 9 9 21
+                                              40)))))
            '|lookupComplete|)) 

@@ -64,11 +64,18 @@
               (9 . |coefficient|) (15 . *) (21 . +) (|Mapping| 7 7)
               |APPLYORE;apply;PM2M;1|)
            '#(|apply| 27) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(0 7 0 9 1 8 10 0 11 2 8 6 0
-                                                   10 12 2 7 0 6 0 13 2 7 0 0 0
-                                                   14 3 0 7 8 15 7 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|apply|
+                                 (|#2| |#3| (|Mapping| |#2| |#2|) |#2|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(0 7 0 9 1 8 10 0 11 2 8 6 0 10 12
+                                              2 7 0 6 0 13 2 7 0 0 0 14 3 0 7 8
+                                              15 7 16)))))
            '|lookupComplete|)) 

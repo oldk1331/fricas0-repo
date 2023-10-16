@@ -27,10 +27,17 @@
               (|local| |#3|) (|List| 7) (|List| 8) (0 . |eval|)
               |IEVALAB-;eval;SABS;1|)
            '#(|eval| 7) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 12
-                                                 '(3 6 0 0 9 10 11 3 0 0 0 7 8
-                                                   12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|eval| (|#1| |#1| |#2| |#3|)) T)
+                                   '((|eval|
+                                      (|#1| |#1| (|List| |#2|) (|List| |#3|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 12
+                                            '(3 6 0 0 9 10 11 3 0 0 0 7 8
+                                              12)))))
            '|lookupComplete|)) 

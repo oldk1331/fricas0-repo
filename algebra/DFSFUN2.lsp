@@ -182,21 +182,35 @@
            '#(|li| 69 |fresnelS| 74 |fresnelC| 79 |erfi| 84 |erf| 89 |Si| 94
               |Shi| 99 |Ei| 104 |Ci| 109 |Chi| 114)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 33
-                                                 '(0 7 6 8 1 7 6 6 9 1 10 7 0
-                                                   11 1 12 7 7 13 1 7 10 0 14 1
-                                                   12 7 7 16 1 12 7 7 18 1 12 7
-                                                   7 20 1 12 7 7 22 1 12 7 7 24
-                                                   1 12 7 7 26 1 12 7 7 28 1 12
-                                                   7 7 30 1 12 7 7 32 1 0 10 10
-                                                   25 1 0 10 10 21 1 0 10 10 19
-                                                   1 0 10 10 17 1 0 10 10 15 1
-                                                   0 10 10 29 1 0 10 10 33 1 0
-                                                   10 10 23 1 0 10 10 27 1 0 10
-                                                   10 31)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|erf| ((|DoubleFloat|) (|DoubleFloat|))) T)
+                              '((|erfi| ((|DoubleFloat|) (|DoubleFloat|))) T)
+                              '((|fresnelC| ((|DoubleFloat|) (|DoubleFloat|)))
+                                T)
+                              '((|fresnelS| ((|DoubleFloat|) (|DoubleFloat|)))
+                                T)
+                              '((|Ei| ((|DoubleFloat|) (|DoubleFloat|))) T)
+                              '((|li| ((|DoubleFloat|) (|DoubleFloat|))) T)
+                              '((|Ci| ((|DoubleFloat|) (|DoubleFloat|))) T)
+                              '((|Si| ((|DoubleFloat|) (|DoubleFloat|))) T)
+                              '((|Chi| ((|DoubleFloat|) (|DoubleFloat|))) T)
+                              '((|Shi| ((|DoubleFloat|) (|DoubleFloat|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 33
+                                            '(0 7 6 8 1 7 6 6 9 1 10 7 0 11 1
+                                              12 7 7 13 1 7 10 0 14 1 12 7 7 16
+                                              1 12 7 7 18 1 12 7 7 20 1 12 7 7
+                                              22 1 12 7 7 24 1 12 7 7 26 1 12 7
+                                              7 28 1 12 7 7 30 1 12 7 7 32 1 0
+                                              10 10 25 1 0 10 10 21 1 0 10 10
+                                              19 1 0 10 10 17 1 0 10 10 15 1 0
+                                              10 10 29 1 0 10 10 33 1 0 10 10
+                                              23 1 0 10 10 27 1 0 10 10 31)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DoubleFloatSpecialFunctions2| 'NILADIC T) 

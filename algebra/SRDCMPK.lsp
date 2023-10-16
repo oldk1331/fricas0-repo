@@ -743,42 +743,142 @@
               313 |numberOfVariables| 319 |internalDecompose| 325 |decompose|
               346 |convert| 365 |algebraicDecompose| 370 |KrullNumber| 376)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 103
-                                                 '(1 10 11 0 12 2 11 0 0 0 13 2
-                                                   15 11 14 0 16 1 20 0 17 21 1
-                                                   20 22 0 23 1 10 22 0 24 2 22
-                                                   0 0 0 25 1 22 0 0 26 1 9 28
-                                                   0 29 1 9 8 0 30 2 10 0 0 8
-                                                   31 2 10 0 0 8 32 2 10 33 0 8
-                                                   34 1 9 11 0 35 5 38 37 9 9
-                                                   10 28 28 39 1 9 28 0 40 2 9
-                                                   0 0 8 41 1 10 17 0 42 2 10
-                                                   43 9 0 44 2 10 43 17 43 45 1
-                                                   46 17 9 47 2 8 28 0 0 48 2
-                                                   18 0 0 0 49 1 9 0 0 58 1 9 0
-                                                   0 59 1 9 0 8 60 2 9 61 0 0
-                                                   62 1 9 0 0 63 1 9 0 0 64 1 9
-                                                   0 0 65 2 38 67 9 10 68 2 10
-                                                   28 8 0 69 2 70 0 0 0 71 2 10
-                                                   9 9 0 72 1 9 0 0 73 2 9 0 0
-                                                   0 74 2 9 0 0 0 75 1 78 0 43
-                                                   79 1 82 81 78 83 0 81 0 84 4
-                                                   88 87 17 18 28 28 89 1 10 28
-                                                   0 90 2 10 91 9 0 92 1 88 18
-                                                   18 94 2 11 28 0 0 95 2 10 28
-                                                   0 0 96 2 9 28 0 0 97 2 17 0
-                                                   0 0 98 2 17 0 99 0 100 2 88
-                                                   28 10 18 101 1 70 0 43 102 1
-                                                   88 70 70 103 5 0 70 17 18 70
-                                                   51 11 93 3 0 51 9 10 11 53 2
-                                                   0 51 9 10 54 2 0 81 70 11 85
-                                                   2 0 11 17 18 27 4 0 51 9 10
-                                                   11 28 57 3 0 51 9 10 11 55 2
-                                                   0 51 9 10 56 4 0 18 17 18 28
-                                                   28 77 7 0 18 17 18 28 28 28
-                                                   28 28 76 1 0 78 50 80 2 0 51
-                                                   9 10 52 2 0 11 17 18 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|KrullNumber|
+                                 ((|NonNegativeInteger|) (|List| |#4|)
+                                  (|List| |#5|)))
+                                T)
+                              '((|numberOfVariables|
+                                 ((|NonNegativeInteger|) (|List| |#4|)
+                                  (|List| |#5|)))
+                                T)
+                              '((|algebraicDecompose|
+                                 ((|Record| (|:| |done| (|List| |#5|))
+                                            (|:| |todo|
+                                                 (|List|
+                                                  (|Record|
+                                                   (|:| |val| (|List| |#4|))
+                                                   (|:| |tower| |#5|)))))
+                                  |#4| |#5|))
+                                T)
+                              '((|transcendentalDecompose|
+                                 ((|Record| (|:| |done| (|List| |#5|))
+                                            (|:| |todo|
+                                                 (|List|
+                                                  (|Record|
+                                                   (|:| |val| (|List| |#4|))
+                                                   (|:| |tower| |#5|)))))
+                                  |#4| |#5| (|NonNegativeInteger|)))
+                                T)
+                              '((|transcendentalDecompose|
+                                 ((|Record| (|:| |done| (|List| |#5|))
+                                            (|:| |todo|
+                                                 (|List|
+                                                  (|Record|
+                                                   (|:| |val| (|List| |#4|))
+                                                   (|:| |tower| |#5|)))))
+                                  |#4| |#5|))
+                                T)
+                              '((|internalDecompose|
+                                 ((|Record| (|:| |done| (|List| |#5|))
+                                            (|:| |todo|
+                                                 (|List|
+                                                  (|Record|
+                                                   (|:| |val| (|List| |#4|))
+                                                   (|:| |tower| |#5|)))))
+                                  |#4| |#5| (|NonNegativeInteger|)
+                                  (|Boolean|)))
+                                T)
+                              '((|internalDecompose|
+                                 ((|Record| (|:| |done| (|List| |#5|))
+                                            (|:| |todo|
+                                                 (|List|
+                                                  (|Record|
+                                                   (|:| |val| (|List| |#4|))
+                                                   (|:| |tower| |#5|)))))
+                                  |#4| |#5| (|NonNegativeInteger|)))
+                                T)
+                              '((|internalDecompose|
+                                 ((|Record| (|:| |done| (|List| |#5|))
+                                            (|:| |todo|
+                                                 (|List|
+                                                  (|Record|
+                                                   (|:| |val| (|List| |#4|))
+                                                   (|:| |tower| |#5|)))))
+                                  |#4| |#5|))
+                                T)
+                              '((|decompose|
+                                 ((|List| |#5|) (|List| |#4|) (|List| |#5|)
+                                  (|Boolean|) (|Boolean|)))
+                                T)
+                              '((|decompose|
+                                 ((|List| |#5|) (|List| |#4|) (|List| |#5|)
+                                  (|Boolean|) (|Boolean|) (|Boolean|)
+                                  (|Boolean|) (|Boolean|)))
+                                T)
+                              '((|upDateBranches|
+                                 ((|List|
+                                   (|Record| (|:| |val| (|List| |#4|))
+                                             (|:| |tower| |#5|)))
+                                  (|List| |#4|) (|List| |#5|)
+                                  (|List|
+                                   (|Record| (|:| |val| (|List| |#4|))
+                                             (|:| |tower| |#5|)))
+                                  (|Record| (|:| |done| (|List| |#5|))
+                                            (|:| |todo|
+                                                 (|List|
+                                                  (|Record|
+                                                   (|:| |val| (|List| |#4|))
+                                                   (|:| |tower| |#5|)))))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|convert|
+                                 ((|String|)
+                                  (|Record| (|:| |val| (|List| |#4|))
+                                            (|:| |tower| |#5|))))
+                                T)
+                              '((|printInfo|
+                                 ((|Void|)
+                                  (|List|
+                                   (|Record| (|:| |val| (|List| |#4|))
+                                             (|:| |tower| |#5|)))
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 103
+                                            '(1 10 11 0 12 2 11 0 0 0 13 2 15
+                                              11 14 0 16 1 20 0 17 21 1 20 22 0
+                                              23 1 10 22 0 24 2 22 0 0 0 25 1
+                                              22 0 0 26 1 9 28 0 29 1 9 8 0 30
+                                              2 10 0 0 8 31 2 10 0 0 8 32 2 10
+                                              33 0 8 34 1 9 11 0 35 5 38 37 9 9
+                                              10 28 28 39 1 9 28 0 40 2 9 0 0 8
+                                              41 1 10 17 0 42 2 10 43 9 0 44 2
+                                              10 43 17 43 45 1 46 17 9 47 2 8
+                                              28 0 0 48 2 18 0 0 0 49 1 9 0 0
+                                              58 1 9 0 0 59 1 9 0 8 60 2 9 61 0
+                                              0 62 1 9 0 0 63 1 9 0 0 64 1 9 0
+                                              0 65 2 38 67 9 10 68 2 10 28 8 0
+                                              69 2 70 0 0 0 71 2 10 9 9 0 72 1
+                                              9 0 0 73 2 9 0 0 0 74 2 9 0 0 0
+                                              75 1 78 0 43 79 1 82 81 78 83 0
+                                              81 0 84 4 88 87 17 18 28 28 89 1
+                                              10 28 0 90 2 10 91 9 0 92 1 88 18
+                                              18 94 2 11 28 0 0 95 2 10 28 0 0
+                                              96 2 9 28 0 0 97 2 17 0 0 0 98 2
+                                              17 0 99 0 100 2 88 28 10 18 101 1
+                                              70 0 43 102 1 88 70 70 103 5 0 70
+                                              17 18 70 51 11 93 3 0 51 9 10 11
+                                              53 2 0 51 9 10 54 2 0 81 70 11 85
+                                              2 0 11 17 18 27 4 0 51 9 10 11 28
+                                              57 3 0 51 9 10 11 55 2 0 51 9 10
+                                              56 4 0 18 17 18 28 28 77 7 0 18
+                                              17 18 28 28 28 28 28 76 1 0 78 50
+                                              80 2 0 51 9 10 52 2 0 11 17 18
+                                              19)))))
            '|lookupComplete|)) 

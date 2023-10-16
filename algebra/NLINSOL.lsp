@@ -413,24 +413,56 @@
               (138 . |solveRetract|) (|List| 19) (|SystemSolvePackage| 6)
               (144 . |solve|))
            '#(|solveInField| 150 |solve| 161) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 54
-                                                 '(1 8 7 0 9 2 7 0 0 0 10 2 0
-                                                   11 12 7 13 2 0 11 12 7 15 1
-                                                   0 11 12 16 1 11 0 17 18 1 20
-                                                   19 0 21 1 20 19 0 22 2 24 19
-                                                   19 23 25 2 20 0 19 19 26 1 8
-                                                   27 0 28 1 8 0 29 30 1 19 0 8
-                                                   31 1 8 32 0 33 1 6 17 34 35
-                                                   1 8 0 6 36 1 19 27 0 37 1 19
-                                                   38 0 39 0 6 0 40 2 8 0 0 0
-                                                   41 2 23 0 0 0 42 1 19 8 0 43
-                                                   1 8 44 0 45 1 19 8 0 46 2 6
-                                                   0 0 0 47 2 48 11 12 7 49 2
-                                                   50 11 12 7 51 2 53 11 52 7
-                                                   54 1 0 11 12 14 2 0 11 12 7
-                                                   13 1 0 11 12 16 2 0 11 12 7
-                                                   15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solveInField|
+                                 ((|List|
+                                   (|List|
+                                    (|Equation|
+                                     (|Fraction| (|Polynomial| |#1|)))))
+                                  (|List| (|Polynomial| |#1|))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|solveInField|
+                                 ((|List|
+                                   (|List|
+                                    (|Equation|
+                                     (|Fraction| (|Polynomial| |#1|)))))
+                                  (|List| (|Polynomial| |#1|))))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|List|
+                                    (|Equation|
+                                     (|Fraction| (|Polynomial| |#1|)))))
+                                  (|List| (|Polynomial| |#1|))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|List|
+                                    (|Equation|
+                                     (|Fraction| (|Polynomial| |#1|)))))
+                                  (|List| (|Polynomial| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 54
+                                            '(1 8 7 0 9 2 7 0 0 0 10 2 0 11 12
+                                              7 13 2 0 11 12 7 15 1 0 11 12 16
+                                              1 11 0 17 18 1 20 19 0 21 1 20 19
+                                              0 22 2 24 19 19 23 25 2 20 0 19
+                                              19 26 1 8 27 0 28 1 8 0 29 30 1
+                                              19 0 8 31 1 8 32 0 33 1 6 17 34
+                                              35 1 8 0 6 36 1 19 27 0 37 1 19
+                                              38 0 39 0 6 0 40 2 8 0 0 0 41 2
+                                              23 0 0 0 42 1 19 8 0 43 1 8 44 0
+                                              45 1 19 8 0 46 2 6 0 0 0 47 2 48
+                                              11 12 7 49 2 50 11 12 7 51 2 53
+                                              11 52 7 54 1 0 11 12 14 2 0 11 12
+                                              7 13 1 0 11 12 16 2 0 11 12 7
+                                              15)))))
            '|lookupComplete|)) 

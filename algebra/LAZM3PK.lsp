@@ -228,20 +228,26 @@
               (109 . |removeSuperfluousQuasiComponents|)
               |LAZM3PK;zeroSetSplit;LBL;4|)
            '#(|zeroSetSplit| 114 |normalizeIfCan| 120) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 46
-                                                 '(0 10 0 12 1 11 13 0 14 2 9
-                                                   15 0 0 16 2 13 0 17 0 18 2
-                                                   10 0 9 0 19 1 10 15 0 20 0
-                                                   11 0 21 1 10 13 0 22 2 25 24
-                                                   9 11 26 2 11 0 9 0 27 1 11
-                                                   15 0 28 1 29 15 9 30 1 9 31
-                                                   0 32 1 9 8 0 33 2 8 15 0 0
-                                                   34 2 11 15 8 0 35 2 11 0 13
-                                                   0 36 2 37 9 9 11 38 2 10 40
-                                                   13 15 41 2 42 0 0 0 43 1 44
-                                                   42 42 45 2 0 42 13 15 46 1 0
-                                                   11 11 39)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|normalizeIfCan| (|#6| |#6|)) T)
+                                   '((|zeroSetSplit|
+                                      ((|List| |#6|) (|List| |#4|)
+                                       (|Boolean|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 46
+                                            '(0 10 0 12 1 11 13 0 14 2 9 15 0 0
+                                              16 2 13 0 17 0 18 2 10 0 9 0 19 1
+                                              10 15 0 20 0 11 0 21 1 10 13 0 22
+                                              2 25 24 9 11 26 2 11 0 9 0 27 1
+                                              11 15 0 28 1 29 15 9 30 1 9 31 0
+                                              32 1 9 8 0 33 2 8 15 0 0 34 2 11
+                                              15 8 0 35 2 11 0 13 0 36 2 37 9 9
+                                              11 38 2 10 40 13 15 41 2 42 0 0 0
+                                              43 1 44 42 42 45 2 0 42 13 15 46
+                                              1 0 11 11 39)))))
            '|lookupComplete|)) 

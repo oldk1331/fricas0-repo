@@ -272,15 +272,23 @@
               (|PolynomialCategoryLifting| (|IndexedExponents| 7) 7 6 30 24)
               (60 . |map|) |SMPCOER;remap_variables;SmpLLSmp;3|)
            '#(|remap_variables| 67) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 33
-                                                 '(2 7 9 0 0 10 2 7 9 0 0 11 2
-                                                   12 9 0 0 13 1 14 9 0 15 2 7
-                                                   9 0 0 16 2 19 0 18 0 20 1 21
-                                                   9 0 22 0 6 0 23 0 24 0 25 3
-                                                   24 0 0 8 12 26 1 24 0 6 27 3
-                                                   31 24 28 29 30 32 3 0 24 30
-                                                   14 21 33)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|remap_variables|
+                                 ((|SparseMultivariatePolynomial| |#1| |#3|)
+                                  (|SparseMultivariatePolynomial| |#1| |#2|)
+                                  (|List| |#2|) (|List| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 33
+                                            '(2 7 9 0 0 10 2 7 9 0 0 11 2 12 9
+                                              0 0 13 1 14 9 0 15 2 7 9 0 0 16 2
+                                              19 0 18 0 20 1 21 9 0 22 0 6 0 23
+                                              0 24 0 25 3 24 0 0 8 12 26 1 24 0
+                                              6 27 3 31 24 28 29 30 32 3 0 24
+                                              30 14 21 33)))))
            '|lookupComplete|)) 

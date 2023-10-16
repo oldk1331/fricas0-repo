@@ -2518,7 +2518,7 @@
               (233 . |irreducible?|) (238 . |rank|) |FFPOLY;normal?;SupB;9|
               (|List| 8) (243 . |#|) (248 . |setfirst!|) (254 . |inv|)
               (259 . |new|) (265 . |lookup|) (270 . |index|)
-              (|Union| 11 '"failed") |FFPOLY;nextIrreduciblePoly;SupU;11|
+              (|Union| 11 '#1="failed") |FFPOLY;nextIrreduciblePoly;SupU;11|
               (275 . |primitive?|) (280 . ^) (286 . *) (292 . >)
               |FFPOLY;nextPrimitivePoly;SupU;12|
               (|Record| (|:| |expnt| 8) (|:| |coeff| 6)) (|List| 95)
@@ -2541,45 +2541,123 @@
               |createPrimitiveNormalPoly| 400 |createNormalPrimitivePoly| 405
               |createNormalPoly| 410 |createIrreduciblePoly| 415)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 111
-                                                 '(0 6 8 9 1 11 8 0 12 0 6 0 13
-                                                   0 7 0 14 1 7 11 11 15 2 11 0
-                                                   6 8 16 1 7 0 11 17 2 7 0 0 8
-                                                   18 0 6 0 19 0 7 0 20 0 11 0
-                                                   21 0 11 0 22 2 7 0 0 0 23 1
-                                                   7 11 0 24 2 11 6 0 8 25 1 6
-                                                   0 0 26 1 11 0 6 27 2 11 28 0
-                                                   0 29 1 11 6 0 30 2 11 0 6 0
-                                                   31 2 11 0 0 0 32 1 11 0 0 33
-                                                   2 11 36 0 8 37 1 36 38 0 39
-                                                   1 41 0 40 42 1 41 0 0 43 4
-                                                   41 6 0 44 44 6 45 2 41 0 0 0
-                                                   46 1 41 47 0 48 2 47 36 0 44
-                                                   49 2 36 6 0 44 50 2 6 28 0 0
-                                                   51 1 53 44 44 54 1 53 55 44
-                                                   56 2 57 0 0 57 58 1 53 44 44
-                                                   60 0 6 8 62 2 44 0 8 0 63 2
-                                                   8 28 0 0 64 2 6 28 0 0 66 2
-                                                   7 0 0 57 67 1 44 68 0 69 1
-                                                   73 72 0 74 2 11 28 0 0 75 1
-                                                   77 28 11 78 1 41 8 0 79 1 81
-                                                   8 0 82 2 81 8 0 8 83 1 6 0 0
-                                                   84 2 81 0 8 8 85 1 6 57 0 86
-                                                   1 6 0 57 87 1 6 28 0 90 2 6
-                                                   0 0 8 91 2 6 0 0 0 92 2 8 28
-                                                   0 0 93 2 96 0 0 0 97 0 6 0
-                                                   102 2 6 0 0 57 103 0 6 0 108
-                                                   2 57 28 0 0 110 1 0 34 11 35
-                                                   1 0 11 57 109 2 0 11 57 57
-                                                   111 1 0 28 11 76 1 0 57 57
-                                                   61 1 0 57 57 65 1 0 57 57 59
-                                                   1 0 28 11 80 1 0 88 11 94 1
-                                                   0 88 11 100 1 0 88 11 99 1 0
-                                                   88 11 98 1 0 88 11 89 1 0 11
-                                                   11 52 1 0 11 57 104 1 0 11
-                                                   57 107 1 0 11 57 106 1 0 11
-                                                   57 105 1 0 11 57 101)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|primitive?|
+                                 ((|Boolean|)
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|normal?|
+                                 ((|Boolean|)
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|numberOfIrreduciblePoly|
+                                 ((|PositiveInteger|) (|PositiveInteger|)))
+                                T)
+                              '((|numberOfPrimitivePoly|
+                                 ((|PositiveInteger|) (|PositiveInteger|)))
+                                T)
+                              '((|numberOfNormalPoly|
+                                 ((|PositiveInteger|) (|PositiveInteger|)))
+                                T)
+                              '((|createIrreduciblePoly|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|createPrimitivePoly|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|createNormalPoly|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|createNormalPrimitivePoly|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|createPrimitiveNormalPoly|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|nextIrreduciblePoly|
+                                 ((|Union| (|SparseUnivariatePolynomial| |#1|)
+                                           #1#)
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|nextPrimitivePoly|
+                                 ((|Union| (|SparseUnivariatePolynomial| |#1|)
+                                           "failed")
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|nextNormalPoly|
+                                 ((|Union| (|SparseUnivariatePolynomial| |#1|)
+                                           "failed")
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|nextNormalPrimitivePoly|
+                                 ((|Union| (|SparseUnivariatePolynomial| |#1|)
+                                           "failed")
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|nextPrimitiveNormalPoly|
+                                 ((|Union| (|SparseUnivariatePolynomial| |#1|)
+                                           "failed")
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|random|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|random|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|PositiveInteger|) (|PositiveInteger|)))
+                                T)
+                              '((|leastAffineMultiple|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|reducedQPowers|
+                                 ((|PrimitiveArray|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 111
+                                            '(0 6 8 9 1 11 8 0 12 0 6 0 13 0 7
+                                              0 14 1 7 11 11 15 2 11 0 6 8 16 1
+                                              7 0 11 17 2 7 0 0 8 18 0 6 0 19 0
+                                              7 0 20 0 11 0 21 0 11 0 22 2 7 0
+                                              0 0 23 1 7 11 0 24 2 11 6 0 8 25
+                                              1 6 0 0 26 1 11 0 6 27 2 11 28 0
+                                              0 29 1 11 6 0 30 2 11 0 6 0 31 2
+                                              11 0 0 0 32 1 11 0 0 33 2 11 36 0
+                                              8 37 1 36 38 0 39 1 41 0 40 42 1
+                                              41 0 0 43 4 41 6 0 44 44 6 45 2
+                                              41 0 0 0 46 1 41 47 0 48 2 47 36
+                                              0 44 49 2 36 6 0 44 50 2 6 28 0 0
+                                              51 1 53 44 44 54 1 53 55 44 56 2
+                                              57 0 0 57 58 1 53 44 44 60 0 6 8
+                                              62 2 44 0 8 0 63 2 8 28 0 0 64 2
+                                              6 28 0 0 66 2 7 0 0 57 67 1 44 68
+                                              0 69 1 73 72 0 74 2 11 28 0 0 75
+                                              1 77 28 11 78 1 41 8 0 79 1 81 8
+                                              0 82 2 81 8 0 8 83 1 6 0 0 84 2
+                                              81 0 8 8 85 1 6 57 0 86 1 6 0 57
+                                              87 1 6 28 0 90 2 6 0 0 8 91 2 6 0
+                                              0 0 92 2 8 28 0 0 93 2 96 0 0 0
+                                              97 0 6 0 102 2 6 0 0 57 103 0 6 0
+                                              108 2 57 28 0 0 110 1 0 34 11 35
+                                              1 0 11 57 109 2 0 11 57 57 111 1
+                                              0 28 11 76 1 0 57 57 61 1 0 57 57
+                                              65 1 0 57 57 59 1 0 28 11 80 1 0
+                                              88 11 94 1 0 88 11 100 1 0 88 11
+                                              99 1 0 88 11 98 1 0 88 11 89 1 0
+                                              11 11 52 1 0 11 57 104 1 0 11 57
+                                              107 1 0 11 57 106 1 0 11 57 105 1
+                                              0 11 57 101)))))
            '|lookupComplete|)) 

@@ -49,11 +49,18 @@
               (5 . |retractIfCan|) (|Boolean|) |INTRET;integer?;SB;2|
               |INTRET;integerIfCan;SU;3|)
            '#(|integerIfCan| 10 |integer?| 15 |integer| 20) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 14
-                                                 '(1 6 7 0 8 1 6 10 0 11 1 0 10
-                                                   6 14 1 0 12 6 13 1 0 7 6
-                                                   9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|integer| ((|Integer|) |#1|)) T)
+                                   '((|integer?| ((|Boolean|) |#1|)) T)
+                                   '((|integerIfCan|
+                                      ((|Union| (|Integer|) "failed") |#1|))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 14
+                                            '(1 6 7 0 8 1 6 10 0 11 1 0 10 6 14
+                                              1 0 12 6 13 1 0 7 6 9)))))
            '|lookupComplete|)) 

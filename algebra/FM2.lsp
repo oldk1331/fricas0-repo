@@ -76,11 +76,18 @@
               (9 . |listOfTerms|) (14 . *) (20 . +) (|Mapping| 9 7)
               |FM2;linearExtend;MM1M2;1|)
            '#(|linearExtend| 26) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(1 8 10 0 11 0 9 0 12 1 8 14
-                                                   0 15 2 9 0 6 0 16 2 9 0 0 0
-                                                   17 2 0 9 18 8 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|linearExtend|
+                                 (|#4| (|Mapping| |#4| |#2|) |#3|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(1 8 10 0 11 0 9 0 12 1 8 14 0 15
+                                              2 9 0 6 0 16 2 9 0 0 0 17 2 0 9
+                                              18 8 19)))))
            '|lookupComplete|)) 

@@ -1068,37 +1068,101 @@
               |SYSSOLP;solve;LL;15| |SYSSOLP;solve;LLL;16|
               (260 . |totalDegree|) (266 . |elt|))
            '#(|triangularSystems| 272 |solve| 278) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 93
-                                                 '(1 7 0 6 8 1 9 0 7 10 1 12 11
-                                                   0 13 2 11 14 0 0 15 1 12 9 0
-                                                   16 2 18 12 12 17 19 1 11 17
-                                                   0 20 1 9 7 0 21 1 7 11 0 22
-                                                   2 11 14 17 0 23 2 7 24 0 17
-                                                   25 1 27 26 0 28 0 6 0 29 1 7
-                                                   0 17 30 0 6 0 31 0 9 0 32 2
-                                                   27 7 0 26 33 1 27 7 0 34 2 9
-                                                   0 7 7 35 1 9 0 0 36 2 37 0 9
-                                                   9 38 0 17 0 39 2 7 26 0 17
-                                                   40 2 26 14 0 0 41 1 43 42 7
-                                                   44 1 42 47 0 48 1 9 7 0 49 0
-                                                   7 0 50 2 7 14 0 0 51 1 9 14
-                                                   0 55 2 11 0 0 0 56 1 11 0 0
-                                                   57 1 37 9 0 61 1 37 9 0 62 2
-                                                   9 0 0 0 63 2 7 0 0 17 66 2
-                                                   68 12 67 7 69 2 73 71 72 11
-                                                   74 1 75 0 26 76 2 75 14 0 0
-                                                   77 2 75 9 0 78 79 2 9 0 0 0
-                                                   80 2 9 0 0 0 81 3 75 9 0 78
-                                                   9 82 2 11 17 0 78 83 2 37 0
-                                                   9 9 84 2 58 0 0 0 85 2 11 0
-                                                   0 0 86 2 7 26 0 11 92 2 58
-                                                   37 0 78 93 2 0 52 53 11 54 2
-                                                   0 87 58 11 91 2 0 87 53 11
-                                                   88 1 0 87 58 90 1 0 87 53 89
-                                                   2 0 58 37 17 65 2 0 58 9 17
-                                                   59 1 0 58 9 60 1 0 58 37
-                                                   64)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solve|
+                                 ((|List|
+                                   (|List|
+                                    (|Equation|
+                                     (|Fraction| (|Polynomial| |#1|)))))
+                                  (|List| (|Fraction| (|Polynomial| |#1|)))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|List|
+                                    (|Equation|
+                                     (|Fraction| (|Polynomial| |#1|)))))
+                                  (|List|
+                                   (|Equation|
+                                    (|Fraction| (|Polynomial| |#1|))))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|List|
+                                    (|Equation|
+                                     (|Fraction| (|Polynomial| |#1|)))))
+                                  (|List| (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|List|
+                                    (|Equation|
+                                     (|Fraction| (|Polynomial| |#1|)))))
+                                  (|List|
+                                   (|Equation|
+                                    (|Fraction| (|Polynomial| |#1|))))))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|Equation|
+                                    (|Fraction| (|Polynomial| |#1|))))
+                                  (|Fraction| (|Polynomial| |#1|)) (|Symbol|)))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|Equation|
+                                    (|Fraction| (|Polynomial| |#1|))))
+                                  (|Equation| (|Fraction| (|Polynomial| |#1|)))
+                                  (|Symbol|)))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|Equation|
+                                    (|Fraction| (|Polynomial| |#1|))))
+                                  (|Fraction| (|Polynomial| |#1|))))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|Equation|
+                                    (|Fraction| (|Polynomial| |#1|))))
+                                  (|Equation|
+                                   (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|triangularSystems|
+                                 ((|List| (|List| (|Polynomial| |#1|)))
+                                  (|List| (|Fraction| (|Polynomial| |#1|)))
+                                  (|List| (|Symbol|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 93
+                                            '(1 7 0 6 8 1 9 0 7 10 1 12 11 0 13
+                                              2 11 14 0 0 15 1 12 9 0 16 2 18
+                                              12 12 17 19 1 11 17 0 20 1 9 7 0
+                                              21 1 7 11 0 22 2 11 14 17 0 23 2
+                                              7 24 0 17 25 1 27 26 0 28 0 6 0
+                                              29 1 7 0 17 30 0 6 0 31 0 9 0 32
+                                              2 27 7 0 26 33 1 27 7 0 34 2 9 0
+                                              7 7 35 1 9 0 0 36 2 37 0 9 9 38 0
+                                              17 0 39 2 7 26 0 17 40 2 26 14 0
+                                              0 41 1 43 42 7 44 1 42 47 0 48 1
+                                              9 7 0 49 0 7 0 50 2 7 14 0 0 51 1
+                                              9 14 0 55 2 11 0 0 0 56 1 11 0 0
+                                              57 1 37 9 0 61 1 37 9 0 62 2 9 0
+                                              0 0 63 2 7 0 0 17 66 2 68 12 67 7
+                                              69 2 73 71 72 11 74 1 75 0 26 76
+                                              2 75 14 0 0 77 2 75 9 0 78 79 2 9
+                                              0 0 0 80 2 9 0 0 0 81 3 75 9 0 78
+                                              9 82 2 11 17 0 78 83 2 37 0 9 9
+                                              84 2 58 0 0 0 85 2 11 0 0 0 86 2
+                                              7 26 0 11 92 2 58 37 0 78 93 2 0
+                                              52 53 11 54 2 0 87 58 11 91 2 0
+                                              87 53 11 88 1 0 87 58 90 1 0 87
+                                              53 89 2 0 58 37 17 65 2 0 58 9 17
+                                              59 1 0 58 9 60 1 0 58 37 64)))))
            '|lookupComplete|)) 

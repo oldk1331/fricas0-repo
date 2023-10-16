@@ -79,11 +79,24 @@
               |CARTEN2;reshape;LCtCt;1| (|List| 8) (5 . |ravel|)
               (|Mapping| 9 8) |CARTEN2;map;MCtCt;2|)
            '#(|reshape| 10 |map| 16) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(1 11 0 10 12 1 13 15 0 16 2
-                                                   0 11 10 13 14 2 0 11 17 13
-                                                   18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|reshape|
+                                 ((|CartesianTensor| |#1| |#2| |#4|)
+                                  (|List| |#4|)
+                                  (|CartesianTensor| |#1| |#2| |#3|)))
+                                T)
+                              '((|map|
+                                 ((|CartesianTensor| |#1| |#2| |#4|)
+                                  (|Mapping| |#4| |#3|)
+                                  (|CartesianTensor| |#1| |#2| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(1 11 0 10 12 1 13 15 0 16 2 0 11
+                                              10 13 14 2 0 11 17 13 18)))))
            '|lookupComplete|)) 

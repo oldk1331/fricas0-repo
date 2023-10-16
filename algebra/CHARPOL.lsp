@@ -77,13 +77,19 @@
               (27 . |setelt!|) (35 . -) (41 . |determinant|)
               |CHARPOL;characteristicPolynomial;M2R;1|)
            '#(|characteristicPolynomial| 46) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(2 8 7 0 0 9 0 6 0 10 0 6 0
-                                                   11 2 12 0 8 8 13 3 12 6 0 14
-                                                   14 15 4 12 6 0 14 14 6 16 2
-                                                   6 0 0 0 17 1 12 6 0 18 2 0 6
-                                                   12 6 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|characteristicPolynomial|
+                                 (|#1| (|Matrix| |#1|) |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(2 8 7 0 0 9 0 6 0 10 0 6 0 11 2
+                                              12 0 8 8 13 3 12 6 0 14 14 15 4
+                                              12 6 0 14 14 6 16 2 6 0 0 0 17 1
+                                              12 6 0 18 2 0 6 12 6 19)))))
            '|lookupComplete|)) 

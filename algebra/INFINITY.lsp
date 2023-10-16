@@ -46,12 +46,25 @@
               |INFINITY;plusInfinity;Oc;2| (8 . |minusInfinity|)
               |INFINITY;minusInfinity;Oc;3|)
            '#(|plusInfinity| 12 |minusInfinity| 16 |infinity| 20) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 13
-                                                 '(0 6 0 7 0 9 0 10 0 9 0 12 0
-                                                   0 9 11 0 0 9 13 0 0 6 8)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|infinity|
+                                 ((|OnePointCompletion| (|Integer|))))
+                                T)
+                              '((|plusInfinity|
+                                 ((|OrderedCompletion| (|Integer|))))
+                                T)
+                              '((|minusInfinity|
+                                 ((|OrderedCompletion| (|Integer|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 13
+                                            '(0 6 0 7 0 9 0 10 0 9 0 12 0 0 9
+                                              11 0 0 9 13 0 0 6 8)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Infinity| 'NILADIC T) 

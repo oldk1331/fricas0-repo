@@ -69,13 +69,26 @@
               |GRAY;firstSubsetGray;PiV;1| (20 . |elt|)
               |GRAY;nextSubsetGray;VPiV;2|)
            '#(|nextSubsetGray| 26 |firstSubsetGray| 32) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 15
-                                                 '(3 8 6 0 7 6 9 2 8 6 0 7 10 3
-                                                   6 7 0 7 7 11 2 6 7 0 7 14 2
-                                                   0 8 8 12 15 1 0 8 12 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|nextSubsetGray|
+                                 ((|Vector| (|Vector| (|Integer|)))
+                                  (|Vector| (|Vector| (|Integer|)))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|firstSubsetGray|
+                                 ((|Vector| (|Vector| (|Integer|)))
+                                  (|PositiveInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 15
+                                            '(3 8 6 0 7 6 9 2 8 6 0 7 10 3 6 7
+                                              0 7 7 11 2 6 7 0 7 14 2 0 8 8 12
+                                              15 1 0 8 12 13)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|GrayCode| 'NILADIC T) 

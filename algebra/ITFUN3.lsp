@@ -62,11 +62,29 @@
               (|InfiniteTuple| 8) (|InfiniteTuple| 6) (|InfiniteTuple| 7)
               |ITFUN3;map;MItItIt;1| |ITFUN3;map;MSItS;2| |ITFUN3;map;MItSS;3|)
            '#(|map| 7) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 20
-                                                 '(3 13 9 10 11 12 14 3 0 15 10
-                                                   16 17 18 3 0 9 10 16 12 20 3
-                                                   0 9 10 11 17 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|InfiniteTuple| |#3|)
+                                  (|Mapping| |#3| |#1| |#2|)
+                                  (|InfiniteTuple| |#1|)
+                                  (|InfiniteTuple| |#2|)))
+                                T)
+                              '((|map|
+                                 ((|Stream| |#3|) (|Mapping| |#3| |#1| |#2|)
+                                  (|Stream| |#1|) (|InfiniteTuple| |#2|)))
+                                T)
+                              '((|map|
+                                 ((|Stream| |#3|) (|Mapping| |#3| |#1| |#2|)
+                                  (|InfiniteTuple| |#1|) (|Stream| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 20
+                                            '(3 13 9 10 11 12 14 3 0 15 10 16
+                                              17 18 3 0 9 10 16 12 20 3 0 9 10
+                                              11 17 19)))))
            '|lookupComplete|)) 

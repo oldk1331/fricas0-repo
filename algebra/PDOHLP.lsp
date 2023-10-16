@@ -58,10 +58,16 @@
               (|Automorphism| 6) (0 . |One|) |PDOHLP;id_map;VarA;1|
               (4 . |differentiate|) (|Mapping| 6 6) |PDOHLP;diff_map;VarM;2|)
            '#(|id_map| 10 |diff_map| 15) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 13
-                                                 '(0 8 0 9 2 6 0 0 7 11 1 0 8 7
-                                                   10 1 0 12 7 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|id_map| ((|Automorphism| |#1|) |#2|)) T)
+                                   '((|diff_map| ((|Mapping| |#1| |#1|) |#2|))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 13
+                                            '(0 8 0 9 2 6 0 0 7 11 1 0 8 7 10 1
+                                              0 12 7 13)))))
            '|lookupComplete|)) 

@@ -216,13 +216,25 @@
                         (|:| |exponent| (|NonNegativeInteger|)))
               (|List| 28) (37 . |factorList|))
            '#(|partialFraction| 42) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 30
-                                                 '(1 8 7 0 9 1 11 10 7 12 1 8 7
-                                                   0 13 2 7 18 0 15 19 1 8 0 7
-                                                   20 2 24 21 22 23 25 1 10 7 0
-                                                   26 1 10 29 0 30 3 0 14 7 10
-                                                   15 16 2 0 14 8 15 17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|partialFraction|
+                                 ((|Any|) (|Fraction| (|Polynomial| |#1|))
+                                  (|Symbol|)))
+                                T)
+                              '((|partialFraction|
+                                 ((|Any|) (|Polynomial| |#1|)
+                                  (|Factored| (|Polynomial| |#1|)) (|Symbol|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 30
+                                            '(1 8 7 0 9 1 11 10 7 12 1 8 7 0 13
+                                              2 7 18 0 15 19 1 8 0 7 20 2 24 21
+                                              22 23 25 1 10 7 0 26 1 10 29 0 30
+                                              3 0 14 7 10 15 16 2 0 14 8 15
+                                              17)))))
            '|lookupComplete|)) 

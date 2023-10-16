@@ -215,17 +215,34 @@
            '#(|cyclotomicFactorization| 66 |cyclotomicDecomposition| 71
               |cyclotomic| 76)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 32
-                                                 '(1 8 6 7 9 1 6 12 0 13 0 14 0
-                                                   15 2 14 0 7 16 17 2 14 0 0 0
-                                                   18 2 14 0 0 16 19 2 14 20 0
-                                                   0 21 2 16 22 0 0 23 2 25 0 0
-                                                   0 26 0 28 0 29 2 28 0 14 16
-                                                   30 2 28 0 0 0 31 1 0 28 7 32
-                                                   1 0 25 7 27 1 0 14 7 24)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|cyclotomicDecomposition|
+                                 ((|List|
+                                   (|SparseUnivariatePolynomial| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|cyclotomic|
+                                 ((|SparseUnivariatePolynomial| (|Integer|))
+                                  (|Integer|)))
+                                T)
+                              '((|cyclotomicFactorization|
+                                 ((|Factored|
+                                   (|SparseUnivariatePolynomial| (|Integer|)))
+                                  (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 32
+                                            '(1 8 6 7 9 1 6 12 0 13 0 14 0 15 2
+                                              14 0 7 16 17 2 14 0 0 0 18 2 14 0
+                                              0 16 19 2 14 20 0 0 21 2 16 22 0
+                                              0 23 2 25 0 0 0 26 0 28 0 29 2 28
+                                              0 14 16 30 2 28 0 0 0 31 1 0 28 7
+                                              32 1 0 25 7 27 1 0 14 7 24)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CyclotomicPolynomialPackage| 'NILADIC T) 

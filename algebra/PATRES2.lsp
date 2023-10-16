@@ -78,11 +78,20 @@
               (|Record| (|:| |key| (|Symbol|)) (|:| |entry| 8)) (|List| 17)
               (14 . |construct|) (|Mapping| 8 7) |PATRES2;map;MPmrPmr;1|)
            '#(|map| 19) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(1 10 9 0 11 0 12 0 13 1 10
-                                                   15 0 16 1 12 0 18 19 2 0 12
-                                                   20 10 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|PatternMatchResult| |#1| |#3|)
+                                  (|Mapping| |#3| |#2|)
+                                  (|PatternMatchResult| |#1| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(1 10 9 0 11 0 12 0 13 1 10 15 0
+                                              16 1 12 0 18 19 2 0 12 20 10
+                                              21)))))
            '|lookupComplete|)) 

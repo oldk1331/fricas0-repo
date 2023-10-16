@@ -99,13 +99,18 @@
               (|Vector| $) (30 . |basis|) (|Integer|) (|Vector| 8) (34 . |elt|)
               (40 . |represents|) |FRNAAF2;map;MARAS;1|)
            '#(|map| 46) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(0 6 10 11 0 8 10 12 2 10 13
-                                                   0 0 14 1 6 15 0 16 2 19 17
-                                                   18 15 20 1 8 0 17 21 0 8 22
-                                                   23 2 25 8 0 24 26 2 8 0 17
-                                                   22 27 2 0 8 18 6 28)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#3| (|Mapping| |#4| |#2|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(0 6 10 11 0 8 10 12 2 10 13 0 0
+                                              14 1 6 15 0 16 2 19 17 18 15 20 1
+                                              8 0 17 21 0 8 22 23 2 25 8 0 24
+                                              26 2 8 0 17 22 27 2 0 8 18 6
+                                              28)))))
            '|lookupComplete|)) 

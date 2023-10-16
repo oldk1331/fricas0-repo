@@ -54,13 +54,17 @@
               (|Mapping| 13 16) (|SparseUnivariatePolynomialFunctions2| 16 13)
               (26 . |map|) (32 . |pi|) (36 . |elt|))
            '#(|coerce| 42) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 23
-                                                 '(1 8 7 0 9 1 7 10 0 11 1 7 10
-                                                   0 12 2 13 0 0 0 14 1 13 0 16
-                                                   17 2 20 18 19 10 21 0 13 0
-                                                   22 2 18 13 0 13 23 1 0 13 8
-                                                   15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|coerce| ((|Expression| |#1|) (|Pi|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 23
+                                            '(1 8 7 0 9 1 7 10 0 11 1 7 10 0 12
+                                              2 13 0 0 0 14 1 13 0 16 17 2 20
+                                              18 19 10 21 0 13 0 22 2 18 13 0
+                                              13 23 1 0 13 8 15)))))
            '|lookupComplete|)) 

@@ -156,19 +156,45 @@
               (64 . |coerce|) (|Equation| 35) (69 . =) (|List| 38) (75 . |Is|)
               (81 . |Is|))
            '#(|is?| 87 |Is| 99) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 42
-                                                 '(1 8 9 0 10 0 11 0 12 3 7 13
-                                                   0 9 13 14 1 11 15 0 16 1 18
-                                                   15 0 21 0 18 0 23 3 24 18 19
-                                                   9 18 25 1 11 27 0 28 1 7 0
-                                                   29 30 2 31 0 7 7 32 2 0 33 7
-                                                   8 34 1 35 0 29 36 1 35 0 7
-                                                   37 2 38 0 35 35 39 2 0 40 7
-                                                   8 41 2 0 11 7 8 42 2 0 15 7
-                                                   8 17 2 0 15 19 8 22 2 3 40 7
-                                                   8 41 2 2 11 7 8 42 2 1 33 7
-                                                   8 34 2 0 18 19 8 20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|is?| ((|Boolean|) |#2| |#3|)) T)
+                                   '((|is?| ((|Boolean|) (|List| |#2|) |#3|))
+                                     T)
+                                   '((|Is|
+                                      ((|PatternMatchListResult| |#1| |#2|
+                                                                 (|List| |#2|))
+                                       (|List| |#2|) |#3|))
+                                     T)
+                                   '((|Is|
+                                      ((|List| (|Equation| |#2|)) |#2| |#3|))
+                                     (|has| 7 (|RetractableTo| 29)))
+                                   '((|Is|
+                                      ((|List|
+                                        (|Equation| (|Polynomial| |#2|)))
+                                       |#2| |#3|))
+                                     (AND (|has| 7 (|Ring|))
+                                          (|not|
+                                           (|has| 7 (|RetractableTo| 29)))))
+                                   '((|Is|
+                                      ((|PatternMatchResult| |#1| |#2|) |#2|
+                                       |#3|))
+                                     (AND (|not| (|has| 7 (|Ring|)))
+                                          (|not|
+                                           (|has| 7 (|RetractableTo| 29))))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 42
+                                            '(1 8 9 0 10 0 11 0 12 3 7 13 0 9
+                                              13 14 1 11 15 0 16 1 18 15 0 21 0
+                                              18 0 23 3 24 18 19 9 18 25 1 11
+                                              27 0 28 1 7 0 29 30 2 31 0 7 7 32
+                                              2 0 33 7 8 34 1 35 0 29 36 1 35 0
+                                              7 37 2 38 0 35 35 39 2 0 40 7 8
+                                              41 2 0 11 7 8 42 2 0 15 7 8 17 2
+                                              0 15 19 8 22 2 3 40 7 8 41 2 2 11
+                                              7 8 42 2 1 33 7 8 34 2 0 18 19 8
+                                              20)))))
            '|lookupComplete|)) 

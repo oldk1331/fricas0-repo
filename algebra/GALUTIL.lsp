@@ -255,22 +255,47 @@
               |safeCeiling| 137 |rangePascalTriangle| 142 |pascalTriangle| 151
               |fillPascalTriangle| 157)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 46
-                                                 '(1 6 8 0 9 0 6 10 11 0 6 0 12
-                                                   0 6 0 13 2 6 0 8 8 14 2 6 0
-                                                   0 0 15 1 6 0 0 16 1 6 8 0 17
-                                                   1 0 8 6 18 1 6 0 0 19 1 0 8
-                                                   6 20 1 0 21 21 22 0 0 21 23
-                                                   0 24 0 25 1 6 0 8 30 2 21 31
-                                                   0 0 32 2 33 8 8 8 34 2 21 31
-                                                   0 0 35 2 24 6 0 8 36 2 24 0
-                                                   0 6 37 1 24 21 0 38 2 39 0 8
-                                                   8 40 2 24 0 0 39 41 0 0 21
-                                                   44 0 1 21 23 1 1 21 21 22 1
-                                                   1 8 6 18 1 1 8 6 20 1 0 21
-                                                   21 42 0 0 21 43 2 0 6 21 8
-                                                   29 0 0 45 46)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|pascalTriangle|
+                                 (|#1| (|NonNegativeInteger|) (|Integer|)))
+                                T)
+                              '((|rangePascalTriangle|
+                                 ((|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|rangePascalTriangle|
+                                 ((|NonNegativeInteger|)))
+                                T)
+                              '((|sizePascalTriangle| ((|NonNegativeInteger|)))
+                                T)
+                              '((|fillPascalTriangle| ((|Void|))) T)
+                              '((|safeCeiling| ((|Integer|) |#1|))
+                                (|has| 6 (|FloatingPointSystem|)))
+                              '((|safeFloor| ((|Integer|) |#1|))
+                                (|has| 6 (|FloatingPointSystem|)))
+                              '((|safetyMargin|
+                                 ((|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                (|has| 6 (|FloatingPointSystem|)))
+                              '((|safetyMargin| ((|NonNegativeInteger|)))
+                                (|has| 6 (|FloatingPointSystem|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 46
+                                            '(1 6 8 0 9 0 6 10 11 0 6 0 12 0 6
+                                              0 13 2 6 0 8 8 14 2 6 0 0 0 15 1
+                                              6 0 0 16 1 6 8 0 17 1 0 8 6 18 1
+                                              6 0 0 19 1 0 8 6 20 1 0 21 21 22
+                                              0 0 21 23 0 24 0 25 1 6 0 8 30 2
+                                              21 31 0 0 32 2 33 8 8 8 34 2 21
+                                              31 0 0 35 2 24 6 0 8 36 2 24 0 0
+                                              6 37 1 24 21 0 38 2 39 0 8 8 40 2
+                                              24 0 0 39 41 0 0 21 44 0 1 21 23
+                                              1 1 21 21 22 1 1 8 6 18 1 1 8 6
+                                              20 1 0 21 21 42 0 0 21 43 2 0 6
+                                              21 8 29 0 0 45 46)))))
            '|lookupComplete|)) 

@@ -49,12 +49,17 @@
               |UFD-;squareFreePart;2S;1| (25 . |factor|) (|NonNegativeInteger|)
               (30 . |numberOfFactors|) (|Boolean|) |UFD-;prime?;SB;2|)
            '#(|squareFreePart| 35 |prime?| 40) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 22
-                                                 '(1 6 7 0 8 1 9 6 0 10 1 9 13
-                                                   0 14 2 6 0 0 0 15 0 6 0 16 1
-                                                   6 7 0 18 1 9 19 0 20 1 0 0 0
-                                                   17 1 0 21 0 22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|squareFreePart| (|#1| |#1|)) T)
+                                   '((|prime?| ((|Boolean|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 22
+                                            '(1 6 7 0 8 1 9 6 0 10 1 9 13 0 14
+                                              2 6 0 0 0 15 0 6 0 16 1 6 7 0 18
+                                              1 9 19 0 20 1 0 0 0 17 1 0 21 0
+                                              22)))))
            '|lookupComplete|)) 

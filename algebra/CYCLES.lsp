@@ -710,36 +710,109 @@
               |eval| 253 |elementary| 258 |dihedral| 263 |cyclic| 268 |cup| 273
               |complete| 279 |cap| 284 |alternating| 290 |SFunction| 295)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 77
-                                                 '(1 7 6 0 8 1 9 0 6 10 1 9 0 0
-                                                   11 2 12 0 9 7 13 1 14 0 0 15
-                                                   1 14 16 0 17 0 12 0 18 0 12
-                                                   0 19 1 20 14 6 21 1 7 0 22
-                                                   23 2 12 0 0 0 24 1 6 26 0 27
-                                                   2 12 0 28 0 29 1 12 0 0 31 1
-                                                   33 0 6 34 1 33 37 0 38 0 33
-                                                   0 39 2 22 0 0 0 40 0 9 0 41
-                                                   1 43 6 6 44 2 9 0 6 6 45 1 9
-                                                   6 0 46 2 12 0 9 0 47 2 12 0
-                                                   0 0 49 1 7 16 22 51 1 22 6 0
-                                                   52 2 6 0 0 0 53 1 12 26 0 55
-                                                   1 12 7 0 56 2 7 26 0 0 57 2
-                                                   7 26 0 0 58 1 12 9 0 59 2 12
-                                                   0 6 0 60 1 12 0 0 61 0 9 0
-                                                   63 2 9 0 0 0 65 1 7 22 0 67
-                                                   1 70 0 69 71 1 70 12 0 72 1
-                                                   0 12 22 73 2 6 26 0 0 74 2
-                                                   22 0 0 6 75 2 22 6 0 6 76 2
-                                                   0 12 22 22 77 2 0 12 12 12
-                                                   68 2 0 12 22 22 77 1 0 12 6
-                                                   42 1 0 12 6 54 1 0 9 12 64 1
-                                                   0 12 6 32 1 0 12 6 50 1 0 12
-                                                   6 48 2 0 12 12 12 62 1 0 12
-                                                   6 25 2 0 9 12 12 66 1 0 12 6
-                                                   30 1 0 12 22 73)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|complete|
+                                 ((|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|powerSum|
+                                 ((|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|elementary|
+                                 ((|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|alternating|
+                                 ((|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|cyclic|
+                                 ((|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|dihedral|
+                                 ((|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|graphs|
+                                 ((|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|cap|
+                                 ((|Fraction| (|Integer|))
+                                  (|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))))
+                                T)
+                              '((|cup|
+                                 ((|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))))
+                                T)
+                              '((|eval|
+                                 ((|Fraction| (|Integer|))
+                                  (|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))))
+                                T)
+                              '((|wreath|
+                                 ((|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))))
+                                T)
+                              '((|SFunction|
+                                 ((|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|skewSFunction|
+                                 ((|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|List| (|Integer|)) (|List| (|Integer|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 77
+                                            '(1 7 6 0 8 1 9 0 6 10 1 9 0 0 11 2
+                                              12 0 9 7 13 1 14 0 0 15 1 14 16 0
+                                              17 0 12 0 18 0 12 0 19 1 20 14 6
+                                              21 1 7 0 22 23 2 12 0 0 0 24 1 6
+                                              26 0 27 2 12 0 28 0 29 1 12 0 0
+                                              31 1 33 0 6 34 1 33 37 0 38 0 33
+                                              0 39 2 22 0 0 0 40 0 9 0 41 1 43
+                                              6 6 44 2 9 0 6 6 45 1 9 6 0 46 2
+                                              12 0 9 0 47 2 12 0 0 0 49 1 7 16
+                                              22 51 1 22 6 0 52 2 6 0 0 0 53 1
+                                              12 26 0 55 1 12 7 0 56 2 7 26 0 0
+                                              57 2 7 26 0 0 58 1 12 9 0 59 2 12
+                                              0 6 0 60 1 12 0 0 61 0 9 0 63 2 9
+                                              0 0 0 65 1 7 22 0 67 1 70 0 69 71
+                                              1 70 12 0 72 1 0 12 22 73 2 6 26
+                                              0 0 74 2 22 0 0 6 75 2 22 6 0 6
+                                              76 2 0 12 22 22 77 2 0 12 12 12
+                                              68 2 0 12 22 22 77 1 0 12 6 42 1
+                                              0 12 6 54 1 0 9 12 64 1 0 12 6 32
+                                              1 0 12 6 50 1 0 12 6 48 2 0 12 12
+                                              12 62 1 0 12 6 25 2 0 9 12 12 66
+                                              1 0 12 6 30 1 0 12 22 73)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CycleIndicators| 'NILADIC T) 

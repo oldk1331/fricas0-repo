@@ -151,21 +151,38 @@
               (|ContinuedFraction| 32) (109 . |continuedFraction|)
               (116 . |JContinuedFraction|))
            '#(|JContinuedFraction| 122) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 47
-                                                 '(1 9 8 0 10 0 6 0 11 0 12 0
-                                                   13 0 14 0 15 2 12 0 6 14 16
-                                                   2 12 0 0 0 17 2 21 18 19 20
-                                                   22 1 6 0 0 23 0 6 0 24 0 12
-                                                   0 25 2 18 0 12 0 26 3 27 0
-                                                   12 18 18 28 2 0 27 9 12 29 1
-                                                   9 30 0 31 0 32 0 33 2 32 0
-                                                   34 14 35 2 32 0 0 0 36 2 40
-                                                   37 38 39 41 1 34 0 0 42 0 32
-                                                   0 43 2 37 0 32 0 44 3 45 0
-                                                   32 37 37 46 2 0 45 9 32 47 2
-                                                   2 45 9 32 47 2 1 27 9 12
-                                                   29)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|JContinuedFraction|
+                                 ((|ContinuedFraction|
+                                   (|UnivariatePolynomial| |#2| |#1|))
+                                  (|Distribution| |#1|)
+                                  (|UnivariatePolynomial| |#2| |#1|)))
+                                (|has| 6 (|Field|)))
+                              '((|JContinuedFraction|
+                                 ((|ContinuedFraction|
+                                   (|UnivariatePolynomial| |#2|
+                                                           (|Fraction| |#1|)))
+                                  (|Distribution| |#1|)
+                                  (|UnivariatePolynomial| |#2|
+                                                          (|Fraction| |#1|))))
+                                (AND (|has| 6 (|IntegralDomain|))
+                                     (|not| (|has| 6 (|Field|))))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 47
+                                            '(1 9 8 0 10 0 6 0 11 0 12 0 13 0
+                                              14 0 15 2 12 0 6 14 16 2 12 0 0 0
+                                              17 2 21 18 19 20 22 1 6 0 0 23 0
+                                              6 0 24 0 12 0 25 2 18 0 12 0 26 3
+                                              27 0 12 18 18 28 2 0 27 9 12 29 1
+                                              9 30 0 31 0 32 0 33 2 32 0 34 14
+                                              35 2 32 0 0 0 36 2 40 37 38 39 41
+                                              1 34 0 0 42 0 32 0 43 2 37 0 32 0
+                                              44 3 45 0 32 37 37 46 2 0 45 9 32
+                                              47 2 2 45 9 32 47 2 1 27 9 12
+                                              29)))))
            '|lookupComplete|)) 

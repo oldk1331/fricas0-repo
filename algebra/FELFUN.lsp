@@ -3143,64 +3143,168 @@
               |jacobiDn| 571 |jacobiCn| 583 |ellipticPi| 595 |ellipticK| 609
               |ellipticF| 619 |ellipticE| 631)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 133
-                                                 '(1 6 0 0 7 1 9 0 0 10 1 9 6 0
-                                                   11 3 6 0 13 13 14 15 2 6 16
-                                                   0 0 17 1 6 0 0 18 2 6 0 14 0
-                                                   19 0 6 0 20 2 6 0 0 0 21 2 6
-                                                   0 0 0 22 2 6 0 0 0 23 2 6 0
-                                                   0 14 24 0 27 0 28 2 27 0 13
-                                                   13 29 2 6 0 27 0 30 0 9 0 32
-                                                   2 6 0 0 0 34 2 25 6 35 0 36
-                                                   1 6 0 0 38 1 9 0 0 40 2 9 0
-                                                   14 0 41 2 9 0 0 0 42 2 9 0 0
-                                                   0 43 2 9 0 0 0 44 2 9 0 0 14
-                                                   45 2 6 0 0 13 48 2 9 0 27 0
-                                                   49 2 9 0 0 0 52 2 46 9 53 0
-                                                   54 1 9 0 0 56 0 6 0 58 1 6 0
-                                                   0 59 1 6 13 0 60 2 6 0 13 0
-                                                   61 0 6 14 62 2 13 16 0 0 63
-                                                   2 6 0 13 13 64 0 6 0 65 2 6
-                                                   16 0 0 66 0 6 14 67 1 6 14
-                                                   14 68 2 9 16 0 0 70 0 9 0 71
-                                                   2 9 0 6 0 72 2 6 16 0 0 74 2
-                                                   6 0 0 13 75 1 6 0 0 76 1 6
-                                                   13 0 77 0 9 0 78 2 9 0 6 6
-                                                   79 1 9 0 0 80 2 46 9 0 13 81
-                                                   1 9 0 0 82 1 9 0 0 83 1 9 0
-                                                   0 84 1 9 0 0 85 1 9 6 0 86 2
-                                                   9 0 0 6 87 2 9 0 13 0 88 1 6
-                                                   0 13 89 1 9 0 6 90 2 13 0 0
-                                                   0 91 2 6 16 0 0 95 1 6 0 0
-                                                   96 1 6 0 0 98 2 27 0 0 13
-                                                   102 1 6 0 27 103 0 9 0 104 1
-                                                   9 0 0 105 1 9 0 13 106 1 6 0
-                                                   0 109 1 6 0 0 111 1 9 0 0
-                                                   112 1 9 0 0 113 1 9 0 0 114
-                                                   1 9 6 0 115 2 9 0 0 13 116 1
-                                                   6 0 0 122 1 9 0 0 123 1 6 0
-                                                   0 124 1 9 0 0 126 2 9 0 0 27
-                                                   128 3 0 9 9 9 9 131 3 0 6 6
-                                                   6 6 133 3 0 9 9 9 9 130 3 0
-                                                   6 6 6 6 132 2 0 46 9 9 108 2
-                                                   0 46 9 9 129 2 0 9 9 46 57 2
-                                                   0 6 6 25 39 1 0 6 6 8 1 0 6
-                                                   9 12 1 0 9 9 107 3 0 25 6 25
-                                                   6 31 3 0 46 9 46 6 50 2 0 25
-                                                   6 25 26 2 0 46 9 46 47 2 0
-                                                   25 6 6 33 2 0 46 9 6 51 1 0
-                                                   6 25 37 1 0 9 46 55 2 0 6 6
-                                                   6 101 2 0 9 9 9 92 2 0 6 6 6
-                                                   97 2 0 9 9 9 94 2 0 6 6 6
-                                                   100 2 0 9 9 9 93 2 0 6 6 6
-                                                   99 3 0 9 9 9 9 127 3 0 6 6 6
-                                                   6 125 1 0 6 6 69 1 0 9 9 73
-                                                   2 0 9 9 9 117 2 0 6 6 6 110
-                                                   1 0 9 9 119 1 0 6 6 118 2 0
-                                                   9 9 9 121 2 0 6 6 6 120)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|jacobiSn| ((|Float|) (|Float|) (|Float|))) T)
+                              '((|jacobiSn|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))
+                                  (|Complex| (|Float|))))
+                                T)
+                              '((|jacobiCn| ((|Float|) (|Float|) (|Float|))) T)
+                              '((|jacobiCn|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))
+                                  (|Complex| (|Float|))))
+                                T)
+                              '((|jacobiDn| ((|Float|) (|Float|) (|Float|))) T)
+                              '((|jacobiDn|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))
+                                  (|Complex| (|Float|))))
+                                T)
+                              '((|jacobiZeta| ((|Float|) (|Float|) (|Float|)))
+                                T)
+                              '((|weierstrassP|
+                                 ((|Float|) (|Float|) (|Float|) (|Float|)))
+                                T)
+                              '((|weierstrassP|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))
+                                  (|Complex| (|Float|)) (|Complex| (|Float|))))
+                                T)
+                              '((|weierstrassPPrime|
+                                 ((|Float|) (|Float|) (|Float|) (|Float|)))
+                                T)
+                              '((|weierstrassPPrime|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))
+                                  (|Complex| (|Float|)) (|Complex| (|Float|))))
+                                T)
+                              '((|weierstrassHalfPeriods|
+                                 ((|List| (|Complex| (|Float|)))
+                                  (|Complex| (|Float|)) (|Complex| (|Float|))))
+                                T)
+                              '((|weierstrassInvariants|
+                                 ((|List| (|Complex| (|Float|)))
+                                  (|Complex| (|Float|)) (|Complex| (|Float|))))
+                                T)
+                              '((|modularInvariantJ|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))))
+                                T)
+                              '((|ellipticK| ((|Float|) (|Float|))) T)
+                              '((|ellipticK|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))))
+                                T)
+                              '((|ellipticE| ((|Float|) (|Float|))) T)
+                              '((|ellipticE|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))))
+                                T)
+                              '((|ellipticE| ((|Float|) (|Float|) (|Float|)))
+                                T)
+                              '((|ellipticE|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))
+                                  (|Complex| (|Float|))))
+                                T)
+                              '((|ellipticF| ((|Float|) (|Float|) (|Float|)))
+                                T)
+                              '((|ellipticF|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))
+                                  (|Complex| (|Float|))))
+                                T)
+                              '((|ellipticPi|
+                                 ((|Float|) (|Float|) (|Float|) (|Float|)))
+                                T)
+                              '((|ellipticPi|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))
+                                  (|Complex| (|Float|)) (|Complex| (|Float|))))
+                                T)
+                              '((|rabs| ((|Float|) (|Float|))) T)
+                              '((|rabs| ((|Float|) (|Complex| (|Float|)))) T)
+                              '((|landen1|
+                                 ((|List| (|Float|)) (|Float|)
+                                  (|List| (|Float|))))
+                                T)
+                              '((|landen1|
+                                 ((|List| (|Complex| (|Float|)))
+                                  (|Complex| (|Float|))
+                                  (|List| (|Complex| (|Float|)))))
+                                T)
+                              '((|landen2|
+                                 ((|List| (|Float|)) (|Float|)
+                                  (|List| (|Float|)) (|Float|)))
+                                T)
+                              '((|landen2|
+                                 ((|List| (|Complex| (|Float|)))
+                                  (|Complex| (|Float|))
+                                  (|List| (|Complex| (|Float|))) (|Float|)))
+                                T)
+                              '((|landen|
+                                 ((|List| (|Float|)) (|Float|) (|Float|)))
+                                T)
+                              '((|landen|
+                                 ((|List| (|Complex| (|Float|)))
+                                  (|Complex| (|Float|)) (|Float|)))
+                                T)
+                              '((|kprod| ((|Float|) (|List| (|Float|)))) T)
+                              '((|kprod|
+                                 ((|Complex| (|Float|))
+                                  (|List| (|Complex| (|Float|)))))
+                                T)
+                              '((|sn2|
+                                 ((|Float|) (|Float|) (|List| (|Float|))))
+                                T)
+                              '((|sn2|
+                                 ((|Complex| (|Float|)) (|Complex| (|Float|))
+                                  (|List| (|Complex| (|Float|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 133
+                                            '(1 6 0 0 7 1 9 0 0 10 1 9 6 0 11 3
+                                              6 0 13 13 14 15 2 6 16 0 0 17 1 6
+                                              0 0 18 2 6 0 14 0 19 0 6 0 20 2 6
+                                              0 0 0 21 2 6 0 0 0 22 2 6 0 0 0
+                                              23 2 6 0 0 14 24 0 27 0 28 2 27 0
+                                              13 13 29 2 6 0 27 0 30 0 9 0 32 2
+                                              6 0 0 0 34 2 25 6 35 0 36 1 6 0 0
+                                              38 1 9 0 0 40 2 9 0 14 0 41 2 9 0
+                                              0 0 42 2 9 0 0 0 43 2 9 0 0 0 44
+                                              2 9 0 0 14 45 2 6 0 0 13 48 2 9 0
+                                              27 0 49 2 9 0 0 0 52 2 46 9 53 0
+                                              54 1 9 0 0 56 0 6 0 58 1 6 0 0 59
+                                              1 6 13 0 60 2 6 0 13 0 61 0 6 14
+                                              62 2 13 16 0 0 63 2 6 0 13 13 64
+                                              0 6 0 65 2 6 16 0 0 66 0 6 14 67
+                                              1 6 14 14 68 2 9 16 0 0 70 0 9 0
+                                              71 2 9 0 6 0 72 2 6 16 0 0 74 2 6
+                                              0 0 13 75 1 6 0 0 76 1 6 13 0 77
+                                              0 9 0 78 2 9 0 6 6 79 1 9 0 0 80
+                                              2 46 9 0 13 81 1 9 0 0 82 1 9 0 0
+                                              83 1 9 0 0 84 1 9 0 0 85 1 9 6 0
+                                              86 2 9 0 0 6 87 2 9 0 13 0 88 1 6
+                                              0 13 89 1 9 0 6 90 2 13 0 0 0 91
+                                              2 6 16 0 0 95 1 6 0 0 96 1 6 0 0
+                                              98 2 27 0 0 13 102 1 6 0 27 103 0
+                                              9 0 104 1 9 0 0 105 1 9 0 13 106
+                                              1 6 0 0 109 1 6 0 0 111 1 9 0 0
+                                              112 1 9 0 0 113 1 9 0 0 114 1 9 6
+                                              0 115 2 9 0 0 13 116 1 6 0 0 122
+                                              1 9 0 0 123 1 6 0 0 124 1 9 0 0
+                                              126 2 9 0 0 27 128 3 0 9 9 9 9
+                                              131 3 0 6 6 6 6 133 3 0 9 9 9 9
+                                              130 3 0 6 6 6 6 132 2 0 46 9 9
+                                              108 2 0 46 9 9 129 2 0 9 9 46 57
+                                              2 0 6 6 25 39 1 0 6 6 8 1 0 6 9
+                                              12 1 0 9 9 107 3 0 25 6 25 6 31 3
+                                              0 46 9 46 6 50 2 0 25 6 25 26 2 0
+                                              46 9 46 47 2 0 25 6 6 33 2 0 46 9
+                                              6 51 1 0 6 25 37 1 0 9 46 55 2 0
+                                              6 6 6 101 2 0 9 9 9 92 2 0 6 6 6
+                                              97 2 0 9 9 9 94 2 0 6 6 6 100 2 0
+                                              9 9 9 93 2 0 6 6 6 99 3 0 9 9 9 9
+                                              127 3 0 6 6 6 6 125 1 0 6 6 69 1
+                                              0 9 9 73 2 0 9 9 9 117 2 0 6 6 6
+                                              110 1 0 9 9 119 1 0 6 6 118 2 0 9
+                                              9 9 121 2 0 6 6 6 120)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FloatEllipticFunctions| 'NILADIC T) 

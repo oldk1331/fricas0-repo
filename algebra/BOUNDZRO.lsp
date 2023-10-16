@@ -61,10 +61,14 @@
               (|PolynomialRationalRoots| 6 7) (0 . |integerBound|)
               (5 . |integerBound|))
            '#(|integerBound| 10) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 11
-                                                 '(1 9 8 7 10 1 0 8 7 11 1 0 8
-                                                   7 11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|integerBound| ((|Integer|) |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 11
+                                            '(1 9 8 7 10 1 0 8 7 11 1 0 8 7
+                                              11)))))
            '|lookupComplete|)) 

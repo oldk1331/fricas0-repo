@@ -2076,90 +2076,274 @@
               |arrowsToArrow| 806 |arrowsFromNode| 812 |arrowsFromArrow| 818
               |arrowName| 824 |adjacencyMatrix| 831 |addArrow!| 836 = 844)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 192
-                                                 '(1 6 9 0 10 2 7 11 0 0 12 2 6
-                                                   13 0 7 15 4 6 0 0 16 13 13
-                                                   17 1 6 21 0 22 2 23 0 13 13
-                                                   24 0 6 11 25 4 23 26 0 26 26
-                                                   26 27 3 6 11 0 13 13 29 1 31
-                                                   0 30 32 2 6 13 0 13 34 1 23
-                                                   0 35 36 3 6 26 0 13 13 38 2
-                                                   6 40 0 13 41 1 42 40 0 43 2
-                                                   40 11 13 0 44 1 45 0 26 46 2
-                                                   47 0 0 45 48 2 40 0 0 13 49
-                                                   2 42 40 0 40 50 2 45 0 26 51
-                                                   52 1 42 0 40 53 2 6 45 0 13
-                                                   55 2 6 40 0 13 57 2 58 0 0
-                                                   11 59 2 6 45 0 13 61 1 45 51
-                                                   0 63 1 45 26 0 64 2 40 26 13
-                                                   0 65 1 66 0 40 67 1 40 13 0
-                                                   68 2 40 0 0 13 69 2 70 0 0 0
-                                                   71 1 6 47 0 72 1 70 0 0 73 1
-                                                   6 47 0 76 1 6 70 0 78 2 70
-                                                   11 0 0 79 2 21 20 0 26 83 2
-                                                   13 11 0 0 96 2 40 11 0 0 97
-                                                   2 40 11 0 0 98 3 6 13 0 13
-                                                   13 100 2 13 11 0 0 101 3 6
-                                                   11 0 13 13 104 2 40 13 0 26
-                                                   110 3 40 13 0 26 13 111 1 6
-                                                   13 13 114 2 13 115 0 0 116 4
-                                                   120 0 0 119 16 16 121 2 122
-                                                   0 0 7 123 2 124 0 26 26 125
-                                                   3 127 0 26 26 126 128 1 127
-                                                   119 0 129 2 124 0 119 119
-                                                   130 2 124 0 0 0 131 2 120 0
-                                                   0 132 133 5 120 0 0 134 13
-                                                   13 11 135 2 136 0 0 120 137
-                                                   4 120 0 0 16 13 124 138 2 21
-                                                   11 0 0 139 0 140 0 141 1 134
-                                                   143 0 144 2 147 0 0 146 148
-                                                   2 6 40 0 13 149 2 147 146 0
-                                                   26 150 2 146 145 0 26 151 2
-                                                   124 0 119 119 152 4 120 0 0
-                                                   153 154 119 155 2 136 120 0
-                                                   26 156 1 6 13 0 157 7 120 0
-                                                   0 0 0 124 154 119 119 158 1
-                                                   6 13 0 160 2 161 0 124 124
-                                                   162 1 120 0 161 163 4 6 140
-                                                   120 0 11 11 164 2 120 140 0
-                                                   16 165 1 7 16 0 174 1 16 0
-                                                   51 175 2 9 8 0 26 176 2 9 11
-                                                   0 0 178 2 21 11 0 0 179 2 6
-                                                   11 0 0 181 0 183 0 184 1 13
-                                                   183 0 185 2 183 11 0 0 186 1
-                                                   183 0 16 187 1 183 0 51 188
-                                                   2 183 0 0 0 189 1 16 183 0
-                                                   190 1 7 183 0 191 2 0 11 0 0
-                                                   182 4 0 140 120 0 11 11 159
-                                                   2 0 45 0 13 60 2 0 45 0 13
-                                                   54 1 0 47 0 62 1 0 47 0 56 3
-                                                   0 40 0 13 13 99 3 0 40 0 13
-                                                   13 102 2 0 13 0 13 87 2 0 40
-                                                   0 13 89 2 0 40 0 13 93 2 0
-                                                   40 0 13 88 2 0 40 0 13 92 1
-                                                   0 13 0 107 2 0 13 0 40 108 2
-                                                   0 13 0 40 106 1 0 13 0 105 2
-                                                   0 11 0 0 171 1 0 70 0 74 2 0
-                                                   70 0 13 75 1 0 70 0 77 1 0
-                                                   16 0 177 1 0 23 0 37 3 0 11
-                                                   0 13 13 103 1 0 11 0 112 2 0
-                                                   11 0 13 82 0 0 11 19 3 0 11
-                                                   0 13 13 81 1 0 11 0 80 1 0
-                                                   23 0 28 2 0 13 0 13 86 1 0
-                                                   172 0 173 2 0 13 0 7 14 3 0
-                                                   13 0 13 13 84 1 0 23 0 39 3
-                                                   0 26 0 13 13 109 3 0 140 16
-                                                   51 11 167 1 0 13 0 169 3 0
-                                                   140 16 0 11 166 1 0 13 0 170
-                                                   3 0 140 16 0 11 168 2 0 13
-                                                   13 13 118 2 0 13 13 13 117 1
-                                                   0 13 13 113 1 0 183 0 192 2
-                                                   0 40 0 13 91 2 0 40 0 13 95
-                                                   2 0 40 0 13 90 2 0 40 0 13
-                                                   94 3 0 16 0 13 13 85 1 0 31
-                                                   0 33 4 0 0 0 16 7 7 18 2 0
-                                                   11 0 0 180)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|looseEquals| ((|Boolean|) |#1| |#1|)) T)
+                                   '((|createY|
+                                      ((|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|createX|
+                                      ((|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|createWidth|
+                                      ((|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|diagramHeight|
+                                      ((|NonNegativeInteger|) |#1|))
+                                     T)
+                                   '((|diagramWidth|
+                                      ((|NonNegativeInteger|) |#1|))
+                                     T)
+                                   '((|deepDiagramSvg|
+                                      ((|Void|) (|String|) |#1| (|Boolean|)))
+                                     T)
+                                   '((|diagramsSvg|
+                                      ((|Void|) (|String|) (|List| |#1|)
+                                       (|Boolean|)))
+                                     T)
+                                   '((|diagramSvg|
+                                      ((|Void|) (|String|) |#1| (|Boolean|)))
+                                     T)
+                                   '((|subdiagramSvg|
+                                      ((|Void|) (|Scene| (|SCartesian| 2)) |#1|
+                                       (|Boolean|) (|Boolean|)))
+                                     T)
+                                   '((|isDirected?| ((|Boolean|))) T)
+                                   '((|isFunctional?| ((|Boolean|) |#1|)) T)
+                                   '((|distanceMatrix|
+                                      ((|Matrix| (|Integer|)) |#1|))
+                                     T)
+                                   '((|laplacianMatrix|
+                                      ((|Matrix| (|Integer|)) |#1|))
+                                     T)
+                                   '((|adjacencyMatrix|
+                                      ((|Matrix| (|NonNegativeInteger|)) |#1|))
+                                     T)
+                                   '((|incidenceMatrix|
+                                      ((|Matrix| (|Integer|)) |#1|))
+                                     T)
+                                   '((|isAcyclic?| ((|Boolean|) |#1|)) T)
+                                   '((|loopsArrows| ((|List| (|Loop|)) |#1|))
+                                     T)
+                                   '((|loopsAtNode|
+                                      ((|List| (|Loop|)) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|loopsNodes| ((|List| (|Loop|)) |#1|)) T)
+                                   '((|spanningForestNode|
+                                      ((|List| (|Tree| (|Integer|))) |#1|))
+                                     T)
+                                   '((|spanningTreeNode|
+                                      ((|Tree| (|Integer|)) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|spanningForestArrow|
+                                      ((|List| (|Tree| (|Integer|))) |#1|))
+                                     T)
+                                   '((|spanningTreeArrow|
+                                      ((|Tree| (|Integer|)) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|distance|
+                                      ((|Integer|) |#1| (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|routeArrows|
+                                      ((|List| (|NonNegativeInteger|)) |#1|
+                                       (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|routeNodes|
+                                      ((|List| (|NonNegativeInteger|)) |#1|
+                                       (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|arrowsToArrow|
+                                      ((|List| (|NonNegativeInteger|)) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|arrowsFromArrow|
+                                      ((|List| (|NonNegativeInteger|)) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|nodeToArrow|
+                                      ((|List| (|NonNegativeInteger|)) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|nodeFromArrow|
+                                      ((|List| (|NonNegativeInteger|)) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|arrowsToNode|
+                                      ((|List| (|NonNegativeInteger|)) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|arrowsFromNode|
+                                      ((|List| (|NonNegativeInteger|)) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|nodeToNode|
+                                      ((|List| (|NonNegativeInteger|)) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|nodeFromNode|
+                                      ((|List| (|NonNegativeInteger|)) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|outDegree|
+                                      ((|NonNegativeInteger|) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|inDegree|
+                                      ((|NonNegativeInteger|) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|getArrowIndex|
+                                      ((|NonNegativeInteger|) |#1|
+                                       (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|arrowName|
+                                      ((|String|) |#1| (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|isFixPoint?|
+                                      ((|Boolean|) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|min|
+                                      ((|NonNegativeInteger|) |#1|
+                                       (|List| (|NonNegativeInteger|))))
+                                     T)
+                                   '((|min| ((|NonNegativeInteger|) |#1|)) T)
+                                   '((|max|
+                                      ((|NonNegativeInteger|) |#1|
+                                       (|List| (|NonNegativeInteger|))))
+                                     T)
+                                   '((|max| ((|NonNegativeInteger|) |#1|)) T)
+                                   '((|isGreaterThan?|
+                                      ((|Boolean|) |#1| (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|isDirectSuccessor?|
+                                      ((|Boolean|) |#1| (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|getVertexIndex|
+                                      ((|NonNegativeInteger|) |#1| |#2|))
+                                     T)
+                                   '((|addArrow!|
+                                      (|#1| |#1| (|String|) |#2| |#2|))
+                                     T)
+                                   '((|addArrow!|
+                                      (|#1| |#1| (|String|)
+                                       (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)
+                                       (|List| (|NonNegativeInteger|))))
+                                     T)
+                                   '((|addArrow!|
+                                      (|#1| |#1| (|String|)
+                                       (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|addArrow!|
+                                      (|#1| |#1|
+                                       (|Record| (|:| |name| (|String|))
+                                                 (|:| |arrType|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |fromOb|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |toOb|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |xOffset| (|Integer|))
+                                                 (|:| |yOffset| (|Integer|))
+                                                 (|:| |map|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))))
+                                     T)
+                                   '((|latex| ((|String|) |#1|)) T)
+                                   '((|hash| ((|SingleInteger|) |#1|)) T)
+                                   '((|coerce| ((|OutputForm|) |#1|)) T)
+                                   '((= ((|Boolean|) |#1| |#1|)) T)
+                                   '((~= ((|Boolean|) |#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 192
+                                            '(1 6 9 0 10 2 7 11 0 0 12 2 6 13 0
+                                              7 15 4 6 0 0 16 13 13 17 1 6 21 0
+                                              22 2 23 0 13 13 24 0 6 11 25 4 23
+                                              26 0 26 26 26 27 3 6 11 0 13 13
+                                              29 1 31 0 30 32 2 6 13 0 13 34 1
+                                              23 0 35 36 3 6 26 0 13 13 38 2 6
+                                              40 0 13 41 1 42 40 0 43 2 40 11
+                                              13 0 44 1 45 0 26 46 2 47 0 0 45
+                                              48 2 40 0 0 13 49 2 42 40 0 40 50
+                                              2 45 0 26 51 52 1 42 0 40 53 2 6
+                                              45 0 13 55 2 6 40 0 13 57 2 58 0
+                                              0 11 59 2 6 45 0 13 61 1 45 51 0
+                                              63 1 45 26 0 64 2 40 26 13 0 65 1
+                                              66 0 40 67 1 40 13 0 68 2 40 0 0
+                                              13 69 2 70 0 0 0 71 1 6 47 0 72 1
+                                              70 0 0 73 1 6 47 0 76 1 6 70 0 78
+                                              2 70 11 0 0 79 2 21 20 0 26 83 2
+                                              13 11 0 0 96 2 40 11 0 0 97 2 40
+                                              11 0 0 98 3 6 13 0 13 13 100 2 13
+                                              11 0 0 101 3 6 11 0 13 13 104 2
+                                              40 13 0 26 110 3 40 13 0 26 13
+                                              111 1 6 13 13 114 2 13 115 0 0
+                                              116 4 120 0 0 119 16 16 121 2 122
+                                              0 0 7 123 2 124 0 26 26 125 3 127
+                                              0 26 26 126 128 1 127 119 0 129 2
+                                              124 0 119 119 130 2 124 0 0 0 131
+                                              2 120 0 0 132 133 5 120 0 0 134
+                                              13 13 11 135 2 136 0 0 120 137 4
+                                              120 0 0 16 13 124 138 2 21 11 0 0
+                                              139 0 140 0 141 1 134 143 0 144 2
+                                              147 0 0 146 148 2 6 40 0 13 149 2
+                                              147 146 0 26 150 2 146 145 0 26
+                                              151 2 124 0 119 119 152 4 120 0 0
+                                              153 154 119 155 2 136 120 0 26
+                                              156 1 6 13 0 157 7 120 0 0 0 0
+                                              124 154 119 119 158 1 6 13 0 160
+                                              2 161 0 124 124 162 1 120 0 161
+                                              163 4 6 140 120 0 11 11 164 2 120
+                                              140 0 16 165 1 7 16 0 174 1 16 0
+                                              51 175 2 9 8 0 26 176 2 9 11 0 0
+                                              178 2 21 11 0 0 179 2 6 11 0 0
+                                              181 0 183 0 184 1 13 183 0 185 2
+                                              183 11 0 0 186 1 183 0 16 187 1
+                                              183 0 51 188 2 183 0 0 0 189 1 16
+                                              183 0 190 1 7 183 0 191 2 0 11 0
+                                              0 182 4 0 140 120 0 11 11 159 2 0
+                                              45 0 13 60 2 0 45 0 13 54 1 0 47
+                                              0 62 1 0 47 0 56 3 0 40 0 13 13
+                                              99 3 0 40 0 13 13 102 2 0 13 0 13
+                                              87 2 0 40 0 13 89 2 0 40 0 13 93
+                                              2 0 40 0 13 88 2 0 40 0 13 92 1 0
+                                              13 0 107 2 0 13 0 40 108 2 0 13 0
+                                              40 106 1 0 13 0 105 2 0 11 0 0
+                                              171 1 0 70 0 74 2 0 70 0 13 75 1
+                                              0 70 0 77 1 0 16 0 177 1 0 23 0
+                                              37 3 0 11 0 13 13 103 1 0 11 0
+                                              112 2 0 11 0 13 82 0 0 11 19 3 0
+                                              11 0 13 13 81 1 0 11 0 80 1 0 23
+                                              0 28 2 0 13 0 13 86 1 0 172 0 173
+                                              2 0 13 0 7 14 3 0 13 0 13 13 84 1
+                                              0 23 0 39 3 0 26 0 13 13 109 3 0
+                                              140 16 51 11 167 1 0 13 0 169 3 0
+                                              140 16 0 11 166 1 0 13 0 170 3 0
+                                              140 16 0 11 168 2 0 13 13 13 118
+                                              2 0 13 13 13 117 1 0 13 13 113 1
+                                              0 183 0 192 2 0 40 0 13 91 2 0 40
+                                              0 13 95 2 0 40 0 13 90 2 0 40 0
+                                              13 94 3 0 16 0 13 13 85 1 0 31 0
+                                              33 4 0 0 0 16 7 7 18 2 0 11 0 0
+                                              180)))))
            '|lookupComplete|)) 

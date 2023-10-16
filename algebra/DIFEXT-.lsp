@@ -78,14 +78,57 @@
               (18 . |differentiate|) (|Symbol|) (23 . |differentiate|)
               (29 . |differentiate|) (|List| 17) (|List| 10))
            '#(|differentiate| 35 D 53) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(2 6 0 0 8 9 3 6 0 0 8 10 13
-                                                   1 7 0 0 15 1 0 0 0 16 2 7 0
-                                                   0 17 18 2 0 0 0 17 19 1 0 0
-                                                   0 16 2 0 0 0 17 19 3 0 0 0 8
-                                                   10 11 2 0 0 0 8 12 3 0 0 0 8
-                                                   10 14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|differentiate| (|#1| |#1|)) T)
+                                   '((D (|#1| |#1|)) T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|NonNegativeInteger|)))
+                                     T)
+                                   '((D (|#1| |#1| (|NonNegativeInteger|))) T)
+                                   '((|differentiate| (|#1| |#1| (|Symbol|)))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|List| (|Symbol|))))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|Symbol|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|List| (|Symbol|))
+                                       (|List| (|NonNegativeInteger|))))
+                                     T)
+                                   '((D (|#1| |#1| (|Symbol|))) T)
+                                   '((D (|#1| |#1| (|List| (|Symbol|)))) T)
+                                   '((D
+                                      (|#1| |#1| (|Symbol|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((D
+                                      (|#1| |#1| (|List| (|Symbol|))
+                                       (|List| (|NonNegativeInteger|))))
+                                     T)
+                                   '((D
+                                      (|#1| |#1| (|Mapping| |#2| |#2|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((D (|#1| |#1| (|Mapping| |#2| |#2|))) T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|Mapping| |#2| |#2|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|Mapping| |#2| |#2|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(2 6 0 0 8 9 3 6 0 0 8 10 13 1 7 0
+                                              0 15 1 0 0 0 16 2 7 0 0 17 18 2 0
+                                              0 0 17 19 1 0 0 0 16 2 0 0 0 17
+                                              19 3 0 0 0 8 10 11 2 0 0 0 8 12 3
+                                              0 0 0 8 10 14)))))
            '|lookupComplete|)) 

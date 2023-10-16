@@ -49,11 +49,18 @@
               (|Mapping| 7 6) (|StreamFunctions2| 6 7) (5 . |map|)
               (|Sequence| 7) (11 . |sequence|) |SEQU2;map;MSS;1|)
            '#(|map| 16) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(1 9 8 0 10 2 13 11 12 8 14 1
-                                                   15 0 11 16 2 0 15 12 9
-                                                   17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|Sequence| |#2|) (|Mapping| |#2| |#1|)
+                                  (|Sequence| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(1 9 8 0 10 2 13 11 12 8 14 1 15 0
+                                              11 16 2 0 15 12 9 17)))))
            '|lookupComplete|)) 

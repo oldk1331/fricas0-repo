@@ -22,9 +22,12 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Boolean|) (0 . =)
               |BASTYPE-;~=;2SB;1|)
            '#(~= 6) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 9
-                                                 '(2 6 7 0 0 8 2 0 7 0 0 9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((~= ((|Boolean|) |#1| |#1|)) T)) (LIST)
+                             NIL NIL)))
+                        (|makeByteWordVec2| 9 '(2 6 7 0 0 8 2 0 7 0 0 9)))))
            '|lookupComplete|)) 

@@ -1133,49 +1133,149 @@
               |intcompBasis| 412 |groebgen| 419 |coord| 424 |computeBasis| 430
               |choosemon| 435 |anticoord| 441)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 116
-                                                 '(1 10 8 9 11 0 7 0 13 0 7 0
-                                                   14 2 17 15 0 16 18 2 19 16 0
-                                                   16 20 2 15 7 0 16 21 2 7 0 0
-                                                   0 22 1 7 0 0 23 2 7 8 0 0 24
-                                                   3 15 7 0 16 7 25 2 7 0 0 0
-                                                   26 2 30 27 28 29 31 0 28 0
-                                                   32 2 28 33 0 0 34 1 28 0 0
-                                                   35 2 28 0 0 0 36 2 28 0 7 0
-                                                   37 2 28 0 0 0 38 0 40 0 41 0
-                                                   28 0 42 2 17 0 43 43 44 4 17
-                                                   7 0 16 16 7 45 3 19 16 0 16
-                                                   16 46 2 40 33 0 0 49 2 40 8
-                                                   0 0 50 2 28 0 0 0 52 1 28 7
-                                                   0 53 2 7 0 0 0 54 2 28 8 0 7
-                                                   55 1 15 0 43 57 2 7 33 0 0
-                                                   58 2 40 0 7 0 59 2 40 0 0 0
-                                                   60 0 40 0 61 1 40 0 0 62 1
-                                                   40 0 0 63 2 40 0 0 0 64 3 17
-                                                   0 0 16 15 65 1 28 0 10 69 2
-                                                   28 0 0 43 70 1 28 0 0 71 2
-                                                   40 33 0 0 72 1 40 7 0 73 1
-                                                   40 74 0 75 1 74 76 0 77 1 78
-                                                   0 76 79 2 28 0 7 78 80 1 28
-                                                   78 0 81 2 29 0 0 0 83 2 29
-                                                   33 0 0 84 2 28 33 0 0 85 1
-                                                   28 7 0 86 2 29 16 28 0 87 2
-                                                   47 33 0 0 90 2 92 10 0 91 93
-                                                   1 40 0 10 94 2 40 0 0 0 95 2
-                                                   97 96 40 47 98 2 40 43 0 10
-                                                   99 2 40 0 0 43 100 1 92 10 0
-                                                   101 2 40 0 16 0 102 3 40 0 0
-                                                   10 0 103 2 106 16 0 16 107 2
-                                                   92 10 0 16 108 2 40 109 0 10
-                                                   110 2 111 40 0 40 112 1 113
-                                                   47 47 114 1 0 28 40 51 1 0
-                                                   47 29 66 2 0 28 29 10 68 3 0
-                                                   28 29 29 10 67 1 0 104 29
-                                                   105 3 0 29 10 29 29 82 1 0
-                                                   115 47 116 2 0 15 28 29 56 1
-                                                   0 29 29 39 2 0 40 40 47 48 3
-                                                   0 40 88 40 47 89)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|linGenPos|
+                                 ((|Record|
+                                   (|:| |gblist|
+                                        (|List|
+                                         (|DistributedMultivariatePolynomial|
+                                          |#1| |#2|)))
+                                   (|:| |gvlist| (|List| (|Integer|))))
+                                  (|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))))
+                                T)
+                              '((|groebgen|
+                                 ((|Record|
+                                   (|:| |glbase|
+                                        (|List|
+                                         (|DistributedMultivariatePolynomial|
+                                          |#1| |#2|)))
+                                   (|:| |glval| (|List| (|Integer|))))
+                                  (|List|
+                                   (|DistributedMultivariatePolynomial| |#1|
+                                                                        |#2|))))
+                                T)
+                              '((|totolex|
+                                 ((|List|
+                                   (|DistributedMultivariatePolynomial| |#1|
+                                                                        |#2|))
+                                  (|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))))
+                                T)
+                              '((|minPol|
+                                 ((|HomogeneousDistributedMultivariatePolynomial|
+                                   |#1| |#2|)
+                                  (|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))
+                                  (|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))
+                                  (|OrderedVariableList| |#1|)))
+                                T)
+                              '((|minPol|
+                                 ((|HomogeneousDistributedMultivariatePolynomial|
+                                   |#1| |#2|)
+                                  (|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))
+                                  (|OrderedVariableList| |#1|)))
+                                T)
+                              '((|computeBasis|
+                                 ((|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))
+                                  (|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))))
+                                T)
+                              '((|coord|
+                                 ((|Vector| |#2|)
+                                  (|HomogeneousDistributedMultivariatePolynomial|
+                                   |#1| |#2|)
+                                  (|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))))
+                                T)
+                              '((|anticoord|
+                                 ((|DistributedMultivariatePolynomial| |#1|
+                                                                       |#2|)
+                                  (|List| |#2|)
+                                  (|DistributedMultivariatePolynomial| |#1|
+                                                                       |#2|)
+                                  (|List|
+                                   (|DistributedMultivariatePolynomial| |#1|
+                                                                        |#2|))))
+                                T)
+                              '((|intcompBasis|
+                                 ((|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))
+                                  (|OrderedVariableList| |#1|)
+                                  (|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))
+                                  (|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))))
+                                T)
+                              '((|choosemon|
+                                 ((|DistributedMultivariatePolynomial| |#1|
+                                                                       |#2|)
+                                  (|DistributedMultivariatePolynomial| |#1|
+                                                                       |#2|)
+                                  (|List|
+                                   (|DistributedMultivariatePolynomial| |#1|
+                                                                        |#2|))))
+                                T)
+                              '((|transform|
+                                 ((|HomogeneousDistributedMultivariatePolynomial|
+                                   |#1| |#2|)
+                                  (|DistributedMultivariatePolynomial| |#1|
+                                                                       |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 116
+                                            '(1 10 8 9 11 0 7 0 13 0 7 0 14 2
+                                              17 15 0 16 18 2 19 16 0 16 20 2
+                                              15 7 0 16 21 2 7 0 0 0 22 1 7 0 0
+                                              23 2 7 8 0 0 24 3 15 7 0 16 7 25
+                                              2 7 0 0 0 26 2 30 27 28 29 31 0
+                                              28 0 32 2 28 33 0 0 34 1 28 0 0
+                                              35 2 28 0 0 0 36 2 28 0 7 0 37 2
+                                              28 0 0 0 38 0 40 0 41 0 28 0 42 2
+                                              17 0 43 43 44 4 17 7 0 16 16 7 45
+                                              3 19 16 0 16 16 46 2 40 33 0 0 49
+                                              2 40 8 0 0 50 2 28 0 0 0 52 1 28
+                                              7 0 53 2 7 0 0 0 54 2 28 8 0 7 55
+                                              1 15 0 43 57 2 7 33 0 0 58 2 40 0
+                                              7 0 59 2 40 0 0 0 60 0 40 0 61 1
+                                              40 0 0 62 1 40 0 0 63 2 40 0 0 0
+                                              64 3 17 0 0 16 15 65 1 28 0 10 69
+                                              2 28 0 0 43 70 1 28 0 0 71 2 40
+                                              33 0 0 72 1 40 7 0 73 1 40 74 0
+                                              75 1 74 76 0 77 1 78 0 76 79 2 28
+                                              0 7 78 80 1 28 78 0 81 2 29 0 0 0
+                                              83 2 29 33 0 0 84 2 28 33 0 0 85
+                                              1 28 7 0 86 2 29 16 28 0 87 2 47
+                                              33 0 0 90 2 92 10 0 91 93 1 40 0
+                                              10 94 2 40 0 0 0 95 2 97 96 40 47
+                                              98 2 40 43 0 10 99 2 40 0 0 43
+                                              100 1 92 10 0 101 2 40 0 16 0 102
+                                              3 40 0 0 10 0 103 2 106 16 0 16
+                                              107 2 92 10 0 16 108 2 40 109 0
+                                              10 110 2 111 40 0 40 112 1 113 47
+                                              47 114 1 0 28 40 51 1 0 47 29 66
+                                              2 0 28 29 10 68 3 0 28 29 29 10
+                                              67 1 0 104 29 105 3 0 29 10 29 29
+                                              82 1 0 115 47 116 2 0 15 28 29 56
+                                              1 0 29 29 39 2 0 40 40 47 48 3 0
+                                              40 88 40 47 89)))))
            '|lookupComplete|)) 

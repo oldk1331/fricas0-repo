@@ -789,49 +789,138 @@
               |genVectorStream2| 411 |genVectorStream| 418 |fffg| 425 |ShiftC|
               440 |ShiftAction| 445 |DiffC| 452 |DiffAction| 457)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 111
-                                                 '(2 7 6 0 8 9 2 6 0 10 0 11 0
-                                                   6 0 13 0 7 0 14 1 6 0 10 15
-                                                   2 6 0 0 8 18 2 6 0 0 0 19 0
-                                                   6 0 22 2 25 7 0 10 26 2 28
-                                                   27 0 10 29 1 27 8 0 30 1 27
-                                                   8 0 31 2 27 6 0 8 32 1 6 33
-                                                   0 34 2 6 0 0 0 35 0 8 0 38 2
-                                                   10 0 0 0 39 1 42 8 0 48 2 8
-                                                   33 0 0 49 2 42 10 50 0 51 2
-                                                   42 8 0 10 52 0 7 0 53 2 10
-                                                   33 0 0 54 3 42 8 0 10 8 55 1
-                                                   42 0 0 56 0 57 0 58 2 57 0
-                                                   42 0 59 1 57 0 60 61 1 66 64
-                                                   65 67 1 68 27 0 70 2 27 0 6
-                                                   8 71 2 27 0 0 0 72 1 68 27 0
-                                                   73 2 27 0 6 0 74 2 68 0 27
-                                                   27 75 2 8 33 0 0 77 2 8 33 0
-                                                   0 78 2 16 6 0 10 79 2 27 6 0
-                                                   6 80 0 81 0 82 2 6 0 0 0 83
-                                                   3 40 27 0 10 10 84 1 27 33 0
-                                                   85 1 27 0 6 86 2 27 0 0 0 87
-                                                   2 27 0 0 0 88 2 45 10 0 10
-                                                   89 2 27 0 0 6 90 2 27 91 0 6
-                                                   92 0 27 0 93 2 40 0 8 27 94
-                                                   1 95 0 8 96 1 97 0 8 98 2 40
-                                                   28 0 10 99 3 97 6 0 10 6 100
-                                                   2 97 6 0 10 101 2 6 33 0 0
-                                                   102 2 95 8 0 10 103 2 8 33 0
-                                                   0 104 3 95 8 0 10 8 105 3 45
-                                                   10 0 10 10 106 1 45 0 107
-                                                   108 2 8 0 0 0 109 2 42 8 110
-                                                   0 111 2 0 16 6 8 21 4 0 6 6
-                                                   8 8 7 20 3 0 68 16 16 8 69 3
-                                                   0 68 65 65 8 76 4 0 40 16 36
-                                                   25 42 44 5 0 40 16 36 25 45
-                                                   8 47 4 0 6 36 25 8 28 37 3 0
-                                                   57 8 8 8 63 3 0 57 8 8 8 62
-                                                   4 0 40 16 41 45 8 46 3 0 40
-                                                   16 41 42 43 1 0 16 8 17 3 0
-                                                   6 8 8 7 12 1 0 16 8 24 3 0 6
-                                                   8 8 7 23)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|fffg|
+                                 ((|Matrix|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|List| |#1|)
+                                  (|Mapping| |#1| (|NonNegativeInteger|)
+                                             (|Vector|
+                                              (|SparseUnivariatePolynomial|
+                                               |#1|)))
+                                  (|Vector| (|Integer|))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|fffg|
+                                 ((|Matrix|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|List| |#1|)
+                                  (|Mapping| |#1| (|NonNegativeInteger|)
+                                             (|Vector|
+                                              (|SparseUnivariatePolynomial|
+                                               |#1|)))
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|interpolate|
+                                 ((|Fraction|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|List| |#1|) (|List| |#1|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|interpolate|
+                                 ((|Fraction|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|List| (|Fraction| |#1|))
+                                  (|List| (|Fraction| |#1|))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|generalInterpolation|
+                                 ((|Matrix|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|List| |#1|)
+                                  (|Mapping| |#1| (|NonNegativeInteger|)
+                                             (|NonNegativeInteger|) |#2|)
+                                  (|Vector| |#2|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|generalInterpolation|
+                                 ((|Matrix|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|List| |#1|)
+                                  (|Mapping| |#1| (|NonNegativeInteger|)
+                                             (|NonNegativeInteger|) |#2|)
+                                  (|Vector| |#2|) (|Vector| (|Integer|))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|generalCoefficient|
+                                 (|#1|
+                                  (|Mapping| |#1| (|NonNegativeInteger|)
+                                             (|NonNegativeInteger|) |#2|)
+                                  (|Vector| |#2|) (|NonNegativeInteger|)
+                                  (|Vector|
+                                   (|SparseUnivariatePolynomial| |#1|))))
+                                T)
+                              '((|ShiftAction|
+                                 (|#1| (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|) |#2|))
+                                T)
+                              '((|ShiftC|
+                                 ((|List| |#1|) (|NonNegativeInteger|)))
+                                T)
+                              '((|DiffAction|
+                                 (|#1| (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|) |#2|))
+                                T)
+                              '((|DiffC|
+                                 ((|List| |#1|) (|NonNegativeInteger|)))
+                                T)
+                              '((|qShiftAction|
+                                 (|#1| |#1| (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|) |#2|))
+                                T)
+                              '((|qShiftC|
+                                 ((|List| |#1|) |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|genVectorStream|
+                                 ((|Stream| (|List| (|NonNegativeInteger|)))
+                                  (|NonNegativeInteger|) (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|genVectorStream2|
+                                 ((|Stream| (|List| (|NonNegativeInteger|)))
+                                  (|NonNegativeInteger|) (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 111
+                                            '(2 7 6 0 8 9 2 6 0 10 0 11 0 6 0
+                                              13 0 7 0 14 1 6 0 10 15 2 6 0 0 8
+                                              18 2 6 0 0 0 19 0 6 0 22 2 25 7 0
+                                              10 26 2 28 27 0 10 29 1 27 8 0 30
+                                              1 27 8 0 31 2 27 6 0 8 32 1 6 33
+                                              0 34 2 6 0 0 0 35 0 8 0 38 2 10 0
+                                              0 0 39 1 42 8 0 48 2 8 33 0 0 49
+                                              2 42 10 50 0 51 2 42 8 0 10 52 0
+                                              7 0 53 2 10 33 0 0 54 3 42 8 0 10
+                                              8 55 1 42 0 0 56 0 57 0 58 2 57 0
+                                              42 0 59 1 57 0 60 61 1 66 64 65
+                                              67 1 68 27 0 70 2 27 0 6 8 71 2
+                                              27 0 0 0 72 1 68 27 0 73 2 27 0 6
+                                              0 74 2 68 0 27 27 75 2 8 33 0 0
+                                              77 2 8 33 0 0 78 2 16 6 0 10 79 2
+                                              27 6 0 6 80 0 81 0 82 2 6 0 0 0
+                                              83 3 40 27 0 10 10 84 1 27 33 0
+                                              85 1 27 0 6 86 2 27 0 0 0 87 2 27
+                                              0 0 0 88 2 45 10 0 10 89 2 27 0 0
+                                              6 90 2 27 91 0 6 92 0 27 0 93 2
+                                              40 0 8 27 94 1 95 0 8 96 1 97 0 8
+                                              98 2 40 28 0 10 99 3 97 6 0 10 6
+                                              100 2 97 6 0 10 101 2 6 33 0 0
+                                              102 2 95 8 0 10 103 2 8 33 0 0
+                                              104 3 95 8 0 10 8 105 3 45 10 0
+                                              10 10 106 1 45 0 107 108 2 8 0 0
+                                              0 109 2 42 8 110 0 111 2 0 16 6 8
+                                              21 4 0 6 6 8 8 7 20 3 0 68 16 16
+                                              8 69 3 0 68 65 65 8 76 4 0 40 16
+                                              36 25 42 44 5 0 40 16 36 25 45 8
+                                              47 4 0 6 36 25 8 28 37 3 0 57 8 8
+                                              8 63 3 0 57 8 8 8 62 4 0 40 16 41
+                                              45 8 46 3 0 40 16 41 42 43 1 0 16
+                                              8 17 3 0 6 8 8 7 12 1 0 16 8 24 3
+                                              0 6 8 8 7 23)))))
            '|lookupComplete|)) 

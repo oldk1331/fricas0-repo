@@ -150,23 +150,49 @@
               |UDPO;userOrdered?;B;1| (|Record| (|:| |low| 7) (|:| |high| 7))
               |UDPO;getOrder;R;2| (|Void|) |UDPO;setOrder;2LV;4|
               |UDPO;setOrder;LV;3| (10 . |removeDuplicates|) (15 . |setref|)
-              (21 . |void|) (|Union| 13 '"failed") |UDPO;less?;2SU;7|
+              (21 . |void|) (|Union| 13 '#1="failed") |UDPO;less?;2SU;7|
               (|Mapping| 13 6 6) |UDPO;less?;2SMB;5| |UDPO;largest;LMS;6|
               (25 . =) (31 . ~=) (37 . <) (43 . |more?|) (49 . |largest|))
            '#(|userOrdered?| 54 |setOrder| 58 |more?| 69 |less?| 75 |largest|
               88 |getOrder| 99)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 32
-                                                 '(1 8 0 7 9 1 8 7 0 12 1 7 0 0
-                                                   20 2 8 7 0 7 21 0 17 0 22 2
-                                                   6 13 0 0 28 2 6 13 0 0 29 2
-                                                   6 13 0 0 30 2 0 13 6 6 31 1
-                                                   0 6 7 32 0 0 13 14 2 0 17 7
-                                                   7 18 1 0 17 7 19 2 1 13 6 6
-                                                   31 2 0 23 6 6 24 3 0 13 6 6
-                                                   25 26 1 1 6 7 32 2 0 6 7 25
-                                                   27 0 0 15 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|setOrder| ((|Void|) (|List| |#1|))) T)
+                                   '((|setOrder|
+                                      ((|Void|) (|List| |#1|) (|List| |#1|)))
+                                     T)
+                                   '((|getOrder|
+                                      ((|Record| (|:| |low| (|List| |#1|))
+                                                 (|:| |high| (|List| |#1|)))))
+                                     T)
+                                   '((|less?|
+                                      ((|Union| (|Boolean|) #1#) |#1| |#1|))
+                                     T)
+                                   '((|less?|
+                                      ((|Boolean|) |#1| |#1|
+                                       (|Mapping| (|Boolean|) |#1| |#1|)))
+                                     T)
+                                   '((|largest|
+                                      (|#1| (|List| |#1|)
+                                       (|Mapping| (|Boolean|) |#1| |#1|)))
+                                     T)
+                                   '((|userOrdered?| ((|Boolean|))) T)
+                                   '((|largest| (|#1| (|List| |#1|)))
+                                     (|has| 6 (|OrderedSet|)))
+                                   '((|more?| ((|Boolean|) |#1| |#1|))
+                                     (|has| 6 (|OrderedSet|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 32
+                                            '(1 8 0 7 9 1 8 7 0 12 1 7 0 0 20 2
+                                              8 7 0 7 21 0 17 0 22 2 6 13 0 0
+                                              28 2 6 13 0 0 29 2 6 13 0 0 30 2
+                                              0 13 6 6 31 1 0 6 7 32 0 0 13 14
+                                              2 0 17 7 7 18 1 0 17 7 19 2 1 13
+                                              6 6 31 2 0 23 6 6 24 3 0 13 6 6
+                                              25 26 1 1 6 7 32 2 0 6 7 25 27 0
+                                              0 15 16)))))
            '|lookupComplete|)) 

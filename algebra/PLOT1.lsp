@@ -63,14 +63,30 @@
               (17 . |plot|) |PLOT1;plot;2SSSP;3| (24 . |plotPolar|)
               |PLOT1;plotPolar;SSSP;4|)
            '#(|plotPolar| 30 |plot| 43) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 20
-                                                 '(2 9 7 6 8 10 2 12 0 7 11 13
-                                                   1 12 0 7 15 3 12 0 7 7 11 17
-                                                   2 12 0 7 11 19 2 0 12 6 8 16
-                                                   3 0 12 6 8 11 20 4 0 12 6 6
-                                                   8 11 18 3 0 12 6 8 11
-                                                   14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|plot|
+                                 ((|Plot|) |#1| (|Symbol|)
+                                  (|Segment| (|DoubleFloat|))))
+                                T)
+                              '((|plot|
+                                 ((|Plot|) |#1| |#1| (|Symbol|)
+                                  (|Segment| (|DoubleFloat|))))
+                                T)
+                              '((|plotPolar|
+                                 ((|Plot|) |#1| (|Symbol|)
+                                  (|Segment| (|DoubleFloat|))))
+                                T)
+                              '((|plotPolar| ((|Plot|) |#1| (|Symbol|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 20
+                                            '(2 9 7 6 8 10 2 12 0 7 11 13 1 12
+                                              0 7 15 3 12 0 7 7 11 17 2 12 0 7
+                                              11 19 2 0 12 6 8 16 3 0 12 6 8 11
+                                              20 4 0 12 6 6 8 11 18 3 0 12 6 8
+                                              11 14)))))
            '|lookupComplete|)) 

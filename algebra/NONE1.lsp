@@ -42,6 +42,12 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|None|)
               |NONE1;coerce;SN;1|)
            '#(|coerce| 0) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#() (CONS '#() (|makeByteWordVec2| 8 '(1 0 7 6 8)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|coerce| ((|None|) |#1|)) T)) (LIST) NIL
+                             NIL)))
+                        (|makeByteWordVec2| 8 '(1 0 7 6 8)))))
            '|lookupComplete|)) 

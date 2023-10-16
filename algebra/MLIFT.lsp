@@ -1038,9 +1038,9 @@
               (|SparseUnivariatePolynomialFunctions2| 9 8) (5 . |map|)
               (11 . |coerce|) (|Mapping| 9 8)
               (|SparseUnivariatePolynomialFunctions2| 8 9) (16 . |map|)
-              (22 . |eval|) (|Mapping| 9 9) (29 . |map|) (|Union| 27 '"failed")
-              (|List| 7) (|List| 8) (|List| 32) (|List| 13)
-              (|Union| 60 '"failed") (|Mapping| 28 11)
+              (22 . |eval|) (|Mapping| 9 9) (29 . |map|)
+              (|Union| 27 '#1="failed") (|List| 7) (|List| 8) (|List| 32)
+              (|List| 13) (|Union| 60 '#2="failed") (|Mapping| 28 11)
               |MLIFT;corrPoly;SupLLLLMU;1| (|Boolean|) (|NonNegativeInteger|)
               (35 . ~=) (|Integer|) (41 . |elt|) (47 . *) (53 . |One|)
               (57 . |One|) (61 . |One|) (65 . |monomial|) (72 . -)
@@ -1062,36 +1062,80 @@
               (|IntegerCombinatoricFunctions| 34) (249 . |binomial|) (255 . >)
               (261 . *) (267 . |monomial|) (273 . |coefficient|))
            '#(|lifting| 279 |corrPoly| 301) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 89
-                                                 '(1 9 8 0 10 2 14 11 12 13 15
-                                                   1 9 0 8 16 2 18 13 17 11 19
-                                                   3 9 0 0 7 0 20 2 13 0 21 0
-                                                   22 2 32 31 0 0 33 2 27 13 0
-                                                   34 35 2 13 0 0 0 36 0 13 0
-                                                   37 0 8 0 38 0 9 0 39 3 9 0 0
-                                                   7 32 40 2 9 0 0 0 41 1 13 0
-                                                   9 42 2 13 0 0 0 43 0 13 0 44
-                                                   2 13 0 0 0 45 0 6 0 46 0 8 0
-                                                   47 2 13 31 0 0 48 2 26 32 0
-                                                   34 49 3 9 0 0 24 25 50 1 9 0
-                                                   7 51 2 9 0 0 0 52 2 13 0 0 9
-                                                   53 2 13 31 0 0 54 1 13 9 0
-                                                   55 2 9 32 0 7 56 1 13 0 0 57
-                                                   3 62 59 13 60 61 63 2 13 64
-                                                   0 0 65 2 27 0 0 0 66 1 11 32
-                                                   0 69 2 11 0 0 0 70 2 32 0 0
-                                                   0 71 2 26 32 72 0 73 3 75 74
-                                                   32 8 60 76 3 75 28 11 8 77
-                                                   78 7 0 23 13 24 60 25 61 26
-                                                   8 79 2 9 80 0 7 81 2 9 0 80
-                                                   7 82 1 13 32 0 83 2 84 34 34
-                                                   34 85 2 34 31 0 0 86 2 9 0
-                                                   34 0 87 2 13 0 9 32 88 2 13
-                                                   9 0 32 89 7 1 23 13 24 60 25
-                                                   61 26 8 79 7 0 23 13 24 60
-                                                   25 61 26 67 68 6 0 23 13 24
-                                                   25 26 27 29 30)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|corrPoly|
+                                 ((|Union|
+                                   (|List| (|SparseUnivariatePolynomial| |#4|))
+                                   #1#)
+                                  (|SparseUnivariatePolynomial| |#4|)
+                                  (|List| |#2|) (|List| |#3|)
+                                  (|List| (|NonNegativeInteger|))
+                                  (|List| (|SparseUnivariatePolynomial| |#4|))
+                                  (|Mapping|
+                                   (|Union|
+                                    (|List|
+                                     (|SparseUnivariatePolynomial| |#3|))
+                                    #2#)
+                                   (|SparseUnivariatePolynomial| |#3|))))
+                                T)
+                              '((|lifting|
+                                 ((|Union|
+                                   (|List| (|SparseUnivariatePolynomial| |#4|))
+                                   "failed")
+                                  (|SparseUnivariatePolynomial| |#4|)
+                                  (|List| |#2|)
+                                  (|List| (|SparseUnivariatePolynomial| |#3|))
+                                  (|List| |#3|) (|List| |#4|)
+                                  (|List| (|NonNegativeInteger|))
+                                  (|Mapping|
+                                   (|Mapping|
+                                    (|Union|
+                                     (|List|
+                                      (|SparseUnivariatePolynomial| |#3|))
+                                     #2#)
+                                    (|SparseUnivariatePolynomial| |#3|))
+                                   (|List|
+                                    (|SparseUnivariatePolynomial| |#3|)))))
+                                T)
+                              '((|lifting|
+                                 ((|Union|
+                                   (|List| (|SparseUnivariatePolynomial| |#4|))
+                                   "failed")
+                                  (|SparseUnivariatePolynomial| |#4|)
+                                  (|List| |#2|)
+                                  (|List| (|SparseUnivariatePolynomial| |#3|))
+                                  (|List| |#3|) (|List| |#4|)
+                                  (|List| (|NonNegativeInteger|)) |#3|))
+                                (|has| 8 (|EuclideanDomain|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 89
+                                            '(1 9 8 0 10 2 14 11 12 13 15 1 9 0
+                                              8 16 2 18 13 17 11 19 3 9 0 0 7 0
+                                              20 2 13 0 21 0 22 2 32 31 0 0 33
+                                              2 27 13 0 34 35 2 13 0 0 0 36 0
+                                              13 0 37 0 8 0 38 0 9 0 39 3 9 0 0
+                                              7 32 40 2 9 0 0 0 41 1 13 0 9 42
+                                              2 13 0 0 0 43 0 13 0 44 2 13 0 0
+                                              0 45 0 6 0 46 0 8 0 47 2 13 31 0
+                                              0 48 2 26 32 0 34 49 3 9 0 0 24
+                                              25 50 1 9 0 7 51 2 9 0 0 0 52 2
+                                              13 0 0 9 53 2 13 31 0 0 54 1 13 9
+                                              0 55 2 9 32 0 7 56 1 13 0 0 57 3
+                                              62 59 13 60 61 63 2 13 64 0 0 65
+                                              2 27 0 0 0 66 1 11 32 0 69 2 11 0
+                                              0 0 70 2 32 0 0 0 71 2 26 32 72 0
+                                              73 3 75 74 32 8 60 76 3 75 28 11
+                                              8 77 78 7 0 23 13 24 60 25 61 26
+                                              8 79 2 9 80 0 7 81 2 9 0 80 7 82
+                                              1 13 32 0 83 2 84 34 34 34 85 2
+                                              34 31 0 0 86 2 9 0 34 0 87 2 13 0
+                                              9 32 88 2 13 9 0 32 89 7 1 23 13
+                                              24 60 25 61 26 8 79 7 0 23 13 24
+                                              60 25 61 26 67 68 6 0 23 13 24 25
+                                              26 27 29 30)))))
            '|lookupComplete|)) 

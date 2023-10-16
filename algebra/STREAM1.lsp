@@ -67,13 +67,20 @@
               (29 . |rst|) (34 . |concat|) (40 . |concat|) (|Mapping| $)
               (46 . |delay|))
            '#(|concat| 51) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(1 8 7 0 9 0 10 0 11 1 8 10 0
-                                                   12 1 10 7 0 13 1 8 0 0 14 1
-                                                   10 6 0 16 1 10 0 0 17 2 10 0
-                                                   0 0 18 2 10 0 6 0 19 1 10 0
-                                                   20 21 1 0 10 8 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|concat|
+                                 ((|Stream| |#1|) (|Stream| (|Stream| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(1 8 7 0 9 0 10 0 11 1 8 10 0 12 1
+                                              10 7 0 13 1 8 0 0 14 1 10 6 0 16
+                                              1 10 0 0 17 2 10 0 0 0 18 2 10 0
+                                              6 0 19 1 10 0 20 21 1 0 10 8
+                                              15)))))
            '|lookupComplete|)) 

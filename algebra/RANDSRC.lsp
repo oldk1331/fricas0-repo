@@ -65,13 +65,21 @@
               |RANDSRC;size;I;2| (|Void|) |RANDSRC;reseed;IV;3|
               |RANDSRC;seed;I;4| |RANDSRC;randnum;2I;5|)
            '#(|size| 6 |seed| 10 |reseed| 14 |randnum| 19) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(2 10 0 9 0 11 0 0 10 13 0 0
-                                                   10 16 1 0 14 10 15 0 0 10 12
-                                                   1 0 10 10 17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|randnum| ((|Integer|))) T)
+                                   '((|size| ((|Integer|))) T)
+                                   '((|randnum| ((|Integer|) (|Integer|))) T)
+                                   '((|reseed| ((|Void|) (|Integer|))) T)
+                                   '((|seed| ((|Integer|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(2 10 0 9 0 11 0 0 10 13 0 0 10 16
+                                              1 0 14 10 15 0 0 10 12 1 0 10 10
+                                              17)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|RandomNumberSource| 'NILADIC T) 

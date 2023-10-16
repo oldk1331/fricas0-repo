@@ -1896,55 +1896,116 @@
               |associatorDependence| 500 |associative?| 504 |antiCommutative?|
               508 |antiAssociative?| 512 |alternative?| 516)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 120
-                                                 '(0 6 8 9 0 6 10 11 2 6 12 0
-                                                   10 13 2 15 0 14 14 16 3 12 7
-                                                   0 17 17 18 2 19 0 7 14 20 0
-                                                   7 0 21 2 19 0 0 0 22 4 15 19
-                                                   0 17 17 19 23 1 15 19 0 24 1
-                                                   0 19 0 25 2 6 12 0 10 26 1 0
-                                                   19 0 27 0 7 0 28 2 7 0 0 0
-                                                   29 1 12 7 0 32 2 35 6 0 17
-                                                   36 2 6 0 0 0 37 2 6 0 0 0 38
-                                                   1 6 39 0 40 1 43 41 42 44 2
-                                                   7 0 8 0 46 1 7 47 0 48 2 6 0
-                                                   0 0 49 2 6 0 0 0 51 2 6 53 0
-                                                   10 54 2 55 12 0 17 56 2 53 7
-                                                   0 17 57 4 12 7 0 17 17 7 58
-                                                   0 6 47 60 1 12 0 53 61 1 12
-                                                   14 0 62 2 12 0 0 0 63 1 12
-                                                   64 0 65 1 7 0 0 66 2 7 0 0 0
-                                                   67 2 6 0 7 0 68 2 35 6 69 0
-                                                   70 1 0 47 0 71 0 6 47 72 1 0
-                                                   47 0 73 1 6 47 0 74 1 6 47 0
-                                                   75 2 6 39 0 0 76 1 0 47 0 77
-                                                   0 19 0 78 2 19 0 0 0 79 1 0
-                                                   19 0 80 1 0 19 0 81 2 8 0 0
-                                                   8 82 3 6 0 0 0 0 83 0 0 64
-                                                   84 0 6 39 86 0 6 39 87 0 6
-                                                   39 89 0 6 39 91 0 6 39 92 1
-                                                   6 12 10 101 1 6 12 10 103 1
-                                                   35 17 0 105 3 12 0 0 17 53
-                                                   106 1 53 17 0 108 1 6 7 0
-                                                   110 1 12 0 111 112 1 6 7 0
-                                                   114 1 53 116 0 117 1 12 0 0
-                                                   118 1 0 55 10 59 1 0 12 10
-                                                   115 1 0 7 0 31 2 0 12 0 10
-                                                   120 1 0 47 0 73 1 0 7 0 34 1
-                                                   0 19 0 81 1 0 7 10 104 1 0
-                                                   19 0 27 0 0 39 98 2 0 0 53
-                                                   10 109 1 0 47 0 77 0 0 39 93
-                                                   0 0 39 88 0 0 39 52 1 0 12
-                                                   10 113 1 0 7 0 30 2 0 12 0
-                                                   10 119 1 0 47 0 71 1 0 7 0
-                                                   33 1 0 19 0 80 1 0 7 10 102
-                                                   1 0 19 0 25 0 0 39 97 0 0 39
-                                                   90 0 0 39 50 0 0 39 85 0 0
-                                                   39 99 2 0 12 10 10 107 0 0
-                                                   39 95 0 0 64 84 0 0 39 96 0
-                                                   0 39 94 0 0 39 45 0 0 39
-                                                   100)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|rightMinimalPolynomial|
+                                 ((|SparseUnivariatePolynomial| |#2|) |#1|))
+                                T)
+                              '((|leftMinimalPolynomial|
+                                 ((|SparseUnivariatePolynomial| |#2|) |#1|))
+                                T)
+                              '((|associatorDependence|
+                                 ((|List| (|Vector| |#2|))))
+                                T)
+                              '((|rightRecip| ((|Union| |#1| "failed") |#1|))
+                                T)
+                              '((|leftRecip| ((|Union| |#1| "failed") |#1|)) T)
+                              '((|recip| ((|Union| |#1| "failed") |#1|)) T)
+                              '((|lieAlgebra?| ((|Boolean|))) T)
+                              '((|jordanAlgebra?| ((|Boolean|))) T)
+                              '((|noncommutativeJordanAlgebra?| ((|Boolean|)))
+                                T)
+                              '((|jordanAdmissible?| ((|Boolean|))) T)
+                              '((|lieAdmissible?| ((|Boolean|))) T)
+                              '((|jacobiIdentity?| ((|Boolean|))) T)
+                              '((|alternative?| ((|Boolean|))) T)
+                              '((|flexible?| ((|Boolean|))) T)
+                              '((|rightAlternative?| ((|Boolean|))) T)
+                              '((|leftAlternative?| ((|Boolean|))) T)
+                              '((|antiAssociative?| ((|Boolean|))) T)
+                              '((|associative?| ((|Boolean|))) T)
+                              '((|antiCommutative?| ((|Boolean|))) T)
+                              '((|commutative?| ((|Boolean|))) T)
+                              '((|rightCharacteristicPolynomial|
+                                 ((|SparseUnivariatePolynomial| |#2|) |#1|))
+                                T)
+                              '((|leftCharacteristicPolynomial|
+                                 ((|SparseUnivariatePolynomial| |#2|) |#1|))
+                                T)
+                              '((|rightTraceMatrix|
+                                 ((|Matrix| |#2|) (|Vector| |#1|)))
+                                T)
+                              '((|leftTraceMatrix|
+                                 ((|Matrix| |#2|) (|Vector| |#1|)))
+                                T)
+                              '((|rightDiscriminant| (|#2| (|Vector| |#1|))) T)
+                              '((|leftDiscriminant| (|#2| (|Vector| |#1|))) T)
+                              '((|represents|
+                                 (|#1| (|Vector| |#2|) (|Vector| |#1|)))
+                                T)
+                              '((|coordinates|
+                                 ((|Matrix| |#2|) (|Vector| |#1|)
+                                  (|Vector| |#1|)))
+                                T)
+                              '((|coordinates|
+                                 ((|Vector| |#2|) |#1| (|Vector| |#1|)))
+                                T)
+                              '((|rightNorm| (|#2| |#1|)) T)
+                              '((|leftNorm| (|#2| |#1|)) T)
+                              '((|rightTrace| (|#2| |#1|)) T)
+                              '((|leftTrace| (|#2| |#1|)) T)
+                              '((|rightRegularRepresentation|
+                                 ((|Matrix| |#2|) |#1| (|Vector| |#1|)))
+                                T)
+                              '((|leftRegularRepresentation|
+                                 ((|Matrix| |#2|) |#1| (|Vector| |#1|)))
+                                T)
+                              '((|structuralConstants|
+                                 ((|Vector| (|Matrix| |#2|)) (|Vector| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 120
+                                            '(0 6 8 9 0 6 10 11 2 6 12 0 10 13
+                                              2 15 0 14 14 16 3 12 7 0 17 17 18
+                                              2 19 0 7 14 20 0 7 0 21 2 19 0 0
+                                              0 22 4 15 19 0 17 17 19 23 1 15
+                                              19 0 24 1 0 19 0 25 2 6 12 0 10
+                                              26 1 0 19 0 27 0 7 0 28 2 7 0 0 0
+                                              29 1 12 7 0 32 2 35 6 0 17 36 2 6
+                                              0 0 0 37 2 6 0 0 0 38 1 6 39 0 40
+                                              1 43 41 42 44 2 7 0 8 0 46 1 7 47
+                                              0 48 2 6 0 0 0 49 2 6 0 0 0 51 2
+                                              6 53 0 10 54 2 55 12 0 17 56 2 53
+                                              7 0 17 57 4 12 7 0 17 17 7 58 0 6
+                                              47 60 1 12 0 53 61 1 12 14 0 62 2
+                                              12 0 0 0 63 1 12 64 0 65 1 7 0 0
+                                              66 2 7 0 0 0 67 2 6 0 7 0 68 2 35
+                                              6 69 0 70 1 0 47 0 71 0 6 47 72 1
+                                              0 47 0 73 1 6 47 0 74 1 6 47 0 75
+                                              2 6 39 0 0 76 1 0 47 0 77 0 19 0
+                                              78 2 19 0 0 0 79 1 0 19 0 80 1 0
+                                              19 0 81 2 8 0 0 8 82 3 6 0 0 0 0
+                                              83 0 0 64 84 0 6 39 86 0 6 39 87
+                                              0 6 39 89 0 6 39 91 0 6 39 92 1 6
+                                              12 10 101 1 6 12 10 103 1 35 17 0
+                                              105 3 12 0 0 17 53 106 1 53 17 0
+                                              108 1 6 7 0 110 1 12 0 111 112 1
+                                              6 7 0 114 1 53 116 0 117 1 12 0 0
+                                              118 1 0 55 10 59 1 0 12 10 115 1
+                                              0 7 0 31 2 0 12 0 10 120 1 0 47 0
+                                              73 1 0 7 0 34 1 0 19 0 81 1 0 7
+                                              10 104 1 0 19 0 27 0 0 39 98 2 0
+                                              0 53 10 109 1 0 47 0 77 0 0 39 93
+                                              0 0 39 88 0 0 39 52 1 0 12 10 113
+                                              1 0 7 0 30 2 0 12 0 10 119 1 0 47
+                                              0 71 1 0 7 0 33 1 0 19 0 80 1 0 7
+                                              10 102 1 0 19 0 25 0 0 39 97 0 0
+                                              39 90 0 0 39 50 0 0 39 85 0 0 39
+                                              99 2 0 12 10 10 107 0 0 39 95 0 0
+                                              64 84 0 0 39 96 0 0 39 94 0 0 39
+                                              45 0 0 39 100)))))
            '|lookupComplete|)) 

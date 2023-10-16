@@ -39,10 +39,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|OutputForm|)
               (0 . |coerce|) (|TexFormat|) (5 . |coerce|) |TEX1;coerce;STf;1|)
            '#(|coerce| 10) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 11
-                                                 '(1 6 7 0 8 1 9 0 7 10 1 0 9 6
-                                                   11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|coerce| ((|TexFormat|) |#1|)) T)) (LIST)
+                             NIL NIL)))
+                        (|makeByteWordVec2| 11
+                                            '(1 6 7 0 8 1 9 0 7 10 1 0 9 6
+                                              11)))))
            '|lookupComplete|)) 

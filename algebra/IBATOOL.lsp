@@ -287,26 +287,64 @@
               |idealiserMatrix| 172 |idealiser| 178 |divideIfCan!| 191
               |diagonalProduct| 199)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 55
-                                                 '(0 6 0 9 1 11 10 0 12 1 11 10
-                                                   0 13 2 6 0 0 0 14 1 6 16 0
-                                                   17 2 6 0 0 0 18 0 7 0 19 2 6
-                                                   16 0 0 20 2 6 23 0 0 24 0 8
-                                                   27 28 2 11 0 21 21 29 0 8 30
-                                                   31 1 32 10 0 33 1 8 11 0 34
-                                                   1 11 0 0 35 2 11 0 0 0 36 4
-                                                   11 6 0 10 10 6 37 1 39 11 11
-                                                   40 1 11 0 0 41 2 11 23 0 6
-                                                   43 2 39 11 11 6 44 1 11 16 0
-                                                   46 2 21 16 0 0 47 2 6 0 0 0
-                                                   48 2 6 0 0 0 49 2 11 0 6 0
-                                                   50 2 11 0 0 0 51 2 52 11 11
-                                                   6 53 2 0 54 54 54 55 3 0 6
-                                                   11 6 21 22 2 0 21 21 21 26 2
-                                                   0 11 11 11 38 3 0 11 11 11 6
-                                                   45 2 0 11 11 11 42 4 0 6 11
-                                                   11 6 10 25 1 0 6 11 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|diagonalProduct| (|#1| (|Matrix| |#1|))) T)
+                              '((|matrixGcd|
+                                 (|#1| (|Matrix| |#1|) |#1|
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|divideIfCan!|
+                                 (|#1| (|Matrix| |#1|) (|Matrix| |#1|) |#1|
+                                  (|Integer|)))
+                                T)
+                              '((|leastPower|
+                                 ((|NonNegativeInteger|) (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|idealiser|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|idealiser|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|) |#1|))
+                                T)
+                              '((|idealiserMatrix|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|moduleSum|
+                                 ((|Record| (|:| |basis| (|Matrix| |#1|))
+                                            (|:| |basisDen| |#1|)
+                                            (|:| |basisInv| (|Matrix| |#1|)))
+                                  (|Record| (|:| |basis| (|Matrix| |#1|))
+                                            (|:| |basisDen| |#1|)
+                                            (|:| |basisInv| (|Matrix| |#1|)))
+                                  (|Record| (|:| |basis| (|Matrix| |#1|))
+                                            (|:| |basisDen| |#1|)
+                                            (|:| |basisInv| (|Matrix| |#1|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 55
+                                            '(0 6 0 9 1 11 10 0 12 1 11 10 0 13
+                                              2 6 0 0 0 14 1 6 16 0 17 2 6 0 0
+                                              0 18 0 7 0 19 2 6 16 0 0 20 2 6
+                                              23 0 0 24 0 8 27 28 2 11 0 21 21
+                                              29 0 8 30 31 1 32 10 0 33 1 8 11
+                                              0 34 1 11 0 0 35 2 11 0 0 0 36 4
+                                              11 6 0 10 10 6 37 1 39 11 11 40 1
+                                              11 0 0 41 2 11 23 0 6 43 2 39 11
+                                              11 6 44 1 11 16 0 46 2 21 16 0 0
+                                              47 2 6 0 0 0 48 2 6 0 0 0 49 2 11
+                                              0 6 0 50 2 11 0 0 0 51 2 52 11 11
+                                              6 53 2 0 54 54 54 55 3 0 6 11 6
+                                              21 22 2 0 21 21 21 26 2 0 11 11
+                                              11 38 3 0 11 11 11 6 45 2 0 11 11
+                                              11 42 4 0 6 11 11 6 10 25 1 0 6
+                                              11 15)))))
            '|lookupComplete|)) 

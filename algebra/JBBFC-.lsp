@@ -63,11 +63,27 @@
               |JBBFC-;P;PiLS;3| |JBBFC-;P;LS;4| (|NonNegativeInteger|)
               |JBBFC-;P;PiNniS;5| |JBBFC-;P;NniS;6|)
            '#(U 0 P 9) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(0 0 0 10 1 0 0 8 9 1 0 0 14
-                                                   16 1 0 0 11 13 2 0 0 8 14 15
-                                                   2 0 0 8 11 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((P (|#1| (|NonNegativeInteger|))) T)
+                                   '((P
+                                      (|#1| (|PositiveInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((P (|#1| (|List| (|NonNegativeInteger|))))
+                                     T)
+                                   '((U (|#1|)) T)
+                                   '((P
+                                      (|#1| (|PositiveInteger|)
+                                       (|List| (|NonNegativeInteger|))))
+                                     T)
+                                   '((U (|#1| (|PositiveInteger|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(0 0 0 10 1 0 0 8 9 1 0 0 14 16 1
+                                              0 0 11 13 2 0 0 8 14 15 2 0 0 8
+                                              11 12)))))
            '|lookupComplete|)) 

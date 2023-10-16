@@ -125,14 +125,21 @@
               (|Union| $ '"failed") (31 . |exquo|) (37 . >) (43 . |One|)
               (47 . <=))
            '#(|squareFreeBasis| 53 |gcdBasis| 58) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 23
-                                                 '(2 9 8 0 0 10 1 7 0 0 11 1 7
-                                                   0 0 12 1 7 15 0 16 0 6 0 17
-                                                   2 7 0 0 0 18 2 7 19 0 0 20 2
-                                                   15 8 0 0 21 0 6 0 22 2 15 8
-                                                   0 0 23 1 0 9 9 13 1 0 9 9
-                                                   14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|squareFreeBasis|
+                                 ((|List| |#2|) (|List| |#2|)))
+                                T)
+                              '((|gcdBasis| ((|List| |#2|) (|List| |#2|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 23
+                                            '(2 9 8 0 0 10 1 7 0 0 11 1 7 0 0
+                                              12 1 7 15 0 16 0 6 0 17 2 7 0 0 0
+                                              18 2 7 19 0 0 20 2 15 8 0 0 21 0
+                                              6 0 22 2 15 8 0 0 23 1 0 9 9 13 1
+                                              0 9 9 14)))))
            '|lookupComplete|)) 

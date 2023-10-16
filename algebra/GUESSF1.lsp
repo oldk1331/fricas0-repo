@@ -47,11 +47,17 @@
               |GUESSF1;F2EXPRR;FE;1| (|Fraction| 7) (10 . |retract|)
               (15 . |coerce|) |GUESSF1;EXPRR2F;EF;2|)
            '#(F2EXPRR 20 EXPRR2F 25) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 15
-                                                 '(1 6 7 0 8 1 9 0 7 10 1 9 12
-                                                   0 13 1 6 0 12 14 1 0 9 6 11
-                                                   1 0 6 9 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((F2EXPRR ((|Expression| (|Integer|)) |#1|)) T)
+                              '((EXPRR2F (|#1| (|Expression| (|Integer|)))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 15
+                                            '(1 6 7 0 8 1 9 0 7 10 1 9 12 0 13
+                                              1 6 0 12 14 1 0 9 6 11 1 0 6 9
+                                              15)))))
            '|lookupComplete|)) 

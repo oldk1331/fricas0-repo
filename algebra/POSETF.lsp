@@ -209,16 +209,40 @@
            '#(|powerset| 55 |posetP6| 60 |posetO6| 65 |posetN5| 70 |posetM5| 75
               |posetL7| 80 |completelyOrderedSet| 85)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 30
-                                                 '(2 7 0 0 6 8 2 9 0 0 7 10 2 9
-                                                   0 0 0 11 2 13 0 0 12 14 1 13
-                                                   0 0 15 2 16 0 0 13 17 2 18 0
-                                                   9 16 19 2 21 0 7 16 22 0 12
-                                                   0 24 0 12 0 25 1 0 18 7 20 1
-                                                   0 21 7 29 1 0 21 7 28 1 0 21
-                                                   7 26 1 0 21 7 27 1 0 21 7 30
-                                                   1 0 21 7 23)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|powerset|
+                                 ((|FiniteBiCPO| (|List| |#1|)) (|List| |#1|)))
+                                T)
+                              '((|completelyOrderedSet|
+                                 ((|FiniteBiCPO| |#1|) (|List| |#1|)))
+                                T)
+                              '((|posetN5|
+                                 ((|FiniteBiCPO| |#1|) (|List| |#1|)))
+                                T)
+                              '((|posetM5|
+                                 ((|FiniteBiCPO| |#1|) (|List| |#1|)))
+                                T)
+                              '((|posetO6|
+                                 ((|FiniteBiCPO| |#1|) (|List| |#1|)))
+                                T)
+                              '((|posetP6|
+                                 ((|FiniteBiCPO| |#1|) (|List| |#1|)))
+                                T)
+                              '((|posetL7|
+                                 ((|FiniteBiCPO| |#1|) (|List| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 30
+                                            '(2 7 0 0 6 8 2 9 0 0 7 10 2 9 0 0
+                                              0 11 2 13 0 0 12 14 1 13 0 0 15 2
+                                              16 0 0 13 17 2 18 0 9 16 19 2 21
+                                              0 7 16 22 0 12 0 24 0 12 0 25 1 0
+                                              18 7 20 1 0 21 7 29 1 0 21 7 28 1
+                                              0 21 7 26 1 0 21 7 27 1 0 21 7 30
+                                              1 0 21 7 23)))))
            '|lookupComplete|)) 

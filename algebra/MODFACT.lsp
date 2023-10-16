@@ -781,26 +781,80 @@
            '#(|red_pol| 113 |power_matrix| 119 |modular_compose| 126 |mod_exp|
               136 |mmul| 143 |mfactor| 150 |ini_rdata| 156 |ddfact| 162)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 47
-                                                 '(2 7 6 0 0 8 1 13 10 12 14 5
-                                                   13 15 12 12 12 10 10 16 3 13
-                                                   15 12 12 10 17 2 10 6 0 0 21
-                                                   3 13 15 12 12 10 22 2 10 6 0
-                                                   0 23 3 13 12 12 12 10 24 6
-                                                   13 15 12 12 10 10 10 10 28 2
-                                                   10 0 30 0 31 1 34 10 10 35 4
-                                                   13 15 12 12 12 10 36 3 13 12
-                                                   12 12 10 37 2 12 0 0 10 38 2
-                                                   34 10 10 7 39 2 7 6 0 0 40 2
-                                                   10 0 0 0 41 2 0 15 12 19 20
-                                                   3 0 26 12 7 19 27 6 0 12 12
-                                                   9 12 7 7 19 29 3 0 12 12 10
-                                                   19 25 3 0 9 9 9 10 11 2 0 46
-                                                   12 10 47 2 0 19 12 10 32 2 0
-                                                   44 12 10 45)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|mfactor|
+                                 ((|List| (|U32Vector|)) (|U32Vector|)
+                                  (|Integer|)))
+                                T)
+                              '((|ddfact|
+                                 ((|List|
+                                   (|Record| (|:| |poly| (|U32Vector|))
+                                             (|:| |degree|
+                                                  (|NonNegativeInteger|))
+                                             (|:| |separate_factors|
+                                                  (|Mapping|
+                                                   (|List| (|U32Vector|))))))
+                                  (|U32Vector|) (|Integer|)))
+                                T)
+                              '((|mmul|
+                                 ((|U32Matrix|) (|U32Matrix|) (|U32Matrix|)
+                                  (|Integer|)))
+                                T)
+                              '((|mod_exp|
+                                 ((|U32Vector|) (|U32Vector|) (|Integer|)
+                                  (|List|
+                                   (|Record| (|:| |ind| (|NonNegativeInteger|))
+                                             (|:| |poly| (|U32Vector|))))))
+                                T)
+                              '((|power_matrix|
+                                 ((|Record| (|:| |matr| (|U32Matrix|))
+                                            (|:| |poly| (|U32Vector|)))
+                                  (|U32Vector|) (|NonNegativeInteger|)
+                                  (|List|
+                                   (|Record| (|:| |ind| (|NonNegativeInteger|))
+                                             (|:| |poly| (|U32Vector|))))))
+                                T)
+                              '((|modular_compose|
+                                 ((|U32Vector|) (|U32Vector|) (|U32Matrix|)
+                                  (|U32Vector|) (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)
+                                  (|List|
+                                   (|Record| (|:| |ind| (|NonNegativeInteger|))
+                                             (|:| |poly| (|U32Vector|))))))
+                                T)
+                              '((|ini_rdata|
+                                 ((|List|
+                                   (|Record| (|:| |ind| (|NonNegativeInteger|))
+                                             (|:| |poly| (|U32Vector|))))
+                                  (|U32Vector|) (|Integer|)))
+                                T)
+                              '((|red_pol|
+                                 ((|Void|) (|U32Vector|)
+                                  (|List|
+                                   (|Record| (|:| |ind| (|NonNegativeInteger|))
+                                             (|:| |poly| (|U32Vector|))))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 47
+                                            '(2 7 6 0 0 8 1 13 10 12 14 5 13 15
+                                              12 12 12 10 10 16 3 13 15 12 12
+                                              10 17 2 10 6 0 0 21 3 13 15 12 12
+                                              10 22 2 10 6 0 0 23 3 13 12 12 12
+                                              10 24 6 13 15 12 12 10 10 10 10
+                                              28 2 10 0 30 0 31 1 34 10 10 35 4
+                                              13 15 12 12 12 10 36 3 13 12 12
+                                              12 10 37 2 12 0 0 10 38 2 34 10
+                                              10 7 39 2 7 6 0 0 40 2 10 0 0 0
+                                              41 2 0 15 12 19 20 3 0 26 12 7 19
+                                              27 6 0 12 12 9 12 7 7 19 29 3 0
+                                              12 12 10 19 25 3 0 9 9 9 10 11 2
+                                              0 46 12 10 47 2 0 19 12 10 32 2 0
+                                              44 12 10 45)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ModularFactorization| 'NILADIC T) 

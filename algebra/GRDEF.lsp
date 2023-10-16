@@ -79,19 +79,37 @@
            '#(|screenResolution| 36 |minPoints| 45 |maxPoints| 54 |drawToScale|
               63 |clipPointsDefault| 72 |adaptive| 81)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 30
-                                                 '(0 13 8 14 0 13 16 17 0 13 16
-                                                   19 0 13 16 21 1 13 8 8 23 1
-                                                   13 16 16 25 1 13 16 16 27 1
-                                                   13 16 16 29 0 0 16 22 1 0 16
-                                                   16 30 0 0 16 18 1 0 16 16 26
-                                                   0 0 16 20 1 0 16 16 28 0 0 8
-                                                   10 1 0 8 8 12 0 0 8 9 1 0 8
-                                                   8 11 0 0 8 15 1 0 8 8
-                                                   24)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|clipPointsDefault| ((|Boolean|))) T)
+                                   '((|drawToScale| ((|Boolean|))) T)
+                                   '((|clipPointsDefault|
+                                      ((|Boolean|) (|Boolean|)))
+                                     T)
+                                   '((|drawToScale| ((|Boolean|) (|Boolean|)))
+                                     T)
+                                   '((|adaptive| ((|Boolean|))) T)
+                                   '((|maxPoints| ((|Integer|))) T)
+                                   '((|minPoints| ((|Integer|))) T)
+                                   '((|screenResolution| ((|Integer|))) T)
+                                   '((|adaptive| ((|Boolean|) (|Boolean|))) T)
+                                   '((|maxPoints| ((|Integer|) (|Integer|))) T)
+                                   '((|minPoints| ((|Integer|) (|Integer|))) T)
+                                   '((|screenResolution|
+                                      ((|Integer|) (|Integer|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 30
+                                            '(0 13 8 14 0 13 16 17 0 13 16 19 0
+                                              13 16 21 1 13 8 8 23 1 13 16 16
+                                              25 1 13 16 16 27 1 13 16 16 29 0
+                                              0 16 22 1 0 16 16 30 0 0 16 18 1
+                                              0 16 16 26 0 0 16 20 1 0 16 16 28
+                                              0 0 8 10 1 0 8 8 12 0 0 8 9 1 0 8
+                                              8 11 0 0 8 15 1 0 8 8 24)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|GraphicsDefaults| 'NILADIC T) 

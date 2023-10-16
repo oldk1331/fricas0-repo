@@ -173,17 +173,33 @@
               |printStats!| 65 |printInfo!| 69 |makingStats?| 75 |insert!| 79
               |initTable!| 85 |extractIfCan| 89 |clearTable!| 94)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 44
-                                                 '(0 9 0 10 0 18 0 19 1 22 21 0
-                                                   23 1 27 18 22 28 1 9 29 0 30
-                                                   1 29 31 0 32 2 27 18 22 31
-                                                   33 2 9 38 6 0 39 1 40 18 22
-                                                   41 3 9 7 0 6 7 43 0 0 21 24
-                                                   1 0 18 22 26 0 0 21 36 0 0
-                                                   18 34 2 0 18 22 22 25 0 0 21
-                                                   37 2 0 18 6 7 44 0 0 18 20 1
-                                                   0 38 6 42 0 0 18 35)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|initTable!| ((|Void|))) T)
+                                   '((|printInfo!|
+                                      ((|Void|) (|String|) (|String|)))
+                                     T)
+                                   '((|startStats!| ((|Void|) (|String|))) T)
+                                   '((|printStats!| ((|Void|))) T)
+                                   '((|clearTable!| ((|Void|))) T)
+                                   '((|usingTable?| ((|Boolean|))) T)
+                                   '((|printingInfo?| ((|Boolean|))) T)
+                                   '((|makingStats?| ((|Boolean|))) T)
+                                   '((|extractIfCan|
+                                      ((|Union| |#2| "failed") |#1|))
+                                     T)
+                                   '((|insert!| ((|Void|) |#1| |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 44
+                                            '(0 9 0 10 0 18 0 19 1 22 21 0 23 1
+                                              27 18 22 28 1 9 29 0 30 1 29 31 0
+                                              32 2 27 18 22 31 33 2 9 38 6 0 39
+                                              1 40 18 22 41 3 9 7 0 6 7 43 0 0
+                                              21 24 1 0 18 22 26 0 0 21 36 0 0
+                                              18 34 2 0 18 22 22 25 0 0 21 37 2
+                                              0 18 6 7 44 0 0 18 20 1 0 38 6 42
+                                              0 0 18 35)))))
            '|lookupComplete|)) 

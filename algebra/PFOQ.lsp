@@ -211,12 +211,12 @@
 (MAKEPROP '|PointsOfFiniteOrderRational| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|Union| 44 '"failed") (|FiniteDivisor| 34 6 7 8)
-              |PFOQ;order;FdU;5| (|Boolean|) |PFOQ;torsion?;FdB;1|
-              (|FractionalIdeal| 6 24 7 8) (0 . |ideal|) (|Vector| 8)
-              (5 . |numer|) (|Integer|) (10 . |minIndex|) (15 . |One|)
-              (19 . |One|) (23 . |elt|) (29 . |lift|) (|Fraction| 6)
-              (34 . |norm|) (39 . |retract|) (44 . |retract|)
+              (|local| |#3|) (|Union| 44 '#1="failed")
+              (|FiniteDivisor| 34 6 7 8) |PFOQ;order;FdU;5| (|Boolean|)
+              |PFOQ;torsion?;FdB;1| (|FractionalIdeal| 6 24 7 8) (0 . |ideal|)
+              (|Vector| 8) (5 . |numer|) (|Integer|) (10 . |minIndex|)
+              (15 . |One|) (19 . |One|) (23 . |elt|) (29 . |lift|)
+              (|Fraction| 6) (34 . |norm|) (39 . |retract|) (44 . |retract|)
               (|Record| (|:| |primePart| $) (|:| |commonPart| $))
               (49 . |separate|) (55 . |denom|)
               (|Record| (|:| |den| 18) (|:| |gcdnum| 18))
@@ -228,24 +228,45 @@
               (115 . |doubleDisc|) (120 . |reduce|) (125 . *)
               (131 . |principal?|) (|Union| 8 '"failed") (136 . |generator|)
               (|Record| (|:| |order| 44) (|:| |function| 8))
-              (|Union| 54 '"failed") |PFOQ;torsionIfCan;FdU;6|)
+              (|Union| 54 '#2="failed") |PFOQ;torsionIfCan;FdU;6|)
            '#(|torsionIfCan| 141 |torsion?| 146 |order| 151) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 56
-                                                 '(1 10 14 0 15 1 14 16 0 17 1
-                                                   16 18 0 19 0 6 0 20 0 7 0 21
-                                                   2 16 8 0 18 22 1 8 7 0 23 1
-                                                   8 24 0 25 1 24 6 0 26 1 8 24
-                                                   0 27 2 6 28 0 0 29 1 14 6 0
-                                                   30 1 32 31 6 33 2 6 34 0 0
-                                                   35 1 34 18 0 36 1 34 18 0 37
-                                                   1 32 18 7 38 1 18 0 39 40 1
-                                                   32 41 18 42 2 18 0 41 0 43 0
-                                                   8 44 45 0 8 7 46 1 32 7 7 47
-                                                   1 32 18 7 48 1 10 0 0 49 2
-                                                   10 0 18 0 50 1 10 12 0 51 1
-                                                   10 52 0 53 1 0 55 10 56 1 0
-                                                   12 10 13 1 0 9 10 11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|order|
+                                 ((|Union| (|NonNegativeInteger|) #1#)
+                                  (|FiniteDivisor| (|Fraction| (|Integer|))
+                                                   |#1| |#2| |#3|)))
+                                T)
+                              '((|torsion?|
+                                 ((|Boolean|)
+                                  (|FiniteDivisor| (|Fraction| (|Integer|))
+                                                   |#1| |#2| |#3|)))
+                                T)
+                              '((|torsionIfCan|
+                                 ((|Union|
+                                   (|Record|
+                                    (|:| |order| (|NonNegativeInteger|))
+                                    (|:| |function| |#3|))
+                                   #2#)
+                                  (|FiniteDivisor| (|Fraction| (|Integer|))
+                                                   |#1| |#2| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 56
+                                            '(1 10 14 0 15 1 14 16 0 17 1 16 18
+                                              0 19 0 6 0 20 0 7 0 21 2 16 8 0
+                                              18 22 1 8 7 0 23 1 8 24 0 25 1 24
+                                              6 0 26 1 8 24 0 27 2 6 28 0 0 29
+                                              1 14 6 0 30 1 32 31 6 33 2 6 34 0
+                                              0 35 1 34 18 0 36 1 34 18 0 37 1
+                                              32 18 7 38 1 18 0 39 40 1 32 41
+                                              18 42 2 18 0 41 0 43 0 8 44 45 0
+                                              8 7 46 1 32 7 7 47 1 32 18 7 48 1
+                                              10 0 0 49 2 10 0 18 0 50 1 10 12
+                                              0 51 1 10 52 0 53 1 0 55 10 56 1
+                                              0 12 10 13 1 0 9 10 11)))))
            '|lookupComplete|)) 

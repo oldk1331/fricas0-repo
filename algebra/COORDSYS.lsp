@@ -447,22 +447,71 @@
               |cylindrical| 134 |conical| 139 |cartesian| 145
               |bipolarCylindrical| 150 |bipolar| 155)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 41
-                                                 '(1 7 0 0 9 0 6 0 10 2 7 6 0
-                                                   11 12 1 6 0 0 13 2 6 0 0 0
-                                                   14 3 7 6 0 11 6 15 1 6 0 0
-                                                   16 2 6 0 0 0 20 1 6 0 11 21
-                                                   2 6 0 0 0 22 0 11 0 26 0 27
-                                                   0 28 1 6 0 0 29 1 6 0 0 30 2
-                                                   6 0 0 27 39 1 6 0 0 40 1 0
-                                                   31 6 38 1 0 7 7 19 1 0 31 6
-                                                   34 1 0 7 7 17 1 0 7 7 25 1 0
-                                                   7 7 24 1 0 7 7 23 1 0 31 6
-                                                   35 1 0 31 6 33 1 0 31 6 32 1
-                                                   0 7 7 18 2 0 31 6 6 41 1 0 7
-                                                   7 8 1 0 31 6 37 1 0 31 6
-                                                   36)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|cartesian| ((|Point| |#1|) (|Point| |#1|)))
+                                T)
+                              '((|polar| ((|Point| |#1|) (|Point| |#1|))) T)
+                              '((|cylindrical| ((|Point| |#1|) (|Point| |#1|)))
+                                T)
+                              '((|spherical| ((|Point| |#1|) (|Point| |#1|)))
+                                T)
+                              '((|parabolic| ((|Point| |#1|) (|Point| |#1|)))
+                                T)
+                              '((|parabolicCylindrical|
+                                 ((|Point| |#1|) (|Point| |#1|)))
+                                T)
+                              '((|paraboloidal|
+                                 ((|Point| |#1|) (|Point| |#1|)))
+                                T)
+                              '((|elliptic|
+                                 ((|Mapping| (|Point| |#1|) (|Point| |#1|))
+                                  |#1|))
+                                T)
+                              '((|ellipticCylindrical|
+                                 ((|Mapping| (|Point| |#1|) (|Point| |#1|))
+                                  |#1|))
+                                T)
+                              '((|prolateSpheroidal|
+                                 ((|Mapping| (|Point| |#1|) (|Point| |#1|))
+                                  |#1|))
+                                T)
+                              '((|oblateSpheroidal|
+                                 ((|Mapping| (|Point| |#1|) (|Point| |#1|))
+                                  |#1|))
+                                T)
+                              '((|bipolar|
+                                 ((|Mapping| (|Point| |#1|) (|Point| |#1|))
+                                  |#1|))
+                                T)
+                              '((|bipolarCylindrical|
+                                 ((|Mapping| (|Point| |#1|) (|Point| |#1|))
+                                  |#1|))
+                                T)
+                              '((|toroidal|
+                                 ((|Mapping| (|Point| |#1|) (|Point| |#1|))
+                                  |#1|))
+                                T)
+                              '((|conical|
+                                 ((|Mapping| (|Point| |#1|) (|Point| |#1|))
+                                  |#1| |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 41
+                                            '(1 7 0 0 9 0 6 0 10 2 7 6 0 11 12
+                                              1 6 0 0 13 2 6 0 0 0 14 3 7 6 0
+                                              11 6 15 1 6 0 0 16 2 6 0 0 0 20 1
+                                              6 0 11 21 2 6 0 0 0 22 0 11 0 26
+                                              0 27 0 28 1 6 0 0 29 1 6 0 0 30 2
+                                              6 0 0 27 39 1 6 0 0 40 1 0 31 6
+                                              38 1 0 7 7 19 1 0 31 6 34 1 0 7 7
+                                              17 1 0 7 7 25 1 0 7 7 24 1 0 7 7
+                                              23 1 0 31 6 35 1 0 31 6 33 1 0 31
+                                              6 32 1 0 7 7 18 2 0 31 6 6 41 1 0
+                                              7 7 8 1 0 31 6 37 1 0 31 6
+                                              36)))))
            '|lookupComplete|)) 

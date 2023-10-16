@@ -104,16 +104,20 @@
               (|SparseUnivariatePolynomial| $) (64 . |univariate|)
               (70 . |multivariate|))
            '#(|map| 76) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 35
-                                                 '(0 7 0 13 0 8 0 14 0 15 0 16
-                                                   2 15 17 0 0 18 0 9 0 19 1 12
-                                                   0 10 20 2 22 0 12 21 23 1 15
-                                                   11 0 24 1 15 21 0 27 1 15 0
-                                                   0 28 2 22 0 0 0 29 1 11 30 0
-                                                   31 1 11 9 0 32 2 11 33 0 6
-                                                   34 2 12 0 33 6 35 2 0 12 25
-                                                   11 26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#7| (|Mapping| |#5| |#4|) |#6|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 35
+                                            '(0 7 0 13 0 8 0 14 0 15 0 16 2 15
+                                              17 0 0 18 0 9 0 19 1 12 0 10 20 2
+                                              22 0 12 21 23 1 15 11 0 24 1 15
+                                              21 0 27 1 15 0 0 28 2 22 0 0 0 29
+                                              1 11 30 0 31 1 11 9 0 32 2 11 33
+                                              0 6 34 2 12 0 33 6 35 2 0 12 25
+                                              11 26)))))
            '|lookupComplete|)) 

@@ -32,10 +32,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Boolean|) (0 . |one?|)
               (5 . |One|) (9 . *) (|Integer|) |FINGRP-;order;SI;1|)
            '#(|order| 15) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 12
-                                                 '(1 6 7 0 8 0 6 0 9 2 6 0 0 0
-                                                   10 1 0 11 0 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|order| ((|Integer|) |#1|)) T)) (LIST)
+                             NIL NIL)))
+                        (|makeByteWordVec2| 12
+                                            '(1 6 7 0 8 0 6 0 9 2 6 0 0 0 10 1
+                                              0 11 0 12)))))
            '|lookupComplete|)) 

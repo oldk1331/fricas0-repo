@@ -182,7 +182,7 @@
               (|Boolean|) (24 . |zero?|) (|Matrix| 7) (29 . |transpose|)
               (|Matrix| $) (34 . |reducedSystem|) (|NonNegativeInteger|)
               (39 . |nullity|) (44 . |positive?|)
-              |LINDEP;linearlyDependent?;VB;2| (|Union| 35 '"failed")
+              |LINDEP;linearlyDependent?;VB;2| (|Union| 35 '#1="failed")
               |LINDEP;linearDependence;VU;3|
               (|Record| (|:| |particular| 27) (|:| |basis| 8))
               (49 . |solveLinear|) (55 . |solveLinear|)
@@ -191,7 +191,7 @@
               (|LinearSystemMatrixPackage| 6 35 35 9) (67 . |solve|)
               (73 . |Zero|) (77 . |empty?|) (82 . |particularSolution|)
               (88 . |zero|) (93 . =) (99 . |particularSolution|)
-              (|Union| 54 '"failed")
+              (|Union| 54 '#2="failed")
               (|Record| (|:| |particular| 44) (|:| |basis| (|List| 54)))
               (105 . |solveLinear|) (111 . |solveLinear|) (|Fraction| 6)
               (117 . |coerce|) (|Matrix| 48) (|Mapping| 48 6)
@@ -203,28 +203,84 @@
            '#(|solveLinear| 156 |particularSolution| 180 |linearlyDependent?|
               204 |linearDependence| 209)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 61
-                                                 '(1 9 8 0 10 0 6 0 11 0 7 0 12
-                                                   1 14 13 0 15 2 14 7 0 13 16
-                                                   1 7 17 0 18 1 19 0 14 20 1 7
-                                                   9 21 22 1 9 23 0 24 1 13 17
-                                                   0 25 2 0 29 19 14 30 2 0 29
-                                                   14 7 31 2 7 32 21 33 34 2 36
-                                                   29 9 35 37 0 6 0 38 1 14 17
-                                                   0 39 2 0 27 14 7 40 1 14 0
-                                                   23 41 2 14 17 0 0 42 2 0 27
-                                                   19 14 43 2 0 45 19 14 46 2 0
-                                                   45 14 7 47 1 48 0 6 49 2 52
-                                                   50 51 9 53 2 55 54 51 35 56
-                                                   2 57 45 50 54 58 0 48 0 59 2
-                                                   0 44 14 7 60 2 0 44 19 14 61
-                                                   2 1 29 14 7 31 2 1 29 19 14
-                                                   30 2 2 45 19 14 46 2 2 45 14
-                                                   7 47 2 1 27 14 7 40 2 1 27
-                                                   19 14 43 2 2 44 14 7 60 2 2
-                                                   44 19 14 61 1 0 17 14 26 1 0
-                                                   27 14 28)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|linearlyDependent?|
+                                 ((|Boolean|) (|Vector| |#2|)))
+                                T)
+                              '((|linearDependence|
+                                 ((|Union| (|Vector| |#1|) #1#)
+                                  (|Vector| |#2|)))
+                                T)
+                              '((|particularSolution|
+                                 ((|Union| (|Vector| |#1|) #1#) (|Vector| |#2|)
+                                  |#2|))
+                                (|has| 6 (|Field|)))
+                              '((|particularSolution|
+                                 ((|Union| (|Vector| |#1|) #1#) (|Matrix| |#2|)
+                                  (|Vector| |#2|)))
+                                (|has| 6 (|Field|)))
+                              '((|solveLinear|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Vector| |#1|) #1#))
+                                   (|:| |basis| (|List| (|Vector| |#1|))))
+                                  (|Vector| |#2|) |#2|))
+                                (|has| 6 (|Field|)))
+                              '((|solveLinear|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Vector| |#1|) #1#))
+                                   (|:| |basis| (|List| (|Vector| |#1|))))
+                                  (|Matrix| |#2|) (|Vector| |#2|)))
+                                (|has| 6 (|Field|)))
+                              '((|particularSolution|
+                                 ((|Union| (|Vector| (|Fraction| |#1|)) #2#)
+                                  (|Vector| |#2|) |#2|))
+                                (|not| (|has| 6 (|Field|))))
+                              '((|particularSolution|
+                                 ((|Union| (|Vector| (|Fraction| |#1|)) #2#)
+                                  (|Matrix| |#2|) (|Vector| |#2|)))
+                                (|not| (|has| 6 (|Field|))))
+                              '((|solveLinear|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Vector| (|Fraction| |#1|))
+                                                 #2#))
+                                   (|:| |basis|
+                                        (|List| (|Vector| (|Fraction| |#1|)))))
+                                  (|Vector| |#2|) |#2|))
+                                (|not| (|has| 6 (|Field|))))
+                              '((|solveLinear|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Vector| (|Fraction| |#1|))
+                                                 #2#))
+                                   (|:| |basis|
+                                        (|List| (|Vector| (|Fraction| |#1|)))))
+                                  (|Matrix| |#2|) (|Vector| |#2|)))
+                                (|not| (|has| 6 (|Field|)))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 61
+                                            '(1 9 8 0 10 0 6 0 11 0 7 0 12 1 14
+                                              13 0 15 2 14 7 0 13 16 1 7 17 0
+                                              18 1 19 0 14 20 1 7 9 21 22 1 9
+                                              23 0 24 1 13 17 0 25 2 0 29 19 14
+                                              30 2 0 29 14 7 31 2 7 32 21 33 34
+                                              2 36 29 9 35 37 0 6 0 38 1 14 17
+                                              0 39 2 0 27 14 7 40 1 14 0 23 41
+                                              2 14 17 0 0 42 2 0 27 19 14 43 2
+                                              0 45 19 14 46 2 0 45 14 7 47 1 48
+                                              0 6 49 2 52 50 51 9 53 2 55 54 51
+                                              35 56 2 57 45 50 54 58 0 48 0 59
+                                              2 0 44 14 7 60 2 0 44 19 14 61 2
+                                              1 29 14 7 31 2 1 29 19 14 30 2 2
+                                              45 19 14 46 2 2 45 14 7 47 2 1 27
+                                              14 7 40 2 1 27 19 14 43 2 2 44 14
+                                              7 60 2 2 44 19 14 61 1 0 17 14 26
+                                              1 0 27 14 28)))))
            '|lookupComplete|)) 

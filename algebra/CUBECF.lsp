@@ -254,14 +254,41 @@
            '#(|torusSurface| 17 |sphereSurface| 21 |sphereSolid| 26
               |projectiveSpace| 31 |moebiusBand| 36 |kleinBottle| 40 |band| 44)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(1 6 0 0 9 2 6 0 0 0 11 2 7
-                                                   14 0 0 15 0 0 6 12 1 0 6 7
-                                                   10 1 0 6 7 8 1 0 6 7 16 0 0
-                                                   6 1 0 0 6 1 0 0 6 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|sphereSolid|
+                                 ((|FiniteCubicalComplex| (|Integer|))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|sphereSurface|
+                                 ((|FiniteCubicalComplex| (|Integer|))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|torusSurface|
+                                 ((|FiniteCubicalComplex| (|Integer|))))
+                                T)
+                              '((|band| ((|FiniteCubicalComplex| (|Integer|))))
+                                T)
+                              '((|moebiusBand|
+                                 ((|FiniteCubicalComplex| (|Integer|))))
+                                T)
+                              '((|projectiveSpace|
+                                 ((|FiniteCubicalComplex| (|Integer|))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|kleinBottle|
+                                 ((|FiniteCubicalComplex| (|Integer|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(1 6 0 0 9 2 6 0 0 0 11 2 7 14 0 0
+                                              15 0 0 6 12 1 0 6 7 10 1 0 6 7 8
+                                              1 0 6 7 16 0 0 6 1 0 0 6 1 0 0 6
+                                              13)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CubicalComplexFactory| 'NILADIC T) 

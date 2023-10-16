@@ -70,16 +70,61 @@
               (0 . |coerce|)
               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|)))
               (|Union| (|:| |%series| 9) (|:| |%problem| 15)) (|Boolean|)
-              (|Union| '"complex" '"real: two sides" '"real: left side"
-                       '"real: right side" '"just do it")
+              (|Union| '#1="complex" '#2="real: two sides"
+                       '#3="real: left side" '#4="real: right side"
+                       '#5="just do it")
               (|Mapping| 17 7))
            '#(|exprToUPS| 5 |exprToPS| 12 |exprToGenUPS| 33) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(1 7 0 8 14 3 0 16 7 17 18 1
-                                                   8 0 16 7 17 18 17 7 19 19 19
-                                                   1 5 0 16 7 17 18 17 7 1 3 0
-                                                   16 7 17 18 1)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|exprToUPS|
+                                 ((|Union| (|:| |%series| |#4|)
+                                           (|:| |%problem|
+                                                (|Record|
+                                                 (|:| |func| (|String|))
+                                                 (|:| |prob| (|String|)))))
+                                  |#2| (|Boolean|)
+                                  (|Union| #1# #2# #3# #4# #5#)))
+                                T)
+                              '((|exprToGenUPS|
+                                 ((|Union| (|:| |%series| |#4|)
+                                           (|:| |%problem|
+                                                (|Record|
+                                                 (|:| |func| (|String|))
+                                                 (|:| |prob| (|String|)))))
+                                  |#2| (|Boolean|)
+                                  (|Union| #1# #2# #3# #4# #5#)))
+                                T)
+                              '((|exprToPS|
+                                 ((|Union| (|:| |%series| |#4|)
+                                           (|:| |%problem|
+                                                (|Record|
+                                                 (|:| |func| (|String|))
+                                                 (|:| |prob| (|String|)))))
+                                  |#2| (|Boolean|)
+                                  (|Union| #1# #2# #3# #4# #5#) (|Boolean|)
+                                  |#2|))
+                                T)
+                              '((|exprToPS|
+                                 ((|Union| (|:| |%series| |#4|)
+                                           (|:| |%problem|
+                                                (|Record|
+                                                 (|:| |func| (|String|))
+                                                 (|:| |prob| (|String|)))))
+                                  |#2| (|Boolean|)
+                                  (|Union| #1# #2# #3# #4# #5#) (|Boolean|)
+                                  |#2| (|Mapping| (|Boolean|) |#2|)
+                                  (|Mapping| (|Boolean|) |#2|)
+                                  (|Mapping| (|Boolean|) |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(1 7 0 8 14 3 0 16 7 17 18 1 8 0
+                                              16 7 17 18 17 7 19 19 19 1 5 0 16
+                                              7 17 18 17 7 1 3 0 16 7 17 18
+                                              1)))))
            '|lookupComplete|)) 

@@ -73,14 +73,25 @@
            '#(|zCoord| 21 |yCoord| 26 |xCoord| 31 |thetaCoord| 36 |shade| 41
               |rCoord| 46 |phiCoord| 51 |hue| 56 |color| 61)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 23
-                                                 '(0 6 0 7 2 9 6 0 8 10 1 9 17
-                                                   0 18 2 17 19 0 0 20 1 0 6 9
-                                                   13 1 0 6 9 12 1 0 6 9 11 1 0
-                                                   6 9 15 1 0 6 9 23 1 0 6 9 14
-                                                   1 0 6 9 16 1 0 6 9 22 1 0 6
-                                                   9 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|xCoord| (|#1| (|Point| |#1|))) T)
+                                   '((|yCoord| (|#1| (|Point| |#1|))) T)
+                                   '((|zCoord| (|#1| (|Point| |#1|))) T)
+                                   '((|rCoord| (|#1| (|Point| |#1|))) T)
+                                   '((|thetaCoord| (|#1| (|Point| |#1|))) T)
+                                   '((|phiCoord| (|#1| (|Point| |#1|))) T)
+                                   '((|color| (|#1| (|Point| |#1|))) T)
+                                   '((|hue| (|#1| (|Point| |#1|))) T)
+                                   '((|shade| (|#1| (|Point| |#1|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 23
+                                            '(0 6 0 7 2 9 6 0 8 10 1 9 17 0 18
+                                              2 17 19 0 0 20 1 0 6 9 13 1 0 6 9
+                                              12 1 0 6 9 11 1 0 6 9 15 1 0 6 9
+                                              23 1 0 6 9 14 1 0 6 9 16 1 0 6 9
+                                              22 1 0 6 9 21)))))
            '|lookupComplete|)) 

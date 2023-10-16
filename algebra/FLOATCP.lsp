@@ -418,20 +418,73 @@
               (|Union| 30 '"failed") (88 . |mainVariable|) (|List| 35)
               |FLOATCP;complexSolve;FParL;5| |FLOATCP;complexSolve;EParL;6|)
            '#(|complexSolve| 93 |complexRoots| 117) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 49
-                                                 '(1 8 7 0 9 1 7 10 0 11 2 13
-                                                   12 10 6 14 1 8 7 0 16 0 7 0
-                                                   17 2 7 18 0 0 19 4 23 20 21
-                                                   21 22 6 24 1 7 22 0 27 2 22
-                                                   0 0 0 28 2 21 18 0 0 29 1 31
-                                                   0 30 32 1 31 0 33 34 2 35 0
-                                                   31 31 36 1 39 8 0 40 1 39 8
-                                                   0 41 2 8 0 0 0 42 1 7 45 0
-                                                   46 2 0 37 25 6 38 2 0 47 8 6
-                                                   48 2 0 37 43 6 44 2 0 47 39
-                                                   6 49 3 0 20 25 22 6 26 2 0
-                                                   12 8 6 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|complexSolve|
+                                 ((|List|
+                                   (|List|
+                                    (|Equation|
+                                     (|Polynomial| (|Complex| |#1|)))))
+                                  (|List|
+                                   (|Fraction|
+                                    (|Polynomial| (|Complex| (|Integer|)))))
+                                  |#1|))
+                                T)
+                              '((|complexSolve|
+                                 ((|List|
+                                   (|List|
+                                    (|Equation|
+                                     (|Polynomial| (|Complex| |#1|)))))
+                                  (|List|
+                                   (|Equation|
+                                    (|Fraction|
+                                     (|Polynomial| (|Complex| (|Integer|))))))
+                                  |#1|))
+                                T)
+                              '((|complexSolve|
+                                 ((|List|
+                                   (|Equation|
+                                    (|Polynomial| (|Complex| |#1|))))
+                                  (|Fraction|
+                                   (|Polynomial| (|Complex| (|Integer|))))
+                                  |#1|))
+                                T)
+                              '((|complexSolve|
+                                 ((|List|
+                                   (|Equation|
+                                    (|Polynomial| (|Complex| |#1|))))
+                                  (|Equation|
+                                   (|Fraction|
+                                    (|Polynomial| (|Complex| (|Integer|)))))
+                                  |#1|))
+                                T)
+                              '((|complexRoots|
+                                 ((|List| (|Complex| |#1|))
+                                  (|Fraction|
+                                   (|Polynomial| (|Complex| (|Integer|))))
+                                  |#1|))
+                                T)
+                              '((|complexRoots|
+                                 ((|List| (|List| (|Complex| |#1|)))
+                                  (|List|
+                                   (|Fraction|
+                                    (|Polynomial| (|Complex| (|Integer|)))))
+                                  (|List| (|Symbol|)) |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 49
+                                            '(1 8 7 0 9 1 7 10 0 11 2 13 12 10
+                                              6 14 1 8 7 0 16 0 7 0 17 2 7 18 0
+                                              0 19 4 23 20 21 21 22 6 24 1 7 22
+                                              0 27 2 22 0 0 0 28 2 21 18 0 0 29
+                                              1 31 0 30 32 1 31 0 33 34 2 35 0
+                                              31 31 36 1 39 8 0 40 1 39 8 0 41
+                                              2 8 0 0 0 42 1 7 45 0 46 2 0 37
+                                              25 6 38 2 0 47 8 6 48 2 0 37 43 6
+                                              44 2 0 47 39 6 49 3 0 20 25 22 6
+                                              26 2 0 12 8 6 15)))))
            '|lookupComplete|)) 

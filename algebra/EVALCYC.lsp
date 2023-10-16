@@ -77,14 +77,22 @@
               (49 . |reductum|) (|Mapping| 6 (|Integer|)) |EVALCYC;eval;MSpF;2|
               (54 . +))
            '#(|eval| 60) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(1 8 7 0 9 2 6 0 0 0 10 0 6 0
-                                                   11 0 6 0 12 0 8 0 13 0 14 0
-                                                   15 2 14 16 0 0 17 1 14 18 0
-                                                   19 1 14 8 0 20 2 6 0 18 0 21
-                                                   1 14 0 0 22 2 6 0 0 0 25 2 0
-                                                   6 23 14 24)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|eval|
+                                 (|#1| (|Mapping| |#1| (|Integer|))
+                                  (|SymmetricPolynomial|
+                                   (|Fraction| (|Integer|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(1 8 7 0 9 2 6 0 0 0 10 0 6 0 11 0
+                                              6 0 12 0 8 0 13 0 14 0 15 2 14 16
+                                              0 0 17 1 14 18 0 19 1 14 8 0 20 2
+                                              6 0 18 0 21 1 14 0 0 22 2 6 0 0 0
+                                              25 2 0 6 23 14 24)))))
            '|lookupComplete|)) 

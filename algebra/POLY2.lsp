@@ -57,11 +57,18 @@
               (|PolynomialCategoryLifting| (|IndexedExponents| 8) 8 6 14 9)
               (10 . |map|) (|Mapping| 7 6) |POLY2;map;MPP;1|)
            '#(|map| 17) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(1 9 0 8 10 1 9 0 7 11 3 15 9
-                                                   12 13 14 16 2 0 9 17 14
-                                                   18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|Polynomial| |#2|) (|Mapping| |#2| |#1|)
+                                  (|Polynomial| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(1 9 0 8 10 1 9 0 7 11 3 15 9 12
+                                              13 14 16 2 0 9 17 14 18)))))
            '|lookupComplete|)) 

@@ -282,21 +282,92 @@
               100 |inverse| 105 |bumptab1| 110 |bumptab| 116 |bumprow| 123
               |bat1| 130 |bat| 135)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 43
-                                                 '(2 8 6 0 7 9 2 6 16 0 0 17 1
-                                                   19 0 12 20 3 22 14 14 21 19
-                                                   23 2 6 16 0 0 25 2 12 0 26 0
-                                                   27 2 8 0 11 0 29 1 32 0 14
-                                                   33 2 6 16 0 0 35 2 14 0 0 0
-                                                   39 1 32 14 0 42 2 0 12 12 14
-                                                   40 1 0 14 12 24 1 0 32 8 34
-                                                   1 0 12 8 30 1 0 36 14 38 6 0
-                                                   36 8 14 12 14 14 14 37 1 0
-                                                   12 12 28 1 0 8 8 31 2 0 14 8
-                                                   14 18 3 0 14 11 8 14 15 3 0
-                                                   10 11 8 12 13 1 0 12 14 41 1
-                                                   0 12 32 43)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|bumprow|
+                                 ((|Record| (|:| |fs| (|Boolean|))
+                                            (|:| |sd| (|List| |#1|))
+                                            (|:| |td| (|List| (|List| |#1|))))
+                                  (|Mapping| (|Boolean|) |#1| |#1|)
+                                  (|List| |#1|) (|List| (|List| |#1|))))
+                                T)
+                              '((|bumptab|
+                                 ((|List| (|List| (|List| |#1|)))
+                                  (|Mapping| (|Boolean|) |#1| |#1|)
+                                  (|List| |#1|)
+                                  (|List| (|List| (|List| |#1|)))))
+                                T)
+                              '((|bumptab1|
+                                 ((|List| (|List| (|List| |#1|))) (|List| |#1|)
+                                  (|List| (|List| (|List| |#1|)))))
+                                T)
+                              '((|untab|
+                                 ((|List| (|List| |#1|)) (|List| (|List| |#1|))
+                                  (|List| (|List| (|List| |#1|)))))
+                                T)
+                              '((|bat1|
+                                 ((|List| (|List| |#1|))
+                                  (|List| (|List| (|List| |#1|)))))
+                                T)
+                              '((|bat|
+                                 ((|List| (|List| |#1|))
+                                  (|Tableau| (|List| |#1|))))
+                                T)
+                              '((|tab1|
+                                 ((|List| (|List| (|List| |#1|)))
+                                  (|List| (|List| |#1|))))
+                                T)
+                              '((|tab|
+                                 ((|Tableau| (|List| |#1|)) (|List| |#1|)))
+                                T)
+                              '((|lex|
+                                 ((|List| (|List| |#1|))
+                                  (|List| (|List| |#1|))))
+                                T)
+                              '((|slex| ((|List| (|List| |#1|)) (|List| |#1|)))
+                                T)
+                              '((|inverse| ((|List| |#1|) (|List| |#1|))) T)
+                              '((|maxrow|
+                                 ((|Record| (|:| |f1| (|List| |#1|))
+                                            (|:| |f2|
+                                                 (|List|
+                                                  (|List| (|List| |#1|))))
+                                            (|:| |f3| (|List| (|List| |#1|)))
+                                            (|:| |f4|
+                                                 (|List|
+                                                  (|List| (|List| |#1|)))))
+                                  (|List| |#1|) (|List| (|List| (|List| |#1|)))
+                                  (|List| (|List| |#1|))
+                                  (|List| (|List| (|List| |#1|)))
+                                  (|List| (|List| (|List| |#1|)))
+                                  (|List| (|List| (|List| |#1|)))))
+                                T)
+                              '((|mr|
+                                 ((|Record| (|:| |f1| (|List| |#1|))
+                                            (|:| |f2|
+                                                 (|List|
+                                                  (|List| (|List| |#1|))))
+                                            (|:| |f3| (|List| (|List| |#1|)))
+                                            (|:| |f4|
+                                                 (|List|
+                                                  (|List| (|List| |#1|)))))
+                                  (|List| (|List| (|List| |#1|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 43
+                                            '(2 8 6 0 7 9 2 6 16 0 0 17 1 19 0
+                                              12 20 3 22 14 14 21 19 23 2 6 16
+                                              0 0 25 2 12 0 26 0 27 2 8 0 11 0
+                                              29 1 32 0 14 33 2 6 16 0 0 35 2
+                                              14 0 0 0 39 1 32 14 0 42 2 0 12
+                                              12 14 40 1 0 14 12 24 1 0 32 8 34
+                                              1 0 12 8 30 1 0 36 14 38 6 0 36 8
+                                              14 12 14 14 14 37 1 0 12 12 28 1
+                                              0 8 8 31 2 0 14 8 14 18 3 0 14 11
+                                              8 14 15 3 0 10 11 8 12 13 1 0 12
+                                              14 41 1 0 12 32 43)))))
            '|lookupComplete|)) 

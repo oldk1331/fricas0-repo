@@ -101,14 +101,24 @@
               (35 . |retractIfCan|) (|Kernel| $) (40 . |retract|) (|Any|)
               (|AnyFunctions1| 10) (45 . |coerce|))
            '#(|suchThat| 50) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 33
-                                                 '(2 7 0 14 15 16 1 17 14 0 18
-                                                   2 14 19 0 20 21 1 14 0 0 22
-                                                   2 23 0 0 0 24 3 14 0 0 20 25
-                                                   26 1 7 27 0 28 1 7 29 0 30 1
-                                                   32 31 10 33 2 0 7 7 11 12 2
-                                                   0 7 7 10 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|suchThat|
+                                 (|#2| |#2| (|Mapping| (|Boolean|) |#3|)))
+                                T)
+                              '((|suchThat|
+                                 (|#2| |#2|
+                                  (|List| (|Mapping| (|Boolean|) |#3|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 33
+                                            '(2 7 0 14 15 16 1 17 14 0 18 2 14
+                                              19 0 20 21 1 14 0 0 22 2 23 0 0 0
+                                              24 3 14 0 0 20 25 26 1 7 27 0 28
+                                              1 7 29 0 30 1 32 31 10 33 2 0 7 7
+                                              11 12 2 0 7 7 10 13)))))
            '|lookupComplete|)) 

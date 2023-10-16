@@ -412,26 +412,44 @@
               (157 . *) (|List| 8) (|List| 6) |LLLRED;find_relation;LNniL;5|)
            '#(|find_relation| 163 |extendedLLL!| 169 |extendedLLL| 175 LLL 180)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 47
-                                                 '(0 6 0 7 4 9 6 0 8 8 6 10 3
-                                                   11 8 0 8 8 12 1 6 0 8 13 3
-                                                   14 6 0 8 6 15 2 9 14 0 8 16
-                                                   2 14 6 0 0 17 2 14 6 0 8 18
-                                                   2 6 0 0 0 19 3 9 6 0 8 8 20
-                                                   2 6 0 0 0 21 2 6 0 0 0 22 0
-                                                   6 0 23 3 6 0 8 8 24 25 2 27
-                                                   26 0 0 28 2 8 26 0 0 29 1 6
-                                                   0 0 30 1 6 8 0 31 2 8 26 0 0
-                                                   32 4 11 8 0 8 8 8 33 2 6 0 8
-                                                   0 34 2 6 0 0 8 35 2 6 26 0 0
-                                                   36 2 6 0 0 0 37 3 11 0 0 8 8
-                                                   38 1 11 0 0 42 2 6 0 27 0 44
-                                                   2 0 45 46 27 47 2 0 11 11 27
-                                                   39 1 0 40 11 41 1 0 11 11
-                                                   43)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((LLL
+                                 ((|Matrix| (|Integer|))
+                                  (|Matrix| (|Integer|))))
+                                T)
+                              '((|extendedLLL!|
+                                 ((|Matrix| (|Integer|)) (|Matrix| (|Integer|))
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|extendedLLL|
+                                 ((|Record| (|:| |lll| (|Matrix| (|Integer|)))
+                                            (|:| |trf| (|Matrix| (|Integer|))))
+                                  (|Matrix| (|Integer|))))
+                                T)
+                              '((|find_relation|
+                                 ((|List| (|Integer|)) (|List| (|Float|))
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 47
+                                            '(0 6 0 7 4 9 6 0 8 8 6 10 3 11 8 0
+                                              8 8 12 1 6 0 8 13 3 14 6 0 8 6 15
+                                              2 9 14 0 8 16 2 14 6 0 0 17 2 14
+                                              6 0 8 18 2 6 0 0 0 19 3 9 6 0 8 8
+                                              20 2 6 0 0 0 21 2 6 0 0 0 22 0 6
+                                              0 23 3 6 0 8 8 24 25 2 27 26 0 0
+                                              28 2 8 26 0 0 29 1 6 0 0 30 1 6 8
+                                              0 31 2 8 26 0 0 32 4 11 8 0 8 8 8
+                                              33 2 6 0 8 0 34 2 6 0 0 8 35 2 6
+                                              26 0 0 36 2 6 0 0 0 37 3 11 0 0 8
+                                              8 38 1 11 0 0 42 2 6 0 27 0 44 2
+                                              0 45 46 27 47 2 0 11 11 27 39 1 0
+                                              40 11 41 1 0 11 11 43)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|LLLReduction| 'NILADIC T) 

@@ -135,16 +135,26 @@
               (|Record| (|:| |quotient| 7) (|:| |remainder| 7))
               (|Union| 29 '"failed") |UPDIVP;divideIfCan;2UPU;1|)
            '#(|divideIfCan| 87) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 31
-                                                 '(1 7 8 0 9 1 7 6 0 10 0 6 0
-                                                   11 0 7 0 12 2 6 8 0 0 13 2 7
-                                                   14 0 0 15 0 7 0 16 1 7 17 0
-                                                   18 2 17 19 0 0 20 2 6 19 0 0
-                                                   21 2 7 0 6 17 22 2 7 0 0 0
-                                                   23 2 17 0 0 0 24 2 7 0 25 0
-                                                   26 2 7 0 6 0 27 2 7 0 0 0 28
-                                                   2 0 30 7 7 31)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|divideIfCan|
+                                 ((|Union|
+                                   (|Record| (|:| |quotient| |#2|)
+                                             (|:| |remainder| |#2|))
+                                   "failed")
+                                  |#2| |#2|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 31
+                                            '(1 7 8 0 9 1 7 6 0 10 0 6 0 11 0 7
+                                              0 12 2 6 8 0 0 13 2 7 14 0 0 15 0
+                                              7 0 16 1 7 17 0 18 2 17 19 0 0 20
+                                              2 6 19 0 0 21 2 7 0 6 17 22 2 7 0
+                                              0 0 23 2 17 0 0 0 24 2 7 0 25 0
+                                              26 2 7 0 6 0 27 2 7 0 0 0 28 2 0
+                                              30 7 7 31)))))
            '|lookupComplete|)) 

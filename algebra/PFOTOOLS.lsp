@@ -197,18 +197,38 @@
            '#(|polyred| 84 |mix| 89 |getGoodPrime| 94 |doubleDisc| 99 |badNum|
               104)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 42
-                                                 '(1 9 0 8 10 1 9 0 8 11 2 9 0
-                                                   0 0 12 1 7 16 0 17 1 18 6 0
-                                                   19 1 22 9 6 23 2 7 0 9 0 24
-                                                   1 22 26 6 27 1 6 28 0 29 1
-                                                   30 9 0 31 1 32 9 9 33 1 7 18
-                                                   0 36 1 6 0 0 37 2 6 0 0 0 38
-                                                   2 6 39 0 0 40 1 6 30 0 41 1
-                                                   0 7 7 25 1 0 9 14 15 1 0 34
-                                                   9 35 1 0 9 7 42 1 0 9 7 21 1
-                                                   0 13 6 20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|getGoodPrime|
+                                 ((|PositiveInteger|) (|Integer|)))
+                                T)
+                              '((|badNum|
+                                 ((|Record| (|:| |den| (|Integer|))
+                                            (|:| |gcdnum| (|Integer|)))
+                                  |#1|))
+                                T)
+                              '((|badNum| ((|Integer|) |#2|)) T)
+                              '((|mix|
+                                 ((|Integer|)
+                                  (|List|
+                                   (|Record| (|:| |den| (|Integer|))
+                                             (|:| |gcdnum| (|Integer|))))))
+                                T)
+                              '((|doubleDisc| ((|Integer|) |#2|)) T)
+                              '((|polyred| (|#2| |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 42
+                                            '(1 9 0 8 10 1 9 0 8 11 2 9 0 0 0
+                                              12 1 7 16 0 17 1 18 6 0 19 1 22 9
+                                              6 23 2 7 0 9 0 24 1 22 26 6 27 1
+                                              6 28 0 29 1 30 9 0 31 1 32 9 9 33
+                                              1 7 18 0 36 1 6 0 0 37 2 6 0 0 0
+                                              38 2 6 39 0 0 40 1 6 30 0 41 1 0
+                                              7 7 25 1 0 9 14 15 1 0 34 9 35 1
+                                              0 9 7 42 1 0 9 7 21 1 0 13 6
+                                              20)))))
            '|lookupComplete|)) 

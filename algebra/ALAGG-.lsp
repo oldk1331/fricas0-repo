@@ -56,12 +56,16 @@
               (10 . |coerce|) (15 . =) (|String|) (21 . |message|) (|List| $)
               (26 . |prefix|) (32 . |coerce|))
            '#(|coerce| 37) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 20
-                                                 '(1 6 10 0 11 1 7 12 0 13 1 8
-                                                   12 0 14 2 12 0 0 0 15 1 12 0
-                                                   16 17 2 12 0 0 18 19 1 0 12
-                                                   0 20 1 0 12 0 20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|coerce| ((|OutputForm|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 20
+                                            '(1 6 10 0 11 1 7 12 0 13 1 8 12 0
+                                              14 2 12 0 0 0 15 1 12 0 16 17 2
+                                              12 0 0 18 19 1 0 12 0 20 1 0 12 0
+                                              20)))))
            '|lookupComplete|)) 

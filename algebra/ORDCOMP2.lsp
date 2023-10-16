@@ -64,12 +64,27 @@
               |ORDCOMP2;map;MOc3Oc;2| |ORDCOMP2;map;MOcOc;1| (|SingleInteger|)
               (8 . |whatInfinity|) (13 . |retract|) (18 . |coerce|))
            '#(|map| 23) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(0 8 0 9 0 8 0 10 1 12 15 0
-                                                   16 1 12 6 0 17 1 8 0 7 18 4
-                                                   0 8 11 12 8 8 13 2 0 8 11 12
-                                                   14)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|OrderedCompletion| |#2|)
+                                  (|Mapping| |#2| |#1|)
+                                  (|OrderedCompletion| |#1|)))
+                                T)
+                              '((|map|
+                                 ((|OrderedCompletion| |#2|)
+                                  (|Mapping| |#2| |#1|)
+                                  (|OrderedCompletion| |#1|)
+                                  (|OrderedCompletion| |#2|)
+                                  (|OrderedCompletion| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(0 8 0 9 0 8 0 10 1 12 15 0 16 1
+                                              12 6 0 17 1 8 0 7 18 4 0 8 11 12
+                                              8 8 13 2 0 8 11 12 14)))))
            '|lookupComplete|)) 

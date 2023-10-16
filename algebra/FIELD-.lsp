@@ -93,17 +93,46 @@
               |inv| 66 |gcd| 71 |factor| 77 |exquo| 82 |euclideanSize| 88
               |divide| 93 |associates?| 99 / 105)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 34
-                                                 '(1 6 7 0 8 0 6 0 9 0 6 0 10 1
-                                                   6 0 0 11 1 6 16 0 17 2 6 7 0
-                                                   0 19 2 6 0 0 0 20 1 26 0 6
-                                                   27 2 6 0 0 0 31 1 0 12 0 13
-                                                   1 0 0 0 14 1 0 28 0 29 1 0 7
-                                                   0 25 1 0 0 0 18 2 0 0 0 0 22
-                                                   1 0 28 0 30 2 0 16 0 0 21 1
-                                                   0 23 0 24 2 0 33 0 0 34 2 0
-                                                   7 0 0 15 2 0 0 0 0 32)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((/ (|#1| |#1| |#1|)) T)
+                                   '((|inv| (|#1| |#1|)) T)
+                                   '((|prime?| ((|Boolean|) |#1|)) T)
+                                   '((|squareFree| ((|Factored| |#1|) |#1|)) T)
+                                   '((|factor| ((|Factored| |#1|) |#1|)) T)
+                                   '((|divide|
+                                      ((|Record| (|:| |quotient| |#1|)
+                                                 (|:| |remainder| |#1|))
+                                       |#1| |#1|))
+                                     T)
+                                   '((|euclideanSize|
+                                      ((|NonNegativeInteger|) |#1|))
+                                     T)
+                                   '((|gcd| (|#1| (|List| |#1|))) T)
+                                   '((|gcd| (|#1| |#1| |#1|)) T)
+                                   '((|exquo|
+                                      ((|Union| |#1| "failed") |#1| |#1|))
+                                     T)
+                                   '((|unitNormal|
+                                      ((|Record| (|:| |unit| |#1|)
+                                                 (|:| |canonical| |#1|)
+                                                 (|:| |associate| |#1|))
+                                       |#1|))
+                                     T)
+                                   '((|unitCanonical| (|#1| |#1|)) T)
+                                   '((|associates?| ((|Boolean|) |#1| |#1|))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 34
+                                            '(1 6 7 0 8 0 6 0 9 0 6 0 10 1 6 0
+                                              0 11 1 6 16 0 17 2 6 7 0 0 19 2 6
+                                              0 0 0 20 1 26 0 6 27 2 6 0 0 0 31
+                                              1 0 12 0 13 1 0 0 0 14 1 0 28 0
+                                              29 1 0 7 0 25 1 0 0 0 18 2 0 0 0
+                                              0 22 1 0 28 0 30 2 0 16 0 0 21 1
+                                              0 23 0 24 2 0 33 0 0 34 2 0 7 0 0
+                                              15 2 0 0 0 0 32)))))
            '|lookupComplete|)) 

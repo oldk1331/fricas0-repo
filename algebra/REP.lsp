@@ -507,29 +507,77 @@
               |radicalEigenvalues| 184 |orthonormalBasis| 189 |normalise| 194
               |gramschmidt| 199 |eigenMatrix| 204)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 67
-                                                 '(1 8 0 7 9 0 10 0 11 2 13 0
-                                                   12 12 14 3 17 15 0 16 16 18
-                                                   1 10 0 15 19 3 10 0 0 20 0
-                                                   21 4 13 10 0 16 16 10 22 1
-                                                   13 0 0 23 2 13 0 0 0 24 3 13
-                                                   10 0 16 16 25 1 10 0 0 26 0
-                                                   10 0 27 2 10 28 0 0 29 2 10
-                                                   0 0 0 30 2 13 0 10 0 31 0 7
-                                                   0 33 2 35 34 17 7 36 1 15 0
-                                                   34 37 2 6 38 15 7 39 2 10 0
-                                                   0 0 41 1 13 42 0 43 1 13 0
-                                                   44 45 1 35 50 17 51 1 52 7 0
-                                                   53 1 52 34 0 54 2 46 28 0 0
-                                                   58 2 46 0 0 0 60 1 13 0 0 61
-                                                   2 13 0 0 0 62 1 17 28 0 65 2
-                                                   12 28 0 0 66 1 0 56 17 57 2
-                                                   0 46 10 17 47 1 0 38 17 40 1
-                                                   0 46 17 67 1 0 13 13 32 1 0
-                                                   46 46 59 1 0 63 17 64)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|radicalEigenvectors|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |radval| (|Expression| (|Integer|)))
+                                    (|:| |radmult| (|Integer|))
+                                    (|:| |radvect|
+                                         (|List|
+                                          (|Matrix|
+                                           (|Expression| (|Integer|)))))))
+                                  (|Matrix|
+                                   (|Fraction| (|Polynomial| (|Integer|))))))
+                                T)
+                              '((|radicalEigenvector|
+                                 ((|List|
+                                   (|Matrix| (|Expression| (|Integer|))))
+                                  (|Expression| (|Integer|))
+                                  (|Matrix|
+                                   (|Fraction| (|Polynomial| (|Integer|))))))
+                                T)
+                              '((|radicalEigenvalues|
+                                 ((|List| (|Expression| (|Integer|)))
+                                  (|Matrix|
+                                   (|Fraction| (|Polynomial| (|Integer|))))))
+                                T)
+                              '((|eigenMatrix|
+                                 ((|Union|
+                                   (|Matrix| (|Expression| (|Integer|)))
+                                   "failed")
+                                  (|Matrix|
+                                   (|Fraction| (|Polynomial| (|Integer|))))))
+                                T)
+                              '((|normalise|
+                                 ((|Matrix| (|Expression| (|Integer|)))
+                                  (|Matrix| (|Expression| (|Integer|)))))
+                                T)
+                              '((|gramschmidt|
+                                 ((|List|
+                                   (|Matrix| (|Expression| (|Integer|))))
+                                  (|List|
+                                   (|Matrix| (|Expression| (|Integer|))))))
+                                T)
+                              '((|orthonormalBasis|
+                                 ((|List|
+                                   (|Matrix| (|Expression| (|Integer|))))
+                                  (|Matrix|
+                                   (|Fraction| (|Polynomial| (|Integer|))))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 67
+                                            '(1 8 0 7 9 0 10 0 11 2 13 0 12 12
+                                              14 3 17 15 0 16 16 18 1 10 0 15
+                                              19 3 10 0 0 20 0 21 4 13 10 0 16
+                                              16 10 22 1 13 0 0 23 2 13 0 0 0
+                                              24 3 13 10 0 16 16 25 1 10 0 0 26
+                                              0 10 0 27 2 10 28 0 0 29 2 10 0 0
+                                              0 30 2 13 0 10 0 31 0 7 0 33 2 35
+                                              34 17 7 36 1 15 0 34 37 2 6 38 15
+                                              7 39 2 10 0 0 0 41 1 13 42 0 43 1
+                                              13 0 44 45 1 35 50 17 51 1 52 7 0
+                                              53 1 52 34 0 54 2 46 28 0 0 58 2
+                                              46 0 0 0 60 1 13 0 0 61 2 13 0 0
+                                              0 62 1 17 28 0 65 2 12 28 0 0 66
+                                              1 0 56 17 57 2 0 46 10 17 47 1 0
+                                              38 17 40 1 0 46 17 67 1 0 13 13
+                                              32 1 0 46 46 59 1 0 63 17 64)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|RadicalEigenPackage| 'NILADIC T) 

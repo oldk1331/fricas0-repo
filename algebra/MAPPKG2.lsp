@@ -77,11 +77,26 @@
               |MAPPKG2;const;CM;1| (|Mapping| 7) |MAPPKG2;curry;MAM;2|
               |MAPPKG2;constant;MM;3| (|Mapping| 7 6 6) |MAPPKG2;diag;MM;4|)
            '#(|diag| 6 |curry| 11 |constant| 17 |const| 22) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(2 8 7 6 7 9 1 0 10 15 16 2 0
-                                                   12 10 6 13 1 0 10 12 14 1 0
-                                                   10 7 11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|const| ((|Mapping| |#2| |#1|) |#2|)) T)
+                                   '((|curry|
+                                      ((|Mapping| |#2|) (|Mapping| |#2| |#1|)
+                                       |#1|))
+                                     T)
+                                   '((|constant|
+                                      ((|Mapping| |#2| |#1|) (|Mapping| |#2|)))
+                                     T)
+                                   '((|diag|
+                                      ((|Mapping| |#2| |#1|)
+                                       (|Mapping| |#2| |#1| |#1|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(2 8 7 6 7 9 1 0 10 15 16 2 0 12
+                                              10 6 13 1 0 10 12 14 1 0 10 7
+                                              11)))))
            '|lookupComplete|)) 

@@ -569,27 +569,56 @@
               (|List| 71) |RURPK;rur;L2BL;1| |RURPK;rur;LBL;2|
               |RURPK;rur;LL;3|)
            '#(|rur| 183) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 75
-                                                 '(0 8 0 9 2 11 0 0 8 12 1 15
-                                                   14 8 16 1 18 0 15 19 1 22 21
-                                                   0 23 2 25 0 24 0 26 1 22 21
-                                                   0 27 2 25 21 24 0 28 1 30 0
-                                                   29 31 1 18 14 22 32 2 18 21
-                                                   0 0 33 2 29 0 34 0 35 1 18
-                                                   15 0 36 1 30 15 0 37 2 15 21
-                                                   0 0 38 1 30 14 0 39 1 30 21
-                                                   0 40 1 41 29 29 42 2 30 0 18
-                                                   0 43 2 30 44 18 0 45 2 30 47
-                                                   18 0 48 1 18 0 0 49 1 18 21
-                                                   0 50 2 51 18 18 30 52 2 54
-                                                   53 30 21 55 2 54 21 30 53 56
-                                                   1 59 57 58 60 1 30 61 0 62 1
-                                                   59 57 61 63 2 30 64 0 15 65
-                                                   1 18 66 0 67 2 30 0 0 15 68
-                                                   1 30 29 0 69 1 18 22 0 70 2
-                                                   0 72 25 21 74 3 0 72 25 21
-                                                   21 73 1 0 72 25 75)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|rur|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |complexRoots|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                    (|:| |coordinates|
+                                         (|List| (|Polynomial| |#1|)))))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)))
+                                T)
+                              '((|rur|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |complexRoots|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                    (|:| |coordinates|
+                                         (|List| (|Polynomial| |#1|)))))
+                                  (|List| (|Polynomial| |#1|))))
+                                T)
+                              '((|rur|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |complexRoots|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                    (|:| |coordinates|
+                                         (|List| (|Polynomial| |#1|)))))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)
+                                  (|Boolean|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 75
+                                            '(0 8 0 9 2 11 0 0 8 12 1 15 14 8
+                                              16 1 18 0 15 19 1 22 21 0 23 2 25
+                                              0 24 0 26 1 22 21 0 27 2 25 21 24
+                                              0 28 1 30 0 29 31 1 18 14 22 32 2
+                                              18 21 0 0 33 2 29 0 34 0 35 1 18
+                                              15 0 36 1 30 15 0 37 2 15 21 0 0
+                                              38 1 30 14 0 39 1 30 21 0 40 1 41
+                                              29 29 42 2 30 0 18 0 43 2 30 44
+                                              18 0 45 2 30 47 18 0 48 1 18 0 0
+                                              49 1 18 21 0 50 2 51 18 18 30 52
+                                              2 54 53 30 21 55 2 54 21 30 53 56
+                                              1 59 57 58 60 1 30 61 0 62 1 59
+                                              57 61 63 2 30 64 0 15 65 1 18 66
+                                              0 67 2 30 0 0 15 68 1 30 29 0 69
+                                              1 18 22 0 70 2 0 72 25 21 74 3 0
+                                              72 25 21 21 73 1 0 72 25 75)))))
            '|lookupComplete|)) 

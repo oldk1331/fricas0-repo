@@ -687,40 +687,113 @@
               |minimalPolynomial| 298 |lookup| 303 |inv| 308 |index| 313
               |expPot| 319 |dAndcExp| 326 |basis| 333 ^ 338 / 344 * 350)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 94
-                                                 '(0 6 7 8 0 6 0 10 1 14 0 13
-                                                   15 2 18 6 0 13 22 2 6 0 0 0
-                                                   23 1 6 0 0 24 2 18 0 6 0 25
-                                                   2 7 0 0 27 28 2 13 0 0 0 29
-                                                   1 18 0 0 30 2 13 31 0 0 32 2
-                                                   35 14 0 13 36 2 37 35 0 13
-                                                   38 2 14 31 0 0 39 2 13 0 27
-                                                   0 40 2 42 18 0 13 43 1 42 18
-                                                   0 44 2 42 0 0 18 45 0 6 0 46
-                                                   2 47 0 0 7 48 2 7 31 0 0 49
-                                                   1 18 0 7 50 2 53 52 0 13 54
-                                                   2 6 0 0 0 55 3 18 6 0 13 6
-                                                   56 1 6 27 0 57 2 14 59 0 0
-                                                   60 2 14 31 0 0 62 2 13 31 0
-                                                   0 63 2 14 0 0 0 64 2 65 0 13
-                                                   13 66 2 18 0 0 65 67 0 6 0
-                                                   69 2 71 0 6 7 72 0 71 0 73 2
-                                                   71 0 0 0 74 2 71 0 0 0 77 2
-                                                   71 31 0 0 78 0 81 0 82 2 84
-                                                   0 7 7 85 1 84 42 0 86 1 6 0
-                                                   27 91 2 71 0 0 0 93 0 71 0
-                                                   94 1 0 71 7 75 2 0 18 18 27
-                                                   68 2 0 81 53 6 83 2 0 18 18
-                                                   7 33 1 0 18 27 70 2 0 18 18
-                                                   13 20 1 0 71 18 76 1 0 18 27
-                                                   90 1 0 31 18 79 2 0 18 18 27
-                                                   61 1 0 71 18 87 1 0 27 18 58
-                                                   1 0 18 18 26 2 0 18 27 27 92
-                                                   3 0 18 18 14 14 19 3 0 18 18
-                                                   7 14 34 1 0 88 27 89 2 0 18
-                                                   18 13 41 2 0 18 18 18 80 2 0
-                                                   18 18 18 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|setFieldInfo|
+                                 ((|Void|)
+                                  (|Vector|
+                                   (|List|
+                                    (|Record| (|:| |value| |#1|)
+                                              (|:| |index|
+                                                   (|SingleInteger|)))))
+                                  |#1|))
+                                T)
+                              '((|random|
+                                 ((|Vector| |#1|) (|PositiveInteger|)))
+                                T)
+                              '((|index|
+                                 ((|Vector| |#1|) (|PositiveInteger|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|pol|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|Vector| |#1|)))
+                                T)
+                              '((|xn|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|dAndcExp|
+                                 ((|Vector| |#1|) (|Vector| |#1|)
+                                  (|NonNegativeInteger|) (|SingleInteger|)))
+                                T)
+                              '((|repSq|
+                                 ((|Vector| |#1|) (|Vector| |#1|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|expPot|
+                                 ((|Vector| |#1|) (|Vector| |#1|)
+                                  (|SingleInteger|) (|SingleInteger|)))
+                                T)
+                              '((|qPot|
+                                 ((|Vector| |#1|) (|Vector| |#1|) (|Integer|)))
+                                T)
+                              '((^
+                                 ((|Vector| |#1|) (|Vector| |#1|) (|Integer|)))
+                                T)
+                              '((*
+                                 ((|Vector| |#1|) (|Vector| |#1|)
+                                  (|Vector| |#1|)))
+                                T)
+                              '((/
+                                 ((|Vector| |#1|) (|Vector| |#1|)
+                                  (|Vector| |#1|)))
+                                T)
+                              '((|norm|
+                                 ((|Vector| |#1|) (|Vector| |#1|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|trace|
+                                 ((|Vector| |#1|) (|Vector| |#1|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|inv| ((|Vector| |#1|) (|Vector| |#1|))) T)
+                              '((|lookup|
+                                 ((|PositiveInteger|) (|Vector| |#1|)))
+                                T)
+                              '((|normal?| ((|Boolean|) (|Vector| |#1|))) T)
+                              '((|basis|
+                                 ((|Vector| (|Vector| |#1|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|normalElement|
+                                 ((|Vector| |#1|) (|PositiveInteger|)))
+                                T)
+                              '((|minimalPolynomial|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|Vector| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 94
+                                            '(0 6 7 8 0 6 0 10 1 14 0 13 15 2
+                                              18 6 0 13 22 2 6 0 0 0 23 1 6 0 0
+                                              24 2 18 0 6 0 25 2 7 0 0 27 28 2
+                                              13 0 0 0 29 1 18 0 0 30 2 13 31 0
+                                              0 32 2 35 14 0 13 36 2 37 35 0 13
+                                              38 2 14 31 0 0 39 2 13 0 27 0 40
+                                              2 42 18 0 13 43 1 42 18 0 44 2 42
+                                              0 0 18 45 0 6 0 46 2 47 0 0 7 48
+                                              2 7 31 0 0 49 1 18 0 7 50 2 53 52
+                                              0 13 54 2 6 0 0 0 55 3 18 6 0 13
+                                              6 56 1 6 27 0 57 2 14 59 0 0 60 2
+                                              14 31 0 0 62 2 13 31 0 0 63 2 14
+                                              0 0 0 64 2 65 0 13 13 66 2 18 0 0
+                                              65 67 0 6 0 69 2 71 0 6 7 72 0 71
+                                              0 73 2 71 0 0 0 74 2 71 0 0 0 77
+                                              2 71 31 0 0 78 0 81 0 82 2 84 0 7
+                                              7 85 1 84 42 0 86 1 6 0 27 91 2
+                                              71 0 0 0 93 0 71 0 94 1 0 71 7 75
+                                              2 0 18 18 27 68 2 0 81 53 6 83 2
+                                              0 18 18 7 33 1 0 18 27 70 2 0 18
+                                              18 13 20 1 0 71 18 76 1 0 18 27
+                                              90 1 0 31 18 79 2 0 18 18 27 61 1
+                                              0 71 18 87 1 0 27 18 58 1 0 18 18
+                                              26 2 0 18 27 27 92 3 0 18 18 14
+                                              14 19 3 0 18 18 7 14 34 1 0 88 27
+                                              89 2 0 18 18 13 41 2 0 18 18 18
+                                              80 2 0 18 18 18 21)))))
            '|lookupComplete|)) 

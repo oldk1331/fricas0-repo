@@ -110,13 +110,21 @@
               (|InnerCommonDenominator| 6 10 8 12) (26 . |clearDenominator|)
               (|List| 8) (31 . |nullSpace|))
            '#(|rowEchelon| 36 |nullSpace| 41 |inverse| 46) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 29
-                                                 '(1 10 0 6 14 2 16 13 15 9 17
-                                                   1 18 13 13 19 1 18 21 13 22
-                                                   1 18 24 13 25 1 26 8 12 27 1
-                                                   0 28 9 29 1 0 13 9 20 1 1 28
-                                                   9 29 1 0 21 9 23)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|rowEchelon| (|#8| |#4|)) T)
+                                   '((|inverse| ((|Union| |#8| "failed") |#4|))
+                                     T)
+                                   '((|nullSpace| ((|List| |#3|) |#4|))
+                                     (|has| 12 (|shallowlyMutable|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 29
+                                            '(1 10 0 6 14 2 16 13 15 9 17 1 18
+                                              13 13 19 1 18 21 13 22 1 18 24 13
+                                              25 1 26 8 12 27 1 0 28 9 29 1 0
+                                              13 9 20 1 1 28 9 29 1 0 21 9
+                                              23)))))
            '|lookupComplete|)) 

@@ -277,10 +277,22 @@
               (|List| (|Symbol|)) |PGROEB;lexGroebner;LLL;1|
               |PGROEB;totalGroebner;LLL;2|)
            '#(|totalGroebner| 0 |lexGroebner| 6) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10
-                                                 '(2 0 7 7 8 10 2 0 7 7 8
-                                                   9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|lexGroebner|
+                                 ((|List| (|Polynomial| |#1|))
+                                  (|List| (|Polynomial| |#1|))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|totalGroebner|
+                                 ((|List| (|Polynomial| |#1|))
+                                  (|List| (|Polynomial| |#1|))
+                                  (|List| (|Symbol|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10 '(2 0 7 7 8 10 2 0 7 7 8 9)))))
            '|lookupComplete|)) 

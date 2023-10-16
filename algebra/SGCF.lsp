@@ -868,33 +868,81 @@
               |nextLatticePermutation| 224 |nextColeman| 231 |makeYoungTableau|
               238 |listYoungTableaus| 244 |inverseColeman| 249 |coleman| 256)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 59
-                                                 '(2 7 6 6 6 8 2 6 9 0 0 10 1
-                                                   12 0 6 13 2 12 0 0 0 14 2 6
-                                                   9 0 0 16 2 12 6 0 6 18 3 19
-                                                   6 0 6 6 20 1 19 12 0 21 1 23
-                                                   12 12 24 2 19 6 0 6 25 2 26
-                                                   9 0 0 27 3 12 6 0 6 6 28 1
-                                                   12 6 0 30 4 31 6 0 6 6 6 32
-                                                   2 34 0 0 0 35 1 19 0 12 37 1
-                                                   31 0 0 38 2 31 9 0 0 39 2 31
-                                                   19 0 6 40 2 19 0 0 0 41 2 19
-                                                   9 0 0 43 3 31 0 0 6 19 44 2
-                                                   19 0 0 0 45 2 19 9 0 0 48 3
-                                                   31 6 0 6 6 49 1 51 0 12 52 2
-                                                   51 0 0 0 53 1 54 0 12 55 2
-                                                   51 12 0 6 56 2 54 0 0 0 57 1
-                                                   54 26 0 58 3 0 12 6 6 6 22 3
-                                                   0 12 6 6 6 15 3 0 12 6 6 6
-                                                   17 2 0 6 6 6 11 3 0 19 19 19
-                                                   6 42 3 0 19 12 19 6 47 3 0
-                                                   12 12 12 9 29 3 0 31 12 12
-                                                   31 46 2 0 31 12 12 33 1 0 34
-                                                   12 36 3 0 12 12 12 31 50 3 0
-                                                   31 12 12 12 59)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|coleman|
+                                 ((|Matrix| (|Integer|)) (|List| (|Integer|))
+                                  (|List| (|Integer|)) (|List| (|Integer|))))
+                                T)
+                              '((|inverseColeman|
+                                 ((|List| (|Integer|)) (|List| (|Integer|))
+                                  (|List| (|Integer|)) (|Matrix| (|Integer|))))
+                                T)
+                              '((|listYoungTableaus|
+                                 ((|List| (|Matrix| (|Integer|)))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|makeYoungTableau|
+                                 ((|Matrix| (|Integer|)) (|List| (|Integer|))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|nextColeman|
+                                 ((|Matrix| (|Integer|)) (|List| (|Integer|))
+                                  (|List| (|Integer|)) (|Matrix| (|Integer|))))
+                                T)
+                              '((|nextLatticePermutation|
+                                 ((|List| (|Integer|)) (|List| (|Integer|))
+                                  (|List| (|Integer|)) (|Boolean|)))
+                                T)
+                              '((|nextPartition|
+                                 ((|Vector| (|Integer|)) (|Vector| (|Integer|))
+                                  (|Vector| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|nextPartition|
+                                 ((|Vector| (|Integer|)) (|List| (|Integer|))
+                                  (|Vector| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|numberOfImproperPartitions|
+                                 ((|Integer|) (|Integer|) (|Integer|)))
+                                T)
+                              '((|subSet|
+                                 ((|List| (|Integer|)) (|Integer|) (|Integer|)
+                                  (|Integer|)))
+                                T)
+                              '((|unrankImproperPartitions0|
+                                 ((|List| (|Integer|)) (|Integer|) (|Integer|)
+                                  (|Integer|)))
+                                T)
+                              '((|unrankImproperPartitions1|
+                                 ((|List| (|Integer|)) (|Integer|) (|Integer|)
+                                  (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 59
+                                            '(2 7 6 6 6 8 2 6 9 0 0 10 1 12 0 6
+                                              13 2 12 0 0 0 14 2 6 9 0 0 16 2
+                                              12 6 0 6 18 3 19 6 0 6 6 20 1 19
+                                              12 0 21 1 23 12 12 24 2 19 6 0 6
+                                              25 2 26 9 0 0 27 3 12 6 0 6 6 28
+                                              1 12 6 0 30 4 31 6 0 6 6 6 32 2
+                                              34 0 0 0 35 1 19 0 12 37 1 31 0 0
+                                              38 2 31 9 0 0 39 2 31 19 0 6 40 2
+                                              19 0 0 0 41 2 19 9 0 0 43 3 31 0
+                                              0 6 19 44 2 19 0 0 0 45 2 19 9 0
+                                              0 48 3 31 6 0 6 6 49 1 51 0 12 52
+                                              2 51 0 0 0 53 1 54 0 12 55 2 51
+                                              12 0 6 56 2 54 0 0 0 57 1 54 26 0
+                                              58 3 0 12 6 6 6 22 3 0 12 6 6 6
+                                              15 3 0 12 6 6 6 17 2 0 6 6 6 11 3
+                                              0 19 19 19 6 42 3 0 19 12 19 6 47
+                                              3 0 12 12 12 9 29 3 0 31 12 12 31
+                                              46 2 0 31 12 12 33 1 0 34 12 36 3
+                                              0 12 12 12 31 50 3 0 31 12 12 12
+                                              59)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|SymmetricGroupCombinatoricFunctions| 'NILADIC T) 

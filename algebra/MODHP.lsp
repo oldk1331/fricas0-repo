@@ -1929,11 +1929,12 @@
               (255 . |monomial|) (261 . +) (267 . |setelt!|) (|List| 6)
               (274 . |entries|) (|Vector| 8) (279 . |setelt!|) (286 . |elt|)
               (|Matrix| 6) (292 . |setelt!|) (|Union| 104 19)
-              (|Union| '"good" '"reject" '"no_solution") (|Mapping| 107 99)
-              |MODHP;HP_solve_I;LLSNniMMU;10| (300 . |variables|)
-              (305 . |setUnion|) (311 . |Zero|) (315 . |monomial|) (321 . +)
-              (327 . |Zero|) (331 . |coerce|) (336 . |One|) (340 . |monomial|)
-              (347 . *) (353 . +) (|SortedExponentVector|) (|PrimitiveArray| 7)
+              (|Union| '#1="good" '#2="reject" '#3="no_solution")
+              (|Mapping| 107 99) |MODHP;HP_solve_I;LLSNniMMU;10|
+              (300 . |variables|) (305 . |setUnion|) (311 . |Zero|)
+              (315 . |monomial|) (321 . +) (327 . |Zero|) (331 . |coerce|)
+              (336 . |One|) (340 . |monomial|) (347 . *) (353 . +)
+              (|SortedExponentVector|) (|PrimitiveArray| 7)
               |MODHP;unpack_poly;LSevPa2ISup;12| (359 . |coerce|)
               (|SparseUnivariatePolynomial| 42) (|Mapping| 42 21)
               (|SparseUnivariatePolynomialFunctions2| 21 42) (364 . |map|)
@@ -1976,68 +1977,201 @@
               |LLFI_to_LPA| 548 |HP_solve_PA| 555 |HP_solve_P| 566 |HP_solve_M|
               577 |HP_solve_I| 588 |HP_solve_A| 598)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 172
-                                                 '(2 8 6 0 7 9 2 11 10 6 7 12 3
-                                                   13 10 0 7 10 14 1 17 16 0 18
-                                                   1 17 19 0 20 1 17 21 0 22 4
-                                                   25 7 21 23 24 7 26 1 17 0 0
-                                                   27 2 28 17 0 7 29 0 31 0 32
-                                                   2 7 19 0 0 33 1 31 7 0 34 2
-                                                   7 0 0 0 35 1 31 7 0 36 2 37
-                                                   0 0 0 38 1 42 21 0 43 1 42
-                                                   21 0 44 1 6 19 0 47 1 6 16 0
-                                                   48 1 6 7 0 49 1 6 0 0 50 1
-                                                   31 0 7 51 2 54 52 53 6 55 2
-                                                   13 10 0 7 56 0 52 0 57 5 11
-                                                   58 10 10 10 7 7 59 2 7 0 0 0
-                                                   63 2 24 7 64 0 65 1 66 0 24
-                                                   67 0 52 0 68 1 69 7 7 70 2
-                                                   24 19 7 0 71 1 37 0 7 72 6
-                                                   76 74 13 66 16 10 7 75 77 2
-                                                   66 7 0 7 78 1 79 0 7 80 2 16
-                                                   0 81 0 82 1 84 0 83 85 1 86
-                                                   58 84 87 1 7 84 0 88 3 89 10
-                                                   0 7 7 90 3 79 58 10 7 0 91 3
-                                                   66 7 0 7 7 92 2 79 93 0 66
-                                                   94 0 6 0 95 2 6 0 7 16 96 2
-                                                   6 0 0 0 97 3 8 6 0 7 6 98 1
-                                                   8 99 0 100 3 101 8 0 7 8 102
-                                                   2 101 8 0 7 103 4 104 6 0 7
-                                                   7 6 105 1 21 23 0 110 2 23 0
-                                                   0 0 111 0 17 0 112 2 17 0 21
-                                                   16 113 2 17 0 0 0 114 0 21 0
-                                                   115 1 21 0 7 116 0 21 0 117
-                                                   3 21 0 0 75 16 118 2 21 0 0
-                                                   0 119 2 21 0 0 0 120 1 42 0
-                                                   21 124 2 127 125 126 17 128
-                                                   1 125 19 0 129 1 125 16 0
-                                                   130 1 125 42 0 131 1 125 0 0
-                                                   132 1 42 31 0 133 2 52 0 31
-                                                   16 134 2 52 0 0 0 135 0 125
-                                                   0 136 3 104 6 0 7 7 137 4
-                                                   138 17 0 7 7 17 139 2 23 19
-                                                   75 0 140 1 23 0 0 141 0 125
-                                                   0 143 1 145 0 144 146 8 76
-                                                   148 23 149 66 16 10 75 75 61
-                                                   150 2 7 19 0 0 151 3 28 17 0
-                                                   7 17 152 1 28 153 0 154 3
-                                                   155 28 0 7 28 156 2 155 28 0
-                                                   7 157 1 28 84 0 158 1 10 0
-                                                   24 162 5 0 17 23 121 122 7 7
-                                                   123 3 0 23 45 75 75 142 6 0
-                                                   10 13 60 61 7 7 7 62 4 0 13
-                                                   28 23 24 7 30 2 0 13 8 7 15
-                                                   5 0 39 45 7 23 24 7 46 3 0
-                                                   39 40 7 7 41 7 0 169 170 24
-                                                   75 75 16 61 171 172 7 0 159
-                                                   45 24 75 75 16 61 160 161 7
-                                                   0 106 163 24 75 7 16 61 108
-                                                   164 6 0 106 40 24 75 16 61
-                                                   108 109 6 0 165 166 24 75 16
-                                                   61 167 168)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|HP_solve_I|
+                                 ((|Union|
+                                   (|Matrix|
+                                    (|SparseUnivariatePolynomial| (|Integer|)))
+                                   (|Boolean|))
+                                  (|List| (|List| (|Fraction| (|Integer|))))
+                                  (|List| (|Integer|)) (|Symbol|)
+                                  (|NonNegativeInteger|)
+                                  (|Mapping| (|Vector| (|U32Vector|))
+                                             (|List| (|U32Vector|)) (|Integer|)
+                                             (|Integer|))
+                                  (|Mapping| (|Union| #1# #2# #3#)
+                                             (|List|
+                                              (|SparseUnivariatePolynomial|
+                                               (|Integer|))))))
+                                T)
+                              '((|HP_solve_A|
+                                 ((|Union|
+                                   (|Matrix|
+                                    (|SparseUnivariatePolynomial|
+                                     (|AlgebraicNumber|)))
+                                   (|Boolean|))
+                                  (|List| (|List| (|AlgebraicNumber|)))
+                                  (|List| (|Integer|)) (|Symbol|)
+                                  (|NonNegativeInteger|)
+                                  (|Mapping| (|Vector| (|U32Vector|))
+                                             (|List| (|U32Vector|)) (|Integer|)
+                                             (|Integer|))
+                                  (|Mapping| (|Union| #1# #2# #3#)
+                                             (|List|
+                                              (|SparseUnivariatePolynomial|
+                                               (|AlgebraicNumber|))))))
+                                T)
+                              '((|HP_solve_P|
+                                 ((|Union|
+                                   (|Matrix|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Polynomial| (|Integer|))))
+                                   (|Boolean|))
+                                  (|List|
+                                   (|List|
+                                    (|Fraction| (|Polynomial| (|Integer|)))))
+                                  (|List| (|Integer|)) (|Symbol|) (|Symbol|)
+                                  (|NonNegativeInteger|)
+                                  (|Mapping| (|Vector| (|U32Vector|))
+                                             (|List| (|U32Vector|)) (|Integer|)
+                                             (|Integer|))
+                                  (|Mapping| (|Union| #1# #2# #3#)
+                                             (|List|
+                                              (|SparseUnivariatePolynomial|
+                                               (|Polynomial| (|Integer|)))))))
+                                T)
+                              '((|HP_solve_PA|
+                                 ((|Union|
+                                   (|Matrix|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Polynomial| (|AlgebraicNumber|))))
+                                   (|Boolean|))
+                                  (|List|
+                                   (|List|
+                                    (|Fraction|
+                                     (|Polynomial| (|AlgebraicNumber|)))))
+                                  (|List| (|Integer|)) (|Symbol|) (|Symbol|)
+                                  (|NonNegativeInteger|)
+                                  (|Mapping| (|Vector| (|U32Vector|))
+                                             (|List| (|U32Vector|)) (|Integer|)
+                                             (|Integer|))
+                                  (|Mapping| (|Union| #1# #2# #3#)
+                                             (|List|
+                                              (|SparseUnivariatePolynomial|
+                                               (|Polynomial|
+                                                (|AlgebraicNumber|)))))))
+                                T)
+                              '((|HP_solve_M|
+                                 ((|Union|
+                                   (|Matrix|
+                                    (|SparseUnivariatePolynomial| (|Integer|)))
+                                   (|Boolean|))
+                                  (|List| (|List| (|Integer|)))
+                                  (|List| (|Integer|)) (|Symbol|) (|Integer|)
+                                  (|NonNegativeInteger|)
+                                  (|Mapping| (|Vector| (|U32Vector|))
+                                             (|List| (|U32Vector|)) (|Integer|)
+                                             (|Integer|))
+                                  (|Mapping| (|Union| #1# #2# #3#)
+                                             (|List|
+                                              (|SparseUnivariatePolynomial|
+                                               (|Integer|))))))
+                                T)
+                              '((|check_sol1a|
+                                 ((|U32Vector|) (|Vector| (|U32Vector|))
+                                  (|List| (|U32Vector|))
+                                  (|Mapping| (|Vector| (|U32Vector|))
+                                             (|List| (|U32Vector|)) (|Integer|)
+                                             (|Integer|))
+                                  (|Integer|) (|Integer|) (|Integer|)))
+                                T)
+                              '((|VSUPI_to_VPA|
+                                 ((|Vector| (|U32Vector|))
+                                  (|Vector|
+                                   (|SparseUnivariatePolynomial| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|VSUPPI_to_VPA|
+                                 ((|Vector| (|U32Vector|))
+                                  (|Vector|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Polynomial| (|Integer|))))
+                                  (|List| (|Symbol|)) (|List| (|Integer|))
+                                  (|Integer|)))
+                                T)
+                              '((|LLFI_to_LPA|
+                                 ((|Union| (|List| (|U32Vector|)) "failed")
+                                  (|List| (|List| (|Fraction| (|Integer|))))
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|LLFPI_to_LPA|
+                                 ((|Union| (|List| (|U32Vector|)) "failed")
+                                  (|List|
+                                   (|List|
+                                    (|Fraction| (|Polynomial| (|Integer|)))))
+                                  (|Integer|) (|List| (|Symbol|))
+                                  (|List| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|get_variables|
+                                 ((|List| (|Symbol|))
+                                  (|List|
+                                   (|List|
+                                    (|Fraction| (|Polynomial| (|Integer|)))))
+                                  (|Symbol|) (|Symbol|)))
+                                T)
+                              '((|unpack_poly|
+                                 ((|SparseUnivariatePolynomial|
+                                   (|Polynomial| (|Integer|)))
+                                  (|List| (|Symbol|)) (|SortedExponentVector|)
+                                  (|PrimitiveArray| (|Integer|)) (|Integer|)
+                                  (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 172
+                                            '(2 8 6 0 7 9 2 11 10 6 7 12 3 13
+                                              10 0 7 10 14 1 17 16 0 18 1 17 19
+                                              0 20 1 17 21 0 22 4 25 7 21 23 24
+                                              7 26 1 17 0 0 27 2 28 17 0 7 29 0
+                                              31 0 32 2 7 19 0 0 33 1 31 7 0 34
+                                              2 7 0 0 0 35 1 31 7 0 36 2 37 0 0
+                                              0 38 1 42 21 0 43 1 42 21 0 44 1
+                                              6 19 0 47 1 6 16 0 48 1 6 7 0 49
+                                              1 6 0 0 50 1 31 0 7 51 2 54 52 53
+                                              6 55 2 13 10 0 7 56 0 52 0 57 5
+                                              11 58 10 10 10 7 7 59 2 7 0 0 0
+                                              63 2 24 7 64 0 65 1 66 0 24 67 0
+                                              52 0 68 1 69 7 7 70 2 24 19 7 0
+                                              71 1 37 0 7 72 6 76 74 13 66 16
+                                              10 7 75 77 2 66 7 0 7 78 1 79 0 7
+                                              80 2 16 0 81 0 82 1 84 0 83 85 1
+                                              86 58 84 87 1 7 84 0 88 3 89 10 0
+                                              7 7 90 3 79 58 10 7 0 91 3 66 7 0
+                                              7 7 92 2 79 93 0 66 94 0 6 0 95 2
+                                              6 0 7 16 96 2 6 0 0 0 97 3 8 6 0
+                                              7 6 98 1 8 99 0 100 3 101 8 0 7 8
+                                              102 2 101 8 0 7 103 4 104 6 0 7 7
+                                              6 105 1 21 23 0 110 2 23 0 0 0
+                                              111 0 17 0 112 2 17 0 21 16 113 2
+                                              17 0 0 0 114 0 21 0 115 1 21 0 7
+                                              116 0 21 0 117 3 21 0 0 75 16 118
+                                              2 21 0 0 0 119 2 21 0 0 0 120 1
+                                              42 0 21 124 2 127 125 126 17 128
+                                              1 125 19 0 129 1 125 16 0 130 1
+                                              125 42 0 131 1 125 0 0 132 1 42
+                                              31 0 133 2 52 0 31 16 134 2 52 0
+                                              0 0 135 0 125 0 136 3 104 6 0 7 7
+                                              137 4 138 17 0 7 7 17 139 2 23 19
+                                              75 0 140 1 23 0 0 141 0 125 0 143
+                                              1 145 0 144 146 8 76 148 23 149
+                                              66 16 10 75 75 61 150 2 7 19 0 0
+                                              151 3 28 17 0 7 17 152 1 28 153 0
+                                              154 3 155 28 0 7 28 156 2 155 28
+                                              0 7 157 1 28 84 0 158 1 10 0 24
+                                              162 5 0 17 23 121 122 7 7 123 3 0
+                                              23 45 75 75 142 6 0 10 13 60 61 7
+                                              7 7 62 4 0 13 28 23 24 7 30 2 0
+                                              13 8 7 15 5 0 39 45 7 23 24 7 46
+                                              3 0 39 40 7 7 41 7 0 169 170 24
+                                              75 75 16 61 171 172 7 0 159 45 24
+                                              75 75 16 61 160 161 7 0 106 163
+                                              24 75 7 16 61 108 164 6 0 106 40
+                                              24 75 16 61 108 109 6 0 165 166
+                                              24 75 16 61 167 168)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ModularHermitePade| 'NILADIC T) 

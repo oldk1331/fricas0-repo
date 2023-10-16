@@ -98,14 +98,19 @@
               (37 . |rst|) (42 . |concat|) (|Mapping| $) (48 . |delay|)
               (53 . |series|) |ULSCAT-;laurent;ISS;2|)
            '#(|laurent| 58) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 26
-                                                 '(1 9 8 0 10 0 12 0 13 1 9 7 0
-                                                   14 1 7 8 0 15 0 6 0 16 0 7 0
-                                                   17 0 18 0 19 2 18 0 0 0 20 1
-                                                   9 0 0 21 2 12 0 11 0 22 1 12
-                                                   0 23 24 1 6 0 12 25 2 0 0 18
-                                                   9 26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|laurent| (|#1| (|Integer|) (|Stream| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 26
+                                            '(1 9 8 0 10 0 12 0 13 1 9 7 0 14 1
+                                              7 8 0 15 0 6 0 16 0 7 0 17 0 18 0
+                                              19 2 18 0 0 0 20 1 9 0 0 21 2 12
+                                              0 11 0 22 1 12 0 23 24 1 6 0 12
+                                              25 2 0 0 18 9 26)))))
            '|lookupComplete|)) 

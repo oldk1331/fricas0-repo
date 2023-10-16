@@ -318,24 +318,54 @@
            '#(|times| 151 |rightDivide| 159 |monicRightDivide| 166
               |monicLeftDivide| 173 |leftDivide| 180 |apply| 187)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 43
-                                                 '(1 7 8 0 9 0 7 0 10 1 7 11 0
-                                                   12 0 6 0 16 0 7 0 17 2 11 18
-                                                   0 0 19 0 6 0 20 1 7 6 0 21 2
-                                                   7 0 6 0 22 1 7 0 0 23 2 7 8
-                                                   0 0 24 2 13 6 0 6 25 2 7 0 6
-                                                   11 26 2 7 0 0 0 27 2 7 6 0
-                                                   11 28 2 6 0 0 0 29 2 6 0 0 0
-                                                   30 2 13 0 0 32 33 2 7 0 0 0
-                                                   34 2 7 0 0 0 35 1 6 8 0 36 1
-                                                   6 18 0 37 3 0 38 7 7 13 39 3
-                                                   0 38 7 7 13 40 1 6 0 0 41 3
-                                                   0 38 7 7 13 42 3 0 38 7 7 13
-                                                   43 4 0 7 7 7 13 14 15 3 1 38
-                                                   7 7 13 43 3 2 38 7 7 13 40 3
-                                                   2 38 7 7 13 39 3 1 38 7 7 13
-                                                   42 5 0 6 7 6 6 13 14 31)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|times|
+                                 (|#2| |#2| |#2| (|Automorphism| |#1|)
+                                  (|Mapping| |#1| |#1|)))
+                                T)
+                              '((|apply|
+                                 (|#1| |#2| |#1| |#1| (|Automorphism| |#1|)
+                                  (|Mapping| |#1| |#1|)))
+                                T)
+                              '((|monicLeftDivide|
+                                 ((|Record| (|:| |quotient| |#2|)
+                                            (|:| |remainder| |#2|))
+                                  |#2| |#2| (|Automorphism| |#1|)))
+                                (|has| 6 (|IntegralDomain|)))
+                              '((|monicRightDivide|
+                                 ((|Record| (|:| |quotient| |#2|)
+                                            (|:| |remainder| |#2|))
+                                  |#2| |#2| (|Automorphism| |#1|)))
+                                (|has| 6 (|IntegralDomain|)))
+                              '((|leftDivide|
+                                 ((|Record| (|:| |quotient| |#2|)
+                                            (|:| |remainder| |#2|))
+                                  |#2| |#2| (|Automorphism| |#1|)))
+                                (|has| 6 (|Field|)))
+                              '((|rightDivide|
+                                 ((|Record| (|:| |quotient| |#2|)
+                                            (|:| |remainder| |#2|))
+                                  |#2| |#2| (|Automorphism| |#1|)))
+                                (|has| 6 (|Field|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 43
+                                            '(1 7 8 0 9 0 7 0 10 1 7 11 0 12 0
+                                              6 0 16 0 7 0 17 2 11 18 0 0 19 0
+                                              6 0 20 1 7 6 0 21 2 7 0 6 0 22 1
+                                              7 0 0 23 2 7 8 0 0 24 2 13 6 0 6
+                                              25 2 7 0 6 11 26 2 7 0 0 0 27 2 7
+                                              6 0 11 28 2 6 0 0 0 29 2 6 0 0 0
+                                              30 2 13 0 0 32 33 2 7 0 0 0 34 2
+                                              7 0 0 0 35 1 6 8 0 36 1 6 18 0 37
+                                              3 0 38 7 7 13 39 3 0 38 7 7 13 40
+                                              1 6 0 0 41 3 0 38 7 7 13 42 3 0
+                                              38 7 7 13 43 4 0 7 7 7 13 14 15 3
+                                              1 38 7 7 13 43 3 2 38 7 7 13 40 3
+                                              2 38 7 7 13 39 3 1 38 7 7 13 42 5
+                                              0 6 7 6 6 13 14 31)))))
            '|lookupComplete|)) 

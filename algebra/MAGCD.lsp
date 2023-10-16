@@ -46,6 +46,18 @@
               (|local| |#1|) (|local| |#2|) (|local| |#3|)
               (|Polynomial| (|Integer|)) (|List| 9) (|List| 12) (|Symbol|))
            '#() 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#() (CONS '#() (|makeByteWordVec2| -999999 'NIL))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|algebraicGcd|
+                                 ((|Polynomial| (|Integer|))
+                                  #1=(|Polynomial| (|Integer|)) #1#
+                                  (|List| #1#) (|List| (|Symbol|)) (|Symbol|)
+                                  (|List| (|Symbol|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

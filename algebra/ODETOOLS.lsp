@@ -135,22 +135,41 @@
               (59 . |particularSolution|)
               |ODETOOLS;variationOfParameters;LODOFLU;3| (|Boolean|)
               (65 . |zero?|) (70 . |minIndex|) (75 . *) (81 . +)
-              (|Union| 6 '"failed") |ODETOOLS;particularSolution;LODOFLMU;4|)
+              (|Union| 6 '#1="failed")
+              |ODETOOLS;particularSolution;LODOFLMU;4|)
            '#(|wronskianMatrix| 87 |variationOfParameters| 98
               |particularSolution| 105)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 38
-                                                 '(0 7 0 8 1 15 0 11 16 2 10 0
-                                                   12 12 17 1 10 18 0 19 3 10 0
-                                                   0 18 15 20 2 7 6 0 6 21 2 15
-                                                   0 22 0 23 1 7 12 0 24 0 6 0
-                                                   25 1 7 6 0 26 2 6 0 0 0 27 2
-                                                   29 28 10 15 30 1 6 32 0 33 1
-                                                   15 18 0 34 2 6 0 0 0 35 2 6
-                                                   0 0 0 36 2 0 10 11 12 13 1 0
-                                                   10 11 14 3 0 28 7 6 11 31 4
-                                                   0 37 7 6 11 22 38)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|wronskianMatrix|
+                                 ((|Matrix| |#1|) (|List| |#1|)))
+                                T)
+                              '((|wronskianMatrix|
+                                 ((|Matrix| |#1|) (|List| |#1|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|variationOfParameters|
+                                 ((|Union| (|Vector| |#1|) "failed") |#2| |#1|
+                                  (|List| |#1|)))
+                                T)
+                              '((|particularSolution|
+                                 ((|Union| |#1| #1#) |#2| |#1| (|List| |#1|)
+                                  (|Mapping| |#1| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 38
+                                            '(0 7 0 8 1 15 0 11 16 2 10 0 12 12
+                                              17 1 10 18 0 19 3 10 0 0 18 15 20
+                                              2 7 6 0 6 21 2 15 0 22 0 23 1 7
+                                              12 0 24 0 6 0 25 1 7 6 0 26 2 6 0
+                                              0 0 27 2 29 28 10 15 30 1 6 32 0
+                                              33 1 15 18 0 34 2 6 0 0 0 35 2 6
+                                              0 0 0 36 2 0 10 11 12 13 1 0 10
+                                              11 14 3 0 28 7 6 11 31 4 0 37 7 6
+                                              11 22 38)))))
            '|lookupComplete|)) 

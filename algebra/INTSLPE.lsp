@@ -117,14 +117,27 @@
               (|Union| 10 '"failed") (|Vector| 10) (23 . |solveid|)
               |INTSLPE;solveLinearPolynomialEquation;LSupU;1|)
            '#(|solveLinearPolynomialEquation| 30) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 24
-                                                 '(2 10 9 0 0 11 1 13 12 0 14 3
-                                                   17 15 12 16 10 18 1 19 16 16
-                                                   20 3 17 21 13 16 22 23 2 0
-                                                   21 10 13 24)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solveLinearPolynomialEquation|
+                                 ((|Union|
+                                   (|List|
+                                    (|SparseUnivariatePolynomial| (|Integer|)))
+                                   "failed")
+                                  (|List|
+                                   (|SparseUnivariatePolynomial| (|Integer|)))
+                                  (|SparseUnivariatePolynomial| (|Integer|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 24
+                                            '(2 10 9 0 0 11 1 13 12 0 14 3 17
+                                              15 12 16 10 18 1 19 16 16 20 3 17
+                                              21 13 16 22 23 2 0 21 10 13
+                                              24)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|IntegerSolveLinearPolynomialEquation| 'NILADIC T) 

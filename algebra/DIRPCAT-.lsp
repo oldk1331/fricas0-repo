@@ -238,29 +238,85 @@
               |dimension| 212 |differentiate| 216 |coerce| 222 |characteristic|
               227 / 231)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 59
-                                                 '(1 8 0 9 10 1 6 0 8 11 1 0 0
-                                                   9 12 0 8 13 14 0 0 13 15 2 6
-                                                   0 16 0 17 2 0 0 0 16 18 0 8
-                                                   0 19 1 20 9 0 21 1 20 9 0 22
-                                                   2 6 8 0 9 23 1 25 24 0 26 2
-                                                   20 0 0 0 27 1 25 9 0 28 2 25
-                                                   29 0 9 30 2 32 20 31 0 33 1
-                                                   0 20 34 35 1 29 24 0 36 1 25
-                                                   0 29 37 1 6 20 34 38 2 20 39
-                                                   0 9 40 2 0 41 34 42 43 1 8 0
-                                                   0 44 2 6 0 0 8 45 2 0 0 0 8
-                                                   46 1 47 0 13 48 0 0 47 49 0
-                                                   8 13 50 0 0 13 51 1 8 0 52
-                                                   53 3 39 8 0 9 8 54 1 6 0 39
-                                                   55 1 0 0 52 56 2 6 8 0 9 57
-                                                   1 8 52 0 58 1 0 52 0 59 0 0
-                                                   13 51 2 0 41 34 42 43 1 0 20
-                                                   34 35 1 0 52 0 59 1 0 0 52
-                                                   56 0 0 47 49 2 0 0 0 16 18 1
-                                                   0 0 9 12 0 0 13 15 2 0 0 0 8
-                                                   46)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|coerce| (|#1| |#3|)) T)
+                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
+                                     T)
+                                   '((|coerce| (|#1| (|Integer|))) T)
+                                   '((|coerce| ((|OutputForm|) |#1|)) T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|Mapping| |#3| |#3|)))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|Mapping| |#3| |#3|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|List| (|Symbol|))
+                                       (|List| (|NonNegativeInteger|))))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|Symbol|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|List| (|Symbol|))))
+                                     T)
+                                   '((|differentiate| (|#1| |#1| (|Symbol|)))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|NonNegativeInteger|)))
+                                     T)
+                                   '((|differentiate| (|#1| |#1|)) T)
+                                   '((|characteristic|
+                                      ((|NonNegativeInteger|)))
+                                     T)
+                                   '((|reducedSystem|
+                                      ((|Matrix| |#3|) (|Matrix| |#1|)))
+                                     T)
+                                   '((|reducedSystem|
+                                      ((|Record| (|:| |mat| (|Matrix| |#3|))
+                                                 (|:| |vec| (|Vector| |#3|)))
+                                       (|Matrix| |#1|) (|Vector| |#1|)))
+                                     T)
+                                   '((|reducedSystem|
+                                      ((|Record|
+                                        (|:| |mat| (|Matrix| (|Integer|)))
+                                        (|:| |vec| (|Vector| (|Integer|))))
+                                       (|Matrix| |#1|) (|Vector| |#1|)))
+                                     T)
+                                   '((|reducedSystem|
+                                      ((|Matrix| (|Integer|)) (|Matrix| |#1|)))
+                                     T)
+                                   '((|size| ((|NonNegativeInteger|))) T)
+                                   '((|index| (|#1| (|PositiveInteger|))) T)
+                                   '((|lookup| ((|PositiveInteger|) |#1|)) T)
+                                   '((|coerce| (|#1| |#1|)) T)
+                                   '((/ (|#1| |#1| |#3|)) T)
+                                   '((|dimension| ((|CardinalNumber|))) T)
+                                   '((|coerce| ((|Vector| |#3|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 59
+                                            '(1 8 0 9 10 1 6 0 8 11 1 0 0 9 12
+                                              0 8 13 14 0 0 13 15 2 6 0 16 0 17
+                                              2 0 0 0 16 18 0 8 0 19 1 20 9 0
+                                              21 1 20 9 0 22 2 6 8 0 9 23 1 25
+                                              24 0 26 2 20 0 0 0 27 1 25 9 0 28
+                                              2 25 29 0 9 30 2 32 20 31 0 33 1
+                                              0 20 34 35 1 29 24 0 36 1 25 0 29
+                                              37 1 6 20 34 38 2 20 39 0 9 40 2
+                                              0 41 34 42 43 1 8 0 0 44 2 6 0 0
+                                              8 45 2 0 0 0 8 46 1 47 0 13 48 0
+                                              0 47 49 0 8 13 50 0 0 13 51 1 8 0
+                                              52 53 3 39 8 0 9 8 54 1 6 0 39 55
+                                              1 0 0 52 56 2 6 8 0 9 57 1 8 52 0
+                                              58 1 0 52 0 59 0 0 13 51 2 0 41
+                                              34 42 43 1 0 20 34 35 1 0 52 0 59
+                                              1 0 0 52 56 0 0 47 49 2 0 0 0 16
+                                              18 1 0 0 9 12 0 0 13 15 2 0 0 0 8
+                                              46)))))
            '|lookupComplete|)) 

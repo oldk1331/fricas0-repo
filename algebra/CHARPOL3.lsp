@@ -274,27 +274,41 @@
            '#(|det_via_common_denominator| 197 |char_pol_via_interpolation| 202
               |char_pol_via_den_interpolation| 207)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 59
-                                                 '(2 8 7 0 0 9 1 10 0 0 11 0 12
-                                                   0 13 0 12 0 14 0 15 0 16 1
-                                                   10 6 0 17 1 6 0 18 19 1 20 0
-                                                   6 21 3 12 0 0 15 20 22 1 12
-                                                   20 0 23 2 20 0 0 0 24 2 20 0
-                                                   0 0 25 2 12 0 20 0 26 2 12 0
-                                                   0 0 27 0 6 0 28 0 20 0 29 2
-                                                   12 0 20 8 30 1 12 0 20 31 2
-                                                   12 0 0 0 32 2 12 0 0 0 33 3
-                                                   10 6 0 18 18 34 2 6 0 0 0 35
-                                                   4 10 6 0 18 18 6 36 1 20 6 0
-                                                   37 2 40 38 39 12 41 0 6 0 43
-                                                   1 20 6 0 44 1 6 0 45 46 2 6
-                                                   47 0 0 48 1 20 6 0 49 2 6 0
-                                                   0 0 50 3 52 6 51 0 6 53 2 20
-                                                   0 6 6 54 1 0 20 55 56 2 12 0
-                                                   57 0 58 1 0 12 55 59 1 1 20
-                                                   55 56 1 0 38 10 42 1 1 12 55
-                                                   59)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|char_pol_via_interpolation|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|det_via_common_denominator|
+                                 ((|Fraction| |#1|)
+                                  (|Matrix| (|Fraction| |#1|))))
+                                (|has| 6 (|GcdDomain|)))
+                              '((|char_pol_via_den_interpolation|
+                                 ((|SparseUnivariatePolynomial|
+                                   (|Fraction| |#1|))
+                                  (|Matrix| (|Fraction| |#1|))))
+                                (|has| 6 (|GcdDomain|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 59
+                                            '(2 8 7 0 0 9 1 10 0 0 11 0 12 0 13
+                                              0 12 0 14 0 15 0 16 1 10 6 0 17 1
+                                              6 0 18 19 1 20 0 6 21 3 12 0 0 15
+                                              20 22 1 12 20 0 23 2 20 0 0 0 24
+                                              2 20 0 0 0 25 2 12 0 20 0 26 2 12
+                                              0 0 0 27 0 6 0 28 0 20 0 29 2 12
+                                              0 20 8 30 1 12 0 20 31 2 12 0 0 0
+                                              32 2 12 0 0 0 33 3 10 6 0 18 18
+                                              34 2 6 0 0 0 35 4 10 6 0 18 18 6
+                                              36 1 20 6 0 37 2 40 38 39 12 41 0
+                                              6 0 43 1 20 6 0 44 1 6 0 45 46 2
+                                              6 47 0 0 48 1 20 6 0 49 2 6 0 0 0
+                                              50 3 52 6 51 0 6 53 2 20 0 6 6 54
+                                              1 0 20 55 56 2 12 0 57 0 58 1 0
+                                              12 55 59 1 1 20 55 56 1 0 38 10
+                                              42 1 1 12 55 59)))))
            '|lookupComplete|)) 

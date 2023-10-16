@@ -307,17 +307,32 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|cache| '|cache_size|
               '|cache_use| (|PositiveInteger|) (|NonNegativeInteger|) (0 . *)
               (|Void|) (6 . |void|) (10 . |position|) (15 . |setPosition|)
-              |SCACHE;clearCache;V;4| (|Union| 6 '"failed")
+              |SCACHE;clearCache;V;4| (|Union| 6 '#1="failed")
               (|Mapping| (|Boolean|) 6) |SCACHE;linearSearch;SMU;6|
               |SCACHE;enterInCache;SMS;7| (|Mapping| (|Integer|) 6 6)
               |SCACHE;enterInCache;SMS;8|)
            '#(|linearSearch| 21 |enterInCache| 27 |clearCache| 39) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 23
-                                                 '(2 11 0 10 0 12 0 13 0 14 1 6
-                                                   11 0 15 2 6 13 0 11 16 2 0
-                                                   18 6 19 20 2 0 6 6 19 21 2 0
-                                                   6 6 22 23 0 0 13 17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|clearCache| ((|Void|))) T)
+                                   '((|enterInCache|
+                                      (|#1| |#1| (|Mapping| (|Boolean|) |#1|)))
+                                     T)
+                                   '((|linearSearch|
+                                      ((|Union| |#1| #1#) |#1|
+                                       (|Mapping| (|Boolean|) |#1|)))
+                                     T)
+                                   '((|enterInCache|
+                                      (|#1| |#1|
+                                       (|Mapping| (|Integer|) |#1| |#1|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 23
+                                            '(2 11 0 10 0 12 0 13 0 14 1 6 11 0
+                                              15 2 6 13 0 11 16 2 0 18 6 19 20
+                                              2 0 6 6 19 21 2 0 6 6 22 23 0 0
+                                              13 17)))))
            '|lookupComplete|)) 

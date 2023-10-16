@@ -552,40 +552,95 @@
               314 |linearlyDependentOverConstants?| 320
               |linearDependenceOverConstants| 326 |constant_subspace| 332)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 105
-                                                 '(2 10 9 0 0 11 1 7 0 12 13 0
-                                                   7 0 14 2 7 9 0 0 15 1 16 0 7
-                                                   17 1 10 18 0 19 1 16 18 18
-                                                   20 1 10 21 0 22 2 18 23 0 24
-                                                   25 1 21 7 0 26 1 7 12 0 27 2
-                                                   28 9 10 0 29 0 24 0 30 1 16
-                                                   0 24 31 1 7 24 0 32 2 7 0 0
-                                                   24 33 2 21 7 0 34 35 2 16 0
-                                                   18 36 37 1 7 0 6 38 1 7 39 0
-                                                   40 3 44 16 41 42 43 45 1 7
-                                                   39 0 46 2 16 0 0 0 47 2 51
-                                                   48 49 50 52 2 55 53 49 54 56
-                                                   1 57 9 48 58 1 57 62 48 63 2
-                                                   57 62 48 16 65 2 57 62 53 48
-                                                   67 2 57 69 48 16 70 2 57 69
-                                                   53 48 72 1 16 54 74 75 2 16
-                                                   77 74 78 79 0 6 0 83 0 7 0
-                                                   84 1 50 21 0 85 1 54 0 86 87
-                                                   0 6 0 88 2 54 0 89 7 90 2 54
-                                                   0 0 0 91 1 54 0 0 92 3 54 7
-                                                   0 34 34 93 2 7 9 0 0 94 2 34
-                                                   9 0 0 95 2 54 50 0 34 96 1
-                                                   54 0 0 97 2 98 50 50 81 99 2
-                                                   50 7 0 34 100 2 101 0 34 34
-                                                   102 2 50 0 0 101 103 3 0 69
-                                                   50 7 60 71 3 0 69 54 50 60
-                                                   73 3 0 77 54 50 60 80 2 0 54
-                                                   54 60 76 3 0 62 50 7 60 66 3
-                                                   0 62 54 50 60 68 2 0 81 54
-                                                   60 82 2 0 9 50 60 61 2 0 62
-                                                   50 60 64 2 0 104 81 60
-                                                   105)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|linearlyDependentOverConstants?|
+                                 ((|Boolean|) (|Vector| |#2|)
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T)
+                              '((|linearDependenceOverConstants|
+                                 ((|Union| (|Vector| |#2|) "failed")
+                                  (|Vector| |#2|)
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T)
+                              '((|particularSolutionOverConstants|
+                                 ((|Union| (|Vector| |#2|) #1="failed")
+                                  (|Vector| |#2|) |#2|
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T)
+                              '((|particularSolutionOverConstants|
+                                 ((|Union| (|Vector| |#2|) #1#) (|Matrix| |#2|)
+                                  (|Vector| |#2|)
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T)
+                              '((|solveLinearOverConstants|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Vector| |#2|) #1#))
+                                   (|:| |basis| (|List| (|Vector| |#2|))))
+                                  (|Vector| |#2|) |#2|
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T)
+                              '((|solveLinearOverConstants|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Vector| |#2|) #1#))
+                                   (|:| |basis| (|List| (|Vector| |#2|))))
+                                  (|Matrix| |#2|) (|Vector| |#2|)
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T)
+                              '((|reducedSystem|
+                                 ((|Record| (|:| |mat| (|Matrix| |#2|))
+                                            (|:| |vec| (|Vector| |#2|)))
+                                  (|Matrix| |#2|) (|Vector| |#2|)
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T)
+                              '((|reducedSystem|
+                                 ((|Matrix| |#2|) (|Matrix| |#2|)
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T)
+                              '((|nullSpaceOverConstants|
+                                 ((|List| (|Vector| |#2|)) (|Matrix| |#2|)
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T)
+                              '((|constant_subspace|
+                                 ((|Record| (|:| |transform| (|Matrix| |#2|))
+                                            (|:| |basis|
+                                                 (|List| (|Vector| |#2|))))
+                                  (|List| (|Vector| |#2|))
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 105
+                                            '(2 10 9 0 0 11 1 7 0 12 13 0 7 0
+                                              14 2 7 9 0 0 15 1 16 0 7 17 1 10
+                                              18 0 19 1 16 18 18 20 1 10 21 0
+                                              22 2 18 23 0 24 25 1 21 7 0 26 1
+                                              7 12 0 27 2 28 9 10 0 29 0 24 0
+                                              30 1 16 0 24 31 1 7 24 0 32 2 7 0
+                                              0 24 33 2 21 7 0 34 35 2 16 0 18
+                                              36 37 1 7 0 6 38 1 7 39 0 40 3 44
+                                              16 41 42 43 45 1 7 39 0 46 2 16 0
+                                              0 0 47 2 51 48 49 50 52 2 55 53
+                                              49 54 56 1 57 9 48 58 1 57 62 48
+                                              63 2 57 62 48 16 65 2 57 62 53 48
+                                              67 2 57 69 48 16 70 2 57 69 53 48
+                                              72 1 16 54 74 75 2 16 77 74 78 79
+                                              0 6 0 83 0 7 0 84 1 50 21 0 85 1
+                                              54 0 86 87 0 6 0 88 2 54 0 89 7
+                                              90 2 54 0 0 0 91 1 54 0 0 92 3 54
+                                              7 0 34 34 93 2 7 9 0 0 94 2 34 9
+                                              0 0 95 2 54 50 0 34 96 1 54 0 0
+                                              97 2 98 50 50 81 99 2 50 7 0 34
+                                              100 2 101 0 34 34 102 2 50 0 0
+                                              101 103 3 0 69 50 7 60 71 3 0 69
+                                              54 50 60 73 3 0 77 54 50 60 80 2
+                                              0 54 54 60 76 3 0 62 50 7 60 66 3
+                                              0 62 54 50 60 68 2 0 81 54 60 82
+                                              2 0 9 50 60 61 2 0 62 50 60 64 2
+                                              0 104 81 60 105)))))
            '|lookupComplete|)) 

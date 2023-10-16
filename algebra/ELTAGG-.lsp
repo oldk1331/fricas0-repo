@@ -40,11 +40,16 @@
               (|local| |#3|) (0 . |elt|) |ELTAGG-;qelt;SDomIm;1|
               (6 . |setelt!|) (13 . |qsetelt!|))
            '#(|qsetelt!| 20 |qelt| 27) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 12
-                                                 '(2 6 8 0 7 9 3 6 8 0 7 8 11 3
-                                                   0 8 0 7 8 12 3 0 8 0 7 8 12
-                                                   2 0 8 0 7 10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|qsetelt!| (|#3| |#1| |#2| |#3|)) T)
+                                   '((|qelt| (|#3| |#1| |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 12
+                                            '(2 6 8 0 7 9 3 6 8 0 7 8 11 3 0 8
+                                              0 7 8 12 3 0 8 0 7 8 12 2 0 8 0 7
+                                              10)))))
            '|lookupComplete|)) 

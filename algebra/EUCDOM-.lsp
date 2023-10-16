@@ -369,7 +369,7 @@
               (|NonNegativeInteger|) (5 . |euclideanSize|)
               |EUCDOM-;sizeLess?;2SB;1|
               (|Record| (|:| |quotient| $) (|:| |remainder| $)) (10 . |divide|)
-              |EUCDOM-;quo;3S;2| |EUCDOM-;rem;3S;3| (|Union| $ '"failed")
+              |EUCDOM-;quo;3S;2| |EUCDOM-;rem;3S;3| (|Union| $ '#1="failed")
               |EUCDOM-;exquo;2SU;4| (16 . |unitCanonical|) (21 . |rem|)
               |EUCDOM-;gcd;3S;5|
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
@@ -378,11 +378,11 @@
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               |EUCDOM-;extendedEuclidean;2SR;7| (70 . |extendedEuclidean|)
               (76 . |exquo|) (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 34 '"failed") |EUCDOM-;extendedEuclidean;3SU;8|
+              (|Union| 34 '#2="failed") |EUCDOM-;extendedEuclidean;3SU;8|
               (|List| 6) (82 . =) (88 . |second|)
               (|Record| (|:| |coef| 41) (|:| |generator| $)) (|List| $)
               (93 . |principalIdeal|) |EUCDOM-;principalIdeal;LR;9|
-              (|Union| 41 '"failed") |EUCDOM-;expressIdealMember;LSU;10|
+              (|Union| 41 '#3="failed") |EUCDOM-;expressIdealMember;LSU;10|
               (98 . |copy|) (103 . |split!|) (109 . |extendedEuclidean|)
               (116 . |multiEuclidean|) (122 . |concat|)
               |EUCDOM-;multiEuclidean;LSU;11|)
@@ -390,24 +390,58 @@
               |multiEuclidean| 151 |gcd| 157 |extendedEuclidean| 163 |exquo|
               176 |expressIdealMember| 182)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 51
-                                                 '(1 6 7 0 8 1 6 9 0 10 2 6 12
-                                                   0 0 13 1 6 0 0 18 2 6 0 0 0
-                                                   19 1 6 21 0 22 0 6 0 23 2 6
-                                                   7 0 0 24 2 6 0 0 0 25 0 6 0
-                                                   26 2 6 0 0 0 27 2 6 7 0 0 28
-                                                   2 6 0 0 0 29 2 6 30 0 0 32 2
-                                                   6 16 0 0 33 2 37 7 0 0 38 1
-                                                   37 6 0 39 1 6 40 41 42 1 37
-                                                   0 0 46 2 37 0 0 9 47 3 6 35
-                                                   0 0 0 48 2 6 44 41 0 49 2 37
-                                                   0 0 0 50 2 0 7 0 0 11 2 0 0
-                                                   0 0 15 2 0 0 0 0 14 1 0 40
-                                                   41 43 2 0 44 41 0 51 2 0 0 0
-                                                   0 20 3 0 35 0 0 0 36 2 0 30
-                                                   0 0 31 2 0 16 0 0 17 2 0 44
-                                                   41 0 45)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|multiEuclidean|
+                                 ((|Union| (|List| |#1|) "failed")
+                                  (|List| |#1|) |#1|))
+                                T)
+                              '((|extendedEuclidean|
+                                 ((|Union|
+                                   (|Record| (|:| |coef1| |#1|)
+                                             (|:| |coef2| |#1|))
+                                   #2#)
+                                  |#1| |#1| |#1|))
+                                T)
+                              '((|extendedEuclidean|
+                                 ((|Record| (|:| |coef1| |#1|)
+                                            (|:| |coef2| |#1|)
+                                            (|:| |generator| |#1|))
+                                  |#1| |#1|))
+                                T)
+                              '((|rem| (|#1| |#1| |#1|)) T)
+                              '((|quo| (|#1| |#1| |#1|)) T)
+                              '((|sizeLess?| ((|Boolean|) |#1| |#1|)) T)
+                              '((|expressIdealMember|
+                                 ((|Union| (|List| |#1|) #3#) (|List| |#1|)
+                                  |#1|))
+                                T)
+                              '((|principalIdeal|
+                                 ((|Record| (|:| |coef| (|List| |#1|))
+                                            (|:| |generator| |#1|))
+                                  (|List| |#1|)))
+                                T)
+                              '((|gcd| (|#1| (|List| |#1|))) T)
+                              '((|gcd| (|#1| |#1| |#1|)) T)
+                              '((|exquo| ((|Union| |#1| #1#) |#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 51
+                                            '(1 6 7 0 8 1 6 9 0 10 2 6 12 0 0
+                                              13 1 6 0 0 18 2 6 0 0 0 19 1 6 21
+                                              0 22 0 6 0 23 2 6 7 0 0 24 2 6 0
+                                              0 0 25 0 6 0 26 2 6 0 0 0 27 2 6
+                                              7 0 0 28 2 6 0 0 0 29 2 6 30 0 0
+                                              32 2 6 16 0 0 33 2 37 7 0 0 38 1
+                                              37 6 0 39 1 6 40 41 42 1 37 0 0
+                                              46 2 37 0 0 9 47 3 6 35 0 0 0 48
+                                              2 6 44 41 0 49 2 37 0 0 0 50 2 0
+                                              7 0 0 11 2 0 0 0 0 15 2 0 0 0 0
+                                              14 1 0 40 41 43 2 0 44 41 0 51 2
+                                              0 0 0 0 20 3 0 35 0 0 0 36 2 0 30
+                                              0 0 31 2 0 16 0 0 17 2 0 44 41 0
+                                              45)))))
            '|lookupComplete|)) 

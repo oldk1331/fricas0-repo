@@ -51,15 +51,28 @@
               (25 . |svec|) |SPTCAT-;sivec;3IS;5| (32 . |distanceSquared|)
               (38 . |sqrt|) |SPTCAT-;distance;2SDf;6|)
            '#(|sivec| 43 |sipnt| 56 |distance| 69 |colinearity| 75) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(2 6 7 0 0 8 2 6 0 7 7 10 3 6
-                                                   0 7 7 7 13 2 6 0 7 7 15 3 6
-                                                   0 7 7 7 17 2 6 7 0 0 19 1 7
-                                                   0 0 20 3 0 0 11 11 11 18 2 0
-                                                   0 11 11 16 2 0 0 11 11 12 3
-                                                   0 0 11 11 11 14 2 0 7 0 0 21
-                                                   2 0 7 0 0 9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|colinearity| ((|DoubleFloat|) |#1| |#1|)) T)
+                              '((|distance| ((|DoubleFloat|) |#1| |#1|)) T)
+                              '((|sivec|
+                                 (|#1| (|Integer|) (|Integer|) (|Integer|)))
+                                T)
+                              '((|sivec| (|#1| (|Integer|) (|Integer|))) T)
+                              '((|sipnt|
+                                 (|#1| (|Integer|) (|Integer|) (|Integer|)))
+                                T)
+                              '((|sipnt| (|#1| (|Integer|) (|Integer|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(2 6 7 0 0 8 2 6 0 7 7 10 3 6 0 7
+                                              7 7 13 2 6 0 7 7 15 3 6 0 7 7 7
+                                              17 2 6 7 0 0 19 1 7 0 0 20 3 0 0
+                                              11 11 11 18 2 0 0 11 11 16 2 0 0
+                                              11 11 12 3 0 0 11 11 11 14 2 0 7
+                                              0 0 21 2 0 7 0 0 9)))))
            '|lookupComplete|)) 

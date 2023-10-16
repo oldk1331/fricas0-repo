@@ -81,14 +81,48 @@
            '#(|complexEigenvectors| 33 |complexEigenvalues| 39
               |characteristicPolynomial| 45)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(0 7 0 8 1 11 9 10 12 2 13 0
-                                                   9 7 14 2 11 17 9 6 18 1 22
-                                                   20 21 23 3 11 25 10 6 26 27
-                                                   2 0 25 10 6 28 2 0 17 10 6
-                                                   19 2 0 13 10 7 16 1 0 13 10
-                                                   15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|characteristicPolynomial|
+                                 ((|Polynomial|
+                                   (|Complex| (|Fraction| (|Integer|))))
+                                  (|Matrix|
+                                   (|Complex| (|Fraction| (|Integer|))))))
+                                T)
+                              '((|characteristicPolynomial|
+                                 ((|Polynomial|
+                                   (|Complex| (|Fraction| (|Integer|))))
+                                  (|Matrix|
+                                   (|Complex| (|Fraction| (|Integer|))))
+                                  (|Symbol|)))
+                                T)
+                              '((|complexEigenvalues|
+                                 ((|List| (|Complex| |#1|))
+                                  (|Matrix|
+                                   (|Complex| (|Fraction| (|Integer|))))
+                                  |#1|))
+                                T)
+                              '((|complexEigenvectors|
+                                 ((|List|
+                                   (|Record| (|:| |outval| (|Complex| |#1|))
+                                             (|:| |outmult| (|Integer|))
+                                             (|:| |outvect|
+                                                  (|List|
+                                                   (|Matrix|
+                                                    (|Complex| |#1|))))))
+                                  (|Matrix|
+                                   (|Complex| (|Fraction| (|Integer|))))
+                                  |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(0 7 0 8 1 11 9 10 12 2 13 0 9 7
+                                              14 2 11 17 9 6 18 1 22 20 21 23 3
+                                              11 25 10 6 26 27 2 0 25 10 6 28 2
+                                              0 17 10 6 19 2 0 13 10 7 16 1 0
+                                              13 10 15)))))
            '|lookupComplete|)) 

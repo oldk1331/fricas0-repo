@@ -430,22 +430,43 @@
               (108 . |inv|) (113 . -) (118 . |setsubMatrix!|)
               (126 . |setelt!|))
            '#(|normalForm| 134 |companionBlocks| 141 |changeBase| 147) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 43
-                                                 '(1 8 7 0 9 2 10 6 0 6 11 2 8
-                                                   0 12 0 13 2 8 0 0 0 14 2 8 0
-                                                   0 0 15 1 10 0 0 17 2 21 20 0
-                                                   0 22 0 6 0 23 3 8 6 0 21 21
-                                                   24 2 6 20 0 0 25 0 6 0 26 2
-                                                   27 6 0 21 28 3 27 6 0 21 6
-                                                   29 5 8 0 0 21 21 21 21 30 1
-                                                   8 0 27 35 1 8 0 0 36 1 8 20
-                                                   0 37 0 10 0 38 2 21 20 0 0
-                                                   39 1 6 0 0 40 1 6 0 0 41 4 8
-                                                   0 0 21 21 0 42 4 8 6 0 21 21
-                                                   6 43 3 0 18 8 10 12 19 2 0
-                                                   32 8 33 34 4 0 8 8 8 10 12
-                                                   16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|normalForm|
+                                 ((|Record| (|:| R (|Matrix| |#1|))
+                                            (|:| A (|Matrix| |#1|))
+                                            (|:| |Ainv| (|Matrix| |#1|)))
+                                  (|Matrix| |#1|) (|Automorphism| |#1|)
+                                  (|Mapping| |#1| |#1|)))
+                                T)
+                              '((|changeBase|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|) (|Automorphism| |#1|)
+                                  (|Mapping| |#1| |#1|)))
+                                T)
+                              '((|companionBlocks|
+                                 ((|List|
+                                   (|Record| (|:| C (|Matrix| |#1|))
+                                             (|:| |lg|
+                                                  (|List| (|Vector| |#1|)))))
+                                  (|Matrix| |#1|) (|List| (|Vector| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 43
+                                            '(1 8 7 0 9 2 10 6 0 6 11 2 8 0 12
+                                              0 13 2 8 0 0 0 14 2 8 0 0 0 15 1
+                                              10 0 0 17 2 21 20 0 0 22 0 6 0 23
+                                              3 8 6 0 21 21 24 2 6 20 0 0 25 0
+                                              6 0 26 2 27 6 0 21 28 3 27 6 0 21
+                                              6 29 5 8 0 0 21 21 21 21 30 1 8 0
+                                              27 35 1 8 0 0 36 1 8 20 0 37 0 10
+                                              0 38 2 21 20 0 0 39 1 6 0 0 40 1
+                                              6 0 0 41 4 8 0 0 21 21 0 42 4 8 6
+                                              0 21 21 6 43 3 0 18 8 10 12 19 2
+                                              0 32 8 33 34 4 0 8 8 8 10 12
+                                              16)))))
            '|lookupComplete|)) 

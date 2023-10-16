@@ -124,17 +124,24 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Boolean|)
               (0 . |explicitlyEmpty?|) (5 . |lazy?|) (10 . |rst|) (15 . |eq?|)
-              (|Union| 7 '"failed") |CSTTOOLS;cycleElt;STU;1|
+              (|Union| 7 '#1="failed") |CSTTOOLS;cycleElt;STU;1|
               (|NonNegativeInteger|) |CSTTOOLS;computeCycleLength;STNni;2|
               (21 . |rest|) |CSTTOOLS;computeCycleEntry;3ST;3|)
            '#(|cycleElt| 27 |computeCycleLength| 32 |computeCycleEntry| 37)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(1 7 8 0 9 1 7 8 0 10 1 7 0 0
-                                                   11 2 7 8 0 0 12 2 7 0 0 15
-                                                   17 1 0 13 7 14 1 0 15 7 16 2
-                                                   0 7 7 7 18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|cycleElt| ((|Union| |#2| #1#) |#2|)) T)
+                                   '((|computeCycleLength|
+                                      ((|NonNegativeInteger|) |#2|))
+                                     T)
+                                   '((|computeCycleEntry| (|#2| |#2| |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(1 7 8 0 9 1 7 8 0 10 1 7 0 0 11 2
+                                              7 8 0 0 12 2 7 0 0 15 17 1 0 13 7
+                                              14 1 0 15 7 16 2 0 7 7 7 18)))))
            '|lookupComplete|)) 

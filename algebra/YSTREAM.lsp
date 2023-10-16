@@ -81,10 +81,24 @@
               |YSTREAM;Y;MS;1| (|List| 8) (|Mapping| 13 13) (|Integer|)
               |YSTREAM;Y;MIL;2|)
            '#(Y 10) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(1 8 6 0 9 1 8 0 0 10 2 0 13
-                                                   14 15 16 1 0 8 11 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((Y
+                                 ((|Stream| |#1|)
+                                  (|Mapping| (|Stream| |#1|) (|Stream| |#1|))))
+                                T)
+                              '((Y
+                                 ((|List| (|Stream| |#1|))
+                                  (|Mapping| (|List| (|Stream| |#1|))
+                                             (|List| (|Stream| |#1|)))
+                                  (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(1 8 6 0 9 1 8 0 0 10 2 0 13 14 15
+                                              16 1 0 8 11 12)))))
            '|lookupComplete|)) 

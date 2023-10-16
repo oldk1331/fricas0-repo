@@ -207,19 +207,27 @@
               (100 . |One|) (|Union| $ '"failed") (104 . |subtractIfCan|)
               |UPMP;karatsuba;2U2NniU;3|)
            '#(|noKaratsuba| 110 |karatsubaOnce| 116 |karatsuba| 122) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 36
-                                                 '(1 7 8 0 9 1 7 10 0 11 1 7 6
-                                                   0 12 2 7 0 6 0 13 2 7 0 0 6
-                                                   14 1 7 15 0 16 0 7 0 17 4 7
-                                                   0 0 6 10 0 18 1 7 10 0 20 2
-                                                   7 0 0 10 21 2 7 22 0 10 23 2
-                                                   7 0 0 0 24 2 7 0 0 0 25 2 7
-                                                   0 0 0 26 2 7 0 0 10 27 2 10
-                                                   0 28 0 29 1 7 10 0 31 0 6 0
-                                                   32 0 7 0 33 2 10 34 0 0 35 2
-                                                   0 7 7 7 19 2 0 7 7 7 30 4 0
-                                                   7 7 7 10 10 36)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|noKaratsuba| (|#2| |#2| |#2|)) T)
+                                   '((|karatsubaOnce| (|#2| |#2| |#2|)) T)
+                                   '((|karatsuba|
+                                      (|#2| |#2| |#2| (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 36
+                                            '(1 7 8 0 9 1 7 10 0 11 1 7 6 0 12
+                                              2 7 0 6 0 13 2 7 0 0 6 14 1 7 15
+                                              0 16 0 7 0 17 4 7 0 0 6 10 0 18 1
+                                              7 10 0 20 2 7 0 0 10 21 2 7 22 0
+                                              10 23 2 7 0 0 0 24 2 7 0 0 0 25 2
+                                              7 0 0 0 26 2 7 0 0 10 27 2 10 0
+                                              28 0 29 1 7 10 0 31 0 6 0 32 0 7
+                                              0 33 2 10 34 0 0 35 2 0 7 7 7 19
+                                              2 0 7 7 7 30 4 0 7 7 7 10 10
+                                              36)))))
            '|lookupComplete|)) 

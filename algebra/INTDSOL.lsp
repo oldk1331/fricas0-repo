@@ -89,17 +89,31 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (0 . |adjoint|) (5 . |One|) (9 . |One|) (|NonNegativeInteger|)
               (13 . |monomial|) (19 . *) (25 . *) (31 . -)
-              (37 . |leftQuotient|) (|Union| 7 '"failed")
-              (|Record| (|:| |ltilde| 7) (|:| |r| 17)) (|Union| 6 '"failed")
+              (37 . |leftQuotient|) (|Union| 7 '#1="failed")
+              (|Record| (|:| |ltilde| 7) (|:| |r| 17)) (|Union| 6 '#2="failed")
               (|Record| (|:| |particular| 19) (|:| |basis| (|List| 6)))
               (|Mapping| 20 7 6) |INTDSOL;integrate_sols;LMR;1|)
            '#(|integrate_sols| 43) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 22
-                                                 '(1 7 0 0 8 0 6 0 9 0 7 0 10 2
-                                                   7 0 6 11 12 2 7 0 0 0 13 2 7
-                                                   0 6 0 14 2 7 0 0 0 15 2 7 0
-                                                   0 0 16 2 0 18 7 21 22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|integrate_sols|
+                                 ((|Record| (|:| |ltilde| |#2|)
+                                            (|:| |r| (|Union| |#2| #1#)))
+                                  |#2|
+                                  (|Mapping|
+                                   (|Record|
+                                    (|:| |particular| (|Union| |#1| #2#))
+                                    (|:| |basis| (|List| |#1|)))
+                                   |#2| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 22
+                                            '(1 7 0 0 8 0 6 0 9 0 7 0 10 2 7 0
+                                              6 11 12 2 7 0 0 0 13 2 7 0 6 0 14
+                                              2 7 0 0 0 15 2 7 0 0 0 16 2 0 18
+                                              7 21 22)))))
            '|lookupComplete|)) 

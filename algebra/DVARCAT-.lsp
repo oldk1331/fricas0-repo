@@ -71,7 +71,7 @@
               (|NonNegativeInteger|) (0 . |makeVariable|)
               |DVARCAT-;coerce;SA;1| (6 . |differentiate|)
               |DVARCAT-;differentiate;2A;2| (12 . |variable|) (17 . |order|)
-              |DVARCAT-;differentiate;ANniA;3| (|Union| 7 '"failed")
+              |DVARCAT-;differentiate;ANniA;3| (|Union| 7 '#1="failed")
               |DVARCAT-;retractIfCan;AU;4| (|Boolean|) (22 . =)
               |DVARCAT-;=;2AB;5| (|OutputForm|) (28 . |coerce|) (|Integer|)
               (33 . |outputForm|) (38 . |sub|) |DVARCAT-;coerce;AOf;6|
@@ -80,16 +80,30 @@
            '#(|weight| 50 |retractIfCan| 55 |retract| 60 |differentiate| 65
               |coerce| 76 = 86 < 92)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 30
-                                                 '(2 6 0 7 8 9 2 6 0 0 8 11 1 6
-                                                   7 0 13 1 6 8 0 14 2 7 18 0 0
-                                                   19 1 7 21 0 22 1 21 0 23 24
-                                                   2 21 0 0 0 25 2 7 18 0 0 28
-                                                   1 0 8 0 30 1 0 16 0 17 1 0 7
-                                                   0 27 1 0 0 0 12 2 0 0 0 8 15
-                                                   1 0 0 7 10 1 0 21 0 26 2 0
-                                                   18 0 0 20 2 0 18 0 0 29)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|differentiate|
+                                 (|#1| |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|differentiate| (|#1| |#1|)) T)
+                              '((|weight| ((|NonNegativeInteger|) |#1|)) T)
+                              '((|retract| (|#2| |#1|)) T)
+                              '((|retractIfCan| ((|Union| |#2| #1#) |#1|)) T)
+                              '((|coerce| (|#1| |#2|)) T)
+                              '((< ((|Boolean|) |#1| |#1|)) T)
+                              '((|coerce| ((|OutputForm|) |#1|)) T)
+                              '((= ((|Boolean|) |#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 30
+                                            '(2 6 0 7 8 9 2 6 0 0 8 11 1 6 7 0
+                                              13 1 6 8 0 14 2 7 18 0 0 19 1 7
+                                              21 0 22 1 21 0 23 24 2 21 0 0 0
+                                              25 2 7 18 0 0 28 1 0 8 0 30 1 0
+                                              16 0 17 1 0 7 0 27 1 0 0 0 12 2 0
+                                              0 0 8 15 1 0 0 7 10 1 0 21 0 26 2
+                                              0 18 0 0 20 2 0 18 0 0 29)))))
            '|lookupComplete|)) 

@@ -56,11 +56,18 @@
               (|PolynomialRationalRoots| 7 11) (11 . |get_rational_roots|)
               (|Kernel| 7) |FSRROOT;get_rational_roots;FKL;1|)
            '#(|get_rational_roots| 16) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(2 7 8 0 9 10 1 12 11 0 13 1
-                                                   15 14 11 16 2 0 14 7 17
-                                                   18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|get_rational_roots|
+                                 ((|List| (|Fraction| (|Integer|))) |#2|
+                                  (|Kernel| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(2 7 8 0 9 10 1 12 11 0 13 1 15 14
+                                              11 16 2 0 14 7 17 18)))))
            '|lookupComplete|)) 

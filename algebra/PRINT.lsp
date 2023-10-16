@@ -38,10 +38,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|Void|) (|OutputForm|) (0 . |print|)
               |PRINT;print;OfV;1|)
            '#(|print| 5) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 9 '(1 7 6 0 8 1 0 6 7 9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|print| ((|Void|) (|OutputForm|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 9 '(1 7 6 0 8 1 0 6 7 9)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|PrintPackage| 'NILADIC T) 

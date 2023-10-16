@@ -74,11 +74,30 @@
            '#(|tube| 0 |setClosed| 7 |open?| 13 |listLoops| 18 |getCurve| 23
               |closed?| 28)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 15
-                                                 '(3 0 0 6 9 11 15 2 0 11 0 11
-                                                   14 1 0 11 0 13 1 0 9 0 10 1
-                                                   0 6 0 8 1 0 11 0 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|getCurve| (|#1| $$)) T)
+                                   '((|listLoops|
+                                      ((|List|
+                                        (|List| (|Point| (|DoubleFloat|))))
+                                       $$))
+                                     T)
+                                   '((|closed?| ((|Boolean|) $$)) T)
+                                   '((|open?| ((|Boolean|) $$)) T)
+                                   '((|setClosed| ((|Boolean|) $$ (|Boolean|)))
+                                     T)
+                                   '((|tube|
+                                      ($$ |#1|
+                                       (|List|
+                                        (|List| (|Point| (|DoubleFloat|))))
+                                       (|Boolean|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 15
+                                            '(3 0 0 6 9 11 15 2 0 11 0 11 14 1
+                                              0 11 0 13 1 0 9 0 10 1 0 6 0 8 1
+                                              0 11 0 12)))))
            '|lookupComplete|)) 

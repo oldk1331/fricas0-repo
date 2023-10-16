@@ -848,7 +848,7 @@
               (|Record| (|:| |flag| 22) (|:| |factor| 6) (|:| |exponent| 38))
               (|List| 23) (|Factored| 6) (36 . |factorList|) (41 . *)
               |REAL0;realZeros;PolL;5| |REAL0;refine;PolRFR;20|
-              |REAL0;realZeros;PolFL;6| (|Union| 15 '"failed")
+              |REAL0;realZeros;PolFL;6| (|Union| 15 '#1="failed")
               |REAL0;refine;Pol2RU;19| |REAL0;realZeros;PolRL;7|
               |REAL0;realZeros;PolRFL;8| (47 . |Zero|) (|Boolean|) (51 . =)
               (|NonNegativeInteger|) (57 . |degree|) (62 . |minimumDegree|)
@@ -861,31 +861,104 @@
               (198 . -) (|OutputForm|) (|String|) (204 . |coerce|)
               (209 . |coerce|) (214 . <=) (220 . >=))
            '#(|refine| 226 |realZeros| 240 |midpoints| 264 |midpoint| 269) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 73
-                                                 '(1 7 0 0 8 0 6 0 9 0 7 0 10 2
-                                                   7 0 11 11 12 2 7 0 0 0 13 2
-                                                   7 0 0 7 14 1 6 20 0 21 1 25
-                                                   24 0 26 2 6 0 0 0 27 0 6 0
-                                                   35 2 6 36 0 0 37 1 6 38 0 39
-                                                   1 6 38 0 40 2 38 36 0 0 41 0
-                                                   7 0 42 2 6 0 11 38 43 2 6 44
-                                                   0 0 45 2 18 0 0 0 46 2 7 0
-                                                   11 0 47 2 11 36 0 0 48 2 6 0
-                                                   0 0 49 1 6 11 0 50 1 6 0 0
-                                                   51 1 6 0 0 52 2 11 36 0 0 53
-                                                   2 11 0 54 0 55 2 6 36 0 0 56
-                                                   2 6 57 0 38 58 2 7 0 0 0 59
-                                                   2 7 0 0 0 60 2 7 0 0 0 61 2
-                                                   7 36 0 0 62 2 7 36 0 0 63 1
-                                                   7 11 0 64 1 7 11 0 65 2 6 11
-                                                   0 11 66 2 6 0 0 0 67 1 69 68
-                                                   0 70 1 6 68 0 71 2 7 36 0 0
-                                                   72 2 7 36 0 0 73 3 0 31 6 15
-                                                   15 32 3 0 15 6 15 7 29 2 0
-                                                   18 6 15 33 1 0 18 6 28 3 0
-                                                   18 6 15 7 34 2 0 18 6 7 30 1
-                                                   0 17 18 19 1 0 7 15 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|realZeros|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |left| (|Fraction| (|Integer|)))
+                                    (|:| |right| (|Fraction| (|Integer|)))))
+                                  |#1|))
+                                T)
+                              '((|realZeros|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |left| (|Fraction| (|Integer|)))
+                                    (|:| |right| (|Fraction| (|Integer|)))))
+                                  |#1|
+                                  (|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))))
+                                T)
+                              '((|realZeros|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |left| (|Fraction| (|Integer|)))
+                                    (|:| |right| (|Fraction| (|Integer|)))))
+                                  |#1| (|Fraction| (|Integer|))))
+                                T)
+                              '((|realZeros|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |left| (|Fraction| (|Integer|)))
+                                    (|:| |right| (|Fraction| (|Integer|)))))
+                                  |#1|
+                                  (|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|refine|
+                                 ((|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))
+                                  |#1|
+                                  (|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|refine|
+                                 ((|Union|
+                                   (|Record|
+                                    (|:| |left| (|Fraction| (|Integer|)))
+                                    (|:| |right| (|Fraction| (|Integer|))))
+                                   #1#)
+                                  |#1|
+                                  (|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))
+                                  (|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))))
+                                T)
+                              '((|midpoint|
+                                 ((|Fraction| (|Integer|))
+                                  (|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))))
+                                T)
+                              '((|midpoints|
+                                 ((|List| (|Fraction| (|Integer|)))
+                                  (|List|
+                                   (|Record|
+                                    (|:| |left| (|Fraction| (|Integer|)))
+                                    (|:| |right| (|Fraction| (|Integer|)))))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 73
+                                            '(1 7 0 0 8 0 6 0 9 0 7 0 10 2 7 0
+                                              11 11 12 2 7 0 0 0 13 2 7 0 0 7
+                                              14 1 6 20 0 21 1 25 24 0 26 2 6 0
+                                              0 0 27 0 6 0 35 2 6 36 0 0 37 1 6
+                                              38 0 39 1 6 38 0 40 2 38 36 0 0
+                                              41 0 7 0 42 2 6 0 11 38 43 2 6 44
+                                              0 0 45 2 18 0 0 0 46 2 7 0 11 0
+                                              47 2 11 36 0 0 48 2 6 0 0 0 49 1
+                                              6 11 0 50 1 6 0 0 51 1 6 0 0 52 2
+                                              11 36 0 0 53 2 11 0 54 0 55 2 6
+                                              36 0 0 56 2 6 57 0 38 58 2 7 0 0
+                                              0 59 2 7 0 0 0 60 2 7 0 0 0 61 2
+                                              7 36 0 0 62 2 7 36 0 0 63 1 7 11
+                                              0 64 1 7 11 0 65 2 6 11 0 11 66 2
+                                              6 0 0 0 67 1 69 68 0 70 1 6 68 0
+                                              71 2 7 36 0 0 72 2 7 36 0 0 73 3
+                                              0 31 6 15 15 32 3 0 15 6 15 7 29
+                                              2 0 18 6 15 33 1 0 18 6 28 3 0 18
+                                              6 15 7 34 2 0 18 6 7 30 1 0 17 18
+                                              19 1 0 7 15 16)))))
            '|lookupComplete|)) 

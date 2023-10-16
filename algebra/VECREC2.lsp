@@ -595,19 +595,57 @@
            '#(|remove_denoms| 59 |reconstruct| 66 |rational_reconstruction| 72
               |hensel_update| 85 |empty| 92 |chinese_update| 97)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 39
-                                                 '(3 9 8 0 0 0 10 2 9 0 0 0 12
-                                                   1 14 13 0 15 2 9 13 0 0 20 2
-                                                   9 13 0 0 21 1 25 9 9 26 2 27
-                                                   9 0 9 28 2 29 13 0 0 30 2 9
-                                                   0 0 0 34 2 9 35 0 0 36 3 0
-                                                   14 27 14 14 37 2 0 38 0 27
-                                                   39 1 0 32 0 33 4 0 23 9 9 9
-                                                   9 24 3 0 16 17 9 0 19 1 0 0
-                                                   9 11 3 0 16 17 9 0 18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|empty| ($$ (|Integer|))) T)
+                                   '((|chinese_update|
+                                      ((|Void|) (|U32Vector|) (|Integer|) $$))
+                                     T)
+                                   '((|hensel_update|
+                                      ((|Void|) (|U32Vector|) (|Integer|) $$))
+                                     T)
+                                   '((|rational_reconstruction|
+                                      ((|Union|
+                                        (|Record| (|:| |num| (|Integer|))
+                                                  (|:| |den| (|Integer|)))
+                                        "failed")
+                                       (|Integer|) (|Integer|) (|Integer|)
+                                       (|Integer|)))
+                                     T)
+                                   '((|rational_reconstruction|
+                                      ((|Union|
+                                        (|Record|
+                                         (|:| |numers|
+                                              (|PrimitiveArray| (|Integer|)))
+                                         (|:| |denoms|
+                                              (|PrimitiveArray| (|Integer|))))
+                                        "failed")
+                                       $$))
+                                     T)
+                                   '((|remove_denoms|
+                                      ((|PrimitiveArray| (|Integer|))
+                                       (|Vector| (|Integer|))
+                                       (|PrimitiveArray| (|Integer|))
+                                       (|PrimitiveArray| (|Integer|))))
+                                     T)
+                                   '((|reconstruct|
+                                      ((|Union| (|PrimitiveArray| (|Integer|))
+                                                "failed")
+                                       $$ (|Vector| (|Integer|))))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 39
+                                            '(3 9 8 0 0 0 10 2 9 0 0 0 12 1 14
+                                              13 0 15 2 9 13 0 0 20 2 9 13 0 0
+                                              21 1 25 9 9 26 2 27 9 0 9 28 2 29
+                                              13 0 0 30 2 9 0 0 0 34 2 9 35 0 0
+                                              36 3 0 14 27 14 14 37 2 0 38 0 27
+                                              39 1 0 32 0 33 4 0 23 9 9 9 9 24
+                                              3 0 16 17 9 0 19 1 0 0 9 11 3 0
+                                              16 17 9 0 18)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|VectorIntegerReconstructor| 'NILADIC T) 

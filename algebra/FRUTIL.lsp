@@ -103,12 +103,20 @@
               (16 . *) (22 . |concat|) (28 . |concat!|) (34 . |makeFR|)
               (|Mapping| 7 6) |FRUTIL;refine;FMF;1|)
            '#(|refine| 40) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 20
-                                                 '(1 7 6 0 8 1 7 11 0 12 2 6 0
-                                                   0 13 14 2 6 0 0 0 15 2 11 0
-                                                   0 0 16 2 11 0 0 0 17 2 7 0 6
-                                                   11 18 2 0 7 7 19 20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|refine|
+                                 ((|Factored| |#1|) (|Factored| |#1|)
+                                  (|Mapping| (|Factored| |#1|) |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 20
+                                            '(1 7 6 0 8 1 7 11 0 12 2 6 0 0 13
+                                              14 2 6 0 0 0 15 2 11 0 0 0 16 2
+                                              11 0 0 0 17 2 7 0 6 11 18 2 0 7 7
+                                              19 20)))))
            '|lookupComplete|)) 

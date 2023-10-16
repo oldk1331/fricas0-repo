@@ -79,12 +79,16 @@
               (16 . |select|) (22 . |constructOrdered|) (|Mapping| 7 6)
               |FMCF2;map;MM1M2;1|)
            '#(|map| 27) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(1 9 12 0 13 2 17 15 16 12 18
-                                                   1 7 19 0 20 2 15 0 21 0 22 1
-                                                   10 0 15 23 2 0 10 24 9
-                                                   25)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#5| (|Mapping| |#2| |#1|) |#4|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(1 9 12 0 13 2 17 15 16 12 18 1 7
+                                              19 0 20 2 15 0 21 0 22 1 10 0 15
+                                              23 2 0 10 24 9 25)))))
            '|lookupComplete|)) 

@@ -143,20 +143,40 @@
               |gaussianDistribution| 113 |freePoissonDistribution| 118
               |bernoulliDistribution01| 123 |arcsineDistribution| 128)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 40
-                                                 '(0 6 0 7 1 9 0 8 10 0 11 0 12
-                                                   1 9 0 8 13 2 9 0 0 0 14 1 15
-                                                   0 9 16 1 11 0 15 17 1 11 0
-                                                   15 20 1 11 0 15 23 1 6 0 25
-                                                   26 2 6 0 0 27 28 2 6 0 0 0
-                                                   29 1 6 0 0 30 2 9 0 6 0 31 0
-                                                   6 0 32 2 33 0 25 25 34 2 35
-                                                   9 33 9 36 1 35 37 9 38 1 9 0
-                                                   0 39 1 0 11 6 40 1 0 11 6 21
-                                                   1 0 11 6 19 1 0 11 6 18 1 0
-                                                   11 6 22 1 0 11 6 24 1 1 11 6
-                                                   40)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|gaussianDistribution|
+                                 ((|Distribution| |#1|) |#1|))
+                                T)
+                              '((|poissonDistribution|
+                                 ((|Distribution| |#1|) |#1|))
+                                T)
+                              '((|wignerDistribution|
+                                 ((|Distribution| |#1|) |#1|))
+                                T)
+                              '((|freePoissonDistribution|
+                                 ((|Distribution| |#1|) |#1|))
+                                T)
+                              '((|bernoulliDistribution01|
+                                 ((|Distribution| |#1|) |#1|))
+                                T)
+                              '((|arcsineDistribution|
+                                 ((|Distribution| |#1|) |#1|))
+                                (|has| 6 (|Algebra| 33))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 40
+                                            '(0 6 0 7 1 9 0 8 10 0 11 0 12 1 9
+                                              0 8 13 2 9 0 0 0 14 1 15 0 9 16 1
+                                              11 0 15 17 1 11 0 15 20 1 11 0 15
+                                              23 1 6 0 25 26 2 6 0 0 27 28 2 6
+                                              0 0 0 29 1 6 0 0 30 2 9 0 6 0 31
+                                              0 6 0 32 2 33 0 25 25 34 2 35 9
+                                              33 9 36 1 35 37 9 38 1 9 0 0 39 1
+                                              0 11 6 40 1 0 11 6 21 1 0 11 6 19
+                                              1 0 11 6 18 1 0 11 6 22 1 0 11 6
+                                              24 1 1 11 6 40)))))
            '|lookupComplete|)) 

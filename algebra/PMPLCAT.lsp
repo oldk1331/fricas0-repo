@@ -353,23 +353,39 @@
               (|Record| (|:| |val| $) (|:| |exponent| (|NonNegativeInteger|)))
               (|Union| 56 '"failed") (133 . |isExpt|))
            '#(|patternMatch| 138) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 58
-                                                 '(3 13 11 8 12 11 14 3 0 11 10
-                                                   12 11 17 1 12 18 0 19 3 11 0
-                                                   12 10 0 20 1 10 21 0 22 3 23
-                                                   11 9 12 11 24 1 10 25 0 26 1
-                                                   12 27 0 28 1 10 27 0 29 2 10
-                                                   0 0 0 30 0 10 0 31 5 36 11
-                                                   32 33 34 11 35 37 1 12 27 38
-                                                   39 1 11 18 0 40 0 11 0 41 1
-                                                   33 12 0 42 1 12 27 0 43 1 10
-                                                   27 0 44 4 36 11 32 33 11 35
-                                                   45 0 10 0 46 1 12 48 0 49 1
-                                                   10 51 0 52 1 10 0 53 54 1 12
-                                                   18 0 55 1 12 57 0 58 3 1 11
-                                                   10 12 11 17 4 0 11 10 12 11
-                                                   15 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|patternMatch|
+                                 ((|PatternMatchResult| |#1| |#5|) |#5|
+                                  (|Pattern| |#1|)
+                                  (|PatternMatchResult| |#1| |#5|)
+                                  (|Mapping| (|PatternMatchResult| |#1| |#5|)
+                                             |#3| (|Pattern| |#1|)
+                                             (|PatternMatchResult| |#1|
+                                                                   |#5|))))
+                                T)
+                              '((|patternMatch|
+                                 ((|PatternMatchResult| |#1| |#5|) |#5|
+                                  (|Pattern| |#1|)
+                                  (|PatternMatchResult| |#1| |#5|)))
+                                (|has| 8 (|PatternMatchable| 6))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 58
+                                            '(3 13 11 8 12 11 14 3 0 11 10 12
+                                              11 17 1 12 18 0 19 3 11 0 12 10 0
+                                              20 1 10 21 0 22 3 23 11 9 12 11
+                                              24 1 10 25 0 26 1 12 27 0 28 1 10
+                                              27 0 29 2 10 0 0 0 30 0 10 0 31 5
+                                              36 11 32 33 34 11 35 37 1 12 27
+                                              38 39 1 11 18 0 40 0 11 0 41 1 33
+                                              12 0 42 1 12 27 0 43 1 10 27 0 44
+                                              4 36 11 32 33 11 35 45 0 10 0 46
+                                              1 12 48 0 49 1 10 51 0 52 1 10 0
+                                              53 54 1 12 18 0 55 1 12 57 0 58 3
+                                              1 11 10 12 11 17 4 0 11 10 12 11
+                                              15 16)))))
            '|lookupComplete|)) 

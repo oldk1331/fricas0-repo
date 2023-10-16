@@ -50,13 +50,26 @@
               (5 . |constant|) |PMASS;constant;SE;1| (10 . |multiple|)
               |PMASS;multiple;SE;2| (15 . |optional|) |PMASS;optional;SE;3|)
            '#(|optional| 20 |multiple| 25 |constant| 30) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 15
-                                                 '(1 7 0 6 8 1 9 7 7 10 1 9 7 7
-                                                   12 1 9 7 7 14 1 0 7 6 15 1 0
-                                                   7 6 13 1 0 7 6 11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|constant|
+                                 ((|Expression| (|Integer|)) (|Symbol|)))
+                                T)
+                              '((|optional|
+                                 ((|Expression| (|Integer|)) (|Symbol|)))
+                                T)
+                              '((|multiple|
+                                 ((|Expression| (|Integer|)) (|Symbol|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 15
+                                            '(1 7 0 6 8 1 9 7 7 10 1 9 7 7 12 1
+                                              9 7 7 14 1 0 7 6 15 1 0 7 6 13 1
+                                              0 7 6 11)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|PatternMatchAssertions| 'NILADIC T) 

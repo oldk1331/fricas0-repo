@@ -183,16 +183,30 @@
               (|Vector| 6) (19 . |setelt!|) (26 . >) (32 . |elt|) (38 . |elt|)
               (44 . |elt|) |HB;basis;2NniV;3|)
            '#(|lfunc| 50 |inHallBasis?| 56 |basis| 64) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 22
-                                                 '(2 6 0 8 0 9 2 6 10 0 0 11 3
-                                                   14 13 0 6 13 15 3 16 6 0 6 6
-                                                   17 2 6 10 0 0 18 2 14 13 0 6
-                                                   19 2 13 6 0 6 20 2 16 6 0 6
-                                                   21 2 0 6 6 6 7 4 0 10 6 6 6
-                                                   6 12 2 0 14 8 8 22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|lfunc| ((|Integer|) (|Integer|) (|Integer|)))
+                                T)
+                              '((|inHallBasis?|
+                                 ((|Boolean|) (|Integer|) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|basis|
+                                 ((|Vector| (|List| (|Integer|)))
+                                  (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 22
+                                            '(2 6 0 8 0 9 2 6 10 0 0 11 3 14 13
+                                              0 6 13 15 3 16 6 0 6 6 17 2 6 10
+                                              0 0 18 2 14 13 0 6 19 2 13 6 0 6
+                                              20 2 16 6 0 6 21 2 0 6 6 6 7 4 0
+                                              10 6 6 6 6 12 2 0 14 8 8 22)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|HallBasis| 'NILADIC T) 

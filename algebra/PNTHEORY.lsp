@@ -536,30 +536,70 @@
               |euler| 218 |cyclotomic| 223 |chebyshevU| 228 |chebyshevT| 233
               |bernoulli| 238)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 68
-                                                 '(0 6 0 7 2 6 0 8 9 10 0 12 0
-                                                   13 2 14 0 12 9 15 0 6 0 17 0
-                                                   14 0 18 1 6 8 0 26 2 8 27 0
-                                                   0 28 2 6 27 0 0 29 1 6 9 0
-                                                   30 2 6 0 0 0 31 2 6 0 0 0 32
-                                                   2 6 0 0 0 33 2 8 27 0 0 34 1
-                                                   35 8 8 36 2 6 0 0 9 37 1 12
-                                                   0 8 39 1 14 0 0 40 2 14 0 12
-                                                   0 41 1 42 8 8 43 2 12 0 8 8
-                                                   44 2 14 12 0 12 45 2 12 0 0
-                                                   0 46 1 14 0 12 47 2 14 0 0 0
-                                                   48 1 42 12 8 50 1 6 9 0 52 2
-                                                   6 8 0 9 53 2 6 8 0 8 54 2 6
-                                                   0 56 0 57 2 8 0 56 0 58 2 6
-                                                   0 8 0 59 2 14 0 0 0 61 2 14
-                                                   0 0 0 62 1 6 0 8 64 2 8 0 0
-                                                   56 65 1 0 14 8 63 1 0 6 8 66
-                                                   1 0 6 8 60 1 0 8 6 55 1 0 14
-                                                   8 49 1 0 6 8 38 1 0 6 8 68 1
-                                                   0 6 8 67 1 0 14 8 51)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|bernoulli|
+                                 ((|SparseUnivariatePolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|chebyshevT|
+                                 ((|SparseUnivariatePolynomial| (|Integer|))
+                                  (|Integer|)))
+                                T)
+                              '((|chebyshevU|
+                                 ((|SparseUnivariatePolynomial| (|Integer|))
+                                  (|Integer|)))
+                                T)
+                              '((|cyclotomic|
+                                 ((|SparseUnivariatePolynomial| (|Integer|))
+                                  (|Integer|)))
+                                T)
+                              '((|euler|
+                                 ((|SparseUnivariatePolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|fixedDivisor|
+                                 ((|Integer|)
+                                  (|SparseUnivariatePolynomial| (|Integer|))))
+                                T)
+                              '((|hermite|
+                                 ((|SparseUnivariatePolynomial| (|Integer|))
+                                  (|Integer|)))
+                                T)
+                              '((|laguerre|
+                                 ((|SparseUnivariatePolynomial| (|Integer|))
+                                  (|Integer|)))
+                                T)
+                              '((|legendre|
+                                 ((|SparseUnivariatePolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 68
+                                            '(0 6 0 7 2 6 0 8 9 10 0 12 0 13 2
+                                              14 0 12 9 15 0 6 0 17 0 14 0 18 1
+                                              6 8 0 26 2 8 27 0 0 28 2 6 27 0 0
+                                              29 1 6 9 0 30 2 6 0 0 0 31 2 6 0
+                                              0 0 32 2 6 0 0 0 33 2 8 27 0 0 34
+                                              1 35 8 8 36 2 6 0 0 9 37 1 12 0 8
+                                              39 1 14 0 0 40 2 14 0 12 0 41 1
+                                              42 8 8 43 2 12 0 8 8 44 2 14 12 0
+                                              12 45 2 12 0 0 0 46 1 14 0 12 47
+                                              2 14 0 0 0 48 1 42 12 8 50 1 6 9
+                                              0 52 2 6 8 0 9 53 2 6 8 0 8 54 2
+                                              6 0 56 0 57 2 8 0 56 0 58 2 6 0 8
+                                              0 59 2 14 0 0 0 61 2 14 0 0 0 62
+                                              1 6 0 8 64 2 8 0 0 56 65 1 0 14 8
+                                              63 1 0 6 8 66 1 0 6 8 60 1 0 8 6
+                                              55 1 0 14 8 49 1 0 6 8 38 1 0 6 8
+                                              68 1 0 6 8 67 1 0 14 8 51)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|PolynomialNumberTheoryFunctions| 'NILADIC T) 

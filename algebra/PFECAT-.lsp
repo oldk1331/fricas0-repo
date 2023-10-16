@@ -79,21 +79,33 @@
               (28 . |elt|) (|Union| $ '"failed") (34 . |exquo|)
               (40 . |charthRoot|) (|Union| 25 '"failed") (|List| $)
               (|SparseUnivariatePolynomial| 6) (45 . |multiEuclidean|)
-              (|Union| 29 '"failed") (|List| 30)
+              (|Union| 29 '#1="failed") (|List| 30)
               (|SparseUnivariatePolynomial| $)
               (51 . |solveLinearPolynomialEquation|) (|Union| 33 '"failed")
               (|List| 26) (|LinearPolynomialEquationByFractions| 6)
               (57 . |solveLinearPolynomialEquationByFractions|))
            '#(|solveLinearPolynomialEquation| 63 |charthRoot| 69) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 35
-                                                 '(1 6 7 0 8 0 6 0 9 0 6 0 10 1
-                                                   6 0 0 11 1 13 0 12 14 1 6 15
-                                                   16 17 2 19 6 0 18 20 2 6 21
-                                                   0 0 22 1 0 21 0 23 2 26 24
-                                                   25 0 27 2 0 28 29 30 31 2 34
-                                                   32 33 26 35 2 0 28 29 30 31
-                                                   1 0 21 0 23)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|charthRoot| ((|Union| |#1| "failed") |#1|))
+                                T)
+                              '((|solveLinearPolynomialEquation|
+                                 ((|Union|
+                                   (|List| (|SparseUnivariatePolynomial| |#1|))
+                                   #1#)
+                                  (|List| (|SparseUnivariatePolynomial| |#1|))
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 35
+                                            '(1 6 7 0 8 0 6 0 9 0 6 0 10 1 6 0
+                                              0 11 1 13 0 12 14 1 6 15 16 17 2
+                                              19 6 0 18 20 2 6 21 0 0 22 1 0 21
+                                              0 23 2 26 24 25 0 27 2 0 28 29 30
+                                              31 2 34 32 33 26 35 2 0 28 29 30
+                                              31 1 0 21 0 23)))))
            '|lookupComplete|)) 

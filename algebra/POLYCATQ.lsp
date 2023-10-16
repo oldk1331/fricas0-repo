@@ -419,11 +419,11 @@
               (|Record| (|:| |var| 7) (|:| |exponent| 26))
               (|Union| 67 '#1="failed") (219 . |isExpt|)
               (|Record| (|:| |val| 10) (|:| |exponent| (|Integer|)))
-              (|Union| 70 '"failed") |POLYCATQ;isPower;FU;7| (224 . =)
+              (|Union| 70 '#2="failed") |POLYCATQ;isPower;FU;7| (224 . =)
               (|Record| (|:| |var| 7) (|:| |exponent| (|Integer|)))
-              (|Union| 74 '"failed") |POLYCATQ;isExpt;FU;8|
+              (|Union| 74 '#3="failed") |POLYCATQ;isExpt;FU;8|
               (|Union| (|List| $) '#1#) (230 . |isTimes|) (235 . |inv|)
-              (|List| 10) (240 . |concat!|) (|Union| 80 '"failed")
+              (|List| 10) (240 . |concat!|) (|Union| 80 '#4="failed")
               |POLYCATQ;isTimes;FU;9| (246 . |isPlus|) |POLYCATQ;isPlus;FU;10|
               (|Union| 7 '"failed") (251 . |mainVariable|) (256 . |max|)
               |POLYCATQ;mainVariable;FU;11| (|SparseUnivariatePolynomial| $)
@@ -434,37 +434,75 @@
               |mainVariable| 298 |isTimes| 303 |isPower| 308 |isPlus| 313
               |isExpt| 318)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 95
-                                                 '(1 10 9 0 11 1 10 9 0 12 2 14
-                                                   0 13 13 15 0 17 0 18 2 13 0
-                                                   0 0 20 0 8 0 21 0 9 0 22 0
-                                                   13 0 23 0 10 0 24 1 10 0 0
-                                                   25 2 13 0 10 26 27 3 13 0 0
-                                                   17 0 28 2 13 10 0 26 29 0 6
-                                                   0 30 0 8 0 31 2 10 0 0 32 33
-                                                   2 10 0 0 0 34 2 10 0 0 0 35
-                                                   1 13 0 10 36 2 13 0 0 0 37 2
-                                                   13 0 0 0 38 2 13 39 0 26 40
-                                                   1 13 10 0 41 2 13 0 0 10 42
-                                                   1 13 26 0 43 2 26 44 0 0 45
-                                                   1 13 0 0 46 1 13 44 0 47 1
-                                                   13 10 0 48 1 13 10 0 49 2 10
-                                                   0 0 0 50 3 13 52 0 0 0 53 1
-                                                   9 0 7 55 1 10 0 9 56 1 14 13
-                                                   0 57 2 13 10 0 10 58 1 14 13
-                                                   0 59 2 7 44 0 0 61 2 7 44 0
-                                                   0 62 1 9 63 0 64 2 9 44 0 0
-                                                   66 1 9 68 0 69 2 9 44 0 0 73
-                                                   1 9 77 0 78 1 10 0 0 79 2 80
-                                                   0 0 10 81 1 9 77 0 84 1 9 86
-                                                   0 87 2 7 0 0 0 88 2 9 90 0 7
-                                                   91 2 94 13 92 93 95 1 0 63
-                                                   10 65 2 0 14 10 7 16 3 0 13
-                                                   10 7 13 54 2 0 10 14 7 60 1
-                                                   0 86 10 89 1 0 82 10 83 1 0
-                                                   71 10 72 1 0 82 10 85 1 0 75
-                                                   10 76)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|variables| ((|List| |#2|) |#5|)) T)
+                                   '((|mainVariable|
+                                      ((|Union| |#2| "failed") |#5|))
+                                     T)
+                                   '((|univariate|
+                                      ((|Fraction|
+                                        (|SparseUnivariatePolynomial| |#5|))
+                                       |#5| |#2|))
+                                     T)
+                                   '((|multivariate|
+                                      (|#5|
+                                       (|Fraction|
+                                        (|SparseUnivariatePolynomial| |#5|))
+                                       |#2|))
+                                     T)
+                                   '((|univariate|
+                                      ((|SparseUnivariatePolynomial| |#5|) |#5|
+                                       |#2|
+                                       (|SparseUnivariatePolynomial| |#5|)))
+                                     T)
+                                   '((|isPlus|
+                                      ((|Union| (|List| |#5|) "failed") |#5|))
+                                     T)
+                                   '((|isTimes|
+                                      ((|Union| (|List| |#5|) #4#) |#5|))
+                                     T)
+                                   '((|isExpt|
+                                      ((|Union|
+                                        (|Record| (|:| |var| |#2|)
+                                                  (|:| |exponent| (|Integer|)))
+                                        #3#)
+                                       |#5|))
+                                     T)
+                                   '((|isPower|
+                                      ((|Union|
+                                        (|Record| (|:| |val| |#5|)
+                                                  (|:| |exponent| (|Integer|)))
+                                        #2#)
+                                       |#5|))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 95
+                                            '(1 10 9 0 11 1 10 9 0 12 2 14 0 13
+                                              13 15 0 17 0 18 2 13 0 0 0 20 0 8
+                                              0 21 0 9 0 22 0 13 0 23 0 10 0 24
+                                              1 10 0 0 25 2 13 0 10 26 27 3 13
+                                              0 0 17 0 28 2 13 10 0 26 29 0 6 0
+                                              30 0 8 0 31 2 10 0 0 32 33 2 10 0
+                                              0 0 34 2 10 0 0 0 35 1 13 0 10 36
+                                              2 13 0 0 0 37 2 13 0 0 0 38 2 13
+                                              39 0 26 40 1 13 10 0 41 2 13 0 0
+                                              10 42 1 13 26 0 43 2 26 44 0 0 45
+                                              1 13 0 0 46 1 13 44 0 47 1 13 10
+                                              0 48 1 13 10 0 49 2 10 0 0 0 50 3
+                                              13 52 0 0 0 53 1 9 0 7 55 1 10 0
+                                              9 56 1 14 13 0 57 2 13 10 0 10 58
+                                              1 14 13 0 59 2 7 44 0 0 61 2 7 44
+                                              0 0 62 1 9 63 0 64 2 9 44 0 0 66
+                                              1 9 68 0 69 2 9 44 0 0 73 1 9 77
+                                              0 78 1 10 0 0 79 2 80 0 0 10 81 1
+                                              9 77 0 84 1 9 86 0 87 2 7 0 0 0
+                                              88 2 9 90 0 7 91 2 94 13 92 93 95
+                                              1 0 63 10 65 2 0 14 10 7 16 3 0
+                                              13 10 7 13 54 2 0 10 14 7 60 1 0
+                                              86 10 89 1 0 82 10 83 1 0 71 10
+                                              72 1 0 82 10 85 1 0 75 10 76)))))
            '|lookupComplete|)) 

@@ -483,20 +483,73 @@
               |PEVALUT;modpreduction;FIU;5| (54 . ~=) (|List| 18) (|List| 11)
               |PEVALUT;modpeval;PLL2I;6|)
            '#(|modpreduction| 60 |modpeval| 72 |eval1a| 80 |eval1| 87) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 39
-                                                 '(2 7 0 6 0 8 3 12 9 10 10 11
-                                                   13 1 14 0 11 17 0 14 0 20 2
-                                                   14 21 0 0 22 2 24 21 0 0 25
-                                                   2 11 0 0 0 29 1 31 14 0 32 0
-                                                   31 0 33 1 31 14 0 34 2 18 21
-                                                   0 0 36 2 0 14 14 11 30 2 0
-                                                   27 31 11 35 4 0 11 14 37 38
-                                                   11 39 3 0 11 14 11 15 16 4 0
-                                                   27 26 18 11 15 28 4 0 14 14
-                                                   18 11 15 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|eval1a|
+                                 ((|Integer|) (|Polynomial| (|Integer|))
+                                  (|Integer|)
+                                  (|Record| (|:| |prime| (|Integer|))
+                                            (|:| |eval1coeffbuf| (|U32Vector|))
+                                            (|:| |eval1expbuf|
+                                                 (|SortedExponentVector|)))))
+                                T)
+                              '((|eval1|
+                                 ((|Polynomial| (|Integer|))
+                                  (|Polynomial| (|Integer|)) (|Symbol|)
+                                  (|Integer|)
+                                  (|Record| (|:| |prime| (|Integer|))
+                                            (|:| |eval1coeffbuf| (|U32Vector|))
+                                            (|:| |eval1expbuf|
+                                                 (|SortedExponentVector|)))))
+                                T)
+                              '((|eval1|
+                                 ((|Union|
+                                   (|Record|
+                                    (|:| |numer| (|Polynomial| (|Integer|)))
+                                    (|:| |denom| (|Polynomial| (|Integer|))))
+                                   "failed")
+                                  (|Record|
+                                   (|:| |numer| (|Polynomial| (|Integer|)))
+                                   (|:| |denom| (|Polynomial| (|Integer|))))
+                                  (|Symbol|) (|Integer|)
+                                  (|Record| (|:| |prime| (|Integer|))
+                                            (|:| |eval1coeffbuf| (|U32Vector|))
+                                            (|:| |eval1expbuf|
+                                                 (|SortedExponentVector|)))))
+                                T)
+                              '((|modpreduction|
+                                 ((|Polynomial| (|Integer|))
+                                  (|Polynomial| (|Integer|)) (|Integer|)))
+                                T)
+                              '((|modpreduction|
+                                 ((|Union|
+                                   (|Record|
+                                    (|:| |numer| (|Polynomial| (|Integer|)))
+                                    (|:| |denom| (|Polynomial| (|Integer|))))
+                                   "failed")
+                                  (|Fraction| (|Polynomial| (|Integer|)))
+                                  (|Integer|)))
+                                T)
+                              '((|modpeval|
+                                 ((|Integer|) (|Polynomial| (|Integer|))
+                                  (|List| (|Symbol|)) (|List| (|Integer|))
+                                  (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 39
+                                            '(2 7 0 6 0 8 3 12 9 10 10 11 13 1
+                                              14 0 11 17 0 14 0 20 2 14 21 0 0
+                                              22 2 24 21 0 0 25 2 11 0 0 0 29 1
+                                              31 14 0 32 0 31 0 33 1 31 14 0 34
+                                              2 18 21 0 0 36 2 0 14 14 11 30 2
+                                              0 27 31 11 35 4 0 11 14 37 38 11
+                                              39 3 0 11 14 11 15 16 4 0 27 26
+                                              18 11 15 28 4 0 14 14 18 11 15
+                                              19)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|PolynomialEvaluationUtilities| 'NILADIC T) 

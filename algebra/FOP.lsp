@@ -102,16 +102,34 @@
               |pushFortranOutputStack| 52 |popFortranOutputStack| 62
               |clearFortranOutputStack| 66)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(0 6 0 7 1 11 9 0 12 1 6 16 0
-                                                   17 2 6 9 9 0 18 1 6 9 0 19 1
-                                                   6 9 0 20 1 9 0 21 22 1 23 13
-                                                   9 24 0 13 0 25 0 0 9 10 0 0
-                                                   6 28 1 0 13 11 15 1 0 13 9
-                                                   14 0 0 13 26 0 0 6 27)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|clearFortranOutputStack|
+                                 ((|Stack| (|String|))))
+                                T)
+                              '((|showFortranOutputStack|
+                                 ((|Stack| (|String|))))
+                                T)
+                              '((|popFortranOutputStack| ((|Void|))) T)
+                              '((|pushFortranOutputStack|
+                                 ((|Void|) (|FileName|)))
+                                T)
+                              '((|pushFortranOutputStack|
+                                 ((|Void|) (|String|)))
+                                T)
+                              '((|topFortranOutputStack| ((|String|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(0 6 0 7 1 11 9 0 12 1 6 16 0 17 2
+                                              6 9 9 0 18 1 6 9 0 19 1 6 9 0 20
+                                              1 9 0 21 22 1 23 13 9 24 0 13 0
+                                              25 0 0 9 10 0 0 6 28 1 0 13 11 15
+                                              1 0 13 9 14 0 0 13 26 0 0 6
+                                              27)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FortranOutputStackPackage| 'NILADIC T) 

@@ -58,11 +58,15 @@
               (|Stream| 7) (|Mapping| 7 6) (|StreamFunctions2| 6 7) (5 . |map|)
               (11 . |series|) |UTS2;map;MUTS1UTS2;1|)
            '#(|map| 16) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(1 8 10 0 11 2 14 12 13 10 15
-                                                   1 9 0 12 16 2 0 9 13 8
-                                                   17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#4| (|Mapping| |#2| |#1|) |#3|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(1 8 10 0 11 2 14 12 13 10 15 1 9
+                                              0 12 16 2 0 9 13 8 17)))))
            '|lookupComplete|)) 

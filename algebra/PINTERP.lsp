@@ -58,11 +58,24 @@
               (|PolynomialInterpolationAlgorithms| 7 14)
               (12 . |LagrangeInterpolation|) |PINTERP;interpolate;2LSup;2|)
            '#(|interpolate| 18) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(2 10 8 9 9 11 2 8 0 0 0 12 2
-                                                   15 14 9 9 16 2 0 14 9 9 17 3
-                                                   0 8 8 9 9 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|interpolate|
+                                 ((|UnivariatePolynomial| |#1| |#2|)
+                                  (|UnivariatePolynomial| |#1| |#2|)
+                                  (|List| |#2|) (|List| |#2|)))
+                                T)
+                              '((|interpolate|
+                                 ((|SparseUnivariatePolynomial| |#2|)
+                                  (|List| |#2|) (|List| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(2 10 8 9 9 11 2 8 0 0 0 12 2 15
+                                              14 9 9 16 2 0 14 9 9 17 3 0 8 8 9
+                                              9 13)))))
            '|lookupComplete|)) 

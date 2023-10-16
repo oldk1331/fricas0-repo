@@ -73,13 +73,26 @@
               (|Stream| 6) (26 . |expand|) (|Stream| 7)
               (|StreamFunctions2| 6 7) (31 . |map|) (37 . |map|))
            '#(|map| 43) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 23
-                                                 '(1 8 6 0 9 1 8 10 0 11 1 8 6
-                                                   0 12 2 13 0 7 7 14 1 13 0 7
-                                                   15 1 8 18 0 19 2 21 20 16 18
-                                                   22 2 0 20 16 8 23 2 1 20 16
-                                                   8 23 2 0 13 16 8 17)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|UniversalSegment| |#2|)
+                                  (|Mapping| |#2| |#1|)
+                                  (|UniversalSegment| |#1|)))
+                                T)
+                              '((|map|
+                                 ((|Stream| |#2|) (|Mapping| |#2| |#1|)
+                                  (|UniversalSegment| |#1|)))
+                                (|has| 6 (|OrderedRing|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 23
+                                            '(1 8 6 0 9 1 8 10 0 11 1 8 6 0 12
+                                              2 13 0 7 7 14 1 13 0 7 15 1 8 18
+                                              0 19 2 21 20 16 18 22 2 0 20 16 8
+                                              23 2 1 20 16 8 23 2 0 13 16 8
+                                              17)))))
            '|lookupComplete|)) 

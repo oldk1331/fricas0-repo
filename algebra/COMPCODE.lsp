@@ -292,24 +292,34 @@
               (127 . |writeLine!|) (133 . |close!|) (|Void|) (|List| 9)
               |COMPCODE;writeCategory;L3SV;8| |COMPCODE;writePackage;L4SV;9|)
            '#(|writePackage| 138 |writeCategory| 147) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 47
-                                                 '(1 7 0 6 8 1 9 6 0 10 1 9 7 0
-                                                   11 1 9 6 6 12 1 9 7 0 13 1
-                                                   15 14 0 16 1 15 17 0 18 2 17
-                                                   14 0 0 19 2 17 14 0 0 20 2
-                                                   22 7 0 21 23 1 15 14 0 24 1
-                                                   15 25 0 26 1 25 7 0 27 1 15
-                                                   14 0 28 1 15 6 0 29 1 30 15
-                                                   0 31 1 15 14 0 32 2 22 14 7
-                                                   0 33 2 22 0 0 7 34 1 25 7 0
-                                                   35 1 25 9 0 36 1 37 0 7 38 2
-                                                   39 0 37 7 40 2 22 0 0 0 41 2
-                                                   39 7 0 7 42 1 39 0 0 43 5 0
-                                                   44 30 7 7 7 7 47 4 0 44 45 7
-                                                   7 7 46)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|writeCategory|
+                                 ((|Void|) (|List| (|ILogic|)) (|String|)
+                                  (|String|) (|String|)))
+                                T)
+                              '((|writePackage|
+                                 ((|Void|) (|List| (|Lambda| (|Typed|)))
+                                  (|String|) (|String|) (|String|) (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 47
+                                            '(1 7 0 6 8 1 9 6 0 10 1 9 7 0 11 1
+                                              9 6 6 12 1 9 7 0 13 1 15 14 0 16
+                                              1 15 17 0 18 2 17 14 0 0 19 2 17
+                                              14 0 0 20 2 22 7 0 21 23 1 15 14
+                                              0 24 1 15 25 0 26 1 25 7 0 27 1
+                                              15 14 0 28 1 15 6 0 29 1 30 15 0
+                                              31 1 15 14 0 32 2 22 14 7 0 33 2
+                                              22 0 0 7 34 1 25 7 0 35 1 25 9 0
+                                              36 1 37 0 7 38 2 39 0 37 7 40 2
+                                              22 0 0 0 41 2 39 7 0 7 42 1 39 0
+                                              0 43 5 0 44 30 7 7 7 7 47 4 0 44
+                                              45 7 7 7 46)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|compCode| 'NILADIC T) 

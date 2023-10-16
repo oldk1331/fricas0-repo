@@ -40,9 +40,17 @@
            '#(NIL NIL NIL NIL NIL NIL (|ThreeSpace| (|DoubleFloat|))
               (0 . |create3Space|) |TOPSP;createThreeSpace;Ts;1|)
            '#(|createThreeSpace| 4) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#() (|makeByteWordVec2| 8 '(0 6 0 7 0 0 6 8)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|createThreeSpace|
+                                 ((|ThreeSpace| (|DoubleFloat|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 8 '(0 6 0 7 0 0 6 8)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TopLevelThreeSpace| 'NILADIC T) 

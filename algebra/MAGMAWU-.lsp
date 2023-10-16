@@ -81,20 +81,41 @@
               (|PositiveInteger|) (|RepeatedSquaring| 6) (10 . |expt|)
               (|NonNegativeInteger|) |MAGMAWU-;^;SNniS;3| (16 . *)
               |MAGMAWU-;rightPower;SNniS;4| |MAGMAWU-;leftPower;SNniS;5|
-              (|Union| $ '"failed") |MAGMAWU-;recip;SU;6| (22 . |recip|)
+              (|Union| $ '#1="failed") |MAGMAWU-;recip;SU;6| (22 . |recip|)
               (27 . |leftRecip|) (32 . |rightRecip|))
            '#(|sample| 37 |rightRecip| 41 |rightPower| 46 |recip| 52 |one?| 57
               |leftRecip| 62 |leftPower| 67 ^ 73)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 24
-                                                 '(0 6 0 7 2 6 8 0 0 9 2 13 6 6
-                                                   12 14 2 6 0 0 0 17 1 6 20 0
-                                                   22 1 0 20 0 23 1 0 20 0 24 0
-                                                   0 0 11 1 0 20 0 24 2 0 0 0
-                                                   15 18 1 0 20 0 21 1 0 8 0 10
-                                                   1 0 20 0 23 2 0 0 0 15 19 2
-                                                   0 0 0 15 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|rightRecip| ((|Union| |#1| "failed") |#1|))
+                                T)
+                              '((|leftRecip| ((|Union| |#1| "failed") |#1|)) T)
+                              '((|recip| ((|Union| |#1| #1#) |#1|)) T)
+                              '((^ (|#1| |#1| (|NonNegativeInteger|))) T)
+                              '((|leftPower|
+                                 (|#1| |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|rightPower|
+                                 (|#1| |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|one?| ((|Boolean|) |#1|)) T)
+                              '((|sample| (|#1|)) T)
+                              '((^ (|#1| |#1| (|PositiveInteger|))) T)
+                              '((|leftPower| (|#1| |#1| (|PositiveInteger|)))
+                                T)
+                              '((|rightPower| (|#1| |#1| (|PositiveInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 24
+                                            '(0 6 0 7 2 6 8 0 0 9 2 13 6 6 12
+                                              14 2 6 0 0 0 17 1 6 20 0 22 1 0
+                                              20 0 23 1 0 20 0 24 0 0 0 11 1 0
+                                              20 0 24 2 0 0 0 15 18 1 0 20 0 21
+                                              1 0 8 0 10 1 0 20 0 23 2 0 0 0 15
+                                              19 2 0 0 0 15 16)))))
            '|lookupComplete|)) 

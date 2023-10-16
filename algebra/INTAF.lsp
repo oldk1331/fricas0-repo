@@ -1031,21 +1031,78 @@
               (|SparseUnivariatePolynomialFunctions2| 7 9) (101 . |map|)
               (107 . *) (|IntegrationResult| 7) |INTAF;algint;F2KMIr;12|)
            '#(|algint| 113 |algextint_base| 121 |algextint| 130) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 60
-                                                 '(3 10 8 8 9 9 11 2 13 7 9 12
-                                                   14 2 17 15 16 8 18 1 7 0 19
-                                                   20 2 15 7 0 7 21 3 13 15 7
-                                                   12 15 22 1 7 23 19 24 1 10
-                                                   25 8 26 1 9 0 0 27 0 6 0 28
-                                                   2 8 0 9 29 30 2 8 0 0 0 31 1
-                                                   10 33 8 34 1 9 15 0 35 1 9 0
-                                                   15 36 2 12 37 0 38 39 2 10
-                                                   49 50 8 51 2 7 53 0 19 54 2
-                                                   56 8 55 15 57 2 7 0 0 0 58 4
-                                                   0 59 7 12 12 42 60 5 0 41 12
-                                                   12 42 46 47 52 7 0 41 12 12
-                                                   42 44 45 46 47 48)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|algint|
+                                 ((|IntegrationResult| |#2|) |#2|
+                                  (|Kernel| |#2|) (|Kernel| |#2|)
+                                  (|Mapping|
+                                   (|SparseUnivariatePolynomial| |#2|)
+                                   (|SparseUnivariatePolynomial| |#2|))))
+                                T)
+                              '((|algextint|
+                                 ((|List|
+                                   (|Record| (|:| |ratpart| |#2|)
+                                             (|:| |coeffs| (|Vector| |#2|))))
+                                  (|Kernel| |#2|) (|Kernel| |#2|)
+                                  (|Mapping|
+                                   (|SparseUnivariatePolynomial| |#2|)
+                                   (|SparseUnivariatePolynomial| |#2|))
+                                  (|Mapping|
+                                   (|List|
+                                    (|Record|
+                                     (|:| |ratpart|
+                                          (|Fraction|
+                                           (|SparseUnivariatePolynomial|
+                                            |#2|)))
+                                     (|:| |coeffs| (|Vector| |#2|))))
+                                   (|List|
+                                    (|Fraction|
+                                     (|SparseUnivariatePolynomial| |#2|))))
+                                  (|Mapping|
+                                   (|List|
+                                    (|Record|
+                                     (|:| |ratpart|
+                                          (|Fraction|
+                                           (|SparseUnivariatePolynomial|
+                                            |#2|)))
+                                     (|:| |coeffs| (|Vector| |#2|))))
+                                   (|Fraction|
+                                    (|SparseUnivariatePolynomial| |#2|))
+                                   (|List|
+                                    (|Fraction|
+                                     (|SparseUnivariatePolynomial| |#2|))))
+                                  (|Mapping| (|List| (|Vector| |#2|))
+                                             (|Matrix| |#2|))
+                                  (|List| |#2|)))
+                                T)
+                              '((|algextint_base|
+                                 ((|List|
+                                   (|Record| (|:| |ratpart| |#2|)
+                                             (|:| |coeffs| (|Vector| |#2|))))
+                                  (|Kernel| |#2|) (|Kernel| |#2|)
+                                  (|Mapping|
+                                   (|SparseUnivariatePolynomial| |#2|)
+                                   (|SparseUnivariatePolynomial| |#2|))
+                                  (|Mapping| (|List| (|Vector| |#2|))
+                                             (|Matrix| |#2|))
+                                  (|List| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 60
+                                            '(3 10 8 8 9 9 11 2 13 7 9 12 14 2
+                                              17 15 16 8 18 1 7 0 19 20 2 15 7
+                                              0 7 21 3 13 15 7 12 15 22 1 7 23
+                                              19 24 1 10 25 8 26 1 9 0 0 27 0 6
+                                              0 28 2 8 0 9 29 30 2 8 0 0 0 31 1
+                                              10 33 8 34 1 9 15 0 35 1 9 0 15
+                                              36 2 12 37 0 38 39 2 10 49 50 8
+                                              51 2 7 53 0 19 54 2 56 8 55 15 57
+                                              2 7 0 0 0 58 4 0 59 7 12 12 42 60
+                                              5 0 41 12 12 42 46 47 52 7 0 41
+                                              12 12 42 44 45 46 47 48)))))
            '|lookupComplete|)) 

@@ -251,23 +251,59 @@
               |exponential1| 121 |exponential| 125 |chiSquare1| 130 |chiSquare|
               135 F 140 |Beta| 146)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 42
-                                                 '(0 7 6 8 0 9 0 10 1 9 0 6 11
-                                                   0 7 6 13 2 9 0 0 0 14 2 9 0
-                                                   0 0 16 2 9 0 0 0 17 2 9 0 0
-                                                   0 18 0 9 0 21 2 9 22 0 0 23
-                                                   1 9 0 0 24 1 9 0 0 25 2 9 22
-                                                   0 0 28 2 9 0 29 0 30 2 9 0 0
-                                                   29 31 1 9 0 0 32 2 9 0 0 6
-                                                   35 2 9 0 36 0 40 0 0 9 15 2
-                                                   0 19 9 9 20 1 0 19 36 42 0 0
-                                                   9 33 2 0 19 9 9 34 0 0 9 26
-                                                   1 0 19 9 27 1 0 9 36 37 1 0
-                                                   19 36 38 2 0 19 36 36 41 2 0
-                                                   19 36 36 39)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|uniform01| ((|Float|))) T)
+                                   '((|normal01| ((|Float|))) T)
+                                   '((|exponential1| ((|Float|))) T)
+                                   '((|chiSquare1|
+                                      ((|Float|) (|NonNegativeInteger|)))
+                                     T)
+                                   '((|uniform|
+                                      ((|Mapping| (|Float|)) (|Float|)
+                                       (|Float|)))
+                                     T)
+                                   '((|normal|
+                                      ((|Mapping| (|Float|)) (|Float|)
+                                       (|Float|)))
+                                     T)
+                                   '((|exponential|
+                                      ((|Mapping| (|Float|)) (|Float|)))
+                                     T)
+                                   '((|chiSquare|
+                                      ((|Mapping| (|Float|))
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|Beta|
+                                      ((|Mapping| (|Float|))
+                                       (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((F
+                                      ((|Mapping| (|Float|))
+                                       (|NonNegativeInteger|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|t|
+                                      ((|Mapping| (|Float|))
+                                       (|NonNegativeInteger|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 42
+                                            '(0 7 6 8 0 9 0 10 1 9 0 6 11 0 7 6
+                                              13 2 9 0 0 0 14 2 9 0 0 0 16 2 9
+                                              0 0 0 17 2 9 0 0 0 18 0 9 0 21 2
+                                              9 22 0 0 23 1 9 0 0 24 1 9 0 0 25
+                                              2 9 22 0 0 28 2 9 0 29 0 30 2 9 0
+                                              0 29 31 1 9 0 0 32 2 9 0 0 6 35 2
+                                              9 0 36 0 40 0 0 9 15 2 0 19 9 9
+                                              20 1 0 19 36 42 0 0 9 33 2 0 19 9
+                                              9 34 0 0 9 26 1 0 19 9 27 1 0 9
+                                              36 37 1 0 19 36 38 2 0 19 36 36
+                                              41 2 0 19 36 36 39)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|RandomFloatDistributions| 'NILADIC T) 

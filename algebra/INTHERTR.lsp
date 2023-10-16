@@ -201,17 +201,35 @@
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 35 '"failed")
               (85 . |extendedEuclidean|) (92 . -))
            '#(|HermiteIntegrate| 98) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 38
-                                                 '(2 11 8 9 10 12 2 7 13 0 0 14
-                                                   2 9 0 7 7 15 2 7 0 0 0 16 0
-                                                   6 0 19 0 7 0 20 1 9 7 0 22 1
-                                                   9 7 0 23 0 7 0 24 1 7 0 0 25
-                                                   2 7 0 0 0 26 2 7 27 0 0 28 1
-                                                   7 29 0 30 2 29 31 0 0 32 2 7
-                                                   0 0 0 33 1 7 0 0 34 3 7 36 0
-                                                   0 0 37 2 7 0 0 0 38 3 0 17 9
-                                                   10 7 18 2 0 17 9 10 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|HermiteIntegrate|
+                                 ((|Record| (|:| |answer| (|Fraction| |#2|))
+                                            (|:| |logpart| (|Fraction| |#2|))
+                                            (|:| |specpart| (|Fraction| |#2|))
+                                            (|:| |polypart| |#2|))
+                                  (|Fraction| |#2|) (|Mapping| |#2| |#2|)))
+                                T)
+                              '((|HermiteIntegrate|
+                                 ((|Record| (|:| |answer| (|Fraction| |#2|))
+                                            (|:| |logpart| (|Fraction| |#2|))
+                                            (|:| |specpart| (|Fraction| |#2|))
+                                            (|:| |polypart| |#2|))
+                                  (|Fraction| |#2|) (|Mapping| |#2| |#2|)
+                                  |#2|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 38
+                                            '(2 11 8 9 10 12 2 7 13 0 0 14 2 9
+                                              0 7 7 15 2 7 0 0 0 16 0 6 0 19 0
+                                              7 0 20 1 9 7 0 22 1 9 7 0 23 0 7
+                                              0 24 1 7 0 0 25 2 7 0 0 0 26 2 7
+                                              27 0 0 28 1 7 29 0 30 2 29 31 0 0
+                                              32 2 7 0 0 0 33 1 7 0 0 34 3 7 36
+                                              0 0 0 37 2 7 0 0 0 38 3 0 17 9 10
+                                              7 18 2 0 17 9 10 21)))))
            '|lookupComplete|)) 

@@ -200,19 +200,37 @@
            '#(|shiftRoots| 90 |scaleRoots| 96 |reverse| 102 |monic?| 107
               |factorsOfDegree| 112 |factorOfDegree| 118 |degreePartition| 124)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 44
-                                                 '(1 11 10 0 12 1 7 13 0 14 0 7
-                                                   0 18 1 21 0 20 22 1 7 6 0 24
-                                                   0 6 0 25 2 6 26 0 0 27 2 7 6
-                                                   0 13 29 2 7 0 6 13 30 2 7 0
-                                                   0 0 31 0 7 0 33 1 6 26 0 34
-                                                   2 6 0 0 0 35 1 7 0 6 37 2 40
-                                                   38 39 7 41 2 7 0 0 0 42 2 38
-                                                   7 0 7 43 2 0 7 7 6 44 2 0 7
-                                                   7 6 36 1 0 7 7 32 1 0 26 7
-                                                   28 2 0 15 16 11 17 2 0 7 16
-                                                   11 19 1 0 21 11 23)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|monic?| ((|Boolean|) |#2|)) T)
+                                   '((|reverse| (|#2| |#2|)) T)
+                                   '((|scaleRoots| (|#2| |#2| |#1|)) T)
+                                   '((|shiftRoots| (|#2| |#2| |#1|)) T)
+                                   '((|degreePartition|
+                                      ((|Multiset| (|NonNegativeInteger|))
+                                       (|Factored| |#2|)))
+                                     T)
+                                   '((|factorOfDegree|
+                                      (|#2| (|PositiveInteger|)
+                                       (|Factored| |#2|)))
+                                     T)
+                                   '((|factorsOfDegree|
+                                      ((|List| |#2|) (|PositiveInteger|)
+                                       (|Factored| |#2|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 44
+                                            '(1 11 10 0 12 1 7 13 0 14 0 7 0 18
+                                              1 21 0 20 22 1 7 6 0 24 0 6 0 25
+                                              2 6 26 0 0 27 2 7 6 0 13 29 2 7 0
+                                              6 13 30 2 7 0 0 0 31 0 7 0 33 1 6
+                                              26 0 34 2 6 0 0 0 35 1 7 0 6 37 2
+                                              40 38 39 7 41 2 7 0 0 0 42 2 38 7
+                                              0 7 43 2 0 7 7 6 44 2 0 7 7 6 36
+                                              1 0 7 7 32 1 0 26 7 28 2 0 15 16
+                                              11 17 2 0 7 16 11 19 1 0 21 11
+                                              23)))))
            '|lookupComplete|)) 

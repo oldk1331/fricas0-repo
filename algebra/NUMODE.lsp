@@ -624,30 +624,82 @@
               |NUMODE;rk4f;VI2FIMV;5| |NUMODE;rk4;VI2FMV;6|
               |NUMODE;rk4;VI2FM4VV;7|)
            '#(|rk4qc| 155 |rk4f| 184 |rk4a| 194 |rk4| 206) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 52
-                                                 '(0 6 0 7 3 6 0 8 8 9 10 0 6 0
-                                                   11 0 6 9 12 2 6 0 0 8 13 1 6
-                                                   14 0 15 2 6 0 0 0 16 2 17 6
-                                                   0 8 18 3 17 6 0 8 6 19 2 6 0
-                                                   0 0 20 2 6 0 0 0 21 2 6 22 0
-                                                   0 23 1 6 0 0 24 2 6 0 0 0 25
-                                                   2 6 22 0 0 26 1 29 27 28 30
-                                                   1 8 14 0 31 3 32 14 0 8 14
-                                                   33 1 28 14 0 34 1 14 0 35 36
-                                                   1 29 27 14 37 1 17 14 0 38 2
-                                                   29 27 28 14 39 1 6 0 0 45 2
-                                                   6 0 0 0 46 2 6 0 0 0 47 2 6
-                                                   0 9 0 48 1 6 0 8 49 7 0 27
-                                                   17 8 6 42 6 17 40 43 14 0 27
-                                                   17 8 6 42 6 17 40 17 17 17
-                                                   17 17 17 17 44 6 0 27 17 8 6
-                                                   6 8 40 50 8 0 27 17 8 6 6 6
-                                                   6 8 40 41 5 0 27 17 8 6 6 40
-                                                   51 9 0 27 17 8 6 6 40 17 17
-                                                   17 17 52)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|rk4|
+                                 ((|Void|) (|Vector| (|Float|)) (|Integer|)
+                                  (|Float|) (|Float|)
+                                  (|Mapping| (|Void|) (|Vector| (|Float|))
+                                             (|Vector| (|Float|)) (|Float|))))
+                                T)
+                              '((|rk4|
+                                 ((|Void|) (|Vector| (|Float|)) (|Integer|)
+                                  (|Float|) (|Float|)
+                                  (|Mapping| (|Void|) (|Vector| (|Float|))
+                                             (|Vector| (|Float|)) (|Float|))
+                                  (|Vector| (|Float|)) (|Vector| (|Float|))
+                                  (|Vector| (|Float|)) (|Vector| (|Float|))))
+                                T)
+                              '((|rk4a|
+                                 ((|Void|) (|Vector| (|Float|)) (|Integer|)
+                                  (|Float|) (|Float|) (|Float|) (|Float|)
+                                  (|Integer|)
+                                  (|Mapping| (|Void|) (|Vector| (|Float|))
+                                             (|Vector| (|Float|)) (|Float|))))
+                                T)
+                              '((|rk4qc|
+                                 ((|Void|) (|Vector| (|Float|)) (|Integer|)
+                                  (|Float|)
+                                  (|Record| (|:| |to_try| (|Float|))
+                                            (|:| |did| (|Float|))
+                                            (|:| |next| (|Float|)))
+                                  (|Float|) (|Vector| (|Float|))
+                                  (|Mapping| (|Void|) (|Vector| (|Float|))
+                                             (|Vector| (|Float|)) (|Float|))))
+                                T)
+                              '((|rk4qc|
+                                 ((|Void|) (|Vector| (|Float|)) (|Integer|)
+                                  (|Float|)
+                                  (|Record| (|:| |to_try| (|Float|))
+                                            (|:| |did| (|Float|))
+                                            (|:| |next| (|Float|)))
+                                  (|Float|) (|Vector| (|Float|))
+                                  (|Mapping| (|Void|) (|Vector| (|Float|))
+                                             (|Vector| (|Float|)) (|Float|))
+                                  (|Vector| (|Float|)) (|Vector| (|Float|))
+                                  (|Vector| (|Float|)) (|Vector| (|Float|))
+                                  (|Vector| (|Float|)) (|Vector| (|Float|))
+                                  (|Vector| (|Float|))))
+                                T)
+                              '((|rk4f|
+                                 ((|Void|) (|Vector| (|Float|)) (|Integer|)
+                                  (|Float|) (|Float|) (|Integer|)
+                                  (|Mapping| (|Void|) (|Vector| (|Float|))
+                                             (|Vector| (|Float|)) (|Float|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 52
+                                            '(0 6 0 7 3 6 0 8 8 9 10 0 6 0 11 0
+                                              6 9 12 2 6 0 0 8 13 1 6 14 0 15 2
+                                              6 0 0 0 16 2 17 6 0 8 18 3 17 6 0
+                                              8 6 19 2 6 0 0 0 20 2 6 0 0 0 21
+                                              2 6 22 0 0 23 1 6 0 0 24 2 6 0 0
+                                              0 25 2 6 22 0 0 26 1 29 27 28 30
+                                              1 8 14 0 31 3 32 14 0 8 14 33 1
+                                              28 14 0 34 1 14 0 35 36 1 29 27
+                                              14 37 1 17 14 0 38 2 29 27 28 14
+                                              39 1 6 0 0 45 2 6 0 0 0 46 2 6 0
+                                              0 0 47 2 6 0 9 0 48 1 6 0 8 49 7
+                                              0 27 17 8 6 42 6 17 40 43 14 0 27
+                                              17 8 6 42 6 17 40 17 17 17 17 17
+                                              17 17 44 6 0 27 17 8 6 6 8 40 50
+                                              8 0 27 17 8 6 6 6 6 8 40 41 5 0
+                                              27 17 8 6 6 40 51 9 0 27 17 8 6 6
+                                              40 17 17 17 17 52)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|NumericalOrdinaryDifferentialEquations| 'NILADIC T) 

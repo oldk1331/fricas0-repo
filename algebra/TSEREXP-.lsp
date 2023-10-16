@@ -40,11 +40,22 @@
               (|List| 15) (10 . |taylor_via_deriv|)
               |TSEREXP-;taylor_via_deriv;CoefLLPS;1|)
            '#(|taylor_via_deriv| 17) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(0 8 0 12 2 10 0 7 8 13 3 6
-                                                   10 10 14 16 17 3 0 10 7 14
-                                                   16 18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|taylor_via_deriv|
+                                 (|#5| |#2| (|List| |#5|)
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T)
+                              '((|taylor_via_deriv|
+                                 (|#5| |#5| (|List| |#5|)
+                                  (|List| (|Mapping| |#2| |#2|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(0 8 0 12 2 10 0 7 8 13 3 6 10 10
+                                              14 16 17 3 0 10 7 14 16 18)))))
            '|lookupComplete|)) 

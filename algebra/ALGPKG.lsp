@@ -1516,34 +1516,61 @@
               |basisOfCommutingElements| 272 |basisOfCentroid| 276
               |basisOfCenter| 280 |basis| 284)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 82
-                                                 '(0 7 8 9 0 7 13 14 0 6 0 16 0
-                                                   6 0 17 2 19 6 0 18 20 4 21 6
-                                                   0 18 18 6 22 0 7 21 23 1 7 0
-                                                   19 24 1 21 25 0 26 2 29 27
-                                                   28 25 30 1 7 19 0 32 1 21 0
-                                                   19 33 1 21 0 0 34 2 21 0 0 0
-                                                   35 2 13 21 0 18 36 2 21 0 0
-                                                   0 37 2 13 21 38 0 39 3 21 6
-                                                   0 18 18 42 1 6 0 0 43 2 21 0
-                                                   0 0 44 2 21 0 0 0 47 2 6 0 0
-                                                   0 49 2 6 0 0 0 50 2 6 0 0 0
-                                                   51 1 13 21 0 56 2 7 6 0 18
-                                                   60 1 21 61 0 62 1 7 68 0 69
-                                                   2 71 0 70 0 72 1 71 0 0 73 1
-                                                   71 68 0 74 0 7 0 75 2 71 7 0
-                                                   18 76 2 21 0 0 0 77 1 21 0 0
-                                                   78 1 21 18 0 79 1 21 18 0 80
-                                                   1 6 68 0 81 1 0 71 71 82 1 0
-                                                   61 7 64 1 0 61 7 67 0 0 27
-                                                   31 1 0 61 7 66 1 0 61 7 63 1
-                                                   0 61 7 65 0 0 45 58 0 0 27
-                                                   53 1 0 27 7 41 0 0 27 55 0 0
-                                                   27 54 0 0 45 46 0 0 27 52 1
-                                                   0 27 7 40 0 0 27 48 0 0 45
-                                                   59 0 0 27 57 1 1 71 71
-                                                   82)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|leftRank| ((|NonNegativeInteger|) |#2|)) T)
+                              '((|rightRank| ((|NonNegativeInteger|) |#2|)) T)
+                              '((|doubleRank| ((|NonNegativeInteger|) |#2|)) T)
+                              '((|weakBiRank| ((|NonNegativeInteger|) |#2|)) T)
+                              '((|biRank| ((|NonNegativeInteger|) |#2|)) T)
+                              '((|basisOfCommutingElements| ((|List| |#2|))) T)
+                              '((|basisOfLeftAnnihilator| ((|List| |#2|) |#2|))
+                                T)
+                              '((|basisOfRightAnnihilator|
+                                 ((|List| |#2|) |#2|))
+                                T)
+                              '((|basisOfLeftNucleus| ((|List| |#2|))) T)
+                              '((|basisOfRightNucleus| ((|List| |#2|))) T)
+                              '((|basisOfMiddleNucleus| ((|List| |#2|))) T)
+                              '((|basisOfNucleus| ((|List| |#2|))) T)
+                              '((|basisOfCenter| ((|List| |#2|))) T)
+                              '((|basisOfLeftNucloid|
+                                 ((|List| (|Matrix| |#1|))))
+                                T)
+                              '((|basisOfRightNucloid|
+                                 ((|List| (|Matrix| |#1|))))
+                                T)
+                              '((|basisOfCentroid| ((|List| (|Matrix| |#1|))))
+                                T)
+                              '((|radicalOfLeftTraceForm| ((|List| |#2|))) T)
+                              '((|basis| ((|Vector| |#2|) (|Vector| |#2|)))
+                                (|has| 6 (|EuclideanDomain|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 82
+                                            '(0 7 8 9 0 7 13 14 0 6 0 16 0 6 0
+                                              17 2 19 6 0 18 20 4 21 6 0 18 18
+                                              6 22 0 7 21 23 1 7 0 19 24 1 21
+                                              25 0 26 2 29 27 28 25 30 1 7 19 0
+                                              32 1 21 0 19 33 1 21 0 0 34 2 21
+                                              0 0 0 35 2 13 21 0 18 36 2 21 0 0
+                                              0 37 2 13 21 38 0 39 3 21 6 0 18
+                                              18 42 1 6 0 0 43 2 21 0 0 0 44 2
+                                              21 0 0 0 47 2 6 0 0 0 49 2 6 0 0
+                                              0 50 2 6 0 0 0 51 1 13 21 0 56 2
+                                              7 6 0 18 60 1 21 61 0 62 1 7 68 0
+                                              69 2 71 0 70 0 72 1 71 0 0 73 1
+                                              71 68 0 74 0 7 0 75 2 71 7 0 18
+                                              76 2 21 0 0 0 77 1 21 0 0 78 1 21
+                                              18 0 79 1 21 18 0 80 1 6 68 0 81
+                                              1 0 71 71 82 1 0 61 7 64 1 0 61 7
+                                              67 0 0 27 31 1 0 61 7 66 1 0 61 7
+                                              63 1 0 61 7 65 0 0 45 58 0 0 27
+                                              53 1 0 27 7 41 0 0 27 55 0 0 27
+                                              54 0 0 45 46 0 0 27 52 1 0 27 7
+                                              40 0 0 27 48 0 0 45 59 0 0 27 57
+                                              1 1 71 71 82)))))
            '|lookupComplete|)) 

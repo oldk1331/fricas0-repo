@@ -115,14 +115,18 @@
               (24 . |numer|) (29 . |denom|) (34 . /) (|Union| $ '"failed")
               (40 . |recip|) (45 . *))
            '#(|map| 51) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(2 0 9 10 7 11 2 14 9 12 13
-                                                   15 1 9 0 8 16 3 20 9 17 18
-                                                   19 21 1 7 22 0 23 1 7 22 0
-                                                   24 2 9 0 0 0 25 1 9 26 0 27
-                                                   2 9 0 0 0 28 2 0 9 10 7
-                                                   11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#4| (|Mapping| |#3| |#1|) |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(2 0 9 10 7 11 2 14 9 12 13 15 1 9
+                                              0 8 16 3 20 9 17 18 19 21 1 7 22
+                                              0 23 1 7 22 0 24 2 9 0 0 0 25 1 9
+                                              26 0 27 2 9 0 0 0 28 2 0 9 10 7
+                                              11)))))
            '|lookupComplete|)) 

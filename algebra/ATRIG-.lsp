@@ -40,11 +40,16 @@
               (0 . |recip|) (5 . |acos|) (10 . |asec|) (15 . |asin|)
               (20 . |acsc|))
            '#(|asec| 25 |acsc| 30) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 12
-                                                 '(1 6 7 0 8 1 6 0 0 9 1 0 0 0
-                                                   10 1 6 0 0 11 1 0 0 0 12 1 0
-                                                   0 0 10 1 0 0 0 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|acsc| (|#1| |#1|)) T)
+                                   '((|asec| (|#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 12
+                                            '(1 6 7 0 8 1 6 0 0 9 1 0 0 0 10 1
+                                              6 0 0 11 1 0 0 0 12 1 0 0 0 10 1
+                                              0 0 0 12)))))
            '|lookupComplete|)) 

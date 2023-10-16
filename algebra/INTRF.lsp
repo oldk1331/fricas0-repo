@@ -80,13 +80,26 @@
               (23 . |integrate|) (|IntegrationResult| 7) (28 . |map|)
               |INTRF;internalIntegrate;FSIr;2|)
            '#(|internalIntegrate| 34 |infieldIntegrate| 40) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(2 10 7 8 9 11 2 10 8 7 9 12
-                                                   1 14 13 8 15 2 18 16 17 13
-                                                   19 1 14 21 8 22 2 18 23 17
-                                                   21 24 2 0 23 7 9 25 2 0 16 7
-                                                   9 20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|internalIntegrate|
+                                 ((|IntegrationResult|
+                                   (|Fraction| (|Polynomial| |#1|)))
+                                  (|Fraction| (|Polynomial| |#1|)) (|Symbol|)))
+                                T)
+                              '((|infieldIntegrate|
+                                 ((|Union| (|Fraction| (|Polynomial| |#1|))
+                                           "failed")
+                                  (|Fraction| (|Polynomial| |#1|)) (|Symbol|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(2 10 7 8 9 11 2 10 8 7 9 12 1 14
+                                              13 8 15 2 18 16 17 13 19 1 14 21
+                                              8 22 2 18 23 17 21 24 2 0 23 7 9
+                                              25 2 0 16 7 9 20)))))
            '|lookupComplete|)) 

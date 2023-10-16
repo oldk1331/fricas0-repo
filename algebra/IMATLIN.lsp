@@ -1362,40 +1362,57 @@
               (198 . |transpose|) |IMATLIN;rank;MNni;13|
               |IMATLIN;nullity;MNni;14| |IMATLIN;generalizedInverse;2M;15|
               (203 . |zero|) (209 . |elt|) (216 . |zero?|) (221 . |setelt!|)
-              (229 . |subMatrix|) (|Union| 9 '"failed")
+              (229 . |subMatrix|) (|Union| 9 '#1="failed")
               |IMATLIN;inverse;MU;16|)
            '#(|row_operation_modular| 238 |row_operation_base| 249 |rowEchelon|
               259 |rank| 264 |nullity| 269 |nullSpace| 274 |inverse| 279
               |generalizedInverse| 284 |determinant| 289)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 59
-                                                 '(1 9 10 0 11 1 9 10 0 12 3 9
-                                                   6 0 10 10 13 0 6 0 14 2 6 15
-                                                   0 0 16 1 9 10 0 17 1 9 10 0
-                                                   18 2 6 0 0 0 19 2 6 0 0 0 20
-                                                   6 0 21 9 10 10 10 10 6 22 7
-                                                   0 21 9 10 10 10 10 6 10 23 0
-                                                   6 24 25 0 24 0 26 2 24 15 0
-                                                   0 27 2 24 15 0 0 28 1 9 0 0
-                                                   29 0 6 0 30 2 10 15 0 0 31 2
-                                                   10 15 0 0 32 3 9 0 0 10 10
-                                                   33 1 6 0 0 34 2 6 15 0 0 35
-                                                   1 0 9 9 36 2 24 15 0 0 37 2
-                                                   8 0 24 6 38 3 8 6 0 10 6 39
-                                                   1 6 0 0 40 1 0 41 9 42 2 24
-                                                   15 0 0 43 2 6 0 0 0 44 1 0 6
-                                                   9 45 4 9 6 0 10 10 6 46 1 9
-                                                   24 0 47 1 9 24 0 48 1 9 0 0
-                                                   49 2 9 0 24 24 53 3 9 6 0 10
-                                                   10 54 1 6 15 0 55 4 9 6 0 10
-                                                   10 6 56 5 9 0 0 10 10 10 10
-                                                   57 7 0 21 9 10 10 10 10 6 10
-                                                   23 6 0 21 9 10 10 10 10 6 22
-                                                   1 0 9 9 36 1 0 24 9 50 1 0
-                                                   24 9 51 1 1 41 9 42 1 0 58 9
-                                                   59 1 0 9 9 52 1 0 6 9
-                                                   45)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|rowEchelon| (|#4| |#4|)) T)
+                                   '((|rank| ((|NonNegativeInteger|) |#4|)) T)
+                                   '((|nullity| ((|NonNegativeInteger|) |#4|))
+                                     T)
+                                   '((|nullSpace| ((|List| |#3|) |#4|))
+                                     (|has| 8 (|shallowlyMutable|)))
+                                   '((|determinant| (|#1| |#4|)) T)
+                                   '((|generalizedInverse| (|#4| |#4|)) T)
+                                   '((|inverse| ((|Union| |#4| #1#) |#4|)) T)
+                                   '((|row_operation_base|
+                                      ((|Void|) |#4| (|Integer|) (|Integer|)
+                                       (|Integer|) (|Integer|) |#1|))
+                                     T)
+                                   '((|row_operation_modular|
+                                      ((|Void|) |#4| (|Integer|) (|Integer|)
+                                       (|Integer|) (|Integer|) |#1|
+                                       (|Integer|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 59
+                                            '(1 9 10 0 11 1 9 10 0 12 3 9 6 0
+                                              10 10 13 0 6 0 14 2 6 15 0 0 16 1
+                                              9 10 0 17 1 9 10 0 18 2 6 0 0 0
+                                              19 2 6 0 0 0 20 6 0 21 9 10 10 10
+                                              10 6 22 7 0 21 9 10 10 10 10 6 10
+                                              23 0 6 24 25 0 24 0 26 2 24 15 0
+                                              0 27 2 24 15 0 0 28 1 9 0 0 29 0
+                                              6 0 30 2 10 15 0 0 31 2 10 15 0 0
+                                              32 3 9 0 0 10 10 33 1 6 0 0 34 2
+                                              6 15 0 0 35 1 0 9 9 36 2 24 15 0
+                                              0 37 2 8 0 24 6 38 3 8 6 0 10 6
+                                              39 1 6 0 0 40 1 0 41 9 42 2 24 15
+                                              0 0 43 2 6 0 0 0 44 1 0 6 9 45 4
+                                              9 6 0 10 10 6 46 1 9 24 0 47 1 9
+                                              24 0 48 1 9 0 0 49 2 9 0 24 24 53
+                                              3 9 6 0 10 10 54 1 6 15 0 55 4 9
+                                              6 0 10 10 6 56 5 9 0 0 10 10 10
+                                              10 57 7 0 21 9 10 10 10 10 6 10
+                                              23 6 0 21 9 10 10 10 10 6 22 1 0
+                                              9 9 36 1 0 24 9 50 1 0 24 9 51 1
+                                              1 41 9 42 1 0 58 9 59 1 0 9 9 52
+                                              1 0 6 9 45)))))
            '|lookupComplete|)) 

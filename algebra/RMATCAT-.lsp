@@ -294,23 +294,34 @@
               139 |ncols| 144 |lookup| 149 |index| 154 |diagonal?| 159
               |antisymmetric?| 164)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 45
-                                                 '(0 9 12 13 0 0 12 14 0 9 0 15
-                                                   1 6 0 16 17 0 0 0 18 1 6 16
-                                                   0 19 1 9 20 0 21 1 0 20 0 22
-                                                   1 9 0 20 23 1 0 0 20 24 1 6
-                                                   27 0 29 1 6 30 0 31 1 6 30 0
-                                                   32 1 6 30 0 33 1 6 30 0 34 2
-                                                   30 27 0 0 35 3 6 9 0 30 30
-                                                   36 1 9 27 0 37 2 12 27 0 0
-                                                   39 2 9 27 0 0 40 1 6 12 0 42
-                                                   1 6 12 0 43 1 9 0 0 44 1 0
-                                                   27 0 45 1 0 27 0 41 1 0 27 0
-                                                   28 0 0 12 14 0 0 0 18 1 0 12
-                                                   0 25 1 0 12 0 26 1 0 20 0 22
-                                                   1 0 0 20 24 1 0 27 0 38 1 0
-                                                   27 0 45)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|size| ((|NonNegativeInteger|))) T)
+                                   '((|index| (|#1| (|PositiveInteger|))) T)
+                                   '((|lookup| ((|PositiveInteger|) |#1|)) T)
+                                   '((|random| (|#1|)) T)
+                                   '((|ncols| ((|NonNegativeInteger|) |#1|)) T)
+                                   '((|nrows| ((|NonNegativeInteger|) |#1|)) T)
+                                   '((|antisymmetric?| ((|Boolean|) |#1|)) T)
+                                   '((|symmetric?| ((|Boolean|) |#1|)) T)
+                                   '((|diagonal?| ((|Boolean|) |#1|)) T)
+                                   '((|square?| ((|Boolean|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 45
+                                            '(0 9 12 13 0 0 12 14 0 9 0 15 1 6
+                                              0 16 17 0 0 0 18 1 6 16 0 19 1 9
+                                              20 0 21 1 0 20 0 22 1 9 0 20 23 1
+                                              0 0 20 24 1 6 27 0 29 1 6 30 0 31
+                                              1 6 30 0 32 1 6 30 0 33 1 6 30 0
+                                              34 2 30 27 0 0 35 3 6 9 0 30 30
+                                              36 1 9 27 0 37 2 12 27 0 0 39 2 9
+                                              27 0 0 40 1 6 12 0 42 1 6 12 0 43
+                                              1 9 0 0 44 1 0 27 0 45 1 0 27 0
+                                              41 1 0 27 0 28 0 0 12 14 0 0 0 18
+                                              1 0 12 0 25 1 0 12 0 26 1 0 20 0
+                                              22 1 0 0 20 24 1 0 27 0 38 1 0 27
+                                              0 45)))))
            '|lookupComplete|)) 

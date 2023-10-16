@@ -288,20 +288,32 @@
               (|OutputForm|) (101 . |messagePrint|) |GB;groebner;LSL;4|
               |GB;groebner;L2SL;5|)
            '#(|normalForm| 106 |groebner| 112) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 40
-                                                 '(1 8 6 0 9 0 6 0 10 0 8 0 11
-                                                   2 6 12 0 0 13 1 6 0 0 14 2 8
-                                                   0 6 0 15 2 17 0 16 0 18 2 19
-                                                   8 8 17 20 2 0 8 8 17 21 2 17
-                                                   12 0 0 22 0 6 0 23 0 7 0 24
-                                                   0 8 0 25 2 8 12 0 0 26 1 8 7
-                                                   0 27 2 7 12 0 0 28 3 19 17
-                                                   17 29 29 30 2 17 0 31 0 32 1
-                                                   19 17 17 33 1 37 35 36 38 2
-                                                   1 8 8 17 21 2 0 17 17 36 39
-                                                   1 0 17 17 34 3 0 17 17 36 36
-                                                   40)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|groebner| ((|List| |#3|) (|List| |#3|))) T)
+                              '((|groebner|
+                                 ((|List| |#3|) (|List| |#3|) (|String|)))
+                                T)
+                              '((|groebner|
+                                 ((|List| |#3|) (|List| |#3|) (|String|)
+                                  (|String|)))
+                                T)
+                              '((|normalForm| (|#3| |#3| (|List| |#3|)))
+                                (|has| 6 (|Field|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 40
+                                            '(1 8 6 0 9 0 6 0 10 0 8 0 11 2 6
+                                              12 0 0 13 1 6 0 0 14 2 8 0 6 0 15
+                                              2 17 0 16 0 18 2 19 8 8 17 20 2 0
+                                              8 8 17 21 2 17 12 0 0 22 0 6 0 23
+                                              0 7 0 24 0 8 0 25 2 8 12 0 0 26 1
+                                              8 7 0 27 2 7 12 0 0 28 3 19 17 17
+                                              29 29 30 2 17 0 31 0 32 1 19 17
+                                              17 33 1 37 35 36 38 2 1 8 8 17 21
+                                              2 0 17 17 36 39 1 0 17 17 34 3 0
+                                              17 17 36 36 40)))))
            '|lookupComplete|)) 

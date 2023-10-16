@@ -2377,7 +2377,7 @@
               |FCTOOL;expression2Fortran;OfL;54|
               |FCTOOL;changeExprLength;IV;55| |FCTOOL;getStatement;OfBL;56|
               |FCTOOL;displayLines;LV;57| |FCTOOL;dispStatement;OfV;58|
-              (283 . |coerce|) (|Union| (|:| |fst| 10) (|:| |void| '"void"))
+              (283 . |coerce|) (|Union| (|:| |fst| 10) (|:| |void| '#1="void"))
               |FCTOOL;fortFormatHead;SULV;60|
               |FCTOOL;fortFormatTypeLines;SLV;63| (288 . |concat|)
               (293 . |concat|) (|Union| 32 '"failed") (|AssociationList| 34 32)
@@ -2395,50 +2395,101 @@
               |clear_used_intrinsics| 416 |checkType| 420 |changeExprLength|
               425)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 126
-                                                 '(1 8 0 7 9 1 10 0 8 11 1 12 0
-                                                   10 13 2 14 12 8 12 15 2 24 0
-                                                   0 0 25 1 29 27 28 30 1 29 28
-                                                   28 31 1 29 32 28 33 2 32 28
-                                                   0 34 35 2 24 34 7 0 36 2 34
-                                                   27 0 0 37 2 38 34 0 34 39 2
-                                                   34 27 0 0 40 2 41 27 0 0 42
-                                                   1 32 28 0 43 2 24 27 7 0 44
-                                                   1 29 27 28 45 1 29 8 28 46 1
-                                                   28 0 8 47 2 28 0 0 49 50 2
-                                                   32 0 0 0 51 2 34 0 41 0 52 1
-                                                   8 7 0 57 2 59 27 8 0 60 1 29
-                                                   7 28 63 1 7 0 49 64 1 28 0 7
-                                                   65 1 29 27 28 66 1 29 34 28
-                                                   67 1 28 0 34 68 2 7 71 0 34
-                                                   72 1 71 0 7 73 2 7 0 71 0 74
-                                                   2 7 34 71 0 75 2 8 27 0 0 76
-                                                   3 7 71 0 34 71 77 1 8 28 0
-                                                   78 1 29 27 28 79 1 80 0 34
-                                                   81 2 7 0 0 80 82 2 41 27 0 0
-                                                   83 2 34 0 86 0 87 2 80 0 34
-                                                   34 89 2 7 27 0 0 90 2 29 28
-                                                   28 32 96 2 32 0 0 0 97 2 32
-                                                   28 0 28 98 2 29 27 28 8 99 0
-                                                   28 0 100 2 34 27 0 0 101 1
-                                                   29 28 28 102 1 10 7 0 111 1
-                                                   24 0 49 115 2 24 0 0 7 116 2
-                                                   118 117 34 0 119 3 118 32 0
-                                                   34 32 120 0 118 0 121 1 118
-                                                   123 0 124 0 55 0 125 1 0 24
-                                                   28 105 0 0 8 16 1 0 55 34 88
-                                                   0 0 24 58 0 0 34 85 2 0 24
-                                                   28 27 108 2 0 55 7 32 126 1
-                                                   0 24 24 91 2 0 55 7 24 114 3
-                                                   0 55 8 112 59 113 3 0 24 103
-                                                   28 27 104 1 0 24 28 106 2 0
-                                                   24 27 92 93 2 0 24 27 92 94
-                                                   1 0 24 92 95 1 0 55 24 109 1
-                                                   0 55 28 110 0 0 55 56 1 0 7
-                                                   7 17 1 0 55 34 107)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|fort_clean_lines|
+                                 ((|List| (|String|)) (|List| (|String|))))
+                                T)
+                              '((|do_with_error_env3|
+                                 ((|List| (|String|)) (|Boolean|)
+                                  (|Mapping| (|List| (|String|)))))
+                                T)
+                              '((|do_with_error_env2|
+                                 ((|List| (|String|)) (|Boolean|)
+                                  (|Mapping| (|List| (|String|)))))
+                                T)
+                              '((|do_with_error_env1|
+                                 ((|List| (|String|))
+                                  (|Mapping| (|List| (|String|)))))
+                                T)
+                              '((|expression2Fortran1|
+                                 ((|List| (|String|)) (|Mapping| (|Symbol|))
+                                  (|OutputForm|) (|Boolean|)))
+                                T)
+                              '((|statement2Fortran|
+                                 ((|List| (|String|)) (|OutputForm|)))
+                                T)
+                              '((|expression2Fortran|
+                                 ((|List| (|String|)) (|OutputForm|)))
+                                T)
+                              '((|getStatement|
+                                 ((|List| (|String|)) (|OutputForm|)
+                                  (|Boolean|)))
+                                T)
+                              '((|changeExprLength| ((|Void|) (|Integer|))) T)
+                              '((|displayLines| ((|Void|) (|List| (|String|))))
+                                T)
+                              '((|dispStatement| ((|Void|) (|OutputForm|))) T)
+                              '((|fortFormatHead|
+                                 ((|Void|) (|Symbol|)
+                                  (|Union| (|:| |fst| (|FortranScalarType|))
+                                           (|:| |void| #1#))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|fortFormatTypeLines|
+                                 ((|Void|) (|String|) (|List| (|String|))))
+                                T)
+                              '((|fort_format_types|
+                                 ((|Void|) (|String|) (|List| (|OutputForm|))))
+                                T)
+                              '((|indentFortLevel| ((|Void|) (|Integer|))) T)
+                              '((|checkType| ((|String|) (|String|))) T)
+                              '((|newFortranTempVar| ((|Symbol|))) T)
+                              '((|clear_used_intrinsics| ((|Void|))) T)
+                              '((|get_used_intrinsics| ((|List| (|String|))))
+                                T)
+                              '((|get_fort_indent| ((|Integer|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 126
+                                            '(1 8 0 7 9 1 10 0 8 11 1 12 0 10
+                                              13 2 14 12 8 12 15 2 24 0 0 0 25
+                                              1 29 27 28 30 1 29 28 28 31 1 29
+                                              32 28 33 2 32 28 0 34 35 2 24 34
+                                              7 0 36 2 34 27 0 0 37 2 38 34 0
+                                              34 39 2 34 27 0 0 40 2 41 27 0 0
+                                              42 1 32 28 0 43 2 24 27 7 0 44 1
+                                              29 27 28 45 1 29 8 28 46 1 28 0 8
+                                              47 2 28 0 0 49 50 2 32 0 0 0 51 2
+                                              34 0 41 0 52 1 8 7 0 57 2 59 27 8
+                                              0 60 1 29 7 28 63 1 7 0 49 64 1
+                                              28 0 7 65 1 29 27 28 66 1 29 34
+                                              28 67 1 28 0 34 68 2 7 71 0 34 72
+                                              1 71 0 7 73 2 7 0 71 0 74 2 7 34
+                                              71 0 75 2 8 27 0 0 76 3 7 71 0 34
+                                              71 77 1 8 28 0 78 1 29 27 28 79 1
+                                              80 0 34 81 2 7 0 0 80 82 2 41 27
+                                              0 0 83 2 34 0 86 0 87 2 80 0 34
+                                              34 89 2 7 27 0 0 90 2 29 28 28 32
+                                              96 2 32 0 0 0 97 2 32 28 0 28 98
+                                              2 29 27 28 8 99 0 28 0 100 2 34
+                                              27 0 0 101 1 29 28 28 102 1 10 7
+                                              0 111 1 24 0 49 115 2 24 0 0 7
+                                              116 2 118 117 34 0 119 3 118 32 0
+                                              34 32 120 0 118 0 121 1 118 123 0
+                                              124 0 55 0 125 1 0 24 28 105 0 0
+                                              8 16 1 0 55 34 88 0 0 24 58 0 0
+                                              34 85 2 0 24 28 27 108 2 0 55 7
+                                              32 126 1 0 24 24 91 2 0 55 7 24
+                                              114 3 0 55 8 112 59 113 3 0 24
+                                              103 28 27 104 1 0 24 28 106 2 0
+                                              24 27 92 93 2 0 24 27 92 94 1 0
+                                              24 92 95 1 0 55 24 109 1 0 55 28
+                                              110 0 0 55 56 1 0 7 7 17 1 0 55
+                                              34 107)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FortranCodeTools| 'NILADIC T) 

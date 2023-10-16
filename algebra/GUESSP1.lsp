@@ -137,20 +137,35 @@
               (88 . |map|) (|SparseMultivariatePolynomial| 22 10)
               (95 . |numer|) (100 . |denom|) (105 . /) |GUESSP1;EXPRR2F;EF;10|)
            '#(|iiretractVar| 111 |iim2| 116 F2EXPRR 121 EXPRR2F 126) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 46
-                                                 '(1 8 0 7 9 1 8 0 10 11 1 8 0
-                                                   6 12 1 0 8 6 13 1 8 14 0 15
-                                                   1 8 7 0 16 1 17 0 7 18 1 17
-                                                   0 6 19 1 0 17 20 21 1 6 22 0
-                                                   23 1 8 0 22 24 1 8 25 0 26 1
-                                                   6 0 22 27 3 30 8 28 29 17 31
-                                                   1 32 17 0 33 1 32 17 0 34 2
-                                                   8 0 0 0 35 3 40 17 37 38 39
-                                                   41 1 8 42 0 43 1 8 42 0 44 2
-                                                   32 0 17 17 45 1 0 17 20 21 1
-                                                   0 8 6 13 1 0 8 32 36 1 0 32
-                                                   8 46)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((F2EXPRR
+                                 ((|Expression| (|Integer|))
+                                  (|Fraction| (|Polynomial| |#1|))))
+                                T)
+                              '((EXPRR2F
+                                 ((|Fraction| (|Polynomial| |#1|))
+                                  (|Expression| (|Integer|))))
+                                T)
+                              '((|iim2| ((|Expression| (|Integer|)) |#1|)) T)
+                              '((|iiretractVar|
+                                 ((|Polynomial| |#1|)
+                                  (|Kernel| (|Expression| (|Integer|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 46
+                                            '(1 8 0 7 9 1 8 0 10 11 1 8 0 6 12
+                                              1 0 8 6 13 1 8 14 0 15 1 8 7 0 16
+                                              1 17 0 7 18 1 17 0 6 19 1 0 17 20
+                                              21 1 6 22 0 23 1 8 0 22 24 1 8 25
+                                              0 26 1 6 0 22 27 3 30 8 28 29 17
+                                              31 1 32 17 0 33 1 32 17 0 34 2 8
+                                              0 0 0 35 3 40 17 37 38 39 41 1 8
+                                              42 0 43 1 8 42 0 44 2 32 0 17 17
+                                              45 1 0 17 20 21 1 0 8 6 13 1 0 8
+                                              32 36 1 0 32 8 46)))))
            '|lookupComplete|)) 

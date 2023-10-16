@@ -856,28 +856,110 @@
               |squareFreeLexTriangular| 194 |lexTriangular| 200 |groebner| 206
               |fglmIfCan| 211)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 70
-                                                 '(1 9 0 8 10 1 9 11 0 12 1 15
-                                                   13 14 16 2 11 17 15 0 18 1
-                                                   20 19 0 21 1 20 0 19 23 2 20
-                                                   17 0 0 27 2 8 0 28 0 29 1 20
-                                                   17 0 30 2 8 0 31 0 32 1 20
-                                                   17 0 33 2 8 17 31 0 34 0 35
-                                                   0 36 1 20 15 0 37 2 35 17 15
-                                                   0 38 1 20 0 0 39 2 35 40 20
-                                                   0 41 2 35 20 20 0 42 2 35 44
-                                                   20 0 45 2 46 20 20 35 47 2
-                                                   35 0 20 0 48 2 35 49 20 0 50
-                                                   2 15 17 0 0 51 1 53 52 52 54
-                                                   0 57 0 58 2 57 17 15 0 59 2
-                                                   57 40 20 0 60 2 57 20 20 0
-                                                   61 2 57 44 20 0 62 2 63 20
-                                                   20 57 64 2 57 49 20 0 65 1
-                                                   67 66 66 68 2 0 66 8 17 70 2
-                                                   0 52 8 17 56 1 0 17 8 22 2 0
-                                                   66 8 17 69 2 0 52 8 17 55 1
-                                                   0 8 8 26 1 0 24 8 25)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|zeroDimensional?|
+                                 ((|Boolean|)
+                                  (|List|
+                                   (|NewSparseMultivariatePolynomial| |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|)))))
+                                T)
+                              '((|fglmIfCan|
+                                 ((|Union|
+                                   (|List|
+                                    (|NewSparseMultivariatePolynomial| |#1|
+                                                                       (|OrderedVariableList|
+                                                                        |#2|)))
+                                   "failed")
+                                  (|List|
+                                   (|NewSparseMultivariatePolynomial| |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|)))))
+                                T)
+                              '((|groebner|
+                                 ((|List|
+                                   (|NewSparseMultivariatePolynomial| |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|)))
+                                  (|List|
+                                   (|NewSparseMultivariatePolynomial| |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|)))))
+                                T)
+                              '((|lexTriangular|
+                                 ((|List| (|RegularChain| |#1| |#2|))
+                                  (|List|
+                                   (|NewSparseMultivariatePolynomial| |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|)))
+                                  (|Boolean|)))
+                                T)
+                              '((|squareFreeLexTriangular|
+                                 ((|List|
+                                   (|SquareFreeRegularTriangularSet| |#1|
+                                                                     (|IndexedExponents|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|))
+                                                                     (|OrderedVariableList|
+                                                                      |#2|)
+                                                                     (|NewSparseMultivariatePolynomial|
+                                                                      |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|))))
+                                  (|List|
+                                   (|NewSparseMultivariatePolynomial| |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|)))
+                                  (|Boolean|)))
+                                T)
+                              '((|zeroSetSplit|
+                                 ((|List| (|RegularChain| |#1| |#2|))
+                                  (|List|
+                                   (|NewSparseMultivariatePolynomial| |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|)))
+                                  (|Boolean|)))
+                                T)
+                              '((|zeroSetSplit|
+                                 ((|List|
+                                   (|SquareFreeRegularTriangularSet| |#1|
+                                                                     (|IndexedExponents|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|))
+                                                                     (|OrderedVariableList|
+                                                                      |#2|)
+                                                                     (|NewSparseMultivariatePolynomial|
+                                                                      |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|))))
+                                  (|List|
+                                   (|NewSparseMultivariatePolynomial| |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#2|)))
+                                  (|Boolean|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 70
+                                            '(1 9 0 8 10 1 9 11 0 12 1 15 13 14
+                                              16 2 11 17 15 0 18 1 20 19 0 21 1
+                                              20 0 19 23 2 20 17 0 0 27 2 8 0
+                                              28 0 29 1 20 17 0 30 2 8 0 31 0
+                                              32 1 20 17 0 33 2 8 17 31 0 34 0
+                                              35 0 36 1 20 15 0 37 2 35 17 15 0
+                                              38 1 20 0 0 39 2 35 40 20 0 41 2
+                                              35 20 20 0 42 2 35 44 20 0 45 2
+                                              46 20 20 35 47 2 35 0 20 0 48 2
+                                              35 49 20 0 50 2 15 17 0 0 51 1 53
+                                              52 52 54 0 57 0 58 2 57 17 15 0
+                                              59 2 57 40 20 0 60 2 57 20 20 0
+                                              61 2 57 44 20 0 62 2 63 20 20 57
+                                              64 2 57 49 20 0 65 1 67 66 66 68
+                                              2 0 66 8 17 70 2 0 52 8 17 56 1 0
+                                              17 8 22 2 0 66 8 17 69 2 0 52 8
+                                              17 55 1 0 8 8 26 1 0 24 8 25)))))
            '|lookupComplete|)) 

@@ -123,14 +123,21 @@
               (|DistinctDegreeFactorize| 6 13) (50 . |irreducible?|)
               (55 . |zero?|) |IRREDFFX;generateIrredPoly;PiSup;3|)
            '#(|generateIrredPoly| 60) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 26
-                                                 '(0 6 7 8 0 6 7 10 0 6 0 12 2
-                                                   13 0 6 7 14 2 13 0 0 0 15 1
-                                                   6 0 16 17 1 13 0 6 18 2 13 0
-                                                   0 0 19 0 13 0 20 2 16 0 0 16
-                                                   21 1 23 22 13 24 1 13 22 0
-                                                   25 1 0 13 16 26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|generateIrredPoly|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|PositiveInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 26
+                                            '(0 6 7 8 0 6 7 10 0 6 0 12 2 13 0
+                                              6 7 14 2 13 0 0 0 15 1 6 0 16 17
+                                              1 13 0 6 18 2 13 0 0 0 19 0 13 0
+                                              20 2 16 0 0 16 21 1 23 22 13 24 1
+                                              13 22 0 25 1 0 13 16 26)))))
            '|lookupComplete|)) 

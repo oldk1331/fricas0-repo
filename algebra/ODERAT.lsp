@@ -981,45 +981,105 @@
            '#(|ratDsolve| 366 |integrate_sols| 390 |indicialEquationAtInfinity|
               395)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 120
-                                                 '(0 8 0 9 1 11 7 0 12 1 7 13 0
-                                                   14 1 11 7 0 15 1 17 16 0 18
-                                                   0 6 0 19 0 7 0 20 1 6 0 0 21
-                                                   1 22 13 0 23 1 22 7 0 24 1
-                                                   11 0 7 25 1 11 0 0 26 2 11 0
-                                                   0 0 27 0 6 0 28 0 7 0 29 2
-                                                   31 7 22 30 32 2 30 11 0 17
-                                                   33 2 22 11 0 11 34 2 11 0 0
-                                                   0 35 2 30 0 0 0 36 1 38 0 37
-                                                   39 1 11 40 41 42 1 7 43 41
-                                                   44 1 22 13 0 45 2 13 16 0 0
-                                                   46 2 22 0 7 13 47 2 22 48 0
-                                                   0 49 0 11 0 50 1 52 51 11 53
-                                                   2 31 54 22 11 55 1 11 16 0
-                                                   56 0 11 0 57 2 11 16 0 0 58
-                                                   1 59 0 30 60 2 11 61 41 62
-                                                   63 2 7 64 41 62 65 2 69 67
-                                                   43 68 70 2 11 0 0 0 71 2 30
-                                                   0 0 0 72 2 31 74 75 30 76 1
-                                                   78 7 30 79 2 7 0 0 0 80 2 7
-                                                   6 0 13 81 2 6 16 0 0 82 1 6
-                                                   0 17 83 2 7 6 0 6 84 3 68 6
-                                                   0 17 6 85 1 68 86 0 87 2 11
-                                                   0 7 7 88 1 68 17 0 89 1 6 16
-                                                   0 90 2 7 0 6 13 91 1 7 0 6
-                                                   92 2 7 0 0 0 93 1 22 0 0 94
-                                                   0 22 0 95 2 22 16 0 0 96 2
-                                                   17 16 0 0 97 1 7 6 0 98 2 6
-                                                   0 0 0 99 2 7 0 6 0 100 1 101
-                                                   17 7 102 2 68 6 0 17 103 2
-                                                   11 0 7 0 104 1 22 7 0 109 1
-                                                   7 16 0 110 2 22 111 0 7 112
-                                                   2 118 116 75 117 119 2 0 105
-                                                   75 11 106 2 0 105 22 11 113
-                                                   2 0 107 75 30 108 2 0 107 22
-                                                   30 114 1 0 116 75 120 1 0 7
-                                                   75 77 1 0 7 22 73)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|ratDsolve|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Fraction| |#2|)
+                                                 #1="failed"))
+                                   (|:| |basis| (|List| (|Fraction| |#2|))))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| |#2|))
+                                  (|Fraction| |#2|)))
+                                T)
+                              '((|ratDsolve|
+                                 ((|Record|
+                                   (|:| |basis| (|List| (|Fraction| |#2|)))
+                                   (|:| |mat| (|Matrix| |#1|)))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| |#2|))
+                                  (|List| (|Fraction| |#2|))))
+                                T)
+                              '((|ratDsolve|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Fraction| |#2|) #1#))
+                                   (|:| |basis| (|List| (|Fraction| |#2|))))
+                                  (|LinearOrdinaryDifferentialOperator2| |#2|
+                                                                         (|Fraction|
+                                                                          |#2|))
+                                  (|Fraction| |#2|)))
+                                T)
+                              '((|ratDsolve|
+                                 ((|Record|
+                                   (|:| |basis| (|List| (|Fraction| |#2|)))
+                                   (|:| |mat| (|Matrix| |#1|)))
+                                  (|LinearOrdinaryDifferentialOperator2| |#2|
+                                                                         (|Fraction|
+                                                                          |#2|))
+                                  (|List| (|Fraction| |#2|))))
+                                T)
+                              '((|indicialEquationAtInfinity|
+                                 (|#2|
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| |#2|))))
+                                T)
+                              '((|indicialEquationAtInfinity|
+                                 (|#2|
+                                  (|LinearOrdinaryDifferentialOperator2| |#2|
+                                                                         (|Fraction|
+                                                                          |#2|))))
+                                T)
+                              '((|integrate_sols|
+                                 ((|Record|
+                                   (|:| |ltilde|
+                                        (|LinearOrdinaryDifferentialOperator1|
+                                         (|Fraction| |#2|)))
+                                   (|:| |r|
+                                        (|Union|
+                                         (|LinearOrdinaryDifferentialOperator1|
+                                          (|Fraction| |#2|))
+                                         "failed")))
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| |#2|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 120
+                                            '(0 8 0 9 1 11 7 0 12 1 7 13 0 14 1
+                                              11 7 0 15 1 17 16 0 18 0 6 0 19 0
+                                              7 0 20 1 6 0 0 21 1 22 13 0 23 1
+                                              22 7 0 24 1 11 0 7 25 1 11 0 0 26
+                                              2 11 0 0 0 27 0 6 0 28 0 7 0 29 2
+                                              31 7 22 30 32 2 30 11 0 17 33 2
+                                              22 11 0 11 34 2 11 0 0 0 35 2 30
+                                              0 0 0 36 1 38 0 37 39 1 11 40 41
+                                              42 1 7 43 41 44 1 22 13 0 45 2 13
+                                              16 0 0 46 2 22 0 7 13 47 2 22 48
+                                              0 0 49 0 11 0 50 1 52 51 11 53 2
+                                              31 54 22 11 55 1 11 16 0 56 0 11
+                                              0 57 2 11 16 0 0 58 1 59 0 30 60
+                                              2 11 61 41 62 63 2 7 64 41 62 65
+                                              2 69 67 43 68 70 2 11 0 0 0 71 2
+                                              30 0 0 0 72 2 31 74 75 30 76 1 78
+                                              7 30 79 2 7 0 0 0 80 2 7 6 0 13
+                                              81 2 6 16 0 0 82 1 6 0 17 83 2 7
+                                              6 0 6 84 3 68 6 0 17 6 85 1 68 86
+                                              0 87 2 11 0 7 7 88 1 68 17 0 89 1
+                                              6 16 0 90 2 7 0 6 13 91 1 7 0 6
+                                              92 2 7 0 0 0 93 1 22 0 0 94 0 22
+                                              0 95 2 22 16 0 0 96 2 17 16 0 0
+                                              97 1 7 6 0 98 2 6 0 0 0 99 2 7 0
+                                              6 0 100 1 101 17 7 102 2 68 6 0
+                                              17 103 2 11 0 7 0 104 1 22 7 0
+                                              109 1 7 16 0 110 2 22 111 0 7 112
+                                              2 118 116 75 117 119 2 0 105 75
+                                              11 106 2 0 105 22 11 113 2 0 107
+                                              75 30 108 2 0 107 22 30 114 1 0
+                                              116 75 120 1 0 7 75 77 1 0 7 22
+                                              73)))))
            '|lookupComplete|)) 

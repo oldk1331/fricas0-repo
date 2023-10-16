@@ -210,14 +210,26 @@
               (|Void|) (34 . |swap!|) |FLASORT;heapSort;M2V;3| (|Boolean|)
               (41 . <=) (47 . >) |FLASORT;shellSort;M2V;6|)
            '#(|shellSort| 53 |quickSort| 59 |heapSort| 65) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(1 7 8 0 9 1 7 8 0 10 2 7 6 0
-                                                   8 13 2 8 0 14 0 15 3 7 6 0 8
-                                                   6 16 1 7 17 0 18 3 7 19 0 8
-                                                   8 20 2 8 22 0 0 23 2 8 22 0
-                                                   0 24 2 0 7 11 7 25 2 0 7 11
-                                                   7 12 2 0 7 11 7 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|quickSort|
+                                 (|#2| (|Mapping| (|Boolean|) |#1| |#1|) |#2|))
+                                T)
+                              '((|heapSort|
+                                 (|#2| (|Mapping| (|Boolean|) |#1| |#1|) |#2|))
+                                T)
+                              '((|shellSort|
+                                 (|#2| (|Mapping| (|Boolean|) |#1| |#1|) |#2|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(1 7 8 0 9 1 7 8 0 10 2 7 6 0 8 13
+                                              2 8 0 14 0 15 3 7 6 0 8 6 16 1 7
+                                              17 0 18 3 7 19 0 8 8 20 2 8 22 0
+                                              0 23 2 8 22 0 0 24 2 0 7 11 7 25
+                                              2 0 7 11 7 12 2 0 7 11 7 21)))))
            '|lookupComplete|)) 

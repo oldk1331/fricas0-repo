@@ -1859,70 +1859,450 @@
               |dmp2rfi| 599 |bsolve| 614 |ParCondList| 623 |ParCond| 629
               |B1solve| 635)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 165
-                                                 '(1 9 10 0 11 1 14 10 0 15 0 6
-                                                   0 18 0 9 0 19 2 21 0 20 20
-                                                   22 1 21 23 0 24 2 23 0 0 0
-                                                   25 0 6 0 26 0 8 0 27 0 28 0
-                                                   29 2 30 10 0 0 31 2 32 0 30
-                                                   30 33 3 32 28 0 20 20 34 4
-                                                   32 28 0 20 20 28 35 1 28 0 0
-                                                   36 2 37 28 0 20 38 1 32 0 0
-                                                   39 3 40 28 0 20 28 41 0 28 0
-                                                   42 2 12 0 0 0 47 2 9 0 0 0
-                                                   48 1 49 12 12 50 2 23 10 20
-                                                   0 54 2 40 28 0 20 56 2 28 0
-                                                   0 0 57 2 28 0 0 0 58 2 28 0
-                                                   0 0 59 1 28 14 0 60 0 14 0
-                                                   61 2 14 10 0 0 62 0 14 0 63
-                                                   2 12 0 0 0 65 1 12 0 0 66 3
-                                                   74 0 73 73 73 75 1 76 0 74
-                                                   77 2 79 78 0 20 83 2 76 69 0
-                                                   69 85 1 76 0 0 86 1 90 89 9
-                                                   91 1 89 94 0 95 2 96 70 0 20
-                                                   98 2 49 9 9 12 99 0 9 0 100
-                                                   2 9 10 0 0 101 2 51 0 30 30
-                                                   102 4 51 9 0 20 20 9 103 1
-                                                   28 14 0 104 2 105 40 0 20
-                                                   106 3 51 9 0 20 20 107 2 28
-                                                   0 0 0 109 3 105 40 0 20 40
-                                                   110 2 20 10 0 0 125 2 20 10
-                                                   0 0 126 2 23 0 0 0 129 2 127
-                                                   0 0 0 130 2 71 10 12 0 134 3
-                                                   14 0 0 135 30 136 1 28 0 14
-                                                   137 1 14 6 0 138 1 9 0 6 139
-                                                   1 7 135 0 141 1 28 0 135 142
-                                                   1 14 0 6 143 3 146 28 144
-                                                   145 9 147 3 74 0 73 73 73
-                                                   148 2 76 0 74 73 149 1 76
-                                                   150 0 151 1 9 154 0 155 3 51
-                                                   0 0 23 23 157 2 9 10 0 0 158
-                                                   1 9 8 0 159 2 8 10 0 0 160 2
-                                                   96 0 161 0 162 1 163 0 12
-                                                   164 2 163 10 0 0 165 2 0 20
-                                                   112 73 140 1 0 9 9 156 1 0
-                                                   37 114 115 7 0 69 70 51 37
-                                                   71 30 30 20 72 2 0 43 43 12
-                                                   55 2 0 51 51 12 52 1 0 112
-                                                   73 152 2 0 112 51 114 116 2
-                                                   0 112 51 12 113 3 0 112 51
-                                                   12 118 119 1 0 112 51 117 2
-                                                   0 112 51 118 121 3 0 112 51
-                                                   114 118 120 3 0 20 51 12 73
-                                                   122 2 0 20 51 73 124 3 0 20
-                                                   51 114 73 123 4 0 20 51 114
-                                                   118 73 132 4 0 20 51 12 118
-                                                   73 131 3 0 20 51 118 73 133
-                                                   1 0 9 14 64 2 0 10 12 71 153
-                                                   2 0 127 20 20 128 1 0 71 71
-                                                   84 1 0 30 79 82 1 0 30 79 81
-                                                   1 0 10 16 17 1 0 10 12 13 2
-                                                   0 67 12 12 68 1 0 12 9 46 1
-                                                   0 28 9 108 1 0 37 12 111 1 0
-                                                   32 51 53 5 0 87 51 37 30 73
-                                                   20 88 2 0 79 51 30 80 2 0 96
-                                                   51 30 97 1 0 43 44 45)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|psolve|
+                                 ((|List|
+                                   (|Record| (|:| |eqzro| (|List| |#4|))
+                                             (|:| |neqzro| (|List| |#4|))
+                                             (|:| |wcond|
+                                                  (|List| (|Polynomial| |#1|)))
+                                             (|:| |bsoln|
+                                                  (|Record|
+                                                   (|:| |partsol|
+                                                        (|Vector|
+                                                         (|Fraction|
+                                                          (|Polynomial|
+                                                           |#1|))))
+                                                   (|:| |basis|
+                                                        (|List|
+                                                         (|Vector|
+                                                          (|Fraction|
+                                                           (|Polynomial|
+                                                            |#1|)))))))))
+                                  (|Matrix| |#4|) (|List| |#4|)))
+                                T)
+                              '((|psolve|
+                                 ((|List|
+                                   (|Record| (|:| |eqzro| (|List| |#4|))
+                                             (|:| |neqzro| (|List| |#4|))
+                                             (|:| |wcond|
+                                                  (|List| (|Polynomial| |#1|)))
+                                             (|:| |bsoln|
+                                                  (|Record|
+                                                   (|:| |partsol|
+                                                        (|Vector|
+                                                         (|Fraction|
+                                                          (|Polynomial|
+                                                           |#1|))))
+                                                   (|:| |basis|
+                                                        (|List|
+                                                         (|Vector|
+                                                          (|Fraction|
+                                                           (|Polynomial|
+                                                            |#1|)))))))))
+                                  (|Matrix| |#4|) (|List| (|Symbol|))))
+                                T)
+                              '((|psolve|
+                                 ((|List|
+                                   (|Record| (|:| |eqzro| (|List| |#4|))
+                                             (|:| |neqzro| (|List| |#4|))
+                                             (|:| |wcond|
+                                                  (|List| (|Polynomial| |#1|)))
+                                             (|:| |bsoln|
+                                                  (|Record|
+                                                   (|:| |partsol|
+                                                        (|Vector|
+                                                         (|Fraction|
+                                                          (|Polynomial|
+                                                           |#1|))))
+                                                   (|:| |basis|
+                                                        (|List|
+                                                         (|Vector|
+                                                          (|Fraction|
+                                                           (|Polynomial|
+                                                            |#1|)))))))))
+                                  (|Matrix| |#4|)))
+                                T)
+                              '((|psolve|
+                                 ((|List|
+                                   (|Record| (|:| |eqzro| (|List| |#4|))
+                                             (|:| |neqzro| (|List| |#4|))
+                                             (|:| |wcond|
+                                                  (|List| (|Polynomial| |#1|)))
+                                             (|:| |bsoln|
+                                                  (|Record|
+                                                   (|:| |partsol|
+                                                        (|Vector|
+                                                         (|Fraction|
+                                                          (|Polynomial|
+                                                           |#1|))))
+                                                   (|:| |basis|
+                                                        (|List|
+                                                         (|Vector|
+                                                          (|Fraction|
+                                                           (|Polynomial|
+                                                            |#1|)))))))))
+                                  (|Matrix| |#4|) (|List| |#4|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|psolve|
+                                 ((|List|
+                                   (|Record| (|:| |eqzro| (|List| |#4|))
+                                             (|:| |neqzro| (|List| |#4|))
+                                             (|:| |wcond|
+                                                  (|List| (|Polynomial| |#1|)))
+                                             (|:| |bsoln|
+                                                  (|Record|
+                                                   (|:| |partsol|
+                                                        (|Vector|
+                                                         (|Fraction|
+                                                          (|Polynomial|
+                                                           |#1|))))
+                                                   (|:| |basis|
+                                                        (|List|
+                                                         (|Vector|
+                                                          (|Fraction|
+                                                           (|Polynomial|
+                                                            |#1|)))))))))
+                                  (|Matrix| |#4|) (|List| (|Symbol|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|psolve|
+                                 ((|List|
+                                   (|Record| (|:| |eqzro| (|List| |#4|))
+                                             (|:| |neqzro| (|List| |#4|))
+                                             (|:| |wcond|
+                                                  (|List| (|Polynomial| |#1|)))
+                                             (|:| |bsoln|
+                                                  (|Record|
+                                                   (|:| |partsol|
+                                                        (|Vector|
+                                                         (|Fraction|
+                                                          (|Polynomial|
+                                                           |#1|))))
+                                                   (|:| |basis|
+                                                        (|List|
+                                                         (|Vector|
+                                                          (|Fraction|
+                                                           (|Polynomial|
+                                                            |#1|)))))))))
+                                  (|Matrix| |#4|) (|PositiveInteger|)))
+                                T)
+                              '((|psolve|
+                                 ((|Integer|) (|Matrix| |#4|) (|List| |#4|)
+                                  (|String|)))
+                                T)
+                              '((|psolve|
+                                 ((|Integer|) (|Matrix| |#4|)
+                                  (|List| (|Symbol|)) (|String|)))
+                                T)
+                              '((|psolve|
+                                 ((|Integer|) (|Matrix| |#4|) (|String|)))
+                                T)
+                              '((|psolve|
+                                 ((|Integer|) (|Matrix| |#4|) (|List| |#4|)
+                                  (|PositiveInteger|) (|String|)))
+                                T)
+                              '((|psolve|
+                                 ((|Integer|) (|Matrix| |#4|)
+                                  (|List| (|Symbol|)) (|PositiveInteger|)
+                                  (|String|)))
+                                T)
+                              '((|psolve|
+                                 ((|Integer|) (|Matrix| |#4|)
+                                  (|PositiveInteger|) (|String|)))
+                                T)
+                              '((|wrregime|
+                                 ((|Integer|)
+                                  (|List|
+                                   (|Record| (|:| |eqzro| (|List| |#4|))
+                                             (|:| |neqzro| (|List| |#4|))
+                                             (|:| |wcond|
+                                                  (|List| (|Polynomial| |#1|)))
+                                             (|:| |bsoln|
+                                                  (|Record|
+                                                   (|:| |partsol|
+                                                        (|Vector|
+                                                         (|Fraction|
+                                                          (|Polynomial|
+                                                           |#1|))))
+                                                   (|:| |basis|
+                                                        (|List|
+                                                         (|Vector|
+                                                          (|Fraction|
+                                                           (|Polynomial|
+                                                            |#1|)))))))))
+                                  (|String|)))
+                                T)
+                              '((|rdregime|
+                                 ((|List|
+                                   (|Record| (|:| |eqzro| (|List| |#4|))
+                                             (|:| |neqzro| (|List| |#4|))
+                                             (|:| |wcond|
+                                                  (|List| (|Polynomial| |#1|)))
+                                             (|:| |bsoln|
+                                                  (|Record|
+                                                   (|:| |partsol|
+                                                        (|Vector|
+                                                         (|Fraction|
+                                                          (|Polynomial|
+                                                           |#1|))))
+                                                   (|:| |basis|
+                                                        (|List|
+                                                         (|Vector|
+                                                          (|Fraction|
+                                                           (|Polynomial|
+                                                            |#1|)))))))))
+                                  (|String|)))
+                                T)
+                              '((|bsolve|
+                                 ((|Record|
+                                   (|:| |rgl|
+                                        (|List|
+                                         (|Record| (|:| |eqzro| (|List| |#4|))
+                                                   (|:| |neqzro| (|List| |#4|))
+                                                   (|:| |wcond|
+                                                        (|List|
+                                                         (|Polynomial| |#1|)))
+                                                   (|:| |bsoln|
+                                                        (|Record|
+                                                         (|:| |partsol|
+                                                              (|Vector|
+                                                               (|Fraction|
+                                                                (|Polynomial|
+                                                                 |#1|))))
+                                                         (|:| |basis|
+                                                              (|List|
+                                                               (|Vector|
+                                                                (|Fraction|
+                                                                 (|Polynomial|
+                                                                  |#1|))))))))))
+                                   (|:| |rgsz| (|Integer|)))
+                                  (|Matrix| |#4|)
+                                  (|List| (|Fraction| (|Polynomial| |#1|)))
+                                  (|NonNegativeInteger|) (|String|)
+                                  (|Integer|)))
+                                T)
+                              '((|dmp2rfi|
+                                 ((|Fraction| (|Polynomial| |#1|)) |#4|))
+                                T)
+                              '((|dmp2rfi|
+                                 ((|Matrix| (|Fraction| (|Polynomial| |#1|)))
+                                  (|Matrix| |#4|)))
+                                T)
+                              '((|dmp2rfi|
+                                 ((|List| (|Fraction| (|Polynomial| |#1|)))
+                                  (|List| |#4|)))
+                                T)
+                              '((|se2rfi|
+                                 ((|List| (|Fraction| (|Polynomial| |#1|)))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|pr2dmp| (|#4| (|Polynomial| |#1|))) T)
+                              '((|hasoln|
+                                 ((|Record| (|:| |sysok| (|Boolean|))
+                                            (|:| |z0| (|List| |#4|))
+                                            (|:| |n0| (|List| |#4|)))
+                                  (|List| |#4|) (|List| |#4|)))
+                                T)
+                              '((|ParCondList|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |rank| (|NonNegativeInteger|))
+                                    (|:| |eqns|
+                                         (|List|
+                                          (|Record| (|:| |det| |#4|)
+                                                    (|:| |rows|
+                                                         (|List| (|Integer|)))
+                                                    (|:| |cols|
+                                                         (|List|
+                                                          (|Integer|))))))
+                                    (|:| |fgb| (|List| |#4|))))
+                                  (|Matrix| |#4|) (|NonNegativeInteger|)))
+                                T)
+                              '((|redpps|
+                                 ((|Record|
+                                   (|:| |partsol|
+                                        (|Vector|
+                                         (|Fraction| (|Polynomial| |#1|))))
+                                   (|:| |basis|
+                                        (|List|
+                                         (|Vector|
+                                          (|Fraction| (|Polynomial| |#1|))))))
+                                  (|Record|
+                                   (|:| |partsol|
+                                        (|Vector|
+                                         (|Fraction| (|Polynomial| |#1|))))
+                                   (|:| |basis|
+                                        (|List|
+                                         (|Vector|
+                                          (|Fraction| (|Polynomial| |#1|))))))
+                                  (|List| |#4|)))
+                                T)
+                              '((|B1solve|
+                                 ((|Record|
+                                   (|:| |partsol|
+                                        (|Vector|
+                                         (|Fraction| (|Polynomial| |#1|))))
+                                   (|:| |basis|
+                                        (|List|
+                                         (|Vector|
+                                          (|Fraction| (|Polynomial| |#1|))))))
+                                  (|Record|
+                                   (|:| |mat|
+                                        (|Matrix|
+                                         (|Fraction| (|Polynomial| |#1|))))
+                                   (|:| |vec|
+                                        (|List|
+                                         (|Fraction| (|Polynomial| |#1|))))
+                                   (|:| |rank| (|NonNegativeInteger|))
+                                   (|:| |rows| (|List| (|Integer|)))
+                                   (|:| |cols| (|List| (|Integer|))))))
+                                T)
+                              '((|factorset| ((|List| |#4|) |#4|)) T)
+                              '((|maxrank|
+                                 ((|NonNegativeInteger|)
+                                  (|List|
+                                   (|Record|
+                                    (|:| |rank| (|NonNegativeInteger|))
+                                    (|:| |eqns|
+                                         (|List|
+                                          (|Record| (|:| |det| |#4|)
+                                                    (|:| |rows|
+                                                         (|List| (|Integer|)))
+                                                    (|:| |cols|
+                                                         (|List|
+                                                          (|Integer|))))))
+                                    (|:| |fgb| (|List| |#4|))))))
+                                T)
+                              '((|minrank|
+                                 ((|NonNegativeInteger|)
+                                  (|List|
+                                   (|Record|
+                                    (|:| |rank| (|NonNegativeInteger|))
+                                    (|:| |eqns|
+                                         (|List|
+                                          (|Record| (|:| |det| |#4|)
+                                                    (|:| |rows|
+                                                         (|List| (|Integer|)))
+                                                    (|:| |cols|
+                                                         (|List|
+                                                          (|Integer|))))))
+                                    (|:| |fgb| (|List| |#4|))))))
+                                T)
+                              '((|minset|
+                                 ((|List| (|List| |#4|))
+                                  (|List| (|List| |#4|))))
+                                T)
+                              '((|nextSublist|
+                                 ((|List| (|List| (|Integer|))) (|Integer|)
+                                  (|Integer|)))
+                                T)
+                              '((|overset?|
+                                 ((|Boolean|) (|List| |#4|)
+                                  (|List| (|List| |#4|))))
+                                T)
+                              '((|ParCond|
+                                 ((|List|
+                                   (|Record| (|:| |det| |#4|)
+                                             (|:| |rows| (|List| (|Integer|)))
+                                             (|:| |cols|
+                                                  (|List| (|Integer|)))))
+                                  (|Matrix| |#4|) (|NonNegativeInteger|)))
+                                T)
+                              '((|redmat|
+                                 ((|Matrix| |#4|) (|Matrix| |#4|)
+                                  (|List| |#4|)))
+                                T)
+                              '((|regime|
+                                 ((|Record| (|:| |eqzro| (|List| |#4|))
+                                            (|:| |neqzro| (|List| |#4|))
+                                            (|:| |wcond|
+                                                 (|List| (|Polynomial| |#1|)))
+                                            (|:| |bsoln|
+                                                 (|Record|
+                                                  (|:| |partsol|
+                                                       (|Vector|
+                                                        (|Fraction|
+                                                         (|Polynomial| |#1|))))
+                                                  (|:| |basis|
+                                                       (|List|
+                                                        (|Vector|
+                                                         (|Fraction|
+                                                          (|Polynomial|
+                                                           |#1|))))))))
+                                  (|Record| (|:| |det| |#4|)
+                                            (|:| |rows| (|List| (|Integer|)))
+                                            (|:| |cols| (|List| (|Integer|))))
+                                  (|Matrix| |#4|)
+                                  (|List| (|Fraction| (|Polynomial| |#1|)))
+                                  (|List| (|List| |#4|)) (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|) (|Integer|)))
+                                T)
+                              '((|sqfree| (|#4| |#4|)) T)
+                              '((|inconsistent?| ((|Boolean|) (|List| |#4|)))
+                                T)
+                              '((|inconsistent?|
+                                 ((|Boolean|) (|List| (|Polynomial| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 165
+                                            '(1 9 10 0 11 1 14 10 0 15 0 6 0 18
+                                              0 9 0 19 2 21 0 20 20 22 1 21 23
+                                              0 24 2 23 0 0 0 25 0 6 0 26 0 8 0
+                                              27 0 28 0 29 2 30 10 0 0 31 2 32
+                                              0 30 30 33 3 32 28 0 20 20 34 4
+                                              32 28 0 20 20 28 35 1 28 0 0 36 2
+                                              37 28 0 20 38 1 32 0 0 39 3 40 28
+                                              0 20 28 41 0 28 0 42 2 12 0 0 0
+                                              47 2 9 0 0 0 48 1 49 12 12 50 2
+                                              23 10 20 0 54 2 40 28 0 20 56 2
+                                              28 0 0 0 57 2 28 0 0 0 58 2 28 0
+                                              0 0 59 1 28 14 0 60 0 14 0 61 2
+                                              14 10 0 0 62 0 14 0 63 2 12 0 0 0
+                                              65 1 12 0 0 66 3 74 0 73 73 73 75
+                                              1 76 0 74 77 2 79 78 0 20 83 2 76
+                                              69 0 69 85 1 76 0 0 86 1 90 89 9
+                                              91 1 89 94 0 95 2 96 70 0 20 98 2
+                                              49 9 9 12 99 0 9 0 100 2 9 10 0 0
+                                              101 2 51 0 30 30 102 4 51 9 0 20
+                                              20 9 103 1 28 14 0 104 2 105 40 0
+                                              20 106 3 51 9 0 20 20 107 2 28 0
+                                              0 0 109 3 105 40 0 20 40 110 2 20
+                                              10 0 0 125 2 20 10 0 0 126 2 23 0
+                                              0 0 129 2 127 0 0 0 130 2 71 10
+                                              12 0 134 3 14 0 0 135 30 136 1 28
+                                              0 14 137 1 14 6 0 138 1 9 0 6 139
+                                              1 7 135 0 141 1 28 0 135 142 1 14
+                                              0 6 143 3 146 28 144 145 9 147 3
+                                              74 0 73 73 73 148 2 76 0 74 73
+                                              149 1 76 150 0 151 1 9 154 0 155
+                                              3 51 0 0 23 23 157 2 9 10 0 0 158
+                                              1 9 8 0 159 2 8 10 0 0 160 2 96 0
+                                              161 0 162 1 163 0 12 164 2 163 10
+                                              0 0 165 2 0 20 112 73 140 1 0 9 9
+                                              156 1 0 37 114 115 7 0 69 70 51
+                                              37 71 30 30 20 72 2 0 43 43 12 55
+                                              2 0 51 51 12 52 1 0 112 73 152 2
+                                              0 112 51 114 116 2 0 112 51 12
+                                              113 3 0 112 51 12 118 119 1 0 112
+                                              51 117 2 0 112 51 118 121 3 0 112
+                                              51 114 118 120 3 0 20 51 12 73
+                                              122 2 0 20 51 73 124 3 0 20 51
+                                              114 73 123 4 0 20 51 114 118 73
+                                              132 4 0 20 51 12 118 73 131 3 0
+                                              20 51 118 73 133 1 0 9 14 64 2 0
+                                              10 12 71 153 2 0 127 20 20 128 1
+                                              0 71 71 84 1 0 30 79 82 1 0 30 79
+                                              81 1 0 10 16 17 1 0 10 12 13 2 0
+                                              67 12 12 68 1 0 12 9 46 1 0 28 9
+                                              108 1 0 37 12 111 1 0 32 51 53 5
+                                              0 87 51 37 30 73 20 88 2 0 79 51
+                                              30 80 2 0 96 51 30 97 1 0 43 44
+                                              45)))))
            '|lookupComplete|)) 

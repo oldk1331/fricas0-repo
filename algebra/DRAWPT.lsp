@@ -194,18 +194,54 @@
               (|Integer|) (16 . ~=) (22 . >) (|DoubleFloat|) (28 . |elt|)
               (|ThreeSpace| 27) (34 . |mesh|) (39 . |makeViewport3D|))
            '#(|draw| 45) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 31
-                                                 '(1 7 0 6 8 2 10 0 7 9 11 1 16
-                                                   0 15 17 2 24 23 0 0 25 2 24
-                                                   23 0 0 26 2 15 27 0 24 28 1
-                                                   29 0 6 30 2 20 0 29 9 31 2 0
-                                                   10 15 15 19 1 0 10 12 14 3 0
-                                                   10 15 15 9 18 2 0 10 12 9 13
-                                                   4 0 20 15 15 15 9 21 3 0 20
-                                                   15 15 15 22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|)
+                                  (|List| (|DoubleFloat|))
+                                  (|List| (|DoubleFloat|))))
+                                T)
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|)
+                                  (|List| (|DoubleFloat|))
+                                  (|List| (|DoubleFloat|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|)
+                                  (|List| (|Point| (|DoubleFloat|)))))
+                                T)
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|)
+                                  (|List| (|Point| (|DoubleFloat|)))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|List| (|DoubleFloat|))
+                                  (|List| (|DoubleFloat|))
+                                  (|List| (|DoubleFloat|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|List| (|DoubleFloat|))
+                                  (|List| (|DoubleFloat|))
+                                  (|List| (|DoubleFloat|))
+                                  (|List| (|DrawOption|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 31
+                                            '(1 7 0 6 8 2 10 0 7 9 11 1 16 0 15
+                                              17 2 24 23 0 0 25 2 24 23 0 0 26
+                                              2 15 27 0 24 28 1 29 0 6 30 2 20
+                                              0 29 9 31 2 0 10 15 15 19 1 0 10
+                                              12 14 3 0 10 15 15 9 18 2 0 10 12
+                                              9 13 4 0 20 15 15 15 9 21 3 0 20
+                                              15 15 15 22)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TopLevelDrawFunctionsForPoints| 'NILADIC T) 

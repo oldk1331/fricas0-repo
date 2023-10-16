@@ -294,7 +294,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (4 . |One|)
               (|Integer|) (8 . |coerce|) '|resMod144| '|two|
-              (|Union| 6 '"failed") |IROOT;perfectSqrt;IU;6| (|Boolean|)
+              (|Union| 6 '#1="failed") |IROOT;perfectSqrt;IU;6| (|Boolean|)
               |IROOT;perfectSquare?;IB;1| (|NonNegativeInteger|)
               |IROOT;perfectNthRoot;INniU;5| |IROOT;perfectNthPower?;INniB;2|
               (13 . =) (19 . |zero?|) (24 . -) (29 . |length|) (34 . +)
@@ -309,24 +309,45 @@
            '#(|perfectSquare?| 151 |perfectSqrt| 156 |perfectNthRoot| 161
               |perfectNthPower?| 172 |approxSqrt| 178 |approxNthRoot| 183)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 50
-                                                 '(0 6 0 7 0 6 0 8 1 6 0 9 10 2
-                                                   6 15 0 0 20 1 6 15 0 21 1 6
-                                                   0 0 22 1 6 0 0 23 2 6 0 0 0
-                                                   24 2 6 15 0 0 25 1 26 6 6 27
-                                                   1 6 9 0 28 1 6 15 0 32 2 17
-                                                   0 34 0 35 2 6 15 0 0 36 2 6
-                                                   0 0 0 37 2 6 0 0 0 38 2 6 0
-                                                   0 0 39 2 6 0 0 0 40 2 6 15 0
-                                                   0 41 2 6 0 0 17 42 2 6 0 17
-                                                   0 43 2 6 0 0 0 44 2 6 15 0 0
-                                                   45 2 6 0 0 0 46 2 47 15 6 0
-                                                   48 2 6 0 34 0 49 2 6 15 0 0
-                                                   50 1 0 15 6 16 1 0 13 6 14 1
-                                                   0 29 6 30 2 0 13 6 17 18 2 0
-                                                   15 6 17 19 1 0 6 6 31 2 0 6
-                                                   6 17 33)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|perfectNthPower?|
+                                 ((|Boolean|) |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|perfectNthRoot|
+                                 ((|Union| |#1| "failed") |#1|
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|perfectNthRoot|
+                                 ((|Record| (|:| |base| |#1|)
+                                            (|:| |exponent|
+                                                 (|NonNegativeInteger|)))
+                                  |#1|))
+                                T)
+                              '((|approxNthRoot|
+                                 (|#1| |#1| (|NonNegativeInteger|)))
+                                T)
+                              '((|perfectSquare?| ((|Boolean|) |#1|)) T)
+                              '((|perfectSqrt| ((|Union| |#1| #1#) |#1|)) T)
+                              '((|approxSqrt| (|#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 50
+                                            '(0 6 0 7 0 6 0 8 1 6 0 9 10 2 6 15
+                                              0 0 20 1 6 15 0 21 1 6 0 0 22 1 6
+                                              0 0 23 2 6 0 0 0 24 2 6 15 0 0 25
+                                              1 26 6 6 27 1 6 9 0 28 1 6 15 0
+                                              32 2 17 0 34 0 35 2 6 15 0 0 36 2
+                                              6 0 0 0 37 2 6 0 0 0 38 2 6 0 0 0
+                                              39 2 6 0 0 0 40 2 6 15 0 0 41 2 6
+                                              0 0 17 42 2 6 0 17 0 43 2 6 0 0 0
+                                              44 2 6 15 0 0 45 2 6 0 0 0 46 2
+                                              47 15 6 0 48 2 6 0 34 0 49 2 6 15
+                                              0 0 50 1 0 15 6 16 1 0 13 6 14 1
+                                              0 29 6 30 2 0 13 6 17 18 2 0 15 6
+                                              17 19 1 0 6 6 31 2 0 6 6 17
+                                              33)))))
            '|lookupComplete|)) 

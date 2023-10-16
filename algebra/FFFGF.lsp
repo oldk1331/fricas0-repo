@@ -131,17 +131,29 @@
               (82 . |generalInterpolation|)
               |FFFGF;generalInterpolation;LMVLM;2|)
            '#(|generalInterpolation| 90) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 39
-                                                 '(2 10 6 0 9 11 3 13 12 0 9 9
-                                                   14 2 12 0 6 0 15 4 13 12 0 9
-                                                   9 12 16 0 6 0 17 0 7 0 18 2
-                                                   19 8 0 9 20 1 8 21 0 22 1 23
-                                                   6 21 24 3 10 6 0 9 6 25 2 26
-                                                   0 0 6 27 1 26 6 0 28 2 30 7
-                                                   29 8 31 3 32 7 0 9 7 33 4 37
-                                                   13 34 35 32 36 38 4 0 13 34
-                                                   35 19 36 39)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|generalInterpolation|
+                                 ((|Matrix|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|List| |#1|)
+                                  (|Mapping| |#1| (|NonNegativeInteger|)
+                                             (|NonNegativeInteger|) |#2|)
+                                  (|Vector| |#3|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 39
+                                            '(2 10 6 0 9 11 3 13 12 0 9 9 14 2
+                                              12 0 6 0 15 4 13 12 0 9 9 12 16 0
+                                              6 0 17 0 7 0 18 2 19 8 0 9 20 1 8
+                                              21 0 22 1 23 6 21 24 3 10 6 0 9 6
+                                              25 2 26 0 0 6 27 1 26 6 0 28 2 30
+                                              7 29 8 31 3 32 7 0 9 7 33 4 37 13
+                                              34 35 32 36 38 4 0 13 34 35 19 36
+                                              39)))))
            '|lookupComplete|)) 

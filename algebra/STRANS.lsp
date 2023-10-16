@@ -222,26 +222,38 @@
            '#(|freeMultiplicativeConvolution| 179 |distributionBySTransform|
               185 |STransform2| 190 |STransform1| 195 |STransform| 200)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 56
-                                                 '(1 11 10 0 12 1 10 13 0 14 1
-                                                   13 6 0 15 1 6 16 0 17 0 6 0
-                                                   18 0 7 0 19 2 13 0 6 0 20 1
-                                                   21 13 13 22 1 10 0 13 23 1
-                                                   13 0 0 24 2 10 0 0 0 25 1 7
-                                                   0 13 26 0 6 0 28 0 7 0 29 2
-                                                   31 0 30 30 32 2 21 13 31 13
-                                                   33 2 8 0 30 7 34 2 8 0 0 0
-                                                   35 2 9 0 31 8 36 0 31 0 38 1
-                                                   9 31 0 40 0 31 0 41 2 31 16
-                                                   0 0 42 1 9 8 0 43 1 8 7 0 44
-                                                   1 6 0 0 45 1 13 0 46 47 2 7
-                                                   0 0 0 48 1 7 13 0 49 1 11 0
-                                                   10 50 1 31 0 0 51 1 9 31 0
-                                                   52 1 9 8 0 53 2 8 0 0 0 54 1
-                                                   31 0 30 55 2 0 11 11 11 1 1
-                                                   0 11 9 56 1 0 9 11 37 1 0 7
-                                                   11 27 1 0 9 11 39)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|STransform1| (|#2| (|Distribution| |#1|))) T)
+                              '((|STransform2| (|#4| (|Distribution| |#1|))) T)
+                              '((|STransform| (|#4| (|Distribution| |#1|))) T)
+                              '((|distributionBySTransform|
+                                 ((|Distribution| |#1|) |#4|))
+                                T)
+                              '((|freeMultiplicativeConvolution|
+                                 ((|Distribution| |#1|) (|Distribution| |#1|)
+                                  (|Distribution| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 56
+                                            '(1 11 10 0 12 1 10 13 0 14 1 13 6
+                                              0 15 1 6 16 0 17 0 6 0 18 0 7 0
+                                              19 2 13 0 6 0 20 1 21 13 13 22 1
+                                              10 0 13 23 1 13 0 0 24 2 10 0 0 0
+                                              25 1 7 0 13 26 0 6 0 28 0 7 0 29
+                                              2 31 0 30 30 32 2 21 13 31 13 33
+                                              2 8 0 30 7 34 2 8 0 0 0 35 2 9 0
+                                              31 8 36 0 31 0 38 1 9 31 0 40 0
+                                              31 0 41 2 31 16 0 0 42 1 9 8 0 43
+                                              1 8 7 0 44 1 6 0 0 45 1 13 0 46
+                                              47 2 7 0 0 0 48 1 7 13 0 49 1 11
+                                              0 10 50 1 31 0 0 51 1 9 31 0 52 1
+                                              9 8 0 53 2 8 0 0 0 54 1 31 0 30
+                                              55 2 0 11 11 11 1 1 0 11 9 56 1 0
+                                              9 11 37 1 0 7 11 27 1 0 9 11
+                                              39)))))
            '|lookupComplete|)) 

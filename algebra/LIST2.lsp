@@ -56,12 +56,28 @@
               |LIST2;map;MLL;1| (|Mapping| 7 6 7) (6 . |scan|)
               |LIST2;scan;MLBL;2| (13 . |reduce|) |LIST2;reduce;ML2B;3|)
            '#(|scan| 20 |reduce| 27 |map| 34) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(2 11 8 9 10 12 3 11 8 14 10
-                                                   7 15 3 11 7 14 10 7 17 3 0 8
-                                                   14 10 7 16 3 0 7 14 10 7 18
-                                                   2 0 8 9 10 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|scan|
+                                 ((|List| |#2|) (|Mapping| |#2| |#1| |#2|)
+                                  (|List| |#1|) |#2|))
+                                T)
+                              '((|reduce|
+                                 (|#2| (|Mapping| |#2| |#1| |#2|) (|List| |#1|)
+                                  |#2|))
+                                T)
+                              '((|map|
+                                 ((|List| |#2|) (|Mapping| |#2| |#1|)
+                                  (|List| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(2 11 8 9 10 12 3 11 8 14 10 7 15
+                                              3 11 7 14 10 7 17 3 0 8 14 10 7
+                                              16 3 0 7 14 10 7 18 2 0 8 9 10
+                                              13)))))
            '|lookupComplete|)) 

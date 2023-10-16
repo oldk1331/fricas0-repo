@@ -50,8 +50,18 @@
            '#(NIL NIL NIL NIL NIL NIL (|Any|) (|Fraction| 8) (|Integer|)
               |RADUTIL;radix;FIA;1|)
            '#(|radix| 0) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#() (CONS '#() (|makeByteWordVec2| 9 '(2 0 6 7 8 9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|radix|
+                                 ((|Any|) (|Fraction| (|Integer|))
+                                  (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 9 '(2 0 6 7 8 9)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|RadixUtilities| 'NILADIC T) 

@@ -170,19 +170,42 @@
            '#(|sayLength| 38 |say| 48 |newLine| 58 |copies| 62 |center| 68
               |bright| 82)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 32
-                                                 '(1 9 0 10 12 2 9 0 0 0 13 1
-                                                   10 0 18 19 2 21 0 16 16 22 2
-                                                   10 0 0 21 23 2 16 24 0 0 25
-                                                   0 29 0 30 1 0 16 9 27 1 0 16
-                                                   10 20 1 0 29 10 31 1 0 29 9
-                                                   32 0 0 10 15 2 0 10 16 10 17
-                                                   3 0 10 10 16 10 26 3 0 9 9
-                                                   16 10 28 1 0 9 9 14 1 0 9 10
-                                                   11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|bright| ((|List| (|String|)) (|String|))) T)
+                              '((|bright|
+                                 ((|List| (|String|)) (|List| (|String|))))
+                                T)
+                              '((|newLine| ((|String|))) T)
+                              '((|copies| ((|String|) (|Integer|) (|String|)))
+                                T)
+                              '((|center|
+                                 ((|String|) (|String|) (|Integer|)
+                                  (|String|)))
+                                T)
+                              '((|center|
+                                 ((|List| (|String|)) (|List| (|String|))
+                                  (|Integer|) (|String|)))
+                                T)
+                              '((|say| ((|Void|) (|String|))) T)
+                              '((|say| ((|Void|) (|List| (|String|)))) T)
+                              '((|sayLength| ((|Integer|) (|String|))) T)
+                              '((|sayLength| ((|Integer|) (|List| (|String|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 32
+                                            '(1 9 0 10 12 2 9 0 0 0 13 1 10 0
+                                              18 19 2 21 0 16 16 22 2 10 0 0 21
+                                              23 2 16 24 0 0 25 0 29 0 30 1 0
+                                              16 9 27 1 0 16 10 20 1 0 29 10 31
+                                              1 0 29 9 32 0 0 10 15 2 0 10 16
+                                              10 17 3 0 10 10 16 10 26 3 0 9 9
+                                              16 10 28 1 0 9 9 14 1 0 9 10
+                                              11)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DisplayPackage| 'NILADIC T) 

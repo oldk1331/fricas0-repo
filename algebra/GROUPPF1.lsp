@@ -106,12 +106,19 @@
               (|GroupPresentation|) (21 . |groupPresentation|) (|List| 9)
               |GROUPPF1;convert;LLGp;1|)
            '#(|convert| 27) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 22
-                                                 '(1 9 8 0 10 2 12 11 6 0 13 0
-                                                   9 0 14 2 15 0 0 0 16 2 19 0
-                                                   17 18 20 2 0 19 12 21
-                                                   22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|convert|
+                                 ((|GroupPresentation|) (|List| |#1|)
+                                  (|List| (|FreeGroup| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 22
+                                            '(1 9 8 0 10 2 12 11 6 0 13 0 9 0
+                                              14 2 15 0 0 0 16 2 19 0 17 18 20
+                                              2 0 19 12 21 22)))))
            '|lookupComplete|)) 

@@ -205,25 +205,109 @@
               |curveColorPalette| 135 |coord| 141 |clipBoolean| 147 |adaptive|
               153)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 64
-                                                 '(2 9 6 7 8 10 2 15 14 7 8 16
-                                                   2 21 20 7 8 22 2 27 26 7 8
-                                                   28 2 33 32 7 8 34 2 38 37 7
-                                                   8 39 0 40 0 41 2 44 43 7 8
-                                                   45 2 51 50 7 8 52 2 57 56 7
-                                                   8 58 2 61 60 7 8 62 2 0 19 7
-                                                   19 23 2 0 46 7 46 48 2 0 46
-                                                   7 46 47 2 0 63 7 63 64 2 0
-                                                   53 7 53 54 2 0 46 7 46 49 2
-                                                   0 11 7 11 25 2 0 17 7 17 18
-                                                   2 0 17 7 17 24 1 0 40 7 42 2
-                                                   0 35 7 35 36 2 0 29 7 29 30
-                                                   2 0 29 7 29 31 2 0 55 7 55
-                                                   59 2 0 11 7 11 13 2 0 11 7
-                                                   11 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|adaptive|
+                                 ((|Boolean|) (|List| (|DrawOption|))
+                                  (|Boolean|)))
+                                T)
+                              '((|clipBoolean|
+                                 ((|Boolean|) (|List| (|DrawOption|))
+                                  (|Boolean|)))
+                                T)
+                              '((|viewpoint|
+                                 ((|Record| (|:| |theta| (|DoubleFloat|))
+                                            (|:| |phi| (|DoubleFloat|))
+                                            (|:| |scale| (|DoubleFloat|))
+                                            (|:| |scaleX| (|DoubleFloat|))
+                                            (|:| |scaleY| (|DoubleFloat|))
+                                            (|:| |scaleZ| (|DoubleFloat|))
+                                            (|:| |deltaX| (|DoubleFloat|))
+                                            (|:| |deltaY| (|DoubleFloat|)))
+                                  (|List| (|DrawOption|))
+                                  (|Record| (|:| |theta| (|DoubleFloat|))
+                                            (|:| |phi| (|DoubleFloat|))
+                                            (|:| |scale| (|DoubleFloat|))
+                                            (|:| |scaleX| (|DoubleFloat|))
+                                            (|:| |scaleY| (|DoubleFloat|))
+                                            (|:| |scaleZ| (|DoubleFloat|))
+                                            (|:| |deltaX| (|DoubleFloat|))
+                                            (|:| |deltaY| (|DoubleFloat|)))))
+                                T)
+                              '((|title|
+                                 ((|String|) (|List| (|DrawOption|))
+                                  (|String|)))
+                                T)
+                              '((|style|
+                                 ((|String|) (|List| (|DrawOption|))
+                                  (|String|)))
+                                T)
+                              '((|toScale|
+                                 ((|Boolean|) (|List| (|DrawOption|))
+                                  (|Boolean|)))
+                                T)
+                              '((|pointColorPalette|
+                                 ((|Palette|) (|List| (|DrawOption|))
+                                  (|Palette|)))
+                                T)
+                              '((|curveColorPalette|
+                                 ((|Palette|) (|List| (|DrawOption|))
+                                  (|Palette|)))
+                                T)
+                              '((|ranges|
+                                 ((|List| (|Segment| (|Float|)))
+                                  (|List| (|DrawOption|))
+                                  (|List| (|Segment| (|Float|)))))
+                                T)
+                              '((|var1Steps|
+                                 ((|PositiveInteger|) (|List| (|DrawOption|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|var2Steps|
+                                 ((|PositiveInteger|) (|List| (|DrawOption|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|space|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|tubePoints|
+                                 ((|PositiveInteger|) (|List| (|DrawOption|))
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|tubeRadius|
+                                 ((|Float|) (|List| (|DrawOption|)) (|Float|)))
+                                T)
+                              '((|coord|
+                                 ((|Mapping| (|Point| (|DoubleFloat|))
+                                             (|Point| (|DoubleFloat|)))
+                                  (|List| (|DrawOption|))
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|Point| (|DoubleFloat|)))))
+                                T)
+                              '((|units|
+                                 ((|List| (|Float|)) (|List| (|DrawOption|))
+                                  (|List| (|Float|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 64
+                                            '(2 9 6 7 8 10 2 15 14 7 8 16 2 21
+                                              20 7 8 22 2 27 26 7 8 28 2 33 32
+                                              7 8 34 2 38 37 7 8 39 0 40 0 41 2
+                                              44 43 7 8 45 2 51 50 7 8 52 2 57
+                                              56 7 8 58 2 61 60 7 8 62 2 0 19 7
+                                              19 23 2 0 46 7 46 48 2 0 46 7 46
+                                              47 2 0 63 7 63 64 2 0 53 7 53 54
+                                              2 0 46 7 46 49 2 0 11 7 11 25 2 0
+                                              17 7 17 18 2 0 17 7 17 24 1 0 40
+                                              7 42 2 0 35 7 35 36 2 0 29 7 29
+                                              30 2 0 29 7 29 31 2 0 55 7 55 59
+                                              2 0 11 7 11 13 2 0 11 7 11
+                                              12)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DrawOptionFunctions0| 'NILADIC T) 

@@ -63,12 +63,30 @@
               |ARRAY12;scan;MOdaBOda;2| (13 . |reduce|)
               |ARRAY12;reduce;MOda2B;3|)
            '#(|scan| 20 |reduce| 27 |map| 34) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(2 11 8 9 10 12 3 11 8 14 10
-                                                   7 15 3 11 7 14 10 7 17 3 0 8
-                                                   14 10 7 16 3 0 7 14 10 7 18
-                                                   2 0 8 9 10 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|scan|
+                                 ((|OneDimensionalArray| |#2|)
+                                  (|Mapping| |#2| |#1| |#2|)
+                                  (|OneDimensionalArray| |#1|) |#2|))
+                                T)
+                              '((|reduce|
+                                 (|#2| (|Mapping| |#2| |#1| |#2|)
+                                  (|OneDimensionalArray| |#1|) |#2|))
+                                T)
+                              '((|map|
+                                 ((|OneDimensionalArray| |#2|)
+                                  (|Mapping| |#2| |#1|)
+                                  (|OneDimensionalArray| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(2 11 8 9 10 12 3 11 8 14 10 7 15
+                                              3 11 7 14 10 7 17 3 0 8 14 10 7
+                                              16 3 0 7 14 10 7 18 2 0 8 9 10
+                                              13)))))
            '|lookupComplete|)) 

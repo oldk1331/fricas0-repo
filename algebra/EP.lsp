@@ -388,24 +388,107 @@
               |eigenvectors| 137 |eigenvector| 142 |eigenvalues| 148
               |characteristicPolynomial| 153)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 63
-                                                 '(1 8 0 7 9 1 10 7 0 11 1 10
-                                                   12 0 13 2 7 14 0 12 15 2 19
-                                                   16 17 18 20 0 12 0 21 1 7 0
-                                                   12 23 2 16 8 0 8 24 2 26 16
-                                                   0 25 27 1 29 0 28 30 1 31 16
-                                                   29 32 1 8 7 0 33 2 31 36 37
-                                                   29 38 4 31 36 37 29 42 42 43
-                                                   1 8 0 12 47 2 10 0 12 7 48 1
-                                                   31 49 29 50 1 0 51 29 52 1
-                                                   31 54 29 55 1 0 56 29 57 1
-                                                   31 59 29 60 1 0 62 29 63 1 1
-                                                   62 29 63 4 0 39 40 29 42 42
-                                                   44 2 0 39 45 29 46 1 1 56 29
-                                                   57 2 0 39 40 29 41 1 1 51 29
-                                                   52 1 0 7 29 35 2 0 7 29 12
-                                                   34)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|characteristicPolynomial|
+                                 ((|Polynomial| |#1|)
+                                  (|Matrix| (|Fraction| (|Polynomial| |#1|)))
+                                  (|Symbol|)))
+                                T)
+                              '((|characteristicPolynomial|
+                                 ((|Polynomial| |#1|)
+                                  (|Matrix| (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|eigenvector|
+                                 ((|List|
+                                   (|Matrix| (|Fraction| (|Polynomial| |#1|))))
+                                  (|Union| (|Fraction| (|Polynomial| |#1|))
+                                           (|SuchThat| (|Symbol|)
+                                                       (|Polynomial| |#1|)))
+                                  (|Matrix| (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|generalizedEigenvector|
+                                 ((|List|
+                                   (|Matrix| (|Fraction| (|Polynomial| |#1|))))
+                                  (|Union| (|Fraction| (|Polynomial| |#1|))
+                                           (|SuchThat| (|Symbol|)
+                                                       (|Polynomial| |#1|)))
+                                  (|Matrix| (|Fraction| (|Polynomial| |#1|)))
+                                  (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|generalizedEigenvector|
+                                 ((|List|
+                                   (|Matrix| (|Fraction| (|Polynomial| |#1|))))
+                                  (|Record|
+                                   (|:| |eigval|
+                                        (|Union|
+                                         (|Fraction| (|Polynomial| |#1|))
+                                         (|SuchThat| (|Symbol|)
+                                                     (|Polynomial| |#1|))))
+                                   (|:| |eigmult| (|NonNegativeInteger|))
+                                   (|:| |eigvec|
+                                        (|List|
+                                         (|Matrix|
+                                          (|Fraction| (|Polynomial| |#1|))))))
+                                  (|Matrix| (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|eigenvalues|
+                                 ((|List|
+                                   (|Union| (|Fraction| (|Polynomial| |#1|))
+                                            (|SuchThat| (|Symbol|)
+                                                        (|Polynomial| |#1|))))
+                                  (|Matrix| (|Fraction| (|Polynomial| |#1|)))))
+                                (|has| 6 (|PolynomialFactorizationExplicit|)))
+                              '((|generalizedEigenvectors|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |eigval|
+                                         (|Union|
+                                          (|Fraction| (|Polynomial| |#1|))
+                                          (|SuchThat| (|Symbol|)
+                                                      (|Polynomial| |#1|))))
+                                    (|:| |geneigvec|
+                                         (|List|
+                                          (|Matrix|
+                                           (|Fraction|
+                                            (|Polynomial| |#1|)))))))
+                                  (|Matrix| (|Fraction| (|Polynomial| |#1|)))))
+                                (|has| 6 (|PolynomialFactorizationExplicit|)))
+                              '((|eigenvectors|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |eigval|
+                                         (|Union|
+                                          (|Fraction| (|Polynomial| |#1|))
+                                          (|SuchThat| (|Symbol|)
+                                                      (|Polynomial| |#1|))))
+                                    (|:| |eigmult| (|NonNegativeInteger|))
+                                    (|:| |eigvec|
+                                         (|List|
+                                          (|Matrix|
+                                           (|Fraction|
+                                            (|Polynomial| |#1|)))))))
+                                  (|Matrix| (|Fraction| (|Polynomial| |#1|)))))
+                                (|has| 6 (|PolynomialFactorizationExplicit|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 63
+                                            '(1 8 0 7 9 1 10 7 0 11 1 10 12 0
+                                              13 2 7 14 0 12 15 2 19 16 17 18
+                                              20 0 12 0 21 1 7 0 12 23 2 16 8 0
+                                              8 24 2 26 16 0 25 27 1 29 0 28 30
+                                              1 31 16 29 32 1 8 7 0 33 2 31 36
+                                              37 29 38 4 31 36 37 29 42 42 43 1
+                                              8 0 12 47 2 10 0 12 7 48 1 31 49
+                                              29 50 1 0 51 29 52 1 31 54 29 55
+                                              1 0 56 29 57 1 31 59 29 60 1 0 62
+                                              29 63 1 1 62 29 63 4 0 39 40 29
+                                              42 42 44 2 0 39 45 29 46 1 1 56
+                                              29 57 2 0 39 40 29 41 1 1 51 29
+                                              52 1 0 7 29 35 2 0 7 29 12
+                                              34)))))
            '|lookupComplete|)) 

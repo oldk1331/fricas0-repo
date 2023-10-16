@@ -68,13 +68,20 @@
               (23 . |packageCall|) |FINITE-;convert;SIf;3| (|Boolean|)
               (29 . |smaller?|))
            '#(|smaller?| 35 |random| 41 |enumerate| 45 |convert| 49) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(0 6 0 7 0 6 8 9 1 6 0 10 11
-                                                   1 6 10 0 15 1 17 0 16 18 2
-                                                   21 17 19 20 22 2 0 24 0 0 25
-                                                   2 0 24 0 0 25 0 0 0 12 0 0
-                                                   13 14 1 0 17 0 23)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|enumerate| ((|List| |#1|))) T)
+                                   '((|random| (|#1|)) T)
+                                   '((|smaller?| ((|Boolean|) |#1| |#1|)) T)
+                                   '((|convert| ((|InputForm|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(0 6 0 7 0 6 8 9 1 6 0 10 11 1 6
+                                              10 0 15 1 17 0 16 18 2 21 17 19
+                                              20 22 2 0 24 0 0 25 2 0 24 0 0 25
+                                              0 0 0 12 0 0 13 14 1 0 17 0
+                                              23)))))
            '|lookupComplete|)) 

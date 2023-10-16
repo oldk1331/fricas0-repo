@@ -247,22 +247,35 @@
               |FFINTBAS;integralBasis;R;3| (140 . |exquo|)
               |FFINTBAS;localIntegralBasis;RR;4|)
            '#(|localIntegralBasis| 146 |integralBasis| 151) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 51
-                                                 '(1 6 9 0 10 1 14 13 0 15 0 6
-                                                   0 16 2 18 17 0 0 19 2 6 0 0
-                                                   0 20 0 8 21 22 1 23 0 0 24 0
-                                                   7 0 25 2 23 0 18 6 26 2 6 17
-                                                   0 0 27 2 28 23 23 6 29 1 23
-                                                   0 0 30 1 23 0 0 31 2 32 23
-                                                   23 6 33 1 23 0 0 34 2 32 23
-                                                   23 6 35 2 23 0 0 0 36 3 37
-                                                   23 23 23 6 38 1 37 6 23 39 3
-                                                   37 6 23 6 18 40 2 23 41 0 6
-                                                   42 2 6 0 0 0 43 2 6 0 0 0 44
-                                                   0 8 18 45 0 8 23 46 1 23 6 0
-                                                   47 2 6 41 0 0 50 1 0 48 6 51
-                                                   0 0 48 49)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|integralBasis|
+                                 ((|Record| (|:| |basis| (|Matrix| |#1|))
+                                            (|:| |basisDen| |#1|)
+                                            (|:| |basisInv| (|Matrix| |#1|)))))
+                                T)
+                              '((|localIntegralBasis|
+                                 ((|Record| (|:| |basis| (|Matrix| |#1|))
+                                            (|:| |basisDen| |#1|)
+                                            (|:| |basisInv| (|Matrix| |#1|)))
+                                  |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 51
+                                            '(1 6 9 0 10 1 14 13 0 15 0 6 0 16
+                                              2 18 17 0 0 19 2 6 0 0 0 20 0 8
+                                              21 22 1 23 0 0 24 0 7 0 25 2 23 0
+                                              18 6 26 2 6 17 0 0 27 2 28 23 23
+                                              6 29 1 23 0 0 30 1 23 0 0 31 2 32
+                                              23 23 6 33 1 23 0 0 34 2 32 23 23
+                                              6 35 2 23 0 0 0 36 3 37 23 23 23
+                                              6 38 1 37 6 23 39 3 37 6 23 6 18
+                                              40 2 23 41 0 6 42 2 6 0 0 0 43 2
+                                              6 0 0 0 44 0 8 18 45 0 8 23 46 1
+                                              23 6 0 47 2 6 41 0 0 50 1 0 48 6
+                                              51 0 0 48 49)))))
            '|lookupComplete|)) 

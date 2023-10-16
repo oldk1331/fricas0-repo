@@ -561,26 +561,47 @@
            '#(|uncouplingMatrices| 186 |associatedSystem| 191
               |associatedEquations| 197)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 60
-                                                 '(0 7 0 8 2 12 10 0 11 13 2 10
-                                                   14 0 11 15 1 14 16 0 17 1 10
-                                                   0 18 19 1 7 20 0 21 0 6 0 22
-                                                   0 7 0 23 0 6 0 24 0 7 0 25 1
-                                                   7 6 0 26 2 7 6 0 20 27 2 6
-                                                   28 0 0 29 1 6 0 0 30 3 32 31
-                                                   0 11 31 33 3 14 6 0 11 6 34
-                                                   2 14 6 0 11 35 2 6 36 0 0 37
-                                                   3 10 0 0 11 14 38 2 10 0 20
-                                                   20 42 3 12 10 0 11 10 43 2 7
-                                                   6 0 6 44 2 10 0 45 0 46 2 10
-                                                   0 0 0 47 2 10 0 0 0 48 2 32
-                                                   31 0 11 50 2 7 0 0 0 51 2 20
-                                                   36 0 0 52 2 54 53 7 40 55 1
-                                                   10 28 0 56 2 0 57 7 40 58 2
-                                                   7 0 6 20 59 2 7 0 0 0 60 1 0
-                                                   12 10 49 2 0 39 7 40 41 2 1
-                                                   57 7 40 58)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|associatedSystem|
+                                 ((|Record| (|:| |mat| (|Matrix| |#1|))
+                                            (|:| |vec|
+                                                 (|Vector|
+                                                  (|List|
+                                                   (|PositiveInteger|)))))
+                                  |#2| (|PositiveInteger|)))
+                                T)
+                              '((|uncouplingMatrices|
+                                 ((|Vector| (|Matrix| |#1|)) (|Matrix| |#1|)))
+                                T)
+                              '((|associatedEquations|
+                                 ((|Record|
+                                   (|:| |minor| (|List| (|PositiveInteger|)))
+                                   (|:| |eq| |#2|)
+                                   (|:| |minors|
+                                        (|List| (|List| (|PositiveInteger|))))
+                                   (|:| |ops| (|List| |#2|)))
+                                  |#2| (|PositiveInteger|)))
+                                (|has| 6 (|Field|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 60
+                                            '(0 7 0 8 2 12 10 0 11 13 2 10 14 0
+                                              11 15 1 14 16 0 17 1 10 0 18 19 1
+                                              7 20 0 21 0 6 0 22 0 7 0 23 0 6 0
+                                              24 0 7 0 25 1 7 6 0 26 2 7 6 0 20
+                                              27 2 6 28 0 0 29 1 6 0 0 30 3 32
+                                              31 0 11 31 33 3 14 6 0 11 6 34 2
+                                              14 6 0 11 35 2 6 36 0 0 37 3 10 0
+                                              0 11 14 38 2 10 0 20 20 42 3 12
+                                              10 0 11 10 43 2 7 6 0 6 44 2 10 0
+                                              45 0 46 2 10 0 0 0 47 2 10 0 0 0
+                                              48 2 32 31 0 11 50 2 7 0 0 0 51 2
+                                              20 36 0 0 52 2 54 53 7 40 55 1 10
+                                              28 0 56 2 0 57 7 40 58 2 7 0 6 20
+                                              59 2 7 0 0 0 60 1 0 12 10 49 2 0
+                                              39 7 40 41 2 1 57 7 40 58)))))
            '|lookupComplete|)) 

@@ -280,24 +280,45 @@
               (|Vector| 59) (145 . |vector|) (|Matrix| 51)
               |SCPKG;structuralConstants;LMV;5|)
            '#(|structuralConstants| 150 |coordinates| 167) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 60
-                                                 '(1 8 7 0 9 2 10 0 0 0 11 2 7
-                                                   10 12 0 13 1 14 0 10 15 1 17
-                                                   16 0 18 0 6 0 19 2 17 8 0 16
-                                                   20 0 6 0 21 3 8 0 0 16 14 22
-                                                   2 25 24 8 14 26 2 8 0 0 0 28
-                                                   2 29 8 0 16 30 2 14 6 0 16
-                                                   31 4 8 6 0 16 16 6 32 2 35
-                                                   34 0 0 36 1 37 0 0 38 0 39 0
-                                                   40 2 39 35 0 37 41 2 35 34 0
-                                                   0 42 3 39 0 0 43 35 44 2 39
-                                                   34 0 0 45 1 47 0 46 48 0 51
-                                                   0 52 1 51 39 0 53 1 51 39 0
-                                                   54 2 51 0 39 39 55 1 57 0 56
-                                                   58 2 0 47 37 49 50 2 0 57 37
-                                                   59 60 1 0 29 17 33 2 0 14 8
-                                                   17 27)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|structuralConstants|
+                                 ((|Vector|
+                                   (|Matrix| (|Fraction| (|Polynomial| |#1|))))
+                                  (|List| (|Symbol|))
+                                  (|Matrix| (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|structuralConstants|
+                                 ((|Vector| (|Matrix| (|Polynomial| |#1|)))
+                                  (|List| (|Symbol|))
+                                  (|Matrix| (|Polynomial| |#1|))))
+                                T)
+                              '((|structuralConstants|
+                                 ((|Vector| (|Matrix| |#1|))
+                                  (|List| (|Matrix| |#1|))))
+                                T)
+                              '((|coordinates|
+                                 ((|Vector| |#1|) (|Matrix| |#1|)
+                                  (|List| (|Matrix| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 60
+                                            '(1 8 7 0 9 2 10 0 0 0 11 2 7 10 12
+                                              0 13 1 14 0 10 15 1 17 16 0 18 0
+                                              6 0 19 2 17 8 0 16 20 0 6 0 21 3
+                                              8 0 0 16 14 22 2 25 24 8 14 26 2
+                                              8 0 0 0 28 2 29 8 0 16 30 2 14 6
+                                              0 16 31 4 8 6 0 16 16 6 32 2 35
+                                              34 0 0 36 1 37 0 0 38 0 39 0 40 2
+                                              39 35 0 37 41 2 35 34 0 0 42 3 39
+                                              0 0 43 35 44 2 39 34 0 0 45 1 47
+                                              0 46 48 0 51 0 52 1 51 39 0 53 1
+                                              51 39 0 54 2 51 0 39 39 55 1 57 0
+                                              56 58 2 0 47 37 49 50 2 0 57 37
+                                              59 60 1 0 29 17 33 2 0 14 8 17
+                                              27)))))
            '|lookupComplete|)) 

@@ -58,12 +58,22 @@
               (|Record| (|:| |key| 7) (|:| |entry| 8)) |KDAGG-;member?;RSB;2|
               (|List| 14) (12 . |parts|) (|List| 7) (17 . |keys|))
            '#(|member?| 22 |keys| 28 |key?| 33) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(2 6 9 7 0 10 2 9 11 0 0 13 1
-                                                   6 16 0 17 1 0 18 0 19 2 0 11
-                                                   14 0 15 1 0 18 0 19 2 0 11 7
-                                                   0 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|keys| ((|List| |#2|) |#1|)) T)
+                                   '((|key?| ((|Boolean|) |#2| |#1|)) T)
+                                   '((|member?|
+                                      ((|Boolean|)
+                                       (|Record| (|:| |key| |#2|)
+                                                 (|:| |entry| |#3|))
+                                       |#1|))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(2 6 9 7 0 10 2 9 11 0 0 13 1 6 16
+                                              0 17 1 0 18 0 19 2 0 11 14 0 15 1
+                                              0 18 0 19 2 0 11 7 0 12)))))
            '|lookupComplete|)) 

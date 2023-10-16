@@ -135,14 +135,23 @@
               (36 . |multivariate|) (42 . |gcd|) (48 . |differentiate|)
               (|Boolean|) (54 . |ground?|) (59 . *))
            '#(|split| 65) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(1 8 9 0 10 0 6 0 11 0 8 0 12
-                                                   2 8 13 0 7 14 1 15 8 0 16 2
-                                                   8 17 0 0 18 2 15 0 19 0 20 2
-                                                   8 0 13 7 23 2 8 0 0 0 24 2 8
-                                                   0 0 7 25 1 8 26 0 27 2 8 0 0
-                                                   0 28 2 0 21 8 19 22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|split|
+                                 ((|Record| (|:| |normal| |#3|)
+                                            (|:| |special| |#3|))
+                                  |#3| (|Mapping| |#3| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(1 8 9 0 10 0 6 0 11 0 8 0 12 2 8
+                                              13 0 7 14 1 15 8 0 16 2 8 17 0 0
+                                              18 2 15 0 19 0 20 2 8 0 13 7 23 2
+                                              8 0 0 0 24 2 8 0 0 7 25 1 8 26 0
+                                              27 2 8 0 0 0 28 2 0 21 8 19
+                                              22)))))
            '|lookupComplete|)) 

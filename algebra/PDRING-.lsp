@@ -75,14 +75,33 @@
               |PDRING-;D;ASA;4| (13 . |differentiate|) |PDRING-;D;ALA;5|
               |PDRING-;D;ASNniA;6| (19 . |differentiate|) |PDRING-;D;ALLA;7|)
            '#(|differentiate| 26 D 46) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(2 6 0 0 7 8 3 6 0 0 7 11 13
-                                                   2 6 0 0 9 17 3 6 0 0 9 14 20
-                                                   3 0 0 0 7 11 12 3 0 0 0 9 14
-                                                   15 2 0 0 0 9 10 3 0 0 0 7 11
-                                                   19 3 0 0 0 9 14 21 2 0 0 0 7
-                                                   16 2 0 0 0 9 18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((D
+                                 (|#1| |#1| (|List| |#2|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((D (|#1| |#1| |#2| (|NonNegativeInteger|))) T)
+                              '((D (|#1| |#1| (|List| |#2|))) T)
+                              '((D (|#1| |#1| |#2|)) T)
+                              '((|differentiate|
+                                 (|#1| |#1| (|List| |#2|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|differentiate|
+                                 (|#1| |#1| |#2| (|NonNegativeInteger|)))
+                                T)
+                              '((|differentiate| (|#1| |#1| (|List| |#2|))) T)
+                              '((|differentiate| (|#1| |#1| |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(2 6 0 0 7 8 3 6 0 0 7 11 13 2 6 0
+                                              0 9 17 3 6 0 0 9 14 20 3 0 0 0 7
+                                              11 12 3 0 0 0 9 14 15 2 0 0 0 9
+                                              10 3 0 0 0 7 11 19 3 0 0 0 9 14
+                                              21 2 0 0 0 7 16 2 0 0 0 9 18)))))
            '|lookupComplete|)) 

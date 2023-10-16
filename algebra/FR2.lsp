@@ -83,11 +83,19 @@
               (|List| 16) (|Factored| 7) (18 . |makeFR|) (|Mapping| 7 6)
               |FR2;map;MFF;1|)
            '#(|map| 24) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(1 8 6 0 9 1 8 12 0 13 0 6 0
-                                                   14 0 7 0 15 2 18 0 7 17 19 2
-                                                   0 18 20 8 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|Factored| |#2|) (|Mapping| |#2| |#1|)
+                                  (|Factored| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(1 8 6 0 9 1 8 12 0 13 0 6 0 14 0
+                                              7 0 15 2 18 0 7 17 19 2 0 18 20 8
+                                              21)))))
            '|lookupComplete|)) 

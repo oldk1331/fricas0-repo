@@ -338,22 +338,43 @@
            '#(|setRealSteps| 98 |setImagSteps| 103 |setClipValue| 108
               |drawComplexVectorField| 113 |drawComplex| 120)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 50
-                                                 '(3 8 0 6 6 7 9 1 8 10 0 11 0
-                                                   8 0 17 2 18 10 0 6 19 1 18 0
-                                                   20 21 1 22 10 0 23 1 22 10 0
-                                                   24 0 8 0 25 2 26 0 10 10 27
-                                                   1 26 10 0 28 1 10 0 0 29 1
-                                                   26 10 0 30 4 32 31 0 6 6 31
-                                                   33 3 32 31 0 6 6 34 1 36 0
-                                                   35 37 2 36 0 0 38 39 2 41 0
-                                                   36 40 42 0 36 0 46 1 0 6 6
-                                                   48 1 0 6 6 49 1 0 10 10 50 3
-                                                   0 41 43 22 22 47 4 0 41 43
-                                                   22 22 44 45)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|drawComplex|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|Mapping| (|Complex| (|DoubleFloat|))
+                                             (|Complex| (|DoubleFloat|)))
+                                  (|Segment| (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|)) (|Boolean|)))
+                                T)
+                              '((|drawComplexVectorField|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|Mapping| (|Complex| (|DoubleFloat|))
+                                             (|Complex| (|DoubleFloat|)))
+                                  (|Segment| (|DoubleFloat|))
+                                  (|Segment| (|DoubleFloat|))))
+                                T)
+                              '((|setRealSteps| ((|Integer|) (|Integer|))) T)
+                              '((|setImagSteps| ((|Integer|) (|Integer|))) T)
+                              '((|setClipValue|
+                                 ((|DoubleFloat|) (|DoubleFloat|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 50
+                                            '(3 8 0 6 6 7 9 1 8 10 0 11 0 8 0
+                                              17 2 18 10 0 6 19 1 18 0 20 21 1
+                                              22 10 0 23 1 22 10 0 24 0 8 0 25
+                                              2 26 0 10 10 27 1 26 10 0 28 1 10
+                                              0 0 29 1 26 10 0 30 4 32 31 0 6 6
+                                              31 33 3 32 31 0 6 6 34 1 36 0 35
+                                              37 2 36 0 0 38 39 2 41 0 36 40 42
+                                              0 36 0 46 1 0 6 6 48 1 0 6 6 49 1
+                                              0 10 10 50 3 0 41 43 22 22 47 4 0
+                                              41 43 22 22 44 45)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DrawComplex| 'NILADIC T) 

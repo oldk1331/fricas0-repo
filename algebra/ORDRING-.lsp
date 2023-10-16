@@ -42,13 +42,20 @@
               (26 . |One|) (30 . |zero?|) (|Integer|) |ORDRING-;sign;SI;3|
               (35 . -) |ORDRING-;abs;2S;4|)
            '#(|sign| 40 |positive?| 45 |negative?| 50 |abs| 55) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 20
-                                                 '(0 6 0 7 2 6 8 0 0 9 2 6 8 0
-                                                   0 11 1 6 8 0 13 1 6 8 0 14 0
-                                                   6 0 15 1 6 8 0 16 1 6 0 0 19
-                                                   1 0 17 0 18 1 0 8 0 10 1 0 8
-                                                   0 12 1 0 0 0 20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|abs| (|#1| |#1|)) T)
+                                   '((|sign| ((|Integer|) |#1|)) T)
+                                   '((|negative?| ((|Boolean|) |#1|)) T)
+                                   '((|positive?| ((|Boolean|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 20
+                                            '(0 6 0 7 2 6 8 0 0 9 2 6 8 0 0 11
+                                              1 6 8 0 13 1 6 8 0 14 0 6 0 15 1
+                                              6 8 0 16 1 6 0 0 19 1 0 17 0 18 1
+                                              0 8 0 10 1 0 8 0 12 1 0 0 0
+                                              20)))))
            '|lookupComplete|)) 

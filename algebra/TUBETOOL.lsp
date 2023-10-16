@@ -206,21 +206,66 @@
            '#(|unitVector| 69 |point| 74 |loopPoints| 82 |dot| 91 |cross| 97
               |cosSinInfo| 103 - 108 + 114 * 120)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 37
-                                                 '(1 7 0 6 8 1 7 11 0 12 2 11
-                                                   13 0 0 14 1 15 9 7 16 1 15 9
-                                                   7 17 1 15 9 7 18 1 15 9 7 19
-                                                   1 9 0 0 25 1 9 0 0 26 2 9 0
-                                                   28 0 29 2 9 0 30 0 31 1 6 9
-                                                   0 34 2 35 0 0 7 36 1 0 7 7
-                                                   27 4 0 7 9 9 9 9 10 5 0 35 7
-                                                   7 7 9 32 37 2 0 9 7 7 23 2 0
-                                                   7 7 7 24 1 0 32 11 33 2 0 7
-                                                   7 7 22 2 0 7 7 7 21 2 0 7 9
-                                                   7 20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|point|
+                                 ((|Point| (|DoubleFloat|)) (|DoubleFloat|)
+                                  (|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((*
+                                 ((|Point| (|DoubleFloat|)) (|DoubleFloat|)
+                                  (|Point| (|DoubleFloat|))))
+                                T)
+                              '((+
+                                 ((|Point| (|DoubleFloat|))
+                                  (|Point| (|DoubleFloat|))
+                                  (|Point| (|DoubleFloat|))))
+                                T)
+                              '((-
+                                 ((|Point| (|DoubleFloat|))
+                                  (|Point| (|DoubleFloat|))
+                                  (|Point| (|DoubleFloat|))))
+                                T)
+                              '((|dot|
+                                 ((|DoubleFloat|) (|Point| (|DoubleFloat|))
+                                  (|Point| (|DoubleFloat|))))
+                                T)
+                              '((|cross|
+                                 ((|Point| (|DoubleFloat|))
+                                  (|Point| (|DoubleFloat|))
+                                  (|Point| (|DoubleFloat|))))
+                                T)
+                              '((|unitVector|
+                                 ((|Point| (|DoubleFloat|))
+                                  (|Point| (|DoubleFloat|))))
+                                T)
+                              '((|cosSinInfo|
+                                 ((|List| (|List| (|DoubleFloat|)))
+                                  (|Integer|)))
+                                T)
+                              '((|loopPoints|
+                                 ((|List| (|Point| (|DoubleFloat|)))
+                                  (|Point| (|DoubleFloat|))
+                                  (|Point| (|DoubleFloat|))
+                                  (|Point| (|DoubleFloat|)) (|DoubleFloat|)
+                                  (|List| (|List| (|DoubleFloat|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 37
+                                            '(1 7 0 6 8 1 7 11 0 12 2 11 13 0 0
+                                              14 1 15 9 7 16 1 15 9 7 17 1 15 9
+                                              7 18 1 15 9 7 19 1 9 0 0 25 1 9 0
+                                              0 26 2 9 0 28 0 29 2 9 0 30 0 31
+                                              1 6 9 0 34 2 35 0 0 7 36 1 0 7 7
+                                              27 4 0 7 9 9 9 9 10 5 0 35 7 7 7
+                                              9 32 37 2 0 9 7 7 23 2 0 7 7 7 24
+                                              1 0 32 11 33 2 0 7 7 7 22 2 0 7 7
+                                              7 21 2 0 7 9 7 20)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TubePlotTools| 'NILADIC T) 

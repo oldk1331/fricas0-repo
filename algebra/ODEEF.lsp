@@ -861,14 +861,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|Equation| 7) (0 . |lhs|) (5 . |rhs|) (10 . -)
               (|Record| (|:| |particular| 7) (|:| |basis| 20))
-              (|Union| 12 7 '"failed") (|BasicOperator|) (|Symbol|)
+              (|Union| 12 7 '#1="failed") (|BasicOperator|) (|Symbol|)
               |ODEEF;solve;FBoSU;8| |ODEEF;solve;EBoSU;1|
               (|Record| (|:| |particular| 30) (|:| |basis| (|List| 30)))
-              (|Union| 18 '"failed") (|List| 7) (|List| 14)
+              (|Union| 18 '#2="failed") (|List| 7) (|List| 14)
               |ODEEF;solve;LLSU;7| (|List| 8) |ODEEF;solve;LLSU;2|
-              (|Union| 7 '"failed") |ODEEF;solve;FBoELU;6|
+              (|Union| 7 '#3="failed") |ODEEF;solve;FBoELU;6|
               |ODEEF;solve;EBoELU;3| (16 . |Zero|) (|Matrix| 7) (|Vector| 7)
-              |ODEEF;solve;MVSU;5| (|Union| (|List| 30) '"failed")
+              |ODEEF;solve;MVSU;5| (|Union| (|List| 30) '#4="failed")
               |ODEEF;solve;MSU;4| (|Mapping| 7 7) (|ODEIntegration| 6 7)
               (20 . |diff|) (|Integer|) (25 . |column|) (31 . |retract|)
               (|Kernel| 7) (36 . |kernel|) (41 . |One|)
@@ -892,38 +892,91 @@
               (246 . |retractIfCan|) (251 . |numer|) (256 . |degree|)
               (261 . |coefficient|) (267 . /))
            '#(|solve| 273) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 97
-                                                 '(1 8 7 0 9 1 8 7 0 10 2 7 0 0
-                                                   0 11 0 7 0 28 1 35 34 15 36
-                                                   2 29 30 0 37 38 1 7 15 0 39
-                                                   1 40 0 15 41 0 6 0 42 4 43
-                                                   25 7 7 14 15 44 1 7 0 15 45
-                                                   2 7 0 14 0 46 1 7 47 0 48 3
-                                                   7 0 0 49 50 51 0 6 0 52 0 53
-                                                   0 54 2 53 55 0 0 56 1 53 7 0
-                                                   57 1 53 58 0 59 1 53 0 0 60
-                                                   2 58 55 0 0 61 2 7 0 0 15 62
-                                                   3 29 0 0 37 30 63 3 30 7 0
-                                                   37 7 64 1 7 49 0 65 2 67 66
-                                                   66 15 68 2 40 55 0 15 69 1
-                                                   66 40 0 70 2 66 37 40 0 71 1
-                                                   7 0 47 72 2 7 0 0 0 73 2 7 0
-                                                   0 0 74 1 7 0 0 75 1 40 58 0
-                                                   76 2 58 55 0 0 77 1 7 55 0
-                                                   78 1 14 15 0 79 2 53 0 7 58
-                                                   80 2 7 55 0 15 81 0 7 0 82 1
-                                                   53 0 7 83 2 53 0 0 0 84 2 7
-                                                   55 0 0 85 1 7 86 0 87 2 89
-                                                   88 0 40 90 1 92 91 0 93 1 7
-                                                   86 0 94 1 92 58 0 95 2 92 89
-                                                   0 58 96 2 7 0 86 86 97 2 0
-                                                   32 29 15 33 3 0 19 29 30 15
-                                                   31 3 0 19 20 21 15 22 3 0 19
-                                                   23 21 15 24 3 0 13 7 14 15
-                                                   16 3 0 13 8 14 15 17 4 0 25
-                                                   7 14 8 20 26 4 0 25 8 14 8
-                                                   20 27)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solve|
+                                 ((|Union|
+                                   (|Record| (|:| |particular| (|Vector| |#2|))
+                                             (|:| |basis|
+                                                  (|List| (|Vector| |#2|))))
+                                   "failed")
+                                  (|Matrix| |#2|) (|Vector| |#2|) (|Symbol|)))
+                                T)
+                              '((|solve|
+                                 ((|Union| (|List| (|Vector| |#2|)) #4#)
+                                  (|Matrix| |#2|) (|Symbol|)))
+                                T)
+                              '((|solve|
+                                 ((|Union|
+                                   (|Record| (|:| |particular| (|Vector| |#2|))
+                                             (|:| |basis|
+                                                  (|List| (|Vector| |#2|))))
+                                   "failed")
+                                  (|List| (|Equation| |#2|))
+                                  (|List| (|BasicOperator|)) (|Symbol|)))
+                                T)
+                              '((|solve|
+                                 ((|Union|
+                                   (|Record| (|:| |particular| (|Vector| |#2|))
+                                             (|:| |basis|
+                                                  (|List| (|Vector| |#2|))))
+                                   #2#)
+                                  (|List| |#2|) (|List| (|BasicOperator|))
+                                  (|Symbol|)))
+                                T)
+                              '((|solve|
+                                 ((|Union|
+                                   (|Record| (|:| |particular| |#2|)
+                                             (|:| |basis| (|List| |#2|)))
+                                   |#2| #1#)
+                                  (|Equation| |#2|) (|BasicOperator|)
+                                  (|Symbol|)))
+                                T)
+                              '((|solve|
+                                 ((|Union|
+                                   (|Record| (|:| |particular| |#2|)
+                                             (|:| |basis| (|List| |#2|)))
+                                   |#2| #1#)
+                                  |#2| (|BasicOperator|) (|Symbol|)))
+                                T)
+                              '((|solve|
+                                 ((|Union| |#2| #3#) (|Equation| |#2|)
+                                  (|BasicOperator|) (|Equation| |#2|)
+                                  (|List| |#2|)))
+                                T)
+                              '((|solve|
+                                 ((|Union| |#2| #3#) |#2| (|BasicOperator|)
+                                  (|Equation| |#2|) (|List| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 97
+                                            '(1 8 7 0 9 1 8 7 0 10 2 7 0 0 0 11
+                                              0 7 0 28 1 35 34 15 36 2 29 30 0
+                                              37 38 1 7 15 0 39 1 40 0 15 41 0
+                                              6 0 42 4 43 25 7 7 14 15 44 1 7 0
+                                              15 45 2 7 0 14 0 46 1 7 47 0 48 3
+                                              7 0 0 49 50 51 0 6 0 52 0 53 0 54
+                                              2 53 55 0 0 56 1 53 7 0 57 1 53
+                                              58 0 59 1 53 0 0 60 2 58 55 0 0
+                                              61 2 7 0 0 15 62 3 29 0 0 37 30
+                                              63 3 30 7 0 37 7 64 1 7 49 0 65 2
+                                              67 66 66 15 68 2 40 55 0 15 69 1
+                                              66 40 0 70 2 66 37 40 0 71 1 7 0
+                                              47 72 2 7 0 0 0 73 2 7 0 0 0 74 1
+                                              7 0 0 75 1 40 58 0 76 2 58 55 0 0
+                                              77 1 7 55 0 78 1 14 15 0 79 2 53
+                                              0 7 58 80 2 7 55 0 15 81 0 7 0 82
+                                              1 53 0 7 83 2 53 0 0 0 84 2 7 55
+                                              0 0 85 1 7 86 0 87 2 89 88 0 40
+                                              90 1 92 91 0 93 1 7 86 0 94 1 92
+                                              58 0 95 2 92 89 0 58 96 2 7 0 86
+                                              86 97 2 0 32 29 15 33 3 0 19 29
+                                              30 15 31 3 0 19 20 21 15 22 3 0
+                                              19 23 21 15 24 3 0 13 7 14 15 16
+                                              3 0 13 8 14 15 17 4 0 25 7 14 8
+                                              20 26 4 0 25 8 14 8 20 27)))))
            '|lookupComplete|)) 

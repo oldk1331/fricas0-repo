@@ -95,7 +95,7 @@
 (MAKEPROP '|RecursiveAggregate&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (0 . |value|) '"value" |RCAGG-;elt;AvalueS;1| (|Boolean|)
+              (0 . |value|) '#1="value" |RCAGG-;elt;AvalueS;1| (|Boolean|)
               (5 . |empty?|) (|List| $) (10 . |children|) |RCAGG-;leaf?;AB;2|
               (15 . |leaf?|) (|List| 7) (20 . |leaves|) (25 . |concat|)
               |RCAGG-;leaves;AL;3| (30 . |setvalue!|) (36 . |setelt!|)
@@ -104,17 +104,24 @@
            '#(|setelt!| 65 |parts| 72 |leaves| 77 |leaf?| 82 |elt| 87 |child?|
               93)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 27
-                                                 '(1 6 7 0 8 1 6 11 0 12 1 6 13
-                                                   0 14 1 6 11 0 16 1 6 17 0 18
-                                                   1 17 0 13 19 2 6 7 0 7 21 3
-                                                   0 7 0 9 7 22 2 23 11 6 0 24
-                                                   2 0 11 0 0 25 1 6 13 0 26 1
-                                                   0 17 0 27 3 0 7 0 9 7 22 1 0
-                                                   17 0 27 1 0 17 0 20 1 0 11 0
-                                                   15 2 0 7 0 9 10 2 0 11 0 0
-                                                   25)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|setelt!| (|#2| |#1| "value" |#2|)) T)
+                                   '((|child?| ((|Boolean|) |#1| |#1|)) T)
+                                   '((|leaves| ((|List| |#2|) |#1|)) T)
+                                   '((|elt| (|#2| |#1| #1#)) T)
+                                   '((|leaf?| ((|Boolean|) |#1|)) T)
+                                   '((|parts| ((|List| |#2|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 27
+                                            '(1 6 7 0 8 1 6 11 0 12 1 6 13 0 14
+                                              1 6 11 0 16 1 6 17 0 18 1 17 0 13
+                                              19 2 6 7 0 7 21 3 0 7 0 9 7 22 2
+                                              23 11 6 0 24 2 0 11 0 0 25 1 6 13
+                                              0 26 1 0 17 0 27 3 0 7 0 9 7 22 1
+                                              0 17 0 27 1 0 17 0 20 1 0 11 0 15
+                                              2 0 7 0 9 10 2 0 11 0 0 25)))))
            '|lookupComplete|)) 

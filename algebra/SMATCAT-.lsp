@@ -263,32 +263,97 @@
               |differentiate| 234 |diagonalProduct| 240 |diagonal| 245 |coerce|
               250 ^ 255)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 72
-                                                 '(2 6 0 0 0 11 0 8 0 12 1 6 0
-                                                   8 13 2 0 0 0 14 15 2 6 0 17
-                                                   0 18 0 8 0 20 1 6 21 0 22 1
-                                                   6 21 0 23 1 6 21 0 24 1 6 21
-                                                   0 25 1 26 21 0 27 3 6 8 0 21
-                                                   21 28 1 9 0 26 29 1 6 31 0
-                                                   32 1 6 9 0 33 1 9 8 0 34 1 9
-                                                   36 0 37 0 10 0 39 1 40 21 0
-                                                   41 1 40 21 0 42 2 6 10 0 21
-                                                   43 1 10 44 45 46 1 47 31 0
-                                                   48 2 44 0 0 0 49 1 47 21 0
-                                                   50 2 47 51 0 21 52 2 54 44
-                                                   53 0 55 1 0 44 45 56 1 51 31
-                                                   0 57 1 47 0 51 58 1 6 44 45
-                                                   59 2 44 26 0 21 60 2 0 61 45
-                                                   62 63 3 6 8 0 21 21 64 2 8 0
-                                                   0 0 65 2 8 0 0 0 67 1 21 31
-                                                   0 69 1 6 70 0 71 2 0 0 0 21
-                                                   72 1 0 8 0 66 1 0 36 0 38 1
-                                                   0 8 0 35 2 0 61 45 62 63 1 0
-                                                   44 45 56 2 0 0 0 17 19 1 0 8
-                                                   0 68 1 0 9 0 30 1 0 0 8 16 2
-                                                   0 0 0 14 15 2 0 0 0 21
-                                                   72)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((^ (|#1| |#1| (|NonNegativeInteger|))) T)
+                                   '((|coerce| (|#1| (|Integer|))) T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|Mapping| |#3| |#3|)))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|Mapping| |#3| |#3|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|List| (|Symbol|))
+                                       (|List| (|NonNegativeInteger|))))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|Symbol|)
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|List| (|Symbol|))))
+                                     T)
+                                   '((|differentiate| (|#1| |#1| (|Symbol|)))
+                                     T)
+                                   '((|differentiate|
+                                      (|#1| |#1| (|NonNegativeInteger|)))
+                                     T)
+                                   '((|differentiate| (|#1| |#1|)) T)
+                                   '((|reducedSystem|
+                                      ((|Matrix| |#3|) (|Matrix| |#1|)))
+                                     T)
+                                   '((|reducedSystem|
+                                      ((|Record| (|:| |mat| (|Matrix| |#3|))
+                                                 (|:| |vec| (|Vector| |#3|)))
+                                       (|Matrix| |#1|) (|Vector| |#1|)))
+                                     T)
+                                   '((|reducedSystem|
+                                      ((|Record|
+                                        (|:| |mat| (|Matrix| (|Integer|)))
+                                        (|:| |vec| (|Vector| (|Integer|))))
+                                       (|Matrix| |#1|) (|Vector| |#1|)))
+                                     T)
+                                   '((|reducedSystem|
+                                      ((|Matrix| (|Integer|)) (|Matrix| |#1|)))
+                                     T)
+                                   '((^ (|#1| |#1| (|Integer|))) T)
+                                   '((|diagonalProduct| (|#3| |#1|)) T)
+                                   '((|trace| (|#3| |#1|)) T)
+                                   '((|diagonal| (|#4| |#1|)) T)
+                                   '((|retract| (|#3| |#1|)) T)
+                                   '((|retractIfCan| ((|Union| |#3| #1#) |#1|))
+                                     T)
+                                   '((|coerce| (|#1| |#3|)) T)
+                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
+                                     T)
+                                   '((|retractIfCan|
+                                      ((|Union| (|Fraction| (|Integer|)) #1#)
+                                       |#1|))
+                                     T)
+                                   '((|retract|
+                                      ((|Fraction| (|Integer|)) |#1|))
+                                     T)
+                                   '((|retractIfCan|
+                                      ((|Union| (|Integer|) #1#) |#1|))
+                                     T)
+                                   '((|retract| ((|Integer|) |#1|)) T)
+                                   '((^ (|#1| |#1| (|PositiveInteger|))) T)
+                                   '((|coerce| ((|OutputForm|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 72
+                                            '(2 6 0 0 0 11 0 8 0 12 1 6 0 8 13
+                                              2 0 0 0 14 15 2 6 0 17 0 18 0 8 0
+                                              20 1 6 21 0 22 1 6 21 0 23 1 6 21
+                                              0 24 1 6 21 0 25 1 26 21 0 27 3 6
+                                              8 0 21 21 28 1 9 0 26 29 1 6 31 0
+                                              32 1 6 9 0 33 1 9 8 0 34 1 9 36 0
+                                              37 0 10 0 39 1 40 21 0 41 1 40 21
+                                              0 42 2 6 10 0 21 43 1 10 44 45 46
+                                              1 47 31 0 48 2 44 0 0 0 49 1 47
+                                              21 0 50 2 47 51 0 21 52 2 54 44
+                                              53 0 55 1 0 44 45 56 1 51 31 0 57
+                                              1 47 0 51 58 1 6 44 45 59 2 44 26
+                                              0 21 60 2 0 61 45 62 63 3 6 8 0
+                                              21 21 64 2 8 0 0 0 65 2 8 0 0 0
+                                              67 1 21 31 0 69 1 6 70 0 71 2 0 0
+                                              0 21 72 1 0 8 0 66 1 0 36 0 38 1
+                                              0 8 0 35 2 0 61 45 62 63 1 0 44
+                                              45 56 2 0 0 0 17 19 1 0 8 0 68 1
+                                              0 9 0 30 1 0 0 8 16 2 0 0 0 14 15
+                                              2 0 0 0 21 72)))))
            '|lookupComplete|)) 

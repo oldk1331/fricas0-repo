@@ -96,22 +96,39 @@
 (MAKEPROP '|InnerPolySign| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
-              (4 . |One|) (|Union| 11 '"failed") (|Integer|) (|Mapping| 10 6)
-              |INPSIGN;signAround;UPRIMU;2| |INPSIGN;signAround;UPRMU;1|
-              (|Boolean|) (8 . |zero?|) (13 . |elt|) (19 . |zero?|)
-              (24 . |differentiate|) (29 . |leadingCoefficient|) (34 . |Zero|)
-              (38 . |Zero|) (42 . >) (|NonNegativeInteger|) (48 . |degree|)
-              (53 . |even?|) |INPSIGN;signAround;UPIMU;3|)
+              (4 . |One|) (|Union| 11 '#1="failed") (|Integer|)
+              (|Mapping| 10 6) |INPSIGN;signAround;UPRIMU;2|
+              |INPSIGN;signAround;UPRMU;1| (|Boolean|) (8 . |zero?|)
+              (13 . |elt|) (19 . |zero?|) (24 . |differentiate|)
+              (29 . |leadingCoefficient|) (34 . |Zero|) (38 . |Zero|) (42 . >)
+              (|NonNegativeInteger|) (48 . |degree|) (53 . |even?|)
+              |INPSIGN;signAround;UPIMU;3|)
            '#(|signAround| 58) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 27
-                                                 '(0 6 0 8 0 7 0 9 1 7 15 0 16
-                                                   2 7 6 0 6 17 1 6 15 0 18 1 7
-                                                   0 0 19 1 7 6 0 20 0 6 0 21 0
-                                                   7 0 22 2 11 15 0 0 23 1 7 24
-                                                   0 25 1 11 15 0 26 3 0 10 7
-                                                   11 12 27 3 0 10 7 6 12 14 4
-                                                   0 10 7 6 11 12 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|signAround|
+                                 ((|Union| (|Integer|) #1#) |#2| (|Integer|)
+                                  (|Mapping| (|Union| (|Integer|) #1#) |#1|)))
+                                T)
+                              '((|signAround|
+                                 ((|Union| (|Integer|) #1#) |#2| |#1|
+                                  (|Integer|)
+                                  (|Mapping| (|Union| (|Integer|) #1#) |#1|)))
+                                T)
+                              '((|signAround|
+                                 ((|Union| (|Integer|) #1#) |#2| |#1|
+                                  (|Mapping| (|Union| (|Integer|) #1#) |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 27
+                                            '(0 6 0 8 0 7 0 9 1 7 15 0 16 2 7 6
+                                              0 6 17 1 6 15 0 18 1 7 0 0 19 1 7
+                                              6 0 20 0 6 0 21 0 7 0 22 2 11 15
+                                              0 0 23 1 7 24 0 25 1 11 15 0 26 3
+                                              0 10 7 11 12 27 3 0 10 7 6 12 14
+                                              4 0 10 7 6 11 12 13)))))
            '|lookupComplete|)) 

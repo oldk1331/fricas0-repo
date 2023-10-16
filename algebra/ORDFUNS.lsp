@@ -151,11 +151,24 @@
               (6 . |Zero|) (10 . +) |ORDFUNS;totalLex;2VB;2|
               |ORDFUNS;reverseLex;2VB;3|)
            '#(|totalLex| 16 |reverseLex| 22 |pureLex| 28) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(2 7 9 0 0 10 0 7 0 13 2 7 0
-                                                   0 0 14 2 0 9 11 11 15 2 0 9
-                                                   11 11 16 2 0 9 11 11 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|pureLex|
+                                 ((|Boolean|) (|Vector| |#2|) (|Vector| |#2|)))
+                                T)
+                              '((|totalLex|
+                                 ((|Boolean|) (|Vector| |#2|) (|Vector| |#2|)))
+                                T)
+                              '((|reverseLex|
+                                 ((|Boolean|) (|Vector| |#2|) (|Vector| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(2 7 9 0 0 10 0 7 0 13 2 7 0 0 0
+                                              14 2 0 9 11 11 15 2 0 9 11 11 16
+                                              2 0 9 11 11 12)))))
            '|lookupComplete|)) 

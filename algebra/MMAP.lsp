@@ -72,12 +72,16 @@
               (|UnivariatePolynomialCategoryFunctions2| 12 8 18 11)
               (22 . |map|) |MMAP;map;MUPUP1UPUP2;2|)
            '#(|map| 28) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 23
-                                                 '(1 12 7 0 13 2 15 10 14 7 16
-                                                   1 12 7 0 17 2 18 0 10 10 19
-                                                   2 21 11 20 8 22 2 0 11 14 8
-                                                   23)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#6| (|Mapping| |#4| |#1|) |#3|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 23
+                                            '(1 12 7 0 13 2 15 10 14 7 16 1 12
+                                              7 0 17 2 18 0 10 10 19 2 21 11 20
+                                              8 22 2 0 11 14 8 23)))))
            '|lookupComplete|)) 

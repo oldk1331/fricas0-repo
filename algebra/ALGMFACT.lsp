@@ -81,11 +81,25 @@
               (|SparseUnivariatePolynomial| 8) (12 . |factor|)
               |ALGMFACT;factor;SupLF;2|)
            '#(|factor| 18) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 22
-                                                 '(2 9 10 11 12 13 2 16 14 8 15
-                                                   17 2 16 19 20 15 21 2 0 19
-                                                   20 12 22 2 0 14 8 12 18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|factor|
+                                 ((|Factored| |#3|) |#3|
+                                  (|List| (|AlgebraicNumber|))))
+                                T)
+                              '((|factor|
+                                 ((|Factored|
+                                   (|SparseUnivariatePolynomial| |#3|))
+                                  (|SparseUnivariatePolynomial| |#3|)
+                                  (|List| (|AlgebraicNumber|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 22
+                                            '(2 9 10 11 12 13 2 16 14 8 15 17 2
+                                              16 19 20 15 21 2 0 19 20 12 22 2
+                                              0 14 8 12 18)))))
            '|lookupComplete|)) 

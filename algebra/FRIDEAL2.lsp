@@ -127,13 +127,22 @@
               (|Vector| 13) (|FractionalIdeal| 10 11 12 13) (41 . |ideal|)
               (|Mapping| 10 6) |FRIDEAL2;map;MFiFi;2|)
            '#(|map| 46) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 31
-                                                 '(1 9 14 0 15 1 14 16 0 17 1
-                                                   13 0 18 19 1 21 20 0 22 1 20
-                                                   16 0 23 1 7 6 0 24 1 7 6 0
-                                                   25 2 11 0 10 10 26 1 28 0 27
-                                                   29 2 0 28 30 21 31)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|FractionalIdeal| |#5| |#6| |#7| |#8|)
+                                  (|Mapping| |#5| |#1|)
+                                  (|FractionalIdeal| |#1| |#2| |#3| |#4|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 31
+                                            '(1 9 14 0 15 1 14 16 0 17 1 13 0
+                                              18 19 1 21 20 0 22 1 20 16 0 23 1
+                                              7 6 0 24 1 7 6 0 25 2 11 0 10 10
+                                              26 1 28 0 27 29 2 0 28 30 21
+                                              31)))))
            '|lookupComplete|)) 

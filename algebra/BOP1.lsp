@@ -227,9 +227,9 @@
               (|List| 6) (0 . |first|) (|BasicOperator|) (|Mapping| 6 10)
               |BOP1;evaluate;BoMBo;4| (|Mapping| 6 6) |BOP1;evaluate;BoMBo;1|
               (|Union| 24 '"failed") (|Symbol|) (5 . |property|)
-              (|Union| 13 '"failed") |BOP1;evaluate;BoU;2|
-              (|Union| 6 '"failed") |BOP1;evaluate;BoLU;3| (|None|)
-              (11 . |setProperty|) (|Union| 28 '"failed")
+              (|Union| 13 '#1="failed") |BOP1;evaluate;BoU;2|
+              (|Union| 6 '#2="failed") |BOP1;evaluate;BoLU;3| (|None|)
+              (11 . |setProperty|) (|Union| 28 '#3="failed")
               |BOP1;derivative;BoU;5| (|List| 13) |BOP1;derivative;BoLBo;6|
               (|Boolean|) (18 . |unary?|) (23 . |nary?|)
               |BOP1;derivative;BoMBo;7| (28 . |has?|) (34 . =)
@@ -243,22 +243,58 @@
            '#(|evaluate| 102 |derivative| 125 |constantOperator| 142
               |constantOpIfCan| 147)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 54
-                                                 '(1 10 6 0 11 2 12 17 0 18 19
-                                                   3 12 0 0 18 24 25 1 12 30 0
-                                                   31 1 12 30 0 32 2 12 30 0 18
-                                                   34 2 6 30 0 0 35 2 6 30 0 0
-                                                   36 2 12 0 18 37 38 2 12 0 0
-                                                   39 40 2 12 0 0 39 41 1 12 0
-                                                   0 43 1 6 44 0 45 2 12 0 0 46
-                                                   47 2 12 30 0 18 48 1 6 50 0
-                                                   51 2 12 0 0 52 53 1 0 12 6
-                                                   54 2 0 12 12 13 14 2 0 22 12
-                                                   10 23 1 0 20 12 21 2 0 12 12
-                                                   15 16 2 0 12 12 15 33 2 0 12
-                                                   12 28 29 1 0 26 12 27 1 0 12
-                                                   6 54 1 0 22 12 49)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|evaluate|
+                                 ((|Union| |#1| #2#) (|BasicOperator|)
+                                  (|List| |#1|)))
+                                T)
+                              '((|evaluate|
+                                 ((|BasicOperator|) (|BasicOperator|)
+                                  (|Mapping| |#1| (|List| |#1|))))
+                                T)
+                              '((|evaluate|
+                                 ((|BasicOperator|) (|BasicOperator|)
+                                  (|Mapping| |#1| |#1|)))
+                                T)
+                              '((|evaluate|
+                                 ((|Union| (|Mapping| |#1| (|List| |#1|)) #1#)
+                                  (|BasicOperator|)))
+                                T)
+                              '((|derivative|
+                                 ((|BasicOperator|) (|BasicOperator|)
+                                  (|List| (|Mapping| |#1| (|List| |#1|)))))
+                                T)
+                              '((|derivative|
+                                 ((|BasicOperator|) (|BasicOperator|)
+                                  (|Mapping| |#1| |#1|)))
+                                T)
+                              '((|derivative|
+                                 ((|Union|
+                                   (|List| (|Mapping| |#1| (|List| |#1|))) #3#)
+                                  (|BasicOperator|)))
+                                T)
+                              '((|constantOperator| ((|BasicOperator|) |#1|))
+                                T)
+                              '((|constantOpIfCan|
+                                 ((|Union| |#1| "failed") (|BasicOperator|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 54
+                                            '(1 10 6 0 11 2 12 17 0 18 19 3 12
+                                              0 0 18 24 25 1 12 30 0 31 1 12 30
+                                              0 32 2 12 30 0 18 34 2 6 30 0 0
+                                              35 2 6 30 0 0 36 2 12 0 18 37 38
+                                              2 12 0 0 39 40 2 12 0 0 39 41 1
+                                              12 0 0 43 1 6 44 0 45 2 12 0 0 46
+                                              47 2 12 30 0 18 48 1 6 50 0 51 2
+                                              12 0 0 52 53 1 0 12 6 54 2 0 12
+                                              12 13 14 2 0 22 12 10 23 1 0 20
+                                              12 21 2 0 12 12 15 16 2 0 12 12
+                                              15 33 2 0 12 12 28 29 1 0 26 12
+                                              27 1 0 12 6 54 1 0 22 12 49)))))
            '|lookupComplete|)) 

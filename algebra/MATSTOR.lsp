@@ -429,16 +429,56 @@
            '#(|times!| 41 |rightScalarTimes!| 48 |power!| 55 |plus!| 64
               |minus!| 71 |leftScalarTimes!| 84 |copy!| 91 ^ 97)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 26
-                                                 '(0 6 0 7 2 6 0 0 0 10 1 6 0 0
-                                                   12 2 6 0 0 0 14 2 6 0 0 0 16
-                                                   0 6 0 19 1 8 23 0 24 1 8 0 0
-                                                   25 3 0 8 8 8 8 20 3 0 8 8 8
-                                                   6 18 5 0 8 8 8 8 8 21 22 3 0
-                                                   8 8 8 8 11 3 0 8 8 8 8 15 2
-                                                   0 8 8 8 13 3 0 8 8 6 8 17 2
-                                                   0 8 8 8 9 2 0 8 8 21 26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|copy!|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|plus!|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|) (|Matrix| |#1|)))
+                                T)
+                              '((|minus!|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|minus!|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|) (|Matrix| |#1|)))
+                                T)
+                              '((|leftScalarTimes!|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|) |#1|
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|rightScalarTimes!|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|) |#1|))
+                                T)
+                              '((|times!|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|) (|Matrix| |#1|)))
+                                T)
+                              '((|power!|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|Matrix| |#1|) (|NonNegativeInteger|)))
+                                T)
+                              '((^
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 26
+                                            '(0 6 0 7 2 6 0 0 0 10 1 6 0 0 12 2
+                                              6 0 0 0 14 2 6 0 0 0 16 0 6 0 19
+                                              1 8 23 0 24 1 8 0 0 25 3 0 8 8 8
+                                              8 20 3 0 8 8 8 6 18 5 0 8 8 8 8 8
+                                              21 22 3 0 8 8 8 8 11 3 0 8 8 8 8
+                                              15 2 0 8 8 8 13 3 0 8 8 6 8 17 2
+                                              0 8 8 8 9 2 0 8 8 21 26)))))
            '|lookupComplete|)) 

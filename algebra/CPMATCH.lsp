@@ -107,19 +107,27 @@
               (|PatternMatchResultFunctions2| 6 10 8) (98 . |map|)
               (104 . |patternMatch|))
            '#(|patternMatch| 111) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 43
-                                                 '(1 10 0 9 11 1 10 13 0 14 1
-                                                   13 15 0 16 0 7 0 17 2 15 18
-                                                   0 0 19 1 13 7 0 20 1 10 0 0
-                                                   21 1 10 7 0 22 2 8 0 7 7 23
-                                                   1 8 7 0 24 1 10 0 7 25 1 8 7
-                                                   0 26 2 10 0 7 0 27 2 10 0 0
-                                                   0 28 1 7 18 0 29 3 32 30 7
-                                                   31 30 33 2 36 34 35 30 37 3
-                                                   10 38 0 31 38 39 2 41 30 40
-                                                   34 42 3 0 30 8 31 30 43 3 1
-                                                   30 8 31 30 43)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|patternMatch|
+                                 ((|PatternMatchResult| |#1| |#3|) |#3|
+                                  (|Pattern| |#1|)
+                                  (|PatternMatchResult| |#1| |#3|)))
+                                (|has| (|Polynomial| 7)
+                                       (|PatternMatchable| 6))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 43
+                                            '(1 10 0 9 11 1 10 13 0 14 1 13 15
+                                              0 16 0 7 0 17 2 15 18 0 0 19 1 13
+                                              7 0 20 1 10 0 0 21 1 10 7 0 22 2
+                                              8 0 7 7 23 1 8 7 0 24 1 10 0 7 25
+                                              1 8 7 0 26 2 10 0 7 0 27 2 10 0 0
+                                              0 28 1 7 18 0 29 3 32 30 7 31 30
+                                              33 2 36 34 35 30 37 3 10 38 0 31
+                                              38 39 2 41 30 40 34 42 3 0 30 8
+                                              31 30 43 3 1 30 8 31 30 43)))))
            '|lookupComplete|)) 

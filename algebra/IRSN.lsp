@@ -556,22 +556,41 @@
            '#(|irreducibleRepresentation| 105
               |dimensionOfIrreducibleRepresentation| 122)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 47
-                                                 '(4 15 14 0 14 14 14 16 3 15
-                                                   14 0 14 14 17 2 19 18 0 0 20
-                                                   1 21 19 19 22 1 24 23 19 25
-                                                   2 26 14 0 14 27 2 23 15 0 14
-                                                   28 1 15 0 0 29 2 30 18 0 0
-                                                   31 2 19 14 0 14 32 2 14 18 0
-                                                   0 33 2 14 18 0 0 34 3 35 18
-                                                   0 14 18 36 2 35 18 18 0 37 1
-                                                   38 14 14 39 2 15 0 0 0 41 0
-                                                   26 0 43 1 26 0 19 44 2 0 15
-                                                   19 26 42 2 0 23 19 45 46 1 0
-                                                   23 19 47 1 0 30 19 40)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|dimensionOfIrreducibleRepresentation|
+                                 ((|NonNegativeInteger|) (|List| (|Integer|))))
+                                T)
+                              '((|irreducibleRepresentation|
+                                 ((|Matrix| (|Integer|)) (|List| (|Integer|))
+                                  (|Permutation| (|Integer|))))
+                                T)
+                              '((|irreducibleRepresentation|
+                                 ((|List| (|Matrix| (|Integer|)))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|irreducibleRepresentation|
+                                 ((|List| (|Matrix| (|Integer|)))
+                                  (|List| (|Integer|))
+                                  (|List| (|Permutation| (|Integer|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 47
+                                            '(4 15 14 0 14 14 14 16 3 15 14 0
+                                              14 14 17 2 19 18 0 0 20 1 21 19
+                                              19 22 1 24 23 19 25 2 26 14 0 14
+                                              27 2 23 15 0 14 28 1 15 0 0 29 2
+                                              30 18 0 0 31 2 19 14 0 14 32 2 14
+                                              18 0 0 33 2 14 18 0 0 34 3 35 18
+                                              0 14 18 36 2 35 18 18 0 37 1 38
+                                              14 14 39 2 15 0 0 0 41 0 26 0 43
+                                              1 26 0 19 44 2 0 15 19 26 42 2 0
+                                              23 19 45 46 1 0 23 19 47 1 0 30
+                                              19 40)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|IrrRepSymNatPackage| 'NILADIC T) 

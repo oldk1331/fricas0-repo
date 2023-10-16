@@ -182,11 +182,15 @@
            '#(NIL NIL NIL NIL NIL NIL (|Integer|) (|SingleInteger|) (0 . *)
               (|String|) |SCANUTIL;parse_integer;SI;2|)
            '#(|parse_integer| 6) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10
-                                                 '(2 7 0 6 0 8 1 0 6 9 10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|parse_integer| ((|Integer|) (|String|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10 '(2 7 0 6 0 8 1 0 6 9 10)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ScanningUtilities| 'NILADIC T) 

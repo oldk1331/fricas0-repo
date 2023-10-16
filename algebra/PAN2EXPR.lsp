@@ -54,14 +54,27 @@
               (10 . |map|) |PAN2EXPR;coerce;PE;1| (|Fraction| 13)
               (17 . |numer|) (22 . |denom|) (27 . /) |PAN2EXPR;coerce;FE;2|)
            '#(|coerce| 33) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(1 7 0 6 8 1 7 0 9 10 3 14 7
-                                                   11 12 13 15 1 17 13 0 18 1
-                                                   17 13 0 19 2 7 0 0 0 20 1 0
-                                                   7 17 21 1 0 7 13 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|coerce|
+                                 ((|Expression| (|Integer|))
+                                  (|Polynomial| (|AlgebraicNumber|))))
+                                T)
+                              '((|coerce|
+                                 ((|Expression| (|Integer|))
+                                  (|Fraction|
+                                   (|Polynomial| (|AlgebraicNumber|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(1 7 0 6 8 1 7 0 9 10 3 14 7 11 12
+                                              13 15 1 17 13 0 18 1 17 13 0 19 2
+                                              7 0 0 0 20 1 0 7 17 21 1 0 7 13
+                                              16)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|PolynomialAN2Expression| 'NILADIC T) 

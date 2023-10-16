@@ -79,13 +79,19 @@
               |PMASSFS;constant;2F;3| |PMASSFS;optional;2F;4|
               |PMASSFS;multiple;2F;5|)
            '#(|optional| 43 |multiple| 48 |constant| 53) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(2 7 0 8 9 10 1 11 8 0 12 2 8
-                                                   13 0 14 15 1 7 0 16 17 1 8 0
-                                                   0 18 2 8 0 0 14 19 1 7 20 0
-                                                   21 1 7 16 0 22 1 0 7 7 24 1
-                                                   0 7 7 25 1 0 7 7 23)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|constant| (|#2| |#2|)) T)
+                                   '((|optional| (|#2| |#2|)) T)
+                                   '((|multiple| (|#2| |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(2 7 0 8 9 10 1 11 8 0 12 2 8 13 0
+                                              14 15 1 7 0 16 17 1 8 0 0 18 2 8
+                                              0 0 14 19 1 7 20 0 21 1 7 16 0 22
+                                              1 0 7 7 24 1 0 7 7 25 1 0 7 7
+                                              23)))))
            '|lookupComplete|)) 

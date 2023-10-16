@@ -129,19 +129,80 @@
               |REAL0Q;refine;PolRFR;6| (|Union| 20 '"failed") (63 . |refine|)
               |REAL0Q;refine;Pol2RU;7|)
            '#(|refine| 70 |realZeros| 84) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 35
-                                                 '(1 6 7 0 8 1 10 9 0 11 1 9 0
-                                                   12 13 1 10 9 0 14 2 6 0 9 0
-                                                   15 2 18 16 17 6 19 1 22 21
-                                                   16 23 2 22 21 16 10 25 2 22
-                                                   21 16 20 27 3 22 21 16 20 10
-                                                   29 3 22 20 16 20 10 31 3 22
-                                                   33 16 20 20 34 3 0 33 6 20
-                                                   20 35 3 0 20 6 20 10 32 1 0
-                                                   21 6 24 2 0 21 6 10 26 2 0
-                                                   21 6 20 28 3 0 21 6 20 10
-                                                   30)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|realZeros|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |left| (|Fraction| (|Integer|)))
+                                    (|:| |right| (|Fraction| (|Integer|)))))
+                                  |#1|))
+                                T)
+                              '((|realZeros|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |left| (|Fraction| (|Integer|)))
+                                    (|:| |right| (|Fraction| (|Integer|)))))
+                                  |#1|
+                                  (|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))))
+                                T)
+                              '((|realZeros|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |left| (|Fraction| (|Integer|)))
+                                    (|:| |right| (|Fraction| (|Integer|)))))
+                                  |#1| (|Fraction| (|Integer|))))
+                                T)
+                              '((|realZeros|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |left| (|Fraction| (|Integer|)))
+                                    (|:| |right| (|Fraction| (|Integer|)))))
+                                  |#1|
+                                  (|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|refine|
+                                 ((|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))
+                                  |#1|
+                                  (|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))
+                                  (|Fraction| (|Integer|))))
+                                T)
+                              '((|refine|
+                                 ((|Union|
+                                   (|Record|
+                                    (|:| |left| (|Fraction| (|Integer|)))
+                                    (|:| |right| (|Fraction| (|Integer|))))
+                                   "failed")
+                                  |#1|
+                                  (|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))
+                                  (|Record|
+                                   (|:| |left| (|Fraction| (|Integer|)))
+                                   (|:| |right| (|Fraction| (|Integer|))))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 35
+                                            '(1 6 7 0 8 1 10 9 0 11 1 9 0 12 13
+                                              1 10 9 0 14 2 6 0 9 0 15 2 18 16
+                                              17 6 19 1 22 21 16 23 2 22 21 16
+                                              10 25 2 22 21 16 20 27 3 22 21 16
+                                              20 10 29 3 22 20 16 20 10 31 3 22
+                                              33 16 20 20 34 3 0 33 6 20 20 35
+                                              3 0 20 6 20 10 32 1 0 21 6 24 2 0
+                                              21 6 10 26 2 0 21 6 20 28 3 0 21
+                                              6 20 10 30)))))
            '|lookupComplete|)) 

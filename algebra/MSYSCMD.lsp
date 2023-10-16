@@ -42,8 +42,15 @@
            '#(NIL NIL NIL NIL NIL NIL (|Void|) (|String|)
               |MSYSCMD;systemCommand;SV;1|)
            '#(|systemCommand| 0) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#() (CONS '#() (|makeByteWordVec2| 8 '(1 0 6 7 8)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|systemCommand| ((|Void|) (|String|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 8 '(1 0 6 7 8)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|MoreSystemCommands| 'NILADIC T) 

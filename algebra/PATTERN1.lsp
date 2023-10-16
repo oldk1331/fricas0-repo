@@ -156,19 +156,49 @@
            '#(|suchThat| 75 |satisfy?| 94 |predicate| 106 |badValues| 111
               |addBadValue| 116)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 42
-                                                 '(1 9 8 0 10 2 8 0 0 0 11 2 9
-                                                   0 0 8 12 1 16 15 7 17 2 9 0
-                                                   0 15 18 1 9 8 0 20 1 16 7 15
-                                                   21 1 9 0 0 24 1 26 15 25 27
-                                                   3 9 0 0 28 15 29 1 31 15 13
-                                                   32 1 9 36 0 37 1 26 25 15 38
-                                                   1 31 13 15 40 2 0 9 9 41 42
-                                                   2 0 9 9 13 33 3 0 9 9 28 25
-                                                   30 2 0 34 22 9 39 2 0 34 7 9
-                                                   35 1 0 13 9 14 1 0 22 9 23 2
-                                                   0 9 9 7 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|suchThat|
+                                 ((|Pattern| |#1|) (|Pattern| |#1|)
+                                  (|Mapping| (|Boolean|) |#2|)))
+                                T)
+                              '((|suchThat|
+                                 ((|Pattern| |#1|) (|Pattern| |#1|)
+                                  (|List| (|Mapping| (|Boolean|) |#2|))))
+                                T)
+                              '((|suchThat|
+                                 ((|Pattern| |#1|) (|Pattern| |#1|)
+                                  (|List| (|Symbol|))
+                                  (|Mapping| (|Boolean|) (|List| |#2|))))
+                                T)
+                              '((|predicate|
+                                 ((|Mapping| (|Boolean|) |#2|)
+                                  (|Pattern| |#1|)))
+                                T)
+                              '((|satisfy?|
+                                 ((|Boolean|) |#2| (|Pattern| |#1|)))
+                                T)
+                              '((|satisfy?|
+                                 ((|Boolean|) (|List| |#2|) (|Pattern| |#1|)))
+                                T)
+                              '((|addBadValue|
+                                 ((|Pattern| |#1|) (|Pattern| |#1|) |#2|))
+                                T)
+                              '((|badValues| ((|List| |#2|) (|Pattern| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 42
+                                            '(1 9 8 0 10 2 8 0 0 0 11 2 9 0 0 8
+                                              12 1 16 15 7 17 2 9 0 0 15 18 1 9
+                                              8 0 20 1 16 7 15 21 1 9 0 0 24 1
+                                              26 15 25 27 3 9 0 0 28 15 29 1 31
+                                              15 13 32 1 9 36 0 37 1 26 25 15
+                                              38 1 31 13 15 40 2 0 9 9 41 42 2
+                                              0 9 9 13 33 3 0 9 9 28 25 30 2 0
+                                              34 22 9 39 2 0 34 7 9 35 1 0 13 9
+                                              14 1 0 22 9 23 2 0 9 9 7 19)))))
            '|lookupComplete|)) 

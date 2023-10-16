@@ -100,13 +100,22 @@
               (31 . |factor|) (|Factored| 27) (|SparseUnivariatePolynomial| 9)
               (36 . |factor|) |MULTFACT;factor;SupF;7|)
            '#(|factor| 42) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 29
-                                                 '(1 11 10 9 12 1 0 10 9 13 1
-                                                   14 10 9 15 1 16 10 9 17 1 8
-                                                   18 19 20 2 22 10 9 21 23 1 9
-                                                   24 0 25 2 22 26 27 21 28 1 0
-                                                   26 27 29 1 0 10 9 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|factor| ((|Factored| |#4|) |#4|)) T)
+                                   '((|factor|
+                                      ((|Factored|
+                                        (|SparseUnivariatePolynomial| |#4|))
+                                       (|SparseUnivariatePolynomial| |#4|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 29
+                                            '(1 11 10 9 12 1 0 10 9 13 1 14 10
+                                              9 15 1 16 10 9 17 1 8 18 19 20 2
+                                              22 10 9 21 23 1 9 24 0 25 2 22 26
+                                              27 21 28 1 0 26 27 29 1 0 10 9
+                                              13)))))
            '|lookupComplete|)) 

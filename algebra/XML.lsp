@@ -80,15 +80,24 @@
               (28 . |close!|) (|Void|) |XML;writeXml;XeSV;1|
               (33 . |outputVRML|) |XML;writeVRML;XeSV;2|)
            '#(|writeXml| 39 |writeVRML| 45) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 21
-                                                 '(1 7 0 6 8 2 9 0 7 6 10 2 6 0
-                                                   0 11 12 2 9 6 0 6 13 1 15 14
-                                                   0 16 1 9 0 0 17 2 15 18 0 9
-                                                   20 2 0 18 15 6 19 2 0 18 15
-                                                   6 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|writeXml|
+                                 ((|Void|) (|XmlElement|) (|String|)))
+                                T)
+                              '((|writeVRML|
+                                 ((|Void|) (|XmlElement|) (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 21
+                                            '(1 7 0 6 8 2 9 0 7 6 10 2 6 0 0 11
+                                              12 2 9 6 0 6 13 1 15 14 0 16 1 9
+                                              0 0 17 2 15 18 0 9 20 2 0 18 15 6
+                                              19 2 0 18 15 6 21)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ExportXml| 'NILADIC T) 

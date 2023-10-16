@@ -26,10 +26,15 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (0 . -) (5 . +) |GRMOD-;-;3S;1|)
            '#(- 11) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 11
-                                                 '(1 6 0 0 9 2 6 0 0 0 10 2 0 0
-                                                   0 0 11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((- (|#1| |#1| |#1|)) T)
+                                   '((- (|#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 11
+                                            '(1 6 0 0 9 2 6 0 0 0 10 2 0 0 0 0
+                                              11)))))
            '|lookupComplete|)) 

@@ -1371,28 +1371,111 @@
            '#(|ellipticRJ| 78 |ellipticRF| 94 |ellipticRD| 108 |ellipticRC| 122
               |ellipticPi| 134 |ellipticK| 148 |ellipticF| 158 |ellipticE| 170)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 69
-                                                 '(1 33 0 0 34 1 33 35 0 36 0
-                                                   37 0 38 2 33 0 0 0 48 2 33 0
-                                                   35 0 49 2 33 0 0 0 50 0 33 0
-                                                   51 2 33 0 0 0 52 2 33 0 0 0
-                                                   53 1 33 0 35 54 1 33 0 0 55
-                                                   1 33 0 56 57 0 33 0 60 1 33
-                                                   0 0 61 2 33 0 0 35 62 4 0 35
-                                                   35 35 35 35 42 4 0 33 33 33
-                                                   33 33 64 3 0 35 35 35 35 40
-                                                   3 0 33 33 33 33 59 3 0 35 35
-                                                   35 35 41 3 0 33 33 33 33 63
-                                                   2 0 35 35 35 39 2 0 33 33 33
-                                                   58 3 0 35 35 35 35 47 3 0 33
-                                                   33 33 33 69 1 0 35 35 44 1 0
-                                                   33 33 66 2 0 35 35 35 43 2 0
-                                                   33 33 33 65 2 0 35 35 35 45
-                                                   1 0 35 35 46 2 0 33 33 33 67
-                                                   1 0 33 33 68)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|ellipticRC|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|ellipticRD|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|) (|DoubleFloat|)))
+                                T)
+                              '((|ellipticRF|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|) (|DoubleFloat|)))
+                                T)
+                              '((|ellipticRJ|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|ellipticF|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|ellipticK| ((|DoubleFloat|) (|DoubleFloat|)))
+                                T)
+                              '((|ellipticE|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|ellipticE| ((|DoubleFloat|) (|DoubleFloat|)))
+                                T)
+                              '((|ellipticPi|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|) (|DoubleFloat|)))
+                                T)
+                              '((|ellipticRC|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|ellipticRD|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|ellipticRF|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|ellipticRJ|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|ellipticF|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|ellipticK|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|ellipticE|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|ellipticE|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|ellipticPi|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 69
+                                            '(1 33 0 0 34 1 33 35 0 36 0 37 0
+                                              38 2 33 0 0 0 48 2 33 0 35 0 49 2
+                                              33 0 0 0 50 0 33 0 51 2 33 0 0 0
+                                              52 2 33 0 0 0 53 1 33 0 35 54 1
+                                              33 0 0 55 1 33 0 56 57 0 33 0 60
+                                              1 33 0 0 61 2 33 0 0 35 62 4 0 35
+                                              35 35 35 35 42 4 0 33 33 33 33 33
+                                              64 3 0 35 35 35 35 40 3 0 33 33
+                                              33 33 59 3 0 35 35 35 35 41 3 0
+                                              33 33 33 33 63 2 0 35 35 35 39 2
+                                              0 33 33 33 58 3 0 35 35 35 35 47
+                                              3 0 33 33 33 33 69 1 0 35 35 44 1
+                                              0 33 33 66 2 0 35 35 35 43 2 0 33
+                                              33 33 65 2 0 35 35 35 45 1 0 35
+                                              35 46 2 0 33 33 33 67 1 0 33 33
+                                              68)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DoubleFloatEllipticIntegrals| 'NILADIC T) 

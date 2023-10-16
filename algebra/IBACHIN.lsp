@@ -591,31 +591,60 @@
               (240 . |UpTriBddDenomInv|) |IBACHIN;chineseRemainder;LLNniR;9|)
            '#(|listConjugateBases| 246 |factorList| 253 |chineseRemainder| 261)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 80
-                                                 '(0 6 0 9 0 7 0 10 2 6 0 0 11
-                                                   12 2 7 0 13 0 14 1 16 0 15
-                                                   17 0 6 0 18 0 7 0 19 2 21 0
-                                                   6 11 22 2 21 0 0 0 23 2 21 0
-                                                   0 11 24 1 25 0 21 26 0 8 0
-                                                   28 2 7 0 0 0 29 2 7 0 0 0 30
-                                                   2 8 0 7 11 31 2 8 0 0 0 32 1
-                                                   8 33 0 34 2 33 0 0 0 35 0 8
-                                                   0 36 0 33 0 37 2 33 0 0 0 38
-                                                   2 33 39 0 7 40 2 7 0 0 0 41
-                                                   2 33 0 42 0 43 2 33 0 7 0 44
-                                                   2 33 0 0 0 45 2 33 46 0 0 47
-                                                   1 8 0 33 48 2 8 0 0 0 49 1
-                                                   51 50 7 52 1 50 55 0 56 2 8
-                                                   46 0 0 57 1 8 58 0 59 1 8 11
-                                                   0 60 1 8 7 0 61 4 63 7 0 62
-                                                   62 7 64 1 8 0 0 65 2 7 0 0 0
-                                                   66 2 68 7 67 0 69 2 7 58 0 0
-                                                   70 2 63 0 11 7 71 1 73 0 72
-                                                   74 2 75 63 63 7 76 1 63 0 0
-                                                   77 2 78 63 63 7 79 3 0 16 15
-                                                   11 11 20 4 0 25 6 11 11 11
-                                                   27 3 0 15 73 16 11 80)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|factorList|
+                                 ((|List| (|SparseUnivariatePolynomial| |#1|))
+                                  |#1| (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|listConjugateBases|
+                                 ((|List|
+                                   (|Record| (|:| |basis| (|Matrix| |#2|))
+                                             (|:| |basisDen| |#2|)
+                                             (|:| |basisInv| (|Matrix| |#2|))))
+                                  (|Record| (|:| |basis| (|Matrix| |#2|))
+                                            (|:| |basisDen| |#2|)
+                                            (|:| |basisInv| (|Matrix| |#2|)))
+                                  (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|chineseRemainder|
+                                 ((|Record| (|:| |basis| (|Matrix| |#2|))
+                                            (|:| |basisDen| |#2|)
+                                            (|:| |basisInv| (|Matrix| |#2|)))
+                                  (|List| |#3|)
+                                  (|List|
+                                   (|Record| (|:| |basis| (|Matrix| |#2|))
+                                             (|:| |basisDen| |#2|)
+                                             (|:| |basisInv| (|Matrix| |#2|))))
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 80
+                                            '(0 6 0 9 0 7 0 10 2 6 0 0 11 12 2
+                                              7 0 13 0 14 1 16 0 15 17 0 6 0 18
+                                              0 7 0 19 2 21 0 6 11 22 2 21 0 0
+                                              0 23 2 21 0 0 11 24 1 25 0 21 26
+                                              0 8 0 28 2 7 0 0 0 29 2 7 0 0 0
+                                              30 2 8 0 7 11 31 2 8 0 0 0 32 1 8
+                                              33 0 34 2 33 0 0 0 35 0 8 0 36 0
+                                              33 0 37 2 33 0 0 0 38 2 33 39 0 7
+                                              40 2 7 0 0 0 41 2 33 0 42 0 43 2
+                                              33 0 7 0 44 2 33 0 0 0 45 2 33 46
+                                              0 0 47 1 8 0 33 48 2 8 0 0 0 49 1
+                                              51 50 7 52 1 50 55 0 56 2 8 46 0
+                                              0 57 1 8 58 0 59 1 8 11 0 60 1 8
+                                              7 0 61 4 63 7 0 62 62 7 64 1 8 0
+                                              0 65 2 7 0 0 0 66 2 68 7 67 0 69
+                                              2 7 58 0 0 70 2 63 0 11 7 71 1 73
+                                              0 72 74 2 75 63 63 7 76 1 63 0 0
+                                              77 2 78 63 63 7 79 3 0 16 15 11
+                                              11 20 4 0 25 6 11 11 11 27 3 0 15
+                                              73 16 11 80)))))
            '|lookupComplete|)) 

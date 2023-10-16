@@ -885,35 +885,68 @@
               |GROEBSOL;groebSolve;LLL;8| (|Union| 50 '"failed")
               |GROEBSOL;testDim;LLU;9|)
            '#(|testDim| 277 |groebSolve| 283 |genericPosition| 289) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 90
-                                                 '(1 11 10 0 12 0 7 0 13 0 8 0
-                                                   14 2 11 15 0 10 16 1 7 0 17
-                                                   18 2 15 19 0 7 20 1 11 15 0
-                                                   21 2 15 0 0 0 22 2 15 19 0 0
-                                                   23 2 11 0 15 10 24 2 11 0 0
-                                                   0 25 2 11 0 0 10 26 2 11 0 0
-                                                   0 27 2 15 0 28 29 30 2 32 15
-                                                   15 31 33 0 15 0 34 2 15 35 0
-                                                   0 36 2 15 28 0 29 37 1 15 38
-                                                   0 39 1 41 40 15 42 1 40 0 29
-                                                   43 2 40 0 17 0 44 2 40 0 0 0
-                                                   45 0 40 0 46 2 40 28 0 29 47
-                                                   2 48 40 0 40 49 1 51 50 50
-                                                   52 1 53 31 50 54 1 31 15 0
-                                                   55 2 59 35 0 0 60 1 59 0 50
-                                                   61 2 59 0 0 0 62 1 64 63 40
-                                                   65 1 63 68 0 69 2 40 0 0 0
-                                                   70 0 15 0 71 2 31 35 0 0 72
-                                                   1 40 0 0 73 1 40 38 0 74 1
-                                                   48 40 0 75 1 40 35 0 76 2 57
-                                                   0 29 0 77 0 40 0 78 2 40 35
-                                                   0 0 79 1 80 0 31 81 1 53 50
-                                                   50 82 3 53 40 50 50 29 83 2
-                                                   40 10 0 29 84 2 50 0 0 0 85
-                                                   2 50 35 0 0 86 2 80 0 0 0 87
-                                                   2 0 89 50 57 90 2 0 80 31 57
-                                                   88 2 0 56 31 57 58)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|groebSolve|
+                                 ((|List|
+                                   (|List|
+                                    (|DistributedMultivariatePolynomial| |#1|
+                                                                         |#2|)))
+                                  (|List|
+                                   (|DistributedMultivariatePolynomial| |#1|
+                                                                        |#2|))
+                                  (|List| (|OrderedVariableList| |#1|))))
+                                T)
+                              '((|testDim|
+                                 ((|Union|
+                                   (|List|
+                                    (|HomogeneousDistributedMultivariatePolynomial|
+                                     |#1| |#2|))
+                                   "failed")
+                                  (|List|
+                                   (|HomogeneousDistributedMultivariatePolynomial|
+                                    |#1| |#2|))
+                                  (|List| (|OrderedVariableList| |#1|))))
+                                T)
+                              '((|genericPosition|
+                                 ((|Record|
+                                   (|:| |dpolys|
+                                        (|List|
+                                         (|DistributedMultivariatePolynomial|
+                                          |#1| |#2|)))
+                                   (|:| |coords| (|List| (|Integer|))))
+                                  (|List|
+                                   (|DistributedMultivariatePolynomial| |#1|
+                                                                        |#2|))
+                                  (|List| (|OrderedVariableList| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 90
+                                            '(1 11 10 0 12 0 7 0 13 0 8 0 14 2
+                                              11 15 0 10 16 1 7 0 17 18 2 15 19
+                                              0 7 20 1 11 15 0 21 2 15 0 0 0 22
+                                              2 15 19 0 0 23 2 11 0 15 10 24 2
+                                              11 0 0 0 25 2 11 0 0 10 26 2 11 0
+                                              0 0 27 2 15 0 28 29 30 2 32 15 15
+                                              31 33 0 15 0 34 2 15 35 0 0 36 2
+                                              15 28 0 29 37 1 15 38 0 39 1 41
+                                              40 15 42 1 40 0 29 43 2 40 0 17 0
+                                              44 2 40 0 0 0 45 0 40 0 46 2 40
+                                              28 0 29 47 2 48 40 0 40 49 1 51
+                                              50 50 52 1 53 31 50 54 1 31 15 0
+                                              55 2 59 35 0 0 60 1 59 0 50 61 2
+                                              59 0 0 0 62 1 64 63 40 65 1 63 68
+                                              0 69 2 40 0 0 0 70 0 15 0 71 2 31
+                                              35 0 0 72 1 40 0 0 73 1 40 38 0
+                                              74 1 48 40 0 75 1 40 35 0 76 2 57
+                                              0 29 0 77 0 40 0 78 2 40 35 0 0
+                                              79 1 80 0 31 81 1 53 50 50 82 3
+                                              53 40 50 50 29 83 2 40 10 0 29 84
+                                              2 50 0 0 0 85 2 50 35 0 0 86 2 80
+                                              0 0 0 87 2 0 89 50 57 90 2 0 80
+                                              31 57 88 2 0 56 31 57 58)))))
            '|lookupComplete|)) 

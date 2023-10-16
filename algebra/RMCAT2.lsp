@@ -131,15 +131,22 @@
               (44 . |qelt|) (|Mapping| 12 8) |RMCAT2;map;MM1M2;1|
               (|Mapping| 12 8 12) |RMCAT2;reduce;MM12R2;2|)
            '#(|reduce| 51 |map| 58) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 30
-                                                 '(0 12 0 16 1 11 17 0 18 1 11
-                                                   17 0 19 1 15 17 0 20 1 15 17
-                                                   0 21 1 11 17 0 22 1 11 17 0
-                                                   23 1 15 17 0 24 1 15 17 0 25
-                                                   3 11 8 0 17 17 26 3 0 12 29
-                                                   11 12 30 2 0 15 27 11
-                                                   28)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#10| (|Mapping| |#7| |#3|) |#6|)) T)
+                              '((|reduce|
+                                 (|#7| (|Mapping| |#7| |#3| |#7|) |#6| |#7|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 30
+                                            '(0 12 0 16 1 11 17 0 18 1 11 17 0
+                                              19 1 15 17 0 20 1 15 17 0 21 1 11
+                                              17 0 22 1 11 17 0 23 1 15 17 0 24
+                                              1 15 17 0 25 3 11 8 0 17 17 26 3
+                                              0 12 29 11 12 30 2 0 15 27 11
+                                              28)))))
            '|lookupComplete|)) 

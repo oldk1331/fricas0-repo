@@ -41,19 +41,28 @@
 (MAKEPROP '|Group&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |inv|) (5 . *)
-              |GROUP-;/;3S;1| (|Union| $ '"failed") |GROUP-;recip;SU;2|
+              |GROUP-;/;3S;1| (|Union| $ '#1="failed") |GROUP-;recip;SU;2|
               (11 . |One|) (|PositiveInteger|) (|RepeatedSquaring| 6)
               (15 . |expt|) (|Integer|) |GROUP-;^;SIS;3|
               |GROUP-;conjugate;3S;4| |GROUP-;commutator;3S;5|
               (|NonNegativeInteger|))
            '#(|recip| 21 |conjugate| 26 |commutator| 32 ^ 38 / 44) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(1 6 0 0 7 2 6 0 0 0 8 0 6 0
-                                                   12 2 14 6 6 13 15 1 0 10 0
-                                                   11 2 0 0 0 0 18 2 0 0 0 0 19
-                                                   2 0 0 0 16 17 2 0 0 0 0
-                                                   9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|commutator| (|#1| |#1| |#1|)) T)
+                                   '((|conjugate| (|#1| |#1| |#1|)) T)
+                                   '((^ (|#1| |#1| (|Integer|))) T)
+                                   '((/ (|#1| |#1| |#1|)) T)
+                                   '((^ (|#1| |#1| (|NonNegativeInteger|))) T)
+                                   '((|recip| ((|Union| |#1| #1#) |#1|)) T)
+                                   '((^ (|#1| |#1| (|PositiveInteger|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(1 6 0 0 7 2 6 0 0 0 8 0 6 0 12 2
+                                              14 6 6 13 15 1 0 10 0 11 2 0 0 0
+                                              0 18 2 0 0 0 0 19 2 0 0 0 16 17 2
+                                              0 0 0 0 9)))))
            '|lookupComplete|)) 

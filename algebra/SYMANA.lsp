@@ -850,50 +850,122 @@
            '#(|transform| 392 |ncDetSys| 397 |linearize| 415 |detSysNS| 420
               |detSys| 431 |ansatz| 449)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 128
-                                                 '(0 6 9 10 0 6 9 12 1 6 0 9 14
-                                                   1 6 0 9 15 2 16 0 0 0 17 1 6
-                                                   19 0 20 0 6 0 23 2 9 24 0 0
-                                                   25 1 27 26 0 28 2 19 0 0 29
-                                                   30 2 31 0 0 0 32 1 33 0 6 34
-                                                   0 36 0 37 2 31 19 0 38 39 3
-                                                   33 0 19 40 27 41 1 36 0 9 42
-                                                   2 36 0 33 0 43 2 36 0 0 0 44
-                                                   1 36 0 9 45 1 33 47 0 48 1
-                                                   50 49 0 51 2 49 24 0 19 52 2
-                                                   49 53 0 19 54 1 50 55 0 56 1
-                                                   55 33 0 57 1 33 38 0 58 1 59
-                                                   0 9 60 1 59 61 0 62 2 38 24
-                                                   0 0 63 1 6 61 0 64 1 61 47 0
-                                                   65 1 49 19 0 66 2 31 38 19 0
-                                                   67 1 31 38 0 68 2 27 24 0 0
-                                                   69 1 59 0 9 70 1 33 0 71 72
-                                                   1 33 61 0 73 2 59 0 9 74 75
-                                                   3 61 0 0 47 40 76 1 77 0 61
-                                                   78 1 33 6 0 80 2 33 85 0 6
-                                                   86 2 33 24 0 0 87 2 88 0 33
-                                                   33 89 1 33 27 0 90 2 19 0 0
-                                                   0 91 2 6 0 0 0 92 2 93 0 0 0
-                                                   94 2 27 0 0 0 95 3 97 27 96
-                                                   0 27 98 2 36 0 0 27 99 2 36
-                                                   33 0 33 100 2 33 0 0 101 102
-                                                   1 33 103 0 104 1 103 105 0
-                                                   106 2 105 0 0 0 107 3 109
-                                                   105 108 0 105 110 1 33 0 61
-                                                   111 1 36 16 0 115 1 36 55 0
-                                                   116 1 6 19 0 117 1 6 9 0 118
-                                                   0 33 0 119 1 33 0 0 120 1 33
-                                                   24 0 121 2 6 0 9 74 122 2 33
-                                                   0 0 0 123 2 33 0 0 0 124 1 6
-                                                   24 0 125 2 55 0 0 0 126 2 16
-                                                   0 0 0 127 1 0 77 33 79 2 0
-                                                   55 55 36 114 1 0 82 55 113 3
-                                                   0 55 55 16 36 112 1 0 128 82
-                                                   1 2 0 55 55 36 1 1 0 82 55 1
-                                                   2 0 55 55 36 84 1 0 82 55 83
-                                                   3 0 55 55 16 36 81 0 0 36
-                                                   46)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|ansatz|
+                                 ((|JetVectorField| |#1|
+                                                    (|JetBundleExpression|
+                                                     |#1|))))
+                                T)
+                              '((|transform|
+                                 ((|JetBundleExpression|
+                                   (|JetBundleSymAna| |#1| |#2| |#3|))
+                                  (|JetBundleExpression| |#1|)))
+                                T)
+                              '((|linearize|
+                                 ((|List|
+                                   (|JetBundleLinearFunction|
+                                    (|JetBundleSymAna| |#1| |#2| |#3|)
+                                    (|JetBundleXExpression|
+                                     (|JetBundleSymAna| |#1| |#2| |#3|))))
+                                  (|List|
+                                   (|JetBundleExpression|
+                                    (|JetBundleSymAna| |#1| |#2| |#3|)))))
+                                T)
+                              '((|detSys|
+                                 ((|List|
+                                   (|JetBundleExpression|
+                                    (|JetBundleSymAna| |#1| |#2| |#3|)))
+                                  (|List| (|JetBundleExpression| |#1|))))
+                                T)
+                              '((|detSys|
+                                 ((|List| (|JetBundleExpression| |#1|))
+                                  (|List| (|JetBundleExpression| |#1|))
+                                  (|JetVectorField| |#1|
+                                                    (|JetBundleExpression|
+                                                     |#1|))))
+                                T)
+                              '((|detSys|
+                                 ((|List| (|JetBundleExpression| |#1|))
+                                  (|List| (|JetBundleExpression| |#1|))
+                                  (|List| |#1|)
+                                  (|JetVectorField| |#1|
+                                                    (|JetBundleExpression|
+                                                     |#1|))))
+                                T)
+                              '((|ncDetSys|
+                                 ((|List|
+                                   (|JetBundleExpression|
+                                    (|JetBundleSymAna| |#1| |#2| |#3|)))
+                                  (|List| (|JetBundleExpression| |#1|))))
+                                T)
+                              '((|ncDetSys|
+                                 ((|List| (|JetBundleExpression| |#1|))
+                                  (|List| (|JetBundleExpression| |#1|))
+                                  (|JetVectorField| |#1|
+                                                    (|JetBundleExpression|
+                                                     |#1|))))
+                                T)
+                              '((|ncDetSys|
+                                 ((|List| (|JetBundleExpression| |#1|))
+                                  (|List| (|JetBundleExpression| |#1|))
+                                  (|List| |#1|)
+                                  (|JetVectorField| |#1|
+                                                    (|JetBundleExpression|
+                                                     |#1|))))
+                                T)
+                              '((|detSysNS|
+                                 ((|List|
+                                   (|JetBundleExpression|
+                                    (|JetBundleSymAna| |#1| |#2| |#3|)))
+                                  (|List| (|JetBundleExpression| |#1|))))
+                                T)
+                              '((|detSysNS|
+                                 ((|List| (|JetBundleExpression| |#1|))
+                                  (|List| (|JetBundleExpression| |#1|))
+                                  (|JetVectorField| |#1|
+                                                    (|JetBundleExpression|
+                                                     |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 128
+                                            '(0 6 9 10 0 6 9 12 1 6 0 9 14 1 6
+                                              0 9 15 2 16 0 0 0 17 1 6 19 0 20
+                                              0 6 0 23 2 9 24 0 0 25 1 27 26 0
+                                              28 2 19 0 0 29 30 2 31 0 0 0 32 1
+                                              33 0 6 34 0 36 0 37 2 31 19 0 38
+                                              39 3 33 0 19 40 27 41 1 36 0 9 42
+                                              2 36 0 33 0 43 2 36 0 0 0 44 1 36
+                                              0 9 45 1 33 47 0 48 1 50 49 0 51
+                                              2 49 24 0 19 52 2 49 53 0 19 54 1
+                                              50 55 0 56 1 55 33 0 57 1 33 38 0
+                                              58 1 59 0 9 60 1 59 61 0 62 2 38
+                                              24 0 0 63 1 6 61 0 64 1 61 47 0
+                                              65 1 49 19 0 66 2 31 38 19 0 67 1
+                                              31 38 0 68 2 27 24 0 0 69 1 59 0
+                                              9 70 1 33 0 71 72 1 33 61 0 73 2
+                                              59 0 9 74 75 3 61 0 0 47 40 76 1
+                                              77 0 61 78 1 33 6 0 80 2 33 85 0
+                                              6 86 2 33 24 0 0 87 2 88 0 33 33
+                                              89 1 33 27 0 90 2 19 0 0 0 91 2 6
+                                              0 0 0 92 2 93 0 0 0 94 2 27 0 0 0
+                                              95 3 97 27 96 0 27 98 2 36 0 0 27
+                                              99 2 36 33 0 33 100 2 33 0 0 101
+                                              102 1 33 103 0 104 1 103 105 0
+                                              106 2 105 0 0 0 107 3 109 105 108
+                                              0 105 110 1 33 0 61 111 1 36 16 0
+                                              115 1 36 55 0 116 1 6 19 0 117 1
+                                              6 9 0 118 0 33 0 119 1 33 0 0 120
+                                              1 33 24 0 121 2 6 0 9 74 122 2 33
+                                              0 0 0 123 2 33 0 0 0 124 1 6 24 0
+                                              125 2 55 0 0 0 126 2 16 0 0 0 127
+                                              1 0 77 33 79 2 0 55 55 36 114 1 0
+                                              82 55 113 3 0 55 55 16 36 112 1 0
+                                              128 82 1 2 0 55 55 36 1 1 0 82 55
+                                              1 2 0 55 55 36 84 1 0 82 55 83 3
+                                              0 55 55 16 36 81 0 0 36 46)))))
            '|lookupComplete|)) 

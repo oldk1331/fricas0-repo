@@ -143,20 +143,30 @@
               (|BasicOperator|) (82 . |operator|) (|Boolean|) (|Symbol|)
               (87 . |has?|) (93 . |search|) (99 . |setelt!|) (106 . |coerce|))
            '#(|newReduc| 111 |bringDown| 116) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 55
-                                                 '(0 9 0 10 1 9 13 0 14 2 9 15
-                                                   16 0 17 2 7 21 0 22 23 1 27
-                                                   26 0 28 2 31 29 30 26 32 1 7
-                                                   33 22 34 0 29 0 35 3 29 37 0
-                                                   0 0 38 1 27 26 0 39 2 29 0 0
-                                                   0 40 2 29 0 0 0 41 1 7 43 0
-                                                   44 3 7 0 0 43 45 46 1 7 24 0
-                                                   47 1 16 48 0 49 2 48 50 0 51
-                                                   52 2 9 15 16 0 53 3 9 19 0
-                                                   16 19 54 1 7 0 19 55 1 0 18
-                                                   19 20 1 0 24 7 25 2 0 29 7
-                                                   16 42)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|bringDown| ((|Fraction| (|Integer|)) |#2|))
+                                T)
+                              '((|bringDown|
+                                 ((|SparseUnivariatePolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  |#2| (|Kernel| |#2|)))
+                                T)
+                              '((|newReduc| ((|Void|) (|Integer|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 55
+                                            '(0 9 0 10 1 9 13 0 14 2 9 15 16 0
+                                              17 2 7 21 0 22 23 1 27 26 0 28 2
+                                              31 29 30 26 32 1 7 33 22 34 0 29
+                                              0 35 3 29 37 0 0 0 38 1 27 26 0
+                                              39 2 29 0 0 0 40 2 29 0 0 0 41 1
+                                              7 43 0 44 3 7 0 0 43 45 46 1 7 24
+                                              0 47 1 16 48 0 49 2 48 50 0 51 52
+                                              2 9 15 16 0 53 3 9 19 0 16 19 54
+                                              1 7 0 19 55 1 0 18 19 20 1 0 24 7
+                                              25 2 0 29 7 16 42)))))
            '|lookupComplete|)) 

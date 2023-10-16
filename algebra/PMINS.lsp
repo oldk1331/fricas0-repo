@@ -269,19 +269,27 @@
               (105 . |Zero|) (|Record| (|:| |num| $) (|:| |den| $))
               (|Union| 45 '"failed") (109 . |isQuotient|) (114 . *))
            '#(|patternMatch| 120) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 48
-                                                 '(1 8 7 0 9 3 10 0 8 6 0 11 4
-                                                   10 0 8 6 0 6 13 1 14 8 0 15
-                                                   1 8 16 0 17 0 10 0 18 1 6 0
-                                                   19 20 1 8 7 0 21 1 6 19 0 22
-                                                   1 8 24 0 25 2 28 26 6 27 29
-                                                   0 6 0 30 1 8 32 0 33 1 28 34
-                                                   6 35 1 10 7 0 36 0 6 0 37 1
-                                                   8 38 0 39 2 6 40 0 0 41 1 8
-                                                   38 0 42 2 6 0 0 0 43 0 6 0
-                                                   44 1 8 46 0 47 2 6 0 19 0 48
-                                                   3 0 10 6 8 10 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|patternMatch|
+                                 ((|PatternMatchResult| (|Integer|) |#1|) |#1|
+                                  (|Pattern| (|Integer|))
+                                  (|PatternMatchResult| (|Integer|) |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 48
+                                            '(1 8 7 0 9 3 10 0 8 6 0 11 4 10 0
+                                              8 6 0 6 13 1 14 8 0 15 1 8 16 0
+                                              17 0 10 0 18 1 6 0 19 20 1 8 7 0
+                                              21 1 6 19 0 22 1 8 24 0 25 2 28
+                                              26 6 27 29 0 6 0 30 1 8 32 0 33 1
+                                              28 34 6 35 1 10 7 0 36 0 6 0 37 1
+                                              8 38 0 39 2 6 40 0 0 41 1 8 38 0
+                                              42 2 6 0 0 0 43 0 6 0 44 1 8 46 0
+                                              47 2 6 0 19 0 48 3 0 10 6 8 10
+                                              12)))))
            '|lookupComplete|)) 

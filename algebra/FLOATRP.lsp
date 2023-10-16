@@ -375,20 +375,59 @@
               (83 . |mainVariable|) (|List| 11) |FLOATRP;solve;FParL;6|
               |FLOATRP;solve;EParL;7|)
            '#(|solve| 88 |realRoots| 112) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 45
-                                                 '(1 8 0 7 9 1 8 0 6 10 2 11 0
-                                                   8 8 12 1 14 13 0 15 2 17 16
-                                                   13 6 18 1 14 13 0 20 0 13 0
-                                                   21 2 13 22 0 0 23 4 17 24 25
-                                                   25 26 6 27 1 13 26 0 30 2 26
-                                                   0 0 0 31 2 25 22 0 0 32 1 35
-                                                   14 0 36 1 35 14 0 37 2 14 0
-                                                   0 0 38 1 13 41 0 42 2 0 33
-                                                   28 6 34 2 0 43 14 6 44 2 0
-                                                   33 39 6 40 2 0 43 35 6 45 2
-                                                   0 16 14 6 19 3 0 24 28 26 6
-                                                   29)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solve|
+                                 ((|List|
+                                   (|List| (|Equation| (|Polynomial| |#1|))))
+                                  (|List|
+                                   (|Fraction| (|Polynomial| (|Integer|))))
+                                  |#1|))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|List| (|Equation| (|Polynomial| |#1|))))
+                                  (|List|
+                                   (|Equation|
+                                    (|Fraction| (|Polynomial| (|Integer|)))))
+                                  |#1|))
+                                T)
+                              '((|solve|
+                                 ((|List| (|Equation| (|Polynomial| |#1|)))
+                                  (|Fraction| (|Polynomial| (|Integer|)))
+                                  |#1|))
+                                T)
+                              '((|solve|
+                                 ((|List| (|Equation| (|Polynomial| |#1|)))
+                                  (|Equation|
+                                   (|Fraction| (|Polynomial| (|Integer|))))
+                                  |#1|))
+                                T)
+                              '((|realRoots|
+                                 ((|List| (|List| |#1|))
+                                  (|List|
+                                   (|Fraction| (|Polynomial| (|Integer|))))
+                                  (|List| (|Symbol|)) |#1|))
+                                T)
+                              '((|realRoots|
+                                 ((|List| |#1|)
+                                  (|Fraction| (|Polynomial| (|Integer|)))
+                                  |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 45
+                                            '(1 8 0 7 9 1 8 0 6 10 2 11 0 8 8
+                                              12 1 14 13 0 15 2 17 16 13 6 18 1
+                                              14 13 0 20 0 13 0 21 2 13 22 0 0
+                                              23 4 17 24 25 25 26 6 27 1 13 26
+                                              0 30 2 26 0 0 0 31 2 25 22 0 0 32
+                                              1 35 14 0 36 1 35 14 0 37 2 14 0
+                                              0 0 38 1 13 41 0 42 2 0 33 28 6
+                                              34 2 0 43 14 6 44 2 0 33 39 6 40
+                                              2 0 43 35 6 45 2 0 16 14 6 19 3 0
+                                              24 28 26 6 29)))))
            '|lookupComplete|)) 

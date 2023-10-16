@@ -156,15 +156,23 @@
               (50 . |drawToScale|) (|List| 7) (|List| (|List| 13))
               |PLOTTOOL;calcRanges;LL;8|)
            '#(|calcRanges| 54) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 24
-                                                 '(1 7 6 0 8 1 7 6 0 9 2 6 10 0
-                                                   0 11 2 7 0 6 6 12 1 14 6 13
-                                                   15 2 6 0 0 0 16 2 6 0 0 0 17
-                                                   2 7 0 6 6 18 1 14 6 13 19 0
-                                                   20 10 21 1 0 22 23 24)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|calcRanges|
+                                 ((|List| (|Segment| (|DoubleFloat|)))
+                                  (|List| (|List| (|Point| (|DoubleFloat|))))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 24
+                                            '(1 7 6 0 8 1 7 6 0 9 2 6 10 0 0 11
+                                              2 7 0 6 6 12 1 14 6 13 15 2 6 0 0
+                                              0 16 2 6 0 0 0 17 2 7 0 6 6 18 1
+                                              14 6 13 19 0 20 10 21 1 0 22 23
+                                              24)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|PlotTools| 'NILADIC T) 

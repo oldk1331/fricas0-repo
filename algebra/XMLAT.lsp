@@ -93,14 +93,23 @@
               |XMLAT;coerce;$S;3| (|TextFile|) (11 . |writeLine!|) (|Void|)
               |XMLAT;outputVRML;$TfV;4|)
            '#(|xmlAttribute| 17 |outputVRML| 29 |coerce| 35) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(1 7 0 11 12 2 7 0 0 13 14 2
-                                                   16 7 0 7 17 2 0 0 7 9 10 2 0
-                                                   0 7 7 8 2 0 18 0 16 19 1 0 7
-                                                   0 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|xmlAttribute| ($$ (|String|) (|String|))) T)
+                              '((|xmlAttribute|
+                                 ($$ (|String|) (|List| (|String|))))
+                                T)
+                              '((|coerce| ((|String|) $$)) T)
+                              '((|outputVRML| ((|Void|) $$ (|TextFile|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(1 7 0 11 12 2 7 0 0 13 14 2 16 7
+                                              0 7 17 2 0 0 7 9 10 2 0 0 7 7 8 2
+                                              0 18 0 16 19 1 0 7 0 15)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|XmlAttribute| 'NILADIC T) 

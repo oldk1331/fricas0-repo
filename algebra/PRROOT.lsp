@@ -141,18 +141,25 @@
               (|Union| 21 '"failed") (93 . |retractIfCan|)
               |PRROOT;integerBound;UPI;2|)
            '#(|integerBound| 98 |get_rational_roots| 103) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 49
-                                                 '(1 7 8 0 9 2 7 10 0 8 11 1 10
-                                                   12 0 13 1 15 0 14 16 1 6 17
-                                                   18 19 2 17 20 0 21 22 1 23 0
-                                                   20 24 1 23 0 25 26 1 21 27
-                                                   28 29 1 33 32 0 34 1 23 8 0
-                                                   35 2 8 36 0 0 37 0 6 0 38 0
-                                                   7 0 39 2 23 21 0 8 40 1 23
-                                                   21 0 41 2 42 0 21 21 43 1 42
-                                                   0 0 44 1 42 47 0 48 1 0 21 7
-                                                   49 1 0 45 7 46)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|get_rational_roots|
+                                 ((|List| (|Fraction| (|Integer|))) |#2|))
+                                T)
+                              '((|integerBound| ((|Integer|) |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 49
+                                            '(1 7 8 0 9 2 7 10 0 8 11 1 10 12 0
+                                              13 1 15 0 14 16 1 6 17 18 19 2 17
+                                              20 0 21 22 1 23 0 20 24 1 23 0 25
+                                              26 1 21 27 28 29 1 33 32 0 34 1
+                                              23 8 0 35 2 8 36 0 0 37 0 6 0 38
+                                              0 7 0 39 2 23 21 0 8 40 1 23 21 0
+                                              41 2 42 0 21 21 43 1 42 0 0 44 1
+                                              42 47 0 48 1 0 21 7 49 1 0 45 7
+                                              46)))))
            '|lookupComplete|)) 

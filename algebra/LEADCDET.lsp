@@ -386,25 +386,49 @@
               (|Record| (|:| |contp| 8) (|:| |factors| (|List| 52))) (|List| 6)
               |LEADCDET;distFact;ZLRLLLU;4|)
            '#(|polCase| 167 |distFact| 174) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 55
-                                                 '(2 11 8 0 10 12 1 8 13 0 14 0
-                                                   8 0 15 0 9 0 16 2 8 17 0 0
-                                                   18 2 8 0 0 0 19 2 8 20 0 0
-                                                   21 2 8 17 0 0 22 2 11 0 0 0
-                                                   23 2 27 26 0 10 28 1 26 8 0
-                                                   29 2 30 9 0 10 31 2 9 0 8 0
-                                                   32 3 30 9 0 10 9 33 2 26 0 8
-                                                   0 34 3 27 26 0 10 26 35 2 8
-                                                   0 0 0 36 1 8 0 0 37 2 38 10
-                                                   0 10 39 0 7 0 40 0 8 0 41 2
-                                                   24 17 0 0 42 2 10 17 0 0 43
-                                                   3 38 10 0 10 10 44 2 9 0 0
-                                                   24 45 2 9 0 0 0 46 2 8 0 0
-                                                   24 47 3 11 8 0 10 8 48 2 10
-                                                   17 0 0 49 3 0 17 8 24 11 25
-                                                   6 0 51 8 27 53 11 54 11
-                                                   55)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|polCase|
+                                 ((|Boolean|) |#3| (|NonNegativeInteger|)
+                                  (|List| |#3|)))
+                                T)
+                              '((|distFact|
+                                 ((|Union|
+                                   (|Record| (|:| |polfac| (|List| |#4|))
+                                             (|:| |correct| |#3|)
+                                             (|:| |corrfact|
+                                                  (|List|
+                                                   (|SparseUnivariatePolynomial|
+                                                    |#3|))))
+                                   "failed")
+                                  |#3|
+                                  (|List| (|SparseUnivariatePolynomial| |#3|))
+                                  (|Record| (|:| |contp| |#3|)
+                                            (|:| |factors|
+                                                 (|List|
+                                                  (|Record| (|:| |irr| |#4|)
+                                                            (|:| |pow|
+                                                                 (|NonNegativeInteger|))))))
+                                  (|List| |#3|) (|List| |#1|) (|List| |#3|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 55
+                                            '(2 11 8 0 10 12 1 8 13 0 14 0 8 0
+                                              15 0 9 0 16 2 8 17 0 0 18 2 8 0 0
+                                              0 19 2 8 20 0 0 21 2 8 17 0 0 22
+                                              2 11 0 0 0 23 2 27 26 0 10 28 1
+                                              26 8 0 29 2 30 9 0 10 31 2 9 0 8
+                                              0 32 3 30 9 0 10 9 33 2 26 0 8 0
+                                              34 3 27 26 0 10 26 35 2 8 0 0 0
+                                              36 1 8 0 0 37 2 38 10 0 10 39 0 7
+                                              0 40 0 8 0 41 2 24 17 0 0 42 2 10
+                                              17 0 0 43 3 38 10 0 10 10 44 2 9
+                                              0 0 24 45 2 9 0 0 0 46 2 8 0 0 24
+                                              47 3 11 8 0 10 8 48 2 10 17 0 0
+                                              49 3 0 17 8 24 11 25 6 0 51 8 27
+                                              53 11 54 11 55)))))
            '|lookupComplete|)) 

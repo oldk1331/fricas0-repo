@@ -102,13 +102,22 @@
            '#(|splitDenominator| 32 |commonDenominator| 37 |clearDenominator|
               42)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 23
-                                                 '(1 10 11 0 12 1 13 6 11 14 2
-                                                   7 0 6 0 16 1 7 6 0 17 1 7 0
-                                                   6 18 2 10 0 19 0 20 1 0 22
-                                                   10 23 1 0 6 10 15 1 0 10 10
-                                                   21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|commonDenominator| (|#1| |#5|)) T)
+                                   '((|clearDenominator| (|#5| |#5|)) T)
+                                   '((|splitDenominator|
+                                      ((|Record| (|:| |num| |#5|)
+                                                 (|:| |den| |#1|))
+                                       |#5|))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 23
+                                            '(1 10 11 0 12 1 13 6 11 14 2 7 0 6
+                                              0 16 1 7 6 0 17 1 7 0 6 18 2 10 0
+                                              19 0 20 1 0 22 10 23 1 0 6 10 15
+                                              1 0 10 10 21)))))
            '|lookupComplete|)) 

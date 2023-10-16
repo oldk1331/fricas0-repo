@@ -62,10 +62,23 @@
               (|NonNegativeInteger|) |MAPHACK1;iter;MNni2A;1| (|Mapping| 6 8 6)
               |MAPHACK1;recur;MNni2A;2|)
            '#(|recur| 0 |iter| 7) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 11
-                                                 '(3 0 6 10 8 6 11 3 0 6 7 8 6
-                                                   9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|iter|
+                                 (|#1| (|Mapping| |#1| |#1|)
+                                  (|NonNegativeInteger|) |#1|))
+                                T)
+                              '((|recur|
+                                 (|#1|
+                                  (|Mapping| |#1| (|NonNegativeInteger|) |#1|)
+                                  (|NonNegativeInteger|) |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 11
+                                            '(3 0 6 10 8 6 11 3 0 6 7 8 6
+                                              9)))))
            '|lookupComplete|)) 

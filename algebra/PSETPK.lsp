@@ -1690,8 +1690,9 @@
               (145 . |associates?|) (151 . |concat|) |PSETPK;interReduce;2L;18|
               (|Record| (|:| |bas| $) (|:| |top| 11)) (|Union| 68 '"failed")
               (|GeneralTriangularSet| 6 7 8 9) (157 . |basicSet|)
-              (|Record| (|:| |bas| 70) (|:| |top| 11)) (|Union| 72 '"failed")
-              |PSETPK;roughBasicSet;LU;20| (163 . |empty?|) (168 . |members|)
+              (|Record| (|:| |bas| 70) (|:| |top| 11))
+              (|Union| 72 '#1="failed") |PSETPK;roughBasicSet;LU;20|
+              (163 . |empty?|) (168 . |members|)
               (173 . |rewriteIdealWithRemainder|) (179 . =)
               (185 . |infRittWu?|) |PSETPK;crushedSet;2L;22| (191 . |any?|)
               (197 . |empty|) (201 . |basicSet|) (|Mapping| 9 9 9)
@@ -1737,59 +1738,194 @@
               |interReduce| 528 |crushedSet| 533 |certainlySubVariety?| 538
               |bivariatePolynomials| 544 |bivariate?| 549)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 121
-                                                 '(1 9 0 0 10 1 11 0 0 12 2 9
-                                                   13 0 0 14 2 11 0 15 0 16 1 9
-                                                   13 0 23 1 9 24 0 25 0 6 0 26
-                                                   1 9 0 0 29 1 9 0 0 30 1 9 8
-                                                   0 31 2 8 13 0 0 32 2 8 13 0
-                                                   0 36 2 8 13 0 0 37 2 9 24 0
-                                                   8 38 1 9 13 0 40 1 9 13 0 42
-                                                   2 11 0 18 0 43 2 9 44 0 0 45
-                                                   1 9 0 0 46 0 9 0 47 1 54 0
-                                                   11 55 2 54 56 9 0 57 1 9 58
-                                                   0 59 2 58 0 0 0 60 1 58 0 0
-                                                   61 2 24 13 0 0 62 2 9 13 0 0
-                                                   64 2 9 13 0 0 65 2 11 0 0 0
-                                                   66 2 70 69 11 15 71 1 70 13
-                                                   0 75 1 70 11 0 76 2 70 11 11
-                                                   0 77 2 9 13 0 0 78 2 70 13 0
-                                                   0 79 2 11 13 18 0 81 0 70 0
-                                                   82 3 70 69 11 18 15 83 4 70
-                                                   11 11 0 84 15 85 1 92 91 9
-                                                   93 1 91 96 0 97 1 0 11 11 98
-                                                   1 0 11 11 99 2 0 11 11 11
-                                                   100 1 9 101 0 102 1 0 11 9
-                                                   103 1 9 0 104 105 2 0 11 11
-                                                   13 106 1 0 11 11 107 1 9 0 0
-                                                   108 1 0 11 11 109 3 0 11 11
-                                                   15 84 110 1 9 0 0 111 2 8 13
-                                                   0 0 112 2 9 0 0 0 113 2 0 11
-                                                   11 11 114 2 9 0 0 0 115 2 0
-                                                   11 11 11 116 2 0 11 11 11
-                                                   117 2 0 11 9 9 118 2 0 11 9
-                                                   9 119 2 11 13 0 24 120 2 0
-                                                   11 9 9 118 1 2 11 11 107 2 2
-                                                   11 11 13 106 1 0 17 11 34 1
-                                                   0 13 9 33 1 2 11 9 103 2 0
-                                                   17 18 11 19 2 0 17 20 11 21
-                                                   2 0 17 20 11 22 1 0 73 11 74
-                                                   4 0 11 11 18 15 84 86 3 0 11
-                                                   11 15 84 110 1 0 11 11 109 3
-                                                   0 11 11 11 13 48 2 0 11 11
-                                                   11 50 2 0 9 9 11 49 2 2 11
-                                                   11 11 114 2 2 11 11 11 117 2
-                                                   2 11 11 11 116 2 0 11 9 9
-                                                   119 1 0 11 11 89 2 0 11 11
-                                                   11 90 2 0 11 11 9 121 3 0 11
-                                                   11 11 87 88 2 1 11 11 11 100
-                                                   1 0 17 11 41 1 0 13 11 63 2
-                                                   0 13 11 52 53 1 0 17 11 28 1
-                                                   0 13 9 27 1 1 11 11 99 1 1
-                                                   11 11 98 1 0 11 11 67 1 0 11
-                                                   11 80 2 0 13 11 11 51 1 0 17
-                                                   11 39 1 0 13 9 35)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|removeRedundantFactors|
+                                 ((|List| |#4|) (|List| |#4|)))
+                                T)
+                              '((|removeRedundantFactors|
+                                 ((|List| |#4|) |#4| |#4|))
+                                T)
+                              '((|removeSquaresIfCan|
+                                 ((|List| |#4|) (|List| |#4|)))
+                                T)
+                              '((|unprotectedRemoveRedundantFactors|
+                                 ((|List| |#4|) |#4| |#4|))
+                                T)
+                              '((|removeRedundantFactors|
+                                 ((|List| |#4|) (|List| |#4|) |#4|))
+                                T)
+                              '((|removeRedundantFactors|
+                                 ((|List| |#4|) (|List| |#4|) (|List| |#4|)))
+                                T)
+                              '((|removeRedundantFactors|
+                                 ((|List| |#4|) (|List| |#4|) (|List| |#4|)
+                                  (|Mapping| (|List| |#4|) (|List| |#4|))))
+                                T)
+                              '((|certainlySubVariety?|
+                                 ((|Boolean|) (|List| |#4|) (|List| |#4|)))
+                                T)
+                              '((|possiblyNewVariety?|
+                                 ((|Boolean|) (|List| |#4|)
+                                  (|List| (|List| |#4|))))
+                                T)
+                              '((|probablyZeroDim?|
+                                 ((|Boolean|) (|List| |#4|)))
+                                T)
+                              '((|selectPolynomials|
+                                 ((|Record| (|:| |goodPols| (|List| |#4|))
+                                            (|:| |badPols| (|List| |#4|)))
+                                  (|Mapping| (|Boolean|) |#4|) (|List| |#4|)))
+                                T)
+                              '((|selectOrPolynomials|
+                                 ((|Record| (|:| |goodPols| (|List| |#4|))
+                                            (|:| |badPols| (|List| |#4|)))
+                                  (|List| (|Mapping| (|Boolean|) |#4|))
+                                  (|List| |#4|)))
+                                T)
+                              '((|selectAndPolynomials|
+                                 ((|Record| (|:| |goodPols| (|List| |#4|))
+                                            (|:| |badPols| (|List| |#4|)))
+                                  (|List| (|Mapping| (|Boolean|) |#4|))
+                                  (|List| |#4|)))
+                                T)
+                              '((|quasiMonicPolynomials|
+                                 ((|Record| (|:| |goodPols| (|List| |#4|))
+                                            (|:| |badPols| (|List| |#4|)))
+                                  (|List| |#4|)))
+                                T)
+                              '((|univariate?| ((|Boolean|) |#4|)) T)
+                              '((|univariatePolynomials|
+                                 ((|Record| (|:| |goodPols| (|List| |#4|))
+                                            (|:| |badPols| (|List| |#4|)))
+                                  (|List| |#4|)))
+                                T)
+                              '((|linear?| ((|Boolean|) |#4|)) T)
+                              '((|linearPolynomials|
+                                 ((|Record| (|:| |goodPols| (|List| |#4|))
+                                            (|:| |badPols| (|List| |#4|)))
+                                  (|List| |#4|)))
+                                T)
+                              '((|bivariate?| ((|Boolean|) |#4|)) T)
+                              '((|bivariatePolynomials|
+                                 ((|Record| (|:| |goodPols| (|List| |#4|))
+                                            (|:| |badPols| (|List| |#4|)))
+                                  (|List| |#4|)))
+                                T)
+                              '((|removeRoughlyRedundantFactorsInPols|
+                                 ((|List| |#4|) (|List| |#4|) (|List| |#4|)))
+                                T)
+                              '((|removeRoughlyRedundantFactorsInPols|
+                                 ((|List| |#4|) (|List| |#4|) (|List| |#4|)
+                                  (|Boolean|)))
+                                T)
+                              '((|removeRoughlyRedundantFactorsInPol|
+                                 (|#4| |#4| (|List| |#4|)))
+                                T)
+                              '((|interReduce| ((|List| |#4|) (|List| |#4|)))
+                                T)
+                              '((|roughBasicSet|
+                                 ((|Union|
+                                   (|Record|
+                                    (|:| |bas|
+                                         (|GeneralTriangularSet| |#1| |#2| |#3|
+                                                                 |#4|))
+                                    (|:| |top| (|List| |#4|)))
+                                   #1#)
+                                  (|List| |#4|)))
+                                T)
+                              '((|crushedSet| ((|List| |#4|) (|List| |#4|))) T)
+                              '((|rewriteSetByReducingWithParticularGenerators|
+                                 ((|List| |#4|) (|List| |#4|)
+                                  (|Mapping| (|Boolean|) |#4|)
+                                  (|Mapping| (|Boolean|) |#4| |#4|)
+                                  (|Mapping| |#4| |#4| |#4|)))
+                                T)
+                              '((|rewriteIdealWithQuasiMonicGenerators|
+                                 ((|List| |#4|) (|List| |#4|)
+                                  (|Mapping| (|Boolean|) |#4| |#4|)
+                                  (|Mapping| |#4| |#4| |#4|)))
+                                T)
+                              '((|squareFreeFactors| ((|List| |#4|) |#4|))
+                                (|has| 6 (|GcdDomain|)))
+                              '((|univariatePolynomialsGcds|
+                                 ((|List| |#4|) (|List| |#4|)))
+                                (|has| 6 (|GcdDomain|)))
+                              '((|univariatePolynomialsGcds|
+                                 ((|List| |#4|) (|List| |#4|) (|Boolean|)))
+                                (|has| 6 (|GcdDomain|)))
+                              '((|removeRoughlyRedundantFactorsInContents|
+                                 ((|List| |#4|) (|List| |#4|) (|List| |#4|)))
+                                (|has| 6 (|GcdDomain|)))
+                              '((|removeRedundantFactorsInContents|
+                                 ((|List| |#4|) (|List| |#4|) (|List| |#4|)))
+                                (|has| 6 (|GcdDomain|)))
+                              '((|removeRedundantFactorsInPols|
+                                 ((|List| |#4|) (|List| |#4|) (|List| |#4|)))
+                                (|has| 6 (|GcdDomain|)))
+                              '((|irreducibleFactors|
+                                 ((|List| |#4|) (|List| |#4|)))
+                                (AND (|has| 6 (|CharacteristicZero|))
+                                     (|has| 6
+                                            (|PolynomialFactorizationExplicit|))))
+                              '((|lazyIrreducibleFactors|
+                                 ((|List| |#4|) (|List| |#4|)))
+                                (AND (|has| 6 (|CharacteristicZero|))
+                                     (|has| 6
+                                            (|PolynomialFactorizationExplicit|))))
+                              '((|removeIrreducibleRedundantFactors|
+                                 ((|List| |#4|) (|List| |#4|) (|List| |#4|)))
+                                (AND (|has| 6 (|CharacteristicZero|))
+                                     (|has| 6
+                                            (|PolynomialFactorizationExplicit|)))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 121
+                                            '(1 9 0 0 10 1 11 0 0 12 2 9 13 0 0
+                                              14 2 11 0 15 0 16 1 9 13 0 23 1 9
+                                              24 0 25 0 6 0 26 1 9 0 0 29 1 9 0
+                                              0 30 1 9 8 0 31 2 8 13 0 0 32 2 8
+                                              13 0 0 36 2 8 13 0 0 37 2 9 24 0
+                                              8 38 1 9 13 0 40 1 9 13 0 42 2 11
+                                              0 18 0 43 2 9 44 0 0 45 1 9 0 0
+                                              46 0 9 0 47 1 54 0 11 55 2 54 56
+                                              9 0 57 1 9 58 0 59 2 58 0 0 0 60
+                                              1 58 0 0 61 2 24 13 0 0 62 2 9 13
+                                              0 0 64 2 9 13 0 0 65 2 11 0 0 0
+                                              66 2 70 69 11 15 71 1 70 13 0 75
+                                              1 70 11 0 76 2 70 11 11 0 77 2 9
+                                              13 0 0 78 2 70 13 0 0 79 2 11 13
+                                              18 0 81 0 70 0 82 3 70 69 11 18
+                                              15 83 4 70 11 11 0 84 15 85 1 92
+                                              91 9 93 1 91 96 0 97 1 0 11 11 98
+                                              1 0 11 11 99 2 0 11 11 11 100 1 9
+                                              101 0 102 1 0 11 9 103 1 9 0 104
+                                              105 2 0 11 11 13 106 1 0 11 11
+                                              107 1 9 0 0 108 1 0 11 11 109 3 0
+                                              11 11 15 84 110 1 9 0 0 111 2 8
+                                              13 0 0 112 2 9 0 0 0 113 2 0 11
+                                              11 11 114 2 9 0 0 0 115 2 0 11 11
+                                              11 116 2 0 11 11 11 117 2 0 11 9
+                                              9 118 2 0 11 9 9 119 2 11 13 0 24
+                                              120 2 0 11 9 9 118 1 2 11 11 107
+                                              2 2 11 11 13 106 1 0 17 11 34 1 0
+                                              13 9 33 1 2 11 9 103 2 0 17 18 11
+                                              19 2 0 17 20 11 21 2 0 17 20 11
+                                              22 1 0 73 11 74 4 0 11 11 18 15
+                                              84 86 3 0 11 11 15 84 110 1 0 11
+                                              11 109 3 0 11 11 11 13 48 2 0 11
+                                              11 11 50 2 0 9 9 11 49 2 2 11 11
+                                              11 114 2 2 11 11 11 117 2 2 11 11
+                                              11 116 2 0 11 9 9 119 1 0 11 11
+                                              89 2 0 11 11 11 90 2 0 11 11 9
+                                              121 3 0 11 11 11 87 88 2 1 11 11
+                                              11 100 1 0 17 11 41 1 0 13 11 63
+                                              2 0 13 11 52 53 1 0 17 11 28 1 0
+                                              13 9 27 1 1 11 11 99 1 1 11 11 98
+                                              1 0 11 11 67 1 0 11 11 80 2 0 13
+                                              11 11 51 1 0 17 11 39 1 0 13 9
+                                              35)))))
            '|lookupComplete|)) 

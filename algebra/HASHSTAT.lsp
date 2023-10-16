@@ -54,12 +54,18 @@
            '#(NIL NIL NIL NIL NIL NIL |HASHSTAT;new;$;1| (|SingleInteger|)
               |HASHSTAT;value;$Si;2| |HASHSTAT;update!;$Si$;3|)
            '#(|value| 0 |update!| 5 |new| 11) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 9
-                                                 '(1 0 7 0 8 2 0 0 0 7 9 0 0 0
-                                                   6)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|new| ($$)) T)
+                                   '((|update!| ($$ $$ (|SingleInteger|))) T)
+                                   '((|value| ((|SingleInteger|) $$)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 9
+                                            '(1 0 7 0 8 2 0 0 0 7 9 0 0 0
+                                              6)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|HashState| 'NILADIC T) 

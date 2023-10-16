@@ -252,22 +252,36 @@
            '#(|sylvesterSequence| 131 |sturmVariationsOf| 137 |sturmSequence|
               142 |lazyVariations| 147 |boundOfCauchy| 154)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 39
-                                                 '(1 7 0 0 8 0 6 0 12 0 7 0 13
-                                                   2 7 14 0 0 15 2 7 0 0 0 16 1
-                                                   7 0 0 17 1 7 18 0 19 2 18 14
-                                                   0 0 20 1 7 0 0 21 2 7 0 0 0
-                                                   22 1 7 6 0 23 1 6 0 0 24 1 7
-                                                   25 0 26 2 6 0 0 0 27 0 6 0
-                                                   28 0 7 0 29 1 6 0 0 30 2 6 0
-                                                   0 0 31 2 6 0 0 0 32 1 0 6 7
-                                                   33 1 6 14 0 34 1 6 35 0 36 3
-                                                   0 18 25 35 35 37 1 0 18 25
-                                                   38 2 25 6 0 35 39 2 0 9 7 7
-                                                   10 1 1 18 25 38 1 0 9 7 11 3
-                                                   1 18 25 35 35 37 1 1 6 7
-                                                   33)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|sylvesterSequence| ((|List| |#2|) |#2| |#2|))
+                                T)
+                              '((|sturmSequence| ((|List| |#2|) |#2|)) T)
+                              '((|boundOfCauchy| (|#1| |#2|))
+                                (|has| 6 (|OrderedRing|)))
+                              '((|sturmVariationsOf|
+                                 ((|NonNegativeInteger|) (|List| |#1|)))
+                                (|has| 6 (|OrderedRing|)))
+                              '((|lazyVariations|
+                                 ((|NonNegativeInteger|) (|List| |#1|)
+                                  (|Integer|) (|Integer|)))
+                                (|has| 6 (|OrderedRing|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 39
+                                            '(1 7 0 0 8 0 6 0 12 0 7 0 13 2 7
+                                              14 0 0 15 2 7 0 0 0 16 1 7 0 0 17
+                                              1 7 18 0 19 2 18 14 0 0 20 1 7 0
+                                              0 21 2 7 0 0 0 22 1 7 6 0 23 1 6
+                                              0 0 24 1 7 25 0 26 2 6 0 0 0 27 0
+                                              6 0 28 0 7 0 29 1 6 0 0 30 2 6 0
+                                              0 0 31 2 6 0 0 0 32 1 0 6 7 33 1
+                                              6 14 0 34 1 6 35 0 36 3 0 18 25
+                                              35 35 37 1 0 18 25 38 2 25 6 0 35
+                                              39 2 0 9 7 7 10 1 1 18 25 38 1 0
+                                              9 7 11 3 1 18 25 35 35 37 1 1 6 7
+                                              33)))))
            '|lookupComplete|)) 

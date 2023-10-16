@@ -53,11 +53,20 @@
               (|Mapping| 6 6 6) (|StreamFunctions3| 6 6 6) (11 . |map|)
               (18 . |series|) |UFPS1;hadamard;3Ufps;1|)
            '#(|hadamard| 23) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 15
-                                                 '(2 6 0 0 0 7 1 9 8 0 10 3 12
-                                                   8 11 8 8 13 1 9 0 8 14 2 0 9
-                                                   9 9 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|hadamard|
+                                 ((|UnivariateFormalPowerSeries| |#1|)
+                                  (|UnivariateFormalPowerSeries| |#1|)
+                                  (|UnivariateFormalPowerSeries| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 15
+                                            '(2 6 0 0 0 7 1 9 8 0 10 3 12 8 11
+                                              8 8 13 1 9 0 8 14 2 0 9 9 9
+                                              15)))))
            '|lookupComplete|)) 

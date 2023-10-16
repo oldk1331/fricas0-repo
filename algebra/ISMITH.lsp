@@ -386,22 +386,47 @@
               (95 . |vertConcat|) (101 . |setelt!|) (|UniversalSegment| 26)
               (109 . SEGMENT) (115 . |horizConcat|))
            '#(|smith| 121 |completeSmith| 132) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 41
-                                                 '(1 6 0 0 7 1 8 6 6 9 2 6 0 10
-                                                   10 11 1 14 6 6 15 2 10 17 0
-                                                   0 18 1 6 0 0 19 1 23 0 10 24
-                                                   3 8 6 6 23 23 25 2 23 26 0
-                                                   26 27 2 26 17 0 0 28 2 29 0
-                                                   0 0 30 3 6 0 0 29 29 31 2 32
-                                                   0 26 26 33 3 6 0 0 29 32 34
-                                                   3 6 0 0 32 32 35 2 6 0 0 0
-                                                   36 2 6 0 0 0 37 4 6 26 0 26
-                                                   26 26 38 2 39 0 26 26 40 2 6
-                                                   0 0 0 41 1 0 6 6 16 2 0 6 6
-                                                   12 13 2 0 20 6 21 22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|smith|
+                                 ((|Matrix| (|Integer|))
+                                  (|Matrix| (|Integer|))))
+                                T)
+                              '((|smith|
+                                 ((|Matrix| (|Integer|)) (|Matrix| (|Integer|))
+                                  (|Mapping| (|Matrix| (|Integer|))
+                                             (|Matrix| (|Integer|)))))
+                                T)
+                              '((|completeSmith|
+                                 ((|Record|
+                                   (|:| |Smith| (|Matrix| (|Integer|)))
+                                   (|:| |leftEqMat| (|Matrix| (|Integer|)))
+                                   (|:| |rightEqMat| (|Matrix| (|Integer|))))
+                                  (|Matrix| (|Integer|))
+                                  (|Mapping|
+                                   (|Record|
+                                    (|:| |Smith| (|Matrix| (|Integer|)))
+                                    (|:| |leftEqMat| (|Matrix| (|Integer|)))
+                                    (|:| |rightEqMat| (|Matrix| (|Integer|))))
+                                   (|Matrix| (|Integer|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 41
+                                            '(1 6 0 0 7 1 8 6 6 9 2 6 0 10 10
+                                              11 1 14 6 6 15 2 10 17 0 0 18 1 6
+                                              0 0 19 1 23 0 10 24 3 8 6 6 23 23
+                                              25 2 23 26 0 26 27 2 26 17 0 0 28
+                                              2 29 0 0 0 30 3 6 0 0 29 29 31 2
+                                              32 0 26 26 33 3 6 0 0 29 32 34 3
+                                              6 0 0 32 32 35 2 6 0 0 0 36 2 6 0
+                                              0 0 37 4 6 26 0 26 26 26 38 2 39
+                                              0 26 26 40 2 6 0 0 0 41 1 0 6 6
+                                              16 2 0 6 6 12 13 2 0 20 6 21
+                                              22)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|IntegerSmithNormalForm| 'NILADIC T) 

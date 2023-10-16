@@ -536,39 +536,118 @@
               |leftDiscriminant| 324 |coordinates| 328
               |conditionsForIdempotents| 333 |apply| 337)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 99
-                                                 '(1 8 0 0 9 0 6 10 11 1 8 12 0
-                                                   13 0 7 0 14 0 15 0 16 2 8 0
-                                                   0 0 17 2 8 0 0 0 18 1 8 19 0
-                                                   20 0 15 0 21 2 24 22 0 23 25
-                                                   2 15 0 22 12 26 2 15 0 0 0
-                                                   27 0 6 28 29 1 6 30 28 31 1
-                                                   33 0 32 34 0 22 0 35 0 6 0
-                                                   36 0 7 0 37 0 22 0 38 2 39
-                                                   33 0 23 40 3 22 0 0 41 42 43
-                                                   2 30 44 0 23 45 3 44 7 0 23
-                                                   23 46 2 22 0 0 7 47 2 22 0 0
-                                                   0 48 0 0 15 49 0 0 15 50 2
-                                                   10 0 0 10 51 3 52 7 0 23 7
-                                                   53 4 44 7 0 23 23 7 54 2 57
-                                                   56 44 52 58 1 60 59 32 61 1
-                                                   6 0 52 62 0 0 63 64 2 68 65
-                                                   66 67 69 0 0 71 72 0 0 63 73
-                                                   0 0 71 74 0 0 63 75 1 6 52 0
-                                                   76 2 44 52 0 52 77 1 6 0 52
-                                                   78 1 6 81 28 82 1 6 44 28 84
-                                                   1 6 44 28 86 1 6 7 28 88 1 6
-                                                   7 28 90 2 6 44 0 28 92 2 6
-                                                   44 0 28 94 2 6 52 0 28 96 2
-                                                   6 0 52 28 98 0 0 63 75 0 0
-                                                   30 80 0 0 71 74 0 0 63 73 0
-                                                   0 44 87 1 0 44 0 95 0 0 15
-                                                   50 0 0 7 91 1 0 0 52 99 0 0
-                                                   71 72 0 0 63 64 0 0 44 85 1
-                                                   0 44 0 93 0 0 15 49 0 0 7 89
-                                                   1 0 52 0 97 0 0 81 83 2 0 0
-                                                   44 0 79)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|apply| (|#1| (|Matrix| |#2|) |#1|)) T)
+                                   '((|rightRankPolynomial|
+                                      ((|SparseUnivariatePolynomial|
+                                        (|Polynomial| |#2|))))
+                                     T)
+                                   '((|leftRankPolynomial|
+                                      ((|SparseUnivariatePolynomial|
+                                        (|Polynomial| |#2|))))
+                                     T)
+                                   '((|rightRegularRepresentation|
+                                      ((|Matrix| |#2|) |#1|))
+                                     T)
+                                   '((|leftRegularRepresentation|
+                                      ((|Matrix| |#2|) |#1|))
+                                     T)
+                                   '((|rightTraceMatrix| ((|Matrix| |#2|))) T)
+                                   '((|leftTraceMatrix| ((|Matrix| |#2|))) T)
+                                   '((|rightDiscriminant| (|#2|)) T)
+                                   '((|leftDiscriminant| (|#2|)) T)
+                                   '((|conditionsForIdempotents|
+                                      ((|List| (|Polynomial| |#2|))))
+                                     T)
+                                   '((|structuralConstants|
+                                      ((|Vector| (|Matrix| |#2|))))
+                                     T)
+                                   '((|coordinates| ((|Vector| |#2|) |#1|)) T)
+                                   '((|coordinates|
+                                      ((|Matrix| |#2|) (|Vector| |#1|)))
+                                     T)
+                                   '((|represents| (|#1| (|Vector| |#2|))) T)
+                                   '((|unit| ((|Union| |#1| #1#))) T)
+                                   '((|rightUnit| ((|Union| |#1| #1#))) T)
+                                   '((|leftUnit| ((|Union| |#1| #1#))) T)
+                                   '((|rightUnits|
+                                      ((|Union|
+                                        (|Record| (|:| |particular| |#1|)
+                                                  (|:| |basis| (|List| |#1|)))
+                                        #1#)))
+                                     T)
+                                   '((|leftUnits|
+                                      ((|Union|
+                                        (|Record| (|:| |particular| |#1|)
+                                                  (|:| |basis| (|List| |#1|)))
+                                        #1#)))
+                                     T)
+                                   '((|rightTraceMatrix|
+                                      ((|Matrix| |#2|) (|Vector| |#1|)))
+                                     T)
+                                   '((|leftTraceMatrix|
+                                      ((|Matrix| |#2|) (|Vector| |#1|)))
+                                     T)
+                                   '((|rightDiscriminant|
+                                      (|#2| (|Vector| |#1|)))
+                                     T)
+                                   '((|leftDiscriminant|
+                                      (|#2| (|Vector| |#1|)))
+                                     T)
+                                   '((|represents|
+                                      (|#1| (|Vector| |#2|) (|Vector| |#1|)))
+                                     T)
+                                   '((|coordinates|
+                                      ((|Matrix| |#2|) (|Vector| |#1|)
+                                       (|Vector| |#1|)))
+                                     T)
+                                   '((|coordinates|
+                                      ((|Vector| |#2|) |#1| (|Vector| |#1|)))
+                                     T)
+                                   '((|rightRegularRepresentation|
+                                      ((|Matrix| |#2|) |#1| (|Vector| |#1|)))
+                                     T)
+                                   '((|leftRegularRepresentation|
+                                      ((|Matrix| |#2|) |#1| (|Vector| |#1|)))
+                                     T)
+                                   '((|structuralConstants|
+                                      ((|Vector| (|Matrix| |#2|))
+                                       (|Vector| |#1|)))
+                                     T)
+                                   '((|conditionsForIdempotents|
+                                      ((|List| (|Polynomial| |#2|))
+                                       (|Vector| |#1|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 99
+                                            '(1 8 0 0 9 0 6 10 11 1 8 12 0 13 0
+                                              7 0 14 0 15 0 16 2 8 0 0 0 17 2 8
+                                              0 0 0 18 1 8 19 0 20 0 15 0 21 2
+                                              24 22 0 23 25 2 15 0 22 12 26 2
+                                              15 0 0 0 27 0 6 28 29 1 6 30 28
+                                              31 1 33 0 32 34 0 22 0 35 0 6 0
+                                              36 0 7 0 37 0 22 0 38 2 39 33 0
+                                              23 40 3 22 0 0 41 42 43 2 30 44 0
+                                              23 45 3 44 7 0 23 23 46 2 22 0 0
+                                              7 47 2 22 0 0 0 48 0 0 15 49 0 0
+                                              15 50 2 10 0 0 10 51 3 52 7 0 23
+                                              7 53 4 44 7 0 23 23 7 54 2 57 56
+                                              44 52 58 1 60 59 32 61 1 6 0 52
+                                              62 0 0 63 64 2 68 65 66 67 69 0 0
+                                              71 72 0 0 63 73 0 0 71 74 0 0 63
+                                              75 1 6 52 0 76 2 44 52 0 52 77 1
+                                              6 0 52 78 1 6 81 28 82 1 6 44 28
+                                              84 1 6 44 28 86 1 6 7 28 88 1 6 7
+                                              28 90 2 6 44 0 28 92 2 6 44 0 28
+                                              94 2 6 52 0 28 96 2 6 0 52 28 98
+                                              0 0 63 75 0 0 30 80 0 0 71 74 0 0
+                                              63 73 0 0 44 87 1 0 44 0 95 0 0
+                                              15 50 0 0 7 91 1 0 0 52 99 0 0 71
+                                              72 0 0 63 64 0 0 44 85 1 0 44 0
+                                              93 0 0 15 49 0 0 7 89 1 0 52 0 97
+                                              0 0 81 83 2 0 0 44 0 79)))))
            '|lookupComplete|)) 

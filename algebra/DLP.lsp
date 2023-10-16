@@ -136,13 +136,21 @@
               (|Integer|) (36 . ^) (|Union| 25 '"failed") (42 . |search|)
               (|NonNegativeInteger|) |DLP;shanksDiscLogAlgorithm;2MNniU;1|)
            '#(|shanksDiscLogAlgorithm| 48) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 26
-                                                 '(0 6 0 7 2 6 8 0 0 9 2 6 0 0
-                                                   0 10 1 13 11 12 14 0 15 0 16
-                                                   1 6 17 0 18 2 15 0 19 0 20 2
-                                                   6 0 0 21 22 2 15 23 17 0 24
-                                                   3 0 23 6 6 25 26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|shanksDiscLogAlgorithm|
+                                 ((|Union| (|NonNegativeInteger|) "failed")
+                                  |#1| |#1| (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 26
+                                            '(0 6 0 7 2 6 8 0 0 9 2 6 0 0 0 10
+                                              1 13 11 12 14 0 15 0 16 1 6 17 0
+                                              18 2 15 0 19 0 20 2 6 0 0 21 22 2
+                                              15 23 17 0 24 3 0 23 6 6 25
+                                              26)))))
            '|lookupComplete|)) 

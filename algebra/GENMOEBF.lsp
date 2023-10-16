@@ -169,15 +169,26 @@
            '#(|moebiusMatrix| 53 |members| 58 |generalizedMoebiusFunction| 63
               |canonicalMoebiusFunction| 69 |apply| 74)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 33
-                                                 '(2 6 11 0 0 12 2 14 9 13 9 15
-                                                   1 9 0 0 16 0 7 0 17 1 19 0
-                                                   18 20 1 19 21 0 22 0 7 0 25
-                                                   2 9 26 6 0 27 3 19 7 0 26 26
-                                                   28 1 32 0 31 33 1 0 19 0 30
-                                                   1 0 9 0 10 2 0 0 9 23 24 1 0
-                                                   0 9 1 3 0 7 0 6 6 29)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|generalizedMoebiusFunction|
+                                 ($$ (|List| |#1|) (|Mapping| |#2| |#1| |#1|)))
+                                T)
+                              '((|canonicalMoebiusFunction| ($$ (|List| |#1|)))
+                                T)
+                              '((|apply| (|#2| $$ |#1| |#1|)) T)
+                              '((|members| ((|List| |#1|) $$)) T)
+                              '((|moebiusMatrix| ((|Matrix| |#2|) $$)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 33
+                                            '(2 6 11 0 0 12 2 14 9 13 9 15 1 9
+                                              0 0 16 0 7 0 17 1 19 0 18 20 1 19
+                                              21 0 22 0 7 0 25 2 9 26 6 0 27 3
+                                              19 7 0 26 26 28 1 32 0 31 33 1 0
+                                              19 0 30 1 0 9 0 10 2 0 0 9 23 24
+                                              1 0 0 9 1 3 0 7 0 6 6 29)))))
            '|lookupComplete|)) 

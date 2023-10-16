@@ -54,14 +54,31 @@
            '#(|size?| 38 |sample| 44 |more?| 48 |less?| 54 |eq?| 60 |empty?|
               66)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(0 6 0 9 1 6 11 0 12 1 0 7 0
-                                                   13 2 0 7 0 11 14 2 11 7 0 0
-                                                   15 2 0 7 0 11 16 2 0 7 0 11
-                                                   17 2 0 7 0 11 17 0 0 0 10 2
-                                                   0 7 0 11 16 2 0 7 0 11 14 2
-                                                   0 7 0 0 8 1 0 7 0 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|sample| (|#1|)) T)
+                                   '((|size?|
+                                      ((|Boolean|) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|more?|
+                                      ((|Boolean|) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|less?|
+                                      ((|Boolean|) |#1|
+                                       (|NonNegativeInteger|)))
+                                     T)
+                                   '((|empty?| ((|Boolean|) |#1|)) T)
+                                   '((|eq?| ((|Boolean|) |#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(0 6 0 9 1 6 11 0 12 1 0 7 0 13 2
+                                              0 7 0 11 14 2 11 7 0 0 15 2 0 7 0
+                                              11 16 2 0 7 0 11 17 2 0 7 0 11 17
+                                              0 0 0 10 2 0 7 0 11 16 2 0 7 0 11
+                                              14 2 0 7 0 0 8 1 0 7 0 13)))))
            '|lookupComplete|)) 

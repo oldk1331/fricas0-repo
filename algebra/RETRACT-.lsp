@@ -29,8 +29,11 @@
               (|Union| 7 '"failed") (0 . |retractIfCan|)
               |RETRACT-;retract;AS;1|)
            '#(|retract| 5) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10 '(1 6 8 0 9 1 0 7 0 10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory| (LIST '((|retract| (|#2| |#1|)) T))
+                                          (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10 '(1 6 8 0 9 1 0 7 0 10)))))
            '|lookupComplete|)) 

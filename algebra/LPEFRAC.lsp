@@ -144,19 +144,29 @@
               (|UnivariatePolynomialCategoryFunctions2| 6 8 14 10) (55 . |map|)
               (|Union| 28 '"failed") (|List| 29)
               (|SparseUnivariatePolynomial| $)
-              (61 . |solveLinearPolynomialEquation|) (|Union| 32 '"failed")
+              (61 . |solveLinearPolynomialEquation|) (|Union| 32 '#1="failed")
               (|List| 8)
               |LPEFRAC;solveLinearPolynomialEquationByFractions;LSupU;2|)
            '#(|solveLinearPolynomialEquationByFractions| 67) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 33
-                                                 '(0 6 0 7 0 8 0 9 0 10 0 11 2
-                                                   10 12 0 0 13 1 10 14 0 15 1
-                                                   14 16 0 17 1 10 0 0 18 1 10
-                                                   19 0 20 2 8 0 6 19 21 2 8 0
-                                                   0 0 22 1 14 0 6 23 2 25 10
-                                                   24 8 26 2 14 27 28 29 30 2 0
-                                                   31 32 8 33)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solveLinearPolynomialEquationByFractions|
+                                 ((|Union|
+                                   (|List| (|SparseUnivariatePolynomial| |#1|))
+                                   #1#)
+                                  (|List| (|SparseUnivariatePolynomial| |#1|))
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 33
+                                            '(0 6 0 7 0 8 0 9 0 10 0 11 2 10 12
+                                              0 0 13 1 10 14 0 15 1 14 16 0 17
+                                              1 10 0 0 18 1 10 19 0 20 2 8 0 6
+                                              19 21 2 8 0 0 0 22 1 14 0 6 23 2
+                                              25 10 24 8 26 2 14 27 28 29 30 2
+                                              0 31 32 8 33)))))
            '|lookupComplete|)) 

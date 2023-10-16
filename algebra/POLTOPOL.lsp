@@ -137,23 +137,57 @@
            '#(|pToHdmp| 132 |pToDmp| 137 |hdmpToP| 142 |hdmpToDmp| 147 |dmpToP|
               152 |dmpToHdmp| 157)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 54
-                                                 '(1 10 8 9 11 2 15 12 13 14 16
-                                                   1 10 9 0 18 2 20 14 19 12 21
-                                                   2 24 14 19 23 25 2 27 23 13
-                                                   14 28 0 7 0 30 0 23 0 31 2
-                                                   23 32 0 0 33 0 12 0 34 1 23
-                                                   7 0 35 1 23 36 0 37 1 36 38
-                                                   0 39 1 40 0 38 41 2 12 0 7
-                                                   40 42 1 23 0 0 43 2 12 0 0 0
-                                                   45 2 12 32 0 0 46 1 12 40 0
-                                                   47 1 40 38 0 48 1 36 0 38 49
-                                                   1 12 7 0 50 2 23 0 7 36 51 1
-                                                   12 0 0 52 2 23 0 0 0 54 1 0
-                                                   12 14 17 1 0 23 14 29 1 0 14
-                                                   12 22 1 0 23 12 53 1 0 14 23
-                                                   26 1 0 12 23 44)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|dmpToHdmp|
+                                 ((|HomogeneousDistributedMultivariatePolynomial|
+                                   |#1| |#2|)
+                                  (|DistributedMultivariatePolynomial| |#1|
+                                                                       |#2|)))
+                                T)
+                              '((|hdmpToDmp|
+                                 ((|DistributedMultivariatePolynomial| |#1|
+                                                                       |#2|)
+                                  (|HomogeneousDistributedMultivariatePolynomial|
+                                   |#1| |#2|)))
+                                T)
+                              '((|pToHdmp|
+                                 ((|HomogeneousDistributedMultivariatePolynomial|
+                                   |#1| |#2|)
+                                  (|Polynomial| |#2|)))
+                                T)
+                              '((|hdmpToP|
+                                 ((|Polynomial| |#2|)
+                                  (|HomogeneousDistributedMultivariatePolynomial|
+                                   |#1| |#2|)))
+                                T)
+                              '((|dmpToP|
+                                 ((|Polynomial| |#2|)
+                                  (|DistributedMultivariatePolynomial| |#1|
+                                                                       |#2|)))
+                                T)
+                              '((|pToDmp|
+                                 ((|DistributedMultivariatePolynomial| |#1|
+                                                                       |#2|)
+                                  (|Polynomial| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 54
+                                            '(1 10 8 9 11 2 15 12 13 14 16 1 10
+                                              9 0 18 2 20 14 19 12 21 2 24 14
+                                              19 23 25 2 27 23 13 14 28 0 7 0
+                                              30 0 23 0 31 2 23 32 0 0 33 0 12
+                                              0 34 1 23 7 0 35 1 23 36 0 37 1
+                                              36 38 0 39 1 40 0 38 41 2 12 0 7
+                                              40 42 1 23 0 0 43 2 12 0 0 0 45 2
+                                              12 32 0 0 46 1 12 40 0 47 1 40 38
+                                              0 48 1 36 0 38 49 1 12 7 0 50 2
+                                              23 0 7 36 51 1 12 0 0 52 2 23 0 0
+                                              0 54 1 0 12 14 17 1 0 23 14 29 1
+                                              0 14 12 22 1 0 23 12 53 1 0 14 23
+                                              26 1 0 12 23 44)))))
            '|lookupComplete|)) 

@@ -790,45 +790,112 @@
               (|PositiveInteger|) (300 . >) (306 . |expand|) (312 . |append|)
               (318 . |construct|))
            '#(|radicalSolve| 324 |radicalRoots| 368 |contractSolve| 380) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 118
-                                                 '(0 6 0 9 0 10 0 11 0 12 0 13
-                                                   2 12 14 0 0 15 0 16 0 17 1
-                                                   18 0 16 19 1 20 0 18 21 1 12
-                                                   0 20 22 2 10 0 12 12 23 2 24
-                                                   0 0 0 25 2 27 18 0 26 28 1
-                                                   18 0 0 29 1 12 0 18 30 0 6 0
-                                                   31 0 10 0 32 2 12 0 0 0 33 2
-                                                   36 34 35 27 37 1 39 38 34 40
-                                                   1 39 38 34 41 1 39 38 34 42
-                                                   1 12 0 43 44 2 18 46 0 16 47
-                                                   1 12 0 0 48 1 27 18 0 49 1
-                                                   50 0 16 51 3 12 0 0 52 0 53
-                                                   2 54 0 0 0 55 2 38 14 0 0 56
-                                                   3 12 0 0 57 58 59 1 12 0 16
-                                                   60 2 10 0 12 12 61 1 20 14 0
-                                                   63 1 20 18 0 64 1 18 65 0 66
-                                                   1 20 18 0 67 2 65 0 0 0 68 1
-                                                   65 0 0 69 2 26 14 0 0 70 1
-                                                   72 20 0 73 1 72 20 0 74 2 20
-                                                   0 0 0 75 2 80 78 79 65 81 2
-                                                   78 14 0 0 82 2 78 43 83 0 84
-                                                   2 78 0 0 43 85 2 78 14 0 0
-                                                   86 2 65 0 0 0 90 1 95 38 0
-                                                   98 2 18 26 0 16 99 2 54 14 0
-                                                   0 100 1 54 0 38 101 1 103
-                                                   102 18 104 1 102 107 0 108 2
-                                                   65 14 16 0 109 1 111 110 27
-                                                   112 1 27 26 0 113 2 114 14 0
-                                                   0 115 2 111 38 12 114 116 2
-                                                   38 0 0 0 117 2 95 0 38 24
-                                                   118 2 0 24 20 16 62 2 0 24
-                                                   72 16 77 1 0 24 20 71 1 0 24
-                                                   72 76 1 0 88 79 91 2 0 88 79
-                                                   65 89 2 0 88 92 65 93 1 0 88
-                                                   92 94 2 0 38 20 16 45 2 0 54
-                                                   79 65 87 2 0 95 20 16 97 2 0
-                                                   95 72 16 96)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|radicalSolve|
+                                 ((|List| (|Equation| (|Expression| |#1|)))
+                                  (|Fraction| (|Polynomial| |#1|)) (|Symbol|)))
+                                T)
+                              '((|radicalSolve|
+                                 ((|List| (|Equation| (|Expression| |#1|)))
+                                  (|Fraction| (|Polynomial| |#1|))))
+                                T)
+                              '((|radicalSolve|
+                                 ((|List| (|Equation| (|Expression| |#1|)))
+                                  (|Equation| (|Fraction| (|Polynomial| |#1|)))
+                                  (|Symbol|)))
+                                T)
+                              '((|radicalSolve|
+                                 ((|List| (|Equation| (|Expression| |#1|)))
+                                  (|Equation|
+                                   (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|radicalSolve|
+                                 ((|List|
+                                   (|List| (|Equation| (|Expression| |#1|))))
+                                  (|List| (|Fraction| (|Polynomial| |#1|)))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|radicalSolve|
+                                 ((|List|
+                                   (|List| (|Equation| (|Expression| |#1|))))
+                                  (|List| (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|radicalSolve|
+                                 ((|List|
+                                   (|List| (|Equation| (|Expression| |#1|))))
+                                  (|List|
+                                   (|Equation|
+                                    (|Fraction| (|Polynomial| |#1|))))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|radicalSolve|
+                                 ((|List|
+                                   (|List| (|Equation| (|Expression| |#1|))))
+                                  (|List|
+                                   (|Equation|
+                                    (|Fraction| (|Polynomial| |#1|))))))
+                                T)
+                              '((|radicalRoots|
+                                 ((|List| (|Expression| |#1|))
+                                  (|Fraction| (|Polynomial| |#1|)) (|Symbol|)))
+                                T)
+                              '((|radicalRoots|
+                                 ((|List| (|List| (|Expression| |#1|)))
+                                  (|List| (|Fraction| (|Polynomial| |#1|)))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|contractSolve|
+                                 ((|SuchThat| (|List| (|Expression| |#1|))
+                                              (|List|
+                                               (|Equation|
+                                                (|Expression| |#1|))))
+                                  (|Equation| (|Fraction| (|Polynomial| |#1|)))
+                                  (|Symbol|)))
+                                T)
+                              '((|contractSolve|
+                                 ((|SuchThat| (|List| (|Expression| |#1|))
+                                              (|List|
+                                               (|Equation|
+                                                (|Expression| |#1|))))
+                                  (|Fraction| (|Polynomial| |#1|)) (|Symbol|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 118
+                                            '(0 6 0 9 0 10 0 11 0 12 0 13 2 12
+                                              14 0 0 15 0 16 0 17 1 18 0 16 19
+                                              1 20 0 18 21 1 12 0 20 22 2 10 0
+                                              12 12 23 2 24 0 0 0 25 2 27 18 0
+                                              26 28 1 18 0 0 29 1 12 0 18 30 0
+                                              6 0 31 0 10 0 32 2 12 0 0 0 33 2
+                                              36 34 35 27 37 1 39 38 34 40 1 39
+                                              38 34 41 1 39 38 34 42 1 12 0 43
+                                              44 2 18 46 0 16 47 1 12 0 0 48 1
+                                              27 18 0 49 1 50 0 16 51 3 12 0 0
+                                              52 0 53 2 54 0 0 0 55 2 38 14 0 0
+                                              56 3 12 0 0 57 58 59 1 12 0 16 60
+                                              2 10 0 12 12 61 1 20 14 0 63 1 20
+                                              18 0 64 1 18 65 0 66 1 20 18 0 67
+                                              2 65 0 0 0 68 1 65 0 0 69 2 26 14
+                                              0 0 70 1 72 20 0 73 1 72 20 0 74
+                                              2 20 0 0 0 75 2 80 78 79 65 81 2
+                                              78 14 0 0 82 2 78 43 83 0 84 2 78
+                                              0 0 43 85 2 78 14 0 0 86 2 65 0 0
+                                              0 90 1 95 38 0 98 2 18 26 0 16 99
+                                              2 54 14 0 0 100 1 54 0 38 101 1
+                                              103 102 18 104 1 102 107 0 108 2
+                                              65 14 16 0 109 1 111 110 27 112 1
+                                              27 26 0 113 2 114 14 0 0 115 2
+                                              111 38 12 114 116 2 38 0 0 0 117
+                                              2 95 0 38 24 118 2 0 24 20 16 62
+                                              2 0 24 72 16 77 1 0 24 20 71 1 0
+                                              24 72 76 1 0 88 79 91 2 0 88 79
+                                              65 89 2 0 88 92 65 93 1 0 88 92
+                                              94 2 0 38 20 16 45 2 0 54 79 65
+                                              87 2 0 95 20 16 97 2 0 95 72 16
+                                              96)))))
            '|lookupComplete|)) 

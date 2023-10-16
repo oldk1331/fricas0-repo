@@ -1030,40 +1030,204 @@
               |critpOrder| 320 |critT| 326 |critMonD1| 331 |critMTonD1| 337
               |critM| 342 |critBonD| 348 |critB| 354 |credPol| 362)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 90
-                                                 '(1 8 9 0 10 1 0 9 8 11 2 7 12
-                                                   0 0 13 1 8 7 0 16 2 7 0 0 0
-                                                   17 2 7 18 0 0 19 0 6 0 20 0
-                                                   8 0 21 2 8 0 6 7 22 2 7 12 0
-                                                   0 30 2 25 0 31 0 32 2 36 0
-                                                   35 0 37 0 6 0 45 0 7 0 46 0
-                                                   8 0 47 2 8 12 0 0 48 2 7 12
-                                                   0 0 50 2 25 0 0 8 51 1 54 43
-                                                   53 55 2 26 12 0 0 56 2 33 0
-                                                   0 23 61 2 6 0 0 0 62 2 6 18
-                                                   0 0 63 1 8 6 0 64 1 8 0 0 65
-                                                   2 8 0 0 0 66 2 8 0 0 0 67 2
-                                                   8 0 6 0 68 2 6 0 0 0 69 2 7
-                                                   0 0 0 73 2 7 12 0 0 74 1 8 0
-                                                   0 75 2 8 12 0 0 76 2 8 0 0 0
-                                                   77 1 8 54 0 81 1 54 43 0 82
-                                                   1 84 54 0 85 1 26 54 0 86 1
-                                                   88 54 0 89 1 0 9 8 11 3 0 33
-                                                   8 9 33 34 2 0 36 36 36 40 1
-                                                   0 8 14 41 2 0 8 8 25 42 2 0
-                                                   70 8 25 71 1 0 43 8 44 1 0
-                                                   43 25 52 6 0 26 14 8 8 26 26
-                                                   26 49 1 0 43 26 80 1 0 25 25
-                                                   78 3 0 14 23 8 9 24 1 0 26 8
-                                                   79 1 0 8 8 29 4 0 25 25 25
-                                                   26 26 27 3 0 25 25 26 26 28
-                                                   7 0 26 14 8 8 26 26 26 26 90
-                                                   2 0 12 14 14 15 1 0 12 14 59
-                                                   2 0 36 7 36 58 1 0 36 36 38
-                                                   2 0 12 7 7 57 2 0 36 8 36 39
-                                                   4 0 12 7 7 7 7 60 2 0 8 8 25
-                                                   72)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|credPol| (|#3| |#3| (|List| |#3|))) T)
+                                   '((|redPol| (|#3| |#3| (|List| |#3|))) T)
+                                   '((|gbasis|
+                                      ((|List| |#3|) (|List| |#3|) (|Integer|)
+                                       (|Integer|)))
+                                     T)
+                                   '((|gbasisExtend|
+                                      ((|List| |#3|) (|List| |#3|)
+                                       (|List| |#3|) (|Integer|) (|Integer|)))
+                                     T)
+                                   '((|critT|
+                                      ((|Boolean|)
+                                       (|Record| (|:| |lcmfij| |#2|)
+                                                 (|:| |totdeg|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |poli| |#3|)
+                                                 (|:| |polj| |#3|))))
+                                     T)
+                                   '((|critM| ((|Boolean|) |#2| |#2|)) T)
+                                   '((|critB|
+                                      ((|Boolean|) |#2| |#2| |#2| |#2|))
+                                     T)
+                                   '((|critBonD|
+                                      ((|List|
+                                        (|Record| (|:| |lcmfij| |#2|)
+                                                  (|:| |totdeg|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |poli| |#3|)
+                                                  (|:| |polj| |#3|)))
+                                       |#3|
+                                       (|List|
+                                        (|Record| (|:| |lcmfij| |#2|)
+                                                  (|:| |totdeg|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |poli| |#3|)
+                                                  (|:| |polj| |#3|)))))
+                                     T)
+                                   '((|critMTonD1|
+                                      ((|List|
+                                        (|Record| (|:| |lcmfij| |#2|)
+                                                  (|:| |totdeg|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |poli| |#3|)
+                                                  (|:| |polj| |#3|)))
+                                       (|List|
+                                        (|Record| (|:| |lcmfij| |#2|)
+                                                  (|:| |totdeg|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |poli| |#3|)
+                                                  (|:| |polj| |#3|)))))
+                                     T)
+                                   '((|critMonD1|
+                                      ((|List|
+                                        (|Record| (|:| |lcmfij| |#2|)
+                                                  (|:| |totdeg|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |poli| |#3|)
+                                                  (|:| |polj| |#3|)))
+                                       |#2|
+                                       (|List|
+                                        (|Record| (|:| |lcmfij| |#2|)
+                                                  (|:| |totdeg|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |poli| |#3|)
+                                                  (|:| |polj| |#3|)))))
+                                     T)
+                                   '((|redPo|
+                                      ((|Record| (|:| |poly| |#3|)
+                                                 (|:| |mult| |#1|))
+                                       |#3| (|List| |#3|)))
+                                     T)
+                                   '((|hMonic| (|#3| |#3|)) T)
+                                   '((|updatF|
+                                      ((|List|
+                                        (|Record|
+                                         (|:| |totdeg| (|NonNegativeInteger|))
+                                         (|:| |pol| |#3|)))
+                                       |#3| (|NonNegativeInteger|)
+                                       (|List|
+                                        (|Record|
+                                         (|:| |totdeg| (|NonNegativeInteger|))
+                                         (|:| |pol| |#3|)))))
+                                     T)
+                                   '((|sPol|
+                                      (|#3|
+                                       (|Record| (|:| |lcmfij| |#2|)
+                                                 (|:| |totdeg|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |poli| |#3|)
+                                                 (|:| |polj| |#3|))))
+                                     T)
+                                   '((|updatD|
+                                      ((|List|
+                                        (|Record| (|:| |lcmfij| |#2|)
+                                                  (|:| |totdeg|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |poli| |#3|)
+                                                  (|:| |polj| |#3|)))
+                                       (|List|
+                                        (|Record| (|:| |lcmfij| |#2|)
+                                                  (|:| |totdeg|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |poli| |#3|)
+                                                  (|:| |polj| |#3|)))
+                                       (|List|
+                                        (|Record| (|:| |lcmfij| |#2|)
+                                                  (|:| |totdeg|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |poli| |#3|)
+                                                  (|:| |polj| |#3|)))))
+                                     T)
+                                   '((|minGbasis|
+                                      ((|List| |#3|) (|List| |#3|)))
+                                     T)
+                                   '((|lepol| ((|Integer|) |#3|)) T)
+                                   '((|prinshINFO| ((|Void|) |#3|)) T)
+                                   '((|prindINFO|
+                                      ((|Integer|)
+                                       (|Record| (|:| |lcmfij| |#2|)
+                                                 (|:| |totdeg|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |poli| |#3|)
+                                                 (|:| |polj| |#3|))
+                                       |#3| |#3| (|Integer|) (|Integer|)
+                                       (|Integer|)))
+                                     T)
+                                   '((|fprindINFO|
+                                      ((|Integer|)
+                                       (|Record| (|:| |lcmfij| |#2|)
+                                                 (|:| |totdeg|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |poli| |#3|)
+                                                 (|:| |polj| |#3|))
+                                       |#3| |#3| (|Integer|) (|Integer|)
+                                       (|Integer|) (|Integer|)))
+                                     T)
+                                   '((|prinpolINFO| ((|Void|) (|List| |#3|)))
+                                     T)
+                                   '((|prinb| ((|Void|) (|Integer|))) T)
+                                   '((|critpOrder|
+                                      ((|Boolean|)
+                                       (|Record| (|:| |lcmfij| |#2|)
+                                                 (|:| |totdeg|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |poli| |#3|)
+                                                 (|:| |polj| |#3|))
+                                       (|Record| (|:| |lcmfij| |#2|)
+                                                 (|:| |totdeg|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |poli| |#3|)
+                                                 (|:| |polj| |#3|))))
+                                     T)
+                                   '((|makeCrit|
+                                      ((|Record| (|:| |lcmfij| |#2|)
+                                                 (|:| |totdeg|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |poli| |#3|)
+                                                 (|:| |polj| |#3|))
+                                       (|Record|
+                                        (|:| |totdeg| (|NonNegativeInteger|))
+                                        (|:| |pol| |#3|))
+                                       |#3| (|NonNegativeInteger|)))
+                                     T)
+                                   '((|virtualDegree|
+                                      ((|NonNegativeInteger|) |#3|))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 90
+                                            '(1 8 9 0 10 1 0 9 8 11 2 7 12 0 0
+                                              13 1 8 7 0 16 2 7 0 0 0 17 2 7 18
+                                              0 0 19 0 6 0 20 0 8 0 21 2 8 0 6
+                                              7 22 2 7 12 0 0 30 2 25 0 31 0 32
+                                              2 36 0 35 0 37 0 6 0 45 0 7 0 46
+                                              0 8 0 47 2 8 12 0 0 48 2 7 12 0 0
+                                              50 2 25 0 0 8 51 1 54 43 53 55 2
+                                              26 12 0 0 56 2 33 0 0 23 61 2 6 0
+                                              0 0 62 2 6 18 0 0 63 1 8 6 0 64 1
+                                              8 0 0 65 2 8 0 0 0 66 2 8 0 0 0
+                                              67 2 8 0 6 0 68 2 6 0 0 0 69 2 7
+                                              0 0 0 73 2 7 12 0 0 74 1 8 0 0 75
+                                              2 8 12 0 0 76 2 8 0 0 0 77 1 8 54
+                                              0 81 1 54 43 0 82 1 84 54 0 85 1
+                                              26 54 0 86 1 88 54 0 89 1 0 9 8
+                                              11 3 0 33 8 9 33 34 2 0 36 36 36
+                                              40 1 0 8 14 41 2 0 8 8 25 42 2 0
+                                              70 8 25 71 1 0 43 8 44 1 0 43 25
+                                              52 6 0 26 14 8 8 26 26 26 49 1 0
+                                              43 26 80 1 0 25 25 78 3 0 14 23 8
+                                              9 24 1 0 26 8 79 1 0 8 8 29 4 0
+                                              25 25 25 26 26 27 3 0 25 25 26 26
+                                              28 7 0 26 14 8 8 26 26 26 26 90 2
+                                              0 12 14 14 15 1 0 12 14 59 2 0 36
+                                              7 36 58 1 0 36 36 38 2 0 12 7 7
+                                              57 2 0 36 8 36 39 4 0 12 7 7 7 7
+                                              60 2 0 8 8 25 72)))))
            '|lookupComplete|)) 

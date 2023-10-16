@@ -227,22 +227,48 @@
               (|Record| (|:| |particular| 47) (|:| |basis| (|List| 16)))
               (|LinearSystemMatrixPackage| 14 16 16 43) (130 . |solve|))
            '#(|unvectorise| 136 |decomposeFunc| 143) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 50
-                                                 '(0 7 0 8 0 9 0 10 0 6 0 11 0
-                                                   12 0 13 2 16 14 0 15 17 1 18
-                                                   0 7 19 2 14 20 0 21 22 2 9 0
-                                                   0 15 23 2 9 0 0 0 24 2 9 0 0
-                                                   0 25 1 9 27 0 28 1 9 27 0 29
-                                                   1 27 30 0 31 2 30 32 0 0 33
-                                                   0 27 0 34 2 27 35 0 0 36 2 9
-                                                   0 27 27 37 0 14 0 39 2 27 0
-                                                   0 30 40 2 27 0 0 0 41 2 27
-                                                   16 0 30 42 1 43 0 16 44 2 43
-                                                   0 0 0 45 5 43 0 0 15 15 15
-                                                   15 46 2 49 48 43 16 50 3 0 9
-                                                   16 9 15 26 3 0 9 9 9 9
-                                                   38)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|decomposeFunc|
+                                 ((|Fraction|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| |#1|)))
+                                  (|Fraction|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| |#1|)))
+                                  (|Fraction|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| |#1|)))
+                                  (|Fraction|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| |#1|)))))
+                                T)
+                              '((|unvectorise|
+                                 ((|Fraction|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| |#1|)))
+                                  (|Vector| (|Expression| |#1|))
+                                  (|Fraction|
+                                   (|SparseUnivariatePolynomial|
+                                    (|Expression| |#1|)))
+                                  (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 50
+                                            '(0 7 0 8 0 9 0 10 0 6 0 11 0 12 0
+                                              13 2 16 14 0 15 17 1 18 0 7 19 2
+                                              14 20 0 21 22 2 9 0 0 15 23 2 9 0
+                                              0 0 24 2 9 0 0 0 25 1 9 27 0 28 1
+                                              9 27 0 29 1 27 30 0 31 2 30 32 0
+                                              0 33 0 27 0 34 2 27 35 0 0 36 2 9
+                                              0 27 27 37 0 14 0 39 2 27 0 0 30
+                                              40 2 27 0 0 0 41 2 27 16 0 30 42
+                                              1 43 0 16 44 2 43 0 0 0 45 5 43 0
+                                              0 15 15 15 15 46 2 49 48 43 16 50
+                                              3 0 9 16 9 15 26 3 0 9 9 9 9
+                                              38)))))
            '|lookupComplete|)) 

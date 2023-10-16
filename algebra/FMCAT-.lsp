@@ -82,13 +82,16 @@
               (10 . =) (16 . |leadingCoefficient|) (21 . =) (27 . |reductum|)
               (32 . |smaller?|) (38 . |smaller?|) (44 . |smaller?|))
            '#(|smaller?| 50) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(1 6 9 0 10 1 6 8 0 11 2 8 9
-                                                   0 0 12 1 6 7 0 13 2 7 9 0 0
-                                                   14 1 6 0 0 15 2 7 9 0 0 16 2
-                                                   8 9 0 0 17 2 0 9 0 0 18 2 0
-                                                   9 0 0 18)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|smaller?| ((|Boolean|) |#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 18
+                                            '(1 6 9 0 10 1 6 8 0 11 2 8 9 0 0
+                                              12 1 6 7 0 13 2 7 9 0 0 14 1 6 0
+                                              0 15 2 7 9 0 0 16 2 8 9 0 0 17 2
+                                              0 9 0 0 18 2 0 9 0 0 18)))))
            '|lookupComplete|)) 

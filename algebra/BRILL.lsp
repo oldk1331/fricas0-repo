@@ -243,18 +243,30 @@
            '#(|noLinearFactor?| 83 |brillhartTrials| 88 |brillhartIrreducible?|
               97)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 34
-                                                 '(1 6 7 0 8 0 6 0 9 1 6 0 0 10
-                                                   1 12 0 11 13 2 11 14 0 0 15
-                                                   2 12 0 0 0 16 0 12 0 17 2 12
-                                                   18 0 0 19 1 11 18 0 20 1 27
-                                                   11 6 28 2 6 11 0 7 29 1 11
-                                                   18 0 30 0 6 0 31 2 6 11 0 11
-                                                   32 2 11 0 7 0 33 1 6 11 0 34
-                                                   1 0 18 6 24 0 0 7 22 1 0 7 7
-                                                   23 2 0 18 6 18 25 1 0 18 6
-                                                   26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|brillhartIrreducible?| ((|Boolean|) |#1|)) T)
+                              '((|brillhartIrreducible?|
+                                 ((|Boolean|) |#1| (|Boolean|)))
+                                T)
+                              '((|brillhartTrials| ((|NonNegativeInteger|))) T)
+                              '((|brillhartTrials|
+                                 ((|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|noLinearFactor?| ((|Boolean|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 34
+                                            '(1 6 7 0 8 0 6 0 9 1 6 0 0 10 1 12
+                                              0 11 13 2 11 14 0 0 15 2 12 0 0 0
+                                              16 0 12 0 17 2 12 18 0 0 19 1 11
+                                              18 0 20 1 27 11 6 28 2 6 11 0 7
+                                              29 1 11 18 0 30 0 6 0 31 2 6 11 0
+                                              11 32 2 11 0 7 0 33 1 6 11 0 34 1
+                                              0 18 6 24 0 0 7 22 1 0 7 7 23 2 0
+                                              18 6 18 25 1 0 18 6 26)))))
            '|lookupComplete|)) 

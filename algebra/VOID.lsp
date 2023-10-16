@@ -42,12 +42,16 @@
            '#(NIL NIL NIL NIL NIL NIL '|Rep| |VOID;void;$;1| (|OutputForm|)
               (0 . |coerce|) |VOID;coerce;$Of;2|)
            '#(|void| 5 |coerce| 9) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10
-                                                 '(1 6 8 0 9 0 0 0 7 1 0 8 0
-                                                   10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|void| ($$)) T)
+                                   '((|coerce| ((|OutputForm|) $$)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10
+                                            '(1 6 8 0 9 0 0 0 7 1 0 8 0 10)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Void| 'NILADIC T) 

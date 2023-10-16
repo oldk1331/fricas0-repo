@@ -86,15 +86,60 @@
               (|NonNegativeInteger|) (29 . |rank|) |LSMP1;rank;MVNni;7|)
            '#(|solve| 35 |rank| 59 |particularSolution| 65 |hasSolution?| 71)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 29
-                                                 '(2 11 8 9 10 12 1 9 0 14 15 2
-                                                   11 17 9 18 19 2 11 7 9 10 22
-                                                   2 11 24 9 10 25 2 11 27 9 10
-                                                   28 2 0 8 9 10 13 2 0 17 9 18
-                                                   20 2 0 8 14 10 16 2 0 17 14
-                                                   18 21 2 0 27 9 10 29 2 0 7 9
-                                                   10 23 2 0 24 9 10 26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|solve|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Vector| |#1|) #1="failed"))
+                                   (|:| |basis| (|List| (|Vector| |#1|))))
+                                  (|Matrix| |#1|) (|Vector| |#1|)))
+                                T)
+                              '((|solve|
+                                 ((|Record|
+                                   (|:| |particular|
+                                        (|Union| (|Vector| |#1|) #1#))
+                                   (|:| |basis| (|List| (|Vector| |#1|))))
+                                  (|List| (|List| |#1|)) (|Vector| |#1|)))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |particular|
+                                         (|Union| (|Vector| |#1|) #1#))
+                                    (|:| |basis| (|List| (|Vector| |#1|)))))
+                                  (|Matrix| |#1|) (|List| (|Vector| |#1|))))
+                                T)
+                              '((|solve|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |particular|
+                                         (|Union| (|Vector| |#1|) #1#))
+                                    (|:| |basis| (|List| (|Vector| |#1|)))))
+                                  (|List| (|List| |#1|))
+                                  (|List| (|Vector| |#1|))))
+                                T)
+                              '((|particularSolution|
+                                 ((|Union| (|Vector| |#1|) #1#) (|Matrix| |#1|)
+                                  (|Vector| |#1|)))
+                                T)
+                              '((|hasSolution?|
+                                 ((|Boolean|) (|Matrix| |#1|) (|Vector| |#1|)))
+                                T)
+                              '((|rank|
+                                 ((|NonNegativeInteger|) (|Matrix| |#1|)
+                                  (|Vector| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 29
+                                            '(2 11 8 9 10 12 1 9 0 14 15 2 11
+                                              17 9 18 19 2 11 7 9 10 22 2 11 24
+                                              9 10 25 2 11 27 9 10 28 2 0 8 9
+                                              10 13 2 0 17 9 18 20 2 0 8 14 10
+                                              16 2 0 17 14 18 21 2 0 27 9 10 29
+                                              2 0 7 9 10 23 2 0 24 9 10 26)))))
            '|lookupComplete|)) 

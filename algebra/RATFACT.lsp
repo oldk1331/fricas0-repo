@@ -175,17 +175,22 @@
               (|List| 36) (74 . |makeFR|) |RATFACT;factor;RPF;1|
               |RATFACT;factorSquareFree;RPF;2|)
            '#(|factorSquareFree| 80 |factor| 85) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 40
-                                                 '(0 6 0 7 0 8 0 9 2 6 10 0 0
-                                                   11 1 6 12 0 13 1 15 14 0 16
-                                                   1 14 0 17 18 2 6 0 14 0 19 1
-                                                   15 14 0 20 2 23 21 22 6 24 2
-                                                   27 26 21 10 28 2 15 0 14 14
-                                                   29 1 6 0 15 30 1 15 0 14 31
-                                                   2 33 6 32 21 34 2 8 0 6 37
-                                                   38 1 0 8 6 40 1 0 8 6
-                                                   39)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|factor| ((|Factored| |#1|) |#1|)) T)
+                                   '((|factorSquareFree|
+                                      ((|Factored| |#1|) |#1|))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 40
+                                            '(0 6 0 7 0 8 0 9 2 6 10 0 0 11 1 6
+                                              12 0 13 1 15 14 0 16 1 14 0 17 18
+                                              2 6 0 14 0 19 1 15 14 0 20 2 23
+                                              21 22 6 24 2 27 26 21 10 28 2 15
+                                              0 14 14 29 1 6 0 15 30 1 15 0 14
+                                              31 2 33 6 32 21 34 2 8 0 6 37 38
+                                              1 0 8 6 40 1 0 8 6 39)))))
            '|lookupComplete|)) 

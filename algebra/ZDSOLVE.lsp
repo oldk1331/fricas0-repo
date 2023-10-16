@@ -1432,56 +1432,215 @@
            '#(|univariateSolve| 351 |triangSolve| 382 |squareFree| 400
               |realSolve| 405 |positiveSolve| 436 |convert| 459)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 145
-                                                 '(1 10 9 0 11 1 14 13 9 15 1
-                                                   17 0 14 18 1 21 20 0 22 1 21
-                                                   6 0 23 1 17 0 6 24 0 17 0 25
-                                                   1 21 26 0 27 1 21 28 0 29 1
-                                                   26 9 0 30 1 21 0 0 31 2 17 0
-                                                   0 28 33 2 17 0 0 0 34 2 17 0
-                                                   0 0 35 1 21 0 0 36 1 38 0 37
-                                                   39 1 41 40 0 42 2 17 20 0 0
-                                                   43 2 37 0 44 0 45 1 46 37 37
-                                                   47 2 38 49 17 0 50 1 17 0 0
-                                                   51 1 17 20 0 52 2 53 17 17
-                                                   38 54 2 38 0 17 0 55 2 38 56
-                                                   17 0 57 1 21 0 60 61 2 63 62
-                                                   40 20 64 3 41 65 40 20 20 66
-                                                   1 71 20 0 72 0 73 0 74 1 71
-                                                   20 0 75 1 71 6 0 76 1 77 0 6
-                                                   78 1 79 0 77 80 1 73 0 79 81
-                                                   1 71 6 0 82 1 71 28 0 83 2
-                                                   73 0 79 28 84 2 73 0 0 0 85
-                                                   1 71 0 0 86 2 90 88 89 60 91
-                                                   1 17 60 0 93 1 38 37 0 95 3
-                                                   88 0 0 9 79 97 1 88 98 0 99
-                                                   1 88 73 0 100 1 79 65 101
-                                                   102 2 58 0 0 0 105 1 106 58
-                                                   58 107 1 88 20 0 108 1 79 20
-                                                   0 113 2 118 58 38 20 119 2
-                                                   38 120 0 14 121 1 17 71 0
-                                                   122 2 38 0 0 14 123 1 17 60
-                                                   0 124 1 17 0 60 128 2 38 17
-                                                   17 0 129 1 60 20 0 130 1 21
-                                                   20 0 131 1 17 20 0 132 2 37
-                                                   20 133 0 134 1 38 135 0 136
-                                                   1 138 137 135 139 1 138 137
-                                                   140 141 4 0 126 67 20 20 20
-                                                   142 1 0 126 41 127 3 0 126
-                                                   67 20 20 143 1 0 126 67 145
-                                                   2 0 126 67 20 144 2 0 62 67
-                                                   20 69 3 0 62 67 20 20 68 1 0
-                                                   62 67 70 1 0 58 41 59 1 0
-                                                   103 41 104 3 0 103 67 20 20
-                                                   110 4 0 103 67 20 20 20 109
-                                                   2 0 103 67 20 111 1 0 103 67
-                                                   112 1 0 103 41 114 3 0 103
-                                                   67 20 20 115 1 0 103 67 117
-                                                   2 0 103 67 20 116 1 0 88 60
-                                                   92 1 0 17 21 32 1 0 88 17 94
-                                                   1 0 37 38 96 1 0 73 71
-                                                   87)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|triangSolve|
+                                 ((|List| (|RegularChain| |#1| |#2|))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)
+                                  (|Boolean|)))
+                                T)
+                              '((|triangSolve|
+                                 ((|List| (|RegularChain| |#1| |#2|))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)))
+                                T)
+                              '((|triangSolve|
+                                 ((|List| (|RegularChain| |#1| |#2|))
+                                  (|List| (|Polynomial| |#1|))))
+                                T)
+                              '((|univariateSolve|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |complexRoots|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                    (|:| |coordinates|
+                                         (|List| (|Polynomial| |#1|)))))
+                                  (|RegularChain| |#1| |#2|)))
+                                T)
+                              '((|univariateSolve|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |complexRoots|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                    (|:| |coordinates|
+                                         (|List| (|Polynomial| |#1|)))))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)
+                                  (|Boolean|) (|Boolean|)))
+                                T)
+                              '((|univariateSolve|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |complexRoots|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                    (|:| |coordinates|
+                                         (|List| (|Polynomial| |#1|)))))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)
+                                  (|Boolean|)))
+                                T)
+                              '((|univariateSolve|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |complexRoots|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                    (|:| |coordinates|
+                                         (|List| (|Polynomial| |#1|)))))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)))
+                                T)
+                              '((|univariateSolve|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |complexRoots|
+                                         (|SparseUnivariatePolynomial| |#1|))
+                                    (|:| |coordinates|
+                                         (|List| (|Polynomial| |#1|)))))
+                                  (|List| (|Polynomial| |#1|))))
+                                T)
+                              '((|realSolve|
+                                 ((|List|
+                                   (|List| (|RealClosure| (|Fraction| |#1|))))
+                                  (|RegularChain| |#1| |#2|)))
+                                T)
+                              '((|realSolve|
+                                 ((|List|
+                                   (|List| (|RealClosure| (|Fraction| |#1|))))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)
+                                  (|Boolean|) (|Boolean|)))
+                                T)
+                              '((|realSolve|
+                                 ((|List|
+                                   (|List| (|RealClosure| (|Fraction| |#1|))))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)
+                                  (|Boolean|)))
+                                T)
+                              '((|realSolve|
+                                 ((|List|
+                                   (|List| (|RealClosure| (|Fraction| |#1|))))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)))
+                                T)
+                              '((|realSolve|
+                                 ((|List|
+                                   (|List| (|RealClosure| (|Fraction| |#1|))))
+                                  (|List| (|Polynomial| |#1|))))
+                                T)
+                              '((|positiveSolve|
+                                 ((|List|
+                                   (|List| (|RealClosure| (|Fraction| |#1|))))
+                                  (|RegularChain| |#1| |#2|)))
+                                T)
+                              '((|positiveSolve|
+                                 ((|List|
+                                   (|List| (|RealClosure| (|Fraction| |#1|))))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)
+                                  (|Boolean|)))
+                                T)
+                              '((|positiveSolve|
+                                 ((|List|
+                                   (|List| (|RealClosure| (|Fraction| |#1|))))
+                                  (|List| (|Polynomial| |#1|)) (|Boolean|)))
+                                T)
+                              '((|positiveSolve|
+                                 ((|List|
+                                   (|List| (|RealClosure| (|Fraction| |#1|))))
+                                  (|List| (|Polynomial| |#1|))))
+                                T)
+                              '((|squareFree|
+                                 ((|List|
+                                   (|SquareFreeRegularTriangularSet| |#1|
+                                                                     (|IndexedExponents|
+                                                                      (|OrderedVariableList|
+                                                                       |#3|))
+                                                                     (|OrderedVariableList|
+                                                                      |#3|)
+                                                                     (|NewSparseMultivariatePolynomial|
+                                                                      |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#3|))))
+                                  (|RegularChain| |#1| |#2|)))
+                                T)
+                              '((|convert|
+                                 ((|NewSparseMultivariatePolynomial| |#1|
+                                                                     (|OrderedVariableList|
+                                                                      |#3|))
+                                  (|NewSparseMultivariatePolynomial| |#1|
+                                                                     (|OrderedVariableList|
+                                                                      |#2|))))
+                                T)
+                              '((|convert|
+                                 ((|Polynomial|
+                                   (|RealClosure| (|Fraction| |#1|)))
+                                  (|Polynomial| |#1|)))
+                                T)
+                              '((|convert|
+                                 ((|Polynomial|
+                                   (|RealClosure| (|Fraction| |#1|)))
+                                  (|NewSparseMultivariatePolynomial| |#1|
+                                                                     (|OrderedVariableList|
+                                                                      |#3|))))
+                                T)
+                              '((|convert|
+                                 ((|SparseUnivariatePolynomial|
+                                   (|RealClosure| (|Fraction| |#1|)))
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|convert|
+                                 ((|List|
+                                   (|NewSparseMultivariatePolynomial| |#1|
+                                                                      (|OrderedVariableList|
+                                                                       |#3|)))
+                                  (|SquareFreeRegularTriangularSet| |#1|
+                                                                    (|IndexedExponents|
+                                                                     (|OrderedVariableList|
+                                                                      |#3|))
+                                                                    (|OrderedVariableList|
+                                                                     |#3|)
+                                                                    (|NewSparseMultivariatePolynomial|
+                                                                     |#1|
+                                                                     (|OrderedVariableList|
+                                                                      |#3|)))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 145
+                                            '(1 10 9 0 11 1 14 13 9 15 1 17 0
+                                              14 18 1 21 20 0 22 1 21 6 0 23 1
+                                              17 0 6 24 0 17 0 25 1 21 26 0 27
+                                              1 21 28 0 29 1 26 9 0 30 1 21 0 0
+                                              31 2 17 0 0 28 33 2 17 0 0 0 34 2
+                                              17 0 0 0 35 1 21 0 0 36 1 38 0 37
+                                              39 1 41 40 0 42 2 17 20 0 0 43 2
+                                              37 0 44 0 45 1 46 37 37 47 2 38
+                                              49 17 0 50 1 17 0 0 51 1 17 20 0
+                                              52 2 53 17 17 38 54 2 38 0 17 0
+                                              55 2 38 56 17 0 57 1 21 0 60 61 2
+                                              63 62 40 20 64 3 41 65 40 20 20
+                                              66 1 71 20 0 72 0 73 0 74 1 71 20
+                                              0 75 1 71 6 0 76 1 77 0 6 78 1 79
+                                              0 77 80 1 73 0 79 81 1 71 6 0 82
+                                              1 71 28 0 83 2 73 0 79 28 84 2 73
+                                              0 0 0 85 1 71 0 0 86 2 90 88 89
+                                              60 91 1 17 60 0 93 1 38 37 0 95 3
+                                              88 0 0 9 79 97 1 88 98 0 99 1 88
+                                              73 0 100 1 79 65 101 102 2 58 0 0
+                                              0 105 1 106 58 58 107 1 88 20 0
+                                              108 1 79 20 0 113 2 118 58 38 20
+                                              119 2 38 120 0 14 121 1 17 71 0
+                                              122 2 38 0 0 14 123 1 17 60 0 124
+                                              1 17 0 60 128 2 38 17 17 0 129 1
+                                              60 20 0 130 1 21 20 0 131 1 17 20
+                                              0 132 2 37 20 133 0 134 1 38 135
+                                              0 136 1 138 137 135 139 1 138 137
+                                              140 141 4 0 126 67 20 20 20 142 1
+                                              0 126 41 127 3 0 126 67 20 20 143
+                                              1 0 126 67 145 2 0 126 67 20 144
+                                              2 0 62 67 20 69 3 0 62 67 20 20
+                                              68 1 0 62 67 70 1 0 58 41 59 1 0
+                                              103 41 104 3 0 103 67 20 20 110 4
+                                              0 103 67 20 20 20 109 2 0 103 67
+                                              20 111 1 0 103 67 112 1 0 103 41
+                                              114 3 0 103 67 20 20 115 1 0 103
+                                              67 117 2 0 103 67 20 116 1 0 88
+                                              60 92 1 0 17 21 32 1 0 88 17 94 1
+                                              0 37 38 96 1 0 73 71 87)))))
            '|lookupComplete|)) 

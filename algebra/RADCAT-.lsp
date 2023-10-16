@@ -28,11 +28,15 @@
               (0 . |coerce|) (5 . |inv|) (10 . ^) |RADCAT-;sqrt;2S;1|
               |RADCAT-;nthRoot;SIS;2|)
            '#(|sqrt| 16 |nthRoot| 21) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 13
-                                                 '(1 8 0 7 9 1 8 0 0 10 2 6 0 0
-                                                   8 11 1 0 0 0 12 2 0 0 0 7
-                                                   13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|sqrt| (|#1| |#1|)) T)
+                                   '((|nthRoot| (|#1| |#1| (|Integer|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 13
+                                            '(1 8 0 7 9 1 8 0 0 10 2 6 0 0 8 11
+                                              1 0 0 0 12 2 0 0 0 7 13)))))
            '|lookupComplete|)) 

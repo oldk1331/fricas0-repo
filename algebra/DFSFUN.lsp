@@ -395,30 +395,121 @@
               144 |besselY| 154 |besselK| 166 |besselJ| 178 |besselI| 190
               |airyBi| 202 |airyAi| 212 |Gamma| 222 |Beta| 232)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 60
-                                                 '(1 6 0 8 20 1 6 8 0 21 0 6 0
-                                                   23 2 6 0 0 0 27 2 6 0 0 0 28
-                                                   2 6 0 0 0 29 1 33 32 8 34 1
-                                                   36 32 6 37 0 6 0 38 1 6 0 0
-                                                   39 1 6 0 0 40 2 6 0 0 0 41 1
-                                                   6 0 0 42 0 6 0 44 1 6 0 46
-                                                   47 1 8 49 0 50 2 8 0 51 0 52
-                                                   2 8 0 0 0 53 1 6 49 0 55 2 6
-                                                   0 51 0 56 2 6 0 0 0 57 2 0 8
-                                                   10 8 12 2 0 6 10 6 11 1 0 6
-                                                   6 13 1 0 8 8 14 2 0 6 6 6 19
-                                                   2 0 8 8 8 22 1 0 8 8 24 1 0
-                                                   6 6 25 2 0 8 8 8 35 2 0 6 6
-                                                   6 43 2 0 6 6 6 48 2 0 8 8 8
-                                                   45 2 0 6 6 6 15 2 0 8 8 8 16
-                                                   2 0 8 8 8 18 2 0 6 6 6 17 1
-                                                   0 8 8 59 1 0 6 6 60 1 0 6 6
-                                                   58 1 0 8 8 54 1 0 8 8 9 1 0
-                                                   6 6 7 2 0 8 8 8 26 2 0 6 6 6
-                                                   30)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|Gamma| ((|DoubleFloat|) (|DoubleFloat|))) T)
+                              '((|Gamma|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|Beta|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|Beta|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|logGamma| ((|DoubleFloat|) (|DoubleFloat|)))
+                                T)
+                              '((|logGamma|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|digamma| ((|DoubleFloat|) (|DoubleFloat|)))
+                                T)
+                              '((|digamma|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|polygamma|
+                                 ((|DoubleFloat|) (|NonNegativeInteger|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|polygamma|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|NonNegativeInteger|)
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|besselJ|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|besselJ|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|besselY|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|besselY|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|besselI|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|besselI|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|besselK|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|besselK|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|airyAi|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|airyAi| ((|DoubleFloat|) (|DoubleFloat|))) T)
+                              '((|airyBi| ((|DoubleFloat|) (|DoubleFloat|))) T)
+                              '((|airyBi|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T)
+                              '((|hypergeometric0F1|
+                                 ((|DoubleFloat|) (|DoubleFloat|)
+                                  (|DoubleFloat|)))
+                                T)
+                              '((|hypergeometric0F1|
+                                 ((|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))
+                                  (|Complex| (|DoubleFloat|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 60
+                                            '(1 6 0 8 20 1 6 8 0 21 0 6 0 23 2
+                                              6 0 0 0 27 2 6 0 0 0 28 2 6 0 0 0
+                                              29 1 33 32 8 34 1 36 32 6 37 0 6
+                                              0 38 1 6 0 0 39 1 6 0 0 40 2 6 0
+                                              0 0 41 1 6 0 0 42 0 6 0 44 1 6 0
+                                              46 47 1 8 49 0 50 2 8 0 51 0 52 2
+                                              8 0 0 0 53 1 6 49 0 55 2 6 0 51 0
+                                              56 2 6 0 0 0 57 2 0 8 10 8 12 2 0
+                                              6 10 6 11 1 0 6 6 13 1 0 8 8 14 2
+                                              0 6 6 6 19 2 0 8 8 8 22 1 0 8 8
+                                              24 1 0 6 6 25 2 0 8 8 8 35 2 0 6
+                                              6 6 43 2 0 6 6 6 48 2 0 8 8 8 45
+                                              2 0 6 6 6 15 2 0 8 8 8 16 2 0 8 8
+                                              8 18 2 0 6 6 6 17 1 0 8 8 59 1 0
+                                              6 6 60 1 0 6 6 58 1 0 8 8 54 1 0
+                                              8 8 9 1 0 6 6 7 2 0 8 8 8 26 2 0
+                                              6 6 6 30)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DoubleFloatSpecialFunctions| 'NILADIC T) 

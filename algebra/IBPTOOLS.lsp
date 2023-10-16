@@ -200,10 +200,10 @@
               |IBPTOOLS;mapUnivariate;MSupR;1| (36 . |Zero|) (40 . |zero?|)
               (45 . |leadingCoefficient|) (50 . |degree|) (55 . |monomial|)
               (61 . +) (67 . |reductum|) (|Mapping| 9 6)
-              |IBPTOOLS;mapUnivariate;MRSup;2| (|Union| 7 '"failed")
-              (|Union| 6 '"failed") (|Mapping| 32 9)
+              |IBPTOOLS;mapUnivariate;MRSup;2| (|Union| 7 '#1="failed")
+              (|Union| 6 '#2="failed") (|Mapping| 32 9)
               |IBPTOOLS;mapUnivariateIfCan;MSupU;3| (72 . |Zero|)
-              (|Union| (|Matrix| 7) '"failed") (|Matrix| 12)
+              (|Union| (|Matrix| 7) '#3="failed") (|Matrix| 12)
               |IBPTOOLS;mapMatrixIfCan;MMU;4| (|SparseUnivariatePolynomial| 12)
               (76 . |Zero|) (80 . |zero?|) (85 . |leadingCoefficient|)
               (90 . |degree|) (95 . |monomial|) (101 . +) (107 . |reductum|)
@@ -211,21 +211,47 @@
            '#(|mapUnivariateIfCan| 112 |mapUnivariate| 118 |mapMatrixIfCan| 130
               |mapBivariate| 136)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 47
-                                                 '(0 7 0 10 1 12 11 0 13 1 12 9
-                                                   0 14 1 12 15 0 16 2 7 0 6 15
-                                                   17 2 7 0 0 0 18 1 12 0 0 19
-                                                   0 12 0 22 1 7 11 0 23 1 7 6
-                                                   0 24 1 7 15 0 25 2 12 0 9 15
-                                                   26 2 12 0 0 0 27 1 7 0 0 28
-                                                   0 6 0 35 0 39 0 40 1 8 11 0
-                                                   41 1 8 7 0 42 1 8 15 0 43 2
-                                                   39 0 12 15 44 2 39 0 0 0 45
-                                                   1 8 0 0 46 2 0 31 33 12 34 2
-                                                   0 12 29 7 30 2 0 7 20 12 21
-                                                   2 0 36 33 37 38 2 0 39 29 8
-                                                   47)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|mapUnivariate|
+                                 (|#2| (|Mapping| |#1| |#4|)
+                                  (|SparseUnivariatePolynomial| |#4|)))
+                                T)
+                              '((|mapUnivariate|
+                                 ((|SparseUnivariatePolynomial| |#4|)
+                                  (|Mapping| |#4| |#1|) |#2|))
+                                T)
+                              '((|mapUnivariateIfCan|
+                                 ((|Union| |#2| #1#)
+                                  (|Mapping| (|Union| |#1| #2#) |#4|)
+                                  (|SparseUnivariatePolynomial| |#4|)))
+                                T)
+                              '((|mapMatrixIfCan|
+                                 ((|Union| (|Matrix| |#2|) #3#)
+                                  (|Mapping| (|Union| |#1| "failed") |#4|)
+                                  (|Matrix|
+                                   (|SparseUnivariatePolynomial| |#4|))))
+                                T)
+                              '((|mapBivariate|
+                                 ((|SparseUnivariatePolynomial|
+                                   (|SparseUnivariatePolynomial| |#4|))
+                                  (|Mapping| |#4| |#1|) |#3|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 47
+                                            '(0 7 0 10 1 12 11 0 13 1 12 9 0 14
+                                              1 12 15 0 16 2 7 0 6 15 17 2 7 0
+                                              0 0 18 1 12 0 0 19 0 12 0 22 1 7
+                                              11 0 23 1 7 6 0 24 1 7 15 0 25 2
+                                              12 0 9 15 26 2 12 0 0 0 27 1 7 0
+                                              0 28 0 6 0 35 0 39 0 40 1 8 11 0
+                                              41 1 8 7 0 42 1 8 15 0 43 2 39 0
+                                              12 15 44 2 39 0 0 0 45 1 8 0 0 46
+                                              2 0 31 33 12 34 2 0 12 29 7 30 2
+                                              0 7 20 12 21 2 0 36 33 37 38 2 0
+                                              39 29 8 47)))))
            '|lookupComplete|)) 

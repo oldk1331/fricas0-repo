@@ -30,9 +30,13 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . *)
               (|PositiveInteger|) |REPSQ;expt;SPiS;1|)
            '#(|expt| 6) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 9
-                                                 '(2 6 0 0 0 7 2 0 6 6 8 9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|expt| (|#1| |#1| (|PositiveInteger|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 9 '(2 6 0 0 0 7 2 0 6 6 8 9)))))
            '|lookupComplete|)) 

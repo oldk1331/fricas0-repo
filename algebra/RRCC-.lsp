@@ -95,29 +95,39 @@
               |RRCC-;zero?;ThePolsSB;1| |RRCC-;negative?;ThePolsSB;2| (6 . >)
               |RRCC-;positive?;ThePolsSB;3| (|List| $) (12 . |allRootsOf|)
               (|NonNegativeInteger|) (17 . >) (|List| 6) (23 . |elt|)
-              (|Union| $ '"failed") (|PositiveInteger|)
+              (|Union| $ '#1="failed") (|PositiveInteger|)
               |RRCC-;rootOf;ThePolsPiU;4| (29 . |degree|)
               (34 . |leadingCoefficient|) (39 . |recip|) (44 . |coerce|)
               (49 . |definingPolynomial|)
               (|Record| (|:| |coef| 16) (|:| |generator| $))
               (54 . |principalIdeal|) (59 . |zero?|) (65 . ~=) (71 . |exquo|)
-              (|List| 8) (77 . |elt|) (|Union| 8 '"failed")
+              (|List| 8) (77 . |elt|) (|Union| 8 '#2="failed")
               |RRCC-;recip;ThePolsSU;5|)
            '#(|zero?| 83 |rootOf| 89 |recip| 95 |positive?| 101 |negative?|
               107)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 38
-                                                 '(2 6 9 8 0 10 2 9 11 0 0 14 1
-                                                   6 16 8 17 2 18 11 0 0 19 2
-                                                   20 6 0 9 21 1 8 18 0 25 1 8
-                                                   7 0 26 1 7 22 0 27 1 8 0 7
-                                                   28 1 6 8 0 29 1 8 30 16 31 2
-                                                   6 11 8 0 32 2 9 11 0 0 33 2
-                                                   8 22 0 0 34 2 35 8 0 9 36 2
-                                                   0 11 8 0 12 2 0 22 8 23 24 2
-                                                   0 37 8 0 38 2 0 11 8 0 15 2
-                                                   0 11 8 0 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|rootOf|
+                                 ((|Union| |#1| #1#) |#3| (|PositiveInteger|)))
+                                T)
+                              '((|recip| ((|Union| |#3| #2#) |#3| |#1|)) T)
+                              '((|positive?| ((|Boolean|) |#3| |#1|)) T)
+                              '((|negative?| ((|Boolean|) |#3| |#1|)) T)
+                              '((|zero?| ((|Boolean|) |#3| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 38
+                                            '(2 6 9 8 0 10 2 9 11 0 0 14 1 6 16
+                                              8 17 2 18 11 0 0 19 2 20 6 0 9 21
+                                              1 8 18 0 25 1 8 7 0 26 1 7 22 0
+                                              27 1 8 0 7 28 1 6 8 0 29 1 8 30
+                                              16 31 2 6 11 8 0 32 2 9 11 0 0 33
+                                              2 8 22 0 0 34 2 35 8 0 9 36 2 0
+                                              11 8 0 12 2 0 22 8 23 24 2 0 37 8
+                                              0 38 2 0 11 8 0 15 2 0 11 8 0
+                                              13)))))
            '|lookupComplete|)) 

@@ -52,10 +52,15 @@
               |PARPCURV;curve;2ComponentFunction$;1| (|NonNegativeInteger|)
               |PARPCURV;coordinate;$NniComponentFunction;2|)
            '#(|curve| 0 |coordinate| 6) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10
-                                                 '(2 0 0 6 6 8 2 0 6 0 9
-                                                   10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|curve| ($$ |#1| |#1|)) T)
+                                   '((|coordinate|
+                                      (|#1| $$ (|NonNegativeInteger|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10 '(2 0 0 6 6 8 2 0 6 0 9 10)))))
            '|lookupComplete|)) 

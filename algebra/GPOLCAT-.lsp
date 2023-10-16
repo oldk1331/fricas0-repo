@@ -97,15 +97,28 @@
               |GPOLCAT-;monomial;SLLS;2| (38 . |One|) (42 . |One|)
               (46 . |degree|) (51 . |monomial|) (57 . |primitiveMonomials|))
            '#(|primitiveMonomials| 62 |monomials| 67 |monomial| 72) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 28
-                                                 '(0 6 0 10 0 7 0 11 2 6 12 0 0
-                                                   13 1 6 0 0 14 1 6 0 0 15 3 6
-                                                   0 0 9 18 19 3 6 0 0 20 21 22
-                                                   0 6 0 24 0 7 0 25 1 6 8 0 26
-                                                   2 6 0 7 8 27 1 0 16 0 28 1 0
-                                                   16 0 28 1 0 16 0 17 3 0 0 0
-                                                   20 21 23)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|primitiveMonomials| ((|List| |#1|) |#1|)) T)
+                              '((|monomial|
+                                 (|#1| |#1| (|List| |#4|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|monomial|
+                                 (|#1| |#1| |#4| (|NonNegativeInteger|)))
+                                T)
+                              '((|monomials| ((|List| |#1|) |#1|)) T)
+                              '((|monomial| (|#1| |#2| |#3|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 28
+                                            '(0 6 0 10 0 7 0 11 2 6 12 0 0 13 1
+                                              6 0 0 14 1 6 0 0 15 3 6 0 0 9 18
+                                              19 3 6 0 0 20 21 22 0 6 0 24 0 7
+                                              0 25 1 6 8 0 26 2 6 0 7 8 27 1 0
+                                              16 0 28 1 0 16 0 28 1 0 16 0 17 3
+                                              0 0 0 20 21 23)))))
            '|lookupComplete|)) 

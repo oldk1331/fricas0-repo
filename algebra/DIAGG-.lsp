@@ -87,17 +87,29 @@
               (28 . |#|) (|Integer|) (33 . ~=) (39 . |member?|) (45 . |parts|)
               (50 . |every?|) (56 . =) (62 . |remove!|) (68 . |remove!|))
            '#(|select!| 74 |remove!| 80 |dictionary| 86 = 91) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 26
-                                                 '(0 6 0 8 2 6 0 7 0 9 2 6 0 12
-                                                   0 13 2 0 0 12 0 14 2 6 15 0
-                                                   0 16 1 6 17 0 18 2 19 15 0 0
-                                                   20 2 6 15 7 0 21 1 6 10 0 22
-                                                   2 10 15 12 0 23 2 0 15 0 0
-                                                   24 2 6 0 7 0 25 2 0 0 12 0
-                                                   26 2 0 0 12 0 14 2 0 0 12 0
-                                                   26 1 0 0 10 11 2 0 15 0 0
-                                                   24)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|select!|
+                                 (|#1| (|Mapping| (|Boolean|) |#2|) |#1|))
+                                T)
+                              '((|remove!|
+                                 (|#1| (|Mapping| (|Boolean|) |#2|) |#1|))
+                                T)
+                              '((|remove!| (|#1| |#2| |#1|)) T)
+                              '((|dictionary| (|#1| (|List| |#2|))) T)
+                              '((|dictionary| (|#1|)) T)
+                              '((= ((|Boolean|) |#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 26
+                                            '(0 6 0 8 2 6 0 7 0 9 2 6 0 12 0 13
+                                              2 0 0 12 0 14 2 6 15 0 0 16 1 6
+                                              17 0 18 2 19 15 0 0 20 2 6 15 7 0
+                                              21 1 6 10 0 22 2 10 15 12 0 23 2
+                                              0 15 0 0 24 2 6 0 7 0 25 2 0 0 12
+                                              0 26 2 0 0 12 0 14 2 0 0 12 0 26
+                                              1 0 0 10 11 2 0 15 0 0 24)))))
            '|lookupComplete|)) 

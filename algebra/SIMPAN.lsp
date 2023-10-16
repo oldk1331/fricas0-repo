@@ -50,12 +50,20 @@
               (|TranscendentalManipulations| (|Integer|) 7) (5 . |simplify|)
               |SIMPAN;simplify;AnE;1|)
            '#(|simplify| 10) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 11
-                                                 '(1 7 0 6 8 1 9 7 7 10 1 0 7 6
-                                                   11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|simplify|
+                                 ((|Expression| (|Integer|))
+                                  (|AlgebraicNumber|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 11
+                                            '(1 7 0 6 8 1 9 7 7 10 1 0 7 6
+                                              11)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|SimplifyAlgebraicNumberConvertPackage| 'NILADIC T) 

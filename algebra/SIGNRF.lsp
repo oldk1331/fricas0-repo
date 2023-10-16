@@ -271,11 +271,11 @@
 (MAKEPROP '|RationalFunctionSign| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Polynomial| 6)
-              (|Fraction| 7) (0 . |numer|) (5 . |denom|) (|Union| 27 '"failed")
-              |SIGNRF;sign;FU;1| (|SparseUnivariatePolynomial| 8)
-              (|Fraction| 13) (10 . |denom|) (|Mapping| 11 8)
-              (|InnerPolySign| 8 13) (15 . |signAround|) (22 . |numer|)
-              (|Symbol|)
+              (|Fraction| 7) (0 . |numer|) (5 . |denom|)
+              (|Union| 27 '#1="failed") |SIGNRF;sign;FU;1|
+              (|SparseUnivariatePolynomial| 8) (|Fraction| 13) (10 . |denom|)
+              (|Mapping| 11 8) (|InnerPolySign| 8 13) (15 . |signAround|)
+              (22 . |numer|) (|Symbol|)
               (|PolynomialCategoryQuotientFunctions| (|IndexedExponents| 20) 20
                                                      6 7 8)
               (27 . |univariate|) (|SingleInteger|) (|OrderedCompletion| 8)
@@ -292,21 +292,38 @@
               (|NonNegativeInteger|) (109 . |degree|)
               (115 . |leadingCoefficient|))
            '#(|sign| 120) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 55
-                                                 '(1 8 7 0 9 1 8 7 0 10 1 14 13
-                                                   0 15 3 17 11 13 8 16 18 1 14
-                                                   13 0 19 2 21 14 8 20 22 1 24
-                                                   23 0 25 1 24 8 0 26 3 17 11
-                                                   13 27 16 28 1 31 27 30 32 4
-                                                   17 11 13 8 27 16 33 1 7 35 0
-                                                   36 1 31 11 6 37 1 7 38 0 39
-                                                   1 40 7 0 41 1 7 6 0 42 1 40
-                                                   45 0 46 1 7 47 0 48 2 27 49
-                                                   0 0 50 1 7 51 0 52 2 7 53 0
-                                                   20 54 1 7 6 0 55 1 0 11 8 12
-                                                   4 0 11 8 20 8 30 34 3 0 11 8
-                                                   20 24 29)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|sign|
+                                 ((|Union| (|Integer|) #1#)
+                                  (|Fraction| (|Polynomial| |#1|))))
+                                T)
+                              '((|sign|
+                                 ((|Union| (|Integer|) #1#)
+                                  (|Fraction| (|Polynomial| |#1|)) (|Symbol|)
+                                  (|OrderedCompletion|
+                                   (|Fraction| (|Polynomial| |#1|)))))
+                                T)
+                              '((|sign|
+                                 ((|Union| (|Integer|) #1#)
+                                  (|Fraction| (|Polynomial| |#1|)) (|Symbol|)
+                                  (|Fraction| (|Polynomial| |#1|)) (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 55
+                                            '(1 8 7 0 9 1 8 7 0 10 1 14 13 0 15
+                                              3 17 11 13 8 16 18 1 14 13 0 19 2
+                                              21 14 8 20 22 1 24 23 0 25 1 24 8
+                                              0 26 3 17 11 13 27 16 28 1 31 27
+                                              30 32 4 17 11 13 8 27 16 33 1 7
+                                              35 0 36 1 31 11 6 37 1 7 38 0 39
+                                              1 40 7 0 41 1 7 6 0 42 1 40 45 0
+                                              46 1 7 47 0 48 2 27 49 0 0 50 1 7
+                                              51 0 52 2 7 53 0 20 54 1 7 6 0 55
+                                              1 0 11 8 12 4 0 11 8 20 8 30 34 3
+                                              0 11 8 20 24 29)))))
            '|lookupComplete|)) 

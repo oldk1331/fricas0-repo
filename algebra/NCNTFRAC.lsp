@@ -101,14 +101,21 @@
               (41 . |reducedContinuedFraction|) (47 . |negative?|) (52 . |One|)
               (56 . |One|) (60 . +) |NCNTFRAC;continuedFraction;FCf;2|)
            '#(|continuedFraction| 66) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 25
-                                                 '(1 6 7 0 8 1 6 0 7 9 2 6 0 0
-                                                   0 10 1 6 11 0 12 0 13 0 14 2
-                                                   13 0 7 0 15 1 6 0 0 16 1 13
-                                                   0 17 18 2 19 0 7 13 20 1 6
-                                                   11 0 21 0 6 0 22 0 19 0 23 2
-                                                   6 0 0 0 24 1 0 19 6 25)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|continuedFraction|
+                                 ((|ContinuedFraction| (|Integer|)) |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 25
+                                            '(1 6 7 0 8 1 6 0 7 9 2 6 0 0 0 10
+                                              1 6 11 0 12 0 13 0 14 2 13 0 7 0
+                                              15 1 6 0 0 16 1 13 0 17 18 2 19 0
+                                              7 13 20 1 6 11 0 21 0 6 0 22 0 19
+                                              0 23 2 6 0 0 0 24 1 0 19 6
+                                              25)))))
            '|lookupComplete|)) 

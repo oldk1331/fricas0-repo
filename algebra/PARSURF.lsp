@@ -55,10 +55,16 @@
               |PARSURF;surface;3ComponentFunction$;1| (|NonNegativeInteger|)
               |PARSURF;coordinate;$NniComponentFunction;2|)
            '#(|surface| 0 |coordinate| 7) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10
-                                                 '(3 0 0 6 6 6 8 2 0 6 0 9
-                                                   10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|surface| ($$ |#1| |#1| |#1|)) T)
+                                   '((|coordinate|
+                                      (|#1| $$ (|NonNegativeInteger|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10
+                                            '(3 0 0 6 6 6 8 2 0 6 0 9 10)))))
            '|lookupComplete|)) 

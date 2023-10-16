@@ -391,7 +391,7 @@
               (|List| $) (|Character|) (6 . |split|) (12 . |concat|)
               (17 . |char|) (|Boolean|) (22 . =) (|Mapping| 14 10)
               (28 . |any?|) (|Symbol|) (34 . |coerce|) (|SExpression|)
-              (39 . |convert|) '|sexfloat| (|Union| 25 '"failed")
+              (39 . |convert|) '|sexfloat| (|Union| 25 '#1="failed")
               |NUMFMT;ScanFloatIgnoreSpacesIfCan;SU;6| (|Float|)
               |NUMFMT;ScanFloatIgnoreSpaces;SF;5| (44 . |car|) (49 . =)
               (55 . |cdr|) (60 . |integer?|) (|Integer|) (65 . |coerce|)
@@ -408,25 +408,45 @@
               |ScanFloatIgnoreSpaces| 135 |ScanArabic| 140 |FormatRoman| 145
               |FormatRadix| 150 |FormatArabic| 156)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 63
-                                                 '(2 7 0 6 0 8 2 7 9 0 10 11 1
-                                                   7 0 9 12 1 10 0 7 13 2 10 14
-                                                   0 0 15 2 7 14 16 0 17 1 18 0
-                                                   7 19 1 20 0 18 21 1 20 0 0
-                                                   27 2 20 14 0 0 28 1 20 0 0
-                                                   29 1 20 14 0 30 1 25 0 31 32
-                                                   1 34 0 33 35 1 49 31 7 50 2
-                                                   52 14 0 0 53 1 7 0 0 55 1 7
-                                                   31 0 56 1 7 31 0 57 2 7 10 0
-                                                   31 58 2 10 14 0 0 59 2 47 0
-                                                   0 47 60 2 31 14 0 0 61 1 0
-                                                   47 7 62 1 0 23 7 24 1 0 25 7
-                                                   26 1 0 47 7 51 1 0 7 47 54 2
-                                                   0 7 31 31 63 1 0 7 47
-                                                   48)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|FormatArabic|
+                                 ((|String|) (|PositiveInteger|)))
+                                T)
+                              '((|ScanArabic| ((|PositiveInteger|) (|String|)))
+                                T)
+                              '((|FormatRoman|
+                                 ((|String|) (|PositiveInteger|)))
+                                T)
+                              '((|ScanRoman| ((|PositiveInteger|) (|String|)))
+                                T)
+                              '((|ScanFloatIgnoreSpaces|
+                                 ((|Float|) (|String|)))
+                                T)
+                              '((|ScanFloatIgnoreSpacesIfCan|
+                                 ((|Union| (|Float|) #1#) (|String|)))
+                                T)
+                              '((|FormatRadix|
+                                 ((|String|) (|Integer|) (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 63
+                                            '(2 7 0 6 0 8 2 7 9 0 10 11 1 7 0 9
+                                              12 1 10 0 7 13 2 10 14 0 0 15 2 7
+                                              14 16 0 17 1 18 0 7 19 1 20 0 18
+                                              21 1 20 0 0 27 2 20 14 0 0 28 1
+                                              20 0 0 29 1 20 14 0 30 1 25 0 31
+                                              32 1 34 0 33 35 1 49 31 7 50 2 52
+                                              14 0 0 53 1 7 0 0 55 1 7 31 0 56
+                                              1 7 31 0 57 2 7 10 0 31 58 2 10
+                                              14 0 0 59 2 47 0 0 47 60 2 31 14
+                                              0 0 61 1 0 47 7 62 1 0 23 7 24 1
+                                              0 25 7 26 1 0 47 7 51 1 0 7 47 54
+                                              2 0 7 31 31 63 1 0 7 47 48)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|NumberFormats| 'NILADIC T) 

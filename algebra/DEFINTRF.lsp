@@ -175,8 +175,8 @@
               (|SegmentBinding| 12) (0 . |variable|) (|Segment| 12)
               (5 . |segment|) (|OrderedCompletion| 24) (10 . |low|)
               (15 . |high|)
-              (|Union| (|:| |f1| 12) (|:| |f2| 28) (|:| |fail| '"failed")
-                       (|:| |pole| '"potentialPole"))
+              (|Union| (|:| |f1| 12) (|:| |f2| 28) (|:| |fail| '#1="failed")
+                       (|:| |pole| '#2="potentialPole"))
               (|Fraction| 49) |DEFINTRF;integrate;FSbU;1| (|Kernel| 24)
               (20 . |kernel|) (|Union| 24 (|List| 24))
               (|IntegrationResultRFToFunction| 6) (25 . |integrate|)
@@ -191,21 +191,83 @@
               (82 . =) (88 . |Zero|) (92 . |coerce|) (|Polynomial| 6)
               (97 . |denom|) (|Union| 25 '"failed") (102 . |checkForZero|))
            '#(|integrate| 111) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 52
-                                                 '(1 8 7 0 9 1 8 10 0 11 1 10
-                                                   12 0 13 1 10 12 0 14 1 18 0
-                                                   7 19 2 21 20 16 7 22 5 26 23
-                                                   18 24 12 12 25 27 2 28 0 0 0
-                                                   29 1 30 7 0 31 1 24 0 16 32
-                                                   1 30 33 0 34 1 33 35 0 36 2
-                                                   38 12 37 35 39 1 33 35 0 40
-                                                   1 26 25 42 43 2 12 25 0 0 46
-                                                   0 24 0 47 1 12 0 24 48 1 16
-                                                   49 0 50 5 26 51 49 7 12 12
-                                                   25 52 3 0 15 16 8 42 45 2 0
-                                                   15 16 8 17 3 0 15 16 30 42
-                                                   44 2 0 15 16 30 41)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|integrate|
+                                 ((|Union|
+                                   (|:| |f1|
+                                        (|OrderedCompletion|
+                                         (|Expression| |#1|)))
+                                   (|:| |f2|
+                                        (|List|
+                                         (|OrderedCompletion|
+                                          (|Expression| |#1|))))
+                                   (|:| |fail| #1#) (|:| |pole| #2#))
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|SegmentBinding|
+                                   (|OrderedCompletion| (|Expression| |#1|)))))
+                                T)
+                              '((|integrate|
+                                 ((|Union|
+                                   (|:| |f1|
+                                        (|OrderedCompletion|
+                                         (|Expression| |#1|)))
+                                   (|:| |f2|
+                                        (|List|
+                                         (|OrderedCompletion|
+                                          (|Expression| |#1|))))
+                                   (|:| |fail| #1#) (|:| |pole| #2#))
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|SegmentBinding|
+                                   (|OrderedCompletion| (|Expression| |#1|)))
+                                  (|String|)))
+                                T)
+                              '((|integrate|
+                                 ((|Union|
+                                   (|:| |f1|
+                                        (|OrderedCompletion|
+                                         (|Expression| |#1|)))
+                                   (|:| |f2|
+                                        (|List|
+                                         (|OrderedCompletion|
+                                          (|Expression| |#1|))))
+                                   (|:| |fail| #1#) (|:| |pole| #2#))
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|SegmentBinding|
+                                   (|OrderedCompletion|
+                                    (|Fraction| (|Polynomial| |#1|))))))
+                                T)
+                              '((|integrate|
+                                 ((|Union|
+                                   (|:| |f1|
+                                        (|OrderedCompletion|
+                                         (|Expression| |#1|)))
+                                   (|:| |f2|
+                                        (|List|
+                                         (|OrderedCompletion|
+                                          (|Expression| |#1|))))
+                                   (|:| |fail| #1#) (|:| |pole| #2#))
+                                  (|Fraction| (|Polynomial| |#1|))
+                                  (|SegmentBinding|
+                                   (|OrderedCompletion|
+                                    (|Fraction| (|Polynomial| |#1|))))
+                                  (|String|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 52
+                                            '(1 8 7 0 9 1 8 10 0 11 1 10 12 0
+                                              13 1 10 12 0 14 1 18 0 7 19 2 21
+                                              20 16 7 22 5 26 23 18 24 12 12 25
+                                              27 2 28 0 0 0 29 1 30 7 0 31 1 24
+                                              0 16 32 1 30 33 0 34 1 33 35 0 36
+                                              2 38 12 37 35 39 1 33 35 0 40 1
+                                              26 25 42 43 2 12 25 0 0 46 0 24 0
+                                              47 1 12 0 24 48 1 16 49 0 50 5 26
+                                              51 49 7 12 12 25 52 3 0 15 16 8
+                                              42 45 2 0 15 16 8 17 3 0 15 16 30
+                                              42 44 2 0 15 16 30 41)))))
            '|lookupComplete|)) 

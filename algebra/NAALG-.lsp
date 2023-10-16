@@ -44,10 +44,17 @@
               (|PositiveInteger|) (4 . |plenaryPower|) (10 . *)
               |NAALG-;plenaryPower;SPiS;1|)
            '#(|plenaryPower| 16) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 12
-                                                 '(0 7 0 8 2 6 0 0 9 10 2 6 0 0
-                                                   0 11 2 0 0 0 9 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|plenaryPower|
+                                 (|#1| |#1| (|PositiveInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 12
+                                            '(0 7 0 8 2 6 0 0 9 10 2 6 0 0 0 11
+                                              2 0 0 0 9 12)))))
            '|lookupComplete|)) 

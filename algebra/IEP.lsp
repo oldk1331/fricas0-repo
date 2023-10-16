@@ -608,32 +608,154 @@
               |eigenvectors| 229 |eigenvector| 240 |eigenvalues| 246
               |characteristicPolynomial| 257)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 74
-                                                 '(1 6 7 8 9 1 0 11 12 15 1 0
-                                                   17 12 19 1 0 21 12 23 2 24 0
-                                                   0 0 25 2 24 26 0 0 27 0 6 0
-                                                   28 0 24 0 29 3 24 31 0 0 0
-                                                   32 2 34 26 0 0 36 0 24 0 37
-                                                   2 38 0 34 34 39 3 12 6 0 40
-                                                   40 41 1 24 0 6 42 4 38 24 0
-                                                   40 40 24 43 3 38 24 0 40 40
-                                                   44 0 6 0 45 2 24 0 6 34 46 2
-                                                   24 0 0 0 47 1 38 24 0 48 1
-                                                   53 52 0 54 1 24 34 0 55 2 24
-                                                   6 0 34 56 1 24 6 0 57 2 6 0
-                                                   0 0 58 1 6 0 0 59 2 11 0 0 0
-                                                   60 2 12 0 34 34 62 4 12 6 0
-                                                   40 40 6 63 2 6 0 0 0 64 2 12
-                                                   0 0 34 65 1 12 66 0 67 2 68
-                                                   6 0 40 69 3 70 24 0 40 24 71
-                                                   1 24 0 0 72 2 17 0 0 0 74 1
-                                                   1 21 12 23 2 0 21 12 13 22 2
-                                                   0 33 16 12 73 4 0 33 10 12
-                                                   34 34 35 1 1 17 12 19 2 0 17
-                                                   12 13 18 2 0 33 10 12 61 1 1
-                                                   11 12 15 2 0 11 12 13 14 1 0
-                                                   24 12 49)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|characteristicPolynomial|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|eigenvalues|
+                                 ((|List|
+                                   (|Union| |#1|
+                                            (|SparseUnivariatePolynomial|
+                                             |#1|)))
+                                  (|Matrix| |#1|)
+                                  (|Mapping|
+                                   (|Factored|
+                                    (|SparseUnivariatePolynomial| |#1|))
+                                   (|SparseUnivariatePolynomial| |#1|))))
+                                T)
+                              '((|eigenvector|
+                                 ((|List|
+                                   (|Vector|
+                                    (|SparseUnivariatePolynomial| |#1|)))
+                                  (|Union| |#1|
+                                           (|SparseUnivariatePolynomial| |#1|))
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|generalizedEigenvector|
+                                 ((|List|
+                                   (|Vector|
+                                    (|SparseUnivariatePolynomial| |#1|)))
+                                  (|Union| |#1|
+                                           (|SparseUnivariatePolynomial| |#1|))
+                                  (|Matrix| |#1|) (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|generalizedEigenvector|
+                                 ((|List|
+                                   (|Vector|
+                                    (|SparseUnivariatePolynomial| |#1|)))
+                                  (|Record|
+                                   (|:| |eigval|
+                                        (|Union| |#1|
+                                                 (|SparseUnivariatePolynomial|
+                                                  |#1|)))
+                                   (|:| |eigmult| (|NonNegativeInteger|))
+                                   (|:| |eigvec|
+                                        (|List|
+                                         (|Vector|
+                                          (|SparseUnivariatePolynomial|
+                                           |#1|)))))
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|generalizedEigenvectors|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |eigval|
+                                         (|Union| |#1|
+                                                  (|SparseUnivariatePolynomial|
+                                                   |#1|)))
+                                    (|:| |geneigvec|
+                                         (|List|
+                                          (|Vector|
+                                           (|SparseUnivariatePolynomial|
+                                            |#1|))))))
+                                  (|Matrix| |#1|)
+                                  (|Mapping|
+                                   (|Factored|
+                                    (|SparseUnivariatePolynomial| |#1|))
+                                   (|SparseUnivariatePolynomial| |#1|))))
+                                T)
+                              '((|eigenvectors|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |eigval|
+                                         (|Union| |#1|
+                                                  (|SparseUnivariatePolynomial|
+                                                   |#1|)))
+                                    (|:| |eigmult| (|NonNegativeInteger|))
+                                    (|:| |eigvec|
+                                         (|List|
+                                          (|Vector|
+                                           (|SparseUnivariatePolynomial|
+                                            |#1|))))))
+                                  (|Matrix| |#1|)
+                                  (|Mapping|
+                                   (|Factored|
+                                    (|SparseUnivariatePolynomial| |#1|))
+                                   (|SparseUnivariatePolynomial| |#1|))))
+                                T)
+                              '((|eigenvalues|
+                                 ((|List|
+                                   (|Union| |#1|
+                                            (|SparseUnivariatePolynomial|
+                                             |#1|)))
+                                  (|Matrix| |#1|)))
+                                (|has| 6 (|PolynomialFactorizationExplicit|)))
+                              '((|eigenvectors|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |eigval|
+                                         (|Union| |#1|
+                                                  (|SparseUnivariatePolynomial|
+                                                   |#1|)))
+                                    (|:| |eigmult| (|NonNegativeInteger|))
+                                    (|:| |eigvec|
+                                         (|List|
+                                          (|Vector|
+                                           (|SparseUnivariatePolynomial|
+                                            |#1|))))))
+                                  (|Matrix| |#1|)))
+                                (|has| 6 (|PolynomialFactorizationExplicit|)))
+                              '((|generalizedEigenvectors|
+                                 ((|List|
+                                   (|Record|
+                                    (|:| |eigval|
+                                         (|Union| |#1|
+                                                  (|SparseUnivariatePolynomial|
+                                                   |#1|)))
+                                    (|:| |geneigvec|
+                                         (|List|
+                                          (|Vector|
+                                           (|SparseUnivariatePolynomial|
+                                            |#1|))))))
+                                  (|Matrix| |#1|)))
+                                (|has| 6 (|PolynomialFactorizationExplicit|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 74
+                                            '(1 6 7 8 9 1 0 11 12 15 1 0 17 12
+                                              19 1 0 21 12 23 2 24 0 0 0 25 2
+                                              24 26 0 0 27 0 6 0 28 0 24 0 29 3
+                                              24 31 0 0 0 32 2 34 26 0 0 36 0
+                                              24 0 37 2 38 0 34 34 39 3 12 6 0
+                                              40 40 41 1 24 0 6 42 4 38 24 0 40
+                                              40 24 43 3 38 24 0 40 40 44 0 6 0
+                                              45 2 24 0 6 34 46 2 24 0 0 0 47 1
+                                              38 24 0 48 1 53 52 0 54 1 24 34 0
+                                              55 2 24 6 0 34 56 1 24 6 0 57 2 6
+                                              0 0 0 58 1 6 0 0 59 2 11 0 0 0 60
+                                              2 12 0 34 34 62 4 12 6 0 40 40 6
+                                              63 2 6 0 0 0 64 2 12 0 0 34 65 1
+                                              12 66 0 67 2 68 6 0 40 69 3 70 24
+                                              0 40 24 71 1 24 0 0 72 2 17 0 0 0
+                                              74 1 1 21 12 23 2 0 21 12 13 22 2
+                                              0 33 16 12 73 4 0 33 10 12 34 34
+                                              35 1 1 17 12 19 2 0 17 12 13 18 2
+                                              0 33 10 12 61 1 1 11 12 15 2 0 11
+                                              12 13 14 1 0 24 12 49)))))
            '|lookupComplete|)) 

@@ -49,6 +49,31 @@
               (|local| |#2|) (|IndexedVector| 7 '0) (|Matrix| 6)
               (|NonNegativeInteger|))
            '#() 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#() (CONS '#() (|makeByteWordVec2| -999999 'NIL))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|sylvesterMatrix| ((|Matrix| |#1|) |#2| |#2|))
+                                T)
+                              '((|subSylvesterMatrix|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|subSylvesterMatrix|
+                                 ((|Matrix| |#1|) (|Matrix| |#1|)
+                                  (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|bezoutMatrix| ((|Matrix| |#1|) |#2| |#2|)) T)
+                              '((|subresultants|
+                                 ((|IndexedVector| |#2| 0) |#2| |#2|))
+                                (|has| 6 (|CommutativeRing|)))
+                              '((|bezoutResultant| (|#1| |#2| |#2|))
+                                (|has| 6 (|CommutativeRing|)))
+                              '((|bezoutDiscriminant| (|#1| |#2|))
+                                (|has| 6 (|CommutativeRing|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

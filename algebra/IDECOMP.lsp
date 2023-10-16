@@ -2128,71 +2128,172 @@
            '#(|zeroDimPrime?| 632 |zeroDimPrimary?| 637 |radical| 642 |prime?|
               647 |primaryDecomp| 652 |contract| 657)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 166
-                                                 '(1 8 7 0 9 1 10 0 7 11 1 8 7
-                                                   0 12 2 10 0 0 0 13 1 10 14 0
-                                                   15 1 14 7 0 16 1 10 14 0 17
-                                                   2 8 0 7 7 18 1 20 19 0 21 2
-                                                   25 22 23 24 26 1 20 27 0 28
-                                                   1 30 0 29 31 1 30 0 29 32 1
-                                                   30 29 0 33 2 35 24 34 22 36
-                                                   1 30 27 0 37 1 20 0 19 38 1
-                                                   20 0 19 39 1 42 40 41 43 0
-                                                   10 0 45 0 22 0 47 2 30 27 22
-                                                   0 48 2 49 27 0 0 50 2 42 27
-                                                   0 0 51 2 49 0 0 0 52 2 49 0
-                                                   53 0 54 2 49 42 0 55 56 2 22
-                                                   0 0 42 57 2 22 0 0 0 58 2 22
-                                                   40 0 0 59 1 22 0 42 60 2 29
-                                                   22 0 55 61 2 29 0 22 0 62 1
-                                                   63 29 29 64 0 22 0 65 2 22
-                                                   66 0 42 67 2 66 27 0 0 68 2
-                                                   22 0 7 0 69 2 22 0 0 0 70 2
-                                                   22 0 0 0 71 2 22 72 0 42 73
-                                                   2 74 22 0 22 75 0 10 0 76 0
-                                                   8 0 77 2 22 27 0 0 78 1 30 0
-                                                   0 79 2 30 0 0 22 80 2 22 0 0
-                                                   0 81 2 30 27 0 0 82 0 8 0 83
-                                                   2 29 27 0 0 84 1 22 85 0 86
-                                                   2 42 27 0 0 87 2 42 27 0 0
-                                                   88 2 29 27 0 0 89 2 49 7 42
-                                                   0 90 1 22 0 0 91 1 22 49 0
-                                                   92 2 49 0 0 0 93 2 49 0 42 0
-                                                   94 1 22 10 0 95 2 10 0 0 0
-                                                   96 1 22 0 10 97 1 98 0 30 99
-                                                   1 101 100 22 102 1 100 105 0
-                                                   106 2 22 0 0 66 107 2 30 0 0
-                                                   0 108 1 42 41 0 110 0 14 0
-                                                   111 3 14 0 0 41 66 112 1 10
-                                                   0 14 113 3 22 0 0 42 66 114
-                                                   2 22 0 10 0 115 2 14 0 0 0
-                                                   116 2 14 66 0 41 117 2 14 72
-                                                   0 41 118 1 10 0 0 119 1 22
-                                                   120 0 121 2 22 0 10 120 122
-                                                   0 123 0 124 2 123 27 0 0 125
-                                                   1 123 14 0 126 1 123 66 0
-                                                   127 1 123 0 0 128 2 66 40 0
-                                                   0 129 2 49 42 0 7 130 2 29 0
-                                                   0 0 131 2 30 27 22 0 132 1
-                                                   49 42 0 133 2 134 27 0 0 135
-                                                   1 22 0 0 136 1 74 22 0 137 1
-                                                   22 27 0 138 1 74 66 0 139 2
-                                                   74 22 0 66 140 2 74 0 22 66
-                                                   141 2 74 0 0 0 142 2 74 0 0
-                                                   66 143 2 74 0 0 0 144 2 22 0
-                                                   72 42 145 2 29 22 0 7 146 2
-                                                   66 27 0 0 147 2 105 104 0 7
-                                                   148 1 20 0 0 153 1 24 49 0
-                                                   154 2 49 27 42 0 155 2 49 0
-                                                   0 0 156 0 24 0 157 3 24 0 0
-                                                   42 66 158 3 24 0 0 49 159
-                                                   160 1 161 19 19 162 2 19 27
-                                                   0 0 163 0 24 0 164 1 24 85 0
-                                                   165 1 0 27 20 149 1 0 27 20
-                                                   150 1 0 20 20 109 1 0 27 20
-                                                   1 1 0 151 20 152 2 0 20 20
-                                                   49 166)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|zeroDimPrime?|
+                                 ((|Boolean|)
+                                  (|PolynomialIdeal| (|Fraction| (|Integer|))
+                                                     (|DirectProduct|
+                                                      (|#| |#1|)
+                                                      (|NonNegativeInteger|))
+                                                     (|OrderedVariableList|
+                                                      |#1|)
+                                                     (|DistributedMultivariatePolynomial|
+                                                      |#1|
+                                                      (|Fraction|
+                                                       (|Integer|))))))
+                                T)
+                              '((|zeroDimPrimary?|
+                                 ((|Boolean|)
+                                  (|PolynomialIdeal| (|Fraction| (|Integer|))
+                                                     (|DirectProduct|
+                                                      (|#| |#1|)
+                                                      (|NonNegativeInteger|))
+                                                     (|OrderedVariableList|
+                                                      |#1|)
+                                                     (|DistributedMultivariatePolynomial|
+                                                      |#1|
+                                                      (|Fraction|
+                                                       (|Integer|))))))
+                                T)
+                              '((|prime?|
+                                 ((|Boolean|)
+                                  (|PolynomialIdeal| (|Fraction| (|Integer|))
+                                                     (|DirectProduct|
+                                                      (|#| |#1|)
+                                                      (|NonNegativeInteger|))
+                                                     (|OrderedVariableList|
+                                                      |#1|)
+                                                     (|DistributedMultivariatePolynomial|
+                                                      |#1|
+                                                      (|Fraction|
+                                                       (|Integer|))))))
+                                T)
+                              '((|radical|
+                                 ((|PolynomialIdeal| (|Fraction| (|Integer|))
+                                                     (|DirectProduct|
+                                                      (|#| |#1|)
+                                                      (|NonNegativeInteger|))
+                                                     (|OrderedVariableList|
+                                                      |#1|)
+                                                     (|DistributedMultivariatePolynomial|
+                                                      |#1|
+                                                      (|Fraction|
+                                                       (|Integer|))))
+                                  (|PolynomialIdeal| (|Fraction| (|Integer|))
+                                                     (|DirectProduct|
+                                                      (|#| |#1|)
+                                                      (|NonNegativeInteger|))
+                                                     (|OrderedVariableList|
+                                                      |#1|)
+                                                     (|DistributedMultivariatePolynomial|
+                                                      |#1|
+                                                      (|Fraction|
+                                                       (|Integer|))))))
+                                T)
+                              '((|primaryDecomp|
+                                 ((|List|
+                                   (|PolynomialIdeal| (|Fraction| (|Integer|))
+                                                      (|DirectProduct|
+                                                       (|#| |#1|)
+                                                       (|NonNegativeInteger|))
+                                                      (|OrderedVariableList|
+                                                       |#1|)
+                                                      (|DistributedMultivariatePolynomial|
+                                                       |#1|
+                                                       (|Fraction|
+                                                        (|Integer|)))))
+                                  (|PolynomialIdeal| (|Fraction| (|Integer|))
+                                                     (|DirectProduct|
+                                                      (|#| |#1|)
+                                                      (|NonNegativeInteger|))
+                                                     (|OrderedVariableList|
+                                                      |#1|)
+                                                     (|DistributedMultivariatePolynomial|
+                                                      |#1|
+                                                      (|Fraction|
+                                                       (|Integer|))))))
+                                T)
+                              '((|contract|
+                                 ((|PolynomialIdeal| (|Fraction| (|Integer|))
+                                                     (|DirectProduct|
+                                                      (|#| |#1|)
+                                                      (|NonNegativeInteger|))
+                                                     (|OrderedVariableList|
+                                                      |#1|)
+                                                     (|DistributedMultivariatePolynomial|
+                                                      |#1|
+                                                      (|Fraction|
+                                                       (|Integer|))))
+                                  (|PolynomialIdeal| (|Fraction| (|Integer|))
+                                                     (|DirectProduct|
+                                                      (|#| |#1|)
+                                                      (|NonNegativeInteger|))
+                                                     (|OrderedVariableList|
+                                                      |#1|)
+                                                     (|DistributedMultivariatePolynomial|
+                                                      |#1|
+                                                      (|Fraction|
+                                                       (|Integer|))))
+                                  (|List| (|OrderedVariableList| |#1|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 166
+                                            '(1 8 7 0 9 1 10 0 7 11 1 8 7 0 12
+                                              2 10 0 0 0 13 1 10 14 0 15 1 14 7
+                                              0 16 1 10 14 0 17 2 8 0 7 7 18 1
+                                              20 19 0 21 2 25 22 23 24 26 1 20
+                                              27 0 28 1 30 0 29 31 1 30 0 29 32
+                                              1 30 29 0 33 2 35 24 34 22 36 1
+                                              30 27 0 37 1 20 0 19 38 1 20 0 19
+                                              39 1 42 40 41 43 0 10 0 45 0 22 0
+                                              47 2 30 27 22 0 48 2 49 27 0 0 50
+                                              2 42 27 0 0 51 2 49 0 0 0 52 2 49
+                                              0 53 0 54 2 49 42 0 55 56 2 22 0
+                                              0 42 57 2 22 0 0 0 58 2 22 40 0 0
+                                              59 1 22 0 42 60 2 29 22 0 55 61 2
+                                              29 0 22 0 62 1 63 29 29 64 0 22 0
+                                              65 2 22 66 0 42 67 2 66 27 0 0 68
+                                              2 22 0 7 0 69 2 22 0 0 0 70 2 22
+                                              0 0 0 71 2 22 72 0 42 73 2 74 22
+                                              0 22 75 0 10 0 76 0 8 0 77 2 22
+                                              27 0 0 78 1 30 0 0 79 2 30 0 0 22
+                                              80 2 22 0 0 0 81 2 30 27 0 0 82 0
+                                              8 0 83 2 29 27 0 0 84 1 22 85 0
+                                              86 2 42 27 0 0 87 2 42 27 0 0 88
+                                              2 29 27 0 0 89 2 49 7 42 0 90 1
+                                              22 0 0 91 1 22 49 0 92 2 49 0 0 0
+                                              93 2 49 0 42 0 94 1 22 10 0 95 2
+                                              10 0 0 0 96 1 22 0 10 97 1 98 0
+                                              30 99 1 101 100 22 102 1 100 105
+                                              0 106 2 22 0 0 66 107 2 30 0 0 0
+                                              108 1 42 41 0 110 0 14 0 111 3 14
+                                              0 0 41 66 112 1 10 0 14 113 3 22
+                                              0 0 42 66 114 2 22 0 10 0 115 2
+                                              14 0 0 0 116 2 14 66 0 41 117 2
+                                              14 72 0 41 118 1 10 0 0 119 1 22
+                                              120 0 121 2 22 0 10 120 122 0 123
+                                              0 124 2 123 27 0 0 125 1 123 14 0
+                                              126 1 123 66 0 127 1 123 0 0 128
+                                              2 66 40 0 0 129 2 49 42 0 7 130 2
+                                              29 0 0 0 131 2 30 27 22 0 132 1
+                                              49 42 0 133 2 134 27 0 0 135 1 22
+                                              0 0 136 1 74 22 0 137 1 22 27 0
+                                              138 1 74 66 0 139 2 74 22 0 66
+                                              140 2 74 0 22 66 141 2 74 0 0 0
+                                              142 2 74 0 0 66 143 2 74 0 0 0
+                                              144 2 22 0 72 42 145 2 29 22 0 7
+                                              146 2 66 27 0 0 147 2 105 104 0 7
+                                              148 1 20 0 0 153 1 24 49 0 154 2
+                                              49 27 42 0 155 2 49 0 0 0 156 0
+                                              24 0 157 3 24 0 0 42 66 158 3 24
+                                              0 0 49 159 160 1 161 19 19 162 2
+                                              19 27 0 0 163 0 24 0 164 1 24 85
+                                              0 165 1 0 27 20 149 1 0 27 20 150
+                                              1 0 20 20 109 1 0 27 20 1 1 0 151
+                                              20 152 2 0 20 20 49 166)))))
            '|lookupComplete|)) 

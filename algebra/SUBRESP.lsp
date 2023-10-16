@@ -209,17 +209,25 @@
               (75 . ^) (81 . |coerce|) (86 . |One|) (90 . ~=)
               (|PrimitiveArray| 7) |SUBRESP;subresultantVector;2UPPa;2|)
            '#(|subresultantVector| 96 |primitivePart| 102) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 34
-                                                 '(1 7 6 0 8 0 6 0 9 3 6 11 0 0
-                                                   0 12 2 6 0 0 0 13 2 6 0 0 0
-                                                   14 2 7 0 15 0 16 1 7 0 0 17
-                                                   1 7 0 0 18 2 0 7 7 6 19 1 7
-                                                   20 0 21 0 7 0 22 2 24 23 7 7
-                                                   25 2 20 26 0 0 27 0 6 0 28 2
-                                                   6 0 0 20 29 1 7 0 6 30 0 7 0
-                                                   31 2 23 26 0 0 32 2 0 33 7 7
-                                                   34 2 1 7 7 6 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|subresultantVector|
+                                 ((|PrimitiveArray| |#2|) |#2| |#2|))
+                                T)
+                              '((|primitivePart| (|#2| |#2| |#1|))
+                                (|has| 6 (|EuclideanDomain|))))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 34
+                                            '(1 7 6 0 8 0 6 0 9 3 6 11 0 0 0 12
+                                              2 6 0 0 0 13 2 6 0 0 0 14 2 7 0
+                                              15 0 16 1 7 0 0 17 1 7 0 0 18 2 0
+                                              7 7 6 19 1 7 20 0 21 0 7 0 22 2
+                                              24 23 7 7 25 2 20 26 0 0 27 0 6 0
+                                              28 2 6 0 0 20 29 1 7 0 6 30 0 7 0
+                                              31 2 23 26 0 0 32 2 0 33 7 7 34 2
+                                              1 7 7 6 19)))))
            '|lookupComplete|)) 

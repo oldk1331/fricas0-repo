@@ -28,10 +28,18 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . *)
               (6 . *) (|Integer|) (|NonNegativeInteger|) (|PositiveInteger|))
            '#(* 12) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 9
-                                                 '(2 6 0 7 0 8 2 0 0 0 7 9 2 0
-                                                   0 0 7 9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((* (|#1| |#1| |#2|)) T)
+                                   '((* (|#1| (|Integer|) |#1|)) T)
+                                   '((* (|#1| (|NonNegativeInteger|) |#1|)) T)
+                                   '((* (|#1| |#2| |#1|)) T)
+                                   '((* (|#1| (|PositiveInteger|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 9
+                                            '(2 6 0 7 0 8 2 0 0 0 7 9 2 0 0 0 7
+                                              9)))))
            '|lookupComplete|)) 

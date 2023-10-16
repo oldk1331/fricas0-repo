@@ -1185,72 +1185,246 @@
               |DRAWCFUN;makeObject;M2STs;36| |DRAWCFUN;draw;M2SLTdv;37|
               |DRAWCFUN;draw;M2STdv;38|)
            '#(|recolor| 414 |makeObject| 420 |draw| 505) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 166
-                                                 '(1 10 9 0 11 1 12 0 9 13 1 10
-                                                   9 0 14 2 12 0 0 0 15 1 12 0
-                                                   0 16 2 12 0 0 17 18 2 12 19
-                                                   0 0 20 2 12 0 0 0 21 2 22 0
-                                                   12 12 23 2 25 22 24 10 26 1
-                                                   28 27 0 29 1 28 10 0 30 1 28
-                                                   10 0 31 2 35 32 33 34 36 0
-                                                   37 19 38 2 40 19 39 19 41 1
-                                                   28 19 0 42 1 44 43 28 45 1
-                                                   44 43 28 46 1 49 47 48 50 2
-                                                   47 19 0 51 52 1 22 12 0 53 1
-                                                   12 9 0 54 1 22 12 0 55 1 47
-                                                   22 0 56 5 44 43 27 9 9 9 9
-                                                   57 0 37 19 58 2 40 19 39 19
-                                                   59 1 35 0 47 60 0 62 61 63 2
-                                                   40 61 39 61 64 0 62 61 65 2
-                                                   40 61 39 61 66 0 62 67 68 5
-                                                   70 69 27 61 61 67 39 71 2 10
-                                                   0 9 9 72 2 9 19 0 0 73 1 75
-                                                   0 74 76 0 28 19 77 2 40 19
-                                                   39 19 78 1 28 19 19 79 1 81
-                                                   80 48 82 1 83 80 0 84 1 86
-                                                   85 0 87 2 28 0 85 10 88 2 91
-                                                   0 69 39 92 0 12 0 95 2 96 89
-                                                   0 51 97 2 75 9 0 17 101 3 75
-                                                   9 0 17 9 102 1 40 103 39 104
-                                                   2 105 89 0 51 106 1 107 89
-                                                   48 108 2 109 0 85 10 110 2
-                                                   35 19 33 34 111 2 40 67 39
-                                                   67 112 3 12 0 17 17 67 113 2
-                                                   40 12 39 12 114 3 116 115
-                                                   109 9 17 117 1 115 27 0 118
-                                                   1 120 119 48 121 4 103 0 0
-                                                   27 19 19 122 1 109 27 0 123
-                                                   2 103 0 0 124 125 2 75 0 0 9
-                                                   127 2 131 0 103 39 132 0 9 0
-                                                   137 0 67 0 138 1 142 141 48
-                                                   143 1 144 141 0 145 1 146
-                                                   139 0 147 5 148 103 103 139
-                                                   10 10 39 149 0 51 0 154 2
-                                                   155 141 0 51 156 1 157 119 0
-                                                   158 2 0 139 139 119 140 3 0
-                                                   69 89 22 39 90 3 0 69 96 22
-                                                   39 98 3 0 103 105 22 39 126
-                                                   3 0 103 85 22 39 128 2 0 103
-                                                   105 22 129 2 0 103 85 22 130
-                                                   3 0 103 141 22 22 151 4 0
-                                                   103 141 22 22 39 150 4 0 103
-                                                   139 22 22 39 160 3 0 103 139
-                                                   22 22 164 4 0 103 155 22 22
-                                                   39 159 3 0 103 155 22 22 161
-                                                   3 0 91 89 22 39 93 2 0 91 89
-                                                   22 94 3 0 91 96 22 39 99 2 0
-                                                   91 96 22 100 3 0 131 105 22
-                                                   39 133 3 0 131 85 22 39 135
-                                                   2 0 131 105 22 134 2 0 131
-                                                   85 22 136 3 0 131 141 22 22
-                                                   153 4 0 131 141 22 22 39 152
-                                                   3 0 131 139 22 22 166 4 0
-                                                   131 139 22 22 39 165 4 0 131
-                                                   155 22 22 39 162 3 0 131 155
-                                                   22 22 163)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|)
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|)
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|GraphImage|)
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|)
+                                  (|ParametricPlaneCurve|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+                                  (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|TwoDimensionalViewport|)
+                                  (|ParametricPlaneCurve|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+                                  (|Segment| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|GraphImage|)
+                                  (|ParametricPlaneCurve|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+                                  (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|ParametricSpaceCurve|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+                                  (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|ParametricSpaceCurve|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+                                  (|Segment| (|Float|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|))
+                                  (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|))
+                                  (|Segment| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|ParametricSpaceCurve|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+                                  (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|ParametricSpaceCurve|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+                                  (|Segment| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|))
+                                  (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|))
+                                  (|Segment| (|Float|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|ParametricSurface|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                              (|DoubleFloat|)))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|draw|
+                                 ((|ThreeDimensionalViewport|)
+                                  (|ParametricSurface|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                              (|DoubleFloat|)))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|ParametricSurface|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                              (|DoubleFloat|)))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))
+                                  (|List| (|DrawOption|))))
+                                T)
+                              '((|makeObject|
+                                 ((|ThreeSpace| (|DoubleFloat|))
+                                  (|ParametricSurface|
+                                   (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                              (|DoubleFloat|)))
+                                  (|Segment| (|Float|)) (|Segment| (|Float|))))
+                                T)
+                              '((|recolor|
+                                 ((|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Mapping| (|Point| (|DoubleFloat|))
+                                             (|DoubleFloat|) (|DoubleFloat|))
+                                  (|Mapping| (|DoubleFloat|) (|DoubleFloat|)
+                                             (|DoubleFloat|) (|DoubleFloat|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 166
+                                            '(1 10 9 0 11 1 12 0 9 13 1 10 9 0
+                                              14 2 12 0 0 0 15 1 12 0 0 16 2 12
+                                              0 0 17 18 2 12 19 0 0 20 2 12 0 0
+                                              0 21 2 22 0 12 12 23 2 25 22 24
+                                              10 26 1 28 27 0 29 1 28 10 0 30 1
+                                              28 10 0 31 2 35 32 33 34 36 0 37
+                                              19 38 2 40 19 39 19 41 1 28 19 0
+                                              42 1 44 43 28 45 1 44 43 28 46 1
+                                              49 47 48 50 2 47 19 0 51 52 1 22
+                                              12 0 53 1 12 9 0 54 1 22 12 0 55
+                                              1 47 22 0 56 5 44 43 27 9 9 9 9
+                                              57 0 37 19 58 2 40 19 39 19 59 1
+                                              35 0 47 60 0 62 61 63 2 40 61 39
+                                              61 64 0 62 61 65 2 40 61 39 61 66
+                                              0 62 67 68 5 70 69 27 61 61 67 39
+                                              71 2 10 0 9 9 72 2 9 19 0 0 73 1
+                                              75 0 74 76 0 28 19 77 2 40 19 39
+                                              19 78 1 28 19 19 79 1 81 80 48 82
+                                              1 83 80 0 84 1 86 85 0 87 2 28 0
+                                              85 10 88 2 91 0 69 39 92 0 12 0
+                                              95 2 96 89 0 51 97 2 75 9 0 17
+                                              101 3 75 9 0 17 9 102 1 40 103 39
+                                              104 2 105 89 0 51 106 1 107 89 48
+                                              108 2 109 0 85 10 110 2 35 19 33
+                                              34 111 2 40 67 39 67 112 3 12 0
+                                              17 17 67 113 2 40 12 39 12 114 3
+                                              116 115 109 9 17 117 1 115 27 0
+                                              118 1 120 119 48 121 4 103 0 0 27
+                                              19 19 122 1 109 27 0 123 2 103 0
+                                              0 124 125 2 75 0 0 9 127 2 131 0
+                                              103 39 132 0 9 0 137 0 67 0 138 1
+                                              142 141 48 143 1 144 141 0 145 1
+                                              146 139 0 147 5 148 103 103 139
+                                              10 10 39 149 0 51 0 154 2 155 141
+                                              0 51 156 1 157 119 0 158 2 0 139
+                                              139 119 140 3 0 69 89 22 39 90 3
+                                              0 69 96 22 39 98 3 0 103 105 22
+                                              39 126 3 0 103 85 22 39 128 2 0
+                                              103 105 22 129 2 0 103 85 22 130
+                                              3 0 103 141 22 22 151 4 0 103 141
+                                              22 22 39 150 4 0 103 139 22 22 39
+                                              160 3 0 103 139 22 22 164 4 0 103
+                                              155 22 22 39 159 3 0 103 155 22
+                                              22 161 3 0 91 89 22 39 93 2 0 91
+                                              89 22 94 3 0 91 96 22 39 99 2 0
+                                              91 96 22 100 3 0 131 105 22 39
+                                              133 3 0 131 85 22 39 135 2 0 131
+                                              105 22 134 2 0 131 85 22 136 3 0
+                                              131 141 22 22 153 4 0 131 141 22
+                                              22 39 152 3 0 131 139 22 22 166 4
+                                              0 131 139 22 22 39 165 4 0 131
+                                              155 22 22 39 162 3 0 131 155 22
+                                              22 163)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TopLevelDrawFunctionsForCompiledFunctions| 'NILADIC T) 

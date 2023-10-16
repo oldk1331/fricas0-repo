@@ -51,7 +51,16 @@
               (|local| |#3|) (|Mapping| 8 7) (|Mapping| 7 6)
               |MAPHACK3;comp;MMAC;1|)
            '#(|comp| 0) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#() (|makeByteWordVec2| 11 '(3 0 8 9 10 6 11)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|comp|
+                                 (|#3| (|Mapping| |#3| |#2|)
+                                  (|Mapping| |#2| |#1|) |#1|))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 11 '(3 0 8 9 10 6 11)))))
            '|lookupComplete|)) 

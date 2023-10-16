@@ -1589,7 +1589,7 @@
               (45 . =) (|Kernel| 6) (51 . |operator|) (|List| 6)
               (56 . |argument|) (|List| $) (61 . |eval|) (68 . ~=) (74 . |elt|)
               (80 . |name|) (85 . |One|) (|Integer|) (89 . |elt|)
-              (|Union| 51 '"failed")
+              (|Union| 51 '#1="failed")
               (|Record| (|:| |tan_syms| 86) (|:| |atan_syms| 86)
                         (|:| |tan_kers| 47) (|:| |atan_kers| 47))
               |MRVLIM;mrv_limit;ESRU;14| (95 . |coerce|) (100 . |kernels|)
@@ -1617,11 +1617,11 @@
               (338 . >) (|OutputForm|) (344 . |coerce|) (|Void|)
               (|PrintPackage|) (349 . |print|) (354 . |reductum|)
               (|Record| (|:| |degree| 68) (|:| |coeff| 6))
-              (|Union| 115 '"failed") |MRVLIM;expr_to_series;EKRU;7|
+              (|Union| 115 '#2="failed") |MRVLIM;expr_to_series;EKRU;7|
               (359 . |coerce|) (364 . =) (370 . |finite?|) (375 . |retract|)
               (|Record| (|:| |sign| 40) (|:| |coeff| 6))
-              (|Union| 122 '"failed") |MRVLIM;mrv_cmp;2KSRU;8|
-              (|Record| (|:| |lk| 47) (|:| |lc| 32)) (|Union| 125 '"failed")
+              (|Union| 122 '#3="failed") |MRVLIM;mrv_cmp;2KSRU;8|
+              (|Record| (|:| |lk| 47) (|:| |lc| 32)) (|Union| 125 '#4="failed")
               |MRVLIM;mrv_set;ESRU;9| (380 . ^) |MRVLIM;mrv_rewrite0;ELL2E;11|
               |MRVLIM;mrv_rewrite;ELLSRU;12| (386 . |plusInfinity|)
               (390 . |member?|) |MRVLIM;mrv_sign;ESRU;13| (396 . |Zero|)
@@ -1630,7 +1630,7 @@
               (|Union| 6 '"failed") (427 . |retractIfCan|)
               (|Union| 9 '"failed") (432 . |retractIfCan|) (437 . |rhs|)
               (|Record| (|:| |leftHandLimit| 42) (|:| |rightHandLimit| 42))
-              (|Union| 51 147 '"failed") |MRVLIM;mrv_limit;ESOcU;19|
+              (|Union| 51 147 '#5="failed") |MRVLIM;mrv_limit;ESOcU;19|
               |MRVLIM;mrv_limit;EEU;16| (442 . |retract|) (447 . |inv|)
               (452 . +) (458 . =) (464 . |subst|) (471 . |kernel|)
               (|Equation| 6) (476 . |lhs|) (481 . |rhs|) (|String|)
@@ -1640,64 +1640,268 @@
               |mrv_normalize| 522 |mrv_limit1| 529 |mrv_limit| 535 |mrv_cmp|
               570 |expr_to_series| 578)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 164
-                                                 '(0 6 0 7 0 9 0 10 1 13 12 9
-                                                   14 1 6 12 12 15 1 6 20 0 21
-                                                   1 6 0 22 23 2 6 0 0 9 24 2 6
-                                                   25 0 0 26 1 27 6 6 28 2 6 25
-                                                   0 0 29 1 30 12 0 31 1 30 32
-                                                   0 33 3 6 0 0 20 34 35 2 32
-                                                   25 0 0 36 2 6 0 12 34 37 1
-                                                   12 9 0 38 0 6 0 39 2 32 6 0
-                                                   40 41 1 6 0 9 45 1 6 20 0 46
-                                                   2 47 30 0 40 48 3 32 6 0 40
-                                                   6 49 1 51 50 0 52 0 6 0 53 1
-                                                   6 0 40 54 2 6 0 0 0 55 1 6 0
-                                                   0 56 2 6 0 0 0 57 1 6 0 0 58
-                                                   2 6 0 12 0 59 1 6 0 0 60 2 6
-                                                   0 0 0 61 1 6 0 0 62 2 6 0 0
-                                                   63 64 1 68 6 0 69 1 6 71 0
-                                                   72 1 6 71 0 73 2 47 25 30 0
-                                                   74 2 76 75 0 30 77 2 75 25 0
-                                                   0 78 1 6 0 71 79 1 81 80 6
-                                                   82 0 66 0 83 2 40 25 0 0 84
-                                                   3 6 0 0 22 0 85 1 6 86 0 87
-                                                   2 86 0 0 0 88 2 47 0 0 0 89
-                                                   2 86 0 0 0 90 1 86 25 0 91 1
-                                                   47 75 0 92 0 75 0 93 2 75 25
-                                                   0 0 94 1 47 30 0 95 2 75 25
-                                                   0 0 96 0 75 0 97 2 30 25 0 9
-                                                   98 8 70 100 6 25 101 25 6
-                                                   102 102 102 103 1 67 68 0
-                                                   104 2 67 0 0 68 105 1 67 6 0
-                                                   106 0 66 0 107 2 40 25 0 0
-                                                   108 1 67 109 0 110 1 112 111
-                                                   109 113 1 67 0 0 114 1 51 0
-                                                   6 118 2 51 25 0 0 119 1 51
-                                                   25 0 120 1 51 6 0 121 2 6 0
-                                                   0 0 128 0 51 0 131 2 86 25 9
-                                                   0 132 0 68 0 134 2 68 25 0 0
-                                                   135 2 68 25 0 0 136 2 68 25
-                                                   0 0 137 0 51 0 138 1 140 51
-                                                   0 141 1 51 142 0 143 1 6 144
-                                                   0 145 1 140 51 0 146 1 6 22
-                                                   0 151 1 6 0 0 152 2 6 0 0 0
-                                                   153 2 42 25 0 0 154 3 6 0 0
-                                                   20 34 155 1 30 0 9 156 1 157
-                                                   6 0 158 1 157 6 0 159 1 163
-                                                   40 160 164 3 0 80 6 9 43 133
-                                                   3 0 126 6 9 43 127 4 0 6 6
-                                                   47 32 6 129 5 0 116 6 47 32
-                                                   9 43 130 3 0 6 6 9 43 65 2 0
-                                                   42 6 9 139 2 0 148 6 140 150
-                                                   3 0 42 6 157 160 162 3 0 148
-                                                   6 9 51 149 4 0 42 6 9 6 160
-                                                   161 3 0 42 6 9 43 44 4 0 123
-                                                   30 30 9 43 124 3 0 116 6 30
-                                                   43 117)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|mrv_limit|
+                                 ((|Union|
+                                   (|OrderedCompletion|
+                                    (|Expression| (|Integer|)))
+                                   (|Record|
+                                    (|:| |leftHandLimit|
+                                         (|Union|
+                                          (|OrderedCompletion|
+                                           (|Expression| (|Integer|)))
+                                          #1#))
+                                    (|:| |rightHandLimit|
+                                         (|Union|
+                                          (|OrderedCompletion|
+                                           (|Expression| (|Integer|)))
+                                          #1#)))
+                                   #5#)
+                                  (|Expression| (|Integer|))
+                                  (|Equation|
+                                   (|OrderedCompletion|
+                                    (|Expression| (|Integer|))))))
+                                T)
+                              '((|mrv_limit|
+                                 ((|Union|
+                                   (|OrderedCompletion|
+                                    (|Expression| (|Integer|)))
+                                   (|Record|
+                                    (|:| |leftHandLimit|
+                                         (|Union|
+                                          (|OrderedCompletion|
+                                           (|Expression| (|Integer|)))
+                                          #1#))
+                                    (|:| |rightHandLimit|
+                                         (|Union|
+                                          (|OrderedCompletion|
+                                           (|Expression| (|Integer|)))
+                                          #1#)))
+                                   #5#)
+                                  (|Expression| (|Integer|)) (|Symbol|)
+                                  (|OrderedCompletion|
+                                   (|Expression| (|Integer|)))))
+                                T)
+                              '((|mrv_limit|
+                                 ((|Union|
+                                   (|OrderedCompletion|
+                                    (|Expression| (|Integer|)))
+                                   #1#)
+                                  (|Expression| (|Integer|))
+                                  (|Equation| (|Expression| (|Integer|)))
+                                  (|String|)))
+                                T)
+                              '((|mrv_limit|
+                                 ((|Union|
+                                   (|OrderedCompletion|
+                                    (|Expression| (|Integer|)))
+                                   #1#)
+                                  (|Expression| (|Integer|)) (|Symbol|)
+                                  (|Expression| (|Integer|)) (|String|)))
+                                T)
+                              '((|mrv_normalize|
+                                 ((|Expression| (|Integer|))
+                                  (|Expression| (|Integer|)) (|Symbol|)
+                                  (|Record|
+                                   (|:| |tan_syms| (|List| (|Symbol|)))
+                                   (|:| |atan_syms| (|List| (|Symbol|)))
+                                   (|:| |tan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|)))))
+                                   (|:| |atan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|))))))))
+                                T)
+                              '((|mrv_limit|
+                                 ((|Union|
+                                   (|OrderedCompletion|
+                                    (|Expression| (|Integer|)))
+                                   #1#)
+                                  (|Expression| (|Integer|)) (|Symbol|)
+                                  (|Record|
+                                   (|:| |tan_syms| (|List| (|Symbol|)))
+                                   (|:| |atan_syms| (|List| (|Symbol|)))
+                                   (|:| |tan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|)))))
+                                   (|:| |atan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|))))))))
+                                T)
+                              '((|mrv_limit1|
+                                 ((|Union|
+                                   (|OrderedCompletion|
+                                    (|Expression| (|Integer|)))
+                                   #1#)
+                                  (|Expression| (|Integer|)) (|Symbol|)))
+                                T)
+                              '((|mrv_sign|
+                                 ((|Union| (|Integer|) "failed")
+                                  (|Expression| (|Integer|)) (|Symbol|)
+                                  (|Record|
+                                   (|:| |tan_syms| (|List| (|Symbol|)))
+                                   (|:| |atan_syms| (|List| (|Symbol|)))
+                                   (|:| |tan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|)))))
+                                   (|:| |atan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|))))))))
+                                T)
+                              '((|mrv_cmp|
+                                 ((|Union|
+                                   (|Record| (|:| |sign| (|Integer|))
+                                             (|:| |coeff|
+                                                  (|Expression| (|Integer|))))
+                                   #3#)
+                                  (|Kernel| (|Expression| (|Integer|)))
+                                  (|Kernel| (|Expression| (|Integer|)))
+                                  (|Symbol|)
+                                  (|Record|
+                                   (|:| |tan_syms| (|List| (|Symbol|)))
+                                   (|:| |atan_syms| (|List| (|Symbol|)))
+                                   (|:| |tan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|)))))
+                                   (|:| |atan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|))))))))
+                                T)
+                              '((|mrv_set|
+                                 ((|Union|
+                                   (|Record|
+                                    (|:| |lk|
+                                         (|List|
+                                          (|Kernel|
+                                           (|Expression| (|Integer|)))))
+                                    (|:| |lc|
+                                         (|List| (|Expression| (|Integer|)))))
+                                   #4#)
+                                  (|Expression| (|Integer|)) (|Symbol|)
+                                  (|Record|
+                                   (|:| |tan_syms| (|List| (|Symbol|)))
+                                   (|:| |atan_syms| (|List| (|Symbol|)))
+                                   (|:| |tan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|)))))
+                                   (|:| |atan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|))))))))
+                                T)
+                              '((|expr_to_series|
+                                 ((|Union|
+                                   (|Record|
+                                    (|:| |degree| (|OrderedExpression|))
+                                    (|:| |coeff| (|Expression| (|Integer|))))
+                                   #2#)
+                                  (|Expression| (|Integer|))
+                                  (|Kernel| (|Expression| (|Integer|)))
+                                  (|Record|
+                                   (|:| |tan_syms| (|List| (|Symbol|)))
+                                   (|:| |atan_syms| (|List| (|Symbol|)))
+                                   (|:| |tan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|)))))
+                                   (|:| |atan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|))))))))
+                                T)
+                              '((|mrv_rewrite|
+                                 ((|Union|
+                                   (|Record|
+                                    (|:| |degree| (|OrderedExpression|))
+                                    (|:| |coeff| (|Expression| (|Integer|))))
+                                   #2#)
+                                  (|Expression| (|Integer|))
+                                  (|List|
+                                   (|Kernel| (|Expression| (|Integer|))))
+                                  (|List| (|Expression| (|Integer|)))
+                                  (|Symbol|)
+                                  (|Record|
+                                   (|:| |tan_syms| (|List| (|Symbol|)))
+                                   (|:| |atan_syms| (|List| (|Symbol|)))
+                                   (|:| |tan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|)))))
+                                   (|:| |atan_kers|
+                                        (|List|
+                                         (|Kernel|
+                                          (|Expression| (|Integer|))))))))
+                                T)
+                              '((|mrv_rewrite0|
+                                 ((|Expression| (|Integer|))
+                                  (|Expression| (|Integer|))
+                                  (|List|
+                                   (|Kernel| (|Expression| (|Integer|))))
+                                  (|List| (|Expression| (|Integer|)))
+                                  (|Expression| (|Integer|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 164
+                                            '(0 6 0 7 0 9 0 10 1 13 12 9 14 1 6
+                                              12 12 15 1 6 20 0 21 1 6 0 22 23
+                                              2 6 0 0 9 24 2 6 25 0 0 26 1 27 6
+                                              6 28 2 6 25 0 0 29 1 30 12 0 31 1
+                                              30 32 0 33 3 6 0 0 20 34 35 2 32
+                                              25 0 0 36 2 6 0 12 34 37 1 12 9 0
+                                              38 0 6 0 39 2 32 6 0 40 41 1 6 0
+                                              9 45 1 6 20 0 46 2 47 30 0 40 48
+                                              3 32 6 0 40 6 49 1 51 50 0 52 0 6
+                                              0 53 1 6 0 40 54 2 6 0 0 0 55 1 6
+                                              0 0 56 2 6 0 0 0 57 1 6 0 0 58 2
+                                              6 0 12 0 59 1 6 0 0 60 2 6 0 0 0
+                                              61 1 6 0 0 62 2 6 0 0 63 64 1 68
+                                              6 0 69 1 6 71 0 72 1 6 71 0 73 2
+                                              47 25 30 0 74 2 76 75 0 30 77 2
+                                              75 25 0 0 78 1 6 0 71 79 1 81 80
+                                              6 82 0 66 0 83 2 40 25 0 0 84 3 6
+                                              0 0 22 0 85 1 6 86 0 87 2 86 0 0
+                                              0 88 2 47 0 0 0 89 2 86 0 0 0 90
+                                              1 86 25 0 91 1 47 75 0 92 0 75 0
+                                              93 2 75 25 0 0 94 1 47 30 0 95 2
+                                              75 25 0 0 96 0 75 0 97 2 30 25 0
+                                              9 98 8 70 100 6 25 101 25 6 102
+                                              102 102 103 1 67 68 0 104 2 67 0
+                                              0 68 105 1 67 6 0 106 0 66 0 107
+                                              2 40 25 0 0 108 1 67 109 0 110 1
+                                              112 111 109 113 1 67 0 0 114 1 51
+                                              0 6 118 2 51 25 0 0 119 1 51 25 0
+                                              120 1 51 6 0 121 2 6 0 0 0 128 0
+                                              51 0 131 2 86 25 9 0 132 0 68 0
+                                              134 2 68 25 0 0 135 2 68 25 0 0
+                                              136 2 68 25 0 0 137 0 51 0 138 1
+                                              140 51 0 141 1 51 142 0 143 1 6
+                                              144 0 145 1 140 51 0 146 1 6 22 0
+                                              151 1 6 0 0 152 2 6 0 0 0 153 2
+                                              42 25 0 0 154 3 6 0 0 20 34 155 1
+                                              30 0 9 156 1 157 6 0 158 1 157 6
+                                              0 159 1 163 40 160 164 3 0 80 6 9
+                                              43 133 3 0 126 6 9 43 127 4 0 6 6
+                                              47 32 6 129 5 0 116 6 47 32 9 43
+                                              130 3 0 6 6 9 43 65 2 0 42 6 9
+                                              139 2 0 148 6 140 150 3 0 42 6
+                                              157 160 162 3 0 148 6 9 51 149 4
+                                              0 42 6 9 6 160 161 3 0 42 6 9 43
+                                              44 4 0 123 30 30 9 43 124 3 0 116
+                                              6 30 43 117)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|MrvLimitPackage| 'NILADIC T) 

@@ -24,10 +24,16 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
               (4 . *) |ALGEBRA-;coerce;RS;1| (|OutputForm|) (|Integer|))
            '#(|coerce| 10) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 10
-                                                 '(0 6 0 8 2 6 0 7 0 9 1 0 0 7
-                                                   10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|coerce| (|#1| |#2|)) T)
+                                   '((|coerce| (|#1| (|Integer|))) T)
+                                   '((|coerce| ((|OutputForm|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 10
+                                            '(0 6 0 8 2 6 0 7 0 9 1 0 0 7
+                                              10)))))
            '|lookupComplete|)) 

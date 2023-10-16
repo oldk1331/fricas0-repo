@@ -60,12 +60,16 @@
               (18 . |real|) (23 . |convert|) (28 . *) (34 . +)
               |COMPLPAT;convert;CSP;1|)
            '#(|convert| 40) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 20
-                                                 '(4 11 0 9 10 10 10 12 1 8 7 0
-                                                   14 1 7 10 0 15 1 8 7 0 16 1
-                                                   7 11 0 17 2 11 0 0 0 18 2 11
-                                                   0 0 0 19 1 0 11 8 20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|convert| ((|Pattern| |#1|) |#3|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 20
+                                            '(4 11 0 9 10 10 10 12 1 8 7 0 14 1
+                                              7 10 0 15 1 8 7 0 16 1 7 11 0 17
+                                              2 11 0 0 0 18 2 11 0 0 0 19 1 0
+                                              11 8 20)))))
            '|lookupComplete|)) 

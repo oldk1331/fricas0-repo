@@ -88,14 +88,18 @@
               (48 . |factor|) (|Factored| 6) (|Mapping| 6 10)
               (|FactoredFunctions2| 10 6) (53 . |map|) |RFFACT;factor;UPF;2|)
            '#(|factor| 59) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 31
-                                                 '(0 7 0 8 2 11 0 10 10 12 2 10
-                                                   13 0 7 14 2 17 6 15 16 18 1
-                                                   10 0 7 19 1 11 0 10 20 2 6
-                                                   11 0 11 21 1 11 10 0 22 1 11
-                                                   10 0 23 1 25 24 10 26 2 29
-                                                   27 28 24 30 1 0 27 6 31)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|factor| ((|Factored| |#1|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 31
+                                            '(0 7 0 8 2 11 0 10 10 12 2 10 13 0
+                                              7 14 2 17 6 15 16 18 1 10 0 7 19
+                                              1 11 0 10 20 2 6 11 0 11 21 1 11
+                                              10 0 22 1 11 10 0 23 1 25 24 10
+                                              26 2 29 27 28 24 30 1 0 27 6
+                                              31)))))
            '|lookupComplete|)) 

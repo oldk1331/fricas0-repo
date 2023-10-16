@@ -156,19 +156,38 @@
            '#(|traceMatrix| 95 |represents| 100 |regularRepresentation| 106
               |discriminant| 112 |coordinates| 117)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 39
-                                                 '(1 6 9 10 11 1 9 7 0 12 0 7 0
-                                                   14 1 16 15 0 17 2 6 18 0 10
-                                                   19 3 9 0 0 15 18 20 1 18 15
-                                                   0 22 0 6 23 24 2 18 7 0 15
-                                                   25 2 16 6 0 15 26 2 6 0 7 0
-                                                   27 2 6 0 0 0 28 0 6 0 29 2 6
-                                                   0 0 0 31 1 6 7 0 32 1 9 0 33
-                                                   34 1 18 36 0 37 1 9 0 0 38 1
-                                                   0 9 10 35 2 0 0 18 10 30 2 0
-                                                   9 0 10 39 1 0 7 10 13 2 0 9
-                                                   10 10 21)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|traceMatrix|
+                                 ((|Matrix| |#2|) (|Vector| |#1|)))
+                                T)
+                              '((|discriminant| (|#2| (|Vector| |#1|))) T)
+                              '((|represents|
+                                 (|#1| (|Vector| |#2|) (|Vector| |#1|)))
+                                T)
+                              '((|coordinates|
+                                 ((|Matrix| |#2|) (|Vector| |#1|)
+                                  (|Vector| |#1|)))
+                                T)
+                              '((|coordinates|
+                                 ((|Vector| |#2|) |#1| (|Vector| |#1|)))
+                                T)
+                              '((|regularRepresentation|
+                                 ((|Matrix| |#2|) |#1| (|Vector| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 39
+                                            '(1 6 9 10 11 1 9 7 0 12 0 7 0 14 1
+                                              16 15 0 17 2 6 18 0 10 19 3 9 0 0
+                                              15 18 20 1 18 15 0 22 0 6 23 24 2
+                                              18 7 0 15 25 2 16 6 0 15 26 2 6 0
+                                              7 0 27 2 6 0 0 0 28 0 6 0 29 2 6
+                                              0 0 0 31 1 6 7 0 32 1 9 0 33 34 1
+                                              18 36 0 37 1 9 0 0 38 1 0 9 10 35
+                                              2 0 0 18 10 30 2 0 9 0 10 39 1 0
+                                              7 10 13 2 0 9 10 10 21)))))
            '|lookupComplete|)) 

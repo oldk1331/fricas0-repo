@@ -1061,27 +1061,61 @@
               |decXfPass| 162 |decXfFatal| 166 |decFatal| 170 |chkLibraryError|
               174 |addWarning| 178)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 65
-                                                 '(0 10 0 11 1 18 16 17 19 2 23
-                                                   22 0 0 24 2 17 0 0 0 25 1 26
-                                                   16 17 27 0 28 0 29 2 10 0 30
-                                                   0 31 2 10 28 0 17 32 2 28 0
-                                                   33 0 34 2 28 9 0 17 37 1 26
-                                                   0 17 51 1 26 0 52 53 1 55 16
-                                                   26 56 1 55 16 17 57 1 10 58
-                                                   0 59 1 28 60 0 61 2 62 22 0
-                                                   0 63 2 26 0 0 0 64 1 0 16 17
-                                                   20 1 0 16 17 21 1 0 16 17 35
-                                                   1 0 16 17 36 0 0 16 65 2 0
-                                                   16 17 40 45 2 0 16 17 40 42
-                                                   1 0 16 17 49 0 0 16 43 0 0
-                                                   16 38 2 0 16 17 40 41 1 0 16
-                                                   17 47 2 0 16 17 40 44 0 0 16
-                                                   46 0 0 16 50 0 0 16 48 0 0
-                                                   16 39 1 0 16 26 54)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|testsuite| ((|Void|) (|String|))) T)
+                                   '((|testsuiteNoClear| ((|Void|) (|String|)))
+                                     T)
+                                   '((|testcase| ((|Void|) (|String|))) T)
+                                   '((|testcaseNoClear| ((|Void|) (|String|)))
+                                     T)
+                                   '((|statistics| ((|Void|))) T)
+                                   '((|incPass| ((|Void|))) T)
+                                   '((|incFail|
+                                      ((|Void|) (|String|)
+                                       (|List| (|OutputForm|))))
+                                     T)
+                                   '((|incXfPass|
+                                      ((|Void|) (|String|)
+                                       (|List| (|OutputForm|))))
+                                     T)
+                                   '((|decXfPass| ((|Void|))) T)
+                                   '((|incXfFail| ((|Void|))) T)
+                                   '((|chkLibraryError| ((|Void|))) T)
+                                   '((|incLibraryError|
+                                      ((|Void|) (|String|)
+                                       (|List| (|OutputForm|))))
+                                     T)
+                                   '((|incXfLibraryError|
+                                      ((|Void|) (|String|)
+                                       (|List| (|OutputForm|))))
+                                     T)
+                                   '((|incFatal| ((|Void|) (|String|))) T)
+                                   '((|incXfFatal| ((|Void|) (|String|))) T)
+                                   '((|decFatal| ((|Void|))) T)
+                                   '((|decXfFatal| ((|Void|))) T)
+                                   '((|addWarning| ((|Void|) (|OutputForm|)))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 65
+                                            '(0 10 0 11 1 18 16 17 19 2 23 22 0
+                                              0 24 2 17 0 0 0 25 1 26 16 17 27
+                                              0 28 0 29 2 10 0 30 0 31 2 10 28
+                                              0 17 32 2 28 0 33 0 34 2 28 9 0
+                                              17 37 1 26 0 17 51 1 26 0 52 53 1
+                                              55 16 26 56 1 55 16 17 57 1 10 58
+                                              0 59 1 28 60 0 61 2 62 22 0 0 63
+                                              2 26 0 0 0 64 1 0 16 17 20 1 0 16
+                                              17 21 1 0 16 17 35 1 0 16 17 36 0
+                                              0 16 65 2 0 16 17 40 45 2 0 16 17
+                                              40 42 1 0 16 17 49 0 0 16 43 0 0
+                                              16 38 2 0 16 17 40 41 1 0 16 17
+                                              47 2 0 16 17 40 44 0 0 16 46 0 0
+                                              16 50 0 0 16 48 0 0 16 39 1 0 16
+                                              26 54)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|UnittestCount| 'NILADIC T) 

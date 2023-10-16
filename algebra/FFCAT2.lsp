@@ -69,11 +69,15 @@
               (|MultipleMap| 6 7 8 10 11 12) (5 . |map|) (11 . |reduce|)
               |FFCAT2;map;MF1F2;1|)
            '#(|map| 16) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 19
-                                                 '(1 9 8 0 14 2 16 12 15 8 17 1
-                                                   13 0 12 18 2 0 13 15 9
-                                                   19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#8| (|Mapping| |#5| |#1|) |#4|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 19
+                                            '(1 9 8 0 14 2 16 12 15 8 17 1 13 0
+                                              12 18 2 0 13 15 9 19)))))
            '|lookupComplete|)) 

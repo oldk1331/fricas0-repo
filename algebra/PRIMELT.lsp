@@ -400,28 +400,62 @@
               (162 . *) (168 . -) (173 . |rem|) (179 . |concat|) (185 . +)
               (|PolyGroebner| 6) (191 . |lexGroebner|))
            '#(|primitiveElement| 197) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 62
-                                                 '(2 8 0 7 0 9 2 11 0 8 10 12 2
-                                                   13 0 0 0 14 2 16 15 10 0 17
-                                                   2 16 15 18 0 19 0 10 0 20 2
-                                                   11 25 0 10 26 0 6 0 27 0 6 0
-                                                   28 0 11 0 29 3 11 0 0 0 10
-                                                   30 1 11 8 0 31 1 11 0 10 32
-                                                   2 11 0 13 0 33 2 11 0 0 0 34
-                                                   3 11 0 0 10 0 35 1 8 15 0 36
-                                                   1 8 0 0 37 2 8 15 0 0 38 0
-                                                   11 0 39 2 25 15 0 0 42 1 11
-                                                   16 0 43 2 11 44 0 10 45 1 46
-                                                   25 0 47 2 25 15 0 0 48 1 46
-                                                   11 0 49 0 8 0 50 3 8 52 0 0
-                                                   0 53 0 8 0 54 2 46 11 0 25
-                                                   55 2 8 0 0 0 56 1 8 0 0 57 2
-                                                   8 0 0 0 58 2 16 0 0 10 59 2
-                                                   11 0 0 0 60 2 61 22 22 16 62
-                                                   4 0 40 11 10 11 10 41 3 0 21
-                                                   22 16 10 23 2 0 21 22 16
-                                                   24)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|primitiveElement|
+                                 ((|Record| (|:| |coef1| (|Integer|))
+                                            (|:| |coef2| (|Integer|))
+                                            (|:| |prim|
+                                                 (|SparseUnivariatePolynomial|
+                                                  |#1|)))
+                                  (|Polynomial| |#1|) (|Symbol|)
+                                  (|Polynomial| |#1|) (|Symbol|)))
+                                T)
+                              '((|primitiveElement|
+                                 ((|Record| (|:| |coef| (|List| (|Integer|)))
+                                            (|:| |poly|
+                                                 (|List|
+                                                  (|SparseUnivariatePolynomial|
+                                                   |#1|)))
+                                            (|:| |prim|
+                                                 (|SparseUnivariatePolynomial|
+                                                  |#1|)))
+                                  (|List| (|Polynomial| |#1|))
+                                  (|List| (|Symbol|))))
+                                T)
+                              '((|primitiveElement|
+                                 ((|Record| (|:| |coef| (|List| (|Integer|)))
+                                            (|:| |poly|
+                                                 (|List|
+                                                  (|SparseUnivariatePolynomial|
+                                                   |#1|)))
+                                            (|:| |prim|
+                                                 (|SparseUnivariatePolynomial|
+                                                  |#1|)))
+                                  (|List| (|Polynomial| |#1|))
+                                  (|List| (|Symbol|)) (|Symbol|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 62
+                                            '(2 8 0 7 0 9 2 11 0 8 10 12 2 13 0
+                                              0 0 14 2 16 15 10 0 17 2 16 15 18
+                                              0 19 0 10 0 20 2 11 25 0 10 26 0
+                                              6 0 27 0 6 0 28 0 11 0 29 3 11 0
+                                              0 0 10 30 1 11 8 0 31 1 11 0 10
+                                              32 2 11 0 13 0 33 2 11 0 0 0 34 3
+                                              11 0 0 10 0 35 1 8 15 0 36 1 8 0
+                                              0 37 2 8 15 0 0 38 0 11 0 39 2 25
+                                              15 0 0 42 1 11 16 0 43 2 11 44 0
+                                              10 45 1 46 25 0 47 2 25 15 0 0 48
+                                              1 46 11 0 49 0 8 0 50 3 8 52 0 0
+                                              0 53 0 8 0 54 2 46 11 0 25 55 2 8
+                                              0 0 0 56 1 8 0 0 57 2 8 0 0 0 58
+                                              2 16 0 0 10 59 2 11 0 0 0 60 2 61
+                                              22 22 16 62 4 0 40 11 10 11 10 41
+                                              3 0 21 22 16 10 23 2 0 21 22 16
+                                              24)))))
            '|lookupComplete|)) 

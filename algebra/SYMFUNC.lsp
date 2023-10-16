@@ -80,13 +80,21 @@
               |SYMFUNC;symFunc;RPiV;2| (38 . |One|) (42 . *) (|List| 6)
               |SYMFUNC;symFunc;LV;3|)
            '#(|symFunc| 48) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 22
-                                                 '(2 9 7 0 8 10 1 7 0 0 11 0 6
-                                                   0 12 2 9 0 6 8 13 1 9 0 6 14
-                                                   2 9 0 0 0 15 2 9 0 0 8 16 0
-                                                   9 0 19 2 9 0 0 0 20 2 0 7 6
-                                                   17 18 1 0 7 21 22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|symFunc| ((|Vector| |#1|) (|List| |#1|))) T)
+                              '((|symFunc|
+                                 ((|Vector| |#1|) |#1| (|PositiveInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 22
+                                            '(2 9 7 0 8 10 1 7 0 0 11 0 6 0 12
+                                              2 9 0 6 8 13 1 9 0 6 14 2 9 0 0 0
+                                              15 2 9 0 0 8 16 0 9 0 19 2 9 0 0
+                                              0 20 2 0 7 6 17 18 1 0 7 21
+                                              22)))))
            '|lookupComplete|)) 

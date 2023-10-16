@@ -220,20 +220,28 @@
               (|List| 35) (|List| 40) (98 . |elt|) (|Mapping| 35 35 35)
               (104 . |reduce|) (110 . /) |RINTERP;interpolate;2L2NniF;1|)
            '#(|interpolate| 116) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 46
-                                                 '(2 9 8 0 0 10 0 7 0 11 2 13 7
-                                                   0 12 14 2 7 0 0 0 15 0 16 0
-                                                   17 2 18 13 0 12 19 1 7 0 0
-                                                   20 2 18 0 0 0 21 1 22 0 18
-                                                   23 1 22 0 0 24 1 22 25 0 26
-                                                   1 29 27 28 30 2 25 31 0 12
-                                                   32 2 31 7 0 12 33 1 35 0 34
-                                                   36 2 35 0 0 9 37 2 35 0 7 0
-                                                   38 2 35 0 0 0 39 2 41 40 0
-                                                   12 42 2 40 35 43 0 44 2 16 0
-                                                   35 35 45 4 0 16 13 13 9 9
-                                                   46)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|interpolate|
+                                 ((|Fraction| (|Polynomial| |#2|))
+                                  (|List| |#2|) (|List| |#2|)
+                                  (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 46
+                                            '(2 9 8 0 0 10 0 7 0 11 2 13 7 0 12
+                                              14 2 7 0 0 0 15 0 16 0 17 2 18 13
+                                              0 12 19 1 7 0 0 20 2 18 0 0 0 21
+                                              1 22 0 18 23 1 22 0 0 24 1 22 25
+                                              0 26 1 29 27 28 30 2 25 31 0 12
+                                              32 2 31 7 0 12 33 1 35 0 34 36 2
+                                              35 0 0 9 37 2 35 0 7 0 38 2 35 0
+                                              0 0 39 2 41 40 0 12 42 2 40 35 43
+                                              0 44 2 16 0 35 35 45 4 0 16 13 13
+                                              9 9 46)))))
            '|lookupComplete|)) 

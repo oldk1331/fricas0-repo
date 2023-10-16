@@ -295,19 +295,31 @@
               (77 . |elt|) (84 . |monomial|) (90 . +) (96 . -) (101 . |even?|)
               (106 . -) (111 . *) |CHARPOL2;char_pol;MSup;2|)
            '#(|danilewski| 117 |char_pol| 122) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 35
-                                                 '(2 8 7 0 0 9 0 6 0 10 0 6 0
-                                                   11 2 6 7 0 0 12 2 6 7 0 0 13
-                                                   3 15 0 0 14 14 16 3 15 0 0
-                                                   14 14 17 2 6 0 0 0 18 2 6 0
-                                                   0 0 19 2 6 0 0 0 20 2 6 0 0
-                                                   0 21 1 15 0 0 24 0 25 0 26 0
-                                                   25 0 27 3 15 6 0 14 14 28 2
-                                                   25 0 6 8 29 2 25 0 0 0 30 1
-                                                   6 0 0 31 1 14 7 0 32 1 25 0
-                                                   0 33 2 25 0 0 0 34 1 0 22 15
-                                                   23 1 0 25 15 35)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|danilewski|
+                                 ((|Record| (|:| |matrix| (|Matrix| |#1|))
+                                            (|:| |block_list|
+                                                 (|List| (|Integer|))))
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|char_pol|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|Matrix| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 35
+                                            '(2 8 7 0 0 9 0 6 0 10 0 6 0 11 2 6
+                                              7 0 0 12 2 6 7 0 0 13 3 15 0 0 14
+                                              14 16 3 15 0 0 14 14 17 2 6 0 0 0
+                                              18 2 6 0 0 0 19 2 6 0 0 0 20 2 6
+                                              0 0 0 21 1 15 0 0 24 0 25 0 26 0
+                                              25 0 27 3 15 6 0 14 14 28 2 25 0
+                                              6 8 29 2 25 0 0 0 30 1 6 0 0 31 1
+                                              14 7 0 32 1 25 0 0 33 2 25 0 0 0
+                                              34 1 0 22 15 23 1 0 25 15 35)))))
            '|lookupComplete|)) 

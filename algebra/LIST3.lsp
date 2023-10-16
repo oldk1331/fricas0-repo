@@ -62,8 +62,16 @@
               (|local| |#3|) (|List| 8) (|Mapping| 8 6 7) (|List| 6) (|List| 7)
               |LIST3;map;MLLL;1|)
            '#(|map| 0) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 13 '(3 0 9 10 11 12 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|List| |#3|) (|Mapping| |#3| |#1| |#2|)
+                                  (|List| |#1|) (|List| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 13 '(3 0 9 10 11 12 13)))))
            '|lookupComplete|)) 

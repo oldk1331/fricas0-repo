@@ -192,17 +192,31 @@
               |XMLEL;outputVRML;$TfV;7| (27 . |writeLine!|) (33 . |outputVRML|)
               (39 . >))
            '#(|xmlElement| 45 |outputVRML| 59 |empty?| 65 |coerce| 70) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 29
-                                                 '(1 12 7 0 13 1 7 0 8 14 1 16
-                                                   15 0 17 2 18 0 0 0 20 2 18 0
-                                                   0 7 21 2 25 7 0 7 27 2 12 24
-                                                   0 25 28 2 15 22 0 0 29 3 0 0
-                                                   7 7 9 11 3 0 0 7 8 9 10 2 0
-                                                   24 0 25 26 1 0 22 0 23 1 0
-                                                   18 0 19)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|xmlElement|
+                                 ($$ (|String|) (|List| $$)
+                                  (|List| (|XmlAttribute|))))
+                                T)
+                              '((|xmlElement|
+                                 ($$ (|String|) (|String|)
+                                  (|List| (|XmlAttribute|))))
+                                T)
+                              '((|empty?| ((|Boolean|) $$)) T)
+                              '((|coerce| ((|List| (|String|)) $$)) T)
+                              '((|outputVRML| ((|Void|) $$ (|TextFile|))) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 29
+                                            '(1 12 7 0 13 1 7 0 8 14 1 16 15 0
+                                              17 2 18 0 0 0 20 2 18 0 0 7 21 2
+                                              25 7 0 7 27 2 12 24 0 25 28 2 15
+                                              22 0 0 29 3 0 0 7 7 9 11 3 0 0 7
+                                              8 9 10 2 0 24 0 25 26 1 0 22 0 23
+                                              1 0 18 0 19)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|XmlElement| 'NILADIC T) 

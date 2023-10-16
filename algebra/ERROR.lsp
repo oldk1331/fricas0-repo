@@ -82,13 +82,25 @@
               (|String|) (0 . |concat|) (|Exit|) |ERROR;error;SE;2| (|List| 9)
               |ERROR;error;LE;3| |ERROR;error;2SE;4| |ERROR;error;SLE;5|)
            '#(|error| 5) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(1 9 0 8 10 1 0 11 13 14 1 0
-                                                   11 9 12 2 0 11 9 13 16 2 0
-                                                   11 9 9 15)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|error| ((|Exit|) (|String|))) T)
+                                   '((|error| ((|Exit|) (|List| (|String|))))
+                                     T)
+                                   '((|error| ((|Exit|) (|String|) (|String|)))
+                                     T)
+                                   '((|error|
+                                      ((|Exit|) (|String|)
+                                       (|List| (|String|))))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(1 9 0 8 10 1 0 11 13 14 1 0 11 9
+                                              12 2 0 11 9 13 16 2 0 11 9 9
+                                              15)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ErrorFunctions| 'NILADIC T) 

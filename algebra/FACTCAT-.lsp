@@ -31,10 +31,14 @@
               (0 . |order|) (|Integer|) (5 . |getMult|) (|Boolean|)
               |FACTCAT-;empty?;SB;1|)
            '#(|empty?| 10) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 12
-                                                 '(1 6 7 0 8 1 6 9 0 10 1 0 11
-                                                   0 12)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|empty?| ((|Boolean|) |#1|)) T)) (LIST)
+                             NIL NIL)))
+                        (|makeByteWordVec2| 12
+                                            '(1 6 7 0 8 1 6 9 0 10 1 0 11 0
+                                              12)))))
            '|lookupComplete|)) 

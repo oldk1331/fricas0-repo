@@ -566,25 +566,45 @@
               (147 . |multiple?|) (152 . |constant?|) (157 . |depth|)
               (|Mapping| 18 11 11) (162 . |sort!|))
            '#(|patternMatchTimes| 168 |patternMatch| 176) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 55
-                                                 '(0 8 0 9 1 8 0 0 10 1 8 11 0
-                                                   12 1 8 14 0 15 0 7 0 16 0 8
-                                                   0 17 2 7 18 0 0 19 1 20 18 0
-                                                   21 2 22 18 11 0 23 0 20 0 24
-                                                   2 8 18 0 0 25 2 26 0 8 0 27
-                                                   2 22 0 11 0 28 2 8 0 0 0 29
-                                                   1 11 18 0 34 1 35 26 11 36 2
-                                                   26 0 0 0 37 2 26 0 0 0 38 4
-                                                   20 0 11 8 0 8 39 2 20 40 11
-                                                   0 41 2 26 18 8 0 42 1 11 18
-                                                   0 43 1 11 18 0 44 2 22 0 45
-                                                   0 46 0 7 0 47 2 48 18 0 0 49
-                                                   3 20 0 11 8 0 50 1 11 18 0
-                                                   51 1 11 18 0 52 1 11 48 0 53
-                                                   2 22 0 54 0 55 4 0 20 26 22
-                                                   20 31 33 5 0 20 26 22 30 20
-                                                   31 32)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|patternMatch|
+                                 ((|PatternMatchResult| |#1| |#3|)
+                                  (|List| |#3|) (|List| (|Pattern| |#1|))
+                                  (|Mapping| |#3| (|List| |#3|))
+                                  (|PatternMatchResult| |#1| |#3|)
+                                  (|Mapping| (|PatternMatchResult| |#1| |#3|)
+                                             |#3| (|Pattern| |#1|)
+                                             (|PatternMatchResult| |#1|
+                                                                   |#3|))))
+                                T)
+                              '((|patternMatchTimes|
+                                 ((|PatternMatchResult| |#1| |#3|)
+                                  (|List| |#3|) (|List| (|Pattern| |#1|))
+                                  (|PatternMatchResult| |#1| |#3|)
+                                  (|Mapping| (|PatternMatchResult| |#1| |#3|)
+                                             |#3| (|Pattern| |#1|)
+                                             (|PatternMatchResult| |#1|
+                                                                   |#3|))))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 55
+                                            '(0 8 0 9 1 8 0 0 10 1 8 11 0 12 1
+                                              8 14 0 15 0 7 0 16 0 8 0 17 2 7
+                                              18 0 0 19 1 20 18 0 21 2 22 18 11
+                                              0 23 0 20 0 24 2 8 18 0 0 25 2 26
+                                              0 8 0 27 2 22 0 11 0 28 2 8 0 0 0
+                                              29 1 11 18 0 34 1 35 26 11 36 2
+                                              26 0 0 0 37 2 26 0 0 0 38 4 20 0
+                                              11 8 0 8 39 2 20 40 11 0 41 2 26
+                                              18 8 0 42 1 11 18 0 43 1 11 18 0
+                                              44 2 22 0 45 0 46 0 7 0 47 2 48
+                                              18 0 0 49 3 20 0 11 8 0 50 1 11
+                                              18 0 51 1 11 18 0 52 1 11 48 0 53
+                                              2 22 0 54 0 55 4 0 20 26 22 20 31
+                                              33 5 0 20 26 22 30 20 31 32)))))
            '|lookupComplete|)) 

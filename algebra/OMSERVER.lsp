@@ -100,23 +100,34 @@
               (107 . |OMmakeConn|) (112 . |OMbindTCP|)
               |OMSERVER;OMserve;2SiV;3|)
            '#(|OMserve| 118 |OMsend| 124 |OMreceive| 130) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 47
-                                                 '(1 7 6 0 8 0 9 0 10 2 6 11 0
-                                                   9 12 1 14 13 6 15 1 7 6 0 17
-                                                   0 9 0 18 1 20 19 13 21 1 20
-                                                   22 13 23 3 22 11 6 0 19 24 1
-                                                   25 19 13 26 1 25 27 13 28 3
-                                                   27 11 6 0 19 29 1 30 19 13
-                                                   31 1 30 32 13 33 1 34 19 13
-                                                   35 1 34 36 13 37 3 36 11 6 0
-                                                   19 38 1 39 19 13 40 1 39 41
-                                                   13 42 3 41 11 6 0 19 43 1 7
-                                                   0 32 45 2 7 19 0 32 46 2 0
-                                                   11 32 32 47 2 0 11 7 13 44 1
-                                                   0 13 7 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|OMreceive| ((|Any|) (|OpenMathConnection|)))
+                                T)
+                              '((|OMsend|
+                                 ((|Void|) (|OpenMathConnection|) (|Any|)))
+                                T)
+                              '((|OMserve|
+                                 ((|Void|) (|SingleInteger|)
+                                  (|SingleInteger|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 47
+                                            '(1 7 6 0 8 0 9 0 10 2 6 11 0 9 12
+                                              1 14 13 6 15 1 7 6 0 17 0 9 0 18
+                                              1 20 19 13 21 1 20 22 13 23 3 22
+                                              11 6 0 19 24 1 25 19 13 26 1 25
+                                              27 13 28 3 27 11 6 0 19 29 1 30
+                                              19 13 31 1 30 32 13 33 1 34 19 13
+                                              35 1 34 36 13 37 3 36 11 6 0 19
+                                              38 1 39 19 13 40 1 39 41 13 42 3
+                                              41 11 6 0 19 43 1 7 0 32 45 2 7
+                                              19 0 32 46 2 0 11 32 32 47 2 0 11
+                                              7 13 44 1 0 13 7 16)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OpenMathServerPackage| 'NILADIC T) 

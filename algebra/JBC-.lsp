@@ -931,44 +931,115 @@
               |coerce| 337 |class| 342 |allRepeated| 352 X 357 U 361 |Pr| 365 P
               371 > 393 = 399 < 405)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 102
-                                                 '(0 6 7 8 0 6 7 10 0 6 0 12 2
-                                                   14 0 16 16 17 2 7 18 0 0 19
-                                                   2 14 16 0 20 21 3 14 16 0 20
-                                                   16 22 1 14 0 0 24 1 6 25 14
-                                                   26 2 13 0 7 0 27 2 25 0 28 0
-                                                   29 2 25 0 0 0 30 1 6 14 0 32
-                                                   1 6 13 14 33 1 6 36 0 37 2
-                                                   36 18 0 0 38 1 6 16 14 39 2
-                                                   20 0 0 0 42 2 16 0 7 0 43 1
-                                                   6 0 7 46 1 6 0 7 48 2 6 0 7
-                                                   14 50 2 6 0 7 14 52 0 6 36
-                                                   55 2 6 0 7 13 56 1 6 14 13
-                                                   58 1 6 36 0 60 1 36 61 0 62
-                                                   2 64 0 16 16 65 1 64 20 0 68
-                                                   1 64 16 0 70 2 16 18 0 0 71
-                                                   1 64 0 0 72 1 6 7 0 73 1 14
-                                                   20 0 74 1 6 13 0 75 2 13 0 0
-                                                   0 76 2 7 18 0 0 79 2 14 16 0
-                                                   20 81 2 13 20 7 0 82 1 13 20
-                                                   0 83 2 13 0 0 20 84 2 6 85 0
-                                                   7 87 2 14 18 0 0 91 1 6 16 0
-                                                   93 2 16 18 0 0 94 2 6 18 0 0
-                                                   96 2 98 0 0 0 99 1 0 16 0 89
-                                                   2 0 100 16 7 102 1 0 100 16
-                                                   101 1 0 13 0 34 1 0 14 13 23
-                                                   1 0 16 0 41 1 0 18 0 90 1 0
-                                                   13 14 15 2 0 85 0 7 86 2 0 0
-                                                   0 7 88 1 0 16 16 45 1 0 16
-                                                   16 44 2 0 77 0 7 78 2 0 14 0
-                                                   0 80 1 0 61 0 63 1 0 16 0 40
-                                                   1 0 16 14 35 1 0 25 14 31 0
-                                                   0 0 47 0 0 0 49 2 0 0 7 13
-                                                   59 1 0 0 16 54 1 0 0 14 51 2
-                                                   0 0 7 16 53 2 0 0 7 14 57 2
-                                                   0 18 0 0 97 2 0 18 0 0 92 2
-                                                   0 18 0 0 95)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|dimS|
+                                 ((|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|dimJ|
+                                 ((|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|variables|
+                                 ((|List| |#1|) (|NonNegativeInteger|)
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|variables|
+                                 ((|List| |#1|) (|NonNegativeInteger|)))
+                                T)
+                              '((P (|#1| (|NonNegativeInteger|))) T)
+                              '((P
+                                 (|#1| (|PositiveInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((P (|#1| (|List| (|NonNegativeInteger|)))) T)
+                              '((U (|#1|)) T) '((X (|#1|)) T)
+                              '((|one?| ((|Boolean|) |#1|)) T)
+                              '((|Pr|
+                                 (|#1| (|PositiveInteger|)
+                                  (|List| (|PositiveInteger|))))
+                                T)
+                              '((P
+                                 (|#1| (|PositiveInteger|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((U (|#1| (|PositiveInteger|))) T)
+                              '((X (|#1| (|PositiveInteger|))) T)
+                              '((|integrate| (|#1| |#1| (|PositiveInteger|)))
+                                T)
+                              '((|integrateIfCan|
+                                 ((|Union| |#1| "failed") |#1|
+                                  (|PositiveInteger|)))
+                                T)
+                              '((|derivativeOf?|
+                                 ((|List| (|NonNegativeInteger|)) |#1| |#1|))
+                                T)
+                              '((|differentiate|
+                                 ((|Union| |#1| "0") |#1| (|PositiveInteger|)))
+                                T)
+                              '((|weight| ((|NonNegativeInteger|) |#1|)) T)
+                              '((|order| ((|NonNegativeInteger|) |#1|)) T)
+                              '((|class| ((|NonNegativeInteger|) |#1|)) T)
+                              '((|class|
+                                 ((|NonNegativeInteger|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|allRepeated|
+                                 ((|List| (|List| (|PositiveInteger|)))
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|m2r|
+                                 ((|List| (|PositiveInteger|))
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|r2m|
+                                 ((|List| (|NonNegativeInteger|))
+                                  (|List| (|PositiveInteger|))))
+                                T)
+                              '((|repeatedIndex|
+                                 ((|List| (|PositiveInteger|)) |#1|))
+                                T)
+                              '((|coerce| ((|Expression| (|Integer|)) |#1|)) T)
+                              '((> ((|Boolean|) |#1| |#1|)) T)
+                              '((< ((|Boolean|) |#1| |#1|)) T)
+                              '((|coerce| ((|OutputForm|) |#1|)) T)
+                              '((= ((|Boolean|) |#1| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 102
+                                            '(0 6 7 8 0 6 7 10 0 6 0 12 2 14 0
+                                              16 16 17 2 7 18 0 0 19 2 14 16 0
+                                              20 21 3 14 16 0 20 16 22 1 14 0 0
+                                              24 1 6 25 14 26 2 13 0 7 0 27 2
+                                              25 0 28 0 29 2 25 0 0 0 30 1 6 14
+                                              0 32 1 6 13 14 33 1 6 36 0 37 2
+                                              36 18 0 0 38 1 6 16 14 39 2 20 0
+                                              0 0 42 2 16 0 7 0 43 1 6 0 7 46 1
+                                              6 0 7 48 2 6 0 7 14 50 2 6 0 7 14
+                                              52 0 6 36 55 2 6 0 7 13 56 1 6 14
+                                              13 58 1 6 36 0 60 1 36 61 0 62 2
+                                              64 0 16 16 65 1 64 20 0 68 1 64
+                                              16 0 70 2 16 18 0 0 71 1 64 0 0
+                                              72 1 6 7 0 73 1 14 20 0 74 1 6 13
+                                              0 75 2 13 0 0 0 76 2 7 18 0 0 79
+                                              2 14 16 0 20 81 2 13 20 7 0 82 1
+                                              13 20 0 83 2 13 0 0 20 84 2 6 85
+                                              0 7 87 2 14 18 0 0 91 1 6 16 0 93
+                                              2 16 18 0 0 94 2 6 18 0 0 96 2 98
+                                              0 0 0 99 1 0 16 0 89 2 0 100 16 7
+                                              102 1 0 100 16 101 1 0 13 0 34 1
+                                              0 14 13 23 1 0 16 0 41 1 0 18 0
+                                              90 1 0 13 14 15 2 0 85 0 7 86 2 0
+                                              0 0 7 88 1 0 16 16 45 1 0 16 16
+                                              44 2 0 77 0 7 78 2 0 14 0 0 80 1
+                                              0 61 0 63 1 0 16 0 40 1 0 16 14
+                                              35 1 0 25 14 31 0 0 0 47 0 0 0 49
+                                              2 0 0 7 13 59 1 0 0 16 54 1 0 0
+                                              14 51 2 0 0 7 16 53 2 0 0 7 14 57
+                                              2 0 18 0 0 97 2 0 18 0 0 92 2 0
+                                              18 0 0 95)))))
            '|lookupComplete|)) 

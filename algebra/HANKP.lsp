@@ -111,12 +111,18 @@
               (20 . |matrix|) (|Mapping| 12 12 12) (|List| 12) (25 . |reduce|)
               (|List| 6) |HANKP;HankelMatrix;LM;1|)
            '#(|HankelMatrix| 31) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 20
-                                                 '(0 6 0 7 2 9 8 0 0 10 0 6 0
-                                                   11 2 12 0 0 0 13 1 12 0 14
-                                                   15 2 17 12 16 0 18 1 0 12 19
-                                                   20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|HankelMatrix|
+                                 ((|Matrix| |#1|) (|List| |#1|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 20
+                                            '(0 6 0 7 2 9 8 0 0 10 0 6 0 11 2
+                                              12 0 0 0 13 1 12 0 14 15 2 17 12
+                                              16 0 18 1 0 12 19 20)))))
            '|lookupComplete|)) 

@@ -319,24 +319,78 @@
               |partitions| 107 |odd_partitions| 125 |distinct_partitions| 137
               |conjugates| 149 |conjugate| 154)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 47
-                                                 '(0 6 0 7 2 6 0 8 0 9 2 8 0 10
-                                                   0 11 2 6 0 13 0 14 2 6 0 0 0
-                                                   15 1 18 0 17 19 1 20 6 18 21
-                                                   2 10 23 0 0 24 1 10 23 0 25
-                                                   1 8 10 0 32 2 35 18 34 6 36
-                                                   1 38 0 8 39 3 41 6 40 38 38
-                                                   42 3 35 6 6 43 6 44 2 0 6 8
-                                                   6 37 2 0 6 8 8 33 2 0 6 8 8
-                                                   45 1 0 6 8 46 1 0 6 10 47 3
-                                                   0 6 10 10 10 12 2 0 6 10 10
-                                                   22 1 0 6 10 16 1 0 6 10 27 3
-                                                   0 6 10 10 10 26 1 0 6 10 29
-                                                   3 0 6 10 10 10 28 1 0 6 6 31
-                                                   1 0 8 8 30)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|partitions|
+                                 ((|Stream| (|List| (|Integer|))) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|partitions|
+                                 ((|Stream| (|List| (|Integer|))) (|Integer|)))
+                                T)
+                              '((|partitions|
+                                 ((|Stream| (|List| (|Integer|))) (|Integer|)
+                                  (|Integer|)))
+                                T)
+                              '((|odd_partitions|
+                                 ((|Stream| (|List| (|Integer|))) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|odd_partitions|
+                                 ((|Stream| (|List| (|Integer|))) (|Integer|)))
+                                T)
+                              '((|distinct_partitions|
+                                 ((|Stream| (|List| (|Integer|))) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|distinct_partitions|
+                                 ((|Stream| (|List| (|Integer|))) (|Integer|)))
+                                T)
+                              '((|conjugate|
+                                 ((|List| (|Integer|)) (|List| (|Integer|))))
+                                T)
+                              '((|conjugates|
+                                 ((|Stream| (|List| (|Integer|)))
+                                  (|Stream| (|List| (|Integer|)))))
+                                T)
+                              '((|shuffle|
+                                 ((|Stream| (|List| (|Integer|)))
+                                  (|List| (|Integer|)) (|List| (|Integer|))))
+                                T)
+                              '((|shufflein|
+                                 ((|Stream| (|List| (|Integer|)))
+                                  (|List| (|Integer|))
+                                  (|Stream| (|List| (|Integer|)))))
+                                T)
+                              '((|sequences|
+                                 ((|Stream| (|List| (|Integer|)))
+                                  (|List| (|Integer|)) (|List| (|Integer|))))
+                                T)
+                              '((|sequences|
+                                 ((|Stream| (|List| (|Integer|)))
+                                  (|List| (|Integer|))))
+                                T)
+                              '((|permutations|
+                                 ((|Stream| (|List| (|Integer|))) (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 47
+                                            '(0 6 0 7 2 6 0 8 0 9 2 8 0 10 0 11
+                                              2 6 0 13 0 14 2 6 0 0 0 15 1 18 0
+                                              17 19 1 20 6 18 21 2 10 23 0 0 24
+                                              1 10 23 0 25 1 8 10 0 32 2 35 18
+                                              34 6 36 1 38 0 8 39 3 41 6 40 38
+                                              38 42 3 35 6 6 43 6 44 2 0 6 8 6
+                                              37 2 0 6 8 8 33 2 0 6 8 8 45 1 0
+                                              6 8 46 1 0 6 10 47 3 0 6 10 10 10
+                                              12 2 0 6 10 10 22 1 0 6 10 16 1 0
+                                              6 10 27 3 0 6 10 10 10 26 1 0 6
+                                              10 29 3 0 6 10 10 10 28 1 0 6 6
+                                              31 1 0 8 8 30)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|PartitionsAndPermutations| 'NILADIC T) 

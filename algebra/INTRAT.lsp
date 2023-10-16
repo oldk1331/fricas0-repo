@@ -119,23 +119,33 @@
               (|ParametricTranscendentalIntegration| 6 7) (23 . |primextint|)
               (31 . |One|) (|Integer|) (|Vector| 6) (35 . |elt|)
               (41 . |coerce|) (|Fraction| 7) (46 . |coerce|) (51 . /) (57 . -)
-              (|Union| 30 '"failed") |INTRAT;infieldint;FU;1|
+              (|Union| 30 '#1="failed") |INTRAT;infieldint;FU;1|
               (|Record| (|:| |ir| 40) (|:| |specpart| 30) (|:| |polypart| 7))
               (|TranscendentalIntegration| 6 7) (62 . |monomialIntegrate|)
               (68 . |integrate|) (|IntegrationResult| 30) (73 . |coerce|)
               (78 . +) |INTRAT;integrate;FIr;2|)
            '#(|integrate| 84 |infieldint| 89) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 43
-                                                 '(1 9 0 8 10 1 9 11 0 12 0 6 0
-                                                   13 0 7 0 14 1 7 0 0 15 4 23
-                                                   17 18 20 21 22 24 0 6 0 25 2
-                                                   27 6 0 26 28 1 7 0 6 29 1 30
-                                                   0 7 31 2 30 0 0 0 32 1 30 0
-                                                   0 33 2 37 36 30 18 38 1 7 0
-                                                   0 39 1 40 0 30 41 2 40 0 0 0
-                                                   42 1 0 40 30 43 1 0 34 30
-                                                   35)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|integrate|
+                                 ((|IntegrationResult| (|Fraction| |#2|))
+                                  (|Fraction| |#2|)))
+                                T)
+                              '((|infieldint|
+                                 ((|Union| (|Fraction| |#2|) #1#)
+                                  (|Fraction| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 43
+                                            '(1 9 0 8 10 1 9 11 0 12 0 6 0 13 0
+                                              7 0 14 1 7 0 0 15 4 23 17 18 20
+                                              21 22 24 0 6 0 25 2 27 6 0 26 28
+                                              1 7 0 6 29 1 30 0 7 31 2 30 0 0 0
+                                              32 1 30 0 0 33 2 37 36 30 18 38 1
+                                              7 0 0 39 1 40 0 30 41 2 40 0 0 0
+                                              42 1 0 40 30 43 1 0 34 30 35)))))
            '|lookupComplete|)) 

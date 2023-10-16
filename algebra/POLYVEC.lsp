@@ -1044,31 +1044,130 @@
               |divide!| 220 |differentiate| 228 |degree| 241 |copy_slice| 246
               |copy_first| 254)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 54
-                                                 '(1 13 12 0 14 0 13 0 15 1 13
-                                                   16 0 17 1 13 8 0 18 2 8 0 0
-                                                   0 19 1 13 0 0 20 0 13 0 22 2
-                                                   13 0 8 16 23 2 13 0 0 0 24 2
-                                                   8 0 0 0 32 2 8 12 0 0 35 2 8
-                                                   12 0 0 36 2 42 12 0 0 43 1 7
-                                                   0 0 44 2 42 12 0 0 51 7 0 6
-                                                   7 8 7 8 8 8 8 31 6 0 6 7 7 8
-                                                   8 8 8 26 4 0 7 7 7 8 8 46 5
-                                                   0 6 7 7 7 8 8 45 2 0 7 13 8
-                                                   21 3 0 8 7 7 8 54 3 0 6 7 7
-                                                   8 34 4 0 7 7 47 16 8 48 1 0
-                                                   13 7 25 4 0 6 7 8 8 8 29 4 0
-                                                   6 7 8 8 8 27 3 0 6 7 8 8 28
-                                                   3 0 7 7 7 8 40 4 0 7 38 8 8
-                                                   8 41 3 0 7 7 7 8 37 4 0 7 38
-                                                   8 8 8 39 3 0 52 7 7 8 53 4 0
-                                                   8 7 8 8 8 11 4 0 6 7 7 7 8
-                                                   33 2 0 7 7 8 49 3 0 7 7 16 8
-                                                   50 1 0 8 7 30 4 0 6 7 7 8 8
-                                                   10 3 0 6 7 7 8 9)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|copy_first|
+                                 ((|Void|) (|U32Vector|) (|U32Vector|)
+                                  (|Integer|)))
+                                T)
+                              '((|copy_slice|
+                                 ((|Void|) (|U32Vector|) (|U32Vector|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|eval_at|
+                                 ((|Integer|) (|U32Vector|) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|vector_add_mul|
+                                 ((|Void|) (|U32Vector|) (|U32Vector|)
+                                  (|Integer|) (|Integer|) (|Integer|)
+                                  (|Integer|)))
+                                T)
+                              '((|mul_by_binomial|
+                                 ((|Void|) (|U32Vector|) (|Integer|)
+                                  (|Integer|)))
+                                T)
+                              '((|mul_by_binomial|
+                                 ((|Void|) (|U32Vector|) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|mul_by_scalar|
+                                 ((|Void|) (|U32Vector|) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|mul|
+                                 ((|U32Vector|) (|U32Vector|) (|U32Vector|)
+                                  (|Integer|)))
+                                T)
+                              '((|truncated_multiplication|
+                                 ((|U32Vector|) (|U32Vector|) (|U32Vector|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|truncated_mul_add|
+                                 ((|Void|) (|U32Vector|) (|U32Vector|)
+                                  (|U32Vector|) (|Integer|) (|Integer|)))
+                                T)
+                              '((|pow|
+                                 ((|U32Vector|) (|U32Vector|)
+                                  (|PositiveInteger|) (|NonNegativeInteger|)
+                                  (|Integer|)))
+                                T)
+                              '((|differentiate|
+                                 ((|U32Vector|) (|U32Vector|) (|Integer|)))
+                                T)
+                              '((|differentiate|
+                                 ((|U32Vector|) (|U32Vector|)
+                                  (|NonNegativeInteger|) (|Integer|)))
+                                T)
+                              '((|divide!|
+                                 ((|Void|) (|U32Vector|) (|U32Vector|)
+                                  (|U32Vector|) (|Integer|)))
+                                T)
+                              '((|remainder!|
+                                 ((|Void|) (|U32Vector|) (|U32Vector|)
+                                  (|Integer|)))
+                                T)
+                              '((|vector_combination|
+                                 ((|Void|) (|U32Vector|) (|Integer|)
+                                  (|U32Vector|) (|Integer|) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|to_mod_pa|
+                                 ((|U32Vector|)
+                                  (|SparseUnivariatePolynomial| (|Integer|))
+                                  (|Integer|)))
+                                T)
+                              '((|pa_to_sup|
+                                 ((|SparseUnivariatePolynomial| (|Integer|))
+                                  (|U32Vector|)))
+                                T)
+                              '((|gcd|
+                                 ((|U32Vector|) (|U32Vector|) (|U32Vector|)
+                                  (|Integer|)))
+                                T)
+                              '((|gcd|
+                                 ((|U32Vector|)
+                                  (|PrimitiveArray| (|U32Vector|)) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|lcm|
+                                 ((|U32Vector|)
+                                  (|PrimitiveArray| (|U32Vector|)) (|Integer|)
+                                  (|Integer|) (|Integer|)))
+                                T)
+                              '((|degree| ((|Integer|) (|U32Vector|))) T)
+                              '((|extended_gcd|
+                                 ((|List| (|U32Vector|)) (|U32Vector|)
+                                  (|U32Vector|) (|Integer|)))
+                                T)
+                              '((|resultant|
+                                 ((|Integer|) (|U32Vector|) (|U32Vector|)
+                                  (|Integer|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 54
+                                            '(1 13 12 0 14 0 13 0 15 1 13 16 0
+                                              17 1 13 8 0 18 2 8 0 0 0 19 1 13
+                                              0 0 20 0 13 0 22 2 13 0 8 16 23 2
+                                              13 0 0 0 24 2 8 0 0 0 32 2 8 12 0
+                                              0 35 2 8 12 0 0 36 2 42 12 0 0 43
+                                              1 7 0 0 44 2 42 12 0 0 51 7 0 6 7
+                                              8 7 8 8 8 8 31 6 0 6 7 7 8 8 8 8
+                                              26 4 0 7 7 7 8 8 46 5 0 6 7 7 7 8
+                                              8 45 2 0 7 13 8 21 3 0 8 7 7 8 54
+                                              3 0 6 7 7 8 34 4 0 7 7 47 16 8 48
+                                              1 0 13 7 25 4 0 6 7 8 8 8 29 4 0
+                                              6 7 8 8 8 27 3 0 6 7 8 8 28 3 0 7
+                                              7 7 8 40 4 0 7 38 8 8 8 41 3 0 7
+                                              7 7 8 37 4 0 7 38 8 8 8 39 3 0 52
+                                              7 7 8 53 4 0 8 7 8 8 8 11 4 0 6 7
+                                              7 7 8 33 2 0 7 7 8 49 3 0 7 7 16
+                                              8 50 1 0 8 7 30 4 0 6 7 7 8 8 10
+                                              3 0 6 7 7 8 9)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|U32VectorPolynomialOperations| 'NILADIC T) 

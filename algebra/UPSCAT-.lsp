@@ -76,12 +76,19 @@
            '#(|reductum| 28 |leadingMonomial| 33 |leadingCoefficient| 38
               |degree| 43)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 17
-                                                 '(1 6 8 0 9 2 6 7 0 8 11 2 6 0
-                                                   7 8 13 1 6 0 0 15 2 6 0 0 0
-                                                   16 1 0 0 0 17 1 0 0 0 14 1 0
-                                                   7 0 12 1 0 8 0 10)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|reductum| (|#1| |#1|)) T)
+                                   '((|degree| (|#3| |#1|)) T)
+                                   '((|leadingMonomial| (|#1| |#1|)) T)
+                                   '((|leadingCoefficient| (|#2| |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 17
+                                            '(1 6 8 0 9 2 6 7 0 8 11 2 6 0 7 8
+                                              13 1 6 0 0 15 2 6 0 0 0 16 1 0 0
+                                              0 17 1 0 0 0 14 1 0 7 0 12 1 0 8
+                                              0 10)))))
            '|lookupComplete|)) 

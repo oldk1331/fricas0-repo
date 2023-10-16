@@ -63,11 +63,26 @@
               |ONECOMP2;map;MOpcOpc;1| (|Union| 6 '"failed")
               (4 . |retractIfCan|) (9 . |coerce|))
            '#(|map| 14) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 16
-                                                 '(0 8 0 9 1 11 14 0 15 1 8 0 7
-                                                   16 3 0 8 10 11 8 12 2 0 8 10
-                                                   11 13)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map|
+                                 ((|OnePointCompletion| |#2|)
+                                  (|Mapping| |#2| |#1|)
+                                  (|OnePointCompletion| |#1|)))
+                                T)
+                              '((|map|
+                                 ((|OnePointCompletion| |#2|)
+                                  (|Mapping| |#2| |#1|)
+                                  (|OnePointCompletion| |#1|)
+                                  (|OnePointCompletion| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 16
+                                            '(0 8 0 9 1 11 14 0 15 1 8 0 7 16 3
+                                              0 8 10 11 8 12 2 0 8 10 11
+                                              13)))))
            '|lookupComplete|)) 

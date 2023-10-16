@@ -52,9 +52,13 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               |MAPHACK2;arg1;ACA;1| |MAPHACK2;arg2;A2C;2|)
            '#(|arg2| 0 |arg1| 6) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 9
-                                                 '(2 0 7 6 7 9 2 0 6 6 7 8)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|arg1| (|#1| |#1| |#2|)) T)
+                                   '((|arg2| (|#2| |#1| |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 9 '(2 0 7 6 7 9 2 0 6 6 7 8)))))
            '|lookupComplete|)) 

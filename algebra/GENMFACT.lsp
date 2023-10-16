@@ -105,12 +105,15 @@
               (|MultivariateFactorize| 6 7 9 10) (20 . |factor|) (|Factored| $)
               (25 . |squareFree|) |GENMFACT;factor;PF;1|)
            '#(|factor| 30) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 24
-                                                 '(1 12 11 10 13 1 14 11 10 15
-                                                   1 16 11 10 17 1 18 11 10 19
-                                                   1 20 11 10 21 1 10 22 0 23 1
-                                                   0 11 10 24)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|factor| ((|Factored| |#5|) |#5|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 24
+                                            '(1 12 11 10 13 1 14 11 10 15 1 16
+                                              11 10 17 1 18 11 10 19 1 20 11 10
+                                              21 1 10 22 0 23 1 0 11 10 24)))))
            '|lookupComplete|)) 

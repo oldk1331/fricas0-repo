@@ -62,13 +62,17 @@
               (30 . |imagJ|) (35 . |imagK|) (40 . |octon|) (|Mapping| 9 7)
               |OCTCT2;map;MOROS;1|)
            '#(|map| 52) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 20
-                                                 '(1 6 7 0 10 1 6 7 0 11 1 6 7
-                                                   0 12 1 6 7 0 13 1 6 7 0 14 1
-                                                   6 7 0 15 1 6 7 0 16 1 6 7 0
-                                                   17 8 8 0 9 9 9 9 9 9 9 9 18
-                                                   2 0 8 19 6 20)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#3| (|Mapping| |#4| |#2|) |#1|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 20
+                                            '(1 6 7 0 10 1 6 7 0 11 1 6 7 0 12
+                                              1 6 7 0 13 1 6 7 0 14 1 6 7 0 15
+                                              1 6 7 0 16 1 6 7 0 17 8 8 0 9 9 9
+                                              9 9 9 9 9 18 2 0 8 19 6 20)))))
            '|lookupComplete|)) 

@@ -1110,50 +1110,115 @@
               |complete| 417 |bound| 422 |arbFunctions| 429 |alphaHilbert| 436
               |alpha| 441)
            'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 120
-                                                 '(0 6 8 9 0 6 8 11 1 18 17 17
-                                                   19 2 17 22 0 0 23 1 26 0 25
-                                                   27 1 26 28 0 29 1 25 28 0 30
-                                                   0 28 0 31 1 25 0 32 33 1 17
-                                                   25 0 34 2 25 0 0 0 35 1 25 0
-                                                   0 36 2 25 0 0 37 38 0 6 0 39
-                                                   0 7 0 40 1 25 0 37 41 2 25 0
-                                                   0 0 42 1 18 25 43 44 1 45 25
-                                                   0 46 0 7 0 47 2 7 0 0 0 48 2
-                                                   17 0 0 0 49 3 51 17 50 0 17
-                                                   52 1 25 0 37 53 0 55 0 56 2
-                                                   55 58 54 0 59 2 51 17 50 0
-                                                   60 2 17 0 0 0 61 3 55 17 0
-                                                   54 17 63 2 64 0 0 0 65 2 64
-                                                   0 8 0 66 0 68 0 69 0 70 0 71
-                                                   2 64 0 17 0 72 2 51 17 0 64
-                                                   73 2 70 0 64 64 74 2 70 0 0
-                                                   0 75 1 70 70 0 76 2 68 0 70
-                                                   17 77 2 68 0 0 0 78 1 64 0 0
-                                                   80 2 68 70 0 17 81 2 70 0 0
-                                                   0 82 2 70 0 64 0 83 1 70 64
-                                                   0 84 2 51 17 0 64 86 2 87 64
-                                                   0 64 88 1 70 0 64 89 2 70 0
-                                                   0 64 90 1 51 17 0 92 2 87 0
-                                                   17 64 93 2 70 0 0 70 94 2 70
-                                                   0 17 0 96 1 18 102 0 103 1
-                                                   18 43 0 104 1 7 37 37 105 1
-                                                   18 102 0 106 2 7 37 37 37
-                                                   107 1 18 17 0 108 1 6 17 17
-                                                   109 2 18 17 0 17 110 2 18 45
-                                                   0 22 111 1 18 112 45 113 1
-                                                   18 45 45 114 1 18 112 112
-                                                   115 2 43 0 0 0 116 2 18 0 0
-                                                   17 117 2 18 102 0 17 118 1
-                                                   45 119 0 120 3 0 17 17 17 17
-                                                   62 1 0 17 17 20 1 0 17 17 21
-                                                   1 0 17 17 24 1 0 68 51 79 2
-                                                   0 68 17 51 97 3 0 87 17 64
-                                                   51 95 1 0 99 18 100 1 0 28
-                                                   18 101 3 0 17 17 17 17 98 3
-                                                   0 87 17 64 51 91 1 0 51 68
-                                                   85 2 0 51 17 51 67)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|setOutMode|
+                                 ((|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|setSimpMode|
+                                 ((|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|setRedMode|
+                                 ((|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|stirling|
+                                 ((|NonNegativeInteger|) (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|alpha|
+                                 ((|List| (|NonNegativeInteger|))
+                                  (|NonNegativeInteger|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|hilbert|
+                                 ((|SparseUnivariatePolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|alphaHilbert|
+                                 ((|List| (|NonNegativeInteger|))
+                                  (|SparseUnivariatePolynomial|
+                                   (|Fraction| (|Integer|)))))
+                                T)
+                              '((|arbFunctions|
+                                 ((|List| (|Integer|)) (|NonNegativeInteger|)
+                                  (|Integer|) (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|gauge|
+                                 ((|List| (|Integer|)) (|NonNegativeInteger|)
+                                  (|Integer|) (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|gaugeHilbert|
+                                 ((|SparseUnivariatePolynomial|
+                                   (|Fraction| (|Integer|)))
+                                  (|NonNegativeInteger|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|bound|
+                                 ((|NonNegativeInteger|) (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)
+                                  (|NonNegativeInteger|)))
+                                T)
+                              '((|complete|
+                                 ((|Void|)
+                                  (|JetDifferentialEquation| |#1| |#2|)))
+                                T)
+                              '((|complete2|
+                                 ((|Record|
+                                   (|:| |IDe|
+                                        (|JetDifferentialEquation| |#1| |#2|))
+                                   (|:| |ISys| (|List| |#2|))
+                                   (|:| |Order| (|NonNegativeInteger|))
+                                   (|:| |NumProj| (|NonNegativeInteger|))
+                                   (|:| |Dim| (|NonNegativeInteger|))
+                                   (|:| |CarChar|
+                                        (|List| (|NonNegativeInteger|))))
+                                  (|JetDifferentialEquation| |#1| |#2|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 120
+                                            '(0 6 8 9 0 6 8 11 1 18 17 17 19 2
+                                              17 22 0 0 23 1 26 0 25 27 1 26 28
+                                              0 29 1 25 28 0 30 0 28 0 31 1 25
+                                              0 32 33 1 17 25 0 34 2 25 0 0 0
+                                              35 1 25 0 0 36 2 25 0 0 37 38 0 6
+                                              0 39 0 7 0 40 1 25 0 37 41 2 25 0
+                                              0 0 42 1 18 25 43 44 1 45 25 0 46
+                                              0 7 0 47 2 7 0 0 0 48 2 17 0 0 0
+                                              49 3 51 17 50 0 17 52 1 25 0 37
+                                              53 0 55 0 56 2 55 58 54 0 59 2 51
+                                              17 50 0 60 2 17 0 0 0 61 3 55 17
+                                              0 54 17 63 2 64 0 0 0 65 2 64 0 8
+                                              0 66 0 68 0 69 0 70 0 71 2 64 0
+                                              17 0 72 2 51 17 0 64 73 2 70 0 64
+                                              64 74 2 70 0 0 0 75 1 70 70 0 76
+                                              2 68 0 70 17 77 2 68 0 0 0 78 1
+                                              64 0 0 80 2 68 70 0 17 81 2 70 0
+                                              0 0 82 2 70 0 64 0 83 1 70 64 0
+                                              84 2 51 17 0 64 86 2 87 64 0 64
+                                              88 1 70 0 64 89 2 70 0 0 64 90 1
+                                              51 17 0 92 2 87 0 17 64 93 2 70 0
+                                              0 70 94 2 70 0 17 0 96 1 18 102 0
+                                              103 1 18 43 0 104 1 7 37 37 105 1
+                                              18 102 0 106 2 7 37 37 37 107 1
+                                              18 17 0 108 1 6 17 17 109 2 18 17
+                                              0 17 110 2 18 45 0 22 111 1 18
+                                              112 45 113 1 18 45 45 114 1 18
+                                              112 112 115 2 43 0 0 0 116 2 18 0
+                                              0 17 117 2 18 102 0 17 118 1 45
+                                              119 0 120 3 0 17 17 17 17 62 1 0
+                                              17 17 20 1 0 17 17 21 1 0 17 17
+                                              24 1 0 68 51 79 2 0 68 17 51 97 3
+                                              0 87 17 64 51 95 1 0 99 18 100 1
+                                              0 28 18 101 3 0 17 17 17 17 98 3
+                                              0 87 17 64 51 91 1 0 51 68 85 2 0
+                                              51 17 51 67)))))
            '|lookupComplete|)) 

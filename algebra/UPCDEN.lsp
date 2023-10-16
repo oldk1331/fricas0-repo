@@ -53,6 +53,18 @@
               (|local| |#1|) (|local| |#2|) (|local| |#3|)
               (|Record| (|:| |num| 8) (|:| |den| 6)))
            '#() 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#() (CONS '#() (|makeByteWordVec2| -999999 'NIL))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST '((|commonDenominator| (|#1| |#3|)) T)
+                                   '((|clearDenominator| (|#3| |#3|)) T)
+                                   '((|splitDenominator|
+                                      ((|Record| (|:| |num| |#3|)
+                                                 (|:| |den| |#1|))
+                                       |#3|))
+                                     T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

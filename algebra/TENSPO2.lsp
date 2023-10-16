@@ -77,11 +77,19 @@
               (|List| 8) (|Vector| 8) (9 . |parts|) (14 . *) (20 . +)
               (|Mapping| 10 16) |TENSPO2;linearExtend;MTpM2;1|)
            '#(|linearExtend| 26) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 22
-                                                 '(0 10 0 11 1 14 13 0 15 1 17
-                                                   16 0 18 2 10 0 7 0 19 2 10 0
-                                                   0 0 20 2 0 10 21 14 22)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|linearExtend|
+                                 (|#5| (|Mapping| |#5| (|List| |#3|))
+                                  (|TensorPower| |#1| |#2| |#3| |#4|)))
+                                T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 22
+                                            '(0 10 0 11 1 14 13 0 15 1 17 16 0
+                                              18 2 10 0 7 0 19 2 10 0 0 0 20 2
+                                              0 10 21 14 22)))))
            '|lookupComplete|)) 

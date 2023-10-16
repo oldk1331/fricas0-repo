@@ -92,14 +92,18 @@
               (31 . |maxColIndex|) (36 . |qelt|) (43 . |qsetelt!|)
               (|Mapping| 10 6) |ARRAY22;map;MMAMB;1|)
            '#(|map| 51) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 26
-                                                 '(1 9 14 0 15 1 9 14 0 16 2 13
-                                                   0 14 14 17 1 9 18 0 19 1 9
-                                                   18 0 20 1 9 18 0 21 1 9 18 0
-                                                   22 3 9 6 0 18 18 23 4 13 10
-                                                   0 18 18 10 24 2 0 13 25 9
-                                                   26)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#8| (|Mapping| |#5| |#1|) |#4|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 26
+                                            '(1 9 14 0 15 1 9 14 0 16 2 13 0 14
+                                              14 17 1 9 18 0 19 1 9 18 0 20 1 9
+                                              18 0 21 1 9 18 0 22 3 9 6 0 18 18
+                                              23 4 13 10 0 18 18 10 24 2 0 13
+                                              25 9 26)))))
            '|lookupComplete|)) 

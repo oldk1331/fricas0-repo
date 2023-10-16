@@ -141,14 +141,18 @@
               (|Mapping| 8 6) (39 . |map|) (45 . |Zero|) (49 . |monomial|)
               (55 . +))
            '#(|map| 61) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
-                             (|makeByteWordVec2| 27
-                                                 '(0 6 0 13 0 7 0 14 2 7 15 0 0
-                                                   16 1 7 6 0 17 0 8 0 18 2 8
-                                                   15 0 0 19 1 7 20 0 21 1 7 0
-                                                   0 22 2 0 9 23 7 24 0 9 0 25
-                                                   2 9 0 8 20 26 2 9 0 0 0 27 2
-                                                   0 9 23 7 24)))))
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS
+                        '#((|Join|
+                            (|mkCategory|
+                             (LIST
+                              '((|map| (|#4| (|Mapping| |#3| |#1|) |#2|)) T))
+                             (LIST) NIL NIL)))
+                        (|makeByteWordVec2| 27
+                                            '(0 6 0 13 0 7 0 14 2 7 15 0 0 16 1
+                                              7 6 0 17 0 8 0 18 2 8 15 0 0 19 1
+                                              7 20 0 21 1 7 0 0 22 2 0 9 23 7
+                                              24 0 9 0 25 2 9 0 8 20 26 2 9 0 0
+                                              0 27 2 0 9 23 7 24)))))
            '|lookupComplete|)) 
