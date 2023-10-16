@@ -195,13 +195,13 @@
               (11 . |coerce|) |JBX;coerce;JB$;1| (|List| 6)
               (16 . |jetVariables|) (21 . |and|) (|Mapping| 10 10 10)
               (|List| 10) (27 . |reduce|) (|Union| $ '"failed")
-              |JBX;retractIfCan;JbeU;2| |JBX;retract;Jbe$;3|
-              (|Union| 24 '#1="failed") (|Fraction| 28)
+              |JBX;retractIfCan;JbeU;2| |JBX;retract;Jbe$;3| (|Fraction| 28)
+              (|Union| 23 '#1="failed")
               (|Record| (|:| |coef| 28) (|:| |var| 41))
               (|Union| 25 '#2="failed") (|Union| 31 '#2#) (|Integer|)
               (|BasicOperator|) (|List| 29) (|List| $) (|InputForm|)
               (|Pattern| (|Float|)) (|Pattern| 28) (|List| 41) (|Factored| $)
-              (|SparseMultivariatePolynomial| 28 41) (|Polynomial| 24)
+              (|SparseMultivariatePolynomial| 28 41) (|Polynomial| 23)
               (|Fraction| 38) (|Fraction| 65) (|Kernel| $) (|Union| 43 '#1#)
               (|Fraction| 63) (|PatternMatchResult| (|Float|) $)
               (|PatternMatchResult| 28 $) (|AlgebraicNumber|) (|Union| 46 '#1#)
@@ -289,9 +289,9 @@
             (|makeByteWordVec2| 14
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 2 3 4
                                   14 0 0 0 0 0 0 2 0 0 0 2 0 0 0 0 0 2 2 0 6 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 10 11 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  13 1 5 7 8 9 12))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 10 11 0 0 0 0 0 0 0
+                                  0 0 0 13 1 5 12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                  0 0 0 0 0 0 0 0 13 1 5 7 8 9 12))
             (CONS
              '#(|AlgebraicallyClosedFunctionSpace&| |AlgebraicallyClosedField&|
                 |FunctionSpace&| |Field&| |EuclideanDomain&|
@@ -304,17 +304,17 @@
                 NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| |Group&| NIL
                 NIL NIL NIL |ExpressionSpace&| NIL |MagmaWithUnit&|
-                |NonAssociativeSemiRng&| |AbelianMonoid&| NIL NIL |Magma&|
-                |AbelianSemiGroup&| NIL NIL NIL
-                |TranscendentalFunctionCategory&| |FullyRetractableTo&| NIL
-                |Evalable&| NIL |SetCategory&| NIL NIL NIL
+                |NonAssociativeSemiRng&| |AbelianMonoid&| NIL
+                |FullyRetractableTo&| NIL |Magma&| |AbelianSemiGroup&| NIL NIL
+                NIL |TranscendentalFunctionCategory&| |RetractableTo&| NIL
+                |RetractableTo&| |Evalable&| |RetractableTo&| |RetractableTo&|
+                NIL |SetCategory&| |RetractableTo&| |RetractableTo&|
+                |RetractableTo&| |RetractableTo&| NIL NIL NIL
                 |ElementaryFunctionCategory&| NIL |HyperbolicFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
-                |TrigonometricFunctionCategory&| |RadicalCategory&|
-                |RetractableTo&| NIL |RetractableTo&| NIL NIL |InnerEvalable&|
-                |InnerEvalable&| |RetractableTo&| |RetractableTo&| NIL NIL NIL
-                |BasicType&| NIL |RetractableTo&| |RetractableTo&|
-                |RetractableTo&| NIL NIL NIL |RetractableTo&|)
+                |TrigonometricFunctionCategory&| |RadicalCategory&| NIL NIL NIL
+                NIL NIL |InnerEvalable&| |InnerEvalable&| NIL NIL NIL NIL NIL
+                |BasicType&| NIL NIL NIL NIL NIL NIL NIL NIL)
              (CONS
               '#((|AlgebraicallyClosedFunctionSpace| 28)
                  (|AlgebraicallyClosedField|) (|FunctionSpace| 28) (|Field|)
@@ -323,40 +323,43 @@
                  (|JetBundleFunctionCategory| 6) (|GcdDomain|)
                  (|IntegralDomain|) (|DivisionRing|) (|CommutativeRing|)
                  (|LeftOreRing|) (|FullyLinearlyExplicitOver| 28)
-                 (|Algebra| 24) (|PartialDifferentialRing| 8) (|EntireRing|)
+                 (|Algebra| 23) (|PartialDifferentialRing| 8) (|EntireRing|)
                  (|Algebra| $$) (|Algebra| 28) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|LinearlyExplicitOver| 28) (|Ring|)
-                 (|Rng|) (|SemiRing|) (|Module| 24) (|Module| $$) (|SemiRng|)
-                 (|Module| 28) (|BiModule| 24 24) (|BiModule| $$ $$)
-                 (|NonAssociativeRing|) (|BiModule| 28 28) (|RightModule| 24)
-                 (|LeftModule| 24) (|LeftModule| $$) (|NonAssociativeRng|)
+                 (|Rng|) (|SemiRing|) (|Module| 23) (|Module| $$) (|SemiRng|)
+                 (|Module| 28) (|BiModule| 23 23) (|BiModule| $$ $$)
+                 (|NonAssociativeRing|) (|BiModule| 28 28) (|RightModule| 23)
+                 (|LeftModule| 23) (|LeftModule| $$) (|NonAssociativeRng|)
                  (|RightModule| $$) (|LeftModule| 28) (|RightModule| 28)
                  (|AbelianGroup|) (|Group|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|FullyPatternMatchable| 28) (|ExpressionSpace|) (|SemiGroup|)
                  (|MagmaWithUnit|) (|NonAssociativeSemiRng|) (|AbelianMonoid|)
-                 (|LiouvillianFunctionCategory|) (|Comparable|) (|Magma|)
-                 (|AbelianSemiGroup|) (|PatternMatchable| (|Float|))
-                 (|PatternMatchable| 28) (|CombinatorialOpsCategory|)
-                 (|TranscendentalFunctionCategory|) (|FullyRetractableTo| 28)
-                 (|Patternable| 28) (|Evalable| $$) (|CommutativeStar|)
-                 (|SetCategory|) (|SpecialFunctionCategory|)
-                 (|PrimitiveFunctionCategory|)
+                 (|LiouvillianFunctionCategory|) (|FullyRetractableTo| 28)
+                 (|Comparable|) (|Magma|) (|AbelianSemiGroup|)
+                 (|PatternMatchable| (|Float|)) (|PatternMatchable| 28)
+                 (|CombinatorialOpsCategory|)
+                 (|TranscendentalFunctionCategory|) (|RetractableTo| 28)
+                 (|Patternable| 28) (|RetractableTo| 8) (|Evalable| $$)
+                 (|RetractableTo| (|Kernel| $$)) (|RetractableTo| 6)
+                 (|CommutativeStar|) (|SetCategory|) (|RetractableTo| 23)
+                 (|RetractableTo| 43) (|RetractableTo| 63) (|RetractableTo| 46)
+                 (|SpecialFunctionCategory|) (|PrimitiveFunctionCategory|)
                  (|CombinatorialFunctionCategory|)
                  (|ElementaryFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|TrigonometricFunctionCategory|) (|RadicalCategory|)
-                 (|RetractableTo| 28) (|Type|) (|RetractableTo| 8)
+                 (|CoercibleFrom| 28) (|Type|) (|CoercibleFrom| 8)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|InnerEvalable| $$ $$) (|InnerEvalable| (|Kernel| $$) $$)
-                 (|RetractableTo| (|Kernel| $$)) (|RetractableTo| 6)
+                 (|CoercibleFrom| (|Kernel| $$)) (|CoercibleFrom| 6)
                  (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 93) (|RetractableTo| 24)
-                 (|RetractableTo| 43) (|RetractableTo| 63) (|ConvertibleTo| 32)
+                 (|BasicType|) (|CoercibleTo| 93) (|CoercibleFrom| 23)
+                 (|CoercibleFrom| 43) (|CoercibleFrom| 63) (|ConvertibleTo| 32)
                  (|ConvertibleTo| 33) (|ConvertibleTo| 34)
-                 (|RetractableTo| 46))
+                 (|CoercibleFrom| 46))
               (|makeByteWordVec2| 93
                                   '(1 6 8 0 9 2 8 10 0 0 11 1 5 0 6 12 1 0 14 0
                                     15 2 10 0 0 0 16 3 18 10 17 0 10 19 2 0 10
@@ -380,9 +383,9 @@
                                     0 31 0 8 1 3 0 0 0 65 8 1 1 0 0 73 1 2 0 0
                                     65 8 1 1 0 0 65 1 1 0 0 0 1 2 0 0 0 8 1 1 0
                                     20 0 1 2 0 0 0 62 1 2 0 0 0 83 1 1 0 0 0 1
-                                    1 13 23 0 1 1 1 42 0 1 1 12 47 0 1 1 5 64 0
+                                    1 13 24 0 1 1 1 42 0 1 1 12 47 0 1 1 5 64 0
                                     1 1 0 20 5 21 1 0 74 0 1 1 0 77 0 1 1 0 78
-                                    0 1 1 0 87 0 1 1 13 24 0 1 1 1 43 0 1 1 12
+                                    0 1 1 0 87 0 1 1 13 23 0 1 1 1 43 0 1 1 12
                                     46 0 1 1 5 63 0 1 1 0 0 5 22 1 0 41 0 1 1 0
                                     8 0 1 1 0 28 0 1 1 0 6 0 1 2 0 0 0 0 1 2 5
                                     48 49 50 1 1 5 51 49 1 2 0 31 31 31 1 1 0 0
@@ -443,7 +446,7 @@
                                     10 0 1 2 6 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 1
                                     1 0 38 1 1 1 0 39 1 1 1 0 43 1 1 12 0 46 1
                                     1 5 0 37 1 1 5 0 63 1 1 0 66 0 1 1 0 0 66 1
-                                    1 0 0 24 1 1 0 0 41 1 1 0 0 8 1 1 0 0 6 13
+                                    1 0 0 23 1 1 0 0 41 1 1 0 0 8 1 1 0 0 6 13
                                     1 0 0 0 1 1 0 0 28 1 1 0 93 0 1 1 0 62 0 1
                                     1 3 20 0 1 3 0 0 0 0 0 1 0 0 62 1 1 0 0 0 1
                                     2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 0
@@ -456,7 +459,7 @@
                                     0 0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 0
                                     0 1 1 0 0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 0 0 1
                                     1 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 28
-                                    1 2 0 0 0 24 1 2 0 0 0 62 1 2 0 0 0 83 1 0
+                                    1 2 0 0 0 23 1 2 0 0 0 62 1 2 0 0 0 83 1 0
                                     0 0 1 0 0 0 1 1 0 0 83 1 0 0 0 1 1 0 0 83 1
                                     1 0 0 0 1 1 0 0 0 1 1 0 0 62 1 2 0 0 83 62
                                     1 1 0 0 55 1 2 0 0 83 55 1 0 0 0 1 2 0 0 0
@@ -464,7 +467,7 @@
                                     0 0 8 62 1 2 0 0 0 8 1 2 0 0 0 54 1 1 0 0 0
                                     1 1 0 0 0 1 2 0 0 0 0 1 2 0 10 0 0 1 2 1 0
                                     37 37 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2
-                                    0 0 0 0 1 2 2 0 0 28 1 2 0 0 24 0 1 2 0 0 0
-                                    24 1 2 0 0 62 0 1 2 0 0 28 0 1 2 0 0 0 0 1
+                                    0 0 0 0 1 2 2 0 0 28 1 2 0 0 23 0 1 2 0 0 0
+                                    23 1 2 0 0 62 0 1 2 0 0 28 0 1 2 0 0 0 0 1
                                     2 0 0 83 0 1)))))
            '|lookupComplete|)) 

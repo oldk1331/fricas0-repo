@@ -534,8 +534,8 @@
            (CONS
             (|makeByteWordVec2| 7
                                 '(5 5 5 0 0 0 5 0 0 1 2 6 7 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-                                  4))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 4 0 0 0 0 0 0
+                                  0 0 3 4))
             (CONS
              '#(|EuclideanDomain&| NIL |GcdDomain&| NIL
                 |DifferentialExtension&| NIL NIL |EntireRing&| |Algebra&|
@@ -543,9 +543,10 @@
                 |Rng&| NIL |Module&| NIL NIL |NonAssociativeRing&| NIL
                 |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
-                |Magma&| |AbelianSemiGroup&| |FullyRetractableTo&| NIL
-                |SetCategory&| |RetractableTo&| |RetractableTo&| NIL NIL NIL
-                NIL |BasicType&| NIL |RetractableTo&| |RetractableTo&|)
+                |FullyRetractableTo&| |Magma&| |AbelianSemiGroup&|
+                |RetractableTo&| |RetractableTo&| NIL |SetCategory&|
+                |RetractableTo&| |RetractableTo&| NIL NIL NIL NIL NIL NIL
+                |BasicType&| NIL NIL NIL)
              (CONS
               '#((|EuclideanDomain|) (|PrincipalIdealDomain|) (|GcdDomain|)
                  (|IntegralDomain|) (|DifferentialExtension| 7)
@@ -558,12 +559,13 @@
                  (|RightModule| $$) (|AbelianGroup|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
-                 (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
-                 (|FullyRetractableTo| 6) (|CommutativeStar|) (|SetCategory|)
-                 (|RetractableTo| 7) (|RetractableTo| 6)
+                 (|AbelianMonoid|) (|FullyRetractableTo| 6) (|Magma|)
+                 (|AbelianSemiGroup|) (|RetractableTo| 7) (|RetractableTo| 6)
+                 (|CommutativeStar|) (|SetCategory|) (|RetractableTo| 107)
+                 (|RetractableTo| 18) (|CoercibleFrom| 7) (|CoercibleFrom| 6)
                  (|ConvertibleTo| (|Fraction| 7)) (|noZeroDivisors|)
                  (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 53) (|RetractableTo| 107) (|RetractableTo| 18))
+                 (|CoercibleTo| 53) (|CoercibleFrom| 107) (|CoercibleFrom| 18))
               (|makeByteWordVec2| 117
                                   '(0 6 0 10 0 7 0 11 0 6 0 13 0 7 0 14 2 7 15
                                     0 0 16 1 7 0 6 20 1 7 0 0 23 2 7 0 18 0 25

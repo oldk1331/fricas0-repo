@@ -1683,20 +1683,20 @@
                                    '((|reducedSystem|
                                       ((|Matrix| (|Integer|)) (|Matrix| |#1|)))
                                      T)
-                                   '((|retract| (|#2| |#1|)) T)
                                    '((|retractIfCan| ((|Union| |#2| #3#) |#1|))
+                                     T)
+                                   '((|retract| (|#2| |#1|)) T)
+                                   '((|retract|
+                                      ((|Fraction| (|Integer|)) |#1|))
                                      T)
                                    '((|retractIfCan|
                                       ((|Union| (|Fraction| (|Integer|)) #3#)
                                        |#1|))
                                      T)
-                                   '((|retract|
-                                      ((|Fraction| (|Integer|)) |#1|))
-                                     T)
+                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|retractIfCan|
                                       ((|Union| (|Integer|) #3#) |#1|))
                                      T)
-                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|convert|
                                       ((|SparseUnivariatePolynomial| |#2|)
                                        |#1|))

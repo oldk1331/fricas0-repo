@@ -1932,15 +1932,15 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|JetBundleFunctionCategory&| |GcdDomain&| NIL NIL NIL
                 |PartialDifferentialRing&| |EntireRing&| |Algebra&| NIL |Rng&|
                 NIL |Module&| NIL NIL |NonAssociativeRing&| NIL
                 |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
-                |Magma&| |AbelianSemiGroup&| NIL |SetCategory&| NIL
-                |RetractableTo&| NIL NIL NIL |BasicType&| NIL)
+                |Magma&| |AbelianSemiGroup&| |RetractableTo&| NIL
+                |SetCategory&| NIL NIL NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|JetBundleFunctionCategory| 6) (|GcdDomain|)
                  (|IntegralDomain|) (|LeftOreRing|) (|CommutativeRing|)
@@ -1951,10 +1951,10 @@
                  (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Magma|)
-                 (|AbelianSemiGroup|) (|CommutativeStar|) (|SetCategory|)
-                 (|lazyRepresentation|) (|RetractableTo| 6) (|noZeroDivisors|)
-                 (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 11))
+                 (|AbelianSemiGroup|) (|RetractableTo| 6) (|CommutativeStar|)
+                 (|SetCategory|) (|lazyRepresentation|) (|CoercibleFrom| 6)
+                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
+                 (|BasicType|) (|CoercibleTo| 11))
               (|makeByteWordVec2| 179
                                   '(1 11 0 10 12 1 13 11 0 14 2 11 0 0 0 15 1
                                     11 16 0 17 0 16 0 18 0 7 0 24 0 6 0 26 0 7

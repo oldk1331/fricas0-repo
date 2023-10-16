@@ -460,7 +460,7 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -471,8 +471,8 @@
                 NIL NIL |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&|
                 NIL |AbelianGroup&| NIL NIL NIL |Finite&| NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| NIL NIL |Magma&|
-                |AbelianSemiGroup&| NIL |SetCategory&| NIL |RetractableTo&| NIL
-                NIL NIL NIL NIL NIL |BasicType&| NIL)
+                |AbelianSemiGroup&| |RetractableTo&| NIL |SetCategory&| NIL NIL
+                NIL NIL NIL NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| $$) (|FiniteFieldCategory|)
                  (|ExtensionField| $$) (|FieldOfPrimeCharacteristic|) (|Field|)
@@ -490,11 +490,11 @@
                  (|Finite|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|StepThrough|)
                  (|Comparable|) (|Magma|) (|AbelianSemiGroup|)
-                 (|CommutativeStar|) (|SetCategory|) (|ConvertibleTo| 22)
-                 (|RetractableTo| $$) (|ConvertibleTo| 103)
-                 (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 117))
+                 (|RetractableTo| $$) (|CommutativeStar|) (|SetCategory|)
+                 (|ConvertibleTo| 22) (|CoercibleFrom| $$)
+                 (|ConvertibleTo| 103) (|canonicalsClosed|)
+                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|TwoSidedRecip|)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 117))
               (|makeByteWordVec2| 95
                                   '(0 12 0 13 0 0 0 16 2 0 17 0 0 18 1 0 19 0
                                     20 1 22 21 0 23 1 26 25 0 27 0 0 0 28 1 0

@@ -167,8 +167,8 @@
               (132 . |derivationCoordinates|) (138 . |One|)
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 55 '"failed")
               (142 . |extendedEuclidean|) (149 . |recip|) (|List| 61)
-              (|List| 15) (|Symbol|) (|InputForm|) (|Fraction| 65)
-              (|Union| 63 '#1#) (|Integer|) (|Union| 65 '#1#) (|Vector| 7))
+              (|List| 15) (|Symbol|) (|InputForm|) (|Union| 64 '#1#)
+              (|Fraction| 66) (|Union| 66 '#1#) (|Integer|) (|Vector| 7))
            '#(|retractIfCan| 154 |retract| 159 |reduce| 164 |recip| 169 |norm|
               174 |generator| 179 |differentiate| 183 |derivationCoordinates|
               189 |convert| 195 |characteristicPolynomial| 205 |basis| 210)
@@ -212,16 +212,16 @@
                               '((|convert| (|#1| |#3|)) T)
                               '((|reduce| (|#1| |#3|)) T)
                               '((|generator| (|#1|)) T)
-                              '((|retract| (|#2| |#1|)) T)
                               '((|retractIfCan| ((|Union| |#2| #1#) |#1|)) T)
+                              '((|retract| (|#2| |#1|)) T)
+                              '((|retract| ((|Fraction| (|Integer|)) |#1|)) T)
                               '((|retractIfCan|
                                  ((|Union| (|Fraction| (|Integer|)) #1#) |#1|))
                                 T)
-                              '((|retract| ((|Fraction| (|Integer|)) |#1|)) T)
+                              '((|retract| ((|Integer|) |#1|)) T)
                               '((|retractIfCan|
                                  ((|Union| (|Integer|) #1#) |#1|))
                                 T)
-                              '((|retract| ((|Integer|) |#1|)) T)
                               '((|convert| (|#3| |#1|)) T)
                               '((|basis| ((|Vector| |#1|))) T)
                               '((|convert| ((|Vector| |#2|) |#1|)) T)

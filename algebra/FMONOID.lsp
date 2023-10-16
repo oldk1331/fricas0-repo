@@ -754,16 +754,17 @@
               406 |coerce| 412 ^ 422 |One| 440 >= 444 > 450 = 456 <= 462 < 468
               * 474)
            'NIL
-           (CONS (|makeByteWordVec2| 3 '(1 0 1 0 0 1 0 3 0 0 0 0 1))
+           (CONS (|makeByteWordVec2| 3 '(1 0 1 0 0 1 0 3 0 0 0 0 0 1))
                  (CONS
                   '#(NIL NIL NIL NIL |MagmaWithUnit&| |OrderedSet&| |Magma&|
-                     NIL |SetCategory&| |RetractableTo&| |BasicType&| NIL
+                     NIL |RetractableTo&| |SetCategory&| NIL |BasicType&| NIL
                      |PartialOrder&|)
                   (CONS
                    '#((|OrderedMonoid|) (|Monoid|) (|OrderedSemiGroup|)
                       (|SemiGroup|) (|MagmaWithUnit|) (|OrderedSet|) (|Magma|)
-                      (|Comparable|) (|SetCategory|) (|RetractableTo| 6)
-                      (|BasicType|) (|CoercibleTo| 15) (|PartialOrder|))
+                      (|Comparable|) (|RetractableTo| 6) (|SetCategory|)
+                      (|CoercibleFrom| 6) (|BasicType|) (|CoercibleTo| 15)
+                      (|PartialOrder|))
                    (|makeByteWordVec2| 85
                                        '(0 8 0 9 1 8 11 0 12 2 15 0 0 0 16 2 15
                                          0 0 0 17 4 8 15 0 18 18 19 20 1 8 0 0

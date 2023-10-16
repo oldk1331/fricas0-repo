@@ -373,14 +373,14 @@
               |factor| 249 |coerce| 254 |LyndonWordsList1| 274
               |LyndonWordsList| 280 >= 286 > 292 = 298 <= 304 < 310)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(|OrderedSet&| NIL |SetCategory&| |BasicType&|
-                     |RetractableTo&| |PartialOrder&| NIL)
+                  '#(|OrderedSet&| NIL |SetCategory&| |RetractableTo&|
+                     |BasicType&| NIL |PartialOrder&| NIL)
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
-                      (|BasicType|) (|RetractableTo| 6) (|PartialOrder|)
-                      (|CoercibleTo| 39))
+                      (|RetractableTo| 6) (|BasicType|) (|CoercibleFrom| 6)
+                      (|PartialOrder|) (|CoercibleTo| 39))
                    (|makeByteWordVec2| 62
                                        '(0 8 0 9 2 8 10 0 0 11 1 8 0 0 12 2 8
                                          10 0 0 13 2 8 10 0 0 14 1 19 18 0 20 1

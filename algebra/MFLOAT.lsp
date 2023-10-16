@@ -530,7 +530,8 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                  0 0))
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&| NIL
@@ -539,10 +540,10 @@
                 |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 |OrderedSet&| NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
-                |AbelianMonoid&| NIL NIL |Magma&| |AbelianSemiGroup&| NIL NIL
-                |SetCategory&| |RetractableTo&| NIL NIL NIL |RadicalCategory&|
-                |RetractableTo&| |RetractableTo&| NIL NIL |PartialOrder&| NIL
-                NIL NIL NIL NIL |BasicType&| NIL)
+                |AbelianMonoid&| NIL NIL |Magma&| |AbelianSemiGroup&|
+                |RetractableTo&| |RetractableTo&| |RetractableTo&| NIL NIL
+                |SetCategory&| NIL NIL NIL NIL |RadicalCategory&| NIL NIL NIL
+                NIL |PartialOrder&| NIL NIL NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|FloatingPointSystem|) (|RealNumberSystem|) (|Field|)
                  (|EuclideanDomain|) (|PrincipalIdealDomain|)
@@ -561,10 +562,11 @@
                  (|OrderedSet|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|)
                  (|PatternMatchable| 16) (|Comparable|) (|Magma|)
-                 (|AbelianSemiGroup|) (|RealConstant|) (|CommutativeStar|)
-                 (|SetCategory|) (|RetractableTo| 16) (|ConvertibleTo| 42)
+                 (|AbelianSemiGroup|) (|RetractableTo| 16) (|RetractableTo| 18)
+                 (|RetractableTo| 13) (|RealConstant|) (|CommutativeStar|)
+                 (|SetCategory|) (|CoercibleFrom| 16) (|ConvertibleTo| 42)
                  (|Approximate|) (|ConvertibleTo| 100) (|RadicalCategory|)
-                 (|RetractableTo| 18) (|RetractableTo| 13) (|ConvertibleTo| 16)
+                 (|CoercibleFrom| 18) (|CoercibleFrom| 13) (|ConvertibleTo| 16)
                  (|ConvertibleTo| 102) (|PartialOrder|) (|canonicalsClosed|)
                  (|canonicalUnitNormal|) (|noZeroDivisors|) (|TwoSidedRecip|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 45))

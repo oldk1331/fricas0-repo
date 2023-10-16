@@ -1103,8 +1103,9 @@
                                   23 24 49 33 7 2 39 40 2 13 51 38 51 0 19 23
                                   49 2 0 0 42 49 6 2 0 0 0 0 49 49 6 2 2 51 47
                                   6 46 38 38 6 0 0 50 38 27 2 0 0 28 9 2 16 17
-                                  0 23 49 5 11 2 0 0 0 0 1 23 24 2 2 49 49 49
-                                  49 49 49 42 3 4 5 5 27 8 8 10 11 12 14 15 2))
+                                  0 0 23 49 3 5 8 8 11 2 0 0 0 0 1 23 24 2 2 49
+                                  49 49 49 49 49 42 3 4 5 5 27 8 8 10 11 12 14
+                                  15 2))
             (CONS
              '#(|UnivariateLaurentSeriesConstructorCategory&|
                 |UnivariateLaurentSeriesCategory&| |QuotientFieldCategory&|
@@ -1120,14 +1121,14 @@
                 NIL NIL NIL NIL |NonAssociativeRng&| |AbelianGroup&| NIL NIL
                 NIL NIL NIL |NonAssociativeSemiRng&| NIL |AbelianMonoid&|
                 |MagmaWithUnit&| |OrderedSet&| NIL |Magma&| |AbelianSemiGroup&|
-                NIL NIL |FullyEvalableOver&| NIL NIL |SetCategory&| NIL
-                |TranscendentalFunctionCategory&| NIL |Evalable&| NIL
-                |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL
+                NIL NIL |FullyEvalableOver&| NIL NIL |RetractableTo&|
+                |SetCategory&| NIL |TranscendentalFunctionCategory&|
+                |RetractableTo&| NIL |RetractableTo&| |RetractableTo&|
+                |Evalable&| NIL NIL NIL |BasicType&| NIL NIL NIL NIL NIL NIL
                 |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
-                |RadicalCategory&| NIL |RetractableTo&| NIL NIL NIL
-                |PartialOrder&| |RetractableTo&| |RetractableTo&|
+                |RadicalCategory&| NIL NIL NIL NIL NIL |PartialOrder&| NIL NIL
                 |InnerEvalable&| |InnerEvalable&| NIL NIL NIL NIL)
              (CONS
               '#((|UnivariateLaurentSeriesConstructorCategory| 6
@@ -1176,11 +1177,13 @@
                  (|Magma|) (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
                  (|FullyEvalableOver| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|PatternMatchable| 168) (|PatternMatchable| 17)
+                 (|RetractableTo| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|SetCategory|) (|CommutativeStar|)
-                 (|TranscendentalFunctionCategory|) (|RealConstant|)
+                 (|TranscendentalFunctionCategory|) (|RetractableTo| 10)
+                 (|RealConstant|) (|RetractableTo| 126) (|RetractableTo| 17)
                  (|Evalable| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|Patternable| (|SparseUnivariateTaylorSeries| 6 7 8))
-                 (|RetractableTo| (|SparseUnivariateTaylorSeries| 6 7 8))
+                 (|CoercibleFrom| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|VariablesCommuteWithCoefficients|) (|BasicType|)
                  (|CoercibleTo| 147) (|Eltable| $$ $$) (|TwoSidedRecip|)
                  (|noZeroDivisors|) (|canonicalUnitNormal|)
@@ -1189,9 +1192,9 @@
                  (|HyperbolicFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|ElementaryFunctionCategory|) (|RadicalCategory|)
-                 (|unitsKnown|) (|RetractableTo| 10) (|ConvertibleTo| 152)
+                 (|unitsKnown|) (|CoercibleFrom| 10) (|ConvertibleTo| 152)
                  (|ConvertibleTo| 169) (|ConvertibleTo| 168) (|PartialOrder|)
-                 (|RetractableTo| 126) (|RetractableTo| 17)
+                 (|CoercibleFrom| 126) (|CoercibleFrom| 17)
                  (|InnerEvalable| 10 (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|InnerEvalable| (|SparseUnivariateTaylorSeries| 6 7 8)
                                   (|SparseUnivariateTaylorSeries| 6 7 8))

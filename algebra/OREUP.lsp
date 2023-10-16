@@ -238,7 +238,7 @@
             (|makeByteWordVec2| 23
                                 '(0 0 0 0 9 1 2 3 4 9 10 11 12 12 14 0 1 11 0 0
                                   1 9 0 0 0 0 1 1 12 13 23 14 14 0 0 22 14 0 0
-                                  8 0 0 0 0 0 4 5 6 7 9))
+                                  0 8 0 0 5 6 0 0 0 4 5 6 7 9))
             (CONS
              '#(|UnivariateSkewPolynomialCategory&|
                 |MaybeSkewPolynomialCategory&| |FiniteAbelianMonoidRing&|
@@ -247,9 +247,10 @@
                 |Module&| |Module&| NIL NIL NIL |NonAssociativeRing&| NIL NIL
                 NIL NIL NIL NIL |NonAssociativeRng&| |AbelianGroup&| NIL NIL
                 NIL |NonAssociativeSemiRng&| NIL |AbelianMonoid&|
-                |MagmaWithUnit&| |Magma&| |AbelianSemiGroup&| NIL
-                |FullyRetractableTo&| |SetCategory&| |RetractableTo&|
-                |BasicType&| NIL NIL |RetractableTo&| |RetractableTo&| NIL NIL)
+                |MagmaWithUnit&| |FullyRetractableTo&| |Magma&|
+                |AbelianSemiGroup&| NIL |RetractableTo&| |SetCategory&|
+                |RetractableTo&| |RetractableTo&| NIL |BasicType&| NIL NIL NIL
+                NIL NIL NIL)
              (CONS
               '#((|UnivariateSkewPolynomialCategory| 7)
                  (|MaybeSkewPolynomialCategory| 7 15 42)
@@ -265,11 +266,12 @@
                  (|RightModule| 32) (|NonAssociativeRng|) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
                  (|Monoid|) (|NonAssociativeSemiRng|) (|SemiGroup|)
-                 (|AbelianMonoid|) (|MagmaWithUnit|) (|Magma|)
-                 (|AbelianSemiGroup|) (|Comparable|) (|FullyRetractableTo| 7)
-                 (|SetCategory|) (|RetractableTo| 7) (|BasicType|)
-                 (|CoercibleTo| 20) (|noZeroDivisors|) (|RetractableTo| 32)
-                 (|RetractableTo| 28) (|canonicalUnitNormal|) (|unitsKnown|))
+                 (|AbelianMonoid|) (|MagmaWithUnit|) (|FullyRetractableTo| 7)
+                 (|Magma|) (|AbelianSemiGroup|) (|Comparable|)
+                 (|RetractableTo| 7) (|SetCategory|) (|RetractableTo| 32)
+                 (|RetractableTo| 28) (|CoercibleFrom| 7) (|BasicType|)
+                 (|CoercibleTo| 20) (|noZeroDivisors|) (|CoercibleFrom| 32)
+                 (|CoercibleFrom| 28) (|canonicalUnitNormal|) (|unitsKnown|))
               (|makeByteWordVec2| 52
                                   '(0 11 0 12 0 0 0 13 0 7 0 14 2 0 0 7 15 16 1
                                     20 0 19 21 2 10 20 0 20 22 2 0 29 0 0 1 1

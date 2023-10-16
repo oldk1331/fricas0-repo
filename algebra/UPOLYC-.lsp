@@ -1288,15 +1288,15 @@
                                      T)
                                    '((|elt| (|#1| |#1| |#1|)) T)
                                    '((|elt| (|#2| |#1| |#2|)) T)
-                                   '((|retract|
-                                      ((|SingletonAsOrderedSet|) |#1|))
+                                   '((|coerce|
+                                      (|#1| (|SingletonAsOrderedSet|)))
                                      T)
                                    '((|retractIfCan|
                                       ((|Union| (|SingletonAsOrderedSet|) #5#)
                                        |#1|))
                                      T)
-                                   '((|coerce|
-                                      (|#1| (|SingletonAsOrderedSet|)))
+                                   '((|retract|
+                                      ((|SingletonAsOrderedSet|) |#1|))
                                      T)
                                    '((|eval|
                                       (|#1| |#1| (|List| |#1|) (|List| |#1|)))
@@ -1414,23 +1414,23 @@
                                    '((|minimumDegree|
                                       ((|NonNegativeInteger|) |#1|))
                                      T)
-                                   '((|retract| (|#2| |#1|)) T)
+                                   '((|coerce| (|#1| |#2|)) T)
                                    '((|retractIfCan| ((|Union| |#2| #5#) |#1|))
                                      T)
-                                   '((|coerce| (|#1| |#2|)) T)
-                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
+                                   '((|retract| (|#2| |#1|)) T)
+                                   '((|retract|
+                                      ((|Fraction| (|Integer|)) |#1|))
                                      T)
                                    '((|retractIfCan|
                                       ((|Union| (|Fraction| (|Integer|)) #5#)
                                        |#1|))
                                      T)
-                                   '((|retract|
-                                      ((|Fraction| (|Integer|)) |#1|))
+                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
                                      T)
+                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|retractIfCan|
                                       ((|Union| (|Integer|) #5#) |#1|))
                                      T)
-                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|monomial|
                                       (|#1| |#2| (|NonNegativeInteger|)))
                                      T)

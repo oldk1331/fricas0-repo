@@ -431,8 +431,8 @@
            (CONS
             (|makeByteWordVec2| 23
                                 '(0 0 0 0 5 1 2 3 4 5 12 13 11 13 0 1 0 0 1 5 0
-                                  0 0 0 1 1 13 10 23 11 11 0 0 22 11 0 0 9 0 0
-                                  0 0 0 5 4 6 7 8))
+                                  0 0 0 1 1 13 10 23 11 11 0 0 22 11 0 0 0 9 0
+                                  0 6 7 0 0 0 5 4 6 7 8))
             (CONS
              '#(NIL |MaybeSkewPolynomialCategory&| |FiniteAbelianMonoidRing&|
                 |AbelianMonoidRing&| |FullyLinearlyExplicitOver&| |Algebra&|
@@ -440,9 +440,9 @@
                 NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL
                 |NonAssociativeSemiRng&| NIL |AbelianMonoid&| |MagmaWithUnit&|
-                |Magma&| |AbelianSemiGroup&| NIL |FullyRetractableTo&|
-                |SetCategory&| |RetractableTo&| |BasicType&| NIL NIL NIL
-                |RetractableTo&| |RetractableTo&| NIL)
+                |FullyRetractableTo&| |Magma&| |AbelianSemiGroup&| NIL
+                |RetractableTo&| |SetCategory&| |RetractableTo&|
+                |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL)
              (CONS
               '#((|MultivariateSkewPolynomialCategory| 6 (|IndexedExponents| 7)
                                                        7)
@@ -460,11 +460,12 @@
                  (|AbelianGroup|) (|CancellationAbelianMonoid|)
                  (|NonAssociativeSemiRing|) (|Monoid|)
                  (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianMonoid|)
-                 (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
-                 (|Comparable|) (|FullyRetractableTo| 6) (|SetCategory|)
-                 (|RetractableTo| 6) (|BasicType|) (|CoercibleTo| 59)
-                 (|unitsKnown|) (|noZeroDivisors|) (|RetractableTo| 72)
-                 (|RetractableTo| 70) (|canonicalUnitNormal|))
+                 (|MagmaWithUnit|) (|FullyRetractableTo| 6) (|Magma|)
+                 (|AbelianSemiGroup|) (|Comparable|) (|RetractableTo| 6)
+                 (|SetCategory|) (|RetractableTo| 72) (|RetractableTo| 70)
+                 (|CoercibleFrom| 6) (|BasicType|) (|CoercibleTo| 59)
+                 (|unitsKnown|) (|noZeroDivisors|) (|CoercibleFrom| 72)
+                 (|CoercibleFrom| 70) (|canonicalUnitNormal|))
               (|makeByteWordVec2| 86
                                   '(0 0 0 10 0 6 0 11 3 0 0 0 7 12 13 1 7 15 16
                                     17 1 0 0 16 18 1 22 0 21 23 0 0 0 25 2 0 0

@@ -813,7 +813,7 @@
               (243 . |eval|) (250 . |eval|) (|Equation| 6) (257 . |lhs|)
               (262 . |retract|) (267 . |rhs|) (272 . |eval|) (|List| 96)
               (279 . |eval|) (|Equation| $) (|Integer|) (|Symbol|) (|List| 98)
-              (|Fraction| 97) (|Union| 97 '#1#) (|Union| 100 '#1#)
+              (|Union| 102 '#1#) (|Union| 97 '#1#) (|Fraction| 97)
               (|OutputForm|))
            '#(|weights| 285 |weight| 296 |separant| 307 |retractIfCan| 312
               |order| 317 |makeVariable| 328 |leader| 338 |isobaric?| 343
@@ -868,8 +868,8 @@
                                  ((|Mapping| |#1| (|NonNegativeInteger|))
                                   |#3|))
                                 T)
-                              '((|retractIfCan| ((|Union| |#3| #1#) |#1|)) T)
                               '((|coerce| (|#1| |#3|)) T)
+                              '((|retractIfCan| ((|Union| |#3| #1#) |#1|)) T)
                               '((|coerce| (|#1| (|Integer|))) T)
                               '((|differentiate|
                                  (|#1| |#1| (|Mapping| |#2| |#2|)))
@@ -893,8 +893,8 @@
                                  (|#1| |#1| (|NonNegativeInteger|)))
                                 T)
                               '((|differentiate| (|#1| |#1|)) T)
-                              '((|retractIfCan| ((|Union| |#4| #1#) |#1|)) T)
                               '((|coerce| (|#1| |#4|)) T)
+                              '((|retractIfCan| ((|Union| |#4| #1#) |#1|)) T)
                               '((|differentiate| (|#1| |#1| |#4|)) T)
                               '((|differentiate| (|#1| |#1| (|List| |#4|))) T)
                               '((|differentiate|
@@ -919,12 +919,12 @@
                                 T)
                               '((|degree| ((|NonNegativeInteger|) |#1| |#4|))
                                 T)
-                              '((|retractIfCan| ((|Union| |#2| #1#) |#1|)) T)
                               '((|coerce| (|#1| |#2|)) T)
-                              '((|coerce| (|#1| (|Fraction| (|Integer|)))) T)
+                              '((|retractIfCan| ((|Union| |#2| #1#) |#1|)) T)
                               '((|retractIfCan|
                                  ((|Union| (|Fraction| (|Integer|)) #1#) |#1|))
                                 T)
+                              '((|coerce| (|#1| (|Fraction| (|Integer|)))) T)
                               '((|retractIfCan|
                                  ((|Union| (|Integer|) #1#) |#1|))
                                 T)

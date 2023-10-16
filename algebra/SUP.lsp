@@ -1418,9 +1418,9 @@
             (|makeByteWordVec2| 41
                                 '(0 0 0 10 13 0 10 13 0 17 20 4 34 16 4 1 2 3
                                   34 4 9 4 35 18 22 4 36 12 36 0 1 34 35 0 0 1
-                                  4 0 0 0 0 1 1 36 14 41 12 12 0 0 40 12 0 0 8
-                                  26 28 21 0 0 12 35 0 0 0 0 0 0 0 0 4 5 6 7 30
-                                  32 11 12 12 13 35 15 19))
+                                  4 0 0 0 0 1 1 36 14 41 12 12 0 0 40 12 0 0 0
+                                  8 26 28 21 0 0 5 6 12 12 35 0 0 0 0 0 0 0 0 4
+                                  5 6 7 30 32 11 12 12 13 35 15 19))
             (CONS
              '#(|UnivariatePolynomialCategory&| |PolynomialCategory&|
                 |MaybeSkewPolynomialCategory&|
@@ -1435,11 +1435,11 @@
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL
                 |NonAssociativeSemiRng&| NIL |AbelianMonoid&| |MagmaWithUnit&|
-                |Magma&| |AbelianSemiGroup&| NIL NIL NIL NIL
-                |FullyRetractableTo&| |SetCategory&| |Evalable&| NIL NIL NIL
-                NIL |InnerEvalable&| |InnerEvalable&| |RetractableTo&|
-                |BasicType&| NIL NIL |RetractableTo&| |RetractableTo&| NIL NIL
-                NIL NIL |InnerEvalable&| |RetractableTo&| NIL NIL NIL NIL)
+                |FullyRetractableTo&| |Magma&| |AbelianSemiGroup&| NIL NIL NIL
+                NIL |RetractableTo&| |SetCategory&| |RetractableTo&|
+                |RetractableTo&| |Evalable&| |RetractableTo&| NIL NIL NIL NIL
+                |InnerEvalable&| |InnerEvalable&| NIL |BasicType&| NIL NIL NIL
+                NIL NIL NIL NIL NIL |InnerEvalable&| NIL NIL NIL NIL NIL)
              (CONS
               '#((|UnivariatePolynomialCategory| 6)
                  (|PolynomialCategory| 6 11 43)
@@ -1462,19 +1462,20 @@
                  (|AbelianGroup|) (|CancellationAbelianMonoid|)
                  (|NonAssociativeSemiRing|) (|Monoid|)
                  (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianMonoid|)
-                 (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
-                 (|Comparable|) (|PatternMatchable| (|Float|))
-                 (|PatternMatchable| 33) (|StepThrough|)
-                 (|FullyRetractableTo| 6) (|SetCategory|) (|Evalable| $$)
-                 (|CommutativeStar|) (|Eltable| $$ $$) (|Eltable| 6 6)
-                 (|VariablesCommuteWithCoefficients|) (|InnerEvalable| 43 $$)
-                 (|InnerEvalable| 43 6) (|RetractableTo| 6) (|BasicType|)
-                 (|CoercibleTo| 89) (|unitsKnown|) (|RetractableTo| 148)
-                 (|RetractableTo| 33) (|canonicalUnitNormal|)
-                 (|ConvertibleTo| 137) (|ConvertibleTo| 138)
-                 (|ConvertibleTo| 136) (|InnerEvalable| $$ $$)
-                 (|RetractableTo| 43) (|additiveValuation|) (|TwoSidedRecip|)
-                 (|noZeroDivisors|)
+                 (|MagmaWithUnit|) (|FullyRetractableTo| 6) (|Magma|)
+                 (|AbelianSemiGroup|) (|Comparable|)
+                 (|PatternMatchable| (|Float|)) (|PatternMatchable| 33)
+                 (|StepThrough|) (|RetractableTo| 6) (|SetCategory|)
+                 (|RetractableTo| 148) (|RetractableTo| 33) (|Evalable| $$)
+                 (|RetractableTo| 43) (|CommutativeStar|) (|Eltable| $$ $$)
+                 (|Eltable| 6 6) (|VariablesCommuteWithCoefficients|)
+                 (|InnerEvalable| 43 $$) (|InnerEvalable| 43 6)
+                 (|CoercibleFrom| 6) (|BasicType|) (|CoercibleTo| 89)
+                 (|unitsKnown|) (|CoercibleFrom| 148) (|CoercibleFrom| 33)
+                 (|canonicalUnitNormal|) (|ConvertibleTo| 137)
+                 (|ConvertibleTo| 138) (|ConvertibleTo| 136)
+                 (|InnerEvalable| $$ $$) (|CoercibleFrom| 43)
+                 (|additiveValuation|) (|TwoSidedRecip|) (|noZeroDivisors|)
                  (|Eltable| (|Fraction| $$) (|Fraction| $$)))
               (|makeByteWordVec2| 133
                                   '(2 0 0 0 11 12 2 0 0 0 13 14 0 0 0 15 0 0 0

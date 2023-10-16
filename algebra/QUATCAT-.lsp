@@ -451,20 +451,20 @@
                                       (|#1| |#1| (|NonNegativeInteger|)))
                                      T)
                                    '((|differentiate| (|#1| |#1|)) T)
-                                   '((|retract| (|#2| |#1|)) T)
                                    '((|retractIfCan| ((|Union| |#2| #2#) |#1|))
+                                     T)
+                                   '((|retract| (|#2| |#1|)) T)
+                                   '((|retract|
+                                      ((|Fraction| (|Integer|)) |#1|))
                                      T)
                                    '((|retractIfCan|
                                       ((|Union| (|Fraction| (|Integer|)) #2#)
                                        |#1|))
                                      T)
-                                   '((|retract|
-                                      ((|Fraction| (|Integer|)) |#1|))
-                                     T)
+                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|retractIfCan|
                                       ((|Union| (|Integer|) #2#) |#1|))
                                      T)
-                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|coerce| (|#1| |#2|)) T)
                                    '((* (|#1| |#2| |#1|)) T)
                                    '((* (|#1| |#1| |#2|)) T)

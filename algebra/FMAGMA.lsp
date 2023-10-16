@@ -195,14 +195,14 @@
               |hashUpdate!| 136 |hash| 142 |first| 147 |coerce| 152 >= 167 >
               173 = 179 <= 185 < 191 * 197)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(|OrderedSet&| NIL |SetCategory&| |BasicType&|
-                     |RetractableTo&| |PartialOrder&| NIL)
+                  '#(|OrderedSet&| NIL |SetCategory&| |RetractableTo&|
+                     |BasicType&| NIL |PartialOrder&| NIL)
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
-                      (|BasicType|) (|RetractableTo| 6) (|PartialOrder|)
-                      (|CoercibleTo| 29))
+                      (|RetractableTo| 6) (|BasicType|) (|CoercibleFrom| 6)
+                      (|PartialOrder|) (|CoercibleTo| 29))
                    (|makeByteWordVec2| 45
                                        '(2 6 9 0 0 10 2 7 9 0 0 11 2 13 0 0 0
                                          15 1 13 0 0 16 1 25 0 6 26 2 25 0 0 0

@@ -652,17 +652,17 @@
               376 |hashUpdate!| 388 |hash| 394 |elem?| 399 |differentiate| 404
               |coerce| 416 |Zero| 426 = 430 - 436 + 447 * 453)
            'NIL
-           (CONS (|makeByteWordVec2| 3 '(0 0 0 0 1 1 3 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 3 '(0 0 0 0 1 1 3 0 0 0 0 0 0))
                  (CONS
                   '#(|Module&| NIL NIL NIL |AbelianGroup&| NIL |AbelianMonoid&|
-                     |AbelianSemiGroup&| |SetCategory&| |RetractableTo&|
+                     |AbelianSemiGroup&| |RetractableTo&| |SetCategory&| NIL
                      |BasicType&| NIL)
                   (CONS
                    '#((|Module| 29) (|BiModule| 29 29) (|LeftModule| 29)
                       (|RightModule| 29) (|AbelianGroup|)
                       (|CancellationAbelianMonoid|) (|AbelianMonoid|)
-                      (|AbelianSemiGroup|) (|SetCategory|) (|RetractableTo| 6)
-                      (|BasicType|) (|CoercibleTo| 10))
+                      (|AbelianSemiGroup|) (|RetractableTo| 6) (|SetCategory|)
+                      (|CoercibleFrom| 6) (|BasicType|) (|CoercibleTo| 10))
                    (|makeByteWordVec2| 105
                                        '(0 8 0 9 1 8 10 0 11 0 6 0 17 2 29 0 0
                                          29 30 1 6 27 0 31 2 6 0 0 0 33 1 29 0

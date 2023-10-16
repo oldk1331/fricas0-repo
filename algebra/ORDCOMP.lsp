@@ -201,17 +201,18 @@
               |finite?| 214 |convert| 219 |coerce| 224 >= 244 > 250 = 256 <=
               262 < 268 - 274 + 279)
            'NIL
-           (CONS (|makeByteWordVec2| 4 '(4 4 0 0 0 0 0 1 2 3 4))
+           (CONS (|makeByteWordVec2| 4 '(4 0 4 0 0 1 2 0 0 0 1 2 3 4))
                  (CONS
-                  '#(|OrderedSet&| NIL |SetCategory&| |FullyRetractableTo&|
-                     |BasicType&| |RetractableTo&| NIL |RetractableTo&|
-                     |RetractableTo&| NIL |PartialOrder&|)
+                  '#(|OrderedSet&| |FullyRetractableTo&| NIL |SetCategory&|
+                     |RetractableTo&| |RetractableTo&| |RetractableTo&|
+                     |BasicType&| NIL NIL NIL NIL NIL |PartialOrder&|)
                   (CONS
-                   '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
-                      (|FullyRetractableTo| 6) (|BasicType|)
-                      (|RetractableTo| 6) (|CoercibleTo| 24)
-                      (|RetractableTo| 43) (|RetractableTo| 49)
-                      (|ConvertibleTo| 8) (|PartialOrder|))
+                   '#((|OrderedSet|) (|FullyRetractableTo| 6) (|Comparable|)
+                      (|SetCategory|) (|RetractableTo| 6) (|RetractableTo| 43)
+                      (|RetractableTo| 49) (|BasicType|) (|CoercibleFrom| 6)
+                      (|CoercibleTo| 24) (|CoercibleFrom| 43)
+                      (|CoercibleFrom| 49) (|ConvertibleTo| 8)
+                      (|PartialOrder|))
                    (|makeByteWordVec2| 51
                                        '(1 6 8 0 9 1 8 0 10 11 1 8 0 12 13 1 0
                                          8 0 14 1 6 24 0 25 1 10 24 0 26 0 24 0

@@ -318,13 +318,13 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 1
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0))
             (CONS
              '#(NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL |OrderedSet&|
                 |AbelianMonoid&| NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
-                NIL |Magma&| |AbelianSemiGroup&| |SetCategory&|
-                |RetractableTo&| |BasicType&| |PartialOrder&| NIL)
+                NIL |Magma&| |AbelianSemiGroup&| |RetractableTo&|
+                |SetCategory&| NIL |BasicType&| |PartialOrder&| NIL)
              (CONS
               '#((|SemiRing|) (|SemiRng|) (|BiModule| $$ $$) (|RightModule| $$)
                  (|LeftModule| $$) (|OrderedAbelianMonoid|)
@@ -332,8 +332,9 @@
                  (|Monoid|) (|NonAssociativeSemiRing|) (|OrderedSet|)
                  (|AbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|Comparable|) (|Magma|)
-                 (|AbelianSemiGroup|) (|SetCategory|) (|RetractableTo| 11)
-                 (|BasicType|) (|PartialOrder|) (|CoercibleTo| 58))
+                 (|AbelianSemiGroup|) (|RetractableTo| 11) (|SetCategory|)
+                 (|CoercibleFrom| 11) (|BasicType|) (|PartialOrder|)
+                 (|CoercibleTo| 58))
               (|makeByteWordVec2| 71
                                   '(0 6 0 7 0 6 0 9 2 6 0 11 2 12 1 6 15 0 16 2
                                     6 15 0 0 18 1 22 0 21 23 2 6 24 24 0 25 1 6

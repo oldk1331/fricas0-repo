@@ -94,24 +94,24 @@
                        (CONS
                         '#((|Join|
                             (|mkCategory|
-                             (LIST '((|retract| ((|Integer|) |#1|)) T)
+                             (LIST '((|coerce| (|#1| (|Integer|))) T)
                                    '((|retractIfCan|
                                       ((|Union| (|Integer|) #1#) |#1|))
                                      T)
-                                   '((|coerce| (|#1| (|Integer|))) T)
-                                   '((|retract|
-                                      ((|Fraction| (|Integer|)) |#1|))
+                                   '((|retract| ((|Integer|) |#1|)) T)
+                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
                                      T)
                                    '((|retractIfCan|
                                       ((|Union| (|Fraction| (|Integer|)) #1#)
                                        |#1|))
                                      T)
-                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
+                                   '((|retract|
+                                      ((|Fraction| (|Integer|)) |#1|))
                                      T)
-                                   '((|coerce| (|#1| |#2|)) T)
+                                   '((|retract| (|#2| |#1|)) T)
                                    '((|retractIfCan| ((|Union| |#2| #1#) |#1|))
                                      T)
-                                   '((|retract| (|#2| |#1|)) T))
+                                   '((|coerce| (|#1| |#2|)) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 27
                                             '(1 7 0 8 9 1 6 0 7 10 1 0 0 8 11 1

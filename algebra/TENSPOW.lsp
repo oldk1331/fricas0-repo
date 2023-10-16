@@ -405,15 +405,15 @@
            (CONS
             (|makeByteWordVec2| 12
                                 '(0 1 1 0 0 1 1 0 0 1 0 1 1 4 0 0 0 1 1 1 4 2 5
-                                  1 1 5 7 1 1 1 5 6 0 1 12 0 0 0 1 3 5))
+                                  1 1 5 7 1 1 1 5 6 0 1 12 0 3 0 0 1 3 5))
             (CONS
              '#(|TensorPowerCategory&| |Algebra&| NIL |FreeModuleCategory&| NIL
                 |Rng&| NIL NIL |Module&| NIL NIL NIL |NonAssociativeRing&| NIL
                 NIL NIL NIL NIL NIL |NonAssociativeRng&| NIL |AbelianGroup&|
                 NIL NIL NIL NIL NIL |MagmaWithUnit&| NIL
                 |NonAssociativeSemiRng&| |OrderedSet&| |AbelianMonoid&|
-                |AbelianSemiGroup&| |Magma&| NIL |SetCategory&| |BasicType&|
-                NIL NIL |RetractableTo&| |PartialOrder&|)
+                |AbelianSemiGroup&| |Magma&| NIL |SetCategory&|
+                |RetractableTo&| |BasicType&| NIL NIL NIL |PartialOrder&|)
              (CONS
               '#((|TensorPowerCategory| 6 7 9) (|Algebra| 7) (|Ring|)
                  (|FreeModuleCategory| 7 (|Vector| 8))
@@ -429,9 +429,10 @@
                  (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
                  (|MagmaWithUnit|) (|SemiGroup|) (|NonAssociativeSemiRng|)
                  (|OrderedSet|) (|AbelianMonoid|) (|AbelianSemiGroup|)
-                 (|Magma|) (|Comparable|) (|SetCategory|) (|BasicType|)
+                 (|Magma|) (|Comparable|) (|SetCategory|)
+                 (|RetractableTo| (|Vector| 8)) (|BasicType|)
                  (|CoercibleTo| 13) (|unitsKnown|)
-                 (|RetractableTo| (|Vector| 8)) (|PartialOrder|))
+                 (|CoercibleFrom| (|Vector| 8)) (|PartialOrder|))
               (|makeByteWordVec2| 63
                                   '(1 0 10 0 11 0 7 0 12 1 7 13 0 14 1 0 16 0
                                     17 2 13 0 0 0 18 1 20 19 0 21 1 8 13 0 22 2

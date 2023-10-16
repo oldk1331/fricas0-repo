@@ -285,10 +285,10 @@
                                    '((|convert| ((|Pattern| (|Integer|)) |#1|))
                                      T)
                                    '((|convert| ((|InputForm|) |#1|)) T)
-                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|retractIfCan|
                                       ((|Union| (|Integer|) "failed") |#1|))
                                      T)
+                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|convert| ((|Integer|) |#1|)) T)
                                    '((|differentiate| (|#1| |#1|)) T)
                                    '((|differentiate|

@@ -206,7 +206,7 @@
             (|makeByteWordVec2| 22
                                 '(0 0 0 0 0 9 1 2 3 4 9 10 11 12 12 14 0 1 11 0
                                   0 1 9 0 0 0 0 1 1 12 13 22 14 14 0 0 21 14 0
-                                  0 8 0 0 0 0 0 0 4 5 6 7 9))
+                                  0 0 8 0 0 5 6 0 0 0 0 4 5 6 7 9))
             (CONS
              '#(|LinearOrdinaryDifferentialOperatorCategory&|
                 |UnivariateSkewPolynomialCategory&|
@@ -216,9 +216,10 @@
                 |Module&| |Module&| NIL NIL NIL |NonAssociativeRing&| NIL NIL
                 NIL NIL NIL NIL |NonAssociativeRng&| |AbelianGroup&| NIL NIL
                 NIL |NonAssociativeSemiRng&| NIL |AbelianMonoid&|
-                |MagmaWithUnit&| |Magma&| |AbelianSemiGroup&| NIL
-                |FullyRetractableTo&| |SetCategory&| NIL |RetractableTo&|
-                |BasicType&| NIL NIL |RetractableTo&| |RetractableTo&| NIL NIL)
+                |MagmaWithUnit&| |FullyRetractableTo&| |Magma&|
+                |AbelianSemiGroup&| NIL |RetractableTo&| |SetCategory&|
+                |RetractableTo&| |RetractableTo&| NIL NIL |BasicType&| NIL NIL
+                NIL NIL NIL NIL)
              (CONS
               '#((|LinearOrdinaryDifferentialOperatorCategory| 8)
                  (|UnivariateSkewPolynomialCategory| 8)
@@ -235,11 +236,12 @@
                  (|RightModule| 20) (|NonAssociativeRng|) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
                  (|Monoid|) (|NonAssociativeSemiRng|) (|SemiGroup|)
-                 (|AbelianMonoid|) (|MagmaWithUnit|) (|Magma|)
-                 (|AbelianSemiGroup|) (|Comparable|) (|FullyRetractableTo| 8)
-                 (|SetCategory|) (|Eltable| 8 8) (|RetractableTo| 8)
+                 (|AbelianMonoid|) (|MagmaWithUnit|) (|FullyRetractableTo| 8)
+                 (|Magma|) (|AbelianSemiGroup|) (|Comparable|)
+                 (|RetractableTo| 8) (|SetCategory|) (|RetractableTo| 20)
+                 (|RetractableTo| 15) (|Eltable| 8 8) (|CoercibleFrom| 8)
                  (|BasicType|) (|CoercibleTo| 40) (|noZeroDivisors|)
-                 (|RetractableTo| 20) (|RetractableTo| 15)
+                 (|CoercibleFrom| 20) (|CoercibleFrom| 15)
                  (|canonicalUnitNormal|) (|unitsKnown|))
               (|makeByteWordVec2| 10 '(1 9 8 8 10)))))
            '|lookupIncomplete|)) 

@@ -379,10 +379,10 @@
             (|makeByteWordVec2| 37
                                 '(0 0 2 2 4 33 17 34 17 34 0 36 0 0 0 0 3 35 0
                                   0 0 1 3 5 9 37 19 20 0 0 0 0 0 0 3 0 0 0 0 3
-                                  0 0 0 0 0 3 3 0 0 0 0 0 0 0 0 0 6 0 0 0 2 18
-                                  24 25 0 0 0 0 11 22 0 0 0 0 0 0 0 3 3 7 8 10
-                                  12 11 11 11 11 11 13 14 14 15 16 21 22 23 26
-                                  27 28))
+                                  0 0 0 0 0 3 3 0 0 0 0 0 0 0 0 0 6 0 0 0 0 2
+                                  18 24 25 0 0 0 0 7 8 11 22 0 0 0 0 0 0 0 3 3
+                                  7 8 10 12 11 11 11 11 11 13 14 14 15 16 21 22
+                                  23 26 27 28))
             (CONS
              '#(|ComplexCategory&| |MonogenicAlgebra&| |FiniteFieldCategory&|
                 |FieldOfPrimeCharacteristic&| |Field&|
@@ -396,11 +396,11 @@
                 |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
                 NIL NIL |AbelianGroup&| NIL NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Finite&|
-                |FullyEvalableOver&| |Magma&| |AbelianSemiGroup&| NIL NIL NIL
-                NIL NIL |FullyRetractableTo&| NIL |SetCategory&|
-                |TranscendentalFunctionCategory&| |Evalable&| NIL
-                |RetractableTo&| NIL NIL NIL |BasicType&| NIL NIL NIL
-                |RetractableTo&| |RetractableTo&| NIL |RadicalCategory&|
+                |FullyEvalableOver&| |FullyRetractableTo&| |Magma&|
+                |AbelianSemiGroup&| NIL NIL NIL NIL NIL |RetractableTo&| NIL
+                |SetCategory&| |RetractableTo&| |RetractableTo&|
+                |TranscendentalFunctionCategory&| |Evalable&| NIL NIL NIL NIL
+                NIL |BasicType&| NIL NIL NIL NIL NIL NIL |RadicalCategory&|
                 |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
@@ -431,16 +431,17 @@
                  (|AbelianGroup|) (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|FullyPatternMatchable| 6)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
-                 (|AbelianMonoid|) (|Finite|) (|FullyEvalableOver| 6) (|Magma|)
-                 (|AbelianSemiGroup|) (|StepThrough|) (|Comparable|)
-                 (|PatternMatchable| (|Float|)) (|PatternMatchable| 43)
-                 (|Patternable| 6) (|FullyRetractableTo| 6) (|CommutativeStar|)
-                 (|SetCategory|) (|TranscendentalFunctionCategory|)
-                 (|Evalable| 6) (|Type|) (|RetractableTo| 6)
+                 (|AbelianMonoid|) (|Finite|) (|FullyEvalableOver| 6)
+                 (|FullyRetractableTo| 6) (|Magma|) (|AbelianSemiGroup|)
+                 (|StepThrough|) (|Comparable|) (|PatternMatchable| (|Float|))
+                 (|PatternMatchable| 43) (|Patternable| 6) (|RetractableTo| 6)
+                 (|CommutativeStar|) (|SetCategory|) (|RetractableTo| 42)
+                 (|RetractableTo| 43) (|TranscendentalFunctionCategory|)
+                 (|Evalable| 6) (|Type|) (|CoercibleFrom| 6)
                  (|ConvertibleTo| (|SparseUnivariatePolynomial| 6))
                  (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
                  (|CoercibleTo| 95) (|canonicalUnitNormal|)
-                 (|canonicalsClosed|) (|RetractableTo| 42) (|RetractableTo| 43)
+                 (|canonicalsClosed|) (|CoercibleFrom| 42) (|CoercibleFrom| 43)
                  (|noZeroDivisors|) (|RadicalCategory|)
                  (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)

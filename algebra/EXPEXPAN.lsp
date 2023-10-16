@@ -685,8 +685,8 @@
                                 '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 7 0 0 0 0 0 3 4
                                   15 16 17 0 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0
                                   0 7 0 7 0 0 0 7 0 0 0 0 0 9 0 0 0 25 11 20 21
-                                  0 0 0 6 13 0 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10
-                                  10 12 13 14 18 19))
+                                  0 0 0 0 0 2 6 10 10 13 0 0 0 0 0 0 0 0 0 0 2
+                                  5 6 6 8 10 10 12 13 14 18 19))
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
@@ -700,11 +700,12 @@
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |OrderedSet&| |FullyEvalableOver&| |Magma&|
-                |AbelianSemiGroup&| NIL NIL NIL NIL NIL NIL |SetCategory&| NIL
-                |Evalable&| |RetractableTo&| NIL |RetractableTo&| NIL NIL NIL
-                NIL NIL |BasicType&| NIL |RetractableTo&| NIL NIL NIL
-                |PartialOrder&| |RetractableTo&| |RetractableTo&|
-                |InnerEvalable&| |InnerEvalable&| NIL NIL NIL)
+                |AbelianSemiGroup&| NIL NIL NIL NIL |RetractableTo&| NIL
+                |RetractableTo&| NIL |SetCategory&| |RetractableTo&| NIL
+                |RetractableTo&| |RetractableTo&| |Evalable&| NIL NIL NIL NIL
+                NIL NIL NIL NIL |BasicType&| NIL NIL NIL NIL NIL
+                |PartialOrder&| NIL NIL |InnerEvalable&| |InnerEvalable&| NIL
+                NIL NIL)
              (CONS
               '#((|QuotientFieldCategory|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
@@ -762,22 +763,27 @@
                                                                        9))
                  (|Magma|) (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
                  (|PatternMatchable| 92) (|PatternMatchable| 12)
+                 (|RetractableTo| (|UnivariatePuiseuxSeries| 7 8 9))
                  (|Patternable|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
-                 (|CommutativeStar|) (|SetCategory|) (|RealConstant|)
+                 (|RetractableTo|
+                  (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
+                                                                       9))
+                 (|CommutativeStar|) (|SetCategory|) (|RetractableTo| 48)
+                 (|RealConstant|) (|RetractableTo| 13) (|RetractableTo| 12)
                  (|Evalable|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
-                 (|RetractableTo| (|UnivariatePuiseuxSeries| 7 8 9)) (|Type|)
-                 (|RetractableTo|
+                 (|CoercibleFrom| (|UnivariatePuiseuxSeries| 7 8 9)) (|Type|)
+                 (|CoercibleFrom|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 113) (|RetractableTo| 48)
+                 (|BasicType|) (|CoercibleTo| 113) (|CoercibleFrom| 48)
                  (|ConvertibleTo| 74) (|ConvertibleTo| 91) (|ConvertibleTo| 92)
-                 (|PartialOrder|) (|RetractableTo| 13) (|RetractableTo| 12)
+                 (|PartialOrder|) (|CoercibleFrom| 13) (|CoercibleFrom| 12)
                  (|InnerEvalable| 48
                                   (|UnivariatePuiseuxSeriesWithExponentialSingularity|
                                    6 7 8 9))

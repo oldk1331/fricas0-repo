@@ -617,8 +617,8 @@
                                 '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 7 0 0 0 0 0 3 4
                                   15 16 0 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0 0 7
                                   0 7 0 0 0 7 0 0 0 0 0 9 0 0 0 25 11 19 20 0 0
-                                  0 6 13 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10 12 13
-                                  14 17 18))
+                                  0 0 2 6 10 13 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10
+                                  12 13 14 17 18))
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
@@ -632,10 +632,11 @@
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |OrderedSet&| |FullyEvalableOver&| |Magma&|
-                |AbelianSemiGroup&| NIL NIL NIL NIL NIL NIL |SetCategory&| NIL
-                |Evalable&| NIL |RetractableTo&| NIL NIL NIL NIL NIL
-                |BasicType&| NIL |RetractableTo&| NIL NIL NIL |PartialOrder&|
-                |RetractableTo&| |InnerEvalable&| |InnerEvalable&| NIL NIL NIL)
+                |AbelianSemiGroup&| NIL NIL NIL NIL NIL |RetractableTo&| NIL
+                |SetCategory&| |RetractableTo&| NIL |RetractableTo&|
+                |Evalable&| NIL NIL NIL NIL NIL NIL NIL |BasicType&| NIL NIL
+                NIL NIL NIL |PartialOrder&| NIL |InnerEvalable&|
+                |InnerEvalable&| NIL NIL NIL)
              (CONS
               '#((|QuotientFieldCategory| 23) (|Field|) (|EuclideanDomain|)
                  (|PolynomialFactorizationExplicit|) (|PrincipalIdealDomain|)
@@ -660,16 +661,17 @@
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|OrderedSet|)
                  (|FullyEvalableOver| 23) (|Magma|) (|AbelianSemiGroup|)
                  (|Comparable|) (|StepThrough|) (|PatternMatchable| 103)
-                 (|PatternMatchable| 23) (|Patternable| 23) (|CommutativeStar|)
-                 (|SetCategory|) (|RealConstant|) (|Evalable| 23) (|Type|)
-                 (|RetractableTo| 23) (|canonicalsClosed|)
-                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|TwoSidedRecip|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 65)
-                 (|RetractableTo| 91) (|ConvertibleTo| 86)
-                 (|ConvertibleTo| 104) (|ConvertibleTo| 103) (|PartialOrder|)
-                 (|RetractableTo| 16) (|InnerEvalable| 91 23)
-                 (|InnerEvalable| 23 23) (|Eltable| 23 $$) (|ConvertibleTo| 87)
-                 (|ConvertibleTo| 88))
+                 (|PatternMatchable| 23) (|Patternable| 23)
+                 (|RetractableTo| 23) (|CommutativeStar|) (|SetCategory|)
+                 (|RetractableTo| 91) (|RealConstant|) (|RetractableTo| 16)
+                 (|Evalable| 23) (|Type|) (|CoercibleFrom| 23)
+                 (|canonicalsClosed|) (|canonicalUnitNormal|)
+                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
+                 (|BasicType|) (|CoercibleTo| 65) (|CoercibleFrom| 91)
+                 (|ConvertibleTo| 86) (|ConvertibleTo| 104)
+                 (|ConvertibleTo| 103) (|PartialOrder|) (|CoercibleFrom| 16)
+                 (|InnerEvalable| 91 23) (|InnerEvalable| 23 23)
+                 (|Eltable| 23 $$) (|ConvertibleTo| 87) (|ConvertibleTo| 88))
               (|makeByteWordVec2| 118
                                   '(2 16 0 0 0 18 2 16 0 0 0 21 2 16 0 23 0 24
                                     2 16 0 0 16 26 2 16 0 0 0 28 2 16 0 23 23

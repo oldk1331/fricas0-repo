@@ -83,7 +83,7 @@
             (|makeByteWordVec2| 3
                                 '(0 0 2 3 0 0 2 0 0 0 0 0 0 0 0 0 0 3 1 2 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  2 0 0 2 2 0 0 0 0 0 0 0 0 0 0 2))
+                                  2 0 0 2 2 0 0 0 0 0 0 0 0 0 0 0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -94,9 +94,9 @@
                 |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
                 NIL |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
-                |Finite&| |Magma&| |AbelianSemiGroup&| NIL NIL NIL
-                |SetCategory&| |RetractableTo&| NIL NIL NIL NIL NIL
-                |BasicType&| NIL NIL)
+                |Finite&| |Magma&| |AbelianSemiGroup&| NIL NIL |RetractableTo&|
+                NIL |SetCategory&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL
+                NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| (|InnerPrimeField| 6))
                  (|ExtensionField| (|InnerPrimeField| 6))
@@ -119,8 +119,9 @@
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Finite|) (|Magma|) (|AbelianSemiGroup|)
-                 (|Comparable|) (|StepThrough|) (|CommutativeStar|)
-                 (|SetCategory|) (|RetractableTo| (|InnerPrimeField| 6))
+                 (|Comparable|) (|StepThrough|)
+                 (|RetractableTo| (|InnerPrimeField| 6)) (|CommutativeStar|)
+                 (|SetCategory|) (|CoercibleFrom| (|InnerPrimeField| 6))
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 47) (|ConvertibleTo| 16))

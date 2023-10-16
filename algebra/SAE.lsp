@@ -665,8 +665,8 @@
             (|makeByteWordVec2| 15
                                 '(0 2 2 4 4 15 4 4 4 0 4 0 0 0 3 3 3 0 0 0 1 3
                                   3 5 7 12 10 0 0 0 0 0 0 3 0 0 0 0 3 0 0 0 0 0
-                                  3 3 0 0 0 0 0 0 0 0 6 0 0 6 2 0 0 0 0 0 0 0 0
-                                  0 3 3 3 6 8 9))
+                                  3 3 0 0 0 0 0 0 0 0 6 0 0 0 6 2 0 0 0 8 9 0 0
+                                  0 0 0 0 3 3 3 6 8 9))
             (CONS
              '#(|MonogenicAlgebra&| |FiniteFieldCategory&|
                 |FieldOfPrimeCharacteristic&| |Field&| |EuclideanDomain&|
@@ -679,10 +679,11 @@
                 |Module&| NIL |Module&| NIL |FramedModule&| NIL
                 |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
                 NIL NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
-                |NonAssociativeSemiRng&| |AbelianMonoid&| |Finite&| |Magma&|
-                |AbelianSemiGroup&| NIL NIL |FullyRetractableTo&| NIL
-                |SetCategory&| |RetractableTo&| NIL NIL NIL |BasicType&| NIL
-                NIL NIL NIL NIL |RetractableTo&| |RetractableTo&|)
+                |NonAssociativeSemiRng&| |AbelianMonoid&| |Finite&|
+                |FullyRetractableTo&| |Magma&| |AbelianSemiGroup&| NIL NIL
+                |RetractableTo&| NIL |SetCategory&| |RetractableTo&|
+                |RetractableTo&| NIL NIL NIL NIL |BasicType&| NIL NIL NIL NIL
+                NIL NIL NIL)
              (CONS
               '#((|MonogenicAlgebra| 6 7) (|FiniteFieldCategory|)
                  (|FieldOfPrimeCharacteristic|) (|Field|) (|EuclideanDomain|)
@@ -705,13 +706,14 @@
                  (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Finite|)
-                 (|Magma|) (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
-                 (|FullyRetractableTo| 6) (|CommutativeStar|) (|SetCategory|)
-                 (|RetractableTo| 6) (|ConvertibleTo| 7) (|TwoSidedRecip|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 50)
-                 (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|FullyRetractableTo| 6) (|Magma|) (|AbelianSemiGroup|)
+                 (|Comparable|) (|StepThrough|) (|RetractableTo| 6)
+                 (|CommutativeStar|) (|SetCategory|) (|RetractableTo| 144)
+                 (|RetractableTo| 43) (|CoercibleFrom| 6) (|ConvertibleTo| 7)
+                 (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
+                 (|CoercibleTo| 50) (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|) (|ConvertibleTo| 156)
-                 (|RetractableTo| 144) (|RetractableTo| 43))
+                 (|CoercibleFrom| 144) (|CoercibleFrom| 43))
               (|makeByteWordVec2| 169
                                   '(1 7 6 0 9 1 6 10 0 11 2 7 0 6 0 14 1 13 15
                                     0 16 0 7 0 18 2 15 10 0 0 20 2 22 0 15 15

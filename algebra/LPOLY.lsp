@@ -675,13 +675,13 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 12
-                                '(0 0 0 0 0 0 3 0 0 0 3 1 4 4 6 4 5 0 12 0 0 0
-                                  2 4))
+                                '(0 0 0 0 0 0 3 0 0 0 3 1 4 4 6 4 5 0 12 0 2 0
+                                  0 2 4))
             (CONS
              '#(NIL |LieAlgebra&| |FreeModuleCategory&| |Module&| NIL NIL NIL
                 NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL |OrderedSet&|
                 |AbelianMonoid&| |AbelianSemiGroup&| NIL |SetCategory&|
-                |BasicType&| NIL |RetractableTo&| |PartialOrder&|)
+                |RetractableTo&| |BasicType&| NIL NIL |PartialOrder&|)
              (CONS
               '#((|FreeLieAlgebra| 6 7) (|LieAlgebra| 7)
                  (|FreeModuleCategory| 7 (|LyndonWord| 6)) (|Module| 7)
@@ -692,8 +692,9 @@
                  (|AbelianGroup|) (|OrderedAbelianMonoid|)
                  (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
                  (|OrderedSet|) (|AbelianMonoid|) (|AbelianSemiGroup|)
-                 (|Comparable|) (|SetCategory|) (|BasicType|)
-                 (|CoercibleTo| 92) (|RetractableTo| (|LyndonWord| 6))
+                 (|Comparable|) (|SetCategory|)
+                 (|RetractableTo| (|LyndonWord| 6)) (|BasicType|)
+                 (|CoercibleTo| 92) (|CoercibleFrom| (|LyndonWord| 6))
                  (|PartialOrder|))
               (|makeByteWordVec2| 110
                                   '(1 10 9 0 11 2 9 12 6 0 13 1 10 15 0 16 2 6

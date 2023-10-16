@@ -1233,14 +1233,15 @@
               |hashUpdate!| 236 |hash| 242 |elt| 247 |degree| 288 |contract|
               293 |coerce| 308 |Zero| 338 |One| 342 = 346 - 352 + 363 * 369)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|GradedAlgebra&| |GradedModule&| |GradedModule&|
-                     |SetCategory&| |BasicType&| |RetractableTo&| NIL)
+                     |SetCategory&| |RetractableTo&| |BasicType&| NIL NIL)
                   (CONS
                    '#((|GradedAlgebra| 8 21) (|GradedModule| 8 21)
-                      (|GradedModule| 15 21) (|SetCategory|) (|BasicType|)
-                      (|RetractableTo| 8) (|CoercibleTo| 56))
+                      (|GradedModule| 15 21) (|SetCategory|)
+                      (|RetractableTo| 8) (|BasicType|) (|CoercibleFrom| 8)
+                      (|CoercibleTo| 56))
                    (|makeByteWordVec2| 97
                                        '(3 16 15 0 15 15 17 2 15 18 0 0 19 2 16
                                          15 0 15 20 2 21 18 0 0 22 3 23 18 0 15

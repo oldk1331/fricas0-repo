@@ -184,17 +184,18 @@
               |countable?| 157 |coerce| 162 ^ 172 |Zero| 190 |One| 194 |Aleph|
               198 >= 203 > 209 = 215 <= 221 < 227 - 233 + 239 * 245)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(NIL |OrderedSet&| |MagmaWithUnit&| NIL |AbelianMonoid&|
-                     NIL |Magma&| |AbelianSemiGroup&| NIL |SetCategory&| NIL
-                     |RetractableTo&| |BasicType&| |PartialOrder&| NIL)
+                     NIL |Magma&| |AbelianSemiGroup&| NIL |RetractableTo&|
+                     |SetCategory&| NIL NIL |BasicType&| |PartialOrder&| NIL)
                   (CONS
                    '#((|Monoid|) (|OrderedSet|) (|MagmaWithUnit|) (|SemiGroup|)
                       (|AbelianMonoid|) (|Comparable|) (|Magma|)
-                      (|AbelianSemiGroup|) (|CommutativeStar|) (|SetCategory|)
-                      (|TwoSidedRecip|) (|RetractableTo| 10) (|BasicType|)
-                      (|PartialOrder|) (|CoercibleTo| 13))
+                      (|AbelianSemiGroup|) (|CommutativeStar|)
+                      (|RetractableTo| 10) (|SetCategory|) (|TwoSidedRecip|)
+                      (|CoercibleFrom| 10) (|BasicType|) (|PartialOrder|)
+                      (|CoercibleTo| 13))
                    (|makeByteWordVec2| 44
                                        '(1 14 13 0 15 1 17 13 0 18 2 13 0 0 19
                                          20 2 17 22 0 0 23 2 0 0 0 0 27 2 0 22

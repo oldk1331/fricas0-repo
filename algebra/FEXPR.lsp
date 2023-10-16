@@ -586,15 +586,15 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|PartialDifferentialRing&| |Algebra&| NIL NIL |Rng&| |Module&|
                 NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL
                 |ExpressionSpace&| NIL |MagmaWithUnit&| |AbelianMonoid&|
                 |NonAssociativeSemiRng&| NIL |Magma&| |AbelianSemiGroup&|
-                |SetCategory&| |Evalable&| |RetractableTo&| NIL |BasicType&|
-                |InnerEvalable&| |InnerEvalable&| |RetractableTo&| NIL)
+                |RetractableTo&| |SetCategory&| |Evalable&| |RetractableTo&|
+                NIL NIL |BasicType&| |InnerEvalable&| |InnerEvalable&| NIL NIL)
              (CONS
               '#((|PartialDifferentialRing| 12) (|Algebra| 8) (|Ring|)
                  (|SemiRing|) (|Rng|) (|Module| 8) (|SemiRng|) (|BiModule| 8 8)
@@ -604,10 +604,12 @@
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|ExpressionSpace|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|Comparable|)
-                 (|Magma|) (|AbelianSemiGroup|) (|SetCategory|) (|Evalable| $$)
-                 (|RetractableTo| 8) (|unitsKnown|) (|BasicType|)
-                 (|InnerEvalable| $$ $$) (|InnerEvalable| (|Kernel| $$) $$)
-                 (|RetractableTo| (|Kernel| $$)) (|CoercibleTo| 34))
+                 (|Magma|) (|AbelianSemiGroup|) (|RetractableTo| 8)
+                 (|SetCategory|) (|Evalable| $$)
+                 (|RetractableTo| (|Kernel| $$)) (|CoercibleFrom| 8)
+                 (|unitsKnown|) (|BasicType|) (|InnerEvalable| $$ $$)
+                 (|InnerEvalable| (|Kernel| $$) $$)
+                 (|CoercibleFrom| (|Kernel| $$)) (|CoercibleTo| 34))
               (|makeByteWordVec2| 111
                                   '(1 5 0 12 13 1 12 14 0 15 2 12 0 0 14 16 2
                                     17 0 5 5 18 1 5 19 0 20 0 0 0 21 2 5 0 0 22

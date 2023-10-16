@@ -659,8 +659,8 @@
             (|makeByteWordVec2| 26
                                 '(0 0 6 0 6 0 6 6 0 6 15 6 14 6 1 2 9 4 3 14 15
                                   7 20 17 20 0 9 14 7 0 0 19 7 0 0 0 0 20 7 7
-                                  26 25 17 17 0 0 24 17 0 0 0 14 7 0 0 0 0 0 5
-                                  19 14 15 6 6 7 7 7 7 7 7))
+                                  26 25 17 17 0 0 24 17 0 0 0 0 0 14 7 0 0 0 0
+                                  0 5 19 14 15 6 6 7 7 7 7 7 7))
             (CONS
              '#(|UnivariatePuiseuxSeriesConstructorCategory&| NIL |Field&|
                 |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
@@ -672,9 +672,9 @@
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL |NonAssociativeRng&|
                 NIL NIL |AbelianGroup&| NIL NIL NIL |NonAssociativeSemiRng&|
                 NIL |AbelianMonoid&| |MagmaWithUnit&| |Magma&|
-                |AbelianSemiGroup&| |SetCategory&| NIL
-                |TranscendentalFunctionCategory&| |RetractableTo&|
-                |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL NIL
+                |AbelianSemiGroup&| |RetractableTo&| |RetractableTo&|
+                |SetCategory&| NIL |TranscendentalFunctionCategory&| NIL NIL
+                NIL |BasicType&| NIL NIL NIL NIL NIL NIL NIL
                 |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
@@ -701,10 +701,12 @@
                  (|NonAssociativeSemiRing|) (|Monoid|)
                  (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianMonoid|)
                  (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
-                 (|SetCategory|) (|CommutativeStar|)
-                 (|TranscendentalFunctionCategory|)
                  (|RetractableTo| (|UnivariateTaylorSeries| 6 7 8))
                  (|RetractableTo| (|UnivariateLaurentSeries| 6 7 8))
+                 (|SetCategory|) (|CommutativeStar|)
+                 (|TranscendentalFunctionCategory|)
+                 (|CoercibleFrom| (|UnivariateTaylorSeries| 6 7 8))
+                 (|CoercibleFrom| (|UnivariateLaurentSeries| 6 7 8))
                  (|VariablesCommuteWithCoefficients|) (|BasicType|)
                  (|CoercibleTo| 63) (|Eltable| $$ $$) (|unitsKnown|)
                  (|TwoSidedRecip|) (|noZeroDivisors|) (|canonicalUnitNormal|)
@@ -733,8 +735,8 @@
                                     14 0 40 0 84 2 63 0 0 0 85 1 63 0 0 86 1 0
                                     10 0 11 1 0 20 0 22 1 0 18 0 19 1 0 27 0 56
                                     2 0 0 6 27 29 1 0 14 0 59 2 7 0 0 34 39 1 7
-                                    0 0 38 1 3 0 0 36 2 0 0 0 34 37 1 0 0 34 35
-                                    1 0 0 13 17 1 0 0 14 16 1 0 63 0 87 1 0 6 0
+                                    0 0 38 1 3 0 0 36 2 0 0 0 34 37 1 0 0 13 17
+                                    1 0 0 34 35 1 0 0 14 16 1 0 63 0 87 1 0 6 0
                                     12 2 11 6 0 27 61 0 32 0 31 0 30 0 26 2 0 0
                                     0 0 33)))))
            '|lookupIncomplete|)) 

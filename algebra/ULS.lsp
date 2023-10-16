@@ -652,9 +652,9 @@
               (|Record| (|:| |mat| 37) (|:| |vec| (|Vector| 16))) (|Vector| $)
               (|PatternMatchResult| 46 $) (|PatternMatchResult| 16 $)
               (|Union| 43 '#1#) (|List| 44) (|SparseUnivariatePolynomial| $)
-              (|Factored| 44) (|Float|) (|DoubleFloat|)
-              (|Union| 49 '#2="failed") (|Fraction| 16) (|Union| 16 '#2#)
-              (|Union| 9 '#2#) (|Union| $ '"failed") (|NonNegativeInteger|)
+              (|Factored| 44) (|Float|) (|DoubleFloat|) (|Fraction| 16)
+              (|Union| 48 '#2="failed") (|Union| 16 '#2#) (|Union| 9 '#2#)
+              (|Union| $ '"failed") (|NonNegativeInteger|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|List| 53) (|Mapping| 32 32)
               (|Record| (|:| |mat| 58) (|:| |vec| (|Vector| 32))) (|Matrix| 32)
@@ -678,8 +678,9 @@
                                   23 24 49 33 7 2 39 40 2 13 51 38 51 0 19 23
                                   49 2 0 0 42 49 6 2 0 0 0 0 49 49 6 2 2 51 47
                                   6 46 38 38 6 0 0 50 38 27 2 0 0 28 9 2 16 17
-                                  0 23 49 5 11 2 0 0 0 0 1 23 24 2 2 49 49 49
-                                  49 49 49 42 3 4 5 5 27 8 8 10 11 12 14 15 2))
+                                  0 0 23 49 3 5 8 8 11 2 0 0 0 0 1 23 24 2 2 49
+                                  49 49 49 49 49 42 3 4 5 5 27 8 8 10 11 12 14
+                                  15 2))
             (CONS
              '#(|UnivariateLaurentSeriesConstructorCategory&|
                 |UnivariateLaurentSeriesCategory&| |QuotientFieldCategory&|
@@ -695,14 +696,14 @@
                 NIL NIL NIL NIL |NonAssociativeRng&| |AbelianGroup&| NIL NIL
                 NIL NIL NIL |NonAssociativeSemiRng&| NIL |AbelianMonoid&|
                 |MagmaWithUnit&| |OrderedSet&| NIL |Magma&| |AbelianSemiGroup&|
-                NIL NIL |FullyEvalableOver&| NIL NIL |SetCategory&| NIL
-                |TranscendentalFunctionCategory&| NIL |Evalable&| NIL
-                |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL
+                NIL NIL |FullyEvalableOver&| NIL NIL |RetractableTo&|
+                |SetCategory&| NIL |TranscendentalFunctionCategory&|
+                |RetractableTo&| NIL |RetractableTo&| |RetractableTo&|
+                |Evalable&| NIL NIL NIL |BasicType&| NIL NIL NIL NIL NIL NIL
                 |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
-                |RadicalCategory&| NIL |RetractableTo&| NIL NIL NIL
-                |PartialOrder&| |RetractableTo&| |RetractableTo&|
+                |RadicalCategory&| NIL NIL NIL NIL NIL |PartialOrder&| NIL NIL
                 |InnerEvalable&| |InnerEvalable&| NIL NIL NIL NIL)
              (CONS
               '#((|UnivariateLaurentSeriesConstructorCategory| 6
@@ -719,20 +720,20 @@
                  (|DivisionRing|) (|CommutativeRing|) (|OrderedRing|)
                  (|DifferentialExtension| (|UnivariateTaylorSeries| 6 7 8))
                  (|FullyLinearlyExplicitOver| (|UnivariateTaylorSeries| 6 7 8))
-                 (|Algebra| 6) (|Algebra| $$) (|EntireRing|) (|Algebra| 49)
+                 (|Algebra| 6) (|Algebra| $$) (|EntireRing|) (|Algebra| 48)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|Algebra| (|UnivariateTaylorSeries| 6 7 8))
                  (|PartialDifferentialRing| 9) (|DifferentialRing|)
                  (|LinearlyExplicitOver| (|UnivariateTaylorSeries| 6 7 8))
                  (|LinearlyExplicitOver| 16) (|Ring|) (|SemiRing|) (|Rng|)
-                 (|SemiRng|) (|Module| 6) (|Module| $$) (|Module| 49)
+                 (|SemiRng|) (|Module| 6) (|Module| $$) (|Module| 48)
                  (|Module| (|UnivariateTaylorSeries| 6 7 8)) (|BiModule| 6 6)
-                 (|BiModule| $$ $$) (|NonAssociativeRing|) (|BiModule| 49 49)
+                 (|BiModule| $$ $$) (|NonAssociativeRing|) (|BiModule| 48 48)
                  (|OrderedAbelianGroup|)
                  (|BiModule| (|UnivariateTaylorSeries| 6 7 8)
                              (|UnivariateTaylorSeries| 6 7 8))
                  (|LeftModule| 6) (|RightModule| 6) (|RightModule| $$)
-                 (|LeftModule| $$) (|LeftModule| 49) (|RightModule| 49)
+                 (|LeftModule| $$) (|LeftModule| 48) (|RightModule| 48)
                  (|OrderedCancellationAbelianMonoid|)
                  (|LeftModule| (|UnivariateTaylorSeries| 6 7 8))
                  (|RightModule| (|UnivariateTaylorSeries| 6 7 8))
@@ -746,11 +747,13 @@
                  (|Magma|) (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
                  (|FullyEvalableOver| (|UnivariateTaylorSeries| 6 7 8))
                  (|PatternMatchable| 46) (|PatternMatchable| 16)
+                 (|RetractableTo| (|UnivariateTaylorSeries| 6 7 8))
                  (|SetCategory|) (|CommutativeStar|)
-                 (|TranscendentalFunctionCategory|) (|RealConstant|)
+                 (|TranscendentalFunctionCategory|) (|RetractableTo| 9)
+                 (|RealConstant|) (|RetractableTo| 48) (|RetractableTo| 16)
                  (|Evalable| (|UnivariateTaylorSeries| 6 7 8))
                  (|Patternable| (|UnivariateTaylorSeries| 6 7 8))
-                 (|RetractableTo| (|UnivariateTaylorSeries| 6 7 8))
+                 (|CoercibleFrom| (|UnivariateTaylorSeries| 6 7 8))
                  (|VariablesCommuteWithCoefficients|) (|BasicType|)
                  (|CoercibleTo| 78) (|Eltable| $$ $$) (|TwoSidedRecip|)
                  (|noZeroDivisors|) (|canonicalUnitNormal|)
@@ -759,9 +762,9 @@
                  (|HyperbolicFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|ElementaryFunctionCategory|) (|RadicalCategory|)
-                 (|unitsKnown|) (|RetractableTo| 9) (|ConvertibleTo| 29)
+                 (|unitsKnown|) (|CoercibleFrom| 9) (|ConvertibleTo| 29)
                  (|ConvertibleTo| 47) (|ConvertibleTo| 46) (|PartialOrder|)
-                 (|RetractableTo| 49) (|RetractableTo| 16)
+                 (|CoercibleFrom| 48) (|CoercibleFrom| 16)
                  (|InnerEvalable| 9 (|UnivariateTaylorSeries| 6 7 8))
                  (|InnerEvalable| (|UnivariateTaylorSeries| 6 7 8)
                                   (|UnivariateTaylorSeries| 6 7 8))

@@ -3258,13 +3258,14 @@
               |constant?| 481 |coerce| 486 |addBadValue| 501 ^ 507 |Zero| 519
               |One| 523 = 527 / 533 + 539 * 545)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
-                  '#(|SetCategory&| |BasicType&| |RetractableTo&|
-                     |RetractableTo&| NIL)
+                  '#(|SetCategory&| |RetractableTo&| |RetractableTo&|
+                     |BasicType&| NIL NIL NIL)
                   (CONS
-                   '#((|SetCategory|) (|BasicType|) (|RetractableTo| 8)
-                      (|RetractableTo| 6) (|CoercibleTo| 50))
+                   '#((|SetCategory|) (|RetractableTo| 8) (|RetractableTo| 6)
+                      (|BasicType|) (|CoercibleFrom| 8) (|CoercibleFrom| 6)
+                      (|CoercibleTo| 50))
                    (|makeByteWordVec2| 140
                                        '(0 8 0 9 1 10 0 8 11 1 15 13 14 16 1 32
                                          0 14 33 2 32 19 0 0 49 2 54 50 53 0 55

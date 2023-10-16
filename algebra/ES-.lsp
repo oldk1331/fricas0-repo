@@ -844,10 +844,10 @@
                                      T)
                                    '((|eval| (|#1| |#1| (|Kernel| |#1|) |#1|))
                                      T)
-                                   '((|retract| ((|Kernel| |#1|) |#1|)) T)
                                    '((|retractIfCan|
                                       ((|Union| (|Kernel| |#1|) #2#) |#1|))
-                                     T))
+                                     T)
+                                   '((|retract| ((|Kernel| |#1|) |#1|)) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 143
                                             '(1 10 8 9 11 2 6 0 8 14 15 2 8 18

@@ -52,13 +52,13 @@
            (CONS
             (|makeByteWordVec2| 2
                                 '(0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 2))
+                                  0 0 0 0 0 0 0 0 0 0 2))
             (CONS
              '#(NIL NIL NIL |Algebra&| NIL |Rng&| NIL NIL |Module&| NIL
                 |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&| NIL NIL
                 |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
-                |AbelianSemiGroup&| |SetCategory&| |RetractableTo&| NIL
+                |AbelianSemiGroup&| |RetractableTo&| |SetCategory&| NIL NIL
                 |BasicType&| NIL NIL)
              (CONS
               '#((|XPolynomialsCat| 15 6) (|XFreeAlgebra| 15 6) (|XAlgebra| 6)
@@ -69,8 +69,8 @@
                  (|AbelianGroup|) (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Magma|)
-                 (|AbelianSemiGroup|) (|SetCategory|) (|RetractableTo| 11)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 24)
-                 (|noZeroDivisors|))
+                 (|AbelianSemiGroup|) (|RetractableTo| 11) (|SetCategory|)
+                 (|CoercibleFrom| 11) (|unitsKnown|) (|BasicType|)
+                 (|CoercibleTo| 24) (|noZeroDivisors|))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

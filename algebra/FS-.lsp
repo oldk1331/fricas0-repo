@@ -2263,11 +2263,11 @@
                                    '((* (|#1| (|NonNegativeInteger|) |#1|)) T)
                                    '((* (|#1| (|Integer|) |#1|)) T)
                                    '((|coerce| (|#1| (|Integer|))) T)
-                                   '((|retract| ((|Polynomial| |#2|) |#1|)) T)
+                                   '((|coerce| (|#1| (|Polynomial| |#2|))) T)
                                    '((|retractIfCan|
                                       ((|Union| (|Polynomial| |#2|) #1#) |#1|))
                                      T)
-                                   '((|coerce| (|#1| (|Polynomial| |#2|))) T)
+                                   '((|retract| ((|Polynomial| |#2|) |#1|)) T)
                                    '((|differentiate| (|#1| |#1| (|Symbol|)))
                                      T)
                                    '((|differentiate|
@@ -2293,23 +2293,23 @@
                                      T)
                                    '((|coerce| (|#1| (|Fraction| (|Integer|))))
                                      T)
-                                   '((|retract|
-                                      ((|Fraction| (|Polynomial| |#2|)) |#1|))
+                                   '((|coerce|
+                                      (|#1| (|Fraction| (|Polynomial| |#2|))))
                                      T)
                                    '((|retractIfCan|
                                       ((|Union|
                                         (|Fraction| (|Polynomial| |#2|)) #1#)
                                        |#1|))
                                      T)
-                                   '((|coerce|
-                                      (|#1| (|Fraction| (|Polynomial| |#2|))))
-                                     T)
                                    '((|retract|
-                                      ((|Fraction| (|Integer|)) |#1|))
+                                      ((|Fraction| (|Polynomial| |#2|)) |#1|))
                                      T)
                                    '((|retractIfCan|
                                       ((|Union| (|Fraction| (|Integer|)) #1#)
                                        |#1|))
+                                     T)
+                                   '((|retract|
+                                      ((|Fraction| (|Integer|)) |#1|))
                                      T)
                                    '((|univariate|
                                       ((|Fraction|
@@ -2429,23 +2429,23 @@
                                      T)
                                    '((|ground| (|#2| |#1|)) T)
                                    '((|ground?| ((|Boolean|) |#1|)) T)
-                                   '((|retract| (|#2| |#1|)) T)
+                                   '((|coerce| (|#1| |#2|)) T)
                                    '((|retractIfCan| ((|Union| |#2| #1#) |#1|))
                                      T)
-                                   '((|coerce| (|#1| |#2|)) T)
+                                   '((|retract| (|#2| |#1|)) T)
+                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|retractIfCan|
                                       ((|Union| (|Integer|) #1#) |#1|))
                                      T)
-                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|convert| ((|Pattern| (|Float|)) |#1|))
                                      T)
                                    '((|convert| ((|Pattern| (|Integer|)) |#1|))
                                      T)
-                                   '((|retract| ((|Symbol|) |#1|)) T)
+                                   '((|coerce| (|#1| (|Symbol|))) T)
                                    '((|retractIfCan|
                                       ((|Union| (|Symbol|) #1#) |#1|))
                                      T)
-                                   '((|coerce| (|#1| (|Symbol|))) T)
+                                   '((|retract| ((|Symbol|) |#1|)) T)
                                    '((|eval|
                                       (|#1| |#1| (|BasicOperator|)
                                        (|Mapping| |#1| |#1|)))
@@ -2551,11 +2551,11 @@
                                      T)
                                    '((|eval| (|#1| |#1| (|Kernel| |#1|) |#1|))
                                      T)
-                                   '((|retract| ((|Kernel| |#1|) |#1|)) T)
+                                   '((|coerce| (|#1| (|Kernel| |#1|))) T)
                                    '((|retractIfCan|
                                       ((|Union| (|Kernel| |#1|) #1#) |#1|))
                                      T)
-                                   '((|coerce| (|#1| (|Kernel| |#1|))) T)
+                                   '((|retract| ((|Kernel| |#1|) |#1|)) T)
                                    '((|coerce| ((|OutputForm|) |#1|)) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 342
@@ -2679,12 +2679,12 @@
                                               2 0 0 11 32 111 2 0 0 0 12 239 1
                                               0 0 0 282 1 0 0 324 325 1 0 254 0
                                               256 1 0 257 0 259 1 0 0 173 187 1
-                                              0 0 335 339 1 0 0 288 293 1 0 0
+                                              0 0 288 293 1 0 0 335 339 1 0 0
                                               294 334 1 0 0 295 299 1 0 0 283
-                                              287 1 0 0 12 27 1 0 138 0 240 1 0
-                                              0 25 91 0 0 84 86 1 0 19 11 43 2
-                                              0 0 12 32 40 4 0 0 12 0 0 0 36 5
-                                              0 0 12 0 0 0 0 37 3 0 0 12 0 0 35
-                                              2 0 0 12 0 34 1 0 74 32 309 1 0
-                                              74 0 311 2 0 0 7 0 264)))))
+                                              287 1 0 0 12 27 1 0 0 25 91 1 0
+                                              138 0 240 0 0 84 86 1 0 19 11 43
+                                              2 0 0 12 32 40 4 0 0 12 0 0 0 36
+                                              5 0 0 12 0 0 0 0 37 3 0 0 12 0 0
+                                              35 2 0 0 12 0 34 1 0 74 32 309 1
+                                              0 74 0 311 2 0 0 7 0 264)))))
            '|lookupComplete|)) 

@@ -709,9 +709,9 @@
             (|makeByteWordVec2| 41
                                 '(0 0 0 10 13 0 10 13 0 17 20 4 34 16 4 1 2 3
                                   34 4 9 4 35 18 22 4 36 12 36 0 1 34 35 0 0 1
-                                  4 0 0 0 0 1 1 36 14 41 12 12 0 0 40 12 0 0 8
-                                  26 28 21 0 0 12 35 0 0 0 0 0 0 0 0 4 5 6 7 30
-                                  32 11 12 12 13 35 15 19))
+                                  4 0 0 0 0 1 1 36 14 41 12 12 0 0 40 12 0 0 0
+                                  8 26 28 21 0 0 5 6 12 12 35 0 0 0 0 0 0 0 0 4
+                                  5 6 7 30 32 11 12 12 13 35 15 19))
             (CONS
              '#(|UnivariatePolynomialCategory&| |PolynomialCategory&|
                 |MaybeSkewPolynomialCategory&|
@@ -726,11 +726,11 @@
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL
                 |NonAssociativeSemiRng&| NIL |AbelianMonoid&| |MagmaWithUnit&|
-                |Magma&| |AbelianSemiGroup&| NIL NIL NIL NIL
-                |FullyRetractableTo&| |SetCategory&| |Evalable&| NIL NIL NIL
-                NIL |InnerEvalable&| |InnerEvalable&| |RetractableTo&|
-                |BasicType&| NIL NIL |RetractableTo&| |RetractableTo&| NIL NIL
-                NIL NIL |InnerEvalable&| |RetractableTo&| NIL NIL NIL NIL)
+                |FullyRetractableTo&| |Magma&| |AbelianSemiGroup&| NIL NIL NIL
+                NIL |RetractableTo&| |SetCategory&| |RetractableTo&|
+                |RetractableTo&| |Evalable&| |RetractableTo&| NIL NIL NIL NIL
+                |InnerEvalable&| |InnerEvalable&| NIL |BasicType&| NIL NIL NIL
+                NIL NIL NIL NIL NIL |InnerEvalable&| NIL NIL NIL NIL NIL)
              (CONS
               '#((|UnivariatePolynomialCategory| 7)
                  (|PolynomialCategory| 7 16 37)
@@ -753,17 +753,19 @@
                  (|AbelianGroup|) (|CancellationAbelianMonoid|)
                  (|NonAssociativeSemiRing|) (|Monoid|)
                  (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianMonoid|)
-                 (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
-                 (|Comparable|) (|PatternMatchable| (|Float|))
-                 (|PatternMatchable| 33) (|StepThrough|)
-                 (|FullyRetractableTo| 7) (|SetCategory|) (|Evalable| $$)
-                 (|CommutativeStar|) (|Eltable| $$ $$) (|Eltable| 7 7)
-                 (|VariablesCommuteWithCoefficients|) (|InnerEvalable| 37 $$)
-                 (|InnerEvalable| 37 7) (|RetractableTo| 7) (|BasicType|)
-                 (|CoercibleTo| 10) (|unitsKnown|) (|RetractableTo| 36)
-                 (|RetractableTo| 33) (|canonicalUnitNormal|)
-                 (|ConvertibleTo| 23) (|ConvertibleTo| 24) (|ConvertibleTo| 22)
-                 (|InnerEvalable| $$ $$) (|RetractableTo| 37)
+                 (|MagmaWithUnit|) (|FullyRetractableTo| 7) (|Magma|)
+                 (|AbelianSemiGroup|) (|Comparable|)
+                 (|PatternMatchable| (|Float|)) (|PatternMatchable| 33)
+                 (|StepThrough|) (|RetractableTo| 7) (|SetCategory|)
+                 (|RetractableTo| 36) (|RetractableTo| 33) (|Evalable| $$)
+                 (|RetractableTo| 37) (|CommutativeStar|) (|Eltable| $$ $$)
+                 (|Eltable| 7 7) (|VariablesCommuteWithCoefficients|)
+                 (|InnerEvalable| 37 $$) (|InnerEvalable| 37 7)
+                 (|CoercibleFrom| 7) (|BasicType|) (|CoercibleTo| 10)
+                 (|unitsKnown|) (|CoercibleFrom| 36) (|CoercibleFrom| 33)
+                 (|canonicalUnitNormal|) (|ConvertibleTo| 23)
+                 (|ConvertibleTo| 24) (|ConvertibleTo| 22)
+                 (|InnerEvalable| $$ $$) (|CoercibleFrom| 37)
                  (|additiveValuation|) (|TwoSidedRecip|) (|noZeroDivisors|)
                  (|Eltable| (|Fraction| $$) (|Fraction| $$)))
               (|makeByteWordVec2| 73

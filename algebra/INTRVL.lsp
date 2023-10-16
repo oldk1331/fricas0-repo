@@ -1161,7 +1161,7 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0))
             (CONS
              '#(NIL |GcdDomain&| NIL NIL NIL |EntireRing&| |Algebra&| NIL
@@ -1169,8 +1169,8 @@
                 |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL
                 |OrderedSet&| NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| NIL |Magma&| |AbelianSemiGroup&|
-                |TranscendentalFunctionCategory&| NIL |SetCategory&| NIL
-                |RetractableTo&| |RadicalCategory&|
+                |RetractableTo&| |TranscendentalFunctionCategory&| NIL
+                |SetCategory&| NIL NIL |RadicalCategory&|
                 |ElementaryFunctionCategory&| NIL |HyperbolicFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |TrigonometricFunctionCategory&| |PartialOrder&| NIL NIL NIL
@@ -1185,9 +1185,10 @@
                  (|CancellationAbelianMonoid|) (|OrderedSet|) (|SemiGroup|)
                  (|MagmaWithUnit|) (|NonAssociativeSemiRng|) (|AbelianMonoid|)
                  (|Comparable|) (|Magma|) (|AbelianSemiGroup|)
-                 (|TranscendentalFunctionCategory|) (|CommutativeStar|)
-                 (|SetCategory|) (|Approximate|) (|RetractableTo| 12)
-                 (|RadicalCategory|) (|ElementaryFunctionCategory|)
+                 (|RetractableTo| 12) (|TranscendentalFunctionCategory|)
+                 (|CommutativeStar|) (|SetCategory|) (|Approximate|)
+                 (|CoercibleFrom| 12) (|RadicalCategory|)
+                 (|ElementaryFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)

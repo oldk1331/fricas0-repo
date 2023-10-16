@@ -1746,7 +1746,7 @@
               (|PolynomialCategoryLifting| 8 9 7 6 225) (800 . |map|)
               (807 . |convert|) (|Equation| $) (|List| 7) (|Matrix| 79)
               (|Record| (|:| |mat| 235) (|:| |vec| (|Vector| 79)))
-              (|Union| 239 '#1#) (|Union| 79 '#1#) (|Fraction| 79))
+              (|Fraction| 79) (|Union| 237 '#1#) (|Union| 79 '#1#))
            '#(|totalDegreeSorted| 812 |totalDegree| 818 |squareFreePart| 829
               |squareFree| 834 |solveLinearPolynomialEquation| 839 |smaller?|
               845 |retractIfCan| 851 |retract| 856 |resultant| 861
@@ -1762,150 +1762,134 @@
                        (CONS
                         '#((|Join|
                             (|mkCategory|
-                             (LIST '((|retract| (|#4| |#1|)) T)
-                                   '((|retractIfCan| ((|Union| |#4| #1#) |#1|))
-                                     T)
-                                   '((|eval|
-                                      (|#1| |#1| (|List| |#1|) (|List| |#1|)))
-                                     T)
-                                   '((|eval| (|#1| |#1| |#1| |#1|)) T)
-                                   '((|eval| (|#1| |#1| (|Equation| |#1|))) T)
-                                   '((|eval|
-                                      (|#1| |#1| (|List| (|Equation| |#1|))))
-                                     T)
-                                   '((|convert| ((|InputForm|) |#1|)) T)
-                                   '((|convert| ((|Pattern| (|Integer|)) |#1|))
-                                     T)
-                                   '((|convert| ((|Pattern| (|Float|)) |#1|))
-                                     T)
-                                   '((|patternMatch|
-                                      ((|PatternMatchResult| (|Integer|) |#1|)
-                                       |#1| (|Pattern| (|Integer|))
-                                       (|PatternMatchResult| (|Integer|)
-                                                             |#1|)))
-                                     T)
-                                   '((|patternMatch|
-                                      ((|PatternMatchResult| (|Float|) |#1|)
-                                       |#1| (|Pattern| (|Float|))
-                                       (|PatternMatchResult| (|Float|) |#1|)))
-                                     T)
-                                   '((|gcdPolynomial|
-                                      ((|SparseUnivariatePolynomial| |#1|)
-                                       (|SparseUnivariatePolynomial| |#1|)
-                                       (|SparseUnivariatePolynomial| |#1|)))
-                                     T)
-                                   '((|squareFree| ((|Factored| |#1|) |#1|)) T)
-                                   '((|squareFreePart| (|#1| |#1|)) T)
-                                   '((|factor| ((|Factored| |#1|) |#1|)) T)
-                                   '((|factorPolynomial|
-                                      ((|Factored|
-                                        (|SparseUnivariatePolynomial| |#1|))
-                                       (|SparseUnivariatePolynomial| |#1|)))
-                                     T)
-                                   '((|factorSquareFreePolynomial|
-                                      ((|Factored|
-                                        (|SparseUnivariatePolynomial| |#1|))
-                                       (|SparseUnivariatePolynomial| |#1|)))
-                                     T)
-                                   '((|solveLinearPolynomialEquation|
-                                      ((|Union|
-                                        (|List|
-                                         (|SparseUnivariatePolynomial| |#1|))
-                                        #4#)
-                                       (|List|
-                                        (|SparseUnivariatePolynomial| |#1|))
-                                       (|SparseUnivariatePolynomial| |#1|)))
-                                     T)
-                                   '((|conditionP|
-                                      ((|Union| (|Vector| |#1|) #4#)
-                                       (|Matrix| |#1|)))
-                                     T)
-                                   '((|charthRoot| ((|Union| |#1| #4#) |#1|))
-                                     T)
-                                   '((|primitivePart| (|#1| |#1| |#4|)) T)
-                                   '((|content| (|#1| |#1| |#4|)) T)
-                                   '((|discriminant| (|#1| |#1| |#4|)) T)
-                                   '((|resultant| (|#1| |#1| |#1| |#4|)) T)
-                                   '((|isExpt|
-                                      ((|Union|
-                                        (|Record| (|:| |var| |#4|)
-                                                  (|:| |exponent|
-                                                       (|NonNegativeInteger|)))
-                                        #3#)
-                                       |#1|))
-                                     T)
-                                   '((|isTimes|
-                                      ((|Union| (|List| |#1|) "failed") |#1|))
-                                     T)
-                                   '((|isPlus|
-                                      ((|Union| (|List| |#1|) #2#) |#1|))
-                                     T)
-                                   '((|monicDivide|
-                                      ((|Record| (|:| |quotient| |#1|)
-                                                 (|:| |remainder| |#1|))
-                                       |#1| |#1| |#4|))
-                                     T)
-                                   '((|eval|
-                                      (|#1| |#1| (|List| |#4|) (|List| |#1|)))
-                                     T)
-                                   '((|eval| (|#1| |#1| |#4| |#1|)) T)
-                                   '((|eval|
-                                      (|#1| |#1| (|List| |#4|) (|List| |#2|)))
-                                     T)
-                                   '((|eval| (|#1| |#1| |#4| |#2|)) T)
-                                   '((|reducedSystem|
-                                      ((|Matrix| |#2|) (|Matrix| |#1|)))
-                                     T)
-                                   '((|reducedSystem|
-                                      ((|Record| (|:| |mat| (|Matrix| |#2|))
-                                                 (|:| |vec| (|Vector| |#2|)))
-                                       (|Matrix| |#1|) (|Vector| |#1|)))
-                                     T)
-                                   '((|reducedSystem|
-                                      ((|Record|
-                                        (|:| |mat| (|Matrix| (|Integer|)))
-                                        (|:| |vec| (|Vector| (|Integer|))))
-                                       (|Matrix| |#1|) (|Vector| |#1|)))
-                                     T)
-                                   '((|reducedSystem|
-                                      ((|Matrix| (|Integer|)) (|Matrix| |#1|)))
-                                     T)
-                                   '((|smaller?| ((|Boolean|) |#1| |#1|)) T)
-                                   '((|totalDegreeSorted|
-                                      ((|NonNegativeInteger|) |#1|
-                                       (|List| |#4|)))
-                                     T)
-                                   '((|totalDegree|
-                                      ((|NonNegativeInteger|) |#1|
-                                       (|List| |#4|)))
-                                     T)
-                                   '((|totalDegree|
-                                      ((|NonNegativeInteger|) |#1|))
-                                     T)
-                                   '((|coefficient|
-                                      (|#1| |#1| (|List| |#4|)
-                                       (|List| (|NonNegativeInteger|))))
-                                     T)
-                                   '((|coefficient|
-                                      (|#1| |#1| |#4| (|NonNegativeInteger|)))
-                                     T)
-                                   '((|primitivePart| (|#1| |#1|)) T)
-                                   '((|content| (|#2| |#1|)) T)
-                                   '((|retract| (|#2| |#1|)) T)
-                                   '((|retractIfCan| ((|Union| |#2| #1#) |#1|))
-                                     T)
-                                   '((|retractIfCan|
-                                      ((|Union| (|Fraction| (|Integer|)) #1#)
-                                       |#1|))
-                                     T)
-                                   '((|retract|
-                                      ((|Fraction| (|Integer|)) |#1|))
-                                     T)
-                                   '((|retractIfCan|
-                                      ((|Union| (|Integer|) #1#) |#1|))
-                                     T)
-                                   '((|retract| ((|Integer|) |#1|)) T)
-                                   '((|coefficient| (|#2| |#1| |#3|)) T))
+                             (LIST
+                              '((|retractIfCan| ((|Union| |#4| #1#) |#1|)) T)
+                              '((|retract| (|#4| |#1|)) T)
+                              '((|eval|
+                                 (|#1| |#1| (|List| |#1|) (|List| |#1|)))
+                                T)
+                              '((|eval| (|#1| |#1| |#1| |#1|)) T)
+                              '((|eval| (|#1| |#1| (|Equation| |#1|))) T)
+                              '((|eval| (|#1| |#1| (|List| (|Equation| |#1|))))
+                                T)
+                              '((|convert| ((|InputForm|) |#1|)) T)
+                              '((|convert| ((|Pattern| (|Integer|)) |#1|)) T)
+                              '((|convert| ((|Pattern| (|Float|)) |#1|)) T)
+                              '((|patternMatch|
+                                 ((|PatternMatchResult| (|Integer|) |#1|) |#1|
+                                  (|Pattern| (|Integer|))
+                                  (|PatternMatchResult| (|Integer|) |#1|)))
+                                T)
+                              '((|patternMatch|
+                                 ((|PatternMatchResult| (|Float|) |#1|) |#1|
+                                  (|Pattern| (|Float|))
+                                  (|PatternMatchResult| (|Float|) |#1|)))
+                                T)
+                              '((|gcdPolynomial|
+                                 ((|SparseUnivariatePolynomial| |#1|)
+                                  (|SparseUnivariatePolynomial| |#1|)
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|squareFree| ((|Factored| |#1|) |#1|)) T)
+                              '((|squareFreePart| (|#1| |#1|)) T)
+                              '((|factor| ((|Factored| |#1|) |#1|)) T)
+                              '((|factorPolynomial|
+                                 ((|Factored|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|factorSquareFreePolynomial|
+                                 ((|Factored|
+                                   (|SparseUnivariatePolynomial| |#1|))
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|solveLinearPolynomialEquation|
+                                 ((|Union|
+                                   (|List| (|SparseUnivariatePolynomial| |#1|))
+                                   #4#)
+                                  (|List| (|SparseUnivariatePolynomial| |#1|))
+                                  (|SparseUnivariatePolynomial| |#1|)))
+                                T)
+                              '((|conditionP|
+                                 ((|Union| (|Vector| |#1|) #4#)
+                                  (|Matrix| |#1|)))
+                                T)
+                              '((|charthRoot| ((|Union| |#1| #4#) |#1|)) T)
+                              '((|primitivePart| (|#1| |#1| |#4|)) T)
+                              '((|content| (|#1| |#1| |#4|)) T)
+                              '((|discriminant| (|#1| |#1| |#4|)) T)
+                              '((|resultant| (|#1| |#1| |#1| |#4|)) T)
+                              '((|isExpt|
+                                 ((|Union|
+                                   (|Record| (|:| |var| |#4|)
+                                             (|:| |exponent|
+                                                  (|NonNegativeInteger|)))
+                                   #3#)
+                                  |#1|))
+                                T)
+                              '((|isTimes|
+                                 ((|Union| (|List| |#1|) "failed") |#1|))
+                                T)
+                              '((|isPlus| ((|Union| (|List| |#1|) #2#) |#1|))
+                                T)
+                              '((|monicDivide|
+                                 ((|Record| (|:| |quotient| |#1|)
+                                            (|:| |remainder| |#1|))
+                                  |#1| |#1| |#4|))
+                                T)
+                              '((|eval|
+                                 (|#1| |#1| (|List| |#4|) (|List| |#1|)))
+                                T)
+                              '((|eval| (|#1| |#1| |#4| |#1|)) T)
+                              '((|eval|
+                                 (|#1| |#1| (|List| |#4|) (|List| |#2|)))
+                                T)
+                              '((|eval| (|#1| |#1| |#4| |#2|)) T)
+                              '((|reducedSystem|
+                                 ((|Matrix| |#2|) (|Matrix| |#1|)))
+                                T)
+                              '((|reducedSystem|
+                                 ((|Record| (|:| |mat| (|Matrix| |#2|))
+                                            (|:| |vec| (|Vector| |#2|)))
+                                  (|Matrix| |#1|) (|Vector| |#1|)))
+                                T)
+                              '((|reducedSystem|
+                                 ((|Record| (|:| |mat| (|Matrix| (|Integer|)))
+                                            (|:| |vec| (|Vector| (|Integer|))))
+                                  (|Matrix| |#1|) (|Vector| |#1|)))
+                                T)
+                              '((|reducedSystem|
+                                 ((|Matrix| (|Integer|)) (|Matrix| |#1|)))
+                                T)
+                              '((|smaller?| ((|Boolean|) |#1| |#1|)) T)
+                              '((|totalDegreeSorted|
+                                 ((|NonNegativeInteger|) |#1| (|List| |#4|)))
+                                T)
+                              '((|totalDegree|
+                                 ((|NonNegativeInteger|) |#1| (|List| |#4|)))
+                                T)
+                              '((|totalDegree| ((|NonNegativeInteger|) |#1|))
+                                T)
+                              '((|coefficient|
+                                 (|#1| |#1| (|List| |#4|)
+                                  (|List| (|NonNegativeInteger|))))
+                                T)
+                              '((|coefficient|
+                                 (|#1| |#1| |#4| (|NonNegativeInteger|)))
+                                T)
+                              '((|primitivePart| (|#1| |#1|)) T)
+                              '((|content| (|#2| |#1|)) T)
+                              '((|retractIfCan| ((|Union| |#2| #1#) |#1|)) T)
+                              '((|retract| (|#2| |#1|)) T)
+                              '((|retract| ((|Fraction| (|Integer|)) |#1|)) T)
+                              '((|retractIfCan|
+                                 ((|Union| (|Fraction| (|Integer|)) #1#) |#1|))
+                                T)
+                              '((|retract| ((|Integer|) |#1|)) T)
+                              '((|retractIfCan|
+                                 ((|Union| (|Integer|) #1#) |#1|))
+                                T)
+                              '((|coefficient| (|#2| |#1| |#3|)) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 232
                                             '(1 10 6 0 11 1 6 12 0 13 1 6 9 0

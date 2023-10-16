@@ -863,15 +863,16 @@
            (CONS
             (|makeByteWordVec2| 7
                                 '(0 0 0 1 0 0 0 0 0 0 1 0 0 0 4 0 0 0 0 0 0 4 0
-                                  5 0 0 0 5 0 0 0 0 5 0 0 7 0 0 0 0 0 2 3 5))
+                                  5 0 0 0 5 0 0 0 0 5 0 0 7 0 0 3 0 0 0 0 2 3
+                                  5))
             (CONS
              '#(NIL NIL NIL |Algebra&| NIL |Rng&| |FreeModuleCategory&| NIL NIL
                 NIL |Module&| NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL NIL NIL
                 NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |OrderedSet&| |Magma&| |AbelianSemiGroup&| NIL
-                |SetCategory&| |RetractableTo&| NIL |BasicType&| NIL NIL
-                |RetractableTo&| |PartialOrder&|)
+                |RetractableTo&| |SetCategory&| |RetractableTo&| NIL NIL
+                |BasicType&| NIL NIL NIL |PartialOrder&|)
              (CONS
               '#((|XPolynomialsCat| 6 7) (|XFreeAlgebra| 6 7) (|XAlgebra| 7)
                  (|Algebra| 7) (|Ring|) (|Rng|)
@@ -890,10 +891,12 @@
                  (|CancellationAbelianMonoid|) (|OrderedAbelianSemiGroup|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|OrderedSet|) (|Magma|)
-                 (|AbelianSemiGroup|) (|Comparable|) (|SetCategory|)
-                 (|RetractableTo| (|FreeMonoid| 6)) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 12) (|noZeroDivisors|)
+                 (|AbelianSemiGroup|) (|Comparable|)
+                 (|RetractableTo| (|FreeMonoid| 6)) (|SetCategory|)
                  (|RetractableTo| (|PoincareBirkhoffWittLyndonBasis| 6))
+                 (|CoercibleFrom| (|FreeMonoid| 6)) (|unitsKnown|)
+                 (|BasicType|) (|CoercibleTo| 12) (|noZeroDivisors|)
+                 (|CoercibleFrom| (|PoincareBirkhoffWittLyndonBasis| 6))
                  (|PartialOrder|))
               (|makeByteWordVec2| 102
                                   '(0 7 0 9 2 7 10 0 0 11 1 13 12 0 14 0 13 0

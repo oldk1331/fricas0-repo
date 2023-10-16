@@ -1,4 +1,6 @@
 
+(DEFPARAMETER |RetractableFrom;CAT| 'NIL) 
+
 (DECLAIM (NOTINLINE |RetractableFrom;|)) 
 
 (DEFPARAMETER |RetractableFrom;AL| 'NIL) 
@@ -17,12 +19,16 @@
          (PROG1
              (LETT #1#
                    (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (|Join|
-                               (|mkCategory|
-                                '(((|coerce| (|t#1| $)) T)
-                                  ((|retractIfCan|
-                                    ((|Union| $ "failed") |t#1|))
-                                   T)
-                                  ((|retract| ($ |t#1|)) T))
-                                NIL NIL NIL))))
+                              (COND (|RetractableFrom;CAT|)
+                                    ('T
+                                     (LETT |RetractableFrom;CAT|
+                                           (|Join| (|CoercibleTo| '|t#1|)
+                                                   (|mkCategory|
+                                                    '(((|retractIfCan|
+                                                        ((|Union| $ "failed")
+                                                         |t#1|))
+                                                       T)
+                                                      ((|retract| ($ |t#1|))
+                                                       T))
+                                                    NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|RetractableFrom| |t#1|))))) 

@@ -833,8 +833,8 @@
             (|makeByteWordVec2| 12
                                 '(0 0 2 2 4 4 2 4 4 4 0 4 0 0 0 3 3 3 0 0 0 1 3
                                   3 5 7 12 10 0 0 0 0 0 0 3 0 0 0 0 3 0 0 0 0 0
-                                  3 3 0 0 0 0 0 0 0 0 6 0 0 6 2 0 0 0 0 0 0 0 0
-                                  0 3 3 3 6 8 9))
+                                  3 3 0 0 0 0 0 0 0 0 6 0 0 0 6 2 0 0 0 8 9 0 0
+                                  0 0 0 0 3 3 3 6 8 9))
             (CONS
              '#(|FunctionFieldCategory&| |MonogenicAlgebra&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -847,10 +847,11 @@
                 |Module&| NIL |Module&| NIL |FramedModule&| NIL
                 |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
                 NIL NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
-                |NonAssociativeSemiRng&| |AbelianMonoid&| |Finite&| |Magma&|
-                |AbelianSemiGroup&| NIL NIL |FullyRetractableTo&| NIL
-                |SetCategory&| |RetractableTo&| NIL NIL NIL |BasicType&| NIL
-                NIL NIL NIL NIL |RetractableTo&| |RetractableTo&|)
+                |NonAssociativeSemiRng&| |AbelianMonoid&| |Finite&|
+                |FullyRetractableTo&| |Magma&| |AbelianSemiGroup&| NIL NIL
+                |RetractableTo&| NIL |SetCategory&| |RetractableTo&|
+                |RetractableTo&| NIL NIL NIL NIL |BasicType&| NIL NIL NIL NIL
+                NIL NIL NIL)
              (CONS
               '#((|FunctionFieldCategory| 6 7 8)
                  (|MonogenicAlgebra| (|Fraction| 7) 8) (|FiniteFieldCategory|)
@@ -877,15 +878,16 @@
                  (|RightModule| 139) (|AbelianGroup|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
-                 (|AbelianMonoid|) (|Finite|) (|Magma|) (|AbelianSemiGroup|)
-                 (|Comparable|) (|StepThrough|)
-                 (|FullyRetractableTo| (|Fraction| 7)) (|CommutativeStar|)
-                 (|SetCategory|) (|RetractableTo| (|Fraction| 7))
-                 (|ConvertibleTo| 8) (|TwoSidedRecip|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 174) (|noZeroDivisors|)
-                 (|canonicalUnitNormal|) (|canonicalsClosed|)
-                 (|ConvertibleTo| 152) (|RetractableTo| 139)
-                 (|RetractableTo| 28))
+                 (|AbelianMonoid|) (|Finite|)
+                 (|FullyRetractableTo| (|Fraction| 7)) (|Magma|)
+                 (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
+                 (|RetractableTo| (|Fraction| 7)) (|CommutativeStar|)
+                 (|SetCategory|) (|RetractableTo| 139) (|RetractableTo| 28)
+                 (|CoercibleFrom| (|Fraction| 7)) (|ConvertibleTo| 8)
+                 (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
+                 (|CoercibleTo| 174) (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|canonicalsClosed|) (|ConvertibleTo| 152)
+                 (|CoercibleFrom| 139) (|CoercibleFrom| 28))
               (|makeByteWordVec2| 174
                                   '(0 11 0 12 2 8 0 11 13 14 1 8 0 11 15 2 8 0
                                     0 0 16 0 11 0 18 0 7 0 20 1 29 28 0 30 1 36

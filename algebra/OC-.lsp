@@ -714,23 +714,23 @@
                                    '((|conjugate| (|#1| |#1|)) T)
                                    '((|map| (|#1| (|Mapping| |#2| |#2|) |#1|))
                                      T)
-                                   '((|retract| (|#2| |#1|)) T)
+                                   '((|coerce| (|#1| |#2|)) T)
                                    '((|retractIfCan| ((|Union| |#2| #2#) |#1|))
                                      T)
-                                   '((|coerce| (|#1| |#2|)) T)
-                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
+                                   '((|retract| (|#2| |#1|)) T)
+                                   '((|retract|
+                                      ((|Fraction| (|Integer|)) |#1|))
                                      T)
                                    '((|retractIfCan|
                                       ((|Union| (|Fraction| (|Integer|)) #2#)
                                        |#1|))
                                      T)
-                                   '((|retract|
-                                      ((|Fraction| (|Integer|)) |#1|))
+                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
                                      T)
+                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|retractIfCan|
                                       ((|Union| (|Integer|) #2#) |#1|))
                                      T)
-                                   '((|retract| ((|Integer|) |#1|)) T)
                                    '((|basis| ((|Vector| |#1|))) T)
                                    '((|coordinates| ((|Vector| |#2|) |#1|)) T)
                                    '((|coordinates|

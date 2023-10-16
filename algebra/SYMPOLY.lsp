@@ -288,8 +288,8 @@
            (CONS
             (|makeByteWordVec2| 22
                                 '(0 0 2 6 1 6 3 4 5 7 11 11 9 0 1 6 5 0 0 1 10
-                                  0 0 0 0 1 1 11 8 22 9 9 0 0 21 9 0 0 14 0 0 6
-                                  0 0 0 0 6 10 7 12 13 15))
+                                  0 0 0 0 1 1 11 8 22 9 9 0 0 21 9 0 0 0 14 0 0
+                                  6 12 13 0 0 0 0 6 10 7 12 13 15))
             (CONS
              '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL NIL
                 |Algebra&| |Algebra&| NIL NIL |Algebra&| |EntireRing&| NIL
@@ -297,9 +297,10 @@
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL
                 |NonAssociativeSemiRng&| NIL |AbelianMonoid&| |MagmaWithUnit&|
-                |Magma&| |AbelianSemiGroup&| NIL |FullyRetractableTo&|
-                |SetCategory&| NIL NIL |RetractableTo&| |BasicType&| NIL NIL
-                NIL NIL |RetractableTo&| |RetractableTo&| NIL)
+                |FullyRetractableTo&| |Magma&| |AbelianSemiGroup&| NIL
+                |RetractableTo&| |SetCategory&| NIL |RetractableTo&|
+                |RetractableTo&| NIL NIL |BasicType&| NIL NIL NIL NIL NIL NIL
+                NIL)
              (CONS
               '#((|FiniteAbelianMonoidRing| 6 11) (|AbelianMonoidRing| 6 11)
                  (|IntegralDomain|) (|CommutativeRing|) (|Algebra| 27)
@@ -313,12 +314,13 @@
                  (|AbelianGroup|) (|CancellationAbelianMonoid|)
                  (|NonAssociativeSemiRing|) (|Monoid|)
                  (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianMonoid|)
-                 (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
-                 (|Comparable|) (|FullyRetractableTo| 6) (|SetCategory|)
-                 (|CommutativeStar|) (|VariablesCommuteWithCoefficients|)
-                 (|RetractableTo| 6) (|BasicType|) (|CoercibleTo| 38)
+                 (|MagmaWithUnit|) (|FullyRetractableTo| 6) (|Magma|)
+                 (|AbelianSemiGroup|) (|Comparable|) (|RetractableTo| 6)
+                 (|SetCategory|) (|CommutativeStar|) (|RetractableTo| 27)
+                 (|RetractableTo| 23) (|VariablesCommuteWithCoefficients|)
+                 (|CoercibleFrom| 6) (|BasicType|) (|CoercibleTo| 38)
                  (|TwoSidedRecip|) (|unitsKnown|) (|noZeroDivisors|)
-                 (|RetractableTo| 27) (|RetractableTo| 23)
+                 (|CoercibleFrom| 27) (|CoercibleFrom| 23)
                  (|canonicalUnitNormal|))
               (|makeByteWordVec2| 29
                                   '(0 0 0 9 1 11 10 0 12 2 0 0 6 0 13 0 0 0 14

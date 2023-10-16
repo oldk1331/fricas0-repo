@@ -993,18 +993,18 @@
            (CONS
             (|makeByteWordVec2| 5
                                 '(0 0 0 0 0 0 1 2 3 0 0 0 0 0 1 0 0 0 1 0 0 0 0
-                                  0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4
-                                  5))
+                                  0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 5 0 0 0 0
+                                  0 0 4 5))
             (CONS
              '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL NIL
                 |EntireRing&| |Algebra&| |Algebra&| NIL NIL NIL NIL |Rng&| NIL
                 |Module&| |Module&| NIL |NonAssociativeRing&| NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL NIL NIL |AbelianGroup&| NIL
                 NIL NIL NIL |MagmaWithUnit&| |AbelianMonoid&|
-                |NonAssociativeSemiRng&| |Magma&| |AbelianSemiGroup&| NIL
-                |FullyRetractableTo&| |SetCategory&| NIL NIL NIL
-                |RetractableTo&| |BasicType&| NIL |RetractableTo&|
-                |RetractableTo&|)
+                |NonAssociativeSemiRng&| |Magma&| |FullyRetractableTo&|
+                |AbelianSemiGroup&| NIL |RetractableTo&| |SetCategory&|
+                |RetractableTo&| |RetractableTo&| NIL NIL NIL NIL |BasicType&|
+                NIL NIL NIL)
              (CONS
               '#((|FiniteAbelianMonoidRing| (|UnivariatePuiseuxSeries| 7 8 9)
                                             (|ExponentialOfUnivariatePuiseuxSeries|
@@ -1027,13 +1027,14 @@
                  (|AbelianGroup|) (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|Magma|)
-                 (|AbelianSemiGroup|) (|CommutativeStar|)
                  (|FullyRetractableTo| (|UnivariatePuiseuxSeries| 7 8 9))
-                 (|SetCategory|) (|noZeroDivisors|) (|TwoSidedRecip|)
-                 (|unitsKnown|)
+                 (|AbelianSemiGroup|) (|CommutativeStar|)
                  (|RetractableTo| (|UnivariatePuiseuxSeries| 7 8 9))
-                 (|BasicType|) (|CoercibleTo| 81) (|RetractableTo| 34)
-                 (|RetractableTo| 72))
+                 (|SetCategory|) (|RetractableTo| 34) (|RetractableTo| 72)
+                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
+                 (|CoercibleFrom| (|UnivariatePuiseuxSeries| 7 8 9))
+                 (|BasicType|) (|CoercibleTo| 81) (|CoercibleFrom| 34)
+                 (|CoercibleFrom| 72))
               (|makeByteWordVec2| 81
                                   '(1 0 10 0 11 0 7 0 12 1 0 13 0 14 1 13 15 0
                                     16 1 0 17 0 18 1 17 0 0 21 1 13 0 0 22 2 0

@@ -224,11 +224,11 @@
               |makeTerm| 167 |makeMulti| 173 |listOfMonoms| 178 |leftMult| 183
               |latex| 189 |hashUpdate!| 194 |hash| 200 |coerce| 205 = 215)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
-                 (CONS '#(|SetCategory&| |BasicType&| |RetractableTo&| NIL)
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
+                 (CONS '#(|SetCategory&| |RetractableTo&| |BasicType&| NIL NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|RetractableTo| 6)
-                           (|CoercibleTo| 17))
+                        '#((|SetCategory|) (|RetractableTo| 6) (|BasicType|)
+                           (|CoercibleFrom| 6) (|CoercibleTo| 17))
                         (|makeByteWordVec2| 59
                                             '(1 9 17 0 18 1 7 20 0 21 2 9 20 0
                                               0 24 2 9 11 0 26 27 0 7 0 34 2 7

@@ -635,20 +635,21 @@
               |empty| 388 |coerce| 392 |characteristicSet| 397
               |characteristicSerie| 409 |basicSet| 421)
            'NIL
-           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 2))
+           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 2))
                  (CONS
                   '#(|TriangularSetCategory&| |PolynomialSetCategory&|
                      |Collection&| |HomogeneousAggregate&| |SetCategory&|
-                     |Aggregate&| |Evalable&| |BasicType&| NIL NIL
-                     |RetractableFrom&| NIL NIL NIL |InnerEvalable&| NIL)
+                     |RetractableFrom&| |Aggregate&| |Evalable&| |BasicType&|
+                     NIL NIL NIL NIL NIL |InnerEvalable&| NIL)
                   (CONS
                    '#((|TriangularSetCategory| 6 7 8 9)
                       (|PolynomialSetCategory| 6 7 8 9) (|Collection| 9)
-                      (|HomogeneousAggregate| 9) (|SetCategory|) (|Aggregate|)
+                      (|HomogeneousAggregate| 9) (|SetCategory|)
+                      (|RetractableFrom| (|List| 9)) (|Aggregate|)
                       (|Evalable| 9) (|BasicType|) (|shallowlyMutable|)
-                      (|finiteAggregate|) (|RetractableFrom| (|List| 9))
-                      (|CoercibleTo| (|List| 9)) (|Type|) (|CoercibleTo| 103)
-                      (|InnerEvalable| 9 9) (|ConvertibleTo| 92))
+                      (|finiteAggregate|) (|CoercibleTo| (|List| 9)) (|Type|)
+                      (|CoercibleTo| 103) (|InnerEvalable| 9 9)
+                      (|ConvertibleTo| 92))
                    (|makeByteWordVec2| 87
                                        '(1 9 0 0 10 1 11 0 0 12 3 15 11 11 13
                                          14 16 1 9 17 0 18 2 11 17 19 0 20 2 0

@@ -44,9 +44,9 @@
               |ULSCCAT-;zero?;SB;1| (10 . |taylor|) |ULSCCAT-;retract;SUTS;2|
               (|Union| 8 '"failed") (15 . |taylorIfCan|)
               |ULSCCAT-;retractIfCan;SU;3| (|Stream| 7) (20 . |series|)
-              (|Integer|) (25 . |laurent|) |ULSCCAT-;laurent;ISS;4|
-              (|Union| 24 '#1="failed") (|Symbol|) (|Fraction| 20)
-              (|Union| 25 '#1#) (|Union| 20 '#1#))
+              (|Integer|) (25 . |laurent|) |ULSCCAT-;laurent;ISS;4| (|Symbol|)
+              (|Union| 23 '#1="failed") (|Union| 26 '#1#) (|Fraction| 20)
+              (|Union| 20 '#1#))
            '#(|zero?| 31 |retractIfCan| 36 |retract| 41 |laurent| 46) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -54,25 +54,25 @@
                         '#((|Join|
                             (|mkCategory|
                              (LIST '((|zero?| ((|Boolean|) |#1|)) T)
-                                   '((|retractIfCan|
-                                      ((|Union| (|Symbol|) #1#) |#1|))
-                                     T)
                                    '((|retract| ((|Symbol|) |#1|)) T)
                                    '((|retractIfCan|
-                                      ((|Union| (|Fraction| (|Integer|)) #1#)
-                                       |#1|))
+                                      ((|Union| (|Symbol|) #1#) |#1|))
                                      T)
                                    '((|retract|
                                       ((|Fraction| (|Integer|)) |#1|))
                                      T)
                                    '((|retractIfCan|
-                                      ((|Union| (|Integer|) #1#) |#1|))
+                                      ((|Union| (|Fraction| (|Integer|)) #1#)
+                                       |#1|))
                                      T)
                                    '((|retract| ((|Integer|) |#1|)) T)
+                                   '((|retractIfCan|
+                                      ((|Union| (|Integer|) #1#) |#1|))
+                                     T)
                                    '((|laurent| (|#1| (|Integer|) |#3|)) T)
-                                   '((|retract| (|#3| |#1|)) T)
                                    '((|retractIfCan| ((|Union| |#3| #1#) |#1|))
                                      T)
+                                   '((|retract| (|#3| |#1|)) T)
                                    '((|laurent|
                                       (|#1| (|Integer|) (|Stream| |#2|)))
                                      T))

@@ -132,16 +132,17 @@
               |infinite?| 116 |hashUpdate!| 121 |hash| 127 |finite?| 132
               |convert| 137 |coerce| 142 = 162)
            'NIL
-           (CONS (|makeByteWordVec2| 3 '(0 0 0 0 0 1 2 3))
+           (CONS (|makeByteWordVec2| 3 '(0 0 0 1 2 0 0 0 1 2 3))
                  (CONS
-                  '#(|SetCategory&| |FullyRetractableTo&| |BasicType&|
-                     |RetractableTo&| NIL |RetractableTo&| |RetractableTo&|
-                     NIL)
+                  '#(|FullyRetractableTo&| |SetCategory&| |RetractableTo&|
+                     |RetractableTo&| |RetractableTo&| |BasicType&| NIL NIL NIL
+                     NIL NIL)
                   (CONS
-                   '#((|SetCategory|) (|FullyRetractableTo| 6) (|BasicType|)
-                      (|RetractableTo| 6) (|CoercibleTo| 23)
-                      (|RetractableTo| 30) (|RetractableTo| 35)
-                      (|ConvertibleTo| 8))
+                   '#((|FullyRetractableTo| 6) (|SetCategory|)
+                      (|RetractableTo| 6) (|RetractableTo| 30)
+                      (|RetractableTo| 35) (|BasicType|) (|CoercibleFrom| 6)
+                      (|CoercibleTo| 23) (|CoercibleFrom| 30)
+                      (|CoercibleFrom| 35) (|ConvertibleTo| 8))
                    (|makeByteWordVec2| 39
                                        '(1 6 8 0 9 1 8 0 10 11 1 8 0 12 13 1 0
                                          8 0 14 1 10 23 0 24 1 6 23 0 25 2 6 17

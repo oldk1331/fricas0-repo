@@ -141,9 +141,9 @@
               (|SparseUnivariatePolynomialFunctions2| 10 20) (128 . |map|)
               (134 . |elt|) (140 . |coerce|) (|SparseUnivariatePolynomial| 17)
               (|Mapping| 17 10) (|SparseUnivariatePolynomialFunctions2| 10 17)
-              (145 . |map|) (151 . |pi|) (155 . |elt|)
-              (|Union| 65 '#1="failed") (|Fraction| 10) (|Union| 10 '#1#)
-              (|Factored| $) (|Union| 69 '#2="failed") (|List| $)
+              (145 . |map|) (151 . |pi|) (155 . |elt|) (|Fraction| 10)
+              (|Union| 64 '#1="failed") (|Union| 10 '#1#) (|Factored| $)
+              (|Union| 69 '#2="failed") (|List| $)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 71 '#2#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
@@ -171,7 +171,7 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| NIL |DivisionRing&| NIL NIL NIL |Algebra&|
@@ -179,26 +179,27 @@
                 NIL NIL |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&|
                 NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
-                |AbelianSemiGroup&| NIL NIL |SetCategory&| NIL NIL NIL NIL NIL
-                NIL |RetractableTo&| |RetractableTo&| NIL NIL NIL NIL NIL
-                |BasicType&| NIL)
+                |AbelianSemiGroup&| NIL |RetractableTo&| |RetractableTo&| NIL
+                |SetCategory&| NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL
+                NIL |BasicType&| NIL)
              (CONS
               '#((|Field|) (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
                  (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
-                 (|CharacteristicZero|) (|Algebra| 65) (|EntireRing|)
-                 (|Algebra| $$) (|Ring|) (|Rng|) (|SemiRing|) (|Module| 65)
-                 (|Module| $$) (|SemiRng|) (|BiModule| 65 65)
-                 (|BiModule| $$ $$) (|NonAssociativeRing|) (|RightModule| 65)
-                 (|LeftModule| 65) (|LeftModule| $$) (|NonAssociativeRng|)
+                 (|CharacteristicZero|) (|Algebra| 64) (|EntireRing|)
+                 (|Algebra| $$) (|Ring|) (|Rng|) (|SemiRing|) (|Module| 64)
+                 (|Module| $$) (|SemiRng|) (|BiModule| 64 64)
+                 (|BiModule| $$ $$) (|NonAssociativeRing|) (|RightModule| 64)
+                 (|LeftModule| 64) (|LeftModule| $$) (|NonAssociativeRng|)
                  (|RightModule| $$) (|AbelianGroup|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
-                 (|RealConstant|) (|CommutativeStar|) (|SetCategory|)
-                 (|ConvertibleTo| 30) (|ConvertibleTo| 5) (|CoercibleTo| 17)
-                 (|CoercibleTo| 20) (|ConvertibleTo| 17) (|ConvertibleTo| 20)
-                 (|RetractableTo| 65) (|RetractableTo| 10) (|canonicalsClosed|)
+                 (|RealConstant|) (|RetractableTo| 64) (|RetractableTo| 10)
+                 (|CommutativeStar|) (|SetCategory|) (|ConvertibleTo| 30)
+                 (|ConvertibleTo| 5) (|CoercibleTo| 17) (|CoercibleTo| 20)
+                 (|ConvertibleTo| 17) (|ConvertibleTo| 20) (|CoercibleFrom| 64)
+                 (|CoercibleFrom| 10) (|canonicalsClosed|)
                  (|canonicalUnitNormal|) (|noZeroDivisors|) (|TwoSidedRecip|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 26))
               (|makeByteWordVec2| 82
@@ -214,8 +215,8 @@
                                     17 0 17 63 2 0 37 0 0 1 1 0 37 0 1 1 0 77 0
                                     1 1 0 0 0 1 1 0 37 0 1 2 0 78 0 0 1 1 0 0 0
                                     1 1 0 67 0 1 2 0 37 0 0 1 0 0 0 1 1 0 78 0
-                                    1 2 0 0 0 11 1 2 0 0 0 79 1 1 0 64 0 1 1 0
-                                    66 0 1 1 0 65 0 1 1 0 10 0 1 2 0 0 0 0 1 1
+                                    1 2 0 0 0 11 1 2 0 0 0 79 1 1 0 65 0 1 1 0
+                                    66 0 1 1 0 64 0 1 1 0 10 0 1 2 0 0 0 0 1 1
                                     0 78 0 1 2 0 0 0 0 1 1 0 74 69 1 1 0 37 0 1
                                     0 0 0 15 2 0 37 0 0 1 1 0 37 0 1 2 0 68 69
                                     0 1 1 0 78 0 1 2 0 0 0 11 1 2 0 0 0 79 1 2
@@ -225,13 +226,13 @@
                                     0 70 0 0 1 3 0 72 0 0 0 1 2 0 78 0 0 1 2 0
                                     68 69 0 1 1 0 11 0 1 2 0 73 0 0 1 1 0 30 0
                                     50 1 0 5 0 16 1 0 20 0 22 1 0 17 0 19 2 0 0
-                                    0 0 1 1 0 17 0 18 1 0 20 0 21 1 0 0 65 1 1
+                                    0 0 1 1 0 17 0 18 1 0 20 0 21 1 0 0 64 1 1
                                     0 0 0 1 1 0 0 10 1 1 0 26 0 48 0 0 11 1 3 0
                                     0 0 0 0 1 2 0 37 0 0 1 2 0 0 0 0 1 2 0 37 0
                                     0 1 2 0 0 0 10 1 2 0 0 0 11 1 2 0 0 0 79 1
                                     0 0 0 34 0 0 0 8 2 0 37 0 0 1 2 0 0 0 0 1 1
-                                    0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 65 0
-                                    1 2 0 0 0 65 1 2 0 0 11 0 1 2 0 0 10 0 1 2
+                                    0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 64 0
+                                    1 2 0 0 0 64 1 2 0 0 11 0 1 2 0 0 10 0 1 2
                                     0 0 0 0 1 2 0 0 79 0 1)))))
            '|lookupComplete|)) 
 

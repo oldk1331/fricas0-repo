@@ -72,15 +72,16 @@
               |latex| 67 |hashUpdate!| 72 |hash| 78 |differentiate| 83 |coerce|
               94 >= 104 > 110 = 116 <= 122 < 128)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|DifferentialVariableCategory&| |OrderedSet&| NIL
-                     |SetCategory&| |BasicType&| |RetractableTo&|
+                     |SetCategory&| |RetractableTo&| |BasicType&| NIL
                      |PartialOrder&| NIL)
                   (CONS
                    '#((|DifferentialVariableCategory| 6) (|OrderedSet|)
-                      (|Comparable|) (|SetCategory|) (|BasicType|)
-                      (|RetractableTo| 6) (|PartialOrder|) (|CoercibleTo| 20))
+                      (|Comparable|) (|SetCategory|) (|RetractableTo| 6)
+                      (|BasicType|) (|CoercibleFrom| 6) (|PartialOrder|)
+                      (|CoercibleTo| 20))
                    (|makeByteWordVec2| 20
                                        '(2 6 12 0 0 13 2 6 12 0 0 14 2 0 12 0 0
                                          1 1 0 8 0 1 1 0 6 0 10 2 0 12 0 0 1 1

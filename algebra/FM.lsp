@@ -448,12 +448,13 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 9
-                                '(0 0 2 0 4 0 0 0 4 1 5 5 7 5 6 0 9 0 0 0 3 5))
+                                '(0 0 2 0 4 0 0 0 4 1 5 5 7 5 6 0 9 0 3 0 0 3
+                                  5))
             (CONS
              '#(|FreeModuleCategory&| NIL |Module&| NIL NIL NIL NIL NIL NIL
                 |AbelianGroup&| NIL NIL NIL |OrderedSet&| |AbelianMonoid&|
-                |AbelianSemiGroup&| NIL |SetCategory&| |BasicType&| NIL
-                |RetractableTo&| |PartialOrder&|)
+                |AbelianSemiGroup&| NIL |SetCategory&| |RetractableTo&|
+                |BasicType&| NIL NIL |PartialOrder&|)
              (CONS
               '#((|FreeModuleCategory| 6 7)
                  (|IndexedDirectProductCategory| 6 7) (|Module| 6)
@@ -463,8 +464,9 @@
                  (|AbelianGroup|) (|OrderedAbelianMonoid|)
                  (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
                  (|OrderedSet|) (|AbelianMonoid|) (|AbelianSemiGroup|)
-                 (|Comparable|) (|SetCategory|) (|BasicType|)
-                 (|CoercibleTo| 22) (|RetractableTo| 7) (|PartialOrder|))
+                 (|Comparable|) (|SetCategory|) (|RetractableTo| 7)
+                 (|BasicType|) (|CoercibleTo| 22) (|CoercibleFrom| 7)
+                 (|PartialOrder|))
               (|makeByteWordVec2| 54
                                   '(0 6 0 9 0 6 0 10 1 6 12 0 13 0 0 0 14 2 6
                                     12 0 0 15 2 6 0 0 0 16 2 0 0 6 0 17 2 6 12

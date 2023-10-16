@@ -2518,7 +2518,7 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
@@ -2529,13 +2529,13 @@
                 NIL |AbelianGroup&| NIL NIL NIL NIL |OrderedSet&| NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&| NIL
                 NIL |Magma&| |AbelianSemiGroup&|
-                |TranscendentalFunctionCategory&| NIL NIL |SetCategory&| NIL
-                NIL |ElementaryFunctionCategory&| NIL
-                |HyperbolicFunctionCategory&|
+                |TranscendentalFunctionCategory&| |RetractableTo&|
+                |RetractableTo&| NIL NIL |SetCategory&| NIL NIL
+                |ElementaryFunctionCategory&| NIL |HyperbolicFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |TrigonometricFunctionCategory&| NIL NIL |OpenMath&| NIL NIL
-                NIL |RadicalCategory&| |RetractableTo&| |RetractableTo&| NIL
-                NIL |PartialOrder&| NIL NIL NIL NIL NIL |BasicType&| NIL)
+                NIL |RadicalCategory&| NIL NIL NIL NIL |PartialOrder&| NIL NIL
+                NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|FloatingPointSystem|) (|RealNumberSystem|) (|Field|)
                  (|EuclideanDomain|) (|PrincipalIdealDomain|)
@@ -2555,16 +2555,16 @@
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|)
                  (|PatternMatchable| 150) (|Comparable|) (|Magma|)
                  (|AbelianSemiGroup|) (|TranscendentalFunctionCategory|)
-                 (|RealConstant|) (|CommutativeStar|) (|SetCategory|)
-                 (|arbitraryExponent|) (|arbitraryPrecision|)
-                 (|ElementaryFunctionCategory|)
+                 (|RetractableTo| 108) (|RetractableTo| 13) (|RealConstant|)
+                 (|CommutativeStar|) (|SetCategory|) (|arbitraryExponent|)
+                 (|arbitraryPrecision|) (|ElementaryFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|TrigonometricFunctionCategory|) (|ConvertibleTo| 144)
                  (|CoercibleTo| 152) (|OpenMath|) (|ConvertibleTo| 11)
                  (|Approximate|) (|ConvertibleTo| 173) (|RadicalCategory|)
-                 (|RetractableTo| 108) (|RetractableTo| 13)
+                 (|CoercibleFrom| 108) (|CoercibleFrom| 13)
                  (|ConvertibleTo| 150) (|ConvertibleTo| 152) (|PartialOrder|)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)

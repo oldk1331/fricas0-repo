@@ -132,13 +132,13 @@
               |algebraicVariables| 699 |algebraicCoefficients?| 704
               |algebraic?| 710 = 716 |#| 722)
            'NIL
-           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 2))
+           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 2))
                  (CONS
                   '#(|RegularTriangularSetCategory&| |TriangularSetCategory&|
                      |PolynomialSetCategory&| |Collection&|
-                     |HomogeneousAggregate&| |SetCategory&| |Aggregate&|
-                     |Evalable&| |BasicType&| NIL NIL |RetractableFrom&| NIL
-                     NIL NIL |InnerEvalable&| NIL)
+                     |HomogeneousAggregate&| |SetCategory&| |RetractableFrom&|
+                     |Aggregate&| |Evalable&| |BasicType&| NIL NIL NIL NIL NIL
+                     |InnerEvalable&| NIL)
                   (CONS
                    '#((|RegularTriangularSetCategory| 6
                                                       (|IndexedExponents|
@@ -169,17 +169,18 @@
                        (|NewSparseMultivariatePolynomial| 6
                                                           (|OrderedVariableList|
                                                            7)))
-                      (|SetCategory|) (|Aggregate|)
-                      (|Evalable|
-                       (|NewSparseMultivariatePolynomial| 6
-                                                          (|OrderedVariableList|
-                                                           7)))
-                      (|BasicType|) (|shallowlyMutable|) (|finiteAggregate|)
+                      (|SetCategory|)
                       (|RetractableFrom|
                        (|List|
                         (|NewSparseMultivariatePolynomial| 6
                                                            (|OrderedVariableList|
                                                             7))))
+                      (|Aggregate|)
+                      (|Evalable|
+                       (|NewSparseMultivariatePolynomial| 6
+                                                          (|OrderedVariableList|
+                                                           7)))
+                      (|BasicType|) (|shallowlyMutable|) (|finiteAggregate|)
                       (|CoercibleTo|
                        (|List|
                         (|NewSparseMultivariatePolynomial| 6

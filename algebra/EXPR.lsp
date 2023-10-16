@@ -2954,9 +2954,10 @@
             (|makeByteWordVec2| 30
                                 '(1 0 1 1 27 1 1 1 1 1 1 1 5 1 1 1 1 2 3 4 5 7
                                   5 22 5 22 1 1 2 5 1 6 2 5 1 1 6 2 2 5 22 8 16
-                                  16 5 18 0 0 29 17 18 22 0 13 14 18 1 30 0 0 0
-                                  0 1 1 1 0 0 0 0 0 0 0 0 21 1 1 1 1 5 9 10 11
-                                  12 15 19 1 1 1 1 1 1 1 1 1 20))
+                                  16 5 18 0 0 29 17 18 22 0 0 13 14 18 1 30 0 0
+                                  0 0 0 0 21 1 1 5 15 1 1 20 0 0 0 0 0 0 0 0 21
+                                  1 1 1 1 5 9 10 11 12 15 19 1 1 1 1 1 1 1 1 1
+                                  20))
             (CONS
              '#(|AlgebraicallyClosedFunctionSpace&| |FunctionSpace&|
                 |AlgebraicallyClosedField&| |Field&|
@@ -2968,17 +2969,18 @@
                 |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
                 NIL NIL |NonAssociativeRng&| |Group&| |AbelianGroup&| NIL NIL
                 NIL |ExpressionSpace&| NIL |AbelianMonoid&| |MagmaWithUnit&|
-                NIL |NonAssociativeSemiRng&| NIL NIL NIL |Magma&| NIL
-                |AbelianSemiGroup&| |SetCategory&| |FullyRetractableTo&| NIL
-                |Evalable&| NIL |TranscendentalFunctionCategory&| NIL
-                |BasicType&| |RetractableTo&| NIL |RetractableTo&|
-                |InnerEvalable&| |InnerEvalable&| |RetractableTo&| NIL
-                |RetractableTo&| |RetractableTo&| NIL NIL NIL |RetractableTo&|
-                NIL NIL NIL NIL |RetractableTo&| NIL NIL NIL
+                NIL |NonAssociativeSemiRng&| NIL |FullyRetractableTo&| NIL NIL
+                |Magma&| NIL |AbelianSemiGroup&| |SetCategory&|
+                |RetractableTo&| NIL |RetractableTo&| |Evalable&|
+                |RetractableTo&| |RetractableTo&| |RetractableTo&| NIL
+                |RetractableTo&| |RetractableTo&|
+                |TranscendentalFunctionCategory&| NIL |RetractableTo&|
+                |BasicType&| NIL NIL NIL |InnerEvalable&| |InnerEvalable&| NIL
+                NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL
                 |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
-                NIL |RadicalCategory&| |RetractableTo&|)
+                NIL |RadicalCategory&| NIL)
              (CONS
               '#((|AlgebraicallyClosedFunctionSpace| 6) (|FunctionSpace| 6)
                  (|AlgebraicallyClosedField|) (|Field|)
@@ -3000,20 +3002,25 @@
                  (|Monoid|) (|ExpressionSpace|) (|FullyPatternMatchable| 6)
                  (|AbelianMonoid|) (|MagmaWithUnit|) (|SemiGroup|)
                  (|NonAssociativeSemiRng|) (|Comparable|)
-                 (|PatternMatchable| (|Float|)) (|PatternMatchable| 57)
-                 (|Magma|) (|LiouvillianFunctionCategory|) (|AbelianSemiGroup|)
-                 (|SetCategory|) (|FullyRetractableTo| 6) (|Patternable| 6)
-                 (|Evalable| $$) (|CommutativeStar|)
-                 (|TranscendentalFunctionCategory|)
-                 (|CombinatorialOpsCategory|) (|BasicType|) (|RetractableTo| 6)
-                 (|Type|) (|RetractableTo| 27) (|InnerEvalable| $$ $$)
-                 (|InnerEvalable| 15 $$) (|RetractableTo| 15)
-                 (|CoercibleTo| 592) (|RetractableTo| 489)
+                 (|FullyRetractableTo| 6) (|PatternMatchable| (|Float|))
+                 (|PatternMatchable| 57) (|Magma|)
+                 (|LiouvillianFunctionCategory|) (|AbelianSemiGroup|)
+                 (|SetCategory|) (|RetractableTo| 6) (|Patternable| 6)
+                 (|RetractableTo| 27) (|Evalable| $$) (|RetractableTo| 15)
+                 (|RetractableTo| 489)
                  (|RetractableTo| (|Fraction| (|Polynomial| 6)))
+                 (|CommutativeStar|) (|RetractableTo| (|Polynomial| 6))
+                 (|RetractableTo| 57) (|TranscendentalFunctionCategory|)
+                 (|CombinatorialOpsCategory|) (|RetractableTo| 487)
+                 (|BasicType|) (|CoercibleFrom| 6) (|Type|)
+                 (|CoercibleFrom| 27) (|InnerEvalable| $$ $$)
+                 (|InnerEvalable| 15 $$) (|CoercibleFrom| 15)
+                 (|CoercibleTo| 592) (|CoercibleFrom| 489)
+                 (|CoercibleFrom| (|Fraction| (|Polynomial| 6)))
                  (|noZeroDivisors|) (|canonicalUnitNormal|)
-                 (|canonicalsClosed|) (|RetractableTo| (|Polynomial| 6))
+                 (|canonicalsClosed|) (|CoercibleFrom| (|Polynomial| 6))
                  (|TwoSidedRecip|) (|ConvertibleTo| 538) (|ConvertibleTo| 567)
-                 (|ConvertibleTo| 561) (|RetractableTo| 57) (|unitsKnown|)
+                 (|ConvertibleTo| 561) (|CoercibleFrom| 57) (|unitsKnown|)
                  (|SpecialFunctionCategory|) (|PrimitiveFunctionCategory|)
                  (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
@@ -3021,7 +3028,7 @@
                  (|ArcHyperbolicFunctionCategory|)
                  (|ElementaryFunctionCategory|)
                  (|CombinatorialFunctionCategory|) (|RadicalCategory|)
-                 (|RetractableTo| 487))
+                 (|CoercibleFrom| 487))
               (|makeByteWordVec2| 642
                                   '(1 0 12 0 13 1 16 14 15 17 1 0 18 0 19 1 20
                                     9 10 21 1 20 10 10 22 1 23 9 10 24 1 23 10

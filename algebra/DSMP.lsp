@@ -556,17 +556,17 @@
               (32 . |coerce|) (37 . |coerce|) (|Mapping| $$ 7) (|Mapping| $$ 6)
               (|PolynomialCategoryLifting| (|IndexedExponents| 7) 7 6 12 $$)
               (42 . |map|) |DSMP;coerce;Smp$;2| (|Union| 35 '#1="failed")
-              (|Matrix| $) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 58)
-              (|Record| (|:| |mat| 36) (|:| |vec| (|Vector| 58))) (|Vector| $)
-              (|Matrix| 58) (|PatternMatchResult| (|Float|) $)
-              (|PatternMatchResult| 58 $) (|Union| $ '#1#) (|Boolean|)
+              (|Matrix| $) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 57)
+              (|Record| (|:| |mat| 36) (|:| |vec| (|Vector| 57))) (|Vector| $)
+              (|Matrix| 57) (|PatternMatchResult| (|Float|) $)
+              (|PatternMatchResult| 57 $) (|Union| $ '#1#) (|Boolean|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Fraction| 58) (|List| 7) (|List| 6) (|List| $) (|Mapping| $ 9)
+              (|Fraction| 57) (|List| 7) (|List| 6) (|List| $) (|Mapping| $ 9)
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|SparseUnivariatePolynomial| $) (|Factored| $) (|List| 52)
               (|List| 9) (|Symbol|) (|Factored| 48) (|Union| 55 '#1#)
-              (|List| 48) (|Union| 42 '#2="failed") (|Union| 58 '#2#)
-              (|Integer|) (|List| 8)
+              (|List| 48) (|Union| 42 '#2="failed") (|Integer|)
+              (|Union| 57 '#2#) (|List| 8)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |mat| 62) (|:| |vec| (|Vector| 6))) (|Matrix| 6)
               (|IndexedExponents| 8) (|List| 65) (|Equation| $)
@@ -580,9 +580,9 @@
             (|makeByteWordVec2| 35
                                 '(0 0 0 10 0 10 0 13 26 0 8 25 12 1 2 3 23 8 9
                                   27 14 8 18 17 0 0 0 0 1 23 27 0 0 0 1 0 0 0 0
-                                  0 1 1 0 0 0 0 0 0 0 0 0 0 7 29 31 0 0 27 16 0
-                                  0 0 0 0 0 0 0 0 4 5 6 27 11 33 35 15 16 16 17
-                                  17))
+                                  0 1 1 0 0 0 0 0 0 0 0 0 0 0 7 29 31 0 0 0 0 4
+                                  5 27 16 16 0 0 0 0 0 0 0 0 0 4 5 6 27 11 33
+                                  35 15 16 16 17 17))
             (CONS
              '#(|DifferentialPolynomialCategory&| |PolynomialCategory&|
                 |MaybeSkewPolynomialCategory&|
@@ -596,12 +596,12 @@
                 NIL |NonAssociativeRng&| NIL NIL NIL NIL NIL NIL
                 |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |AbelianMonoid&| |NonAssociativeSemiRng&| |Magma&|
-                |AbelianSemiGroup&| NIL NIL NIL |FullyRetractableTo&|
-                |SetCategory&| NIL |Evalable&| |RetractableTo&|
-                |RetractableTo&| NIL NIL |InnerEvalable&| |InnerEvalable&|
-                |RetractableTo&| |BasicType&| NIL |RetractableTo&|
-                |RetractableTo&| NIL NIL NIL NIL NIL NIL |RetractableTo&|
-                |InnerEvalable&| |InnerEvalable&| |InnerEvalable&|)
+                |FullyRetractableTo&| |AbelianSemiGroup&| NIL NIL NIL
+                |RetractableTo&| |RetractableTo&| |RetractableTo&|
+                |SetCategory&| |RetractableTo&| |RetractableTo&| NIL
+                |RetractableTo&| |Evalable&| NIL NIL NIL NIL |InnerEvalable&|
+                |InnerEvalable&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL NIL
+                NIL NIL NIL |InnerEvalable&| |InnerEvalable&| |InnerEvalable&|)
              (CONS
               '#((|DifferentialPolynomialCategory| 6 7 8
                                                    (|IndexedExponents| 8))
@@ -615,7 +615,7 @@
                  (|FullyLinearlyExplicitOver| 6) (|CommutativeRing|)
                  (|LeftOreRing|) (|Algebra| 42) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|Algebra| 6)
-                 (|LinearlyExplicitOver| 6) (|LinearlyExplicitOver| 58)
+                 (|LinearlyExplicitOver| 6) (|LinearlyExplicitOver| 57)
                  (|Algebra| $$) (|EntireRing|) (|PartialDifferentialRing| 8)
                  (|PartialDifferentialRing| 52) (|DifferentialRing|) (|Ring|)
                  (|SemiRing|) (|Rng|) (|SemiRng|) (|Module| 42) (|Module| 6)
@@ -626,18 +626,20 @@
                  (|AbelianGroup|) (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|Magma|)
-                 (|AbelianSemiGroup|) (|Comparable|)
-                 (|PatternMatchable| (|Float|)) (|PatternMatchable| 58)
-                 (|FullyRetractableTo| 6) (|SetCategory|) (|CommutativeStar|)
-                 (|Evalable| $$)
+                 (|FullyRetractableTo| 6) (|AbelianSemiGroup|) (|Comparable|)
+                 (|PatternMatchable| (|Float|)) (|PatternMatchable| 57)
                  (|RetractableTo| (|SparseMultivariatePolynomial| 6 7))
-                 (|RetractableTo| 7) (|unitsKnown|)
+                 (|RetractableTo| 7) (|RetractableTo| 6) (|SetCategory|)
+                 (|RetractableTo| 42) (|RetractableTo| 57) (|CommutativeStar|)
+                 (|RetractableTo| 8) (|Evalable| $$)
+                 (|CoercibleFrom| (|SparseMultivariatePolynomial| 6 7))
+                 (|CoercibleFrom| 7) (|unitsKnown|)
                  (|VariablesCommuteWithCoefficients|) (|InnerEvalable| 8 $$)
-                 (|InnerEvalable| 8 6) (|RetractableTo| 6) (|BasicType|)
-                 (|CoercibleTo| 79) (|RetractableTo| 42) (|RetractableTo| 58)
+                 (|InnerEvalable| 8 6) (|CoercibleFrom| 6) (|BasicType|)
+                 (|CoercibleTo| 79) (|CoercibleFrom| 42) (|CoercibleFrom| 57)
                  (|canonicalUnitNormal|) (|TwoSidedRecip|) (|noZeroDivisors|)
                  (|ConvertibleTo| 32) (|ConvertibleTo| 33) (|ConvertibleTo| 31)
-                 (|RetractableTo| 8) (|InnerEvalable| $$ $$)
+                 (|CoercibleFrom| 8) (|InnerEvalable| $$ $$)
                  (|InnerEvalable| 7 $$) (|InnerEvalable| 7 6))
               (|makeByteWordVec2| 28
                                   '(1 0 9 0 10 1 8 7 0 11 1 12 0 7 13 1 12 0 6

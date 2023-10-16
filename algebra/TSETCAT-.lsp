@@ -852,10 +852,10 @@
                               '((|collectUpper| (|#1| |#1| |#4|)) T)
                               '((|collectUnder| (|#1| |#1| |#4|)) T)
                               '((|mvar| (|#4| |#1|)) T)
+                              '((|coerce| ((|List| |#5|) |#1|)) T)
                               '((|retractIfCan|
                                  ((|Union| |#1| "failed") (|List| |#5|)))
                                 T)
-                              '((|coerce| ((|List| |#5|) |#1|)) T)
                               '((|coerce| ((|List| |#5|) |#1|)) T)
                               '((|construct| (|#1| (|List| |#5|))) T)
                               '((|reduce|

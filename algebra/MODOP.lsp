@@ -701,14 +701,14 @@
            (CONS
             (|makeByteWordVec2| 3
                                 '(1 2 3 0 0 0 0 1 0 0 1 0 0 0 1 1 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|Algebra&| NIL NIL NIL |Rng&| NIL NIL |Module&|
                 |NonAssociativeRing&| NIL NIL |NonAssociativeRng&| NIL NIL NIL
                 NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
-                |AbelianSemiGroup&| |SetCategory&| NIL |RetractableTo&|
-                |RetractableTo&| NIL |BasicType&| NIL)
+                |AbelianSemiGroup&| |RetractableTo&| |RetractableTo&|
+                |SetCategory&| NIL NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|Algebra| 6) (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|Ring|) (|Rng|) (|SemiRing|) (|SemiRng|) (|Module| 6)
@@ -718,9 +718,9 @@
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
-                 (|SetCategory|) (|Eltable| 7 7) (|RetractableTo| 24)
-                 (|RetractableTo| 6) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 63))
+                 (|RetractableTo| 24) (|RetractableTo| 6) (|SetCategory|)
+                 (|Eltable| 7 7) (|CoercibleFrom| 24) (|CoercibleFrom| 6)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 63))
               (|makeByteWordVec2| 108
                                   '(0 6 0 13 0 14 0 15 2 0 0 6 14 16 1 6 0 17
                                     18 1 6 21 0 22 0 0 0 23 1 24 0 0 25 1 14 0

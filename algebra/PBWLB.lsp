@@ -197,14 +197,15 @@
               131 |length| 136 |latex| 141 |hashUpdate!| 146 |hash| 152 |first|
               157 |coerce| 162 |One| 182 >= 186 > 192 = 198 <= 204 < 210)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(|OrderedSet&| NIL |SetCategory&| |BasicType&|
-                     |RetractableTo&| |PartialOrder&| NIL)
+                  '#(|OrderedSet&| NIL |SetCategory&| |RetractableTo&|
+                     |BasicType&| NIL |PartialOrder&| NIL)
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
-                      (|BasicType|) (|RetractableTo| (|LyndonWord| 6))
-                      (|PartialOrder|) (|CoercibleTo| 30))
+                      (|RetractableTo| (|LyndonWord| 6)) (|BasicType|)
+                      (|CoercibleFrom| (|LyndonWord| 6)) (|PartialOrder|)
+                      (|CoercibleTo| 30))
                    (|makeByteWordVec2| 52
                                        '(2 7 9 0 0 10 1 13 12 0 14 2 12 0 0 0
                                          15 1 13 0 6 19 0 24 0 25 1 13 24 0 26

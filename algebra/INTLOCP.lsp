@@ -449,15 +449,15 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|EuclideanDomain&| NIL |GcdDomain&| NIL NIL NIL |EntireRing&|
                 |Algebra&| NIL |Rng&| NIL |Module&| NIL NIL
                 |NonAssociativeRing&| NIL |NonAssociativeRng&| NIL
                 |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
-                |AbelianSemiGroup&| NIL |SetCategory&| NIL |RetractableFrom&|
-                |RetractableTo&| NIL NIL NIL |BasicType&| NIL)
+                |AbelianSemiGroup&| |RetractableFrom&| |RetractableTo&| NIL
+                |SetCategory&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|EuclideanDomain|) (|PrincipalIdealDomain|) (|GcdDomain|)
                  (|IntegralDomain|) (|CommutativeRing|) (|LeftOreRing|)
@@ -468,10 +468,10 @@
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
-                 (|CommutativeStar|) (|SetCategory|) (|canonicalUnitNormal|)
-                 (|RetractableFrom| 16) (|RetractableTo| 8) (|noZeroDivisors|)
-                 (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 30))
+                 (|RetractableFrom| 16) (|RetractableTo| 8) (|CommutativeStar|)
+                 (|SetCategory|) (|canonicalUnitNormal|) (|CoercibleTo| 16)
+                 (|CoercibleFrom| 8) (|noZeroDivisors|) (|TwoSidedRecip|)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 30))
               (|makeByteWordVec2| 83
                                   '(1 9 7 8 10 2 8 12 0 0 13 1 16 0 8 18 1 16 8
                                     0 20 1 16 8 0 21 2 16 0 14 0 25 2 16 0 8 8

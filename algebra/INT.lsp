@@ -489,7 +489,7 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|IntegerNumberSystem&| |PolynomialFactorizationExplicit&|
                 |EuclideanDomain&| |UniqueFactorizationDomain&| NIL NIL
@@ -498,10 +498,9 @@
                 NIL |NonAssociativeRing&| NIL NIL |NonAssociativeRng&| NIL NIL
                 |AbelianGroup&| NIL NIL NIL NIL |OrderedSet&| NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&| NIL
-                NIL NIL |Magma&| |AbelianSemiGroup&| NIL NIL |SetCategory&| NIL
-                NIL |OpenMath&| NIL NIL NIL NIL NIL NIL NIL NIL
-                |RetractableTo&| NIL |PartialOrder&| NIL NIL NIL |BasicType&|
-                NIL)
+                NIL NIL |Magma&| |AbelianSemiGroup&| NIL |RetractableTo&| NIL
+                |SetCategory&| NIL NIL |OpenMath&| NIL NIL NIL NIL NIL NIL NIL
+                NIL NIL NIL |PartialOrder&| NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|IntegerNumberSystem|) (|PolynomialFactorizationExplicit|)
                  (|EuclideanDomain|) (|UniqueFactorizationDomain|)
@@ -520,15 +519,15 @@
                  (|OrderedSet|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|StepThrough|)
                  (|PatternMatchable| 11) (|Comparable|) (|Magma|)
-                 (|AbelianSemiGroup|) (|RealConstant|) (|CommutativeStar|)
-                 (|SetCategory|) (|canonicalsClosed|) (|Canonical|)
-                 (|OpenMath|) (|ConvertibleTo| 9) (|multiplicativeValuation|)
-                 (|canonicalUnitNormal|) (|ConvertibleTo| 39)
-                 (|ConvertibleTo| 42) (|CombinatorialFunctionCategory|)
-                 (|ConvertibleTo| 136) (|ConvertibleTo| 44)
-                 (|RetractableTo| 11) (|ConvertibleTo| 11) (|PartialOrder|)
-                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 30))
+                 (|AbelianSemiGroup|) (|RealConstant|) (|RetractableTo| 11)
+                 (|CommutativeStar|) (|SetCategory|) (|canonicalsClosed|)
+                 (|Canonical|) (|OpenMath|) (|ConvertibleTo| 9)
+                 (|multiplicativeValuation|) (|canonicalUnitNormal|)
+                 (|ConvertibleTo| 39) (|ConvertibleTo| 42)
+                 (|CombinatorialFunctionCategory|) (|ConvertibleTo| 136)
+                 (|ConvertibleTo| 44) (|CoercibleFrom| 11) (|ConvertibleTo| 11)
+                 (|PartialOrder|) (|noZeroDivisors|) (|TwoSidedRecip|)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 30))
               (|makeByteWordVec2| 145
                                   '(1 7 6 0 8 3 7 6 0 9 9 10 2 7 6 0 11 12 1 7
                                     6 0 13 1 7 6 0 14 1 7 6 0 15 1 30 0 11 31 1

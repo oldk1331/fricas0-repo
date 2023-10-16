@@ -42,11 +42,11 @@
                        (CONS
                         '#((|Join|
                             (|mkCategory|
-                             (LIST '((|retract| (|#3| |#1|)) T)
-                                   '((|retractIfCan|
-                                      ((|Union| |#3| "failed") |#1|))
-                                     T)
-                                   '((|zero?| ((|Boolean|) |#1|)) T))
+                             (LIST
+                              '((|retractIfCan| ((|Union| |#3| "failed") |#1|))
+                                T)
+                              '((|retract| (|#3| |#1|)) T)
+                              '((|zero?| ((|Boolean|) |#1|)) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 17
                                             '(1 6 8 0 9 1 8 10 0 11 1 6 8 0 13
