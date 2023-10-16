@@ -35,8 +35,7 @@
                                ((|subst|
                                  ($ $ (|List| (|Kernel| $)) (|List| $)))
                                 T)
-                               ((|box| ($ $)) T) ((|box| ($ (|List| $))) T)
-                               ((|paren| ($ $)) T) ((|paren| ($ (|List| $))) T)
+                               ((|box| ($ $)) T) ((|paren| ($ $)) T)
                                ((|distribute| ($ $)) T)
                                ((|distribute| ($ $ $)) T)
                                ((|height| ((|NonNegativeInteger|) $)) T)
