@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5036 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5037 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -790,11 +790,11 @@
  |subResultantsChain| |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB|
  |eulerE| |numeric| |complexNumeric| |numericIfCan| |complexNumericIfCan|
  |FormatArabic| |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
- |ScanFloatIgnoreSpacesIfCan| |rk4| |rk4a| |rk4qc| |rk4f| |aromberg| |asimpson|
- |atrapezoidal| |romberg| |simpson| |trapezoidal| |rombergo| |simpsono|
- |trapezoidalo| |sup| |inv| |imagE| |imagk| |imagj| |imagi| |octon|
- |constDsolve| |expint| |diff| |algDsolve| |denomLODE| |indicialEquations|
- |indicialEquation| |denomRicDE| |leadingCoefficientRicDE|
+ |ScanFloatIgnoreSpacesIfCan| |FormatRadix| |rk4| |rk4a| |rk4qc| |rk4f|
+ |aromberg| |asimpson| |atrapezoidal| |romberg| |simpson| |trapezoidal|
+ |rombergo| |simpsono| |trapezoidalo| |sup| |inv| |imagE| |imagk| |imagj|
+ |imagi| |octon| |constDsolve| |expint| |diff| |algDsolve| |denomLODE|
+ |indicialEquations| |indicialEquation| |denomRicDE| |leadingCoefficientRicDE|
  |constantCoefficientRicDE| |changeVar| |ratDsolve|
  |indicialEquationAtInfinity| |integrate_sols| |reduceLODE| |singRicDE|
  |polyRicDE| |ricDsolve| |triangulate| |solveInField| |wronskianMatrix|

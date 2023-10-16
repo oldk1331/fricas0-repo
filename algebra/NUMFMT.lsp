@@ -339,11 +339,17 @@
                (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
                                  #1#)))))))) 
 
+(PUT '|NUMFMT;FormatRadix;2IS;11| '|SPADreplace| '|write_to_string_radix|) 
+
+(SDEFUN |NUMFMT;FormatRadix;2IS;11|
+        ((|n| |Integer|) (|r| |Integer|) ($ |String|))
+        (|write_to_string_radix| |n| |r|)) 
+
 (DECLAIM (NOTINLINE |NumberFormats;|)) 
 
 (DEFUN |NumberFormats| ()
   (SPROG NIL
-         (PROG (#1=#:G182)
+         (PROG (#1=#:G183)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|)
@@ -363,7 +369,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|NumberFormats|) . #1=(|NumberFormats|))
-          (LETT $ (GETREFV 63) . #1#)
+          (LETT $ (GETREFV 64) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|NumberFormats| NIL (CONS 1 $))
@@ -423,15 +429,15 @@
               (|NonNegativeInteger|) (80 . >) |NUMFMT;FormatRoman;PiS;9|
               (86 . |upperCase|) (91 . |maxIndex|) (96 . |minIndex|)
               (101 . |elt|) (107 . ~=) (113 . ^) (119 . <=)
-              |NUMFMT;ScanRoman;SPi;10|)
+              |NUMFMT;ScanRoman;SPi;10| |NUMFMT;FormatRadix;2IS;11|)
            '#(|ScanRoman| 125 |ScanFloatIgnoreSpacesIfCan| 130
               |ScanFloatIgnoreSpaces| 135 |ScanArabic| 140 |FormatRoman| 145
-              |FormatArabic| 150)
+              |FormatRadix| 150 |FormatArabic| 156)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 62
+                             (|makeByteWordVec2| 63
                                                  '(2 7 0 6 0 8 2 7 9 0 10 11 1
                                                    7 0 9 12 1 10 0 7 13 2 10 14
                                                    0 0 15 2 7 14 16 0 17 1 18 0
@@ -444,8 +450,9 @@
                                                    31 58 2 10 14 0 0 59 2 47 0
                                                    0 47 60 2 31 14 0 0 61 1 0
                                                    47 7 62 1 0 23 7 24 1 0 25 7
-                                                   26 1 0 47 7 51 1 0 7 47 54 1
-                                                   0 7 47 48)))))
+                                                   26 1 0 47 7 51 1 0 7 47 54 2
+                                                   0 7 31 31 63 1 0 7 47
+                                                   48)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|NumberFormats| 'NILADIC T) 
