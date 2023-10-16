@@ -398,7 +398,7 @@
 ;                  ress
 ;              stackAndThrow ["compLambda: malformed argument list", x]
 ;         stackAndThrow ["compLambda: malformed argument list", x]
-;     stackAndThrow ["compLambda: signature needed", x]
+;     nil
  
 (DEFUN |compLambda| (|x| |m| |e|)
   (PROG (|vl| |body| |ISTMP#1| |args| |ISTMP#2| |target| |a1| |LETTMP#1| |arg1|
@@ -445,7 +445,7 @@
           (#2#
            (|stackAndThrow|
             (LIST '|compLambda: malformed argument list| |x|))))))
-       (#2# (|stackAndThrow| (LIST '|compLambda: signature needed| |x|))))))))
+       (#2# NIL))))))
  
 ; getFreeList(u, bound, free, e) ==
 ;     atom u =>

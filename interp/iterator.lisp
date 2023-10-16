@@ -203,7 +203,7 @@
 ;           $NoValueMode
 ;         [body',m',e']:=
 ;           -- (m1:= listOrVectorElementMode targetMode) and comp(body,m1,e) or
-;             compOrCroak(body,bodyMode,e) or return nil
+;             comp(body, bodyMode, e) or return nil
 ;         if $until then
 ;           [untilCode,.,e']:= comp($until,$Boolean,e')
 ;           itl':= substitute(["UNTIL",untilCode],'$until,itl')
@@ -290,7 +290,7 @@
                                 (RETURN NIL)))))
                        (#1# |$NoValueMode|)))
               (SETQ |LETTMP#1|
-                      (OR (|compOrCroak| |body| |bodyMode| |e|) (RETURN NIL)))
+                      (OR (|comp| |body| |bodyMode| |e|) (RETURN NIL)))
               (SETQ |body'| (CAR |LETTMP#1|))
               (SETQ |m'| (CADR |LETTMP#1|))
               (SETQ |e'| (CADDR |LETTMP#1|))
