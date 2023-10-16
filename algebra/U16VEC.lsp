@@ -39,7 +39,7 @@
         (SETELT_U16 |x| |i| |s|)) 
 
 (SDEFUN |U16VEC;fill!;$I$;9| ((|x| $) (|s| |Integer|) ($ $))
-        (SPROG ((#1=#:G2361 NIL) (|i| NIL))
+        (SPROG ((#1=#:G2357 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (QV_LEN_U16 |x|) 1)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -51,7 +51,7 @@
 
 (DEFUN |U16Vector| ()
   (SPROG NIL
-         (PROG (#1=#:G2373)
+         (PROG (#1=#:G2369)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|U16Vector|))
@@ -68,7 +68,7 @@
 
 (DEFUN |U16Vector;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G2371 NIL) (#2=#:G2370 NIL) (#3=#:G2369 NIL)
+   ((|dv$| NIL) ($ NIL) (#1=#:G2367 NIL) (#2=#:G2366 NIL) (#3=#:G2365 NIL)
     (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|U16Vector|))
