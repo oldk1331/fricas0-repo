@@ -3,12 +3,11 @@
  
 (IN-PACKAGE "BOOT")
  
-; printInfo $e ==
-;   for u in get("$Information","special",$e) repeat PRETTYPRINT u
+; printInfo e ==
+;   for u in get("$Information", "special", e) repeat PRETTYPRINT u
 ;   nil
  
-(DEFUN |printInfo| (|$e|)
-  (DECLARE (SPECIAL |$e|))
+(DEFUN |printInfo| (|e|)
   (PROG ()
     (RETURN
      (PROGN
@@ -19,70 +18,69 @@
             (RETURN NIL))
            ('T (PRETTYPRINT |u|)))
           (SETQ |bfVar#1| (CDR |bfVar#1|))))
-       (|get| '|$Information| '|special| |$e|) NIL)
+       (|get| '|$Information| '|special| |e|) NIL)
       NIL))))
  
 ; addInformation(m, e) ==
-;   $Information: local := nil
-;   --$Information:= nil: done by previous statement anyway
-;   info m where
-;     info m ==
+;   ni := info(m, []) where
+;     info(m, il) ==
 ;       --Processes information from a mode declaration in compCapsule
-;       atom m => nil
-;       m is ["CATEGORY",.,:stuff] => for u in stuff repeat addInfo u
-;       m is ["Join",:stuff] => for u in stuff repeat info u
-;       nil
-;   e :=
-;     put("$Information","special",[:$Information,:
-;       get("$Information", "special", e)], e)
+;       atom m => il
+;       m is ["CATEGORY", ., :stuff] =>
+;           for u in stuff repeat il := addInfo(u, il)
+;           il
+;       m is ["Join",:stuff] =>
+;           for u in stuff repeat il := info(u, il)
+;           il
+;       il
+;   put("$Information", "special", [:ni,
+;         :get("$Information", "special", e)], e)
 ;   e
  
 (DEFUN |addInformation| (|m| |e|)
-  (PROG (|$Information|)
-    (DECLARE (SPECIAL |$Information|))
+  (PROG (|ni|)
     (RETURN
      (PROGN
-      (SETQ |$Information| NIL)
-      (|addInformation,info| |m|)
-      (SETQ |e|
-              (|put| '|$Information| '|special|
-               (APPEND |$Information| (|get| '|$Information| '|special| |e|))
-               |e|))
+      (SETQ |ni| (|addInformation,info| |m| NIL))
+      (|put| '|$Information| '|special|
+       (APPEND |ni| (|get| '|$Information| '|special| |e|)) |e|)
       |e|))))
-(DEFUN |addInformation,info| (|m|)
+(DEFUN |addInformation,info| (|m| |il|)
   (PROG (|ISTMP#1| |stuff|)
     (RETURN
-     (COND ((ATOM |m|) NIL)
+     (COND ((ATOM |m|) |il|)
            ((AND (CONSP |m|) (EQ (CAR |m|) 'CATEGORY)
                  (PROGN
                   (SETQ |ISTMP#1| (CDR |m|))
                   (AND (CONSP |ISTMP#1|)
                        (PROGN (SETQ |stuff| (CDR |ISTMP#1|)) #1='T))))
-            ((LAMBDA (|bfVar#2| |u|)
-               (LOOP
-                (COND
-                 ((OR (ATOM |bfVar#2|) (PROGN (SETQ |u| (CAR |bfVar#2|)) NIL))
-                  (RETURN NIL))
-                 (#1# (|addInfo| |u|)))
-                (SETQ |bfVar#2| (CDR |bfVar#2|))))
-             |stuff| NIL))
+            (PROGN
+             ((LAMBDA (|bfVar#2| |u|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#2|) (PROGN (SETQ |u| (CAR |bfVar#2|)) NIL))
+                   (RETURN NIL))
+                  (#1# (SETQ |il| (|addInfo| |u| |il|))))
+                 (SETQ |bfVar#2| (CDR |bfVar#2|))))
+              |stuff| NIL)
+             |il|))
            ((AND (CONSP |m|) (EQ (CAR |m|) '|Join|)
                  (PROGN (SETQ |stuff| (CDR |m|)) #1#))
-            ((LAMBDA (|bfVar#3| |u|)
-               (LOOP
-                (COND
-                 ((OR (ATOM |bfVar#3|) (PROGN (SETQ |u| (CAR |bfVar#3|)) NIL))
-                  (RETURN NIL))
-                 (#1# (|addInformation,info| |u|)))
-                (SETQ |bfVar#3| (CDR |bfVar#3|))))
-             |stuff| NIL))
-           (#1# NIL)))))
+            (PROGN
+             ((LAMBDA (|bfVar#3| |u|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#3|) (PROGN (SETQ |u| (CAR |bfVar#3|)) NIL))
+                   (RETURN NIL))
+                  (#1# (SETQ |il| (|addInformation,info| |u| |il|))))
+                 (SETQ |bfVar#3| (CDR |bfVar#3|))))
+              |stuff| NIL)
+             |il|))
+           (#1# |il|)))))
  
-; addInfo u == $Information:= [formatInfo u,:$Information]
+; addInfo(u, il) == [formatInfo u, :il]
  
-(DEFUN |addInfo| (|u|)
-  (PROG ()
-    (RETURN (SETQ |$Information| (CONS (|formatInfo| |u|) |$Information|)))))
+(DEFUN |addInfo| (|u| |il|) (PROG () (RETURN (CONS (|formatInfo| |u|) |il|))))
  
 ; formatInfo u ==
 ;   atom u => u

@@ -519,14 +519,14 @@
 
 (SDEFUN |INTPM;pmintegrate;FSU;12|
         ((|f| F) (|x| |Symbol|)
-         ($
-          . #1=(|Union| (|Record| (|:| |special| F) (|:| |integrand| F))
-                        "failed")))
+         ($ |Union| (|Record| (|:| |special| F) (|:| |integrand| F))
+          #1="failed"))
         (SPROG
          ((|cse| #2=(|Integer|))
           (|rec|
            (|Record| (|:| |which| #2#) (|:| |exponent| F) (|:| |coeff| F)))
-          (|l| (|List| F)) (|u| #1#)
+          (|l| (|List| F))
+          (|u| (|Union| (|Record| (|:| |special| F) (|:| |integrand| F)) #1#))
           (|rc| (|Record| (|:| |const| F) (|:| |nconst| F))))
          (SEQ
           (COND
@@ -582,14 +582,14 @@
 
 (SDEFUN |INTPM;pmComplexintegrate;FSU;13|
         ((|f| F) (|x| |Symbol|)
-         ($
-          . #1=(|Union| (|Record| (|:| |special| F) (|:| |integrand| F))
-                        "failed")))
+         ($ |Union| (|Record| (|:| |special| F) (|:| |integrand| F))
+          #1="failed"))
         (SPROG
          ((|cse| #2=(|Integer|))
           (|rec|
            (|Record| (|:| |which| #2#) (|:| |exponent| F) (|:| |coeff| F)))
-          (|u| #1#) (|rc| (|Record| (|:| |const| F) (|:| |nconst| F))))
+          (|u| (|Union| (|Record| (|:| |special| F) (|:| |integrand| F)) #1#))
+          (|rc| (|Record| (|:| |const| F) (|:| |nconst| F))))
          (SEQ
           (COND
            ((SPADCALL (QCAR (LETT |rc| (SPADCALL |f| |x| (QREFELT $ 63))))
