@@ -851,36 +851,10 @@
       (|throwKeyedMsg| |key| |args|)))))
  
 ; throwKeyedMsg(key,args) ==
-;   $saturn => saturnThrowKeyedMsg(key, args)
 ;   throwKeyedMsg1(key, args)
  
 (DEFUN |throwKeyedMsg| (|key| |args|)
-  (PROG ()
-    (RETURN
-     (COND (|$saturn| (|saturnThrowKeyedMsg| |key| |args|))
-           ('T (|throwKeyedMsg1| |key| |args|))))))
- 
-; saturnThrowKeyedMsg(key,args) ==
-;   _*STANDARD_-OUTPUT_* : fluid := $texOutputStream
-;   last := pushSatOutput("line")
-;   sayString '"\bgroup\color{red}\begin{list}\item{} "
-;   sayKeyedMsgAsTeX(key,args)
-;   sayString '"\end{list}\egroup"
-;   popSatOutput(last)
-;   spadThrow()
- 
-(DEFUN |saturnThrowKeyedMsg| (|key| |args|)
-  (PROG (*STANDARD-OUTPUT* |last|)
-    (DECLARE (SPECIAL *STANDARD-OUTPUT*))
-    (RETURN
-     (PROGN
-      (SETQ *STANDARD-OUTPUT* |$texOutputStream|)
-      (SETQ |last| (|pushSatOutput| '|line|))
-      (|sayString| "\\bgroup\\color{red}\\begin{list}\\item{} ")
-      (|sayKeyedMsgAsTeX| |key| |args|)
-      (|sayString| "\\end{list}\\egroup")
-      (|popSatOutput| |last|)
-      (|spadThrow|)))))
+  (PROG () (RETURN (|throwKeyedMsg1| |key| |args|))))
  
 ; throwKeyedMsg1(key,args) ==
 ;   sayMSG '" "
@@ -954,40 +928,10 @@
       (|handleLispBreakLoop| |$BreakMode|)))))
  
 ; keyedSystemError(key,args) ==
-;   $saturn => saturnKeyedSystemError(key, args)
 ;   keyedSystemError1(key, args)
  
 (DEFUN |keyedSystemError| (|key| |args|)
-  (PROG ()
-    (RETURN
-     (COND (|$saturn| (|saturnKeyedSystemError| |key| |args|))
-           ('T (|keyedSystemError1| |key| |args|))))))
- 
-; saturnKeyedSystemError(key, args) ==
-;   _*STANDARD_-OUTPUT_* : fluid := $texOutputStream
-;   sayString '"\bgroup\color{red}"
-;   sayString '"\begin{verbatim}"
-;   sayKeyedMsg("S2GE0000",NIL)
-;   BUMPCOMPERRORCOUNT()
-;   sayKeyedMsgAsTeX(key,args)
-;   sayString '"\end{verbatim}"
-;   sayString '"\egroup"
-;   handleLispBreakLoop($BreakMode)
- 
-(DEFUN |saturnKeyedSystemError| (|key| |args|)
-  (PROG (*STANDARD-OUTPUT*)
-    (DECLARE (SPECIAL *STANDARD-OUTPUT*))
-    (RETURN
-     (PROGN
-      (SETQ *STANDARD-OUTPUT* |$texOutputStream|)
-      (|sayString| "\\bgroup\\color{red}")
-      (|sayString| "\\begin{verbatim}")
-      (|sayKeyedMsg| 'S2GE0000 NIL)
-      (BUMPCOMPERRORCOUNT)
-      (|sayKeyedMsgAsTeX| |key| |args|)
-      (|sayString| "\\end{verbatim}")
-      (|sayString| "\\egroup")
-      (|handleLispBreakLoop| |$BreakMode|)))))
+  (PROG () (RETURN (|keyedSystemError1| |key| |args|))))
  
 ; keyedSystemError1(key,args) ==
 ;   sayKeyedMsg("S2GE0000",NIL)
@@ -997,71 +941,6 @@
   (PROG ()
     (RETURN
      (PROGN (|sayKeyedMsg| 'S2GE0000 NIL) (|breakKeyedMsg| |key| |args|)))))
- 
-; pushSatOutput(arg) ==
-;   $saturnMode = arg => arg
-;   was := $saturnMode
-;   arg = "verb" =>
-;     $saturnMode := "verb"
-;     sayString '"\begin{verbatim}"
-;     was
-;   arg = "line" =>
-;     $saturnMode := "line"
-;     sayString '"\end{verbatim}"
-;     was
-;   sayString FORMAT(nil, '"What is: ~a", $saturnMode)
-;   $saturnMode
- 
-(DEFUN |pushSatOutput| (|arg|)
-  (PROG (|was|)
-    (RETURN
-     (COND ((EQUAL |$saturnMode| |arg|) |arg|)
-           (#1='T
-            (PROGN
-             (SETQ |was| |$saturnMode|)
-             (COND
-              ((EQ |arg| '|verb|)
-               (PROGN
-                (SETQ |$saturnMode| '|verb|)
-                (|sayString| "\\begin{verbatim}")
-                |was|))
-              ((EQ |arg| '|line|)
-               (PROGN
-                (SETQ |$saturnMode| '|line|)
-                (|sayString| "\\end{verbatim}")
-                |was|))
-              (#1#
-               (PROGN
-                (|sayString| (FORMAT NIL "What is: ~a" |$saturnMode|))
-                |$saturnMode|)))))))))
- 
-; popSatOutput(newmode) ==
-;   newmode = $saturnMode => nil
-;   newmode = "verb" =>
-;     $saturnMode := "verb"
-;     sayString '"\begin{verbatim}"
-;   newmode = "line" =>
-;     $saturnMode := "line"
-;     sayString '"\end{verbatim}"
-;   sayString FORMAT(nil, '"What is: ~a", $saturnMode)
-;   $saturnMode
- 
-(DEFUN |popSatOutput| (|newmode|)
-  (PROG ()
-    (RETURN
-     (COND ((EQUAL |newmode| |$saturnMode|) NIL)
-           ((EQ |newmode| '|verb|)
-            (PROGN
-             (SETQ |$saturnMode| '|verb|)
-             (|sayString| "\\begin{verbatim}")))
-           ((EQ |newmode| '|line|)
-            (PROGN
-             (SETQ |$saturnMode| '|line|)
-             (|sayString| "\\end{verbatim}")))
-           ('T
-            (PROGN
-             (|sayString| (FORMAT NIL "What is: ~a" |$saturnMode|))
-             |$saturnMode|))))))
  
 ; systemErrorHere functionName ==
 ;   keyedSystemError("S2GE0017",[functionName])
@@ -2645,48 +2524,13 @@
 ; escapeSpecialChars s ==
 ;   u := LASSOC(s,$htCharAlist) => u
 ;   member(s, $htSpecialChars) => STRCONC('"_\", s)
-;   null $saturn => s
-;   ALPHA_-CHAR_-P (s.0) => s
-;   not (or/[dbSpecialDisplayOpChar? s.i for i in 0..MAXINDEX s]) => s
-;   buf := '""
-;   for i in 0..MAXINDEX s repeat buf :=
-;     dbSpecialDisplayOpChar?(s.i) => STRCONC(buf,'"\verb!",s.i,'"!")
-;     STRCONC(buf,s.i)
-;   buf
+;   s
  
 (DEFUN |escapeSpecialChars| (|s|)
-  (PROG (|u| |buf|)
+  (PROG (|u|)
     (RETURN
      (COND ((SETQ |u| (LASSOC |s| |$htCharAlist|)) |u|)
-           ((|member| |s| |$htSpecialChars|) (STRCONC "\\" |s|))
-           ((NULL |$saturn|) |s|) ((ALPHA-CHAR-P (ELT |s| 0)) |s|)
-           ((NULL
-             ((LAMBDA (|bfVar#39| |bfVar#38| |i|)
-                (LOOP
-                 (COND ((> |i| |bfVar#38|) (RETURN |bfVar#39|))
-                       (#1='T
-                        (PROGN
-                         (SETQ |bfVar#39|
-                                 (|dbSpecialDisplayOpChar?| (ELT |s| |i|)))
-                         (COND (|bfVar#39| (RETURN |bfVar#39|))))))
-                 (SETQ |i| (+ |i| 1))))
-              NIL (MAXINDEX |s|) 0))
-            |s|)
-           (#1#
-            (PROGN
-             (SETQ |buf| "")
-             ((LAMBDA (|bfVar#40| |i|)
-                (LOOP
-                 (COND ((> |i| |bfVar#40|) (RETURN NIL))
-                       (#1#
-                        (SETQ |buf|
-                                (COND
-                                 ((|dbSpecialDisplayOpChar?| (ELT |s| |i|))
-                                  (STRCONC |buf| "\\verb!" (ELT |s| |i|) "!"))
-                                 (#1# (STRCONC |buf| (ELT |s| |i|)))))))
-                 (SETQ |i| (+ |i| 1))))
-              (MAXINDEX |s|) 0)
-             |buf|))))))
+           ((|member| |s| |$htSpecialChars|) (STRCONC "\\" |s|)) ('T |s|)))))
  
 ; dbSpecialDisplayOpChar? c == (c = char '_~)
  

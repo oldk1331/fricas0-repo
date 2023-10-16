@@ -307,38 +307,10 @@
              (THROW 'SPAD_READER NIL)))))))
  
 ; sayErrorly(errorLabel, msg) ==
-;   $saturn => saturnSayErrorly(errorLabel, msg)
 ;   sayErrorly1(errorLabel, msg)
  
 (DEFUN |sayErrorly| (|errorLabel| |msg|)
-  (PROG ()
-    (RETURN
-     (COND (|$saturn| (|saturnSayErrorly| |errorLabel| |msg|))
-           ('T (|sayErrorly1| |errorLabel| |msg|))))))
- 
-; saturnSayErrorly(errorLabel, msg) ==
-;   _*STANDARD_-OUTPUT_* : fluid := $texOutputStream
-;   old := pushSatOutput("line")
-;   sayString '"\bgroup\color{red}"
-;   sayString '"\begin{verbatim}"
-;   sayErrorly1(errorLabel, msg)
-;   sayString '"\end{verbatim}"
-;   sayString '"\egroup"
-;   popSatOutput(old)
- 
-(DEFUN |saturnSayErrorly| (|errorLabel| |msg|)
-  (PROG (*STANDARD-OUTPUT* |old|)
-    (DECLARE (SPECIAL *STANDARD-OUTPUT*))
-    (RETURN
-     (PROGN
-      (SETQ *STANDARD-OUTPUT* |$texOutputStream|)
-      (SETQ |old| (|pushSatOutput| '|line|))
-      (|sayString| "\\bgroup\\color{red}")
-      (|sayString| "\\begin{verbatim}")
-      (|sayErrorly1| |errorLabel| |msg|)
-      (|sayString| "\\end{verbatim}")
-      (|sayString| "\\egroup")
-      (|popSatOutput| |old|)))))
+  (PROG () (RETURN (|sayErrorly1| |errorLabel| |msg|))))
  
 ; sayErrorly1(errorLabel, msg) ==
 ;   sayBrightly '" "

@@ -51,7 +51,7 @@
 ;   filter := pmTransFilter STRINGIMAGE s  --parses and-or-not form
 ;   filter is ['error,:.] => filter        --exit on parser error
 ;   pattern := mkGrepPattern(filter,key)  --create string to pass to "grep"
-;   grepConstructDo(pattern, key)  --do the "grep"---see b-saturn.boot
+;   grepConstructDo(pattern, key)
  
 (DEFUN |grepConstruct1| (|s| |key|)
   (PROG (|$key| |pattern| |filter|)
@@ -1239,7 +1239,6 @@
 ;     htSayStandard '"\tab{2}"
 ;     genSearchSay(pair,summarize?,kind,i,'showConstruct)
 ;   if docSearchAlist then
-;     htSaySaturn '"\bigskip{}"
 ;     dbSayItems(['"\newline{\bf Documentation Summary:} ",docCount],'"mention",'"mentions",'" of {\em ",key,'"}")
 ;     for [kind,:pair] in docSearchAlist for i in 0.. | #(first pair) > 0 repeat
 ;       bcHt "\newline{}"
@@ -1354,7 +1353,7 @@
                           (SETQ |i| (+ |i| 1))))
                        |regSearchAlist| NIL 0)
                       (COND
-                       (|docSearchAlist| (|htSaySaturn| "\\bigskip{}")
+                       (|docSearchAlist|
                         (|dbSayItems|
                          (LIST "\\newline{\\bf Documentation Summary:} "
                                |docCount|)
@@ -2770,9 +2769,7 @@
 ;   main ==
 ;     nottick := '"[^`]"
 ;     name := replaceGrepStar name
-;     firstPart :=
-;       $saturn => STRCONC(char '_^,name)
-;       STRCONC(char '_^,kind,name)
+;     firstPart := STRCONC(char '_^,kind,name)
 ;     nargsPart := replaceGrepStar nargs
 ;     exposedPart := char '_.   --always get exposed/unexposed
 ;     patPart := replaceGrepStar argOrSig
@@ -2794,9 +2791,7 @@
      (PROGN
       (SETQ |nottick| "[^`]")
       (SETQ |name| (|replaceGrepStar| |name|))
-      (SETQ |firstPart|
-              (COND (|$saturn| (STRCONC (|char| '^) |name|))
-                    ('T (STRCONC (|char| '^) |kind| |name|))))
+      (SETQ |firstPart| (STRCONC (|char| '^) |kind| |name|))
       (SETQ |nargsPart| (|replaceGrepStar| |nargs|))
       (SETQ |exposedPart| (|char| '|.|))
       (SETQ |patPart| (|replaceGrepStar| |argOrSig|))
@@ -2988,9 +2983,7 @@
   (PROG () (RETURN (STRCONC $SPADROOT '|/algebra/| (STRINGIMAGE |s|) ".text"))))
  
 ; mkGrepFile s ==  --called to generate a path name for a temporary grep file
-;   prefix :=
-;     $standard or $aixTestSaturn => '"/tmp/"
-;     STRCONC($SPADROOT,'"/algebra/")
+;   prefix := '"/tmp/"
 ;   suffix := getEnv '"SPADNUM"
 ;   STRCONC(prefix, PNAME s,'".txt.", suffix)
  
@@ -2998,9 +2991,7 @@
   (PROG (|prefix| |suffix|)
     (RETURN
      (PROGN
-      (SETQ |prefix|
-              (COND ((OR |$standard| |$aixTestSaturn|) "/tmp/")
-                    ('T (STRCONC $SPADROOT "/algebra/"))))
+      (SETQ |prefix| "/tmp/")
       (SETQ |suffix| (|getEnv| "SPADNUM"))
       (STRCONC |prefix| (PNAME |s|) ".txt." |suffix|)))))
  
@@ -3009,7 +3000,7 @@
 ;   source := grepSource key
 ;   lines :=
 ;     not PROBE_-FILE source => NIL
-;     $standard or $aixTestSaturn =>
+;     $standard =>
 ;     -----AIX Version----------
 ;       target := getTempPath 'target
 ;       casepart :=
@@ -3018,6 +3009,7 @@
 ;       command := STRCONC('"grep ", casepart, '" '", pattern, '"' ", source)
 ;       OBEY STRCONC(command, '" > ",target)
 ;       dbReadLines target
+;       -- deleteFile target
 ;     ----Windows Version------
 ;     invert? := MEMQ('iv, options)
 ;     GREP(source, pattern, false, not invert?)
@@ -3031,7 +3023,7 @@
       (SETQ |source| (|grepSource| |key|))
       (SETQ |lines|
               (COND ((NULL (PROBE-FILE |source|)) NIL)
-                    ((OR |$standard| |$aixTestSaturn|)
+                    (|$standard|
                      (PROGN
                       (SETQ |target| (|getTempPath| '|target|))
                       (SETQ |casepart|

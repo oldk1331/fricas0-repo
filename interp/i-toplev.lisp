@@ -359,14 +359,10 @@
             (#1# '|done|))))))
  
 ; printTypeAndTime(x,m) ==  --m is the mode/type of the result
-;   $saturn => printTypeAndTimeSaturn(x, m)
 ;   printTypeAndTimeNormal(x, m)
  
 (DEFUN |printTypeAndTime| (|x| |m|)
-  (PROG ()
-    (RETURN
-     (COND (|$saturn| (|printTypeAndTimeSaturn| |x| |m|))
-           ('T (|printTypeAndTimeNormal| |x| |m|))))))
+  (PROG () (RETURN (|printTypeAndTimeNormal| |x| |m|))))
  
 ; printTypeAndTimeNormal(x,m) ==
 ;   -- called only if either type or time is to be displayed
@@ -443,56 +439,6 @@
                    (|justifyMyType| (|msgText| 'S2GL0012 (LIST |type_string|)))
                    |$outputLines|)))
          (#1# (|sayKeyedMsg| 'S2GL0012 (LIST |type_string|))))))))))
- 
-; printTypeAndTimeSaturn(x, m) ==
-;   -- header
-;   if $printTimeIfTrue then
-;     timeString := makeLongTimeString($interpreterTimedNames,
-;       $interpreterTimedClasses)
-;   else
-;     timeString := '""
-;   if $printTypeIfTrue then
-;     typeString := form2StringAsTeX devaluate m
-;   else
-;     typeString := '""
-;   if $printTypeIfTrue then
-;     printAsTeX('"\axPrintType{")
-;     if CONSP typeString then
-;       MAPC(FUNCTION printAsTeX, typeString)
-;     else
-;       printAsTeX(typeString)
-;     printAsTeX('"}")
-;   if $printTimeIfTrue then
-;     printAsTeX('"\axPrintTime{")
-;     printAsTeX(timeString)
-;     printAsTeX('"}")
- 
-(DEFUN |printTypeAndTimeSaturn| (|x| |m|)
-  (PROG (|timeString| |typeString|)
-    (RETURN
-     (PROGN
-      (COND
-       (|$printTimeIfTrue|
-        (SETQ |timeString|
-                (|makeLongTimeString| |$interpreterTimedNames|
-                 |$interpreterTimedClasses|)))
-       (#1='T (SETQ |timeString| "")))
-      (COND
-       (|$printTypeIfTrue|
-        (SETQ |typeString| (|form2StringAsTeX| (|devaluate| |m|))))
-       (#1# (SETQ |typeString| "")))
-      (COND
-       (|$printTypeIfTrue| (|printAsTeX| "\\axPrintType{")
-        (COND ((CONSP |typeString|) (MAPC #'|printAsTeX| |typeString|))
-              (#1# (|printAsTeX| |typeString|)))
-        (|printAsTeX| "}")))
-      (COND
-       (|$printTimeIfTrue| (|printAsTeX| "\\axPrintTime{")
-        (|printAsTeX| |timeString|) (|printAsTeX| "}")))))))
- 
-; printAsTeX(x) == PRINC(x, $texOutputStream)
- 
-(DEFUN |printAsTeX| (|x|) (PROG () (RETURN (PRINC |x| |$texOutputStream|))))
  
 ; sameUnionBranch(uArg, m) ==
 ;   uArg is [":", ., t] => t = m

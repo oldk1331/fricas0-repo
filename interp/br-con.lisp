@@ -104,7 +104,6 @@
 ;       bcHt
 ;         nargs = 1 => '" takes one argument:"
 ;         [" takes ",STRINGIMAGE nargs," arguments:"]
-;   htSaturnBreak()
 ;   htSayStandard '"\indentrel{2}"
 ;   if nargs > 0 then kPageArgs(conform,signature)
 ;   htSayStandard '"\indentrel{-2}"
@@ -118,7 +117,6 @@
 ;   htMakePage [['text,'"\unixcommand{",filename,'"}{_\$AXIOM/lib/SPADEDIT ",
 ;               sourceFileName, '" ", name, '"}"]]
 ;   if nargs ~= 0 then htSay '"."
-;   htSaturnBreak()
  
 (DEFUN |kdPageInfo| (|name| |abbrev| |nargs| |conform| |signature| |file?|)
   (PROG (|sourceFileName| |filename|)
@@ -135,7 +133,6 @@
         (|bcHt|
          (COND ((EQL |nargs| 1) " takes one argument:")
                (#1# (LIST '| takes | (STRINGIMAGE |nargs|) '| arguments:|))))))
-      (|htSaturnBreak|)
       (|htSayStandard| "\\indentrel{2}")
       (COND ((< 0 |nargs|) (|kPageArgs| |conform| |signature|)))
       (|htSayStandard| "\\indentrel{-2}")
@@ -151,8 +148,7 @@
        (LIST
         (LIST '|text| "\\unixcommand{" |filename| "}{\\$AXIOM/lib/SPADEDIT "
               |sourceFileName| " " |name| "}")))
-      (COND ((NOT (EQL |nargs| 0)) (|htSay| ".")))
-      (|htSaturnBreak|)))))
+      (COND ((NOT (EQL |nargs| 0)) (|htSay| ".")))))))
  
 ; kArgPage(htPage,arg) ==
 ;   [op,:args] := conform := htpProperty(htPage,'conform)
@@ -688,7 +684,6 @@
 ;     then htSayList([STRINGIMAGE total, '" ", pluralize which,
 ;                    '" are explicitly exported:"])
 ;     else htSayList(['"1 ", which, '" is explicitly exported:"])
-;   htSaySaturn '"\\"
 ;   data := dbGatherData(htPage,opAlist,which,'names)
 ;   dbShowOpItems(which,data,false)
  
@@ -737,7 +732,6 @@
                        " are explicitly exported:")))
                (#1#
                 (|htSayList| (LIST "1 " |which| " is explicitly exported:"))))
-              (|htSaySaturn| "\\\\")
               (SETQ |data|
                       (|dbGatherData| |htPage| |opAlist| |which| '|names|))
               (|dbShowOpItems| |which| |data| NIL))))))))
@@ -2677,7 +2671,7 @@
 ;       subject := (abbrev? => constructor? conname; conname)
 ;       superMatch?(filter,DOWNCASE STRINGIMAGE subject)
 ;     null u => emptySearchPage('"constructor", filter, false)
-;     htPage := htInitPageNoScroll(htCopyProplist htPage)
+;     htPage := htInitPageNoHeading(htCopyProplist htPage)
 ;     htpSetProperty(htPage,'cAlist,u)
 ;     dbShowCons(htPage,htpProperty(htPage,'exclusion))
 ;   if MEMQ(key,'(exposureOn exposureOff)) then
@@ -2729,7 +2723,8 @@
                   (#1#
                    (PROGN
                     (SETQ |htPage|
-                            (|htInitPageNoScroll| (|htCopyProplist| |htPage|)))
+                            (|htInitPageNoHeading|
+                             (|htCopyProplist| |htPage|)))
                     (|htpSetProperty| |htPage| '|cAlist| |u|)
                     (|dbShowCons| |htPage|
                      (|htpProperty| |htPage| '|exclusion|))))))))))
@@ -3018,9 +3013,7 @@
 ;     GETDATABASE(conname,'CONSTRUCTORKIND) = 'category =>
 ;       SUBLISLIS(conargs,$TriangleVariableList,signature)
 ;     sublisFormal(conargs,signature)
-;   htSaySaturn '"\begin{description}"
 ;   displayDomainOp(htPage,'"constructor",conform,conname,sig,true,doc,indexOrNil,'dbSelectCon,null exposeFlag,nil)
-;   htSaySaturn '"\end{description}"
  
 (DEFUN |dbShowConsDoc1| (|htPage| |conform| |indexOrNil|)
   (PROG (|conname| |conargs| |LETTMP#1| |doc| |sig| |exposeFlag| |signature|)
@@ -3047,10 +3040,8 @@
                   ((EQ (GETDATABASE |conname| 'CONSTRUCTORKIND) '|category|)
                    (SUBLISLIS |conargs| |$TriangleVariableList| |signature|))
                   (#1# (|sublisFormal| |conargs| |signature|))))
-         (|htSaySaturn| "\\begin{description}")
          (|displayDomainOp| |htPage| "constructor" |conform| |conname| |sig| T
-          |doc| |indexOrNil| '|dbSelectCon| (NULL |exposeFlag|) NIL)
-         (|htSaySaturn| "\\end{description}"))))))))
+          |doc| |indexOrNil| '|dbSelectCon| (NULL |exposeFlag|) NIL))))))))
  
 ; getConstructorDocumentation conname ==
 ;   LASSOC('constructor,GETDATABASE(conname,'DOCUMENTATION))
@@ -3093,11 +3084,9 @@
 ;   singular := [kind,'" is"]
 ;   plural   := [pluralize STRINGIMAGE kind,'" are"]
 ;   dbSayItems(#consNoPred,singular,plural,'" unconditional")
-;   htSaySaturn '"\\"
 ;   bcConPredTable(consNoPred,conname)
 ;   htSayHrule()
 ;   dbSayItems(#consPred,singular,plural,'" conditional")
-;   htSaySaturn '"\\"
 ;   bcConPredTable(consPred,conname)
  
 (DEFUN |dbShowConditions| (|htPage| |cAlist| |kind|)
@@ -3115,11 +3104,9 @@
       (SETQ |singular| (LIST |kind| " is"))
       (SETQ |plural| (LIST (|pluralize| (STRINGIMAGE |kind|)) " are"))
       (|dbSayItems| (LENGTH |consNoPred|) |singular| |plural| " unconditional")
-      (|htSaySaturn| "\\\\")
       (|bcConPredTable| |consNoPred| |conname|)
       (|htSayHrule|)
       (|dbSayItems| (LENGTH |consPred|) |singular| |plural| " conditional")
-      (|htSaySaturn| "\\\\")
       (|bcConPredTable| |consPred| |conname|)))))
  
 ; dbConsHeading(htPage,conlist,view,kind) ==
@@ -3256,10 +3243,7 @@
 ; bcUnixTable(u) ==
 ;   htSay '"\newline"
 ;   htBeginTable()
-;   firstTime := true
 ;   for x in u repeat
-;     if firstTime then firstTime := false
-;     else htSaySaturn '"&"
 ;     htSay '"{"
 ;     ft :=
 ;       isAsharpFileName? x => '("AS")
@@ -3270,12 +3254,11 @@
 ;   htEndTable()
  
 (DEFUN |bcUnixTable| (|u|)
-  (PROG (|firstTime| |ft| |filename|)
+  (PROG (|ft| |filename|)
     (RETURN
      (PROGN
       (|htSay| "\\newline")
       (|htBeginTable|)
-      (SETQ |firstTime| T)
       ((LAMBDA (|bfVar#102| |x|)
          (LOOP
           (COND
@@ -3283,8 +3266,6 @@
             (RETURN NIL))
            (#1='T
             (PROGN
-             (COND (|firstTime| (SETQ |firstTime| NIL))
-                   (#1# (|htSaySaturn| "&")))
              (|htSay| "{")
              (SETQ |ft|
                      (COND ((|isAsharpFileName?| |x|) '("AS"))

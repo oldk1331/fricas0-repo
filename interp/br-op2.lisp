@@ -240,9 +240,7 @@
 ;       $generalSearch? => htSay '"{\em D} of the origin category"
 ;       addWhereList("$",'is,nil)
 ;       htSayStandard '"{\em $}"
-;       htSaySaturn '"{\em \%}"
 ;     htSayStandard '"{\em $}"
-;     htSaySaturn '"{\em \%}"
 ;   not IDENTP t => bcConform(t,true)
 ;   k := position(t,$conargs)
 ;   if k > -1 then
@@ -262,12 +260,8 @@
                (#1='T
                 (PROGN
                  (|addWhereList| '$ '|is| NIL)
-                 (|htSayStandard| "{\\em $}")
-                 (|htSaySaturn| "{\\em \\%}")))))
-             (#1#
-              (PROGN
-               (|htSayStandard| "{\\em $}")
-               (|htSaySaturn| "{\\em \\%}")))))
+                 (|htSayStandard| "{\\em $}")))))
+             (#1# (|htSayStandard| "{\\em $}"))))
            ((NULL (IDENTP |t|)) (|bcConform| |t| T))
            (#1#
             (PROGN

@@ -347,15 +347,10 @@
  
 ; mathprint x ==
 ;    x := outputTran2 x
-;    $saturn => texFormat1 x
 ;    maprin x
  
 (DEFUN |mathprint| (|x|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      (SETQ |x| (|outputTran2| |x|))
-      (COND (|$saturn| (|texFormat1| |x|)) ('T (|maprin| |x|)))))))
+  (PROG () (RETURN (PROGN (SETQ |x| (|outputTran2| |x|)) (|maprin| |x|)))))
  
 ; sayMath u ==
 ;   for x in u repeat acc:= concat(acc,linearFormatName x)

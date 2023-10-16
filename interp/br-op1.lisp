@@ -72,7 +72,7 @@
 ;     filter is ['error,:.] => bcErrorPage filter
 ;     opAlist:= [x for x in opAlist | superMatch?(filter,DOWNCASE STRINGIMAGE opOf x)]
 ;     null opAlist => emptySearchPage(which, filter, false)
-;     htPage := htInitPageNoScroll(htCopyProplist htPage)
+;     htPage := htInitPageNoHeading(htCopyProplist htPage)
 ;     if which = '"operation"
 ;       then htpSetProperty(htPage,'opAlist,opAlist)
 ;       else htpSetProperty(htPage,'attrAlist,opAlist)
@@ -136,7 +136,8 @@
                   (#1#
                    (PROGN
                     (SETQ |htPage|
-                            (|htInitPageNoScroll| (|htCopyProplist| |htPage|)))
+                            (|htInitPageNoHeading|
+                             (|htCopyProplist| |htPage|)))
                     (COND
                      ((EQUAL |which| "operation")
                       (|htpSetProperty| |htPage| '|opAlist| |opAlist|))
@@ -223,7 +224,7 @@
 ;   INTEGERP key and opAlist is [[con,:.]] and htpProperty(htPage,'isFile)
 ;       and constructor? con => return conPageChoose con
 ;   if INTEGERP key then
-;     htPage := htInitPageNoScroll(htCopyProplist htPage)
+;     htPage := htInitPageNoHeading(htCopyProplist htPage)
 ;     if which = '"operation"
 ;       then htpSetProperty(htPage,'opAlist,opAlist)
 ;       else htpSetProperty(htPage,'attrAlist,opAlist)
@@ -268,7 +269,7 @@
 ;          pluralize capitalize which,:namedPart]
 ;     prefix := pluralSay(dataCount,what,whats)
 ;     [:prefix,'" for ",STRINGIMAGE opCount,'" ",pluralize capitalize which,:namedPart]
-;   page := htInitPageNoScroll(htCopyProplist htPage)
+;   page := htInitPageNoHeading(htCopyProplist htPage)
 ;   ------------>above line used to call htInitPageHoHeading<----------
 ;   htAddHeading dbShowOpHeading([:firstPart,:fromHeading page], branch)
 ;   htpSetProperty(page,'data,data)
@@ -306,7 +307,7 @@
         (PROGN
          (COND
           ((INTEGERP |key|)
-           (SETQ |htPage| (|htInitPageNoScroll| (|htCopyProplist| |htPage|)))
+           (SETQ |htPage| (|htInitPageNoHeading| (|htCopyProplist| |htPage|)))
            (COND
             ((EQUAL |which| "operation")
              (|htpSetProperty| |htPage| '|opAlist| |opAlist|))
@@ -430,7 +431,7 @@
                                                (|pluralize|
                                                 (|capitalize| |which|))
                                                |namedPart|)))))))))
-         (SETQ |page| (|htInitPageNoScroll| (|htCopyProplist| |htPage|)))
+         (SETQ |page| (|htInitPageNoHeading| (|htCopyProplist| |htPage|)))
          (|htAddHeading|
           (|dbShowOpHeading| (APPEND |firstPart| (|fromHeading| |page|))
            |branch|))
@@ -1617,7 +1618,6 @@
 ;   single? =>
 ;     ops := escapeSpecialChars STRINGIMAGE CAAR opAlist
 ;     htSayStandard('"Select a view below")
-;     htSaySaturn '"Select a view with the right mouse button"
 ;   exposedOnly? := $exposedOnlyIfTrue and not dbFromConstructor?(htPage)
 ;   dbShowOpItems(which,data,exposedOnly?)
  
@@ -1630,8 +1630,7 @@
        (|single?|
         (PROGN
          (SETQ |ops| (|escapeSpecialChars| (STRINGIMAGE (CAAR |opAlist|))))
-         (|htSayStandard| "Select a view below")
-         (|htSaySaturn| "Select a view with the right mouse button")))
+         (|htSayStandard| "Select a view below")))
        ('T
         (PROGN
          (SETQ |exposedOnly?|
@@ -1641,10 +1640,7 @@
  
 ; dbShowOpItems(which,data,exposedOnly?) ==
 ;   htBeginTable()
-;   firstTime := true
 ;   for i in 0.. for item in data repeat
-;     if firstTime then firstTime := false
-;     else htSaySaturn '"&"
 ;     if atom item then
 ;       op := item
 ;       exposeFlag := true
@@ -1659,11 +1655,10 @@
 ;   htEndTable()
  
 (DEFUN |dbShowOpItems| (|which| |data| |exposedOnly?|)
-  (PROG (|firstTime| |op| |exposeFlag| |ops|)
+  (PROG (|op| |exposeFlag| |ops|)
     (RETURN
      (PROGN
       (|htBeginTable|)
-      (SETQ |firstTime| T)
       ((LAMBDA (|i| |bfVar#72| |item|)
          (LOOP
           (COND
@@ -1671,8 +1666,6 @@
             (RETURN NIL))
            (#1='T
             (PROGN
-             (COND (|firstTime| (SETQ |firstTime| NIL))
-                   (#1# (|htSaySaturn| "&")))
              (COND ((ATOM |item|) (SETQ |op| |item|) (SETQ |exposeFlag| T))
                    (#1# (SETQ |op| (CAR |item|))
                     (SETQ |exposeFlag| (CADR |item|)) |item|))
@@ -1924,10 +1917,7 @@
 ; --dataItems is (((op,sig,:.),exposureFlag,...)
 ;   single? := null rest dataItems
 ;   htBeginTable()
-;   firstTime := true
 ;   for [[op,sig,:.],exposureFlag,:tail] in dataItems repeat
-;     if firstTime then firstTime := false
-;     else htSaySaturn '"&";
 ;     ops := escapeSpecialChars STRINGIMAGE op
 ;     htSay '"{"
 ; --  if single? then htSay('"{\em ",ops,'"}") else.....
@@ -1943,13 +1933,12 @@
 ;   count
  
 (DEFUN |dbShowOpSigList| (|which| |dataItems| |count|)
-  (PROG (|single?| |firstTime| |ISTMP#1| |op| |ISTMP#2| |sig| |ISTMP#3|
-         |exposureFlag| |tail| |ops|)
+  (PROG (|single?| |ISTMP#1| |op| |ISTMP#2| |sig| |ISTMP#3| |exposureFlag|
+         |tail| |ops|)
     (RETURN
      (PROGN
       (SETQ |single?| (NULL (CDR |dataItems|)))
       (|htBeginTable|)
-      (SETQ |firstTime| T)
       ((LAMBDA (|bfVar#84| |bfVar#83|)
          (LOOP
           (COND
@@ -1974,8 +1963,6 @@
                         (SETQ |tail| (CDR |ISTMP#3|))
                         #1#)))
                  (PROGN
-                  (COND (|firstTime| (SETQ |firstTime| NIL))
-                        (#1# (|htSaySaturn| "&")))
                   (SETQ |ops| (|escapeSpecialChars| (STRINGIMAGE |op|)))
                   (|htSay| "{")
                   (|htSayExpose| |ops| |exposureFlag|)
@@ -2000,10 +1987,7 @@
 ;   single? := null rest data
 ;   count := 0
 ;   htBeginTable()
-;   firstTime := true
 ;   for item in data repeat
-;     if firstTime then firstTime := false
-;     else htSaySaturn '"&"
 ;     [opform,exposeFlag,:tail] := item
 ;     op := intern IFCAR opform
 ;     args := IFCDR opform
@@ -2031,14 +2015,12 @@
 ;   htEndTable()
  
 (DEFUN |dbShowOpParameters| (|htPage| |opAlist| |which| |data|)
-  (PROG (|single?| |count| |firstTime| |opform| |exposeFlag| |tail| |op| |args|
-         |ops| |n|)
+  (PROG (|single?| |count| |opform| |exposeFlag| |tail| |op| |args| |ops| |n|)
     (RETURN
      (PROGN
       (SETQ |single?| (NULL (CDR |data|)))
       (SETQ |count| 0)
       (|htBeginTable|)
-      (SETQ |firstTime| T)
       ((LAMBDA (|bfVar#85| |item|)
          (LOOP
           (COND
@@ -2046,8 +2028,6 @@
             (RETURN NIL))
            (#1='T
             (PROGN
-             (COND (|firstTime| (SETQ |firstTime| NIL))
-                   (#1# (|htSaySaturn| "&")))
              (SETQ |opform| (CAR |item|))
              (SETQ |exposeFlag| (CADR . #2=(|item|)))
              (SETQ |tail| (CDDR . #2#))
@@ -2129,7 +2109,6 @@
 ;     htpSetProperty(htPage,'conditionData,condata)
 ;   base := -8192
 ;   exactlyOneOpSig := opAlist is [[.,.]] --checked by displayDomainOp
-;   htSaySaturn '"\begin{description}"
 ;   for [op,:alist] in opAlist repeat
 ;     base := 8192 + base
 ;     for item in alist for j in 0.. repeat
@@ -2148,7 +2127,6 @@
 ;           sig    := substitute(conform, '_$, sig)
 ;           origin := substitute(conform, '_$, origin)
 ;         displayDomainOp(htPage,newWhich,origin,op,sig,pred,doc,index,'dbChooseDomainOp,null exposeFlag,true)
-;   htSaySaturn '"\end{description}"
  
 (DEFUN |dbShowOpDocumentation| (|htPage| |opAlist| |which| |data|)
   (PROG (|conform| |newWhich| |expand| |condata| |base| |ISTMP#1| |ISTMP#2|
@@ -2186,7 +2164,6 @@
                          (PROGN
                           (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                           (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)))))))
-      (|htSaySaturn| "\\begin{description}")
       ((LAMBDA (|bfVar#88| |bfVar#87|)
          (LOOP
           (COND
@@ -2248,8 +2225,7 @@
                       (SETQ |j| (+ |j| 1))))
                    |alist| NIL 0)))))
           (SETQ |bfVar#88| (CDR |bfVar#88|))))
-       |opAlist| NIL)
-      (|htSaySaturn| "\\end{description}")))))
+       |opAlist| NIL)))))
  
 ; dbChooseDomainOp(htPage,which,index) ==
 ;   [opKey,entryKey] := DIVIDE(index,8192)
@@ -2258,7 +2234,7 @@
 ;     htpProperty(htPage,'attrAlist)
 ;   [op,:entries] := opAlist . opKey
 ;   entry := entries . entryKey
-;   htPage := htInitPageNoScroll(htCopyProplist htPage)
+;   htPage := htInitPageNoHeading(htCopyProplist(htPage))
 ;   if which = '"operation"
 ;     then htpSetProperty(htPage,'opAlist,[[op,entry]])
 ;     else htpSetProperty(htPage,'attrAlist,[[op,entry]])
@@ -2282,7 +2258,7 @@
       (SETQ |op| (CAR |LETTMP#1|))
       (SETQ |entries| (CDR |LETTMP#1|))
       (SETQ |entry| (ELT |entries| |entryKey|))
-      (SETQ |htPage| (|htInitPageNoScroll| (|htCopyProplist| |htPage|)))
+      (SETQ |htPage| (|htInitPageNoHeading| (|htCopyProplist| |htPage|)))
       (COND
        ((EQUAL |which| "operation")
         (|htpSetProperty| |htPage| '|opAlist| (LIST (LIST |op| |entry|))))

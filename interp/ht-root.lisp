@@ -12,7 +12,6 @@
 (EVAL-WHEN (EVAL LOAD) (SETQ |$newline| (|char| 10)))
  
 ; downlink page ==
-;   $saturn => downlinkSaturn page
 ;   htInitPage('"Bridge",nil)
 ;   htSayList(['"\replacepage{", page, '"}"])
 ;   htShowPage()
@@ -20,42 +19,10 @@
 (DEFUN |downlink| (|page|)
   (PROG ()
     (RETURN
-     (COND (|$saturn| (|downlinkSaturn| |page|))
-           ('T
-            (PROGN
-             (|htInitPage| "Bridge" NIL)
-             (|htSayList| (LIST "\\replacepage{" |page| "}"))
-             (|htShowPage|)))))))
- 
-; downlinkSaturn fn ==
-;   u := dbReadLines(fn)
-;   lines := '""
-;   while u is [line,:u] repeat
-;     n := MAXINDEX line
-;     n < 1 => nil
-;     line.0 = (char '_%) => nil
-;     lines := STRCONC(lines,line)
-;   issueHTSaturn lines
- 
-(DEFUN |downlinkSaturn| (|fn|)
-  (PROG (|u| |lines| |line| |n|)
-    (RETURN
      (PROGN
-      (SETQ |u| (|dbReadLines| |fn|))
-      (SETQ |lines| "")
-      ((LAMBDA ()
-         (LOOP
-          (COND
-           ((NOT
-             (AND (CONSP |u|)
-                  (PROGN (SETQ |line| (CAR |u|)) (SETQ |u| (CDR |u|)) #1='T)))
-            (RETURN NIL))
-           (#1#
-            (PROGN
-             (SETQ |n| (MAXINDEX |line|))
-             (COND ((< |n| 1) NIL) ((EQUAL (ELT |line| 0) (|char| '%)) NIL)
-                   (#1# (SETQ |lines| (STRCONC |lines| |line|))))))))))
-      (|issueHTSaturn| |lines|)))))
+      (|htInitPage| "Bridge" NIL)
+      (|htSayList| (LIST "\\replacepage{" |page| "}"))
+      (|htShowPage|)))))
  
 ; dbNonEmptyPattern pattern ==
 ;   null pattern => '"*"

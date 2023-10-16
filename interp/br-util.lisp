@@ -661,9 +661,7 @@
 ;         tl QCDR form
 ;     mapping [target,:source] ==
 ;         tuple source
-;         bcHt
-;             $saturn => '" {\ttrarrow} "
-;             '" -> "
+;         bcHt '" -> "
 ;         hd target
 ;     tuple u ==
 ;         null u => bcHt '"()"
@@ -755,7 +753,7 @@
       (SETQ |target| (CAR |bfVar#8|))
       (SETQ |source| (CDR |bfVar#8|))
       (|bcConform1,tuple| |source|)
-      (|bcHt| (COND (|$saturn| " {\\ttrarrow} ") ('T " -> ")))
+      (|bcHt| " -> ")
       (|bcConform1,hd| |target|)))))
 (DEFUN |bcConform1,tuple| (|u|)
   (PROG ()
@@ -1048,30 +1046,24 @@
  
 ; bcOpTable(u,fn) ==
 ;   htBeginTable()
-;   firstTime := true
 ;   for op in u for i in 0.. repeat
-;     if firstTime then firstTime := false
-;     else htSaySaturn '"&"
 ;     htSay '"{"
 ;     htMakePage [['bcLinks,[escapeSpecialChars STRINGIMAGE opOf op,'"",fn,i]]]
 ;     htSay '"}"
 ;   htEndTable()
  
 (DEFUN |bcOpTable| (|u| |fn|)
-  (PROG (|firstTime|)
+  (PROG ()
     (RETURN
      (PROGN
       (|htBeginTable|)
-      (SETQ |firstTime| T)
       ((LAMBDA (|bfVar#14| |op| |i|)
          (LOOP
           (COND
            ((OR (ATOM |bfVar#14|) (PROGN (SETQ |op| (CAR |bfVar#14|)) NIL))
             (RETURN NIL))
-           (#1='T
+           ('T
             (PROGN
-             (COND (|firstTime| (SETQ |firstTime| NIL))
-                   (#1# (|htSaySaturn| "&")))
              (|htSay| "{")
              (|htMakePage|
               (LIST
@@ -1098,10 +1090,7 @@
  
 ; bcConTable u ==
 ;   htBeginTable()
-;   firstTime := true
 ;   for con in u repeat
-;     if firstTime then firstTime := false
-;     else htSaySaturn '"&"
 ;     htSay '"{"
 ;     bcStarSpace opOf con
 ;     bcConform con
@@ -1109,20 +1098,17 @@
 ;   htEndTable()
  
 (DEFUN |bcConTable| (|u|)
-  (PROG (|firstTime|)
+  (PROG ()
     (RETURN
      (PROGN
       (|htBeginTable|)
-      (SETQ |firstTime| T)
       ((LAMBDA (|bfVar#15| |con|)
          (LOOP
           (COND
            ((OR (ATOM |bfVar#15|) (PROGN (SETQ |con| (CAR |bfVar#15|)) NIL))
             (RETURN NIL))
-           (#1='T
+           ('T
             (PROGN
-             (COND (|firstTime| (SETQ |firstTime| NIL))
-                   (#1# (|htSaySaturn| "&")))
              (|htSay| "{")
              (|bcStarSpace| (|opOf| |con|))
              (|bcConform| |con|)
@@ -1133,11 +1119,8 @@
  
 ; bcAbbTable u ==
 ;   htBeginTable()
-;   firstTime := true
 ;   for x in REMDUP u repeat        --allow x to be NIL meaning "no abbreviation"
 ;   -- for x in u repeat    --allow x to be NIL meaning "no abbreviation"
-;     if firstTime then firstTime := false
-;     else htSaySaturn '"&"
 ;     if x is [con,abb,:.] then
 ;       htSay '"{"
 ;       bcAbb(con,abb)
@@ -1145,28 +1128,24 @@
 ;   htEndTable()
  
 (DEFUN |bcAbbTable| (|u|)
-  (PROG (|firstTime| |con| |ISTMP#1| |abb|)
+  (PROG (|con| |ISTMP#1| |abb|)
     (RETURN
      (PROGN
       (|htBeginTable|)
-      (SETQ |firstTime| T)
       ((LAMBDA (|bfVar#16| |x|)
          (LOOP
           (COND
            ((OR (ATOM |bfVar#16|) (PROGN (SETQ |x| (CAR |bfVar#16|)) NIL))
             (RETURN NIL))
            (#1='T
-            (PROGN
-             (COND (|firstTime| (SETQ |firstTime| NIL))
-                   (#1# (|htSaySaturn| "&")))
-             (COND
-              ((AND (CONSP |x|)
-                    (PROGN
-                     (SETQ |con| (CAR |x|))
-                     (SETQ |ISTMP#1| (CDR |x|))
-                     (AND (CONSP |ISTMP#1|)
-                          (PROGN (SETQ |abb| (CAR |ISTMP#1|)) #1#))))
-               (|htSay| "{") (|bcAbb| |con| |abb|) (|htSay| "}"))))))
+            (COND
+             ((AND (CONSP |x|)
+                   (PROGN
+                    (SETQ |con| (CAR |x|))
+                    (SETQ |ISTMP#1| (CDR |x|))
+                    (AND (CONSP |ISTMP#1|)
+                         (PROGN (SETQ |abb| (CAR |ISTMP#1|)) #1#))))
+              (|htSay| "{") (|bcAbb| |con| |abb|) (|htSay| "}")))))
           (SETQ |bfVar#16| (CDR |bfVar#16|))))
        (REMDUP |u|) NIL)
       (|htEndTable|)))))
@@ -1174,10 +1153,7 @@
 ; bcConPredTable(u,conname,:options) ==
 ;   italicList := IFCAR options
 ;   htBeginTable()
-;   firstTime := true
 ;   for [conform,:pred] in u repeat
-;     if firstTime then firstTime := false
-;     else htSaySaturn '"&"
 ;     htSay '"{"
 ;     bcStarSpace opOf conform
 ;     form :=
@@ -1192,12 +1168,11 @@
 ;   htEndTable()
  
 (DEFUN |bcConPredTable| (|u| |conname| &REST |options|)
-  (PROG (|italicList| |firstTime| |conform| |pred| |form| |ISTMP#1| |arglist|)
+  (PROG (|italicList| |conform| |pred| |form| |ISTMP#1| |arglist|)
     (RETURN
      (PROGN
       (SETQ |italicList| (IFCAR |options|))
       (|htBeginTable|)
-      (SETQ |firstTime| T)
       ((LAMBDA (|bfVar#18| |bfVar#17|)
          (LOOP
           (COND
@@ -1211,8 +1186,6 @@
                   (SETQ |pred| (CDR |bfVar#17|))
                   #1#)
                  (PROGN
-                  (COND (|firstTime| (SETQ |firstTime| NIL))
-                        (#1# (|htSaySaturn| "&")))
                   (|htSay| "{")
                   (|bcStarSpace| (|opOf| |conform|))
                   (SETQ |form|
@@ -1327,10 +1300,7 @@
 ; bcNameTable(u,fn,:option) ==   --option if * prefix
 ;   htSay '"\newline"
 ;   htBeginTable()
-;   firstTime := true
 ;   for x in u repeat
-;     if firstTime then firstTime := false
-;     else htSaySaturn '"&"
 ;     htSay '"{"
 ;     if IFCAR option then bcStar x
 ;     htMakePage [['bcLinks,[s := escapeSpecialChars STRINGIMAGE x,'"",fn,s]]]
@@ -1338,21 +1308,18 @@
 ;   htEndTable()
  
 (DEFUN |bcNameTable| (|u| |fn| &REST |option|)
-  (PROG (|firstTime| |s|)
+  (PROG (|s|)
     (RETURN
      (PROGN
       (|htSay| "\\newline")
       (|htBeginTable|)
-      (SETQ |firstTime| T)
       ((LAMBDA (|bfVar#22| |x|)
          (LOOP
           (COND
            ((OR (ATOM |bfVar#22|) (PROGN (SETQ |x| (CAR |bfVar#22|)) NIL))
             (RETURN NIL))
-           (#1='T
+           ('T
             (PROGN
-             (COND (|firstTime| (SETQ |firstTime| NIL))
-                   (#1# (|htSaySaturn| "&")))
              (|htSay| "{")
              (COND ((IFCAR |option|) (|bcStar| |x|)))
              (|htMakePage|
@@ -1369,32 +1336,26 @@
 ;   linkFunction := 'bcLispLinks
 ;   htSay '"\newline"
 ;   htBeginTable()
-;   firstTime := true
 ;   for i in 0.. for x in u repeat
-;     if firstTime then firstTime := false
-;     else htSaySaturn '"&"
 ;     htSay '"{"
 ;     htMakePage [[linkFunction,[FUNCALL(fn,x),'"",gn,i]]]
 ;     htSay '"}"
 ;   htEndTable()
  
 (DEFUN |bcNameCountTable| (|u| |fn| |gn|)
-  (PROG (|linkFunction| |firstTime|)
+  (PROG (|linkFunction|)
     (RETURN
      (PROGN
       (SETQ |linkFunction| '|bcLispLinks|)
       (|htSay| "\\newline")
       (|htBeginTable|)
-      (SETQ |firstTime| T)
       ((LAMBDA (|i| |bfVar#23| |x|)
          (LOOP
           (COND
            ((OR (ATOM |bfVar#23|) (PROGN (SETQ |x| (CAR |bfVar#23|)) NIL))
             (RETURN NIL))
-           (#1='T
+           ('T
             (PROGN
-             (COND (|firstTime| (SETQ |firstTime| NIL))
-                   (#1# (|htSaySaturn| "&")))
              (|htSay| "{")
              (|htMakePage|
               (LIST
