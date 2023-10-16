@@ -312,22 +312,6 @@
                        (|make_full_CVEC| (+ (+ 10 $LINELENGTH) $MARGIN)
                         '| |)))))))))))
  
-; print(x,domain) ==
-;   dom:= devaluate domain
-;   $InteractiveMode: local:= true
-;   $dontDisplayEquatnum: local:= true
-;   output(x,dom)
- 
-(DEFUN |print| (|x| |domain|)
-  (PROG (|$dontDisplayEquatnum| |$InteractiveMode| |dom|)
-    (DECLARE (SPECIAL |$dontDisplayEquatnum| |$InteractiveMode|))
-    (RETURN
-     (PROGN
-      (SETQ |dom| (|devaluate| |domain|))
-      (SETQ |$InteractiveMode| T)
-      (SETQ |$dontDisplayEquatnum| T)
-      (|output| |x| |dom|)))))
- 
 ; mathprintWithNumber x ==
 ;   ioHook("startAlgebraOutput")
 ;   x:= outputTran2 x

@@ -339,12 +339,9 @@
 ;       if MEMQ(char 'm,q) then arg := [['"%m",:arg]]
 ;       if MEMQ(char 's,q) then arg := [['"%s",:arg]]
 ;       if MEMQ(char 'p,q) then
-;           $texFormatting => arg := prefix2StringAsTeX arg
 ;           arg := escape_strings(prefix2String arg)
 ;       if MEMQ(char 'P,q) then
-;           $texFormatting => arg := [prefix2StringAsTeX x for x in arg]
 ;           arg := [prefix2String x for x in arg]
-;       if MEMQ(char 'o, q) and $texFormatting then arg := operationLink(arg)
 ; 
 ;       if MEMQ(char 'c,q) then arg := [['"%ce",:arg]]
 ;       if MEMQ(char 'r,q) then arg := [['"%rj",:arg]]
@@ -427,46 +424,22 @@
                     (SETQ |arg| (LIST (CONS "%s" |arg|)))))
                   (COND
                    ((MEMQ (|char| '|p|) |q|)
-                    (COND
-                     (|$texFormatting|
-                      (SETQ |arg| (|prefix2StringAsTeX| |arg|)))
-                     (#1#
-                      (SETQ |arg|
-                              (|escape_strings| (|prefix2String| |arg|)))))))
+                    (SETQ |arg| (|escape_strings| (|prefix2String| |arg|)))))
                   (COND
                    ((MEMQ (|char| 'P) |q|)
-                    (COND
-                     (|$texFormatting|
-                      (SETQ |arg|
-                              ((LAMBDA (|bfVar#8| |bfVar#7| |x|)
-                                 (LOOP
-                                  (COND
-                                   ((OR (ATOM |bfVar#7|)
-                                        (PROGN (SETQ |x| (CAR |bfVar#7|)) NIL))
-                                    (RETURN (NREVERSE |bfVar#8|)))
-                                   (#1#
-                                    (SETQ |bfVar#8|
-                                            (CONS (|prefix2StringAsTeX| |x|)
-                                                  |bfVar#8|))))
-                                  (SETQ |bfVar#7| (CDR |bfVar#7|))))
-                               NIL |arg| NIL)))
-                     (#1#
-                      (SETQ |arg|
-                              ((LAMBDA (|bfVar#10| |bfVar#9| |x|)
-                                 (LOOP
-                                  (COND
-                                   ((OR (ATOM |bfVar#9|)
-                                        (PROGN (SETQ |x| (CAR |bfVar#9|)) NIL))
-                                    (RETURN (NREVERSE |bfVar#10|)))
-                                   (#1#
-                                    (SETQ |bfVar#10|
-                                            (CONS (|prefix2String| |x|)
-                                                  |bfVar#10|))))
-                                  (SETQ |bfVar#9| (CDR |bfVar#9|))))
-                               NIL |arg| NIL))))))
-                  (COND
-                   ((AND (MEMQ (|char| '|o|) |q|) |$texFormatting|)
-                    (SETQ |arg| (|operationLink| |arg|))))
+                    (SETQ |arg|
+                            ((LAMBDA (|bfVar#8| |bfVar#7| |x|)
+                               (LOOP
+                                (COND
+                                 ((OR (ATOM |bfVar#7|)
+                                      (PROGN (SETQ |x| (CAR |bfVar#7|)) NIL))
+                                  (RETURN (NREVERSE |bfVar#8|)))
+                                 (#1#
+                                  (SETQ |bfVar#8|
+                                          (CONS (|prefix2String| |x|)
+                                                |bfVar#8|))))
+                                (SETQ |bfVar#7| (CDR |bfVar#7|))))
+                             NIL |arg| NIL))))
                   (COND
                    ((MEMQ (|char| '|c|) |q|)
                     (SETQ |arg| (LIST (CONS "%ce" |arg|)))))
@@ -493,17 +466,17 @@
                                                    (CONS |head| |l|))))))))
                            (#1# (CONS |arg| |l|))))
                   (COND ((MEMQ (|char| '|b|) |q|) (SETQ |l| (CONS "%d" |l|))))
-                  ((LAMBDA (|bfVar#11| |ch|)
+                  ((LAMBDA (|bfVar#9| |ch|)
                      (LOOP
                       (COND
-                       ((OR (ATOM |bfVar#11|)
-                            (PROGN (SETQ |ch| (CAR |bfVar#11|)) NIL))
+                       ((OR (ATOM |bfVar#9|)
+                            (PROGN (SETQ |ch| (CAR |bfVar#9|)) NIL))
                         (RETURN NIL))
                        (#1#
                         (COND
                          ((MEMQ (|char| |ch|) |q|)
                           (SETQ |l| (CONS |ch| |l|))))))
-                      (SETQ |bfVar#11| (CDR |bfVar#11|))))
+                      (SETQ |bfVar#9| (CDR |bfVar#9|))))
                    '(|.| |,| ! |:| |;| ?) NIL)))
                 (#1# (SETQ |l| (CONS |x| |l|)))))))))
           (SETQ |bfVar#5| (CDR |bfVar#5|))))
@@ -545,11 +518,11 @@
              (COND ((EQUAL |x| "%n") (SETQ |blanksOff| T) (SETQ |msg1| NIL))
                    (#1# (SETQ |msg1| (LIST |x|))))
              (SETQ |blank| " ")
-             ((LAMBDA (|bfVar#12| |y|)
+             ((LAMBDA (|bfVar#10| |y|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#12|)
-                       (PROGN (SETQ |y| (CAR |bfVar#12|)) NIL))
+                  ((OR (ATOM |bfVar#10|)
+                       (PROGN (SETQ |y| (CAR |bfVar#10|)) NIL))
                    (RETURN NIL))
                   (#1#
                    (COND ((|member| |y| '("%n" |%n|)) (SETQ |blanksOff| T))
@@ -563,7 +536,7 @@
                             (#1#
                              (SETQ |msg1| (CONS |y| (CONS |blank| |msg1|)))))
                            (SETQ |x| |y|))))))
-                 (SETQ |bfVar#12| (CDR |bfVar#12|))))
+                 (SETQ |bfVar#10| (CDR |bfVar#10|))))
               (CDR |msg|) NIL)
              (NREVERSE |msg1|)))))))
  
@@ -685,11 +658,11 @@
                      '(|%b| |%d| |%l| |%i| |%u| |%m| |%ce| |%rj| "%b" "%d" "%l"
                        "%i" "%m" "%u" "%ce" "%rj"))
              (SETQ |msg1| NIL)
-             ((LAMBDA (|bfVar#13| |x|)
+             ((LAMBDA (|bfVar#11| |x|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#13|)
-                       (PROGN (SETQ |x| (CAR |bfVar#13|)) NIL))
+                  ((OR (ATOM |bfVar#11|)
+                       (PROGN (SETQ |x| (CAR |bfVar#11|)) NIL))
                    (RETURN NIL))
                   (#1#
                    (PROGN
@@ -700,7 +673,7 @@
                     (SETQ |msg1| (CONS |x| |msg1|))
                     (SETQ |haveBlank|
                             (COND ((|member| |x| |blanks|) T) (#1# NIL))))))
-                 (SETQ |bfVar#13| (CDR |bfVar#13|))))
+                 (SETQ |bfVar#11| (CDR |bfVar#11|))))
               |msg| NIL)
              |msg1|))))))
  
@@ -774,18 +747,6 @@
       (COND (|$testingSystem| (|sayMSG| |$testingErrorPrefix|)))
       (|say_Msg| |msg| |args|)
       (|spadThrow|)))))
- 
-; sayKeyedMsgAsTeX(key, args) ==
-;   $texFormatting: fluid := true
-;   say_msg_local(getKeyedMsg key, args)
- 
-(DEFUN |sayKeyedMsgAsTeX| (|key| |args|)
-  (PROG (|$texFormatting|)
-    (DECLARE (SPECIAL |$texFormatting|))
-    (RETURN
-     (PROGN
-      (SETQ |$texFormatting| T)
-      (|say_msg_local| (|getKeyedMsg| |key|) |args|)))))
  
 ; sayKeyedMsg(key,args) ==
 ;   $texFormatting: fluid := false
@@ -893,23 +854,23 @@
       (COND (|$testingSystem| (|sayMSG| |$testingErrorPrefix|)))
       (|sayKeyedMsg| |descKey| |descArgs|)
       (|sayMSG| " ")
-      ((LAMBDA (|bfVar#15| |bfVar#14| |i|)
+      ((LAMBDA (|bfVar#13| |bfVar#12| |i|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#15|)
-                (PROGN (SETQ |bfVar#14| (CAR |bfVar#15|)) NIL))
+           ((OR (ATOM |bfVar#13|)
+                (PROGN (SETQ |bfVar#12| (CAR |bfVar#13|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#14|)
+            (AND (CONSP |bfVar#12|)
                  (PROGN
-                  (SETQ |key| (CAR |bfVar#14|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#14|))
+                  (SETQ |key| (CAR |bfVar#12|))
+                  (SETQ |ISTMP#1| (CDR |bfVar#12|))
                   (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                        (PROGN (SETQ |args| (CAR |ISTMP#1|)) #1#)))
                  (PROGN
                   (SETQ |n| (STRCONC (|object2String| |i|) "."))
                   (|sayKeyedMsg| |key| (CONS |n| |args|))))))
-          (SETQ |bfVar#15| (CDR |bfVar#15|))
+          (SETQ |bfVar#13| (CDR |bfVar#13|))
           (SETQ |i| (+ |i| 1))))
        |l| NIL 1)
       (|spadThrow|)))))
@@ -976,9 +937,6 @@
 ;   -- msgs that are entirely centered or right justified are not flowed
 ;   msg is [[ce,:.]] and ce in '(%ce "%ce" %rj "%rj") => msg
 ; 
-;   -- if we are formatting latex, then we assume
-;   -- that nothing needs to be done
-;   $texFormatting => msg
 ;   -- msgs that are entirely centered are not flowed
 ;   msg is [[ce, :.]] and ce in '(%ce "%ce") => msg
 ; 
@@ -1041,7 +999,6 @@
              (AND (CONSP |ISTMP#1|) (PROGN (SETQ |ce| (CAR |ISTMP#1|)) #1='T)))
             (|member| |ce| '(|%ce| "%ce" |%rj| "%rj")))
        |msg|)
-      (|$texFormatting| |msg|)
       ((AND (CONSP |msg|) (EQ (CDR |msg|) NIL)
             (PROGN
              (SETQ |ISTMP#1| (CAR |msg|))
@@ -1068,10 +1025,10 @@
                   (|member| |a| '(|%b| |%d| | | "%b" "%d" " ")))
              (SETQ |nl| (LIST |off1|)) (SETQ |lnl| (- |lnl| 1)))
             (#1# (SETQ |nl| (LIST |off|))))
-           ((LAMBDA (|bfVar#16| |f|)
+           ((LAMBDA (|bfVar#14| |f|)
               (LOOP
                (COND
-                ((OR (ATOM |bfVar#16|) (PROGN (SETQ |f| (CAR |bfVar#16|)) NIL))
+                ((OR (ATOM |bfVar#14|) (PROGN (SETQ |f| (CAR |bfVar#14|)) NIL))
                  (RETURN NIL))
                 (#1#
                  (COND
@@ -1117,7 +1074,7 @@
                       (PROGN
                        (SETQ |nl| (CONS |f| (CONS |off| (CONS '|%l| |nl|))))
                        (SETQ |lnl| (+ |offset| |sbl|))))))))))
-               (SETQ |bfVar#16| (CDR |bfVar#16|))))
+               (SETQ |bfVar#14| (CDR |bfVar#14|))))
             |msg| NIL)
            (|concat| (NREVERSE |nl|))))
          (#1# (|concat| '|%l| |off| |msg|)))))))))
@@ -1294,18 +1251,17 @@
     (RETURN
      (PROGN
       (SETQ $MARG 0)
-      ((LAMBDA (|bfVar#17| |y|)
+      ((LAMBDA (|bfVar#15| |y|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#17|) (PROGN (SETQ |y| (CAR |bfVar#17|)) NIL))
+           ((OR (ATOM |bfVar#15|) (PROGN (SETQ |y| (CAR |bfVar#15|)) NIL))
             (RETURN NIL))
            ('T (|brightPrint0| |y|)))
-          (SETQ |bfVar#17| (CDR |bfVar#17|))))
+          (SETQ |bfVar#15| (CDR |bfVar#15|))))
        |x| NIL)
       NIL))))
  
 ; brightPrint0 x ==
-;   $texFormatting => brightPrint0AsTeX x
 ;   if IDENTP x then x := PNAME x
 ; 
 ;   -- if the first character is a backslash and the second is a percent sign,
@@ -1341,95 +1297,35 @@
 (DEFUN |brightPrint0| (|x|)
   (PROG (|k|)
     (RETURN
-     (COND (|$texFormatting| (|brightPrint0AsTeX| |x|))
-           (#1='T
-            (PROGN
-             (COND ((IDENTP |x|) (SETQ |x| (PNAME |x|))))
-             (COND
-              ((AND (STRINGP |x|) (< 1 (STRINGLENGTH |x|))
-                    (EQUAL (ELT |x| 0) (|char| '|\\|))
-                    (EQUAL (ELT |x| 1) (|char| '%)))
-               (|sayString| (SUBSTRING |x| 1 NIL)))
-              ((EQUAL |x| "%l")
-               (PROGN
-                (|sayNewLine|)
-                ((LAMBDA (|i|)
-                   (LOOP
-                    (COND ((> |i| $MARG) (RETURN NIL)) (#1# (|sayString| " ")))
-                    (SETQ |i| (+ |i| 1))))
-                 1)))
-              ((EQUAL |x| "%i") (SETQ $MARG (+ $MARG 3)))
-              ((EQUAL |x| "%u")
-               (PROGN
-                (SETQ $MARG (- $MARG 3))
-                (COND ((MINUSP $MARG) (SETQ $MARG 0)))))
-              ((EQUAL |x| "%U") (SETQ $MARG 0))
-              ((EQUAL |x| "%") (|sayString| " "))
-              ((EQUAL |x| "%%") (|sayString| "%"))
-              ((EQUAL |x| "%b")
-               (COND ((NULL |$highlightAllowed|) (|sayString| " "))
-                     (#1# (|sayString| |$highlightFontOn|))))
-              ((SETQ |k| (|blankIndicator| |x|)) (BLANKS |k| |$fricasOutput|))
-              ((EQUAL |x| "%d")
-               (COND ((NULL |$highlightAllowed|) (|sayString| " "))
-                     (#1# (|sayString| |$highlightFontOff|))))
-              ((STRINGP |x|) (|sayString| |x|))
-              (#1# (|brightPrintHighlight| |x|)))))))))
- 
-; brightPrint0AsTeX x ==
-;   x = '"%l" =>
-;     sayString('"\\")
-;     for i in 1..$MARG repeat sayString '"\ "
-;   x = '"%i" =>
-;     $MARG := $MARG + 3
-;   x = '"%u" =>
-;     $MARG := $MARG - 3
-;     if $MARG < 0 then $MARG := 0
-;   x = '"%U" =>
-;     $MARG := 0
-;   x = '"%" =>
-;     sayString '"\ "
-;   x = '"%%" =>
-;     sayString  '"%"
-;   x = '"%b" =>
-;     sayString '" {\tt "
-;   k := blankIndicator x => for i in 1..k repeat sayString '"\ "
-;   x = '"%d" =>
-;     sayString '"} "
-;   x = '"_"$_"" =>
-;     sayString('"_"\verb!$!_"")
-;   x = '"$" =>
-;     sayString('"\verb!$!")
-;   STRINGP x => sayString x
-;   brightPrintHighlight x
- 
-(DEFUN |brightPrint0AsTeX| (|x|)
-  (PROG (|k|)
-    (RETURN
-     (COND
-      ((EQUAL |x| "%l")
-       (PROGN
-        (|sayString| "\\\\")
-        ((LAMBDA (|i|)
-           (LOOP
-            (COND ((> |i| $MARG) (RETURN NIL)) (#1='T (|sayString| "\\ ")))
-            (SETQ |i| (+ |i| 1))))
-         1)))
-      ((EQUAL |x| "%i") (SETQ $MARG (+ $MARG 3)))
-      ((EQUAL |x| "%u")
-       (PROGN (SETQ $MARG (- $MARG 3)) (COND ((MINUSP $MARG) (SETQ $MARG 0)))))
-      ((EQUAL |x| "%U") (SETQ $MARG 0)) ((EQUAL |x| "%") (|sayString| "\\ "))
-      ((EQUAL |x| "%%") (|sayString| "%"))
-      ((EQUAL |x| "%b") (|sayString| " {\\tt "))
-      ((SETQ |k| (|blankIndicator| |x|))
-       ((LAMBDA (|i|)
-          (LOOP (COND ((> |i| |k|) (RETURN NIL)) (#1# (|sayString| "\\ ")))
-                (SETQ |i| (+ |i| 1))))
-        1))
-      ((EQUAL |x| "%d") (|sayString| "} "))
-      ((EQUAL |x| "\"$\"") (|sayString| "\"\\verb!$!\""))
-      ((EQUAL |x| "$") (|sayString| "\\verb!$!"))
-      ((STRINGP |x|) (|sayString| |x|)) (#1# (|brightPrintHighlight| |x|))))))
+     (PROGN
+      (COND ((IDENTP |x|) (SETQ |x| (PNAME |x|))))
+      (COND
+       ((AND (STRINGP |x|) (< 1 (STRINGLENGTH |x|))
+             (EQUAL (ELT |x| 0) (|char| '|\\|))
+             (EQUAL (ELT |x| 1) (|char| '%)))
+        (|sayString| (SUBSTRING |x| 1 NIL)))
+       ((EQUAL |x| "%l")
+        (PROGN
+         (|sayNewLine|)
+         ((LAMBDA (|i|)
+            (LOOP (COND ((> |i| $MARG) (RETURN NIL)) (#1='T (|sayString| " ")))
+                  (SETQ |i| (+ |i| 1))))
+          1)))
+       ((EQUAL |x| "%i") (SETQ $MARG (+ $MARG 3)))
+       ((EQUAL |x| "%u")
+        (PROGN
+         (SETQ $MARG (- $MARG 3))
+         (COND ((MINUSP $MARG) (SETQ $MARG 0)))))
+       ((EQUAL |x| "%U") (SETQ $MARG 0)) ((EQUAL |x| "%") (|sayString| " "))
+       ((EQUAL |x| "%%") (|sayString| "%"))
+       ((EQUAL |x| "%b")
+        (COND ((NULL |$highlightAllowed|) (|sayString| " "))
+              (#1# (|sayString| |$highlightFontOn|))))
+       ((SETQ |k| (|blankIndicator| |x|)) (BLANKS |k| |$fricasOutput|))
+       ((EQUAL |x| "%d")
+        (COND ((NULL |$highlightAllowed|) (|sayString| " "))
+              (#1# (|sayString| |$highlightFontOff|))))
+       ((STRINGP |x|) (|sayString| |x|)) (#1# (|brightPrintHighlight| |x|)))))))
  
 ; blankIndicator x ==
 ;   if IDENTP x then x := PNAME x
@@ -1467,7 +1363,6 @@
       NIL))))
  
 ; brightPrintHighlight x ==
-;   $texFormatting => brightPrintHighlightAsTeX x
 ;   IDENTP x =>
 ;     pn := PNAME x
 ;     sayString pn
@@ -1497,8 +1392,7 @@
 (DEFUN |brightPrintHighlight| (|x|)
   (PROG (|pn| |key| |rst| |la|)
     (RETURN
-     (COND (|$texFormatting| (|brightPrintHighlightAsTeX| |x|))
-           ((IDENTP |x|) (PROGN (SETQ |pn| (PNAME |x|)) (|sayString| |pn|)))
+     (COND ((IDENTP |x|) (PROGN (SETQ |pn| (PNAME |x|)) (|sayString| |pn|)))
            ((VECP |x|) (|sayString| "UNPRINTABLE"))
            ((ATOM |x|) (|sayString| (|object2String| |x|)))
            (#1='T
@@ -1520,84 +1414,14 @@
                        (SETQ |rst|
                                (LIST (CAR |rst|) (CADR |rst|) (CADDR |rst|)
                                      "environment (omitted)"))))
-                     ((LAMBDA (|bfVar#18| |y|)
+                     ((LAMBDA (|bfVar#16| |y|)
                         (LOOP
                          (COND
-                          ((OR (ATOM |bfVar#18|)
-                               (PROGN (SETQ |y| (CAR |bfVar#18|)) NIL))
+                          ((OR (ATOM |bfVar#16|)
+                               (PROGN (SETQ |y| (CAR |bfVar#16|)) NIL))
                            (RETURN NIL))
                           (#1# (PROGN (|sayString| " ") (|brightPrint1| |y|))))
-                         (SETQ |bfVar#18| (CDR |bfVar#18|))))
-                      |rst| NIL)
-                     (COND
-                      ((AND |rst| (SETQ |la| (LASTATOM |rst|)))
-                       (|sayString| " . ") (|brightPrint1| |la|)))
-                     (|sayString| ")"))))))))))
- 
-; brightPrintHighlightAsTeX x ==
-;   IDENTP x =>
-;     pn := PNAME x
-;     sayString pn
-;   ATOM x => sayString object2String x
-;   VECP x => sayString '"UNPRINTABLE"
-;   [key,:rst] := x
-;   key = '"%m" => mathprint rst
-;   key = '"%m" => rst
-;   key = '"%s" =>
-;     sayString '"\verb__"
-;     PRETTYPRIN0 rst
-;     sayString '"__"
-;   key = '"%ce" => brightPrintCenter rst
-;   key = '"%t"  => $MARG := $MARG + tabber rst
-;   -- unhandled junk (print verbatim(ish)
-;   sayString '"("
-;   brightPrint1 key
-;   if EQ(key,'TAGGEDreturn) then
-;     rst := [first rst, CADR rst, CADDR rst, '"environment (omitted)"]
-;   for y in rst repeat
-;     sayString '" "
-;     brightPrint1 y
-;   if rst and (la := LASTATOM rst) then
-;     sayString '" . "
-;     brightPrint1 la
-;   sayString '")"
- 
-(DEFUN |brightPrintHighlightAsTeX| (|x|)
-  (PROG (|pn| |key| |rst| |la|)
-    (RETURN
-     (COND ((IDENTP |x|) (PROGN (SETQ |pn| (PNAME |x|)) (|sayString| |pn|)))
-           ((ATOM |x|) (|sayString| (|object2String| |x|)))
-           ((VECP |x|) (|sayString| "UNPRINTABLE"))
-           (#1='T
-            (PROGN
-             (SETQ |key| (CAR |x|))
-             (SETQ |rst| (CDR |x|))
-             (COND ((EQUAL |key| "%m") (|mathprint| |rst|))
-                   ((EQUAL |key| "%m") |rst|)
-                   ((EQUAL |key| "%s")
-                    (PROGN
-                     (|sayString| "\\verb_")
-                     (PRETTYPRIN0 |rst|)
-                     (|sayString| "_")))
-                   ((EQUAL |key| "%ce") (|brightPrintCenter| |rst|))
-                   ((EQUAL |key| "%t") (SETQ $MARG (+ $MARG (|tabber| |rst|))))
-                   (#1#
-                    (PROGN
-                     (|sayString| "(")
-                     (|brightPrint1| |key|)
-                     (COND
-                      ((EQ |key| '|TAGGEDreturn|)
-                       (SETQ |rst|
-                               (LIST (CAR |rst|) (CADR |rst|) (CADDR |rst|)
-                                     "environment (omitted)"))))
-                     ((LAMBDA (|bfVar#19| |y|)
-                        (LOOP
-                         (COND
-                          ((OR (ATOM |bfVar#19|)
-                               (PROGN (SETQ |y| (CAR |bfVar#19|)) NIL))
-                           (RETURN NIL))
-                          (#1# (PROGN (|sayString| " ") (|brightPrint1| |y|))))
-                         (SETQ |bfVar#19| (CDR |bfVar#19|))))
+                         (SETQ |bfVar#16| (CDR |bfVar#16|))))
                       |rst| NIL)
                      (COND
                       ((AND |rst| (SETQ |la| (LASTATOM |rst|)))
@@ -1617,7 +1441,6 @@
       (COND ((< |maxTab| |num|) |maxTab|) ('T |num|))))))
  
 ; brightPrintCenter x ==
-;   $texFormatting => brightPrintCenterAsTeX x
 ;   -- centers rst within $LINELENGTH, checking for %l's
 ;   ATOM x =>
 ;     x := object2String x
@@ -1647,115 +1470,49 @@
 (DEFUN |brightPrintCenter| (|x|)
   (PROG (|wid| |f| |y| |ok|)
     (RETURN
-     (COND (|$texFormatting| (|brightPrintCenterAsTeX| |x|))
-           ((ATOM |x|)
-            (PROGN
-             (SETQ |x| (|object2String| |x|))
-             (SETQ |wid| (STRINGLENGTH |x|))
-             (COND
-              ((< |wid| $LINELENGTH)
-               (SETQ |f| (DIVIDE (- $LINELENGTH |wid|) 2))
-               (SETQ |x| (LIST (|fillerSpaces| (ELT |f| 0) " ") |x|))))
-             ((LAMBDA (|bfVar#20| |y|)
-                (LOOP
-                 (COND
-                  ((OR (ATOM |bfVar#20|)
-                       (PROGN (SETQ |y| (CAR |bfVar#20|)) NIL))
-                   (RETURN NIL))
-                  (#1='T (|brightPrint0| |y|)))
-                 (SETQ |bfVar#20| (CDR |bfVar#20|))))
-              |x| NIL)
-             NIL))
-           (#1#
-            (PROGN
-             (SETQ |y| NIL)
-             (SETQ |ok| T)
-             ((LAMBDA ()
-                (LOOP
-                 (COND ((NOT (AND |x| |ok|)) (RETURN NIL))
-                       (#1#
-                        (PROGN
-                         (COND
-                          ((|member| (CAR |x|) '(|%l| "%l")) (SETQ |ok| NIL))
-                          (#1# (SETQ |y| (CONS (CAR |x|) |y|))))
-                         (SETQ |x| (CDR |x|))))))))
-             (SETQ |y| (NREVERSE |y|))
-             (SETQ |wid| (|sayBrightlyLength| |y|))
-             (COND
-              ((< |wid| $LINELENGTH)
-               (SETQ |f| (DIVIDE (- $LINELENGTH |wid|) 2))
-               (SETQ |y| (CONS (|fillerSpaces| (ELT |f| 0) " ") |y|))))
-             ((LAMBDA (|bfVar#21| |z|)
-                (LOOP
-                 (COND
-                  ((OR (ATOM |bfVar#21|)
-                       (PROGN (SETQ |z| (CAR |bfVar#21|)) NIL))
-                   (RETURN NIL))
-                  (#1# (|brightPrint0| |z|)))
-                 (SETQ |bfVar#21| (CDR |bfVar#21|))))
-              |y| NIL)
-             (COND (|x| (|sayNewLine|) (|brightPrintCenter| |x|)))
-             NIL))))))
- 
-; brightPrintCenterAsTeX x ==
-;   ATOM x =>
-;     sayString '"\centerline{"
-;     sayString x
-;     sayString '"}"
-;   lst := x
-;   while lst repeat
-;     words := nil
-;     while lst and not (first(lst) = "%l") repeat
-;       words := [first lst, : words]
-;       lst := rest lst
-;     if lst then lst := cdr lst
-;     sayString '"\centerline{"
-;     words := nreverse words
-;     for zz in words repeat
-;       brightPrint0 zz
-;     sayString '"}"
-;   nil
- 
-(DEFUN |brightPrintCenterAsTeX| (|x|)
-  (PROG (|lst| |words|)
-    (RETURN
      (COND
       ((ATOM |x|)
        (PROGN
-        (|sayString| "\\centerline{")
-        (|sayString| |x|)
-        (|sayString| "}")))
-      (#1='T
+        (SETQ |x| (|object2String| |x|))
+        (SETQ |wid| (STRINGLENGTH |x|))
+        (COND
+         ((< |wid| $LINELENGTH) (SETQ |f| (DIVIDE (- $LINELENGTH |wid|) 2))
+          (SETQ |x| (LIST (|fillerSpaces| (ELT |f| 0) " ") |x|))))
+        ((LAMBDA (|bfVar#17| |y|)
+           (LOOP
+            (COND
+             ((OR (ATOM |bfVar#17|) (PROGN (SETQ |y| (CAR |bfVar#17|)) NIL))
+              (RETURN NIL))
+             (#1='T (|brightPrint0| |y|)))
+            (SETQ |bfVar#17| (CDR |bfVar#17|))))
+         |x| NIL)
+        NIL))
+      (#1#
        (PROGN
-        (SETQ |lst| |x|)
+        (SETQ |y| NIL)
+        (SETQ |ok| T)
         ((LAMBDA ()
            (LOOP
-            (COND ((NOT |lst|) (RETURN NIL))
+            (COND ((NOT (AND |x| |ok|)) (RETURN NIL))
                   (#1#
                    (PROGN
-                    (SETQ |words| NIL)
-                    ((LAMBDA ()
-                       (LOOP
-                        (COND
-                         ((NOT (AND |lst| (NULL (EQ (CAR |lst|) '|%l|))))
-                          (RETURN NIL))
-                         (#1#
-                          (PROGN
-                           (SETQ |words| (CONS (CAR |lst|) |words|))
-                           (SETQ |lst| (CDR |lst|))))))))
-                    (COND (|lst| (SETQ |lst| (CDR |lst|))))
-                    (|sayString| "\\centerline{")
-                    (SETQ |words| (NREVERSE |words|))
-                    ((LAMBDA (|bfVar#22| |zz|)
-                       (LOOP
-                        (COND
-                         ((OR (ATOM |bfVar#22|)
-                              (PROGN (SETQ |zz| (CAR |bfVar#22|)) NIL))
-                          (RETURN NIL))
-                         (#1# (|brightPrint0| |zz|)))
-                        (SETQ |bfVar#22| (CDR |bfVar#22|))))
-                     |words| NIL)
-                    (|sayString| "}")))))))
+                    (COND ((|member| (CAR |x|) '(|%l| "%l")) (SETQ |ok| NIL))
+                          (#1# (SETQ |y| (CONS (CAR |x|) |y|))))
+                    (SETQ |x| (CDR |x|))))))))
+        (SETQ |y| (NREVERSE |y|))
+        (SETQ |wid| (|sayBrightlyLength| |y|))
+        (COND
+         ((< |wid| $LINELENGTH) (SETQ |f| (DIVIDE (- $LINELENGTH |wid|) 2))
+          (SETQ |y| (CONS (|fillerSpaces| (ELT |f| 0) " ") |y|))))
+        ((LAMBDA (|bfVar#18| |z|)
+           (LOOP
+            (COND
+             ((OR (ATOM |bfVar#18|) (PROGN (SETQ |z| (CAR |bfVar#18|)) NIL))
+              (RETURN NIL))
+             (#1# (|brightPrint0| |z|)))
+            (SETQ |bfVar#18| (CDR |bfVar#18|))))
+         |y| NIL)
+        (COND (|x| (|sayNewLine|) (|brightPrintCenter| |x|)))
         NIL))))))
  
 ; brightPrintRightJustify x ==
@@ -1797,13 +1554,13 @@
          ((< |wid| $LINELENGTH)
           (PROGN
            (SETQ |x| (LIST (|fillerSpaces| (- $LINELENGTH |wid|) " ") |x|))
-           ((LAMBDA (|bfVar#23| |y|)
+           ((LAMBDA (|bfVar#19| |y|)
               (LOOP
                (COND
-                ((OR (ATOM |bfVar#23|) (PROGN (SETQ |y| (CAR |bfVar#23|)) NIL))
+                ((OR (ATOM |bfVar#19|) (PROGN (SETQ |y| (CAR |bfVar#19|)) NIL))
                  (RETURN NIL))
                 (#1='T (|brightPrint0| |y|)))
-               (SETQ |bfVar#23| (CDR |bfVar#23|))))
+               (SETQ |bfVar#19| (CDR |bfVar#19|))))
             |x| NIL)
            NIL))
          (#1# (PROGN (|brightPrint0| |x|) NIL)))))
@@ -1824,13 +1581,13 @@
         (COND
          ((< |wid| $LINELENGTH)
           (SETQ |y| (CONS (|fillerSpaces| (- $LINELENGTH |wid|) " ") |y|))))
-        ((LAMBDA (|bfVar#24| |z|)
+        ((LAMBDA (|bfVar#20| |z|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#24|) (PROGN (SETQ |z| (CAR |bfVar#24|)) NIL))
+             ((OR (ATOM |bfVar#20|) (PROGN (SETQ |z| (CAR |bfVar#20|)) NIL))
               (RETURN NIL))
              (#1# (|brightPrint0| |z|)))
-            (SETQ |bfVar#24| (CDR |bfVar#24|))))
+            (SETQ |bfVar#20| (CDR |bfVar#20|))))
          |y| NIL)
         (COND (|x| (|sayNewLine|) (|brightPrintRightJustify| |x|)))
         NIL))))))
@@ -1904,37 +1661,37 @@
     (RETURN
      (PROGN
       (SETQ |l|
-              ((LAMBDA (|bfVar#26| |bfVar#25| |a|)
+              ((LAMBDA (|bfVar#22| |bfVar#21| |a|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#25|)
-                        (PROGN (SETQ |a| (CAR |bfVar#25|)) NIL))
-                    (RETURN (NREVERSE |bfVar#26|)))
+                   ((OR (ATOM |bfVar#21|)
+                        (PROGN (SETQ |a| (CAR |bfVar#21|)) NIL))
+                    (RETURN (NREVERSE |bfVar#22|)))
                    (#1='T
-                    (SETQ |bfVar#26| (CONS (|atom2String| |a|) |bfVar#26|))))
-                  (SETQ |bfVar#25| (CDR |bfVar#25|))))
+                    (SETQ |bfVar#22| (CONS (|atom2String| |a|) |bfVar#22|))))
+                  (SETQ |bfVar#21| (CDR |bfVar#21|))))
                NIL |l| NIL))
       (SETQ |m|
               (+ 1
-                 ((LAMBDA (|bfVar#28| |bfVar#27| |a|)
+                 ((LAMBDA (|bfVar#24| |bfVar#23| |a|)
                     (LOOP
                      (COND
-                      ((OR (ATOM |bfVar#27|)
-                           (PROGN (SETQ |a| (CAR |bfVar#27|)) NIL))
-                       (RETURN |bfVar#28|))
-                      (#1# (SETQ |bfVar#28| (MAX |bfVar#28| (SIZE |a|)))))
-                     (SETQ |bfVar#27| (CDR |bfVar#27|))))
+                      ((OR (ATOM |bfVar#23|)
+                           (PROGN (SETQ |a| (CAR |bfVar#23|)) NIL))
+                       (RETURN |bfVar#24|))
+                      (#1# (SETQ |bfVar#24| (MAX |bfVar#24| (SIZE |a|)))))
+                     (SETQ |bfVar#23| (CDR |bfVar#23|))))
                   -999999 |l| NIL)))
       (COND
        ((< $LINELENGTH |m|)
         (PROGN
-         ((LAMBDA (|bfVar#29| |a|)
+         ((LAMBDA (|bfVar#25| |a|)
             (LOOP
              (COND
-              ((OR (ATOM |bfVar#29|) (PROGN (SETQ |a| (CAR |bfVar#29|)) NIL))
+              ((OR (ATOM |bfVar#25|) (PROGN (SETQ |a| (CAR |bfVar#25|)) NIL))
                (RETURN NIL))
               (#1# (|sayMSG| |a|)))
-             (SETQ |bfVar#29| (CDR |bfVar#29|))))
+             (SETQ |bfVar#25| (CDR |bfVar#25|))))
           |l| NIL)
          NIL))
        (#1#
@@ -1943,9 +1700,9 @@
          (SETQ |p| (QUOTIENT $LINELENGTH |w|))
          (SETQ |n| (LENGTH |l|))
          (SETQ |str| "")
-         ((LAMBDA (|bfVar#30| |i|)
+         ((LAMBDA (|bfVar#26| |i|)
             (LOOP
-             (COND ((> |i| |bfVar#30|) (RETURN NIL))
+             (COND ((> |i| |bfVar#26|) (RETURN NIL))
                    (#1#
                     (PROGN
                      (SETQ |LETTMP#1| |l|)
@@ -1981,13 +1738,13 @@
       (SETQ |short| (CAR |LETTMP#1|))
       (SETQ |long| (CADR |LETTMP#1|))
       (|say2PerLineThatFit| |short|)
-      ((LAMBDA (|bfVar#31| |x|)
+      ((LAMBDA (|bfVar#27| |x|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#31|) (PROGN (SETQ |x| (CAR |bfVar#31|)) NIL))
+           ((OR (ATOM |bfVar#27|) (PROGN (SETQ |x| (CAR |bfVar#27|)) NIL))
             (RETURN NIL))
            ('T (|sayLongOperation| |x|)))
-          (SETQ |bfVar#31| (CDR |bfVar#31|))))
+          (SETQ |bfVar#27| (CDR |bfVar#27|))))
        |long| NIL)
       (|sayBrightly| "")))))
  
@@ -2112,14 +1869,14 @@
     (RETURN
      (COND
       ((CONSP |x|)
-       ((LAMBDA (|bfVar#33| |bfVar#32| |y|)
+       ((LAMBDA (|bfVar#29| |bfVar#28| |y|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#32|) (PROGN (SETQ |y| (CAR |bfVar#32|)) NIL))
-             (RETURN |bfVar#33|))
+            ((OR (ATOM |bfVar#28|) (PROGN (SETQ |y| (CAR |bfVar#28|)) NIL))
+             (RETURN |bfVar#29|))
             (#1='T
-             (SETQ |bfVar#33| (+ |bfVar#33| (|sayDisplayWidth,fn| |y|)))))
-           (SETQ |bfVar#32| (CDR |bfVar#32|))))
+             (SETQ |bfVar#29| (+ |bfVar#29| (|sayDisplayWidth,fn| |y|)))))
+           (SETQ |bfVar#28| (CDR |bfVar#28|))))
         0 |x| NIL))
       ((OR (EQ |x| '%%) (EQUAL |x| "%%")) 1)
       (#1# (LENGTH (|atom2String| |x|)))))))
@@ -2140,14 +1897,14 @@
     (RETURN
      (COND ((ATOM |x|) (LENGTH (|atom2String| |x|)))
            (#1='T
-            ((LAMBDA (|bfVar#35| |bfVar#34| |y|)
+            ((LAMBDA (|bfVar#31| |bfVar#30| |y|)
                (LOOP
                 (COND
-                 ((OR (ATOM |bfVar#34|)
-                      (PROGN (SETQ |y| (CAR |bfVar#34|)) NIL))
-                  (RETURN |bfVar#35|))
-                 (#1# (SETQ |bfVar#35| (+ |bfVar#35| (|sayWidth,fn| |y|)))))
-                (SETQ |bfVar#34| (CDR |bfVar#34|))))
+                 ((OR (ATOM |bfVar#30|)
+                      (PROGN (SETQ |y| (CAR |bfVar#30|)) NIL))
+                  (RETURN |bfVar#31|))
+                 (#1# (SETQ |bfVar#31| (+ |bfVar#31| (|sayWidth,fn| |y|)))))
+                (SETQ |bfVar#30| (CDR |bfVar#30|))))
              0 |x| NIL))))))
 (DEFUN |sayWidth,fn| (|y|) (PROG () (RETURN (|sayWidth| |y|))))
  
@@ -2246,9 +2003,9 @@
         (PROGN
          (SETQ |f| (DIVIDE (- (- |width| |wid|) 2) 2))
          (SETQ |fill1| "")
-         ((LAMBDA (|bfVar#36| |i|)
+         ((LAMBDA (|bfVar#32| |i|)
             (LOOP
-             (COND ((> |i| |bfVar#36|) (RETURN NIL))
+             (COND ((> |i| |bfVar#32|) (RETURN NIL))
                    (#1# (SETQ |fill1| (STRCONC |fillchar| |fill1|))))
              (SETQ |i| (+ |i| 1))))
           (ELT |f| 0) 1)
@@ -2290,9 +2047,9 @@
              (PROGN
               (SETQ |f| (DIVIDE (- (- |width| |wid|) 2) 2))
               (SETQ |fill1| "")
-              ((LAMBDA (|bfVar#37| |i|)
+              ((LAMBDA (|bfVar#33| |i|)
                  (LOOP
-                  (COND ((> |i| |bfVar#37|) (RETURN NIL))
+                  (COND ((> |i| |bfVar#33|) (RETURN NIL))
                         (#1# (SETQ |fill1| (STRCONC |fillchar| |fill1|))))
                   (SETQ |i| (+ |i| 1))))
                (ELT |f| 0) 1)

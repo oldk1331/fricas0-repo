@@ -156,8 +156,6 @@
  
 ; SpadInterpretStream(step_num, source, interactive?) ==
 ;     pile?                    := not interactive?
-; --  following seems useless and causes ccl package problems
-; --    $InteractiveMode : local := false
 ; 
 ;     $newcompErrorCount: local := 0 -- SMW Feb 2/90.
 ;                                    -- Used in highComplete, ncHardError etc.
