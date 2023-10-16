@@ -2300,11 +2300,6 @@
 (DEFUN |sayMSG| (|x|)
   (PROG () (RETURN (|sayBrightly1| |x| |$algebraOutputStream|))))
  
-; sayFORMULA(x) == sayBrightly1(x, $formulaOutputStream)
- 
-(DEFUN |sayFORMULA| (|x|)
-  (PROG () (RETURN (|sayBrightly1| |x| |$formulaOutputStream|))))
- 
 ; sayMSG2File(msg) ==
 ;     file := makePathname("spadmsg", "listing")
 ;     str := MAKE_OUTSTREAM(file)

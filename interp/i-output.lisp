@@ -46,10 +46,6 @@
  
 (DEFVAR |$algebraFormat| T)
  
-; DEFVAR($formulaFormat, false) -- if true produce script formula output
- 
-(DEFVAR |$formulaFormat| NIL)
- 
 ; DEFVAR($fortranFormat, false) -- if true produce fortran output
  
 (DEFVAR |$fortranFormat| NIL)
@@ -3254,31 +3250,6 @@
              (COND
               ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)))))))))
  
-; formulaFormat expr ==
-;   sff := '(ScriptFormulaFormat)
-;   formatFn := getFunctionFromDomain("coerce",sff,[$OutputForm])
-;   displayFn := getFunctionFromDomain("display",sff,[sff])
-;   SPADCALL(SPADCALL(expr,formatFn),displayFn)
-;   if not $collectOutput then
-;     TERPRI $algebraOutputStream
-;     FORCE_-OUTPUT $formulaOutputStream
-;   NIL
- 
-(DEFUN |formulaFormat| (|expr|)
-  (PROG (|sff| |formatFn| |displayFn|)
-    (RETURN
-     (PROGN
-      (SETQ |sff| '(|ScriptFormulaFormat|))
-      (SETQ |formatFn|
-              (|getFunctionFromDomain| '|coerce| |sff| (LIST |$OutputForm|)))
-      (SETQ |displayFn|
-              (|getFunctionFromDomain| '|display| |sff| (LIST |sff|)))
-      (SPADCALL (SPADCALL |expr| |formatFn|) |displayFn|)
-      (COND
-       ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)
-        (FORCE-OUTPUT |$formulaOutputStream|)))
-      NIL))))
- 
 ; fortranFormat expr ==
 ;     ff := '(FortranFormat)
 ;     formatFn :=
@@ -3441,7 +3412,6 @@
 ;       texFormat outputDomainConstructor expr
 ;   T := coerceInteractive(objNewWrap(expr,domain),$OutputForm) =>
 ;     x := objValUnwrap T
-;     if $formulaFormat then formulaFormat x
 ;     if $fortranFormat then fortranFormat x
 ;     if $algebraFormat then
 ;       mathprintWithNumber x
@@ -3488,7 +3458,6 @@
                  |$OutputForm|))
         (PROGN
          (SETQ |x| (|objValUnwrap| T$))
-         (COND (|$formulaFormat| (|formulaFormat| |x|)))
          (COND (|$fortranFormat| (|fortranFormat| |x|)))
          (COND (|$algebraFormat| (|mathprintWithNumber| |x|)))
          (COND (|$texFormat| (|texFormat| |x|)))

@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5153 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5149 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -129,9 +129,8 @@
  |FiniteMoebiusFunction| |FreeMonoid| |FortranMachineTypeCategory| |FileName|
  |FileNameCategory| |FunctionGraph| |FreeNilpotentLie|
  |FortranOutputStackPackage| |FindOrderFinite| |OutputFormatterCategory|
- |ScriptFormulaFormat| |ScriptFormulaFormat1| |FortranProgramCategory|
- |FortranFunctionCategory| |FortranFormat| |FortranProgram|
- |FullPartialFractionExpansion| |FullyPatternMatchable|
+ |FortranProgramCategory| |FortranFunctionCategory| |FortranFormat|
+ |FortranProgram| |FullPartialFractionExpansion| |FullyPatternMatchable|
  |FieldOfPrimeCharacteristic&| |FieldOfPrimeCharacteristic| |FinitePoset|
  |FloatingPointSystem&| |FloatingPointSystem| |Factored| |FactoredFunctions2|
  |Fraction| |FractionFunctions2| |FramedAlgebra&| |FramedAlgebra|
@@ -627,12 +626,12 @@
  |writable?| |readable?| |exists?| |extension| |directory| |filename|
  |functionGraph| |shallowExpand| |deepExpand| |clearFortranOutputStack|
  |showFortranOutputStack| |popFortranOutputStack| |pushFortranOutputStack|
- |topFortranOutputStack| |setFormula!| |formula| |fracPart| |polyPart|
- |fullPartialFraction| |primeFrobenius| |discreteLog| |decreasePrecision|
- |increasePrecision| |bits| |mergeFactors| |unitNormalize| |unit| |flagFactor|
- |sqfrFactor| |primeFactor| |irreducibleFactor| |factors| |nilFactor|
- |factorFraction| |regularRepresentation| |traceMatrix| |randomLC| |minimize|
- |module| |represents| |rightRegularRepresentation| |leftRegularRepresentation|
+ |topFortranOutputStack| |fracPart| |polyPart| |fullPartialFraction|
+ |primeFrobenius| |discreteLog| |decreasePrecision| |increasePrecision| |bits|
+ |mergeFactors| |unitNormalize| |unit| |flagFactor| |sqfrFactor| |primeFactor|
+ |irreducibleFactor| |factors| |nilFactor| |factorFraction|
+ |regularRepresentation| |traceMatrix| |randomLC| |minimize| |module|
+ |represents| |rightRegularRepresentation| |leftRegularRepresentation|
  |rightTraceMatrix| |leftTraceMatrix| |rightDiscriminant| |leftDiscriminant|
  |algtower| |isMult| |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS|
  |exprToPS| |localAbs| |atan1| |integ| |integt| |integ_df| |powToUPS|
