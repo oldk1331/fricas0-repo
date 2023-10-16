@@ -671,28 +671,28 @@
  |functionName| |one| |checkExtraValues| |safety| |allDegrees| |maxMixedDegree|
  |maxDegree| |maxLevel| |Somos| |homogeneous| |maxPower| |maxSubst| |maxShift|
  |maxDerivative| |GospersMethod| |primitiveMonomials| |totalDegreeSorted|
- |totalDegree| |nextSubsetGray| |firstSubsetGray| |clipPointsDefault|
- |drawToScale| |adaptive| |putColorInfo| |appendPoint| |component| |ranges|
- |pointLists| |makeGraphImage| |sendGraphImage| |graphImage| |groebSolve|
- |testDim| |genericPosition| |toPermutationIfCan| |directProduct| |refactor|
- |groupPresentation| F2EXPRR EXPRR2F |iim2| |iiretractVar| |guess|
- |guessExpRat| |guessBinRat| |guessAlgDep| |guessFE| |guessAlg| |guessPade|
- |algDepHP| |substHP| |shiftHP| |diffHP| |guessRec| |guessPRec| |guessRat|
- |guessADE| |guessHolo| |HankelMatrix| |update!| |lfunc| |inHallBasis?|
- |reorder| |heap| |gcdprim| |gcdcofact| |gcdcofactprim| |lintgcd| |hex|
- |members| |parts| |count| |every?| |any?| |map!| |dispGenerators|
- |homologyzc2| |homologyc2| |homologyzz| |homologyz| |homology0|
- |homologyGroup| |antipode| |factorList| |listConjugateBases| |matrixGcd|
- |divideIfCan!| |leastPower| |idealiser| |idealiserMatrix| |moduleSum|
- |mapUnivariate| |mapUnivariateIfCan| |mapMatrixIfCan| |mapBivariate|
- |fullDisplay| |relationsIdeal| |saturate| |groebner?| |groebnerIdeal| |ideal|
- |leadingIdeal| |backOldPos| |generalPosition| |quotient| |zeroDim?|
- |inRadical?| |in?| |element?| |zeroDimPrime?| |zeroDimPrimary?| |radical|
- |primaryDecomp| |leadingTerm| |constructOrdered| |leadingSupport|
- |eigenvector| |generalizedEigenvector| |eigenvalues| |eigenvectors|
- |generalizedEigenvectors| |removeRepeats!| |shrinkable| |physicalLength!|
- |physicalLength| |flexibleArray| |parseILTerm| |parseIL2| |parseIL|
- |proposition| |generalizedInverse| |row_operation_base|
+ |totalDegree| |monomials| |nextSubsetGray| |firstSubsetGray|
+ |clipPointsDefault| |drawToScale| |adaptive| |putColorInfo| |appendPoint|
+ |component| |ranges| |pointLists| |makeGraphImage| |sendGraphImage|
+ |graphImage| |groebSolve| |testDim| |genericPosition| |toPermutationIfCan|
+ |directProduct| |refactor| |groupPresentation| F2EXPRR EXPRR2F |iim2|
+ |iiretractVar| |guess| |guessExpRat| |guessBinRat| |guessAlgDep| |guessFE|
+ |guessAlg| |guessPade| |algDepHP| |substHP| |shiftHP| |diffHP| |guessRec|
+ |guessPRec| |guessRat| |guessADE| |guessHolo| |HankelMatrix| |update!| |lfunc|
+ |inHallBasis?| |reorder| |heap| |gcdprim| |gcdcofact| |gcdcofactprim|
+ |lintgcd| |hex| |members| |parts| |count| |every?| |any?| |map!|
+ |dispGenerators| |homologyzc2| |homologyc2| |homologyzz| |homologyz|
+ |homology0| |homologyGroup| |antipode| |factorList| |listConjugateBases|
+ |matrixGcd| |divideIfCan!| |leastPower| |idealiser| |idealiserMatrix|
+ |moduleSum| |mapUnivariate| |mapUnivariateIfCan| |mapMatrixIfCan|
+ |mapBivariate| |fullDisplay| |relationsIdeal| |saturate| |groebner?|
+ |groebnerIdeal| |ideal| |leadingIdeal| |backOldPos| |generalPosition|
+ |quotient| |zeroDim?| |inRadical?| |in?| |element?| |zeroDimPrime?|
+ |zeroDimPrimary?| |radical| |primaryDecomp| |leadingTerm| |constructOrdered|
+ |leadingSupport| |numberOfMonomials| |eigenvector| |generalizedEigenvector|
+ |eigenvalues| |eigenvectors| |generalizedEigenvectors| |removeRepeats!|
+ |shrinkable| |physicalLength!| |physicalLength| |flexibleArray| |parseILTerm|
+ |parseIL2| |parseIL| |proposition| |generalizedInverse| |row_operation_base|
  |row_operation_modular| |do_modular_solve| |do_poly_integer| |merge_exponents|
  |merge2| |setFieldInfo| |pol| |xn| |dAndcExp| |repSq| |expPot| |qPot| |lookup|
  |normal?| |normalElement| |minimalPolynomial| |incidenceAlgebra| |increment|
@@ -799,12 +799,12 @@
  |monotoneCumulant2momentPoly| |hankelDeterminant| |jacobi2poly|
  |moment2Stransform| |moment2monotoneCumulant| |derivationCoordinates|
  |generator| |splitSquarefree| |normalDenom| |totalfract| |pushdterm|
- |pushucoef| |pushuconst| |numberOfMonomials| |monomials| |mrv_normalize|
- |mrv_limit| |mrv_limit1| |mrv_sign| |mrv_cmp| |mrv_set| |expr_to_series|
- |mrv_rewrite| |mrv_rewrite0| |multiset| |systemCommand| |mergeDifference|
- |logDependenceQ| |compdegd| |univcase| |consnewpol| |nsqfree| |intChoose|
- |coefChoose| |myDegree| |normDeriv2| |plenaryPower| |commutator| |associator|
- |antiCommutator| |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
+ |pushucoef| |pushuconst| |mrv_normalize| |mrv_limit| |mrv_limit1| |mrv_sign|
+ |mrv_cmp| |mrv_set| |expr_to_series| |mrv_rewrite| |mrv_rewrite0| |multiset|
+ |systemCommand| |mergeDifference| |logDependenceQ| |compdegd| |univcase|
+ |consnewpol| |nsqfree| |intChoose| |coefChoose| |myDegree| |normDeriv2|
+ |plenaryPower| |commutator| |associator| |antiCommutator|
+ |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
  |naiveBeckermannLabahn1| |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis|
  |complexEigenvalues| |complexEigenvectors| |newton| |groebner| |redPol|
  |hMonic| |virtualDegree| |sPol| |shift| |normalizedAssociate| |normalize|

@@ -927,48 +927,11 @@
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
-                                        (|HasCategory| |#2| '(|Comparable|))
+                                        (AND (|HasCategory| |#1| '(|Finite|))
+                                             (|HasCategory| |#2| '(|Finite|)))
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|CommutativeRing|)))
-                                        (OR #2#
-                                            (|HasCategory| |#2|
-                                                           '(|Comparable|)))
-                                        (AND
-                                         (|HasCategory| |#1|
-                                                        '(|OrderedAbelianMonoidSup|))
-                                         (|HasCategory| |#2| '(|OrderedSet|)))
-                                        (OR
-                                         (AND
-                                          (|HasCategory| |#1|
-                                                         '(|OrderedAbelianMonoid|))
-                                          (|HasCategory| |#2| '(|Comparable|))
-                                          (|HasCategory| |#2| '(|OrderedSet|)))
-                                         (AND
-                                          (|HasCategory| |#1|
-                                                         '(|OrderedAbelianMonoidSup|))
-                                          (|HasCategory| |#2|
-                                                         '(|OrderedSet|))))
-                                        (LETT #1#
-                                              (AND
-                                               (|HasCategory| |#1| '(|Finite|))
-                                               (|HasCategory| |#2|
-                                                              '(|Finite|))))
-                                        (OR
-                                         (AND
-                                          (|HasCategory| |#1| '(|Comparable|))
-                                          (|HasCategory| |#2| '(|Comparable|)))
-                                         #1#
-                                         (AND
-                                          (|HasCategory| |#1|
-                                                         '(|OrderedAbelianMonoid|))
-                                          (|HasCategory| |#2| '(|Comparable|))
-                                          (|HasCategory| |#2| '(|OrderedSet|)))
-                                         (AND
-                                          (|HasCategory| |#1|
-                                                         '(|OrderedAbelianMonoidSup|))
-                                          (|HasCategory| |#2|
-                                                         '(|OrderedSet|))))
                                         (AND #2#
                                              (|HasCategory| |#2|
                                                             '(|CommutativeStar|)))
@@ -976,40 +939,36 @@
                                                        '(|CharacteristicNonZero|))
                                         (|HasCategory| |#1|
                                                        '(|CharacteristicZero|))
-                                        (AND #2#
-                                             (|HasCategory| |#2|
-                                                            '(|Comparable|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         '(|OrderedAbelianMonoidSup|))
-                                         (|HasCategory| |#2| '(|Comparable|))
                                          (|HasCategory| |#2| '(|OrderedSet|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|OrderedAbelianMonoid|))
-                                          (|HasCategory| |#2| '(|Comparable|))
                                           (|HasCategory| |#2| '(|OrderedSet|)))
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|OrderedAbelianMonoidSup|))
-                                          (|HasCategory| |#2| '(|Comparable|))
                                           (|HasCategory| |#2|
                                                          '(|OrderedSet|))))
+                                        (LETT #1#
+                                              (|HasCategory| |#2|
+                                                             '(|Comparable|)))
                                         (OR
                                          (AND
                                           (|HasCategory| |#1| '(|Comparable|))
-                                          (|HasCategory| |#2| '(|Comparable|)))
-                                         #1#
+                                          #1#)
+                                         (AND (|HasCategory| |#1| '(|Finite|))
+                                              (|HasCategory| |#2| '(|Finite|)))
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|OrderedAbelianMonoid|))
-                                          (|HasCategory| |#2| '(|Comparable|))
                                           (|HasCategory| |#2| '(|OrderedSet|)))
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|OrderedAbelianMonoidSup|))
-                                          (|HasCategory| |#2| '(|Comparable|))
                                           (|HasCategory| |#2|
                                                          '(|OrderedSet|))))))))
     (|haddProp| |$ConstructorCache| '|MonoidRing| (LIST DV$1 DV$2) (CONS 1 $))
@@ -1043,7 +1002,7 @@
        ('T
         (QSETREFV $ 70 (CONS (|dispatchFunction| |MRING;recip;$U;30|) $))))))
     (COND
-     ((|testBitVector| |pv$| 1)
+     ((|testBitVector| |pv$| 8)
       (PROGN
        (QSETREFV $ 83
                  (CONS (|dispatchFunction| |MRING;leadingCoefficient;$R;33|)
@@ -1142,38 +1101,38 @@
               * 735)
            'NIL
            (CONS
-            (|makeByteWordVec2| 10
-                                '(0 8 8 2 9 10 0 0 0 1 0 2 1 8 0 0 3 4 0 0 0 3
-                                  3 1 4 0 5 0 0 0 5 0 0 0 0 5 6 0 0 7 0 8 0 0 0
-                                  0 0 5 6 8))
+            (|makeByteWordVec2| 9
+                                '(0 3 3 2 4 5 0 0 0 0 0 0 3 2 0 0 0 6 0 0 0 0 0
+                                  0 6 0 7 0 0 0 7 0 0 0 0 1 7 0 0 9 0 3 0 0 0 0
+                                  0 1 3 7))
             (CONS
-             '#(NIL NIL |Algebra&| |Algebra&| NIL NIL NIL |Rng&| NIL
-                |FreeModuleCategory&| NIL |Module&| NIL |Module&|
-                |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&| NIL NIL
-                NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL NIL NIL
+             '#(NIL NIL |Algebra&| |Algebra&| NIL NIL NIL |Rng&|
+                |FreeModuleCategory&| NIL NIL NIL |Module&| |Module&| NIL
+                |NonAssociativeRing&| NIL NIL NIL NIL NIL |NonAssociativeRng&|
+                NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL NIL NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
-                |OrderedSet&| |Finite&| |Magma&| |AbelianSemiGroup&| NIL
+                |Finite&| |OrderedSet&| |Magma&| |AbelianSemiGroup&| NIL
                 |SetCategory&| NIL |RetractableTo&| |RetractableTo&| NIL
-                |BasicType&| NIL |PartialOrder&| NIL NIL)
+                |BasicType&| NIL NIL NIL |PartialOrder&|)
              (CONS
               '#((|MonoidRingCategory| 6 7) (|CommutativeRing|) (|Algebra| $$)
                  (|Algebra| 6) (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|Ring|) (|Rng|) (|SemiRing|) (|FreeModuleCategory| 6 7)
-                 (|SemiRng|) (|Module| 6) (|IndexedDirectProductCategory| 6 7)
-                 (|Module| $$) (|NonAssociativeRing|) (|BiModule| $$ $$)
-                 (|BiModule| 6 6) (|OrderedAbelianMonoidSup|)
-                 (|NonAssociativeRng|) (|RightModule| $$) (|LeftModule| $$)
-                 (|RightModule| 6) (|LeftModule| 6)
-                 (|AbelianProductCategory| 6)
-                 (|OrderedCancellationAbelianMonoid|) (|AbelianGroup|)
-                 (|OrderedAbelianMonoid|) (|Monoid|) (|NonAssociativeSemiRing|)
-                 (|CancellationAbelianMonoid|) (|OrderedAbelianSemiGroup|)
-                 (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
-                 (|AbelianMonoid|) (|OrderedSet|) (|Finite|) (|Magma|)
-                 (|AbelianSemiGroup|) (|Comparable|) (|SetCategory|)
-                 (|CommutativeStar|) (|RetractableTo| 6) (|RetractableTo| 7)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 73)
-                 (|PartialOrder|) (|ConvertibleTo| 114) (|TwoSidedRecip|))
+                 (|Ring|) (|Rng|) (|FreeModuleCategory| 6 7) (|SemiRing|)
+                 (|IndexedDirectProductCategory| 6 7) (|SemiRng|) (|Module| $$)
+                 (|Module| 6) (|BiModule| 6 6) (|NonAssociativeRing|)
+                 (|BiModule| $$ $$) (|OrderedAbelianMonoidSup|)
+                 (|AbelianProductCategory| 6) (|LeftModule| 6)
+                 (|RightModule| 6) (|NonAssociativeRng|) (|RightModule| $$)
+                 (|LeftModule| $$) (|OrderedCancellationAbelianMonoid|)
+                 (|AbelianGroup|) (|OrderedAbelianMonoid|) (|Monoid|)
+                 (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
+                 (|OrderedAbelianSemiGroup|) (|SemiGroup|) (|MagmaWithUnit|)
+                 (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Finite|)
+                 (|OrderedSet|) (|Magma|) (|AbelianSemiGroup|) (|Comparable|)
+                 (|SetCategory|) (|CommutativeStar|) (|RetractableTo| 6)
+                 (|RetractableTo| 7) (|unitsKnown|) (|BasicType|)
+                 (|CoercibleTo| 73) (|ConvertibleTo| 114) (|TwoSidedRecip|)
+                 (|PartialOrder|))
               (|makeByteWordVec2| 117
                                   '(0 6 9 10 0 6 0 16 2 6 17 0 0 18 0 6 9 21 0
                                     7 9 22 0 0 9 23 2 24 17 0 0 25 1 6 0 26 27
@@ -1195,26 +1154,26 @@
                                     17 12 0 106 2 107 65 7 0 108 3 107 6 0 7 6
                                     109 2 107 65 7 0 110 0 107 0 111 1 107 89 0
                                     112 2 107 6 0 7 113 2 0 17 0 0 1 1 0 17 0
-                                    31 1 0 13 0 32 1 1 89 0 90 2 12 0 0 0 1 2 0
-                                    67 0 0 1 2 14 17 0 0 1 0 6 9 23 0 0 0 1 1 0
+                                    31 1 0 13 0 32 1 0 89 0 90 2 6 0 0 0 1 2 0
+                                    67 0 0 1 2 9 17 0 0 1 0 1 9 23 0 0 0 1 1 0
                                     67 0 1 2 0 0 0 9 1 2 0 0 0 26 1 1 0 65 0 66
-                                    1 0 62 0 63 1 0 6 0 1 1 0 7 0 1 1 1 0 0 87
-                                    1 0 67 0 70 0 6 0 1 2 0 17 0 0 1 1 0 17 0
+                                    1 0 62 0 63 1 0 6 0 1 1 0 7 0 1 1 8 0 0 87
+                                    1 0 67 0 70 0 1 0 1 2 0 17 0 0 1 1 0 17 0
                                     42 1 0 9 0 61 1 0 44 0 45 1 0 17 0 20 2 0 0
-                                    6 7 19 2 13 0 0 0 1 2 13 0 0 0 1 2 0 0 59 0
-                                    60 1 6 26 0 35 1 1 13 0 88 2 11 6 98 0 99 1
-                                    0 67 0 1 2 0 0 0 9 1 2 0 0 0 26 1 1 1 12 0
-                                    86 1 1 7 0 84 1 1 0 0 85 1 1 6 0 83 1 0 115
-                                    0 1 1 6 0 26 30 2 0 117 117 0 1 1 0 116 0 1
-                                    0 6 44 1 1 6 114 0 1 1 1 0 13 91 1 1 0 13
-                                    97 2 0 0 0 0 1 1 8 0 0 1 1 0 0 13 14 1 0 0
+                                    6 7 19 2 7 0 0 0 1 2 7 0 0 0 1 2 0 0 59 0
+                                    60 1 1 26 0 35 1 0 13 0 88 2 2 6 98 0 99 1
+                                    0 67 0 1 2 0 0 0 9 1 2 0 0 0 26 1 1 8 12 0
+                                    86 1 8 7 0 84 1 8 0 0 85 1 8 6 0 83 1 0 115
+                                    0 1 1 1 0 26 30 2 0 117 117 0 1 1 0 116 0 1
+                                    0 1 44 1 1 1 114 0 1 1 8 0 13 91 1 0 0 13
+                                    97 2 0 0 0 0 1 1 3 0 0 1 1 0 0 13 14 1 0 0
                                     6 49 1 0 0 7 48 1 0 0 24 51 1 0 73 0 82 1 0
-                                    46 0 47 2 0 6 0 7 102 1 9 67 0 1 0 0 9 11 3
+                                    46 0 47 2 0 6 0 7 102 1 4 67 0 1 0 0 9 11 3
                                     0 0 0 0 0 1 2 0 0 0 0 1 2 0 17 0 0 1 2 0 0
-                                    0 9 1 2 0 0 0 26 1 0 0 0 15 0 0 0 36 2 13
-                                    17 0 0 1 2 13 17 0 0 1 2 0 17 0 0 100 2 13
-                                    17 0 0 1 2 13 17 0 0 1 1 0 0 0 53 2 0 0 0 0
-                                    1 2 0 0 0 0 29 2 3 0 0 6 1 2 3 0 6 0 55 2 1
-                                    0 6 7 1 2 1 0 7 6 1 2 0 0 9 0 1 2 0 0 24 0
-                                    58 2 0 0 0 0 104 2 0 0 26 0 1)))))
+                                    0 9 1 2 0 0 0 26 1 0 0 0 15 0 0 0 36 2 7 17
+                                    0 0 1 2 7 17 0 0 1 2 0 17 0 0 100 2 7 17 0
+                                    0 1 2 7 17 0 0 1 1 0 0 0 53 2 0 0 0 0 1 2 0
+                                    0 0 0 29 2 0 0 6 0 55 2 0 0 0 6 1 2 0 0 7 6
+                                    1 2 0 0 6 7 1 2 0 0 9 0 1 2 0 0 24 0 58 2 0
+                                    0 0 0 104 2 0 0 26 0 1)))))
            '|lookupComplete|)) 

@@ -24,16 +24,12 @@
                                     ('T
                                      (LETT |MonoidRingCategory;CAT|
                                            (|Join| (|Ring|)
+                                                   (|FreeModuleCategory| '|t#1|
+                                                                         '|t#2|)
                                                    (|RetractableTo| '|t#2|)
                                                    (|RetractableTo| '|t#1|)
                                                    (|mkCategory|
-                                                    '(((|monomial|
-                                                        ($ |t#1| |t#2|))
-                                                       T)
-                                                      ((|coefficient|
-                                                        (|t#1| $ |t#2|))
-                                                       T)
-                                                      ((|coerce|
+                                                    '(((|coerce|
                                                         ($
                                                          (|List|
                                                           (|Record|
@@ -45,25 +41,6 @@
                                                           (|Record|
                                                            (|:| |k| |t#2|)
                                                            (|:| |c| |t#1|)))
-                                                         $))
-                                                       T)
-                                                      ((|map|
-                                                        ($
-                                                         (|Mapping| |t#1|
-                                                                    |t#1|)
-                                                         $))
-                                                       T)
-                                                      ((|monomial?|
-                                                        ((|Boolean|) $))
-                                                       T)
-                                                      ((|coefficients|
-                                                        ((|List| |t#1|) $))
-                                                       T)
-                                                      ((|monomials|
-                                                        ((|List| $) $))
-                                                       T)
-                                                      ((|numberOfMonomials|
-                                                        ((|NonNegativeInteger|)
                                                          $))
                                                        T))
                                                     '(((|CharacteristicZero|)
@@ -86,10 +63,6 @@
                                                         (|has| |t#2|
                                                                (|Finite|))
                                                         (|has| |t#1|
-                                                               (|Finite|))))
-                                                      ((|FreeModuleCategory|
-                                                        |t#1| |t#2|)
-                                                       (|has| |t#2|
-                                                              (|Comparable|))))
+                                                               (|Finite|)))))
                                                     NIL NIL)))))))
            (SETELT #1# 0 (LIST '|MonoidRingCategory| |t#1| |t#2|))))) 
