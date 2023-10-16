@@ -134,7 +134,7 @@
                       . #2#)
                 (EXIT
                  (COND
-                  ((< |writeTypeInt| 0)
+                  ((< |writeTypeInt| 1)
                    (SPADCALL
                     (LIST "  > " |aTypeOfFile|
                           " is not a valid file type for writing a viewport")
