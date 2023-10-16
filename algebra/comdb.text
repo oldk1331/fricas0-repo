@@ -6032,7 +6032,7 @@
 682473`\spad{plot([f1,{} ...,{} fm],{} a..b,{} c..d)} plots the functions \spad{y = f1(x)},{} ...,{} \spad{y = fm(x)} on the interval \spad{a..b}; \spad{y}-range of \spad{[c,{} d]} is noted in Plot object.
 682578`\spad{plot(fcn,{} x,{} seg)} plots the graph of \spad{y = f(x)} on a interval
 682653`\spad{plot(f,{} g,{} t,{} seg)} plots the graph of \spad{x = f(t)},{} \spad{y = g(t)} as \spad{t} ranges over an interval.
-682730`\spad{plot(f,{} g,{} h,{} a..b)} plots {/emx = \spad{f}(\spad{t}),{} \spad{y} = \spad{g}(\spad{t}),{} \spad{z} = \spad{h}(\spad{t})} as \spad{t} ranges over {/em[a,{} \spad{b}]}.
+682730`\spad{plot(f,{} g,{} h,{} a..b)} plots \spad{x} = \spad{f}(\spad{t}),{} \spad{y} = \spad{g}(\spad{t}),{} \spad{z} = \spad{h}(\spad{t}) as \spad{t} ranges over [a,{} \spad{b}].
 682891`\spad{plot(f,{} g,{} a..b,{} c..d,{} e..f)} plots the parametric curve \spad{x = f(t)},{} \spad{y = g(t)} as \spad{t} ranges over the interval \spad{[a,{} b]}; \spad{x}-range of \spad{[c,{} d]} and \spad{y}-range of \spad{[e,{} f]} are noted in Plot object.
 683038`\spad{plot(f1,{} f2,{} f3,{} f4,{} x,{} y,{} z,{} w)} \undocumented
 683262`\spad{plotPolar(f)} plots the polar curve \spad{r = f(theta)} as theta ranges over the interval \spad{[0,{} 2*\%\spad{pi}]}; this is the same as the parametric curve \spad{x = f(t) * cos(t)},{} \spad{y = f(t) * sin(t)}.
@@ -6066,7 +6066,7 @@
 685620`\spad{pointList(me)} returns points at vertices of this mesh.
 685672`\spad{pointList(gp)} should be local but conditional
 685730`\spad{pointLists(\spad{gi})} returns the list of lists of points which compose the given graph,{} \spad{\spad{gi}},{} of the domain \spadtype{GraphImage}.
-685803`\spad{pointPlot(f,{} g,{} h,{} a..b)} plots {/emx = \spad{f}(\spad{t}),{} \spad{y} = \spad{g}(\spad{t}),{} \spad{z} = \spad{h}(\spad{t})} as \spad{t} ranges over {/em[a,{} \spad{b}]}.
+685803`\spad{pointPlot(f,{} g,{} h,{} a..b)} plots \spad{x} = \spad{f}(\spad{t}),{} \spad{y} = \spad{g}(\spad{t}),{} \spad{z} = \spad{h}(\spad{t}) as \spad{t} ranges over [a,{} \spad{b}].
 685895`\spad{pointPlot(t +-> (f(t),{} g(t)),{} a..b)} plots the parametric curve \spad{x = f(t)},{} \spad{y = g(t)} as \spad{t} ranges over the interval \spad{[a,{} b]}.
 685985`\spad{pointPlot(t +-> (f(t),{} g(t)),{} a..b,{} c..d,{} e..f)} plots the parametric curve \spad{x = f(t)},{} \spad{y = g(t)} as \spad{t} ranges over the interval \spad{[a,{} b]}; \spad{x}-range of \spad{[c,{} d]} and \spad{y}-range of \spad{[e,{} f]} are noted in Plot object.
 686117`\spad{pointPlot(f,{} x,{} y,{} z,{} w)} \undocumented
