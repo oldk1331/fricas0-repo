@@ -985,14 +985,13 @@
 ;     -- first see if the user has explicitly specified the compiler
 ;     -- to use.
 ; 
-;     optlist := '(new old translate constructor)
+;     optlist := '(new old constructor)
 ;     haveNew := nil
 ;     haveOld := nil
 ;     for opt in $options while not (haveNew and haveOld) repeat
 ;         [optname,:optargs] := opt
 ;         fullopt := selectOptionLC(optname,optlist,nil)
 ;         fullopt = 'new => haveNew := true
-;         fullopt = 'translate => haveOld := true
 ;         fullopt = 'constructor => haveOld := true
 ;         fullopt = 'old => haveOld := true
 ; 
@@ -1051,7 +1050,7 @@
        (#1='T
         (PROGN
          (COND ((NULL |args|) (SETQ |args| (LIST |$edit_file|))))
-         (SETQ |optlist| '(|new| |old| |translate| |constructor|))
+         (SETQ |optlist| '(|new| |old| |constructor|))
          (SETQ |haveNew| NIL)
          (SETQ |haveOld| NIL)
          ((LAMBDA (|bfVar#25| |opt|)
@@ -1066,7 +1065,6 @@
                 (SETQ |optargs| (CDR |opt|))
                 (SETQ |fullopt| (|selectOptionLC| |optname| |optlist| NIL))
                 (COND ((EQ |fullopt| '|new|) (SETQ |haveNew| T))
-                      ((EQ |fullopt| '|translate|) (SETQ |haveOld| T))
                       ((EQ |fullopt| '|constructor|) (SETQ |haveOld| T))
                       ((EQ |fullopt| '|old|) (SETQ |haveOld| T))))))
              (SETQ |bfVar#25| (CDR |bfVar#25|))))
@@ -1148,7 +1146,6 @@
 ;     optList :=  '( _
 ;       new _
 ;       old _
-;       translate _
 ;       onlyargs _
 ;       moreargs _
 ;       quiet _
@@ -1170,9 +1167,7 @@
 ;         fullopt := selectOptionLC(optname,optList,nil)
 ; 
 ;         fullopt = 'new       => nil
-;         fullopt = 'old       => error "Internal error: compileAsharpCmd got )old"
-;         fullopt = 'translate => error "Internal error: compileAsharpCmd got )translate"
-; 
+;         fullopt = 'old  => error "Internal error: compileAsharpCmd got )old"
 ;         fullopt = 'quiet     => beQuiet := true
 ;         fullopt = 'noquiet   => beQuiet := false
 ; 
@@ -1250,8 +1245,8 @@
         (PROGN
          (SETQ |$edit_file| |path|)
          (SETQ |optList|
-                 '(|new| |old| |translate| |onlyargs| |moreargs| |quiet|
-                   |nolispcompile| |noquiet| |library| |nolibrary|))
+                 '(|new| |old| |onlyargs| |moreargs| |quiet| |nolispcompile|
+                   |noquiet| |library| |nolibrary|))
          (SETQ |beQuiet| NIL)
          (SETQ |doLibrary| T)
          (SETQ |doCompileLisp| T)
@@ -1270,9 +1265,6 @@
                 (COND ((EQ |fullopt| '|new|) NIL)
                       ((EQ |fullopt| '|old|)
                        (|error| '|Internal error: compileAsharpCmd got )old|))
-                      ((EQ |fullopt| '|translate|)
-                       (|error|
-                        '|Internal error: compileAsharpCmd got )translate|))
                       ((EQ |fullopt| '|quiet|) (SETQ |beQuiet| T))
                       ((EQ |fullopt| '|noquiet|) (SETQ |beQuiet| NIL))
                       ((EQ |fullopt| '|nolispcompile|)
