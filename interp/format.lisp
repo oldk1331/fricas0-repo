@@ -1019,12 +1019,6 @@
 ;   op = 'construct =>
 ;     concat(lbrkSch(),
 ;            tuple2String [form2String1 x for x in argl],rbrkSch())
-;   op = "SEGMENT" =>
-;     null argl => '".."
-;     lo := form2String1 first argl
-;     argl := rest argl
-;     (null argl) or null (first argl) => [lo, '".."]
-;     [lo, '"..", form2String1 first argl]
 ;   op = "MATRIX" => matrix2String argl
 ;   u1 is ["ROOT", arg1] =>
 ;      concat("sqrt(", appOrParen(arg1),")")
@@ -1040,8 +1034,8 @@
 ;   application2String(op,[form2String1 x for x in argl], u1)
  
 (DEFUN |form2String1| (|u|)
-  (PROG (|u1| |op| |argl| |conSig| |ml| |argl'| |operation| |sig| |lo|
-         |ISTMP#1| |arg1| |ISTMP#2| |arg2| |t| |f|)
+  (PROG (|u1| |op| |argl| |conSig| |ml| |argl'| |operation| |sig| |ISTMP#1|
+         |arg1| |ISTMP#2| |arg2| |t| |f|)
     (RETURN
      (COND
       ((ATOM |u|)
@@ -1178,15 +1172,6 @@
                 (SETQ |bfVar#34| (CDR |bfVar#34|))))
              NIL |argl| NIL))
            (|rbrkSch|)))
-         ((EQ |op| 'SEGMENT)
-          (COND ((NULL |argl|) "..")
-                (#1#
-                 (PROGN
-                  (SETQ |lo| (|form2String1| (CAR |argl|)))
-                  (SETQ |argl| (CDR |argl|))
-                  (COND
-                   ((OR (NULL |argl|) (NULL (CAR |argl|))) (LIST |lo| ".."))
-                   (#1# (LIST |lo| ".." (|form2String1| (CAR |argl|)))))))))
          ((EQ |op| 'MATRIX) (|matrix2String| |argl|))
          ((AND (CONSP |u1|) (EQ (CAR |u1|) 'ROOT)
                (PROGN
