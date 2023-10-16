@@ -333,6 +333,19 @@
                       (MKQ |types|)))
         (|compileADEFBody| |t| |vars| |types| |body| (CAR |types|))))))))
  
+; wrapMapBodyWithCatch body ==
+;     -- places a CATCH around the map body
+;     -- note that we will someday have to fix up the catch identifier
+;     -- to use the generated internal map name
+;     $mapThrowCount = 0 => body
+;     ['CATCH, MKQ mapCatchName $mapName, body]
+ 
+(DEFUN |wrapMapBodyWithCatch| (|body|)
+  (PROG ()
+    (RETURN
+     (COND ((EQL |$mapThrowCount| 0) |body|)
+           ('T (LIST 'CATCH (MKQ (|mapCatchName| |$mapName|)) |body|))))))
+ 
 ; compileTargetedADEF(t,vars,types,body) ==
 ;   val := compileBody(body, first types)
 ;   computedResultType := objMode val
