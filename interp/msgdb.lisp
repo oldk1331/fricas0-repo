@@ -2568,10 +2568,14 @@
 (DEFUN |sayBrightly| (|x|)
   (PROG () (RETURN (|sayBrightly2| |x| (|get_lisp_std_out|)))))
  
-; sayBrightlyI|(x) ==
+; sayBrightlyI(x) ==
 ;     NULL(X) => nil
 ;     sayBrightly1(x, get_lisp_error_out())
  
+(DEFUN |sayBrightlyI| (|x|)
+  (PROG ()
+    (RETURN
+     (COND ((NULL X) NIL) ('T (|sayBrightly1| |x| (|get_lisp_error_out|)))))))
  
 ; sayMSGNT(x) == sayBrightlyNT1(x, $algebraOutputStream)
  
