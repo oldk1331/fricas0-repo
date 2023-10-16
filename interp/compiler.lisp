@@ -249,7 +249,6 @@
 ;   STRINGP m => (atom x => (m=x or m=STRINGIMAGE x => [m,m,e]; nil); nil)
 ;   not x or atom x => compAtom(x,m,e)
 ;   op:= first x
-;   getmode(op,e) is ["Mapping",:ml] and (u:= applyMapping(x,m,e,ml)) => u
 ;   op=":" => compColon(x,m,e)
 ;   op="::" => compCoerce(x,m,e)
 ;   t:= compExpression(x,m,e)
@@ -258,7 +257,7 @@
 ;   t
  
 (DEFUN |comp3| (|x| |m| |e|)
-  (PROG (|ISTMP#1| |a| |op| |ml| |u| |t| |x'| |m'| |ISTMP#2| |e'|)
+  (PROG (|ISTMP#1| |a| |op| |t| |x'| |m'| |ISTMP#2| |e'|)
     (RETURN
      (PROGN
       (SETQ |e| (|addDomain| |m| |e|))
@@ -283,33 +282,25 @@
        (#1#
         (PROGN
          (SETQ |op| (CAR |x|))
-         (COND
-          ((AND
-            (PROGN
-             (SETQ |ISTMP#1| (|getmode| |op| |e|))
-             (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)
-                  (PROGN (SETQ |ml| (CDR |ISTMP#1|)) #1#)))
-            (SETQ |u| (|applyMapping| |x| |m| |e| |ml|)))
-           |u|)
-          ((EQ |op| '|:|) (|compColon| |x| |m| |e|))
-          ((EQ |op| '|::|) (|compCoerce| |x| |m| |e|))
-          (#1#
-           (PROGN
-            (SETQ |t| (|compExpression| |x| |m| |e|))
-            (COND
-             ((AND (CONSP |t|)
-                   (PROGN
-                    (SETQ |x'| (CAR |t|))
-                    (SETQ |ISTMP#1| (CDR |t|))
-                    (AND (CONSP |ISTMP#1|)
-                         (PROGN
-                          (SETQ |m'| (CAR |ISTMP#1|))
-                          (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                          (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                               (PROGN (SETQ |e'| (CAR |ISTMP#2|)) #1#)))))
-                   (NULL (|member| |m'| (|getDomainsInScope| |e'|))))
-              (LIST |x'| |m'| (|addDomain| |m'| |e'|)))
-             (#1# |t|))))))))))))
+         (COND ((EQ |op| '|:|) (|compColon| |x| |m| |e|))
+               ((EQ |op| '|::|) (|compCoerce| |x| |m| |e|))
+               (#1#
+                (PROGN
+                 (SETQ |t| (|compExpression| |x| |m| |e|))
+                 (COND
+                  ((AND (CONSP |t|)
+                        (PROGN
+                         (SETQ |x'| (CAR |t|))
+                         (SETQ |ISTMP#1| (CDR |t|))
+                         (AND (CONSP |ISTMP#1|)
+                              (PROGN
+                               (SETQ |m'| (CAR |ISTMP#1|))
+                               (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                               (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                                    (PROGN (SETQ |e'| (CAR |ISTMP#2|)) #1#)))))
+                        (NULL (|member| |m'| (|getDomainsInScope| |e'|))))
+                   (LIST |x'| |m'| (|addDomain| |m'| |e'|)))
+                  (#1# |t|))))))))))))
  
 ; hasFormalMapVariable(x, vl) ==
 ;   $formalMapVariables: local := vl
@@ -1091,20 +1082,32 @@
         (LIST (LIST 'CONS (LIST '|function| |op|) |env|) |m| |oldE|)))))))
  
 ; compExpression(x,m,e) ==
-;   SYMBOLP(first x) and (fn := GET(first x, "SPECIAL")) =>
+;   op := first x
+;   SYMBOLP(op) and (fn := GET(op, "SPECIAL")) =>
 ;     FUNCALL(fn,x,m,e)
+;   getmode(op, e) is ["Mapping", :ml] and (u := applyMapping(x, m, e, ml)) => u
 ;   compForm(x,m,e)
  
 (DEFUN |compExpression| (|x| |m| |e|)
-  (PROG (|fn|)
+  (PROG (|op| |fn| |ISTMP#1| |ml| |u|)
     (RETURN
-     (COND
-      ((AND (SYMBOLP (CAR |x|)) (SETQ |fn| (GET (CAR |x|) 'SPECIAL)))
-       (FUNCALL |fn| |x| |m| |e|))
-      ('T (|compForm| |x| |m| |e|))))))
+     (PROGN
+      (SETQ |op| (CAR |x|))
+      (COND
+       ((AND (SYMBOLP |op|) (SETQ |fn| (GET |op| 'SPECIAL)))
+        (FUNCALL |fn| |x| |m| |e|))
+       ((AND
+         (PROGN
+          (SETQ |ISTMP#1| (|getmode| |op| |e|))
+          (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)
+               (PROGN (SETQ |ml| (CDR |ISTMP#1|)) #1='T)))
+         (SETQ |u| (|applyMapping| |x| |m| |e| |ml|)))
+        |u|)
+       (#1# (|compForm| |x| |m| |e|)))))))
  
 ; compAtom(x, m, e) ==
 ;     res := compAtom1(x, m, e) => res
+;     -- Needed at least for bootstrap of FFIELDC.spad
 ;     compAtomWithModemap(x, m, e, get(x, "modemap", e))
  
 (DEFUN |compAtom| (|x| |m| |e|)
