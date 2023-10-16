@@ -2475,13 +2475,6 @@
 ;           (text . " signature") (bcStrings (14 "*" opsig EM))
 ;           (text . "\vspace{1}\newline "))
 ;          ops)
-;       (  "\tab{3}{\em Attributes}"
-;          ((text . "\newline\space{3}")
-;           (text . "name")       (bcStrings (14 "*" attrname EM))
-;           (text . " \#args ")   (bcStrings (1  "*" attrnargs EM))
-;           (text . " arguments ")(bcStrings (14 "*" attrargs EM))
-;           (text . "\vspace{1}\newline "))
-;          attrs)
 ;       (  "\tab{3}{\em Constructors}"
 ;          ((text . "\tab{17}")
 ;           (bcButtons (1 cats)) (text . " {\em categories} ")
@@ -2525,13 +2518,6 @@
             (|bcStrings| (14 "*" |opsig| EM))
             (|text| . "\\vspace{1}\\newline "))
            |ops|)
-          ("\\tab{3}{\\em Attributes}"
-           ((|text| . "\\newline\\space{3}") (|text| . "name")
-            (|bcStrings| (14 "*" |attrname| EM)) (|text| . " \\#args ")
-            (|bcStrings| (1 "*" |attrnargs| EM)) (|text| . " arguments ")
-            (|bcStrings| (14 "*" |attrargs| EM))
-            (|text| . "\\vspace{1}\\newline "))
-           |attrs|)
           ("\\tab{3}{\\em Constructors}"
            ((|text| . "\\tab{17}") (|bcButtons| (1 |cats|))
             (|text| . " {\\em categories} ") (|bcButtons| (1 |doms|))

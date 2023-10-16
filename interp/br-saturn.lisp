@@ -836,9 +836,8 @@
 ;   htSay '"}{"
 ;   if $exposedOnlyIfTrue
 ;     then
-;       if one?
-;       then htSay '"{\em Unexposed Also}"
-;       else htMakePage [['bcLinks,['"Unexposed Also",'"",'dbShowCons,'exposureOff]]]
+;       htMakePage([['bcLinks, ['"Unexposed Also", '"", 'dbShowCons,
+;                               'exposureOff]]])
 ;     else
 ;       if one?
 ;       then htSay '"{\em Exposed Only}"
@@ -946,13 +945,10 @@
       (|htSay| "}{")
       (COND
        (|$exposedOnlyIfTrue|
-        (COND (|one?| (|htSay| "{\\em Unexposed Also}"))
-              (#1#
-               (|htMakePage|
-                (LIST
-                 (LIST '|bcLinks|
-                       (LIST "Unexposed Also" "" '|dbShowCons|
-                             '|exposureOff|)))))))
+        (|htMakePage|
+         (LIST
+          (LIST '|bcLinks|
+                (LIST "Unexposed Also" "" '|dbShowCons| '|exposureOff|)))))
        (|one?| (|htSay| "{\\em Exposed Only}"))
        (#1#
         (|htMakePage|
@@ -1414,9 +1410,9 @@
 ;   if star? then
 ;     htSay '"{"
 ;     if $exposedOnlyIfTrue
-;     then if one?
-;          then htSay '"{\em Unexposed Also}"
-;          else htMakePage [['bcLinks,['"Unexposed Also",'"",'dbShowOps,which,'exposureOff]]]
+;     then
+;          htMakePage([['bcLinks, ['"Unexposed Also", '"", 'dbShowOps,
+;                                  which, 'exposureOff]]])
 ;     else if one?
 ;          then htSay '"{\em Exposed Only}"
 ;          else htMakePage [['bcLinks,['"Exposed Only",'"",'dbShowOps, which,'exposureOn]]]
@@ -1544,13 +1540,11 @@
        (|star?| (|htSay| "{")
         (COND
          (|$exposedOnlyIfTrue|
-          (COND (|one?| (|htSay| "{\\em Unexposed Also}"))
-                (#1#
-                 (|htMakePage|
-                  (LIST
-                   (LIST '|bcLinks|
-                         (LIST "Unexposed Also" "" '|dbShowOps| |which|
-                               '|exposureOff|)))))))
+          (|htMakePage|
+           (LIST
+            (LIST '|bcLinks|
+                  (LIST "Unexposed Also" "" '|dbShowOps| |which|
+                        '|exposureOff|)))))
          (|one?| (|htSay| "{\\em Exposed Only}"))
          (#1#
           (|htMakePage|
