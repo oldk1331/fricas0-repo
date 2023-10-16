@@ -8049,7 +8049,7 @@
 882726`\spad{tail(l)} returns the doubly-linked aggregate \spad{l} starting at its second element. Error: if \spad{l} is empty.
 882780`\spad{tail(p)} returns its reductum,{} where \spad{p} is viewed as a univariate polynomial in its main variable.
 882844`\spad{tail(u)} returns the last node of \spad{u}. Error if \spad{u} is empty.
-882900`\spad{tails(l)} returns list [rest(\spad{x},{} 0),{} rest(\spad{x},{} 1),{} ...,{} rest(\spad{x},{} \spad{\#x} - 1)]
+882900`\spad{tails(u)} returns list [rest(\spad{u},{} 0),{} rest(\spad{u},{} 1),{} ...,{} rest(\spad{x},{} \#u - 1)].
 882944`\spad{tan(x)} represents the Fortran intrinsic function TAN
 883025`\spad{tan(x)} applies the tangent operator to \spad{x}
 883231`\spad{tan(st)} computes tangent of a power series \spad{st}.
