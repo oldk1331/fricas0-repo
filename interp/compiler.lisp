@@ -1138,22 +1138,22 @@
  
 ; primitiveType x ==
 ;   x is nil => $EmptyMode
-;   STRINGP x => $String
+;   STRINGP x => BREAK() -- handled in compAtom1
 ;   INTEGERP x =>
 ;     x=0 => $NonNegativeInteger
 ;     x>0 => $PositiveInteger
 ;     $Integer
-;   FLOATP x => $DoubleFloat
+;   FLOATP x => BREAK() -- no longer used
 ;   nil
  
 (DEFUN |primitiveType| (|x|)
   (PROG ()
     (RETURN
-     (COND ((NULL |x|) |$EmptyMode|) ((STRINGP |x|) |$String|)
+     (COND ((NULL |x|) |$EmptyMode|) ((STRINGP |x|) (BREAK))
            ((INTEGERP |x|)
             (COND ((EQL |x| 0) |$NonNegativeInteger|)
                   ((< 0 |x|) |$PositiveInteger|) (#1='T |$Integer|)))
-           ((FLOATP |x|) |$DoubleFloat|) (#1# NIL)))))
+           ((FLOATP |x|) (BREAK)) (#1# NIL)))))
  
 ; DEFPARAMETER($compForModeIfTrue, false)
  

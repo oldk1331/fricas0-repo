@@ -911,24 +911,22 @@
  
 ; queryUserKeyedMsg(key,args) ==
 ;   -- display message and return reply
-;   conStream := MAKE_INSTREAM(0)
+;   conStream := get_console_input()
 ;   sayKeyedMsg(key,args)
 ;   ioHook("startQueryUser")
 ;   ans := read_line conStream
 ;   ioHook("endOfQueryUser")
-;   SHUT conStream
 ;   ans
  
 (DEFUN |queryUserKeyedMsg| (|key| |args|)
   (PROG (|conStream| |ans|)
     (RETURN
      (PROGN
-      (SETQ |conStream| (MAKE_INSTREAM 0))
+      (SETQ |conStream| (|get_console_input|))
       (|sayKeyedMsg| |key| |args|)
       (|ioHook| '|startQueryUser|)
       (SETQ |ans| (|read_line| |conStream|))
       (|ioHook| '|endOfQueryUser|)
-      (SHUT |conStream|)
       |ans|))))
  
 ; flowSegmentedMsg(msg, len, offset) ==

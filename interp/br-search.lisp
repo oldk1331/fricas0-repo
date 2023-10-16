@@ -251,7 +251,7 @@
 ;     not? => 'iv
 ;     'i
 ;   source :=
-;     LISTP s => dbWriteLines s
+;     LISTP s => dbWriteLines(s, getTempPath 'source)
 ;     s
 ;   grepFile(pattern,source,option)
  
@@ -302,7 +302,10 @@
       (#1#
        (PROGN
         (SETQ |option| (COND (|not?| '|iv|) (#1# '|i|)))
-        (SETQ |source| (COND ((LISTP |s|) (|dbWriteLines| |s|)) (#1# |s|)))
+        (SETQ |source|
+                (COND
+                 ((LISTP |s|) (|dbWriteLines| |s| (|getTempPath| '|source|)))
+                 (#1# |s|)))
         (|grepFile| |pattern| |source| |option|)))))))
  
 ; pmTransFilter s ==
@@ -2783,19 +2786,17 @@
  
 (DEFUN |getTempPath| (|kind|) (PROG () (RETURN (|mkGrepFile| |kind|))))
  
-; dbWriteLines(s, :options) ==
-;   pathname := IFCAR options or getTempPath 'source
+; dbWriteLines(s, pathname) ==
 ;   $outStream : local := MAKE_OUTSTREAM(pathname)
 ;   for x in s repeat writedb x
 ;   SHUT $outStream
 ;   pathname
  
-(DEFUN |dbWriteLines| (|s| &REST |options|)
-  (PROG (|$outStream| |pathname|)
+(DEFUN |dbWriteLines| (|s| |pathname|)
+  (PROG (|$outStream|)
     (DECLARE (SPECIAL |$outStream|))
     (RETURN
      (PROGN
-      (SETQ |pathname| (OR (IFCAR |options|) (|getTempPath| '|source|)))
       (SETQ |$outStream| (MAKE_OUTSTREAM |pathname|))
       ((LAMBDA (|bfVar#93| |x|)
          (LOOP

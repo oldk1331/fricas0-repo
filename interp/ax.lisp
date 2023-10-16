@@ -64,21 +64,6 @@
 (DEFUN |setExtendedDomains| (|l|)
   (PROG () (RETURN (SETQ |$extendedDomains| |l|))))
  
-; makeAxFile(filename, constructors) ==
-;   axForm := makeAxExportForm(filename, constructors)
-;   st := MAKE_OUTSTREAM(filename)
-;   PPRINT(axForm,st)
-;   CLOSE st
- 
-(DEFUN |makeAxFile| (|filename| |constructors|)
-  (PROG (|axForm| |st|)
-    (RETURN
-     (PROGN
-      (SETQ |axForm| (|makeAxExportForm| |filename| |constructors|))
-      (SETQ |st| (MAKE_OUTSTREAM |filename|))
-      (PPRINT |axForm| |st|)
-      (CLOSE |st|)))))
- 
 ; makeAxExportForm(filename, constructors) ==
 ;   $defaultFlag : local := false
 ;   $literals := []
