@@ -709,7 +709,7 @@
 ;     body:=
 ;         ['PROG1, ['LET, g:= GENSYM(), body],
 ;                  ['SETELT, g, 0, mkConstructor(sform)]]
-;     fun := compile [op', ['category_functor, sargl, body]]
+;     fun := do_compile [op', ['category_functor, sargl, body]]
 ; 
 ; --  5. give operator a 'modemap property
 ;     pairlis:= [[a,:v] for a in argl for v in $FormalMapVariableList]
@@ -847,7 +847,7 @@
               (LIST 'PROG1 (LIST 'LET (SETQ |g| (GENSYM)) |body|)
                     (LIST 'SETELT |g| 0 (|mkConstructor| |sform|))))
       (SETQ |fun|
-              (|compile|
+              (|do_compile|
                (LIST |op'| (LIST '|category_functor| |sargl| |body|))))
       (SETQ |pairlis|
               ((LAMBDA (|bfVar#30| |bfVar#28| |a| |bfVar#29| |v|)
@@ -1015,7 +1015,7 @@
 ;     lamOrSlam :=
 ;         $mutableDomain => 'mutable_domain_functor
 ;         'domain_functor
-;     fun:= compile SUBLIS($pairlis, [op',[lamOrSlam,argl,body']])
+;     fun:= do_compile(SUBLIS($pairlis, [op', [lamOrSlam, argl, body']]))
 ;     --The above statement stops substitutions gettting in one another's way
 ; --+
 ;     operationAlist := SUBLIS($pairlis,$lisplibOperationAlist)
@@ -1187,7 +1187,7 @@
               (COND (|$mutableDomain| '|mutable_domain_functor|)
                     (#2# '|domain_functor|)))
       (SETQ |fun|
-              (|compile|
+              (|do_compile|
                (SUBLIS |$pairlis|
                        (LIST |op'| (LIST |lamOrSlam| |argl| |body'|)))))
       (SETQ |operationAlist| (SUBLIS |$pairlis| |$lisplibOperationAlist|))
@@ -2715,11 +2715,11 @@
       |def|))))
  
 ; compileCases(x,$e) == -- $e is referenced in compile
-;     compile x
+;     do_compile x
  
 (DEFUN |compileCases| (|x| |$e|)
   (DECLARE (SPECIAL |$e|))
-  (PROG () (RETURN (|compile| |x|))))
+  (PROG () (RETURN (|do_compile| |x|))))
  
 ; isLocalFunction op ==
 ;     null member(op, $formalArgList) and
@@ -2733,7 +2733,7 @@
            (SETQ |ISTMP#1| (|getmode| |op| |$e|))
            (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)))))))
  
-; compile u ==
+; do_compile u ==
 ;   [op,lamExpr] := u
 ;   if $suffix then
 ;     $suffix:= $suffix+1
@@ -2761,7 +2761,7 @@
 ;   printStats functionStats
 ;   result
  
-(DEFUN |compile| (|u|)
+(DEFUN |do_compile| (|u|)
   (PROG (|op| |lamExpr| |opexport| |ISTMP#1| DC |sig| |ISTMP#2| |ISTMP#3|
          |ISTMP#4| |sel| |opmodes| |op'| |optimizedBody| |stuffToCompile|
          |result| |functionStats|)

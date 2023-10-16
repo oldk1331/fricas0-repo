@@ -983,10 +983,10 @@
                     (COND ((MEMQ (STRING2ID-N |x| 1) '(YES Y)) (QUIT))
                           (#1# NIL)))))))))))))))
  
-; compiler args ==
+; compile args ==
 ;     $newConlist: local := nil    --reset by compDefineLisplib and astran
 ;     null args and null $options and null($edit_file) =>
-;         helpSpad2Cmd '(compiler)
+;         helpSpad2Cmd '(compile)
 ;     if null args then args := [$edit_file]
 ; 
 ;     -- first see if the user has explicitly specified the compiler
@@ -1045,7 +1045,7 @@
 ; 
 ;     throwKeyedMsg("S2IZ0039", nil)
  
-(DEFUN |compiler| (|args|)
+(DEFUN |compile| (|args|)
   (PROG (|$newConlist| |af1| |aft| |af| |fullopt| |optargs| |optname| |haveOld|
          |haveNew| |optlist|)
     (DECLARE (SPECIAL |$newConlist|))
@@ -1054,7 +1054,7 @@
       (SETQ |$newConlist| NIL)
       (COND
        ((AND (NULL |args|) (NULL |$options|) (NULL |$edit_file|))
-        (|helpSpad2Cmd| '(|compiler|)))
+        (|helpSpad2Cmd| '(|compile|)))
        (#1='T
         (PROGN
          (COND ((NULL |args|) (SETQ |args| (LIST |$edit_file|))))
@@ -1142,7 +1142,7 @@
       (|spadPrompt|)))))
  
 ; compileAsharpCmd1 args ==
-;     -- Assume we entered from the "compiler" function, so args ~= nil
+;     -- Assume we entered from the "compile" function, so args ~= nil
 ;     -- and is a file with file extension .as or .ao
 ; 
 ;     path := pathname args
@@ -1364,7 +1364,7 @@
          (|extendLocalLibdb| |$newConlist|))))))))
  
 ; compileAsharpArchiveCmd args ==
-;     -- Assume we entered from the "compiler" function, so args ~= nil
+;     -- Assume we entered from the "compile" function, so args ~= nil
 ;     -- and is a file with file extension .al. We also assume that
 ;     -- the name is fully qualified.
 ; 
@@ -1483,7 +1483,7 @@
                   (|spadPrompt|)))))))))))))))))
  
 ; compileAsharpLispCmd args ==
-;     -- Assume we entered from the "compiler" function, so args ~= nil
+;     -- Assume we entered from the "compile" function, so args ~= nil
 ;     -- and is a file with file extension .lsp
 ; 
 ;     path := pathname args
@@ -1581,7 +1581,7 @@
          (|spadPrompt|))))))))
  
 ; compileSpadLispCmd args ==
-;     -- Assume we entered from the "compiler" function, so args ~= nil
+;     -- Assume we entered from the "compile" function, so args ~= nil
 ;     -- and is a file with file extension .NRLIB
 ; 
 ;     libname := first args
@@ -2715,7 +2715,6 @@
 ;        else if sarg = '"%%" then args := ['history]
 ;   arg := selectOptionLC(first args,$SYSCOMMANDS,nil)
 ;   if null arg then arg := first args
-;   if arg = 'compiler then arg := 'compile
 ; 
 ;   -- see if new help file exists
 ; 
@@ -2749,7 +2748,6 @@
                     ((EQUAL |sarg| "%%") (SETQ |args| (LIST '|history|))))
               (SETQ |arg| (|selectOptionLC| (CAR |args|) $SYSCOMMANDS NIL))
               (COND ((NULL |arg|) (SETQ |arg| (CAR |args|))))
-              (COND ((EQ |arg| '|compiler|) (SETQ |arg| '|compile|)))
               (SETQ |narg| (PNAME |arg|))
               (COND
                ((NULL
