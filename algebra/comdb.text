@@ -7728,7 +7728,7 @@
 897110`\spad{suffix?(s,{} t)} tests if the string \spad{s} is the final substring of \spad{t}. Note: \spad{suffix?(s,{} t) = reduce(and,{} [s.i = t.(n - m + i) for i indices s])} where \spad{m} and \spad{n} denote the maxIndex of \spad{s} and \spad{t} respectively.
 897166`\spad{sum(expr)} creates the form prefixing \spad{expr} by a capital sigma.
 897205`\spad{sum(expr,{} lowerlimit)} creates the form prefixing \spad{expr} by a capital sigma with a lowerlimit.
-897247`\spad{sum(p(n),{} n)} returns \spad{P(n)},{} the indefinite sum of \spad{p(n)} with respect to upward difference on \spad{n},{} \spadignore{i.e.} \spad{P(n+1) - P(n) = a(n)}.
+897247`\spad{sum(p(n),{} n)} returns \spad{P(n)},{} the indefinite sum of \spad{p(n)} with respect to upward difference on \spad{n},{} \spadignore{i.e.} \spad{P(n+1) - P(n) = p(n)}.
 897321`\spad{sum(f(n),{} n = a..b)} returns \spad{f(a) + f(a+1) + ... f(b)}.
 897475`\spad{sum(a(n),{} n)} returns \spad{A} which is the indefinite sum of \spad{a} with respect to upward difference on \spad{n},{} \spadignore{i.e.} \spad{A(n+1) - A(n) = a(n)}.
 897596`\spad{sum(f(n),{} n = a..b)} returns \spad{f}(a) + \spad{f}(\spad{a+1}) + ... + \spad{f}(\spad{b}).
@@ -8362,7 +8362,7 @@
 968223`writeX3d: (\spad{n},{} filename) writes an 'X3D' representation of node \spad{'n'} to the filename supplied.
 968275`\spad{writeXml(content,{} filename)} writes an \spad{xml} element and all the elements below it to an \spad{xml} file. This assumes that all elements,{} in a file,{} have a single root which is usually the case.
 968335`\spad{wronskianMatrix([f1,{} ...,{} fn])} returns the \spad{n x n} matrix \spad{m} whose i^th row is \spad{[f1^(i-1),{} ...,{} fn^(i-1)]}.
-968404`\spad{wronskianMatrix([f1,{} ...,{} fn],{} q,{} D)} returns the \spad{q x n} matrix \spad{m} whose i^th row is \spad{[f1^(i-1),{} ...,{} fn^(i-1)]}.
+968404`\spad{wronskianMatrix([f1,{} ...,{} fn],{} q)} returns the \spad{q x n} matrix \spad{m} whose i^th row is \spad{[f1^(i-1),{} ...,{} fn^(i-1)]}.
 968492`\spad{wrregime(l,{} s)} writes a list of regimes to a file named \spad{s} and returns the number of regimes written
 968745`\spad{X()} generates the only independent variable.
 968924`\spad{X(i)} generates the \spad{i}\spad{-}th independent variable.
