@@ -605,8 +605,7 @@
                                       (SPADCALL |s| (QREFELT $ 59)))))))))))))
               (EXIT
                (|MMLFORM;formatSpecial| 'SUPERSUB
-                (LIST (|SPADfirst| |args|) (SPADCALL " " (QREFELT $ 60))
-                      |arg2|)
+                (LIST (|SPADfirst| |args|) (SPADCALL (QREFELT $ 60)) |arg2|)
                 |prec| $))))) 
 
 (SDEFUN |MMLFORM;formatPlex|
@@ -1152,15 +1151,15 @@
               (|CharacterClass|) (52 . |lowerCase|) (56 . |member?|)
               (62 . |position|) (69 . ~=) (75 . |second|) (80 . |elt|)
               (|Symbol|) (86 . |string|) (91 . |string?|) (96 . |string|)
-              (101 . |elt|) (107 . |message|) (112 . |coerce|) (|List| 54)
-              (117 . |position|) (|List| 39) (123 . |elt|) (129 . ~=)
-              (135 . |integer?|) (140 . |integer|) (145 . |segment|)
-              (150 . |empty?|) (155 . |digit?|) (160 . |symbol?|)
-              (165 . |symbol|) (|List| 24) (170 . |elt|) (176 . |char|)
-              (181 . |position|) (187 . |member?|) (|SingleInteger|)
+              (101 . |elt|) (107 . |message|) (112 . |empty|) (|List| 54)
+              (116 . |position|) (|List| 39) (122 . |elt|) (128 . ~=)
+              (134 . |integer?|) (139 . |integer|) (144 . |segment|)
+              (149 . |empty?|) (154 . |digit?|) (159 . |symbol?|)
+              (164 . |symbol|) (|List| 24) (169 . |elt|) (175 . |char|)
+              (180 . |position|) (186 . |member?|) (|SingleInteger|)
               (|HashState|))
-           '#(~= 193 |latex| 199 |hashUpdate!| 204 |hash| 210 |exprex| 215
-              |display| 220 |coerceS| 225 |coerceL| 230 |coerce| 235 = 245)
+           '#(~= 192 |latex| 198 |hashUpdate!| 203 |hash| 209 |exprex| 214
+              |display| 219 |coerceS| 224 |coerceL| 229 |coerce| 234 = 244)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
@@ -1176,10 +1175,10 @@
                                               51 1 37 21 0 52 2 37 21 0 39 53 1
                                               54 24 0 55 1 22 31 21 56 1 22 24
                                               21 57 2 24 0 0 0 58 1 21 0 24 59
-                                              1 24 21 0 60 2 61 39 54 0 62 2 63
-                                              39 0 39 64 2 39 31 0 0 65 1 22 31
-                                              21 66 1 22 39 21 67 1 40 0 39 68
-                                              1 24 31 0 69 1 45 31 0 70 1 22 31
+                                              0 21 0 60 2 61 39 54 0 62 2 63 39
+                                              0 39 64 2 39 31 0 0 65 1 22 31 21
+                                              66 1 22 39 21 67 1 40 0 39 68 1
+                                              24 31 0 69 1 45 31 0 70 1 22 31
                                               21 71 1 22 54 21 72 2 73 24 0 39
                                               74 1 45 0 24 75 2 24 39 45 0 76 2
                                               61 31 54 0 77 2 0 31 0 0 1 1 0 24

@@ -982,7 +982,7 @@
                        $))
                      ((EQUAL |op| 'PRIME)
                       (|TMFORM;formatSpecial| 'SUPERSUB
-                       (LIST (|SPADfirst| |args|) (SPADCALL " " (QREFELT $ 50))
+                       (LIST (|SPADfirst| |args|) (SPADCALL (QREFELT $ 50))
                              (SPADCALL |args| (QREFELT $ 49)))
                        |prec| $))
                      ((EQUAL |op| 'OVERBAR)
@@ -1818,18 +1818,18 @@
               |TMFORM;display;SV;5| (19 . |position|) (|UniversalSegment| 6)
               (26 . |segment|) (32 . |elt|) (|List| $) (38 . |concat|)
               (|Union| 32 '"failed") (43 . |search|) (|NumberFormats|)
-              (49 . |FormatRadix|) (|List| 29) (55 . |second|) (60 . |coerce|)
-              (65 . |elt|) (|Symbol|) (71 . |string|) (|List| 52)
-              (76 . |position|) (|List| 6) (82 . |elt|) (|Boolean|) (88 . ~=)
-              (94 . |elt|) (100 . |has_op?|) (106 . |arguments|)
-              (111 . |is_symbol?|) (117 . ~=) (123 . |elt|) (129 . |atom?|)
-              (134 . |integer?|) (139 . |integer|) (144 . |segment|)
-              (149 . |empty?|) (|Character|) (154 . |elt|) (160 . |symbol?|)
-              (165 . |symbol|) (|List| 32) (170 . |elt|) (176 . |char|)
-              (181 . |position|) (187 . |operator|) (192 . |member?|)
+              (49 . |FormatRadix|) (|List| 29) (55 . |second|) (60 . |empty|)
+              (64 . |elt|) (|Symbol|) (70 . |string|) (|List| 52)
+              (75 . |position|) (|List| 6) (81 . |elt|) (|Boolean|) (87 . ~=)
+              (93 . |elt|) (99 . |has_op?|) (105 . |arguments|)
+              (110 . |is_symbol?|) (116 . ~=) (122 . |elt|) (128 . |atom?|)
+              (133 . |integer?|) (138 . |integer|) (143 . |segment|)
+              (148 . |empty?|) (|Character|) (153 . |elt|) (159 . |symbol?|)
+              (164 . |symbol|) (|List| 32) (169 . |elt|) (175 . |char|)
+              (180 . |position|) (186 . |operator|) (191 . |member?|)
               (|HashState|))
-           '#(~= 198 |latex| 204 |hashUpdate!| 209 |hash| 215 |display| 220
-              |coerceL| 225 |coerce| 230 = 240)
+           '#(~= 197 |latex| 203 |hashUpdate!| 208 |hash| 214 |display| 219
+              |coerceL| 224 |coerce| 229 = 239)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
@@ -1840,21 +1840,21 @@
                                               31 0 35 0 36 3 32 6 0 0 6 38 2 39
                                               0 6 6 40 2 32 0 0 39 41 1 32 0 42
                                               43 2 11 44 7 0 45 2 46 32 6 6 47
-                                              1 48 29 0 49 1 32 29 0 50 2 48 29
-                                              0 6 51 1 52 32 0 53 2 54 6 52 0
-                                              55 2 56 6 0 6 57 2 6 58 0 0 59 2
-                                              32 0 0 0 60 2 30 58 29 52 61 1 30
-                                              48 29 62 2 30 58 29 52 63 2 52 58
-                                              0 0 64 2 48 0 0 39 65 1 30 58 29
-                                              66 1 30 58 29 67 1 30 6 29 68 1
-                                              39 0 6 69 1 32 58 0 70 2 32 71 0
-                                              6 72 1 30 58 29 73 1 30 52 29 74
-                                              2 75 32 0 6 76 1 71 0 32 77 2 32
-                                              6 71 0 78 1 30 29 29 79 2 54 58
-                                              52 0 80 2 0 58 0 0 1 1 0 32 0 1 2
-                                              0 81 81 0 1 1 0 7 0 1 1 0 35 32
-                                              37 1 0 32 29 34 1 0 32 29 33 1 0
-                                              29 0 1 2 0 58 0 0 1)))))
+                                              1 48 29 0 49 0 29 0 50 2 48 29 0
+                                              6 51 1 52 32 0 53 2 54 6 52 0 55
+                                              2 56 6 0 6 57 2 6 58 0 0 59 2 32
+                                              0 0 0 60 2 30 58 29 52 61 1 30 48
+                                              29 62 2 30 58 29 52 63 2 52 58 0
+                                              0 64 2 48 0 0 39 65 1 30 58 29 66
+                                              1 30 58 29 67 1 30 6 29 68 1 39 0
+                                              6 69 1 32 58 0 70 2 32 71 0 6 72
+                                              1 30 58 29 73 1 30 52 29 74 2 75
+                                              32 0 6 76 1 71 0 32 77 2 32 6 71
+                                              0 78 1 30 29 29 79 2 54 58 52 0
+                                              80 2 0 58 0 0 1 1 0 32 0 1 2 0 81
+                                              81 0 1 1 0 7 0 1 1 0 35 32 37 1 0
+                                              32 29 34 1 0 32 29 33 1 0 29 0 1
+                                              2 0 58 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TexmacsFormat| 'NILADIC T) 

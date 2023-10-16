@@ -250,7 +250,7 @@
                    $))
                  ((EQUAL |op| "PRIME")
                   (|FORMULA;formatSpecial| "SUPERSUB"
-                   (LIST (|SPADfirst| |args|) (SPADCALL " " (QREFELT $ 51))
+                   (LIST (|SPADfirst| |args|) (SPADCALL (QREFELT $ 51))
                          (SPADCALL |args| (QREFELT $ 53)))
                    |prec| $))
                  ((EQUAL |op| "OVERBAR")
@@ -725,15 +725,15 @@
               |FORMULA;setEpilogue!;$2L;11| (15 . |coerce|)
               |FORMULA;coerce;$Of;12| (|Character|) (|String|) (20 . |elt|)
               (26 . |setelt!|) (|List| $) (33 . |split|) (39 . |concat|)
-              (44 . |coerce|) (|List| 24) (49 . |second|) (|Boolean|) (54 . ~=)
-              (60 . |append|) (66 . |position|) (|List| 30) (72 . |elt|)
-              (78 . ~=) (84 . |atom?|) (89 . |integer?|) (94 . |integer|)
-              (99 . |elt|) (105 . |operator|) (110 . |arguments|)
-              (115 . |member?|) (|SingleInteger|) (|HashState|))
-           '#(~= 121 |setPrologue!| 127 |setFormula!| 133 |setEpilogue!| 139
-              |prologue| 145 |new| 150 |latex| 154 |hashUpdate!| 159 |hash| 165
-              |formula| 170 |epilogue| 175 |display| 180 |convert| 191 |coerce|
-              197 = 207)
+              (44 . |empty|) (|List| 24) (48 . |second|) (|Boolean|) (53 . ~=)
+              (59 . |append|) (65 . |position|) (|List| 30) (71 . |elt|)
+              (77 . ~=) (83 . |atom?|) (88 . |integer?|) (93 . |integer|)
+              (98 . |elt|) (104 . |operator|) (109 . |arguments|)
+              (114 . |member?|) (|SingleInteger|) (|HashState|))
+           '#(~= 120 |setPrologue!| 126 |setFormula!| 132 |setEpilogue!| 138
+              |prologue| 144 |new| 149 |latex| 153 |hashUpdate!| 158 |hash| 164
+              |formula| 169 |epilogue| 174 |display| 179 |convert| 190 |coerce|
+              196 = 206)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
@@ -743,20 +743,20 @@
                                             '(1 25 24 24 26 2 28 0 0 0 29 0 32
                                               0 33 1 28 24 0 42 2 45 44 0 30 46
                                               3 45 44 0 30 44 47 2 45 48 0 44
-                                              49 1 45 0 48 50 1 45 24 0 51 1 52
-                                              24 0 53 2 45 54 0 0 55 2 28 0 0 0
-                                              56 2 28 30 45 0 57 2 58 30 0 30
-                                              59 2 30 54 0 0 60 1 25 54 24 61 1
-                                              25 54 24 62 1 25 30 24 63 2 28 45
-                                              0 30 64 1 25 24 24 65 1 25 52 24
-                                              66 2 28 54 45 0 67 2 0 54 0 0 1 2
-                                              0 28 0 28 39 2 0 28 0 28 40 2 0
-                                              28 0 28 41 1 0 28 0 36 0 0 0 23 1
-                                              0 45 0 1 2 0 69 69 0 1 1 0 68 0 1
-                                              1 0 28 0 37 1 0 28 0 38 1 0 32 0
-                                              35 2 0 32 0 30 34 2 0 0 24 30 31
-                                              1 0 0 24 27 1 0 24 0 43 2 0 54 0
-                                              0 1)))))
+                                              49 1 45 0 48 50 0 24 0 51 1 52 24
+                                              0 53 2 45 54 0 0 55 2 28 0 0 0 56
+                                              2 28 30 45 0 57 2 58 30 0 30 59 2
+                                              30 54 0 0 60 1 25 54 24 61 1 25
+                                              54 24 62 1 25 30 24 63 2 28 45 0
+                                              30 64 1 25 24 24 65 1 25 52 24 66
+                                              2 28 54 45 0 67 2 0 54 0 0 1 2 0
+                                              28 0 28 39 2 0 28 0 28 40 2 0 28
+                                              0 28 41 1 0 28 0 36 0 0 0 23 1 0
+                                              45 0 1 2 0 69 69 0 1 1 0 68 0 1 1
+                                              0 28 0 37 1 0 28 0 38 1 0 32 0 35
+                                              2 0 32 0 30 34 2 0 0 24 30 31 1 0
+                                              0 24 27 1 0 24 0 43 2 0 54 0 0
+                                              1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ScriptFormulaFormat| 'NILADIC T) 
