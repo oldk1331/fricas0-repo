@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5033 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5035 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -188,9 +188,10 @@
  |IntegrateSolutions| |ElementaryIntegration| |IntegerFactorizationPackage|
  |GenusZeroIntegration| |IntegerNumberTheoryFunctions|
  |AlgebraicHermiteIntegration| |TranscendentalHermiteIntegration|
- |PureAlgebraicIntegration| |ParametricTranscendentalIntegration|
- |ParametricIntegration| |PatternMatchIntegration| |RationalIntegration|
- |IntegerRetractions| |RationalFunctionIntegration| |Interval|
+ |IntegerLocalizedAtPrime| |PureAlgebraicIntegration|
+ |ParametricTranscendentalIntegration| |ParametricIntegration|
+ |PatternMatchIntegration| |RationalIntegration| |IntegerRetractions|
+ |RationalFunctionIntegration| |Interval|
  |IntegerSolveLinearPolynomialEquation| |IntegrationTools|
  |TranscendentalIntegration| |InverseLaplaceTransform| |InnerPAdicInteger|
  |InnerPrimeField| |InternalPrintPackage| |IntegrationResult|
@@ -691,15 +692,15 @@
  |BasicMethod| |PollardSmallFactor| |palgint0| |palgRDE0| |rationalize_ir|
  |palgLODE0| |carmichaelLambda| |chineseRemainder| |divisors| |eulerPhi|
  |fibonacci| |harmonic| |jacobi| |moebiusMu| |numberOfDivisors| |sumOfDivisors|
- |sumOfKthPowerDivisors| |HermiteIntegrate| |palgint| |palgRDE| |param_RDE|
- |param_LODE| |palgLODE| |primextint| |expextint| |diffextint| |unkextint|
- |monologextint| |extendedint| |logextint| |splitConstant| |pmComplexintegrate|
- |pmintegrate| |infieldint| |integerIfCan| |internalIntegrate|
- |infieldIntegrate| |varselect| |kmax| |ksec| |vark| |removeConstantTerm|
- |mkPrim| |intPatternMatch| |primintegrate| |expintegrate| |lambintegrate|
- |monomialIntegrate| |monomialIntPoly| |inverseLaplace| |iprint| |elem?|
- |notelem| |logpart| |ratpart| |mkAnswer| |perfectNthPower?| |perfectNthRoot|
- |approxNthRoot| |perfectSquare?| |perfectSqrt| |approxSqrt|
+ |sumOfKthPowerDivisors| |HermiteIntegrate| |unitPart| |palgint| |palgRDE|
+ |param_RDE| |param_LODE| |palgLODE| |primextint| |expextint| |diffextint|
+ |unkextint| |monologextint| |extendedint| |logextint| |splitConstant|
+ |pmComplexintegrate| |pmintegrate| |infieldint| |integerIfCan|
+ |internalIntegrate| |infieldIntegrate| |varselect| |kmax| |ksec| |vark|
+ |removeConstantTerm| |mkPrim| |intPatternMatch| |primintegrate| |expintegrate|
+ |lambintegrate| |monomialIntegrate| |monomialIntPoly| |inverseLaplace|
+ |iprint| |elem?| |notelem| |logpart| |ratpart| |mkAnswer| |perfectNthPower?|
+ |perfectNthRoot| |approxNthRoot| |perfectSquare?| |perfectSqrt| |approxSqrt|
  |generateIrredPoly| |complexExpand| |complexIntegrate|
  |dimensionOfIrreducibleRepresentation| |irreducibleRepresentation| |checkRur|
  |cAcsch| |cAsech| |cAcoth| |cAtanh| |cAcosh| |cAsinh| |cCsch| |cSech| |cCoth|
