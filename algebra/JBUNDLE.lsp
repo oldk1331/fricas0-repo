@@ -75,39 +75,39 @@
         (COND
          ((SPADCALL |up| (QREFELT $ 9) (QREFELT $ 32))
           (|error| "Improper upper index"))
-         ((SPADCALL (SPADCALL |lo| (QREFELT $ 35)) (QREFELT $ 8)
-                    (QREFELT $ 36))
+         ((SPADCALL (SPADCALL |lo| (QREFELT $ 36)) (QREFELT $ 8)
+                    (QREFELT $ 37))
           (|error| "Improper multi-index"))
-         ((|JBUNDLE;CheckZeroIndex| |lo| $) (SPADCALL |up| (QREFELT $ 34)))
+         ((|JBUNDLE;CheckZeroIndex| |lo| $) (SPADCALL |up| (QREFELT $ 35)))
          ('T (CONS 3 (CONS |up| |lo|))))) 
 
 (SDEFUN |JBUNDLE;coerce;S$;10| ((|s| |Symbol|) ($ $))
         (SPROG ((#1=#:G144 NIL) (#2=#:G141 NIL) (|pos| (|Integer|)))
                (SEQ
-                (LETT |pos| (SPADCALL |s| (QREFELT $ 6) (QREFELT $ 39))
+                (LETT |pos| (SPADCALL |s| (QREFELT $ 6) (QREFELT $ 40))
                       . #3=(|JBUNDLE;coerce;S$;10|))
                 (EXIT
                  (COND
-                  ((< |pos| (SPADCALL (QREFELT $ 6) (QREFELT $ 40)))
+                  ((< |pos| (SPADCALL (QREFELT $ 6) (QREFELT $ 41)))
                    (SEQ
-                    (LETT |pos| (SPADCALL |s| (QREFELT $ 7) (QREFELT $ 39))
+                    (LETT |pos| (SPADCALL |s| (QREFELT $ 7) (QREFELT $ 40))
                           . #3#)
                     (EXIT
                      (COND
-                      ((< |pos| (SPADCALL (QREFELT $ 7) (QREFELT $ 40)))
+                      ((< |pos| (SPADCALL (QREFELT $ 7) (QREFELT $ 41)))
                        (|error| "illegal symbol in JetBundle"))
                       (#4='T
                        (SPADCALL
                         (PROG1 (LETT #2# |pos| . #3#)
                           (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
                                             '(|Integer|) #2#))
-                        (QREFELT $ 34)))))))
+                        (QREFELT $ 35)))))))
                   (#4#
                    (SPADCALL
                     (PROG1 (LETT #1# |pos| . #3#)
                       (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                         '(|Integer|) #1#))
-                    (QREFELT $ 33)))))))) 
+                    (QREFELT $ 34)))))))) 
 
 (SDEFUN |JBUNDLE;D;SL$;11| ((|u| |Symbol|) (|der| |List| (|Symbol|)) ($ $))
         (SPROG
@@ -115,11 +115,11 @@
           (#2=#:G148 NIL) (|pos| #3=(|Integer|)) (#4=#:G156 NIL) (|d| NIL)
           (|up| #3#))
          (SEQ
-          (LETT |up| (SPADCALL |u| (QREFELT $ 7) (QREFELT $ 39))
+          (LETT |up| (SPADCALL |u| (QREFELT $ 7) (QREFELT $ 40))
                 . #5=(|JBUNDLE;D;SL$;11|))
           (EXIT
            (COND
-            ((< |up| (SPADCALL (QREFELT $ 7) (QREFELT $ 40)))
+            ((< |up| (SPADCALL (QREFELT $ 7) (QREFELT $ 41)))
              (|error| #6="illegal symbol in JetBundle"))
             ('T
              (SEQ (LETT |lower| NIL . #5#)
@@ -128,11 +128,11 @@
                         ((OR (ATOM #4#) (PROGN (LETT |d| (CAR #4#) . #5#) NIL))
                          (GO G191)))
                        (SEQ
-                        (LETT |pos| (SPADCALL |d| (QREFELT $ 6) (QREFELT $ 39))
+                        (LETT |pos| (SPADCALL |d| (QREFELT $ 6) (QREFELT $ 40))
                               . #5#)
                         (EXIT
                          (COND
-                          ((< |pos| (SPADCALL (QREFELT $ 6) (QREFELT $ 40)))
+                          ((< |pos| (SPADCALL (QREFELT $ 6) (QREFELT $ 41)))
                            (|error| #6#))
                           ('T
                            (LETT |lower|
@@ -150,7 +150,7 @@
                     (PROG1 (LETT #1# |up| . #5#)
                       (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                         '(|Integer|) #1#))
-                    |lower| (QREFELT $ 43)))))))))) 
+                    |lower| (QREFELT $ 44)))))))))) 
 
 (PUT '|JBUNDLE;One;$;12| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
 
@@ -321,23 +321,23 @@
               |JBUNDLE;getNotation;S;2| (15 . |copy|) (|List| 31)
               |JBUNDLE;multiIndex;$L;3| (|PositiveInteger|)
               |JBUNDLE;index;$Pi;4| |JBUNDLE;type;$S;5| (|Boolean|)
-              (|NonNegativeInteger|) (20 . >) |JBUNDLE;X;Pi$;7|
-              |JBUNDLE;U;Pi$;8| (26 . |#|) (31 . ~=) |JBUNDLE;Pm;PiL$;9|
-              (|Integer|) (37 . |position|) (43 . |minIndex|)
-              |JBUNDLE;coerce;S$;10| (|List| 27) (48 . |Pr|) |JBUNDLE;D;SL$;11|
+              (|NonNegativeInteger|) (20 . >)
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |JBUNDLE;One;$;12|) $))
-              |JBUNDLE;numIndVar;Pi;13| |JBUNDLE;numDepVar;Pi;14|
-              (54 . |repeatedIndex|) (59 . |coerce|) (|List| 17)
-              (64 . |subscript|) |JBUNDLE;name;$S;15| (|Expression| 38)
-              (70 . |One|) (|BasicOperator|) (74 . |operator|)
-              (|Mapping| 17 50) (79 . |display|) (|None|) (|NoneFunctions1| $$)
-              (85 . |coerce|) (90 . |setProperty|) (97 . |weight|)
-              (|NoneFunctions1| 31) (102 . |coerce|) (|NoneFunctions1| 21)
-              (107 . |coerce|) (112 . |coerce|) (117 . |coerce|) (|List| 53)
-              (122 . |concat!|) (|List| $) (128 . |kernel|)
-              |JBUNDLE;coerce;$E;17| (|Union| $ '"failed") (|Union| $ '"0")
-              (|List| 42) (|HashState|) (|SingleInteger|))
+              |JBUNDLE;X;Pi$;7| |JBUNDLE;U;Pi$;8| (26 . |#|) (31 . ~=)
+              |JBUNDLE;Pm;PiL$;9| (|Integer|) (37 . |position|)
+              (43 . |minIndex|) |JBUNDLE;coerce;S$;10| (|List| 27) (48 . |Pr|)
+              |JBUNDLE;D;SL$;11| |JBUNDLE;numIndVar;Pi;13|
+              |JBUNDLE;numDepVar;Pi;14| (54 . |repeatedIndex|) (59 . |coerce|)
+              (|List| 17) (64 . |subscript|) |JBUNDLE;name;$S;15|
+              (|Expression| 39) (70 . |One|) (|BasicOperator|)
+              (74 . |operator|) (|Mapping| 17 50) (79 . |display|) (|None|)
+              (|NoneFunctions1| $$) (85 . |coerce|) (90 . |setProperty|)
+              (97 . |weight|) (|NoneFunctions1| 31) (102 . |coerce|)
+              (|NoneFunctions1| 21) (107 . |coerce|) (112 . |coerce|)
+              (117 . |coerce|) (|List| 53) (122 . |concat!|) (|List| $)
+              (128 . |kernel|) |JBUNDLE;coerce;$E;17| (|Union| $ '"failed")
+              (|Union| $ '"0") (|List| 43) (|HashState|) (|SingleInteger|))
            '#(~= 134 |weight| 140 |variables| 145 |type| 156 |smaller?| 161
               |setNotation| 167 |repeatedIndex| 172 |r2m| 177 |order| 182
               |one?| 187 |numIndVar| 192 |numDepVar| 196 |name| 200
@@ -359,28 +359,28 @@
                    (|makeByteWordVec2| 79
                                        '(1 11 0 10 12 1 17 0 16 18 1 17 19 0 20
                                          1 15 0 0 24 2 31 30 0 0 32 1 15 31 0
-                                         35 2 31 30 0 0 36 2 10 38 21 0 39 1 10
-                                         38 0 40 2 0 0 27 42 43 1 0 42 0 48 1
+                                         36 2 31 30 0 0 37 2 10 39 21 0 40 1 10
+                                         39 0 41 2 0 0 27 43 44 1 0 43 0 48 1
                                          21 17 0 49 2 21 0 0 50 51 0 53 0 54 1
                                          55 0 21 56 2 55 0 0 57 58 1 60 59 2 61
                                          3 55 0 0 21 59 62 1 0 31 0 63 1 64 59
                                          31 65 1 66 59 21 67 1 53 0 21 68 1 53
-                                         0 38 69 2 70 0 0 0 71 2 53 0 55 72 73
+                                         0 39 69 2 70 0 0 0 71 2 53 0 55 72 73
                                          2 0 30 0 0 1 1 0 31 0 63 2 0 72 31 27
                                          1 1 0 72 31 1 1 0 21 0 29 2 0 30 0 0 1
-                                         1 0 21 21 22 1 0 42 0 48 1 0 25 42 1 1
+                                         1 0 21 21 22 1 0 43 0 48 1 0 25 43 1 1
                                          0 31 0 1 1 0 30 0 1 0 0 27 46 0 0 27
                                          47 1 0 21 0 52 1 0 25 0 26 2 0 0 0 0 1
-                                         2 0 0 0 0 1 1 0 42 25 1 1 0 16 0 1 2 0
+                                         2 0 0 0 0 1 1 0 43 25 1 1 0 16 0 1 2 0
                                          75 0 27 1 2 0 0 0 27 1 1 0 27 0 28 2 0
                                          78 78 0 1 1 0 79 0 1 0 0 21 23 1 0 31
                                          31 1 1 0 31 31 1 2 0 76 0 27 1 2 0 25
-                                         0 0 1 1 0 0 21 41 1 0 53 0 74 1 0 17 0
+                                         0 0 1 1 0 0 21 42 1 0 53 0 74 1 0 17 0
                                          1 1 0 31 0 1 1 0 31 25 1 1 0 77 25 1 0
-                                         0 0 1 1 0 0 27 33 0 0 0 1 1 0 0 27 34
-                                         2 0 0 27 42 43 2 0 0 27 25 37 1 0 0 31
+                                         0 0 1 1 0 0 27 34 0 0 0 1 1 0 0 27 35
+                                         2 0 0 27 43 44 2 0 0 27 25 38 1 0 0 31
                                          1 1 0 0 25 1 2 0 0 27 31 1 2 0 0 27 25
-                                         1 0 0 0 45 2 0 0 21 10 44 2 0 30 0 0 1
+                                         1 0 0 0 33 2 0 0 21 10 45 2 0 30 0 0 1
                                          2 0 30 0 0 1 2 0 30 0 0 1 2 0 30 0 0 1
                                          2 0 30 0 0 1)))))
            '|lookupComplete|)) 

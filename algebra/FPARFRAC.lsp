@@ -267,10 +267,10 @@
            (|List|
             (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
                       (|:| |num| UP))))
-          (#1=#:G170 NIL) (|qq| (UP)) (|lval| (|List| UP))
+          (#1=#:G174 NIL) (|qq| (UP)) (|lval| (|List| UP))
           (|lvar| (|List| (|OrderlyDifferentialVariable| (|Symbol|))))
           (|h| (|Fraction| (|OrderlyDifferentialPolynomial| UP))) (|pp| (UP))
-          (|p| (|OrderlyDifferentialPolynomial| UP)) (#2=#:G176 NIL) (|m| NIL)
+          (|p| (|OrderlyDifferentialPolynomial| UP)) (#2=#:G180 NIL) (|m| NIL)
           (|cn| (UP)) (|c| (UP))
           (|rec| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#3=#:G166 NIL)
           (|q1| (UP)) (|q0| (UP)) (|un| (|OrderlyDifferentialPolynomial| UP))
@@ -444,7 +444,7 @@
                     (|:| |num| UP)))
          ($ |OutputForm|))
         (SPROG
-         ((|ans| (|OutputForm|)) (#1=#:G187 NIL)
+         ((|ans| (|OutputForm|)) (#1=#:G191 NIL)
           (|rec|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
                      (|:| |num| UP))))
@@ -524,9 +524,9 @@
 
 (DECLAIM (NOTINLINE |FullPartialFractionExpansion;|)) 
 
-(DEFUN |FullPartialFractionExpansion| (&REST #1=#:G193)
+(DEFUN |FullPartialFractionExpansion| (&REST #1=#:G197)
   (SPROG NIL
-         (PROG (#2=#:G194)
+         (PROG (#2=#:G198)
            (RETURN
             (COND
              ((LETT #2#

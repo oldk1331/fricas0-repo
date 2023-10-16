@@ -1398,7 +1398,8 @@
 ;               | x is [[ =domain, :.], :.]]
 ;     (ans := compForm2([op, :argl], m, e, mml)) => ans
 ;     op = "construct" and coerceable(domain, m, e) =>
-;         (T := comp([op, :argl], domain, e) or return nil; coerce(T, m))
+;         (T := comp_construct1(argl, domain, e)) or return nil
+;         coerce(T, m)
 ;     nil
  
 (DEFUN |compSel1| (|domain| |op| |argl| |m| |e|)
@@ -1458,7 +1459,7 @@
          ((SETQ |ans| (|compForm2| (CONS |op| |argl|) |m| |e| |mml|)) |ans|)
          ((AND (EQ |op| '|construct|) (|coerceable| |domain| |m| |e|))
           (PROGN
-           (SETQ T$ (OR (|comp| (CONS |op| |argl|) |domain| |e|) (RETURN NIL)))
+           (OR (SETQ T$ (|comp_construct1| |argl| |domain| |e|)) (RETURN NIL))
            (|coerce| T$ |m|)))
          (#1# NIL))))))))
  
@@ -2609,40 +2610,39 @@
                        (#2# |eInit|)))
               (LIST |x| |m| |eFinal|))))))))
  
-; compConstruct(form is ["construct",:l],m,e) ==
-;   y:= modeIsAggregateOf("List",m,e) =>
-;     T:= compList(l,["List",CADR y],e) => convert(T,m)
-;     compForm(form,m,e)
-;   y:= modeIsAggregateOf("Vector",m,e) =>
-;     T:= compVector(l,["Vector",CADR y],e) => convert(T,m)
-;     compForm(form,m,e)
-;   T:= compForm(form,m,e) => T
-;   for D in getDomainsInScope e repeat
-;     (y:=modeIsAggregateOf("List",D,e)) and
-;       (T:= compList(l,["List",CADR y],e)) and (T':= convert(T,m)) =>
-;          return T'
-;     (y:=modeIsAggregateOf("Vector",D,e)) and
-;       (T:= compVector(l,["Vector",CADR y],e)) and (T':= convert(T,m)) =>
-;          return T'
+; comp_construct1(l, m, e) ==
+;     (y := modeIsAggregateOf("List", m, e)) =>
+;         compList(l, ["List", CADR y], e)
+;     (y := modeIsAggregateOf("Vector", m, e)) =>
+;         compVector(l,["Vector",CADR y],e)
+ 
+(DEFUN |comp_construct1| (|l| |m| |e|)
+  (PROG (|y|)
+    (RETURN
+     (COND
+      ((SETQ |y| (|modeIsAggregateOf| '|List| |m| |e|))
+       (|compList| |l| (LIST '|List| (CADR |y|)) |e|))
+      ((SETQ |y| (|modeIsAggregateOf| '|Vector| |m| |e|))
+       (|compVector| |l| (LIST '|Vector| (CADR |y|)) |e|))))))
+ 
+; compConstruct(form is ["construct", :l], m, e) ==
+;     (T := comp_construct1(l, m, e)) and (T' := convert(T,m)) => T'
+;     T := compForm(form, m, e) => T
+;     for D in getDomainsInScope e repeat
+;         (T := comp_construct1(l, D, e)) and (T' := convert(T, m)) =>
+;             return T'
  
 (DEFUN |compConstruct| (|form| |m| |e|)
-  (PROG (|l| |y| T$ |T'|)
+  (PROG (|l| T$ |T'|)
     (RETURN
      (PROGN
       (SETQ |l| (CDR |form|))
       (COND
-       ((SETQ |y| (|modeIsAggregateOf| '|List| |m| |e|))
-        (COND
-         ((SETQ T$ (|compList| |l| (LIST '|List| (CADR |y|)) |e|))
-          (|convert| T$ |m|))
-         (#1='T (|compForm| |form| |m| |e|))))
-       ((SETQ |y| (|modeIsAggregateOf| '|Vector| |m| |e|))
-        (COND
-         ((SETQ T$ (|compVector| |l| (LIST '|Vector| (CADR |y|)) |e|))
-          (|convert| T$ |m|))
-         (#1# (|compForm| |form| |m| |e|))))
+       ((AND (SETQ T$ (|comp_construct1| |l| |m| |e|))
+             (SETQ |T'| (|convert| T$ |m|)))
+        |T'|)
        ((SETQ T$ (|compForm| |form| |m| |e|)) T$)
-       (#1#
+       (#1='T
         ((LAMBDA (|bfVar#92| D)
            (LOOP
             (COND
@@ -2650,16 +2650,9 @@
               (RETURN NIL))
              (#1#
               (COND
-               ((AND (SETQ |y| (|modeIsAggregateOf| '|List| D |e|))
-                     (SETQ T$ (|compList| |l| (LIST '|List| (CADR |y|)) |e|))
+               ((AND (SETQ T$ (|comp_construct1| |l| D |e|))
                      (SETQ |T'| (|convert| T$ |m|)))
-                (RETURN |T'|))
-               ((AND (SETQ |y| (|modeIsAggregateOf| '|Vector| D |e|))
-                     (SETQ T$
-                             (|compVector| |l| (LIST '|Vector| (CADR |y|))
-                              |e|))
-                     (SETQ |T'| (|convert| T$ |m|)))
-                (RETURN |T'|)))))
+                (IDENTITY (RETURN |T'|))))))
             (SETQ |bfVar#92| (CDR |bfVar#92|))))
          (|getDomainsInScope| |e|) NIL)))))))
  
