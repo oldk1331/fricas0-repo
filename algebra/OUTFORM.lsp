@@ -55,9 +55,9 @@
 
 (SDEFUN |OUTFORM;width| ((|a| $) ($ |Integer|)) (|outformWidth| |a|)) 
 
-(PUT '|OUTFORM;width0| '|SPADreplace| '(XLAM NIL 66)) 
+(PUT '|OUTFORM;width0| '|SPADreplace| '(XLAM NIL $LINELENGTH)) 
 
-(SDEFUN |OUTFORM;width0| (($ |Integer|)) 66) 
+(SDEFUN |OUTFORM;width0| (($ |Integer|)) $LINELENGTH) 
 
 (SDEFUN |OUTFORM;center;$I$;16| ((|a| $) (|w| |Integer|) ($ $))
         (SPADCALL
