@@ -317,10 +317,6 @@
 ;   if $printTimeIfTrue or $printTypeIfTrue then printTypeAndTime(x',md')
 ;   if $printStorageIfTrue then printStorage()
 ;   if $printStatisticsSummaryIfTrue then printStatisticsSummary()
-;   $mkTestFlag = true => recordAndPrintTest md
-;   $runTestFlag =>
-;     $mkTestOutputType := md
-;     'done
 ;   'done
  
 (DEFUN |recordAndPrint| (|x| |md|)
@@ -342,9 +338,7 @@
         (|printTypeAndTime| |x'| |md'|)))
       (COND (|$printStorageIfTrue| (|printStorage|)))
       (COND (|$printStatisticsSummaryIfTrue| (|printStatisticsSummary|)))
-      (COND ((EQUAL |$mkTestFlag| T) (|recordAndPrintTest| |md|))
-            (|$runTestFlag| (PROGN (SETQ |$mkTestOutputType| |md|) '|done|))
-            (#1# '|done|))))))
+      '|done|))))
  
 ; printTypeAndTime(x,m) ==  --m is the mode/type of the result
 ;   printTypeAndTimeNormal(x, m)

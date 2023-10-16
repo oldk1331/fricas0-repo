@@ -6060,9 +6060,6 @@
  
 ; maPrin u ==
 ;   null u => nil
-; -->
-;   if $runTestFlag or $mkTestFlag then
-;     $mkTestOutputStack := [COPY u, :$mkTestOutputStack]
 ;   $highlightDelta := 0
 ;   c := CATCH('outputFailure,charybdis(u, $MARGIN, $LINELENGTH))
 ;   c ~= 'outputFailure => c
@@ -6082,10 +6079,6 @@
      (COND ((NULL |u|) NIL)
            (#1='T
             (PROGN
-             (COND
-              ((OR |$runTestFlag| |$mkTestFlag|)
-               (SETQ |$mkTestOutputStack|
-                       (CONS (COPY |u|) |$mkTestOutputStack|))))
              (SETQ |$highlightDelta| 0)
              (SETQ |c|
                      (CATCH '|outputFailure|
