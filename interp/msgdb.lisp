@@ -184,7 +184,7 @@
  
 ; getKeyedMsg(key) ==
 ;     if not($msg_hash) then
-;         $msg_hash := MAKE_-HASHTABLE('ID)
+;         $msg_hash := MAKE_HASHTABLE('ID)
 ;         cacheKeyedMsg($defaultMsgDatabaseName)
 ;     HGET($msg_hash, key)
  
@@ -193,7 +193,7 @@
     (RETURN
      (PROGN
       (COND
-       ((NULL |$msg_hash|) (SETQ |$msg_hash| (MAKE-HASHTABLE 'ID))
+       ((NULL |$msg_hash|) (SETQ |$msg_hash| (MAKE_HASHTABLE 'ID))
         (|cacheKeyedMsg| |$defaultMsgDatabaseName|)))
       (HGET |$msg_hash| |key|)))))
  
@@ -950,7 +950,7 @@
  
 ; queryUserKeyedMsg(key,args) ==
 ;   -- display message and return reply
-;   conStream := MAKE_-INSTREAM 0
+;   conStream := MAKE_INSTREAM(0)
 ;   sayKeyedMsg(key,args)
 ;   ioHook("startQueryUser")
 ;   ans := read_line conStream
@@ -962,7 +962,7 @@
   (PROG (|conStream| |ans|)
     (RETURN
      (PROGN
-      (SETQ |conStream| (MAKE-INSTREAM 0))
+      (SETQ |conStream| (MAKE_INSTREAM 0))
       (|sayKeyedMsg| |key| |args|)
       (|ioHook| '|startQueryUser|)
       (SETQ |ans| (|read_line| |conStream|))

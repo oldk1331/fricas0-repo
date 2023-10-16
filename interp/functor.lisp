@@ -1885,7 +1885,7 @@
                   (|InvestigateConditions,pessimise| (CDR |a|))))))))
  
 ; ICformat_loop(list, secondaries, e) ==
-;   $ICformat_hash : local := MAKE_-HASHTABLE 'EQUAL
+;   $ICformat_hash : local := MAKE_HASHTABLE('EQUAL)
 ;   [[sec, :ICformat(u, e)] for u in list for sec in secondaries]
  
 (DEFUN |ICformat_loop| (LIST |secondaries| |e|)
@@ -1893,7 +1893,7 @@
     (DECLARE (SPECIAL |$ICformat_hash|))
     (RETURN
      (PROGN
-      (SETQ |$ICformat_hash| (MAKE-HASHTABLE 'EQUAL))
+      (SETQ |$ICformat_hash| (MAKE_HASHTABLE 'EQUAL))
       ((LAMBDA (|bfVar#90| |bfVar#88| |u| |bfVar#89| |sec|)
          (LOOP
           (COND

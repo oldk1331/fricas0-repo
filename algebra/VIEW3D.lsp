@@ -96,7 +96,7 @@
         (SEQ (QSETVELT |viewport| 12 |opts|) (EXIT |viewport|))) 
 
 (SDEFUN |VIEW3D;makeViewport3D;2$;10| ((|viewport| $) ($ $))
-        (|VIEW3D;makeViewport3D0| (MOVEVEC (MAKE-VEC 13) |viewport|) $)) 
+        (|VIEW3D;makeViewport3D0| (MOVEVEC (MAKE_VEC 13) |viewport|) $)) 
 
 (SDEFUN |VIEW3D;makeViewport3D;TsS$;11|
         ((|space| |ThreeSpace| (|DoubleFloat|)) (|Title| |String|) ($ $))

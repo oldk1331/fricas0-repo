@@ -1904,7 +1904,7 @@
 (DEFPARAMETER |$globalExposureHash| NIL)
  
 ; initExposureHash() ==
-;     $globalExposureHash := MAKE_-HASH_-TABLE()
+;     $globalExposureHash := MAKE_HASHTABLE('EQUAL)
 ;     for grdata in $globalExposureGroupAlist repeat
 ;         group := first(grdata)
 ;         alist := rest(grdata)
@@ -1917,7 +1917,7 @@
   (PROG (|ogr| |name| |alist| |group|)
     (RETURN
      (PROGN
-      (SETQ |$globalExposureHash| (MAKE-HASH-TABLE))
+      (SETQ |$globalExposureHash| (MAKE_HASHTABLE 'EQUAL))
       ((LAMBDA (|bfVar#71| |grdata|)
          (LOOP
           (COND

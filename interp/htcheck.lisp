@@ -71,10 +71,10 @@
             ("\\windowlink" . 2))))
  
 ; buildHtMacroTable() ==
-;   $htMacroTable := MAKE_-HASHTABLE 'UEQUAL
+;   $htMacroTable := MAKE_HASHTABLE('UEQUAL)
 ;   fn := CONCAT(getEnv '"AXIOM", '"/share/hypertex/pages/util.ht")
 ;   if PROBE_-FILE(fn) then
-;     instream := MAKE_-INSTREAM fn
+;     instream := MAKE_INSTREAM(fn)
 ;     while not EOFP instream repeat
 ;       line := read_line instream
 ;       getHtMacroItem line is [string,:numOfArgs] =>
@@ -89,10 +89,10 @@
   (PROG (|n| |s| |numOfArgs| |string| |ISTMP#1| |line| |instream| |fn|)
     (RETURN
      (PROGN
-      (SETQ |$htMacroTable| (MAKE-HASHTABLE 'UEQUAL))
+      (SETQ |$htMacroTable| (MAKE_HASHTABLE 'UEQUAL))
       (SETQ |fn| (CONCAT (|getEnv| "AXIOM") "/share/hypertex/pages/util.ht"))
       (COND
-       ((PROBE-FILE |fn|) (SETQ |instream| (MAKE-INSTREAM |fn|))
+       ((PROBE-FILE |fn|) (SETQ |instream| (MAKE_INSTREAM |fn|))
         ((LAMBDA ()
            (LOOP
             (COND ((EOFP |instream|) (RETURN NIL))

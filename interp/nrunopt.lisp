@@ -843,7 +843,7 @@
     (RETURN (COND ((EQL |n| 0) 0) ('T (+ 1 (|bitsOf| (QUOTIENT |n| 2))))))))
  
 ; NRTmakeCategoryAlist() ==
-;   $depthAssocCache: local := MAKE_-HASHTABLE 'ID
+;   $depthAssocCache : local := MAKE_HASHTABLE('ID)
 ;   $catAncestorAlist: local := NIL
 ;   pcAlist := [:[[x,:'T] for x in $uncondAlist],:$condAlist]
 ;   $levelAlist: local := depthAssocList [CAAR x for x in pcAlist]
@@ -874,7 +874,7 @@
     (DECLARE (SPECIAL |$levelAlist| |$catAncestorAlist| |$depthAssocCache|))
     (RETURN
      (PROGN
-      (SETQ |$depthAssocCache| (MAKE-HASHTABLE 'ID))
+      (SETQ |$depthAssocCache| (MAKE_HASHTABLE 'ID))
       (SETQ |$catAncestorAlist| NIL)
       (SETQ |pcAlist|
               (APPEND

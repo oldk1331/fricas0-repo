@@ -2185,7 +2185,7 @@
 (DEFPARAMETER |$infoHash| NIL)
  
 ; deepChaseInferences(pred, e) ==
-;     $infoHash : local := MAKE_-HASHTABLE 'EQUAL
+;     $infoHash : local := MAKE_HASHTABLE('EQUAL)
 ;     deepChaseInferences1(pred, e)
  
 (DEFUN |deepChaseInferences| (|pred| |e|)
@@ -2193,7 +2193,7 @@
     (DECLARE (SPECIAL |$infoHash|))
     (RETURN
      (PROGN
-      (SETQ |$infoHash| (MAKE-HASHTABLE 'EQUAL))
+      (SETQ |$infoHash| (MAKE_HASHTABLE 'EQUAL))
       (|deepChaseInferences1| |pred| |e|)))))
  
 ; deepChaseInferences1(pred, e) ==

@@ -3,17 +3,17 @@
  
 (IN-PACKAGE "BOOT")
  
-; $docHash  := MAKE_-HASH_-TABLE()
+; $docHash  := MAKE_HASHTABLE('EQUAL)
  
-(EVAL-WHEN (EVAL LOAD) (SETQ |$docHash| (MAKE-HASH-TABLE)))
+(EVAL-WHEN (EVAL LOAD) (SETQ |$docHash| (MAKE_HASHTABLE 'EQUAL)))
  
-; $conHash  := MAKE_-HASH_-TABLE()
+; $conHash  := MAKE_HASHTABLE('EQUAL)
  
-(EVAL-WHEN (EVAL LOAD) (SETQ |$conHash| (MAKE-HASH-TABLE)))
+(EVAL-WHEN (EVAL LOAD) (SETQ |$conHash| (MAKE_HASHTABLE 'EQUAL)))
  
-; $opHash   := MAKE_-HASH_-TABLE()
+; $opHash   := MAKE_HASHTABLE('EQUAL)
  
-(EVAL-WHEN (EVAL LOAD) (SETQ |$opHash| (MAKE-HASH-TABLE)))
+(EVAL-WHEN (EVAL LOAD) (SETQ |$opHash| (MAKE_HASHTABLE 'EQUAL)))
  
 ; $asyPrint := false
  
@@ -47,9 +47,9 @@
  
 ; astran asyFile ==
 ; --global hash tables for new compiler
-;   $docHash  := MAKE_-HASH_-TABLE()
-;   $conHash := MAKE_-HASH_-TABLE()
-;   $constantHash := MAKE_-HASH_-TABLE()
+;   $docHash  := MAKE_HASHTABLE('EQUAL)
+;   $conHash := MAKE_HASHTABLE('EQUAL)
+;   $constantHash := MAKE_HASHTABLE('EQUAL)
 ;   $niladics : local := nil
 ;   $asyFile: local := asyFile
 ;   $asFilename: local := STRCONC(PATHNAME_-NAME asyFile,'".as")
@@ -59,8 +59,8 @@
 ;     [[con,:asyConstructorModemap con] for con in conlist]
 ;   $docAlist : local :=
 ;     [[con,:REMDUP asyDocumentation con] for con in conlist]
-;   $parentsHash : local := MAKE_-HASH_-TABLE()
-; --$childrenHash: local := MAKE_-HASH_-TABLE()
+;   $parentsHash : local := MAKE_HASHTABLE('EQUAL)
+; --$childrenHash: local := MAKE_HASHTABLE('EQUAL)
 ;   for con in conlist repeat
 ;     parents := asyParents con
 ;     HPUT($parentsHash,con,asyParents con)
@@ -78,9 +78,9 @@
       |$niladics|))
     (RETURN
      (PROGN
-      (SETQ |$docHash| (MAKE-HASH-TABLE))
-      (SETQ |$conHash| (MAKE-HASH-TABLE))
-      (SETQ |$constantHash| (MAKE-HASH-TABLE))
+      (SETQ |$docHash| (MAKE_HASHTABLE 'EQUAL))
+      (SETQ |$conHash| (MAKE_HASHTABLE 'EQUAL))
+      (SETQ |$constantHash| (MAKE_HASHTABLE 'EQUAL))
       (SETQ |$niladics| NIL)
       (SETQ |$asyFile| |asyFile|)
       (SETQ |$asFilename| (STRCONC (PATHNAME-NAME |asyFile|) ".as"))
@@ -135,7 +135,7 @@
                              |bfVar#7|))))
                   (SETQ |bfVar#6| (CDR |bfVar#6|))))
                NIL |conlist| NIL))
-      (SETQ |$parentsHash| (MAKE-HASH-TABLE))
+      (SETQ |$parentsHash| (MAKE_HASHTABLE 'EQUAL))
       ((LAMBDA (|bfVar#8| |con|)
          (LOOP
           (COND
@@ -973,7 +973,7 @@
 ;       kind := 'domain
 ;       u := NIL
 ;     return nil
-;   ht := MAKE_-HASH_-TABLE()
+;   ht := MAKE_HASHTABLE('EQUAL)
 ;   ancestorAlist := nil
 ;   for ['Declare,id,form,r] in oplist repeat
 ;     id = "%%" =>
@@ -1014,7 +1014,7 @@
                ((EQ |key| '|domain|)
                 (PROGN (SETQ |kind| '|domain|) (SETQ |u| NIL)))
                (#1='T (RETURN NIL))))
-      (SETQ |ht| (MAKE-HASH-TABLE))
+      (SETQ |ht| (MAKE_HASHTABLE 'EQUAL))
       (SETQ |ancestorAlist| NIL)
       ((LAMBDA (|bfVar#47| |bfVar#46|)
          (LOOP
@@ -1182,7 +1182,7 @@
 ;   for d in u repeat
 ;     ['Declare,name,:.] := d
 ;     name = "%%" => 'skip       --skip over top-level properties
-;     $docHashLocal: local := MAKE_-HASH_-TABLE()
+;     $docHashLocal: local := MAKE_HASHTABLE('EQUAL)
 ;     asytranDeclaration(d,'(top),nil,false)
 ;     if null name then BREAK()
 ;     HPUT($docHash,name,$docHashLocal)
@@ -1217,7 +1217,7 @@
              (COND ((EQ |name| '%%) '|skip|)
                    (#1#
                     (PROGN
-                     (SETQ |$docHashLocal| (MAKE-HASH-TABLE))
+                     (SETQ |$docHashLocal| (MAKE_HASHTABLE 'EQUAL))
                      (|asytranDeclaration| |d| '(|top|) NIL NIL)
                      (COND ((NULL |name|) (BREAK)))
                      (HPUT |$docHash| |name| |$docHashLocal|)))))))
@@ -1831,7 +1831,7 @@
 ;   items :=
 ;     cat is ['Sequence,:s] => s
 ;     [cat]
-;   catTable := MAKE_-HASH_-TABLE()
+;   catTable := MAKE_HASHTABLE('EQUAL)
 ;   catList  := nil
 ;   for x in items | x repeat
 ;     if null x then systemError()
@@ -1900,7 +1900,7 @@
                      (PROGN (SETQ |s| (CDR |cat|)) #1#))
                 |s|)
                (#1# (LIST |cat|))))
-      (SETQ |catTable| (MAKE-HASH-TABLE))
+      (SETQ |catTable| (MAKE_HASHTABLE 'EQUAL))
       (SETQ |catList| NIL)
       ((LAMBDA (|bfVar#69| |x|)
          (LOOP

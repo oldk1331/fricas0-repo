@@ -901,7 +901,7 @@
 ;   acc  := nil
 ;   $conname : local := first conform
 ;   domList := getUsersOfConstructor $conname
-;   hash := MAKE_-HASH_-TABLE()
+;   hash := MAKE_HASHTABLE('EQUAL)
 ;   for name in allConstructors() | MEMQ(name,domList) repeat
 ;     $infovec : local := dbInfovec name
 ;     null $infovec => 'skip           --category
@@ -951,7 +951,7 @@
       (SETQ |acc| NIL)
       (SETQ |$conname| (CAR |conform|))
       (SETQ |domList| (|getUsersOfConstructor| |$conname|))
-      (SETQ |hash| (MAKE-HASH-TABLE))
+      (SETQ |hash| (MAKE_HASHTABLE 'EQUAL))
       ((LAMBDA (|bfVar#32| |name|)
          (LOOP
           (COND
@@ -1523,7 +1523,7 @@
       NIL |alist| NIL))))
  
 ; koCatAttrs(catform,domname) ==
-;   $if: local := MAKE_-HASHTABLE 'ID
+;   $if : local := MAKE_HASHTABLE('ID)
 ;   catname   := opOf catform
 ;   koCatAttrsAdd(domname or catform,true)
 ;   ancestors := ancestorsOf(catform,domname)
@@ -1535,7 +1535,7 @@
     (DECLARE (SPECIAL |$if|))
     (RETURN
      (PROGN
-      (SETQ |$if| (MAKE-HASHTABLE 'ID))
+      (SETQ |$if| (MAKE_HASHTABLE 'ID))
       (SETQ |catname| (|opOf| |catform|))
       (|koCatAttrsAdd| (OR |domname| |catform|) T)
       (SETQ |ancestors| (|ancestorsOf| |catform| |domname|))

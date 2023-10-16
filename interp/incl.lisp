@@ -63,14 +63,14 @@
      (|incRenumber|
       (|incLude| 0 (|incRgen| |st|) 0 (LIST |fn|) (LIST |Top|))))))
  
-; incFileInput    fn == incRgen  MAKE_-INSTREAM fn
+; incFileInput    fn == incRgen  MAKE_INSTREAM(fn)
  
 (DEFUN |incFileInput| (|fn|)
-  (PROG () (RETURN (|incRgen| (MAKE-INSTREAM |fn|)))))
+  (PROG () (RETURN (|incRgen| (MAKE_INSTREAM |fn|)))))
  
-; incConsoleInput () == incRgen  MAKE_-INSTREAM 0
+; incConsoleInput () == incRgen  MAKE_INSTREAM(0)
  
-(DEFUN |incConsoleInput| () (PROG () (RETURN (|incRgen| (MAKE-INSTREAM 0)))))
+(DEFUN |incConsoleInput| () (PROG () (RETURN (|incRgen| (MAKE_INSTREAM 0)))))
  
 ; incLine(eb, str, gno, lno, ufo) ==
 ;             ln := lnCreate(eb,str,gno,lno,ufo)

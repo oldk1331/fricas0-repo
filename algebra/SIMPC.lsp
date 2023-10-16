@@ -743,7 +743,7 @@
 (SDEFUN |SIMPC;merge;3$;22| ((|a| $) (|b| $) ($ $))
         (SPROG ((|res| ($)) (#1=#:G294 NIL) (|x| NIL))
                (SEQ
-                (LETT |res| (MOVEVEC (MAKE-VEC 3) |a|)
+                (LETT |res| (MOVEVEC (MAKE_VEC 3) |a|)
                       . #2=(|SIMPC;merge;3$;22|))
                 (SEQ (LETT |x| NIL . #2#) (LETT #1# (QVELT |b| 2) . #2#) G190
                      (COND

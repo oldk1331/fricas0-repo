@@ -42,7 +42,7 @@
 ;   $mkTestOutputType: local := nil
 ;   $currentLine: local := nil
 ;   if isExistingFile opathname then DELETE_-FILE opathname
-;   $testStream := MAKE_-OUTSTREAM opathname
+;   $testStream := MAKE_OUTSTREAM(opathname)
 ;   CATCH('SPAD_READER, do_read(pathname, nil))
 ;   --for trailing system commands
 ;   if not null $currentLine then recordAndPrintTest '(ForSystemCommands)
@@ -73,7 +73,7 @@
          (SETQ |$mkTestOutputType| NIL)
          (SETQ |$currentLine| NIL)
          (COND ((|isExistingFile| |opathname|) (DELETE-FILE |opathname|)))
-         (SETQ |$testStream| (MAKE-OUTSTREAM |opathname|))
+         (SETQ |$testStream| (MAKE_OUTSTREAM |opathname|))
          (CATCH 'SPAD_READER (|do_read| |pathname| NIL))
          (COND
           ((NULL (NULL |$currentLine|))
@@ -85,7 +85,7 @@
 ;   $LINELENGTH : local := IFCAR option or 76
 ;   $printTimeIfTrue: local := nil
 ;   $printTypeIfTrue: local := true
-;   stream := MAKE_-INSTREAM (pathname)
+;   stream := MAKE_INSTREAM(pathname)
 ;   repeat
 ;     NULL (PEEK_-CHAR ( true, stream , nil, nil )) => return nil
 ;     [i,t,:o] := dewritify VMREAD stream
@@ -104,7 +104,7 @@
       (SETQ $LINELENGTH (OR (IFCAR |option|) 76))
       (SETQ |$printTimeIfTrue| NIL)
       (SETQ |$printTypeIfTrue| T)
-      (SETQ |stream| (MAKE-INSTREAM |pathname|))
+      (SETQ |stream| (MAKE_INSTREAM |pathname|))
       ((LAMBDA ()
          (LOOP
           (COND (NIL (RETURN NIL))
@@ -240,7 +240,7 @@
 ;   ifn := PATHNAME_-NAME pathname
 ;   sayBrightly ['"Verifying",:bright ifn]
 ;   not isExistingFile pathname => throwKeyedMsg("S2IL0003",[namestring ifn])
-;   stream := MAKE_-INSTREAM pathname
+;   stream := MAKE_INSTREAM(pathname)
 ;   clearCmdAll()
 ;   result := 'ok
 ;   for j in 1.. repeat
@@ -272,7 +272,7 @@
         (|throwKeyedMsg| 'S2IL0003 (LIST (|namestring| |ifn|))))
        (#1='T
         (PROGN
-         (SETQ |stream| (MAKE-INSTREAM |pathname|))
+         (SETQ |stream| (MAKE_INSTREAM |pathname|))
          (|clearCmdAll|)
          (SETQ |result| '|ok|)
          ((LAMBDA (|j|)
@@ -347,7 +347,7 @@
               (CONS (|prefix2String| |typ|) |output|))))))))
  
 ; evaluateLines lines ==
-;   file := MAKE_-OUTSTREAM '"/tmp/temp.input"
+;   file := MAKE_OUTSTREAM('"/tmp/temp.input")
 ;   for line in lines repeat
 ; --  stringPrefix?('")read ",line) => 'skip
 ;     stringPrefix?('")r",line) => 'skip
@@ -365,7 +365,7 @@
     (DECLARE (SPECIAL |$edit_file|))
     (RETURN
      (PROGN
-      (SETQ |file| (MAKE-OUTSTREAM "/tmp/temp.input"))
+      (SETQ |file| (MAKE_OUTSTREAM "/tmp/temp.input"))
       ((LAMBDA (|bfVar#9| |line|)
          (LOOP
           (COND
@@ -441,11 +441,11 @@
 ;   odirect := pathnameDirectory opath
 ;   opathname := htMkPath(odirect,ifn,'"input")
 ;   if isExistingFile opathname then DELETE_-FILE opathname
-;   $htStream : local := MAKE_-INSTREAM pathname
+;   $htStream : local := MAKE_INSTREAM(pathname)
 ;   alist := [[htGetPageName u,:htGetSpadCommands()]
 ;               while (u := htExampleFind '"\begin{page}")]
 ;   SHUT $htStream
-;   outStream := MAKE_-OUTSTREAM opathname
+;   outStream := MAKE_OUTSTREAM(opathname)
 ;   for [pageName,:commands] in alist repeat
 ;     PRINTEXP('"-- ",outStream)
 ;     PRINTEXP(pageName,outStream)
@@ -475,7 +475,7 @@
          (SETQ |odirect| (|pathnameDirectory| |opath|))
          (SETQ |opathname| (|htMkPath| |odirect| |ifn| "input"))
          (COND ((|isExistingFile| |opathname|) (DELETE-FILE |opathname|)))
-         (SETQ |$htStream| (MAKE-INSTREAM |pathname|))
+         (SETQ |$htStream| (MAKE_INSTREAM |pathname|))
          (SETQ |alist|
                  ((LAMBDA (|bfVar#12|)
                     (LOOP
@@ -490,7 +490,7 @@
                                 |bfVar#12|))))))
                   NIL))
          (SHUT |$htStream|)
-         (SETQ |outStream| (MAKE-OUTSTREAM |opathname|))
+         (SETQ |outStream| (MAKE_OUTSTREAM |opathname|))
          ((LAMBDA (|bfVar#14| |bfVar#13|)
             (LOOP
              (COND

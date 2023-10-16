@@ -2733,7 +2733,7 @@
 ;     OBEY STRCONC('"$AXIOM/lib/SPADEDIT ",namestring helpFile)
 ;     true
 ; 
-;   filestream := MAKE_-INSTREAM(helpFile)
+;   filestream := MAKE_INSTREAM(helpFile)
 ;   repeat
 ;     line := read_line(filestream,false)
 ;     NULL line =>
@@ -2770,7 +2770,7 @@
                  T))
                (#1#
                 (PROGN
-                 (SETQ |filestream| (MAKE-INSTREAM |helpFile|))
+                 (SETQ |filestream| (MAKE_INSTREAM |helpFile|))
                  ((LAMBDA ()
                     (LOOP
                      (COND (NIL (RETURN NIL))
@@ -3718,7 +3718,7 @@
 ;       lineList := [vec,:lineList]
 ;   file := histInputFileName(fn)
 ;   maybe_delete_file(file)
-;   inp:= MAKE_-OUTSTREAM(file)
+;   inp := MAKE_OUTSTREAM(file)
 ;   for x in removeUndoLines NREVERSE lineList repeat WRITE_-LINE(x,inp)
 ;   -- see file "undo" for definition of removeUndoLines
 ;   if fn ~= 'redo then sayKeyedMsg("S2IH0014",[namestring file])
@@ -3803,7 +3803,7 @@
               (- |$IOindex| 1) |initial|)
              (SETQ |file| (|histInputFileName| |fn|))
              (|maybe_delete_file| |file|)
-             (SETQ |inp| (MAKE-OUTSTREAM |file|))
+             (SETQ |inp| (MAKE_OUTSTREAM |file|))
              ((LAMBDA (|bfVar#80| |x|)
                 (LOOP
                  (COND
@@ -4196,7 +4196,7 @@
       (|updateHist|)))))
  
 ; saveHistory(fn) ==
-;   $seen: local := MAKE_-HASHTABLE 'EQ
+;   $seen : local := MAKE_HASHTABLE('EQ)
 ;   not $HiFiAccess => sayKeyedMsg("S2IH0016",NIL)
 ;   not $useInternalHistoryTable and
 ;       null(make_input_filename(histFileName())) =>
@@ -4224,7 +4224,7 @@
     (DECLARE (SPECIAL |$seen|))
     (RETURN
      (PROGN
-      (SETQ |$seen| (MAKE-HASHTABLE 'EQ))
+      (SETQ |$seen| (MAKE_HASHTABLE 'EQ))
       (COND ((NULL |$HiFiAccess|) (|sayKeyedMsg| 'S2IH0016 NIL))
             ((AND (NULL |$useInternalHistoryTable|)
                   (NULL (|make_input_filename| (|histFileName|))))
@@ -4745,7 +4745,7 @@
  
 ; writify ob ==
 ;     not ScanOrPairVec(function(unwritable?), ob) => ob
-;     $seen:     local := MAKE_-HASHTABLE 'EQ
+;     $seen : local := MAKE_HASHTABLE('EQ)
 ;     $writifyComplained: local := false
 ; 
 ;     writifyInner ob where
@@ -4782,7 +4782,7 @@
 ;                     HPUT($seen, nob, nob)
 ;                     nob
 ;                 n   := QVMAXINDEX ob
-;                 nob := MAKE_-VEC(n+1)
+;                 nob := MAKE_VEC(n + 1)
 ;                 HPUT($seen, ob, nob)
 ;                 HPUT($seen, nob, nob)
 ;                 for i in 0..n repeat
@@ -4811,7 +4811,7 @@
 ;                 keys := HKEYS ob
 ;                 QRPLACD(nob,
 ;                         ['HASHTABLE,
-;                           HASHTABLE_-CLASS ob,
+;                           HASHTABLE_CLASS(ob),
 ;                             writifyInner keys,
 ;                               [writifyInner HGET(ob,k) for k in keys]])
 ;                 nob
@@ -4842,7 +4842,7 @@
      (COND ((NULL (|ScanOrPairVec| #'|unwritable?| |ob|)) |ob|)
            ('T
             (PROGN
-             (SETQ |$seen| (MAKE-HASHTABLE 'EQ))
+             (SETQ |$seen| (MAKE_HASHTABLE 'EQ))
              (SETQ |$writifyComplained| NIL)
              (|writify,writifyInner| |ob|)))))))
 (DEFUN |writify,writifyInner| (|ob|)
@@ -4903,7 +4903,7 @@
              (#1#
               (PROGN
                (SETQ |n| (QVMAXINDEX |ob|))
-               (SETQ |nob| (MAKE-VEC (+ |n| 1)))
+               (SETQ |nob| (MAKE_VEC (+ |n| 1)))
                (HPUT |$seen| |ob| |nob|)
                (HPUT |$seen| |nob| |nob|)
                ((LAMBDA (|i|)
@@ -4936,7 +4936,7 @@
              (HPUT |$seen| |nob| |nob|)
              (SETQ |keys| (HKEYS |ob|))
              (QRPLACD |nob|
-              (LIST 'HASHTABLE (HASHTABLE-CLASS |ob|)
+              (LIST 'HASHTABLE (HASHTABLE_CLASS |ob|)
                     (|writify,writifyInner| |keys|)
                     ((LAMBDA (|bfVar#99| |bfVar#98| |k|)
                        (LOOP
@@ -5029,7 +5029,7 @@
 ;     (not ScanOrPairVec(function is?, ob)
 ;             where  is? a == a = 'WRITIFIED_!_!) => ob
 ; 
-;     $seen:     local := MAKE_-HASHTABLE 'EQ
+;     $seen : local := MAKE_HASHTABLE('EQ)
 ; 
 ;     dewritifyInner ob where
 ;         dewritifyInner ob ==
@@ -5053,7 +5053,7 @@
 ;                     HPUT($seen, ob, f)
 ;                     f
 ;                 type = 'HASHTABLE =>
-;                     nob := MAKE_-HASHTABLE ob.2
+;                     nob := MAKE_HASHTABLE(ob.2)
 ;                     HPUT($seen, ob, nob)
 ;                     HPUT($seen, nob, nob)
 ;                     for k in ob.3 for e in ob.4 repeat
@@ -5100,7 +5100,7 @@
 ;                 nob
 ;             VECP ob =>
 ;                 n   := QVMAXINDEX ob
-;                 nob := MAKE_-VEC(n+1)
+;                 nob := MAKE_VEC(n + 1)
 ;                 HPUT($seen, ob, nob)
 ;                 HPUT($seen, nob, nob)
 ;                 for i in 0..n repeat
@@ -5125,7 +5125,7 @@
      (COND ((NULL (|ScanOrPairVec| #'|dewritify,is?| |ob|)) |ob|)
            ('T
             (PROGN
-             (SETQ |$seen| (MAKE-HASHTABLE 'EQ))
+             (SETQ |$seen| (MAKE_HASHTABLE 'EQ))
              (|dewritify,dewritifyInner| |ob|)))))))
 (DEFUN |dewritify,dewritifyInner| (|ob|)
   (PROG (|e| |type| |oname| |f| |nob| |vec| |name| |LETTMP#1| |fval| |signif|
@@ -5152,7 +5152,7 @@
                       (#1# (PROGN (HPUT |$seen| |ob| |f|) |f|)))))
                    ((EQ |type| 'HASHTABLE)
                     (PROGN
-                     (SETQ |nob| (MAKE-HASHTABLE (ELT |ob| 2)))
+                     (SETQ |nob| (MAKE_HASHTABLE (ELT |ob| 2)))
                      (HPUT |$seen| |ob| |nob|)
                      (HPUT |$seen| |nob| |nob|)
                      ((LAMBDA (|bfVar#100| |k| |bfVar#101| |e|)
@@ -5225,7 +5225,7 @@
            ((VECP |ob|)
             (PROGN
              (SETQ |n| (QVMAXINDEX |ob|))
-             (SETQ |nob| (MAKE-VEC (+ |n| 1)))
+             (SETQ |nob| (MAKE_VEC (+ |n| 1)))
              (HPUT |$seen| |ob| |nob|)
              (HPUT |$seen| |nob| |nob|)
              ((LAMBDA (|i|)
@@ -5252,7 +5252,7 @@
 (DEFUN |dewritify,is?| (|a|) (PROG () (RETURN (EQ |a| 'WRITIFIED!!))))
  
 ; ScanOrPairVec(f, ob) ==
-;     $seen:     local := MAKE_-HASHTABLE 'EQ
+;     $seen : local := MAKE_HASHTABLE('EQ)
 ; 
 ;     CATCH('ScanOrPairVecAnswer, ScanOrInner(f, ob)) where
 ;         ScanOrInner(f, ob) ==
@@ -5278,7 +5278,7 @@
     (DECLARE (SPECIAL |$seen|))
     (RETURN
      (PROGN
-      (SETQ |$seen| (MAKE-HASHTABLE 'EQ))
+      (SETQ |$seen| (MAKE_HASHTABLE 'EQ))
       (CATCH '|ScanOrPairVecAnswer| (|ScanOrPairVec,ScanOrInner| |f| |ob|))))))
 (DEFUN |ScanOrPairVec,ScanOrInner| (|f| |ob|)
   (PROG ()
@@ -5773,7 +5773,7 @@
 ; reportOpsFromUnitDirectly1 D ==
 ;   showFile := pathname ['SHOW,'LISTING]
 ;   erase_lib([showFile])
-;   $sayBrightlyStream : fluid := MAKE_-OUTSTREAM(showFile)
+;   $sayBrightlyStream : fluid := MAKE_OUTSTREAM(showFile)
 ;   sayShowWarning()
 ;   reportOpsFromUnitDirectly D
 ;   SHUT $sayBrightlyStream
@@ -5786,7 +5786,7 @@
      (PROGN
       (SETQ |showFile| (|pathname| (LIST 'SHOW 'LISTING)))
       (|erase_lib| (LIST |showFile|))
-      (SETQ |$sayBrightlyStream| (MAKE-OUTSTREAM |showFile|))
+      (SETQ |$sayBrightlyStream| (MAKE_OUTSTREAM |showFile|))
       (|sayShowWarning|)
       (|reportOpsFromUnitDirectly| D)
       (SHUT |$sayBrightlyStream|)
@@ -5825,7 +5825,7 @@
 ; reportOpsFromLisplib1(unitForm,u)  ==
 ;   showFile := pathname ['SHOW,'LISTING]
 ;   erase_lib([showFile])
-;   $sayBrightlyStream : fluid := MAKE_-OUTSTREAM (showFile)
+;   $sayBrightlyStream : fluid := MAKE_OUTSTREAM(showFile)
 ;   sayShowWarning()
 ;   reportOpsFromLisplib(unitForm,u)
 ;   SHUT $sayBrightlyStream
@@ -5838,7 +5838,7 @@
      (PROGN
       (SETQ |showFile| (|pathname| (LIST 'SHOW 'LISTING)))
       (|erase_lib| (LIST |showFile|))
-      (SETQ |$sayBrightlyStream| (MAKE-OUTSTREAM |showFile|))
+      (SETQ |$sayBrightlyStream| (MAKE_OUTSTREAM |showFile|))
       (|sayShowWarning|)
       (|reportOpsFromLisplib| |unitForm| |u|)
       (SHUT |$sayBrightlyStream|)

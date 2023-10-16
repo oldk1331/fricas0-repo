@@ -75,9 +75,9 @@
  
 (EVAL-WHEN (EVAL LOAD) (SETQ |$bcMultipleNames| NIL))
  
-; $docTableHash := MAKE_-HASHTABLE 'EQUAL  --see dbExpandOpAlistIfNecessary
+; $docTableHash := MAKE_HASHTABLE('EQUAL)  --see dbExpandOpAlistIfNecessary
  
-(EVAL-WHEN (EVAL LOAD) (SETQ |$docTableHash| (MAKE-HASHTABLE 'EQUAL)))
+(EVAL-WHEN (EVAL LOAD) (SETQ |$docTableHash| (MAKE_HASHTABLE 'EQUAL)))
  
 ; $groupChoice := nil  --see dbShowOperationsFromConform
  

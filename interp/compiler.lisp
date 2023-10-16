@@ -45,7 +45,7 @@
 ;   $forceAdd: local:= false
 ;   $compTimeSum: local := 0
 ;   $resolveTimeSum: local := 0
-;   $envHashTable: local := MAKE_-HASHTABLE 'EQUAL
+;   $envHashTable : local := MAKE_HASHTABLE('EQUAL)
 ;   initEnvHashTable(e)
 ;   initEnvHashTable($CategoryFrame)
 ;   -- The next line allows the new compiler to be tested interactively.
@@ -68,7 +68,7 @@
       (SETQ |$forceAdd| NIL)
       (SETQ |$compTimeSum| 0)
       (SETQ |$resolveTimeSum| 0)
-      (SETQ |$envHashTable| (MAKE-HASHTABLE 'EQUAL))
+      (SETQ |$envHashTable| (MAKE_HASHTABLE 'EQUAL))
       (|initEnvHashTable| |e|)
       (|initEnvHashTable| |$CategoryFrame|)
       (SETQ |compFun| '|compOrCroak|)

@@ -1652,7 +1652,7 @@
 ;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_-OUTSTREAM(filename)) =>
+;     (testStream := MAKE_OUTSTREAM(filename)) =>
 ;       SHUT $algebraOutputStream
 ;       $algebraOutputStream := testStream
 ;       $algebraOutputFile := object2String filename
@@ -1728,7 +1728,7 @@
              (SETQ |ft| |ptype|)))
            (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
+                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
                   (PROGN
                    (SHUT |$algebraOutputStream|)
                    (SETQ |$algebraOutputStream| |testStream|)
@@ -1906,14 +1906,14 @@
               (#1# (|setOutputCharacters| NIL)))))))))
  
 ; makeStream(append,filename) ==
-;   append => MAKE_-APPENDSTREAM(filename)
-;   MAKE_-OUTSTREAM(filename)
+;   append => MAKE_APPENDSTREAM(filename)
+;   MAKE_OUTSTREAM(filename)
  
 (DEFUN |makeStream| (APPEND |filename|)
   (PROG ()
     (RETURN
-     (COND (APPEND (MAKE-APPENDSTREAM |filename|))
-           ('T (MAKE-OUTSTREAM |filename|))))))
+     (COND (APPEND (MAKE_APPENDSTREAM |filename|))
+           ('T (MAKE_OUTSTREAM |filename|))))))
  
 ; setOutputFortran arg ==
 ;   arg = "%initialize%" =>
@@ -2159,7 +2159,7 @@
 ;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_-OUTSTREAM(filename)) =>
+;     (testStream := MAKE_OUTSTREAM(filename)) =>
 ;       SHUT $mathmlOutputStream
 ;       $mathmlOutputStream := testStream
 ;       $mathmlOutputFile := object2String filename
@@ -2235,7 +2235,7 @@
              (SETQ |ft| |ptype|)))
            (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
+                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
                   (PROGN
                    (SHUT |$mathmlOutputStream|)
                    (SETQ |$mathmlOutputStream| |testStream|)
@@ -2339,7 +2339,7 @@
 ;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_-OUTSTREAM(filename)) =>
+;     (testStream := MAKE_OUTSTREAM(filename)) =>
 ;       SHUT $texmacsOutputStream
 ;       $texmacsOutputStream := testStream
 ;       $texmacsOutputFile := object2String filename
@@ -2415,7 +2415,7 @@
              (SETQ |ft| |ptype|)))
            (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
+                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
                   (PROGN
                    (SHUT |$texmacsOutputStream|)
                    (SETQ |$texmacsOutputStream| |testStream|)
@@ -2519,7 +2519,7 @@
 ;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_-OUTSTREAM(filename)) =>
+;     (testStream := MAKE_OUTSTREAM(filename)) =>
 ;       SHUT $htmlOutputStream
 ;       $htmlOutputStream := testStream
 ;       $htmlOutputFile := object2String filename
@@ -2595,7 +2595,7 @@
              (SETQ |ft| |ptype|)))
            (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
+                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
                   (PROGN
                    (SHUT |$htmlOutputStream|)
                    (SETQ |$htmlOutputStream| |testStream|)
@@ -2698,7 +2698,7 @@
 ;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_-OUTSTREAM(filename)) =>
+;     (testStream := MAKE_OUTSTREAM(filename)) =>
 ;       SHUT $openMathOutputStream
 ;       $openMathOutputStream := testStream
 ;       $openMathOutputFile := object2String filename
@@ -2774,7 +2774,7 @@
              (SETQ |ft| |ptype|)))
            (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
+                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
                   (PROGN
                    (SHUT |$openMathOutputStream|)
                    (SETQ |$openMathOutputStream| |testStream|)
@@ -2879,7 +2879,7 @@
 ;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_-OUTSTREAM(filename)) =>
+;     (testStream := MAKE_OUTSTREAM(filename)) =>
 ;       SHUT $formulaOutputStream
 ;       $formulaOutputStream := testStream
 ;       $formulaOutputFile := object2String filename
@@ -2955,7 +2955,7 @@
              (SETQ |ft| |ptype|)))
            (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
+                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
                   (PROGN
                    (SHUT |$formulaOutputStream|)
                    (SETQ |$formulaOutputStream| |testStream|)
@@ -3062,7 +3062,7 @@
 ;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
-;     (testStream := MAKE_-OUTSTREAM(filename)) =>
+;     (testStream := MAKE_OUTSTREAM(filename)) =>
 ;       SHUT $texOutputStream
 ;       $texOutputStream := testStream
 ;       $texOutputFile := object2String filename
@@ -3138,7 +3138,7 @@
              (SETQ |ft| |ptype|)))
            (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
-                 ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
+                 ((SETQ |testStream| (MAKE_OUTSTREAM |filename|))
                   (PROGN
                    (SHUT |$texOutputStream|)
                    (SETQ |$texOutputStream| |testStream|)

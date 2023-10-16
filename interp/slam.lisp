@@ -217,7 +217,7 @@
 ;   compileInteractive mainFunction
 ;   compileInteractive computeFunction
 ;   cacheType:= 'hash_-table
-;   cacheResetCode:= ['SETQ,cacheName,['MAKE_-HASHTABLE,''UEQUAL]]
+;   cacheResetCode := ['SETQ, cacheName, ['MAKE_HASHTABLE, ''UEQUAL]]
 ;   cacheCountCode:= ['hashCount,cacheName]
 ;   cacheVector:=
 ;     mkCacheVec(op,cacheName,cacheType,cacheResetCode,cacheCountCode)
@@ -264,7 +264,7 @@
       (|compileInteractive| |computeFunction|)
       (SETQ |cacheType| '|hash-table|)
       (SETQ |cacheResetCode|
-              (LIST 'SETQ |cacheName| (LIST 'MAKE-HASHTABLE ''UEQUAL)))
+              (LIST 'SETQ |cacheName| (LIST 'MAKE_HASHTABLE ''UEQUAL)))
       (SETQ |cacheCountCode| (LIST '|hashCount| |cacheName|))
       (SETQ |cacheVector|
               (|mkCacheVec| |op| |cacheName| |cacheType| |cacheResetCode|
@@ -420,7 +420,7 @@
 ;     --  also binds "stateVar" to its current value
 ;     initialSetCode :=
 ;       initialValueCode :=
-;         extraArguments => ['MAKE_-HASHTABLE,''UEQUAL]
+;         extraArguments => ['MAKE_HASHTABLE, ''UEQUAL]
 ;         tripleCode
 ;       cacheResetCode := ['SETQ,stateNam,initialValueCode]
 ;       ['COND,[['NULL,['AND,['BOUNDP,MKQ stateNam], _
@@ -614,7 +614,7 @@
       (SETQ |initialSetCode|
               (PROGN
                (SETQ |initialValueCode|
-                       (COND (|extraArguments| (LIST 'MAKE-HASHTABLE ''UEQUAL))
+                       (COND (|extraArguments| (LIST 'MAKE_HASHTABLE ''UEQUAL))
                              (#2# |tripleCode|)))
                (SETQ |cacheResetCode|
                        (LIST 'SETQ |stateNam| |initialValueCode|))

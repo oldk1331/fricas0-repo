@@ -5,7 +5,7 @@
  
 ; mkLowerCaseConTable() ==
 ; --Table is referenced by functions conPageFastPath and grepForAbbrev
-;   $lowerCaseConTb := MAKE_-HASH_-TABLE()
+;   $lowerCaseConTb := MAKE_HASHTABLE('EQUAL)
 ;   for x in allConstructors() repeat augmentLowerCaseConTable x
 ;   $lowerCaseConTb
  
@@ -13,7 +13,7 @@
   (PROG ()
     (RETURN
      (PROGN
-      (SETQ |$lowerCaseConTb| (MAKE-HASH-TABLE))
+      (SETQ |$lowerCaseConTb| (MAKE_HASHTABLE 'EQUAL))
       ((LAMBDA (|bfVar#1| |x|)
          (LOOP
           (COND

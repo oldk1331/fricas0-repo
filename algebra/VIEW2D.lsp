@@ -259,7 +259,7 @@
 
 (SDEFUN |VIEW2D;viewport2D;$;16| (($ $))
         (VECTOR 0 (MAKEARR1 9 (CONS 1 "undefined"))
-                (MAKEARR1 9 (MOVEVEC (MAKE-VEC 12) (QREFELT $ 17))) "FriCAS2D"
+                (MAKEARR1 9 (MOVEVEC (MAKE_VEC 12) (QREFELT $ 17))) "FriCAS2D"
                 (CONS (SPADCALL (SPADCALL (QREFELT $ 53)) 1 (QREFELT $ 54))
                       (SPADCALL (SPADCALL (QREFELT $ 53)) 2 (QREFELT $ 54)))
                 (CONS (SPADCALL (SPADCALL (QREFELT $ 56)) 1 (QREFELT $ 57))
@@ -277,7 +277,7 @@
                 (EXIT (|VIEW2D;makeViewport2D0| |viewport| $))))) 
 
 (SDEFUN |VIEW2D;makeViewport2D;2$;18| ((|viewport| $) ($ $))
-        (|VIEW2D;makeViewport2D0| (MOVEVEC (MAKE-VEC 8) |viewport|) $)) 
+        (|VIEW2D;makeViewport2D0| (MOVEVEC (MAKE_VEC 8) |viewport|) $)) 
 
 (SDEFUN |VIEW2D;send_graphs|
         ((|vg| |Vector| (|Union| (|GraphImage|) #1="undefined")) ($ |Void|))

@@ -17,13 +17,13 @@
  
 ; mkAtreeNode x ==
 ;   -- maker of attrib tree node
-;   v := MAKE_-VEC 5
+;   v := MAKE_VEC(5)
 ;   v.0 := x
 ;   v
  
 (DEFUN |mkAtreeNode| (|x|)
   (PROG (|v|)
-    (RETURN (PROGN (SETQ |v| (MAKE-VEC 5)) (SETF (ELT |v| 0) |x|) |v|))))
+    (RETURN (PROGN (SETQ |v| (MAKE_VEC 5)) (SETF (ELT |v| 0) |x|) |v|))))
  
 ; mkAtree x ==
 ;   -- maker of attrib tree from parser form

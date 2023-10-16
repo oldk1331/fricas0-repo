@@ -498,8 +498,8 @@
 ;   infovec := GET(fn, 'cacheInfo) or keyedSystemError("S2GE0003", [fn])
 ;   -- eval infovec.cacheReset
 ;   ir := infovec.cacheReset
-;   ir is ["SETQ", var , ['MAKE_-HASHTABLE, ["QUOTE", mode]]] =>
-;      SETF(SYMBOL_-VALUE(var), MAKE_-HASHTABLE(mode))
+;   ir is ["SETQ", var , ['MAKE_HASHTABLE, ["QUOTE", mode]]] =>
+;      SETF(SYMBOL_-VALUE(var), MAKE_HASHTABLE(mode))
 ;   ir is ["SETQ", var , ["initCache", val]] =>
 ;      SETF(SYMBOL_-VALUE(var), initCache(val))
 ;   BREAK()
@@ -525,7 +525,7 @@
                          (PROGN
                           (SETQ |ISTMP#3| (CAR |ISTMP#2|))
                           (AND (CONSP |ISTMP#3|)
-                               (EQ (CAR |ISTMP#3|) 'MAKE-HASHTABLE)
+                               (EQ (CAR |ISTMP#3|) 'MAKE_HASHTABLE)
                                (PROGN
                                 (SETQ |ISTMP#4| (CDR |ISTMP#3|))
                                 (AND (CONSP |ISTMP#4|) (EQ (CDR |ISTMP#4|) NIL)
@@ -540,7 +540,7 @@
                                                  (PROGN
                                                   (SETQ |mode| (CAR |ISTMP#6|))
                                                   #1='T))))))))))))))
-        (SETF (SYMBOL-VALUE |var|) (MAKE-HASHTABLE |mode|)))
+        (SETF (SYMBOL-VALUE |var|) (MAKE_HASHTABLE |mode|)))
        ((AND (CONSP |ir|) (EQ (CAR |ir|) 'SETQ)
              (PROGN
               (SETQ |ISTMP#1| (CDR |ir|))

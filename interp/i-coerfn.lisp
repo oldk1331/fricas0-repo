@@ -15,7 +15,7 @@
  
 ; Zeros n ==
 ;     BOUNDP '$ZeroVecCache and #$ZeroVecCache = n => $ZeroVecCache
-;     $ZeroVecCache := MAKE_-VEC n
+;     $ZeroVecCache := MAKE_VEC(n)
 ;     for i in 0..n-1 repeat $ZeroVecCache.i := 0
 ;     $ZeroVecCache
  
@@ -27,7 +27,7 @@
        |$ZeroVecCache|)
       (#1='T
        (PROGN
-        (SETQ |$ZeroVecCache| (MAKE-VEC |n|))
+        (SETQ |$ZeroVecCache| (MAKE_VEC |n|))
         ((LAMBDA (|bfVar#1| |i|)
            (LOOP
             (COND ((> |i| |bfVar#1|) (RETURN NIL))

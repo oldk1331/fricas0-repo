@@ -2886,7 +2886,7 @@
  
 ; dbWriteLines(s, :options) ==
 ;   pathname := IFCAR options or getTempPath 'source
-;   $outStream: local := MAKE_-OUTSTREAM pathname
+;   $outStream : local := MAKE_OUTSTREAM(pathname)
 ;   for x in s repeat writedb x
 ;   SHUT $outStream
 ;   pathname
@@ -2897,7 +2897,7 @@
     (RETURN
      (PROGN
       (SETQ |pathname| (OR (IFCAR |options|) (|getTempPath| '|source|)))
-      (SETQ |$outStream| (MAKE-OUTSTREAM |pathname|))
+      (SETQ |$outStream| (MAKE_OUTSTREAM |pathname|))
       ((LAMBDA (|bfVar#96| |x|)
          (LOOP
           (COND

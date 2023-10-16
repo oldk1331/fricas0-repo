@@ -2291,7 +2291,7 @@
 ;   conform := htpProperty(htPage,'conform)
 ;   --prepare opAlist for possible filtering of groups
 ;   if null BOUNDP '$topicHash then
-;     $topicHash := MAKE_-HASHTABLE 'ID
+;     $topicHash := MAKE_HASHTABLE('ID)
 ;     for [x,:c] in '((extended . 0) (basic . 1) (hidden . 2)) repeat
 ;       HPUT($topicHash,x,c)
 ;   domform := htpProperty(htPage,'domname)
@@ -2337,7 +2337,7 @@
       (SETQ |$groupChoice| NIL)
       (SETQ |conform| (|htpProperty| |htPage| '|conform|))
       (COND
-       ((NULL (BOUNDP '|$topicHash|)) (SETQ |$topicHash| (MAKE-HASHTABLE 'ID))
+       ((NULL (BOUNDP '|$topicHash|)) (SETQ |$topicHash| (MAKE_HASHTABLE 'ID))
         ((LAMBDA (|bfVar#91| |bfVar#90|)
            (LOOP
             (COND
@@ -2632,7 +2632,7 @@
 ;     expandFlag = 'lists => --lists are partially expanded
 ;       -- entry is [sig, predicate, origin, exposeFlag, comments]
 ;       $value: local := nil
-;       $docTableHash := MAKE_-HASHTABLE 'EQUAL
+;       $docTableHash := MAKE_HASHTABLE('EQUAL)
 ;       packageSymbol := false
 ;       domform := htpProperty(htPage,'domname) or htpProperty(htPage,'conform)
 ;       if isDefaultPackageName opOf domform then
@@ -2759,7 +2759,7 @@
             ((EQ |expandFlag| '|lists|)
              (PROGN
               (SETQ |$value| NIL)
-              (SETQ |$docTableHash| (MAKE-HASHTABLE 'EQUAL))
+              (SETQ |$docTableHash| (MAKE_HASHTABLE 'EQUAL))
               (SETQ |packageSymbol| NIL)
               (SETQ |domform|
                       (OR (|htpProperty| |htPage| '|domname|)

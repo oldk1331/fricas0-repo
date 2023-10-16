@@ -75,7 +75,7 @@
  
 ; sigParams(sigList) ==
 ;   result := nil
-;   myhash := MAKE_-HASHTABLE 'EQUAL
+;   myhash := MAKE_HASHTABLE('EQUAL)
 ;   NewLocals:= nil
 ;   for s in sigList repeat
 ;     (NewLocals := Prepare (CADAR s, NewLocals)) where
@@ -109,7 +109,7 @@
     (RETURN
      (PROGN
       (SETQ |result| NIL)
-      (SETQ |myhash| (MAKE-HASHTABLE 'EQUAL))
+      (SETQ |myhash| (MAKE_HASHTABLE 'EQUAL))
       (SETQ |NewLocals| NIL)
       ((LAMBDA (|bfVar#4| |s|)
          (LOOP

@@ -23,7 +23,7 @@
                   (EXIT (SEQ (HREM |t| |k|) (EXIT (CONS 0 |r|))))))
                 (EXIT (CONS 1 "failed"))))) 
 
-(SDEFUN |HASHTBL;empty;$;5| (($ $)) (MAKE-HASHTABLE (INTERN (QREFELT $ 8)))) 
+(SDEFUN |HASHTBL;empty;$;5| (($ $)) (MAKE_HASHTABLE (INTERN (QREFELT $ 8)))) 
 
 (SDEFUN |HASHTBL;search;Key$U;6|
         ((|k| |Key|) (|t| $) ($ |Union| |Entry| "failed"))

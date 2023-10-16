@@ -75,7 +75,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |SPLNODE;copy;2$;13| ((|n| $) ($ $))
-        (|SPLNODE;per| (MOVEVEC (MAKE-VEC 3) (|SPLNODE;rep| |n| $)) $)) 
+        (|SPLNODE;per| (MOVEVEC (MAKE_VEC 3) (|SPLNODE;rep| |n| $)) $)) 
 
 (SDEFUN |SPLNODE;setValue!;$V$;14| ((|n| $) (|v| V) ($ $))
         (SEQ (QSETVELT (|SPLNODE;rep| |n| $) 0 |v|) (EXIT |n|))) 

@@ -1811,7 +1811,7 @@
          (SEQ
           (LETT |fortCsList| (LIST (SPADCALL (QREFELT $ 100)))
                 . #1=(|FCTOOL;exp2FortOptimizeCS|))
-          (LETT |fortCsHash| (MAKE-HASHTABLE 'EQ) . #1#)
+          (LETT |fortCsHash| (MAKE_HASHTABLE 'EQ) . #1#)
           (LETT |f|
                 (|FCTOOL;exp2FortOptimizeCS1| |e| |fortCsHash| |fortCsList| NIL
                  $)

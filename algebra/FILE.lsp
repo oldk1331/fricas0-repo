@@ -10,7 +10,7 @@
                    (LIST 'CONCAT
                          (SPADCALL "File is not readable" (QREFELT $ 13))
                          (SPADCALL |fn| (QREFELT $ 14))))))
-           (#1='T (MAKE-INSTREAM (SPADCALL |fn| (QREFELT $ 15))))))
+           (#1='T (MAKE_INSTREAM (SPADCALL |fn| (QREFELT $ 15))))))
          ((EQUAL |mode| "output")
           (COND
            ((NULL (SPADCALL |fn| (QREFELT $ 16)))
@@ -19,7 +19,7 @@
                    (LIST 'CONCAT
                          (SPADCALL "File is not writable" (QREFELT $ 13))
                          (SPADCALL |fn| (QREFELT $ 14))))))
-           (#1# (MAKE-OUTSTREAM (SPADCALL |fn| (QREFELT $ 15))))))
+           (#1# (MAKE_OUTSTREAM (SPADCALL |fn| (QREFELT $ 15))))))
          ('T
           (|error|
            (LIST '|mathprint|

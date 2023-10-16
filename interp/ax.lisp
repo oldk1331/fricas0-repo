@@ -47,7 +47,7 @@
  
 ; makeAxFile(filename, constructors) ==
 ;   axForm := makeAxExportForm(filename, constructors)
-;   st := MAKE_-OUTSTREAM(filename)
+;   st := MAKE_OUTSTREAM(filename)
 ;   PPRINT(axForm,st)
 ;   CLOSE st
  
@@ -56,7 +56,7 @@
     (RETURN
      (PROGN
       (SETQ |axForm| (|makeAxExportForm| |filename| |constructors|))
-      (SETQ |st| (MAKE-OUTSTREAM |filename|))
+      (SETQ |st| (MAKE_OUTSTREAM |filename|))
       (PPRINT |axForm| |st|)
       (CLOSE |st|)))))
  

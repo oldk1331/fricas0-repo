@@ -1055,21 +1055,21 @@
              (#1='T (INTERN |x|))))
       (#1# |x|)))))
  
-; $htHash      := MAKE_-HASH_-TABLE()
+; $htHash      := MAKE_HASHTABLE('EQUAL)
  
-(EVAL-WHEN (EVAL LOAD) (SETQ |$htHash| (MAKE-HASH-TABLE)))
+(EVAL-WHEN (EVAL LOAD) (SETQ |$htHash| (MAKE_HASHTABLE 'EQUAL)))
  
-; $glossHash   := MAKE_-HASH_-TABLE()
+; $glossHash   := MAKE_HASHTABLE('EQUAL)
  
-(EVAL-WHEN (EVAL LOAD) (SETQ |$glossHash| (MAKE-HASH-TABLE)))
+(EVAL-WHEN (EVAL LOAD) (SETQ |$glossHash| (MAKE_HASHTABLE 'EQUAL)))
  
-; $lispHash    := MAKE_-HASH_-TABLE()
+; $lispHash    := MAKE_HASHTABLE('EQUAL)
  
-(EVAL-WHEN (EVAL LOAD) (SETQ |$lispHash| (MAKE-HASH-TABLE)))
+(EVAL-WHEN (EVAL LOAD) (SETQ |$lispHash| (MAKE_HASHTABLE 'EQUAL)))
  
-; $sysHash     := MAKE_-HASH_-TABLE()
+; $sysHash     := MAKE_HASHTABLE('EQUAL)
  
-(EVAL-WHEN (EVAL LOAD) (SETQ |$sysHash| (MAKE-HASH-TABLE)))
+(EVAL-WHEN (EVAL LOAD) (SETQ |$sysHash| (MAKE_HASHTABLE 'EQUAL)))
  
 ; $htSystemCommands := '(
 ;  (boot . development) clear display (fin . development) edit help

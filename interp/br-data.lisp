@@ -26,7 +26,7 @@
 ;   $CatLst : local := nil
 ;   $PakLst : local := nil
 ;   $DefLst : local := nil
-;   $outStream: local := MAKE_-OUTSTREAM '"temp.text"
+;   $outStream : local := MAKE_OUTSTREAM('"temp.text")
 ;   --build local libdb if list of domains is given
 ;   if null domainList then
 ;     comments :=
@@ -77,7 +77,7 @@
       (SETQ |$CatLst| NIL)
       (SETQ |$PakLst| NIL)
       (SETQ |$DefLst| NIL)
-      (SETQ |$outStream| (MAKE-OUTSTREAM "temp.text"))
+      (SETQ |$outStream| (MAKE_OUTSTREAM "temp.text"))
       (COND
        ((NULL |domainList|)
         (SETQ |comments|
@@ -655,7 +655,7 @@
  
 ; dbReadComments(n) ==
 ;   n = 0 => '""
-;   instream := MAKE_-INSTREAM STRCONC(getEnv('"AXIOM"),'"/algebra/comdb.text")
+;   instream := MAKE_INSTREAM(STRCONC(getEnv('"AXIOM"), '"/algebra/comdb.text"))
 ;   FILE_-POSITION(instream,n)
 ;   line := read_line instream
 ;   k := dbTickIndex(line,1,1)
@@ -674,7 +674,7 @@
            (#1='T
             (PROGN
              (SETQ |instream|
-                     (MAKE-INSTREAM
+                     (MAKE_INSTREAM
                       (STRCONC (|getEnv| "AXIOM") "/algebra/comdb.text")))
              (FILE-POSITION |instream| |n|)
              (SETQ |line| (|read_line| |instream|))
@@ -708,9 +708,9 @@
                "" (NREVERSE |xtralines|) NIL))))))))
  
 ; dbSplitLibdb() ==
-;   instream := MAKE_-INSTREAM  '"olibdb.text"
-;   outstream:= MAKE_-OUTSTREAM '"libdb.text"
-;   comstream:= MAKE_-OUTSTREAM '"comdb.text"
+;   instream := MAKE_INSTREAM('"olibdb.text")
+;   outstream := MAKE_OUTSTREAM('"libdb.text")
+;   comstream := MAKE_OUTSTREAM('"comdb.text")
 ;   PRINTEXP(0,    comstream)
 ;   PRINTEXP($tick,comstream)
 ;   PRINTEXP('"",  comstream)
@@ -746,9 +746,9 @@
          |outstream| |instream|)
     (RETURN
      (PROGN
-      (SETQ |instream| (MAKE-INSTREAM "olibdb.text"))
-      (SETQ |outstream| (MAKE-OUTSTREAM "libdb.text"))
-      (SETQ |comstream| (MAKE-OUTSTREAM "comdb.text"))
+      (SETQ |instream| (MAKE_INSTREAM "olibdb.text"))
+      (SETQ |outstream| (MAKE_OUTSTREAM "libdb.text"))
+      (SETQ |comstream| (MAKE_OUTSTREAM "comdb.text"))
       (PRINTEXP 0 |comstream|)
       (PRINTEXP |$tick| |comstream|)
       (PRINTEXP "" |comstream|)
@@ -844,19 +844,19 @@
 ; --starting with gloss.text, build glosskey.text and glossdef.text
 ;   $constructorName : local := nil
 ;   $exposeFlag : local := true
-;   $outStream: local := MAKE_-OUTSTREAM '"temp.text"
+;   $outStream : local := MAKE_OUTSTREAM('"temp.text")
 ;   $x : local := nil
 ;   $attribute? : local := true     --do not surround first word
 ;   pathname := '"gloss.text"
-;   instream := MAKE_-INSTREAM pathname
+;   instream := MAKE_INSTREAM(pathname)
 ;   keypath  := '"glosskey.text"
 ;   OBEY STRCONC('"rm -f ",keypath)
-;   outstream:= MAKE_-OUTSTREAM keypath
+;   outstream := MAKE_OUTSTREAM(keypath)
 ;   htpath   := '"gloss.ht"
 ;   OBEY STRCONC('"rm -f ",htpath)
-;   htstream:= MAKE_-OUTSTREAM htpath
+;   htstream := MAKE_OUTSTREAM(htpath)
 ;   defpath  := '"glossdef.text"
-;   defstream:= MAKE_-OUTSTREAM defpath
+;   defstream := MAKE_OUTSTREAM(defpath)
 ;   pairs := getGlossLines instream
 ;   PRINTEXP('"\begin{page}{GlossaryPage}{G l o s s a r y}\beginscroll\beginmenu",htstream)
 ;   for [name,:line] in pairs repeat
@@ -899,19 +899,19 @@
      (PROGN
       (SETQ |$constructorName| NIL)
       (SETQ |$exposeFlag| T)
-      (SETQ |$outStream| (MAKE-OUTSTREAM "temp.text"))
+      (SETQ |$outStream| (MAKE_OUTSTREAM "temp.text"))
       (SETQ |$x| NIL)
       (SETQ |$attribute?| T)
       (SETQ |pathname| "gloss.text")
-      (SETQ |instream| (MAKE-INSTREAM |pathname|))
+      (SETQ |instream| (MAKE_INSTREAM |pathname|))
       (SETQ |keypath| "glosskey.text")
       (OBEY (STRCONC "rm -f " |keypath|))
-      (SETQ |outstream| (MAKE-OUTSTREAM |keypath|))
+      (SETQ |outstream| (MAKE_OUTSTREAM |keypath|))
       (SETQ |htpath| "gloss.ht")
       (OBEY (STRCONC "rm -f " |htpath|))
-      (SETQ |htstream| (MAKE-OUTSTREAM |htpath|))
+      (SETQ |htstream| (MAKE_OUTSTREAM |htpath|))
       (SETQ |defpath| "glossdef.text")
-      (SETQ |defstream| (MAKE-OUTSTREAM |defpath|))
+      (SETQ |defstream| (MAKE_OUTSTREAM |defpath|))
       (SETQ |pairs| (|getGlossLines| |instream|))
       (PRINTEXP
        "\\begin{page}{GlossaryPage}{G l o s s a r y}\\beginscroll\\beginmenu"
@@ -1098,7 +1098,7 @@
          NIL |keys| NIL |text| NIL)))))))
  
 ; mkUsersHashTable() ==  --called by make-databases (daase.lisp)
-;   $usersTb := MAKE_-HASH_-TABLE()
+;   $usersTb := MAKE_HASHTABLE('EQUAL)
 ;   for x in allConstructors() repeat
 ;     for conform in getImports x repeat
 ;       name := opOf conform
@@ -1114,7 +1114,7 @@
   (PROG (|name|)
     (RETURN
      (PROGN
-      (SETQ |$usersTb| (MAKE-HASH-TABLE))
+      (SETQ |$usersTb| (MAKE_HASHTABLE 'EQUAL))
       ((LAMBDA (|bfVar#36| |x|)
          (LOOP
           (COND
@@ -1207,7 +1207,7 @@
       (|listSort| #'GLESSEQP |acc|)))))
  
 ; mkDependentsHashTable() == --called by make-databases (database.boot)
-;   $depTb := MAKE_-HASH_-TABLE()
+;   $depTb := MAKE_HASHTABLE('EQUAL)
 ;   for nam in allConstructors() repeat
 ;     for con in getArgumentConstructors nam repeat
 ;       HPUT($depTb,con,[nam,:HGET($depTb,con)])
@@ -1219,7 +1219,7 @@
   (PROG ()
     (RETURN
      (PROGN
-      (SETQ |$depTb| (MAKE-HASH-TABLE))
+      (SETQ |$depTb| (MAKE_HASHTABLE 'EQUAL))
       ((LAMBDA (|bfVar#44| |nam|)
          (LOOP
           (COND
@@ -1468,7 +1468,7 @@
       (NREVERSE |acc|)))))
  
 ; parentsOf con == --called by kcpPage, ancestorsRecur
-;   if null BOUNDP '$parentsCache then SETQ($parentsCache,MAKE_-HASHTABLE 'ID)
+;   if null BOUNDP '$parentsCache then SETQ($parentsCache, MAKE_HASHTABLE('ID))
 ;   HGET($parentsCache,con) or
 ;     parents := getParentsForDomain con
 ;     HPUT($parentsCache,con,parents)
@@ -1480,7 +1480,7 @@
      (PROGN
       (COND
        ((NULL (BOUNDP '|$parentsCache|))
-        (SETQ |$parentsCache| (MAKE-HASHTABLE 'ID))))
+        (SETQ |$parentsCache| (MAKE_HASHTABLE 'ID))))
       (OR (HGET |$parentsCache| |con|)
           (PROGN
            (SETQ |parents| (|getParentsForDomain| |con|))
@@ -1837,8 +1837,8 @@
       (#1# (|computeAncestorsOf| |conform| |domform|))))))
  
 ; computeAncestorsOf(conform,domform) ==
-;   $done: local := MAKE_-HASHTABLE 'UEQUAL
-;   $if:   local := MAKE_-HASHTABLE 'ID
+;   $done : local := MAKE_HASHTABLE('UEQUAL)
+;   $if :   local := MAKE_HASHTABLE('ID)
 ;   ancestorsRecur(conform,domform,true,true)
 ;   acc := nil
 ;   for op in listSort(function GLESSEQP,HKEYS $if) repeat
@@ -1850,8 +1850,8 @@
     (DECLARE (SPECIAL |$if| |$done|))
     (RETURN
      (PROGN
-      (SETQ |$done| (MAKE-HASHTABLE 'UEQUAL))
-      (SETQ |$if| (MAKE-HASHTABLE 'ID))
+      (SETQ |$done| (MAKE_HASHTABLE 'UEQUAL))
+      (SETQ |$if| (MAKE_HASHTABLE 'ID))
       (|ancestorsRecur| |conform| |domform| T T)
       (SETQ |acc| NIL)
       ((LAMBDA (|bfVar#78| |op|)
@@ -2345,7 +2345,7 @@
       (#1# |x|)))))
  
 ; buildDefaultPackageNamesHT() ==
-;   $defaultPackageNamesHT := MAKE_-HASH_-TABLE()
+;   $defaultPackageNamesHT := MAKE_HASHTABLE('EQUAL)
 ;   for nam in allConstructors() | isDefaultPackageName nam repeat
 ;     HPUT($defaultPackageNamesHT,nam,true)
 ;   $defaultPackageNamesHT
@@ -2354,7 +2354,7 @@
   (PROG ()
     (RETURN
      (PROGN
-      (SETQ |$defaultPackageNamesHT| (MAKE-HASH-TABLE))
+      (SETQ |$defaultPackageNamesHT| (MAKE_HASHTABLE 'EQUAL))
       ((LAMBDA (|bfVar#96| |nam|)
          (LOOP
           (COND

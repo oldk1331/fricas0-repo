@@ -202,7 +202,7 @@
                 (LIST ">>" '>>) (LIST "'" '|'|) (LIST "`" 'BACKQUOTE))))
  
 ; scanKeyTableCons()==
-;    KeyTable:=MAKE_-HASHTABLE("CVEC")
+;    KeyTable := MAKE_HASHTABLE("EQUAL")
 ;    for st in scanKeyWords repeat
 ;       HPUT(KeyTable, first st, CADR st)
 ;    KeyTable
@@ -211,7 +211,7 @@
   (PROG (|KeyTable|)
     (RETURN
      (PROGN
-      (SETQ |KeyTable| (MAKE-HASHTABLE 'CVEC))
+      (SETQ |KeyTable| (MAKE_HASHTABLE 'EQUAL))
       ((LAMBDA (|bfVar#1| |st|)
          (LOOP
           (COND
@@ -230,7 +230,7 @@
 ;       k:=0
 ;       while l <= #(ELT(u,k)) repeat
 ;           k:=k+1
-;       v := MAKE_-VEC(n+1)
+;       v := MAKE_VEC(n + 1)
 ;       for i in 0..k-1 repeat QSETVELT(v, i, ELT(u, i))
 ;       QSETVELT(v, k, s)
 ;       for i in k..n-1 repeat QSETVELT(v, i + 1, ELT(u, i))
@@ -250,7 +250,7 @@
          (LOOP
           (COND ((< (LENGTH (ELT |u| |k|)) |l|) (RETURN NIL))
                 (#1='T (SETQ |k| (+ |k| 1)))))))
-      (SETQ |v| (MAKE-VEC (+ |n| 1)))
+      (SETQ |v| (MAKE_VEC (+ |n| 1)))
       ((LAMBDA (|bfVar#2| |i|)
          (LOOP
           (COND ((> |i| |bfVar#2|) (RETURN NIL))
@@ -270,8 +270,8 @@
 ; scanDictCons()==
 ;       l:= HKEYS scanKeyTable
 ;       d :=
-;           a:=MAKE_-VEC(256)
-;           b:=MAKE_-VEC(1)
+;           a := MAKE_VEC(256)
+;           b := MAKE_VEC(1)
 ;           QSETVELT(b, 0, make_full_CVEC(0, '" "))
 ;           for i in 0..255 repeat QSETVELT(a, i, b)
 ;           a
@@ -285,8 +285,8 @@
       (SETQ |l| (HKEYS |scanKeyTable|))
       (SETQ |d|
               (PROGN
-               (SETQ |a| (MAKE-VEC 256))
-               (SETQ |b| (MAKE-VEC 1))
+               (SETQ |a| (MAKE_VEC 256))
+               (SETQ |b| (MAKE_VEC 1))
                (QSETVELT |b| 0 (|make_full_CVEC| 0 " "))
                ((LAMBDA (|i|)
                   (LOOP

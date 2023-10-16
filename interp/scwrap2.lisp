@@ -174,7 +174,7 @@
 ;     $curent_line_number := 0
 ;     $prev_line := nil
 ;     $InteractiveFrame : local := $compiler_InteractiveFrame
-;     $MacroTable := MAKE_-HASH_-TABLE()
+;     $MacroTable := MAKE_HASHTABLE('EQUAL)
 ;     $restore_list := nil
 ;     $ncMsgList : local := nil
 ;     a := ncloopIncFileName name
@@ -205,7 +205,7 @@
       (SETQ |$curent_line_number| 0)
       (SETQ |$prev_line| NIL)
       (SETQ |$InteractiveFrame| |$compiler_InteractiveFrame|)
-      (SETQ |$MacroTable| (MAKE-HASH-TABLE))
+      (SETQ |$MacroTable| (MAKE_HASHTABLE 'EQUAL))
       (SETQ |$restore_list| NIL)
       (SETQ |$ncMsgList| NIL)
       (SETQ |a| (|ncloopIncFileName| |name|))

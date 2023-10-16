@@ -418,14 +418,14 @@
   (PROG () (RETURN (|knownInfo| |pred|))))
  
 ; hashed_known_info(pred) ==
-;     $infoHash : local := MAKE_-HASHTABLE 'EQUAL
+;     $infoHash : local := MAKE_HASHTABLE('EQUAL)
 ;     knownInfo pred
  
 (DEFUN |hashed_known_info| (|pred|)
   (PROG (|$infoHash|)
     (DECLARE (SPECIAL |$infoHash|))
     (RETURN
-     (PROGN (SETQ |$infoHash| (MAKE-HASHTABLE 'EQUAL)) (|knownInfo| |pred|)))))
+     (PROGN (SETQ |$infoHash| (MAKE_HASHTABLE 'EQUAL)) (|knownInfo| |pred|)))))
  
 ; knownInfo pred ==
 ;                --true %if the information is already known
