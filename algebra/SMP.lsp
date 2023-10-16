@@ -517,32 +517,42 @@
                             (SPADCALL |up| (QREFELT $ 24)))
                            (#1# (CONS 1 (CONS |mvar| |up|))))))))))))) 
 
-(SDEFUN |SMP;^;$Nni$;33| ((|p| $) (|k| |NonNegativeInteger|) ($ $))
-        (COND ((EQL |k| 0) (CONS 0 (QREFELT $ 15)))
-              ('T (SPADCALL |p| |k| (QREFELT $ 107))))) 
-
-(SDEFUN |SMP;^;$Pi$;34| ((|p| $) (|kp| |PositiveInteger|) ($ $))
-        (SPROG ((|up| (D)) (|mvar| (|VarSet|)))
+(SDEFUN |SMP;pow_aux| ((|p| $) (|k| |NonNegativeInteger|) ($ $))
+        (SPROG ((|up| (D)) (|mvar| (|VarSet|)) (|kp| (|PositiveInteger|)))
                (SEQ
-                (COND
-                 ((QEQCAR |p| 0)
-                  (CONS 0 (SPADCALL (QCDR |p|) |kp| (QREFELT $ 109))))
-                 ((NULL (|SMP;moreThanOneVariable?| |p| $))
-                  (SPADCALL
-                   (SPADCALL (|SMP;univariateKnown| |p| $) |kp|
-                             (QREFELT $ 110))
-                   (QCAR (QCDR |p|)) (QREFELT $ 51)))
-                 ('T
-                  (SEQ (LETT |mvar| (QCAR (QCDR |p|)))
-                       (LETT |up|
-                             (SPADCALL (QCDR (QCDR |p|)) |kp| (QREFELT $ 111)))
-                       (EXIT
-                        (COND
-                         ((SPADCALL |up| (QREFELT $ 23))
-                          (SPADCALL |up| (QREFELT $ 24)))
-                         ('T (CONS 1 (CONS |mvar| |up|))))))))))) 
+                (COND ((EQL |k| 0) (CONS 0 (QREFELT $ 15)))
+                      (#1='T
+                       (SEQ (LETT |kp| |k|)
+                            (EXIT
+                             (COND
+                              ((QEQCAR |p| 0)
+                               (CONS 0
+                                     (SPADCALL (QCDR |p|) |kp|
+                                               (QREFELT $ 107))))
+                              ((NULL (|SMP;moreThanOneVariable?| |p| $))
+                               (SPADCALL
+                                (SPADCALL (|SMP;univariateKnown| |p| $) |kp|
+                                          (QREFELT $ 108))
+                                (QCAR (QCDR |p|)) (QREFELT $ 51)))
+                              ('T
+                               (SEQ (LETT |mvar| (QCAR (QCDR |p|)))
+                                    (LETT |up|
+                                          (SPADCALL (QCDR (QCDR |p|)) |kp|
+                                                    (QREFELT $ 109)))
+                                    (EXIT
+                                     (COND
+                                      ((SPADCALL |up| (QREFELT $ 23))
+                                       (SPADCALL |up| (QREFELT $ 24)))
+                                      (#1#
+                                       (CONS 1 (CONS |mvar| |up|))))))))))))))) 
 
-(SDEFUN |SMP;hashUpdate!;Hs$Hs;35| ((|s| |HashState|) (|p| $) ($ |HashState|))
+(SDEFUN |SMP;^;$Nni$;34| ((|p| $) (|k| |NonNegativeInteger|) ($ $))
+        (|SMP;pow_aux| |p| |k| $)) 
+
+(SDEFUN |SMP;^;$Pi$;35| ((|p| $) (|kp| |PositiveInteger|) ($ $))
+        (|SMP;pow_aux| |p| |kp| $)) 
+
+(SDEFUN |SMP;hashUpdate!;Hs$Hs;36| ((|s| |HashState|) (|p| $) ($ |HashState|))
         (SEQ
          (COND ((QEQCAR |p| 0) (SPADCALL |s| (QCDR |p|) (QREFELT $ 113)))
                ('T
@@ -550,63 +560,63 @@
                  (LETT |s| (SPADCALL |s| (QCAR (QCDR |p|)) (QREFELT $ 114)))
                  (EXIT (SPADCALL |s| (QCDR (QCDR |p|)) (QREFELT $ 115)))))))) 
 
-(SDEFUN |SMP;unitNormal;$R;36|
+(SDEFUN |SMP;unitNormal;$R;37|
         ((|p| $)
          ($ |Record| (|:| |unit| . #1=($)) (|:| |canonical| . #1#)
           (|:| |associate| . #1#)))
         (SPROG
          ((|a| (R)) (|c| (R)) (|u| (R))
-          (|#G65|
+          (|#G67|
            #2=(|Record| (|:| |unit| R) (|:| |canonical| R)
                         (|:| |associate| R)))
-          (|#G64| #2#))
+          (|#G66| #2#))
          (SEQ
           (COND
            ((QEQCAR |p| 0)
             (SEQ
              (PROGN
-              (LETT |#G64| (SPADCALL (QCDR |p|) (QREFELT $ 118)))
-              (LETT |u| (QVELT |#G64| 0))
-              (LETT |c| (QVELT |#G64| 1))
-              (LETT |a| (QVELT |#G64| 2))
-              |#G64|)
+              (LETT |#G66| (SPADCALL (QCDR |p|) (QREFELT $ 118)))
+              (LETT |u| (QVELT |#G66| 0))
+              (LETT |c| (QVELT |#G66| 1))
+              (LETT |a| (QVELT |#G66| 2))
+              |#G66|)
              (EXIT (VECTOR (CONS 0 |u|) (CONS 0 |c|) (CONS 0 |a|)))))
            ('T
             (SEQ
              (PROGN
-              (LETT |#G65|
+              (LETT |#G67|
                     (SPADCALL (SPADCALL |p| (QREFELT $ 37)) (QREFELT $ 118)))
-              (LETT |u| (QVELT |#G65| 0))
-              (LETT |c| (QVELT |#G65| 1))
-              (LETT |a| (QVELT |#G65| 2))
-              |#G65|)
+              (LETT |u| (QVELT |#G67| 0))
+              (LETT |c| (QVELT |#G67| 1))
+              (LETT |a| (QVELT |#G67| 2))
+              |#G67|)
              (EXIT
               (VECTOR (CONS 0 |u|) (SPADCALL |a| |p| (QREFELT $ 96))
                       (CONS 0 |a|))))))))) 
 
-(SDEFUN |SMP;unitCanonical;2$;37| ((|p| $) ($ $))
+(SDEFUN |SMP;unitCanonical;2$;38| ((|p| $) ($ $))
         (SPROG
          ((|a| (R)) (|c| (R)) (|u| (R))
-          (|#G70|
+          (|#G72|
            (|Record| (|:| |unit| R) (|:| |canonical| R) (|:| |associate| R))))
          (SEQ
           (COND ((QEQCAR |p| 0) (CONS 0 (SPADCALL (QCDR |p|) (QREFELT $ 120))))
                 ('T
                  (SEQ
                   (PROGN
-                   (LETT |#G70|
+                   (LETT |#G72|
                          (SPADCALL (SPADCALL |p| (QREFELT $ 37))
                                    (QREFELT $ 118)))
-                   (LETT |u| (QVELT |#G70| 0))
-                   (LETT |c| (QVELT |#G70| 1))
-                   (LETT |a| (QVELT |#G70| 2))
-                   |#G70|)
+                   (LETT |u| (QVELT |#G72| 0))
+                   (LETT |c| (QVELT |#G72| 1))
+                   (LETT |a| (QVELT |#G72| 2))
+                   |#G72|)
                   (EXIT (SPADCALL |a| |p| (QREFELT $ 96))))))))) 
 
-(SDEFUN |SMP;unit?;$B;38| ((|p| $) ($ |Boolean|))
+(SDEFUN |SMP;unit?;$B;39| ((|p| $) ($ |Boolean|))
         (COND ((QEQCAR |p| 0) (SPADCALL (QCDR |p|) (QREFELT $ 122))) ('T NIL))) 
 
-(SDEFUN |SMP;associates?;2$B;39| ((|p1| $) (|p2| $) ($ |Boolean|))
+(SDEFUN |SMP;associates?;2$B;40| ((|p1| $) (|p2| $) ($ |Boolean|))
         (COND
          ((QEQCAR |p1| 0)
           (COND
@@ -619,7 +629,7 @@
            (#1# NIL)))
          (#1# NIL))) 
 
-(SDEFUN |SMP;exquo;2$U;40| ((|p1| $) (|p2| $) ($ |Union| $ "failed"))
+(SDEFUN |SMP;exquo;2$U;41| ((|p1| $) (|p2| $) ($ |Union| $ "failed"))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| $)) (|mvar| (|VarSet|))
           (|a| (|Union| D "failed")))
@@ -688,7 +698,7 @@
                                               (CONS |mvar|
                                                     |up|))))))))))))))))))))) 
 
-(SDEFUN |SMP;exquo;2$U;41| ((|p1| $) (|p2| $) ($ |Union| $ "failed"))
+(SDEFUN |SMP;exquo;2$U;42| ((|p1| $) (|p2| $) ($ |Union| $ "failed"))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| $)) (|mvar| (|VarSet|))
           (|a| (|Union| D "failed")))
@@ -748,7 +758,7 @@
                              (#1#
                               (CONS 0 (CONS 1 (CONS |mvar| |up|))))))))))))))))) 
 
-(SDEFUN |SMP;map;M2$;42| ((|fn| |Mapping| R R) (|p| $) ($ $))
+(SDEFUN |SMP;map;M2$;43| ((|fn| |Mapping| R R) (|p| $) ($ $))
         (SPROG ((|up| (D)) (|mvar| (|VarSet|)))
                (SEQ
                 (COND ((QEQCAR |p| 0) (CONS 0 (SPADCALL (QCDR |p|) |fn|)))
@@ -756,7 +766,7 @@
                        (SEQ (LETT |mvar| (QCAR (QCDR |p|)))
                             (LETT |up|
                                   (SPADCALL
-                                   (CONS #'|SMP;map;M2$;42!0| (VECTOR $ |fn|))
+                                   (CONS #'|SMP;map;M2$;43!0| (VECTOR $ |fn|))
                                    (QCDR (QCDR |p|)) (QREFELT $ 58)))
                             (EXIT
                              (COND
@@ -764,16 +774,16 @@
                                (SPADCALL |up| (QREFELT $ 24)))
                               (#1# (CONS 1 (CONS |mvar| |up|))))))))))) 
 
-(SDEFUN |SMP;map;M2$;42!0| ((|x1| NIL) ($$ NIL))
+(SDEFUN |SMP;map;M2$;43!0| ((|x1| NIL) ($$ NIL))
         (PROG (|fn| $)
           (LETT |fn| (QREFELT $$ 1))
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |fn| |x1| (QREFELT $ 131)))))) 
 
-(SDEFUN |SMP;/;$R$;43| ((|p| $) (|r| R) ($ $))
+(SDEFUN |SMP;/;$R$;44| ((|p| $) (|r| R) ($ $))
         (SPADCALL (CONS 0 (SPADCALL |r| (QREFELT $ 132))) |p| (QREFELT $ 105))) 
 
-(SDEFUN |SMP;content;$R;44| ((|p| $) ($ R))
+(SDEFUN |SMP;content;$R;45| ((|p| $) ($ R))
         (SPROG ((|up| (D)) (|c| (R)))
                (SEQ
                 (COND ((QEQCAR |p| 0) (QCDR |p|))
@@ -802,13 +812,13 @@
                                  NIL (GO G190) G191 (EXIT NIL))
                             (EXIT |c|))))))) 
 
-(SDEFUN |SMP;content;$VarSet$;45| ((|p| $) (|mvar| |VarSet|) ($ $))
+(SDEFUN |SMP;content;$VarSet$;46| ((|p| $) (|mvar| |VarSet|) ($ $))
         (COND ((QEQCAR |p| 0) |p|)
               ('T
                (SPADCALL (SPADCALL |p| |mvar| (QREFELT $ 56))
                          (QREFELT $ 137))))) 
 
-(SDEFUN |SMP;gcd;3$;46| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |SMP;gcd;3$;47| ((|p1| $) (|p2| $) ($ $))
         (SPROG ((|up| (D)) (|mvar| (|VarSet|)))
                (SEQ
                 (COND
@@ -851,11 +861,11 @@
                             (SPADCALL |up| (QREFELT $ 24)))
                            (#1# (CONS 1 (CONS |mvar| |up|))))))))))))) 
 
-(SDEFUN |SMP;gcdPolynomial;3Sup;47|
+(SDEFUN |SMP;gcdPolynomial;3Sup;48|
         ((|a| . #1=(|SparseUnivariatePolynomial| $)) (|b| . #1#)
          ($ |SparseUnivariatePolynomial| $))
         (SPROG
-         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G411 NIL)
+         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G413 NIL)
           (|monb| (|SparseUnivariatePolynomial| $)) (|contb| ($))
           (|mona| (|SparseUnivariatePolynomial| $)) (|conta| ($)))
          (SEQ
@@ -924,30 +934,30 @@
                     (SPADCALL |mong| |a| (QREFELT $ 146)))
                    (#5# |mong|))))))))) 
 
-(SDEFUN |SMP;content;$VarSet$;48| ((|p| $) (|mvar| |VarSet|) ($ $))
+(SDEFUN |SMP;content;$VarSet$;49| ((|p| $) (|mvar| |VarSet|) ($ $))
         (COND ((QEQCAR |p| 0) |p|)
               ('T
                (SPADCALL
                 (SPADCALL (SPADCALL |p| |mvar| (QREFELT $ 56)) (QREFELT $ 26))
                 (QREFELT $ 149))))) 
 
-(SDEFUN |SMP;gcd;3$;49| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |SMP;gcd;3$;50| ((|p1| $) (|p2| $) ($ $))
         (SPADCALL |p1| |p2| (QREFELT $ 150))) 
 
-(SDEFUN |SMP;gcd;L$;50| ((|lp| |List| $) ($ $)) (SPADCALL |lp| (QREFELT $ 149))) 
+(SDEFUN |SMP;gcd;L$;51| ((|lp| |List| $) ($ $)) (SPADCALL |lp| (QREFELT $ 149))) 
 
-(SDEFUN |SMP;gcdPolynomial;3Sup;51|
+(SDEFUN |SMP;gcdPolynomial;3Sup;52|
         ((|a| . #1=(|SparseUnivariatePolynomial| $)) (|b| . #1#)
          ($ |SparseUnivariatePolynomial| $))
         (SPADCALL |a| |b| (QREFELT $ 153))) 
 
-(SDEFUN |SMP;content;$VarSet$;52| ((|p| $) (|mvar| |VarSet|) ($ $))
+(SDEFUN |SMP;content;$VarSet$;53| ((|p| $) (|mvar| |VarSet|) ($ $))
         (COND ((QEQCAR |p| 0) |p|)
               ('T
                (SPADCALL (SPADCALL |p| |mvar| (QREFELT $ 56))
                          (QREFELT $ 137))))) 
 
-(SDEFUN |SMP;gcd;3$;53| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |SMP;gcd;3$;54| ((|p1| $) (|p2| $) ($ $))
         (SPROG ((|up| (D)) (|mvar| (|VarSet|)))
                (SEQ
                 (COND
@@ -990,11 +1000,11 @@
                             (SPADCALL |up| (QREFELT $ 24)))
                            (#1# (CONS 1 (CONS |mvar| |up|))))))))))))) 
 
-(SDEFUN |SMP;gcdPolynomial;3Sup;54|
+(SDEFUN |SMP;gcdPolynomial;3Sup;55|
         ((|a| . #1=(|SparseUnivariatePolynomial| $)) (|b| . #1#)
          ($ |SparseUnivariatePolynomial| $))
         (SPROG
-         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G443 NIL)
+         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G445 NIL)
           (|monb| (|SparseUnivariatePolynomial| $)) (|contb| ($))
           (|mona| (|SparseUnivariatePolynomial| $)) (|conta| ($)))
          (SEQ
@@ -1063,13 +1073,13 @@
                     (SPADCALL |mong| |a| (QREFELT $ 146)))
                    (#5# |mong|))))))))) 
 
-(SDEFUN |SMP;content;$VarSet$;55| ((|p| $) (|mvar| |VarSet|) ($ $))
+(SDEFUN |SMP;content;$VarSet$;56| ((|p| $) (|mvar| |VarSet|) ($ $))
         (COND ((QEQCAR |p| 0) |p|)
               ('T
                (SPADCALL (SPADCALL |p| |mvar| (QREFELT $ 56))
                          (QREFELT $ 137))))) 
 
-(SDEFUN |SMP;gcd;3$;56| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |SMP;gcd;3$;57| ((|p1| $) (|p2| $) ($ $))
         (SPROG ((|up| (D)) (|mvar| (|VarSet|)))
                (SEQ
                 (COND
@@ -1112,11 +1122,11 @@
                             (SPADCALL |up| (QREFELT $ 24)))
                            (#1# (CONS 1 (CONS |mvar| |up|))))))))))))) 
 
-(SDEFUN |SMP;gcdPolynomial;3Sup;57|
+(SDEFUN |SMP;gcdPolynomial;3Sup;58|
         ((|a| . #1=(|SparseUnivariatePolynomial| $)) (|b| . #1#)
          ($ |SparseUnivariatePolynomial| $))
         (SPROG
-         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G471 NIL)
+         ((|mong| (|SparseUnivariatePolynomial| $)) (#2=#:G473 NIL)
           (|monb| (|SparseUnivariatePolynomial| $)) (|contb| ($))
           (|mona| (|SparseUnivariatePolynomial| $)) (|conta| ($)))
          (SEQ
@@ -1185,17 +1195,17 @@
                     (SPADCALL |mong| |a| (QREFELT $ 146)))
                    (#5# |mong|))))))))) 
 
-(SDEFUN |SMP;coerce;$Of;58| ((|p| $) ($ |OutputForm|))
+(SDEFUN |SMP;coerce;$Of;59| ((|p| $) ($ |OutputForm|))
         (COND ((QEQCAR |p| 0) (SPADCALL (QCDR |p|) (QREFELT $ 155)))
               ('T
                (SPADCALL (QCDR (QCDR |p|))
                          (SPADCALL (QCAR (QCDR |p|)) (QREFELT $ 156))
                          (QREFELT $ 157))))) 
 
-(SDEFUN |SMP;coefficients;$L;59| ((|p| $) ($ |List| R))
+(SDEFUN |SMP;coefficients;$L;60| ((|p| $) ($ |List| R))
         (SPROG
-         ((#1=#:G488 NIL) (#2=#:G487 #3=(|List| R)) (#4=#:G489 #3#)
-          (#5=#:G491 NIL) (|p1| NIL))
+         ((#1=#:G490 NIL) (#2=#:G489 #3=(|List| R)) (#4=#:G491 #3#)
+          (#5=#:G493 NIL) (|p1| NIL))
          (SEQ
           (COND ((QEQCAR |p| 0) (SPADCALL (QCDR |p|) (QREFELT $ 160)))
                 (#6='T
@@ -1217,11 +1227,11 @@
                        (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
                   (COND (#1# #2#) (#6# NIL)))))))) 
 
-(SDEFUN |SMP;retract;$R;60| ((|p| $) ($ R))
+(SDEFUN |SMP;retract;$R;61| ((|p| $) ($ R))
         (COND ((QEQCAR |p| 0) (QCDR |p|))
               ('T (|error| "cannot retract nonconstant polynomial")))) 
 
-(SDEFUN |SMP;retractIfCan;$U;61| ((|p| $) ($ |Union| R "failed"))
+(SDEFUN |SMP;retractIfCan;$U;62| ((|p| $) ($ |Union| R "failed"))
         (COND ((QEQCAR |p| 0) (CONS 0 (QCDR |p|))) ('T (CONS 1 "failed")))) 
 
 (SDEFUN |SMP;mymerge|
@@ -1254,7 +1264,7 @@
                  (SPADCALL |m| (|SMP;mymerge| |l| (CDR |m|) $) (QREFELT $ 167))
                  (EXIT |m|)))))) 
 
-(SDEFUN |SMP;variables;$L;63| ((|p| $) ($ |List| |VarSet|))
+(SDEFUN |SMP;variables;$L;64| ((|p| $) ($ |List| |VarSet|))
         (SPROG ((|q| (D)) (|lv| (|List| |VarSet|)))
                (SEQ
                 (COND ((QEQCAR |p| 0) NIL)
@@ -1276,14 +1286,14 @@
                                  NIL (GO G190) G191 (EXIT NIL))
                             (EXIT (CONS (QCAR (QCDR |p|)) |lv|)))))))) 
 
-(SDEFUN |SMP;mainVariable;$U;64| ((|p| $) ($ |Union| |VarSet| "failed"))
+(SDEFUN |SMP;mainVariable;$U;65| ((|p| $) ($ |Union| |VarSet| "failed"))
         (COND ((QEQCAR |p| 0) (CONS 1 "failed"))
               ('T (CONS 0 (QCAR (QCDR |p|)))))) 
 
-(SDEFUN |SMP;eval;$VarSet2$;65| ((|p| $) (|mvar| |VarSet|) (|pval| $) ($ $))
+(SDEFUN |SMP;eval;$VarSet2$;66| ((|p| $) (|mvar| |VarSet|) (|pval| $) ($ $))
         (SPADCALL (SPADCALL |p| |mvar| (QREFELT $ 56)) |pval| (QREFELT $ 171))) 
 
-(SDEFUN |SMP;eval;$VarSetR$;66| ((|p| $) (|mvar| |VarSet|) (|val| R) ($ $))
+(SDEFUN |SMP;eval;$VarSetR$;67| ((|p| $) (|mvar| |VarSet|) (|val| R) ($ $))
         (SPADCALL (SPADCALL |p| |mvar| (QREFELT $ 56)) (CONS 0 |val|)
                   (QREFELT $ 171))) 
 
@@ -1331,10 +1341,10 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|SMP;evalSortedVarlist| |x1| |Lvar| |Lpval| $))))) 
 
-(SDEFUN |SMP;eval;$LL$;68|
+(SDEFUN |SMP;eval;$LL$;69|
         ((|p| $) (|Lvar| |List| |VarSet|) (|Lpval| |List| $) ($ $))
         (SPROG
-         ((|nlpval| (|List| $)) (#1=#:G548 NIL) (|mvar| NIL) (#2=#:G547 NIL)
+         ((|nlpval| (|List| $)) (#1=#:G550 NIL) (|mvar| NIL) (#2=#:G549 NIL)
           (|nlvar| (|List| |VarSet|)))
          (SEQ
           (COND
@@ -1369,9 +1379,9 @@
                                      (EXIT (NREVERSE #2#))))))))
                  (EXIT (|SMP;evalSortedVarlist| |p| |nlvar| |nlpval| $)))))))) 
 
-(SDEFUN |SMP;eval;$LL$;69|
+(SDEFUN |SMP;eval;$LL$;70|
         ((|p| $) (|Lvar| |List| |VarSet|) (|Lval| |List| R) ($ $))
-        (SPROG ((#1=#:G552 NIL) (|val| NIL) (#2=#:G551 NIL))
+        (SPROG ((#1=#:G554 NIL) (|val| NIL) (#2=#:G553 NIL))
                (SEQ
                 (SPADCALL |p| |Lvar|
                           (PROGN
@@ -1387,7 +1397,7 @@
                                 (EXIT (NREVERSE #2#))))
                           (QREFELT $ 185))))) 
 
-(SDEFUN |SMP;degree;$VarSetNni;70|
+(SDEFUN |SMP;degree;$VarSetNni;71|
         ((|p| $) (|mvar| |VarSet|) ($ |NonNegativeInteger|))
         (COND ((QEQCAR |p| 0) 0)
               ((SPADCALL |mvar| (QCAR (QCDR |p|)) (QREFELT $ 54))
@@ -1399,9 +1409,9 @@
                           (QREFELT $ 187))
                 (SPADCALL (|SMP;red| |p| $) |mvar| (QREFELT $ 187)))))) 
 
-(SDEFUN |SMP;degree;$LL;71|
+(SDEFUN |SMP;degree;$LL;72|
         ((|p| $) (|Lvar| |List| |VarSet|) ($ |List| (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G562 NIL) (|mvar| NIL) (#2=#:G561 NIL))
+        (SPROG ((#1=#:G564 NIL) (|mvar| NIL) (#2=#:G563 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -1417,7 +1427,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |SMP;degree;$Ie;72| ((|p| $) ($ |IndexedExponents| |VarSet|))
+(SDEFUN |SMP;degree;$Ie;73| ((|p| $) ($ |IndexedExponents| |VarSet|))
         (COND ((QEQCAR |p| 0) (|spadConstant| $ 190))
               ('T
                (SPADCALL
@@ -1427,7 +1437,7 @@
                           (QCAR (QCDR |p|)) (QREFELT $ 192))
                 (QREFELT $ 193))))) 
 
-(SDEFUN |SMP;minimumDegree;$Ie;73| ((|p| $) ($ |IndexedExponents| |VarSet|))
+(SDEFUN |SMP;minimumDegree;$Ie;74| ((|p| $) ($ |IndexedExponents| |VarSet|))
         (SPROG ((|md| (|NonNegativeInteger|)))
                (SEQ
                 (COND ((QEQCAR |p| 0) (|spadConstant| $ 190))
@@ -1443,7 +1453,7 @@
                           (SPADCALL |md| (QCAR (QCDR |p|)) (QREFELT $ 192))
                           (QREFELT $ 193))))))))) 
 
-(SDEFUN |SMP;minimumDegree;$VarSetNni;74|
+(SDEFUN |SMP;minimumDegree;$VarSetNni;75|
         ((|p| $) (|mvar| |VarSet|) ($ |NonNegativeInteger|))
         (SPROG ((|p1| ($)) (|md| (|NonNegativeInteger|)))
                (SEQ
@@ -1464,9 +1474,9 @@
                                      (SPADCALL |p1| |mvar|
                                                (QREFELT $ 196)))))))))))) 
 
-(SDEFUN |SMP;minimumDegree;$LL;75|
+(SDEFUN |SMP;minimumDegree;$LL;76|
         ((|p| $) (|Lvar| |List| |VarSet|) ($ |List| (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G581 NIL) (|mvar| NIL) (#2=#:G580 NIL))
+        (SPROG ((#1=#:G583 NIL) (|mvar| NIL) (#2=#:G582 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -1482,7 +1492,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |SMP;differentiate;$VarSet$;76| ((|p| $) (|mvar| |VarSet|) ($ $))
+(SDEFUN |SMP;differentiate;$VarSet$;77| ((|p| $) (|mvar| |VarSet|) ($ $))
         (SPROG ((|up| (D)))
                (SEQ
                 (COND ((QEQCAR |p| 0) (|spadConstant| $ 12))
@@ -1499,7 +1509,7 @@
                        (SEQ
                         (LETT |up|
                               (SPADCALL
-                               (CONS #'|SMP;differentiate;$VarSet$;76!0|
+                               (CONS #'|SMP;differentiate;$VarSet$;77!0|
                                      (VECTOR $ |mvar|))
                                (QCDR (QCDR |p|)) (QREFELT $ 58)))
                         (EXIT
@@ -1508,19 +1518,19 @@
                            (SPADCALL |up| (QREFELT $ 24)))
                           (#1# (CONS 1 (CONS (QCAR (QCDR |p|)) |up|))))))))))) 
 
-(SDEFUN |SMP;differentiate;$VarSet$;76!0| ((|x1| NIL) ($$ NIL))
+(SDEFUN |SMP;differentiate;$VarSet$;77!0| ((|x1| NIL) ($$ NIL))
         (PROG (|mvar| $)
           (LETT |mvar| (QREFELT $$ 1))
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x1| |mvar| (QREFELT $ 199)))))) 
 
-(SDEFUN |SMP;leadingCoefficient;$R;77| ((|p| $) ($ R))
+(SDEFUN |SMP;leadingCoefficient;$R;78| ((|p| $) ($ R))
         (COND ((QEQCAR |p| 0) (QCDR |p|))
               ('T
                (SPADCALL (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 24))
                          (QREFELT $ 37))))) 
 
-(SDEFUN |SMP;leadingMonomial;2$;78| ((|p| $) ($ $))
+(SDEFUN |SMP;leadingMonomial;2$;79| ((|p| $) ($ $))
         (COND ((QEQCAR |p| 0) |p|)
               ('T
                (SPADCALL
@@ -1529,7 +1539,7 @@
                 (QCAR (QCDR |p|)) (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 40))
                 (QREFELT $ 64))))) 
 
-(SDEFUN |SMP;reductum;2$;79| ((|p| $) ($ $))
+(SDEFUN |SMP;reductum;2$;80| ((|p| $) ($ $))
         (SPROG ((|ptr| (D)) (|rlc| ($)))
                (SEQ
                 (COND ((QEQCAR |p| 0) (|spadConstant| $ 12))
@@ -1561,8 +1571,8 @@
          ((|degs1| #2#) (|vars1| #1#) (|mon| ($))
           (|mon1|
            #3=(|Record| (|:| |k| #4=(|NonNegativeInteger|)) (|:| |c| $)))
-          (#5=#:G614 NIL) (|var| NIL) (#6=#:G615 NIL) (|deg| NIL) (|k1| #4#)
-          (|p1| ($)) (#7=#:G613 NIL) (|t| NIL) (|v1| (|VarSet|))
+          (#5=#:G616 NIL) (|var| NIL) (#6=#:G617 NIL) (|deg| NIL) (|k1| #4#)
+          (|p1| ($)) (#7=#:G615 NIL) (|t| NIL) (|v1| (|VarSet|))
           (|tl| (|List| #3#)))
          (SEQ (LETT |tl| (QCDR |p|)) (LETT |v1| (QCAR |p|))
               (SEQ (LETT |t| NIL) (LETT #7# |tl|) G190
@@ -1618,7 +1628,7 @@
                    (LETT #7# (CDR #7#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |SMP;monomials;$L;81| ((|p| $) ($ |List| $))
+(SDEFUN |SMP;monomials;$L;82| ((|p| $) ($ |List| $))
         (COND ((SPADCALL |p| (|spadConstant| $ 12) (QREFELT $ 32)) NIL)
               ((QEQCAR |p| 0) (LIST |p|))
               ('T
@@ -1627,9 +1637,9 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariatePolynomial;|)) 
 
-(DEFUN |SparseMultivariatePolynomial| (&REST #1=#:G650)
+(DEFUN |SparseMultivariatePolynomial| (&REST #1=#:G652)
   (SPROG NIL
-         (PROG (#2=#:G651)
+         (PROG (#2=#:G653)
            (RETURN
             (COND
              ((LETT #2#
@@ -1650,9 +1660,9 @@
 
 (DEFUN |SparseMultivariatePolynomial;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G649 NIL) (|pv$| NIL) (#2=#:G641 NIL) (#3=#:G642 NIL) (#4=#:G643 NIL)
-    (#5=#:G644 NIL) (#6=#:G645 NIL) (#7=#:G646 NIL) (#8=#:G647 NIL)
-    (#9=#:G648 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G651 NIL) (|pv$| NIL) (#2=#:G643 NIL) (#3=#:G644 NIL) (#4=#:G645 NIL)
+    (#5=#:G646 NIL) (#6=#:G647 NIL) (#7=#:G648 NIL) (#8=#:G649 NIL)
+    (#9=#:G650 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
@@ -2166,21 +2176,21 @@
     (COND
      ((|testBitVector| |pv$| 23)
       (PROGN
-       (QSETREFV $ 119 (CONS (|dispatchFunction| |SMP;unitNormal;$R;36|) $))
-       (QSETREFV $ 121 (CONS (|dispatchFunction| |SMP;unitCanonical;2$;37|) $))
-       (QSETREFV $ 123 (CONS (|dispatchFunction| |SMP;unit?;$B;38|) $))
-       (QSETREFV $ 126 (CONS (|dispatchFunction| |SMP;associates?;2$B;39|) $))
+       (QSETREFV $ 119 (CONS (|dispatchFunction| |SMP;unitNormal;$R;37|) $))
+       (QSETREFV $ 121 (CONS (|dispatchFunction| |SMP;unitCanonical;2$;38|) $))
+       (QSETREFV $ 123 (CONS (|dispatchFunction| |SMP;unit?;$B;39|) $))
+       (QSETREFV $ 126 (CONS (|dispatchFunction| |SMP;associates?;2$B;40|) $))
        (COND
         ((|HasCategory| |#1| '(|Approximate|))
-         (QSETREFV $ 129 (CONS (|dispatchFunction| |SMP;exquo;2$U;40|) $)))
+         (QSETREFV $ 129 (CONS (|dispatchFunction| |SMP;exquo;2$U;41|) $)))
         ('T
-         (QSETREFV $ 129 (CONS (|dispatchFunction| |SMP;exquo;2$U;41|) $)))))))
+         (QSETREFV $ 129 (CONS (|dispatchFunction| |SMP;exquo;2$U;42|) $)))))))
     (COND
      ((|testBitVector| |pv$| 18)
-      (QSETREFV $ 133 (CONS (|dispatchFunction| |SMP;/;$R$;43|) $))))
+      (QSETREFV $ 133 (CONS (|dispatchFunction| |SMP;/;$R$;44|) $))))
     (COND
      ((|testBitVector| |pv$| 14)
-      (QSETREFV $ 135 (CONS (|dispatchFunction| |SMP;content;$R;44|) $))))
+      (QSETREFV $ 135 (CONS (|dispatchFunction| |SMP;content;$R;45|) $))))
     (COND
      ((|HasCategory| |#1| '(|EuclideanDomain|))
       (COND
@@ -2191,45 +2201,45 @@
            ((|testBitVector| |pv$| 14)
             (PROGN
              (QSETREFV $ 138
-                       (CONS (|dispatchFunction| |SMP;content;$VarSet$;45|) $))
-             (QSETREFV $ 139 (CONS (|dispatchFunction| |SMP;gcd;3$;46|) $))
+                       (CONS (|dispatchFunction| |SMP;content;$VarSet$;46|) $))
+             (QSETREFV $ 139 (CONS (|dispatchFunction| |SMP;gcd;3$;47|) $))
              (COND
               ((|HasCategory| |#1| '(|FloatingPointSystem|))
                (QSETREFV $ 147
-                         (CONS (|dispatchFunction| |SMP;gcdPolynomial;3Sup;47|)
+                         (CONS (|dispatchFunction| |SMP;gcdPolynomial;3Sup;48|)
                                $))))))))
          ('T
           (PROGN
            (QSETREFV $ 138
-                     (CONS (|dispatchFunction| |SMP;content;$VarSet$;48|) $))
-           (QSETREFV $ 139 (CONS (|dispatchFunction| |SMP;gcd;3$;49|) $))
-           (QSETREFV $ 152 (CONS (|dispatchFunction| |SMP;gcd;L$;50|) $))
+                     (CONS (|dispatchFunction| |SMP;content;$VarSet$;49|) $))
+           (QSETREFV $ 139 (CONS (|dispatchFunction| |SMP;gcd;3$;50|) $))
+           (QSETREFV $ 152 (CONS (|dispatchFunction| |SMP;gcd;L$;51|) $))
            (QSETREFV $ 147
-                     (CONS (|dispatchFunction| |SMP;gcdPolynomial;3Sup;51|)
+                     (CONS (|dispatchFunction| |SMP;gcdPolynomial;3Sup;52|)
                            $))))))
        ((|testBitVector| |pv$| 14)
         (PROGN
          (QSETREFV $ 138
-                   (CONS (|dispatchFunction| |SMP;content;$VarSet$;52|) $))
-         (QSETREFV $ 139 (CONS (|dispatchFunction| |SMP;gcd;3$;53|) $))
+                   (CONS (|dispatchFunction| |SMP;content;$VarSet$;53|) $))
+         (QSETREFV $ 139 (CONS (|dispatchFunction| |SMP;gcd;3$;54|) $))
          (COND
           ((|HasCategory| |#1| '(|FloatingPointSystem|))
            (QSETREFV $ 147
-                     (CONS (|dispatchFunction| |SMP;gcdPolynomial;3Sup;54|)
+                     (CONS (|dispatchFunction| |SMP;gcdPolynomial;3Sup;55|)
                            $))))))))
      ((|testBitVector| |pv$| 14)
       (PROGN
-       (QSETREFV $ 138 (CONS (|dispatchFunction| |SMP;content;$VarSet$;55|) $))
-       (QSETREFV $ 139 (CONS (|dispatchFunction| |SMP;gcd;3$;56|) $))
+       (QSETREFV $ 138 (CONS (|dispatchFunction| |SMP;content;$VarSet$;56|) $))
+       (QSETREFV $ 139 (CONS (|dispatchFunction| |SMP;gcd;3$;57|) $))
        (COND
         ((|HasCategory| |#1| '(|FloatingPointSystem|))
          (QSETREFV $ 147
-                   (CONS (|dispatchFunction| |SMP;gcdPolynomial;3Sup;57|)
+                   (CONS (|dispatchFunction| |SMP;gcdPolynomial;3Sup;58|)
                          $)))))))
     (COND
      ((|testBitVector| |pv$| 21)
       (QSETREFV $ 199
-                (CONS (|dispatchFunction| |SMP;differentiate;$VarSet$;76|)
+                (CONS (|dispatchFunction| |SMP;differentiate;$VarSet$;77|)
                       $))))
     $))) 
 
@@ -2245,7 +2255,7 @@
               |SMP;numberOfMonomials;$Nni;6| (52 . |monomial|) (58 . |coerce|)
               (63 . |monomial?|) |SMP;=;2$B;31| |SMP;monomial?;$B;9|
               |SMP;ground?;$B;18| (|Mapping| 16 $$) (68 . |any?|)
-              |SMP;leadingCoefficient;$R;77| (|SparseUnivariatePolynomial| 6)
+              |SMP;leadingCoefficient;$R;78| (|SparseUnivariatePolynomial| 6)
               (74 . |coerce|) (79 . |degree|) (84 . |monomial|) (90 . +)
               (|Mapping| 6 $$)
               (|UnivariatePolynomialCategoryFunctions2| $$ 8 6 38) (96 . |map|)
@@ -2269,15 +2279,15 @@
               (258 . *) (264 . *) (270 . *) (276 . *) (282 . *) |SMP;*;R2$;28|
               (288 . +) (294 . |coerce|) (299 . -) (305 . -) (311 . -)
               (317 . =) (323 . *) (329 . *) |SMP;*;3$;32| (|PositiveInteger|)
-              |SMP;^;$Pi$;34| |SMP;^;$Nni$;33| (335 . ^) (341 . ^) (347 . ^)
+              (335 . ^) (341 . ^) (347 . ^) |SMP;^;$Nni$;34| |SMP;^;$Pi$;35|
               (|HashState|) (353 . |hashUpdate!|) (359 . |hashUpdate!|)
-              (365 . |hashUpdate!|) |SMP;hashUpdate!;Hs$Hs;35|
+              (365 . |hashUpdate!|) |SMP;hashUpdate!;Hs$Hs;36|
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (371 . |unitNormal|) (376 . |unitNormal|) (381 . |unitCanonical|)
               (386 . |unitCanonical|) (391 . |unit?|) (396 . |unit?|)
               (401 . |associates?|) (407 . |associates?|) (413 . |associates?|)
               (419 . |exquo|) (425 . |exquo|) (431 . |exquo|) (|Mapping| 6 6)
-              |SMP;map;M2$;42| (437 . |inv|) (442 . /) (448 . |zero?|)
+              |SMP;map;M2$;43| (437 . |inv|) (442 . /) (448 . |zero?|)
               (453 . |content|) (458 . |gcd|) (464 . |content|)
               (469 . |content|) (475 . |gcd|) (481 . |gcd|) (487 . |content|)
               (492 . |coerce|) (497 . |minimumDegree|) (502 . ~=)
@@ -2285,22 +2295,22 @@
               (|PolynomialGcdPackage| 71 7 6 $$) (526 . |gcd|) (531 . |gcd|)
               (|List| $) (537 . |gcd|) (542 . |gcd|) (|OutputForm|)
               (548 . |coerce|) (553 . |coerce|) (558 . |outputForm|)
-              |SMP;coerce;$Of;58| (|List| 6) (564 . |list|)
-              |SMP;coefficients;$L;59| (569 . |append|) |SMP;retract;$R;60|
-              (|Union| 6 '"failed") |SMP;retractIfCan;$U;61| (|List| 7)
-              (575 . |setrest!|) |SMP;variables;$L;63| (|Union| 7 '"failed")
-              |SMP;mainVariable;$U;64| (581 . |elt|) |SMP;eval;$VarSet2$;65|
-              |SMP;eval;$VarSetR$;66| (587 . |empty?|) '"rest" (592 . |elt|)
+              |SMP;coerce;$Of;59| (|List| 6) (564 . |list|)
+              |SMP;coefficients;$L;60| (569 . |append|) |SMP;retract;$R;61|
+              (|Union| 6 '"failed") |SMP;retractIfCan;$U;62| (|List| 7)
+              (575 . |setrest!|) |SMP;variables;$L;64| (|Union| 7 '"failed")
+              |SMP;mainVariable;$U;65| (581 . |elt|) |SMP;eval;$VarSet2$;66|
+              |SMP;eval;$VarSetR$;67| (587 . |empty?|) '"rest" (592 . |elt|)
               '"first" (598 . |elt|) (|Mapping| 16 7 7) (604 . |sorted?|)
               (610 . |sort|) (616 . =) (622 . |position|) (628 . |elt|)
-              |SMP;eval;$LL$;68| |SMP;eval;$LL$;69| |SMP;degree;$VarSetNni;70|
-              (|List| 27) |SMP;degree;$LL;71| (634 . |Zero|)
-              |SMP;degree;$Ie;72| (638 . |monomial|) (644 . +)
-              (650 . |minimumDegree|) |SMP;minimumDegree;$Ie;73|
-              |SMP;minimumDegree;$VarSetNni;74| |SMP;minimumDegree;$LL;75|
+              |SMP;eval;$LL$;69| |SMP;eval;$LL$;70| |SMP;degree;$VarSetNni;71|
+              (|List| 27) |SMP;degree;$LL;72| (634 . |Zero|)
+              |SMP;degree;$Ie;73| (638 . |monomial|) (644 . +)
+              (650 . |minimumDegree|) |SMP;minimumDegree;$Ie;74|
+              |SMP;minimumDegree;$VarSetNni;75| |SMP;minimumDegree;$LL;76|
               (655 . |differentiate|) (660 . |differentiate|)
-              |SMP;leadingMonomial;2$;78| |SMP;reductum;2$;79| (666 . |ground|)
-              (671 . >) (677 . |cons|) (683 . |reverse!|) |SMP;monomials;$L;81|
+              |SMP;leadingMonomial;2$;79| |SMP;reductum;2$;80| (666 . |ground|)
+              (671 . >) (677 . |cons|) (683 . |reverse!|) |SMP;monomials;$L;82|
               (|Union| 214 '#1="failed") (|Matrix| $) (|InputForm|)
               (|Pattern| (|Float|)) (|Pattern| 79) (|Matrix| 79)
               (|Record| (|:| |mat| 212) (|:| |vec| (|Vector| 79))) (|Vector| $)
@@ -2411,8 +2421,8 @@
                                     79 0 93 2 6 0 0 0 94 2 8 0 2 0 95 2 6 0 0 0
                                     97 1 8 0 2 98 2 6 0 0 0 99 2 8 0 0 0 100 2
                                     0 0 0 0 101 2 8 16 0 0 102 2 8 0 0 2 103 2
-                                    8 0 0 0 104 2 6 0 0 106 109 2 38 0 0 27 110
-                                    2 8 0 0 27 111 2 6 112 112 0 113 2 7 112
+                                    8 0 0 0 104 2 6 0 0 106 107 2 38 0 0 27 108
+                                    2 8 0 0 27 109 2 6 112 112 0 113 2 7 112
                                     112 0 114 2 8 112 112 0 115 1 6 117 0 118 1
                                     0 117 0 119 1 6 0 0 120 1 0 0 0 121 1 6 16
                                     0 122 1 0 16 0 123 2 6 16 0 0 124 2 8 16 0
@@ -2474,7 +2484,7 @@
                                     0 7 27 1 2 0 6 0 71 78 1 42 85 0 1 0 47 27
                                     83 3 40 0 0 0 27 1 3 47 0 0 0 0 1 2 43 16 0
                                     0 126 2 0 0 0 0 1 2 47 16 0 0 1 2 46 0 0 27
-                                    108 2 0 0 0 106 107 0 48 0 12 0 46 0 14 2 4
+                                    110 2 0 0 0 106 111 0 48 0 12 0 46 0 14 2 4
                                     0 0 7 1 3 4 0 0 7 27 1 2 4 0 0 166 1 3 4 0
                                     0 166 188 1 2 0 16 0 0 32 2 18 0 0 6 133 2
                                     50 0 0 0 101 1 50 0 0 90 2 0 0 0 0 52 2 50

@@ -116,7 +116,7 @@
                G191 (EXIT NIL))
           (EXIT |vv|)))) 
 
-(SDEFUN |VSBASIS;intBasis;2L$;15|
+(SDEFUN |VSBASIS;intBasis0|
         ((|Lv| |List| (|Vector| R)) (|Lw| |List| (|Vector| R)) ($ $))
         (SPROG
          ((#1=#:G165 NIL) (|cc| NIL) (#2=#:G164 NIL)
@@ -200,13 +200,17 @@
                                  (LETT #1# (CDR #1#)) (GO G190) G191
                                  (EXIT (NREVERSE #2#))))))))))))))) 
 
-(SDEFUN |VSBASIS;intBasis;3$;16| ((B1 $) (B2 $) ($ $))
+(SDEFUN |VSBASIS;intBasis;2L$;16|
+        ((|Lv| |List| (|Vector| R)) (|Lw| |List| (|Vector| R)) ($ $))
+        (|VSBASIS;intBasis0| |Lv| |Lw| $)) 
+
+(SDEFUN |VSBASIS;intBasis;3$;17| ((B1 $) (B2 $) ($ $))
         (SPROG ((|Lw| (|Rep|)) (|Lv| (|Rep|)))
                (SEQ (LETT |Lv| B1) (LETT |Lw| B2)
-                    (EXIT (SPADCALL |Lv| |Lw| (QREFELT $ 45)))))) 
+                    (EXIT (|VSBASIS;intBasis0| |Lv| |Lw| $))))) 
 
-(SDEFUN |VSBASIS;intBasis;L$;17| ((LLB |List| (|List| (|Vector| R))) ($ $))
-        (SPROG ((|res| ($)) (#1=#:G172 NIL) (LB NIL))
+(SDEFUN |VSBASIS;intBasis;L$;18| ((LLB |List| (|List| (|Vector| R))) ($ $))
+        (SPROG ((|res| ($)) (#1=#:G173 NIL) (LB NIL))
                (SEQ
                 (COND
                  ((EQL (LENGTH LLB) 0)
@@ -228,8 +232,8 @@
                         (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                    (EXIT |res|))))))) 
 
-(SDEFUN |VSBASIS;intBasis;L$;18| ((LLB |List| $) ($ $))
-        (SPROG ((|res| ($)) (#1=#:G177 NIL) (LB NIL))
+(SDEFUN |VSBASIS;intBasis;L$;19| ((LLB |List| $) ($ $))
+        (SPROG ((|res| ($)) (#1=#:G178 NIL) (LB NIL))
                (SEQ
                 (COND
                  ((EQL (SPADCALL LLB (QREFELT $ 50)) 0)
@@ -247,26 +251,26 @@
                             (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                        (EXIT |res|))))))) 
 
-(SDEFUN |VSBASIS;*;3$;19| ((B1 $) (B2 $) ($ $)) (SPADCALL B1 B2 (QREFELT $ 46))) 
+(SDEFUN |VSBASIS;*;3$;20| ((B1 $) (B2 $) ($ $)) (SPADCALL B1 B2 (QREFELT $ 46))) 
 
-(PUT '|VSBASIS;rank;$Nni;20| '|SPADreplace| 'LENGTH) 
+(PUT '|VSBASIS;rank;$Nni;21| '|SPADreplace| 'LENGTH) 
 
-(SDEFUN |VSBASIS;rank;$Nni;20| ((B $) ($ |NonNegativeInteger|)) (LENGTH B)) 
+(SDEFUN |VSBASIS;rank;$Nni;21| ((B $) ($ |NonNegativeInteger|)) (LENGTH B)) 
 
-(SDEFUN |VSBASIS;rank;LNni;21|
+(SDEFUN |VSBASIS;rank;LNni;22|
         ((|Lv| |List| (|Vector| R)) ($ |NonNegativeInteger|))
         (SPADCALL (SPADCALL |Lv| (QREFELT $ 27)) (QREFELT $ 55))) 
 
-(SDEFUN |VSBASIS;isBasis?;LB;22| ((|Lv| |List| (|Vector| R)) ($ |Boolean|))
+(SDEFUN |VSBASIS;isBasis?;LB;23| ((|Lv| |List| (|Vector| R)) ($ |Boolean|))
         (EQL (SPADCALL |Lv| (QREFELT $ 55)) (LENGTH |Lv|))) 
 
-(SDEFUN |VSBASIS;subspace?;2$B;23| ((B1 $) (B2 $) ($ |Boolean|))
+(SDEFUN |VSBASIS;subspace?;2$B;24| ((B1 $) (B2 $) ($ |Boolean|))
         (EQL (SPADCALL B2 (QREFELT $ 55))
              (SPADCALL (SPADCALL B1 B2 (QREFELT $ 33)) (QREFELT $ 55)))) 
 
-(SDEFUN |VSBASIS;=;2$B;24| ((B1 $) (B2 $) ($ |Boolean|))
+(SDEFUN |VSBASIS;=;2$B;25| ((B1 $) (B2 $) ($ |Boolean|))
         (SPROG
-         ((|rks| #1=(|NonNegativeInteger|)) (#2=#:G186 NIL) (|rk2| #1#)
+         ((|rks| #1=(|NonNegativeInteger|)) (#2=#:G187 NIL) (|rk2| #1#)
           (|rk1| #1#))
          (SEQ
           (EXIT
@@ -274,7 +278,7 @@
             ((SPADCALL (LETT |rk1| (SPADCALL B1 (QREFELT $ 55)))
                        (LETT |rk2| (SPADCALL B2 (QREFELT $ 55)))
                        (QREFELT $ 23))
-             (PROGN (LETT #2# NIL) (GO #3=#:G185)))
+             (PROGN (LETT #2# NIL) (GO #3=#:G186)))
             (#4='T
              (SEQ
               (LETT |rks|
@@ -282,9 +286,9 @@
               (EXIT (COND ((EQL |rks| |rk1|) (EQL |rks| |rk2|)) (#4# NIL)))))))
           #3# (EXIT #2#)))) 
 
-(SDEFUN |VSBASIS;canonicalBasis;Nni$;25| ((|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |VSBASIS;canonicalBasis;Nni$;26| ((|n| |NonNegativeInteger|) ($ $))
         (SPROG
-         ((L (|List| (|Vector| R))) (|v| (|Vector| R)) (#1=#:G191 NIL)
+         ((L (|List| (|Vector| R))) (|v| (|Vector| R)) (#1=#:G192 NIL)
           (|k| NIL))
          (SEQ (LETT L NIL)
               (SEQ (LETT |k| 1) (LETT #1# |n|) G190
@@ -296,10 +300,10 @@
                    (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
               (EXIT L)))) 
 
-(SDEFUN |VSBASIS;complementSpace;L$;26| ((|Lv| |List| (|Vector| R)) ($ $))
+(SDEFUN |VSBASIS;complementSpace;L$;27| ((|Lv| |List| (|Vector| R)) ($ $))
         (SPROG
-         ((|ind| (|NonNegativeInteger|)) (RES ($)) (#1=#:G201 NIL) (|k| NIL)
-          (#2=#:G202 NIL) (|v| NIL) (#3=#:G199 NIL) (#4=#:G200 NIL)
+         ((|ind| (|NonNegativeInteger|)) (RES ($)) (#1=#:G202 NIL) (|k| NIL)
+          (#2=#:G203 NIL) (|v| NIL) (#3=#:G200 NIL) (#4=#:G201 NIL)
           (|n| (|NonNegativeInteger|)) (M (|Matrix| R))
           (|Lw| (|List| (|Vector| R))) (|bc| (|List| (|Vector| R)))
           (|dim| (|NonNegativeInteger|)))
@@ -354,7 +358,7 @@
                       (GO G190) G191 (EXIT NIL))
                  (EXIT (NREVERSE RES)))))))) 
 
-(SDEFUN |VSBASIS;complementSpace;LNni$;27|
+(SDEFUN |VSBASIS;complementSpace;LNni$;28|
         ((|Lv| |List| (|Vector| R)) (|n| |NonNegativeInteger|) ($ $))
         (COND
          ((SPADCALL |Lv| NIL (QREFELT $ 59)) (SPADCALL |n| (QREFELT $ 60)))
@@ -363,10 +367,10 @@
           (|error| "Inconsistant vector length in complementSpace"))
          ('T (SPADCALL |Lv| (QREFELT $ 66))))) 
 
-(SDEFUN |VSBASIS;complementSpace;2$;28| ((B $) ($ $))
+(SDEFUN |VSBASIS;complementSpace;2$;29| ((B $) ($ $))
         (SPROG
-         ((|ind| (|NonNegativeInteger|)) (RES ($)) (#1=#:G210 NIL) (|k| NIL)
-          (#2=#:G211 NIL) (|v| NIL) (|n| (|NonNegativeInteger|))
+         ((|ind| (|NonNegativeInteger|)) (RES ($)) (#1=#:G211 NIL) (|k| NIL)
+          (#2=#:G212 NIL) (|v| NIL) (|n| (|NonNegativeInteger|))
           (M (|Matrix| R)) (|Lw| (|List| (|Vector| R)))
           (|bc| (|List| (|Vector| R))) (|dim| (|NonNegativeInteger|)))
          (SEQ
@@ -405,7 +409,7 @@
                       (GO G190) G191 (EXIT NIL))
                  (EXIT (NREVERSE RES)))))))) 
 
-(SDEFUN |VSBASIS;complementSpace;$Nni$;29|
+(SDEFUN |VSBASIS;complementSpace;$Nni$;30|
         ((B $) (|n| |NonNegativeInteger|) ($ $))
         (COND ((SPADCALL B NIL (QREFELT $ 59)) (SPADCALL |n| (QREFELT $ 60)))
               ((SPADCALL |n| (QVSIZE (SPADCALL B 1 (QREFELT $ 19)))
@@ -413,14 +417,14 @@
                (|error| "Inconsistant vector length in complementSpace"))
               ('T (SPADCALL B (QREFELT $ 66))))) 
 
-(SDEFUN |VSBASIS;member?;V$B;30| ((|v| |Vector| R) (B $) ($ |Boolean|))
+(SDEFUN |VSBASIS;member?;V$B;31| ((|v| |Vector| R) (B $) ($ |Boolean|))
         (SPADCALL (|VSBASIS;column2matrix| B $) |v| (QREFELT $ 70))) 
 
-(SDEFUN |VSBASIS;coordinatesIfCan;V$U;31|
+(SDEFUN |VSBASIS;coordinatesIfCan;V$U;32|
         ((|v| |Vector| R) (B $) ($ |Union| (|Vector| R) "failed"))
         (SPADCALL (|VSBASIS;column2matrix| B $) |v| (QREFELT $ 73))) 
 
-(SDEFUN |VSBASIS;coordinates;V$V;32| ((V |Vector| R) (B $) ($ |Vector| R))
+(SDEFUN |VSBASIS;coordinates;V$V;33| ((V |Vector| R) (B $) ($ |Vector| R))
         (SPROG ((|res| (|Union| (|Vector| R) "failed")))
                (SEQ
                 (LETT |res|
@@ -433,9 +437,9 @@
 
 (DECLAIM (NOTINLINE |VectorSpaceBasis;|)) 
 
-(DEFUN |VectorSpaceBasis| (#1=#:G224)
+(DEFUN |VectorSpaceBasis| (#1=#:G225)
   (SPROG NIL
-         (PROG (#2=#:G225)
+         (PROG (#2=#:G226)
            (RETURN
             (COND
              ((LETT #2#
@@ -481,20 +485,20 @@
               |VSBASIS;sumBasis;3$;9| (|List| $) (59 . |concat|) (|List| 5)
               |VSBASIS;sumBasis;L$;10| (64 . |concat|) |VSBASIS;sumBasis;L$;11|
               |VSBASIS;+;3$;12| (69 . |elt|) (75 . *) (81 . +) (87 . |setelt!|)
-              |VSBASIS;intBasis;2L$;15| |VSBASIS;intBasis;3$;16| (94 . |elt|)
-              |VSBASIS;intBasis;L$;17| (|List| $$) (100 . |#|) (105 . |elt|)
-              (111 . |rest|) |VSBASIS;intBasis;L$;18| |VSBASIS;*;3$;19|
-              |VSBASIS;rank;$Nni;20| |VSBASIS;rank;LNni;21|
-              |VSBASIS;isBasis?;LB;22| |VSBASIS;subspace?;2$B;23|
-              |VSBASIS;=;2$B;24| |VSBASIS;canonicalBasis;Nni$;25|
+              |VSBASIS;intBasis;2L$;16| |VSBASIS;intBasis;3$;17| (94 . |elt|)
+              |VSBASIS;intBasis;L$;18| (|List| $$) (100 . |#|) (105 . |elt|)
+              (111 . |rest|) |VSBASIS;intBasis;L$;19| |VSBASIS;*;3$;20|
+              |VSBASIS;rank;$Nni;21| |VSBASIS;rank;LNni;22|
+              |VSBASIS;isBasis?;LB;23| |VSBASIS;subspace?;2$B;24|
+              |VSBASIS;=;2$B;25| |VSBASIS;canonicalBasis;Nni$;26|
               (116 . |rowEchelon|) (121 . <=) (127 . |elt|) (134 . ~=)
-              |VSBASIS;complementSpace;L$;26| |VSBASIS;complementSpace;2$;28|
-              |VSBASIS;complementSpace;LNni$;27|
-              |VSBASIS;complementSpace;$Nni$;29|
+              |VSBASIS;complementSpace;L$;27| |VSBASIS;complementSpace;2$;29|
+              |VSBASIS;complementSpace;LNni$;28|
+              |VSBASIS;complementSpace;$Nni$;30|
               (|LinearSystemMatrixPackage1| 6) (140 . |hasSolution?|)
-              |VSBASIS;member?;V$B;30| (|Union| 17 '"failed")
-              (146 . |particularSolution|) |VSBASIS;coordinatesIfCan;V$U;31|
-              |VSBASIS;coordinates;V$V;32|)
+              |VSBASIS;member?;V$B;31| (|Union| 17 '"failed")
+              (146 . |particularSolution|) |VSBASIS;coordinatesIfCan;V$U;32|
+              |VSBASIS;coordinates;V$V;33|)
            '#(~= 152 |sumBasis| 158 |subspace?| 180 |rank| 186 |nullSpace| 196
               |member?| 201 |isBasis?| 207 |intBasis| 212 |coordinatesIfCan|
               234 |coordinates| 240 |complementSpace| 246 |columnSpace| 268

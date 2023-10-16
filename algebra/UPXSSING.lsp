@@ -950,7 +950,7 @@
               (9 . |degree|) (|Boolean|) (14 . |zero?|)
               (|UnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT $ 8))
                                          (NRTEVAL (QREFELT $ 9)))
-              (19 . |leadingCoefficient|) (|Union| 17 '#1="failed")
+              (19 . |leadingCoefficient|) (|Union| 17 '"failed")
               |UPXSSING;retractIfCan;$U;1| (24 . |inv|) (29 . -)
               (34 . |monomial|) (|Union| $ '"failed") |UPXSSING;recip;$U;2|
               (|Record| (|:| |k| 34) (|:| |c| 7)) (|Stream| 26) (40 . |terms|)
@@ -970,7 +970,7 @@
               (164 . |variables|) (|Symbol|) (169 . |member?|)
               (175 . |plusInfinity|) (179 . |minusInfinity|) (183 . |order|)
               (|Union| 57 '"failed") |UPXSSING;limitPlus;$U;16|
-              (|Union| 34 '#1#) (|Integer|)
+              (|Union| 34 '"failed") (|Integer|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|Mapping| 13 13) (|List| 17) (|Mapping| 17 17)
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
