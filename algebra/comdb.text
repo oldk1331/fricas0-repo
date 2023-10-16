@@ -7678,7 +7678,7 @@
 886409`\spad{submod(a,{} b,{} p)},{} \spad{0<=a,{} b<p>1},{} means \spad{a-b mod p}.
 886466`\spad{subNode?(n1,{} n2,{} o2)} returns \spad{true} iff \spad{value(n1) = value(n2)} and \spad{o2(condition(n1),{} condition(n2))}
 886541`\spad{subNodeOf?(s,{} a,{} sub?)} returns \spad{true} iff for some node \spad{n} in \spad{a} we have \spad{s = n} or \spad{status(n)} and \spad{subNode?(s,{} n,{} sub?)}.
-886634`\spad{subordinationConvolution(x,{} y)} returns the orthogonal convolution of the distributions \spad{x} and \spad{y}
+886634`\spad{subordinationConvolution(x,{} y)} returns the subordination convolution of the distributions \spad{x} and \spad{y}
 886710`\spad{subPencil(p,{} lst_row,{} lst_col)} returns a pencil with submatrices specified by a list of rows and columns.
 886828`\spad{subPencil(p,{} r_min,{} r_max,{} c_min,{} c_max)} returns a pencil with the specified submatrices.
 886972`\spad{subPolSet?(lp1,{} lp2)} returns \spad{true} iff \spad{lp1} is a sub-set of \spad{lp2}.
