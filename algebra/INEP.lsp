@@ -591,52 +591,48 @@
 (SDEFUN |INEP;charpol;MSup;11|
         ((A |Matrix| K) ($ |SparseUnivariatePolynomial| K))
         (SPROG
-         ((#1=#:G210 NIL) (|j| NIL) (#2=#:G209 NIL) (|i| NIL)
+         ((#1=#:G209 NIL) (|j| NIL) (#2=#:G208 NIL) (|i| NIL)
           (B (|Matrix| (|SparseUnivariatePolynomial| K)))
-          (|dimA| (|PositiveInteger|)) (#3=#:G202 NIL))
-         (SEQ
-          (LETT |dimA|
-                (PROG1 (LETT #3# (ANROWS A) . #4=(|INEP;charpol;MSup;11|))
-                  (|check_subtype2| (> #3# 0) '(|PositiveInteger|)
-                                    '(|NonNegativeInteger|) #3#))
-                . #4#)
-          (EXIT
-           (COND
-            ((SPADCALL |dimA| (ANCOLS A) (QREFELT $ 99))
-             (|error| " The matrix is not square"))
-            ('T
-             (SEQ (LETT B (SPADCALL |dimA| |dimA| (QREFELT $ 66)) . #4#)
-                  (SEQ (LETT |i| 1 . #4#) (LETT #2# |dimA| . #4#) G190
-                       (COND ((|greater_SI| |i| #2#) (GO G191)))
-                       (SEQ
-                        (SEQ (LETT |j| 1 . #4#) (LETT #1# |dimA| . #4#) G190
-                             (COND ((|greater_SI| |j| #1#) (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (SPADCALL B |i| |j|
-                                         (SPADCALL
-                                          (SPADCALL A |i| |j| (QREFELT $ 57))
-                                          (QREFELT $ 65))
-                                         (QREFELT $ 67))))
-                             (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
-                             (EXIT NIL))
-                        (EXIT
-                         (SPADCALL B |i| |i|
-                                   (SPADCALL
-                                    (SPADCALL B |i| |i| (QREFELT $ 39))
-                                    (SPADCALL (|spadConstant| $ 20) 1
-                                              (QREFELT $ 64))
-                                    (QREFELT $ 100))
-                                   (QREFELT $ 67))))
-                       (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
-                       (EXIT NIL))
-                  (EXIT (SPADCALL B (QREFELT $ 101)))))))))) 
+          (|dimA| (|NonNegativeInteger|)))
+         (SEQ (LETT |dimA| (ANROWS A) . #3=(|INEP;charpol;MSup;11|))
+              (EXIT
+               (COND
+                ((SPADCALL |dimA| (ANCOLS A) (QREFELT $ 99))
+                 (|error| " The matrix is not square"))
+                ('T
+                 (SEQ (LETT B (SPADCALL |dimA| |dimA| (QREFELT $ 66)) . #3#)
+                      (SEQ (LETT |i| 1 . #3#) (LETT #2# |dimA| . #3#) G190
+                           (COND ((|greater_SI| |i| #2#) (GO G191)))
+                           (SEQ
+                            (SEQ (LETT |j| 1 . #3#) (LETT #1# |dimA| . #3#)
+                                 G190 (COND ((|greater_SI| |j| #1#) (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (SPADCALL B |i| |j|
+                                             (SPADCALL
+                                              (SPADCALL A |i| |j|
+                                                        (QREFELT $ 57))
+                                              (QREFELT $ 65))
+                                             (QREFELT $ 67))))
+                                 (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
+                                 (EXIT NIL))
+                            (EXIT
+                             (SPADCALL B |i| |i|
+                                       (SPADCALL
+                                        (SPADCALL B |i| |i| (QREFELT $ 39))
+                                        (SPADCALL (|spadConstant| $ 20) 1
+                                                  (QREFELT $ 64))
+                                        (QREFELT $ 100))
+                                       (QREFELT $ 67))))
+                           (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                           (EXIT NIL))
+                      (EXIT (SPADCALL B (QREFELT $ 101)))))))))) 
 
 (DECLAIM (NOTINLINE |InnerNumericEigenPackage;|)) 
 
-(DEFUN |InnerNumericEigenPackage| (&REST #1=#:G211)
+(DEFUN |InnerNumericEigenPackage| (&REST #1=#:G210)
   (SPROG NIL
-         (PROG (#2=#:G212)
+         (PROG (#2=#:G211)
            (RETURN
             (COND
              ((LETT #2#
