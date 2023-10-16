@@ -678,8 +678,7 @@
 ;   [funlist,.]:= FUNCALL(constructorFunction,"$",title,$CategoryFrame)
 ;   oplist:= [[[a,b],true,c] for [a,b,c] in funlist]
 ;   cat:=
-;     JoinInner([SetCategory(), mkCategory(oplist, nil, nil, nil)],
-;       $EmptyEnvironment)
+;       JoinInner([SetCategory(), mkCategory(oplist, nil, nil, nil)])
 ;   cat.(0):= title
 ;   cat
  
@@ -720,8 +719,7 @@
                NIL |funlist| NIL))
       (SETQ |cat|
               (|JoinInner|
-               (LIST (|SetCategory|) (|mkCategory| |oplist| NIL NIL NIL))
-               |$EmptyEnvironment|))
+               (LIST (|SetCategory|) (|mkCategory| |oplist| NIL NIL NIL))))
       (SETF (ELT |cat| 0) |title|)
       |cat|))))
  

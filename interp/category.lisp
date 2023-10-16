@@ -7,7 +7,7 @@
  
 (DEFUN |Category| () (PROG () (RETURN NIL)))
  
-; CategoryPrint(D,$e) ==
+; CategoryPrint(D) ==
 ;   SAY "--------------------------------------"
 ;   SAY "Name (and arguments) of category:"
 ;   PRETTYPRINT D.(0)
@@ -27,8 +27,7 @@
 ;     atom first u => SAY("Alternate View corresponding to: ",u)
 ;     PRETTYPRINT u
  
-(DEFUN |CategoryPrint| (D |$e|)
-  (DECLARE (SPECIAL |$e|))
+(DEFUN |CategoryPrint| (D)
   (PROG (|u|)
     (RETURN
      (PROGN
@@ -1028,16 +1027,13 @@
  
 ; CatEval x ==
 ;   REFVECP x => x
-;   $InteractiveMode => first compMakeCategoryObject(x, $CategoryFrame)
-;   first compMakeCategoryObject(x, $e)
+;   (compMakeCategoryObject(x, $EmptyEnvironment)).expr
  
 (DEFUN |CatEval| (|x|)
   (PROG ()
     (RETURN
      (COND ((REFVECP |x|) |x|)
-           (|$InteractiveMode|
-            (CAR (|compMakeCategoryObject| |x| |$CategoryFrame|)))
-           ('T (CAR (|compMakeCategoryObject| |x| |$e|)))))))
+           ('T (CAR (|compMakeCategoryObject| |x| |$EmptyEnvironment|)))))))
  
 ; AncestorP(xname,leaves) ==
 ;   -- checks for being a principal ancestor of one of the leaves
@@ -1339,20 +1335,17 @@
        (|FindFundAncs| |l|) NIL)
       |FundamentalAncestors|))))
  
-; JoinInner(l,$e) ==
+; JoinInner(l) ==
 ;   NewCatVec := nil
 ;   CondList := nil
 ;   for u in l repeat
 ;     for at in u.2 repeat
 ;       at2:= first at
 ;       if atom at2 then BREAK()
-;       null isCategoryForm(at2,$e) => BREAK()
+;       null isCategoryForm(at2, []) => BREAK()
 ; 
 ;       pred:= first rest at
 ;         -- The predicate under which this category is conditional
-;       -- member(pred,get("$Information","special",$e)) => l:= [:l,CatEval at2]
-;           --It's true, so we add this as unconditional
-;       -- not (pred is ["and",:.]) => CondList:= [[CatEval at2,pred],:CondList]
 ;       CondList:= [[CatEval at2,pred],:CondList]
 ;   [NewCatVec, :l] := l
 ;   l':= [:CondList,:[[u,true] for u in l]]
@@ -1385,8 +1378,7 @@
 ;   NewCatVec.4 := [c,FundamentalAncestors, CADDR NewCatVec.4]
 ;   mkCategory(sigl, nil, globalDomains, NewCatVec)
  
-(DEFUN |JoinInner| (|l| |$e|)
-  (DECLARE (SPECIAL |$e|))
+(DEFUN |JoinInner| (|l|)
   (PROG (|NewCatVec| |CondList| |at2| |pred| |LETTMP#1| |l'| |sigl|
          |globalDomains| |FundamentalAncestors| |newpred| |c| |pName|)
     (RETURN
@@ -1409,7 +1401,7 @@
                   (PROGN
                    (SETQ |at2| (CAR |at|))
                    (COND ((ATOM |at2|) (BREAK)))
-                   (COND ((NULL (|isCategoryForm| |at2| |$e|)) (BREAK))
+                   (COND ((NULL (|isCategoryForm| |at2| NIL)) (BREAK))
                          (#1#
                           (PROGN
                            (SETQ |pred| (CAR (CDR |at|)))
@@ -1531,34 +1523,18 @@
                    (CONS (MKPF (LIST |oldpred| |newpred|) '|and|)
                          |implem|))))))))
  
-; Join(:L) ==
-;   env :=
-;      not(BOUNDP('$e)) or NULL($e) or $InteractiveMode => $CategoryFrame
-;      $e
-;   JoinInner(L, env)
+; Join(:L) == JoinInner(L)
  
-(DEFUN |Join| (&REST L)
-  (PROG (|env|)
-    (RETURN
-     (PROGN
-      (SETQ |env|
-              (COND
-               ((OR (NULL (BOUNDP '|$e|)) (NULL |$e|) |$InteractiveMode|)
-                |$CategoryFrame|)
-               ('T |$e|)))
-      (|JoinInner| L |env|)))))
+(DEFUN |Join| (&REST L) (PROG () (RETURN (|JoinInner| L))))
  
 ; isCategoryForm(x,e) ==
 ;   x is [name,:.] => categoryForm? name
-;   atom x => u:= get(x,"macro",e) => isCategoryForm(u,e)
+;   false
  
 (DEFUN |isCategoryForm| (|x| |e|)
-  (PROG (|name| |u|)
+  (PROG (|name|)
     (RETURN
      (COND
-      ((AND (CONSP |x|) (PROGN (SETQ |name| (CAR |x|)) 'T))
+      ((AND (CONSP |x|) (PROGN (SETQ |name| (CAR |x|)) #1='T))
        (|categoryForm?| |name|))
-      ((ATOM |x|)
-       (COND
-        ((SETQ |u| (|get| |x| '|macro| |e|))
-         (IDENTITY (|isCategoryForm| |u| |e|)))))))))
+      (#1# NIL)))))

@@ -546,7 +546,7 @@
 ;     cat is ['Join,:u] => gn last u
 ;     nil
 ;   catvec := eval mkEvalableCategoryForm form
-;   fullCatOpList := (JoinInner([catvec], $e)).1
+;   fullCatOpList := (JoinInner([catvec])).1
 ;   catOpList :=
 ;     --note: this gets too many modemaps in general
 ;     --   this is cut down in NRTmakeSlot1
@@ -583,7 +583,7 @@
       (SETQ |capsuleDefAlist| (|mkCategoryPackage,fn| |def| NIL))
       (SETQ |explicitCatPart| (|mkCategoryPackage,gn| |cat|))
       (SETQ |catvec| (|eval| (|mkEvalableCategoryForm| |form|)))
-      (SETQ |fullCatOpList| (ELT (|JoinInner| (LIST |catvec|) |$e|) 1))
+      (SETQ |fullCatOpList| (ELT (|JoinInner| (LIST |catvec|)) 1))
       (SETQ |catOpList|
               ((LAMBDA (|bfVar#17| |bfVar#16| |bfVar#15|)
                  (LOOP
