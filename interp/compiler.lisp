@@ -1142,7 +1142,7 @@
 ;   INTEGERP x =>
 ;     x=0 => $NonNegativeInteger
 ;     x>0 => $PositiveInteger
-;     true => $NegativeInteger
+;     $Integer
 ;   FLOATP x => $DoubleFloat
 ;   nil
  
@@ -1152,8 +1152,8 @@
      (COND ((NULL |x|) |$EmptyMode|) ((STRINGP |x|) |$String|)
            ((INTEGERP |x|)
             (COND ((EQL |x| 0) |$NonNegativeInteger|)
-                  ((< 0 |x|) |$PositiveInteger|) (T |$NegativeInteger|)))
-           ((FLOATP |x|) |$DoubleFloat|) ('T NIL)))))
+                  ((< 0 |x|) |$PositiveInteger|) (#1='T |$Integer|)))
+           ((FLOATP |x|) |$DoubleFloat|) (#1# NIL)))))
  
 ; DEFPARAMETER($compForModeIfTrue, false)
  
