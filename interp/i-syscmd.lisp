@@ -8269,7 +8269,7 @@
  
 ; ncParseFromString(s) ==
 ;    $BreakMode : local := 'throw_reader
-;    zeroOneTran(packageTran(CATCH('SPAD_READER, parseFromString(s))))
+;    CATCH('SPAD_READER, parseFromString(s))
  
 (DEFUN |ncParseFromString| (|s|)
   (PROG (|$BreakMode|)
@@ -8277,5 +8277,4 @@
     (RETURN
      (PROGN
       (SETQ |$BreakMode| '|throw_reader|)
-      (|zeroOneTran|
-       (|packageTran| (CATCH 'SPAD_READER (|parseFromString| |s|))))))))
+      (CATCH 'SPAD_READER (|parseFromString| |s|))))))

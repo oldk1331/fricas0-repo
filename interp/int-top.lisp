@@ -601,13 +601,10 @@
       (|ncPutQ| |carrier| '|value| |val|)))))
  
 ; intInterpretPform pf ==
-;   processInteractive(zeroOneTran(packageTran(pf2Sex pf)), pf)
+;     processInteractive(pf2Sex pf, pf)
  
 (DEFUN |intInterpretPform| (|pf|)
-  (PROG ()
-    (RETURN
-     (|processInteractive| (|zeroOneTran| (|packageTran| (|pf2Sex| |pf|)))
-      |pf|))))
+  (PROG () (RETURN (|processInteractive| (|pf2Sex| |pf|) |pf|))))
  
 ; phIntReportMsgs(carrier, interactive?) ==
 ;     $erMsgToss => 'OK
@@ -638,11 +635,10 @@
                      'OK)))))))))
  
 ; intSayKeyedMsg(key, args) ==
-;   sayKeyedMsg(packageTran key, packageTran args)
+;   sayKeyedMsg(key, args)
  
 (DEFUN |intSayKeyedMsg| (|key| |args|)
-  (PROG ()
-    (RETURN (|sayKeyedMsg| (|packageTran| |key|) (|packageTran| |args|)))))
+  (PROG () (RETURN (|sayKeyedMsg| |key| |args|))))
  
 ; mkLineList lines ==
 ;   l := [rest line for line in lines | nonBlank rest line]

@@ -347,10 +347,6 @@
       (|pfTree| '|WIf| (LIST (|pfIfCond| |form|) (|pfIfThen| |form|) |b|))))))
  
 ; pfInfApplication(op,left,right)==
-;    pfCheckInfop left =>
-;        pfWrong(pfDocument ['"infop as argument to infop"],pfListOf [])
-;    pfCheckInfop right =>
-;        pfWrong(pfDocument ['"infop as argument to infop"],pfListOf [])
 ;    EQ(pfIdSymbol op,"and")=> pfAnd (left,right)
 ;    EQ(pfIdSymbol op, "or")=> pfOr (left,right)
 ;    pfApplication(op,pfTuple pfListOf [left,right])
@@ -358,22 +354,11 @@
 (DEFUN |pfInfApplication| (|op| |left| |right|)
   (PROG ()
     (RETURN
-     (COND
-      ((|pfCheckInfop| |left|)
-       (|pfWrong| (|pfDocument| (LIST "infop as argument to infop"))
-        (|pfListOf| NIL)))
-      ((|pfCheckInfop| |right|)
-       (|pfWrong| (|pfDocument| (LIST "infop as argument to infop"))
-        (|pfListOf| NIL)))
-      ((EQ (|pfIdSymbol| |op|) '|and|) (|pfAnd| |left| |right|))
-      ((EQ (|pfIdSymbol| |op|) '|or|) (|pfOr| |left| |right|))
-      ('T
-       (|pfApplication| |op|
-        (|pfTuple| (|pfListOf| (LIST |left| |right|)))))))))
- 
-; pfCheckInfop form== false
- 
-(DEFUN |pfCheckInfop| (|form|) (PROG () (RETURN NIL)))
+     (COND ((EQ (|pfIdSymbol| |op|) '|and|) (|pfAnd| |left| |right|))
+           ((EQ (|pfIdSymbol| |op|) '|or|) (|pfOr| |left| |right|))
+           ('T
+            (|pfApplication| |op|
+             (|pfTuple| (|pfListOf| (LIST |left| |right|)))))))))
  
 ; pfAnd(pfleft, pfright) == pfTree('And, [pfleft, pfright])
  
@@ -473,25 +458,6 @@
                     (#1# |body|)))
       (|pfLambda| |variable| |rets| |bdy|)))))
  
-; pfTLam(variable,body)==-- called from parser
-;     rets:= if pfAbSynOp?(body,'returntyped)
-;            then pfFirst body
-;            else pfNothing ()
-;     bdy:= if pfAbSynOp?(body,'returntyped) then pfSecond body else body
-;     pfTLambda(variable,rets,bdy)
- 
-(DEFUN |pfTLam| (|variable| |body|)
-  (PROG (|rets| |bdy|)
-    (RETURN
-     (PROGN
-      (SETQ |rets|
-              (COND ((|pfAbSynOp?| |body| '|returntyped|) (|pfFirst| |body|))
-                    (#1='T (|pfNothing|))))
-      (SETQ |bdy|
-              (COND ((|pfAbSynOp?| |body| '|returntyped|) (|pfSecond| |body|))
-                    (#1# |body|)))
-      (|pfTLambda| |variable| |rets| |bdy|)))))
- 
 ; pfIfThenOnly(pred,first)==pfIf(pred,first,pfNothing())
  
 (DEFUN |pfIfThenOnly| (|pred| CAR)
@@ -529,31 +495,6 @@
  
 (DEFUN |pfBracket| (|a| |part|)
   (PROG () (RETURN (|pfApplication| (|pfIdPos| '[] (|tokPosn| |a|)) |part|))))
- 
-; pfBraceBar(a,part)==pfApplication(pfIdPos( "{||}",tokPosn a),part)
- 
-(DEFUN |pfBraceBar| (|a| |part|)
-  (PROG ()
-    (RETURN (|pfApplication| (|pfIdPos| '|{\|\|}| (|tokPosn| |a|)) |part|))))
- 
-; pfBracketBar(a,part) ==  pfApplication(pfIdPos( "[||]",tokPosn a),part)
- 
-(DEFUN |pfBracketBar| (|a| |part|)
-  (PROG ()
-    (RETURN (|pfApplication| (|pfIdPos| '|[\|\|]| (|tokPosn| |a|)) |part|))))
- 
-; pfHide(a,part) ==   pfTree("Hide",[part])
- 
-(DEFUN |pfHide| (|a| |part|)
-  (PROG () (RETURN (|pfTree| '|Hide| (LIST |part|)))))
- 
-; pfHide? x== pfAbSynOp?(x,"Hide")
- 
-(DEFUN |pfHide?| (|x|) (PROG () (RETURN (|pfAbSynOp?| |x| '|Hide|))))
- 
-; pfHidePart x== CADR x
- 
-(DEFUN |pfHidePart| (|x|) (PROG () (RETURN (CADR |x|))))
  
 ; pfParen(a,part)==part
  
@@ -905,24 +846,6 @@
  
 (DEFUN |pfRestrictType| (|pf|) (PROG () (RETURN (CADDR |pf|))))
  
-; pfRetractTo(pfexpr, pftype) == pfTree('RetractTo, [pfexpr, pftype])
- 
-(DEFUN |pfRetractTo| (|pfexpr| |pftype|)
-  (PROG () (RETURN (|pfTree| '|RetractTo| (LIST |pfexpr| |pftype|)))))
- 
-; pfRetractTo?(pf) == pfAbSynOp? (pf, 'RetractTo)
- 
-(DEFUN |pfRetractTo?| (|pf|)
-  (PROG () (RETURN (|pfAbSynOp?| |pf| '|RetractTo|))))
- 
-; pfRetractToExpr pf == CADR pf       -- was ==>
- 
-(DEFUN |pfRetractToExpr| (|pf|) (PROG () (RETURN (CADR |pf|))))
- 
-; pfRetractToType pf == CADDR pf       -- was ==>
- 
-(DEFUN |pfRetractToType| (|pf|) (PROG () (RETURN (CADDR |pf|))))
- 
 ; pfCoerceto(pfexpr, pftype) == pfTree('Coerceto, [pfexpr, pftype])
  
 (DEFUN |pfCoerceto| (|pfexpr| |pftype|)
@@ -987,32 +910,6 @@
 ; pfFix pf== pfApplication(pfId "Y",pf)
  
 (DEFUN |pfFix| (|pf|) (PROG () (RETURN (|pfApplication| (|pfId| 'Y) |pf|))))
- 
-; pfTLambda(pfargs, pfrets, pfbody) == pfTree('TLambda, [pfargs, pfrets, pfbody])
- 
-(DEFUN |pfTLambda| (|pfargs| |pfrets| |pfbody|)
-  (PROG () (RETURN (|pfTree| '|TLambda| (LIST |pfargs| |pfrets| |pfbody|)))))
- 
-; pfTLambda?(pf) == pfAbSynOp? (pf, 'TLambda)
- 
-(DEFUN |pfTLambda?| (|pf|) (PROG () (RETURN (|pfAbSynOp?| |pf| '|TLambda|))))
- 
-; pfTLambdaArgs pf == CADR pf       -- was ==>
- 
-(DEFUN |pfTLambdaArgs| (|pf|) (PROG () (RETURN (CADR |pf|))))
- 
-; pfTLambdaRets pf == CADDR pf       -- was ==>
- 
-(DEFUN |pfTLambdaRets| (|pf|) (PROG () (RETURN (CADDR |pf|))))
- 
-; pfTLambdaBody pf == CADDDR pf       -- was ==>
- 
-(DEFUN |pfTLambdaBody| (|pf|) (PROG () (RETURN (CADDDR |pf|))))
- 
-; pf0TLambdaArgs pf == pfParts pfTLambdaArgs pf
- 
-(DEFUN |pf0TLambdaArgs| (|pf|)
-  (PROG () (RETURN (|pfParts| (|pfTLambdaArgs| |pf|)))))
  
 ; pfMLambda(pfargs, pfbody) == pfTree('MLambda, [pfargs, pfbody])
  

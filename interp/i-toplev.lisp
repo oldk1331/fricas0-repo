@@ -301,12 +301,10 @@
       |object|))))
  
 ; ncParseAndInterpretString s ==
-;    processInteractive(packageTran(parseFromString(s)), nil)
+;    processInteractive(parseFromString(s), nil)
  
 (DEFUN |ncParseAndInterpretString| (|s|)
-  (PROG ()
-    (RETURN
-     (|processInteractive| (|packageTran| (|parseFromString| |s|)) NIL))))
+  (PROG () (RETURN (|processInteractive| (|parseFromString| |s|) NIL))))
  
 ; recordAndPrint(x,md) ==
 ;   --  Prints out the value x which is of type m, and records the changes

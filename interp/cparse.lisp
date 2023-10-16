@@ -212,14 +212,10 @@
       |a|))))
  
 ; npParenthesized f==
-;    npParenthesize("(",")",f)   or
-;    npParenthesize("(|","|)",f)
+;    npParenthesize("(",")",f) 
  
 (DEFUN |npParenthesized| (|f|)
-  (PROG ()
-    (RETURN
-     (OR (|npParenthesize| '|(| '|)| |f|)
-         (|npParenthesize| '|(\|| '|\|)| |f|)))))
+  (PROG () (RETURN (|npParenthesize| '|(| '|)| |f|))))
  
 ; npParenthesize (open,close,f)==
 ;     a:=$stok
@@ -270,49 +266,27 @@
        (#1# NIL))))))
  
 ; npParened f ==
-;     npEnclosed("(",")",function pfParen,f) or
-;     npEnclosed("(|","|)",function pfParen,f)
+;     npEnclosed("(",")",function pfParen,f)
  
 (DEFUN |npParened| (|f|)
-  (PROG ()
-    (RETURN
-     (OR (|npEnclosed| '|(| '|)| #'|pfParen| |f|)
-         (|npEnclosed| '|(\|| '|\|)| #'|pfParen| |f|)))))
+  (PROG () (RETURN (|npEnclosed| '|(| '|)| #'|pfParen| |f|))))
  
 ; npBracked f ==
-;     npEnclosed("[","]",function pfBracket,f) or
-;     npEnclosed("[|","|]",function pfBracketBar,f)
+;     npEnclosed("[","]",function pfBracket,f)
  
 (DEFUN |npBracked| (|f|)
-  (PROG ()
-    (RETURN
-     (OR (|npEnclosed| '[ '] #'|pfBracket| |f|)
-         (|npEnclosed| '|[\|| '|\|]| #'|pfBracketBar| |f|)))))
+  (PROG () (RETURN (|npEnclosed| '[ '] #'|pfBracket| |f|))))
  
 ; npBraced f ==
-;     npEnclosed("{","}",function pfBrace,f) or
-;     npEnclosed("{|","|}",function pfBraceBar,f)
+;     npEnclosed("{","}",function pfBrace,f)
  
-(DEFUN |npBraced| (|f|)
-  (PROG ()
-    (RETURN
-     (OR (|npEnclosed| '{ '} #'|pfBrace| |f|)
-         (|npEnclosed| '|{\|| '|\|}| #'|pfBraceBar| |f|)))))
- 
-; npAngleBared f ==
-;     npEnclosed("<|","|>",function pfHide,f)
- 
-(DEFUN |npAngleBared| (|f|)
-  (PROG () (RETURN (|npEnclosed| '|<\|| '|\|>| #'|pfHide| |f|))))
+(DEFUN |npBraced| (|f|) (PROG () (RETURN (|npEnclosed| '{ '} #'|pfBrace| |f|))))
  
 ; npBracketed f==
-;   npParened f or npBracked f or npBraced f or npAngleBared f
+;     npParened f or npBracked f or npBraced f
  
 (DEFUN |npBracketed| (|f|)
-  (PROG ()
-    (RETURN
-     (OR (|npParened| |f|) (|npBracked| |f|) (|npBraced| |f|)
-         (|npAngleBared| |f|)))))
+  (PROG () (RETURN (OR (|npParened| |f|) (|npBracked| |f|) (|npBraced| |f|)))))
  
 ; npPileBracketed f==
 ;  if npEqKey "SETTAB"
@@ -1011,22 +985,16 @@
  
 (DEFUN |npCoerceTo| () (PROG () (RETURN (|npTypedForm| '|::| #'|pfCoerceto|))))
  
-; npColonQuery() == npTypedForm("ATAT",function pfRetractTo)
- 
-(DEFUN |npColonQuery| ()
-  (PROG () (RETURN (|npTypedForm| 'ATAT #'|pfRetractTo|))))
- 
 ; npPretend() == npTypedForm("pretend", function pfPretend)
  
 (DEFUN |npPretend| ()
   (PROG () (RETURN (|npTypedForm| '|pretend| #'|pfPretend|))))
  
 ; npTypeStyle()==
-;  npCoerceTo() or npRestrict() or npPretend() or npColonQuery()
+;     npCoerceTo() or npRestrict() or npPretend()
  
 (DEFUN |npTypeStyle| ()
-  (PROG ()
-    (RETURN (OR (|npCoerceTo|) (|npRestrict|) (|npPretend|) (|npColonQuery|)))))
+  (PROG () (RETURN (OR (|npCoerceTo|) (|npRestrict|) (|npPretend|)))))
  
 ; npTypified ()==npApplication() and npAnyNo function npTypeStyle
  

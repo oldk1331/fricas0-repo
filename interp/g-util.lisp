@@ -1283,14 +1283,6 @@
   (PROG (|s|)
     (RETURN (EQUAL (ELT (SETQ |s| (PNAME |x|)) (MAXINDEX |s|)) (|char| '&)))))
  
-; packageTran sex == sex
- 
-(DEFUN |packageTran| (|sex|) (PROG () (RETURN |sex|)))
- 
-; zeroOneTran sex == sex
- 
-(DEFUN |zeroOneTran| (|sex|) (PROG () (RETURN |sex|)))
- 
 ; wrap x ==
 ;   isWrapped x => x
 ;   ['WRAPPED,:x]
