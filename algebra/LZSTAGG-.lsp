@@ -721,7 +721,7 @@
                           NIL (GO G190) G191 (EXIT NIL)))))))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |LZSTAGG-;elt;AfirstS;36| ((|x| A) (T5 "first") ($ S))
+(SDEFUN |LZSTAGG-;elt;AfirstS;36| ((|x| A) (T3 "first") ($ S))
         (SPADCALL |x| (QREFELT $ 75))) 
 
 (SDEFUN |LZSTAGG-;first;ANniA;37| ((|x| A) (|n| |NonNegativeInteger|) ($ A))
@@ -745,7 +745,7 @@
           (|error| "Can't take the rest of an empty stream."))
          ('T (SPADCALL |x| (QREFELT $ 17))))) 
 
-(SDEFUN |LZSTAGG-;elt;ArestA;39| ((|x| A) (T6 "rest") ($ A))
+(SDEFUN |LZSTAGG-;elt;ArestA;39| ((|x| A) (T4 "rest") ($ A))
         (SPADCALL |x| (QREFELT $ 86))) 
 
 (SDEFUN |LZSTAGG-;rest;ANniA;40| ((|x| A) (|n| |NonNegativeInteger|) ($ A))
@@ -824,7 +824,7 @@
                                      (QREFELT $ 48))
                            (QREFELT $ 55))))))))))) 
 
-(SDEFUN |LZSTAGG-;elt;AlastS;43| ((|x| A) (T7 "last") ($ S))
+(SDEFUN |LZSTAGG-;elt;AlastS;43| ((|x| A) (T5 "last") ($ S))
         (SPADCALL |x| (QREFELT $ 94))) 
 
 (SDEFUN |LZSTAGG-;tail;2A;44| ((|x| A) ($ A))

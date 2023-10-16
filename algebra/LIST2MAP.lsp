@@ -42,7 +42,7 @@
         (SPROG ((|p| (|Integer|)))
                (COND
                 ((< (LETT |p| (SPADCALL |a| |la| (QREFELT $ 14)))
-                    (SPADCALL |la| (QREFELT $ 20)))
+                    (PROGN |la| 1))
                  |b|)
                 ('T (SPADCALL |lb| |p| (QREFELT $ 15)))))) 
 
@@ -51,7 +51,7 @@
         (SPROG ((|p| (|Integer|)))
                (COND
                 ((< (LETT |p| (SPADCALL |a| |la| (QREFELT $ 14)))
-                    (SPADCALL |la| (QREFELT $ 20)))
+                    (PROGN |la| 1))
                  (SPADCALL |a| |f|))
                 ('T (SPADCALL |lb| |p| (QREFELT $ 15)))))) 
 
@@ -80,7 +80,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|ListToMap| DV$1 DV$2))
-          (LETT $ (GETREFV 21))
+          (LETT $ (GETREFV 20))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ListToMap| (LIST DV$1 DV$2)
@@ -97,9 +97,8 @@
               (|List| 7) |LIST2MAP;match;LLAB;2| (|Mapping| 7 6)
               |LIST2MAP;match;LLM;1| (|Integer|) (0 . |position|) (6 . |elt|)
               |LIST2MAP;match;LLA2B;5| |LIST2MAP;match;LLBM;3|
-              |LIST2MAP;match;LLAMB;6| |LIST2MAP;match;LL2M;4|
-              (12 . |minIndex|))
-           '#(|match| 17) 'NIL
+              |LIST2MAP;match;LLAMB;6| |LIST2MAP;match;LL2M;4|)
+           '#(|match| 12) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -129,10 +128,9 @@
                                   (|Mapping| |#2| |#1|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 20
-                                            '(2 8 13 6 0 14 2 9 7 0 13 15 1 8
-                                              13 0 20 2 0 11 8 9 12 3 0 11 8 9
-                                              7 17 3 0 7 8 9 6 10 4 0 7 8 9 6 7
-                                              16 4 0 7 8 9 6 11 18 3 0 11 8 9
-                                              11 19)))))
+                        (|makeByteWordVec2| 19
+                                            '(2 8 13 6 0 14 2 9 7 0 13 15 2 0
+                                              11 8 9 12 3 0 11 8 9 7 17 3 0 7 8
+                                              9 6 10 4 0 7 8 9 6 7 16 4 0 7 8 9
+                                              6 11 18 3 0 11 8 9 11 19)))))
            '|lookupComplete|)) 

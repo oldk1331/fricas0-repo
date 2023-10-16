@@ -240,8 +240,7 @@
                            (EXIT
                             (SEQ (SETELT $ 28 (SPADCALL (QREFELT $ 27)))
                                  (SETELT $ 32 (SPADCALL |k| 0 (QREFELT $ 31)))
-                                 (LETT |mn|
-                                       (SPADCALL (QREFELT $ 9) (QREFELT $ 56)))
+                                 (LETT |mn| (PROGN (QREFELT $ 9) 1))
                                  (SEQ
                                   (EXIT
                                    (SEQ (LETT |i| (+ |mn| 1))
@@ -252,7 +251,7 @@
                                           (COND
                                            ((|PRIMES;rabinProvesComposite|
                                              (SPADCALL (QREFELT $ 9) |i|
-                                                       (QREFELT $ 57))
+                                                       (QREFELT $ 56))
                                              |n| |nm1| |q| |k| $)
                                             (PROGN
                                              (LETT #4#
@@ -265,19 +264,19 @@
                                   #8# (EXIT #4#))
                                  (COND
                                   ((SPADCALL |q| (|spadConstant| $ 11)
-                                             (QREFELT $ 58))
+                                             (QREFELT $ 57))
                                    (COND
                                     ((SPADCALL
-                                      (SPADCALL (SPADCALL 3 |n| (QREFELT $ 59))
+                                      (SPADCALL (SPADCALL 3 |n| (QREFELT $ 58))
                                                 (|spadConstant| $ 11)
                                                 (QREFELT $ 37))
-                                      (QREFELT $ 61))
+                                      (QREFELT $ 60))
                                      (EXIT NIL)))))
                                  (SEQ
                                   (LETT |n9|
                                         (SPADCALL |n|
                                                   (SPADCALL 9 (QREFELT $ 8))
-                                                  (QREFELT $ 62)))
+                                                  (QREFELT $ 61)))
                                   (EXIT
                                    (COND
                                     ((OR
@@ -290,15 +289,15 @@
                                      (COND
                                       ((SPADCALL
                                         (SPADCALL
-                                         (SPADCALL 8 |n| (QREFELT $ 59))
+                                         (SPADCALL 8 |n| (QREFELT $ 58))
                                          (|spadConstant| $ 11) (QREFELT $ 37))
-                                        (QREFELT $ 61))
+                                        (QREFELT $ 60))
                                        (PROGN
                                         (LETT #3# NIL)
                                         (GO #9=#:G185))))))))
                                  (LETT |currPrime|
                                        (SPADCALL (QREFELT $ 9) (+ |mn| 10)
-                                                 (QREFELT $ 57)))
+                                                 (QREFELT $ 56)))
                                  (LETT |probablySafe| (QREFELT $ 18))
                                  (SEQ G190
                                       (COND
@@ -311,14 +310,14 @@
                                            'T)
                                           ('T
                                            (SPADCALL |n| |probablySafe|
-                                                     (QREFELT $ 58)))))
+                                                     (QREFELT $ 57)))))
                                         (GO G191)))
                                       (SEQ
                                        (EXIT
                                         (SEQ
                                          (LETT |currPrime|
                                                (SPADCALL |currPrime|
-                                                         (QREFELT $ 63)))
+                                                         (QREFELT $ 62)))
                                          (LETT |probablySafe|
                                                (SPADCALL |probablySafe|
                                                          (SPADCALL 100
@@ -412,7 +411,7 @@
     (PROGN
      (LETT DV$1 (|devaluate| |#1|))
      (LETT |dv$| (LIST '|IntegerPrimesPackage| DV$1))
-     (LETT $ (GETREFV 65))
+     (LETT $ (GETREFV 64))
      (QSETREFV $ 0 |dv$|)
      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
      (|haddProp| |$ConstructorCache| '|IntegerPrimesPackage| (LIST DV$1)
@@ -521,10 +520,10 @@
               (63 . |powmod|) (70 . =) (76 . |mulmod|) (83 . |elt|)
               (89 . |setelt!|) (96 . |union|) (102 . |#|) (107 . -)
               (112 . |member?|) (118 . |gcd|) (124 . -) (130 . |quo|)
-              (136 . |odd?|) (141 . |minIndex|) (146 . |elt|) (152 . >)
-              (158 . *) (|IntegerRoots| 6) (164 . |perfectSquare?|)
-              (169 . |rem|) |PRIMES;nextPrime;2I;5| |PRIMES;prevPrime;2I;6|)
-           '#(|primes| 175 |prime?| 181 |prevPrime| 186 |nextPrime| 191) 'NIL
+              (136 . |odd?|) (141 . |elt|) (147 . >) (153 . *)
+              (|IntegerRoots| 6) (159 . |perfectSquare?|) (164 . |rem|)
+              |PRIMES;nextPrime;2I;5| |PRIMES;prevPrime;2I;6|)
+           '#(|primes| 170 |prime?| 176 |prevPrime| 181 |nextPrime| 186) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -535,7 +534,7 @@
                                    '((|prevPrime| (|#1| |#1|)) T)
                                    '((|primes| ((|List| |#1|) |#1| |#1|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 64
+                        (|makeByteWordVec2| 63
                                             '(1 6 0 7 8 2 6 0 0 0 10 0 6 0 11 2
                                               6 0 0 14 15 0 26 0 27 2 30 0 29
                                               29 31 0 6 0 33 2 6 34 0 0 35 1 6
@@ -545,9 +544,9 @@
                                               46 3 30 29 0 7 29 47 2 26 0 0 6
                                               48 1 26 29 0 49 1 6 0 0 50 2 41
                                               34 6 0 51 2 6 0 0 0 52 2 6 0 0 0
-                                              53 2 6 0 0 0 54 1 6 34 0 55 1 41
-                                              7 0 56 2 41 6 0 7 57 2 6 34 0 0
-                                              58 2 6 0 14 0 59 1 60 34 6 61 2 6
-                                              0 0 0 62 2 0 41 6 6 42 1 0 34 6
-                                              39 1 0 6 6 64 1 0 6 6 63)))))
+                                              53 2 6 0 0 0 54 1 6 34 0 55 2 41
+                                              6 0 7 56 2 6 34 0 0 57 2 6 0 14 0
+                                              58 1 59 34 6 60 2 6 0 0 0 61 2 0
+                                              41 6 6 42 1 0 34 6 39 1 0 6 6 63
+                                              1 0 6 6 62)))))
            '|lookupComplete|)) 

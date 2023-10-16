@@ -56,7 +56,7 @@
                               (EXIT (NREVERSE #2#))))
                         (QREFELT $ 23))))))) 
 
-(SDEFUN |RCAGG-;setelt!;Avalue2S;5| ((|x| A) (T5 "value") (|y| S) ($ S))
+(SDEFUN |RCAGG-;setelt!;Avalue2S;5| ((|x| A) (T4 "value") (|y| S) ($ S))
         (SPADCALL |x| |y| (QREFELT $ 25))) 
 
 (SDEFUN |RCAGG-;child?;2AB;6| ((|x| A) (|l| A) ($ |Boolean|))

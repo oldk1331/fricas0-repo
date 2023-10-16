@@ -758,7 +758,7 @@
 (SDEFUN |STREAM;setfirst!;$2S;47| ((|x| $) (|s| S) ($ S))
         (SPADCALL |x| 0 |s| (QREFELT $ 54))) 
 
-(SDEFUN |STREAM;setelt!;$first2S;48| ((|x| $) (T5 "first") (|s| S) ($ S))
+(SDEFUN |STREAM;setelt!;$first2S;48| ((|x| $) (T3 "first") (|s| S) ($ S))
         (SPADCALL |x| |s| (QREFELT $ 101))) 
 
 (SDEFUN |STREAM;setrest!;3$;49| ((|x| $) (|y| $) ($ $))
@@ -766,7 +766,7 @@
          ((SPADCALL |x| (QREFELT $ 16)) (|error| "setrest!: empty stream"))
          ('T (|STREAM;setrst!| |x| |y| $)))) 
 
-(SDEFUN |STREAM;setelt!;$rest2$;50| ((|x| $) (T6 "rest") (|y| $) ($ $))
+(SDEFUN |STREAM;setelt!;$rest2$;50| ((|x| $) (T4 "rest") (|y| $) ($ $))
         (SPADCALL |x| |y| (QREFELT $ 97))) 
 
 (SDEFUN |STREAM;setlast!;$2S;51| ((|x| $) (|s| S) ($ S))
@@ -774,7 +774,7 @@
          ((SPADCALL |x| (QREFELT $ 16)) (|error| "setlast!: empty stream"))
          ('T (|STREAM;setfrst!| (SPADCALL |x| (QREFELT $ 50)) |s| $)))) 
 
-(SDEFUN |STREAM;setelt!;$last2S;52| ((|x| $) (T7 "last") (|s| S) ($ S))
+(SDEFUN |STREAM;setelt!;$last2S;52| ((|x| $) (T5 "last") (|s| S) ($ S))
         (SPADCALL |x| |s| (QREFELT $ 106))) 
 
 (SDEFUN |STREAM;split!;$Nni$;53| ((|x| $) (|n| |NonNegativeInteger|) ($ $))

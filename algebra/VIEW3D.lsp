@@ -1118,10 +1118,10 @@
                                    (|sockSendString| |$ViewportServer|
                                                      |Filename|)
                                    (LETT |m|
-                                         (SPADCALL
+                                         (PROGN
                                           (LETT |avail|
                                                 (SPADCALL (QREFELT $ 152)))
-                                          (QREFELT $ 153)))
+                                          1))
                                    (SEQ (LETT |aTypeOfFile| NIL)
                                         (LETT #2# |thingsToWrite|) G190
                                         (COND
@@ -1135,8 +1135,8 @@
                                                (-
                                                 (SPADCALL
                                                  (SPADCALL |aTypeOfFile|
-                                                           (QREFELT $ 154))
-                                                 |avail| (QREFELT $ 155))
+                                                           (QREFELT $ 153))
+                                                 |avail| (QREFELT $ 154))
                                                 |m|))
                                          (EXIT
                                           (COND
@@ -1144,7 +1144,7 @@
                                             (SPADCALL
                                              (LIST "  > " |aTypeOfFile|
                                                    " is not a valid file type for writing a 3D viewport")
-                                             (QREFELT $ 156)))
+                                             (QREFELT $ 155)))
                                            ('T
                                             (|sockSendInt| |$ViewportServer|
                                                            (+ |writeTypeInt|
@@ -1345,7 +1345,7 @@
                          (SEQ
                           (QSETVELT |viewport| 11
                                     (SPADCALL (QVELT |viewport| 11) |anIndex|
-                                              |aPoint| (QREFELT $ 163)))
+                                              |aPoint| (QREFELT $ 162)))
                           (EXIT
                            (COND
                             ((SPADCALL (SPADCALL |viewport| (QREFELT $ 101)) 0
@@ -1419,7 +1419,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ThreeDimensionalViewport|))
-          (LETT $ (GETREFV 167))
+          (LETT $ (GETREFV 166))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ThreeDimensionalViewport| NIL
@@ -1570,30 +1570,29 @@
               |VIEW3D;intensity;$FV;48| (|List| 26) |VIEW3D;write;$SLS;51|
               |VIEW3D;write;$3S;49| (295 . |viewWriteDefault|)
               |VIEW3D;write;$2S;50| (299 . |viewWriteAvailable|)
-              (303 . |minIndex|) (308 . |upperCase|) (313 . |position|)
-              (319 . |say|) |VIEW3D;perspective;$SV;52|
-              |VIEW3D;showRegion;$SV;53| |VIEW3D;showClipRegion;$SV;54|
-              |VIEW3D;clipSurface;$SV;55| |VIEW3D;eyeDistance;$FV;56|
-              |VIEW3D;hitherPlane;$FV;57| (324 . |modifyPointData|)
-              |VIEW3D;modifyPointData;$NniPV;58| (|HashState|)
-              (|SingleInteger|))
-           '#(~= 331 |zoom| 337 |write| 351 |viewport3D| 371 |viewpoint| 375
-              |viewZoomDefault| 421 |viewThetaDefault| 430 |viewPhiDefault| 439
-              |viewDeltaYDefault| 448 |viewDeltaXDefault| 457 |translate| 466
-              |title| 473 |subspace| 479 |showRegion| 490 |showClipRegion| 496
-              |rotate| 502 |resize| 516 |reset| 523 |perspective| 528
-              |outlineRender| 534 |options| 540 |move| 551 |modifyPointData|
-              558 |makeViewport3D| 565 |lighting| 582 |latex| 590 |key| 595
-              |intensity| 600 |hitherPlane| 606 |hashUpdate!| 612 |hash| 618
-              |eyeDistance| 623 |drawStyle| 629 |dimensions| 635 |diagonals|
-              644 |controlPanel| 650 |colorDef| 656 |coerce| 663 |close| 668
-              |clipSurface| 673 |axes| 679 = 685)
+              (303 . |upperCase|) (308 . |position|) (314 . |say|)
+              |VIEW3D;perspective;$SV;52| |VIEW3D;showRegion;$SV;53|
+              |VIEW3D;showClipRegion;$SV;54| |VIEW3D;clipSurface;$SV;55|
+              |VIEW3D;eyeDistance;$FV;56| |VIEW3D;hitherPlane;$FV;57|
+              (319 . |modifyPointData|) |VIEW3D;modifyPointData;$NniPV;58|
+              (|HashState|) (|SingleInteger|))
+           '#(~= 326 |zoom| 332 |write| 346 |viewport3D| 366 |viewpoint| 370
+              |viewZoomDefault| 416 |viewThetaDefault| 425 |viewPhiDefault| 434
+              |viewDeltaYDefault| 443 |viewDeltaXDefault| 452 |translate| 461
+              |title| 468 |subspace| 474 |showRegion| 485 |showClipRegion| 491
+              |rotate| 497 |resize| 511 |reset| 518 |perspective| 523
+              |outlineRender| 529 |options| 535 |move| 546 |modifyPointData|
+              553 |makeViewport3D| 560 |lighting| 577 |latex| 585 |key| 590
+              |intensity| 595 |hitherPlane| 601 |hashUpdate!| 607 |hash| 613
+              |eyeDistance| 618 |drawStyle| 624 |dimensions| 630 |diagonals|
+              639 |controlPanel| 645 |colorDef| 651 |coerce| 658 |close| 663
+              |clipSurface| 668 |axes| 674 = 680)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 134))
-                        (|makeByteWordVec2| 166
+                        (|makeByteWordVec2| 165
                                             '(0 7 0 8 0 7 0 9 3 7 0 10 10 11 12
                                               2 7 0 0 0 13 1 7 16 0 17 1 18 0
                                               16 19 1 7 0 0 21 2 28 26 27 26 29
@@ -1617,37 +1616,37 @@
                                               7 0 0 124 1 128 10 0 129 1 134 0
                                               26 135 1 26 134 0 136 1 134 0 137
                                               138 2 7 83 0 0 144 2 7 83 0 0 145
-                                              0 35 147 150 0 35 147 152 1 147
-                                              10 0 153 1 26 0 0 154 2 147 10 26
-                                              0 155 1 55 54 147 156 3 42 0 0 37
-                                              57 163 2 0 83 0 0 1 2 0 54 0 7
-                                              141 4 0 54 0 7 7 7 142 3 0 26 0
-                                              26 147 148 2 0 26 0 26 151 3 0 26
-                                              0 26 26 149 0 0 0 44 4 0 54 0 7 7
-                                              7 126 6 0 54 0 10 10 7 7 7 115 3
-                                              0 54 0 7 7 116 1 0 32 0 112 2 0
-                                              54 0 32 113 6 0 54 0 7 7 7 7 7
-                                              114 0 0 7 95 1 0 7 7 96 0 0 7 90
-                                              1 0 7 7 92 0 0 7 93 1 0 7 7 94 1
-                                              0 7 7 100 0 0 7 99 0 0 7 97 1 0 7
-                                              7 98 3 0 54 0 7 7 143 2 0 54 0 26
-                                              127 2 0 0 0 42 46 1 0 42 0 45 2 0
-                                              54 0 26 158 2 0 54 0 26 159 3 0
-                                              54 0 7 7 125 3 0 54 0 10 10 140 3
-                                              0 54 0 11 11 133 1 0 54 0 110 2 0
-                                              54 0 26 157 2 0 54 0 26 106 1 0
-                                              27 0 47 2 0 0 0 27 48 3 0 54 0 37
-                                              37 132 3 0 54 0 37 57 164 2 0 0
-                                              42 27 53 1 0 0 0 49 2 0 0 42 26
-                                              52 4 0 54 0 7 7 7 103 1 0 26 0 1
-                                              1 0 10 0 101 2 0 54 0 7 146 2 0
-                                              54 0 7 162 2 0 165 165 0 1 1 0
-                                              166 0 1 2 0 54 0 7 161 2 0 54 0
-                                              26 108 5 0 54 0 37 37 11 11 131 2
-                                              0 54 0 26 105 2 0 54 0 26 107 3 0
-                                              54 0 128 128 130 1 0 134 0 139 1
-                                              0 54 0 111 2 0 54 0 26 160 2 0 54
-                                              0 26 104 2 0 83 0 0 1)))))
+                                              0 35 147 150 0 35 147 152 1 26 0
+                                              0 153 2 147 10 26 0 154 1 55 54
+                                              147 155 3 42 0 0 37 57 162 2 0 83
+                                              0 0 1 2 0 54 0 7 141 4 0 54 0 7 7
+                                              7 142 3 0 26 0 26 147 148 2 0 26
+                                              0 26 151 3 0 26 0 26 26 149 0 0 0
+                                              44 4 0 54 0 7 7 7 126 6 0 54 0 10
+                                              10 7 7 7 115 3 0 54 0 7 7 116 1 0
+                                              32 0 112 2 0 54 0 32 113 6 0 54 0
+                                              7 7 7 7 7 114 0 0 7 95 1 0 7 7 96
+                                              0 0 7 90 1 0 7 7 92 0 0 7 93 1 0
+                                              7 7 94 1 0 7 7 100 0 0 7 99 0 0 7
+                                              97 1 0 7 7 98 3 0 54 0 7 7 143 2
+                                              0 54 0 26 127 2 0 0 0 42 46 1 0
+                                              42 0 45 2 0 54 0 26 157 2 0 54 0
+                                              26 158 3 0 54 0 7 7 125 3 0 54 0
+                                              10 10 140 3 0 54 0 11 11 133 1 0
+                                              54 0 110 2 0 54 0 26 156 2 0 54 0
+                                              26 106 1 0 27 0 47 2 0 0 0 27 48
+                                              3 0 54 0 37 37 132 3 0 54 0 37 57
+                                              163 2 0 0 42 27 53 1 0 0 0 49 2 0
+                                              0 42 26 52 4 0 54 0 7 7 7 103 1 0
+                                              26 0 1 1 0 10 0 101 2 0 54 0 7
+                                              146 2 0 54 0 7 161 2 0 164 164 0
+                                              1 1 0 165 0 1 2 0 54 0 7 160 2 0
+                                              54 0 26 108 5 0 54 0 37 37 11 11
+                                              131 2 0 54 0 26 105 2 0 54 0 26
+                                              107 3 0 54 0 128 128 130 1 0 134
+                                              0 139 1 0 54 0 111 2 0 54 0 26
+                                              159 2 0 54 0 26 104 2 0 83 0 0
+                                              1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ThreeDimensionalViewport| 'NILADIC T) 

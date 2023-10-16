@@ -4,7 +4,7 @@
 (SDEFUN |IARRAY1;#;$Nni;1| ((|x| $) ($ |NonNegativeInteger|)) (QVSIZE |x|)) 
 
 (SDEFUN |IARRAY1;fill!;$S$;2| ((|x| $) (|s| S) ($ $))
-        (SPROG ((#1=#:G1138 NIL) (|i| NIL))
+        (SPROG ((#1=#:G972 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -24,7 +24,7 @@
         (MAKEARR1 |n| |s|)) 
 
 (SDEFUN |IARRAY1;map!;M2$;6| ((|f| |Mapping| S S) (|s1| $) ($ $))
-        (SPROG ((#1=#:G1147 NIL) (|i| NIL) (|n| (|Integer|)))
+        (SPROG ((#1=#:G981 NIL) (|i| NIL) (|n| (|Integer|)))
                (SEQ (LETT |n| (QVMAXINDEX |s1|))
                     (EXIT
                      (COND ((< |n| 0) |s1|)
@@ -42,7 +42,7 @@
                              (EXIT |s1|)))))))) 
 
 (SDEFUN |IARRAY1;map;M2$;7| ((|f| |Mapping| S S) (|s1| $) ($ $))
-        (SPROG ((#1=#:G1152 NIL) (|i| NIL) (|ss2| ($)) (|n| (|Integer|)))
+        (SPROG ((#1=#:G986 NIL) (|i| NIL) (|ss2| ($)) (|n| (|Integer|)))
                (SEQ (LETT |n| (QVMAXINDEX |s1|))
                     (EXIT
                      (COND ((< |n| 0) |s1|)
@@ -60,7 +60,7 @@
                                  (EXIT |ss2|)))))))) 
 
 (SDEFUN |IARRAY1;map;M3$;8| ((|f| |Mapping| S S S) (|a| $) (|b| $) ($ $))
-        (SPROG ((#1=#:G1158 NIL) (|i| NIL) (|c| ($)) (|maxind| (|Integer|)))
+        (SPROG ((#1=#:G992 NIL) (|i| NIL) (|c| ($)) (|maxind| (|Integer|)))
                (SEQ (LETT |maxind| (MIN (QVMAXINDEX |a|) (QVMAXINDEX |b|)))
                     (EXIT
                      (COND ((< |maxind| 0) (SPADCALL (QREFELT $ 13)))
@@ -80,7 +80,7 @@
 
 (SDEFUN |IARRAY1;hashUpdate!;Hs$Hs;9|
         ((|s| |HashState|) (|x| $) ($ |HashState|))
-        (SPROG ((#1=#:G1162 NIL) (|i| NIL))
+        (SPROG ((#1=#:G996 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -154,9 +154,9 @@
 
 (DECLAIM (NOTINLINE |IndexedOneDimensionalArray;|)) 
 
-(DEFUN |IndexedOneDimensionalArray| (&REST #1=#:G1200)
+(DEFUN |IndexedOneDimensionalArray| (&REST #1=#:G1034)
   (SPROG NIL
-         (PROG (#2=#:G1201)
+         (PROG (#2=#:G1035)
            (RETURN
             (COND
              ((LETT #2#
@@ -176,7 +176,7 @@
 
 (DEFUN |IndexedOneDimensionalArray;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G1197 NIL) (#2=#:G1198 NIL) (#3=#:G1199 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G1031 NIL) (#2=#:G1032 NIL) (#3=#:G1033 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -306,7 +306,7 @@
               (|Integer|) |IARRAY1;minIndex;$I;3| |IARRAY1;empty;$;4|
               |IARRAY1;new;NniS$;5| (|Mapping| 6 6) |IARRAY1;map!;M2$;6|
               |IARRAY1;map;M2$;7| (|Mapping| 6 6 6) |IARRAY1;map;M3$;8|
-              (|HashState|) (0 . |hashUpdate!|) (6 . |hashUpdate!|) '#:G1133
+              (|HashState|) (0 . |hashUpdate!|) (6 . |hashUpdate!|) '#:G967
               (12 . |qelt|) (18 . |qsetelt!|) (25 . |maxIndex|) (30 . |elt|)
               (36 . |setelt!|) (|Mapping| 30 6 6) (|Boolean|) (|List| 6)
               (|List| 33) (|Equation| 6) (|OutputForm|) (|SingleInteger|)
