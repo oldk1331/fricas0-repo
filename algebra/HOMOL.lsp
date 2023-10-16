@@ -176,7 +176,7 @@
 (SDEFUN |HOMOL;dispGenerators;$Of;8| ((|s| $) ($ |OutputForm|))
         (SPROG
          ((|res| (|OutputForm|)) (|ln2| #1=(|OutputForm|)) (|ln| #1#)
-          (#2=#:G157 NIL) (|g| NIL) (|s1| ($)))
+          (#2=#:G156 NIL) (|g| NIL) (|s1| (|Rep|)))
          (SEQ
           (LETT |res| (SPADCALL (QREFELT $ 50))
                 . #3=(|HOMOL;dispGenerators;$Of;8|))
@@ -207,8 +207,8 @@
 
 (SDEFUN |HOMOL;=;2$B;9| ((|a| $) (|b| $) ($ |Boolean|))
         (SPROG
-         ((#1=#:G169 NIL) (|noTorsionB| #2=(|Boolean|)) (#3=#:G171 NIL)
-          (|tb| NIL) (|noTorsionA| #2#) (#4=#:G170 NIL) (|ta| NIL)
+         ((#1=#:G168 NIL) (|noTorsionB| #2=(|Boolean|)) (#3=#:G170 NIL)
+          (|tb| NIL) (|noTorsionA| #2#) (#4=#:G169 NIL) (|ta| NIL)
           (|torb|
            #5=(|List|
                (|Record| (|:| |vec| (|Vector| (|Integer|)))
@@ -245,15 +245,15 @@
                      (LETT #3# (CDR #3#) . #6#) (GO G190) G191 (EXIT NIL))
                 (COND
                  ((SPADCALL |noTorsionA| |noTorsionA| (QREFELT $ 59))
-                  (PROGN (LETT #1# NIL . #6#) (GO #7=#:G168))))
+                  (PROGN (LETT #1# NIL . #6#) (GO #7=#:G167))))
                 (EXIT (EQL (LENGTH (QCDR |a|)) (LENGTH (QCDR |b|))))))
           #7# (EXIT #1#)))) 
 
 (SDEFUN |HOMOL;coerce;$Of;10| ((|s| $) ($ |OutputForm|))
         (SPROG
          ((|res| (|OutputForm|)) (|firstTermRead| (|Boolean|))
-          (|ln2| (|OutputForm|)) (#1=#:G181 NIL) (|t| NIL)
-          (|nFree| (|NonNegativeInteger|)) (|s1| ($)))
+          (|ln2| (|OutputForm|)) (#1=#:G180 NIL) (|t| NIL)
+          (|nFree| (|NonNegativeInteger|)) (|s1| (|Rep|)))
          (SEQ
           (LETT |res| (SPADCALL (QREFELT $ 50)) . #2=(|HOMOL;coerce;$Of;10|))
           (LETT |firstTermRead| NIL . #2#) (LETT |s1| |s| . #2#)
@@ -311,7 +311,7 @@
 
 (DEFUN |Homology| ()
   (SPROG NIL
-         (PROG (#1=#:G183)
+         (PROG (#1=#:G182)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Homology|)

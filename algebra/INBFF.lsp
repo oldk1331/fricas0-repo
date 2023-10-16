@@ -149,7 +149,7 @@
          (SEQ
           (LETT |plist| (LIST (SPADCALL |a| (QREFELT $ 30)))
                 . #4=(|INBFF;dAndcExp;VNniSiV;4|))
-          (LETT |qk| (EXPT (QREFELT $ 9) |k|) . #4#)
+          (LETT |qk| (SPADCALL (QREFELT $ 9) |k| (QREFELT $ 28)) . #4#)
           (SEQ (LETT |j| 2 . #4#) (LETT #3# (- |qk| 1) . #4#) G190
                (COND ((|greater_SI| |j| #3#) (GO G191)))
                (SEQ
