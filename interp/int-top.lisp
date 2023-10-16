@@ -599,10 +599,18 @@
       (|ncPutQ| |carrier| '|value| |val|)))))
  
 ; intInterpretPform pf ==
-;     processInteractive(pf2Sex pf, pf)
+;     sform := pf2Sex(pf)
+;     $QuietCommand : local := $QuietCommand_tmp
+;     processInteractive(sform, pf)
  
 (DEFUN |intInterpretPform| (|pf|)
-  (PROG () (RETURN (|processInteractive| (|pf2Sex| |pf|) |pf|))))
+  (PROG (|$QuietCommand| |sform|)
+    (DECLARE (SPECIAL |$QuietCommand|))
+    (RETURN
+     (PROGN
+      (SETQ |sform| (|pf2Sex| |pf|))
+      (SETQ |$QuietCommand| |$QuietCommand_tmp|)
+      (|processInteractive| |sform| |pf|)))))
  
 ; phIntReportMsgs(carrier, interactive?) ==
 ;     $erMsgToss => 'OK

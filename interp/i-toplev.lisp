@@ -11,15 +11,19 @@
  
 (DEFPARAMETER |$ProcessInteractiveValue| NIL)
  
-; intSetQuiet() ==
-;   $QuietCommand := true
+; DEFPARAMETER($QuietCommand_tmp, nil)
  
-(DEFUN |intSetQuiet| () (PROG () (RETURN (SETQ |$QuietCommand| T))))
+(DEFPARAMETER |$QuietCommand_tmp| NIL)
+ 
+; intSetQuiet() ==
+;   $QuietCommand_tmp := true
+ 
+(DEFUN |intSetQuiet| () (PROG () (RETURN (SETQ |$QuietCommand_tmp| T))))
  
 ; intUnsetQuiet() ==
-;   $QuietCommand := nil
+;   $QuietCommand_tmp := nil
  
-(DEFUN |intUnsetQuiet| () (PROG () (RETURN (SETQ |$QuietCommand| NIL))))
+(DEFUN |intUnsetQuiet| () (PROG () (RETURN (SETQ |$QuietCommand_tmp| NIL))))
  
 ; interpsysInitialization() ==
 ;   -- The function  start  begins the interpreter process, reading in
