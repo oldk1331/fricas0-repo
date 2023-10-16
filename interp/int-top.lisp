@@ -17,10 +17,6 @@
 (DEFUN |ioHook| (|x| &REST |args|)
   (PROG () (RETURN (COND (|$ioHook| (FUNCALL |$ioHook| |x| |args|))))))
  
-; $ncmParse :=            NIL
- 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$ncmParse| NIL))
- 
 ; $ncmMacro :=            NIL
  
 (EVAL-WHEN (EVAL LOAD) (SETQ |$ncmMacro| NIL))
@@ -131,7 +127,7 @@
 ;     while mode = "restart" repeat
 ;       resetStackLimits()
 ;       mode := CATCH("top_level",
-;                     SpadInterpretStream(1, ["TIM", "DALY", "?"], true))
+;                     SpadInterpretStream(1, [], true))
  
 (DEFUN |int_loop| ()
   (PROG (|mode|)
@@ -146,8 +142,7 @@
                   (|resetStackLimits|)
                   (SETQ |mode|
                           (CATCH '|top_level|
-                            (|SpadInterpretStream| 1 (LIST 'TIM 'DALY '?)
-                             T)))))))))))))
+                            (|SpadInterpretStream| 1 NIL T)))))))))))))
  
 ; SpadInterpretStream(step_num, source, interactive?) ==
 ;     pile?                    := not interactive?
@@ -795,21 +790,13 @@
  
 ; phParse(carrier,ptree) ==
 ;     phBegin 'Parsing
-;     if $ncmParse then
-;            nothing
-;            intSayKeyedMsg ('S2CTP003,[%pform ptree])
 ;     ncPutQ(carrier, 'ptree, ptree)
 ;     'OK
  
 (DEFUN |phParse| (|carrier| |ptree|)
   (PROG ()
     (RETURN
-     (PROGN
-      (|phBegin| '|Parsing|)
-      (COND
-       (|$ncmParse| (|intSayKeyedMsg| 'S2CTP003 (LIST (|%pform| |ptree|)))))
-      (|ncPutQ| |carrier| '|ptree| |ptree|)
-      'OK))))
+     (PROGN (|phBegin| '|Parsing|) (|ncPutQ| |carrier| '|ptree| |ptree|) 'OK))))
  
 ; phMacro carrier ==
 ;     phBegin 'Macroing

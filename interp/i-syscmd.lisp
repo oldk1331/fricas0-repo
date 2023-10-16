@@ -343,20 +343,15 @@
  
 ; commandErrorIfAmbiguous(x, u) ==
 ;   null u => nil
-;   SETQ($OLDLINE, LINE)
 ;   commandAmbiguityError("command", x, u)
  
 (DEFUN |commandErrorIfAmbiguous| (|x| |u|)
   (PROG ()
     (RETURN
      (COND ((NULL |u|) NIL)
-           ('T
-            (PROGN
-             (SETQ $OLDLINE LINE)
-             (|commandAmbiguityError| '|command| |x| |u|)))))))
+           ('T (|commandAmbiguityError| '|command| |x| |u|))))))
  
 ; commandErrorMessage(kind,x,u) ==
-;   SETQ ($OLDLINE,LINE)
 ;   null u =>
 ;     sayKeyedMsg("S2IZ0008",[kind,x])
 ;     terminateSystemCommand()
@@ -365,14 +360,12 @@
 (DEFUN |commandErrorMessage| (|kind| |x| |u|)
   (PROG ()
     (RETURN
-     (PROGN
-      (SETQ $OLDLINE LINE)
-      (COND
-       ((NULL |u|)
-        (PROGN
-         (|sayKeyedMsg| 'S2IZ0008 (LIST |kind| |x|))
-         (|terminateSystemCommand|)))
-       ('T (|commandAmbiguityError| |kind| |x| |u|)))))))
+     (COND
+      ((NULL |u|)
+       (PROGN
+        (|sayKeyedMsg| 'S2IZ0008 (LIST |kind| |x|))
+        (|terminateSystemCommand|)))
+      ('T (|commandAmbiguityError| |kind| |x| |u|))))))
  
 ; commandAmbiguityError(kind,x,u) ==
 ;   sayKeyedMsg("S2IZ0009",[kind,x])
