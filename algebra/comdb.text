@@ -3452,8 +3452,8 @@
 391778`\spad{format(t)} extracts the \spad{fmt} section of a 2D-form \spad{t}.
 391828`\spad{format(o)} creates a formatted form of the \spad{OutputForm} \spad{o}.
 391879`\spad{FormatArabic(n)} forms an Arabic numeral string from an integer \spad{n}.
-391946`\spad{nullary(op)} is a handler to format constant operators.
-392041`\spad{nullary(op)} is a handler to format constant operators.
+391946`\spad{formatConstant(op)} is a handler to format constant operators.
+392041`\spad{formatConstant(op)} is a handler to format constant operators.
 392140`\spad{formatExpression(p)} returns a handler \spad{h} that \spad{h(prec,{} args)} returns \spad{formatExpression(first args,{} p)}. This handler is used to change the precedence context in which the argument is formatted.
 392238`\spad{formatExpression(p)} returns a handler \spad{h} that \spad{h(prec,{} args)} returns \spad{formatExpression(first args,{} p)}. This handler is used to change the precedence context in which the argument is formatted.
 392340`\spad{formatExpression(o)} returns \spad{formatExpression(o,{} minPrecedence())}.
@@ -6160,8 +6160,8 @@
 695596`\spad{predicates(p)} returns \spad{[p1,{} ...,{} pn]} such that the predicate attached to \spad{p} is \spad{p1} and ... and \spad{pn}.
 695648`\spad{prefix(f,{} l)} creates a form depicting the \spad{n}-ary prefix application of \spad{f} to a tuple of arguments given by list \spad{l}.
 695750`\spad{prefix?(s,{} t)} tests if the string \spad{s} is the initial substring of \spad{t}. Note: \spad{prefix?(s,{} t) = reduce(and,{} [s.i = t.i for i in indices s])}.
-695805`\spad{prefix(s,{} p,{} hh)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats its first argument according to \spad{hh} and then prefixes this box by \spad{box s}. Outer parentheses are added if \spad{p < prec}.
-695938`\spad{prefix(s,{} p,{} hh)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats its first argument according to \spad{hh} and then prefixes this box by \spad{box s}. Outer parentheses are added if \spad{p < prec}.
+695805`\spad{prefix(s,{} p,{} hh)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats args according to \spad{hh} and then prefixes this box by \spad{box s}. Outer parentheses are added if \spad{p < prec}.
+695938`\spad{prefix(s,{} p,{} hh)} returns a handler \spad{h} such that \spad{h(prec,{} args)} formats args according to \spad{hh} and then prefixes this box by \spad{box s}. Outer parentheses are added if \spad{p < prec}.
 696075`\spad{prefixRagits(rx)} returns the non-cyclic part of the ragits of the fractional part of a radix expansion. For example,{} if \spad{x = 3/28 = 0.10 714285 714285 ...},{} then \spad{prefixRagits(x)=[1,{} 0]}.
 696141`\spad{pre_gauss(m)} performs Gaussian eliminaton on rows of \spad{m} using only 1 and \spad{-1} as pivots. Note: \spad{m} is modified in place
 696224`\spad{pre_lr(m,{} \spad{pi},{} pj)} is like pre_gauss,{} but records positions of pivots in \spad{pi} and \spad{pj} and returns transformation matrix. \spad{m},{} \spad{pi},{} \spad{pj} are modified in place

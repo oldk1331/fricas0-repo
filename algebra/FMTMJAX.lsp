@@ -1095,10 +1095,10 @@
                                       (QREFELT $ 117))
                             (QREFELT $ 115))
                   (SPADCALL |oh| 1 "OVERBAR"
-                            (SPADCALL "\\overline{" "}"
+                            (SPADCALL (SPADCALL (QREFELT $ 118))
                                       (SPADCALL (SPADCALL (QREFELT $ 49))
                                                 (QREFELT $ 110))
-                                      (QREFELT $ 68))
+                                      (QREFELT $ 66))
                             (QREFELT $ 115))
                   (SPADCALL |oh| 1 "BOX"
                             (SPADCALL
@@ -1158,19 +1158,19 @@
                             (SPADCALL "\\mathbin{\\operatorname{rem}}" 810
                                       (SPADCALL 811 (QREFELT $ 110))
                                       (SPADCALL 811 (QREFELT $ 110))
-                                      (QREFELT $ 118))
+                                      (QREFELT $ 119))
                             (QREFELT $ 115))
                   (SPADCALL |oh| 2 "quo"
                             (SPADCALL "\\mathbin{\\operatorname{quo}}" 810
                                       (SPADCALL 811 (QREFELT $ 110))
                                       (SPADCALL 811 (QREFELT $ 110))
-                                      (QREFELT $ 118))
+                                      (QREFELT $ 119))
                             (QREFELT $ 115))
                   (SPADCALL |oh| 2 "exquo"
                             (SPADCALL "\\mathbin{\\operatorname{exquo}}" 810
                                       (SPADCALL 811 (QREFELT $ 110))
                                       (SPADCALL 811 (QREFELT $ 110))
-                                      (QREFELT $ 118))
+                                      (QREFELT $ 119))
                             (QREFELT $ 115))
                   (SPADCALL |oh| 2 "^"
                             (SPADCALL 950 (SPADCALL 960 (QREFELT $ 110))
@@ -1217,16 +1217,16 @@
                             (SPADCALL "\\mathbin{\\operatorname{..}}" 100
                                       (SPADCALL 100 (QREFELT $ 110))
                                       (SPADCALL 100 (QREFELT $ 110))
-                                      (QREFELT $ 118))
+                                      (QREFELT $ 119))
                             (QREFELT $ 115))
                   (SPADCALL |oh| 2 "TENSOR"
                             (SPADCALL "\\otimes " 850
                                       (SPADCALL 850 (QREFELT $ 110))
                                       (SPADCALL 850 (QREFELT $ 110))
-                                      (QREFELT $ 118))
+                                      (QREFELT $ 119))
                             (QREFELT $ 115))
                   (SPADCALL |oh| 2 "EQUATNUM"
-                            (SPADCALL "\\EQUATNUM" (SPADCALL (QREFELT $ 119))
+                            (SPADCALL "\\EQUATNUM" (SPADCALL (QREFELT $ 118))
                                       (SPADCALL
                                        (SPADCALL #4="{" #5="}"
                                                  (SPADCALL
@@ -1242,7 +1242,7 @@
                                       (QREFELT $ 117))
                             (QREFELT $ 115))
                   (SPADCALL |oh| 2 "OVERLABEL"
-                            (SPADCALL "\\OVERLABEL" (SPADCALL (QREFELT $ 119))
+                            (SPADCALL "\\OVERLABEL" (SPADCALL (QREFELT $ 118))
                                       (SPADCALL
                                        (SPADCALL #4# #5#
                                                  (SPADCALL
@@ -1328,12 +1328,12 @@
                   (SPADCALL |oh| 3 "INTSIGN" (SPADCALL 700 (QREFELT $ 55))
                             (QREFELT $ 115))
                   (SPADCALL |oh| 2 "INTSEP"
-                            (SPADCALL "\\, " (SPADCALL (QREFELT $ 119))
+                            (SPADCALL "\\, " (SPADCALL (QREFELT $ 118))
                                       (SPADCALL (SPADCALL (QREFELT $ 49))
                                                 (QREFELT $ 110))
                                       (SPADCALL (SPADCALL (QREFELT $ 49))
                                                 (QREFELT $ 110))
-                                      (QREFELT $ 118))
+                                      (QREFELT $ 119))
                             (QREFELT $ 115))
                   (SPADCALL |oh| -1 "+"
                             (SPADCALL "+" "-" 700
@@ -1350,25 +1350,25 @@
                                       (QREFELT $ 106))
                             (QREFELT $ 115))
                   (SPADCALL |oh| -1 "AGGLST"
-                            (SPADCALL ", " (SPADCALL (QREFELT $ 119))
+                            (SPADCALL ", " (SPADCALL (QREFELT $ 118))
                                       (SPADCALL (SPADCALL (QREFELT $ 49))
                                                 (QREFELT $ 110))
                                       (QREFELT $ 106))
                             (QREFELT $ 115))
                   (SPADCALL |oh| -1 "AGGSET"
-                            (SPADCALL "; " (SPADCALL (QREFELT $ 119))
+                            (SPADCALL "; " (SPADCALL (QREFELT $ 118))
                                       (SPADCALL (SPADCALL (QREFELT $ 49))
                                                 (QREFELT $ 110))
                                       (QREFELT $ 106))
                             (QREFELT $ 115))
                   (SPADCALL |oh| -1 "CONCAT"
-                            (SPADCALL "" (SPADCALL (QREFELT $ 119))
+                            (SPADCALL "" (SPADCALL (QREFELT $ 118))
                                       (SPADCALL (SPADCALL (QREFELT $ 49))
                                                 (QREFELT $ 110))
                                       (QREFELT $ 106))
                             (QREFELT $ 115))
                   (SPADCALL |oh| -1 "CONCATB"
-                            (SPADCALL "\\ " (SPADCALL (QREFELT $ 119))
+                            (SPADCALL "\\ " (SPADCALL (QREFELT $ 118))
                                       (SPADCALL (SPADCALL (QREFELT $ 49))
                                                 (QREFELT $ 110))
                                       (QREFELT $ 106))
@@ -1390,7 +1390,7 @@
                              (QREFELT $ 108))
                             (QREFELT $ 115))
                   (SPADCALL |oh| -1 "ROW"
-                            (SPADCALL "&" (SPADCALL (QREFELT $ 119))
+                            (SPADCALL "&" (SPADCALL (QREFELT $ 118))
                                       (SPADCALL (SPADCALL (QREFELT $ 49))
                                                 (QREFELT $ 110))
                                       (QREFELT $ 106))
@@ -1479,7 +1479,7 @@
               |FMTMJAX;pile;2M;36| (308 . |formatExpression|) (313 . =)
               |FMTMJAX;matrix;2SM;37| (319 . |nothing|) (|OperatorHandlers| 54)
               (323 . |setHandler!|) (331 . |formatConstant|) (336 . |prefix|)
-              (343 . |infix|) (351 . |maxPrecedence|) (355 . |binary|)
+              (343 . |maxPrecedence|) (347 . |infix|) (355 . |binary|)
               (361 . |naryPlus|) (369 . |new|) '|operatorData|
               |FMTMJAX;operatorHandlers;Oh;39|)
            '#(|zag| 373 |vconcat| 379 |theMap| 384 |sum| 390 |subscript| 395
@@ -1529,8 +1529,8 @@
                                                    18 110 2 8 36 0 0 111 0 0 54
                                                    113 4 114 54 0 18 8 54 115 1
                                                    0 54 8 116 3 0 54 8 18 54
-                                                   117 4 0 54 8 18 54 54 118 0
-                                                   0 18 119 2 0 54 54 54 120 4
+                                                   117 0 0 18 118 4 0 54 8 18
+                                                   54 54 119 2 0 54 54 54 120 4
                                                    0 54 8 8 18 54 121 0 114 0
                                                    122 2 0 9 18 42 105 1 0 54
                                                    54 108 2 0 9 18 42 65 1 0 54
@@ -1544,9 +1544,9 @@
                                                    114 124 1 0 18 6 91 3 0 54
                                                    18 54 54 70 0 0 54 113 4 0
                                                    54 8 8 18 54 121 3 0 54 8 18
-                                                   54 106 0 0 18 49 0 0 18 119
+                                                   54 106 0 0 18 49 0 0 18 118
                                                    2 0 54 8 8 112 1 0 54 18 55
-                                                   4 0 54 8 18 54 54 118 3 0 54
+                                                   4 0 54 8 18 54 54 119 3 0 54
                                                    18 54 54 102 1 0 9 8 32 1 0
                                                    9 8 31 1 0 9 18 1 1 0 9 8 35
                                                    1 0 9 8 28 1 0 54 18 110 1 0

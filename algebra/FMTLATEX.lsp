@@ -862,10 +862,10 @@
                                       (QREFELT $ 68))
                             (QREFELT $ 103))
                   (SPADCALL |oh| 1 "OVERBAR"
-                            (SPADCALL "\\overline{" "}"
+                            (SPADCALL (SPADCALL (QREFELT $ 106))
                                       (SPADCALL (SPADCALL (QREFELT $ 47))
                                                 (QREFELT $ 99))
-                                      (QREFELT $ 68))
+                                      (QREFELT $ 66))
                             (QREFELT $ 103))
                   (SPADCALL |oh| 1 "BOX"
                             (SPADCALL
@@ -929,7 +929,7 @@
                                       (SPADCALL #4="{" #5="}"
                                                 (SPADCALL 811 (QREFELT $ 99))
                                                 (QREFELT $ 68))
-                                      (QREFELT $ 106))
+                                      (QREFELT $ 107))
                             (QREFELT $ 103))
                   (SPADCALL |oh| 2 "quo"
                             (SPADCALL "" 810
@@ -939,7 +939,7 @@
                                       (SPADCALL #4# #5#
                                                 (SPADCALL 811 (QREFELT $ 99))
                                                 (QREFELT $ 68))
-                                      (QREFELT $ 106))
+                                      (QREFELT $ 107))
                             (QREFELT $ 103))
                   (SPADCALL |oh| 2 "exquo"
                             (SPADCALL "" 810
@@ -949,7 +949,7 @@
                                       (SPADCALL #4# #5#
                                                 (SPADCALL 811 (QREFELT $ 99))
                                                 (QREFELT $ 68))
-                                      (QREFELT $ 106))
+                                      (QREFELT $ 107))
                             (QREFELT $ 103))
                   (SPADCALL |oh| 2 "^"
                             (SPADCALL 950 (SPADCALL 960 (QREFELT $ 99))
@@ -1001,17 +1001,17 @@
                                        (SPADCALL #4# #5#
                                                  (SPADCALL 100 (QREFELT $ 99))
                                                  (QREFELT $ 68))
-                                       (QREFELT $ 107))
+                                       (QREFELT $ 108))
                                       (QREFELT $ 105))
                             (QREFELT $ 103))
                   (SPADCALL |oh| 2 "TENSOR"
                             (SPADCALL "\\otimes " 850
                                       (SPADCALL 850 (QREFELT $ 99))
                                       (SPADCALL 850 (QREFELT $ 99))
-                                      (QREFELT $ 106))
+                                      (QREFELT $ 107))
                             (QREFELT $ 103))
                   (SPADCALL |oh| 2 "EQUATNUM"
-                            (SPADCALL "\\EQUATNUM" (SPADCALL (QREFELT $ 108))
+                            (SPADCALL "\\EQUATNUM" (SPADCALL (QREFELT $ 106))
                                       (SPADCALL
                                        (SPADCALL #4# #5#
                                                  (SPADCALL
@@ -1023,11 +1023,11 @@
                                                   (SPADCALL (QREFELT $ 47))
                                                   (QREFELT $ 99))
                                                  (QREFELT $ 68))
-                                       (QREFELT $ 107))
+                                       (QREFELT $ 108))
                                       (QREFELT $ 105))
                             (QREFELT $ 103))
                   (SPADCALL |oh| 2 "OVERLABEL"
-                            (SPADCALL "\\OVERLABEL" (SPADCALL (QREFELT $ 108))
+                            (SPADCALL "\\OVERLABEL" (SPADCALL (QREFELT $ 106))
                                       (SPADCALL
                                        (SPADCALL #4# #5#
                                                  (SPADCALL
@@ -1039,7 +1039,7 @@
                                                   (SPADCALL (QREFELT $ 47))
                                                   (QREFELT $ 99))
                                                  (QREFELT $ 68))
-                                       (QREFELT $ 107))
+                                       (QREFELT $ 108))
                                       (QREFELT $ 105))
                             (QREFELT $ 103))
                   (SPADCALL |oh| 2 "=="
@@ -1112,12 +1112,12 @@
                   (SPADCALL |oh| 3 "INTSIGN" (SPADCALL 700 (QREFELT $ 53))
                             (QREFELT $ 103))
                   (SPADCALL |oh| 2 "INTSEP"
-                            (SPADCALL "\\, " (SPADCALL (QREFELT $ 108))
+                            (SPADCALL "\\, " (SPADCALL (QREFELT $ 106))
                                       (SPADCALL (SPADCALL (QREFELT $ 47))
                                                 (QREFELT $ 99))
                                       (SPADCALL (SPADCALL (QREFELT $ 47))
                                                 (QREFELT $ 99))
-                                      (QREFELT $ 106))
+                                      (QREFELT $ 107))
                             (QREFELT $ 103))
                   (SPADCALL |oh| -1 "+"
                             (SPADCALL "+" "-" 700 (SPADCALL 700 (QREFELT $ 99))
@@ -1133,25 +1133,25 @@
                                       (QREFELT $ 94))
                             (QREFELT $ 103))
                   (SPADCALL |oh| -1 "AGGLST"
-                            (SPADCALL "\\COMMA " (SPADCALL (QREFELT $ 108))
+                            (SPADCALL "\\COMMA " (SPADCALL (QREFELT $ 106))
                                       (SPADCALL (SPADCALL (QREFELT $ 47))
                                                 (QREFELT $ 99))
                                       (QREFELT $ 94))
                             (QREFELT $ 103))
                   (SPADCALL |oh| -1 "AGGSET"
-                            (SPADCALL "\\SEMICOLON " (SPADCALL (QREFELT $ 108))
+                            (SPADCALL "\\SEMICOLON " (SPADCALL (QREFELT $ 106))
                                       (SPADCALL (SPADCALL (QREFELT $ 47))
                                                 (QREFELT $ 99))
                                       (QREFELT $ 94))
                             (QREFELT $ 103))
                   (SPADCALL |oh| -1 "CONCAT"
-                            (SPADCALL "" (SPADCALL (QREFELT $ 108))
+                            (SPADCALL "" (SPADCALL (QREFELT $ 106))
                                       (SPADCALL (SPADCALL (QREFELT $ 47))
                                                 (QREFELT $ 99))
                                       (QREFELT $ 94))
                             (QREFELT $ 103))
                   (SPADCALL |oh| -1 "CONCATB"
-                            (SPADCALL "\\ " (SPADCALL (QREFELT $ 108))
+                            (SPADCALL "\\ " (SPADCALL (QREFELT $ 106))
                                       (SPADCALL (SPADCALL (QREFELT $ 47))
                                                 (QREFELT $ 99))
                                       (QREFELT $ 94))
@@ -1173,7 +1173,7 @@
                              (QREFELT $ 96))
                             (QREFELT $ 103))
                   (SPADCALL |oh| -1 "ROW"
-                            (SPADCALL "&" (SPADCALL (QREFELT $ 108))
+                            (SPADCALL "&" (SPADCALL (QREFELT $ 106))
                                       (SPADCALL (SPADCALL (QREFELT $ 47))
                                                 (QREFELT $ 99))
                                       (QREFELT $ 94))
@@ -1259,9 +1259,9 @@
               |FMTLATEX;pile;2M;35| (260 . |convert|)
               (265 . |formatExpression|) |FMTLATEX;matrix;2SM;36|
               (270 . |nothing|) (|OperatorHandlers| 52) (274 . |setHandler!|)
-              (282 . |formatConstant|) (287 . |prefix|) (294 . |infix|)
-              (302 . |binary|) (308 . |maxPrecedence|) (312 . |naryPlus|)
-              (320 . |new|) '|operatorData| |FMTLATEX;operatorHandlers;Oh;38|)
+              (282 . |formatConstant|) (287 . |prefix|) (294 . |maxPrecedence|)
+              (298 . |infix|) (306 . |binary|) (312 . |naryPlus|) (320 . |new|)
+              '|operatorData| |FMTLATEX;operatorHandlers;Oh;38|)
            '#(|zag| 324 |vconcat| 330 |theMap| 335 |sum| 341 |subscript| 346
               |slash| 351 |scripts| 358 |product| 363 |prime| 368 |prefix| 373
               |precedence| 380 |power| 386 |pile| 393 |parenthesizeIf| 398
@@ -1305,33 +1305,34 @@
                                                    19 9 0 98 1 0 52 19 99 0 0
                                                    52 101 4 102 52 0 19 9 52
                                                    103 1 0 52 9 104 3 0 52 9 19
-                                                   52 105 4 0 52 9 19 52 52 106
-                                                   2 0 52 52 52 107 0 0 19 108
-                                                   4 0 52 9 9 19 52 109 0 102 0
-                                                   110 2 0 11 19 39 93 1 0 52
-                                                   52 96 2 0 11 19 39 65 1 0 52
-                                                   19 57 1 0 52 19 81 3 0 52 19
-                                                   52 52 91 1 0 52 19 79 1 0 52
-                                                   19 58 1 0 52 19 88 3 0 52 9
-                                                   19 52 105 2 0 52 19 52 1 3 0
-                                                   52 19 52 52 89 1 0 52 52 97
-                                                   2 0 11 33 11 51 3 0 11 9 9
-                                                   11 16 2 0 52 19 52 66 0 0
-                                                   102 112 1 0 19 6 1 3 0 52 19
-                                                   52 52 70 0 0 52 101 4 0 52 9
-                                                   9 19 52 109 3 0 52 9 19 52
-                                                   94 0 0 19 47 0 0 19 108 2 0
-                                                   52 9 9 100 1 0 52 19 53 4 0
-                                                   52 9 19 52 52 106 3 0 52 19
-                                                   52 52 90 1 0 11 9 31 1 0 11
-                                                   9 30 1 0 11 19 1 1 0 11 9 32
-                                                   1 0 11 9 29 1 0 52 19 99 1 0
-                                                   11 6 1 2 0 11 6 19 48 1 0 52
-                                                   9 104 4 0 52 9 9 9 52 95 1 0
-                                                   11 9 13 1 0 11 9 14 1 0 6 0
-                                                   7 3 0 52 9 9 52 68 1 0 52 52
-                                                   67 2 0 11 19 39 92 2 0 52 52
-                                                   52 107 1 0 52 19 87)))))
+                                                   52 105 0 0 19 106 4 0 52 9
+                                                   19 52 52 107 2 0 52 52 52
+                                                   108 4 0 52 9 9 19 52 109 0
+                                                   102 0 110 2 0 11 19 39 93 1
+                                                   0 52 52 96 2 0 11 19 39 65 1
+                                                   0 52 19 57 1 0 52 19 81 3 0
+                                                   52 19 52 52 91 1 0 52 19 79
+                                                   1 0 52 19 58 1 0 52 19 88 3
+                                                   0 52 9 19 52 105 2 0 52 19
+                                                   52 1 3 0 52 19 52 52 89 1 0
+                                                   52 52 97 2 0 11 33 11 51 3 0
+                                                   11 9 9 11 16 2 0 52 19 52 66
+                                                   0 0 102 112 1 0 19 6 1 3 0
+                                                   52 19 52 52 70 0 0 52 101 4
+                                                   0 52 9 9 19 52 109 3 0 52 9
+                                                   19 52 94 0 0 19 47 0 0 19
+                                                   106 2 0 52 9 9 100 1 0 52 19
+                                                   53 4 0 52 9 19 52 52 107 3 0
+                                                   52 19 52 52 90 1 0 11 9 31 1
+                                                   0 11 9 30 1 0 11 19 1 1 0 11
+                                                   9 32 1 0 11 9 29 1 0 52 19
+                                                   99 1 0 11 6 1 2 0 11 6 19 48
+                                                   1 0 52 9 104 4 0 52 9 9 9 52
+                                                   95 1 0 11 9 13 1 0 11 9 14 1
+                                                   0 6 0 7 3 0 52 9 9 52 68 1 0
+                                                   52 52 67 2 0 11 19 39 92 2 0
+                                                   52 52 52 108 1 0 52 19
+                                                   87)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FormatLaTeX| 'NILADIC T) 
