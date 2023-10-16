@@ -952,29 +952,29 @@
       (COND ((NULL (VECP |u|)) (|systemErrorHere| "getSlot1FromCategoryForm"))
             ('T (ELT |u| 1)))))))
  
-; mkEvalableCategoryForm c ==       --from DEFINE
+; mkEvalableCategoryForm(c, e) ==       --from DEFINE
 ;   c is [op,:argl] =>
 ;     op="Join" =>
-;         nargs := [mkEvalableCategoryForm x or return nil for x in argl]
+;         nargs := [mkEvalableCategoryForm(x, e) or return nil for x in argl]
 ;         nargs => ["Join", :nargs]
 ;     op is "DomainSubstitutionMacro" =>
 ;         --$extraParms :local
 ;         --catobj := EVAL c -- DomainSubstitutionFunction makes $extraParms
 ;         --mkEvalableCategoryForm sublisV($extraParms, catobj)
-;         mkEvalableCategoryForm CADR argl
+;         mkEvalableCategoryForm(CADR argl, e)
 ;     op is "mkCategory" => c
 ;     MEMQ(op,$CategoryNames) =>
-;         [x,m,$e]:= compOrCroak(c,$EmptyMode,$e)
+;         [x, m, e] := compOrCroak(c, $EmptyMode, e)
 ;         m=$Category => optFunctorBody x
 ;     --loadIfNecessary op
 ;     GETDATABASE(op,'CONSTRUCTORKIND) = 'category or
 ;       get(op,"isCategory",$CategoryFrame) =>
 ;         [op,:[quotifyCategoryArgument x for x in argl]]
-;     [x,m,$e]:= compOrCroak(c,$EmptyMode,$e)
+;     [x, m, e] := compOrCroak(c, $EmptyMode, e)
 ;     m=$Category => x
 ;   MKQ c
  
-(DEFUN |mkEvalableCategoryForm| (|c|)
+(DEFUN |mkEvalableCategoryForm| (|c| |e|)
   (PROG (|op| |argl| |nargs| |LETTMP#1| |x| |m|)
     (RETURN
      (COND
@@ -993,21 +993,21 @@
                        (#1#
                         (SETQ |bfVar#20|
                                 (CONS
-                                 (OR (|mkEvalableCategoryForm| |x|)
+                                 (OR (|mkEvalableCategoryForm| |x| |e|)
                                      (RETURN NIL))
                                  |bfVar#20|))))
                       (SETQ |bfVar#19| (CDR |bfVar#19|))))
                    NIL |argl| NIL))
           (COND (|nargs| (CONS '|Join| |nargs|)))))
         ((EQ |op| '|DomainSubstitutionMacro|)
-         (|mkEvalableCategoryForm| (CADR |argl|)))
+         (|mkEvalableCategoryForm| (CADR |argl|) |e|))
         ((EQ |op| '|mkCategory|) |c|)
         ((MEMQ |op| |$CategoryNames|)
          (PROGN
-          (SETQ |LETTMP#1| (|compOrCroak| |c| |$EmptyMode| |$e|))
+          (SETQ |LETTMP#1| (|compOrCroak| |c| |$EmptyMode| |e|))
           (SETQ |x| (CAR |LETTMP#1|))
           (SETQ |m| (CADR . #2=(|LETTMP#1|)))
-          (SETQ |$e| (CADDR . #2#))
+          (SETQ |e| (CADDR . #2#))
           (COND ((EQUAL |m| |$Category|) (|optFunctorBody| |x|)))))
         ((OR (EQ (GETDATABASE |op| 'CONSTRUCTORKIND) '|category|)
              (|get| |op| '|isCategory| |$CategoryFrame|))
@@ -1026,10 +1026,10 @@
                 NIL |argl| NIL)))
         (#1#
          (PROGN
-          (SETQ |LETTMP#1| (|compOrCroak| |c| |$EmptyMode| |$e|))
+          (SETQ |LETTMP#1| (|compOrCroak| |c| |$EmptyMode| |e|))
           (SETQ |x| (CAR |LETTMP#1|))
           (SETQ |m| (CADR . #3=(|LETTMP#1|)))
-          (SETQ |$e| (CADDR . #3#))
+          (SETQ |e| (CADDR . #3#))
           (COND ((EQUAL |m| |$Category|) |x|))))))
       (#1# (MKQ |c|))))))
  

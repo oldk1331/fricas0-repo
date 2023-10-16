@@ -18,10 +18,8 @@
 ;   $until: local := nil
 ;   $initList: local := nil
 ;   $endTestList: local := nil
-;   $e:= e
-;   itl:= [([.,$e]:= compIterator(x,$e) or return "failed").(0) for x in itl]
+;   itl := [([., e] := compIterator(x, e) or return "failed").(0) for x in itl]
 ;   itl="failed" => return nil
-;   e:= $e
 ;   acc:= GENSYM()
 ;   afterFirst:= GENSYM()
 ;   bodyVal:= GENSYM()
@@ -69,7 +67,6 @@
          (SETQ |$until| NIL)
          (SETQ |$initList| NIL)
          (SETQ |$endTestList| NIL)
-         (SETQ |$e| |e|)
          (SETQ |itl|
                  ((LAMBDA (|bfVar#2| |bfVar#1| |x|)
                     (LOOP
@@ -83,9 +80,9 @@
                                 (ELT
                                  (PROGN
                                   (SETQ |LETTMP#1|
-                                          (OR (|compIterator| |x| |$e|)
+                                          (OR (|compIterator| |x| |e|)
                                               (RETURN '|failed|)))
-                                  (SETQ |$e| (CADR |LETTMP#1|))
+                                  (SETQ |e| (CADR |LETTMP#1|))
                                   |LETTMP#1|)
                                  0)
                                 |bfVar#2|))))
@@ -94,7 +91,6 @@
          (COND ((EQ |itl| '|failed|) (RETURN NIL))
                (#2#
                 (PROGN
-                 (SETQ |e| |$e|)
                  (SETQ |acc| (GENSYM))
                  (SETQ |afterFirst| (GENSYM))
                  (SETQ |bodyVal| (GENSYM))

@@ -243,12 +243,11 @@
         (LIST |y| |m'| (|addDomain| |m'| |e|)))
        ('T (LIST |y| |m'| |e|)))))))
  
-; comp3(x,m,$e) ==
+; comp3(x, m, e) ==
 ;   --returns a Triple or else nil to signal can't do
-;   $e:= addDomain(m,$e)
-;   e:= $e --for debugging purposes
+;   e := addDomain(m, e)
 ;   m is ["Mapping",:.] => compWithMappingMode(x,m,e)
-;   m is ["QUOTE",a] => (x=a => [x,m,$e]; nil)
+;   m is ["QUOTE",a] => (x=a => [x, m, e]; nil)
 ;   STRINGP m => (atom x => (m=x or m=STRINGIMAGE x => [m,m,e]; nil); nil)
 ;   not x or atom x => compAtom(x,m,e)
 ;   op:= first x
@@ -260,13 +259,11 @@
 ;     [x',m',addDomain(m',e')]
 ;   t
  
-(DEFUN |comp3| (|x| |m| |$e|)
-  (DECLARE (SPECIAL |$e|))
-  (PROG (|e| |ISTMP#1| |a| |op| |ml| |u| |t| |x'| |m'| |ISTMP#2| |e'|)
+(DEFUN |comp3| (|x| |m| |e|)
+  (PROG (|ISTMP#1| |a| |op| |ml| |u| |t| |x'| |m'| |ISTMP#2| |e'|)
     (RETURN
      (PROGN
-      (SETQ |$e| (|addDomain| |m| |$e|))
-      (SETQ |e| |$e|)
+      (SETQ |e| (|addDomain| |m| |e|))
       (COND
        ((AND (CONSP |m|) (EQ (CAR |m|) '|Mapping|))
         (|compWithMappingMode| |x| |m| |e|))
@@ -275,7 +272,7 @@
               (SETQ |ISTMP#1| (CDR |m|))
               (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                    (PROGN (SETQ |a| (CAR |ISTMP#1|)) #1='T))))
-        (COND ((EQUAL |x| |a|) (LIST |x| |m| |$e|)) (#1# NIL)))
+        (COND ((EQUAL |x| |a|) (LIST |x| |m| |e|)) (#1# NIL)))
        ((STRINGP |m|)
         (COND
          ((ATOM |x|)
@@ -649,8 +646,9 @@
 ;   e:= oldE
 ;   isFunctor x =>
 ;     if get(x,"modemap",$CategoryFrame) is [[[.,target,:argModeList],.],:.] and
-;       (and/[extendsCategoryForm("$",s,mode) for mode in argModeList for s in sl]
-;         ) and extendsCategoryForm("$",target,m') then return [x,m,e]
+;         (and/[extendsCategoryForm("$", s, mode, e) for mode in argModeList
+;                                                    for s in sl]
+;           ) and extendsCategoryForm("$", target, m', e) then return [x, m, e]
 ;   if STRINGP x then x:= INTERN x
 ;   ress := nil
 ;   old_style := true
@@ -783,12 +781,12 @@
                  (RETURN |bfVar#16|))
                 (#2#
                  (PROGN
-                  (SETQ |bfVar#16| (|extendsCategoryForm| '$ |s| |mode|))
+                  (SETQ |bfVar#16| (|extendsCategoryForm| '$ |s| |mode| |e|))
                   (COND ((NOT |bfVar#16|) (RETURN NIL))))))
                (SETQ |bfVar#14| (CDR |bfVar#14|))
                (SETQ |bfVar#15| (CDR |bfVar#15|))))
             T |argModeList| NIL |sl| NIL)
-           (|extendsCategoryForm| '$ |target| |m'|))
+           (|extendsCategoryForm| '$ |target| |m'| |e|))
           (RETURN (LIST |x| |m| |e|)))))
        (#2#
         (PROGN
@@ -1174,7 +1172,7 @@
 ;   v:= get(s,"value",e) =>
 ; --+
 ;     MEMQ(s,$functorLocalParameters) =>
-;         NRTgetLocalIndex s
+;         NRTgetLocalIndex(s, e)
 ;         [s,v.mode,e] --s will be replaced by an ELT form in beforeCompile
 ;     [s,v.mode,e] --s has been SETQd
 ;   m':= getmode(s,e) =>
@@ -1196,7 +1194,7 @@
            ((SETQ |v| (|get| |s| '|value| |e|))
             (COND
              ((MEMQ |s| |$functorLocalParameters|)
-              (PROGN (|NRTgetLocalIndex| |s|) (LIST |s| (CADR |v|) |e|)))
+              (PROGN (|NRTgetLocalIndex| |s| |e|) (LIST |s| (CADR |v|) |e|)))
              ('T (LIST |s| (CADR |v|) |e|))))
            ((SETQ |m'| (|getmode| |s| |e|))
             (PROGN
@@ -3160,26 +3158,25 @@
                        ((EQUAL |anOp| |$One|) '|One|) (#2# |anOp|)))
          (|compSel1| |aDomain| |anOp| NIL |m| E))))))))
  
-; compHas(pred is ["has",a,b],m,$e) ==
+; compHas(pred is ["has", a, b], m, e) ==
 ;   --b is (":",:.) => (.,.,E):= comp(b,$EmptyMode,E)
-;   $e:= chaseInferences(pred,$e)
+;   e := chaseInferences(pred, e)
 ;   --pred':= ("has",a',b') := formatHas(pred)
-;   predCode := compHasFormat1 pred
-;   coerce([predCode,$Boolean,$e],m)
+;   predCode := compHasFormat1(pred, e)
+;   coerce([predCode, $Boolean, e], m)
  
-(DEFUN |compHas| (|pred| |m| |$e|)
-  (DECLARE (SPECIAL |$e|))
+(DEFUN |compHas| (|pred| |m| |e|)
   (PROG (|a| |b| |predCode|)
     (RETURN
      (PROGN
       (SETQ |a| (CADR . #1=(|pred|)))
       (SETQ |b| (CADDR . #1#))
-      (SETQ |$e| (|chaseInferences| |pred| |$e|))
-      (SETQ |predCode| (|compHasFormat1| |pred|))
-      (|coerce| (LIST |predCode| |$Boolean| |$e|) |m|)))))
+      (SETQ |e| (|chaseInferences| |pred| |e|))
+      (SETQ |predCode| (|compHasFormat1| |pred| |e|))
+      (|coerce| (LIST |predCode| |$Boolean| |e|) |m|)))))
  
-; compHasFormat1(pred is ["has", a, b]) ==
-;     [a, :.] := comp(a, $EmptyMode, $e) or return nil
+; compHasFormat1(pred is ["has", a, b], e) ==
+;     [a, :.] := comp(a, $EmptyMode, e) or return nil
 ;     b is ["ATTRIBUTE", c] => BREAK()
 ;     b is ["SIGNATURE", op, sig] =>
 ;         ["HasSignature", a,
@@ -3187,13 +3184,13 @@
 ;     isDomainForm(b, $EmptyEnvironment) => ["EQUAL", a, b]
 ;     ["HasCategory", a, mkDomainConstructor b]
  
-(DEFUN |compHasFormat1| (|pred|)
+(DEFUN |compHasFormat1| (|pred| |e|)
   (PROG (|a| |b| |LETTMP#1| |ISTMP#1| |c| |op| |ISTMP#2| |sig|)
     (RETURN
      (PROGN
       (SETQ |a| (CADR . #1=(|pred|)))
       (SETQ |b| (CADDR . #1#))
-      (SETQ |LETTMP#1| (OR (|comp| |a| |$EmptyMode| |$e|) (RETURN NIL)))
+      (SETQ |LETTMP#1| (OR (|comp| |a| |$EmptyMode| |e|) (RETURN NIL)))
       (SETQ |a| (CAR |LETTMP#1|))
       (COND
        ((AND (CONSP |b|) (EQ (CAR |b|) 'ATTRIBUTE)
@@ -3230,11 +3227,11 @@
        ((|isDomainForm| |b| |$EmptyEnvironment|) (LIST 'EQUAL |a| |b|))
        (#2# (LIST '|HasCategory| |a| (|mkDomainConstructor| |b|))))))))
  
-; compHasFormat (pred is ["has",olda,b]) ==
+; compHasFormat (pred is ["has",olda,b], e) ==
 ;   argl := rest $form
 ;   formals := TAKE(#argl,$FormalMapVariableList)
 ;   a := SUBLISLIS(argl,formals,olda)
-;   [a,:.] := comp(a,$EmptyMode,$e) or return nil
+;   [a,:.] := comp(a, $EmptyMode, e) or return nil
 ;   a := SUBLISLIS(formals,argl,a)
 ;   b is ["ATTRIBUTE",c] => BREAK()
 ;   b is ["SIGNATURE",op,sig] =>
@@ -3243,7 +3240,7 @@
 ;   isDomainForm(b,$EmptyEnvironment) => ["EQUAL",a,b]
 ;   ["HasCategory",a,mkDomainConstructor b]
  
-(DEFUN |compHasFormat| (|pred|)
+(DEFUN |compHasFormat| (|pred| |e|)
   (PROG (|olda| |b| |argl| |formals| |a| |LETTMP#1| |ISTMP#1| |c| |op|
          |ISTMP#2| |sig|)
     (RETURN
@@ -3253,7 +3250,7 @@
       (SETQ |argl| (CDR |$form|))
       (SETQ |formals| (TAKE (LENGTH |argl|) |$FormalMapVariableList|))
       (SETQ |a| (SUBLISLIS |argl| |formals| |olda|))
-      (SETQ |LETTMP#1| (OR (|comp| |a| |$EmptyMode| |$e|) (RETURN NIL)))
+      (SETQ |LETTMP#1| (OR (|comp| |a| |$EmptyMode| |e|) (RETURN NIL)))
       (SETQ |a| (CAR |LETTMP#1|))
       (SETQ |a| (SUBLISLIS |formals| |argl| |a|))
       (COND
@@ -4326,45 +4323,44 @@
        ('T NIL))))))
  
 ; coerceHard(T,m) ==
-;   $e: local:= T.env
+;   e := T.env
 ;   m':= T.mode
-;   STRINGP m' and modeEqual(m,$String) => [T.expr,m,$e]
+;   STRINGP m' and modeEqual(m, $String) => [T.expr, m, e]
 ;   STRINGP T.expr and modeEqual(m', $String) and modeEqual(m, $Symbol) =>
-;       [["QUOTE", INTERN(T.expr, "BOOT")], m, $e]
-;   modeEqual(m',m) or
-;     (get(m',"value",$e) is [m'',:.] or getmode(m',$e) is ["Mapping",m'']) and
-;       modeEqual(m'',m) or
-;         (get(m,"value",$e) is [m'',:.] or getmode(m,$e) is ["Mapping",m'']) and
-;           modeEqual(m'',m') => [T.expr,m,T.env]
-;   STRINGP T.expr and T.expr=m => [T.expr,m,$e]
+;       [["QUOTE", INTERN(T.expr, "BOOT")], m, e]
+;   modeEqual(m', m) or
+;     (get(m', "value", e) is [m'', :.] or getmode(m', e) is ["Mapping", m''])
+;       and modeEqual(m'', m) or
+;         (get(m, "value", e) is [m'', :.] or getmode(m, e) is ["Mapping", m''])
+;           and modeEqual(m'', m') => [T.expr, m, e]
+;   STRINGP T.expr and T.expr = m => [T.expr, m, e]
 ;   isCategoryForm(m) =>
-;       $bootStrapMode = true => [T.expr,m,$e]
-;       extendsCategoryForm(T.expr,T.mode,m) => [T.expr,m,$e]
+;       $bootStrapMode = true => [T.expr, m, e]
+;       extendsCategoryForm(T.expr, T.mode, m, e) => [T.expr, m, e]
 ;       coerceExtraHard(T,m)
 ;   coerceExtraHard(T,m)
  
 (DEFUN |coerceHard| (T$ |m|)
-  (PROG (|$e| |ISTMP#2| |m''| |ISTMP#1| |m'|)
-    (DECLARE (SPECIAL |$e|))
+  (PROG (|e| |m'| |ISTMP#1| |m''| |ISTMP#2|)
     (RETURN
      (PROGN
-      (SETQ |$e| (CADDR T$))
+      (SETQ |e| (CADDR T$))
       (SETQ |m'| (CADR T$))
       (COND
        ((AND (STRINGP |m'|) (|modeEqual| |m| |$String|))
-        (LIST (CAR T$) |m| |$e|))
+        (LIST (CAR T$) |m| |e|))
        ((AND (STRINGP (CAR T$)) (|modeEqual| |m'| |$String|)
              (|modeEqual| |m| |$Symbol|))
-        (LIST (LIST 'QUOTE (INTERN (CAR T$) 'BOOT)) |m| |$e|))
+        (LIST (LIST 'QUOTE (INTERN (CAR T$) 'BOOT)) |m| |e|))
        ((OR (|modeEqual| |m'| |m|)
             (AND
              (OR
               (PROGN
-               (SETQ |ISTMP#1| (|get| |m'| '|value| |$e|))
+               (SETQ |ISTMP#1| (|get| |m'| '|value| |e|))
                (AND (CONSP |ISTMP#1|)
                     (PROGN (SETQ |m''| (CAR |ISTMP#1|)) #1='T)))
               (PROGN
-               (SETQ |ISTMP#1| (|getmode| |m'| |$e|))
+               (SETQ |ISTMP#1| (|getmode| |m'| |e|))
                (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)
                     (PROGN
                      (SETQ |ISTMP#2| (CDR |ISTMP#1|))
@@ -4374,23 +4370,23 @@
             (AND
              (OR
               (PROGN
-               (SETQ |ISTMP#1| (|get| |m| '|value| |$e|))
+               (SETQ |ISTMP#1| (|get| |m| '|value| |e|))
                (AND (CONSP |ISTMP#1|)
                     (PROGN (SETQ |m''| (CAR |ISTMP#1|)) #1#)))
               (PROGN
-               (SETQ |ISTMP#1| (|getmode| |m| |$e|))
+               (SETQ |ISTMP#1| (|getmode| |m| |e|))
                (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)
                     (PROGN
                      (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                      (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                           (PROGN (SETQ |m''| (CAR |ISTMP#2|)) #1#))))))
              (|modeEqual| |m''| |m'|)))
-        (LIST (CAR T$) |m| (CADDR T$)))
-       ((AND (STRINGP (CAR T$)) (EQUAL (CAR T$) |m|)) (LIST (CAR T$) |m| |$e|))
+        (LIST (CAR T$) |m| |e|))
+       ((AND (STRINGP (CAR T$)) (EQUAL (CAR T$) |m|)) (LIST (CAR T$) |m| |e|))
        ((|isCategoryForm| |m|)
-        (COND ((EQUAL |$bootStrapMode| T) (LIST (CAR T$) |m| |$e|))
-              ((|extendsCategoryForm| (CAR T$) (CADR T$) |m|)
-               (LIST (CAR T$) |m| |$e|))
+        (COND ((EQUAL |$bootStrapMode| T) (LIST (CAR T$) |m| |e|))
+              ((|extendsCategoryForm| (CAR T$) (CADR T$) |m| |e|)
+               (LIST (CAR T$) |m| |e|))
               (#1# (|coerceExtraHard| T$ |m|))))
        (#1# (|coerceExtraHard| T$ |m|)))))))
  
@@ -4535,7 +4531,7 @@
 ;   --mm:= (or/[mm for (mm:=[.,[cond,.]]) in u | cond=true]) or return nil
 ;   mm:=first u  -- patch for non-trival conditons
 ;   fn :=
-;     genDeltaEntry ['coerce,:mm]
+;       genDeltaEntry(['coerce, :mm], e)
 ;   [["call",fn,x],m',e]
  
 (DEFUN |coerceByModemap| (|bfVar#157| |m'|)
@@ -4579,7 +4575,7 @@
                 NIL (|getModemapList| '|coerce| 1 |e|) NIL)
                (RETURN NIL)))
       (SETQ |mm| (CAR |u|))
-      (SETQ |fn| (|genDeltaEntry| (CONS '|coerce| |mm|)))
+      (SETQ |fn| (|genDeltaEntry| (CONS '|coerce| |mm|) |e|))
       (LIST (LIST '|call| |fn| |x|) |m'| |e|)))))
  
 ; autoCoerceByModemap([x,source,e],target) ==

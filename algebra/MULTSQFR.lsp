@@ -1047,8 +1047,8 @@
          (|ldeg| |List| (|NonNegativeInteger|)) (|lval| |List| R)
          ($ |Union| (|List| (|SparseUnivariatePolynomial| P)) "failed"))
         (SPROG
-         ((|p1| #1=(|SparseUnivariatePolynomial| P)) (|p0| #1#) (|#G59| #1#)
-          (|#G58| #1#) (|#G57| #1#) (|#G56| #1#)
+         ((|p1| #1=(|SparseUnivariatePolynomial| P)) (|p0| #1#) (|#G60| #1#)
+          (|#G59| #1#) (|#G58| #1#) (|#G57| #1#)
           (|plist|
            (|Union| (|List| (|SparseUnivariatePolynomial| P)) "failed"))
           (|leadlist| (|List| P)) (|lcg0| (R)) (|leadpol| (|Boolean|))
@@ -1091,20 +1091,20 @@
                      (#3#
                       (SEQ
                        (PROGN
-                        (LETT |#G56| (SPADCALL (QCDR |plist|) 1 (QREFELT $ 68))
+                        (LETT |#G57| (SPADCALL (QCDR |plist|) 1 (QREFELT $ 68))
                               . #2#)
-                        (LETT |#G57| (SPADCALL (QCDR |plist|) 2 (QREFELT $ 68))
+                        (LETT |#G58| (SPADCALL (QCDR |plist|) 2 (QREFELT $ 68))
                               . #2#)
-                        (LETT |p0| |#G56| . #2#)
-                        (LETT |p1| |#G57| . #2#))
+                        (LETT |p0| |#G57| . #2#)
+                        (LETT |p1| |#G58| . #2#))
                        (COND
                         ((SPADCALL (SPADCALL |p0| |lvar| |lval| (QREFELT $ 72))
                                    |g0| (QREFELT $ 148))
                          (PROGN
-                          (LETT |#G58| |p1| . #2#)
-                          (LETT |#G59| |p0| . #2#)
-                          (LETT |p0| |#G58| . #2#)
-                          (LETT |p1| |#G59| . #2#))))
+                          (LETT |#G59| |p1| . #2#)
+                          (LETT |#G60| |p0| . #2#)
+                          (LETT |p0| |#G59| . #2#)
+                          (LETT |p1| |#G60| . #2#))))
                        (EXIT
                         (CONS 0
                               (LIST (SPADCALL |p0| (QREFELT $ 149))

@@ -677,7 +677,7 @@
 ;   atom x => x
 ;   op := QCAR x
 ;   op is "HasCategory" => x
-;   EQ(op,'has) => compHasFormat x
+;   EQ(op, 'has) => compHasFormat(x, $e)
 ;   [transHasCode y for y in x]
  
 (DEFUN |transHasCode| (|x|)
@@ -688,7 +688,7 @@
             (PROGN
              (SETQ |op| (QCAR |x|))
              (COND ((EQ |op| '|HasCategory|) |x|)
-                   ((EQ |op| '|has|) (|compHasFormat| |x|))
+                   ((EQ |op| '|has|) (|compHasFormat| |x| |$e|))
                    (#1#
                     ((LAMBDA (|bfVar#34| |bfVar#33| |y|)
                        (LOOP

@@ -15,8 +15,8 @@
 ;         not(modeEqual(m, target)) => v1 := cons(map, v1)
 ;         -- try exact match
 ;         [[md, mr], :fnsel] := map
-;         compMapCond(x, md, [], fnsel) =>
-;             res := trans_delta(genDeltaEntry [x, :map], target, e)
+;         compMapCond(x, md, [], fnsel, e) =>
+;             res := trans_delta(genDeltaEntry([x, :map], e), target, e)
 ;         v1 := cons(map, v1)
 ;     res => res
 ;     v1 := NREVERSE(v1)
@@ -26,8 +26,8 @@
 ;         not(mr) => "iterate"
 ;         not coerceable(mr, m, e) => "iterate"
 ;         [[md, mr], :fnsel] := map
-;         if compMapCond(x, md, [], fnsel) then
-;             res := trans_delta(genDeltaEntry [x, :map], target, e)
+;         if compMapCond(x, md, [], fnsel, e) then
+;             res := trans_delta(genDeltaEntry([x, :map], e), target, e)
 ;             res := convert(res, m)
 ;     res
  
@@ -74,11 +74,11 @@
                          (SETQ |mr| (CADAR . #2#))
                          (SETQ |fnsel| (CDR |map|))
                          (COND
-                          ((|compMapCond| |x| |md| NIL |fnsel|)
+                          ((|compMapCond| |x| |md| NIL |fnsel| |e|)
                            (SETQ |res|
                                    (|trans_delta|
-                                    (|genDeltaEntry| (CONS |x| |map|)) |target|
-                                    |e|)))
+                                    (|genDeltaEntry| (CONS |x| |map|) |e|)
+                                    |target| |e|)))
                           (#1# (SETQ |v1| (CONS |map| |v1|))))))))))
           (SETQ |bfVar#1| (CDR |bfVar#1|))))
        |v| NIL)
@@ -103,10 +103,10 @@
                              (SETQ |mr| (CADAR . #3#))
                              (SETQ |fnsel| (CDR |map|))
                              (COND
-                              ((|compMapCond| |x| |md| NIL |fnsel|)
+                              ((|compMapCond| |x| |md| NIL |fnsel| |e|)
                                (SETQ |res|
                                        (|trans_delta|
-                                        (|genDeltaEntry| (CONS |x| |map|))
+                                        (|genDeltaEntry| (CONS |x| |map|) |e|)
                                         |target| |e|))
                                (SETQ |res| (|convert| |res| |m|))))))))))
                   (SETQ |bfVar#2| (CDR |bfVar#2|))))
@@ -575,7 +575,7 @@
               (|convert| (LIST |form| (SUBLIS |pairlis| (CAR |ml|)) |e|)
                |m|))))))))
  
-; compApplyModemap(form,modemap,$e,sl) ==
+; compApplyModemap(form, modemap, e, sl) ==
 ;   $generatingCall : local := true
 ;   [op,:argl] := form                   --form to be compiled
 ;   [[mc,mr,:margl],:fnsel] := modemap   --modemap we are testing
@@ -591,8 +591,8 @@
 ;   --     not possible
 ; 
 ;   lt:=
-;     [[.,m',$e]:=
-;       comp(y,g,$e) or return "failed" where
+;     [[., m', e]:=
+;       comp(y, g, e) or return "failed" where
 ;         g:= SUBLIS(sl,m) where
 ;             sl:= pmatchWithSl(m',m,sl) for y in argl for m in margl]
 ;   lt="failed" => return nil
@@ -607,7 +607,7 @@
 ;   -- 3.  obtain domain-specific function, if possible, and return
 ; 
 ;   --$bindings is bound by compMapCond
-;   [f, bindings] := compMapCond(op, mc, sl, fnsel) or return nil
+;   [f, bindings] := compMapCond(op, mc, sl, fnsel, e) or return nil
 ; 
 ; --+ can no longer trust what the modemap says for a reference into
 ; --+ an exterior domain (it is calculating the displacement based on view
@@ -616,11 +616,10 @@
 ; 
 ; --$NRTflag=true and f is [op1,d,.] and NE(d,'$) and member(op1,'(ELT CONST)) =>
 ;   f is [op1,d,.] and member(op1,'(ELT CONST)) =>
-;       [genDeltaEntry([op, :modemap]), lt', bindings]
+;       [genDeltaEntry([op, :modemap], e), lt', bindings]
 ;   [f, lt', bindings]
  
-(DEFUN |compApplyModemap| (|form| |modemap| |$e| |sl|)
-  (DECLARE (SPECIAL |$e|))
+(DEFUN |compApplyModemap| (|form| |modemap| |e| |sl|)
   (PROG (|$generatingCall| |ISTMP#2| |d| |ISTMP#1| |op1| |bindings| |f| |lt'|
          |lt| |m'| |LETTMP#1| |g| |fnsel| |margl| |mr| |mc| |argl| |op|)
     (DECLARE (SPECIAL |$generatingCall|))
@@ -650,10 +649,10 @@
                               (SETQ |sl| (|pmatchWithSl| |m'| |m| |sl|))
                               (SETQ |g| (SUBLIS |sl| |m|))
                               (SETQ |LETTMP#1|
-                                      (OR (|comp| |y| |g| |$e|)
+                                      (OR (|comp| |y| |g| |e|)
                                           (RETURN '|failed|)))
                               (SETQ |m'| (CADR |LETTMP#1|))
-                              (SETQ |$e| (CADDR |LETTMP#1|))
+                              (SETQ |e| (CADDR |LETTMP#1|))
                               |LETTMP#1|)
                              |bfVar#29|))))
                   (SETQ |bfVar#27| (CDR |bfVar#27|))
@@ -683,7 +682,7 @@
                     (#2#
                      (PROGN
                       (SETQ |LETTMP#1|
-                              (OR (|compMapCond| |op| |mc| |sl| |fnsel|)
+                              (OR (|compMapCond| |op| |mc| |sl| |fnsel| |e|)
                                   (RETURN NIL)))
                       (SETQ |f| (CAR |LETTMP#1|))
                       (SETQ |bindings| (CADR |LETTMP#1|))
@@ -699,14 +698,14 @@
                                     (AND (CONSP |ISTMP#2|)
                                          (EQ (CDR |ISTMP#2|) NIL)))))
                              (|member| |op1| '(ELT CONST)))
-                        (LIST (|genDeltaEntry| (CONS |op| |modemap|)) |lt'|
+                        (LIST (|genDeltaEntry| (CONS |op| |modemap|) |e|) |lt'|
                               |bindings|))
                        (#2# (LIST |f| |lt'| |bindings|)))))))))))))
  
-; compMapCond(op, mc, bindings, fnsel) ==
-;   or/[compMapCond'(u, op, mc, bindings) for u in fnsel]
+; compMapCond(op, mc, bindings, fnsel, e) ==
+;   or/[compMapCond'(u, op, mc, bindings, e) for u in fnsel]
  
-(DEFUN |compMapCond| (|op| |mc| |bindings| |fnsel|)
+(DEFUN |compMapCond| (|op| |mc| |bindings| |fnsel| |e|)
   (PROG ()
     (RETURN
      ((LAMBDA (|bfVar#34| |bfVar#33| |u|)
@@ -716,44 +715,48 @@
            (RETURN |bfVar#34|))
           ('T
            (PROGN
-            (SETQ |bfVar#34| (|compMapCond'| |u| |op| |mc| |bindings|))
+            (SETQ |bfVar#34| (|compMapCond'| |u| |op| |mc| |bindings| |e|))
             (COND (|bfVar#34| (RETURN |bfVar#34|))))))
          (SETQ |bfVar#33| (CDR |bfVar#33|))))
       NIL |fnsel| NIL))))
  
-; compMapCond'([cexpr,fnexpr],op,dc,bindings) ==
-;   compMapCond''(cexpr,dc) => compMapCondFun(fnexpr,op,dc,bindings)
+; compMapCond'([cexpr,fnexpr], op, dc, bindings, e) ==
+;   compMapCond''(cexpr, dc, e) => compMapCondFun(fnexpr,op,dc,bindings)
 ;   stackMessage ["not known that",'%b,dc,'%d,"has",'%b,cexpr,'%d]
  
-(DEFUN |compMapCond'| (|bfVar#35| |op| |dc| |bindings|)
+(DEFUN |compMapCond'| (|bfVar#35| |op| |dc| |bindings| |e|)
   (PROG (|cexpr| |fnexpr|)
     (RETURN
      (PROGN
       (SETQ |cexpr| (CAR |bfVar#35|))
       (SETQ |fnexpr| (CADR |bfVar#35|))
       (COND
-       ((|compMapCond''| |cexpr| |dc|)
+       ((|compMapCond''| |cexpr| |dc| |e|)
         (|compMapCondFun| |fnexpr| |op| |dc| |bindings|))
        ('T
         (|stackMessage|
          (LIST '|not known that| '|%b| |dc| '|%d| '|has| '|%b| |cexpr|
                '|%d|))))))))
  
-; compMapCond''(cexpr,dc) ==
+; compMapCond''(cexpr, dc, e) ==
 ;   cexpr=true => true
 ;   cexpr is ["AND", :l] or cexpr is ["and", :l] =>
-;       and/[compMapCond''(u, dc) for u in l]
+;       and/[compMapCond''(u, dc, e) for u in l]
 ;   cexpr is ["OR", :l] or cexpr is ["or", :l] =>
-;       or/[compMapCond''(u, dc) for u in l]
-;   cexpr is ["not",u] => not compMapCond''(u,dc)
-;   cexpr is ["has",name,cat] => (knownInfo cexpr => true; false)
+;       or/[compMapCond''(u, dc, e) for u in l]
+;   -- FIXME: This will claim that 'not u' is true when we
+;   -- do not know truth value
+;   cexpr is ["not",u] => not compMapCond''(u, dc, e)
+;   cexpr is ["has", name, cat] =>
+;         known_info_in_env(cexpr, e) => true
+;         false
 ;         --for the time being we'll stop here - shouldn't happen so far
 ;         --$disregardConditionIfTrue => true
 ;         --stackSemanticError(("not known that",'%b,name,
 ;         -- '%d,"has",'%b,cat,'%d),nil)
 ;   BREAK()
  
-(DEFUN |compMapCond''| (|cexpr| |dc|)
+(DEFUN |compMapCond''| (|cexpr| |dc| |e|)
   (PROG (|l| |ISTMP#1| |u| |name| |ISTMP#2| |cat|)
     (RETURN
      (COND ((EQUAL |cexpr| T) T)
@@ -770,7 +773,7 @@
                   (RETURN |bfVar#37|))
                  (#1#
                   (PROGN
-                   (SETQ |bfVar#37| (|compMapCond''| |u| |dc|))
+                   (SETQ |bfVar#37| (|compMapCond''| |u| |dc| |e|))
                    (COND ((NOT |bfVar#37|) (RETURN NIL))))))
                 (SETQ |bfVar#36| (CDR |bfVar#36|))))
              T |l| NIL))
@@ -787,7 +790,7 @@
                   (RETURN |bfVar#39|))
                  (#1#
                   (PROGN
-                   (SETQ |bfVar#39| (|compMapCond''| |u| |dc|))
+                   (SETQ |bfVar#39| (|compMapCond''| |u| |dc| |e|))
                    (COND (|bfVar#39| (RETURN |bfVar#39|))))))
                 (SETQ |bfVar#38| (CDR |bfVar#38|))))
              NIL |l| NIL))
@@ -796,7 +799,7 @@
                   (SETQ |ISTMP#1| (CDR |cexpr|))
                   (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                        (PROGN (SETQ |u| (CAR |ISTMP#1|)) #1#))))
-            (NULL (|compMapCond''| |u| |dc|)))
+            (NULL (|compMapCond''| |u| |dc| |e|)))
            ((AND (CONSP |cexpr|) (EQ (CAR |cexpr|) '|has|)
                  (PROGN
                   (SETQ |ISTMP#1| (CDR |cexpr|))
@@ -806,7 +809,7 @@
                         (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                         (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                              (PROGN (SETQ |cat| (CAR |ISTMP#2|)) #1#))))))
-            (COND ((|knownInfo| |cexpr|) T) (#1# NIL)))
+            (COND ((|known_info_in_env| |cexpr| |e|) T) (#1# NIL)))
            (#1# (BREAK))))))
  
 ; compMapCondFun(fnexpr,op,dc,bindings) == [fnexpr,bindings]

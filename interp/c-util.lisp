@@ -280,7 +280,7 @@
  
 ; intersectionEnvironment(e,e') ==
 ;   ce:= makeCommonEnvironment(e,e')
-;   ic:= intersectionContour(deltaContour(e,ce),deltaContour(e',ce))
+;   ic := intersectionContour(deltaContour(e, ce), deltaContour(e', ce), ce)
 ;   e'':= (ic => addContour(ic,ce); ce)
  
 (DEFUN |intersectionEnvironment| (|e| |e'|)
@@ -290,7 +290,7 @@
       (SETQ |ce| (|makeCommonEnvironment| |e| |e'|))
       (SETQ |ic|
               (|intersectionContour| (|deltaContour| |e| |ce|)
-               (|deltaContour| |e'| |ce|)))
+               (|deltaContour| |e'| |ce|) |ce|))
       (SETQ |e''| (COND (|ic| (|addContour| |ic| |ce|)) ('T |ce|)))))))
  
 ; deltaContour([il1, :el],[il2, :el']) ==
@@ -393,40 +393,43 @@
                (|deltaContour,eliminateDuplicatePropertyLists| |contour'|)))))
       (#1# NIL)))))
  
-; intersectionContour(c,c') ==
+; intersectionContour(c, c', ce) ==
 ;   $var: local := nil
-;   computeIntersection(c,c') where
-;     computeIntersection(c,c') ==
+;   computeIntersection(c, c', ce) where
+;     computeIntersection(c, c', ce) ==
 ;       varlist:= REMDUP ASSOCLEFT c
 ;       varlist':= REMDUP ASSOCLEFT c'
 ;       interVars:= intersection(varlist,varlist')
 ;       unionVars:= union(varlist,varlist')
 ;       diffVars:= setDifference(unionVars,interVars)
-;       modeAssoc:= buildModeAssoc(diffVars,c,c')
+;       modeAssoc := buildModeAssoc(diffVars, c, c', ce)
 ;       [:modeAssoc,:
 ;         [[x,:proplist]
 ;           for [x,:y] in c | member(x,interVars) and
-;             (proplist:= interProplist(y,LASSOC($var:= x,c')))]]
-;     interProplist(p,p') ==
+;             (proplist := interProplist(y, LASSOC($var := x, c'), ce))]]
+;     interProplist(p, p', ce) ==
 ;                             --p is new proplist; p' is old one
-;       [:modeCompare(p,p'),:[pair' for pair in p | (pair':= compare(pair,p'))]]
-;     buildModeAssoc(varlist,c,c') ==
-;       [[x,:mp] for x in varlist | (mp:= modeCompare(LASSOC(x,c),LASSOC(x,c')))]
-;     compare(pair is [prop,:val],p') ==
+;         [:modeCompare(p, p', ce), :[pair' for pair in p |
+;                (pair' := compare(pair, p', ce))]]
+;     buildModeAssoc(varlist, c, c', ce) ==
+;       [[x, :mp] for x in varlist |
+;           (mp := modeCompare(LASSOC(x, c), LASSOC(x, c'), ce))]
+;     compare(pair is [prop,:val], p', ce) ==
 ;       --1. if the property-value pair are identical, accept it immediately
 ;       pair=(pair':= assoc(prop,p')) => pair
 ;       --2. if property="value" and modes are unifiable, give intersection
 ;       --       property="value" but value=genSomeVariable)()
 ;       (val':= IFCDR pair') and prop = "value" and
-;         (m:= unifiable(val.mode,val'.mode)) => ["value",genSomeVariable(),m,nil]
+;         (m:= unifiable(val.mode, val'.mode, ce)) =>
+;             ["value",genSomeVariable(), m, nil]
 ;             --this tells us that an undeclared variable received
 ;             --two different values but with identical modes
 ;       --3. property="mode" is covered by modeCompare
 ;       prop="mode" => nil
-;     modeCompare(p,p') ==
+;     modeCompare(p, p', ce) ==
 ;       pair:= assoc("mode",p) =>
 ;         pair':= assoc("mode",p') =>
-;           m'':= unifiable(rest pair,rest pair') => LIST ["mode",:m'']
+;           m'' := unifiable(rest pair, rest pair', ce) => LIST ["mode", :m'']
 ;           stackSemanticError(['%b,$var,'%d,"has two modes: "],nil)
 ;        --stackWarning ("mode for",'%b,$var,'%d,"introduced conditionally")
 ;         LIST ["conditionalmode",:rest pair]
@@ -434,7 +437,7 @@
 ;        --stackWarning ("mode for",'%b,$var,'%d,"introduced conditionally")
 ;       pair':= assoc("mode",p') => LIST ["conditionalmode",:rest pair']
 ;         --LIST pair'
-;     unifiable(m1,m2) ==
+;     unifiable(m1, m2, ce) ==
 ;       m1=m2 => m1
 ;         --we may need to add code to coerce up to tagged unions
 ;         --but this can not be done here, but should be done by compIf
@@ -444,18 +447,18 @@
 ;           ["Union", :set_sum(rest m1, [m2])]
 ;         m2 is ["Union",:.] => ["Union", :set_sum(rest m2, [m1])]
 ;         ["Union",m1,m2]
-;       for u in getDomainsInScope $e repeat
+;       for u in getDomainsInScope ce repeat
 ;         if u is ["Union",:u'] and (and/[member(v,u') for v in rest m]) then
 ;           return m
  
-(DEFUN |intersectionContour| (|c| |c'|)
+(DEFUN |intersectionContour| (|c| |c'| |ce|)
   (PROG (|$var|)
     (DECLARE (SPECIAL |$var|))
     (RETURN
      (PROGN
       (SETQ |$var| NIL)
-      (|intersectionContour,computeIntersection| |c| |c'|)))))
-(DEFUN |intersectionContour,computeIntersection| (|c| |c'|)
+      (|intersectionContour,computeIntersection| |c| |c'| |ce|)))))
+(DEFUN |intersectionContour,computeIntersection| (|c| |c'| |ce|)
   (PROG (|varlist| |varlist'| |interVars| |unionVars| |diffVars| |modeAssoc|
          |x| |y| |proplist|)
     (RETURN
@@ -466,7 +469,7 @@
       (SETQ |unionVars| (|union| |varlist| |varlist'|))
       (SETQ |diffVars| (SETDIFFERENCE |unionVars| |interVars|))
       (SETQ |modeAssoc|
-              (|intersectionContour,buildModeAssoc| |diffVars| |c| |c'|))
+              (|intersectionContour,buildModeAssoc| |diffVars| |c| |c'| |ce|))
       (APPEND |modeAssoc|
               ((LAMBDA (|bfVar#10| |bfVar#9| |bfVar#8|)
                  (LOOP
@@ -483,15 +486,15 @@
                          (|member| |x| |interVars|)
                          (SETQ |proplist|
                                  (|intersectionContour,interProplist| |y|
-                                  (LASSOC (SETQ |$var| |x|) |c'|)))
+                                  (LASSOC (SETQ |$var| |x|) |c'|) |ce|))
                          (SETQ |bfVar#10|
                                  (CONS (CONS |x| |proplist|) |bfVar#10|)))))
                   (SETQ |bfVar#9| (CDR |bfVar#9|))))
                NIL |c| NIL))))))
-(DEFUN |intersectionContour,interProplist| (|p| |p'|)
+(DEFUN |intersectionContour,interProplist| (|p| |p'| |ce|)
   (PROG (|pair'|)
     (RETURN
-     (APPEND (|intersectionContour,modeCompare| |p| |p'|)
+     (APPEND (|intersectionContour,modeCompare| |p| |p'| |ce|)
              ((LAMBDA (|bfVar#12| |bfVar#11| |pair|)
                 (LOOP
                  (COND
@@ -500,11 +503,12 @@
                    (RETURN (NREVERSE |bfVar#12|)))
                   ('T
                    (AND
-                    (SETQ |pair'| (|intersectionContour,compare| |pair| |p'|))
+                    (SETQ |pair'|
+                            (|intersectionContour,compare| |pair| |p'| |ce|))
                     (SETQ |bfVar#12| (CONS |pair'| |bfVar#12|)))))
                  (SETQ |bfVar#11| (CDR |bfVar#11|))))
               NIL |p| NIL)))))
-(DEFUN |intersectionContour,buildModeAssoc| (|varlist| |c| |c'|)
+(DEFUN |intersectionContour,buildModeAssoc| (|varlist| |c| |c'| |ce|)
   (PROG (|mp|)
     (RETURN
      ((LAMBDA (|bfVar#14| |bfVar#13| |x|)
@@ -516,11 +520,11 @@
            (AND
             (SETQ |mp|
                     (|intersectionContour,modeCompare| (LASSOC |x| |c|)
-                     (LASSOC |x| |c'|)))
+                     (LASSOC |x| |c'|) |ce|))
             (SETQ |bfVar#14| (CONS (CONS |x| |mp|) |bfVar#14|)))))
          (SETQ |bfVar#13| (CDR |bfVar#13|))))
       NIL |varlist| NIL))))
-(DEFUN |intersectionContour,compare| (|pair| |p'|)
+(DEFUN |intersectionContour,compare| (|pair| |p'| |ce|)
   (PROG (|prop| |val| |pair'| |val'| |m|)
     (RETURN
      (PROGN
@@ -530,10 +534,10 @@
             ((AND (SETQ |val'| (IFCDR |pair'|)) (EQ |prop| '|value|)
                   (SETQ |m|
                           (|intersectionContour,unifiable| (CADR |val|)
-                           (CADR |val'|))))
+                           (CADR |val'|) |ce|)))
              (LIST '|value| (|genSomeVariable|) |m| NIL))
             ((EQ |prop| '|mode|) NIL))))))
-(DEFUN |intersectionContour,modeCompare| (|p| |p'|)
+(DEFUN |intersectionContour,modeCompare| (|p| |p'| |ce|)
   (PROG (|pair| |pair'| |m''|)
     (RETURN
      (COND
@@ -542,8 +546,8 @@
         ((SETQ |pair'| (|assoc| '|mode| |p'|))
          (COND
           ((SETQ |m''|
-                   (|intersectionContour,unifiable| (CDR |pair|)
-                    (CDR |pair'|)))
+                   (|intersectionContour,unifiable| (CDR |pair|) (CDR |pair'|)
+                    |ce|))
            (LIST (CONS '|mode| |m''|)))
           (#1='T
            (|stackSemanticError| (LIST '|%b| |$var| '|%d| '|has two modes: |)
@@ -551,7 +555,7 @@
         (#1# (LIST (CONS '|conditionalmode| (CDR |pair|))))))
       ((SETQ |pair'| (|assoc| '|mode| |p'|))
        (LIST (CONS '|conditionalmode| (CDR |pair'|))))))))
-(DEFUN |intersectionContour,unifiable| (|m1| |m2|)
+(DEFUN |intersectionContour,unifiable| (|m1| |m2| |ce|)
   (PROG (|m| |u'|)
     (RETURN
      (COND ((EQUAL |m1| |m2|) |m1|)
@@ -592,7 +596,7 @@
                            T (CDR |m|) NIL))
                      (RETURN |m|)))))
                  (SETQ |bfVar#15| (CDR |bfVar#15|))))
-              (|getDomainsInScope| |$e|) NIL)))))))
+              (|getDomainsInScope| |ce|) NIL)))))))
  
 ; addContour(c,E is [cur,:tail]) ==
 ;   [NCONC(fn(c,E),cur),:tail] where
@@ -1661,24 +1665,26 @@
       (TERPRI)
       NIL))))
  
-; extendsCategoryForm(domain,form,form') ==
+; extendsCategoryForm(domain, form, form', e) ==
 ;   --is domain of category form also of category form'?
 ;   --domain is only used for ensuring that X being a Ring means that it
 ;   --satisfies (Algebra X)
 ;   form=form' => true
 ;   form=$Category => nil
 ;   form' = $Category => nil
-;   form' is ["Join",:l] => and/[extendsCategoryForm(domain,form,x) for x in l]
+;   form' is ["Join", :l] => and/[extendsCategoryForm(domain, form, x, e)
+;                                 for x in l]
 ;   form' is ["CATEGORY",.,:l] =>
-;     and/[extendsCategoryForm(domain,form,x) for x in l]
-;   form is ["Join",:l] => or/[extendsCategoryForm(domain,x,form') for x in l]
+;     and/[extendsCategoryForm(domain, form, x, e) for x in l]
+;   form is ["Join", :l] => or/[extendsCategoryForm(domain, x, form', e)
+;                               for x in l]
 ;   form is ["CATEGORY",.,:l] =>
 ;     member(form',l) or
 ;       stackWarning ["not known that ",form'," is of mode ",form] or true
 ;   isCategoryForm(form) =>
 ;           --Constructs the associated vector
-;     formVec:=(compMakeCategoryObject(form,$e)).expr
-;             --Must be $e to pick up locally bound domains
+;     formVec := (compMakeCategoryObject(form, e)).expr
+;             --Must be e to pick up locally bound domains
 ;     form' is ["SIGNATURE",op,args,:.] =>
 ;         assoc([op,args],formVec.(1)) or
 ;             assoc(SUBSTQ(domain,"$",[op,args]),
@@ -1691,11 +1697,11 @@
 ;     member(form',first catvlist) or
 ;      member(form',SUBSTQ(domain,"$",first catvlist)) or
 ;       (or/
-;         [extendsCategoryForm(domain,SUBSTQ(domain,"$",cat),form')
+;         [extendsCategoryForm(domain, SUBSTQ(domain, "$", cat), form', e)
 ;           for [cat,:.] in CADR catvlist])
 ;   nil
  
-(DEFUN |extendsCategoryForm| (|domain| |form| |form'|)
+(DEFUN |extendsCategoryForm| (|domain| |form| |form'| |e|)
   (PROG (|l| |ISTMP#1| |formVec| |op| |ISTMP#2| |args| |at| |catvlist| |cat|)
     (RETURN
      (COND ((EQUAL |form| |form'|) T) ((EQUAL |form| |$Category|) NIL)
@@ -1711,7 +1717,7 @@
                  (#1#
                   (PROGN
                    (SETQ |bfVar#53|
-                           (|extendsCategoryForm| |domain| |form| |x|))
+                           (|extendsCategoryForm| |domain| |form| |x| |e|))
                    (COND ((NOT |bfVar#53|) (RETURN NIL))))))
                 (SETQ |bfVar#52| (CDR |bfVar#52|))))
              T |l| NIL))
@@ -1729,7 +1735,7 @@
                  (#1#
                   (PROGN
                    (SETQ |bfVar#55|
-                           (|extendsCategoryForm| |domain| |form| |x|))
+                           (|extendsCategoryForm| |domain| |form| |x| |e|))
                    (COND ((NOT |bfVar#55|) (RETURN NIL))))))
                 (SETQ |bfVar#54| (CDR |bfVar#54|))))
              T |l| NIL))
@@ -1744,7 +1750,7 @@
                  (#1#
                   (PROGN
                    (SETQ |bfVar#57|
-                           (|extendsCategoryForm| |domain| |x| |form'|))
+                           (|extendsCategoryForm| |domain| |x| |form'| |e|))
                    (COND (|bfVar#57| (RETURN |bfVar#57|))))))
                 (SETQ |bfVar#56| (CDR |bfVar#56|))))
              NIL |l| NIL))
@@ -1759,7 +1765,7 @@
                 T))
            ((|isCategoryForm| |form|)
             (PROGN
-             (SETQ |formVec| (CAR (|compMakeCategoryObject| |form| |$e|)))
+             (SETQ |formVec| (CAR (|compMakeCategoryObject| |form| |e|)))
              (COND
               ((AND (CONSP |form'|) (EQ (CAR |form'|) 'SIGNATURE)
                     (PROGN
@@ -1798,7 +1804,8 @@
                                (PROGN
                                 (SETQ |bfVar#60|
                                         (|extendsCategoryForm| |domain|
-                                         (SUBSTQ |domain| '$ |cat|) |form'|))
+                                         (SUBSTQ |domain| '$ |cat|) |form'|
+                                         |e|))
                                 (COND (|bfVar#60| (RETURN |bfVar#60|)))))))
                         (SETQ |bfVar#59| (CDR |bfVar#59|))))
                      NIL (CADR |catvlist|) NIL)))))))

@@ -22,7 +22,7 @@
        (|get| '|$Information| '|special| |$e|) NIL)
       NIL))))
  
-; addInformation(m,$e) ==
+; addInformation(m, e) ==
 ;   $Information: local := nil
 ;   --$Information:= nil: done by previous statement anyway
 ;   info m where
@@ -32,24 +32,23 @@
 ;       m is ["CATEGORY",.,:stuff] => for u in stuff repeat addInfo u
 ;       m is ["Join",:stuff] => for u in stuff repeat info u
 ;       nil
-;   $e:=
+;   e :=
 ;     put("$Information","special",[:$Information,:
-;       get("$Information","special",$e)],$e)
-;   $e
+;       get("$Information", "special", e)], e)
+;   e
  
-(DEFUN |addInformation| (|m| |$e|)
-  (DECLARE (SPECIAL |$e|))
+(DEFUN |addInformation| (|m| |e|)
   (PROG (|$Information|)
     (DECLARE (SPECIAL |$Information|))
     (RETURN
      (PROGN
       (SETQ |$Information| NIL)
       (|addInformation,info| |m|)
-      (SETQ |$e|
+      (SETQ |e|
               (|put| '|$Information| '|special|
-               (APPEND |$Information| (|get| '|$Information| '|special| |$e|))
-               |$e|))
-      |$e|))))
+               (APPEND |$Information| (|get| '|$Information| '|special| |e|))
+               |e|))
+      |e|))))
 (DEFUN |addInformation,info| (|m|)
   (PROG (|ISTMP#1| |stuff|)
     (RETURN
@@ -411,6 +410,12 @@
 ; DEFPARAMETER($cycleMarker, GENSYM())
  
 (DEFPARAMETER |$cycleMarker| (GENSYM))
+ 
+; known_info_in_env(pred, $e) == knownInfo(pred)
+ 
+(DEFUN |known_info_in_env| (|pred| |$e|)
+  (DECLARE (SPECIAL |$e|))
+  (PROG () (RETURN (|knownInfo| |pred|))))
  
 ; hashed_known_info(pred) ==
 ;     $infoHash : local := MAKE_-HASHTABLE 'EQUAL
