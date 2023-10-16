@@ -1894,119 +1894,119 @@
 178590`\spad{coerce List} to graph
 178642`\spad{coerce(u)} transforms a MachineInteger into a MachineFloat
 178697`\spad{coerce(v)} produces an ASP which returns the value of \spad{v}.
-178767`\spad{coerce(o)} changes \spad{o} in the standard output format to html format.
-178820`\spad{coerce(p)} coerces \spad{p} into Weighted form,{} applying weights and ignoring terms
-178897`\spad{coerce PermutationGroup} to graph
-178961`\spad{coerce PermutationGroup} to graph which represents the generators of the group
-179297`\spad{coerce(p)} moves from the representation type (PrimitiveArray PrimitiveArray PrimitiveArray \spad{R}) to the domain
-179400`\spad{coerce(a)} makes a tuple from primitive array a
-179520`\spad{coerce(x)} \undocumented
-179599`\spad{coerce(e)} takes the component of \spad{e} from \spadtype{List FortranCode} and uses it as the body of the ASP,{} making the declarations in the \spadtype{SymbolTable} component.
-179706`\spad{coerce(e)} takes the component of \spad{e} from \spadtype{List FortranCode} and uses it as the body of the ASP,{} making the declarations in the \spadtype{SymbolTable} component.
-179811`\spad{coerce(e)} takes the component of \spad{e} from \spadtype{List FortranCode} and uses it as the body of the ASP,{} making the declarations in the \spadtype{SymbolTable} component.
-179924`\spad{coerce(e)} takes the component of \spad{e} from \spadtype{List FortranCode} and uses it as the body of the ASP,{} making the declarations in the \spadtype{SymbolTable} component.
-180029`\spad{coerce(e)} takes the component of \spad{e} from \spadtype{List FortranCode} and uses it as the body of the ASP,{} making the declarations in the \spadtype{SymbolTable} component.
-180142`\spad{coerce(r)} \undocumented{}
-180275`\spad{coerce(x)} \undocumented
-180881`\spad{coerce(a)} transforms a into an element of \%.
-180927`\spad{coerce(s)} returns \spad{s} viewed as an element of \%.
-181339`\spad{coerce combinators} to intuitionistic logic this is known as the Curry-Howard isomorphism it uses the following rules: rule SI1: Ski[Kab] \spad{=>} a \spad{->} (\spad{b} \spad{->} a),{} rule SI2: Ski[Sabc] \spad{=>} (a \spad{->} (\spad{b} \spad{->} \spad{c})) \spad{->} ((a \spad{->} \spad{b}) \spad{->} (a \spad{->} \spad{c})),{} rule SI3: Ski[a a-\spad{>b}] \spad{=>} \spad{b} the last rule is function application (modus ponens)
-181402`\spad{coerce SKI} combinators to Lambda term. this conversion is done by applying the following rules rule SL1: Ski[\spad{I}] = \spad{\x}.0 rule SL2: Ski[\spad{K}] = \spad{\x}.\y.1 rule SL3: Ski[\spad{S}] = \spad{\x}.\y.\spad{\z}.(2 0 (1 0)) rule SL4: Ski[(\spad{E1} \spad{E2})] = (Ski[\spad{E1}] Ski[\spad{E2}])
-181595`\spad{coerce(poly)} regroups the terms by total degree and forms a series.
-182948`coercion to matrices over ground domain.
-183873`\spad{coerce(x)} creation of elements
-183930`\spad{coerce(s)} transforms the string \spad{s} into an element of FortranScalarType provided \spad{s} is one of "real",{} "double precision",{} "complex",{} "logical",{} "integer",{} "character",{} "REAL",{} "COMPLEX",{} "LOGICAL",{} "INTEGER",{} "CHARACTER",{} "DOUBLE PRECISION"
-184045`\spad{coerce(s)} transforms the symbol \spad{s} into an element of FortranScalarType provided \spad{s} is one of real,{} complex,{} double precision,{} logical,{} integer,{} character,{} REAL,{} COMPLEX,{} LOGICAL,{} INTEGER,{} CHARACTER,{} DOUBLE PRECISION
-184097`\spad{coerce(sy)} allows for the input of jet variables as symbols. Yields an error,{} if the symbol is not contained in \spad{IVar} or \spad{DVar}.
-184152`\spad{coerce(s)} allows for the input of jet variables as symbols.
-184214`\spad{coerce(s)} \undocumented{}
-184359`\spad{coerce(p)} converts a univariate polynomial \spad{p} in the variable \spad{var} to a univariate Taylor series in \spad{var}.
-184460`\spad{coerce(p)} converts a univariate polynomial \spad{p} in the variable \spad{var} to a univariate Taylor series in \spad{var}.
-184641`\spad{coerce(f)} converts a \spadtype{UnivariatePuiseuxSeries} to an \spadtype{ExponentialExpansion}.
-184739`\spad{coerce(var)} converts a variable to a Taylor series
-184815`\spad{coerce(var)} converts the series variable \spad{var} into a Laurent series.
-184900`\spad{coerce(var)} converts the series variable \spad{var} into a Puiseux series.
-184985`\spad{coerce(var)} converts the series variable \spad{var} into a \indented{1}{Taylor series.}
-185069`\spad{coerce(var)} converts the series variable \spad{var} into a Laurent series.
-185148`\spad{coerce(var)} converts the series variable \spad{var} into a Puiseux series.
-185227`\spad{coerce(var)} converts the series variable \spad{var} into a \indented{1}{Taylor series.}
-185374`\spad{coerce(x)} returns \spad{x} as a skew-polynomial.
-185455`\spad{coerce(v)} return \spad{v}
-185595`\spad{coerce(v)} assumes that it is called with a vector of length equal to the dimension of the algebra,{} then a linear combination with the basis element is formed
-185697`\spad{coerce(v)} produces an ASP which returns the value of \spad{v}.
-185767`\spad{coerce(v)} coerces a vector \spad{v} with entries in \spadtype{Matrix R} as vector over \spadtype{Matrix Fraction Polynomial R}
-185939`\spad{coerce(b)} converts a binary expansion to a rational number.
-186000`\spad{coerce(d)} converts a decimal expansion to a rational number.
-186062`\spad{coerce(h)} converts a hexadecimal expansion to a rational number.
-186128`\spad{coerce(rx)} converts a radix expansion to a rational number.
-186192`\spad{coerce(p)} sums up the components of the partial fraction and returns a single fraction.
-186250`\spad{coerce(gp)} returns the generators of the group {\em gp}.
-186318`\spad{coerce(x)} returns the list of elements in \spad{x}
-186365`\spad{coerce(s)} returns the \spadtype{ThreeSpace} \spad{s} to Output format.
-186425`\spad{coerce(v)} coerces void object to OutputForm.
-186468`\spad{coerce(d)} converts a decimal expansion to a radix expansion with base 10.
-186531`\spad{coerce(h)} converts a hexadecimal expansion to a radix expansion with base 16.
-186598`\spad{coerce(b)} converts a binary expansion to a radix expansion with base 2.
-186659`\spad{coerce(p)} views \spad{p} as a valie in the partial differential ring.
-186728`\spad{coerce(a)} transforms a into an element of \spad{S}.
-186772`\spad{coerce(fn)} produces a string for a file name according to operating system-dependent conventions.
-186823`\spad{coerce(x)} \undocumented
-186873`\spad{coerce(x)} returns \spad{x} as distributed polynomial.
-186958`\spad{coerce(x)} returns \spad{x} as a recursive polynomial.
-187041`\spad{coerce(a)} coerces the element \spad{a} of the algebra \spad{A} to an element of the Jordan algebra \spadtype{AssociatedJordanAlgebra}(\spad{R},{} A).
-187099`\spad{coerce(a)} coerces the element \spad{a} of the algebra \spad{A} to an element of the Lie algebra \spadtype{AssociatedLieAlgebra}(\spad{R},{} A).
-187154`\spad{coerce A} changes its argument into a \indented{1}{nullary function.}
-187205`\spad{coerce(c)} returns \spad{c} as a string \spad{s} with the character \spad{c}.
-187258`\spad{coerce(col)} converts the column \spad{col} to a column matrix.
-187315`\spad{coerce(c)} sets the average shade for the palette to that of the indicated color \spad{c}.
-187356`\spad{coerce(v)} views a vector as a rank 1 tensor.
-187433`\spad{coerce(x)} coerces a distribution from the ring \spad{R1} to \spad{R2}.
-187521`\spad{coerce(e)} is never really evaluated. This coercion is used for formal type correctness when a function will not return directly to its caller.
-187580`\spad{coerce(x)} is the homomorphic image of \spad{x} from {\em F1} in {\em F2}. Thus {\em coerce} is a field homomorphism between the fields extensions {\em F1} and {\em F2} both over ground field {\em GF} (the second argument to the package). Error: if the extension degree of {\em F1} doesn\spad{'t} divide the extension degree of {\em F2}. Note that the other coercion function in the \spadtype{FiniteFieldHomomorphisms} is a left inverse
-187580`--.
-187645`\spad{coerce(x)} is the homomorphic image of \spad{x} from {\em F2} in {\em F1},{} where {\em coerce} is a field homomorphism between the fields extensions {\em F2} and {\em F1} both over ground field {\em GF} (the second argument to the package). Error: if the extension degree of {\em F2} doesn\spad{'t} divide the extension degree of {\em F1}. Note that the other coercion function in the \spadtype{FiniteFieldHomomorphisms} is a left inve
-187645`--rse.
-187710`\spad{coerce(c)} converts sin/cos terms into Fourier Series
-187776`\spad{coerce(f)} takes a fraction with numerator and denominator in factored form and creates a partial fraction. It is necessary for the parts to be factored because it is not known in general how to factor elements of \spad{R} and this is needed to decompose into partial fractions.
-187844`\spad{coerce(rf)} converts \spad{rf},{} a fraction of polynomial \spad{p} with algebraic number coefficients to \spadtype{Expression Integer}.
-187950`\spad{coerce(f)} returns \spad{f} as an element of \%.
-188049`\spad{coerce(q)} returns \spad{q} as an element of \%.
-188126`\spad{coerce(n)} coerces the integer \spad{n} to an element of the ring.
-188180`\spad{coerce(i)} returns the element corresponding to \spad{i}
-188226`\spad{coerce([t_1,{} ...,{} t_dim])} allows tensors to be constructed using lists.
-188291`\spad{coerce(polyList)} converts the list of polynomials \spad{polyList} to an ideal.
-188368`\spad{coerce(lls)} coerces a list of cycles {\em lls} to a permutation,{} each cycle being a list with no repetitions,{} is coerced to the permutation,{} which maps {\em ls.i} to {\em ls.i+1},{} indices modulo the length of the list,{} then these permutations are mutiplied. Error: if repetitions occur in one cycle.
-188424`\spad{coerce(ls)} coerces a list of permutations {\em ls} to the group generated by this list.
-188492`\spad{coerce([r_1,{} ...,{} r_dim])} allows tensors to be constructed using lists.
-188556`\spad{coerce(lt)} converts a list of terms and coefficients to a member of the domain.
-188629`\spad{coerce(l)} makes a database out of a list
-188676`\spad{coerce(l)} creates a datalist from \spad{l}
-188723`\spad{coerce(ls)} coerces a cycle {\em ls},{} \spadignore{i.e.} a list with not repetitions to a permutation,{} which maps {\em ls.i} to {\em ls.i+1},{} indices modulo the length of the list. Error: if repetitions occur.
-188773`\spad{coerce(l)} converts a list \spad{l} to a stream.
-188818`\spad{coerce(o)} changes \spad{o} in the standard output format to SCRIPT formula format.
-188876`\spad{coerce(o)} changes \spad{o} in the standard output format to TeX format.
-188924`\spad{coerce(o)} changes \spad{o} in the standard output format to MathML format.
-188979`\spad{coerce(o)} changes \spad{o} in the standard output format to Texmacs format.
-189035`\spad{coerce(f)} returns \spad{f} as an Expression(\spad{R}).
-189091`\spad{coerce(p)} converts the polynomial \spad{p} with algebraic number coefficients to \spadtype{Expression Integer}.
-189187`\spad{coerce(s)} regroups terms of \spad{s} by total degree \indented{1}{and forms a series.}
-189250`\spad{coerce(p)} returns \spad{p} as an element of \%.
-189339`\spad{coerce(r)} maps the ring element \spad{r} to a member of the algebra.
-189379`\spad{coerce(r)} returns \spad{r} * 1 where 1 is the identity of the left algebra.
-189423`\spad{coerce(r)} equals \spad{r*1}.
-189464`\spad{coerce(r)} converts coefficients into Fourier Series
-189512`\spad{coerce(r)} views \spad{r} as a value in the ordinary differential ring.
-189581`\spad{coerce(r)} returns \spad{r} viewed as a rational function over \spad{R}.
-189651`\spad{coerce(s)} returns \spad{s},{} viewed as the zero-th order derivative of \spad{s}.
-189712`\spad{coerce(a)} transforms a into an element of \%.
-189758`\spad{coerce(s)} creates an object of \spadtype{Any} from the object \spad{s} of type \spad{S}.
-189805`\spad{coerce(x = a..b)} returns \spad{x = c..d} where \spad{c} and \spad{d} are the numerical values of \spad{a} and \spad{b}.
-189900`\spad{coerce(x)} allows \spadtype{Segment} values to be used as \%.
-189958`\spad{coerce(x)} changes \spad{x} into an object of type \spadtype{None}.
-190007`\spad{coerce(p)} returns \spad{p} viewed as an algebraic number.
-190099`\spad{coerce(p)} returns \spad{p} as an element of \%.
-190197`\spad{coerce(m)} views a matrix as a rank 2 tensor.
-190273`\spad{coerce(s)} provides a direct coercion from an expression \spad{s} of domain \spad{S} to SCRIPT formula format. This allows the user to skip the step of first manually coercing the object to standard output format before it is coerced to SCRIPT formula format.
+178767`\spad{coerce(o)} changes \spad{o} in the standard output format to SCRIPT formula format.
+178825`\spad{coerce(o)} changes \spad{o} in the standard output format to TeX format.
+178873`\spad{coerce(o)} changes \spad{o} in the standard output format to html format.
+178926`\spad{coerce(o)} changes \spad{o} in the standard output format to MathML format.
+178981`\spad{coerce(o)} changes \spad{o} in the standard output format to Texmacs format.
+179037`\spad{coerce(p)} coerces \spad{p} into Weighted form,{} applying weights and ignoring terms
+179114`\spad{coerce PermutationGroup} to graph
+179178`\spad{coerce PermutationGroup} to graph which represents the generators of the group
+179514`\spad{coerce(p)} moves from the representation type (PrimitiveArray PrimitiveArray PrimitiveArray \spad{R}) to the domain
+179617`\spad{coerce(a)} makes a tuple from primitive array a
+179737`\spad{coerce(x)} \undocumented
+179816`\spad{coerce(e)} takes the component of \spad{e} from \spadtype{List FortranCode} and uses it as the body of the ASP,{} making the declarations in the \spadtype{SymbolTable} component.
+179923`\spad{coerce(e)} takes the component of \spad{e} from \spadtype{List FortranCode} and uses it as the body of the ASP,{} making the declarations in the \spadtype{SymbolTable} component.
+180028`\spad{coerce(e)} takes the component of \spad{e} from \spadtype{List FortranCode} and uses it as the body of the ASP,{} making the declarations in the \spadtype{SymbolTable} component.
+180141`\spad{coerce(e)} takes the component of \spad{e} from \spadtype{List FortranCode} and uses it as the body of the ASP,{} making the declarations in the \spadtype{SymbolTable} component.
+180246`\spad{coerce(e)} takes the component of \spad{e} from \spadtype{List FortranCode} and uses it as the body of the ASP,{} making the declarations in the \spadtype{SymbolTable} component.
+180359`\spad{coerce(r)} \undocumented{}
+180492`\spad{coerce(x)} \undocumented
+181098`\spad{coerce(a)} transforms a into an element of \%.
+181144`\spad{coerce(s)} returns \spad{s} viewed as an element of \%.
+181556`\spad{coerce combinators} to intuitionistic logic this is known as the Curry-Howard isomorphism it uses the following rules: rule SI1: Ski[Kab] \spad{=>} a \spad{->} (\spad{b} \spad{->} a),{} rule SI2: Ski[Sabc] \spad{=>} (a \spad{->} (\spad{b} \spad{->} \spad{c})) \spad{->} ((a \spad{->} \spad{b}) \spad{->} (a \spad{->} \spad{c})),{} rule SI3: Ski[a a-\spad{>b}] \spad{=>} \spad{b} the last rule is function application (modus ponens)
+181619`\spad{coerce SKI} combinators to Lambda term. this conversion is done by applying the following rules rule SL1: Ski[\spad{I}] = \spad{\x}.0 rule SL2: Ski[\spad{K}] = \spad{\x}.\y.1 rule SL3: Ski[\spad{S}] = \spad{\x}.\y.\spad{\z}.(2 0 (1 0)) rule SL4: Ski[(\spad{E1} \spad{E2})] = (Ski[\spad{E1}] Ski[\spad{E2}])
+181812`\spad{coerce(poly)} regroups the terms by total degree and forms a series.
+183165`coercion to matrices over ground domain.
+183604`\spad{coerce(s)} provides a direct coercion from an expression \spad{s} of domain \spad{S} to SCRIPT formula format. This allows the user to skip the step of first manually coercing the object to standard output format before it is coerced to SCRIPT formula format.
+184160`\spad{coerce(x)} creation of elements
+184217`\spad{coerce(s)} transforms the string \spad{s} into an element of FortranScalarType provided \spad{s} is one of "real",{} "double precision",{} "complex",{} "logical",{} "integer",{} "character",{} "REAL",{} "COMPLEX",{} "LOGICAL",{} "INTEGER",{} "CHARACTER",{} "DOUBLE PRECISION"
+184332`\spad{coerce(s)} transforms the symbol \spad{s} into an element of FortranScalarType provided \spad{s} is one of real,{} complex,{} double precision,{} logical,{} integer,{} character,{} REAL,{} COMPLEX,{} LOGICAL,{} INTEGER,{} CHARACTER,{} DOUBLE PRECISION
+184384`\spad{coerce(sy)} allows for the input of jet variables as symbols. Yields an error,{} if the symbol is not contained in \spad{IVar} or \spad{DVar}.
+184439`\spad{coerce(s)} allows for the input of jet variables as symbols.
+184501`\spad{coerce(s)} \undocumented{}
+184646`\spad{coerce(p)} converts a univariate polynomial \spad{p} in the variable \spad{var} to a univariate Taylor series in \spad{var}.
+184747`\spad{coerce(p)} converts a univariate polynomial \spad{p} in the variable \spad{var} to a univariate Taylor series in \spad{var}.
+184928`\spad{coerce(f)} converts a \spadtype{UnivariatePuiseuxSeries} to an \spadtype{ExponentialExpansion}.
+185026`\spad{coerce(var)} converts a variable to a Taylor series
+185102`\spad{coerce(var)} converts the series variable \spad{var} into a Laurent series.
+185187`\spad{coerce(var)} converts the series variable \spad{var} into a Puiseux series.
+185272`\spad{coerce(var)} converts the series variable \spad{var} into a \indented{1}{Taylor series.}
+185356`\spad{coerce(var)} converts the series variable \spad{var} into a Laurent series.
+185435`\spad{coerce(var)} converts the series variable \spad{var} into a Puiseux series.
+185514`\spad{coerce(var)} converts the series variable \spad{var} into a \indented{1}{Taylor series.}
+185661`\spad{coerce(x)} returns \spad{x} as a skew-polynomial.
+185742`\spad{coerce(v)} return \spad{v}
+185882`\spad{coerce(v)} assumes that it is called with a vector of length equal to the dimension of the algebra,{} then a linear combination with the basis element is formed
+185984`\spad{coerce(v)} produces an ASP which returns the value of \spad{v}.
+186054`\spad{coerce(v)} coerces a vector \spad{v} with entries in \spadtype{Matrix R} as vector over \spadtype{Matrix Fraction Polynomial R}
+186226`\spad{coerce(b)} converts a binary expansion to a rational number.
+186287`\spad{coerce(d)} converts a decimal expansion to a rational number.
+186349`\spad{coerce(h)} converts a hexadecimal expansion to a rational number.
+186415`\spad{coerce(rx)} converts a radix expansion to a rational number.
+186479`\spad{coerce(p)} sums up the components of the partial fraction and returns a single fraction.
+186537`\spad{coerce(gp)} returns the generators of the group {\em gp}.
+186605`\spad{coerce(x)} returns the list of elements in \spad{x}
+186652`\spad{coerce(s)} returns the \spadtype{ThreeSpace} \spad{s} to Output format.
+186712`\spad{coerce(v)} coerces void object to OutputForm.
+186755`\spad{coerce(d)} converts a decimal expansion to a radix expansion with base 10.
+186818`\spad{coerce(h)} converts a hexadecimal expansion to a radix expansion with base 16.
+186885`\spad{coerce(b)} converts a binary expansion to a radix expansion with base 2.
+186946`\spad{coerce(p)} views \spad{p} as a valie in the partial differential ring.
+187015`\spad{coerce(a)} transforms a into an element of \spad{S}.
+187059`\spad{coerce(fn)} produces a string for a file name according to operating system-dependent conventions.
+187110`\spad{coerce(x)} \undocumented
+187160`\spad{coerce(x)} returns \spad{x} as distributed polynomial.
+187245`\spad{coerce(x)} returns \spad{x} as a recursive polynomial.
+187328`\spad{coerce(a)} coerces the element \spad{a} of the algebra \spad{A} to an element of the Jordan algebra \spadtype{AssociatedJordanAlgebra}(\spad{R},{} A).
+187386`\spad{coerce(a)} coerces the element \spad{a} of the algebra \spad{A} to an element of the Lie algebra \spadtype{AssociatedLieAlgebra}(\spad{R},{} A).
+187441`\spad{coerce A} changes its argument into a \indented{1}{nullary function.}
+187492`\spad{coerce(c)} returns \spad{c} as a string \spad{s} with the character \spad{c}.
+187545`\spad{coerce(col)} converts the column \spad{col} to a column matrix.
+187602`\spad{coerce(c)} sets the average shade for the palette to that of the indicated color \spad{c}.
+187643`\spad{coerce(v)} views a vector as a rank 1 tensor.
+187720`\spad{coerce(x)} coerces a distribution from the ring \spad{R1} to \spad{R2}.
+187808`\spad{coerce(e)} is never really evaluated. This coercion is used for formal type correctness when a function will not return directly to its caller.
+187867`\spad{coerce(x)} is the homomorphic image of \spad{x} from {\em F1} in {\em F2}. Thus {\em coerce} is a field homomorphism between the fields extensions {\em F1} and {\em F2} both over ground field {\em GF} (the second argument to the package). Error: if the extension degree of {\em F1} doesn\spad{'t} divide the extension degree of {\em F2}. Note that the other coercion function in the \spadtype{FiniteFieldHomomorphisms} is a left inverse
+187867`--.
+187932`\spad{coerce(x)} is the homomorphic image of \spad{x} from {\em F2} in {\em F1},{} where {\em coerce} is a field homomorphism between the fields extensions {\em F2} and {\em F1} both over ground field {\em GF} (the second argument to the package). Error: if the extension degree of {\em F2} doesn\spad{'t} divide the extension degree of {\em F1}. Note that the other coercion function in the \spadtype{FiniteFieldHomomorphisms} is a left inve
+187932`--rse.
+187997`\spad{coerce(c)} converts sin/cos terms into Fourier Series
+188063`\spad{coerce(f)} takes a fraction with numerator and denominator in factored form and creates a partial fraction. It is necessary for the parts to be factored because it is not known in general how to factor elements of \spad{R} and this is needed to decompose into partial fractions.
+188131`\spad{coerce(rf)} converts \spad{rf},{} a fraction of polynomial \spad{p} with algebraic number coefficients to \spadtype{Expression Integer}.
+188237`\spad{coerce(f)} returns \spad{f} as an element of \%.
+188336`\spad{coerce(q)} returns \spad{q} as an element of \%.
+188413`\spad{coerce(n)} coerces the integer \spad{n} to an element of the ring.
+188467`\spad{coerce(i)} returns the element corresponding to \spad{i}
+188513`\spad{coerce([t_1,{} ...,{} t_dim])} allows tensors to be constructed using lists.
+188578`\spad{coerce(polyList)} converts the list of polynomials \spad{polyList} to an ideal.
+188655`\spad{coerce(lls)} coerces a list of cycles {\em lls} to a permutation,{} each cycle being a list with no repetitions,{} is coerced to the permutation,{} which maps {\em ls.i} to {\em ls.i+1},{} indices modulo the length of the list,{} then these permutations are mutiplied. Error: if repetitions occur in one cycle.
+188711`\spad{coerce(ls)} coerces a list of permutations {\em ls} to the group generated by this list.
+188779`\spad{coerce([r_1,{} ...,{} r_dim])} allows tensors to be constructed using lists.
+188843`\spad{coerce(lt)} converts a list of terms and coefficients to a member of the domain.
+188916`\spad{coerce(l)} makes a database out of a list
+188963`\spad{coerce(l)} creates a datalist from \spad{l}
+189010`\spad{coerce(ls)} coerces a cycle {\em ls},{} \spadignore{i.e.} a list with not repetitions to a permutation,{} which maps {\em ls.i} to {\em ls.i+1},{} indices modulo the length of the list. Error: if repetitions occur.
+189060`\spad{coerce(l)} converts a list \spad{l} to a stream.
+189105`\spad{coerce(f)} returns \spad{f} as an Expression(\spad{R}).
+189161`\spad{coerce(p)} converts the polynomial \spad{p} with algebraic number coefficients to \spadtype{Expression Integer}.
+189257`\spad{coerce(s)} regroups terms of \spad{s} by total degree \indented{1}{and forms a series.}
+189320`\spad{coerce(p)} returns \spad{p} as an element of \%.
+189409`\spad{coerce(r)} maps the ring element \spad{r} to a member of the algebra.
+189449`\spad{coerce(r)} returns \spad{r} * 1 where 1 is the identity of the left algebra.
+189493`\spad{coerce(r)} equals \spad{r*1}.
+189534`\spad{coerce(r)} converts coefficients into Fourier Series
+189582`\spad{coerce(r)} views \spad{r} as a value in the ordinary differential ring.
+189651`\spad{coerce(r)} returns \spad{r} viewed as a rational function over \spad{R}.
+189721`\spad{coerce(s)} returns \spad{s},{} viewed as the zero-th order derivative of \spad{s}.
+189782`\spad{coerce(a)} transforms a into an element of \%.
+189828`\spad{coerce(s)} creates an object of \spadtype{Any} from the object \spad{s} of type \spad{S}.
+189875`\spad{coerce(x = a..b)} returns \spad{x = c..d} where \spad{c} and \spad{d} are the numerical values of \spad{a} and \spad{b}.
+189970`\spad{coerce(x)} allows \spadtype{Segment} values to be used as \%.
+190028`\spad{coerce(x)} changes \spad{x} into an object of type \spadtype{None}.
+190077`\spad{coerce(p)} returns \spad{p} viewed as an algebraic number.
+190169`\spad{coerce(p)} returns \spad{p} as an element of \%.
+190267`\spad{coerce(m)} views a matrix as a rank 2 tensor.
 190343`\spad{coerce(s)} provides a direct coercion from a domain \spad{S} to TeX format. This allows the user to skip the step of first manually coercing the object to standard output format before it is coerced to TeX format.
 190393`\spad{coerce(s)} converts a string to a file name according to operating system-dependent conventions.
 190444`\spad{coerce(s)} converts \spad{s} into an \spad{IndexCard}. Warning: if \spad{s} is not of the right format then an error will occur when using it.
@@ -2880,14 +2880,14 @@
 300122`more detailed output with generators
 300177`\spad{display(t)} outputs the formatted code
 300234`\spad{display(de)} prints all information stored about the differential equation \spad{de}. This comprises the system ordered by the order of the equations,{} the Jacobi matrices separately for each order and the index of the independent variable with respect to which the equation was lastly differentiated (1 for not prolonged equations).
-300297`\spad{display(o)} prints the string returned by coerce.
-300345`\spad{display(op)} returns the "\%display" property of \spad{op} if it has one attached,{} and "failed" otherwise.
-300434`\spad{display(db)} prints a summary line for each entry in \spad{db}.
-300479`\spad{display(ic)} prints a summary of the information contained in \spad{ic}.
-300522`\spad{display(t)} outputs the formatted code \spad{t} so that each line has length less than or equal to the value set by the system command \spadsyscom{set output length}.
-300575`\spad{display(t)} outputs the TeX formatted code \spad{t} so that each line has length less than or equal to the value set by the system command \spadsyscom{set output length}.
-300618`prints the string returned by coerce,{} adding <math ...> tags.
-300668`prints the string returned by coerce,{} adding <math ...> tags.
+300297`\spad{display(t)} outputs the formatted code \spad{t} so that each line has length less than or equal to the value set by the system command \spadsyscom{set output length}.
+300350`\spad{display(t)} outputs the TeX formatted code \spad{t} so that each line has length less than or equal to the value set by the system command \spadsyscom{set output length}.
+300393`\spad{display(o)} prints the string returned by coerce.
+300441`prints the string returned by coerce,{} adding <math ...> tags.
+300491`prints the string returned by coerce,{} adding <math ...> tags.
+300542`\spad{display(op)} returns the "\%display" property of \spad{op} if it has one attached,{} and "failed" otherwise.
+300631`\spad{display(db)} prints a summary line for each entry in \spad{db}.
+300676`\spad{display(ic)} prints a summary of the information contained in \spad{ic}.
 300719`\spad{display(t,{} width)} outputs the formatted code \spad{t} so that each line has length less than or equal to \spadvar{width}.
 300780`\spad{display(t,{} width)} outputs the TeX formatted code \spad{t} so that each line has length less than or equal to \spadvar{width}.
 300831`\spad{display(op,{} foo)} attaches foo as the "\%display" property of \spad{op}. If \spad{op} has a "\%display" property \spad{f},{} then \spad{op(a1,{}...,{}an)} gets converted to OutputForm as \spad{f(a1,{} ...,{} an)}.
@@ -5625,11 +5625,11 @@
 608728`\spad{new()} return a new HashState.
 608763`\spad{new()} returns a new empty match result.
 608818`\spad{new()} returns a new empty match result.
-608867`\spad{new()} \undocumented
-608918`\spad{new()} \undocumented
-608957`\spad{new()} create a new,{} empty object. Use \spadfun{setPrologue!},{} \spadfun{setFormula!} and \spadfun{setEpilogue!} to set the various components of this object.
-609002`\spad{new()} returns a new symbol whose name starts with \%.
-609034`\spad{new()} create a new,{} empty object. Use \spadfun{setPrologue!},{} \spadfun{setTex!} and \spadfun{setEpilogue!} to set the various components of this object.
+608867`\spad{new()} create a new,{} empty object. Use \spadfun{setPrologue!},{} \spadfun{setFormula!} and \spadfun{setEpilogue!} to set the various components of this object.
+608912`\spad{new()} \undocumented
+608963`\spad{new()} \undocumented
+609002`\spad{new()} create a new,{} empty object. Use \spadfun{setPrologue!},{} \spadfun{setTex!} and \spadfun{setEpilogue!} to set the various components of this object.
+609037`\spad{new()} returns a new symbol whose name starts with \%.
 609069`\spad{new(s)} returns a new symbol whose name starts with \%\spad{s}.
 609103`\spad{new(inds,{} nrows)} generates a new matrix with \spad{nrows} rows and columns enumerated by the indices \spad{inds}. The matrix is empty,{} \spadignore{i.e.} the zero matrix.
 609227`\spad{new(n,{} x)} returns a new aggregate of size \spad{n} all of whose entries are \spad{x}.
