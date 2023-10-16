@@ -74,6 +74,9 @@
                                              ((|integralAtInfinity?|
                                                ((|Boolean|) $))
                                               T)
+                                             ((|special_order|
+                                               ((|Integer|) $ (|List| |t#2|)))
+                                              T)
                                              ((|integral?| ((|Boolean|) $)) T)
                                              ((|complementaryBasis|
                                                ((|Vector| $) (|Vector| $)))

@@ -67,6 +67,12 @@
                                             ((|generator|
                                               ((|Union| |t#4| "failed") $))
                                              T)
+                                            ((|generator|
+                                              ((|Union| |t#4| "failed") $
+                                               (|Integer|) (|List| |t#2|)))
+                                             T)
+                                            ((|divisor| ($ |t#4| |t#2| |t#2|))
+                                             T)
                                             ((|divisor|
                                               ($ |t#4| |t#2| |t#2| |t#2|
                                                |t#1|))

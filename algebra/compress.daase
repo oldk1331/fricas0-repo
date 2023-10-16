@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5149 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5150 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -585,31 +585,31 @@
  |integralDerivationMatrix| |integralRepresents| |integralCoordinates|
  |yCoordinates| |inverseIntegralMatrixAtInfinity| |integralMatrixAtInfinity|
  |inverseIntegralMatrix| |integralMatrix| |reduceBasisAtInfinity|
- |normalizeAtInfinity| |complementaryBasis| |integral?| |integralAtInfinity?|
- |integralBasisAtInfinity| |ramified?| |ramifiedAtInfinity?| |singular?|
- |singularAtInfinity?| |branchPoint?| |branchPointAtInfinity?| |rationalPoint?|
- |absolutelyIrreducible?| |genus| |getZechTable| |createZechTable|
- |createMultiplicationTable| |createMultiplicationMatrix|
- |createLowComplexityTable| |createLowComplexityNormalBasis| |fffg|
- |generalCoefficient| |ShiftAction| |ShiftC| |DiffAction| |DiffC|
- |qShiftAction| |qShiftC| |genVectorStream| |genVectorStream2|
- |generalInterpolation| |representationType| |createPrimitiveElement|
- |tableForDiscreteLogarithm| |factorsOfCyclicGroupSize| |sizeMultiplication|
- |getMultiplicationMatrix| |getMultiplicationTable| |primitive?|
- |numberOfIrreduciblePoly| |numberOfPrimitivePoly| |numberOfNormalPoly|
- |createIrreduciblePoly| |createPrimitivePoly| |createNormalPoly|
- |createNormalPrimitivePoly| |createPrimitiveNormalPoly| |nextIrreduciblePoly|
- |nextPrimitivePoly| |nextNormalPoly| |nextNormalPrimitivePoly|
- |nextPrimitiveNormalPoly| |leastAffineMultiple| |reducedQPowers|
- |rootOfIrreduciblePoly| |mapContra| |looseEquals| |diagramHeight|
- |diagramWidth| |deepDiagramSvg| |diagramsSvg| |diagramSvg| |subdiagramSvg|
- |isFunctional?| |distanceMatrix| |laplacianMatrix| |adjacencyMatrix|
- |incidenceMatrix| |isAcyclic?| |loopsArrows| |loopsAtNode| |loopsNodes|
- |spanningForestNode| |spanningTreeNode| |spanningForestArrow|
- |spanningTreeArrow| |routeArrows| |routeNodes| |arrowsToArrow|
- |arrowsFromArrow| |nodeToArrow| |nodeFromArrow| |arrowsToNode|
- |arrowsFromNode| |nodeToNode| |nodeFromNode| |outDegree| |inDegree|
- |getArrowIndex| |arrowName| |isFixPoint?| |isGreaterThan?|
+ |normalizeAtInfinity| |complementaryBasis| |integral?| |special_order|
+ |integralAtInfinity?| |integralBasisAtInfinity| |ramified?|
+ |ramifiedAtInfinity?| |singular?| |singularAtInfinity?| |branchPoint?|
+ |branchPointAtInfinity?| |rationalPoint?| |absolutelyIrreducible?| |genus|
+ |getZechTable| |createZechTable| |createMultiplicationTable|
+ |createMultiplicationMatrix| |createLowComplexityTable|
+ |createLowComplexityNormalBasis| |fffg| |generalCoefficient| |ShiftAction|
+ |ShiftC| |DiffAction| |DiffC| |qShiftAction| |qShiftC| |genVectorStream|
+ |genVectorStream2| |generalInterpolation| |representationType|
+ |createPrimitiveElement| |tableForDiscreteLogarithm|
+ |factorsOfCyclicGroupSize| |sizeMultiplication| |getMultiplicationMatrix|
+ |getMultiplicationTable| |primitive?| |numberOfIrreduciblePoly|
+ |numberOfPrimitivePoly| |numberOfNormalPoly| |createIrreduciblePoly|
+ |createPrimitivePoly| |createNormalPoly| |createNormalPrimitivePoly|
+ |createPrimitiveNormalPoly| |nextIrreduciblePoly| |nextPrimitivePoly|
+ |nextNormalPoly| |nextNormalPrimitivePoly| |nextPrimitiveNormalPoly|
+ |leastAffineMultiple| |reducedQPowers| |rootOfIrreduciblePoly| |mapContra|
+ |looseEquals| |diagramHeight| |diagramWidth| |deepDiagramSvg| |diagramsSvg|
+ |diagramSvg| |subdiagramSvg| |isFunctional?| |distanceMatrix|
+ |laplacianMatrix| |adjacencyMatrix| |incidenceMatrix| |isAcyclic?|
+ |loopsArrows| |loopsAtNode| |loopsNodes| |spanningForestNode|
+ |spanningTreeNode| |spanningForestArrow| |spanningTreeArrow| |routeArrows|
+ |routeNodes| |arrowsToArrow| |arrowsFromArrow| |nodeToArrow| |nodeFromArrow|
+ |arrowsToNode| |arrowsFromNode| |nodeToNode| |nodeFromNode| |outDegree|
+ |inDegree| |getArrowIndex| |arrowName| |isFixPoint?| |isGreaterThan?|
  |isDirectSuccessor?| |kgraph| |cycleClosed| |cycleOpen| |terminal| |initial|
  |getArrows| |getVertexIndex| |getVertices| |flush| |write!| |read!| |iomode|
  |reopen!| |open| |rightUnit| |leftUnit| |rightMinimalPolynomial|
