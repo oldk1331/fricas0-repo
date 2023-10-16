@@ -6015,7 +6015,7 @@ oleadingSupport`1`x`(_$)->S`cIndexedDirectProductCategory(A,S)``709903
 oleadingTerm`1`x`(_$)->Record(k:S,c:A)`cIndexedDirectProductCategory(A,S)``710072
 oleaf?`1`n`(_$)->Boolean`dSubSpace(n,R)``710225
 oleaf?`1`n`(A)->Boolean`xBinaryRecursiveAggregate&(A,S)``0
-oleaf?`1`n`(A)->Boolean`xLazyStreamAggregate&(A,S)``0
+oleaf?`1`n`(A)->Boolean`xRecursiveAggregate&(A,S)``0
 oleaf?`1`n`(A)->Boolean`xUnaryRecursiveAggregate&(A,S)``0
 oleaf?`1`x`(_$)->Boolean`cRecursiveAggregate(S)``710262
 oleastAffineMultiple`1`n`(SparseUnivariatePolynomial(GF))->SparseUnivariatePolynomial(GF)`pFiniteFieldPolynomialPackage(GF)``710323

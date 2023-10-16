@@ -20,53 +20,47 @@
 
 (SDEFUN |BTREE;empty?;$B;6| ((|t| $) ($ |Boolean|)) (NULL |t|)) 
 
-(SDEFUN |BTREE;leaf?;$B;7| ((|t| $) ($ |Boolean|))
-        (COND ((SPADCALL |t| (QREFELT $ 18)) 'T)
-              ((SPADCALL (SPADCALL |t| (QREFELT $ 19)) (QREFELT $ 18))
-               (SPADCALL (SPADCALL |t| (QREFELT $ 20)) (QREFELT $ 18)))
-              ('T NIL))) 
-
-(SDEFUN |BTREE;right;2$;8| ((|t| $) ($ $))
+(SDEFUN |BTREE;right;2$;7| ((|t| $) ($ $))
         (COND ((SPADCALL |t| (QREFELT $ 18)) (|error| "binaryTree:no right"))
               ('T (CDR |t|)))) 
 
-(SDEFUN |BTREE;left;2$;9| ((|t| $) ($ $))
+(SDEFUN |BTREE;left;2$;8| ((|t| $) ($ $))
         (COND ((SPADCALL |t| (QREFELT $ 18)) (|error| "binaryTree:no left"))
+              ('T (SPADCALL (|SPADfirst| |t|) (QREFELT $ 20))))) 
+
+(SDEFUN |BTREE;value;$S;9| ((|t| $) ($ S))
+        (COND ((SPADCALL |t| (QREFELT $ 18)) (|error| "binaryTree:no value"))
               ('T (SPADCALL (|SPADfirst| |t|) (QREFELT $ 22))))) 
 
-(SDEFUN |BTREE;value;$S;10| ((|t| $) ($ S))
-        (COND ((SPADCALL |t| (QREFELT $ 18)) (|error| "binaryTree:no value"))
-              ('T (SPADCALL (|SPADfirst| |t|) (QREFELT $ 23))))) 
-
-(SDEFUN |BTREE;setvalue!;$2S;11| ((|t| $) (|nd| S) ($ S))
+(SDEFUN |BTREE;setvalue!;$2S;10| ((|t| $) (|nd| S) ($ S))
         (SEQ
          (COND
           ((SPADCALL |t| (QREFELT $ 18))
            (|error| "binaryTree:no value to set"))
           ('T
-           (SEQ (SPADCALL (|SPADfirst| |t|) |nd| (QREFELT $ 25))
+           (SEQ (SPADCALL (|SPADfirst| |t|) |nd| (QREFELT $ 24))
                 (EXIT |nd|)))))) 
 
-(SDEFUN |BTREE;setleft!;3$;12| ((|t1| $) (|t2| $) ($ $))
+(SDEFUN |BTREE;setleft!;3$;11| ((|t1| $) (|t2| $) ($ $))
         (SEQ
          (COND
           ((SPADCALL |t1| (QREFELT $ 18))
            (|error| "binaryTree:no left to set"))
           ('T
-           (SEQ (SPADCALL (|SPADfirst| |t1|) |t2| (QREFELT $ 27))
+           (SEQ (SPADCALL (|SPADfirst| |t1|) |t2| (QREFELT $ 26))
                 (EXIT |t1|)))))) 
 
-(SDEFUN |BTREE;setright!;3$;13| ((|t1| $) (|t2| $) ($ $))
+(SDEFUN |BTREE;setright!;3$;12| ((|t1| $) (|t2| $) ($ $))
         (COND
          ((SPADCALL |t1| (QREFELT $ 18))
           (|error| "binaryTree:no right to set"))
-         ('T (SPADCALL |t1| |t2| (QREFELT $ 29))))) 
+         ('T (SPADCALL |t1| |t2| (QREFELT $ 28))))) 
 
 (DECLAIM (NOTINLINE |BinaryTree;|)) 
 
-(DEFUN |BinaryTree| (#1=#:G140)
+(DEFUN |BinaryTree| (#1=#:G135)
   (SPROG NIL
-         (PROG (#2=#:G141)
+         (PROG (#2=#:G136)
            (RETURN
             (COND
              ((LETT #2#
@@ -83,12 +77,12 @@
 
 (DEFUN |BinaryTree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G137 NIL) (#2=#:G138 NIL) (#3=#:G139 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G132 NIL) (#2=#:G133 NIL) (#3=#:G134 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|BinaryTree|))
     (LETT |dv$| (LIST '|BinaryTree| DV$1) . #4#)
-    (LETT $ (GETREFV 45) . #4#)
+    (LETT $ (GETREFV 44) . #4#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -140,15 +134,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|Boolean|) (0 . =)
               |BTREE;=;2$B;1| |BTREE;empty;$;2| (|List| $) (|Tree| 6)
               (6 . |tree|) |BTREE;node;$S2$;3| |BTREE;binaryTree;$S2$;4|
-              |BTREE;binaryTree;S$;5| |BTREE;empty?;$B;6| |BTREE;left;2$;9|
-              |BTREE;right;2$;8| |BTREE;leaf?;$B;7| (12 . |children|)
-              (17 . |value|) |BTREE;value;$S;10| (22 . |setvalue!|)
-              |BTREE;setvalue!;$2S;11| (28 . |setchildren!|)
-              |BTREE;setleft!;3$;12| (34 . |setrest!|) |BTREE;setright!;3$;13|
-              (|NonNegativeInteger|) (|List| 6) (|Equation| 6) (|List| 33)
-              (|Mapping| 8 6) '"right" '"left" '"value" (|Mapping| 6 6)
-              (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
-              (|Integer|))
+              |BTREE;binaryTree;S$;5| |BTREE;empty?;$B;6| |BTREE;right;2$;7|
+              (12 . |children|) |BTREE;left;2$;8| (17 . |value|)
+              |BTREE;value;$S;9| (22 . |setvalue!|) |BTREE;setvalue!;$2S;10|
+              (28 . |setchildren!|) |BTREE;setleft!;3$;11| (34 . |setrest!|)
+              |BTREE;setright!;3$;12| (|NonNegativeInteger|) (|List| 6)
+              (|Equation| 6) (|List| 32) (|Mapping| 8 6) '"right" '"left"
+              '"value" (|Mapping| 6 6) (|OutputForm|) (|HashState|)
+              (|SingleInteger|) (|String|) (|Integer|))
            '#(~= 40 |value| 46 |size?| 51 |setvalue!| 57 |setright!| 63
               |setleft!| 69 |setelt!| 75 |setchildren!| 96 |sample| 102 |right|
               106 |parts| 111 |nodes| 116 |node?| 121 |node| 127 |more?| 134
@@ -170,26 +163,26 @@
                       (|RecursiveAggregate| 6) (|HomogeneousAggregate| 6)
                       (|Aggregate|) (|Evalable| 6) (|SetCategory|) (|Type|)
                       (|finiteAggregate|) (|shallowlyMutable|)
-                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 40))
-                   (|makeByteWordVec2| 44
+                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 39))
+                   (|makeByteWordVec2| 43
                                        '(2 7 8 0 0 9 2 13 0 6 12 14 1 13 12 0
-                                         22 1 13 6 0 23 2 13 6 0 6 25 2 13 0 0
-                                         12 27 2 7 0 0 0 29 2 9 8 0 0 1 1 0 6 0
-                                         24 2 0 8 0 31 1 2 10 6 0 6 26 2 10 0 0
-                                         0 30 2 10 0 0 0 28 3 10 0 0 36 0 1 3
-                                         10 0 0 37 0 1 3 10 6 0 38 6 1 2 10 0 0
-                                         12 1 0 0 0 1 1 0 0 0 20 1 7 32 0 1 1 0
+                                         20 1 13 6 0 22 2 13 6 0 6 24 2 13 0 0
+                                         12 26 2 7 0 0 0 28 2 9 8 0 0 1 1 0 6 0
+                                         23 2 0 8 0 30 1 2 10 6 0 6 25 2 10 0 0
+                                         0 29 2 10 0 0 0 27 3 10 0 0 35 0 1 3
+                                         10 0 0 36 0 1 3 10 6 0 37 6 1 2 10 0 0
+                                         12 1 0 0 0 1 1 0 0 0 19 1 7 31 0 1 1 0
                                          12 0 1 2 3 8 0 0 1 3 0 0 0 6 0 15 2 0
-                                         8 0 31 1 1 7 32 0 1 2 8 8 6 0 1 2 10 0
-                                         39 0 1 2 0 0 39 0 1 2 0 8 0 31 1 1 0 0
-                                         0 19 1 0 32 0 1 1 0 8 0 21 1 1 43 0 1
-                                         2 1 41 41 0 1 1 1 42 0 1 2 7 8 35 0 1
-                                         3 2 0 0 6 6 1 3 2 0 0 32 32 1 2 2 0 0
-                                         33 1 2 2 0 0 34 1 2 0 8 0 0 1 1 0 8 0
-                                         18 0 0 0 11 2 0 0 0 36 1 2 0 0 0 37 1
-                                         2 0 6 0 38 1 2 0 44 0 0 1 1 0 8 0 1 2
-                                         8 31 6 0 1 2 7 31 35 0 1 1 0 0 0 1 1 5
-                                         40 0 1 1 0 12 0 1 2 3 8 0 0 1 3 0 0 0
-                                         6 0 16 1 0 0 6 17 2 7 8 35 0 1 2 9 8 0
-                                         0 10 1 7 31 0 1)))))
+                                         8 0 30 1 1 7 31 0 1 2 8 8 6 0 1 2 10 0
+                                         38 0 1 2 0 0 38 0 1 2 0 8 0 30 1 1 0 0
+                                         0 21 1 0 31 0 1 1 0 8 0 1 1 1 42 0 1 2
+                                         1 40 40 0 1 1 1 41 0 1 2 7 8 34 0 1 3
+                                         2 0 0 6 6 1 3 2 0 0 31 31 1 2 2 0 0 32
+                                         1 2 2 0 0 33 1 2 0 8 0 0 1 1 0 8 0 18
+                                         0 0 0 11 2 0 0 0 35 1 2 0 0 0 36 1 2 0
+                                         6 0 37 1 2 0 43 0 0 1 1 0 8 0 1 2 8 30
+                                         6 0 1 2 7 30 34 0 1 1 0 0 0 1 1 5 39 0
+                                         1 1 0 12 0 1 2 3 8 0 0 1 3 0 0 0 6 0
+                                         16 1 0 0 6 17 2 7 8 34 0 1 2 9 8 0 0
+                                         10 1 7 30 0 1)))))
            '|lookupComplete|)) 

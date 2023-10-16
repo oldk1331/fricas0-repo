@@ -6,10 +6,11 @@
         (SPADCALL |x| (QREFELT $ 11))) 
 
 (SDEFUN |BRAGG-;leaf?;AB;3| ((|x| A) ($ |Boolean|))
-        (COND ((SPADCALL |x| (QREFELT $ 15)) 'T)
-              ((SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 15))
-               (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15)))
-              ('T NIL))) 
+        (COND
+         ((OR (SPADCALL |x| (QREFELT $ 15))
+              (NULL (SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 15))))
+          NIL)
+         ('T (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15))))) 
 
 (SDEFUN |BRAGG-;leaves;AL;4| ((|t| A) ($ |List| S))
         (COND ((SPADCALL |t| (QREFELT $ 15)) NIL)
