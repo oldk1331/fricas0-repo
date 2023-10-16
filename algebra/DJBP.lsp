@@ -87,8 +87,8 @@
 
 (SDEFUN |DJBP;variables;$L;9| ((|p| $) ($ |List| JB))
         (SPROG
-         ((#1=#:G176 NIL) (|jv| NIL) (#2=#:G177 NIL) (|i| NIL) (#3=#:G175 NIL)
-          (#4=#:G174 NIL) (|tdeg| (E))
+         ((#1=#:G178 NIL) (|jv| NIL) (#2=#:G179 NIL) (|i| NIL) (#3=#:G177 NIL)
+          (#4=#:G176 NIL) (|tdeg| (E))
           (|maxdeg| (|Vector| (|NonNegativeInteger|))))
          (SEQ (LETT |maxdeg| (SPADCALL (QREFELT $ 13) 0 (QREFELT $ 40)))
               (SEQ G190
@@ -131,8 +131,8 @@
 
 (SDEFUN |DJBP;coerce;$Of;10| ((|p| $) ($ |OutputForm|))
         (SPROG
-         ((|lt| #1=(|List| (|OutputForm|))) (|l| #1#) (#2=#:G194 NIL) (|i| NIL)
-          (#3=#:G193 NIL) (|t| NIL))
+         ((|lt| #1=(|List| (|OutputForm|))) (|l| #1#) (#2=#:G196 NIL) (|i| NIL)
+          (#3=#:G195 NIL) (|t| NIL))
          (SEQ
           (COND
            ((SPADCALL |p| (QREFELT $ 29))
@@ -280,8 +280,8 @@
 (SDEFUN |DJBP;univariate;$JBSup;16|
         ((|p| $) (|jv| JB) ($ |SparseUnivariatePolynomial| $))
         (SPROG
-         ((|nexp| (E)) (|deg| (|NonNegativeInteger|)) (#1=#:G233 NIL)
-          (#2=#:G235 NIL) (|i| NIL) (#3=#:G234 NIL)
+         ((|nexp| (E)) (|deg| (|NonNegativeInteger|)) (#1=#:G235 NIL)
+          (#2=#:G237 NIL) (|i| NIL) (#3=#:G236 NIL)
           (|j| (|NonNegativeInteger|)) (|exp| (E)))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 29)) (|spadConstant| $ 88))
@@ -386,8 +386,8 @@
 
 (SDEFUN |DJBP;totalDegree;$Nni;20| ((|p| $) ($ |NonNegativeInteger|))
         (SPROG
-         ((#1=#:G251 NIL) (#2=#:G250 #3=(|NonNegativeInteger|)) (#4=#:G252 #3#)
-          (#5=#:G257 NIL) (|t| NIL))
+         ((#1=#:G253 NIL) (#2=#:G252 #3=(|NonNegativeInteger|)) (#4=#:G254 #3#)
+          (#5=#:G259 NIL) (|t| NIL))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 29)) 0)
                 (#6='T
@@ -414,7 +414,7 @@
 
 (SDEFUN |DJBP;degree;$LL;22|
         ((|p| $) (|ljv| |List| JB) ($ |List| (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G262 NIL) (|jv| NIL) (#2=#:G261 NIL))
+        (SPROG ((#1=#:G264 NIL) (|jv| NIL) (#2=#:G263 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -435,7 +435,7 @@
 
 (SDEFUN |DJBP;minimumDegree;$LL;24|
         ((|p| $) (|ljv| |List| JB) ($ |List| (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G267 NIL) (|jv| NIL) (#2=#:G266 NIL))
+        (SPROG ((#1=#:G269 NIL) (|jv| NIL) (#2=#:G268 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -514,7 +514,7 @@
 (SDEFUN |DJBP;eval;$LL$;29|
         ((|p| $) (|Ljvar| |List| JB) (|Lpval| |List| $) ($ $))
         (SPROG
-         ((|nlpval| (|List| $)) (#1=#:G287 NIL) (|mvar| NIL) (#2=#:G286 NIL)
+         ((|nlpval| (|List| $)) (#1=#:G289 NIL) (|mvar| NIL) (#2=#:G288 NIL)
           (|nljvar| (|List| JB)))
          (SEQ
           (LETT |nljvar|
@@ -557,7 +557,7 @@
 
 (SDEFUN |DJBP;content;$R;32| ((|p| $) ($ R))
         (SPROG
-         ((#1=#:G291 NIL) (#2=#:G290 (R)) (#3=#:G292 (R)) (#4=#:G295 NIL)
+         ((#1=#:G293 NIL) (#2=#:G292 (R)) (#3=#:G294 (R)) (#4=#:G297 NIL)
           (|t| NIL))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 29)) (|spadConstant| $ 39))
@@ -696,9 +696,9 @@
 
 (DECLAIM (NOTINLINE |DistributedJetBundlePolynomial;|)) 
 
-(DEFUN |DistributedJetBundlePolynomial| (&REST #1=#:G355)
+(DEFUN |DistributedJetBundlePolynomial| (&REST #1=#:G357)
   (SPROG NIL
-         (PROG (#2=#:G356)
+         (PROG (#2=#:G358)
            (RETURN
             (COND
              ((LETT #2#
@@ -720,9 +720,9 @@
 
 (DEFUN |DistributedJetBundlePolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((#1=#:G354 NIL) (|jv| NIL) (#2=#:G353 NIL) (#3=#:G352 NIL) (|pv$| NIL)
-    (#4=#:G344 NIL) (#5=#:G345 NIL) (#6=#:G346 NIL) (#7=#:G347 NIL)
-    (#8=#:G348 NIL) (#9=#:G349 NIL) (#10=#:G350 NIL) (#11=#:G351 NIL) ($ NIL)
+   ((#1=#:G356 NIL) (|jv| NIL) (#2=#:G355 NIL) (#3=#:G354 NIL) (|pv$| NIL)
+    (#4=#:G346 NIL) (#5=#:G347 NIL) (#6=#:G348 NIL) (#7=#:G349 NIL)
+    (#8=#:G350 NIL) (#9=#:G351 NIL) (#10=#:G352 NIL) (#11=#:G353 NIL) ($ NIL)
     (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN

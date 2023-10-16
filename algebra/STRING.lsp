@@ -37,7 +37,7 @@
 
 (DEFUN |String| ()
   (SPROG NIL
-         (PROG (#1=#:G1897)
+         (PROG (#1=#:G1900)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|String|))
@@ -52,7 +52,7 @@
                 (COND ((NOT #1#) (HREM |$ConstructorCache| '|String|)))))))))) 
 
 (DEFUN |String;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (#1=#:G1895 NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) ($ NIL) (#1=#:G1898 NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|String|))
           (LETT $ (GETREFV 40))
@@ -119,7 +119,7 @@
               (11 . |OMputEndObject|) (|Boolean|) |STRING;OMwrite;Omd$BV;4|
               (|InputForm|) |STRING;convert;$If;5| (|Character|)
               |STRING;qelt;$IC;6| |STRING;qsetelt!;$I2C;7| (|List| 21)
-              (|Equation| 21) (|List| 25) (|Mapping| 21 21 21)
+              (|List| 26) (|Equation| 21) (|Mapping| 21 21 21)
               (|NonNegativeInteger|) (|Mapping| 17 21 21) (|Mapping| 17 21)
               (|UniversalSegment| 6) (|Mapping| 21 21) (|OutputForm|)
               (|HashState|) (|SingleInteger|) (|CharacterClass|) (|List| $)

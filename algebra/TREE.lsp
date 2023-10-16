@@ -1011,9 +1011,9 @@
 
 (DECLAIM (NOTINLINE |Tree;|)) 
 
-(DEFUN |Tree| (#1=#:G428)
+(DEFUN |Tree| (#1=#:G429)
   (SPROG NIL
-         (PROG (#2=#:G429)
+         (PROG (#2=#:G430)
            (RETURN
             (COND
              ((LETT #2#
@@ -1028,12 +1028,12 @@
 
 (DEFUN |Tree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G425 NIL) (#2=#:G426 NIL) (#3=#:G427 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G426 NIL) (#2=#:G427 NIL) (#3=#:G428 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Tree| DV$1))
-    (LETT $ (GETREFV 93))
+    (LETT $ (GETREFV 94))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -1048,6 +1048,7 @@
                                                               (|devaluate|
                                                                |#1|)))
                                          #3#)
+                                        (|HasCategory| |#1| '(|OrderedSet|))
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|BasicType|)))
@@ -1066,12 +1067,14 @@
     (|haddProp| |$ConstructorCache| '|Tree| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 128))
+    (AND (|HasCategory| |#1| '(|OrderedSet|))
+         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 256))
     (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 128))
+         (|augmentPredVector| $ 512))
     (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
-         (|augmentPredVector| $ 256))
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 512))
+         (|augmentPredVector| $ 1024))
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 2048))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 7
               (|Union|
@@ -1107,19 +1110,19 @@
               (112 . |elt|) (118 . |coerce|) (123 . |overlabel|)
               |TREE;cyclicEntries;$L;45| |TREE;cyclicCopy;2$;41| (129 . |eq?|)
               (135 . ~=) |TREE;cyclicEqual?;2$B;47| (141 . |elt|) (147 . ~=)
-              (153 . |rest|) (158 . |first|) (|List| 90) (|Equation| 6)
-              '"value" (|SingleInteger|))
+              (153 . |rest|) (158 . |first|) (|Equation| 6) (|List| 89)
+              (|Mapping| 8 6 6) '"value" (|SingleInteger|))
            '#(~= 163 |value| 169 |tree| 174 |size?| 190 |setvalue!| 196
               |setelt!| 202 |setchildren!| 209 |sample| 215 |parts| 219 |nodes|
-              224 |node?| 229 |more?| 235 |members| 241 |member?| 246 |map!|
-              252 |map| 258 |less?| 264 |leaves| 270 |leaf?| 275 |latex| 280
-              |hashUpdate!| 285 |hash| 291 |every?| 296 |eval| 302 |eq?| 328
-              |empty?| 334 |empty| 339 |elt| 343 |distance| 349 |cyclicParents|
-              355 |cyclicEqual?| 360 |cyclicEntries| 366 |cyclicCopy| 371
-              |cyclic?| 376 |count| 381 |copy| 393 |coerce| 398 |children| 403
-              |child?| 408 |any?| 414 = 420 |#| 426)
+              224 |node?| 229 |more?| 235 |min| 241 |members| 246 |member?| 251
+              |max| 257 |map!| 268 |map| 274 |less?| 280 |leaves| 286 |leaf?|
+              291 |latex| 296 |hashUpdate!| 301 |hash| 307 |every?| 312 |eval|
+              318 |eq?| 344 |empty?| 350 |empty| 355 |elt| 359 |distance| 365
+              |cyclicParents| 371 |cyclicEqual?| 376 |cyclicEntries| 382
+              |cyclicCopy| 387 |cyclic?| 392 |count| 397 |copy| 409 |coerce|
+              414 |children| 419 |child?| 424 |any?| 430 = 436 |#| 442)
            'NIL
-           (CONS (|makeByteWordVec2| 6 '(0 0 0 2 1 0 0 0 2 4 6))
+           (CONS (|makeByteWordVec2| 7 '(0 0 0 2 1 0 0 0 2 5 7))
                  (CONS
                   '#(|RecursiveAggregate&| |HomogeneousAggregate&| |Aggregate&|
                      |Evalable&| |SetCategory&| NIL NIL NIL |InnerEvalable&|
@@ -1129,7 +1132,7 @@
                       (|Aggregate|) (|Evalable| 6) (|SetCategory|) (|Type|)
                       (|shallowlyMutable|) (|finiteAggregate|)
                       (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 67))
-                   (|makeByteWordVec2| 92
+                   (|makeByteWordVec2| 93
                                        '(2 6 8 0 0 18 2 28 8 2 0 29 2 32 8 0 0
                                          33 2 28 8 36 0 37 1 28 8 0 38 2 26 0 0
                                          0 41 2 15 8 0 0 44 0 28 0 46 2 48 8 0
@@ -1140,21 +1143,22 @@
                                          75 2 70 76 0 32 77 1 76 67 0 78 2 67 0
                                          0 0 79 2 0 8 0 0 82 2 32 8 0 0 83 2 28
                                          2 0 32 85 2 6 8 0 0 86 1 28 0 0 87 1
-                                         28 2 0 88 2 9 8 0 0 1 1 0 6 0 17 1 0 0
-                                         26 27 1 0 0 6 25 2 0 0 6 11 23 2 0 8 0
-                                         15 52 2 10 6 0 6 14 3 10 6 0 91 6 1 2
-                                         10 0 0 11 13 0 0 0 1 1 7 26 0 56 1 0
-                                         11 0 47 2 3 8 0 0 35 2 0 8 0 15 45 1 7
-                                         26 0 57 2 8 8 6 0 55 2 10 0 21 0 24 2
-                                         0 0 21 0 22 2 0 8 0 15 43 1 0 26 0 40
-                                         1 0 8 0 39 1 1 70 0 1 2 1 60 60 0 62 1
-                                         1 92 0 1 2 7 8 19 0 54 3 2 0 0 26 26 1
-                                         3 2 0 0 6 6 1 2 2 0 0 89 1 2 2 0 0 90
-                                         1 2 0 8 0 0 82 1 0 8 0 9 0 0 0 10 2 0
-                                         6 0 91 1 2 0 32 0 0 34 1 0 11 0 66 2 0
-                                         8 0 0 84 1 0 11 0 80 1 0 0 0 81 1 0 8
-                                         0 63 2 8 15 6 0 16 2 7 15 19 0 20 1 0
-                                         0 0 65 1 5 67 0 68 1 0 11 0 12 2 3 8 0
-                                         0 30 2 7 8 19 0 53 2 9 8 0 0 31 1 7 15
+                                         28 2 0 88 2 11 8 0 0 1 1 0 6 0 17 1 0
+                                         0 26 27 1 0 0 6 25 2 0 0 6 11 23 2 0 8
+                                         0 15 52 2 12 6 0 6 14 3 12 6 0 92 6 1
+                                         2 12 0 0 11 13 0 0 0 1 1 8 26 0 56 1 0
+                                         11 0 47 2 4 8 0 0 35 2 0 8 0 15 45 1 9
+                                         6 0 1 1 8 26 0 57 2 10 8 6 0 55 1 9 6
+                                         0 1 2 8 6 91 0 1 2 12 0 21 0 24 2 0 0
+                                         21 0 22 2 0 8 0 15 43 1 0 26 0 40 1 0
+                                         8 0 39 1 1 70 0 1 2 1 60 60 0 62 1 1
+                                         93 0 1 2 8 8 19 0 54 3 2 0 0 6 6 1 3 2
+                                         0 0 26 26 1 2 2 0 0 89 1 2 2 0 0 90 1
+                                         2 0 8 0 0 82 1 0 8 0 9 0 0 0 10 2 0 6
+                                         0 92 1 2 0 32 0 0 34 1 0 11 0 66 2 0 8
+                                         0 0 84 1 0 11 0 80 1 0 0 0 81 1 0 8 0
+                                         63 2 10 15 6 0 16 2 8 15 19 0 20 1 0 0
+                                         0 65 1 6 67 0 68 1 0 11 0 12 2 4 8 0 0
+                                         30 2 8 8 19 0 53 2 11 8 0 0 31 1 8 15
                                          0 42)))))
            '|lookupComplete|)) 

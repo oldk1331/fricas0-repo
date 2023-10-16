@@ -86,7 +86,7 @@
 
 (DEFUN |Result| ()
   (SPROG NIL
-         (PROG (#1=#:G181)
+         (PROG (#1=#:G187)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Result|))
@@ -102,11 +102,11 @@
 
 (DEFUN |Result;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G177 NIL) (#2=#:G176 NIL) (|pv$| NIL)
-    (#3=#:G178 NIL) (#4=#:G179 NIL))
+   ((|dv$| NIL) ($ NIL) (#1=#:G183 NIL) (#2=#:G182 NIL) (|pv$| NIL)
+    (#3=#:G184 NIL) (#4=#:G185 NIL))
    (PROGN
     (LETT |dv$| '(|Result|))
-    (LETT $ (GETREFV 59))
+    (LETT $ (GETREFV 61))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -116,6 +116,10 @@
                                          (|Record| (|:| |key| (|Symbol|))
                                                    (|:| |entry| (|Any|)))
                                          '(|ConvertibleTo| (|InputForm|)))
+                                        (|HasCategory|
+                                         (|Record| (|:| |key| (|Symbol|))
+                                                   (|:| |entry| (|Any|)))
+                                         '(|OrderedSet|))
                                         (|HasCategory|
                                          (|Record| (|:| |key| (|Symbol|))
                                                    (|:| |entry| (|Any|)))
@@ -169,20 +173,26 @@
                                           (|Record| (|:| |key| (|Symbol|))
                                                     (|:| |entry| (|Any|)))
                                           '(|CoercibleTo| (|OutputForm|)))
-                                         #2#)))))
+                                         #2#)
+                                        (|HasCategory| (|Any|)
+                                                       '(|OrderedSet|))))))
     (|haddProp| |$ConstructorCache| '|Result| NIL (CONS 1 $))
     (|stuffDomainSlots| $)
     (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 4096))
+         (|augmentPredVector| $ 16384))
+    (AND #3#
+         (|HasCategory| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|Any|)))
+                        '(|OrderedSet|))
+         (|augmentPredVector| $ 32768))
     (AND #3#
          (|HasCategory| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|Any|)))
                         '(|BasicType|))
-         (|augmentPredVector| $ 8192))
+         (|augmentPredVector| $ 65536))
     (AND
      (LETT #4#
            (AND (|HasCategory| $ '(|finiteAggregate|))
                 (|HasCategory| (|Any|) '(|BasicType|))))
-     (|augmentPredVector| $ 16384))
+     (|augmentPredVector| $ 131072))
     (AND
      (OR #4#
          (AND #3#
@@ -190,8 +200,11 @@
                (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|Any|)))
                '(|BasicType|)))
          #1# #2#)
-     (|augmentPredVector| $ 32768))
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 65536))
+     (|augmentPredVector| $ 262144))
+    (AND #3# (|HasCategory| (|Any|) '(|OrderedSet|))
+         (|augmentPredVector| $ 524288))
+    (AND (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| $ 1048576))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 9 (SPADCALL '|: | (QREFELT $ 8)))
     (QSETREFV $ 10 (SPADCALL '|...| (QREFELT $ 8)))
@@ -210,20 +223,21 @@
               (56 . =) (62 . |dom|) (67 . |hconcat|) (|List| 7) (72 . |keys|)
               (77 . |elt|) (83 . |bracket|) |RESULT;coerce;$Of;4|
               |RESULT;showArrayValues;2B;5| |RESULT;showScalarValues;2B;6|
-              (|Equation| 25) (|List| 38) (|List| 25)
+              (|List| 39) (|Equation| 25) (|List| 25)
               (|Record| (|:| |key| 7) (|:| |entry| 25)) (|List| 41)
               (|Equation| 41) (|List| 43) (|NonNegativeInteger|)
-              (|Mapping| 41 41 41) (|String|) (|SingleInteger|) (|HashState|)
-              (|InputForm|) (|Mapping| 13 25) (|Mapping| 13 41)
-              (|Mapping| 25 25) (|Void|) (|Mapping| 41 41) (|Mapping| 25 25 25)
-              (|Union| 25 '"failed") (|Union| 41 '"failed"))
+              (|Mapping| 41 41 41) (|HashState|) (|String|) (|SingleInteger|)
+              (|InputForm|) (|Mapping| 13 25) (|Mapping| 13 25 25)
+              (|Mapping| 13 41) (|Mapping| 13 41 41) (|Mapping| 25 25) (|Void|)
+              (|Mapping| 41 41) (|Mapping| 25 25 25) (|Union| 25 '"failed")
+              (|Union| 41 '"failed"))
            '#(|showScalarValues| 88 |showArrayValues| 93 |keys| 98 |elt| 103
               |coerce| 109)
            'NIL
            (CONS
-            (|makeByteWordVec2| 12
-                                '(0 0 0 0 0 0 0 0 0 0 0 9 7 11 0 0 0 0 9 1 7 10
-                                  12))
+            (|makeByteWordVec2| 13
+                                '(0 0 0 0 0 0 0 0 0 0 0 10 8 12 0 0 0 0 10 1 8
+                                  11 13))
             (CONS
              '#(|TableAggregate&| |KeyedDictionary&| |Dictionary&|
                 |DictionaryOperations&| |BagAggregate&| |Collection&|
@@ -249,7 +263,7 @@
                                     7 27 2 14 13 0 0 28 1 25 14 0 29 1 6 0 22
                                     30 1 0 31 0 32 2 0 25 0 7 33 1 6 0 22 34 1
                                     0 13 13 37 1 0 13 13 36 1 0 31 0 32 2 0 25
-                                    0 7 33 1 4 6 0 35)))))
+                                    0 7 33 1 5 6 0 35)))))
            '|lookupIncomplete|)) 
 
 (MAKEPROP '|Result| 'NILADIC T) 

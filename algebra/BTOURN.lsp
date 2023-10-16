@@ -34,9 +34,9 @@
 
 (DECLAIM (NOTINLINE |BinaryTournament;|)) 
 
-(DEFUN |BinaryTournament| (#1=#:G122)
+(DEFUN |BinaryTournament| (#1=#:G123)
   (SPROG NIL
-         (PROG (#2=#:G123)
+         (PROG (#2=#:G124)
            (RETURN
             (COND
              ((LETT #2#
@@ -53,12 +53,12 @@
 
 (DEFUN |BinaryTournament;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G119 NIL) (#2=#:G120 NIL) (#3=#:G121 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G120 NIL) (#2=#:G121 NIL) (#3=#:G122 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|BinaryTournament| DV$1))
-    (LETT $ (GETREFV 36))
+    (LETT $ (GETREFV 37))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -73,6 +73,7 @@
                                                               (|devaluate|
                                                                |#1|)))
                                          #3#)
+                                        (|HasCategory| |#1| '(|OrderedSet|))
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|BasicType|)))
@@ -91,12 +92,14 @@
     (|haddProp| |$ConstructorCache| '|BinaryTournament| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 128))
+    (AND (|HasCategory| |#1| '(|OrderedSet|))
+         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 256))
     (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 128))
+         (|augmentPredVector| $ 512))
     (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
-         (|augmentPredVector| $ 256))
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 512))
+         (|augmentPredVector| $ 1024))
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 2048))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 7 (|BinaryTree| |#1|))
     $))) 
@@ -108,21 +111,22 @@
               (|List| 6) |BTOURN;binaryTournament;L$;1| (|Boolean|)
               (9 . |empty?|) (14 . |value|) (19 . >) (25 . |copy|)
               (30 . |setleft!|) (36 . |setvalue!|) (42 . |setright!|)
-              (48 . |right|) (|NonNegativeInteger|) (|Equation| 6) (|List| 23)
-              (|Mapping| 13 6) '"right" '"left" '"value" (|List| $)
-              (|Mapping| 6 6) (|OutputForm|) (|HashState|) (|SingleInteger|)
-              (|String|) (|Integer|))
+              (48 . |right|) (|NonNegativeInteger|) (|List| 24) (|Equation| 6)
+              (|Mapping| 13 6 6) (|Mapping| 13 6) '"right" '"left" '"value"
+              (|List| $) (|Mapping| 6 6) (|OutputForm|) (|SingleInteger|)
+              (|String|) (|HashState|) (|Integer|))
            '#(~= 53 |value| 59 |size?| 64 |setvalue!| 70 |setright!| 76
               |setleft!| 82 |setelt!| 88 |setchildren!| 109 |sample| 115
               |right| 119 |parts| 124 |nodes| 129 |node?| 134 |node| 140
-              |more?| 147 |members| 153 |member?| 158 |map!| 164 |map| 170
-              |less?| 176 |left| 182 |leaves| 187 |leaf?| 192 |latex| 197
-              |insert!| 202 |hashUpdate!| 208 |hash| 214 |every?| 219 |eval|
-              225 |eq?| 251 |empty?| 257 |empty| 262 |elt| 266 |distance| 284
-              |cyclic?| 290 |count| 295 |copy| 307 |coerce| 312 |children| 317
-              |child?| 322 |binaryTournament| 328 |any?| 333 = 339 |#| 345)
+              |more?| 147 |min| 153 |members| 158 |member?| 163 |max| 169
+              |map!| 180 |map| 186 |less?| 192 |left| 198 |leaves| 203 |leaf?|
+              208 |latex| 213 |insert!| 218 |hashUpdate!| 224 |hash| 230
+              |every?| 235 |eval| 241 |eq?| 267 |empty?| 273 |empty| 278 |elt|
+              282 |distance| 300 |cyclic?| 306 |count| 311 |copy| 323 |coerce|
+              328 |children| 333 |child?| 338 |binaryTournament| 344 |any?| 349
+              = 355 |#| 361)
            'NIL
-           (CONS (|makeByteWordVec2| 6 '(0 0 0 0 0 2 1 0 0 0 2 4 6))
+           (CONS (|makeByteWordVec2| 7 '(0 0 0 0 0 2 1 0 0 0 2 5 7))
                  (CONS
                   '#(|BinaryTreeCategory&| |BinaryRecursiveAggregate&|
                      |RecursiveAggregate&| |HomogeneousAggregate&| |Aggregate&|
@@ -133,27 +137,28 @@
                       (|RecursiveAggregate| 6) (|HomogeneousAggregate| 6)
                       (|Aggregate|) (|Evalable| 6) (|SetCategory|) (|Type|)
                       (|finiteAggregate|) (|shallowlyMutable|)
-                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 31))
-                   (|makeByteWordVec2| 35
+                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 32))
+                   (|makeByteWordVec2| 36
                                        '(0 0 0 8 1 7 0 6 9 1 0 13 0 14 1 0 6 0
                                          15 2 6 13 0 0 16 1 0 0 0 17 2 0 0 0 0
                                          18 2 0 6 0 6 19 2 0 0 0 0 20 1 0 0 0
-                                         21 2 9 13 0 0 1 1 0 6 0 15 2 0 13 0 22
-                                         1 2 10 6 0 6 19 2 10 0 0 0 20 2 10 0 0
-                                         0 18 3 10 0 0 26 0 1 3 10 0 0 27 0 1 3
-                                         10 6 0 28 6 1 2 10 0 0 29 1 0 0 0 1 1
-                                         0 0 0 21 1 7 11 0 1 1 0 29 0 1 2 3 13
-                                         0 0 1 3 0 0 0 6 0 1 2 0 13 0 22 1 1 7
-                                         11 0 1 2 8 13 6 0 1 2 10 0 30 0 1 2 0
-                                         0 30 0 1 2 0 13 0 22 1 1 0 0 0 1 1 0
-                                         11 0 1 1 0 13 0 1 1 1 34 0 1 2 0 0 6 0
-                                         10 2 1 32 32 0 1 1 1 33 0 1 2 7 13 25
-                                         0 1 3 2 0 0 6 6 1 3 2 0 0 11 11 1 2 2
-                                         0 0 23 1 2 2 0 0 24 1 2 0 13 0 0 1 1 0
-                                         13 0 14 0 0 0 8 2 0 0 0 26 1 2 0 0 0
-                                         27 1 2 0 6 0 28 1 2 0 35 0 0 1 1 0 13
-                                         0 1 2 8 22 6 0 1 2 7 22 25 0 1 1 0 0 0
-                                         17 1 5 31 0 1 1 0 29 0 1 2 3 13 0 0 1
-                                         1 0 0 11 12 2 7 13 25 0 1 2 9 13 0 0 1
-                                         1 7 22 0 1)))))
+                                         21 2 11 13 0 0 1 1 0 6 0 15 2 0 13 0
+                                         22 1 2 12 6 0 6 19 2 12 0 0 0 20 2 12
+                                         0 0 0 18 3 12 0 0 27 0 1 3 12 0 0 28 0
+                                         1 3 12 6 0 29 6 1 2 12 0 0 30 1 0 0 0
+                                         1 1 0 0 0 21 1 8 11 0 1 1 0 30 0 1 2 4
+                                         13 0 0 1 3 0 0 0 6 0 1 2 0 13 0 22 1 1
+                                         9 6 0 1 1 8 11 0 1 2 10 13 6 0 1 1 9 6
+                                         0 1 2 8 6 25 0 1 2 12 0 31 0 1 2 0 0
+                                         31 0 1 2 0 13 0 22 1 1 0 0 0 1 1 0 11
+                                         0 1 1 0 13 0 1 1 1 34 0 1 2 0 0 6 0 10
+                                         2 1 35 35 0 1 1 1 33 0 1 2 8 13 26 0 1
+                                         3 2 0 0 6 6 1 3 2 0 0 11 11 1 2 2 0 0
+                                         23 1 2 2 0 0 24 1 2 0 13 0 0 1 1 0 13
+                                         0 14 0 0 0 8 2 0 0 0 27 1 2 0 0 0 28 1
+                                         2 0 6 0 29 1 2 0 36 0 0 1 1 0 13 0 1 2
+                                         10 22 6 0 1 2 8 22 26 0 1 1 0 0 0 17 1
+                                         6 32 0 1 1 0 30 0 1 2 4 13 0 0 1 1 0 0
+                                         11 12 2 8 13 26 0 1 2 11 13 0 0 1 1 8
+                                         22 0 1)))))
            '|lookupComplete|)) 

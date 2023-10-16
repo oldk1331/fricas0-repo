@@ -244,15 +244,13 @@
                                               (|HasCategory| |#2|
                                                              '(|Comparable|))
                                               (|HasCategory| |#2|
-                                                             '(|OrderedSet|))
-                                              (|HasCategory| |#2|
                                                              '(|Finite|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 3)
+           ((|testBitVector| |pv$| 2)
             (PROGN
              (QSETREFV $ 48
                        (CONS (|dispatchFunction| |FSAGG-;universe;A;14|) $))
@@ -264,7 +262,7 @@
              (QSETREFV $ 56
                        (CONS (|dispatchFunction| |FSAGG-;lookup;APi;18|) $)))))
           (COND
-           ((|testBitVector| |pv$| 2)
+           ((|HasCategory| |#2| '(|OrderedSet|))
             (PROGN
              (QSETREFV $ 60 (CONS (|dispatchFunction| |FSAGG-;max;AS;19|) $))
              (QSETREFV $ 62
@@ -311,8 +309,6 @@
                                    '((|size| ((|NonNegativeInteger|))) T)
                                    '((|index| (|#1| (|PositiveInteger|))) T)
                                    '((|lookup| ((|PositiveInteger|) |#1|)) T)
-                                   '((|min| (|#2| |#1|)) T)
-                                   '((|max| (|#2| |#1|)) T)
                                    '((|universe| (|#1|)) T)
                                    '((|complement| (|#1| |#1|)) T)
                                    '((|cardinality|
@@ -336,6 +332,12 @@
                                    '((|construct| (|#1| (|List| |#2|))) T)
                                    '((|count|
                                       ((|NonNegativeInteger|) |#2| |#1|))
+                                     T)
+                                   '((|max| (|#2| |#1|)) T)
+                                   '((|min| (|#2| |#1|)) T)
+                                   '((|max|
+                                      (|#2| (|Mapping| (|Boolean|) |#2| |#2|)
+                                       |#1|))
                                      T)
                                    '((|count|
                                       ((|NonNegativeInteger|)

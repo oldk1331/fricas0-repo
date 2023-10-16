@@ -6,7 +6,7 @@
 (DEFPARAMETER |HomogeneousAggregate;AL| 'NIL) 
 
 (DEFUN |HomogeneousAggregate| (|t#1|)
-  (LET (#1=#:G107 (#2=#:G108 (|devaluate| |t#1|)))
+  (LET (#1=#:G109 (#2=#:G110 (|devaluate| |t#1|)))
     (COND ((SETQ #1# (|assoc| #2# |HomogeneousAggregate;AL|)) (CDR #1#))
           (T
            (SETQ |HomogeneousAggregate;AL|
@@ -15,7 +15,7 @@
            #1#)))) 
 
 (DEFUN |HomogeneousAggregate;| (|t#1|)
-  (SPROG ((#1=#:G106 NIL))
+  (SPROG ((#1=#:G108 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST |t#1|))
@@ -66,6 +66,26 @@
                                                         ((|List| |t#1|) $))
                                                        (|has| $
                                                               (|finiteAggregate|)))
+                                                      ((|max|
+                                                        (|t#1|
+                                                         (|Mapping| (|Boolean|)
+                                                                    |t#1|
+                                                                    |t#1|)
+                                                         $))
+                                                       (|has| $
+                                                              (|finiteAggregate|)))
+                                                      ((|min| (|t#1| $))
+                                                       (AND
+                                                        (|has| |t#1|
+                                                               (|OrderedSet|))
+                                                        (|has| $
+                                                               (|finiteAggregate|))))
+                                                      ((|max| (|t#1| $))
+                                                       (AND
+                                                        (|has| |t#1|
+                                                               (|OrderedSet|))
+                                                        (|has| $
+                                                               (|finiteAggregate|))))
                                                       ((|count|
                                                         ((|NonNegativeInteger|)
                                                          |t#1| $))

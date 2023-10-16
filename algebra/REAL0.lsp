@@ -667,7 +667,7 @@
          ((|xfl| (|Boolean|)) (|ad| #1=(|Integer|)) (|an| #2=(|Integer|))
           (|b| (|Fraction| (|Integer|))) (|a| (|Fraction| (|Integer|)))
           (|bd| #1#) (|bn| #2#) (|v| #3=(|Integer|)) (|midd| #1#) (|midn| #2#)
-          (|mid| (|Fraction| (|Integer|))) (|u| #3#) (#4=#:G227 NIL))
+          (|mid| (|Fraction| (|Integer|))) (|u| #3#) (#4=#:G229 NIL))
          (SEQ (LETT |a| (QCAR |int|)) (LETT |b| (QCDR |int|))
               (EXIT
                (COND ((SPADCALL |a| |b| (QREFELT $ 63)) (CONS |a| |b|))
@@ -806,9 +806,9 @@
 
 (DECLAIM (NOTINLINE |RealZeroPackage;|)) 
 
-(DEFUN |RealZeroPackage| (#1=#:G242)
+(DEFUN |RealZeroPackage| (#1=#:G244)
   (SPROG NIL
-         (PROG (#2=#:G243)
+         (PROG (#2=#:G245)
            (RETURN
             (COND
              ((LETT #2#

@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |IndexedVector;|)) 
 
-(DEFUN |IndexedVector| (&REST #1=#:G1364)
+(DEFUN |IndexedVector| (&REST #1=#:G1367)
   (SPROG NIL
-         (PROG (#2=#:G1365)
+         (PROG (#2=#:G1368)
            (RETURN
             (COND
              ((LETT #2#
@@ -21,7 +21,7 @@
 
 (DEFUN |IndexedVector;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G1361 NIL) (#2=#:G1362 NIL) (#3=#:G1363 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G1364 NIL) (#2=#:G1365 NIL) (#3=#:G1366 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -143,7 +143,7 @@
               (|local| |#1|) (|local| |#2|) (|Mapping| 11 6 6) (|Integer|)
               (|Mapping| 6 6 6) (|Boolean|) (|NonNegativeInteger|) (|List| 6)
               (|Equation| 6) (|List| 14) (|OutputForm|) (|SingleInteger|)
-              (|String|) (|HashState|) (|Mapping| 11 6) (|UniversalSegment| 9)
+              (|HashState|) (|String|) (|Mapping| 11 6) (|UniversalSegment| 9)
               (|Void|) (|Mapping| 6 6) (|InputForm|) (|Matrix| 6) (|List| $)
               (|Union| 6 '"failed") (|List| 9))
            '#() 'NIL

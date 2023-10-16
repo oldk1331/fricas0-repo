@@ -199,7 +199,7 @@
               (|List| 52) (|Equation| 6) (|Mapping| 33 6) (|Void|)
               (|UniversalSegment| 13) '"last" '"rest" '"first" '"value"
               (|List| $) (|Union| $ '"failed") (|InputForm|) (|SingleInteger|)
-              (|String|) (|HashState|) (|PositiveInteger|)
+              (|HashState|) (|String|) (|PositiveInteger|)
               (|Union| 6 '"failed"))
            '#(~= 93 |zero?| 99 |value| 104 |trim| 109 |third| 115 |tail| 120
               |swap!| 125 |subtractIfCan| 132 |stream| 138 |split!| 143
@@ -211,21 +211,21 @@
               |reduce| 341 |qsetrest!| 362 |qsetfirst!| 368 |qsetelt!| 374
               |qelt| 381 |possiblyInfinite?| 387 |position| 392 |parts| 411
               |opposite?| 416 |numberOfComputedEntries| 422 |nodes| 427 |node?|
-              432 |new| 438 |more?| 444 |minIndex| 450 |min| 455 |merge| 461
-              |members| 474 |member?| 479 |maxIndex| 485 |max| 490 |map!| 496
-              |map| 502 |less?| 515 |leftTrim| 521 |leaves| 527 |leaf?| 532
-              |lazyEvaluate| 537 |lazy?| 542 |latex| 547 |last| 552 |insert|
-              563 |indices| 577 |index?| 582 |hashUpdate!| 588 |hash| 594
-              |frst| 599 |firstn| 604 |first| 610 |find| 621 |fill!| 627
-              |extend| 633 |explicitlyFinite?| 639 |explicitlyEmpty?| 644
-              |explicitEntries?| 649 |every?| 654 |eval| 660 |eq?| 686 |entry?|
-              692 |entries| 698 |empty?| 703 |empty| 708 |elt| 712 |distance|
-              755 |dilate| 761 |delete| 767 |cyclic?| 779 |cycleTail| 784
-              |cycleSplit!| 789 |cycleLength| 794 |cycleEntry| 799 |count| 804
-              |copyInto!| 816 |copy| 823 |convert| 828 |construct| 833 |cons|
-              838 |concat!| 844 |concat| 856 |complete| 879 |coerce| 884
-              |children| 894 |child?| 899 |apply| 905 |any?| 911 |Zero| 917 >=
-              921 > 927 = 933 <= 939 < 945 - 951 + 962 * 968 |#| 998)
+              432 |new| 438 |more?| 444 |minIndex| 450 |min| 455 |merge| 466
+              |members| 479 |member?| 484 |maxIndex| 490 |max| 495 |map!| 512
+              |map| 518 |less?| 531 |leftTrim| 537 |leaves| 543 |leaf?| 548
+              |lazyEvaluate| 553 |lazy?| 558 |latex| 563 |last| 568 |insert|
+              579 |indices| 593 |index?| 598 |hashUpdate!| 604 |hash| 610
+              |frst| 615 |firstn| 620 |first| 626 |find| 637 |fill!| 643
+              |extend| 649 |explicitlyFinite?| 655 |explicitlyEmpty?| 660
+              |explicitEntries?| 665 |every?| 670 |eval| 676 |eq?| 702 |entry?|
+              708 |entries| 714 |empty?| 719 |empty| 724 |elt| 728 |distance|
+              771 |dilate| 777 |delete| 783 |cyclic?| 795 |cycleTail| 800
+              |cycleSplit!| 805 |cycleLength| 810 |cycleEntry| 815 |count| 820
+              |copyInto!| 832 |copy| 839 |convert| 844 |construct| 849 |cons|
+              854 |concat!| 860 |concat| 872 |complete| 895 |coerce| 900
+              |children| 910 |child?| 915 |apply| 921 |any?| 927 |Zero| 933 >=
+              937 > 943 = 949 <= 955 < 961 - 967 + 978 * 984 |#| 1014)
            'NIL
            (CONS
             (|makeByteWordVec2| 9
@@ -272,36 +272,37 @@
                                     0 6 0 1 2 0 0 53 0 1 4 13 6 20 0 6 6 1 3 10
                                     6 20 0 6 1 2 10 6 20 0 1 2 14 0 0 0 1 2 14
                                     6 0 6 1 3 14 6 0 13 6 1 2 0 6 0 13 1 1 0 33
-                                    0 1 2 13 13 6 0 1 3 13 13 6 0 13 1 2 10 13
+                                    0 1 3 13 13 6 0 13 1 2 13 13 6 0 1 2 10 13
                                     53 0 1 1 10 9 0 1 2 8 33 0 0 1 1 0 38 0 1 1
                                     0 60 0 1 2 4 33 0 0 1 2 0 0 38 6 1 2 0 33 0
-                                    38 1 1 7 13 0 1 2 11 0 0 0 1 2 11 0 0 0 1 3
-                                    10 0 50 0 0 1 1 10 9 0 1 2 13 33 6 0 1 1 7
-                                    13 0 1 2 11 0 0 0 1 2 14 0 29 0 1 3 0 0 20
-                                    0 0 26 2 0 0 29 0 30 2 0 33 0 38 1 2 13 0 0
-                                    6 1 1 0 9 0 1 1 0 33 0 1 1 0 0 0 1 1 0 33 0
-                                    1 1 0 64 0 1 2 0 0 0 38 1 1 0 6 0 1 3 0 0 0
-                                    0 13 1 3 0 0 6 0 13 1 1 0 16 0 1 2 0 33 13
-                                    0 1 2 0 65 65 0 1 1 0 63 0 1 1 0 6 0 1 2 0
-                                    9 0 38 43 2 0 0 0 38 40 1 0 6 0 1 2 0 67 53
-                                    0 1 2 14 0 0 6 1 2 0 0 0 13 1 1 0 33 0 1 1
-                                    0 33 0 1 1 0 33 0 1 2 10 33 53 0 1 3 1 0 0
-                                    6 6 1 3 1 0 0 9 9 1 2 1 0 0 51 1 2 1 0 0 52
-                                    1 2 0 33 0 0 1 2 13 33 6 0 1 1 0 9 0 42 1 0
-                                    33 0 1 0 0 0 1 2 0 6 0 13 15 3 0 6 0 13 6 1
-                                    2 0 0 0 55 1 2 0 6 0 56 1 2 0 0 0 57 1 2 0
-                                    6 0 58 1 2 0 6 0 59 1 2 0 13 0 0 1 2 0 0 6
-                                    0 49 2 0 0 0 13 1 2 0 0 0 55 1 1 0 33 0 1 1
-                                    0 0 0 1 1 14 0 0 1 1 0 38 0 1 1 0 0 0 1 2
-                                    13 38 6 0 1 2 10 38 53 0 1 3 16 0 0 0 13 1
-                                    1 0 0 0 1 1 2 62 0 1 1 0 0 9 1 2 0 0 6 0 24
-                                    2 14 0 0 6 1 2 14 0 0 0 1 1 0 0 60 1 2 0 0
-                                    0 6 1 2 0 0 0 0 1 2 0 0 6 0 1 1 0 0 0 41 1
-                                    0 0 5 35 1 0 46 0 48 1 0 60 0 1 2 4 33 0 0
-                                    1 2 0 6 0 17 22 2 10 33 53 0 1 0 8 0 11 2
-                                    11 33 0 0 1 2 11 33 0 0 1 2 0 33 0 0 34 2
-                                    11 33 0 0 1 2 11 33 0 0 1 2 3 0 0 0 1 1 3 0
-                                    0 31 2 0 0 0 0 27 2 3 0 13 0 1 2 8 0 38 0 1
-                                    2 0 0 66 0 1 2 0 0 6 0 32 2 0 0 0 6 1 1 10
-                                    38 0 1)))))
+                                    38 1 1 7 13 0 1 2 11 0 0 0 1 1 11 6 0 1 2
+                                    11 0 0 0 1 3 10 0 50 0 0 1 1 10 9 0 1 2 13
+                                    33 6 0 1 1 7 13 0 1 2 11 0 0 0 1 1 11 6 0 1
+                                    2 10 6 50 0 1 2 14 0 29 0 1 3 0 0 20 0 0 26
+                                    2 0 0 29 0 30 2 0 33 0 38 1 2 13 0 0 6 1 1
+                                    0 9 0 1 1 0 33 0 1 1 0 0 0 1 1 0 33 0 1 1 0
+                                    65 0 1 2 0 0 0 38 1 1 0 6 0 1 3 0 0 6 0 13
+                                    1 3 0 0 0 0 13 1 1 0 16 0 1 2 0 33 13 0 1 2
+                                    0 64 64 0 1 1 0 63 0 1 1 0 6 0 1 2 0 9 0 38
+                                    43 2 0 0 0 38 40 1 0 6 0 1 2 0 67 53 0 1 2
+                                    14 0 0 6 1 2 0 0 0 13 1 1 0 33 0 1 1 0 33 0
+                                    1 1 0 33 0 1 2 10 33 53 0 1 3 1 0 0 9 9 1 3
+                                    1 0 0 6 6 1 2 1 0 0 51 1 2 1 0 0 52 1 2 0
+                                    33 0 0 1 2 13 33 6 0 1 1 0 9 0 42 1 0 33 0
+                                    1 0 0 0 1 3 0 6 0 13 6 1 2 0 6 0 13 15 2 0
+                                    0 0 55 1 2 0 6 0 56 1 2 0 0 0 57 1 2 0 6 0
+                                    58 1 2 0 6 0 59 1 2 0 13 0 0 1 2 0 0 6 0 49
+                                    2 0 0 0 55 1 2 0 0 0 13 1 1 0 33 0 1 1 0 0
+                                    0 1 1 14 0 0 1 1 0 38 0 1 1 0 0 0 1 2 13 38
+                                    6 0 1 2 10 38 53 0 1 3 16 0 0 0 13 1 1 0 0
+                                    0 1 1 2 62 0 1 1 0 0 9 1 2 0 0 6 0 24 2 14
+                                    0 0 6 1 2 14 0 0 0 1 2 0 0 0 6 1 1 0 0 60 1
+                                    2 0 0 6 0 1 2 0 0 0 0 1 1 0 0 0 41 1 0 0 5
+                                    35 1 0 46 0 48 1 0 60 0 1 2 4 33 0 0 1 2 0
+                                    6 0 17 22 2 10 33 53 0 1 0 8 0 11 2 11 33 0
+                                    0 1 2 11 33 0 0 1 2 0 33 0 0 34 2 11 33 0 0
+                                    1 2 11 33 0 0 1 1 3 0 0 31 2 3 0 0 0 1 2 0
+                                    0 0 0 27 2 3 0 13 0 1 2 8 0 38 0 1 2 0 0 6
+                                    0 32 2 0 0 66 0 1 2 0 0 0 6 1 1 10 38 0
+                                    1)))))
            '|lookupComplete|)) 

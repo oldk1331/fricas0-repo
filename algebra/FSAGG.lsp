@@ -35,13 +35,7 @@
                                                               (|Finite|)))
                                                       ((|universe| ($))
                                                        (|has| |t#1|
-                                                              (|Finite|)))
-                                                      ((|max| (|t#1| $))
-                                                       (|has| |t#1|
-                                                              (|OrderedSet|)))
-                                                      ((|min| (|t#1| $))
-                                                       (|has| |t#1|
-                                                              (|OrderedSet|))))
+                                                              (|Finite|))))
                                                     '(((|Finite|)
                                                        (|has| |t#1|
                                                               (|Finite|)))

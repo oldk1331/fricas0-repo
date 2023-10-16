@@ -55,9 +55,9 @@
 
 (DECLAIM (NOTINLINE |DirectProductMatrixModule;|)) 
 
-(DEFUN |DirectProductMatrixModule| (&REST #1=#:G142)
+(DEFUN |DirectProductMatrixModule| (&REST #1=#:G143)
   (SPROG NIL
-         (PROG (#2=#:G143)
+         (PROG (#2=#:G144)
            (RETURN
             (COND
              ((LETT #2#
@@ -77,8 +77,8 @@
 
 (DEFUN |DirectProductMatrixModule;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G134 NIL) (#2=#:G135 NIL) (#3=#:G136 NIL) (#4=#:G137 NIL)
-    (#5=#:G138 NIL) (#6=#:G139 NIL) (#7=#:G140 NIL) (#8=#:G141 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G135 NIL) (#2=#:G136 NIL) (#3=#:G137 NIL) (#4=#:G138 NIL)
+    (#5=#:G139 NIL) (#6=#:G140 NIL) (#7=#:G141 NIL) (#8=#:G142 NIL) ($ NIL)
     (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -86,7 +86,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|DirectProductMatrixModule| DV$1 DV$2 DV$3 DV$4))
-    (LETT $ (GETREFV 51))
+    (LETT $ (GETREFV 52))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -547,17 +547,19 @@
     (QSETREFV $ 9 |#4|)
     (AND (|HasCategory| $ '(|finiteAggregate|))
          (|augmentPredVector| $ 140737488355328))
+    (AND #8# (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 281474976710656))
     (AND (|HasCategory| |#4| '(|BasicType|))
          (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 281474976710656))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
          (|augmentPredVector| $ 562949953421312))
+    (AND (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| $ 1125899906842624))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianMonoid|))
          (|HasCategory| |#3| '(|AbelianMonoid|)) #3#
          (AND (|HasCategory| |#4| '(|SemiRng|))
               (|HasCategory| $ '(|AbelianMonoid|))))
-     (|augmentPredVector| $ 1125899906842624))
+     (|augmentPredVector| $ 2251799813685248))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianGroup|))
          (|HasCategory| |#3| '(|AbelianGroup|))
@@ -565,13 +567,13 @@
          (AND #2# (|HasCategory| |#4| '(|SemiRng|))) #1#
          (AND (|HasCategory| |#4| '(|SemiRng|))
               (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 2251799813685248))
+     (|augmentPredVector| $ 4503599627370496))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianGroup|))
          (|HasCategory| |#3| '(|AbelianGroup|)) #2#
          (AND (|HasCategory| |#4| '(|SemiRng|))
               (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 4503599627370496))
+     (|augmentPredVector| $ 9007199254740992))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 10 (|Vector| |#4|))
     $))) 
@@ -582,16 +584,16 @@
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
               '|Rep| (|Integer|) (0 . |elt|) (6 . *) |DPMM;*;R2$;1|
               (12 . |elt|) (19 . +) (25 . |Zero|) |DPMM;*;M2$;2| (|Boolean|)
-              (|NonNegativeInteger|) (|PositiveInteger|) (|List| 9) (|List| 24)
-              (|Equation| 9) (|Matrix| 11) (|Matrix| $)
-              (|Record| (|:| |mat| 25) (|:| |vec| (|Vector| 11))) (|Vector| $)
-              (|List| 31) (|List| 20) (|Symbol|) (|Fraction| 11)
-              (|Union| 32 '#1="failed") (|Union| 11 '#1#) (|Union| $ '"failed")
-              (|Mapping| 19 9) (|Void|) (|Mapping| 9 9) (|CardinalNumber|)
-              (|InputForm|) (|List| $) (|Matrix| 9)
-              (|Record| (|:| |mat| 42) (|:| |vec| 49)) (|Union| 9 '#1#)
-              (|SingleInteger|) (|OutputForm|) (|String|) (|HashState|)
-              (|Vector| 9) (|List| 11))
+              (|NonNegativeInteger|) (|PositiveInteger|) (|List| 9)
+              (|Equation| 9) (|List| 23)
+              (|Record| (|:| |mat| 28) (|:| |vec| (|Vector| 11))) (|Matrix| $)
+              (|Vector| $) (|Matrix| 11) (|List| 31) (|List| 20) (|Symbol|)
+              (|Union| 33 '#1="failed") (|Fraction| 11) (|Union| 11 '#1#)
+              (|Union| $ '"failed") (|Mapping| 19 9 9) (|Mapping| 19 9)
+              (|Void|) (|Mapping| 9 9) (|CardinalNumber|) (|InputForm|)
+              (|List| $) (|Matrix| 9) (|Record| (|:| |mat| 43) (|:| |vec| 50))
+              (|Union| 9 '#1#) (|SingleInteger|) (|OutputForm|) (|String|)
+              (|HashState|) (|Vector| 9) (|List| 11))
            '#(|elt| 29 * 35) 'NIL
            (CONS
             (|makeByteWordVec2| 47
@@ -634,11 +636,11 @@
                  (|AbelianSemiGroup|) (|Comparable|) (|Magma|) (|Aggregate|)
                  (|SetCategory|) (|EltableAggregate| 11 9) (|Evalable| 9)
                  (|CommutativeStar|) (|FullyRetractableTo| 9) (|Type|)
-                 (|CoercibleTo| 46) (|BasicType|) (|finiteAggregate|)
+                 (|CoercibleTo| 47) (|BasicType|) (|finiteAggregate|)
                  (|CoercibleTo| (|Vector| 9)) (|Eltable| 11 9)
                  (|InnerEvalable| 9 9) (|PartialOrder|) (|unitsKnown|)
-                 (|TwoSidedRecip|) (|ConvertibleTo| 40) (|RetractableTo| 9)
-                 (|RetractableTo| 32) (|RetractableTo| 11))
+                 (|TwoSidedRecip|) (|ConvertibleTo| 41) (|RetractableTo| 9)
+                 (|RetractableTo| 33) (|RetractableTo| 11))
               (|makeByteWordVec2| 18
                                   '(2 0 9 0 11 12 2 9 0 7 0 13 3 8 7 0 11 11 15
                                     2 9 0 0 0 16 0 9 0 17 2 0 9 0 11 12 2 0 0 8

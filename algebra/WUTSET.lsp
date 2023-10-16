@@ -559,6 +559,7 @@
                                                        '(|ConvertibleTo|
                                                          (|InputForm|)))
                                         (|HasCategory| |#4| '(|BasicType|))
+                                        (|HasCategory| |#4| '(|OrderedSet|))
                                         (|HasCategory| |#1|
                                                        '(|IntegralDomain|))
                                         (|HasCategory| |#3| '(|Finite|))))))
@@ -569,10 +570,11 @@
     (QSETREFV $ 7 |#2|)
     (QSETREFV $ 8 |#3|)
     (QSETREFV $ 9 |#4|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32))
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
     (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)))
-         (|augmentPredVector| $ 64))
-    (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 128))
+         (|augmentPredVector| $ 128))
+    (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 256))
+    (AND (|HasCategory| |#4| '(|OrderedSet|)) #1# (|augmentPredVector| $ 512))
     (SETF |pv$| (QREFELT $ 3))
     (COND
      ((|HasCategory| |#1| '(|GcdDomain|))
@@ -618,10 +620,11 @@
               (266 . |removeDuplicates|) (271 . |empty?|) (276 . |first|)
               (281 . |rest|) (286 . |cons|) (292 . |infRittWu?|)
               (|Mapping| 17 $$ $$) (298 . |sort|) (304 . |zeroSetSplit|)
-              (|NonNegativeInteger|) (|List| 90) (|Equation| 9) (|Mapping| 9 9)
-              (|InputForm|) (|Record| (|:| |num| 9) (|:| |den| 6))
+              (|NonNegativeInteger|) (|Equation| 9) (|List| 89) (|Mapping| 9 9)
+              (|InputForm|)
               (|Record| (|:| |rnum| 6) (|:| |polnum| 9) (|:| |den| 6))
-              (|List| 8) (|Record| (|:| |close| $) (|:| |open| 11)) (|List| 96)
+              (|Record| (|:| |num| 9) (|:| |den| 6)) (|List| 8)
+              (|Record| (|:| |close| $) (|:| |open| 11)) (|List| 96)
               (|Mapping| 17 9 11) (|Record| (|:| |close| 11) (|:| |open| 11))
               (|Record| (|:| |under| $) (|:| |floor| $) (|:| |upper| $))
               (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
@@ -667,8 +670,8 @@
                                          0 79 1 60 17 0 80 1 60 2 0 81 1 60 0 0
                                          82 2 60 0 2 0 83 2 0 17 0 0 84 2 60 0
                                          85 0 86 1 0 63 11 87 1 0 63 11 87 4 0
-                                         11 11 0 14 13 27 2 4 11 11 0 24 1 0 30
-                                         0 69 2 0 9 9 0 74 1 0 8 0 75 1 7 11 0
+                                         11 11 0 14 13 27 2 5 11 11 0 24 1 0 30
+                                         0 69 2 0 9 9 0 74 1 0 8 0 75 1 8 11 0
                                          28 3 0 30 11 13 14 31 1 0 30 11 34 1 0
                                          11 0 49 2 0 9 9 0 73 2 0 17 0 0 84 1 0
                                          67 0 68 1 0 17 0 66 0 0 0 41 1 0 11 0

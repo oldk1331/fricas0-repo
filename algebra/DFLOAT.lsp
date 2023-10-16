@@ -28,7 +28,7 @@
 (SDEFUN |DFLOAT;precision;Pi;7| (($ |PositiveInteger|)) (FLOAT-DIGITS 0.0)) 
 
 (SDEFUN |DFLOAT;bits;Pi;8| (($ |PositiveInteger|))
-        (SPROG ((#1=#:G417 NIL))
+        (SPROG ((#1=#:G420 NIL))
                (COND
                 ((EQL (SPADCALL (QREFELT $ 18)) 2) (SPADCALL (QREFELT $ 22)))
                 ((EQL (SPADCALL (QREFELT $ 18)) 16)
@@ -297,7 +297,7 @@
 (SDEFUN |DFLOAT;Gamma;2$;77| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 111))) 
 
 (SDEFUN |DFLOAT;polygamma;3$;78| ((|x| $) (|y| $) ($ $))
-        (SPROG ((#1=#:G504 NIL) (|n| (|Union| (|Integer|) "failed")))
+        (SPROG ((#1=#:G507 NIL) (|n| (|Union| (|Integer|) "failed")))
                (SEQ (LETT |n| (SPADCALL |x| (QREFELT $ 114)))
                     (EXIT
                      (COND
@@ -492,7 +492,7 @@
         (SPROG
          ((|two53| (|PositiveInteger|))
           (|me| (|Record| (|:| |man| $) (|:| |exp| (|Integer|))))
-          (#1=#:G558 NIL) (|s| (|Integer|)))
+          (#1=#:G561 NIL) (|s| (|Integer|)))
          (SEQ
           (EXIT
            (COND ((|zero?_DF| |x|) (CONS 0 0))
@@ -512,7 +512,7 @@
                                   1)
                                  (SPADCALL MOST-POSITIVE-DOUBLE-FLOAT
                                            (QREFELT $ 21))))
-                          (GO #2=#:G557))))
+                          (GO #2=#:G560))))
                        (LETT |me| (MANEXP |x|))
                        (LETT |two53|
                              (SPADCALL (SPADCALL (QREFELT $ 18))
@@ -533,11 +533,11 @@
          ((|t| #1=(|Integer|)) (|s| #2=(|Integer|)) (|#G145| #3=(|Integer|))
           (|#G144| #1#) (|q1| #4=(|Integer|)) (|q0| (|Integer|))
           (|#G143| #5=(|Integer|)) (|#G142| #4#) (|p1| #6=(|Integer|))
-          (|p0| (|Integer|)) (|#G141| #5#) (|#G140| #6#) (#7=#:G589 NIL)
+          (|p0| (|Integer|)) (|#G141| #5#) (|#G140| #6#) (#7=#:G592 NIL)
           (|q2| #5#) (|p2| #5#) (|r| #3#) (|q| #8=(|Integer|))
           (|#G139| (|Record| (|:| |quotient| #8#) (|:| |remainder| #3#)))
-          (|tol| (|NonNegativeInteger|)) (|de| #1#) (#9=#:G580 NIL)
-          (#10=#:G578 NIL) (BASE (|PositiveInteger|)) (|ex| #11=(|Integer|))
+          (|tol| (|NonNegativeInteger|)) (|de| #1#) (#9=#:G583 NIL)
+          (#10=#:G581 NIL) (BASE (|PositiveInteger|)) (|ex| #11=(|Integer|))
           (|nu| #2#)
           (|#G138| (|Record| (|:| MANTISSA #2#) (|:| EXPONENT #11#))))
          (SEQ
@@ -599,7 +599,7 @@
                                         (LETT #7#
                                               (SPADCALL |p2| |q2|
                                                         (QREFELT $ 169)))
-                                        (GO #13=#:G588)))))
+                                        (GO #13=#:G591)))))
                                     (PROGN
                                      (LETT |#G140| |p1|)
                                      (LETT |#G141| |p2|)
@@ -620,7 +620,7 @@
           #13# (EXIT #7#)))) 
 
 (SDEFUN |DFLOAT;^;$F$;105| ((|x| $) (|r| |Fraction| (|Integer|)) ($ $))
-        (SPROG ((#1=#:G599 NIL) (|d| (|Integer|)) (|n| (|Integer|)))
+        (SPROG ((#1=#:G602 NIL) (|d| (|Integer|)) (|n| (|Integer|)))
                (SEQ
                 (EXIT
                  (COND
@@ -648,7 +648,7 @@
                                         (|minus_DF|
                                          (SPADCALL (|minus_DF| |x|) |r|
                                                    (QREFELT $ 177))))
-                                  (GO #3=#:G598)))
+                                  (GO #3=#:G601)))
                                 (#2#
                                  (PROGN
                                   (LETT #1#
@@ -670,7 +670,7 @@
 
 (DEFUN |DoubleFloat| ()
   (SPROG NIL
-         (PROG (#1=#:G613)
+         (PROG (#1=#:G616)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloat|))

@@ -35,7 +35,7 @@
         (QSETAREF1 |x| |i| |s|)) 
 
 (SDEFUN |PRIMARR;fill!;$S$;9| ((|x| $) (|s| S) ($ $))
-        (SPROG ((#1=#:G1764 NIL) (|i| NIL))
+        (SPROG ((#1=#:G1767 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -45,7 +45,7 @@
 
 (SDEFUN |PRIMARR;hashUpdate!;Hs$Hs;10|
         ((|s| |HashState|) (|x| $) ($ |HashState|))
-        (SPROG ((#1=#:G1768 NIL) (|i| NIL))
+        (SPROG ((#1=#:G1771 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -58,9 +58,9 @@
 
 (DECLAIM (NOTINLINE |PrimitiveArray;|)) 
 
-(DEFUN |PrimitiveArray| (#1=#:G1779)
+(DEFUN |PrimitiveArray| (#1=#:G1782)
   (SPROG NIL
-         (PROG (#2=#:G1780)
+         (PROG (#2=#:G1783)
            (RETURN
             (COND
              ((LETT #2#
@@ -77,7 +77,7 @@
 
 (DEFUN |PrimitiveArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G1776 NIL) (#2=#:G1777 NIL) (#3=#:G1778 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G1779 NIL) (#2=#:G1780 NIL) (#3=#:G1781 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -190,14 +190,14 @@
               |rightTrim| 100 |reverse!| 106 |reverse| 111 |removeDuplicates|
               116 |remove| 121 |reduce| 133 |qsetelt!| 154 |qelt| 161
               |position| 167 |parts| 186 |new| 191 |more?| 197 |minIndex| 203
-              |min| 208 |merge| 214 |members| 227 |member?| 232 |maxIndex| 238
-              |max| 243 |map!| 249 |map| 255 |less?| 268 |leftTrim| 274 |latex|
-              280 |insert| 285 |indices| 299 |index?| 304 |hashUpdate!| 310
-              |hash| 316 |first| 321 |find| 332 |fill!| 338 |every?| 344 |eval|
-              350 |eq?| 376 |entry?| 382 |entries| 388 |empty?| 393 |empty| 398
-              |elt| 402 |delete| 421 |count| 433 |copyInto!| 445 |copy| 452
-              |convert| 457 |construct| 462 |concat| 467 |coerce| 490 |any?|
-              495 >= 501 > 507 = 513 <= 519 < 525 |#| 531)
+              |min| 208 |merge| 219 |members| 232 |member?| 237 |maxIndex| 243
+              |max| 248 |map!| 265 |map| 271 |less?| 284 |leftTrim| 290 |latex|
+              296 |insert| 301 |indices| 315 |index?| 320 |hashUpdate!| 326
+              |hash| 332 |first| 337 |find| 348 |fill!| 354 |every?| 360 |eval|
+              366 |eq?| 392 |entry?| 398 |entries| 404 |empty?| 409 |empty| 414
+              |elt| 418 |delete| 437 |count| 449 |copyInto!| 461 |copy| 468
+              |convert| 473 |construct| 478 |concat| 483 |coerce| 506 |any?|
+              511 >= 517 > 523 = 529 <= 535 < 541 |#| 547)
            'NIL
            (CONS
             (|makeByteWordVec2| 12
@@ -227,24 +227,25 @@
                                     30 0 1 0 0 0 1 2 15 0 0 6 1 1 16 0 0 1 1 14
                                     0 0 1 1 15 0 0 1 2 15 0 6 0 1 2 14 0 30 0 1
                                     4 15 6 22 0 6 6 1 2 14 6 22 0 1 3 14 6 22 0
-                                    6 1 3 13 6 0 9 6 15 2 0 6 0 9 13 3 15 9 6 0
-                                    9 1 2 15 9 6 0 1 2 14 9 30 0 1 1 14 24 0 1
+                                    6 1 3 13 6 0 9 6 15 2 0 6 0 9 13 2 15 9 6 0
+                                    1 3 15 9 6 0 9 1 2 14 9 30 0 1 1 14 24 0 1
                                     2 0 0 7 6 12 2 0 23 0 7 1 1 3 9 0 10 2 18 0
-                                    0 0 1 2 18 0 0 0 1 3 14 0 21 0 0 1 1 14 24
-                                    0 1 2 15 23 6 0 1 1 3 9 0 1 2 18 0 0 0 1 2
-                                    13 0 33 0 1 3 0 0 22 0 0 1 2 0 0 33 0 1 2 0
-                                    23 0 7 1 2 15 0 0 6 1 1 20 29 0 1 3 0 0 6 0
-                                    9 1 3 0 0 0 0 9 1 1 0 37 0 1 2 0 23 9 0 1 2
-                                    20 18 18 0 20 1 20 28 0 1 1 3 6 0 1 2 0 0 0
-                                    7 1 2 0 36 30 0 1 2 13 0 0 6 17 2 14 23 30
-                                    0 1 3 8 0 0 24 24 1 3 8 0 0 6 6 1 2 8 0 0
-                                    25 1 2 8 0 0 26 1 2 0 23 0 0 1 2 15 23 6 0
-                                    1 1 0 24 0 1 1 0 23 0 1 0 0 0 11 2 0 0 0 31
-                                    1 2 0 6 0 9 14 3 0 6 0 9 6 1 2 0 0 0 31 1 2
-                                    0 0 0 9 1 2 15 7 6 0 1 2 14 7 30 0 1 3 16 0
-                                    0 0 9 1 1 0 0 0 1 1 2 34 0 1 1 0 0 24 1 1 0
-                                    0 35 1 2 0 0 0 0 1 2 0 0 0 6 1 2 0 0 6 0 1
-                                    1 21 27 0 1 2 14 23 30 0 1 2 18 23 0 0 1 2
-                                    18 23 0 0 1 2 22 23 0 0 1 2 18 23 0 0 1 2
-                                    18 23 0 0 1 1 14 7 0 8)))))
+                                    0 0 1 1 18 6 0 1 2 18 0 0 0 1 3 14 0 21 0 0
+                                    1 1 14 24 0 1 2 15 23 6 0 1 1 3 9 0 1 2 18
+                                    0 0 0 1 1 18 6 0 1 2 14 6 21 0 1 2 13 0 33
+                                    0 1 3 0 0 22 0 0 1 2 0 0 33 0 1 2 0 23 0 7
+                                    1 2 15 0 0 6 1 1 20 29 0 1 3 0 0 0 0 9 1 3
+                                    0 0 6 0 9 1 1 0 37 0 1 2 0 23 9 0 1 2 20 18
+                                    18 0 20 1 20 28 0 1 1 3 6 0 1 2 0 0 0 7 1 2
+                                    0 36 30 0 1 2 13 0 0 6 17 2 14 23 30 0 1 3
+                                    8 0 0 6 6 1 3 8 0 0 24 24 1 2 8 0 0 25 1 2
+                                    8 0 0 26 1 2 0 23 0 0 1 2 15 23 6 0 1 1 0
+                                    24 0 1 1 0 23 0 1 0 0 0 11 2 0 0 0 31 1 2 0
+                                    6 0 9 14 3 0 6 0 9 6 1 2 0 0 0 31 1 2 0 0 0
+                                    9 1 2 15 7 6 0 1 2 14 7 30 0 1 3 16 0 0 0 9
+                                    1 1 0 0 0 1 1 2 34 0 1 1 0 0 24 1 1 0 0 35
+                                    1 2 0 0 6 0 1 2 0 0 0 0 1 2 0 0 0 6 1 1 21
+                                    27 0 1 2 14 23 30 0 1 2 18 23 0 0 1 2 18 23
+                                    0 0 1 2 22 23 0 0 1 2 18 23 0 0 1 2 18 23 0
+                                    0 1 1 14 7 0 8)))))
            '|lookupComplete|)) 

@@ -7,7 +7,7 @@
         (SPADCALL |l| |t| (QREFELT $ 8))) 
 
 (SDEFUN |LIST;tails;$L;3| ((|x| $) ($ |List| $))
-        (SPROG ((#1=#:G1526 NIL) (|i| NIL) (#2=#:G1525 NIL))
+        (SPROG ((#1=#:G1529 NIL) (|i| NIL) (#2=#:G1528 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -85,7 +85,7 @@
                     (EXIT |y|)))) 
 
 (SDEFUN |LIST;convert;$If;10| ((|x| $) ($ |InputForm|))
-        (SPROG ((#1=#:G1567 NIL) (|a| NIL) (#2=#:G1566 NIL))
+        (SPROG ((#1=#:G1570 NIL) (|a| NIL) (#2=#:G1569 NIL))
                (SEQ
                 (SPADCALL
                  (CONS (SPADCALL '|construct| (QREFELT $ 37))
@@ -106,9 +106,9 @@
 
 (DECLAIM (NOTINLINE |List;|)) 
 
-(DEFUN |List| (#1=#:G1581)
+(DEFUN |List| (#1=#:G1584)
   (SPROG NIL
-         (PROG (#2=#:G1582)
+         (PROG (#2=#:G1585)
            (RETURN
             (COND
              ((LETT #2#
@@ -123,8 +123,8 @@
 
 (DEFUN |List;| (|#1|)
   (SPROG
-   ((#1=#:G1577 NIL) (#2=#:G1578 NIL) (#3=#:G1580 NIL) (#4=#:G1579 NIL)
-    (|pv$| NIL) (#5=#:G1574 NIL) (#6=#:G1575 NIL) (#7=#:G1576 NIL) ($ NIL)
+   ((#1=#:G1580 NIL) (#2=#:G1581 NIL) (#3=#:G1583 NIL) (#4=#:G1582 NIL)
+    (|pv$| NIL) (#5=#:G1577 NIL) (#6=#:G1578 NIL) (#7=#:G1579 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -231,10 +231,9 @@
               (|Mapping| 6 6) |LIST;map!;M2$;9| (|Symbol|) (|InputForm|)
               (94 . |convert|) (99 . |convert|) (104 . |convert|)
               (109 . |convert|) (|Mapping| 19 6 6) (|Mapping| 6 6 6) (|List| 6)
-              (|Equation| 6) (|List| 44) (|OutputForm|) (|HashState|)
-              (|SingleInteger|) (|Mapping| 19 6) (|UniversalSegment| 29)
-              '"last" '"rest" '"first" '"value" (|List| 29)
-              (|Union| 6 '"failed"))
+              (|Equation| 6) (|List| 44) (|OutputForm|) (|SingleInteger|)
+              (|HashState|) (|Mapping| 19 6) (|UniversalSegment| 29) '"last"
+              '"rest" '"first" '"value" (|List| 29) (|Union| 6 '"failed"))
            '#(|tails| 114 |setfirst!| 119 |setUnion| 125 |setIntersection| 131
               |setDifference| 137 |rest| 143 |removeDuplicates| 149 |member?|
               154 |map!| 160 |elt| 166 |convert| 172 |cons| 177 |concat| 183
