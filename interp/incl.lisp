@@ -68,10 +68,6 @@
 (DEFUN |incFileInput| (|fn|)
   (PROG () (RETURN (|incRgen| (MAKE_INSTREAM |fn|)))))
  
-; incConsoleInput () == incRgen  MAKE_INSTREAM(0)
- 
-(DEFUN |incConsoleInput| () (PROG () (RETURN (|incRgen| (MAKE_INSTREAM 0)))))
- 
 ; incLine(eb, str, gno, lno, ufo) ==
 ;             ln := lnCreate(eb,str,gno,lno,ufo)
 ;             CONS(CONS(ln,1), str)
@@ -150,7 +146,6 @@
 ; incCommands :=
 ;             ['"say"    , _
 ;              '"include", _
-;              '"console", _
 ;              '"fin"    , _
 ;              '"assert" , _
 ;              '"if"     , _
@@ -160,8 +155,7 @@
  
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |incCommands|
-          (LIST "say" "include" "console" "fin" "assert" "if" "elseif" "else"
-                "endif")))
+          (LIST "say" "include" "fin" "assert" "if" "elseif" "else" "endif")))
  
 ; incClassify(s) ==
 ;             not incCommand? s => [false,0, '""]
@@ -307,17 +301,6 @@
 ; incActive?(fn,ufos)==MEMBER(fn,ufos)
  
 (DEFUN |incActive?| (|fn| |ufos|) (PROG () (RETURN (MEMBER |fn| |ufos|))))
- 
-; incNConsoles ufos==
-;         a:=MEMBER('"console",ufos)
-;         if a then 1+incNConsoles rest a else 0
- 
-(DEFUN |incNConsoles| (|ufos|)
-  (PROG (|a|)
-    (RETURN
-     (PROGN
-      (SETQ |a| (MEMBER "console" |ufos|))
-      (COND (|a| (+ 1 (|incNConsoles| (CDR |a|)))) ('T 0))))))
  
 ; Top            := 01
  
@@ -510,36 +493,6 @@
      (|xlMsg| |eb| |str| |lno| (ELT |ufos| 0)
       (LIST (|inclmsgCannotRead| |fn|) '|error|)))))
  
-; xlConsole(eb, str, lno, ufos)  ==
-;           xlMsg(eb, str, lno,ufos.0,
-;               [inclmsgConsole(),"say"])
- 
-(DEFUN |xlConsole| (|eb| |str| |lno| |ufos|)
-  (PROG ()
-    (RETURN
-     (|xlMsg| |eb| |str| |lno| (ELT |ufos| 0)
-      (LIST (|inclmsgConsole|) '|say|)))))
- 
-; xlConActive(eb, str, lno, ufos, n) ==
-;           xlMsg(eb, str, lno,ufos.0,
-;               [inclmsgConActive(n),"warning"])
- 
-(DEFUN |xlConActive| (|eb| |str| |lno| |ufos| |n|)
-  (PROG ()
-    (RETURN
-     (|xlMsg| |eb| |str| |lno| (ELT |ufos| 0)
-      (LIST (|inclmsgConActive| |n|) '|warning|)))))
- 
-; xlConStill(eb, str, lno, ufos, n) ==
-;           xlMsg(eb, str, lno,ufos.0,
-;               [inclmsgConStill(n), "say"])
- 
-(DEFUN |xlConStill| (|eb| |str| |lno| |ufos| |n|)
-  (PROG ()
-    (RETURN
-     (|xlMsg| |eb| |str| |lno| (ELT |ufos| 0)
-      (LIST (|inclmsgConStill| |n|) '|say|)))))
- 
 ; xlSkippingFin(eb, str, lno, ufos) ==
 ;           xlMsg(eb, str, lno,ufos.0,
 ;               [inclmsgFinSkipped(),"warning"])
@@ -678,22 +631,6 @@
 ;                     xlOK(eb,str,lno,ufos.0),
 ;                           incAppend(Includee, Rest s))
 ; 
-;             info.2 = '"console" =>
-;                 Skipping? state => cons(xlSkip(eb,str,lno,ufos.0), Rest s)
-;                 Head :=
-;                  incLude(eb+info.1,incConsoleInput(),0,
-;                      cons('"console",ufos),cons(Top,states) )
-;                 Tail := Rest s
-; 
-;                 n := incNConsoles ufos
-;                 if n > 0 then
-;                    Head := cons(xlConActive(eb, str, lno,ufos,n),Head)
-;                    Tail :=
-;                        cons(xlConStill (eb, str, lno,ufos,n),Tail)
-; 
-;                 Head := cons (xlConsole(eb, str, lno,ufos), Head)
-;                 cons(xlOK(eb,str,lno,ufos.0),incAppend(Head,Tail))
-; 
 ;             info.2 = '"fin" =>
 ;                 Skipping? state =>
 ;                     cons(xlSkippingFin(eb, str, lno,ufos), Rest s)
@@ -757,7 +694,7 @@
  
 (DEFUN |incLude1| (&REST |z|)
   (PROG (|eb| |ss| |ln| |ufos| |states| |lno| |state| |str| |nn| |has_cont|
-         |rs| |info| |fn1| |Includee| |Head| |Tail| |n| |s1| |pred|)
+         |rs| |info| |fn1| |Includee| |s1| |pred|)
     (RETURN
      (PROGN
       (SETQ |eb| (CAR |z|))
@@ -851,29 +788,6 @@
                              (CONS |Top| |states|)))
                     (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
                           (|incAppend| |Includee| (|Rest| |s|))))))))))
-             ((EQUAL (ELT |info| 2) "console")
-              (COND
-               ((|Skipping?| |state|)
-                (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) (|Rest| |s|)))
-               (#2#
-                (PROGN
-                 (SETQ |Head|
-                         (|incLude| (+ |eb| (ELT |info| 1)) (|incConsoleInput|)
-                          0 (CONS "console" |ufos|) (CONS |Top| |states|)))
-                 (SETQ |Tail| (|Rest| |s|))
-                 (SETQ |n| (|incNConsoles| |ufos|))
-                 (COND
-                  ((< 0 |n|)
-                   (SETQ |Head|
-                           (CONS (|xlConActive| |eb| |str| |lno| |ufos| |n|)
-                                 |Head|))
-                   (SETQ |Tail|
-                           (CONS (|xlConStill| |eb| |str| |lno| |ufos| |n|)
-                                 |Tail|))))
-                 (SETQ |Head|
-                         (CONS (|xlConsole| |eb| |str| |lno| |ufos|) |Head|))
-                 (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
-                       (|incAppend| |Head| |Tail|))))))
              ((EQUAL (ELT |info| 2) "fin")
               (COND
                ((|Skipping?| |state|)
@@ -1050,23 +964,6 @@
                 NIL |flist| NIL)
                (CONS |f1| NIL)))
       (LIST 'S2CI0004 (LIST (|%id| |cycle|) (|%id| |f1|)))))))
- 
-; inclmsgConsole   () ==
-;     ['S2CI0005, []]
- 
-(DEFUN |inclmsgConsole| () (PROG () (RETURN (LIST 'S2CI0005 NIL))))
- 
-; inclmsgConActive n  ==
-;     ['S2CI0006, [%id n]]
- 
-(DEFUN |inclmsgConActive| (|n|)
-  (PROG () (RETURN (LIST 'S2CI0006 (LIST (|%id| |n|))))))
- 
-; inclmsgConStill  n  ==
-;     ['S2CI0007, [%id n]]
- 
-(DEFUN |inclmsgConStill| (|n|)
-  (PROG () (RETURN (LIST 'S2CI0007 (LIST (|%id| |n|))))))
  
 ; inclmsgFinSkipped() ==
 ;     ['S2CI0008, []]
