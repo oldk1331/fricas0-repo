@@ -1565,7 +1565,7 @@
                    (COND
                     ((SPADCALL |expr| (QREFELT $ 68))
                      (SEQ (LETT |i| (SPADCALL |expr| (QREFELT $ 69)))
-                          (LETT |str| (SPADCALL |expr| (QREFELT $ 70)))
+                          (LETT |str| (STRINGIMAGE |i|))
                           (EXIT
                            (COND
                             ((OR (< |i| 0) (> |i| 9))
@@ -1595,19 +1595,19 @@
                                                 (SPADCALL |str|
                                                           (SPADCALL
                                                            (+ |intSplitLen| 1)
-                                                           (QREFELT $ 71))
+                                                           (QREFELT $ 70))
                                                           (QREFELT $ 41)))))
                                         NIL (GO G190) G191 (EXIT NIL))
                                    (EXIT
                                     (COND
-                                     ((SPADCALL |nstr| (QREFELT $ 72))
+                                     ((SPADCALL |nstr| (QREFELT $ 71))
                                       (SPADCALL (LIST " \"" |str| "\" ")
                                                 (QREFELT $ 43)))
                                      (#3='T
                                       (SEQ
                                        (LETT |nstr|
                                              (COND
-                                              ((SPADCALL |str| (QREFELT $ 72))
+                                              ((SPADCALL |str| (QREFELT $ 71))
                                                |nstr|)
                                               (#3#
                                                (SPADCALL
@@ -1617,7 +1617,7 @@
                                         (SPADCALL
                                          (LIST
                                           (SPADCALL |nstr|
-                                                    (SPADCALL 2 (QREFELT $ 71))
+                                                    (SPADCALL 2 (QREFELT $ 70))
                                                     (QREFELT $ 41)))
                                          (QREFELT $ 43))))))))
                               $))
@@ -1644,8 +1644,8 @@
                                  (#3#
                                   (LETT |str|
                                         (SPADCALL |es| (QREFELT $ 53))))))))))
-                       ((SPADCALL |expr| (QREFELT $ 73))
-                        (LETT |str| (SPADCALL |expr| (QREFELT $ 70))))
+                       ((SPADCALL |expr| (QREFELT $ 72))
+                        (LETT |str| (SPADCALL |expr| (QREFELT $ 73))))
                        (#3# (|error| "Unrecognized atom in OutputForm")))
                       (LETT |len| (QCSIZE |str|))
                       (COND
@@ -1834,8 +1834,8 @@
               (93 . |elt|) (99 . |has_op?|) (105 . |arguments|)
               (110 . |is_symbol?|) (116 . |symbol?|) (121 . |symbol|)
               (126 . ~=) (132 . |atom?|) (137 . |integer?|) (142 . |integer|)
-              (147 . |string|) (152 . |segment|) (157 . |empty?|)
-              (162 . |string?|) (|Character|) (167 . |elt|) (|List| 32)
+              (147 . |segment|) (152 . |empty?|) (157 . |string?|)
+              (162 . |string|) (|Character|) (167 . |elt|) (|List| 32)
               (173 . |elt|) (179 . |char|) (184 . |position|)
               (190 . |operator|) (195 . |member?|) (|HashState|))
            '#(~= 201 |latex| 207 |hashUpdate!| 212 |hash| 218 |display| 223
@@ -1857,8 +1857,8 @@
                                               29 62 2 30 58 29 52 63 1 30 58 29
                                               64 1 30 52 29 65 2 52 58 0 0 66 1
                                               30 58 29 67 1 30 58 29 68 1 30 6
-                                              29 69 1 30 32 29 70 1 39 0 6 71 1
-                                              32 58 0 72 1 30 58 29 73 2 32 74
+                                              29 69 1 39 0 6 70 1 32 58 0 71 1
+                                              30 58 29 72 1 30 32 29 73 2 32 74
                                               0 6 75 2 76 32 0 6 77 1 74 0 32
                                               78 2 32 6 74 0 79 1 30 29 29 80 2
                                               54 58 52 0 81 2 0 58 0 0 1 1 0 32
