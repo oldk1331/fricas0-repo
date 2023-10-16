@@ -294,7 +294,7 @@
           (CATCH 'SPAD_READER (|parseAndInterpret| |stringBuf|))))))))
  
 ; parseAndEvalToHypertex str ==
-;   lines := parseAndEvalToStringForHypertex str
+;   lines := parseAndEvalToStringEqNum(str)
 ;   len := LENGTH lines
 ;   sockSendInt($MenuServer, len)
 ;   for s in lines repeat
@@ -304,7 +304,7 @@
   (PROG (|lines| |len|)
     (RETURN
      (PROGN
-      (SETQ |lines| (|parseAndEvalToStringForHypertex| |str|))
+      (SETQ |lines| (|parseAndEvalToStringEqNum| |str|))
       (SETQ |len| (LENGTH |lines|))
       (|sockSendInt| |$MenuServer| |len|)
       ((LAMBDA (|bfVar#1| |s|)
@@ -332,26 +332,6 @@
       (SETQ |$collectOutput| T)
       (SETQ |$outputLines| NIL)
       (SETQ |$IOindex| NIL)
-      (SETQ |v|
-              (CATCH 'SPAD_READER
-                (CATCH '|top_level| (|parseAndEvalStr| |str|))))
-      (COND ((EQ |v| '|restart|) (LIST "error"))
-            ('T (NREVERSE |$outputLines|)))))))
- 
-; parseAndEvalToStringForHypertex str ==
-;   $collectOutput:local := true
-;   $outputLines: local := nil
-;   v := CATCH('SPAD_READER, CATCH('top_level, parseAndEvalStr str))
-;   v = 'restart => ['"error"]
-;   NREVERSE $outputLines
- 
-(DEFUN |parseAndEvalToStringForHypertex| (|str|)
-  (PROG (|$outputLines| |$collectOutput| |v|)
-    (DECLARE (SPECIAL |$outputLines| |$collectOutput|))
-    (RETURN
-     (PROGN
-      (SETQ |$collectOutput| T)
-      (SETQ |$outputLines| NIL)
       (SETQ |v|
               (CATCH 'SPAD_READER
                 (CATCH '|top_level| (|parseAndEvalStr| |str|))))

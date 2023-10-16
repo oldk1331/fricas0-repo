@@ -1450,9 +1450,6 @@
 ;   (opName ~= "elt") and (opName ~= "apply") and
 ;     isEltable(op, argl, #argl) and (u := bottomUpElt t) => u
 ; 
-;   if FIXP $HTCompanionWindowID then
-;     mkCompanionPage('operationError, t)
-; 
 ;   amsl := printableArgModeSetList()
 ;   opName1 :=
 ;     opName0 = $immediateDataSymbol =>
@@ -1597,9 +1594,6 @@
                 |u|)
                (#1#
                 (PROGN
-                 (COND
-                  ((FIXP |$HTCompanionWindowID|)
-                   (|mkCompanionPage| '|operationError| |t|)))
                  (SETQ |amsl| (|printableArgModeSetList|))
                  (SETQ |opName1|
                          (COND

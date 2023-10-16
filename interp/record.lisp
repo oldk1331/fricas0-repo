@@ -7,10 +7,6 @@
  
 (EVAL-WHEN (EVAL LOAD) (SETQ |$backslash| (|char| '|\\|)))
  
-; $testOutputLineFlag := nil   -- referenced by charyTop, prnd to stash lines
- 
-(EVAL-WHEN (EVAL LOAD) (SETQ |$testOutputLineFlag| NIL))
- 
 ; $runTestFlag := nil          -- referenced by maPrin to stash output
  
 (EVAL-WHEN (EVAL LOAD) (SETQ |$runTestFlag| NIL))
@@ -139,102 +135,6 @@
                          (COND
                           ((NOT (EQUAL |t| '(|Void|)))
                            (|printTypeAndTime| NIL |t|)))))))))))))))
- 
-; testPrin(u,w) == --same as maPrin but lines are stored in $testOutputLineList
-;                  --these lines are needed for pasting into HT files
-;   $LINELENGTH: local := w
-;   $mkTestFlag: local := nil
-;   $testOutputLineFlag: local := true
-;   $testOutputLineList: local := nil
-;   maPrin COPY u
-;   res := REVERSE $testOutputLineList
-;   for x in res repeat sayBrightly x
-;   res
- 
-(DEFUN |testPrin| (|u| |w|)
-  (PROG (|$testOutputLineList| |$testOutputLineFlag| |$mkTestFlag| $LINELENGTH
-         |res|)
-    (DECLARE
-     (SPECIAL |$testOutputLineList| |$testOutputLineFlag| |$mkTestFlag|
-      $LINELENGTH))
-    (RETURN
-     (PROGN
-      (SETQ $LINELENGTH |w|)
-      (SETQ |$mkTestFlag| NIL)
-      (SETQ |$testOutputLineFlag| T)
-      (SETQ |$testOutputLineList| NIL)
-      (|maPrin| (COPY |u|))
-      (SETQ |res| (REVERSE |$testOutputLineList|))
-      ((LAMBDA (|bfVar#3| |x|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#3|) (PROGN (SETQ |x| (CAR |bfVar#3|)) NIL))
-            (RETURN NIL))
-           ('T (|sayBrightly| |x|)))
-          (SETQ |bfVar#3| (CDR |bfVar#3|))))
-       |res| NIL)
-      |res|))))
- 
-; hyperize(u,w) ==
-;   $LINELENGTH: local := w
-;   $mkTestFlag: local := nil
-;   $testOutputLineFlag: local := true
-;   $testOutputLineList: local := nil
-;   maPrin COPY u
-;   res := REVERSE $testOutputLineList
-;   null res => '""
-;   null rest res => first res
-;   "STRCONC"/[first res,:[STRCONC("\newline ",x) for x in rest res]]
- 
-(DEFUN |hyperize| (|u| |w|)
-  (PROG (|$testOutputLineList| |$testOutputLineFlag| |$mkTestFlag| $LINELENGTH
-         |res|)
-    (DECLARE
-     (SPECIAL |$testOutputLineList| |$testOutputLineFlag| |$mkTestFlag|
-      $LINELENGTH))
-    (RETURN
-     (PROGN
-      (SETQ $LINELENGTH |w|)
-      (SETQ |$mkTestFlag| NIL)
-      (SETQ |$testOutputLineFlag| T)
-      (SETQ |$testOutputLineList| NIL)
-      (|maPrin| (COPY |u|))
-      (SETQ |res| (REVERSE |$testOutputLineList|))
-      (COND ((NULL |res|) "") ((NULL (CDR |res|)) (CAR |res|))
-            (#1='T
-             ((LAMBDA (|bfVar#6| |bfVar#8| |bfVar#7|)
-                (LOOP
-                 (COND
-                  ((OR (ATOM |bfVar#8|)
-                       (PROGN (SETQ |bfVar#7| (CAR |bfVar#8|)) NIL))
-                   (RETURN |bfVar#6|))
-                  (#1# (SETQ |bfVar#6| (STRCONC |bfVar#6| |bfVar#7|))))
-                 (SETQ |bfVar#8| (CDR |bfVar#8|))))
-              ""
-              (CONS (CAR |res|)
-                    ((LAMBDA (|bfVar#5| |bfVar#4| |x|)
-                       (LOOP
-                        (COND
-                         ((OR (ATOM |bfVar#4|)
-                              (PROGN (SETQ |x| (CAR |bfVar#4|)) NIL))
-                          (RETURN (NREVERSE |bfVar#5|)))
-                         (#1#
-                          (SETQ |bfVar#5|
-                                  (CONS (STRCONC '|\\newline | |x|)
-                                        |bfVar#5|))))
-                        (SETQ |bfVar#4| (CDR |bfVar#4|))))
-                     NIL (CDR |res|) NIL))
-              NIL)))))))
- 
-; verbatimize u ==
-;   u = '"" => u
-;   STRCONC('"\begin{verbatim}",u,'"\end{verbatim}")
- 
-(DEFUN |verbatimize| (|u|)
-  (PROG ()
-    (RETURN
-     (COND ((EQUAL |u| "") |u|)
-           ('T (STRCONC "\\begin{verbatim}" |u| "\\end{verbatim}"))))))
  
 ; verifyRecordFile(pathname) ==
 ;   ifn := PATHNAME_-NAME pathname
@@ -366,16 +266,16 @@
     (RETURN
      (PROGN
       (SETQ |file| (MAKE_OUTSTREAM "/tmp/temp.input"))
-      ((LAMBDA (|bfVar#9| |line|)
+      ((LAMBDA (|bfVar#3| |line|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#9|) (PROGN (SETQ |line| (CAR |bfVar#9|)) NIL))
+           ((OR (ATOM |bfVar#3|) (PROGN (SETQ |line| (CAR |bfVar#3|)) NIL))
             (RETURN NIL))
            (#1='T
             (COND ((|stringPrefix?| ")r" |line|) '|skip|)
                   ((|stringPrefix?| ")undo )redo" |line|) '|skip|)
                   (#1# (PROGN (PRINTEXP |line| |file|) (TERPRI |file|))))))
-          (SETQ |bfVar#9| (CDR |bfVar#9|))))
+          (SETQ |bfVar#3| (CDR |bfVar#3|))))
        |lines| NIL)
       (SHUT |file|)
       (SETQ |$edit_file| "/tmp/temp.input")
@@ -403,22 +303,22 @@
        "*************************************************************")
       (COND
        ((NOT (EQUAL |old| |new|)) (|sayBrightly| "Was ----------> ")
-        ((LAMBDA (|bfVar#10| |x|)
+        ((LAMBDA (|bfVar#4| |x|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#10|) (PROGN (SETQ |x| (CAR |bfVar#10|)) NIL))
+             ((OR (ATOM |bfVar#4|) (PROGN (SETQ |x| (CAR |bfVar#4|)) NIL))
               (RETURN NIL))
              (#1='T (|maPrin| |x|)))
-            (SETQ |bfVar#10| (CDR |bfVar#10|))))
+            (SETQ |bfVar#4| (CDR |bfVar#4|))))
          |old| NIL)
         (|sayBrightly| "Is -----------> ")
-        ((LAMBDA (|bfVar#11| |x|)
+        ((LAMBDA (|bfVar#5| |x|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#11|) (PROGN (SETQ |x| (CAR |bfVar#11|)) NIL))
+             ((OR (ATOM |bfVar#5|) (PROGN (SETQ |x| (CAR |bfVar#5|)) NIL))
               (RETURN NIL))
              (#1# (|maPrin| |x|)))
-            (SETQ |bfVar#11| (CDR |bfVar#11|))))
+            (SETQ |bfVar#5| (CDR |bfVar#5|))))
          |new| NIL)))
       (COND
        ((AND (CONSP |typePart|)
@@ -434,159 +334,6 @@
          (|sayBrightlyNT| (LIST " Type is  ---> " |newtype|))
          (|pp| |new|))))))))
  
-; htFile2InputFile(pathname,:option) ==
-;   ifn := pathnameName pathname
-;   not isExistingFile pathname => throwKeyedMsg("S2IL0003",[namestring ifn])
-;   opath := IFCAR option or pathname
-;   odirect := pathnameDirectory opath
-;   opathname := htMkPath(odirect,ifn,'"input")
-;   if isExistingFile opathname then DELETE_-FILE opathname
-;   $htStream : local := MAKE_INSTREAM(pathname)
-;   alist := [[htGetPageName u,:htGetSpadCommands()]
-;               while (u := htExampleFind '"\begin{page}")]
-;   SHUT $htStream
-;   outStream := MAKE_OUTSTREAM(opathname)
-;   for [pageName,:commands] in alist repeat
-;     PRINTEXP('"-- ",outStream)
-;     PRINTEXP(pageName,outStream)
-;     TERPRI outStream
-;     PRINTEXP('")cl all",outStream)
-;     TERPRI outStream
-;     for x in commands repeat
-;       PRINTEXP(htCommandToInputLine x,outStream)
-;       TERPRI outStream
-;     TERPRI outStream
-;   SHUT outStream
-;   opathname
- 
-(DEFUN |htFile2InputFile| (|pathname| &REST |option|)
-  (PROG (|$htStream| |commands| |pageName| |outStream| |alist| |u| |opathname|
-         |odirect| |opath| |ifn|)
-    (DECLARE (SPECIAL |$htStream|))
-    (RETURN
-     (PROGN
-      (SETQ |ifn| (|pathnameName| |pathname|))
-      (COND
-       ((NULL (|isExistingFile| |pathname|))
-        (|throwKeyedMsg| 'S2IL0003 (LIST (|namestring| |ifn|))))
-       (#1='T
-        (PROGN
-         (SETQ |opath| (OR (IFCAR |option|) |pathname|))
-         (SETQ |odirect| (|pathnameDirectory| |opath|))
-         (SETQ |opathname| (|htMkPath| |odirect| |ifn| "input"))
-         (COND ((|isExistingFile| |opathname|) (DELETE-FILE |opathname|)))
-         (SETQ |$htStream| (MAKE_INSTREAM |pathname|))
-         (SETQ |alist|
-                 ((LAMBDA (|bfVar#12|)
-                    (LOOP
-                     (COND
-                      ((NOT (SETQ |u| (|htExampleFind| "\\begin{page}")))
-                       (RETURN (NREVERSE |bfVar#12|)))
-                      (#1#
-                       (SETQ |bfVar#12|
-                               (CONS
-                                (CONS (|htGetPageName| |u|)
-                                      (|htGetSpadCommands|))
-                                |bfVar#12|))))))
-                  NIL))
-         (SHUT |$htStream|)
-         (SETQ |outStream| (MAKE_OUTSTREAM |opathname|))
-         ((LAMBDA (|bfVar#14| |bfVar#13|)
-            (LOOP
-             (COND
-              ((OR (ATOM |bfVar#14|)
-                   (PROGN (SETQ |bfVar#13| (CAR |bfVar#14|)) NIL))
-               (RETURN NIL))
-              (#1#
-               (AND (CONSP |bfVar#13|)
-                    (PROGN
-                     (SETQ |pageName| (CAR |bfVar#13|))
-                     (SETQ |commands| (CDR |bfVar#13|))
-                     #1#)
-                    (PROGN
-                     (PRINTEXP "-- " |outStream|)
-                     (PRINTEXP |pageName| |outStream|)
-                     (TERPRI |outStream|)
-                     (PRINTEXP ")cl all" |outStream|)
-                     (TERPRI |outStream|)
-                     ((LAMBDA (|bfVar#15| |x|)
-                        (LOOP
-                         (COND
-                          ((OR (ATOM |bfVar#15|)
-                               (PROGN (SETQ |x| (CAR |bfVar#15|)) NIL))
-                           (RETURN NIL))
-                          (#1#
-                           (PROGN
-                            (PRINTEXP (|htCommandToInputLine| |x|) |outStream|)
-                            (TERPRI |outStream|))))
-                         (SETQ |bfVar#15| (CDR |bfVar#15|))))
-                      |commands| NIL)
-                     (TERPRI |outStream|)))))
-             (SETQ |bfVar#14| (CDR |bfVar#14|))))
-          |alist| NIL)
-         (SHUT |outStream|)
-         |opathname|)))))))
- 
-; htCommandToInputLine s == fn(s,0) where fn(s,init) ==
-; --similar to htTrimAtBackSlash except removes all \
-;   k := or/[i for i in init..MAXINDEX s | s.i = char '_\] =>
-;     member(s.(k + 1),[char 'f,char 'b]) => SUBSTRING(s,init,k - init)
-;     STRCONC(SUBSTRING(s,init,k - init),fn(s,k + 1))
-;   SUBSTRING(s,init,nil)
- 
-(DEFUN |htCommandToInputLine| (|s|)
-  (PROG () (RETURN (|htCommandToInputLine,fn| |s| 0))))
-(DEFUN |htCommandToInputLine,fn| (|s| |init|)
-  (PROG (|k|)
-    (RETURN
-     (COND
-      ((SETQ |k|
-               ((LAMBDA (|bfVar#17| |bfVar#16| |i|)
-                  (LOOP
-                   (COND ((> |i| |bfVar#16|) (RETURN |bfVar#17|))
-                         (#1='T
-                          (AND (EQUAL (ELT |s| |i|) (|char| '|\\|))
-                               (PROGN
-                                (SETQ |bfVar#17| |i|)
-                                (COND (|bfVar#17| (RETURN |bfVar#17|)))))))
-                   (SETQ |i| (+ |i| 1))))
-                NIL (MAXINDEX |s|) |init|))
-       (COND
-        ((|member| (ELT |s| (+ |k| 1)) (LIST (|char| '|f|) (|char| '|b|)))
-         (SUBSTRING |s| |init| (- |k| |init|)))
-        (#1#
-         (STRCONC (SUBSTRING |s| |init| (- |k| |init|))
-          (|htCommandToInputLine,fn| |s| (+ |k| 1))))))
-      (#1# (SUBSTRING |s| |init| NIL))))))
- 
-; htTrimAtBackSlash s ==
-;   backslash := char '_\
-;   k := or/[i for i in 0..MAXINDEX s | s.i = backslash
-;           and member(s.(i + 1),[char 'f,char 'b])] => SUBSTRING(s,0,k - 1)
-;   s
- 
-(DEFUN |htTrimAtBackSlash| (|s|)
-  (PROG (|backslash| |k|)
-    (RETURN
-     (PROGN
-      (SETQ |backslash| (|char| '|\\|))
-      (COND
-       ((SETQ |k|
-                ((LAMBDA (|bfVar#19| |bfVar#18| |i|)
-                   (LOOP
-                    (COND ((> |i| |bfVar#18|) (RETURN |bfVar#19|))
-                          (#1='T
-                           (AND (EQUAL (ELT |s| |i|) |backslash|)
-                                (|member| (ELT |s| (+ |i| 1))
-                                 (LIST (|char| '|f|) (|char| '|b|)))
-                                (PROGN
-                                 (SETQ |bfVar#19| |i|)
-                                 (COND (|bfVar#19| (RETURN |bfVar#19|)))))))
-                    (SETQ |i| (+ |i| 1))))
-                 NIL (MAXINDEX |s|) 0))
-        (SUBSTRING |s| 0 (- |k| 1)))
-       (#1# |s|))))))
- 
 ; htMkPath(directory,name,typ) ==
 ;   nameType := STRCONC(name,'".",typ)
 ;   null directory => nameType
@@ -599,15 +346,6 @@
       (SETQ |nameType| (STRCONC |name| "." |typ|))
       (COND ((NULL |directory|) |nameType|)
             ('T (STRCONC |directory| |nameType|)))))))
- 
-; htFile2RecordFile(pathname,:option) ==
-;   inputFile2RecordFile htFile2InputFile(pathname, IFCAR option)
- 
-(DEFUN |htFile2RecordFile| (|pathname| &REST |option|)
-  (PROG ()
-    (RETURN
-     (|inputFile2RecordFile|
-      (|htFile2InputFile| |pathname| (IFCAR |option|))))))
  
 ; recordAndPrintTest md ==  --called by recordAndPrint
 ;   input :=

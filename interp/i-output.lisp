@@ -395,7 +395,6 @@
 ;             o := coerceInteractive(mkObjWrap(f, domain), '(OutputForm))
 ;             objValUnwrap o
 ;   [op, :l] := x
-;   op = 'LAMBDA_-CLOSURE => 'Closure
 ;   x is ['break,:.] => 'break
 ; 
 ;   op is ["$elt",targ,fun] or not $InteractiveMode and op is ["elt",targ,fun] =>
@@ -567,8 +566,7 @@
             (PROGN
              (SETQ |op| (CAR |x|))
              (SETQ |l| (CDR |x|))
-             (COND ((EQ |op| 'LAMBDA-CLOSURE) '|Closure|)
-                   ((AND (CONSP |x|) (EQ (CAR |x|) '|break|)) '|break|)
+             (COND ((AND (CONSP |x|) (EQ (CAR |x|) '|break|)) '|break|)
                    ((OR
                      (AND (CONSP |op|) (EQ (CAR |op|) '|$elt|)
                           (PROGN
@@ -3746,10 +3744,7 @@
 ;   d := APP(v,start,0,nil)
 ;   n := superspan v
 ;   m := - subspan v
-; -->
-;   $testOutputLineFlag =>
-;     $testOutputLineList :=
-;       [:ASSOCRIGHT SORTBY('CAR,d),:$testOutputLineList]
+;   -- FIXME: should we collect output here?
 ;   until n < m repeat
 ;     scylla(n,d)
 ;     n := n - 1
@@ -3823,20 +3818,13 @@
            (SETQ |d| (APP |v| |start| 0 NIL))
            (SETQ |n| (|superspan| |v|))
            (SETQ |m| (- (|subspan| |v|)))
-           (COND
-            (|$testOutputLineFlag|
-             (SETQ |$testOutputLineList|
-                     (APPEND (ASSOCRIGHT (SORTBY 'CAR |d|))
-                             |$testOutputLineList|)))
-            (#1#
-             (PROGN
-              ((LAMBDA (|bfVar#87|)
-                 (LOOP
-                  (COND (|bfVar#87| (RETURN NIL))
-                        (#1# (PROGN (|scylla| |n| |d|) (SETQ |n| (- |n| 1)))))
-                  (SETQ |bfVar#87| (< |n| |m|))))
-               NIL)
-              " "))))))))))))
+           ((LAMBDA (|bfVar#87|)
+              (LOOP
+               (COND (|bfVar#87| (RETURN NIL))
+                     (#1# (PROGN (|scylla| |n| |d|) (SETQ |n| (- |n| 1)))))
+               (SETQ |bfVar#87| (< |n| |m|))))
+            NIL)
+           " ")))))))))
  
 ; charyTopWidth u ==
 ;     atom u => u
@@ -5461,13 +5449,10 @@
  
 ; prnd(start, op) ==
 ;   spcs := fillerSpaces(MAX(0,start - 1), '" ")
-;   $testOutputLineFlag =>
-;     string := STRCONC(spcs, op)
-;     $testOutputLineList := [string,:$testOutputLineList]
-;   PRINTEXP(spcs, $algebraOutputStream)
 ;   $collectOutput =>
 ;     string := STRCONC(spcs, op)
 ;     $outputLines := [string, :$outputLines]
+;   PRINTEXP(spcs, $algebraOutputStream)
 ;   PRINTEXP(op,$algebraOutputStream)
 ;   TERPRI $algebraOutputStream
  
@@ -5477,22 +5462,15 @@
      (PROGN
       (SETQ |spcs| (|fillerSpaces| (MAX 0 (- |start| 1)) " "))
       (COND
-       (|$testOutputLineFlag|
+       (|$collectOutput|
         (PROGN
          (SETQ |string| (STRCONC |spcs| |op|))
-         (SETQ |$testOutputLineList| (CONS |string| |$testOutputLineList|))))
-       (#1='T
+         (SETQ |$outputLines| (CONS |string| |$outputLines|))))
+       ('T
         (PROGN
          (PRINTEXP |spcs| |$algebraOutputStream|)
-         (COND
-          (|$collectOutput|
-           (PROGN
-            (SETQ |string| (STRCONC |spcs| |op|))
-            (SETQ |$outputLines| (CONS |string| |$outputLines|))))
-          (#1#
-           (PROGN
-            (PRINTEXP |op| |$algebraOutputStream|)
-            (TERPRI |$algebraOutputStream|)))))))))))
+         (PRINTEXP |op| |$algebraOutputStream|)
+         (TERPRI |$algebraOutputStream|))))))))
  
 ; qTSub(u) ==
 ;   subspan CADR u

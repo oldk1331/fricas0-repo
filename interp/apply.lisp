@@ -580,7 +580,7 @@
 ;   [op,:argl] := form                   --form to be compiled
 ;   [[mc,mr,:margl],:fnsel] := modemap   --modemap we are testing
 ; 
-;   -- $e     is the current environment
+;   -- e     is the current environment
 ;   -- sl     substitution list, nil means bottom-up, otherwise top-down
 ; 
 ;   -- 0.  fail immediately if #argl=#margl

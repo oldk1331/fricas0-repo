@@ -4144,23 +4144,6 @@
       (SETQ R (CADDDR |bfVar#133|))
       (M2V |x| (LIST '|Matrix| R) |target|)))))
  
-; Scr2Scr(u, source is [.,S], target is [.,T]) ==
-;   u = '_$fromCoerceable_$ => canCoerce(S,T)
-;   null (v := coerceInt(objNewWrap(rest u, S), T)) =>
-;     coercionFailure()
-;   [first u, :objValUnwrap(v)]
- 
-(DEFUN |Scr2Scr| (|u| |source| |target|)
-  (PROG (T$ S |v|)
-    (RETURN
-     (PROGN
-      (SETQ T$ (CADR |target|))
-      (SETQ S (CADR |source|))
-      (COND ((EQ |u| '|$fromCoerceable$|) (|canCoerce| S T$))
-            ((NULL (SETQ |v| (|coerceInt| (|objNewWrap| (CDR |u|) S) T$)))
-             (|coercionFailure|))
-            ('T (CONS (CAR |u|) (|objValUnwrap| |v|))))))))
- 
 ; SUP2Up_aux(u,source is [.,S],target is [.,x,T]) ==
 ;     -- must be careful in case any of the coeffs come back 0
 ;     u' := NIL
@@ -5549,8 +5532,6 @@
  
 ; V2M(u,[.,D],[.,R]) ==
 ;   u = '_$fromCoerceable_$ => nil
-;     -- D is ['Vector,:.] => nil  -- don't have data
-;     -- canCoerce(D,R)
 ;   -- first see if we are coercing a vector of vectors
 ;   D is ['Vector,E] and
 ;     isRectangularVector(u, n := MAXINDEX u, m := MAXINDEX u.0) =>

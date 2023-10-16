@@ -983,13 +983,6 @@
                     (COND ((MEMQ (STRING2ID-N |x| 1) '(YES Y)) (QUIT))
                           (#1# NIL)))))))))))))))
  
-; constructor args ==
-;   sayMessage '"   Not implemented yet."
-;   NIL
- 
-(DEFUN |constructor| (|args|)
-  (PROG () (RETURN (PROGN (|sayMessage| "   Not implemented yet.") NIL))))
- 
 ; compiler args ==
 ;     $newConlist: local := nil    --reset by compDefineLisplib and astran
 ;     null args and null $options and null($edit_file) =>
@@ -6705,7 +6698,6 @@
       (SETQ |$previousBindings| NIL)))))
  
 ; undoCount(n) ==  --computes the number of undo's, given $IOindex
-; --pp ["IOindex = ",$IOindex]
 ;   m :=
 ;     n >= 0 => $IOindex - n - 1
 ;     -n
@@ -6748,7 +6740,6 @@
 ;   for i in 0..m for framelist in tails $frameRecord repeat
 ;     env := undoSingleStep(first framelist,env)
 ;     framelist is [.,['systemCommand,:systemDelta],:.] =>
-; --     pp '"===============> AHA <============="
 ;        framelist := rest framelist             --undoing system commands given
 ;        env := undoSingleStep(systemDelta,env)  --  before command line
 ;     lastTailSeen := framelist
@@ -7610,7 +7601,6 @@
 ;   if (SIZE synstr) > (SIZE fun) then
 ;     for i in (SIZE fun)..(SIZE synstr) repeat
 ;       fun := CONCAT (fun, '" ")
-; --  $currentLine := STRCONC(fill,RPLACSTR(line, 1, SIZE synstr, fun),opt)
 ;   cl := STRCONC(fill,RPLACSTR(line, 1, SIZE synstr, fun),opt)
 ;   SETQ(LINE,cl)
 ;   SETQ(CHR,LINE.(p+1))

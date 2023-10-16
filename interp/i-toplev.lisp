@@ -11,10 +11,6 @@
  
 (DEFPARAMETER |$ProcessInteractiveValue| NIL)
  
-; DEFPARAMETER($HTCompanionWindowID, NIL)
- 
-(DEFPARAMETER |$HTCompanionWindowID| NIL)
- 
 ; intSetQuiet() ==
 ;   $QuietCommand := true
  
@@ -325,7 +321,6 @@
 ;   if $printTimeIfTrue or $printTypeIfTrue then printTypeAndTime(x',md')
 ;   if $printStorageIfTrue then printStorage()
 ;   if $printStatisticsSummaryIfTrue then printStatisticsSummary()
-;   if FIXP $HTCompanionWindowID then mkCompanionPage md
 ;   $mkTestFlag = true => recordAndPrintTest md
 ;   $runTestFlag =>
 ;     $mkTestOutputType := md
@@ -351,7 +346,6 @@
         (|printTypeAndTime| |x'| |md'|)))
       (COND (|$printStorageIfTrue| (|printStorage|)))
       (COND (|$printStatisticsSummaryIfTrue| (|printStatisticsSummary|)))
-      (COND ((FIXP |$HTCompanionWindowID|) (|mkCompanionPage| |md|)))
       (COND ((EQUAL |$mkTestFlag| T) (|recordAndPrintTest| |md|))
             (|$runTestFlag| (PROGN (SETQ |$mkTestOutputType| |md|) '|done|))
             (#1# '|done|))))))
