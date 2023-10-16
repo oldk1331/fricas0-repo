@@ -40,8 +40,8 @@
 
 (SDEFUN |TEX;display;$IV;6| ((|f| $) (|len| |Integer|) ($ |Void|))
         (SPROG
-         ((#1=#:G221 NIL) (|s| NIL) (#2=#:G220 NIL) (|t| NIL) (#3=#:G219 NIL)
-          (#4=#:G218 NIL))
+         ((#1=#:G223 NIL) (|s| NIL) (#2=#:G222 NIL) (|t| NIL) (#3=#:G221 NIL)
+          (#4=#:G220 NIL))
          (SEQ
           (SEQ (LETT |s| NIL) (LETT #4# (QVELT |f| 0)) G190
                (COND
@@ -106,8 +106,8 @@
 
 (SDEFUN |TEX;coerce;$Of;14| ((|f| $) ($ |OutputForm|))
         (SPROG
-         ((|l| (|List| (|String|))) (#1=#:G238 NIL) (|s| NIL) (#2=#:G237 NIL)
-          (|t| NIL) (#3=#:G236 NIL) (#4=#:G235 NIL))
+         ((|l| (|List| (|String|))) (#1=#:G240 NIL) (|s| NIL) (#2=#:G239 NIL)
+          (|t| NIL) (#3=#:G238 NIL) (#4=#:G237 NIL))
          (SEQ (LETT |l| NIL)
               (SEQ (LETT |s| NIL) (LETT #4# (QVELT |f| 0)) G190
                    (COND
@@ -165,7 +165,7 @@
 
 (SDEFUN |TEX;postcondition| ((|str| |String|) ($ |String|))
         (SPROG
-         ((#1=#:G251 NIL) (|i| NIL) (|minus| #2=(|Character|)) (|plus| #2#)
+         ((#1=#:G253 NIL) (|i| NIL) (|minus| #2=(|Character|)) (|plus| #2#)
           (|len| (|Integer|)))
          (SEQ (LETT |str| (|TEX;ungroup| |str| $)) (LETT |len| (QCSIZE |str|))
               (LETT |plus| (|STR_to_CHAR| "+"))
@@ -190,11 +190,6 @@
                             (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                             (EXIT NIL))
                        (EXIT |str|)))))))) 
-
-(PUT '|TEX;stringify| '|SPADreplace| '|mathObject2String|) 
-
-(SDEFUN |TEX;stringify| ((|expr| |OutputForm|) ($ |String|))
-        (|mathObject2String| |expr|)) 
 
 (SDEFUN |TEX;lineConcat|
         ((|line| |String|) (|lines| |List| (|String|)) ($ |List| (|String|)))
@@ -232,7 +227,7 @@
         (SPROG
          ((|l| (|List| (|String|))) (|s| (|String|)) (|ls| (|Integer|))
           (|ownLine| (|Boolean|)) (|u| (|UniversalSegment| (|Integer|)))
-          (|lss| (|Integer|)) (#1=#:G281 NIL) (|ss| NIL))
+          (|lss| (|Integer|)) (#1=#:G282 NIL) (|ss| NIL))
          (SEQ (LETT |l| NIL) (LETT |s| "") (LETT |ls| 0)
               (SEQ (LETT |ss| NIL)
                    (LETT #1#
@@ -325,7 +320,7 @@
         ((|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
          ((|narg2| #1=(|OutputForm|)) (|k| (|NonNegativeInteger|))
-          (#2=#:G298 NIL) (|j| NIL) (#3=#:G297 NIL) (|i| NIL)
+          (#2=#:G299 NIL) (|j| NIL) (#3=#:G298 NIL) (|i| NIL)
           (|res| (|String|)) (|n| (|NonNegativeInteger|))
           (|prime_str| (#4="\\prime")) (|c_char| (|Character|))
           (|arg2s| (|String|)) (|arg2| #1#))
@@ -398,8 +393,8 @@
          ($ |String|))
         (SPROG
          ((|tmp| (|String|)) (|prescript| (|Boolean|))
-          (|form| (|List| (|String|))) (#1=#:G350 NIL) (|u| NIL)
-          (#2=#:G349 NIL))
+          (|form| (|List| (|String|))) (#1=#:G351 NIL) (|u| NIL)
+          (#2=#:G350 NIL))
          (SEQ (LETT |prescript| NIL)
               (EXIT
                (COND ((EQUAL |op| '|theMap|) "\\mbox{theMap(...)}")
@@ -787,7 +782,7 @@
                        (EXIT (|TEX;group| |s| $))))))))) 
 
 (SDEFUN |TEX;formatMatrix| ((|args| |List| (|OutputForm|)) ($ |String|))
-        (SPROG ((|cols| (|String|)) (#1=#:G369 NIL) (|i| NIL))
+        (SPROG ((|cols| (|String|)) (#1=#:G370 NIL) (|i| NIL))
                (SEQ (LETT |cols| "{")
                     (SEQ (LETT |i| 1)
                          (LETT #1#
@@ -923,7 +918,7 @@
         ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
          (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G395 NIL) (|a| NIL)
+         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G396 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|ops| (|String|)) (|p| (|Integer|)))
          (SEQ
           (COND ((NULL |args|) "")
@@ -980,243 +975,254 @@
 (SDEFUN |TEX;formatExpr|
         ((|expr| |OutputForm|) (|prec| |Integer|) ($ |String|))
         (SPROG
-         ((|op| (|Symbol|)) (|nargs| (|Integer|))
+         ((|op| #1=(|Symbol|)) (|nargs| (|Integer|))
           (|args| (|List| (|OutputForm|))) (|opf| (|OutputForm|))
-          (|i| (|Integer|)) (|str| (|String|)) (|s| (|String|)) (#1=#:G435 NIL)
-          (#2=#:G434 NIL) (|u| (|UniversalSegment| (|Integer|)))
-          (|nstr| (|String|)) (|len| (|Integer|)) (|intSplitLen| (|Integer|)))
-         (SEQ (LETT |intSplitLen| 20)
-              (EXIT
-               (COND
-                ((SPADCALL |expr| (QREFELT $ 73))
-                 (SEQ (LETT |str| (|TEX;stringify| |expr| $))
-                      (LETT |len| (QCSIZE |str|))
-                      (EXIT
-                       (COND
-                        ((SPADCALL |expr| (QREFELT $ 74))
-                         (SEQ (LETT |i| (SPADCALL |expr| (QREFELT $ 75)))
-                              (EXIT
-                               (COND
-                                ((OR (< |i| 0) (> |i| 9))
-                                 (|TEX;group|
-                                  (SEQ (LETT |nstr| "")
-                                       (SEQ G190
-                                            (COND
-                                             ((NULL
-                                               (> (LETT |len| (QCSIZE |str|))
-                                                  |intSplitLen|))
-                                              (GO G191)))
-                                            (SEQ
-                                             (LETT |nstr|
-                                                   (SPADCALL
-                                                    (LIST |nstr| " "
-                                                          (SPADCALL |str|
-                                                                    (SPADCALL 1
-                                                                              |intSplitLen|
-                                                                              (QREFELT
-                                                                               $
-                                                                               46))
-                                                                    (QREFELT $
-                                                                             47)))
-                                                    (QREFELT $ 53)))
-                                             (EXIT
-                                              (LETT |str|
-                                                    (SPADCALL |str|
-                                                              (SPADCALL
-                                                               (+ |intSplitLen|
-                                                                  1)
-                                                               (QREFELT $ 76))
-                                                              (QREFELT $
-                                                                       47)))))
-                                            NIL (GO G190) G191 (EXIT NIL))
-                                       (EXIT
+          (|i| (|Integer|)) (|str| (|String|)) (|s| (|String|)) (#2=#:G440 NIL)
+          (#3=#:G439 NIL) (|u| (|UniversalSegment| (|Integer|)))
+          (|len| (|Integer|)) (#4=#:G438 NIL) (|es| #1#) (|nstr| (|String|))
+          (|intSplitLen| (|Integer|)))
+         (SEQ
+          (EXIT
+           (SEQ (LETT |intSplitLen| 20)
+                (EXIT
+                 (COND
+                  ((SPADCALL |expr| (QREFELT $ 73))
+                   (COND
+                    ((SPADCALL |expr| (QREFELT $ 74))
+                     (SEQ (LETT |i| (SPADCALL |expr| (QREFELT $ 75)))
+                          (LETT |str| (STRINGIMAGE |i|))
+                          (EXIT
+                           (COND
+                            ((OR (< |i| 0) (> |i| 9))
+                             (|TEX;group|
+                              (SEQ (LETT |nstr| "")
+                                   (SEQ G190
                                         (COND
-                                         ((SPADCALL |nstr| (QREFELT $ 52))
-                                          |str|)
-                                         (#3='T
-                                          (SEQ
-                                           (LETT |nstr|
-                                                 (COND
-                                                  ((SPADCALL |str|
-                                                             (QREFELT $ 52))
-                                                   |nstr|)
-                                                  (#3#
-                                                   (SPADCALL
-                                                    (LIST |nstr| " " |str|)
-                                                    (QREFELT $ 53)))))
-                                           (EXIT
-                                            (SPADCALL |nstr|
-                                                      (SPADCALL 2
-                                                                (QREFELT $ 76))
-                                                      (QREFELT $ 47))))))))
-                                  $))
-                                ('T |str|)))))
-                        ((EQUAL |str| "%pi") "\\pi") ((EQUAL |str| "%e") "e")
-                        ((EQUAL |str| "%i") "i")
-                        (#3#
-                         (SEQ
-                          (COND
-                           ((> |len| 1)
-                            (COND
-                             ((|eql_SI| (SPADCALL |str| 1 (QREFELT $ 44))
-                                        (|STR_to_CHAR| "%"))
+                                         ((NULL
+                                           (> (LETT |len| (QCSIZE |str|))
+                                              |intSplitLen|))
+                                          (GO G191)))
+                                        (SEQ
+                                         (LETT |nstr|
+                                               (SPADCALL
+                                                (LIST |nstr| " "
+                                                      (SPADCALL |str|
+                                                                (SPADCALL 1
+                                                                          |intSplitLen|
+                                                                          (QREFELT
+                                                                           $
+                                                                           46))
+                                                                (QREFELT $
+                                                                         47)))
+                                                (QREFELT $ 53)))
+                                         (EXIT
+                                          (LETT |str|
+                                                (SPADCALL |str|
+                                                          (SPADCALL
+                                                           (+ |intSplitLen| 1)
+                                                           (QREFELT $ 76))
+                                                          (QREFELT $ 47)))))
+                                        NIL (GO G190) G191 (EXIT NIL))
+                                   (EXIT
+                                    (COND
+                                     ((SPADCALL |nstr| (QREFELT $ 52)) |str|)
+                                     (#5='T
+                                      (SEQ
+                                       (LETT |nstr|
+                                             (COND
+                                              ((SPADCALL |str| (QREFELT $ 52))
+                                               |nstr|)
+                                              (#5#
+                                               (SPADCALL
+                                                (LIST |nstr| " " |str|)
+                                                (QREFELT $ 53)))))
+                                       (EXIT
+                                        (SPADCALL |nstr|
+                                                  (SPADCALL 2 (QREFELT $ 76))
+                                                  (QREFELT $ 47))))))))
+                              $))
+                            ('T |str|)))))
+                    (#5#
+                     (SEQ
+                      (COND
+                       ((SPADCALL |expr| (QREFELT $ 77))
+                        (SEQ (LETT |es| (SPADCALL |expr| (QREFELT $ 78)))
+                             (EXIT
                               (COND
-                               ((|eql_SI| (SPADCALL |str| 2 (QREFELT $ 44))
-                                          (|STR_to_CHAR| "%"))
-                                (EXIT
-                                 (SEQ
-                                  (LETT |u| (SPADCALL 3 |len| (QREFELT $ 46)))
+                               ((EQUAL |es| '|%pi|)
+                                (PROGN (LETT #4# "\\pi") (GO #6=#:G437)))
+                               ((EQUAL |es| '|%e|)
+                                (PROGN (LETT #4# "e") (GO #6#)))
+                               ((EQUAL |es| '|%i|)
+                                (PROGN (LETT #4# "i") (GO #6#)))
+                               (#5#
+                                (LETT |str|
+                                      (SPADCALL |es| (QREFELT $ 66))))))))
+                       ((SPADCALL |expr| (QREFELT $ 56))
+                        (LETT |str| (SPADCALL |expr| (QREFELT $ 57))))
+                       (#5# (|error| "Unrecognized atom in OutputForm")))
+                      (LETT |len| (QCSIZE |str|))
+                      (COND
+                       ((> |len| 1)
+                        (COND
+                         ((|eql_SI| (SPADCALL |str| 1 (QREFELT $ 44))
+                                    (|STR_to_CHAR| "%"))
+                          (COND
+                           ((|eql_SI| (SPADCALL |str| 2 (QREFELT $ 44))
+                                      (|STR_to_CHAR| "%"))
+                            (EXIT
+                             (SEQ (LETT |u| (SPADCALL 3 |len| (QREFELT $ 46)))
                                   (EXIT
                                    (STRCONC " \\%\\%"
                                             (SPADCALL |str| |u|
                                                       (QREFELT $ 47))))))))))))
-                          (COND
-                           ((> |len| 0)
-                            (COND
-                             ((|eql_SI| (SPADCALL |str| 1 (QREFELT $ 44))
-                                        (|STR_to_CHAR| "%"))
-                              (EXIT (STRCONC " \\" |str|))))))
-                          (COND
-                           ((> |len| 0)
-                            (COND
-                             ((|eql_SI| (SPADCALL |str| 1 (QREFELT $ 44))
-                                        (|STR_to_CHAR| "\""))
-                              (EXIT
-                               (SEQ (LETT |s| "\\verb#")
-                                    (SEQ (LETT |i| 1) (LETT #2# |len|) G190
-                                         (COND
-                                          ((|greater_SI| |i| #2#) (GO G191)))
-                                         (SEQ
-                                          (EXIT
-                                           (COND
-                                            ((|eql_SI|
-                                              (SPADCALL |str| |i|
-                                                        (QREFELT $ 44))
-                                              (|STR_to_CHAR| "#"))
-                                             (LETT |s|
-                                                   (STRCONC |s|
-                                                            "#\\verb-#-\\verb#")))
-                                            ('T
-                                             (LETT |s|
-                                                   (STRCONC |s|
-                                                            (SPADCALL
-                                                             (SPADCALL |str|
-                                                                       |i|
-                                                                       (QREFELT
-                                                                        $ 44))
-                                                             (QREFELT $
-                                                                      77))))))))
-                                         (LETT |i| (|inc_SI| |i|)) (GO G190)
-                                         G191 (EXIT NIL))
-                                    (EXIT (STRCONC |s| "#"))))))))
-                          (COND
-                           ((EQL |len| 1)
-                            (COND
-                             ((|eql_SI| (SPADCALL |str| 1 (QREFELT $ 44))
-                                        (|STR_to_CHAR| " "))
-                              (EXIT "{\\ }")))))
-                          (LETT |s| "")
-                          (SEQ (LETT |i| 1) (LETT #1# |len|) G190
-                               (COND ((|greater_SI| |i| #1#) (GO G191)))
-                               (SEQ
-                                (EXIT
-                                 (LETT |s|
-                                       (STRCONC |s|
-                                                (COND
-                                                 ((|eql_SI|
-                                                   (SPADCALL |str| |i|
-                                                             (QREFELT $ 44))
-                                                   (|STR_to_CHAR| "_"))
-                                                  "\\_")
-                                                 ('T
-                                                  (SPADCALL
-                                                   (SPADCALL |str| |i|
-                                                             (QREFELT $ 44))
-                                                   (QREFELT $ 77))))))))
-                               (LETT |i| (|inc_SI| |i|)) (GO G190) G191
-                               (EXIT NIL))
-                          (LETT |str| |s|)
-                          (COND
-                           ((> |len| 1)
-                            (COND
-                             ((SPADCALL (SPADCALL |str| 1 (QREFELT $ 44))
-                                        (QREFELT $ 78))
-                              (EXIT (|TEX;group| |str| $))))))
-                          (COND
-                           ((SPADCALL |expr| (QREFELT $ 79))
-                            (SEQ (LETT |op| (SPADCALL |expr| (QREFELT $ 80)))
-                                 (LETT |i|
-                                       (SPADCALL |op| (QREFELT $ 20)
-                                                 (QREFELT $ 68)))
-                                 (EXIT
-                                  (COND
-                                   ((> |i| 0)
-                                    (LETT |str|
-                                          (SPADCALL (QREFELT $ 21) |i|
-                                                    (QREFELT $ 81)))))))))
-                          (LETT |i|
-                                (SPADCALL (|STR_to_CHAR| " ") |str|
-                                          (QREFELT $ 83)))
+                      (COND
+                       ((> |len| 0)
+                        (COND
+                         ((|eql_SI| (SPADCALL |str| 1 (QREFELT $ 44))
+                                    (|STR_to_CHAR| "%"))
+                          (EXIT (STRCONC " \\" |str|))))))
+                      (COND
+                       ((> |len| 0)
+                        (COND
+                         ((|eql_SI| (SPADCALL |str| 1 (QREFELT $ 44))
+                                    (|STR_to_CHAR| "\""))
                           (EXIT
-                           (COND
-                            ((> |i| 0)
-                             (SPADCALL (LIST " \\mbox{\\rm " |str| "} ")
-                                       (QREFELT $ 53)))
-                            (#3# |str|)))))))))
-                (#3#
-                 (SEQ (LETT |opf| (SPADCALL |expr| (QREFELT $ 84)))
-                      (LETT |args| (SPADCALL |expr| (QREFELT $ 72)))
-                      (LETT |nargs| (LENGTH |args|))
+                           (SEQ (LETT |s| "\\verb#")
+                                (SEQ (LETT |i| 1) (LETT #3# |len|) G190
+                                     (COND ((|greater_SI| |i| #3#) (GO G191)))
+                                     (SEQ
+                                      (EXIT
+                                       (COND
+                                        ((|eql_SI|
+                                          (SPADCALL |str| |i| (QREFELT $ 44))
+                                          (|STR_to_CHAR| "#"))
+                                         (LETT |s|
+                                               (STRCONC |s|
+                                                        "#\\verb-#-\\verb#")))
+                                        ('T
+                                         (LETT |s|
+                                               (STRCONC |s|
+                                                        (SPADCALL
+                                                         (SPADCALL |str| |i|
+                                                                   (QREFELT $
+                                                                            44))
+                                                         (QREFELT $ 79))))))))
+                                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                                     (EXIT NIL))
+                                (EXIT (STRCONC |s| "#"))))))))
+                      (COND
+                       ((EQL |len| 1)
+                        (COND
+                         ((|eql_SI| (SPADCALL |str| 1 (QREFELT $ 44))
+                                    (|STR_to_CHAR| " "))
+                          (EXIT "{\\ }")))))
+                      (LETT |s| "")
+                      (SEQ (LETT |i| 1) (LETT #2# |len|) G190
+                           (COND ((|greater_SI| |i| #2#) (GO G191)))
+                           (SEQ
+                            (EXIT
+                             (LETT |s|
+                                   (STRCONC |s|
+                                            (COND
+                                             ((|eql_SI|
+                                               (SPADCALL |str| |i|
+                                                         (QREFELT $ 44))
+                                               (|STR_to_CHAR| "_"))
+                                              "\\_")
+                                             ('T
+                                              (SPADCALL
+                                               (SPADCALL |str| |i|
+                                                         (QREFELT $ 44))
+                                               (QREFELT $ 79))))))))
+                           (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+                      (LETT |str| |s|)
+                      (COND
+                       ((> |len| 1)
+                        (COND
+                         ((SPADCALL (SPADCALL |str| 1 (QREFELT $ 44))
+                                    (QREFELT $ 80))
+                          (EXIT (|TEX;group| |str| $))))))
+                      (COND
+                       ((SPADCALL |expr| (QREFELT $ 77))
+                        (SEQ (LETT |op| (SPADCALL |expr| (QREFELT $ 78)))
+                             (LETT |i|
+                                   (SPADCALL |op| (QREFELT $ 20)
+                                             (QREFELT $ 68)))
+                             (EXIT
+                              (COND
+                               ((> |i| 0)
+                                (LETT |str|
+                                      (SPADCALL (QREFELT $ 21) |i|
+                                                (QREFELT $ 81)))))))))
+                      (LETT |i|
+                            (SPADCALL (|STR_to_CHAR| " ") |str|
+                                      (QREFELT $ 83)))
                       (EXIT
                        (COND
-                        ((SPADCALL |opf| (QREFELT $ 79))
-                         (SEQ (LETT |op| (SPADCALL |opf| (QREFELT $ 80)))
-                              (EXIT
-                               (COND
-                                ((SPADCALL |op| (QREFELT $ 19) (QREFELT $ 85))
-                                 (|TEX;formatSpecial| |op| |args| |prec| $))
-                                ((SPADCALL |op| (QREFELT $ 17) (QREFELT $ 85))
-                                 (|TEX;formatPlex| |op| |args| |prec| $))
-                                ((EQL 0 |nargs|) (|TEX;formatNullary| |op| $))
-                                (#3#
-                                 (SEQ
-                                  (COND
-                                   ((EQL 1 |nargs|)
+                        ((> |i| 0)
+                         (SPADCALL (LIST " \\mbox{\\rm " |str| "} ")
+                                   (QREFELT $ 53)))
+                        (#5# |str|)))))))
+                  (#5#
+                   (SEQ (LETT |opf| (SPADCALL |expr| (QREFELT $ 84)))
+                        (LETT |args| (SPADCALL |expr| (QREFELT $ 72)))
+                        (LETT |nargs| (LENGTH |args|))
+                        (EXIT
+                         (COND
+                          ((SPADCALL |opf| (QREFELT $ 77))
+                           (SEQ (LETT |op| (SPADCALL |opf| (QREFELT $ 78)))
+                                (EXIT
+                                 (COND
+                                  ((SPADCALL |op| (QREFELT $ 19)
+                                             (QREFELT $ 85))
+                                   (|TEX;formatSpecial| |op| |args| |prec| $))
+                                  ((SPADCALL |op| (QREFELT $ 17)
+                                             (QREFELT $ 85))
+                                   (|TEX;formatPlex| |op| |args| |prec| $))
+                                  ((EQL 0 |nargs|)
+                                   (|TEX;formatNullary| |op| $))
+                                  (#5#
+                                   (SEQ
                                     (COND
-                                     ((SPADCALL |op| (QREFELT $ 10)
-                                                (QREFELT $ 85))
-                                      (EXIT
-                                       (|TEX;formatUnary| |op|
-                                        (|SPADfirst| |args|) |prec| $))))))
-                                  (COND
-                                   ((EQL 2 |nargs|)
+                                     ((EQL 1 |nargs|)
+                                      (COND
+                                       ((SPADCALL |op| (QREFELT $ 10)
+                                                  (QREFELT $ 85))
+                                        (EXIT
+                                         (|TEX;formatUnary| |op|
+                                          (|SPADfirst| |args|) |prec| $))))))
                                     (COND
-                                     ((SPADCALL |op| (QREFELT $ 12)
-                                                (QREFELT $ 85))
-                                      (EXIT
-                                       (|TEX;formatBinary| |op| |args| |prec|
-                                        $))))))
-                                  (EXIT
-                                   (COND
-                                    ((SPADCALL |op| (QREFELT $ 16)
-                                               (QREFELT $ 85))
-                                     (|TEX;formatNaryNoGroup| |op| "" 0 |args|
-                                      |prec| $))
-                                    ((SPADCALL |op| (QREFELT $ 14)
-                                               (QREFELT $ 85))
-                                     (|TEX;formatNary| |op| "" 0 |args| |prec|
-                                      $))
-                                    (#3#
-                                     (|TEX;formatFunction| |opf| |args| |prec|
-                                      $))))))))))
-                        (#3#
-                         (|TEX;formatFunction| |opf| |args| |prec| $))))))))))) 
+                                     ((EQL 2 |nargs|)
+                                      (COND
+                                       ((SPADCALL |op| (QREFELT $ 12)
+                                                  (QREFELT $ 85))
+                                        (EXIT
+                                         (|TEX;formatBinary| |op| |args| |prec|
+                                          $))))))
+                                    (EXIT
+                                     (COND
+                                      ((SPADCALL |op| (QREFELT $ 16)
+                                                 (QREFELT $ 85))
+                                       (|TEX;formatNaryNoGroup| |op| "" 0
+                                        |args| |prec| $))
+                                      ((SPADCALL |op| (QREFELT $ 14)
+                                                 (QREFELT $ 85))
+                                       (|TEX;formatNary| |op| "" 0 |args|
+                                        |prec| $))
+                                      (#5#
+                                       (|TEX;formatFunction| |opf| |args|
+                                        |prec| $))))))))))
+                          (#5#
+                           (|TEX;formatFunction| |opf| |args| |prec|
+                            $))))))))))
+          #6# (EXIT #4#)))) 
 
 (DECLAIM (NOTINLINE |TexFormat;|)) 
 
 (DEFUN |TexFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G437)
+         (PROG (#1=#:G442)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|TexFormat|))
@@ -1293,8 +1299,8 @@
               (103 . |string|) (|List| 65) (108 . |position|) (|List| 27)
               (114 . |elt|) (120 . ~=) (126 . |arguments|) (131 . |atom?|)
               (136 . |integer?|) (141 . |integer|) (146 . |segment|)
-              (151 . |coerce|) (156 . |digit?|) (161 . |symbol?|)
-              (166 . |symbol|) (171 . |elt|) (177 . |char|) (182 . |position|)
+              (151 . |symbol?|) (156 . |symbol|) (161 . |coerce|)
+              (166 . |digit?|) (171 . |elt|) (177 . |char|) (182 . |position|)
               (188 . |operator|) (193 . |member?|) (|SingleInteger|)
               (|HashState|))
            '#(~= 199 |tex| 205 |setTex!| 210 |setPrologue!| 216 |setEpilogue!|
@@ -1319,8 +1325,8 @@
                                               69 27 0 27 70 2 27 51 0 0 71 1 24
                                               54 23 72 1 24 51 23 73 1 24 51 23
                                               74 1 24 27 23 75 1 45 0 27 76 1
-                                              43 0 42 77 1 42 51 0 78 1 24 51
-                                              23 79 1 24 65 23 80 2 33 43 0 27
+                                              24 51 23 77 1 24 65 23 78 1 43 0
+                                              42 79 1 42 51 0 80 2 33 43 0 27
                                               81 1 42 0 43 82 2 43 27 42 0 83 1
                                               24 23 23 84 2 67 51 65 0 85 2 0
                                               51 0 0 1 1 0 33 0 35 2 0 33 0 33

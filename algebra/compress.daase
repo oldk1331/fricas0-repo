@@ -682,17 +682,18 @@
  |inHallBasis?| |reorder| |heap| |gcdprim| |gcdcofact| |gcdcofactprim|
  |lintgcd| |hex| |members| |parts| |count| |every?| |any?| |map!|
  |dispGenerators| |homologyzc2| |homologyc2| |homologyzz| |homologyz|
- |homology0| |homologyGroup| |antipode| |factorList| |listConjugateBases|
- |matrixGcd| |divideIfCan!| |leastPower| |idealiser| |idealiserMatrix|
- |moduleSum| |mapUnivariate| |mapUnivariateIfCan| |mapMatrixIfCan|
- |mapBivariate| |fullDisplay| |relationsIdeal| |saturate| |groebner?|
- |groebnerIdeal| |ideal| |leadingIdeal| |backOldPos| |generalPosition|
- |quotient| |zeroDim?| |inRadical?| |in?| |element?| |zeroDimPrime?|
- |zeroDimPrimary?| |radical| |primaryDecomp| |leadingTerm| |constructOrdered|
- |leadingSupport| |numberOfMonomials| |eigenvector| |generalizedEigenvector|
- |eigenvalues| |eigenvectors| |generalizedEigenvectors| |removeRepeats!|
- |shrinkable| |physicalLength!| |physicalLength| |flexibleArray| |parseILTerm|
- |parseIL2| |parseIL| |proposition| |generalizedInverse| |row_operation_base|
+ |homology0| |homologyGroup| |antipode| |exprex| |factorList|
+ |listConjugateBases| |matrixGcd| |divideIfCan!| |leastPower| |idealiser|
+ |idealiserMatrix| |moduleSum| |mapUnivariate| |mapUnivariateIfCan|
+ |mapMatrixIfCan| |mapBivariate| |fullDisplay| |relationsIdeal| |saturate|
+ |groebner?| |groebnerIdeal| |ideal| |leadingIdeal| |backOldPos|
+ |generalPosition| |quotient| |zeroDim?| |inRadical?| |in?| |element?|
+ |zeroDimPrime?| |zeroDimPrimary?| |radical| |primaryDecomp| |leadingTerm|
+ |constructOrdered| |leadingSupport| |numberOfMonomials| |eigenvector|
+ |generalizedEigenvector| |eigenvalues| |eigenvectors|
+ |generalizedEigenvectors| |removeRepeats!| |shrinkable| |physicalLength!|
+ |physicalLength| |flexibleArray| |parseILTerm| |parseIL2| |parseIL|
+ |proposition| |generalizedInverse| |row_operation_base|
  |row_operation_modular| |do_modular_solve| |do_poly_integer| |merge_exponents|
  |merge2| |setFieldInfo| |pol| |xn| |dAndcExp| |repSq| |expPot| |qPot| |lookup|
  |normal?| |normalElement| |minimalPolynomial| |incidenceAlgebra| |increment|
@@ -786,25 +787,24 @@
  |multifunctionGraph| |minimumExponent| |maximumExponent| |precision|
  |mantissa| |rowEch| |rowEchLocal| |rowEchelonLocal| |normalizedDivide|
  |maxint| |binaryFunction| |makeFloatFunction| |function| |makeRecord|
- |unaryFunction| |compiledFunction| |corrPoly| |lifting| |exprex| |coerceS|
- |mfactor| |ddfact| |mmul| |mod_exp| |power_matrix| |modular_compose|
- |ini_rdata| |red_pol| |HP_solve_I| |HP_solve_A| |HP_solve_P| |HP_solve_PA|
- |HP_solve_M| |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA| |LLFI_to_LPA|
- |LLFPI_to_LPA| |get_variables| |unpack_poly| |HP_solve|
- |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius|
- |computePowers| |An| |UnVectorise| |Vectorise| |setPoly| |index| |exponent|
- |exQuo| |cumulant2moment| |moment2cumulant| |moment2nthJacobi| |moment2jacobi|
- |moment2jacobi2| |freeCumulant2moment| |moment2freeCumulant|
- |booleanCumulant2moment| |moment2booleanCumulant| |monotoneCumulant2moment|
- |monotoneCumulant2momentPoly| |hankelDeterminant| |jacobi2poly|
- |moment2Stransform| |moment2monotoneCumulant| |derivationCoordinates|
- |generator| |splitSquarefree| |normalDenom| |totalfract| |pushdterm|
- |pushucoef| |pushuconst| |mrv_normalize| |mrv_limit| |mrv_limit1| |mrv_sign|
- |mrv_cmp| |mrv_set| |expr_to_series| |mrv_rewrite| |mrv_rewrite0| |multiset|
- |systemCommand| |mergeDifference| |logDependenceQ| |compdegd| |univcase|
- |consnewpol| |nsqfree| |intChoose| |coefChoose| |myDegree| |normDeriv2|
- |plenaryPower| |commutator| |associator| |antiCommutator|
- |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
+ |unaryFunction| |compiledFunction| |corrPoly| |lifting| |coerceS| |mfactor|
+ |ddfact| |mmul| |mod_exp| |power_matrix| |modular_compose| |ini_rdata|
+ |red_pol| |HP_solve_I| |HP_solve_A| |HP_solve_P| |HP_solve_PA| |HP_solve_M|
+ |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA|
+ |get_variables| |unpack_poly| |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA|
+ |VSUPS_to_VPA| |frobenius| |computePowers| |An| |UnVectorise| |Vectorise|
+ |setPoly| |index| |exponent| |exQuo| |cumulant2moment| |moment2cumulant|
+ |moment2nthJacobi| |moment2jacobi| |moment2jacobi2| |freeCumulant2moment|
+ |moment2freeCumulant| |booleanCumulant2moment| |moment2booleanCumulant|
+ |monotoneCumulant2moment| |monotoneCumulant2momentPoly| |hankelDeterminant|
+ |jacobi2poly| |moment2Stransform| |moment2monotoneCumulant|
+ |derivationCoordinates| |generator| |splitSquarefree| |normalDenom|
+ |totalfract| |pushdterm| |pushucoef| |pushuconst| |mrv_normalize| |mrv_limit|
+ |mrv_limit1| |mrv_sign| |mrv_cmp| |mrv_set| |expr_to_series| |mrv_rewrite|
+ |mrv_rewrite0| |multiset| |systemCommand| |mergeDifference| |logDependenceQ|
+ |compdegd| |univcase| |consnewpol| |nsqfree| |intChoose| |coefChoose|
+ |myDegree| |normDeriv2| |plenaryPower| |commutator| |associator|
+ |antiCommutator| |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
  |naiveBeckermannLabahn1| |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis|
  |complexEigenvalues| |complexEigenvectors| |newton| |groebner| |redPol|
  |hMonic| |virtualDegree| |sPol| |shift| |normalizedAssociate| |normalize|
