@@ -671,6 +671,12 @@
                                                         (|devaluate| |curve|)))
                                                  (|AlgebraicIntegrate2|
                                                   (ELT $ 6) (ELT $ 7)
+                                                  (|SparseUnivariatePolynomial|
+                                                   (ELT $ 7))
+                                                  (|SparseUnivariatePolynomial|
+                                                   (|Fraction|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (ELT $ 7))))
                                                   |curve|))))
           (EXIT
            (PROGN
@@ -880,6 +886,12 @@
                                                              |curve|)))
                                                      (|AlgebraicIntegrate2|
                                                       (ELT $ 6) (ELT $ 7)
+                                                      (|SparseUnivariatePolynomial|
+                                                       (ELT $ 7))
+                                                      (|SparseUnivariatePolynomial|
+                                                       (|Fraction|
+                                                        (|SparseUnivariatePolynomial|
+                                                         (ELT $ 7))))
                                                       |curve|))))
               (EXIT
                (PROGN
