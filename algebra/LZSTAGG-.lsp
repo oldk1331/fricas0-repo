@@ -57,6 +57,7 @@
         ((|x| A) (|n| |NonNegativeInteger|) ($ |Boolean|))
         (SPROG ((#1=#:G221 NIL))
                (COND ((SPADCALL |x| (QREFELT $ 19)) (EQL |n| 0))
+                     ((EQL |n| 0) NIL)
                      ('T
                       (SPADCALL (SPADCALL |x| (QREFELT $ 17))
                                 (PROG1
