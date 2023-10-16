@@ -286,7 +286,7 @@
                                  (|DirectProduct|
                                   (NRTEVAL (LENGTH (QREFELT $ 6)))
                                   (|NonNegativeInteger|))
-                                 15 21)
+                                 21)
               (140 . |normalForm|) (146 . |primitivePart|)
               (151 . |quasiAlgebraicSet|) (157 . |setStatus|)
               |QALGSET2;radicalSimplify;2Qas;5|)

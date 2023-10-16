@@ -624,7 +624,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|List| 9)
-              (|GroebnerInternalPackage| 6 7 8 9) (0 . |redPol|) (6 . |hMonic|)
+              (|GroebnerInternalPackage| 6 7 9) (0 . |redPol|) (6 . |hMonic|)
               (|Record| (|:| |lcmfij| 7) (|:| |totdeg| 27) (|:| |poli| 9)
                         (|:| |polj| 9))
               (11 . |sPol|) (16 . |One|) (|Boolean|) (20 . =) (26 . |Zero|)

@@ -866,7 +866,7 @@
                                                   (|DirectProduct|
                                                    (LENGTH |lv|)
                                                    (|NonNegativeInteger|))
-                                                  OV |dmp|)
+                                                  |dmp|)
                        . #48#)
                  (EXIT
                   (LETT |partRes|

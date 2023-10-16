@@ -89,7 +89,7 @@
                                                   (LIST '|List|
                                                         (|devaluate| |DPoly|)))
                                                  (|GroebnerPackage| (ELT $ 6)
-                                                                    DP OV
+                                                                    DP
                                                                     |DPoly|)))
                 . #5#)
           (EXIT
@@ -215,7 +215,7 @@
                                                         (|devaluate|
                                                          |HDPoly|)))
                                                  (|GroebnerPackage| (ELT $ 6)
-                                                                    HDP OV
+                                                                    HDP
                                                                     |HDPoly|)))
                 . #5#)
           (EXIT

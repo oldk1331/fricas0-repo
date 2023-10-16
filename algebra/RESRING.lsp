@@ -93,7 +93,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) '|Rep| (|List| 9)
-              (|GroebnerPackage| 6 7 8 9) (0 . |groebner|) '|relations|
+              (|GroebnerPackage| 6 7 9) (0 . |groebner|) '|relations|
               (5 . |One|) (|Boolean|) (9 . =) '#:G104 (15 . |Zero|)
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |RESRING;Zero;$;1|) $))

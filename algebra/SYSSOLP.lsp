@@ -446,7 +446,7 @@
                             (|Polynomial| (QREFELT $ 6))
                             (|DirectProduct| (LENGTH |lv|)
                                              (|NonNegativeInteger|))
-                            OV |dmp|)
+                            |dmp|)
                            . #22#)
                      (EXIT
                       (LETT |parRes|

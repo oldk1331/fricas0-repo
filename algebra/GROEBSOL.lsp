@@ -919,7 +919,7 @@
               (|GroebnerInternalPackage| 7
                                          (|DirectProduct|
                                           (NRTEVAL (LENGTH (QREFELT $ 6))) 10)
-                                         29 15)
+                                         15)
               (77 . |redPol|) (83 . |Zero|) (|Boolean|) (87 . ~=)
               (93 . |univariate|) (|Union| 29 '"failed") (99 . |mainVariable|)
               (|HomogeneousDistributedMultivariatePolynomial|
@@ -931,7 +931,7 @@
               (|GroebnerPackage| 7
                                  (|HomogeneousDirectProduct|
                                   (NRTEVAL (LENGTH (QREFELT $ 6))) 10)
-                                 29 40)
+                                 40)
               (142 . |groebner|)
               (|LinGroebnerPackage| (NRTEVAL (QREFELT $ 6)) 7)
               (147 . |totolex|) (152 . |last|)

@@ -262,7 +262,7 @@
                                  (|HomogeneousDirectProduct|
                                   (NRTEVAL (LENGTH (QREFELT $ 7)))
                                   (|NonNegativeInteger|))
-                                 13 15)
+                                 15)
               (0 . |groebner|) (|Union| $ '"failed") (|Symbol|)
               (|OrderedVariableList| (NRTEVAL (QREFELT $ 7))) (5 . |variable|)
               (|HomogeneousDistributedMultivariatePolynomial|
@@ -282,7 +282,7 @@
                                  (|DirectProduct|
                                   (NRTEVAL (LENGTH (QREFELT $ 7)))
                                   (|NonNegativeInteger|))
-                                 13 35)
+                                 35)
               (62 . |groebner|) |FGLMICPK;groebner;2L;4|)
            '#(|zeroDimensional?| 67 |groebner| 72 |fglmIfCan| 77) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)

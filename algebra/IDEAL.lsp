@@ -1240,8 +1240,7 @@
                   (LETT |nPoly| (|PolynomialRing| (QREFELT $ 6) |nExponent|)
                         . #28#)
                   (LETT |gp|
-                        (|GroebnerPackage| (QREFELT $ 6) |nExponent| |VarSet1|
-                                           |nPoly|)
+                        (|GroebnerPackage| (QREFELT $ 6) |nExponent| |nPoly|)
                         . #28#)
                   (LETT |lf| NIL . #28#) (LETT |lp| NIL . #28#)
                   (SEQ (LETT |i| 1 . #28#) (LETT |f| NIL . #28#)
@@ -1718,19 +1717,19 @@
               (|SparseUnivariatePolynomial| $) (115 . |univariate|)
               (|SparseUnivariatePolynomial| 9) (121 . |leadingCoefficient|)
               (|Union| $ '"failed") (126 . |exquo|) (|List| 12)
-              (|GroebnerPackage| 6 11 8 12) (132 . |groebner|)
-              (137 . |member?|) (143 . |append|) (149 . |ground?|)
-              (154 . |One|) (158 . |One|) (|Integer|) (162 . |elt|) (|List| 35)
-              (168 . |concat|) (|List| 9) |IDEAL;generators;$L;35| (174 . >)
-              (180 . |One|) (184 . |position|) (190 . |delete|) (196 . |#|)
+              (|GroebnerPackage| 6 11 12) (132 . |groebner|) (137 . |member?|)
+              (143 . |append|) (149 . |ground?|) (154 . |One|) (158 . |One|)
+              (|Integer|) (162 . |elt|) (|List| 35) (168 . |concat|) (|List| 9)
+              |IDEAL;generators;$L;35| (174 . >) (180 . |One|)
+              (184 . |position|) (190 . |delete|) (196 . |#|)
               (|Mapping| 14 35 35) (201 . |sort|) (207 . ~=)
               (213 . |setDifference|) |IDEAL;in?;2$B;12| |IDEAL;=;2$B;10|
-              |IDEAL;groebner;2$;13| (|GroebnerPackage| 6 7 8 9)
+              |IDEAL;groebner;2$;13| (|GroebnerPackage| 6 7 9)
               (219 . |normalForm|) |IDEAL;element?;DPoly$B;11| (225 . |zero?|)
               (230 . |groebner|) (235 . |One|) (239 . -) (245 . *)
               (251 . |concat|) |IDEAL;intersect;3$;14| (|List| $)
               |IDEAL;intersect;L$;15| |IDEAL;coerce;L$;31|
-              (|GroebnerInternalPackage| 6 7 8 9) (257 . |minGbasis|)
+              (|GroebnerInternalPackage| 6 7 9) (257 . |minGbasis|)
               |IDEAL;quotient;$DPoly$;16| |IDEAL;ideal;L$;33|
               |IDEAL;quotient;3$;17| (262 . |concat|) |IDEAL;+;3$;18| (268 . *)
               (274 . |append|) |IDEAL;*;3$;19| |IDEAL;^;$Nni$;20|

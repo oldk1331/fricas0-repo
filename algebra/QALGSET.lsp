@@ -503,27 +503,27 @@
               (|local| |#3|) (|local| |#4|) '|Rep| (|Boolean|) (0 . |ground?|)
               (|Factored| 9) (|MultivariateFactorize| 7 8 6 9) (5 . |factor|)
               (|Record| (|:| |factor| 9) (|:| |exponent| (|Integer|)))
-              (|List| 16) (10 . |factors|) (|List| 9)
-              (|GroebnerPackage| 6 8 7 9) (15 . |groebner|)
-              (|GroebnerInternalPackage| 6 8 7 9) (20 . |redPol|)
-              |QALGSET;quasiAlgebraicSet;LDpoly$;12| (26 . |Zero|)
-              (30 . |Zero|) (34 . |Zero|) (38 . =) |QALGSET;empty;$;7|
-              (44 . |setDifference|) (50 . *) (56 . |One|) (60 . |member?|)
-              (66 . |primitivePart|) (71 . |simplify|) (76 . |zero?|)
-              (|PolynomialRing| 6 42) (81 . |Zero|) (85 . |leadingCoefficient|)
-              (90 . |degree|) (|NonNegativeInteger|) (|Product| 41 8)
-              (95 . |construct|) (101 . |monomial|) (107 . |reductum|)
-              (112 . +) (118 . =) (124 . |degree|) (129 . |first|) (134 . ~=)
-              (140 . |reductum|) (145 . |leadingCoefficient|) (150 . |second|)
-              (155 . |monomial|) (161 . +) (|Union| 11 '"failed") (167 . =)
-              (|String|) (|OutputForm|) (173 . |message|) (178 . |coerce|)
+              (|List| 16) (10 . |factors|) (|List| 9) (|GroebnerPackage| 6 8 9)
+              (15 . |groebner|) (|GroebnerInternalPackage| 6 8 9)
+              (20 . |redPol|) |QALGSET;quasiAlgebraicSet;LDpoly$;12|
+              (26 . |Zero|) (30 . |Zero|) (34 . |Zero|) (38 . =)
+              |QALGSET;empty;$;7| (44 . |setDifference|) (50 . *) (56 . |One|)
+              (60 . |member?|) (66 . |primitivePart|) (71 . |simplify|)
+              (76 . |zero?|) (|PolynomialRing| 6 42) (81 . |Zero|)
+              (85 . |leadingCoefficient|) (90 . |degree|)
+              (|NonNegativeInteger|) (|Product| 41 8) (95 . |construct|)
+              (101 . |monomial|) (107 . |reductum|) (112 . +) (118 . =)
+              (124 . |degree|) (129 . |first|) (134 . ~=) (140 . |reductum|)
+              (145 . |leadingCoefficient|) (150 . |second|) (155 . |monomial|)
+              (161 . +) (|Union| 11 '"failed") (167 . =) (|String|)
+              (|OutputForm|) (173 . |message|) (178 . |coerce|)
               (183 . |hconcat|) (|List| 59) (189 . |coerce|) (|List| $)
               (194 . |bracket|) |QALGSET;coerce;$Of;5|
               |QALGSET;idealSimplify;2$;13| |QALGSET;empty?;$B;6|
               |QALGSET;status;$U;8| |QALGSET;setStatus;$U$;9|
               |QALGSET;definingEquations;$L;10|
               |QALGSET;definingInequation;$Dpoly;11| (199 . |One|) (203 . *)
-              (209 . |One|) (213 . -) (|List| 37) (|GroebnerPackage| 6 42 7 37)
+              (209 . |One|) (213 . -) (|List| 37) (|GroebnerPackage| 6 42 37)
               (219 . |groebner|) (224 . |member?|) (|Set| 9) (230 . |set|)
               (235 . <) (|HashState|) (|SingleInteger|))
            '#(~= 241 |status| 247 |simplify| 252 |setStatus| 257

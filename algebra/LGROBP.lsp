@@ -1202,7 +1202,7 @@
               (|Record| (|:| |poly| 28) (|:| |mult| 7))
               (|HomogeneousDistributedMultivariatePolynomial|
                (NRTEVAL (QREFELT $ 6)) 7)
-              (|List| 28) (|GroebnerInternalPackage| 7 78 10 28) (61 . |redPo|)
+              (|List| 28) (|GroebnerInternalPackage| 7 78 28) (61 . |redPo|)
               (67 . |Zero|) (|Boolean|) (71 . =) (77 . |reductum|) (82 . -)
               (88 . *) (94 . +) |LGROBP;computeBasis;2L;7|
               (|DistributedMultivariatePolynomial| (NRTEVAL (QREFELT $ 6)) 7)
@@ -1226,13 +1226,13 @@
               (|List| 7) |LGROBP;anticoord;LDmpLDmp;10| (296 . =) '"last"
               (|List| 10) (302 . |elt|) (308 . |coerce|) (313 . *)
               (|Record| (|:| |poly| 40) (|:| |mult| 7))
-              (|GroebnerInternalPackage| 7 74 10 40) (319 . |redPo|)
+              (|GroebnerInternalPackage| 7 74 40) (319 . |redPo|)
               (325 . |degree|) (331 . ^) (337 . |last|) (342 . *)
               (348 . |eval|) (|Record| (|:| |gblist| 47) (|:| |gvlist| 106))
               |LGROBP;linGenPos;LR;12| (|List| 16) (355 . |elt|) (361 . |elt|)
               (|SparseUnivariatePolynomial| $) (367 . |univariate|)
               (|SparseUnivariatePolynomial| 40) (373 . |elt|)
-              (|GroebnerPackage| 7 74 10 40) (379 . |groebner|)
+              (|GroebnerPackage| 7 74 40) (379 . |groebner|)
               (|Record| (|:| |glbase| 47) (|:| |glval| 106))
               |LGROBP;groebgen;LR;13|)
            '#(|transform| 384 |totolex| 389 |minPol| 394 |linGenPos| 407
