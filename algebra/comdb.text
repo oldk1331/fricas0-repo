@@ -6039,9 +6039,9 @@
 643740`\spad{outputFixed(n)} sets the output mode to fixed point notation,{} with \spad{n} digits displayed after the decimal point.
 643799`\spad{outputFloating()} sets the output mode to floating (scientific) notation,{} \spadignore{i.e.} \spad{mantissa * 10 exponent} is displayed as \spad{0.mantissa E exponent}.
 643843`\spad{outputFloating(n)} sets the output mode to floating (scientific) notation with \spad{n} significant digits displayed after the decimal point.
-643905`\spad{outputForm(n)} creates an form for integer \spad{n}.
-643955`\spad{outputForm(s)} creates an form for string \spad{s}.
-644004`\spad{outputForm(s)} creates an form for symbol \spad{s}.
+643905`\spad{outputForm(n)} creates a form for an integer.
+643955`\spad{outputForm(s)} creates a form for a string.
+644004`\spad{outputForm(s)} creates a form for a symbol.
 644053`\spad{outputForm(p,{} var)} converts the SparseUnivariatePolynomial \spad{p} to an output form (see \spadtype{OutputForm}) printed as a polynomial in the output form \spad{var}.
 644136`\spad{outputForm(p,{} x)} returns the output form of \spad{p} using \spad{x} for the otherwise anonymous variable.
 644235`\spad{outputForm(l,{} fop,{} fexp,{} unit)} converts the monoid element represented by \spad{l} to an \spadtype{OutputForm}. Argument unit is the output form for the \spadignore{unit} of the monoid (\spadignore{e.g.} 0 or 1),{} \spad{fop(a,{} b)} is the output form for the monoid operation applied to \spad{a} and \spad{b} (\spadignore{e.g.} \spad{a + b},{} \spa

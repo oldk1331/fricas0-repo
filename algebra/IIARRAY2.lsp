@@ -65,8 +65,8 @@
 
 (SDEFUN |IIARRAY2;latex;$S;14| ((|m| $) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (#1=#:G2219 NIL) (|j| NIL) (#2=#:G2218 NIL)
-          (|i| NIL) (#3=#:G2217 NIL))
+         ((|s| (|String|)) (#1=#:G2259 NIL) (|j| NIL) (#2=#:G2258 NIL)
+          (|i| NIL) (#3=#:G2257 NIL))
          (SEQ (LETT |s| "\\left[ \\begin{array}{")
               (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 17)))
                    (LETT #3# (SPADCALL |m| (QREFELT $ 21))) G190
@@ -101,9 +101,9 @@
 
 (DECLAIM (NOTINLINE |InnerIndexedTwoDimensionalArray;|)) 
 
-(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2227)
+(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2267)
   (SPROG NIL
-         (PROG (#2=#:G2228)
+         (PROG (#2=#:G2268)
            (RETURN
             (COND
              ((LETT #2#
@@ -125,7 +125,7 @@
 
 (DEFUN |InnerIndexedTwoDimensionalArray;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2224 NIL) (#2=#:G2225 NIL) ($ NIL) (|dv$| NIL)
+   ((|pv$| NIL) (#1=#:G2264 NIL) (#2=#:G2265 NIL) ($ NIL) (|dv$| NIL)
     (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
