@@ -2639,7 +2639,7 @@
 ;   not MEMQ(dcName,'(Record Union Enumeration)) => NIL
 ;   fun:= NIL
 ;  --  cat := constructorCategory dc
-;   makeFunc := GET(dcName, "makeFunctionList") or
+;   makeFunc := get_oplist_maker(dcName) or
 ;       systemErrorHere '"findFunctionInCategory"
 ;   [funlist,.] := FUNCALL(makeFunc,"$",dc,$CategoryFrame)
 ;   -- get list of implementations and remove sharps
@@ -2680,7 +2680,7 @@
              (PROGN
               (SETQ |fun| NIL)
               (SETQ |makeFunc|
-                      (OR (GET |dcName| '|makeFunctionList|)
+                      (OR (|get_oplist_maker| |dcName|)
                           (|systemErrorHere| "findFunctionInCategory")))
               (SETQ |LETTMP#1| (FUNCALL |makeFunc| '$ |dc| |$CategoryFrame|))
               (SETQ |funlist| (CAR |LETTMP#1|))

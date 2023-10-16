@@ -678,7 +678,7 @@
        NIL)))))
  
 ; compCat(form is [functorName,:argl],m,e) ==
-;   fn := GET(functorName, "makeFunctionList") or return nil
+;   fn := get_oplist_maker(functorName) or return nil
 ;   [funList,e]:= FUNCALL(fn,form,form,e)
 ;   catForm:=
 ;     ["Join",'(SetCategory),["CATEGORY","domain",:
@@ -694,7 +694,7 @@
      (PROGN
       (SETQ |functorName| (CAR |form|))
       (SETQ |argl| (CDR |form|))
-      (SETQ |fn| (OR (GET |functorName| '|makeFunctionList|) (RETURN NIL)))
+      (SETQ |fn| (OR (|get_oplist_maker| |functorName|) (RETURN NIL)))
       (SETQ |LETTMP#1| (FUNCALL |fn| |form| |form| |e|))
       (SETQ |funList| (CAR |LETTMP#1|))
       (SETQ |e| (CADR |LETTMP#1|))
@@ -758,9 +758,10 @@
                 |e|))
               (#1# (|addModemap0| |op| |mc| |sig| |pred| |fn| |e|)))))))))
  
-; addConstructorModemaps(name,form is [functorName,:.],e) ==
+; add_builtin_modemaps(name,form is [functorName,:.],e) ==
+;   $InteractiveMode => BREAK()
 ;   e:= putDomainsInScope(name,e) --frame
-;   fn := GET(functorName, "makeFunctionList")
+;   fn := get_oplist_maker(functorName)
 ;   [funList,e]:= FUNCALL(fn,name,form,e)
 ;   for [op,sig,opcode] in funList repeat
 ;     if opcode is [sel,dc,n] and sel='ELT then
@@ -770,57 +771,66 @@
 ;     e:= addModemap(op,name,sig,true,opcode,e)
 ;   e
  
-(DEFUN |addConstructorModemaps| (|name| |form| |e|)
+(DEFUN |add_builtin_modemaps| (|name| |form| |e|)
   (PROG (|functorName| |fn| |LETTMP#1| |funList| |op| |ISTMP#1| |sig| |ISTMP#2|
          |opcode| |sel| |dc| |n| |nsig|)
     (RETURN
      (PROGN
       (SETQ |functorName| (CAR |form|))
-      (SETQ |e| (|putDomainsInScope| |name| |e|))
-      (SETQ |fn| (GET |functorName| '|makeFunctionList|))
-      (SETQ |LETTMP#1| (FUNCALL |fn| |name| |form| |e|))
-      (SETQ |funList| (CAR |LETTMP#1|))
-      (SETQ |e| (CADR |LETTMP#1|))
-      ((LAMBDA (|bfVar#21| |bfVar#20|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#21|)
-                (PROGN (SETQ |bfVar#20| (CAR |bfVar#21|)) NIL))
-            (RETURN NIL))
-           (#1='T
-            (AND (CONSP |bfVar#20|)
-                 (PROGN
-                  (SETQ |op| (CAR |bfVar#20|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#20|))
-                  (AND (CONSP |ISTMP#1|)
-                       (PROGN
-                        (SETQ |sig| (CAR |ISTMP#1|))
-                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                             (PROGN (SETQ |opcode| (CAR |ISTMP#2|)) #1#)))))
-                 (PROGN
+      (COND (|$InteractiveMode| (BREAK))
+            (#1='T
+             (PROGN
+              (SETQ |e| (|putDomainsInScope| |name| |e|))
+              (SETQ |fn| (|get_oplist_maker| |functorName|))
+              (SETQ |LETTMP#1| (FUNCALL |fn| |name| |form| |e|))
+              (SETQ |funList| (CAR |LETTMP#1|))
+              (SETQ |e| (CADR |LETTMP#1|))
+              ((LAMBDA (|bfVar#21| |bfVar#20|)
+                 (LOOP
                   (COND
-                   ((AND (CONSP |opcode|)
+                   ((OR (ATOM |bfVar#21|)
+                        (PROGN (SETQ |bfVar#20| (CAR |bfVar#21|)) NIL))
+                    (RETURN NIL))
+                   (#1#
+                    (AND (CONSP |bfVar#20|)
                          (PROGN
-                          (SETQ |sel| (CAR |opcode|))
-                          (SETQ |ISTMP#1| (CDR |opcode|))
+                          (SETQ |op| (CAR |bfVar#20|))
+                          (SETQ |ISTMP#1| (CDR |bfVar#20|))
                           (AND (CONSP |ISTMP#1|)
                                (PROGN
-                                (SETQ |dc| (CAR |ISTMP#1|))
+                                (SETQ |sig| (CAR |ISTMP#1|))
                                 (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                                 (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                                     (PROGN (SETQ |n| (CAR |ISTMP#2|)) #1#)))))
-                         (EQ |sel| 'ELT))
-                    (SETQ |nsig| (|substitute| '$$$ |name| |sig|))
-                    (SETQ |nsig|
-                            (|substitute| '$ '$$$
-                             (|substitute| '$$ '$ |nsig|)))
-                    (SETQ |opcode| (LIST |sel| |dc| |nsig|))))
-                  (SETQ |e|
-                          (|addModemap| |op| |name| |sig| T |opcode| |e|))))))
-          (SETQ |bfVar#21| (CDR |bfVar#21|))))
-       |funList| NIL)
-      |e|))))
+                                     (PROGN
+                                      (SETQ |opcode| (CAR |ISTMP#2|))
+                                      #1#)))))
+                         (PROGN
+                          (COND
+                           ((AND (CONSP |opcode|)
+                                 (PROGN
+                                  (SETQ |sel| (CAR |opcode|))
+                                  (SETQ |ISTMP#1| (CDR |opcode|))
+                                  (AND (CONSP |ISTMP#1|)
+                                       (PROGN
+                                        (SETQ |dc| (CAR |ISTMP#1|))
+                                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                        (AND (CONSP |ISTMP#2|)
+                                             (EQ (CDR |ISTMP#2|) NIL)
+                                             (PROGN
+                                              (SETQ |n| (CAR |ISTMP#2|))
+                                              #1#)))))
+                                 (EQ |sel| 'ELT))
+                            (SETQ |nsig| (|substitute| '$$$ |name| |sig|))
+                            (SETQ |nsig|
+                                    (|substitute| '$ '$$$
+                                     (|substitute| '$$ '$ |nsig|)))
+                            (SETQ |opcode| (LIST |sel| |dc| |nsig|))))
+                          (SETQ |e|
+                                  (|addModemap| |op| |name| |sig| T |opcode|
+                                   |e|))))))
+                  (SETQ |bfVar#21| (CDR |bfVar#21|))))
+               |funList| NIL)
+              |e|)))))))
  
 ; getDomainsInScope e ==
 ;   $insideCapsuleFunctionIfTrue=true => $CapsuleDomainsInScope

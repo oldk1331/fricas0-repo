@@ -657,6 +657,21 @@
          (LIST '|Cannot coerce| |sym| '|to| (CONS '|Enumeration| |args|))))
        (#1# |val|))))))
  
+; get_oplist_maker(op) ==
+;     op = "Record" => "mkRecordFunList"
+;     op = "Union" => "mkUnionFunList"
+;     op = "Mapping" => "mkMappingFunList"
+;     op = "Enumeration" => "mkEnumerationFunList"
+;     false
+ 
+(DEFUN |get_oplist_maker| (|op|)
+  (PROG ()
+    (RETURN
+     (COND ((EQ |op| '|Record|) '|mkRecordFunList|)
+           ((EQ |op| '|Union|) '|mkUnionFunList|)
+           ((EQ |op| '|Mapping|) '|mkMappingFunList|)
+           ((EQ |op| '|Enumeration|) '|mkEnumerationFunList|) ('T NIL)))))
+ 
 ; RecordCategory(:x) == constructorCategory ['Record,:x]
  
 (DEFUN |RecordCategory| (&REST |x|)
@@ -673,7 +688,7 @@
   (PROG () (RETURN (|constructorCategory| (CONS '|Union| |x|)))))
  
 ; constructorCategory (title is [op,:.]) ==
-;   constructorFunction:= GET(op, "makeFunctionList") or
+;   constructorFunction := get_oplist_maker(op) or
 ;               systemErrorHere '"constructorCategory"
 ;   [funlist,.]:= FUNCALL(constructorFunction,"$",title,$CategoryFrame)
 ;   oplist:= [[[a,b],true,c] for [a,b,c] in funlist]
@@ -689,7 +704,7 @@
      (PROGN
       (SETQ |op| (CAR |title|))
       (SETQ |constructorFunction|
-              (OR (GET |op| '|makeFunctionList|)
+              (OR (|get_oplist_maker| |op|)
                   (|systemErrorHere| "constructorCategory")))
       (SETQ |LETTMP#1|
               (FUNCALL |constructorFunction| '$ |title| |$CategoryFrame|))

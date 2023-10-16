@@ -810,8 +810,8 @@
       ('T NIL)))))
  
 ; augModemapsFromDomain1(name,functorForm,e) ==
-;   GET(IFCAR functorForm, "makeFunctionList") =>
-;     addConstructorModemaps(name,functorForm,e)
+;   get_oplist_maker(IFCAR(functorForm)) =>
+;       add_builtin_modemaps(name, functorForm, e)
 ;   atom functorForm and (catform:= getmode(functorForm,e)) =>
 ;     augModemapsFromCategory(name,name,functorForm,catform,e)
 ;   mappingForm := getmodeOrMapping(IFCAR functorForm, e) =>
@@ -825,8 +825,8 @@
   (PROG (|catform| |mappingForm| |categoryForm| |functArgTypes|)
     (RETURN
      (COND
-      ((GET (IFCAR |functorForm|) '|makeFunctionList|)
-       (|addConstructorModemaps| |name| |functorForm| |e|))
+      ((|get_oplist_maker| (IFCAR |functorForm|))
+       (|add_builtin_modemaps| |name| |functorForm| |e|))
       ((AND (ATOM |functorForm|)
             (SETQ |catform| (|getmode| |functorForm| |e|)))
        (|augModemapsFromCategory| |name| |name| |functorForm| |catform| |e|))
