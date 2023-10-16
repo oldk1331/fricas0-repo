@@ -1431,10 +1431,10 @@
                                    '((|retractIfCan|
                                       ((|Union| (|Integer|) #5#) |#1|))
                                      T)
+                                   '((|degree| ((|NonNegativeInteger|) |#1|))
+                                     T)
                                    '((|monomial|
                                       (|#1| |#2| (|NonNegativeInteger|)))
-                                     T)
-                                   '((|degree| ((|NonNegativeInteger|) |#1|))
                                      T)
                                    '((|coerce| ((|OutputForm|) |#1|)) T))
                              (LIST) NIL NIL)))

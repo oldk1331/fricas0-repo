@@ -26,16 +26,12 @@
                                      (LETT |FiniteAbelianMonoidRing;CAT|
                                            (|Join|
                                             (|AbelianMonoidRing| '|t#1| '|t#2|)
+                                            (|FreeModuleCategory| '|t#1|
+                                                                  '|t#2|)
                                             (|FullyRetractableTo| '|t#1|)
                                             (|mkCategory|
                                              '(((|ground?| ((|Boolean|) $)) T)
                                                ((|ground| (|t#1| $)) T)
-                                               ((|coefficients|
-                                                 ((|List| |t#1|) $))
-                                                T)
-                                               ((|numberOfMonomials|
-                                                 ((|NonNegativeInteger|) $))
-                                                T)
                                                ((|minimumDegree| (|t#2| $)) T)
                                                ((|mapExponents|
                                                  ($ (|Mapping| |t#2| |t#2|) $))

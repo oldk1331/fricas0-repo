@@ -623,7 +623,7 @@
 (SDEFUN |INTPM;formula1|
         ((|f| F) (|x| |Symbol|) (|t| F) (|cc| F) ($ |Union| F "failed"))
         (SPROG
-         ((#1=#:G275 NIL) (|mmi| (|Integer|)) (|mm| (F)) (#2=#:G279 NIL)
+         ((#1=#:G276 NIL) (|mmi| (|Integer|)) (|mm| (F)) (#2=#:G280 NIL)
           (|sgz| #3=(|Union| (|Integer|) "failed")) (|z| (F)) (|sgs| #3#)
           (|ms| (F)) (|mw| (F)) (|l| (|List| F)))
          (SEQ
@@ -645,7 +645,7 @@
                             ((QEQCAR |sgs| 1)
                              (PROGN
                               (LETT #2# (CONS 1 #5#))
-                              (GO #6=#:G276))))))))
+                              (GO #6=#:G277))))))))
                    (SEQ
                     (LETT |sgz|
                           (SPADCALL
@@ -857,9 +857,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatchIntegration;|)) 
 
-(DEFUN |PatternMatchIntegration| (&REST #1=#:G304)
+(DEFUN |PatternMatchIntegration| (&REST #1=#:G305)
   (SPROG NIL
-         (PROG (#2=#:G305)
+         (PROG (#2=#:G306)
            (RETURN
             (COND
              ((LETT #2#

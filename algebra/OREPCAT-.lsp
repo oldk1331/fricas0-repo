@@ -435,8 +435,8 @@
               (|Record| (|:| |generator| $) (|:| |coef1| $) (|:| |coef2| $)
                         (|:| |coefu| $) (|:| |coefv| $))
               (211 . |right_ext_ext_GCD|) (217 . |right_ext_ext_GCD|)
-              (|Integer|) (|Fraction| 61) (|Union| 62 '#2="failed")
-              (|Union| 61 '#2#) (|OutputForm|) (|PositiveInteger|))
+              (|Integer|) (|Union| 64 '#2="failed") (|Union| 61 '#2#)
+              (|Fraction| 61) (|OutputForm|) (|PositiveInteger|))
            '#(|right_ext_ext_GCD| 223 |rightRemainder| 229 |rightQuotient| 235
               |rightLcm| 241 |rightGcd| 247 |rightExtendedGcd| 253
               |rightExactQuotient| 259 |retractIfCan| 265 |primitivePart| 270
@@ -493,7 +493,6 @@
                                      T)
                                    '((|primitivePart| (|#1| |#1|)) T)
                                    '((|content| (|#2| |#1|)) T)
-                                   '((|coefficients| ((|List| |#2|) |#1|)) T)
                                    '((|coerce| (|#1| |#2|)) T)
                                    '((|retractIfCan| ((|Union| |#2| #2#) |#1|))
                                      T)
@@ -506,6 +505,7 @@
                                    '((|retractIfCan|
                                       ((|Union| (|Integer|) #2#) |#1|))
                                      T)
+                                   '((|coefficients| ((|List| |#2|) |#1|)) T)
                                    '((|coerce| (|#1| |#1|)) T)
                                    '((* (|#1| |#1| (|Fraction| (|Integer|))))
                                      T)

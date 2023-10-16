@@ -81,10 +81,10 @@
                        (CONS
                         '#((|Join|
                             (|mkCategory|
-                             (LIST '((|reductum| (|#1| |#1|)) T)
-                                   '((|degree| (|#3| |#1|)) T)
+                             (LIST '((|leadingCoefficient| (|#2| |#1|)) T)
                                    '((|leadingMonomial| (|#1| |#1|)) T)
-                                   '((|leadingCoefficient| (|#2| |#1|)) T))
+                                   '((|degree| (|#3| |#1|)) T)
+                                   '((|reductum| (|#1| |#1|)) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 17
                                             '(1 6 8 0 9 2 6 7 0 8 11 2 6 0 7 8

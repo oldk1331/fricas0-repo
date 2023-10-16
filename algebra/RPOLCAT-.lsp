@@ -2850,8 +2850,8 @@
                                    '((|retractIfCan|
                                       ((|Union| (|Integer|) #2#) |#1|))
                                      T)
-                                   '((|reductum| (|#1| |#1|)) T)
                                    '((|leadingCoefficient| (|#2| |#1|)) T)
+                                   '((|reductum| (|#1| |#1|)) T)
                                    '((|coerce| ((|OutputForm|) |#1|)) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 252

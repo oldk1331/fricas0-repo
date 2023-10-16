@@ -1522,9 +1522,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialSetUtilitiesPackage;|)) 
 
-(DEFUN |PolynomialSetUtilitiesPackage| (&REST #1=#:G587)
+(DEFUN |PolynomialSetUtilitiesPackage| (&REST #1=#:G588)
   (SPROG NIL
-         (PROG (#2=#:G588)
+         (PROG (#2=#:G589)
            (RETURN
             (COND
              ((LETT #2#

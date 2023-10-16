@@ -67,9 +67,7 @@
                                               (|HasCategory| |#2| '(|Field|))
                                               (|HasCategory| |#2| '(|Ring|))
                                               (|HasCategory| |#2|
-                                                             '(|SemiRing|))
-                                              (|HasCategory| |#2|
-                                                             '(|CancellationAbelianMonoid|))))))
+                                                             '(|SemiRing|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)
@@ -101,9 +99,9 @@
                                      T)
                                    '((* (|#1| (|Fraction| (|Integer|)) |#1|))
                                      T)
-                                   '((|monomial?| ((|Boolean|) |#1|)) T)
                                    '((|map| (|#1| (|Mapping| |#2| |#2|) |#1|))
                                      T)
+                                   '((|monomial?| ((|Boolean|) |#1|)) T)
                                    '((* (|#1| |#2| |#1|)) T)
                                    '((* (|#1| |#1| |#2|)) T)
                                    '((* (|#1| |#1| |#1|)) T)

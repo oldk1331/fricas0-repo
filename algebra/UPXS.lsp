@@ -153,7 +153,7 @@
          (|uu| |Stream| |Coef|) (|xxx| |OutputForm|) ($ |OutputForm|))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu1| (|Stream| |Coef|)) (|n| NIL)
-          (#1=#:G177 NIL) (|count| (|NonNegativeInteger|)))
+          (#1=#:G178 NIL) (|count| (|NonNegativeInteger|)))
          (SEQ (LETT |l| NIL)
               (EXIT
                (COND
@@ -287,9 +287,9 @@
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeries;|)) 
 
-(DEFUN |UnivariatePuiseuxSeries| (&REST #1=#:G207)
+(DEFUN |UnivariatePuiseuxSeries| (&REST #1=#:G209)
   (SPROG NIL
-         (PROG (#2=#:G208)
+         (PROG (#2=#:G210)
            (RETURN
             (COND
              ((LETT #2#
@@ -308,14 +308,14 @@
 
 (DEFUN |UnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G200 NIL) (#2=#:G201 NIL) (#3=#:G202 NIL) (#4=#:G203 NIL)
-    (#5=#:G205 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G202 NIL) (#2=#:G203 NIL) (#3=#:G204 NIL) (#4=#:G205 NIL)
+    (#5=#:G207 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT DV$3 (|devaluate| |#3|))
     (LETT |dv$| (LIST '|UnivariatePuiseuxSeries| DV$1 DV$2 DV$3))
-    (LETT $ (GETREFV 108))
+    (LETT $ (GETREFV 109))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -354,6 +354,8 @@
                                                        '(|Algebra|
                                                          (|Fraction|
                                                           (|Integer|))))
+                                        (|HasCategory| (|Fraction| (|Integer|))
+                                                       '(|Comparable|))
                                         (LETT #5#
                                               (|HasCategory| |#1|
                                                              '(|CommutativeRing|)))
@@ -527,16 +529,16 @@
     (QSETREFV $ 7 |#2|)
     (QSETREFV $ 8 |#3|)
     (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-         (|augmentPredVector| $ 67108864))
+         (|augmentPredVector| $ 134217728))
     (AND
      (OR (|HasCategory| |#1| '(|Field|))
          (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 134217728))
+     (|augmentPredVector| $ 268435456))
     (AND
      (OR (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| |#1| '(|Field|))
          (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 268435456))
+     (|augmentPredVector| $ 536870912))
     (AND
      (OR (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
          (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))) #3#
@@ -545,7 +547,7 @@
                                (LIST (|devaluate| |#1|)
                                      '(|Fraction| (|Integer|))
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 536870912))
+     (|augmentPredVector| $ 1073741824))
     (AND
      (OR (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
          (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))) #2#
@@ -554,7 +556,7 @@
                                (LIST (|devaluate| |#1|)
                                      '(|Fraction| (|Integer|))
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 1073741824))
+     (|augmentPredVector| $ 2147483648))
     (AND
      (OR (|HasCategory| |#1| '(|AbelianMonoid|))
          (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
@@ -565,7 +567,7 @@
                                (LIST (|devaluate| |#1|)
                                      '(|Fraction| (|Integer|))
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 2147483648))
+     (|augmentPredVector| $ 4294967296))
     (AND
      (OR (|HasCategory| |#1| '(|CancellationAbelianMonoid|))
          (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
@@ -576,7 +578,7 @@
                                (LIST (|devaluate| |#1|)
                                      '(|Fraction| (|Integer|))
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 4294967296))
+     (|augmentPredVector| $ 8589934592))
     (AND
      (OR #1# (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
          (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
@@ -586,7 +588,7 @@
                                (LIST (|devaluate| |#1|)
                                      '(|Fraction| (|Integer|))
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 8589934592))
+     (|augmentPredVector| $ 17179869184))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 9
               (|Record| (|:| |expon| (|Fraction| (|Integer|)))
@@ -603,7 +605,7 @@
      ((|HasSignature| |#1|
                       (LIST '|coerce| (LIST (|devaluate| |#1|) '(|Symbol|))))
       (COND
-       ((|testBitVector| |pv$| 10)
+       ((|testBitVector| |pv$| 11)
         (PROGN
          (QSETREFV $ 61
                    (CONS (|dispatchFunction| |UPXS;approximate;$FCoef;12|)
@@ -642,13 +644,14 @@
               |UPXS;coerce;$Of;16| (|List| 10) (|List| 46)
               (|Union| $ '"failed")
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Record| (|:| |k| 27) (|:| |c| 6)) (|List| 92)
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |coef| 78) (|:| |generator| $))
               (|SparseUnivariatePolynomial| $) (|Union| 78 '"failed")
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 98 '"failed")
-              (|Factored| $) (|Record| (|:| |k| 27) (|:| |c| 6)) (|Stream| 101)
+              (|Record| (|:| |coef1| $) (|:| |coef2| $))
+              (|Union| 100 '"failed") (|Factored| $) (|Stream| 92)
               (|PositiveInteger|) (|Mapping| 6 6) (|String|) (|SingleInteger|)
               (|HashState|))
            '#(|variable| 303 |retractIfCan| 308 |rationalPower| 318 |monomial|
@@ -656,11 +659,11 @@
               356 |center| 376 |approximate| 381 |Zero| 387 |One| 391 + 395)
            'NIL
            (CONS
-            (|makeByteWordVec2| 26
-                                '(0 0 6 0 6 0 6 6 0 6 15 6 14 6 1 2 9 4 3 14 15
-                                  7 20 17 20 0 9 14 7 0 0 19 7 0 0 0 0 20 7 7
-                                  26 25 17 17 0 0 24 17 0 0 0 0 0 14 7 0 0 0 0
-                                  0 5 19 14 15 6 6 7 7 7 7 7 7))
+            (|makeByteWordVec2| 27
+                                '(0 0 6 0 6 0 6 6 0 6 16 6 15 6 1 2 10 4 3 15
+                                  16 7 21 18 21 0 10 15 7 0 0 0 20 7 0 0 0 0 0
+                                  21 7 7 27 26 18 18 0 0 25 18 0 0 0 0 0 15 7 0
+                                  0 0 0 0 5 20 15 16 6 6 7 7 7 7 7 7))
             (CONS
              '#(|UnivariatePuiseuxSeriesConstructorCategory&| NIL |Field&|
                 |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
@@ -668,11 +671,11 @@
                 |AbelianMonoidRing&| |GcdDomain&| NIL NIL NIL |DivisionRing&|
                 NIL NIL |Algebra&| |PartialDifferentialRing&|
                 |DifferentialRing&| |Algebra&| |EntireRing&| |Algebra&| NIL NIL
-                |Rng&| NIL |Module&| |Module&| |Module&| NIL NIL
-                |NonAssociativeRing&| NIL NIL NIL NIL NIL |NonAssociativeRng&|
-                NIL NIL |AbelianGroup&| NIL NIL NIL |NonAssociativeSemiRng&|
-                NIL |AbelianMonoid&| |MagmaWithUnit&| |Magma&|
-                |AbelianSemiGroup&| |RetractableTo&| |RetractableTo&|
+                |Rng&| NIL |Module&| |Module&| |Module&| NIL NIL NIL
+                |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
+                |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL
+                |NonAssociativeSemiRng&| NIL |AbelianMonoid&| |MagmaWithUnit&|
+                |Magma&| |AbelianSemiGroup&| |RetractableTo&| |RetractableTo&|
                 |SetCategory&| NIL |TranscendentalFunctionCategory&| NIL NIL
                 NIL |BasicType&| NIL NIL NIL NIL NIL NIL NIL
                 |TrigonometricFunctionCategory&|
@@ -693,8 +696,9 @@
                  (|PartialDifferentialRing| 10) (|DifferentialRing|)
                  (|Algebra| $$) (|EntireRing|) (|Algebra| 27) (|Ring|)
                  (|SemiRing|) (|Rng|) (|SemiRng|) (|Module| 6) (|Module| $$)
-                 (|Module| 27) (|BiModule| 6 6) (|BiModule| $$ $$)
-                 (|NonAssociativeRing|) (|BiModule| 27 27) (|LeftModule| 6)
+                 (|Module| 27) (|IndexedProductCategory| 6 27) (|BiModule| 6 6)
+                 (|BiModule| $$ $$) (|NonAssociativeRing|) (|BiModule| 27 27)
+                 (|AbelianProductCategory| 6) (|LeftModule| 6)
                  (|RightModule| 6) (|RightModule| $$) (|LeftModule| $$)
                  (|NonAssociativeRng|) (|LeftModule| 27) (|RightModule| 27)
                  (|AbelianGroup|) (|CancellationAbelianMonoid|)
@@ -735,8 +739,8 @@
                                     14 0 40 0 84 2 63 0 0 0 85 1 63 0 0 86 1 0
                                     10 0 11 1 0 20 0 22 1 0 18 0 19 1 0 27 0 56
                                     2 0 0 6 27 29 1 0 14 0 59 2 7 0 0 34 39 1 7
-                                    0 0 38 1 3 0 0 36 2 0 0 0 34 37 1 0 0 13 17
-                                    1 0 0 34 35 1 0 0 14 16 1 0 63 0 87 1 0 6 0
-                                    12 2 11 6 0 27 61 0 32 0 31 0 30 0 26 2 0 0
+                                    0 0 38 1 3 0 0 36 2 0 0 0 34 37 1 0 0 34 35
+                                    1 0 0 13 17 1 0 0 14 16 1 0 63 0 87 1 0 6 0
+                                    12 2 12 6 0 27 61 0 33 0 31 0 31 0 26 2 0 0
                                     0 0 33)))))
            '|lookupIncomplete|)) 

@@ -283,9 +283,9 @@
                               '((|mapExponents|
                                  (|#1| (|Mapping| |#3| |#3|) |#1|))
                                 T)
-                              '((|coefficients| ((|List| |#2|) |#1|)) T)
                               '((|ground| (|#2| |#1|)) T)
                               '((|ground?| ((|Boolean|) |#1|)) T)
+                              '((|coefficients| ((|List| |#2|) |#1|)) T)
                               '((/ (|#1| |#1| |#2|)) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 55

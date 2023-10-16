@@ -27,9 +27,7 @@
                                                    (|IndexedDirectProductCategory|
                                                     '|t#1| '|t#2|)
                                                    (|mkCategory|
-                                                    '(((* ($ |t#1| |t#2|)) T)
-                                                      ((* ($ |t#2| |t#1|)) T)
-                                                      ((|coefficients|
+                                                    '(((|coefficients|
                                                         ((|List| |t#1|) $))
                                                        T)
                                                       ((|support|
@@ -48,17 +46,8 @@
                                                          $))
                                                        (|has| |t#1|
                                                               (|CommutativeRing|))))
-                                                    '(((|RetractableTo| |t#2|)
+                                                    '(((|Module| |t#1|)
                                                        (|has| |t#1|
-                                                              (|SemiRing|)))
-                                                      ((|Module| |t#1|)
-                                                       (|has| |t#1|
-                                                              (|CommutativeRing|)))
-                                                      ((|Comparable|)
-                                                       (AND
-                                                        (|has| |t#2|
-                                                               (|Comparable|))
-                                                        (|has| |t#1|
-                                                               (|Comparable|)))))
+                                                              (|CommutativeRing|))))
                                                     NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FreeModuleCategory| |t#1| |t#2|))))) 

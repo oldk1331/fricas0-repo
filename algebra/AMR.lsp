@@ -25,37 +25,17 @@
                                      (LETT |AbelianMonoidRing;CAT|
                                            (|Join| (|SemiRng|)
                                                    (|BiModule| '|t#1| '|t#1|)
+                                                   (|IndexedProductCategory|
+                                                    '|t#1| '|t#2|)
                                                    (|mkCategory|
-                                                    '(((|leadingCoefficient|
-                                                        (|t#1| $))
-                                                       T)
-                                                      ((|leadingMonomial|
-                                                        ($ $))
-                                                       T)
-                                                      ((|degree| (|t#2| $)) T)
-                                                      ((|map|
-                                                        ($
-                                                         (|Mapping| |t#1|
-                                                                    |t#1|)
-                                                         $))
-                                                       T)
-                                                      ((|monomial?|
-                                                        ((|Boolean|) $))
-                                                       T)
-                                                      ((|monomial|
-                                                        ($ |t#1| |t#2|))
-                                                       T)
-                                                      ((|reductum| ($ $)) T)
+                                                    '(((|degree| (|t#2| $)) T)
                                                       ((|coefficient|
                                                         (|t#1| $ |t#2|))
                                                        T)
                                                       ((/ ($ $ |t#1|))
                                                        (|has| |t#1|
                                                               (|Field|))))
-                                                    '(((|CancellationAbelianMonoid|)
-                                                       (|has| |t#1|
-                                                              (|CancellationAbelianMonoid|)))
-                                                      ((|SemiRing|)
+                                                    '(((|SemiRing|)
                                                        (|has| |t#1|
                                                               (|SemiRing|)))
                                                       ((|Ring|)

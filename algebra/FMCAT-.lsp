@@ -53,23 +53,17 @@
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
-                                              (|HasCategory| |#3|
-                                                             '(|Comparable|))
                                               (|HasCategory| |#2|
-                                                             '(|Comparable|))
-                                              (|HasCategory| |#2|
-                                                             '(|CommutativeRing|))
-                                              (|HasCategory| |#2|
-                                                             '(|SemiRing|))))))
+                                                             '(|CommutativeRing|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)
           (QSETREFV $ 8 |#3|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 2)
+           ((|HasCategory| |#2| '(|Comparable|))
             (COND
-             ((|testBitVector| |pv$| 1)
+             ((|HasCategory| |#3| '(|Comparable|))
               (QSETREFV $ 18
                         (CONS (|dispatchFunction| |FMCAT-;smaller?;2AB;1|)
                               $))))))

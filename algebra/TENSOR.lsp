@@ -147,9 +147,9 @@
 
 (DECLAIM (NOTINLINE |TensorProduct;|)) 
 
-(DEFUN |TensorProduct| (&REST #1=#:G150)
+(DEFUN |TensorProduct| (&REST #1=#:G147)
   (SPROG NIL
-         (PROG (#2=#:G151)
+         (PROG (#2=#:G148)
            (RETURN
             (COND
              ((LETT #2#
@@ -167,7 +167,7 @@
 
 (DEFUN |TensorProduct;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G148 NIL) ($ NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL)
+   ((|pv$| NIL) (#1=#:G145 NIL) ($ NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL)
     (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -176,149 +176,81 @@
     (LETT DV$4 (|devaluate| |#4|))
     (LETT DV$5 (|devaluate| |#5|))
     (LETT |dv$| (LIST '|TensorProduct| DV$1 DV$2 DV$3 DV$4 DV$5))
-    (LETT $ (GETREFV 67))
+    (LETT $ (GETREFV 66))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
-                                       (LIST (|HasCategory| |#1| '(|SemiRing|))
-                                             (AND
-                                              (|HasCategory| |#1|
-                                                             '(|OrderedAbelianMonoidSup|))
+                                       (LIST
+                                        (AND
+                                         (|HasCategory| |#4|
+                                                        (LIST '|Algebra|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         (|HasCategory| |#5|
+                                                        (LIST '|Algebra|
+                                                              (|devaluate|
+                                                               |#1|))))
+                                        (OR
+                                         (|HasCategory| |#1| '(|AbelianGroup|))
+                                         (AND
+                                          (|HasCategory| |#4|
+                                                         (LIST '|Algebra|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          (|HasCategory| |#5|
+                                                         (LIST '|Algebra|
+                                                               (|devaluate|
+                                                                |#1|)))))
+                                        (OR
+                                         (|HasCategory| |#1| '(|AbelianGroup|))
+                                         (|HasCategory| |#1|
+                                                        '(|AbelianMonoid|))
+                                         (|HasCategory| |#1|
+                                                        '(|CancellationAbelianMonoid|))
+                                         (AND
+                                          (|HasCategory| |#4|
+                                                         (LIST '|Algebra|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          (|HasCategory| |#5|
+                                                         (LIST '|Algebra|
+                                                               (|devaluate|
+                                                                |#1|)))))
+                                        (OR
+                                         (|HasCategory| |#1| '(|AbelianGroup|))
+                                         (|HasCategory| |#1|
+                                                        '(|CancellationAbelianMonoid|))
+                                         (AND
+                                          (|HasCategory| |#4|
+                                                         (LIST '|Algebra|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          (|HasCategory| |#5|
+                                                         (LIST '|Algebra|
+                                                               (|devaluate|
+                                                                |#1|)))))
+                                        (|HasCategory| |#1|
+                                                       '(|CommutativeRing|))
+                                        (LETT #1#
                                               (|HasCategory|
                                                (|Product| |#2| |#3|)
-                                               '(|OrderedSet|)))
-                                             (OR
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              '(|OrderedAbelianMonoid|))
-                                               (|HasCategory|
-                                                (|Product| |#2| |#3|)
-                                                '(|OrderedSet|)))
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              '(|OrderedAbelianMonoidSup|))
-                                               (|HasCategory|
-                                                (|Product| |#2| |#3|)
-                                                '(|OrderedSet|))))
-                                             (AND
-                                              (|HasCategory| |#4|
-                                                             (LIST '|Algebra|
-                                                                   (|devaluate|
-                                                                    |#1|)))
-                                              (|HasCategory| |#5|
-                                                             (LIST '|Algebra|
-                                                                   (|devaluate|
-                                                                    |#1|))))
-                                             (OR
-                                              (|HasCategory| |#1|
-                                                             '(|AbelianGroup|))
-                                              (AND
-                                               (|HasCategory| |#4|
-                                                              (LIST '|Algebra|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               (|HasCategory| |#5|
-                                                              (LIST '|Algebra|
-                                                                    (|devaluate|
-                                                                     |#1|)))))
-                                             (OR
-                                              (|HasCategory| |#1|
-                                                             '(|AbelianGroup|))
-                                              (|HasCategory| |#1|
-                                                             '(|AbelianMonoid|))
-                                              (|HasCategory| |#1|
-                                                             '(|CancellationAbelianMonoid|))
-                                              (AND
-                                               (|HasCategory| |#4|
-                                                              (LIST '|Algebra|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               (|HasCategory| |#5|
-                                                              (LIST '|Algebra|
-                                                                    (|devaluate|
-                                                                     |#1|)))))
-                                             (OR
-                                              (|HasCategory| |#1|
-                                                             '(|AbelianGroup|))
-                                              (|HasCategory| |#1|
-                                                             '(|CancellationAbelianMonoid|))
-                                              (AND
-                                               (|HasCategory| |#4|
-                                                              (LIST '|Algebra|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               (|HasCategory| |#5|
-                                                              (LIST '|Algebra|
-                                                                    (|devaluate|
-                                                                     |#1|)))))
-                                             (|HasCategory| |#1|
-                                                            '(|CommutativeRing|))
-                                             (LETT #1#
-                                                   (|HasCategory|
-                                                    (|Product| |#2| |#3|)
-                                                    '(|Comparable|)))
-                                             (OR
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              '(|Comparable|))
-                                               #1#)
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              '(|OrderedAbelianMonoid|))
-                                               (|HasCategory|
-                                                (|Product| |#2| |#3|)
-                                                '(|OrderedSet|)))
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              '(|OrderedAbelianMonoidSup|))
-                                               (|HasCategory|
-                                                (|Product| |#2| |#3|)
-                                                '(|OrderedSet|))))
-                                             (OR
-                                              (|HasCategory| |#1|
-                                                             '(|AbelianGroup|))
-                                              (|HasCategory| |#1|
-                                                             '(|CancellationAbelianMonoid|))
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              '(|OrderedAbelianMonoidSup|))
-                                               (|HasCategory|
-                                                (|Product| |#2| |#3|)
-                                                '(|OrderedSet|)))
-                                              (AND
-                                               (|HasCategory| |#4|
-                                                              (LIST '|Algebra|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               (|HasCategory| |#5|
-                                                              (LIST '|Algebra|
-                                                                    (|devaluate|
-                                                                     |#1|)))))
-                                             (OR
-                                              (|HasCategory| |#1|
-                                                             '(|AbelianMonoid|))
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              '(|OrderedAbelianMonoid|))
-                                               (|HasCategory|
-                                                (|Product| |#2| |#3|)
-                                                '(|OrderedSet|)))
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              '(|OrderedAbelianMonoidSup|))
-                                               (|HasCategory|
-                                                (|Product| |#2| |#3|)
-                                                '(|OrderedSet|)))
-                                              (AND
-                                               (|HasCategory| |#4|
-                                                              (LIST '|Algebra|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               (|HasCategory| |#5|
-                                                              (LIST '|Algebra|
-                                                                    (|devaluate|
-                                                                     |#1|)))))))))
+                                               '(|Comparable|)))
+                                        (AND
+                                         (|HasCategory| |#1| '(|Comparable|))
+                                         #1#)
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|AbelianMonoid|))
+                                         (AND
+                                          (|HasCategory| |#4|
+                                                         (LIST '|Algebra|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          (|HasCategory| |#5|
+                                                         (LIST '|Algebra|
+                                                               (|devaluate|
+                                                                |#1|)))))))))
     (|haddProp| |$ConstructorCache| '|TensorProduct|
                 (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
     (|stuffDomainSlots| $)
@@ -351,57 +283,50 @@
               (110 . |Zero|) (|OutputForm|) (114 . |coerce|) (119 . |coerce|)
               (124 . |coerce|) (129 . |tensor|) (135 . =) (141 . *) (147 . +)
               (|Mapping| 42 42 42) (|List| 42) (153 . |reduce|)
-              |TENSOR;coerce;$Of;4| (|NonNegativeInteger|)
-              (|Union| $ '"failed") (|Integer|) (|PositiveInteger|)
-              (|Mapping| 6 12) (|Union| 12 '"failed") (|Mapping| 6 6)
-              (|List| 12) (|List| 6) (|List| $) (|String|) (|SingleInteger|)
-              (|HashState|))
-           '#(~= 159 |zero?| 165 |tensor| 170 |support| 176 |sup| 181
-              |subtractIfCan| 187 |smaller?| 193 |sample| 199 |rightRecip| 203
-              |rightPower| 208 |retractIfCan| 220 |retract| 225 |reductum| 230
-              |recip| 235 |opposite?| 240 |one?| 246 |numberOfMonomials| 251
-              |monomials| 256 |monomial?| 261 |monomial| 266 |min| 272 |max|
-              278 |map| 284 |listOfTerms| 290 |linearExtend| 295 |leftRecip|
-              301 |leftPower| 306 |leadingTerm| 318 |leadingSupport| 323
-              |leadingMonomial| 328 |leadingCoefficient| 333 |latex| 338
-              |hashUpdate!| 343 |hash| 349 |constructOrdered| 354 |construct|
-              359 |commutator| 364 |coerce| 370 |coefficients| 390
-              |coefficient| 395 |characteristic| 401 |associator| 405
-              |antiCommutator| 412 |annihilate?| 418 ^ 424 |Zero| 436 |One| 440
-              >= 444 > 450 = 456 <= 462 < 468 - 474 + 485 * 491)
+              |TENSOR;coerce;$Of;4| (|Integer|) (|NonNegativeInteger|)
+              (|Union| $ '"failed") (|PositiveInteger|) (|Mapping| 6 12)
+              (|List| 6) (|Mapping| 6 6) (|List| 12) (|List| $) (|HashState|)
+              (|String|) (|SingleInteger|))
+           '#(~= 159 |zero?| 165 |tensor| 170 |support| 176 |subtractIfCan| 181
+              |smaller?| 187 |sample| 193 |rightRecip| 197 |rightPower| 202
+              |reductum| 214 |recip| 219 |opposite?| 224 |one?| 230
+              |numberOfMonomials| 235 |monomials| 240 |monomial?| 245
+              |monomial| 250 |map| 256 |listOfTerms| 262 |linearExtend| 267
+              |leftRecip| 273 |leftPower| 278 |leadingTerm| 290
+              |leadingSupport| 295 |leadingMonomial| 300 |leadingCoefficient|
+              305 |latex| 310 |hashUpdate!| 315 |hash| 321 |constructOrdered|
+              326 |construct| 331 |commutator| 336 |coerce| 342 |coefficients|
+              357 |coefficient| 362 |characteristic| 368 |associator| 372
+              |antiCommutator| 379 |annihilate?| 385 ^ 391 |Zero| 403 |One| 407
+              = 411 - 417 + 428 * 434)
            'NIL
            (CONS
-            (|makeByteWordVec2| 10
-                                '(4 4 0 0 4 4 0 0 4 0 2 4 4 0 0 0 2 4 4 4 5 3 3
-                                  7 4 4 3 6 4 4 4 0 10 4 0 1 0 0 1 3 4))
+            (|makeByteWordVec2| 7
+                                '(1 1 0 0 1 1 0 0 1 0 0 1 1 0 0 0 1 1 1 2 4 1 1
+                                  3 1 1 1 0 7 1 0 0 0 1))
             (CONS
              '#(|Algebra&| NIL NIL |FreeModuleCategory&| |Rng&| NIL |Module&|
                 NIL NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
-                NIL |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL NIL NIL
-                |OrderedSet&| |AbelianMonoid&| |MagmaWithUnit&| NIL
-                |NonAssociativeSemiRng&| |AbelianSemiGroup&| NIL |Magma&|
-                |SetCategory&| |RetractableTo&| |BasicType&| NIL NIL
-                |PartialOrder&| NIL)
+                |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL
+                |AbelianMonoid&| |MagmaWithUnit&| NIL |NonAssociativeSemiRng&|
+                |AbelianSemiGroup&| NIL |Magma&| |SetCategory&| |BasicType&|
+                NIL NIL)
              (CONS
               '#((|Algebra| 6) (|Ring|) (|TensorProductCategory| 6 9 10)
                  (|FreeModuleCategory| 6 (|Product| 7 8)) (|Rng|) (|SemiRing|)
                  (|Module| 6)
                  (|IndexedDirectProductCategory| 6 (|Product| 7 8)) (|SemiRng|)
-                 (|BiModule| 6 6) (|OrderedAbelianMonoidSup|)
+                 (|IndexedProductCategory| 6 (|Product| 7 8)) (|BiModule| 6 6)
                  (|BiModule| $$ $$) (|NonAssociativeRing|)
                  (|AbelianProductCategory| 6) (|LeftModule| 6)
-                 (|RightModule| 6) (|OrderedCancellationAbelianMonoid|)
-                 (|LeftModule| $$) (|RightModule| $$) (|NonAssociativeRng|)
-                 (|AbelianGroup|) (|OrderedAbelianMonoid|)
-                 (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
-                 (|NonAssociativeSemiRing|) (|Monoid|) (|OrderedSet|)
-                 (|AbelianMonoid|) (|MagmaWithUnit|) (|SemiGroup|)
+                 (|RightModule| 6) (|LeftModule| $$) (|RightModule| $$)
+                 (|NonAssociativeRng|) (|AbelianGroup|)
+                 (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
+                 (|Monoid|) (|AbelianMonoid|) (|MagmaWithUnit|) (|SemiGroup|)
                  (|NonAssociativeSemiRng|) (|AbelianSemiGroup|) (|Comparable|)
-                 (|Magma|) (|SetCategory|) (|RetractableTo| (|Product| 7 8))
-                 (|BasicType|) (|CoercibleTo| 42)
-                 (|CoercibleFrom| (|Product| 7 8)) (|PartialOrder|)
+                 (|Magma|) (|SetCategory|) (|BasicType|) (|CoercibleTo| 42)
                  (|unitsKnown|))
-              (|makeByteWordVec2| 66
+              (|makeByteWordVec2| 65
                                   '(2 12 11 0 0 13 1 9 11 0 14 0 0 0 15 1 10 11
                                     0 16 1 9 18 0 19 1 10 21 0 22 2 12 0 7 8 23
                                     2 6 0 0 0 24 1 0 0 26 27 1 0 26 0 29 1 12 7
@@ -411,23 +336,20 @@
                                     0 41 1 6 42 0 43 1 7 42 0 44 1 8 42 0 45 2
                                     42 0 0 0 46 2 6 11 0 0 47 2 42 0 0 0 48 2
                                     42 0 0 0 49 2 51 42 50 0 52 2 0 11 0 0 1 1
-                                    12 11 0 40 2 0 0 9 10 28 1 0 61 0 1 2 2 0 0
-                                    0 1 2 11 55 0 0 1 2 10 11 0 0 1 0 12 0 1 1
-                                    4 55 0 1 2 4 0 0 54 1 2 4 0 0 57 1 1 1 59 0
-                                    1 1 1 12 0 1 1 9 0 0 1 1 4 55 0 1 2 12 11 0
-                                    0 1 1 4 11 0 1 1 0 54 0 1 1 0 63 0 1 1 0 11
-                                    0 1 2 0 0 6 12 1 2 3 0 0 0 1 2 3 0 0 0 1 2
-                                    0 0 60 0 1 1 0 26 0 29 2 8 6 58 0 1 1 4 55
-                                    0 1 2 4 0 0 54 1 2 4 0 0 57 1 1 9 25 0 1 1
-                                    9 12 0 1 1 9 0 0 1 1 9 6 0 1 1 0 64 0 1 2 0
-                                    66 66 0 1 1 0 65 0 1 1 9 0 26 27 1 0 0 26
-                                    38 2 4 0 0 0 1 1 4 0 6 1 1 4 0 56 1 1 1 0
-                                    12 1 1 0 42 0 53 1 0 62 0 1 2 0 6 0 12 1 0
-                                    4 54 1 3 4 0 0 0 0 1 2 4 0 0 0 1 2 4 11 0 0
-                                    1 2 4 0 0 54 1 2 4 0 0 57 1 0 12 0 15 0 4 0
-                                    32 2 3 11 0 0 1 2 3 11 0 0 1 2 0 11 0 0 1 2
-                                    3 11 0 0 1 2 3 11 0 0 1 1 5 0 0 1 2 5 0 0 0
-                                    1 2 0 0 0 0 1 2 4 0 0 0 39 2 5 0 56 0 1 2
-                                    12 0 54 0 1 2 0 0 6 12 1 2 0 0 12 6 1 2 0 0
-                                    0 6 1 2 0 0 57 0 1 2 0 0 6 0 1)))))
+                                    8 11 0 40 2 0 0 9 10 28 1 0 61 0 1 2 4 56 0
+                                    0 1 2 7 11 0 0 1 0 8 0 1 1 1 56 0 1 2 1 0 0
+                                    55 1 2 1 0 0 57 1 1 6 0 0 1 1 1 56 0 1 2 8
+                                    11 0 0 1 1 1 11 0 1 1 0 55 0 1 1 0 62 0 1 1
+                                    0 11 0 1 2 0 0 6 12 1 2 0 0 60 0 1 1 0 26 0
+                                    29 2 5 6 58 0 1 1 1 56 0 1 2 1 0 0 55 1 2 1
+                                    0 0 57 1 1 6 25 0 1 1 6 12 0 1 1 6 0 0 1 1
+                                    6 6 0 1 1 0 64 0 1 2 0 63 63 0 1 1 0 65 0 1
+                                    1 6 0 26 27 1 0 0 26 38 2 1 0 0 0 1 1 1 0 6
+                                    1 1 1 0 54 1 1 0 42 0 53 1 0 59 0 1 2 0 6 0
+                                    12 1 0 1 55 1 3 1 0 0 0 0 1 2 1 0 0 0 1 2 1
+                                    11 0 0 1 2 1 0 0 55 1 2 1 0 0 57 1 0 8 0 15
+                                    0 1 0 32 2 0 11 0 0 1 1 2 0 0 1 2 2 0 0 0 1
+                                    2 0 0 0 0 1 2 1 0 0 0 39 2 2 0 54 0 1 2 8 0
+                                    55 0 1 2 0 0 6 0 1 2 0 0 0 6 1 2 0 0 57 0
+                                    1)))))
            '|lookupComplete|)) 

@@ -26,22 +26,10 @@
                                     ('T
                                      (LETT |IndexedDirectProductCategory;CAT|
                                            (|Join|
-                                            (|AbelianProductCategory| '|t#1|)
+                                            (|IndexedProductCategory| '|t#1|
+                                                                      '|t#2|)
                                             (|mkCategory|
-                                             '(((|map|
-                                                 ($ (|Mapping| |t#1| |t#1|) $))
-                                                T)
-                                               ((|monomial| ($ |t#1| |t#2|)) T)
-                                               ((|monomial?| ((|Boolean|) $))
-                                                T)
-                                               ((|construct|
-                                                 ($
-                                                  (|List|
-                                                   (|Record| (|:| |k| |t#2|)
-                                                             (|:| |c|
-                                                                  |t#1|)))))
-                                                T)
-                                               ((|listOfTerms|
+                                             '(((|listOfTerms|
                                                  ((|List|
                                                    (|Record| (|:| |k| |t#2|)
                                                              (|:| |c| |t#1|)))
@@ -49,42 +37,11 @@
                                                 T)
                                                ((|numberOfMonomials|
                                                  ((|NonNegativeInteger|) $))
-                                                T)
-                                               ((|leadingMonomial| ($ $))
-                                                (|has| |t#2| (|Comparable|)))
-                                               ((|leadingCoefficient|
-                                                 (|t#1| $))
-                                                (|has| |t#2| (|Comparable|)))
-                                               ((|leadingSupport| (|t#2| $))
-                                                (|has| |t#2| (|Comparable|)))
-                                               ((|reductum| ($ $))
-                                                (|has| |t#2| (|Comparable|)))
-                                               ((|constructOrdered|
-                                                 ($
-                                                  (|List|
-                                                   (|Record| (|:| |k| |t#2|)
-                                                             (|:| |c|
-                                                                  |t#1|)))))
-                                                (|has| |t#2| (|Comparable|)))
-                                               ((|leadingTerm|
-                                                 ((|Record| (|:| |k| |t#2|)
-                                                            (|:| |c| |t#1|))
-                                                  $))
-                                                (|has| |t#2| (|Comparable|))))
+                                                T))
                                              '(((|Comparable|)
                                                 (AND
                                                  (|has| |t#2| (|Comparable|))
-                                                 (|has| |t#1| (|Comparable|))))
-                                               ((|OrderedAbelianMonoid|)
-                                                (AND
                                                  (|has| |t#1|
-                                                        (|OrderedAbelianMonoid|))
-                                                 (|has| |t#2| (|OrderedSet|))))
-                                               ((|OrderedAbelianMonoidSup|)
-                                                (AND
-                                                 (|has| |t#1|
-                                                        (|OrderedAbelianMonoidSup|))
-                                                 (|has| |t#2|
-                                                        (|OrderedSet|)))))
+                                                        (|Comparable|)))))
                                              NIL NIL)))))))
            (SETELT #1# 0 (LIST '|IndexedDirectProductCategory| |t#1| |t#2|))))) 
