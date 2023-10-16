@@ -1,19 +1,19 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; $dotdot := INTERN('"..", '"BOOT")
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$dotdot| (INTERN ".." "BOOT")))
- 
+
 ; pf2Sex pf ==
 ;   intUnsetQuiet()
 ;   $insideRule:local := false
 ;   $insideApplication: local := false
 ;   $insideSEQ: local := false
 ;   pf2Sex1 pf
- 
+
 (DEFUN |pf2Sex| (|pf|)
   (PROG (|$insideSEQ| |$insideApplication| |$insideRule|)
     (DECLARE (SPECIAL |$insideSEQ| |$insideApplication| |$insideRule|))
@@ -24,7 +24,7 @@
       (SETQ |$insideApplication| NIL)
       (SETQ |$insideSEQ| NIL)
       (|pf2Sex1| |pf|)))))
- 
+
 ; pf2Sex1 pf ==
 ;   pfNothing? pf =>
 ;     "noBranch"
@@ -129,14 +129,14 @@
 ;     #args = 1 =>
 ;       ["where", pf2Sex1 pfWhereExpr pf, :args]
 ;     ["where", pf2Sex1 pfWhereExpr pf, ["SEQ", :args]]
-; 
+;
 ;   -- under strange circumstances/piling, system commands can wind
 ;   -- up in expressions. This just passes it through as a string for
 ;   -- the user to figure out what happened.
 ;   pfAbSynOp(pf) = "command" => tokPart(pf)
-; 
+;
 ;   keyedSystemError("S2GE0017", ['"pf2Sex1"])
- 
+
 (DEFUN |pf2Sex1| (|pf|)
   (PROG (|s| |tag| |tagPart| |op| |type| |idList| |args|)
     (RETURN
@@ -336,7 +336,7 @@
                      (CONS 'SEQ |args|))))))
            ((EQ (|pfAbSynOp| |pf|) '|command|) (|tokPart| |pf|))
            (#1# (|keyedSystemError| 'S2GE0017 (LIST "pf2Sex1")))))))
- 
+
 ; pfLiteral2Sex pf ==
 ;   type := pfLiteralClass pf
 ;   type = 'integer =>
@@ -353,7 +353,7 @@
 ;   type = 'expression =>
 ;       ["QUOTE", pfLeafToken pf]
 ;   keyedSystemError("S2GE0017", ['"pfLiteral2Sex: unexpected form"])
- 
+
 (DEFUN |pfLiteral2Sex| (|pf|)
   (PROG (|type| |s|)
     (RETURN
@@ -373,15 +373,15 @@
        (#1#
         (|keyedSystemError| 'S2GE0017
          (LIST "pfLiteral2Sex: unexpected form"))))))))
- 
+
 ; symEqual(sym, sym2) == EQ(sym, sym2)
- 
+
 (DEFUN |symEqual| (|sym| |sym2|) (PROG () (RETURN (EQ |sym| |sym2|))))
- 
+
 ; SymMemQ(sy, l) == MEMQ(sy, l)
- 
+
 (DEFUN |SymMemQ| (|sy| |l|) (PROG () (RETURN (MEMQ |sy| |l|))))
- 
+
 ; pfOp2Sex pf ==
 ;   alreadyQuoted := pfSymbol? pf
 ;   op := pf2Sex1 pf
@@ -393,7 +393,7 @@
 ;     symEqual(realOp, "?") => realOp
 ;     op
 ;   op
- 
+
 (DEFUN |pfOp2Sex| (|pf|)
   (PROG (|alreadyQuoted| |op| |ISTMP#1| |realOp|)
     (RETURN
@@ -412,7 +412,7 @@
               ((|symEqual| |realOp| '|:|) |realOp|)
               ((|symEqual| |realOp| '?) |realOp|) (#1# |op|)))
        (#1# |op|))))))
- 
+
 ; pfApplication2Sex pf ==
 ;   $insideApplication: local := true
 ;   op := pfOp2Sex pfApplicationOp pf
@@ -460,7 +460,7 @@
 ;   symEqual(op, "by") =>
 ;       ["BY", pf2Sex1 args]
 ;   [op, pf2Sex1 args]
- 
+
 (DEFUN |pfApplication2Sex| (|pf|)
   (PROG (|$insideApplication| |x| |val| |realOp| |ISTMP#1| |qt| |argSex|
          |typeList| |args| |op|)
@@ -542,7 +542,7 @@
                   (#1# (LIST 'SEQ |x|)))))
           ((|symEqual| |op| '|by|) (LIST 'BY (|pf2Sex1| |args|)))
           (#1# (LIST |op| (|pf2Sex1| |args|)))))))))))
- 
+
 ; hasOptArgs? argSex ==
 ;   nonOpt := nil
 ;   opt := nil
@@ -552,7 +552,7 @@
 ;     nonOpt := [arg, :nonOpt]
 ;   null opt => nil
 ;   NCONC (nreverse nonOpt, [["construct", :nreverse opt]])
- 
+
 (DEFUN |hasOptArgs?| (|argSex|)
   (PROG (|nonOpt| |opt| |ISTMP#1| |lhs| |ISTMP#2| |rhs|)
     (RETURN
@@ -583,7 +583,7 @@
             (#1#
              (NCONC (NREVERSE |nonOpt|)
                     (LIST (CONS '|construct| (NREVERSE |opt|))))))))))
- 
+
 ; pfDefinition2Sex pf ==
 ;   $insideApplication =>
 ;     ["OPTARG", pf2Sex1 first pf0DefinitionLhsItems pf,
@@ -595,7 +595,7 @@
 ;   rhs := pfDefinitionRhs pf
 ;   [argList, :body] := pfLambdaTran rhs
 ;   ["DEF", (argList = 'id => id; [id, :argList]), :body]
- 
+
 (DEFUN |pfDefinition2Sex| (|pf|)
   (PROG (|idList| |id| |rhs| |LETTMP#1| |argList| |body|)
     (RETURN
@@ -631,7 +631,7 @@
                   (COND ((EQ |argList| '|id|) |id|)
                         (#1# (CONS |id| |argList|)))
                   |body|)))))))))))
- 
+
 ; pfLambdaTran pf ==
 ;   pfLambda? pf =>
 ;     argTypeList := nil
@@ -651,7 +651,7 @@
 ;     [argList, :[argTypeList, [nil for arg in argTypeList],
 ;       pf2Sex1 pfLambdaBody pf]]
 ;   ['id, :['(()), '(()), pf2Sex1 pf]]
- 
+
 (DEFUN |pfLambdaTran| (|pf|)
   (PROG (|argTypeList| |argList| |retType|)
     (RETURN
@@ -700,11 +700,11 @@
                      NIL |argTypeList| NIL)
                     (|pf2Sex1| (|pfLambdaBody| |pf|))))))
       (#1# (CONS '|id| (LIST '(NIL) '(NIL) (|pf2Sex1| |pf|))))))))
- 
+
 ; pfLambda2Sex pf ==
 ;   [argList, :body] := pfLambdaTran pf
 ;   ["ADEF", argList, :body]
- 
+
 (DEFUN |pfLambda2Sex| (|pf|)
   (PROG (|LETTMP#1| |argList| |body|)
     (RETURN
@@ -713,7 +713,7 @@
       (SETQ |argList| (CAR |LETTMP#1|))
       (SETQ |body| (CDR |LETTMP#1|))
       (CONS 'ADEF (CONS |argList| |body|))))))
- 
+
 ; pfCollectArgTran pf ==
 ;   pfCollect? pf =>
 ;     conds := [pf2Sex1 x for x in pfParts pfCollectIterators pf]
@@ -722,7 +722,7 @@
 ;       ["|", id, cond]
 ;     [id, :conds]
 ;   pf2Sex1 pf
- 
+
 (DEFUN |pfCollectArgTran| (|pf|)
   (PROG (|conds| |id| |ISTMP#1| |ISTMP#2| |cond|)
     (RETURN
@@ -753,27 +753,27 @@
           (LIST '|\|| |id| |cond|))
          (#1# (CONS |id| |conds|)))))
       (#1# (|pf2Sex1| |pf|))))))
- 
+
 ; opTran op ==
 ;   op = $dotdot => "SEGMENT"
 ;   op = "[]" => "construct"
 ;   op = "{}" => "braceFromCurly"
 ;   op = "IS" => "is"
 ;   op
- 
+
 (DEFUN |opTran| (|op|)
   (PROG ()
     (RETURN
      (COND ((EQUAL |op| |$dotdot|) 'SEGMENT) ((EQ |op| '[]) '|construct|)
            ((EQ |op| '{}) '|braceFromCurly|) ((EQ |op| 'IS) '|is|) ('T |op|)))))
- 
+
 ; pfSequence2Sex pf ==
 ;   $insideSEQ:local := true
 ;   seq := pfSequence2Sex0 [pf2Sex1 x for x in pf0SequenceArgs pf]
 ;   seq is ["SEQ", :ruleList] and ruleList is [["rule", :.], :.] =>
 ;     ["ruleset", ["construct", :ruleList]]
 ;   seq
- 
+
 (DEFUN |pfSequence2Sex| (|pf|)
   (PROG (|$insideSEQ| |ISTMP#1| |ruleList| |seq|)
     (DECLARE (SPECIAL |$insideSEQ|))
@@ -800,7 +800,7 @@
               (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|rule|))))
         (LIST '|ruleset| (CONS '|construct| |ruleList|)))
        (#1# |seq|))))))
- 
+
 ; pfSequence2Sex0 seqList ==
 ;   null seqList => "noBranch"
 ;   seqTranList := []
@@ -814,7 +814,7 @@
 ;     seqList := rest seqList
 ;   #seqTranList = 1 => first seqTranList
 ;   ["SEQ", :nreverse seqTranList]
- 
+
 (DEFUN |pfSequence2Sex0| (|seqList|)
   (PROG (|seqTranList| |item| |ISTMP#1| |cond| |ISTMP#2| |value|)
     (RETURN
@@ -853,15 +853,15 @@
                             (SETQ |seqList| (CDR |seqList|)))))))))))
              (COND ((EQL (LENGTH |seqTranList|) 1) (CAR |seqTranList|))
                    (#1# (CONS 'SEQ (NREVERSE |seqTranList|))))))))))
- 
+
 ; intNewFloat() == ["Float"]
- 
+
 (DEFUN |intNewFloat| () (PROG () (RETURN (LIST '|Float|))))
- 
+
 ; string_to_int(s) ==  READ_-FROM_-STRING(s)
- 
+
 (DEFUN |string_to_int| (|s|) (PROG () (RETURN (READ-FROM-STRING |s|))))
- 
+
 ; float2Sex [i_str, fr_str, e_str] ==
 ;   int_part := string_to_int(i_str)
 ;   exp_part := string_to_int(e_str)
@@ -869,7 +869,7 @@
 ;     LENGTH fr_str, exp_part)
 ;   [., frac, exp] := bfForm
 ;   [["$elt", intNewFloat(), 'float], frac, exp, 10]
- 
+
 (DEFUN |float2Sex| (|bfVar#27|)
   (PROG (|i_str| |fr_str| |e_str| |int_part| |exp_part| |bfForm| |frac| |exp|)
     (RETURN
@@ -885,7 +885,7 @@
       (SETQ |frac| (CADR . #2=(|bfForm|)))
       (SETQ |exp| (CADDR . #2#))
       (LIST (LIST '|$elt| (|intNewFloat|) '|float|) |frac| |exp| 10)))))
- 
+
 ; loopIters2Sex iterList ==
 ;   result := nil
 ;   for iter in iterList repeat
@@ -898,7 +898,7 @@
 ;       result := [['STEP, var, i, 1, j], :result]
 ;     result := [sex, :result]
 ;   nreverse result
- 
+
 (DEFUN |loopIters2Sex| (|iterList|)
   (PROG (|result| |sex| |ISTMP#1| |var| |ISTMP#2| |ISTMP#3| |ISTMP#4| |i|
          |ISTMP#5| |ISTMP#6| |ISTMP#7| |incr| |j| |ISTMP#8|)
@@ -1031,14 +1031,14 @@
           (SETQ |bfVar#28| (CDR |bfVar#28|))))
        |iterList| NIL)
       (NREVERSE |result|)))))
- 
+
 ; pfCollect2Sex pf ==
 ;   sex := ["COLLECT", :loopIters2Sex pfParts pfCollectIterators pf,
 ;     pf2Sex1 pfCollectBody pf]
 ;   sex is ["COLLECT", ["|", cond], var] and SYMBOLP var =>
 ;     ["|", var, cond]
 ;   sex
- 
+
 (DEFUN |pfCollect2Sex| (|pf|)
   (PROG (|sex| |ISTMP#1| |ISTMP#2| |ISTMP#3| |cond| |ISTMP#4| |var|)
     (RETURN
@@ -1067,7 +1067,7 @@
              (SYMBOLP |var|))
         (LIST '|\|| |var| |cond|))
        (#1# |sex|))))))
- 
+
 ; pfRule2Sex pf ==
 ;   $quotedOpList:local := nil
 ;   $predicateList:local := nil
@@ -1078,7 +1078,7 @@
 ;   rulePredicateTran
 ;     $quotedOpList => ["rule", lhs, rhs, ["construct", :$quotedOpList]]
 ;     ["rule", lhs, rhs]
- 
+
 (DEFUN |pfRule2Sex| (|pf|)
   (PROG (|$multiVarPredicateList| |$predicateList| |$quotedOpList| |rhs| |lhs|)
     (DECLARE
@@ -1096,7 +1096,7 @@
         (|$quotedOpList|
          (LIST '|rule| |lhs| |rhs| (CONS '|construct| |$quotedOpList|)))
         ('T (LIST '|rule| |lhs| |rhs|))))))))
- 
+
 ; ruleLhsTran ruleLhs ==
 ;   for pred in $predicateList repeat
 ;     [name, predLhs, :predRhs] := pred
@@ -1110,7 +1110,7 @@
 ;         '((Boolean) (Expression (Integer))), '(() ()), predRhs]]
 ;     ruleLhs := NSUBST(predicate, name, ruleLhs)
 ;   ruleLhs
- 
+
 (DEFUN |ruleLhsTran| (|ruleLhs|)
   (PROG (|name| |predLhs| |predRhs| |vars| |var| |predicate|)
     (RETURN
@@ -1145,7 +1145,7 @@
           (SETQ |bfVar#29| (CDR |bfVar#29|))))
        |$predicateList| NIL)
       |ruleLhs|))))
- 
+
 ; rulePredicateTran rule ==
 ;   null $multiVarPredicateList => rule
 ;   varList := patternVarsOf [rhs for [.,.,:rhs] in $multiVarPredicateList]
@@ -1160,7 +1160,7 @@
 ;     ['ADEF, '(predicateVariable),
 ;      '((Boolean) (List (Expression (Integer)))), '(() ()),
 ;       predBody]]
- 
+
 (DEFUN |rulePredicateTran| (|rule|)
   (PROG (|ISTMP#1| |rhs| |varList| |predBody|)
     (RETURN
@@ -1234,12 +1234,12 @@
                    (LIST 'ADEF '(|predicateVariable|)
                          '((|Boolean|) (|List| (|Expression| (|Integer|))))
                          '(NIL NIL) |predBody|))))))))
- 
+
 ; pvarPredTran(rhs, varList) ==
 ;   for var in varList for i in 1.. repeat
 ;     rhs := NSUBST(['elt, 'predicateVariable, i], var, rhs)
 ;   rhs
- 
+
 (DEFUN |pvarPredTran| (|rhs| |varList|)
   (PROG ()
     (RETURN
@@ -1257,13 +1257,13 @@
           (SETQ |i| (+ |i| 1))))
        |varList| NIL 1)
       |rhs|))))
- 
+
 ; patternVarsOf expr ==
 ;   patternVarsOf1(expr, nil)
- 
+
 (DEFUN |patternVarsOf| (|expr|)
   (PROG () (RETURN (|patternVarsOf1| |expr| NIL))))
- 
+
 ; patternVarsOf1(expr, varList) ==
 ;   NULL expr => varList
 ;   ATOM expr =>
@@ -1275,7 +1275,7 @@
 ;       varList := patternVarsOf1(arg, varList)
 ;     varList
 ;   varList
- 
+
 (DEFUN |patternVarsOf1| (|expr| |varList|)
   (PROG (|op| |argl|)
     (RETURN
@@ -1301,25 +1301,25 @@
               |argl| NIL)
              |varList|))
            (#1# |varList|)))))
- 
+
 ; pfLhsRule2Sex lhs ==
 ;   $insideRule: local := 'left
 ;   pf2Sex1 lhs
- 
+
 (DEFUN |pfLhsRule2Sex| (|lhs|)
   (PROG (|$insideRule|)
     (DECLARE (SPECIAL |$insideRule|))
     (RETURN (PROGN (SETQ |$insideRule| '|left|) (|pf2Sex1| |lhs|)))))
- 
+
 ; pfRhsRule2Sex rhs ==
 ;   $insideRule: local := 'right
 ;   pf2Sex1 rhs
- 
+
 (DEFUN |pfRhsRule2Sex| (|rhs|)
   (PROG (|$insideRule|)
     (DECLARE (SPECIAL |$insideRule|))
     (RETURN (PROGN (SETQ |$insideRule| '|right|) (|pf2Sex1| |rhs|)))))
- 
+
 ; pfSuchThat2Sex args ==
 ;   name := GENTEMP()
 ;   argList := pf0TupleParts args
@@ -1327,7 +1327,7 @@
 ;   rhsSex := pf2Sex CADR argList
 ;   $predicateList := [[name, lhsSex, :rhsSex], :$predicateList]
 ;   name
- 
+
 (DEFUN |pfSuchThat2Sex| (|args|)
   (PROG (|name| |argList| |lhsSex| |rhsSex|)
     (RETURN

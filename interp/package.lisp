@@ -1,19 +1,19 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; mkList u ==
 ;   u => ["LIST",:u]
 ;   nil
- 
+
 (DEFUN |mkList| (|u|) (PROG () (RETURN (COND (|u| (CONS 'LIST |u|)) ('T NIL)))))
- 
+
 ; mkOperatorEntry(opSig is [op,sig,:flag],pred,count) ==
 ;   null flag => [opSig,pred,["ELT","$",count]]
 ;   first flag="constant" => [[op,sig],pred,["CONST","$",count]]
 ;   systemError ["unknown variable mode: ",flag]
- 
+
 (DEFUN |mkOperatorEntry| (|opSig| |pred| |count|)
   (PROG (|op| |sig| |flag|)
     (RETURN
@@ -25,7 +25,7 @@
             ((EQ (CAR |flag|) '|constant|)
              (LIST (LIST |op| |sig|) |pred| (LIST 'CONST '$ |count|)))
             ('T (|systemError| (LIST '|unknown variable mode: | |flag|))))))))
- 
+
 ; encodeFunctionName(fun,package is [packageName,:arglist],signature,sep,count)
 ;    ==
 ;     signature':= substitute("$",package,signature)
@@ -38,7 +38,7 @@
 ;     encodedName := INTERN(CONCAT(getAbbreviation(packageName, #arglist), ";",
 ;         encodeItem(fun), ";", encodedSig, sep, STRINGIMAGE(count)))
 ;     encodedName
- 
+
 (DEFUN |encodeFunctionName| (|fun| |package| |signature| |sep| |count|)
   (PROG (|packageName| |arglist| |signature'| |reducedSig| |n| |x| |encodedSig|
          |encodedName|)
@@ -77,7 +77,7 @@
                        '|;| (|encodeItem| |fun|) '|;| |encodedSig| |sep|
                        (STRINGIMAGE |count|))))
       |encodedName|))))
- 
+
 ; mkRepititionAssoc l ==
 ;   mkRepfun(l,1) where
 ;     mkRepfun(l,n) ==
@@ -85,7 +85,7 @@
 ;       l is [x] => [[n,:x]]
 ;       l is [x, =x,:l'] => mkRepfun(rest l,n+1)
 ;       [[n,:first l],:mkRepfun(rest l,1)]
- 
+
 (DEFUN |mkRepititionAssoc| (|l|)
   (PROG () (RETURN (|mkRepititionAssoc,mkRepfun| |l| 1))))
 (DEFUN |mkRepititionAssoc,mkRepfun| (|l| |n|)
@@ -105,12 +105,12 @@
            (#1#
             (CONS (CONS |n| (CAR |l|))
                   (|mkRepititionAssoc,mkRepfun| (CDR |l|) 1)))))))
- 
+
 ; encodeItem x ==
 ;   x is [op,:argl] => getCaps op
 ;   IDENTP x => PNAME x
 ;   STRINGIMAGE x
- 
+
 (DEFUN |encodeItem| (|x|)
   (PROG (|op| |argl|)
     (RETURN
@@ -119,13 +119,13 @@
             (PROGN (SETQ |op| (CAR |x|)) (SETQ |argl| (CDR |x|)) #1='T))
        (|getCaps| |op|))
       ((IDENTP |x|) (PNAME |x|)) (#1# (STRINGIMAGE |x|))))))
- 
+
 ; getCaps x ==
 ;   s:= STRINGIMAGE x
 ;   clist:= [c for i in 0..MAXINDEX s | UPPER_-CASE_-P (c:= s.i)]
 ;   null clist => '"__"
 ;   "STRCONC"/[first clist,:[DOWNCASE u for u in rest clist]]
- 
+
 (DEFUN |getCaps| (|x|)
   (PROG (|s| |c| |clist|)
     (RETURN
@@ -163,11 +163,11 @@
                         (SETQ |bfVar#6| (CDR |bfVar#6|))))
                      NIL (CDR |clist|) NIL))
               NIL)))))))
- 
+
 ; DEFPARAMETER($abbreviationTable, '())
- 
+
 (DEFPARAMETER |$abbreviationTable| 'NIL)
- 
+
 ; getAbbreviation(name,c) ==
 ;   --returns abbreviation of name with c arguments
 ;   x := constructor? name
@@ -182,7 +182,7 @@
 ;     newAbbreviation
 ;   $abbreviationTable:= [[x,[name,[c,:x]]],:$abbreviationTable]
 ;   x
- 
+
 (DEFUN |getAbbreviation| (|name| |c|)
   (PROG (|x| X N C |newAbbreviation|)
     (RETURN
@@ -210,19 +210,19 @@
                  (CONS (LIST |x| (LIST |name| (CONS |c| |x|)))
                        |$abbreviationTable|))
          |x|)))))))
- 
+
 ; mkAbbrev(X,x) == addSuffix(alistSize rest X,x)
- 
+
 (DEFUN |mkAbbrev| (X |x|)
   (PROG () (RETURN (|addSuffix| (|alistSize| (CDR X)) |x|))))
- 
+
 ; alistSize c ==
 ;   count(c,1) where
 ;     count(x,level) ==
 ;       level=2 => #x
 ;       null x => 0
 ;       count(CDAR x,level+1)+count(rest x,level)
- 
+
 (DEFUN |alistSize| (|c|) (PROG () (RETURN (|alistSize,count| |c| 1))))
 (DEFUN |alistSize,count| (|x| |level|)
   (PROG ()
@@ -231,12 +231,12 @@
            ('T
             (+ (|alistSize,count| (CDAR |x|) (+ |level| 1))
                (|alistSize,count| (CDR |x|) |level|)))))))
- 
+
 ; addSuffix(n,u) ==
 ;   ALPHA_-CHAR_-P((s := STRINGIMAGE u).(MAXINDEX s)) =>
 ;       INTERNL1(s, STRINGIMAGE(n))
 ;   INTERN(CONCAT(s, '";", STRINGIMAGE(n)))
- 
+
 (DEFUN |addSuffix| (|n| |u|)
   (PROG (|s|)
     (RETURN

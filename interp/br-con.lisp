@@ -1,8 +1,8 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; conPage(a) ==
 ;   --The next 4 lines allow e.g. MATRIX INT  ==> Matrix Integer (see kPage)
 ;   form :=
@@ -18,7 +18,7 @@
 ;   line := conPageFastPath da  => kPage(line, [form]) --lower case name of cons?
 ;   line := conPageFastPath UPCASE a => kPage(line, [form]) --upper case an abbr?
 ;   ySearch a       --slow search (include default packages)
- 
+
 (DEFUN |conPage| (|a|)
   (PROG (|$conArgstrings| |line| |pageName| |da| |form|)
     (DECLARE (SPECIAL |$conArgstrings|))
@@ -49,7 +49,7 @@
        ((SETQ |line| (|conPageFastPath| (UPCASE |a|)))
         (|kPage| |line| (LIST |form|)))
        (#1# (|ySearch| |a|)))))))
- 
+
 ; conPageFastPath x == --called by conPage and constructorSearch
 ; --gets line quickly for constructor name or abbreviation
 ;   s := STRINGIMAGE x
@@ -57,7 +57,7 @@
 ;   name := (STRINGP x => INTERN x; x)
 ;   entry := HGET($lowerCaseConTb,name) or return nil
 ;   conPageConEntry first entry
- 
+
 (DEFUN |conPageFastPath| (|x|)
   (PROG (|s| |name| |entry|)
     (RETURN
@@ -69,7 +69,7 @@
               (SETQ |name| (COND ((STRINGP |x|) (INTERN |x|)) (#1# |x|)))
               (SETQ |entry| (OR (HGET |$lowerCaseConTb| |name|) (RETURN NIL)))
               (|conPageConEntry| (CAR |entry|)))))))))
- 
+
 ; conPageConEntry entry ==
 ;   $conname: local := nil
 ;   $conform: local := nil
@@ -77,7 +77,7 @@
 ;   $doc:     local := nil
 ;   $kind:    local := nil
 ;   buildLibdbConEntry entry
- 
+
 (DEFUN |conPageConEntry| (|entry|)
   (PROG (|$kind| |$doc| |$exposed?| |$conform| |$conname|)
     (DECLARE (SPECIAL |$kind| |$doc| |$exposed?| |$conform| |$conname|))
@@ -89,11 +89,11 @@
       (SETQ |$doc| NIL)
       (SETQ |$kind| NIL)
       (|buildLibdbConEntry| |entry|)))))
- 
+
 ; kxPage(htPage,name) == downlink name
- 
+
 (DEFUN |kxPage| (|htPage| |name|) (PROG () (RETURN (|downlink| |name|))))
- 
+
 ; kdPageInfo(name,abbrev,nargs,conform,signature,file?) ==
 ;   htSay("{\sf ",name,'"}")
 ;   if abbrev ~= name then bcHt [" has abbreviation ",abbrev]
@@ -117,7 +117,7 @@
 ;   htMakePage [['text,'"\unixcommand{",filename,'"}{_\$FRICAS/lib/SPADEDIT ",
 ;               sourceFileName, '" ", name, '"}"]]
 ;   if nargs ~= 0 then htSay '"."
- 
+
 (DEFUN |kdPageInfo| (|name| |abbrev| |nargs| |conform| |signature| |file?|)
   (PROG (|sourceFileName| |filename|)
     (RETURN
@@ -149,7 +149,7 @@
         (LIST '|text| "\\unixcommand{" |filename| "}{\\$FRICAS/lib/SPADEDIT "
               |sourceFileName| " " |name| "}")))
       (COND ((NOT (EQL |nargs| 0)) (|htSay| ".")))))))
- 
+
 ; kArgPage(htPage,arg) ==
 ;   [op,:args] := conform := htpProperty(htPage,'conform)
 ;   domname := htpProperty(htPage,'domname)
@@ -167,7 +167,7 @@
 ;   htpSetProperty(htPage,'thing,'"argument")
 ; --htpSetProperty(htPage,'specialMessage,['reportCategory,conform,typeForm,arg])
 ;   dbShowCons(htPage,'names)
- 
+
 (DEFUN |kArgPage| (|htPage| |arg|)
   (PROG (|conform| |op| |args| |domname| |heading| |source| |n| |typeForm|
          |domTypeForm| |descendants| |rank|)
@@ -191,7 +191,7 @@
       (|htpSetProperty| |htPage| '|rank| |rank|)
       (|htpSetProperty| |htPage| '|thing| "argument")
       (|dbShowCons| |htPage| '|names|)))))
- 
+
 ; reportCategory(conform,typeForm,arg) ==
 ;   htSay('"Argument {\em ",arg,'"}")
 ;   [conlist, :oplist] := categoryParts(conform,typeForm,true)
@@ -209,7 +209,7 @@
 ;   if oplist then
 ;     if conlist then htSay '" and "
 ;     report_ops(oplist)
- 
+
 (DEFUN |reportCategory| (|conform| |typeForm| |arg|)
   (PROG (|LETTMP#1| |conlist| |oplist| |u|)
     (RETURN
@@ -231,7 +231,7 @@
       (COND
        (|oplist| (COND (|conlist| (|htSay| " and ")))
         (|report_ops| |oplist|)))))))
- 
+
 ; report_ops(oplist) ==
 ;   htSayList(['"have ", '"operation", '":"])
 ;   for [op,sig,:pred] in oplist repeat
@@ -244,7 +244,7 @@
 ;       bcConform ['Mapping,:sig]
 ;       if #oplist = 1 then htSay('"}")
 ;   htSay '"\newline "
- 
+
 (DEFUN |report_ops| (|oplist|)
   (PROG (|op| |ISTMP#1| |sig| |pred| |ops| |sigs|)
     (RETURN
@@ -278,13 +278,13 @@
           (SETQ |bfVar#4| (CDR |bfVar#4|))))
        |oplist| NIL)
       (|htSay| "\\newline ")))))
- 
+
 ; mkDomTypeForm(typeForm,conform,domname) == --called by kargPage
 ;   domname => SUBLISLIS(rest domname,rest conform,typeForm)
 ;   typeForm is ['Join,:r] => ['Join,:[mkDomTypeForm(t,conform,domname) for t in r]]
 ;   null hasIdent typeForm => typeForm
 ;   nil
- 
+
 (DEFUN |mkDomTypeForm| (|typeForm| |conform| |domname|)
   (PROG (|r|)
     (RETURN
@@ -305,7 +305,7 @@
                       (SETQ |bfVar#5| (CDR |bfVar#5|))))
                    NIL |r| NIL)))
            ((NULL (|hasIdent| |typeForm|)) |typeForm|) (#1# NIL)))))
- 
+
 ; domainDescendantsOf(conform,domform) == main where --called by kargPage
 ;   main ==
 ;     conform is [op,:r] =>
@@ -331,7 +331,7 @@
 ;       alist := [[item,:npred] for [item,:pred] in alist |
 ;         (pred1 := simpHasPred ['has,item,x]) and (npred := quickAnd(pred1,pred))]
 ;     alist
- 
+
 (DEFUN |domainDescendantsOf| (|conform| |domform|)
   (PROG (|op| |r|)
     (RETURN
@@ -444,7 +444,7 @@
           (SETQ |bfVar#11| (CDR |bfVar#11|))))
        |r| NIL)
       |alist|))))
- 
+
 ; kiPage(htPage,junk) ==
 ;   [kind,name,nargs,xflag,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   conform         := mkConform(kind,name,args)
@@ -455,7 +455,7 @@
 ;   $conformsAreDomains := domname
 ;   dbShowConsDoc1(htPage,conform,nil)
 ;   htShowPage()
- 
+
 (DEFUN |kiPage| (|htPage| |junk|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xflag| |sig| |args| |abbrev|
          |comments| |conform| |domname| |heading| |page|)
@@ -484,7 +484,7 @@
          (SETQ |$conformsAreDomains| |domname|)
          (|dbShowConsDoc1| |htPage| |conform| NIL)
          (|htShowPage|))))))))
- 
+
 ; kePage(htPage,junk) ==
 ;   [kind,name,nargs,xflag,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   constring       := STRCONC(name,args)
@@ -516,7 +516,7 @@
 ;     kePageDisplay(page, kePageOpAlist(oplist))
 ;   htSayStandard '" \endmenu "
 ;   htShowPage()
- 
+
 (DEFUN |kePage| (|htPage| |junk|)
   (PROG (|$conformsAreDomains| |page| |prefix| |oplist| |conlist| |data|
          |heading| |conname| |conform| |domname| |constring| |comments|
@@ -595,14 +595,14 @@
            (|kePageDisplay| |page| (|kePageOpAlist| |oplist|))))
          (|htSayStandard| " \\endmenu ")
          (|htShowPage|))))))))
- 
+
 ; kePageOpAlist oplist ==
 ;   opAlist := nil
 ;   for [op,sig,:pred] in oplist repeat
 ;     u := LASSOC(op,opAlist)
 ;     opAlist := insertAlist(zeroOneConvert op,[[sig,pred],:u],opAlist)
 ;   opAlist
- 
+
 (DEFUN |kePageOpAlist| (|oplist|)
   (PROG (|opAlist| |op| |ISTMP#1| |sig| |pred| |u|)
     (RETURN
@@ -632,7 +632,7 @@
           (SETQ |bfVar#19| (CDR |bfVar#19|))))
        |oplist| NIL)
       |opAlist|))))
- 
+
 ; kePageDisplay(htPage, opAlist) ==
 ;   count := #opAlist
 ;   total := +/[#(rest entry) for entry in opAlist]
@@ -652,7 +652,7 @@
 ;     else htSayList(['"1 ", which, '" is explicitly exported:"])
 ;   data := dbGatherData(htPage, opAlist, '"operation", 'names)
 ;   dbShowOpItems(which,data,false)
- 
+
 (DEFUN |kePageDisplay| (|htPage| |opAlist|)
   (PROG (|count| |total| |which| |data|)
     (RETURN
@@ -696,7 +696,7 @@
               (SETQ |data|
                       (|dbGatherData| |htPage| |opAlist| "operation" '|names|))
               (|dbShowOpItems| |which| |data| NIL))))))))
- 
+
 ; ksPage(htPage,junk) ==
 ;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   domname         := kDomainName(htPage,kind,name,nargs)
@@ -717,7 +717,7 @@
 ;   htpSetProperty(htPage,'cAlist,u)
 ;   htpSetProperty(htPage,'thing,'"constructor")
 ;   dbShowCons(htPage,'names)
- 
+
 (DEFUN |ksPage| (|htPage| |junk|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xpart| |sig| |args| |abbrev|
          |comments| |domname| |heading| |domain| |conform| |page| |u|)
@@ -759,7 +759,7 @@
          (|htpSetProperty| |htPage| '|cAlist| |u|)
          (|htpSetProperty| |htPage| '|thing| "constructor")
          (|dbShowCons| |htPage| '|names|))))))))
- 
+
 ; dbSearchOrder(conform,domname,$domain) ==  --domain = nil or set to live domain
 ;   conform := domname or conform
 ;   name:= opOf conform
@@ -786,7 +786,7 @@
 ;       if domname then res := SUBST(domname,'$,res)
 ;       res
 ;   [:dbAddChain conform,:catforms]
- 
+
 (DEFUN |dbSearchOrder| (|conform| |domname| |$domain|)
   (DECLARE (SPECIAL |$domain|))
   (PROG (|$infovec| |catforms| |res| |catform| |pak| |pred| |p| |catvec|
@@ -850,7 +850,7 @@
                   (SETQ |i| (+ |i| 1))))
                NIL (MAXINDEX |catvec|) 0))
       (APPEND (|dbAddChain| |conform|) |catforms|)))))
- 
+
 ; kcpPage(htPage,junk) ==
 ;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   domname         := kDomainName(htPage,kind,name,nargs)
@@ -872,7 +872,7 @@
 ;     domname => 'parameters
 ;     'names
 ;   dbShowCons(htPage,choice)
- 
+
 (DEFUN |kcpPage| (|htPage| |junk|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xpart| |sig| |args| |abbrev|
          |comments| |domname| |heading| |conform| |conname| |page| |parents|
@@ -916,12 +916,12 @@
          (|htpSetProperty| |htPage| '|thing| "parent")
          (SETQ |choice| (COND (|domname| '|parameters|) (#4# '|names|)))
          (|dbShowCons| |htPage| |choice|))))))))
- 
+
 ; reduceAlistForDomain(alist,domform,conform) == --called from kccPage
 ;   alist := SUBLISLIS(rest domform,rest conform,alist)
 ;   for pair in alist repeat RPLACD(pair, simpHasPred2(rest pair, domform))
 ;   [pair for (pair := [.,:pred]) in alist | pred]
- 
+
 (DEFUN |reduceAlistForDomain| (|alist| |domform| |conform|)
   (PROG (|pred|)
     (RETURN
@@ -945,31 +945,31 @@
                  (SETQ |bfVar#26| (CONS |pair| |bfVar#26|)))))
           (SETQ |bfVar#25| (CDR |bfVar#25|))))
        NIL |alist| NIL)))))
- 
+
 ; kcaPage(htPage,junk) ==
 ;   kcaPage1(htPage,'"category",'" an ",'"ancestor",function ancestorsOf, false)
- 
+
 (DEFUN |kcaPage| (|htPage| |junk|)
   (PROG ()
     (RETURN
      (|kcaPage1| |htPage| "category" " an " "ancestor" #'|ancestorsOf| NIL))))
- 
+
 ; kcdPage(htPage,junk) ==
 ;   kcaPage1(htPage,'"category",'" a ",'"descendant",function descendantsOf,true)
- 
+
 (DEFUN |kcdPage| (|htPage| |junk|)
   (PROG ()
     (RETURN
      (|kcaPage1| |htPage| "category" " a " "descendant" #'|descendantsOf| T))))
- 
+
 ; kcdoPage(htPage,junk)==
 ;   kcaPage1(htPage,'"domain",'" a ",'"descendant",function domainsOf, false)
- 
+
 (DEFUN |kcdoPage| (|htPage| |junk|)
   (PROG ()
     (RETURN
      (|kcaPage1| |htPage| "domain" " a " "descendant" #'|domainsOf| NIL))))
- 
+
 ; kcaPage1(htPage,kind,article,whichever,fn, isCatDescendants?) ==
 ;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   domname         := kDomainName(htPage,kind,name,nargs)
@@ -993,7 +993,7 @@
 ; --  domname => 'parameters
 ;     'names
 ;   dbShowCons(htPage,choice)
- 
+
 (DEFUN |kcaPage1|
        (|htPage| |kind| |article| |whichever| |fn| |isCatDescendants?|)
   (PROG (|LETTMP#1| |name| |nargs| |xpart| |sig| |args| |abbrev| |comments|
@@ -1035,7 +1035,7 @@
          (|htpSetProperty| |htPage| '|thing| |whichever|)
          (SETQ |choice| '|names|)
          (|dbShowCons| |htPage| |choice|))))))))
- 
+
 ; kccPage(htPage,junk) ==
 ;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   domname         := kDomainName(htPage,kind,name,nargs)
@@ -1054,7 +1054,7 @@
 ;   htpSetProperty(htPage,'cAlist,children)
 ;   htpSetProperty(htPage,'thing,'"child")
 ;   dbShowCons(htPage,'names)
- 
+
 (DEFUN |kccPage| (|htPage| |junk|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xpart| |sig| |args| |abbrev|
          |comments| |domname| |heading| |conform| |conname| |page| |children|)
@@ -1097,7 +1097,7 @@
          (|htpSetProperty| |htPage| '|cAlist| |children|)
          (|htpSetProperty| |htPage| '|thing| "child")
          (|dbShowCons| |htPage| '|names|))))))))
- 
+
 ; augmentHasArgs(alist,conform) ==
 ;   conname := opOf conform
 ;   args    := IFCDR conform or return alist
@@ -1105,7 +1105,7 @@
 ;   [[name,:pred] for [name,:p] in alist] where pred ==
 ;      extractHasArgs p is [a,:b] => p
 ;      quickAnd(p, ['hasArgs, :TAKE(n, IFCDR getConstructorForm opOf name)])
- 
+
 (DEFUN |augmentHasArgs| (|alist| |conform|)
   (PROG (|conname| |args| |n| |name| |p| |ISTMP#1| |a| |b|)
     (RETURN
@@ -1147,7 +1147,7 @@
                           |bfVar#29|)))))
           (SETQ |bfVar#28| (CDR |bfVar#28|))))
        NIL |alist| NIL)))))
- 
+
 ; kcdePage(htPage,junk) ==
 ;   [kind,name,nargs,xflag,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   conname         := INTERN name
@@ -1163,7 +1163,7 @@
 ;   htpSetProperty(htPage,'cAlist,cAlist)
 ;   htpSetProperty(htPage,'thing,'"dependent")
 ;   dbShowCons(htPage,'names)
- 
+
 (DEFUN |kcdePage| (|htPage| |junk|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xflag| |sig| |args| |abbrev|
          |comments| |conname| |constring| |conform| |pakname| |domList|
@@ -1208,7 +1208,7 @@
       (|htpSetProperty| |htPage| '|cAlist| |cAlist|)
       (|htpSetProperty| |htPage| '|thing| "dependent")
       (|dbShowCons| |htPage| '|names|)))))
- 
+
 ; kcuPage(htPage,junk) ==
 ;   [kind,name,nargs,xflag,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
 ;   conname         := INTERN name
@@ -1224,7 +1224,7 @@
 ;   htpSetProperty(htPage,'cAlist,cAlist)
 ;   htpSetProperty(htPage,'thing,'"user")
 ;   dbShowCons(htPage,'names)
- 
+
 (DEFUN |kcuPage| (|htPage| |junk|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xflag| |sig| |args| |abbrev|
          |comments| |conname| |constring| |conform| |pakname| |domList|
@@ -1273,7 +1273,7 @@
       (|htpSetProperty| |htPage| '|cAlist| |cAlist|)
       (|htpSetProperty| |htPage| '|thing| "user")
       (|dbShowCons| |htPage| '|names|)))))
- 
+
 ; kcnPage(htPage,junk) ==
 ; --if reached by a category, that category has a default package
 ;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
@@ -1296,7 +1296,7 @@
 ;   htpSetProperty(htPage,'cAlist,cAlist)
 ;   htpSetProperty(htPage,'thing,'"benefactor")
 ;   dbShowCons(htPage,'names)
- 
+
 (DEFUN |kcnPage| (|htPage| |junk|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xpart| |sig| |args| |abbrev|
          |comments| |domname| |heading| |conform| |pakname| |domList| |cAlist|)
@@ -1350,11 +1350,11 @@
          (|htpSetProperty| |htPage| '|cAlist| |cAlist|)
          (|htpSetProperty| |htPage| '|thing| "benefactor")
          (|dbShowCons| |htPage| '|names|))))))))
- 
+
 ; koPageInputAreaUnchanged?(htPage, nargs) ==
 ;   [htpLabelInputString(htPage,INTERN STRCONC('"*",STRINGIMAGE i)) for i in 1..nargs]
 ;       = htpProperty(htPage,'inputAreaList)
- 
+
 (DEFUN |koPageInputAreaUnchanged?| (|htPage| |nargs|)
   (PROG ()
     (RETURN
@@ -1371,7 +1371,7 @@
           (SETQ |i| (+ |i| 1))))
        NIL 1)
       (|htpProperty| |htPage| '|inputAreaList|)))))
- 
+
 ; kDomainName(htPage,kind,name,nargs) ==
 ;   htpSetProperty(htPage,'domname,nil)
 ;   inputAreaList :=
@@ -1394,7 +1394,7 @@
 ;   null (evaluatedTypeForm := kisValidType typeForm) =>
 ;     ['error,'invalidType,STRCONC(name,argString)]
 ;   dbMkEvalable evaluatedTypeForm
- 
+
 (DEFUN |kDomainName| (|htPage| |kind| |name| |nargs|)
   (PROG (|inputAreaList| |conname| |args| |n| |argTailPart| |argString|
          |typeForm| |evaluatedTypeForm|)
@@ -1529,14 +1529,14 @@
           ((NULL (SETQ |evaluatedTypeForm| (|kisValidType| |typeForm|)))
            (LIST '|error| '|invalidType| (STRCONC |name| |argString|)))
           (#1# (|dbMkEvalable| |evaluatedTypeForm|))))))))))
- 
+
 ; kArgumentCheck(domain?,s) ==
 ;   s = '"" => nil
 ;   domain? and (form := conSpecialString? s) =>
 ;     null IFCDR form => [STRINGIMAGE opOf form]
 ;     form2String form
 ;   [s]
- 
+
 (DEFUN |kArgumentCheck| (|domain?| |s|)
   (PROG (|form|)
     (RETURN
@@ -1545,7 +1545,7 @@
             (COND ((NULL (IFCDR |form|)) (LIST (STRINGIMAGE (|opOf| |form|))))
                   (#1='T (|form2String| |form|))))
            (#1# (LIST |s|))))))
- 
+
 ; dbMkEvalable form ==
 ; --like mkEvalable except that it does NOT quote domains
 ; --does not do "loadIfNecessary"
@@ -1553,7 +1553,7 @@
 ;   kind := GETDATABASE(op,'CONSTRUCTORKIND)
 ;   kind = 'category => form
 ;   mkEvalable form
- 
+
 (DEFUN |dbMkEvalable| (|form|)
   (PROG (|op| |kind|)
     (RETURN
@@ -1561,12 +1561,12 @@
       (SETQ |op| (CAR |form|))
       (SETQ |kind| (GETDATABASE |op| 'CONSTRUCTORKIND))
       (COND ((EQ |kind| '|category|) |form|) ('T (|mkEvalable| |form|)))))))
- 
+
 ; topLevelInterpEval x ==
 ;   $ProcessInteractiveValue: fluid := true
 ;   $noEvalTypeMsg: fluid := true
 ;   processInteractive(x,nil)
- 
+
 (DEFUN |topLevelInterpEval| (|x|)
   (PROG (|$noEvalTypeMsg| |$ProcessInteractiveValue|)
     (DECLARE (SPECIAL |$noEvalTypeMsg| |$ProcessInteractiveValue|))
@@ -1575,7 +1575,7 @@
       (SETQ |$ProcessInteractiveValue| T)
       (SETQ |$noEvalTypeMsg| T)
       (|processInteractive| |x| NIL)))))
- 
+
 ; kisValidType typeForm ==
 ;   $ProcessInteractiveValue: fluid := true
 ;   $noEvalTypeMsg: fluid := true
@@ -1583,7 +1583,7 @@
 ;   CATCH('SPAD_READER, processInteractive(typeForm, nil))
 ;     is [[h,:.],:t] and member(h,'(Type Category)) => t
 ;   false
- 
+
 (DEFUN |kisValidType| (|typeForm|)
   (PROG (|$BreakMode| |$noEvalTypeMsg| |$ProcessInteractiveValue| |t| |h|
          |ISTMP#2| |ISTMP#1|)
@@ -1608,13 +1608,13 @@
          (|member| |h| '(|Type| |Category|)))
         |t|)
        (#1# NIL))))))
- 
+
 ; parseNoMacroFromString(s) ==
 ;    s := next(function ncloopParse,
 ;         next(function lineoftoks,incString s))
 ;    StreamNull s => nil
 ;    pf2Sex first rest first s
- 
+
 (DEFUN |parseNoMacroFromString| (|s|)
   (PROG ()
     (RETURN
@@ -1623,7 +1623,7 @@
               (|next| #'|ncloopParse|
                (|next| #'|lineoftoks| (|incString| |s|))))
       (COND ((|StreamNull| |s|) NIL) ('T (|pf2Sex| (CAR (CDR (CAR |s|))))))))))
- 
+
 ; mkConform(kind,name,argString) ==
 ;   kind ~= '"default package" =>
 ;     form := STRCONC(name,argString)
@@ -1635,7 +1635,7 @@
 ;     ATOM parse => [parse]
 ;     parse
 ;   [INTERN name,:rest ncParseFromString STRCONC(char 'd,argString)]  --& case
- 
+
 (DEFUN |mkConform| (|kind| |name| |argString|)
   (PROG (|form| |parse|)
     (RETURN
@@ -1655,7 +1655,7 @@
        (CONS (INTERN |name|)
              (CDR
               (|ncParseFromString| (STRCONC (|char| '|d|) |argString|)))))))))
- 
+
 ; conOpPage(htPage,conform) ==
 ;   updown := dbCompositeWithMap htPage
 ;   updown = '"DOWN" =>
@@ -1663,7 +1663,7 @@
 ;     conOpPage1(dbExtractUnderlyingDomain domname,[['updomain,:domname]])
 ;   domname := htpProperty(htPage,'updomain)
 ;   conOpPage1(domname,nil)
- 
+
 (DEFUN |conOpPage| (|htPage| |conform|)
   (PROG (|updown| |domname|)
     (RETURN
@@ -1679,7 +1679,7 @@
         (PROGN
          (SETQ |domname| (|htpProperty| |htPage| '|updomain|))
          (|conOpPage1| |domname| NIL))))))))
- 
+
 ; dbCompositeWithMap htPage ==
 ;   htpProperty(htPage,'updomain) => '"UP"
 ;   domain := htpProperty(htPage,'domname)
@@ -1688,7 +1688,7 @@
 ; --not LASSOC('map,opAlist) => false
 ;   dbExtractUnderlyingDomain htpProperty(htPage,'domname) => '"DOWN"
 ;   false
- 
+
 (DEFUN |dbCompositeWithMap| (|htPage|)
   (PROG (|domain| |opAlist|)
     (RETURN
@@ -1705,9 +1705,9 @@
                         (|htpProperty| |htPage| '|domname|))
                        "DOWN")
                       (#1# NIL)))))))))))
- 
+
 ; dbExtractUnderlyingDomain domain == or/[x for x in IFCDR domain | isValidType x]
- 
+
 (DEFUN |dbExtractUnderlyingDomain| (|domain|)
   (PROG ()
     (RETURN
@@ -1723,7 +1723,7 @@
                  (COND (|bfVar#55| (RETURN |bfVar#55|)))))))
          (SETQ |bfVar#54| (CDR |bfVar#54|))))
       NIL (IFCDR |domain|) NIL))))
- 
+
 ; conOpPage1(conform, options) ==
 ; --constructors    Cname\#\E\sig \args   \abb \comments (C is C, D, P, X)
 ;   bindingsAlist := options
@@ -1757,7 +1757,7 @@
 ;   htpSetProperty(page,'signature,signature)
 ;   for [a,:b] in bindingsAlist repeat htpSetProperty(page,a,b)
 ;   koPage(page,'"operation")
- 
+
 (DEFUN |conOpPage1| (|conform| |options|)
   (PROG (|bindingsAlist| |conname| |domname| |line| |parts| |kind| |name|
          |nargs| |xflag| |sig| |args| |abbrev| |comments| |isFile| |constring|
@@ -1820,7 +1820,7 @@
                   (SETQ |bfVar#57| (CDR |bfVar#57|))))
                |bindingsAlist| NIL)
               (|koPage| |page| "operation"))))))))
- 
+
 ; koPage(htPage,which) ==
 ;   which = '"attribute" => BREAK()
 ;   [kind,name,nargs,xflag,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
@@ -1844,7 +1844,7 @@
 ;   if selectedOperation := htpProperty(htPage,'selectedOperation) then
 ;     opAlist := [assoc(selectedOperation,opAlist) or systemError()]
 ;   dbShowOperationsFromConform(htPage,which,opAlist)
- 
+
 (DEFUN |koPage| (|htPage| |which|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xflag| |sig| |args| |abbrev|
          |comments| |constring| |conname| |u| |ISTMP#1| |domname|
@@ -1903,7 +1903,7 @@
                                (|systemError|))))))
                 (|dbShowOperationsFromConform| |htPage| |which|
                  |opAlist|))))))))))
- 
+
 ; koaPageFilterByName(htPage,functionToCall) ==
 ;   htpLabelInputString(htPage,'filter) = '"" =>
 ;     koaPageFilterByCategory(htPage,functionToCall)
@@ -1914,7 +1914,7 @@
 ;       [x for x in htpProperty(htPage,'opAlist) | superMatch?(filter,DOWNCASE STRINGIMAGE first x)]
 ;   htpSetProperty(htPage,'opAlist,opAlist)
 ;   FUNCALL(functionToCall,htPage,nil)
- 
+
 (DEFUN |koaPageFilterByName| (|htPage| |functionToCall|)
   (PROG (|filter| |which| |opAlist|)
     (RETURN
@@ -1941,7 +1941,7 @@
                  NIL (|htpProperty| |htPage| '|opAlist|) NIL))
         (|htpSetProperty| |htPage| '|opAlist| |opAlist|)
         (FUNCALL |functionToCall| |htPage| NIL)))))))
- 
+
 ; dbConstructorDoc(conform,$op,$sig) == fn conform where
 ;   fn (conform := [conname,:$args]) ==
 ;     or/[gn y for y in GETDATABASE(conname,'DOCUMENTATION)]
@@ -1949,7 +1949,7 @@
 ;     op = $op and or/[doc or '("") for [sig,:doc] in alist | hn sig]
 ;   hn sig ==
 ;     #$sig = #sig and $sig = SUBLISLIS($args,$FormalMapVariableList,sig)
- 
+
 (DEFUN |dbConstructorDoc| (|conform| |$op| |$sig|)
   (DECLARE (SPECIAL |$op| |$sig|))
   (PROG () (RETURN (|dbConstructorDoc,fn| |conform|))))
@@ -2000,7 +2000,7 @@
     (RETURN
      (AND (EQL (LENGTH |$sig|) (LENGTH |sig|))
           (EQUAL |$sig| (SUBLISLIS |$args| |$FormalMapVariableList| |sig|))))))
- 
+
 ; dbDocTable conform ==
 ; --assumes $docTableHash bound --see dbExpandOpAlistIfNecessary
 ;   table := HGET($docTableHash,conform) => table
@@ -2010,7 +2010,7 @@
 ;   dbAddDocTable conform
 ;   HPUT($docTableHash,conform,$docTable)
 ;   $docTable
- 
+
 (DEFUN |dbDocTable| (|conform|)
   (PROG (|$docTable| |table|)
     (DECLARE (SPECIAL |$docTable|))
@@ -2031,7 +2031,7 @@
              (|dbAddDocTable| |conform|)
              (HPUT |$docTableHash| |conform| |$docTable|)
              |$docTable|))))))
- 
+
 ; originsInOrder conform ==  --domain = nil or set to live domain
 ; --from dcCats
 ;   [con,:argl] := conform
@@ -2041,7 +2041,7 @@
 ;   for x in acc repeat
 ;     for y in originsInOrder x repeat acc := insert(y,acc)
 ;   acc
- 
+
 (DEFUN |originsInOrder| (|conform|)
   (PROG (|con| |argl| |acc|)
     (RETURN
@@ -2072,7 +2072,7 @@
              (SETQ |bfVar#67| (CDR |bfVar#67|))))
           |acc| NIL)
          |acc|)))))))
- 
+
 ; dbAddDocTable conform ==
 ;   conname := opOf conform
 ;   storedArgs := rest getConstructorForm conname
@@ -2085,7 +2085,7 @@
 ;          op
 ;        for [sig,doc] in alist repeat
 ;          HPUT($docTable,op1,[[conform,:alist],:HGET($docTable,op1)])
- 
+
 (DEFUN |dbAddDocTable| (|conform|)
   (PROG (|conname| |storedArgs| |op| |alist| |op1| |sig| |ISTMP#1| |doc|)
     (RETURN
@@ -2130,7 +2130,7 @@
        (SUBLISLIS (CONS '$ (CDR |conform|)) (CONS '% |storedArgs|)
         (GETDATABASE (|opOf| |conform|) 'DOCUMENTATION))
        NIL)))))
- 
+
 ; dbGetDocTable(op, $sig, docTable, which, aux) == main where
 ; --docTable is [[origin,entry1,...,:code] ...] where
 ; --  each entry is [sig,doc] and code is NIL or else a topic code for op
@@ -2163,7 +2163,7 @@
 ;         doc
 ;       '("")
 ;     false
- 
+
 (DEFUN |dbGetDocTable| (|op| |$sig| |docTable| |which| |aux|)
   (DECLARE (SPECIAL |$sig|))
   (PROG (|s| |ISTMP#1| |packageName| |pred| |doc| |origin|)
@@ -2248,25 +2248,25 @@
            (#1# |doc|)))
          (#1# '(""))))
        (#1# NIL))))))
- 
+
 ; kTestPred n ==
 ;   n = 0 => true
 ;   $domain => testBitVector($predvec,n)
 ;   simpHasPred $predvec.(n - 1)
- 
+
 (DEFUN |kTestPred| (|n|)
   (PROG ()
     (RETURN
      (COND ((EQL |n| 0) T) (|$domain| (|testBitVector| |$predvec| |n|))
            ('T (|simpHasPred| (ELT |$predvec| (- |n| 1))))))))
- 
+
 ; dbAddChainDomain conform ==
 ;   [name,:args] := conform
 ;   $infovec := dbInfovec name or return nil  --exit for categories
 ;   template := $infovec . 0
 ;   null (form := template . 5) => nil
 ;   dbSubConform(args,kFormatSlotDomain devaluate form)
- 
+
 (DEFUN |dbAddChainDomain| (|conform|)
   (PROG (|name| |args| |template| |form|)
     (RETURN
@@ -2279,14 +2279,14 @@
             ('T
              (|dbSubConform| |args|
               (|kFormatSlotDomain| (|devaluate| |form|)))))))))
- 
+
 ; dbSubConform(args,u) ==
 ;   atom u =>
 ;     (n := position(u,$FormalMapVariableList)) >= 0 => args . n
 ;     u
 ;   u is ['local,y] => dbSubConform(args,y)
 ;   [dbSubConform(args,x) for x in u]
- 
+
 (DEFUN |dbSubConform| (|args| |u|)
   (PROG (|n| |ISTMP#1| |y|)
     (RETURN
@@ -2312,13 +2312,13 @@
              (SETQ |bfVar#79| (CONS (|dbSubConform| |args| |x|) |bfVar#79|))))
            (SETQ |bfVar#78| (CDR |bfVar#78|))))
         NIL |u| NIL))))))
- 
+
 ; dbAddChain conform ==
 ;   u := dbAddChainDomain conform =>
 ;     atom u => nil
 ;     [[u,:true],:dbAddChain u]
 ;   nil
- 
+
 (DEFUN |dbAddChain| (|conform|)
   (PROG (|u|)
     (RETURN
@@ -2326,7 +2326,7 @@
       ((SETQ |u| (|dbAddChainDomain| |conform|))
        (COND ((ATOM |u|) NIL) (#1='T (CONS (CONS |u| T) (|dbAddChain| |u|)))))
       (#1# NIL)))))
- 
+
 ; dbShowCons(htPage, key) ==
 ;   cAlist  := htpProperty(htPage,'cAlist)
 ;   key = 'filter =>
@@ -2347,7 +2347,7 @@
 ;       NIL
 ;     key := htpProperty(htPage,'exclusion)
 ;   dbShowCons1(htPage,cAlist,key)
- 
+
 (DEFUN |dbShowCons| (|htPage| |key|)
   (PROG (|cAlist| |filter| |abbrev?| |conname| |subject| |u|)
     (RETURN
@@ -2401,18 +2401,18 @@
                    (COND ((EQ |key| '|exposureOn|) 'T) (#1# NIL)))
            (SETQ |key| (|htpProperty| |htPage| '|exclusion|))))
          (|dbShowCons1| |htPage| |cAlist| |key|))))))))
- 
+
 ; conPageChoose conname ==
 ;   cAlist := [[getConstructorForm conname,:true]]
 ;   dbShowCons1(nil,cAlist,'names)
- 
+
 (DEFUN |conPageChoose| (|conname|)
   (PROG (|cAlist|)
     (RETURN
      (PROGN
       (SETQ |cAlist| (LIST (CONS (|getConstructorForm| |conname|) T)))
       (|dbShowCons1| NIL |cAlist| '|names|)))))
- 
+
 ; dbShowCons1(htPage,cAlist,key) ==
 ;   conlist := REMDUP [item for x in cAlist | pred] where
 ;     pred ==
@@ -2455,7 +2455,7 @@
 ;   htSayStandard("\endscroll ")
 ;   dbPresentCons(page,kind,key)
 ;   htShowPageNoScroll()
- 
+
 (DEFUN |dbShowCons1| (|htPage| |cAlist| |key|)
   (PROG (|$conformsAreDomains| |flist| |y| |fn| |u| |page| |proplist| |kind|
          |a| |kinds| |conlist| |item|)
@@ -2592,11 +2592,11 @@
          (|htSayStandard| '|\\endscroll |)
          (|dbPresentCons| |page| |kind| |key|)
          (|htShowPageNoScroll|))))))))
- 
+
 ; dbConsExposureMessage() ==
 ;   $atLeastOneUnexposed =>
 ;       htSay '"\newline{}-------------\newline{}{\em *} = unexposed"
- 
+
 (DEFUN |dbConsExposureMessage| ()
   (PROG ()
     (RETURN
@@ -2605,11 +2605,11 @@
        (IDENTITY
         (|htSay|
          "\\newline{}-------------\\newline{}{\\em *} = unexposed")))))))
- 
+
 ; dbShowConsKindsFilter(htPage,[kind,cAlist]) ==
 ;   htpSetProperty(htPage,'cAlist,cAlist)
 ;   dbShowCons(htPage,htpProperty(htPage,'exclusion))
- 
+
 (DEFUN |dbShowConsKindsFilter| (|htPage| |bfVar#94|)
   (PROG (|kind| |cAlist|)
     (RETURN
@@ -2618,7 +2618,7 @@
       (SETQ |cAlist| (CADR |bfVar#94|))
       (|htpSetProperty| |htPage| '|cAlist| |cAlist|)
       (|dbShowCons| |htPage| (|htpProperty| |htPage| '|exclusion|))))))
- 
+
 ; dbShowConsDoc(htPage,conlist) ==
 ;   null rest conlist => dbShowConsDoc1(htPage,getConstructorForm opOf first conlist,nil)
 ;   cAlist := htpProperty(htPage,'cAlist)
@@ -2632,7 +2632,7 @@
 ;         cAlist := rest cAlist
 ;         null cAlist => systemError ()
 ;       index
- 
+
 (DEFUN |dbShowConsDoc| (|htPage| |conlist|)
   (PROG (|cAlist| |index|)
     (RETURN
@@ -2663,7 +2663,7 @@
                 |index|))))
             (SETQ |bfVar#95| (CDR |bfVar#95|))))
          (REMDUP |conlist|) NIL)))))))
- 
+
 ; dbShowConsDoc1(htPage,conform,indexOrNil) ==
 ;   [conname,:conargs] := conform
 ;   MEMQ(conname,$Primitives) =>
@@ -2679,7 +2679,7 @@
 ;       SUBLISLIS(conargs,$TriangleVariableList,signature)
 ;     sublisFormal(conargs,signature)
 ;   displayDomainOp(htPage,'"constructor",conform,conname,sig,true,doc,indexOrNil,'dbSelectCon,null exposeFlag,nil)
- 
+
 (DEFUN |dbShowConsDoc1| (|htPage| |conform| |indexOrNil|)
   (PROG (|conname| |conargs| |LETTMP#1| |doc| |sig| |exposeFlag| |signature|)
     (RETURN
@@ -2707,11 +2707,11 @@
                   (#1# (|sublisFormal| |conargs| |signature|))))
          (|displayDomainOp| |htPage| "constructor" |conform| |conname| |sig| T
           |doc| |indexOrNil| '|dbSelectCon| (NULL |exposeFlag|) NIL))))))))
- 
+
 ; getConstructorDocumentation conname ==
 ;   LASSOC('constructor,GETDATABASE(conname,'DOCUMENTATION))
 ;     is [[nil,line,:.],:.] and line or '""
- 
+
 (DEFUN |getConstructorDocumentation| (|conname|)
   (PROG (|ISTMP#1| |ISTMP#2| |ISTMP#3| |line|)
     (RETURN
@@ -2730,16 +2730,16 @@
                          (PROGN (SETQ |line| (CAR |ISTMP#3|)) 'T)))))))
        |line|)
       ""))))
- 
+
 ; dbSelectCon(htPage,which,index) ==
 ;   conPage opOf first (htpProperty(htPage, 'cAlist)) . index
- 
+
 (DEFUN |dbSelectCon| (|htPage| |which| |index|)
   (PROG ()
     (RETURN
      (|conPage|
       (|opOf| (CAR (ELT (|htpProperty| |htPage| '|cAlist|) |index|)))))))
- 
+
 ; dbShowConditions(htPage,cAlist,kind) ==
 ;   conform := htpProperty(htPage,'conform)
 ;   conname := opOf conform
@@ -2753,7 +2753,7 @@
 ;   htSayHrule()
 ;   dbSayItems(#consPred,singular,plural,'" conditional")
 ;   bcConPredTable(consPred,conname)
- 
+
 (DEFUN |dbShowConditions| (|htPage| |cAlist| |kind|)
   (PROG (|conform| |conname| |article| |whichever| |LETTMP#1| |consNoPred|
          |consPred| |singular| |plural|)
@@ -2773,7 +2773,7 @@
       (|htSayHrule|)
       (|dbSayItems| (LENGTH |consPred|) |singular| |plural| " conditional")
       (|bcConPredTable| |consPred| |conname|)))))
- 
+
 ; dbConsHeading(htPage,conlist,view,kind) ==
 ;   thing := htPage and htpProperty(htPage,'thing) or '"constructor"
 ;   place :=
@@ -2807,7 +2807,7 @@
 ;     '" with "
 ;   if count ~= 0 and member(view,'(abbrs files parameters conditions)) then heading:= [:heading,'" viewed",connective,'"{\em ",STRINGIMAGE view,'"}"]
 ;   heading
- 
+
 (DEFUN |dbConsHeading| (|htPage| |conlist| |view| |kind|)
   (PROG (|thing| |place| |count| |rank| |modifier| |exposureWord| |firstWord|
          |prefix| |placepart| |heading| |connective|)
@@ -2877,11 +2877,11 @@
                                              (CONS (STRINGIMAGE |view|)
                                                    (CONS "}" NIL)))))))))
          |heading|)))))))
- 
+
 ; dbShowConstructorLines lines ==
 ;   cAlist := [[getConstructorForm intern dbName line,:true] for line in lines]
 ;   dbShowCons1(nil,listSort(function GLESSEQP,cAlist),'names)
- 
+
 (DEFUN |dbShowConstructorLines| (|lines|)
   (PROG (|cAlist|)
     (RETURN
@@ -2904,7 +2904,7 @@
                   (SETQ |bfVar#96| (CDR |bfVar#96|))))
                NIL |lines| NIL))
       (|dbShowCons1| NIL (|listSort| #'GLESSEQP |cAlist|) '|names|)))))
- 
+
 ; bcUnixTable(u) ==
 ;   htSay '"\newline"
 ;   htBeginTable()
@@ -2917,7 +2917,7 @@
 ;     htMakePage [['text, '"\unixcommand{",PATHNAME_-NAME x, '"}{$FRICAS/lib/SPADEDIT ", filename, '"} "]]
 ;     htSay '"}"
 ;   htEndTable()
- 
+
 (DEFUN |bcUnixTable| (|u|)
   (PROG (|ft| |filename|)
     (RETURN
@@ -2945,11 +2945,11 @@
           (SETQ |bfVar#98| (CDR |bfVar#98|))))
        |u| NIL)
       (|htEndTable|)))))
- 
+
 ; isAsharpFileName? con == false
- 
+
 (DEFUN |isAsharpFileName?| (|con|) (PROG () (RETURN NIL)))
- 
+
 ; dbSpecialDescription(conname) ==
 ;   conform := getConstructorForm conname
 ;   heading := ['"Description of Domain {\sf ",form2HtString conform,'"}"]
@@ -2958,7 +2958,7 @@
 ;   $conformsAreDomains := nil
 ;   dbShowConsDoc1(page,conform,nil)
 ;   htShowPage()
- 
+
 (DEFUN |dbSpecialDescription| (|conname|)
   (PROG (|conform| |heading| |page|)
     (RETURN
@@ -2972,7 +2972,7 @@
       (SETQ |$conformsAreDomains| NIL)
       (|dbShowConsDoc1| |page| |conform| NIL)
       (|htShowPage|)))))
- 
+
 ; dbSpecialOperations(conname) ==
 ;   page := htInitPage(nil,nil)
 ;   conform := getConstructorForm conname
@@ -2984,7 +2984,7 @@
 ;   htpSetProperty(page,'noUsage,true)
 ;   htpSetProperty(page,'condition?,'no)
 ;   dbShowOp1(page,opAlist,'"operation",'names)
- 
+
 (DEFUN |dbSpecialOperations| (|conname|)
   (PROG (|page| |conform| |opAlist| |fromHeading|)
     (RETURN
@@ -3002,14 +3002,14 @@
       (|htpSetProperty| |page| '|noUsage| T)
       (|htpSetProperty| |page| '|condition?| '|no|)
       (|dbShowOp1| |page| |opAlist| "operation" '|names|)))))
- 
+
 ; dbSpecialExports(conname) ==
 ;   conform := getConstructorForm conname
 ;   page := htInitPage(['"Exports of {\sf ",form2HtString conform,'"}"],nil)
 ;   opAlist := dbSpecialExpandIfNecessary(conform,rest GETL(conname,'documentation))
 ;   kePageDisplay(page, opAlist)
 ;   htShowPage()
- 
+
 (DEFUN |dbSpecialExports| (|conname|)
   (PROG (|conform| |page| |opAlist|)
     (RETURN
@@ -3023,7 +3023,7 @@
                (CDR (GETL |conname| '|documentation|))))
       (|kePageDisplay| |page| |opAlist|)
       (|htShowPage|)))))
- 
+
 ; dbSpecialExpandIfNecessary(conform,opAlist) ==
 ;   opAlist is [[op,[sig,:r],:.],:.] and rest r => opAlist
 ;   for [op,:u] in opAlist repeat
@@ -3031,7 +3031,7 @@
 ;       [sig,comments] := pair
 ;       RPLACD(pair,['T,conform,'T,comments]) --[sig,pred,origin,exposeFg,doc]
 ;   opAlist
- 
+
 (DEFUN |dbSpecialExpandIfNecessary| (|conform| |opAlist|)
   (PROG (|ISTMP#1| |op| |ISTMP#2| |ISTMP#3| |sig| |r| |u| |comments|)
     (RETURN
@@ -3083,29 +3083,29 @@
             (SETQ |bfVar#100| (CDR |bfVar#100|))))
          |opAlist| NIL)
         |opAlist|))))))
- 
+
 ; X := '"{\sf Record(a:A,b:B)} is used to create the class of pairs of objects made up of a value of type {\em A} selected by the symbol {\em a} and a value of type {\em B} selected by the symbol {\em b}. "
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ X
           "{\\sf Record(a:A,b:B)} is used to create the class of pairs of objects made up of a value of type {\\em A} selected by the symbol {\\em a} and a value of type {\\em B} selected by the symbol {\\em b}. "))
- 
+
 ; Y := '"In general, the {\sf Record} constructor can take any number of arguments and thus can be used to create aggregates of heterogeneous components of arbitrary size selectable by name. "
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ Y
           "In general, the {\\sf Record} constructor can take any number of arguments and thus can be used to create aggregates of heterogeneous components of arbitrary size selectable by name. "))
- 
+
 ; Z := '"{\sf Record} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ Z
           "{\\sf Record} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language."))
- 
+
 ; MESSAGE := STRCONC(X,Y,Z)
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ MESSAGE (STRCONC X Y Z)))
- 
+
 ; PUT('Record,'documentation,SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
 ;  (_=  (((Boolean) _$ _$)
@@ -3125,7 +3125,7 @@
 ;          ((B $ "b" B)
 ;    "\spad{r . b := y} destructively replaces the value stored in record \spad{r} under selector \spad{b} by the value of \spad{y}. Error: if \spad{r} has not been previously assigned a value."))
 ;    )))
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (PROG ()
     (RETURN
@@ -3153,23 +3153,23 @@
                  "\\spad{r . a := x} destructively replaces the value stored in record \\spad{r} under selector \\spad{a} by the value of \\spad{x}. Error: if \\spad{r} has not been previously assigned a value.")
                 ((B $ "b" B)
                  "\\spad{r . b := y} destructively replaces the value stored in record \\spad{r} under selector \\spad{b} by the value of \\spad{y}. Error: if \\spad{r} has not been previously assigned a value."))))))))
- 
+
 ; X := '"{\sf Union(A,B)} denotes the class of objects which are which are either members of domain {\em A} or of domain {\em B}. The {\sf Union} constructor can take any number of arguments. "
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ X
           "{\\sf Union(A,B)} denotes the class of objects which are which are either members of domain {\\em A} or of domain {\\em B}. The {\\sf Union} constructor can take any number of arguments. "))
- 
+
 ; Y := '"For an alternate form of {\sf Union} with _"tags_", see \downlink{Union(a:A,b:B)}{DomainUnion}. {\sf Union} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ Y
           "For an alternate form of {\\sf Union} with \"tags\", see \\downlink{Union(a:A,b:B)}{DomainUnion}. {\\sf Union} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language."))
- 
+
 ; MESSAGE := STRCONC(X,Y)
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ MESSAGE (STRCONC X Y)))
- 
+
 ; PUT('UntaggedUnion,'documentation,SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
 ;   (_=  (((Boolean) $ $)
@@ -3187,7 +3187,7 @@
 ;           (($ B)
 ;     "\spad{coerce(y)}, where \spad{y} has type \spad{B}, returns \spad{y} as a union type."))
 ;   )))
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (PROG ()
     (RETURN
@@ -3211,41 +3211,41 @@
                  "\\spad{coerce(x)}, where \\spad{x} has type \\spad{A}, returns \\spad{x} as a union type.")
                 (($ B)
                  "\\spad{coerce(y)}, where \\spad{y} has type \\spad{B}, returns \\spad{y} as a union type."))))))))
- 
+
 ; X := '"{\sf Union(a:A,b:B)} denotes the class of objects which are either members of domain {\em A} or of domain {\em B}. "
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ X
           "{\\sf Union(a:A,b:B)} denotes the class of objects which are either members of domain {\\em A} or of domain {\\em B}. "))
- 
+
 ; Y := '"The symbols {\em a} and {\em b} are called _"tags_" and are used to identify the two _"branches_" of the union. "
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ Y
           "The symbols {\\em a} and {\\em b} are called \"tags\" and are used to identify the two \"branches\" of the union. "))
- 
+
 ; Z := '"The {\sf Union} constructor can take any number of arguments and has an alternate form without {\em tags} (see \downlink{Union(A,B)}{UntaggedUnion}). "
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ Z
           "The {\\sf Union} constructor can take any number of arguments and has an alternate form without {\\em tags} (see \\downlink{Union(A,B)}{UntaggedUnion}). "))
- 
+
 ; W := '"This tagged {\sf Union} type is necessary, for example, to disambiguate two branches of a union where {\em A} and {\em B} denote the same type. "
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ W
           "This tagged {\\sf Union} type is necessary, for example, to disambiguate two branches of a union where {\\em A} and {\\em B} denote the same type. "))
- 
+
 ; A := '"{\sf Union} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ A
           "{\\sf Union} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language."))
- 
+
 ; MESSAGE := STRCONC(X,Y,Z,W,A)
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ MESSAGE (STRCONC X Y Z W A)))
- 
+
 ; PUT('Union,'documentation,SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
 ;   (_=  (((Boolean) $ $)
@@ -3263,7 +3263,7 @@
 ;           (($ B)
 ;     "\spad{coerce(y)}, where \spad{y} has type \spad{B}, returns \spad{y} as a union type."))
 ;   )))
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (PROG ()
     (RETURN
@@ -3287,35 +3287,35 @@
                  "\\spad{coerce(x)}, where \\spad{x} has type \\spad{A}, returns \\spad{x} as a union type.")
                 (($ B)
                  "\\spad{coerce(y)}, where \\spad{y} has type \\spad{B}, returns \\spad{y} as a union type."))))))))
- 
+
 ; X := '"{\sf Mapping(T,S,...)} denotes the class of objects which are mappings from a source domain ({\em S,...}) into a target domain {\em T}. The {\sf Mapping} constructor can take any number of arguments."
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ X
           "{\\sf Mapping(T,S,...)} denotes the class of objects which are mappings from a source domain ({\\em S,...}) into a target domain {\\em T}. The {\\sf Mapping} constructor can take any number of arguments."))
- 
+
 ; Y := '" All but the first argument is regarded as part of a source tuple for the mapping. For example, {\sf Mapping(T,A,B)} denotes the class of mappings from {\em (A,B)} into {\em T}. "
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ Y
           " All but the first argument is regarded as part of a source tuple for the mapping. For example, {\\sf Mapping(T,A,B)} denotes the class of mappings from {\\em (A,B)} into {\\em T}. "))
- 
+
 ; Z := '"{\sf Mapping} is a primitive domain of \Language{} which cannot be defined in the \Language{} language."
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ Z
           "{\\sf Mapping} is a primitive domain of \\Language{} which cannot be defined in the \\Language{} language."))
- 
+
 ; MESSAGE := STRCONC(X,Y,Z)
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ MESSAGE (STRCONC X Y Z)))
- 
+
 ; PUT('Mapping,'documentation, SUBST(MESSAGE,'MESSAGE,'(
 ;   (constructor (NIL MESSAGE))
 ;   (_=  (((Boolean) $ $)
 ;     "\spad{u = v} tests if mapping objects are equal."))
 ;    )))
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (PROG ()
     (RETURN
@@ -3325,23 +3325,23 @@
                (=
                 (((|Boolean|) $ $)
                  "\\spad{u = v} tests if mapping objects are equal."))))))))
- 
+
 ; X := '"{\em Enumeration(a1, a2 ,..., aN)} creates an object which is exactly one of the N symbols {\em a1}, {\em a2}, ..., or {\em aN}, N > 0. "
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ X
           "{\\em Enumeration(a1, a2 ,..., aN)} creates an object which is exactly one of the N symbols {\\em a1}, {\\em a2}, ..., or {\\em aN}, N > 0. "))
- 
+
 ; Y := '" The {\em Enumeration} can constructor can take any number of symbols as arguments."
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ Y
           " The {\\em Enumeration} can constructor can take any number of symbols as arguments."))
- 
+
 ; MESSAGE := STRCONC(X, Y)
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ MESSAGE (STRCONC X Y)))
- 
+
 ; PUT('Enumeration, 'documentation, SUBST(MESSAGE, 'MESSAGE, '(
 ;   (constructor (NIL MESSAGE))
 ;   (_= (((Boolean) _$ _$)
@@ -3353,7 +3353,7 @@
 ;           ((_$ (Symbol))
 ;      "\spad{coerce(s)} converts a symbol \spad{s} into an enumeration which has \spad{s} as a member symbol"))
 ;   )))
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (PROG ()
     (RETURN

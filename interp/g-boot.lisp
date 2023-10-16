@@ -1,31 +1,31 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; DEFPARAMETER($locVars, nil)
- 
+
 (DEFPARAMETER |$locVars| NIL)
- 
+
 ; DEFPARAMETER($PrettyPrint, false)
- 
+
 (DEFPARAMETER |$PrettyPrint| NIL)
- 
+
 ; DEFPARAMETER($COMPILE, true)
- 
+
 (DEFPARAMETER $COMPILE T)
- 
+
 ; flattenCOND body ==
 ;   -- transforms nested COND clauses to flat ones, if possible
 ;   body isnt ['COND,:.] => body
 ;   ['COND,:extractCONDClauses body]
- 
+
 (DEFUN |flattenCOND| (|body|)
   (PROG ()
     (RETURN
      (COND ((NOT (AND (CONSP |body|) (EQ (CAR |body|) 'COND))) |body|)
            ('T (CONS 'COND (|extractCONDClauses| |body|)))))))
- 
+
 ; extractCONDClauses clauses ==
 ;   -- extracts nested COND clauses into a flat structure
 ;   clauses is ['COND, [pred1,:act1],:restClauses] =>
@@ -34,7 +34,7 @@
 ;       [[pred1,:act1],:extractCONDClauses restCond]
 ;     [[pred1,:act1],:restClauses]
 ;   [[''T,clauses]]
- 
+
 (DEFUN |extractCONDClauses| (|clauses|)
   (PROG (|ISTMP#1| |ISTMP#2| |pred1| |act1| |restClauses| |acts| |restCond|)
     (RETURN
@@ -71,7 +71,7 @@
           (CONS (CONS |pred1| |act1|) (|extractCONDClauses| |restCond|)))
          (#1# (CONS (CONS |pred1| |act1|) |restClauses|)))))
       (#1# (LIST (LIST ''T |clauses|)))))))
- 
+
 ; COMP_1(x) ==
 ;   [fname, lamex, :.] := x
 ;   $FUNNAME : local := fname
@@ -81,7 +81,7 @@
 ;   if FBOUNDP(fname) then
 ;       FORMAT(true, '"~&~%;;;     ***       ~S REDEFINED~%", fname)
 ;   [[fname, lamex], :$CLOSEDFNS]
- 
+
 (DEFUN COMP_1 (|x|)
   (PROG ($CLOSEDFNS $FUNNAME |lamex| |fname|)
     (DECLARE (SPECIAL $CLOSEDFNS $FUNNAME))
@@ -97,7 +97,7 @@
        ((FBOUNDP |fname|)
         (FORMAT T "~&~%;;;     ***       ~S REDEFINED~%" |fname|)))
       (CONS (LIST |fname| |lamex|) $CLOSEDFNS)))))
- 
+
 ; COMP_2(args) ==
 ;     [name, [type, argl, :bodyl], :junk] := args
 ;     junk => MOAN (FORMAT(nil, '"******pren error in (~S (~S ...) ...)",_
@@ -115,7 +115,7 @@
 ;     else
 ;       COMP370(bodyl)
 ;     name
- 
+
 (DEFUN COMP_2 (|args|)
   (PROG (|name| |type| |argl| |bodyl| |junk|)
     (RETURN
@@ -142,9 +142,9 @@
          (COND ((NULL $COMPILE) (SAY "No Compilation"))
                (#2# (COMP370 |bodyl|)))
          |name|)))))))
- 
+
 ; COMP(fun) == [COMP_2 nf for nf in COMP_1(fun)]
- 
+
 (DEFUN COMP (|fun|)
   (PROG ()
     (RETURN
@@ -156,7 +156,7 @@
           ('T (SETQ |bfVar#2| (CONS (COMP_2 |nf|) |bfVar#2|))))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       NIL (COMP_1 |fun|) NIL))))
- 
+
 ; compSPADSLAM(name, argl, bodyl) ==
 ;     al := INTERNL1(name, '";AL")
 ;     auxfn := INTERNL1(name, '";")
@@ -181,7 +181,7 @@
 ;     else
 ;         lamex := ["LAMBDA", [],
 ;                     ["COND", [al], [true, ["SETQ", al, [auxfn]]]]]
-; 
+;
 ;     output_lisp_defparameter(al, nil)
 ;     u := [name,lamex]
 ;     if $PrettyPrint then PRETTYPRINT(u)
@@ -190,7 +190,7 @@
 ;     if $PrettyPrint then PRETTYPRINT(u)
 ;     COMP370(u)
 ;     name
- 
+
 (DEFUN |compSPADSLAM| (|name| |argl| |bodyl|)
   (PROG (|al| |auxfn| |g2| |g3| |argtran| |app| |la1| |la2| |lamex| |u|)
     (RETURN
@@ -245,19 +245,19 @@
       (COND (|$PrettyPrint| (PRETTYPRINT |u|)))
       (COMP370 |u|)
       |name|))))
- 
+
 ; makeClosedfnName() ==
 ;     INTERN(CONCAT($FUNNAME, '"!", STRINGIMAGE(LENGTH($CLOSEDFNS))))
- 
+
 (DEFUN |makeClosedfnName| ()
   (PROG ()
     (RETURN (INTERN (CONCAT $FUNNAME "!" (STRINGIMAGE (LENGTH $CLOSEDFNS)))))))
- 
+
 ; lambdaHelper1(y) ==
 ;     NOT(MEMQ(y, $locVars)) =>
 ;         $locVars := [y, :$locVars]
 ;         $newBindings := [y, :$newBindings]
- 
+
 (DEFUN |lambdaHelper1| (|y|)
   (PROG ()
     (RETURN
@@ -267,11 +267,11 @@
         (PROGN
          (SETQ |$locVars| (CONS |y| |$locVars|))
          (SETQ |$newBindings| (CONS |y| |$newBindings|)))))))))
- 
+
 ; lambdaHelper2(y) == MEMQ(y, $newBindings)
- 
+
 (DEFUN |lambdaHelper2| (|y|) (PROG () (RETURN (MEMQ |y| |$newBindings|))))
- 
+
 ; compTran1(x) ==
 ;     ATOM(x) => nil
 ;     u := first(x)
@@ -293,7 +293,7 @@
 ;         [u, CADR(x), :res]
 ;     compTran1 u
 ;     compTran1(rest x)
- 
+
 (DEFUN |compTran1| (|x|)
   (PROG (|$newBindings| |res| |u|)
     (DECLARE (SPECIAL |$newBindings|))
@@ -325,17 +325,17 @@
                      (CONS |u| (CONS (CADR |x|) |res|))))
                    (#1#
                     (PROGN (|compTran1| |u|) (|compTran1| (CDR |x|)))))))))))
- 
+
 ; compTranDryRun(x) ==
 ;     $insideCapsuleFunctionIfTrue : local := false
 ;     compTran(x)
- 
+
 (DEFUN |compTranDryRun| (|x|)
   (PROG (|$insideCapsuleFunctionIfTrue|)
     (DECLARE (SPECIAL |$insideCapsuleFunctionIfTrue|))
     (RETURN
      (PROGN (SETQ |$insideCapsuleFunctionIfTrue| NIL) (|compTran| |x|)))))
- 
+
 ; compTran(x) ==
 ;     $locVars : local := nil
 ;     [x1, x2, :xl3] := comp_expand(x)
@@ -355,7 +355,7 @@
 ;         x3
 ;     x2 := addTypesToArgs(x2)
 ;     [x1, x2, x3]
- 
+
 (DEFUN |compTran| (|x|)
   (PROG (|$locVars| |lvars| |xlt3| |x3| |xl3| |x2| |x1| |LETTMP#1|)
     (DECLARE (SPECIAL |$locVars|))
@@ -387,14 +387,14 @@
                (#2# |x3|)))
       (SETQ |x2| (|addTypesToArgs| |x2|))
       (LIST |x1| |x2| |x3|)))))
- 
+
 ; addTypesToArgs(args) ==
 ;     $insideCapsuleFunctionIfTrue =>
 ;         sig := $signatureOfForm
 ;         spadTypes := [(ATOM(t) => [t]; t) for t in [:rest(sig), first(sig)]]
 ;         [[a, :t] for a in args for t in spadTypes]
 ;     args
- 
+
 (DEFUN |addTypesToArgs| (|args|)
   (PROG (|sig| |spadTypes|)
     (RETURN
@@ -426,12 +426,12 @@
             (SETQ |bfVar#8| (CDR |bfVar#8|))))
          NIL |args| NIL |spadTypes| NIL)))
       (#1# |args|)))))
- 
+
 ; addNilTypesToArgs(args) ==
 ;     $insideCapsuleFunctionIfTrue =>
 ;         [[arg, nil] for arg in args]
 ;     args
- 
+
 (DEFUN |addNilTypesToArgs| (|args|)
   (PROG ()
     (RETURN
@@ -446,7 +446,7 @@
            (SETQ |bfVar#10| (CDR |bfVar#10|))))
         NIL |args| NIL))
       (#1# |args|)))))
- 
+
 ; compSpadProg(lvars) ==
 ;     lvarTypes := ($insideCapsuleFunctionIfTrue => $locVarsTypes; nil)
 ;     types := []
@@ -454,7 +454,7 @@
 ;         x := ASSOC(lvar, lvarTypes)
 ;         types := [[lvar, (x => rest(x); nil)], :types]
 ;     NREVERSE(types)
- 
+
 (DEFUN |compSpadProg| (|lvars|)
   (PROG (|lvarTypes| |types| |x|)
     (RETURN
@@ -477,7 +477,7 @@
           (SETQ |bfVar#12| (CDR |bfVar#12|))))
        |lvars| NIL)
       (NREVERSE |types|)))))
- 
+
 ; compNewnam(x) ==
 ;     ATOM(x) => nil
 ;     y := first(x)
@@ -490,7 +490,7 @@
 ;             RPLACA(rest(x), u)
 ;     compNewnam(first(x))
 ;     compNewnam(rest(x))
- 
+
 (DEFUN |compNewnam| (|x|)
   (PROG (|y| |u|)
     (RETURN
@@ -509,13 +509,13 @@
                   (RPLACA |x| 'FUNCTION) (RPLACA (CDR |x|) |u|)))))
               (#1#
                (PROGN (|compNewnam| (CAR |x|)) (|compNewnam| (CDR |x|)))))))))))
- 
+
 ; PUSHLOCVAR(x) ==
 ;     x ~= "$" and SCHAR('"$", 0) = SCHAR(PNAME(x), 0) _
 ;       and (not(SCHAR('",", 0) = SCHAR(PNAME(x), 1)) or BREAK())
 ;       and not(DIGITP (SCHAR(PNAME(x), 1))) => nil
 ;     PUSH(x, $locVars)
- 
+
 (DEFUN PUSHLOCVAR (|x|)
   (PROG ()
     (RETURN
@@ -525,7 +525,7 @@
             (NULL (DIGITP (SCHAR (PNAME |x|) 1))))
        NIL)
       ('T (PUSH |x| |$locVars|))))))
- 
+
 ; comp_expand(x) ==
 ;     ATOM(x) => x
 ;     x is ["QUOTE",:.] => x
@@ -538,7 +538,7 @@
 ;     b := comp_expand (cdr x)
 ;     a = first x and b = rest x => x
 ;     CONS(a, b)
- 
+
 (DEFUN |comp_expand| (|x|)
   (PROG (|ISTMP#1| |op| |ISTMP#2| |axis| |ISTMP#3| |body| |a| |b|)
     (RETURN
@@ -577,14 +577,14 @@
              (SETQ |b| (|comp_expand| (CDR |x|)))
              (COND ((AND (EQUAL |a| (CAR |x|)) (EQUAL |b| (CDR |x|))) |x|)
                    (#1# (CONS |a| |b|)))))))))
- 
+
 ; repeat_tran(l, lp) ==
 ;     ATOM(l) => ERROR('"REPEAT FORMAT ERROR")
 ;     IFCAR(IFCAR(l)) in '(EXIT RESET IN ON GSTEP ISTEP STEP
 ;                      UNTIL WHILE SUCHTHAT) =>
 ;         repeat_tran(rest(l), [first(l), :lp])
 ;     [NREVERSE(lp), :MKPF(l, "PROGN")]
- 
+
 (DEFUN |repeat_tran| (|l| |lp|)
   (PROG ()
     (RETURN
@@ -593,7 +593,7 @@
              '(EXIT RESET IN ON GSTEP ISTEP STEP UNTIL WHILE SUCHTHAT))
             (|repeat_tran| (CDR |l|) (CONS (CAR |l|) |lp|)))
            ('T (CONS (NREVERSE |lp|) (MKPF |l| 'PROGN)))))))
- 
+
 ; expandCOLLECT(l) ==
 ;     [conds, :body] := repeat_tran(l, [])
 ;     -- create init of accumulate
@@ -603,7 +603,7 @@
 ;     -- next code to accumulate result
 ;     acc := ["SETQ", G, ["CONS", body, G]]
 ;     ["PROGN", init, ["REPEAT", ["EXIT", res], :conds, acc]]
- 
+
 (DEFUN |expandCOLLECT| (|l|)
   (PROG (|LETTMP#1| |conds| |body| G |init| |res| |acc|)
     (RETURN
@@ -621,12 +621,12 @@
                     (CONS 'REPEAT
                           (CONS (LIST 'EXIT |res|)
                                 (APPEND |conds| (CONS |acc| NIL))))))))))))
- 
+
 ; BADDO(OL) == ERROR(FORMAT(nil, '"BAD DO FORMAT~%~A", OL))
- 
+
 (DEFUN BADDO (OL)
   (PROG () (RETURN (ERROR (FORMAT NIL "BAD DO FORMAT~%~A" OL)))))
- 
+
 ; expandDO(vl, endtest, exitforms, body_forms) ==
 ;     vars := []
 ;     u_vars := []
@@ -650,7 +650,7 @@
 ;     lets := [["SPADLET", var, init] for var in vars for init in inits]
 ;     ["SEQ", :lets, :["G190", endtest, body_forms,
 ;           u_vars3, ["GO", "G190"], "G191", exitforms]]
- 
+
 (DEFUN |expandDO| (|vl| |endtest| |exitforms| |body_forms|)
   (PROG (|vars| |u_vars| |u_vals| |inits| |v| |init| |ISTMP#1| |ISTMP#2|
          |u_val| |u_vars3| |lets|)
@@ -728,11 +728,11 @@
             (APPEND |lets|
                     (LIST 'G190 |endtest| |body_forms| |u_vars3|
                           (LIST 'GO 'G190) 'G191 |exitforms|)))))))
- 
+
 ; seq_opt(seq) ==
 ;    seq is ["SEQ", ["EXIT", body]] and body is ["SEQ",:.] => body
 ;    seq
- 
+
 (DEFUN |seq_opt| (|seq|)
   (PROG (|ISTMP#1| |ISTMP#2| |ISTMP#3| |body|)
     (RETURN
@@ -751,12 +751,12 @@
             (CONSP |body|) (EQ (CAR |body|) 'SEQ))
        |body|)
       (#1# |seq|)))))
- 
+
 ; MK_inc_SI(x) ==
 ;     ATOM(x) => ['inc_SI, x]
 ;     x is [op, xx, 1] and (op = 'sub_SI or op = "-") => xx
 ;     ['inc_SI, x]
- 
+
 (DEFUN |MK_inc_SI| (|x|)
   (PROG (|op| |ISTMP#1| |xx| |ISTMP#2|)
     (RETURN
@@ -774,11 +774,11 @@
                  (OR (EQ |op| '|sub_SI|) (EQ |op| '-)))
             |xx|)
            ('T (LIST '|inc_SI| |x|))))))
- 
+
 ; $TRACELETFLAG := false
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ $TRACELETFLAG NIL))
- 
+
 ; expandREPEAT(l) ==
 ;     [conds, :body] := repeat_tran(l, [])
 ;     tests := []
@@ -865,7 +865,7 @@
 ;         FAIL()
 ;     expandDO(NREVERSE(vl), MKPF(NREVERSE(tests), "OR"), result_expr,
 ;              seq_opt(["SEQ", ["EXIT", body]]))
- 
+
 (DEFUN |expandREPEAT| (|l|)
   (PROG (|LETTMP#1| |conds| |body| |tests| |vl| |result_expr| U |ISTMP#1|
          |ISTMP#2| |i1| |ISTMP#3| |i2| |op| |var| |empty_form| |step_form|
@@ -1043,7 +1043,7 @@
        |conds| NIL)
       (|expandDO| (NREVERSE |vl|) (MKPF (NREVERSE |tests|) 'OR) |result_expr|
        (|seq_opt| (LIST 'SEQ (LIST 'EXIT |body|))))))))
- 
+
 ; expandCOLLECTV(l) ==
 ;     -- If we can work out how often we will go round allocate a vector first
 ;     conds :=  []
@@ -1087,7 +1087,7 @@
 ;     ["PROGN", ["SPADLET", res, ["GETREFV", lv]],
 ;               ["REPEAT", :iters, ["SETELT", res, counter_var, body]],
 ;                  res]
- 
+
 (DEFUN |expandCOLLECTV| (|l|)
   (PROG (|conds| |LETTMP#1| |body| |iters| |counter_var| |ret_val| |op| |var|
          |start| |step| |opt_limit| |limit| |cond| |lv| |res|)
@@ -1160,11 +1160,11 @@
                                    (LIST 'SETELT |res| |counter_var| |body|)
                                    NIL)))
                     |res|))))))))
- 
+
 ; DEFPARAMETER($comp370_apply, nil)
- 
+
 (DEFPARAMETER |$comp370_apply| NIL)
- 
+
 ; COMP370(fn) ==
 ;     not(fn is [fname, [ltype, args, :body]]) => BREAK()
 ;     args :=
@@ -1182,7 +1182,7 @@
 ;     nbody := [defun, fname, args, :body]
 ;     if $comp370_apply then
 ;         FUNCALL($comp370_apply, fname, nbody)
- 
+
 (DEFUN COMP370 (|fn|)
   (PROG (|fname| |ISTMP#1| |ISTMP#2| |ltype| |ISTMP#3| |args| |body| |defun|
          |nbody|)
@@ -1251,24 +1251,24 @@
         (SETQ |nbody| (CONS |defun| (CONS |fname| (CONS |args| |body|))))
         (COND
          (|$comp370_apply| (FUNCALL |$comp370_apply| |fname| |nbody|)))))))))
- 
+
 ; MKPF(l, op) ==
 ;     if GET(op, "NARY") then
 ;         l := MKPFFLATTEN1(l, op, nil)
 ;     MKPF1(l, op)
- 
+
 (DEFUN MKPF (|l| |op|)
   (PROG ()
     (RETURN
      (PROGN
       (COND ((GET |op| 'NARY) (SETQ |l| (MKPFFLATTEN1 |l| |op| NIL))))
       (MKPF1 |l| |op|)))))
- 
+
 ; MKPFFLATTEN(x, op) ==
 ;     ATOM(x) => x
 ;     EQL(first(x), op) => [op, :MKPFFLATTEN1(rest x, op, nil)]
 ;     [MKPFFLATTEN(first x, op), :MKPFFLATTEN(rest x, op)]
- 
+
 (DEFUN MKPFFLATTEN (|x| |op|)
   (PROG ()
     (RETURN
@@ -1277,12 +1277,12 @@
            ('T
             (CONS (MKPFFLATTEN (CAR |x|) |op|)
                   (MKPFFLATTEN (CDR |x|) |op|)))))))
- 
+
 ; MKPFFLATTEN1(l, op, r) ==
 ;     NULL(l) => r
 ;     x := MKPFFLATTEN(first(l), op)
 ;     MKPFFLATTEN1(rest l, op, APPEND(r, (x is [=op, :r1] => r1; [x])))
- 
+
 (DEFUN MKPFFLATTEN1 (|l| |op| |r|)
   (PROG (|x| |r1|)
     (RETURN
@@ -1297,7 +1297,7 @@
                              (PROGN (SETQ |r1| (CDR |x|)) #1#))
                         |r1|)
                        (#1# (LIST |x|)))))))))))
- 
+
 ; MKPF1(l, op) ==
 ;     op = "PLUS" => BREAK()
 ;     op = "TIMES" => BREAK()
@@ -1355,7 +1355,7 @@
 ;         rest(l) => ["CONS", :l]
 ;         first(l)
 ;     [op, :l]
- 
+
 (DEFUN MKPF1 (|l| |op|)
   (PROG (|x| |ISTMP#1| |y| |l1|)
     (RETURN

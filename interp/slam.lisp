@@ -1,8 +1,8 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; reportFunctionCompilation(op,nam,argl,body,isRecursive) ==
 ;   -- for an alternate definition of this function which does not allow
 ;   -- dynamic caching, see SLAMOLD BOOT
@@ -68,7 +68,7 @@
 ;   eval cacheResetCode
 ;   SET(cacheName,mkCircularAlist cacheCount)
 ;   nam
- 
+
 (DEFUN |reportFunctionCompilation| (|op| |nam| |argl| |body| |isRecursive|)
   (PROG (|minivectorName| |init| |cacheCount| FUNCTION |num| |auxfn| |g1|
          |LETTMP#1| |arg| |computeValue| |cacheName| |g2| |g3| |secondPredPair|
@@ -178,16 +178,16 @@
             (|eval| |cacheResetCode|)
             (SET |cacheName| (|mkCircularAlist| |cacheCount|))
             |nam|))))))))))
- 
+
 ; getCacheCount fn ==
 ;   n:= LASSOC(fn,$cacheAlist) => n
 ;   $cacheCount
- 
+
 (DEFUN |getCacheCount| (|fn|)
   (PROG (|n|)
     (RETURN
      (COND ((SETQ |n| (LASSOC |fn| |$cacheAlist|)) |n|) ('T |$cacheCount|)))))
- 
+
 ; reportFunctionCacheAll(op,nam,argl,body) ==
 ;   sayKeyedMsg("S2IX0004",[op])
 ;   auxfn:= mkAuxiliaryName nam
@@ -215,7 +215,7 @@
 ;   $e:= put(nam,'cacheInfo, cacheVector,$e)
 ;   eval cacheResetCode
 ;   nam
- 
+
 (DEFUN |reportFunctionCacheAll| (|op| |nam| |argl| |body|)
   (PROG (|auxfn| |g1| |LETTMP#1| |arg| |computeValue| |cacheName| |g2|
          |secondPredPair| |thirdPredPair| |codeBody| |lamex| |mainFunction|
@@ -263,10 +263,10 @@
       (SETQ |$e| (|put| |nam| '|cacheInfo| |cacheVector| |$e|))
       (|eval| |cacheResetCode|)
       |nam|))))
- 
+
 ; hashCount table ==
 ;   +/[ADD1 nodeCount HGET(table,key) for key in HKEYS table]
- 
+
 (DEFUN |hashCount| (|table|)
   (PROG ()
     (RETURN
@@ -280,11 +280,11 @@
                    (+ |bfVar#2| (ADD1 (|nodeCount| (HGET |table| |key|)))))))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       0 (HKEYS |table|) NIL))))
- 
+
 ; mkCircularAlist n ==
 ;   l:= [[$failed,:$failed] for i in 1..n]
 ;   RPLACD(LASTNODE l,l)
- 
+
 (DEFUN |mkCircularAlist| (|n|)
   (PROG (|l|)
     (RETURN
@@ -299,10 +299,10 @@
                   (SETQ |i| (+ |i| 1))))
                NIL 1))
       (RPLACD (LASTNODE |l|) |l|)))))
- 
+
 ; countCircularAlist(cal,n) ==
 ;   +/[nodeCount x for x in cal for i in 1..n]
- 
+
 (DEFUN |countCircularAlist| (|cal| |n|)
   (PROG ()
     (RETURN
@@ -316,11 +316,11 @@
          (SETQ |bfVar#4| (CDR |bfVar#4|))
          (SETQ |i| (+ |i| 1))))
       0 |cal| NIL 1))))
- 
+
 ; predCircular(al,n) ==
 ;   for i in 1..dec_SI n repeat al := QCDR al
 ;   al
- 
+
 (DEFUN |predCircular| (|al| |n|)
   (PROG ()
     (RETURN
@@ -331,7 +331,7 @@
           (SETQ |i| (+ |i| 1))))
        (|dec_SI| |n|) 1)
       |al|))))
- 
+
 ; assocCircular(x,al) ==  --like ASSOC except that al is circular
 ;   forwardPointer:= al
 ;   val:= nil
@@ -339,7 +339,7 @@
 ;     EQUAL(CAAR forwardPointer,x) => return (val := first forwardPointer)
 ;     forwardPointer := rest forwardPointer
 ;   val
- 
+
 (DEFUN |assocCircular| (|x| |al|)
   (PROG (|forwardPointer| |val|)
     (RETURN
@@ -357,7 +357,7 @@
           (SETQ |bfVar#7| (EQ |forwardPointer| |al|))))
        NIL)
       |val|))))
- 
+
 ; compileRecurrenceRelation(op,nam,argl,junk,[body,sharpArg,n,:initCode]) ==
 ;   k:= #initCode
 ;   extraArgumentCode :=
@@ -380,12 +380,12 @@
 ;   gsRev:= REVERSE gsList
 ;   rotateCode:= [['LET,p,q] for p in gsRev for q in [:rest gsRev,g]]
 ;   advanceCode:= ['LET,gIndex,['ADD1,gIndex]]
-; 
+;
 ;   newTripleCode := ['LIST,sharpArg,:gsList]
 ;   newStateCode :=
 ;     null extraArguments => ['SETQ,stateNam,newTripleCode]
 ;     ['HPUT,stateNam,extraArgumentCode,newTripleCode]
-; 
+;
 ;   computeFunction:= [auxfn,['LAMBDA, cargl, cbody]] where
 ;     cargl:= [:argl,lastArg]
 ;     returnValue:= ['PROGN,newStateCode,first gsList]
@@ -406,7 +406,7 @@
 ;     margl:= [:argl,'envArg]
 ;     max:= GENSYM()
 ;     tripleCode := ['CONS,n,['LIST,:initCode]]
-; 
+;
 ;     -- initialSetCode initializes the global variable if necessary and
 ;     --  also binds "stateVar" to its current value
 ;     initialSetCode :=
@@ -418,7 +418,7 @@
 ;                           ['PAIRP,stateNam]]],    _
 ;                  ['LET,stateVar,cacheResetCode]], _
 ;              [''T, ['LET,stateVar,stateNam]]]
-; 
+;
 ;     -- when there are extra arguments, initialResetCode resets "stateVar"
 ;     --  to the hashtable entry for the extra arguments
 ;     initialResetCode :=
@@ -426,7 +426,7 @@
 ;       [['LET,stateVar,['OR,
 ;          ['HGET,stateVar,extraArgumentCode],
 ;           ['HPUT,stateVar,extraArgumentCode,tripleCode]]]]
-; 
+;
 ;     mbody :=
 ;       preset := [initialSetCode,:initialResetCode,['LET,max,['ELT,stateVar,0]]]
 ;       phrase1:= [['AND, ['LET, max, ['ELT, stateVar, 0]],
@@ -447,7 +447,7 @@
 ;   cacheVector:= mkCacheVec(op,stateNam,cacheType,cacheResetCode,cacheCountCode)
 ;   $e:= put(nam,'cacheInfo, cacheVector,$e)
 ;   nam
- 
+
 (DEFUN |compileRecurrenceRelation| (|op| |nam| |argl| |junk| |bfVar#22|)
   (PROG (|body| |sharpArg| |n| |initCode| |k| |extraArguments| |x|
          |extraArgumentCode| |g| |gIndex| |gsList| |auxfn| |stateNam|
@@ -678,32 +678,32 @@
                |cacheCountCode|))
       (SETQ |$e| (|put| |nam| '|cacheInfo| |cacheVector| |$e|))
       |nam|))))
- 
+
 ; NUMOFNODES(x) ==
 ;     ATOM(x) => 0
 ;     NUMOFNODES(first(x)) + NUMOFNODES(rest(x)) + 1
- 
+
 (DEFUN NUMOFNODES (|x|)
   (PROG ()
     (RETURN
      (COND ((ATOM |x|) 0)
            ('T (+ (+ (NUMOFNODES (CAR |x|)) (NUMOFNODES (CDR |x|))) 1))))))
- 
+
 ; nodeCount x == NUMOFNODES x
- 
+
 (DEFUN |nodeCount| (|x|) (PROG () (RETURN (NUMOFNODES |x|))))
- 
+
 ; recurrenceError(op,arg) == throwKeyedMsg("S2IX0002",[op,arg])
- 
+
 (DEFUN |recurrenceError| (|op| |arg|)
   (PROG () (RETURN (|throwKeyedMsg| 'S2IX0002 (LIST |op| |arg|)))))
- 
+
 ; mkCacheVec(op,nam,kind,resetCode,countCode) ==
 ;   [op,nam,kind,resetCode,countCode]
- 
+
 (DEFUN |mkCacheVec| (|op| |nam| |kind| |resetCode| |countCode|)
   (PROG () (RETURN (LIST |op| |nam| |kind| |resetCode| |countCode|))))
- 
+
 ; clearCache x ==
 ;   get(x,'localModemap,$e) or get(x,'mapBody,$e) =>
 ;     for [map,:sub] in $mapSubNameAlist repeat
@@ -712,7 +712,7 @@
 ;     $e:= putHist(x,'mapBody,nil,$e)
 ;     $e:= putHist(x,'localVars,nil,$e)
 ;     sayKeyedMsg("S2IX0007",[x])
- 
+
 (DEFUN |clearCache| (|x|)
   (PROG (|map| |sub|)
     (RETURN
@@ -740,7 +740,7 @@
          (SETQ |$e| (|putHist| |x| '|mapBody| NIL |$e|))
          (SETQ |$e| (|putHist| |x| '|localVars| NIL |$e|))
          (|sayKeyedMsg| 'S2IX0007 (LIST |x|)))))))))
- 
+
 ; compileInteractive fn ==
 ;   if $InteractiveMode then startTimingProcess 'compilation
 ;   if $reportCompilation then
@@ -752,7 +752,7 @@
 ;   result := compQuietly optfn
 ;   if $InteractiveMode then stopTimingProcess 'compilation
 ;   result
- 
+
 (DEFUN |compileInteractive| (|fn|)
   (PROG (|optfn| |result|)
     (RETURN
@@ -767,7 +767,7 @@
       (SETQ |result| (|compQuietly| |optfn|))
       (COND (|$InteractiveMode| (|stopTimingProcess| '|compilation|)))
       |result|))))
- 
+
 ; clearAllSlams x ==
 ;   fn(x,nil) where
 ;     fn(thoseToClear,thoseCleared) ==
@@ -779,7 +779,7 @@
 ;           setDifference(LASSOC(x,$functorDependencyAlist),[:thoseToClear,:
 ;             thoseCleared])
 ;         NCONC(thoseToClear,someMoreToClear)
- 
+
 (DEFUN |clearAllSlams| (|x|) (PROG () (RETURN (|clearAllSlams,fn| |x| NIL))))
 (DEFUN |clearAllSlams,fn| (|thoseToClear| |thoseCleared|)
   (PROG (|slamListName| |someMoreToClear|)
@@ -802,11 +802,11 @@
                  (NCONC |thoseToClear| |someMoreToClear|)))))
          (SETQ |bfVar#25| (CDR |bfVar#25|))))
       |thoseToClear| NIL))))
- 
+
 ; clearSlam(functor)==
 ;   id:= mkCacheName functor
 ;   SET(id,nil)
- 
+
 (DEFUN |clearSlam| (|functor|)
   (PROG (|id|)
     (RETURN (PROGN (SETQ |id| (|mkCacheName| |functor|)) (SET |id| NIL)))))

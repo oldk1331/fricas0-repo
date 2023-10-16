@@ -1,35 +1,35 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; DEFPARAMETER($SystemError, 'SystemError)
- 
+
 (DEFPARAMETER |$SystemError| '|SystemError|)
- 
+
 ; DEFPARAMETER($UserError, 'UserError)
- 
+
 (DEFPARAMETER |$UserError| '|UserError|)
- 
+
 ; DEFPARAMETER($AlgebraError, 'AlgebraError)
- 
+
 (DEFPARAMETER |$AlgebraError| '|AlgebraError|)
- 
+
 ; DEFVAR($timedNameStack)
- 
+
 (DEFVAR |$timedNameStack|)
- 
+
 ; BUMPCOMPERRORCOUNT() == nil
- 
+
 (DEFUN BUMPCOMPERRORCOUNT () (PROG () (RETURN NIL)))
- 
+
 ; argumentDataError(argnum, condit, funname) ==
 ;   msg := ['"The test",:bright pred2English condit,'"evaluates to",
 ;     :bright '"false",'%l,'"   for argument",:bright argnum,_
 ;     '"to the function",:bright funname,'"and this indicates",'%l,_
 ;     '"   that the argument is not appropriate."]
 ;   errorSupervisor($AlgebraError,msg)
- 
+
 (DEFUN |argumentDataError| (|argnum| |condit| |funname|)
   (PROG (|msg|)
     (RETURN
@@ -54,19 +54,19 @@
                                                                       "   that the argument is not appropriate."
                                                                       NIL)))))))))))))
       (|errorSupervisor| |$AlgebraError| |msg|)))))
- 
+
 ; queryUser msg ==
 ;   -- display message and return reply
 ;   sayBrightly msg
 ;   read_line _*TERMINAL_-IO_*
- 
+
 (DEFUN |queryUser| (|msg|)
   (PROG () (RETURN (PROGN (|sayBrightly| |msg|) (|read_line| *TERMINAL-IO*)))))
- 
+
 ; errorSupervisor(errorType,errorMsg) ==
 ;   $BreakMode = 'trapSpadErrors => THROW('trapSpadErrors, $numericFailure)
 ;   errorSupervisor1(errorType,errorMsg,$BreakMode)
- 
+
 (DEFUN |errorSupervisor| (|errorType| |errorMsg|)
   (PROG ()
     (RETURN
@@ -74,7 +74,7 @@
       ((EQ |$BreakMode| '|trapSpadErrors|)
        (THROW '|trapSpadErrors| |$numericFailure|))
       ('T (|errorSupervisor1| |errorType| |errorMsg| |$BreakMode|))))))
- 
+
 ; errorSupervisor1(errorType,errorMsg,$BreakMode) ==
 ;   BUMPCOMPERRORCOUNT()
 ;   errorLabel :=
@@ -95,7 +95,7 @@
 ;     ['"   ",:errorMsg]
 ;   sayErrorly(errorLabel, msg)
 ;   handleLispBreakLoop($BreakMode)
- 
+
 (DEFUN |errorSupervisor1| (|errorType| |errorMsg| |$BreakMode|)
   (DECLARE (SPECIAL |$BreakMode|))
   (PROG (|errorLabel| |splitmsg| |msg|)
@@ -138,7 +138,7 @@
                   (#1# (CONS "   " |errorMsg|)))))))
       (|sayErrorly| |errorLabel| |msg|)
       (|handleLispBreakLoop| |$BreakMode|)))))
- 
+
 ; handleLispBreakLoop($BreakMode) ==
 ;   TERPRI()
 ;   -- The next line is to try to deal with some reported cases of unwanted
@@ -180,7 +180,7 @@
 ;   $BreakMode = 'quit =>
 ;     EXIT_-WITH_-STATUS(1)
 ;   returnToTopLevel()
- 
+
 (DEFUN |handleLispBreakLoop| (|$BreakMode|)
   (DECLARE (SPECIAL |$BreakMode|))
   (PROG (|gotIt| |msgQ| |x|)
@@ -273,30 +273,30 @@
             ((EQ |$BreakMode| '|throw_reader|) (THROW 'SPAD_READER NIL))
             ((EQ |$BreakMode| '|quit|) (EXIT-WITH-STATUS 1))
             (#1# (|returnToTopLevel|)))))))
- 
+
 ; TOP() == returnToTopLevel()
- 
+
 (DEFUN TOP () (PROG () (RETURN (|returnToTopLevel|))))
- 
+
 ; returnToTopLevel() ==
 ;   SETQ(CHR, "ENDOFLINECHR")
 ;   SETQ(TOK, 'END_UNIT)
 ;   TOPLEVEL()
- 
+
 (DEFUN |returnToTopLevel| ()
   (PROG ()
     (RETURN (PROGN (SETQ CHR 'ENDOFLINECHR) (SETQ TOK 'END_UNIT) (TOPLEVEL)))))
- 
+
 ; TOPLEVEL() ==
 ;     THROW('top_level, 'restart)
- 
+
 (DEFUN TOPLEVEL () (PROG () (RETURN (THROW '|top_level| '|restart|))))
- 
+
 ; returnToReader() ==
 ;   not $ReadingFile => returnToTopLevel()
 ;   sayBrightly ['"   Continuing to read the file...", '%l]
 ;   THROW('SPAD_READER, nil)
- 
+
 (DEFUN |returnToReader| ()
   (PROG ()
     (RETURN
@@ -305,13 +305,13 @@
             (PROGN
              (|sayBrightly| (LIST "   Continuing to read the file..." '|%l|))
              (THROW 'SPAD_READER NIL)))))))
- 
+
 ; sayErrorly(errorLabel, msg) ==
 ;   sayErrorly1(errorLabel, msg)
- 
+
 (DEFUN |sayErrorly| (|errorLabel| |msg|)
   (PROG () (RETURN (|sayErrorly1| |errorLabel| |msg|))))
- 
+
 ; sayErrorly1(errorLabel, msg) ==
 ;   sayBrightly '" "
 ;   if $testingSystem then sayMSG $testingErrorPrefix
@@ -320,7 +320,7 @@
 ;   msg is ['mathprint, mathexpr] =>
 ;     mathprint mathexpr
 ;   sayBrightly msg
- 
+
 (DEFUN |sayErrorly1| (|errorLabel| |msg|)
   (PROG (|m| |ISTMP#1| |mathexpr|)
     (RETURN
@@ -337,21 +337,21 @@
                    (PROGN (SETQ |mathexpr| (CAR |ISTMP#1|)) #1='T))))
         (|mathprint| |mathexpr|))
        (#1# (|sayBrightly| |msg|)))))))
- 
+
 ; systemError(x) == errorSupervisor($SystemError, x)
- 
+
 (DEFUN |systemError| (|x|)
   (PROG () (RETURN (|errorSupervisor| |$SystemError| |x|))))
- 
+
 ; userError x == errorSupervisor($UserError,x)
- 
+
 (DEFUN |userError| (|x|)
   (PROG () (RETURN (|errorSupervisor| |$UserError| |x|))))
- 
+
 ; error(x) == errorSupervisor($AlgebraError,x)
- 
+
 (DEFUN |error| (|x|) (PROG () (RETURN (|errorSupervisor| |$AlgebraError| |x|))))
- 
+
 ; nice_failure_msg(val, branch, umode) ==
 ;     uname := devaluate(umode)
 ;     of1 := coerceUn2E(val, uname);
@@ -360,7 +360,7 @@
 ;             '" of mode ", outputDomainConstructor(umode),
 ;               '" cannot be coerced to mode ",
 ;                 outputDomainConstructor(branch))
- 
+
 (DEFUN |nice_failure_msg| (|val| |branch| |umode|)
   (PROG (|uname| |of1| |str1|)
     (RETURN
@@ -370,7 +370,7 @@
       (SETQ |str1| (|prefix2String| |of1|))
       (STRCONC |str1| " of mode " (|outputDomainConstructor| |umode|)
        " cannot be coerced to mode " (|outputDomainConstructor| |branch|))))))
- 
+
 ; check_union_failure_msg(val, branch, umode) ==
 ;     got_str1 := false
 ;     CATCH('top_level, CATCH('SPAD_READER, (
@@ -382,7 +382,7 @@
 ;             '" of mode ", STRINGIMAGE(devaluate(umode)),
 ;               '" cannot be coerced to mode ",
 ;                 STRINGIMAGE(devaluate(branch)))
- 
+
 (DEFUN |check_union_failure_msg| (|val| |branch| |umode|)
   (PROG (|got_str1| |str1|)
     (RETURN
@@ -400,30 +400,30 @@
               (STRCONC |str1| " of mode " (STRINGIMAGE (|devaluate| |umode|))
                " cannot be coerced to mode "
                (STRINGIMAGE (|devaluate| |branch|))))))))))
- 
+
 ; coerce_failure_msg(val, submode, mode) ==
 ;     check_union_failure_msg(val, submode, mode)
- 
+
 (DEFUN |coerce_failure_msg| (|val| |submode| |mode|)
   (PROG () (RETURN (|check_union_failure_msg| |val| |submode| |mode|))))
- 
+
 ; IdentityError(op) ==
 ;     error(["No identity element for reduce of empty list using operation",op])
- 
+
 (DEFUN |IdentityError| (|op|)
   (PROG ()
     (RETURN
      (|error|
       (LIST '|No identity element for reduce of empty list using operation|
             |op|)))))
- 
+
 ; throwMessage(:msg) ==
 ;   if $compilingMap then clearCache $mapName
 ;   msg' := mkMessage concatList msg
 ;   sayMSG msg'
 ;   if $printMsgsToFile then sayMSG2File msg'
 ;   spadThrow()
- 
+
 (DEFUN |throwMessage| (&REST |msg|)
   (PROG (|msg'|)
     (RETURN

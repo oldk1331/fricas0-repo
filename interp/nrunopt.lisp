@@ -1,8 +1,8 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; getInfovecCode(NRTslot1Info, et) ==
 ; --Function called by compDefineFunctor1 to create infovec at compile time
 ;   ['LIST,
@@ -11,14 +11,14 @@
 ;         MKQ [],
 ;           NRTmakeCategoryAlist(et),
 ;             MKQ $lookupFunction]
- 
+
 (DEFUN |getInfovecCode| (|NRTslot1Info| |et|)
   (PROG ()
     (RETURN
      (LIST 'LIST (MKQ (|makeDomainTemplate| |$template|))
            (MKQ (|makeCompactDirect| |NRTslot1Info| |et|)) (MKQ NIL)
            (|NRTmakeCategoryAlist| |et|) (MKQ |$lookupFunction|)))))
- 
+
 ; makeDomainTemplate vec ==
 ; --NOTES: This function is called at compile time to create the template
 ; --  (slot 0 of the infovec); called by getInfovecCode from compDefineFunctor1
@@ -32,7 +32,7 @@
 ;       item
 ;   $byteVec := "append"/NREVERSE $byteVec
 ;   newVec
- 
+
 (DEFUN |makeDomainTemplate| (|vec|)
   (PROG (|newVec| |item|)
     (RETURN
@@ -64,7 +64,7 @@
                   (SETQ |bfVar#4| (CDR |bfVar#4|))))
                NIL (NREVERSE |$byteVec|) NIL))
       |newVec|))))
- 
+
 ; makeGoGetSlot(item,index) ==
 ; --NOTES: creates byte vec strings for LATCH slots
 ; --these parts of the $byteVec are created first; see also makeCompactDirect
@@ -75,7 +75,7 @@
 ;   curAddress := $byteAddress
 ;   $byteAddress := $byteAddress + n + 4
 ;   [curAddress,:op]
- 
+
 (DEFUN |makeGoGetSlot| (|item| |index|)
   (PROG (|sig| |whereToGo| |op| |flag| |n| |newcode| |curAddress|)
     (RETURN
@@ -94,7 +94,7 @@
       (SETQ |curAddress| |$byteAddress|)
       (SETQ |$byteAddress| (+ (+ |$byteAddress| |n|) 4))
       (CONS |curAddress| |op|)))))
- 
+
 ; makeCompactDirect(u, et) ==
 ;   $predListLength :local := LENGTH $NRTslot1PredicateList
 ;   $byteVecAcc: local := nil
@@ -104,7 +104,7 @@
 ;         | y := makeCompactDirect1(op, items, et)]
 ;   $byteVec := [:$byteVec,:"append"/NREVERSE $byteVecAcc]
 ;   LIST2VEC ("append"/d)
- 
+
 (DEFUN |makeCompactDirect| (|u| |et|)
   (PROG (|$byteVecAcc| |$predListLength| |d| |y| |items| |op| |opList|
          |addForm| |nam|)
@@ -154,7 +154,7 @@
             (#2# (SETQ |bfVar#11| (APPEND |bfVar#11| |bfVar#12|))))
            (SETQ |bfVar#13| (CDR |bfVar#13|))))
         NIL |d| NIL))))))
- 
+
 ; makeCompactDirect1(op, items, et) ==
 ; --NOTES: creates byte codes for ops implemented by the domain
 ;     curAddress := $byteAddress
@@ -182,7 +182,7 @@
 ;   $byteAddress := $byteAddress + n + 4
 ;   res := [n,predCode,:makeCompactSigCode(sig),slot]
 ;   res
- 
+
 (DEFUN |makeCompactDirect1| (|op| |items| |et|)
   (PROG (|curAddress| |u| |newcodes|)
     (RETURN
@@ -236,18 +236,18 @@
                                   (APPEND (|makeCompactSigCode| |sig|)
                                           (CONS |slot| NIL)))))
               |res|)))))))
- 
+
 ; orderBySubsumption items == reverse(items)
- 
+
 (DEFUN |orderBySubsumption| (|items|) (PROG () (RETURN (REVERSE |items|))))
- 
+
 ; makeCompactSigCode(sig) == [fn for x in sig] where
 ;   fn ==
 ;     x = '_$_$ => 2
 ;     x = '$ => 0
 ;     NULL INTEGERP x => systemError ['"code vector slot is ",x,"; must be number"]
 ;     x
- 
+
 (DEFUN |makeCompactSigCode| (|sig|)
   (PROG ()
     (RETURN
@@ -268,7 +268,7 @@
                     |bfVar#17|))))
          (SETQ |bfVar#16| (CDR |bfVar#16|))))
       NIL |sig| NIL))))
- 
+
 ; stuffDomainSlots dollar ==
 ;   domname := devaluate dollar
 ;   infovec := GET(opOf domname, 'infovec)
@@ -292,7 +292,7 @@
 ;       null testBitVector(bitVector,predvec.i) => nil
 ;       packagevec.i or 'T
 ;     [auxvec,:CDDR proto4]
- 
+
 (DEFUN |stuffDomainSlots| (|dollar|)
   (PROG (|domname| |infovec| |lookupFunction| |template| |item| |proto4|
          |bitVector| |predvec| |packagevec| |auxvec|)
@@ -348,17 +348,17 @@
                                    (SETQ |i| (+ |i| 1))))
                                 NIL (MAXINDEX |predvec|) 0)))
                       (CONS |auxvec| (CDDR |proto4|))))))))))
- 
+
 ; getLookupFun infovec ==
 ;   MAXINDEX infovec = 4 => infovec.4
 ;   'lookupIncomplete
- 
+
 (DEFUN |getLookupFun| (|infovec|)
   (PROG ()
     (RETURN
      (COND ((EQL (MAXINDEX |infovec|) 4) (ELT |infovec| 4))
            ('T '|lookupIncomplete|)))))
- 
+
 ; stuffSlot(dollar,i,item) ==
 ;   dollar.i :=
 ;     atom item => [SYMBOL_-FUNCTION item,:dollar]
@@ -369,7 +369,7 @@
 ;       pp devaluate b
 ;       nil
 ;     item                --new form
- 
+
 (DEFUN |stuffSlot| (|dollar| |i| |item|)
   (PROG (|n| |op| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |a| |ISTMP#5| |b|)
     (RETURN
@@ -416,14 +416,14 @@
                        (|pp| (|devaluate| |b|))
                        NIL))))
                    (#1# |item|))))))
- 
+
 ; predicateBitIndex(x, et) ==
 ;       u := simpBool(transHasCode(x, et))
 ;       u = 'T  =>  0
 ;       u = nil => -1
 ;       p := POSN1(u,$NRTslot1PredicateList) => p + 1
 ;       systemError nil
- 
+
 (DEFUN |predicateBitIndex| (|x| |et|)
   (PROG (|u| |p|)
     (RETURN
@@ -432,28 +432,28 @@
       (COND ((EQ |u| 'T) 0) ((NULL |u|) (- 1))
             ((SETQ |p| (POSN1 |u| |$NRTslot1PredicateList|)) (+ |p| 1))
             ('T (|systemError| NIL)))))))
- 
+
 ; predicateBitRef(x, et) ==
 ;   x = 'T => 'T
 ;   ['testBitVector, 'pv_$, predicateBitIndex(x, et)]
- 
+
 (DEFUN |predicateBitRef| (|x| |et|)
   (PROG ()
     (RETURN
      (COND ((EQ |x| 'T) 'T)
            ('T
             (LIST '|testBitVector| '|pv$| (|predicateBitIndex| |x| |et|)))))))
- 
+
 ; makePrefixForm(u,op) ==
 ;   u := MKPF(u,op)
 ;   u = ''T => 'T
 ;   u
- 
+
 (DEFUN |makePrefixForm| (|u| |op|)
   (PROG ()
     (RETURN
      (PROGN (SETQ |u| (MKPF |u| |op|)) (COND ((EQUAL |u| ''T) 'T) ('T |u|))))))
- 
+
 ; makePredicateBitVector(pl, et) ==   --called by buildFunctor
 ;   if $insideCategoryPackageIfTrue = true then
 ;     pl := union(pl,$categoryPredicateList)
@@ -473,7 +473,7 @@
 ;   lastCode := augmentPredCode(# firstPl,lastPl)
 ;   $lisplibPredicates := [:firstPl,:lastPl] --what is stored under 'predicates
 ;   [$lisplibPredicates,firstCode,:lastCode]  --$pairlis set by compDefineFunctor1
- 
+
 (DEFUN |makePredicateBitVector| (|pl| |et|)
   (PROG (|pred| |lasts| |firsts| |firstPl| |lastPl| |firstCode| |lastCode|)
     (RETURN
@@ -517,13 +517,13 @@
       (SETQ |lastCode| (|augmentPredCode| (LENGTH |firstPl|) |lastPl|))
       (SETQ |$lisplibPredicates| (APPEND |firstPl| |lastPl|))
       (CONS |$lisplibPredicates| (CONS |firstCode| |lastCode|))))))
- 
+
 ; augmentPredCode(n,lastPl) ==
 ;   ['LIST,:pl] := mungeAddGensyms(lastPl,$predGensymAlist)
 ;   delta := 2^n
 ;   l := [(u := MKPF([x, ['augmentPredVector, '$, delta]], 'AND);
 ;          delta:=2 * delta; u) for x in pl]
- 
+
 (DEFUN |augmentPredCode| (|n| |lastPl|)
   (PROG (|LETTMP#1| |pl| |delta| |u| |l|)
     (RETURN
@@ -553,20 +553,20 @@
                              |bfVar#24|))))
                   (SETQ |bfVar#23| (CDR |bfVar#23|))))
                NIL |pl| NIL))))))
- 
+
 ; augmentPredVector(dollar,value) ==
 ;   QSETREFV(dollar,3,value + QVELT(dollar,3))
- 
+
 (DEFUN |augmentPredVector| (|dollar| |value|)
   (PROG () (RETURN (QSETREFV |dollar| 3 (+ |value| (QVELT |dollar| 3))))))
- 
+
 ; isHasDollarPred pred ==
 ;   pred is [op,:r] =>
 ;     MEMQ(op,'(AND and OR or NOT not)) => or/[isHasDollarPred x for x in r]
 ;     op is "HasCategory" => first r = '$
 ;     false
 ;   false
- 
+
 (DEFUN |isHasDollarPred| (|pred|)
   (PROG (|op| |r|)
     (RETURN
@@ -588,13 +588,13 @@
           NIL |r| NIL))
         ((EQ |op| '|HasCategory|) (EQ (CAR |r|) '$)) (#1# NIL)))
       (#1# NIL)))))
- 
+
 ; stripOutNonDollarPreds pred ==
 ;   pred is [op,:r] and MEMQ(op,'(AND and OR or NOT not)) =>
 ;     "append"/[stripOutNonDollarPreds x for x in r]
 ;   not isHasDollarPred pred => [pred]
 ;   nil
- 
+
 (DEFUN |stripOutNonDollarPreds| (|pred|)
   (PROG (|op| |r|)
     (RETURN
@@ -613,7 +613,7 @@
            (SETQ |bfVar#27| (CDR |bfVar#27|))))
         NIL |r| NIL))
       ((NULL (|isHasDollarPred| |pred|)) (LIST |pred|)) (#1# NIL)))))
- 
+
 ; removeAttributePredicates pl ==
 ;   [fn p for p in pl] where
 ;     fn p ==
@@ -622,7 +622,7 @@
 ;       p is ['has,'$,['ATTRIBUTE,a]] => BREAK()
 ;       p
 ;     fnl p == [fn x for x in p]
- 
+
 (DEFUN |removeAttributePredicates| (|pl|)
   (PROG ()
     (RETURN
@@ -675,14 +675,14 @@
                    (CONS (|removeAttributePredicates,fn| |x|) |bfVar#32|))))
          (SETQ |bfVar#31| (CDR |bfVar#31|))))
       NIL |p| NIL))))
- 
+
 ; transHasCode(x, et) ==
 ;   atom x => x
 ;   op := QCAR x
 ;   op is "HasCategory" => x
 ;   EQ(op, 'has) => compHasFormat(x, et)
 ;   [transHasCode(y, et) for y in x]
- 
+
 (DEFUN |transHasCode| (|x| |et|)
   (PROG (|op|)
     (RETURN
@@ -705,7 +705,7 @@
                                         |bfVar#34|))))
                         (SETQ |bfVar#33| (CDR |bfVar#33|))))
                      NIL |x| NIL)))))))))
- 
+
 ; mungeAddGensyms(u,gal) ==
 ;   ['LIST,:[fn(x,gal,0) for x in u]] where fn(x,gal,n) ==
 ;     atom x => x
@@ -713,7 +713,7 @@
 ;       n = 0 => ['LET,g,x]
 ;       g
 ;     [first x,:[fn(y,gal,n + 1) for y in rest x]]
- 
+
 (DEFUN |mungeAddGensyms| (|u| |gal|)
   (PROG ()
     (RETURN
@@ -750,7 +750,7 @@
                                  |bfVar#38|))))
                       (SETQ |bfVar#37| (CDR |bfVar#37|))))
                    NIL (CDR |x|) NIL)))))))
- 
+
 ; orderByContainment pl ==
 ;   null pl or null rest pl => pl
 ;   max := first pl
@@ -762,7 +762,7 @@
 ;          then if null assoc(x,$predGensymAlist) then $predGensymAlist := [[x,:GENSYM()],:$predGensymAlist]
 ;     if y then max := x
 ;   [max,:orderByContainment delete(max,pl)]
- 
+
 (DEFUN |orderByContainment| (|pl|)
   (PROG (|max| |y|)
     (RETURN
@@ -795,13 +795,13 @@
                  (SETQ |bfVar#39| (CDR |bfVar#39|))))
               (CDR |pl|) NIL)
              (CONS |max| (|orderByContainment| (|delete| |max| |pl|)))))))))
- 
+
 ; buildBitTable(:l) == fn(REVERSE l,0) where fn(l,n) ==
 ;   null l => n
 ;   n := n + n
 ;   if QCAR l then n := n + 1
 ;   fn(rest l,n)
- 
+
 (DEFUN |buildBitTable| (&REST |l|)
   (PROG () (RETURN (|buildBitTable,fn| (REVERSE |l|) 0))))
 (DEFUN |buildBitTable,fn| (|l| |n|)
@@ -813,12 +813,12 @@
              (SETQ |n| (+ |n| |n|))
              (COND ((QCAR |l|) (SETQ |n| (+ |n| 1))))
              (|buildBitTable,fn| (CDR |l|) |n|)))))))
- 
+
 ; buildPredVector(init, n, l) == fn(init, 2^n, l) where fn(acc, n, l) ==
 ;   null l => acc
 ;   if first l then acc := acc + n
 ;   fn(acc,n + n,rest l)
- 
+
 (DEFUN |buildPredVector| (|init| |n| |l|)
   (PROG () (RETURN (|buildPredVector,fn| |init| (EXPT 2 |n|) |l|))))
 (DEFUN |buildPredVector,fn| (|acc| |n| |l|)
@@ -829,23 +829,23 @@
             (PROGN
              (COND ((CAR |l|) (SETQ |acc| (+ |acc| |n|))))
              (|buildPredVector,fn| |acc| (+ |n| |n|) (CDR |l|))))))))
- 
+
 ; testBitVector(vec,i) ==
 ; --bit vector indices are always 1 larger than position in vector
 ;   EQ(i,0) => true
 ;   LOGBITP(i - 1,vec)
- 
+
 (DEFUN |testBitVector| (|vec| |i|)
   (PROG () (RETURN (COND ((EQ |i| 0) T) ('T (LOGBITP (- |i| 1) |vec|))))))
- 
+
 ; bitsOf n ==
 ;   n = 0 => 0
 ;   1 + bitsOf(QUOTIENT(n, 2))
- 
+
 (DEFUN |bitsOf| (|n|)
   (PROG ()
     (RETURN (COND ((EQL |n| 0) 0) ('T (+ 1 (|bitsOf| (QUOTIENT |n| 2))))))))
- 
+
 ; NRTmakeCategoryAlist(et) ==
 ;   $depthAssocCache : local := MAKE_HASHTABLE('ID)
 ;   $catAncestorAlist: local := NIL
@@ -870,7 +870,7 @@
 ;     ['CONS, MKQ LIST2VEC slot0,
 ;       ['CONS, MKQ LIST2VEC catformvec,
 ;         ['makeByteWordVec2,maxElement,MKQ $byteVec]]]]
- 
+
 (DEFUN |NRTmakeCategoryAlist| (|et|)
   (PROG (|$levelAlist| |$catAncestorAlist| |$depthAssocCache| |maxElement|
          |catformvec| |maxPredList| |predList| |formals| |sixEtc| |slot0|
@@ -1012,7 +1012,7 @@
                   (LIST 'CONS (MKQ (LIST2VEC |catformvec|))
                         (LIST '|makeByteWordVec2| |maxElement|
                               (MKQ |$byteVec|)))))))))
- 
+
 ; encodeCatform(x, inds, formals) ==
 ;     k := NRTassocIndex x => k
 ;     atom x =>
@@ -1024,7 +1024,7 @@
 ;         ["QUOTE", x]
 ;     atom rest x => x
 ;     [first(x), :[encodeCatform(y, inds, formals) for y in rest x]]
- 
+
 (DEFUN |encodeCatform| (|x| |inds| |formals|)
   (PROG (|k| |res|)
     (RETURN
@@ -1060,9 +1060,9 @@
                                       |bfVar#67|))))
                       (SETQ |bfVar#66| (CDR |bfVar#66|))))
                    NIL (CDR |x|) NIL)))))))
- 
+
 ; NRTcatCompare [catform,:pred] == LASSOC(first catform,$levelAlist)
- 
+
 (DEFUN |NRTcatCompare| (|bfVar#68|)
   (PROG (|catform| |pred|)
     (RETURN
@@ -1070,24 +1070,24 @@
       (SETQ |catform| (CAR |bfVar#68|))
       (SETQ |pred| (CDR |bfVar#68|))
       (LASSOC (CAR |catform|) |$levelAlist|)))))
- 
+
 ; hasDefaultPackage catname ==
 ;   defname := INTERN STRCONC(catname,'"&")
 ;   constructor? defname => defname
 ; --MEMQ(defname,allConstructors()) => defname
 ;   nil
- 
+
 (DEFUN |hasDefaultPackage| (|catname|)
   (PROG (|defname|)
     (RETURN
      (PROGN
       (SETQ |defname| (INTERN (STRCONC |catname| "&")))
       (COND ((|constructor?| |defname|) |defname|) ('T NIL))))))
- 
+
 ; depthAssocList u ==
 ;   MEMQ('DomainSubstitutionMacro,u) => BREAK()
 ;   REMDUP ("append"/[depthAssoc(y) for y in u])
- 
+
 (DEFUN |depthAssocList| (|u|)
   (PROG ()
     (RETURN
@@ -1104,7 +1104,7 @@
                    (SETQ |bfVar#70| (APPEND |bfVar#70| (|depthAssoc| |y|)))))
                  (SETQ |bfVar#69| (CDR |bfVar#69|))))
               NIL |u| NIL)))))))
- 
+
 ; depthAssoc x ==
 ;   y := HGET($depthAssocCache,x) => y
 ;   x is ['Join,:u] or (u := getCatAncestors x) =>
@@ -1112,7 +1112,7 @@
 ;     HPUT($depthAssocCache,x,[[x,:n],:v])
 ;       where n == 1 + "MAX"/[rest y for y in v]
 ;   HPUT($depthAssocCache,x,[[x,:0]])
- 
+
 (DEFUN |depthAssoc| (|x|)
   (PROG (|y| |u| |v|)
     (RETURN
@@ -1140,9 +1140,9 @@
                               -999999 |v| NIL)))
                     |v|))))
            (#1# (HPUT |$depthAssocCache| |x| (LIST (CONS |x| 0))))))))
- 
+
 ; getCatAncestors x ==  [CAAR y for y in parentsOf opOf x]
- 
+
 (DEFUN |getCatAncestors| (|x|)
   (PROG ()
     (RETURN
@@ -1154,7 +1154,7 @@
           ('T (SETQ |bfVar#74| (CONS (CAAR |y|) |bfVar#74|))))
          (SETQ |bfVar#73| (CDR |bfVar#73|))))
       NIL (|parentsOf| (|opOf| |x|)) NIL))))
- 
+
 ; dc(:r) ==
 ;   con := IFCAR r
 ;   options := IFCDR r
@@ -1172,7 +1172,7 @@
 ;   option = 'ops     =>  dcOps   con
 ;   option = 'size    =>  dcSize( con,'full)
 ;   option = 'optable =>  dcOpTable con
- 
+
 (DEFUN |dc| (&REST |r|)
   (PROG (|con| |options| |ok| |option|)
     (RETURN
@@ -1200,7 +1200,7 @@
                ((EQ |option| '|ops|) (|dcOps| |con|))
                ((EQ |option| '|size|) (|dcSize| |con| '|full|))
                ((EQ |option| '|optable|) (|dcOpTable| |con|))))))))))
- 
+
 ; dcSlots con ==
 ;   name := abbreviation? con or con
 ;   $infovec: local := getInfovec name
@@ -1213,7 +1213,7 @@
 ;     atom item => sayBrightly ['"fun  ",item]
 ;     item is ['CONS,.,['FUNCALL,[.,a],b]] => sayBrightly ['"constant ",a]
 ;     sayBrightly concat('"lazy ",form2String formatSlotDomain i)
- 
+
 (DEFUN |dcSlots| (|con|)
   (PROG (|$infovec| |b| |ISTMP#7| |a| |ISTMP#6| |ISTMP#5| |ISTMP#4| |ISTMP#3|
          |ISTMP#2| |ISTMP#1| |op| |n| |item| |template| |name|)
@@ -1290,7 +1290,7 @@
                       (|form2String| (|formatSlotDomain| |i|)))))))))
           (SETQ |i| (+ |i| 1))))
        (MAXINDEX |template|) 5)))))
- 
+
 ; dcOpLatchPrint(op,index) ==
 ;   numvec := getCodeVector()
 ;   numOfArgs := numvec.index
@@ -1300,7 +1300,7 @@
 ;   namePart := concat(bright "from",
 ;     dollarPercentTran form2String formatSlotDomain whereNumber)
 ;   sayBrightly ['"latch",:formatOpSignature(op,signumList),:namePart]
- 
+
 (DEFUN |dcOpLatchPrint| (|op| |index|)
   (PROG (|numvec| |numOfArgs| |whereNumber| |signumList| |namePart|)
     (RETURN
@@ -1317,7 +1317,7 @@
       (|sayBrightly|
        (CONS "latch"
              (APPEND (|formatOpSignature| |op| |signumList|) |namePart|)))))))
- 
+
 ; getInfovec name ==
 ;   u := GET(name, 'infovec) => u
 ;   GET(name, 'LOADED) => nil
@@ -1325,7 +1325,7 @@
 ;   startTimingProcess 'load
 ;   loadLibNoUpdate(name, name, fullLibName)
 ;   GET(name, 'infovec)
- 
+
 (DEFUN |getInfovec| (|name|)
   (PROG (|u| |fullLibName|)
     (RETURN
@@ -1337,11 +1337,11 @@
              (|startTimingProcess| '|load|)
              (|loadLibNoUpdate| |name| |name| |fullLibName|)
              (GET |name| '|infovec|)))))))
- 
+
 ; getOpSegment index ==
 ;   numOfArgs := (vec := getCodeVector()).index
 ;   [vec.i for i in index..(index + numOfArgs + 3)]
- 
+
 (DEFUN |getOpSegment| (|index|)
   (PROG (|vec| |numOfArgs|)
     (RETURN
@@ -1353,13 +1353,13 @@
                 ('T (SETQ |bfVar#77| (CONS (ELT |vec| |i|) |bfVar#77|))))
           (SETQ |i| (+ |i| 1))))
        NIL (+ (+ |index| |numOfArgs|) 3) |index|)))))
- 
+
 ; getCodeVector() ==
 ;   proto4 := $infovec.3
 ;   u := CDDR proto4
 ;   VECP u => BREAK()
 ;   rest u                 --new style
- 
+
 (DEFUN |getCodeVector| ()
   (PROG (|u| |proto4|)
     (RETURN
@@ -1367,7 +1367,7 @@
       (SETQ |proto4| (ELT |$infovec| 3))
       (SETQ |u| (CDDR |proto4|))
       (COND ((VECP |u|) (BREAK)) ('T (CDR |u|)))))))
- 
+
 ; formatSlotDomain x ==
 ;   x = 0 => ["$"]
 ;   x = 2 => ["$$"]
@@ -1379,7 +1379,7 @@
 ;   x is ['NRTEVAL,y] => (atom y => [y]; y)
 ;   x is ['QUOTE, .] => x
 ;   [first x,:[formatSlotDomain y for y in rest x]]
- 
+
 (DEFUN |formatSlotDomain| (|x|)
   (PROG (|val| |ISTMP#1| |y|)
     (RETURN
@@ -1414,7 +1414,7 @@
                                 (CONS (|formatSlotDomain| |y|) |bfVar#79|))))
                       (SETQ |bfVar#78| (CDR |bfVar#78|))))
                    NIL (CDR |x|) NIL)))))))
- 
+
 ; dcOpTable con ==
 ;   name := abbreviation? con or con
 ;   $infovec: local := getInfovec name
@@ -1431,7 +1431,7 @@
 ;     curIndex := startIndex
 ;     while curIndex < stopIndex repeat
 ;       curIndex := dcOpPrint(op,curIndex)
- 
+
 (DEFUN |dcOpTable| (|con|)
   (PROG (|$predvec| |$infovec| |curIndex| |stopIndex| |startIndex| |op|
          |opTable| |template| |name|)
@@ -1465,7 +1465,7 @@
                                      (|dcOpPrint| |op| |curIndex|))))))))))
           (SETQ |i| (+ |i| 1))))
        (MAXINDEX |opTable|) 0)))))
- 
+
 ; dcOpPrint(op,index) ==
 ;   numvec := getCodeVector()
 ;   segment := getOpSegment index
@@ -1487,7 +1487,7 @@
 ;     '"looked up"
 ;   sayBrightly [:formatOpSignature(op,signumList),:namePart, :suffix]
 ;   index + 1
- 
+
 (DEFUN |dcOpPrint| (|op| |index|)
   (PROG (|numvec| |segment| |numOfArgs| |predNumber| |signumList| |slotNumber|
          |suffix| |name| |namePart|)
@@ -1520,10 +1520,10 @@
        (APPEND (|formatOpSignature| |op| |signumList|)
                (APPEND |namePart| |suffix|)))
       (+ |index| 1)))))
- 
+
 ; dcSig(numvec,index,numOfArgs) ==
 ;   [formatSlotDomain numvec.(index + i) for i in 0..numOfArgs]
- 
+
 (DEFUN |dcSig| (|numvec| |index| |numOfArgs|)
   (PROG ()
     (RETURN
@@ -1537,7 +1537,7 @@
                          |bfVar#81|))))
          (SETQ |i| (+ |i| 1))))
       NIL 0))))
- 
+
 ; dcPreds con ==
 ;   name := abbreviation? con or con
 ;   $infovec: local := getInfovec name
@@ -1545,7 +1545,7 @@
 ;   for i in 0..MAXINDEX $predvec repeat
 ;     sayBrightlyNT bright (i + 1)
 ;     sayBrightly pred2English $predvec.i
- 
+
 (DEFUN |dcPreds| (|con|)
   (PROG (|$infovec| |name|)
     (DECLARE (SPECIAL |$infovec|))
@@ -1563,7 +1563,7 @@
                   (|sayBrightly| (|pred2English| (ELT |$predvec| |i|))))))
           (SETQ |i| (+ |i| 1))))
        (MAXINDEX |$predvec|) 0)))))
- 
+
 ; dcCats con ==
 ;   name := abbreviation? con or con
 ;   $infovec: local := getInfovec name
@@ -1585,7 +1585,7 @@
 ;       IDENTP info => bright '"package"
 ;       bright '"instantiated"
 ;     sayBrightly concat(form2String formatSlotDomain form,suffix,extra)
- 
+
 (DEFUN |dcCats| (|con|)
   (PROG (|$infovec| |extra| |info| |suffix| |predNumber| |form| |catvec|
          |catinfo| |catpredvec| |u| |name|)
@@ -1629,7 +1629,7 @@
                             |suffix| |extra|)))))
                   (SETQ |i| (+ |i| 1))))
                (MAXINDEX |catvec|) 0))))))))
- 
+
 ; dcData con ==
 ;   name := abbreviation? con or con
 ;   $infovec: local := getInfovec name
@@ -1639,7 +1639,7 @@
 ;   vec := (PAIRP vec => rest vec; vec)
 ;   sayBrightly ['"Information vector has ",SIZE vec,'" entries"]
 ;   dcData1 vec
- 
+
 (DEFUN |dcData| (|con|)
   (PROG (|$infovec| |vec| |name|)
     (DECLARE (SPECIAL |$infovec|))
@@ -1653,7 +1653,7 @@
       (SETQ |vec| (COND ((CONSP |vec|) (CDR |vec|)) ('T |vec|)))
       (|sayBrightly| (LIST "Information vector has " (SIZE |vec|) " entries"))
       (|dcData1| |vec|)))))
- 
+
 ; dcData1 vec ==
 ;   n := MAXINDEX vec
 ;   tens := n / 10
@@ -1665,7 +1665,7 @@
 ;       sayBrightlyNT rightJustifyString(STRINGIMAGE vec.j,6)
 ;     sayNewLine()
 ;   vec
- 
+
 (DEFUN |dcData1| (|vec|)
   (PROG (|n| |tens| |start|)
     (RETURN
@@ -1694,7 +1694,7 @@
           (SETQ |i| (+ |i| 1))))
        0)
       |vec|))))
- 
+
 ; dcSize(:options) ==
 ;   con := IFCAR options
 ;   options := rest options
@@ -1751,7 +1751,7 @@
 ;   etotal := nodeSize(fun + 2 * latch) + vectorSize(1 + maxindex)
 ;   if null quiet then sayBrightly ['"cost per instantiation = ",etotal,'" BYTES"]
 ;   vtotal
- 
+
 (DEFUN |dcSize| (&REST |options|)
   (PROG (|con| |quiet| |full| |name| |infovec| |template| |maxindex| |latch|
          |lazy| |fun| |lazyNodes| |item| |tSize| |oSize| |aSize| |slot4|
@@ -1858,7 +1858,7 @@
                 (|sayBrightly|
                  (LIST "cost per instantiation = " |etotal| " BYTES"))))
               |vtotal|)))))))
- 
+
 ; dcSizeAll() ==
 ;   count := 0
 ;   total := 0
@@ -1869,7 +1869,7 @@
 ;     total := total + s
 ;   sayBrightly '"------------total-------------"
 ;   sayBrightly [count," constructors; ",total," BYTES"]
- 
+
 (DEFUN |dcSizeAll| ()
   (PROG (|s| |total| |count|)
     (RETURN
@@ -1892,9 +1892,9 @@
        (|allConstructors|) NIL)
       (|sayBrightly| "------------total-------------")
       (|sayBrightly| (LIST |count| '| constructors; | |total| '| BYTES|))))))
- 
+
 ; sum(:l) == +/l
- 
+
 (DEFUN |sum| (&REST |l|)
   (PROG ()
     (RETURN
@@ -1907,28 +1907,28 @@
           ('T (SETQ |bfVar#87| (+ |bfVar#87| |bfVar#88|))))
          (SETQ |bfVar#89| (CDR |bfVar#89|))))
       0 |l| NIL))))
- 
+
 ; nodeSize(n) == 12 * n
- 
+
 (DEFUN |nodeSize| (|n|) (PROG () (RETURN (* 12 |n|))))
- 
+
 ; vectorSize(n) == 4 * (1 + n)
- 
+
 (DEFUN |vectorSize| (|n|) (PROG () (RETURN (* 4 (+ 1 |n|)))))
- 
+
 ; halfWordSize(n) ==
 ;   n < 128 => n / 2
 ;   n < 256 => n
 ;   2 * n
- 
+
 (DEFUN |halfWordSize| (|n|)
   (PROG ()
     (RETURN (COND ((< |n| 128) (/ |n| 2)) ((< |n| 256) |n|) ('T (* 2 |n|))))))
- 
+
 ; numberOfNodes(x) ==
 ;   atom x => 0
 ;   1 + numberOfNodes first x + numberOfNodes rest x
- 
+
 (DEFUN |numberOfNodes| (|x|)
   (PROG ()
     (RETURN
@@ -1936,23 +1936,23 @@
            ('T
             (+ (+ 1 (|numberOfNodes| (CAR |x|)))
                (|numberOfNodes| (CDR |x|))))))))
- 
+
 ; template con ==
 ;   con := abbreviation? con or con
 ;   ppTemplate (getInfovec con).0
- 
+
 (DEFUN |template| (|con|)
   (PROG ()
     (RETURN
      (PROGN
       (SETQ |con| (OR (|abbreviation?| |con|) |con|))
       (|ppTemplate| (ELT (|getInfovec| |con|) 0))))))
- 
+
 ; ppTemplate vec ==
 ;   for i in 0..MAXINDEX vec repeat
 ;     sayBrightlyNT bright i
 ;     pp vec.i
- 
+
 (DEFUN |ppTemplate| (|vec|)
   (PROG ()
     (RETURN
@@ -1965,7 +1965,7 @@
                  (|pp| (ELT |vec| |i|)))))
          (SETQ |i| (+ |i| 1))))
       (MAXINDEX |vec|) 0))))
- 
+
 ; infovec con ==
 ;   con := abbreviation? con or con
 ;   u := getInfovec con
@@ -1982,7 +1982,7 @@
 ;   sayBrightly '"---------------tail of slot 3 is datavector---------"
 ;   dcData1 CDDDR u.3
 ;   'done
- 
+
 (DEFUN |infovec| (|con|)
   (PROG (|u|)
     (RETURN
@@ -2002,7 +2002,7 @@
       (|sayBrightly| "---------------tail of slot 3 is datavector---------")
       (|dcData1| (CDDDR (ELT |u| 3)))
       '|done|))))
- 
+
 ; dcAll con ==
 ;   con := abbreviation? con or con
 ;   $infovec : local := getInfovec con
@@ -2024,7 +2024,7 @@
 ;   sayBrightly '"----------------Size------------------"
 ;   dcSize(con,'full)
 ;   'done
- 
+
 (DEFUN |dcAll| (|con|)
   (PROG (|$infovec| |complete?|)
     (DECLARE (SPECIAL |$infovec|))
@@ -2050,7 +2050,7 @@
       (|sayBrightly| "----------------Size------------------")
       (|dcSize| |con| '|full|)
       '|done|))))
- 
+
 ; dcOps conname ==
 ;   for [op,:u] in REVERSE getOperationAlistFromLisplib conname repeat
 ;     for [sig,slot,pred,key,:.] in u repeat
@@ -2058,7 +2058,7 @@
 ;         atom pred => nil
 ;         concat('" if ",pred2English pred)
 ;       sayBrightly [:formatOpSignature(op,sig),:suffix]
- 
+
 (DEFUN |dcOps| (|conname|)
   (PROG (|op| |u| |sig| |ISTMP#1| |slot| |ISTMP#2| |pred| |ISTMP#3| |key|
          |suffix|)
@@ -2111,7 +2111,7 @@
                  |u| NIL))))
          (SETQ |bfVar#92| (CDR |bfVar#92|))))
       (REVERSE (|getOperationAlistFromLisplib| |conname|)) NIL))))
- 
+
 ; NRTgetLookupFunction(domform,exCategory,addForm) ==
 ;   domform := SUBLIS($pairlis,domform)
 ;   addForm := SUBLIS($pairlis,addForm)
@@ -2127,7 +2127,7 @@
 ;     if v then PRINT first v else TERPRI()
 ;   extends => 'lookupIncomplete
 ;   'lookupComplete
- 
+
 (DEFUN |NRTgetLookupFunction| (|domform| |exCategory| |addForm|)
   (PROG (|$why| |v| |msg| |u| |extends|)
     (DECLARE (SPECIAL |$why|))
@@ -2155,7 +2155,7 @@
                 (COND (|v| (PRINT (CAR |v|))) (#1# (TERPRI)))))
               (COND (|extends| '|lookupIncomplete|)
                     (#1# '|lookupComplete|)))))))))
- 
+
 ; getExportCategory form ==
 ;   [op,:argl] := form
 ;   op = 'Record => ['RecordCategory,:argl]
@@ -2163,7 +2163,7 @@
 ;   functorModemap := GETDATABASE(op,'CONSTRUCTORMODEMAP)
 ;   [[.,target,:tl],:.] := functorModemap
 ;   EQSUBSTLIST(argl,$FormalMapVariableList,target)
- 
+
 (DEFUN |getExportCategory| (|form|)
   (PROG (|op| |argl| |functorModemap| |target| |tl|)
     (RETURN
@@ -2178,12 +2178,12 @@
               (SETQ |target| (CADAR . #1=(|functorModemap|)))
               (SETQ |tl| (CDDAR . #1#))
               (EQSUBSTLIST |argl| |$FormalMapVariableList| |target|))))))))
- 
+
 ; NRTextendsCategory1(domform,exCategory,addForm) ==
 ;   addForm is ["@Tuple", :r] =>
 ;     and/[extendsCategory(domform,exCategory,x) for x in r]
 ;   extendsCategory(domform,exCategory,addForm)
- 
+
 (DEFUN |NRTextendsCategory1| (|domform| |exCategory| |addForm|)
   (PROG (|r|)
     (RETURN
@@ -2202,7 +2202,7 @@
            (SETQ |bfVar#95| (CDR |bfVar#95|))))
         T |r| NIL))
       (#1# (|extendsCategory| |domform| |exCategory| |addForm|))))))
- 
+
 ; extendsCategory(dom,u,v) ==
 ;   --does category u extend category v (yes iff u contains everything in v)
 ;   --is dom of category u also of category v?
@@ -2215,7 +2215,7 @@
 ;     v is ['SIGNATURE,op,sig] => [u,['"  has no ",:formatOpSignature(op,sig)]]
 ;     [u,'" has no",v]
 ;   nil
- 
+
 (DEFUN |extendsCategory| (|dom| |u| |v|)
   (PROG (|l| |ISTMP#1| |op| |ISTMP#2| |sig|)
     (RETURN
@@ -2276,7 +2276,7 @@
                                            (|formatOpSignature| |op| |sig|))))
                               (#1# (LIST |u| " has no" |v|))))
                      NIL)))))))))
- 
+
 ; extendsCategoryBasic0(dom,u,v) ==
 ;   v is ['IF,p,['ATTRIBUTE,c],.] =>
 ;     -- BREAK()
@@ -2287,7 +2287,7 @@
 ;     slot2 := uVec.2
 ;     LASSOC(c,slot2) is [=p,:.]
 ;   extendsCategoryBasic(dom,u,v)
- 
+
 (DEFUN |extendsCategoryBasic0| (|dom| |u| |v|)
   (PROG (|ISTMP#1| |p| |ISTMP#2| |ISTMP#3| |ISTMP#4| |c| |ISTMP#5| |uVec|
          |slot4| |slot2|)
@@ -2327,7 +2327,7 @@
            (SETQ |ISTMP#1| (LASSOC |c| |slot2|))
            (AND (CONSP |ISTMP#1|) (EQUAL (CAR |ISTMP#1|) |p|)))))))
       (#1# (|extendsCategoryBasic| |dom| |u| |v|))))))
- 
+
 ; extendsCategoryBasic(dom,u,v) ==
 ;   u is ["Join",:l] => or/[extendsCategoryBasic(dom,x,v) for x in l]
 ;   u = v => true
@@ -2345,7 +2345,7 @@
 ;     v is ['IF,:.] => member(v,l)
 ;     nil
 ;   nil
- 
+
 (DEFUN |extendsCategoryBasic| (|dom| |u| |v|)
   (PROG (|l| |uVec| |ISTMP#1| |op| |ISTMP#2| |sig| |res| |ISTMP#3| |pred|)
     (RETURN
@@ -2419,7 +2419,7 @@
                (COND ((AND (CONSP |v|) (EQ (CAR |v|) 'IF)) (|member| |v| |l|))
                      (#1# NIL)))
               (#1# NIL))))))))
- 
+
 ; catExtendsCat?(u,v,uvec) ==
 ;   u = v => true
 ;   uvec := uvec or (compMakeCategoryObject(u, $EmptyEnvironment)).expr
@@ -2434,7 +2434,7 @@
 ;     sayBrightlyNT '"   but not "
 ;     PRINT v
 ;   or/[catExtendsCat?(x,v,nil) for x in ASSOCLEFT CADR slot4]
- 
+
 (DEFUN |catExtendsCat?| (|u| |v| |uvec|)
   (PROG (|slot4| |prinAncestorList| |vOp| |similarForm|)
     (RETURN
@@ -2468,7 +2468,7 @@
                             (COND (|bfVar#105| (RETURN |bfVar#105|))))))
                          (SETQ |bfVar#104| (CDR |bfVar#104|))))
                       NIL (ASSOCLEFT (CADR |slot4|)) NIL))))))))))
- 
+
 ; substSlotNumbers(form,template,domain) ==
 ;   form is [op,:.] and
 ;     MEMQ(op,allConstructors()) => expandType(form,template,domain)
@@ -2477,7 +2477,7 @@
 ;   form is ['CATEGORY,k,:u] =>
 ;     ['CATEGORY,k,:[substSlotNumbers(x,template,domain) for x in u]]
 ;   expandType(form,template,domain)
- 
+
 (DEFUN |substSlotNumbers| (|form| |template| |domain|)
   (PROG (|op| |ISTMP#1| |ISTMP#2| |sig| |k| |u|)
     (RETURN
@@ -2531,7 +2531,7 @@
                        (SETQ |bfVar#108| (CDR |bfVar#108|))))
                     NIL |u| NIL))))
       (#1# (|expandType| |form| |template| |domain|))))))
- 
+
 ; expandType(lazyt,template,domform) ==
 ;   atom lazyt => expandTypeArgs(lazyt,template,domform)
 ;   [functorName,:argl] := lazyt
@@ -2542,7 +2542,7 @@
 ;     n := POSN1(x,$FormalMapVariableList)
 ;     ELT(domform,1 + n)
 ;   [functorName,:[expandTypeArgs(a,template,domform) for a in argl]]
- 
+
 (DEFUN |expandType| (|lazyt| |template| |domform|)
   (PROG (|functorName| |argl| |ISTMP#1| |tag| |ISTMP#2| |dom| |x| |n|)
     (RETURN
@@ -2609,7 +2609,7 @@
                                     |bfVar#114|))))
                          (SETQ |bfVar#113| (CDR |bfVar#113|))))
                       NIL |argl| NIL))))))))))
- 
+
 ; expandTypeArgs(u,template,domform) ==
 ;   u = '$ => u --template.0      -------eliminate this as $ is rep by 0
 ;   INTEGERP u => expandType(templateVal(template, domform, u), template,domform)
@@ -2617,7 +2617,7 @@
 ;   u is ['QUOTE,y] => y
 ;   atom u => u
 ;   expandType(u,template,domform)
- 
+
 (DEFUN |expandTypeArgs| (|u| |template| |domform|)
   (PROG (|ISTMP#1| |y|)
     (RETURN
@@ -2638,12 +2638,12 @@
                        (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1#))))
             |y|)
            ((ATOM |u|) |u|) (#1# (|expandType| |u| |template| |domform|))))))
- 
+
 ; templateVal(template,domform,index) ==
 ; --returns a domform or a lazy slot
 ;   index = 0 => harhar() --template
 ;   template.index
- 
+
 (DEFUN |templateVal| (|template| |domform| |index|)
   (PROG ()
     (RETURN (COND ((EQL |index| 0) (|harhar|)) ('T (ELT |template| |index|))))))

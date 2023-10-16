@@ -1,12 +1,12 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; Category() == nil --sorry to say, this hack is needed by isCategoryType
- 
+
 (DEFUN |Category| () (PROG () (RETURN NIL)))
- 
+
 ; CategoryPrint(D) ==
 ;   SAY "--------------------------------------"
 ;   SAY "Name (and arguments) of category:"
@@ -26,7 +26,7 @@
 ;     null u => SAY "another domain"
 ;     atom first u => SAY("Alternate View corresponding to: ",u)
 ;     PRETTYPRINT u
- 
+
 (DEFUN |CategoryPrint| (D)
   (PROG (|u|)
     (RETURN
@@ -72,7 +72,7 @@
                         (#1# (PRETTYPRINT |u|))))))
           (SETQ |j| (+ |j| 1))))
        (MAXINDEX D) 6)))))
- 
+
 ; mkCategory(sigList, attList, domList, PrincipalAncestor) ==
 ;   NSigList := nil
 ;   count := 6
@@ -90,7 +90,7 @@
 ;    else v.4 := [nil, nil, nil] --associated categories and domains
 ;   v.5:= nil
 ;   v
- 
+
 (DEFUN |mkCategory| (|sigList| |attList| |domList| |PrincipalAncestor|)
   (PROG (|NSigList| |count| |sig| |ISTMP#1| |pred| |v|)
     (RETURN
@@ -135,7 +135,7 @@
        (#1# (SETF (ELT |v| 4) (LIST NIL NIL NIL))))
       (SETF (ELT |v| 5) NIL)
       |v|))))
- 
+
 ; SigListUnion(extra,original) ==
 ;   --augments original with everything in extra that is not in original
 ;   for (o:=[[ofn,osig,:.],opred,:.]) in original repeat
@@ -159,7 +159,7 @@
 ;           e := [esig, mkOr(epred, xpred), :ximplem]
 ;       original := [e, :original]
 ;   original
- 
+
 (DEFUN |SigListUnion| (|extra| |original|)
   (PROG (|ISTMP#1| |ofn| |ISTMP#2| |osig| |ISTMP#3| |opred| |xfn| |xsig|
          |xpred| |esig| |epred| |ximplem|)
@@ -239,7 +239,7 @@
           (SETQ |bfVar#8| (CDR |bfVar#8|))))
        |extra| NIL)
       |original|))))
- 
+
 ; mkOr(a,b) ==
 ;   a=true => true
 ;   b=true => true
@@ -260,7 +260,7 @@
 ;     [a,b]
 ;   LENGTH l = 1 => first l
 ;   ["OR",:l]
- 
+
 (DEFUN |mkOr| (|a| |b|)
   (PROG (|a'| |b'| |ISTMP#1| |avar| |ISTMP#2| |acat| |bcat| |l|)
     (RETURN
@@ -324,7 +324,7 @@
                        (LIST |a|))
                       (#1# (LIST |a| |b|))))
              (COND ((EQL (LENGTH |l|) 1) (CAR |l|)) (#1# (CONS 'OR |l|)))))))))
- 
+
 ; mkOr2(a,b) ==
 ;   --a is a condition, "b" a list of them
 ;   member(a,b) => b
@@ -337,7 +337,7 @@
 ;     aRedundant => b
 ;     [a,:b]
 ;   [a,:b]
- 
+
 (DEFUN |mkOr2| (|a| |b|)
   (PROG (|ISTMP#1| |avar| |ISTMP#2| |acat| |aRedundant| |ccat|)
     (RETURN
@@ -381,7 +381,7 @@
               |b| NIL)
              (COND (|aRedundant| |b|) (#1# (CONS |a| |b|)))))
            (#1# (CONS |a| |b|))))))
- 
+
 ; mkAnd(a,b) ==
 ;   a=true => b
 ;   b=true => a
@@ -398,7 +398,7 @@
 ;     [a,b]
 ;   LENGTH l = 1 => first l
 ;   ["AND",:l]
- 
+
 (DEFUN |mkAnd| (|a| |b|)
   (PROG (|a'| |b'| |ISTMP#1| |avar| |ISTMP#2| |acat| |bcat| |l|)
     (RETURN
@@ -446,7 +446,7 @@
                              (#1# (LIST |a| |b|))))
                       (#1# (LIST |a| |b|))))
              (COND ((EQL (LENGTH |l|) 1) (CAR |l|)) (#1# (CONS 'AND |l|)))))))))
- 
+
 ; mkAnd2(a,b) ==
 ;   --a is a condition, "b" a list of them
 ;   member(a,b) => b
@@ -459,7 +459,7 @@
 ;     aRedundant => b
 ;     [a,:b]
 ;   [a,:b]
- 
+
 (DEFUN |mkAnd2| (|a| |b|)
   (PROG (|ISTMP#1| |avar| |ISTMP#2| |acat| |aRedundant| |ccat|)
     (RETURN
@@ -503,7 +503,7 @@
               |b| NIL)
              (COND (|aRedundant| |b|) (#1# (CONS |a| |b|)))))
            (#1# (CONS |a| |b|))))))
- 
+
 ; PredImplies(a,b) ==
 ;     --true if a => b in the sense of logical implication
 ;   a = false => true
@@ -528,7 +528,7 @@
 ;           res := PredImplies(a1, b)
 ;       res
 ;   false         -- added by RDJ: 12/21/82
- 
+
 (DEFUN |PredImplies| (|a| |b|)
   (PROG (|al| |res| |bl|)
     (RETURN
@@ -588,7 +588,7 @@
               |al| NIL)
              |res|))
            (#1# NIL)))))
- 
+
 ; SigListOpSubsume([[name1,sig1,:.],:.],list) ==
 ;   --does m subsume another operator in the list?
 ;         --see "operator subsumption" in SYSTEM SCRIPT
@@ -599,7 +599,7 @@
 ;     EQ(name1, name2) and EQL(lsig1,LENGTH sig2) and SourceLevelSubsume(sig1,sig2) =>
 ;       ans:=[n,:ans]
 ;   return ans
- 
+
 (DEFUN |SigListOpSubsume| (|bfVar#17| LIST)
   (PROG (|name1| |sig1| |lsig1| |ans| |ISTMP#1| |name2| |ISTMP#2| |sig2|)
     (RETURN
@@ -630,13 +630,13 @@
           (SETQ |bfVar#16| (CDR |bfVar#16|))))
        LIST NIL)
       (RETURN |ans|)))))
- 
+
 ; SourceLevelSubsume([out1,:in1],[out2,:in2]) ==
 ;   -- Checks for source-level subsumption in the sense of SYSTEM SCRIPT
 ;   --   true if the first signature subsumes the second
 ;   SourceLevelSubset(out1,out2) and
 ;     (and/[SourceLevelSubset(inarg2,inarg1) for inarg1 in in1 for inarg2 in in2])
- 
+
 (DEFUN |SourceLevelSubsume| (|bfVar#21| |bfVar#22|)
   (PROG (|out2| |in2| |out1| |in1|)
     (RETURN
@@ -661,21 +661,21 @@
                (SETQ |bfVar#18| (CDR |bfVar#18|))
                (SETQ |bfVar#19| (CDR |bfVar#19|))))
             T |in1| NIL |in2| NIL))))))
- 
+
 ; SourceLevelSubset(a,b) ==
 ;   --true if a is a source-level subset of b
 ;   a=b => true
 ;   false
- 
+
 (DEFUN |SourceLevelSubset| (|a| |b|)
   (PROG () (RETURN (COND ((EQUAL |a| |b|) T) ('T NIL)))))
- 
+
 ; get_cond(x) ==
 ;     rest(x) => CADR x
 ;     true
- 
+
 (DEFUN |get_cond| (|x|) (PROG () (RETURN (COND ((CDR |x|) (CADR |x|)) ('T T)))))
- 
+
 ; FindFundAncs l ==
 ;   --l is a list of categories and associated conditions (a list of 2-lists
 ;   --returns a list of them and all their fundamental ancestors
@@ -702,7 +702,7 @@
 ;     if y:= ASSQ(CatEval x,ans) then ans:=
 ;       [[first y, mkOr(cond1, CADR y)], :delete(y, ans)]
 ;   [first l,:ans]
- 
+
 (DEFUN |FindFundAncs| (|l|)
   (PROG (|LETTMP#1| |f1| |cond1| |ans| |ll| |u1| |uc| |x| |y|)
     (RETURN
@@ -784,23 +784,23 @@
                          (SETQ |bfVar#27| (CDR |bfVar#27|))))
                       (CAR (ELT |f1| 4)) NIL)
                      (CONS (CAR |l|) |ans|))))))))))
- 
+
 ; CatEval x ==
 ;   REFVECP x => BREAK()
 ;   (compMakeCategoryObject(x, $EmptyEnvironment)).expr
- 
+
 (DEFUN |CatEval| (|x|)
   (PROG ()
     (RETURN
      (COND ((REFVECP |x|) (BREAK))
            ('T (CAR (|compMakeCategoryObject| |x| |$EmptyEnvironment|)))))))
- 
+
 ; AncestorP(xname,leaves) ==
 ;   -- checks for being a principal ancestor of one of the leaves
 ;   member(xname,leaves) => xname
 ;   for y in leaves repeat
 ;     member(xname,first (CatEval y).4) => return y
- 
+
 (DEFUN |AncestorP| (|xname| |leaves|)
   (PROG ()
     (RETURN
@@ -818,7 +818,7 @@
                     (IDENTITY (RETURN |y|))))))
                 (SETQ |bfVar#28| (CDR |bfVar#28|))))
              |leaves| NIL))))))
- 
+
 ; CondAncestorP(xname,leaves,condition) ==
 ;   -- checks for being a principal ancestor of one of the leaves
 ;   for u in leaves repeat
@@ -828,7 +828,7 @@
 ;       first rest u
 ;     xname = u' or member(xname,first (CatEval u').4) =>
 ;       PredImplies(condition, ucond) => return u'
- 
+
 (DEFUN |CondAncestorP| (|xname| |leaves| |condition|)
   (PROG (|u'| |ucond|)
     (RETURN
@@ -849,7 +849,7 @@
                 (IDENTITY (RETURN |u'|)))))))))
          (SETQ |bfVar#29| (CDR |bfVar#29|))))
       |leaves| NIL))))
- 
+
 ; DescendantP(a,b) ==
 ;   -- checks to see if a is any kind of Descendant of b
 ;   a=b => true
@@ -860,7 +860,7 @@
 ;   member(b,first a.4) => true
 ;   AncestorP(b, [first u for u in CADR a.4 | get_cond(u) = true]) => true
 ;   nil
- 
+
 (DEFUN |DescendantP| (|a| |b|)
   (PROG (|ISTMP#1| |b'|)
     (RETURN
@@ -892,7 +892,7 @@
                  NIL (CADR (ELT |a| 4)) NIL))
                T)
               (#1# NIL))))))))
- 
+
 ; simplify_cond1(catname, cond) ==
 ;     -- FIXME: this is ugly hack to get around compiler bug.
 ;     -- Namely, sometimes '$' is not what it should be...
@@ -919,7 +919,7 @@
 ;         #rl = 1 => first(rl)
 ;         ["AND", :rl]
 ;     cond
- 
+
 (DEFUN |simplify_cond1| (|catname| |cond|)
   (PROG (|ISTMP#1| |ISTMP#2| |l| |rl| |nc|)
     (RETURN
@@ -973,24 +973,24 @@
              (COND ((NULL |rl|) T) ((EQL (LENGTH |rl|) 1) (CAR |rl|))
                    (#1# (CONS 'AND |rl|)))))
            (#1# |cond|)))))
- 
+
 ; simplify_cond2(vec, cond) ==
 ;     vec.(0) = nil => cond
 ;     simplify_cond1(vec.(0), cond)
- 
+
 (DEFUN |simplify_cond2| (|vec| |cond|)
   (PROG ()
     (RETURN
      (COND ((NULL (ELT |vec| 0)) |cond|)
            ('T (|simplify_cond1| (ELT |vec| 0) |cond|))))))
- 
+
 ; join_fundamental_ancestors(vec0, l) ==
 ;   FundamentalAncestors := [[v, c] for x in CADR vec0.4 | (v := first x;
 ;                               c := simplify_cond2(v, get_cond(x)))]
 ;   if vec0.(0) then FundamentalAncestors:=
 ;     [[vec0.(0)],:FundamentalAncestors]
 ;                     --principal ancestor . all those already included
-; 
+;
 ;   for [b, condition] in FindFundAncs l repeat
 ;       --This loop implements Category Subsumption
 ;           --as described in SYSTEM SCRIPT
@@ -1016,7 +1016,7 @@
 ;               FundamentalAncestors := delete(anc, FundamentalAncestors)
 ;       FundamentalAncestors := [[b.(0), condition], :FundamentalAncestors]
 ;   FundamentalAncestors
- 
+
 (DEFUN |join_fundamental_ancestors| (|vec0| |l|)
   (PROG (|v| |c| |FundamentalAncestors| |b| |ISTMP#1| |condition| |bname| |uu|
          |PrinAncb| |anccond|)
@@ -1095,7 +1095,7 @@
           (SETQ |bfVar#37| (CDR |bfVar#37|))))
        (|FindFundAncs| |l|) NIL)
       |FundamentalAncestors|))))
- 
+
 ; JoinInner(l) ==
 ;   NewCatVec := nil
 ;   CondList := nil
@@ -1104,7 +1104,7 @@
 ;       at2:= first at
 ;       if atom at2 then BREAK()
 ;       null isCategoryForm(at2) => BREAK()
-; 
+;
 ;       pred:= first rest at
 ;         -- The predicate under which this category is conditional
 ;       CondList:= [[CatEval at2,pred],:CondList]
@@ -1116,7 +1116,7 @@
 ;   -- Copy to avoid corrupting original vector
 ;   NewCatVec := COPY_-SEQ NewCatVec
 ;   FundamentalAncestors := join_fundamental_ancestors(NewCatVec, l')
-; 
+;
 ;   for b in l repeat
 ;     sigl:= SigListUnion(b.(1), sigl)
 ;   for b in CondList repeat
@@ -1137,7 +1137,7 @@
 ;           [x for x in FundamentalAncestors | first(x) ~= pName]
 ;   NewCatVec.4 := [c,FundamentalAncestors, CADDR NewCatVec.4]
 ;   mkCategory(sigl, nil, nil, NewCatVec)
- 
+
 (DEFUN |JoinInner| (|l|)
   (PROG (|NewCatVec| |CondList| |at2| |pred| |LETTMP#1| |l'| |sigl|
          |FundamentalAncestors| |newpred| |c| |pName|)
@@ -1260,15 +1260,15 @@
              (CONS |sig|
                    (CONS (MKPF (LIST |oldpred| |newpred|) '|and|)
                          |implem|))))))))
- 
+
 ; Join(:L) == JoinInner(L)
- 
+
 (DEFUN |Join| (&REST L) (PROG () (RETURN (|JoinInner| L))))
- 
+
 ; isCategoryForm(x) ==
 ;   x is [name,:.] => categoryForm? name
 ;   false
- 
+
 (DEFUN |isCategoryForm| (|x|)
   (PROG (|name|)
     (RETURN

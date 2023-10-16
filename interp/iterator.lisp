@@ -1,14 +1,14 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; compReduce(form,m,e) ==
 ;  compReduce1(form,m,e,$formalArgList)
- 
+
 (DEFUN |compReduce| (|form| |m| |e|)
   (PROG () (RETURN (|compReduce1| |form| |m| |e| |$formalArgList|))))
- 
+
 ; compReduce1(form is ["REDUCE",op,.,collectForm],m,e,$formalArgList) ==
 ;   [collectOp,:itl,body]:= collectForm
 ;   if STRINGP op then op:= INTERN op
@@ -42,7 +42,7 @@
 ;     [untilCode,.,e]:= comp($until,$Boolean,e)
 ;     finalCode:= substitute(["UNTIL",untilCode],'$until,finalCode)
 ;   [finalCode,m,e]
- 
+
 (DEFUN |compReduce1| (|form| |m| |e| |$formalArgList|)
   (DECLARE (SPECIAL |$formalArgList|))
   (PROG (|$endTestList| |$initList| |$until| |$sideEffectsList| |untilCode|
@@ -143,7 +143,7 @@
                            (|substitute| (LIST 'UNTIL |untilCode|) '|$until|
                             |finalCode|))))
                  (LIST |finalCode| |m| |e|)))))))))))
- 
+
 ; $identity_list := [ _
 ;    ["+", ["Zero"]], _
 ;    ["*", ["One"]], _
@@ -154,7 +154,7 @@
 ;    ['strconc, '""], _
 ;    ['and, 'true], _
 ;    ['or, 'false]]
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$identity_list|
           (LIST (LIST '+ (LIST '|Zero|)) (LIST '* (LIST '|One|))
@@ -162,19 +162,19 @@
                 (LIST '|append| (LIST '|construct|))
                 (LIST '|union| (LIST '|construct|)) (LIST '|strconc| "")
                 (LIST '|and| '|true|) (LIST '|or| '|false|))))
- 
+
 ; getIdentity(x,e) ==
 ;     av := ASSQ(x, $identity_list)
 ;     av => av.1
 ;     nil
- 
+
 (DEFUN |getIdentity| (|x| |e|)
   (PROG (|av|)
     (RETURN
      (PROGN
       (SETQ |av| (ASSQ |x| |$identity_list|))
       (COND (|av| (ELT |av| 1)) ('T NIL))))))
- 
+
 ; compRepeatOrCollect(form,m,e) ==
 ;   fn(form,[m,:$exitModeStack],[#$exitModeStack,:$leaveLevelStack],$formalArgList
 ;     ,e) where
@@ -220,7 +220,7 @@
 ;             ["Vector",m']
 ;           m'
 ;         coerceExit([form',m'',e'],targetMode)
- 
+
 (DEFUN |compRepeatOrCollect| (|form| |m| |e|)
   (PROG ()
     (RETURN
@@ -329,10 +329,10 @@
                          (#1# (LIST '|Vector| |m'|))))
                        (#1# |m'|)))
               (|coerceExit| (LIST |form'| |m''| |e'|) |targetMode|))))))))
- 
+
 ; listOrVectorElementMode x ==
 ;   x is [a,b,:.] and member(a,'(PrimitiveArray Vector List)) => b
- 
+
 (DEFUN |listOrVectorElementMode| (|x|)
   (PROG (|a| |ISTMP#1| |b|)
     (RETURN
@@ -344,18 +344,18 @@
              (AND (CONSP |ISTMP#1|) (PROGN (SETQ |b| (CAR |ISTMP#1|)) 'T)))
             (|member| |a| '(|PrimitiveArray| |Vector| |List|)))
        (IDENTITY |b|))))))
- 
+
 ; genLetHelper(op, arg, d, var) ==
 ;     form0 := [["elt", d, op], arg]
 ;     [":=", var, form0]
- 
+
 (DEFUN |genLetHelper| (|op| |arg| |d| |var|)
   (PROG (|form0|)
     (RETURN
      (PROGN
       (SETQ |form0| (LIST (LIST '|elt| |d| |op|) |arg|))
       (LIST '|:=| |var| |form0|)))))
- 
+
 ; compInitGstep(y, ef, sf, mOver, e) ==
 ;     gvar := genSomeVariable()
 ;     [., ., e] := compMakeDeclaration([":", gvar, mOver], $EmptyMode, e)
@@ -366,7 +366,7 @@
 ;     res := compSeq(form, $Integer, e)
 ;     res => res
 ;     nil
- 
+
 (DEFUN |compInitGstep| (|y| |ef| |sf| |mOver| |e|)
   (PROG (|gvar| |LETTMP#1| |form| |res|)
     (RETURN
@@ -383,7 +383,7 @@
                     (LIST '|exit| 1 1)))
       (SETQ |res| (|compSeq| |form| |$Integer| |e|))
       (COND (|res| |res|) ('T NIL))))))
- 
+
 ; compIterator1(it, e) ==
 ;   it is ["IN",x,y] =>
 ;     --these two lines must be in this order, to get "for f in list f"
@@ -469,7 +469,7 @@
 ;         stackMessage ["SUCHTHAT operand: ",x," is not Boolean value"]
 ;     [["|",u.expr],u.env]
 ;   nil
- 
+
 (DEFUN |compIterator1| (|it| |e|)
   (PROG (|ISTMP#1| |x| |ISTMP#2| |y| |LETTMP#1| |y'| |m| |mOver| |mUnder| |ef|
          |sf| |y''| |res| |m''| |index| |start| |ISTMP#3| |inc| |optFinal|
@@ -719,12 +719,12 @@
                             '| is not Boolean value|)))))
         (LIST (LIST '|\|| (CAR |u|)) (CADDR |u|))))
       (#1# NIL)))))
- 
+
 ; match_segment(i, n) ==
 ;     n is ['SEGMENT,a] => ['STEP,i,a,1]
 ;     n is ['SEGMENT, a, b] => (b => ['STEP, i, a, 1, b]; ['STEP, i, a, 1])
 ;     ['IN, i, n]
- 
+
 (DEFUN |match_segment| (|i| |n|)
   (PROG (|ISTMP#1| |a| |ISTMP#2| |b|)
     (RETURN
@@ -746,7 +746,7 @@
                         (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1#))))))
        (COND (|b| (LIST 'STEP |i| |a| 1 |b|)) (#1# (LIST 'STEP |i| |a| 1))))
       (#1# (LIST 'IN |i| |n|))))))
- 
+
 ; compIterator(it, e) ==
 ;     it is ["INBY", i, n, inc] =>
 ;         u := match_segment(i, n)
@@ -757,7 +757,7 @@
 ;     it is ["IN", i, n] =>
 ;         compIterator1(match_segment(i, n), e)
 ;     compIterator1(it, e)
- 
+
 (DEFUN |compIterator| (|it| |e|)
   (PROG (|ISTMP#1| |i| |ISTMP#2| |n| |ISTMP#3| |inc| |u| |a| |r|)
     (RETURN
@@ -811,7 +811,7 @@
                         (PROGN (SETQ |n| (CAR |ISTMP#2|)) #1#))))))
        (|compIterator1| (|match_segment| |i| |n|) |e|))
       (#1# (|compIterator1| |it| |e|))))))
- 
+
 ; modeIsAggregateOf(ListOrVector,m,e) ==
 ;   m is [ =ListOrVector,R] => [m,R]
 ; --m = '$EmptyMode => [m,m] I don't think this is correct, breaks POLY +
@@ -823,7 +823,7 @@
 ;     m="$" => "Rep"
 ;     m
 ;   get(name,"value",e) is [[ =ListOrVector,R],:.] => [m,R]
- 
+
 (DEFUN |modeIsAggregateOf| (|ListOrVector| |m| |e|)
   (PROG (|ISTMP#1| R |l| |pair| |mList| |fn| |name| |ISTMP#2| |ISTMP#3|)
     (RETURN

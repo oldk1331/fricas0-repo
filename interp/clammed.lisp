@@ -1,14 +1,14 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; canCoerceFrom(mr,m) ==
 ;   -- bind flag for recording/reporting instantiations
 ;   -- (see recordInstantiation)
 ;   $insideCanCoerceFrom: local := [mr,m]
 ;   canCoerceFrom0(mr,m)
- 
+
 (DEFUN |canCoerceFrom;| (|mr| |m|)
   (PROG (|$insideCanCoerceFrom|)
     (DECLARE (SPECIAL |$insideCanCoerceFrom|))
@@ -32,14 +32,14 @@
             (SETQ |canCoerceFrom;AL| (MAKE_HASHTABLE 'UEQUAL))
             (|hashCount| |canCoerceFrom;AL|))))
 (EVAL-WHEN (EVAL LOAD) (SETQ |canCoerceFrom;AL| (MAKE_HASHTABLE 'UEQUAL)))
- 
+
 ; canCoerce(t1, t2) ==
 ;   val := canCoerce1(t1, t2) => val
 ;   t1 is ['Variable, :.] =>
 ;     newMode := getMinimalVarMode(t1, nil)
 ;     canCoerce1(t1, newMode) and canCoerce1(newMode, t2)
 ;   nil
- 
+
 (DEFUN |canCoerce;| (|t1| |t2|)
   (PROG (|val| |newMode|)
     (RETURN
@@ -65,7 +65,7 @@
             (SETQ |canCoerce;AL| (MAKE_HASHTABLE 'UEQUAL))
             (|hashCount| |canCoerce;AL|))))
 (EVAL-WHEN (EVAL LOAD) (SETQ |canCoerce;AL| (MAKE_HASHTABLE 'UEQUAL)))
- 
+
 ; isValidType form ==
 ;   -- returns true IFF form is a type whose arguments satisfy the
 ;   --  predicate of the type constructor
@@ -92,10 +92,10 @@
 ;     ((# args) = (# REMDUP args)) => true
 ;     sayKeyedMsg("S2IR0005",[form])
 ;     NIL
-; 
+;
 ;   badDoubles := CONS($QuotientField, '(Complex Polynomial Expression))
 ;   form is [T1, [T2, :.]] and T1 = T2 and member(T1, badDoubles) => NIL
-; 
+;
 ;   form is [=$QuotientField,D] and not isPartialMode(D) and
 ;     ofCategory(D,'(Field)) => NIL
 ;   form is ['UnivariatePolynomial, x, ['UnivariatePolynomial, y, .]] and x=y =>
@@ -118,7 +118,7 @@
 ;       categoryForm?(c) =>
 ;         evalCategory(x,MSUBSTQ(x,'_$,c)) and isValidType x
 ;       not (GETDATABASE(opOf x, 'CONSTRUCTORKIND) = 'domain)
- 
+
 (DEFUN |isValidType;| (|form|)
   (PROG (|selectors| |ISTMP#1| |type| |args| |mapargs| |badDoubles| T1
          |ISTMP#2| T2 D |x| |ISTMP#3| |ISTMP#4| |y| |ISTMP#5| |op| |argl|
@@ -354,10 +354,10 @@
             (SETQ |isValidType;AL| (MAKE_HASHTABLE 'UEQUAL))
             (|hashCount| |isValidType;AL|))))
 (EVAL-WHEN (EVAL LOAD) (SETQ |isValidType;AL| (MAKE_HASHTABLE 'UEQUAL)))
- 
+
 ; selectMms1(op,tar,args1,args2,$Coerce) ==
 ;     selectMms2(op,tar,args1,args2,$Coerce)
- 
+
 (DEFUN |selectMms1;| (|op| |tar| |args1| |args2| |$Coerce|)
   (DECLARE (SPECIAL |$Coerce|))
   (PROG () (RETURN (|selectMms2| |op| |tar| |args1| |args2| |$Coerce|))))
@@ -377,7 +377,7 @@
             (SETQ |selectMms1;AL| (MAKE_HASHTABLE 'UEQUAL))
             (|hashCount| |selectMms1;AL|))))
 (EVAL-WHEN (EVAL LOAD) (SETQ |selectMms1;AL| (MAKE_HASHTABLE 'UEQUAL)))
- 
+
 ; coerceConvertMmSelection(funName,m1,m2) ==
 ;   -- calls selectMms with $Coerce=NIL and tests for required
 ;   -- target type. funName is either 'coerce or 'convert.
@@ -388,7 +388,7 @@
 ;   mmS := [x for x in l | x is [sig,:.] and hasCorrectTarget(m2,sig) and
 ;            sig is [dc,targ,oarg] and isEqualOrSubDomain(m1,oarg)]
 ;   mmS and first mmS
- 
+
 (DEFUN |coerceConvertMmSelection;| (|funName| |m1| |m2|)
   (PROG (|$reportBottomUpFlag| |$declaredMode| |mmS| |oarg| |ISTMP#2| |targ|
          |ISTMP#1| |dc| |sig| |l|)
@@ -444,7 +444,7 @@
             (|hashCount| |coerceConvertMmSelection;AL|))))
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |coerceConvertMmSelection;AL| (MAKE_HASHTABLE 'UEQUAL)))
- 
+
 ; resolveTT(t1,t2) ==
 ;   -- resolves two types
 ;   -- this symmetric resolve looks for a type t to which both t1 and t2
@@ -459,7 +459,7 @@
 ;     t
 ;   stopTimingProcess 'resolve
 ;   nil
- 
+
 (DEFUN |resolveTT;| (|t1| |t2|)
   (PROG (|t|)
     (RETURN
@@ -485,7 +485,7 @@
             (SETQ |resolveTT;AL| (MAKE_HASHTABLE 'UEQUAL))
             (|hashCount| |resolveTT;AL|))))
 (EVAL-WHEN (EVAL LOAD) (SETQ |resolveTT;AL| (MAKE_HASHTABLE 'UEQUAL)))
- 
+
 ; isLegitimateMode(t,hasPolyMode,polyVarList) ==
 ;   -- returns true IFF t is a valid type.  i.e. if t has no repeated
 ;   --  variables, or two levels of Polynomial
@@ -493,14 +493,14 @@
 ;   t = $EmptyMode => true
 ;   STRINGP t     => true
 ;   ATOM t => false
-; 
+;
 ;   badDoubles := CONS($QuotientField, '(Complex Polynomial Expression))
 ;   t is [T1, [T2, :.]] and T1 = T2 and member(T1, badDoubles) => NIL
-; 
+;
 ;   t is [=$QuotientField,D] and not isPartialMode(D) and
 ;     ofCategory(D,'(Field)) => NIL
 ;   t = '(Complex (AlgebraicNumber)) => NIL
-; 
+;
 ;   vl := isPolynomialMode t =>
 ;     if vl~='all then
 ;       var:= or/[(x in polyVarList => x;nil) for x in vl] => return false
@@ -510,7 +510,7 @@
 ;     con := first t
 ;     poly? := (con = 'Polynomial or con = 'Expression)
 ;     isLegitimateMode(underDomainOf t,poly?,polyVarList)
-; 
+;
 ;   constructor? first t =>
 ;     isLegitimateMode(underDomainOf t,hasPolyMode,polyVarList) => t
 ;   t is ['Mapping,:ml] =>
@@ -534,7 +534,7 @@
 ;     ((# r) = (# REMDUP r)) => true
 ;     false
 ;   false
- 
+
 (DEFUN |isLegitimateMode;| (|t| |hasPolyMode| |polyVarList|)
   (PROG (|badDoubles| T1 |ISTMP#1| |ISTMP#2| T2 D |vl| |var| |con| |poly?| |ml|
          |r|)
@@ -685,7 +685,7 @@
             (SETQ |isLegitimateMode;AL| (MAKE_HASHTABLE 'UEQUAL))
             (|hashCount| |isLegitimateMode;AL|))))
 (EVAL-WHEN (EVAL LOAD) (SETQ |isLegitimateMode;AL| (MAKE_HASHTABLE 'UEQUAL)))
- 
+
 ; underDomainOf t ==
 ;   t = $RationalNumber => $Integer
 ;   not PAIRP t => NIL
@@ -693,7 +693,7 @@
 ;   1 = #d => NIL
 ;   u := getUnderModeOf(t) => u
 ;   last d
- 
+
 (DEFUN |underDomainOf;| (|t|)
   (PROG (|d| |u|)
     (RETURN
@@ -721,9 +721,9 @@
             (SETQ |underDomainOf;AL| (MAKE_HASHTABLE 'UEQUAL))
             (|hashCount| |underDomainOf;AL|))))
 (EVAL-WHEN (EVAL LOAD) (SETQ |underDomainOf;AL| (MAKE_HASHTABLE 'UEQUAL)))
- 
+
 ; findRetractMms(st, tt) == findRetractMms1(st, tt)
- 
+
 (DEFUN |findRetractMms;| (|st| |tt|)
   (PROG () (RETURN (|findRetractMms1| |st| |tt|))))
 (DEFUN |findRetractMms| (&REST |bfVar#41|)
@@ -743,10 +743,10 @@
             (SETQ |findRetractMms;AL| (MAKE_HASHTABLE 'UEQUAL))
             (|hashCount| |findRetractMms;AL|))))
 (EVAL-WHEN (EVAL LOAD) (SETQ |findRetractMms;AL| (MAKE_HASHTABLE 'UEQUAL)))
- 
+
 ; getConstantFromDomain(form,domainForm) ==
 ;     getConstantFromDomain1(form,domainForm)
- 
+
 (DEFUN |getConstantFromDomain;| (|form| |domainForm|)
   (PROG () (RETURN (|getConstantFromDomain1| |form| |domainForm|))))
 (DEFUN |getConstantFromDomain| (&REST |bfVar#43|)
@@ -767,11 +767,11 @@
             (|hashCount| |getConstantFromDomain;AL|))))
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |getConstantFromDomain;AL| (MAKE_HASHTABLE 'UEQUAL)))
- 
+
 ; interpLookup(funName, sig, dc) ==
 ;     dcVector:= evalDomain dc
 ;     NRTcompiledLookup(funName, sig, dcVector)
- 
+
 (DEFUN |interpLookup;| (|funName| |sig| |dc|)
   (PROG (|dcVector|)
     (RETURN

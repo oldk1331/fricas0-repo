@@ -1,69 +1,69 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; $stripTypes := false
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$stripTypes| NIL))
- 
+
 ; $pretendFlag := false
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$pretendFlag| NIL))
- 
+
 ; $modemapArgs := nil
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$modemapArgs| NIL))
- 
+
 ; $augmentedArgs := nil
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$augmentedArgs| NIL))
- 
+
 ; $defaultFlag := false
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$defaultFlag| NIL))
- 
+
 ; $baseForms := nil
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$baseForms| NIL))
- 
+
 ; $literals  := nil
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$literals| NIL))
- 
+
 ; spad2AxTranslatorAutoloadOnceTrigger any == true
- 
+
 (DEFUN |spad2AxTranslatorAutoloadOnceTrigger| (|any|) (PROG () (RETURN T)))
- 
+
 ; $foreignTag := 'Foreign
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$foreignTag| '|Foreign|))
- 
+
 ; setForeignStyle(tag) ==
 ;     $foreignTag := tag
- 
+
 (DEFUN |setForeignStyle| (|tag|) (PROG () (RETURN (SETQ |$foreignTag| |tag|))))
- 
+
 ; $conditionalCast := true
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$conditionalCast| T))
- 
+
 ; setConditionalCast(flg) ==
 ;     $conditionalCast := flg
- 
+
 (DEFUN |setConditionalCast| (|flg|)
   (PROG () (RETURN (SETQ |$conditionalCast| |flg|))))
- 
+
 ; $extendedDomains := nil
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$extendedDomains| NIL))
- 
+
 ; setExtendedDomains(l) ==
 ;         $extendedDomains := l
- 
+
 (DEFUN |setExtendedDomains| (|l|)
   (PROG () (RETURN (SETQ |$extendedDomains| |l|))))
- 
+
 ; makeAxExportForm(filename, constructors) ==
 ;   $defaultFlag : local := false
 ;   $literals := []
@@ -86,7 +86,7 @@
 ;   axForm := ['Sequence, _
 ;                ['Import, [], 'FriCASLib], ['Import, [], 'Boolean], :axForms]
 ;   axForm
- 
+
 (DEFUN |makeAxExportForm| (|filename| |constructors|)
   (PROG (|$defaultFlag| |axForm| |axForms| |modemap|)
     (DECLARE (SPECIAL |$defaultFlag|))
@@ -124,24 +124,24 @@
                     (CONS (LIST '|Import| NIL '|FriCASLib|)
                           (CONS (LIST '|Import| NIL '|Boolean|) |axForms|))))
       |axForm|))))
- 
+
 ; stripType type ==
 ;   $stripTypes =>
 ;      categoryForm? type => 'Type
 ;      type
 ;   type
- 
+
 (DEFUN |stripType| (|type|)
   (PROG ()
     (RETURN
      (COND
       (|$stripTypes| (COND ((|categoryForm?| |type|) '|Type|) (#1='T |type|)))
       (#1# |type|)))))
- 
+
 ; modemapToAx(modemap) ==
 ;   modemap is [[consform, target,:argtypes],.]
 ;   consform is [constructor,:args]
-; 
+;
 ;   -- Category forms show |t#i| instead of |#i|. In atypes |t#i| is replaced
 ;   -- by |#i|.
 ;   atypes := if categoryForm? consform then
@@ -149,7 +149,7 @@
 ;     else
 ;       argtypes
 ;   $modemapArgs : local := [cons(a,t) for a in args for t in atypes]
-; 
+;
 ;   argdecls:=['Comma, : [axFormatDecl(a, stripType t) for a in args for t in argtypes]]
 ;   resultType :=  axFormatType stripType target
 ;   categoryForm? constructor =>
@@ -192,7 +192,7 @@
 ; --     exportargs := [['Export, [], arg, []] for arg in args for p in cosigs | p]
 ; --     resultType := ['With,a,['Sequence,:APPEND(exportargs, withseq)]]
 ;   ['Export, ['Declare, constructor, ['Apply, "->", optcomma argdecls, resultType]],[],[]]
- 
+
 (DEFUN |modemapToAx| (|modemap|)
   (PROG (|$modemapArgs| |consdef| |rtype| |conscat| |categoryInfo| |resultType|
          |argdecls| |atypes| |args| |constructor| |ISTMP#3| |argtypes| |target|
@@ -319,11 +319,11 @@
               (LIST '|Declare| |constructor|
                     (LIST '|Apply| '-> (|optcomma| |argdecls|) |resultType|))
               NIL NIL)))))))
- 
+
 ; optcomma [op,:args] ==
 ;    # args = 1 => first args
 ;    [op,:args]
- 
+
 (DEFUN |optcomma| (|bfVar#9|)
   (PROG (|op| |args|)
     (RETURN
@@ -331,33 +331,33 @@
       (SETQ |op| (CAR |bfVar#9|))
       (SETQ |args| (CDR |bfVar#9|))
       (COND ((EQL (LENGTH |args|) 1) (CAR |args|)) ('T (CONS |op| |args|)))))))
- 
+
 ; axFormatDecl(sym, type) ==
 ;    if sym = '$ then sym := '%
 ;    ['Declare, sym, axFormatType type]
- 
+
 (DEFUN |axFormatDecl| (|sym| |type|)
   (PROG ()
     (RETURN
      (PROGN
       (COND ((EQ |sym| '$) (SETQ |sym| '%)))
       (LIST '|Declare| |sym| (|axFormatType| |type|))))))
- 
+
 ; makeTypeSequence l ==
 ;    ['Sequence,: delete('Type, l)]
- 
+
 (DEFUN |makeTypeSequence| (|l|)
   (PROG () (RETURN (CONS '|Sequence| (|delete| '|Type| |l|)))))
- 
+
 ; axFormatAttrib(typeform) ==
 ;   atom typeform => typeform
 ;   axFormatType typeform
- 
+
 (DEFUN |axFormatAttrib| (|typeform|)
   (PROG ()
     (RETURN
      (COND ((ATOM |typeform|) |typeform|) ('T (|axFormatType| |typeform|))))))
- 
+
 ; axFormatType(typeform) ==
 ;   atom typeform =>
 ;      typeform = '$ => '%
@@ -440,7 +440,7 @@
 ;                      :[axFormatType a for a in rest args]]
 ;       ['Apply, op, :[axFormatType a for a in args]]
 ;   error "unknown entry type"
- 
+
 (DEFUN |axFormatType| (|typeform|)
   (PROG (|args| |op| |ISTMP#1| |val| |ISTMP#2| |lastcat| |cats| |type| |ops|
          |target| |argtypes| |name| |ISTMP#3| |taglist| |valueCount| |tag| |xx|
@@ -836,13 +836,13 @@
                          (SETQ |bfVar#34| (CDR |bfVar#34|))))
                       NIL |args| NIL))))))
       (#1# (|error| '|unknown entry type|))))))
- 
+
 ; pretendTo(a, t) == ['PretendTo, axFormatType a, axFormatType t]
- 
+
 (DEFUN |pretendTo| (|a| |t|)
   (PROG ()
     (RETURN (LIST '|PretendTo| (|axFormatType| |a|) (|axFormatType| |t|)))))
- 
+
 ; augmentTo(a, t) ==
 ;   not $conditionalCast => axFormatType a
 ;   a = '$ => pretendTo(a, t)
@@ -852,7 +852,7 @@
 ;   not(null(kv := ASSOC(a, $modemapArgs))) =>
 ;       ['PretendTo, ax, axFormatType rest kv]
 ;   ax
- 
+
 (DEFUN |augmentTo| (|a| |t|)
   (PROG (|ax| |kv|)
     (RETURN
@@ -868,7 +868,7 @@
               ((NULL (NULL (SETQ |kv| (ASSOC |a| |$modemapArgs|))))
                (LIST '|PretendTo| |ax| (|axFormatType| (CDR |kv|))))
               (#1# |ax|))))))))
- 
+
 ; formatAugmentedType(v, a, augargs) ==
 ;   $augmentedArgs:local := deleteFirstPred(a, augargs)
 ;   axFormattedPred := axFormatPred first v
@@ -878,7 +878,7 @@
 ;     first c = 'ignore => augtype
 ;     ['With, ['Apply, 'Join, augtype, axFormatType first c], []]
 ;   ['With, ['Apply, 'Join, augtype, formatAugmentedType(c, a, $augmentedArgs)], []]
- 
+
 (DEFUN |formatAugmentedType| (|v| |a| |augargs|)
   (PROG (|$augmentedArgs| |c| |augtype| |ISTMP#4| |arg| |ISTMP#3| |ISTMP#2|
          |ISTMP#1| |axFormattedPred|)
@@ -918,9 +918,9 @@
               (LIST '|Apply| '|Join| |augtype|
                     (|formatAugmentedType| |c| |a| |$augmentedArgs|))
               NIL)))))))
- 
+
 ; axFormatOpList ops == ['Sequence,:[axFormatOp o for o in ops]]
- 
+
 (DEFUN |axFormatOpList| (|ops|)
   (PROG ()
     (RETURN
@@ -933,7 +933,7 @@
                 ('T (SETQ |bfVar#37| (CONS (|axFormatOp| |o|) |bfVar#37|))))
                (SETQ |bfVar#36| (CDR |bfVar#36|))))
             NIL |ops| NIL)))))
- 
+
 ; axOpTran(name) ==
 ;    ATOM name =>
 ;       name = 'elt => 'apply
@@ -945,7 +945,7 @@
 ;    opOf name = 'Zero => '_0
 ;    opOf name = 'One => '_1
 ;    error "bad op name"
- 
+
 (DEFUN |axOpTran| (|name|)
   (PROG ()
     (RETURN
@@ -956,12 +956,12 @@
              ((EQL |name| 0) '|0|) (#1='T |name|)))
       ((EQ (|opOf| |name|) '|Zero|) '|0|) ((EQ (|opOf| |name|) '|One|) '|1|)
       (#1# (|error| '|bad op name|))))))
- 
+
 ; axFormatOpSig(name, [result,:argtypes]) ==
 ;    ['Declare, axOpTran name,
 ;          ['Apply, "->", ['Comma, :[axFormatType t for t in argtypes]],
 ;                         axFormatType result]]
- 
+
 (DEFUN |axFormatOpSig| (|name| |bfVar#40|)
   (PROG (|result| |argtypes|)
     (RETURN
@@ -983,17 +983,17 @@
                             (SETQ |bfVar#38| (CDR |bfVar#38|))))
                          NIL |argtypes| NIL))
                   (|axFormatType| |result|)))))))
- 
+
 ; axFormatConstantOp(name, [result]) ==
 ;    ['Declare, axOpTran name, axFormatType result]
- 
+
 (DEFUN |axFormatConstantOp| (|name| |bfVar#41|)
   (PROG (|result|)
     (RETURN
      (PROGN
       (SETQ |result| (CAR |bfVar#41|))
       (LIST '|Declare| (|axOpTran| |name|) (|axFormatType| |result|))))))
- 
+
 ; axFormatPred pred ==
 ;    atom pred => pred
 ;    [op,:args] := pred
@@ -1014,7 +1014,7 @@
 ;    op = 'NOT => ['Not,:axArglist]
 ;    op = 'not => ['Not,:axArglist]
 ;    error LIST("unknown predicate", pred)
- 
+
 (DEFUN |axFormatPred| (|pred|)
   (PROG (|op| |args| |name| |type| |ftype| |axArglist|)
     (RETURN
@@ -1061,7 +1061,7 @@
                            (#1#
                             (|error|
                              (LIST '|unknown predicate| |pred|)))))))))))))
- 
+
 ; axFormatAugmentOp(op, axFormattedPred, pred, augargs) ==
 ;   if axFormattedPred is ['Test, ['Has, arg, augtype]] then
 ;       -- Find arg in augargs or in $modemapArgs.
@@ -1088,7 +1088,7 @@
 ;           $augmentedArgs:local := [[arg, pred, :v], :delete(kv, augargs)]
 ;   -- Now $augmentedArgs is set correctly and we pass it to axFormatOp.
 ;   axFormatOp op
- 
+
 (DEFUN |axFormatAugmentOp| (|op| |axFormattedPred| |pred| |augargs|)
   (PROG (|$augmentedArgs| |v| |kv| |augtype| |ISTMP#4| |arg| |ISTMP#3|
          |ISTMP#2| |ISTMP#1|)
@@ -1130,7 +1130,7 @@
                   (CONS (CONS |arg| (CONS |pred| |v|))
                         (|delete| |kv| |augargs|)))))))
       (|axFormatOp| |op|)))))
- 
+
 ; deleteFirstPred(key, assoclist) ==
 ;   null assoclist => assoclist
 ;   assoclist is [kv, :t]
@@ -1140,7 +1140,7 @@
 ;       null cdr v => t
 ;       [[k, :v], :t]
 ;   [kv, :deleteFirstPred(key, t)]
- 
+
 (DEFUN |deleteFirstPred| (|key| |assoclist|)
   (PROG (|kv| |t| |k| |ISTMP#1| |pred| |v|)
     (RETURN
@@ -1166,7 +1166,7 @@
                (COND ((NULL |v|) |t|) ((NULL (CDR |v|)) |t|)
                      (#1# (CONS (CONS |k| |v|) |t|))))
               (#1# (CONS |kv| (|deleteFirstPred| |key| |t|))))))))))
- 
+
 ; axFormatOp op ==
 ;    op is ['IF, pred, trueops, falseops] =>
 ;       -- ops are either single op or ['PROGN, ops]
@@ -1191,7 +1191,7 @@
 ;    op is ['PROGN, :ops] => axFormatOpList ops
 ;    op is 'noBranch => []
 ;    axFormatType op
- 
+
 (DEFUN |axFormatOp| (|op|)
   (PROG (|ISTMP#1| |pred| |ISTMP#2| |trueops| |ISTMP#3| |falseops|
          |axFormattedPred| |name| |type| |attributeOrCategory| |ops|)
@@ -1262,7 +1262,7 @@
             (PROGN (SETQ |ops| (CDR |op|)) #1#))
        (|axFormatOpList| |ops|))
       ((EQ |op| '|noBranch|) NIL) (#1# (|axFormatType| |op|))))))
- 
+
 ; addDefaults(catname, withform) ==
 ;   withform isnt ['With, joins, ['Sequence,: oplist]] =>
 ;      error "bad category body"
@@ -1270,7 +1270,7 @@
 ;   defaultdefs := [decl for decl in defaults]
 ;   ['With, joins,
 ;      ['Sequence, :oplist, ['Default, ['Sequence,: defaultdefs]]]]
- 
+
 (DEFUN |addDefaults| (|catname| |withform|)
   (PROG (|ISTMP#1| |joins| |ISTMP#2| |ISTMP#3| |oplist| |defaults|
          |defaultdefs|)
@@ -1312,7 +1312,7 @@
                             (CONS
                              (LIST '|Default| (CONS '|Sequence| |defaultdefs|))
                              NIL))))))))))
- 
+
 ; makeDefaultDef(decl) ==
 ;   decl isnt ['Declare, op, type] =>
 ;        error LIST("bad default definition", decl)
@@ -1321,7 +1321,7 @@
 ;        ['Define, decl, ['Lambda, makeDefaultArgs args, result,
 ;                     ['Label, op, 'dummyDefault]]]
 ;   ['Define, ['Declare, op, type], 'dummyDefault]
- 
+
 (DEFUN |makeDefaultDef| (|decl|)
   (PROG (|ISTMP#1| |op| |ISTMP#2| |type| |args| |ISTMP#3| |result|)
     (RETURN
@@ -1360,11 +1360,11 @@
                       (LIST '|Label| |op| '|dummyDefault|))))
          (#1#
           (LIST '|Define| (LIST '|Declare| |op| |type|) '|dummyDefault|)))))))))
- 
+
 ; makeDefaultArgs args ==
 ;   args isnt ['Comma,:argl] => error "bad default argument list"
 ;   ['Comma,: [['Declare,v,t] for v in $TriangleVariableList for t in argl]]
- 
+
 (DEFUN |makeDefaultArgs| (|args|)
   (PROG (|argl|)
     (RETURN
@@ -1389,7 +1389,7 @@
                  (SETQ |bfVar#46| (CDR |bfVar#46|))
                  (SETQ |bfVar#47| (CDR |bfVar#47|))))
               NIL |$TriangleVariableList| NIL |argl| NIL)))))))
- 
+
 ; getDefaultingOps catname ==
 ;   not(name:=hasDefaultPackage catname) => nil
 ;   $infovec: local := getInfovec name
@@ -1409,7 +1409,7 @@
 ;   catops := GETDATABASE(catname, 'OPERATIONALIST)
 ;   catdefops := GETDATABASE(name, 'OPERATIONALIST)
 ;   [axFormatDefaultOpSig(op,sig,catops,catdefops) for opsig in $opList | opsig is [op,sig]]
- 
+
 (DEFUN |getDefaultingOps| (|catname|)
   (PROG (|$pretendFlag| |$opList| |$infovec| |sig| |ISTMP#1| |catdefops|
          |catops| |curIndex| |stopIndex| |startIndex| |op| |opTable| |name|)
@@ -1468,7 +1468,7 @@
                                  |bfVar#51|)))))
                  (SETQ |bfVar#50| (CDR |bfVar#50|))))
               NIL |$opList| NIL)))))))
- 
+
 ; axFormatDefaultOpSig(op, sig, catops,catdefops) ==
 ;   defsigs := LASSOC(op, catdefops)
 ;   --nsig := sig -- substitute('$, '($), sig) -- dcSig listifies '$ ??
@@ -1483,7 +1483,7 @@
 ;     (catsig := assoc(nsig2, catsigs)) and last(catsig) = 'CONST =>
 ;        axFormatCond(cond, makeDefaultDef(axFormatConstantOp(op, sig)))
 ;   axFormatCond(cond, makeDefaultDef(axFormatOpSig(op, sig)))
- 
+
 (DEFUN |axFormatDefaultOpSig| (|op| |sig| |catops| |catdefops|)
   (PROG (|defsigs| |catsigs| |nsig2| |theOp| |cond| |catsig|)
     (RETURN
@@ -1505,14 +1505,14 @@
        ('T
         (|axFormatCond| |cond|
          (|makeDefaultDef| (|axFormatOpSig| |op| |sig|)))))))))
- 
+
 ; axCatSignature(sig) ==
 ;     ATOM sig => sig
 ;     sig = '($) => '$
 ;     CAR(sig) = "local" => CADR(sig)
 ;     CAR(sig) = "QUOTE" => CADR(sig)
 ;     [axCatSignature elt for elt in sig]
- 
+
 (DEFUN |axCatSignature| (|sig|)
   (PROG ()
     (RETURN
@@ -1531,16 +1531,16 @@
                           (CONS (|axCatSignature| |elt|) |bfVar#53|))))
                 (SETQ |bfVar#52| (CDR |bfVar#52|))))
              NIL |sig| NIL))))))
- 
+
 ; axFormatCond(cond, inner) ==
 ;   NOT cond => inner
 ;   ['If, cond, inner, []]
- 
+
 (DEFUN |axFormatCond| (|cond| |inner|)
   (PROG ()
     (RETURN
      (COND ((NULL |cond|) |inner|) ('T (LIST '|If| |cond| |inner| NIL))))))
- 
+
 ; get1defaultOp(op,index) ==
 ;   numvec := getCodeVector()
 ;   segment := getOpSegment index
@@ -1558,7 +1558,7 @@
 ;   if not([op,signumList] in $opList) then
 ;      $opList := [[op,signumList],:$opList]
 ;   index + 1
- 
+
 (DEFUN |get1defaultOp| (|op| |index|)
   (PROG (|numvec| |segment| |numOfArgs| |predNumber| |signumList| |slotNumber|)
     (RETURN
@@ -1579,12 +1579,12 @@
        ((NULL (|member| (LIST |op| |signumList|) |$opList|))
         (SETQ |$opList| (CONS (LIST |op| |signumList|) |$opList|))))
       (+ |index| 1)))))
- 
+
 ; axAddLiteral(name, type, dom) ==
 ;   elt := [name, type, dom]
 ;   if not member( elt, $literals) then
 ;      $literals := [elt, :$literals]
- 
+
 (DEFUN |axAddLiteral| (|name| |type| |dom|)
   (PROG (|elt|)
     (RETURN
@@ -1593,13 +1593,13 @@
       (COND
        ((NULL (|member| |elt| |$literals|))
         (SETQ |$literals| (CONS |elt| |$literals|))))))))
- 
+
 ; axDoLiterals() ==
 ;   [ [ 'Import,
 ;           [ 'With, [],
 ;             ['Declare, name, [ 'Apply, '_-_> , dom , '_% ]]],
 ;                  type ] for [name, type, dom] in $literals]
- 
+
 (DEFUN |axDoLiterals| ()
   (PROG (|dom| |ISTMP#2| |type| |ISTMP#1| |name|)
     (RETURN

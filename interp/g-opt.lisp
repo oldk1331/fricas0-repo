@@ -1,21 +1,21 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; optimizeFunctionDef(def) ==
 ;   if $reportOptimization then
 ;     sayBrightlyI bright '"Original LISP code:"
 ;     pp def
-; 
+;
 ;   def' := optimize COPY def
-; 
+;
 ;   if $reportOptimization then
 ;     sayBrightlyI bright '"Optimized LISP code:"
 ;     pp def'
 ;     sayBrightlyI bright '"Final LISP code:"
 ;   [name,[slamOrLam,args,body]] := def'
-; 
+;
 ;   body':=
 ;     removeTopLevelCatch body where
 ;       removeTopLevelCatch body ==
@@ -33,7 +33,7 @@
 ;         replaceThrowByReturn(first x,g)
 ;         replaceThrowByReturn(rest x,g)
 ;   [name,[slamOrLam,args,body']]
- 
+
 (DEFUN |optimizeFunctionDef| (|def|)
   (PROG (|def'| |name| |slamOrLam| |args| |body| |body'|)
     (RETURN
@@ -88,11 +88,11 @@
        (PROGN
         (|optimizeFunctionDef,replaceThrowByReturn| (CAR |x|) |g|)
         (|optimizeFunctionDef,replaceThrowByReturn| (CDR |x|) |g|)))))))
- 
+
 ; lispize x == first optimize [x]
- 
+
 (DEFUN |lispize| (|x|) (PROG () (RETURN (CAR (|optimize| (LIST |x|))))))
- 
+
 ; optimize x ==
 ;   (opt x; x) where
 ;     opt x ==
@@ -115,7 +115,7 @@
 ;         (optimize rest x; rplac(first x, FUNCALL(op, optimize first x)))
 ;       rplac(first x, optimize first x)
 ;       optimize rest x
- 
+
 (DEFUN |optimize| (|x|) (PROG () (RETURN (PROGN (|optimize,opt| |x|) |x|))))
 (DEFUN |optimize,opt| (|x|)
   (PROG (|y| |ISTMP#1| |ISTMP#2| |argl| |ISTMP#3| |body| |a| |op|)
@@ -169,13 +169,13 @@
                (PROGN
                 (|rplac| (CAR |x|) (|optimize| (CAR |x|)))
                 (|optimize| (CDR |x|)))))))))))
- 
+
 ; subrname u ==
 ;   IDENTP u => u
 ;   nil
- 
+
 (DEFUN |subrname| (|u|) (PROG () (RETURN (COND ((IDENTP |u|) |u|) ('T NIL)))))
- 
+
 ; optCatch (x is ["CATCH",g,a]) ==
 ;   $InteractiveMode => x
 ;   atom a => a
@@ -208,7 +208,7 @@
 ;     rplac(first x,"SEQ")
 ;     rplac(rest x, [["EXIT",a], CADR g, ["EXIT", val_sym]])
 ;   x
- 
+
 (DEFUN |optCatch| (|x|)
   (PROG (|g| |a| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |ISTMP#5| |u| |s|
          |LETTMP#1| |y| |val_sym|)
@@ -304,7 +304,7 @@
             (PROGN
              (|optCatch,changeThrowToExit| (CAR |s|) |g|)
              (|optCatch,changeThrowToExit| (CDR |s|) |g|)))))))
- 
+
 ; optSPADCALL(form is ['SPADCALL,:argl]) ==
 ;   null $InteractiveMode => form
 ;   -- last arg is function/env, but may be a form
@@ -313,7 +313,7 @@
 ;       optCall ['call,['ELT,dom,slot],:argl]
 ;     form
 ;   form
- 
+
 (DEFUN |optSPADCALL| (|form|)
   (PROG (|argl| |ISTMP#1| |fun| |dom| |ISTMP#2| |slot|)
     (RETURN
@@ -342,7 +342,7 @@
                 (CONS '|call| (CONS (LIST 'ELT |dom| |slot|) |argl|))))
               (#1# |form|)))
             (#1# |form|))))))
- 
+
 ; optCall (x is ["call",:u]) ==
 ;   -- destructively optimizes this new x
 ;   x:= optimize [u]
@@ -363,7 +363,7 @@
 ;     rplac(rest x, [:a, fn])
 ;     x
 ;   systemErrorHere '"optCall"
- 
+
 (DEFUN |optCall| (|x|)
   (PROG (|u| |LETTMP#1| |fn| |a| |ISTMP#1| |name| |q| R |ISTMP#2| |n| |w|)
     (RETURN
@@ -411,11 +411,11 @@
                    (|rplac| (CDR |x|) (APPEND |a| (CONS |fn| NIL)))
                    |x|))))
                (#1# (|systemErrorHere| "optCall"))))))))))
- 
+
 ; optCallSpecially(q,x,n,R) ==
 ;     MEMQ(IFCAR R, $optimizableConstructorNames) => optSpecialCall(x, R, n)
 ;     nil
- 
+
 (DEFUN |optCallSpecially| (|q| |x| |n| R)
   (PROG ()
     (RETURN
@@ -423,7 +423,7 @@
       ((MEMQ (IFCAR R) |$optimizableConstructorNames|)
        (|optSpecialCall| |x| R |n|))
       ('T NIL)))))
- 
+
 ; optCallEval u ==
 ;   -- Integer() is a lie, but otherwise we could not evaluate
 ;   -- needed domains
@@ -434,7 +434,7 @@
 ;   u is ["Matrix", :.] => Matrix Integer()
 ;   u is ["TwoDimensionalArray", :.] => TwoDimensionalArray Integer()
 ;   eval u
- 
+
 (DEFUN |optCallEval| (|u|)
   (PROG ()
     (RETURN
@@ -448,7 +448,7 @@
            ((AND (CONSP |u|) (EQ (CAR |u|) '|TwoDimensionalArray|))
             (|TwoDimensionalArray| (|Integer|)))
            ('T (|eval| |u|))))))
- 
+
 ; optCons (x is ["CONS",a,b]) ==
 ;   a="NIL" =>
 ;     b='NIL => (rplac(first x,'QUOTE); rplac(rest x,['NIL,:'NIL]); x)
@@ -459,7 +459,7 @@
 ;     b is ['QUOTE,:c] => (rplac(first x,'QUOTE); rplac(rest x,[a',:c]); x)
 ;     x
 ;   x
- 
+
 (DEFUN |optCons| (|x|)
   (PROG (|a| |b| |c| |ISTMP#1| |a'|)
     (RETURN
@@ -500,7 +500,7 @@
            |x|))
          (#2# |x|)))
        (#2# |x|))))))
- 
+
 ; optSpecialCall(x,y,n) ==
 ;   yval := optCallEval y
 ;   CAAAR x="CONST" =>
@@ -518,7 +518,7 @@
 ;   if $QuickCode then RPLACA(fn,"QREFELT")
 ;   rplac(rest x, [:a, fn])
 ;   x
- 
+
 (DEFUN |optSpecialCall| (|x| |y| |n|)
   (PROG (|yval| |fn| |LETTMP#1| |a|)
     (RETURN
@@ -550,12 +550,12 @@
          (COND (|$QuickCode| (RPLACA |fn| 'QREFELT)))
          (|rplac| (CDR |x|) (APPEND |a| (CONS |fn| NIL)))
          |x|)))))))
- 
+
 ; compileTimeBindingOf u ==
 ;   NULL(name:= BPINAME u)  => keyedSystemError("S2OO0001",[u])
 ;   name="Undef" => MOAN "optimiser found unknown function"
 ;   name
- 
+
 (DEFUN |compileTimeBindingOf| (|u|)
   (PROG (|name|)
     (RETURN
@@ -564,12 +564,12 @@
        (|keyedSystemError| 'S2OO0001 (LIST |u|)))
       ((EQ |name| '|Undef|) (MOAN '|optimiser found unknown function|))
       ('T |name|)))))
- 
+
 ; optMkRecord ["mkRecord",:u] ==
 ;   u is [x] => ["LIST",x]
 ;   #u=2 => ["CONS",:u]
 ;   ["VECTOR",:u]
- 
+
 (DEFUN |optMkRecord| (|bfVar#1|)
   (PROG (|u| |x|)
     (RETURN
@@ -579,7 +579,7 @@
        ((AND (CONSP |u|) (EQ (CDR |u|) NIL) (PROGN (SETQ |x| (CAR |u|)) #1='T))
         (LIST 'LIST |x|))
        ((EQL (LENGTH |u|) 2) (CONS 'CONS |u|)) (#1# (CONS 'VECTOR |u|)))))))
- 
+
 ; optCond (x is ['COND,:l]) ==
 ;   if l is [a,[aa,b]] and TruthP aa and b is ["COND",:c] then
 ;     RPLACD(rest x,c)
@@ -601,7 +601,7 @@
 ;       rplac(first first y, a)
 ;       rplac(rest y, y')
 ;   x
- 
+
 (DEFUN |optCond| (|x|)
   (PROG (|l| |a| |ISTMP#1| |ISTMP#2| |aa| |ISTMP#3| |b| |c| |p1| |c1| |p2| |c2|
          |p1'| |p2'| |ISTMP#4| |ISTMP#5| |p3| |c3| |a1| |a2| |y'|)
@@ -755,7 +755,7 @@
              (SETQ |y| (CDR |y|))))
           |l|)
          |x|)))))))
- 
+
 ; EqualBarGensym(x,y) ==
 ;   $GensymAssoc: fluid := nil
 ;   fn(x,y) where
@@ -769,7 +769,7 @@
 ;       null y => x is [g] and GENSYMP g
 ;       atom x or atom y => false
 ;       fn(first x,first y) and fn(rest x,rest y)
- 
+
 (DEFUN |EqualBarGensym| (|x| |y|)
   (PROG (|$GensymAssoc|)
     (DECLARE (SPECIAL |$GensymAssoc|))
@@ -796,14 +796,14 @@
            (#1#
             (AND (|EqualBarGensym,fn| (CAR |x|) (CAR |y|))
                  (|EqualBarGensym,fn| (CDR |x|) (CDR |y|))))))))
- 
+
 ; optIF2COND ["IF",a,b,c] ==
 ;   b is "noBranch" => ["COND",[["NULL",a],c]]
 ;   c is "noBranch" => ["COND",[a,b]]
 ;   c is ["IF",:.] => ["COND",[a,b],:rest optIF2COND c]
 ;   c is ["COND",:p] => ["COND",[a,b],:p]
 ;   ["COND",[a,b],[$true,c]]
- 
+
 (DEFUN |optIF2COND| (|bfVar#2|)
   (PROG (|a| |b| |c| |p|)
     (RETURN
@@ -819,7 +819,7 @@
                   (PROGN (SETQ |p| (CDR |c|)) #2='T))
              (CONS 'COND (CONS (LIST |a| |b|) |p|)))
             (#2# (LIST 'COND (LIST |a| |b|) (LIST |$true| |c|))))))))
- 
+
 ; optXLAMCond x ==
 ;   x is ["COND",u:= [p,c],:l] =>
 ;     (optPredicateIfTrue p => c; ["COND",u,:optCONDtail l])
@@ -827,7 +827,7 @@
 ;   rplac(first x, optXLAMCond first x)
 ;   rplac(rest x, optXLAMCond rest x)
 ;   x
- 
+
 (DEFUN |optXLAMCond| (|x|)
   (PROG (|ISTMP#1| |ISTMP#2| |p| |ISTMP#3| |c| |u| |l|)
     (RETURN
@@ -854,12 +854,12 @@
         (|rplac| (CAR |x|) (|optXLAMCond| (CAR |x|)))
         (|rplac| (CDR |x|) (|optXLAMCond| (CDR |x|)))
         |x|))))))
- 
+
 ; optPredicateIfTrue p ==
 ;   p is ['QUOTE,:.] => true
 ;   p is [fn,x] and MEMQ(fn,$BasicPredicates) and FUNCALL(fn,x) => true
 ;   nil
- 
+
 (DEFUN |optPredicateIfTrue| (|p|)
   (PROG (|fn| |ISTMP#1| |x|)
     (RETURN
@@ -873,14 +873,14 @@
                  (MEMQ |fn| |$BasicPredicates|) (FUNCALL |fn| |x|))
             T)
            (#1# NIL)))))
- 
+
 ; optCONDtail l ==
 ;   null l => nil
 ;   [frst:= [p,c],:l']:= l
 ;   optPredicateIfTrue p => [[$true,c]]
 ;   null rest l => [frst,[$true,["CondError"]]]
 ;   [frst,:optCONDtail l']
- 
+
 (DEFUN |optCONDtail| (|l|)
   (PROG (|frst| |p| |c| |l'|)
     (RETURN
@@ -895,7 +895,7 @@
                    ((NULL (CDR |l|))
                     (LIST |frst| (LIST |$true| (LIST '|CondError|))))
                    (#1# (CONS |frst| (|optCONDtail| |l'|))))))))))
- 
+
 ; optSEQ ["SEQ",:l] ==
 ;   tryToRemoveSEQ SEQToCOND getRidOfTemps l where
 ;     getRidOfTemps l ==
@@ -915,7 +915,7 @@
 ;     tryToRemoveSEQ l ==
 ;       l is ["SEQ",[op,a]] and MEMQ(op,'(EXIT RETURN THROW)) => a
 ;       l
- 
+
 (DEFUN |optSEQ| (|bfVar#5|)
   (PROG (|l|)
     (RETURN
@@ -1019,7 +1019,7 @@
             (MEMQ |op| '(EXIT RETURN THROW)))
        |a|)
       (#1# |l|)))))
- 
+
 ; optRECORDELT ["RECORDELT",name,ind,len] ==
 ;   len=1 =>
 ;     ind=0 => ["QCAR",name]
@@ -1029,7 +1029,7 @@
 ;     ind=1 => ["QCDR",name]
 ;     keyedSystemError("S2OO0002",[ind])
 ;   ["QVELT",name,ind]
- 
+
 (DEFUN |optRECORDELT| (|bfVar#6|)
   (PROG (|name| |ind| |len|)
     (RETURN
@@ -1046,7 +1046,7 @@
               ((EQL |ind| 1) (LIST 'QCDR |name|))
               (#2# (|keyedSystemError| 'S2OO0002 (LIST |ind|)))))
        (#2# (LIST 'QVELT |name| |ind|)))))))
- 
+
 ; optSETRECORDELT ["SETRECORDELT",name,ind,len,expr] ==
 ;   len=1 =>
 ;     ind=0 => ["PROGN",["RPLACA",name,expr],["QCAR",name]]
@@ -1056,7 +1056,7 @@
 ;     ind=1 => ["PROGN",["RPLACD",name,expr],["QCDR",name]]
 ;     keyedSystemError("S2OO0002",[ind])
 ;   ["QSETVELT",name,ind,expr]
- 
+
 (DEFUN |optSETRECORDELT| (|bfVar#7|)
   (PROG (|name| |ind| |len| |expr|)
     (RETURN
@@ -1079,12 +1079,12 @@
           (LIST 'PROGN (LIST 'RPLACD |name| |expr|) (LIST 'QCDR |name|)))
          (#2# (|keyedSystemError| 'S2OO0002 (LIST |ind|)))))
        (#2# (LIST 'QSETVELT |name| |ind| |expr|)))))))
- 
+
 ; optRECORDCOPY ["RECORDCOPY",name,len] ==
 ;   len=1 => ["LIST",["CAR",name]]
 ;   len=2 => ["CONS",["CAR",name],["CDR",name]]
 ;   ["MOVEVEC", ["MAKE_VEC", len], name]
- 
+
 (DEFUN |optRECORDCOPY| (|bfVar#8|)
   (PROG (|name| |len|)
     (RETURN
@@ -1094,18 +1094,18 @@
       (COND ((EQL |len| 1) (LIST 'LIST (LIST 'CAR |name|)))
             ((EQL |len| 2) (LIST 'CONS (LIST 'CAR |name|) (LIST 'CDR |name|)))
             ('T (LIST 'MOVEVEC (LIST 'MAKE_VEC |len|) |name|)))))))
- 
+
 ; optSuchthat [.,:u] == ["SUCHTHAT",:u]
- 
+
 (DEFUN |optSuchthat| (|bfVar#9|)
   (PROG (|u|) (RETURN (PROGN (SETQ |u| (CDR |bfVar#9|)) (CONS 'SUCHTHAT |u|)))))
- 
+
 ; opt_minus_SI u ==
 ;   u is ['minus_SI, v] =>
 ;     NUMBERP v => -v
 ;     u
 ;   u
- 
+
 (DEFUN |opt_minus_SI| (|u|)
   (PROG (|ISTMP#1| |v|)
     (RETURN
@@ -1117,13 +1117,13 @@
                   (PROGN (SETQ |v| (CAR |ISTMP#1|)) #1='T))))
        (COND ((NUMBERP |v|) (- |v|)) (#1# |u|)))
       (#1# |u|)))))
- 
+
 ; opt_- u ==
 ;   u is ['_-,v] =>
 ;     NUMBERP v => -v
 ;     u
 ;   u
- 
+
 (DEFUN |opt-| (|u|)
   (PROG (|ISTMP#1| |v|)
     (RETURN
@@ -1135,14 +1135,14 @@
                   (PROGN (SETQ |v| (CAR |ISTMP#1|)) #1='T))))
        (COND ((NUMBERP |v|) (- |v|)) (#1# |u|)))
       (#1# |u|)))))
- 
+
 ; optEQ u ==
 ;   u is ['EQ,l,r] =>
 ;     NUMBERP l and NUMBERP r => ['QUOTE,EQ(l,r)]
 ;     -- That undoes some weird work in Boolean to do with the definition of true
 ;     u
 ;   u
- 
+
 (DEFUN |optEQ| (|u|)
   (PROG (|ISTMP#1| |l| |ISTMP#2| |r|)
     (RETURN
@@ -1159,7 +1159,7 @@
        (COND ((AND (NUMBERP |l|) (NUMBERP |r|)) (LIST 'QUOTE (EQ |l| |r|)))
              (#1# |u|)))
       (#1# |u|)))))
- 
+
 ; for x in '( (call         optCall) _
 ;               (SEQ          optSEQ)_
 ;               (EQ           optEQ)_
@@ -1174,7 +1174,7 @@
 ;               (SETRECORDELT optSETRECORDELT)_
 ;               (RECORDCOPY   optRECORDCOPY)) _
 ;       repeat MAKEPROP(CAR x,'OPTIMIZE, CADR x)
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (PROG ()
     (RETURN

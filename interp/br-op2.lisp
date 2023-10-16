@@ -1,8 +1,8 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; htSayConstructor(key, u) ==
 ;   u is ['CATEGORY,kind,:r] =>
 ;     htSayList(['"a ", kind, '" "])
@@ -36,7 +36,7 @@
 ;     bcConform(r,true)
 ;   htSayList([kind, '" "])
 ;   bcConform(u, true)
- 
+
 (DEFUN |htSayConstructor| (|key| |u|)
   (PROG (|ISTMP#1| |kind| |r| |ISTMP#2| |middle|)
     (RETURN
@@ -109,7 +109,7 @@
               (#1# (PROGN (|htSay| " and ") (|bcConform| |r| T))))))))
          (#1#
           (PROGN (|htSayList| (LIST |kind| " ")) (|bcConform| |u| T))))))))))
- 
+
 ; htSayExplicitExports r ==
 ;   htSay '"with explicit exports"
 ;   $displayReturnValue => nil
@@ -125,7 +125,7 @@
 ;     x is ['IF,:.] =>
 ;       htSay('"{\em if ...}")
 ;     systemError()
- 
+
 (DEFUN |htSayExplicitExports| (|r|)
   (PROG (|ISTMP#1| |op| |ISTMP#2| |sig| |ops| |a|)
     (RETURN
@@ -175,11 +175,11 @@
                       (#1# (|systemError|))))))
                   (SETQ |bfVar#2| (CDR |bfVar#2|))))
                |r| NIL))))))))
- 
+
 ; displayBreakIntoAnds pred ==
 ;   pred is [op,:u] and member(op,'(and AND)) => u
 ;   [pred]
- 
+
 (DEFUN |displayBreakIntoAnds| (|pred|)
   (PROG (|op| |u|)
     (RETURN
@@ -189,7 +189,7 @@
             (|member| |op| '(|and| AND)))
        |u|)
       (#1# (LIST |pred|))))))
- 
+
 ; htSayValue t ==
 ;   t is ['Mapping,target,:source] =>
 ;       htSay('"a function from ")
@@ -201,7 +201,7 @@
 ;     htSayConstructor(nil,t)
 ;   htSay('"an element of domain ")
 ;   htSayArgument t                            --continue for operations
- 
+
 (DEFUN |htSayValue| (|t|)
   (PROG (|ISTMP#1| |target| |source| |op|)
     (RETURN
@@ -226,7 +226,7 @@
         (|constructor?| (|opOf| |t|)))
        (|htSayConstructor| NIL |t|))
       (#1# (PROGN (|htSay| "an element of domain ") (|htSayArgument| |t|)))))))
- 
+
 ; htSayArgument t == --called only for operations not for constructors
 ;   null $signature => htSay ['"{\em ",t,'"}"]
 ;   MEMQ(t, '(_$ _%)) =>
@@ -241,7 +241,7 @@
 ;     typeOfArg := (rest $signature).k
 ;     addWhereList(t,'member,typeOfArg)
 ;   htSayList(['"{\em ", t, '"}"])
- 
+
 (DEFUN |htSayArgument| (|t|)
   (PROG (|k| |typeOfArg|)
     (RETURN
@@ -264,16 +264,16 @@
               ((< (- 1) |k|) (SETQ |typeOfArg| (ELT (CDR |$signature|) |k|))
                (|addWhereList| |t| '|member| |typeOfArg|)))
              (|htSayList| (LIST "{\\em " |t| "}"))))))))
- 
+
 ; addWhereList(id,kind,typ) ==
 ;   $whereList := insert([id,kind,:typ],$whereList)
- 
+
 (DEFUN |addWhereList| (|id| |kind| |typ|)
   (PROG ()
     (RETURN
      (SETQ |$whereList|
              (|insert| (CONS |id| (CONS |kind| |typ|)) |$whereList|)))))
- 
+
 ; htSayTuple t ==
 ;   null t => htSay '"()"
 ;   null rest t => htSayArgument first t
@@ -283,7 +283,7 @@
 ;     htSay '","
 ;     htSayArgument d
 ;   htSay '")"
- 
+
 (DEFUN |htSayTuple| (|t|)
   (PROG ()
     (RETURN
@@ -302,16 +302,16 @@
                  (SETQ |bfVar#3| (CDR |bfVar#3|))))
               (CDR |t|) NIL)
              (|htSay| ")")))))))
- 
+
 ; dbGetDisplayFormForOp(op,sig,doc) ==
 ;   dbGetFormFromDocumentation(op,sig,doc) or dbGetContrivedForm(op,sig)
- 
+
 (DEFUN |dbGetDisplayFormForOp| (|op| |sig| |doc|)
   (PROG ()
     (RETURN
      (OR (|dbGetFormFromDocumentation| |op| |sig| |doc|)
          (|dbGetContrivedForm| |op| |sig|)))))
- 
+
 ; dbGetFormFromDocumentation(op,sig,x) ==
 ;   $ncMsgList : local := nil
 ;   $newcompErrorCount : local := 0
@@ -324,7 +324,7 @@
 ;     parse := ncParseFromString s
 ;     parse is [=op,:.] and #parse = #sig => parse
 ;   nil
- 
+
 (DEFUN |dbGetFormFromDocumentation| (|op| |sig| |x|)
   (PROG (|$newcompErrorCount| |$ncMsgList| |parse| |s| |n| |k| |doc|)
     (DECLARE (SPECIAL |$newcompErrorCount| |$ncMsgList|))
@@ -346,7 +346,7 @@
                 (EQL (LENGTH |parse|) (LENGTH |sig|)))
            |parse|))))
        (#1# NIL))))))
- 
+
 ; dbMakeContrivedForm(op, sig) ==
 ;   $chooseDownCaseOfType : local := false
 ;   $NumberList : local := '(i j k l m n i1 j1 k1 l1 m1 n1 i2 j2 k2 l2 m2 n2 i3 j3 k3 l3 m3 n3 i4 j4 k4 l4 m4 n4 )
@@ -354,7 +354,7 @@
 ;   $FunctionList:local := '(f g h d e F G H)
 ;   $DomainList:  local := '(R S D E T A B C M N P Q U V W)
 ;   dbGetContrivedForm(op,sig)
- 
+
 (DEFUN |dbMakeContrivedForm| (|op| |sig|)
   (PROG (|$DomainList| |$FunctionList| |$ElementList| |$NumberList|
          |$chooseDownCaseOfType|)
@@ -375,12 +375,12 @@
       (SETQ |$FunctionList| '(|f| |g| |h| |d| |e| F G H))
       (SETQ |$DomainList| '(R S D E T A B C M N P Q U V W))
       (|dbGetContrivedForm| |op| |sig|)))))
- 
+
 ; dbGetContrivedForm(op,sig) ==
 ;   op = '"0" => [0]
 ;   op = '"1" => [1]
 ;   [op,:[dbChooseOperandName s for s in rest sig]]
- 
+
 (DEFUN |dbGetContrivedForm| (|op| |sig|)
   (PROG ()
     (RETURN
@@ -398,7 +398,7 @@
                                 (CONS (|dbChooseOperandName| |s|) |bfVar#5|))))
                       (SETQ |bfVar#4| (CDR |bfVar#4|))))
                    NIL (CDR |sig|) NIL)))))))
- 
+
 ; dbChooseOperandName(typ) ==
 ;   typ is ['Mapping,:.] =>
 ;     x := first $FunctionList
@@ -426,7 +426,7 @@
 ;   x := first $DomainList
 ;   $DomainList := rest $DomainList
 ;   x
- 
+
 (DEFUN |dbChooseOperandName| (|typ|)
   (PROG (|x| |name| |kind| |s| |y|)
     (RETURN
@@ -470,18 +470,18 @@
            (SETQ |x| (CAR |$DomainList|))
            (SETQ |$DomainList| (CDR |$DomainList|))
            |x|)))))))))
- 
+
 ; getSubstSigIfPossible sig ==
 ;   getSubstSignature sig or sig
- 
+
 (DEFUN |getSubstSigIfPossible| (|sig|)
   (PROG () (RETURN (OR (|getSubstSignature| |sig|) |sig|))))
- 
+
 ; fullSubstitute(x,y,z) ==  --substitutes deeply: x for y in list z
 ;   z = y => x
 ;   atom z => z
 ;   [fullSubstitute(x,y,u) for u in z]
- 
+
 (DEFUN |fullSubstitute| (|x| |y| |z|)
   (PROG ()
     (RETURN
@@ -497,7 +497,7 @@
                           (CONS (|fullSubstitute| |x| |y| |u|) |bfVar#7|))))
                 (SETQ |bfVar#6| (CDR |bfVar#6|))))
              NIL |z| NIL))))))
- 
+
 ; getSubstCandidates sig ==
 ;   candidates := nil
 ;   for x in sig for i in 1.. | x is [.,.,:.] repeat
@@ -505,7 +505,7 @@
 ;     y := or/[getSubstQualify(y,i,sig) for y in rest x | y is [.,.,:.]] =>
 ;       candidates := insert(y,candidates)
 ;   candidates
- 
+
 (DEFUN |getSubstCandidates| (|sig|)
   (PROG (|candidates| |ISTMP#1| DOT |y|)
     (RETURN
@@ -553,7 +553,7 @@
           (SETQ |i| (+ |i| 1))))
        |sig| NIL 1)
       |candidates|))))
- 
+
 ; getSubstSignature sig ==
 ;     candidates := getSubstCandidates sig
 ;     null candidates => nil
@@ -574,7 +574,7 @@
 ;       newsig
 ;     addWhereList(D,'is,winner)
 ;     newsig
- 
+
 (DEFUN |getSubstSignature| (|sig|)
   (PROG (|candidates| D |winner| |newsig| |count| |trial| |trialCount|)
     (RETURN
@@ -616,11 +616,11 @@
                               |newsig|))))
               (|addWhereList| D '|is| |winner|)
               |newsig|)))))))
- 
+
 ; getSubstQualify(x,i,sig) ==
 ;     or/[CONTAINED(x,y) for y in sig for j in 1.. | j ~= i] => x
 ;     false
- 
+
 (DEFUN |getSubstQualify| (|x| |i| |sig|)
   (PROG ()
     (RETURN
@@ -640,7 +640,7 @@
         NIL |sig| NIL 1)
        |x|)
       (#1# NIL)))))
- 
+
 ; getSubstInsert(x,candidates) ==
 ;     return insert(x,candidates)
 ;     null candidates => [x]
@@ -648,7 +648,7 @@
 ;     y := or/[CONTAINED(y, x) for y in candidates] =>
 ;         substitute(x, y, candidates)
 ;     candidates
- 
+
 (DEFUN |getSubstInsert| (|x| |candidates|)
   (PROG (|y|)
     (RETURN
@@ -683,7 +683,7 @@
                       NIL |candidates| NIL))
              (|substitute| |x| |y| |candidates|))
             (#1# |candidates|))))))
- 
+
 ; whoUsesOperation(htPage,which,key) ==  --see dbPresentOps
 ;   key = 'filter => koaPageFilterByName(htPage,'whoUsesOperation)
 ;   opAlist := htpProperty(htPage,'opAlist)
@@ -728,7 +728,7 @@
 ;   htSayStandard '"\endscroll "
 ;   dbPresentOps(page,which,'usage)
 ;   htShowPageNoScroll()
- 
+
 (DEFUN |whoUsesOperation| (|htPage| |which| |key|)
   (PROG (|opAlist| |conform| |conargs| |opl| |op| |alist| |sig| |u| |prefix|
          |ISTMP#1| |op1| |ISTMP#2| |suffix| |page| |nopAlist| |name|
@@ -888,7 +888,7 @@
         (|htSayStandard| "\\endscroll ")
         (|dbPresentOps| |page| |which| '|usage|)
         (|htShowPageNoScroll|)))))))
- 
+
 ; whoUses(opSigList,conform) ==
 ;   opList := REMDUP ASSOCLEFT opSigList
 ;   numOfArgsList := REMDUP [-1 + #sig for [.,:sig] in opSigList]
@@ -916,7 +916,7 @@
 ;         => opacc := [opsig,:opacc]
 ;     if opacc then acc := [[name,:opacc],:acc]
 ;   acc
- 
+
 (DEFUN |whoUses| (|opSigList| |conform|)
   (PROG (|$infovec| |$conname| |opsig| |op1| |signumList| |ISTMP#1|
          |whereNumber| |numOfArgs| |numvec| |index| |op| |n| |item| |opacc|
@@ -1069,16 +1069,16 @@
           (SETQ |bfVar#32| (CDR |bfVar#32|))))
        (|allConstructors|) NIL)
       |acc|))))
- 
+
 ; whoUsesMatch?(signumList,sig,al) ==
 ;   #signumList = #sig and whoUsesMatch1?(signumList,sig,al)
- 
+
 (DEFUN |whoUsesMatch?| (|signumList| |sig| |al|)
   (PROG ()
     (RETURN
      (AND (EQL (LENGTH |signumList|) (LENGTH |sig|))
           (|whoUsesMatch1?| |signumList| |sig| |al|)))))
- 
+
 ; whoUsesMatch1?(signumList,sig,al) ==
 ;   signumList is [subject,:r] and sig is [pattern,:s] =>
 ;     x := LASSOC(pattern,al) =>
@@ -1089,7 +1089,7 @@
 ;       false
 ;     whoUsesMatch1?(r,s,[[pattern,:subject],:al])
 ;   true
- 
+
 (DEFUN |whoUsesMatch1?| (|signumList| |sig| |al|)
   (PROG (|subject| |r| |pattern| |s| |x|)
     (RETURN
@@ -1113,7 +1113,7 @@
         (#1#
          (|whoUsesMatch1?| |r| |s| (CONS (CONS |pattern| |subject|) |al|)))))
       (#1# T)))))
- 
+
 ; koAttrs(conform,domname) ==
 ;   [conname,:args] := conform
 ; --asharpConstructorName? conname => nil  --assumed
@@ -1132,7 +1132,7 @@
 ;       args := IFCDR a
 ;       alist := insertAlist(op,insertAlist(args,[pred],LASSOC(op,alist)),alist)
 ;     alist
- 
+
 (DEFUN |koAttrs| (|conform| |domname|)
   (PROG (|$predvec| |$infovec| |u| |pred| |i| |a| |args| |conname|)
     (DECLARE (SPECIAL |$predvec| |$infovec|))
@@ -1198,7 +1198,7 @@
           (SETQ |bfVar#40| (CDR |bfVar#40|))))
        |u| NIL)
       |alist|))))
- 
+
 ; koOps(conform, domname) == main where
 ; --returns alist of form ((op (sig . pred) ...) ...)
 ;   main ==
@@ -1236,7 +1236,7 @@
 ;         alist := insertAlist(op,u,DELASC(op,alist)) --add the merge of two alists
 ;       alist := insertAlist(op,al,alist)  --add the whole inner alist
 ;     alist
- 
+
 (DEFUN |koOps| (|conform| |domname|)
   (PROG (|$packageItem| |ours|)
     (DECLARE (SPECIAL |$packageItem|))
@@ -1394,15 +1394,15 @@
           (SETQ |bfVar#49| (CDR |bfVar#49|))))
        |alist1| NIL)
       |alist|))))
- 
+
 ; zeroOneConvert x ==
 ;   x = 'Zero => 0
 ;   x = 'One  => 1
 ;   x
- 
+
 (DEFUN |zeroOneConvert| (|x|)
   (PROG () (RETURN (COND ((EQ |x| '|Zero|) 0) ((EQ |x| '|One|) 1) ('T |x|)))))
- 
+
 ; kFormatSlotDomain x == fn formatSlotDomain x where fn x ==
 ;   atom x => x
 ;   (op := first x) = '_$ => '_$
@@ -1413,7 +1413,7 @@
 ;   INTEGERP op => op
 ;   op = 'QUOTE and atom CADR x => CADR x
 ;   x
- 
+
 (DEFUN |kFormatSlotDomain| (|x|)
   (PROG () (RETURN (|kFormatSlotDomain,fn| (|formatSlotDomain| |x|)))))
 (DEFUN |kFormatSlotDomain,fn| (|x|)
@@ -1437,14 +1437,14 @@
              NIL |x| NIL))
            ((INTEGERP |op|) |op|)
            ((AND (EQ |op| 'QUOTE) (ATOM (CADR |x|))) (CADR |x|)) (#1# |x|)))))
- 
+
 ; koCatOps(conform,domname) ==
 ;   conname := opOf conform
 ;   oplist := REVERSE GETDATABASE(conname,'OPERATIONALIST)
 ;   oplist := sublisFormal(IFCDR domname or IFCDR conform ,oplist)
 ;   --check below for INTEGERP key to avoid subsumed signatures
 ;   [[zeroOneConvert op,:nalist] for [op,:alist] in oplist | nalist := koCatOps1(alist)]
- 
+
 (DEFUN |koCatOps| (|conform| |domname|)
   (PROG (|conname| |oplist| |op| |alist| |nalist|)
     (RETURN
@@ -1472,7 +1472,7 @@
                                |bfVar#56|)))))
           (SETQ |bfVar#55| (CDR |bfVar#55|))))
        NIL |oplist| NIL)))))
- 
+
 ; koCatOps1 alist == [x for item in alist | x := pair] where
 ;   pair ==
 ;     [sig,:r] := item
@@ -1483,7 +1483,7 @@
 ;       [sig,true]
 ;     npred := simpHasPred pred => [sig,npred]
 ;     false
- 
+
 (DEFUN |koCatOps1| (|alist|)
   (PROG (|sig| |r| |key| |options| |pred| |npred| |x|)
     (RETURN
@@ -1515,7 +1515,7 @@
             (SETQ |bfVar#58| (CONS |x| |bfVar#58|)))))
          (SETQ |bfVar#57| (CDR |bfVar#57|))))
       NIL |alist| NIL))))
- 
+
 ; koCatAttrs(catform,domname) ==
 ;   $if : local := MAKE_HASHTABLE('ID)
 ;   catname   := opOf catform
@@ -1523,7 +1523,7 @@
 ;   ancestors := ancestorsOf(catform,domname)
 ;   for [conform,:pred] in ancestors repeat koCatAttrsAdd(conform,pred)
 ;   hashTable2Alist $if
- 
+
 (DEFUN |koCatAttrs| (|catform| |domname|)
   (PROG (|$if| |pred| |conform| |ancestors| |catname|)
     (DECLARE (SPECIAL |$if|))
@@ -1549,10 +1549,10 @@
           (SETQ |bfVar#60| (CDR |bfVar#60|))))
        |ancestors| NIL)
       (|hashTable2Alist| |$if|)))))
- 
+
 ; hashTable2Alist tb ==
 ;   [[op,:HGET(tb,op)] for op in listSort(function GLESSEQP,HKEYS $if)]
- 
+
 (DEFUN |hashTable2Alist| (|tb|)
   (PROG ()
     (RETURN
@@ -1565,14 +1565,14 @@
            (SETQ |bfVar#62| (CONS (CONS |op| (HGET |tb| |op|)) |bfVar#62|))))
          (SETQ |bfVar#61| (CDR |bfVar#61|))))
       NIL (|listSort| #'GLESSEQP (HKEYS |$if|)) NIL))))
- 
+
 ; koCatAttrsAdd(catform,pred) ==
 ;   for [name, argl, :p] in first getConstructorExports(catform, false) repeat
 ;     npred  := quickAnd(pred,p)
 ;     exists := HGET($if,name)
 ;     if existingPred := LASSOC(argl,exists) then npred := quickOr(npred,existingPred)
 ;     if not MEMQ(name,'(nil nothing)) then HPUT($if,name,[[argl,simpHasPred npred],:exists])
- 
+
 (DEFUN |koCatAttrsAdd| (|catform| |pred|)
   (PROG (|name| |ISTMP#1| |argl| |p| |npred| |exists| |existingPred|)
     (RETURN
@@ -1605,7 +1605,7 @@
                                |exists|))))))))
          (SETQ |bfVar#64| (CDR |bfVar#64|))))
       (CAR (|getConstructorExports| |catform| NIL)) NIL))))
- 
+
 ; koaPageFilterByCategory(htPage,calledFrom) ==
 ;   opAlist := htpProperty(htPage,'opAlist)
 ;   which   := htpProperty(htPage,'which)
@@ -1621,7 +1621,7 @@
 ;   htpSetProperty(page,'ancestors,listSort(function GLESSEQP,ancestors))
 ;   bcNameCountTable(ancestors, 'form2HtString, 'koaPageFilterByCategory1)
 ;   htShowPage()
- 
+
 (DEFUN |koaPageFilterByCategory| (|htPage| |calledFrom|)
   (PROG (|opAlist| |which| |page| |conform| |domname| |ancestors|)
     (RETURN
@@ -1646,7 +1646,7 @@
       (|bcNameCountTable| |ancestors| '|form2HtString|
        '|koaPageFilterByCategory1|)
       (|htShowPage|)))))
- 
+
 ; dbHeading(items, which, heading) ==
 ;   count := +/[#(rest x) for x in items]
 ;   capwhich := capitalize which
@@ -1655,7 +1655,7 @@
 ;       pluralSay(count,capwhich,nil)
 ;     pluralSay(count,nil,pluralize capwhich)
 ;   [:prefix,'" for ",:heading]
- 
+
 (DEFUN |dbHeading| (|items| |which| |heading|)
   (PROG (|count| |capwhich| |prefix|)
     (RETURN
@@ -1675,7 +1675,7 @@
               (COND ((< |count| 2) (|pluralSay| |count| |capwhich| NIL))
                     (#1# (|pluralSay| |count| NIL (|pluralize| |capwhich|)))))
       (APPEND |prefix| (CONS " for " |heading|))))))
- 
+
 ; koaPageFilterByCategory1(htPage,i) ==
 ;   ancestor := (htpProperty(htPage, 'ancestors)) . i
 ;   ancestorList := [ancestor,:ASSOCLEFT ancestorsOf(ancestor,nil)]
@@ -1703,7 +1703,7 @@
 ;     falist := [[op,:NREVERSE alist],:falist]
 ;   htpSetProperty(htPage,'fromcat,['" from category {\sf ",form2HtString ancestor,'"}"])
 ;   dbShowOperationsFromConform(htPage,which,falist)
- 
+
 (DEFUN |koaPageFilterByCategory1| (|htPage| |i|)
   (PROG (|ancestor| |ancestorList| |newOpAlist| |which| |opAlist| |domname|
          |conform| |heading| |docTable| |op| |alist| |sig| |pred| |aux| |u|
@@ -1804,14 +1804,14 @@
       (|htpSetProperty| |htPage| '|fromcat|
        (LIST " from category {\\sf " (|form2HtString| |ancestor|) "}"))
       (|dbShowOperationsFromConform| |htPage| |which| |falist|)))))
- 
+
 ; opPageFast opAlist == --called by oSearch
 ;   htPage := htInitPage(nil,nil)
 ;   htpSetProperty(htPage,'opAlist,opAlist)
 ;   htpSetProperty(htPage,'expandOperations,'lists)
 ;   which := '"operation"
 ;   dbShowOp1(htPage,opAlist,which,'names)
- 
+
 (DEFUN |opPageFast| (|opAlist|)
   (PROG (|htPage| |which|)
     (RETURN
@@ -1821,7 +1821,7 @@
       (|htpSetProperty| |htPage| '|expandOperations| '|lists|)
       (SETQ |which| "operation")
       (|dbShowOp1| |htPage| |opAlist| |which| '|names|)))))
- 
+
 ; opPageFastPath opstring ==
 ; --return nil
 ;   x := STRINGIMAGE opstring
@@ -1834,7 +1834,7 @@
 ;     exposed? := isExposedConstructor opOf origin
 ;     [sig, predicate, origin, exposed?]
 ;   opAlist
- 
+
 (DEFUN |opPageFastPath| (|opstring|)
   (PROG (|x| |op| |mmList| |LETTMP#1| |predList| |origin| |sig| |predicate|
          |exposed?| |opAlist|)
@@ -1881,7 +1881,7 @@
                                  (SETQ |bfVar#75| (CDR |bfVar#75|))))
                               NIL |mmList| NIL))))
               |opAlist|)))))))
- 
+
 ; modemap2Sig(op,mm) ==
 ;   [dcSig, conds] := mm
 ;   [dc, :sig] := dcSig
@@ -1907,7 +1907,7 @@
 ;     pp mm
 ; --pause nsig
 ;   [predList, origin, substitute("%", origin, nsig)]
- 
+
 (DEFUN |modemap2Sig| (|op| |mm|)
   (PROG (|dcSig| |conds| |dc| |sig| |r| |partial?| |condlist| |LETTMP#1|
          |origin| |vlist| |flist| |subcondlist| |predList| |target| |ntarget|
@@ -1948,12 +1948,12 @@
         (|pp| "--------------") (|pp| |op|) (|pp| |predList|) (|pp| |nsig|)
         (|pp| |mm|)))
       (LIST |predList| |origin| (|substitute| '% |origin| |nsig|))))))
- 
+
 ; modemap2SigConds conds ==
 ;   conds is ['OR,:r] => modemap2SigConds first r
 ;   conds is ['AND,:r] => r
 ;   [conds]
- 
+
 (DEFUN |modemap2SigConds| (|conds|)
   (PROG (|r|)
     (RETURN
@@ -1965,12 +1965,12 @@
             (PROGN (SETQ |r| (CDR |conds|)) #1#))
        |r|)
       (#1# (LIST |conds|))))))
- 
+
 ; hasPatternVar x ==
 ;   IDENTP x and (x ~= "**") => isPatternVar x
 ;   atom x => false
 ;   or/[hasPatternVar y for y in x]
- 
+
 (DEFUN |hasPatternVar| (|x|)
   (PROG ()
     (RETURN
@@ -1989,7 +1989,7 @@
                    (COND (|bfVar#78| (RETURN |bfVar#78|))))))
                 (SETQ |bfVar#77| (CDR |bfVar#77|))))
              NIL |x| NIL))))))
- 
+
 ; getDcForm(dc, condlist) ==
 ;   -- FIXME: normally first condition on *1 gives origin, but not
 ;   -- always.  In particular, if we get category with no operations
@@ -2008,7 +2008,7 @@
 ;   ofWord = 'isDomain =>
 ;     [conform, ["*1", :rest cform], ["%", :rest conform]]
 ;   systemError()
- 
+
 (DEFUN |getDcForm| (|dc| |condlist|)
   (PROG (|k| |ISTMP#1| |candidates| |LETTMP#1| |ofWord| |id| |cform| |conform|)
     (RETURN
@@ -2053,7 +2053,7 @@
                 (LIST |conform| (CONS '*1 (CDR |cform|))
                       (CONS '% (CDR |conform|))))
                (#1# (|systemError|))))))))))
- 
+
 ; getSigSubst(u, pl, vl, fl) ==
 ;   u is [item, :r] =>
 ;     item is ['AND,:s] =>
@@ -2067,7 +2067,7 @@
 ;     key = 'not => getSigSubst(r, [item, :pl], vl, fl)
 ;     systemError()
 ;   [pl, vl, fl]
- 
+
 (DEFUN |getSigSubst| (|u| |pl| |vl| |fl|)
   (PROG (|item| |r| |s| |LETTMP#1| |key| |v| |f|)
     (RETURN
@@ -2098,11 +2098,11 @@
            ((EQ |key| '|not|) (|getSigSubst| |r| (CONS |item| |pl|) |vl| |fl|))
            (#1# (|systemError|)))))))
       (#1# (LIST |pl| |vl| |fl|))))))
- 
+
 ; pairlis(u,v) ==
 ;   null u or null v => nil
 ;   [[first u,:first v],:pairlis(rest u, rest v)]
- 
+
 (DEFUN |pairlis| (|u| |v|)
   (PROG ()
     (RETURN

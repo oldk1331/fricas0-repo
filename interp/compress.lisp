@@ -1,8 +1,8 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; minimalise x ==
 ;   $hash : local := MAKE_HASHTABLE('UEQUAL)
 ;   min x where
@@ -31,7 +31,7 @@
 ;       HPUT($hash,x,x)
 ;       x
 ;   x
- 
+
 (DEFUN |minimalise| (|x|)
   (PROG (|$hash|)
     (DECLARE (SPECIAL |$hash|))

@@ -1,11 +1,11 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; lefts u ==
 ;    [x for x in HKEYS  $has_category_hash | rest x = u]
- 
+
 (DEFUN |lefts| (|u|)
   (PROG ()
     (RETURN
@@ -18,7 +18,7 @@
            (AND (EQUAL (CDR |x|) |u|) (SETQ |bfVar#2| (CONS |x| |bfVar#2|)))))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       NIL (HKEYS |$has_category_hash|) NIL))))
- 
+
 ; buildLibdb(domainList) ==  --called by make-databases (daase.lisp)
 ;   $OpLst: local := nil
 ;   $AttrLst: local := nil
@@ -60,7 +60,7 @@
 ;   OBEY '"sort  _"temp.text_"  > _"libdb.text_""
 ;   RENAME_-FILE('"libdb.text", '"olibdb.text")
 ;   deleteFile '"temp.text"
- 
+
 (DEFUN |buildLibdb| (|domainList|)
   (PROG (|$kind| |$doc| |$exposed?| |$conform| |$conname| |$outStream|
          |$DefLst| |$PakLst| |$CatLst| |$DomLst| |$AttrLst| |$OpLst| |oplist|
@@ -127,7 +127,7 @@
               (OBEY "sort  \"temp.text\"  > \"libdb.text\"")
               (RENAME-FILE "libdb.text" "olibdb.text")
               (|deleteFile| "temp.text"))))))))
- 
+
 ; buildLibdbConEntry conname ==
 ;     NULL GETDATABASE(conname, 'CONSTRUCTORMODEMAP) => nil
 ;     abb:=GETDATABASE(conname,'ABBREVIATION)
@@ -153,7 +153,7 @@
 ;     sigpart:= libConstructorSig $conform
 ;     header := STRCONC($kind,PNAME conname)
 ;     buildLibdbString [header,#argl,$exposed?,sigpart,argpart,abb,conComments]
- 
+
 (DEFUN |buildLibdbConEntry| (|conname|)
   (PROG (|abb| |conform| |pname| |kind| |ISTMP#1| |ISTMP#2| |ISTMP#3| |t|
          |argl| |r| |conComments| |argpart| |sigpart| |header|)
@@ -227,14 +227,14 @@
                      (|buildLibdbString|
                       (LIST |header| (LENGTH |argl|) |$exposed?| |sigpart|
                             |argpart| |abb| |conComments|)))))))))))
- 
+
 ; dbMkForm x == atom x and [x] or x
- 
+
 (DEFUN |dbMkForm| (|x|) (PROG () (RETURN (OR (AND (ATOM |x|) (LIST |x|)) |x|))))
- 
+
 ; buildLibdbString [x,:u] ==
 ;   STRCONC(STRINGIMAGE x,"STRCONC"/[STRCONC('"`",STRINGIMAGE y) for y in u])
- 
+
 (DEFUN |buildLibdbString| (|bfVar#6|)
   (PROG (|x| |u|)
     (RETURN
@@ -252,7 +252,7 @@
                      (STRCONC |bfVar#5| (STRCONC "`" (STRINGIMAGE |y|))))))
            (SETQ |bfVar#4| (CDR |bfVar#4|))))
         "" |u| NIL))))))
- 
+
 ; libConstructorSig [conname,:argl] ==
 ;   [[.,:sig],:.] := GETDATABASE(conname,'CONSTRUCTORMODEMAP)
 ;   formals := TAKE(#argl,$FormalMapVariableList)
@@ -272,7 +272,7 @@
 ;   if null ncParseFromString sigpart then
 ;     sayBrightly ['"Won't parse: ",sigpart]
 ;   sigpart
- 
+
 (DEFUN |libConstructorSig| (|bfVar#17|)
   (PROG (|conname| |argl| |LETTMP#1| |sig| |formals| |keys| |sigpart|)
     (RETURN
@@ -370,13 +370,13 @@
          (SETQ |bfVar#9| (CDR |bfVar#9|))
          (SETQ |j| (+ |j| 1))))
       NIL |u| NIL 1))))
- 
+
 ; concatWithBlanks r ==
 ;   r is [head,:tail] =>
 ;     tail => STRCONC(head,'" ",concatWithBlanks tail)
 ;     head
 ;   '""
- 
+
 (DEFUN |concatWithBlanks| (|r|)
   (PROG (|head| |tail|)
     (RETURN
@@ -386,20 +386,20 @@
        (COND (|tail| (STRCONC |head| " " (|concatWithBlanks| |tail|)))
              (#1# |head|)))
       (#1# "")))))
- 
+
 ; writedb(u) ==
 ;   not STRINGP u => nil        --skip if not a string
 ;   PRINTEXP(u, $outStream)
 ;   TERPRI $outStream
- 
+
 (DEFUN |writedb| (|u|)
   (PROG ()
     (RETURN
      (COND ((NULL (STRINGP |u|)) NIL)
            ('T (PROGN (PRINTEXP |u| |$outStream|) (TERPRI |$outStream|)))))))
- 
+
 ; buildLibOps oplist == for [op,sig,:pred] in oplist repeat buildLibOp(op,sig,pred)
- 
+
 (DEFUN |buildLibOps| (|oplist|)
   (PROG (|op| |ISTMP#1| |sig| |pred|)
     (RETURN
@@ -422,7 +422,7 @@
                 (|buildLibOp| |op| |sig| |pred|))))
          (SETQ |bfVar#19| (CDR |bfVar#19|))))
       |oplist| NIL))))
- 
+
 ; buildLibOp(op,sig,pred) ==
 ; --operations      OKop  \#\sig \conname\pred\comments (K is U or C)
 ;   nsig := SUBLISLIS(rest $conform,$FormalMapVariableList,sig)
@@ -441,7 +441,7 @@
 ;   checkCommentsForBraces('operation,sop,sigpart,comments)
 ;   writedb
 ;     buildLibdbString [header,# rest sig,$exposed?,sigpart,conform,predString,comments]
- 
+
 (DEFUN |buildLibOp| (|op| |sig| |pred|)
   (PROG (|nsig| |sigpart| |predString| |s| |sop| |header| |conform| |comments|)
     (RETURN
@@ -467,14 +467,14 @@
        (|buildLibdbString|
         (LIST |header| (LENGTH (CDR |sig|)) |$exposed?| |sigpart| |conform|
               |predString| |comments|)))))))
- 
+
 ; libdbTrim s ==
 ;   k := MAXINDEX s
 ;   k < 0 => s
 ;   for i in 0..k repeat
 ;     s.i = $Newline => SETELT(s,i,char '_ )
 ;   trimString s
- 
+
 (DEFUN |libdbTrim| (|s|)
   (PROG (|k|)
     (RETURN
@@ -493,7 +493,7 @@
                   (SETQ |i| (+ |i| 1))))
                0)
               (|trimString| |s|))))))))
- 
+
 ; checkCommentsForBraces(kind,sop,sigpart,comments) ==
 ;   count := 0
 ;   for i in 0..MAXINDEX comments repeat
@@ -510,7 +510,7 @@
 ;   if count > 0 then
 ;     sayBrightly ['"(",$conname,'" documentation) missing right brace--> ",:tail]
 ;   if count ~= 0 or missingLeft then pp comments
- 
+
 (DEFUN |checkCommentsForBraces| (|kind| |sop| |sigpart| |comments|)
   (PROG (|count| |c| |missingLeft| |tail|)
     (RETURN
@@ -548,7 +548,7 @@
                      (CONS " documentation) missing right brace--> "
                            |tail|))))))
       (COND ((OR (NOT (EQL |count| 0)) |missingLeft|) (|pp| |comments|)))))))
- 
+
 ; dbHasExamplePage conname ==
 ;   sname    := STRINGIMAGE conname
 ;   abb      := constructor? conname
@@ -556,7 +556,7 @@
 ;   pathname :=STRCONC(getEnv '"FRICAS",'"/share/hypertex/pages/",ucname,'".ht")
 ;   isExistingFile pathname => INTERN STRCONC(sname,'"XmpPage")
 ;   nil
- 
+
 (DEFUN |dbHasExamplePage| (|conname|)
   (PROG (|sname| |abb| |ucname| |pathname|)
     (RETURN
@@ -570,7 +570,7 @@
       (COND
        ((|isExistingFile| |pathname|) (INTERN (STRCONC |sname| "XmpPage")))
        ('T NIL))))))
- 
+
 ; dbReadComments(n) ==
 ;   n = 0 => '""
 ;   instream := MAKE_INSTREAM(STRCONC(getEnv('"FRICAS"), '"/algebra/comdb.text"))
@@ -584,7 +584,7 @@
 ;         xtralines := [SUBSTRING(x,j + 1,nil),:xtralines]
 ;   SHUT instream
 ;   STRCONC(line, "STRCONC"/NREVERSE xtralines)
- 
+
 (DEFUN |dbReadComments| (|n|)
   (PROG (|instream| |line| |k| |x| |j| |xtralines|)
     (RETURN
@@ -624,7 +624,7 @@
                    (#1# (SETQ |bfVar#21| (STRCONC |bfVar#21| |bfVar#22|))))
                   (SETQ |bfVar#23| (CDR |bfVar#23|))))
                "" (NREVERSE |xtralines|) NIL))))))))
- 
+
 ; dbSplitLibdb() ==
 ;   instream := MAKE_INSTREAM('"olibdb.text")
 ;   outstream := MAKE_OUTSTREAM('"libdb.text")
@@ -658,7 +658,7 @@
 ;   SHUT outstream
 ;   SHUT comstream
 ;   deleteFile '"olibdb.text"
- 
+
 (DEFUN |dbSplitLibdb| ()
   (PROG (|comments| |prefix| |LETTMP#1| |comP| |outP| |line| |comstream|
          |outstream| |instream|)
@@ -713,12 +713,12 @@
       (SHUT |outstream|)
       (SHUT |comstream|)
       (|deleteFile| "olibdb.text")))))
- 
+
 ; dbSplit(line,n,k) ==
 ;   k := charPosition($tick,line,k + 1)
 ;   n = 1 => [SUBSTRING(line,0,k),:dbSpreadComments(SUBSTRING(line,k + 1,nil),0)]
 ;   dbSplit(line,n - 1,k)
- 
+
 (DEFUN |dbSplit| (|line| |n| |k|)
   (PROG ()
     (RETURN
@@ -729,7 +729,7 @@
         (CONS (SUBSTRING |line| 0 |k|)
               (|dbSpreadComments| (SUBSTRING |line| (+ |k| 1) NIL) 0)))
        ('T (|dbSplit| |line| (- |n| 1) |k|)))))))
- 
+
 ; dbSpreadComments(line,n) ==
 ;   line = '"" => nil
 ;   k := charPosition(char '_-,line,n + 2)
@@ -738,7 +738,7 @@
 ;     u := dbSpreadComments(line,k)
 ;     [STRCONC(SUBSTRING(line,n,k - n),first u),:rest u]
 ;   [SUBSTRING(line,n,k - n),:dbSpreadComments(SUBSTRING(line,k,nil),0)]
- 
+
 (DEFUN |dbSpreadComments| (|line| |n|)
   (PROG (|k| |u|)
     (RETURN
@@ -757,7 +757,7 @@
               (#1#
                (CONS (SUBSTRING |line| |n| (- |k| |n|))
                      (|dbSpreadComments| (SUBSTRING |line| |k| NIL) 0))))))))))
- 
+
 ; buildGloss() ==  --called by buildDatabase (database.boot)
 ; --starting with gloss.text, build glosskey.text and glossdef.text
 ;   $constructorName : local := nil
@@ -805,7 +805,7 @@
 ;   SHUT defstream
 ;   SHUT htstream
 ;   SHUT $outStream
- 
+
 (DEFUN |buildGloss| ()
   (PROG (|$attribute?| |$x| |$outStream| |$exposeFlag| |$constructorName|
          |pathname| |instream| |keypath| |outstream| |htpath| |htstream|
@@ -901,7 +901,7 @@
       (SHUT |defstream|)
       (SHUT |htstream|)
       (SHUT |$outStream|)))))
- 
+
 ; spreadGlossText(line) ==
 ; --this function breaks up a line into chunks
 ; --eventually long line is put into gloss.text as several chunks as follows:
@@ -914,7 +914,7 @@
 ;   line = '"" => nil
 ;   MAXINDEX line > 500 => [SUBSTRING(line,0,500),:spreadGlossText(SUBSTRING(line,500,nil))]
 ;   [line]
- 
+
 (DEFUN |spreadGlossText| (|line|)
   (PROG ()
     (RETURN
@@ -923,7 +923,7 @@
             (CONS (SUBSTRING |line| 0 500)
                   (|spreadGlossText| (SUBSTRING |line| 500 NIL))))
            ('T (LIST |line|))))))
- 
+
 ; getGlossLines instream ==
 ; --instream has text of the form:
 ; ----- key1`this is the first line
@@ -953,7 +953,7 @@
 ;     keys := [SUBSTRING(line,0,n),:keys]
 ;     text := [SUBSTRING(line,n + 1,nil),:text]
 ;   ASSOCRIGHT listSort(function GLESSEQP,[[DOWNCASE key,key,:def] for key in keys for def in text])
- 
+
 (DEFUN |getGlossLines| (|instream|)
   (PROG (|keys| |text| |lastLineHadTick| |line| |n| |last| |fill|)
     (RETURN
@@ -1014,7 +1014,7 @@
             (SETQ |bfVar#31| (CDR |bfVar#31|))
             (SETQ |bfVar#32| (CDR |bfVar#32|))))
          NIL |keys| NIL |text| NIL)))))))
- 
+
 ; mkUsersHashTable() ==  --called by make-databases (daase.lisp)
 ;   $usersTb := MAKE_HASHTABLE('EQUAL)
 ;   for x in allConstructors() repeat
@@ -1027,7 +1027,7 @@
 ;   for x in allConstructors() | isDefaultPackageName x repeat
 ;     HPUT($usersTb,x,getDefaultPackageClients x)
 ;   $usersTb
- 
+
 (DEFUN |mkUsersHashTable| ()
   (PROG (|name|)
     (RETURN
@@ -1077,7 +1077,7 @@
           (SETQ |bfVar#37| (CDR |bfVar#37|))))
        (|allConstructors|) NIL)
       |$usersTb|))))
- 
+
 ; getDefaultPackageClients con ==  --called by mkUsersHashTable
 ;   catname := INTERN SUBSTRING(s := PNAME con,0,MAXINDEX s)
 ;   for [catAncestor,:.] in childrenOf([catname]) repeat
@@ -1085,7 +1085,7 @@
 ;     if getCDTEntry(pakname,true) then acc := [pakname,:acc]
 ;     acc := union([CAAR x for x in domainsOf([catAncestor],nil)],acc)
 ;   listSort(function GLESSEQP,acc)
- 
+
 (DEFUN |getDefaultPackageClients| (|con|)
   (PROG (|s| |catname| |catAncestor| |pakname| |acc|)
     (RETURN
@@ -1123,7 +1123,7 @@
           (SETQ |bfVar#39| (CDR |bfVar#39|))))
        (|childrenOf| (LIST |catname|)) NIL)
       (|listSort| #'GLESSEQP |acc|)))))
- 
+
 ; mkDependentsHashTable() == --called by make-databases (database.boot)
 ;   $depTb := MAKE_HASHTABLE('EQUAL)
 ;   for nam in allConstructors() repeat
@@ -1132,7 +1132,7 @@
 ;   for k in HKEYS $depTb repeat
 ;     HPUT($depTb,k,listSort(function GLESSEQP,HGET($depTb,k)))
 ;   $depTb
- 
+
 (DEFUN |mkDependentsHashTable| ()
   (PROG ()
     (RETURN
@@ -1166,7 +1166,7 @@
           (SETQ |bfVar#44| (CDR |bfVar#44|))))
        (HKEYS |$depTb|) NIL)
       |$depTb|))))
- 
+
 ; getArgumentConstructors con == --called by mkDependentsHashTable
 ;   argtypes := IFCDR IFCAR getConstructorModemap con or return nil
 ;   fn argtypes where
@@ -1177,7 +1177,7 @@
 ;       x is ['CATEGORY,:.] => nil
 ;       constructor? first x => [first x,:fn rest x]
 ;       fn rest x
- 
+
 (DEFUN |getArgumentConstructors| (|con|)
   (PROG (|argtypes|)
     (RETURN
@@ -1210,7 +1210,7 @@
            ((|constructor?| (CAR |x|))
             (CONS (CAR |x|) (|getArgumentConstructors,fn| (CDR |x|))))
            (#1# (|getArgumentConstructors,fn| (CDR |x|)))))))
- 
+
 ; getImports conname == --called by mkUsersHashTable
 ;   conform := GETDATABASE(conname,'CONSTRUCTORFORM)
 ;   infovec := dbInfovec conname or return nil
@@ -1225,14 +1225,14 @@
 ;         op = 'local => first args
 ;         op = 'Record =>
 ;           ['Record,:[[":",CADR y,import(CADDR y,template)] for y in args]]
-; 
+;
 ; --TTT next three lines: handles some tagged/untagged Union case.
 ;         op = 'Union=>
 ;           args is [['_:,:x1],:x2] =>
 ; --          CAAR args = '_: => -- tagged!
 ;                ['Union,:[[":",CADR y,import(CADDR y,template)] for y in args]]
 ;           [op,:[import(y,template) for y in args]]
-; 
+;
 ;         [op,:[import(y,template) for y in args]]
 ;       INTEGERP x => import(template.x,template)
 ;       x = '$ => '$
@@ -1240,7 +1240,7 @@
 ;       STRINGP x => x
 ;       systemError '"bad argument in template"
 ;   listSort(function GLESSEQP,SUBLISLIS(rest conform,$FormalMapVariableList,u))
- 
+
 (DEFUN |getImports| (|conname|)
   (PROG (|conform| |infovec| |template| |ISTMP#1| |op| |u|)
     (RETURN
@@ -1351,7 +1351,7 @@
       ((INTEGERP |x|) (|getImports,import| (ELT |template| |x|) |template|))
       ((EQ |x| '$) '$) ((EQ |x| '$$) '$$) ((STRINGP |x|) |x|)
       (#1# (|systemError| "bad argument in template"))))))
- 
+
 ; getParentsFor(cname,formalParams,constructorCategory) ==
 ; --called by compDefineFunctor1
 ;   acc := nil
@@ -1362,7 +1362,7 @@
 ;     x := SUBLISLIS(IFCDR constructorForm,formalParams,x)
 ;     acc := [:explodeIfs x,:acc]
 ;   NREVERSE acc
- 
+
 (DEFUN |getParentsFor| (|cname| |formalParams| |constructorCategory|)
   (PROG (|acc| |formals| |constructorForm|)
     (RETURN
@@ -1384,14 +1384,14 @@
           (SETQ |bfVar#57| (CDR |bfVar#57|))))
        (|folks| |constructorCategory|) NIL)
       (NREVERSE |acc|)))))
- 
+
 ; parentsOf con == --called by kcpPage, ancestorsRecur
 ;   if null BOUNDP '$parentsCache then SETQ($parentsCache, MAKE_HASHTABLE('ID))
 ;   HGET($parentsCache,con) or
 ;     parents := getParentsForDomain con
 ;     HPUT($parentsCache,con,parents)
 ;     parents
- 
+
 (DEFUN |parentsOf| (|con|)
   (PROG (|parents|)
     (RETURN
@@ -1404,13 +1404,13 @@
            (SETQ |parents| (|getParentsForDomain| |con|))
            (HPUT |$parentsCache| |con| |parents|)
            |parents|))))))
- 
+
 ; parentsOfForm [op,:argl] ==
 ;   parents := parentsOf op
 ;   null argl or argl = (newArgl := rest GETDATABASE(op,'CONSTRUCTORFORM)) =>
 ;     parents
 ;   SUBLISLIS(argl, newArgl, parents)
- 
+
 (DEFUN |parentsOfForm| (|bfVar#58|)
   (PROG (|op| |argl| |parents| |newArgl|)
     (RETURN
@@ -1424,7 +1424,7 @@
                    (SETQ |newArgl| (CDR (GETDATABASE |op| 'CONSTRUCTORFORM)))))
         |parents|)
        ('T (SUBLISLIS |argl| |newArgl| |parents|)))))))
- 
+
 ; getParentsForDomain domname  == --called by parentsOf
 ;   acc := nil
 ;   for x in folks GETDATABASE(domname,'CONSTRUCTORCATEGORY) repeat
@@ -1434,7 +1434,7 @@
 ;       sublisFormal(IFCDR getConstructorForm domname,x)
 ;     acc := [:explodeIfs x,:acc]
 ;   NREVERSE acc
- 
+
 (DEFUN |getParentsForDomain| (|domname|)
   (PROG (|acc|)
     (RETURN
@@ -1460,7 +1460,7 @@
           (SETQ |bfVar#59| (CDR |bfVar#59|))))
        (|folks| (GETDATABASE |domname| 'CONSTRUCTORCATEGORY)) NIL)
       (NREVERSE |acc|)))))
- 
+
 ; explodeIfs x == main where  --called by getParents, getParentsForDomain
 ;   main ==
 ;     x is ['IF,p,a,b] => fn(p,a,b)
@@ -1470,7 +1470,7 @@
 ;   gn(p,a) ==
 ;     a is ['IF,q,b,:.] => fn(MKPF([p,q],'AND),b,nil)
 ;     [[a,:p]]
- 
+
 (DEFUN |explodeIfs| (|x|)
   (PROG (|ISTMP#1| |p| |ISTMP#2| |a| |ISTMP#3| |b|)
     (RETURN
@@ -1529,7 +1529,7 @@
                         (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1='T))))))
        (|explodeIfs,fn| (MKPF (LIST |p| |q|) 'AND) |b| NIL))
       (#1# (LIST (CONS |a| |p|)))))))
- 
+
 ; folks u == --called by getParents and getParentsForDomain
 ;   atom u => nil
 ;   u is [op,:v] and MEMQ(op,'(Join PROGN))
@@ -1545,7 +1545,7 @@
 ;     q1 or r1 => [['IF,p,q1,r1]]
 ;     nil
 ;   [u]
- 
+
 (DEFUN |folks| (|u|)
   (PROG (|op| |v| |ISTMP#1| |a| |p| |ISTMP#2| |q| |ISTMP#3| |r| |q1| |r1|)
     (RETURN
@@ -1602,7 +1602,7 @@
              (COND ((OR |q1| |r1|) (LIST (LIST 'IF |p| |q1| |r1|)))
                    (#1# NIL))))
            (#1# (LIST |u|))))))
- 
+
 ; descendantsOf(conform,domform) ==  --called by kcdPage
 ;   'category = GETDATABASE((conname := opOf conform),'CONSTRUCTORKIND) =>
 ;     cats := catsOf(conform,domform)
@@ -1611,7 +1611,7 @@
 ;         => cats
 ;     SUBLISLIS(argl, newArgl, cats)
 ;   'notAvailable
- 
+
 (DEFUN |descendantsOf| (|conform| |domform|)
   (PROG (|conname| |cats| |op| |argl| |newArgl|)
     (RETURN
@@ -1630,11 +1630,11 @@
           |cats|)
          (#1='T (SUBLISLIS |argl| |newArgl| |cats|)))))
       (#1# '|notAvailable|)))))
- 
+
 ; childrenOf conform ==
 ;   [pair for pair in descendantsOf(conform,nil) |
 ;     childAssoc(conform,parentsOfForm first pair)]
- 
+
 (DEFUN |childrenOf| (|conform|)
   (PROG ()
     (RETURN
@@ -1648,12 +1648,12 @@
                 (SETQ |bfVar#67| (CONS |pair| |bfVar#67|)))))
          (SETQ |bfVar#66| (CDR |bfVar#66|))))
       NIL (|descendantsOf| |conform| NIL) NIL))))
- 
+
 ; childAssoc(form,alist) ==
 ;   null (argl := rest form) => assoc(form, alist)
 ;   u := assocCar(opOf form, alist) => childArgCheck(argl, rest first u) and u
 ;   nil
- 
+
 (DEFUN |childAssoc| (|form| |alist|)
   (PROG (|argl| |u|)
     (RETURN
@@ -1661,9 +1661,9 @@
            ((SETQ |u| (|assocCar| (|opOf| |form|) |alist|))
             (AND (|childArgCheck| |argl| (CDR (CAR |u|))) |u|))
            ('T NIL)))))
- 
+
 ; assocCar(x, al) == or/[pair for pair in al | x = CAAR pair]
- 
+
 (DEFUN |assocCar| (|x| |al|)
   (PROG ()
     (RETURN
@@ -1679,14 +1679,14 @@
                  (COND (|bfVar#69| (RETURN |bfVar#69|)))))))
          (SETQ |bfVar#68| (CDR |bfVar#68|))))
       NIL |al| NIL))))
- 
+
 ; childArgCheck(argl, nargl) ==
 ;   and/[fn for x in argl for y in nargl for i in 0..] where
 ;     fn ==
 ;       x = y or constructor? opOf y => true
 ;       isSharpVar y => i = POSN1(y, $FormalMapVariableList)
 ;       false
- 
+
 (DEFUN |childArgCheck| (|argl| |nargl|)
   (PROG ()
     (RETURN
@@ -1709,7 +1709,7 @@
          (SETQ |bfVar#71| (CDR |bfVar#71|))
          (SETQ |i| (+ |i| 1))))
       T |argl| NIL |nargl| NIL 0))))
- 
+
 ; ancestors_of_cat(conform, domform) ==
 ;        conname := opOf(conform)
 ;        alist := GETDATABASE(conname,'ANCESTORS)
@@ -1720,7 +1720,7 @@
 ;          if domform then right := simpHasPred right
 ;          null right => false
 ;          [left,:right]
- 
+
 (DEFUN |ancestors_of_cat| (|conform| |domform|)
   (PROG (|conname| |alist| |argl| |a| |b| |left| |right|)
     (RETURN
@@ -1748,12 +1748,12 @@
                  (SETQ |bfVar#75| (CONS #2# |bfVar#75|)))))
           (SETQ |bfVar#74| (CDR |bfVar#74|))))
        NIL |alist| NIL)))))
- 
+
 ; ancestorsOf(conform,domform) ==  --called by kcaPage, originsInOrder,...
 ;   'category = GETDATABASE((conname := opOf(conform)), 'CONSTRUCTORKIND) =>
 ;        ancestors_of_cat(conform, domform)
 ;   computeAncestorsOf(conform,domform)
- 
+
 (DEFUN |ancestorsOf| (|conform| |domform|)
   (PROG (|conname|)
     (RETURN
@@ -1762,7 +1762,7 @@
            (GETDATABASE (SETQ |conname| (|opOf| |conform|)) 'CONSTRUCTORKIND))
        (|ancestors_of_cat| |conform| |domform|))
       ('T (|computeAncestorsOf| |conform| |domform|))))))
- 
+
 ; computeAncestorsOf(conform,domform) ==
 ;   $done : local := MAKE_HASHTABLE('UEQUAL)
 ;   $if :   local := MAKE_HASHTABLE('ID)
@@ -1771,7 +1771,7 @@
 ;   for op in listSort(function GLESSEQP,HKEYS $if) repeat
 ;     for pair in HGET($if,op) repeat acc := [pair,:acc]
 ;   NREVERSE acc
- 
+
 (DEFUN |computeAncestorsOf| (|conform| |domform|)
   (PROG (|$if| |$done| |acc|)
     (DECLARE (SPECIAL |$if| |$done|))
@@ -1799,7 +1799,7 @@
           (SETQ |bfVar#76| (CDR |bfVar#76|))))
        (|listSort| #'GLESSEQP (HKEYS |$if|)) NIL)
       (NREVERSE |acc|)))))
- 
+
 ; ancestorsRecur(conform,domform,pred,firstTime?) == --called by ancestorsOf
 ;   op      := opOf conform
 ;   pred = HGET($done,conform) => nil   --skip if already processed
@@ -1821,7 +1821,7 @@
 ;     ancestorsAdd(simpHasPred newPred,newdomform or newform)
 ;     ancestorsRecur(newform,newdomform,newPred,false)
 ;   HPUT($done,conform,pred)                  --mark as already processed
- 
+
 (DEFUN |ancestorsRecur| (|conform| |domform| |pred| |firstTime?|)
   (PROG (|op| |parents| |originalConform| |newform| |p| |newdomform| |newPred|)
     (RETURN
@@ -1878,7 +1878,7 @@
                   (SETQ |bfVar#79| (CDR |bfVar#79|))))
                |parents| NIL)
               (HPUT |$done| |conform| |pred|))))))))
- 
+
 ; ancestorsAdd(pred,form) == --called by ancestorsRecur
 ;   null pred => nil
 ;   op := IFCAR form or form
@@ -1886,7 +1886,7 @@
 ;   existingNode := assoc(form,alist) =>
 ;     RPLACD(existingNode, quickOr(rest existingNode, pred))
 ;   HPUT($if,op,[[form,:pred],:alist])
- 
+
 (DEFUN |ancestorsAdd| (|pred| |form|)
   (PROG (|op| |alist| |existingNode|)
     (RETURN
@@ -1899,7 +1899,7 @@
               ((SETQ |existingNode| (|assoc| |form| |alist|))
                (RPLACD |existingNode| (|quickOr| (CDR |existingNode|) |pred|)))
               (#1# (HPUT |$if| |op| (CONS (CONS |form| |pred|) |alist|))))))))))
- 
+
 ; domainsOf(conform, domname) ==
 ;   conname := opOf conform
 ;   u := [key for key in HKEYS $has_category_hash
@@ -1909,7 +1909,7 @@
 ;   s := listSort(function GLESSEQP,COPY u)
 ;   s := [[first pair, :GETDATABASE(pair, 'HASCATEGORY)] for pair in s]
 ;   transKCatAlist(conform,domname,listSort(function GLESSEQP,s))
- 
+
 (DEFUN |domainsOf| (|conform| |domname|)
   (PROG (|conname| |anc| |u| |s|)
     (RETURN
@@ -1945,7 +1945,7 @@
                   (SETQ |bfVar#82| (CDR |bfVar#82|))))
                NIL |s| NIL))
       (|transKCatAlist| |conform| |domname| (|listSort| #'GLESSEQP |s|))))))
- 
+
 ; catsOf(conform, domname) ==
 ;   conname := opOf conform
 ;   alist := nil
@@ -1957,7 +1957,7 @@
 ;         pred
 ;       alist := insertShortAlist(key,newItem,alist)
 ;   transKCatAlist(conform,domname,listSort(function GLESSEQP,alist))
- 
+
 (DEFUN |catsOf| (|conform| |domname|)
   (PROG (|conname| |alist| |op| |args| |pred| |newItem|)
     (RETURN
@@ -1996,7 +1996,7 @@
           (SETQ |bfVar#84| (CDR |bfVar#84|))))
        (|allConstructors|) NIL)
       (|transKCatAlist| |conform| |domname| (|listSort| #'GLESSEQP |alist|))))))
- 
+
 ; transKCatAlist(conform,domname,s) == main where
 ;   main ==
 ;     domname => --accept only exact matches after substitution
@@ -2042,7 +2042,7 @@
 ;       RPLACA(pair,leftForm)
 ;       RPLACD(pair, sublisFormal(IFCDR leftForm, rest pair))
 ;     s
- 
+
 (DEFUN |transKCatAlist| (|conform| |domname| |s|)
   (PROG (|domargs| |acc| |leftForm| |args| |pred| |match?| |npred| |farglist|
          |hasArgsForm?| |subargs| |hpred|)
@@ -2185,15 +2185,15 @@
                (SETQ |bfVar#91| (CDR |bfVar#91|))))
             |s| NIL)
            |s|)))))))))
- 
+
 ; mkHasArgsPred subargs ==
 ; --$hasArgsList gives arguments of original constructor,e.g. LODO(A,M)
 ; --M is required to be Join(B,...); in looking for the domains of B
 ; --  we can find that if B has special value C, it can
 ;   systemError subargs
- 
+
 (DEFUN |mkHasArgsPred| (|subargs|) (PROG () (RETURN (|systemError| |subargs|))))
- 
+
 ; sublisFormal(args,exp,:options) == main where
 ;   main ==  --use only on LIST structures; see also sublisFormalAlist
 ;     $formals: local := IFCAR options or $FormalMapVariableList
@@ -2216,7 +2216,7 @@
 ;           args.j
 ;       x
 ;     x
- 
+
 (DEFUN |sublisFormal| (|args| |exp| &REST |options|)
   (PROG (|$formals|)
     (DECLARE (SPECIAL |$formals|))
@@ -2271,13 +2271,13 @@
          (ELT |args| |j|))
         (#1# |x|)))
       (#1# |x|)))))
- 
+
 ; buildDefaultPackageNamesHT() ==
 ;   $defaultPackageNamesHT := MAKE_HASHTABLE('EQUAL)
 ;   for nam in allConstructors() | isDefaultPackageName nam repeat
 ;     HPUT($defaultPackageNamesHT,nam,true)
 ;   $defaultPackageNamesHT
- 
+
 (DEFUN |buildDefaultPackageNamesHT| ()
   (PROG ()
     (RETURN
@@ -2294,12 +2294,12 @@
           (SETQ |bfVar#94| (CDR |bfVar#94|))))
        (|allConstructors|) NIL)
       |$defaultPackageNamesHT|))))
- 
+
 ; $defaultPackageNamesHT := buildDefaultPackageNamesHT()
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$defaultPackageNamesHT| (|buildDefaultPackageNamesHT|)))
- 
+
 ; extendLocalLibdb conlist ==   --  called by astran
 ;   not $createLocalLibDb => nil
 ;   null conlist => nil
@@ -2312,7 +2312,7 @@
 ;   newlines := dbReadLines '"temp.text"
 ;   dbWriteLines(MSORT union(oldlines,newlines), '"libdb.text")
 ;   maybe_delete_file('"temp.text")
- 
+
 (DEFUN |extendLocalLibdb| (|conlist|)
   (PROG (|localLibdb| |oldlines| |newlines|)
     (RETURN

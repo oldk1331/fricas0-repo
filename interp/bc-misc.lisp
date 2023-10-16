@@ -1,13 +1,13 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; bcDrawIt2(ind,a,b) == STRCONC('"{}",ind,'"=",a,'"{}..",b,'"{}")
- 
+
 (DEFUN |bcDrawIt2| (|ind| |a| |b|)
   (PROG () (RETURN (STRCONC "{}" |ind| "=" |a| "{}.." |b| "{}"))))
- 
+
 ; bcIndefiniteIntegrate() ==
 ;   htInitPage("Indefinite Integration Basic Command",nil)
 ;   htMakePage '(
@@ -28,7 +28,7 @@
 ;      (bcStrings (10 x symbol SY))
 ;      (doneButton "Continue" bcIndefiniteIntegrateGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcIndefiniteIntegrate| ()
   (PROG ()
     (RETURN
@@ -47,12 +47,12 @@
          (|text| . "\\tab{37}") (|bcStrings| (10 |x| |symbol| SY))
          (|doneButton| "Continue" |bcIndefiniteIntegrateGen|)))
       (|htShowPage|)))))
- 
+
 ; bcIndefiniteIntegrateGen htPage ==
 ;   integrand := htpLabelInputString(htPage,'integrand)
 ;   var := htpLabelInputString(htPage,'symbol)
 ;   bcGen STRCONC('"integrate(",integrand,'",",var,")")
- 
+
 (DEFUN |bcIndefiniteIntegrateGen| (|htPage|)
   (PROG (|integrand| |var|)
     (RETURN
@@ -60,7 +60,7 @@
       (SETQ |integrand| (|htpLabelInputString| |htPage| '|integrand|))
       (SETQ |var| (|htpLabelInputString| |htPage| '|symbol|))
       (|bcGen| (STRCONC "integrate(" |integrand| "," |var| '|)|))))))
- 
+
 ; bcDefiniteIntegrate() ==
 ;   htInitPage("Definite Integration Basic Command",nil)
 ;   htMakePage '(
@@ -99,7 +99,7 @@
 ;          (bcStrings (10 y to EM . bcOptional))) toPoint))
 ;      (doneButton "Continue" bcDefiniteIntegrateGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcDefiniteIntegrate| ()
   (PROG ()
     (RETURN
@@ -134,7 +134,7 @@
            |toPoint|))
          (|doneButton| "Continue" |bcDefiniteIntegrateGen|)))
       (|htShowPage|)))))
- 
+
 ; bcDefiniteIntegrateGen htPage ==
 ;   integrand := htpLabelInputString(htPage,'integrand)
 ;   var := htpLabelInputString(htPage,'symbol)
@@ -149,7 +149,7 @@
 ;   varpart := STRCONC(var,'" = ",lowerLimit,'"..",upperLimit)
 ;   bcGen
 ;    STRCONC('"integrate(",integrand,'",",varpart,'")")
- 
+
 (DEFUN |bcDefiniteIntegrateGen| (|htPage|)
   (PROG (|integrand| |var| |lowerLimit| |upperLimit| |varpart|)
     (RETURN
@@ -168,7 +168,7 @@
                (#1# "%plusInfinity")))
       (SETQ |varpart| (STRCONC |var| " = " |lowerLimit| ".." |upperLimit|))
       (|bcGen| (STRCONC "integrate(" |integrand| "," |varpart| ")"))))))
- 
+
 ; bcSum() ==
 ;   htInitPage("Sum Basic Command",nil)
 ;   htMakePage '(
@@ -198,7 +198,7 @@
 ;     (bcStrings (10  n  last S))
 ;     (doneButton "Continue" bcSumGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcSum| ()
   (PROG ()
     (RETURN
@@ -221,14 +221,14 @@
          (|text| . "\\tab{36}") (|bcStrings| (10 |n| |last| S))
          (|doneButton| "Continue" |bcSumGen|)))
       (|htShowPage|)))))
- 
+
 ; bcSumGen htPage ==
 ;   mand := htpLabelInputString(htPage,'summand)
 ;   index := htpLabelInputString(htPage,'index)
 ;   first := htpLabelInputString(htPage,'first)
 ;   last := htpLabelInputString(htPage,'last)
 ;   bcGen STRCONC('"sum(",mand,'",",index,'" = ",first,'"..",last,'")")
- 
+
 (DEFUN |bcSumGen| (|htPage|)
   (PROG (|mand| |index| CAR |last|)
     (RETURN
@@ -239,7 +239,7 @@
       (SETQ |last| (|htpLabelInputString| |htPage| '|last|))
       (|bcGen|
        (STRCONC "sum(" |mand| "," |index| " = " CAR ".." |last| ")"))))))
- 
+
 ; bcProduct() ==
 ;   htInitPage("Product Basic Command",nil)
 ;   htMakePage '(
@@ -257,7 +257,7 @@
 ;       ("{\em To:}\space{2}" "" 10  "n" last   EM))
 ;     (doneButton "Continue" bcProductGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcProduct| ()
   (PROG ()
     (RETURN
@@ -277,14 +277,14 @@
           ("{\\em To:}\\space{2}" "" 10 "n" |last| EM))
          (|doneButton| "Continue" |bcProductGen|)))
       (|htShowPage|)))))
- 
+
 ; bcProductGen htPage ==
 ;   mand := htpLabelInputString(htPage,'mand)
 ;   index := htpLabelInputString(htPage,'index)
 ;   first := htpLabelInputString(htPage,'first)
 ;   last := htpLabelInputString(htPage,'last)
 ;   bcGen STRCONC('"product(",mand,'",",index,'",",first,'",",last,'")")
- 
+
 (DEFUN |bcProductGen| (|htPage|)
   (PROG (|mand| |index| CAR |last|)
     (RETURN
@@ -295,7 +295,7 @@
       (SETQ |last| (|htpLabelInputString| |htPage| '|last|))
       (|bcGen|
        (STRCONC "product(" |mand| "," |index| "," CAR "," |last| ")"))))))
- 
+
 ; bcDifferentiate() ==
 ;   htInitPage("Differentiate Basic Command",nil)
 ;   htMakePage '(
@@ -322,7 +322,7 @@
 ;     (bcStrings (55 "1 2" times S . quoteString)))
 ;   htMakeDoneButton('"Continue", 'bcDifferentiateGen)
 ;   htShowPage()
- 
+
 (DEFUN |bcDifferentiate| ()
   (PROG ()
     (RETURN
@@ -348,7 +348,7 @@
          (|bcStrings| (55 "1 2" |times| S . |quoteString|))))
       (|htMakeDoneButton| "Continue" '|bcDifferentiateGen|)
       (|htShowPage|)))))
- 
+
 ; bcDifferentiateGen htPage ==
 ;   mand := htpLabelInputString(htPage,'diffand)
 ;   varlist := bcString2WordList htpLabelInputString(htPage,'variables)
@@ -365,7 +365,7 @@
 ;     indexpart => STRCONC('",",indexpart,'")")
 ;     '")"
 ;   bcGen STRCONC('"differentiate(",mand,'",",varpart,lastPart)
- 
+
 (DEFUN |bcDifferentiateGen| (|htPage|)
   (PROG (|mand| |varlist| |indexList| |varpart| |indexpart| |lastPart|)
     (RETURN
@@ -390,7 +390,7 @@
       (SETQ |lastPart|
               (COND (|indexpart| (STRCONC "," |indexpart| ")")) (#1# ")")))
       (|bcGen| (STRCONC "differentiate(" |mand| "," |varpart| |lastPart|))))))
- 
+
 ; bcDraw() ==
 ;   htInitPage('"Draw Basic Command",nil)
 ;   bcHt '"What would you like to draw?"
@@ -410,7 +410,7 @@
 ;   bcHt '"\lispdownlink{A parameterically defined surface}{(|bcDraw3Dpar1|)}"
 ;   bcHt '"\space{2}(x(u,v), y(u,v), z(u,v))\newline"
 ;   htShowPage()
- 
+
 (DEFUN |bcDraw| ()
   (PROG ()
     (RETURN
@@ -437,7 +437,7 @@
        "\\lispdownlink{A parameterically defined surface}{(|bcDraw3Dpar1|)}")
       (|bcHt| "\\space{2}(x(u,v), y(u,v), z(u,v))\\newline")
       (|htShowPage|)))))
- 
+
 ; bcDraw2Dfun() ==
 ;   htInitPage('"Draw Basic Command",nil)
 ;   htMakePage '(
@@ -470,7 +470,7 @@
 ;     (doneButton "Continue" bcDraw2DfunGen)
 ;     (text . "{}"))
 ;   htShowPage()
- 
+
 (DEFUN |bcDraw2Dfun| ()
   (PROG ()
     (RETURN
@@ -498,7 +498,7 @@
          (|bcStrings| (15 "y = x*cos(x)" |title| S)) (|text| . "\\indent{0}")
          (|doneButton| "Continue" |bcDraw2DfunGen|) (|text| . "{}")))
       (|htShowPage|)))))
- 
+
 ; bcDraw2DfunGen htPage ==
 ;   fun := htpLabelInputString(htPage,'function)
 ;   dep := htpLabelInputString(htPage,'dependent)
@@ -511,7 +511,7 @@
 ;     bcFinish('"draw",fun,bcDrawIt2(ind,from1,to1),titlePart)
 ;   else
 ;     bcFinish('"draw",fun,bcDrawIt2(ind,from1,to1))
- 
+
 (DEFUN |bcDraw2DfunGen| (|htPage|)
   (PROG (|fun| |dep| |ind| |from1| |to1| |title| |titlePart|)
     (RETURN
@@ -528,7 +528,7 @@
         (|bcFinish| "draw" |fun| (|bcDrawIt2| |ind| |from1| |to1|)
          |titlePart|))
        ('T (|bcFinish| "draw" |fun| (|bcDrawIt2| |ind| |from1| |to1|))))))))
- 
+
 ; bcDraw2Dpar() ==
 ;   htInitPage('"Draw Basic Command",nil)
 ;   htMakePage '(
@@ -560,7 +560,7 @@
 ;     (text . "\indent{0}")
 ;     (doneButton "Continue" bcDraw2DparGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcDraw2Dpar| ()
   (PROG ()
     (RETURN
@@ -590,7 +590,7 @@
          (|bcStrings| (15 "Lissajous" |title| S)) (|text| . "\\indent{0}")
          (|doneButton| "Continue" |bcDraw2DparGen|)))
       (|htShowPage|)))))
- 
+
 ; bcDraw2DparGen htPage ==
 ;   fun1 := htpLabelInputString(htPage,'function1)
 ;   fun2 := htpLabelInputString(htPage,'function2)
@@ -604,7 +604,7 @@
 ;     bcFinish('"draw",curvePart,bcDrawIt2(ind,from1,to1),titlePart)
 ;   else
 ;     bcFinish('"draw",curvePart,bcDrawIt2(ind,from1,to1))
- 
+
 (DEFUN |bcDraw2DparGen| (|htPage|)
   (PROG (|fun1| |fun2| |ind| |from1| |to1| |title| |curvePart| |titlePart|)
     (RETURN
@@ -625,7 +625,7 @@
          |titlePart|))
        (#1#
         (|bcFinish| "draw" |curvePart| (|bcDrawIt2| |ind| |from1| |to1|))))))))
- 
+
 ; bcDraw2DSolve() ==
 ;   htInitPage('"Draw Basic Command",nil)
 ;   htMakePage '(
@@ -659,7 +659,7 @@
 ;     (text . "\indent{0}"))
 ;   htMakeDoneButton('"Continue",'bcDraw2DSolveGen)
 ;   htShowPage()
- 
+
 (DEFUN |bcDraw2DSolve| ()
   (PROG ()
     (RETURN
@@ -689,7 +689,7 @@
          (|bcStrings| (15 "" |title| S)) (|text| . "\\indent{0}")))
       (|htMakeDoneButton| "Continue" '|bcDraw2DSolveGen|)
       (|htShowPage|)))))
- 
+
 ; bcDraw2DSolveGen htPage ==
 ;   fun := htpLabelInputString(htPage,'function)
 ;   ind1 := htpLabelInputString(htPage,'independent1)
@@ -705,7 +705,7 @@
 ;     bcFinish('"draw",STRCONC(fun,'" = 0 "),ind1,ind2,clipPart,titlePart)
 ;   else
 ;     bcFinish('"draw",STRCONC(fun,'" = 0 "),ind1,ind2,clipPart)
- 
+
 (DEFUN |bcDraw2DSolveGen| (|htPage|)
   (PROG (|fun| |ind1| |from1| |to1| |ind2| |from2| |to2| |title| |clipPart|
          |titlePart|)
@@ -732,7 +732,7 @@
        (#1#
         (|bcFinish| "draw" (STRCONC |fun| " = 0 ") |ind1| |ind2|
          |clipPart|)))))))
- 
+
 ; bcDraw3Dfun() ==
 ;   htInitPage('"Three Dimensional Draw Basic Command",nil)
 ;   htMakePage '(
@@ -770,7 +770,7 @@
 ;     (text . "\indent{0}")
 ;     (doneButton "Continue" bcDraw3DfunGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcDraw3Dfun| ()
   (PROG ()
     (RETURN
@@ -802,7 +802,7 @@
          (|bcStrings| (15 "" |title| S)) (|text| . "\\indent{0}")
          (|doneButton| "Continue" |bcDraw3DfunGen|)))
       (|htShowPage|)))))
- 
+
 ; bcDraw3DfunGen htPage ==
 ;   fun := htpLabelInputString(htPage,'function)
 ;   dep := htpLabelInputString(htPage,'dependent)
@@ -818,7 +818,7 @@
 ;     bcFinish('"draw",fun,bcDrawIt2(ind1,from1,to1),bcDrawIt2(ind2,from2,to2),titlePart)
 ;   else
 ;     bcFinish('"draw",fun,bcDrawIt2(ind1,from1,to1),bcDrawIt2(ind2,from2,to2))
- 
+
 (DEFUN |bcDraw3DfunGen| (|htPage|)
   (PROG (|fun| |dep| |ind1| |from1| |to1| |ind2| |from2| |to2| |title|
          |titlePart|)
@@ -843,7 +843,7 @@
        (#1#
         (|bcFinish| "draw" |fun| (|bcDrawIt2| |ind1| |from1| |to1|)
          (|bcDrawIt2| |ind2| |from2| |to2|))))))))
- 
+
 ; bcDraw3Dpar() ==
 ;   htInitPage('"Draw Basic Command",nil)
 ;   htMakePage '(
@@ -877,7 +877,7 @@
 ;     (text . "\indent{0}")
 ;     (doneButton "Continue" bcDraw3DparGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcDraw3Dpar| ()
   (PROG ()
     (RETURN
@@ -909,7 +909,7 @@
          (|bcStrings| (15 "knot" |title| S)) (|text| . "\\indent{0}")
          (|doneButton| "Continue" |bcDraw3DparGen|)))
       (|htShowPage|)))))
- 
+
 ; bcDraw3DparGen htPage ==
 ;   fun1 := htpLabelInputString(htPage,'function1)
 ;   fun2 := htpLabelInputString(htPage,'function2)
@@ -925,7 +925,7 @@
 ;     bcFinish('"draw",curvePart,bcDrawIt2(ind,from1,to1),tubePart,titlePart)
 ;   else
 ;     bcFinish('"draw",curvePart,bcDrawIt2(ind,from1,to1),tubePart)
- 
+
 (DEFUN |bcDraw3DparGen| (|htPage|)
   (PROG (|fun1| |fun2| |fun3| |ind| |from1| |to1| |title| |curvePart|
          |tubePart| |titlePart|)
@@ -951,7 +951,7 @@
        (#1#
         (|bcFinish| "draw" |curvePart| (|bcDrawIt2| |ind| |from1| |to1|)
          |tubePart|)))))))
- 
+
 ; bcDraw3Dpar1() ==
 ;   htInitPage('"Draw Basic Command",nil)
 ;   htMakePage '(
@@ -996,7 +996,7 @@
 ;     (text . "\indent{0}"))
 ;   htMakeDoneButton ('"Continue",'bcDraw3Dpar1Gen)
 ;   htShowPage()
- 
+
 (DEFUN |bcDraw3Dpar1| ()
   (PROG ()
     (RETURN
@@ -1032,7 +1032,7 @@
          (|bcStrings| (15 "surface" |title| S)) (|text| . "\\indent{0}")))
       (|htMakeDoneButton| "Continue" '|bcDraw3Dpar1Gen|)
       (|htShowPage|)))))
- 
+
 ; bcDraw3Dpar1Gen htPage ==
 ;   fun1 := htpLabelInputString(htPage,'function1)
 ;   fun2 := htpLabelInputString(htPage,'function2)
@@ -1052,7 +1052,7 @@
 ;     bcFinish('"draw",surfacePart,r1,r2,titlePart)
 ;   else
 ;     bcFinish('"draw",surfacePart,r1,r2)
- 
+
 (DEFUN |bcDraw3Dpar1Gen| (|htPage|)
   (PROG (|fun1| |fun2| |fun3| |ind1| |from1| |to1| |ind2| |from2| |to2| |title|
          |r1| |r2| |surfacePart| |titlePart|)
@@ -1079,7 +1079,7 @@
                       (#1='T (STRCONC "{}" "title ==\"" |title| "\""))))
         (|bcFinish| "draw" |surfacePart| |r1| |r2| |titlePart|))
        (#1# (|bcFinish| "draw" |surfacePart| |r1| |r2|)))))))
- 
+
 ; bcSeries() ==
 ;   htInitPage('"Series Basic Command",nil)
 ;   htMakePage '(
@@ -1097,7 +1097,7 @@
 ;    (text . "\tab{11}Give a formula for the {\em i}'th coefficient")
 ;    (text . "\endmenu"))
 ;   htShowPage()
- 
+
 (DEFUN |bcSeries| ()
   (PROG ()
     (RETURN
@@ -1116,7 +1116,7 @@
          (|text| . "\\tab{11}Give a formula for the {\\em i}'th coefficient")
          (|text| . "\\endmenu")))
       (|htShowPage|)))))
- 
+
 ; bcSeriesExpansion(a,b) ==
 ;   htInitPage('"Series Expansion Basic Command",nil)
 ;   htMakePage '(
@@ -1144,7 +1144,7 @@
 ;     (bcStrings (8 "\%pi/2" point EM)))
 ;   htMakeDoneButton('"Continue",'bcSeriesExpansionGen)
 ;   htShowPage()
- 
+
 (DEFUN |bcSeriesExpansion| (|a| |b|)
   (PROG ()
     (RETURN
@@ -1169,14 +1169,14 @@
          (|text| . "\\tab{49}") (|bcStrings| (8 "\\%pi/2" |point| EM))))
       (|htMakeDoneButton| "Continue" '|bcSeriesExpansionGen|)
       (|htShowPage|)))))
- 
+
 ; bcSeriesExpansionGen htPage ==
 ;   fun := htpLabelInputString(htPage,'function)
 ;   var := htpLabelInputString(htPage,'variable)
 ;   point := htpLabelInputString(htPage,'point)
 ;   terms := htpLabelInputString(htPage,'numberOfTerms)
 ;   bcFinish("series",fun,STRCONC(var,'" = ",point))
- 
+
 (DEFUN |bcSeriesExpansionGen| (|htPage|)
   (PROG (|fun| |var| |point| |terms|)
     (RETURN
@@ -1186,7 +1186,7 @@
       (SETQ |point| (|htpLabelInputString| |htPage| '|point|))
       (SETQ |terms| (|htpLabelInputString| |htPage| '|numberOfTerms|))
       (|bcFinish| '|series| |fun| (STRCONC |var| " = " |point|))))))
- 
+
 ; bcSeriesByFormula(a,b) ==
 ;   htInitPage('"Power Series Basic Command",nil)
 ;   htMakePage '(
@@ -1203,7 +1203,7 @@
 ;     (text . "\newline Series where the exponent ranges from an arbitrary {\em rational value} to plus infinity by an arbitrary {\em positive rational number} step size")
 ;     (text . "\endmenu"))
 ;   htShowPage()
- 
+
 (DEFUN |bcSeriesByFormula| (|a| |b|)
   (PROG ()
     (RETURN
@@ -1228,7 +1228,7 @@
           . "\\newline Series where the exponent ranges from an arbitrary {\\em rational value} to plus infinity by an arbitrary {\\em positive rational number} step size")
          (|text| . "\\endmenu")))
       (|htShowPage|)))))
- 
+
 ; bcTaylorSeries(a,b) ==
 ;   htInitPage('"Taylor Series Basic Command",nil)
 ;   htMakePage '(
@@ -1271,7 +1271,7 @@
 ;     (bcStrings (8 "1" step PI))
 ;     (doneButton "Continue" bcTaylorSeriesGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcTaylorSeries| (|a| |b|)
   (PROG ()
     (RETURN
@@ -1307,11 +1307,11 @@
          (|text| . "\\tab{49}") (|bcStrings| (8 "1" |step| PI))
          (|doneButton| "Continue" |bcTaylorSeriesGen|)))
       (|htShowPage|)))))
- 
+
 ; bcSeriesByFormulaGen htPage == bcNotReady()
- 
+
 (DEFUN |bcSeriesByFormulaGen| (|htPage|) (PROG () (RETURN (|bcNotReady|))))
- 
+
 ; bcLaurentSeries(a,b) ==
 ;   htInitPage('"Laurent Series Basic Command",nil)
 ;   htMakePage '(
@@ -1356,7 +1356,7 @@
 ;     (bcStrings (8 "1" step PI))
 ;     (doneButton "Continue" bcLaurentSeriesGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcLaurentSeries| (|a| |b|)
   (PROG ()
     (RETURN
@@ -1393,7 +1393,7 @@
          (|text| . "\\tab{49}") (|bcStrings| (8 "1" |step| PI))
          (|doneButton| "Continue" |bcLaurentSeriesGen|)))
       (|htShowPage|)))))
- 
+
 ; bcPuiseuxSeries(a,b) ==
 ;   htInitPage('"Puiseux Series Basic Command",nil)
 ;   htMakePage '(
@@ -1440,7 +1440,7 @@
 ;     (bcStrings (6 "2" step RN))
 ;     (doneButton "Continue" bcPuiseuxSeriesGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcPuiseuxSeries| (|a| |b|)
   (PROG ()
     (RETURN
@@ -1481,24 +1481,24 @@
          (|text| . "\\tab{51}") (|bcStrings| (6 "2" |step| RN))
          (|doneButton| "Continue" |bcPuiseuxSeriesGen|)))
       (|htShowPage|)))))
- 
+
 ; bcTaylorSeriesGen htPage == bcSeriesGen(htPage)
- 
+
 (DEFUN |bcTaylorSeriesGen| (|htPage|)
   (PROG () (RETURN (|bcSeriesGen| |htPage|))))
- 
+
 ; bcLaurentSeriesGen htPage ==
 ;   bcSeriesGen(htPage)
- 
+
 (DEFUN |bcLaurentSeriesGen| (|htPage|)
   (PROG () (RETURN (|bcSeriesGen| |htPage|))))
- 
+
 ; bcPuiseuxSeriesGen htPage ==
 ;   bcSeriesGen(htPage)
- 
+
 (DEFUN |bcPuiseuxSeriesGen| (|htPage|)
   (PROG () (RETURN (|bcSeriesGen| |htPage|))))
- 
+
 ; bcSeriesGen(htPage) ==
 ;   step:= htpLabelInputString(htPage,'step)
 ;   min := htpLabelInputString(htPage,'min)
@@ -1509,7 +1509,7 @@
 ;   varPart := STRCONC(var,'" = ",point)
 ;   minPart := STRCONC(min,'"..")
 ;   bcFinish('"series",STRCONC(index,'" +-> ",formula),varPart,minPart,step)
- 
+
 (DEFUN |bcSeriesGen| (|htPage|)
   (PROG (|step| |min| |formula| |index| |var| |point| |varPart| |minPart|)
     (RETURN
@@ -1524,7 +1524,7 @@
       (SETQ |minPart| (STRCONC |min| ".."))
       (|bcFinish| "series" (STRCONC |index| " +-> " |formula|) |varPart|
        |minPart| |step|)))))
- 
+
 ; bcLimit() ==
 ;   htInitPage('"Limit Basic Command",nil)
 ;   htMakePage '(
@@ -1549,7 +1549,7 @@
 ;    (text . "\endmenu")
 ;     )
 ;   htShowPage()
- 
+
 (DEFUN |bcLimit| ()
   (PROG ()
     (RETURN
@@ -1574,7 +1574,7 @@
           . "The limit as the variable approaches a {\\em complex} value along any path in the complex plane")
          (|text| . "\\indentrel{-17}") (|text| . "\\endmenu")))
       (|htShowPage|)))))
- 
+
 ; bcRealLimit(a,b) ==
 ;   htInitPage('"Real Limit Basic Command",nil)
 ;   htMakePage '(
@@ -1606,7 +1606,7 @@
 ;       ("Minus infinity" "" minusInfinity))
 ;     (doneButton "Continue" bcRealLimitGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcRealLimit| (|a| |b|)
   (PROG ()
     (RETURN
@@ -1636,7 +1636,7 @@
           ("Minus infinity" "" |minusInfinity|))
          (|doneButton| "Continue" |bcRealLimitGen|)))
       (|htShowPage|)))))
- 
+
 ; bcRealLimitGen htPage ==
 ;   (p := htpButtonValue(htPage,'location)) ~= 'finitePoint =>
 ;     fun := htpLabelInputString(htPage,'expression)
@@ -1656,7 +1656,7 @@
 ;   htpSetProperty(page,'var,htpLabelInputString(htPage,'variable))
 ;   htpSetProperty(page,'loc,htpLabelInputString(htPage,'point))
 ;   htShowPage()
- 
+
 (DEFUN |bcRealLimitGen| (|htPage|)
   (PROG (|p| |fun| |var| |loc| |page|)
     (RETURN
@@ -1687,7 +1687,7 @@
         (|htpSetProperty| |page| '|loc|
          (|htpLabelInputString| |htPage| '|point|))
         (|htShowPage|)))))))
- 
+
 ; bcRealLimitGen1(htPage,key) ==
 ;   direction :=
 ;     key = 'right => '"_"right_""
@@ -1698,7 +1698,7 @@
 ;   loc := htpProperty(htPage,'loc)
 ;   varPart := STRCONC(var,'" = ",loc)
 ;   bcFinish('"limit",fun,varPart,direction)
- 
+
 (DEFUN |bcRealLimitGen1| (|htPage| |key|)
   (PROG (|direction| |fun| |var| |loc| |varPart|)
     (RETURN
@@ -1711,7 +1711,7 @@
       (SETQ |loc| (|htpProperty| |htPage| '|loc|))
       (SETQ |varPart| (STRCONC |var| " = " |loc|))
       (|bcFinish| "limit" |fun| |varPart| |direction|)))))
- 
+
 ; bcComplexLimit(a,b) ==
 ;   htInitPage('"Complex Limit Basic Command",nil)
 ;   htMakePage '(
@@ -1744,7 +1744,7 @@
 ;       ("Complex infinity" "" complexInfinity))
 ;      (doneButton "Continue" bcComplexLimitGen))
 ;   htShowPage()
- 
+
 (DEFUN |bcComplexLimit| (|a| |b|)
   (PROG ()
     (RETURN
@@ -1775,7 +1775,7 @@
           ("Complex infinity" "" |complexInfinity|))
          (|doneButton| "Continue" |bcComplexLimitGen|)))
       (|htShowPage|)))))
- 
+
 ; bcComplexLimitGen htPage ==
 ;   fun := htpLabelInputString(htPage,'expression)
 ;   var := htpLabelInputString(htPage,'variable)
@@ -1795,7 +1795,7 @@
 ;     '"%infinity"
 ;   varPart := STRCONC(var,'" = ",loc)
 ;   bcFinish('"complexLimit",fun,varPart)
- 
+
 (DEFUN |bcComplexLimitGen| (|htPage|)
   (PROG (|fun| |var| |p| |real| |comp| |complexPart| |loc| |varPart|)
     (RETURN

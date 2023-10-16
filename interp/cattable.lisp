@@ -1,34 +1,34 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; DEFVAR($has_category_hash, nil)
- 
+
 (DEFVAR |$has_category_hash| NIL)
- 
+
 ; DEFVAR($ancestor_hash, nil)
- 
+
 (DEFVAR |$ancestor_hash| NIL)
- 
+
 ; compressHashTable(ht) == ht
- 
+
 (DEFUN |compressHashTable| (|ht|) (PROG () (RETURN |ht|)))
- 
+
 ; hasCat(domainOrCatName,catName) ==
 ;   catName='Type  -- every domain is a Type
 ;    or GETDATABASE([domainOrCatName,:catName],'HASCATEGORY)
- 
+
 (DEFUN |hasCat| (|domainOrCatName| |catName|)
   (PROG ()
     (RETURN
      (OR (EQ |catName| '|Type|)
          (GETDATABASE (CONS |domainOrCatName| |catName|) 'HASCATEGORY)))))
- 
+
 ; showCategoryTable con ==
 ;   [[b,:val] for (key :=[a,:b]) in HKEYS $has_category_hash
 ;      | a = con and (val := HGET($has_category_hash, key))]
- 
+
 (DEFUN |showCategoryTable| (|con|)
   (PROG (|a| |b| |val|)
     (RETURN
@@ -45,7 +45,7 @@
                 (SETQ |bfVar#2| (CONS (CONS |b| |val|) |bfVar#2|)))))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       NIL (HKEYS |$has_category_hash|) NIL))))
- 
+
 ; displayCategoryTable(:options) ==
 ;     conList := IFCAR options
 ;     ct := MAKE_HASHTABLE('ID)
@@ -54,7 +54,7 @@
 ;     for id in HKEYS ct | null conList or MEMQ(id,conList) repeat
 ;         sayMSG [:bright id, '"extends:"]
 ;         PRINT HGET(ct, id)
- 
+
 (DEFUN |displayCategoryTable| (&REST |options|)
   (PROG (|conList| |ct| |a| |b|)
     (RETURN
@@ -86,7 +86,7 @@
                   (PRINT (HGET |ct| |id|))))))
           (SETQ |bfVar#4| (CDR |bfVar#4|))))
        (HKEYS |ct|) NIL)))))
- 
+
 ; genCategoryTable() ==
 ;   $ancestors_hash := MAKE_HASHTABLE('ID)
 ;   $has_category_hash := MAKE_HASHTABLE('UEQUAL)
@@ -107,7 +107,7 @@
 ;   compressHashTable $ancestors_hash
 ;   simpCategoryTable()
 ;   compressHashTable $has_category_hash
- 
+
 (DEFUN |genCategoryTable| ()
   (PROG (|b| |a| |entry| |id| |specialDs| |domainTable| |catl| |domainList|)
     (RETURN
@@ -195,12 +195,12 @@
       (|compressHashTable| |$ancestors_hash|)
       (|simpCategoryTable|)
       (|compressHashTable| |$has_category_hash|)))))
- 
+
 ; simpTempCategoryTable() ==
 ;   for id in HKEYS $ancestors_hash repeat
 ;     for (u:=[a,:b]) in GETDATABASE(id,'ANCESTORS) repeat
 ;       RPLACD(u,simpHasPred b)
- 
+
 (DEFUN |simpTempCategoryTable| ()
   (PROG (|b| |a|)
     (RETURN
@@ -223,7 +223,7 @@
             (GETDATABASE |id| 'ANCESTORS) NIL)))
          (SETQ |bfVar#15| (CDR |bfVar#15|))))
       (HKEYS |$ancestors_hash|) NIL))))
- 
+
 ; simpCategoryTable() == main where
 ;   main ==
 ;     for key in HKEYS $has_category_hash repeat
@@ -233,7 +233,7 @@
 ;         atom opOf entry => simpHasPred entry
 ;         [[x,:npred] for [x,:pred] in entry | npred := simpHasPred pred]
 ;       HPUT($has_category_hash, key, change)
- 
+
 (DEFUN |simpCategoryTable| ()
   (PROG (|change| |npred| |pred| |x| |entry|)
     (RETURN
@@ -275,11 +275,11 @@
                     (HPUT |$has_category_hash| |key| |change|)))))))
          (SETQ |bfVar#17| (CDR |bfVar#17|))))
       (HKEYS |$has_category_hash|) NIL))))
- 
+
 ; simpHasPred(pred) == simpHasPred2(pred, [])
- 
+
 (DEFUN |simpHasPred| (|pred|) (PROG () (RETURN (|simpHasPred2| |pred| NIL))))
- 
+
 ; simpHasPred2(pred, options) == main where
 ;   main ==
 ;     $hasArgs: local := IFCDR IFCAR options
@@ -318,7 +318,7 @@
 ;       npred := or/[p for [args,:p] in x | y = args] => simp npred
 ;       false  --if not there, it is false
 ;     x
- 
+
 (DEFUN |simpHasPred2| (|pred| |options|)
   (PROG (|$hasArgs|)
     (DECLARE (SPECIAL |$hasArgs|))
@@ -433,7 +433,7 @@
           (|simpHasPred2,simp| |npred|))
          (#2# NIL)))
        (#2# |x|))))))
- 
+
 ; simpHasSignature(pred,conform,op,sig) == --eval w/o loading
 ;   IDENTP conform => pred
 ;   [conname,:args] := conform
@@ -443,7 +443,7 @@
 ;   match := or/[x for (x := [sig1,:.]) in candidates
 ;                 | sig = sublisFormal(args,sig1)] or return false
 ;   simpHasPred(match is [sig,., p, :.] and sublisFormal(args,p) or true)
- 
+
 (DEFUN |simpHasSignature| (|pred| |conform| |op| |sig|)
   (PROG (|conname| |args| |n| |u| |sig1| |candidates| |match| |ISTMP#1|
          |ISTMP#2| |p|)
@@ -502,7 +502,7 @@
                                 (PROGN (SETQ |p| (CAR |ISTMP#2|)) #1#)))))
                     (|sublisFormal| |args| |p|))
                T))))))))
- 
+
 ; hasIdent pred ==
 ;   pred is [op,:r] =>
 ;     op = 'QUOTE => false
@@ -510,7 +510,7 @@
 ;   pred = '_$ => false
 ;   IDENTP pred => true
 ;   false
- 
+
 (DEFUN |hasIdent| (|pred|)
   (PROG (|op| |r|)
     (RETURN
@@ -532,7 +532,7 @@
                   (SETQ |bfVar#30| (CDR |bfVar#30|))))
                NIL |r| NIL))))
       ((EQ |pred| '$) NIL) ((IDENTP |pred|) T) (#1# NIL)))))
- 
+
 ; addDomainToTable(id,catl) ==
 ;   alist:= nil
 ;   for cat in catl repeat
@@ -543,7 +543,7 @@
 ;       alist:= [:alist,:newAlist]
 ;     alist:= [:alist,:getCategoryExtensionAlist0 cat]
 ;   [id,:alist]
- 
+
 (DEFUN |addDomainToTable| (|id| |catl|)
   (PROG (|alist| |ISTMP#1| |pred| |ISTMP#2| |cat1| |a| |b| |newAlist|)
     (RETURN
@@ -598,7 +598,7 @@
           (SETQ |bfVar#32| (CDR |bfVar#32|))))
        |catl| NIL)
       (CONS |id| |alist|)))))
- 
+
 ; genTempCategoryTable() ==
 ;   --generates hashtable with key=categoryName and value of the form
 ;   --     ((form . pred) ..) meaning that
@@ -612,7 +612,7 @@
 ;     for (u:=[.,:b]) in item repeat
 ;       RPLACD(u,simpCatPredicate simpBool b)
 ;     HPUT($ancestors_hash, id, listSort(function GLESSEQP, item))
- 
+
 (DEFUN |genTempCategoryTable| ()
   (PROG (|b| |item|)
     (RETURN
@@ -650,13 +650,13 @@
              (HPUT |$ancestors_hash| |id| (|listSort| #'GLESSEQP |item|)))))
           (SETQ |bfVar#37| (CDR |bfVar#37|))))
        (HKEYS |$ancestors_hash|) NIL)))))
- 
+
 ; addToCategoryTable con ==
 ;   u := CAAR GETDATABASE(con,'CONSTRUCTORMODEMAP) --domain
 ;   alist := getCategoryExtensionAlist u
 ;   HPUT($ancestors_hash, first u, alist)
 ;   alist
- 
+
 (DEFUN |addToCategoryTable| (|con|)
   (PROG (|u| |alist|)
     (RETURN
@@ -665,7 +665,7 @@
       (SETQ |alist| (|getCategoryExtensionAlist| |u|))
       (HPUT |$ancestors_hash| (CAR |u|) |alist|)
       |alist|))))
- 
+
 ; encodeCategoryAlist(id,alist) ==
 ;   newAl:= nil
 ;   for [a,:b] in alist repeat
@@ -681,7 +681,7 @@
 ;         PRINT [newEntry,rest u]
 ;     newAl:= [[key,:newEntry],:newAl]
 ;   newAl
- 
+
 (DEFUN |encodeCategoryAlist| (|id| |alist|)
   (PROG (|newAl| |a| |b| |key| |argl| |newEntry| |u| |p|)
     (RETURN
@@ -727,13 +727,13 @@
           (SETQ |bfVar#40| (CDR |bfVar#40|))))
        |alist| NIL)
       |newAl|))))
- 
+
 ; encodeUnion(id,new:=[a,:b],alist) ==
 ;   u := assoc(a,alist) =>
 ;     RPLACD(u,moreGeneralCategoryPredicate(id,b,rest u))
 ;     alist
 ;   [new,:alist]
- 
+
 (DEFUN |encodeUnion| (|id| |new| |alist|)
   (PROG (|a| |b| |u|)
     (RETURN
@@ -746,7 +746,7 @@
          (RPLACD |u| (|moreGeneralCategoryPredicate| |id| |b| (CDR |u|)))
          |alist|))
        ('T (CONS |new| |alist|)))))))
- 
+
 ; moreGeneralCategoryPredicate(id,new,old) ==
 ;   old = 'T or new = 'T => 'T
 ;   old is ['has,a,b] and new is ['has,=a,c] =>
@@ -754,7 +754,7 @@
 ;     tempExtendsCat(c,b) => old
 ;     ['OR,old,new]
 ;   mkCategoryOr(new,old)
- 
+
 (DEFUN |moreGeneralCategoryPredicate| (|id| |new| |old|)
   (PROG (|ISTMP#1| |a| |ISTMP#2| |b| |c|)
     (RETURN
@@ -780,11 +780,11 @@
                   ((|tempExtendsCat| |c| |b|) |old|)
                   (#1# (LIST 'OR |old| |new|))))
            (#1# (|mkCategoryOr| |new| |old|))))))
- 
+
 ; mkCategoryOr(new,old) ==
 ;   old is ['OR,:l] => simpCategoryOr(new,l)
 ;   ['OR,old,new]
- 
+
 (DEFUN |mkCategoryOr| (|new| |old|)
   (PROG (|l|)
     (RETURN
@@ -793,7 +793,7 @@
             (PROGN (SETQ |l| (CDR |old|)) #1='T))
        (|simpCategoryOr| |new| |l|))
       (#1# (LIST 'OR |old| |new|))))))
- 
+
 ; simpCategoryOr(new,l) ==
 ;   newExtendsAnOld:= false
 ;   anOldExtendsNew:= false
@@ -808,7 +808,7 @@
 ;   if not newExtendsAnOld then newList:= [new,:newList]
 ;   newList is [.] => first newList
 ;   ['OR,:newList]
- 
+
 (DEFUN |simpCategoryOr| (|new| |l|)
   (PROG (|newExtendsAnOld| |anOldExtendsNew| |a| |b| |newList| |ISTMP#1|
          |ISTMP#2| |c|)
@@ -846,10 +846,10 @@
       (COND ((NULL |newExtendsAnOld|) (SETQ |newList| (CONS |new| |newList|))))
       (COND ((AND (CONSP |newList|) (EQ (CDR |newList|) NIL)) (CAR |newList|))
             (#2# (CONS 'OR |newList|)))))))
- 
+
 ; tempExtendsCat(b,c) ==
 ;   or/[first c = a for [[a,:.],:.] in GETDATABASE(first b,'ANCESTORS)]
- 
+
 (DEFUN |tempExtendsCat| (|b| |c|)
   (PROG (|ISTMP#1| |a|)
     (RETURN
@@ -870,19 +870,19 @@
                  (COND (|bfVar#44| (RETURN |bfVar#44|)))))))
          (SETQ |bfVar#43| (CDR |bfVar#43|))))
       NIL (GETDATABASE (CAR |b|) 'ANCESTORS) NIL))))
- 
+
 ; getCategoryExtensionAlist0 cform ==
 ;   [[cform,:'T],:getCategoryExtensionAlist cform]
- 
+
 (DEFUN |getCategoryExtensionAlist0| (|cform|)
   (PROG ()
     (RETURN (CONS (CONS |cform| 'T) (|getCategoryExtensionAlist| |cform|)))))
- 
+
 ; getCategoryExtensionAlist cform ==
 ;   --avoids substitution as much as possible
 ;   u:= GETDATABASE(first cform,'ANCESTORS) => formalSubstitute(cform,u)
 ;   mkCategoryExtensionAlist cform
- 
+
 (DEFUN |getCategoryExtensionAlist| (|cform|)
   (PROG (|u|)
     (RETURN
@@ -890,11 +890,11 @@
       ((SETQ |u| (GETDATABASE (CAR |cform|) 'ANCESTORS))
        (|formalSubstitute| |cform| |u|))
       ('T (|mkCategoryExtensionAlist| |cform|))))))
- 
+
 ; formalSubstitute(form:=[.,:argl],u) ==
 ;   isFormalArgumentList argl => u
 ;   EQSUBSTLIST(argl,$FormalMapVariableList,u)
- 
+
 (DEFUN |formalSubstitute| (|form| |u|)
   (PROG (|argl|)
     (RETURN
@@ -902,10 +902,10 @@
       (SETQ |argl| (CDR |form|))
       (COND ((|isFormalArgumentList| |argl|) |u|)
             ('T (EQSUBSTLIST |argl| |$FormalMapVariableList| |u|)))))))
- 
+
 ; isFormalArgumentList argl ==
 ;   and/[x=fa for x in argl for fa in $FormalMapVariableList]
- 
+
 (DEFUN |isFormalArgumentList| (|argl|)
   (PROG ()
     (RETURN
@@ -922,7 +922,7 @@
          (SETQ |bfVar#45| (CDR |bfVar#45|))
          (SETQ |bfVar#46| (CDR |bfVar#46|))))
       T |argl| NIL |$FormalMapVariableList| NIL))))
- 
+
 ; mkCategoryExtensionAlist cform ==
 ;   not CONSP cform => nil
 ;   cop := first cform
@@ -936,7 +936,7 @@
 ;       [[a,:quickAnd(b,pred)] for [a,:b] in newList]
 ;     extendsList:= catPairUnion(extendsList,finalList,cop,cat)
 ;   extendsList
- 
+
 (DEFUN |mkCategoryExtensionAlist| (|cform|)
   (PROG (|cop| |catlist| |extendsList| |cat| |pred| |newList| |a| |b|
          |finalList|)
@@ -1010,7 +1010,7 @@
                     (SETQ |bfVar#49| (CDR |bfVar#49|))))
                  |catlist| NIL)
                 |extendsList|)))))))))
- 
+
 ; mkCategoryExtensionAlistBasic cform ==
 ;   cop := first cform
 ; --category:= eval cform
@@ -1025,7 +1025,7 @@
 ;       [[a,:quickAnd(b,pred)] for [a,:b] in newList]
 ;     extendsList:= catPairUnion(extendsList,finalList,cop,cat)
 ;   extendsList
- 
+
 (DEFUN |mkCategoryExtensionAlistBasic| (|cform|)
   (PROG (|cop| |category| |extendsList| |cat| |ISTMP#1| |pred| |newList| |a|
          |b| |finalList|)
@@ -1091,7 +1091,7 @@
           (SETQ |bfVar#56| (CDR |bfVar#56|))))
        (ELT (ELT |category| 4) 1) NIL)
       |extendsList|))))
- 
+
 ; catPairUnion(oldList,newList,op,cat) ==
 ;   for pair in newList repeat
 ;     u:= assoc(first pair,oldList) =>
@@ -1100,7 +1100,7 @@
 ;         quickOr(new,old)
 ;     oldList:= [pair,:oldList]
 ;   oldList
- 
+
 (DEFUN |catPairUnion| (|oldList| |newList| |op| |cat|)
   (PROG (|u|)
     (RETURN
@@ -1124,13 +1124,13 @@
       |oldList|))))
 (DEFUN |catPairUnion,addConflict| (|new| |old|)
   (PROG () (RETURN (|quickOr| |new| |old|))))
- 
+
 ; simpCatPredicate p ==
 ;   p is ['OR,:l] =>
 ;     (u:= simpOrUnion l) is [p] => p
 ;     ['OR,:u]
 ;   p
- 
+
 (DEFUN |simpCatPredicate| (|p|)
   (PROG (|l| |u| |ISTMP#1|)
     (RETURN
@@ -1144,36 +1144,36 @@
          |p|)
         (#1# (CONS 'OR |u|))))
       (#1# |p|)))))
- 
+
 ; simpOrUnion l ==
 ;   if l then simpOrUnion1(first l,simpOrUnion rest l)
 ;   else l
- 
+
 (DEFUN |simpOrUnion| (|l|)
   (PROG ()
     (RETURN
      (COND (|l| (|simpOrUnion1| (CAR |l|) (|simpOrUnion| (CDR |l|))))
            ('T |l|)))))
- 
+
 ; simpOrUnion1(x,l) ==
 ;   null l => [x]
 ;   p:= mergeOr(x,first l) => [p,:rest l]
 ;   [first l,:simpOrUnion1(x,rest l)]
- 
+
 (DEFUN |simpOrUnion1| (|x| |l|)
   (PROG (|p|)
     (RETURN
      (COND ((NULL |l|) (LIST |x|))
            ((SETQ |p| (|mergeOr| |x| (CAR |l|))) (CONS |p| (CDR |l|)))
            ('T (CONS (CAR |l|) (|simpOrUnion1| |x| (CDR |l|))))))))
- 
+
 ; mergeOr(x,y) ==
 ;   x is ['has,a,b] and y is ['has,=a,c] =>
 ;     testExtend(b,c) => y
 ;     testExtend(c,b) => x
 ;     nil
 ;   nil
- 
+
 (DEFUN |mergeOr| (|x| |y|)
   (PROG (|ISTMP#1| |a| |ISTMP#2| |b| |c|)
     (RETURN
@@ -1198,12 +1198,12 @@
        (COND ((|testExtend| |b| |c|) |y|) ((|testExtend| |c| |b|) |x|)
              (#1# NIL)))
       (#1# NIL)))))
- 
+
 ; testExtend(a:=[op,:argl],b) ==
 ;   (u:= GETDATABASE(op,'ANCESTORS)) and (val:= LASSOC(b,u)) =>
 ;     formalSubstitute(a,val)
 ;   nil
- 
+
 (DEFUN |testExtend| (|a| |b|)
   (PROG (|op| |argl| |u| |val|)
     (RETURN
@@ -1215,7 +1215,7 @@
              (SETQ |val| (LASSOC |b| |u|)))
         (|formalSubstitute| |a| |val|))
        ('T NIL))))))
- 
+
 ; getConstrCat(x) ==
 ; -- gets a different representation of the constructorCategory from the
 ; -- lisplib, which is a list of named categories or conditions
@@ -1227,7 +1227,7 @@
 ;     cats:= CONS(y,cats)
 ;   cats:= nreverse cats
 ;   cats
- 
+
 (DEFUN |getConstrCat| (|x|)
   (PROG (|y| |cats| |ISTMP#1| |z|)
     (RETURN
@@ -1265,7 +1265,7 @@
        |x| NIL)
       (SETQ |cats| (NREVERSE |cats|))
       |cats|))))
- 
+
 ; makeCatPred(zz, cats, thePred) ==
 ;   if zz is ['IF,curPred := ['has,z1,z2],ats,.] then
 ;     ats := if ats is ['PROGN,:atl] then atl else [ats]
@@ -1278,7 +1278,7 @@
 ;       at is ['IF, pred, :.] =>
 ;         cats := makeCatPred(at, cats, curPred)
 ;   cats
- 
+
 (DEFUN |makeCatPred| (|zz| |cats| |thePred|)
   (PROG (|ISTMP#1| |ISTMP#2| |ISTMP#3| |z1| |ISTMP#4| |z2| |curPred| |ISTMP#5|
          |ats| |ISTMP#6| |atl| |z3| |pred|)
@@ -1347,35 +1347,35 @@
             (SETQ |bfVar#63| (CDR |bfVar#63|))))
          |ats| NIL)))
       |cats|))))
- 
+
 ; getConstructorExports(conform, do_constr) == categoryParts(conform,
 ;   GETDATABASE(opOf conform, 'CONSTRUCTORCATEGORY), do_constr)
- 
+
 (DEFUN |getConstructorExports| (|conform| |do_constr|)
   (PROG ()
     (RETURN
      (|categoryParts| |conform|
       (GETDATABASE (|opOf| |conform|) 'CONSTRUCTORCATEGORY) |do_constr|))))
- 
+
 ; DEFVAR($oplist)
- 
+
 (DEFVAR |$oplist|)
- 
+
 ; DEFVAR($conslist)
- 
+
 (DEFVAR |$conslist|)
- 
+
 ; categoryParts(conform, category, do_constr) ==
 ;     kind := GETDATABASE(opOf(conform), 'CONSTRUCTORKIND)
 ;     categoryParts1(kind, conform, category, do_constr)
- 
+
 (DEFUN |categoryParts| (|conform| |category| |do_constr|)
   (PROG (|kind|)
     (RETURN
      (PROGN
       (SETQ |kind| (GETDATABASE (|opOf| |conform|) 'CONSTRUCTORKIND))
       (|categoryParts1| |kind| |conform| |category| |do_constr|)))))
- 
+
 ; categoryParts1(kind, conform, category, do_constr) == main where
 ;   main ==
 ;     $oplist  : local := nil
@@ -1416,7 +1416,7 @@
 ;       exportsOf f
 ;     $conslist := [[target,:true],:$conslist]
 ;     nil
- 
+
 (DEFUN |categoryParts1| (|kind| |conform| |category| |do_constr|)
   (PROG (|$conslist| |$oplist| |tvl| |res|)
     (DECLARE (SPECIAL |$conslist| |$oplist|))
@@ -1557,12 +1557,12 @@
         (|categoryParts1,exportsOf| |f|)))
       (#1#
        (PROGN (SETQ |$conslist| (CONS (CONS |target| T) |$conslist|)) NIL))))))
- 
+
 ; updateCategoryTable(cname,kind) ==
 ;   kind = 'domain =>
 ;     updateCategoryTableForDomain(cname,getConstrCat(
 ;       GETDATABASE(cname,'CONSTRUCTORCATEGORY)))
- 
+
 (DEFUN |updateCategoryTable| (|cname| |kind|)
   (PROG ()
     (RETURN
@@ -1571,7 +1571,7 @@
        (IDENTITY
         (|updateCategoryTableForDomain| |cname|
          (|getConstrCat| (GETDATABASE |cname| 'CONSTRUCTORCATEGORY)))))))))
- 
+
 ; updateCategoryTableForDomain(cname,category) ==
 ;   clearCategoryTable(cname)
 ;   [cname,:domainEntry]:= addDomainToTable(cname,category)
@@ -1579,7 +1579,7 @@
 ;     HPUT($has_category_hash, [cname, :a], b)
 ;   $doNotCompressHashTableIfTrue = true => $has_category_hash
 ;   compressHashTable $has_category_hash
- 
+
 (DEFUN |updateCategoryTableForDomain| (|cname| |category|)
   (PROG (|LETTMP#1| |domainEntry| |a| |b|)
     (RETURN
@@ -1605,24 +1605,24 @@
        (|encodeCategoryAlist| |cname| |domainEntry|) NIL)
       (COND ((EQUAL |$doNotCompressHashTableIfTrue| T) |$has_category_hash|)
             (#1# (|compressHashTable| |$has_category_hash|)))))))
- 
+
 ; clearCategoryTable($cname) ==
 ;   MAPHASH('clearCategoryTable1, $has_category_hash)
- 
+
 (DEFUN |clearCategoryTable| (|$cname|)
   (DECLARE (SPECIAL |$cname|))
   (PROG () (RETURN (MAPHASH '|clearCategoryTable1| |$has_category_hash|))))
- 
+
 ; clearCategoryTable1(key,val) ==
 ;   (first key = $cname) => HREM($has_category_hash, key)
 ;   nil
- 
+
 (DEFUN |clearCategoryTable1| (|key| |val|)
   (PROG ()
     (RETURN
      (COND ((EQUAL (CAR |key|) |$cname|) (HREM |$has_category_hash| |key|))
            ('T NIL)))))
- 
+
 ; clearTempCategoryTable(catNames) ==
 ;   for key in HKEYS($ancestors_hash) repeat
 ;     MEMQ(key,catNames) => nil
@@ -1632,7 +1632,7 @@
 ;         MEMQ(first catForm, catNames) => nil
 ;         extensions:= [extension,:extensions]
 ;     HPUT($ancestors_hash, key, extensions)
- 
+
 (DEFUN |clearTempCategoryTable| (|catNames|)
   (PROG (|extensions| |catForm|)
     (RETURN

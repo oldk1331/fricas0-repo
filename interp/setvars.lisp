@@ -1,8 +1,8 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; initializeSetVariables (setTree) ==
 ;   -- this function passes through the table of set variable information
 ;   -- and initializes the variables to their default definitions.
@@ -21,7 +21,7 @@
 ;       SET(setData.setVar, translateYesNo2TrueFalse setData.setDef)
 ;     st = 'TREE =>
 ;       initializeSetVariables(setData.setLeaf)
- 
+
 (DEFUN |initializeSetVariables| (|setTree|)
   (PROG (|st|)
     (RETURN
@@ -47,7 +47,7 @@
              ((EQ |st| 'TREE) (|initializeSetVariables| (ELT |setData| 5)))))))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       |setTree| NIL))))
- 
+
 ; resetWorkspaceVariables () ==
 ;   -- this replaces def in DEBUG LISP
 ;   -- this function resets many workspace variables to their default
@@ -59,11 +59,11 @@
 ;   SETQ($IOindex                     , 1  )
 ;   SETQ($e                           , [[NIL]])
 ;   SETQ($env                         , [[NIL]])
-; 
+;
 ;   -- many variables set by the following
-; 
+;
 ;   initializeSetVariables($setOptions)
- 
+
 (DEFUN |resetWorkspaceVariables| ()
   (PROG ()
     (RETURN
@@ -76,30 +76,30 @@
       (SETQ |$e| (LIST (LIST NIL)))
       (SETQ |$env| (LIST (LIST NIL)))
       (|initializeSetVariables| |$setOptions|)))))
- 
+
 ; translateYesNo2TrueFalse x ==
 ;   x in '(yes on) => true
 ;   x in '(no off)  => false
 ;   x
- 
+
 (DEFUN |translateYesNo2TrueFalse| (|x|)
   (PROG ()
     (RETURN
      (COND ((|member| |x| '(|yes| |on|)) T) ((|member| |x| '(|no| |off|)) NIL)
            ('T |x|)))))
- 
+
 ; translateTrueFalse2YesNo x ==
 ;   x = true  => 'on
 ;   x = false => 'off
 ;   x
- 
+
 (DEFUN |translateTrueFalse2YesNo| (|x|)
   (PROG () (RETURN (COND ((EQUAL |x| T) '|on|) ((NULL |x|) '|off|) ('T |x|)))))
- 
+
 ; set l ==
 ;   ioHook("startSysCmd", "set")
 ;   UNWIND_-PROTECT(set1(l, $setOptions), ioHook("endSysCmd", "set"))
- 
+
 (DEFUN |set| (|l|)
   (PROG ()
     (RETURN
@@ -107,20 +107,20 @@
       (|ioHook| '|startSysCmd| '|set|)
       (UNWIND-PROTECT (|set1| |l| |$setOptions|)
         (|ioHook| '|endSysCmd| '|set|))))))
- 
+
 ; set1(l,setTree) ==
 ;   null l => displaySetVariableSettings(setTree,"")
 ;   $setOptionNames : local := [x.0 for x in setTree]
 ;   arg := selectOption(DOWNCASE first l, $setOptionNames, 'optionError)
 ;   setData := [arg,:LASSOC(arg,setTree)]
-; 
+;
 ;   -- check is the user is authorized for the set variable
 ;   null satisfiesUserLevel setData.setLevel =>
 ;     sayKeyedMsg("S2IZ0007",[$UserLevel,'"set option"])
-; 
+;
 ;   1 = #l => displaySetOptionInformation(arg,setData)
 ;   st := setData.setType
-; 
+;
 ;   st = 'FUNCTION =>
 ;     -- allow the user to set the default
 ;     setfunarg :=
@@ -133,7 +133,7 @@
 ;     -- if so set, then show option information
 ;     if $displaySetValue then displaySetOptionInformation(arg,setData)
 ;     NIL
-; 
+;
 ;   st = 'STRING   =>
 ;     arg2 := l.1
 ;     if arg2 = 'DEFAULT
@@ -143,7 +143,7 @@
 ;     if $displaySetValue or (null arg2) then
 ;       displaySetOptionInformation(arg,setData)
 ;     NIL
-; 
+;
 ;   st = 'INTEGER  =>
 ;     -- validate the option, allowing the user to set the default
 ;     arg2 :=
@@ -160,7 +160,7 @@
 ;     null arg2 => sayMessage ['" Your value",:bright object2String l.1,
 ;         '"is not among the valid choices."]
 ;     NIL
-; 
+;
 ;   st = 'LITERALS =>
 ;     -- validate the option, allowing the user to set the default
 ;     if (arg2 := selectOption(l.1,['default,:setData.setLeaf],nil)) then
@@ -174,14 +174,14 @@
 ;     null arg2 => sayMessage ['" Your value",:bright object2String l.1,
 ;         '"is not among the valid choices."]
 ;     NIL
-; 
+;
 ;   -- for a sub-tree, we must recurse
 ;   st = 'TREE =>
 ;     set1(IFCDR l, setData.setLeaf)
 ;     NIL
 ;   sayMessage ['"Cannot handle set tree node type",:bright st,"yet"]
 ;   NIL
- 
+
 (DEFUN |set1| (|l| |setTree|)
   (PROG (|$setOptionNames| |upperlimit| |num| |arg2| |setfunarg| |st| |setData|
          |arg|)
@@ -301,36 +301,36 @@
                     (CONS "Cannot handle set tree node type"
                           (APPEND (|bright| |st|) (CONS '|yet| NIL))))
                    NIL))))))))))))
- 
+
 ; displaySetOptionInformation(arg,setData) ==
 ;   st := setData.setType
 ;   -- if the option is a sub-tree, show the full menu
 ;   st = 'TREE =>
 ;     displaySetVariableSettings(setData.setLeaf,setData.setName)
-; 
+;
 ;   -- otherwise we want to show the current setting
 ;   centerAndHighlight (STRCONC('"The ",object2String arg,'" Option"),
 ;                       $LINELENGTH,specialChar 'hbar)
 ;   sayBrightly ['%l,:bright '"Description:",setData.setLabel]
-; 
+;
 ;   st = 'FUNCTION =>
 ;     TERPRI()
 ;     if functionp(setData.setVar)
 ;       then FUNCALL(setData.setVar,"%describe%")
 ;       else sayMSG '"   Function not implemented."
-; 
+;
 ;   st = 'INTEGER  =>
 ;     sayMessage ['" The",:bright arg,'"option",
 ;       '" may be followed by an integer in the range",
 ;        :bright (setData.setLeaf).0,'"to",'%l,
 ;         :bright (setData.setLeaf).1,'"inclusive.",
 ;          '" The current setting is",:bright eval setData.setVar]
-; 
+;
 ;   st = 'STRING  =>
 ;     sayMessage ['" The",:bright arg,'"option",
 ;       '" is followed by a string enclosed in double quote marks.", '%l,
 ;          '" The current setting is",:bright ["_"",eval setData.setVar, "_""]]
-; 
+;
 ;   st = 'LITERALS =>
 ;     sayMessage ['" The",:bright arg,'"option",
 ;       '" may be followed by any one of the following:"]
@@ -345,7 +345,7 @@
 ;        sayMessage [:bright '"yes",'"and",:bright '"no",
 ;         '"have the same effect as",:bright '"on",'"and",:bright '"off",
 ;           '"respectively."]
- 
+
 (DEFUN |displaySetOptionInformation| (|arg| |setData|)
   (PROG (|st| |current|)
     (RETURN
@@ -446,7 +446,7 @@
                                                           (|bright| "off")
                                                           (CONS "respectively."
                                                                 NIL)))))))))))))))))))))
- 
+
 ; displaySetVariableSettings(setTree,label) ==
 ;   if label = "" then label := '")set"
 ;     else label := STRCONC('" ",object2String label,'" ")
@@ -491,7 +491,7 @@
 ;     sayBrightly ['"issue",:bright '")set ",subname,
 ;       '" to see what the options are for",:bright subname,'".",'%l,
 ;         '"For more information, issue",:bright '")help set",'"."]
- 
+
 (DEFUN |displaySetVariableSettings| (|setTree| |label|)
   (PROG (|subtree| |setOption| |st| |opt| |subname|)
     (RETURN
@@ -599,7 +599,7 @@
                                                            ")help set")
                                                           (CONS "."
                                                                 NIL))))))))))))))))))
- 
+
 ; setAsharpArgs arg ==
 ;   arg = "%initialize%" =>
 ;     $asharpCmdlineFlags := '"-O -Fasy -Fao -Flsp -lfricas -Mno-ALDOR__W__WillObsolete -DFriCAS -Y $FRICAS/algebra -I $FRICAS/algebra"
@@ -608,7 +608,7 @@
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     describeAsharpArgs()
 ;   $asharpCmdlineFlags := first(arg)
- 
+
 (DEFUN |setAsharpArgs| (|arg|)
   (PROG ()
     (RETURN
@@ -620,7 +620,7 @@
       ((OR (NULL |arg|) (EQ |arg| '|%describe%|) (EQ (CAR |arg|) '?))
        (|describeAsharpArgs|))
       ('T (SETQ |$asharpCmdlineFlags| (CAR |arg|)))))))
- 
+
 ; describeAsharpArgs() ==
 ;   sayBrightly LIST (
 ;    '%b,'")set compiler args ",'%d,_
@@ -628,7 +628,7 @@
 ;    '" when compiling code for FriCAS.",'%l,_
 ;    '" The args option is followed by a string enclosed in double quotes.",'%l,'%l,_
 ;    '" The current setting is",'%l,'%b,'"_"",$asharpCmdlineFlags,'"_"",'%d)
- 
+
 (DEFUN |describeAsharpArgs| ()
   (PROG ()
     (RETURN
@@ -639,19 +639,19 @@
             " The args option is followed by a string enclosed in double quotes."
             '|%l| '|%l| " The current setting is" '|%l| '|%b| "\""
             |$asharpCmdlineFlags| "\"" '|%d|)))))
- 
+
 ; setInputLibrary arg ==
 ;   arg = "%initialize%" =>
 ;    true
 ;   nil
- 
+
 (DEFUN |setInputLibrary| (|arg|)
   (PROG () (RETURN (COND ((EQ |arg| '|%initialize%|) T) ('T NIL)))))
- 
+
 ; setOutputLibrary arg == false
- 
+
 (DEFUN |setOutputLibrary| (|arg|) (PROG () (RETURN NIL)))
- 
+
 ; describeOutputLibraryArgs() ==
 ;   sayBrightly LIST (
 ;    '%b,'")set compiler output library",'%d,_
@@ -659,7 +659,7 @@
 ;    '"compiled code generated by the library compiler.  By default it goes",'%l,_
 ;    '"in a file called",'%b, '"user.lib", '%d, '"in the current directory."
 ;     )
- 
+
 (DEFUN |describeOutputLibraryArgs| ()
   (PROG ()
     (RETURN
@@ -669,7 +669,7 @@
             "compiled code generated by the library compiler.  By default it goes"
             '|%l| "in a file called" '|%b| "user.lib" '|%d|
             "in the current directory.")))))
- 
+
 ; describeInputLibraryArgs() ==
 ;   sayBrightly LIST (
 ;    '%b,'")set compiler input add library",'%d,_
@@ -679,7 +679,7 @@
 ;    '"is used to tell FriCAS to remove", '%b, '"library", '%d, '%l,_
 ;    '"from this path."
 ;     )
- 
+
 (DEFUN |describeInputLibraryArgs| ()
   (PROG ()
     (RETURN
@@ -690,11 +690,11 @@
             '|%l| '|%b| ")set compiler input drop library" '|%d|
             "is used to tell FriCAS to remove" '|%b| "library" '|%d| '|%l|
             "from this path.")))))
- 
+
 ; setExpose arg ==
 ;   arg = "%initialize%" => loadExposureGroupData()
 ;   arg = "%display%" => '"..."
-; 
+;
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     --  give msg about exposure groups
 ;     displayExposedGroups()
@@ -707,7 +707,7 @@
 ;     -- give some more details
 ;     sayMSG '" "
 ;     sayKeyedMsg("S2IZ0049D",[namestring pathname ["INTERP","EXPOSED"]])
-; 
+;
 ;   arg is [fn,:fnargs] and (fn := selectOptionLC(fn,
 ;     '(add drop initialize),NIL)) =>
 ;       fn = 'add  =>  setExposeAdd fnargs
@@ -715,7 +715,7 @@
 ;       fn = 'initialize => setExpose "%initialize%"
 ;       NIL
 ;   setExpose NIL
- 
+
 (DEFUN |setExpose| (|arg|)
   (PROG (|fn| |fnargs|)
     (RETURN
@@ -744,7 +744,7 @@
                   ((EQ |fn| '|initialize|) (|setExpose| '|%initialize%|))
                   (#1# NIL)))
            (#1# (|setExpose| NIL))))))
- 
+
 ; setExposeAdd arg ==
 ;   (null arg) =>
 ;     centerAndHighlight ("The add Option",$LINELENGTH,specialChar 'hbar)
@@ -761,7 +761,7 @@
 ;       fn = 'constructor =>  setExposeAddConstr fnargs
 ;       NIL
 ;   setExposeAdd NIL
- 
+
 (DEFUN |setExposeAdd| (|arg|)
   (PROG (|fn| |fnargs|)
     (RETURN
@@ -782,7 +782,7 @@
              ((EQ |fn| '|constructor|) (|setExposeAddConstr| |fnargs|))
              (#1# NIL)))
       (#1# (|setExposeAdd| NIL))))))
- 
+
 ; setExposeAddGroup arg ==
 ;   (null arg) =>
 ;     centerAndHighlight("The group Option",$LINELENGTH,specialChar 'hbar)
@@ -812,7 +812,7 @@
 ;     $localExposureData.0 := MSORT cons(x,$localExposureData.0)
 ;     sayKeyedMsg("S2IZ0049R",[x,$interpreterFrameName])
 ;     clearClams()
- 
+
 (DEFUN |setExposeAddGroup| (|arg|)
   (PROG ()
     (RETURN
@@ -879,7 +879,7 @@
                  (|clearClams|)))))))
            (SETQ |bfVar#10| (CDR |bfVar#10|))))
         |arg| NIL))))))
- 
+
 ; setExposeAddConstr arg ==
 ;   (null arg) =>
 ;     centerAndHighlight ("The constructor Option",$LINELENGTH,
@@ -900,7 +900,7 @@
 ;     $localExposureData.1 := MSORT cons(x,$localExposureData.1)
 ;     clearClams()
 ;     sayKeyedMsg("S2IZ0049P",[x,$interpreterFrameName])
- 
+
 (DEFUN |setExposeAddConstr| (|arg|)
   (PROG ()
     (RETURN
@@ -938,7 +938,7 @@
                   (LIST |x| |$interpreterFrameName|))))))))
            (SETQ |bfVar#13| (CDR |bfVar#13|))))
         |arg| NIL))))))
- 
+
 ; setExposeDrop arg ==
 ;   (null arg) =>
 ;     centerAndHighlight ("The drop Option",$LINELENGTH,specialChar 'hbar)
@@ -952,7 +952,7 @@
 ;       fn = 'constructor =>  setExposeDropConstr fnargs
 ;       NIL
 ;   setExposeDrop NIL
- 
+
 (DEFUN |setExposeDrop| (|arg|)
   (PROG (|fn| |fnargs|)
     (RETURN
@@ -971,7 +971,7 @@
              ((EQ |fn| '|constructor|) (|setExposeDropConstr| |fnargs|))
              (#1# NIL)))
       (#1# (|setExposeDrop| NIL))))))
- 
+
 ; setExposeDropGroup arg ==
 ;   (null arg) =>
 ;     centerAndHighlight ("The group Option",$LINELENGTH,specialChar 'hbar)
@@ -997,7 +997,7 @@
 ;     GETALIST($globalExposureGroupAlist,x) =>
 ;       sayKeyedMsg("S2IZ0049I",[x,$interpreterFrameName])
 ;     sayKeyedMsg("S2IZ0049H",[x])
- 
+
 (DEFUN |setExposeDropGroup| (|arg|)
   (PROG ()
     (RETURN
@@ -1042,7 +1042,7 @@
                (#1# (|sayKeyedMsg| 'S2IZ0049H (LIST |x|)))))))
            (SETQ |bfVar#14| (CDR |bfVar#14|))))
         |arg| NIL))))))
- 
+
 ; setExposeDropConstr arg ==
 ;   (null arg) =>
 ;     centerAndHighlight ("The constructor Option",$LINELENGTH,
@@ -1065,7 +1065,7 @@
 ;     $localExposureData.2 := MSORT cons(x,$localExposureData.2)
 ;     clearClams()
 ;     sayKeyedMsg("S2IZ0049Q",[x,$interpreterFrameName])
- 
+
 (DEFUN |setExposeDropConstr| (|arg|)
   (PROG ()
     (RETURN
@@ -1107,7 +1107,7 @@
                   (LIST |x| |$interpreterFrameName|))))))))
            (SETQ |bfVar#15| (CDR |bfVar#15|))))
         |arg| NIL))))))
- 
+
 ; setFunctionsCache arg ==
 ;   $options : local := NIL
 ;   arg = "%initialize%" =>
@@ -1127,7 +1127,7 @@
 ;     terminateSystemCommand()
 ;   if (rest arg) then $options := [['vars,:rest arg]]
 ;   countCache n
- 
+
 (DEFUN |setFunctionsCache| (|arg|)
   (PROG (|$options| |n|)
     (DECLARE (SPECIAL |$options|))
@@ -1159,7 +1159,7 @@
             (COND
              ((CDR |arg|) (SETQ |$options| (LIST (CONS '|vars| (CDR |arg|))))))
             (|countCache| |n|)))))))))))
- 
+
 ; countCache n ==
 ;   $options =>
 ;     $options is [["vars",:l]] =>
@@ -1171,7 +1171,7 @@
 ;         sayCacheCount(x,n)
 ;     optionError(CAAR $options,nil)
 ;   sayCacheCount(nil,$cacheCount:= n)
- 
+
 (DEFUN |countCache| (|n|)
   (PROG (|ISTMP#1| |l| |cacheCountName|)
     (RETURN
@@ -1201,7 +1201,7 @@
           |l| NIL))
         (#1# (|optionError| (CAAR |$options|) NIL))))
       (#1# (|sayCacheCount| NIL (SETQ |$cacheCount| |n|)))))))
- 
+
 ; describeSetFunctionsCache() ==
 ;   sayBrightly LIST(
 ;     '%b,'")set functions cache",'%d,'"is used to tell FriCAS how many",'%l,_
@@ -1214,7 +1214,7 @@
 ;     '" sizes you wish to so set.  If no functions are given, the default cache",'%l,_
 ;     '" size is set.",'%l,'" Examples:",_
 ;     '"   )set fun cache all         )set fun cache 10 f g Legendre")
- 
+
 (DEFUN |describeSetFunctionsCache| ()
   (PROG ()
     (RETURN
@@ -1234,14 +1234,14 @@
             " sizes you wish to so set.  If no functions are given, the default cache"
             '|%l| " size is set." '|%l| " Examples:"
             "   )set fun cache all         )set fun cache 10 f g Legendre")))))
- 
+
 ; sayAllCacheCounts () ==
 ;   sayCacheCount(nil,$cacheCount)
 ;   $cacheAlist =>
 ;     TERPRI()
 ; --    SAY '" However,"
 ;     for [x,:n] in $cacheAlist | n ~= $cacheCount repeat sayCacheCount(x,n)
- 
+
 (DEFUN |sayAllCacheCounts| ()
   (PROG (|n| |x|)
     (RETURN
@@ -1267,7 +1267,7 @@
                     (|sayCacheCount| |x| |n|))))
              (SETQ |bfVar#18| (CDR |bfVar#18|))))
           |$cacheAlist| NIL))))))))
- 
+
 ; sayCacheCount(fn,n) ==
 ;   prefix:=
 ;     fn => ["function",:bright linearFormatName fn]
@@ -1283,7 +1283,7 @@
 ;     n=1 => [" only the last value."]
 ;     [" the last",:bright n,"values."]
 ;   sayBrightly ['"   ",:prefix,'"will cache",:phrase]
- 
+
 (DEFUN |sayCacheCount| (|fn| |n|)
   (PROG (|prefix| |phrase|)
     (RETURN
@@ -1315,14 +1315,14 @@
                          (APPEND (|bright| |n|) (CONS '|values.| NIL))))))
          (|sayBrightly|
           (CONS "   " (APPEND |prefix| (CONS "will cache" |phrase|)))))))))))
- 
+
 ; setHistory arg ==
 ;   -- this is just a front end for the history functions
 ;   arg = "%initialize%" => nil
-; 
+;
 ;   current := object2String translateTrueFalse2YesNo $HiFiAccess
 ;   arg = "%display%" => current
-; 
+;
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     sayMessage ['" The",:bright '"history",'"option",
 ;       '" may be followed by any one of the following:"]
@@ -1342,13 +1342,13 @@
 ;       '" is kept in ",wh,'"."]
 ;     sayMessage ['" Issue",:bright '")help history",
 ;       '"for more information."]
-; 
+;
 ;   arg is [fn] and
 ;    (fn := DOWNCASE(fn)) in '(y n ye yes no on of off) =>
 ;     $options := [[fn]]
 ;     historySpad2Cmd()
 ;   setHistory NIL
- 
+
 (DEFUN |setHistory| (|arg|)
   (PROG (|current| |wh| |fn|)
     (RETURN
@@ -1416,7 +1416,7 @@
                      (SETQ |$options| (LIST (LIST |fn|)))
                      (|historySpad2Cmd|)))
                    (#1# (|setHistory| NIL)))))))))
- 
+
 ; describeSetOutputU(s_nam, o_nam, o_ext, is_on, cs) ==
 ;          sayBrightly LIST ('%b,'")set output ", s_nam,'%d,_
 ;   '"is used to tell FriCAS to turn ", o_nam, '"-style output",'%l,_
@@ -1445,7 +1445,7 @@
 ;   '"The output is placed in the directory from which you invoked FriCAS or", _
 ;   '%l, '"the one you set with the )cd system command.", '%l, _
 ;   '"The current setting is: ",'%b, cs,'%d)
- 
+
 (DEFUN |describeSetOutputU| (|s_nam| |o_nam| |o_ext| |is_on| |cs|)
   (PROG ()
     (RETURN
@@ -1476,13 +1476,13 @@
             "The output is placed in the directory from which you invoked FriCAS or"
             '|%l| "the one you set with the )cd system command." '|%l|
             "The current setting is: " '|%b| |cs| '|%d|)))))
- 
+
 ; stream_close(st) ==
 ;     if first(st) then CLOSE(rest(st))
- 
+
 (DEFUN |stream_close| (|st|)
   (PROG () (RETURN (COND ((CAR |st|) (CLOSE (CDR |st|)))))))
- 
+
 ; try_open(fn, ft, append) ==
 ;     if (ptype := pathnameType fn) then
 ;         fn := STRCONC(pathnameDirectory fn,pathnameName fn)
@@ -1491,7 +1491,7 @@
 ;     null filename => [NIL, NIL]
 ;     (testStream := makeStream(append, filename)) => [testStream, filename]
 ;     [NIL, NIL]
- 
+
 (DEFUN |try_open| (|fn| |ft| APPEND)
   (PROG (|ptype| |filename| |testStream|)
     (RETURN
@@ -1505,27 +1505,27 @@
             ((SETQ |testStream| (|makeStream| APPEND |filename|))
              (LIST |testStream| |filename|))
             ('T (LIST NIL NIL)))))))
- 
+
 ; setOutputAlgebra arg ==
 ;   arg = "%initialize%" =>
 ;     $algebraOutputStream := mkOutputConsoleStream()
 ;     $algebraOutputFile := '"CONSOLE"
 ;     $algebraFormat := true
-; 
+;
 ;   arg = "%display%" =>
 ;     if $algebraFormat then label := '"On:" else label := '"Off:"
 ;     STRCONC(label,$algebraOutputFile)
-; 
+;
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     describeSetOutputAlgebra()
-; 
+;
 ;   -- try to figure out what the argument is
-; 
+;
 ;   if arg is [fn] and
 ;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
 ;       then 'ok
 ;       else arg := [fn,'spout]
-; 
+;
 ;   arg is [fn] =>
 ;     UPCASE(fn) in '(Y N YE O OF) =>
 ;       sayKeyedMsg("S2IV0002",'(algebra algebra))
@@ -1535,7 +1535,7 @@
 ;       stream_close($algebraOutputStream)
 ;       $algebraOutputStream := mkOutputConsoleStream()
 ;       $algebraOutputFile := '"CONSOLE"
-; 
+;
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
 ;     [testStream, filename] := try_open(fn, ft, false)
 ;     testStream =>
@@ -1544,10 +1544,10 @@
 ;       $algebraOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"Algebra",$algebraOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
-; 
+;
 ;   sayKeyedMsg("S2IV0005",NIL)
 ;   describeSetOutputAlgebra()
- 
+
 (DEFUN |setOutputAlgebra| (|arg|)
   (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
          |filename|)
@@ -1621,27 +1621,27 @@
           (PROGN
            (|sayKeyedMsg| 'S2IV0005 NIL)
            (|describeSetOutputAlgebra|))))))))))
- 
+
 ; describeSetOutputAlgebra() == describeSetOutputU(
 ;     '"algebra", '"algebra", '"spout", true, setOutputAlgebra "%display%")
- 
+
 (DEFUN |describeSetOutputAlgebra| ()
   (PROG ()
     (RETURN
      (|describeSetOutputU| "algebra" "algebra" "spout" T
       (|setOutputAlgebra| '|%display%|)))))
- 
+
 ; setOutputCharacters arg ==
 ;   -- this sets the special character set
 ;   arg = "%initialize%" =>
 ;     $specialCharacters := $plainRTspecialCharacters
-; 
+;
 ;   current :=
 ;     $specialCharacters = $RTspecialCharacters      => '"default"
 ;     $specialCharacters = $plainRTspecialCharacters => '"plain"
 ;     '"unknown"
 ;   arg = "%display%" => current
-; 
+;
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     sayMessage ['" The",:bright '"characters",'"option",
 ;       '" may be followed by any one of the following:"]
@@ -1659,13 +1659,13 @@
 ;         PNAME specialChar(char))
 ;       l := cons(s,l)
 ;     sayAsManyPerLineAsPossible reverse l
-; 
+;
 ;   arg is [fn] and (fn := DOWNCASE(fn)) =>
 ;     fn = 'default => $specialCharacters := $RTspecialCharacters
 ;     fn = 'plain   => $specialCharacters := $plainRTspecialCharacters
 ;     setOutputCharacters NIL
 ;   setOutputCharacters NIL
- 
+
 (DEFUN |setOutputCharacters| (|arg|)
   (PROG (|current| |l| |char| |s| |fn|)
     (RETURN
@@ -1740,44 +1740,44 @@
                  (SETQ |$specialCharacters| |$plainRTspecialCharacters|))
                 (#1# (|setOutputCharacters| NIL))))
               (#1# (|setOutputCharacters| NIL)))))))))
- 
+
 ; makeStream(append,filename) ==
 ;   append => make_append_stream(filename)
 ;   make_out_stream(filename)
- 
+
 (DEFUN |makeStream| (APPEND |filename|)
   (PROG ()
     (RETURN
      (COND (APPEND (|make_append_stream| |filename|))
            ('T (|make_out_stream| |filename|))))))
- 
+
 ; setOutputFortran arg ==
 ;   arg = "%initialize%" =>
 ;     $fortranOutputStream := mkOutputConsoleStream()
 ;     $fortranOutputFile := '"CONSOLE"
 ;     $fortranFormat := NIL
-; 
+;
 ;   arg = "%display%" =>
 ;     if $fortranFormat then label := '"On:" else label := '"Off:"
 ;     STRCONC(label,$fortranOutputFile)
-; 
+;
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     describeSetOutputFortran()
-; 
+;
 ;   -- try to figure out what the argument is
-; 
+;
 ;   append := NIL
 ;   quiet := NIL
 ;   while LISTP arg and UPCASE(first arg) in '(APPEND QUIET) repeat
 ;     if UPCASE first(arg) = 'APPEND then append := true
 ;     else if UPCASE first(arg) = 'QUIET then quiet := true
 ;     arg := rest(arg)
-; 
+;
 ;   if arg is [fn] and
 ;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
 ;       then 'ok
 ;       else arg := [fn,'sfort]
-; 
+;
 ;   arg is [fn] =>
 ;     UPCASE(fn) in '(Y N YE O OF) =>
 ;       sayKeyedMsg("S2IV0002",'(FORTRAN fortran))
@@ -1787,7 +1787,7 @@
 ;       stream_close($fortranOutputStream)
 ;       $fortranOutputStream := mkOutputConsoleStream()
 ;       $fortranOutputFile := '"CONSOLE"
-; 
+;
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
 ;     [testStream, filename] := try_open(fn, ft, append)
 ;     testStream =>
@@ -1798,7 +1798,7 @@
 ;     if null quiet then sayKeyedMsg("S2IV0003",[fn,ft])
 ;   if null quiet then sayKeyedMsg("S2IV0005",NIL)
 ;   describeSetOutputFortran()
- 
+
 (DEFUN |setOutputFortran| (|arg|)
   (PROG (|label| APPEND |quiet| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1|
          |testStream| |filename|)
@@ -1891,36 +1891,36 @@
           (PROGN
            (COND ((NULL |quiet|) (|sayKeyedMsg| 'S2IV0005 NIL)))
            (|describeSetOutputFortran|))))))))))
- 
+
 ; describeSetOutputFortran() == describeSetOutputU(
 ;     '"fortran", '"FORTRAN", '"sfort", false, setOutputFortran "%display%")
- 
+
 (DEFUN |describeSetOutputFortran| ()
   (PROG ()
     (RETURN
      (|describeSetOutputU| "fortran" "FORTRAN" "sfort" NIL
       (|setOutputFortran| '|%display%|)))))
- 
+
 ; setOutputMathml arg ==
 ;   arg = "%initialize%" =>
 ;     $mathmlOutputStream := mkOutputConsoleStream()
 ;     $mathmlOutputFile := '"CONSOLE"
 ;     $mathmlFormat := NIL
-; 
+;
 ;   arg = "%display%" =>
 ;     if $mathmlFormat then label := '"On:" else label := '"Off:"
 ;     STRCONC(label,$mathmlOutputFile)
-; 
+;
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     describeSetOutputMathml()
-; 
+;
 ;   -- try to figure out what the argument is
-; 
+;
 ;   if arg is [fn] and
 ;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
 ;       then 'ok
 ;       else arg := [fn,'smml]
-; 
+;
 ;   arg is [fn] =>
 ;     UPCASE(fn) in '(Y N YE O OF) =>
 ;       sayKeyedMsg("S2IV0002",'(MathML mathml))
@@ -1930,7 +1930,7 @@
 ;       stream_close($mathmlOutputStream)
 ;       $mathmlOutputStream := mkOutputConsoleStream()
 ;       $mathmlOutputFile := '"CONSOLE"
-; 
+;
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
 ;     [testStream, filename] := try_open(fn, ft, false)
 ;     testStream =>
@@ -1939,10 +1939,10 @@
 ;       $mathmlOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"MathML",$mathmlOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
-; 
+;
 ;   sayKeyedMsg("S2IV0005",NIL)
 ;   describeSetOutputMathml()
- 
+
 (DEFUN |setOutputMathml| (|arg|)
   (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
          |filename|)
@@ -2016,36 +2016,36 @@
           (PROGN
            (|sayKeyedMsg| 'S2IV0005 NIL)
            (|describeSetOutputMathml|))))))))))
- 
+
 ; describeSetOutputMathml() == describeSetOutputU(
 ;     '"mathml", '"MathML", '"smml", false, setOutputMathml "%display%")
- 
+
 (DEFUN |describeSetOutputMathml| ()
   (PROG ()
     (RETURN
      (|describeSetOutputU| "mathml" "MathML" "smml" NIL
       (|setOutputMathml| '|%display%|)))))
- 
+
 ; setOutputTexmacs arg ==
 ;   arg = "%initialize%" =>
 ;     $texmacsOutputStream := mkOutputConsoleStream()
 ;     $texmacsOutputFile := '"CONSOLE"
 ;     $texmacsFormat := NIL
-; 
+;
 ;   arg = "%display%" =>
 ;     if $texmacsFormat then label := '"On:" else label := '"Off:"
 ;     STRCONC(label,$texmacsOutputFile)
-; 
+;
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     describeSetOutputTexmacs()
-; 
+;
 ;   -- try to figure out what the argument is
-; 
+;
 ;   if arg is [fn] and
 ;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
 ;       then 'ok
 ;       else arg := [fn,'stmx]
-; 
+;
 ;   arg is [fn] =>
 ;     UPCASE(fn) in '(Y N YE O OF) =>
 ;       sayKeyedMsg("S2IV0002",'(Texmacs texmacs))
@@ -2055,7 +2055,7 @@
 ;       stream_close($texmacsOutputStream)
 ;       $texmacsOutputStream := mkOutputConsoleStream()
 ;       $texmacsOutputFile := '"CONSOLE"
-; 
+;
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
 ;     [testStream, filename] := try_open(fn, ft, false)
 ;     testStream =>
@@ -2064,10 +2064,10 @@
 ;       $texmacsOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"Texmacs",$texmacsOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
-; 
+;
 ;   sayKeyedMsg("S2IV0005",NIL)
 ;   describeSetOutputTexmacs()
- 
+
 (DEFUN |setOutputTexmacs| (|arg|)
   (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
          |filename|)
@@ -2141,36 +2141,36 @@
           (PROGN
            (|sayKeyedMsg| 'S2IV0005 NIL)
            (|describeSetOutputTexmacs|))))))))))
- 
+
 ; describeSetOutputTexmacs() == describeSetOutputU(
 ;     '"texmacs", '"Texmacs", '"stmx", false, setOutputTexmacs "%display%")
- 
+
 (DEFUN |describeSetOutputTexmacs| ()
   (PROG ()
     (RETURN
      (|describeSetOutputU| "texmacs" "Texmacs" "stmx" NIL
       (|setOutputTexmacs| '|%display%|)))))
- 
+
 ; setOutputHtml arg ==
 ;   arg = "%initialize%" =>
 ;     $htmlOutputStream := mkOutputConsoleStream()
 ;     $htmlOutputFile := '"CONSOLE"
 ;     $htmlFormat := NIL
-; 
+;
 ;   arg = "%display%" =>
 ;     if $htmlFormat then label := '"On:" else label := '"Off:"
 ;     STRCONC(label, $htmlOutputFile)
-; 
+;
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     describeSetOutputHtml()
-; 
+;
 ;   -- try to figure out what the argument is
-; 
+;
 ;   if arg is [fn] and
 ;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
 ;       then 'ok
 ;       else arg := [fn,'shtml]
-; 
+;
 ;   arg is [fn] =>
 ;     UPCASE(fn) in '(Y N YE O OF) =>
 ;       sayKeyedMsg("S2IV0002",'(HTML html))
@@ -2180,7 +2180,7 @@
 ;       stream_close($htmlOutputStream)
 ;       $htmlOutputStream := mkOutputConsoleStream()
 ;       $htmlOutputFile := '"CONSOLE"
-; 
+;
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
 ;     [testStream, filename] := try_open(fn, ft, false)
 ;     testStream =>
@@ -2189,10 +2189,10 @@
 ;       $htmlOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"HTML",$htmlOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
-; 
+;
 ;   sayKeyedMsg("S2IV0005",NIL)
 ;   describeSetOutputHtml()
- 
+
 (DEFUN |setOutputHtml| (|arg|)
   (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
          |filename|)
@@ -2266,36 +2266,36 @@
           (PROGN
            (|sayKeyedMsg| 'S2IV0005 NIL)
            (|describeSetOutputHtml|))))))))))
- 
+
 ; describeSetOutputHtml() == describeSetOutputU(
 ;     '"html", '"HTML", '"shtml", false, setOutputHtml "%display%")
- 
+
 (DEFUN |describeSetOutputHtml| ()
   (PROG ()
     (RETURN
      (|describeSetOutputU| "html" "HTML" "shtml" NIL
       (|setOutputHtml| '|%display%|)))))
- 
+
 ; setOutputOpenMath arg ==
 ;   arg = "%initialize%" =>
 ;     $openMathOutputStream := mkOutputConsoleStream()
 ;     $openMathOutputFile := '"CONSOLE"
 ;     $openMathFormat := NIL
-; 
+;
 ;   arg = "%display%" =>
 ;     if $openMathFormat then label := '"On:" else label := '"Off:"
 ;     STRCONC(label,$openMathOutputFile)
-; 
+;
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     describeSetOutputOpenMath()
-; 
+;
 ;   -- try to figure out what the argument is
-; 
+;
 ;   if arg is [fn] and
 ;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
 ;       then 'ok
 ;       else arg := [fn,'som]
-; 
+;
 ;   arg is [fn] =>
 ;     UPCASE(fn) in '(Y N YE O OF) =>
 ;       sayKeyedMsg("S2IV0002",'(OpenMath openmath))
@@ -2305,7 +2305,7 @@
 ;       stream_close($openMathOutputStream)
 ;       $openMathOutputStream := mkOutputConsoleStream()
 ;       $openMathOutputFile := '"CONSOLE"
-; 
+;
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
 ;     [testStream, filename] := try_open(fn, ft, false)
 ;     testStream =>
@@ -2314,10 +2314,10 @@
 ;       $openMathOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"OpenMath",$openMathOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
-; 
+;
 ;   sayKeyedMsg("S2IV0005",NIL)
 ;   describeSetOutputOpenMath()
- 
+
 (DEFUN |setOutputOpenMath| (|arg|)
   (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
          |filename|)
@@ -2392,36 +2392,36 @@
           (PROGN
            (|sayKeyedMsg| 'S2IV0005 NIL)
            (|describeSetOutputOpenMath|))))))))))
- 
+
 ; describeSetOutputOpenMath() == describeSetOutputU(
 ;     '"openmath", '"OpenMath", '"som", false, setOutputOpenMath "%display%")
- 
+
 (DEFUN |describeSetOutputOpenMath| ()
   (PROG ()
     (RETURN
      (|describeSetOutputU| "openmath" "OpenMath" "som" NIL
       (|setOutputOpenMath| '|%display%|)))))
- 
+
 ; setOutputTex arg ==
 ;   arg = "%initialize%" =>
 ;     $texOutputStream := mkOutputConsoleStream()
 ;     $texOutputFile := '"CONSOLE"
 ;     $texFormat := NIL
-; 
+;
 ;   arg = "%display%" =>
 ;     if $texFormat then label := '"On:" else label := '"Off:"
 ;     STRCONC(label,$texOutputFile)
-; 
+;
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     describeSetOutputTex()
-; 
+;
 ;   -- try to figure out what the argument is
-; 
+;
 ;   if arg is [fn] and
 ;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
 ;       then 'ok
 ;       else arg := [fn,'stex]
-; 
+;
 ;   arg is [fn] =>
 ;     UPCASE(fn) in '(Y N YE O OF) =>
 ;       sayKeyedMsg("S2IV0002",'(TeX tex))
@@ -2431,7 +2431,7 @@
 ;       stream_close($texOutputStream)
 ;       $texOutputStream := mkOutputConsoleStream()
 ;       $texOutputFile := '"CONSOLE"
-; 
+;
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
 ;     [testStream, filename] := try_open(fn, ft, false)
 ;     testStream =>
@@ -2440,10 +2440,10 @@
 ;       $texOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"TeX",$texOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
-; 
+;
 ;   sayKeyedMsg("S2IV0005",NIL)
 ;   describeSetOutputTex()
- 
+
 (DEFUN |setOutputTex| (|arg|)
   (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
          |filename|)
@@ -2515,36 +2515,36 @@
             (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
          (#1#
           (PROGN (|sayKeyedMsg| 'S2IV0005 NIL) (|describeSetOutputTex|))))))))))
- 
+
 ; describeSetOutputTex() == describeSetOutputU(
 ;     '"tex", '"TeX", '"stex", false, setOutputTex "%display%")
- 
+
 (DEFUN |describeSetOutputTex| ()
   (PROG ()
     (RETURN
      (|describeSetOutputU| "tex" "TeX" "stex" NIL
       (|setOutputTex| '|%display%|)))))
- 
+
 ; setOutputFormatted arg ==
 ;   arg = "%initialize%" =>
 ;     $formattedOutputStream := mkOutputConsoleStream()
 ;     $formattedOutputFile := '"CONSOLE"
 ;     $formattedFormat := NIL
-; 
+;
 ;   arg = "%display%" =>
 ;     if $formattedFormat then label := '"On:" else label := '"Off:"
 ;     STRCONC(label, $formattedOutputFile)
-; 
+;
 ;   (null arg) or (arg = "%describe%") or (first arg = '_?) =>
 ;     describeSetOutputFormatted()
-; 
+;
 ;   -- try to figure out what the argument is
-; 
+;
 ;   if arg is [fn] and
 ;     fn in '(Y N YE YES NO O ON OF OFF CONSOLE y n ye yes no o on of off console)
 ;       then 'ok
 ;       else arg := [fn,'formatted]
-; 
+;
 ;   arg is [fn] =>
 ;     UPCASE(fn) in '(Y N YE O OF) =>
 ;       sayKeyedMsg("S2IV0002",'(FORMATTED formatted))
@@ -2554,7 +2554,7 @@
 ;       stream_close($formattedOutputStream)
 ;       $formattedOutputStream := mkOutputConsoleStream()
 ;       $formattedOutputFile := '"CONSOLE"
-; 
+;
 ;   (arg is [fn,ft]) or (arg is [fn,ft,fm]) => -- aha, a file
 ;     [testStream, filename] := try_open(fn, ft, false)
 ;     testStream =>
@@ -2563,10 +2563,10 @@
 ;       $formattedOutputFile := filename
 ;       sayKeyedMsg("S2IV0004",['"FORMATTED",$formattedOutputFile])
 ;     sayKeyedMsg("S2IV0003",[fn,ft])
-; 
+;
 ;   sayKeyedMsg("S2IV0005",NIL)
 ;   describeSetOutputFormatted()
- 
+
 (DEFUN |setOutputFormatted| (|arg|)
   (PROG (|label| |fn| |ISTMP#1| |ft| |ISTMP#2| |fm| |LETTMP#1| |testStream|
          |filename|)
@@ -2641,16 +2641,16 @@
           (PROGN
            (|sayKeyedMsg| 'S2IV0005 NIL)
            (|describeSetOutputFormatted|))))))))))
- 
+
 ; describeSetOutputFormatted() == describeSetOutputU(
 ;     '"formatted",'"formatted",'"formatted",false,setOutputFormatted "%display%")
- 
+
 (DEFUN |describeSetOutputFormatted| ()
   (PROG ()
     (RETURN
      (|describeSetOutputU| "formatted" "formatted" "formatted" NIL
       (|setOutputFormatted| '|%display%|)))))
- 
+
 ; setStreamsCalculate arg ==
 ;   arg = "%initialize%" =>
 ;     $streamCount := 10
@@ -2664,7 +2664,7 @@
 ;     describeSetStreamsCalculate()
 ;     terminateSystemCommand()
 ;   $streamCount := n
- 
+
 (DEFUN |setStreamsCalculate| (|arg|)
   (PROG (|n|)
     (RETURN
@@ -2685,8 +2685,8 @@
                 (|describeSetStreamsCalculate|)
                 (|terminateSystemCommand|)))
               (#1# (SETQ |$streamCount| |n|)))))))))
- 
+
 ; describeSetStreamsCalculate() == sayKeyedMsg("S2IV0001",[$streamCount])
- 
+
 (DEFUN |describeSetStreamsCalculate| ()
   (PROG () (RETURN (|sayKeyedMsg| 'S2IV0001 (LIST |$streamCount|)))))

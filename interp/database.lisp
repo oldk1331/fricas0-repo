@@ -1,12 +1,12 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; DEFPARAMETER($getUnexposedOperations, true)
- 
+
 (DEFPARAMETER |$getUnexposedOperations| T)
- 
+
 ; augLisplibModemapsFromCategory(form is [op,:argl], body, signature,
 ;                                domainShell) ==
 ;   sl := [["$",:"*1"],:[[a,:p] for a in argl
@@ -27,7 +27,7 @@
 ;       modemap:= [["*1",:sig],[pred',sel]]
 ;       $lisplibModemapAlist:=
 ;         [[op,:interactiveModemapForm modemap],:$lisplibModemapAlist]
- 
+
 (DEFUN |augLisplibModemapsFromCategory|
        (|form| |body| |signature| |domainShell|)
   (PROG (|op| |argl| |sl| |opAlist| |nonCategorySigAlist| |domainList|
@@ -117,7 +117,7 @@
                            |$lisplibModemapAlist|))))))
           (SETQ |bfVar#9| (CDR |bfVar#9|))))
        |opAlist| NIL)))))
- 
+
 ; augmentLisplibModemapsFromFunctor(form,opAlist,signature) ==
 ;   form:= [formOp,:argl]:= formal2Pattern form
 ;   opAlist:= formal2Pattern opAlist
@@ -146,7 +146,7 @@
 ;         modemap:= [[form,:sig],[pred',sel,:skip]]
 ;         $lisplibModemapAlist:= [[op,:interactiveModemapForm modemap],
 ;           :$lisplibModemapAlist]
- 
+
 (DEFUN |augmentLisplibModemapsFromFunctor| (|form| |opAlist| |signature|)
   (PROG (|LETTMP#1| |formOp| |argl| |nonCategorySigAlist| |ISTMP#1| |op|
          |ISTMP#2| |sig| |ISTMP#3| |pred| |ISTMP#4| |sel| |skip| |patternList|
@@ -269,14 +269,14 @@
                            |$lisplibModemapAlist|))))))
           (SETQ |bfVar#10| (CDR |bfVar#10|))))
        |opAlist| NIL)))))
- 
+
 ; saveUsersHashTable() ==
 ;   erase_lib(['USERS, 'DATABASE])
 ;   stream:= writeLib('USERS,'DATABASE)
 ;   for k in MSORT HKEYS $usersTb repeat
 ;     rwrite(k, HGET($usersTb, k), stream)
 ;   RSHUT stream
- 
+
 (DEFUN |saveUsersHashTable| ()
   (PROG (|stream|)
     (RETURN
@@ -292,14 +292,14 @@
           (SETQ |bfVar#20| (CDR |bfVar#20|))))
        (MSORT (HKEYS |$usersTb|)) NIL)
       (RSHUT |stream|)))))
- 
+
 ; saveDependentsHashTable() ==
 ;   erase_lib(['DEPENDENTS, 'DATABASE])
 ;   stream:= writeLib('DEPENDENTS,'DATABASE)
 ;   for k in MSORT HKEYS $depTb repeat
 ;     rwrite(k, HGET($depTb, k), stream)
 ;   RSHUT stream
- 
+
 (DEFUN |saveDependentsHashTable| ()
   (PROG (|stream|)
     (RETURN
@@ -315,7 +315,7 @@
           (SETQ |bfVar#21| (CDR |bfVar#21|))))
        (MSORT (HKEYS |$depTb|)) NIL)
       (RSHUT |stream|)))))
- 
+
 ; save_browser_data() ==
 ;     buildLibdb(false)
 ;     dbSplitLibdb()
@@ -323,7 +323,7 @@
 ;     saveUsersHashTable()
 ;     mkDependentsHashTable()
 ;     saveDependentsHashTable()
- 
+
 (DEFUN |save_browser_data| ()
   (PROG ()
     (RETURN
@@ -334,13 +334,13 @@
       (|saveUsersHashTable|)
       (|mkDependentsHashTable|)
       (|saveDependentsHashTable|)))))
- 
+
 ; getUsersOfConstructor(con) ==
 ;   stream := readLib('USERS, 'DATABASE)
 ;   val := rread_list(con, stream)
 ;   RSHUT stream
 ;   val
- 
+
 (DEFUN |getUsersOfConstructor| (|con|)
   (PROG (|stream| |val|)
     (RETURN
@@ -349,13 +349,13 @@
       (SETQ |val| (|rread_list| |con| |stream|))
       (RSHUT |stream|)
       |val|))))
- 
+
 ; getDependentsOfConstructor(con) ==
 ;   stream := readLib('DEPENDENTS, 'DATABASE)
 ;   val := rread_list(con, stream)
 ;   RSHUT stream
 ;   val
- 
+
 (DEFUN |getDependentsOfConstructor| (|con|)
   (PROG (|stream| |val|)
     (RETURN
@@ -364,12 +364,12 @@
       (SETQ |val| (|rread_list| |con| |stream|))
       (RSHUT |stream|)
       |val|))))
- 
+
 ; orderPredicateItems(pred1,sig,skip) ==
 ;   pred:= signatureTran pred1
 ;   pred is ["AND",:l] => orderPredTran(l,sig,skip)
 ;   pred
- 
+
 (DEFUN |orderPredicateItems| (|pred1| |sig| |skip|)
   (PROG (|pred| |l|)
     (RETURN
@@ -380,7 +380,7 @@
              (PROGN (SETQ |l| (CDR |pred|)) #1='T))
         (|orderPredTran| |l| |sig| |skip|))
        (#1# |pred|))))))
- 
+
 ; orderPredTran(oldList,sig,skip) ==
 ;   lastPreds:=nil
 ;   --(1) make two kinds of predicates appear last:
@@ -394,19 +394,19 @@
 ;           lastPreds:=[pred,:lastPreds]
 ; --sayBrightlyNT "lastPreds="
 ; --pp lastPreds
-; 
+;
 ;   --(2a) lastDependList=list of all variables that lastPred forms depend upon
 ;   lastDependList := "UNIONQ"/[listOfPatternIds x for x in lastPreds]
 ; --sayBrightlyNT "lastDependList="
 ; --pp lastDependList
-; 
+;
 ;   --(2b) dependList=list of all variables that isDom/ofCat forms depend upon
 ;   dependList :=
 ;     "UNIONQ"/[listOfPatternIds y for x in oldList |
 ;       x is ['isDomain,.,y] or x is ['ofCategory,.,y]]
 ; --sayBrightlyNT "dependList="
 ; --pp dependList
-; 
+;
 ;   --(3a) newList= list of ofCat/isDom entries that don't depend on
 ;   for x in oldList repeat
 ;     if (x is ['ofCategory,v,body]) or (x is ['isDomain,v,body]) then
@@ -425,7 +425,7 @@
 ; --  pp lastPreds
 ; --  sayBrightlyNT "Again oldList="
 ; --  pp oldList
-; 
+;
 ;   --(3b) newList= list of ofCat/isDom entries that don't depend on
 ;   while oldList repeat
 ;     for x in oldList repeat
@@ -440,7 +440,7 @@
 ;         newList:= [:newList,x]
 ; --  sayBrightlyNT "newList="
 ; --  pp newList
-; 
+;
 ;   --(4) noldList= what is left over
 ;     (noldList:= setDifference(oldList,newList)) = oldList =>
 ; --    sayMSG '"NOTE: Parameters to domain have circular dependencies"
@@ -449,20 +449,20 @@
 ;     oldList:=noldList
 ; --  sayBrightlyNT "noldList="
 ; --  pp noldList
-; 
+;
 ;   for pred in newList repeat
 ;     if pred is ['isDomain,x,y] or x is ['ofCategory,x,y] then
 ;       ids:= listOfPatternIds y
 ;       if and/[id in fullDependList for id in ids] then
 ;         fullDependList:= insertWOC(x,fullDependList)
 ;       fullDependList:= UNIONQ(fullDependList,ids)
-; 
+;
 ;   newList:=[:newList,:lastPreds]
-; 
+;
 ; --substitute (isDomain ..) forms as completely as possible to avoid false paths
 ;   newList := isDomainSubst newList
 ;   answer := [['AND,:newList],:INTERSECTIONQ(fullDependList,sig)]
- 
+
 (DEFUN |orderPredTran| (|oldList| |sig| |skip|)
   (PROG (|lastPreds| |op| |ISTMP#1| |pvar| |ISTMP#2| |lastDependList| |y|
          |dependList| |v| |body| |indepvl| |depvl| |somethingDone| |newList|
@@ -704,7 +704,7 @@
       (SETQ |answer|
               (CONS (CONS 'AND |newList|)
                     (INTERSECTIONQ |fullDependList| |sig|)))))))
- 
+
 ; isDomainSubst u == main where
 ;   main ==
 ;     u is [head,:tail] =>
@@ -722,7 +722,7 @@
 ;     null alist => nil
 ;     alist is [['isDomain,y,z],:.] and x = y => z
 ;     findSub(x,rest alist)
- 
+
 (DEFUN |isDomainSubst| (|u|)
   (PROG (|head| |tail| |ISTMP#1| |x| |ISTMP#2| |y| |nhead|)
     (RETURN
@@ -790,13 +790,13 @@
                  (EQUAL |x| |y|))
             |z|)
            (#1# (|isDomainSubst,findSub| |x| (CDR |alist|)))))))
- 
+
 ; signatureTran pred ==
 ;   atom pred => pred
 ;   pred is ['has, D, catForm] and isCategoryForm(catForm) =>
 ;     ['ofCategory,D,catForm]
 ;   [signatureTran p for p in pred]
- 
+
 (DEFUN |signatureTran| (|pred|)
   (PROG (|ISTMP#1| D |ISTMP#2| |catForm|)
     (RETURN
@@ -823,7 +823,7 @@
                   (SETQ |bfVar#35| (CONS (|signatureTran| |p|) |bfVar#35|))))
                 (SETQ |bfVar#34| (CDR |bfVar#34|))))
              NIL |pred| NIL))))))
- 
+
 ; interactiveModemapForm mm ==
 ;   --  create modemap form for use by the interpreter.  This function
 ;   --  replaces all specific domains mentioned in the modemap with pattern
@@ -845,7 +845,7 @@
 ; --pp [pred,dependList]
 ;   [cond, :.] := pred
 ;   [mmpat, cond]
- 
+
 (DEFUN |interactiveModemapForm| (|mm|)
   (PROG (|pattern| |dc| |sig| |pred| |LETTMP#1| |mmpat| |patternAlist|
          |partial| |patvars| |domainPredicateList| |dependList| |cond|)
@@ -903,7 +903,7 @@
             (NOT (EQ |a| '|isFreeFunction|)) (ATOM |c|))
        (LIST |a| |b| (LIST |c|)))
       (#1# |x|)))))
- 
+
 ; modemapPattern(mmPattern,sig) ==
 ;   --  Returns a list of the pattern of a modemap, an Alist of the
 ;   --  substitutions made, a boolean flag indicating whether
@@ -924,7 +924,7 @@
 ;     mmpat := [patvar,:mmpat]
 ;     patternAlist := [[patvar,:x],:patternAlist]
 ;   [NREVERSE mmpat,patternAlist,partial,patvars]
- 
+
 (DEFUN |modemapPattern| (|mmPattern| |sig|)
   (PROG (|patternAlist| |mmpat| |patvars| |partial| |x| |ISTMP#1| |dom|
          |ISTMP#2| |tag| |patvar|)
@@ -968,7 +968,7 @@
           (SETQ |xTails| (CDR |xTails|))))
        |mmPattern|)
       (LIST (NREVERSE |mmpat|) |patternAlist| |partial| |patvars|)))))
- 
+
 ; substVars(pred,patternAlist,patternVarList) ==
 ;   --make pattern variable substitutions
 ;   domainPredicates := nil
@@ -986,7 +986,7 @@
 ;       pred := substitute(replacementVar,var,pred)
 ;       domainPredicates := substitute(replacementVar,var,domainPredicates)
 ;   [pred, domainPredicates]
- 
+
 (DEFUN |substVars| (|pred| |patternAlist| |patternVarList|)
   (PROG (|domainPredicates| |ISTMP#1| |patVar| |value| |everything|
          |replacementVar|)
@@ -1039,7 +1039,7 @@
           (SETQ |bfVar#39| (CDR |bfVar#39|))))
        |$FormalMapVariableList| NIL)
       (LIST |pred| |domainPredicates|)))))
- 
+
 ; fixUpPredicate(predClause, domainPreds, partial, sig) ==
 ;   --  merge the predicates in predClause and domainPreds into a
 ;   --  single predicate
@@ -1059,7 +1059,7 @@
 ;   pred := moveORsOutside pred
 ;   if partial then pred := ["partial", :pred]
 ;   [[pred, fn, :skip],:dependList]
- 
+
 (DEFUN |fixUpPredicate| (|predClause| |domainPreds| |partial| |sig|)
   (PROG (|predicate| |fn| |skip| |predicates| |pred| |LETTMP#1| |dependList|
          |ISTMP#1| |pvar| |ISTMP#2| |ISTMP#3|)
@@ -1100,7 +1100,7 @@
       (SETQ |pred| (|moveORsOutside| |pred|))
       (COND (|partial| (SETQ |pred| (CONS '|partial| |pred|))))
       (CONS (CONS |pred| (CONS |fn| |skip|)) |dependList|)))))
- 
+
 ; moveORsOutside p ==
 ;   p is ['AND,:q] =>
 ;     q := [moveORsOutside r for r in q]
@@ -1108,7 +1108,7 @@
 ;         moveORsOutside(['OR, :[['AND, :substitute(t, x, q)] for t in rest x]])
 ;     ['AND,:q]
 ;   p
- 
+
 (DEFUN |moveORsOutside| (|p|)
   (PROG (|q| |s| |x|)
     (RETURN
@@ -1159,14 +1159,14 @@
                   NIL (CDR |x|) NIL))))
          (#1# (CONS 'AND |q|)))))
       (#1# |p|)))))
- 
+
 ; replaceVars(x,oldvars,newvars) ==
 ;   --  replace every identifier in oldvars with the corresponding
 ;   --  identifier in newvars in the expression x
 ;   for old in oldvars for new in newvars repeat
 ;     x := substitute(new,old,x)
 ;   x
- 
+
 (DEFUN |replaceVars| (|x| |oldvars| |newvars|)
   (PROG ()
     (RETURN
@@ -1182,7 +1182,7 @@
           (SETQ |bfVar#47| (CDR |bfVar#47|))))
        |oldvars| NIL |newvars| NIL)
       |x|))))
- 
+
 ; getDomainFromMm mm ==
 ;   -- Returns the Domain (or package or category) of origin from a pattern
 ;   -- modemap
@@ -1203,7 +1203,7 @@
 ;     keyedSystemError("S2GE0016",
 ;       ['"getDomainFromMm",'"Can't find domain in modemap condition"])
 ;   val
- 
+
 (DEFUN |getDomainFromMm| (|mm|)
   (PROG (|cond| |c| |cl| |ISTMP#1| |ISTMP#2| |condList| |dom| |cat| |val|)
     (RETURN
@@ -1275,7 +1275,7 @@
         (|keyedSystemError| 'S2GE0016
          (LIST "getDomainFromMm" "Can't find domain in modemap condition")))
        (#1# |val|))))))
- 
+
 ; getFirstArgTypeFromMm mm ==
 ;   -- Returns the type of the first argument or nil
 ;   [pats, cond] := mm
@@ -1291,7 +1291,7 @@
 ;   for condition in condList while not type repeat
 ;       if condition is ['isDomain, a1, dom] and a1=arg1 then type := dom
 ;   type
- 
+
 (DEFUN |getFirstArgTypeFromMm| (|mm|)
   (PROG (|pats| |cond| |args| |arg1| |c| |cl| |ISTMP#1| |ISTMP#2| |condList|
          |type| |a1| |dom|)
@@ -1353,18 +1353,18 @@
                   (SETQ |bfVar#49| (CDR |bfVar#49|))))
                |condList| NIL)
               |type|)))))))
- 
+
 ; isFreeFunctionFromMm mm ==
 ;   -- This returns true is the modemap represents a free function, ie,
 ;   -- one not coming from a domain or category.
 ;   [., cond] := mm
 ;   isFreeFunctionFromMmCond cond
- 
+
 (DEFUN |isFreeFunctionFromMm| (|mm|)
   (PROG (|cond|)
     (RETURN
      (PROGN (SETQ |cond| (CADR |mm|)) (|isFreeFunctionFromMmCond| |cond|)))))
- 
+
 ; isFreeFunctionFromMmCond cond ==
 ;   -- This returns true is the modemap represents a free function, ie,
 ;   -- one not coming from a domain or category.
@@ -1377,7 +1377,7 @@
 ;   for condition in condList while not iff repeat
 ;       if condition is ['isFreeFunction, :.] then iff := true
 ;   iff
- 
+
 (DEFUN |isFreeFunctionFromMmCond| (|cond|)
   (PROG (|c| |cl| |ISTMP#1| |ISTMP#2| |condList| |iff|)
     (RETURN
@@ -1416,14 +1416,14 @@
           (SETQ |bfVar#50| (CDR |bfVar#50|))))
        |condList| NIL)
       |iff|))))
- 
+
 ; getAllModemapsFromDatabase(op,nargs) ==
 ;   $getUnexposedOperations: local := true
 ;   startTimingProcess 'diskread
 ;   ans := getSystemModemaps(op,nargs)
 ;   stopTimingProcess 'diskread
 ;   ans
- 
+
 (DEFUN |getAllModemapsFromDatabase| (|op| |nargs|)
   (PROG (|$getUnexposedOperations| |ans|)
     (DECLARE (SPECIAL |$getUnexposedOperations|))
@@ -1434,14 +1434,14 @@
       (SETQ |ans| (|getSystemModemaps| |op| |nargs|))
       (|stopTimingProcess| '|diskread|)
       |ans|))))
- 
+
 ; getModemapsFromDatabase(op,nargs) ==
 ;   $getUnexposedOperations: local := false
 ;   startTimingProcess 'diskread
 ;   ans := getSystemModemaps(op,nargs)
 ;   stopTimingProcess 'diskread
 ;   ans
- 
+
 (DEFUN |getModemapsFromDatabase| (|op| |nargs|)
   (PROG (|$getUnexposedOperations| |ans|)
     (DECLARE (SPECIAL |$getUnexposedOperations|))
@@ -1452,7 +1452,7 @@
       (SETQ |ans| (|getSystemModemaps| |op| |nargs|))
       (|stopTimingProcess| '|diskread|)
       |ans|))))
- 
+
 ; getSystemModemaps(op,nargs) ==
 ;   mml:= GETDATABASE(op,'OPERATION) =>
 ;     mms := NIL
@@ -1463,7 +1463,7 @@
 ;       'iterate
 ;     mms
 ;   nil
- 
+
 (DEFUN |getSystemModemaps| (|op| |nargs|)
   (PROG (|mml| |mms| |ISTMP#1| |sig| |ISTMP#2|)
     (RETURN
@@ -1497,7 +1497,7 @@
          |mml| NIL)
         |mms|))
       (#1# NIL)))))
- 
+
 ; mkAlistOfExplicitCategoryOps target ==
 ;   if target is ['add,a,:l] then
 ;     target:=a
@@ -1520,7 +1520,7 @@
 ;   isCategoryForm(target) => nil
 ;   keyedSystemError("S2GE0016",
 ;     ['"mkAlistOfExplicitCategoryOps",'"bad signature"])
- 
+
 (DEFUN |mkAlistOfExplicitCategoryOps| (|target|)
   (PROG (|ISTMP#1| |a| |l| |op| |ISTMP#2| |sig| |u| |opList|)
     (RETURN
@@ -1628,7 +1628,7 @@
            (#1#
             (|keyedSystemError| 'S2GE0016
              (LIST "mkAlistOfExplicitCategoryOps" "bad signature")))))))
- 
+
 ; flattenSignatureList(x) ==
 ;   atom x => nil
 ;   x is ['SIGNATURE,:.] => [x]
@@ -1641,7 +1641,7 @@
 ;         ll:= append(flattenSignatureList x,ll)
 ;      ll
 ;   nil
- 
+
 (DEFUN |flattenSignatureList| (|x|)
   (PROG (|ISTMP#1| |cond| |ISTMP#2| |b1| |ISTMP#3| |b2| |l| |ll|)
     (RETURN
@@ -1684,11 +1684,11 @@
               |l| NIL)
              |ll|))
            (#1# NIL)))))
- 
+
 ; mkDatabasePred [a,t] ==
 ;   isCategoryForm(t) => ['ofCategory, a, t]
 ;   ['ofType,a,t]
- 
+
 (DEFUN |mkDatabasePred| (|bfVar#59|)
   (PROG (|a| |t|)
     (RETURN
@@ -1697,16 +1697,16 @@
       (SETQ |t| (CADR |bfVar#59|))
       (COND ((|isCategoryForm| |t|) (LIST '|ofCategory| |a| |t|))
             ('T (LIST '|ofType| |a| |t|)))))))
- 
+
 ; formal2Pattern x ==
 ;   SUBLIS(pairList($FormalMapVariableList,rest $PatternVariableList),x)
- 
+
 (DEFUN |formal2Pattern| (|x|)
   (PROG ()
     (RETURN
      (SUBLIS (|pairList| |$FormalMapVariableList| (CDR |$PatternVariableList|))
              |x|))))
- 
+
 ; updateDatabase(fname,cname,systemdir?) ==
 ;  -- for now in NRUNTIME do database update only if forced
 ;   not $forceDatabaseUpdate => nil
@@ -1715,7 +1715,7 @@
 ;   if constructor? cname then
 ;     if GET(cname, 'LOADED) then
 ;       clearConstructorCaches()
- 
+
 (DEFUN |updateDatabase| (|fname| |cname| |systemdir?|)
   (PROG ()
     (RETURN
@@ -1727,7 +1727,7 @@
              (COND
               ((|constructor?| |cname|)
                (COND ((GET |cname| 'LOADED) (|clearConstructorCaches|)))))))))))
- 
+
 ; REMOVER(lst,item) ==
 ;   --destructively removes item from lst
 ;   not PAIRP lst =>
@@ -1735,7 +1735,7 @@
 ;     lst
 ;   first lst=item => rest lst
 ;   RPLNODE(lst,REMOVER(first lst,item),REMOVER(rest lst,item))
- 
+
 (DEFUN REMOVER (|lst| |item|)
   (PROG ()
     (RETURN
@@ -1745,10 +1745,10 @@
       (#1#
        (RPLNODE |lst| (REMOVER (CAR |lst|) |item|)
         (REMOVER (CDR |lst|) |item|)))))))
- 
+
 ; allLASSOCs(op,alist) ==
 ;   [value for [key,:value] in alist | key = op]
- 
+
 (DEFUN |allLASSOCs| (|op| |alist|)
   (PROG (|key| |value|)
     (RETURN
@@ -1768,7 +1768,7 @@
                 (SETQ |bfVar#62| (CONS |value| |bfVar#62|)))))
          (SETQ |bfVar#61| (CDR |bfVar#61|))))
       NIL |alist| NIL))))
- 
+
 ; getOplistForConstructorForm (form := [op,:argl]) ==
 ;   --  The new form is an op-Alist which has entries (<op> . signature-Alist)
 ;   --    where signature-Alist has entries (<signature> . item)
@@ -1778,7 +1778,7 @@
 ;   opAlist := getOperationAlistFromLisplib op
 ;   [:getOplistWithUniqueSignatures(op,pairlis,signatureAlist)
 ;       for [op,:signatureAlist] in opAlist]
- 
+
 (DEFUN |getOplistForConstructorForm| (|form|)
   (PROG (|op| |argl| |pairlis| |opAlist| |signatureAlist|)
     (RETURN
@@ -1820,7 +1820,7 @@
                           |bfVar#68|)))))
           (SETQ |bfVar#67| (CDR |bfVar#67|))))
        NIL |opAlist| NIL)))))
- 
+
 ; getOplistWithUniqueSignatures(op,pairlis,signatureAlist) ==
 ;   alist:= nil
 ;   for [sig, :[slotNumber, pred, kind]] in signatureAlist repeat
@@ -1840,7 +1840,7 @@
 ;               ['OR, pred, oldpred]
 ;           RPLACA(value, newpred)
 ;   alist
- 
+
 (DEFUN |getOplistWithUniqueSignatures| (|op| |pairlis| |signatureAlist|)
   (PROG (|alist| |sig| |ISTMP#1| |slotNumber| |ISTMP#2| |pred| |ISTMP#3| |kind|
          |key| |term| |value| |oldpred| |predl| |newpred|)
@@ -1897,11 +1897,11 @@
           (SETQ |bfVar#70| (CDR |bfVar#70|))))
        |signatureAlist| NIL)
       |alist|))))
- 
+
 ; dropPrefix(fn) ==
 ;   member(fn.0,[char "?",char "-",char "+"]) => SUBSTRING(fn,1,nil)
 ;   fn
- 
+
 (DEFUN |dropPrefix| (|fn|)
   (PROG ()
     (RETURN
@@ -1909,11 +1909,11 @@
       ((|member| (ELT |fn| 0) (LIST (|char| '?) (|char| '-) (|char| '+)))
        (SUBSTRING |fn| 1 NIL))
       ('T |fn|)))))
- 
+
 ; DEFPARAMETER($globalExposureHash, nil)
- 
+
 (DEFPARAMETER |$globalExposureHash| NIL)
- 
+
 ; initExposureHash() ==
 ;     $globalExposureHash := MAKE_HASHTABLE('EQUAL)
 ;     for grdata in $globalExposureGroupAlist repeat
@@ -1923,7 +1923,7 @@
 ;             name := first(pair)
 ;             ogr := HGET($globalExposureHash, name)
 ;             HPUT($globalExposureHash, name, [group, :ogr])
- 
+
 (DEFUN |initExposureHash| ()
   (PROG (|ogr| |name| |alist| |group|)
     (RETURN
@@ -1953,7 +1953,7 @@
               |alist| NIL))))
           (SETQ |bfVar#71| (CDR |bfVar#71|))))
        |$globalExposureGroupAlist| NIL)))))
- 
+
 ; isExposedConstructor name ==
 ;   -- this function checks the local exposure data in the frame to
 ;   -- see if the given constructor is exposed. The format of
@@ -1975,7 +1975,7 @@
 ;       null(g in exd) => 'iterate
 ;       found := true
 ;   found
- 
+
 (DEFUN |isExposedConstructor| (|name|)
   (PROG (|found| |exd|)
     (RETURN
@@ -1999,14 +1999,14 @@
                  (SETQ |bfVar#73| (CDR |bfVar#73|))))
               (ELT |$localExposureData| 0) NIL)
              |found|))))))
- 
+
 ; displayExposedGroups() ==
 ;   sayKeyedMsg("S2IZ0049A",[$interpreterFrameName])
 ;   if null $localExposureData.0
 ;     then centerAndHighlight '"there are no exposed groups"
 ;     else for g in $localExposureData.0 repeat
 ;       centerAndHighlight g
- 
+
 (DEFUN |displayExposedGroups| ()
   (PROG ()
     (RETURN
@@ -2024,7 +2024,7 @@
              (#1# (|centerAndHighlight| |g|)))
             (SETQ |bfVar#74| (CDR |bfVar#74|))))
          (ELT |$localExposureData| 0) NIL)))))))
- 
+
 ; displayExposedConstructors() ==
 ;   sayKeyedMsg("S2IZ0049B",NIL)
 ;   if null $localExposureData.1
@@ -2032,7 +2032,7 @@
 ;       '"there are no explicitly exposed constructors"
 ;     else for c in $localExposureData.1 repeat
 ;       centerAndHighlight c
- 
+
 (DEFUN |displayExposedConstructors| ()
   (PROG ()
     (RETURN
@@ -2050,7 +2050,7 @@
              (#1# (|centerAndHighlight| |c|)))
             (SETQ |bfVar#75| (CDR |bfVar#75|))))
          (ELT |$localExposureData| 1) NIL)))))))
- 
+
 ; displayHiddenConstructors() ==
 ;   sayKeyedMsg("S2IZ0049C",NIL)
 ;   if null $localExposureData.2
@@ -2058,7 +2058,7 @@
 ;       '"there are no explicitly hidden constructors"
 ;     else for c in $localExposureData.2 repeat
 ;       centerAndHighlight c
- 
+
 (DEFUN |displayHiddenConstructors| ()
   (PROG ()
     (RETURN
@@ -2076,7 +2076,7 @@
              (#1# (|centerAndHighlight| |c|)))
             (SETQ |bfVar#76| (CDR |bfVar#76|))))
          (ELT |$localExposureData| 2) NIL)))))))
- 
+
 ; getOperationAlistFromLisplib x ==
 ;     u := GETDATABASE(x, 'OPERATIONALIST)
 ;     --  u := removeZeroOneDestructively u
@@ -2094,7 +2094,7 @@
 ;             else RPLACD(first items, f)
 ;             RPLACA(items, addConsDB first items)
 ;     u and markUnique u
- 
+
 (DEFUN |getOperationAlistFromLisplib| (|x|)
   (PROG (|u| |f| |op| |sigList| |LETTMP#1| |sig| |r| |s| |t|)
     (RETURN
@@ -2143,13 +2143,13 @@
                   (SETQ |bfVar#78| (CDR |bfVar#78|))))
                |u| NIL)
               (AND |u| (|markUnique| |u|)))))))))
- 
+
 ; markUnique x ==
 ;     u := first x
 ;     RPLACA(x, '(_$unique))
 ;     RPLACD(x, [u, :rest x])
 ;     rest x
- 
+
 (DEFUN |markUnique| (|x|)
   (PROG (|u|)
     (RETURN
@@ -2158,7 +2158,7 @@
       (RPLACA |x| '(|$unique|))
       (RPLACD |x| (CONS |u| (CDR |x|)))
       (CDR |x|)))))
- 
+
 ; addConsDB x == x
- 
+
 (DEFUN |addConsDB| (|x|) (PROG () (RETURN |x|)))

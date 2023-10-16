@@ -1,13 +1,13 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; getBrowseDatabase(kind) ==
 ;     $includeUnexposed? : local := true
 ;     not member(kind,'("o" "k" "c" "d" "p")) => nil
 ;     grepConstruct('"*", INTERN kind)
- 
+
 (DEFUN |getBrowseDatabase| (|kind|)
   (PROG (|$includeUnexposed?|)
     (DECLARE (SPECIAL |$includeUnexposed?|))
@@ -16,7 +16,7 @@
       (SETQ |$includeUnexposed?| T)
       (COND ((NULL (|member| |kind| '("o" "k" "c" "d" "p"))) NIL)
             ('T (|grepConstruct| "*" (INTERN |kind|))))))))
- 
+
 ; grepConstruct(s,key,:options) == --key = a o c d p x k (all) . (aok) w (doc)
 ; --Called from genSearch with key = "." and "w"
 ; --key = "." means a o c d p x
@@ -30,7 +30,7 @@
 ;   IFCAR options => grepSplit(lines,key = 'w)    --leave now if a constructor
 ;   MEMQ(key,'(o a)) => dbScreenForDefaultFunctions lines --kill default lines if a/o
 ;   lines
- 
+
 (DEFUN |grepConstruct| (|s| |key| &REST |options|)
   (PROG (|$localLibdb| |lines|)
     (DECLARE (SPECIAL |$localLibdb|))
@@ -42,7 +42,7 @@
             ((IFCAR |options|) (|grepSplit| |lines| (EQ |key| '|w|)))
             ((MEMQ |key| '(|o| |a|)) (|dbScreenForDefaultFunctions| |lines|))
             ('T |lines|))))))
- 
+
 ; grepConstruct1(s,key) ==
 ; --returns the name of file (WITHOUT .text.$SPADNUM on the end)
 ;   $key     : local := key
@@ -52,7 +52,7 @@
 ;   filter is ['error,:.] => filter        --exit on parser error
 ;   pattern := mkGrepPattern(filter,key)  --create string to pass to "grep"
 ;   grepConstructDo(pattern, key)
- 
+
 (DEFUN |grepConstruct1| (|s| |key|)
   (PROG (|$key| |pattern| |filter|)
     (DECLARE (SPECIAL |$key|))
@@ -77,7 +77,7 @@
              (PROGN
               (SETQ |pattern| (|mkGrepPattern| |filter| |key|))
               (|grepConstructDo| |pattern| |key|))))))))
- 
+
 ; grepConstructDo(x, key) ==
 ; --atom x => grepFile(x, key,'i)
 ;   $localLibdb =>
@@ -85,7 +85,7 @@
 ;     newLines := grepf(x,$localLibdb,false)
 ;     union(oldLines, newLines)
 ;   grepf(x,key,false)
- 
+
 (DEFUN |grepConstructDo| (|x| |key|)
   (PROG (|oldLines| |newLines|)
     (RETURN
@@ -98,13 +98,13 @@
         (SETQ |newLines| (|grepf| |x| |$localLibdb| NIL))
         (|union| |oldLines| |newLines|)))
       ('T (|grepf| |x| |key| NIL))))))
- 
+
 ; dbExposed?(line,kind) == -- does line come from an unexposed constructor?
 ;   conname := INTERN
 ;     kind = char 'a or kind = char 'o => dbNewConname line --get conname from middle
 ;     dbName line
 ;   isExposedConstructor conname
- 
+
 (DEFUN |dbExposed?| (|line| |kind|)
   (PROG (|conname|)
     (RETURN
@@ -116,9 +116,9 @@
                  (|dbNewConname| |line|))
                 ('T (|dbName| |line|)))))
       (|isExposedConstructor| |conname|)))))
- 
+
 ; dbScreenForDefaultFunctions lines == [x for x in lines | not isDefaultOpAtt x]
- 
+
 (DEFUN |dbScreenForDefaultFunctions| (|lines|)
   (PROG ()
     (RETURN
@@ -132,13 +132,13 @@
                 (SETQ |bfVar#4| (CONS |x| |bfVar#4|)))))
          (SETQ |bfVar#3| (CDR |bfVar#3|))))
       NIL |lines| NIL))))
- 
+
 ; isDefaultOpAtt x == x.(1 + dbTickIndex(x,4,0)) = char 'x
- 
+
 (DEFUN |isDefaultOpAtt| (|x|)
   (PROG ()
     (RETURN (EQUAL (ELT |x| (+ 1 (|dbTickIndex| |x| 4 0))) (|char| '|x|)))))
- 
+
 ; grepForAbbrev(s,key) ==
 ; --checks that filter s is not * and is all uppercase; if so, look for abbrevs
 ;   u := HGET($lowerCaseConTb,s) => ['Abbreviations,u]    --try cheap test first
@@ -156,7 +156,7 @@
 ;          not $includeUnexposed? and not isExposedConstructor x => false
 ;          a := GETDATABASE(x,'ABBREVIATION)
 ;          match?(pattern,PNAME a) and not HGET($defaultPackageNamesHT,x)
- 
+
 (DEFUN |grepForAbbrev| (|s| |key|)
   (PROG (|u| |someLowerCaseChar| |someUpperCaseChar| |c| |pattern| |a|)
     (RETURN
@@ -206,7 +206,7 @@
                                            |bfVar#7|)))))
                           (SETQ |bfVar#6| (CDR |bfVar#6|))))
                        NIL (|allConstructors|) NIL)))))))))))
- 
+
 ; applyGrep(x,filename) ==
 ;   atom x => grepFile(x,filename,'i)
 ;   $localLibdb =>
@@ -214,7 +214,7 @@
 ;     b := grepf(x,$localLibdb,false)
 ;     grepCombine(a,b)
 ;   grepf(x,filename,false)
- 
+
 (DEFUN |applyGrep| (|x| |filename|)
   (PROG (|a| |b|)
     (RETURN
@@ -227,11 +227,11 @@
              (SETQ |b| (|grepf| |x| |$localLibdb| NIL))
              (|grepCombine| |a| |b|)))
            ('T (|grepf| |x| |filename| NIL))))))
- 
+
 ; grepCombine(a,b) == MSORT union(a,b)
- 
+
 (DEFUN |grepCombine| (|a| |b|) (PROG () (RETURN (MSORT (|union| |a| |b|)))))
- 
+
 ; grepf(pattern,s,not?) ==  --s=sourceFile or list of strings
 ;   pattern is [op,:argl] =>
 ;     op = "and" =>
@@ -254,7 +254,7 @@
 ;     LISTP s => dbWriteLines(s, getTempPath 'source)
 ;     s
 ;   grepFile(pattern,source,option)
- 
+
 (DEFUN |grepf| (|pattern| |s| |not?|)
   (PROG (|op| |argl| |arg| |targetStack| |lines| |option| |source|)
     (RETURN
@@ -307,7 +307,7 @@
                  ((LISTP |s|) (|dbWriteLines| |s| (|getTempPath| '|source|)))
                  (#1# |s|)))
         (|grepFile| |pattern| |source| |option|)))))))
- 
+
 ; pmTransFilter s ==
 ; --result is either a string or (op ..) where op= and,or,not and arg are results
 ;   if $browseMixedCase = true then s := DOWNCASE s
@@ -318,7 +318,7 @@
 ;       and (i=0 or s . (i - 1) ~= char $charUnderscore) for i in 0..(MAXINDEX s - 1)]
 ;        => ['error,'"Illegal search string",'"\vspace{3}\center{Consecutive {\em *}'s are not allowed in search patterns}"]
 ;   s
- 
+
 (DEFUN |pmTransFilter| (|s|)
   (PROG (|parse|)
     (RETURN
@@ -360,7 +360,7 @@
         (LIST '|error| "Illegal search string"
               "\\vspace{3}\\center{Consecutive {\\em *}'s are not allowed in search patterns}"))
        (#1# |s|))))))
- 
+
 ; checkPmParse parse ==
 ;   STRINGP parse => parse
 ;   (fn parse => parse) where fn(u) ==
@@ -369,7 +369,7 @@
 ;     STRINGP u => true
 ;     false
 ;   nil
- 
+
 (DEFUN |checkPmParse| (|parse|)
   (PROG ()
     (RETURN
@@ -395,7 +395,7 @@
                 (SETQ |bfVar#14| (CDR |bfVar#14|))))
              T |args| NIL)))
       ((STRINGP |u|) T) (#1# NIL)))))
- 
+
 ; dnForm x ==
 ;   STRINGP x => x
 ;   x is ['not,argl] =>
@@ -411,7 +411,7 @@
 ;   x is ['or,:argl1] => ['or,:[dnForm u for u in argl1]]
 ;   x is ['and,:argl2] => ['and,:[dnForm u for u in argl2]]
 ;   x
- 
+
 (DEFUN |dnForm| (|x|)
   (PROG (|ISTMP#1| |argl| |orargs| |andargs| |notargl| |argl1| |argl2|)
     (RETURN
@@ -497,7 +497,7 @@
                   (PROGN (SETQ |argx| (CAR |ISTMP#1|)) #1='T))))
        |argx|)
       (#1# (LIST '|not| |s|))))))
- 
+
 ; pmParseFromString s ==
 ;   u := ncParseFromString pmPreparse s
 ;   dnForm flatten u where flatten s ==
@@ -505,7 +505,7 @@
 ;       STRINGP op => STRCONC(op,"STRCONC"/[STRCONC('" ",x) for x in argl])
 ;       [op,:[flatten x for x in argl]]
 ;     s
- 
+
 (DEFUN |pmParseFromString| (|s|)
   (PROG (|u|)
     (RETURN
@@ -544,7 +544,7 @@
                    (SETQ |bfVar#26| (CDR |bfVar#26|))))
                 NIL |argl| NIL)))))
       (#1# |s|)))))
- 
+
 ; pmPreparse s == hn fn(s,0,#s) where--stupid insertion of chars to get correct parse
 ;   hn x == SUBLISLIS('(and or not),'("and" "or" "not"),x)
 ;   fn(s,n,siz) ==  --main function: s is string, n is origin
@@ -563,7 +563,7 @@
 ;     n := or/[k for k in i..j | s.k = $charUnderscore] =>
 ;       STRCONC(SUBSTRING(s,i,n - i + 1),$charUnderscore,gn(s,n + 1,j))
 ;     SUBSTRING(s,i,j - i + 1)
- 
+
 (DEFUN |pmPreparse| (|s|)
   (PROG () (RETURN (|pmPreparse,hn| (|pmPreparse,fn| |s| 0 (LENGTH |s|))))))
 (DEFUN |pmPreparse,hn| (|x|)
@@ -606,9 +606,9 @@
        (STRCONC (SUBSTRING |s| |i| (+ (- |n| |i|) 1)) |$charUnderscore|
         (|pmPreparse,gn| |s| (+ |n| 1) |j|)))
       (#1# (SUBSTRING |s| |i| (+ (- |j| |i|) 1)))))))
- 
+
 ; firstNonDelim(s,n) ==  or/[k for k in n..MAXINDEX s | not isFilterDelimiter? s.k]
- 
+
 (DEFUN |firstNonDelim| (|s| |n|)
   (PROG ()
     (RETURN
@@ -622,9 +622,9 @@
                       (COND (|bfVar#30| (RETURN |bfVar#30|)))))))
          (SETQ |k| (+ |k| 1))))
       NIL (MAXINDEX |s|) |n|))))
- 
+
 ; firstDelim(s,n) ==  or/[k for k in n..MAXINDEX s | isFilterDelimiter? s.k]
- 
+
 (DEFUN |firstDelim| (|s| |n|)
   (PROG ()
     (RETURN
@@ -638,12 +638,12 @@
                       (COND (|bfVar#32| (RETURN |bfVar#32|)))))))
          (SETQ |k| (+ |k| 1))))
       NIL (MAXINDEX |s|) |n|))))
- 
+
 ; isFilterDelimiter? c == MEMQ(c,$pmFilterDelimiters)
- 
+
 (DEFUN |isFilterDelimiter?| (|c|)
   (PROG () (RETURN (MEMQ |c| |$pmFilterDelimiters|))))
- 
+
 ; grepSplit(lines,doc?) ==
 ;   if doc? then
 ;     instream2 := OPEN STRCONC(getEnv '"FRICAS",'"/algebra/libdb.text")
@@ -677,7 +677,7 @@
 ;            ['"package",:NREVERSE paks]
 ; --           ['"default_ package",:NREVERSE defs]   -- drop defaults
 ;                ]
- 
+
 (DEFUN |grepSplit| (|lines| |doc?|)
   (PROG (|instream2| |doms| |atts| CONS |line| N |kind| |cats| |defs| |paks|
          |ops|)
@@ -737,7 +737,7 @@
                    (CONS "category" (NREVERSE |cats|))
                    (CONS "domain" (NREVERSE |doms|))
                    (CONS "package" (NREVERSE |paks|)))))))))
- 
+
 ; mkUpDownPattern s == recurse(s,0,#s) where
 ;   recurse(s,i,n) ==
 ;     i = n => '""
@@ -746,7 +746,7 @@
 ;     ALPHA_-CHAR_-P c =>
 ;       STRCONC(char '_[,CHAR_-UPCASE c,CHAR_-DOWNCASE c,char '_])
 ;     c
- 
+
 (DEFUN |mkUpDownPattern| (|s|)
   (PROG () (RETURN (|mkUpDownPattern,recurse| |s| 0 (LENGTH |s|)))))
 (DEFUN |mkUpDownPattern,recurse| (|s| |i| |n|)
@@ -763,12 +763,12 @@
       ((ALPHA-CHAR-P |c|)
        (STRCONC (|char| '[) (CHAR-UPCASE |c|) (CHAR-DOWNCASE |c|) (|char| '])))
       ('T |c|)))))
- 
+
 ; mkGrepPattern(s,key) ==
 ;   --called by grepConstruct1 and grepf
 ;   atom s => mkGrepPattern1(s,key)
 ;   [first s,:[mkGrepPattern(x,key) for x in rest s]]
- 
+
 (DEFUN |mkGrepPattern| (|s| |key|)
   (PROG ()
     (RETURN
@@ -787,7 +787,7 @@
                                       |bfVar#34|))))
                       (SETQ |bfVar#33| (CDR |bfVar#33|))))
                    NIL (CDR |s|) NIL)))))))
- 
+
 ; mkGrepPattern1(x,:options) == --called by mkGrepPattern (and grepConstructName?)
 ;   $options : local := options
 ;   s := STRINGIMAGE x
@@ -848,7 +848,7 @@
 ;         STRINGIMAGE one
 ;       s = $wild1 => STRCONC('"^",prefix)
 ;       STRCONC('"^",prefix,s)
- 
+
 (DEFUN |mkGrepPattern1| (|x| &REST |options|)
   (PROG (|$options| |s|)
     (DECLARE (SPECIAL |$options|))
@@ -993,13 +993,13 @@
                        (#1# (STRINGIMAGE |one|))))
               (COND ((EQUAL |s| |$wild1|) (STRCONC "^" |prefix|))
                     (#1# (STRCONC "^" |prefix| |s|))))))))))
- 
+
 ; oPage(a,:b) == --called by \spadfun{opname}
 ;   oSearch (IFCAR b or a) --always take slow path
- 
+
 (DEFUN |oPage| (|a| &REST |b|)
   (PROG () (RETURN (|oSearch| (OR (IFCAR |b|) |a|)))))
- 
+
 ; oPageFrom(opname,conname) == --called by \spadfunFrom{opname}{conname}
 ;   htPage := htInitPage(nil,nil) --create empty page and fill in needed properties
 ;   htpSetProperty(htPage,'conform,conform := getConstructorForm conname)
@@ -1008,7 +1008,7 @@
 ;   null itemlist => systemError [conform,'" has no operation named ",opname]
 ;   opAlist := [itemlist]
 ;   dbShowOperationsFromConform(htPage,'"operation",opAlist)
- 
+
 (DEFUN |oPageFrom| (|opname| |conname|)
   (PROG (|htPage| |conform| |itemlist| |opAlist|)
     (RETURN
@@ -1026,7 +1026,7 @@
         (PROGN
          (SETQ |opAlist| (LIST |itemlist|))
          (|dbShowOperationsFromConform| |htPage| "operation" |opAlist|))))))))
- 
+
 ; spadType(x) ==  --called by \spadtype{x} from HyperDoc
 ;   s := PNAME x
 ;   form := ncParseFromString s or
@@ -1034,7 +1034,7 @@
 ;   if atom form then form := [form]
 ;   op    := opOf form
 ;   conPage(op)
- 
+
 (DEFUN |spadType| (|x|)
   (PROG (|s| |form| |op|)
     (RETURN
@@ -1047,11 +1047,11 @@
       (COND ((ATOM |form|) (SETQ |form| (LIST |form|))))
       (SETQ |op| (|opOf| |form|))
       (|conPage| |op|)))))
- 
+
 ; aokSearch filter ==  genSearch(filter,true)  --"General" from HD (see man0.ht)
- 
+
 (DEFUN |aokSearch| (|filter|) (PROG () (RETURN (|genSearch| |filter| T))))
- 
+
 ; genSearch(filter,:options) == --"Complete" from HD (see man0.ht) and aokSearch
 ; --General + documentation search
 ;   null (filter := checkFilter filter) => nil  --in case of filter error
@@ -1066,7 +1066,7 @@
 ;     docSearchAlist is ['error,:.] => bcErrorPage docSearchAlist
 ;     docSearchAlist := [x for x in docSearchAlist | x.0 ~= char 'x]--drop defaults
 ;   genSearch1(filter,genSearchTran regSearchAlist,genSearchTran docSearchAlist)
- 
+
 (DEFUN |genSearch| (|filter| &REST |options|)
   (PROG (|includeDoc?| |regSearchAlist| |key| |docSearchAlist|)
     (RETURN
@@ -1107,9 +1107,9 @@
                              NIL |docSearchAlist| NIL))))))
                 (|genSearch1| |filter| (|genSearchTran| |regSearchAlist|)
                  (|genSearchTran| |docSearchAlist|)))))))))))
- 
+
 ; genSearchTran alist == [[x,y,:y] for [x,:y] in alist]
- 
+
 (DEFUN |genSearchTran| (|alist|)
   (PROG (|x| |y|)
     (RETURN
@@ -1129,7 +1129,7 @@
                         (CONS (CONS |x| (CONS |y| |y|)) |bfVar#44|)))))
          (SETQ |bfVar#43| (CDR |bfVar#43|))))
       NIL |alist| NIL))))
- 
+
 ; genSearch1(filter,reg,doc) ==
 ;   regSearchAlist := searchDropUnexposedLines reg
 ;   docSearchAlist := searchDropUnexposedLines doc
@@ -1170,7 +1170,7 @@
 ;       htSayStandard '"\tab{2}"
 ;       genSearchSay(pair,true,kind,i,'showDoc)
 ;   htShowPageStar()
- 
+
 (DEFUN |genSearch1| (|filter| |reg| |doc|)
   (PROG (|regSearchAlist| |docSearchAlist| |key| |regCount| |docCount| |count|
          |alist| |nonEmpties| |pair| |summarize?| |plural| |prefix| |emfilter|
@@ -1307,13 +1307,13 @@
                             (SETQ |i| (+ |i| 1))))
                          |docSearchAlist| NIL 0)))
                       (|htShowPageStar|)))))))))))
- 
+
 ; searchDropUnexposedLines alist ==
 ;   [[op,[pred for line in lines | pred],:lines] for [op,.,:lines] in alist] where
 ;     pred ==
 ;       not $exposedOnlyIfTrue or dbExposed?(line,dbKind line) => line
 ;       nil
- 
+
 (DEFUN |searchDropUnexposedLines| (|alist|)
   (PROG (|op| |ISTMP#1| |lines|)
     (RETURN
@@ -1358,7 +1358,7 @@
                          |bfVar#57|)))))
          (SETQ |bfVar#56| (CDR |bfVar#56|))))
       NIL |alist| NIL))))
- 
+
 ; repeatSearch(htPage,newValue) ==
 ;   $exposedOnlyIfTrue := newValue
 ;   filter := htpProperty(htPage,'filter)
@@ -1366,7 +1366,7 @@
 ;   doc    := htpProperty(htPage,'docSearchAlist)
 ;   reg => genSearch1(filter,reg,doc)
 ;   docSearch1(filter,doc)
- 
+
 (DEFUN |repeatSearch| (|htPage| |newValue|)
   (PROG (|filter| |reg| |doc|)
     (RETURN
@@ -1377,9 +1377,9 @@
       (SETQ |doc| (|htpProperty| |htPage| '|docSearchAlist|))
       (COND (|reg| (|genSearch1| |filter| |reg| |doc|))
             ('T (|docSearch1| |filter| |doc|)))))))
- 
+
 ; searchCount u == +/[# y for [x,y,:.] in u]
- 
+
 (DEFUN |searchCount| (|u|)
   (PROG (|x| |ISTMP#1| |y|)
     (RETURN
@@ -1399,23 +1399,23 @@
                 (SETQ |bfVar#60| (+ |bfVar#60| (LENGTH |y|))))))
          (SETQ |bfVar#59| (CDR |bfVar#59|))))
       0 |u| NIL))))
- 
+
 ; showDoc(htPage,count) ==
 ;   showIt(htPage,count,htpProperty(htPage,'docSearchAlist))
- 
+
 (DEFUN |showDoc| (|htPage| |count|)
   (PROG ()
     (RETURN
      (|showIt| |htPage| |count| (|htpProperty| |htPage| '|docSearchAlist|)))))
- 
+
 ; showConstruct(htPage,count) ==
 ;   showIt(htPage,count,htpProperty(htPage,'regSearchAlist))
- 
+
 (DEFUN |showConstruct| (|htPage| |count|)
   (PROG ()
     (RETURN
      (|showIt| |htPage| |count| (|htpProperty| |htPage| '|regSearchAlist|)))))
- 
+
 ; showIt(htPage,index,searchAlist) ==
 ;   filter      := htpProperty(htPage,'filter)
 ;   [relativeIndex,n] := DIVIDE(index,8)
@@ -1425,7 +1425,7 @@
 ;   firstName := dbName first items --select name then gather all of same name
 ;   lines := [line for line in items while dbName line = firstName]
 ;   showNamedConstruct [kind,nil,:lines]
- 
+
 (DEFUN |showIt| (|htPage| |index| |searchAlist|)
   (PROG (|filter| |LETTMP#1| |relativeIndex| |n| |kind| |items| |firstName|
          |lines|)
@@ -1461,9 +1461,9 @@
                      (SETQ |bfVar#61| (CDR |bfVar#61|))))
                   NIL |items| NIL))
          (|showNamedConstruct| (CONS |kind| (CONS NIL |lines|))))))))))
- 
+
 ; showNamedConstruct([kind,.,:lines]) == dbSearch(lines,kind,'"")
- 
+
 (DEFUN |showNamedConstruct| (|bfVar#63|)
   (PROG (|kind| |lines|)
     (RETURN
@@ -1471,7 +1471,7 @@
       (SETQ |kind| (CAR |bfVar#63|))
       (SETQ |lines| (CDDR |bfVar#63|))
       (|dbSearch| |lines| |kind| "")))))
- 
+
 ; genSearchSay(pair,summarize,kind,who,fn) ==
 ;   [u,:fullLineList] := pair
 ;   count := #u
@@ -1506,7 +1506,7 @@
 ;   if uniqueCount ~= 1 then
 ;      htEndTable()
 ;      htSayStandard '"\indent{0}"
- 
+
 (DEFUN |genSearchSay| (|pair| |summarize| |kind| |who| |fn|)
   (PROG (|u| |fullLineList| |count| |uniqueCount| |short| |lastid| |groups| |i|
          |id| |exposed?|)
@@ -1583,11 +1583,11 @@
               (COND
                ((NOT (EQL |uniqueCount| 1)) (|htEndTable|)
                 (|htSayStandard| "\\indent{0}"))))))))))
- 
+
 ; organizeByName u ==
 ;   [[(u := rest u; x) while u and head = dbName (x := first u)]
 ;       while u and (head := dbName first u)]
- 
+
 (DEFUN |organizeByName| (|u|)
   (PROG (|head| |x|)
     (RETURN
@@ -1614,11 +1614,11 @@
                      NIL)
                     |bfVar#68|))))))
       NIL))))
- 
+
 ; genSearchSayJump(htPage,[lines,kind]) ==
 ;   filter := htpProperty(htPage,'filter)
 ;   dbSearch(lines,kind,filter)
- 
+
 (DEFUN |genSearchSayJump| (|htPage| |bfVar#69|)
   (PROG (|lines| |kind| |filter|)
     (RETURN
@@ -1627,7 +1627,7 @@
       (SETQ |kind| (CADR |bfVar#69|))
       (SETQ |filter| (|htpProperty| |htPage| '|filter|))
       (|dbSearch| |lines| |kind| |filter|)))))
- 
+
 ; genSearchUniqueCount(u) ==
 ; --count the unique number of items (if less than $browseCountThreshold)
 ;   count := 0
@@ -1638,7 +1638,7 @@
 ;       count := count + 1
 ;       lastid := id
 ;   count
- 
+
 (DEFUN |genSearchUniqueCount| (|u|)
   (PROG (|count| |lastid| |id|)
     (RETURN
@@ -1660,25 +1660,25 @@
           (SETQ |bfVar#70| (CDR |bfVar#70|))))
        |u| NIL)
       |count|))))
- 
+
 ; dbGetName line == SUBSTRING(line,1,charPosition($tick,line,1) - 1)
- 
+
 (DEFUN |dbGetName| (|line|)
   (PROG ()
     (RETURN (SUBSTRING |line| 1 (- (|charPosition| |$tick| |line| 1) 1)))))
- 
+
 ; pluralSay(count,singular,plural) ==
 ;     count = 0 => concat('"No ", singular)
 ;     count = 1 => concat('"1 ", singular)
 ;     concat(count, '" ", plural)
- 
+
 (DEFUN |pluralSay| (|count| |singular| |plural|)
   (PROG ()
     (RETURN
      (COND ((EQL |count| 0) (|concat| "No " |singular|))
            ((EQL |count| 1) (|concat| "1 " |singular|))
            ('T (|concat| |count| " " |plural|))))))
- 
+
 ; docSearch filter ==  --"Documentation" from HD (see man0.ht)
 ;   null (filter := checkFilter filter) => nil  --in case of filter error
 ;   filter = '"*" => htErrorStar()
@@ -1687,7 +1687,7 @@
 ;   docSearchAlist is ['error,:.] => bcErrorPage docSearchAlist
 ;   docSearchAlist := [x for x in docSearchAlist | x.0 ~= char 'x] --drop defaults
 ;   docSearch1(filter,genSearchTran docSearchAlist)
- 
+
 (DEFUN |docSearch| (|filter|)
   (PROG (|key| |docSearchAlist|)
     (RETURN
@@ -1717,7 +1717,7 @@
                          NIL |docSearchAlist| NIL))
                 (|docSearch1| |filter|
                  (|genSearchTran| |docSearchAlist|)))))))))))
- 
+
 ; docSearch1(filter,doc) ==
 ;   docSearchAlist := searchDropUnexposedLines doc
 ;   count := searchCount docSearchAlist
@@ -1736,7 +1736,7 @@
 ;     htSayStandard '"\tab{2}"
 ;     genSearchSay(pair,true,kind,i,'showDoc)
 ;   htShowPageStar()
- 
+
 (DEFUN |docSearch1| (|filter| |doc|)
   (PROG (|docSearchAlist| |count| |prefix| |emfilter| |header| |page| |kind|
          |pair|)
@@ -1795,13 +1795,13 @@
                   (SETQ |i| (+ |i| 1))))
                |docSearchAlist| NIL 0)
               (|htShowPageStar|))))))))
- 
+
 ; removeSurroundingStars filter ==
 ;   key := STRINGIMAGE filter
 ;   if key.0 = char '_* then key := SUBSTRING(key,1,nil)
 ;   if key.(max := MAXINDEX key) = char '_* then key := SUBSTRING(key,0,max)
 ;   key
- 
+
 (DEFUN |removeSurroundingStars| (|filter|)
   (PROG (|key| |max|)
     (RETURN
@@ -1814,10 +1814,10 @@
        ((EQUAL (ELT |key| (SETQ |max| (MAXINDEX |key|))) (|char| '*))
         (SETQ |key| (SUBSTRING |key| 0 |max|))))
       |key|))))
- 
+
 ; showNamedDoc([kind,:lines],index) ==
 ;   dbGather(kind,lines,index - 1,true)
- 
+
 (DEFUN |showNamedDoc| (|bfVar#77| |index|)
   (PROG (|kind| |lines|)
     (RETURN
@@ -1825,7 +1825,7 @@
       (SETQ |kind| (CAR |bfVar#77|))
       (SETQ |lines| (CDR |bfVar#77|))
       (|dbGather| |kind| |lines| (- |index| 1) T)))))
- 
+
 ; sayDocMessage message ==
 ;   htSay('"{\em ")
 ;   if message is [leftEnd,left,middle,right,rightEnd] then
@@ -1837,7 +1837,7 @@
 ;   else
 ;     htSay message
 ;   htSay ('"}")
- 
+
 (DEFUN |sayDocMessage| (|message|)
   (PROG (|leftEnd| |ISTMP#1| |left| |ISTMP#2| |middle| |ISTMP#3| |right|
          |ISTMP#4| |rightEnd|)
@@ -1877,7 +1877,7 @@
         (|htSayList| (LIST "{\\em " |right| |rightEnd|)))
        (#1# (|htSay| |message|)))
       (|htSay| "}")))))
- 
+
 ; stripOffSegments(s,n) ==
 ;   progress := true
 ;   while n > 0 and progress = true repeat
@@ -1888,7 +1888,7 @@
 ;     progress := false
 ;   n = 0 => s
 ;   nil
- 
+
 (DEFUN |stripOffSegments| (|s| |n|)
   (PROG (|progress| |k| |new|)
     (RETURN
@@ -1905,13 +1905,13 @@
                   (COND ((< (LENGTH |new|) (LENGTH |s|)) (SETQ |s| |new|))
                         (#1# (SETQ |progress| NIL)))))))))
       (COND ((EQL |n| 0) |s|) (#1# NIL))))))
- 
+
 ; replaceTicksBySpaces s ==
 ;   n := -1
 ;   max := MAXINDEX s
 ;   while (n := charPosition(char '_`,s,n + 1)) <= max repeat SETELT(s,n,char '_ )
 ;   s
- 
+
 (DEFUN |replaceTicksBySpaces| (|s|)
   (PROG (|n| |max|)
     (RETURN
@@ -1925,26 +1925,26 @@
             (RETURN NIL))
            ('T (SETELT |s| |n| (|char| '| |)))))))
       |s|))))
- 
+
 ; checkFilter filter ==
 ;   filter := STRINGIMAGE filter
 ;   filter = '"" => '"*"
 ;   trimString filter
- 
+
 (DEFUN |checkFilter| (|filter|)
   (PROG ()
     (RETURN
      (PROGN
       (SETQ |filter| (STRINGIMAGE |filter|))
       (COND ((EQUAL |filter| "") "*") ('T (|trimString| |filter|)))))))
- 
+
 ; oSearch filter == -- called from HD (man0.ht): operation search
 ;   opAlist := opPageFastPath filter => opPageFast opAlist
 ;   key := 'o
 ;   null (filter := checkFilter filter) => nil  --in case of filter error
 ;   filter = '"*" => grepSearchQuery('"operation",[filter,key,'"operation",'oSearchGrep])
 ;   oSearchGrep(filter,key,'"operation")
- 
+
 (DEFUN |oSearch| (|filter|)
   (PROG (|opAlist| |key|)
     (RETURN
@@ -1958,20 +1958,20 @@
                (|grepSearchQuery| "operation"
                 (LIST |filter| |key| "operation" '|oSearchGrep|)))
               (#1# (|oSearchGrep| |filter| |key| "operation")))))))))
- 
+
 ; oSearchGrep(filter,key,kind) == --called from grepSearchQuery/oSearch
 ;   dbSearch(grepConstruct(filter,'o),kind,filter)
- 
+
 (DEFUN |oSearchGrep| (|filter| |key| |kind|)
   (PROG ()
     (RETURN (|dbSearch| (|grepConstruct| |filter| '|o|) |kind| |filter|))))
- 
+
 ; grepSearchQuery(kind,items) ==
 ;   page := htInitPage('"Query Page",nil)
 ;   htpSetProperty(page,'items,items)
 ;   htQuery(['"{\em Do you want a list of {\em all} ",pluralize kind,'"?\vspace{1}}"],'grepSearchJump,true)
 ;   htShowPage()
- 
+
 (DEFUN |grepSearchQuery| (|kind| |items|)
   (PROG (|page|)
     (RETURN
@@ -1983,50 +1983,50 @@
              "?\\vspace{1}}")
        '|grepSearchJump| T)
       (|htShowPage|)))))
- 
+
 ; cSearch filter ==  --called from HD (man0.ht): category search
 ;    constructorSearch(checkFilter filter,'c,'"category")
- 
+
 (DEFUN |cSearch| (|filter|)
   (PROG ()
     (RETURN (|constructorSearch| (|checkFilter| |filter|) '|c| "category"))))
- 
+
 ; dSearch filter ==  --called from HD (man0.ht): domain search
 ;    constructorSearch(checkFilter filter,'d,'"domain")
- 
+
 (DEFUN |dSearch| (|filter|)
   (PROG ()
     (RETURN (|constructorSearch| (|checkFilter| |filter|) '|d| "domain"))))
- 
+
 ; pSearch filter ==  --called from HD (man0.ht): package search
 ;    constructorSearch(checkFilter filter,'p,'"package")
- 
+
 (DEFUN |pSearch| (|filter|)
   (PROG ()
     (RETURN (|constructorSearch| (|checkFilter| |filter|) '|p| "package"))))
- 
+
 ; xSearch filter ==  --called from HD (man0.ht): default package search
 ;    constructorSearch(checkFilter filter,'x,'"default package")
- 
+
 (DEFUN |xSearch| (|filter|)
   (PROG ()
     (RETURN
      (|constructorSearch| (|checkFilter| |filter|) '|x| "default package"))))
- 
+
 ; kSearch filter ==  --called from HD (man0.ht): constructor search (no defaults)
 ;    constructorSearch(checkFilter filter,'k,'"constructor")
- 
+
 (DEFUN |kSearch| (|filter|)
   (PROG ()
     (RETURN (|constructorSearch| (|checkFilter| |filter|) '|k| "constructor"))))
- 
+
 ; ySearch filter == --called from conPage: like kSearch but defaults included
 ;   constructorSearch(checkFilter filter,'y,'"constructor")
- 
+
 (DEFUN |ySearch| (|filter|)
   (PROG ()
     (RETURN (|constructorSearch| (|checkFilter| |filter|) '|y| "constructor"))))
- 
+
 ; constructorSearch(filter,key,kind) ==
 ;   null filter => nil      --in case of filter error
 ;   (parse := conSpecialString? filter) => conPage parse
@@ -2051,7 +2051,7 @@
 ;     htShowPage()
 ;   filter = '"*" => grepSearchQuery(kind,[filter,key,kind,'constructorSearchGrep])
 ;   constructorSearchGrep(filter,key,kind)
- 
+
 (DEFUN |constructorSearch| (|filter| |key| |kind|)
   (PROG (|parse| |pageName| |name| |u| |line| |code| |newkind| |page|
          |message|)
@@ -2098,17 +2098,17 @@
                (|grepSearchQuery| |kind|
                 (LIST |filter| |key| |kind| '|constructorSearchGrep|)))
               (#1# (|constructorSearchGrep| |filter| |key| |kind|)))))))))
- 
+
 ; grepConstructorSearch(htPage, yes) == kPage(htpProperty(htPage, 'line), [])
- 
+
 (DEFUN |grepConstructorSearch| (|htPage| |yes|)
   (PROG () (RETURN (|kPage| (|htpProperty| |htPage| '|line|) NIL))))
- 
+
 ; conSpecialString?(filter) == conSpecialString2?(filter, false)
- 
+
 (DEFUN |conSpecialString?| (|filter|)
   (PROG () (RETURN (|conSpecialString2?| |filter| NIL))))
- 
+
 ; conSpecialString2?(filter, secondTime) ==
 ;   parse :=
 ;     words := string2Words filter is [s] => ncParseFromString s
@@ -2122,7 +2122,7 @@
 ;   secondTime => false
 ;   u := "STRCONC"/[string2Constructor x for x in dbString2Words filter]
 ;   conSpecialString2?(u, true)
- 
+
 (DEFUN |conSpecialString2?| (|filter| |secondTime|)
   (PROG (|ISTMP#1| |s| |words| |parse| |form| |u|)
     (RETURN
@@ -2176,11 +2176,11 @@
                              (SETQ |bfVar#80| (CDR |bfVar#80|))))
                           "" (|dbString2Words| |filter|) NIL))
                  (|conSpecialString2?| |u| T)))))))))))
- 
+
 ; dbString2Words l ==
 ;   i := 0
 ;   [w while dbWordFrom(l,i) is [w,i]]
- 
+
 (DEFUN |dbString2Words| (|l|)
   (PROG (|i| |ISTMP#1| |w| |ISTMP#2|)
     (RETURN
@@ -2201,12 +2201,12 @@
             (RETURN (NREVERSE |bfVar#82|)))
            (#1# (SETQ |bfVar#82| (CONS |w| |bfVar#82|))))))
        NIL)))))
- 
+
 ; $dbDelimiters := [char " " , char "(", char ")"]
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$dbDelimiters| (LIST (|char| '| |) (|char| '|(|) (|char| '|)|))))
- 
+
 ; dbWordFrom(l,i) ==
 ;   maxIndex := MAXINDEX l
 ;   while maxIndex >= i and l.i = char " " repeat i := i + 1
@@ -2220,7 +2220,7 @@
 ;     buf := STRCONC(buf,ch)
 ;     k := k + 1
 ;   [buf,k]
- 
+
 (DEFUN |dbWordFrom| (|l| |i|)
   (PROG (|maxIndex| |k| |buf| |c| |ch|)
     (RETURN
@@ -2267,12 +2267,12 @@
              (SETQ |buf| (STRCONC |buf| |ch|))
              (SETQ |k| (+ |k| 1))))))))
       (LIST |buf| |k|)))))
- 
+
 ; conLowerCaseConTran x ==
 ;   IDENTP x => IFCAR HGET($lowerCaseConTb, x) or x
 ;   atom x   => x
 ;   [conLowerCaseConTran y for y in x]
- 
+
 (DEFUN |conLowerCaseConTran| (|x|)
   (PROG ()
     (RETURN
@@ -2290,11 +2290,11 @@
                           (CONS (|conLowerCaseConTran| |y|) |bfVar#85|))))
                 (SETQ |bfVar#84| (CDR |bfVar#84|))))
              NIL |x| NIL))))))
- 
+
 ; string2Constructor x ==
 ;   not STRINGP x => x
 ;   IFCAR HGET($lowerCaseConTb, INTERN DOWNCASE x) or x
- 
+
 (DEFUN |string2Constructor| (|x|)
   (PROG ()
     (RETURN
@@ -2302,18 +2302,18 @@
            ('T
             (OR (IFCAR (HGET |$lowerCaseConTb| (INTERN (DOWNCASE |x|))))
                 |x|))))))
- 
+
 ; constructorSearchGrep(filter,key,kind) ==
 ;   dbSearch(grepConstruct(filter,key),kind,filter)
- 
+
 (DEFUN |constructorSearchGrep| (|filter| |key| |kind|)
   (PROG ()
     (RETURN (|dbSearch| (|grepConstruct| |filter| |key|) |kind| |filter|))))
- 
+
 ; grepSearchJump(htPage,yes) ==
 ;   [filter,key,kind,fn] := htpProperty(htPage,'items)
 ;   FUNCALL(fn,filter,key,kind)
- 
+
 (DEFUN |grepSearchJump| (|htPage| |yes|)
   (PROG (|LETTMP#1| |filter| |key| |kind| |fn|)
     (RETURN
@@ -2324,7 +2324,7 @@
       (SETQ |kind| (CADDR . #1#))
       (SETQ |fn| (CADDDR . #1#))
       (FUNCALL |fn| |filter| |key| |kind|)))))
- 
+
 ; dbSearch(lines,kind,filter) == --called by attribute, operation, constructor search
 ;   kind = '"attribute" => BREAK()
 ;   lines is ['error,:.] => bcErrorPage lines
@@ -2336,7 +2336,7 @@
 ;   count = 0 => emptySearchPage(kind, filter, false)
 ;   kind = '"operation" => dbShowOperationLines(kind, lines)
 ;   dbShowConstructorLines lines
- 
+
 (DEFUN |dbSearch| (|lines| |kind| |filter|)
   (PROG (|r| |count|)
     (RETURN
@@ -2357,7 +2357,7 @@
                    ((EQUAL |kind| "operation")
                     (|dbShowOperationLines| |kind| |lines|))
                    (#1# (|dbShowConstructorLines| |lines|)))))))))
- 
+
 ; dbSearchAbbrev([.,:conlist],kind,filter) ==
 ;   null conlist => emptySearchPage('"abbreviation", filter, false)
 ;   kind := intern kind
@@ -2380,7 +2380,7 @@
 ;     htSayStandard '"\tab{19}"
 ;     bcCon nam
 ;   htShowPage()
- 
+
 (DEFUN |dbSearchAbbrev| (|bfVar#92| |kind| |filter|)
   (PROG (|conlist| |ISTMP#1| |nam| |cAlist| |htPage| |page| |abbr| |r| |s|)
     (RETURN
@@ -2466,7 +2466,7 @@
                      (SETQ |bfVar#91| (CDR |bfVar#91|))))
                   |conlist| NIL)
                  (|htShowPage|)))))))))))
- 
+
 ; detailedSearch(filter) ==
 ;   page := htInitPage('"Detailed Search with Options",nil)
 ;   filter   := escapeSpecialChars PNAME filter
@@ -2504,7 +2504,7 @@
 ;     (bcLinks ("\box{Search}" "" generalSearchDo NIL))
 ;     (text . "}"))
 ;   htShowPage()
- 
+
 (DEFUN |detailedSearch| (|filter|)
   (PROG (|page|)
     (RETURN
@@ -2541,7 +2541,7 @@
          (|bcLinks| ("\\box{Search}" "" |generalSearchDo| NIL))
          (|text| . "}")))
       (|htShowPage|)))))
- 
+
 ; generalSearchDo(htPage,flag) ==
 ; --$exposedOnlyIfTrue := (flag => 'T; nil)
 ;   $htPage := htPage
@@ -2584,7 +2584,7 @@
 ;     BREAK()
 ;   null lines => emptySearchPage(kind, nil, false)
 ;   dbSearch(lines,kind,'"filter")
- 
+
 (DEFUN |generalSearchDo| (|htPage| |flag|)
   (PROG (|alist| |which| |selectors| |name| |nargs| |npat| |acc| |n| |kindCode|
          |form| |lines| |kind|)
@@ -2642,22 +2642,22 @@
                ((EQ |which| '|ops|) "operation") (#1# (BREAK))))
       (COND ((NULL |lines|) (|emptySearchPage| |kind| NIL NIL))
             (#1# (|dbSearch| |lines| |kind| "filter")))))))
- 
+
 ; generalSearchString(htPage,sel) ==
 ;   string := htpLabelInputString(htPage,sel)
 ;   string = '"" => '"*"
 ;   string
- 
+
 (DEFUN |generalSearchString| (|htPage| |sel|)
   (PROG (|string|)
     (RETURN
      (PROGN
       (SETQ |string| (|htpLabelInputString| |htPage| |sel|))
       (COND ((EQUAL |string| "") "*") ('T |string|))))))
- 
+
 ; htButtonOn?(htPage,key) ==
 ;   LASSOC(key,htpInputAreaAlist htPage) is [a,:.] and a = '" t"
- 
+
 (DEFUN |htButtonOn?| (|htPage| |key|)
   (PROG (|ISTMP#1| |a|)
     (RETURN
@@ -2666,7 +2666,7 @@
        (SETQ |ISTMP#1| (LASSOC |key| (|htpInputAreaAlist| |htPage|)))
        (AND (CONSP |ISTMP#1|) (PROGN (SETQ |a| (CAR |ISTMP#1|)) 'T)))
       (EQUAL |a| " t")))))
- 
+
 ; mkDetailedGrepPattern(kind,name,nargs,argOrSig) == main where
 ;   main ==
 ;     nottick := '"[^`]"
@@ -2686,7 +2686,7 @@
 ;           and a.(m-1) = char '_* and a.m = $tick
 ;             => simp SUBSTRING(a,0,m-5)
 ;     a
- 
+
 (DEFUN |mkDetailedGrepPattern| (|kind| |name| |nargs| |argOrSig|)
   (PROG (|nottick| |firstPart| |nargsPart| |exposedPart| |patPart|)
     (RETURN
@@ -2722,14 +2722,14 @@
              (EQUAL (ELT |a| |m|) |$tick|))
         (|mkDetailedGrepPattern,simp| (SUBSTRING |a| 0 (- |m| 5))))
        ('T |a|))))))
- 
+
 ; replaceGrepStar s ==
 ;   s = "" => s
 ;   final := MAXINDEX s
 ;   i := charPosition(char '_*,s,0)
 ;   i > final => s
 ;   STRCONC(SUBSTRING(s,0,i),'"[^`]*",replaceGrepStar SUBSTRING(s,i + 1,nil))
- 
+
 (DEFUN |replaceGrepStar| (|s|)
   (PROG (|final| |i|)
     (RETURN
@@ -2742,13 +2742,13 @@
                    (#1#
                     (STRCONC (SUBSTRING |s| 0 |i|) "[^`]*"
                      (|replaceGrepStar| (SUBSTRING |s| (+ |i| 1) NIL)))))))))))
- 
+
 ; standardizeSignature(s) == underscoreDollars
 ;   s.0 = char '_( => s
 ;   k := STRPOS('"->",s,0,nil) or return s --will fail except perhaps on constants
 ;   s.(k - 1) = char '_) => STRCONC(char '_(,s)
 ;   STRCONC(char '_(,SUBSTRING(s,0,k),char '_),SUBSTRING(s,k,nil))
- 
+
 (DEFUN |standardizeSignature| (|s|)
   (PROG (|k|)
     (RETURN
@@ -2763,13 +2763,13 @@
                (#1#
                 (STRCONC (|char| '|(|) (SUBSTRING |s| 0 |k|) (|char| '|)|)
                  (SUBSTRING |s| |k| NIL)))))))))))
- 
+
 ; underscoreDollars(s) == fn(s,0,MAXINDEX s) where
 ;   fn(s,i,n) ==
 ;     i > n => '""
 ;     (m := charPosition(char '_$,s,i)) > n => SUBSTRING(s,i,nil)
 ;     STRCONC(SUBSTRING(s,i,m - i),'"___$",fn(s,m + 1,n))
- 
+
 (DEFUN |underscoreDollars| (|s|)
   (PROG () (RETURN (|underscoreDollars,fn| |s| 0 (MAXINDEX |s|)))))
 (DEFUN |underscoreDollars,fn| (|s| |i| |n|)
@@ -2781,17 +2781,17 @@
            ('T
             (STRCONC (SUBSTRING |s| |i| (- |m| |i|)) "_$"
              (|underscoreDollars,fn| |s| (+ |m| 1) |n|)))))))
- 
+
 ; getTempPath kind == mkGrepFile kind
- 
+
 (DEFUN |getTempPath| (|kind|) (PROG () (RETURN (|mkGrepFile| |kind|))))
- 
+
 ; dbWriteLines(s, pathname) ==
 ;   $outStream : local := MAKE_OUTSTREAM(pathname)
 ;   for x in s repeat writedb x
 ;   SHUT $outStream
 ;   pathname
- 
+
 (DEFUN |dbWriteLines| (|s| |pathname|)
   (PROG (|$outStream|)
     (DECLARE (SPECIAL |$outStream|))
@@ -2808,13 +2808,13 @@
        |s| NIL)
       (SHUT |$outStream|)
       |pathname|))))
- 
+
 ; dbReadLines target == --AIX only--called by grepFile
 ;   instream := OPEN target
 ;   lines := [read_line instream while not EOFP instream]
 ;   CLOSE instream
 ;   lines
- 
+
 (DEFUN |dbReadLines| (|target|)
   (PROG (|instream| |lines|)
     (RETURN
@@ -2831,7 +2831,7 @@
                NIL))
       (CLOSE |instream|)
       |lines|))))
- 
+
 ; dbGetCommentOrigin line ==
 ; --Given a comment line in comdb, returns line in libdb pointing to it
 ; --Comment lines have format  [dcpxoa]xxxxxx`ccccc... where
@@ -2844,7 +2844,7 @@
 ;   line := read_line instream
 ;   CLOSE instream
 ;   line
- 
+
 (DEFUN |dbGetCommentOrigin| (|line|)
   (PROG (|firstPart| |key| |address| |instream|)
     (RETURN
@@ -2857,7 +2857,7 @@
       (SETQ |line| (|read_line| |instream|))
       (CLOSE |instream|)
       |line|))))
- 
+
 ; grepSource key ==
 ;   key = 'libdb   => STRCONC($SPADROOT,'"/algebra/libdb.text")
 ;   key = 'gloss   => STRCONC($SPADROOT,'"/algebra/glosskey.text")
@@ -2865,7 +2865,7 @@
 ;   mkGrepTextfile
 ;     MEMQ(key, '(_. a c d k o p x)) => 'libdb
 ;     'comdb
- 
+
 (DEFUN |grepSource| (|key|)
   (PROG ()
     (RETURN
@@ -2876,17 +2876,17 @@
             (|mkGrepTextfile|
              (COND ((MEMQ |key| '(|.| |a| |c| |d| |k| |o| |p| |x|)) '|libdb|)
                    (#1# '|comdb|))))))))
- 
+
 ; mkGrepTextfile s == STRCONC($SPADROOT,"/algebra/", STRINGIMAGE s, '".text")
- 
+
 (DEFUN |mkGrepTextfile| (|s|)
   (PROG () (RETURN (STRCONC $SPADROOT '|/algebra/| (STRINGIMAGE |s|) ".text"))))
- 
+
 ; mkGrepFile s ==  --called to generate a path name for a temporary grep file
 ;   prefix := '"/tmp/"
 ;   suffix := getEnv '"SPADNUM"
 ;   STRCONC(prefix, PNAME s,'".txt.", suffix)
- 
+
 (DEFUN |mkGrepFile| (|s|)
   (PROG (|prefix| |suffix|)
     (RETURN
@@ -2894,7 +2894,7 @@
       (SETQ |prefix| "/tmp/")
       (SETQ |suffix| (|getEnv| "SPADNUM"))
       (STRCONC |prefix| (PNAME |s|) ".txt." |suffix|)))))
- 
+
 ; grepFile(pattern, key, option) ==
 ;   options := [option]
 ;   source := grepSource key
@@ -2909,7 +2909,7 @@
 ;       dbReadLines target
 ;       -- deleteFile target
 ;   dbUnpatchLines lines
- 
+
 (DEFUN |grepFile| (|pattern| |key| |option|)
   (PROG (|options| |source| |target| |casepart| |command| |lines|)
     (RETURN
@@ -2929,7 +2929,7 @@
                       (OBEY (STRCONC |command| " > " |target|))
                       (|dbReadLines| |target|)))))
       (|dbUnpatchLines| |lines|)))))
- 
+
 ; dbUnpatchLines lines ==  --concatenate long lines together, skip blank lines
 ;   dash := char '_-
 ;   acc := nil
@@ -2941,7 +2941,7 @@
 ;       [line,:acc]
 ;   -- following call to NREVERSE needed to keep lines properly sorted
 ;   NREVERSE acc  ------> added by BMT 12/95
- 
+
 (DEFUN |dbUnpatchLines| (|lines|)
   (PROG (|dash| |acc| |line|)
     (RETURN

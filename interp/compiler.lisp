@@ -1,25 +1,25 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; DEFPARAMETER($currentFunctionLevel, 0)
- 
+
 (DEFPARAMETER |$currentFunctionLevel| 0)
- 
+
 ; DEFPARAMETER($tryRecompileArguments, true)
- 
+
 (DEFPARAMETER |$tryRecompileArguments| T)
- 
+
 ; DEFPARAMETER($locVarsTypes, nil)
- 
+
 (DEFPARAMETER |$locVarsTypes| NIL)
- 
+
 ; initEnvHashTable(l) ==
 ;   for u in first(first(l)) repeat
 ;       for v in rest(u) repeat
 ;             HPUT($envHashTable, [first u, first v], true)
- 
+
 (DEFUN |initEnvHashTable| (|l|)
   (PROG ()
     (RETURN
@@ -39,7 +39,7 @@
             (CDR |u|) NIL)))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       (CAR (CAR |l|)) NIL))))
- 
+
 ; compTopLevel(x,m,e) ==
 ;   $killOptimizeIfTrue: local:= false
 ;   $forceAdd: local:= false
@@ -54,7 +54,7 @@
 ;     ([val,mode,.]:= FUNCALL(compFun,x,m,e); [val,mode,e])
 ;         --keep old environment after top level function defs
 ;   FUNCALL(compFun,x,m,e)
- 
+
 (DEFUN |compTopLevel| (|x| |m| |e|)
   (PROG (|$envHashTable| |$resolveTimeSum| |$compTimeSum| |$forceAdd|
          |$killOptimizeIfTrue| |mode| |val| |LETTMP#1| |ISTMP#2| |ISTMP#1|
@@ -87,11 +87,11 @@
          (SETQ |mode| (CADR |LETTMP#1|))
          (LIST |val| |mode| |e|)))
        ('T (FUNCALL |compFun| |x| |m| |e|)))))))
- 
+
 ; compUniquely(x,m,e) ==
 ;   $compUniquelyIfTrue: local:= true
 ;   CATCH("compUniquely",comp(x,m,e))
- 
+
 (DEFUN |compUniquely| (|x| |m| |e|)
   (PROG (|$compUniquelyIfTrue|)
     (DECLARE (SPECIAL |$compUniquelyIfTrue|))
@@ -99,12 +99,12 @@
      (PROGN
       (SETQ |$compUniquelyIfTrue| T)
       (CATCH '|compUniquely| (|comp| |x| |m| |e|))))))
- 
+
 ; compOrCroak(x,m,e) == compOrCroak1(x,m,e,'comp)
- 
+
 (DEFUN |compOrCroak| (|x| |m| |e|)
   (PROG () (RETURN (|compOrCroak1| |x| |m| |e| '|comp|))))
- 
+
 ; compOrCroak1(x,m,e,compFn) ==
 ;   fn(x,m,e,nil,nil,compFn) where
 ;     fn(x,m,e,$compStack,$compErrorMessageStack,compFn) ==
@@ -129,7 +129,7 @@
 ;       SAY("****** comp fails at level ",$level," with expression: ******")
 ;       displayComp $level
 ;       userError errorMessage
- 
+
 (DEFUN |compOrCroak1| (|x| |m| |e| |compFn|)
   (PROG () (RETURN (|compOrCroak1,fn| |x| |m| |e| NIL NIL |compFn|))))
 (DEFUN |compOrCroak1,fn|
@@ -167,12 +167,12 @@
            ((LASSOC (CAR (CAR |al|)) (CDR |al|))
             (|compOrCroak1,compactify| (CDR |al|)))
            ('T (CONS (CAR |al|) (|compOrCroak1,compactify| (CDR |al|))))))))
- 
+
 ; comp(x,m,e) ==
 ;   T:= compNoStacking(x,m,e) => ($compStack:= nil; T)
 ;   $compStack:= [[x,m,e,$exitModeStack],:$compStack]
 ;   nil
- 
+
 (DEFUN |comp| (|x| |m| |e|)
   (PROG (T$)
     (RETURN
@@ -184,7 +184,7 @@
         (SETQ |$compStack|
                 (CONS (LIST |x| |m| |e| |$exitModeStack|) |$compStack|))
         NIL))))))
- 
+
 ; compNoStacking(x,m,e) ==
 ;   T:= comp2(x,m,e) =>
 ;     (m=$EmptyMode and T.mode=$Representation => [T.expr,"$",T.env]; T)
@@ -192,7 +192,7 @@
 ;          --this hack says that when something is undeclared, $ is
 ;          --preferred to the underlying representation -- RDJ 9/12/83
 ;   compNoStacking1(x,m,e,$compStack)
- 
+
 (DEFUN |compNoStacking| (|x| |m| |e|)
   (PROG (T$)
     (RETURN
@@ -203,12 +203,12 @@
          (LIST (CAR T$) '$ (CADDR T$)))
         (#1='T T$)))
       (#1# (|compNoStacking1| |x| |m| |e| |$compStack|))))))
- 
+
 ; compNoStacking1(x,m,e,$compStack) ==
 ;   u:= get(if m="$" then "Rep" else m,"value",e) =>
 ;     (T:= comp2(x,u.expr,e) => [T.expr,m,T.env]; nil)
 ;   nil
- 
+
 (DEFUN |compNoStacking1| (|x| |m| |e| |$compStack|)
   (DECLARE (SPECIAL |$compStack|))
   (PROG (|u| T$)
@@ -219,7 +219,7 @@
         ((SETQ T$ (|comp2| |x| (CAR |u|) |e|)) (LIST (CAR T$) |m| (CADDR T$)))
         (#1# NIL)))
       (#1# NIL)))))
- 
+
 ; comp2(x,m,e) ==
 ;   [y,m',e]:= comp3(x,m,e) or return nil
 ;   --if null atom y and isDomainForm(y,e) then e := addDomain(x,e)
@@ -227,7 +227,7 @@
 ;   m ~= m' and isDomainForm(m',e) => [y, m', addDomain(m', e)]
 ;         --isDomainForm test needed to prevent error while compiling Ring
 ;   [y,m',e]
- 
+
 (DEFUN |comp2| (|x| |m| |e|)
   (PROG (|LETTMP#1| |y| |m'|)
     (RETURN
@@ -240,7 +240,7 @@
        ((AND (NOT (EQUAL |m| |m'|)) (|isDomainForm| |m'| |e|))
         (LIST |y| |m'| (|addDomain| |m'| |e|)))
        ('T (LIST |y| |m'| |e|)))))))
- 
+
 ; comp3(x, m, e) ==
 ;   --returns a Triple or else nil to signal can't do
 ;   e := addDomain(m, e)
@@ -255,7 +255,7 @@
 ;   t is [x',m',e'] and not member(m',getDomainsInScope e') =>
 ;     [x',m',addDomain(m',e')]
 ;   t
- 
+
 (DEFUN |comp3| (|x| |m| |e|)
   (PROG (|ISTMP#1| |a| |op| |t| |x'| |m'| |ISTMP#2| |e'|)
     (RETURN
@@ -301,13 +301,13 @@
                         (NULL (|member| |m'| (|getDomainsInScope| |e'|))))
                    (LIST |x'| |m'| (|addDomain| |m'| |e'|)))
                   (#1# |t|))))))))))))
- 
+
 ; hasFormalMapVariable(x, vl) ==
 ;   $formalMapVariables: local := vl
 ;   null vl => false
 ;   ScanOrPairVec(function hasone?, x) where
 ;      hasone? x == MEMQ(x,$formalMapVariables)
- 
+
 (DEFUN |hasFormalMapVariable| (|x| |vl|)
   (PROG (|$formalMapVariables|)
     (DECLARE (SPECIAL |$formalMapVariables|))
@@ -318,7 +318,7 @@
             ('T (|ScanOrPairVec| #'|hasFormalMapVariable,hasone?| |x|)))))))
 (DEFUN |hasFormalMapVariable,hasone?| (|x|)
   (PROG () (RETURN (MEMQ |x| |$formalMapVariables|))))
- 
+
 ; argsToSig(args) ==
 ;     args is [":", v, t] => [[v], [t]]
 ;     sig1 := []
@@ -331,7 +331,7 @@
 ;         bad := true
 ;     bad => [nil, nil]
 ;     [REVERSE(arg1), REVERSE(sig1)]
- 
+
 (DEFUN |argsToSig| (|args|)
   (PROG (|ISTMP#1| |v| |ISTMP#2| |t| |sig1| |arg1| |bad|)
     (RETURN
@@ -375,7 +375,7 @@
          |args| NIL)
         (COND (|bad| (LIST NIL NIL))
               (#1# (LIST (REVERSE |arg1|) (REVERSE |sig1|))))))))))
- 
+
 ; compLambda(x is ["+->", vl, body], m, e) ==
 ;     vl is [":", args, target] =>
 ;         args :=
@@ -390,7 +390,7 @@
 ;              stackAndThrow ["compLambda: malformed argument list", x]
 ;         stackAndThrow ["compLambda: malformed argument list", x]
 ;     nil
- 
+
 (DEFUN |compLambda| (|x| |m| |e|)
   (PROG (|vl| |body| |ISTMP#1| |args| |ISTMP#2| |target| |a1| |LETTMP#1| |arg1|
          |sig1| |ress|)
@@ -437,7 +437,7 @@
            (|stackAndThrow|
             (LIST '|compLambda: malformed argument list| |x|))))))
        (#2# NIL))))))
- 
+
 ; getFreeList(u, bound, free, e) ==
 ;     atom u =>
 ;         not IDENTP u => free
@@ -484,7 +484,7 @@
 ;     for v in u repeat
 ;         free := getFreeList(v, bound, free, e)
 ;     free
- 
+
 (DEFUN |getFreeList| (|u| |bound| |free| |e|)
   (PROG (|v| |op| |lvl| |avl| |el|)
     (RETURN
@@ -623,13 +623,13 @@
                     (SETQ |bfVar#13| (CDR |bfVar#13|))))
                  |u| NIL)
                 |free|)))))))))
- 
+
 ; compWithMappingMode(x, m, oldE) ==
 ;   compWithMappingMode1(x, m, oldE, $formalArgList)
- 
+
 (DEFUN |compWithMappingMode| (|x| |m| |oldE|)
   (PROG () (RETURN (|compWithMappingMode1| |x| |m| |oldE| |$formalArgList|))))
- 
+
 ; compWithMappingMode1(x, m is ["Mapping", m', :sl], oldE, $formalArgList) ==
 ;   $killOptimizeIfTrue: local:= true
 ;   e:= oldE
@@ -719,7 +719,7 @@
 ;     frees => ['CONS,fname,vec]
 ;     ['LIST,fname]
 ;   [uu,m,oldE]
- 
+
 (DEFUN |compWithMappingMode1| (|x| |m| |oldE| |$formalArgList|)
   (DECLARE (SPECIAL |$formalArgList|))
   (PROG (|$currentFunctionLevel| |$returnMode| |$killOptimizeIfTrue| |fname|
@@ -1017,14 +1017,14 @@
                                     (COND (|frees| (LIST 'CONS |fname| |vec|))
                                           (#2# (LIST 'LIST |fname|))))
                             (LIST |uu| |m| |oldE|)))))))))))))))))
- 
+
 ; simpleCall(u, vl, m, oldE) ==
 ;     u is ["call", fn, :avl] and avl = vl =>
 ;         if fn is ["applyFun", a] then fn := a
 ;         fn = "mkRecord" => nil
 ;         [fn,m,oldE]
 ;     nil
- 
+
 (DEFUN |simpleCall| (|u| |vl| |m| |oldE|)
   (PROG (|ISTMP#1| |fn| |avl| |a|)
     (RETURN
@@ -1048,14 +1048,14 @@
           (SETQ |fn| |a|)))
         (COND ((EQ |fn| '|mkRecord|) NIL) (#1# (LIST |fn| |m| |oldE|)))))
       (#1# NIL)))))
- 
+
 ; extractCodeAndConstructTriple(u, m, oldE) ==
 ;   u is ["call",fn,:.] =>
 ;     if fn is ["applyFun",a] then fn := a
 ;     [fn,m,oldE]
 ;   [op,:.,env] := u
 ;   [["CONS",["function",op],env],m,oldE]
- 
+
 (DEFUN |extractCodeAndConstructTriple| (|u| |m| |oldE|)
   (PROG (|ISTMP#1| |fn| |a| |op| |LETTMP#1| |env|)
     (RETURN
@@ -1080,14 +1080,14 @@
         (SETQ |LETTMP#1| (REVERSE (CDR |u|)))
         (SETQ |env| (CAR |LETTMP#1|))
         (LIST (LIST 'CONS (LIST '|function| |op|) |env|) |m| |oldE|)))))))
- 
+
 ; compExpression(x,m,e) ==
 ;   op := first x
 ;   SYMBOLP(op) and (fn := GET(op, "SPECIAL")) =>
 ;     FUNCALL(fn,x,m,e)
 ;   getmode(op, e) is ["Mapping", :ml] and (u := applyMapping(x, m, e, ml)) => u
 ;   compForm(x,m,e)
- 
+
 (DEFUN |compExpression| (|x| |m| |e|)
   (PROG (|op| |fn| |ISTMP#1| |ml| |u|)
     (RETURN
@@ -1104,19 +1104,19 @@
          (SETQ |u| (|applyMapping| |x| |m| |e| |ml|)))
         |u|)
        (#1# (|compForm| |x| |m| |e|)))))))
- 
+
 ; compAtom(x, m, e) ==
 ;     res := compAtom1(x, m, e) => res
 ;     -- Needed at least for bootstrap of FFIELDC.spad
 ;     compAtomWithModemap(x, m, e, get(x, "modemap", e))
- 
+
 (DEFUN |compAtom| (|x| |m| |e|)
   (PROG (|res|)
     (RETURN
      (COND ((SETQ |res| (|compAtom1| |x| |m| |e|)) |res|)
            ('T
             (|compAtomWithModemap| |x| |m| |e| (|get| |x| '|modemap| |e|)))))))
- 
+
 ; compAtom1(x, m, e) ==
 ;   t:=
 ;     isSymbol x =>
@@ -1124,7 +1124,7 @@
 ;     STRINGP x => [x,x,e]
 ;     [x,primitiveType x or return nil,e]
 ;   convert(t,m)
- 
+
 (DEFUN |compAtom1| (|x| |m| |e|)
   (PROG (|t|)
     (RETURN
@@ -1135,7 +1135,7 @@
                ((STRINGP |x|) (LIST |x| |x| |e|))
                ('T (LIST |x| (OR (|primitiveType| |x|) (RETURN NIL)) |e|))))
       (|convert| |t| |m|)))))
- 
+
 ; primitiveType x ==
 ;   x is nil => $EmptyMode
 ;   STRINGP x => BREAK() -- handled in compAtom1
@@ -1145,7 +1145,7 @@
 ;     $Integer
 ;   FLOATP x => BREAK() -- no longer used
 ;   nil
- 
+
 (DEFUN |primitiveType| (|x|)
   (PROG ()
     (RETURN
@@ -1154,11 +1154,11 @@
             (COND ((EQL |x| 0) |$NonNegativeInteger|)
                   ((< 0 |x|) |$PositiveInteger|) (#1='T |$Integer|)))
            ((FLOATP |x|) (BREAK)) (#1# NIL)))))
- 
+
 ; DEFPARAMETER($compForModeIfTrue, false)
- 
+
 (DEFPARAMETER |$compForModeIfTrue| NIL)
- 
+
 ; compSymbol(s,m,e) ==
 ;   s="$NoValue" => ["$NoValue",$NoValueMode,e]
 ;   isFluid s => [s,getmode(s,e) or return nil,e]
@@ -1177,7 +1177,7 @@
 ;     [s,m',e] --s is a declared argument
 ;   MEMQ(s,$FormalMapVariableList) => stackMessage ["no mode found for",s]
 ;   not isFunction(s,e) => errorRef s
- 
+
 (DEFUN |compSymbol| (|s| |m| |e|)
   (PROG (|v| |m'|)
     (RETURN
@@ -1204,12 +1204,12 @@
            ((MEMQ |s| |$FormalMapVariableList|)
             (|stackMessage| (LIST '|no mode found for| |s|)))
            ((NULL (|isFunction| |s| |e|)) (|errorRef| |s|))))))
- 
+
 ; convertOrCroak(T,m) ==
 ;   u:= convert(T,m) => u
 ;   userError ["CANNOT CONVERT: ",T.expr,"%l"," OF MODE: ",T.mode,"%l",
 ;     " TO MODE: ",m,"%l"]
- 
+
 (DEFUN |convertOrCroak| (T$ |m|)
   (PROG (|u|)
     (RETURN
@@ -1218,31 +1218,31 @@
             (|userError|
              (LIST '|CANNOT CONVERT: | (CAR T$) '|%l| '| OF MODE: | (CADR T$)
                    '|%l| '| TO MODE: | |m| '|%l|)))))))
- 
+
 ; convert(T,m) ==
 ;   coerce(T,resolve(T.mode,m) or return nil)
- 
+
 (DEFUN |convert| (T$ |m|)
   (PROG () (RETURN (|coerce| T$ (OR (|resolve| (CADR T$) |m|) (RETURN NIL))))))
- 
+
 ; maxSuperType(m,e) ==
 ;   typ:= get(m,"SuperDomain",e) => maxSuperType(typ,e)
 ;   m
- 
+
 (DEFUN |maxSuperType| (|m| |e|)
   (PROG (|typ|)
     (RETURN
      (COND
       ((SETQ |typ| (|get| |m| '|SuperDomain| |e|)) (|maxSuperType| |typ| |e|))
       ('T |m|)))))
- 
+
 ; hasType(x,e) ==
 ;   fn get(x,"condition",e) where
 ;     fn x ==
 ;       null x => nil
 ;       x is [["case",.,y],:.] => y
 ;       fn rest x
- 
+
 (DEFUN |hasType| (|x| |e|)
   (PROG () (RETURN (|hasType,fn| (|get| |x| '|condition| |e|)))))
 (DEFUN |hasType,fn| (|x|)
@@ -1264,13 +1264,13 @@
                                     #1='T))))))))
             |y|)
            (#1# (|hasType,fn| (CDR |x|)))))))
- 
+
 ; compForm(form,m,e) ==
 ;   T:=
 ;     compForm1(form,m,e) or compArgumentsAndTryAgain(form,m,e) or return
 ;       stackMessageIfNone ["cannot compile","%b",form,"%d"]
 ;   T
- 
+
 (DEFUN |compForm| (|form| |m| |e|)
   (PROG (T$)
     (RETURN
@@ -1282,7 +1282,7 @@
                    (|stackMessageIfNone|
                     (LIST '|cannot compile| '|%b| |form| '|%d|)))))
       T$))))
- 
+
 ; compArgumentsAndTryAgain(form is [.,:argl],m,e) ==
 ;   not($tryRecompileArguments) or null(argl) => nil
 ;   -- used in case: f(g(x)) where f is in domain introduced by
@@ -1292,7 +1292,7 @@
 ;   u:= for x in argl repeat [.,.,e]:= comp(x,$EmptyMode,e) or return "failed"
 ;   u="failed" => nil
 ;   compForm1(form,m,e)
- 
+
 (DEFUN |compArgumentsAndTryAgain| (|form| |m| |e|)
   (PROG (|argl| |ISTMP#1| |a| |ISTMP#2| |LETTMP#1| |u|)
     (RETURN
@@ -1328,7 +1328,7 @@
                        |argl| NIL))
               (COND ((EQ |u| '|failed|) NIL)
                     (#1# (|compForm1| |form| |m| |e|))))))))))
- 
+
 ; outputComp(x,e) ==
 ;   u:=comp(['_:_:, x, $OutputForm], $OutputForm, e) => u
 ;   x is ['construct,:argl] =>
@@ -1338,7 +1338,7 @@
 ;     [['coerceUn2E, x, v.mode], $OutputForm, e]
 ;   SAY ["outputComp strange x ", x]
 ;   nil
- 
+
 (DEFUN |outputComp| (|x| |e|)
   (PROG (|u| |argl| |LETTMP#1| |v| |ISTMP#1| |l|)
     (RETURN
@@ -1375,7 +1375,7 @@
                   (PROGN (SETQ |l| (CDR |ISTMP#1|)) #1#))))
        (LIST (LIST '|coerceUn2E| |x| (CADR |v|)) |$OutputForm| |e|))
       (#1# (PROGN (SAY (LIST '|outputComp strange x | |x|)) NIL))))))
- 
+
 ; compSel1(domain, op, argl, m, e) ==
 ;     domain="Lisp" =>
 ;         [[op, :[([., ., e] := compOrCroak(x, $EmptyMode, e)).expr
@@ -1404,7 +1404,7 @@
 ;         (T := comp_construct1(argl, domain, e)) or return nil
 ;         coerce(T, m)
 ;     nil
- 
+
 (DEFUN |compSel1| (|domain| |op| |argl| |m| |e|)
   (PROG (|LETTMP#1| T$ |mant| |ISTMP#1| |exp| |ISTMP#2| |mml| |ans|)
     (RETURN
@@ -1486,7 +1486,7 @@
                   (RETURN NIL))
               (|coerce| T$ |m|)))
             (#1# NIL)))))))))))
- 
+
 ; try_constant_DF(mant, exp, m, e) ==
 ;     if mant = ["Zero"] then mant := 0
 ;     if mant = ["One"] then mant := 1
@@ -1494,7 +1494,7 @@
 ;     if exp = ["One"] then exp := 1
 ;     INTEGERP(mant) and INTEGERP(exp) => [["mk_DF", mant, exp], m, e]
 ;     nil
- 
+
 (DEFUN |try_constant_DF| (|mant| |exp| |m| |e|)
   (PROG ()
     (RETURN
@@ -1507,7 +1507,7 @@
        ((AND (INTEGERP |mant|) (INTEGERP |exp|))
         (LIST (LIST '|mk_DF| |mant| |exp|) |m| |e|))
        ('T NIL))))))
- 
+
 ; compForm1(form is [op,:argl],m,e) ==
 ;   op="error" =>
 ;       #argl = 1 =>
@@ -1521,11 +1521,11 @@
 ;       SAY ["compiling call to error ", argl]
 ;       nil
 ;   op is ["Sel", domain, op'] => compSel1(domain, op', argl, m, e)
-; 
+;
 ;   e:= addDomain(m,e) --???unnecessary because of comp2's call???
 ;   (mmList:= getFormModemaps(form,e)) and (T:= compForm2(form,m,e,mmList)) => T
 ;   compToApply(op,argl,m,e)
- 
+
 (DEFUN |compForm1| (|form| |m| |e|)
   (PROG (|op| |argl| |arg| |u| |ISTMP#1| |domain| |ISTMP#2| |op'| |mmList| T$)
     (RETURN
@@ -1569,7 +1569,7 @@
                 (SETQ T$ (|compForm2| |form| |m| |e| |mmList|)))
            T$)
           (#1# (|compToApply| |op| |argl| |m| |e|))))))))))
- 
+
 ; compForm2(form is [op,:argl],m,e,modemapList) ==
 ;   sargl:= TAKE(# argl, $TriangleVariableList)
 ;   aList:= [[sa,:a] for a in argl for sa in sargl]
@@ -1582,7 +1582,7 @@
 ;     compFormPartiallyBottomUp(form,m,e,modemapList,partialModeList) or
 ;       compForm3(form,m,e,modemapList)
 ;   compForm3(form,m,e,modemapList)
- 
+
 (DEFUN |compForm2| (|form| |m| |e| |modemapList|)
   (PROG (|op| |argl| |sargl| |aList| T$ |Tl| |partialModeList|)
     (RETURN
@@ -1652,11 +1652,11 @@
            |partialModeList|)
           (|compForm3| |form| |m| |e| |modemapList|))))
        (#1# (|compForm3| |form| |m| |e| |modemapList|)))))))
- 
+
 ; compFormPartiallyBottomUp(form,m,e,modemapList,partialModeList) ==
 ;   mmList:= [mm for mm in modemapList | compFormMatch(mm,partialModeList)] =>
 ;     compForm3(form,m,e,mmList)
- 
+
 (DEFUN |compFormPartiallyBottomUp|
        (|form| |m| |e| |modemapList| |partialModeList|)
   (PROG (|mmList|)
@@ -1675,14 +1675,14 @@
                    (SETQ |bfVar#42| (CDR |bfVar#42|))))
                 NIL |modemapList| NIL))
        (IDENTITY (|compForm3| |form| |m| |e| |mmList|)))))))
- 
+
 ; compFormMatch(mm,partialModeList) ==
 ;   mm is [[.,.,:argModeList],:.] and match(argModeList,partialModeList) where
 ;     match(a,b) ==
 ;       null b => true
 ;       null first b => match(rest a,rest b)
 ;       first a=first b and match(rest a,rest b)
- 
+
 (DEFUN |compFormMatch| (|mm| |partialModeList|)
   (PROG (|ISTMP#1| |ISTMP#2| |argModeList|)
     (RETURN
@@ -1703,7 +1703,7 @@
            ('T
             (AND (EQUAL (CAR |a|) (CAR |b|))
                  (|compFormMatch,match| (CDR |a|) (CDR |b|))))))))
- 
+
 ; compForm3(form is [op,:argl],m,e,modemapList) ==
 ;   T:=
 ;     or/
@@ -1714,7 +1714,7 @@
 ;       THROW("compUniquely",nil)
 ;     T
 ;   T
- 
+
 (DEFUN |compForm3| (|form| |m| |e| |modemapList|)
   (PROG (|op| |argl| |mml| T$)
     (RETURN
@@ -1750,7 +1750,7 @@
           (THROW '|compUniquely| NIL))
          (#1# T$)))
        (#1# T$))))))
- 
+
 ; getFormModemaps(form is [op,:argl],e) ==
 ;   op is ["Sel", domain, op1] =>
 ;     [x for x in getFormModemaps([op1,:argl],e) | x is [[ =domain,:.],:.]]
@@ -1765,7 +1765,7 @@
 ;   modemapList and null finalModemapList =>
 ;     stackMessage ["no modemap for","%b",op,"%d","with ",nargs," arguments"]
 ;   finalModemapList
- 
+
 (DEFUN |getFormModemaps| (|form| |e|)
   (PROG (|op| |argl| |ISTMP#1| |domain| |ISTMP#2| |op1| |modemapList| |dom|
          |nargs| |sig| |finalModemapList|)
@@ -1854,7 +1854,7 @@
             (LIST '|no modemap for| '|%b| |op| '|%d| '|with | |nargs|
                   '| arguments|)))
           (#1# |finalModemapList|)))))))))
- 
+
 ; eltModemapFilter(name,mmList,e) ==
 ;   isConstantId(name,e) =>
 ;     l:= [mm for mm in mmList | mm is [[.,.,.,sel,:.],:.] and sel=name] => l
@@ -1862,7 +1862,7 @@
 ;     stackMessage ["selector variable: ",name," is undeclared and unbound"]
 ;     nil
 ;   mmList
- 
+
 (DEFUN |eltModemapFilter| (|name| |mmList| |e|)
   (PROG (|ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |sel| |l|)
     (RETURN
@@ -1905,7 +1905,7 @@
            (LIST '|selector variable: | |name| '| is undeclared and unbound|))
           NIL))))
       (#1# |mmList|)))))
- 
+
 ; substituteIntoFunctorModemap(argl,modemap is [[dc,:sig],:.],e) ==
 ;   #dc~=#sig =>
 ;     keyedSystemError("S2GE0016",['"substituteIntoFunctorModemap",
@@ -1918,7 +1918,7 @@
 ;     substitutionList:= [[x,:T.expr] for x in rest dc for T in Tl]
 ;     [SUBLIS(substitutionList,modemap),e]
 ;   nil
- 
+
 (DEFUN |substituteIntoFunctorModemap| (|argl| |modemap| |e|)
   (PROG (|dc| |sig| |LETTMP#1| |Tl| |substitutionList|)
     (RETURN
@@ -1969,9 +1969,9 @@
                   NIL (CDR |dc|) NIL |Tl| NIL))
          (LIST (SUBLIS |substitutionList| |modemap|) |e|)))
        (#2# NIL))))))
- 
+
 ; compSetq([":=", form, val], m, E) == compSetq1(form, val, m, E)
- 
+
 (DEFUN |compSetq| (|bfVar#61| |m| E)
   (PROG (|form| |val|)
     (RETURN
@@ -1979,7 +1979,7 @@
       (SETQ |form| (CADR . #1=(|bfVar#61|)))
       (SETQ |val| (CADDR . #1#))
       (|compSetq1| |form| |val| |m| E)))))
- 
+
 ; compSetq1(form,val,m,E) ==
 ;   IDENTP form => setqSingle(form,val,m,E)
 ;   form is [":",x,y] =>
@@ -1989,7 +1989,7 @@
 ;     op="CONS"  => setqMultiple(uncons form,val,m,E)
 ;     op = "@Tuple" => setqMultiple(l, val, m, E)
 ;     setqSetelt(form,val,m,E)
- 
+
 (DEFUN |compSetq1| (|form| |val| |m| E)
   (PROG (|ISTMP#1| |x| |ISTMP#2| |y| |LETTMP#1| |E'| |op| |l|)
     (RETURN
@@ -2013,16 +2013,16 @@
              ((EQ |op| 'CONS) (|setqMultiple| (|uncons| |form|) |val| |m| E))
              ((EQ |op| '|@Tuple|) (|setqMultiple| |l| |val| |m| E))
              (#1# (|setqSetelt| |form| |val| |m| E))))))))
- 
+
 ; compMakeDeclaration(x,m,e) ==
 ;   compColon(x,m,e)
- 
+
 (DEFUN |compMakeDeclaration| (|x| |m| |e|)
   (PROG () (RETURN (|compColon| |x| |m| |e|))))
- 
+
 ; setqSetelt([v,:s],val,m,E) ==
 ;     comp(["setelt!", v, :s, val], m, E)
- 
+
 (DEFUN |setqSetelt| (|bfVar#62| |val| |m| E)
   (PROG (|v| |s|)
     (RETURN
@@ -2031,7 +2031,7 @@
       (SETQ |s| (CDR |bfVar#62|))
       (|comp| (CONS '|setelt!| (CONS |v| (APPEND |s| (CONS |val| NIL)))) |m|
        E)))))
- 
+
 ; setqSingle(id,val,m,E) ==
 ;   $insideSetqSingleIfTrue: local:= true
 ;     --used for comping domain forms within functions
@@ -2052,7 +2052,7 @@
 ;   m'' = $EmptyMode and T.mode = $EmptyMode =>
 ;       stackMessage ["No mode in assignment to: ", id]
 ;   finish_setq_single(T, m, id, val, currentProplist)
- 
+
 (DEFUN |setqSingle| (|id| |val| |m| E)
   (PROG (|$insideSetqSingleIfTrue| |maxm''| T$ |m''| |currentProplist|)
     (DECLARE (SPECIAL |$insideSetqSingleIfTrue|))
@@ -2081,7 +2081,7 @@
        ((AND (EQUAL |m''| |$EmptyMode|) (EQUAL (CADR T$) |$EmptyMode|))
         (|stackMessage| (LIST '|No mode in assignment to: | |id|)))
        (#1# (|finish_setq_single| T$ |m| |id| |val| |currentProplist|)))))))
- 
+
 ; finish_setq_single(T, m, id, val, currentProplist) ==
 ;   T' := [x, m', e'] := convert(T, m) or return nil
 ;   newProplist:= consProplistOf(id,currentProplist,"value",removeEnv [val,:rest T])
@@ -2095,7 +2095,7 @@
 ;       --e.g. the LET form below will be changed by putInLocalDomainReferences
 ; --+
 ;   saveLocVarsTypeDecl(x, id, e')
-; 
+;
 ;   if (k:=NRTassocIndex(id))
 ;      then form:=['SETELT,"$",k,x]
 ;      else form:=
@@ -2103,7 +2103,7 @@
 ;          ["LET",id,x,
 ;             (isDomainForm(x, e') => ['ELT, id, 0]; first outputComp(id, e'))]
 ;   [form,m',e']
- 
+
 (DEFUN |finish_setq_single| (T$ |m| |id| |val| |currentProplist|)
   (PROG (|LETTMP#1| |x| |m'| |e'| |T'| |newProplist| |k| |form|)
     (RETURN
@@ -2142,7 +2142,7 @@
                               ((|isDomainForm| |x| |e'|) (LIST 'ELT |id| 0))
                               (#2# (CAR (|outputComp| |id| |e'|))))))))))
       (LIST |form| |m'| |e'|)))))
- 
+
 ; saveLocVarsTypeDecl(x, id, e) ==
 ;     t := getmode(id, e) =>
 ;         t := (t = '$EmptyMode => nil; ATOM(t) => [t]; t)
@@ -2156,7 +2156,7 @@
 ;             if not null t' then
 ;                 SAY("Local variable ", id, " type redefined: ", t, " to ", t')
 ;             RPLACD(typeDecl, t)
- 
+
 (DEFUN |saveLocVarsTypeDecl| (|x| |id| |e|)
   (PROG (|t| |typeDecl| |t'|)
     (RETURN
@@ -2184,7 +2184,7 @@
                  (SAY '|Local variable | |id| '| type redefined: | |t| '| to |
                   |t'|)))
                (RPLACD |typeDecl| |t|))))))))))))))
- 
+
 ; assignError(val,m',form,m) ==
 ;   message:=
 ;     val =>
@@ -2192,7 +2192,7 @@
 ;         "   OF MODE: ",m]
 ;     ["CANNOT ASSIGN: ",val,"%l","   TO: ",form,"%l","   OF MODE: ",m]
 ;   stackMessage message
- 
+
 (DEFUN |assignError| (|val| |m'| |form| |m|)
   (PROG (|message|)
     (RETURN
@@ -2206,11 +2206,11 @@
                 (LIST '|CANNOT ASSIGN: | |val| '|%l| '|   TO: | |form| '|%l|
                       '|   OF MODE: | |m|))))
       (|stackMessage| |message|)))))
- 
+
 ; MKPROGN(l) == MKPF(l, "PROGN")
- 
+
 (DEFUN MKPROGN (|l|) (PROG () (RETURN (MKPF |l| 'PROGN))))
- 
+
 ; setqMultiple(nameList,val,m,e) ==
 ;   val is ["CONS",:.] and m=$NoValueMode =>
 ;     setqMultipleExplicit(nameList,uncons val,m,e)
@@ -2253,7 +2253,7 @@
 ;       for x in nameList for [y,:z] in selectorModePairs]
 ;   if assignList="failed" then NIL
 ;   else [MKPROGN [x,:assignList,g],m',e]
- 
+
 (DEFUN |setqMultiple| (|nameList| |val| |m| |e|)
   (PROG (|l| |g| |LETTMP#1| |m1| T$ |x| |m'| |ISTMP#1| D |g2| |x2| |ass_list|
          |selectorModePairs| |y| |z| |assignList|)
@@ -2428,7 +2428,7 @@
            (SETQ |bfVar#68| (CDR |bfVar#68|))))
         NIL |l| NIL))
       (#1# (|stackMessage| (LIST '|no multiple assigns to mode: | |t|)))))))
- 
+
 ; setqMultipleExplicit(nameList,valList,m,e) ==
 ;   #nameList~=#valList =>
 ;     stackMessage ["Multiple assignment error; # of items in: ",nameList,
@@ -2445,7 +2445,7 @@
 ;   reAssignList="failed" => nil
 ;   [["PROGN",:[T.expr for T in assignList],:[T.expr for T in reAssignList]],
 ;     $NoValueMode, (last reAssignList).env]
- 
+
 (DEFUN |setqMultipleExplicit| (|nameList| |valList| |m| |e|)
   (PROG (|gensymList| |LETTMP#1| |assignList| |reAssignList|)
     (RETURN
@@ -2550,7 +2550,7 @@
                                 NIL |reAssignList| NIL)))
                         |$NoValueMode|
                         (CADDR (|last| |reAssignList|))))))))))))))
- 
+
 ; compWhere([.,form,:exprList],m,eInit) ==
 ;   $insideWhereIfTrue: local:= true
 ;   e:= eInit
@@ -2564,7 +2564,7 @@
 ;     del:= deltaContour(eAfter,eBefore) => addContour(del,eInit)
 ;     eInit
 ;   [x,m,eFinal]
- 
+
 (DEFUN |compWhere| (|bfVar#87| |m| |eInit|)
   (PROG (|$insideWhereIfTrue| |eFinal| |del| |eAfter| |x| |eBefore| |u|
          |LETTMP#1| |e| |exprList| |form|)
@@ -2609,13 +2609,13 @@
                         (|addContour| |del| |eInit|))
                        (#2# |eInit|)))
               (LIST |x| |m| |eFinal|))))))))
- 
+
 ; comp_construct1(l, m, e) ==
 ;     (y := modeIsAggregateOf("List", m, e)) =>
 ;         compList(l, ["List", CADR y], e)
 ;     (y := modeIsAggregateOf("Vector", m, e)) =>
 ;         compVector(l,["Vector",CADR y],e)
- 
+
 (DEFUN |comp_construct1| (|l| |m| |e|)
   (PROG (|y|)
     (RETURN
@@ -2624,14 +2624,14 @@
        (|compList| |l| (LIST '|List| (CADR |y|)) |e|))
       ((SETQ |y| (|modeIsAggregateOf| '|Vector| |m| |e|))
        (|compVector| |l| (LIST '|Vector| (CADR |y|)) |e|))))))
- 
+
 ; compConstruct(form is ["construct", :l], m, e) ==
 ;     (T := comp_construct1(l, m, e)) and (T' := convert(T,m)) => T'
 ;     T := compForm(form, m, e) => T
 ;     for D in getDomainsInScope e repeat
 ;         (T := comp_construct1(l, D, e)) and (T' := convert(T, m)) =>
 ;             return T'
- 
+
 (DEFUN |compConstruct| (|form| |m| |e|)
   (PROG (|l| T$ |T'|)
     (RETURN
@@ -2655,11 +2655,11 @@
                 (IDENTITY (RETURN |T'|))))))
             (SETQ |bfVar#88| (CDR |bfVar#88|))))
          (|getDomainsInScope| |e|) NIL)))))))
- 
+
 ; compQuote(expr is [QUOTE, e1], m, e) ==
 ;   SYMBOLP(e1) => [expr, ["Symbol"], e]
 ;   stackAndThrow ["Strange argument to QUOTE", expr]
- 
+
 (DEFUN |compQuote| (|expr| |m| |e|)
   (PROG (QUOTE |e1|)
     (RETURN
@@ -2669,13 +2669,13 @@
       (COND ((SYMBOLP |e1|) (LIST |expr| (LIST '|Symbol|) |e|))
             ('T
              (|stackAndThrow| (LIST '|Strange argument to QUOTE| |expr|))))))))
- 
+
 ; compList(l,m is ["List",mUnder],e) ==
 ;   null l => [NIL,m,e]
 ;   Tl:= [[.,mUnder,e]:= comp(x,mUnder,e) or return "failed" for x in l]
 ;   Tl="failed" => nil
 ;   T:= [["LIST",:[T.expr for T in Tl]],["List",mUnder],e]
- 
+
 (DEFUN |compList| (|l| |m| |e|)
   (PROG (|mUnder| |LETTMP#1| |Tl| T$)
     (RETURN
@@ -2723,13 +2723,13 @@
                                         (SETQ |bfVar#91| (CDR |bfVar#91|))))
                                      NIL |Tl| NIL))
                               (LIST '|List| |mUnder|) |e|)))))))))))
- 
+
 ; compVector(l,m is ["Vector",mUnder],e) ==
 ;   null l => [$EmptyVector,m,e]
 ;   Tl:= [[.,mUnder,e]:= comp(x,mUnder,e) or return "failed" for x in l]
 ;   Tl="failed" => nil
 ;   [["VECTOR",:[T.expr for T in Tl]],m,e]
- 
+
 (DEFUN |compVector| (|l| |m| |e|)
   (PROG (|mUnder| |LETTMP#1| |Tl|)
     (RETURN
@@ -2774,7 +2774,7 @@
                                 (SETQ |bfVar#95| (CDR |bfVar#95|))))
                              NIL |Tl| NIL))
                       |m| |e|))))))))))
- 
+
 ; compMacro(form,m,e) ==
 ;   ["MDEF",lhs,signature,specialCases,rhs]:= form
 ;   prhs :=
@@ -2791,7 +2791,7 @@
 ;       [rhs]
 ;   m=$EmptyMode or m=$NoValueMode =>
 ;     ["/throwAway", $NoValueMode, put(first lhs, "macro", nrhs, e)]
- 
+
 (DEFUN |compMacro| (|form| |m| |e|)
   (PROG (|lhs| |signature| |specialCases| |rhs| |prhs| |margs| |nrhs|)
     (RETURN
@@ -2826,31 +2826,31 @@
                ((OR (EQUAL |m| |$EmptyMode|) (EQUAL |m| |$NoValueMode|))
                 (LIST '|/throwAway| |$NoValueMode|
                       (|put| (CAR |lhs|) '|macro| |nrhs| |e|)))))))))))
- 
+
 ; compSeq(["SEQ",:l],m,e) == compSeq1(l,[m,:$exitModeStack],e)
- 
+
 (DEFUN |compSeq| (|bfVar#97| |m| |e|)
   (PROG (|l|)
     (RETURN
      (PROGN
       (SETQ |l| (CDR |bfVar#97|))
       (|compSeq1| |l| (CONS |m| |$exitModeStack|) |e|)))))
- 
+
 ; compSeq1(l,$exitModeStack,e) ==
 ;   $finalEnv: local := false
 ;            --used in replaceExitEtc.
 ;   c:=
 ;     [([.,.,e]:=
-; 
-; 
+;
+;
 ;       --this used to be compOrCroak-- but changed so we can back out
-; 
+;
 ;         (compSeqItem(x, $NoValueMode, e) or return "failed")).expr for x in l]
 ;   if c="failed" then return nil
 ;   catchTag:= MKQ GENSYM()
 ;   form:= ["SEQ",:replaceExitEtc(c,catchTag,"TAGGEDexit",$exitModeStack.(0))]
 ;   [["CATCH",catchTag,form],$exitModeStack.(0),$finalEnv]
- 
+
 (DEFUN |compSeq1| (|l| |$exitModeStack| |e|)
   (DECLARE (SPECIAL |$exitModeStack|))
   (PROG (|$finalEnv| |form| |catchTag| |c| |LETTMP#1|)
@@ -2887,12 +2887,12 @@
                      (ELT |$exitModeStack| 0))))
       (LIST (LIST 'CATCH |catchTag| |form|) (ELT |$exitModeStack| 0)
             |$finalEnv|)))))
- 
+
 ; compSeqItem(x,m,e) == comp(macroExpand(x,e),m,e)
- 
+
 (DEFUN |compSeqItem| (|x| |m| |e|)
   (PROG () (RETURN (|comp| (|macroExpand| |x| |e|) |m| |e|))))
- 
+
 ; replaceExitEtc(x,tag,opFlag,opMode) ==
 ;   (fn(x,tag,opFlag,opMode); x) where
 ;     fn(x,tag,opFlag,opMode) ==
@@ -2913,7 +2913,7 @@
 ;         rplac(first t,replaceExitEtc(first t,tag,opFlag,opMode))
 ;       replaceExitEtc(first x,tag,opFlag,opMode)
 ;       replaceExitEtc(rest x,tag,opFlag,opMode)
- 
+
 (DEFUN |replaceExitEtc| (|x| |tag| |opFlag| |opMode|)
   (PROG ()
     (RETURN (PROGN (|replaceExitEtc,fn| |x| |tag| |opFlag| |opMode|) |x|))))
@@ -2962,7 +2962,7 @@
             (PROGN
              (|replaceExitEtc| (CAR |x|) |tag| |opFlag| |opMode|)
              (|replaceExitEtc| (CDR |x|) |tag| |opFlag| |opMode|)))))))
- 
+
 ; comp_try(["try", expr, catcher, finallizer], m, e) ==
 ;     $exitModeStack : local := [m, :$exitModeStack]
 ;     if catcher then
@@ -2970,7 +2970,7 @@
 ;     ([c1, m1, .] := comp(expr, m, e)) or return nil
 ;     ([c2, ., .] := comp(finallizer, $EmptyMode, e)) or return nil
 ;     [["finally", c1, c2], m1, e]
- 
+
 (DEFUN |comp_try| (|bfVar#100| |m| |e|)
   (PROG (|$exitModeStack| |c2| |m1| |c1| |LETTMP#1| |finallizer| |catcher|
          |expr|)
@@ -2997,13 +2997,13 @@
         |LETTMP#1|)
        (RETURN NIL))
       (LIST (LIST '|finally| |c1| |c2|) |m1| |e|)))))
- 
+
 ; compSuchthat([.,x,p],m,e) ==
 ;   [x',m',e]:= comp(x,m,e) or return nil
 ;   [p',.,e]:= comp(p,$Boolean,e) or return nil
 ;   e:= put(x',"condition",p',e)
 ;   [x',m',e]
- 
+
 (DEFUN |compSuchthat| (|bfVar#101| |m| |e|)
   (PROG (|x| |p| |LETTMP#1| |x'| |m'| |p'|)
     (RETURN
@@ -3019,7 +3019,7 @@
       (SETQ |e| (CADDR |LETTMP#1|))
       (SETQ |e| (|put| |x'| '|condition| |p'| |e|))
       (LIST |x'| |m'| |e|)))))
- 
+
 ; compExit(["exit",level,x],m,e) ==
 ;   index:= level-1
 ;   $exitModeStack = [] => comp(x,m,e)
@@ -3030,7 +3030,7 @@
 ;         stackMessageIfNone ["cannot compile exit expression",x,"in mode",m1]
 ;   modifyModeStack(m',index)
 ;   [["TAGGEDexit",index,u],m,e]
- 
+
 (DEFUN |compExit| (|bfVar#102| |m| |e|)
   (PROG (|level| |x| |index| |m1| |u| |x'| |m'| |e'|)
     (RETURN
@@ -3053,13 +3053,13 @@
               (SETQ |e'| (CADDR . #2#))
               (|modifyModeStack| |m'| |index|)
               (LIST (LIST '|TAGGEDexit| |index| |u|) |m| |e|))))))))
- 
+
 ; modifyModeStack(m,index) ==
 ;   $reportExitModeStack =>
 ;     SAY("exitModeStack: ",COPY $exitModeStack," ====> ",
 ;       ($exitModeStack.index:= resolve(m,$exitModeStack.index); $exitModeStack))
 ;   $exitModeStack.index:= resolve(m,$exitModeStack.index)
- 
+
 (DEFUN |modifyModeStack| (|m| |index|)
   (PROG ()
     (RETURN
@@ -3073,13 +3073,13 @@
       ('T
        (SETF (ELT |$exitModeStack| |index|)
                (|resolve| |m| (ELT |$exitModeStack| |index|))))))))
- 
+
 ; compLeave(["leave",level,x],m,e) ==
 ;   index:= #$exitModeStack-1-$leaveLevelStack.(level-1)
 ;   [x',m',e']:= u:= comp(x,$exitModeStack.index,e) or return nil
 ;   modifyModeStack(m',index)
 ;   [["TAGGEDexit",index,u],m,e]
- 
+
 (DEFUN |compLeave| (|bfVar#103| |m| |e|)
   (PROG (|level| |x| |index| |u| |x'| |m'| |e'|)
     (RETURN
@@ -3097,7 +3097,7 @@
       (SETQ |e'| (CADDR . #2#))
       (|modifyModeStack| |m'| |index|)
       (LIST (LIST '|TAGGEDexit| |index| |u|) |m| |e|)))))
- 
+
 ; compReturn(["return", x], m, e) ==
 ;   ns := #$exitModeStack
 ;   ns = $currentFunctionLevel =>
@@ -3109,7 +3109,7 @@
 ;   $returnMode:= resolve(m',$returnMode)
 ;   modifyModeStack(m',index)
 ;   [["TAGGEDreturn",0,u],m,e']
- 
+
 (DEFUN |compReturn| (|bfVar#104| |m| |e|)
   (PROG (|x| |ns| |index| |u| |x'| |m'| |e'|)
     (RETURN
@@ -3134,13 +3134,13 @@
          (SETQ |$returnMode| (|resolve| |m'| |$returnMode|))
          (|modifyModeStack| |m'| |index|)
          (LIST (LIST '|TAGGEDreturn| 0 |u|) |m| |e'|))))))))
- 
+
 ; compSel(form is ["Sel", aDomain, anOp], m, E) ==
 ;   aDomain="Lisp" =>
 ;     [anOp',m,E] where anOp'() == (anOp=$Zero => 0; anOp=$One => 1; anOp)
 ;   anOp := (anOp = $Zero => "Zero"; anOp = $One => "One"; anOp)
 ;   compSel1(aDomain, anOp, [], m, E)
- 
+
 (DEFUN |compSel| (|form| |m| E)
   (PROG (|aDomain| |anOp|)
     (RETURN
@@ -3159,14 +3159,14 @@
                  (COND ((EQUAL |anOp| |$Zero|) '|Zero|)
                        ((EQUAL |anOp| |$One|) '|One|) (#2# |anOp|)))
          (|compSel1| |aDomain| |anOp| NIL |m| E))))))))
- 
+
 ; compHas(pred is ["has", a, b], m, e) ==
 ;   --b is (":",:.) => (.,.,E):= comp(b,$EmptyMode,E)
 ;   e := chaseInferences(pred, e)
 ;   --pred':= ("has",a',b') := formatHas(pred)
 ;   predCode := compHasFormat1(pred, e)
 ;   coerce([predCode, $Boolean, e], m)
- 
+
 (DEFUN |compHas| (|pred| |m| |e|)
   (PROG (|a| |b| |predCode|)
     (RETURN
@@ -3176,7 +3176,7 @@
       (SETQ |e| (|chaseInferences| |pred| |e|))
       (SETQ |predCode| (|compHasFormat1| |pred| |e|))
       (|coerce| (LIST |predCode| |$Boolean| |e|) |m|)))))
- 
+
 ; compHasFormat1(pred is ["has", a, b], e) ==
 ;     [a, :.] := comp(a, $EmptyMode, e) or return nil
 ;     b is ["ATTRIBUTE", c] => BREAK()
@@ -3185,7 +3185,7 @@
 ;           mkList [MKQ op, mkList [mkDomainConstructor type for type in sig]]]
 ;     isDomainForm(b, $EmptyEnvironment) => ["EQUAL", a, b]
 ;     ["HasCategory", a, mkDomainConstructor b]
- 
+
 (DEFUN |compHasFormat1| (|pred| |e|)
   (PROG (|a| |b| |LETTMP#1| |ISTMP#1| |c| |op| |ISTMP#2| |sig|)
     (RETURN
@@ -3228,7 +3228,7 @@
                        NIL |sig| NIL))))))
        ((|isDomainForm| |b| |$EmptyEnvironment|) (LIST 'EQUAL |a| |b|))
        (#2# (LIST '|HasCategory| |a| (|mkDomainConstructor| |b|))))))))
- 
+
 ; compHasFormat (pred is ["has",olda,b], e) ==
 ;   argl := rest($functorForm)
 ;   formals := TAKE(#argl,$FormalMapVariableList)
@@ -3241,7 +3241,7 @@
 ;        mkList [MKQ op,mkList [mkDomainConstructor type for type in sig]]]
 ;   isDomainForm(b,$EmptyEnvironment) => ["EQUAL",a,b]
 ;   ["HasCategory",a,mkDomainConstructor b]
- 
+
 (DEFUN |compHasFormat| (|pred| |e|)
   (PROG (|olda| |b| |argl| |formals| |a| |LETTMP#1| |ISTMP#1| |c| |op|
          |ISTMP#2| |sig|)
@@ -3289,7 +3289,7 @@
                        NIL |sig| NIL))))))
        ((|isDomainForm| |b| |$EmptyEnvironment|) (LIST 'EQUAL |a| |b|))
        (#2# (LIST '|HasCategory| |a| (|mkDomainConstructor| |b|))))))))
- 
+
 ; compIf(["IF",a,b,c],m,E) ==
 ;   [xa,ma,Ea,Einv]:= compBoolean(a,$Boolean,E) or return nil
 ;   [xb,mb,Eb]:= Tb:= compFromIf(b,m,Ea) or return nil
@@ -3303,7 +3303,7 @@
 ;       canReturn(c,0,0,true) => cEnv
 ;       E
 ;   [x,mc,returnEnv]
- 
+
 (DEFUN |compIf| (|bfVar#109| |m| E)
   (PROG (|a| |b| |c| |LETTMP#1| |xa| |ma| |Ea| |Einv| |Tb| |xb| |mb| |Eb| |Tc|
          |xc| |mc| |Ec| |xb'| |x| |returnEnv|)
@@ -3339,7 +3339,7 @@
         ((|canReturn| |c| 0 0 T) (|intersectionEnvironment| |bEnv| |cEnv|))
         (#1='T |bEnv|)))
       ((|canReturn| |c| 0 0 T) |cEnv|) (#1# E)))))
- 
+
 ; canReturn(expr,level,exitCount,ValueFlag) ==  --SPAD: exit and friends
 ;   atom expr => ValueFlag and level=exitCount
 ;   (op:= first expr)="QUOTE" => ValueFlag and level=exitCount
@@ -3383,7 +3383,7 @@
 ;   op is ["XLAM",args,bods] =>
 ;     and/[canReturn(u,level,exitCount,ValueFlag) for u in expr]
 ;   systemErrorHere '"canReturn" --for the time being
- 
+
 (DEFUN |canReturn| (|expr| |level| |exitCount| |ValueFlag|)
   (PROG (|op| |ISTMP#1| |count| |ISTMP#2| |data| |gs| |a| |b| |ISTMP#3| |c|
          |defs| |body| |args| |bods|)
@@ -3617,11 +3617,11 @@
                    (COND (|bfVar#115| (RETURN |bfVar#115|))))))
                 (SETQ |bfVar#114| (CDR |bfVar#114|))))
              NIL (CDR |expr|) NIL))))))
- 
+
 ; compBoolean(p,m,E) ==
 ;   [p',m,E]:= comp(p,m,E) or return nil
 ;   [p',m,getSuccessEnvironment(p,E),getInverseEnvironment(p,E)]
- 
+
 (DEFUN |compBoolean| (|p| |m| E)
   (PROG (|LETTMP#1| |p'|)
     (RETURN
@@ -3632,7 +3632,7 @@
       (SETQ E (CADDR . #1#))
       (LIST |p'| |m| (|getSuccessEnvironment| |p| E)
             (|getInverseEnvironment| |p| E))))))
- 
+
 ; getSuccessEnvironment(a,e) ==
 ;   -- the next four lines try to ensure that explicit special-case tests
 ;   --  prevent implicit ones from being generated
@@ -3648,7 +3648,7 @@
 ;   a is ["case",x,m] and IDENTP x =>
 ;     put(x,"condition",[a,:get(x,"condition",e)],e)
 ;   e
- 
+
 (DEFUN |getSuccessEnvironment| (|a| |e|)
   (PROG (|ISTMP#1| |x| |ISTMP#2| |m| |id| |currentProplist| T$ |newProplist|)
     (RETURN
@@ -3695,7 +3695,7 @@
             (IDENTP |x|))
        (|put| |x| '|condition| (CONS |a| (|get| |x| '|condition| |e|)) |e|))
       (#1# |e|)))))
- 
+
 ; getInverseEnvironment(a,E) ==
 ;   atom a => E
 ;   [op,:argl]:= a
@@ -3716,7 +3716,7 @@
 ;     newpred:= MKPF([["case",x,m'] for m' in l'],"OR")
 ;     put(x,"condition",[newpred,:get(x,"condition",E)],E)
 ;   E
- 
+
 (DEFUN |getInverseEnvironment| (|a| E)
   (PROG (|op| |argl| |x| |m| |ISTMP#1| |ISTMP#2| |oldpred| |l| |l'| |newpred|)
     (RETURN
@@ -3790,27 +3790,27 @@
                   (|put| |x| '|condition|
                    (CONS |newpred| (|get| |x| '|condition| E)) E)))))
               (#1# E))))))))
- 
+
 ; getUnionMode(x,e) ==
 ;   m:=
 ;     atom x => getmode(x,e)
 ;     return nil
 ;   isUnionMode(m,e)
- 
+
 (DEFUN |getUnionMode| (|x| |e|)
   (PROG (|m|)
     (RETURN
      (PROGN
       (SETQ |m| (COND ((ATOM |x|) (|getmode| |x| |e|)) ('T (RETURN NIL))))
       (|isUnionMode| |m| |e|)))))
- 
+
 ; isUnionMode(m,e) ==
 ;   m is ["Union",:.] => m
 ;   (m':= getmode(m,e)) is ["Mapping",["UnionCategory",:.]] => CADR m'
 ;   v:= get(if m="$" then "Rep" else m,"value",e) =>
 ;     (v.expr is ["Union",:.] => v.expr; nil)
 ;   nil
- 
+
 (DEFUN |isUnionMode| (|m| |e|)
   (PROG (|m'| |ISTMP#1| |ISTMP#2| |ISTMP#3| |v|)
     (RETURN
@@ -3836,21 +3836,21 @@
               (CAR |v|))
              (#1# NIL)))
            (#1# NIL)))))
- 
+
 ; compFromIf(a,m,E) ==
 ;   a="noBranch" => ["noBranch",m,E]
 ;   true => comp(a,m,E)
- 
+
 (DEFUN |compFromIf| (|a| |m| E)
   (PROG ()
     (RETURN
      (COND ((EQ |a| '|noBranch|) (LIST '|noBranch| |m| E))
            (T (|comp| |a| |m| E))))))
- 
+
 ; compImport(["import",:doms],m,e) ==
 ;   for dom in doms repeat e:=addDomain(dom,e)
 ;   ["/throwAway",$NoValueMode,e]
- 
+
 (DEFUN |compImport| (|bfVar#132| |m| |e|)
   (PROG (|doms|)
     (RETURN
@@ -3865,12 +3865,12 @@
           (SETQ |bfVar#131| (CDR |bfVar#131|))))
        |doms| NIL)
       (LIST '|/throwAway| |$NoValueMode| |e|)))))
- 
+
 ; compCase(["case",x,m'],m,e) ==
 ;   e:= addDomain(m',e)
 ;   T:= compCase1(x,m',e) => coerce(T,m)
 ;   nil
- 
+
 (DEFUN |compCase| (|bfVar#133| |m| |e|)
   (PROG (|x| |m'| T$)
     (RETURN
@@ -3880,7 +3880,7 @@
       (SETQ |e| (|addDomain| |m'| |e|))
       (COND ((SETQ T$ (|compCase1| |x| |m'| |e|)) (|coerce| T$ |m|))
             ('T NIL))))))
- 
+
 ; compCase1(x,m,e) ==
 ;   [x',m',e']:= comp(x,$EmptyMode,e) or return nil
 ;   u:=
@@ -3889,7 +3889,7 @@
 ;         t] and modeEqual(t,m) and modeEqual(s,m')] or return nil
 ;   fn:= (or/[selfn for [cond,selfn] in u | cond=true]) or return nil
 ;   [["call",fn,x'],$Boolean,e']
- 
+
 (DEFUN |compCase1| (|x| |m| |e|)
   (PROG (|LETTMP#1| |x'| |m'| |e'| |map| |ISTMP#1| |cexpr| |ISTMP#2| |s|
          |ISTMP#3| |t| |u| |cond| |selfn| |fn|)
@@ -3957,7 +3957,7 @@
                 NIL |u| NIL)
                (RETURN NIL)))
       (LIST (LIST '|call| |fn| |x'|) |$Boolean| |e'|)))))
- 
+
 ; compColon([":",f,t],m,e) ==
 ;   t:=
 ;     atom t and (t':= assoc(t,getDomainsInScope e)) => t'
@@ -3984,7 +3984,7 @@
 ;     makeCategoryForm(t,e) is [catform,e] then
 ;         e:= put(f,"value",[genSomeVariable(),t,$noEnv],e)
 ;   ["/throwAway",getmode(f,e),e]
- 
+
 (DEFUN |compColon| (|bfVar#144| |m| |e|)
   (PROG (|f| |t| |t'| |ISTMP#1| |m'| |r| |l| |LETTMP#1| T$ |op| |argl| |a|
          |ISTMP#2| |newTarget| |signature| |catform|)
@@ -4155,13 +4155,13 @@
                    (|put| |f| '|value| (LIST (|genSomeVariable|) |t| |$noEnv|)
                     |e|))))
          (LIST '|/throwAway| (|getmode| |f| |e|) |e|))))))))
- 
+
 ; unknownTypeError name ==
 ;   name:=
 ;     name is [op,:.] => op
 ;     name
 ;   stackSemanticError(["%b",name,"%d","is not a known type"],nil)
- 
+
 (DEFUN |unknownTypeError| (|name|)
   (PROG (|op|)
     (RETURN
@@ -4173,7 +4173,7 @@
                (#1# |name|)))
       (|stackSemanticError| (LIST '|%b| |name| '|%d| '|is not a known type|)
        NIL)))))
- 
+
 ; compPretend(["pretend",x,t],m,e) ==
 ;   e:= addDomain(t,e)
 ;   T:= comp(x,t,e) or comp(x,$EmptyMode,e) or return nil
@@ -4182,7 +4182,7 @@
 ;      stackWarning(["cannot pretend ",x," of mode ",T.mode," to mode ",m])
 ;   T:= [T.expr,t,T.env]
 ;   T':= coerce(T,m) => (if warningMessage then stackWarning warningMessage; T')
- 
+
 (DEFUN |compPretend| (|bfVar#145| |m| |e|)
   (PROG (|x| |t| T$ |warningMessage| |T'|)
     (RETURN
@@ -4208,13 +4208,13 @@
         (PROGN
          (COND (|warningMessage| (|stackWarning| |warningMessage|)))
          |T'|)))))))
- 
+
 ; compIs(["is",a,b],m,e) ==
 ;   [aval,am,e] := comp(a,$EmptyMode,e) or return nil
 ;   [bval,bm,e] := comp(b,$EmptyMode,e) or return nil
 ;   T:= [["domainEqual",aval,bval],$Boolean,e]
 ;   coerce(T,m)
- 
+
 (DEFUN |compIs| (|bfVar#146| |m| |e|)
   (PROG (|a| |b| |LETTMP#1| |aval| |am| |bval| |bm| T$)
     (RETURN
@@ -4231,7 +4231,7 @@
       (SETQ |e| (CADDR . #3#))
       (SETQ T$ (LIST (LIST '|domainEqual| |aval| |bval|) |$Boolean| |e|))
       (|coerce| T$ |m|)))))
- 
+
 ; coerce(T,m) ==
 ;   $InteractiveMode =>
 ;     keyedSystemError("S2GE0016",['"coerce",
@@ -4248,7 +4248,7 @@
 ;     fn(x,m1,m2) ==
 ;       ["Cannot coerce","%b",x,"%d","%l","      of mode","%b",m1,"%d","%l",
 ;         "      to mode","%b",m2,"%d"]
- 
+
 (DEFUN |coerce| (T$ |m|)
   (PROG (|T'|)
     (RETURN
@@ -4272,7 +4272,7 @@
     (RETURN
      (LIST '|Cannot coerce| '|%b| |x| '|%d| '|%l| '|      of mode| '|%b| |m1|
            '|%d| '|%l| '|      to mode| '|%b| |m2| '|%d|))))
- 
+
 ; coerceEasy(T,m) ==
 ;   m=$EmptyMode => T
 ;   m=$NoValueMode or m=$Void => [T.expr,m,T.env]
@@ -4282,7 +4282,7 @@
 ;         m,T.env]
 ;   T.mode=$EmptyMode or modeEqualSubst(T.mode,m,T.env) =>
 ;     [T.expr,m,T.env]
- 
+
 (DEFUN |coerceEasy| (T$ |m|)
   (PROG ()
     (RETURN
@@ -4297,7 +4297,7 @@
            ((OR (EQUAL (CADR T$) |$EmptyMode|)
                 (|modeEqualSubst| (CADR T$) |m| (CADDR T$)))
             (LIST (CAR T$) |m| (CADDR T$)))))))
- 
+
 ; coerceSubset([x,m,e],m') ==
 ;   isSubset(m,m',e) or m="Rep" and m'="$" => [x,m',e]
 ;   m is ['SubDomain,=m',:.] => [x,m',e]
@@ -4305,7 +4305,7 @@
 ;     and eval substitute(x,"*",pred) =>
 ;       [x,m',e]
 ;   nil
- 
+
 (DEFUN |coerceSubset| (|bfVar#147| |m'|)
   (PROG (|x| |m| |e| |ISTMP#1| |pred|)
     (RETURN
@@ -4326,11 +4326,11 @@
              (|eval| (|substitute| |x| '* |pred|)))
         (LIST |x| |m'| |e|))
        ('T NIL))))))
- 
+
 ; check_prop(pl, m) ==
 ;     (QLASSQ("value", pl) is [m'', :.] or
 ;       QLASSQ("mode", pl) is ["Mapping", m'']) and modeEqual(m'', m)
- 
+
 (DEFUN |check_prop| (|pl| |m|)
   (PROG (|ISTMP#1| |m''| |ISTMP#2|)
     (RETURN
@@ -4347,7 +4347,7 @@
               (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                    (PROGN (SETQ |m''| (CAR |ISTMP#2|)) #1#))))))
       (|modeEqual| |m''| |m|)))))
- 
+
 ; coerceHard(T,m) ==
 ;   e := T.env
 ;   m':= T.mode
@@ -4365,7 +4365,7 @@
 ;       extendsCategoryForm(T.expr, T.mode, m, e) => [T.expr, m, e]
 ;       coerceExtraHard(T, m, pl, pl')
 ;   coerceExtraHard(T, m, pl, pl')
- 
+
 (DEFUN |coerceHard| (T$ |m|)
   (PROG (|e| |m'| |pl'| |pl|)
     (RETURN
@@ -4395,17 +4395,17 @@
                           (LIST (CAR T$) |m| |e|))
                          (#1# (|coerceExtraHard| T$ |m| |pl| |pl'|))))
                        (#1# (|coerceExtraHard| T$ |m| |pl| |pl'|)))))))))))))
- 
+
 ; getmode_pl(x, pl) ==
 ;   u := QLASSQ("value", pl) => u.mode
 ;   QLASSQ("mode", pl)
- 
+
 (DEFUN |getmode_pl| (|x| |pl|)
   (PROG (|u|)
     (RETURN
      (COND ((SETQ |u| (QLASSQ '|value| |pl|)) (CADR |u|))
            ('T (QLASSQ '|mode| |pl|))))))
- 
+
 ; isUnionMode2(m, e, pl) ==
 ;   m is ["Union",:.] => m
 ;   (m' := getmode_pl(m, pl)) is ["Mapping", ["UnionCategory", :.]] => CADR m'
@@ -4415,7 +4415,7 @@
 ;       QLASSQ("value", pl)
 ;   v => (v.expr is ["Union",:.] => v.expr; nil)
 ;   nil
- 
+
 (DEFUN |isUnionMode2| (|m| |e| |pl|)
   (PROG (|m'| |ISTMP#1| |ISTMP#2| |ISTMP#3| |v|)
     (RETURN
@@ -4445,7 +4445,7 @@
                  (CAR |v|))
                 (#1# NIL)))
               (#1# NIL))))))))
- 
+
 ; coerceExtraHard(T is [x, m', e], m, pl, pl') ==
 ;   T':= autoCoerceByModemap(T,m) => T'
 ;   isUnionMode2(m', e, pl') is ["Union",:l] and (t:= hasType(x,e)) and
@@ -4454,7 +4454,7 @@
 ;   m' is ['Record, :.] and m = $OutputForm =>
 ;       [['coerceRe2E,x,['ELT,COPY m',0]],m,e]
 ;   nil
- 
+
 (DEFUN |coerceExtraHard| (T$ |m| |pl| |pl'|)
   (PROG (|x| |m'| |e| |T'| |ISTMP#1| |l| |t| |T''|)
     (RETURN
@@ -4476,14 +4476,14 @@
                   (EQUAL |m| |$OutputForm|))
              (LIST (LIST '|coerceRe2E| |x| (LIST 'ELT (COPY |m'|) 0)) |m| |e|))
             (#2# NIL))))))
- 
+
 ; coerceable(m,m',e) ==
 ;   m=m' => m
 ;   -- must find any free parameters in m
 ;   sl:= pmatch(m',m) => SUBLIS(sl,m')
 ;   coerce(["$fromCoerceable$",m,e],m') => m'
 ;   nil
- 
+
 (DEFUN |coerceable| (|m| |m'| |e|)
   (PROG (|sl|)
     (RETURN
@@ -4491,12 +4491,12 @@
            ((SETQ |sl| (|pmatch| |m'| |m|)) (SUBLIS |sl| |m'|))
            ((|coerce| (LIST '|$fromCoerceable$| |m| |e|) |m'|) |m'|)
            ('T NIL)))))
- 
+
 ; coerceExit([x,m,e],m') ==
 ;   m':= resolve(m,m')
 ;   x':= replaceExitEtc(x,catchTag:= MKQ GENSYM(),"TAGGEDexit",$exitMode)
 ;   coerce([["CATCH",catchTag,x'],m,e],m')
- 
+
 (DEFUN |coerceExit| (|bfVar#148| |m'|)
   (PROG (|x| |m| |e| |catchTag| |x'|)
     (RETURN
@@ -4509,12 +4509,12 @@
               (|replaceExitEtc| |x| (SETQ |catchTag| (MKQ (GENSYM)))
                '|TAGGEDexit| |$exitMode|))
       (|coerce| (LIST (LIST 'CATCH |catchTag| |x'|) |m| |e|) |m'|)))))
- 
+
 ; compAtSign(["@",x,m'],m,e) ==
 ;   e:= addDomain(m',e)
 ;   T:= comp(x,m',e) or return nil
 ;   coerce(T,m)
- 
+
 (DEFUN |compAtSign| (|bfVar#149| |m| |e|)
   (PROG (|x| |m'| T$)
     (RETURN
@@ -4524,11 +4524,11 @@
       (SETQ |e| (|addDomain| |m'| |e|))
       (SETQ T$ (OR (|comp| |x| |m'| |e|) (RETURN NIL)))
       (|coerce| T$ |m|)))))
- 
+
 ; compCoerce(["::",x,m'],m,e) ==
 ;   e:= addDomain(m',e)
 ;   T:= compCoerce1(x,m',e) => coerce(T,m)
- 
+
 (DEFUN |compCoerce| (|bfVar#150| |m| |e|)
   (PROG (|x| |m'| T$)
     (RETURN
@@ -4537,7 +4537,7 @@
       (SETQ |m'| (CADDR . #1#))
       (SETQ |e| (|addDomain| |m'| |e|))
       (COND ((SETQ T$ (|compCoerce1| |x| |m'| |e|)) (|coerce| T$ |m|)))))))
- 
+
 ; compCoerce1(x,m',e) ==
 ;   T:= comp(x,m',e) or comp(x,$EmptyMode,e) or return nil
 ;   m1:=
@@ -4554,7 +4554,7 @@
 ;     code := ['PROG1, ['LET, gg, T.expr],
 ;                      ['check_subtype2, pred, MKQ m', MKQ T.mode, gg]]
 ;     [code,m',T.env]
- 
+
 (DEFUN |compCoerce1| (|x| |m'| |e|)
   (PROG (T$ |m1| T1 |T'| |pred| |gg| |code|)
     (RETURN
@@ -4579,7 +4579,7 @@
                                     (LIST '|check_subtype2| |pred| (MKQ |m'|)
                                           (MKQ (CADR T$)) |gg|)))
                       (LIST |code| |m'| (CADDR T$))))))))))))
- 
+
 ; constant_coerce([x, m, e], m') ==
 ;     m' = $SingleInteger =>
 ;         if x = ["Zero"] then x = 0
@@ -4595,7 +4595,7 @@
 ;             try_constant_DF(mant, exp, m, e)
 ;         nil
 ;     nil
- 
+
 (DEFUN |constant_coerce| (|bfVar#151| |m'|)
   (PROG (|x| |m| |e| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |ISTMP#5| |mant|
          |ISTMP#6| |exp| |ISTMP#7|)
@@ -4647,7 +4647,7 @@
           (|try_constant_DF| |mant| |exp| |m| |e|))
          (#2# NIL)))
        (#2# NIL))))))
- 
+
 ; coerceByModemap([x,m,e],m') ==
 ; --+ modified 6/27 for new runtime system
 ;   u:=
@@ -4655,13 +4655,13 @@
 ;       for (modemap:= [map,cexpr]) in getModemapList("coerce",1,e) | map is [.,t,
 ;         s] and (modeEqual(t,m') or isSubset(t,m',e))
 ;            and (modeEqual(s,m) or isSubset(m,s,e))] or return nil
-; 
+;
 ;   --mm:= (or/[mm for (mm:=[.,[cond,.]]) in u | cond=true]) or return nil
 ;   mm:=first u  -- patch for non-trival conditions
 ;   fn :=
 ;       genDeltaEntry(['coerce, :mm], e)
 ;   [["call",fn,x],m',e]
- 
+
 (DEFUN |coerceByModemap| (|bfVar#154| |m'|)
   (PROG (|x| |m| |e| |map| |ISTMP#1| |cexpr| |t| |ISTMP#2| |s| |u| |mm| |fn|)
     (RETURN
@@ -4705,7 +4705,7 @@
       (SETQ |mm| (CAR |u|))
       (SETQ |fn| (|genDeltaEntry| (CONS '|coerce| |mm|) |e|))
       (LIST (LIST '|call| |fn| |x|) |m'| |e|)))))
- 
+
 ; autoCoerceByModemap([x,source,e],target) ==
 ;   u:=
 ;     [cexpr
@@ -4719,7 +4719,7 @@
 ;     stackMessage ["cannot coerce: ",x,"%l","      of mode: ",source,"%l",
 ;       "      to: ",target," without a case statement"]
 ;   [["call",fn,x],target,e]
- 
+
 (DEFUN |autoCoerceByModemap| (|bfVar#162| |target|)
   (PROG (|x| |source| |e| |map| |ISTMP#1| |cexpr| |t| |ISTMP#2| |s| |u| |cond|
          |selfn| |fn| |l| |y|)
@@ -4816,13 +4816,13 @@
            (LIST '|cannot coerce: | |x| '|%l| '|      of mode: | |source| '|%l|
                  '|      to: | |target| '| without a case statement|)))))
        (#2# (LIST (LIST '|call| |fn| |x|) |target| |e|)))))))
- 
+
 ; resolve(din,dout) ==
 ;   din=$NoValueMode or dout=$NoValueMode => $NoValueMode
 ;   dout=$EmptyMode => din
 ;   din ~= dout and STRINGP dout and modeEqual(din, $String) => nil
 ;   dout
- 
+
 (DEFUN |resolve| (|din| |dout|)
   (PROG ()
     (RETURN
@@ -4834,7 +4834,7 @@
             (|modeEqual| |din| |$String|))
        NIL)
       ('T |dout|)))))
- 
+
 ; modeEqual(x,y) ==
 ;   EQ(x, y) => true
 ;   -- FIXME: we should eliminate confusion due to 0 and 1 instead
@@ -4851,7 +4851,7 @@
 ;       false
 ;   #x ~=#y => nil
 ;   (and/[modeEqual(u,v) for u in x for v in y])
- 
+
 (DEFUN |modeEqual| (|x| |y|)
   (PROG ()
     (RETURN
@@ -4879,7 +4879,7 @@
                 (SETQ |bfVar#163| (CDR |bfVar#163|))
                 (SETQ |bfVar#164| (CDR |bfVar#164|))))
              T |x| NIL |y| NIL))))))
- 
+
 ; modeEqualSubst(m1,m,e) ==
 ;   atom m1 and EQ(m1, m) => true
 ;   if atom m1 then
@@ -4899,7 +4899,7 @@
 ; -- in the DEFAULTS package
 ;         and/[modeEqualSubst(xm1,xm2,e) for xm1 in l1 for xm2 in l2]
 ;   nil
- 
+
 (DEFUN |modeEqualSubst| (|m1| |m| |e|)
   (PROG (|ISTMP#1| |m0| |m2| |op| |l1| |l2|)
     (RETURN
@@ -4953,19 +4953,19 @@
                         (SETQ |bfVar#167| (CDR |bfVar#167|))))
                      T |l1| NIL |l2| NIL))
                    (#1# NIL))))))))
- 
+
 ; compileSpad2Cmd args ==
 ;     -- This is the old compiler
 ;     -- Assume we entered from the "compiler" function, so args ~= nil
 ;     -- and is a file with file extension .spad.
-; 
+;
 ;     path := pathname args
 ;     pathnameType path ~= '"spad" => throwKeyedMsg("S2IZ0082", nil)
 ;     not PROBE_-FILE path => throwKeyedMsg("S2IL0003",[namestring args])
-; 
+;
 ;     $edit_file := path
 ;     sayKeyedMsg("S2IZ0038",[namestring args])
-; 
+;
 ;     optList :=  '( _
 ;       break _
 ;       constructor _
@@ -4980,31 +4980,31 @@
 ;       vartrace _
 ;       quiet _
 ;         )
-; 
+;
 ;     -- next three are for the OLD NEW compiler
 ;     -- should be unhooked
-; 
+;
 ;     $scanIfTrue              : local := nil
 ;     $f                       : local := nil  -- compiler
 ;     $m                       : local := nil  --   variables
-; 
+;
 ;     -- following are for )quick option for code generation
 ;     $QuickLet   : local := true
 ;     $QuickCode  : local := true
-; 
+;
 ;     fun         := ['rq, 'lib]
 ;     constructor := nil
-; 
+;
 ;     for opt in $options repeat
 ;         [optname,:optargs] := opt
 ;         fullopt := selectOptionLC(optname,optList,nil)
-; 
+;
 ;         fullopt = 'new         => error "Internal error: compileSpad2Cmd got )new"
 ;         fullopt = 'old         => NIL     -- no opt
-; 
+;
 ;         fullopt = 'library     => fun.1 := 'lib
 ;         fullopt = 'nolibrary   => fun.1 := 'nolib
-; 
+;
 ;         -- Ignore quiet/nonquiet if "constructor" is given.
 ;         fullopt = 'quiet       => if fun.0 ~= 'c then fun.0 := 'rq
 ;         fullopt = 'noquiet     => if fun.0 ~= 'c then fun.0 := 'rf
@@ -5024,13 +5024,13 @@
 ;             fun.0       := 'c
 ;             constructor := [unabbrev o for o in optargs]
 ;         throwKeyedMsg("S2IZ0036",[STRCONC('")",object2String optname)])
-; 
+;
 ;     $InteractiveMode : local := nil
 ;     compilerDoit(constructor, fun)
 ;     extendLocalLibdb $newConlist
 ;     terminateSystemCommand()
 ;     spadPrompt()
- 
+
 (DEFUN |compileSpad2Cmd| (|args|)
   (PROG (|$InteractiveMode| |$QuickCode| |$QuickLet| |$m| |$f| |$scanIfTrue|
          |fullopt| |optargs| |optname| |constructor| |fun| |optList| |path|)
@@ -5124,7 +5124,7 @@
          (|extendLocalLibdb| |$newConlist|)
          (|terminateSystemCommand|)
          (|spadPrompt|))))))))
- 
+
 ; compilerDoit(constructor, fun) ==
 ;     $byConstructors : local := []
 ;     $constructorsSeen : local := []
@@ -5138,7 +5138,7 @@
 ;       for ii in $byConstructors repeat
 ;         null member(ii,$constructorsSeen) =>
 ;           sayBrightly ['">>> Warning ",'%b,ii,'%d,'" was not found"]
- 
+
 (DEFUN |compilerDoit| (|constructor| |fun|)
   (PROG (|$constructorsSeen| |$byConstructors|)
     (DECLARE (SPECIAL |$constructorsSeen| |$byConstructors|))

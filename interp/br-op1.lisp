@@ -1,18 +1,18 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; dbFromConstructor?(htPage) == htpProperty(htPage,'conform)
- 
+
 (DEFUN |dbFromConstructor?| (|htPage|)
   (PROG () (RETURN (|htpProperty| |htPage| '|conform|))))
- 
+
 ; dbDoesOneOpHaveParameters? opAlist ==
 ;   or/[(or/[fn for x in items]) for [op,:items] in opAlist] where fn ==
 ;     STRINGP x => dbPart(x,2,1) ~= '"0"
 ;     IFCAR x
- 
+
 (DEFUN |dbDoesOneOpHaveParameters?| (|opAlist|)
   (PROG (|op| |items|)
     (RETURN
@@ -48,7 +48,7 @@
                  (COND (|bfVar#5| (RETURN |bfVar#5|)))))))
          (SETQ |bfVar#4| (CDR |bfVar#4|))))
       NIL |opAlist| NIL))))
- 
+
 ; dbShowOps(htPage, which, key) ==
 ;   --NEXT LINE SHOULD BE REMOVED if we are sure that which is a string
 ;   which := STRINGIMAGE which
@@ -78,7 +78,7 @@
 ;        nil
 ;     key := htpProperty(htPage,'exclusion)
 ;   dbShowOp1(htPage,opAlist,which,key)
- 
+
 (DEFUN |dbShowOps| (|htPage| |which| |key|)
   (PROG (|opAlist| |arg| |filter|)
     (RETURN
@@ -147,7 +147,7 @@
                            (COND ((EQ |key| '|exposureOn|) 'T) (#1# NIL)))
                    (SETQ |key| (|htpProperty| |htPage| '|exclusion|))))
                  (|dbShowOp1| |htPage| |opAlist| |which| |key|)))))))))))
- 
+
 ; reduceByGroup(htPage,opAlist) ==
 ;   not dbFromConstructor?(htPage) or null $groupChoice => opAlist
 ;   dbExpandOpAlistIfNecessary(htPage,opAlist,'"operation",true,false)
@@ -157,7 +157,7 @@
 ;       null bitNumber => items
 ;       [x for x in items | FIXP (code := LASTATOM x) and LOGBITP(bitNumber,code)]
 ;   res
- 
+
 (DEFUN |reduceByGroup| (|htPage| |opAlist|)
   (PROG (|bitNumber| |op| |items| |code| |res|)
     (RETURN
@@ -204,7 +204,7 @@
                     (SETQ |bfVar#9| (CDR |bfVar#9|))))
                  NIL |opAlist| NIL))
         |res|))))))
- 
+
 ; dbShowOp1(htPage,opAlist,which,key) ==
 ;   --set up for filtering below in dbGatherData
 ;   which ~= '"operation" => BREAK()
@@ -271,7 +271,7 @@
 ;   htSayStandard("\endscroll ")
 ;   dbPresentOps(page,which,branch)
 ;   htShowPageNoScroll()
- 
+
 (DEFUN |dbShowOp1| (|htPage| |opAlist| |which| |key|)
   (PROG (|$conformsAreDomains| |u| |page| |firstPart| |prefix| |exposurePart|
          |namedPart| |ops| |dataCount| |data| |fn| |whats| |what| |LETTMP#1|
@@ -449,12 +449,12 @@
                 (|htSayStandard| '|\\endscroll |)
                 (|dbPresentOps| |page| |which| |branch|)
                 (|htShowPageNoScroll|))))))))))
- 
+
 ; opAlistCount(opAlist, which) == +/[foo for [op,:items] in opAlist] where foo ==
 ;   which = '"attribute" => BREAK()
 ;   null $exposedOnlyIfTrue => #items
 ;   +/[1 for w in items | null (p := CDDR w) or p . 1]
- 
+
 (DEFUN |opAlistCount| (|opAlist| |which|)
   (PROG (|op| |items| |p|)
     (RETURN
@@ -492,7 +492,7 @@
                                    0 |items| NIL))))))))
          (SETQ |bfVar#20| (CDR |bfVar#20|))))
       0 |opAlist| NIL))))
- 
+
 ; dbShowOpHeading(heading, branch) ==
 ;   suffix :=
 ; --  branch = 'signatures => '" viewed as signatures"
@@ -501,7 +501,7 @@
 ;     branch = 'conditions => '" organized by conditions"
 ;     '""
 ;   [:heading, suffix]
- 
+
 (DEFUN |dbShowOpHeading| (|heading| |branch|)
   (PROG (|suffix|)
     (RETURN
@@ -512,16 +512,16 @@
                     ((EQ |branch| '|conditions|) " organized by conditions")
                     ('T "")))
       (APPEND |heading| (CONS |suffix| NIL))))))
- 
+
 ; dbOpsExposureMessage() ==
 ;   $atLeastOneUnexposed => htSay '"{\em *} = unexposed"
- 
+
 (DEFUN |dbOpsExposureMessage| ()
   (PROG ()
     (RETURN
      (COND
       (|$atLeastOneUnexposed| (IDENTITY (|htSay| "{\\em *} = unexposed")))))))
- 
+
 ; fromHeading htPage ==
 ;   null htPage => '""
 ;   $pn := [htPage.0,'"}{"]
@@ -540,7 +540,7 @@
 ; --      ['" {\em from} ",:pickitForm(domname,dn)]
 ;   IFCDR domname => ['" {\em from} ", :dbConformGen domname]
 ;   htpProperty(htPage,'fromHeading)
- 
+
 (DEFUN |fromHeading| (|htPage|)
   (PROG (|updomain| |dnForm| |dnString| |dnFence| |upFence| |upOp| |domname|
          |numberOfUnderlyingDomains|)
@@ -587,7 +587,7 @@
                  ((IFCDR |domname|)
                   (CONS " {\\em from} " (|dbConformGen| |domname|)))
                  (#1# (|htpProperty| |htPage| '|fromHeading|))))))))))))
- 
+
 ; conform2StringList(form, opFn, argFn) ==
 ;   [op1,:args] := form
 ;   op := IFCAR HGET($lowerCaseConTb,op1) or op1
@@ -622,7 +622,7 @@
 ;     special => [op]
 ;     APPLY(opFn,[form])
 ;   [:head,'"(",:first sargl,:"append"/[[",",:y] for y in rest sargl],'")"]
- 
+
 (DEFUN |conform2StringList| (|form| |opFn| |argFn|)
   (PROG (|op1| |args| |op| |special| |cosig| |atypes| |ISTMP#1| |y| |ISTMP#2|
          |t| |keyword| |u| |typ| |a| |res| |sargl| |head|)
@@ -781,7 +781,7 @@
                                                          (CDR |bfVar#32|))))
                                               NIL (CDR |sargl|) NIL)
                                              (CONS ")" NIL)))))))))))))))
- 
+
 ; dbMapping2StringList [target,:sl] ==
 ;   null sl => target
 ;   restPart :=
@@ -791,7 +791,7 @@
 ;     restPart => ['"(",:first sl,:restPart,'")"]
 ;     first sl
 ;   [:sourcePart,'" -> ",:target]
- 
+
 (DEFUN |dbMapping2StringList| (|bfVar#36|)
   (PROG (|target| |sl| |restPart| |sourcePart|)
     (RETURN
@@ -824,7 +824,7 @@
                                       (APPEND |restPart| (CONS ")" NIL)))))
                        (#1# (CAR |sl|))))
               (APPEND |sourcePart| (CONS " -> " |target|)))))))))
- 
+
 ; dbOuttran form ==
 ;   if LISTP form then
 ;     [op,:args] := form
@@ -843,7 +843,7 @@
 ;     NUMBERP res or STRINGP res => res
 ;     ['QUOTE,res]
 ;   [op,:argl]
- 
+
 (DEFUN |dbOuttran| (|form|)
   (PROG (|op| |args| |cosig| |atypes| |typ| |ISTMP#1| |a| |arg| |res| |argl|)
     (RETURN
@@ -905,16 +905,16 @@
                   (SETQ |bfVar#39| (CDR |bfVar#39|))))
                NIL |args| NIL |atypes| NIL |cosig| NIL))
       (CONS |op| |argl|)))))
- 
+
 ; dbConformGen form == dbConformGen1(form,true)
- 
+
 (DEFUN |dbConformGen| (|form|) (PROG () (RETURN (|dbConformGen1| |form| T))))
- 
+
 ; dbConformGenUnder form == dbConformGen1(form,false)
- 
+
 (DEFUN |dbConformGenUnder| (|form|)
   (PROG () (RETURN (|dbConformGen1| |form| NIL))))
- 
+
 ; dbConformGen1(form,opButton?) ==
 ;   opFunction :=
 ;     opButton? => FUNCTION dbConform
@@ -927,7 +927,7 @@
 ;     [op, :args]
 ;   args => conform2StringList(form, opFunction, FUNCTION dbConformGen)
 ;   APPLY(opFunction,[form])
- 
+
 (DEFUN |dbConformGen1| (|form| |opButton?|)
   (PROG (|opFunction| |originalOp| |op| |args|)
     (RETURN
@@ -944,17 +944,17 @@
       (COND
        (|args| (|conform2StringList| |form| |opFunction| #'|dbConformGen|))
        (#1# (APPLY |opFunction| (LIST |form|))))))))
- 
+
 ; unAbbreviateIfNecessary op == IFCAR HGET($lowerCaseConTb, op) or op
- 
+
 (DEFUN |unAbbreviateIfNecessary| (|op|)
   (PROG () (RETURN (OR (IFCAR (HGET |$lowerCaseConTb| |op|)) |op|))))
- 
+
 ; conname2StringList form == [PNAME unAbbreviateIfNecessary opOf form]
- 
+
 (DEFUN |conname2StringList| (|form|)
   (PROG () (RETURN (LIST (PNAME (|unAbbreviateIfNecessary| (|opOf| |form|)))))))
- 
+
 ; dbGatherData(htPage,opAlist,which,key) ==
 ;   which ~= '"operation" => BREAK()
 ;   key = 'implementation => dbGatherDataImplementation(htPage,opAlist)
@@ -1026,7 +1026,7 @@
 ;       RPLACD(rest entry, tail)
 ;   data := listSort(function LEXLESSEQP,data)
 ;   data
- 
+
 (DEFUN |dbGatherData| (|htPage| |opAlist| |which| |key|)
   (PROG (|dataFunction| |acc| |initialExposure| |op| |alist| |exposureFlag|
          |item| |r| |isExposed?| |node| |data| |entry| |exposeFlag| |ISTMP#1|
@@ -1203,7 +1203,7 @@
                    |data| NIL)))
                 (SETQ |data| (|listSort| #'LEXLESSEQP |data|))
                 |data|)))))))))
- 
+
 ; dbGatherDataImplementation(htPage,opAlist) ==
 ; --returns data, of form ((implementor exposed? entry entry...)...
 ; --  where entry has form ((op sig . implementor) . stuff)
@@ -1217,7 +1217,7 @@
 ;   u := getDomainOpTable2(dom, true, ASSOCLEFT opAlist)
 ;   --u has form ((op,sig,:implementor)...)
 ;   --sort into 4 groups: domain exports, unexports, default exports, others
-; 
+;
 ;   for (x := [.,.,:key]) in u for i in 0.. repeat
 ;     key = domainForm => domexports := [x,:domexports]
 ;     INTEGERP key => unexports := [x,:unexports]
@@ -1240,7 +1240,7 @@
 ;     gn key ==
 ;       atom key => true
 ;       isExposedConstructor first key
- 
+
 (DEFUN |dbGatherDataImplementation| (|htPage| |opAlist|)
   (PROG (|$predicateList| |others| |constants| |nowheres| |defexports|
          |unexports| |domexports| |key| |ISTMP#1| |u| |predVector| |nam|
@@ -1333,7 +1333,7 @@
 (DEFUN |dbGatherDataImplementation,gn| (|key|)
   (PROG ()
     (RETURN (COND ((ATOM |key|) T) ('T (|isExposedConstructor| (CAR |key|)))))))
- 
+
 ; dbSelectData(htPage,opAlist,key) ==
 ;   branch := htpProperty(htPage,'branch)
 ;   data   := htpProperty(htPage,'data)
@@ -1345,7 +1345,7 @@
 ;     innerData := CDDR data.(newkey - 1)
 ;     dbReduceOpAlist(opAlist,innerData.binkey,'signatures)
 ;   [opAlist . key]
- 
+
 (DEFUN |dbSelectData| (|htPage| |opAlist| |key|)
   (PROG (|branch| |data| |LETTMP#1| |newkey| |binkey| |innerData|)
     (RETURN
@@ -1368,7 +1368,7 @@
            (|dbReduceOpAlist| |opAlist| (ELT |innerData| |binkey|)
             '|signatures|)))))
        (#1# (LIST (ELT |opAlist| |key|))))))))
- 
+
 ; dbReduceOpAlist(opAlist,data,branch) ==
 ;   branch = 'signatures => dbReduceBySignature(opAlist,CAAR data,CADAR data)
 ;   branch = 'origins => dbReduceBySelection(opAlist, first data, function CADDR)
@@ -1377,7 +1377,7 @@
 ;   branch = 'implementation => dbReduceByOpSignature(opAlist,CDDR data)
 ;   branch = 'parameters => dbReduceByForm(opAlist, first data)
 ;   systemError ['"Unexpected branch: ",branch]
- 
+
 (DEFUN |dbReduceOpAlist| (|opAlist| |data| |branch|)
   (PROG ()
     (RETURN
@@ -1392,7 +1392,7 @@
        (|dbReduceByOpSignature| |opAlist| (CDDR |data|)))
       ((EQ |branch| '|parameters|) (|dbReduceByForm| |opAlist| (CAR |data|)))
       ('T (|systemError| (LIST "Unexpected branch: " |branch|)))))))
- 
+
 ; dbReduceByOpSignature(opAlist,datalist) ==
 ; --reduces opAlist by implementation datalist, one of the form
 ; --    (((op,sig,:implementor),:stuff),...)
@@ -1403,7 +1403,7 @@
 ;       or/[x for x in datalist | x is [[=op,=sig,:.],:.]]
 ;     entryList => acc := [[op,:NREVERSE entryList],:acc]
 ;   NREVERSE acc
- 
+
 (DEFUN |dbReduceByOpSignature| (|opAlist| |datalist|)
   (PROG (|ops| |acc| |op| |alist| |sig| |ISTMP#1| |ISTMP#2| |entryList|)
     (RETURN
@@ -1486,11 +1486,11 @@
           (SETQ |bfVar#53| (CDR |bfVar#53|))))
        |opAlist| NIL)
       (NREVERSE |acc|)))))
- 
+
 ; dbReduceBySignature(opAlist,op,sig) ==
 ; --reduces opAlist to one with a fixed op and sig
 ;   [[op,:[x for x in LASSOC(op,opAlist) | x is [=sig,:.]]]]
- 
+
 (DEFUN |dbReduceBySignature| (|opAlist| |op| |sig|)
   (PROG ()
     (RETURN
@@ -1507,14 +1507,14 @@
                        (SETQ |bfVar#59| (CONS |x| |bfVar#59|)))))
                 (SETQ |bfVar#58| (CDR |bfVar#58|))))
              NIL (LASSOC |op| |opAlist|) NIL))))))
- 
+
 ; dbReduceByForm(opAlist,form) ==
 ;   acc := nil
 ;   for [op,:alist] in opAlist repeat
 ;     items := [x for x in alist | dbContrivedForm(op,x) = form] =>
 ;       acc := [[op,:items],:acc]
 ;   NREVERSE acc
- 
+
 (DEFUN |dbReduceByForm| (|opAlist| |form|)
   (PROG (|acc| |op| |alist| |items|)
     (RETURN
@@ -1551,14 +1551,14 @@
           (SETQ |bfVar#61| (CDR |bfVar#61|))))
        |opAlist| NIL)
       (NREVERSE |acc|)))))
- 
+
 ; dbReduceBySelection(opAlist,key,fn) ==
 ;   acc := nil
 ;   for [op,:alist] in opAlist repeat
 ;     items := [x for x in alist | FUNCALL(fn,x) = key] =>
 ;       acc := [[op,:items],:acc]
 ;   NREVERSE acc
- 
+
 (DEFUN |dbReduceBySelection| (|opAlist| |key| |fn|)
   (PROG (|acc| |op| |alist| |items|)
     (RETURN
@@ -1595,32 +1595,32 @@
           (SETQ |bfVar#65| (CDR |bfVar#65|))))
        |opAlist| NIL)
       (NREVERSE |acc|)))))
- 
+
 ; dbContrivedForm(op,[sig,:.]) ==
 ;   dbMakeContrivedForm(op,sig)
- 
+
 (DEFUN |dbContrivedForm| (|op| |bfVar#68|)
   (PROG (|sig|)
     (RETURN
      (PROGN (SETQ |sig| (CAR |bfVar#68|)) (|dbMakeContrivedForm| |op| |sig|)))))
- 
+
 ; dbMakeSignature(op,[sig,:.]) == [op,sig]  --getDomainOpTable format
- 
+
 (DEFUN |dbMakeSignature| (|op| |bfVar#69|)
   (PROG (|sig|)
     (RETURN (PROGN (SETQ |sig| (CAR |bfVar#69|)) (LIST |op| |sig|)))))
- 
+
 ; dbGetOrigin(op,[.,.,origin,:.]) == origin
- 
+
 (DEFUN |dbGetOrigin| (|op| |bfVar#70|)
   (PROG (|origin|)
     (RETURN (PROGN (SETQ |origin| (CADDR |bfVar#70|)) |origin|))))
- 
+
 ; dbGetCondition(op,[.,pred,:.]) == pred
- 
+
 (DEFUN |dbGetCondition| (|op| |bfVar#71|)
   (PROG (|pred|) (RETURN (PROGN (SETQ |pred| (CADR |bfVar#71|)) |pred|))))
- 
+
 ; dbShowOpNames(htPage,opAlist,which,data) ==
 ;   single? := opAlist and null rest data
 ;   single? =>
@@ -1628,7 +1628,7 @@
 ;     htSayStandard('"Select a view below")
 ;   exposedOnly? := $exposedOnlyIfTrue and not dbFromConstructor?(htPage)
 ;   dbShowOpItems(which,data,exposedOnly?)
- 
+
 (DEFUN |dbShowOpNames| (|htPage| |opAlist| |which| |data|)
   (PROG (|single?| |ops| |exposedOnly?|)
     (RETURN
@@ -1645,7 +1645,7 @@
                  (AND |$exposedOnlyIfTrue|
                       (NULL (|dbFromConstructor?| |htPage|))))
          (|dbShowOpItems| |which| |data| |exposedOnly?|))))))))
- 
+
 ; dbShowOpItems(which,data,exposedOnly?) ==
 ;   htBeginTable()
 ;   for i in 0.. for item in data repeat
@@ -1661,7 +1661,7 @@
 ;       htMakePage [['bcLinks,[ops,'"",'dbShowOps,which,i]]]
 ;       htSay('"}")
 ;   htEndTable()
- 
+
 (DEFUN |dbShowOpItems| (|which| |data| |exposedOnly?|)
   (PROG (|op| |exposeFlag| |ops|)
     (RETURN
@@ -1691,7 +1691,7 @@
           (SETQ |bfVar#72| (CDR |bfVar#72|))))
        0 |data| NIL)
       (|htEndTable|)))))
- 
+
 ; dbShowOpAllDomains(htPage,opAlist,which) ==
 ;   SAY("dbShowOpAllDomains")
 ;   BREAK()
@@ -1722,7 +1722,7 @@
 ;   htpSetProperty(htPage,'thing,'"constructor")
 ;   htpSetProperty(htPage,'specialHeading,'"hoho")
 ;   dbShowCons(htPage,'names)
- 
+
 (DEFUN |dbShowOpAllDomains| (|htPage| |opAlist| |which|)
   (PROG (|catOriginAlist| |domOriginAlist| |op| |items| |ISTMP#1| |predicate|
          |ISTMP#2| |origin| |conname| |pred| |u| |dom| |cat| |cAlist|)
@@ -1851,31 +1851,31 @@
       (|htpSetProperty| |htPage| '|thing| "constructor")
       (|htpSetProperty| |htPage| '|specialHeading| "hoho")
       (|dbShowCons| |htPage| '|names|)))))
- 
+
 ; simpOrDumb(new,old) ==
 ;   new = 'etc => 'etc
 ;   atom new => old
 ;   'etc
- 
+
 (DEFUN |simpOrDumb| (|new| |old|)
   (PROG ()
     (RETURN
      (COND ((EQ |new| '|etc|) '|etc|) ((ATOM |new|) |old|) ('T '|etc|)))))
- 
+
 ; dbShowOpOrigins(htPage,opAlist,which,data) ==
 ;   dbGatherThenShow(htPage,opAlist,which,data,true,'"from",function bcStarConform)
- 
+
 (DEFUN |dbShowOpOrigins| (|htPage| |opAlist| |which| |data|)
   (PROG ()
     (RETURN
      (|dbGatherThenShow| |htPage| |opAlist| |which| |data| T "from"
       #'|bcStarConform|))))
- 
+
 ; dbShowOpImplementations(htPage,opAlist,which,data) ==
 ;     $from_show_implementations : local := true
 ;     dbGatherThenShow(htPage, opAlist, which, data, true, '"by",
 ;                      function bcStarConform)
- 
+
 (DEFUN |dbShowOpImplementations| (|htPage| |opAlist| |which| |data|)
   (PROG (|$from_show_implementations|)
     (DECLARE (SPECIAL |$from_show_implementations|))
@@ -1884,16 +1884,16 @@
       (SETQ |$from_show_implementations| T)
       (|dbGatherThenShow| |htPage| |opAlist| |which| |data| T "by"
        #'|bcStarConform|)))))
- 
+
 ; dbShowOpConditions(htPage,opAlist,which,data) ==
 ;   dbGatherThenShow(htPage,opAlist,which,data,nil,nil,function bcPred)
- 
+
 (DEFUN |dbShowOpConditions| (|htPage| |opAlist| |which| |data|)
   (PROG ()
     (RETURN
      (|dbGatherThenShow| |htPage| |opAlist| |which| |data| NIL NIL
       #'|bcPred|))))
- 
+
 ; dbShowKind conform ==
 ;   conname := first conform
 ;   kind := GETDATABASE(conname,'CONSTRUCTORKIND)
@@ -1901,7 +1901,7 @@
 ;     (s := PNAME conname).(MAXINDEX s) = '_& => '"default package"
 ;     '"domain"
 ;   PNAME kind
- 
+
 (DEFUN |dbShowKind| (|conform|)
   (PROG (|conname| |kind| |s|)
     (RETURN
@@ -1915,12 +1915,12 @@
           "default package")
          (#1='T "domain")))
        (#1# (PNAME |kind|)))))))
- 
+
 ; dbShowOpSignatures(htPage,opAlist,which,data) == dbShowOpSigList(which,data,0)
- 
+
 (DEFUN |dbShowOpSignatures| (|htPage| |opAlist| |which| |data|)
   (PROG () (RETURN (|dbShowOpSigList| |which| |data| 0))))
- 
+
 ; dbShowOpSigList(which,dataItems,count) ==
 ; --dataItems is (((op,sig,:.),exposureFlag,...)
 ;   which ~= '"operation" => BREAK()
@@ -1940,7 +1940,7 @@
 ;     count := count + 1
 ;   htEndTable()
 ;   count
- 
+
 (DEFUN |dbShowOpSigList| (|which| |dataItems| |count|)
   (PROG (|single?| |ISTMP#1| |op| |ISTMP#2| |sig| |ISTMP#3| |exposureFlag|
          |tail| |ops|)
@@ -1993,7 +1993,7 @@
               |dataItems| NIL)
              (|htEndTable|)
              |count|))))))
- 
+
 ; dbShowOpParameters(htPage,opAlist,which,data) ==
 ;   single? := null rest data
 ;   count := 0
@@ -2025,7 +2025,7 @@
 ;     htSay '"}"
 ;     count := count + 1
 ;   htEndTable()
- 
+
 (DEFUN |dbShowOpParameters| (|htPage| |opAlist| |which| |data|)
   (PROG (|single?| |count| |opform| |exposeFlag| |tail| |op| |args| |ops| |n|)
     (RETURN
@@ -2087,11 +2087,11 @@
           (SETQ |bfVar#85| (CDR |bfVar#85|))))
        |data| NIL)
       (|htEndTable|)))))
- 
+
 ; dbShowOpParameterJump(ops,which,count,single?) ==
 ;   single? => htSayList(['"{\em ", ops, '"}"])
 ;   htMakePage [['bcLinks,[ops,'"",'dbShowOps,which,count]]]
- 
+
 (DEFUN |dbShowOpParameterJump| (|ops| |which| |count| |single?|)
   (PROG ()
     (RETURN
@@ -2101,7 +2101,7 @@
              (LIST
               (LIST '|bcLinks|
                     (LIST |ops| "" '|dbShowOps| |which| |count|)))))))))
- 
+
 ; dbShowOpDocumentation(htPage,opAlist,which,data) ==
 ;   which ~= '"operation" => BREAK()
 ;   if $exposedOnlyIfTrue and not dbFromConstructor?(htPage) then
@@ -2129,7 +2129,7 @@
 ;         index := (exactlyOneOpSig => nil; base + j)
 ;         displayDomainOp(htPage, '"operation", origin, op, sig, pred,
 ;                         doc, index, 'dbChooseDomainOp, null(exposeFlag), true)
- 
+
 (DEFUN |dbShowOpDocumentation| (|htPage| |opAlist| |which| |data|)
   (PROG (|conform| |expand| |condata| |base| |ISTMP#1| |ISTMP#2|
          |exactlyOneOpSig| |op| |alist| |sig| |predicate| |origin| |exposeFlag|
@@ -2225,7 +2225,7 @@
                           |alist| NIL 0)))))
                  (SETQ |bfVar#88| (CDR |bfVar#88|))))
               |opAlist| NIL)))))))
- 
+
 ; dbChooseDomainOp(htPage,which,index) ==
 ;   which ~= '"operation" => BREAK()
 ;   [opKey,entryKey] := DIVIDE(index,8192)
@@ -2241,7 +2241,7 @@
 ;   if not (htpProperty(htPage, 'condition?) = 'no) then
 ;     dbResetOpAlistCondition(htPage,which,opAlist)
 ;   dbShowOps(htPage,which,'documentation)
- 
+
 (DEFUN |dbChooseDomainOp| (|htPage| |which| |index|)
   (PROG (|LETTMP#1| |opKey| |entryKey| |opAlist| |op| |entries| |entry|)
     (RETURN
@@ -2273,14 +2273,14 @@
               ((NULL (EQ (|htpProperty| |htPage| '|condition?|) '|no|))
                (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)))
              (|dbShowOps| |htPage| |which| '|documentation|)))))))
- 
+
 ; htSayExpose(op, flag) ==
 ;   $includeUnexposed? =>
 ;     flag => htBlank()
 ;     op.0 = char '_* => htSay '"{\em *} "
 ;     htSayUnexposed()
 ;   htSay '""
- 
+
 (DEFUN |htSayExpose| (|op| |flag|)
   (PROG ()
     (RETURN
@@ -2290,7 +2290,7 @@
              ((EQUAL (ELT |op| 0) (|char| '*)) (|htSay| "{\\em *} "))
              (#1='T (|htSayUnexposed|))))
       (#1# (|htSay| ""))))))
- 
+
 ; dbShowOperationsFromConform(htPage,which,opAlist) ==  --branch in with lists
 ;   which ~= '"operation" => BREAK()
 ;   $groupChoice := nil
@@ -2325,7 +2325,7 @@
 ;    then htpSetProperty(htPage,'condition?,'no)
 ;    else dbResetOpAlistCondition(htPage,which,opAlist)
 ;   dbShowOp1(htPage,reducedOpAlist,which,'names)
- 
+
 (DEFUN |dbShowOperationsFromConform| (|htPage| |which| |opAlist|)
   (PROG (|$conformsAreDomains| |reducedOpAlist| |heading| |fromPart|
          |exposePart| |kind| |domform| |c| |x| |conform|)
@@ -2384,7 +2384,7 @@
                    (#1#
                     (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)))
              (|dbShowOp1| |htPage| |reducedOpAlist| |which| '|names|)))))))
- 
+
 ; reduceOpAlistForDomain(opAlist,domform,conform) ==
 ; --destructively simplify all predicates; filter out any that fail
 ;   form1 := [domform,:rest domform]
@@ -2402,7 +2402,7 @@
 ;         n_pair := cons(first(pair), n_items)
 ;         new_opAlist := cons(n_pair, new_opAlist)
 ;   NREVERSE(new_opAlist)
- 
+
 (DEFUN |reduceOpAlistForDomain| (|opAlist| |domform| |conform|)
   (PROG (|form1| |form2| |new_opAlist| |head| |tail| |pred| |n_items| |n_pair|)
     (RETURN
@@ -2451,7 +2451,7 @@
           (SETQ |bfVar#92| (CDR |bfVar#92|))))
        |opAlist| NIL)
       (NREVERSE |new_opAlist|)))))
- 
+
 ; dbShowOperationLines(which,linelist) ==  --branch in with lines
 ;   which ~= '"operation" => BREAK()
 ;   htPage := htInitPage(nil,nil)  --create empty page
@@ -2475,7 +2475,7 @@
 ;   dbResetOpAlistCondition(htPage,which,opAlist)
 ;   if which = '"attribute" then BREAK()
 ;   dbShowOp1(htPage,opAlist,which,'names)
- 
+
 (DEFUN |dbShowOperationLines| (|which| |linelist|)
   (PROG (|htPage| |opAlist| |lines| |x| |name| |pile| |expandProperty|)
     (RETURN
@@ -2517,13 +2517,13 @@
              (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)
              (COND ((EQUAL |which| "attribute") (BREAK)))
              (|dbShowOp1| |htPage| |opAlist| |which| '|names|)))))))
- 
+
 ; dbResetOpAlistCondition(htPage,which,opAlist) ==
 ;   which ~= '"operation" => BREAK()
 ;   value := dbExpandOpAlistIfNecessary(htPage,opAlist,which,false,true)
 ;   htpSetProperty(htPage,'condition?,(value => 'yes; 'no))
 ;   value
- 
+
 (DEFUN |dbResetOpAlistCondition| (|htPage| |which| |opAlist|)
   (PROG (|value|)
     (RETURN
@@ -2536,7 +2536,7 @@
              (|htpSetProperty| |htPage| '|condition?|
               (COND (|value| '|yes|) (#1# '|no|)))
              |value|))))))
- 
+
 ; dbExpandOpAlistIfNecessary(htPage,opAlist,which,needOrigins?,condition?) ==
 ; --if condition? = true, stop when you find a non-trivial predicate
 ; --otherwise, expand in full
@@ -2619,7 +2619,7 @@
 ;       condition? => nil
 ;       htpSetProperty(htPage,expandProperty,'fullyExpanded)
 ;     'done
- 
+
 (DEFUN |dbExpandOpAlistIfNecessary|
        (|htPage| |opAlist| |which| |needOrigins?| |condition?|)
   (PROG (|$value| |docCode| |u| |ISTMP#1| |tail| |alist| |docTable| |catname|
@@ -2839,13 +2839,13 @@
                             (|htpSetProperty| |htPage| |expandProperty|
                              '|fullyExpanded|)))))
                    (#1# '|done|))))))))
- 
+
 ; getRegistry(op,sig) ==
 ;   u := GETDATABASE('AttributeRegistry,'DOCUMENTATION)
 ;   v := LASSOC(op,u)
 ;   match := or/[y for y in v | y is [['attribute,: =sig],:.]] => CADR match
 ;   '""
- 
+
 (DEFUN |getRegistry| (|op| |sig|)
   (PROG (|u| |v| |ISTMP#1| |match|)
     (RETURN
@@ -2874,7 +2874,7 @@
                  NIL |v| NIL))
         (CADR |match|))
        (#1# ""))))))
- 
+
 ; evalableConstructor2HtString domform ==
 ;   if VECP domform then domform := devaluate domform
 ;   conname := first domform
@@ -2895,7 +2895,7 @@
 ;       x => arg
 ;       typ := sublisFormal(arglist,ftype)
 ;       mathform2HtString algCoerceInteractive(arg,typ,'(OutputForm))
- 
+
 (DEFUN |evalableConstructor2HtString| (|domform|)
   (PROG (|conname| |coSig| |arglist| |fargtypes| |typ|)
     (RETURN
@@ -2988,7 +2988,7 @@
                         (SETQ |bfVar#107| (CDR |bfVar#107|))))
                      NIL |args| NIL)))))
       (#1# |arg|)))))
- 
+
 ; fortexp0 x ==
 ;   e_to_f := getFunctionFromDomain("expression2Fortran", ['FortranCodeTools],
 ;                                  [$OutputForm])
@@ -3000,7 +3000,7 @@
 ;     [t,:f] := f
 ;     l := [t,:l]
 ;   NREVERSE ['"...",:l]
- 
+
 (DEFUN |fortexp0| (|x|)
   (PROG (|e_to_f| |f| |p| |l| |LETTMP#1| |t|)
     (RETURN
@@ -3024,7 +3024,7 @@
                           (SETQ |f| (CDR |LETTMP#1|))
                           (SETQ |l| (CONS |t| |l|))))))))
               (NREVERSE (CONS "..." |l|)))))))))
- 
+
 ; mathform2HtString form == escapeString
 ;   form is ['QUOTE,a] => STRCONC('"'","STRCONC"/fortexp0 a)
 ;   form is ['BRACKET,['AGGLST,:arg]] =>
@@ -3040,7 +3040,7 @@
 ;     STRCONC('"[",first arg,tailPart,'"]")
 ;   atom form => form
 ;   "STRCONC"/fortexp0 form
- 
+
 (DEFUN |mathform2HtString| (|form|)
   (PROG (|ISTMP#1| |a| |ISTMP#2| |arg| |r| |y| |tailPart| |ISTMP#3| |ISTMP#4|)
     (RETURN
@@ -3156,12 +3156,12 @@
              (#1# (SETQ |bfVar#122| (STRCONC |bfVar#122| |bfVar#123|))))
             (SETQ |bfVar#124| (CDR |bfVar#124|))))
          #2# (|fortexp0| |form|) NIL)))))))
- 
+
 ; getDomainOpTable(dom, fromIfTrue) == getDomainOpTable2(dom, fromIfTrue, [])
- 
+
 (DEFUN |getDomainOpTable| (|dom| |fromIfTrue|)
   (PROG () (RETURN (|getDomainOpTable2| |dom| |fromIfTrue| NIL))))
- 
+
 ; getDomainOpTable2(dom, fromIfTrue, ops) ==
 ;   $predEvalAlist : local := nil
 ;   $returnNowhereFromGoGet: local := true
@@ -3194,7 +3194,7 @@
 ;           substitute('_$, domname, devaluate r)
 ;         'nowhere
 ;       [sig1,:info]
- 
+
 (DEFUN |getDomainOpTable2| (|dom| |fromIfTrue| |ops|)
   (PROG (|$returnNowhereFromGoGet| |$predEvalAlist| |info| |r| |f| |cell|
          |predValue| |sig1| |op1| |key| |ISTMP#3| |pred| |ISTMP#2| |slot|
@@ -3347,11 +3347,11 @@
     (RETURN
      (COND ((MEMQ |op| |ops|) |op|) ((EQ |op| '|One|) (AND (MEMQ 1 |ops|) 1))
            ((EQ |op| '|Zero|) (AND (MEMQ 0 |ops|) 0)) ('T NIL)))))
- 
+
 ; evalDomainOpPred2(dom, pred) ==
 ;     $predicateList : local := GETDATABASE(first(dom.0), 'PREDICATES)
 ;     evalDomainOpPred(dom,pred)
- 
+
 (DEFUN |evalDomainOpPred2| (|dom| |pred|)
   (PROG (|$predicateList|)
     (DECLARE (SPECIAL |$predicateList|))
@@ -3359,7 +3359,7 @@
      (PROGN
       (SETQ |$predicateList| (GETDATABASE (CAR (ELT |dom| 0)) 'PREDICATES))
       (|evalDomainOpPred| |dom| |pred|)))))
- 
+
 ; evalDomainOpPred(dom,pred) == process(dom,pred) where
 ;   process(dom,pred) ==
 ;     u := convert(dom,pred)
@@ -3393,7 +3393,7 @@
 ;       nil
 ;     pred = 'T => true
 ;     systemError '"unknown atomic predicate form"
- 
+
 (DEFUN |evalDomainOpPred| (|dom| |pred|)
   (PROG () (RETURN (|evalDomainOpPred,process| |dom| |pred|))))
 (DEFUN |evalDomainOpPred,process| (|dom| |pred|)

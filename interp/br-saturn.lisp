@@ -1,43 +1,43 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; $atLeastOneUnexposed := false
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$atLeastOneUnexposed| NIL))
- 
+
 ; page() == $curPage
- 
+
 (DEFUN |page| () (PROG () (RETURN |$curPage|)))
- 
+
 ; htSay(x) ==
 ;     bcHt(x)
- 
+
 (DEFUN |htSay| (|x|) (PROG () (RETURN (|bcHt| |x|))))
- 
+
 ; htSayCold x ==
 ;   htSay '"\lispLink{}{"
 ;   htSay x
 ;   htSay '"}"
- 
+
 (DEFUN |htSayCold| (|x|)
   (PROG ()
     (RETURN (PROGN (|htSay| "\\lispLink{}{") (|htSay| |x|) (|htSay| "}")))))
- 
+
 ; htSayStandard(x) ==  --do AT MOST for $standard
 ;     bcHt(x)
- 
+
 (DEFUN |htSayStandard| (|x|) (PROG () (RETURN (|bcHt| |x|))))
- 
+
 ; htSayStandardList(lx) ==
 ;     htSayList(lx)
- 
+
 (DEFUN |htSayStandardList| (|lx|) (PROG () (RETURN (|htSayList| |lx|))))
- 
+
 ; htSayList(lx) ==
 ;   for x in lx repeat bcHt(x)
- 
+
 (DEFUN |htSayList| (|lx|)
   (PROG ()
     (RETURN
@@ -49,7 +49,7 @@
           ('T (|bcHt| |x|)))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       |lx| NIL))))
- 
+
 ; bcHt line ==
 ;   $newPage =>  --this path affects both saturn and old lines
 ;     text :=
@@ -60,7 +60,7 @@
 ;   PAIRP line =>
 ;     $htLineList := NCONC(nreverse mapStringize COPY_-LIST line, $htLineList)
 ;   $htLineList := [basicStringize line, :$htLineList]
- 
+
 (DEFUN |bcHt| (|line|)
   (PROG (|text|)
     (RETURN
@@ -78,16 +78,16 @@
                       |$htLineList|)))
       (#1#
        (SETQ |$htLineList| (CONS (|basicStringize| |line|) |$htLineList|)))))))
- 
+
 ; htShowPage() ==
 ; -- show the page which has been computed
 ;   htSayStandard '"\endscroll"
 ;   htShowPageNoScroll()
- 
+
 (DEFUN |htShowPage| ()
   (PROG ()
     (RETURN (PROGN (|htSayStandard| "\\endscroll") (|htShowPageNoScroll|)))))
- 
+
 ; htShowPageNoScroll() ==
 ; -- show the page which has been computed
 ;   htSayStandard '"\autobuttons"
@@ -98,7 +98,7 @@
 ;   if $htLineList then line := concatenateStringList(nreverse $htLineList)
 ;   issueHTStandard line
 ;   endHTPage()
- 
+
 (DEFUN |htShowPageNoScroll| ()
   (PROG (|line|)
     (RETURN
@@ -114,18 +114,18 @@
         (SETQ |line| (|concatenateStringList| (NREVERSE |$htLineList|)))))
       (|issueHTStandard| |line|)
       (|endHTPage|)))))
- 
+
 ; issueHTStandard line == --called by htMakePageNoScroll and htMakeErrorPage
 ;     sockSendInt($MenuServer, $SendLine)
 ;     sockSendString($MenuServer, line)
- 
+
 (DEFUN |issueHTStandard| (|line|)
   (PROG ()
     (RETURN
      (PROGN
       (|sockSendInt| |$MenuServer| |$SendLine|)
       (|sockSendString| |$MenuServer| |line|)))))
- 
+
 ; htMakeErrorPage htPage ==
 ;   $newPage := false
 ;   $htLineList := nil
@@ -134,7 +134,7 @@
 ;   line := concatenateStringList(nreverse $htLineList)
 ;   issueHT line
 ;   endHTPage()
- 
+
 (DEFUN |htMakeErrorPage| (|htPage|)
   (PROG (|line|)
     (RETURN
@@ -146,19 +146,19 @@
       (SETQ |line| (|concatenateStringList| (NREVERSE |$htLineList|)))
       (|issueHT| |line|)
       (|endHTPage|)))))
- 
+
 ; htMakePage itemList ==
 ;   if $newPage then
 ;      htpAddToPageDescription($curPage, itemList)
 ;   htMakePage1 itemList
- 
+
 (DEFUN |htMakePage| (|itemList|)
   (PROG ()
     (RETURN
      (PROGN
       (COND (|$newPage| (|htpAddToPageDescription| |$curPage| |itemList|)))
       (|htMakePage1| |itemList|)))))
- 
+
 ; htMakePage1 itemList ==
 ; -- make a page given the description in itemList
 ;   for u in itemList repeat
@@ -185,7 +185,7 @@
 ;     itemType = 'doneButton        => htProcessDoneButton items
 ;     itemType = 'doitButton        => htProcessDoitButton items
 ;     systemError '"unexpected branch"
- 
+
 (DEFUN |htMakePage1| (|itemList|)
   (PROG (|itemType| |s| |items|)
     (RETURN
@@ -227,46 +227,46 @@
                   (#1# (|systemError| "unexpected branch"))))))
          (SETQ |bfVar#2| (CDR |bfVar#2|))))
       |itemList| NIL))))
- 
+
 ; menuButton() == '"\menuitemstyle{}"
- 
+
 (DEFUN |menuButton| () (PROG () (RETURN "\\menuitemstyle{}")))
- 
+
 ; endHTPage() ==
 ;     sockSendInt($MenuServer, $EndOfPage)
- 
+
 (DEFUN |endHTPage| ()
   (PROG () (RETURN (|sockSendInt| |$MenuServer| |$EndOfPage|))))
- 
+
 ; htSayHrule() == bcHt
 ;   '"\horizontalline{}\newline{}"
- 
+
 (DEFUN |htSayHrule| ()
   (PROG () (RETURN (|bcHt| "\\horizontalline{}\\newline{}"))))
- 
+
 ; htpAddInputAreaProp(htPage, label, prop) ==
 ;   SETELT(htPage, 5, [[label, nil, nil, nil, :prop], :ELT(htPage, 5)])
- 
+
 (DEFUN |htpAddInputAreaProp| (|htPage| |label| |prop|)
   (PROG ()
     (RETURN
      (SETELT |htPage| 5
       (CONS (CONS |label| (CONS NIL (CONS NIL (CONS NIL |prop|))))
             (ELT |htPage| 5))))))
- 
+
 ; htpSetLabelInputString(htPage, label, val) ==
 ;   -- value user typed as input string on page
 ;   props := LASSOC(label, htpInputAreaAlist htPage)
 ;   props => SETELT(props, 0, STRINGIMAGE val)
 ;   nil
- 
+
 (DEFUN |htpSetLabelInputString| (|htPage| |label| |val|)
   (PROG (|props|)
     (RETURN
      (PROGN
       (SETQ |props| (LASSOC |label| (|htpInputAreaAlist| |htPage|)))
       (COND (|props| (SETELT |props| 0 (STRINGIMAGE |val|))) ('T NIL))))))
- 
+
 ; htDoneButton(func, htPage, :optionalArgs) ==
 ; ------> Handle argument values passed from page if present
 ;   if optionalArgs then
@@ -276,7 +276,7 @@
 ;   NULL FBOUNDP func =>
 ;     systemError ['"unknown function", func]
 ;   FUNCALL(SYMBOL_-FUNCTION func, htPage)
- 
+
 (DEFUN |htDoneButton| (|func| |htPage| &REST |optionalArgs|)
   (PROG ()
     (RETURN
@@ -287,14 +287,14 @@
             ((NULL (FBOUNDP |func|))
              (|systemError| (LIST "unknown function" |func|)))
             ('T (FUNCALL (SYMBOL-FUNCTION |func|) |htPage|)))))))
- 
+
 ; htBcLinks(links) ==
 ;   [links,options] := beforeAfter('options,links)
 ;   for [message, info, func, :value] in links repeat
 ;     link := '"\lispdownlink"
 ;     htMakeButton(link, message, mkCurryFun(func, value))
 ;     bcIssueHt info
- 
+
 (DEFUN |htBcLinks| (|links|)
   (PROG (|LETTMP#1| |options| |message| |ISTMP#1| |info| |ISTMP#2| |func|
          |value| |link|)
@@ -329,7 +329,7 @@
                   (|bcIssueHt| |info|)))))
           (SETQ |bfVar#4| (CDR |bfVar#4|))))
        |links| NIL)))))
- 
+
 ; htBcLispLinks links ==
 ;   [links,options] := beforeAfter('options,links)
 ;   for [message, info, func, :value] in links repeat
@@ -337,7 +337,7 @@
 ;       '"\lisplink"
 ;     htMakeButton(link ,message, mkCurryFun(func, value))
 ;     bcIssueHt info
- 
+
 (DEFUN |htBcLispLinks| (|links|)
   (PROG (|LETTMP#1| |options| |message| |ISTMP#1| |info| |ISTMP#2| |func|
          |value| |link|)
@@ -372,7 +372,7 @@
                   (|bcIssueHt| |info|)))))
           (SETQ |bfVar#6| (CDR |bfVar#6|))))
        |links| NIL)))))
- 
+
 ; htMakeButton(htCommand, message, func) ==
 ;   iht [htCommand, '"{"]
 ;   bcIssueHt message
@@ -385,7 +385,7 @@
 ;       iht ['"_"\boxvalue{", id, '"}_""]
 ;     iht '") "
 ;   iht [htpName $curPage, '"))}"]
- 
+
 (DEFUN |htMakeButton| (|htCommand| |message| |func|)
   (PROG (|id| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |type|)
     (RETURN
@@ -428,13 +428,13 @@
           (SETQ |bfVar#8| (CDR |bfVar#8|))))
        (|htpInputAreaAlist| |$curPage|) NIL)
       (|iht| (LIST (|htpName| |$curPage|) "))}"))))))
- 
+
 ; htpAddToPageDescription(htPage, pageDescrip) ==
 ;   newDescript :=
 ;     STRINGP pageDescrip => [pageDescrip, :ELT(htPage, 7)]
 ;     nconc(nreverse COPY_-LIST pageDescrip, ELT(htPage, 7))
 ;   SETELT(htPage, 7, newDescript)
- 
+
 (DEFUN |htpAddToPageDescription| (|htPage| |pageDescrip|)
   (PROG (|newDescript|)
     (RETURN
@@ -446,7 +446,7 @@
                 (NCONC (NREVERSE (COPY-LIST |pageDescrip|))
                        (ELT |htPage| 7)))))
       (SETELT |htPage| 7 |newDescript|)))))
- 
+
 ; htProcessBcStrings strings ==
 ;   for [numChars, default, stringName, spadType, :filter] in strings repeat
 ;     mess2 := '""
@@ -458,7 +458,7 @@
 ;       htpSetLabelErrorMsg(page(), stringName, nil)
 ;     iht ['"\inputstring{", stringName, '"}{",
 ;          numChars, '"}{", htpLabelDefault(page(),stringName), '"} ", mess2]
- 
+
 (DEFUN |htProcessBcStrings| (|strings|)
   (PROG (|numChars| |ISTMP#1| |default| |ISTMP#2| |stringName| |ISTMP#3|
          |spadType| |filter| |mess2|)
@@ -505,19 +505,19 @@
                         |mess2|))))))
          (SETQ |bfVar#10| (CDR |bfVar#10|))))
       |strings| NIL))))
- 
+
 ; setUpDefault(name, props) ==
 ;   htpAddInputAreaProp(page(), name, props)
- 
+
 (DEFUN |setUpDefault| (|name| |props|)
   (PROG () (RETURN (|htpAddInputAreaProp| (|page|) |name| |props|))))
- 
+
 ; htInitPage(title, propList) ==
 ; -- start defining a hyperTeX page
 ;     page := htInitPageNoScroll(propList, title)
 ;     htSayStandard '"\beginscroll "
 ;     page
- 
+
 (DEFUN |htInitPage| (|title| |propList|)
   (PROG (|page|)
     (RETURN
@@ -525,7 +525,7 @@
       (SETQ |page| (|htInitPageNoScroll| |propList| |title|))
       (|htSayStandard| "\\beginscroll ")
       |page|))))
- 
+
 ; htInitPageNoScroll(propList, title) ==
 ; --start defining a hyperTeX page
 ;     page := htInitPageNoHeading(propList)
@@ -533,7 +533,7 @@
 ;     htSay title
 ;     htSayStandard '"} "
 ;     page
- 
+
 (DEFUN |htInitPageNoScroll| (|propList| |title|)
   (PROG (|page|)
     (RETURN
@@ -543,7 +543,7 @@
       (|htSay| |title|)
       (|htSayStandard| "} ")
       |page|))))
- 
+
 ; htInitPageNoHeading(propList) ==
 ; --start defining a hyperTeX page
 ;   $atLeastOneUnexposed := nil
@@ -552,7 +552,7 @@
 ;   $newPage := true
 ;   $htLineList := nil
 ;   page
- 
+
 (DEFUN |htInitPageNoHeading| (|propList|)
   (PROG (|page|)
     (RETURN
@@ -563,13 +563,13 @@
       (SETQ |$newPage| T)
       (SETQ |$htLineList| NIL)
       |page|))))
- 
+
 ; htpMakeEmptyPage(propList) ==
 ;   name := GENTEMP()
 ;   $activePageList := [name, :$activePageList]
 ;   SET(name, val := VECTOR(name, nil, nil, nil, nil, nil, propList, nil))
 ;   val
- 
+
 (DEFUN |htpMakeEmptyPage| (|propList|)
   (PROG (|name| |val|)
     (RETURN
@@ -579,7 +579,7 @@
       (SET |name|
            (SETQ |val| (VECTOR |name| NIL NIL NIL NIL NIL |propList| NIL)))
       |val|))))
- 
+
 ; kPage(line, options) == --any cat, dom, package, default package
 ; --constructors    Cname\#\E\sig \args   \abb \comments (C is C, D, P, X)
 ;   parts := dbXParts(line,7,1)
@@ -619,7 +619,7 @@
 ;   htSayStandard("\endscroll ")
 ;   kPageContextMenu page
 ;   htShowPageNoScroll()
- 
+
 (DEFUN |kPage| (|line| |options|)
   (PROG (|parts| |kind| |name| |nargs| |xflag| |sig| |args| |abbrev| |comments|
          |form| |isFile| |conform| |conname| |capitalKind| |signature|
@@ -677,7 +677,7 @@
       (|htSayStandard| '|\\endscroll |)
       (|kPageContextMenu| |page|)
       (|htShowPageNoScroll|)))))
- 
+
 ; kPageContextMenu page ==
 ;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(page,'parts)
 ;   conform := htpProperty(page,'conform)
@@ -721,7 +721,7 @@
 ;     htMakePage [['bcLinks,['Uses,'"",'kcnPage,nil]]]
 ;   htSay '"}"
 ;   htEndTable()
- 
+
 (DEFUN |kPageContextMenu| (|page|)
   (PROG (|LETTMP#1| |kind| |name| |nargs| |xpart| |sig| |args| |abbrev|
          |comments| |conform| |conname| |pathname|)
@@ -793,7 +793,7 @@
          (LIST (LIST '|bcLinks| (LIST '|Uses| "" '|kcnPage| NIL))))))
       (|htSay| "}")
       (|htEndTable|)))))
- 
+
 ; dbPresentCons(htPage,kind,:exclusions) ==
 ;   htpSetProperty(htPage,'exclusion,first exclusions)
 ;   cAlist := htpProperty(htPage,'cAlist)
@@ -844,7 +844,7 @@
 ;       else htMakePage [['bcLinks,['"Exposed Only",'"",'dbShowCons,'exposureOn]]]
 ;   htSay '"}"
 ;   htEndTable()
- 
+
 (DEFUN |dbPresentCons| (|htPage| |kind| &REST |exclusions|)
   (PROG (|cAlist| |empty?| |one?| |exposedUnexposedFlag| |star?|)
     (RETURN
@@ -957,7 +957,7 @@
                 (LIST "Exposed Only" "" '|dbShowCons| '|exposureOn|))))))
       (|htSay| "}")
       (|htEndTable|)))))
- 
+
 ; htFilterPage(htPage,args) ==
 ;   htInitPage("Filter String",htCopyProplist htPage)
 ;   htSay "\centerline{Enter filter string (use {\em *} for wild card):}"
@@ -967,7 +967,7 @@
 ;   htMakePage [['bcLispLinks,['"\fbox{Filter}",'"",:args]]]
 ;   htSay '"}"
 ;   htShowPage()
- 
+
 (DEFUN |htFilterPage| (|htPage| |args|)
   (PROG ()
     (RETURN
@@ -982,7 +982,7 @@
        (LIST (LIST '|bcLispLinks| (CONS "\\fbox{Filter}" (CONS "" |args|)))))
       (|htSay| "}")
       (|htShowPage|)))))
- 
+
 ; dbShowConsKinds cAlist ==
 ;   cats := doms := paks := defs := nil
 ;   for x in cAlist repeat
@@ -1009,7 +1009,7 @@
 ;     bcConTable REMDUP [CAAR y for y in x]
 ;   htEndMenu 'description
 ;   htSayStandard '"\indent{0}"
- 
+
 (DEFUN |dbShowConsKinds| (|cAlist|)
   (PROG (|defs| |paks| |doms| |cats| |op| |kind| |lists| |kinds| |c|)
     (RETURN
@@ -1086,7 +1086,7 @@
        '("category" "domain" "package" "default package") NIL |lists| NIL)
       (|htEndMenu| '|description|)
       (|htSayStandard| "\\indent{0}")))))
- 
+
 ; addParameterTemplates(page, conform) ==
 ; ---------------> from kPage <-----------------------
 ;   parlist := [STRINGIMAGE par for par in rest conform]
@@ -1105,7 +1105,7 @@
 ;       '""
 ;     htMakePage [['text,'"{\em ",par,'"} = "],
 ;         ['bcStrings,[w - #STRINGIMAGE par,argstring,parname,'EM]]]
- 
+
 (DEFUN |addParameterTemplates| (|page| |conform|)
   (PROG (|parlist| |manuelsCode?| |w| |odd| |a| |r| |argstring|)
     (RETURN
@@ -1165,7 +1165,7 @@
           (SETQ |bfVar#26| (CDR |bfVar#26|))
           (SETQ |bfVar#27| (CDR |bfVar#27|))))
        |$PatternVariableList| NIL (CDR |conform|) NIL)))))
- 
+
 ; kPageArgs([op,:args],[.,.,:source]) ==
 ;   firstTime := true
 ;   coSig := rest GETDATABASE(op,'COSIG)
@@ -1183,7 +1183,7 @@
 ;       pred => '"a domain of category "
 ;       '"an element of the domain "
 ;     bcConform(typeForm,true)
- 
+
 (DEFUN |kPageArgs| (|bfVar#31| |bfVar#32|)
   (PROG (|source| |op| |args| |firstTime| |coSig| |ISTMP#1| |ISTMP#2| |t1|
          |typeForm|)
@@ -1236,11 +1236,11 @@
           (SETQ |bfVar#29| (CDR |bfVar#29|))
           (SETQ |bfVar#30| (CDR |bfVar#30|))))
        |args| NIL |source| NIL |coSig| NIL)))))
- 
+
 ; dbConform form ==
 ; --one button for the main constructor page of a type
 ;   ["\conf{",:form2StringList opOf form,'"}{",:form2Fence dbOuttran form,'"}"]
- 
+
 (DEFUN |dbConform| (|form|)
   (PROG ()
     (RETURN
@@ -1249,12 +1249,12 @@
                    (CONS "}{"
                          (APPEND (|form2Fence| (|dbOuttran| |form|))
                                  (CONS "}" NIL))))))))
- 
+
 ; htTab s == htSayStandardList(['"\tab{", s, '"}"])
- 
+
 (DEFUN |htTab| (|s|)
   (PROG () (RETURN (|htSayStandardList| (LIST "\\tab{" |s| "}")))))
- 
+
 ; dbGatherThenShow(htPage,opAlist,which,data,constructorIfTrue,word,fn) ==
 ;   which ~= '"operation" => BREAK()
 ;   single? := null rest data
@@ -1289,7 +1289,7 @@
 ;     dbShowOpSigList(which,items,(1 + bincount) * 8192)
 ;     bincount := bincount + 1
 ;   htEndMenu 'description
- 
+
 (DEFUN |dbGatherThenShow|
        (|htPage| |opAlist| |which| |data| |constructorIfTrue| |word| |fn|)
   (PROG (|single?| |bincount| |thing| |ISTMP#1| |exposeFlag| |items| |button|)
@@ -1355,7 +1355,7 @@
                  (SETQ |bfVar#34| (CDR |bfVar#34|))))
               |data| NIL)
              (|htEndMenu| '|description|)))))))
- 
+
 ; dbPresentOps(htPage, which, exclusion) ==
 ;   which ~= '"operation" => BREAK()
 ;   exclusions := [exclusion]
@@ -1427,7 +1427,7 @@
 ;          else htMakePage [['bcLinks,['"Exposed Only",'"",'dbShowOps, which,'exposureOn]]]
 ;     htSay '"}"
 ;   htEndTable()
- 
+
 (DEFUN |dbPresentOps| (|htPage| |which| |exclusion|)
   (PROG (|exclusions| |asharp?| |conname| |fromConPage?| |usage?| |star?|
          |implementation?| |rightmost?| |opAlist| |empty?| |entry| |one?|)
@@ -1577,7 +1577,7 @@
                                        '|exposureOn|))))))
                        (|htSay| "}")))
                      (|htEndTable|))))))))))
- 
+
 ; htShowPageStar() ==
 ;   htSayStandard '"\endscroll "
 ;   if $exposedOnlyIfTrue then
@@ -1585,7 +1585,7 @@
 ;   else
 ;     htMakePage [['bcLinks,['"Exposed Only",'"",'repeatSearch,'T]]]
 ;   htShowPageNoScroll()
- 
+
 (DEFUN |htShowPageStar| ()
   (PROG ()
     (RETURN
@@ -1601,7 +1601,7 @@
          (LIST
           (LIST '|bcLinks| (LIST "Exposed Only" "" '|repeatSearch| 'T))))))
       (|htShowPageNoScroll|)))))
- 
+
 ; displayDomainOp(htPage,which,origin,op,sig,predicate,
 ;                 doc,index,chooseFn,unexposed?,$generalSearch?) ==
 ;   $chooseDownCaseOfType : local := true   --see dbGetContrivedForm
@@ -1754,7 +1754,7 @@
 ;     htSayIndentRel(15)
 ;     htSaySourceFile conname
 ;     htSayIndentRel(-15)
- 
+
 (DEFUN |displayDomainOp|
        (|htPage| |which| |origin| |op| |sig| |predicate| |doc| |index|
         |chooseFn| |unexposed?| |$generalSearch?|)
@@ -2034,13 +2034,13 @@
                 (|htSayStandard| "\\tab{2}{\\em Source File:}")
                 (|htSayIndentRel| 15) (|htSaySourceFile| |conname|)
                 (|htSayIndentRel| (- 15)))))))))))
- 
+
 ; htSaySourceFile conname ==
 ;   sourceFileName := (GETDATABASE(conname,'SOURCEFILE) or '"none")
 ;   filename :=  extractFileNameFromPath sourceFileName
 ;   htMakePage [['text,'"\unixcommand{",filename,'"}{_\$FRICAS/lib/SPADEDIT ",
 ;               sourceFileName, '" ", conname, '"}"]]
- 
+
 (DEFUN |htSaySourceFile| (|conname|)
   (PROG (|sourceFileName| |filename|)
     (RETURN
@@ -2051,11 +2051,11 @@
        (LIST
         (LIST '|text| "\\unixcommand{" |filename| "}{\\$FRICAS/lib/SPADEDIT "
               |sourceFileName| " " |conname| "}")))))))
- 
+
 ; htSayIndentRel(n) == htSayIndentRel2(n, false)
- 
+
 (DEFUN |htSayIndentRel| (|n|) (PROG () (RETURN (|htSayIndentRel2| |n| NIL))))
- 
+
 ; htSayIndentRel2(n, flag) ==
 ;   m := ABS n
 ;   if flag then m := m + 2
@@ -2064,7 +2064,7 @@
 ;       flag => ['"\indent{",STRINGIMAGE m,'"}\tab{-2}"]
 ;       ['"\indent{",STRINGIMAGE m,'"}\tab{0}"]
 ;     n < 0 => ['"\indent{0}\newline "]
- 
+
 (DEFUN |htSayIndentRel2| (|n| |flag|)
   (PROG (|m|)
     (RETURN
@@ -2077,57 +2077,57 @@
          (COND (|flag| (LIST "\\indent{" (STRINGIMAGE |m|) "}\\tab{-2}"))
                ('T (LIST "\\indent{" (STRINGIMAGE |m|) "}\\tab{0}"))))
         ((MINUSP |n|) (LIST "\\indent{0}\\newline "))))))))
- 
+
 ; htSayUnexposed() ==
 ;   htSay '"{\em *}"
 ;   $atLeastOneUnexposed := true
- 
+
 (DEFUN |htSayUnexposed| ()
   (PROG ()
     (RETURN (PROGN (|htSay| "{\\em *}") (SETQ |$atLeastOneUnexposed| T)))))
- 
+
 ; htBeginTable() ==
 ;   htSayStandard '"\table{"
- 
+
 (DEFUN |htBeginTable| () (PROG () (RETURN (|htSayStandard| "\\table{"))))
- 
+
 ; htEndTable() ==
 ;   htSayStandard '"}"
- 
+
 (DEFUN |htEndTable| () (PROG () (RETURN (|htSayStandard| "}"))))
- 
+
 ; htBeginMenu(kind) ==
 ;   htSayStandard '"\beginmenu "
- 
+
 (DEFUN |htBeginMenu| (|kind|)
   (PROG () (RETURN (|htSayStandard| "\\beginmenu "))))
- 
+
 ; htEndMenu(kind) ==
 ;   htSayStandard '"\endmenu "
- 
+
 (DEFUN |htEndMenu| (|kind|) (PROG () (RETURN (|htSayStandard| "\\endmenu "))))
- 
+
 ; htSayConstructorName(nameShown, name) ==
 ;     htSayStandard ["\lispdownlink{",nameShown,'"}{(|conPage| '|",name,'"|)}"]
- 
+
 (DEFUN |htSayConstructorName| (|nameShown| |name|)
   (PROG ()
     (RETURN
      (|htSayStandard|
       (LIST '|\\lispdownlink{| |nameShown| "}{(|conPage| '|" |name| "|)}")))))
- 
+
 ; htAddHeading(title) ==
 ;   htNewPage title
 ;   page()
- 
+
 (DEFUN |htAddHeading| (|title|)
   (PROG () (RETURN (PROGN (|htNewPage| |title|) (|page|)))))
- 
+
 ; htNewPage title ==
 ;     htSayStandardList(['"\begin{page}{", htpName $curPage, '"}{"])
 ;     htSayStandard title
 ;     htSayStandard '"}"
- 
+
 (DEFUN |htNewPage| (|title|)
   (PROG ()
     (RETURN
@@ -2135,35 +2135,35 @@
       (|htSayStandardList| (LIST "\\begin{page}{" (|htpName| |$curPage|) "}{"))
       (|htSayStandard| |title|)
       (|htSayStandard| "}")))))
- 
+
 ; htBlank() ==
 ;     htSayStandard '"\space{1}"
- 
+
 (DEFUN |htBlank| () (PROG () (RETURN (|htSayStandard| "\\space{1}"))))
- 
+
 ; htBlanks(n) ==
 ;     htSayStandard STRCONC('"\space{",STRINGIMAGE n,'"}")
- 
+
 (DEFUN |htBlanks| (|n|)
   (PROG ()
     (RETURN (|htSayStandard| (STRCONC "\\space{" (STRINGIMAGE |n|) "}")))))
- 
+
 ; unTab s ==
 ;   STRINGP s => unTab1 s
 ;   atom s => s
 ;   [unTab1 first s, :rest s]
- 
+
 (DEFUN |unTab| (|s|)
   (PROG ()
     (RETURN
      (COND ((STRINGP |s|) (|unTab1| |s|)) ((ATOM |s|) |s|)
            ('T (CONS (|unTab1| (CAR |s|)) (CDR |s|)))))))
- 
+
 ; unTab1 s ==
 ;   STRING_<('"\tab{", s) = 5 and (k := charPosition(char '_}, s, 4)) =>
 ;       SUBSTRING(s, k + 1, nil)
 ;   s
- 
+
 (DEFUN |unTab1| (|s|)
   (PROG (|k|)
     (RETURN
@@ -2172,25 +2172,25 @@
             (SETQ |k| (|charPosition| (|char| '}) |s| 4)))
        (SUBSTRING |s| (+ |k| 1) NIL))
       ('T |s|)))))
- 
+
 ; satBreak() ==
 ;   htSayStandard '"\item "
- 
+
 (DEFUN |satBreak| () (PROG () (RETURN (|htSayStandard| "\\item "))))
- 
+
 ; htBigSkip() ==
 ;   htSayStandard '"\vspace{1}\newline "
- 
+
 (DEFUN |htBigSkip| ()
   (PROG () (RETURN (|htSayStandard| "\\vspace{1}\\newline "))))
- 
+
 ; satDownLink(s,code) ==
 ;   htSayStandard '"\lispdownlink{"
 ;   htSayStandard s
 ;   htSayStandard '"}{"
 ;   htSayStandard code
 ;   htSayStandard '"}"
- 
+
 (DEFUN |satDownLink| (|s| |code|)
   (PROG ()
     (RETURN
@@ -2200,14 +2200,14 @@
       (|htSayStandard| "}{")
       (|htSayStandard| |code|)
       (|htSayStandard| "}")))))
- 
+
 ; satTypeDownLink(s,code) ==
 ;   htSayStandard '"\lispdownlink{"
 ;   htSayStandard s
 ;   htSayStandard '"}{"
 ;   htSayStandard code
 ;   htSayStandard '"}"
- 
+
 (DEFUN |satTypeDownLink| (|s| |code|)
   (PROG ()
     (RETURN
@@ -2217,15 +2217,15 @@
       (|htSayStandard| "}{")
       (|htSayStandard| |code|)
       (|htSayStandard| "}")))))
- 
+
 ; mkButtonBox n == STRCONC('"\buttonbox{", STRINGIMAGE n, '"}")
- 
+
 (DEFUN |mkButtonBox| (|n|)
   (PROG () (RETURN (STRCONC "\\buttonbox{" (STRINGIMAGE |n|) "}"))))
- 
+
 ; purgeNewConstructorLines(lines, conlist) ==
 ;   [x for x in lines | not screenLocalLine(x, conlist)]
- 
+
 (DEFUN |purgeNewConstructorLines| (|lines| |conlist|)
   (PROG ()
     (RETURN
@@ -2239,7 +2239,7 @@
                 (SETQ |bfVar#46| (CONS |x| |bfVar#46|)))))
          (SETQ |bfVar#45| (CDR |bfVar#45|))))
       NIL |lines| NIL))))
- 
+
 ; screenLocalLine(line, conlist) ==
 ;   k := dbKind line
 ;   con := INTERN
@@ -2249,7 +2249,7 @@
 ;       SUBSTRING(s,1,k - 1)
 ;     dbName line
 ;   MEMQ(con, conlist)
- 
+
 (DEFUN |screenLocalLine| (|line| |conlist|)
   (PROG (|k| |s| |con|)
     (RETURN
@@ -2265,11 +2265,11 @@
                   (SUBSTRING |s| 1 (- |k| 1))))
                 ('T (|dbName| |line|)))))
       (MEMQ |con| |conlist|)))))
- 
+
 ; purgeLocalLibdb() ==   --called by the user through a clear command?
 ;   $newConstructorList := nil
 ;   deleteFile '"libdb.text"
- 
+
 (DEFUN |purgeLocalLibdb| ()
   (PROG ()
     (RETURN

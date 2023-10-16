@@ -1,8 +1,8 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; DEFPARAMETER($setOptions, '(
 ;   (breakmode
 ;    "execute break processing on error"
@@ -605,7 +605,7 @@
 ;    (interpreter compiler development)
 ;    development)
 ;  ))
- 
+
 (DEFPARAMETER |$setOptions|
   '((|breakmode| "execute break processing on error" |interpreter| LITERALS
      |$BreakMode| (|nobreak| |break| |query| |resume| |quit|) |nobreak|)
@@ -802,9 +802,9 @@
        LITERALS $PRETTYPRINT (|on| |off|) |off|)))
     (|userlevel| "operation access level of system user" |interpreter| LITERALS
      |$UserLevel| (|interpreter| |compiler| |development|) |development|)))
- 
+
 ; DEFPARAMETER($setOptionNames, [x.0 for x in $setOptions])
- 
+
 (DEFPARAMETER |$setOptionNames|
   ((LAMBDA (|bfVar#2| |bfVar#1| |x|)
      (LOOP
@@ -814,8 +814,8 @@
        ('T (SETQ |bfVar#2| (CONS (ELT |x| 0) |bfVar#2|))))
       (SETQ |bfVar#1| (CDR |bfVar#1|))))
    NIL |$setOptions| NIL))
- 
+
 ; initializeSetVariables $setOptions
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (PROG () (RETURN (|initializeSetVariables| |$setOptions|))))

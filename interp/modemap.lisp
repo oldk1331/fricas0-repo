@@ -1,8 +1,8 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; addDomain(domain,e) ==
 ;   atom domain =>
 ;     EQ(domain,"$EmptyMode") => e
@@ -22,7 +22,7 @@
 ;     not member(name,'(Mapping CATEGORY)) then
 ;       unknownTypeError name
 ;   e        --is not a functor
- 
+
 (DEFUN |addDomain| (|domain| |e|)
   (PROG (|s| |name| |ISTMP#1| |ISTMP#2| |target|)
     (RETURN
@@ -59,9 +59,9 @@
                (NULL (|member| |name| '(|Mapping| CATEGORY))))
           (|unknownTypeError| |name|)))
         |e|))))))
- 
+
 ; domainMember(dom,domList) == or/[modeEqual(dom,d) for d in domList]
- 
+
 (DEFUN |domainMember| (|dom| |domList|)
   (PROG ()
     (RETURN
@@ -76,12 +76,12 @@
             (COND (|bfVar#2| (RETURN |bfVar#2|))))))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       NIL |domList| NIL))))
- 
+
 ; getModemapList(op,numOfArgs,e) ==
 ;   op is ['Sel, D, op'] => getModemapListFromDomain(op', numOfArgs, D, e)
 ;   [mm for
 ;     (mm:= [[.,.,:sigl],:.]) in get(op,'modemap,e) | numOfArgs=#sigl]
- 
+
 (DEFUN |getModemapList| (|op| |numOfArgs| |e|)
   (PROG (|ISTMP#1| D |ISTMP#2| |op'| |sigl|)
     (RETURN
@@ -115,12 +115,12 @@
                   (SETQ |bfVar#4| (CONS |mm| |bfVar#4|)))))
            (SETQ |bfVar#3| (CDR |bfVar#3|))))
         NIL (|get| |op| '|modemap| |e|) NIL))))))
- 
+
 ; getModemapListFromDomain(op,numOfArgs,D,e) ==
 ;   [mm
 ;     for (mm:= [[dc,:sig],:.]) in get(op,'modemap,e) | dc=D and #rest sig=
 ;       numOfArgs]
- 
+
 (DEFUN |getModemapListFromDomain| (|op| |numOfArgs| D |e|)
   (PROG (|ISTMP#1| |dc| |sig|)
     (RETURN
@@ -142,7 +142,7 @@
                 (SETQ |bfVar#6| (CONS |mm| |bfVar#6|)))))
          (SETQ |bfVar#5| (CDR |bfVar#5|))))
       NIL (|get| |op| '|modemap| |e|) NIL))))
- 
+
 ; addModemapKnown(op, mc, sig, pred, fn, e) ==
 ; --  if knownInfo pred then pred:=true
 ; --  that line is handled elsewhere
@@ -151,7 +151,7 @@
 ;       addModemap0(op,mc,sig,pred,fn,$CapsuleModemapFrame)
 ;     e
 ;   addModemap0(op, mc, sig, pred, fn, e)
- 
+
 (DEFUN |addModemapKnown| (|op| |mc| |sig| |pred| |fn| |e|)
   (PROG ()
     (RETURN
@@ -163,14 +163,14 @@
                  |$CapsuleModemapFrame|))
         |e|))
       ('T (|addModemap0| |op| |mc| |sig| |pred| |fn| |e|))))))
- 
+
 ; addModemap0(op,mc,sig,pred,fn,e) ==
 ;   --mc is the "mode of computation"; fn the "implementation"
 ;   $functorForm is ['CategoryDefaults,:.] and mc="$" => e
 ;     --don't put CD modemaps into environment
 ;   op = 'elt or op = "setelt!" => addEltModemap(op, mc, sig, pred, fn, e)
 ;   addModemap1(op,mc,sig,pred,fn,e)
- 
+
 (DEFUN |addModemap0| (|op| |mc| |sig| |pred| |fn| |e|)
   (PROG ()
     (RETURN
@@ -181,7 +181,7 @@
       ((OR (EQ |op| '|elt|) (EQ |op| '|setelt!|))
        (|addEltModemap| |op| |mc| |sig| |pred| |fn| |e|))
       ('T (|addModemap1| |op| |mc| |sig| |pred| |fn| |e|))))))
- 
+
 ; addEltModemap(op,mc,sig,pred,fn,e) ==
 ;    --hack to change selectors from strings to identifiers; and to
 ;    --add flag identifiers as literals in the envir
@@ -200,7 +200,7 @@
 ;     -- atom sel => systemError '"addEltModemap"
 ;     addModemap1(op,mc,sig,pred,fn,e)
 ;   systemErrorHere '"addEltModemap"
- 
+
 (DEFUN |addEltModemap| (|op| |mc| |sig| |pred| |fn| |e|)
   (PROG (|ISTMP#1| |sel| |lt| |id| |v| |ISTMP#2|)
     (RETURN
@@ -240,7 +240,7 @@
            |pred| |fn| |e|)))
         (#1# (|addModemap1| |op| |mc| |sig| |pred| |fn| |e|))))
       (#1# (|systemErrorHere| "addEltModemap"))))))
- 
+
 ; addModemap1(op,mc,sig,pred,fn,e) ==
 ;    --mc is the "mode of computation"; fn the "implementation"
 ;   if mc='Rep then
@@ -255,7 +255,7 @@
 ;   unErrorRef op
 ;         --There may have been a warning about op having no value
 ;   addBinding(op, newProplist, e)
- 
+
 (DEFUN |addModemap1| (|op| |mc| |sig| |pred| |fn| |e|)
   (PROG (|currentProplist| |newModemapList| |newProplist|)
     (RETURN
@@ -269,7 +269,7 @@
               (|augProplist| |currentProplist| '|modemap| |newModemapList|))
       (|unErrorRef| |op|)
       (|addBinding| |op| |newProplist| |e|)))))
- 
+
 ; mkNewModemapList(mc,sig,pred,fn,curModemapList,e,filenameOrNil) ==
 ;   entry:= [map:= [mc,:sig],[pred,fn],:filenameOrNil]
 ;   member(entry,curModemapList) => curModemapList
@@ -278,11 +278,11 @@
 ;     opred=true => curModemapList
 ;     if pred~=true and pred~=opred then pred:= ["OR",pred,opred]
 ;     [if x=oldMap then [map,[pred,fn],:filenameOrNil] else x
-; 
+;
 ;   --if new modemap less general, put at end; otherwise, at front
 ;       for x in curModemapList]
 ;   mergeModemap(entry,curModemapList,e)
- 
+
 (DEFUN |mkNewModemapList|
        (|mc| |sig| |pred| |fn| |curModemapList| |e| |filenameOrNil|)
   (PROG (|map| |entry| |oldMap| |ISTMP#1| |ISTMP#2| |opred| |ISTMP#3|)
@@ -332,7 +332,7 @@
                          (SETQ |bfVar#7| (CDR |bfVar#7|))))
                       NIL |curModemapList| NIL)))))
             (#1# (|mergeModemap| |entry| |curModemapList| |e|)))))))
- 
+
 ; mergeModemap(entry is [[mc,:sig],[pred,:.],:.],modemapList,e) ==
 ;   for (mmtail:= [[[mc',:sig'],[pred',:.],:.],:.]) in tails modemapList repeat
 ;     mc=mc' or isSuperDomain(mc',mc,e) =>
@@ -351,7 +351,7 @@
 ;       entry:= nil
 ;       return modemapList
 ;   if entry then [:modemapList,entry] else modemapList
- 
+
 (DEFUN |mergeModemap| (|entry| |modemapList| |e|)
   (PROG (|mc| |sig| |pred| |ISTMP#1| |ISTMP#2| |mc'| |sig'| |ISTMP#3| |ISTMP#4|
          |pred'| |newmm| |mm|)
@@ -416,12 +416,12 @@
        |modemapList|)
       (COND (|entry| (APPEND |modemapList| (CONS |entry| NIL)))
             (#2# |modemapList|))))))
- 
+
 ; isSuperDomain(domainForm,domainForm',e) ==
 ;   isSubset(domainForm',domainForm,e) => true
 ;   domainForm='Rep and domainForm'="$" => true --regard $ as a subdomain of Rep
 ;   LASSOC(opOf domainForm',get(domainForm,"SubDomain",e))
- 
+
 (DEFUN |isSuperDomain| (|domainForm| |domainForm'| |e|)
   (PROG ()
     (RETURN
@@ -430,13 +430,13 @@
            ('T
             (LASSOC (|opOf| |domainForm'|)
              (|get| |domainForm| '|SubDomain| |e|)))))))
- 
+
 ; addNewDomain(domain,e) ==
 ;   augModemapsFromDomain(domain,domain,e)
- 
+
 (DEFUN |addNewDomain| (|domain| |e|)
   (PROG () (RETURN (|augModemapsFromDomain| |domain| |domain| |e|))))
- 
+
 ; augModemapsFromDomain(name,functorForm,e) ==
 ;   member(IFCAR name or name, $DummyFunctorNames) => e
 ;   name = $Category or isCategoryForm(name) => e
@@ -448,7 +448,7 @@
 ;   if name is ["Union",:dl] then for d in stripUnionTags dl
 ;                          repeat e:= addDomain(d,e)
 ;   augModemapsFromDomain1(name,functorForm,e)
- 
+
 (DEFUN |augModemapsFromDomain| (|name| |functorForm| |e|)
   (PROG (|u| |innerDom| |dl|)
     (RETURN
@@ -476,12 +476,12 @@
                    (SETQ |bfVar#9| (CDR |bfVar#9|))))
                 (|stripUnionTags| |dl|) NIL)))
              (|augModemapsFromDomain1| |name| |functorForm| |e|)))))))
- 
+
 ; substituteCategoryArguments(argl,catform) ==
 ;   argl:= substitute("$$","$",argl)
 ;   arglAssoc := [[INTERNL1("#", STRINGIMAGE i), :a] for i in 1.. for a in argl]
 ;   SUBLIS(arglAssoc,catform)
- 
+
 (DEFUN |substituteCategoryArguments| (|argl| |catform|)
   (PROG (|arglAssoc|)
     (RETURN
@@ -502,7 +502,7 @@
                   (SETQ |bfVar#10| (CDR |bfVar#10|))))
                NIL 1 |argl| NIL))
       (SUBLIS |arglAssoc| |catform|)))))
- 
+
 ; augModemapsFromCategory(domainName,domainView,functorForm,categoryForm,e) ==
 ;   [fnAlist,e]:= evalAndSub(domainName,domainView,functorForm,categoryForm,e)
 ;   compilerMessage ["Adding ",domainName," modemaps"]
@@ -511,7 +511,7 @@
 ;   for [[op,sig,:.],cond,fnsel] in fnAlist repeat
 ;       e:= addModemapKnown(op,domainName,sig,cond,fnsel,e)
 ;   e
- 
+
 (DEFUN |augModemapsFromCategory|
        (|domainName| |domainView| |functorForm| |categoryForm| |e|)
   (PROG (|LETTMP#1| |fnAlist| |condlist| |ISTMP#1| |op| |ISTMP#2| |sig|
@@ -556,7 +556,7 @@
           (SETQ |bfVar#13| (CDR |bfVar#13|))))
        |fnAlist| NIL)
       |e|))))
- 
+
 ; evalAndSub(domainName, viewName, functorForm, form, e) ==
 ;   $tmp_e : local := e
 ;   --next lines necessary-- see MPOLY for which $ is actual arg. --- RDJ 3/83
@@ -566,7 +566,7 @@
 ;   opAlist:= getOperationAlist(domainName,functorForm,form)
 ;   substAlist:= substNames(domainName,viewName,functorForm,opAlist)
 ;   [substAlist, $tmp_e]
- 
+
 (DEFUN |evalAndSub| (|domainName| |viewName| |functorForm| |form| |e|)
   (PROG (|$tmp_e| |substAlist| |opAlist|)
     (DECLARE (SPECIAL |$tmp_e|))
@@ -581,7 +581,7 @@
       (SETQ |substAlist|
               (|substNames| |domainName| |viewName| |functorForm| |opAlist|))
       (LIST |substAlist| |$tmp_e|)))))
- 
+
 ; getOperationAlist(name,functorForm,form) ==
 ;   if atom name and GETDATABASE(name,'NILADIC) then functorForm:= [functorForm]
 ;   (u:= isFunctor functorForm) and not
@@ -591,7 +591,7 @@
 ;   T := compMakeCategoryObject(form, $tmp_e) =>
 ;       ([., ., $tmp_e] := T; T.expr.(1))
 ;   stackMessage ["not a category form: ",form]
- 
+
 (DEFUN |getOperationAlist| (|name| |functorForm| |form|)
   (PROG (|u| T$)
     (RETURN
@@ -611,13 +611,13 @@
        ((SETQ T$ (|compMakeCategoryObject| |form| |$tmp_e|))
         (PROGN (SETQ |$tmp_e| (CADDR T$)) (ELT (CAR T$) 1)))
        (#1# (|stackMessage| (LIST '|not a category form: | |form|))))))))
- 
+
 ; substNames(domainName,viewName,functorForm,opalist) ==
 ;   functorForm := SUBSTQ("$$","$", functorForm)
 ;   nameForDollar :=
 ;     isCategoryPackageName functorForm => CADR functorForm
 ;     domainName
-; 
+;
 ;        -- following calls to SUBSTQ must copy to save RPLAC's in
 ;        -- putInLocalDomainReferences
 ;   [[:SUBSTQ("$","$$",SUBSTQ(nameForDollar,"$",modemapform)),
@@ -625,7 +625,7 @@
 ;                                          CADAR modemapform]]
 ;      for [:modemapform,[sel,"$",pos]] in
 ;           EQSUBSTLIST(IFCDR functorForm, $FormalMapVariableList, opalist)]
- 
+
 (DEFUN |substNames| (|domainName| |viewName| |functorForm| |opalist|)
   (PROG (|nameForDollar| |ISTMP#1| |ISTMP#2| |sel| |ISTMP#3| |ISTMP#4| |pos|
          |modemapform|)
@@ -676,7 +676,7 @@
        NIL
        (EQSUBSTLIST (IFCDR |functorForm|) |$FormalMapVariableList| |opalist|)
        NIL)))))
- 
+
 ; compCat(form is [functorName,:argl],m,e) ==
 ;   fn := get_oplist_maker(functorName) or return nil
 ;   [funList,e]:= FUNCALL(fn,form,form,e)
@@ -686,7 +686,7 @@
 ;   --RDJ: for coercion purposes, it necessary to know it's a Set; I'm not
 ;   --sure if it uses any of the other signatures(see extendsCategoryForm)
 ;   [form,catForm,e]
- 
+
 (DEFUN |compCat| (|form| |m| |e|)
   (PROG (|functorName| |argl| |fn| |LETTMP#1| |funList| |op| |ISTMP#1| |sig|
          |ISTMP#2| |catForm|)
@@ -732,7 +732,7 @@
                                     (SETQ |bfVar#18| (CDR |bfVar#18|))))
                                  NIL |funList| NIL)))))
       (LIST |form| |catForm| |e|)))))
- 
+
 ; addModemap(op, mc, sig, pred, fn, e) ==
 ;     $InteractiveMode => e
 ;     if known_info_in_env(pred, e) then pred := true
@@ -741,7 +741,7 @@
 ;           addModemap0(op, mc, sig, pred, fn, $CapsuleModemapFrame)
 ;         e
 ;     addModemap0(op, mc, sig, pred, fn, e)
- 
+
 (DEFUN |addModemap| (|op| |mc| |sig| |pred| |fn| |e|)
   (PROG ()
     (RETURN
@@ -757,7 +757,7 @@
                          |$CapsuleModemapFrame|))
                 |e|))
               (#1# (|addModemap0| |op| |mc| |sig| |pred| |fn| |e|)))))))))
- 
+
 ; add_builtin_modemaps(name,form is [functorName,:.],e) ==
 ;   $InteractiveMode => BREAK()
 ;   e:= putDomainsInScope(name,e) --frame
@@ -770,7 +770,7 @@
 ;           opcode := [sel,dc,nsig]
 ;     e:= addModemap(op,name,sig,true,opcode,e)
 ;   e
- 
+
 (DEFUN |add_builtin_modemaps| (|name| |form| |e|)
   (PROG (|functorName| |fn| |LETTMP#1| |funList| |op| |ISTMP#1| |sig| |ISTMP#2|
          |opcode| |sel| |dc| |n| |nsig|)
@@ -831,24 +831,24 @@
                   (SETQ |bfVar#21| (CDR |bfVar#21|))))
                |funList| NIL)
               |e|)))))))
- 
+
 ; getDomainsInScope e ==
 ;   $insideCapsuleFunctionIfTrue=true => $CapsuleDomainsInScope
 ;   get("$DomainsInScope","special",e)
- 
+
 (DEFUN |getDomainsInScope| (|e|)
   (PROG ()
     (RETURN
      (COND ((EQUAL |$insideCapsuleFunctionIfTrue| T) |$CapsuleDomainsInScope|)
            ('T (|get| '|$DomainsInScope| '|special| |e|))))))
- 
+
 ; putDomainsInScope(x,e) ==
 ;   l:= getDomainsInScope e
 ;   if member(x,l) then SAY("****** Domain: ",x," already in scope")
 ;   newValue:= [x,:delete(x,l)]
 ;   $insideCapsuleFunctionIfTrue => ($CapsuleDomainsInScope:= newValue; e)
 ;   put("$DomainsInScope","special",newValue,e)
- 
+
 (DEFUN |putDomainsInScope| (|x| |e|)
   (PROG (|l| |newValue|)
     (RETURN

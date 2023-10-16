@@ -1,8 +1,8 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; makeLongStatStringByProperty _
 ;  (listofnames, listofclasses, property, classproperty, units, flag) ==
 ;   total := 0
@@ -40,7 +40,7 @@
 ;   total := STRCONC(normalizeStatAndStringify total,'" ", units)
 ;   str = '"" =>  total
 ;   STRCONC(str, '" = ", total)
- 
+
 (DEFUN |makeLongStatStringByProperty|
        (|listofnames| |listofclasses| |property| |classproperty| |units|
         |flag|)
@@ -129,7 +129,7 @@
       (SETQ |total|
               (STRCONC (|normalizeStatAndStringify| |total|) " " |units|))
       (COND ((EQUAL |str| "") |total|) (#1# (STRCONC |str| " = " |total|)))))))
- 
+
 ; normalizeStatAndStringify t ==
 ;   FLOATP t =>
 ;       t := roundStat t
@@ -142,7 +142,7 @@
 ;       t > 9*K => CONCAT(STRINGIMAGE((t + 512)/K),   '"K")
 ;       STRINGIMAGE t
 ;   STRINGIMAGE t
- 
+
 (DEFUN |normalizeStatAndStringify| (|t|)
   (PROG (K M)
     (RETURN
@@ -160,33 +160,33 @@
          ((< (* 9 K) |t|) (CONCAT (STRINGIMAGE (/ (+ |t| 512) K)) "K"))
          (#1# (STRINGIMAGE |t|)))))
       (#1# (STRINGIMAGE |t|))))))
- 
+
 ; significantStat t ==
 ;    FLOATP t => (t > 0.01)
 ;    INTEGERP  t => (t > 100)
 ;    true
- 
+
 (DEFUN |significantStat| (|t|)
   (PROG ()
     (RETURN
      (COND ((FLOATP |t|) (< 0.01 |t|)) ((INTEGERP |t|) (< 100 |t|)) ('T T)))))
- 
+
 ; roundStat t ==
 ;   not FLOATP t => t
 ;   (TRUNCATE (0.5 + t * 1000.0)) / 1000.0
- 
+
 (DEFUN |roundStat| (|t|)
   (PROG ()
     (RETURN
      (COND ((NULL (FLOATP |t|)) |t|)
            ('T (/ (TRUNCATE (+ 0.5 (* |t| 1000.0))) 1000.0))))))
- 
+
 ; makeStatString(oldstr,time,abb,flag) ==
 ;   time = '"" => oldstr
 ;   opening := (flag = 'long => '"("; '" (")
 ;   oldstr = '"" => STRCONC(time,opening,abb,'")")
 ;   STRCONC(oldstr,'" + ",time,opening,abb,'")")
- 
+
 (DEFUN |makeStatString| (|oldstr| |time| |abb| |flag|)
   (PROG (|opening|)
     (RETURN
@@ -197,16 +197,16 @@
              (COND ((EQUAL |oldstr| "") (STRCONC |time| |opening| |abb| ")"))
                    (#1#
                     (STRCONC |oldstr| " + " |time| |opening| |abb| ")")))))))))
- 
+
 ; peekTimedName() == IFCAR $timedNameStack
- 
+
 (DEFUN |peekTimedName| () (PROG () (RETURN (IFCAR |$timedNameStack|))))
- 
+
 ; popTimedName() ==
 ;   name := IFCAR $timedNameStack
 ;   $timedNameStack := IFCDR $timedNameStack
 ;   name
- 
+
 (DEFUN |popTimedName| ()
   (PROG (|name|)
     (RETURN
@@ -214,18 +214,18 @@
       (SETQ |name| (IFCAR |$timedNameStack|))
       (SETQ |$timedNameStack| (IFCDR |$timedNameStack|))
       |name|))))
- 
+
 ; pushTimedName name ==
 ;   PUSH(name,$timedNameStack)
- 
+
 (DEFUN |pushTimedName| (|name|)
   (PROG () (RETURN (PUSH |name| |$timedNameStack|))))
- 
+
 ; startTimingProcess name ==
 ;   updateTimedName peekTimedName()
 ;   pushTimedName name
 ;   if EQ(name, 'load) then          statRecordLoadEvent()
- 
+
 (DEFUN |startTimingProcess| (|name|)
   (PROG ()
     (RETURN
@@ -233,13 +233,13 @@
       (|updateTimedName| (|peekTimedName|))
       (|pushTimedName| |name|)
       (COND ((EQ |name| '|load|) (|statRecordLoadEvent|)))))))
- 
+
 ; stopTimingProcess name ==
 ;   (name ~= peekTimedName()) and null $InteractiveMode =>
 ;     keyedSystemError("S2GL0015",[name,peekTimedName()])
 ;   updateTimedName peekTimedName()
 ;   popTimedName()
- 
+
 (DEFUN |stopTimingProcess| (|name|)
   (PROG ()
     (RETURN
@@ -247,27 +247,27 @@
       ((AND (NOT (EQUAL |name| (|peekTimedName|))) (NULL |$InteractiveMode|))
        (|keyedSystemError| 'S2GL0015 (LIST |name| (|peekTimedName|))))
       ('T (PROGN (|updateTimedName| (|peekTimedName|)) (|popTimedName|)))))))
- 
+
 ; DEFPARAMETER($oldElapsedSpace, 0)
- 
+
 (DEFPARAMETER |$oldElapsedSpace| 0)
- 
+
 ; DEFPARAMETER($oldElapsedGCTime, 0.0)
- 
+
 (DEFPARAMETER |$oldElapsedGCTime| 0.0)
- 
+
 ; DEFPARAMETER($oldElapsedTime, 0.0)
- 
+
 (DEFPARAMETER |$oldElapsedTime| 0.0)
- 
+
 ; DEFPARAMETER($gcTimeTotal, 0.0)
- 
+
 (DEFPARAMETER |$gcTimeTotal| 0.0)
- 
+
 ; DEFPARAMETER($timedNameStack, '(other))
- 
+
 (DEFPARAMETER |$timedNameStack| '(|other|))
- 
+
 ; DEFPARAMETER($interpreterTimedNames, '(
 ; -- name         class abbrev
 ;   (algebra        2 .   B) _
@@ -287,14 +287,14 @@
 ;   (diskread       3 .   K) _
 ;   (resolve        1 .   R) _
 ;   ))
- 
+
 (DEFPARAMETER |$interpreterTimedNames|
   '((|algebra| 2 . B) (|analysis| 1 . A) (|coercion| 1 . C)
     (|compilation| 3 . T) (|debug| 3 . D) (|evaluation| 2 . E) (|gc| 4 . G)
     (|history| 3 . H) (|instantiation| 3 . I) (|load| 3 . L) (|modemaps| 1 . M)
     (|optimization| 3 . Z) (|querycoerce| 1 . Q) (|other| 3 . O)
     (|diskread| 3 . K) (|resolve| 1 . R)))
- 
+
 ; DEFPARAMETER($interpreterTimedClasses, '(
 ; -- number class name    short name
 ;   ( 1    interpreter     .  IN) _
@@ -302,11 +302,11 @@
 ;   ( 3    other           .  OT) _
 ;   ( 4    reclaim         .  GC) _
 ;   ))
- 
+
 (DEFPARAMETER |$interpreterTimedClasses|
   '((1 |interpreter| . IN) (2 |evaluation| . EV) (3 |other| . OT)
     (4 |reclaim| . GC)))
- 
+
 ; initializeTimedNames(listofnames,listofclasses) ==
 ;   for [name,:.] in listofnames repeat
 ;     PUT(name, 'TimeTotal, 0.0)
@@ -319,7 +319,7 @@
 ;   PUT('gc, 'TimeTotal, 0.0)
 ;   PUT('gc, 'SpaceTotal,  0)
 ;   NIL
- 
+
 (DEFUN |initializeTimedNames| (|listofnames| |listofclasses|)
   (PROG (|name| |ISTMP#1|)
     (RETURN
@@ -357,11 +357,11 @@
       (PUT '|gc| '|TimeTotal| 0.0)
       (PUT '|gc| '|SpaceTotal| 0)
       NIL))))
- 
+
 ; updateTimedName name ==
 ;   count := (GET(name, 'TimeTotal) or 0) + computeElapsedTime()
 ;   PUT(name, 'TimeTotal, count)
- 
+
 (DEFUN |updateTimedName| (|name|)
   (PROG (|count|)
     (RETURN
@@ -369,33 +369,33 @@
       (SETQ |count|
               (+ (OR (GET |name| '|TimeTotal|) 0) (|computeElapsedTime|)))
       (PUT |name| '|TimeTotal| |count|)))))
- 
+
 ; makeLongTimeString(listofnames,listofclasses) ==
 ;   makeLongStatStringByProperty(listofnames, listofclasses,  _
 ;                                'TimeTotal, 'ClassTimeTotal, _
 ;                                '"sec", $printTimeIfTrue)
- 
+
 (DEFUN |makeLongTimeString| (|listofnames| |listofclasses|)
   (PROG ()
     (RETURN
      (|makeLongStatStringByProperty| |listofnames| |listofclasses| '|TimeTotal|
       '|ClassTimeTotal| "sec" |$printTimeIfTrue|))))
- 
+
 ; makeLongSpaceString(listofnames,listofclasses) ==
 ;   makeLongStatStringByProperty(listofnames, listofclasses,    _
 ;                                'SpaceTotal, 'ClassSpaceTotal, _
 ;                                '"bytes", $printStorageIfTrue)
- 
+
 (DEFUN |makeLongSpaceString| (|listofnames| |listofclasses|)
   (PROG ()
     (RETURN
      (|makeLongStatStringByProperty| |listofnames| |listofclasses|
       '|SpaceTotal| '|ClassSpaceTotal| "bytes" |$printStorageIfTrue|))))
- 
+
 ; DEFPARAMETER($inverseTimerTicksPerSecond, 1.0/$timerTicksPerSecond)
- 
+
 (DEFPARAMETER |$inverseTimerTicksPerSecond| (/ 1.0 |$timerTicksPerSecond|))
- 
+
 ; computeElapsedTime() ==
 ;   -- in total time lists, CAR is VIRTCPU and CADR is TOTCPU
 ;   currentTime:= elapsedUserTime()
@@ -408,7 +408,7 @@
 ;   $oldElapsedTime := currentTime
 ;   $oldElapsedGCTime := currentGCTime
 ;   elapsedSeconds
- 
+
 (DEFUN |computeElapsedTime| ()
   (PROG (|elapsedSeconds| |gcDelta| |currentGCTime| |currentTime|)
     (RETURN
@@ -425,13 +425,13 @@
       (SETQ |$oldElapsedTime| |currentTime|)
       (SETQ |$oldElapsedGCTime| |currentGCTime|)
       |elapsedSeconds|))))
- 
+
 ; computeElapsedSpace() ==
 ;   currentElapsedSpace := HEAPELAPSED()
 ;   elapsedBytes := currentElapsedSpace - $oldElapsedSpace
 ;   $oldElapsedSpace := currentElapsedSpace
 ;   elapsedBytes
- 
+
 (DEFUN |computeElapsedSpace| ()
   (PROG (|elapsedBytes| |currentElapsedSpace|)
     (RETURN
@@ -440,13 +440,13 @@
       (SETQ |elapsedBytes| (- |currentElapsedSpace| |$oldElapsedSpace|))
       (SETQ |$oldElapsedSpace| |currentElapsedSpace|)
       |elapsedBytes|))))
- 
+
 ; timedAlgebraEvaluation(code) ==
 ;   startTimingProcess 'algebra
 ;   r := eval code
 ;   stopTimingProcess 'algebra
 ;   r
- 
+
 (DEFUN |timedAlgebraEvaluation| (|code|)
   (PROG (|r|)
     (RETURN
@@ -455,7 +455,7 @@
       (SETQ |r| (|eval| |code|))
       (|stopTimingProcess| '|algebra|)
       |r|))))
- 
+
 ; timedOptimization(code) ==
 ;   startTimingProcess 'optimization
 ;   r := lispize code
@@ -464,7 +464,7 @@
 ;     pp r
 ;   stopTimingProcess 'optimization
 ;   r
- 
+
 (DEFUN |timedOptimization| (|code|)
   (PROG (|r|)
     (RETURN
@@ -476,13 +476,13 @@
         (|sayBrightlyI| (|bright| "Optimized LISP code:")) (|pp| |r|)))
       (|stopTimingProcess| '|optimization|)
       |r|))))
- 
+
 ; timedEVALFUN(code) ==
 ;   startTimingProcess 'evaluation
 ;   r := timedEvaluate code
 ;   stopTimingProcess 'evaluation
 ;   r
- 
+
 (DEFUN |timedEVALFUN| (|code|)
   (PROG (|r|)
     (RETURN
@@ -491,12 +491,12 @@
       (SETQ |r| (|timedEvaluate| |code|))
       (|stopTimingProcess| '|evaluation|)
       |r|))))
- 
+
 ; timedEvaluate code ==
 ;   code is ["LIST",:a] and #a > 200 =>
 ;     "append"/[eval ["LIST",:x] for x in splitIntoBlocksOf200 a]
 ;   eval code
- 
+
 (DEFUN |timedEvaluate| (|code|)
   (PROG (|a|)
     (RETURN
@@ -513,23 +513,23 @@
            (SETQ |bfVar#9| (CDR |bfVar#9|))))
         NIL (|splitIntoBlocksOf200| |a|) NIL))
       (#1# (|eval| |code|))))))
- 
+
 ; displayHeapStatsIfWanted() ==
 ;    $printStorageIfTrue => sayBrightly OLDHEAPSTATS()
- 
+
 (DEFUN |displayHeapStatsIfWanted| ()
   (PROG ()
     (RETURN
      (COND (|$printStorageIfTrue| (IDENTITY (|sayBrightly| (OLDHEAPSTATS))))))))
- 
+
 ; statRecordInstantiationEvent() == nil
- 
+
 (DEFUN |statRecordInstantiationEvent| () (PROG () (RETURN NIL)))
- 
+
 ; statRecordLoadEvent()          == nil
- 
+
 (DEFUN |statRecordLoadEvent| () (PROG () (RETURN NIL)))
- 
+
 ; statisticsSummary()  == '"No statistics available."
- 
+
 (DEFUN |statisticsSummary| () (PROG () (RETURN "No statistics available.")))

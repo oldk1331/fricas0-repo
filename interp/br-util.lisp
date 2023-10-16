@@ -1,104 +1,104 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; browserAutoloadOnceTrigger() == nil
- 
+
 (DEFUN |browserAutoloadOnceTrigger| () (PROG () (RETURN NIL)))
- 
+
 ; $includeUnexposed? := true   --default setting
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$includeUnexposed?| T))
- 
+
 ; $tick := char '_`            --field separator for database files
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$tick| (|char| '|`|)))
- 
+
 ; $charUnderscore := ('__)     --needed because of parser bug
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$charUnderscore| '_))
- 
+
 ; $wild1 := '"[^`]*"           --phrase used to convert keys to grep strings
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$wild1| "[^`]*"))
- 
+
 ; $browseCountThreshold := 10  --the maximum number of names that will display
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$browseCountThreshold| 10))
- 
+
 ; $opDescriptionThreshold := 4 --if <= 4 operations with unique name, give desc
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$opDescriptionThreshold| 4))
- 
+
 ; $browseMixedCase := true     --distinquish case in the browser?
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$browseMixedCase| T))
- 
+
 ; $docTable := nil             --cache for documentation table
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$docTable| NIL))
- 
+
 ; $conArgstrings := nil        --bound by conPage so that kPage
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$conArgstrings| NIL))
- 
+
 ; $conformsAreDomains  := false     --are all arguments of a constructor given?
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$conformsAreDomains| NIL))
- 
+
 ; $returnNowhereFromGoGet := false  --special branch out for goget for browser
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$returnNowhereFromGoGet| NIL))
- 
+
 ; $dbDataFunctionAlist := nil       --set by dbGatherData
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$dbDataFunctionAlist| NIL))
- 
+
 ; $domain   := nil             --bound in koOps
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$domain| NIL))
- 
+
 ; $infovec  := nil             --bound in koOps
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$infovec| NIL))
- 
+
 ; $predvec  := nil             --bound in koOps
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$predvec| NIL))
- 
+
 ; $exposedOnlyIfTrue := nil    --see repeatSearch, dbShowOps, dbShowCon
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$exposedOnlyIfTrue| NIL))
- 
+
 ; $bcMultipleNames := nil      --see bcNameConTable
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$bcMultipleNames| NIL))
- 
+
 ; $docTableHash := MAKE_HASHTABLE('EQUAL)  --see dbExpandOpAlistIfNecessary
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$docTableHash| (MAKE_HASHTABLE 'EQUAL)))
- 
+
 ; $groupChoice := nil  --see dbShowOperationsFromConform
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$groupChoice| NIL))
- 
+
 ; $pmFilterDelimiters := [char '_(,char '_),char '_ ]
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$pmFilterDelimiters| (LIST (|char| '|(|) (|char| '|)|) (|char| '| |))))
- 
+
 ; $dbKindAlist :=
 ;   [[char 'o, :'"operation"],
 ;     [char 'd,:'"domain"],[char 'p,:'"package"],
 ;       [char 'c,:'"category"],[char 'x,:'"default_ package"]]
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$dbKindAlist|
           (LIST (CONS (|char| '|o|) "operation") (CONS (|char| '|d|) "domain")
                 (CONS (|char| '|p|) "package") (CONS (|char| '|c|) "category")
                 (CONS (|char| '|x|) "default package"))))
- 
+
 ; $OpViewTable := '(
 ;   (names           "Name"      "Names"           dbShowOpNames)
 ;   (documentation   "Name"      "Names"           dbShowOpDocumentation)
@@ -108,7 +108,7 @@
 ;   (origins         "Origin"    "Origins"         dbShowOpOrigins)
 ;   (implementation  nil         "Implementation Domains" dbShowOpImplementations)
 ;   (conditions      "Condition" "Conditions"      dbShowOpConditions))
- 
+
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$OpViewTable|
           '((|names| "Name" "Names" |dbShowOpNames|)
@@ -120,24 +120,24 @@
             (|implementation| |nil| "Implementation Domains"
              |dbShowOpImplementations|)
             (|conditions| "Condition" "Conditions" |dbShowOpConditions|))))
- 
+
 ; bcBlankLine() == bcHt '"\vspace{1}\newline "
- 
+
 (DEFUN |bcBlankLine| () (PROG () (RETURN (|bcHt| "\\vspace{1}\\newline "))))
- 
+
 ; pluralize k ==
 ;   k = '"child" => '"children"
 ;   k = '"category" => '"categories"
 ;   k = '"entry" => '"entries"
 ;   STRCONC(k,'"s")
- 
+
 (DEFUN |pluralize| (|k|)
   (PROG ()
     (RETURN
      (COND ((EQUAL |k| "child") "children")
            ((EQUAL |k| "category") "categories")
            ((EQUAL |k| "entry") "entries") ('T (STRCONC |k| "s"))))))
- 
+
 ; capitalize s ==
 ;   LASSOC(s,'( _
 ;       ("domain"   . "Domain") _
@@ -147,7 +147,7 @@
 ;     res := COPY_-SEQ s
 ;     SETELT(res,0,UPCASE res.0)
 ;     res
- 
+
 (DEFUN |capitalize| (|s|)
   (PROG (|res|)
     (RETURN
@@ -159,7 +159,7 @@
        (SETQ |res| (COPY-SEQ |s|))
        (SETELT |res| 0 (UPCASE (ELT |res| 0)))
        |res|)))))
- 
+
 ; escapeSpecialIds u ==   --very expensive function
 ;   x := LASSOC(u,$htCharAlist) => [x]
 ;   #u = 1 =>
@@ -169,7 +169,7 @@
 ;   or/[c = char y for y in $htSpecialChars] =>
 ;     [CONCAT('"_\",u)]
 ;   [u]
- 
+
 (DEFUN |escapeSpecialIds| (|u|)
   (PROG (|x| |c|)
     (RETURN
@@ -195,7 +195,7 @@
                 NIL |$htSpecialChars| NIL)
                (LIST (CONCAT "\\" |u|)))
               (#1# (LIST |u|)))))))))
- 
+
 ; escapeString com ==   --this makes changes on single comment lines
 ; -- was htexCom
 ;   look := 0
@@ -206,7 +206,7 @@
 ;       com := RPLACSTR (com,look,0,'"\")  --note RPLACSTR copies!!!
 ;       look := look + 2
 ;   com
- 
+
 (DEFUN |escapeString| (|com|)
   (PROG (|look|)
     (RETURN
@@ -224,7 +224,7 @@
                           (|look| (SETQ |com| (RPLACSTR |com| |look| 0 "\\"))
                            (SETQ |look| (+ |look| 2))))))))))))
       |com|))))
- 
+
 ; htPred2English(x,:options) ==
 ;   $emList :local := IFCAR options   --list of identifiers to be emphasised
 ;   $precList: local := '((OR 10 . "or") (AND 9 . "and")
@@ -260,7 +260,7 @@
 ;         [a,b] := l
 ;         bcConform(b, $emList)
 ;       bcConform(x,$emList)
- 
+
 (DEFUN |htPred2English| (|x| &REST |options|)
   (PROG (|$precList| |$emList|)
     (DECLARE (SPECIAL |$precList| |$emList|))
@@ -329,12 +329,12 @@
         (SETQ |b| (CADR |l|))
         (|bcConform| |b| |$emList|)))
       ('T (|bcConform| |x| |$emList|))))))
- 
+
 ; unMkEvalable u ==
 ;  u is ['QUOTE,a] => a
 ;  u is ['LIST,:r] => [unMkEvalable x for x in r]
 ;  u
- 
+
 (DEFUN |unMkEvalable| (|u|)
   (PROG (|ISTMP#1| |a| |r|)
     (RETURN
@@ -355,12 +355,12 @@
            (SETQ |bfVar#4| (CDR |bfVar#4|))))
         NIL |r| NIL))
       (#1# |u|)))))
- 
+
 ; args2HtString(x) ==
 ;   null x => '""
 ;   emList := nil
 ;   SUBSTRING(form2HtString(['f,:x],emList),1,nil)
- 
+
 (DEFUN |args2HtString| (|x|)
   (PROG (|emList|)
     (RETURN
@@ -369,15 +369,15 @@
             (PROGN
              (SETQ |emList| NIL)
              (SUBSTRING (|form2HtString| (CONS '|f| |x|) |emList|) 1 NIL)))))))
- 
+
 ; quickForm2HtString(x) ==
 ;   atom x => STRINGIMAGE x
 ;   form2HtString x
- 
+
 (DEFUN |quickForm2HtString| (|x|)
   (PROG ()
     (RETURN (COND ((ATOM |x|) (STRINGIMAGE |x|)) ('T (|form2HtString| |x|))))))
- 
+
 ; form2HtString(x,:options) ==
 ;   $emList:local := IFCAR options   --list of atoms to be emphasized
 ;   fn(x) where
@@ -402,7 +402,7 @@
 ;     fnTailTail x ==
 ;       null x => '""
 ;       STRCONC('",",fn first x,fnTailTail rest x)
- 
+
 (DEFUN |form2HtString| (|x| &REST |options|)
   (PROG (|$emList|)
     (DECLARE (SPECIAL |$emList|))
@@ -447,7 +447,7 @@
            ('T
             (STRCONC "," (|form2HtString,fn| (CAR |x|))
              (|form2HtString,fnTailTail| (CDR |x|))))))))
- 
+
 ; sexpr2HtString x ==
 ;   atom x => form2HtString x
 ;   STRCONC('"(",fn x,'")") where fn x ==
@@ -457,7 +457,7 @@
 ;       atom r => STRCONC('" . ",form2HtString rest x)
 ;       STRCONC('" ",fn r)
 ;     STRCONC(sexpr2HtString first x,suffix)
- 
+
 (DEFUN |sexpr2HtString| (|x|)
   (PROG ()
     (RETURN
@@ -473,7 +473,7 @@
                     ((ATOM |r|) (STRCONC " . " (|form2HtString| (CDR |x|))))
                     ('T (STRCONC " " (|sexpr2HtString,fn| |r|)))))
       (STRCONC (|sexpr2HtString| (CAR |x|)) |suffix|)))))
- 
+
 ; form2LispString(x) ==
 ;   atom x =>
 ;     x = '_$ => '"__$"
@@ -486,7 +486,7 @@
 ;     null rest (r := rest x) => STRCONC('"()->",form2LispString first r)
 ;     STRCONC(args2LispString rest r,'"->",form2LispString first r)
 ;   STRCONC(form2LispString first x,args2LispString rest x)
- 
+
 (DEFUN |form2LispString| (|x|)
   (PROG (|ISTMP#1| |a| |ISTMP#2| |b| |r|)
     (RETURN
@@ -523,7 +523,7 @@
       (#1#
        (STRCONC (|form2LispString| (CAR |x|))
         (|args2LispString| (CDR |x|))))))))
- 
+
 ; sexpr2LispString x ==
 ;   atom x => form2LispString x
 ;   STRCONC('"(",fn x,'")") where fn x ==
@@ -533,7 +533,7 @@
 ;       atom r => STRCONC('" . ",form2LispString rest x)
 ;       STRCONC('" ",fn r)
 ;     STRCONC(sexpr2HtString first x,suffix)
- 
+
 (DEFUN |sexpr2LispString| (|x|)
   (PROG ()
     (RETURN
@@ -549,14 +549,14 @@
                     ((ATOM |r|) (STRCONC " . " (|form2LispString| (CDR |x|))))
                     ('T (STRCONC " " (|sexpr2LispString,fn| |r|)))))
       (STRCONC (|sexpr2HtString| (CAR |x|)) |suffix|)))))
- 
+
 ; args2LispString x ==
 ;   null x => '""
 ;   STRCONC('"(",form2LispString first x,fnTailTail rest x,'")") where
 ;     fnTailTail x ==
 ;       null x => '""
 ;       STRCONC('",",form2LispString first x,fnTailTail rest x)
- 
+
 (DEFUN |args2LispString| (|x|)
   (PROG ()
     (RETURN
@@ -571,14 +571,14 @@
            ('T
             (STRCONC "," (|form2LispString| (CAR |x|))
              (|args2LispString,fnTailTail| (CDR |x|))))))))
- 
+
 ; dbConstructorKind x ==
 ;   target := CADAR GETDATABASE(x,'CONSTRUCTORMODEMAP)
 ;   target = '(Category) => 'category
 ;   target is ['CATEGORY,'package,:.] => 'package
 ;   HGET($defaultPackageNamesHT,x) => 'default_ package
 ;   'domain
- 
+
 (DEFUN |dbConstructorKind| (|x|)
   (PROG (|target| |ISTMP#1|)
     (RETURN
@@ -592,7 +592,7 @@
              '|package|)
             ((HGET |$defaultPackageNamesHT| |x|) '|default package|)
             ('T '|domain|))))))
- 
+
 ; getConstructorForm name ==
 ;   name = 'Union   => '(Union  (_: a A) (_: b B))
 ;   name = 'UntaggedUnion => '(Union A B)
@@ -600,7 +600,7 @@
 ;   name = 'Mapping => '(Mapping T S)
 ;   name = 'Enumeration => '(Enumeration a b)
 ;   GETDATABASE(name,'CONSTRUCTORFORM)
- 
+
 (DEFUN |getConstructorForm| (|name|)
   (PROG ()
     (RETURN
@@ -610,12 +610,12 @@
            ((EQ |name| '|Mapping|) '(|Mapping| T S))
            ((EQ |name| '|Enumeration|) '(|Enumeration| |a| |b|))
            ('T (GETDATABASE |name| 'CONSTRUCTORFORM))))))
- 
+
 ; getConstructorArgs conname == rest getConstructorForm conname
- 
+
 (DEFUN |getConstructorArgs| (|conname|)
   (PROG () (RETURN (CDR (|getConstructorForm| |conname|)))))
- 
+
 ; bcConform1 form == main where
 ;     main ==
 ;         form is ['ifp,form1,:pred] =>
@@ -679,7 +679,7 @@
 ;         if x = 'etc then x := '"..."
 ;         bcHt escapeSpecialIds STRINGIMAGE x
 ;         if $italics? then bcHt '"}"
- 
+
 (DEFUN |bcConform1| (|form|)
   (PROG (|ISTMP#1| |form1| |pred|)
     (RETURN
@@ -793,12 +793,12 @@
       (COND ((EQ |x| '|etc|) (SETQ |x| "...")))
       (|bcHt| (|escapeSpecialIds| (STRINGIMAGE |x|)))
       (COND (|$italics?| (|bcHt| "}")))))))
- 
+
 ; bcConform(form,:options) ==
 ;   $italics?    : local := IFCAR options
 ;   $italicHead? : local := IFCAR IFCDR options
 ;   bcConform1 form
- 
+
 (DEFUN |bcConform| (|form| &REST |options|)
   (PROG (|$italicHead?| |$italics?|)
     (DECLARE (SPECIAL |$italicHead?| |$italics?|))
@@ -807,16 +807,16 @@
       (SETQ |$italics?| (IFCAR |options|))
       (SETQ |$italicHead?| (IFCAR (IFCDR |options|)))
       (|bcConform1| |form|)))))
- 
+
 ; bcConstructor(form) == htSayList dbConformGen form
- 
+
 (DEFUN |bcConstructor| (|form|)
   (PROG () (RETURN (|htSayList| (|dbConformGen| |form|)))))
- 
+
 ; conform2HtString form ==
 ;   for u in form2String form repeat
 ;     htSay u
- 
+
 (DEFUN |conform2HtString| (|form|)
   (PROG ()
     (RETURN
@@ -828,11 +828,11 @@
           ('T (|htSay| |u|)))
          (SETQ |bfVar#9| (CDR |bfVar#9|))))
       (|form2String| |form|) NIL))))
- 
+
 ; $from_show_implementations := false
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$from_show_implementations| NIL))
- 
+
 ; dbEvalableConstructor? form ==
 ;     form is [op,:argl] =>
 ;         null(cosig := GETDATABASE(op, 'COSIG)) => false
@@ -846,7 +846,7 @@
 ;             res := false
 ;         res
 ;     false
- 
+
 (DEFUN |dbEvalableConstructor?| (|form|)
   (PROG (|op| |argl| |cosig| |res| |ISTMP#1| |y|)
     (RETURN
@@ -891,19 +891,19 @@
                         |argl| NIL |cosig| NIL)
                        |res|)))))))
       (#1# NIL)))))
- 
+
 ; htSayItalics s == htSayList(['"{\em ", s, '"}"])
- 
+
 (DEFUN |htSayItalics| (|s|)
   (PROG () (RETURN (|htSayList| (LIST "{\\em " |s| "}")))))
- 
+
 ; bcCon(name,:options) ==
 ;   argString := '""
 ;   s := STRINGIMAGE name
 ;   bcStar name
 ;   htSayConstructorName(s,s)
 ;   htSay argString
- 
+
 (DEFUN |bcCon| (|name| &REST |options|)
   (PROG (|argString| |s|)
     (RETURN
@@ -913,13 +913,13 @@
       (|bcStar| |name|)
       (|htSayConstructorName| |s| |s|)
       (|htSay| |argString|)))))
- 
+
 ; bcAbb(name,abb) ==
 ;   s := STRINGIMAGE name
 ;   a := STRINGIMAGE abb
 ;   bcStar name
 ;   htSayConstructorName(a,s)
- 
+
 (DEFUN |bcAbb| (|name| |abb|)
   (PROG (|s| |a|)
     (RETURN
@@ -928,36 +928,36 @@
       (SETQ |a| (STRINGIMAGE |abb|))
       (|bcStar| |name|)
       (|htSayConstructorName| |a| |s|)))))
- 
+
 ; bcStar name ==
 ;   if $includeUnexposed? and not isExposedConstructor name then htSayUnexposed()
- 
+
 (DEFUN |bcStar| (|name|)
   (PROG ()
     (RETURN
      (COND
       ((AND |$includeUnexposed?| (NULL (|isExposedConstructor| |name|)))
        (|htSayUnexposed|))))))
- 
+
 ; bcStarSpace name ==
 ;   null $includeUnexposed? => nil
 ;   not isExposedConstructor name => htSayUnexposed()
 ;   htBlank()
- 
+
 (DEFUN |bcStarSpace| (|name|)
   (PROG ()
     (RETURN
      (COND ((NULL |$includeUnexposed?|) NIL)
            ((NULL (|isExposedConstructor| |name|)) (|htSayUnexposed|))
            ('T (|htBlank|))))))
- 
+
 ; bcStarSpaceOp(op,exposed?) ==
 ;   null $includeUnexposed? => nil
 ;   not exposed? =>
 ;     htSayUnexposed()
 ;     if op.0 = char '_* then htSay '" "
 ;   htBlank()
- 
+
 (DEFUN |bcStarSpaceOp| (|op| |exposed?|)
   (PROG ()
     (RETURN
@@ -967,21 +967,21 @@
              (|htSayUnexposed|)
              (COND ((EQUAL (ELT |op| 0) (|char| '*)) (|htSay| " ")))))
            ('T (|htBlank|))))))
- 
+
 ; bcStarConform form ==
 ;   bcStar opOf form
 ;   bcConform form
- 
+
 (DEFUN |bcStarConform| (|form|)
   (PROG () (RETURN (PROGN (|bcStar| (|opOf| |form|)) (|bcConform| |form|)))))
- 
+
 ; dbSourceFile name ==
 ;   u:= GETDATABASE(name,'SOURCEFILE)
 ;   null u => '""
 ;   n := PATHNAME_-NAME u
 ;   t := PATHNAME_-TYPE u
 ;   STRCONC(n,'".",t)
- 
+
 (DEFUN |dbSourceFile| (|name|)
   (PROG (|u| |n| |t|)
     (RETURN
@@ -993,21 +993,21 @@
               (SETQ |n| (PATHNAME-NAME |u|))
               (SETQ |t| (PATHNAME-TYPE |u|))
               (STRCONC |n| "." |t|))))))))
- 
+
 ; asharpConstructorName? name ==
 ;   u:= GETDATABASE(name,'SOURCEFILE)
 ;   u and PATHNAME_-TYPE u = '"as"
- 
+
 (DEFUN |asharpConstructorName?| (|name|)
   (PROG (|u|)
     (RETURN
      (PROGN
       (SETQ |u| (GETDATABASE |name| 'SOURCEFILE))
       (AND |u| (EQUAL (PATHNAME-TYPE |u|) "as"))))))
- 
+
 ; asharpConstructors() ==
 ;   [x for x in allConstructors() | not asharpConstructorName? x]
- 
+
 (DEFUN |asharpConstructors| ()
   (PROG ()
     (RETURN
@@ -1021,13 +1021,13 @@
                 (SETQ |bfVar#13| (CONS |x| |bfVar#13|)))))
          (SETQ |bfVar#12| (CDR |bfVar#12|))))
       NIL (|allConstructors|) NIL))))
- 
+
 ; extractFileNameFromPath s == fn(s,0,#s) where
 ;   fn(s,i,m) ==
 ;     k := charPosition(char '_/,s,i)
 ;     k = m => SUBSTRING(s,i,nil)
 ;     fn(s,k + 1,m)
- 
+
 (DEFUN |extractFileNameFromPath| (|s|)
   (PROG () (RETURN (|extractFileNameFromPath,fn| |s| 0 (LENGTH |s|)))))
 (DEFUN |extractFileNameFromPath,fn| (|s| |i| |m|)
@@ -1037,7 +1037,7 @@
       (SETQ |k| (|charPosition| (|char| '/) |s| |i|))
       (COND ((EQUAL |k| |m|) (SUBSTRING |s| |i| NIL))
             ('T (|extractFileNameFromPath,fn| |s| (+ |k| 1) |m|)))))))
- 
+
 ; bcOpTable(u,fn) ==
 ;   htBeginTable()
 ;   for op in u for i in 0.. repeat
@@ -1045,7 +1045,7 @@
 ;     htMakePage [['bcLinks,[escapeSpecialChars STRINGIMAGE opOf op,'"",fn,i]]]
 ;     htSay '"}"
 ;   htEndTable()
- 
+
 (DEFUN |bcOpTable| (|u| |fn|)
   (PROG ()
     (RETURN
@@ -1069,11 +1069,11 @@
           (SETQ |i| (+ |i| 1))))
        |u| NIL 0)
       (|htEndTable|)))))
- 
+
 ; bcNameConTable u ==
 ;   $bcMultipleNames: local := (#u ~= 1)
 ;   bcConTable REMDUP u
- 
+
 (DEFUN |bcNameConTable| (|u|)
   (PROG (|$bcMultipleNames|)
     (DECLARE (SPECIAL |$bcMultipleNames|))
@@ -1081,7 +1081,7 @@
      (PROGN
       (SETQ |$bcMultipleNames| (NOT (EQL (LENGTH |u|) 1)))
       (|bcConTable| (REMDUP |u|))))))
- 
+
 ; bcConTable u ==
 ;   htBeginTable()
 ;   for con in u repeat
@@ -1090,7 +1090,7 @@
 ;     bcConform con
 ;     htSay '"}"
 ;   htEndTable()
- 
+
 (DEFUN |bcConTable| (|u|)
   (PROG ()
     (RETURN
@@ -1110,7 +1110,7 @@
           (SETQ |bfVar#15| (CDR |bfVar#15|))))
        |u| NIL)
       (|htEndTable|)))))
- 
+
 ; bcAbbTable u ==
 ;   htBeginTable()
 ;   for x in REMDUP u repeat        --allow x to be NIL meaning "no abbreviation"
@@ -1120,7 +1120,7 @@
 ;       bcAbb(con,abb)
 ;       htSay '"}"
 ;   htEndTable()
- 
+
 (DEFUN |bcAbbTable| (|u|)
   (PROG (|con| |ISTMP#1| |abb|)
     (RETURN
@@ -1143,7 +1143,7 @@
           (SETQ |bfVar#16| (CDR |bfVar#16|))))
        (REMDUP |u|) NIL)
       (|htEndTable|)))))
- 
+
 ; bcConPredTable(u,conname,:options) ==
 ;   italicList := IFCAR options
 ;   htBeginTable()
@@ -1160,7 +1160,7 @@
 ;     if pred ~= 'etc then bcPred(pred,italicList)
 ;     htSay '"}"
 ;   htEndTable()
- 
+
 (DEFUN |bcConPredTable| (|u| |conname| &REST |options|)
   (PROG (|italicList| |conform| |pred| |form| |ISTMP#1| |arglist|)
     (RETURN
@@ -1203,13 +1203,13 @@
           (SETQ |bfVar#18| (CDR |bfVar#18|))))
        |u| NIL)
       (|htEndTable|)))))
- 
+
 ; bcPred(pred,:options) ==
 ;   pred = '"" or pred = true or null pred => 'skip
 ;   italicList := IFCAR options
 ;   if not IFCAR IFCDR options then htSay '" {\em if} "
 ;   htPred2English(pred,italicList)
- 
+
 (DEFUN |bcPred| (|pred| &REST |options|)
   (PROG (|italicList|)
     (RETURN
@@ -1219,7 +1219,7 @@
              (SETQ |italicList| (IFCAR |options|))
              (COND ((NULL (IFCAR (IFCDR |options|))) (|htSay| " {\\em if} ")))
              (|htPred2English| |pred| |italicList|)))))))
- 
+
 ; extractHasArgs pred ==
 ;   x := find pred or return nil where find x ==
 ;     x is [op,:argl] =>
@@ -1228,7 +1228,7 @@
 ;       nil
 ;     nil
 ;   [rest x, :simpBool substitute('T, x, pred)]
- 
+
 (DEFUN |extractHasArgs| (|pred|)
   (PROG (|x|)
     (RETURN
@@ -1257,7 +1257,7 @@
                NIL |argl| NIL))
              (#1# NIL)))
       (#1# NIL)))))
- 
+
 ; splitConTable cons ==
 ;   uncond := cond := nil
 ;   for (pair := [con,:pred]) in cons repeat
@@ -1265,7 +1265,7 @@
 ;     pred = 'T or pred is ['hasArgs,:.]  => uncond := [pair,:uncond]
 ;     cond := [pair,:cond]
 ;   [NREVERSE uncond,:NREVERSE cond]
- 
+
 (DEFUN |splitConTable| (CONS)
   (PROG (|cond| |uncond| |con| |pred|)
     (RETURN
@@ -1290,7 +1290,7 @@
           (SETQ |bfVar#21| (CDR |bfVar#21|))))
        CONS NIL)
       (CONS (NREVERSE |uncond|) (NREVERSE |cond|))))))
- 
+
 ; bcNameTable(u,fn,:option) ==   --option if * prefix
 ;   htSay '"\newline"
 ;   htBeginTable()
@@ -1300,7 +1300,7 @@
 ;     htMakePage [['bcLinks,[s := escapeSpecialChars STRINGIMAGE x,'"",fn,s]]]
 ;     htSay '"}"
 ;   htEndTable()
- 
+
 (DEFUN |bcNameTable| (|u| |fn| &REST |option|)
   (PROG (|s|)
     (RETURN
@@ -1325,7 +1325,7 @@
           (SETQ |bfVar#22| (CDR |bfVar#22|))))
        |u| NIL)
       (|htEndTable|)))))
- 
+
 ; bcNameCountTable(u, fn, gn) ==
 ;   linkFunction := 'bcLispLinks
 ;   htSay '"\newline"
@@ -1335,7 +1335,7 @@
 ;     htMakePage [[linkFunction,[FUNCALL(fn,x),'"",gn,i]]]
 ;     htSay '"}"
 ;   htEndTable()
- 
+
 (DEFUN |bcNameCountTable| (|u| |fn| |gn|)
   (PROG (|linkFunction|)
     (RETURN
@@ -1359,17 +1359,17 @@
           (SETQ |bfVar#23| (CDR |bfVar#23|))))
        0 |u| NIL)
       (|htEndTable|)))))
- 
+
 ; dbSayItemsItalics(:u) ==
 ;   htSay '"{\em "
 ;   APPLY(function dbSayItems,u)
 ;   htSay '"}"
- 
+
 (DEFUN |dbSayItemsItalics| (&REST |u|)
   (PROG ()
     (RETURN
      (PROGN (|htSay| "{\\em ") (APPLY #'|dbSayItems| |u|) (|htSay| "}")))))
- 
+
 ; dbSayItems(countOrPrefix,singular,plural,:options) ==
 ;   bcHt '"\newline "
 ;   count :=
@@ -1382,7 +1382,7 @@
 ;   else htSayList([count, '" ", plural])
 ;   for x in options repeat bcHt x
 ;   if count ~= 0 then bcHt '":"
- 
+
 (DEFUN |dbSayItems| (|countOrPrefix| |singular| |plural| &REST |options|)
   (PROG (|ISTMP#1| |c| |prefix| |count|)
     (RETURN
@@ -1412,14 +1412,14 @@
           (SETQ |bfVar#24| (CDR |bfVar#24|))))
        |options| NIL)
       (COND ((NOT (EQL |count| 0)) (|bcHt| ":")))))))
- 
+
 ; dbBasicConstructor? conname == member(dbSourceFile conname,'("catdef" "coerce"))
- 
+
 (DEFUN |dbBasicConstructor?| (|conname|)
   (PROG () (RETURN (|member| (|dbSourceFile| |conname|) '("catdef" "coerce")))))
- 
+
 ; htCopyProplist htPage == [[x,:y] for [x,:y] in htpPropertyList htPage]
- 
+
 (DEFUN |htCopyProplist| (|htPage|)
   (PROG (|x| |y|)
     (RETURN
@@ -1438,13 +1438,13 @@
                 (SETQ |bfVar#27| (CONS (CONS |x| |y|) |bfVar#27|)))))
          (SETQ |bfVar#26| (CDR |bfVar#26|))))
       NIL (|htpPropertyList| |htPage|) NIL))))
- 
+
 ; dbInfovec name ==
 ;   'category = GETDATABASE(name,'CONSTRUCTORKIND) => nil
 ;   GETDATABASE(name, 'ASHARP?) => nil
 ;   loadLibIfNotLoaded(name)
 ;   u := GET(name, 'infovec) => u
- 
+
 (DEFUN |dbInfovec| (|name|)
   (PROG (|u|)
     (RETURN
@@ -1454,7 +1454,7 @@
             (PROGN
              (|loadLibIfNotLoaded| |name|)
              (COND ((SETQ |u| (GET |name| '|infovec|)) |u|))))))))
- 
+
 ; emptySearchPage(kind, filter, skipNamePart) ==
 ;   heading := ['"No ",capitalize kind,'" Found"]
 ;   htInitPage(heading,nil)
@@ -1466,7 +1466,7 @@
 ;   if filter then htPred2English filter
 ;   htSay '"}}"
 ;   htShowPage()
- 
+
 (DEFUN |emptySearchPage| (|kind| |filter| |skipNamePart|)
   (PROG (|heading| |exposePart|)
     (RETURN
@@ -1481,11 +1481,11 @@
       (COND (|filter| (|htPred2English| |filter|)))
       (|htSay| "}}")
       (|htShowPage|)))))
- 
+
 ; string2Integer s ==
 ;   and/[DIGIT_-CHAR_-P (s.i) for i in 0..MAXINDEX s] => PARSE_-INTEGER s
 ;   nil
- 
+
 (DEFUN |string2Integer| (|s|)
   (PROG ()
     (RETURN
@@ -1501,19 +1501,19 @@
         T (MAXINDEX |s|) 0)
        (PARSE-INTEGER |s|))
       (#1# NIL)))))
- 
+
 ; dbGetInputString htPage ==
 ;   s := htpLabelInputString(htPage,'filter)
 ;   null s or s = '"" => '"*"
 ;   s
- 
+
 (DEFUN |dbGetInputString| (|htPage|)
   (PROG (|s|)
     (RETURN
      (PROGN
       (SETQ |s| (|htpLabelInputString| |htPage| '|filter|))
       (COND ((OR (NULL |s|) (EQUAL |s| "")) "*") ('T |s|))))))
- 
+
 ; bcErrorPage u ==
 ;   u is ['error,:r] =>
 ;     htInitPage(first r,nil)
@@ -1521,7 +1521,7 @@
 ;     for x in rest r repeat htSay x
 ;     htShowPage()
 ;   systemError '"Unexpected error message"
- 
+
 (DEFUN |bcErrorPage| (|u|)
   (PROG (|r|)
     (RETURN
@@ -1541,7 +1541,7 @@
          (CDR |r|) NIL)
         (|htShowPage|)))
       (#1# (|systemError| "Unexpected error message"))))))
- 
+
 ; errorPage(htPage,[heading,kind,:info]) ==
 ;   kind = 'invalidType => kInvalidTypePage first info
 ;   if heading = 'error then htInitPage('"Error",nil) else
@@ -1549,7 +1549,7 @@
 ;   bcBlankLine()
 ;   for x in info repeat htSay x
 ;   htShowPage()
- 
+
 (DEFUN |errorPage| (|htPage| |bfVar#32|)
   (PROG (|heading| |kind| |info|)
     (RETURN
@@ -1573,23 +1573,23 @@
                   (SETQ |bfVar#31| (CDR |bfVar#31|))))
                |info| NIL)
               (|htShowPage|))))))))
- 
+
 ; htErrorStar() ==
 ;   errorPage(nil,['"{\em *} not a valid search string",nil,'"\vspace{3}\centerline{{\em *} is not a valid search string for a general search}\centerline{\em {it would match everything!}}"])
- 
+
 (DEFUN |htErrorStar| ()
   (PROG ()
     (RETURN
      (|errorPage| NIL
       (LIST "{\\em *} not a valid search string" NIL
             "\\vspace{3}\\centerline{{\\em *} is not a valid search string for a general search}\\centerline{\\em {it would match everything!}}")))))
- 
+
 ; htQueryPage(htPage,heading,message,query,fn) ==
 ;   htInitPage(heading,nil)
 ;   htSay message
 ;   htQuery(query, fn, false)
 ;   htShowPage()
- 
+
 (DEFUN |htQueryPage| (|htPage| |heading| |message| |query| |fn|)
   (PROG ()
     (RETURN
@@ -1598,7 +1598,7 @@
       (|htSay| |message|)
       (|htQuery| |query| |fn| NIL)
       (|htShowPage|)))))
- 
+
 ; htQuery(question, fn, upLink?) ==
 ;   if question then
 ;     htSay('"\vspace{1}\centerline{")
@@ -1611,7 +1611,7 @@
 ;     then htSay('"\downlink{\fbox{No}}{UpPage}")
 ;     else htMakePage [['bcLispLinks,['"\fbox{No}",'"",fn,'no]]]
 ;   htSay('"}")
- 
+
 (DEFUN |htQuery| (|question| |fn| |upLink?|)
   (PROG ()
     (RETURN
@@ -1628,14 +1628,14 @@
              (|htMakePage|
               (LIST (LIST '|bcLispLinks| (LIST "\\fbox{No}" "" |fn| '|no|))))))
       (|htSay| "}")))))
- 
+
 ; kInvalidTypePage form ==
 ;   htInitPage('"Error",nil)
 ;   bcBlankLine()
 ;   htSay('"\centerline{You gave an invalid type:}\newline\centerline{{\sf ")
 ;   htSayList([form2HtString form, '"}}"])
 ;   htShowPage()
- 
+
 (DEFUN |kInvalidTypePage| (|form|)
   (PROG ()
     (RETURN
@@ -1646,35 +1646,35 @@
        "\\centerline{You gave an invalid type:}\\newline\\centerline{{\\sf ")
       (|htSayList| (LIST (|form2HtString| |form|) "}}"))
       (|htShowPage|)))))
- 
+
 ; dbKind line == line.0
- 
+
 (DEFUN |dbKind| (|line|) (PROG () (RETURN (ELT |line| 0))))
- 
+
 ; dbKindString kind == LASSOC(kind,$dbKindAlist)
- 
+
 (DEFUN |dbKindString| (|kind|)
   (PROG () (RETURN (LASSOC |kind| |$dbKindAlist|))))
- 
+
 ; dbName line == escapeString SUBSTRING(line,1,charPosition($tick,line,1) - 1)
- 
+
 (DEFUN |dbName| (|line|)
   (PROG ()
     (RETURN
      (|escapeString|
       (SUBSTRING |line| 1 (- (|charPosition| |$tick| |line| 1) 1))))))
- 
+
 ; dbAttr line == STRCONC(dbName line,escapeString dbPart(line,4,0))
- 
+
 (DEFUN |dbAttr| (|line|)
   (PROG ()
     (RETURN
      (STRCONC (|dbName| |line|) (|escapeString| (|dbPart| |line| 4 0))))))
- 
+
 ; dbPart(line,n,k) ==  --returns part n of line (n=1,..) beginning in column k
 ;   n = 1 => SUBSTRING(line,k + 1,charPosition($tick,line,k + 1) - k - 1)
 ;   dbPart(line,n - 1,charPosition($tick,line,k + 1))
- 
+
 (DEFUN |dbPart| (|line| |n| |k|)
   (PROG ()
     (RETURN
@@ -1685,11 +1685,11 @@
       ('T
        (|dbPart| |line| (- |n| 1)
         (|charPosition| |$tick| |line| (+ |k| 1))))))))
- 
+
 ; dbXParts(line,n,m) ==
 ;   [.,nargs,:r] := dbParts(line,n,m)
 ;   [dbKindString line.0,dbName line,PARSE_-INTEGER nargs,:r]
- 
+
 (DEFUN |dbXParts| (|line| |n| |m|)
   (PROG (|LETTMP#1| |nargs| |r|)
     (RETURN
@@ -1699,12 +1699,12 @@
       (SETQ |r| (CDDR . #1#))
       (CONS (|dbKindString| (ELT |line| 0))
             (CONS (|dbName| |line|) (CONS (PARSE-INTEGER |nargs|) |r|)))))))
- 
+
 ; dbParts(line,n,m) ==  --split line into n parts beginning in column m
 ;   n = 0 => nil
 ;   [SUBSTRING(line,m,-m + (k := charPosition($tick,line,m))),
 ;     :dbParts(line,n - 1,k + 1)]
- 
+
 (DEFUN |dbParts| (|line| |n| |m|)
   (PROG (|k|)
     (RETURN
@@ -1715,24 +1715,24 @@
                         (+ (- |m|)
                            (SETQ |k| (|charPosition| |$tick| |line| |m|))))
              (|dbParts| |line| (- |n| 1) (+ |k| 1))))))))
- 
+
 ; dbConname(line) == dbPart(line,5,1)
- 
+
 (DEFUN |dbConname| (|line|) (PROG () (RETURN (|dbPart| |line| 5 1))))
- 
+
 ; dbComments line ==  dbReadComments(string2Integer dbPart(line,7,1))
- 
+
 (DEFUN |dbComments| (|line|)
   (PROG ()
     (RETURN (|dbReadComments| (|string2Integer| (|dbPart| |line| 7 1))))))
- 
+
 ; dbNewConname(line) == --dbName line unless kind is 'a or 'o => name in 5th pos.
 ;   (kind := line.0) = char 'a or kind = char 'o =>
 ;     conform := dbPart(line,5,1)
 ;     k := charPosition(char '_(,conform,1)
 ;     SUBSTRING(conform,1,k - 1)
 ;   dbName line
- 
+
 (DEFUN |dbNewConname| (|line|)
   (PROG (|kind| |conform| |k|)
     (RETURN
@@ -1744,11 +1744,11 @@
         (SETQ |k| (|charPosition| (|char| '|(|) |conform| 1))
         (SUBSTRING |conform| 1 (- |k| 1))))
       ('T (|dbName| |line|))))))
- 
+
 ; dbTickIndex(line,n,k) == --returns index of nth tick in line starting at k
 ;   n = 1 => charPosition($tick,line,k)
 ;   dbTickIndex(line,n - 1,1 + charPosition($tick,line,k))
- 
+
 (DEFUN |dbTickIndex| (|line| |n| |k|)
   (PROG ()
     (RETURN
@@ -1756,20 +1756,20 @@
            ('T
             (|dbTickIndex| |line| (- |n| 1)
              (+ 1 (|charPosition| |$tick| |line| |k|))))))))
- 
+
 ; mySort u == listSort(function GLESSEQP,u)
- 
+
 (DEFUN |mySort| (|u|) (PROG () (RETURN (|listSort| #'GLESSEQP |u|))))
- 
+
 ; bcFinish(name,arg,:args) == bcGen bcMkFunction(name,arg,args)
- 
+
 (DEFUN |bcFinish| (|name| |arg| &REST |args|)
   (PROG () (RETURN (|bcGen| (|bcMkFunction| |name| |arg| |args|)))))
- 
+
 ; bcMkFunction(name,arg,args) ==
 ;   args := [x for x in args | x]
 ;   STRCONC(name,'"(",arg,"STRCONC"/[STRCONC('",", x) for x in args],'")")
- 
+
 (DEFUN |bcMkFunction| (|name| |arg| |args|)
   (PROG ()
     (RETURN
@@ -1794,9 +1794,9 @@
            (SETQ |bfVar#35| (CDR |bfVar#35|))))
         "" |args| NIL)
        ")")))))
- 
+
 ; bcFindString(s,i,n,char) ==  or/[j for j in i..n | s.j = char]
- 
+
 (DEFUN |bcFindString| (|s| |i| |n| |char|)
   (PROG ()
     (RETURN
@@ -1810,7 +1810,7 @@
                       (COND (|bfVar#37| (RETURN |bfVar#37|)))))))
          (SETQ |j| (+ |j| 1))))
       NIL |i|))))
- 
+
 ; bcGen command ==
 ;   htInitPage('"Basic Command",nil)
 ;   string :=
@@ -1823,7 +1823,7 @@
 ;       ['text,:string]]
 ;   htMakeDoitButton('"Do It", command)
 ;   htShowPage()
- 
+
 (DEFUN |bcGen| (|command|)
   (PROG (|string|)
     (RETURN
@@ -1842,18 +1842,18 @@
         (CONS '|text| |string|)))
       (|htMakeDoitButton| "Do It" |command|)
       (|htShowPage|)))))
- 
+
 ; bcOptional s ==
 ;   s = '"" => '"2"
 ;   s
- 
+
 (DEFUN |bcOptional| (|s|)
   (PROG () (RETURN (COND ((EQUAL |s| "") "2") ('T |s|)))))
- 
+
 ; bcvspace() == bcHt '"\vspace{1}\newline "
- 
+
 (DEFUN |bcvspace| () (PROG () (RETURN (|bcHt| "\\vspace{1}\\newline "))))
- 
+
 ; bcString2WordList s == fn(s,0,MAXINDEX s) where
 ;   fn(s,i,n) ==
 ;     i > n => nil
@@ -1862,7 +1862,7 @@
 ;     l := bcFindString(s,k + 1,n,char '_  )
 ;     null INTEGERP l => [SUBSTRING(s,k,nil)]
 ;     [SUBSTRING(s,k,l-k),:fn(s,l + 1,n)]
- 
+
 (DEFUN |bcString2WordList| (|s|)
   (PROG () (RETURN (|bcString2WordList,fn| |s| 0 (MAXINDEX |s|)))))
 (DEFUN |bcString2WordList,fn| (|s| |i| |n|)
@@ -1894,14 +1894,14 @@
                        (CONS (SUBSTRING |s| |k| (- |l| |k|))
                              (|bcString2WordList,fn| |s| (+ |l| 1)
                               |n|)))))))))))))
- 
+
 ; bcwords2liststring u ==
 ;   null u => nil
 ;   STRCONC('"[",first u,fn rest u) where
 ;     fn(u) ==
 ;       null u => '"]"
 ;       STRCONC('", ",first u,fn rest u)
- 
+
 (DEFUN |bcwords2liststring| (|u|)
   (PROG ()
     (RETURN
@@ -1912,31 +1912,31 @@
     (RETURN
      (COND ((NULL |u|) "]")
            ('T (STRCONC ", " (CAR |u|) (|bcwords2liststring,fn| (CDR |u|))))))))
- 
+
 ; bcVectorGen vec == bcwords2liststring vec
- 
+
 (DEFUN |bcVectorGen| (|vec|) (PROG () (RETURN (|bcwords2liststring| |vec|))))
- 
+
 ; bcError string ==
 ;   sayBrightlyNT '"NOTE: "
 ;   sayBrightly string
- 
+
 (DEFUN |bcError| (|string|)
   (PROG ()
     (RETURN (PROGN (|sayBrightlyNT| "NOTE: ") (|sayBrightly| |string|)))))
- 
+
 ; bcDrawIt(ind,a,b) == STRCONC(ind,'"=",a,'"..",b)
- 
+
 (DEFUN |bcDrawIt| (|ind| |a| |b|)
   (PROG () (RETURN (STRCONC |ind| "=" |a| ".." |b|))))
- 
+
 ; bcNotReady htPage ==
 ;   htInitPage('"Basic Command",nil)
 ;   htMakePage '(
 ;      (text .
 ;         "{\centerline{\em This facility will soon be available}}"))
 ;   htShowPage()
- 
+
 (DEFUN |bcNotReady| (|htPage|)
   (PROG ()
     (RETURN
@@ -1946,12 +1946,12 @@
        '((|text|
           . "{\\centerline{\\em This facility will soon be available}}")))
       (|htShowPage|)))))
- 
+
 ; htStringPad(n,w) ==
 ;   s := STRINGIMAGE n
 ;   ws := #s
 ;   STRCONC('"\space{",STRINGIMAGE (w - ws + 1),'"}",s)
- 
+
 (DEFUN |htStringPad| (|n| |w|)
   (PROG (|s| |ws|)
     (RETURN
@@ -1959,7 +1959,7 @@
       (SETQ |s| (STRINGIMAGE |n|))
       (SETQ |ws| (LENGTH |s|))
       (STRCONC "\\space{" (STRINGIMAGE (+ (- |w| |ws|) 1)) "}" |s|)))))
- 
+
 ; htMkName(s,n) == STRCONC(s,STRINGIMAGE n)
- 
+
 (DEFUN |htMkName| (|s| |n|) (PROG () (RETURN (STRCONC |s| (STRINGIMAGE |n|)))))

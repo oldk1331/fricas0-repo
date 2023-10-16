@@ -1,10 +1,10 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; compHash(op, argl, body, cacheName, eqEtc) ==
-; 
+;
 ;   auxfn := INTERNL1(op, '";")
 ;   g1:= GENSYM()  --argument or argument list
 ;   [arg,cacheArgKey,computeValue] :=
@@ -54,17 +54,17 @@
 ;   lamex:= ['LAMBDA, arg, codeBody]
 ;   mainFunction:= [op,lamex]
 ;   computeFunction:= [auxfn,['LAMBDA,argl,:body]]
-; 
+;
 ;   -- compile generated function stub
 ;   compileInteractive mainFunction
-; 
+;
 ;   -- compile main body: this has already been compTran'ed
 ;   if $reportCompilation then
 ;     sayBrightlyI bright '"Generated LISP code for function:"
 ;     pp computeFunction
 ;   compileQuietly computeFunction
 ;   op
- 
+
 (DEFUN |compHash| (|op| |argl| |body| |cacheName| |eqEtc|)
   (PROG (|auxfn| |g1| |key| |LETTMP#1| |arg| |cacheArgKey| |computeValue|
          |hitCounter| |callCounter| |callCountCode| |hitCountCode| |g2|
@@ -149,18 +149,18 @@
         (|pp| |computeFunction|)))
       (|compileQuietly| |computeFunction|)
       |op|))))
- 
+
 ; CDRwithIncrement x ==
 ;   RPLACA(x, inc_SI first x)
 ;   CDR x
- 
+
 (DEFUN |CDRwithIncrement| (|x|)
   (PROG () (RETURN (PROGN (RPLACA |x| (|inc_SI| (CAR |x|))) (CDR |x|)))))
- 
+
 ; clearClams() ==
 ;   for [fn,kind,:.] in $clamList | kind = 'hash or INTEGERP kind repeat
 ;     clearClam fn
- 
+
 (DEFUN |clearClams| ()
   (PROG (|kind| |ISTMP#1| |fn|)
     (RETURN
@@ -180,7 +180,7 @@
                 (|clearClam| |fn|))))
          (SETQ |bfVar#2| (CDR |bfVar#2|))))
       |$clamList| NIL))))
- 
+
 ; clearClam fn ==
 ;   infovec := GET(fn, 'cacheInfo) or keyedSystemError("S2GE0003", [fn])
 ;   -- eval infovec.cacheReset
@@ -190,7 +190,7 @@
 ;   ir is ["SETQ", var , ["initCache", val]] =>
 ;      SETF(SYMBOL_-VALUE(var), initCache(val))
 ;   BREAK()
- 
+
 (DEFUN |clearClam| (|fn|)
   (PROG (|infovec| |ir| |ISTMP#1| |var| |ISTMP#2| |ISTMP#3| |ISTMP#4| |ISTMP#5|
          |ISTMP#6| |mode| |val|)
@@ -248,20 +248,20 @@
                                       #1#))))))))))
         (SETF (SYMBOL-VALUE |var|) (|initCache| |val|)))
        (#1# (BREAK)))))))
- 
+
 ; reportAndClearClams() ==
 ;   cacheStats()
 ;   clearClams()
- 
+
 (DEFUN |reportAndClearClams| ()
   (PROG () (RETURN (PROGN (|cacheStats|) (|clearClams|)))))
- 
+
 ; clear_sorted_caches() ==
 ;     scl := HGET($ConstructorCache, "SortedCache")
 ;     for [., ., :dom] in scl repeat
 ;        cc := compiledLookupCheck("clearCache", [$Void], dom)
 ;        SPADCALL(cc)
- 
+
 (DEFUN |clear_sorted_caches| ()
   (PROG (|cc| |dom| |ISTMP#1| |scl|)
     (RETURN
@@ -285,12 +285,12 @@
                   (SPADCALL |cc|)))))
           (SETQ |bfVar#4| (CDR |bfVar#4|))))
        |scl| NIL)))))
- 
+
 ; clearConstructorCaches() ==
 ;   clear_sorted_caches()
 ;   clearCategoryCaches()
 ;   CLRHASH $ConstructorCache
- 
+
 (DEFUN |clearConstructorCaches| ()
   (PROG ()
     (RETURN
@@ -298,12 +298,12 @@
       (|clear_sorted_caches|)
       (|clearCategoryCaches|)
       (CLRHASH |$ConstructorCache|)))))
- 
+
 ; clearConstructorCache(cname) ==
 ;   (kind := GETDATABASE(cname,'CONSTRUCTORKIND)) =>
 ;     kind = 'category => clearCategoryCache cname
 ;     HREM($ConstructorCache,cname)
- 
+
 (DEFUN |clearConstructorCache| (|cname|)
   (PROG (|kind|)
     (RETURN
@@ -312,14 +312,14 @@
        (IDENTITY
         (COND ((EQ |kind| '|category|) (|clearCategoryCache| |cname|))
               ('T (HREM |$ConstructorCache| |cname|)))))))))
- 
+
 ; clearConstructorAndLisplibCaches() ==
 ;   clearClams()
 ;   clearConstructorCaches()
- 
+
 (DEFUN |clearConstructorAndLisplibCaches| ()
   (PROG () (RETURN (PROGN (|clearClams|) (|clearConstructorCaches|)))))
- 
+
 ; clearCategoryCaches() ==
 ;   for name in allConstructors() repeat
 ;     if GETDATABASE(name,'CONSTRUCTORKIND) = 'category then
@@ -327,7 +327,7 @@
 ;             then SET(cacheName,nil)
 ;     if BOUNDP(cacheName := INTERNL1(PNAME(name), '";CAT"))
 ;           then SET(cacheName,nil)
- 
+
 (DEFUN |clearCategoryCaches| ()
   (PROG (|cacheName|)
     (RETURN
@@ -348,24 +348,24 @@
               (SET |cacheName| NIL))))))
          (SETQ |bfVar#5| (CDR |bfVar#5|))))
       (|allConstructors|) NIL))))
- 
+
 ; clearCategoryCache catName ==
 ;   cacheName := INTERNL1(PNAME(catName), '";AL")
 ;   SET(cacheName,nil)
- 
+
 (DEFUN |clearCategoryCache| (|catName|)
   (PROG (|cacheName|)
     (RETURN
      (PROGN
       (SETQ |cacheName| (INTERNL1 (PNAME |catName|) ";AL"))
       (SET |cacheName| NIL)))))
- 
+
 ; displayHashtable x ==
 ;   l:= NREVERSE SORTBY('CAR,[[opOf HGET(x,key),key] for key in HKEYS x])
 ;   for [a,b] in l repeat
 ;     sayBrightlyNT ['%b,a,'%d]
 ;     pp b
- 
+
 (DEFUN |displayHashtable| (|x|)
   (PROG (|l| |a| |ISTMP#1| |b|)
     (RETURN
@@ -400,7 +400,7 @@
                  (PROGN (|sayBrightlyNT| (LIST '|%b| |a| '|%d|)) (|pp| |b|)))))
           (SETQ |bfVar#9| (CDR |bfVar#9|))))
        |l| NIL)))))
- 
+
 ; cacheStats() ==
 ;   for [fn,kind,:u] in $clamList repeat
 ;     not MEMQ('count,u) =>
@@ -408,7 +408,7 @@
 ;     INTEGERP kind => reportCircularCacheStats(fn,kind)
 ;     kind = 'hash => reportHashCacheStats fn
 ;     sayBrightly ["Unknown cache type for","%b",fn,"%d"]
- 
+
 (DEFUN |cacheStats| ()
   (PROG (|u| |kind| |ISTMP#1| |fn|)
     (RETURN
@@ -439,7 +439,7 @@
                    (LIST '|Unknown cache type for| '|%b| |fn| '|%d|)))))))
          (SETQ |bfVar#11| (CDR |bfVar#11|))))
       |$clamList| NIL))))
- 
+
 ; reportCircularCacheStats(fn,n) ==
 ;   infovec := GET(fn, 'cacheInfo)
 ;   circList:= eval infovec.cacheName
@@ -448,7 +448,7 @@
 ;   sayBrightly ["%b",fn,"%d","has","%b",numberUsed,"%d","/ ",n," values cached"]
 ;   displayCacheFrequency mkCircularCountAlist(circList,n)
 ;   TERPRI()
- 
+
 (DEFUN |reportCircularCacheStats| (|fn| |n|)
   (PROG (|infovec| |circList| |numberUsed|)
     (RETURN
@@ -472,13 +472,13 @@
              '| values cached|))
       (|displayCacheFrequency| (|mkCircularCountAlist| |circList| |n|))
       (TERPRI)))))
- 
+
 ; displayCacheFrequency al ==
 ;   al := NREVERSE SORTBY('CAR,al)
 ;   sayBrightlyNT "    #hits/#occurrences: "
 ;   for [a,:b] in al repeat sayBrightlyNT [a,"/",b,"  "]
 ;   TERPRI()
- 
+
 (DEFUN |displayCacheFrequency| (|al|)
   (PROG (|a| |b|)
     (RETURN
@@ -501,7 +501,7 @@
           (SETQ |bfVar#15| (CDR |bfVar#15|))))
        |al| NIL)
       (TERPRI)))))
- 
+
 ; mkCircularCountAlist(cl,len) ==
 ;   for [x,count,:.] in cl for i in 1..len while x ~= '_$failed repeat
 ;     u:= assoc(count,al) => RPLACD(u,1 + CDR u)
@@ -510,7 +510,7 @@
 ;       pp x
 ;     al:= [[count,:1],:al]
 ;   al
- 
+
 (DEFUN |mkCircularCountAlist| (|cl| |len|)
   (PROG (|x| |ISTMP#1| |count| |u| |al|)
     (RETURN
@@ -544,7 +544,7 @@
           (SETQ |i| (+ |i| 1))))
        |cl| NIL 1)
       |al|))))
- 
+
 ; reportHashCacheStats fn ==
 ;   infovec := GET(fn, 'cacheInfo)
 ;   hashTable:= eval infovec.cacheName
@@ -552,7 +552,7 @@
 ;   sayBrightly [:bright fn,'"has",:bright(# hashValues),'"values cached."]
 ;   displayCacheFrequency mkHashCountAlist hashValues
 ;   TERPRI()
- 
+
 (DEFUN |reportHashCacheStats| (|fn|)
   (PROG (|infovec| |hashTable| |hashValues|)
     (RETURN
@@ -578,13 +578,13 @@
                              (CONS "values cached." NIL)))))
       (|displayCacheFrequency| (|mkHashCountAlist| |hashValues|))
       (TERPRI)))))
- 
+
 ; mkHashCountAlist vl ==
 ;   for [count,:.] in vl repeat
 ;     u:= assoc(count,al) => RPLACD(u,1 + CDR u)
 ;     al:= [[count,:1],:al]
 ;   al
- 
+
 (DEFUN |mkHashCountAlist| (|vl|)
   (PROG (|count| |u| |al|)
     (RETURN
@@ -604,22 +604,22 @@
           (SETQ |bfVar#21| (CDR |bfVar#21|))))
        |vl| NIL)
       |al|))))
- 
+
 ; clearHashReferenceCounts() == BREAK()
- 
+
 (DEFUN |clearHashReferenceCounts| () (PROG () (RETURN (BREAK))))
- 
+
 ; remHashEntriesWith0Count $hashTable == BREAK()
- 
+
 (DEFUN |remHashEntriesWith0Count| (|$hashTable|)
   (DECLARE (SPECIAL |$hashTable|))
   (PROG () (RETURN (BREAK))))
- 
+
 ; initCache n ==
 ;   tail:= '(0 . $failed)
 ;   l:= [[$failed,:tail] for i in 1..n]
 ;   RPLACD(LASTNODE l,l)
- 
+
 (DEFUN |initCache| (|n|)
   (PROG (|tail| |l|)
     (RETURN
@@ -635,7 +635,7 @@
                   (SETQ |i| (+ |i| 1))))
                NIL 1))
       (RPLACD (LASTNODE |l|) |l|)))))
- 
+
 ; assocCache(x,cacheName,fn) ==
 ;   --fn=equality function; do not SHIFT or COUNT
 ;   al:= eval cacheName
@@ -649,7 +649,7 @@
 ;   val => val
 ;   SET(cacheName,backPointer)
 ;   nil
- 
+
 (DEFUN |assocCache| (|x| |cacheName| |fn|)
   (PROG (|al| |forwardPointer| |val| |backPointer|)
     (RETURN
@@ -671,7 +671,7 @@
           (SETQ |bfVar#23| (EQ |forwardPointer| |al|))))
        NIL)
       (COND (|val| |val|) (#1# (PROGN (SET |cacheName| |backPointer|) NIL)))))))
- 
+
 ; assocCacheShift(x,cacheName,fn) ==  --like ASSOC except that al is circular
 ;   --fn=equality function; SHIFT but do not COUNT
 ;   al:= eval cacheName
@@ -688,7 +688,7 @@
 ;   val => val
 ;   SET(cacheName,backPointer)
 ;   nil
- 
+
 (DEFUN |assocCacheShift| (|x| |cacheName| |fn|)
   (PROG (|al| |forwardPointer| |val| |y| |backPointer|)
     (RETURN
@@ -714,7 +714,7 @@
           (SETQ |bfVar#24| (EQ |forwardPointer| |al|))))
        NIL)
       (COND (|val| |val|) (#1# (PROGN (SET |cacheName| |backPointer|) NIL)))))))
- 
+
 ; assocCacheShiftCount(x,al,fn) ==
 ;   -- if x is found, entry containing x becomes first element of list; if
 ;   -- x is not found, entry with smallest use count is shifted to front so
@@ -737,7 +737,7 @@
 ;     RPLACA(newFrontPointer, first al)
 ;     RPLACA(al,temp)
 ;   val
- 
+
 (DEFUN |assocCacheShiftCount| (|x| |al| |fn|)
   (PROG (|forwardPointer| |val| |minCount| |y| |newFrontPointer| |c| |temp|)
     (RETURN
@@ -769,7 +769,7 @@
         (SETQ |temp| (CAR |newFrontPointer|))
         (RPLACA |newFrontPointer| (CAR |al|)) (RPLACA |al| |temp|)))
       |val|))))
- 
+
 ; clamStats() ==
 ;   for [op,kind,:.] in $clamList repeat
 ;     cacheVec := GET(op, 'cacheInfo) or systemErrorHere "clamStats"
@@ -789,7 +789,7 @@
 ;       [" (","%b",kind-empties,"/",kind,"%d","slots used)"]
 ;     sayBrightly
 ;       [:prefix,op,:postString]
- 
+
 (DEFUN |clamStats| ()
   (PROG (|postString| |empties| |cacheValue| |prefix| |res| |callCounter|
          |hitCounter| |cacheVec| |kind| |ISTMP#1| |op|)
@@ -843,13 +843,13 @@
                  (|sayBrightly| (APPEND |prefix| (CONS |op| |postString|)))))))
          (SETQ |bfVar#27| (CDR |bfVar#27|))))
       |$clamList| NIL))))
- 
+
 ; numberOfEmptySlots cache==
 ;   count:= (CAAR cache ='$failed => 1; 0)
 ;   for x in tails rest cache while not(EQ(x, cache)) repeat
 ;     if CAAR x='$failed then count:= count+1
 ;   count
- 
+
 (DEFUN |numberOfEmptySlots| (|cache|)
   (PROG (|count|)
     (RETURN
@@ -864,16 +864,16 @@
           (SETQ |x| (CDR |x|))))
        (CDR |cache|))
       |count|))))
- 
+
 ; addToConstructorCache(op,args,value) ==
 ;   ['haddProp,'$ConstructorCache,MKQ op,args,['CONS,1,value]]
- 
+
 (DEFUN |addToConstructorCache| (|op| |args| |value|)
   (PROG ()
     (RETURN
      (LIST '|haddProp| '|$ConstructorCache| (MKQ |op|) |args|
            (LIST 'CONS 1 |value|)))))
- 
+
 ; haddProp(ht,op,prop,val) ==
 ;   --called inside functors (except for union and record types ??)
 ;   --presently, ht always = $ConstructorCache
@@ -891,7 +891,7 @@
 ;     val
 ;   HPUT(ht,op,[[prop,:val]])
 ;   val
- 
+
 (DEFUN |haddProp| (|ht| |op| |prop| |val|)
   (PROG (|$op| |u|)
     (DECLARE (SPECIAL |$op|))
@@ -914,12 +914,12 @@
                 (|listTruncate| |u| 20)
                 |val|))))
        (#1# (PROGN (HPUT |ht| |op| (LIST (CONS |prop| |val|))) |val|)))))))
- 
+
 ; recordInstantiation(op,prop,dropIfTrue) ==
 ;   startTimingProcess 'debug
 ;   recordInstantiation1(op,prop,dropIfTrue)
 ;   stopTimingProcess 'debug
- 
+
 (DEFUN |recordInstantiation| (|op| |prop| |dropIfTrue|)
   (PROG ()
     (RETURN
@@ -927,7 +927,7 @@
       (|startTimingProcess| '|debug|)
       (|recordInstantiation1| |op| |prop| |dropIfTrue|)
       (|stopTimingProcess| '|debug|)))))
- 
+
 ; recordInstantiation1(op,prop,dropIfTrue) ==
 ;   op in '(CategoryDefaults RepeatedSquaring) => nil--ignore defaults for now
 ;   if $reportEachInstantiation = true then
@@ -956,7 +956,7 @@
 ;     dropIfTrue => [0,:1]
 ;     [1,:0]
 ;   HPUT($instantRecord,op,[[prop,:val]])
- 
+
 (DEFUN |recordInstantiation1| (|op| |prop| |dropIfTrue|)
   (PROG (|trailer| |m1| |ISTMP#1| |m2| |xtra| |u| |v| |val|)
     (RETURN
@@ -1011,7 +1011,7 @@
                              (COND (|dropIfTrue| (CONS 0 1)) (#1# (CONS 1 0))))
                      (HPUT |$instantRecord| |op|
                            (LIST (CONS |prop| |val|))))))))))))
- 
+
 ; reportInstantiations() ==
 ;   --assumed to be a hashtable with reference counts
 ;     conList:=
@@ -1032,7 +1032,7 @@
 ;          '"         ",rTotal,'" reinstantiated","%l",
 ;           '"         ",mTotal,'" dropped","%l",
 ;            '"         ",nForms,'" distinct domains instantiated/dropped"]
- 
+
 (DEFUN |reportInstantiations| ()
   (PROG (|form| |ISTMP#2| |nTotal| |mTotal| |rTotal| |nForms| |conList| |m| |n|
          |ISTMP#1| |argList|)
@@ -1116,7 +1116,7 @@
              "         " |rTotal| " reinstantiated" '|%l| "         " |mTotal|
              " dropped" '|%l| "         " |nForms|
              " distinct domains instantiated/dropped"))))))
- 
+
 ; listTruncate(l,n) ==
 ;   u:= l
 ;   n := dec_SI n
@@ -1128,7 +1128,7 @@
 ;       recordInstantiation($op,CAADR u,true)
 ;     RPLACD(u,nil)
 ;   l
- 
+
 (DEFUN |listTruncate| (|l| |n|)
   (PROG (|u|)
     (RETURN
@@ -1147,7 +1147,7 @@
           (|recordInstantiation| |$op| (CAADR |u|) T)))
         (RPLACD |u| NIL)))
       |l|))))
- 
+
 ; lassocShift(x,l) ==
 ;   y:= l
 ;   while not atom y repeat
@@ -1159,7 +1159,7 @@
 ;       QRPLACA(l,result)
 ;     QCDR result
 ;   nil
- 
+
 (DEFUN |lassocShift| (|x| |l|)
   (PROG (|y| |result|)
     (RETURN
@@ -1180,7 +1180,7 @@
           ((NULL (EQ |y| |l|)) (QRPLACA |y| (CAR |l|)) (QRPLACA |l| |result|)))
          (QCDR |result|)))
        (#1# NIL))))))
- 
+
 ; lassocShiftWithFunction(x,l,fn) ==
 ;   y:= l
 ;   while not atom y repeat
@@ -1192,7 +1192,7 @@
 ;       QRPLACA(l,result)
 ;     QCDR result
 ;   nil
- 
+
 (DEFUN |lassocShiftWithFunction| (|x| |l| |fn|)
   (PROG (|y| |result|)
     (RETURN
@@ -1213,7 +1213,7 @@
           ((NULL (EQ |y| |l|)) (QRPLACA |y| (CAR |l|)) (QRPLACA |l| |result|)))
          (QCDR |result|)))
        (#1# NIL))))))
- 
+
 ; globalHashtableStats(x,sortFn) ==
 ;   --assumed to be a hashtable with reference counts
 ;   keys:= HKEYS x
@@ -1227,7 +1227,7 @@
 ;   for [n,fn,args] in NREVERSE SORTBY(sortFn,reportList) repeat
 ;     sayBrightlyNT [:rightJustifyString(n,6),"  ",fn,": "]
 ;     pp args
- 
+
 (DEFUN |globalHashtableStats| (|x| |sortFn|)
   (PROG (|keys| |u| |argList| |ISTMP#1| |n| |argList1| |reportList| |fn|
          |ISTMP#2| |args|)
@@ -1309,19 +1309,19 @@
                   (|pp| |args|)))))
           (SETQ |bfVar#41| (CDR |bfVar#41|))))
        (NREVERSE (SORTBY |sortFn| |reportList|)) NIL)))))
- 
+
 ; constructor2ConstructorForm x ==
 ;   VECP x => x.0
 ;   x
- 
+
 (DEFUN |constructor2ConstructorForm| (|x|)
   (PROG () (RETURN (COND ((VECP |x|) (ELT |x| 0)) ('T |x|)))))
- 
+
 ; rightJustifyString(x,maxWidth) ==
 ;   size:= entryWidth x
 ;   size > maxWidth => keyedSystemError("S2GE0014",[x])
 ;   [fillerSpaces(maxWidth-size,'" "),x]
- 
+
 (DEFUN |rightJustifyString| (|x| |maxWidth|)
   (PROG (SIZE)
     (RETURN
@@ -1329,7 +1329,7 @@
       (SETQ SIZE (|entryWidth| |x|))
       (COND ((< |maxWidth| SIZE) (|keyedSystemError| 'S2GE0014 (LIST |x|)))
             ('T (LIST (|fillerSpaces| (- |maxWidth| SIZE) " ") |x|)))))))
- 
+
 ; domainEqualList(argl1,argl2) ==
 ;   --function used to match argument lists of constructors
 ;   while argl1 and argl2 repeat
@@ -1342,7 +1342,7 @@
 ;     argl1:= rest argl1; argl2 := rest argl2
 ;   argl1 or argl2 => nil
 ;   true
- 
+
 (DEFUN |domainEqualList| (|argl1| |argl2|)
   (PROG (|item1| |item2| |partsMatch|)
     (RETURN
@@ -1362,12 +1362,12 @@
                           (SETQ |argl1| (CDR |argl1|))
                           (SETQ |argl2| (CDR |argl2|)))))))))))
       (COND ((OR |argl1| |argl2|) NIL) (#1# T))))))
- 
+
 ; removeAllClams() ==
 ;   for [fun,:.] in $clamList repeat
 ;     sayBrightly ['"Un-clamming function",'%b,fun,'%d]
 ;     SET(fun,eval INTERN STRCONC(STRINGIMAGE fun,'";"))
- 
+
 (DEFUN |removeAllClams| ()
   (PROG (|fun|)
     (RETURN

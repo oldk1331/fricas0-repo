@@ -1,21 +1,21 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; $historyDisplayWidth := 120
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$historyDisplayWidth| 120))
- 
+
 ; $newline := char 10
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$newline| (|char| 10)))
- 
+
 ; downlink page ==
 ;   htInitPage('"Bridge",nil)
 ;   htSayList(['"\replacepage{", page, '"}"])
 ;   htShowPage()
- 
+
 (DEFUN |downlink| (|page|)
   (PROG ()
     (RETURN
@@ -23,13 +23,13 @@
       (|htInitPage| "Bridge" NIL)
       (|htSayList| (LIST "\\replacepage{" |page| "}"))
       (|htShowPage|)))))
- 
+
 ; dbNonEmptyPattern pattern ==
 ;   null pattern => '"*"
 ;   pattern := STRINGIMAGE pattern
 ;   #pattern > 0 => pattern
 ;   '"*"
- 
+
 (DEFUN |dbNonEmptyPattern| (|pattern|)
   (PROG ()
     (RETURN
@@ -38,7 +38,7 @@
             (PROGN
              (SETQ |pattern| (STRINGIMAGE |pattern|))
              (COND ((< 0 (LENGTH |pattern|)) |pattern|) (#1# "*"))))))))
- 
+
 ; htSystemVariables() == main where
 ;   main ==
 ;     not $fullScreenSysVars => htSetVars()
@@ -99,7 +99,7 @@
 ;     key = 'TREE => fn(options,al,false)
 ;     key = 'FUNCTION => [[$heading,:t],:al]
 ;     systemError key
- 
+
 (DEFUN |htSystemVariables| ()
   (PROG (|$heading| |$levels| |classlevel| |table| |lastHeading| |heading|
          |ISTMP#1| |name| |ISTMP#2| |message| |ISTMP#3| |ISTMP#4| |key|
@@ -319,14 +319,14 @@
             ((EQ |key| 'TREE) (|htSystemVariables,fn| |options| |al| NIL))
             ((EQ |key| 'FUNCTION) (CONS (CONS |$heading| |t|) |al|))
             ('T (|systemError| |key|)))))))
- 
+
 ; htSetSystemVariableKind(htPage,[variable,name,fun]) ==
 ;   value := htpLabelInputString(htPage,name)
 ;   if STRINGP value and fun then value := FUNCALL(fun,value)
 ; --SCM::what to do???  if not FIXP value then userError ???
 ;   SET(variable,value)
 ;   htSystemVariables ()
- 
+
 (DEFUN |htSetSystemVariableKind| (|htPage| |bfVar#5|)
   (PROG (|variable| |name| |fun| |value|)
     (RETURN
@@ -339,7 +339,7 @@
        ((AND (STRINGP |value|) |fun|) (SETQ |value| (FUNCALL |fun| |value|))))
       (SET |variable| |value|)
       (|htSystemVariables|)))))
- 
+
 ; htSetSystemVariable(htPage,[name,value]) ==
 ;   value :=
 ;     value = 'on => true
@@ -347,7 +347,7 @@
 ;     value
 ;   SET(name,value)
 ;   htSystemVariables ()
- 
+
 (DEFUN |htSetSystemVariable| (|htPage| |bfVar#6|)
   (PROG (|name| |value|)
     (RETURN
@@ -359,13 +359,13 @@
                     ('T |value|)))
       (SET |name| |value|)
       (|htSystemVariables|)))))
- 
+
 ; htGloss(pattern) == htGlossPage(nil,dbNonEmptyPattern pattern or '"*",true)
- 
+
 (DEFUN |htGloss| (|pattern|)
   (PROG ()
     (RETURN (|htGlossPage| NIL (OR (|dbNonEmptyPattern| |pattern|) "*") T))))
- 
+
 ; htGlossPage(htPage,pattern,tryAgain?) ==
 ;   $wildCard: local := char '_*
 ;   pattern = '"*" => downlink 'GlossaryPage
@@ -406,7 +406,7 @@
 ;   htSay '" for glossary entry matching "
 ;   htMakePage [['bcStrings, [24,'"*",'filter,'EM]]]
 ;   htShowPageNoScroll()
- 
+
 (DEFUN |htGlossPage| (|htPage| |pattern| |tryAgain?|)
   (PROG (|$key| |$wildCard| |tick| |k| |heading| |lines| |defstream| |results|
          |grepForm| |filter|)
@@ -481,7 +481,7 @@
                  (|htMakePage|
                   (LIST (LIST '|bcStrings| (LIST 24 "*" '|filter| 'EM))))
                  (|htShowPageNoScroll|)))))))))))
- 
+
 ; gatherGlossLines(results,defstream) ==
 ;   acc := nil
 ;   for keyline in results repeat
@@ -501,7 +501,7 @@
 ;           xtralines := [SUBSTRING(x,j + 1,nil),:xtralines]
 ;     acc := [STRCONC(keyAndTick,def, "STRCONC"/NREVERSE xtralines),:acc]
 ;   REVERSE acc
- 
+
 (DEFUN |gatherGlossLines| (|results| |defstream|)
   (PROG (|acc| |n| |keyAndTick| |byteAddress| |line| |k| |pointer| |def|
          |xtralines| |x| |j| |nextPointer|)
@@ -558,12 +558,12 @@
           (SETQ |bfVar#8| (CDR |bfVar#8|))))
        |results| NIL)
       (REVERSE |acc|)))))
- 
+
 ; htGlossSearch(htPage,junk) ==  htGloss htpLabelInputString(htPage,'filter)
- 
+
 (DEFUN |htGlossSearch| (|htPage| |junk|)
   (PROG () (RETURN (|htGloss| (|htpLabelInputString| |htPage| '|filter|)))))
- 
+
 ; htGreekSearch(filter) ==
 ;   ss := dbNonEmptyPattern filter
 ;   s := pmTransFilter ss
@@ -598,7 +598,7 @@
 ;     for x in nonmatches repeat htSayList(['"{", x, '"}"])
 ;     htSay('"}}")
 ;   htShowPage()
- 
+
 (DEFUN |htGreekSearch| (|filter|)
   (PROG (|ss| |s| |names| |matches| |nonmatches|)
     (RETURN
@@ -684,7 +684,7 @@
                     |nonmatches| NIL)
                    (|htSay| "}}")))
                  (|htShowPage|)))))))))))
- 
+
 ; htTextSearch(filter) ==
 ;   s := pmTransFilter dbNonEmptyPattern filter
 ;   s is ['error,:.] => bcErrorPage s
@@ -719,7 +719,7 @@
 ;     for x in nonmatches repeat htSayList(['"{", x, '"}"])
 ;     htSay('"}}")
 ;   htShowPage()
- 
+
 (DEFUN |htTextSearch| (|filter|)
   (PROG (|s| |lines| |matches| |nonmatches|)
     (RETURN
@@ -803,7 +803,7 @@
                     |nonmatches| NIL)
                    (|htSay| "}}")))
                  (|htShowPage|)))))))))))
- 
+
 ; mkUnixPattern s ==
 ;   u := mkUpDownPattern s
 ;   starPositions := REVERSE [i for i in 1..(-1 + MAXINDEX u) | u.i = $wild]
@@ -814,7 +814,7 @@
 ;   if u.(k := MAXINDEX u) ~= $wild then u := STRCONC(u,'"[^a-zA-Z]")
 ;                                   else u := SUBSTRING(u,0,k)
 ;   u
- 
+
 (DEFUN |mkUnixPattern| (|s|)
   (PROG (|u| |starPositions| |k|)
     (RETURN

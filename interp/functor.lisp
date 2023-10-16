@@ -1,8 +1,8 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; mkDevaluate a ==
 ;   null a => nil
 ;   a is ['QUOTE,a'] => (a' => a; nil)
@@ -10,7 +10,7 @@
 ;   a is ['LIST] => nil
 ;   a is ['LIST,:.] => a
 ;   ['devaluate,a]
- 
+
 (DEFUN |mkDevaluate| (|a|)
   (PROG (|ISTMP#1| |a'|)
     (RETURN
@@ -25,7 +25,7 @@
            ((AND (CONSP |a|) (EQ (CDR |a|) NIL) (EQ (CAR |a|) 'LIST)) NIL)
            ((AND (CONSP |a|) (EQ (CAR |a|) 'LIST)) |a|)
            (#1# (LIST '|devaluate| |a|))))))
- 
+
 ; compCategories(u, e) ==
 ;   ATOM u => u
 ;   not ATOM first u =>
@@ -49,7 +49,7 @@
 ;   -- select the modemap part of the first entry, and skip result etc.
 ;   u:=[first u, :[compCategories1(a, b, e) for a in rest u for b in v]]
 ;   u
- 
+
 (DEFUN |compCategories| (|u| |e|)
   (PROG (|ISTMP#1| D |ISTMP#2| |v|)
     (RETURN
@@ -135,14 +135,14 @@
                                   (SETQ |bfVar#6| (CDR |bfVar#6|))))
                                NIL (CDR |u|) NIL |v| NIL)))
                 |u|)))))))))
- 
+
 ; compCategories1(u, v, e) ==
 ; -- v is the mode of u
 ;   ATOM u => u
 ;   isCategoryForm(v) => compCategories(u, e)
 ;   [c, :.] := comp(macroExpand(u, e), v, e) => c
 ;   error 'compCategories1
- 
+
 (DEFUN |compCategories1| (|u| |v| |e|)
   (PROG (|LETTMP#1| |c|)
     (RETURN
@@ -153,7 +153,7 @@
              |LETTMP#1|)
             |c|)
            ('T (|error| '|compCategories1|))))))
- 
+
 ; optFunctorBody x ==
 ;   atom x => x
 ;   x is ['QUOTE,:l] => x
@@ -186,7 +186,7 @@
 ;       ['COND,:l]
 ;     ['COND,:l]
 ;   [optFunctorBody u for u in x]
- 
+
 (DEFUN |optFunctorBody| (|x|)
   (PROG (|l| |ISTMP#1| |parms| |ISTMP#2| |body| |pred|)
     (RETURN
@@ -301,25 +301,25 @@
       (SETQ |pred| (CAR |bfVar#18|))
       (SETQ |conseq| (CDR |bfVar#18|))
       (CONS (|optFunctorBody| |pred|) (|optFunctorPROGN| |conseq|))))))
- 
+
 ; optFunctorBodyQuotable u ==
 ;   null u => true
 ;   NUMBERP u => true
 ;   atom u => nil
 ;   u is ['QUOTE,:.] => true
 ;   nil
- 
+
 (DEFUN |optFunctorBodyQuotable| (|u|)
   (PROG ()
     (RETURN
      (COND ((NULL |u|) T) ((NUMBERP |u|) T) ((ATOM |u|) NIL)
            ((AND (CONSP |u|) (EQ (CAR |u|) 'QUOTE)) T) ('T NIL)))))
- 
+
 ; optFunctorBodyRequote u ==
 ;   atom u => u
 ;   u is ['QUOTE,v] => v
 ;   systemErrorHere '"optFunctorBodyRequote"
- 
+
 (DEFUN |optFunctorBodyRequote| (|u|)
   (PROG (|ISTMP#1| |v|)
     (RETURN
@@ -331,7 +331,7 @@
                        (PROGN (SETQ |v| (CAR |ISTMP#1|)) #1='T))))
             |v|)
            (#1# (|systemErrorHere| "optFunctorBodyRequote"))))))
- 
+
 ; optFunctorPROGN l ==
 ;   l is [x,:l'] =>
 ;     worthlessCode x => optFunctorPROGN l'
@@ -339,7 +339,7 @@
 ;     l'=[nil] => [optFunctorBody x]
 ;     [optFunctorBody x,:l']
 ;   l
- 
+
 (DEFUN |optFunctorPROGN| (|l|)
   (PROG (|x| |l'|)
     (RETURN
@@ -353,14 +353,14 @@
                (COND ((EQUAL |l'| (LIST NIL)) (LIST (|optFunctorBody| |x|)))
                      (#1# (CONS (|optFunctorBody| |x|) |l'|)))))))
       (#1# |l|)))))
- 
+
 ; worthlessCode x ==
 ;   x is ['COND,:l] and (and/[x is [.,y] and worthlessCode y for x in l]) => true
 ;   x is ['PROGN,:l] => (null (l':= optFunctorPROGN l) => true; false)
 ;   x is ['LIST] => true
 ;   null x => true
 ;   false
- 
+
 (DEFUN |worthlessCode| (|x|)
   (PROG (|l| |ISTMP#1| |y| |l'|)
     (RETURN
@@ -390,20 +390,20 @@
        (COND ((NULL (SETQ |l'| (|optFunctorPROGN| |l|))) T) (#1# NIL)))
       ((AND (CONSP |x|) (EQ (CDR |x|) NIL) (EQ (CAR |x|) 'LIST)) T)
       ((NULL |x|) T) (#1# NIL)))))
- 
+
 ; cons5(p,l) ==
 ;   l and (CAAR l = first p) => [p,: rest l]
 ;   LENGTH l < 5 => [p,:l]
 ;   RPLACD(QCDDR(QCDDR l), nil)
 ;   [p,:l]
- 
+
 (DEFUN |cons5| (|p| |l|)
   (PROG ()
     (RETURN
      (COND ((AND |l| (EQUAL (CAAR |l|) (CAR |p|))) (CONS |p| (CDR |l|)))
            ((< (LENGTH |l|) 5) (CONS |p| |l|))
            ('T (PROGN (RPLACD (QCDDR (QCDDR |l|)) NIL) (CONS |p| |l|)))))))
- 
+
 ; mkDomainConstructor x ==
 ;   atom x => mkDevaluate x
 ;   x is ['Join] => nil
@@ -418,7 +418,7 @@
 ;     ['LIST,MKQ 'Join,:[mkDomainConstructor y for y in argl]]
 ;   x is [op] => MKQ x
 ;   x is [op,:argl] => ['LIST,MKQ op,:[mkDomainConstructor a for a in argl]]
- 
+
 (DEFUN |mkDomainConstructor| (|x|)
   (PROG (|ISTMP#1| |selector| |ISTMP#2| |dom| |argl| |op|)
     (RETURN
@@ -489,21 +489,21 @@
                                             |bfVar#26|))))
                             (SETQ |bfVar#25| (CDR |bfVar#25|))))
                          NIL |argl| NIL))))))))
- 
+
 ; DescendCodeAdd(base, flag, kvec, e) ==
 ;   atom base => DescendCodeVarAdd(base, flag, kvec, e)
 ;   not (modemap:=get(opOf base,'modemap,$CategoryFrame)) =>
 ;       if getmode(opOf base, e) is ["Mapping", target, :formalArgModes]
 ;          then formalArgs:= take(#formalArgModes,$FormalMapVariableList)
 ;                 --argument substitution if parameterized?
-; 
+;
 ;          else keyedSystemError("S2OR0001",[opOf base])
 ;       DescendCodeAdd1(base, flag, target, formalArgs, formalArgModes, kvec, e)
 ;   for [[[.,:formalArgs],target,:formalArgModes],.] in modemap repeat
 ;       (ans := DescendCodeAdd1(base, flag, target, formalArgs,
 ;                               formalArgModes, kvec, e)) => return ans
 ;   ans
- 
+
 (DEFUN |DescendCodeAdd| (|base| |flag| |kvec| |e|)
   (PROG (|modemap| |ISTMP#1| |ISTMP#2| |target| |formalArgModes| |formalArgs|
          |ISTMP#3| |ISTMP#4| |ans|)
@@ -567,7 +567,7 @@
                  (SETQ |bfVar#28| (CDR |bfVar#28|))))
               |modemap| NIL)
              |ans|))))))
- 
+
 ; DescendCodeAdd1(base, flag, target, formalArgs, formalArgModes, kvec, e) ==
 ;   slist:= pairList(formalArgs,rest $addFormLhs)
 ;          --base = comp $addFormLhs-- bound in compAdd
@@ -610,7 +610,7 @@
 ;         v:=[($QuickCode => 'QSETREFV;'SETELT),name,count,v]
 ;       code:=[v,:code]
 ;   [['LET,instantiatedBase,base],:code]
- 
+
 (DEFUN |DescendCodeAdd1|
        (|base| |flag| |target| |formalArgs| |formalArgModes| |kvec| |e|)
   (PROG (|slist| |newModes| |LETTMP#1| |cat| |instantiatedBase| |n| |sig| |u|
@@ -738,7 +738,7 @@
                  (MEMQ |x| '(SETELT QSETREFV)))
             (|DescendCodeAdd1,update| |u'| |copyvec|
              (CONS (CONS |name| |number|) |sofar|)))))))
- 
+
 ; DescendCode(code, flag, viewAssoc, EnvToPass, kvec, e) ==
 ;   -- flag = true if we are walking down code always executed;
 ;   -- otherwise set to conditions in which
@@ -812,7 +812,7 @@
 ;   code is ['QSETREFV,:.] => code -- can be generated by doItIf
 ;   stackWarning ['"unknown Functor code ",code]
 ;   code
- 
+
 (DEFUN |DescendCode| (|code| |flag| |viewAssoc| |EnvToPass| |kvec| |e|)
   (PROG (|ISTMP#1| |base| |codelist| |v| |condlist| |u2| |f1| |f| |ISTMP#2|
          |dom| |ISTMP#3| |cat| |c| |c1| |name| |body| |u| |sig| |implem|)
@@ -1073,13 +1073,13 @@
             (PROGN
              (|stackWarning| (LIST "unknown Functor code " |code|))
              |code|))))))
- 
+
 ; ConstantCreator u ==
 ;   null u => nil
 ;   u is [q,.,.,u'] and (q='SETELT or q='QSETREFV) => ConstantCreator u'
 ;   u is ['CONS,:.] => nil
 ;   true
- 
+
 (DEFUN |ConstantCreator| (|u|)
   (PROG (|q| |ISTMP#1| |ISTMP#2| |ISTMP#3| |u'|)
     (RETURN
@@ -1101,12 +1101,12 @@
                  (OR (EQ |q| 'SETELT) (EQ |q| 'QSETREFV)))
             (|ConstantCreator| |u'|))
            ((AND (CONSP |u|) (EQ (CAR |u|) 'CONS)) NIL) (#1# T)))))
- 
+
 ; ProcessCond(cond, et) ==
 ;   ncond := SUBLIS($pairlis,cond)
 ;   INTEGERP POSN1(ncond, $NRTslot1PredicateList) => predicateBitRef(ncond, et)
 ;   cond
- 
+
 (DEFUN |ProcessCond| (|cond| |et|)
   (PROG (|ncond|)
     (RETURN
@@ -1116,7 +1116,7 @@
        ((INTEGERP (POSN1 |ncond| |$NRTslot1PredicateList|))
         (|predicateBitRef| |ncond| |et|))
        ('T |cond|))))))
- 
+
 ; SetFunctionSlots(sig, body, flag, kvec) ==
 ; --+
 ;   v := '$
@@ -1145,7 +1145,7 @@
 ;   body is ['SETELT,:.] => body
 ;   body is ['QSETREFV,:.] => body
 ;   nil
- 
+
 (DEFUN |SetFunctionSlots| (|sig| |body| |flag| |kvec|)
   (PROG (|v| |u| |q| |ISTMP#1| |ISTMP#2| |index| |a| |b|)
     (RETURN
@@ -1230,7 +1230,7 @@
       (COND ((AND (CONSP |body|) (EQ (CAR |body|) 'SETELT)) |body|)
             ((AND (CONSP |body|) (EQ (CAR |body|) 'QSETREFV)) |body|)
             (#1# NIL))))))
- 
+
 ; LookUpSigSlots(sig,siglist) ==
 ; --+ must kill any implementations below of the form (ELT $ NIL)
 ;   if $insideCategoryPackageIfTrue then
@@ -1238,7 +1238,7 @@
 ;   siglist := $lisplibOperationAlist
 ;   REMDUP [implem for u in siglist | SigSlotsMatch(sig,first u,implem:=CADDR u)
 ;               and IFCAR(IFCDR(IFCDR(implem)))]
- 
+
 (DEFUN |LookUpSigSlots| (|sig| |siglist|)
   (PROG (|implem|)
     (RETURN
@@ -1259,7 +1259,7 @@
                   (SETQ |bfVar#47| (CONS |implem| |bfVar#47|)))))
            (SETQ |bfVar#46| (CDR |bfVar#46|))))
         NIL |siglist| NIL))))))
- 
+
 ; SigSlotsMatch(sig,pattern,implem) ==
 ;   sig=pattern => true
 ;   not (LENGTH CADR sig=LENGTH CADR pattern) => nil
@@ -1271,7 +1271,7 @@
 ;   --If we don't have this next test, then we'll recurse in SetFunctionSlots
 ;   SourceLevelSubsume(sig',pat') => true
 ;   nil
- 
+
 (DEFUN |SigSlotsMatch| (|sig| |pattern| |implem|)
   (PROG (|pat'| |sig'|)
     (RETURN
@@ -1284,14 +1284,14 @@
              (SETQ |sig'| (SUBSTQ |$definition| '$ (CADR |sig|)))
              (COND ((EQUAL |sig'| |pat'|) T)
                    ((|SourceLevelSubsume| |sig'| |pat'|) T) (#1# NIL))))))))
- 
+
 ; makeMissingFunctionEntry(alist,i) ==
 ;   tran SUBLIS(alist,$MissingFunctionInfo.i) where
 ;     tran x ==
 ;       x is ["HasCategory",a,["QUOTE",b]] => ['has,a,b]
 ;       x is [op,:l] and op in '(AND OR NOT) => [op,:[tran y for y in l]]
 ;       x
- 
+
 (DEFUN |makeMissingFunctionEntry| (|alist| |i|)
   (PROG ()
     (RETURN
@@ -1335,7 +1335,7 @@
                  (SETQ |bfVar#48| (CDR |bfVar#48|))))
               NIL |l| NIL)))
       (#1# |x|)))))
- 
+
 ; InvestigateConditions(catvecListMaker, base_shell, e) ==
 ;   -- given a principal view and a list of secondary views,
 ;   -- discover under what conditions the secondary view are
@@ -1436,7 +1436,7 @@
 ;         list2
 ;   list:= ICformat_loop(list, secondaries, e)
 ;   [true,:[LASSOC(ms,list) for ms in masterSecondaries]]
- 
+
 (DEFUN |InvestigateConditions| (|catvecListMaker| |base_shell| |e|)
   (PROG (|principal| |secondaries| |op| |LETTMP#1| |principal'| |cond| |new|
          |l| |Conditions| |PrincipalSecondaries| |MinimalPrimary|
@@ -1884,11 +1884,11 @@
              (SETQ |r2| (CAR |LETTMP#1|))
              (SETQ |Conditions| (CADR |LETTMP#1|))
              (LIST (CONS |r1| |r2|) |Conditions|)))))))
- 
+
 ; ICformat_loop(list, secondaries, e) ==
 ;   $ICformat_hash : local := MAKE_HASHTABLE('EQUAL)
 ;   [[sec, :ICformat(u, e)] for u in list for sec in secondaries]
- 
+
 (DEFUN |ICformat_loop| (LIST |secondaries| |e|)
   (PROG (|$ICformat_hash|)
     (DECLARE (SPECIAL |$ICformat_hash|))
@@ -1907,7 +1907,7 @@
           (SETQ |bfVar#88| (CDR |bfVar#88|))
           (SETQ |bfVar#89| (CDR |bfVar#89|))))
        NIL LIST NIL |secondaries| NIL)))))
- 
+
 ; ORreduce l ==
 ;     for u in l | u is ['AND, :.] or u is ['and, :.] repeat
 ;                                   --check that B causes (and A B) to go
@@ -1918,7 +1918,7 @@
 ;                            --Note that we are ignoring AND as a component.
 ;                            --Convince yourself that this code still works
 ;     l
- 
+
 (DEFUN |ORreduce| (|l|)
   (PROG ()
     (RETURN
@@ -1962,7 +1962,7 @@
           (SETQ |bfVar#91| (CDR |bfVar#91|))))
        |l| NIL)
       |l|))))
- 
+
 ; ICformat(u, e) ==
 ;       atom u => u
 ;       u is ['has,:.] =>
@@ -2003,7 +2003,7 @@
 ;         LENGTH l=1 => first l
 ;         ['OR,:l]
 ;       systemErrorHere '"ICformat"
- 
+
 (DEFUN |ICformat| (|u| |e|)
   (PROG (|res| |l| |v| |l'| |l1|)
     (RETURN
@@ -2219,13 +2219,13 @@
           (SETQ |bfVar#102| (CDR |bfVar#102|))))
        |l| NIL)
       |l|))))
- 
+
 ; partPessimise(a,trueconds) ==
 ;   atom a => a
 ;   a is ['SIGNATURE,:.] => a
 ;   a is ['IF,cond,:.] => (member(cond,trueconds) => a; nil)
 ;   [partPessimise(first a,trueconds),:partPessimise(rest a,trueconds)]
- 
+
 (DEFUN |partPessimise| (|a| |trueconds|)
   (PROG (|ISTMP#1| |cond|)
     (RETURN
@@ -2239,9 +2239,9 @@
            (#1#
             (CONS (|partPessimise| (CAR |a|) |trueconds|)
                   (|partPessimise| (CDR |a|) |trueconds|)))))))
- 
+
 ; getViewsConditions(u, e) ==
-; 
+;
 ;   --returns a list of all the categories that can be views of this one
 ;   --paired with the condition under which they are such views
 ;   [vec, :.] := compMakeCategoryObject(u, e) or
@@ -2252,7 +2252,7 @@
 ;     null first(vec.4) => views
 ;     [[CAAR vec.4,:true],:views] --*
 ;   [[vec.0,:true],:views] --*
- 
+
 (DEFUN |getViewsConditions| (|u| |e|)
   (PROG (|LETTMP#1| |vec| |views|)
     (RETURN
@@ -2278,7 +2278,7 @@
         (COND ((NULL (CAR (ELT |vec| 4))) |views|)
               (#1# (CONS (CONS (CAAR (ELT |vec| 4)) T) |views|))))
        (#1# (CONS (CONS (ELT |vec| 0) T) |views|)))))))
- 
+
 ; DescendCodeVarAdd(base, flag, kvec, e) ==
 ;    princview := kvec
 ;    [SetFunctionSlots(sig, SUBST('ELT,'CONST,implem), flag, kvec) repeat
@@ -2286,7 +2286,7 @@
 ;          princview.i is [sig:=[op,types],:.] and
 ;            LASSOC([base, :SUBST(base, '$, types)], get(op, 'modemap, e)) is
 ;                   [[pred,implem]]]
- 
+
 (DEFUN |DescendCodeVarAdd| (|base| |flag| |kvec| |e|)
   (PROG (|princview| |ISTMP#1| |ISTMP#2| |op| |ISTMP#3| |types| |sig| |pred|
          |implem|)
@@ -2334,11 +2334,11 @@
                            |bfVar#108|)))))
           (SETQ |i| (+ |i| 1))))
        NIL (MAXINDEX |princview|) 6)))))
- 
+
 ; resolvePatternVars(p,args) ==
 ;   p := SUBLISLIS(args, $TriangleVariableList, p)
 ;   SUBLISLIS(args, $FormalMapVariableList, p)
- 
+
 (DEFUN |resolvePatternVars| (|p| |args|)
   (PROG ()
     (RETURN

@@ -1,24 +1,24 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; DEFPARAMETER($repeatLabel, NIL)
- 
+
 (DEFPARAMETER |$repeatLabel| NIL)
- 
+
 ; DEFPARAMETER($breakCount, 0)
- 
+
 (DEFPARAMETER |$breakCount| 0)
- 
+
 ; DEFPARAMETER($anonymousMapCounter, 0)
- 
+
 (DEFPARAMETER |$anonymousMapCounter| 0)
- 
+
 ; voidValue() == '"()"
- 
+
 (DEFUN |voidValue| () (PROG () (RETURN "()")))
- 
+
 ; upADEF t ==
 ;   t isnt [.,[vars,types,.,body],pred,.] => NIL
 ;   -- do some checking on what we got
@@ -28,7 +28,7 @@
 ;   types := [(if t then evaluateType unabbrev t else NIL) for t in types]
 ;   -- we do not allow partial types
 ;   if isPartialMode(m := first types) then throwKeyedMsg("S2IS0058",[m])
-; 
+;
 ;   -- we want everything to be declared or nothing. The exception is that
 ;   -- we do not require a target type since we will compute one anyway.
 ;   if null(m) and rest types then
@@ -40,22 +40,22 @@
 ;     if (type and null m) or (m and null type) then
 ;       throwKeyedMsg("S2IS0059",NIL)
 ;     if isPartialMode type  then throwKeyedMsg("S2IS0058",[type])
-; 
+;
 ; --  $localVars: local := nil
 ; --  $freeVars:  local := nil
 ; --  $env:       local := [[NIL]]
 ;   $compilingMap : local := true
-; 
+;
 ;   -- if there is a predicate, merge it in with the body
 ;   if pred ~= true then body := ['IF,pred,body,'noMapVal]
-; 
+;
 ;   tar := getTarget t
 ;   null m and tar is ['Mapping,.,:argTypes] and (#vars = #argTypes) =>
 ;     if isPartialMode tar then throwKeyedMsg("S2IS0058",[tar])
 ;     evalTargetedADEF(t,vars,rest tar,body)
 ;   null m => evalUntargetedADEF(t,vars,types,body)
 ;   evalTargetedADEF(t,vars,types,body)
- 
+
 (DEFUN |upADEF| (|t|)
   (PROG (|$compilingMap| |argTypes| |tar| |types'| |m| |ISTMP#7| |pred|
          |ISTMP#6| |body| |ISTMP#5| |ISTMP#4| |types| |ISTMP#3| |vars|
@@ -163,7 +163,7 @@
            (|evalTargetedADEF| |t| |vars| (CDR |tar|) |body|)))
          ((NULL |m|) (|evalUntargetedADEF| |t| |vars| |types| |body|))
          (#1# (|evalTargetedADEF| |t| |vars| |types| |body|)))))))))
- 
+
 ; evalUntargetedADEF(t,vars,types,body) ==
 ;   -- recreate a parse form
 ;   $freeVariables := []
@@ -173,7 +173,7 @@
 ;   val := objNewWrap(["+->",vars,body],$AnonymousFunction)
 ;   putValue(t,val)
 ;   putModeSet(t,[objMode val])
- 
+
 (DEFUN |evalUntargetedADEF| (|t| |vars| |types| |body|)
   (PROG (|var| |val|)
     (RETURN
@@ -188,16 +188,16 @@
               (|objNewWrap| (LIST '+-> |vars| |body|) |$AnonymousFunction|))
       (|putValue| |t| |val|)
       (|putModeSet| |t| (LIST (|objMode| |val|)))))))
- 
+
 ; evalTargetedADEF(t,vars,types,body) ==
 ;     evalTargetedADEF1(t, vars, types, body, $env, $localVars, $freeVars)
- 
+
 (DEFUN |evalTargetedADEF| (|t| |vars| |types| |body|)
   (PROG ()
     (RETURN
      (|evalTargetedADEF1| |t| |vars| |types| |body| |$env| |$localVars|
       |$freeVars|))))
- 
+
 ; evalTargetedADEF1(t, vars, types, body, $env, $localVars, $freeVars) ==
 ;   $mapName : local := makeInternalMapName('"anonymousFunction",
 ;     #vars,$anonymousMapCounter,'"internal")
@@ -207,18 +207,18 @@
 ;   $mapReturnTypes : local := nil   -- list of types from returns
 ;   $repeatLabel    : local := nil   -- for loops; see upREPEAT
 ;   $breakCount     : local := 0     -- breaks from loops; ditto
-; 
+;
 ;   -- now substitute formal names for the parm variables
 ;   -- this is used in the interpret-code case, but isn't so bad any way
 ;   -- since it makes the bodies look more like regular map bodies
-; 
+;
 ;   sublist := [[var,:GENSYM()] for var in vars]
 ;   body := sublisNQ(sublist,body)
 ;   vars := [rest v for v in sublist]
-; 
+;
 ;   new_contour1 := [[v] for v in vars]
 ;   $env := [[new_contour1, :first($env)]]
-; 
+;
 ;   for m in rest types for var in vars repeat
 ;     $env:= put(var,'mode,m,$env)
 ;     mkLocalVar($mapName,var)
@@ -233,7 +233,7 @@
 ;   x := CATCH('mapCompiler,compileTargetedADEF(t,vars,types,body))
 ;   x = 'tryInterpOnly => mkInterpTargetedADEF(t,vars,types,body)
 ;   x
- 
+
 (DEFUN |evalTargetedADEF1|
        (|t| |vars| |types| |body| |$env| |$localVars| |$freeVars|)
   (DECLARE (SPECIAL |$env| |$localVars| |$freeVars|))
@@ -324,7 +324,7 @@
        ((EQ |x| '|tryInterpOnly|)
         (|mkInterpTargetedADEF| |t| |vars| |types| |body|))
        (#1# |x|))))))
- 
+
 ; mkInterpTargetedADEF(t,vars,types,oldBody) ==
 ;   null first types =>
 ;     throwKeyedMsg("S2IS0056",NIL)
@@ -335,7 +335,7 @@
 ;   put($mapName,'mapBody,oldBody,$e)
 ;   body := ['rewriteMap1,MKQ $mapName,arglCode,MKQ types]
 ;   compileADEFBody(t,vars,types,body,first types)
- 
+
 (DEFUN |mkInterpTargetedADEF| (|t| |vars| |types| |oldBody|)
   (PROG (|arglCode| |body|)
     (RETURN
@@ -372,26 +372,26 @@
                 (LIST '|rewriteMap1| (MKQ |$mapName|) |arglCode|
                       (MKQ |types|)))
         (|compileADEFBody| |t| |vars| |types| |body| (CAR |types|))))))))
- 
+
 ; wrapMapBodyWithCatch body ==
 ;     -- places a CATCH around the map body
 ;     -- note that we will someday have to fix up the catch identifier
 ;     -- to use the generated internal map name
 ;     $mapThrowCount = 0 => body
 ;     ['CATCH, MKQ mapCatchName $mapName, body]
- 
+
 (DEFUN |wrapMapBodyWithCatch| (|body|)
   (PROG ()
     (RETURN
      (COND ((EQL |$mapThrowCount| 0) |body|)
            ('T (LIST 'CATCH (MKQ (|mapCatchName| |$mapName|)) |body|))))))
- 
+
 ; compileTargetedADEF(t,vars,types,body) ==
 ;   val := compileBody(body, first types)
 ;   computedResultType := objMode val
 ;   body := wrapMapBodyWithCatch flattenCOND objVal val
 ;   compileADEFBody(t,vars,types,body,computedResultType)
- 
+
 (DEFUN |compileTargetedADEF| (|t| |vars| |types| |body|)
   (PROG (|val| |computedResultType|)
     (RETURN
@@ -400,14 +400,14 @@
       (SETQ |computedResultType| (|objMode| |val|))
       (SETQ |body| (|wrapMapBodyWithCatch| (|flattenCOND| (|objVal| |val|))))
       (|compileADEFBody| |t| |vars| |types| |body| |computedResultType|)))))
- 
+
 ; compileADEFBody(t,vars,types,body,computedResultType) ==
 ; --+
 ;   $compiledOpNameList := [$mapName]
 ;   minivectorName := makeInternalMapMinivectorName(PNAME $mapName)
 ;   body := SUBST(minivectorName,"$$$",body)
 ;   SET(minivectorName,LIST2REFVEC $minivector)
-; 
+;
 ;   -- The use of the three variables $definingMap, $genValue and $compilingMap
 ;   -- is to cover the following cases:
 ;   --
@@ -436,11 +436,11 @@
 ;     body := body1
 ;     fun := ['function,['LAMBDA,[:vars,'envArg],body]]
 ;     code := ['CONS, fun, ["VECTOR", :reverse $freeVariables]]
-; 
+;
 ;   val := objNew(code,rt := ['Mapping,computedResultType,:rest types])
 ;   putValue(t,val)
 ;   putModeSet(t,[rt])
- 
+
 (DEFUN |compileADEFBody| (|t| |vars| |types| |body| |computedResultType|)
   (PROG (|minivectorName| |body1| |fun| |code| |rt| |val|)
     (RETURN
@@ -475,7 +475,7 @@
                              (CONS |computedResultType| (CDR |types|))))))
       (|putValue| |t| |val|)
       (|putModeSet| |t| (LIST |rt|))))))
- 
+
 ; upAlgExtension t ==
 ;   -- handler for algebraic extension declaration.  These are of
 ;   --  the form "a | a**2+1", and have the effect that "a" is declared
@@ -517,7 +517,7 @@
 ;     sayMSG concat ['"   ",a,'" : ",saeTypeSynonym,'" := ",a]
 ;   putValue(op,T2)
 ;   putModeSet(op,[sae])
- 
+
 (DEFUN |upAlgExtension| (|t|)
   (PROG (|$declaredMode| T2 |expr| |fun| |saeTypeSynonymValue| |saeTypeSynonym|
          |sae| |canonicalAE| |pd| |field| |newmode| T$ |triple| |ms| |upmode|
@@ -593,13 +593,13 @@
                   (LIST "   " |a| " : " |saeTypeSynonym| " := " |a|)))))
               (|putValue| |op| T2)
               (|putModeSet| |op| (LIST |sae|))))))))))))))
- 
+
 ; eq2AlgExtension eq ==
 ;   -- transforms "a=b" to a-b for processing
 ;   eq is [op,:l] and VECP op and (getUnname op='equation) =>
 ;     [mkAtreeNode "-",:l]
 ;   eq
- 
+
 (DEFUN |eq2AlgExtension| (|eq|)
   (PROG (|op| |l|)
     (RETURN
@@ -609,7 +609,7 @@
             (VECP |op|) (EQ (|getUnname| |op|) '|equation|))
        (CONS (|mkAtreeNode| '-) |l|))
       (#1# |eq|)))))
- 
+
 ; upand x ==
 ;   -- generates code for  and  forms. The second argument is only
 ;   -- evaluated if the first argument is true.
@@ -628,7 +628,7 @@
 ;     ms isnt [=$Boolean] => throwKeyedMsgSP("S2IS0054",[2,'"_"and_""],term2)
 ;     putValue(x,getValue term2)
 ;     putModeSet(x,ms)
-; 
+;
 ;   ms := bottomUp term2
 ;   ms isnt [=$Boolean] => throwKeyedMsgSP("S2IS0054",[2,'"_"and_""],term2)
 ;   -- generate an IF expression and let the rest of the code handle it
@@ -639,7 +639,7 @@
 ;   bottomUp code
 ;   putValue(x,getValue code)
 ;   putModeSet(x,ms)
- 
+
 (DEFUN |upand| (|x|)
   (PROG (|op| |ISTMP#1| |term1| |ISTMP#2| |term2| |ms| |cond| |code|)
     (RETURN
@@ -705,7 +705,7 @@
               (|bottomUp| |code|)
               (|putValue| |x| (|getValue| |code|))
               (|putModeSet| |x| |ms|)))))))))))))
- 
+
 ; upor x ==
 ;   -- generates code for  or  forms. The second argument is only
 ;   -- evaluated if the first argument is false.
@@ -724,7 +724,7 @@
 ;     ms isnt [=$Boolean] => throwKeyedMsgSP("S2IS0054",[2,'"_"or_""],term2)
 ;     putValue(x,getValue term2)
 ;     putModeSet(x,ms)
-; 
+;
 ;   ms := bottomUp term2
 ;   ms isnt [=$Boolean] => throwKeyedMsgSP("S2IS0054",[2,'"_"or_""],term2)
 ;   -- generate an IF expression and let the rest of the code handle it
@@ -735,7 +735,7 @@
 ;   bottomUp code
 ;   putValue(x,getValue code)
 ;   putModeSet(x,ms)
- 
+
 (DEFUN |upor| (|x|)
   (PROG (|op| |ISTMP#1| |term1| |ISTMP#2| |term2| |ms| |cond| |code|)
     (RETURN
@@ -801,7 +801,7 @@
               (|bottomUp| |code|)
               (|putValue| |x| (|getValue| |code|))
               (|putModeSet| |x| |ms|)))))))))))))
- 
+
 ; upcase t ==
 ;   t isnt [op,lhs,rhs] => nil
 ;   bottomUp lhs
@@ -836,7 +836,7 @@
 ;               [''T,NIL]]
 ;   putValue(op,objNew(code,$Boolean))
 ;   putModeSet(op,[$Boolean])
- 
+
 (DEFUN |upcase| (|t|)
   (PROG (|op| |ISTMP#1| |lhs| |ISTMP#2| |rhs| |triple| |unionDoms| |ISTMP#3|
          |rhstag| |code| |t'| |triple'|)
@@ -954,7 +954,7 @@
                                (LIST ''T NIL)))))))))
            (|putValue| |op| (|objNew| |code| |$Boolean|))
            (|putModeSet| |op| (LIST |$Boolean|)))))))))))
- 
+
 ; upTARGET t ==
 ;   -- Evaluates the rhs to a mode,which is used as the target type for
 ;   -- the lhs.
@@ -975,7 +975,7 @@
 ;   else
 ;       putValue(op,getValue lhs)
 ;   putModeSet(op,ms)
- 
+
 (DEFUN |upTARGET| (|t|)
   (PROG (|$declaredMode| |ms| |m| |rhs| |ISTMP#2| |lhs| |ISTMP#1| |op|)
     (DECLARE (SPECIAL |$declaredMode|))
@@ -1031,7 +1031,7 @@
                   |m|)))
                (#1# (|putValue| |op| (|getValue| |lhs|))))
               (|putModeSet| |op| |ms|)))))))))))))
- 
+
 ; upCOERCE t ==
 ;   -- evaluate the lhs and then tries to coerce the result to the
 ;   -- mode which is the rhs.
@@ -1052,7 +1052,7 @@
 ;   bottomUp lhs
 ;   type:=evalCOERCE(op,lhs,m)
 ;   putModeSet(op,[type])
- 
+
 (DEFUN |upCOERCE| (|t|)
   (PROG (|$declaredMode| |$useConvertForCoercions| |type| |m| |rhs| |ISTMP#2|
          |lhs| |ISTMP#1| |op|)
@@ -1102,7 +1102,7 @@
               (|bottomUp| |lhs|)
               (SETQ |type| (|evalCOERCE| |op| |lhs| |m|))
               (|putModeSet| |op| (LIST |type|))))))))))))))
- 
+
 ; evalCOERCE(op,tree,m) ==
 ;   -- the value of tree is coerced to mode m
 ;   -- this is not necessary, if the target property of tree was used
@@ -1130,7 +1130,7 @@
 ;   else
 ;       putValue(op,val)
 ;   objMode(val)
- 
+
 (DEFUN |evalCOERCE| (|op| |tree| |m|)
   (PROG (|v| |t1| |e| |t2| |value| |val|)
     (RETURN
@@ -1169,7 +1169,7 @@
         (|putValue| |op| (|objNew| (|devaluate| (|objValUnwrap| |val|)) |m|)))
        (#1# (|putValue| |op| |val|)))
       (|objMode| |val|)))))
- 
+
 ; transformCollect [:itrl,body] ==
 ;   -- syntactic transformation for COLLECT form, called from mkAtree1
 ;   iterList:=[:iterTran1 for it in itrl] where iterTran1 ==
@@ -1200,7 +1200,7 @@
 ;       keyedSystemError("S2GE0016",
 ;         ['"transformCollect",'"Unknown type of iterator"])
 ;   [:iterList,bodyTree]
- 
+
 (DEFUN |transformCollect| (|bfVar#30|)
   (PROG (|LETTMP#1| |body| |itrl| |ISTMP#1| |index| |ISTMP#2| |lower| |ISTMP#3|
          |step| |upperList| |s| |b| |pred| |op| |iterList| |bodyTree|)
@@ -1385,25 +1385,25 @@
                          (SETQ |bfVar#28| (CDR |bfVar#28|))))
                       NIL |itrl| NIL)))
       (APPEND |iterList| (CONS |bodyTree| NIL))))))
- 
+
 ; upCOLLECT t ==
 ;   -- $compilingLoop variable insures that throw to interp-only mode
 ;   --   goes to the outermost loop.
 ;   $compilingLoop => upCOLLECT1 t
 ;   upCOLLECT0 t
- 
+
 (DEFUN |upCOLLECT| (|t|)
   (PROG ()
     (RETURN
      (COND (|$compilingLoop| (|upCOLLECT1| |t|)) ('T (|upCOLLECT0| |t|))))))
- 
+
 ; upCOLLECT0 t ==
 ;   -- sets up catch point for interpret-code mode
 ;   $compilingLoop: local := true
 ;   ms:=CATCH('loopCompiler,upCOLLECT1 t)
 ;   ms = 'tryInterpOnly => interpOnlyCOLLECT t
 ;   ms
- 
+
 (DEFUN |upCOLLECT0| (|t|)
   (PROG (|$compilingLoop| |ms|)
     (DECLARE (SPECIAL |$compilingLoop|))
@@ -1413,7 +1413,7 @@
       (SETQ |ms| (CATCH '|loopCompiler| (|upCOLLECT1| |t|)))
       (COND ((EQ |ms| '|tryInterpOnly|) (|interpOnlyCOLLECT| |t|))
             ('T |ms|))))))
- 
+
 ; upCOLLECT1 t ==
 ;   t isnt [op,:itrl,body] => nil
 ;   -- upCOLLECT with compiled body
@@ -1430,7 +1430,7 @@
 ;   mode:= ['Tuple,m]
 ;   evalCOLLECT(op,rest t,mode)
 ;   putModeSet(op,[mode])
- 
+
 (DEFUN |upCOLLECT1| (|t|)
   (PROG (|op| |ISTMP#1| |ISTMP#2| |body| |itrl| |target| |agg| S |ms| |m|
          |pred| |mode|)
@@ -1491,7 +1491,7 @@
                 (SETQ |mode| (LIST '|Tuple| |m|))
                 (|evalCOLLECT| |op| (CDR |t|) |mode|)
                 (|putModeSet| |op| (LIST |mode|)))))))))))
- 
+
 ; upLoopIters itrl ==
 ;   -- type analyze iterator loop iterators
 ;   for iter in itrl repeat
@@ -1509,7 +1509,7 @@
 ;       typeIsASmallInteger(get(index,'mode,$env)) =>
 ;         RPLACA(iter,'ISTEP)
 ;     throwKeyedMsg("Malformed iterator")
- 
+
 (DEFUN |upLoopIters| (|itrl|)
   (PROG (|ISTMP#1| |pred| |index| |ISTMP#2| |s| |lower| |ISTMP#3| |step|
          |upperList|)
@@ -1568,12 +1568,12 @@
             (#1# (|throwKeyedMsg| '|Malformed iterator|)))))
          (SETQ |bfVar#32| (CDR |bfVar#32|))))
       |itrl| NIL))))
- 
+
 ; upLoopIterIN(iter,index,s) ==
 ;   iterMs := bottomUp s
-; 
+;
 ;   null IDENTP index =>  throwKeyedMsg("S2IS0005",[index])
-; 
+;
 ;   if $genValue and first iterMs is ['Union,:.] then
 ;     v := coerceUnion2Branch getValue s
 ;     m := objMode v
@@ -1581,7 +1581,7 @@
 ;     putMode(s,m)
 ;     iterMs := [m]
 ;     putModeSet(s,iterMs)
-; 
+;
 ;   -- transform segment variable into STEP
 ;   iterMs is [['Segment,.]] or iterMs is [['UniversalSegment,.]] =>
 ;     lower := [mkAtreeNode('low), s]
@@ -1593,11 +1593,11 @@
 ;     newIter := ['STEP,index,lower,step,:upperList]
 ;     RPLACA(iter, first newIter)
 ;     RPLACD(iter, rest newIter)
-; 
+;
 ;   iterMs isnt [['List,ud]] => throwKeyedMsg("S2IS0006",[index])
 ;   put(index,'mode,ud,$env)
 ;   mkLocalVar('"the iterator expression",index)
- 
+
 (DEFUN |upLoopIterIN| (|iter| |index| |s|)
   (PROG (|iterMs| |ISTMP#1| |v| |m| |ISTMP#2| |lower| |step| |upperList|
          |newIter| |ud|)
@@ -1662,7 +1662,7 @@
            (PROGN
             (|put| |index| '|mode| |ud| |$env|)
             (|mkLocalVar| "the iterator expression" |index|)))))))))))
- 
+
 ; upLoopIterSTEP(index,lower,step,upperList) ==
 ;   null IDENTP index => throwKeyedMsg("S2IS0005",[index])
 ;   ltype := IFCAR bottomUpUseSubdomain(lower)
@@ -1682,7 +1682,7 @@
 ;   type := resolveTypeListAny REMDUP types
 ;   put(index,'mode,type,$env)
 ;   mkLocalVar('"the iterator expression",index)
- 
+
 (DEFUN |upLoopIterSTEP| (|index| |lower| |step| |upperList|)
   (PROG (|ltype| |stype| |types| |utype| |type|)
     (RETURN
@@ -1729,7 +1729,7 @@
                    (SETQ |type| (|resolveTypeListAny| (REMDUP |types|)))
                    (|put| |index| '|mode| |type| |$env|)
                    (|mkLocalVar| "the iterator expression" |index|)))))))))))))
- 
+
 ; evalCOLLECT(op,[:itrl,body],m) ==
 ;   iters := [evalLoopIter itr for itr in itrl]
 ;   bod := getArgValue(body,computedMode body)
@@ -1737,7 +1737,7 @@
 ;   code := timedOptimization asTupleNewCode0 ['COLLECT,:iters,bod]
 ;   if $genValue then code := wrap timedEVALFUN code
 ;   putValue(op,objNew(code,m))
- 
+
 (DEFUN |evalCOLLECT| (|op| |bfVar#36| |m|)
   (PROG (|LETTMP#1| |body| |itrl| |iters| |bod| |code|)
     (RETURN
@@ -1767,11 +1767,11 @@
                 (CONS 'COLLECT (APPEND |iters| (CONS |bod| NIL))))))
       (COND (|$genValue| (SETQ |code| (|wrap| (|timedEVALFUN| |code|)))))
       (|putValue| |op| (|objNew| |code| |m|))))))
- 
+
 ; falseFun(x) == nil
- 
+
 (DEFUN |falseFun| (|x|) (PROG () (RETURN NIL)))
- 
+
 ; evalLoopIter itr ==
 ;   -- generate code for loop iterator
 ;   itr is ['STEP,index,lower,step,:upperList] =>
@@ -1786,7 +1786,7 @@
 ;     ['IN,getUnname index,getArgValue(s,['List,get(index,'mode,$env)])]
 ;   (itr is [x,pred]) and (x in '(WHILE UNTIL SUCHTHAT)) =>
 ;     [x,getArgValue(pred,$Boolean)]
- 
+
 (DEFUN |evalLoopIter| (|itr|)
   (PROG (|ISTMP#1| |index| |ISTMP#2| |lower| |ISTMP#3| |step| |upperList| |s|
          |x| |pred|)
@@ -1884,7 +1884,7 @@
                   (PROGN (SETQ |pred| (CAR |ISTMP#1|)) #1#)))
             (|member| |x| '(WHILE UNTIL SUCHTHAT)))
        (LIST |x| (|getArgValue| |pred| |$Boolean|)))))))
- 
+
 ; interpCOLLECT(op,itrl,body) ==
 ;   -- interpret-code mode COLLECT handler
 ;   $collectTypeList: local := NIL
@@ -1904,7 +1904,7 @@
 ;     for v in value for m in $collectTypeList]
 ;   putValue(op,objNewWrap(asTupleNew(#value, value),rm))
 ;   putModeSet(op,[rm])
- 
+
 (DEFUN |interpCOLLECT| (|op| |itrl| |body|)
   (PROG (|$indexTypes| |$indexVars| |$collectTypeList| |rm| |t| |value| |code|)
     (DECLARE (SPECIAL |$indexTypes| |$indexVars| |$collectTypeList|))
@@ -1959,7 +1959,7 @@
       (|putValue| |op|
        (|objNewWrap| (|asTupleNew| (LENGTH |value|) |value|) |rm|))
       (|putModeSet| |op| (LIST |rm|))))))
- 
+
 ; interpIter itr ==
 ;   -- interpret loop iterator
 ;   itr is ['STEP,index,lower,step,:upperList] =>
@@ -1986,7 +1986,7 @@
 ;     ['IN,getUnname index,getArgValue(s,m)]
 ;   (itr is [x,pred]) and (x in '(WHILE UNTIL SUCHTHAT)) =>
 ;     [x,interpLoop(pred,$indexVars,$indexTypes,$Boolean)]
- 
+
 (DEFUN |interpIter| (|itr|)
   (PROG (|ISTMP#1| |index| |ISTMP#2| |lower| |ISTMP#3| |step| |upperList|
          |LETTMP#1| |m| |s| |um| |x| |pred|)
@@ -2124,30 +2124,30 @@
             (|member| |x| '(WHILE UNTIL SUCHTHAT)))
        (LIST |x|
              (|interpLoop| |pred| |$indexVars| |$indexTypes| |$Boolean|)))))))
- 
+
 ; interpOnlyCOLLECT t ==
 ;   -- called when compilation failed in COLLECT body, not in compiling map
 ;   $genValue: local := true
 ;   $interpOnly: local := true
 ;   upCOLLECT t
- 
+
 (DEFUN |interpOnlyCOLLECT| (|t|)
   (PROG (|$interpOnly| |$genValue|)
     (DECLARE (SPECIAL |$interpOnly| |$genValue|))
     (RETURN
      (PROGN (SETQ |$genValue| T) (SETQ |$interpOnly| T) (|upCOLLECT| |t|)))))
- 
+
 ; interpCOLLECTbody(expr,indexList,indexTypes) ==
 ;   -- generate code for interpret-code collect
 ;   ['interpCOLLECTbodyIter,MKQ expr,MKQ indexList,['LIST,:indexList],
 ;     MKQ indexTypes]
- 
+
 (DEFUN |interpCOLLECTbody| (|expr| |indexList| |indexTypes|)
   (PROG ()
     (RETURN
      (LIST '|interpCOLLECTbodyIter| (MKQ |expr|) (MKQ |indexList|)
            (CONS 'LIST |indexList|) (MKQ |indexTypes|)))))
- 
+
 ; interpCOLLECTbodyIter(exp,indexList,indexVals,indexTypes) ==
 ;   -- execute interpret-code collect body.  keeps list of type of
 ;   --  elements in list in $collectTypeList.
@@ -2163,7 +2163,7 @@
 ;     rm ~= m => coerceInteractive(getValue exp,rm)
 ;     getValue exp
 ;   objValUnwrap(value)
- 
+
 (DEFUN |interpCOLLECTbodyIter| (|exp| |indexList| |indexVals| |indexTypes|)
   (PROG (|LETTMP#1| |m| |rm| |value|)
     (RETURN
@@ -2201,7 +2201,7 @@
                         (|coerceInteractive| (|getValue| |exp|) |rm|))
                        (#1# (|getValue| |exp|))))
               (|objValUnwrap| |value|))))))))
- 
+
 ; isStreamCollect itrl ==
 ;   -- calls bottomUp on iterators and if any of them are streams
 ;   -- then whole shebang is a stream
@@ -2214,7 +2214,7 @@
 ;       iterMs is [['UniversalSegment,:.]] => isStream := true
 ;     itr is ['STEP,.,.,.] => isStream := true
 ;   isStream
- 
+
 (DEFUN |isStreamCollect| (|itrl|)
   (PROG (|isStream| |ISTMP#1| |ISTMP#2| |s| |iterMs| |ISTMP#3|)
     (RETURN
@@ -2272,12 +2272,12 @@
           (SETQ |bfVar#56| |isStream|)))
        |itrl| NIL NIL)
       |isStream|))))
- 
+
 ; collectStream(t,op,itrl,body) ==
 ;   v := CATCH('loopCompiler,collectStream1(t,op,itrl,body))
 ;   v = 'tryInterpOnly => throwKeyedMsg("S2IS0011",NIL)
 ;   v
- 
+
 (DEFUN |collectStream| (|t| |op| |itrl| |body|)
   (PROG (|v|)
     (RETURN
@@ -2287,14 +2287,14 @@
                 (|collectStream1| |t| |op| |itrl| |body|)))
       (COND ((EQ |v| '|tryInterpOnly|) (|throwKeyedMsg| 'S2IS0011 NIL))
             ('T |v|))))))
- 
+
 ; collectStream1(t,op,itrl,body) ==
 ;   $indexVars:local := NIL
 ;   upStreamIters itrl
 ;   if #$indexVars = 1 then mode:=collectOneStream(t,op,itrl,body)
 ;   else mode:=collectSeveralStreams(t,op,itrl,body)
 ;   putModeSet(op,[mode])
- 
+
 (DEFUN |collectStream1| (|t| |op| |itrl| |body|)
   (PROG (|$indexVars| |mode|)
     (DECLARE (SPECIAL |$indexVars|))
@@ -2307,7 +2307,7 @@
         (SETQ |mode| (|collectOneStream| |t| |op| |itrl| |body|)))
        ('T (SETQ |mode| (|collectSeveralStreams| |t| |op| |itrl| |body|))))
       (|putModeSet| |op| (LIST |mode|))))))
- 
+
 ; upStreamIters itrl ==
 ;   -- type analyze stream collect loop iterators
 ;   for iter in itrl repeat
@@ -2315,7 +2315,7 @@
 ;       upStreamIterIN(iter,index,s)
 ;     iter is ['STEP,index,lower,step,:upperList] =>
 ;       upStreamIterSTEP(index,lower,step,upperList)
- 
+
 (DEFUN |upStreamIters| (|itrl|)
   (PROG (|ISTMP#1| |index| |ISTMP#2| |s| |lower| |ISTMP#3| |step| |upperList|)
     (RETURN
@@ -2355,10 +2355,10 @@
              (|upStreamIterSTEP| |index| |lower| |step| |upperList|)))))
          (SETQ |bfVar#57| (CDR |bfVar#57|))))
       |itrl| NIL))))
- 
+
 ; upStreamIterIN(iter,index,s) ==
 ;   iterMs := bottomUp s
-; 
+;
 ;   -- transform segment variable into STEP
 ;   iterMs is [['Segment,.]] or iterMs is [['UniversalSegment,.]] =>
 ;     lower := [mkAtreeNode('low), s]
@@ -2370,7 +2370,7 @@
 ;     newIter := ['STEP,index,lower,step,:upperList]
 ;     RPLACA(iter, first newIter)
 ;     RPLACD(iter, rest newIter)
-; 
+;
 ;   (iterMs isnt [['List,ud]]) and (iterMs isnt [['Stream,ud]])
 ;     and (iterMs isnt [['InfinitTuple, ud]]) =>
 ;       throwKeyedMsg("S2IS0006",[index])
@@ -2384,7 +2384,7 @@
 ;       form
 ;     s
 ;   $indexVars:= [[index,:s],:$indexVars]
- 
+
 (DEFUN |upStreamIterIN| (|iter| |index| |s|)
   (PROG (|iterMs| |ISTMP#1| |ISTMP#2| |lower| |step| |upperList| |newIter| |ud|
          |form|)
@@ -2477,7 +2477,7 @@
                     |form|))
                   (#1# |s|)))
          (SETQ |$indexVars| (CONS (CONS |index| |s|) |$indexVars|)))))))))
- 
+
 ; upStreamIterSTEP(index,lower,step,upperList) ==
 ;   null isEqualOrSubDomain(ltype := IFCAR bottomUpUseSubdomain(lower),
 ;     $Integer) => throwKeyedMsg("S2IS0007",['"lower"])
@@ -2486,11 +2486,11 @@
 ;   for upper in upperList repeat
 ;     null isEqualOrSubDomain(IFCAR bottomUpUseSubdomain(upper),
 ;       $Integer) => throwKeyedMsg("S2IS0007",['"upper"])
-; 
+;
 ;   put(index,'mode,type := resolveTT(ltype,stype),$env)
 ;   null type => throwKeyedMsg("S2IS0010", nil)
 ;   mkLocalVar('"the iterator expression",index)
-; 
+;
 ;   s :=
 ;     null upperList =>
 ;       -- create the function that does the appropriate incrementing
@@ -2511,7 +2511,7 @@
 ;     bottomUp form
 ;     form
 ;   $indexVars:= [[index,:s],:$indexVars]
- 
+
 (DEFUN |upStreamIterSTEP| (|index| |lower| |step| |upperList|)
   (PROG (|ltype| |stype| |type| |genFun| |form| |s|)
     (RETURN
@@ -2584,7 +2584,7 @@
                            |form|))))
                 (SETQ |$indexVars|
                         (CONS (CONS |index| |s|) |$indexVars|)))))))))))
- 
+
 ; collectOneStream(t,op,itrl,body) ==
 ;   -- build stream collect for case of iterating over a single stream
 ;   --  In this case we don't need to build records
@@ -2599,7 +2599,7 @@
 ;   newVal := objNew(objVal val, ['InfiniteTuple, ud])
 ;   putValue(op,newVal)
 ;   objMode newVal
- 
+
 (DEFUN |collectOneStream| (|t| |op| |itrl| |body|)
   (PROG (|form| |bodyVec| |val| |m| |ISTMP#1| |ud| |newVal|)
     (RETURN
@@ -2631,7 +2631,7 @@
                  (|objNew| (|objVal| |val|) (LIST '|InfiniteTuple| |ud|)))
          (|putValue| |op| |newVal|)
          (|objMode| |newVal|))))))))
- 
+
 ; mkAndApplyPredicates itrl ==
 ;   -- for one index variable case for now.  may generalize later
 ;   [indSet] := $indexVars
@@ -2651,7 +2651,7 @@
 ;       predVec := mkIterFun(indSet,pred,$localVars)
 ;       s := [mkAtreeNode fun,predVec,s]
 ;   s
- 
+
 (DEFUN |mkAndApplyPredicates| (|itrl|)
   (PROG (|indSet| |s| |ISTMP#1| |pred| |fun| |predVec|)
     (RETURN
@@ -2696,7 +2696,7 @@
           (SETQ |bfVar#59| (CDR |bfVar#59|))))
        |itrl| NIL)
       |s|))))
- 
+
 ; mkIterFun([index,:s],funBody,$localVars) ==
 ;   -- transform funBody into a lambda with index as the parameter
 ;   mode := objMode getValue s
@@ -2715,7 +2715,7 @@
 ;   vec := mkAtreeNode GENSYM()
 ;   putValue(vec,objNew(['CONS,val,["VECTOR",:reverse $freeVariables]],mapMode))
 ;   vec
- 
+
 (DEFUN |mkIterFun| (|bfVar#60| |funBody| |$localVars|)
   (DECLARE (SPECIAL |$localVars|))
   (PROG (|index| |s| |mode| |ISTMP#1| |indMode| |LETTMP#1| |m| |mapMode| |body|
@@ -2761,7 +2761,7 @@
            (LIST 'CONS |val| (CONS 'VECTOR (REVERSE |$freeVariables|)))
            |mapMode|))
          |vec|)))))))
- 
+
 ; checkIterationForFreeVariables(op, itl, locals) ==
 ;     boundVars := getIteratorIds itl
 ;     $boundVariables := APPEND(boundVars, $boundVariables)
@@ -2769,7 +2769,7 @@
 ;     for var in boundVars repeat
 ;         $boundVariables := delete(var, $boundVariables)
 ;     r
- 
+
 (DEFUN |checkIterationForFreeVariables| (|op| |itl| |locals|)
   (PROG (|boundVars| |r|)
     (RETURN
@@ -2799,14 +2799,14 @@
           (SETQ |bfVar#63| (CDR |bfVar#63|))))
        |boundVars| NIL)
       |r|))))
- 
+
 ; checkForFreeVariables1(v, locals, $boundVariables) ==
 ;     checkForFreeVariables(v, locals)
- 
+
 (DEFUN |checkForFreeVariables1| (|v| |locals| |$boundVariables|)
   (DECLARE (SPECIAL |$boundVariables|))
   (PROG () (RETURN (|checkForFreeVariables| |v| |locals|))))
- 
+
 ; checkForFreeVariables(v,locals) ==
 ;   -- v is the body of a lambda expression.  The list $boundVariables is all the
 ;   -- bound variables, the parameter locals contains local variables which might
@@ -2868,7 +2868,7 @@
 ;         ["local", :NREVERSE(nargs)]
 ;     [op,:[checkForFreeVariables(a,locals) for a in args]]
 ;   v
- 
+
 (DEFUN |checkForFreeVariables| (|v| |locals|)
   (PROG (|p| |op| |args| |var| |ISTMP#1| |form| |ISTMP#2| |name| |newvar|
          |nargs| |dom|)
@@ -3028,14 +3028,14 @@
                                 (SETQ |bfVar#69| (CDR |bfVar#69|))))
                              NIL |args| NIL))))))))
            (#1# |v|)))))
- 
+
 ; positionInVec(p,l) ==
 ;   -- We cons up the free list, but need to keep positions consistent so
 ;   -- count from the end of the list.
 ;   l-p-1
- 
+
 (DEFUN |positionInVec| (|p| |l|) (PROG () (RETURN (- (- |l| |p|) 1))))
- 
+
 ; collectSeveralStreams(t,op,itrl,body) ==
 ;   -- performs collects over several streams in parallel
 ;   $index: local := nil
@@ -3051,7 +3051,7 @@
 ;   newVal := objNew(objVal val, ['InfiniteTuple, ud])
 ;   putValue(op,newVal)
 ;   objMode newVal
- 
+
 (DEFUN |collectSeveralStreams| (|t| |op| |itrl| |body|)
   (PROG (|$index| |newVal| |ud| |ISTMP#1| |m| |val| |vec| |zipType| |form|
          |LETTMP#1|)
@@ -3092,7 +3092,7 @@
                  (|objNew| (|objVal| |val|) (LIST '|InfiniteTuple| |ud|)))
          (|putValue| |op| |newVal|)
          (|objMode| |newVal|))))))))
- 
+
 ; mkZipCode indexList ==
 ;   -- create interpreter form for turning a list of parallel streams
 ;   -- into a stream of nested record types.  returns [form,:recordType]
@@ -3115,7 +3115,7 @@
 ;   form := [mkAtreeNode 'map,zipFun,s,form]
 ;   zipType := ['Record,['_:,'part1,t],['_:,'part2,zipType]]
 ;   [form,:zipType]
- 
+
 (DEFUN |mkZipCode| (|indexList|)
   (PROG (|s2| |s1| |t1| |t2| |zipType| |zipFun| |form| |LETTMP#1| |s| |t|)
     (RETURN
@@ -3153,7 +3153,7 @@
                 (LIST '|Record| (LIST '|:| '|part1| |t|)
                       (LIST '|:| '|part2| |zipType|)))
         (CONS |form| |zipType|)))))))
- 
+
 ; mkAndApplyZippedPredicates (indexList, s,zipType,itrl) ==
 ;   -- for one index variable case for now.  may generalize later
 ;   for iter in itrl repeat
@@ -3168,7 +3168,7 @@
 ;       predVec := mkIterZippedFun(indexList,pred,zipType,$localVars)
 ;       s := [mkAtreeNode 'select,predVec,s]
 ;   s
- 
+
 (DEFUN |mkAndApplyZippedPredicates| (|indexList| |s| |zipType| |itrl|)
   (PROG (|ISTMP#1| |pred| |predVec|)
     (RETURN
@@ -3214,7 +3214,7 @@
           (SETQ |bfVar#71| (CDR |bfVar#71|))))
        |itrl| NIL)
       |s|))))
- 
+
 ; mkIterZippedFun(indexList,funBody,zipType,$localVars) ==
 ;   -- transform funBody into a lamda with $index as the parameter
 ;   numVars:= #$indexVars
@@ -3234,7 +3234,7 @@
 ;   vec := mkAtreeNode GENSYM()
 ;   putValue(vec,objNew(['CONS,val,["VECTOR",:reverse $freeVariables]],mapMode))
 ;   vec
- 
+
 (DEFUN |mkIterZippedFun| (|indexList| |funBody| |zipType| |$localVars|)
   (DECLARE (SPECIAL |$localVars|))
   (PROG (|numVars| |var| |LETTMP#1| |m| |mapMode| |body| |val| |vec|)
@@ -3283,13 +3283,13 @@
        (|objNew| (LIST 'CONS |val| (CONS 'VECTOR (REVERSE |$freeVariables|)))
         |mapMode|))
       |vec|))))
- 
+
 ; subVecNodes(new,old,form) ==
 ;   ATOM form =>
 ;     (VECP form) and (form.0 = old) => new
 ;     form
 ;   [subVecNodes(new, old, first form), :subVecNodes(new, old, rest form)]
- 
+
 (DEFUN |subVecNodes| (|new| |old| |form|)
   (PROG ()
     (RETURN
@@ -3300,7 +3300,7 @@
       (#1#
        (CONS (|subVecNodes| |new| |old| (CAR |form|))
              (|subVecNodes| |new| |old| (CDR |form|))))))))
- 
+
 ; mkIterVarSub(var,numVars) ==
 ;   n := iterVarPos var
 ;   n=2 =>
@@ -3308,7 +3308,7 @@
 ;   n=1 =>
 ;     [mkAtreeNode 'elt,mkNestedElts(numVars-2),mkAtreeNode 'part1]
 ;   [mkAtreeNode 'elt,mkNestedElts(numVars-n),mkAtreeNode 'part1]
- 
+
 (DEFUN |mkIterVarSub| (|var| |numVars|)
   (PROG (|n|)
     (RETURN
@@ -3324,11 +3324,11 @@
        ('T
         (LIST (|mkAtreeNode| '|elt|) (|mkNestedElts| (- |numVars| |n|))
               (|mkAtreeNode| '|part1|))))))))
- 
+
 ; iterVarPos var ==
 ;   for [index,:.] in reverse $indexVars for i in 1.. repeat
 ;     index=var => return(i)
- 
+
 (DEFUN |iterVarPos| (|var|)
   (PROG (|index|)
     (RETURN
@@ -3344,11 +3344,11 @@
          (SETQ |bfVar#77| (CDR |bfVar#77|))
          (SETQ |i| (+ |i| 1))))
       (REVERSE |$indexVars|) NIL 1))))
- 
+
 ; mkNestedElts n ==
 ;   n=0 => mkAtreeNode($index or ($index:= GENSYM()))
 ;   [mkAtreeNode 'elt, mkNestedElts(n-1), mkAtreeNode 'part2]
- 
+
 (DEFUN |mkNestedElts| (|n|)
   (PROG ()
     (RETURN
@@ -3356,7 +3356,7 @@
            ('T
             (LIST (|mkAtreeNode| '|elt|) (|mkNestedElts| (- |n| 1))
                   (|mkAtreeNode| '|part2|)))))))
- 
+
 ; upconstruct t ==
 ;   --Computes the common mode set of the construct by resolving across
 ;   --the argument list, and evaluating
@@ -3399,7 +3399,7 @@
 ;   else mode := ['List, resolveTypeListAny eltTypes]
 ;   if isPartialMode tar then tar:=resolveTM(mode,tar)
 ;   evalconstruct(op,l,mode,tar)
- 
+
 (DEFUN |upconstruct| (|t|)
   (PROG (|op| |l| |dol| |tar| |types| |aggs| |ISTMP#1| |realOp| |ud| |vec|
          |argModeSetList| |topType| |mmS| |mS| |eltTypes| |ISTMP#2| |td|
@@ -3576,12 +3576,12 @@
                        ((|isPartialMode| |tar|)
                         (SETQ |tar| (|resolveTM| |mode| |tar|))))
                       (|evalconstruct| |op| |l| |mode| |tar|))))))))))))))))
- 
+
 ; modemapsHavingTarget(mmS,target) ==
 ;   -- returns those modemaps have the signature result matching the
 ;   -- given target
 ;   [mm for mm in mmS | ([[.,res,:.],:.] := mm) and res = target]
- 
+
 (DEFUN |modemapsHavingTarget| (|mmS| |target|)
   (PROG (|res|)
     (RETURN
@@ -3595,7 +3595,7 @@
                 (SETQ |bfVar#85| (CONS |mm| |bfVar#85|)))))
          (SETQ |bfVar#84| (CDR |bfVar#84|))))
       NIL |mmS| NIL))))
- 
+
 ; evalTupleConstruct(op,l,m,tar) ==
 ;   ['List, ud] := m
 ;   code := ['APPEND,
@@ -3603,13 +3603,13 @@
 ;   val :=
 ;     $genValue => objNewWrap(timedEVALFUN code,m)
 ;     objNew(code,m)
-; 
+;
 ;   (val1 := coerceInteractive(val,tar or m)) =>
 ;     putValue(op,val1)
 ;     putModeSet(op,[tar or m])
 ;   putValue(op,val)
 ;   putModeSet(op,[m])
- 
+
 (DEFUN |evalTupleConstruct| (|op| |l| |m| |tar|)
   (PROG (|ud| |code| |val| |val1|)
     (RETURN
@@ -3641,7 +3641,7 @@
          (|putValue| |op| |val1|)
          (|putModeSet| |op| (LIST (OR |tar| |m|)))))
        (#1# (PROGN (|putValue| |op| |val|) (|putModeSet| |op| (LIST |m|)))))))))
- 
+
 ; evalInfiniteTupleConstruct(op,l,m,tar) ==
 ;   ['Stream, ud] := m
 ;   code := first [(getArgValue(x,['InfiniteTuple, ud]) or
@@ -3650,13 +3650,13 @@
 ;     $genValue => objNewWrap(timedEVALFUN code,m)
 ;     objNew(code,m)
 ;   if tar then val1 := coerceInteractive(val,tar) else val1 := val
-; 
+;
 ;   val1 =>
 ;     putValue(op,val1)
 ;     putModeSet(op,[tar or m])
 ;   putValue(op,val)
 ;   putModeSet(op,[m])
- 
+
 (DEFUN |evalInfiniteTupleConstruct| (|op| |l| |m| |tar|)
   (PROG (|ud| |code| |val| |val1|)
     (RETURN
@@ -3691,7 +3691,7 @@
          (|putValue| |op| |val1|)
          (|putModeSet| |op| (LIST (OR |tar| |m|)))))
        (#1# (PROGN (|putValue| |op| |val|) (|putModeSet| |op| (LIST |m|)))))))))
- 
+
 ; evalconstruct(op,l,m,tar) ==
 ;   [agg,:.,underMode]:= m
 ;   code := ['LIST, :(argCode:=[(getArgValue(x,underMode) or
@@ -3700,13 +3700,13 @@
 ;     $genValue => objNewWrap(timedEVALFUN code,m)
 ;     objNew(code,m)
 ;   if tar then val1 := coerceInteractive(val,tar) else val1 := val
-; 
+;
 ;   val1 =>
 ;     putValue(op,val1)
 ;     putModeSet(op,[tar or m])
 ;   putValue(op,val)
 ;   putModeSet(op,[m])
- 
+
 (DEFUN |evalconstruct| (|op| |l| |m| |tar|)
   (PROG (|agg| |LETTMP#1| |underMode| |argCode| |code| |val| |val1|)
     (RETURN
@@ -3743,7 +3743,7 @@
          (|putValue| |op| |val1|)
          (|putModeSet| |op| (LIST (OR |tar| |m|)))))
        (#1# (PROGN (|putValue| |op| |val|) (|putModeSet| |op| (LIST |m|)))))))))
- 
+
 ; replaceSymbols(modeList,l) ==
 ;   -- replaces symbol types with their corresponding polynomial types
 ;   --  if not all type are symbols
@@ -3751,7 +3751,7 @@
 ;   modeList is [a,:b] and and/[a=x for x in b] => modeList
 ;   [if m=$Symbol then getMinimalVarMode(objValUnwrap(getValue arg),
 ;     $declaredMode) else m for m in modeList for arg in l]
- 
+
 (DEFUN |replaceSymbols| (|modeList| |l|)
   (PROG (|a| |b|)
     (RETURN
@@ -3795,7 +3795,7 @@
                 (SETQ |bfVar#94| (CDR |bfVar#94|))
                 (SETQ |bfVar#95| (CDR |bfVar#95|))))
              NIL |modeList| NIL |l| NIL))))))
- 
+
 ; upNullList(op,l,tar) ==
 ;   -- handler for [] (empty list)
 ;   defMode :=
@@ -3810,7 +3810,7 @@
 ;     putModeSet(op,[tar])
 ;   putValue(op,val)
 ;   putModeSet(op,[defMode])
- 
+
 (DEFUN |upNullList| (|op| |l| |tar|)
   (PROG (|a| |ISTMP#1| |b| |defMode| |val| |val'|)
     (RETURN
@@ -3839,7 +3839,7 @@
         (PROGN
          (|putValue| |op| |val|)
          (|putModeSet| |op| (LIST |defMode|)))))))))
- 
+
 ; upTaggedUnionConstruct(op,l,tar) ==
 ;   -- special handler for tagged union constructors
 ;   tar isnt [.,:types] => nil
@@ -3850,7 +3850,7 @@
 ;     throwKeyedMsgCannotCoerceWithValue(objVal obj, objMode obj,tar)
 ;   putValue(op,code)
 ;   putModeSet(op,[tar])
- 
+
 (DEFUN |upTaggedUnionConstruct| (|op| |l| |tar|)
   (PROG (|types| |obj| |code|)
     (RETURN
@@ -3867,7 +3867,7 @@
              (|objMode| |obj|) |tar|))
         (|putValue| |op| |code|)
         (|putModeSet| |op| (LIST |tar|))))))))
- 
+
 ; upRecordConstruct(op,l,tar) ==
 ;   -- special handler for record constructors
 ;   tar isnt [.,:types] => nil
@@ -3885,7 +3885,7 @@
 ;   if $genValue then code :=  wrap timedEVALFUN code
 ;   putValue(op,objNew(code,tar))
 ;   putModeSet(op,[tar])
- 
+
 (DEFUN |upRecordConstruct| (|op| |l| |tar|)
   (PROG (|types| |argModes| |ISTMP#1| |ISTMP#2| |type| |argCode| |len| |code|)
     (RETURN
@@ -3944,7 +3944,7 @@
         (COND (|$genValue| (SETQ |code| (|wrap| (|timedEVALFUN| |code|)))))
         (|putValue| |op| (|objNew| |code| |tar|))
         (|putModeSet| |op| (LIST |tar|))))))))
- 
+
 ; upDeclare t ==
 ;   t isnt  [op,lhs,rhs] => nil
 ;   (not $genValue) and or/[CONTAINED(var,rhs) for var in $localVars] =>
@@ -3966,7 +3966,7 @@
 ;     declare(lhs,mode)
 ;   putValue(op,objNewWrap(voidValue(), $Void))
 ;   putModeSet(op,[$Void])
- 
+
 (DEFUN |upDeclare| (|t|)
   (PROG (|op| |ISTMP#1| |lhs| |ISTMP#2| |rhs| |mode| |vars| |junk|)
     (RETURN
@@ -4100,7 +4100,7 @@
                          (#1# (|declare| |lhs| |mode|))))
                 (|putValue| |op| (|objNewWrap| (|voidValue|) |$Void|))
                 (|putModeSet| |op| (LIST |$Void|)))))))))))
- 
+
 ; declare(var,mode) ==
 ;   -- performs declaration.
 ;   -- 10/31/89: no longer coerces value to new declared type
@@ -4139,7 +4139,7 @@
 ;     mode = get(var,'mode,$e) => NIL   -- nothing to do
 ;     throwKeyedMsg("S2IS0052",[var,mode])
 ;   putHist(var,'mode,mode,$e)
- 
+
 (DEFUN |declare| (|var| |mode|)
   (PROG (|ISTMP#1| |v| |args| |mapval| |margs| |nargs|)
     (RETURN
@@ -4197,7 +4197,7 @@
                  ((EQUAL |mode| (|get| |var| '|mode| |$e|)) NIL)
                  (#1# (|throwKeyedMsg| 'S2IS0052 (LIST |var| |mode|)))))
                (#1# (|putHist| |var| '|mode| |mode| |$e|))))))))))
- 
+
 ; declareMap(var,mode) ==
 ;   -- declare a Mapping property
 ;   (v := get(var, 'value, $e)) and objVal(v) isnt ['SPADMAP, :.] =>
@@ -4206,7 +4206,7 @@
 ;       throwKeyedMsg("S2IS0019", [var])
 ;   isPartialMode mode => throwKeyedMsg("S2IM0004",NIL)
 ;   putHist(var,'mode,mode,$e)
- 
+
 (DEFUN |declareMap| (|var| |mode|)
   (PROG (|v| |ISTMP#1|)
     (RETURN
@@ -4222,11 +4222,11 @@
         (#1='T (|throwKeyedMsg| 'S2IS0019 (LIST |var|)))))
       ((|isPartialMode| |mode|) (|throwKeyedMsg| 'S2IM0004 NIL))
       (#1# (|putHist| |var| '|mode| |mode| |$e|))))))
- 
+
 ; containsLocalVar(tree) ==
 ;     or/[CONTAINED(var, tree) for var in $localVars] or
 ;        CONTAINED("$$$", tree)
- 
+
 (DEFUN |containsLocalVar| (|tree|)
   (PROG ()
     (RETURN
@@ -4243,7 +4243,7 @@
           (SETQ |bfVar#107| (CDR |bfVar#107|))))
        NIL |$localVars| NIL)
       (CONTAINED '$$$ |tree|)))))
- 
+
 ; getAndEvalConstructorArgument tree ==
 ;   triple := getValue tree
 ;   objMode triple = '(Type) => triple
@@ -4251,7 +4251,7 @@
 ;   containsLocalVar objVal triple =>
 ;       compFailure('"   Local variable or parameter used in type")
 ;   objNewWrap(timedEVALFUN objVal(triple), objMode(triple))
- 
+
 (DEFUN |getAndEvalConstructorArgument| (|tree|)
   (PROG (|triple|)
     (RETURN
@@ -4264,7 +4264,7 @@
             ('T
              (|objNewWrap| (|timedEVALFUN| (|objVal| |triple|))
               (|objMode| |triple|))))))))
- 
+
 ; replaceSharps(x,d) ==
 ;   -- replaces all sharps in x by the arguments of domain d
 ;   -- all replaces the triangle variables
@@ -4276,7 +4276,7 @@
 ;   for e in rest d for var in $TriangleVariableList repeat
 ;     SL:= CONS(CONS(var,e),SL)
 ;   subCopy(x,SL)
- 
+
 (DEFUN |replaceSharps| (|x| |d|)
   (PROG (SL)
     (RETURN
@@ -4305,7 +4305,7 @@
           (SETQ |bfVar#112| (CDR |bfVar#112|))))
        (CDR |d|) NIL |$TriangleVariableList| NIL)
       (|subCopy| |x| SL)))))
- 
+
 ; isDomainValuedVariable form ==
 ;   -- returns the value of form if form is a variable with a type value
 ;   IDENTP form and (val := (
@@ -4315,7 +4315,7 @@
 ;       categoryForm?(objMode(val)) =>
 ;         objValUnwrap(val)
 ;   nil
- 
+
 (DEFUN |isDomainValuedVariable| (|form|)
   (PROG (|val|)
     (RETURN
@@ -4328,27 +4328,27 @@
             (|categoryForm?| (|objMode| |val|)))
        (|objValUnwrap| |val|))
       ('T NIL)))))
- 
+
 ; evalCategory(d,c) ==
 ;   -- tests whether domain d has category c
 ;   isPartialMode d or ofCategory(d,c)
- 
+
 (DEFUN |evalCategory| (|d| |c|)
   (PROG () (RETURN (OR (|isPartialMode| |d|) (|ofCategory| |d| |c|)))))
- 
+
 ; isOkInterpMode m ==
 ;   isPartialMode(m) => isLegitimateMode(m,nil,nil)
 ;   isValidType(m) and isLegitimateMode(m,nil,nil)
- 
+
 (DEFUN |isOkInterpMode| (|m|)
   (PROG ()
     (RETURN
      (COND ((|isPartialMode| |m|) (|isLegitimateMode| |m| NIL NIL))
            ('T (AND (|isValidType| |m|) (|isLegitimateMode| |m| NIL NIL)))))))
- 
+
 ; isLegitimateRecordOrTaggedUnion u ==
 ;   and/[x is [":",.,d] and isLegitimateMode(d,nil,nil) for x in u]
- 
+
 (DEFUN |isLegitimateRecordOrTaggedUnion| (|u|)
   (PROG (|ISTMP#1| |ISTMP#2| |d|)
     (RETURN
@@ -4372,7 +4372,7 @@
             (COND ((NOT |bfVar#114|) (RETURN NIL))))))
          (SETQ |bfVar#113| (CDR |bfVar#113|))))
       T |u| NIL))))
- 
+
 ; isPolynomialMode m ==
 ;   -- If m is a polynomial type this function returns a list of its
 ;   --  variables, and nil otherwise
@@ -4385,7 +4385,7 @@
 ;       HomogeneousDistributedMultivariatePolynomial)) => a
 ;     NIL
 ;   NIL
- 
+
 (DEFUN |isPolynomialMode| (|m|)
   (PROG (|op| |ISTMP#1| |a| |rargs|)
     (RETURN
@@ -4411,14 +4411,14 @@
                |a|)
               (#1# NIL))))
       (#1# NIL)))))
- 
+
 ; containsPolynomial m ==
 ;   not PAIRP(m) => NIL
 ;   [d,:.] := m
 ;   d in $univariateDomains or d in $multivariateDomains or
 ;       d = 'Polynomial => true
 ;   (m' := underDomainOf m) and containsPolynomial m'
- 
+
 (DEFUN |containsPolynomial| (|m|)
   (PROG (|d| |m'|)
     (RETURN
@@ -4434,13 +4434,13 @@
               (#1#
                (AND (SETQ |m'| (|underDomainOf| |m|))
                     (|containsPolynomial| |m'|))))))))))
- 
+
 ; containsVariables m ==
 ;   not PAIRP(m) => NIL
 ;   [d,:.] := m
 ;   d in $univariateDomains or d in $multivariateDomains => true
 ;   (m' := underDomainOf m) and containsVariables m'
- 
+
 (DEFUN |containsVariables| (|m|)
   (PROG (|d| |m'|)
     (RETURN
@@ -4455,12 +4455,12 @@
               (#1#
                (AND (SETQ |m'| (|underDomainOf| |m|))
                     (|containsVariables| |m'|))))))))))
- 
+
 ; listOfDuplicates l ==
 ;   l is [x,:l'] =>
 ;     x in l' => [x,:listOfDuplicates deleteAll(x,l')]
 ;     listOfDuplicates l'
- 
+
 (DEFUN |listOfDuplicates| (|l|)
   (PROG (|x| |l'|)
     (RETURN
@@ -4472,12 +4472,12 @@
          ((|member| |x| |l'|)
           (CONS |x| (|listOfDuplicates| (|deleteAll| |x| |l'|))))
          (#1# (|listOfDuplicates| |l'|)))))))))
- 
+
 ; deleteAll(x,l) ==
 ;   null l => nil
 ;   x = first(l) => deleteAll(x, rest l)
 ;   [first l,:deleteAll(x,rest l)]
- 
+
 (DEFUN |deleteAll| (|x| |l|)
   (PROG ()
     (RETURN

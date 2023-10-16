@@ -1,13 +1,13 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; parseTransform x ==
 ;   $defOp: local:= nil
 ;   x := SUBST('$, '%, x) -- for new compiler compatibility
 ;   parseTran x
- 
+
 (DEFUN |parseTransform| (|x|)
   (PROG (|$defOp|)
     (DECLARE (SPECIAL |$defOp|))
@@ -16,7 +16,7 @@
       (SETQ |$defOp| NIL)
       (SETQ |x| (SUBST '$ '% |x|))
       (|parseTran| |x|)))))
- 
+
 ; parseTran x ==
 ;   atom x => parseAtom x
 ;   [op, :argl] := x
@@ -25,7 +25,7 @@
 ;       if op ~= u then SAY(["parseTran op ~= u", op, u])
 ;       FUNCALL(fn, argl)
 ;   [parseTran op, :parseTranList argl]
- 
+
 (DEFUN |parseTran| (|x|)
   (PROG (|op| |argl| |ISTMP#1| |ISTMP#2| |u| |fn|)
     (RETURN
@@ -57,19 +57,19 @@
                   (SAY (LIST '|parseTran op ~= u| |op| |u|))))
                 (FUNCALL |fn| |argl|)))
               (#1# (CONS (|parseTran| |op|) (|parseTranList| |argl|))))))))))
- 
+
 ; parseAtom x ==
 ;  -- next line for compatibility with new compiler
 ;   x = 'break => parseLeave ['$NoValue]
 ;   x
- 
+
 (DEFUN |parseAtom| (|x|)
   (PROG ()
     (RETURN
      (COND ((EQ |x| '|break|) (|parseLeave| (LIST '|$NoValue|))) ('T |x|)))))
- 
+
 ; parseTranList l == [parseTran(y) for y in l]
- 
+
 (DEFUN |parseTranList| (|l|)
   (PROG ()
     (RETURN
@@ -81,7 +81,7 @@
           ('T (SETQ |bfVar#2| (CONS (|parseTran| |y|) |bfVar#2|))))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       NIL |l| NIL))))
- 
+
 ; parseHas [x,y] ==
 ;   mkand [['has,x,u] for u in fn y] where
 ;     mkand x ==
@@ -95,7 +95,7 @@
 ;       y is ['CATEGORY,:u] => "append"/[fn z for z in u]
 ;       y is ['SIGNATURE,:.] => [y]
 ;       [makeNonAtomic y]
- 
+
 (DEFUN |parseHas| (|bfVar#9|)
   (PROG (|x| |y|)
     (RETURN
@@ -159,12 +159,12 @@
         NIL |u| NIL))
       ((AND (CONSP |y|) (EQ (CAR |y|) 'SIGNATURE)) (LIST |y|))
       (#1# (LIST (|makeNonAtomic| |y|)))))))
- 
+
 ; parseDEF [lhs,tList,specialList,body] ==
 ;   setDefOp lhs
 ;   ['DEF, parseLhs lhs, parseTranList tList, parseTranList specialList,
 ;     parseTran(body)]
- 
+
 (DEFUN |parseDEF| (|bfVar#10|)
   (PROG (|lhs| |tList| |specialList| |body|)
     (RETURN
@@ -176,12 +176,12 @@
       (|setDefOp| |lhs|)
       (LIST 'DEF (|parseLhs| |lhs|) (|parseTranList| |tList|)
             (|parseTranList| |specialList|) (|parseTran| |body|))))))
- 
+
 ; parseLhs x ==
 ;   atom x => parseTran x
 ;   atom first x => [parseTran first x, :[parseTran y for y in rest x]]
 ;   parseTran x
- 
+
 (DEFUN |parseLhs| (|x|)
   (PROG ()
     (RETURN
@@ -199,11 +199,11 @@
                       (SETQ |bfVar#11| (CDR |bfVar#11|))))
                    NIL (CDR |x|) NIL)))
            (#1# (|parseTran| |x|))))))
- 
+
 ; parseMDEF [lhs,tList,specialList,body] ==
 ;   ['MDEF, parseTran lhs, parseTranList tList, parseTranList specialList,
 ;     parseTran(body)]
- 
+
 (DEFUN |parseMDEF| (|bfVar#13|)
   (PROG (|lhs| |tList| |specialList| |body|)
     (RETURN
@@ -214,7 +214,7 @@
       (SETQ |body| (CADDDR . #1#))
       (LIST 'MDEF (|parseTran| |lhs|) (|parseTranList| |tList|)
             (|parseTranList| |specialList|) (|parseTran| |body|))))))
- 
+
 ; parseCategory x ==
 ;   l:= parseTranList x
 ;   -- Needed only for error messages in interpreter
@@ -222,7 +222,7 @@
 ;     CONTAINED("$",l) => "domain"
 ;     'package
 ;   ['CATEGORY,key,:l]
- 
+
 (DEFUN |parseCategory| (|x|)
   (PROG (|l| |key|)
     (RETURN
@@ -230,12 +230,12 @@
       (SETQ |l| (|parseTranList| |x|))
       (SETQ |key| (COND ((CONTAINED '$ |l|) '|domain|) ('T '|package|)))
       (CONS 'CATEGORY (CONS |key| |l|))))))
- 
+
 ; parseAnd u ==
 ;   null u => 'true
 ;   null rest u => first u
 ;   parseIf [parseTran first u,parseAnd rest u,"false"]
- 
+
 (DEFUN |parseAnd| (|u|)
   (PROG ()
     (RETURN
@@ -244,13 +244,13 @@
             (|parseIf|
              (LIST (|parseTran| (CAR |u|)) (|parseAnd| (CDR |u|))
                    '|false|)))))))
- 
+
 ; parseOr u ==
 ;   null u => 'false
 ;   null rest u => first u
 ;   (x:= parseTran first u) is ['not,y] => parseIf [y,parseOr rest u,'true]
 ;   true => parseIf [x,'true,parseOr rest u]
- 
+
 (DEFUN |parseOr| (|u|)
   (PROG (|x| |ISTMP#1| |ISTMP#2| |y|)
     (RETURN
@@ -264,14 +264,14 @@
                         (PROGN (SETQ |y| (CAR |ISTMP#2|)) 'T)))))
             (|parseIf| (LIST |y| (|parseOr| (CDR |u|)) '|true|)))
            (T (|parseIf| (LIST |x| '|true| (|parseOr| (CDR |u|)))))))))
- 
+
 ; parseNot u ==
 ;   parseTran ['IF,first u,:'(false true)]
- 
+
 (DEFUN |parseNot| (|u|)
   (PROG ()
     (RETURN (|parseTran| (CONS 'IF (CONS (CAR |u|) '(|false| |true|)))))))
- 
+
 ; parseExit [a,:b] ==
 ;   --  note: I wanted to convert 1s to 0s here to facilitate indexing in
 ;   --   comp code; unfortunately, parseTran-ning is sometimes done more
@@ -283,7 +283,7 @@
 ;       (MOAN('"first arg ",a,'" for exit must be integer"); ['exit,1,a])
 ;     ['exit,a,:b]
 ;   ['exit,1,a]
- 
+
 (DEFUN |parseExit| (|bfVar#14|)
   (PROG (|a| |b|)
     (RETURN
@@ -301,7 +301,7 @@
            (LIST '|exit| 1 |a|)))
          (#1='T (CONS '|exit| (CONS |a| |b|)))))
        (#1# (LIST '|exit| 1 |a|)))))))
- 
+
 ; parseLeave [a,:b] ==
 ;   a:= parseTran a
 ;   b:= parseTran b
@@ -310,7 +310,7 @@
 ;       (MOAN('"first arg ",a,'" for 'leave' must be integer"); ['leave,1,a])
 ;     ['leave,a,:b]
 ;   ['leave,1,a]
- 
+
 (DEFUN |parseLeave| (|bfVar#15|)
   (PROG (|a| |b|)
     (RETURN
@@ -328,14 +328,14 @@
            (LIST '|leave| 1 |a|)))
          (#1='T (CONS '|leave| (CONS |a| |b|)))))
        (#1# (LIST '|leave| 1 |a|)))))))
- 
+
 ; parseJoin l ==
 ;   ['Join,:fn parseTranList l] where
 ;     fn l ==
 ;       null l => nil
 ;       l is [['Join,:x],:y] => [:x,:fn y]
 ;       [first l,:fn rest l]
- 
+
 (DEFUN |parseJoin| (|l|)
   (PROG () (RETURN (CONS '|Join| (|parseJoin,fn| (|parseTranList| |l|))))))
 (DEFUN |parseJoin,fn| (|l|)
@@ -350,13 +350,13 @@
                  (PROGN (SETQ |y| (CDR |l|)) #1#))
             (APPEND |x| (|parseJoin,fn| |y|)))
            (#1# (CONS (CAR |l|) (|parseJoin,fn| (CDR |l|))))))))
- 
+
 ; parseSegment p ==
 ;   p is [a,b] =>
 ;     b => ['SEGMENT,parseTran a, parseTran b]
 ;     ['SEGMENT,parseTran a]
 ;   ['SEGMENT,:p]
- 
+
 (DEFUN |parseSegment| (|p|)
   (PROG (|a| |ISTMP#1| |b|)
     (RETURN
@@ -370,7 +370,7 @@
        (COND (|b| (LIST 'SEGMENT (|parseTran| |a|) (|parseTran| |b|)))
              (#1# (LIST 'SEGMENT (|parseTran| |a|)))))
       (#1# (CONS 'SEGMENT |p|))))))
- 
+
 ; parseIf t ==
 ;   t isnt [p,a,b] => t
 ;   ifTran(parseTran p,parseTran a,parseTran b) where
@@ -387,7 +387,7 @@
 ;       makeSimplePredicateOrNil p is ['SEQ,:s,['exit,1,val]] =>
 ;         parseTran ['SEQ,:s,['exit,1,incExitLevel ['IF,val,a,b]]]
 ;       ['IF,p,a,b]
- 
+
 (DEFUN |parseIf| (|t|)
   (PROG (|p| |ISTMP#1| |a| |ISTMP#2| |b|)
     (RETURN
@@ -522,12 +522,12 @@
                                   (|incExitLevel| (LIST 'IF |val| |a| |b|)))
                             NIL)))))
            (#1# (LIST 'IF |p| |a| |b|))))))
- 
+
 ; makeSimplePredicateOrNil p ==
 ;   isSimple p => nil
 ;   u:= isAlmostSimple p => u
 ;   true => wrapSEQExit [[":=", [":", g := GENSYM(), ["Boolean"]], p], g]
- 
+
 (DEFUN |makeSimplePredicateOrNil| (|p|)
   (PROG (|u| |g|)
     (RETURN
@@ -538,12 +538,12 @@
               (LIST '|:=| (LIST '|:| (SETQ |g| (GENSYM)) (LIST '|Boolean|))
                     |p|)
               |g|)))))))
- 
+
 ; parseSeq l ==
 ;   not (l is [:.,['exit,:.]]) =>
 ;     postError ['"   Invalid ending to block: ",last l]
 ;   transSeq(parseTranList(l))
- 
+
 (DEFUN |parseSeq| (|l|)
   (PROG (|ISTMP#1| |ISTMP#2|)
     (RETURN
@@ -556,7 +556,7 @@
               (AND (CONSP |ISTMP#2|) (EQ (CAR |ISTMP#2|) '|exit|)))))
        (|postError| (LIST "   Invalid ending to block: " (|last| |l|))))
       (#1# (|transSeq| (|parseTranList| |l|)))))))
- 
+
 ; transSeq l ==
 ;   null l => nil
 ;   null rest l => decExitLevel first l
@@ -571,7 +571,7 @@
 ;     ['IF,decExitLevel a,transSeq tail,decExitLevel b]
 ;   (y:= transSeq tail) is ['SEQ,:s] => ['SEQ,item,:s]
 ;   ['SEQ,item,['exit,1,incExitLevel y]]
- 
+
 (DEFUN |transSeq| (|l|)
   (PROG (|item| |tail| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |ISTMP#5|
          |ISTMP#6| |ISTMP#7| |p| |ISTMP#8| |ISTMP#9| |ISTMP#10| |ISTMP#11| |q|

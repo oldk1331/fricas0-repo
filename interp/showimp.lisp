@@ -1,18 +1,18 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; $returnNowhereFromGoGet := false
- 
+
 (EVAL-WHEN (EVAL LOAD) (SETQ |$returnNowhereFromGoGet| NIL))
- 
+
 ; showSummary dom ==
 ;   showPredicates dom
 ;   showAttributes dom
 ;   showFrom dom
 ;   showImp dom
- 
+
 (DEFUN |showSummary| (|dom|)
   (PROG ()
     (RETURN
@@ -21,7 +21,7 @@
       (|showAttributes| |dom|)
       (|showFrom| |dom|)
       (|showImp| |dom|)))))
- 
+
 ; showImp(dom,:options) ==
 ;   sayBrightly '"-------------Operation summary-----------------"
 ;   missingOnlyFlag := IFCAR options
@@ -44,7 +44,7 @@
 ;     [:bright form2String domainForm,'"implements all exported operations"]
 ;   showDomainsOp1(nowheres,'nowhere)
 ;   missingOnlyFlag => 'done
-; 
+;
 ;   --first display those exported by the domain, then add chain guys
 ;   u := [:domexports,:constants,:SORTBY('CDDR,others)]
 ;   while u repeat
@@ -66,7 +66,7 @@
 ;     [., ., :key] := first u
 ;     sayBrightly ["Not exported: "]
 ;     u := showDomainsOp1(u,key)
- 
+
 (DEFUN |showImp| (|dom| &REST |options|)
   (PROG (|$predicateList| |defop| |s| |LETTMP#1| |others| |constants|
          |nowheres| |defexports| |unexports| |domexports| |key| |ISTMP#1| |u|
@@ -168,7 +168,7 @@
                           (SETQ |key| (CDDR |LETTMP#1|))
                           (|sayBrightly| (LIST '|Not exported: |))
                           (SETQ |u| (|showDomainsOp1| |u| |key|)))))))))))))))
- 
+
 ; showFrom(D,:option) ==
 ;   ops := IFCAR option
 ;   alist := nil
@@ -182,7 +182,7 @@
 ;   for [conform,:l] in alist repeat
 ;     sayBrightly concat('"From ",form2String conform,'":")
 ;     for [op,sig] in l repeat sayBrightly ['"   ",:formatOpSignature(op,sig)]
- 
+
 (DEFUN |showFrom| (D &REST |option|)
   (PROG (|$predicateList| |l| |conform| |x| |u| |sig| |ISTMP#1| |op| |nam|
          |domainForm| |alist| |ops|)
@@ -247,13 +247,13 @@
                    |l| NIL)))))
           (SETQ |bfVar#4| (CDR |bfVar#4|))))
        |alist| NIL)))))
- 
+
 ; getDomainOps D ==
 ;   domname := D.0
 ;   conname := first domname
 ;   $predicateList: local := GETDATABASE(conname,'PREDICATES)
 ;   REMDUP listSort(function GLESSEQP,ASSOCLEFT getDomainOpTable(D,nil))
- 
+
 (DEFUN |getDomainOps| (D)
   (PROG (|$predicateList| |conname| |domname|)
     (DECLARE (SPECIAL |$predicateList|))
@@ -264,13 +264,13 @@
       (SETQ |$predicateList| (GETDATABASE |conname| 'PREDICATES))
       (REMDUP
        (|listSort| #'GLESSEQP (ASSOCLEFT (|getDomainOpTable| D NIL))))))))
- 
+
 ; getDomainSigs(D,:option) ==
 ;   domname := D.0
 ;   conname := first domname
 ;   $predicateList: local := GETDATABASE(conname,'PREDICATES)
 ;   getDomainSigs1(D,first option)
- 
+
 (DEFUN |getDomainSigs| (D &REST |option|)
   (PROG (|$predicateList| |conname| |domname|)
     (DECLARE (SPECIAL |$predicateList|))
@@ -280,11 +280,11 @@
       (SETQ |conname| (CAR |domname|))
       (SETQ |$predicateList| (GETDATABASE |conname| 'PREDICATES))
       (|getDomainSigs1| D (CAR |option|))))))
- 
+
 ; getDomainSigs1(D,ops) == listSort(function GLESSEQP,u) where
 ;   u == [x for x in getDomainOpTable(D, nil) |
 ;           null ops or MEMQ(first x, ops)]
- 
+
 (DEFUN |getDomainSigs1| (D |ops|)
   (PROG ()
     (RETURN
@@ -299,14 +299,14 @@
                  (SETQ |bfVar#8| (CONS |x| |bfVar#8|)))))
           (SETQ |bfVar#7| (CDR |bfVar#7|))))
        NIL (|getDomainOpTable| D NIL) NIL)))))
- 
+
 ; getDomainDocs(D,:option) ==
 ;   domname := D.0
 ;   conname := first domname
 ;   $predicateList: local := GETDATABASE(conname,'PREDICATES)
 ;   ops := IFCAR option
 ;   [[op,sig,:getInheritanceByDoc(D,op,sig)] for [op,sig] in getDomainSigs1(D,ops)]
- 
+
 (DEFUN |getDomainDocs| (D &REST |option|)
   (PROG (|$predicateList| |sig| |ISTMP#1| |op| |ops| |conname| |domname|)
     (DECLARE (SPECIAL |$predicateList|))
@@ -337,19 +337,19 @@
                           |bfVar#11|)))))
           (SETQ |bfVar#10| (CDR |bfVar#10|))))
        NIL (|getDomainSigs1| D |ops|) NIL)))))
- 
+
 ; from?(D, op, sig) == IFCAR IFCDR getInheritanceByDoc(D, op, sig)
- 
+
 (DEFUN |from?| (D |op| |sig|)
   (PROG () (RETURN (IFCAR (IFCDR (|getInheritanceByDoc| D |op| |sig|))))))
- 
+
 ; getExtensionsOfDomain domain ==
 ;   u := getDomainExtensionsOfDomain domain
 ;   cats := getCategoriesOfDomain domain
 ;   for x in u repeat
 ;     cats := union(cats,getCategoriesOfDomain EVAL x)
 ;   [:u,:cats]
- 
+
 (DEFUN |getExtensionsOfDomain| (|domain|)
   (PROG (|u| |cats|)
     (RETURN
@@ -367,7 +367,7 @@
           (SETQ |bfVar#12| (CDR |bfVar#12|))))
        |u| NIL)
       (APPEND |u| |cats|)))))
- 
+
 ; getDomainExtensionsOfDomain domain ==
 ;   acc := nil
 ;   d := domain
@@ -375,7 +375,7 @@
 ;     acc := [u,:acc]
 ;     d := EVAL u
 ;   acc
- 
+
 (DEFUN |getDomainExtensionsOfDomain| (|domain|)
   (PROG (|acc| |d| |u|)
     (RETURN
@@ -390,7 +390,7 @@
                   (SETQ |acc| (CONS |u| |acc|))
                   (SETQ |d| (EVAL |u|))))))))
       |acc|))))
- 
+
 ; devaluateSlotDomain(u,dollar) ==
 ;   u = '$ => devaluate dollar
 ;   FIXP u and VECP (y := dollar.u) => devaluate y
@@ -398,7 +398,7 @@
 ;   u is ['QUOTE,y] => u
 ;   u is [op,:argl] => [op,:[devaluateSlotDomain(x,dollar) for x in argl]]
 ;   devaluate evalSlotDomain(u,dollar)
- 
+
 (DEFUN |devaluateSlotDomain| (|u| |dollar|)
   (PROG (|y| |ISTMP#1| |op| |argl|)
     (RETURN
@@ -433,7 +433,7 @@
                       (SETQ |bfVar#13| (CDR |bfVar#13|))))
                    NIL |argl| NIL)))
            (#1# (|devaluate| (|evalSlotDomain| |u| |dollar|)))))))
- 
+
 ; getCategoriesOfDomain domain ==
 ;   predkeyVec := domain.4.0
 ;   catforms := CADR domain.4
@@ -443,7 +443,7 @@
 ;      fn ==
 ;        VECP x => devaluate x
 ;        devaluateSlotDomain(x,domain)
- 
+
 (DEFUN |getCategoriesOfDomain| (|domain|)
   (PROG (|predkeyVec| |catforms| |x| |ISTMP#1|)
     (RETURN
@@ -469,7 +469,7 @@
                            |bfVar#16|)))))
           (SETQ |i| (+ |i| 1))))
        NIL (MAXINDEX |predkeyVec|) 0)))))
- 
+
 ; getInheritanceByDoc(D,op,sig,:options) ==
 ; --gets inheritance and documentation information by looking in the LISPLIB
 ; --for each ancestor of the domain
@@ -477,7 +477,7 @@
 ;   getDocDomainForOpSig(op,sig,devaluate D,D) or
 ;     or/[fn for x in catList] or '(NIL NIL)
 ;       where fn == getDocDomainForOpSig(op,sig,substDomainArgs(D,x),D)
- 
+
 (DEFUN |getInheritanceByDoc| (D |op| |sig| &REST |options|)
   (PROG (|catList|)
     (RETURN
@@ -498,11 +498,11 @@
               (SETQ |bfVar#17| (CDR |bfVar#17|))))
            NIL |catList| NIL)
           '(NIL NIL))))))
- 
+
 ; getDocDomainForOpSig(op,sig,dollar,D) ==
 ;   (u := LASSOC(op, GETDATABASE(first dollar, 'DOCUMENTATION)))
 ;     and (doc := or/[[d,dollar] for [s,:d] in u | compareSig(sig,s,D,dollar)])
- 
+
 (DEFUN |getDocDomainForOpSig| (|op| |sig| |dollar| D)
   (PROG (|u| |s| |d| |doc|)
     (RETURN
@@ -526,13 +526,13 @@
                               (COND (|bfVar#21| (RETURN |bfVar#21|)))))))
                       (SETQ |bfVar#20| (CDR |bfVar#20|))))
                    NIL |u| NIL))))))
- 
+
 ; showDomainsOp1(u,key) ==
 ;   while u and first u is [op, sig, : =key] repeat
 ;     sayBrightly ['"   ",:formatOpSignature(op,sig)]
 ;     u := rest u
 ;   u
- 
+
 (DEFUN |showDomainsOp1| (|u| |key|)
   (PROG (|ISTMP#1| |op| |ISTMP#2| |sig|)
     (RETURN
@@ -557,7 +557,7 @@
              (|sayBrightly| (CONS "   " (|formatOpSignature| |op| |sig|)))
              (SETQ |u| (CDR |u|))))))))
       |u|))))
- 
+
 ; getDomainRefName(dom,nam) ==
 ;   PAIRP nam => [getDomainRefName(dom,x) for x in nam]
 ;   not FIXP nam => nam
@@ -565,7 +565,7 @@
 ;   VECP slot => slot.0
 ;   slot is ['SETELT,:.] => getDomainRefName(dom,getDomainSeteltForm slot)
 ;   slot
- 
+
 (DEFUN |getDomainRefName| (|dom| |nam|)
   (PROG (|slot|)
     (RETURN
@@ -589,12 +589,12 @@
               ((AND (CONSP |slot|) (EQ (CAR |slot|) 'SETELT))
                (|getDomainRefName| |dom| (|getDomainSeteltForm| |slot|)))
               (#1# |slot|))))))))
- 
+
 ; getDomainSeteltForm ['SETELT,.,.,form] ==
 ;   form is ['evalSlotDomain,u,d] => devaluateSlotDomain(u,d)
 ;   VECP form => systemError()
 ;   form
- 
+
 (DEFUN |getDomainSeteltForm| (|bfVar#24|)
   (PROG (|form| |ISTMP#1| |u| |ISTMP#2| |d|)
     (RETURN
@@ -612,7 +612,7 @@
                          (PROGN (SETQ |d| (CAR |ISTMP#2|)) #1='T))))))
         (|devaluateSlotDomain| |u| |d|))
        ((VECP |form|) (|systemError|)) (#1# |form|))))))
- 
+
 ; showPredicates dom ==
 ;   sayBrightly '"--------------------Predicate summary-------------------"
 ;   conname := first(dom.0)
@@ -623,7 +623,7 @@
 ;       testBitVector(predvector,i) => '"true : "
 ;       '"false: "
 ;     sayBrightly [prefix,:pred2English p]
- 
+
 (DEFUN |showPredicates| (|dom|)
   (PROG (|conname| |predvector| |predicateList| |prefix|)
     (RETURN
@@ -647,7 +647,7 @@
           (SETQ |i| (+ |i| 1))
           (SETQ |bfVar#25| (CDR |bfVar#25|))))
        1 |predicateList| NIL)))))
- 
+
 ; showAttributes dom ==
 ;   sayBrightly '"--------------------Attribute summary-------------------"
 ;   conname := first(dom.0)
@@ -658,7 +658,7 @@
 ;       testBitVector(predvector,p) => '"true : "
 ;       '"false: "
 ;     sayBrightly concat(prefix,form2String a)
- 
+
 (DEFUN |showAttributes| (|dom|)
   (PROG (|conname| |abb| |predvector| |a| |p| |prefix|)
     (RETURN
@@ -687,7 +687,7 @@
                   (|sayBrightly| (|concat| |prefix| (|form2String| |a|)))))))
           (SETQ |bfVar#27| (CDR |bfVar#27|))))
        (ELT |dom| 2) NIL)))))
- 
+
 ; showGoGet dom ==
 ;   numvec := CDDR dom.4
 ;   for i in 6..MAXINDEX dom | (slot := dom.i) is [=FUNCTION newGoGet,dol,index,:op] repeat
@@ -699,7 +699,7 @@
 ;     namePart :=
 ;       concat(bright "from",form2String formatLazyDomainForm(dom,whereNumber))
 ;     sayBrightly [i,'": ",:formatOpSignature(op,signumList),:namePart]
- 
+
 (DEFUN |showGoGet| (|dom|)
   (PROG (|numvec| |slot| |ISTMP#1| |ISTMP#2| |dol| |ISTMP#3| |index| |op|
          |numOfArgs| |whereNumber| |signumList| |namePart|)
@@ -755,12 +755,12 @@
                                         |namePart|))))))))
           (SETQ |i| (+ |i| 1))))
        (MAXINDEX |dom|) 6)))))
- 
+
 ; formatLazyDomain(dom,x) ==
 ;   VECP x => devaluate x
 ;   x is [dollar,slotNumber,:form] => formatLazyDomainForm(dom,form)
 ;   systemError nil
- 
+
 (DEFUN |formatLazyDomain| (|dom| |x|)
   (PROG (|dollar| |ISTMP#1| |slotNumber| |form|)
     (RETURN
@@ -776,14 +776,14 @@
                         #1='T))))
             (|formatLazyDomainForm| |dom| |form|))
            (#1# (|systemError| NIL))))))
- 
+
 ; formatLazyDomainForm(dom,x) ==
 ;   x = 0 => ["$"]
 ;   FIXP x => formatLazyDomain(dom,dom.x)
 ;   atom x => x
 ;   x is ['NRTEVAL,y] => (atom y => [y]; y)
 ;   [first x,:[formatLazyDomainForm(dom,y) for y in rest x]]
- 
+
 (DEFUN |formatLazyDomainForm| (|dom| |x|)
   (PROG (|ISTMP#1| |y|)
     (RETURN

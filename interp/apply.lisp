@@ -1,12 +1,12 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; oldCompilerAutoloadOnceTrigger() == nil
- 
+
 (DEFUN |oldCompilerAutoloadOnceTrigger| () (PROG () (RETURN NIL)))
- 
+
 ; compAtomWithModemap(x, m, e, v) ==
 ;     res := nil
 ;     v1 := nil
@@ -30,7 +30,7 @@
 ;             res := trans_delta(genDeltaEntry([x, :map], e), target, e)
 ;             res := convert(res, m)
 ;     res
- 
+
 (DEFUN |compAtomWithModemap| (|x| |m| |e| |v|)
   (PROG (|res| |v1| |ISTMP#1| |ISTMP#2| |target| |ISTMP#3| |ISTMP#4| |ISTMP#5|
          |fn| |md| |mr| |fnsel|)
@@ -112,13 +112,13 @@
                   (SETQ |bfVar#2| (CDR |bfVar#2|))))
                |v1| NIL)
               |res|)))))))
- 
+
 ; trans_delta(fn, target, e) ==
 ;     fn1 :=
 ;         fn is ["XLAM", :.] => [fn]
 ;         ["call", fn]
 ;     [fn1, target, e]
- 
+
 (DEFUN |trans_delta| (|fn| |target| |e|)
   (PROG (|fn1|)
     (RETURN
@@ -127,13 +127,13 @@
               (COND ((AND (CONSP |fn|) (EQ (CAR |fn|) 'XLAM)) (LIST |fn|))
                     ('T (LIST '|call| |fn|))))
       (LIST |fn1| |target| |e|)))))
- 
+
 ; compToApply(op,argl,m,e) ==
 ;   T:= compNoStacking(op,$EmptyMode,e) or return nil
 ;   m1:= T.mode
 ;   T.expr is ["QUOTE", =m1] => nil
 ;   compApplication(op,argl,m,T.env,T)
- 
+
 (DEFUN |compToApply| (|op| |argl| |m| |e|)
   (PROG (T$ |m1| |ISTMP#1| |ISTMP#2|)
     (RETURN
@@ -150,7 +150,7 @@
                     (EQUAL (CAR |ISTMP#2|) |m1|)))))
         NIL)
        ('T (|compApplication| |op| |argl| |m| (CADDR T$) T$)))))))
- 
+
 ; compApplication(op,argl,m,e,T) ==
 ;   T.mode is ['Mapping, retm, :argml] =>
 ;     #argl ~= #argml => nil
@@ -171,7 +171,7 @@
 ;   op = 'elt => nil
 ;   eltForm := ['elt, op, :argl]
 ;   comp(eltForm, m, e)
- 
+
 (DEFUN |compApplication| (|op| |argl| |m| |e| T$)
   (PROG (|ISTMP#1| |ISTMP#2| |retm| |argml| |LETTMP#1| |argTl| |nprefix| |op'|
          |form| |eltForm|)
@@ -283,7 +283,7 @@
        (PROGN
         (SETQ |eltForm| (CONS '|elt| (CONS |op| |argl|)))
         (|comp| |eltForm| |m| |e|)))))))
- 
+
 ; compFormWithModemap(form is [op,:argl],m,e,modemap) ==
 ;   [map:= [.,target,:.],[pred,impl]]:= modemap
 ;   if isCategoryForm(target) and isFunctor op then
@@ -299,7 +299,7 @@
 ;         -- SAY ["new map is",map]
 ;   not (target':= coerceable(target,m,e)) => nil
 ;   [f,Tl,sl]:= compApplyModemap(form,modemap,e,nil) or return nil
-; 
+;
 ;   --generate code; return
 ;   T:=
 ;     [x',m',e'] where
@@ -320,7 +320,7 @@
 ;         Tl => (last Tl).env
 ;         e
 ;   convert(T,m)
- 
+
 (DEFUN |compFormWithModemap| (|form| |m| |e| |modemap|)
   (PROG (|op| |argl| |map| |target| |pred| |impl| |LETTMP#1| |cexpr| |sv|
          |target'| |f| |Tl| |sl| |m'| |form'| |z| |c| |ISTMP#1| |ISTMP#2|
@@ -430,7 +430,7 @@
               (SETQ |e'| (COND (|Tl| (CADDR (|last| |Tl|))) (#4# |e|)))
               (SETQ T$ (LIST |x'| |m'| |e'|))
               (|convert| T$ |m|))))))))
- 
+
 ; applyMapping([op,:argl],m,e,ml) ==
 ;   #argl~=#ml-1 => nil
 ;   isCategoryForm(first ml) =>
@@ -455,7 +455,7 @@
 ;     ['call,['applyFun,op],:argl']
 ;   pairlis:= [[v,:a] for a in argl' for v in $FormalMapVariableList]
 ;   convert([form,SUBLIS(pairlis,first ml),e],m)
- 
+
 (DEFUN |applyMapping| (|bfVar#26| |m| |e| |ml|)
   (PROG (|op| |argl| |pairlis| |ml'| |LETTMP#1| |argl'| |form| |nprefix| |op'|)
     (RETURN
@@ -564,51 +564,51 @@
                        NIL |argl'| NIL |$FormalMapVariableList| NIL))
               (|convert| (LIST |form| (SUBLIS |pairlis| (CAR |ml|)) |e|)
                |m|))))))))
- 
+
 ; compApplyModemap(form, modemap, e, sl) ==
 ;   $generatingCall : local := true
 ;   [op,:argl] := form                   --form to be compiled
 ;   [[mc,mr,:margl],:fnsel] := modemap   --modemap we are testing
-; 
+;
 ;   -- e     is the current environment
 ;   -- sl     substitution list, nil means bottom-up, otherwise top-down
-; 
+;
 ;   -- 0.  fail immediately if #argl=#margl
-; 
+;
 ;   if #argl~=#margl then return nil
-; 
+;
 ;   -- 1.  use modemap to evaluate arguments, returning failed if
 ;   --     not possible
-; 
+;
 ;   lt:=
 ;     [[., m', e]:=
 ;       comp(y, g, e) or return "failed" where
 ;         g:= SUBLIS(sl,m) where
 ;             sl:= pmatchWithSl(m',m,sl) for y in argl for m in margl]
 ;   lt="failed" => return nil
-; 
+;
 ;   -- 2.  coerce each argument to final domain, returning failed
 ;   --     if not possible
-; 
+;
 ;   lt':= [coerce(y,d) or return "failed"
 ;          for y in lt for d in SUBLIS(sl,margl)]
 ;   lt'="failed" => return nil
-; 
+;
 ;   -- 3.  obtain domain-specific function, if possible, and return
-; 
+;
 ;   --$bindings is bound by compMapCond
 ;   [f, bindings] := compMapCond(op, mc, sl, fnsel, e) or return nil
-; 
+;
 ; --+ can no longer trust what the modemap says for a reference into
 ; --+ an exterior domain (it is calculating the displacement based on view
 ; --+ information which is no longer valid; thus ignore this index and
 ; --+ store the signature instead.
-; 
+;
 ; --$NRTflag=true and f is [op1,d,.] and NE(d,'$) and member(op1,'(ELT CONST)) =>
 ;   f is [op1,d,.] and member(op1,'(ELT CONST)) =>
 ;       [genDeltaEntry([op, :modemap], e), lt', bindings]
 ;   [f, lt', bindings]
- 
+
 (DEFUN |compApplyModemap| (|form| |modemap| |e| |sl|)
   (PROG (|$generatingCall| |ISTMP#2| |d| |ISTMP#1| |op1| |bindings| |f| |lt'|
          |lt| |m'| |LETTMP#1| |g| |fnsel| |margl| |mr| |mc| |argl| |op|)
@@ -691,10 +691,10 @@
                         (LIST (|genDeltaEntry| (CONS |op| |modemap|) |e|) |lt'|
                               |bindings|))
                        (#2# (LIST |f| |lt'| |bindings|)))))))))))))
- 
+
 ; compMapCond(op, mc, bindings, fnsel, e) ==
 ;   or/[compMapCond'(u, op, mc, bindings, e) for u in fnsel]
- 
+
 (DEFUN |compMapCond| (|op| |mc| |bindings| |fnsel| |e|)
   (PROG ()
     (RETURN
@@ -709,11 +709,11 @@
             (COND (|bfVar#34| (RETURN |bfVar#34|))))))
          (SETQ |bfVar#33| (CDR |bfVar#33|))))
       NIL |fnsel| NIL))))
- 
+
 ; compMapCond'([cexpr,fnexpr], op, dc, bindings, e) ==
 ;   compMapCond''(cexpr, dc, e) => compMapCondFun(fnexpr,op,dc,bindings)
 ;   stackMessage ["not known that",'%b,dc,'%d,"has",'%b,cexpr,'%d]
- 
+
 (DEFUN |compMapCond'| (|bfVar#35| |op| |dc| |bindings| |e|)
   (PROG (|cexpr| |fnexpr|)
     (RETURN
@@ -727,7 +727,7 @@
         (|stackMessage|
          (LIST '|not known that| '|%b| |dc| '|%d| '|has| '|%b| |cexpr|
                '|%d|))))))))
- 
+
 ; compMapCond''(cexpr, dc, e) ==
 ;   cexpr=true => true
 ;   cexpr is ["AND", :l] or cexpr is ["and", :l] =>
@@ -745,7 +745,7 @@
 ;         --stackSemanticError(("not known that",'%b,name,
 ;         -- '%d,"has",'%b,cat,'%d),nil)
 ;   BREAK()
- 
+
 (DEFUN |compMapCond''| (|cexpr| |dc| |e|)
   (PROG (|l| |ISTMP#1| |u| |name| |ISTMP#2| |cat|)
     (RETURN
@@ -801,8 +801,8 @@
                              (PROGN (SETQ |cat| (CAR |ISTMP#2|)) #1#))))))
             (COND ((|known_info_in_env| |cexpr| |e|) T) (#1# NIL)))
            (#1# (BREAK))))))
- 
+
 ; compMapCondFun(fnexpr,op,dc,bindings) == [fnexpr,bindings]
- 
+
 (DEFUN |compMapCondFun| (|fnexpr| |op| |dc| |bindings|)
   (PROG () (RETURN (LIST |fnexpr| |bindings|))))

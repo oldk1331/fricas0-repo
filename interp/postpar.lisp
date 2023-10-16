@@ -1,8 +1,8 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; postTransform y ==
 ;   $insidePostCategoryIfTrue : local := nil
 ;   x:= y
@@ -11,7 +11,7 @@
 ;       u := [":", ['LISTOF, :l, y], t]
 ;   postTransformCheck u
 ;   u
- 
+
 (DEFUN |postTransform| (|y|)
   (PROG (|$insidePostCategoryIfTrue| |l| |t| |ISTMP#5| |ISTMP#4| |ISTMP#3|
          |ISTMP#2| |ISTMP#1| |u| |x|)
@@ -57,7 +57,7 @@
         (SETQ |u| (LIST '|:| (CONS 'LISTOF (APPEND |l| (CONS |y| NIL))) |t|))))
       (|postTransformCheck| |u|)
       |u|))))
- 
+
 ; displayPreCompilationErrors() ==
 ;   n:= #($postStack:= REMDUP NREVERSE $postStack)
 ;   n=0 => nil
@@ -72,7 +72,7 @@
 ;     (for x in $postStack for i in 1.. repeat sayMath ['"   ",i,'"_) ",:x])
 ;     else sayMath ['"    ",:first $postStack]
 ;   TERPRI()
- 
+
 (DEFUN |displayPreCompilationErrors| ()
   (PROG (|heading| |errors| |n|)
     (RETURN
@@ -109,7 +109,7 @@
                  |$postStack| NIL 1))
                (#1# (|sayMath| (CONS "    " (CAR |$postStack|)))))
               (TERPRI))))))))
- 
+
 ; postTran x ==
 ;   atom x =>
 ;     postAtom x
@@ -119,7 +119,7 @@
 ;     u:= postTran [b,:rest x]
 ;     [postTran op,:rest u]
 ;   postForm x
- 
+
 (DEFUN |postTran| (|x|)
   (PROG (|op| |f| |ISTMP#1| |a| |ISTMP#2| |b| |u|)
     (RETURN
@@ -143,9 +143,9 @@
                 (SETQ |u| (|postTran| (CONS |b| (CDR |x|))))
                 (CONS (|postTran| |op|) (CDR |u|))))
               (#1# (|postForm| |x|)))))))))
- 
+
 ; postTranList x == [postTran y for y in x]
- 
+
 (DEFUN |postTranList| (|x|)
   (PROG ()
     (RETURN
@@ -157,11 +157,11 @@
           ('T (SETQ |bfVar#5| (CONS (|postTran| |y|) |bfVar#5|))))
          (SETQ |bfVar#4| (CDR |bfVar#4|))))
       NIL |x| NIL))))
- 
+
 ; postBigFloat x ==
 ;   [.,mant, expon] := x
 ;   postTran [["Sel", '(Float), 'float], [",", [",", mant, expon], 10]]
- 
+
 (DEFUN |postBigFloat| (|x|)
   (PROG (|mant| |expon|)
     (RETURN
@@ -171,11 +171,11 @@
       (|postTran|
        (LIST (LIST '|Sel| '(|Float|) '|float|)
              (LIST '|,| (LIST '|,| |mant| |expon|) 10)))))))
- 
+
 ; postAdd ['add,a,:b] ==
 ;   null b => postCapsule a
 ;   ['add,postTran a,postCapsule first b]
- 
+
 (DEFUN |postAdd| (|bfVar#6|)
   (PROG (|a| |b|)
     (RETURN
@@ -184,27 +184,27 @@
       (SETQ |b| (CDDR . #1#))
       (COND ((NULL |b|) (|postCapsule| |a|))
             ('T (LIST '|add| (|postTran| |a|) (|postCapsule| (CAR |b|)))))))))
- 
+
 ; checkWarning msg == postError concat('"Parsing error: ",msg)
- 
+
 (DEFUN |checkWarning| (|msg|)
   (PROG () (RETURN (|postError| (|concat| "Parsing error: " |msg|)))))
- 
+
 ; checkWarningIndentation() ==
 ;   checkWarning ['"Apparent indentation error following",:bright "add"]
- 
+
 (DEFUN |checkWarningIndentation| ()
   (PROG ()
     (RETURN
      (|checkWarning|
       (CONS "Apparent indentation error following" (|bright| '|add|))))))
- 
+
 ; postCapsule x ==
 ;   x isnt [op,:.] => checkWarningIndentation()
 ;   op = ";" => ['CAPSULE,:postBlockItemList postFlatten(x,";")]
 ;   op = "if" or INTEGERP op or op = "==" => ['CAPSULE, postBlockItem x]
 ;   checkWarningIndentation()
- 
+
 (DEFUN |postCapsule| (|x|)
   (PROG (|op|)
     (RETURN
@@ -216,11 +216,11 @@
       ((OR (EQ |op| '|if|) (INTEGERP |op|) (EQ |op| '==))
        (LIST 'CAPSULE (|postBlockItem| |x|)))
       (#1# (|checkWarningIndentation|))))))
- 
+
 ; postQUOTE x == x
- 
+
 (DEFUN |postQUOTE| (|x|) (PROG () (RETURN |x|)))
- 
+
 ; postConstruct u ==
 ;   u is ['construct,b] =>
 ;     a:= (b is [",",:.] => comma2Tuple b; b)
@@ -231,7 +231,7 @@
 ;       ['construct,:postTranList l]
 ;     ['construct,postTran a]
 ;   u
- 
+
 (DEFUN |postConstruct| (|u|)
   (PROG (|ISTMP#1| |b| |a| |p| |ISTMP#2| |q| |l| |y|)
     (RETURN
@@ -295,14 +295,14 @@
            (#1# (CONS '|construct| (|postTranList| |l|)))))
          (#1# (LIST '|construct| (|postTran| |a|))))))
       (#1# |u|)))))
- 
+
 ; postError msg ==
 ;   xmsg:=
 ;     BOUNDP("$defOp") => [$defOp, '": " , :msg]
 ;     msg
 ;   $postStack:= [xmsg,:$postStack]
 ;   nil
- 
+
 (DEFUN |postError| (|msg|)
   (PROG (|xmsg|)
     (RETURN
@@ -312,14 +312,14 @@
                     ('T |msg|)))
       (SETQ |$postStack| (CONS |xmsg| |$postStack|))
       NIL))))
- 
+
 ; postMakeCons l ==
 ;   null l => nil
 ;   l is [[":",a],:l'] =>
 ;     l' => ['append,postTran a,postMakeCons l']
 ;     postTran a
 ;   ['cons,postTran first l,postMakeCons rest l]
- 
+
 (DEFUN |postMakeCons| (|l|)
   (PROG (|ISTMP#1| |ISTMP#2| |a| |l'|)
     (RETURN
@@ -339,23 +339,23 @@
            (#1#
             (LIST '|cons| (|postTran| (CAR |l|))
                   (|postMakeCons| (CDR |l|))))))))
- 
+
 ; postAtom x ==
 ;   x=0 => '(Zero)
 ;   x=1 => '(One)
 ;   EQ(x,'T) => 'T_$ -- rename T in spad code to T$
 ;   IDENTP x and GETDATABASE(x,'NILADIC) => LIST x
 ;   x
- 
+
 (DEFUN |postAtom| (|x|)
   (PROG ()
     (RETURN
      (COND ((EQL |x| 0) '(|Zero|)) ((EQL |x| 1) '(|One|)) ((EQ |x| 'T) 'T$)
            ((AND (IDENTP |x|) (GETDATABASE |x| 'NILADIC)) (LIST |x|))
            ('T |x|)))))
- 
+
 ; postBlockItemList l == [postBlockItem x for x in l]
- 
+
 (DEFUN |postBlockItemList| (|l|)
   (PROG ()
     (RETURN
@@ -367,13 +367,13 @@
           ('T (SETQ |bfVar#12| (CONS (|postBlockItem| |x|) |bfVar#12|))))
          (SETQ |bfVar#11| (CDR |bfVar#11|))))
       NIL |l| NIL))))
- 
+
 ; postBlockItem x ==
 ;   x:= postTran x
 ;   x is ["@Tuple", :l, [":", y, t]] and (and/[IDENTP x for x in l]) =>
 ;     [":",['LISTOF,:l,y],t]
 ;   x
- 
+
 (DEFUN |postBlockItem| (|x|)
   (PROG (|ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |y| |ISTMP#5| |t| |l|)
     (RETURN
@@ -415,7 +415,7 @@
               T |l| NIL))
         (LIST '|:| (CONS 'LISTOF (APPEND |l| (CONS |y| NIL))) |t|))
        (#1# |x|))))))
- 
+
 ; postCategory (u is ['CATEGORY,:l]) ==
 ;   --RDJ: ugh_ please -- someone take away need for PROGN as soon as possible
 ;   null l => u
@@ -425,7 +425,7 @@
 ;   [op,:[fn x for x in l]] where fn x ==
 ;     $insidePostCategoryIfTrue: local := true
 ;     postTran x
- 
+
 (DEFUN |postCategory| (|u|)
   (PROG (|l| |op|)
     (RETURN
@@ -453,20 +453,20 @@
   (PROG (|$insidePostCategoryIfTrue|)
     (DECLARE (SPECIAL |$insidePostCategoryIfTrue|))
     (RETURN (PROGN (SETQ |$insidePostCategoryIfTrue| T) (|postTran| |x|)))))
- 
+
 ; postComma u == postTuple comma2Tuple u
- 
+
 (DEFUN |postComma| (|u|) (PROG () (RETURN (|postTuple| (|comma2Tuple| |u|)))))
- 
+
 ; comma2Tuple u == ["@Tuple", :postFlatten(u, ",")]
- 
+
 (DEFUN |comma2Tuple| (|u|)
   (PROG () (RETURN (CONS '|@Tuple| (|postFlatten| |u| '|,|)))))
- 
+
 ; postDef [defOp,lhs,rhs] ==
 ; --+
 ;   lhs is ["macro",name] => postMDef ["==>",name,rhs]
-; 
+;
 ;   recordHeaderDocumentation nil
 ;   if $maxSignatureLineNumber ~= 0 then
 ;     $docList := [['constructor,:$headerDocumentation],:$docList]
@@ -486,7 +486,7 @@
 ;       rhs is ["=>", a, b] => ['IF,postTran a, postTran b, 'noBranch]
 ;       postTran rhs
 ;   ['DEF, newLhs, typeList, specialCaseForm, trhs]
- 
+
 (DEFUN |postDef| (|bfVar#23|)
   (PROG (|defOp| |lhs| |rhs| |ISTMP#1| |name| |LETTMP#1| |form| |targetType|
          |a| |ISTMP#2| |newLhs| |t| |argTypeList| |typeList| |specialCaseForm|
@@ -597,7 +597,7 @@
                    (LIST 'IF (|postTran| |a|) (|postTran| |b|) '|noBranch|))
                   (#2# (|postTran| |rhs|))))
          (LIST 'DEF |newLhs| |typeList| |specialCaseForm| |trhs|))))))))
- 
+
 ; postMDef(t) ==
 ;   [.,lhs,rhs] := t
 ;   lhs := postTran lhs
@@ -610,7 +610,7 @@
 ;   newLhs:= [(x is [":",a,:.] => a; x) for x in form]
 ;   typeList:= [targetType,:[(x is [":",.,t] => t; nil) for x in rest form]]
 ;   ['MDEF,newLhs,typeList,[nil for x in form],postTran rhs]
- 
+
 (DEFUN |postMDef| (|t|)
   (PROG (|lhs| |rhs| |LETTMP#1| |form| |targetType| |ISTMP#1| |a| |newLhs|
          |ISTMP#2| |typeList|)
@@ -689,9 +689,9 @@
                 (SETQ |bfVar#28| (CDR |bfVar#28|))))
              NIL |form| NIL)
             (|postTran| |rhs|))))))
- 
+
 ; postExit ["=>",a,b] == ['IF,postTran a,['exit,postTran b],'noBranch]
- 
+
 (DEFUN |postExit| (|bfVar#30|)
   (PROG (|a| |b|)
     (RETURN
@@ -700,11 +700,11 @@
       (SETQ |b| (CADDR . #1#))
       (LIST 'IF (|postTran| |a|) (LIST '|exit| (|postTran| |b|))
             '|noBranch|)))))
- 
+
 ; postFlatten(x,op) ==
 ;   x is [ =op,a,b] => [:postFlatten(a,op),:postFlatten(b,op)]
 ;   LIST x
- 
+
 (DEFUN |postFlatten| (|x| |op|)
   (PROG (|ISTMP#1| |a| |ISTMP#2| |b|)
     (RETURN
@@ -720,7 +720,7 @@
                         (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1='T))))))
        (APPEND (|postFlatten| |a| |op|) (|postFlatten| |b| |op|)))
       (#1# (LIST |x|))))))
- 
+
 ; postForm (u is [op,:argl]) ==
 ;   x:=
 ;     atom op =>
@@ -734,7 +734,7 @@
 ;     u
 ;   x is [., ["@Tuple", :y]] => [first x, :y]
 ;   x
- 
+
 (DEFUN |postForm| (|u|)
   (PROG (|op| |argl| |argl'| |ISTMP#1| |x| |ISTMP#2| |y|)
     (RETURN
@@ -776,12 +776,12 @@
                          (PROGN (SETQ |y| (CDR |ISTMP#2|)) #1#))))))
         (CONS (CAR |x|) |y|))
        (#1# |x|))))))
- 
+
 ; postIf t ==
 ;   t isnt ["if",:l] => t
 ;   ['IF, :[(null(x := postTran x) => 'noBranch; x)
 ;     for x in l]]
- 
+
 (DEFUN |postIf| (|t|)
   (PROG (|l|)
     (RETURN
@@ -807,7 +807,7 @@
                             |bfVar#32|))))
                  (SETQ |bfVar#31| (CDR |bfVar#31|))))
               NIL |l| NIL)))))))
- 
+
 ; postJoin ['Join,a,:l] ==
 ;   a:= postTran a
 ;   l:= postTranList l
@@ -817,7 +817,7 @@
 ;     a is ["@Tuple", :c] => c
 ;     LIST a
 ;   ['Join,:al,:l]
- 
+
 (DEFUN |postJoin| (|bfVar#33|)
   (PROG (|a| |l| |b| |name| |c| |al|)
     (RETURN
@@ -838,11 +838,11 @@
                 |c|)
                (#2# (LIST |a|))))
       (CONS '|Join| (APPEND |al| |l|))))))
- 
+
 ; postMapping u  ==
 ;   u isnt ["->",source,target] => u
 ;   ['Mapping,postTran target,:unTuple postTran source]
- 
+
 (DEFUN |postMapping| (|u|)
   (PROG (|ISTMP#1| |source| |ISTMP#2| |target|)
     (RETURN
@@ -862,9 +862,9 @@
        (CONS '|Mapping|
              (CONS (|postTran| |target|)
                    (|unTuple| (|postTran| |source|)))))))))
- 
+
 ; postRepeat ['REPEAT,:m,x] == ['REPEAT,:postIteratorList m,postTran x]
- 
+
 (DEFUN |postRepeat| (|bfVar#34|)
   (PROG (|LETTMP#1| |x| |m|)
     (RETURN
@@ -874,11 +874,11 @@
       (SETQ |m| (NREVERSE (CDR |LETTMP#1|)))
       (CONS 'REPEAT
             (APPEND (|postIteratorList| |m|) (CONS (|postTran| |x|) NIL)))))))
- 
+
 ; postSEGMENT ['SEGMENT,a,b] ==
 ;   key:= [a,'"..",:(b => [b]; nil)]
 ;   postError ['"   Improper placement of segment",:bright key]
- 
+
 (DEFUN |postSEGMENT| (|bfVar#35|)
   (PROG (|a| |b| |key|)
     (RETURN
@@ -888,7 +888,7 @@
       (SETQ |key| (CONS |a| (CONS ".." (COND (|b| (LIST |b|)) ('T NIL)))))
       (|postError|
        (CONS "   Improper placement of segment" (|bright| |key|)))))))
- 
+
 ; postCollect [constructOp,:m,x] ==
 ;   x is [['Sel, D, 'construct], :y] =>
 ;     postCollect [['Sel, D, 'COLLECT], :m, ['construct, :y]]
@@ -905,7 +905,7 @@
 ;           ['construct,:postTranList l]
 ;         ['REDUCE,'append,0,[op,:itl,newBody]]
 ;       [op,:itl,y]
- 
+
 (DEFUN |postCollect| (|bfVar#40|)
   (PROG (|constructOp| |LETTMP#1| |x| |m| |ISTMP#1| |ISTMP#2| D |ISTMP#3| |y|
          |itl| |r|)
@@ -1000,7 +1000,7 @@
         (LIST 'REDUCE '|append| 0
               (CONS |op| (APPEND |itl| (CONS |newBody| NIL))))))
       (#1# (CONS |op| (APPEND |itl| (CONS |y| NIL))))))))
- 
+
 ; postIteratorList x ==
 ;   x is [p,:l] =>
 ;     (p:= postTran p) is ['IN,y,u] =>
@@ -1012,7 +1012,7 @@
 ;       [['INBY, y, u, v], :postIteratorList l]
 ;     [p,:postIteratorList l]
 ;   x
- 
+
 (DEFUN |postIteratorList| (|x|)
   (PROG (|p| |l| |ISTMP#1| |ISTMP#2| |y| |ISTMP#3| |u| |a| |b| |v|)
     (RETURN
@@ -1073,11 +1073,11 @@
           (#1# (CONS (LIST 'INBY |y| |u| |v|) (|postIteratorList| |l|)))))
         (#1# (CONS |p| (|postIteratorList| |l|)))))
       (#1# |x|)))))
- 
+
 ; postin arg ==
 ;   arg isnt ["in",i,seq] => systemErrorHere '"postin"
 ;   ["in",postTran i, postInSeq seq]
- 
+
 (DEFUN |postin| (|arg|)
   (PROG (|ISTMP#1| |i| |ISTMP#2| |seq|)
     (RETURN
@@ -1094,11 +1094,11 @@
                          (PROGN (SETQ |seq| (CAR |ISTMP#2|)) #1='T)))))))
        (|systemErrorHere| "postin"))
       (#1# (LIST '|in| (|postTran| |i|) (|postInSeq| |seq|)))))))
- 
+
 ; postIn arg ==
 ;   arg isnt ['IN,i,seq] => systemErrorHere '"postIn"
 ;   ['IN,postTran i,postInSeq seq]
- 
+
 (DEFUN |postIn| (|arg|)
   (PROG (|ISTMP#1| |i| |ISTMP#2| |seq|)
     (RETURN
@@ -1115,12 +1115,12 @@
                          (PROGN (SETQ |seq| (CAR |ISTMP#2|)) #1='T)))))))
        (|systemErrorHere| "postIn"))
       (#1# (LIST 'IN (|postTran| |i|) (|postInSeq| |seq|)))))))
- 
+
 ; postInSeq seq ==
 ;   seq is ['SEGMENT,p,q] => postTranSegment(p,q)
 ;   seq is ["@Tuple", :l] => tuple2List l
 ;   postTran seq
- 
+
 (DEFUN |postInSeq| (|seq|)
   (PROG (|ISTMP#1| |p| |ISTMP#2| |q| |l|)
     (RETURN
@@ -1139,21 +1139,21 @@
             (PROGN (SETQ |l| (CDR |seq|)) #1#))
        (|tuple2List| |l|))
       (#1# (|postTran| |seq|))))))
- 
+
 ; postTranSegment(p,q) == ['SEGMENT,postTran p,(q => postTran q; nil)]
- 
+
 (DEFUN |postTranSegment| (|p| |q|)
   (PROG ()
     (RETURN
      (LIST 'SEGMENT (|postTran| |p|) (COND (|q| (|postTran| |q|)) ('T NIL))))))
- 
+
 ; tuple2List l ==
 ;   l is [a,:l'] =>
 ;     u:= tuple2List l'
 ;     null u => ['construct,postTran a]
 ;     ["cons", postTran a, u]
 ;   nil
- 
+
 (DEFUN |tuple2List| (|l|)
   (PROG (|a| |l'| |u|)
     (RETURN
@@ -1165,13 +1165,13 @@
         (COND ((NULL |u|) (LIST '|construct| (|postTran| |a|)))
               (#1# (LIST '|cons| (|postTran| |a|) |u|)))))
       (#1# NIL)))))
- 
+
 ; postReduce ['Reduce,op,expr] ==
 ;   expr is ['COLLECT, :.] =>
 ;     ['REDUCE,op,0,postTran expr]
 ;   postReduce ['Reduce,op,['COLLECT,['IN,g:= GENSYM(),expr],
 ;     ['construct,  g]]]
- 
+
 (DEFUN |postReduce| (|bfVar#41|)
   (PROG (|op| |expr| |g|)
     (RETURN
@@ -1186,11 +1186,11 @@
          (LIST '|Reduce| |op|
                (LIST 'COLLECT (LIST 'IN (SETQ |g| (GENSYM)) |expr|)
                      (LIST '|construct| |g|))))))))))
- 
+
 ; postFlattenLeft(x,op) ==--
 ;   x is [ =op,a,b] => [:postFlattenLeft(a,op),b]
 ;   [x]
- 
+
 (DEFUN |postFlattenLeft| (|x| |op|)
   (PROG (|ISTMP#1| |a| |ISTMP#2| |b|)
     (RETURN
@@ -1206,11 +1206,11 @@
                         (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1='T))))))
        (APPEND (|postFlattenLeft| |a| |op|) (CONS |b| NIL)))
       (#1# (LIST |x|))))))
- 
+
 ; postSemiColon u ==
 ;     [:l, x] := postFlattenLeft(u, ";")
 ;     ['SEQ, :postBlockItemList l, ["exit", postTran x]]
- 
+
 (DEFUN |postSemiColon| (|u|)
   (PROG (|LETTMP#1| |LETTMP#2| |x| |l|)
     (RETURN
@@ -1222,14 +1222,14 @@
       (CONS 'SEQ
             (APPEND (|postBlockItemList| |l|)
                     (CONS (LIST '|exit| (|postTran| |x|)) NIL)))))))
- 
+
 ; postSignature1(op, sig) ==
 ;     sig1 := postType sig
 ;     op := postAtom (STRINGP op => INTERN op; op)
 ;     sig is ["->",:.] =>
 ;         ["SIGNATURE",op,:removeSuperfluousMapping killColons sig1]
 ;     ["SIGNATURE", op, killColons sig1, "constant"]
- 
+
 (DEFUN |postSignature1| (|op| |sig|)
   (PROG (|sig1|)
     (RETURN
@@ -1242,12 +1242,12 @@
         (CONS 'SIGNATURE
               (CONS |op| (|removeSuperfluousMapping| (|killColons| |sig1|)))))
        (#1# (LIST 'SIGNATURE |op| (|killColons| |sig1|) '|constant|)))))))
- 
+
 ; postSignature ['Signature, op, sig, doc] ==
 ;     res1 := postSignature1(op, sig)
 ;     if res1 then record_on_docList(rest res1, doc)
 ;     res1
- 
+
 (DEFUN |postSignature| (|bfVar#42|)
   (PROG (|op| |sig| |doc| |res1|)
     (RETURN
@@ -1258,14 +1258,14 @@
       (SETQ |res1| (|postSignature1| |op| |sig|))
       (COND (|res1| (|record_on_docList| (CDR |res1|) |doc|)))
       |res1|))))
- 
+
 ; killColons x ==
 ;   atom x => x
 ;   x is ['Record,:.] => x
 ;   x is ['Union,:.] => x
 ;   x is [":",.,y] => killColons y
 ;   [killColons first x,:killColons rest x]
- 
+
 (DEFUN |killColons| (|x|)
   (PROG (|ISTMP#1| |ISTMP#2| |y|)
     (RETURN
@@ -1281,11 +1281,11 @@
                              (PROGN (SETQ |y| (CAR |ISTMP#2|)) #1='T))))))
             (|killColons| |y|))
            (#1# (CONS (|killColons| (CAR |x|)) (|killColons| (CDR |x|))))))))
- 
+
 ; postSlash ['_/,a,b] ==
 ;   STRINGP a => postTran ['Reduce,INTERN a,b]
 ;   ['_/,postTran a,postTran b]
- 
+
 (DEFUN |postSlash| (|bfVar#43|)
   (PROG (|a| |b|)
     (RETURN
@@ -1294,12 +1294,12 @@
       (SETQ |b| (CADDR . #1#))
       (COND ((STRINGP |a|) (|postTran| (LIST '|Reduce| (INTERN |a|) |b|)))
             ('T (LIST '/ (|postTran| |a|) (|postTran| |b|))))))))
- 
+
 ; removeSuperfluousMapping sig1 ==
 ;   --get rid of this asap
 ;   sig1 is [x,:y] and x is ['Mapping,:.] => [rest x,:y]
 ;   sig1
- 
+
 (DEFUN |removeSuperfluousMapping| (|sig1|)
   (PROG (|x| |y|)
     (RETURN
@@ -1309,14 +1309,14 @@
             (CONSP |x|) (EQ (CAR |x|) '|Mapping|))
        (CONS (CDR |x|) |y|))
       (#1# |sig1|)))))
- 
+
 ; postType typ ==
 ;   typ is ["->",source,target] =>
 ;     source="constant" => [LIST postTran target,"constant"]
 ;     LIST ['Mapping,postTran target,:unTuple postTran source]
 ;   typ is ["->",target] => LIST ['Mapping,postTran target]
 ;   LIST postTran typ
- 
+
 (DEFUN |postType| (|typ|)
   (PROG (|ISTMP#1| |source| |ISTMP#2| |target|)
     (RETURN
@@ -1345,11 +1345,11 @@
                   (PROGN (SETQ |target| (CAR |ISTMP#1|)) #1#))))
        (LIST (LIST '|Mapping| (|postTran| |target|))))
       (#1# (LIST (|postTran| |typ|)))))))
- 
+
 ; postTuple u ==
 ;   u is ["@Tuple"] => u
 ;   u is ["@Tuple", :l, a] => (["@Tuple", :postTranList rest u])
- 
+
 (DEFUN |postTuple| (|u|)
   (PROG (|ISTMP#1| |ISTMP#2| |a| |l|)
     (RETURN
@@ -1366,10 +1366,10 @@
                         #1#)
                        (PROGN (SETQ |l| (NREVERSE |l|)) #1#))))
             (CONS '|@Tuple| (|postTranList| (CDR |u|))))))))
- 
+
 ; postWhere ["where",a,b] ==
 ;     ["where", postTran a, postTran b]
- 
+
 (DEFUN |postWhere| (|bfVar#44|)
   (PROG (|a| |b|)
     (RETURN
@@ -1377,7 +1377,7 @@
       (SETQ |a| (CADR . #1=(|bfVar#44|)))
       (SETQ |b| (CADDR . #1#))
       (LIST '|where| (|postTran| |a|) (|postTran| |b|))))))
- 
+
 ; postWith ["with",a] ==
 ;   $insidePostCategoryIfTrue: local := true
 ;   a:= postTran a
@@ -1385,7 +1385,7 @@
 ;       ['CATEGORY, a]
 ;   a is ['PROGN,:b] => ['CATEGORY,:b]
 ;   a
- 
+
 (DEFUN |postWith| (|bfVar#45|)
   (PROG (|$insidePostCategoryIfTrue| |b| |op| |a|)
     (DECLARE (SPECIAL |$insidePostCategoryIfTrue|))
@@ -1402,16 +1402,16 @@
              (PROGN (SETQ |b| (CDR |a|)) #1#))
         (CONS 'CATEGORY |b|))
        (#1# |a|))))))
- 
+
 ; postTransformCheck x ==
 ;   $defOp: local:= nil
 ;   postcheck x
- 
+
 (DEFUN |postTransformCheck| (|x|)
   (PROG (|$defOp|)
     (DECLARE (SPECIAL |$defOp|))
     (RETURN (PROGN (SETQ |$defOp| NIL) (|postcheck| |x|)))))
- 
+
 ; postcheck x ==
 ;   atom x => nil
 ;   x is ['DEF,form,[target,:.],:.] =>
@@ -1420,7 +1420,7 @@
 ;   x is ['QUOTE,:.] => nil
 ;   postcheck first x
 ;   postcheck rest x
- 
+
 (DEFUN |postcheck| (|x|)
   (PROG (|ISTMP#1| |form| |ISTMP#2| |ISTMP#3| |target|)
     (RETURN
@@ -1442,12 +1442,12 @@
             (PROGN (|setDefOp| |form|) NIL))
            ((AND (CONSP |x|) (EQ (CAR |x|) 'QUOTE)) NIL)
            (#1# (PROGN (|postcheck| (CAR |x|)) (|postcheck| (CDR |x|))))))))
- 
+
 ; setDefOp f ==
 ;   if f is [":",g,:.] then f := g
 ;   f := (atom f => f; first f)
 ;   if $topOp then $defOp:= f else $topOp:= f
- 
+
 (DEFUN |setDefOp| (|f|)
   (PROG (|ISTMP#1| |g|)
     (RETURN
@@ -1461,11 +1461,11 @@
         (SETQ |f| |g|)))
       (SETQ |f| (COND ((ATOM |f|) |f|) (#1# (CAR |f|))))
       (COND (|$topOp| (SETQ |$defOp| |f|)) (#1# (SETQ |$topOp| |f|)))))))
- 
+
 ; unTuple x ==
 ;   x is ["@Tuple", :y] => y
 ;   LIST x
- 
+
 (DEFUN |unTuple| (|x|)
   (PROG (|y|)
     (RETURN

@@ -1,12 +1,12 @@
- 
+
 ; )package "BOOT"
- 
+
 (IN-PACKAGE "BOOT")
- 
+
 ; printInfo e ==
 ;   for u in get("$Information", "special", e) repeat PRETTYPRINT u
 ;   nil
- 
+
 (DEFUN |printInfo| (|e|)
   (PROG ()
     (RETURN
@@ -20,7 +20,7 @@
           (SETQ |bfVar#1| (CDR |bfVar#1|))))
        (|get| '|$Information| '|special| |e|) NIL)
       NIL))))
- 
+
 ; addInformation(m, e) ==
 ;   ni := info(m, []) where
 ;     info(m, il) ==
@@ -36,7 +36,7 @@
 ;   put("$Information", "special", [:ni,
 ;         :get("$Information", "special", e)], e)
 ;   e
- 
+
 (DEFUN |addInformation| (|m| |e|)
   (PROG (|ni|)
     (RETURN
@@ -77,11 +77,11 @@
               |stuff| NIL)
              |il|))
            (#1# |il|)))))
- 
+
 ; addInfo(u, il) == [formatInfo u, :il]
- 
+
 (DEFUN |addInfo| (|u| |il|) (PROG () (RETURN (CONS (|formatInfo| |u|) |il|))))
- 
+
 ; formatInfo u ==
 ;   atom u => u
 ;   u is ["SIGNATURE",:v] => ["SIGNATURE","$",:v]
@@ -96,7 +96,7 @@
 ;     ["COND",:liftCond [formatPred a,formatInfo b],:
 ;       liftCond [["not",formatPred a],formatInfo c]]
 ;   systemError '"formatInfo"
- 
+
 (DEFUN |formatInfo| (|u|)
   (PROG (|v| |l| |ISTMP#1| |a| |ISTMP#2| |b| |ISTMP#3| |c|)
     (RETURN
@@ -155,7 +155,7 @@
                       (LIST (LIST '|not| (|formatPred| |a|))
                             (|formatInfo| |c|))))))))
            (#1# (|systemError| "formatInfo"))))))
- 
+
 ; liftCond (clause is [ante,conseq]) ==
 ;   conseq is ["COND",:l] =>
 ;     [[lcAnd(ante,a),:b] for [a,:b] in l] where
@@ -163,7 +163,7 @@
 ;         conj is ["and",:ll] => ["and",pred,:ll]
 ;         ["and",pred,conj]
 ;   [clause]
- 
+
 (DEFUN |liftCond| (|clause|)
   (PROG (|ante| |conseq| |l| |a| |b|)
     (RETURN
@@ -199,7 +199,7 @@
             (PROGN (SETQ |ll| (CDR |conj|)) #1='T))
        (CONS '|and| (CONS |pred| |ll|)))
       (#1# (LIST '|and| |pred| |conj|))))))
- 
+
 ; formatPred u ==
 ;          --Assumes that $e is set up to point to an environment
 ;   u is ["has",a,b] =>
@@ -212,7 +212,7 @@
 ;   atom u => u
 ;   u is ["and",:v] => ["and",:[formatPred w for w in v]]
 ;   systemError '"formatPred"
- 
+
 (DEFUN |formatPred| (|u|)
   (PROG (|ISTMP#1| |a| |ISTMP#2| |b| |v|)
     (RETURN
@@ -248,7 +248,7 @@
                  (SETQ |bfVar#9| (CDR |bfVar#9|))))
               NIL |v| NIL)))
       (#1# (|systemError| "formatPred"))))))
- 
+
 ; chaseInferences(pred, $info_e) ==
 ;   foo(hasToInfo(pred)) where
 ;     foo(pred) ==
@@ -271,7 +271,7 @@
 ;                   get("$Information", "special", $info_e)], $info_e)
 ;             nil
 ;   $info_e
- 
+
 (DEFUN |chaseInferences| (|pred| |$info_e|)
   (DECLARE (SPECIAL |$info_e|))
   (PROG ()
@@ -353,12 +353,12 @@
                        |l| NIL))))))
                  (SETQ |bfVar#11| (CDR |bfVar#11|))))
               (|get| '|$Information| '|special| |$info_e|) NIL)))))))
- 
+
 ; hasToInfo (pred is ["has",a,b]) ==
 ;   b is ["SIGNATURE",:data] => ["SIGNATURE",a,:data]
 ;   b is ["ATTRIBUTE",c] => BREAK()
 ;   pred
- 
+
 (DEFUN |hasToInfo| (|pred|)
   (PROG (|a| |b| |data| |ISTMP#1| |c|)
     (RETURN
@@ -376,12 +376,12 @@
                    (PROGN (SETQ |c| (CAR |ISTMP#1|)) #2#))))
         (BREAK))
        (#2# |pred|))))))
- 
+
 ; infoToHas a ==
 ;   a is ["SIGNATURE",b,:data] => ["has",b,["SIGNATURE",:data]]
 ;   a is ["ATTRIBUTE",b,c] => BREAK()
 ;   a
- 
+
 (DEFUN |infoToHas| (|a|)
   (PROG (|ISTMP#1| |b| |data| |ISTMP#2| |c|)
     (RETURN
@@ -406,27 +406,27 @@
                         (PROGN (SETQ |c| (CAR |ISTMP#2|)) #1#))))))
        (BREAK))
       (#1# |a|)))))
- 
+
 ; DEFPARAMETER($cycleMarker, GENSYM())
- 
+
 (DEFPARAMETER |$cycleMarker| (GENSYM))
- 
+
 ; known_info_in_env(pred, $info_e) == knownInfo(pred)
- 
+
 (DEFUN |known_info_in_env| (|pred| |$info_e|)
   (DECLARE (SPECIAL |$info_e|))
   (PROG () (RETURN (|knownInfo| |pred|))))
- 
+
 ; hashed_known_info(pred) ==
 ;     $infoHash : local := MAKE_HASHTABLE('EQUAL)
 ;     knownInfo pred
- 
+
 (DEFUN |hashed_known_info| (|pred|)
   (PROG (|$infoHash|)
     (DECLARE (SPECIAL |$infoHash|))
     (RETURN
      (PROGN (SETQ |$infoHash| (MAKE_HASHTABLE 'EQUAL)) (|knownInfo| |pred|)))))
- 
+
 ; knownInfo pred ==
 ;                --true %if the information is already known
 ;   pred=true => true
@@ -441,7 +441,7 @@
 ;   ress := knownInfo1 pred
 ;   HPUT($infoHash, pred, ress)
 ;   ress
- 
+
 (DEFUN |knownInfo| (|pred|)
   (PROG (|ress|)
     (RETURN
@@ -456,12 +456,12 @@
              (SETQ |ress| (|knownInfo1| |pred|))
              (HPUT |$infoHash| |pred| |ress|)
              |ress|))))))
- 
+
 ; get_catlist(vmode, e) ==
 ;     -- FIXME: setting $compForModeIfTrue should be not needed
 ;     $compForModeIfTrue : local := true
 ;     compMakeCategoryObject(vmode, e)
- 
+
 (DEFUN |get_catlist| (|vmode| |e|)
   (PROG (|$compForModeIfTrue|)
     (DECLARE (SPECIAL |$compForModeIfTrue|))
@@ -469,7 +469,7 @@
      (PROGN
       (SETQ |$compForModeIfTrue| T)
       (|compMakeCategoryObject| |vmode| |e|)))))
- 
+
 ; knownInfo1 pred ==
 ;   pred is ["OR",:l] => or/[knownInfo u for u in l]
 ;   pred is ["AND",:l] => and/[knownInfo u for u in l]
@@ -514,7 +514,7 @@
 ;               CAADR w = true => res := true
 ;       res
 ;   false
- 
+
 (DEFUN |knownInfo1| (|pred|)
   (PROG (|l| |ISTMP#1| |name| |ISTMP#2| |attr| |cat| |a| |v| |vmode| |LETTMP#1|
          |vv| |catlist| |u| |op| |ISTMP#3| |sig| |res| |w1| |ww|)
@@ -678,7 +678,7 @@
          |v| NIL)
         |res|))
       (#1# NIL)))))
- 
+
 ; actOnInfo(u, e) ==
 ;   null u => e
 ;   u is ["PROGN", :l] =>
@@ -717,7 +717,7 @@
 ;       --    JHD 82/08/08 01:40 This does not mean that we can ignore the
 ;       --    extension, since this may not be compatible with the view we
 ;       --    were passed
-; 
+;
 ;       --we are adding a principal descendant of what was already known
 ;       --    $e:= augModemapsFromCategory(name,name,nil,catvec,$e)
 ;       --    SAY("augmenting ",name,": ",cat)
@@ -739,7 +739,7 @@
 ;     SAY("extension of ",vval," to ",cat," ignored")
 ;     e
 ;   systemError '"knownInfo"
- 
+
 (DEFUN |actOnInfo| (|u| |e|)
   (PROG (|l| |Info| |ante| |conseq| |ISTMP#1| |name| |ISTMP#2| |att| |operator|
          |ISTMP#3| |modemap| |implem| |LETTMP#1| |vval| |vmode| |venv| |key|
@@ -907,11 +907,11 @@
                         (SAY '|extension of | |vval| '| to | |cat| '| ignored|)
                         |e|)))))
               (#1# (|systemError| "knownInfo")))))))))
- 
+
 ; mkJoin(cat,mode) ==
 ;   mode is ['Join,:cats] => ['Join,cat,:cats]
 ;   ['Join,cat,mode]
- 
+
 (DEFUN |mkJoin| (|cat| |mode|)
   (PROG (|cats|)
     (RETURN
@@ -920,12 +920,12 @@
             (PROGN (SETQ |cats| (CDR |mode|)) #1='T))
        (CONS '|Join| (CONS |cat| |cats|)))
       (#1# (LIST '|Join| |cat| |mode|))))))
- 
+
 ; GetValue(name, e) ==
 ;   u := get(name,"value", e) => u
 ;   u := comp(name, $EmptyMode, e) => u  --name may be a form
 ;   systemError [name,'" is not bound in the current environment"]
- 
+
 (DEFUN |GetValue| (|name| |e|)
   (PROG (|u|)
     (RETURN
