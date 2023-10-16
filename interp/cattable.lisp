@@ -441,10 +441,11 @@
 ;   candidates := [x for (x := [sig1,:.]) in u | #sig1 = #sig]  or return false
 ;   match := or/[x for (x := [sig1,:.]) in candidates
 ;                 | sig = sublisFormal(args,sig1)] or return false
-;   simpHasPred(match is [sig,.,:p] and sublisFormal(args,p) or true)
+;   simpHasPred(match is [sig,., p, :.] and sublisFormal(args,p) or true)
  
 (DEFUN |simpHasSignature| (|pred| |conform| |op| |sig|)
-  (PROG (|conname| |args| |n| |u| |sig1| |candidates| |match| |ISTMP#1| |p|)
+  (PROG (|conname| |args| |n| |u| |sig1| |candidates| |match| |ISTMP#1|
+         |ISTMP#2| |p|)
     (RETURN
      (COND ((IDENTP |conform|) |pred|)
            (#1='T
@@ -494,7 +495,10 @@
                      (SETQ |sig| (CAR |match|))
                      (SETQ |ISTMP#1| (CDR |match|))
                      (AND (CONSP |ISTMP#1|)
-                          (PROGN (SETQ |p| (CDR |ISTMP#1|)) #1#)))
+                          (PROGN
+                           (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                           (AND (CONSP |ISTMP#2|)
+                                (PROGN (SETQ |p| (CAR |ISTMP#2|)) #1#)))))
                     (|sublisFormal| |args| |p|))
                T))))))))
  
