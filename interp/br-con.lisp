@@ -194,7 +194,7 @@
  
 ; reportCategory(conform,typeForm,arg) ==
 ;   htSay('"Argument {\em ",arg,'"}")
-;   [conlist,attrlist,:oplist] := categoryParts(conform,typeForm,true)
+;   [conlist, :oplist] := categoryParts(conform,typeForm,true)
 ;   htSay '" must "
 ;   if conlist then
 ;     htSay '"belong to "
@@ -206,31 +206,28 @@
 ;        htSay('"categories:")
 ;        bcConPredTable(conlist,opOf conform)
 ;        htSay '"\newline "
-;   if attrlist then BREAK()
 ;   if oplist then
 ;     if conlist or attrlist then htSay '" and "
 ;     reportAO('"operation",oplist)
  
 (DEFUN |reportCategory| (|conform| |typeForm| |arg|)
-  (PROG (|LETTMP#1| |conlist| |attrlist| |oplist| |u|)
+  (PROG (|LETTMP#1| |conlist| |oplist| |u|)
     (RETURN
      (PROGN
       (|htSay| "Argument {\\em " |arg| "}")
       (SETQ |LETTMP#1| (|categoryParts| |conform| |typeForm| T))
       (SETQ |conlist| (CAR |LETTMP#1|))
-      (SETQ |attrlist| (CADR . #1=(|LETTMP#1|)))
-      (SETQ |oplist| (CDDR . #1#))
+      (SETQ |oplist| (CDR |LETTMP#1|))
       (|htSay| " must ")
       (COND
        (|conlist| (|htSay| "belong to ")
         (COND
          ((AND (CONSP |conlist|) (EQ (CDR |conlist|) NIL)
-               (PROGN (SETQ |u| (CAR |conlist|)) #2='T))
+               (PROGN (SETQ |u| (CAR |conlist|)) #1='T))
           (|htSay| "category ") (|bcConform| (CAR |u|)) (|bcPred| (CDR |u|)))
-         (#2# (|htSay| "categories:")
+         (#1# (|htSay| "categories:")
           (|bcConPredTable| |conlist| (|opOf| |conform|))
           (|htSay| "\\newline ")))))
-      (COND (|attrlist| (BREAK)))
       (COND
        (|oplist| (COND ((OR |conlist| |attrlist|) (|htSay| " and ")))
         (|reportAO| "operation" |oplist|)))))))
@@ -889,222 +886,6 @@
                   (SETQ |i| (+ |i| 1))))
                NIL (MAXINDEX |catvec|) 0))
       (APPEND (|dbAddChain| |conform|) |catforms|)))))
- 
-; kcPage(htPage,junk) ==
-;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(htPage,'parts)
-;   domname         := kDomainName(htPage,kind,name,nargs)
-;   domname is ['error,:.] => errorPage(htPage,domname)
-; --  domain          := (kind = '"category" => nil; EVAL domname)
-;   conform := htpProperty(htPage,'conform)
-;   conname := opOf conform
-;   heading :=
-;     null domname => htpProperty(htPage,'heading)
-;     ['"{\sf ",form2HtString(domname,nil,true),'"}"]
-;   page := htInitPage(['"Cross Reference for ",:heading],htCopyProplist htPage)
-;   if domname then
-;     htpSetProperty(htPage,'domname,domname)
-;     htpSetProperty(htPage,'heading,heading)
-;   if kind = '"category" and dbpHasDefaultCategory? xpart then
-;     htSay '"This category has default package "
-;     bcCon(STRCONC(name,char '_&))
-;   htSayStandard '"\newline"
-;   htBeginMenu(3)
-;   htSayStandard '"\item "
-;   message :=
-;     kind = '"category" => ['"Categories it directly extends"]
-;     ['"Categories the ",(kind = '"default package" => '"package"; kind),'" belongs to by assertion"]
-;   htMakePage [['bcLinks,['"\menuitemstyle{Parents}",
-;     [['text,'"\tab{12}",:message]],'kcpPage,nil]]]
-;   satBreak()
-;   message :=
-;     kind = '"category" => ['"All categories it is an extension of"]
-;     ['"All categories the ",kind,'" belongs to"]
-;   htMakePage [['bcLinks,['"\menuitemstyle{Ancestors}",
-;     [['text,'"\tab{12}",:message]],'kcaPage,nil]]]
-;   if kind = '"category" then
-;     satBreak()
-;     htMakePage [['bcLinks,['"\menuitemstyle{Children}",[['text,'"\tab{12}",
-;       '"Categories which directly extend this category"]],'kccPage,nil]]]
-; 
-;     satBreak()
-;     htMakePage [['bcLinks,['"\menuitemstyle{Descendants}",[['text,'"\tab{12}",
-;       '"All categories which extend this category"]],'kcdPage,nil]]]
-;   if not asharpConstructorName? conname then
-;     satBreak()
-;     message := '"Constructors mentioning this as an argument type"
-;     htMakePage [['bcLinks,['"\menuitemstyle{Dependents}",
-;       [['text,'"\tab{12}",message]],'kcdePage,nil]]]
-;   if not asharpConstructorName? conname and kind ~= '"category" then
-;     satBreak()
-;     htMakePage [['bcLinks,['"\menuitemstyle{Lineage}",
-;       '"\tab{12}Constructor hierarchy used for operation lookup",'ksPage,nil]]]
-;   if not asharpConstructorName? conname then
-;    if kind = '"category" then
-;     satBreak()
-;     htMakePage [['bcLinks,['"\menuitemstyle{Domains}",[['text,'"\tab{12}",
-;       '"All domains which are of this category"]],'kcdoPage,nil]]]
-;    if kind ~= '"category" then
-;     satBreak()
-;     htMakePage [['bcLinks,['"\menuitemstyle{Clients}",'"\tab{12}Constructors",'kcuPage,nil]]]
-;     if HGET($defaultPackageNamesHT,conname)
-;       then htSay('" which {\em may use} this default package")
-; --  htMakePage [['bcLinks,['"files",'"",'kcuPage,true]]]
-;       else htSayList(['" which {\em use} this ", kind])
-;   if kind ~= '"category" or dbpHasDefaultCategory? xpart then
-;     satBreak()
-;     message :=
-;       kind = '"category" => ['"Constructors {\em used by} its default package"]
-;       ['"Constructors {\em used by} the ",kind]
-;     htMakePage [['bcLinks,['"\menuitemstyle{Benefactors}",
-;       [['text,'"\tab{12}",:message]],'kcnPage,nil]]]
-;   htEndMenu(3)
-;   htShowPage()
- 
-(DEFUN |kcPage| (|htPage| |junk|)
-  (PROG (|LETTMP#1| |kind| |name| |nargs| |xpart| |sig| |args| |abbrev|
-         |comments| |domname| |conform| |conname| |heading| |page| |message|)
-    (RETURN
-     (PROGN
-      (SETQ |LETTMP#1| (|htpProperty| |htPage| '|parts|))
-      (SETQ |kind| (CAR |LETTMP#1|))
-      (SETQ |name| (CADR . #1=(|LETTMP#1|)))
-      (SETQ |nargs| (CADDR . #1#))
-      (SETQ |xpart| (CADDDR . #1#))
-      (SETQ |sig| (CAR #2=(CDDDDR . #1#)))
-      (SETQ |args| (CADR . #3=(#2#)))
-      (SETQ |abbrev| (CADDR . #3#))
-      (SETQ |comments| (CADDDR . #3#))
-      (SETQ |domname| (|kDomainName| |htPage| |kind| |name| |nargs|))
-      (COND
-       ((AND (CONSP |domname|) (EQ (CAR |domname|) '|error|))
-        (|errorPage| |htPage| |domname|))
-       (#4='T
-        (PROGN
-         (SETQ |conform| (|htpProperty| |htPage| '|conform|))
-         (SETQ |conname| (|opOf| |conform|))
-         (SETQ |heading|
-                 (COND ((NULL |domname|) (|htpProperty| |htPage| '|heading|))
-                       (#4#
-                        (LIST "{\\sf " (|form2HtString| |domname| NIL T)
-                              "}"))))
-         (SETQ |page|
-                 (|htInitPage| (CONS "Cross Reference for " |heading|)
-                  (|htCopyProplist| |htPage|)))
-         (COND
-          (|domname| (|htpSetProperty| |htPage| '|domname| |domname|)
-           (|htpSetProperty| |htPage| '|heading| |heading|)))
-         (COND
-          ((AND (EQUAL |kind| "category") (|dbpHasDefaultCategory?| |xpart|))
-           (|htSay| "This category has default package ")
-           (|bcCon| (STRCONC |name| (|char| '&)))))
-         (|htSayStandard| "\\newline")
-         (|htBeginMenu| 3)
-         (|htSayStandard| "\\item ")
-         (SETQ |message|
-                 (COND
-                  ((EQUAL |kind| "category")
-                   (LIST "Categories it directly extends"))
-                  (#4#
-                   (LIST "Categories the "
-                         (COND ((EQUAL |kind| "default package") "package")
-                               (#4# |kind|))
-                         " belongs to by assertion"))))
-         (|htMakePage|
-          (LIST
-           (LIST '|bcLinks|
-                 (LIST "\\menuitemstyle{Parents}"
-                       (LIST (CONS '|text| (CONS "\\tab{12}" |message|)))
-                       '|kcpPage| NIL))))
-         (|satBreak|)
-         (SETQ |message|
-                 (COND
-                  ((EQUAL |kind| "category")
-                   (LIST "All categories it is an extension of"))
-                  (#4# (LIST "All categories the " |kind| " belongs to"))))
-         (|htMakePage|
-          (LIST
-           (LIST '|bcLinks|
-                 (LIST "\\menuitemstyle{Ancestors}"
-                       (LIST (CONS '|text| (CONS "\\tab{12}" |message|)))
-                       '|kcaPage| NIL))))
-         (COND
-          ((EQUAL |kind| "category") (|satBreak|)
-           (|htMakePage|
-            (LIST
-             (LIST '|bcLinks|
-                   (LIST "\\menuitemstyle{Children}"
-                         (LIST
-                          (LIST '|text| "\\tab{12}"
-                                "Categories which directly extend this category"))
-                         '|kccPage| NIL))))
-           (|satBreak|)
-           (|htMakePage|
-            (LIST
-             (LIST '|bcLinks|
-                   (LIST "\\menuitemstyle{Descendants}"
-                         (LIST
-                          (LIST '|text| "\\tab{12}"
-                                "All categories which extend this category"))
-                         '|kcdPage| NIL))))))
-         (COND
-          ((NULL (|asharpConstructorName?| |conname|)) (|satBreak|)
-           (SETQ |message| "Constructors mentioning this as an argument type")
-           (|htMakePage|
-            (LIST
-             (LIST '|bcLinks|
-                   (LIST "\\menuitemstyle{Dependents}"
-                         (LIST (LIST '|text| "\\tab{12}" |message|))
-                         '|kcdePage| NIL))))))
-         (COND
-          ((AND (NULL (|asharpConstructorName?| |conname|))
-                (NOT (EQUAL |kind| "category")))
-           (|satBreak|)
-           (|htMakePage|
-            (LIST
-             (LIST '|bcLinks|
-                   (LIST "\\menuitemstyle{Lineage}"
-                         "\\tab{12}Constructor hierarchy used for operation lookup"
-                         '|ksPage| NIL))))))
-         (COND
-          ((NULL (|asharpConstructorName?| |conname|))
-           (COND
-            ((EQUAL |kind| "category") (|satBreak|)
-             (|htMakePage|
-              (LIST
-               (LIST '|bcLinks|
-                     (LIST "\\menuitemstyle{Domains}"
-                           (LIST
-                            (LIST '|text| "\\tab{12}"
-                                  "All domains which are of this category"))
-                           '|kcdoPage| NIL))))))
-           (COND
-            ((NOT (EQUAL |kind| "category")) (|satBreak|)
-             (|htMakePage|
-              (LIST
-               (LIST '|bcLinks|
-                     (LIST "\\menuitemstyle{Clients}" "\\tab{12}Constructors"
-                           '|kcuPage| NIL))))
-             (COND
-              ((HGET |$defaultPackageNamesHT| |conname|)
-               (|htSay| " which {\\em may use} this default package"))
-              (#4# (|htSayList| (LIST " which {\\em use} this " |kind|))))))))
-         (COND
-          ((OR (NOT (EQUAL |kind| "category"))
-               (|dbpHasDefaultCategory?| |xpart|))
-           (|satBreak|)
-           (SETQ |message|
-                   (COND
-                    ((EQUAL |kind| "category")
-                     (LIST "Constructors {\\em used by} its default package"))
-                    (#4# (LIST "Constructors {\\em used by} the " |kind|))))
-           (|htMakePage|
-            (LIST
-             (LIST '|bcLinks|
-                   (LIST "\\menuitemstyle{Benefactors}"
-                         (LIST (CONS '|text| (CONS "\\tab{12}" |message|)))
-                         '|kcnPage| NIL))))))
-         (|htEndMenu| 3)
-         (|htShowPage|))))))))
  
 ; kcpPage(htPage,junk) ==
 ;   [kind,name,nargs,xpart,sig,args,abbrev,comments] := htpProperty(htPage,'parts)

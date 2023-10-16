@@ -1898,16 +1898,6 @@
        |signatureAlist| NIL)
       |alist|))))
  
-; insertModemap(new,mmList) ==
-;   null mmList => [new]
-; --isMoreSpecific(new,old:= first mmList) => [new,:mmList]
-; --[old,:insertModemap(new,rest mmList)]
-;   [new,:mmList]
- 
-(DEFUN |insertModemap| (|new| |mmList|)
-  (PROG ()
-    (RETURN (COND ((NULL |mmList|) (LIST |new|)) ('T (CONS |new| |mmList|))))))
- 
 ; dropPrefix(fn) ==
 ;   member(fn.0,[char "?",char "-",char "+"]) => SUBSTRING(fn,1,nil)
 ;   fn

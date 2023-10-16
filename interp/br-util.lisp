@@ -1653,11 +1653,6 @@
       (|htSayList| (LIST (|form2HtString| |form|) "}}"))
       (|htShowPage|)))))
  
-; dbpHasDefaultCategory? s ==  #s > 1 and s.1 = char 'x  --s is part 3 of line
- 
-(DEFUN |dbpHasDefaultCategory?| (|s|)
-  (PROG () (RETURN (AND (< 1 (LENGTH |s|)) (EQUAL (ELT |s| 1) (|char| '|x|))))))
- 
 ; dbKind line == line.0
  
 (DEFUN |dbKind| (|line|) (PROG () (RETURN (ELT |line| 0))))

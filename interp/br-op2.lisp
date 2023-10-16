@@ -121,15 +121,13 @@
 ;       htMakePage [['bcLinks,[ops,'"",'oPage,ops]]]
 ;       htSay '": "
 ;       bcConform ['Mapping,:sig]
-;     x is ['ATTRIBUTE,a] =>
-;       s := form2HtString a
-;       htMakePage [['bcLinks,[ops,'"",'aPage,s]]]
+;     x is ['ATTRIBUTE, a] => BREAK()
 ;     x is ['IF,:.] =>
 ;       htSay('"{\em if ...}")
 ;     systemError()
  
 (DEFUN |htSayExplicitExports| (|r|)
-  (PROG (|ISTMP#1| |op| |ISTMP#2| |sig| |ops| |a| |s|)
+  (PROG (|ISTMP#1| |op| |ISTMP#2| |sig| |ops| |a|)
     (RETURN
      (PROGN
       (|htSay| "with explicit exports")
@@ -171,11 +169,7 @@
                              (SETQ |ISTMP#1| (CDR |x|))
                              (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                                   (PROGN (SETQ |a| (CAR |ISTMP#1|)) #1#))))
-                       (PROGN
-                        (SETQ |s| (|form2HtString| |a|))
-                        (|htMakePage|
-                         (LIST
-                          (LIST '|bcLinks| (LIST |ops| "" '|aPage| |s|))))))
+                       (BREAK))
                       ((AND (CONSP |x|) (EQ (CAR |x|) 'IF))
                        (|htSay| "{\\em if ...}"))
                       (#1# (|systemError|))))))

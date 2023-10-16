@@ -439,9 +439,9 @@
               |res|)))))))
  
 ; asGetExports(kind, conform, catform) ==
-;   u := asCategoryParts(kind, conform, catform, true) or return nil
+;   [., :op_lst] := categoryParts1(kind, conform, catform, false) or return nil
 ;   -- ensure that signatures are lists
-;   [[op, sigpred] for [op,sig,:pred] in CDDR u] where
+;   [[op, sigpred] for [op,sig,:pred] in op_lst] where
 ;     sigpred ==
 ;       pred :=
 ;         pred = "T" => nil
@@ -449,12 +449,13 @@
 ;       [sig, nil, :pred]
  
 (DEFUN |asGetExports| (|kind| |conform| |catform|)
-  (PROG (|u| |op| |ISTMP#1| |sig| |pred|)
+  (PROG (|LETTMP#1| |op_lst| |op| |ISTMP#1| |sig| |pred|)
     (RETURN
      (PROGN
-      (SETQ |u|
-              (OR (|asCategoryParts| |kind| |conform| |catform| T)
+      (SETQ |LETTMP#1|
+              (OR (|categoryParts1| |kind| |conform| |catform| NIL)
                   (RETURN NIL)))
+      (SETQ |op_lst| (CDR |LETTMP#1|))
       ((LAMBDA (|bfVar#20| |bfVar#19| |bfVar#18|)
          (LOOP
           (COND
@@ -481,7 +482,7 @@
                                  (CONS |sig| (CONS NIL |pred|))))
                           |bfVar#20|)))))
           (SETQ |bfVar#19| (CDR |bfVar#19|))))
-       NIL (CDDR |u|) NIL)))))
+       NIL |op_lst| NIL)))))
  
 ; asMakeAlistForFunction fn ==
 ;   record := HGET($conHash,fn)
@@ -3643,182 +3644,6 @@
       (COND ((NULL |name|) (|systemError|)))
       (HPUT |table| |name| |value|)))))
  
-; asCategoryParts(kind,conform,category,:options) == main where
-;   main ==
-;     cons? := IFCAR options  --means to include constructors as well
-;     $attrlist: local := nil
-;     $oplist  : local := nil
-;     $conslist: local := nil
-;     conname := opOf conform
-;     for x in exportsOf(category) repeat build(x,true)
-;     $attrlist := listSort(function GLESSEQP,$attrlist)
-;     $oplist   := listSort(function GLESSEQP,$oplist)
-;     res := [$attrlist,:$oplist]
-;     if cons? then res := [listSort(function GLESSEQP,$conslist),:res]
-;     if kind = 'category then
-;       tvl := TAKE(#rest conform,$TriangleVariableList)
-;       res := SUBLISLIS($FormalMapVariableList,tvl,res)
-;     res
-;   build(item,pred) ==
-;     item is ['SIGNATURE,op,sig,:.] => $oplist   := [[opOf op,sig,:pred],:$oplist]
-;     --note: opOf is needed!!! Bug in compiler puts in (One) and (Zero)
-;     item is ['ATTRIBUTE,attr] =>
-;       constructor? opOf attr =>
-;         $conslist := [[attr,:pred],:$conslist]
-;         nil
-;       opOf attr = 'nothing => 'skip
-;       $attrlist := [[opOf attr,IFCDR attr,:pred],:$attrlist]
-;     item is ['TYPE,op,type] =>
-;         $oplist := [[op,[type],:pred],:$oplist]
-;     item is ['IF,pred1,s1,s2] =>
-;       build(s1,quickAnd(pred,pred1))
-;       s2 => build(s2,quickAnd(pred,['NOT,pred1]))
-;     item is ['PROGN,:r] => for x in r repeat build(x,pred)
-;     item in '(noBranch) => 'ok
-;     null item => 'ok
-;     systemError '"build error"
-;   exportsOf(target) ==
-;     target is ['CATEGORY,.,:r] => r
-;     target is ['Join,:r,f] =>
-;       for x in r repeat $conslist := [[x,:true],:$conslist]
-;       exportsOf f
-;     $conslist := [[target,:true],:$conslist]
-;     nil
- 
-(DEFUN |asCategoryParts| (|kind| |conform| |category| &REST |options|)
-  (PROG (|$conslist| |$oplist| |$attrlist| |tvl| |res| |conname| |cons?|)
-    (DECLARE (SPECIAL |$conslist| |$oplist| |$attrlist|))
-    (RETURN
-     (PROGN
-      (SETQ |cons?| (IFCAR |options|))
-      (SETQ |$attrlist| NIL)
-      (SETQ |$oplist| NIL)
-      (SETQ |$conslist| NIL)
-      (SETQ |conname| (|opOf| |conform|))
-      ((LAMBDA (|bfVar#144| |x|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#144|) (PROGN (SETQ |x| (CAR |bfVar#144|)) NIL))
-            (RETURN NIL))
-           ('T (|asCategoryParts,build| |x| T)))
-          (SETQ |bfVar#144| (CDR |bfVar#144|))))
-       (|asCategoryParts,exportsOf| |category|) NIL)
-      (SETQ |$attrlist| (|listSort| #'GLESSEQP |$attrlist|))
-      (SETQ |$oplist| (|listSort| #'GLESSEQP |$oplist|))
-      (SETQ |res| (CONS |$attrlist| |$oplist|))
-      (COND
-       (|cons?| (SETQ |res| (CONS (|listSort| #'GLESSEQP |$conslist|) |res|))))
-      (COND
-       ((EQ |kind| '|category|)
-        (SETQ |tvl| (TAKE (LENGTH (CDR |conform|)) |$TriangleVariableList|))
-        (SETQ |res| (SUBLISLIS |$FormalMapVariableList| |tvl| |res|))))
-      |res|))))
-(DEFUN |asCategoryParts,build| (|item| |pred|)
-  (PROG (|ISTMP#1| |op| |ISTMP#2| |sig| |attr| |type| |pred1| |s1| |ISTMP#3|
-         |s2| |r|)
-    (RETURN
-     (COND
-      ((AND (CONSP |item|) (EQ (CAR |item|) 'SIGNATURE)
-            (PROGN
-             (SETQ |ISTMP#1| (CDR |item|))
-             (AND (CONSP |ISTMP#1|)
-                  (PROGN
-                   (SETQ |op| (CAR |ISTMP#1|))
-                   (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                   (AND (CONSP |ISTMP#2|)
-                        (PROGN (SETQ |sig| (CAR |ISTMP#2|)) #1='T))))))
-       (SETQ |$oplist|
-               (CONS (CONS (|opOf| |op|) (CONS |sig| |pred|)) |$oplist|)))
-      ((AND (CONSP |item|) (EQ (CAR |item|) 'ATTRIBUTE)
-            (PROGN
-             (SETQ |ISTMP#1| (CDR |item|))
-             (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                  (PROGN (SETQ |attr| (CAR |ISTMP#1|)) #1#))))
-       (COND
-        ((|constructor?| (|opOf| |attr|))
-         (PROGN
-          (SETQ |$conslist| (CONS (CONS |attr| |pred|) |$conslist|))
-          NIL))
-        ((EQ (|opOf| |attr|) '|nothing|) '|skip|)
-        (#1#
-         (SETQ |$attrlist|
-                 (CONS (CONS (|opOf| |attr|) (CONS (IFCDR |attr|) |pred|))
-                       |$attrlist|)))))
-      ((AND (CONSP |item|) (EQ (CAR |item|) 'TYPE)
-            (PROGN
-             (SETQ |ISTMP#1| (CDR |item|))
-             (AND (CONSP |ISTMP#1|)
-                  (PROGN
-                   (SETQ |op| (CAR |ISTMP#1|))
-                   (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                   (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                        (PROGN (SETQ |type| (CAR |ISTMP#2|)) #1#))))))
-       (SETQ |$oplist|
-               (CONS (CONS |op| (CONS (LIST |type|) |pred|)) |$oplist|)))
-      ((AND (CONSP |item|) (EQ (CAR |item|) 'IF)
-            (PROGN
-             (SETQ |ISTMP#1| (CDR |item|))
-             (AND (CONSP |ISTMP#1|)
-                  (PROGN
-                   (SETQ |pred1| (CAR |ISTMP#1|))
-                   (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                   (AND (CONSP |ISTMP#2|)
-                        (PROGN
-                         (SETQ |s1| (CAR |ISTMP#2|))
-                         (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                         (AND (CONSP |ISTMP#3|) (EQ (CDR |ISTMP#3|) NIL)
-                              (PROGN (SETQ |s2| (CAR |ISTMP#3|)) #1#))))))))
-       (PROGN
-        (|asCategoryParts,build| |s1| (|quickAnd| |pred| |pred1|))
-        (COND
-         (|s2|
-          (|asCategoryParts,build| |s2|
-           (|quickAnd| |pred| (LIST 'NOT |pred1|)))))))
-      ((AND (CONSP |item|) (EQ (CAR |item|) 'PROGN)
-            (PROGN (SETQ |r| (CDR |item|)) #1#))
-       ((LAMBDA (|bfVar#145| |x|)
-          (LOOP
-           (COND
-            ((OR (ATOM |bfVar#145|) (PROGN (SETQ |x| (CAR |bfVar#145|)) NIL))
-             (RETURN NIL))
-            (#1# (|asCategoryParts,build| |x| |pred|)))
-           (SETQ |bfVar#145| (CDR |bfVar#145|))))
-        |r| NIL))
-      ((|member| |item| '(|noBranch|)) '|ok|) ((NULL |item|) '|ok|)
-      (#1# (|systemError| "build error"))))))
-(DEFUN |asCategoryParts,exportsOf| (|target|)
-  (PROG (|ISTMP#1| |r| |ISTMP#2| |f|)
-    (RETURN
-     (COND
-      ((AND (CONSP |target|) (EQ (CAR |target|) 'CATEGORY)
-            (PROGN
-             (SETQ |ISTMP#1| (CDR |target|))
-             (AND (CONSP |ISTMP#1|) (PROGN (SETQ |r| (CDR |ISTMP#1|)) #1='T))))
-       |r|)
-      ((AND (CONSP |target|) (EQ (CAR |target|) '|Join|)
-            (PROGN
-             (SETQ |ISTMP#1| (CDR |target|))
-             (AND (CONSP |ISTMP#1|)
-                  (PROGN (SETQ |ISTMP#2| (REVERSE |ISTMP#1|)) #1#)
-                  (CONSP |ISTMP#2|)
-                  (PROGN
-                   (SETQ |f| (CAR |ISTMP#2|))
-                   (SETQ |r| (CDR |ISTMP#2|))
-                   #1#)
-                  (PROGN (SETQ |r| (NREVERSE |r|)) #1#))))
-       (PROGN
-        ((LAMBDA (|bfVar#146| |x|)
-           (LOOP
-            (COND
-             ((OR (ATOM |bfVar#146|) (PROGN (SETQ |x| (CAR |bfVar#146|)) NIL))
-              (RETURN NIL))
-             (#1# (SETQ |$conslist| (CONS (CONS |x| T) |$conslist|))))
-            (SETQ |bfVar#146| (CDR |bfVar#146|))))
-         |r| NIL)
-        (|asCategoryParts,exportsOf| |f|)))
-      (#1#
-       (PROGN (SETQ |$conslist| (CONS (CONS |target| T) |$conslist|)) NIL))))))
- 
 ; asyTypeJoinPartExport x ==
 ;   [op,:items] := x
 ;   for y in items repeat
@@ -3842,10 +3667,10 @@
      (PROGN
       (SETQ |op| (CAR |x|))
       (SETQ |items| (CDR |x|))
-      ((LAMBDA (|bfVar#147| |y|)
+      ((LAMBDA (|bfVar#144| |y|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#147|) (PROGN (SETQ |y| (CAR |bfVar#147|)) NIL))
+           ((OR (ATOM |bfVar#144|) (PROGN (SETQ |y| (CAR |bfVar#144|)) NIL))
             (RETURN NIL))
            (#1='T
             (COND
@@ -3868,17 +3693,17 @@
                        (COND
                         ((AND (CONSP |source|) (EQ (CAR |source|) '|Comma|)
                               (PROGN (SETQ |s| (CDR |source|)) #1#))
-                         ((LAMBDA (|bfVar#149| |bfVar#148| |z|)
+                         ((LAMBDA (|bfVar#146| |bfVar#145| |z|)
                             (LOOP
                              (COND
-                              ((OR (ATOM |bfVar#148|)
-                                   (PROGN (SETQ |z| (CAR |bfVar#148|)) NIL))
-                               (RETURN (NREVERSE |bfVar#149|)))
+                              ((OR (ATOM |bfVar#145|)
+                                   (PROGN (SETQ |z| (CAR |bfVar#145|)) NIL))
+                               (RETURN (NREVERSE |bfVar#146|)))
                               (#1#
-                               (SETQ |bfVar#149|
+                               (SETQ |bfVar#146|
                                        (CONS (|asyTypeUnit| |z|)
-                                             |bfVar#149|))))
-                             (SETQ |bfVar#148| (CDR |bfVar#148|))))
+                                             |bfVar#146|))))
+                             (SETQ |bfVar#145| (CDR |bfVar#145|))))
                           NIL |s| NIL))
                         (#1# (LIST (|asyTypeUnit| |source|)))))
                (SETQ |t| (|asyTypeUnit| |t|))
@@ -3887,7 +3712,7 @@
                              (#1# (LIST 'SIGNATURE |op| (CONS |t| |s|)))))
                (SETQ |$opStack|
                        (CONS (CONS |sig| |$predlist|) |$opStack|)))))))
-          (SETQ |bfVar#147| (CDR |bfVar#147|))))
+          (SETQ |bfVar#144| (CDR |bfVar#144|))))
        |items| NIL)))))
  
 ; asyTypeJoinStack r ==
@@ -3903,7 +3728,7 @@
     (RETURN
      (PROGN
       (SETQ |al|
-              ((LAMBDA (|bfVar#151|)
+              ((LAMBDA (|bfVar#148|)
                  (LOOP
                   (COND
                    ((NOT
@@ -3912,12 +3737,12 @@
                            (SETQ |ISTMP#1| (CAR |r|))
                            (AND (CONSP |ISTMP#1|)
                                 (PROGN (SETQ |p| (CDR |ISTMP#1|)) #1='T)))))
-                    (RETURN (NREVERSE |bfVar#151|)))
+                    (RETURN (NREVERSE |bfVar#148|)))
                    (#1#
-                    (SETQ |bfVar#151|
+                    (SETQ |bfVar#148|
                             (CONS
                              (CONS
-                              ((LAMBDA (|bfVar#150|)
+                              ((LAMBDA (|bfVar#147|)
                                  (LOOP
                                   (COND
                                    ((NOT
@@ -3932,29 +3757,29 @@
                                           (PROGN (SETQ |s| (CDR |r|)) #1#)
                                           (EQUAL |p| |q|)
                                           (PROGN (SETQ |r| |s|) T)))
-                                    (RETURN (NREVERSE |bfVar#150|)))
+                                    (RETURN (NREVERSE |bfVar#147|)))
                                    (#1#
-                                    (SETQ |bfVar#150|
-                                            (CONS |x| |bfVar#150|))))))
+                                    (SETQ |bfVar#147|
+                                            (CONS |x| |bfVar#147|))))))
                                NIL)
                               |p|)
-                             |bfVar#151|))))))
+                             |bfVar#148|))))))
                NIL))
       (SETQ |result|
-              ((LAMBDA (|bfVar#154| |bfVar#153| |bfVar#152|)
+              ((LAMBDA (|bfVar#151| |bfVar#150| |bfVar#149|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#153|)
-                        (PROGN (SETQ |bfVar#152| (CAR |bfVar#153|)) NIL))
-                    (RETURN |bfVar#154|))
+                   ((OR (ATOM |bfVar#150|)
+                        (PROGN (SETQ |bfVar#149| (CAR |bfVar#150|)) NIL))
+                    (RETURN |bfVar#151|))
                    (#1#
-                    (AND (CONSP |bfVar#152|)
+                    (AND (CONSP |bfVar#149|)
                          (PROGN
-                          (SETQ |y| (CAR |bfVar#152|))
-                          (SETQ |p| (CDR |bfVar#152|))
+                          (SETQ |y| (CAR |bfVar#149|))
+                          (SETQ |p| (CDR |bfVar#149|))
                           #1#)
-                         (SETQ |bfVar#154|
-                                 (APPEND |bfVar#154|
+                         (SETQ |bfVar#151|
+                                 (APPEND |bfVar#151|
                                          (COND
                                           (|p|
                                            (LIST
@@ -3962,7 +3787,7 @@
                                                   (CONS (|asyTypeMakePred| |p|)
                                                         |y|))))
                                           (#1# |y|)))))))
-                  (SETQ |bfVar#153| (CDR |bfVar#153|))))
+                  (SETQ |bfVar#150| (CDR |bfVar#150|))))
                NIL |al| NIL))
       |result|))))
  
@@ -3970,12 +3795,12 @@
 ;   while u is [q,:u] repeat p := quickAnd(q,p)
 ;   p
  
-(DEFUN |asyTypeMakePred| (|bfVar#155|)
+(DEFUN |asyTypeMakePred| (|bfVar#152|)
   (PROG (|p| |u| |q|)
     (RETURN
      (PROGN
-      (SETQ |p| (CAR |bfVar#155|))
-      (SETQ |u| (CDR |bfVar#155|))
+      (SETQ |p| (CAR |bfVar#152|))
+      (SETQ |u| (CDR |bfVar#152|))
       ((LAMBDA ()
          (LOOP
           (COND

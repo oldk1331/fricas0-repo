@@ -166,7 +166,7 @@
 ;     $comp370_apply : local := FUNCTION print_defun
 ;     $file_apply : local := FUNCTION print_defun
 ;     _*EOF_* : local := false
-;     _/EDITFILE : local := name
+;     $edit_file : local := name
 ;     $InteractiveMode : local := false
 ;     $spad_scanner : local := true
 ;     $COMBLOCKLIST : local := nil
@@ -185,11 +185,11 @@
  
 (DEFUN |spadCompile1| (|name| |pile_mode|)
   (PROG (|$ncMsgList| |$InteractiveFrame| |$docList| $COMBLOCKLIST
-         |$spad_scanner| |$InteractiveMode| /EDITFILE *EOF* |$file_apply|
+         |$spad_scanner| |$InteractiveMode| |$edit_file| *EOF* |$file_apply|
          |$comp370_apply| |$nopiles| |res| |a|)
     (DECLARE
      (SPECIAL |$ncMsgList| |$InteractiveFrame| |$docList| $COMBLOCKLIST
-      |$spad_scanner| |$InteractiveMode| /EDITFILE *EOF* |$file_apply|
+      |$spad_scanner| |$InteractiveMode| |$edit_file| *EOF* |$file_apply|
       |$comp370_apply| |$nopiles|))
     (RETURN
      (PROGN
@@ -197,7 +197,7 @@
       (SETQ |$comp370_apply| #'|print_defun|)
       (SETQ |$file_apply| #'|print_defun|)
       (SETQ *EOF* NIL)
-      (SETQ /EDITFILE |name|)
+      (SETQ |$edit_file| |name|)
       (SETQ |$InteractiveMode| NIL)
       (SETQ |$spad_scanner| T)
       (SETQ $COMBLOCKLIST NIL)

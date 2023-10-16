@@ -281,7 +281,6 @@
 ; 
 ;   --if new modemap less general, put at end; otherwise, at front
 ;       for x in curModemapList]
-;   $InteractiveMode => insertModemap(entry,curModemapList)
 ;   mergeModemap(entry,curModemapList,e)
  
 (DEFUN |mkNewModemapList|
@@ -332,7 +331,6 @@
                                     |bfVar#8|))))
                          (SETQ |bfVar#7| (CDR |bfVar#7|))))
                       NIL |curModemapList| NIL)))))
-            (|$InteractiveMode| (|insertModemap| |entry| |curModemapList|))
             (#1# (|mergeModemap| |entry| |curModemapList| |e|)))))))
  
 ; mergeModemap(entry is [[mc,:sig],[pred,:.],:.],modemapList,e) ==
@@ -761,7 +759,6 @@
               (#1# (|addModemap0| |op| |mc| |sig| |pred| |fn| |e|)))))))))
  
 ; addConstructorModemaps(name,form is [functorName,:.],e) ==
-;   $InteractiveMode: local:= nil
 ;   e:= putDomainsInScope(name,e) --frame
 ;   fn := GET(functorName, "makeFunctionList")
 ;   [funList,e]:= FUNCALL(fn,name,form,e)
@@ -774,13 +771,11 @@
 ;   e
  
 (DEFUN |addConstructorModemaps| (|name| |form| |e|)
-  (PROG (|$InteractiveMode| |nsig| |n| |dc| |sel| |opcode| |ISTMP#2| |sig|
-         |ISTMP#1| |op| |funList| |LETTMP#1| |fn| |functorName|)
-    (DECLARE (SPECIAL |$InteractiveMode|))
+  (PROG (|functorName| |fn| |LETTMP#1| |funList| |op| |ISTMP#1| |sig| |ISTMP#2|
+         |opcode| |sel| |dc| |n| |nsig|)
     (RETURN
      (PROGN
       (SETQ |functorName| (CAR |form|))
-      (SETQ |$InteractiveMode| NIL)
       (SETQ |e| (|putDomainsInScope| |name| |e|))
       (SETQ |fn| (GET |functorName| '|makeFunctionList|))
       (SETQ |LETTMP#1| (FUNCALL |fn| |name| |form| |e|))

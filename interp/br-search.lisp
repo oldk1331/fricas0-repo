@@ -1020,28 +1020,6 @@
          (SETQ |opAlist| (LIST |itemlist|))
          (|dbShowOperationsFromConform| |htPage| "operation" |opAlist|))))))))
  
-; aPage(a,:b) ==  --called by \spadatt{a}
-;   $attributeArgs : local := nil
-;   arg := IFCAR b or a
-;   s   := pmParseFromString STRINGIMAGE arg
-;   searchOn :=
-;     ATOM s => s
-;     IFCAR s
-;   $attributeArgs : local := IFCAR IFCDR s
-;   aSearch searchOn
- 
-(DEFUN |aPage| (|a| &REST |b|)
-  (PROG (|$attributeArgs| |searchOn| |s| |arg|)
-    (DECLARE (SPECIAL |$attributeArgs|))
-    (RETURN
-     (PROGN
-      (SETQ |$attributeArgs| NIL)
-      (SETQ |arg| (OR (IFCAR |b|) |a|))
-      (SETQ |s| (|pmParseFromString| (STRINGIMAGE |arg|)))
-      (SETQ |searchOn| (COND ((ATOM |s|) |s|) ('T (IFCAR |s|))))
-      (SETQ |$attributeArgs| (IFCAR (IFCDR |s|)))
-      (|aSearch| |searchOn|)))))
- 
 ; spadType(x) ==  --called by \spadtype{x} from HyperDoc
 ;   s := PNAME x
 ;   form := ncParseFromString s or
@@ -1952,18 +1930,6 @@
      (PROGN
       (SETQ |filter| (STRINGIMAGE |filter|))
       (COND ((EQUAL |filter| "") "*") ('T (|trimString| |filter|)))))))
- 
-; aSearch filter ==  --called from HD (man0.ht): general attribute search
-;   null (filter := checkFilter filter) => nil  --in case of filter error
-;   dbSearch(grepConstruct(filter,'a),'"attribute",filter)
- 
-(DEFUN |aSearch| (|filter|)
-  (PROG ()
-    (RETURN
-     (COND ((NULL (SETQ |filter| (|checkFilter| |filter|))) NIL)
-           ('T
-            (|dbSearch| (|grepConstruct| |filter| '|a|) "attribute"
-             |filter|))))))
  
 ; oSearch filter == -- called from HD (man0.ht): operation search
 ;   opAlist := opPageFastPath filter => opPageFast opAlist

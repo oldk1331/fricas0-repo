@@ -1357,10 +1357,6 @@
      (|categoryParts| |conform|
       (GETDATABASE (|opOf| |conform|) 'CONSTRUCTORCATEGORY) |do_constr|))))
  
-; DEFVAR($attrlist)
- 
-(DEFVAR |$attrlist|)
- 
 ; DEFVAR($oplist)
  
 (DEFVAR |$oplist|)
@@ -1369,36 +1365,47 @@
  
 (DEFVAR |$conslist|)
  
-; categoryParts(conform, category, do_constr) == main where
+; categoryParts(conform, category, do_constr) ==
+;     kind := GETDATABASE(opOf(conform), 'CONSTRUCTORKIND)
+;     categoryParts1(kind, conform, category, do_constr)
+ 
+(DEFUN |categoryParts| (|conform| |category| |do_constr|)
+  (PROG (|kind|)
+    (RETURN
+     (PROGN
+      (SETQ |kind| (GETDATABASE (|opOf| |conform|) 'CONSTRUCTORKIND))
+      (|categoryParts1| |kind| |conform| |category| |do_constr|)))))
+ 
+; categoryParts1(kind, conform, category, do_constr) == main where
 ;   main ==
-;     $attrlist: local := nil
 ;     $oplist  : local := nil
 ;     $conslist: local := nil
-;     conname := opOf conform
 ;     for x in exportsOf(category) repeat build(x,true)
-;     $attrlist := listSort(function GLESSEQP,$attrlist)
 ;     $oplist   := listSort(function GLESSEQP,$oplist)
-;     res := [$attrlist,:$oplist]
-;     if do_constr then res := [listSort(function GLESSEQP, $conslist), :res]
-;     if GETDATABASE(conname,'CONSTRUCTORKIND) = 'category then
+;     res :=
+;         do_constr => listSort(function GLESSEQP, $conslist)
+;         []
+;     res := [res, :$oplist]
+;     if kind = 'category then
 ;       tvl := TAKE(#rest conform,$TriangleVariableList)
 ;       res := SUBLISLIS($FormalMapVariableList,tvl,res)
 ;     res
 ;   build(item,pred) ==
 ;     item is ['SIGNATURE,op,sig,:.] => $oplist   := [[opOf op,sig,:pred],:$oplist]
 ;     --note: opOf is needed!!! Bug in compiler puts in (One) and (Zero)
-;     item is ['ATTRIBUTE,attr] =>
+;     item is ['ATTRIBUTE, attr] =>
 ;       constructor? opOf attr =>
 ;         $conslist := [[attr,:pred],:$conslist]
 ;         nil
-;       opOf attr = 'nil => 'skip
-;       $attrlist := [[opOf attr,IFCDR attr,:pred],:$attrlist]
+;       BREAK()
 ;     item is ['TYPE,op,type] =>
+;         BREAK()
 ;         $oplist := [[op,[type],:pred],:$oplist]
 ;     item is ['IF,pred1,s1,s2] =>
 ;       build(s1,quickAnd(pred,pred1))
 ;       s2 => build(s2,quickAnd(pred,['NOT,pred1]))
 ;     item is ['PROGN,:r] => for x in r repeat build(x,pred)
+;     item is ['CATEGORY, ., :l] => for x in l repeat build(x, pred)
 ;     item in '(noBranch) => 'ok
 ;     null item => 'ok
 ;     systemError '"build error"
@@ -1410,37 +1417,34 @@
 ;     $conslist := [[target,:true],:$conslist]
 ;     nil
  
-(DEFUN |categoryParts| (|conform| |category| |do_constr|)
-  (PROG (|$conslist| |$oplist| |$attrlist| |tvl| |res| |conname|)
-    (DECLARE (SPECIAL |$conslist| |$oplist| |$attrlist|))
+(DEFUN |categoryParts1| (|kind| |conform| |category| |do_constr|)
+  (PROG (|$conslist| |$oplist| |tvl| |res|)
+    (DECLARE (SPECIAL |$conslist| |$oplist|))
     (RETURN
      (PROGN
-      (SETQ |$attrlist| NIL)
       (SETQ |$oplist| NIL)
       (SETQ |$conslist| NIL)
-      (SETQ |conname| (|opOf| |conform|))
       ((LAMBDA (|bfVar#64| |x|)
          (LOOP
           (COND
            ((OR (ATOM |bfVar#64|) (PROGN (SETQ |x| (CAR |bfVar#64|)) NIL))
             (RETURN NIL))
-           ('T (|categoryParts,build| |x| T)))
+           (#1='T (|categoryParts1,build| |x| T)))
           (SETQ |bfVar#64| (CDR |bfVar#64|))))
-       (|categoryParts,exportsOf| |category|) NIL)
-      (SETQ |$attrlist| (|listSort| #'GLESSEQP |$attrlist|))
+       (|categoryParts1,exportsOf| |category|) NIL)
       (SETQ |$oplist| (|listSort| #'GLESSEQP |$oplist|))
-      (SETQ |res| (CONS |$attrlist| |$oplist|))
+      (SETQ |res|
+              (COND (|do_constr| (|listSort| #'GLESSEQP |$conslist|))
+                    (#1# NIL)))
+      (SETQ |res| (CONS |res| |$oplist|))
       (COND
-       (|do_constr|
-        (SETQ |res| (CONS (|listSort| #'GLESSEQP |$conslist|) |res|))))
-      (COND
-       ((EQ (GETDATABASE |conname| 'CONSTRUCTORKIND) '|category|)
+       ((EQ |kind| '|category|)
         (SETQ |tvl| (TAKE (LENGTH (CDR |conform|)) |$TriangleVariableList|))
         (SETQ |res| (SUBLISLIS |$FormalMapVariableList| |tvl| |res|))))
       |res|))))
-(DEFUN |categoryParts,build| (|item| |pred|)
+(DEFUN |categoryParts1,build| (|item| |pred|)
   (PROG (|ISTMP#1| |op| |ISTMP#2| |sig| |attr| |type| |pred1| |s1| |ISTMP#3|
-         |s2| |r|)
+         |s2| |r| |l|)
     (RETURN
      (COND
       ((AND (CONSP |item|) (EQ (CAR |item|) 'SIGNATURE)
@@ -1464,11 +1468,7 @@
          (PROGN
           (SETQ |$conslist| (CONS (CONS |attr| |pred|) |$conslist|))
           NIL))
-        ((EQ (|opOf| |attr|) '|nil|) '|skip|)
-        (#1#
-         (SETQ |$attrlist|
-                 (CONS (CONS (|opOf| |attr|) (CONS (IFCDR |attr|) |pred|))
-                       |$attrlist|)))))
+        (#1# (BREAK))))
       ((AND (CONSP |item|) (EQ (CAR |item|) 'TYPE)
             (PROGN
              (SETQ |ISTMP#1| (CDR |item|))
@@ -1478,8 +1478,10 @@
                    (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                    (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                         (PROGN (SETQ |type| (CAR |ISTMP#2|)) #1#))))))
-       (SETQ |$oplist|
-               (CONS (CONS |op| (CONS (LIST |type|) |pred|)) |$oplist|)))
+       (PROGN
+        (BREAK)
+        (SETQ |$oplist|
+                (CONS (CONS |op| (CONS (LIST |type|) |pred|)) |$oplist|))))
       ((AND (CONSP |item|) (EQ (CAR |item|) 'IF)
             (PROGN
              (SETQ |ISTMP#1| (CDR |item|))
@@ -1494,10 +1496,10 @@
                          (AND (CONSP |ISTMP#3|) (EQ (CDR |ISTMP#3|) NIL)
                               (PROGN (SETQ |s2| (CAR |ISTMP#3|)) #1#))))))))
        (PROGN
-        (|categoryParts,build| |s1| (|quickAnd| |pred| |pred1|))
+        (|categoryParts1,build| |s1| (|quickAnd| |pred| |pred1|))
         (COND
          (|s2|
-          (|categoryParts,build| |s2|
+          (|categoryParts1,build| |s2|
            (|quickAnd| |pred| (LIST 'NOT |pred1|)))))))
       ((AND (CONSP |item|) (EQ (CAR |item|) 'PROGN)
             (PROGN (SETQ |r| (CDR |item|)) #1#))
@@ -1506,12 +1508,24 @@
            (COND
             ((OR (ATOM |bfVar#65|) (PROGN (SETQ |x| (CAR |bfVar#65|)) NIL))
              (RETURN NIL))
-            (#1# (|categoryParts,build| |x| |pred|)))
+            (#1# (|categoryParts1,build| |x| |pred|)))
            (SETQ |bfVar#65| (CDR |bfVar#65|))))
         |r| NIL))
+      ((AND (CONSP |item|) (EQ (CAR |item|) 'CATEGORY)
+            (PROGN
+             (SETQ |ISTMP#1| (CDR |item|))
+             (AND (CONSP |ISTMP#1|) (PROGN (SETQ |l| (CDR |ISTMP#1|)) #1#))))
+       ((LAMBDA (|bfVar#66| |x|)
+          (LOOP
+           (COND
+            ((OR (ATOM |bfVar#66|) (PROGN (SETQ |x| (CAR |bfVar#66|)) NIL))
+             (RETURN NIL))
+            (#1# (|categoryParts1,build| |x| |pred|)))
+           (SETQ |bfVar#66| (CDR |bfVar#66|))))
+        |l| NIL))
       ((|member| |item| '(|noBranch|)) '|ok|) ((NULL |item|) '|ok|)
       (#1# (|systemError| "build error"))))))
-(DEFUN |categoryParts,exportsOf| (|target|)
+(DEFUN |categoryParts1,exportsOf| (|target|)
   (PROG (|ISTMP#1| |r| |ISTMP#2| |f|)
     (RETURN
      (COND
@@ -1532,15 +1546,15 @@
                    #1#)
                   (PROGN (SETQ |r| (NREVERSE |r|)) #1#))))
        (PROGN
-        ((LAMBDA (|bfVar#66| |x|)
+        ((LAMBDA (|bfVar#67| |x|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#66|) (PROGN (SETQ |x| (CAR |bfVar#66|)) NIL))
+             ((OR (ATOM |bfVar#67|) (PROGN (SETQ |x| (CAR |bfVar#67|)) NIL))
               (RETURN NIL))
              (#1# (SETQ |$conslist| (CONS (CONS |x| T) |$conslist|))))
-            (SETQ |bfVar#66| (CDR |bfVar#66|))))
+            (SETQ |bfVar#67| (CDR |bfVar#67|))))
          |r| NIL)
-        (|categoryParts,exportsOf| |f|)))
+        (|categoryParts1,exportsOf| |f|)))
       (#1#
        (PROGN (SETQ |$conslist| (CONS (CONS |target| T) |$conslist|)) NIL))))))
  
@@ -1574,20 +1588,20 @@
       (SETQ |LETTMP#1| (|addDomainToTable| |cname| |category|))
       (SETQ |cname| (CAR |LETTMP#1|))
       (SETQ |domainEntry| (CDR |LETTMP#1|))
-      ((LAMBDA (|bfVar#68| |bfVar#67|)
+      ((LAMBDA (|bfVar#69| |bfVar#68|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#68|)
-                (PROGN (SETQ |bfVar#67| (CAR |bfVar#68|)) NIL))
+           ((OR (ATOM |bfVar#69|)
+                (PROGN (SETQ |bfVar#68| (CAR |bfVar#69|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#67|)
+            (AND (CONSP |bfVar#68|)
                  (PROGN
-                  (SETQ |a| (CAR |bfVar#67|))
-                  (SETQ |b| (CDR |bfVar#67|))
+                  (SETQ |a| (CAR |bfVar#68|))
+                  (SETQ |b| (CDR |bfVar#68|))
                   #1#)
                  (HPUT |$has_category_hash| (CONS |cname| |a|) |b|))))
-          (SETQ |bfVar#68| (CDR |bfVar#68|))))
+          (SETQ |bfVar#69| (CDR |bfVar#69|))))
        (|encodeCategoryAlist| |cname| |domainEntry|) NIL)
       (COND ((EQUAL |$doNotCompressHashTableIfTrue| T) |$has_category_hash|)
             (#1# (|compressHashTable| |$has_category_hash|)))))))
@@ -1622,21 +1636,21 @@
 (DEFUN |clearTempCategoryTable| (|catNames|)
   (PROG (|extensions| |catForm|)
     (RETURN
-     ((LAMBDA (|bfVar#69| |key|)
+     ((LAMBDA (|bfVar#70| |key|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#69|) (PROGN (SETQ |key| (CAR |bfVar#69|)) NIL))
+          ((OR (ATOM |bfVar#70|) (PROGN (SETQ |key| (CAR |bfVar#70|)) NIL))
            (RETURN NIL))
           (#1='T
            (COND ((MEMQ |key| |catNames|) NIL)
                  (#1#
                   (PROGN
                    (SETQ |extensions| NIL)
-                   ((LAMBDA (|bfVar#70| |extension|)
+                   ((LAMBDA (|bfVar#71| |extension|)
                       (LOOP
                        (COND
-                        ((OR (ATOM |bfVar#70|)
-                             (PROGN (SETQ |extension| (CAR |bfVar#70|)) NIL))
+                        ((OR (ATOM |bfVar#71|)
+                             (PROGN (SETQ |extension| (CAR |bfVar#71|)) NIL))
                          (RETURN NIL))
                         (#1#
                          (AND (CONSP |extension|)
@@ -1646,8 +1660,8 @@
                                      (SETQ |extensions|
                                              (CONS |extension|
                                                    |extensions|)))))))
-                       (SETQ |bfVar#70| (CDR |bfVar#70|))))
+                       (SETQ |bfVar#71| (CDR |bfVar#71|))))
                     (GETDATABASE |key| 'ANCESTORS) NIL)
                    (HPUT |$ancestors_hash| |key| |extensions|))))))
-         (SETQ |bfVar#69| (CDR |bfVar#69|))))
+         (SETQ |bfVar#70| (CDR |bfVar#70|))))
       (HKEYS |$ancestors_hash|) NIL))))
