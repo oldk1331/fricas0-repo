@@ -3122,7 +3122,7 @@
 326123`\spad{elt(a,{} i)} returns the \spad{i}-th coefficient of \spad{a} with respect to the fixed \spad{R}-module basis.
 326188`\spad{elt(t,{} i)} gives a component of a rank 1 tensor.
 326251`\spad{elt(u,{} "last")} (also written: \spad{u.last}) is equivalent to last(\spad{u}).
-326311`\spad{elt(u,{} "left")} (also written: \spad{a.left}) is equivalent to \spad{left(a)}.
+326311`\spad{elt(a,{} "left")} (also written: \spad{a.left}) is equivalent to \spad{left(a)}.
 326373`\spad{elt((a1,{} ...,{} an),{} [i1,{} ...,{} im])} returns \spad{(a_i1,{} ...,{} a_im)}.
 326451`\spad{elt(t,{} [i1,{} ...,{} iN])} gives a component of a rank \spad{N} tensor.
 326520`\spad{elt(s,{} [a1,{} ...,{} an])} or \spad{s}([\spad{a1},{} ...,{} an]) returns \spad{s} subscripted by \spad{[a1,{} ...,{} an]}.
@@ -4746,7 +4746,7 @@
 517558`\spad{left(x)} returns left subtree of \spad{x} or error if \spadopFrom{retractable?}{FreeMagma}(\spad{x}) is \spad{true}.
 517604`\spad{left(x)} returns left subtree of \spad{x} or error if \spadopFrom{retractable?}{LyndonWord}(\spad{x}) is \spad{true}.
 517651`\spad{left(f)} left-justifies form \spad{f} in total space.
-517690`\spad{left(u)} returns the left child.
+517690`\spad{left(a)} returns the left child.
 517746`\spad{left(rootChar)} is the left bound of the isolating interval
 517838`\spad{left(f,{} n)} left-justifies form \spad{f} within space of width \spad{n}.
 517885`\spad{leftAlternative?()} tests if \spad{2*associator(a,{} a,{} b) = 0} for all \spad{a},{} \spad{b} in the algebra. Note: we only can test this; in general we don\spad{'t} know whether \spad{2*a=0} implies \spad{a=0}.

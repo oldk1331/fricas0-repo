@@ -1923,8 +1923,8 @@ NIL
   (($ $ "right")
    "\\spad{elt(a,{} \"right\")} (also written: \\spad{a.right}) is equivalent to \\spad{right(a)}.")
   (($ $ "left")
-   "\\spad{elt(u,{} \"left\")} (also written: \\spad{a.left}) is equivalent to \\spad{left(a)}."))
- (|left| (($ $) "\\spad{left(u)} returns the left child."))) 
+   "\\spad{elt(a,{} \"left\")} (also written: \\spad{a.left}) is equivalent to \\spad{left(a)}."))
+ (|left| (($ $) "\\spad{left(a)} returns the left child."))) 
 ((|HasCategory| |#1| '(|shallowlyMutable|))) 
 (|BinaryRecursiveAggregate| S) 
 ((|constructor|
@@ -1946,8 +1946,8 @@ NIL
   (($ $ "right")
    "\\spad{elt(a,{} \"right\")} (also written: \\spad{a.right}) is equivalent to \\spad{right(a)}.")
   (($ $ "left")
-   "\\spad{elt(u,{} \"left\")} (also written: \\spad{a.left}) is equivalent to \\spad{left(a)}."))
- (|left| (($ $) "\\spad{left(u)} returns the left child."))) 
+   "\\spad{elt(a,{} \"left\")} (also written: \\spad{a.left}) is equivalent to \\spad{left(a)}."))
+ (|left| (($ $) "\\spad{left(a)} returns the left child."))) 
 NIL 
 (|BrillhartTests| UP) 
 ((|constructor|
