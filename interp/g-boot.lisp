@@ -283,6 +283,7 @@
 ;         NOT(u = "SETQ") =>
 ;             IDENTP(CADR(x)) => PUSHLOCVAR(CADR(x))
 ;             EQCAR(CADR(x), "FLUID") =>
+;                 BREAK()
 ;                 PUSH(CADADR(x), $fluidVars)
 ;                 rplac(CADR(x), CADADR(x))
 ;             BREAK()
@@ -321,6 +322,7 @@
                           (COND ((IDENTP (CADR |x|)) (PUSHLOCVAR (CADR |x|)))
                                 ((EQCAR (CADR |x|) 'FLUID)
                                  (PROGN
+                                  (BREAK)
                                   (PUSH (CADADR |x|) |$fluidVars|)
                                   (|rplac| (CADR |x|) (CADADR |x|))))
                                 (#1#
@@ -377,7 +379,9 @@
 ;         x3
 ;     fluids := compFluidize(x2)
 ;     x2 := addTypesToArgs(x2)
-;     fluids => [x1, x2, ["DECLARE", ["SPECIAL", :fluids]], x3]
+;     fluids =>
+;         BREAK()
+;         [x1, x2, ["DECLARE", ["SPECIAL", :fluids]], x3]
 ;     [x1, x2, x3]
  
 (DEFUN |compTran| (|x|)
@@ -422,7 +426,9 @@
       (SETQ |x2| (|addTypesToArgs| |x2|))
       (COND
        (|fluids|
-        (LIST |x1| |x2| (LIST 'DECLARE (CONS 'SPECIAL |fluids|)) |x3|))
+        (PROGN
+         (BREAK)
+         (LIST |x1| |x2| (LIST 'DECLARE (CONS 'SPECIAL |fluids|)) |x3|)))
        (#2# (LIST |x1| |x2| |x3|)))))))
  
 ; addTypesToArgs(args) ==
@@ -550,9 +556,13 @@
 ; compFluidize(x) ==
 ;     x and SYMBOLP(x) and x ~= "$" and x ~= "$$" and _
 ;       SCHAR('"$", 0) = SCHAR(PNAME(x), 0) _
-;       and not(DIGITP (SCHAR(PNAME(x), 1))) => x
+;       and not(DIGITP (SCHAR(PNAME(x), 1))) =>
+;           BREAK()
+;           x
 ;     ATOM(x) => nil
-;     QCAR(x) = "FLUID" => SECOND(x)
+;     QCAR(x) = "FLUID" =>
+;         BREAK()
+;         SECOND(x)
 ;     a := compFluidize(QCAR(x))
 ;     b := compFluidize(QCDR(x))
 ;     a => CONS(a, b)
@@ -565,8 +575,8 @@
       ((AND |x| (SYMBOLP |x|) (NOT (EQ |x| '$)) (NOT (EQ |x| '$$))
             (EQUAL (SCHAR "$" 0) (SCHAR (PNAME |x|) 0))
             (NULL (DIGITP (SCHAR (PNAME |x|) 1))))
-       |x|)
-      ((ATOM |x|) NIL) ((EQ (QCAR |x|) 'FLUID) (SECOND |x|))
+       (PROGN (BREAK) |x|))
+      ((ATOM |x|) NIL) ((EQ (QCAR |x|) 'FLUID) (PROGN (BREAK) (SECOND |x|)))
       (#1='T
        (PROGN
         (SETQ |a| (|compFluidize| (QCAR |x|)))

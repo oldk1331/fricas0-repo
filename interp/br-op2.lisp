@@ -3,9 +3,9 @@
  
 (IN-PACKAGE "BOOT")
  
-; htSayConstructor(key,u) ==
+; htSayConstructor(key, u) ==
 ;   u is ['CATEGORY,kind,:r] =>
-;     htSay('"a ",kind,'" ")
+;     htSayList(['"a ", kind, '" "])
 ;     htSayExplicitExports(r)
 ;   key = 'is =>
 ;     htSay '"the domain "
@@ -34,8 +34,8 @@
 ;      htSayExplicitExports(r)
 ;     htSay '" and "
 ;     bcConform(r,true)
-;   htSay(kind,'" ")
-;   bcConform(u,true)
+;   htSayList([kind, '" "])
+;   bcConform(u, true)
  
 (DEFUN |htSayConstructor| (|key| |u|)
   (PROG (|ISTMP#1| |kind| |r| |ISTMP#2| |middle|)
@@ -49,7 +49,9 @@
                    (SETQ |kind| (CAR |ISTMP#1|))
                    (SETQ |r| (CDR |ISTMP#1|))
                    #1='T))))
-       (PROGN (|htSay| "a " |kind| " ") (|htSayExplicitExports| |r|)))
+       (PROGN
+        (|htSayList| (LIST "a " |kind| " "))
+        (|htSayExplicitExports| |r|)))
       ((EQ |key| '|is|) (PROGN (|htSay| "the domain ") (|bcConform| |u| T)))
       (#1#
        (PROGN
@@ -105,7 +107,8 @@
                           (PROGN (SETQ |r| (CDR |ISTMP#1|)) #1#))))
                (PROGN (|htSay| " ") (|htSayExplicitExports| |r|)))
               (#1# (PROGN (|htSay| " and ") (|bcConform| |r| T))))))))
-         (#1# (PROGN (|htSay| |kind| " ") (|bcConform| |u| T))))))))))
+         (#1#
+          (PROGN (|htSayList| (LIST |kind| " ")) (|bcConform| |u| T))))))))))
  
 ; htSayExplicitExports r ==
 ;   htSay '"with explicit exports"
@@ -245,7 +248,7 @@
 ;   if k > -1 then
 ;     typeOfArg := (rest $signature).k
 ;     addWhereList(t,'member,typeOfArg)
-;   htSay('"{\em ",t,'"}")
+;   htSayList(['"{\em ", t, '"}"])
  
 (DEFUN |htSayArgument| (|t|)
   (PROG (|k| |typeOfArg|)
@@ -272,7 +275,7 @@
              (COND
               ((< (- 1) |k|) (SETQ |typeOfArg| (ELT (CDR |$signature|) |k|))
                (|addWhereList| |t| '|member| |typeOfArg|)))
-             (|htSay| "{\\em " |t| "}")))))))
+             (|htSayList| (LIST "{\\em " |t| "}"))))))))
  
 ; addWhereList(id,kind,typ) ==
 ;   $whereList := insert([id,kind,:typ],$whereList)
@@ -356,15 +359,15 @@
            |parse|))))
        (#1# NIL))))))
  
-; dbMakeContrivedForm(op,sig,:options) ==
-;   $chooseDownCaseOfType : local := IFCAR options
+; dbMakeContrivedForm(op, sig) ==
+;   $chooseDownCaseOfType : local := false
 ;   $NumberList : local := '(i j k l m n i1 j1 k1 l1 m1 n1 i2 j2 k2 l2 m2 n2 i3 j3 k3 l3 m3 n3 i4 j4 k4 l4 m4 n4 )
 ;   $ElementList: local := '(x y z u v w x1 y1 z1 u1 v1 w1 x2 y2 z2 u2 v2 w2 x3 y3 z3 u3 v3 w3 x4 y4 z4 u4 v4 w4 )
 ;   $FunctionList:local := '(f g h d e F G H)
 ;   $DomainList:  local := '(R S D E T A B C M N P Q U V W)
 ;   dbGetContrivedForm(op,sig)
  
-(DEFUN |dbMakeContrivedForm| (|op| |sig| &REST |options|)
+(DEFUN |dbMakeContrivedForm| (|op| |sig|)
   (PROG (|$DomainList| |$FunctionList| |$ElementList| |$NumberList|
          |$chooseDownCaseOfType|)
     (DECLARE
@@ -372,7 +375,7 @@
       |$chooseDownCaseOfType|))
     (RETURN
      (PROGN
-      (SETQ |$chooseDownCaseOfType| (IFCAR |options|))
+      (SETQ |$chooseDownCaseOfType| NIL)
       (SETQ |$NumberList|
               '(|i| |j| |k| |l| |m| |n| |i1| |j1| |k1| |l1| |m1| |n1| |i2| |j2|
                 |k2| |l2| |m2| |n2| |i3| |j3| |k3| |l3| |m3| |n3| |i4| |j4|
@@ -719,7 +722,7 @@
 ;   for [pair := [op,:sig],:namelist] in nopAlist repeat
 ;     ops := escapeSpecialChars STRINGIMAGE op
 ;     usedList := [pair,:usedList]
-;     htSay('"Users of {\em ",ops,'": ")
+;     htSayList(['"Users of {\em ", ops, '": "])
 ;     bcConform ['Mapping,:sublisFormal(conargs,sig)]
 ;     htSay('"}\newline")
 ;     bcConTable listSort(function GLESSEQP,REMDUP namelist)
@@ -731,7 +734,7 @@
 ;       [#noOneUses,'" operations:"]
 ;     htSay '"\newline "
 ;     for [op,:sig] in noOneUses repeat
-;       htSay('"\tab{2}{\em ",escapeSpecialChars STRINGIMAGE op,'": ")
+;       htSayList(['"\tab{2}{\em ", escapeSpecialChars STRINGIMAGE op, '": "])
 ;       bcConform ['Mapping,:sublisFormal(conargs,sig)]
 ;       htSay('"}\newline")
 ;   htSayStandard '"\endscroll "
@@ -858,7 +861,7 @@
                    (PROGN
                     (SETQ |ops| (|escapeSpecialChars| (STRINGIMAGE |op|)))
                     (SETQ |usedList| (CONS |pair| |usedList|))
-                    (|htSay| "Users of {\\em " |ops| ": ")
+                    (|htSayList| (LIST "Users of {\\em " |ops| ": "))
                     (|bcConform|
                      (CONS '|Mapping| (|sublisFormal| |conargs| |sig|)))
                     (|htSay| "}\\newline")
@@ -886,8 +889,9 @@
                       (SETQ |sig| (CDR |bfVar#27|))
                       #1#)
                      (PROGN
-                      (|htSay| "\\tab{2}{\\em "
-                       (|escapeSpecialChars| (STRINGIMAGE |op|)) ": ")
+                      (|htSayList|
+                       (LIST "\\tab{2}{\\em "
+                             (|escapeSpecialChars| (STRINGIMAGE |op|)) ": "))
                       (|bcConform|
                        (CONS '|Mapping| (|sublisFormal| |conargs| |sig|)))
                       (|htSay| "}\\newline")))))
@@ -1207,7 +1211,7 @@
        |u| NIL)
       |alist|))))
  
-; koOps(conform, domname, :options) == main where
+; koOps(conform, domname) == main where
 ; --returns alist of form ((op (sig . pred) ...) ...)
 ;   main ==
 ;     $packageItem: local := nil
@@ -1245,7 +1249,7 @@
 ;       alist := insertAlist(op,al,alist)  --add the whole inner alist
 ;     alist
  
-(DEFUN |koOps| (|conform| |domname| &REST |options|)
+(DEFUN |koOps| (|conform| |domname|)
   (PROG (|$packageItem| |ours|)
     (DECLARE (SPECIAL |$packageItem|))
     (RETURN
@@ -1627,7 +1631,7 @@
 ;   domname := htpProperty(htPage,'domname)
 ;   ancestors := ASSOCLEFT ancestorsOf(conform,domname)
 ;   htpSetProperty(page,'ancestors,listSort(function GLESSEQP,ancestors))
-;   bcNameCountTable(ancestors,'form2HtString,'koaPageFilterByCategory1,true)
+;   bcNameCountTable(ancestors, 'form2HtString, 'koaPageFilterByCategory1)
 ;   htShowPage()
  
 (DEFUN |koaPageFilterByCategory| (|htPage| |calledFrom|)
@@ -1652,53 +1656,36 @@
       (|htpSetProperty| |page| '|ancestors|
        (|listSort| #'GLESSEQP |ancestors|))
       (|bcNameCountTable| |ancestors| '|form2HtString|
-       '|koaPageFilterByCategory1| T)
+       '|koaPageFilterByCategory1|)
       (|htShowPage|)))))
  
-; dbHeading(items,which,heading,:options) ==
-;   names?   := IFCAR options
-;   count :=
-;     names? => #items
-;     +/[#(rest x) for x in items]
+; dbHeading(items, which, heading) ==
+;   count := +/[#(rest x) for x in items]
 ;   capwhich := capitalize which
 ;   prefix :=
 ;     count < 2 =>
-;       names? => pluralSay(count,STRCONC(capwhich," Name"),nil)
 ;       pluralSay(count,capwhich,nil)
-;     names? => pluralSay(count,nil,STRCONC(capwhich," Names"))
 ;     pluralSay(count,nil,pluralize capwhich)
 ;   [:prefix,'" for ",:heading]
  
-(DEFUN |dbHeading| (|items| |which| |heading| &REST |options|)
-  (PROG (|names?| |count| |capwhich| |prefix|)
+(DEFUN |dbHeading| (|items| |which| |heading|)
+  (PROG (|count| |capwhich| |prefix|)
     (RETURN
      (PROGN
-      (SETQ |names?| (IFCAR |options|))
       (SETQ |count|
-              (COND (|names?| (LENGTH |items|))
-                    (#1='T
-                     ((LAMBDA (|bfVar#66| |bfVar#65| |x|)
-                        (LOOP
-                         (COND
-                          ((OR (ATOM |bfVar#65|)
-                               (PROGN (SETQ |x| (CAR |bfVar#65|)) NIL))
-                           (RETURN |bfVar#66|))
-                          (#1#
-                           (SETQ |bfVar#66|
-                                   (+ |bfVar#66| (LENGTH (CDR |x|))))))
-                         (SETQ |bfVar#65| (CDR |bfVar#65|))))
-                      0 |items| NIL))))
+              ((LAMBDA (|bfVar#66| |bfVar#65| |x|)
+                 (LOOP
+                  (COND
+                   ((OR (ATOM |bfVar#65|)
+                        (PROGN (SETQ |x| (CAR |bfVar#65|)) NIL))
+                    (RETURN |bfVar#66|))
+                   (#1='T (SETQ |bfVar#66| (+ |bfVar#66| (LENGTH (CDR |x|))))))
+                  (SETQ |bfVar#65| (CDR |bfVar#65|))))
+               0 |items| NIL))
       (SETQ |capwhich| (|capitalize| |which|))
       (SETQ |prefix|
-              (COND
-               ((< |count| 2)
-                (COND
-                 (|names?|
-                  (|pluralSay| |count| (STRCONC |capwhich| '| Name|) NIL))
-                 (#1# (|pluralSay| |count| |capwhich| NIL))))
-               (|names?|
-                (|pluralSay| |count| NIL (STRCONC |capwhich| '| Names|)))
-               (#1# (|pluralSay| |count| NIL (|pluralize| |capwhich|)))))
+              (COND ((< |count| 2) (|pluralSay| |count| |capwhich| NIL))
+                    (#1# (|pluralSay| |count| NIL (|pluralize| |capwhich|)))))
       (APPEND |prefix| (CONS " for " |heading|))))))
  
 ; koaPageFilterByCategory1(htPage,i) ==

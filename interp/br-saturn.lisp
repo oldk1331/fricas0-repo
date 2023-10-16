@@ -56,11 +56,10 @@
 (DEFUN |page| ()
   (PROG () (RETURN (COND (|$standard| |$curPage|) ('T |$saturnPage|)))))
  
-; htSay(x,:options) ==  --say for possibly both $saturn and standard code
-;   htSayBind(x, options)
+; htSay(x) ==  --say for possibly both $saturn and standard code
+;     bcHt(x)
  
-(DEFUN |htSay| (|x| &REST |options|)
-  (PROG () (RETURN (|htSayBind| |x| |options|))))
+(DEFUN |htSay| (|x|) (PROG () (RETURN (|bcHt| |x|))))
  
 ; htSayCold x ==
 ;   htSay '"\lispLink{}{"
@@ -71,41 +70,47 @@
   (PROG ()
     (RETURN (PROGN (|htSay| "\\lispLink{}{") (|htSay| |x|) (|htSay| "}")))))
  
-; htSayStandard(x, :options) ==  --do AT MOST for $standard
+; htSayStandard(x) ==  --do AT MOST for $standard
 ;   $saturn: local := nil
-;   htSayBind(x, options)
+;   bcHt(x)
  
-(DEFUN |htSayStandard| (|x| &REST |options|)
+(DEFUN |htSayStandard| (|x|)
   (PROG (|$saturn|)
     (DECLARE (SPECIAL |$saturn|))
-    (RETURN (PROGN (SETQ |$saturn| NIL) (|htSayBind| |x| |options|)))))
+    (RETURN (PROGN (SETQ |$saturn| NIL) (|bcHt| |x|)))))
  
-; htSaySaturn(x, :options) ==    --do AT MOST for $saturn
+; htSayStandardList(lx) ==
+;     $saturn : local := nil
+;     htSayList(lx)
+ 
+(DEFUN |htSayStandardList| (|lx|)
+  (PROG (|$saturn|)
+    (DECLARE (SPECIAL |$saturn|))
+    (RETURN (PROGN (SETQ |$saturn| NIL) (|htSayList| |lx|)))))
+ 
+; htSaySaturn(x) ==    --do AT MOST for $saturn
 ;   $standard: local := nil
-;   htSayBind(x, options)
+;   bcHt x
  
-(DEFUN |htSaySaturn| (|x| &REST |options|)
+(DEFUN |htSaySaturn| (|x|)
   (PROG (|$standard|)
     (DECLARE (SPECIAL |$standard|))
-    (RETURN (PROGN (SETQ |$standard| NIL) (|htSayBind| |x| |options|)))))
+    (RETURN (PROGN (SETQ |$standard| NIL) (|bcHt| |x|)))))
  
-; htSayBind(x, options) ==
-;   bcHt x
-;   for y in options repeat bcHt y
+; htSayList(lx) ==
+;   for x in lx repeat bcHt(x)
  
-(DEFUN |htSayBind| (|x| |options|)
+(DEFUN |htSayList| (|lx|)
   (PROG ()
     (RETURN
-     (PROGN
-      (|bcHt| |x|)
-      ((LAMBDA (|bfVar#1| |y|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#1|) (PROGN (SETQ |y| (CAR |bfVar#1|)) NIL))
-            (RETURN NIL))
-           ('T (|bcHt| |y|)))
-          (SETQ |bfVar#1| (CDR |bfVar#1|))))
-       |options| NIL)))))
+     ((LAMBDA (|bfVar#1| |x|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#1|) (PROGN (SETQ |x| (CAR |bfVar#1|)) NIL))
+           (RETURN NIL))
+          ('T (|bcHt| |x|)))
+         (SETQ |bfVar#1| (CDR |bfVar#1|))))
+      |lx| NIL))))
  
 ; bcHt line ==
 ;   $newPage =>  --this path affects both saturn and old lines
@@ -660,8 +665,7 @@
 ; --      $standard => iht items
 ;     itemType = 'lispLinks         => htLispLinks items
 ;     itemType = 'lispmemoLinks     => htLispMemoLinks items
-;     itemType = 'bcLinks           => htBcLinks items               --->
-;     itemType = 'bcLinksNS         => htBcLinks(items,true)
+;     itemType = 'bcLinks           => htBcLinks(items)
 ;     itemType = 'bcLispLinks       => htBcLispLinks items           --->
 ;     itemType = 'radioButtons      => htRadioButtons items
 ;     itemType = 'bcRadioButtons    => htBcRadioButtons items
@@ -697,7 +701,6 @@
                   ((EQ |itemType| '|lispmemoLinks|)
                    (|htLispMemoLinks| |items|))
                   ((EQ |itemType| '|bcLinks|) (|htBcLinks| |items|))
-                  ((EQ |itemType| '|bcLinksNS|) (|htBcLinks| |items| T))
                   ((EQ |itemType| '|bcLispLinks|) (|htBcLispLinks| |items|))
                   ((EQ |itemType| '|radioButtons|) (|htRadioButtons| |items|))
                   ((EQ |itemType| '|bcRadioButtons|)
@@ -954,23 +957,20 @@
              (|systemError| (LIST "unknown function" |func|)))
             ('T (FUNCALL (SYMBOL-FUNCTION |func|) |htPage|)))))))
  
-; htBcLinks(links,:options) ==
-;   skipStateInfo? := IFCAR options
+; htBcLinks(links) ==
 ;   [links,options] := beforeAfter('options,links)
 ;   for [message, info, func, :value] in links repeat
 ;     link :=
 ;       $saturn => '"\lispLink[d]"
 ;       '"\lispdownlink"
-;     htMakeButton(link,message,
-;                    mkCurryFun(func, value),skipStateInfo?)
+;     htMakeButton(link, message, mkCurryFun(func, value))
 ;     bcIssueHt info
  
-(DEFUN |htBcLinks| (|links| &REST |options|)
-  (PROG (|skipStateInfo?| |LETTMP#1| |message| |ISTMP#1| |info| |ISTMP#2|
-         |func| |value| |link|)
+(DEFUN |htBcLinks| (|links|)
+  (PROG (|LETTMP#1| |options| |message| |ISTMP#1| |info| |ISTMP#2| |func|
+         |value| |link|)
     (RETURN
      (PROGN
-      (SETQ |skipStateInfo?| (IFCAR |options|))
       (SETQ |LETTMP#1| (|beforeAfter| '|options| |links|))
       (SETQ |links| (CAR |LETTMP#1|))
       (SETQ |options| (CADR |LETTMP#1|))
@@ -998,7 +998,7 @@
                           (COND (|$saturn| "\\lispLink[d]")
                                 (#1# "\\lispdownlink")))
                   (|htMakeButton| |link| |message|
-                   (|mkCurryFun| |func| |value|) |skipStateInfo?|)
+                   (|mkCurryFun| |func| |value|))
                   (|bcIssueHt| |info|)))))
           (SETQ |bfVar#6| (CDR |bfVar#6|))))
        |links| NIL)))))
@@ -1049,13 +1049,10 @@
           (SETQ |bfVar#8| (CDR |bfVar#8|))))
        |links| NIL)))))
  
-; htMakeButton(htCommand, message, func,:options) ==
-;   $saturn => htMakeButtonSaturn(htCommand, message, func, options)
-;   skipStateInfo? := IFCAR options
+; htMakeButton(htCommand, message, func) ==
+;   $saturn => htMakeButtonSaturn(htCommand, message, func)
 ;   iht [htCommand, '"{"]
 ;   bcIssueHt message
-;   skipStateInfo? =>
-;     iht ['"}{(|htDoneButton| '|", func, '"| ",htpName $curPage, '")}"]
 ;   iht ['"}{(|htDoneButton| '|", func, '"| (PROGN "]
 ;   for [id, ., ., ., type, :.] in htpInputAreaAlist $curPage repeat
 ;     iht ['"(|htpSetLabelInputString| ", htpName $curPage, '"'|", id, '"| "]
@@ -1066,68 +1063,54 @@
 ;     iht '") "
 ;   iht [htpName $curPage, '"))}"]
  
-(DEFUN |htMakeButton| (|htCommand| |message| |func| &REST |options|)
-  (PROG (|skipStateInfo?| |id| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |type|)
+(DEFUN |htMakeButton| (|htCommand| |message| |func|)
+  (PROG (|id| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |type|)
     (RETURN
-     (COND
-      (|$saturn| (|htMakeButtonSaturn| |htCommand| |message| |func| |options|))
-      (#1='T
-       (PROGN
-        (SETQ |skipStateInfo?| (IFCAR |options|))
-        (|iht| (LIST |htCommand| "{"))
-        (|bcIssueHt| |message|)
-        (COND
-         (|skipStateInfo?|
-          (|iht|
-           (LIST "}{(|htDoneButton| '|" |func| "| " (|htpName| |$curPage|)
-                 ")}")))
-         (#1#
-          (PROGN
-           (|iht| (LIST "}{(|htDoneButton| '|" |func| "| (PROGN "))
-           ((LAMBDA (|bfVar#10| |bfVar#9|)
-              (LOOP
-               (COND
-                ((OR (ATOM |bfVar#10|)
-                     (PROGN (SETQ |bfVar#9| (CAR |bfVar#10|)) NIL))
-                 (RETURN NIL))
-                (#1#
-                 (AND (CONSP |bfVar#9|)
-                      (PROGN
-                       (SETQ |id| (CAR |bfVar#9|))
-                       (SETQ |ISTMP#1| (CDR |bfVar#9|))
-                       (AND (CONSP |ISTMP#1|)
-                            (PROGN
-                             (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                             (AND (CONSP |ISTMP#2|)
-                                  (PROGN
-                                   (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                                   (AND (CONSP |ISTMP#3|)
-                                        (PROGN
-                                         (SETQ |ISTMP#4| (CDR |ISTMP#3|))
-                                         (AND (CONSP |ISTMP#4|)
-                                              (PROGN
-                                               (SETQ |type| (CAR |ISTMP#4|))
-                                               #1#)))))))))
-                      (PROGN
-                       (|iht|
-                        (LIST "(|htpSetLabelInputString| "
-                              (|htpName| |$curPage|) "'|" |id| "| "))
-                       (COND
-                        ((EQ |type| '|string|)
-                         (|iht| (LIST "\"\\stringvalue{" |id| "}\"")))
-                        (#1# (|iht| (LIST "\"\\boxvalue{" |id| "}\""))))
-                       (|iht| ") ")))))
-               (SETQ |bfVar#10| (CDR |bfVar#10|))))
-            (|htpInputAreaAlist| |$curPage|) NIL)
-           (|iht| (LIST (|htpName| |$curPage|) "))}")))))))))))
+     (COND (|$saturn| (|htMakeButtonSaturn| |htCommand| |message| |func|))
+           (#1='T
+            (PROGN
+             (|iht| (LIST |htCommand| "{"))
+             (|bcIssueHt| |message|)
+             (|iht| (LIST "}{(|htDoneButton| '|" |func| "| (PROGN "))
+             ((LAMBDA (|bfVar#10| |bfVar#9|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#10|)
+                       (PROGN (SETQ |bfVar#9| (CAR |bfVar#10|)) NIL))
+                   (RETURN NIL))
+                  (#1#
+                   (AND (CONSP |bfVar#9|)
+                        (PROGN
+                         (SETQ |id| (CAR |bfVar#9|))
+                         (SETQ |ISTMP#1| (CDR |bfVar#9|))
+                         (AND (CONSP |ISTMP#1|)
+                              (PROGN
+                               (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                               (AND (CONSP |ISTMP#2|)
+                                    (PROGN
+                                     (SETQ |ISTMP#3| (CDR |ISTMP#2|))
+                                     (AND (CONSP |ISTMP#3|)
+                                          (PROGN
+                                           (SETQ |ISTMP#4| (CDR |ISTMP#3|))
+                                           (AND (CONSP |ISTMP#4|)
+                                                (PROGN
+                                                 (SETQ |type| (CAR |ISTMP#4|))
+                                                 #1#)))))))))
+                        (PROGN
+                         (|iht|
+                          (LIST "(|htpSetLabelInputString| "
+                                (|htpName| |$curPage|) "'|" |id| "| "))
+                         (COND
+                          ((EQ |type| '|string|)
+                           (|iht| (LIST "\"\\stringvalue{" |id| "}\"")))
+                          (#1# (|iht| (LIST "\"\\boxvalue{" |id| "}\""))))
+                         (|iht| ") ")))))
+                 (SETQ |bfVar#10| (CDR |bfVar#10|))))
+              (|htpInputAreaAlist| |$curPage|) NIL)
+             (|iht| (LIST (|htpName| |$curPage|) "))}"))))))))
  
-; htMakeButtonSaturn(htCommand, message, func,options) ==
-;   skipStateInfo? := IFCAR options
+; htMakeButtonSaturn(htCommand, message, func) ==
 ;   iht htCommand
-;   skipStateInfo? =>
-;     iht ['"{\verb!(|htDoneButton| '|", func, '"| ",htpName page(), '")!}{"]
-;     bcIssueHt message
-;     iht '"}"
 ;   iht ['"{\verb!(|htDoneButton| '|", func, '"| "]
 ;   if $kPageSaturnArguments then
 ;     iht '"(PROGN "
@@ -1143,47 +1126,35 @@
 ;   bcIssueHt message
 ;   iht '"}"
  
-(DEFUN |htMakeButtonSaturn| (|htCommand| |message| |func| |options|)
-  (PROG (|skipStateInfo?|)
+(DEFUN |htMakeButtonSaturn| (|htCommand| |message| |func|)
+  (PROG ()
     (RETURN
      (PROGN
-      (SETQ |skipStateInfo?| (IFCAR |options|))
       (|iht| |htCommand|)
+      (|iht| (LIST "{\\verb!(|htDoneButton| '|" |func| "| "))
       (COND
-       (|skipStateInfo?|
-        (PROGN
-         (|iht|
-          (LIST "{\\verb!(|htDoneButton| '|" |func| "| " (|htpName| (|page|))
-                ")!}{"))
-         (|bcIssueHt| |message|)
-         (|iht| "}")))
-       (#1='T
-        (PROGN
-         (|iht| (LIST "{\\verb!(|htDoneButton| '|" |func| "| "))
-         (COND
-          (|$kPageSaturnArguments| (|iht| "(PROGN ")
-           ((LAMBDA (|bfVar#11| |id| |bfVar#12| |var|)
-              (LOOP
-               (COND
-                ((OR (ATOM |bfVar#11|) (PROGN (SETQ |id| (CAR |bfVar#11|)) NIL)
-                     (ATOM |bfVar#12|)
-                     (PROGN (SETQ |var| (CAR |bfVar#12|)) NIL))
-                 (RETURN NIL))
-                (#1#
-                 (PROGN
-                  (|iht|
-                   (LIST "(|htpSetLabelInputString| " (|htpName| (|page|)) "'|"
-                         |var| "| "))
-                  (|iht| (LIST '|'\|!\\| |id| "\\verb!|"))
-                  (|iht| ")"))))
-               (SETQ |bfVar#11| (CDR |bfVar#11|))
-               (SETQ |bfVar#12| (CDR |bfVar#12|))))
-            |$kPageSaturnArguments| NIL |$PatternVariableList| NIL)
-           (|iht| (|htpName| |$saturnPage|)) (|iht| ")"))
-          (#1# (|iht| (|htpName| |$saturnPage|))))
-         (|iht| ")!}{")
-         (|bcIssueHt| |message|)
-         (|iht| "}"))))))))
+       (|$kPageSaturnArguments| (|iht| "(PROGN ")
+        ((LAMBDA (|bfVar#11| |id| |bfVar#12| |var|)
+           (LOOP
+            (COND
+             ((OR (ATOM |bfVar#11|) (PROGN (SETQ |id| (CAR |bfVar#11|)) NIL)
+                  (ATOM |bfVar#12|) (PROGN (SETQ |var| (CAR |bfVar#12|)) NIL))
+              (RETURN NIL))
+             (#1='T
+              (PROGN
+               (|iht|
+                (LIST "(|htpSetLabelInputString| " (|htpName| (|page|)) "'|"
+                      |var| "| "))
+               (|iht| (LIST '|'\|!\\| |id| "\\verb!|"))
+               (|iht| ")"))))
+            (SETQ |bfVar#11| (CDR |bfVar#11|))
+            (SETQ |bfVar#12| (CDR |bfVar#12|))))
+         |$kPageSaturnArguments| NIL |$PatternVariableList| NIL)
+        (|iht| (|htpName| |$saturnPage|)) (|iht| ")"))
+       (#1# (|iht| (|htpName| |$saturnPage|))))
+      (|iht| ")!}{")
+      (|bcIssueHt| |message|)
+      (|iht| "}")))))
  
 ; htpAddToPageDescription(htPage, pageDescrip) ==
 ;   newDescript :=
@@ -1345,18 +1316,18 @@
              (SETQ |$htLineList| NIL)
              (|page|)))))))
  
-; htpMakeEmptyPage(propList,:options) ==
-;   name := IFCAR options or  GENTEMP()
+; htpMakeEmptyPage(propList) ==
+;   name := GENTEMP()
 ;   if not $saturn then
 ;     $activePageList := [name, :$activePageList]
 ;   SET(name, val := VECTOR(name, nil, nil, nil, nil, nil, propList, nil))
 ;   val
  
-(DEFUN |htpMakeEmptyPage| (|propList| &REST |options|)
+(DEFUN |htpMakeEmptyPage| (|propList|)
   (PROG (|name| |val|)
     (RETURN
      (PROGN
-      (SETQ |name| (OR (IFCAR |options|) (GENTEMP)))
+      (SETQ |name| (GENTEMP))
       (COND
        ((NULL |$saturn|)
         (SETQ |$activePageList| (CONS |name| |$activePageList|))))
@@ -1364,7 +1335,7 @@
            (SETQ |val| (VECTOR |name| NIL NIL NIL NIL NIL |propList| NIL)))
       |val|))))
  
-; kPage(line,:options) == --any cat, dom, package, default package
+; kPage(line, options) == --any cat, dom, package, default package
 ; --constructors    Cname\#\E\sig \args   \abb \comments (C is C, D, P, X)
 ;   parts := dbXParts(line,7,1)
 ;   [kind,name,nargs,xflag,sig,args,abbrev,comments] := parts
@@ -1406,7 +1377,7 @@
 ;   kPageContextMenu page
 ;   htShowPageNoScroll()
  
-(DEFUN |kPage| (|line| &REST |options|)
+(DEFUN |kPage| (|line| |options|)
   (PROG (|$kPageSaturnArguments| |page| |heading| |emString| |constrings|
          |sourceFileName| |signature| |capitalKind| |conname| |conform|
          |isFile| |form| |comments| |abbrev| |args| |sig| |xflag| |nargs|
@@ -2163,7 +2134,7 @@
 ;          [['bcLinks,[menuButton(),'"",'dbShowConsKindsFilter,[kind,x]]]]
 ;     htSaySaturn '"]"
 ;     htSayStandard '"\tab{1}"
-;     htSay('"{\em ",c := #x,'" ")
+;     htSayList(['"{\em ", c := #x, '" "])
 ;     htSay(c > 1 => pluralize kind; kind)
 ;     htSay '":}"
 ;     htSaySaturn '"\\"
@@ -2233,7 +2204,7 @@
                                        (LIST |kind| |x|)))))))
                   (|htSaySaturn| "]")
                   (|htSayStandard| "\\tab{1}")
-                  (|htSay| "{\\em " (SETQ |c| (LENGTH |x|)) " ")
+                  (|htSayList| (LIST "{\\em " (SETQ |c| (LENGTH |x|)) " "))
                   (|htSay|
                    (COND ((< 1 |c|) (|pluralize| |kind|)) (#1# |kind|)))
                   (|htSay| ":}")
@@ -2390,8 +2361,8 @@
 ;     typeForm := (t is [":",.,t1] => t1; t)
 ;     if pred = true
 ;       then htMakePage [['bcLinks,[x,'"",'kArgPage,x]]]
-;       else htSay('"{\em ",x,'"}")
-;     htSayStandard( '"\tab{",STRINGIMAGE( # PNAME x),'"}, ")
+;       else htSayList(['"{\em ", x, '"}"])
+;     htSayStandardList(['"\tab{", STRINGIMAGE( # PNAME x), '"}, "])
 ;     htSaySaturnAmpersand()
 ;     htSay
 ;       pred => '"a domain of category "
@@ -2442,9 +2413,9 @@
               ((EQUAL |pred| T)
                (|htMakePage|
                 (LIST (LIST '|bcLinks| (LIST |x| "" '|kArgPage| |x|)))))
-              (#1# (|htSay| "{\\em " |x| "}")))
-             (|htSayStandard| "\\tab{" (STRINGIMAGE (LENGTH (PNAME |x|)))
-              "}, ")
+              (#1# (|htSayList| (LIST "{\\em " |x| "}"))))
+             (|htSayStandardList|
+              (LIST "\\tab{" (STRINGIMAGE (LENGTH (PNAME |x|))) "}, "))
              (|htSaySaturnAmpersand|)
              (|htSay|
               (COND (|pred| "a domain of category ")
@@ -2479,10 +2450,12 @@
                            (APPEND (|form2Fence| (|dbOuttran| |form|))
                                    (CONS "}" NIL))))))))))
  
-; htTab s == if $standard then htSayStandard ('"\tab{",s,'"}")
+; htTab s == if $standard then htSayStandardList(['"\tab{", s, '"}"])
  
 (DEFUN |htTab| (|s|)
-  (PROG () (RETURN (COND (|$standard| (|htSayStandard| "\\tab{" |s| "}"))))))
+  (PROG ()
+    (RETURN
+     (COND (|$standard| (|htSayStandardList| (LIST "\\tab{" |s| "}")))))))
  
 ; dbGatherThenShow(htPage,opAlist,which,data,constructorIfTrue,word,fn) ==
 ;   single? := null rest data
@@ -2512,7 +2485,8 @@
 ;       '""
 ;     htSay '"}"
 ;     if null atom thing then
-;       if constructorIfTrue then htSay('" {\em ",dbShowKind thing,'"}")
+;       if constructorIfTrue then
+;           htSayList(['" {\em ", dbShowKind thing, '"}"])
 ;       htSay '" "
 ;       FUNCALL(fn,thing)
 ;     htSay('":\newline ")
@@ -2578,7 +2552,8 @@
                    ((NULL (ATOM |thing|))
                     (COND
                      (|constructorIfTrue|
-                      (|htSay| " {\\em " (|dbShowKind| |thing|) "}")))
+                      (|htSayList|
+                       (LIST " {\\em " (|dbShowKind| |thing|) "}"))))
                     (|htSay| " ") (FUNCALL |fn| |thing|)))
                   (|htSay| ":\\newline ")
                   (|dbShowOpSigList| |which| |items| (* (+ 1 |bincount|) 8192))
@@ -3080,19 +3055,20 @@
 ;   n := #sig
 ;   do
 ;     n = 2 and GETL(op, 'Nud) =>
-;         htSay(ops,'" {\em ", quickForm2HtString IFCAR args, '"}")
+;         htSayList([ops, '" {\em ", quickForm2HtString IFCAR args, '"}"])
 ;     n = 3 and GETL(op, 'Led) =>
-;         htSay('"{\em ", quickForm2HtString IFCAR args, '"} ", ops,
-;               '" {\em ", quickForm2HtString IFCAR IFCDR args, '"}")
+;         htSayList(['"{\em ", quickForm2HtString IFCAR args, '"} ", ops,
+;               '" {\em ", quickForm2HtString IFCAR IFCDR args, '"}"])
 ;     if unexposed? and $includeUnexposed? then
 ;       htSayUnexposed()
 ;     htSay(ops)
 ;     predicate='ASCONST or GETDATABASE(op,'NILADIC) or member(op,'(0 1)) => 'skip
 ;     which = '"attribute" and null args => 'skip
 ;     htSay('"(")
-;     if IFCAR args then htSay('"{\em ",quickForm2HtString IFCAR args,'"}")
+;     if IFCAR args then
+;         htSayList(['"{\em ", quickForm2HtString IFCAR args, '"}"])
 ;     for x in IFCDR args repeat
-;       htSay('",{\em ",quickForm2HtString x,'"}")
+;         htSayList(['",{\em ", quickForm2HtString x, '"}"])
 ;     htSay('")")
 ;   -----------prepare to print description---------------------
 ;   constring := form2HtString conform
@@ -3133,16 +3109,16 @@
 ;               htSaySaturn '"\\ "
 ;               htSaySaturnAmpersand()
 ;             firstTime := false
-;             htSayIndentRel(15, true)
+;             htSayIndentRel2(15, true)
 ;             position := IFCAR relatives
 ;             relatives := IFCDR relatives
 ;             if IFCAR coSig and t ~= '(Type)
 ;               then htMakePage [['bcLinks,[a,'"",'kArgPage,a]]]
-;               else htSay('"{\em ",form2HtString(a),'"}")
+;               else htSayList(['"{\em ", form2HtString(a), '"}"])
 ;             htSay ", "
 ;             coSig := IFCDR coSig
 ;             htSayValue t
-;             htSayIndentRel(-15,true)
+;             htSayIndentRel2(-15, true)
 ;             htSayStandard('"\newline ")
 ;       htSaySaturn '"\\"
 ;     if first $sig then
@@ -3150,9 +3126,9 @@
 ;       htSayStandard('"\newline\tab{2}")
 ;       htSay '"{\em Returns:}"
 ;       htSaySaturnAmpersand()
-;       htSayIndentRel(15, true)
+;       htSayIndentRel2(15, true)
 ;       htSayValue first $sig
-;       htSayIndentRel(-15, true)
+;       htSayIndentRel2(-15, true)
 ;       htSaySaturn '"\\"
 ;   -----------------------------------------------------------
 ;   if origin and ($generalSearch? or origin ~= conform) and op~=opOf origin then
@@ -3174,11 +3150,11 @@
 ;     firstTime := true
 ;     for p in displayBreakIntoAnds SUBST($conform,"$",pred) repeat
 ;       if not firstTime then htSaySaturn '"\\"
-;       htSayIndentRel(15,count > 1)
+;       htSayIndentRel2(15, count > 1)
 ;       firstTime := false
 ;       htSaySaturnAmpersand()
 ;       bcPred(p,$conform,true)
-;       htSayIndentRel(-15,count > 1)
+;       htSayIndentRel2(-15, count > 1)
 ;       htSayStandard('"\newline ")
 ;     htSaySaturn '"\\"
 ;   -----------------------------------------------------------
@@ -3188,7 +3164,7 @@
 ;     htSayStandard('"\newline\tab{2}{\em Where:}")
 ;     firstTime := true
 ;     if assoc("$",$whereList) then
-;       htSayIndentRel(15,true)
+;       htSayIndentRel2(15, true)
 ;       htSaySaturnAmpersand()
 ;       htSayStandard '"{\em \$} is "
 ;       htSaySaturn '"{\em \%} is "
@@ -3197,15 +3173,15 @@
 ;         '"the domain "
 ;       bcConform(conform,true,true)
 ;       firstTime := false
-;       htSayIndentRel(-15,true)
+;       htSayIndentRel2(-15, true)
 ;     for [d,key,:t] in $whereList | d ~= "$" repeat
-;       htSayIndentRel(15,count > 1)
+;       htSayIndentRel2(15, count > 1)
 ;       if not firstTime then htSaySaturn '"\\ "
 ;       htSaySaturnAmpersand()
 ;       firstTime := false
-;       htSay("{\em ",d,"} is ")
+;       htSayList(["{\em ", d, "} is "])
 ;       htSayConstructor(key, sublisFormal(IFCDR conform, t))
-;       htSayIndentRel(-15,count > 1)
+;       htSayIndentRel2(-15, count > 1)
 ;     htSaySaturn '"\\"
 ;   -----------------------------------------------------------
 ;   if doc and (doc ~= '"" and (doc isnt [d] or d ~= '"")) then
@@ -3313,10 +3289,12 @@
       (|do|
        (COND
         ((AND (EQL |n| 2) (GETL |op| '|Nud|))
-         (|htSay| |ops| " {\\em " (|quickForm2HtString| (IFCAR |args|)) "}"))
+         (|htSayList|
+          (LIST |ops| " {\\em " (|quickForm2HtString| (IFCAR |args|)) "}")))
         ((AND (EQL |n| 3) (GETL |op| '|Led|))
-         (|htSay| "{\\em " (|quickForm2HtString| (IFCAR |args|)) "} " |ops|
-          " {\\em " (|quickForm2HtString| (IFCAR (IFCDR |args|))) "}"))
+         (|htSayList|
+          (LIST "{\\em " (|quickForm2HtString| (IFCAR |args|)) "} " |ops|
+                " {\\em " (|quickForm2HtString| (IFCAR (IFCDR |args|))) "}")))
         (#1#
          (PROGN
           (COND ((AND |unexposed?| |$includeUnexposed?|) (|htSayUnexposed|)))
@@ -3331,14 +3309,17 @@
              (|htSay| "(")
              (COND
               ((IFCAR |args|)
-               (|htSay| "{\\em " (|quickForm2HtString| (IFCAR |args|)) "}")))
+               (|htSayList|
+                (LIST "{\\em " (|quickForm2HtString| (IFCAR |args|)) "}"))))
              ((LAMBDA (|bfVar#45| |x|)
                 (LOOP
                  (COND
                   ((OR (ATOM |bfVar#45|)
                        (PROGN (SETQ |x| (CAR |bfVar#45|)) NIL))
                    (RETURN NIL))
-                  (#1# (|htSay| ",{\\em " (|quickForm2HtString| |x|) "}")))
+                  (#1#
+                   (|htSayList|
+                    (LIST ",{\\em " (|quickForm2HtString| |x|) "}"))))
                  (SETQ |bfVar#45| (CDR |bfVar#45|))))
               (IFCDR |args|) NIL)
              (|htSay| ")"))))))))
@@ -3400,18 +3381,19 @@
                   ((NULL |firstTime|) (|htSaySaturn| "\\\\ ")
                    (|htSaySaturnAmpersand|)))
                  (SETQ |firstTime| NIL)
-                 (|htSayIndentRel| 15 T)
+                 (|htSayIndentRel2| 15 T)
                  (SETQ |position| (IFCAR |relatives|))
                  (SETQ |relatives| (IFCDR |relatives|))
                  (COND
                   ((AND (IFCAR |coSig|) (NOT (EQUAL |t| '(|Type|))))
                    (|htMakePage|
                     (LIST (LIST '|bcLinks| (LIST |a| "" '|kArgPage| |a|)))))
-                  (#1# (|htSay| "{\\em " (|form2HtString| |a|) "}")))
+                  (#1#
+                   (|htSayList| (LIST "{\\em " (|form2HtString| |a|) "}"))))
                  (|htSay| '|, |)
                  (SETQ |coSig| (IFCDR |coSig|))
                  (|htSayValue| |t|)
-                 (|htSayIndentRel| (- 15) T)
+                 (|htSayIndentRel2| (- 15) T)
                  (|htSayStandard| "\\newline "))))
               (SETQ |bfVar#48| (CDR |bfVar#48|))
               (SETQ |bfVar#49| (CDR |bfVar#49|))))
@@ -3420,8 +3402,8 @@
         (COND
          ((CAR |$sig|) (SETQ |$displayReturnValue| T)
           (|htSayStandard| "\\newline\\tab{2}") (|htSay| "{\\em Returns:}")
-          (|htSaySaturnAmpersand|) (|htSayIndentRel| 15 T)
-          (|htSayValue| (CAR |$sig|)) (|htSayIndentRel| (- 15) T)
+          (|htSaySaturnAmpersand|) (|htSayIndentRel2| 15 T)
+          (|htSayValue| (CAR |$sig|)) (|htSayIndentRel2| (- 15) T)
           (|htSaySaturn| "\\\\")))))
       (COND
        ((AND |origin| (OR |$generalSearch?| (NOT (EQUAL |origin| |conform|)))
@@ -3449,11 +3431,11 @@
              (#1#
               (PROGN
                (COND ((NULL |firstTime|) (|htSaySaturn| "\\\\")))
-               (|htSayIndentRel| 15 (< 1 |count|))
+               (|htSayIndentRel2| 15 (< 1 |count|))
                (SETQ |firstTime| NIL)
                (|htSaySaturnAmpersand|)
                (|bcPred| |p| |$conform| T)
-               (|htSayIndentRel| (- 15) (< 1 |count|))
+               (|htSayIndentRel2| (- 15) (< 1 |count|))
                (|htSayStandard| "\\newline "))))
             (SETQ |bfVar#50| (CDR |bfVar#50|))))
          (|displayBreakIntoAnds| (SUBST |$conform| '$ |pred|)) NIL)
@@ -3463,14 +3445,14 @@
         (|htSaySaturn| "{\\em Where:}")
         (|htSayStandard| "\\newline\\tab{2}{\\em Where:}") (SETQ |firstTime| T)
         (COND
-         ((|assoc| '$ |$whereList|) (|htSayIndentRel| 15 T)
+         ((|assoc| '$ |$whereList|) (|htSayIndentRel2| 15 T)
           (|htSaySaturnAmpersand|) (|htSayStandard| "{\\em \\$} is ")
           (|htSaySaturn| "{\\em \\%} is ")
           (|htSay|
            (COND ((EQUAL |$conkind| "category") "of category ")
                  (#1# "the domain ")))
           (|bcConform| |conform| T T) (SETQ |firstTime| NIL)
-          (|htSayIndentRel| (- 15) T)))
+          (|htSayIndentRel2| (- 15) T)))
         ((LAMBDA (|bfVar#52| |bfVar#51|)
            (LOOP
             (COND
@@ -3489,14 +3471,14 @@
                           #1#)))
                    (NOT (EQ |d| '$))
                    (PROGN
-                    (|htSayIndentRel| 15 (< 1 |count|))
+                    (|htSayIndentRel2| 15 (< 1 |count|))
                     (COND ((NULL |firstTime|) (|htSaySaturn| "\\\\ ")))
                     (|htSaySaturnAmpersand|)
                     (SETQ |firstTime| NIL)
-                    (|htSay| '|{\\em | |d| '|} is |)
+                    (|htSayList| (LIST '|{\\em | |d| '|} is |))
                     (|htSayConstructor| |key|
                      (|sublisFormal| (IFCDR |conform|) |t|))
-                    (|htSayIndentRel| (- 15) (< 1 |count|))))))
+                    (|htSayIndentRel2| (- 15) (< 1 |count|))))))
             (SETQ |bfVar#52| (CDR |bfVar#52|))))
          |$whereList| NIL)
         (|htSaySaturn| "\\\\")))
@@ -3576,8 +3558,11 @@
         (LIST '|text| "\\unixcommand{" |filename| "}{\\$AXIOM/lib/SPADEDIT "
               |sourceFileName| " " |conname| "}")))))))
  
-; htSayIndentRel(n,:options) ==
-;   flag := IFCAR options
+; htSayIndentRel(n) == htSayIndentRel2(n, false)
+ 
+(DEFUN |htSayIndentRel| (|n|) (PROG () (RETURN (|htSayIndentRel2| |n| NIL))))
+ 
+; htSayIndentRel2(n, flag) ==
 ;   m := ABS n
 ;   if flag then m := m + 2
 ;   if $standard then htSayStandard
@@ -3586,11 +3571,10 @@
 ;       ['"\indent{",STRINGIMAGE m,'"}\tab{0}"]
 ;     n < 0 => ['"\indent{0}\newline "]
  
-(DEFUN |htSayIndentRel| (|n| &REST |options|)
-  (PROG (|flag| |m|)
+(DEFUN |htSayIndentRel2| (|n| |flag|)
+  (PROG (|m|)
     (RETURN
      (PROGN
-      (SETQ |flag| (IFCAR |options|))
       (SETQ |m| (ABS |n|))
       (COND (|flag| (SETQ |m| (+ |m| 2))))
       (COND
@@ -3650,8 +3634,7 @@
   (PROG ()
     (RETURN (PROGN (|htSaySaturn| "\\end{dirlist}") (|htSayStandard| "}")))))
  
-; htBeginMenu(kind,:options) ==
-;   skip := IFCAR options
+; htBeginMenu(kind) ==
 ;   if $saturn then
 ;     kind = 'description => htSaySaturn '"\begin{description}"
 ;     htSaySaturn '"\begin{tabular}"
@@ -3659,14 +3642,12 @@
 ;       kind = 3 => '"{llp{0in}}"
 ;       kind = 2 => '"{lp{0in}}"
 ;       error nil
-;   null skip => htSayStandard '"\beginmenu "
-;   nil
+;   htSayStandard '"\beginmenu "
  
-(DEFUN |htBeginMenu| (|kind| &REST |options|)
-  (PROG (|skip|)
+(DEFUN |htBeginMenu| (|kind|)
+  (PROG ()
     (RETURN
      (PROGN
-      (SETQ |skip| (IFCAR |options|))
       (COND
        (|$saturn|
         (COND
@@ -3677,7 +3658,7 @@
            (|htSaySaturn|
             (COND ((EQL |kind| 3) "{llp{0in}}") ((EQL |kind| 2) "{lp{0in}}")
                   (#1# (|error| NIL)))))))))
-      (COND ((NULL |skip|) (|htSayStandard| "\\beginmenu ")) (#1# NIL))))))
+      (|htSayStandard| "\\beginmenu ")))))
  
 ; htEndMenu(kind) ==
 ;   if $saturn then
@@ -3731,7 +3712,8 @@
 ;     htSaySaturn '"\browseTitle{"
 ;     htSaySaturn title
 ;     htSaySaturn '"}"
-;   if $standard then htSayStandard('"\begin{page}{", htpName $curPage, '"}{")
+;   if $standard then
+;       htSayStandardList(['"\begin{page}{", htpName $curPage, '"}{"])
 ;   htSayStandard title
 ;   htSayStandard '"}"
  
@@ -3744,7 +3726,8 @@
         (|htSaySaturn| "}")))
       (COND
        (|$standard|
-        (|htSayStandard| "\\begin{page}{" (|htpName| |$curPage|) "}{")))
+        (|htSayStandardList|
+         (LIST "\\begin{page}{" (|htpName| |$curPage|) "}{"))))
       (|htSayStandard| |title|)
       (|htSayStandard| "}")))))
  
@@ -3767,32 +3750,31 @@
 (DEFUN |htSaySaturnAmpersand| ()
   (PROG () (RETURN (|htSaySaturn| |$saturnAmpersand|))))
  
-; htBlank(:options) ==
-;   options is [n] =>
+; htBlank() ==
+;     htSaySaturn '"\phantom{*}"
+;     htSayStandard '"\space{1}"
+ 
+(DEFUN |htBlank| ()
+  (PROG ()
+    (RETURN
+     (PROGN (|htSaySaturn| "\\phantom{*}") (|htSayStandard| "\\space{1}")))))
+ 
+; htBlanks(n) ==
 ;     htSaySaturn("STRCONC"/['"\phantom{*}" for i in 1..n])
 ;     htSayStandard STRCONC('"\space{",STRINGIMAGE n,'"}")
-;   htSaySaturn '"\phantom{*}"
-;   htSayStandard '"\space{1}"
  
-(DEFUN |htBlank| (&REST |options|)
-  (PROG (|n|)
+(DEFUN |htBlanks| (|n|)
+  (PROG ()
     (RETURN
-     (COND
-      ((AND (CONSP |options|) (EQ (CDR |options|) NIL)
-            (PROGN (SETQ |n| (CAR |options|)) #1='T))
-       (PROGN
-        (|htSaySaturn|
-         ((LAMBDA (|bfVar#55| |i|)
-            (LOOP
-             (COND ((> |i| |n|) (RETURN |bfVar#55|))
-                   (#1# (SETQ |bfVar#55| (STRCONC |bfVar#55| "\\phantom{*}"))))
-             (SETQ |i| (+ |i| 1))))
-          "" 1))
-        (|htSayStandard| (STRCONC "\\space{" (STRINGIMAGE |n|) "}"))))
-      (#1#
-       (PROGN
-        (|htSaySaturn| "\\phantom{*}")
-        (|htSayStandard| "\\space{1}")))))))
+     (PROGN
+      (|htSaySaturn|
+       ((LAMBDA (|bfVar#55| |i|)
+          (LOOP
+           (COND ((> |i| |n|) (RETURN |bfVar#55|))
+                 ('T (SETQ |bfVar#55| (STRCONC |bfVar#55| "\\phantom{*}"))))
+           (SETQ |i| (+ |i| 1))))
+        "" 1))
+      (|htSayStandard| (STRCONC "\\space{" (STRINGIMAGE |n|) "}"))))))
  
 ; unTab s ==
 ;   STRINGP s => unTab1 s

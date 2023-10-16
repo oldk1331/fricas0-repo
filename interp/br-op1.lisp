@@ -71,7 +71,7 @@
 ;     filter := IFCAR options or pmTransFilter(dbGetInputString htPage)
 ;     filter is ['error,:.] => bcErrorPage filter
 ;     opAlist:= [x for x in opAlist | superMatch?(filter,DOWNCASE STRINGIMAGE opOf x)]
-;     null opAlist => emptySearchPage(which,filter)
+;     null opAlist => emptySearchPage(which, filter, false)
 ;     htPage := htInitPageNoScroll(htCopyProplist htPage)
 ;     if which = '"operation"
 ;       then htpSetProperty(htPage,'opAlist,opAlist)
@@ -132,7 +132,7 @@
                            (SETQ |bfVar#7| (CONS |x| |bfVar#7|)))))
                         (SETQ |bfVar#6| (CDR |bfVar#6|))))
                      NIL |opAlist| NIL))
-            (COND ((NULL |opAlist|) (|emptySearchPage| |which| |filter|))
+            (COND ((NULL |opAlist|) (|emptySearchPage| |which| |filter| NIL))
                   (#1#
                    (PROGN
                     (SETQ |htPage|
@@ -1200,7 +1200,7 @@
 ;   [nam,:$domainArgs] := domainForm
 ;   $predicateList: local := GETDATABASE(nam,'PREDICATES)
 ;   predVector := dom.3
-;   u := getDomainOpTable(dom,true,ASSOCLEFT opAlist)
+;   u := getDomainOpTable2(dom, true, ASSOCLEFT opAlist)
 ;   --u has form ((op,sig,:implementor)...)
 ;   --sort into 4 groups: domain exports, unexports, default exports, others
 ; 
@@ -1242,7 +1242,7 @@
       (SETQ |$domainArgs| (CDR |domainForm|))
       (SETQ |$predicateList| (GETDATABASE |nam| 'PREDICATES))
       (SETQ |predVector| (ELT |dom| 3))
-      (SETQ |u| (|getDomainOpTable| |dom| T (ASSOCLEFT |opAlist|)))
+      (SETQ |u| (|getDomainOpTable2| |dom| T (ASSOCLEFT |opAlist|)))
       ((LAMBDA (|bfVar#47| |x| |i|)
          (LOOP
           (COND
@@ -2014,17 +2014,17 @@
 ;     do
 ;       n = 2 and GETL(op, 'Nud) =>
 ;         dbShowOpParameterJump(ops,which,count,single?)
-;         htSay('" {\em ", IFCAR args, '"}")
+;         htSayList(['" {\em ", IFCAR args, '"}"])
 ;       n = 3 and GETL(op, 'Led) =>
-;         htSay('"{\em ", IFCAR args, '"} ")
+;         htSayList(['"{\em ", IFCAR args, '"} "])
 ;         dbShowOpParameterJump(ops,which,count,single?)
-;         htSay('" {\em ", IFCAR IFCDR args, '"}")
+;         htSayList(['" {\em ", IFCAR IFCDR args, '"}"])
 ;       dbShowOpParameterJump(ops,which,count,single?)
 ;       tail = 'ASCONST or member(op,'(0 1)) or which = '"attribute" and null IFCAR args => 'skip
 ;       htSay('"(")
-;       if IFCAR args then htSay('"{\em ",IFCAR args,'"}")
+;       if IFCAR args then htSayList(['"{\em ", IFCAR args, '"}"])
 ;       for x in IFCDR args repeat
-;         htSay('",{\em ",x,'"}")
+;         htSayList(['", {\em ", x, '"}"])
 ;       htSay('")")
 ;     htSay '"}"
 ;     count := count + 1
@@ -2062,12 +2062,12 @@
                ((AND (EQL |n| 2) (GETL |op| '|Nud|))
                 (PROGN
                  (|dbShowOpParameterJump| |ops| |which| |count| |single?|)
-                 (|htSay| " {\\em " (IFCAR |args|) "}")))
+                 (|htSayList| (LIST " {\\em " (IFCAR |args|) "}"))))
                ((AND (EQL |n| 3) (GETL |op| '|Led|))
                 (PROGN
-                 (|htSay| "{\\em " (IFCAR |args|) "} ")
+                 (|htSayList| (LIST "{\\em " (IFCAR |args|) "} "))
                  (|dbShowOpParameterJump| |ops| |which| |count| |single?|)
-                 (|htSay| " {\\em " (IFCAR (IFCDR |args|)) "}")))
+                 (|htSayList| (LIST " {\\em " (IFCAR (IFCDR |args|)) "}"))))
                (#1#
                 (PROGN
                  (|dbShowOpParameterJump| |ops| |which| |count| |single?|)
@@ -2079,14 +2079,15 @@
                    (PROGN
                     (|htSay| "(")
                     (COND
-                     ((IFCAR |args|) (|htSay| "{\\em " (IFCAR |args|) "}")))
+                     ((IFCAR |args|)
+                      (|htSayList| (LIST "{\\em " (IFCAR |args|) "}"))))
                     ((LAMBDA (|bfVar#86| |x|)
                        (LOOP
                         (COND
                          ((OR (ATOM |bfVar#86|)
                               (PROGN (SETQ |x| (CAR |bfVar#86|)) NIL))
                           (RETURN NIL))
-                         (#1# (|htSay| ",{\\em " |x| "}")))
+                         (#1# (|htSayList| (LIST ", {\\em " |x| "}"))))
                         (SETQ |bfVar#86| (CDR |bfVar#86|))))
                      (IFCDR |args|) NIL)
                     (|htSay| ")"))))))))
@@ -2097,13 +2098,13 @@
       (|htEndTable|)))))
  
 ; dbShowOpParameterJump(ops,which,count,single?) ==
-;   single? => htSay('"{\em ",ops,'"}")
+;   single? => htSayList(['"{\em ", ops, '"}"])
 ;   htMakePage [['bcLinks,[ops,'"",'dbShowOps,which,count]]]
  
 (DEFUN |dbShowOpParameterJump| (|ops| |which| |count| |single?|)
   (PROG ()
     (RETURN
-     (COND (|single?| (|htSay| "{\\em " |ops| "}"))
+     (COND (|single?| (|htSayList| (LIST "{\\em " |ops| "}")))
            ('T
             (|htMakePage|
              (LIST
@@ -2292,7 +2293,7 @@
         (|dbResetOpAlistCondition| |htPage| |which| |opAlist|)))
       (|dbShowOps| |htPage| |which| '|documentation|)))))
  
-; htSayExpose(op,flag) ==
+; htSayExpose(op, flag) ==
 ;   $includeUnexposed? =>
 ;     flag => htBlank()
 ;     op.0 = char '_* => htSay '"{\em *} "
@@ -3202,8 +3203,12 @@
             (SETQ |bfVar#126| (CDR |bfVar#126|))))
          #2# (|fortexp0| |form|) NIL)))))))
  
-; getDomainOpTable(dom,fromIfTrue,:options) ==
-;   ops := IFCAR options
+; getDomainOpTable(dom, fromIfTrue) == getDomainOpTable2(dom, fromIfTrue, [])
+ 
+(DEFUN |getDomainOpTable| (|dom| |fromIfTrue|)
+  (PROG () (RETURN (|getDomainOpTable2| |dom| |fromIfTrue| NIL))))
+ 
+; getDomainOpTable2(dom, fromIfTrue, ops) ==
 ;   $predEvalAlist : local := nil
 ;   $returnNowhereFromGoGet: local := true
 ;   domname := dom.0
@@ -3236,14 +3241,13 @@
 ;         'nowhere
 ;       [sig1,:info]
  
-(DEFUN |getDomainOpTable| (|dom| |fromIfTrue| &REST |options|)
+(DEFUN |getDomainOpTable2| (|dom| |fromIfTrue| |ops|)
   (PROG (|$returnNowhereFromGoGet| |$predEvalAlist| |info| |r| |f| |cell|
          |predValue| |sig1| |op1| |key| |ISTMP#3| |pred| |ISTMP#2| |slot|
-         |ISTMP#1| |sig| |u| |op| |opAlist| |abb| |conname| |domname| |ops|)
+         |ISTMP#1| |sig| |u| |op| |opAlist| |abb| |conname| |domname|)
     (DECLARE (SPECIAL |$returnNowhereFromGoGet| |$predEvalAlist|))
     (RETURN
      (PROGN
-      (SETQ |ops| (IFCAR |options|))
       (SETQ |$predEvalAlist| NIL)
       (SETQ |$returnNowhereFromGoGet| T)
       (SETQ |domname| (ELT |dom| 0))
@@ -3306,7 +3310,7 @@
                                               (AND (NULL |ops|)
                                                    (SETQ |op1| |op|))
                                               (SETQ |op1|
-                                                      (|getDomainOpTable,memq|
+                                                      (|getDomainOpTable2,memq|
                                                        |op| |ops|)))
                                              (SETQ |bfVar#129|
                                                      (CONS
@@ -3384,11 +3388,23 @@
                                    NIL |u| NIL)))))))
           (SETQ |bfVar#131| (CDR |bfVar#131|))))
        NIL |opAlist| NIL)))))
-(DEFUN |getDomainOpTable,memq| (|op| |ops|)
+(DEFUN |getDomainOpTable2,memq| (|op| |ops|)
   (PROG ()
     (RETURN
      (COND ((MEMQ |op| |ops|) |op|) ((EQ |op| '|One|) (AND (MEMQ 1 |ops|) 1))
            ((EQ |op| '|Zero|) (AND (MEMQ 0 |ops|) 0)) ('T NIL)))))
+ 
+; evalDomainOpPred2(dom, pred) ==
+;     $predicateList : local := GETDATABASE(first(dom.0), 'PREDICATES)
+;     evalDomainOpPred(dom,pred)
+ 
+(DEFUN |evalDomainOpPred2| (|dom| |pred|)
+  (PROG (|$predicateList|)
+    (DECLARE (SPECIAL |$predicateList|))
+    (RETURN
+     (PROGN
+      (SETQ |$predicateList| (GETDATABASE (CAR (ELT |dom| 0)) 'PREDICATES))
+      (|evalDomainOpPred| |dom| |pred|)))))
  
 ; evalDomainOpPred(dom,pred) == process(dom,pred) where
 ;   process(dom,pred) ==

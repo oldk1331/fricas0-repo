@@ -1555,11 +1555,11 @@
 ;   short := summarize and uniqueCount >= $browseCountThreshold
 ;   htMakePage
 ;     [['bcLinks,[menuButton(),'"",'genSearchSayJump,[fullLineList,kind]]]]
-;   if count = 0 then htSay('"{\em No ",kind,'"} ")
+;   if count = 0 then htSayList(['"{\em No ", kind, '"} "])
 ;   else if count = 1 then
-;     htSay('"{\em 1 ",kind,'"} ")
+;     htSayList(['"{\em 1 ", kind, '"} "])
 ;   else
-;     htSay('"{\em ",count,'" ",pluralize kind,'"} ")
+;     htSayList(['"{\em ", count, '" ", pluralize kind, '"} "])
 ;   short => 'done
 ;   if uniqueCount ~= 1 then
 ;     htSayStandard '"\indent{4}"
@@ -1600,9 +1600,11 @@
         (LIST '|bcLinks|
               (LIST (|menuButton|) "" '|genSearchSayJump|
                     (LIST |fullLineList| |kind|)))))
-      (COND ((EQL |count| 0) (|htSay| "{\\em No " |kind| "} "))
-            ((EQL |count| 1) (|htSay| "{\\em 1 " |kind| "} "))
-            (#1='T (|htSay| "{\\em " |count| " " (|pluralize| |kind|) "} ")))
+      (COND ((EQL |count| 0) (|htSayList| (LIST "{\\em No " |kind| "} ")))
+            ((EQL |count| 1) (|htSayList| (LIST "{\\em 1 " |kind| "} ")))
+            (#1='T
+             (|htSayList|
+              (LIST "{\\em " |count| " " (|pluralize| |kind|) "} "))))
       (COND (|short| '|done|)
             (#1#
              (PROGN
@@ -1741,30 +1743,17 @@
   (PROG ()
     (RETURN (SUBSTRING |line| 1 (- (|charPosition| |$tick| |line| 1) 1)))))
  
-; pluralSay(count,singular,plural,:options) ==
-;   item := (options is [x,:options] => x; '"")
-;   colon := (IFCAR options => '":"; '"")
-;   count = 0 => concat('"No ",singular,item)
-;   count = 1 => concat('"1 ",singular,item,colon)
-;   concat(count,'" ",plural,item,colon)
+; pluralSay(count,singular,plural) ==
+;     count = 0 => concat('"No ", singular)
+;     count = 1 => concat('"1 ", singular)
+;     concat(count, '" ", plural)
  
-(DEFUN |pluralSay| (|count| |singular| |plural| &REST |options|)
-  (PROG (|x| |item| |colon|)
+(DEFUN |pluralSay| (|count| |singular| |plural|)
+  (PROG ()
     (RETURN
-     (PROGN
-      (SETQ |item|
-              (COND
-               ((AND (CONSP |options|)
-                     (PROGN
-                      (SETQ |x| (CAR |options|))
-                      (SETQ |options| (CDR |options|))
-                      #1='T))
-                |x|)
-               (#1# "")))
-      (SETQ |colon| (COND ((IFCAR |options|) ":") (#1# "")))
-      (COND ((EQL |count| 0) (|concat| "No " |singular| |item|))
-            ((EQL |count| 1) (|concat| "1 " |singular| |item| |colon|))
-            (#1# (|concat| |count| " " |plural| |item| |colon|)))))))
+     (COND ((EQL |count| 0) (|concat| "No " |singular|))
+           ((EQL |count| 1) (|concat| "1 " |singular|))
+           ('T (|concat| |count| " " |plural|))))))
  
 ; docSearch filter ==  --"Documentation" from HD (see man0.ht)
 ;   null (filter := checkFilter filter) => nil  --in case of filter error
@@ -1916,11 +1905,11 @@
 ; sayDocMessage message ==
 ;   htSay('"{\em ")
 ;   if message is [leftEnd,left,middle,right,rightEnd] then
-;     htSay(leftEnd,left,'"}")
+;     htSayList([leftEnd, left, '"}"])
 ;     if left ~= '"" and left.(MAXINDEX left) = $blank then htBlank()
 ;     htSay middle
 ;     if right ~= '"" and right.0 = $blank then htBlank()
-;     htSay('"{\em ",right,rightEnd)
+;     htSayList(['"{\em ", right, rightEnd])
 ;   else
 ;     htSay message
 ;   htSay ('"}")
@@ -1952,7 +1941,7 @@
                                      (PROGN
                                       (SETQ |rightEnd| (CAR |ISTMP#4|))
                                       #1='T))))))))))
-        (|htSay| |leftEnd| |left| "}")
+        (|htSayList| (LIST |leftEnd| |left| "}"))
         (COND
          ((AND (NOT (EQUAL |left| ""))
                (EQUAL (ELT |left| (MAXINDEX |left|)) |$blank|))
@@ -1961,7 +1950,7 @@
         (COND
          ((AND (NOT (EQUAL |right| "")) (EQUAL (ELT |right| 0) |$blank|))
           (|htBlank|)))
-        (|htSay| "{\\em " |right| |rightEnd|))
+        (|htSayList| (LIST "{\\em " |right| |rightEnd|)))
        (#1# (|htSay| |message|)))
       (|htSay| "}")))))
  
@@ -2140,7 +2129,7 @@
 ;       code = char 'd => '"domain"
 ;       code = char 'c => '"category"
 ;       nil
-;     kind = '"constructor" or kind = newkind => kPage line
+;     kind = '"constructor" or kind = newkind => kPage(line, [])
 ;     page := htInitPage('"Query Page",nil)
 ;     htpSetProperty(page,'line,line)
 ;     message :=
@@ -2182,7 +2171,7 @@
                               (#1# NIL)))
                 (COND
                  ((OR (EQUAL |kind| "constructor") (EQUAL |kind| |newkind|))
-                  (|kPage| |line|))
+                  (|kPage| |line| NIL))
                  (#1#
                   (PROGN
                    (SETQ |page| (|htInitPage| "Query Page" NIL))
@@ -2198,13 +2187,17 @@
                 (LIST |filter| |key| |kind| '|constructorSearchGrep|)))
               (#1# (|constructorSearchGrep| |filter| |key| |kind|)))))))))
  
-; grepConstructorSearch(htPage,yes) == kPage htpProperty(htPage,'line)
+; grepConstructorSearch(htPage, yes) == kPage(htpProperty(htPage, 'line), [])
  
 (DEFUN |grepConstructorSearch| (|htPage| |yes|)
-  (PROG () (RETURN (|kPage| (|htpProperty| |htPage| '|line|)))))
+  (PROG () (RETURN (|kPage| (|htpProperty| |htPage| '|line|) NIL))))
  
-; conSpecialString?(filter,:options) ==
-;   secondTime := IFCAR options
+; conSpecialString?(filter) == conSpecialString2?(filter, false)
+ 
+(DEFUN |conSpecialString?| (|filter|)
+  (PROG () (RETURN (|conSpecialString2?| |filter| NIL))))
+ 
+; conSpecialString2?(filter, secondTime) ==
 ;   parse :=
 ;     words := string2Words filter is [s] => ncParseFromString s
 ;     and/[not member(x,'("and" "or" "not")) for x in words] => ncParseFromString filter
@@ -2216,13 +2209,12 @@
 ;   u := kisValidType form => u
 ;   secondTime => false
 ;   u := "STRCONC"/[string2Constructor x for x in dbString2Words filter]
-;   conSpecialString?(u, true)
+;   conSpecialString2?(u, true)
  
-(DEFUN |conSpecialString?| (|filter| &REST |options|)
-  (PROG (|secondTime| |ISTMP#1| |s| |words| |parse| |form| |u|)
+(DEFUN |conSpecialString2?| (|filter| |secondTime|)
+  (PROG (|ISTMP#1| |s| |words| |parse| |form| |u|)
     (RETURN
      (PROGN
-      (SETQ |secondTime| (IFCAR |options|))
       (SETQ |parse|
               (COND
                ((SETQ |words|
@@ -2271,7 +2263,7 @@
                                         (|string2Constructor| |x|)))))
                              (SETQ |bfVar#83| (CDR |bfVar#83|))))
                           "" (|dbString2Words| |filter|) NIL))
-                 (|conSpecialString?| |u| T)))))))))))
+                 (|conSpecialString2?| |u| T)))))))))))
  
 ; dbString2Words l ==
 ;   i := 0
@@ -2428,7 +2420,7 @@
 ;   if member(kind,'("attribute" "operation")) then --should not be necessary!!
 ;     lines := dbScreenForDefaultFunctions lines
 ;   count := #lines
-;   count = 0 => emptySearchPage(kind,filter)
+;   count = 0 => emptySearchPage(kind, filter, false)
 ;   member(kind,'("attribute" "operation")) => dbShowOperationLines(kind,lines)
 ;   dbShowConstructorLines lines
  
@@ -2448,13 +2440,13 @@
          ((|member| |kind| '("attribute" "operation"))
           (SETQ |lines| (|dbScreenForDefaultFunctions| |lines|))))
         (SETQ |count| (LENGTH |lines|))
-        (COND ((EQL |count| 0) (|emptySearchPage| |kind| |filter|))
+        (COND ((EQL |count| 0) (|emptySearchPage| |kind| |filter| NIL))
               ((|member| |kind| '("attribute" "operation"))
                (|dbShowOperationLines| |kind| |lines|))
               (#1# (|dbShowConstructorLines| |lines|)))))))))
  
 ; dbSearchAbbrev([.,:conlist],kind,filter) ==
-;   null conlist => emptySearchPage('"abbreviation",filter)
+;   null conlist => emptySearchPage('"abbreviation", filter, false)
 ;   kind := intern kind
 ;   if kind ~= 'constructor then
 ;     conlist := [x for x in conlist | LASSOC('kind,IFCDR IFCDR x) = kind]
@@ -2468,7 +2460,7 @@
 ;     '" Abbreviations Match {\em ",STRINGIMAGE filter,'"}"],nil)
 ;   for [nam,abbr,:r] in conlist repeat
 ;     kind := LASSOC('kind,r)
-;     htSay('"\newline{\em ",s := STRINGIMAGE abbr)
+;     htSayList(['"\newline{\em ", s := STRINGIMAGE abbr])
 ;     htSayStandard '"\tab{10}"
 ;     htSay '"}"
 ;     htSay kind
@@ -2481,7 +2473,7 @@
     (RETURN
      (PROGN
       (SETQ |conlist| (CDR |bfVar#95|))
-      (COND ((NULL |conlist|) (|emptySearchPage| "abbreviation" |filter|))
+      (COND ((NULL |conlist|) (|emptySearchPage| "abbreviation" |filter| NIL))
             (#1='T
              (PROGN
               (SETQ |kind| (|intern| |kind|))
@@ -2550,8 +2542,9 @@
                                    #1#)))
                             (PROGN
                              (SETQ |kind| (LASSOC '|kind| |r|))
-                             (|htSay| "\\newline{\\em "
-                              (SETQ |s| (STRINGIMAGE |abbr|)))
+                             (|htSayList|
+                              (LIST "\\newline{\\em "
+                                    (SETQ |s| (STRINGIMAGE |abbr|))))
                              (|htSayStandard| "\\tab{10}")
                              (|htSay| "}")
                              (|htSay| |kind|)
@@ -2688,7 +2681,7 @@
 ;       '"constructor"
 ;     which = 'ops  => '"operation"
 ;     '"attribute"
-;   null lines => emptySearchPage(kind,nil)
+;   null lines => emptySearchPage(kind, nil, false)
 ;   dbSearch(lines,kind,'"filter")
  
 (DEFUN |generalSearchDo| (|htPage| |flag|)
@@ -2746,7 +2739,7 @@
                         (#1# "default package")))
                  (#1# "constructor")))
                ((EQ |which| '|ops|) "operation") (#1# "attribute")))
-      (COND ((NULL |lines|) (|emptySearchPage| |kind| NIL))
+      (COND ((NULL |lines|) (|emptySearchPage| |kind| NIL NIL))
             (#1# (|dbSearch| |lines| |kind| "filter")))))))
  
 ; generalSearchString(htPage,sel) ==

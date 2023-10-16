@@ -19,8 +19,7 @@
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       NIL (HKEYS |$has_category_hash|) NIL))))
  
-; buildLibdb(:options) ==  --called by make-databases (daase.lisp.pamphlet)
-;   domainList := IFCAR options  --build local libdb if list of domains is given
+; buildLibdb(domainList) ==  --called by make-databases (daase.lisp.pamphlet)
 ;   $OpLst: local := nil
 ;   $AttrLst: local := nil
 ;   $DomLst : local := nil
@@ -28,6 +27,7 @@
 ;   $PakLst : local := nil
 ;   $DefLst : local := nil
 ;   $outStream: local := MAKE_-OUTSTREAM '"temp.text"
+;   --build local libdb if list of domains is given
 ;   if null domainList then
 ;     comments :=
 ;       '"\spad{Union(A,B,...,C)} is a primitive type in FriCAS used to represent objects of type \spad{A} or of type \spad{B} or...or of type \spad{C}."
@@ -62,16 +62,15 @@
 ;   RENAME_-FILE('"libdb.text", '"olibdb.text")
 ;   deleteFile '"temp.text"
  
-(DEFUN |buildLibdb| (&REST |options|)
+(DEFUN |buildLibdb| (|domainList|)
   (PROG (|$kind| |$doc| |$exposed?| |$conform| |$conname| |$outStream|
          |$DefLst| |$PakLst| |$CatLst| |$DomLst| |$AttrLst| |$OpLst| |oplist|
-         |attrlist| |LETTMP#1| |constructorList| |comments| |domainList|)
+         |attrlist| |LETTMP#1| |constructorList| |comments|)
     (DECLARE
      (SPECIAL |$kind| |$doc| |$exposed?| |$conform| |$conname| |$outStream|
       |$DefLst| |$PakLst| |$CatLst| |$DomLst| |$AttrLst| |$OpLst|))
     (RETURN
      (PROGN
-      (SETQ |domainList| (IFCAR |options|))
       (SETQ |$OpLst| NIL)
       (SETQ |$AttrLst| NIL)
       (SETQ |$DomLst| NIL)
@@ -1973,8 +1972,7 @@
                (RPLACD |existingNode| (|quickOr| (CDR |existingNode|) |pred|)))
               (#1# (HPUT |$if| |op| (CONS (CONS |form| |pred|) |alist|))))))))))
  
-; domainsOf(conform,domname,:options) ==
-;   $hasArgList := IFCAR options
+; domainsOf(conform, domname) ==
 ;   conname := opOf conform
 ;   u := [key for key in HKEYS $has_category_hash
 ;     | key is [anc,: =conname]]
@@ -1984,11 +1982,10 @@
 ;   s := [[first pair, :GETDATABASE(pair, 'HASCATEGORY)] for pair in s]
 ;   transKCatAlist(conform,domname,listSort(function GLESSEQP,s))
  
-(DEFUN |domainsOf| (|conform| |domname| &REST |options|)
+(DEFUN |domainsOf| (|conform| |domname|)
   (PROG (|conname| |anc| |u| |s|)
     (RETURN
      (PROGN
-      (SETQ |$hasArgList| (IFCAR |options|))
       (SETQ |conname| (|opOf| |conform|))
       (SETQ |u|
               ((LAMBDA (|bfVar#83| |bfVar#82| |key|)
@@ -2021,8 +2018,7 @@
                NIL |s| NIL))
       (|transKCatAlist| |conform| |domname| (|listSort| #'GLESSEQP |s|))))))
  
-; catsOf(conform,domname,:options) ==
-;   $hasArgList := IFCAR options
+; catsOf(conform, domname) ==
 ;   conname := opOf conform
 ;   alist := nil
 ;   for key in allConstructors() repeat
@@ -2034,11 +2030,10 @@
 ;       alist := insertShortAlist(key,newItem,alist)
 ;   transKCatAlist(conform,domname,listSort(function GLESSEQP,alist))
  
-(DEFUN |catsOf| (|conform| |domname| &REST |options|)
+(DEFUN |catsOf| (|conform| |domname|)
   (PROG (|conname| |alist| |op| |args| |pred| |newItem|)
     (RETURN
      (PROGN
-      (SETQ |$hasArgList| (IFCAR |options|))
       (SETQ |conname| (|opOf| |conform|))
       (SETQ |alist| NIL)
       ((LAMBDA (|bfVar#86| |key|)

@@ -15,8 +15,8 @@
 ;                            (record . DomainRecord) (mapping . DomainMapping) _
 ;                            (enumeration . DomainEnumeration))) =>
 ;       downlink pageName       --special jump out for primitive domains
-;   line := conPageFastPath da  => kPage(line,form) --lower case name of cons?
-;   line := conPageFastPath UPCASE a => kPage(line,form) --upper case an abbr?
+;   line := conPageFastPath da  => kPage(line, [form]) --lower case name of cons?
+;   line := conPageFastPath UPCASE a => kPage(line, [form]) --upper case an abbr?
 ;   ySearch a       --slow search (include default packages)
  
 (DEFUN |conPage| (|a| &REST |b|)
@@ -45,8 +45,9 @@
                    (|record| . |DomainRecord|) (|mapping| . |DomainMapping|)
                    (|enumeration| . |DomainEnumeration|))))
         (|downlink| |pageName|))
-       ((SETQ |line| (|conPageFastPath| |da|)) (|kPage| |line| |form|))
-       ((SETQ |line| (|conPageFastPath| (UPCASE |a|))) (|kPage| |line| |form|))
+       ((SETQ |line| (|conPageFastPath| |da|)) (|kPage| |line| (LIST |form|)))
+       ((SETQ |line| (|conPageFastPath| (UPCASE |a|)))
+        (|kPage| |line| (LIST |form|)))
        (#1# (|ySearch| |a|)))))))
  
 ; conPageFastPath x == --called by conPage and constructorSearch
@@ -239,7 +240,7 @@
         (|reportAO| "operation" |oplist|)))))))
  
 ; reportAO(kind,oplist) ==
-;   htSay('"have ",kind,'":")
+;   htSayList(['"have ", kind, '":"])
 ;   for [op,sig,:pred] in oplist repeat
 ;     htSay '"\newline "
 ;     if #oplist = 1 then htSay '"\centerline{"
@@ -259,7 +260,7 @@
   (PROG (|op| |ISTMP#1| |sig| |pred| |attr| |ops| |sigs|)
     (RETURN
      (PROGN
-      (|htSay| "have " |kind| ":")
+      (|htSayList| (LIST "have " |kind| ":"))
       ((LAMBDA (|bfVar#4| |bfVar#3|)
          (LOOP
           (COND
@@ -682,10 +683,11 @@
 ;   if count ~= total then
 ;     if count = 1
 ;     then htSay('"1 name for ")
-;     else htSay(STRINGIMAGE count,'" names for ")
+;     else htSayList([STRINGIMAGE count, '" names for "])
 ;   if total > 1
-;     then htSay(STRINGIMAGE total,'" ",pluralize which,'" are explicitly exported:")
-;     else htSay('"1 ",which,'" is explicitly exported:")
+;     then htSayList([STRINGIMAGE total, '" ", pluralize which,
+;                    '" are explicitly exported:"])
+;     else htSayList(['"1 ", which, '" is explicitly exported:"])
 ;   htSaySaturn '"\\"
 ;   data := dbGatherData(htPage,opAlist,which,'names)
 ;   dbShowOpItems(which,data,false)
@@ -725,12 +727,16 @@
               (COND
                ((NOT (EQUAL |count| |total|))
                 (COND ((EQL |count| 1) (|htSay| "1 name for "))
-                      (#1# (|htSay| (STRINGIMAGE |count|) " names for ")))))
+                      (#1#
+                       (|htSayList|
+                        (LIST (STRINGIMAGE |count|) " names for "))))))
               (COND
                ((< 1 |total|)
-                (|htSay| (STRINGIMAGE |total|) " " (|pluralize| |which|)
-                 " are explicitly exported:"))
-               (#1# (|htSay| "1 " |which| " is explicitly exported:")))
+                (|htSayList|
+                 (LIST (STRINGIMAGE |total|) " " (|pluralize| |which|)
+                       " are explicitly exported:")))
+               (#1#
+                (|htSayList| (LIST "1 " |which| " is explicitly exported:"))))
               (|htSaySaturn| "\\\\")
               (SETQ |data|
                       (|dbGatherData| |htPage| |opAlist| |which| '|names|))
@@ -908,7 +914,7 @@
 ;     htpSetProperty(htPage,'heading,heading)
 ;   if kind = '"category" and dbpHasDefaultCategory? xpart then
 ;     htSay '"This category has default package "
-;     bcCon(STRCONC(name,char '_&),'"")
+;     bcCon(STRCONC(name,char '_&))
 ;   htSayStandard '"\newline"
 ;   htBeginMenu(3)
 ;   htSayStandard '"\item "
@@ -951,7 +957,7 @@
 ;     if HGET($defaultPackageNamesHT,conname)
 ;       then htSay('" which {\em may use} this default package")
 ; --  htMakePage [['bcLinks,['"files",'"",'kcuPage,true]]]
-;       else htSay('" which {\em use} this ",kind)
+;       else htSayList(['" which {\em use} this ", kind])
 ;   if kind ~= '"category" or dbpHasDefaultCategory? xpart then
 ;     satBreak()
 ;     message :=
@@ -1004,7 +1010,7 @@
          (COND
           ((AND (EQUAL |kind| "category") (|dbpHasDefaultCategory?| |xpart|))
            (|htSay| "This category has default package ")
-           (|bcCon| (STRCONC |name| (|char| '&)) "")))
+           (|bcCon| (STRCONC |name| (|char| '&)))))
          (|htSayStandard| "\\newline")
          (|htBeginMenu| 3)
          (|htSayStandard| "\\item ")
@@ -1095,7 +1101,7 @@
              (COND
               ((HGET |$defaultPackageNamesHT| |conname|)
                (|htSay| " which {\\em may use} this default package"))
-              (#4# (|htSay| " which {\\em use} this " |kind|)))))))
+              (#4# (|htSayList| (LIST " which {\\em use} this " |kind|))))))))
          (COND
           ((OR (NOT (EQUAL |kind| "category"))
                (|dbpHasDefaultCategory?| |xpart|))
@@ -2034,9 +2040,9 @@
          (SETQ |bfVar#58| (CDR |bfVar#58|))))
       NIL (IFCDR |domain|) NIL))))
  
-; conOpPage1(conform,:options) ==
+; conOpPage1(conform, options) ==
 ; --constructors    Cname\#\E\sig \args   \abb \comments (C is C, D, P, X)
-;   bindingsAlist := IFCAR options
+;   bindingsAlist := options
 ;   conname       := opOf conform
 ;   MEMQ(conname,$Primitives) =>
 ;      dbSpecialOperations conname
@@ -2065,19 +2071,17 @@
 ;   htpSetProperty(page,'domname,domname)         --> !!note!! <--
 ;   htpSetProperty(page,'conform,conform)
 ;   htpSetProperty(page,'signature,signature)
-;   if selectedOperation := LASSOC('selectedOperation,IFCDR options) then
-;     htpSetProperty(page,'selectedOperation,selectedOperation)
 ;   for [a,:b] in bindingsAlist repeat htpSetProperty(page,a,b)
 ;   koPage(page,'"operation")
  
-(DEFUN |conOpPage1| (|conform| &REST |options|)
+(DEFUN |conOpPage1| (|conform| |options|)
   (PROG (|bindingsAlist| |conname| |domname| |line| |parts| |kind| |name|
          |nargs| |xflag| |sig| |args| |abbrev| |comments| |isFile| |constring|
          |capitalKind| |signature| |sourceFileName| |emString| |heading| |page|
-         |selectedOperation| |a| |b|)
+         |a| |b|)
     (RETURN
      (PROGN
-      (SETQ |bindingsAlist| (IFCAR |options|))
+      (SETQ |bindingsAlist| |options|)
       (SETQ |conname| (|opOf| |conform|))
       (COND ((MEMQ |conname| |$Primitives|) (|dbSpecialOperations| |conname|))
             (#1='T
@@ -2116,11 +2120,6 @@
               (|htpSetProperty| |page| '|domname| |domname|)
               (|htpSetProperty| |page| '|conform| |conform|)
               (|htpSetProperty| |page| '|signature| |signature|)
-              (COND
-               ((SETQ |selectedOperation|
-                        (LASSOC '|selectedOperation| (IFCDR |options|)))
-                (|htpSetProperty| |page| '|selectedOperation|
-                 |selectedOperation|)))
               ((LAMBDA (|bfVar#61| |bfVar#60|)
                  (LOOP
                   (COND
@@ -2215,8 +2214,10 @@
 ;   conform := htpProperty(htPage,'conform)
 ;   heading := htpProperty(htPage,'heading)
 ;   opAlist          :=
-;     which = '"attribute" => koAttrs(conform,domname)
-;     which = '"general operation" => koOps(conform,domname,true)
+;     which = '"attribute" =>
+;         BREAK()
+;         koAttrs(conform,domname)
+;     which = '"general operation" => koOps(conform, domname)
 ;     koOps(conform,domname)
 ;   if selectedOperation := htpProperty(htPage,'selectedOperation) then
 ;     opAlist := [assoc(selectedOperation,opAlist) or systemError()]
@@ -2232,9 +2233,10 @@
       (SETQ |heading| (|htpProperty| |htPage| '|heading|))
       (SETQ |opAlist|
               (COND
-               ((EQUAL |which| "attribute") (|koAttrs| |conform| |domname|))
+               ((EQUAL |which| "attribute")
+                (PROGN (BREAK) (|koAttrs| |conform| |domname|)))
                ((EQUAL |which| "general operation")
-                (|koOps| |conform| |domname| T))
+                (|koOps| |conform| |domname|))
                ('T (|koOps| |conform| |domname|))))
       (COND
        ((SETQ |selectedOperation|
@@ -2691,7 +2693,7 @@
 ;       conname := CAAR x
 ;       subject := (abbrev? => constructor? conname; conname)
 ;       superMatch?(filter,DOWNCASE STRINGIMAGE subject)
-;     null u => emptySearchPage('"constructor",filter)
+;     null u => emptySearchPage('"constructor", filter, false)
 ;     htPage := htInitPageNoScroll(htCopyProplist htPage)
 ;     htpSetProperty(htPage,'cAlist,u)
 ;     dbShowCons(htPage,htpProperty(htPage,'exclusion))
@@ -2740,7 +2742,7 @@
                            (SETQ |bfVar#85| (CONS |x| |bfVar#85|)))))
                         (SETQ |bfVar#84| (CDR |bfVar#84|))))
                      NIL |cAlist| NIL))
-            (COND ((NULL |u|) (|emptySearchPage| "constructor" |filter|))
+            (COND ((NULL |u|) (|emptySearchPage| "constructor" |filter| NIL))
                   (#1#
                    (PROGN
                     (SETQ |htPage|

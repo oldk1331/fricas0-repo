@@ -40,10 +40,10 @@
 ;   maxWidth2 := MAX(41,maxWidth2)
 ;   tabset1 := STRINGIMAGE (maxWidth1)
 ;   tabset2 := STRINGIMAGE (maxWidth2 + maxWidth1 - 1)
-;   htSay('"\tab{2}\newline Variable\tab{",
+;   htSayList(['"\tab{2}\newline Variable\tab{",
 ;     STRINGIMAGE (maxWidth1 + QUOTIENT(maxWidth2, 3)),
 ;      '"}Description\tab{",STRINGIMAGE(maxWidth2 + maxWidth1 + 2),
-;       '"}Value\newline\beginitems ")
+;       '"}Value\newline\beginitems "])
 ;   for setData in REVERSE okList repeat
 ;       htSay '"\item"
 ;       label := STRCONC('"\menuitemstyle{",setData.setName,'"}")
@@ -85,10 +85,12 @@
       (SETQ |maxWidth2| (MAX 41 |maxWidth2|))
       (SETQ |tabset1| (STRINGIMAGE |maxWidth1|))
       (SETQ |tabset2| (STRINGIMAGE (- (+ |maxWidth2| |maxWidth1|) 1)))
-      (|htSay| "\\tab{2}\\newline Variable\\tab{"
-       (STRINGIMAGE (+ |maxWidth1| (QUOTIENT |maxWidth2| 3)))
-       "}Description\\tab{" (STRINGIMAGE (+ (+ |maxWidth2| |maxWidth1|) 2))
-       "}Value\\newline\\beginitems ")
+      (|htSayList|
+       (LIST "\\tab{2}\\newline Variable\\tab{"
+             (STRINGIMAGE (+ |maxWidth1| (QUOTIENT |maxWidth2| 3)))
+             "}Description\\tab{"
+             (STRINGIMAGE (+ (+ |maxWidth2| |maxWidth1|) 2))
+             "}Value\\newline\\beginitems "))
       ((LAMBDA (|bfVar#2| |setData|)
          (LOOP
           (COND

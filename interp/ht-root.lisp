@@ -14,7 +14,7 @@
 ; downlink page ==
 ;   $saturn => downlinkSaturn page
 ;   htInitPage('"Bridge",nil)
-;   htSay('"\replacepage{", page, '"}")
+;   htSayList(['"\replacepage{", page, '"}"])
 ;   htShowPage()
  
 (DEFUN |downlink| (|page|)
@@ -24,7 +24,7 @@
            ('T
             (PROGN
              (|htInitPage| "Bridge" NIL)
-             (|htSay| "\\replacepage{" |page| "}")
+             (|htSayList| (LIST "\\replacepage{" |page| "}"))
              (|htShowPage|)))))))
  
 ; downlinkSaturn fn ==
@@ -86,9 +86,9 @@
 ;     for [heading,name,message,.,key,variable,options,func] in table repeat
 ;       htSay('"\newline\item ")
 ;       if heading = lastHeading then htSay '"\tab{8}" else
-;         htSay(heading,'"\tab{8}")
+;         htSayList([heading, '"\tab{8}"])
 ;         lastHeading := heading
-;       htSay('"{\em ",name,"}\tab{22}",message)
+;       htSayList(['"{\em ", name, "}\tab{22}", message])
 ;       htSay('"\tab{80}")
 ;       key = 'FUNCTION =>
 ;          null options => htMakePage [['bcLinks,['"reset",'"",func,nil]]]
@@ -97,7 +97,7 @@
 ;          for option in rest options repeat
 ;            option is ['break,:.] => 'skip
 ;            [msg,class,var,valuesOrFunction,:.] := option
-;            htSay('"\newline\tab{22}", msg,'"\tab{80}")
+;            htSayList(['"\newline\tab{22}", msg,'"\tab{80}"])
 ;            functionTail(name,class,var,valuesOrFunction)
 ;       val := eval variable
 ;       displayOptions(name,key,variable,val,options)
@@ -211,9 +211,10 @@
                          (COND
                           ((EQUAL |heading| |lastHeading|)
                            (|htSay| "\\tab{8}"))
-                          (#1# (|htSay| |heading| "\\tab{8}")
+                          (#1# (|htSayList| (LIST |heading| "\\tab{8}"))
                            (SETQ |lastHeading| |heading|)))
-                         (|htSay| "{\\em " |name| '|}\\tab{22}| |message|)
+                         (|htSayList|
+                          (LIST "{\\em " |name| '|}\\tab{22}| |message|))
                          (|htSay| "\\tab{80}")
                          (COND
                           ((EQ |key| 'FUNCTION)
@@ -252,8 +253,9 @@
                                        (SETQ |var| (CADDR |option|))
                                        (SETQ |valuesOrFunction|
                                                (CADDDR |option|))
-                                       (|htSay| "\\newline\\tab{22}" |msg|
-                                        "\\tab{80}")
+                                       (|htSayList|
+                                        (LIST "\\newline\\tab{22}" |msg|
+                                              "\\tab{80}"))
                                        (|htSystemVariables,functionTail| |name|
                                         |class| |var| |valuesOrFunction|))))))
                                   (SETQ |bfVar#3| (CDR |bfVar#3|))))
@@ -427,7 +429,9 @@
 ;   htSay('"\beginscroll\beginmenu")
 ;   for line in lines repeat
 ;     tick := charPosition($tick,line,1)
-;     htSay('"\item{\em \menuitemstyle{}}\tab{0}{\em ",escapeString SUBSTRING(line,0,tick),'"} ",SUBSTRING(line,tick + 1,nil))
+;     htSayList(['"\item{\em \menuitemstyle{}}\tab{0}{\em ",
+;                escapeString SUBSTRING(line,0,tick),'"} ",
+;                SUBSTRING(line,tick + 1,nil)])
 ;   htSay '"\endmenu "
 ;   htSay '"\endscroll\newline "
 ;   htMakePage [['bcLinks,['"Search",'"",'htGlossSearch,nil]]]
@@ -494,9 +498,10 @@
                       (#1#
                        (PROGN
                         (SETQ |tick| (|charPosition| |$tick| |line| 1))
-                        (|htSay| "\\item{\\em \\menuitemstyle{}}\\tab{0}{\\em "
-                         (|escapeString| (SUBSTRING |line| 0 |tick|)) "} "
-                         (SUBSTRING |line| (+ |tick| 1) NIL)))))
+                        (|htSayList|
+                         (LIST "\\item{\\em \\menuitemstyle{}}\\tab{0}{\\em "
+                               (|escapeString| (SUBSTRING |line| 0 |tick|))
+                               "} " (SUBSTRING |line| (+ |tick| 1) NIL))))))
                      (SETQ |bfVar#7| (CDR |bfVar#7|))))
                   |lines| NIL)
                  (|htSay| "\\endmenu ")
@@ -613,14 +618,16 @@
 ;     htShowPage()
 ;   htInitPage(['"Greek letters matching search string {\em ",ss,'"}"],nil)
 ;   if nonmatches
-;     then htSay('"The greek letters that {\em match} your search string {\em ",ss,'"}:")
+;     then htSayList([
+;        '"The greek letters that {\em match} your search string {\em ",
+;        ss, '"}:"])
 ;     else htSay('"Your search string {\em ",ss,"} matches all of the greek letters:")
 ;   htSay('"{\em \table{")
-;   for x in matches repeat htSay('"{",x,'"}")
+;   for x in matches repeat htSayList(['"{", x, '"}"])
 ;   htSay('"}}\vspace{1}")
 ;   if nonmatches then
 ;     htSay('"The greek letters that {\em do not match} your search string:{\em \table{")
-;     for x in nonmatches repeat htSay('"{",x,'"}")
+;     for x in nonmatches repeat htSayList(['"{", x, '"}"])
 ;     htSay('"}}")
 ;   htShowPage()
  
@@ -676,9 +683,10 @@
                   NIL)
                  (COND
                   (|nonmatches|
-                   (|htSay|
-                    "The greek letters that {\\em match} your search string {\\em "
-                    |ss| "}:"))
+                   (|htSayList|
+                    (LIST
+                     "The greek letters that {\\em match} your search string {\\em "
+                     |ss| "}:")))
                   (#1#
                    (|htSay| "Your search string {\\em " |ss|
                     '|} matches all of the greek letters:|)))
@@ -689,7 +697,7 @@
                       ((OR (ATOM |bfVar#13|)
                            (PROGN (SETQ |x| (CAR |bfVar#13|)) NIL))
                        (RETURN NIL))
-                      (#1# (|htSay| "{" |x| "}")))
+                      (#1# (|htSayList| (LIST "{" |x| "}"))))
                      (SETQ |bfVar#13| (CDR |bfVar#13|))))
                   |matches| NIL)
                  (|htSay| "}}\\vspace{1}")
@@ -703,7 +711,7 @@
                         ((OR (ATOM |bfVar#14|)
                              (PROGN (SETQ |x| (CAR |bfVar#14|)) NIL))
                          (RETURN NIL))
-                        (#1# (|htSay| "{" |x| "}")))
+                        (#1# (|htSayList| (LIST "{" |x| "}"))))
                        (SETQ |bfVar#14| (CDR |bfVar#14|))))
                     |nonmatches| NIL)
                    (|htSay| "}}")))
@@ -731,14 +739,16 @@
 ;     htShowPage()
 ;   htInitPage(['"Lines matching search string {\em ",s,'"}"],nil)
 ;   if nonmatches
-;     then htSay('"The lines that {\em match} your search string {\em ",s,'"}:")
+;     then htSayList([
+;            '"The lines that {\em match} your search string {\em ",
+;            s, '"}:"])
 ;     else htSay('"Your search string {\em ",s,"} matches both lines:")
 ;   htSay('"{\em \table{")
-;   for x in matches repeat htSay('"{",x,'"}")
+;   for x in matches repeat htSayList(['"{", x, '"}"])
 ;   htSay('"}}\vspace{1}")
 ;   if nonmatches then
 ;     htSay('"The line that {\em does not match} your search string:{\em \table{")
-;     for x in nonmatches repeat htSay('"{",x,'"}")
+;     for x in nonmatches repeat htSayList(['"{", x, '"}"])
 ;     htSay('"}}")
 ;   htShowPage()
  
@@ -792,9 +802,10 @@
                   (LIST "Lines matching search string {\\em " |s| "}") NIL)
                  (COND
                   (|nonmatches|
-                   (|htSay|
-                    "The lines that {\\em match} your search string {\\em " |s|
-                    "}:"))
+                   (|htSayList|
+                    (LIST
+                     "The lines that {\\em match} your search string {\\em "
+                     |s| "}:")))
                   (#1#
                    (|htSay| "Your search string {\\em " |s|
                     '|} matches both lines:|)))
@@ -805,7 +816,7 @@
                       ((OR (ATOM |bfVar#16|)
                            (PROGN (SETQ |x| (CAR |bfVar#16|)) NIL))
                        (RETURN NIL))
-                      (#1# (|htSay| "{" |x| "}")))
+                      (#1# (|htSayList| (LIST "{" |x| "}"))))
                      (SETQ |bfVar#16| (CDR |bfVar#16|))))
                   |matches| NIL)
                  (|htSay| "}}\\vspace{1}")
@@ -819,7 +830,7 @@
                         ((OR (ATOM |bfVar#17|)
                              (PROGN (SETQ |x| (CAR |bfVar#17|)) NIL))
                          (RETURN NIL))
-                        (#1# (|htSay| "{" |x| "}")))
+                        (#1# (|htSayList| (LIST "{" |x| "}"))))
                        (SETQ |bfVar#17| (CDR |bfVar#17|))))
                     |nonmatches| NIL)
                    (|htSay| "}}")))
