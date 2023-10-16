@@ -228,8 +228,7 @@
 12566`The real number system category is intended as a model for the real numbers. The real numbers form an ordered normed field. Note that we have purposely not included \spadtype{DifferentialRing} or the elementary functions (see \spadtype{TranscendentalFunctionCategory}) in the definition.
 12612`\spadtype{RealRootCharacterizationCategory} provides common access functions for all real root codings.
 12762`\spadtype{RectangularMatrixCategory} is a category of matrices of fixed dimensions. The dimensions of the matrix will be parameters of the domain. Domains in this category will be \spad{R}-modules and will be non-mutable.
-12951`A recursive aggregate over a type \spad{S} is a model for a a directed graph containing values of type \spad{S}. Recursively,{} a recursive aggregate is either empty or a {\em node} consisting of a \spadfun{value} from \spad{S} and 0 or more \spadfun{children} which are recursive aggregates. A node with no children is called a \spadfun{leaf} node. A recursive aggregate may be cyclic for which some operations as noted may go into an infinite loop
-12951`--.
+12951`A recursive aggregate over a type \spad{S} is a model for a a directed graph containing values of type \spad{S}. Recursively,{} a recursive aggregate is either empty or a {\em node} consisting of a \spadfun{value} from \spad{S} and 0 or more \spadfun{children} which are also nodes. A node with no children is called a \spadfun{leaf} node. A recursive aggregate may be cyclic for which some operations as noted may go into an infinite loop.
 13008`A category for general multi-variate polynomials with coefficients in a ring,{} variables in an ordered set,{} and exponents from an ordered abelian monoid,{} with a \spadfun{sup} operation. When not constant,{} such a polynomial is viewed as a univariate polynomial in its main variable \spad{w}. \spad{r}. \spad{t}. to the total ordering on the elements in the ordered set,{} so that some operatio
 13008`--ns usually defined for univariate polynomials make sense here.
 13115`The category of regular triangular sets,{} introduced under the name regular chains in [1] (and other papers). In [3] it is proved that regular triangular sets and towers of simple extensions of a field are equivalent notions. In the following definitions,{} all polynomials and ideals are taken from the polynomial ring \spad{k[x1,{} ...,{} xn]} whe
@@ -279,8 +278,8 @@
 16044`--be obtained by calling the function 'minColIndex'. The index of the first element of a 'Row' is the same as the index of the first column in an array and vice versa.
 16178`The class of all magmas where \spad{leftRecip} and \spad{rightRecip} are the same as \spad{recip}.
 16224`The fundamental Type.
-16259`A unary-recursive aggregate is an aggregate where nodes may have either 0 or 1 children. This aggregate models,{} though not precisely,{} a linked list possibly with a single cycle. A node with one children models a non-empty list,{} with the \spadfun{value} of the list designating the head,{} or \spadfun{first},{} of the list,{} and the child designating the tail,{} or \spadfun{rest},{} of the list. A node with no child then designates the
-16259`-- empty list. Since these aggregates are recursive aggregates,{} they may be cyclic.
+16259`A unary-recursive aggregate is an aggregate where nodes may have either 0 or 1 children. This aggregate models,{} though not precisely,{} a linked list possibly with a single cycle. A node with one children models a non-empty list,{} with the \spadfun{value} of the list designating the head,{} or \spadfun{first},{} of the list,{} and the child designating the tail,{} or \spadfun{rest},{} of the list. Since these aggregates are recursive agg
+16259`--regates,{} they may be cyclic.
 16321`A constructive unique factorization domain,{} \spadignore{i.e.} where we can constructively factor members into a product of a finite number of irreducible elements.
 16376`The class of all monoids (multiplicative semigroups with a 1) such that the operation \spadfun{recip} can only return "failed" if its argument is not a unit.
 16420`\spadtype{UnivariateLaurentSeriesCategory} is the category of Laurent series in one variable.
@@ -1685,7 +1684,7 @@
 156681`\spad{child(x,{} n)} \undocumented
 156856`\spad{child?(u,{} v)} tests if node \spad{u} is a child of node \spad{v}.
 156932`\spad{children(x)} \undocumented
-157164`\spad{children(u)} returns a list of the children of aggregate \spad{u}.
+157164`\spad{children(u)} returns a list of the children of aggregate \spad{u}. Error: if \spad{u} is empty.
 157224`\spad{chineseRemainder(llv,{} lm)} returns a list of values,{} each of which corresponds to the Chinese remainder of the associated element of \spad{llv} and \spad{lm}. This is more efficient than applying chineseRemainder several times.
 157302`\spad{chineseRemainder(lv,{} lm)} returns a value \spad{v} such that,{} if \spad{x} is \spad{lv.i} modulo \spad{lm.i} for all \spad{i},{} then \spad{x} is \spad{v} modulo \spad{lm(1)*lm(2)*...*lm(n)}.
 157368`\spad{chineseRemainder(lu,{} lr,{} n)} \undocumented
@@ -9413,8 +9412,8 @@
 1021904`The real number system category is intended as a model for the real numbers. The real numbers form an ordered normed field. Note that we have purposely not included \spadtype{DifferentialRing} or the elementary functions (see \spadtype{TranscendentalFunctionCategory}) in the definition.
 1021968`\spadtype{RealRootCharacterizationCategory} provides common access functions for all real root codings.
 1022178`\spadtype{RectangularMatrixCategory} is a category of matrices of fixed dimensions. The dimensions of the matrix will be parameters of the domain. Domains in this category will be \spad{R}-modules and will be non-mutable.
-1022417`A recursive aggregate over a type \spad{S} is a model for a a directed graph containing values of type \spad{S}. Recursively,{} a recursive aggregate is either empty or a {\em node} consisting of a \spadfun{value} from \spad{S} and 0 or more \spadfun{children} which are recursive aggregates. A node with no children is called a \spadfun{leaf} node. A recursive aggregate may be cyclic for which some operations as noted may g
-1022417`--o into an infinite loop.
+1022417`A recursive aggregate over a type \spad{S} is a model for a a directed graph containing values of type \spad{S}. Recursively,{} a recursive aggregate is either empty or a {\em node} consisting of a \spadfun{value} from \spad{S} and 0 or more \spadfun{children} which are also nodes. A node with no children is called a \spadfun{leaf} node. A recursive aggregate may be cyclic for which some operations as noted may go into an 
+1022417`--infinite loop.
 1022499`A category for general multi-variate polynomials with coefficients in a ring,{} variables in an ordered set,{} and exponents from an ordered abelian monoid,{} with a \spadfun{sup} operation. When not constant,{} such a polynomial is viewed as a univariate polynomial in its main variable \spad{w}. \spad{r}. \spad{t}. to the total ordering on the elements in 
 1022499`--the ordered set,{} so that some operations usually defined for univariate polynomials make sense here.
 1022648`The category of regular triangular sets,{} introduced under the name regular chains in [1] (and other papers). In [3] it is proved that regular triangular sets and towers of simple extensions of a field are equivalent notions. In the following definitions,{} all polynomials and ideals are taken from the polyno
@@ -9440,8 +9439,8 @@
 1024385`Category for the trigonometric functions.
 1024479`\indented{1}{TwoDimensionalArrayCategory is a general array category which} allows different representations and indexing schemes. Rows and columns may be extracted with rows returned as objects of type Row and columns returned as objects of type Col. The index of the 'first' row may be obtained by calling the function 'minR
 1024479`--owIndex'. The index of the 'first' column may be obtained by calling the function 'minColIndex'. The index of the first element of a 'Row' is the same as the index of the first column in an array and vice versa.
-1024661`A unary-recursive aggregate is an aggregate where nodes may have either 0 or 1 children. This aggregate models,{} though not precisely,{} a linked list possibly with a single cycle. A node with one children models a non-empty list,{} with the \spadfun{value} of the list designating the head,{} or \spadfun{first},{} of the list,{} and the child designating the tail,{} or \spadfun{rest},{} of the list. A node with 
-1024661`--no child then designates the empty list. Since these aggregates are recursive aggregates,{} they may be cyclic.
+1024661`A unary-recursive aggregate is an aggregate where nodes may have either 0 or 1 children. This aggregate models,{} though not precisely,{} a linked list possibly with a single cycle. A node with one children models a non-empty list,{} with the \spadfun{value} of the list designating the head,{} or \spadfun{first},{} of the list,{} and the child designating the tail,{} or \spadfun{rest},{} of the list. Since these 
+1024661`--aggregates are recursive aggregates,{} they may be cyclic.
 1024753`A constructive unique factorization domain,{} \spadignore{i.e.} where we can constructively factor members into a product of a finite number of irreducible elements.
 1024835`\spadtype{UnivariateLaurentSeriesCategory} is the category of Laurent series in one variable.
 1024953`This is a category of univariate Laurent series constructed from univariate Taylor series. A Laurent series is represented by a pair \spad{[n,{} f(x)]},{} where \spad{n} is an arbitrary integer and \spad{f(x)} is a Taylor series. This pair represents the Laurent series \spad{x^n * f(x)}.

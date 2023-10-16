@@ -32,16 +32,16 @@
                          (QREFELT $ 26))))) 
 
 (SDEFUN |BRAGG-;children;AL;6| ((|x| A) ($ |List| A))
-        (COND ((SPADCALL |x| (QREFELT $ 15)) NIL)
-              ((SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 15))
-               (COND
-                ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15)) NIL)
+        (COND
+         ((SPADCALL |x| (QREFELT $ 15))
+          (|error| "children: argument is empty"))
+         ((SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 15))
+          (COND ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15)) NIL)
                 (#1='T (LIST (SPADCALL |x| (QREFELT $ 11))))))
-              ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15))
-               (LIST (SPADCALL |x| (QREFELT $ 8))))
-              (#1#
-               (LIST (SPADCALL |x| (QREFELT $ 8))
-                     (SPADCALL |x| (QREFELT $ 11)))))) 
+         ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15))
+          (LIST (SPADCALL |x| (QREFELT $ 8))))
+         (#1#
+          (LIST (SPADCALL |x| (QREFELT $ 8)) (SPADCALL |x| (QREFELT $ 11)))))) 
 
 (SDEFUN |BRAGG-;#;ANni;7| ((|x| A) ($ |NonNegativeInteger|))
         (|BRAGG-;aggCount| |x| 0 $)) 
