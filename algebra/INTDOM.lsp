@@ -11,8 +11,7 @@
 (DEFUN |IntegralDomain;| ()
   (SPROG ((#1=#:G104 NIL))
          (PROG1
-             (LETT #1#
-                   (|Join| (|CommutativeRing|) (|Algebra| '$) (|EntireRing|))
+             (LETT #1# (|Join| (|CommutativeRing|) (|EntireRing|))
                    |IntegralDomain|)
            (SETELT #1# 0 '(|IntegralDomain|))))) 
 

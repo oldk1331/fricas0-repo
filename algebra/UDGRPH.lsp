@@ -2054,10 +2054,10 @@
               |addArrow!| 736 = 767 + 773 * 779)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
-                 (CONS '#(|FiniteGraph&| |SetCategory&| NIL |BasicType&|)
+                 (CONS '#(|FiniteGraph&| |SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|FiniteGraph| 6) (|SetCategory|) (|CoercibleTo| 86)
-                           (|BasicType|))
+                        '#((|FiniteGraph| 6) (|SetCategory|) (|BasicType|)
+                           (|CoercibleTo| 86))
                         (|makeByteWordVec2| 124
                                             '(2 0 18 18 18 19 2 0 18 18 18 20 2
                                               13 0 0 12 21 2 16 0 0 15 22 1 26
@@ -2113,9 +2113,9 @@
                                               77 2 0 34 0 18 106 2 0 34 0 18 1
                                               2 0 34 0 18 1 2 0 34 0 18 1 3 0
                                               44 0 18 18 71 1 0 118 0 1 2 0 0 0
-                                              12 42 2 0 0 0 6 41 5 0 0 0 44 18
-                                              18 34 46 4 0 0 0 44 6 6 1 2 0 0 0
-                                              15 43 4 0 0 0 44 18 18 45 2 0 8 0
+                                              6 41 2 0 0 0 12 42 4 0 0 0 44 6 6
+                                              1 4 0 0 0 44 18 18 45 5 0 0 0 44
+                                              18 18 34 46 2 0 0 0 15 43 2 0 8 0
                                               0 1 2 0 0 0 0 59 2 0 74 0 0
                                               76)))))
            '|lookupComplete|)) 
