@@ -41,7 +41,7 @@
                                     (QREFELT $ 18))
                           |le|)
                          (- |n| 1) $))))
-                (#1# (CONS (SPADCALL "..." (QREFELT $ 20)) |le|))))
+                (#1# (CONS (SPADCALL '|...| (QREFELT $ 20)) |le|))))
               ((SPADCALL |x| (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 21))
                (CONS
                 (SPADCALL
@@ -53,7 +53,7 @@
                 (CONS (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 18))
                       |le|)
                 (- |n| 1) $))
-              (#1# (CONS (SPADCALL "..." (QREFELT $ 20)) |le|)))) 
+              (#1# (CONS (SPADCALL '|...| (QREFELT $ 20)) |le|)))) 
 
 (SDEFUN |STREAM;showElements;Nni$Of;10|
         ((|count| |NonNegativeInteger|) (|x| $) ($ |OutputForm|))
@@ -135,7 +135,7 @@
                                     (QREFELT $ 18))
                           |le|)
                          (- |n| 1) $))))
-                (#1# (CONS (SPADCALL "..." (QREFELT $ 20)) |le|))))
+                (#1# (CONS (SPADCALL '|...| (QREFELT $ 20)) |le|))))
               (#1#
                (|STREAM;listm| (SPADCALL |x| (QREFELT $ 15))
                 (CONS (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 18))
@@ -1098,7 +1098,7 @@
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Stream| DV$1))
-    (LETT $ (GETREFV 133))
+    (LETT $ (GETREFV 134))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -1180,7 +1180,7 @@
               '|NonNullStream| '|UninitializedStream| '|Rep| |STREAM;frst;$S;4|
               (|Boolean|) |STREAM;explicitlyEmpty?;$B;1| |STREAM;lazy?;$B;2|
               |STREAM;rst;2$;5| |STREAM;empty?;$B;38| (|OutputForm|)
-              (0 . |coerce|) (|String|) (5 . |message|) (10 . |eq?|)
+              (0 . |coerce|) (|Symbol|) (5 . |coerce|) (10 . |eq?|)
               (16 . |overbar|)
               (|Record| (|:| |cycle?| 12) (|:| |prefix| 24) (|:| |period| 24))
               (|NonNegativeInteger|) |STREAM;findCycle;Nni$R;57| (|List| $)
@@ -1220,7 +1220,7 @@
               |STREAM;setrest!;$I2$;62| (|Mapping| 6) |STREAM;stream;M$;63|
               |STREAM;stream;MS$;65| |STREAM;filterWhile;M2$;68|
               |STREAM;filterUntil;M2$;70| (|Mapping| 12 6 6) (|Equation| 6)
-              (|List| 125) (|HashState|) (|SingleInteger|) '"value"
+              (|List| 125) (|HashState|) (|String|) (|SingleInteger|) '"value"
               (|InputForm|) (|List| 32) (|Union| 6 '"failed"))
            '#(~= 222 |value| 228 |trim| 233 |third| 239 |tail| 244 |swap!| 249
               |stream| 256 |split!| 267 |sorted?| 273 |sort!| 284 |sort| 295
@@ -1266,9 +1266,9 @@
                  (|EltableAggregate| 32 6) (|Aggregate|) (|Evalable| 6)
                  (|SetCategory|) (|shallowlyMutable|) (|Eltable| 83 $$)
                  (|Eltable| 32 6) (|Type|) (|InnerEvalable| 6 6) (|BasicType|)
-                 (|CoercibleTo| 17) (|ConvertibleTo| 130))
-              (|makeByteWordVec2| 132
-                                  '(1 6 17 0 18 1 17 0 19 20 2 0 12 0 0 21 1 17
+                 (|CoercibleTo| 17) (|ConvertibleTo| 131))
+              (|makeByteWordVec2| 133
+                                  '(1 6 17 0 18 1 19 17 0 20 2 0 12 0 0 21 1 17
                                     0 0 22 1 17 0 26 27 1 0 0 0 29 1 17 0 26 30
                                     2 0 17 24 0 31 2 0 0 0 32 33 1 35 34 2 36 2
                                     35 2 2 2 37 1 35 24 2 38 1 0 17 0 39 0 0 12
@@ -1290,7 +1290,7 @@
                                     6 1 2 17 0 0 0 97 3 0 0 0 32 0 118 2 17 6 0
                                     6 106 2 17 6 0 6 101 3 17 6 0 32 6 54 3 17
                                     6 0 83 6 88 3 17 6 0 107 6 108 3 17 0 0 104
-                                    0 105 3 17 6 0 102 6 103 3 17 6 0 129 6 1 2
+                                    0 105 3 17 6 0 102 6 103 3 17 6 0 130 6 1 2
                                     17 0 0 26 1 2 0 0 55 0 57 1 0 6 0 1 0 0 0 1
                                     1 0 0 0 15 2 15 0 0 6 1 1 19 0 0 1 1 10 0 0
                                     1 2 0 0 0 24 87 1 0 0 0 29 2 1 12 51 0 115
@@ -1306,11 +1306,11 @@
                                     2 11 0 0 0 1 1 11 6 0 1 2 10 6 124 0 1 2 17
                                     0 59 0 72 3 0 0 63 0 0 66 2 0 0 59 0 62 2 0
                                     12 0 24 1 2 15 0 0 6 1 1 0 51 0 1 1 0 12 0
-                                    1 1 0 0 0 89 1 0 12 0 14 1 13 19 0 1 2 0 0
+                                    1 1 0 0 0 89 1 0 12 0 14 1 13 128 0 1 2 0 0
                                     0 24 1 1 0 6 0 1 3 0 0 6 0 32 1 3 0 0 0 0
-                                    32 1 1 0 131 0 1 2 0 12 32 0 73 2 13 127
-                                    127 0 1 1 13 128 0 1 1 0 6 0 11 2 0 0 0 24
-                                    48 1 0 6 0 28 2 0 23 24 0 25 2 0 132 55 0 1
+                                    32 1 1 0 132 0 1 2 0 12 32 0 73 2 13 127
+                                    127 0 1 1 13 129 0 1 1 0 6 0 11 2 0 0 0 24
+                                    48 1 0 6 0 28 2 0 23 24 0 25 2 0 133 55 0 1
                                     2 0 0 55 0 122 2 0 0 55 0 123 2 17 0 0 6 67
                                     2 0 0 0 32 33 1 0 12 0 71 1 0 12 0 13 1 0
                                     12 0 116 2 10 12 55 0 1 3 2 0 0 6 6 1 3 2 0
@@ -1318,11 +1318,11 @@
                                     12 0 0 21 2 15 12 6 0 1 1 0 51 0 1 1 0 12 0
                                     16 0 0 0 42 3 0 6 0 32 6 1 2 0 6 0 32 53 2
                                     0 0 0 83 1 2 0 6 0 107 1 2 0 0 0 104 1 2 0
-                                    6 0 102 1 2 0 6 0 129 1 2 0 32 0 0 47 2 0 0
+                                    6 0 102 1 2 0 6 0 130 1 2 0 32 0 0 47 2 0 0
                                     0 83 1 2 0 0 0 32 1 1 0 0 45 46 1 0 12 0 68
                                     1 0 0 0 69 1 17 0 0 98 1 0 24 0 1 1 0 0 0 1
                                     2 15 24 6 0 1 2 10 24 55 0 1 3 19 0 0 0 32
-                                    1 1 0 0 0 43 1 3 130 0 1 1 0 0 51 52 2 0 0
+                                    1 1 0 0 0 43 1 3 131 0 1 1 0 0 51 52 2 0 0
                                     6 0 96 1 17 0 26 1 2 17 0 0 6 100 2 17 0 0
                                     0 99 2 0 0 0 6 76 1 0 0 26 82 2 0 0 6 0 44
                                     2 0 0 0 0 77 1 0 0 0 49 1 12 17 0 41 1 0 0
