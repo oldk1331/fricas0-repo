@@ -5678,6 +5678,7 @@
 ;   $env:local := [[NIL]]
 ;   $eval:local := true           --generate code-- don't just type analyze
 ;   $genValue:local := true       --evaluate all generated code
+;   $resolve_level : local := 15
 ;   null u => nil
 ;   u = $quadSymbol =>
 ;      sayBrightly ['"   mode denotes", :bright '"any", "type"]
@@ -5701,14 +5702,15 @@
 ;   sayKeyedMsg("S2IZ0041",[unitForm])
  
 (DEFUN |reportOperations| (|oldArg| |u|)
-  (PROG (|$genValue| |$eval| |$env| |tree| |unitForm'| |unitForm| |v|
-         |ISTMP#1|)
-    (DECLARE (SPECIAL |$genValue| |$eval| |$env|))
+  (PROG (|$resolve_level| |$genValue| |$eval| |$env| |tree| |unitForm'|
+         |unitForm| |v| |ISTMP#1|)
+    (DECLARE (SPECIAL |$resolve_level| |$genValue| |$eval| |$env|))
     (RETURN
      (PROGN
       (SETQ |$env| (LIST (LIST NIL)))
       (SETQ |$eval| T)
       (SETQ |$genValue| T)
+      (SETQ |$resolve_level| 15)
       (COND ((NULL |u|) NIL)
             ((EQUAL |u| |$quadSymbol|)
              (|sayBrightly|
