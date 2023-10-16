@@ -681,7 +681,9 @@
           (|alpha| (|gf|)) (|m| (|SparseUnivariatePolynomial| |gf|))
           (|gf|
            (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| $)
-                   (|ConvertibleTo| (|Integer|))))
+                   (|ConvertibleTo| (|Integer|))
+                   (CATEGORY |domain| (SIGNATURE |sqrt| ($ $))
+                    (SIGNATURE |quadraticNonResidue| ($)))))
           (|mm| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|pp| (UPUP)) (|p| #2=(|PositiveInteger|))
           (|pr| (|Record| (|:| |prime| #2#) (|:| |poly| #1#)))
@@ -1071,7 +1073,9 @@
         (SPROG
          ((|gf|
            (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| $)
-                   (|ConvertibleTo| (|Integer|)))))
+                   (|ConvertibleTo| (|Integer|))
+                   (CATEGORY |domain| (SIGNATURE |sqrt| ($ $))
+                    (SIGNATURE |quadraticNonResidue| ($))))))
          (SEQ (LETT |gf| (|InnerPrimeField| |p|))
               (EXIT
                (SPADCALL |d| |pp| (CONS #'|PFO;rat!0| (VECTOR |gf| $))
@@ -1624,7 +1628,9 @@
           (#2=#:G697 NIL) (|f| NIL) (#3=#:G696 NIL)
           (|gf|
            (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| $)
-                   (|ConvertibleTo| (|Integer|)))))
+                   (|ConvertibleTo| (|Integer|))
+                   (CATEGORY |domain| (SIGNATURE |sqrt| ($ $))
+                    (SIGNATURE |quadraticNonResidue| ($))))))
          (SEQ
           (COND ((ZEROP (REM (QVELT |rec| 1) |p|)) (CONS 1 "failed"))
                 (#4='T

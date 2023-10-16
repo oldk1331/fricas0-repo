@@ -63,7 +63,9 @@
         (SPROG
          ((|gf|
            (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| $)
-                   (|ConvertibleTo| (|Integer|)))))
+                   (|ConvertibleTo| (|Integer|))
+                   (CATEGORY |domain| (SIGNATURE |sqrt| ($ $))
+                    (SIGNATURE |quadraticNonResidue| ($))))))
          (SEQ (LETT |gf| (|InnerPrimeField| |p|))
               (EXIT
                (SPADCALL |d| |pp| (CONS #'|PFOQ;rat!0| (VECTOR |gf| $))
