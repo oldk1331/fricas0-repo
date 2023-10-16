@@ -10912,7 +10912,7 @@ pGaloisGroupFactorizer`1`n`(UnivariatePolynomialCategory(Integer))->etc`(UP)`GAL
 pGaloisGroupPolynomialUtilities`2`n`(R:Ring,UP:UnivariatePolynomialCategory(R))->etc`(R,UP)`GALPOLYU`1323042
 pGaloisGroupUtilities`1`n`(Ring)->etc`(R)`GALUTIL`1323248
 pGaussianFactorizationPackage`0`x`()->etc``GAUSSFAC`1323322
-pGcdBasis`1`n`(Join(GcdDomain,etc))->etc`(R)`GCDBAS`1323392
+pGcdBasis`1`n`(GcdDomain)->etc`(R)`GCDBAS`1323392
 pGeneralHenselPackage`2`n`(RP:EuclideanDomain,TP:UnivariatePolynomialCategory(RP))->etc`(RP,TP)`GHENSEL`1323537
 pGeneralizedMultivariateFactorize`5`n`(OV:Join(OrderedSet,etc),E:OrderedAbelianMonoidSup,IntegralDomain,R:IntegralDomain,P:PolynomialCategory(R,E,OV))->etc`(OV,E,S,R,P)`GENMFACT`1323675
 pGeneralPolynomialGcdPackage`4`n`(E:OrderedAbelianMonoidSup,OV:OrderedSet,R:PolynomialFactorizationExplicit,P:PolynomialCategory(R,E,OV))->etc`(E,OV,R,P)`GENPGCD`1323838

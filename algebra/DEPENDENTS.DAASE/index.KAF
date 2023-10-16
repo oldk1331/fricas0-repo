@@ -1,4 +1,4 @@
-119282              (|AbelianGroup&| |CoChainComplex| |DeltaComplex|
+119271              (|AbelianGroup&| |CoChainComplex| |DeltaComplex|
                                      |DeltaComplexFactory|
                                      |FiniteCubicalComplex|
                                      |FiniteSimplicialComplex| |FourierSeries|
@@ -1864,7 +1864,7 @@
                           |XRecursivePolynomial|)
 (|Float|)
 (|Float|)
-(|GcdBasis| |IntegerLocalizedAtPrime|)
+(|IntegerLocalizedAtPrime|)
 (|Integer| |RomanNumeral| |SingleInteger|)
 (|EqTable| |FiniteLinearAggregateFunctions2| |GeneralPolynomialSet| |HashTable|
            |InnerCommonDenominator| |InnerTable| |KeyedAccessFile|
@@ -1873,8 +1873,8 @@
 (|FiniteLinearAggregateSort| |GeneralPolynomialSet| |LinearSystemMatrixPackage|
                              |Multiset| |SortPackage| |SplittingTree| |Stream|
                              |Tree| |XHashTable|)
-(("shallowlyMutable" 0 119073) ("finiteAggregate" 0 118789)
- ("canonicalsClosed" 0 118746) ("canonicalUnitNormal" 0 118707)
+(("shallowlyMutable" 0 119062) ("finiteAggregate" 0 118778)
+ ("canonicalsClosed" 0 118735) ("canonicalUnitNormal" 0 118707)
  ("arbitraryPrecision" 0 118697) ("arbitraryExponent" 0 118687)
  ("XPolynomialsCat" 0 118558) ("XAlgebra" 0 118538) ("VectorSpace" 0 118521)
  ("VectorCategory" 0 118401) ("Vector" 0 117973)
