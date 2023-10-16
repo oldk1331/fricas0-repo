@@ -154,34 +154,41 @@
         (EXPT 2 (SPADCALL (QREFELT $ 43)))) 
 
 (SDEFUN |FSAGG-;index;PiA;17| ((|i| |PositiveInteger|) ($ A))
-        (SPROG ((#1=#:G165 NIL) (#2=#:G169 NIL) (|j| NIL) (#3=#:G168 NIL))
-               (SEQ
-                (SPADCALL
-                 (PROGN
-                  (LETT #3# NIL)
-                  (SEQ (LETT |j| 1) (LETT #2# (SPADCALL (QREFELT $ 43))) G190
-                       (COND ((|greater_SI| |j| #2#) (GO G191)))
-                       (SEQ
-                        (EXIT
-                         (COND
-                          ((SPADCALL (- |i| 1) (- |j| 1) (QREFELT $ 52))
-                           (LETT #3#
-                                 (CONS
-                                  (SPADCALL
-                                   (PROG1 (LETT #1# |j|)
-                                     (|check_subtype2| (> #1# 0)
-                                                       '(|PositiveInteger|)
-                                                       '(|NonNegativeInteger|)
-                                                       #1#))
-                                   (QREFELT $ 45))
-                                  #3#))))))
-                       (LETT |j| (|inc_SI| |j|)) (GO G190) G191
-                       (EXIT (NREVERSE #3#))))
-                 (QREFELT $ 46))))) 
+        (SPROG
+         ((#1=#:G165 NIL) (#2=#:G170 NIL) (|j| NIL) (#3=#:G169 NIL)
+          (|l| (|Integer|)))
+         (SEQ (LETT |l| (INTEGER-LENGTH (- |i| 1)))
+              (EXIT
+               (COND
+                ((> |l| (SPADCALL (QREFELT $ 43)))
+                 (|error| "index out of bound"))
+                ('T
+                 (SPADCALL
+                  (PROGN
+                   (LETT #3# NIL)
+                   (SEQ (LETT |j| 1) (LETT #2# |l|) G190
+                        (COND ((|greater_SI| |j| #2#) (GO G191)))
+                        (SEQ
+                         (EXIT
+                          (COND
+                           ((SPADCALL (- |i| 1) (- |j| 1) (QREFELT $ 52))
+                            (LETT #3#
+                                  (CONS
+                                   (SPADCALL
+                                    (PROG1 (LETT #1# |j|)
+                                      (|check_subtype2| (> #1# 0)
+                                                        '(|PositiveInteger|)
+                                                        '(|NonNegativeInteger|)
+                                                        #1#))
+                                    (QREFELT $ 45))
+                                   #3#))))))
+                        (LETT |j| (|inc_SI| |j|)) (GO G190) G191
+                        (EXIT (NREVERSE #3#))))
+                  (QREFELT $ 46)))))))) 
 
 (SDEFUN |FSAGG-;lookup;APi;18| ((|s| A) ($ |PositiveInteger|))
         (SPROG
-         ((|n| (|PositiveInteger|)) (#1=#:G171 NIL) (#2=#:G175 NIL) (|x| NIL))
+         ((|n| (|PositiveInteger|)) (#1=#:G172 NIL) (#2=#:G176 NIL) (|x| NIL))
          (SEQ (LETT |n| 1)
               (SEQ (LETT |x| NIL) (LETT #2# (SPADCALL |s| (QREFELT $ 28))) G190
                    (COND
