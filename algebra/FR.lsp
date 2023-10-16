@@ -400,27 +400,32 @@
 (SDEFUN |FR;^;$Nni$;32| ((|u| $) (|n| |NonNegativeInteger|) ($ $))
         (SPROG ((#1=#:G332 NIL) (|x| NIL) (#2=#:G331 NIL))
                (SEQ
-                (|FR;mkFF|
-                 (SPADCALL (SPADCALL |u| (QREFELT $ 12)) |n| (QREFELT $ 100))
-                 (PROGN
-                  (LETT #2# NIL . #3=(|FR;^;$Nni$;32|))
-                  (SEQ (LETT |x| NIL . #3#)
-                       (LETT #1# (SPADCALL |u| (QREFELT $ 11)) . #3#) G190
-                       (COND
-                        ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
-                         (GO G191)))
-                       (SEQ
-                        (EXIT
-                         (LETT #2#
-                               (CONS
-                                (VECTOR (QVELT |x| 0) (QVELT |x| 1)
-                                        (SPADCALL |n| (QVELT |x| 2)
-                                                  (QREFELT $ 101)))
-                                #2#)
-                               . #3#)))
-                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                       (EXIT (NREVERSE #2#))))
-                 $)))) 
+                (COND ((EQL |n| 0) (|spadConstant| $ 41)) ((EQL |n| 1) |u|)
+                      ('T
+                       (|FR;mkFF|
+                        (SPADCALL (SPADCALL |u| (QREFELT $ 12)) |n|
+                                  (QREFELT $ 100))
+                        (PROGN
+                         (LETT #2# NIL . #3=(|FR;^;$Nni$;32|))
+                         (SEQ (LETT |x| NIL . #3#)
+                              (LETT #1# (SPADCALL |u| (QREFELT $ 11)) . #3#)
+                              G190
+                              (COND
+                               ((OR (ATOM #1#)
+                                    (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
+                                (GO G191)))
+                              (SEQ
+                               (EXIT
+                                (LETT #2#
+                                      (CONS
+                                       (VECTOR (QVELT |x| 0) (QVELT |x| 1)
+                                               (SPADCALL |n| (QVELT |x| 2)
+                                                         (QREFELT $ 101)))
+                                       #2#)
+                                      . #3#)))
+                              (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                              (EXIT (NREVERSE #2#))))
+                        $)))))) 
 
 (SDEFUN |FR;SimplifyFactorization|
         ((|x| |List|
