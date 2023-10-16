@@ -83,10 +83,10 @@
 ;       htMakePage '((domainConditions (isDomain INT (Integer))))
 ;       htMakePage  [['bcStrings,[5,STRINGIMAGE val,name,'INT]]]
 ;     class = 'STRING =>
-;       htSay('"{\em ",val,'"}\space{1}")
+;       htSayList ['"{\em ", val, '"}\space{1}"]
 ;     for x in options repeat
 ;       val = x or val = true and x = 'on or null val and x = 'off =>
-;         htSay('"{\em ",x,'"}\space{1}")
+;         htSayList ['"{\em ", x, '"}\space{1}"]
 ;       htMakePage [['bcLispLinks,[x,'" ",'htSetSystemVariable,[variable,x]]]]
 ;   fn(t,al,firstTime) ==
 ;     atom t => al
@@ -277,7 +277,7 @@
         (|htMakePage| '((|domainConditions| (|isDomain| INT (|Integer|)))))
         (|htMakePage|
          (LIST (LIST '|bcStrings| (LIST 5 (STRINGIMAGE |val|) |name| 'INT))))))
-      ((EQ |class| 'STRING) (|htSay| "{\\em " |val| "}\\space{1}"))
+      ((EQ |class| 'STRING) (|htSayList| (LIST "{\\em " |val| "}\\space{1}")))
       (#1='T
        ((LAMBDA (|bfVar#4| |x|)
           (LOOP
@@ -288,7 +288,7 @@
              (COND
               ((OR (EQUAL |val| |x|) (AND (EQUAL |val| T) (EQ |x| '|on|))
                    (AND (NULL |val|) (EQ |x| '|off|)))
-               (|htSay| "{\\em " |x| "}\\space{1}"))
+               (|htSayList| (LIST "{\\em " |x| "}\\space{1}")))
               (#1#
                (|htMakePage|
                 (LIST
