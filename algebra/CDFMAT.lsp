@@ -61,7 +61,7 @@
         ((|rows| . #1=(|NonNegativeInteger|)) (|cols| . #1#)
          (|a| |Complex| (|DoubleFloat|)) ($ $))
         (SPROG
-         ((#2=#:G2677 NIL) (|j| NIL) (#3=#:G2676 NIL) (|i| NIL) (|res| ($)))
+         ((#2=#:G2678 NIL) (|j| NIL) (#3=#:G2677 NIL) (|i| NIL) (|res| ($)))
          (SEQ (LETT |res| (MAKE_CDOUBLE_MATRIX |rows| |cols|))
               (SEQ (LETT |i| 0) (LETT #3# (- |rows| 1)) G190
                    (COND ((|greater_SI| |i| #3#) (GO G191)))
@@ -79,7 +79,7 @@
 
 (DEFUN |ComplexDoubleFloatMatrix| ()
   (SPROG NIL
-         (PROG (#1=#:G2693)
+         (PROG (#1=#:G2694)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ComplexDoubleFloatMatrix|))
@@ -100,7 +100,7 @@
 
 (DEFUN |ComplexDoubleFloatMatrix;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G2690 NIL) (#2=#:G2691 NIL) (#3=#:G2689 NIL)
+   ((|dv$| NIL) ($ NIL) (#1=#:G2691 NIL) (#2=#:G2692 NIL) (#3=#:G2690 NIL)
     (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|ComplexDoubleFloatMatrix|))
