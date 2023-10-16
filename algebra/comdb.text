@@ -5266,7 +5266,7 @@
 570385`\spad{max(a,{} b)} returns a point whose value in each dimension is the maximum. So if a has the largest \spad{x} value and \spad{b} has the largest \spad{y} value then the result will combine these. This is useful for constructing boundary boxes around sets of points.
 570430`\spad{max(s,{} sub)} returns index of the vertex which can be reached from a given subset of the vertices. Gives 0 if no such node exists or if it is not unique,{} if there is a loop for instance.
 570826`\spad{max(x,{}y)} returns the maximum of \spad{x} and \spad{y} relative to \spad{"<"}.
-570867`min(\spad{p},{} \spad{u}) returns maximal element of \spad{u} with respect to total ordering predicate \spad{p}. Error if \spad{u} is empty.
+570867`\spad{max(p,{} u)} returns maximal element of \spad{u} with respect to total ordering predicate \spad{p}. Error if \spad{u} is empty.
 570955`\spad{maxColIndex(m)} returns the index of the 'last' column of the matrix \spad{m}.
 571036`\spad{maxColIndex(m)} returns the index of the 'last' column of the array \spad{m}
 571115`\spad{maxdeg(p)} returns the greatest word occurring in the polynomial \spad{p} with a non-zero coefficient. An error is produced if \spad{p} is zero.
@@ -5371,7 +5371,7 @@
 581183`\spad{min()} returns the minimum floating point number.
 581295`\spad{min()} returns the smallest single integer.
 581334`\spad{min(s)} returns index of the vertex which can reach to all other vertices. Gives 0 if no such node exists or if it is not unique,{} if there is a loop for instance.
-581588`max(\spad{u}) returns minimal element of \spad{u}. Error if \spad{u} is empty.
+581588`\spad{min(u)} returns minimal element of \spad{u}. Error if \spad{u} is empty.
 581684`\spad{min(u)} returns the smallest entry in the multiset aggregate \spad{u}.
 581738`\spad{min(a,{} b)} returns a point whose value in each dimension is the minimum. So if a has the smallest \spad{x} value and \spad{b} has the smallest \spad{y} value then the result will combine these. This is useful for constructing boundary boxes around sets of points.
 581783`\spad{min(s,{} sub)} returns index of the vertex which can reach to a given subset of the vertices. Gives 0 if no such node exists or if it is not unique,{} if there is a loop for instance.
