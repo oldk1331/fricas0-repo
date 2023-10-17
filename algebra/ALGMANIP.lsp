@@ -886,19 +886,26 @@
                   (PROGN
                    (COND
                     ((|HasCategory| |#1| '(|UniqueFactorizationDomain|))
-                     (PROGN
-                      (QSETREFV $ 67
-                                (|GeneralizedMultivariateFactorize|
-                                 (|Kernel| |#2|)
-                                 (|IndexedExponents| (|Kernel| |#2|)) |#1| |#1|
-                                 (|SparseMultivariatePolynomial| |#1|
-                                                                 (|Kernel|
-                                                                  |#2|))))
-                      (QSETREFV $ 99
-                                (CONS
-                                 (|dispatchFunction|
-                                  |ALGMANIP;rootFactor;2F;14|)
-                                 $)))))
+                     (COND
+                      ((|HasCategory| |#1| '(|CharacteristicZero|))
+                       (COND
+                        ((|HasCategory| |#1|
+                                        '(|PolynomialFactorizationExplicit|))
+                         (PROGN
+                          (QSETREFV $ 67
+                                    (|MultivariateFactorize| (|Kernel| |#2|)
+                                                             (|IndexedExponents|
+                                                              (|Kernel| |#2|))
+                                                             |#1|
+                                                             (|SparseMultivariatePolynomial|
+                                                              |#1|
+                                                              (|Kernel|
+                                                               |#2|))))
+                          (QSETREFV $ 99
+                                    (CONS
+                                     (|dispatchFunction|
+                                      |ALGMANIP;rootFactor;2F;14|)
+                                     $)))))))))
                    (COND
                     ((|HasCategory| |#1| '(|RadicalCategory|))
                      (QSETREFV $ 103

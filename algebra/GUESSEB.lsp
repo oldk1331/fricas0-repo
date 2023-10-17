@@ -735,7 +735,7 @@
                         (SPADCALL "Guess: solving..." (QREFELT $ 124))))
                       (SEQ (LETT |f| NIL)
                            (LETT #5#
-                                 (SPADCALL (SPADCALL |res3| (QREFELT $ 140))
+                                 (SPADCALL (SPADCALL |res3| (QREFELT $ 139))
                                            (QREFELT $ 144)))
                            G190
                            (COND
@@ -771,7 +771,7 @@
                                              (SPADCALL
                                               (SPADCALL |evalPoly|
                                                         (QREFELT $ 150))
-                                              (QREFELT $ 140))
+                                              (QREFELT $ 139))
                                              (QREFELT $ 144)))
                                       G190
                                       (COND
@@ -1317,7 +1317,7 @@
                              $))
                       (SEQ (LETT |f| NIL)
                            (LETT #5#
-                                 (SPADCALL (SPADCALL |res3| (QREFELT $ 140))
+                                 (SPADCALL (SPADCALL |res3| (QREFELT $ 139))
                                            (QREFELT $ 144)))
                            G190
                            (COND
@@ -1353,7 +1353,7 @@
                                              (SPADCALL
                                               (SPADCALL |evalPoly|
                                                         (QREFELT $ 150))
-                                              (QREFELT $ 140))
+                                              (QREFELT $ 139))
                                              (QREFELT $ 144)))
                                       G190
                                       (COND
@@ -1897,28 +1897,26 @@
               (|FractionFreeFastGaussian| 51 81) (421 . |interpolate|)
               (|Fraction| $) (428 . |elt|) (434 . -) (440 . |numer|) (|List| 7)
               (|NewtonInterpolation| 7) (445 . |newton|) (450 . |gcd|)
-              (456 . |primitivePart|) (|Factored| 36)
-              (|GeneralizedMultivariateFactorize| (|SingletonAsOrderedSet|) 55
-                                                  6 6 36)
-              (461 . |factor|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 141) (|:| |factor| 36) (|:| |exponent| 55))
-              (|List| 142) (466 . |factorList|) (471 . |coefficient|) (477 . /)
-              (483 . -) (488 . |eval|) (495 . |zero?|) (500 . |univariate|)
-              (505 . |numer|) (510 . |denom|) (515 . /) (521 . |numer|)
-              (526 . |denom|) (531 . /) (|Kernel| 8) (537 . |kernel|)
-              (|Kernel| $) (542 . |eval|) (549 . ^) (555 . |one|)
-              (560 . |safety|) (565 . |indexName|) (570 . |first|)
-              (576 . |One|) (580 . =) (586 . -) (592 . <) (|Mapping| 27 8)
-              (|List| 8) (598 . |select|) |GUESSEB;guessExpRat;LLL;20|
-              (|Mapping| 171 30 115) (604 . |guessExpRat|) (609 . *) (615 . +)
-              (621 . |coerce|) (626 . -) (632 . *) (638 . |One|)
-              (|Mapping| 48 48 48) (|List| 48) (642 . |reduce|)
-              (649 . |factorial|) (654 . |binomial|) (660 . /)
-              (666 . |resultant|) |GUESSEB;guessBinRat;LLL;26| (673 . |One|)
-              (677 . |coerce|) (|Mapping| 51 51 51) (682 . |reduce|)
-              (|Segment| 8) (689 . SEGMENT) (|SegmentBinding| 8)
-              (695 . |equation|) (|SegmentBinding| $) (701 . |product|)
-              (707 . |guessBinRat|))
+              (456 . |primitivePart|) (|Factored| $) (461 . |factor|)
+              (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flag| 140) (|:| |factor| 36) (|:| |exponent| 55))
+              (|List| 141) (|Factored| 36) (466 . |factorList|)
+              (471 . |coefficient|) (477 . /) (483 . -) (488 . |eval|)
+              (495 . |zero?|) (500 . |univariate|) (505 . |numer|)
+              (510 . |denom|) (515 . /) (521 . |numer|) (526 . |denom|)
+              (531 . /) (|Kernel| 8) (537 . |kernel|) (|Kernel| $)
+              (542 . |eval|) (549 . ^) (555 . |one|) (560 . |safety|)
+              (565 . |indexName|) (570 . |first|) (576 . |One|) (580 . =)
+              (586 . -) (592 . <) (|Mapping| 27 8) (|List| 8) (598 . |select|)
+              |GUESSEB;guessExpRat;LLL;20| (|Mapping| 171 30 115)
+              (604 . |guessExpRat|) (609 . *) (615 . +) (621 . |coerce|)
+              (626 . -) (632 . *) (638 . |One|) (|Mapping| 48 48 48)
+              (|List| 48) (642 . |reduce|) (649 . |factorial|)
+              (654 . |binomial|) (660 . /) (666 . |resultant|)
+              |GUESSEB;guessBinRat;LLL;26| (673 . |One|) (677 . |coerce|)
+              (|Mapping| 51 51 51) (682 . |reduce|) (|Segment| 8)
+              (689 . SEGMENT) (|SegmentBinding| 8) (695 . |equation|)
+              (|SegmentBinding| $) (701 . |product|) (707 . |guessBinRat|))
            '#(|guessExpRat| 712 |guessBinRat| 723) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -1984,9 +1982,9 @@
                                               128 2 81 51 129 51 130 2 51 0 0 0
                                               131 1 51 48 0 132 1 134 38 133
                                               135 2 38 0 0 0 136 1 38 0 0 137 1
-                                              139 138 36 140 1 138 143 0 144 2
-                                              36 6 0 55 145 2 6 0 0 0 146 1 6 0
-                                              0 147 3 43 0 0 71 6 148 1 43 27 0
+                                              36 138 0 139 1 143 142 0 144 2 36
+                                              6 0 55 145 2 6 0 0 0 146 1 6 0 0
+                                              147 3 43 0 0 71 6 148 1 43 27 0
                                               149 1 43 36 0 150 1 125 81 0 151
                                               1 125 81 0 152 2 90 0 0 0 153 1
                                               90 66 0 154 1 90 66 0 155 2 61 0
