@@ -14,9 +14,9 @@
 
 (DECLAIM (NOTINLINE |TwoDimensionalArray;|)) 
 
-(DEFUN |TwoDimensionalArray| (#1=#:G2438)
+(DEFUN |TwoDimensionalArray| (#1=#:G2440)
   (SPROG NIL
-         (PROG (#2=#:G2439)
+         (PROG (#2=#:G2441)
            (RETURN
             (COND
              ((LETT #2#
@@ -33,7 +33,7 @@
 
 (DEFUN |TwoDimensionalArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2435 NIL) (#2=#:G2436 NIL) (% NIL) (|dv$| NIL)
+   ((|pv$| NIL) (#1=#:G2437 NIL) (#2=#:G2438 NIL) (% NIL) (|dv$| NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -45,18 +45,20 @@
                     (|buildPredVector| 0 0
                                        (LIST
                                         (|HasCategory| |#1| '(|Comparable|))
+                                        (|HasCategory| |#1| '(|Hashable|))
                                         (|HasCategory| |#1| '(|OrderedSet|))
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|SetCategory|)))
-                                        (OR (|HasCategory| |#1| '(|BasicType|))
-                                            (|HasCategory| |#1|
-                                                           '(|Comparable|))
-                                            #2#)
                                         (OR
                                          (|HasCategory| |#1| '(|Comparable|))
                                          #2#)
+                                        (OR (|HasCategory| |#1| '(|BasicType|))
+                                            (|HasCategory| |#1|
+                                                           '(|Comparable|))
+                                            (|HasCategory| |#1| '(|Hashable|))
+                                            #2#)
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -91,17 +93,17 @@
                 (CONS 1 %))
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)
-    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 1024))
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 2048))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 2048))
-    (AND (|HasCategory| |#1| '(|BasicType|))
          (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 4096))
+    (AND (|HasCategory| |#1| '(|BasicType|))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 8192))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
            (|HasCategory| % '(|finiteAggregate|)))
-      #2#)
-     (|augmentPredVector| % 8192))
+      (|HasCategory| |#1| '(|Hashable|)) #2#)
+     (|augmentPredVector| % 16384))
     (SETF |pv$| (QREFELT % 3))
     %))) 
 
@@ -113,23 +115,23 @@
               (|local| |#1|) (|Integer|) |ARRAY2;qelt;%2IR;1|
               |ARRAY2;qsetelt!;%2I2R;2| (|Boolean|) (|NonNegativeInteger|)
               (|List| 6) (|Equation| 6) (|List| 13) (|Mapping| 10 6 6)
-              (|Mapping| 10 6) (|OutputForm|) (|HashState|) (|SingleInteger|)
+              (|Mapping| 10 6) (|OutputForm|) (|SingleInteger|) (|HashState|)
               (|String|) (|Mapping| 6 6 6) (|List| 26) (|List| 11)
               (|Mapping| 6 6) (|PositiveInteger|) (|List| %) (|List| 28)
               (|Segment| 7) (|List| 7) (|OneDimensionalArray| 6) (|List| 12))
            '#(|qsetelt!| 0 |qelt| 8) 'NIL
-           (CONS (|makeByteWordVec2| 10 '(0 0 1 0 8 6 0 0 0 8 5 10))
+           (CONS (|makeByteWordVec2| 11 '(0 0 1 0 9 6 2 0 0 0 9 11 7))
                  (CONS
                   '#(|TwoDimensionalArrayCategory&| |HomogeneousAggregate&| NIL
-                     |Aggregate&| |Evalable&| |SetCategory&| NIL NIL NIL
-                     |InnerEvalable&| |BasicType&| NIL)
+                     |Aggregate&| |Evalable&| |SetCategory&| |Hashable&| NIL
+                     NIL NIL |InnerEvalable&| NIL |BasicType&|)
                   (CONS
                    '#((|TwoDimensionalArrayCategory| 6
                                                      (|OneDimensionalArray| 6)
                                                      (|OneDimensionalArray| 6))
                       (|HomogeneousAggregate| 6) (|Comparable|) (|Aggregate|)
-                      (|Evalable| 6) (|SetCategory|) (|Type|)
+                      (|Evalable| 6) (|SetCategory|) (|Hashable|) (|Type|)
                       (|finiteAggregate|) (|shallowlyMutable|)
-                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 17))
+                      (|InnerEvalable| 6 6) (|CoercibleTo| 17) (|BasicType|))
                    (|makeByteWordVec2| 9 '(4 0 6 0 7 7 6 9 3 0 6 0 7 7 8)))))
            '|lookupIncomplete|)) 

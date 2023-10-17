@@ -827,7 +827,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|RegularTriangularSet| DV$1 DV$2 DV$3 DV$4))
-    (LETT % (GETREFV 145))
+    (LETT % (GETREFV 143))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -923,8 +923,7 @@
               (|Record| (|:| |close| %) (|:| |open| 10)) (|List| 136)
               (|Mapping| 14 9 10) (|Record| (|:| |close| 10) (|:| |open| 10))
               (|Record| (|:| |bas| %) (|:| |top| 10)) (|Union| 140 '#1#)
-              (|Record| (|:| |under| %) (|:| |floor| %) (|:| |upper| %))
-              (|SingleInteger|) (|HashState|))
+              (|Record| (|:| |under| %) (|:| |floor| %) (|:| |upper| %)))
            '#(~= 296 |zeroSetSplitIntoTriangularSystems| 302 |zeroSetSplit| 307
               |variables| 334 |trivialIdeal?| 339 |triangular?| 344
               |stronglyReduced?| 349 |stronglyReduce| 360 |squareFreePart| 366
@@ -945,15 +944,14 @@
               |intersect| 694 |internalZeroSetSplit| 718 |internalAugment| 726
               |initials| 749 |initiallyReduced?| 754 |initiallyReduce| 765
               |infRittWu?| 771 |iexactQuo| 777 |headRemainder| 783
-              |headReduced?| 789 |headReduce| 800 |hashUpdate!| 806 |hash| 812
-              |first| 817 |find| 822 |extendIfCan| 828 |extend| 834 |every?|
-              864 |eval| 870 |eq?| 896 |empty?| 902 |empty| 907 |degree| 911
-              |count| 916 |copy| 928 |convert| 933 |construct| 938
-              |collectUpper| 943 |collectUnder| 949 |collectQuasiMonic| 955
-              |collect| 960 |coerce| 966 |coHeight| 976 |basicSet| 981
-              |autoReduced?| 994 |augment| 1000 |any?| 1024
-              |algebraicVariables| 1030 |algebraicCoefficients?| 1035
-              |algebraic?| 1041 = 1047 |#| 1053)
+              |headReduced?| 789 |headReduce| 800 |first| 806 |find| 811
+              |extendIfCan| 817 |extend| 823 |every?| 853 |eval| 859 |eq?| 885
+              |empty?| 891 |empty| 896 |degree| 900 |count| 905 |copy| 917
+              |convert| 922 |construct| 927 |collectUpper| 932 |collectUnder|
+              938 |collectQuasiMonic| 944 |collect| 949 |coerce| 955 |coHeight|
+              965 |basicSet| 970 |autoReduced?| 983 |augment| 989 |any?| 1013
+              |algebraicVariables| 1019 |algebraicCoefficients?| 1024
+              |algebraic?| 1030 = 1036 |#| 1042)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 2))
                  (CONS
@@ -972,7 +970,7 @@
                       (|finiteAggregate|) (|CoercibleTo| (|List| 9)) (|Type|)
                       (|CoercibleTo| 27) (|InnerEvalable| 9 9)
                       (|ConvertibleTo| 131))
-                   (|makeByteWordVec2| 144
+                   (|makeByteWordVec2| 142
                                        '(1 10 0 0 11 2 10 0 18 0 19 2 10 0 18 0
                                          22 2 10 14 9 0 24 1 9 27 0 28 1 27 0
                                          29 30 1 9 8 0 32 1 10 9 0 36 2 8 14 0
@@ -1024,20 +1022,19 @@
                                          10 0 1 1 0 14 0 1 2 0 14 9 0 1 2 0 9 9
                                          0 1 2 0 14 0 0 1 2 5 6 6 6 1 2 5 132 9
                                          0 1 1 0 14 0 1 2 0 14 9 0 1 2 0 9 9 0
-                                         1 2 0 144 144 0 1 1 0 143 0 1 1 0 34 0
-                                         35 2 0 34 119 0 1 2 0 38 0 9 48 2 0 29
-                                         10 0 1 2 0 29 10 29 76 2 0 29 9 0 81 2
-                                         0 29 9 29 1 2 0 0 0 9 1 2 8 14 119 0 1
-                                         2 1 0 0 129 1 3 1 0 0 9 9 1 2 1 0 0
-                                         130 1 3 1 0 0 10 10 1 2 0 14 0 0 1 1 0
-                                         14 0 15 0 0 0 13 1 0 60 0 1 2 9 60 9 0
-                                         1 2 8 60 119 0 1 1 0 0 0 12 1 2 131 0
-                                         1 1 0 0 10 20 2 0 0 0 8 42 2 0 0 0 8
-                                         44 1 0 0 0 1 2 0 0 0 8 1 1 0 10 0 40 1
-                                         0 27 0 31 1 6 60 0 1 3 0 141 10 119 46
-                                         1 2 0 141 10 46 1 2 0 14 0 138 1 2 0
-                                         29 10 0 1 2 0 29 10 29 1 2 0 29 9 0 78
-                                         2 0 29 9 29 1 2 8 14 119 0 1 1 0 135 0
-                                         1 2 0 14 9 0 1 2 0 14 8 0 54 2 0 14 0
-                                         0 1 1 8 60 0 1)))))
+                                         1 1 0 34 0 35 2 0 34 119 0 1 2 0 38 0
+                                         9 48 2 0 29 10 0 1 2 0 29 10 29 76 2 0
+                                         29 9 0 81 2 0 29 9 29 1 2 0 0 0 9 1 2
+                                         8 14 119 0 1 2 1 0 0 129 1 3 1 0 0 9 9
+                                         1 2 1 0 0 130 1 3 1 0 0 10 10 1 2 0 14
+                                         0 0 1 1 0 14 0 15 0 0 0 13 1 0 60 0 1
+                                         2 9 60 9 0 1 2 8 60 119 0 1 1 0 0 0 12
+                                         1 2 131 0 1 1 0 0 10 20 2 0 0 0 8 42 2
+                                         0 0 0 8 44 1 0 0 0 1 2 0 0 0 8 1 1 0
+                                         10 0 40 1 0 27 0 31 1 6 60 0 1 2 0 141
+                                         10 46 1 3 0 141 10 119 46 1 2 0 14 0
+                                         138 1 2 0 29 10 0 1 2 0 29 10 29 1 2 0
+                                         29 9 0 78 2 0 29 9 29 1 2 8 14 119 0 1
+                                         1 0 135 0 1 2 0 14 9 0 1 2 0 14 8 0 54
+                                         2 0 14 0 0 1 1 8 60 0 1)))))
            '|lookupComplete|)) 

@@ -16,7 +16,7 @@
         (SPADCALL (- |n| 1) (QREFELT % 13))) 
 
 (SDEFUN |CHAR;lookup;%Pi;5| ((|c| (%)) (% (|PositiveInteger|)))
-        (SPROG ((#1=#:G378 NIL))
+        (SPROG ((#1=#:G381 NIL))
                (PROG1 (LETT #1# (+ 1 (SPADCALL |c| (QREFELT % 16))))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
                                    #1#)))) 
@@ -82,7 +82,7 @@
 
 (DEFUN |Character| ()
   (SPROG NIL
-         (PROG (#1=#:G401)
+         (PROG (#1=#:G404)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Character|))
@@ -127,7 +127,7 @@
               |CHAR;alphanumeric?;%B;19| (|String|) |CHAR;latex;%S;20|
               |CHAR;char;S%;21| |CHAR;upperCase;2%;22| |CHAR;lowerCase;2%;23|
               (|HashState|) |CHAR;hashUpdate!;Hs%Hs;24| (|InputForm|)
-              (|List| %) (|SingleInteger|))
+              (|SingleInteger|) (|List| %))
            '#(~= 35 |upperCase?| 41 |upperCase| 46 |space| 51 |smaller?| 55
               |size| 61 |random| 65 |quote| 69 |ord| 73 |newline| 78 |min| 82
               |max| 88 |lowerCase?| 94 |lowerCase| 99 |lookup| 104 |latex| 109
@@ -136,14 +136,15 @@
               |char| 158 |alphanumeric?| 168 |alphabetic?| 173 >= 178 > 184 =
               190 <= 196 < 202)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(NIL |OrderedSet&| |Finite&| NIL |SetCategory&| NIL
-                     |BasicType&| |PartialOrder&| NIL)
+                  '#(NIL |OrderedSet&| |Finite&| NIL |Hashable&| |SetCategory&|
+                     NIL |BasicType&| |PartialOrder&| NIL)
                   (CONS
                    '#((|OrderedFinite|) (|OrderedSet|) (|Finite|)
-                      (|Comparable|) (|SetCategory|) (|ConvertibleTo| 48)
-                      (|BasicType|) (|PartialOrder|) (|CoercibleTo| 24))
+                      (|Comparable|) (|Hashable|) (|SetCategory|)
+                      (|ConvertibleTo| 48) (|BasicType|) (|PartialOrder|)
+                      (|CoercibleTo| 24))
                    (|makeByteWordVec2| 50
                                        '(1 6 0 12 18 0 26 0 27 2 26 7 28 0 29 0
                                          26 0 31 0 26 0 33 0 26 0 35 0 26 0 37
@@ -152,8 +153,8 @@
                                          0 0 19 0 0 0 21 1 0 12 0 16 0 0 0 23 2
                                          0 0 0 0 1 2 0 0 0 0 1 1 0 7 0 36 1 0 0
                                          0 45 1 0 14 0 17 1 0 41 0 42 1 0 0 14
-                                         15 1 0 7 0 32 2 0 46 46 0 47 1 0 50 0
-                                         1 0 0 0 22 0 0 49 1 1 0 7 0 30 1 0 48
+                                         15 1 0 7 0 32 2 0 46 46 0 47 1 0 49 0
+                                         1 0 0 0 22 0 0 50 1 1 0 7 0 30 1 0 48
                                          0 1 1 0 24 0 25 1 0 0 12 13 1 0 0 41
                                          43 1 0 7 0 40 1 0 7 0 38 2 0 7 0 0 1 2
                                          0 7 0 0 1 2 0 7 0 0 8 2 0 7 0 0 1 2 0

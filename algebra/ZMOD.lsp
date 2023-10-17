@@ -316,14 +316,14 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(NIL |Algebra&| NIL |Rng&| NIL |Module&| NIL NIL
                 |NonAssociativeRing&| NIL |NonAssociativeRng&| NIL
                 |AbelianGroup&| NIL NIL NIL |Finite&| NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| NIL NIL |Magma&|
-                |AbelianSemiGroup&| NIL |SetCategory&| NIL NIL NIL NIL
-                |BasicType&| NIL)
+                |AbelianSemiGroup&| |Hashable&| NIL |SetCategory&| NIL NIL NIL
+                NIL |BasicType&| NIL)
              (CONS
               '#((|CommutativeRing|) (|Algebra| $$) (|Ring|) (|Rng|)
                  (|SemiRing|) (|Module| $$) (|SemiRng|) (|BiModule| $$ $$)
@@ -332,7 +332,7 @@
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|Finite|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|StepThrough|)
-                 (|Comparable|) (|Magma|) (|AbelianSemiGroup|)
+                 (|Comparable|) (|Magma|) (|AbelianSemiGroup|) (|Hashable|)
                  (|CommutativeStar|) (|SetCategory|) (|ConvertibleTo| 12)
                  (|ConvertibleTo| 51) (|TwoSidedRecip|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 22))
@@ -355,8 +355,8 @@
                                     0 12 0 13 1 0 51 0 1 2 0 0 0 0 1 1 0 0 0 1
                                     1 0 0 12 25 1 0 22 0 24 0 0 7 9 3 0 0 0 0 0
                                     1 2 0 0 0 0 1 2 0 10 0 0 1 2 0 0 0 7 42 2 0
-                                    0 0 14 1 0 0 0 26 0 0 0 27 2 0 10 0 0 30 1
-                                    0 0 0 39 2 0 0 0 0 35 2 0 0 0 0 29 2 0 0 7
+                                    0 0 14 1 0 0 0 26 0 0 0 27 2 0 10 0 0 30 2
+                                    0 0 0 0 35 1 0 0 0 39 2 0 0 0 0 29 2 0 0 7
                                     0 1 2 0 0 12 0 34 2 0 0 0 0 33 2 0 0 14 0
                                     1)))))
            '|lookupComplete|)) 

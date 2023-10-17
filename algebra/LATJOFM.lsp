@@ -673,7 +673,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|LatticeJoinOfMeets|))
-          (LETT % (GETREFV 59))
+          (LETT % (GETREFV 57))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|LatticeJoinOfMeets| NIL (CONS 1 %))
@@ -708,14 +708,13 @@
               (41 . |coerce|) (46 . |coerce|) (51 . |message|) (56 . |hconcat|)
               |LATJOFM;coerce;%Of;29| (|LatticeMeetOfJoins|)
               (62 . |emptyLattice|) (66 . |latticeMeetOfJoins|) (71 . |/\\|)
-              (77 . |\\/|) |LATJOFM;coerce;%Lmoj;30| |LATJOFM;coerce;Lmoj%;31|
-              (|HashState|) (|SingleInteger|))
+              (77 . |\\/|) |LATJOFM;coerce;%Lmoj;30| |LATJOFM;coerce;Lmoj%;31|)
            '#(~= 83 |variable| 89 |value| 94 |toStringUnwrapped| 99 |toString|
               104 |redux| 109 |opType| 114 |meet| 119 |logicT| 124 |logicF| 128
-              |latticeJoinOfMeets| 132 |latex| 137 |join| 142 |hashUpdate!| 147
-              |hash| 153 |getChildren| 158 |factor| 163 |emptyLattice| 168
-              |empty?| 172 |deductions| 177 |coerce| 182 |atom?| 197 |_\|_| 202
-              |\\/| 206 T$ 212 = 216 |/\\| 222)
+              |latticeJoinOfMeets| 132 |latex| 137 |join| 142 |getChildren| 147
+              |factor| 152 |emptyLattice| 157 |empty?| 161 |deductions| 166
+              |coerce| 171 |atom?| 186 |_\|_| 191 |\\/| 195 T$ 201 = 205 |/\\|
+              211)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -727,7 +726,7 @@
                       (|Lattice|) (|BoundedJoinSemilattice|)
                       (|MeetSemilattice|) (|JoinSemilattice|) (|SetCategory|)
                       (|BasicType|) (|CoercibleTo| 44))
-                   (|makeByteWordVec2| 58
+                   (|makeByteWordVec2| 56
                                        '(2 18 0 0 0 19 2 20 0 0 18 21 2 20 0 0
                                          0 24 2 14 16 0 0 29 2 18 0 0 14 30 2
                                          31 16 0 0 32 1 10 0 26 42 1 10 44 0 45
@@ -737,12 +736,11 @@
                                          11 1 0 35 0 38 1 0 10 0 41 1 0 10 0 43
                                          1 0 0 0 22 1 0 35 0 36 1 0 0 26 27 0 0
                                          0 7 0 0 0 8 1 0 0 14 15 1 0 10 0 1 1 0
-                                         0 26 28 2 0 57 57 0 1 1 0 58 0 1 1 0
-                                         26 0 39 1 0 26 0 33 0 0 0 9 1 0 16 0
-                                         17 1 0 26 26 34 1 0 0 50 56 1 0 50 0
-                                         55 1 0 44 0 49 1 0 16 0 37 0 0 0 1 2 0
-                                         0 0 0 25 0 0 0 1 2 0 16 0 0 40 2 0 0 0
-                                         0 23)))))
+                                         0 26 28 1 0 26 0 39 1 0 26 0 33 0 0 0
+                                         9 1 0 16 0 17 1 0 26 26 34 1 0 0 50 56
+                                         1 0 50 0 55 1 0 44 0 49 1 0 16 0 37 0
+                                         0 0 1 2 0 0 0 0 25 0 0 0 1 2 0 16 0 0
+                                         40 2 0 0 0 0 23)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|LatticeJoinOfMeets| 'NILADIC T) 

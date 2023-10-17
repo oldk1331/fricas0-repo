@@ -2521,8 +2521,13 @@
           (#2=#:G1154 NIL) (|bas_gro| (|List| |tDMP|))
           (|eqn_wrk| (|List| |tDMP|)) (#3=#:G1153 NIL) (#4=#:G1152 NIL)
           (|tPRD|
-           (|DirectProductCategory| (|call| LENGTH |lst_var|)
-                                    (|NonNegativeInteger|)))
+           (|Join|
+            (|DirectProductCategory| (|call| LENGTH |lst_var|)
+                                     #5=(|NonNegativeInteger|))
+            (CATEGORY |package|
+             (IF (|has| #5# (|Hashable|))
+                 (ATTRIBUTE (|Hashable|))
+                 |noBranch|))))
           (|tDMP|
            (|Join|
             (|PolynomialCategory| R

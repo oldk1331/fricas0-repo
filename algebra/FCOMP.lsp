@@ -50,7 +50,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FourierComponent| DV$1))
-          (LETT % (GETREFV 24))
+          (LETT % (GETREFV 22))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FourierComponent| (LIST DV$1)
@@ -68,11 +68,10 @@
               |FCOMP;cos;E%;2| (|Boolean|) |FCOMP;sin?;%B;3|
               |FCOMP;argument;%E;4| (|String|) (|OutputForm|) (0 . |message|)
               (5 . |coerce|) (10 . |bracket|) (15 . |hconcat|)
-              |FCOMP;coerce;%Of;5| (21 . <) |FCOMP;<;2%B;6| (|SingleInteger|)
-              (|HashState|))
+              |FCOMP;coerce;%Of;5| (21 . <) |FCOMP;<;2%B;6|)
            '#(~= 27 |smaller?| 33 |sin?| 39 |sin| 44 |min| 49 |max| 55 |latex|
-              61 |hashUpdate!| 66 |hash| 72 |cos| 77 |coerce| 82 |argument| 87
-              >= 92 > 98 = 104 <= 110 < 116)
+              61 |cos| 66 |coerce| 71 |argument| 76 >= 81 > 87 = 93 <= 99 <
+              105)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
                  (CONS
@@ -81,13 +80,12 @@
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
                       (|BasicType|) (|PartialOrder|) (|CoercibleTo| 14))
-                   (|makeByteWordVec2| 23
+                   (|makeByteWordVec2| 21
                                        '(1 14 0 13 15 1 6 14 0 16 1 14 0 0 17 2
                                          14 0 0 0 18 2 6 10 0 0 20 2 0 10 0 0 1
                                          2 0 10 0 0 1 1 0 10 0 11 1 0 0 6 8 2 0
-                                         0 0 0 1 2 0 0 0 0 1 1 0 13 0 1 2 0 23
-                                         23 0 1 1 0 22 0 1 1 0 0 6 9 1 0 14 0
-                                         19 1 0 6 0 12 2 0 10 0 0 1 2 0 10 0 0
-                                         1 2 0 10 0 0 1 2 0 10 0 0 1 2 0 10 0 0
-                                         21)))))
+                                         0 0 0 1 2 0 0 0 0 1 1 0 13 0 1 1 0 0 6
+                                         9 1 0 14 0 19 1 0 6 0 12 2 0 10 0 0 1
+                                         2 0 10 0 0 1 2 0 10 0 0 1 2 0 10 0 0 1
+                                         2 0 10 0 0 21)))))
            '|lookupComplete|)) 

@@ -239,11 +239,11 @@
               |elt| 136 |destruct| 148 |convert| 153 |coerce| 178 |cdr| 183
               |car| 188 |atom?| 193 = 198 |#| 204)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
-                 (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
+                 (CONS '#(NIL |SetCategory&| |Hashable&| |BasicType&| NIL)
                        (CONS
                         '#((|SExpressionCategory| 6 7 8 9) (|SetCategory|)
-                           (|BasicType|) (|CoercibleTo| 14))
+                           (|Hashable|) (|BasicType|) (|CoercibleTo| 14))
                         (|makeByteWordVec2| 59
                                             '(1 14 0 13 15 1 14 0 17 18 2 23 0
                                               0 0 24 1 14 0 13 25 1 14 0 0 26 1

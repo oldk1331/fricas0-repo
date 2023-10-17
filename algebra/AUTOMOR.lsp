@@ -158,7 +158,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Automorphism| DV$1))
-          (LETT % (GETREFV 34))
+          (LETT % (GETREFV 32))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Automorphism| (LIST DV$1)
@@ -180,12 +180,11 @@
               (|Mapping| 6 6 12) |AUTOMOR;morphism;M%;9| (|Mapping| 6 6)
               |AUTOMOR;morphism;2M%;11| |AUTOMOR;morphism;M%;10| (16 . |Zero|)
               (|PositiveInteger|) (20 . ^) |AUTOMOR;*;3%;15|
-              (|NonNegativeInteger|) (|Union| % '"failed") (|HashState|)
-              (|SingleInteger|))
+              (|NonNegativeInteger|) (|Union| % '"failed"))
            '#(~= 26 |sample| 32 |rightRecip| 36 |rightPower| 41 |recip| 53
               |one?| 58 |morphism| 63 |leftRecip| 79 |leftPower| 84 |latex| 96
-              |inv| 101 |hashUpdate!| 106 |hash| 112 |elt| 117 |conjugate| 123
-              |commutator| 129 |coerce| 135 ^ 140 |One| 158 = 162 / 168 * 174)
+              |inv| 101 |elt| 106 |conjugate| 112 |commutator| 118 |coerce| 124
+              ^ 129 |One| 147 = 151 / 157 * 163)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -195,16 +194,15 @@
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|MagmaWithUnit|)
                       (|Magma|) (|SetCategory|) (|Eltable| 6 6) (|unitsKnown|)
                       (|TwoSidedRecip|) (|BasicType|) (|CoercibleTo| 18))
-                   (|makeByteWordVec2| 33
+                   (|makeByteWordVec2| 31
                                        '(1 12 0 0 13 2 12 0 0 12 15 1 18 0 17
                                          19 0 6 0 26 2 0 0 0 27 28 2 0 9 0 0 1
                                          0 0 0 1 1 0 31 0 1 2 0 0 0 30 1 2 0 0
                                          0 27 1 1 0 31 0 1 1 0 9 0 1 1 0 0 21
                                          22 1 0 0 23 25 2 0 0 23 23 24 1 0 31 0
                                          1 2 0 0 0 30 1 2 0 0 0 27 1 1 0 17 0 1
-                                         1 0 0 0 14 2 0 32 32 0 1 1 0 33 0 1 2
-                                         0 6 0 6 11 2 0 0 0 0 1 2 0 0 0 0 1 1 0
-                                         18 0 20 2 0 0 0 12 16 2 0 0 0 30 1 2 0
-                                         0 0 27 28 0 0 0 8 2 0 9 0 0 10 2 0 0 0
-                                         0 1 2 0 0 0 0 29)))))
+                                         1 0 0 0 14 2 0 6 0 6 11 2 0 0 0 0 1 2
+                                         0 0 0 0 1 1 0 18 0 20 2 0 0 0 12 16 2
+                                         0 0 0 30 1 2 0 0 0 27 28 0 0 0 8 2 0 9
+                                         0 0 10 2 0 0 0 0 1 2 0 0 0 0 29)))))
            '|lookupComplete|)) 

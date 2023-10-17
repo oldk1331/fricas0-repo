@@ -312,7 +312,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Homology|))
-          (LETT % (GETREFV 61))
+          (LETT % (GETREFV 59))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Homology| NIL (CONS 1 %))
@@ -346,18 +346,16 @@
               |HOMOL;homologyzc2;%;7| (109 . |empty|) (113 . |coerce|)
               (118 . |coerce|) (|List| %) (123 . |hconcat|) (128 . |vconcat|)
               (|List| 25) (134 . |coerce|) |HOMOL;dispGenerators;%Of;8|
-              (139 . ~=) |HOMOL;=;2%B;9| |HOMOL;coerce;%Of;10| (|HashState|)
-              (|SingleInteger|))
+              (139 . ~=) |HOMOL;=;2%B;9| |HOMOL;coerce;%Of;10|)
            '#(~= 145 |latex| 151 |homologyzz| 156 |homologyzc2| 160 |homologyz|
               164 |homologyc2| 168 |homologyGroup| 172 |homology0| 178
-              |homology| 182 |hashUpdate!| 189 |hash| 195 |dispGenerators| 200
-              |coerce| 205 = 210)
+              |homology| 182 |dispGenerators| 189 |coerce| 194 = 199)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 11))
-                        (|makeByteWordVec2| 60
+                        (|makeByteWordVec2| 58
                                             '(2 8 7 0 0 9 1 11 0 10 12 1 8 11 0
                                               13 2 11 0 0 0 14 1 11 15 0 16 2
                                               17 0 8 8 18 2 17 0 0 0 19 2 17 7
@@ -372,8 +370,8 @@
                                               0 7 0 0 1 1 0 10 0 1 0 0 0 44 0 0
                                               0 46 0 0 0 43 0 0 0 45 2 0 0 17
                                               17 36 0 0 0 42 3 0 0 40 38 40 41
-                                              2 0 59 59 0 1 1 0 60 0 1 1 0 11 0
-                                              55 1 0 11 0 58 2 0 7 0 0 57)))))
+                                              1 0 11 0 55 1 0 11 0 58 2 0 7 0 0
+                                              57)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Homology| 'NILADIC T) 

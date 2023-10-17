@@ -151,7 +151,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|PatternMatchResult| DV$1 DV$2))
-          (LETT % (GETREFV 53))
+          (LETT % (GETREFV 51))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PatternMatchResult|
@@ -181,17 +181,17 @@
               (64 . |coerce|) |PATRES;coerce;%Of;10| (69 . |optional?|)
               (74 . =) |PATRES;addMatch;PS2%;12|
               |PATRES;addMatchRestricted;PS%S%;11| (80 . |satisfy?|)
-              |PATRES;getMatch;P%U;13| (|SingleInteger|) (|HashState|))
+              |PATRES;getMatch;P%U;13|)
            '#(~= 86 |union| 92 |satisfy?| 98 |new| 104 |latex| 108
-              |insertMatch| 113 |hashUpdate!| 120 |hash| 126 |getMatch| 131
-              |failed?| 137 |failed| 142 |destruct| 146 |construct| 151
-              |coerce| 156 |addMatchRestricted| 161 |addMatch| 169 = 176)
+              |insertMatch| 113 |getMatch| 120 |failed?| 126 |failed| 131
+              |destruct| 135 |construct| 140 |coerce| 145 |addMatchRestricted|
+              150 |addMatch| 158 = 165)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 41))
-                        (|makeByteWordVec2| 52
+                        (|makeByteWordVec2| 50
                                             '(0 9 0 10 1 16 15 0 17 2 9 0 18 0
                                               19 1 9 0 21 22 1 9 21 0 24 1 16
                                               26 0 27 2 9 28 15 0 29 2 31 13 30
@@ -200,10 +200,9 @@
                                               43 1 16 13 0 45 2 7 13 0 0 46 2
                                               31 13 7 16 49 2 0 13 0 0 1 2 0 0
                                               0 0 37 2 0 33 0 16 34 0 0 0 11 1
-                                              0 40 0 1 3 0 0 16 7 0 20 2 0 52
-                                              52 0 1 1 0 51 0 1 2 0 28 16 0 50
-                                              1 0 13 0 14 0 0 0 12 1 0 21 0 25
-                                              1 0 0 21 23 1 0 41 0 44 4 0 0 16
-                                              7 0 7 48 3 0 0 16 7 0 47 2 0 13 0
-                                              0 39)))))
+                                              0 40 0 1 3 0 0 16 7 0 20 2 0 28
+                                              16 0 50 1 0 13 0 14 0 0 0 12 1 0
+                                              21 0 25 1 0 0 21 23 1 0 41 0 44 4
+                                              0 0 16 7 0 7 48 3 0 0 16 7 0 47 2
+                                              0 13 0 0 39)))))
            '|lookupComplete|)) 

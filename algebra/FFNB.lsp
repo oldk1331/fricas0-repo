@@ -44,6 +44,8 @@
                                                         '(|CharacteristicNonZero|))
                                          #1#)
                                         (|HasCategory| (|PrimeField| |#1|)
+                                                       '(|Hashable|))
+                                        (|HasCategory| (|PrimeField| |#1|)
                                                        '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|FiniteFieldNormalBasis| (LIST DV$1 DV$2)
                 (CONS 1 %))
@@ -51,47 +53,48 @@
     (QSETREFV % 6 |#1|)
     (QSETREFV % 7 |#2|)
     (AND (|HasCategory| % '(|CharacteristicNonZero|)) #1#
-         (|augmentPredVector| % 16))
+         (|augmentPredVector| % 32))
     (SETF |pv$| (QREFELT % 3))
     %))) 
 
 (MAKEPROP '|FiniteFieldNormalBasis| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|FiniteFieldNormalBasisExtensionByPolynomial| 36
+              (|FiniteFieldNormalBasisExtensionByPolynomial| 38
                                                              (NRTEVAL
                                                               (SPADCALL
                                                                (QREFELT % 7)
                                                                (QREFELT %
                                                                         12))))
               (|local| |#1|) (|local| |#2|)
-              (|Record| (|:| |value| 36) (|:| |index| 50)) (|Union| 19 35)
-              (|PositiveInteger|) (|FiniteFieldFunctions| 36)
+              (|Record| (|:| |value| 38) (|:| |index| 34)) (|Union| 19 37)
+              (|PositiveInteger|) (|FiniteFieldFunctions| 38)
               (0 . |createLowComplexityNormalBasis|) (|Union| 31 '#1="failed")
               (|Matrix| %) (|Union| % '"failed") (|Union| 18 '"failed")
               (|OnePointCompletion| 10) (|NonNegativeInteger|)
-              (|SparseUnivariatePolynomial| 36) (|Union| 21 '#1#) (|List| 22)
+              (|SparseUnivariatePolynomial| 38) (|Union| 21 '#1#) (|List| 22)
               (|SparseUnivariatePolynomial| %) (|Factored| 22) (|Table| 10 18)
               (|Integer|) (|Record| (|:| |factor| 25) (|:| |exponent| 18))
-              (|List| 26) (|Boolean|) (|Union| 19 '"failed")
-              (|Union| '"prime" '"polynomial" '"normal" '"cyclic") (|Vector| %)
-              (|InputForm|) (|List| %) (|Matrix| 36) (|Vector| (|List| 8))
-              (|PrimeField| (NRTEVAL (QREFELT % 6))) (|Vector| 36)
-              (|Union| 36 '"failed") (|Fraction| 25) (|Factored| %)
-              (|Record| (|:| |coef1| %) (|:| |coef2| %))
-              (|Union| 41 '#2="failed") (|Union| 33 '#2#)
+              (|List| 26) (|Boolean|)
+              (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
+              (|Union| 19 '"failed") (|Vector| %) (|InputForm|) (|List| %)
+              (|SingleInteger|) (|HashState|) (|Matrix| 38)
+              (|Vector| (|List| 8)) (|PrimeField| (NRTEVAL (QREFELT % 6)))
+              (|Vector| 38) (|Union| 38 '"failed") (|Fraction| 25)
+              (|Factored| %) (|Record| (|:| |coef1| %) (|:| |coef2| %))
+              (|Union| 43 '#2="failed") (|Union| 33 '#2#)
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Record| (|:| |coef| 33) (|:| |generator| %))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
+              (|String|) (|OutputForm|))
            '#() 'NIL
            (CONS
-            (|makeByteWordVec2| 3
+            (|makeByteWordVec2| 4
                                 '(0 0 2 3 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 2 0 0 2 2 0 0 0 0 0 0 0 0 0 0 0 2))
+                                  0 0 0 0 2 0 0 2 2 0 0 0 4 0 0 0 0 0 0 0 0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -104,8 +107,8 @@
                 NIL NIL |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL
                 NIL |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
                 |Finite&| |Magma&| |AbelianSemiGroup&| NIL NIL |RetractableTo&|
-                NIL |SetCategory&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL
-                NIL)
+                NIL |SetCategory&| |Hashable&| NIL NIL NIL NIL NIL NIL
+                |BasicType&| NIL NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| (|PrimeField| 6))
                  (|ExtensionField| (|PrimeField| 6)) (|FiniteFieldCategory|)
@@ -120,25 +123,26 @@
                                       (|SparseUnivariatePolynomial|
                                        (|PrimeField| 6)))
                  (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
-                 (|Algebra| (|PrimeField| 6)) (|Algebra| 39) (|EntireRing|)
+                 (|Algebra| (|PrimeField| 6)) (|Algebra| 41) (|EntireRing|)
                  (|Algebra| $$) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|DifferentialRing|) (|Ring|) (|Rng|)
-                 (|SemiRing|) (|Module| (|PrimeField| 6)) (|Module| 39)
+                 (|SemiRing|) (|Module| (|PrimeField| 6)) (|Module| 41)
                  (|Module| $$) (|SemiRng|) (|FramedModule| (|PrimeField| 6))
                  (|BiModule| (|PrimeField| 6) (|PrimeField| 6))
-                 (|BiModule| 39 39) (|BiModule| $$ $$) (|NonAssociativeRing|)
+                 (|BiModule| 41 41) (|BiModule| $$ $$) (|NonAssociativeRing|)
                  (|RightModule| (|PrimeField| 6))
-                 (|LeftModule| (|PrimeField| 6)) (|RightModule| 39)
-                 (|LeftModule| 39) (|LeftModule| $$) (|NonAssociativeRng|)
+                 (|LeftModule| (|PrimeField| 6)) (|RightModule| 41)
+                 (|LeftModule| 41) (|LeftModule| $$) (|NonAssociativeRng|)
                  (|RightModule| $$) (|AbelianGroup|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Finite|) (|Magma|) (|AbelianSemiGroup|)
                  (|Comparable|) (|StepThrough|)
                  (|RetractableTo| (|PrimeField| 6)) (|CommutativeStar|)
-                 (|SetCategory|) (|CoercibleFrom| (|PrimeField| 6))
-                 (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 52) (|ConvertibleTo| 32))
+                 (|SetCategory|) (|Hashable|)
+                 (|CoercibleFrom| (|PrimeField| 6)) (|canonicalsClosed|)
+                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|TwoSidedRecip|)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 52)
+                 (|ConvertibleTo| 32))
               (|makeByteWordVec2| 12 '(1 11 9 10 12)))))
            '|lookupIncomplete|)) 

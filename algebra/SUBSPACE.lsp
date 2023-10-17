@@ -557,7 +557,7 @@
           (LETT DV$1 |#1|)
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|SubSpace| DV$1 DV$2))
-          (LETT % (GETREFV 87))
+          (LETT % (GETREFV 85))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SubSpace| (LIST DV$1 DV$2)
@@ -611,22 +611,21 @@
               |SUBSPACE;level;%Nni;32| (103 . =) (109 . =) (115 . |#|)
               (120 . ~=) |SUBSPACE;=;2%B;33| (|OutputForm|) (|PositiveInteger|)
               (126 . |coerce|) (|String|) (131 . |message|) (136 . |coerce|)
-              (141 . |coerce|) (146 . |hconcat|) |SUBSPACE;coerce;%Of;34|
-              (|SingleInteger|) (|HashState|))
+              (141 . |coerce|) (146 . |hconcat|) |SUBSPACE;coerce;%Of;34|)
            '#(~= 151 |traverse| 157 |subspace| 163 |shallowCopy| 167 |separate|
               172 |root?| 177 |pointData| 182 |parent| 187 |numberOfChildren|
               192 |new| 197 |modifyPoint| 201 |merge| 222 |level| 233 |leaf?|
-              238 |latex| 243 |internal?| 248 |hashUpdate!| 253 |hash| 259
-              |extractProperty| 264 |extractPoint| 269 |extractIndex| 274
-              |extractClosed| 279 |defineProperty| 284 |deepCopy| 291 |coerce|
-              296 |closeComponent| 301 |children| 308 |child| 313 |birth| 319
-              |addPointLast| 324 |addPoint2| 332 |addPoint| 338 = 358)
+              238 |latex| 243 |internal?| 248 |extractProperty| 253
+              |extractPoint| 258 |extractIndex| 263 |extractClosed| 268
+              |defineProperty| 273 |deepCopy| 280 |coerce| 285 |closeComponent|
+              290 |children| 297 |child| 302 |birth| 308 |addPointLast| 313
+              |addPoint2| 321 |addPoint| 327 = 347)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 76))
-                        (|makeByteWordVec2| 86
+                        (|makeByteWordVec2| 84
                                             '(1 13 12 0 14 1 19 0 18 20 0 21 0
                                               22 1 13 0 0 25 2 13 0 0 0 26 2 13
                                               2 0 28 29 1 21 0 0 33 1 34 0 0 35
@@ -643,15 +642,14 @@
                                               0 46 1 0 12 0 16 1 0 34 0 69 1 0
                                               0 0 63 1 0 30 0 32 0 0 0 23 3 0 0
                                               0 30 19 58 3 0 0 0 48 30 56 3 0 0
-                                              0 48 19 55 2 0 0 0 0 43 1 0 0 10
-                                              45 1 0 30 0 70 1 0 12 0 15 1 0 79
-                                              0 1 1 0 12 0 17 2 0 86 86 0 1 1 0
-                                              85 0 1 1 0 21 0 68 1 0 19 0 64 1
-                                              0 30 0 65 1 0 12 0 67 3 0 0 0 48
-                                              21 61 1 0 0 0 38 1 0 76 0 84 3 0
-                                              0 0 48 12 60 1 0 10 0 11 2 0 0 0
-                                              30 31 1 0 0 0 27 4 0 0 0 0 19 30
-                                              51 2 0 0 0 19 50 2 0 30 0 19 54 3
-                                              0 0 0 48 30 53 3 0 0 0 48 19 49 2
-                                              0 12 0 0 75)))))
+                                              0 48 19 55 1 0 0 10 45 2 0 0 0 0
+                                              43 1 0 30 0 70 1 0 12 0 15 1 0 79
+                                              0 1 1 0 12 0 17 1 0 21 0 68 1 0
+                                              19 0 64 1 0 30 0 65 1 0 12 0 67 3
+                                              0 0 0 48 21 61 1 0 0 0 38 1 0 76
+                                              0 84 3 0 0 0 48 12 60 1 0 10 0 11
+                                              2 0 0 0 30 31 1 0 0 0 27 4 0 0 0
+                                              0 19 30 51 2 0 0 0 19 50 2 0 30 0
+                                              19 54 3 0 0 0 48 30 53 3 0 0 0 48
+                                              19 49 2 0 12 0 0 75)))))
            '|lookupComplete|)) 

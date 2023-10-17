@@ -6,8 +6,13 @@
          ((#1=#:G113 NIL) (|pp| NIL) (#2=#:G112 NIL) (|gb| (|List| |DPoly|))
           (|b| (|List| |DPoly|)) (#3=#:G111 NIL) (|pol| NIL) (#4=#:G110 NIL)
           (DP
-           (|DirectProductCategory| (|call| LENGTH |lv|)
-                                    (|NonNegativeInteger|)))
+           (|Join|
+            (|DirectProductCategory| (|call| LENGTH |lv|)
+                                     #5=(|NonNegativeInteger|))
+            (CATEGORY |package|
+             (IF (|has| #5# (|Hashable|))
+                 (ATTRIBUTE (|Hashable|))
+                 |noBranch|))))
           (|DPoly|
            (|Join|
             (|PolynomialCategory| F

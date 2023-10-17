@@ -49,7 +49,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 |#3|)
           (LETT |dv$| (LIST '|OrdinaryDifferentialRing| DV$1 DV$2 DV$3))
-          (LETT % (GETREFV 41))
+          (LETT % (GETREFV 39))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3
                     (LETT |pv$|
@@ -90,21 +90,19 @@
               (|SparseUnivariatePolynomial| %) (|Union| % '"failed")
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
-              (|OutputForm|))
+              (|PositiveInteger|) (|String|) (|OutputForm|))
            '#(~= 40 |zero?| 46 |unitNormal| 51 |unitCanonical| 56 |unit?| 61
               |subtractIfCan| 66 |squareFreePart| 72 |squareFree| 77
               |sizeLess?| 82 |sample| 88 |rightRecip| 92 |rightPower| 97 |rem|
               109 |recip| 115 |quo| 120 |principalIdeal| 126 |prime?| 131
               |opposite?| 136 |one?| 142 |multiEuclidean| 147 |leftRecip| 153
               |leftPower| 158 |lcmCoef| 170 |lcm| 176 |latex| 187 |inv| 192
-              |hashUpdate!| 197 |hash| 203 |gcdPolynomial| 208 |gcd| 214
-              |factor| 225 |extendedEuclidean| 230 |exquo| 243
-              |expressIdealMember| 249 |euclideanSize| 255 |divide| 260
-              |differentiate| 266 |commutator| 277 |coerce| 283
-              |characteristic| 313 |associator| 317 |associates?| 324
-              |antiCommutator| 330 |annihilate?| 336 ^ 342 |Zero| 360 |One| 364
-              D 368 = 379 / 385 - 391 + 402 * 408)
+              |gcdPolynomial| 197 |gcd| 203 |factor| 214 |extendedEuclidean|
+              219 |exquo| 232 |expressIdealMember| 238 |euclideanSize| 244
+              |divide| 249 |differentiate| 255 |commutator| 266 |coerce| 272
+              |characteristic| 302 |associator| 306 |associates?| 313
+              |antiCommutator| 319 |annihilate?| 325 ^ 331 |Zero| 349 |One| 353
+              D 357 = 368 / 374 - 380 + 391 * 397)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -134,10 +132,10 @@
                  (|SemiGroup|) (|MagmaWithUnit|) (|AbelianMonoid|)
                  (|NonAssociativeSemiRng|) (|Magma|) (|AbelianSemiGroup|)
                  (|SetCategory|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 40) (|TwoSidedRecip|)
+                 (|BasicType|) (|CoercibleTo| 38) (|TwoSidedRecip|)
                  (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|))
-              (|makeByteWordVec2| 40
+              (|makeByteWordVec2| 38
                                   '(2 9 0 0 6 12 2 5 0 0 0 14 2 0 0 0 0 15 2 5
                                     0 0 16 17 2 0 0 0 16 18 1 5 0 0 19 1 0 0 0
                                     20 2 0 22 0 0 1 1 0 22 0 1 1 1 35 0 1 1 1 0
@@ -147,18 +145,17 @@
                                     1 2 1 0 0 0 1 1 1 31 25 1 1 1 22 0 1 2 0 22
                                     0 0 1 1 0 22 0 1 2 1 24 25 0 1 1 0 33 0 1 2
                                     0 0 0 36 1 2 0 0 0 30 1 2 1 34 0 0 1 1 1 0
-                                    25 1 2 1 0 0 0 1 1 0 37 0 1 1 1 0 0 20 2 0
-                                    39 39 0 1 1 0 38 0 1 2 1 32 32 32 1 2 1 0 0
-                                    0 1 1 1 0 25 1 1 1 23 0 1 2 1 26 0 0 1 3 1
-                                    28 0 0 0 1 2 1 33 0 0 1 2 1 24 25 0 1 1 1
-                                    30 0 1 2 1 29 0 0 1 1 0 0 0 13 2 0 0 0 30 1
-                                    2 0 0 0 0 1 1 1 0 21 1 1 1 0 0 1 1 0 0 5 10
-                                    1 0 5 0 11 1 0 0 16 1 1 0 40 0 1 0 0 30 1 3
-                                    0 0 0 0 0 1 2 1 22 0 0 1 2 0 0 0 0 1 2 0 22
-                                    0 0 1 2 1 0 0 16 18 2 0 0 0 36 1 2 0 0 0 30
-                                    1 0 0 0 1 0 0 0 1 1 0 0 0 1 2 0 0 0 30 1 2
-                                    0 22 0 0 1 2 1 0 0 0 15 1 0 0 0 1 2 0 0 0 0
-                                    1 2 0 0 0 0 1 2 1 0 0 21 1 2 1 0 21 0 1 2 0
-                                    0 16 0 1 2 0 0 30 0 1 2 0 0 0 0 1 2 0 0 36
-                                    0 1)))))
+                                    25 1 2 1 0 0 0 1 1 0 37 0 1 1 1 0 0 20 2 1
+                                    32 32 32 1 2 1 0 0 0 1 1 1 0 25 1 1 1 23 0
+                                    1 2 1 26 0 0 1 3 1 28 0 0 0 1 2 1 33 0 0 1
+                                    2 1 24 25 0 1 1 1 30 0 1 2 1 29 0 0 1 1 0 0
+                                    0 13 2 0 0 0 30 1 2 0 0 0 0 1 1 1 0 21 1 1
+                                    1 0 0 1 1 0 0 5 10 1 0 5 0 11 1 0 0 16 1 1
+                                    0 38 0 1 0 0 30 1 3 0 0 0 0 0 1 2 1 22 0 0
+                                    1 2 0 0 0 0 1 2 0 22 0 0 1 2 1 0 0 16 18 2
+                                    0 0 0 36 1 2 0 0 0 30 1 0 0 0 1 0 0 0 1 1 0
+                                    0 0 1 2 0 0 0 30 1 2 0 22 0 0 1 2 1 0 0 0
+                                    15 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 1 0
+                                    0 21 1 2 1 0 21 0 1 2 0 0 16 0 1 2 0 0 30 0
+                                    1 2 0 0 0 0 1 2 0 0 36 0 1)))))
            '|lookupComplete|)) 

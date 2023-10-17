@@ -22,7 +22,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|XPolynomial| DV$1))
-          (LETT % (GETREFV 31))
+          (LETT % (GETREFV 29))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3
                     (LETT |pv$|
@@ -57,7 +57,7 @@
               (|List| 6) (|List| %) (|Mapping| 6 6) (|List| 21) (|Symbol|)
               (|Union| 10 '#1="failed") (|Union| 6 '#1#) (|Integer|)
               (|Union| % '"failed") (|PositiveInteger|) (|String|)
-              (|SingleInteger|) (|HashState|) (|OutputForm|))
+              (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 4
@@ -85,7 +85,7 @@
                  (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
                  (|Comparable|) (|RetractableTo| 10) (|RetractableTo| 6)
                  (|SetCategory|) (|CoercibleFrom| 10) (|CoercibleFrom| 6)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 30)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 28)
                  (|noZeroDivisors|))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

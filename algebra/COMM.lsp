@@ -63,7 +63,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Commutator|))
-          (LETT % (GETREFV 23))
+          (LETT % (GETREFV 21))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Commutator| NIL (CONS 1 %))
@@ -78,21 +78,17 @@
            '#(NIL NIL NIL NIL NIL NIL 'P '|Rep| (|Boolean|) |COMM;=;2%B;1|
               (|Integer|) (|OrdSetInts|) (0 . |coerce|) |COMM;mkcomm;I%;2|
               |COMM;mkcomm;3%;3| (|OutputForm|) (5 . |coerce|)
-              |COMM;coerce;%Of;4| (|List| %) (10 . |bracket|) (|HashState|)
-              (|String|) (|SingleInteger|))
-           '#(~= 15 |mkcomm| 21 |latex| 32 |hashUpdate!| 37 |hash| 43 |coerce|
-              48 = 53)
-           'NIL
+              |COMM;coerce;%Of;4| (|List| %) (10 . |bracket|) (|String|))
+           '#(~= 15 |mkcomm| 21 |latex| 32 |coerce| 37 = 42) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 15))
-                        (|makeByteWordVec2| 22
+                        (|makeByteWordVec2| 20
                                             '(1 11 0 10 12 1 11 15 0 16 1 15 0
-                                              18 19 2 0 8 0 0 1 1 0 0 10 13 2 0
-                                              0 0 0 14 1 0 21 0 1 2 0 20 20 0 1
-                                              1 0 22 0 1 1 0 15 0 17 2 0 8 0 0
-                                              9)))))
+                                              18 19 2 0 8 0 0 1 2 0 0 0 0 14 1
+                                              0 0 10 13 1 0 20 0 1 1 0 15 0 17
+                                              2 0 8 0 0 9)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Commutator| 'NILADIC T) 

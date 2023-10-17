@@ -1163,7 +1163,7 @@
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|XRecursivePolynomial| DV$1 DV$2))
-    (LETT % (GETREFV 162))
+    (LETT % (GETREFV 160))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -1256,8 +1256,7 @@
               |XRPOLY;leadingTerm;%R;60| (363 . |length|)
               |XRPOLY;degree;%Nni;61| (|Mapping| 7 7) |XRPOLY;map;M2%;62|
               |XRPOLY;varList;%L;63| (368 . |setUnion|) (374 . |sort!|)
-              (|List| 16) (|List| 7) (|List| %) (|PositiveInteger|) (|String|)
-              (|SingleInteger|) (|HashState|))
+              (|List| 16) (|List| 7) (|List| %) (|PositiveInteger|) (|String|))
            '#(~= 379 |zero?| 385 |varList| 390 |unexpand| 395 |trunc| 400
               |support| 406 |subtractIfCan| 411 |smaller?| 417 |sh| 423
               |sample| 435 |rquo| 439 |rightRecip| 457 |rightPower| 462
@@ -1268,12 +1267,12 @@
               |maxdeg| 561 |map| 566 |lquo| 572 |listOfTerms| 590
               |linearExtend| 595 |leftRecip| 601 |leftPower| 606 |leadingTerm|
               618 |leadingSupport| 623 |leadingMonomial| 628
-              |leadingCoefficient| 633 |latex| 638 |hashUpdate!| 643 |hash| 649
-              |expand| 654 |degree| 659 |constructOrdered| 664 |construct| 669
-              |constant?| 674 |constant| 679 |commutator| 684 |coerce| 690
-              |coefficients| 715 |coefficient| 720 |coef| 726 |characteristic|
-              738 |associator| 742 |antiCommutator| 749 |annihilate?| 755 ^ 761
-              |Zero| 773 |RemainderList| 777 |One| 782 = 786 - 792 + 803 * 809)
+              |leadingCoefficient| 633 |latex| 638 |expand| 643 |degree| 648
+              |constructOrdered| 653 |construct| 658 |constant?| 663 |constant|
+              668 |commutator| 673 |coerce| 679 |coefficients| 704
+              |coefficient| 709 |coef| 715 |characteristic| 727 |associator|
+              731 |antiCommutator| 738 |annihilate?| 744 ^ 750 |Zero| 762
+              |RemainderList| 766 |One| 771 = 775 - 781 + 792 * 798)
            'NIL
            (CONS
             (|makeByteWordVec2| 4
@@ -1306,7 +1305,7 @@
                  (|CoercibleFrom| (|FreeMonoid| 6)) (|CoercibleFrom| 7)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 86)
                  (|noZeroDivisors|))
-              (|makeByteWordVec2| 161
+              (|makeByteWordVec2| 159
                                   '(2 7 9 0 0 10 2 11 9 0 0 12 0 7 0 15 1 16 9
                                     0 17 1 16 0 0 18 1 16 6 0 19 2 11 0 2 6 20
                                     1 16 0 0 21 0 16 0 23 2 16 9 0 0 24 2 11 2
@@ -1332,26 +1331,26 @@
                                     0 61 0 152 1 0 0 29 31 2 0 0 0 46 57 1 0
                                     155 0 1 2 0 137 0 0 1 2 4 9 0 0 1 2 1 0 0
                                     46 69 2 1 0 0 0 71 0 0 0 1 2 0 0 0 0 79 2 0
-                                    0 0 16 129 2 0 0 0 6 128 1 0 137 0 140 2 0
+                                    0 0 6 128 2 0 0 0 16 129 1 0 137 0 140 2 0
                                     0 0 46 1 2 0 0 0 158 1 1 0 98 0 99 1 0 96 0
                                     97 1 0 16 0 1 1 0 7 0 1 1 3 0 0 39 1 0 137
                                     0 138 1 0 9 0 133 1 0 0 0 134 2 0 9 0 0 1 1
                                     0 9 0 1 1 0 46 0 47 1 0 157 0 1 1 0 9 0 101
                                     2 0 0 7 16 22 1 0 0 0 115 1 0 27 0 143 1 0
                                     16 0 141 1 0 16 0 145 2 0 0 150 0 151 2 0 0
-                                    0 0 50 2 0 0 0 16 131 2 0 0 0 6 130 1 0 28
+                                    0 0 50 2 0 0 0 6 130 2 0 0 0 16 131 1 0 28
                                     0 37 2 1 7 40 0 42 1 0 137 0 139 2 0 0 0 46
                                     1 2 0 0 0 158 1 1 3 27 0 147 1 3 16 0 1 1 3
-                                    0 0 1 1 3 7 0 1 1 0 159 0 1 2 0 161 161 0 1
-                                    1 0 160 0 1 1 0 29 0 35 1 0 46 0 149 1 3 0
-                                    28 34 1 0 0 28 32 1 0 9 0 95 1 0 7 0 54 2 0
-                                    0 0 0 1 1 0 0 6 103 1 0 0 16 109 1 0 0 7
-                                    104 1 0 0 105 107 1 0 86 0 87 1 0 156 0 1 2
-                                    0 7 0 16 26 2 0 7 0 0 53 2 0 7 0 16 132 0 0
-                                    46 136 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0 9 0 0
-                                    1 2 0 0 0 46 68 2 0 0 0 158 1 0 0 0 14 1 0
-                                    75 0 76 0 0 0 55 2 0 9 0 0 13 2 0 0 0 0 120
-                                    1 0 0 0 117 2 0 0 0 0 78 2 0 0 6 0 127 2 0
-                                    0 7 0 48 2 0 0 0 7 72 2 0 0 46 0 70 2 0 0
-                                    105 0 123 2 0 0 0 0 49 2 0 0 158 0 1)))))
+                                    0 0 1 1 3 7 0 1 1 0 159 0 1 1 0 29 0 35 1 0
+                                    46 0 149 1 3 0 28 34 1 0 0 28 32 1 0 9 0 95
+                                    1 0 7 0 54 2 0 0 0 0 1 1 0 0 6 103 1 0 0 16
+                                    109 1 0 0 7 104 1 0 0 105 107 1 0 86 0 87 1
+                                    0 156 0 1 2 0 7 0 16 26 2 0 7 0 0 53 2 0 7
+                                    0 16 132 0 0 46 136 3 0 0 0 0 0 1 2 0 0 0 0
+                                    1 2 0 9 0 0 1 2 0 0 0 46 68 2 0 0 0 158 1 0
+                                    0 0 14 1 0 75 0 76 0 0 0 55 2 0 9 0 0 13 1
+                                    0 0 0 117 2 0 0 0 0 120 2 0 0 0 0 78 2 0 0
+                                    6 0 127 2 0 0 0 7 72 2 0 0 7 0 48 2 0 0 46
+                                    0 70 2 0 0 105 0 123 2 0 0 0 0 49 2 0 0 158
+                                    0 1)))))
            '|lookupComplete|)) 

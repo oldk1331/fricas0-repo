@@ -214,7 +214,7 @@
     (LETT DV$4 (|devaluate| |#4|))
     (LETT DV$5 |#5|)
     (LETT |dv$| (LIST '|FractionalIdealAsModule| DV$1 DV$2 DV$3 DV$4 DV$5))
-    (LETT % (GETREFV 68))
+    (LETT % (GETREFV 66))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -265,11 +265,11 @@
               (|Matrix| 6) (|ModularHermitianRowReduction| 6) (111 . |rowEch|)
               (116 . |maxRowIndex|) (121 . |row|) (127 . ~=) |FRIMOD;*;3%;14|
               (|FractionalIdeal| 6 7 8 9) (133 . |basis|) (138 . |module|)
-              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
+              (|PositiveInteger|) (|String|))
            '#(~= 143 |sample| 149 |rightRecip| 153 |rightPower| 158 |recip| 170
               |one?| 175 |norm| 180 |module| 185 |leftRecip| 195 |leftPower|
-              200 |latex| 212 |hashUpdate!| 217 |hash| 223 |coerce| 228 |basis|
-              233 ^ 238 |One| 250 = 254 * 260)
+              200 |latex| 212 |coerce| 217 |basis| 222 ^ 227 |One| 239 = 243 *
+              249)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -278,7 +278,7 @@
                   (CONS
                    '#((|Monoid|) (|SemiGroup|) (|MagmaWithUnit|) (|Magma|)
                       (|SetCategory|) (|BasicType|) (|CoercibleTo| 26))
-                   (|makeByteWordVec2| 67
+                   (|makeByteWordVec2| 65
                                        '(0 7 0 14 1 22 21 0 23 2 22 6 0 21 24 2
                                          7 0 6 6 25 1 18 26 0 27 2 30 29 29 0
                                          31 1 9 0 29 32 1 9 30 33 34 2 30 0 0 0
@@ -292,8 +292,7 @@
                                          0 36 0 1 2 0 0 0 47 1 2 0 0 0 64 1 1 0
                                          36 0 1 1 0 46 0 1 1 0 7 0 50 1 1 0 61
                                          63 1 0 0 18 19 1 0 36 0 1 2 0 0 0 47 1
-                                         2 0 0 0 64 1 1 0 65 0 1 2 0 67 67 0 1
-                                         1 0 66 0 1 1 0 26 0 28 1 0 18 0 20 2 0
-                                         0 0 47 1 2 0 0 0 64 1 0 0 0 17 2 0 46
-                                         0 0 1 2 0 0 0 0 60)))))
+                                         2 0 0 0 64 1 1 0 65 0 1 1 0 26 0 28 1
+                                         0 18 0 20 2 0 0 0 47 1 2 0 0 0 64 1 0
+                                         0 0 17 2 0 46 0 0 1 2 0 0 0 0 60)))))
            '|lookupComplete|)) 

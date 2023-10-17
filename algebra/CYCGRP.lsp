@@ -28,10 +28,10 @@
 
 (SDEFUN |CYCGRP;hashUpdate!;Hs%Hs;4|
         ((|hs| #1=(|HashState|)) (|s| (%)) (% #1#))
-        (HASHSTATEUPDATE |hs| (|CYCGRP;rep| |s| %))) 
+        (SPADCALL |hs| (|CYCGRP;rep| |s| %) (QREFELT % 19))) 
 
 (SDEFUN |CYCGRP;convert;%Se;5| ((|x| (%)) (% (|SExpression|)))
-        (SPADCALL (|CYCGRP;rep| |x| %) (QREFELT % 21))) 
+        (SPADCALL (|CYCGRP;rep| |x| %) (QREFELT % 22))) 
 
 (SDEFUN |CYCGRP;One;%;6| ((% (%))) (|CYCGRP;per| 0 %)) 
 
@@ -40,16 +40,16 @@
 
 (SDEFUN |CYCGRP;order;%I;8| ((|x| (%)) (% (|Integer|)))
         (QUOTIENT2 (QREFELT % 6)
-                   (GCD (SPADCALL |x| (QREFELT % 24)) (QREFELT % 6)))) 
+                   (GCD (SPADCALL |x| (QREFELT % 25)) (QREFELT % 6)))) 
 
 (SDEFUN |CYCGRP;*;3%;9| ((|x| (%)) (|y| (%)) (% (%)))
         (|CYCGRP;per|
          (SPADCALL (|CYCGRP;rep| |x| %) (|CYCGRP;rep| |y| %) (QREFELT % 6)
-                   (QREFELT % 26))
+                   (QREFELT % 27))
          %)) 
 
 (SDEFUN |CYCGRP;inv;2%;10| ((|x| (%)) (% (%)))
-        (COND ((SPADCALL |x| (QREFELT % 10)) (|spadConstant| % 23))
+        (COND ((SPADCALL |x| (QREFELT % 10)) (|spadConstant| % 24))
               ('T (|CYCGRP;per| (- (QREFELT % 6) (|CYCGRP;rep| |x| %)) %)))) 
 
 (SDEFUN |CYCGRP;=;2%B;11| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
@@ -68,12 +68,12 @@
                        (#2='T
                         (SEQ
                          (LETT |imodn|
-                               (SPADCALL |i| 1 (QREFELT % 6) (QREFELT % 33)))
+                               (SPADCALL |i| 1 (QREFELT % 6) (QREFELT % 34)))
                          (EXIT
                           (COND
                            ((ZEROP |imodn|)
                             (PROGN
-                             (LETT #1# (|spadConstant| % 23))
+                             (LETT #1# (|spadConstant| % 24))
                              (GO #3=#:G126)))
                            (#2# (|CYCGRP;per| |imodn| %))))))))
                 #3# (EXIT #1#)))) 
@@ -100,7 +100,7 @@
         (|CYCGRP;rep| |x| %)) 
 
 (SDEFUN |CYCGRP;generators;L;20| ((% (|List| %)))
-        (LIST (SPADCALL (QREFELT % 40)))) 
+        (LIST (SPADCALL (QREFELT % 41)))) 
 
 (DECLAIM (NOTINLINE |CyclicGroup;|)) 
 
@@ -127,7 +127,7 @@
           (LETT DV$1 |#1|)
           (LETT DV$2 |#2|)
           (LETT |dv$| (LIST '|CyclicGroup| DV$1 DV$2))
-          (LETT % (GETREFV 46))
+          (LETT % (GETREFV 47))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CyclicGroup| (LIST DV$1 DV$2)
@@ -144,50 +144,51 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
               (|Boolean|) |CYCGRP;one?;%B;7| (|OutputForm|) (|Integer|)
               (0 . |coerce|) (|Symbol|) (5 . |coerce|) (10 . ^)
-              |CYCGRP;coerce;%Of;3| (|HashState|) |CYCGRP;hashUpdate!;Hs%Hs;4|
-              (|SExpression|) (16 . |convert|) |CYCGRP;convert;%Se;5|
+              |CYCGRP;coerce;%Of;3| (|HashState|) (16 . |hashUpdate!|)
+              |CYCGRP;hashUpdate!;Hs%Hs;4| (|SExpression|) (22 . |convert|)
+              |CYCGRP;convert;%Se;5|
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |CYCGRP;One;%;6|) %))
-              |CYCGRP;exponent;%I;19| |CYCGRP;order;%I;8| (21 . |addmod|)
+              |CYCGRP;exponent;%I;19| |CYCGRP;order;%I;8| (27 . |addmod|)
               |CYCGRP;*;3%;9| |CYCGRP;inv;2%;10| |CYCGRP;=;2%B;11|
               |CYCGRP;smaller?;2%B;12| (|NonNegativeInteger|)
-              |CYCGRP;size;Nni;13| (28 . |submod|) (|PositiveInteger|)
+              |CYCGRP;size;Nni;13| (34 . |submod|) (|PositiveInteger|)
               |CYCGRP;index;Pi%;14| |CYCGRP;lookup;%Pi;15| |CYCGRP;random;%;16|
               (|List| %) |CYCGRP;enumerate;L;17| |CYCGRP;generator;%;18|
-              |CYCGRP;generators;L;20| (|InputForm|) (|Union| % '"failed")
-              (|String|) (|SingleInteger|))
-           '#(~= 35 |smaller?| 41 |size| 47 |sample| 51 |rightRecip| 55
-              |rightPower| 60 |recip| 72 |random| 77 |order| 81 |one?| 86
-              |lookup| 91 |leftRecip| 96 |leftPower| 101 |latex| 113 |inv| 118
-              |index| 123 |hashUpdate!| 128 |hash| 134 |generators| 139
-              |generator| 143 |exponent| 147 |enumerate| 152 |convert| 156
-              |conjugate| 166 |commutator| 172 |coerce| 178 ^ 183 |One| 201 =
-              205 / 211 * 217)
+              |CYCGRP;generators;L;20| (|InputForm|) (|SingleInteger|)
+              (|Union| % '"failed") (|String|))
+           '#(~= 41 |smaller?| 47 |size| 53 |sample| 57 |rightRecip| 61
+              |rightPower| 66 |recip| 78 |random| 83 |order| 87 |one?| 92
+              |lookup| 97 |leftRecip| 102 |leftPower| 107 |latex| 119 |inv| 124
+              |index| 129 |hashUpdate!| 134 |hash| 140 |generators| 145
+              |generator| 149 |exponent| 153 |enumerate| 158 |convert| 162
+              |conjugate| 172 |commutator| 178 |coerce| 184 ^ 189 |One| 207 =
+              211 / 217 * 223)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|FiniteGroup&| |Group&| NIL NIL |Finite&| |MagmaWithUnit&|
-                     NIL |Magma&| NIL |SetCategory&| NIL NIL NIL NIL NIL
-                     |BasicType&| NIL)
+                     NIL |Magma&| NIL |Hashable&| |SetCategory&| NIL NIL NIL
+                     NIL NIL |BasicType&| NIL)
                   (CONS
                    '#((|FiniteGroup|) (|Group|) (|Monoid|) (|SemiGroup|)
                       (|Finite|) (|MagmaWithUnit|) (|Comparable|) (|Magma|)
-                      (|CommutativeStar|) (|SetCategory|) (|ConvertibleTo| 20)
-                      (|TwoSidedRecip|) (|FinitelyGenerated|)
-                      (|ConvertibleTo| 42) (|unitsKnown|) (|BasicType|)
-                      (|CoercibleTo| 11))
-                   (|makeByteWordVec2| 45
+                      (|CommutativeStar|) (|Hashable|) (|SetCategory|)
+                      (|ConvertibleTo| 21) (|TwoSidedRecip|)
+                      (|FinitelyGenerated|) (|ConvertibleTo| 43) (|unitsKnown|)
+                      (|BasicType|) (|CoercibleTo| 11))
+                   (|makeByteWordVec2| 46
                                        '(1 12 11 0 13 1 14 11 0 15 2 11 0 0 0
-                                         16 1 20 0 12 21 3 8 0 0 0 0 26 3 12 0
-                                         0 0 0 33 2 0 9 0 0 1 2 0 9 0 0 30 0 0
-                                         31 32 0 0 0 1 1 0 43 0 1 2 0 0 0 31 1
-                                         2 0 0 0 34 1 1 0 43 0 1 0 0 0 37 1 0
-                                         12 0 25 1 0 9 0 10 1 0 34 0 36 1 0 43
-                                         0 1 2 0 0 0 31 1 2 0 0 0 34 1 1 0 44 0
-                                         1 1 0 0 0 28 1 0 0 34 35 2 0 18 18 0
-                                         19 1 0 45 0 1 0 0 38 41 0 0 0 40 1 0
-                                         12 0 24 0 0 38 39 1 0 20 0 22 1 0 42 0
-                                         1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 11 0 17
-                                         2 0 0 0 12 1 2 0 0 0 31 1 2 0 0 0 34 1
-                                         0 0 0 23 2 0 9 0 0 29 2 0 0 0 0 1 2 0
-                                         0 0 0 27)))))
+                                         16 2 8 18 18 0 19 1 21 0 12 22 3 8 0 0
+                                         0 0 27 3 12 0 0 0 0 34 2 0 9 0 0 1 2 0
+                                         9 0 0 31 0 0 32 33 0 0 0 1 1 0 45 0 1
+                                         2 0 0 0 32 1 2 0 0 0 35 1 1 0 45 0 1 0
+                                         0 0 38 1 0 12 0 26 1 0 9 0 10 1 0 35 0
+                                         37 1 0 45 0 1 2 0 0 0 32 1 2 0 0 0 35
+                                         1 1 0 46 0 1 1 0 0 0 29 1 0 0 35 36 2
+                                         0 18 18 0 20 1 0 44 0 1 0 0 39 42 0 0
+                                         0 41 1 0 12 0 25 0 0 39 40 1 0 21 0 23
+                                         1 0 43 0 1 2 0 0 0 0 1 2 0 0 0 0 1 1 0
+                                         11 0 17 2 0 0 0 12 1 2 0 0 0 32 1 2 0
+                                         0 0 35 1 0 0 0 24 2 0 9 0 0 30 2 0 0 0
+                                         0 1 2 0 0 0 0 28)))))
            '|lookupComplete|)) 

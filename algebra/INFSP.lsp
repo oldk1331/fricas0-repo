@@ -662,7 +662,7 @@
            (|Join| (|OrderedFinite|) (|ConvertibleTo| (|Symbol|))
                    (|ConvertibleTo| (|InputForm|))
                    (|ConvertibleTo| (|Pattern| (|Float|)))
-                   (|ConvertibleTo| (|Pattern| (|Integer|)))
+                   (|ConvertibleTo| (|Pattern| (|Integer|))) (|Hashable|)
                    (CATEGORY |domain|
                     (SIGNATURE |variable| ((|Union| % "failed") (|Symbol|))))))
           (|lnp| (|List| (|DistributedMultivariatePolynomial| |lv| K)))

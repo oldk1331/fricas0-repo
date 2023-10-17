@@ -22,7 +22,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Quaternion| DV$1))
-          (LETT % (GETREFV 38))
+          (LETT % (GETREFV 36))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3
                     (LETT |pv$|
@@ -105,13 +105,13 @@
               (|local| |#1|) (0 . |One|) (4 . |One|) (8 . -) (|Fraction| 19)
               (|Union| % '"failed") (|InputForm|) (|NonNegativeInteger|)
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|Boolean|) (|List| 17) (|Equation| 6) (|List| 6) (|Integer|)
-              (|List| 21) (|Symbol|) (|Union| 10 '"failed") (|Matrix| 19)
+              (|Boolean|) (|Equation| 6) (|List| 16) (|List| 6) (|Integer|)
+              (|Symbol|) (|List| 20) (|Union| 10 '"failed") (|Matrix| 19)
               (|Matrix| %) (|Record| (|:| |mat| 23) (|:| |vec| (|Vector| 19)))
               (|Vector| %) (|List| 13) (|Union| 19 '#1="failed") (|Matrix| 6)
               (|Record| (|:| |mat| 29) (|:| |vec| (|Vector| 6)))
               (|Mapping| 6 6) (|Union| 6 '#1#) (|PositiveInteger|)
-              (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
+              (|OutputForm|) (|String|))
            '#(|One| 13) 'NIL
            (CONS
             (|makeByteWordVec2| 15
@@ -135,7 +135,7 @@
               '#((|QuaternionCategory| 6) (|DifferentialExtension| 6)
                  (|DivisionRing|) (|Algebra| 6) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|EntireRing|) (|Algebra| 10)
-                 (|PartialDifferentialRing| 21) (|DifferentialRing|) (|Ring|)
+                 (|PartialDifferentialRing| 20) (|DifferentialRing|) (|Ring|)
                  (|Rng|) (|SemiRing|) (|FullyLinearlyExplicitOver| 6)
                  (|Module| 6) (|SemiRng|) (|Module| 10)
                  (|LinearlyExplicitOver| 6) (|BiModule| 6 6)
@@ -150,9 +150,9 @@
                  (|AbelianSemiGroup|) (|Comparable|) (|RetractableTo| 6)
                  (|SetCategory|) (|RetractableTo| 10) (|RetractableTo| 19)
                  (|Evalable| 6) (|CoercibleFrom| 6) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 36) (|ConvertibleTo| 12)
+                 (|BasicType|) (|CoercibleTo| 34) (|ConvertibleTo| 12)
                  (|noZeroDivisors|) (|TwoSidedRecip|) (|PartialOrder|)
                  (|CoercibleFrom| 10) (|CoercibleFrom| 19)
-                 (|InnerEvalable| 21 6) (|InnerEvalable| 6 6) (|Eltable| 6 $$))
+                 (|InnerEvalable| 20 6) (|InnerEvalable| 6 6) (|Eltable| 6 $$))
               (|makeByteWordVec2| 9 '(0 0 0 7 0 6 0 8 1 6 0 0 9 0 0 0 7)))))
            '|lookupIncomplete|)) 

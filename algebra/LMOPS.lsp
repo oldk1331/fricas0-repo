@@ -186,7 +186,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 |#3|)
           (LETT |dv$| (LIST '|ListMonoidOps| DV$1 DV$2 DV$3))
-          (LETT % (GETREFV 60))
+          (LETT % (GETREFV 58))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ListMonoidOps|
@@ -217,20 +217,19 @@
               |LMOPS;outputForm;%2MIOf;15| (|Union| 6 '"failed")
               |LMOPS;retractIfCan;%U;16| '"last" (59 . |elt|) (65 . =)
               (71 . |copy|) (76 . +) (82 . |setlast!|) (88 . |concat|)
-              |LMOPS;rightMult;%S%;17| |LMOPS;leftMult;S2%;18| (|String|)
-              (|SingleInteger|) (|HashState|))
+              |LMOPS;rightMult;%S%;17| |LMOPS;leftMult;S2%;18| (|String|))
            '#(~= 94 |size| 100 |rightMult| 105 |reverse!| 111 |reverse| 116
               |retractIfCan| 121 |retract| 126 |outputForm| 131 |nthFactor| 139
               |nthExpon| 145 |mapGen| 151 |mapExpon| 157 |makeUnit| 163
               |makeTerm| 167 |makeMulti| 173 |listOfMonoms| 178 |leftMult| 183
-              |latex| 189 |hashUpdate!| 194 |hash| 200 |coerce| 205 = 215)
+              |latex| 189 |coerce| 194 = 204)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
                  (CONS '#(|SetCategory&| |RetractableTo&| |BasicType&| NIL NIL)
                        (CONS
                         '#((|SetCategory|) (|RetractableTo| 6) (|BasicType|)
                            (|CoercibleFrom| 6) (|CoercibleTo| 17))
-                        (|makeByteWordVec2| 59
+                        (|makeByteWordVec2| 57
                                             '(1 9 17 0 18 1 7 20 0 21 2 9 20 0
                                               0 24 2 9 11 0 26 27 0 7 0 34 2 7
                                               20 0 0 35 1 26 17 0 38 2 7 20 0 0
@@ -244,7 +243,6 @@
                                               6 0 26 29 2 0 7 0 26 28 2 0 0 32
                                               0 33 2 0 0 36 0 37 0 0 0 10 2 0 0
                                               6 7 22 1 0 0 12 23 1 0 12 0 13 2
-                                              0 0 6 0 56 1 0 57 0 1 2 0 59 59 0
-                                              1 1 0 58 0 1 1 0 0 6 16 1 0 17 0
-                                              19 2 0 20 0 0 25)))))
+                                              0 0 6 0 56 1 0 57 0 1 1 0 0 6 16
+                                              1 0 17 0 19 2 0 20 0 0 25)))))
            '|lookupComplete|)) 

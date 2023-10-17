@@ -184,7 +184,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ProductFacet|))
-          (LETT % (GETREFV 40))
+          (LETT % (GETREFV 38))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ProductFacet| NIL (CONS 1 %))
@@ -211,13 +211,12 @@
               |PFACET;addVertex2;%R%;9| (|Boolean|) (11 . ~=) |PFACET;=;2%B;10|
               (|String|) (|OutputForm|) (17 . |message|) (22 . |coerce|)
               (27 . |hconcat|) (33 . |coerce|) (|List| %) (38 . |bracket|)
-              (|List| 27) (43 . |concat|) (49 . |paren|) |PFACET;coerce;%Of;11|
-              (|SingleInteger|) (|HashState|))
+              (|List| 27) (43 . |concat|) (49 . |paren|)
+              |PFACET;coerce;%Of;11|)
            '#(~= 54 |smaller?| 60 |setMult!| 66 |productFacet| 72 |order| 84
-              |min| 89 |max| 95 |latex| 101 |hashUpdate!| 106 |hash| 112
-              |getMult| 117 |getMaxRight| 122 |getMaxLeft| 127 |getIndexs| 132
-              |empty?| 137 |coerce| 142 |addVertex2| 147 >= 153 > 159 = 165 <=
-              171 < 177)
+              |min| 89 |max| 95 |latex| 101 |getMult| 106 |getMaxRight| 111
+              |getMaxLeft| 116 |getIndexs| 121 |empty?| 126 |coerce| 131
+              |addVertex2| 136 >= 142 > 148 = 154 <= 160 < 166)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -227,18 +226,18 @@
                    '#((|FacetCategory|) (|OrderedSet|) (|Comparable|)
                       (|SetCategory|) (|PartialOrder|) (|BasicType|)
                       (|CoercibleTo| 27))
-                   (|makeByteWordVec2| 39
+                   (|makeByteWordVec2| 37
                                        '(1 11 9 0 12 2 9 0 0 8 21 2 7 23 0 0 24
                                          1 27 0 26 28 1 7 27 0 29 2 27 0 0 0 30
                                          1 15 27 0 31 1 27 0 32 33 2 34 0 0 27
                                          35 1 27 0 32 36 2 0 23 0 0 1 2 0 23 0
-                                         0 1 2 0 0 0 7 20 2 0 0 7 11 13 2 0 0 7
-                                         9 10 1 0 15 0 18 2 0 0 0 0 1 2 0 0 0 0
-                                         1 1 0 26 0 1 2 0 39 39 0 1 1 0 38 0 1
-                                         1 0 7 0 19 1 0 15 0 17 1 0 15 0 16 1 0
-                                         9 0 14 1 0 23 0 1 1 0 27 0 37 2 0 0 0
-                                         8 22 2 0 23 0 0 1 2 0 23 0 0 1 2 0 23
-                                         0 0 25 2 0 23 0 0 1 2 0 23 0 0 1)))))
+                                         0 1 2 0 0 0 7 20 2 0 0 7 9 10 2 0 0 7
+                                         11 13 1 0 15 0 18 2 0 0 0 0 1 2 0 0 0
+                                         0 1 1 0 26 0 1 1 0 7 0 19 1 0 15 0 17
+                                         1 0 15 0 16 1 0 9 0 14 1 0 23 0 1 1 0
+                                         27 0 37 2 0 0 0 8 22 2 0 23 0 0 1 2 0
+                                         23 0 0 1 2 0 23 0 0 25 2 0 23 0 0 1 2
+                                         0 23 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ProductFacet| 'NILADIC T) 

@@ -52,7 +52,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|OpenMathEncoding|))
-          (LETT % (GETREFV 19))
+          (LETT % (GETREFV 17))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|OpenMathEncoding| NIL (CONS 1 %))
@@ -66,21 +66,19 @@
            '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|) |OMENC;=;2%B;1|
               (|String|) (|OutputForm|) (0 . |message|) |OMENC;coerce;%Of;2|
               |OMENC;OMencodingUnknown;%;3| |OMENC;OMencodingBinary;%;4|
-              |OMENC;OMencodingXML;%;5| |OMENC;OMencodingSGML;%;6|
-              (|SingleInteger|) (|HashState|))
-           '#(~= 5 |latex| 11 |hashUpdate!| 16 |hash| 22 |coerce| 27
-              |OMencodingXML| 32 |OMencodingUnknown| 36 |OMencodingSGML| 40
-              |OMencodingBinary| 44 = 48)
+              |OMENC;OMencodingXML;%;5| |OMENC;OMencodingSGML;%;6|)
+           '#(~= 5 |latex| 11 |coerce| 16 |OMencodingXML| 21
+              |OMencodingUnknown| 25 |OMencodingSGML| 29 |OMencodingBinary| 33
+              = 37)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 10))
-                        (|makeByteWordVec2| 18
+                        (|makeByteWordVec2| 16
                                             '(1 10 0 9 11 2 0 7 0 0 1 1 0 9 0 1
-                                              2 0 18 18 0 1 1 0 17 0 1 1 0 10 0
-                                              12 0 0 0 15 0 0 0 13 0 0 0 16 0 0
-                                              0 14 2 0 7 0 0 8)))))
+                                              1 0 10 0 12 0 0 0 15 0 0 0 13 0 0
+                                              0 16 0 0 0 14 2 0 7 0 0 8)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OpenMathEncoding| 'NILADIC T) 

@@ -130,9 +130,9 @@
         (CONS (SPADCALL |cmpx| (QREFELT % 42))
               (SPADCALL |cmpx| (QREFELT % 43)))) 
 
-(PUT '|SARGND;hash;%Si;29| '|SPADreplace| '(XLAM (|s|) 0)) 
+(PUT '|SARGND;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(SDEFUN |SARGND;hash;%Si;29| ((|s| (%)) (% (|SingleInteger|))) 0) 
+(SDEFUN |SARGND;hash| ((|s| (%)) (% (|SingleInteger|))) 0) 
 
 (SDEFUN |SARGND;=;2%B;30| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G159 NIL))
@@ -149,23 +149,23 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SARGND;~=;2%B;31| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
-        (NULL (SPADCALL |x| |y| (QREFELT % 47)))) 
+        (NULL (SPADCALL |x| |y| (QREFELT % 45)))) 
 
 (SDEFUN |SARGND;coerce;%Of;32| ((|pt| (%)) (% (|OutputForm|)))
         (COND
          ((|less_DF| (QCDR |pt|) 0.0)
-          (SPADCALL (SPADCALL (QCAR |pt|) (QREFELT % 50))
-                    (SPADCALL (SPADCALL '|%i| (QREFELT % 52))
+          (SPADCALL (SPADCALL (QCAR |pt|) (QREFELT % 48))
+                    (SPADCALL (SPADCALL '|%i| (QREFELT % 50))
                               (SPADCALL (|minus_DF| (QCDR |pt|))
-                                        (QREFELT % 50))
-                              (QREFELT % 53))
-                    (QREFELT % 54)))
+                                        (QREFELT % 48))
+                              (QREFELT % 51))
+                    (QREFELT % 52)))
          ('T
-          (SPADCALL (SPADCALL (QCAR |pt|) (QREFELT % 50))
-                    (SPADCALL (SPADCALL '|%i| (QREFELT % 52))
-                              (SPADCALL (QCDR |pt|) (QREFELT % 50))
-                              (QREFELT % 53))
-                    (QREFELT % 55))))) 
+          (SPADCALL (SPADCALL (QCAR |pt|) (QREFELT % 48))
+                    (SPADCALL (SPADCALL '|%i| (QREFELT % 50))
+                              (SPADCALL (QCDR |pt|) (QREFELT % 48))
+                              (QREFELT % 51))
+                    (QREFELT % 53))))) 
 
 (DECLAIM (NOTINLINE |SArgand;|)) 
 
@@ -189,7 +189,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|SArgand|))
-          (LETT % (GETREFV 60))
+          (LETT % (GETREFV 57))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SArgand| NIL (CONS 1 %))
@@ -216,46 +216,44 @@
               |SARGND;toPoint;2%;23| |SARGND;toVector;2%;24|
               |SARGND;isPoint?;%B;25| |SARGND;isVector?;%B;26| (|Complex| 7)
               (17 . |complex|) |SARGND;coerce;%C;27| (23 . |real|)
-              (28 . |imag|) |SARGND;coerce;C%;28| (|SingleInteger|)
-              |SARGND;hash;%Si;29| |SARGND;=;2%B;30| |SARGND;~=;2%B;31|
-              (|OutputForm|) (33 . |coerce|) (|Symbol|) (38 . |coerce|)
-              (43 . |hconcat|) (49 . -) (55 . +) |SARGND;coerce;%Of;32|
-              (|Integer|) (|String|) (|HashState|))
+              (28 . |imag|) |SARGND;coerce;C%;28| |SARGND;=;2%B;30|
+              |SARGND;~=;2%B;31| (|OutputForm|) (33 . |coerce|) (|Symbol|)
+              (38 . |coerce|) (43 . |hconcat|) (49 . -) (55 . +)
+              |SARGND;coerce;%Of;32| (|Integer|) (|String|))
            '#(~= 61 |unitVector| 67 |toVector| 72 |toPoint| 77 |svec| 82 |spnt|
               95 |sivec| 108 |sipnt| 121 |screenCoords| 134 |screenCoordZ| 139
               |screenCoordY| 144 |screenCoordX| 149 |perpendicular| 154
               |parallel| 160 |min| 166 |max| 172 |latex| 178 |isVector?| 183
-              |isPoint?| 188 |inBounds?| 193 |hashUpdate!| 200 |hash| 206
-              |extendedCoords| 211 |distanceSquared| 216 |distance| 222
-              |dimension| 228 |colinearity| 233 |coerce| 239 |Pnan?| 254 = 259
-              - 265 + 271 * 277)
+              |isPoint?| 188 |inBounds?| 193 |extendedCoords| 200
+              |distanceSquared| 205 |distance| 211 |dimension| 217
+              |colinearity| 222 |coerce| 228 |Pnan?| 243 = 248 - 254 + 260 *
+              266)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|SPointCategory&| |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SPointCategory|) (|SetCategory|) (|BasicType|)
-                           (|CoercibleTo| 49))
-                        (|makeByteWordVec2| 59
+                           (|CoercibleTo| 47))
+                        (|makeByteWordVec2| 56
                                             '(2 7 16 0 0 17 1 7 0 0 19 2 7 16 0
                                               0 27 2 39 0 7 7 40 1 39 7 0 42 1
-                                              39 7 0 43 1 7 49 0 50 1 51 49 0
-                                              52 2 49 0 0 0 53 2 49 0 0 0 54 2
-                                              49 0 0 0 55 2 0 16 0 0 48 1 0 0 0
+                                              39 7 0 43 1 7 47 0 48 1 49 47 0
+                                              50 2 47 0 0 0 51 2 47 0 0 0 52 2
+                                              47 0 0 0 53 2 0 16 0 0 46 1 0 0 0
                                               20 1 0 0 0 36 1 0 0 0 35 3 0 0 7
                                               7 7 11 2 0 0 7 7 10 3 0 0 7 7 7 9
-                                              2 0 0 7 7 8 3 0 0 57 57 57 1 2 0
-                                              0 57 57 1 3 0 0 57 57 57 1 2 0 0
-                                              57 57 1 1 0 32 0 33 1 0 7 0 31 1
+                                              2 0 0 7 7 8 3 0 0 55 55 55 1 2 0
+                                              0 55 55 1 3 0 0 55 55 55 1 2 0 0
+                                              55 55 1 1 0 32 0 33 1 0 7 0 31 1
                                               0 7 0 30 1 0 7 0 29 2 0 0 0 0 23
                                               2 0 7 0 0 22 2 0 0 0 0 12 2 0 0 0
-                                              0 13 1 0 58 0 1 1 0 16 0 38 1 0
-                                              16 0 37 3 0 16 0 0 0 28 2 0 59 59
-                                              0 1 1 0 45 0 46 1 0 32 0 34 2 0 7
-                                              0 0 21 2 0 7 0 0 1 1 0 14 0 15 2
-                                              0 7 0 0 1 1 0 39 0 41 1 0 0 39 44
-                                              1 0 49 0 56 1 0 16 0 18 2 0 16 0
-                                              0 47 2 0 0 0 0 26 2 0 0 0 0 25 2
-                                              0 0 7 0 24)))))
+                                              0 13 1 0 56 0 1 1 0 16 0 38 1 0
+                                              16 0 37 3 0 16 0 0 0 28 1 0 32 0
+                                              34 2 0 7 0 0 21 2 0 7 0 0 1 1 0
+                                              14 0 15 2 0 7 0 0 1 1 0 39 0 41 1
+                                              0 0 39 44 1 0 47 0 54 1 0 16 0 18
+                                              2 0 16 0 0 45 2 0 0 0 0 26 2 0 0
+                                              0 0 25 2 0 0 7 0 24)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|SArgand| 'NILADIC T) 

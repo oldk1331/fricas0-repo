@@ -9192,14 +9192,17 @@
           (|Sae|
            (|Join|
             (|MonogenicAlgebra| #1=(|Expression| (|Integer|))
-                                (|UnivariatePolynomial| |var|
-                                                        (|Expression|
-                                                         (|Integer|))))
+                                #2=(|UnivariatePolynomial| |var|
+                                                           (|Expression|
+                                                            (|Integer|))))
             (CATEGORY |package|
              (IF (|has| #1# (|Field|))
                  (IF (|has| #1# (|PolynomialFactorizationExplicit|))
                      (ATTRIBUTE (|PolynomialFactorizationExplicit|))
                      |noBranch|)
+                 |noBranch|)
+             (IF (|has| #2# (|Hashable|))
+                 (ATTRIBUTE (|Hashable|))
                  |noBranch|))))
           (|min_pol|
            (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))

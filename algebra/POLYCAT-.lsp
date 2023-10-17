@@ -1396,6 +1396,37 @@
 (SDEFUN |POLYCAT-;convert;SIf;50| ((|p| (S)) (% (|InputForm|)))
         (SPADCALL (ELT % 226) (ELT % 227) |p| (QREFELT % 231))) 
 
+(SDEFUN |POLYCAT-;hashUpdate!;HsSHs;51|
+        ((|s| (|HashState|)) (|x| (S)) (% (|HashState|)))
+        (SPROG
+         ((|xu| (|SparseUnivariatePolynomial| S)) (|d| (|NonNegativeInteger|))
+          (|v| (|VarSet|)) (|vu| (|Union| |VarSet| "failed")))
+         (SEQ (LETT |vu| (SPADCALL |x| (QREFELT % 38)))
+              (EXIT
+               (COND
+                ((QEQCAR |vu| 1)
+                 (SPADCALL |s| (SPADCALL |x| (QREFELT % 148)) (QREFELT % 234)))
+                ('T
+                 (SEQ (LETT |v| (QCDR |vu|))
+                      (LETT |s| (SPADCALL |s| |v| (QREFELT % 235)))
+                      (LETT |xu| (SPADCALL |x| |v| (QREFELT % 44)))
+                      (SEQ G190
+                           (COND
+                            ((NULL
+                              (> (LETT |d| (SPADCALL |xu| (QREFELT % 59))) 0))
+                             (GO G191)))
+                           (SEQ (LETT |s| (SPADCALL |s| |d| (QREFELT % 236)))
+                                (LETT |s|
+                                      (SPADCALL |s|
+                                                (SPADCALL |xu| (QREFELT % 60))
+                                                (QREFELT % 237)))
+                                (EXIT
+                                 (LETT |xu| (SPADCALL |xu| (QREFELT % 62)))))
+                           NIL (GO G190) G191 (EXIT NIL))
+                      (EXIT
+                       (SPADCALL |s| (SPADCALL |xu| (QREFELT % 238))
+                                 (QREFELT % 237)))))))))) 
+
 (DECLAIM (NOTINLINE |PolynomialCategory&;|)) 
 
 (DEFUN |PolynomialCategory&| (|#1| |#2| |#3| |#4|)
@@ -1408,7 +1439,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|PolynomialCategory&| DV$1 DV$2 DV$3 DV$4))
-    (LETT % (GETREFV 240))
+    (LETT % (GETREFV 247))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -1453,6 +1484,8 @@
                                         (|HasCategory| |#2|
                                                        '(|ConvertibleTo|
                                                          (|InputForm|)))
+                                        (|HasCategory| |#4| '(|Hashable|))
+                                        (|HasCategory| |#2| '(|Hashable|))
                                         (|HasCategory| |#2| '(|Ring|))
                                         (|HasCategory| |#2| '(|SemiRing|))))))
     (|stuffDomainSlots| %)
@@ -1462,10 +1495,10 @@
     (QSETREFV % 9 |#4|)
     (SETF |pv$| (QREFELT % 3))
     (COND
-     ((|testBitVector| |pv$| 15)
+     ((|testBitVector| |pv$| 17)
       (QSETREFV % 20 (CONS (|dispatchFunction| |POLYCAT-;eval;SLS;1|) %))))
     (COND
-     ((|testBitVector| |pv$| 15)
+     ((|testBitVector| |pv$| 17)
       (PROGN
        (QSETREFV % 37 (CONS (|dispatchFunction| |POLYCAT-;isTimes;SU;3|) %))
        (QSETREFV % 42 (CONS (|dispatchFunction| |POLYCAT-;isExpt;SU;4|) %)))))
@@ -1572,7 +1605,7 @@
        (QSETREFV % 157
                  (CONS (|dispatchFunction| |POLYCAT-;charthRoot;SU;35|) %)))))
     (COND
-     ((|testBitVector| |pv$| 14)
+     ((|testBitVector| |pv$| 16)
       (QSETREFV % 162
                 (CONS (|dispatchFunction| |POLYCAT-;monicDivide;2SVarSetR;37|)
                       %))))
@@ -1609,7 +1642,7 @@
        (QSETREFV % 189
                  (CONS (|dispatchFunction| |POLYCAT-;smaller?;2SB;45|) %))
        (COND
-        ((|testBitVector| |pv$| 14)
+        ((|testBitVector| |pv$| 16)
          (PROGN
           (COND
            ((|testBitVector| |pv$| 7)
@@ -1628,7 +1661,7 @@
                          (|dispatchFunction| |POLYCAT-;patternMatch;SP2Pmr;47|)
                          %))))))))))))
     (COND
-     ((|testBitVector| |pv$| 14)
+     ((|testBitVector| |pv$| 16)
       (PROGN
        (COND
         ((|testBitVector| |pv$| 11)
@@ -1650,6 +1683,13 @@
        ((|testBitVector| |pv$| 12)
         (QSETREFV % 232
                   (CONS (|dispatchFunction| |POLYCAT-;convert;SIf;50|) %))))))
+    (COND
+     ((|testBitVector| |pv$| 15)
+      (COND
+       ((|testBitVector| |pv$| 14)
+        (QSETREFV % 239
+                  (CONS (|dispatchFunction| |POLYCAT-;hashUpdate!;HsSHs;51|)
+                        %))))))
     %))) 
 
 (MAKEPROP '|PolynomialCategory&| '|infovec|
@@ -1657,7 +1697,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|Equation| 6) (0 . |lhs|)
               (|Union| 9 '#1="failed") (5 . |retractIfCan|) (10 . |retract|)
-              (15 . |rhs|) (|List| 9) (|List| %) (20 . |eval|) (|List| 233)
+              (15 . |rhs|) (|List| 9) (|List| %) (20 . |eval|) (|List| 240)
               (27 . |eval|) (33 . |monomials|) (|Union| 17 '#2="failed")
               |POLYCAT-;isPlus;SU;2| (38 . |variables|) (|Boolean|)
               (43 . |monomial?|) (48 . |One|) (|Factored| 6) (52 . |One|)
@@ -1682,7 +1722,7 @@
               (219 . |discriminant|) (225 . |primitiveMonomials|) (|List| 6)
               (230 . |concat|) (235 . |removeDuplicates!|) (|Integer|)
               (|Vector| 7) (240 . |minIndex|) (245 . |coefficient|)
-              (|List| 234) (|Matrix| 7) (251 . |matrix|) (|List| 76)
+              (|List| 241) (|Matrix| 7) (251 . |matrix|) (|List| 76)
               (|Matrix| 6) (256 . |listOfLists|) (261 . |degree|)
               (266 . |vertConcat|) (|Matrix| %) (272 . |reducedSystem|)
               (|Vector| 6) (277 . |entries|) (282 . |concat|) (288 . |concat|)
@@ -1745,18 +1785,21 @@
               (785 . |convert|) (|InputForm|) (790 . |convert|)
               (795 . |convert|) (|Mapping| 225 9) (|Mapping| 225 7)
               (|PolynomialCategoryLifting| 8 9 7 6 225) (800 . |map|)
-              (807 . |convert|) (|Equation| %) (|List| 7) (|Matrix| 79)
-              (|Record| (|:| |mat| 235) (|:| |vec| (|Vector| 79)))
-              (|Fraction| 79) (|Union| 237 '#1#) (|Union| 79 '#1#))
-           '#(|totalDegreeSorted| 812 |totalDegree| 818 |squareFreePart| 829
-              |squareFree| 834 |solveLinearPolynomialEquation| 839 |smaller?|
-              845 |retractIfCan| 851 |retract| 856 |resultant| 861
-              |reducedSystem| 868 |primitivePart| 879 |patternMatch| 890
-              |monicDivide| 904 |isTimes| 911 |isPlus| 916 |isExpt| 921
-              |gcdPolynomial| 926 |factorSquareFreePolynomial| 932
-              |factorPolynomial| 937 |factor| 942 |eval| 947 |discriminant| 953
-              |convert| 959 |content| 974 |conditionP| 980 |coefficient| 985
-              |charthRoot| 999)
+              (807 . |convert|) (|HashState|) (812 . |hashUpdate!|)
+              (818 . |hashUpdate!|) (824 . |hashUpdate!|) (830 . |hashUpdate!|)
+              (836 . |ground|) (841 . |hashUpdate!|) (|Equation| %) (|List| 7)
+              (|Matrix| 79)
+              (|Record| (|:| |mat| 242) (|:| |vec| (|Vector| 79)))
+              (|Fraction| 79) (|Union| 244 '#1#) (|Union| 79 '#1#))
+           '#(|totalDegreeSorted| 847 |totalDegree| 853 |squareFreePart| 864
+              |squareFree| 869 |solveLinearPolynomialEquation| 874 |smaller?|
+              880 |retractIfCan| 886 |retract| 891 |resultant| 896
+              |reducedSystem| 903 |primitivePart| 914 |patternMatch| 925
+              |monicDivide| 939 |isTimes| 946 |isPlus| 951 |isExpt| 956
+              |hashUpdate!| 961 |gcdPolynomial| 967
+              |factorSquareFreePolynomial| 973 |factorPolynomial| 978 |factor|
+              983 |eval| 988 |discriminant| 994 |convert| 1000 |content| 1015
+              |conditionP| 1021 |coefficient| 1026 |charthRoot| 1040)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -1772,6 +1815,9 @@
                               '((|eval| (|#1| |#1| |#1| |#1|)) T)
                               '((|eval| (|#1| |#1| (|Equation| |#1|))) T)
                               '((|eval| (|#1| |#1| (|List| (|Equation| |#1|))))
+                                T)
+                              '((|hashUpdate!|
+                                 ((|HashState|) (|HashState|) |#1|))
                                 T)
                               '((|convert| ((|InputForm|) |#1|)) T)
                               '((|convert| ((|Pattern| (|Integer|)) |#1|)) T)
@@ -1892,7 +1938,7 @@
                                 T)
                               '((|coefficient| (|#2| |#1| |#3|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 232
+                        (|makeByteWordVec2| 239
                                             '(1 10 6 0 11 1 6 12 0 13 1 6 9 0
                                               14 1 10 6 0 15 3 6 0 0 16 17 18 2
                                               0 0 0 19 20 1 6 17 0 21 1 6 16 0
@@ -1958,19 +2004,23 @@
                                               222 2 197 0 0 0 223 1 0 197 0 224
                                               1 9 225 0 226 1 7 225 0 227 3 230
                                               225 228 229 6 231 1 0 225 0 232 2
-                                              0 30 0 16 67 2 0 30 0 16 70 1 0
-                                              30 0 63 1 0 0 0 171 1 0 114 0 165
-                                              2 0 104 105 43 106 2 0 25 0 0 189
-                                              1 0 12 0 53 1 0 9 0 52 3 0 0 0 0
-                                              9 72 2 0 97 91 98 99 1 0 84 91 92
-                                              2 0 0 0 9 182 1 0 0 0 179 3 0 194
-                                              0 191 194 195 3 0 200 0 197 200
-                                              201 3 0 160 0 0 9 162 1 0 22 0 37
-                                              1 0 22 0 23 1 0 41 0 42 2 0 43 43
-                                              43 123 1 0 110 43 112 1 0 110 43
-                                              111 1 0 114 0 115 2 0 0 0 19 20 2
-                                              0 0 0 9 74 1 0 225 0 232 1 0 197
-                                              0 224 1 0 191 0 215 2 0 0 0 9 173
-                                              1 0 150 91 155 3 0 0 0 16 48 50 3
-                                              0 0 0 9 30 47 1 0 145 0 157)))))
+                                              7 233 233 0 234 2 9 233 233 0 235
+                                              2 30 233 233 0 236 2 6 233 233 0
+                                              237 1 45 6 0 238 2 0 233 233 0
+                                              239 2 0 30 0 16 67 2 0 30 0 16 70
+                                              1 0 30 0 63 1 0 0 0 171 1 0 114 0
+                                              165 2 0 104 105 43 106 2 0 25 0 0
+                                              189 1 0 12 0 53 1 0 9 0 52 3 0 0
+                                              0 0 9 72 2 0 97 91 98 99 1 0 84
+                                              91 92 2 0 0 0 9 182 1 0 0 0 179 3
+                                              0 194 0 191 194 195 3 0 200 0 197
+                                              200 201 3 0 160 0 0 9 162 1 0 22
+                                              0 37 1 0 22 0 23 1 0 41 0 42 2 0
+                                              233 233 0 239 2 0 43 43 43 123 1
+                                              0 110 43 112 1 0 110 43 111 1 0
+                                              114 0 115 2 0 0 0 19 20 2 0 0 0 9
+                                              74 1 0 191 0 215 1 0 225 0 232 1
+                                              0 197 0 224 2 0 0 0 9 173 1 0 150
+                                              91 155 3 0 0 0 16 48 50 3 0 0 0 9
+                                              30 47 1 0 145 0 157)))))
            '|lookupComplete|)) 

@@ -89,27 +89,27 @@
               (|SingleInteger|) |FINLAT;hash;%Si;8| (|Boolean|)
               |FINLAT;=;2%B;9| |FINLAT;~=;2%B;10| (25 . |indexToObject|)
               (|OutputForm|) (31 . |coerce|) |FINLAT;coerce;%Of;11|
-              (|InputForm|) (|List| %) (|String|) (|HashState|))
+              (|InputForm|) (|HashState|) (|List| %) (|String|))
            '#(~= 36 |smaller?| 42 |size| 48 |random| 52 |lookup| 56 |latex| 61
               |index| 66 |hashUpdate!| 71 |hash| 77 |finiteLattice| 82
               |enumerate| 92 |convert| 96 |coerce| 101 |\\/| 106 = 112 |/\\|
               118)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(NIL |Finite&| NIL NIL NIL |SetCategory&| NIL |BasicType&|
-                     NIL)
+                  '#(NIL |Finite&| NIL NIL NIL |Hashable&| |SetCategory&| NIL
+                     |BasicType&| NIL)
                   (CONS
                    '#((|Lattice|) (|Finite|) (|MeetSemilattice|) (|Comparable|)
-                      (|JoinSemilattice|) (|SetCategory|) (|ConvertibleTo| 33)
-                      (|BasicType|) (|CoercibleTo| 30))
+                      (|JoinSemilattice|) (|Hashable|) (|SetCategory|)
+                      (|ConvertibleTo| 33) (|BasicType|) (|CoercibleTo| 30))
                    (|makeByteWordVec2| 36
                                        '(1 15 14 0 16 2 15 9 0 6 18 3 15 9 0 9
                                          9 20 3 15 9 0 9 9 22 2 15 6 0 9 29 1 6
                                          30 0 31 2 0 26 0 0 28 2 0 26 0 0 1 0 0
-                                         9 17 0 0 0 1 1 0 11 0 13 1 0 35 0 1 1
-                                         0 0 11 12 2 0 36 36 0 1 1 0 24 0 25 1
-                                         0 0 9 10 1 0 0 6 19 0 0 34 1 1 0 33 0
+                                         9 17 0 0 0 1 1 0 11 0 13 1 0 36 0 1 1
+                                         0 0 11 12 2 0 34 34 0 1 1 0 24 0 25 1
+                                         0 0 9 10 1 0 0 6 19 0 0 35 1 1 0 33 0
                                          1 1 0 30 0 32 2 0 0 0 0 23 2 0 26 0 0
                                          27 2 0 0 0 0 21)))))
            '|lookupComplete|)) 

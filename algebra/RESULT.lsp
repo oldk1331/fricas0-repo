@@ -107,7 +107,7 @@
     (#3=#:G186 NIL) (#4=#:G187 NIL))
    (PROGN
     (LETT |dv$| '(|Result|))
-    (LETT % (GETREFV 61))
+    (LETT % (GETREFV 59))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -227,11 +227,10 @@
               (|List| 39) (|Equation| 25) (|List| 25)
               (|Record| (|:| |key| 7) (|:| |entry| 25)) (|List| 41)
               (|Equation| 41) (|List| 43) (|NonNegativeInteger|)
-              (|Mapping| 41 41 41) (|HashState|) (|String|) (|SingleInteger|)
-              (|InputForm|) (|Mapping| 13 25) (|Mapping| 13 25 25)
-              (|Mapping| 13 41) (|Mapping| 13 41 41) (|Mapping| 25 25) (|Void|)
-              (|Mapping| 41 41) (|Mapping| 25 25 25) (|Union| 25 '"failed")
-              (|Union| 41 '"failed"))
+              (|Mapping| 41 41 41) (|String|) (|InputForm|) (|Mapping| 13 25)
+              (|Mapping| 13 25 25) (|Mapping| 13 41) (|Mapping| 13 41 41)
+              (|Mapping| 25 25) (|Void|) (|Mapping| 41 41) (|Mapping| 25 25 25)
+              (|Union| 25 '"failed") (|Union| 41 '"failed"))
            '#(|showScalarValues| 88 |showArrayValues| 93 |keys| 98 |elt| 103
               |coerce| 109)
            'NIL
@@ -255,7 +254,7 @@
                  (|Aggregate|) (|Evalable| 41) (|Evalable| 25) (|SetCategory|)
                  (|finiteAggregate|) (|Eltable| 7 25) (|Type|)
                  (|shallowlyMutable|) (|InnerEvalable| 41 41)
-                 (|ConvertibleTo| 50) (|InnerEvalable| 25 25) (|BasicType|)
+                 (|ConvertibleTo| 48) (|InnerEvalable| 25 25) (|BasicType|)
                  (|CoercibleTo| 6))
               (|makeByteWordVec2| 37
                                   '(1 7 6 0 8 1 14 13 0 15 1 14 6 0 16 1 14 17

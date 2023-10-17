@@ -184,7 +184,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|IncidenceAlgebra| DV$1 DV$2))
-          (LETT % (GETREFV 58))
+          (LETT % (GETREFV 56))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|IncidenceAlgebra| (LIST DV$1 DV$2)
@@ -214,16 +214,15 @@
               (79 . =) |INCALG;=;2%B;9| (85 . ~=) (91 . +) |INCALG;+;3%;10|
               (97 . *) |INCALG;*;3%;11| (103 . *) |INCALG;*;R2%;12| (109 . *)
               |INCALG;*;%R%;13| (|NonNegativeInteger|) (115 . ^)
-              |INCALG;^;%Nni%;14| (|String|) (|SingleInteger|) (|HashState|))
+              |INCALG;^;%Nni%;14| (|String|))
            '#(~= 121 |matrix| 127 |latex| 132 |indices| 137 |incidenceAlgebra|
-              142 |hashUpdate!| 154 |hash| 160 |coerce| 165 |apply| 170 ^ 184 =
-              190 + 196 * 202)
+              142 |coerce| 154 |apply| 159 ^ 173 = 179 + 185 * 191)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 34))
-                        (|makeByteWordVec2| 57
+                        (|makeByteWordVec2| 55
                                             '(2 10 9 0 0 11 1 13 0 15 16 3 12 6
                                               0 10 10 20 2 13 10 7 0 22 1 25 24
                                               0 26 1 24 10 0 27 1 24 10 0 28 2
@@ -234,11 +233,10 @@
                                               0 0 44 2 12 0 0 0 46 2 12 0 6 0
                                               48 2 12 0 0 6 50 2 12 0 0 52 53 2
                                               0 9 0 0 1 1 0 12 0 19 1 0 55 0 1
-                                              1 0 13 0 18 2 0 0 12 13 14 2 0 0
-                                              12 15 17 2 0 57 57 0 1 1 0 56 0 1
-                                              1 0 34 0 39 3 0 6 0 7 7 23 3 0 6
-                                              0 10 10 21 2 0 0 0 52 54 2 0 9 0
-                                              0 42 2 0 0 0 0 45 2 0 0 0 6 51 2
-                                              0 0 0 0 47 2 0 0 6 0 49 2 0 0 25
-                                              0 33)))))
+                                              1 0 13 0 18 2 0 0 12 15 17 2 0 0
+                                              12 13 14 1 0 34 0 39 3 0 6 0 10
+                                              10 21 3 0 6 0 7 7 23 2 0 0 0 52
+                                              54 2 0 9 0 0 42 2 0 0 0 0 45 2 0
+                                              0 0 6 51 2 0 0 0 0 47 2 0 0 6 0
+                                              49 2 0 0 25 0 33)))))
            '|lookupComplete|)) 

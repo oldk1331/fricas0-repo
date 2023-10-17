@@ -634,12 +634,15 @@
         (SPROG
          ((|sae|
            (|Join|
-            (|MonogenicAlgebra| |gf| (|SparseUnivariatePolynomial| |gf|))
+            (|MonogenicAlgebra| |gf| #1=(|SparseUnivariatePolynomial| |gf|))
             (CATEGORY |package|
              (IF (|has| |gf| (|Field|))
                  (IF (|has| |gf| (|PolynomialFactorizationExplicit|))
                      (ATTRIBUTE (|PolynomialFactorizationExplicit|))
                      |noBranch|)
+                 |noBranch|)
+             (IF (|has| #1# (|Hashable|))
+                 (ATTRIBUTE (|Hashable|))
                  |noBranch|))))
           (|alpha| (|gf|)) (|m| (|SparseUnivariatePolynomial| |gf|))
           (|gf|
@@ -647,14 +650,14 @@
                    (|ConvertibleTo| (|Integer|))
                    (CATEGORY |domain| (SIGNATURE |sqrt| (% %))
                     (SIGNATURE |quadraticNonResidue| (%)))))
-          (|mm| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|pp| (UPUP)) (|p| #2=(|PositiveInteger|))
-          (|pr| (|Record| (|:| |prime| #2#) (|:| |poly| #1#)))
+          (|mm| #2=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+          (|pp| (UPUP)) (|p| #3=(|PositiveInteger|))
+          (|pr| (|Record| (|:| |prime| #3#) (|:| |poly| #2#)))
           (|dd|
-           #3=(|SparseUnivariatePolynomial|
+           #4=(|SparseUnivariatePolynomial|
                (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
           (|s| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|b2| (UP)) (|b| #3#)
+          (|b2| (UP)) (|b| #4#)
           (|h|
            (|SparseUnivariatePolynomial|
             (|SparseUnivariatePolynomial|
@@ -678,7 +681,7 @@
                           (SPADCALL (|PFO;UPQ_to_UPF| (QVELT |rc| 2) %)
                                     (QREFELT % 167))
                           (QREFELT % 168))))
-                       (#4='T (|error| "cannot reduce root"))))))
+                       (#5='T (|error| "cannot reduce root"))))))
           (LETT |mn|
                 (SPADCALL
                  (LETT |n|
@@ -801,7 +804,7 @@
                                                                   (ELT % 9)
                                                                   (ELT % 10)
                                                                   |gf|))))))
-            (#4#
+            (#5#
              (SEQ
               (LETT |sae|
                     (|SimpleAlgebraicExtension| |gf|

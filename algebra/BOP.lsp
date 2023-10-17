@@ -284,7 +284,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|BasicOperator|))
-          (LETT % (GETREFV 82))
+          (LETT % (GETREFV 81))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|BasicOperator| NIL (CONS 1 %))
@@ -327,14 +327,14 @@
               (54 . ~=) (60 . ~=) (|List| 12) (66 . |keys|) (|Set| 12)
               (71 . |set|) (76 . ~=) |BOP;=;2%B;27| |BOP;weight;%Nni;28|
               (82 . ~=) (88 . |#|) (93 . |difference|) (99 . |inspect|)
-              |BOP;<;2%B;29| (|String|) (|HashState|))
+              |BOP;<;2%B;29| (|String|))
            '#(~= 104 |weight| 110 |unary?| 121 |smaller?| 126 |setProperty| 132
               |setProperties| 139 |property| 145 |properties| 151 |operator|
               156 |nullary?| 167 |nary?| 172 |name| 177 |min| 182 |max| 188
-              |latex| 194 |is?| 199 |input| 205 |hashUpdate!| 216 |hash| 222
-              |has?| 227 |equality| 233 |display| 239 |deleteProperty!| 256
-              |copy| 262 |comparison| 267 |coerce| 273 |assert| 278 |arity| 284
-              >= 289 > 295 = 301 <= 307 < 313)
+              |latex| 194 |is?| 199 |input| 205 |has?| 216 |equality| 222
+              |display| 228 |deleteProperty!| 245 |copy| 251 |comparison| 256
+              |coerce| 262 |assert| 267 |arity| 273 >= 278 > 284 = 290 <= 296 <
+              302)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
                  (CONS
@@ -343,7 +343,7 @@
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
                       (|BasicType|) (|PartialOrder|) (|CoercibleTo| 41))
-                   (|makeByteWordVec2| 81
+                   (|makeByteWordVec2| 80
                                        '(0 16 0 19 1 22 0 21 23 2 16 26 12 0 27
                                          2 16 14 12 0 32 1 42 41 0 43 2 16 26
                                          12 0 48 3 16 29 0 12 29 50 1 12 41 0
@@ -351,20 +351,19 @@
                                          0 66 2 22 14 0 0 67 1 16 68 0 69 1 70
                                          0 68 71 2 70 14 0 0 72 2 24 14 0 0 75
                                          1 70 24 0 76 2 70 0 0 0 77 1 70 12 0
-                                         78 2 0 14 0 0 1 1 0 24 0 74 2 0 0 0 24
-                                         34 1 0 14 0 36 2 0 14 0 0 1 3 0 0 0 12
+                                         78 2 0 14 0 0 1 2 0 0 0 24 34 1 0 24 0
+                                         74 1 0 14 0 36 2 0 14 0 0 1 3 0 0 0 12
                                          29 30 2 0 0 0 16 18 2 0 26 0 12 28 1 0
-                                         16 0 17 2 0 0 12 24 25 1 0 0 12 20 1 0
+                                         16 0 17 1 0 0 12 20 2 0 0 12 24 25 1 0
                                          14 0 35 1 0 14 0 37 1 0 12 0 13 2 0 0
                                          0 0 1 2 0 0 0 0 1 1 0 80 0 1 2 0 14 0
-                                         12 15 2 0 0 0 53 54 1 0 57 0 58 2 0 81
-                                         81 0 1 1 0 22 0 1 2 0 14 0 12 33 2 0 0
-                                         0 38 39 2 0 0 0 44 45 2 0 0 0 46 47 1
-                                         0 55 0 56 2 0 0 0 12 49 1 0 0 0 65 2 0
-                                         0 0 38 40 1 0 41 0 52 2 0 0 0 12 31 1
-                                         0 59 0 60 2 0 14 0 0 1 2 0 14 0 0 1 2
-                                         0 14 0 0 73 2 0 14 0 0 1 2 0 14 0 0
-                                         79)))))
+                                         12 15 2 0 0 0 53 54 1 0 57 0 58 2 0 14
+                                         0 12 33 2 0 0 0 38 39 2 0 0 0 44 45 2
+                                         0 0 0 46 47 1 0 55 0 56 2 0 0 0 12 49
+                                         1 0 0 0 65 2 0 0 0 38 40 1 0 41 0 52 2
+                                         0 0 0 12 31 1 0 59 0 60 2 0 14 0 0 1 2
+                                         0 14 0 0 1 2 0 14 0 0 73 2 0 14 0 0 1
+                                         2 0 14 0 0 79)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|BasicOperator| 'NILADIC T) 

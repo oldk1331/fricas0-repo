@@ -515,7 +515,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|SKICombinators| DV$1))
-          (LETT % (GETREFV 60))
+          (LETT % (GETREFV 58))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SKICombinators| (LIST DV$1)
@@ -548,18 +548,17 @@
               |SKICOMB;coerce;%Of;23| (|Void|) (75 . |print|)
               |SKICOMB;redux;2%;21| |SKICOMB;=;2%B;22| (80 . |empty|)
               (|Symbol|) (84 . |coerce|) (89 . |message|) (94 . |hconcat|)
-              (99 . |coerce|) (|SingleInteger|) (|HashState|))
+              (99 . |coerce|))
            '#(~= 104 |variable?| 110 |toString| 115 |ski| 120 |redux| 131
               |parseTerm| 136 |parseSki| 142 |latex| 147 |isS?| 152 |isK?| 157
-              |isI?| 162 |hashUpdate!| 167 |hash| 173 |getVariable| 178
-              |getChildren| 183 |freeVariable?| 188 |coerce| 194 |atom?| 199 S
-              204 K 208 I 212 = 216)
+              |isI?| 162 |getVariable| 167 |getChildren| 172 |freeVariable?|
+              177 |coerce| 183 |atom?| 188 S 193 K 197 I 201 = 205)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 46))
-                        (|makeByteWordVec2| 59
+                        (|makeByteWordVec2| 57
                                             '(1 14 13 0 15 1 20 19 0 21 1 20 19
                                               0 22 1 20 19 0 23 2 6 16 14 17 24
                                               2 25 0 0 2 26 1 25 17 0 27 2 25 2
@@ -568,13 +567,12 @@
                                               0 44 2 0 19 0 0 45 1 46 48 0 49 0
                                               46 0 52 1 53 46 0 54 1 46 0 14 55
                                               1 46 0 32 56 1 6 46 0 57 2 0 19 0
-                                              0 45 1 0 19 0 34 1 0 14 0 42 2 0
-                                              0 0 0 8 1 0 0 6 9 1 0 0 0 50 2 0
+                                              0 45 1 0 19 0 34 1 0 14 0 42 1 0
+                                              0 6 9 2 0 0 0 0 8 1 0 0 0 50 2 0
                                               16 14 17 18 1 0 0 14 30 1 0 14 0
                                               1 1 0 19 0 37 1 0 19 0 36 1 0 19
-                                              0 35 2 0 59 59 0 1 1 0 58 0 1 1 0
-                                              6 0 39 1 0 32 0 33 2 0 19 0 6 41
-                                              1 0 46 0 47 1 0 19 0 31 0 0 0 12
-                                              0 0 0 11 0 0 0 10 2 0 19 0 0
-                                              51)))))
+                                              0 35 1 0 6 0 39 1 0 32 0 33 2 0
+                                              19 0 6 41 1 0 46 0 47 1 0 19 0 31
+                                              0 0 0 12 0 0 0 11 0 0 0 10 2 0 19
+                                              0 0 51)))))
            '|lookupComplete|)) 

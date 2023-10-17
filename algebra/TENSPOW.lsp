@@ -247,7 +247,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|TensorPower| DV$1 DV$2 DV$3 DV$4))
-    (LETT % (GETREFV 63))
+    (LETT % (GETREFV 61))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -329,8 +329,7 @@
               (111 . |tensor|) (116 . |monomial|) (122 . *) (128 . *)
               (134 . |construct|) (139 . *) (|Union| % '"failed") (|Integer|)
               (|PositiveInteger|) (|Mapping| 7 20) (|Mapping| 7 7) (|List| 7)
-              (|List| %) (|List| 20) (|HashState|) (|String|)
-              (|SingleInteger|))
+              (|List| %) (|List| 20) (|String|))
            '#(~= 145 |zero?| 151 |tensor| 156 |support| 172 |subtractIfCan| 177
               |smaller?| 183 |sample| 189 |rightRecip| 193 |rightPower| 198
               |reductum| 210 |recip| 215 |opposite?| 220 |one?| 226
@@ -338,11 +337,11 @@
               |monomial| 246 |map| 252 |listOfTerms| 258 |linearExtend| 263
               |leftRecip| 269 |leftPower| 274 |leadingTerm| 286
               |leadingSupport| 291 |leadingMonomial| 296 |leadingCoefficient|
-              301 |latex| 306 |hashUpdate!| 311 |hash| 317 |constructOrdered|
-              322 |construct| 327 |commutator| 332 |coerce| 338 |coefficients|
-              353 |coefficient| 358 |characteristic| 364 |associator| 368
-              |antiCommutator| 375 |annihilate?| 381 ^ 387 |Zero| 399 |One| 403
-              = 407 - 413 + 424 * 430)
+              301 |latex| 306 |constructOrdered| 311 |construct| 316
+              |commutator| 321 |coerce| 327 |coefficients| 342 |coefficient|
+              347 |characteristic| 353 |associator| 357 |antiCommutator| 364
+              |annihilate?| 370 ^ 376 |Zero| 388 |One| 392 = 396 - 402 + 413 *
+              419)
            'NIL
            (CONS
             (|makeByteWordVec2| 8
@@ -370,7 +369,7 @@
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|)
                  (|AbelianSemiGroup|) (|Magma|) (|Comparable|) (|SetCategory|)
                  (|BasicType|) (|CoercibleTo| 13) (|unitsKnown|))
-              (|makeByteWordVec2| 62
+              (|makeByteWordVec2| 60
                                   '(1 0 10 0 11 0 7 0 12 1 7 13 0 14 1 0 16 0
                                     17 2 13 0 0 0 18 1 20 19 0 21 1 8 13 0 22 2
                                     24 13 23 0 25 0 7 0 26 2 7 10 0 0 27 2 13 0
@@ -387,13 +386,12 @@
                                     1 2 0 0 7 20 36 2 0 0 56 0 1 1 0 16 0 17 2
                                     6 7 55 0 1 1 1 52 0 1 2 1 0 0 54 1 2 1 0 0
                                     38 1 1 7 15 0 1 1 7 20 0 1 1 7 0 0 1 1 7 7
-                                    0 1 1 0 61 0 1 2 0 60 60 0 1 1 0 62 0 1 1 7
-                                    0 16 45 1 0 0 16 50 2 1 0 0 0 1 1 1 0 53 1
-                                    1 1 0 7 1 1 0 13 0 30 1 0 57 0 1 2 0 7 0 20
-                                    1 0 1 38 1 3 1 0 0 0 0 1 2 1 0 0 0 1 2 1 10
-                                    0 0 1 2 1 0 0 54 1 2 1 0 0 38 1 0 5 0 44 0
-                                    1 0 1 2 0 10 0 0 1 2 2 0 0 0 1 1 2 0 0 1 2
-                                    0 0 0 0 1 2 2 0 53 0 1 2 5 0 38 0 1 2 1 0 0
-                                    0 51 2 0 0 7 0 49 2 0 0 0 7 1 2 0 0 54 0
-                                    1)))))
+                                    0 1 1 0 60 0 1 1 7 0 16 45 1 0 0 16 50 2 1
+                                    0 0 0 1 1 1 0 53 1 1 1 0 7 1 1 0 13 0 30 1
+                                    0 57 0 1 2 0 7 0 20 1 0 1 38 1 3 1 0 0 0 0
+                                    1 2 1 0 0 0 1 2 1 10 0 0 1 2 1 0 0 54 1 2 1
+                                    0 0 38 1 0 5 0 44 0 1 0 1 2 0 10 0 0 1 2 2
+                                    0 0 0 1 1 2 0 0 1 2 0 0 0 0 1 2 2 0 53 0 1
+                                    2 5 0 38 0 1 2 1 0 0 0 51 2 0 0 7 0 49 2 0
+                                    0 0 7 1 2 0 0 54 0 1)))))
            '|lookupComplete|)) 

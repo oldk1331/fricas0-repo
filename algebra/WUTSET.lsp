@@ -544,7 +544,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|WuWenTsunTriangularSet| DV$1 DV$2 DV$3 DV$4))
-    (LETT % (GETREFV 105))
+    (LETT % (GETREFV 103))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -621,14 +621,13 @@
               (266 . |removeDuplicates|) (271 . |empty?|) (276 . |first|)
               (281 . |rest|) (286 . |cons|) (292 . |infRittWu?|)
               (|Mapping| 17 $$ $$) (298 . |sort|) (304 . |zeroSetSplit|)
-              (|NonNegativeInteger|) (|Equation| 9) (|List| 89) (|Mapping| 9 9)
-              (|InputForm|)
+              (|NonNegativeInteger|) (|List| 90) (|Equation| 9) (|Mapping| 9 9)
+              (|InputForm|) (|Record| (|:| |num| 9) (|:| |den| 6))
               (|Record| (|:| |rnum| 6) (|:| |polnum| 9) (|:| |den| 6))
-              (|Record| (|:| |num| 9) (|:| |den| 6)) (|List| 8)
-              (|Record| (|:| |close| %) (|:| |open| 11)) (|List| 96)
+              (|List| 8) (|Record| (|:| |close| %) (|:| |open| 11)) (|List| 96)
               (|Mapping| 17 9 11) (|Record| (|:| |close| 11) (|:| |open| 11))
               (|Record| (|:| |under| %) (|:| |floor| %) (|:| |upper| %))
-              (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
+              (|OutputForm|) (|String|))
            '#(|zeroSetSplit| 309 |rewriteSetWithReduction| 314
               |rewriteIdealWithRemainder| 322 |rest| 328 |removeZero| 333
               |mvar| 339 |members| 344 |medialSet| 349 |initials| 361
@@ -649,7 +648,7 @@
                       (|RetractableFrom| (|List| 9)) (|Aggregate|)
                       (|Evalable| 9) (|BasicType|) (|shallowlyMutable|)
                       (|finiteAggregate|) (|CoercibleTo| (|List| 9)) (|Type|)
-                      (|CoercibleTo| 103) (|InnerEvalable| 9 9)
+                      (|CoercibleTo| 101) (|InnerEvalable| 9 9)
                       (|ConvertibleTo| 92))
                    (|makeByteWordVec2| 87
                                        '(1 9 0 0 10 1 11 0 0 12 3 15 11 11 13

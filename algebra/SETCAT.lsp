@@ -13,14 +13,8 @@
                    (|subst_in_cat| '(#2=#:G104) (LIST '(|OutputForm|))
                                    (|Join| (|BasicType|) (|CoercibleTo| '#2#)
                                            (|mkCategory|
-                                            '(((|hash| ((|SingleInteger|) %))
-                                               T)
-                                              ((|hashUpdate!|
-                                                ((|HashState|) (|HashState|)
-                                                 %))
-                                               T)
-                                              ((|latex| ((|String|) %)) T))
-                                            NIL NIL NIL))))
+                                            '(((|latex| ((|String|) %)) T)) NIL
+                                            NIL NIL))))
            (SETELT #1# 0 '(|SetCategory|))))) 
 
 (MAKEPROP '|SetCategory| 'NILADIC T) 

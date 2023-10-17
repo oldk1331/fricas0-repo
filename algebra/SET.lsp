@@ -538,8 +538,8 @@
               (186 . |remove!|) (192 . |concat!|) (198 . <) (204 . |intersect|)
               (210 . |difference|) (216 . |symmetricDifference|)
               (222 . |subset?|) (228 . |union|) (234 . |removeDuplicates!|)
-              (|List| 74) (|Equation| 6) (|Mapping| 19 6 6) (|PositiveInteger|)
-              (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|))
+              (|List| 74) (|Equation| 6) (|Mapping| 19 6 6) (|SingleInteger|)
+              (|HashState|) (|PositiveInteger|) (|OutputForm|) (|String|))
            '#(~= 239 |universe| 245 |union| 249 |symmetricDifference| 267
               |subset?| 273 |smaller?| 279 |size?| 285 |size| 291 |set| 295
               |select!| 304 |select| 310 |sample| 316 |removeDuplicates| 320
@@ -555,21 +555,21 @@
               634)
            'NIL
            (CONS
-            (|makeByteWordVec2| 6 '(0 0 0 0 0 0 3 0 2 0 0 6 0 0 0 0 0 0 6 1))
+            (|makeByteWordVec2| 6 '(0 0 0 0 0 0 3 0 2 0 0 6 3 0 0 0 0 0 0 6 1))
             (CONS
              '#(|FiniteSetAggregate&| |Dictionary&| |DictionaryOperations&|
                 |BagAggregate&| |SetAggregate&| |Collection&| |Finite&|
                 |HomogeneousAggregate&| NIL |Aggregate&| |SetCategory&|
-                |Evalable&| NIL NIL |PartialOrder&| |BasicType&| NIL NIL
-                |InnerEvalable&| NIL)
+                |Evalable&| |Hashable&| NIL NIL |PartialOrder&| |BasicType&|
+                NIL NIL |InnerEvalable&| NIL)
              (CONS
               '#((|FiniteSetAggregate| 6) (|Dictionary| 6)
                  (|DictionaryOperations| 6) (|BagAggregate| 6)
                  (|SetAggregate| 6) (|Collection| 6) (|Finite|)
                  (|HomogeneousAggregate| 6) (|Comparable|) (|Aggregate|)
-                 (|SetCategory|) (|Evalable| 6) (|Type|) (|finiteAggregate|)
-                 (|PartialOrder|) (|BasicType|) (|CoercibleTo| 77)
-                 (|shallowlyMutable|) (|InnerEvalable| 6 6)
+                 (|SetCategory|) (|Evalable| 6) (|Hashable|) (|Type|)
+                 (|finiteAggregate|) (|PartialOrder|) (|BasicType|)
+                 (|CoercibleTo| 79) (|shallowlyMutable|) (|InnerEvalable| 6 6)
                  (|ConvertibleTo| 42))
               (|makeByteWordVec2| 80
                                   '(1 7 8 0 9 0 7 0 13 1 7 0 0 14 1 7 16 0 17 1
@@ -594,15 +594,15 @@
                                     34 0 6 38 0 3 0 1 1 9 16 0 18 2 0 19 0 8 1
                                     1 10 6 0 52 1 9 16 0 1 2 11 19 6 0 63 1 10
                                     6 0 50 2 9 6 75 0 1 2 8 0 31 0 32 2 0 0 31
-                                    0 33 1 3 76 0 1 2 0 19 0 8 1 1 0 80 0 1 2 0
-                                    0 0 0 67 1 0 6 0 24 2 0 0 6 0 62 1 3 0 76 1
-                                    2 0 78 78 0 1 1 0 79 0 1 2 0 27 28 0 30 1 0
+                                    0 33 1 3 78 0 1 2 0 19 0 8 1 1 0 80 0 1 2 0
+                                    0 0 0 67 1 0 6 0 24 2 0 0 6 0 62 1 3 0 78 1
+                                    2 3 77 77 0 1 1 3 76 0 1 2 0 27 28 0 30 1 0
                                     6 0 26 2 9 19 28 0 1 3 5 0 0 6 6 1 3 5 0 0
                                     16 16 1 2 5 0 0 73 1 2 5 0 0 74 1 2 0 19 0
                                     0 1 0 3 45 1 1 0 19 0 20 0 0 0 11 2 0 0 0 0
                                     68 2 0 0 0 6 1 1 0 0 16 1 0 0 0 1 2 11 8 6
                                     0 1 2 9 8 28 0 1 1 0 0 0 15 1 1 42 0 47 1 0
-                                    0 16 58 1 3 0 0 1 1 0 77 0 1 1 0 8 0 1 2 9
+                                    0 16 58 1 3 0 0 1 1 0 79 0 1 1 0 8 0 1 2 9
                                     19 28 0 1 2 0 19 0 0 1 2 0 19 0 0 1 2 0 19
                                     0 0 49 2 0 19 0 0 1 2 0 19 0 0 1 1 9 8 0
                                     10)))))

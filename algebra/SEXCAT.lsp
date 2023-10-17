@@ -28,6 +28,7 @@
                                          ('T
                                           (LETT |SExpressionCategory;CAT|
                                                 (|Join| (|SetCategory|)
+                                                        (|Hashable|)
                                                         (|mkCategory|
                                                          '(((|eq|
                                                              ((|Boolean|) % %))

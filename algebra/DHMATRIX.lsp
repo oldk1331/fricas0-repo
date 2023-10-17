@@ -155,18 +155,20 @@
                     (|buildPredVector| 0 0
                                        (LIST
                                         (|HasCategory| |#1| '(|Comparable|))
+                                        (|HasCategory| |#1| '(|Hashable|))
                                         (|HasCategory| |#1| '(|OrderedSet|))
                                         (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|SetCategory|)))
-                                        (OR (|HasCategory| |#1| '(|BasicType|))
-                                            (|HasCategory| |#1|
-                                                           '(|Comparable|))
-                                            #2#)
                                         (OR
                                          (|HasCategory| |#1| '(|Comparable|))
                                          #2#)
+                                        (OR (|HasCategory| |#1| '(|BasicType|))
+                                            (|HasCategory| |#1|
+                                                           '(|Comparable|))
+                                            (|HasCategory| |#1| '(|Hashable|))
+                                            #2#)
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -212,17 +214,18 @@
                 (CONS 1 %))
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)
-    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 131072))
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 262144))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 262144))
-    (AND (|HasCategory| |#1| '(|BasicType|))
          (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 524288))
+    (AND (|HasCategory| |#1| '(|BasicType|))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 1048576))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
            (|HasCategory| % '(|finiteAggregate|)))
-      #2#)
-     (|augmentPredVector| % 1048576))
+      (|HasCategory| |#1| '(|Hashable|)) #2#)
+     (|augmentPredVector| % 2097152))
     (SETF |pv$| (QREFELT % 3))
     %))) 
 
@@ -238,9 +241,9 @@
               |DHMATRIX;scale;3R%;6| |DHMATRIX;translate;3R%;7| (|Boolean|)
               (|NonNegativeInteger|) (|Equation| 6) (|List| 35)
               (|Mapping| 33 6 6) (|Mapping| 33 6) (|OutputForm|) (|List| 12)
-              (|Union| % '"failed") (|List| %) (|HashState|) (|SingleInteger|)
+              (|Union| % '"failed") (|SingleInteger|) (|HashState|) (|List| %)
               (|String|) (|Void|) (|List| 52) (|Union| 6 '"one")
-              (|Mapping| 6 15 15) (|Mapping| 6 6 6) (|List| 42) (|List| 34)
+              (|Mapping| 6 15 15) (|Mapping| 6 6 6) (|List| 44) (|List| 34)
               (|Mapping| 6 6) (|PositiveInteger|) (|List| 56) (|Segment| 15)
               (|List| 15))
            '#(~= 72 |zero?| 78 |zero| 83 |vertSplit| 89 |vertConcat| 101
@@ -265,28 +268,28 @@
               |blockConcat| 826 |array2| 831 |any?| 836 |antisymmetric?| 842 ^
               847 |Pfaffian| 859 = 864 / 870 - 876 + 887 * 893 |#| 935)
            'NIL
-           (CONS (|makeByteWordVec2| 10 '(0 0 0 1 0 8 6 0 0 0 8 5 10))
+           (CONS (|makeByteWordVec2| 11 '(0 0 0 1 0 9 6 2 0 0 0 9 11 7))
                  (CONS
                   '#(|MatrixCategory&| |TwoDimensionalArrayCategory&|
                      |HomogeneousAggregate&| NIL |Aggregate&| |Evalable&|
-                     |SetCategory&| NIL NIL NIL |InnerEvalable&| |BasicType&|
-                     NIL)
+                     |SetCategory&| |Hashable&| NIL NIL NIL |InnerEvalable&|
+                     NIL |BasicType&|)
                   (CONS
                    '#((|MatrixCategory| 6 (|Vector| 6) (|Vector| 6))
                       (|TwoDimensionalArrayCategory| 6 (|Vector| 6)
                                                      (|Vector| 6))
                       (|HomogeneousAggregate| 6) (|Comparable|) (|Aggregate|)
-                      (|Evalable| 6) (|SetCategory|) (|Type|)
+                      (|Evalable| 6) (|SetCategory|) (|Hashable|) (|Type|)
                       (|finiteAggregate|) (|shallowlyMutable|)
-                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 39))
+                      (|InnerEvalable| 6 6) (|CoercibleTo| 39) (|BasicType|))
                    (|makeByteWordVec2| 57
                                        '(0 6 0 7 0 6 0 8 1 0 0 9 10 2 12 0 0 6
                                          13 2 0 12 0 12 14 2 12 6 0 15 16 1 18
                                          0 17 19 0 6 0 21 2 6 0 0 0 22 1 6 0 15
                                          23 2 6 0 0 0 24 1 6 0 0 25 1 6 0 0 26
-                                         1 6 0 0 27 2 21 33 0 0 1 1 0 33 0 1 2
-                                         0 0 34 34 1 2 0 42 0 54 1 2 0 42 0 52
-                                         1 1 0 0 42 1 2 0 0 0 0 1 1 0 0 12 1 1
+                                         1 6 0 0 27 2 22 33 0 0 1 1 0 33 0 1 2
+                                         0 0 34 34 1 2 0 44 0 54 1 2 0 44 0 52
+                                         1 1 0 0 44 1 2 0 0 0 0 1 1 0 0 12 1 1
                                          0 0 0 1 3 0 0 6 6 6 32 1 0 33 0 1 3 0
                                          0 0 15 15 1 3 0 0 0 15 15 1 5 0 0 0 15
                                          15 15 15 1 1 0 0 0 1 1 0 33 0 1 2 1 33
@@ -298,42 +301,42 @@
                                          15 57 0 1 4 0 6 0 15 15 6 1 4 0 0 0 55
                                          15 0 1 4 0 0 0 15 55 0 1 3 0 0 0 15 12
                                          1 3 0 0 0 15 12 1 3 0 0 6 6 6 31 2 0 0
-                                         34 6 1 0 0 0 1 1 0 56 0 1 1 14 0 0 1 2
+                                         34 6 1 0 0 0 1 1 0 56 0 1 1 15 0 0 1 2
                                          0 12 0 15 1 1 0 0 6 30 1 0 0 6 29 1 0
-                                         0 6 28 1 15 34 0 1 4 0 6 0 15 15 6 1 2
-                                         0 0 34 34 1 3 0 6 0 15 15 1 2 12 0 0
-                                         15 1 1 0 17 0 1 1 15 34 0 1 1 15 40 0
+                                         0 6 28 1 16 34 0 1 4 0 6 0 15 15 6 1 2
+                                         0 0 34 34 1 3 0 6 0 15 15 1 2 13 0 0
+                                         15 1 1 0 17 0 1 1 16 34 0 1 1 16 40 0
                                          1 1 0 34 0 1 3 0 0 34 34 6 1 1 0 34 0
-                                         1 2 0 33 0 34 1 1 16 6 0 1 1 0 15 0 1
-                                         1 0 15 0 1 1 19 6 0 1 1 18 17 0 1 2 20
-                                         33 6 0 1 1 0 15 0 1 1 0 15 0 1 1 19 6
-                                         0 1 2 18 6 37 0 1 3 0 0 34 34 49 1 1 0
+                                         1 2 0 33 0 34 1 1 17 6 0 1 1 0 15 0 1
+                                         1 0 15 0 1 1 20 6 0 1 1 19 17 0 1 2 21
+                                         33 6 0 1 1 0 15 0 1 1 0 15 0 1 1 20 6
+                                         0 1 2 19 6 37 0 1 3 0 0 34 34 49 1 1 0
                                          0 9 10 2 0 0 53 0 1 3 0 0 50 0 0 1 4 0
                                          0 50 0 0 6 1 2 0 0 53 0 1 1 0 9 0 1 2
-                                         0 33 0 34 1 1 4 45 0 1 7 0 46 0 15 47
-                                         42 34 34 48 1 2 0 0 0 0 1 1 0 0 42 1 2
-                                         12 0 0 0 1 1 12 0 42 1 1 17 41 0 1 0 0
-                                         0 11 2 0 42 0 54 1 2 0 42 0 52 1 1 0 0
-                                         42 1 2 0 0 0 0 1 2 4 43 43 0 1 1 4 44
-                                         0 1 2 0 0 0 6 1 2 15 41 0 6 1 2 18 33
-                                         38 0 1 3 7 0 0 6 6 1 3 7 0 0 17 17 1 2
-                                         7 0 0 35 1 2 7 0 0 36 1 2 0 33 0 0 1 1
+                                         0 33 0 34 1 1 5 45 0 1 7 0 46 0 15 47
+                                         44 34 34 48 1 2 0 0 0 0 1 1 0 0 44 1 2
+                                         13 0 0 0 1 1 13 0 44 1 1 18 41 0 1 0 0
+                                         0 11 2 0 44 0 54 1 2 0 44 0 52 1 1 0 0
+                                         44 1 2 0 0 0 0 1 2 2 43 43 0 1 1 2 42
+                                         0 1 2 0 0 0 6 1 2 16 41 0 6 1 2 19 33
+                                         38 0 1 3 8 0 0 6 6 1 3 8 0 0 17 17 1 2
+                                         8 0 0 35 1 2 8 0 0 36 1 2 0 33 0 0 1 1
                                          0 33 0 1 0 0 0 1 3 0 0 0 55 56 1 3 0 0
                                          0 55 55 1 3 0 0 0 56 55 1 3 0 0 0 55
                                          15 1 3 0 0 0 15 55 1 3 0 0 0 57 56 1 3
                                          0 0 0 56 57 1 3 0 0 0 57 57 1 3 0 0 0
                                          56 56 1 3 0 0 0 15 57 1 3 0 0 0 57 15
                                          1 4 0 6 0 15 15 6 1 3 0 6 0 15 15 1 1
-                                         0 0 17 1 1 0 0 42 1 1 0 33 0 1 1 16 6
-                                         0 1 2 20 34 6 0 1 2 18 34 38 0 1 1 0 0
-                                         0 1 1 14 40 0 1 2 0 12 0 15 1 1 0 56 0
-                                         1 1 9 39 0 1 1 0 0 12 1 3 0 51 0 52 52
-                                         1 3 0 51 0 54 54 1 1 0 0 51 1 1 0 0 9
-                                         1 2 18 33 38 0 1 1 11 33 0 1 2 13 0 0
-                                         34 1 2 17 0 0 15 1 1 16 6 0 1 2 21 33
-                                         0 0 1 2 17 0 0 6 1 2 11 0 0 0 1 1 11 0
-                                         0 1 2 0 0 0 0 1 2 11 0 15 0 1 2 12 12
-                                         12 0 1 2 12 12 0 12 14 2 12 0 6 0 1 2
-                                         12 0 0 6 1 2 12 0 0 0 1 2 0 18 0 18 20
-                                         1 18 34 0 1)))))
+                                         0 0 17 1 1 0 0 44 1 1 0 33 0 1 1 17 6
+                                         0 1 2 21 34 6 0 1 2 19 34 38 0 1 1 0 0
+                                         0 1 1 15 40 0 1 2 0 12 0 15 1 1 0 56 0
+                                         1 1 10 39 0 1 1 0 0 12 1 3 0 51 0 52
+                                         52 1 3 0 51 0 54 54 1 1 0 0 51 1 1 0 0
+                                         9 1 2 19 33 38 0 1 1 12 33 0 1 2 14 0
+                                         0 34 1 2 18 0 0 15 1 1 17 6 0 1 2 22
+                                         33 0 0 1 2 18 0 0 6 1 2 12 0 0 0 1 1
+                                         12 0 0 1 2 0 0 0 0 1 2 12 0 15 0 1 2
+                                         13 12 12 0 1 2 13 12 0 12 14 2 13 0 6
+                                         0 1 2 13 0 0 6 1 2 13 0 0 0 1 2 0 18 0
+                                         18 20 1 19 34 0 1)))))
            '|lookupComplete|)) 

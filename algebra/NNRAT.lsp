@@ -51,7 +51,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|NonNegativeRational|))
-          (LETT % (GETREFV 26))
+          (LETT % (GETREFV 24))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|NonNegativeRational| NIL
@@ -67,14 +67,13 @@
               (|Boolean|) (8 . >=) (14 . |max|) |NNRAT;sup;3%;1| (20 . |min|)
               |NNRAT;inf;3%;2| (26 . -) (32 . <) (|Union| % '"failed")
               |NNRAT;subtractIfCan;2%U;3| (|Integer|) (|PositiveInteger|)
-              (|InputForm|) (|NonNegativeInteger|) (|String|) (|SingleInteger|)
-              (|HashState|) (|OutputForm|))
+              (|InputForm|) (|NonNegativeInteger|) (|String|) (|OutputForm|))
            '#(~= 38 |zero?| 44 |sup| 49 |subtractIfCan| 55 |smaller?| 61
               |sample| 67 |rightRecip| 71 |rightPower| 76 |recip| 88
               |opposite?| 93 |one?| 99 |min| 104 |max| 110 |leftRecip| 116
-              |leftPower| 121 |latex| 133 |inf| 138 |hashUpdate!| 144 |hash|
-              150 |convert| 155 |coerce| 160 |antiCommutator| 165 ^ 171 |Zero|
-              183 |One| 187 >= 191 > 197 = 203 <= 209 < 215 - 221 + 232 * 238)
+              |leftPower| 121 |latex| 133 |inf| 138 |convert| 144 |coerce| 149
+              |antiCommutator| 154 ^ 160 |Zero| 172 |One| 176 >= 180 > 186 =
+              192 <= 198 < 204 - 210 + 221 * 227)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -95,8 +94,8 @@
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Comparable|)
                  (|Magma|) (|AbelianSemiGroup|) (|CommutativeStar|)
                  (|SetCategory|) (|ConvertibleTo| 20) (|TwoSidedRecip|)
-                 (|BasicType|) (|PartialOrder|) (|CoercibleTo| 25))
-              (|makeByteWordVec2| 25
+                 (|BasicType|) (|PartialOrder|) (|CoercibleTo| 23))
+              (|makeByteWordVec2| 23
                                   '(0 0 0 6 0 5 0 7 2 5 8 0 0 9 2 0 0 0 0 10 2
                                     0 0 0 0 12 2 5 0 0 0 14 2 5 8 0 0 15 2 0 8
                                     0 0 1 1 0 8 0 1 2 0 0 0 0 11 2 0 16 0 0 17
@@ -104,12 +103,12 @@
                                     2 0 0 0 21 1 1 0 16 0 1 2 0 8 0 0 1 1 0 8 0
                                     1 2 0 0 0 0 12 2 0 0 0 0 10 1 0 16 0 1 2 0
                                     0 0 19 1 2 0 0 0 21 1 1 0 22 0 1 2 0 0 0 0
-                                    13 2 0 24 24 0 1 1 0 23 0 1 1 0 20 0 1 1 0
-                                    25 0 1 2 0 0 0 0 1 2 0 0 0 19 1 2 0 0 0 21
-                                    1 0 0 0 6 0 0 0 1 2 0 8 0 0 1 2 0 8 0 0 1 2
-                                    0 8 0 0 1 2 0 8 0 0 1 2 0 8 0 0 1 1 1 0 0 1
-                                    2 1 0 0 0 1 2 0 0 0 0 1 2 1 0 18 0 1 2 0 0
-                                    0 0 1 2 0 0 21 0 1 2 0 0 19 0 1)))))
+                                    13 1 0 20 0 1 1 0 23 0 1 2 0 0 0 0 1 2 0 0
+                                    0 19 1 2 0 0 0 21 1 0 0 0 6 0 0 0 1 2 0 8 0
+                                    0 1 2 0 8 0 0 1 2 0 8 0 0 1 2 0 8 0 0 1 2 0
+                                    8 0 0 1 2 1 0 0 0 1 1 1 0 0 1 2 0 0 0 0 1 2
+                                    1 0 18 0 1 2 0 0 0 0 1 2 0 0 21 0 1 2 0 0
+                                    19 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|NonNegativeRational| 'NILADIC T) 

@@ -220,13 +220,18 @@
             (SIGNATURE |map|
              (|dmp| (|Mapping| |dmp| (|Polynomial| R)) |dmp|))))
           (DP
-           (|DirectProductCategory| (|call| LENGTH |lv|)
-                                    (|NonNegativeInteger|)))
+           (|Join|
+            (|DirectProductCategory| (|call| LENGTH |lv|)
+                                     #20=(|NonNegativeInteger|))
+            (CATEGORY |package|
+             (IF (|has| #20# (|Hashable|))
+                 (ATTRIBUTE (|Hashable|))
+                 |noBranch|))))
           (OV
            (|Join| (|OrderedFinite|) (|ConvertibleTo| (|Symbol|))
                    (|ConvertibleTo| (|InputForm|))
                    (|ConvertibleTo| (|Pattern| (|Float|)))
-                   (|ConvertibleTo| (|Pattern| (|Integer|)))
+                   (|ConvertibleTo| (|Pattern| (|Integer|))) (|Hashable|)
                    (CATEGORY |domain|
                     (SIGNATURE |variable| ((|Union| % "failed") (|Symbol|))))))
           (|dmp|
@@ -237,7 +242,7 @@
                                   (|OrderedVariableList| |lv|))
             (CATEGORY |domain|
              (SIGNATURE |reorder| (% % (|List| (|Integer|)))))))
-          (#20=#:G171 NIL) (|ff| NIL) (#21=#:G170 NIL)
+          (#21=#:G171 NIL) (|ff| NIL) (#22=#:G170 NIL)
           (|fp| (|Factored| (|Polynomial| R))) (|p| (|Polynomial| R)))
          (SEQ
           (COND ((OR (NULL |lv|) (NULL |lf|)) NIL)
@@ -246,22 +251,22 @@
                       (LETT |fp| (SPADCALL |p| (QREFELT % 42)))
                       (EXIT
                        (PROGN
-                        (LETT #21# NIL)
+                        (LETT #22# NIL)
                         (SEQ (LETT |ff| NIL)
-                             (LETT #20# (SPADCALL |fp| (QREFELT % 46))) G190
+                             (LETT #21# (SPADCALL |fp| (QREFELT % 46))) G190
                              (COND
-                              ((OR (ATOM #20#)
-                                   (PROGN (LETT |ff| (CAR #20#)) NIL))
+                              ((OR (ATOM #21#)
+                                   (PROGN (LETT |ff| (CAR #21#)) NIL))
                                (GO G191)))
                              (SEQ
                               (EXIT
                                (COND
                                 ((|SYSSOLP;testDegree| (QVELT |ff| 1) |lv| %)
-                                 (LETT #21#
-                                       (CONS (LIST (QVELT |ff| 1)) #21#))))))
-                             (LETT #20# (CDR #20#)) (GO G190) G191
-                             (EXIT (NREVERSE #21#)))))))
-                (#22='T
+                                 (LETT #22#
+                                       (CONS (LIST (QVELT |ff| 1)) #22#))))))
+                             (LETT #21# (CDR #21#)) (GO G190) G191
+                             (EXIT (NREVERSE #22#)))))))
+                (#23='T
                  (SEQ
                   (LETT |dmp|
                         (|DistributedMultivariatePolynomial| |lv|
@@ -290,12 +295,12 @@
                                                             '|variable|
                                                             (LIST
                                                              (LIST '|Union| '%
-                                                                   '#23="failed")
+                                                                   '#24="failed")
                                                              (LIST '|Symbol|))
                                                             OV)))
                                            (QCDR #17#)
                                          (|check_union2| (QEQCAR #17# 0) OV
-                                                         (|Union| OV #23#)
+                                                         (|Union| OV #24#)
                                                          #17#))
                                        #19#))))
                               (LETT #18# (CDR #18#)) (GO G190) G191
@@ -481,7 +486,7 @@
                                                   (LETT #5# 'T)))))))
                                             (LETT #9# (CDR #9#)) (GO G190) G191
                                             (EXIT NIL))
-                                       (COND (#5# #6#) (#22# 'T)))
+                                       (COND (#5# #6#) (#23# 'T)))
                                       (LETT #11# (CONS |pr| #11#))))))
                                   (LETT #10# (CDR #10#)) (GO G190) G191
                                   (EXIT (NREVERSE #11#)))))))))

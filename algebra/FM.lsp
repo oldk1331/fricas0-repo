@@ -347,6 +347,9 @@
                                                          '(|OrderedAbelianMonoidSup|))
                                           (|HasCategory| |#2|
                                                          '(|OrderedSet|))))
+                                        (AND (|HasCategory| |#1| '(|Hashable|))
+                                             (|HasCategory| |#2|
+                                                            '(|Hashable|)))
                                         (|HasCategory| |#1| '(|SemiRing|))
                                         (LETT #1#
                                               (|HasCategory| |#2|
@@ -423,13 +426,13 @@
       (QSETREFV % 30 (CONS (|dispatchFunction| |FM;coerce;%Of;9|) %)))
      ('T (QSETREFV % 30 (CONS (|dispatchFunction| |FM;coerce;%Of;10|) %))))
     (COND
-     ((|testBitVector| |pv$| 7)
+     ((|testBitVector| |pv$| 8)
       (PROGN
        (QSETREFV % 42 (CONS (|dispatchFunction| |FM;retractIfCan;%U;15|) %))
        (QSETREFV % 43 (CONS (|dispatchFunction| |FM;retract;%S;16|) %))
        (QSETREFV % 44 (CONS (|dispatchFunction| |FM;coerce;S%;17|) %)))))
     (COND
-     ((|testBitVector| |pv$| 8)
+     ((|testBitVector| |pv$| 9)
       (QSETREFV % 46 (CONS (|dispatchFunction| |FM;coefficient;%SR;18|) %)))
      ('T
       (QSETREFV % 46 (CONS (|dispatchFunction| |FM;coefficient;%SR;19|) %))))
@@ -455,22 +458,29 @@
               (101 . |coerce|) (106 . |smaller?|) (112 . |coefficient|)
               (118 . =) (124 . |zero?|) (|Record| (|:| |k| 7) (|:| |c| 6))
               (|List| 49) (129 . |listOfTerms|) (134 . +) (|Mapping| 6 7)
-              (140 . |linearExtend|) (|Union| % '"failed") (|Mapping| 6 6)
-              (|PositiveInteger|) (|HashState|) (|String|) (|SingleInteger|))
-           '#(|zero?| 146 |support| 151 |retractIfCan| 156 |retract| 161
-              |numberOfMonomials| 166 |monomials| 171 |listOfTerms| 176
-              |linearExtend| 181 |coerce| 187 |coefficients| 197 |coefficient|
-              202 |Zero| 208 * 212)
+              (140 . |linearExtend|) (|HashState|) (|SingleInteger|)
+              (|Union| % '"failed") (|Mapping| 6 6) (|PositiveInteger|)
+              (|String|))
+           '#(~= 146 |zero?| 152 |support| 157 |sup| 162 |subtractIfCan| 168
+              |smaller?| 174 |sample| 180 |retractIfCan| 184 |retract| 189
+              |reductum| 194 |opposite?| 199 |numberOfMonomials| 205
+              |monomials| 210 |monomial?| 215 |monomial| 220 |min| 226 |max|
+              232 |map| 238 |listOfTerms| 244 |linearExtend| 249 |leadingTerm|
+              255 |leadingSupport| 260 |leadingMonomial| 265
+              |leadingCoefficient| 270 |latex| 275 |inf| 280 |hashUpdate!| 286
+              |hash| 292 |constructOrdered| 297 |construct| 302 |coerce| 307
+              |coefficients| 317 |coefficient| 322 |Zero| 328 >= 332 > 338 =
+              344 <= 350 < 356 - 362 + 373 * 379)
            'NIL
            (CONS
-            (|makeByteWordVec2| 9
-                                '(0 0 2 0 0 5 0 0 0 5 1 6 4 6 3 6 0 9 0 7 0 0 6
-                                  7))
+            (|makeByteWordVec2| 10
+                                '(0 0 2 0 0 5 0 0 0 5 1 6 4 6 3 6 0 10 0 7 8 0
+                                  0 6 8))
             (CONS
              '#(|FreeModuleCategory&| NIL |Module&| NIL NIL NIL NIL NIL NIL NIL
                 |AbelianGroup&| NIL NIL NIL |AbelianMonoid&| |OrderedSet&|
-                |AbelianSemiGroup&| NIL |SetCategory&| |RetractableTo&|
-                |BasicType&| NIL |PartialOrder&| NIL)
+                |AbelianSemiGroup&| NIL |SetCategory&| |Hashable&|
+                |RetractableTo&| |BasicType&| NIL |PartialOrder&| NIL)
              (CONS
               '#((|FreeModuleCategory| 6 7)
                  (|IndexedDirectProductCategory| 6 7) (|Module| 6)
@@ -481,9 +491,9 @@
                  (|OrderedAbelianMonoid|) (|CancellationAbelianMonoid|)
                  (|OrderedAbelianSemiGroup|) (|AbelianMonoid|) (|OrderedSet|)
                  (|AbelianSemiGroup|) (|Comparable|) (|SetCategory|)
-                 (|RetractableTo| 7) (|BasicType|) (|CoercibleTo| 22)
-                 (|PartialOrder|) (|CoercibleFrom| 7))
-              (|makeByteWordVec2| 54
+                 (|Hashable|) (|RetractableTo| 7) (|BasicType|)
+                 (|CoercibleTo| 22) (|PartialOrder|) (|CoercibleFrom| 7))
+              (|makeByteWordVec2| 60
                                   '(0 6 0 9 0 6 0 10 1 6 12 0 13 0 0 0 14 2 6
                                     12 0 0 15 2 6 0 0 0 16 2 0 0 6 0 17 2 6 12
                                     0 0 18 2 0 0 0 6 19 1 6 22 0 23 1 7 22 0 24
@@ -491,10 +501,19 @@
                                     1 0 22 0 30 1 0 37 0 38 2 39 12 0 0 40 1 0
                                     41 0 42 1 0 7 0 43 1 0 0 7 44 2 7 12 0 0 45
                                     2 0 6 0 7 46 2 7 12 0 0 47 1 0 12 0 48 1 0
-                                    50 0 51 2 6 0 0 0 52 2 0 6 53 0 54 1 10 12
-                                    0 48 1 0 31 0 32 1 7 41 0 42 1 7 7 0 43 1 0
-                                    37 0 38 1 0 35 0 36 1 0 50 0 51 2 2 6 53 0
-                                    54 1 7 0 7 44 1 0 22 0 30 1 0 33 0 34 2 0 6
-                                    0 7 46 0 10 0 14 2 0 0 7 6 21 2 0 0 6 7 20
-                                    2 0 0 0 6 19 2 0 0 6 0 17)))))
-           '|lookupIncomplete|)) 
+                                    50 0 51 2 6 0 0 0 52 2 0 6 53 0 54 2 0 12 0
+                                    0 1 1 11 12 0 48 1 0 31 0 32 2 5 0 0 0 1 2
+                                    12 57 0 0 1 2 13 12 0 0 1 0 11 0 1 1 8 41 0
+                                    42 1 8 7 0 43 1 9 0 0 1 2 11 12 0 0 1 1 0
+                                    37 0 38 1 0 35 0 36 1 0 12 0 1 2 0 0 6 7 1
+                                    2 6 0 0 0 1 2 6 0 0 0 1 2 0 0 58 0 1 1 0 50
+                                    0 51 2 2 6 53 0 54 1 9 49 0 1 1 9 7 0 1 1 9
+                                    0 0 1 1 9 6 0 1 1 0 60 0 1 2 5 0 0 0 1 2 7
+                                    55 55 0 1 1 7 56 0 1 1 9 0 50 1 1 0 0 50 1
+                                    1 8 0 7 44 1 0 22 0 30 1 0 33 0 34 2 0 6 0
+                                    7 46 0 11 0 14 2 6 12 0 0 1 2 6 12 0 0 1 2
+                                    0 12 0 0 1 2 6 12 0 0 1 2 6 12 0 0 1 2 1 0
+                                    0 0 1 1 1 0 0 1 2 0 0 0 0 1 2 11 0 37 0 1 2
+                                    1 0 39 0 1 2 0 0 7 6 21 2 0 0 6 7 20 2 0 0
+                                    0 6 19 2 0 0 6 0 17 2 0 0 59 0 1)))))
+           '|lookupComplete|)) 

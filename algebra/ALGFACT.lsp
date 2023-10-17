@@ -141,19 +141,22 @@
           (|sae|
            (|Join|
             (|MonogenicAlgebra| #7=(|AlgebraicNumber|)
-                                (|SparseUnivariatePolynomial|
-                                 (|AlgebraicNumber|)))
+                                #8=(|SparseUnivariatePolynomial|
+                                    (|AlgebraicNumber|)))
             (CATEGORY |package|
              (IF (|has| #7# (|Field|))
                  (IF (|has| #7# (|PolynomialFactorizationExplicit|))
                      (ATTRIBUTE (|PolynomialFactorizationExplicit|))
                      |noBranch|)
+                 |noBranch|)
+             (IF (|has| #8# (|Hashable|))
+                 (ATTRIBUTE (|Hashable|))
                  |noBranch|))))
           (|newl| (|List| (|Kernel| (|AlgebraicNumber|))))
           (|q| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
-          (|alpha| #1#) (#8=#:G142 NIL) (#9=#:G141 #1#) (#10=#:G143 #1#)
-          (#11=#:G160 NIL) (#12=#:G104 NIL) (#13=#:G138 NIL) (#14=#:G137 #4#)
-          (#15=#:G139 #4#) (#16=#:G159 NIL) (|dc| NIL)
+          (|alpha| #1#) (#9=#:G142 NIL) (#10=#:G141 #1#) (#11=#:G143 #1#)
+          (#12=#:G160 NIL) (#13=#:G104 NIL) (#14=#:G138 NIL) (#15=#:G137 #4#)
+          (#16=#:G139 #4#) (#17=#:G159 NIL) (|dc| NIL)
           (|dr|
            (|Factored|
             (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))))
@@ -167,54 +170,57 @@
              (EXIT
               (SPADCALL (|ALGFACT;liftpoly| (SPADCALL |dr| (QREFELT % 56)) %)
                         (PROGN
-                         (LETT #13# NIL)
+                         (LETT #14# NIL)
                          (SEQ (LETT |dc| NIL)
-                              (LETT #16# (SPADCALL |dr| (QREFELT % 59))) G190
+                              (LETT #17# (SPADCALL |dr| (QREFELT % 59))) G190
                               (COND
-                               ((OR (ATOM #16#)
-                                    (PROGN (LETT |dc| (CAR #16#)) NIL))
+                               ((OR (ATOM #17#)
+                                    (PROGN (LETT |dc| (CAR #17#)) NIL))
                                 (GO G191)))
                               (SEQ
                                (EXIT
                                 (PROGN
-                                 (LETT #15#
+                                 (LETT #16#
                                        (SPADCALL
                                         (|ALGFACT;liftpoly| (QVELT |dc| 1) %)
                                         (QVELT |dc| 2) (QREFELT % 39)))
                                  (COND
-                                  (#13#
-                                   (LETT #14#
-                                         (SPADCALL #14# #15# (QREFELT % 33))))
+                                  (#14#
+                                   (LETT #15#
+                                         (SPADCALL #15# #16# (QREFELT % 33))))
                                   ('T
-                                   (PROGN (LETT #14# #15#) (LETT #13# 'T)))))))
-                              (LETT #16# (CDR #16#)) (GO G190) G191 (EXIT NIL))
-                         (COND (#13# #14#) (#17='T (|spadConstant| % 34))))
+                                   (PROGN (LETT #15# #16#) (LETT #14# 'T)))))))
+                              (LETT #17# (CDR #17#)) (GO G190) G191 (EXIT NIL))
+                         (COND (#14# #15#) (#18='T (|spadConstant| % 34))))
                         (QREFELT % 35)))))
-           (#17#
+           (#18#
             (SEQ
              (LETT |q|
                    (SPADCALL
                     (LETT |alpha|
                           (PROGN
-                           (LETT #8# NIL)
-                           (SEQ (LETT #12# NIL) (LETT #11# |l|) G190
+                           (LETT #9# NIL)
+                           (SEQ (LETT #13# NIL) (LETT #12# |l|) G190
                                 (COND
-                                 ((OR (ATOM #11#)
-                                      (PROGN (LETT #12# (CAR #11#)) NIL))
+                                 ((OR (ATOM #12#)
+                                      (PROGN (LETT #13# (CAR #12#)) NIL))
                                   (GO G191)))
                                 (SEQ
                                  (EXIT
                                   (PROGN
-                                   (LETT #10# #12#)
+                                   (LETT #11# #13#)
                                    (COND
-                                    (#8#
-                                     (LETT #9#
-                                           (SPADCALL #9# #10# (QREFELT % 61))))
+                                    (#9#
+                                     (LETT #10#
+                                           (SPADCALL #10# #11#
+                                                     (QREFELT % 61))))
                                     ('T
-                                     (PROGN (LETT #9# #10#) (LETT #8# 'T)))))))
-                                (LETT #11# (CDR #11#)) (GO G190) G191
+                                     (PROGN
+                                      (LETT #10# #11#)
+                                      (LETT #9# 'T)))))))
+                                (LETT #12# (CDR #12#)) (GO G190) G191
                                 (EXIT NIL))
-                           (COND (#8# #9#) (#17# (|IdentityError| '|max|)))))
+                           (COND (#9# #10#) (#18# (|IdentityError| '|max|)))))
                     (QREFELT % 63)))
              (LETT |newl|
                    (SPADCALL (CONS #'|ALGFACT;fact!0| (VECTOR % |alpha|)) |l|
@@ -341,7 +347,7 @@
                          (#2# (LETT #3# (SPADCALL #3# #5# (QREFELT % 33))))
                          ('T (PROGN (LETT #3# #5#) (LETT #2# 'T)))))))
                      (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL))
-                (COND (#2# #3#) (#17# (|spadConstant| % 34))))
+                (COND (#2# #3#) (#18# (|spadConstant| % 34))))
                (QREFELT % 35))))))))) 
 
 (SDEFUN |ALGFACT;fact!4| ((|x| NIL) ($$ NIL))

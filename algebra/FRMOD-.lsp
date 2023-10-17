@@ -83,6 +83,10 @@
                   #3#)
                  (QREFELT % 11))))) 
 
+(SDEFUN |FRMOD-;hashUpdate!;HsSHs;8|
+        ((|s| (|HashState|)) (|x| (S)) (% (|HashState|)))
+        (SPADCALL |s| (SPADCALL |x| (QREFELT % 9)) (QREFELT % 36))) 
+
 (DECLAIM (NOTINLINE |FramedModule&;|)) 
 
 (DEFUN |FramedModule&| (|#1| |#2|)
@@ -91,12 +95,14 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|FramedModule&| DV$1 DV$2))
-          (LETT % (GETREFV 36))
+          (LETT % (GETREFV 39))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|Hashable|))
                                               (|HasCategory| |#2|
                                                              '(|Finite|))))))
           (|stuffDomainSlots| %)
@@ -104,7 +110,7 @@
           (QSETREFV % 7 |#2|)
           (SETF |pv$| (QREFELT % 3))
           (COND
-           ((|testBitVector| |pv$| 1)
+           ((|testBitVector| |pv$| 2)
             (PROGN
              (QSETREFV % 28 (CONS (|dispatchFunction| |FRMOD-;index;PiS;4|) %))
              (QSETREFV % 31
@@ -112,6 +118,11 @@
              (QSETREFV % 32 (CONS (|dispatchFunction| |FRMOD-;size;Nni;6|) %))
              (QSETREFV % 34
                        (CONS (|dispatchFunction| |FRMOD-;random;S;7|) %)))))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (QSETREFV % 37
+                      (CONS (|dispatchFunction| |FRMOD-;hashUpdate!;HsSHs;8|)
+                            %))))
           %))) 
 
 (MAKEPROP '|FramedModule&| '|infovec|
@@ -124,9 +135,10 @@
               |FRMOD-;coordinates;VM;3| (|NonNegativeInteger|) (30 . |size|)
               (34 . |index|) (|List| 7) (39 . |vector|) (44 . |index|)
               (49 . |elt|) (55 . |lookup|) (60 . |lookup|) (65 . |size|)
-              (69 . |random|) (73 . |random|) (|InputForm|))
-           '#(|size| 77 |random| 81 |lookup| 85 |index| 90 |coordinates| 95
-              |convert| 100)
+              (69 . |random|) (73 . |random|) (|HashState|)
+              (77 . |hashUpdate!|) (83 . |hashUpdate!|) (|InputForm|))
+           '#(|size| 89 |random| 93 |lookup| 97 |index| 102 |hashUpdate!| 107
+              |coordinates| 113 |convert| 118)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -134,6 +146,9 @@
                         '#((|Join|
                             (|mkCategory|
                              (LIST '((|convert| ((|InputForm|) |#1|)) T)
+                                   '((|hashUpdate!|
+                                      ((|HashState|) (|HashState|) |#1|))
+                                     T)
                                    '((|size| ((|NonNegativeInteger|))) T)
                                    '((|index| (|#1| (|PositiveInteger|))) T)
                                    '((|lookup| ((|PositiveInteger|) |#1|)) T)
@@ -145,13 +160,15 @@
                                      T)
                                    '((|coordinates| ((|Vector| |#2|) |#1|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 34
+                        (|makeByteWordVec2| 37
                                             '(1 6 8 0 9 1 6 0 8 11 0 6 13 14 0
                                               7 0 15 1 17 16 0 18 3 19 0 0 16 8
                                               20 0 7 23 24 1 7 0 13 25 1 8 0 26
                                               27 1 0 0 13 28 2 8 7 0 16 29 1 7
                                               13 0 30 1 0 13 0 31 0 0 23 32 0 7
-                                              0 33 0 0 0 34 0 0 23 32 0 0 0 34
-                                              1 0 13 0 31 1 0 0 13 28 1 0 19 21
-                                              22 1 0 0 8 12 1 0 8 0 10)))))
+                                              0 33 0 0 0 34 2 8 35 35 0 36 2 0
+                                              35 35 0 37 0 0 23 32 0 0 0 34 1 0
+                                              13 0 31 1 0 0 13 28 2 0 35 35 0
+                                              37 1 0 19 21 22 1 0 0 8 12 1 0 8
+                                              0 10)))))
            '|lookupComplete|)) 

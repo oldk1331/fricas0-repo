@@ -1465,7 +1465,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ILogic|))
-          (LETT % (GETREFV 56))
+          (LETT % (GETREFV 54))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ILogic| NIL (CONS 1 %))
@@ -1500,13 +1500,13 @@
               |ILOGIC;parseIL;S%;25| |ILOGIC;toString;%S;26| (59 . |concat|)
               |ILOGIC;toStringUnwrapped;%S;27| (|OutputForm|) (64 . |message|)
               |ILOGIC;coerce;%Of;28| (69 . |infix|) (76 . |paren|)
-              (81 . |hconcat|) (|HashState|) (|SingleInteger|))
+              (81 . |hconcat|))
            '#(~= 86 ~ 92 |value| 97 |toStringUnwrapped| 102 |toString| 107
               |redux| 112 |proposition| 117 |parseILTerm| 122 |parseIL2| 128
               |parseIL| 134 |opType| 139 |logicT| 144 |logicF| 148 |latex| 152
-              |implies| 157 |hashUpdate!| 163 |hash| 169 |getChildren| 174
-              |factor| 179 |deductions| 184 |coerce| 189 |atom?| 194 |_\|_| 199
-              |\\/| 203 T$ 209 = 213 |/\\| 219)
+              |implies| 157 |getChildren| 163 |factor| 168 |deductions| 173
+              |coerce| 178 |atom?| 183 |_\|_| 188 |\\/| 192 T$ 198 = 202 |/\\|
+              208)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS '#(NIL NIL NIL NIL NIL |SetCategory&| |BasicType&| NIL)
@@ -1515,7 +1515,7 @@
                            (|BoundedJoinSemilattice|) (|MeetSemilattice|)
                            (|JoinSemilattice|) (|SetCategory|) (|BasicType|)
                            (|CoercibleTo| 48))
-                        (|makeByteWordVec2| 55
+                        (|makeByteWordVec2| 53
                                             '(2 16 12 0 0 17 1 22 2 0 23 1 22 2
                                               0 25 2 22 0 0 0 26 2 22 0 0 2 27
                                               1 22 12 0 28 1 7 33 0 34 1 38 12
@@ -1527,11 +1527,11 @@
                                               0 0 0 19 1 0 0 7 8 2 0 35 7 36 37
                                               2 0 35 7 36 42 1 0 0 7 44 1 0 16
                                               0 30 0 0 0 9 0 0 0 10 1 0 7 0 1 2
-                                              0 0 0 0 18 2 0 54 54 0 1 1 0 55 0
-                                              1 1 0 20 0 21 1 0 20 0 24 1 0 20
-                                              20 29 1 0 48 0 50 1 0 12 0 31 0 0
-                                              0 1 2 0 0 0 0 15 0 0 0 1 2 0 12 0
-                                              0 13 2 0 0 0 0 14)))))
+                                              0 0 0 0 18 1 0 20 0 21 1 0 20 0
+                                              24 1 0 20 20 29 1 0 48 0 50 1 0
+                                              12 0 31 0 0 0 1 2 0 0 0 0 15 0 0
+                                              0 1 2 0 12 0 0 13 2 0 0 0 0
+                                              14)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ILogic| 'NILADIC T) 

@@ -154,6 +154,8 @@
                                               (|HasCategory| |#2|
                                                              '(|Comparable|))
                                               (|HasCategory| |#2|
+                                                             '(|Hashable|))
+                                              (|HasCategory| |#2|
                                                              '(|BasicType|))
                                               (|HasCategory| |#1|
                                                              '(|finiteAggregate|))
@@ -164,12 +166,12 @@
           (QSETREFV % 7 |#2|)
           (SETF |pv$| (QREFELT % 3))
           (COND
-           ((|testBitVector| |pv$| 4)
+           ((|testBitVector| |pv$| 5)
             (PROGN
              (QSETREFV % 28
                        (CONS (|dispatchFunction| |LNAGG-;maxIndex;AI;7|) %))
              (COND
-              ((|testBitVector| |pv$| 3)
+              ((|testBitVector| |pv$| 4)
                (PROGN
                 (QSETREFV % 30
                           (CONS (|dispatchFunction| |LNAGG-;position;SAI;8|)
@@ -184,7 +186,7 @@
                           (CONS (|dispatchFunction| |LNAGG-;trim;ASA;11|)
                                 %)))))
              (COND
-              ((|HasCategory| |#2| '(|SetCategory|))
+              ((|testBitVector| |pv$| 3)
                (QSETREFV % 39
                          (CONS
                           (|dispatchFunction| |LNAGG-;hashUpdate!;HsAHs;12|)
@@ -199,7 +201,7 @@
                 (QSETREFV % 48
                           (CONS (|dispatchFunction| |LNAGG-;sort;2A;15|) %)))))
              (COND
-              ((|testBitVector| |pv$| 5)
+              ((|testBitVector| |pv$| 6)
                (PROGN
                 (QSETREFV % 51
                           (CONS (|dispatchFunction| |LNAGG-;reverse;2A;16|) %))

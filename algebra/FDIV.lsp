@@ -404,7 +404,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|FiniteDivisor| DV$1 DV$2 DV$3 DV$4))
-    (LETT % (GETREFV 131))
+    (LETT % (GETREFV 129))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|FiniteDivisor| (LIST DV$1 DV$2 DV$3 DV$4)
@@ -509,13 +509,11 @@
               (461 . |finiteBasis|) (466 . |integralAtInfinity?|)
               (471 . |primitivePart|) (476 . |special_order|)
               (482 . |reduceBasisAtInfinity|) (|Mapping| 9 9) (487 . |map!|)
-              (493 . |lSpaceBasis|) (498 . ^) (|HashState|) (|String|)
-              (|SingleInteger|))
+              (493 . |lSpaceBasis|) (498 . ^) (|String|))
            '#(~= 504 |zero?| 510 |subtractIfCan| 515 |sample| 521 |reduce| 525
               |principal?| 530 |opposite?| 535 |latex| 541 |lSpaceBasis| 546
-              |ideal| 551 |hashUpdate!| 556 |hash| 562 |generator| 567
-              |finiteBasis| 579 |divisor| 584 |decompose| 623 |coerce| 628
-              |Zero| 633 = 637 - 643 + 654 * 660)
+              |ideal| 551 |generator| 556 |finiteBasis| 568 |divisor| 573
+              |decompose| 612 |coerce| 617 |Zero| 622 = 626 - 632 + 643 * 649)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -527,7 +525,7 @@
                       (|CancellationAbelianMonoid|) (|AbelianMonoid|)
                       (|AbelianSemiGroup|) (|SetCategory|) (|BasicType|)
                       (|CoercibleTo| 15))
-                   (|makeByteWordVec2| 130
+                   (|makeByteWordVec2| 128
                                        '(0 9 10 11 0 12 0 13 0 0 0 14 1 12 15 0
                                          16 1 0 15 0 17 2 12 18 0 0 19 2 0 18 0
                                          0 20 2 12 0 21 0 22 2 0 0 21 0 23 2 12
@@ -562,13 +560,13 @@
                                          1 9 52 52 123 2 58 0 124 0 125 1 0 58
                                          0 126 2 9 0 0 89 127 2 0 18 0 0 1 1 0
                                          18 0 1 2 0 91 0 0 1 0 0 0 1 1 0 0 0 32
-                                         1 0 18 0 1 2 0 18 0 0 1 1 0 129 0 1 1
-                                         0 58 0 126 1 0 28 0 30 2 0 128 128 0 1
-                                         1 0 130 0 1 3 0 33 0 21 36 38 1 0 33 0
-                                         35 1 0 58 0 119 5 0 0 9 7 7 7 6 1 3 0
-                                         0 9 7 7 51 2 0 0 6 6 47 3 0 0 6 6 21
-                                         49 1 0 0 28 43 1 0 0 9 45 1 0 39 0 41
-                                         1 0 15 0 17 0 0 0 14 2 0 18 0 0 20 1 0
-                                         0 0 27 2 0 0 0 0 1 2 0 0 0 0 25 2 0 0
-                                         21 0 23 2 0 0 75 0 1 2 0 0 89 0 1)))))
+                                         1 0 18 0 1 2 0 18 0 0 1 1 0 128 0 1 1
+                                         0 58 0 126 1 0 28 0 30 3 0 33 0 21 36
+                                         38 1 0 33 0 35 1 0 58 0 119 5 0 0 9 7
+                                         7 7 6 1 3 0 0 9 7 7 51 3 0 0 6 6 21 49
+                                         1 0 0 9 45 2 0 0 6 6 47 1 0 0 28 43 1
+                                         0 39 0 41 1 0 15 0 17 0 0 0 14 2 0 18
+                                         0 0 20 1 0 0 0 27 2 0 0 0 0 1 2 0 0 0
+                                         0 25 2 0 0 21 0 23 2 0 0 75 0 1 2 0 0
+                                         89 0 1)))))
            '|lookupComplete|)) 

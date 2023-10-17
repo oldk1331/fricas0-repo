@@ -573,13 +573,13 @@
            (|List|
             (|List|
              (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P)))))
-          (#1=#:G306 NIL) (|i| NIL) (#2=#:G287 NIL) (#3=#:G286 (P))
-          (#4=#:G288 (P)) (#5=#:G305 NIL) (|cc| NIL)
-          (|k| (|NonNegativeInteger|)) (#6=#:G285 NIL) (#7=#:G273 NIL)
-          (#8=#:G272 #9=(|Boolean|)) (#10=#:G274 #9#) (#11=#:G304 NIL)
-          (#12=#:G303 NIL) (|celt| NIL) (#13=#:G269 NIL)
+          (#1=#:G308 NIL) (|i| NIL) (#2=#:G289 NIL) (#3=#:G288 (P))
+          (#4=#:G290 (P)) (#5=#:G307 NIL) (|cc| NIL)
+          (|k| (|NonNegativeInteger|)) (#6=#:G287 NIL) (#7=#:G273 NIL)
+          (#8=#:G272 #9=(|Boolean|)) (#10=#:G274 #9#) (#11=#:G306 NIL)
+          (#12=#:G305 NIL) (|celt| NIL) (#13=#:G269 NIL)
           (#14=#:G268 #15=(|NonNegativeInteger|)) (#16=#:G270 #15#)
-          (#17=#:G302 NIL) (|term| NIL) (#18=#:G301 NIL) (|cterm| NIL)
+          (#17=#:G304 NIL) (|term| NIL) (#18=#:G303 NIL) (|cterm| NIL)
           (|cfpos| (|NonNegativeInteger|)) (|cfcoef| (P))
           (|cfexp| (|NonNegativeInteger|)))
          (SEQ (LETT |cfexp| (QVELT |cfter| 0))
@@ -772,8 +772,8 @@
            (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P))))
          (% (|SparseUnivariatePolynomial| P)))
         (SPROG
-         ((#1=#:G310 NIL) (#2=#:G309 #3=(|SparseUnivariatePolynomial| P))
-          (#4=#:G311 #3#) (#5=#:G313 NIL) (|term| NIL))
+         ((#1=#:G312 NIL) (#2=#:G311 #3=(|SparseUnivariatePolynomial| P))
+          (#4=#:G313 #3#) (#5=#:G315 NIL) (|term| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL)
@@ -793,9 +793,9 @@
 
 (DECLAIM (NOTINLINE |NPCoef;|)) 
 
-(DEFUN |NPCoef| (&REST #1=#:G314)
+(DEFUN |NPCoef| (&REST #1=#:G316)
   (SPROG NIL
-         (PROG (#2=#:G315)
+         (PROG (#2=#:G317)
            (RETURN
             (COND
              ((LETT #2#

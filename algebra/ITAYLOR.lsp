@@ -158,7 +158,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|InnerTaylorSeries| DV$1))
-          (LETT % (GETREFV 61))
+          (LETT % (GETREFV 59))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3
                     (LETT |pv$|
@@ -201,16 +201,15 @@
               |ITAYLOR;pole?;%B;19| (101 . |zero?|) |ITAYLOR;order;%2Nni;21|
               |ITAYLOR;order;%Nni;23|
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
+              (|String|) (|OutputForm|))
            '#(~= 106 |zero?| 112 |unitNormal| 117 |unitCanonical| 122 |unit?|
               127 |subtractIfCan| 132 |series| 138 |sample| 143 |rightRecip|
               147 |rightPower| 152 |recip| 164 |pole?| 169 |order| 174
               |opposite?| 185 |one?| 191 |leftRecip| 196 |leftPower| 201
-              |latex| 213 |hashUpdate!| 218 |hash| 224 |exquo| 229 |commutator|
-              235 |coerce| 241 |coefficients| 256 |characteristic| 261
-              |associator| 265 |associates?| 272 |antiCommutator| 278
-              |annihilate?| 284 ^ 290 |Zero| 302 |One| 306 = 310 - 316 + 327 *
-              333)
+              |latex| 213 |exquo| 218 |commutator| 224 |coerce| 230
+              |coefficients| 245 |characteristic| 250 |associator| 254
+              |associates?| 261 |antiCommutator| 267 |annihilate?| 273 ^ 279
+              |Zero| 291 |One| 295 = 299 - 305 + 316 * 322)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -232,9 +231,9 @@
                  (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Magma|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|CommutativeStar|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 59)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 58)
                  (|TwoSidedRecip|) (|noZeroDivisors|))
-              (|makeByteWordVec2| 60
+              (|makeByteWordVec2| 58
                                   '(0 6 0 11 1 12 8 6 13 0 6 0 15 1 7 17 0 18 1
                                     7 6 0 19 2 6 17 0 0 20 1 8 0 0 21 2 12 8 8
                                     8 24 2 12 8 8 8 26 2 12 8 8 8 27 1 12 8 8
@@ -244,15 +243,14 @@
                                     0 1 1 0 17 0 1 1 1 56 0 1 1 1 0 0 1 1 1 17
                                     0 1 2 0 41 0 0 1 1 0 0 8 9 0 0 0 1 1 0 41 0
                                     1 2 0 0 0 48 1 2 0 0 0 45 1 1 0 41 0 42 1 0
-                                    17 0 52 2 0 48 0 48 54 1 0 48 0 55 2 0 17 0
+                                    17 0 52 1 0 48 0 55 2 0 48 0 48 54 2 0 17 0
                                     0 1 1 0 17 0 1 1 0 41 0 1 2 0 0 0 48 1 2 0
-                                    0 0 45 1 1 0 58 0 1 2 0 57 57 0 1 1 0 60 0
-                                    1 2 1 41 0 0 44 2 0 0 0 0 1 1 1 0 0 1 1 0 0
-                                    31 1 1 0 59 0 1 1 0 8 0 23 0 0 48 51 3 0 0
-                                    0 0 0 1 2 1 17 0 0 1 2 0 0 0 0 1 2 0 17 0 0
-                                    1 2 0 0 0 48 49 2 0 0 0 45 1 0 0 0 10 0 0 0
-                                    14 2 0 17 0 0 22 1 0 0 0 30 2 0 0 0 0 16 2
-                                    0 0 0 0 25 2 0 0 0 31 36 2 0 0 6 0 37 2 0 0
-                                    0 6 38 2 0 0 48 0 1 2 0 0 31 0 34 2 0 0 0 0
-                                    28 2 0 0 45 0 1)))))
+                                    0 0 45 1 1 0 57 0 1 2 1 41 0 0 44 2 0 0 0 0
+                                    1 1 1 0 0 1 1 0 0 31 1 1 0 58 0 1 1 0 8 0
+                                    23 0 0 48 51 3 0 0 0 0 0 1 2 1 17 0 0 1 2 0
+                                    0 0 0 1 2 0 17 0 0 1 2 0 0 0 48 49 2 0 0 0
+                                    45 1 0 0 0 10 0 0 0 14 2 0 17 0 0 22 2 0 0
+                                    0 0 16 1 0 0 0 30 2 0 0 0 0 25 2 0 0 0 6 38
+                                    2 0 0 0 31 36 2 0 0 6 0 37 2 0 0 48 0 1 2 0
+                                    0 31 0 34 2 0 0 0 0 28 2 0 0 45 0 1)))))
            '|lookupComplete|)) 

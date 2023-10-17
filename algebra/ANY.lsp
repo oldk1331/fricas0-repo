@@ -103,7 +103,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Any|))
-          (LETT % (GETREFV 33))
+          (LETT % (GETREFV 31))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Any| NIL (CONS 1 %))
@@ -122,24 +122,22 @@
               (|Symbol|) (|List| 17) (6 . |list|) |ANY;objectOf;%Of;5|
               (|String|) |ANY;showTypeInOutput;BS;6| (11 . |atom?|) (|List| 12)
               (16 . |list|) (21 . |message|) (|List| %) (26 . |hconcat|)
-              |ANY;coerce;%Of;7| |ANY;any;SeN%;8| (|SingleInteger|)
-              (|HashState|))
+              |ANY;coerce;%Of;7| |ANY;any;SeN%;8|)
            '#(~= 31 |showTypeInOutput| 37 |objectOf| 42 |obj| 47 |latex| 52
-              |hashUpdate!| 57 |hash| 63 |domainOf| 68 |dom| 73 |coerce| 78
-              |any| 83 = 89)
+              |domainOf| 57 |dom| 62 |coerce| 67 |any| 72 = 78)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 12))
-                        (|makeByteWordVec2| 32
+                        (|makeByteWordVec2| 30
                                             '(2 10 14 0 0 15 1 18 0 17 19 1 10
                                               14 0 23 1 24 0 12 25 1 12 0 21 26
                                               1 12 0 27 28 2 0 14 0 0 1 1 0 21
                                               14 22 1 0 12 0 20 1 0 8 0 9 1 0
-                                              21 0 1 2 0 32 32 0 1 1 0 31 0 1 1
-                                              0 12 0 13 1 0 10 0 11 1 0 12 0 29
-                                              2 0 0 10 8 30 2 0 14 0 0 16)))))
+                                              21 0 1 1 0 12 0 13 1 0 10 0 11 1
+                                              0 12 0 29 2 0 0 10 8 30 2 0 14 0
+                                              0 16)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Any| 'NILADIC T) 

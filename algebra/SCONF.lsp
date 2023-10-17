@@ -278,9 +278,9 @@
 (SDEFUN |SCONF;isVector?;%B;27| ((|p| (%)) (% (|Boolean|)))
         (SPADCALL (QAREF1 |p| 1) (|minus_DF| (|mk_DF| 9 -1)) (QREFELT % 31))) 
 
-(PUT '|SCONF;hash;%Si;28| '|SPADreplace| '(XLAM (|s|) 0)) 
+(PUT '|SCONF;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(SDEFUN |SCONF;hash;%Si;28| ((|s| (%)) (% (|SingleInteger|))) 0) 
+(SDEFUN |SCONF;hash| ((|s| (%)) (% (|SingleInteger|))) 0) 
 
 (SDEFUN |SCONF;=;2%B;29| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G193 NIL) (#2=#:G194 NIL) (|i| NIL))
@@ -300,7 +300,7 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |SCONF;~=;2%B;30| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
-        (NULL (SPADCALL |x| |y| (QREFELT % 52)))) 
+        (NULL (SPADCALL |x| |y| (QREFELT % 50)))) 
 
 (SDEFUN |SCONF;coerce;%Of;31| ((|pt| (%)) (% (|OutputForm|)))
         (SPROG
@@ -315,11 +315,11 @@
                       (SEQ
                        (EXIT
                         (LETT #2#
-                              (CONS (SPADCALL (QAREF1 |pt| |i|) (QREFELT % 54))
+                              (CONS (SPADCALL (QAREF1 |pt| |i|) (QREFELT % 52))
                                     #2#))))
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                       (EXIT (NREVERSE #2#)))))
-          (EXIT (SPADCALL |eles| (QREFELT % 56)))))) 
+          (EXIT (SPADCALL |eles| (QREFELT % 54)))))) 
 
 (DECLAIM (NOTINLINE |SConformal;|)) 
 
@@ -344,7 +344,7 @@
          (PROGN
           (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|SConformal| DV$1))
-          (LETT % (GETREFV 59))
+          (LETT % (GETREFV 56))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SConformal| (LIST DV$1) (CONS 1 %))
@@ -372,28 +372,27 @@
               (|OutputForm|) (28 . |message|) (|Void|) (33 . |print|)
               |SCONF;normalisePoint;2%;23| |SCONF;toPoint;2%;24|
               |SCONF;toVector;2%;25| |SCONF;isPoint?;%B;26|
-              |SCONF;isVector?;%B;27| (|SingleInteger|) |SCONF;hash;%Si;28|
-              |SCONF;=;2%B;29| |SCONF;~=;2%B;30| (38 . |coerce|) (|List| %)
-              (43 . |paren|) |SCONF;coerce;%Of;31| (|HashState|))
+              |SCONF;isVector?;%B;27| |SCONF;=;2%B;29| |SCONF;~=;2%B;30|
+              (38 . |coerce|) (|List| %) (43 . |paren|) |SCONF;coerce;%Of;31|)
            '#(~= 48 |unitVector| 54 |toVector| 59 |toPoint| 64 |svec| 69 |spnt|
               82 |sivec| 95 |sipnt| 108 |screenCoords| 121 |screenCoordZ| 126
               |screenCoordY| 131 |screenCoordX| 136 |perpendicular| 141
               |parallel| 147 |normalisePoint| 153 |min| 158 |max| 164 |latex|
-              170 |isVector?| 175 |isPoint?| 180 |inBounds?| 185 |hashUpdate!|
-              192 |hash| 198 |extendedCoords| 203 |distanceSquared| 208
-              |distance| 214 |dimension| 220 |colinearity| 225 |coerce| 231
-              |Pnan?| 236 = 241 - 247 + 253 * 259)
+              170 |isVector?| 175 |isPoint?| 180 |inBounds?| 185
+              |extendedCoords| 192 |distanceSquared| 197 |distance| 203
+              |dimension| 209 |colinearity| 214 |coerce| 220 |Pnan?| 225 = 230
+              - 236 + 242 * 248)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|SPointCategory&| |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SPointCategory|) (|SetCategory|) (|BasicType|)
                            (|CoercibleTo| 41))
-                        (|makeByteWordVec2| 58
+                        (|makeByteWordVec2| 55
                                             '(2 8 9 0 15 16 2 9 20 0 0 21 1 9 0
                                               0 23 2 9 20 0 0 31 1 8 36 0 38 1
                                               41 0 40 42 1 41 43 0 44 1 9 41 0
-                                              54 1 41 0 55 56 2 0 20 0 0 53 1 0
+                                              52 1 41 0 53 54 2 0 20 0 0 51 1 0
                                               0 0 24 1 0 0 0 47 1 0 0 0 46 3 0
                                               0 9 9 9 13 2 0 0 9 9 12 3 0 0 9 9
                                               9 11 2 0 0 9 9 10 3 0 0 15 15 15
@@ -403,10 +402,9 @@
                                               0 27 2 0 9 0 0 26 1 0 0 0 45 2 0
                                               0 0 0 14 2 0 0 0 0 17 1 0 40 0 1
                                               1 0 20 0 49 1 0 20 0 48 3 0 20 0
-                                              0 0 32 2 0 58 58 0 1 1 0 50 0 51
-                                              1 0 36 0 39 2 0 9 0 0 25 2 0 9 0
-                                              0 1 1 0 18 0 19 2 0 9 0 0 1 1 0
-                                              41 0 57 1 0 20 0 22 2 0 20 0 0 52
-                                              2 0 0 0 0 30 2 0 0 0 0 29 2 0 0 9
-                                              0 28)))))
+                                              0 0 32 1 0 36 0 39 2 0 9 0 0 25 2
+                                              0 9 0 0 1 1 0 18 0 19 2 0 9 0 0 1
+                                              1 0 41 0 55 1 0 20 0 22 2 0 20 0
+                                              0 50 2 0 0 0 0 30 2 0 0 0 0 29 2
+                                              0 0 9 0 28)))))
            '|lookupComplete|)) 

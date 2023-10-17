@@ -184,7 +184,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|SplittingNode| DV$1 DV$2))
-          (LETT % (GETREFV 52))
+          (LETT % (GETREFV 50))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SplittingNode| (LIST DV$1 DV$2)
@@ -213,19 +213,17 @@
               |SPLNODE;subNode?;2%MB;19| (24 . ~=) (30 . =) |SPLNODE;=;2%B;20|
               (36 . ~=) |SPLNODE;~=;2%B;21| (|String|) (|OutputForm|)
               (42 . |message|) (47 . |coerce|) (52 . |blankSeparate|)
-              (57 . |coerce|) (62 . |bracket|) |SPLNODE;coerce;%Of;22|
-              (|SingleInteger|) (|HashState|))
+              (57 . |coerce|) (62 . |bracket|) |SPLNODE;coerce;%Of;22|)
            '#(~= 67 |value| 73 |subNode?| 78 |status| 85 |setValue!| 90
               |setStatus!| 96 |setEmpty!| 102 |setCondition!| 107 |latex| 113
-              |infLex?| 118 |hashUpdate!| 126 |hash| 132 |empty?| 137 |empty|
-              142 |copy| 146 |construct| 151 |condition| 180 |coerce| 185 =
-              190)
+              |infLex?| 118 |empty?| 126 |empty| 131 |copy| 135 |construct| 140
+              |condition| 169 |coerce| 174 = 179)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 43))
-                        (|makeByteWordVec2| 51
+                        (|makeByteWordVec2| 49
                                             '(0 6 0 8 0 7 0 9 1 6 11 0 12 1 7
                                               11 0 13 2 6 11 0 0 32 2 6 11 0 0
                                               37 2 7 11 0 0 38 2 7 11 0 0 40 1
@@ -235,9 +233,9 @@
                                               34 36 1 0 11 0 17 2 0 0 0 6 28 2
                                               0 0 0 11 30 1 0 0 0 31 2 0 0 0 7
                                               29 1 0 42 0 1 4 0 11 0 0 33 34 35
-                                              2 0 51 51 0 1 1 0 50 0 1 1 0 11 0
-                                              14 0 0 0 10 1 0 0 0 27 2 0 22 6
-                                              25 26 1 0 22 23 24 2 0 0 6 7 19 1
-                                              0 0 20 21 3 0 0 6 7 11 18 1 0 7 0
-                                              16 1 0 43 0 49 2 0 11 0 0 39)))))
+                                              1 0 11 0 14 0 0 0 10 1 0 0 0 27 2
+                                              0 22 6 25 26 1 0 0 20 21 1 0 22
+                                              23 24 3 0 0 6 7 11 18 2 0 0 6 7
+                                              19 1 0 7 0 16 1 0 43 0 49 2 0 11
+                                              0 0 39)))))
            '|lookupComplete|)) 

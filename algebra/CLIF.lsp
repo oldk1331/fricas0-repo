@@ -1596,7 +1596,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 |#3|)
           (LETT |dv$| (LIST '|CliffordAlgebra| DV$1 DV$2 DV$3))
-          (LETT % (GETREFV 129))
+          (LETT % (GETREFV 128))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CliffordAlgebra|
@@ -1654,17 +1654,16 @@
               (|List| 64) (|Matrix| 7) (234 . |matrix|) (239 . |vector|)
               (|Union| 12 '"failed") (|LinearSystemMatrixPackage| 7 12 12 119)
               (244 . |particularSolution|) (250 . |parts|)
-              (|Union| % '"failed") |CLIF;recip;%U;54| (|HashState|))
+              (|Union| % '"failed") |CLIF;recip;%U;54|)
            '#(~= 255 ~ 261 |zero?| 266 |toTable| 271 |subtractIfCan| 281
               |setMode| 287 |sample| 293 |rightRecip| 297 |rightPower| 302
               |reverse| 314 |recip| 319 |rc| 324 |opposite?| 330 |one?| 336
               |multivector| 341 |monomial| 346 |leftRecip| 352 |leftPower| 357
-              |lc| 369 |latex| 375 |hashUpdate!| 380 |hash| 386
-              |gradeInvolution| 391 |grade| 396 |ee| 401 |ePseudoscalar| 406
-              |eFromBinaryMap| 410 |e| 415 |conj| 420 |commutator| 425 |coerce|
-              431 |coefficient| 446 |characteristic| 452 |associator| 456
-              |antiCommutator| 463 |annihilate?| 469 ^ 475 |\\/| 487 |Zero| 493
-              |One| 497 = 501 |/\\| 507 - 513 + 524 * 530)
+              |lc| 369 |latex| 375 |gradeInvolution| 380 |grade| 385 |ee| 390
+              |ePseudoscalar| 395 |eFromBinaryMap| 399 |e| 404 |conj| 409
+              |commutator| 414 |coerce| 420 |coefficient| 435 |characteristic|
+              441 |associator| 445 |antiCommutator| 452 |annihilate?| 458 ^ 464
+              |\\/| 476 |Zero| 482 |One| 486 = 490 |/\\| 496 - 502 + 513 * 519)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -1686,7 +1685,7 @@
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Magma|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 100))
-              (|makeByteWordVec2| 128
+              (|makeByteWordVec2| 127
                                   '(1 10 9 0 11 1 9 12 0 13 1 10 15 0 16 0 7 21
                                     22 1 24 0 21 25 2 7 15 0 0 26 0 7 0 28 2 7
                                     0 0 0 29 2 7 0 0 0 31 1 7 0 0 33 2 7 0 35 0
@@ -1703,20 +1702,20 @@
                                     113 1 62 0 0 114 2 111 0 115 0 116 1 119 0
                                     118 120 1 12 0 64 121 2 123 122 119 12 124
                                     1 12 64 0 125 2 0 15 0 0 1 1 0 0 0 94 1 0
-                                    15 0 1 1 0 72 75 76 1 0 72 73 74 2 0 126 0
+                                    15 0 1 1 0 72 73 74 1 0 72 75 76 2 0 126 0
                                     0 1 2 0 15 49 15 81 0 0 0 1 1 0 126 0 1 2 0
                                     0 0 21 1 2 0 0 0 56 1 1 0 0 0 79 1 0 126 0
                                     127 2 0 0 0 0 91 2 0 15 0 0 1 1 0 15 0 1 1
                                     0 0 64 66 2 0 0 7 62 97 1 0 126 0 1 2 0 0 0
-                                    21 1 2 0 0 0 56 1 2 0 0 0 0 86 1 0 49 0 1 2
-                                    0 128 128 0 1 1 0 52 0 1 1 0 0 0 78 1 0 21
-                                    0 77 1 0 0 62 63 0 0 0 68 1 0 0 21 67 1 0 0
-                                    56 57 1 0 0 0 80 2 0 0 0 0 1 1 0 0 7 45 1 0
-                                    0 35 44 1 0 100 0 110 2 0 7 0 62 99 0 0 21
-                                    23 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0 15 0 0 1 2
-                                    0 0 0 21 1 2 0 0 0 56 1 2 0 0 0 0 85 0 0 0
-                                    40 0 0 0 42 2 0 15 0 0 27 2 0 0 0 0 58 1 0
-                                    0 0 34 2 0 0 0 0 32 2 0 0 0 0 30 2 0 0 7 0
-                                    39 2 0 0 0 7 1 2 0 0 21 0 1 2 0 0 35 0 37 2
-                                    0 0 0 0 84 2 0 0 56 0 1)))))
+                                    21 1 2 0 0 0 56 1 2 0 0 0 0 86 1 0 49 0 1 1
+                                    0 0 0 78 1 0 21 0 77 1 0 0 62 63 0 0 0 68 1
+                                    0 0 21 67 1 0 0 56 57 1 0 0 0 80 2 0 0 0 0
+                                    1 1 0 0 7 45 1 0 0 35 44 1 0 100 0 110 2 0
+                                    7 0 62 99 0 0 21 23 3 0 0 0 0 0 1 2 0 0 0 0
+                                    1 2 0 15 0 0 1 2 0 0 0 21 1 2 0 0 0 56 1 2
+                                    0 0 0 0 85 0 0 0 40 0 0 0 42 2 0 15 0 0 27
+                                    2 0 0 0 0 58 1 0 0 0 34 2 0 0 0 0 32 2 0 0
+                                    0 0 30 2 0 0 0 7 1 2 0 0 7 0 39 2 0 0 21 0
+                                    1 2 0 0 35 0 37 2 0 0 0 0 84 2 0 0 56 0
+                                    1)))))
            '|lookupComplete|)) 

@@ -207,7 +207,13 @@
                                                                    (|shallowlyMutable|))
                                                             (|has| %
                                                                    (|finiteAggregate|)))))
-                                                        '(((|Comparable|)
+                                                        '(((|Hashable|)
+                                                           (AND
+                                                            (|has| |t#1|
+                                                                   (|Hashable|))
+                                                            (|has| %
+                                                                   (|finiteAggregate|))))
+                                                          ((|Comparable|)
                                                            (AND
                                                             (|has| |t#1|
                                                                    (|Comparable|))

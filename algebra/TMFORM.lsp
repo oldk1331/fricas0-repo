@@ -1364,7 +1364,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|TexmacsFormat|))
-          (LETT % (GETREFV 83))
+          (LETT % (GETREFV 82))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TexmacsFormat| NIL (CONS 1 %))
@@ -1423,16 +1423,15 @@
               (138 . |integer?|) (143 . |integer|) (148 . |segment|)
               (153 . |empty?|) (158 . |string?|) (163 . |string|) (|Character|)
               (168 . |elt|) (|List| 29) (174 . |elt|) (180 . |char|)
-              (185 . |position|) (191 . |operator|) (196 . |member?|)
-              (|HashState|))
-           '#(~= 202 |latex| 208 |hashUpdate!| 213 |hash| 219 |display| 224
-              |coerceL| 229 |coerce| 234 = 244)
+              (185 . |position|) (191 . |operator|) (196 . |member?|))
+           '#(~= 202 |latex| 208 |display| 213 |coerceL| 218 |coerce| 223 =
+              233)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 26))
-                        (|makeByteWordVec2| 82
+                        (|makeByteWordVec2| 81
                                             '(1 8 0 7 9 1 27 26 26 28 0 32 0 33
                                               3 29 35 0 0 35 36 2 37 0 35 35 38
                                               2 29 0 0 37 39 1 29 0 40 41 2 8
@@ -1449,10 +1448,9 @@
                                               27 29 26 73 2 29 74 0 35 75 2 76
                                               29 0 35 77 1 74 0 29 78 2 29 35
                                               74 0 79 1 27 26 26 80 2 55 45 53
-                                              0 81 2 0 45 0 0 1 1 0 29 0 1 2 0
-                                              82 82 0 1 1 0 43 0 1 1 0 32 29 34
-                                              1 0 29 26 31 1 0 29 26 30 1 0 26
-                                              0 1 2 0 45 0 0 1)))))
+                                              0 81 2 0 45 0 0 1 1 0 29 0 1 1 0
+                                              32 29 34 1 0 29 26 31 1 0 29 26
+                                              30 1 0 26 0 1 2 0 45 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TexmacsFormat| 'NILADIC T) 

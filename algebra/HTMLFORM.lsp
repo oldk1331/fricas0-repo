@@ -1568,7 +1568,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|HTMLFormat|))
-          (LETT % (GETREFV 85))
+          (LETT % (GETREFV 83))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|HTMLFormat| NIL (CONS 1 %))
@@ -1627,15 +1627,15 @@
               (165 . |append|) (171 . |empty|) (|List| 51) (175 . |elt|)
               (181 . |is_symbol?|) (187 . |has_op?|) (193 . |position|)
               (199 . |symbol?|) (204 . |symbol|) (209 . |member?|)
-              (215 . |member?|) (|SingleInteger|) (|HashState|))
-           '#(~= 221 |latex| 227 |hashUpdate!| 232 |hash| 238 |exprex| 243
-              |display| 248 |coerceS| 253 |coerceL| 258 |coerce| 263 = 273)
+              (215 . |member?|))
+           '#(~= 221 |latex| 227 |exprex| 232 |display| 237 |coerceS| 242
+              |coerceL| 247 |coerce| 252 = 262)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 22))
-                        (|makeByteWordVec2| 84
+                        (|makeByteWordVec2| 82
                                             '(1 23 22 22 24 0 29 0 30 2 33 0 25
                                               32 34 2 33 25 0 25 35 1 33 36 0
                                               37 1 33 36 0 38 1 33 25 0 39 2 25
@@ -1654,10 +1654,10 @@
                                               36 22 64 77 2 55 51 25 0 78 1 23
                                               36 22 79 1 23 64 22 80 2 70 36 64
                                               0 81 2 55 36 25 0 82 2 0 36 0 0 1
-                                              1 0 25 0 1 2 0 84 84 0 1 1 0 83 0
-                                              1 1 0 25 22 42 1 0 29 25 31 1 0
-                                              25 22 27 1 0 25 22 28 1 0 25 22
-                                              26 1 0 22 0 1 2 0 36 0 0 1)))))
+                                              1 0 25 0 1 1 0 25 22 42 1 0 29 25
+                                              31 1 0 25 22 27 1 0 25 22 28 1 0
+                                              25 22 26 1 0 22 0 1 2 0 36 0 0
+                                              1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|HTMLFormat| 'NILADIC T) 

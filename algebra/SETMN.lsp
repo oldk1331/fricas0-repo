@@ -323,33 +323,32 @@
               (62 . |elt|) |SETMN;index;Pi%;9| |SETMN;setOfMinN;L%;10|
               (68 . |copy|) (|Union| % '"failed")
               |SETMN;incrementKthElement;%PiU;12| |SETMN;delta;%2PiNni;13|
-              (73 . ~=) |SETMN;replaceKthElement;%2PiU;14| (|String|)
-              (|InputForm|) (|SingleInteger|) (|HashState|))
+              (73 . ~=) |SETMN;replaceKthElement;%2PiU;14| (|SingleInteger|)
+              (|HashState|) (|String|) (|InputForm|))
            '#(~= 79 |smaller?| 85 |size| 91 |setOfMinN| 95 |replaceKthElement|
               100 |random| 107 |member?| 111 |lookup| 117 |latex| 122 |index|
               127 |incrementKthElement| 132 |hashUpdate!| 138 |hash| 144
               |enumerate| 149 |elements| 157 |delta| 162 |convert| 169 |coerce|
               174 = 179)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
-                 (CONS '#(|Finite&| NIL |SetCategory&| |BasicType&| NIL NIL)
-                       (CONS
-                        '#((|Finite|) (|Comparable|) (|SetCategory|)
-                           (|BasicType|) (|ConvertibleTo| 51)
-                           (|CoercibleTo| 19))
-                        (|makeByteWordVec2| 53
-                                            '(0 9 0 10 2 14 13 0 0 15 1 20 19 0
-                                              21 1 19 0 22 23 2 14 13 0 25 26 1
-                                              9 13 0 28 2 14 0 31 13 32 3 14 13
-                                              0 25 13 33 2 34 0 0 0 35 2 36 25
-                                              25 25 37 2 9 25 2 0 39 2 9 2 0 25
-                                              41 1 14 0 0 44 2 20 13 0 0 48 2 0
-                                              13 0 0 1 2 0 13 0 0 1 0 0 31 38 1
-                                              0 0 17 43 3 0 45 0 20 20 49 0 0 0
-                                              1 2 0 13 20 0 27 1 0 20 0 40 1 0
-                                              50 0 1 1 0 0 20 42 2 0 45 0 20 46
-                                              2 0 53 53 0 1 1 0 52 0 1 0 0 29
-                                              30 0 0 22 1 1 0 17 0 18 3 0 31 0
-                                              20 20 47 1 0 51 0 1 1 0 19 0 24 2
-                                              0 13 0 0 16)))))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
+                 (CONS
+                  '#(|Finite&| NIL |Hashable&| |SetCategory&| |BasicType&| NIL
+                     NIL)
+                  (CONS
+                   '#((|Finite|) (|Comparable|) (|Hashable|) (|SetCategory|)
+                      (|BasicType|) (|ConvertibleTo| 53) (|CoercibleTo| 19))
+                   (|makeByteWordVec2| 53
+                                       '(0 9 0 10 2 14 13 0 0 15 1 20 19 0 21 1
+                                         19 0 22 23 2 14 13 0 25 26 1 9 13 0 28
+                                         2 14 0 31 13 32 3 14 13 0 25 13 33 2
+                                         34 0 0 0 35 2 36 25 25 25 37 2 9 25 2
+                                         0 39 2 9 2 0 25 41 1 14 0 0 44 2 20 13
+                                         0 0 48 2 0 13 0 0 1 2 0 13 0 0 1 0 0
+                                         31 38 1 0 0 17 43 3 0 45 0 20 20 49 0
+                                         0 0 1 2 0 13 20 0 27 1 0 20 0 40 1 0
+                                         52 0 1 1 0 0 20 42 2 0 45 0 20 46 2 0
+                                         51 51 0 1 1 0 50 0 1 0 0 29 30 0 0 22
+                                         1 1 0 17 0 18 3 0 31 0 20 20 47 1 0 53
+                                         0 1 1 0 19 0 24 2 0 13 0 0 16)))))
            '|lookupComplete|)) 

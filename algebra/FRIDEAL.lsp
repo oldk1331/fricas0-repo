@@ -675,7 +675,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|FractionalIdeal| DV$1 DV$2 DV$3 DV$4))
-    (LETT % (GETREFV 144))
+    (LETT % (GETREFV 142))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|FractionalIdeal|
@@ -745,14 +745,12 @@
               (377 . ^) (|OutputForm|) (383 . |coerce|) (388 . |paren|)
               |FRIDEAL;basis;%V;22| (393 . |coerce|) (398 . |coerce|) (403 . /)
               (409 . *) |FRIDEAL;coerce;%Of;23| (415 . |random|) (419 . +)
-              (425 . |Zero|) (429 . *) |FRIDEAL;minimize;2%;26| (|HashState|)
-              (|String|) (|SingleInteger|))
+              (425 . |Zero|) (429 . *) |FRIDEAL;minimize;2%;26| (|String|))
            '#(~= 435 |sample| 441 |rightRecip| 445 |rightPower| 450 |recip| 462
               |randomLC| 467 |one?| 473 |numer| 478 |norm| 483 |minimize| 488
               |leftRecip| 493 |leftPower| 498 |latex| 510 |inv| 515 |ideal| 520
-              |hashUpdate!| 525 |hash| 531 |denom| 536 |conjugate| 541
-              |commutator| 547 |coerce| 553 |basis| 558 ^ 563 |One| 581 = 585 /
-              591 * 597)
+              |denom| 525 |conjugate| 530 |commutator| 536 |coerce| 542 |basis|
+              547 ^ 552 |One| 570 = 574 / 580 * 586)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -762,7 +760,7 @@
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|MagmaWithUnit|)
                       (|Magma|) (|SetCategory|) (|unitsKnown|)
                       (|TwoSidedRecip|) (|BasicType|) (|CoercibleTo| 127))
-                   (|makeByteWordVec2| 143
+                   (|makeByteWordVec2| 141
                                        '(0 6 0 12 0 9 0 13 1 17 0 0 18 1 9 19 0
                                          20 2 17 19 0 19 21 1 9 0 19 22 2 8 0 7
                                          23 24 1 9 17 0 25 2 28 26 27 17 29 1 9
@@ -796,10 +794,10 @@
                                          0 49 1 1 0 69 0 1 2 0 9 23 14 68 1 0
                                          32 0 1 1 0 14 0 15 1 0 7 0 67 1 0 0 0
                                          140 1 0 69 0 1 2 0 0 0 23 1 2 0 0 0 49
-                                         1 1 0 142 0 1 1 0 0 0 107 1 0 0 14 106
-                                         2 0 141 141 0 1 1 0 143 0 1 1 0 6 0 16
-                                         2 0 0 0 0 1 2 0 0 0 0 1 1 0 127 0 135
-                                         1 0 14 0 130 2 0 0 0 57 124 2 0 0 0 23
-                                         1 2 0 0 0 49 1 0 0 0 11 2 0 32 0 0 37
-                                         2 0 0 0 0 1 2 0 0 0 0 123)))))
+                                         1 1 0 141 0 1 1 0 0 0 107 1 0 0 14 106
+                                         1 0 6 0 16 2 0 0 0 0 1 2 0 0 0 0 1 1 0
+                                         127 0 135 1 0 14 0 130 2 0 0 0 57 124
+                                         2 0 0 0 23 1 2 0 0 0 49 1 0 0 0 11 2 0
+                                         32 0 0 37 2 0 0 0 0 1 2 0 0 0 0
+                                         123)))))
            '|lookupComplete|)) 

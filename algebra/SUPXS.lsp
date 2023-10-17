@@ -109,7 +109,7 @@
     (LETT DV$2 |#2|)
     (LETT DV$3 |#3|)
     (LETT |dv$| (LIST '|SparseUnivariatePuiseuxSeries| DV$1 DV$2 DV$3))
-    (LETT % (GETREFV 83))
+    (LETT % (GETREFV 81))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -411,18 +411,17 @@
               (113 . |retractIfCan|) (|Integer|) (118 . |extend|)
               (124 . |rationalPower|) (|OutputForm|)
               (129 . |seriesToOutputForm|) |SUPXS;coerce;%Of;9| (|List| 10)
-              (|List| 61) (|NonNegativeInteger|) (|Union| % '"failed")
+              (|NonNegativeInteger|) (|List| 60) (|Union| % '"failed")
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Record| (|:| |k| 17) (|:| |c| 6)) (|List| 64)
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
-              (|List| %) (|SparseUnivariatePolynomial| %)
-              (|Union| 67 '"failed")
-              (|Record| (|:| |coef| 67) (|:| |generator| %))
+              (|List| %) (|Record| (|:| |coef| 67) (|:| |generator| %))
+              (|SparseUnivariatePolynomial| %) (|Union| 67 '"failed")
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
-              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 72 '"failed")
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 73 '"failed")
               (|Factored| %) (|Stream| 6) (|Stream| 64) (|PositiveInteger|)
-              (|Mapping| 6 6) (|String|) (|SingleInteger|) (|HashState|))
+              (|Mapping| 6 6) (|String|))
            '#(|variable| 138 |retractIfCan| 143 |rationalPower| 153 |monomial|
               158 |laurentRep| 164 |integrate| 169 |differentiate| 180 |coerce|
               191 |center| 211 |Zero| 216 |One| 220 + 224)
@@ -500,7 +499,7 @@
                                     0 55 5 43 56 42 45 10 6 17 57 1 0 10 0 11 1
                                     0 33 0 35 1 0 31 0 32 1 0 17 0 55 2 0 0 6
                                     17 19 1 0 27 0 40 2 6 0 0 24 39 1 6 0 0 38
-                                    1 3 0 0 36 2 0 0 0 24 37 1 0 0 24 25 1 0 0
-                                    26 30 1 0 0 27 29 1 0 56 0 58 1 0 6 0 12 0
+                                    1 3 0 0 36 2 0 0 0 24 37 1 0 0 26 30 1 0 0
+                                    24 25 1 0 0 27 29 1 0 56 0 58 1 0 6 0 12 0
                                     33 0 21 0 31 0 16 2 0 0 0 0 23)))))
            '|lookupIncomplete|)) 

@@ -29,7 +29,7 @@
     (LETT DV$4 |#4|)
     (LETT DV$5 |#5|)
     (LETT |dv$| (LIST '|ModularField| DV$1 DV$2 DV$3 DV$4 DV$5))
-    (LETT % (GETREFV 32))
+    (LETT % (GETREFV 30))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|ModularField|
@@ -55,12 +55,11 @@
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 19 '#1#)
               (|NonNegativeInteger|)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
-              (|Record| (|:| |coef| 17) (|:| |generator| %))
               (|SparseUnivariatePolynomial| %)
+              (|Record| (|:| |coef| 17) (|:| |generator| %))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
-              (|OutputForm|))
+              (|PositiveInteger|) (|String|) (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -90,6 +89,6 @@
                  (|AbelianSemiGroup|) (|CommutativeStar|) (|SetCategory|)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 31))
+                 (|BasicType|) (|CoercibleTo| 29))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

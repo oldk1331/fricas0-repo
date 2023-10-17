@@ -306,7 +306,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|GuessOptionFunctions0|))
-          (LETT % (GETREFV 65))
+          (LETT % (GETREFV 63))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|GuessOptionFunctions0| NIL
@@ -338,21 +338,20 @@
               (41 . |retract|) |GOPT0;functionNames;LL;18|
               |GOPT0;indexName;LS;19| |GOPT0;displayKind;LS;20| (|String|)
               (46 . |elt|) (|PositiveInteger|) (52 . ~=) (|Void|)
-              |GOPT0;checkOptions;LV;21| (|HashState|) (|OutputForm|)
-              (|SingleInteger|))
+              |GOPT0;checkOptions;LV;21| (|OutputForm|))
            '#(~= 58 |variableName| 64 |safety| 69 |one| 74 |maxSubst| 79
               |maxShift| 84 |maxPower| 89 |maxMixedDegree| 94 |maxLevel| 99
               |maxDerivative| 104 |maxDegree| 109 |latex| 114 |indexName| 119
-              |homogeneous| 124 |hashUpdate!| 129 |hash| 135 |functionNames|
-              140 |functionName| 145 |displayKind| 150 |debug| 155 |coerce| 160
-              |checkOptions| 165 |checkExtraValues| 170 |check| 175
-              |allDegrees| 180 |Somos| 185 = 190)
+              |homogeneous| 124 |functionNames| 129 |functionName| 134
+              |displayKind| 139 |debug| 144 |coerce| 149 |checkOptions| 154
+              |checkExtraValues| 159 |check| 164 |allDegrees| 169 |Somos| 174 =
+              179)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 63))
-                        (|makeByteWordVec2| 64
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 62))
+                        (|makeByteWordVec2| 62
                                             '(2 9 6 7 8 10 1 13 11 12 14 1 23
                                               22 12 24 1 27 26 12 28 1 30 19 12
                                               31 1 35 34 12 36 1 42 41 12 43 1
@@ -362,12 +361,12 @@
                                               15 39 1 0 19 15 20 1 0 11 15 18 1
                                               0 19 15 32 1 0 22 15 25 1 0 11 15
                                               16 1 0 11 15 17 1 0 11 15 21 1 0
-                                              56 0 1 1 0 8 15 54 1 0 41 15 44 2
-                                              0 62 62 0 1 1 0 64 0 1 1 0 50 15
-                                              53 1 0 8 15 49 1 0 8 15 55 1 0 26
-                                              15 40 1 0 63 0 1 1 0 60 15 61 1 0
-                                              26 15 38 1 0 34 15 37 1 0 26 15
-                                              29 1 0 41 15 45 2 0 26 0 0 1)))))
+                                              56 0 1 1 0 8 15 54 1 0 41 15 44 1
+                                              0 50 15 53 1 0 8 15 49 1 0 8 15
+                                              55 1 0 26 15 40 1 0 62 0 1 1 0 60
+                                              15 61 1 0 26 15 38 1 0 34 15 37 1
+                                              0 26 15 29 1 0 41 15 45 2 0 26 0
+                                              0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|GuessOptionFunctions0| 'NILADIC T) 

@@ -720,7 +720,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|OrientedFacet|))
-          (LETT % (GETREFV 95))
+          (LETT % (GETREFV 93))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|OrientedFacet| NIL (CONS 1 %))
@@ -763,17 +763,16 @@
               |OFACET;sameFace?;2%B;28| |OFACET;<;2%B;30| |OFACET;<=;2%B;31|
               (181 . ~=) (|String|) (|OutputForm|) (187 . |message|)
               (192 . |coerce|) (197 . |hconcat|) (203 . |coerce|)
-              (208 . |paren|) |OFACET;coerce;%Of;33| (|SingleInteger|)
-              (|HashState|))
+              (208 . |paren|) |OFACET;coerce;%Of;33|)
            '#(~= 213 |subtract| 219 |smaller?| 225 |setMult!| 231 |sameFace?|
               237 |reindex| 243 |refactorIndexes| 248 |product| 254 |position|
               260 |orientedFacetUnsigned| 266 |orientedFacetSigned| 271
               |orientedFacetIfCan| 276 |orientedFacet| 281 |order| 293
               |minIndex| 298 |min| 303 |maxIndex| 309 |max| 314 |latex| 320
-              |join| 325 |isSubsetOf?| 331 |hashUpdate!| 337 |hash| 343
-              |getMult| 348 |getIndexesSigned| 353 |getIndexes| 358 |empty?|
-              363 |coerce| 368 |boundary| 373 |boolWordPermute| 378
-              |allSubsets| 391 |addVertex| 404 >= 410 > 416 = 422 <= 428 < 434)
+              |join| 325 |isSubsetOf?| 331 |getMult| 337 |getIndexesSigned| 342
+              |getIndexes| 347 |empty?| 352 |coerce| 357 |boundary| 362
+              |boolWordPermute| 367 |allSubsets| 380 |addVertex| 393 >= 399 >
+              405 = 411 <= 417 < 423)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -783,7 +782,7 @@
                    '#((|FacetCategory|) (|OrderedSet|) (|Comparable|)
                       (|SetCategory|) (|PartialOrder|) (|BasicType|)
                       (|CoercibleTo| 86))
-                   (|makeByteWordVec2| 94
+                   (|makeByteWordVec2| 92
                                        '(1 7 0 0 8 2 10 9 0 0 11 1 7 0 0 14 1
                                          18 7 0 19 1 21 10 0 22 1 21 0 0 23 2
                                          25 0 0 7 26 2 7 0 0 0 27 1 21 2 0 30 1
@@ -804,14 +803,13 @@
                                          17 1 0 32 28 33 2 0 0 12 18 20 2 0 0
                                          12 7 13 1 0 10 0 35 1 0 10 0 36 2 0 0
                                          0 0 1 1 0 10 0 37 2 0 0 0 0 1 1 0 85 0
-                                         1 2 0 0 0 0 53 2 0 9 0 0 52 2 0 94 94
-                                         0 1 1 0 93 0 1 1 0 12 0 41 1 0 15 0 40
-                                         1 0 7 0 24 1 0 9 0 45 1 0 86 0 92 1 0
-                                         28 0 29 2 0 60 10 10 62 3 0 60 60 10
-                                         10 61 3 0 28 0 10 10 50 2 0 28 0 10 49
-                                         2 0 0 0 10 78 2 0 9 0 0 1 2 0 9 0 0 1
-                                         2 0 9 0 0 51 2 0 9 0 0 83 2 0 9 0 0
-                                         82)))))
+                                         1 2 0 0 0 0 53 2 0 9 0 0 52 1 0 12 0
+                                         41 1 0 15 0 40 1 0 7 0 24 1 0 9 0 45 1
+                                         0 86 0 92 1 0 28 0 29 3 0 60 60 10 10
+                                         61 2 0 60 10 10 62 3 0 28 0 10 10 50 2
+                                         0 28 0 10 49 2 0 0 0 10 78 2 0 9 0 0 1
+                                         2 0 9 0 0 1 2 0 9 0 0 51 2 0 9 0 0 83
+                                         2 0 9 0 0 82)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OrientedFacet| 'NILADIC T) 

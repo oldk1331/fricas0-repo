@@ -180,6 +180,9 @@
                         (IF (|has| K (|PolynomialFactorizationExplicit|))
                             (ATTRIBUTE (|PolynomialFactorizationExplicit|))
                             |noBranch|)
+                        |noBranch|)
+                    (IF (|has| R (|Hashable|))
+                        (ATTRIBUTE (|Hashable|))
                         |noBranch|)))))
          (SEQ
           (LETT |sae|

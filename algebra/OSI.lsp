@@ -42,7 +42,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|OrdSetInts|))
-          (LETT % (GETREFV 22))
+          (LETT % (GETREFV 20))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|OrdSetInts| NIL (CONS 1 %))
@@ -56,11 +56,9 @@
            '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|) |OSI;=;2%B;1|
               |OSI;<;2%B;2| (|Integer|) |OSI;coerce;I%;3| |OSI;value;%I;4|
               (|OutputForm|) (|Symbol|) (0 . |coerce|) (5 . |coerce|)
-              (10 . |sub|) |OSI;coerce;%Of;5| (|HashState|) (|String|)
-              (|SingleInteger|))
+              (10 . |sub|) |OSI;coerce;%Of;5| (|String|))
            '#(~= 16 |value| 22 |smaller?| 27 |min| 33 |max| 39 |latex| 45
-              |hashUpdate!| 50 |hash| 56 |coerce| 61 >= 71 > 77 = 83 <= 89 <
-              95)
+              |coerce| 50 >= 60 > 66 = 72 <= 78 < 84)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
                  (CONS
@@ -69,13 +67,13 @@
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
                       (|BasicType|) (|PartialOrder|) (|CoercibleTo| 13))
-                   (|makeByteWordVec2| 21
+                   (|makeByteWordVec2| 19
                                        '(1 14 13 0 15 1 6 13 0 16 2 13 0 0 0 17
                                          2 0 7 0 0 1 1 0 10 0 12 2 0 7 0 0 1 2
-                                         0 0 0 0 1 2 0 0 0 0 1 1 0 20 0 1 2 0
-                                         19 19 0 1 1 0 21 0 1 1 0 0 10 11 1 0
-                                         13 0 18 2 0 7 0 0 1 2 0 7 0 0 1 2 0 7
-                                         0 0 8 2 0 7 0 0 1 2 0 7 0 0 9)))))
+                                         0 0 0 0 1 2 0 0 0 0 1 1 0 19 0 1 1 0 0
+                                         10 11 1 0 13 0 18 2 0 7 0 0 1 2 0 7 0
+                                         0 1 2 0 7 0 0 8 2 0 7 0 0 1 2 0 7 0 0
+                                         9)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OrdSetInts| 'NILADIC T) 

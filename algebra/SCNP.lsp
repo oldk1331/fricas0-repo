@@ -966,9 +966,9 @@
                 (EXIT |s|)))
           #8# (EXIT #5#)))) 
 
-(PUT '|SCNP;hash;%Si;13| '|SPADreplace| '(XLAM (|s|) 0)) 
+(PUT '|SCNP;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(SDEFUN |SCNP;hash;%Si;13| ((|s| (%)) (% (|SingleInteger|))) 0) 
+(SDEFUN |SCNP;hash| ((|s| (%)) (% (|SingleInteger|))) 0) 
 
 (SDEFUN |SCNP;=;2%B;14| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPROG ((#1=#:G216 NIL))
@@ -981,10 +981,10 @@
                      ((QEQCAR |y| 0)
                       (COND
                        ((SPADCALL (QCAR (CDR |x|)) (QCAR (CDR |y|))
-                                  (QREFELT % 44))
+                                  (QREFELT % 42))
                         (COND
                          ((SPADCALL (QCDR (CDR |x|)) (QCDR (CDR |y|))
-                                    (QREFELT % 45))
+                                    (QREFELT % 43))
                           (PROGN (LETT #1# 'T) (GO #2=#:G215))))))))))
                   (COND
                    ((QEQCAR |x| 1)
@@ -992,7 +992,7 @@
                      ((QEQCAR |y| 1)
                       (COND
                        ((SPADCALL (QCDR (CDR |x|)) (QCDR (CDR |y|))
-                                  (QREFELT % 45))
+                                  (QREFELT % 43))
                         (PROGN (LETT #1# 'T) (GO #2#))))))))
                   (COND
                    ((QEQCAR |x| 2)
@@ -1003,13 +1003,13 @@
                                   (QREFELT % 21))
                         (COND
                          ((SPADCALL (QCDR (CDR |x|)) (QCDR (CDR |y|))
-                                    (QREFELT % 45))
+                                    (QREFELT % 43))
                           (PROGN (LETT #1# 'T) (GO #2#))))))))))
                   (EXIT NIL)))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SCNP;~=;2%B;15| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
-        (NULL (SPADCALL |x| |y| (QREFELT % 46)))) 
+        (NULL (SPADCALL |x| |y| (QREFELT % 44)))) 
 
 (SDEFUN |SCNP;coerce;%Of;16| ((|n| (%)) (% (|OutputForm|)))
         (SPROG
@@ -1019,10 +1019,10 @@
           (|lenNM| (|NonNegativeInteger|)) (#6=#:G236 NIL) (#7=#:G237 NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |s| (SPADCALL "" (QREFELT % 49)))
+           (SEQ (LETT |s| (SPADCALL "" (QREFELT % 47)))
                 (COND
                  ((QEQCAR |n| 0)
-                  (SEQ (LETT |s| (SPADCALL "pt:" (QREFELT % 49)))
+                  (SEQ (LETT |s| (SPADCALL "pt:" (QREFELT % 47)))
                        (LETT |lenNM| (LENGTH (QCDR (CDR |n|))))
                        (LETT |lenPT| (LENGTH (QCAR (CDR |n|))))
                        (COND
@@ -1031,11 +1031,11 @@
                           (LETT #5#
                                 (SPADCALL
                                  (LIST
-                                  (SPADCALL "string number:" (QREFELT % 49))
-                                  (SPADCALL |lenNM| (QREFELT % 50))
-                                  (SPADCALL " ~= point number:" (QREFELT % 49))
-                                  (SPADCALL |lenPT| (QREFELT % 50)))
-                                 (QREFELT % 51)))
+                                  (SPADCALL "string number:" (QREFELT % 47))
+                                  (SPADCALL |lenNM| (QREFELT % 48))
+                                  (SPADCALL " ~= point number:" (QREFELT % 47))
+                                  (SPADCALL |lenPT| (QREFELT % 48)))
+                                 (QREFELT % 49)))
                           (GO #8=#:G234))))
                        (EXIT
                         (SEQ (LETT |ptr| 1)
@@ -1053,30 +1053,30 @@
                                       ((EQL |ptr| 1)
                                        (SPADCALL
                                         (LIST |s|
-                                              (SPADCALL |lst| (QREFELT % 52))
-                                              (SPADCALL ":" (QREFELT % 49))
+                                              (SPADCALL |lst| (QREFELT % 50))
+                                              (SPADCALL ":" (QREFELT % 47))
                                               (SPADCALL
                                                (SPADCALL (QCAR (CDR |n|)) |ptr|
                                                          (QREFELT % 28))
-                                               (QREFELT % 53)))
-                                        (QREFELT % 51)))
+                                               (QREFELT % 51)))
+                                        (QREFELT % 49)))
                                       ('T
                                        (SPADCALL
-                                        (LIST |s| (SPADCALL "," (QREFELT % 49))
-                                              (SPADCALL |lst| (QREFELT % 52))
-                                              (SPADCALL ":" (QREFELT % 49))
+                                        (LIST |s| (SPADCALL "," (QREFELT % 47))
+                                              (SPADCALL |lst| (QREFELT % 50))
+                                              (SPADCALL ":" (QREFELT % 47))
                                               (SPADCALL
                                                (SPADCALL (QCAR (CDR |n|)) |ptr|
                                                          (QREFELT % 28))
-                                               (QREFELT % 53)))
-                                        (QREFELT % 51)))))))
+                                               (QREFELT % 51)))
+                                        (QREFELT % 49)))))))
                              (LETT #6#
                                    (PROG1 (CDR #6#)
                                      (LETT |ptr| (|inc_SI| |ptr|))))
                              (GO G190) G191 (EXIT NIL))))))
                 (COND
                  ((QEQCAR |n| 1)
-                  (SEQ (LETT |s| (SPADCALL "nd:" (QREFELT % 49)))
+                  (SEQ (LETT |s| (SPADCALL "nd:" (QREFELT % 47)))
                        (LETT |lenNM| (LENGTH (QCDR (CDR |n|))))
                        (LETT |lenPT| (LENGTH (QCAR (CDR |n|))))
                        (COND
@@ -1085,11 +1085,11 @@
                           (LETT #5#
                                 (SPADCALL
                                  (LIST
-                                  (SPADCALL "string number:" (QREFELT % 49))
-                                  (SPADCALL |lenNM| (QREFELT % 50))
-                                  (SPADCALL " ~= point number:" (QREFELT % 49))
-                                  (SPADCALL |lenPT| (QREFELT % 50)))
-                                 (QREFELT % 51)))
+                                  (SPADCALL "string number:" (QREFELT % 47))
+                                  (SPADCALL |lenNM| (QREFELT % 48))
+                                  (SPADCALL " ~= point number:" (QREFELT % 47))
+                                  (SPADCALL |lenPT| (QREFELT % 48)))
+                                 (QREFELT % 49)))
                           (GO #8#))))
                        (EXIT
                         (SEQ (LETT |ptr| 1)
@@ -1107,20 +1107,20 @@
                                       ((EQL |ptr| 1)
                                        (SPADCALL
                                         (LIST |s|
-                                              (SPADCALL |lst| (QREFELT % 52)))
-                                        (QREFELT % 51)))
+                                              (SPADCALL |lst| (QREFELT % 50)))
+                                        (QREFELT % 49)))
                                       ('T
                                        (SPADCALL
-                                        (LIST |s| (SPADCALL "," (QREFELT % 49))
-                                              (SPADCALL |lst| (QREFELT % 52)))
-                                        (QREFELT % 51)))))))
+                                        (LIST |s| (SPADCALL "," (QREFELT % 47))
+                                              (SPADCALL |lst| (QREFELT % 50)))
+                                        (QREFELT % 49)))))))
                              (LETT #3#
                                    (PROG1 (CDR #3#)
                                      (LETT |ptr| (|inc_SI| |ptr|))))
                              (GO G190) G191 (EXIT NIL))))))
                 (COND
                  ((QEQCAR |n| 2)
-                  (SEQ (LETT |s| (SPADCALL "br:" (QREFELT % 49)))
+                  (SEQ (LETT |s| (SPADCALL "br:" (QREFELT % 47)))
                        (EXIT
                         (SEQ (LETT |ptr| 1)
                              (LETT #2# (LENGTH (QCDR (CDR |n|))))
@@ -1136,25 +1136,25 @@
                                       ((EQL |ptr| 1)
                                        (SPADCALL
                                         (LIST |s|
-                                              (SPADCALL |l1| (QREFELT % 52))
-                                              (SPADCALL "(" (QREFELT % 49))
+                                              (SPADCALL |l1| (QREFELT % 50))
+                                              (SPADCALL "(" (QREFELT % 47))
                                               (SPADCALL
                                                (SPADCALL (QCAR (CDR |n|)) |ptr|
                                                          (QREFELT % 40))
-                                               (QREFELT % 54))
-                                              (SPADCALL ")" (QREFELT % 49)))
-                                        (QREFELT % 51)))
+                                               (QREFELT % 52))
+                                              (SPADCALL ")" (QREFELT % 47)))
+                                        (QREFELT % 49)))
                                       ('T
                                        (SPADCALL
-                                        (LIST |s| (SPADCALL "," (QREFELT % 49))
-                                              (SPADCALL |l1| (QREFELT % 52))
-                                              (SPADCALL "(" (QREFELT % 49))
+                                        (LIST |s| (SPADCALL "," (QREFELT % 47))
+                                              (SPADCALL |l1| (QREFELT % 50))
+                                              (SPADCALL "(" (QREFELT % 47))
                                               (SPADCALL
                                                (SPADCALL (QCAR (CDR |n|)) |ptr|
                                                          (QREFELT % 40))
-                                               (QREFELT % 54))
-                                              (SPADCALL ")" (QREFELT % 49)))
-                                        (QREFELT % 51)))))))
+                                               (QREFELT % 52))
+                                              (SPADCALL ")" (QREFELT % 47)))
+                                        (QREFELT % 49)))))))
                              (LETT #1#
                                    (PROG1 (CDR #1#)
                                      (LETT |ptr| (|inc_SI| |ptr|))))
@@ -1186,7 +1186,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|SceneNamedPoints| DV$1))
-          (LETT % (GETREFV 56))
+          (LETT % (GETREFV 53))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SceneNamedPoints| (LIST DV$1)
@@ -1219,36 +1219,33 @@
               (35 . |concat|) |SCNP;addPoints!;%S2%;9| (|Scene| 6)
               |SCNP;addNode!;%SS%;10| (41 . |concat|) |SCNP;findNode;%SS;11|
               (47 . |elt|) (|NonNegativeInteger|) (53 . ~=) (59 . |concat|)
-              (64 . |elt|) |SCNP;toString;%S;12| (|SingleInteger|)
-              |SCNP;hash;%Si;13| (70 . =) (76 . =) |SCNP;=;2%B;14|
-              |SCNP;~=;2%B;15| (|OutputForm|) (82 . |message|) (87 . |coerce|)
-              (92 . |hconcat|) (97 . |coerce|) (102 . |coerce|)
-              |SCNP;coerce;%Of;16| (|HashState|))
+              (64 . |elt|) |SCNP;toString;%S;12| (70 . =) (76 . =)
+              |SCNP;=;2%B;14| |SCNP;~=;2%B;15| (|OutputForm|) (82 . |message|)
+              (87 . |coerce|) (92 . |hconcat|) (97 . |coerce|) (102 . |coerce|)
+              |SCNP;coerce;%Of;16|)
            '#(~= 107 |toString| 113 |namedPoints| 118 |namedBranch| 130 |latex|
               136 |isPointLeaf?| 141 |isNodeLeaf?| 146 |isNodeBranch?| 151
-              |hashUpdate!| 156 |hash| 162 |getNames| 167 |findPoint| 172
-              |findNode| 178 |coerce| 184 |addPoints!| 189 |addNode!| 196 =
-              203)
+              |getNames| 156 |findPoint| 161 |findNode| 167 |coerce| 173
+              |addPoints!| 178 |addNode!| 185 = 192)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 48))
-                        (|makeByteWordVec2| 55
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 46))
+                        (|makeByteWordVec2| 52
                                             '(2 20 15 0 0 21 2 6 0 22 22 23 1
                                               20 2 0 24 2 9 25 0 22 27 2 8 6 0
                                               22 28 2 20 0 0 2 29 2 9 0 0 25 30
                                               2 11 0 0 32 34 2 11 32 0 22 36 2
                                               37 15 0 0 38 1 25 0 13 39 2 20 2
-                                              0 22 40 2 8 15 0 0 44 2 9 15 0 0
-                                              45 1 48 0 25 49 1 37 48 0 50 1 48
-                                              0 13 51 1 25 48 0 52 1 6 48 0 53
-                                              2 0 15 0 0 47 1 0 25 0 41 2 0 0
-                                              11 9 12 2 0 0 8 9 10 2 0 0 13 9
-                                              14 1 0 25 0 1 1 0 15 0 16 1 0 15
-                                              0 17 1 0 15 0 18 2 0 55 55 0 1 1
-                                              0 42 0 43 1 0 9 0 19 2 0 6 0 25
-                                              26 2 0 32 0 25 35 1 0 48 0 54 3 0
-                                              0 0 25 0 31 3 0 0 0 25 32 33 2 0
-                                              15 0 0 46)))))
+                                              0 22 40 2 8 15 0 0 42 2 9 15 0 0
+                                              43 1 46 0 25 47 1 37 46 0 48 1 46
+                                              0 13 49 1 25 46 0 50 1 6 46 0 51
+                                              2 0 15 0 0 45 1 0 25 0 41 2 0 0 8
+                                              9 10 2 0 0 11 9 12 2 0 0 13 9 14
+                                              1 0 25 0 1 1 0 15 0 16 1 0 15 0
+                                              17 1 0 15 0 18 1 0 9 0 19 2 0 6 0
+                                              25 26 2 0 32 0 25 35 1 0 46 0 52
+                                              3 0 0 0 25 0 31 3 0 0 0 25 32 33
+                                              2 0 15 0 0 44)))))
            '|lookupComplete|)) 

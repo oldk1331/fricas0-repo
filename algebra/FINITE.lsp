@@ -12,7 +12,7 @@
                    (|subst_in_cat| '(#2=#:G104) (LIST '(|InputForm|))
                                    (|Join| (|SetCategory|)
                                            (|ConvertibleTo| '#2#)
-                                           (|Comparable|)
+                                           (|Comparable|) (|Hashable|)
                                            (|mkCategory|
                                             '(((|size|
                                                 ((|NonNegativeInteger|)))

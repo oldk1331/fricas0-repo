@@ -333,7 +333,7 @@
     (LETT DV$4 |#4|)
     (LETT DV$5 |#5|)
     (LETT |dv$| (LIST '|IndexedJetBundle| DV$1 DV$2 DV$3 DV$4 DV$5))
-    (LETT % (GETREFV 76))
+    (LETT % (GETREFV 74))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|IndexedJetBundle|
@@ -373,17 +373,15 @@
               (|NoneFunctions1| 14) (102 . |coerce|) (|Integer|)
               (107 . |coerce|) (112 . |coerce|) (|List| 48) (117 . |concat!|)
               (123 . |kernel|) |IJB;coerce;%E;15| (|Union| % '"failed")
-              (|Union| % '"0") (|List| 44) (|HashState|) (|String|)
-              (|SingleInteger|))
+              (|Union| % '"0") (|List| 44) (|String|))
            '#(~= 129 |weight| 135 |variables| 140 |type| 151 |smaller?| 156
               |setNotation| 162 |repeatedIndex| 167 |r2m| 172 |order| 177
               |one?| 182 |numIndVar| 187 |numDepVar| 191 |name| 195
               |multiIndex| 200 |min| 205 |max| 211 |m2r| 217 |latex| 222
-              |integrateIfCan| 227 |integrate| 233 |index| 239 |hashUpdate!|
-              244 |hash| 250 |getNotation| 255 |dimS| 259 |dimJ| 264
-              |differentiate| 269 |derivativeOf?| 275 |coerce| 281 |class| 291
-              |allRepeated| 301 X 306 U 315 |Pr| 324 |Pm| 330 P 336 |One| 358
-              >= 362 > 368 = 374 <= 380 < 386)
+              |integrateIfCan| 227 |integrate| 233 |index| 239 |getNotation|
+              244 |dimS| 248 |dimJ| 253 |differentiate| 258 |derivativeOf?| 264
+              |coerce| 270 |class| 280 |allRepeated| 290 X 295 U 304 |Pr| 313
+              |Pm| 319 P 325 |One| 347 >= 351 > 357 = 363 <= 369 < 375)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -393,7 +391,7 @@
                    '#((|JetBundleCategory|) (|OrderedSet|) (|Comparable|)
                       (|SetCategory|) (|BasicType|) (|CoercibleTo| 48)
                       (|PartialOrder|) (|CoercibleTo| 34))
-                   (|makeByteWordVec2| 75
+                   (|makeByteWordVec2| 73
                                        '(2 15 13 14 0 16 1 11 0 0 19 1 11 27 0
                                          28 2 27 13 0 0 29 1 22 34 0 35 2 14 0
                                          0 36 37 1 27 34 0 38 1 34 0 39 40 2 14
@@ -408,15 +406,14 @@
                                          0 44 0 45 1 0 20 44 1 1 0 27 0 1 1 0
                                          13 0 1 0 0 22 32 0 0 22 33 1 0 14 0 47
                                          1 0 20 0 21 2 0 0 0 0 1 2 0 0 0 0 1 1
-                                         0 44 20 1 1 0 74 0 1 2 0 70 0 22 1 2 0
-                                         0 0 22 1 1 0 22 0 23 2 0 73 73 0 1 1 0
-                                         75 0 1 0 0 14 18 1 0 27 27 1 1 0 27 27
-                                         1 2 0 71 0 22 1 2 0 20 0 0 1 1 0 48 0
-                                         69 1 0 34 0 1 1 0 27 0 1 1 0 27 20 1 1
-                                         0 72 20 1 0 0 0 1 1 0 0 22 25 0 0 0 1
-                                         1 0 0 22 26 2 0 0 22 44 1 2 0 0 22 20
-                                         30 1 0 0 27 1 1 0 0 20 1 2 0 0 22 27 1
-                                         2 0 0 22 20 1 0 0 0 31 2 0 13 0 0 1 2
-                                         0 13 0 0 1 2 0 13 0 0 1 2 0 13 0 0 1 2
-                                         0 13 0 0 1)))))
+                                         0 44 20 1 1 0 73 0 1 2 0 70 0 22 1 2 0
+                                         0 0 22 1 1 0 22 0 23 0 0 14 18 1 0 27
+                                         27 1 1 0 27 27 1 2 0 71 0 22 1 2 0 20
+                                         0 0 1 1 0 48 0 69 1 0 34 0 1 1 0 27 0
+                                         1 1 0 27 20 1 1 0 72 20 1 0 0 0 1 1 0
+                                         0 22 25 0 0 0 1 1 0 0 22 26 2 0 0 22
+                                         44 1 2 0 0 22 20 30 1 0 0 27 1 1 0 0
+                                         20 1 2 0 0 22 27 1 2 0 0 22 20 1 0 0 0
+                                         31 2 0 13 0 0 1 2 0 13 0 0 1 2 0 13 0
+                                         0 1 2 0 13 0 0 1 2 0 13 0 0 1)))))
            '|lookupComplete|)) 

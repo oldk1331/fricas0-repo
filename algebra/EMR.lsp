@@ -242,7 +242,7 @@
     (LETT DV$5 |#5|)
     (LETT DV$6 |#6|)
     (LETT |dv$| (LIST '|EuclideanModularRing| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6))
-    (LETT % (GETREFV 60))
+    (LETT % (GETREFV 58))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
     (|haddProp| |$ConstructorCache| '|EuclideanModularRing|
@@ -286,11 +286,10 @@
               (|Union| % '"failed") (|Union| 47 '#1="failed") (|List| %)
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 49 '#1#)
-              (|SparseUnivariatePolynomial| %)
               (|Record| (|:| |coef| 47) (|:| |generator| %))
+              (|SparseUnivariatePolynomial| %)
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
-              (|Integer|) (|PositiveInteger|) (|HashState|) (|String|)
-              (|OutputForm|) (|SingleInteger|))
+              (|Integer|) (|PositiveInteger|) (|OutputForm|) (|String|))
            '#(|zero?| 121 |unitNormal| 126 |unitCanonical| 131 |rem| 136
               |reduce| 142 |inv| 148 |euclideanSize| 153 |elt| 158 |divide| 164
               |Zero| 170 |One| 174 * 178)
@@ -319,7 +318,7 @@
                  (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
                  (|CommutativeStar|) (|SetCategory|) (|noZeroDivisors|)
                  (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 58))
+                 (|CoercibleTo| 56))
               (|makeByteWordVec2| 44
                                   '(1 7 6 0 13 0 6 0 14 2 6 15 0 0 16 0 7 0 17
                                     1 7 0 6 18 2 0 0 7 8 19 1 0 0 0 20 2 7 0 0

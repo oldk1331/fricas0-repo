@@ -3162,7 +3162,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Pattern| DV$1))
-          (LETT % (GETREFV 140))
+          (LETT % (GETREFV 139))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Pattern| (LIST DV$1) (CONS 1 %))
@@ -3270,18 +3270,18 @@
               (|Union| 126 '"failed") (231 . |display|) (236 . |name|)
               (241 . |prefix|) (247 . |copy|) (252 . =) (|Set| 13)
               (258 . |set|) (263 . =) (269 . =) (|Union| 8 '"failed")
-              |PATTERN;retractIfCan;%U;57| (|HashState|))
+              |PATTERN;retractIfCan;%U;57|)
            '#(~= 275 |withPredicates| 281 |variables| 287 |topPredicate| 292
               |symbol?| 297 |setTopPredicate| 302 |setPredicates| 309
               |retractIfCan| 315 |retract| 325 |resetBadValues| 335 |quoted?|
               340 |predicates| 345 |patternVariable| 350 |optpair| 358
               |optional?| 363 |multiple?| 368 |latex| 373 |isTimes| 378
               |isQuotient| 383 |isPower| 388 |isPlus| 393 |isOp| 398 |isList|
-              409 |isExpt| 414 |inR?| 419 |hashUpdate!| 424 |hash| 430
-              |hasTopPredicate?| 435 |hasPredicate?| 440 |getBadValues| 445
-              |generic?| 450 |elt| 455 |depth| 461 |copy| 466 |convert| 471
-              |constant?| 476 |coerce| 481 |addBadValue| 496 ^ 502 |Zero| 514
-              |One| 518 = 522 / 528 + 534 * 540)
+              409 |isExpt| 414 |inR?| 419 |hasTopPredicate?| 424
+              |hasPredicate?| 429 |getBadValues| 434 |generic?| 439 |elt| 444
+              |depth| 450 |copy| 455 |convert| 460 |constant?| 465 |coerce| 470
+              |addBadValue| 485 ^ 491 |Zero| 503 |One| 507 = 511 / 517 + 523 *
+              529)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -3291,7 +3291,7 @@
                    '#((|SetCategory|) (|RetractableTo| 8) (|RetractableTo| 6)
                       (|BasicType|) (|CoercibleFrom| 8) (|CoercibleFrom| 6)
                       (|CoercibleTo| 49))
-                   (|makeByteWordVec2| 139
+                   (|makeByteWordVec2| 138
                                        '(0 8 0 9 1 10 0 8 11 1 15 13 14 16 2 47
                                          19 0 0 48 2 53 49 52 0 54 1 65 0 0 66
                                          1 65 19 0 67 1 65 2 0 68 1 65 0 0 69 0
@@ -3319,13 +3319,12 @@
                                          0 19 0 46 1 0 19 0 45 1 0 109 0 1 1 0
                                          30 0 32 1 0 38 0 39 1 0 80 0 81 1 0 30
                                          0 31 1 0 90 0 91 2 0 30 0 10 103 1 0
-                                         30 0 33 1 0 35 0 36 1 0 19 0 28 2 0
-                                         139 139 0 1 1 0 47 0 1 1 0 19 0 20 1 0
-                                         19 0 42 1 0 40 0 107 1 0 19 0 44 2 0 0
-                                         10 56 88 1 0 26 0 27 1 0 0 0 60 1 0 0
-                                         56 57 1 0 19 0 25 1 0 0 8 64 1 0 0 6
-                                         18 1 0 49 0 50 2 0 0 0 13 106 2 0 0 0
-                                         0 51 2 0 0 0 26 95 0 0 0 87 0 0 0 71 2
-                                         0 19 0 0 77 2 0 0 0 0 96 2 0 0 0 0 100
-                                         2 0 0 0 0 101)))))
+                                         30 0 33 1 0 35 0 36 1 0 19 0 28 1 0 19
+                                         0 20 1 0 19 0 42 1 0 40 0 107 1 0 19 0
+                                         44 2 0 0 10 56 88 1 0 26 0 27 1 0 0 0
+                                         60 1 0 0 56 57 1 0 19 0 25 1 0 0 8 64
+                                         1 0 0 6 18 1 0 49 0 50 2 0 0 0 13 106
+                                         2 0 0 0 0 51 2 0 0 0 26 95 0 0 0 87 0
+                                         0 0 71 2 0 19 0 0 77 2 0 0 0 0 96 2 0
+                                         0 0 0 100 2 0 0 0 0 101)))))
            '|lookupComplete|)) 

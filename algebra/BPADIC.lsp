@@ -24,7 +24,7 @@
          (PROGN
           (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|BalancedPAdicInteger| DV$1))
-          (LETT % (GETREFV 28))
+          (LETT % (GETREFV 26))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|BalancedPAdicInteger| (LIST DV$1)
@@ -49,7 +49,7 @@
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Union| % '"failed") (|PositiveInteger|) (|String|)
-              (|SingleInteger|) (|HashState|) (|OutputForm|))
+              (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -76,6 +76,6 @@
                  (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
                  (|CommutativeStar|) (|SetCategory|) (|noZeroDivisors|)
                  (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 27))
+                 (|CoercibleTo| 25))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

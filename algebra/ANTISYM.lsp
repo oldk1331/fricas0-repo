@@ -442,7 +442,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 |#2|)
           (LETT |dv$| (LIST '|AntiSymm| DV$1 DV$2))
-          (LETT % (GETREFV 71))
+          (LETT % (GETREFV 69))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|AntiSymm| (LIST DV$1 DV$2)
@@ -480,17 +480,16 @@
               (|Mapping| 51 51 51) (|List| 51) (130 . |reduce|)
               (136 . |coerce|) (141 . |zero?|) (146 . |coerce|) (151 . +)
               |ANTISYM;coerce;%Of;20| (|Mapping| 6 6) (|Union| % '"failed")
-              (|PositiveInteger|) (|HashState|) (|String|) (|SingleInteger|))
+              (|PositiveInteger|) (|String|))
            '#(~= 157 |zero?| 163 |subtractIfCan| 168 |sample| 174 |rightRecip|
               178 |rightPower| 183 |retractable?| 195 |retractIfCan| 200
               |retract| 205 |reductum| 210 |recip| 215 |opposite?| 220 |one?|
               226 |map| 231 |leftRecip| 237 |leftPower| 242
               |leadingCoefficient| 254 |leadingBasisTerm| 259 |latex| 264
-              |homogeneous?| 269 |hashUpdate!| 274 |hash| 280 |generator| 285
-              |exp| 290 |degree| 295 |commutator| 300 |coerce| 306
-              |coefficient| 321 |characteristic| 327 |associator| 331
-              |antiCommutator| 338 |annihilate?| 344 ^ 350 |Zero| 362 |One| 366
-              = 370 - 376 + 387 * 393)
+              |homogeneous?| 269 |generator| 274 |exp| 279 |degree| 284
+              |commutator| 289 |coerce| 295 |coefficient| 310 |characteristic|
+              316 |associator| 320 |antiCommutator| 327 |annihilate?| 333 ^ 339
+              |Zero| 351 |One| 355 = 359 - 365 + 376 * 382)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -512,7 +511,7 @@
                  (|AbelianSemiGroup|) (|RetractableTo| 6) (|SetCategory|)
                  (|CoercibleFrom| 6) (|unitsKnown|) (|BasicType|)
                  (|CoercibleTo| 51))
-              (|makeByteWordVec2| 70
+              (|makeByteWordVec2| 68
                                   '(1 11 0 10 12 0 6 0 13 2 11 15 0 0 16 2 11
                                     15 0 0 17 0 6 0 18 1 0 6 0 21 1 11 25 0 26
                                     1 0 0 0 27 2 28 15 0 0 29 0 0 0 32 2 25 28
@@ -527,13 +526,12 @@
                                     20 1 0 22 0 23 1 0 6 0 24 1 0 0 0 27 1 0 66
                                     0 1 2 0 15 0 0 1 1 0 15 0 1 2 0 0 65 0 1 1
                                     0 66 0 1 2 0 0 0 10 1 2 0 0 0 67 1 1 0 6 0
-                                    21 1 0 0 0 50 1 0 69 0 1 1 0 15 0 30 2 0 68
-                                    68 0 1 1 0 70 0 1 1 0 0 10 48 1 0 0 25 49 1
-                                    0 10 0 31 2 0 0 0 0 1 1 0 0 6 43 1 0 0 28
-                                    45 1 0 51 0 64 2 0 6 0 0 19 0 0 10 47 3 0 0
-                                    0 0 0 1 2 0 0 0 0 1 2 0 15 0 0 1 2 0 0 0 10
-                                    1 2 0 0 0 67 1 0 0 0 32 0 0 0 14 2 0 15 0 0
-                                    1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 40 2 0 0
-                                    6 0 35 2 0 0 10 0 1 2 0 0 28 0 1 2 0 0 0 0
-                                    41 2 0 0 67 0 1)))))
+                                    21 1 0 0 0 50 1 0 68 0 1 1 0 15 0 30 1 0 0
+                                    10 48 1 0 0 25 49 1 0 10 0 31 2 0 0 0 0 1 1
+                                    0 0 6 43 1 0 0 28 45 1 0 51 0 64 2 0 6 0 0
+                                    19 0 0 10 47 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0
+                                    15 0 0 1 2 0 0 0 10 1 2 0 0 0 67 1 0 0 0 32
+                                    0 0 0 14 2 0 15 0 0 1 2 0 0 0 0 1 1 0 0 0 1
+                                    2 0 0 0 0 40 2 0 0 6 0 35 2 0 0 10 0 1 2 0
+                                    0 28 0 1 2 0 0 0 0 41 2 0 0 67 0 1)))))
            '|lookupComplete|)) 

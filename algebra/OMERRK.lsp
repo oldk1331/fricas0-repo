@@ -58,7 +58,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|OpenMathErrorKind|))
-          (LETT % (GETREFV 23))
+          (LETT % (GETREFV 21))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|OpenMathErrorKind| NIL (CONS 1 %))
@@ -78,22 +78,20 @@
               |OMERRK;OMUnknownSymbol?;%B;3| |OMERRK;OMReadError?;%B;4|
               (|String|) (|Symbol|) (0 . |string|) |OMERRK;coerce;S%;5| (5 . =)
               |OMERRK;=;2%B;6| (|OutputForm|) (11 . |coerce|)
-              |OMERRK;coerce;%Of;7| (|SingleInteger|) (|HashState|))
-           '#(~= 16 |latex| 22 |hashUpdate!| 27 |hash| 33 |coerce| 38
-              |OMUnknownSymbol?| 48 |OMUnknownCD?| 53 |OMReadError?| 58
-              |OMParseError?| 63 = 68)
+              |OMERRK;coerce;%Of;7|)
+           '#(~= 16 |latex| 22 |coerce| 27 |OMUnknownSymbol?| 37 |OMUnknownCD?|
+              42 |OMReadError?| 47 |OMParseError?| 52 = 57)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 18))
-                        (|makeByteWordVec2| 22
+                        (|makeByteWordVec2| 20
                                             '(1 13 12 0 14 2 6 7 2 2 16 1 6 18
-                                              2 19 2 0 7 0 0 1 1 0 12 0 1 2 0
-                                              22 22 0 1 1 0 21 0 1 1 0 0 13 15
-                                              1 0 18 0 20 1 0 7 0 10 1 0 7 0 9
-                                              1 0 7 0 11 1 0 7 0 8 2 0 7 0 0
-                                              17)))))
+                                              2 19 2 0 7 0 0 1 1 0 12 0 1 1 0 0
+                                              13 15 1 0 18 0 20 1 0 7 0 10 1 0
+                                              7 0 9 1 0 7 0 11 1 0 7 0 8 2 0 7
+                                              0 0 17)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OpenMathErrorKind| 'NILADIC T) 

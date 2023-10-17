@@ -283,7 +283,9 @@
                                                   (|Mapping| |t#1| |t#1| |t#1|)
                                                   % % |t#1|))
                                                 T))
-                                             '(((|Comparable|)
+                                             '(((|Hashable|)
+                                                (|has| |t#1| (|Hashable|)))
+                                               ((|Comparable|)
                                                 (|has| |t#1| (|Comparable|))))
                                              NIL NIL)))))))
            (SETELT #1# 0

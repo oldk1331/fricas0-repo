@@ -1091,7 +1091,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|DeltaComplex| DV$1))
-          (LETT % (GETREFV 127))
+          (LETT % (GETREFV 125))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DeltaComplex| (LIST DV$1)
@@ -1149,17 +1149,17 @@
               |DELTAC;=;2%B;19| (322 . |empty|) (326 . |hconcat|)
               (331 . |coerce|) (336 . |vconcat|) (|Union| % '"failed")
               (|DeltaComplex| 6) (342 . |simplicialComplexIfCan|)
-              |DELTAC;coerce;%Fsc;21| (|SingleInteger|) (|HashState|))
+              |DELTAC;coerce;%Fsc;21|)
            '#(~= 347 |triangle| 353 |oneSkeleton| 360 |link| 365 |latex| 371
-              |homology| 376 |hashUpdate!| 381 |hash| 387 |fundamentalGroup|
-              392 |faceMap| 404 |deltaComplex| 410 |coerce| 433 |coHomology|
-              443 |coChain| 448 |chain| 453 = 458)
+              |homology| 376 |fundamentalGroup| 381 |faceMap| 393
+              |deltaComplex| 399 |coerce| 422 |coHomology| 432 |coChain| 437
+              |chain| 442 = 447)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 27))
-                        (|makeByteWordVec2| 126
+                        (|makeByteWordVec2| 124
                                             '(2 10 0 8 9 11 3 10 9 0 12 9 13 2
                                               16 14 0 15 17 2 16 0 0 14 18 1 21
                                               24 0 25 1 27 0 26 28 1 21 27 0 29
@@ -1189,11 +1189,10 @@
                                               119 2 27 0 0 0 120 1 21 121 122
                                               123 2 0 9 0 0 1 3 0 0 8 8 8 64 1
                                               0 92 0 93 2 0 0 8 8 63 1 0 26 0 1
-                                              1 0 78 0 80 2 0 126 126 0 1 1 0
-                                              125 0 1 1 0 98 0 100 3 0 98 0 9 9
-                                              99 2 0 14 0 8 66 1 0 0 51 62 2 0
-                                              0 21 9 22 3 0 0 19 8 16 20 1 0 0
-                                              21 23 1 0 21 0 124 1 0 27 0 101 1
-                                              0 78 0 83 1 0 74 0 76 1 0 71 0 73
-                                              2 0 9 0 0 116)))))
+                                              1 0 78 0 80 3 0 98 0 9 9 99 1 0
+                                              98 0 100 2 0 14 0 8 66 1 0 0 51
+                                              62 1 0 0 21 23 2 0 0 21 9 22 3 0
+                                              0 19 8 16 20 1 0 21 0 124 1 0 27
+                                              0 101 1 0 78 0 83 1 0 74 0 76 1 0
+                                              71 0 73 2 0 9 0 0 116)))))
            '|lookupComplete|)) 

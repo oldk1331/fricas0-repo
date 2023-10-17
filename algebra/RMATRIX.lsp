@@ -277,10 +277,10 @@
               (72 . |rank|) (77 . |rank|) (82 . |nullity|) (87 . |nullity|)
               (92 . |nullSpace|) (97 . |nullSpace|) (|Symbol|) (|InputForm|)
               (102 . |convert|) (107 . |convert|) (|List| %) (112 . |convert|)
-              (117 . |convert|) (|List| 55) (|Equation| 8) (|List| 8)
+              (117 . |convert|) (|Equation| 8) (|List| 54) (|List| 8)
               (|Mapping| 15 8) (|Mapping| 15 8 8) (|Mapping| 8 8)
-              (|Union| % '"failed") (|PositiveInteger|) (|Mapping| 8 8 8)
-              (|String|) (|SingleInteger|) (|HashState|))
+              (|Union| % '"failed") (|SingleInteger|) (|HashState|)
+              (|PositiveInteger|) (|Mapping| 8 8 8) (|String|))
            '#(~= 122 |zero?| 128 |symmetric?| 133 |subtractIfCan| 138 |square?|
               144 |smaller?| 149 |size?| 155 |size| 161 |sample| 165
               |rowEchelon| 169 |row| 174 |rectangularMatrix| 180 |rank| 185
@@ -298,14 +298,14 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 14
-                                '(0 2 0 0 0 1 1 12 3 0 0 3 0 0 5 0 0 0 0 0 5
+                                '(0 2 0 0 0 1 1 12 3 0 0 3 0 0 3 5 0 0 0 0 0 5
                                   14))
             (CONS
              '#(|RectangularMatrixCategory&| |Module&| NIL NIL NIL
                 |AbelianGroup&| NIL |AbelianMonoid&| |Finite&|
                 |HomogeneousAggregate&| |AbelianSemiGroup&| NIL |Aggregate&|
-                |SetCategory&| |Evalable&| NIL NIL NIL |BasicType&| NIL
-                |InnerEvalable&| NIL)
+                |SetCategory&| |Hashable&| |Evalable&| NIL NIL NIL |BasicType&|
+                NIL |InnerEvalable&| NIL)
              (CONS
               '#((|RectangularMatrixCategory| 6 7 8 (|DirectProduct| 7 8)
                                               (|DirectProduct| 6 8))
@@ -313,7 +313,7 @@
                  (|RightModule| 8) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|AbelianMonoid|) (|Finite|)
                  (|HomogeneousAggregate| 8) (|AbelianSemiGroup|) (|Comparable|)
-                 (|Aggregate|) (|SetCategory|) (|Evalable| 8)
+                 (|Aggregate|) (|SetCategory|) (|Hashable|) (|Evalable| 8)
                  (|CoercibleTo| (|Matrix| 8)) (|finiteAggregate|) (|Type|)
                  (|BasicType|) (|CoercibleTo| 12) (|InnerEvalable| 8 8)
                  (|ConvertibleTo| 48))
@@ -334,9 +334,9 @@
                                     1 0 18 0 1 1 0 18 0 1 1 18 8 0 1 1 16 56 0
                                     1 2 17 15 8 0 1 1 0 18 0 1 1 0 18 0 1 1 18
                                     8 0 1 2 16 8 58 0 1 1 0 0 21 22 2 15 0 59 0
-                                    1 3 0 0 62 0 0 1 2 0 0 59 0 1 1 3 61 0 1 1
-                                    0 21 0 1 2 0 15 0 16 1 1 0 63 0 1 1 3 0 61
-                                    1 2 0 65 65 0 1 1 0 64 0 1 2 10 60 0 8 1 2
+                                    1 3 0 0 64 0 0 1 2 0 0 59 0 1 1 3 63 0 1 1
+                                    0 21 0 1 2 0 15 0 16 1 1 0 65 0 1 1 3 0 63
+                                    1 2 3 62 62 0 1 1 3 61 0 1 2 10 60 0 8 1 2
                                     16 15 57 0 1 2 4 0 0 54 1 2 4 0 0 55 1 3 4
                                     0 0 56 56 1 3 4 0 0 8 8 1 2 0 15 0 0 1 0 3
                                     51 1 1 0 15 0 1 0 0 0 1 4 0 8 0 18 18 8 1 3
@@ -344,7 +344,7 @@
                                     16 57 0 1 1 0 0 0 1 1 13 48 0 53 1 9 39 0
                                     40 2 0 29 0 18 31 1 0 5 0 33 1 0 12 0 14 2
                                     16 15 57 0 1 1 0 15 0 1 0 11 0 11 2 0 15 0
-                                    0 1 2 8 0 0 8 1 2 1 0 0 0 1 1 1 0 0 1 2 0 0
-                                    0 0 1 2 1 0 18 0 1 2 11 0 16 0 1 2 0 0 8 0
-                                    1 2 0 0 0 8 1 2 0 0 61 0 1 1 16 16 0 1)))))
+                                    0 1 2 8 0 0 8 1 1 1 0 0 1 2 1 0 0 0 1 2 0 0
+                                    0 0 1 2 1 0 18 0 1 2 11 0 16 0 1 2 0 0 0 8
+                                    1 2 0 0 63 0 1 2 0 0 8 0 1 1 16 16 0 1)))))
            '|lookupComplete|)) 

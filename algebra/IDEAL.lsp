@@ -954,6 +954,11 @@
                     (IF (|has| F (|canonicalUnitNormal|))
                         (ATTRIBUTE (|canonicalUnitNormal|))
                         |noBranch|)
+                    (IF (|has| F (|Hashable|))
+                        (IF (|has| |nExponent| (|Hashable|))
+                            (ATTRIBUTE (|Hashable|))
+                            |noBranch|)
+                        |noBranch|)
                     (IF (|has| F (|Comparable|))
                         (ATTRIBUTE (|Comparable|))
                         |noBranch|))))
@@ -1008,68 +1013,73 @@
                     (SIGNATURE |construct| (% |Expon| |DirP|))
                     (SIGNATURE |first| (|Expon| %))
                     (SIGNATURE |second| (|DirP| %)))))
-          (|DirP| (|DirectProductCategory| |nf| (|NonNegativeInteger|)))
-          (|nvar| (|List| (|Symbol|))) (#15=#:G513 NIL) (#16=#:G512 NIL)
-          (|vl| (|List| (|Symbol|))) (#17=#:G511 NIL) (|vv| NIL)
-          (#18=#:G510 NIL) (|lvint| #19=(|List| |VarSet|)) (#20=#:G476 NIL)
-          (#21=#:G475 #19#) (#22=#:G477 #19#) (#23=#:G509 NIL)
+          (|DirP|
+           (|Join| (|DirectProductCategory| |nf| #15=(|NonNegativeInteger|))
+                   (CATEGORY |package|
+                    (IF (|has| #15# (|Hashable|))
+                        (ATTRIBUTE (|Hashable|))
+                        |noBranch|))))
+          (|nvar| (|List| (|Symbol|))) (#16=#:G513 NIL) (#17=#:G512 NIL)
+          (|vl| (|List| (|Symbol|))) (#18=#:G511 NIL) (|vv| NIL)
+          (#19=#:G510 NIL) (|lvint| #20=(|List| |VarSet|)) (#21=#:G476 NIL)
+          (#22=#:G475 #20#) (#23=#:G477 #20#) (#24=#:G509 NIL)
           (|nf| (|NonNegativeInteger|)))
          (SEQ
           (COND ((NULL |listf|) (SPADCALL NIL NIL (QREFELT % 118)))
-                (#24='T
+                (#25='T
                  (SEQ (LETT |nf| (LENGTH |listf|))
                       (LETT |lvint|
                             (PROGN
-                             (LETT #20# NIL)
-                             (SEQ (LETT #23# |listf|) G190
+                             (LETT #21# NIL)
+                             (SEQ (LETT #24# |listf|) G190
                                   (COND
-                                   ((OR (ATOM #23#)
-                                        (PROGN (LETT |g| (CAR #23#)) NIL))
+                                   ((OR (ATOM #24#)
+                                        (PROGN (LETT |g| (CAR #24#)) NIL))
                                     (GO G191)))
                                   (SEQ
                                    (EXIT
                                     (PROGN
-                                     (LETT #22# (SPADCALL |g| (QREFELT % 36)))
+                                     (LETT #23# (SPADCALL |g| (QREFELT % 36)))
                                      (COND
-                                      (#20#
-                                       (LETT #21#
-                                             (SPADCALL #21# #22#
+                                      (#21#
+                                       (LETT #22#
+                                             (SPADCALL #22# #23#
                                                        (QREFELT % 95))))
                                       ('T
                                        (PROGN
-                                        (LETT #21# #22#)
-                                        (LETT #20# 'T)))))))
-                                  (LETT #23# (CDR #23#)) (GO G190) G191
+                                        (LETT #22# #23#)
+                                        (LETT #21# 'T)))))))
+                                  (LETT #24# (CDR #24#)) (GO G190) G191
                                   (EXIT NIL))
-                             (COND (#20# #21#)
-                                   (#24# (|IdentityError| '|setUnion|)))))
+                             (COND (#21# #22#)
+                                   (#25# (|IdentityError| '|setUnion|)))))
                       (LETT |vl|
                             (PROGN
-                             (LETT #18# NIL)
-                             (SEQ (LETT |vv| NIL) (LETT #17# |lvint|) G190
+                             (LETT #19# NIL)
+                             (SEQ (LETT |vv| NIL) (LETT #18# |lvint|) G190
                                   (COND
-                                   ((OR (ATOM #17#)
-                                        (PROGN (LETT |vv| (CAR #17#)) NIL))
+                                   ((OR (ATOM #18#)
+                                        (PROGN (LETT |vv| (CAR #18#)) NIL))
                                     (GO G191)))
                                   (SEQ
                                    (EXIT
-                                    (LETT #18#
+                                    (LETT #19#
                                           (CONS (SPADCALL |vv| (QREFELT % 113))
-                                                #18#))))
-                                  (LETT #17# (CDR #17#)) (GO G190) G191
-                                  (EXIT (NREVERSE #18#)))))
+                                                #19#))))
+                                  (LETT #18# (CDR #18#)) (GO G190) G191
+                                  (EXIT (NREVERSE #19#)))))
                       (LETT |nvar|
                             (PROGN
-                             (LETT #16# NIL)
-                             (SEQ (LETT |i| 1) (LETT #15# |nf|) G190
-                                  (COND ((|greater_SI| |i| #15#) (GO G191)))
+                             (LETT #17# NIL)
+                             (SEQ (LETT |i| 1) (LETT #16# |nf|) G190
+                                  (COND ((|greater_SI| |i| #16#) (GO G191)))
                                   (SEQ
                                    (EXIT
-                                    (LETT #16#
+                                    (LETT #17#
                                           (CONS (SPADCALL (QREFELT % 119))
-                                                #16#))))
+                                                #17#))))
                                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191
-                                  (EXIT (NREVERSE #16#)))))
+                                  (EXIT (NREVERSE #17#)))))
                       (LETT |DirP|
                             (|DirectProduct| |nf| (|NonNegativeInteger|)))
                       (LETT |nExponent| (|Product| (QREFELT % 7) |DirP|))
@@ -1276,10 +1286,10 @@
                                               (QREFELT % 132))
                                     (PROGN
                                      (LETT #8# |$NoValue|)
-                                     (GO #25=#:G495))))
+                                     (GO #26=#:G495))))
                                   (EXIT (LETT |lf| (CDR |lf|))))
                              NIL (GO G190) G191 (EXIT NIL)))
-                       #25# (EXIT #8#))
+                       #26# (EXIT #8#))
                       (LETT |solsn| NIL)
                       (SEQ (LETT #7# |lf|) G190
                            (COND
@@ -1495,7 +1505,7 @@
     (LETT DV$3 (|devaluate| |#3|))
     (LETT DV$4 (|devaluate| |#4|))
     (LETT |dv$| (LIST '|PolynomialIdeal| DV$1 DV$2 DV$3 DV$4))
-    (LETT % (GETREFV 150))
+    (LETT % (GETREFV 148))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -1572,20 +1582,19 @@
               |IDEAL;one?;%B;37| |IDEAL;zero?;%B;38|
               (|Record| (|:| |mval| (|Matrix| 6)) (|:| |invmval| (|Matrix| 6))
                         (|:| |genIdeal| %))
-              (|String|) (|SingleInteger|) (|HashState|))
+              (|String|))
            '#(~= 444 |zeroDim?| 450 |zero?| 461 |saturate| 466 |relationsIdeal|
               479 |quotient| 484 |one?| 496 |leadingIdeal| 501 |latex| 506
               |intersect| 511 |inRadical?| 522 |in?| 528 |ideal| 534
-              |hashUpdate!| 539 |hash| 545 |groebnerIdeal| 550 |groebner?| 555
-              |groebner| 560 |generators| 565 |generalPosition| 570 |element?|
-              576 |dimension| 582 |coerce| 593 |backOldPos| 603 ^ 608 = 614 +
-              620 * 626)
+              |groebnerIdeal| 539 |groebner?| 544 |groebner| 549 |generators|
+              554 |generalPosition| 559 |element?| 565 |dimension| 571 |coerce|
+              582 |backOldPos| 592 ^ 597 = 603 + 609 * 615)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 139))
-                        (|makeByteWordVec2| 149
+                        (|makeByteWordVec2| 147
                                             '(0 9 0 13 2 9 14 0 0 15 0 12 0 16
                                               1 9 6 0 17 0 6 0 18 0 7 0 19 1 9
                                               7 0 20 2 11 0 21 7 22 2 12 0 6 11
@@ -1620,19 +1629,18 @@
                                               0 132 2 120 21 0 52 133 2 110 0 0
                                               21 134 2 110 0 0 0 135 0 110 0
                                               136 2 110 0 6 0 137 1 0 117 56
-                                              138 1 56 139 0 140 2 0 14 0 0 1 1
-                                              0 14 0 103 2 0 14 0 35 102 1 0 14
+                                              138 1 56 139 0 140 2 0 14 0 0 1 2
+                                              0 14 0 35 102 1 0 14 0 103 1 0 14
                                               0 145 3 0 0 0 9 35 98 2 0 0 0 9
-                                              94 1 1 117 56 138 2 0 0 0 9 85 2
-                                              0 0 0 0 87 1 0 14 0 144 1 0 0 0
-                                              106 1 0 147 0 1 1 0 0 80 81 2 0 0
-                                              0 0 79 2 0 14 9 0 105 2 0 14 0 0
-                                              67 1 0 0 56 86 2 0 149 149 0 1 1
-                                              0 148 0 1 1 0 0 56 142 1 0 14 0
-                                              143 1 0 0 0 69 1 0 56 0 57 2 0
-                                              146 0 35 1 2 0 14 9 0 72 1 0 52 0
-                                              108 2 0 52 0 35 107 1 0 0 56 82 1
-                                              0 139 0 141 1 0 0 146 1 2 0 0 0
+                                              94 1 1 117 56 138 2 0 0 0 0 87 2
+                                              0 0 0 9 85 1 0 14 0 144 1 0 0 0
+                                              106 1 0 147 0 1 2 0 0 0 0 79 1 0
+                                              0 80 81 2 0 14 9 0 105 2 0 14 0 0
+                                              67 1 0 0 56 86 1 0 0 56 142 1 0
+                                              14 0 143 1 0 0 0 69 1 0 56 0 57 2
+                                              0 146 0 35 1 2 0 14 9 0 72 1 0 52
+                                              0 108 2 0 52 0 35 107 1 0 0 56 82
+                                              1 0 139 0 141 1 0 0 146 1 2 0 0 0
                                               21 93 2 0 14 0 0 68 2 0 0 0 0 89
                                               2 0 0 0 0 92)))))
            '|lookupComplete|)) 

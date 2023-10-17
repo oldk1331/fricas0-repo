@@ -2943,7 +2943,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|GroupPresentation|))
-          (LETT % (GETREFV 125))
+          (LETT % (GETREFV 123))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|GroupPresentation| NIL (CONS 1 %))
@@ -2994,18 +2994,17 @@
               (|Union| 113 '"failed") |GROUPP;toPermutationIfCan;%BU;47|
               |GROUPP;toPermutationIfCan;%U;46|
               |GROUPP;toPermutationIfCan;%LBU;49| (372 . |One|)
-              (376 . |concat|) (382 . |coerce|) (387 . |parts|)
-              (|SingleInteger|) (|HashState|))
+              (376 . |concat|) (382 . |coerce|) (387 . |parts|))
            '#(~= 392 |toPermutationIfCan| 398 |symmetricGroup| 416 |simplify|
-              421 |refactor| 432 |quotient| 437 |latex| 449 |hashUpdate!| 454
-              |hash| 460 |groupPresentation| 465 |directProduct| 480
-              |dihedralGroup| 486 |cyclicGroup| 491 |coerce| 496 = 501)
+              421 |refactor| 432 |quotient| 437 |latex| 449 |groupPresentation|
+              454 |directProduct| 469 |dihedralGroup| 475 |cyclicGroup| 480
+              |coerce| 485 = 490)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 39))
-                        (|makeByteWordVec2| 124
+                        (|makeByteWordVec2| 122
                                             '(1 8 0 7 9 1 15 0 14 16 1 8 7 0 17
                                               1 8 18 0 19 2 21 0 0 20 22 2 24 0
                                               0 23 25 2 10 0 0 24 26 1 28 0 7
@@ -3038,13 +3037,12 @@
                                               119 2 90 0 0 0 120 1 87 39 0 121
                                               1 8 7 0 122 2 0 30 0 0 1 2 0 115
                                               0 30 116 3 0 115 0 10 30 118 1 0
-                                              115 0 117 1 0 0 77 80 1 0 0 0 69
-                                              2 0 0 0 30 68 1 0 0 0 27 2 0 0 0
-                                              10 73 2 0 0 0 7 70 1 0 15 0 1 2 0
-                                              124 124 0 1 1 0 123 0 1 0 0 0 13
-                                              2 0 0 7 10 11 1 0 0 7 12 2 0 0 0
-                                              0 76 1 0 0 77 79 1 0 0 77 78 1 0
-                                              39 0 65 2 0 30 0 0 36)))))
+                                              115 0 117 1 0 0 77 80 2 0 0 0 30
+                                              68 1 0 0 0 69 1 0 0 0 27 2 0 0 0
+                                              7 70 2 0 0 0 10 73 1 0 15 0 1 1 0
+                                              0 7 12 0 0 0 13 2 0 0 7 10 11 2 0
+                                              0 0 0 76 1 0 0 77 79 1 0 0 77 78
+                                              1 0 39 0 65 2 0 30 0 0 36)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|GroupPresentation| 'NILADIC T) 

@@ -705,7 +705,7 @@
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|SplittingTree| DV$1 DV$2))
-    (LETT % (GETREFV 99))
+    (LETT % (GETREFV 97))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -794,19 +794,18 @@
               |SPLTREE;subNodeOf?;Sn%MB;33| (165 . |removeDuplicates|)
               (170 . |empty|) (174 . |empty|) (178 . |construct|)
               |SPLTREE;splitNodeOf!;2%L%;34| |SPLTREE;splitNodeOf!;2%LM%;35|
-              (|Equation| 8) (|List| 91) (|HashState|) (|SingleInteger|)
-              (|Mapping| 18 8 8) (|Mapping| 18 8) '"value" (|Integer|))
+              (|List| 92) (|Equation| 8) (|Mapping| 18 8 8) (|Mapping| 18 8)
+              '"value" (|Integer|))
            '#(~= 185 |value| 191 |updateStatus!| 196 |subNodeOf?| 201
               |splitNodeOf!| 208 |size?| 223 |setvalue!| 229 |setelt!| 235
               |setchildren!| 242 |sample| 248 |result| 252 |remove!| 257
               |remove| 263 |parts| 269 |nodes| 274 |nodeOf?| 279 |node?| 285
               |more?| 291 |min| 297 |members| 302 |member?| 307 |max| 313
               |map!| 324 |map| 330 |less?| 336 |leaves| 342 |leaf?| 347 |latex|
-              352 |hashUpdate!| 357 |hash| 363 |extractSplittingLeaf| 368
-              |every?| 373 |eval| 379 |eq?| 405 |empty?| 411 |empty| 416 |elt|
-              420 |distance| 426 |cyclic?| 432 |count| 437 |copy| 449
-              |construct| 454 |conditions| 481 |coerce| 486 |children| 491
-              |child?| 496 |any?| 502 = 508 |#| 514)
+              352 |extractSplittingLeaf| 357 |every?| 362 |eval| 368 |eq?| 394
+              |empty?| 400 |empty| 405 |elt| 409 |distance| 415 |cyclic?| 421
+              |count| 426 |copy| 438 |construct| 443 |conditions| 470 |coerce|
+              475 |children| 480 |child?| 485 |any?| 491 = 497 |#| 503)
            'NIL
            (CONS (|makeByteWordVec2| 7 '(0 0 0 2 1 0 0 0 2 5 7))
                  (CONS
@@ -822,7 +821,7 @@
                       (|InnerEvalable| (|SplittingNode| 6 7)
                                        (|SplittingNode| 6 7))
                       (|BasicType|) (|CoercibleTo| 65))
-                   (|makeByteWordVec2| 98
+                   (|makeByteWordVec2| 96
                                        '(2 8 0 6 7 10 2 8 11 6 15 16 1 8 18 0
                                          19 1 20 18 0 21 0 8 0 23 2 8 18 0 0 26
                                          1 8 18 0 27 1 20 2 0 29 2 20 0 2 0 31
@@ -837,22 +836,21 @@
                                          7 0 87 3 8 0 6 7 18 88 2 11 18 0 0 1 1
                                          0 8 0 25 1 0 0 0 75 3 0 18 8 0 82 84 4
                                          0 0 0 0 13 82 90 3 0 0 0 0 13 89 2 0
-                                         18 0 55 1 2 12 8 0 8 42 3 12 8 0 97 8
+                                         18 0 55 1 2 12 8 0 8 42 3 12 8 0 95 8
                                          1 2 12 0 0 11 40 0 0 0 1 1 0 78 0 79 2
                                          0 0 8 0 38 2 0 0 8 0 30 1 8 13 0 1 1 0
                                          11 0 50 2 0 18 8 0 81 2 4 18 0 0 1 2 0
                                          18 0 55 1 1 9 8 0 1 1 8 13 0 54 2 10
-                                         18 8 0 1 1 9 8 0 1 2 8 8 95 0 1 2 12 0
+                                         18 8 0 1 1 9 8 0 1 2 8 8 93 0 1 2 12 0
                                          44 0 46 2 0 0 44 0 45 2 0 18 0 55 1 1
-                                         0 13 0 52 1 0 18 0 41 1 1 64 0 1 2 1
-                                         93 93 0 1 1 1 94 0 1 1 0 73 0 74 2 8
-                                         18 96 0 1 3 2 0 0 13 13 1 2 2 0 0 91 1
-                                         3 2 0 0 8 8 1 2 2 0 0 92 1 2 0 18 0 0
-                                         49 1 0 18 0 22 0 0 0 24 2 0 8 0 97 1 2
-                                         0 98 0 0 1 1 0 18 0 43 2 10 55 8 0 1 2
-                                         8 55 96 0 1 1 0 0 0 48 3 0 0 6 7 13 14
-                                         4 0 0 6 7 6 15 17 1 0 0 8 9 3 0 0 6 7
-                                         11 12 1 0 15 0 80 1 6 65 0 72 1 0 11 0
-                                         28 2 4 18 0 0 1 2 8 18 96 0 1 2 11 18
-                                         0 0 63 1 8 55 0 57)))))
+                                         0 13 0 52 1 0 18 0 41 1 1 64 0 1 1 0
+                                         73 0 74 2 8 18 94 0 1 3 2 0 0 8 8 1 3
+                                         2 0 0 13 13 1 2 2 0 0 91 1 2 2 0 0 92
+                                         1 2 0 18 0 0 49 1 0 18 0 22 0 0 0 24 2
+                                         0 8 0 95 1 2 0 96 0 0 1 1 0 18 0 43 2
+                                         10 55 8 0 1 2 8 55 94 0 1 1 0 0 0 48 3
+                                         0 0 6 7 13 14 4 0 0 6 7 6 15 17 1 0 0
+                                         8 9 3 0 0 6 7 11 12 1 0 15 0 80 1 6 65
+                                         0 72 1 0 11 0 28 2 4 18 0 0 1 2 8 18
+                                         94 0 1 2 11 18 0 0 63 1 8 55 0 57)))))
            '|lookupComplete|)) 

@@ -221,7 +221,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|CoChainComplex| DV$1))
-          (LETT % (GETREFV 57))
+          (LETT % (GETREFV 55))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CoChainComplex| (LIST DV$1)
@@ -247,17 +247,15 @@
               (101 . |concat|) (107 . -) (112 . +) (|NonNegativeInteger|)
               |COCHNC;coboundary;%Nni2L;4| (|Homology|) (118 . |homologyGroup|)
               (|List| 47) (124 . |concat|) |COCHNC;coHomology;%L;5| (|List| %)
-              (130 . |commaSeparate|) |COCHNC;coerce;%Of;6| (|SingleInteger|)
-              (|HashState|))
-           '#(~= 135 |validate| 141 |latex| 146 |hashUpdate!| 151 |hash| 157
-              |coerce| 162 |coboundary| 167 |coHomology| 174 |coChainComplex|
-              179 = 189)
+              (130 . |commaSeparate|) |COCHNC;coerce;%Of;6|)
+           '#(~= 135 |validate| 141 |latex| 146 |coerce| 151 |coboundary| 156
+              |coHomology| 163 |coChainComplex| 168 = 178)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 24))
-                        (|makeByteWordVec2| 56
+                        (|makeByteWordVec2| 54
                                             '(1 10 8 0 11 1 12 0 0 13 2 7 0 14
                                               0 15 2 7 12 0 17 18 1 12 17 0 19
                                               1 12 17 0 20 2 17 21 0 0 22 1 24
@@ -269,8 +267,7 @@
                                               42 1 6 0 0 43 2 6 0 0 0 44 2 47 0
                                               12 12 48 2 49 0 0 47 50 1 24 0 52
                                               53 2 0 21 0 0 1 1 0 21 0 33 1 0
-                                              23 0 1 2 0 56 56 0 1 1 0 55 0 1 1
-                                              0 24 0 54 3 0 39 0 45 39 46 1 0
-                                              49 0 51 1 0 0 8 9 1 0 0 10 16 2 0
-                                              21 0 0 1)))))
+                                              23 0 1 1 0 24 0 54 3 0 39 0 45 39
+                                              46 1 0 49 0 51 1 0 0 10 16 1 0 0
+                                              8 9 2 0 21 0 0 1)))))
            '|lookupComplete|)) 

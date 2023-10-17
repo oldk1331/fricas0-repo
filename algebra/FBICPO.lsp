@@ -54,7 +54,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FiniteBiCPO| DV$1))
-          (LETT % (GETREFV 38))
+          (LETT % (GETREFV 36))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FiniteBiCPO| (LIST DV$1)
@@ -79,7 +79,7 @@
                         (|:| |map| 16))
               (|List| 31)
               (|Record| (|:| |value| 6) (|:| |posX| 8) (|:| |posY| 8))
-              (|List| 33) (|HashState|) (|OutputForm|) (|SingleInteger|))
+              (|List| 33) (|OutputForm|))
            '#(|meetIfCan| 20 |meet| 27 |joinIfCan| 34 |join| 41) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -88,7 +88,7 @@
                   (CONS
                    '#((|BiCPO| 6) (|Dcpo| 6) (|CoDcpo| 6) (|Poset| 6)
                       (|Preorder| 6) (|FiniteGraph| 6) (|SetCategory|)
-                      (|BasicType|) (|CoercibleTo| 36))
+                      (|BasicType|) (|CoercibleTo| 35))
                    (|makeByteWordVec2| 14
                                        '(3 0 7 0 8 8 9 2 7 10 0 0 11 3 0 7 0 8
                                          8 13 3 0 7 0 8 8 13 3 0 8 0 8 8 14 3 0

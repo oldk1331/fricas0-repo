@@ -787,7 +787,7 @@
           (LETT DV$1 |#1|)
           (LETT DV$2 |#2|)
           (LETT |dv$| (LIST '|InnerPAdicInteger| DV$1 DV$2))
-          (LETT % (GETREFV 100))
+          (LETT % (GETREFV 98))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|InnerPAdicInteger| (LIST DV$1 DV$2)
@@ -839,20 +839,20 @@
               (|SparseUnivariatePolynomial| %)
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|String|) (|SingleInteger|) (|HashState|))
+              (|String|))
            '#(~= 218 |zero?| 224 |unitNormal| 229 |unitCanonical| 234 |unit?|
               239 |subtractIfCan| 244 |sqrt| 250 |sizeLess?| 256 |sample| 262
               |root| 266 |rightRecip| 272 |rightPower| 277 |rem| 289 |recip|
               295 |quotientByP| 300 |quo| 305 |principalIdeal| 311 |order| 316
               |opposite?| 321 |one?| 327 |multiEuclidean| 332 |modulus| 338
               |moduloP| 342 |leftRecip| 347 |leftPower| 352 |lcmCoef| 364 |lcm|
-              370 |latex| 381 |hashUpdate!| 386 |hash| 392 |gcdPolynomial| 397
-              |gcd| 403 |extendedEuclidean| 414 |extend| 427 |exquo| 433
-              |expressIdealMember| 439 |euclideanSize| 445 |divide| 450
-              |digits| 456 |complete| 461 |commutator| 466 |coerce| 472
-              |characteristic| 487 |associator| 491 |associates?| 498
-              |approximate| 504 |antiCommutator| 510 |annihilate?| 516 ^ 522
-              |Zero| 534 |One| 538 = 542 - 548 + 559 * 565)
+              370 |latex| 381 |gcdPolynomial| 386 |gcd| 392 |extendedEuclidean|
+              403 |extend| 416 |exquo| 422 |expressIdealMember| 428
+              |euclideanSize| 434 |divide| 439 |digits| 445 |complete| 450
+              |commutator| 455 |coerce| 461 |characteristic| 476 |associator|
+              480 |associates?| 487 |approximate| 493 |antiCommutator| 499
+              |annihilate?| 505 ^ 511 |Zero| 523 |One| 527 = 531 - 537 + 548 *
+              554)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -880,7 +880,7 @@
                  (|CommutativeStar|) (|SetCategory|) (|noZeroDivisors|)
                  (|TwoSidedRecip|) (|unitsKnown|) (|BasicType|)
                  (|CoercibleTo| 8))
-              (|makeByteWordVec2| 99
+              (|makeByteWordVec2| 97
                                   '(1 9 8 0 10 2 12 0 0 9 20 1 12 0 0 22 2 9 0
                                     0 0 24 2 9 0 0 0 25 2 9 26 0 0 27 2 9 0 0 0
                                     28 1 12 26 0 30 1 12 9 0 31 1 12 0 0 33 1
@@ -901,15 +901,15 @@
                                     2 0 26 0 0 1 1 0 26 0 1 2 0 91 82 0 1 0 0 9
                                     29 1 0 9 0 32 1 0 57 0 1 2 0 0 0 13 1 2 0 0
                                     0 63 1 2 0 95 0 0 1 1 0 0 82 1 2 0 0 0 0 1
-                                    1 0 97 0 1 2 0 99 99 0 1 1 0 98 0 1 2 0 94
-                                    94 94 1 1 0 0 82 1 2 0 0 0 0 1 3 0 90 0 0 0
-                                    1 2 0 92 0 0 1 2 0 0 0 9 21 2 0 57 0 0 59 2
-                                    0 91 82 0 1 1 0 13 0 16 2 0 60 0 0 61 1 0
-                                    17 0 18 1 0 0 0 23 2 0 0 0 0 1 1 0 0 0 1 1
-                                    0 0 9 52 1 0 8 0 88 0 0 13 14 3 0 0 0 0 0 1
-                                    2 0 26 0 0 1 2 0 9 0 9 36 2 0 0 0 0 1 2 0
-                                    26 0 0 1 2 0 0 0 13 1 2 0 0 0 63 1 0 0 0 35
-                                    0 0 0 19 2 0 26 0 0 39 1 0 0 0 51 2 0 0 0 0
-                                    37 2 0 0 0 0 50 2 0 0 13 0 1 2 0 0 9 0 54 2
-                                    0 0 0 0 55 2 0 0 63 0 1)))))
+                                    1 0 97 0 1 2 0 94 94 94 1 1 0 0 82 1 2 0 0
+                                    0 0 1 3 0 90 0 0 0 1 2 0 92 0 0 1 2 0 0 0 9
+                                    21 2 0 57 0 0 59 2 0 91 82 0 1 1 0 13 0 16
+                                    2 0 60 0 0 61 1 0 17 0 18 1 0 0 0 23 2 0 0
+                                    0 0 1 1 0 0 0 1 1 0 0 9 52 1 0 8 0 88 0 0
+                                    13 14 3 0 0 0 0 0 1 2 0 26 0 0 1 2 0 9 0 9
+                                    36 2 0 0 0 0 1 2 0 26 0 0 1 2 0 0 0 13 1 2
+                                    0 0 0 63 1 0 0 0 35 0 0 0 19 2 0 26 0 0 39
+                                    1 0 0 0 51 2 0 0 0 0 37 2 0 0 0 0 50 2 0 0
+                                    13 0 1 2 0 0 9 0 54 2 0 0 0 0 55 2 0 0 63 0
+                                    1)))))
            '|lookupComplete|)) 

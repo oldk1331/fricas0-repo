@@ -482,10 +482,10 @@
               (|Record| (|:| |mat| 84) (|:| |vec| (|Vector| 20))) (|Matrix| %)
               (|Vector| %) (|Matrix| 20) (|List| 72) (|List| 15)
               (|Mapping| 18 7 7) (|Mapping| 18 7) (|Mapping| 7 7)
-              (|PositiveInteger|) (|Union| 92 '#1="failed") (|Fraction| 20)
-              (|Union| 20 '#1#) (|Record| (|:| |mat| 5) (|:| |vec| 25))
-              (|Union| 7 '#1#) (|Mapping| 7 7 7) (|String|) (|SingleInteger|)
-              (|HashState|))
+              (|PositiveInteger|) (|SingleInteger|) (|HashState|)
+              (|Union| 94 '#1="failed") (|Fraction| 20) (|Union| 20 '#1#)
+              (|Record| (|:| |mat| 5) (|:| |vec| 25)) (|Union| 7 '#1#)
+              (|Mapping| 7 7 7) (|String|))
            '#(~= 223 |zero?| 229 |transpose| 234 |trace| 239 |symmetric?| 244
               |subtractIfCan| 249 |squareMatrix| 255 |square?| 260 |smaller?|
               265 |size?| 271 |size| 277 |scalarMatrix| 281 |sample| 286
@@ -511,8 +511,8 @@
            (CONS
             (|makeByteWordVec2| 27
                                 '(0 4 1 5 6 7 0 3 7 0 1 4 0 0 4 4 24 0 0 0 0 24
-                                  7 2 2 3 3 0 0 0 3 8 0 0 0 0 8 0 0 0 17 9 10 0
-                                  0 0 0 0 0 0 17 9 10 27 11))
+                                  7 2 2 3 3 0 0 0 3 8 0 0 0 0 8 0 0 0 8 17 9 10
+                                  0 0 0 0 0 0 0 17 9 10 27 11))
             (CONS
              '#(|SquareMatrixCategory&| |DifferentialExtension&| |Algebra&|
                 |PartialDifferentialRing&| |DifferentialRing&| NIL
@@ -522,9 +522,9 @@
                 NIL NIL NIL |NonAssociativeSemiRng&| |AbelianMonoid&| NIL
                 |MagmaWithUnit&| |Finite&| |FullyRetractableTo&|
                 |HomogeneousAggregate&| |Magma&| |AbelianSemiGroup&| NIL
-                |RetractableTo&| |Aggregate&| |SetCategory&| |Evalable&|
-                |RetractableTo&| |RetractableTo&| NIL NIL NIL NIL NIL
-                |BasicType&| NIL |InnerEvalable&| NIL NIL NIL NIL)
+                |RetractableTo&| |Aggregate&| |SetCategory&| |Hashable&|
+                |Evalable&| |RetractableTo&| |RetractableTo&| NIL NIL NIL NIL
+                NIL |BasicType&| NIL |InnerEvalable&| NIL NIL NIL NIL)
              (CONS
               '#((|SquareMatrixCategory| 6 7 (|DirectProduct| 6 7)
                                          (|DirectProduct| 6 7))
@@ -544,11 +544,11 @@
                  (|MagmaWithUnit|) (|Finite|) (|FullyRetractableTo| 7)
                  (|HomogeneousAggregate| 7) (|Magma|) (|AbelianSemiGroup|)
                  (|Comparable|) (|RetractableTo| 7) (|Aggregate|)
-                 (|SetCategory|) (|Evalable| 7) (|RetractableTo| 92)
-                 (|RetractableTo| 20) (|CoercibleTo| (|Matrix| 7))
-                 (|CoercibleFrom| 7) (|finiteAggregate|) (|Type|)
-                 (|TwoSidedRecip|) (|BasicType|) (|CoercibleTo| 32)
-                 (|InnerEvalable| 7 7) (|CoercibleFrom| 92)
+                 (|SetCategory|) (|Hashable|) (|Evalable| 7)
+                 (|RetractableTo| 94) (|RetractableTo| 20)
+                 (|CoercibleTo| (|Matrix| 7)) (|CoercibleFrom| 7)
+                 (|finiteAggregate|) (|Type|) (|TwoSidedRecip|) (|BasicType|)
+                 (|CoercibleTo| 32) (|InnerEvalable| 7 7) (|CoercibleFrom| 94)
                  (|CoercibleFrom| 20) (|ConvertibleTo| 73) (|unitsKnown|))
               (|makeByteWordVec2| 99
                                   '(0 7 0 8 0 7 0 12 0 0 0 14 0 7 15 16 0 0 15
@@ -568,20 +568,20 @@
                                     41 1 0 18 0 1 2 8 18 0 0 1 2 0 18 0 15 1 0
                                     8 15 1 1 0 0 7 9 0 0 0 1 1 12 0 0 54 2 0 27
                                     0 20 29 1 3 65 0 1 2 3 0 0 15 1 2 0 0 0 90
-                                    1 1 9 91 0 1 1 10 93 0 1 1 0 95 0 1 1 9 92
+                                    1 1 9 93 0 1 1 10 95 0 1 1 0 97 0 1 1 9 94
                                     0 1 1 10 20 0 1 1 0 7 0 1 2 23 81 82 83 1 1
-                                    23 84 82 1 1 4 5 82 1 2 4 94 82 83 1 1 3 65
+                                    23 84 82 1 1 4 5 82 1 2 4 96 82 83 1 1 3 65
                                     0 67 1 13 15 0 60 0 8 0 1 3 0 7 0 20 20 1 1
                                     29 36 0 1 2 0 18 0 0 1 1 3 18 0 1 1 13 15 0
                                     62 1 13 57 0 64 1 0 15 0 1 1 0 15 0 1 2 0
                                     18 0 15 1 1 1 7 0 50 1 0 20 0 1 1 0 20 0 1
                                     1 30 7 0 1 1 29 36 0 1 2 31 18 7 0 1 1 0 20
                                     0 1 1 0 20 0 1 1 30 7 0 1 2 29 7 87 0 1 1 0
-                                    0 23 24 2 28 0 89 0 1 2 0 0 89 0 1 3 0 0 96
+                                    0 23 24 2 28 0 89 0 1 2 0 0 89 0 1 3 0 0 98
                                     0 0 1 1 8 90 0 1 1 0 23 0 1 2 0 18 0 15 1 1
-                                    3 65 0 1 2 3 0 0 15 1 2 0 0 0 90 1 1 0 97 0
-                                    1 1 18 65 0 69 1 8 0 90 1 2 0 99 99 0 1 1 0
-                                    98 0 1 2 13 65 0 7 1 2 29 18 88 0 1 3 16 0
+                                    3 65 0 1 2 3 0 0 15 1 2 0 0 0 90 1 1 0 99 0
+                                    1 1 18 65 0 69 1 8 0 90 1 2 8 92 92 0 1 1 8
+                                    91 0 1 2 13 65 0 7 1 2 29 18 88 0 1 3 16 0
                                     0 36 36 1 2 16 0 0 79 1 3 16 0 0 7 7 1 2 16
                                     0 0 80 1 2 0 18 0 0 1 0 8 76 1 1 0 18 0 1 0
                                     0 0 1 3 0 7 0 20 20 1 4 0 7 0 20 20 7 1 2
@@ -591,7 +591,7 @@
                                     0 36 38 1 0 18 0 1 1 0 27 0 1 1 1 7 0 48 2
                                     31 15 7 0 1 2 29 15 88 0 1 1 0 0 0 1 1 26
                                     73 0 78 2 4 0 0 0 1 1 12 57 0 58 2 0 27 0
-                                    20 31 1 21 0 20 1 1 9 0 92 1 1 0 5 0 40 1 0
+                                    20 31 1 21 0 20 1 1 9 0 94 1 1 0 5 0 40 1 0
                                     0 7 1 1 0 32 0 34 0 4 15 17 3 4 0 0 0 0 1 2
                                     29 18 88 0 1 1 0 18 0 1 2 0 0 0 0 1 2 4 18
                                     0 0 1 2 18 0 0 20 71 2 3 0 0 15 1 2 0 0 0

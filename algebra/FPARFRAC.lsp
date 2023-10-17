@@ -501,7 +501,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|FullPartialFractionExpansion| DV$1 DV$2))
-          (LETT % (GETREFV 132))
+          (LETT % (GETREFV 130))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FullPartialFractionExpansion|
@@ -568,17 +568,17 @@
               (364 . |empty|) (368 . |coerce|) (373 . /)
               (|SparseUnivariatePolynomial| 6) (379 . |makeSUP|)
               (384 . |outputForm|) (390 . -) (396 . =) (402 . |sum|) (408 . ^)
-              (|HashState|) (|String|) (|SingleInteger|))
-           '#(~= 414 |polyPart| 420 |latex| 425 |hashUpdate!| 430 |hash| 436
-              |fullPartialFraction| 441 |fracPart| 446 |differentiate| 451
-              |convert| 462 |construct| 467 |coerce| 472 D 477 = 488 + 494)
+              (|String|))
+           '#(~= 414 |polyPart| 420 |latex| 425 |fullPartialFraction| 430
+              |fracPart| 435 |differentiate| 440 |convert| 451 |construct| 456
+              |coerce| 461 D 466 = 477 + 483)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|)
                            (|ConvertibleTo| (|Fraction| 7)) (|CoercibleTo| 18))
-                        (|makeByteWordVec2| 131
+                        (|makeByteWordVec2| 129
                                             '(0 9 0 10 0 6 0 12 0 7 0 13 2 15 0
                                               9 14 16 1 9 18 0 19 0 6 0 21 0 7
                                               0 22 2 7 0 6 14 23 1 7 18 0 25 1
@@ -610,11 +610,10 @@
                                               7 122 0 123 2 122 18 0 18 124 2
                                               18 0 0 0 125 2 18 0 0 0 126 2 18
                                               0 0 0 127 2 18 0 0 0 128 2 0 115
-                                              0 0 1 1 0 7 0 36 1 0 130 0 1 2 0
-                                              129 129 0 1 1 0 131 0 1 1 0 0 43
-                                              85 1 0 30 0 37 2 0 0 0 14 34 1 0
-                                              0 0 32 1 0 43 0 46 1 0 0 30 31 1
-                                              0 18 0 118 2 0 0 0 14 35 1 0 0 0
-                                              33 2 0 115 0 0 1 2 0 0 7 0
+                                              0 0 1 1 0 7 0 36 1 0 129 0 1 1 0
+                                              0 43 85 1 0 30 0 37 2 0 0 0 14 34
+                                              1 0 0 0 32 1 0 43 0 46 1 0 0 30
+                                              31 1 0 18 0 118 2 0 0 0 14 35 1 0
+                                              0 0 33 2 0 115 0 0 1 2 0 0 7 0
                                               39)))))
            '|lookupComplete|)) 

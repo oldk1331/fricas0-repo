@@ -1092,7 +1092,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|JetBundleLinearFunction| DV$1 DV$2))
-          (LETT % (GETREFV 154))
+          (LETT % (GETREFV 152))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3
                     (LETT |pv$|
@@ -1189,8 +1189,7 @@
               (|Union| 6 '"failed")
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
-              (|List| 24) (|SparseUnivariatePolynomial| %) (|HashState|)
-              (|String|) (|SingleInteger|))
+              (|SparseUnivariatePolynomial| %) (|List| 24) (|String|))
            '#(~= 404 |zero?| 410 |unitNormal| 415 |unitCanonical| 420 |unit?|
               425 |symbol| 430 |subtractIfCan| 435 |subst| 441 |sortLD| 448
               |solveFor| 453 |simplify| 459 |simpOne| 465 |simpMod| 470
@@ -1199,15 +1198,15 @@
               |orderDim| 550 |order| 557 |opposite?| 562 |one?| 568 |numerator|
               573 |numIndVar| 578 |numDepVar| 582 |leftRecip| 586 |leftPower|
               591 |leadingDer| 603 |lcmCoef| 608 |lcm| 614 |latex| 625
-              |jetVariables| 630 |jacobiMatrix| 635 |hashUpdate!| 646 |hash|
-              652 |ground?| 657 |ground| 662 |getNotation| 667 |gcdPolynomial|
-              671 |gcd| 677 |freeOf?| 688 |formalDiff2| 694 |formalDiff| 708
-              |extractSymbol| 726 |exquo| 731 |dimension| 737 |differentiate|
-              744 |denominator| 776 |dSubst| 781 |const?| 788 |commutator| 793
-              |coerce| 799 |class| 834 |characteristic| 839 |autoReduce| 843
-              |associator| 848 |associates?| 855 |antiCommutator| 861
-              |annihilate?| 867 ^ 873 |Zero| 885 X 889 U 898 P 907 |One| 929 =
-              933 - 939 + 950 * 956 |#2| 992)
+              |jetVariables| 630 |jacobiMatrix| 635 |ground?| 646 |ground| 651
+              |getNotation| 656 |gcdPolynomial| 660 |gcd| 666 |freeOf?| 677
+              |formalDiff2| 683 |formalDiff| 697 |extractSymbol| 715 |exquo|
+              720 |dimension| 726 |differentiate| 733 |denominator| 765
+              |dSubst| 770 |const?| 777 |commutator| 782 |coerce| 788 |class|
+              823 |characteristic| 828 |autoReduce| 832 |associator| 837
+              |associates?| 844 |antiCommutator| 850 |annihilate?| 856 ^ 862
+              |Zero| 874 X 878 U 887 P 896 |One| 918 = 922 - 928 + 939 * 945
+              |#2| 981)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -1237,7 +1236,7 @@
                  (|CoercibleFrom| 6) (|noZeroDivisors|) (|TwoSidedRecip|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 14)
                  (|lazyRepresentation|))
-              (|makeByteWordVec2| 153
+              (|makeByteWordVec2| 151
                                   '(0 6 9 10 1 7 12 0 13 1 6 14 0 15 1 6 12 0
                                     16 1 7 14 0 17 2 14 0 0 0 18 1 20 14 0 21 2
                                     14 0 0 0 22 1 6 24 0 25 1 7 0 6 27 0 6 0 28
@@ -1273,26 +1272,25 @@
                                     2 0 12 0 0 1 1 0 12 0 1 1 0 0 0 62 0 0 9 1
                                     0 0 9 1 1 0 64 0 1 2 0 0 0 20 1 2 0 0 0 9 1
                                     1 0 6 0 117 2 0 148 0 0 1 1 0 0 42 1 2 0 0
-                                    0 0 1 1 0 152 0 1 1 0 46 0 97 2 0 108 42
-                                    115 116 1 0 108 42 109 2 0 151 151 0 1 1 0
-                                    153 0 1 1 0 12 0 55 1 0 0 0 58 0 0 24 1 2 0
-                                    150 150 150 1 1 0 0 42 1 2 0 0 0 0 93 2 0
-                                    12 0 6 123 3 0 143 0 9 108 1 3 0 144 42 9
-                                    108 1 2 0 42 42 9 1 2 0 0 0 9 1 2 0 0 0 145
-                                    1 1 0 108 108 1 2 0 64 0 0 91 3 0 20 42 108
-                                    20 1 2 0 0 0 6 103 3 0 0 0 24 20 1 3 0 0 0
-                                    149 145 1 2 0 0 0 24 99 2 0 0 0 149 1 1 0 0
-                                    0 63 3 0 0 0 6 0 1 1 0 12 0 1 2 0 0 0 0 1 1
-                                    0 34 42 54 1 0 42 34 43 1 0 0 7 33 1 0 0 6
-                                    30 1 0 0 0 1 1 0 0 37 1 1 0 14 0 23 1 0 20
-                                    0 1 0 0 20 1 1 0 42 42 1 3 0 0 0 0 0 1 2 0
-                                    12 0 0 1 2 0 0 0 0 1 2 0 12 0 0 1 2 0 0 0
-                                    20 1 2 0 0 0 9 1 0 0 0 32 0 0 0 1 1 0 0 9 1
-                                    0 0 0 1 1 0 0 9 1 1 0 0 20 1 1 0 0 145 1 2
-                                    0 0 9 20 1 2 0 0 9 145 1 0 0 0 26 2 0 12 0
-                                    0 72 2 0 0 0 0 71 1 0 0 0 74 2 0 0 0 0 81 2
-                                    0 0 0 7 1 2 0 0 7 0 85 2 0 0 20 0 1 2 0 0
-                                    37 0 83 2 0 0 0 0 87 2 0 0 9 0 1 3 0 0 0
-                                    149 145 1 3 0 0 0 24 20 1 2 0 0 0 24 1 2 0
-                                    0 0 149 1)))))
+                                    0 0 1 1 0 151 0 1 1 0 46 0 97 2 0 108 42
+                                    115 116 1 0 108 42 109 1 0 12 0 55 1 0 0 0
+                                    58 0 0 24 1 2 0 149 149 149 1 1 0 0 42 1 2
+                                    0 0 0 0 93 2 0 12 0 6 123 3 0 143 0 9 108 1
+                                    3 0 144 42 9 108 1 2 0 42 42 9 1 2 0 0 0 9
+                                    1 2 0 0 0 145 1 1 0 108 108 1 2 0 64 0 0 91
+                                    3 0 20 42 108 20 1 2 0 0 0 6 103 3 0 0 0 24
+                                    20 1 3 0 0 0 150 145 1 2 0 0 0 150 1 2 0 0
+                                    0 24 99 1 0 0 0 63 3 0 0 0 6 0 1 1 0 12 0 1
+                                    2 0 0 0 0 1 1 0 34 42 54 1 0 42 34 43 1 0 0
+                                    7 33 1 0 0 6 30 1 0 0 0 1 1 0 0 37 1 1 0 14
+                                    0 23 1 0 20 0 1 0 0 20 1 1 0 42 42 1 3 0 0
+                                    0 0 0 1 2 0 12 0 0 1 2 0 0 0 0 1 2 0 12 0 0
+                                    1 2 0 0 0 20 1 2 0 0 0 9 1 0 0 0 32 0 0 0 1
+                                    1 0 0 9 1 0 0 0 1 1 0 0 9 1 2 0 0 9 20 1 1
+                                    0 0 20 1 1 0 0 145 1 2 0 0 9 145 1 0 0 0 26
+                                    2 0 12 0 0 72 1 0 0 0 74 2 0 0 0 0 71 2 0 0
+                                    0 0 81 2 0 0 0 7 1 2 0 0 7 0 85 2 0 0 20 0
+                                    1 2 0 0 37 0 83 2 0 0 0 0 87 2 0 0 9 0 1 3
+                                    0 0 0 24 20 1 3 0 0 0 150 145 1 2 0 0 0 24
+                                    1 2 0 0 0 150 1)))))
            '|lookupComplete|)) 

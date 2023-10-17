@@ -37,7 +37,7 @@
         ((|x| (%)) (|i| (|Integer|)) (|s| (S)) (% (S))) (QSETAREF1 |x| |i| |s|)) 
 
 (SDEFUN |PRIMARR;fill!;%S%;9| ((|x| (%)) (|s| (S)) (% (%)))
-        (SPROG ((#1=#:G1895 NIL) (|i| NIL))
+        (SPROG ((#1=#:G1897 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -47,7 +47,7 @@
 
 (SDEFUN |PRIMARR;hashUpdate!;Hs%Hs;10|
         ((|s| (|HashState|)) (|x| (%)) (% (|HashState|)))
-        (SPROG ((#1=#:G1900 NIL) (|i| NIL))
+        (SPROG ((#1=#:G1902 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (QVMAXINDEX |x|)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -60,9 +60,9 @@
 
 (DECLAIM (NOTINLINE |PrimitiveArray;|)) 
 
-(DEFUN |PrimitiveArray| (#1=#:G1911)
+(DEFUN |PrimitiveArray| (#1=#:G1913)
   (SPROG NIL
-         (PROG (#2=#:G1912)
+         (PROG (#2=#:G1914)
            (RETURN
             (COND
              ((LETT #2#
@@ -79,7 +79,7 @@
 
 (DEFUN |PrimitiveArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G1908 NIL) (#2=#:G1909 NIL) (#3=#:G1910 NIL) (% NIL)
+   ((|pv$| NIL) (#1=#:G1910 NIL) (#2=#:G1911 NIL) (#3=#:G1912 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -91,6 +91,7 @@
                     (|buildPredVector| 0 0
                                        (LIST
                                         (|HasCategory| |#1| '(|OrderedSet|))
+                                        (|HasCategory| |#1| '(|Hashable|))
                                         (|HasCategory| |#1|
                                                        '(|ConvertibleTo|
                                                          (|InputForm|)))
@@ -112,12 +113,13 @@
                                                               (|devaluate|
                                                                |#1|)))
                                          #2#)
-                                        (OR (|HasCategory| |#1| '(|BasicType|))
-                                            #3#
+                                        (OR #3#
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
                                             #2#)
-                                        (OR #3#
+                                        (OR (|HasCategory| |#1| '(|BasicType|))
+                                            #3#
+                                            (|HasCategory| |#1| '(|Hashable|))
                                             (|HasCategory| |#1|
                                                            '(|OrderedSet|))
                                             #2#)
@@ -132,45 +134,51 @@
     (|haddProp| |$ConstructorCache| '|PrimitiveArray| (LIST DV$1) (CONS 1 %))
     (|stuffDomainSlots| %)
     (QSETREFV % 6 |#1|)
-    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 4096))
-    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 8192))
+    (AND (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 8192))
+    (AND (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 16384))
     (AND (|HasCategory| |#1| '(|BasicType|))
-         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 16384))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 32768))
     (AND (|HasCategory| % '(|finiteAggregate|))
-         (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 32768))
-    (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| % '(|finiteAggregate|))
          (|HasCategory| % '(|shallowlyMutable|)) (|augmentPredVector| % 65536))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
-         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 131072))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|HasCategory| % '(|shallowlyMutable|))
+         (|augmentPredVector| % 131072))
+    (AND (|HasCategory| |#1| '(|OrderedSet|))
+         (|HasCategory| % '(|finiteAggregate|)) (|augmentPredVector| % 262144))
     (AND
      (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
               (|HasCategory| % '(|finiteAggregate|))))
-     (|augmentPredVector| % 262144))
+     (|augmentPredVector| % 524288))
     (AND
      (OR (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
               (|HasCategory| % '(|finiteAggregate|)))
          #2#)
-     (|augmentPredVector| % 524288))
+     (|augmentPredVector| % 1048576))
     (AND
      (OR #1# (AND #3# (|HasCategory| % '(|finiteAggregate|)))
          (AND (|HasCategory| |#1| '(|OrderedSet|))
               (|HasCategory| % '(|finiteAggregate|))))
-     (|augmentPredVector| % 1048576))
+     (|augmentPredVector| % 2097152))
+    (AND (|HasCategory| |#1| '(|Hashable|))
+         (|HasCategory| % '(|finiteAggregate|))
+         (|augmentPredVector| % 4194304))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
            (|HasCategory| % '(|finiteAggregate|)))
       (AND #3# (|HasCategory| % '(|finiteAggregate|)))
+      (AND (|HasCategory| |#1| '(|Hashable|))
+           (|HasCategory| % '(|finiteAggregate|)))
       (AND (|HasCategory| |#1| '(|OrderedSet|))
            (|HasCategory| % '(|finiteAggregate|)))
       #2#)
-     (|augmentPredVector| % 2097152))
+     (|augmentPredVector| % 8388608))
     (SETF |pv$| (QREFELT % 3))
     (COND
-     ((|testBitVector| |pv$| 7)
+     ((|testBitVector| |pv$| 2)
       (QSETREFV % 20
                 (CONS (|dispatchFunction| |PRIMARR;hashUpdate!;Hs%Hs;10|) %))))
     %))) 
@@ -183,8 +191,8 @@
               |PRIMARR;elt;%IS;6| |PRIMARR;qsetelt!;%I2S;7|
               |PRIMARR;setelt!;%I2S;8| |PRIMARR;fill!;%S%;9| (|HashState|)
               (0 . |hashUpdate!|) (6 . |hashUpdate!|) (|Mapping| 23 6 6)
-              (|Mapping| 6 6 6) (|Boolean|) (|List| 6) (|List| 26)
-              (|Equation| 6) (|OutputForm|) (|SingleInteger|) (|String|)
+              (|Mapping| 6 6 6) (|Boolean|) (|SingleInteger|) (|List| 6)
+              (|List| 27) (|Equation| 6) (|OutputForm|) (|String|)
               (|Mapping| 23 6) (|UniversalSegment| 9) (|Void|) (|Mapping| 6 6)
               (|InputForm|) (|List| %) (|Union| 6 '"failed") (|List| 9))
            '#(~= 12 |trim| 18 |swap!| 24 |sorted?| 31 |sort!| 42 |sort| 53
@@ -202,52 +210,53 @@
               511 >= 517 > 523 = 529 <= 535 < 541 |#| 547)
            'NIL
            (CONS
-            (|makeByteWordVec2| 12
-                                '(0 0 0 0 0 1 0 6 0 0 8 10 0 0 0 0 0 8 9 12 1
-                                  2))
+            (|makeByteWordVec2| 13
+                                '(0 0 0 0 0 1 0 7 0 0 9 10 2 0 0 0 0 0 9 13 1
+                                  11 3))
             (CONS
              '#(|OneDimensionalArrayAggregate&| NIL |LinearAggregate&|
                 |IndexedAggregate&| |Collection&| |OrderedSet&|
                 |HomogeneousAggregate&| NIL |Aggregate&| |EltableAggregate&|
-                |Evalable&| |SetCategory&| NIL NIL NIL NIL NIL |InnerEvalable&|
-                |BasicType&| NIL |PartialOrder&| NIL)
+                |Evalable&| |SetCategory&| |Hashable&| NIL NIL NIL NIL NIL
+                |InnerEvalable&| NIL |PartialOrder&| |BasicType&| NIL)
              (CONS
               '#((|OneDimensionalArrayAggregate| 6) (|FiniteLinearAggregate| 6)
                  (|LinearAggregate| 6) (|IndexedAggregate| 9 6)
                  (|Collection| 6) (|OrderedSet|) (|HomogeneousAggregate| 6)
                  (|Comparable|) (|Aggregate|) (|EltableAggregate| 9 6)
-                 (|Evalable| 6) (|SetCategory|) (|shallowlyMutable|)
-                 (|finiteAggregate|) (|Eltable| 31 $$) (|Type|) (|Eltable| 9 6)
-                 (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 27)
-                 (|PartialOrder|) (|ConvertibleTo| 34))
+                 (|Evalable| 6) (|SetCategory|) (|Hashable|)
+                 (|shallowlyMutable|) (|finiteAggregate|) (|Eltable| 31 $$)
+                 (|Type|) (|Eltable| 9 6) (|InnerEvalable| 6 6)
+                 (|CoercibleTo| 28) (|PartialOrder|) (|BasicType|)
+                 (|ConvertibleTo| 34))
               (|makeByteWordVec2| 37
-                                  '(2 6 18 18 0 19 2 0 18 18 0 20 2 22 23 0 0 1
-                                    2 15 0 0 6 1 3 13 32 0 9 9 1 1 18 23 0 1 2
-                                    14 23 21 0 1 1 17 0 0 1 2 16 0 21 0 1 1 18
-                                    0 0 1 2 14 0 21 0 1 2 19 23 0 0 1 2 0 23 0
-                                    7 1 3 13 6 0 31 6 1 3 13 6 0 9 6 16 2 14 0
-                                    30 0 1 0 0 0 1 2 15 0 0 6 1 1 16 0 0 1 1 14
-                                    0 0 1 1 15 0 0 1 2 15 0 6 0 1 2 14 0 30 0 1
-                                    4 15 6 22 0 6 6 1 2 14 6 22 0 1 3 14 6 22 0
-                                    6 1 3 13 6 0 9 6 15 2 0 6 0 9 13 2 15 9 6 0
-                                    1 3 15 9 6 0 9 1 2 14 9 30 0 1 1 14 24 0 1
-                                    2 0 0 7 6 12 2 0 23 0 7 1 1 3 9 0 10 2 18 0
-                                    0 0 1 1 18 6 0 1 2 18 0 0 0 1 3 14 0 21 0 0
-                                    1 1 14 24 0 1 2 15 23 6 0 1 1 3 9 0 1 2 18
-                                    0 0 0 1 1 18 6 0 1 2 14 6 21 0 1 2 13 0 33
+                                  '(2 6 18 18 0 19 2 0 18 18 0 20 2 24 23 0 0 1
+                                    2 16 0 0 6 1 3 14 32 0 9 9 1 1 19 23 0 1 2
+                                    15 23 21 0 1 1 18 0 0 1 2 17 0 21 0 1 1 19
+                                    0 0 1 2 15 0 21 0 1 2 20 23 0 0 1 2 0 23 0
+                                    7 1 3 14 6 0 31 6 1 3 14 6 0 9 6 16 2 15 0
+                                    30 0 1 0 0 0 1 2 16 0 0 6 1 1 17 0 0 1 1 15
+                                    0 0 1 1 16 0 0 1 2 16 0 6 0 1 2 15 0 30 0 1
+                                    4 16 6 22 0 6 6 1 2 15 6 22 0 1 3 15 6 22 0
+                                    6 1 3 14 6 0 9 6 15 2 0 6 0 9 13 2 16 9 6 0
+                                    1 3 16 9 6 0 9 1 2 15 9 30 0 1 1 15 25 0 1
+                                    2 0 0 7 6 12 2 0 23 0 7 1 1 4 9 0 10 2 19 0
+                                    0 0 1 1 19 6 0 1 2 19 0 0 0 1 3 15 0 21 0 0
+                                    1 1 15 25 0 1 2 16 23 6 0 1 1 4 9 0 1 2 19
+                                    0 0 0 1 1 19 6 0 1 2 15 6 21 0 1 2 14 0 33
                                     0 1 3 0 0 22 0 0 1 2 0 0 33 0 1 2 0 23 0 7
-                                    1 2 15 0 0 6 1 1 20 29 0 1 3 0 0 0 0 9 1 3
-                                    0 0 6 0 9 1 1 0 37 0 1 2 0 23 9 0 1 2 20 18
-                                    18 0 20 1 20 28 0 1 1 3 6 0 1 2 0 0 0 7 1 2
-                                    0 36 30 0 1 2 13 0 0 6 17 2 14 23 30 0 1 3
-                                    8 0 0 6 6 1 3 8 0 0 24 24 1 2 8 0 0 25 1 2
-                                    8 0 0 26 1 2 0 23 0 0 1 2 15 23 6 0 1 1 0
-                                    24 0 1 1 0 23 0 1 0 0 0 11 2 0 0 0 31 1 2 0
+                                    1 2 16 0 0 6 1 1 21 29 0 1 3 0 0 0 0 9 1 3
+                                    0 0 6 0 9 1 1 0 37 0 1 2 0 23 9 0 1 2 23 18
+                                    18 0 20 1 23 24 0 1 1 4 6 0 1 2 0 0 0 7 1 2
+                                    0 36 30 0 1 2 14 0 0 6 17 2 15 23 30 0 1 3
+                                    9 0 0 6 6 1 3 9 0 0 25 25 1 2 9 0 0 26 1 2
+                                    9 0 0 27 1 2 0 23 0 0 1 2 16 23 6 0 1 1 0
+                                    25 0 1 1 0 23 0 1 0 0 0 11 2 0 0 0 31 1 2 0
                                     6 0 9 14 3 0 6 0 9 6 1 2 0 0 0 31 1 2 0 0 0
-                                    9 1 2 15 7 6 0 1 2 14 7 30 0 1 3 16 0 0 0 9
-                                    1 1 0 0 0 1 1 2 34 0 1 1 0 0 24 1 1 0 0 35
-                                    1 2 0 0 6 0 1 2 0 0 0 0 1 2 0 0 0 6 1 1 21
-                                    27 0 1 2 14 23 30 0 1 2 18 23 0 0 1 2 18 23
-                                    0 0 1 2 22 23 0 0 1 2 18 23 0 0 1 2 18 23 0
-                                    0 1 1 14 7 0 8)))))
+                                    9 1 2 16 7 6 0 1 2 15 7 30 0 1 3 17 0 0 0 9
+                                    1 1 0 0 0 1 1 3 34 0 1 1 0 0 25 1 1 0 0 35
+                                    1 2 0 0 6 0 1 2 0 0 0 0 1 2 0 0 0 6 1 1 22
+                                    28 0 1 2 15 23 30 0 1 2 19 23 0 0 1 2 19 23
+                                    0 0 1 2 24 23 0 0 1 2 19 23 0 0 1 2 19 23 0
+                                    0 1 1 15 7 0 8)))))
            '|lookupComplete|)) 

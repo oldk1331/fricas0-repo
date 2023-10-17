@@ -865,7 +865,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|TwoDimensionalViewport|))
-          (LETT % (GETREFV 97))
+          (LETT % (GETREFV 95))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|TwoDimensionalViewport| NIL
@@ -946,21 +946,20 @@
               |VIEW2D;write;%3S;35| (124 . |viewWriteDefault|)
               |VIEW2D;write;%2S;36| (128 . |viewWriteAvailable|)
               (132 . |upperCase|) (137 . |position|) (143 . |say|)
-              (|List| (|Point| 42)) (|SingleInteger|) (|HashState|))
+              (|List| (|Point| 42)))
            '#(~= 148 |write| 154 |viewport2D| 174 |update| 178 |units| 185
               |translate| 199 |title| 207 |show| 213 |scale| 220 |resize| 228
               |reset| 235 |region| 240 |putGraph| 247 |points| 254 |options|
               261 |move| 272 |makeViewport2D| 279 |latex| 290 |key| 295
-              |hashUpdate!| 300 |hash| 306 |graphs| 311 |graphStates| 316
-              |graphState| 321 |getPickedPoints| 339 |getGraph| 344
-              |dimensions| 350 |controlPanel| 359 |connect| 365 |coerce| 372
-              |close| 377 |axes| 382 = 396)
+              |graphs| 300 |graphStates| 305 |graphState| 310 |getPickedPoints|
+              328 |getGraph| 333 |dimensions| 339 |controlPanel| 348 |connect|
+              354 |coerce| 361 |close| 366 |axes| 371 = 385)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 79))
-                        (|makeByteWordVec2| 96
+                        (|makeByteWordVec2| 94
                                             '(0 8 7 9 0 8 7 10 2 14 12 13 12 15
                                               3 20 18 0 19 18 21 2 20 18 0 19
                                               26 2 19 35 0 0 36 1 23 19 0 38 0
@@ -975,23 +974,22 @@
                                               0 92 1 58 22 85 93 2 0 35 0 0 1 3
                                               0 12 0 12 12 87 3 0 12 0 12 85 86
                                               2 0 12 0 12 89 0 0 0 54 3 0 22 0
-                                              23 24 40 3 0 22 0 24 12 71 3 0 22
-                                              0 24 7 72 4 0 22 0 24 43 43 46 2
+                                              23 24 40 3 0 22 0 24 7 72 3 0 22
+                                              0 24 12 71 4 0 22 0 24 43 43 46 2
                                               0 22 0 12 67 3 0 22 0 24 12 76 4
                                               0 22 0 24 43 43 47 3 0 22 0 24 24
                                               41 1 0 22 0 68 3 0 22 0 24 12 75
                                               3 0 22 0 23 24 25 3 0 22 0 24 12
                                               74 2 0 0 0 13 17 1 0 13 0 16 3 0
                                               22 0 33 33 37 2 0 0 23 13 55 1 0
-                                              0 0 56 1 0 12 0 1 1 0 19 0 32 2 0
-                                              96 96 0 1 1 0 95 0 1 1 0 20 0 31
-                                              1 0 29 0 30 14 0 22 0 24 42 42 42
-                                              42 19 19 19 19 7 19 7 19 66 1 0
-                                              94 0 1 2 0 23 0 24 27 5 0 22 0 33
-                                              33 24 24 34 2 0 22 0 12 77 3 0 22
-                                              0 24 12 73 1 0 79 0 84 1 0 22 0
-                                              78 3 0 22 0 24 12 69 3 0 22 0 24
-                                              7 70 2 0 35 0 0 1)))))
+                                              0 0 56 1 0 12 0 1 1 0 19 0 32 1 0
+                                              20 0 31 1 0 29 0 30 14 0 22 0 24
+                                              42 42 42 42 19 19 19 19 7 19 7 19
+                                              66 1 0 94 0 1 2 0 23 0 24 27 5 0
+                                              22 0 33 33 24 24 34 2 0 22 0 12
+                                              77 3 0 22 0 24 12 73 1 0 79 0 84
+                                              1 0 22 0 78 3 0 22 0 24 7 70 3 0
+                                              22 0 24 12 69 2 0 35 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TwoDimensionalViewport| 'NILADIC T) 

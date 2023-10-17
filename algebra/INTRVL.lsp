@@ -1079,7 +1079,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Interval| DV$1))
-          (LETT % (GETREFV 155))
+          (LETT % (GETREFV 153))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|Interval| (LIST DV$1) (CONS 1 %))
@@ -1141,7 +1141,7 @@
               (|SparseUnivariatePolynomial| %)
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|HashState|) (|String|) (|SingleInteger|))
+              (|String|))
            '#(~= 361 |zero?| 367 |width| 372 |unitNormal| 377 |unitCanonical|
               382 |unit?| 387 |tanh| 392 |tan| 397 |sup| 402 |subtractIfCan|
               407 |sqrt| 413 |smaller?| 418 |sinh| 424 |sin| 429 |sech| 434
@@ -1150,15 +1150,14 @@
               |positive?| 486 |pi| 491 |opposite?| 495 |one?| 501 |nthRoot| 506
               |negative?| 512 |min| 517 |max| 523 |log| 529 |leftRecip| 534
               |leftPower| 539 |lcmCoef| 551 |lcm| 557 |latex| 568 |interval|
-              573 |inf| 589 |hashUpdate!| 594 |hash| 600 |gcdPolynomial| 605
-              |gcd| 611 |exquo| 622 |exp| 628 |csch| 633 |csc| 638 |coth| 643
-              |cot| 648 |cosh| 653 |cos| 658 |contains?| 663 |commutator| 669
-              |coerce| 675 |characteristic| 690 |atanh| 694 |atan| 699
-              |associator| 704 |associates?| 711 |asinh| 717 |asin| 722 |asech|
-              727 |asec| 732 |antiCommutator| 737 |annihilate?| 743 |acsch| 749
-              |acsc| 754 |acoth| 759 |acot| 764 |acosh| 769 |acos| 774 ^ 779
-              |Zero| 803 |One| 807 >= 811 > 817 = 823 <= 829 < 835 - 841 + 852
-              * 858)
+              573 |inf| 589 |gcdPolynomial| 594 |gcd| 600 |exquo| 611 |exp| 617
+              |csch| 622 |csc| 627 |coth| 632 |cot| 637 |cosh| 642 |cos| 647
+              |contains?| 652 |commutator| 658 |coerce| 664 |characteristic|
+              679 |atanh| 683 |atan| 688 |associator| 693 |associates?| 700
+              |asinh| 706 |asin| 711 |asech| 716 |asec| 721 |antiCommutator|
+              726 |annihilate?| 732 |acsch| 738 |acsc| 743 |acoth| 748 |acot|
+              753 |acosh| 758 |acos| 763 ^ 768 |Zero| 792 |One| 796 >= 800 >
+              806 = 812 <= 818 < 824 - 830 + 841 * 847)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -1197,7 +1196,7 @@
                  (|TrigonometricFunctionCategory|) (|PartialOrder|)
                  (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 81))
-              (|makeByteWordVec2| 154
+              (|makeByteWordVec2| 152
                                   '(1 6 8 0 9 0 6 10 11 1 6 12 0 13 1 6 12 0 14
                                     0 6 0 16 2 6 0 12 12 17 0 6 10 18 2 6 8 0 0
                                     19 1 6 8 0 22 1 6 23 0 24 2 6 0 0 0 29 2 6
@@ -1227,22 +1226,21 @@
                                     34 0 0 0 89 2 0 8 0 0 1 1 0 8 0 44 2 0 0 0
                                     12 1 1 0 8 0 35 2 0 0 0 0 1 2 0 0 0 0 1 1 0
                                     0 0 91 1 0 61 0 1 2 0 0 0 86 1 2 0 0 0 10 1
-                                    2 0 150 0 0 1 1 0 0 83 1 2 0 0 0 0 1 1 0
-                                    153 0 1 1 0 0 68 77 1 0 0 6 25 2 0 0 6 6 20
-                                    1 0 6 0 27 2 0 152 152 0 1 1 0 154 0 1 2 0
-                                    149 149 149 1 1 0 0 83 1 2 0 0 0 0 65 2 0
-                                    61 0 0 64 1 0 0 0 93 1 0 0 0 132 1 0 0 0
-                                    104 1 0 0 0 134 1 0 0 0 108 1 0 0 0 130 1 0
-                                    0 0 100 2 0 8 0 6 32 2 0 0 0 0 1 1 0 0 12
-                                    67 1 0 0 0 1 1 0 81 0 85 0 0 86 87 1 0 0 0
-                                    146 1 0 0 0 114 3 0 0 0 0 0 1 2 0 8 0 0 1 1
-                                    0 0 0 144 1 0 0 0 110 1 0 0 0 142 1 0 0 0
-                                    122 2 0 0 0 0 1 2 0 8 0 0 1 1 0 0 0 140 1 0
-                                    0 0 120 1 0 0 0 138 1 0 0 0 116 1 0 0 0 136
-                                    1 0 0 0 112 2 0 0 0 68 148 2 0 0 0 0 95 2 0
-                                    0 0 86 1 2 0 0 0 10 55 0 0 0 21 0 0 0 15 2
-                                    0 8 0 0 1 2 0 8 0 0 1 2 0 8 0 0 38 2 0 8 0
-                                    0 1 2 0 8 0 0 36 1 0 0 0 42 2 0 0 0 0 43 2
-                                    0 0 0 0 41 2 0 0 86 0 1 2 0 0 12 0 51 2 0 0
-                                    0 0 49 2 0 0 10 0 52)))))
+                                    2 0 150 0 0 1 2 0 0 0 0 1 1 0 0 83 1 1 0
+                                    152 0 1 1 0 0 68 77 1 0 0 6 25 2 0 0 6 6 20
+                                    1 0 6 0 27 2 0 149 149 149 1 1 0 0 83 1 2 0
+                                    0 0 0 65 2 0 61 0 0 64 1 0 0 0 93 1 0 0 0
+                                    132 1 0 0 0 104 1 0 0 0 134 1 0 0 0 108 1 0
+                                    0 0 130 1 0 0 0 100 2 0 8 0 6 32 2 0 0 0 0
+                                    1 1 0 0 12 67 1 0 0 0 1 1 0 81 0 85 0 0 86
+                                    87 1 0 0 0 146 1 0 0 0 114 3 0 0 0 0 0 1 2
+                                    0 8 0 0 1 1 0 0 0 144 1 0 0 0 110 1 0 0 0
+                                    142 1 0 0 0 122 2 0 0 0 0 1 2 0 8 0 0 1 1 0
+                                    0 0 140 1 0 0 0 120 1 0 0 0 138 1 0 0 0 116
+                                    1 0 0 0 136 1 0 0 0 112 2 0 0 0 68 148 2 0
+                                    0 0 0 95 2 0 0 0 86 1 2 0 0 0 10 55 0 0 0
+                                    21 0 0 0 15 2 0 8 0 0 1 2 0 8 0 0 1 2 0 8 0
+                                    0 38 2 0 8 0 0 1 2 0 8 0 0 36 2 0 0 0 0 43
+                                    1 0 0 0 42 2 0 0 0 0 41 2 0 0 86 0 1 2 0 0
+                                    12 0 51 2 0 0 0 0 49 2 0 0 10 0 52)))))
            '|lookupComplete|)) 

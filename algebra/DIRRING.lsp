@@ -426,7 +426,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|DirichletRing| DV$1))
-          (LETT % (GETREFV 77))
+          (LETT % (GETREFV 75))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3
                     (LETT |pv$|
@@ -476,16 +476,15 @@
               (|OutputPackage|) (108 . |output|) (113 . |coerce|)
               |DIRRING;multiplicative?;%PiB;20| |DIRRING;additive?;%PiB;21|
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|HashState|) (|String|) (|SingleInteger|))
+              (|String|))
            '#(~= 118 |zeta| 124 |zero?| 128 |unitNormal| 133 |unitCanonical|
               138 |unit?| 143 |subtractIfCan| 148 |sample| 154 |rightRecip| 158
               |rightPower| 163 |recip| 175 |opposite?| 180 |one?| 186
               |multiplicative?| 191 |leftRecip| 197 |leftPower| 202 |latex| 214
-              |hashUpdate!| 219 |hash| 225 |exquo| 230 |elt| 236 |commutator|
-              242 |coerce| 248 |characteristic| 288 |associator| 292
-              |associates?| 299 |antiCommutator| 305 |annihilate?| 311
-              |additive?| 317 ^ 323 |Zero| 335 |One| 339 = 343 - 349 + 360 *
-              366)
+              |exquo| 219 |elt| 225 |commutator| 231 |coerce| 237
+              |characteristic| 277 |associator| 281 |associates?| 288
+              |antiCommutator| 294 |annihilate?| 300 |additive?| 306 ^ 312
+              |Zero| 324 |One| 328 = 332 - 338 + 349 * 355)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -511,7 +510,7 @@
                  (|SetCategory|) (|CommutativeStar|) (|Eltable| 8 6)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 27)
                  (|TwoSidedRecip|) (|noZeroDivisors|))
-              (|makeByteWordVec2| 76
+              (|makeByteWordVec2| 74
                                   '(0 6 0 14 1 17 15 16 18 2 22 20 21 15 23 2
                                     20 6 0 16 25 1 20 27 0 28 1 8 30 0 31 0 6 0
                                     32 2 6 0 0 0 35 1 6 0 0 37 2 6 0 16 0 39 2
@@ -523,15 +522,14 @@
                                     1 1 1 30 0 54 2 0 52 0 0 1 0 0 0 1 1 0 52 0
                                     1 2 0 0 0 65 1 2 0 0 0 8 1 1 0 52 0 55 2 0
                                     30 0 0 1 1 0 30 0 1 2 0 30 0 8 71 1 0 52 0
-                                    1 2 0 0 0 65 1 2 0 0 0 8 1 1 0 75 0 1 2 0
-                                    74 74 0 1 1 0 76 0 1 2 1 52 0 0 1 2 0 6 0 8
-                                    9 2 0 0 0 0 1 1 1 0 6 1 1 1 0 0 1 1 0 20 0
-                                    24 1 0 10 0 11 1 0 0 20 26 1 0 0 10 12 1 0
-                                    0 16 1 1 0 27 0 29 0 0 65 1 3 0 0 0 0 0 1 2
-                                    1 30 0 0 1 2 0 0 0 0 1 2 0 30 0 0 1 2 0 30
-                                    0 8 72 2 0 0 0 65 1 2 0 0 0 8 1 0 0 0 33 0
-                                    0 0 13 2 0 30 0 0 1 1 0 0 0 38 2 0 0 0 0 1
-                                    2 0 0 0 0 36 2 1 0 6 0 42 2 1 0 0 6 1 2 0 0
-                                    65 0 1 2 0 0 16 0 40 2 0 0 0 0 51 2 0 0 8 0
-                                    1)))))
+                                    1 2 0 0 0 65 1 2 0 0 0 8 1 1 0 74 0 1 2 1
+                                    52 0 0 1 2 0 6 0 8 9 2 0 0 0 0 1 1 1 0 6 1
+                                    1 1 0 0 1 1 0 20 0 24 1 0 10 0 11 1 0 0 20
+                                    26 1 0 0 10 12 1 0 0 16 1 1 0 27 0 29 0 0
+                                    65 1 3 0 0 0 0 0 1 2 1 30 0 0 1 2 0 0 0 0 1
+                                    2 0 30 0 0 1 2 0 30 0 8 72 2 0 0 0 65 1 2 0
+                                    0 0 8 1 0 0 0 33 0 0 0 13 2 0 30 0 0 1 1 0
+                                    0 0 38 2 0 0 0 0 1 2 0 0 0 0 36 2 1 0 6 0
+                                    42 2 1 0 0 6 1 2 0 0 65 0 1 2 0 0 16 0 40 2
+                                    0 0 0 0 51 2 0 0 8 0 1)))))
            '|lookupComplete|)) 

@@ -1405,7 +1405,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ThreeDimensionalViewport|))
-          (LETT % (GETREFV 161))
+          (LETT % (GETREFV 159))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ThreeDimensionalViewport| NIL
@@ -1551,8 +1551,7 @@
               |VIEW3D;perspective;%SV;52| |VIEW3D;showRegion;%SV;53|
               |VIEW3D;showClipRegion;%SV;54| |VIEW3D;clipSurface;%SV;55|
               |VIEW3D;eyeDistance;%FV;56| |VIEW3D;hitherPlane;%FV;57|
-              (298 . |modifyPointData|) |VIEW3D;modifyPointData;%NniPV;58|
-              (|HashState|) (|SingleInteger|))
+              (298 . |modifyPointData|) |VIEW3D;modifyPointData;%NniPV;58|)
            '#(~= 305 |zoom| 311 |write| 325 |viewport3D| 345 |viewpoint| 349
               |viewZoomDefault| 395 |viewThetaDefault| 404 |viewPhiDefault| 413
               |viewDeltaYDefault| 422 |viewDeltaXDefault| 431 |translate| 440
@@ -1560,16 +1559,16 @@
               |rotate| 476 |resize| 490 |reset| 497 |perspective| 502
               |outlineRender| 508 |options| 514 |move| 525 |modifyPointData|
               532 |makeViewport3D| 539 |lighting| 556 |latex| 564 |key| 569
-              |intensity| 574 |hitherPlane| 580 |hashUpdate!| 586 |hash| 592
-              |eyeDistance| 597 |drawStyle| 603 |dimensions| 609 |diagonals|
-              618 |controlPanel| 624 |colorDef| 630 |coerce| 637 |close| 642
-              |clipSurface| 647 |axes| 653 = 659)
+              |intensity| 574 |hitherPlane| 580 |eyeDistance| 586 |drawStyle|
+              592 |dimensions| 598 |diagonals| 607 |controlPanel| 613
+              |colorDef| 619 |coerce| 626 |close| 631 |clipSurface| 636 |axes|
+              642 = 648)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 129))
-                        (|makeByteWordVec2| 160
+                        (|makeByteWordVec2| 158
                                             '(0 7 0 8 0 7 0 9 3 7 0 10 10 11 12
                                               2 7 0 0 0 13 1 7 16 0 17 1 7 0 0
                                               19 2 26 24 25 24 27 2 26 24 25 24
@@ -1594,34 +1593,33 @@
                                               0 140 0 32 142 145 0 32 142 147 1
                                               24 0 0 148 2 142 10 24 0 149 1 52
                                               51 142 150 3 39 0 0 34 54 157 2 0
-                                              80 0 0 1 2 0 51 0 7 136 4 0 51 0
-                                              7 7 7 137 3 0 24 0 24 142 143 2 0
-                                              24 0 24 146 3 0 24 0 24 24 144 0
-                                              0 0 41 4 0 51 0 7 7 7 121 6 0 51
-                                              0 10 10 7 7 7 110 3 0 51 0 7 7
-                                              111 1 0 29 0 107 2 0 51 0 29 108
+                                              80 0 0 1 4 0 51 0 7 7 7 137 2 0
+                                              51 0 7 136 3 0 24 0 24 142 143 2
+                                              0 24 0 24 146 3 0 24 0 24 24 144
+                                              0 0 0 41 3 0 51 0 7 7 111 4 0 51
+                                              0 7 7 7 121 2 0 51 0 29 108 6 0
+                                              51 0 10 10 7 7 7 110 1 0 29 0 107
                                               6 0 51 0 7 7 7 7 7 109 0 0 7 90 1
                                               0 7 7 91 0 0 7 86 1 0 7 7 87 0 0
-                                              7 88 1 0 7 7 89 1 0 7 7 95 0 0 7
-                                              94 0 0 7 92 1 0 7 7 93 3 0 51 0 7
+                                              7 88 1 0 7 7 89 0 0 7 94 1 0 7 7
+                                              95 0 0 7 92 1 0 7 7 93 3 0 51 0 7
                                               7 138 2 0 51 0 24 122 2 0 0 0 39
                                               43 1 0 39 0 42 2 0 51 0 24 152 2
-                                              0 51 0 24 153 3 0 51 0 7 7 120 3
-                                              0 51 0 10 10 135 3 0 51 0 11 11
+                                              0 51 0 24 153 3 0 51 0 10 10 135
+                                              3 0 51 0 7 7 120 3 0 51 0 11 11
                                               128 1 0 51 0 105 2 0 51 0 24 151
-                                              2 0 51 0 24 101 1 0 25 0 44 2 0 0
-                                              0 25 45 3 0 51 0 34 34 127 3 0 51
+                                              2 0 51 0 24 101 2 0 0 0 25 45 1 0
+                                              25 0 44 3 0 51 0 34 34 127 3 0 51
                                               0 34 54 158 2 0 0 39 25 50 1 0 0
                                               0 46 2 0 0 39 24 49 4 0 51 0 7 7
                                               7 98 1 0 24 0 1 1 0 10 0 96 2 0
-                                              51 0 7 141 2 0 51 0 7 156 2 0 159
-                                              159 0 1 1 0 160 0 1 2 0 51 0 7
-                                              155 2 0 51 0 24 103 5 0 51 0 34
-                                              34 11 11 126 2 0 51 0 24 100 2 0
-                                              51 0 24 102 3 0 51 0 123 123 125
-                                              1 0 129 0 134 1 0 51 0 106 2 0 51
-                                              0 24 154 2 0 51 0 24 99 2 0 80 0
-                                              0 1)))))
+                                              51 0 7 141 2 0 51 0 7 156 2 0 51
+                                              0 7 155 2 0 51 0 24 103 5 0 51 0
+                                              34 34 11 11 126 2 0 51 0 24 100 2
+                                              0 51 0 24 102 3 0 51 0 123 123
+                                              125 1 0 129 0 134 1 0 51 0 106 2
+                                              0 51 0 24 154 2 0 51 0 24 99 2 0
+                                              80 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ThreeDimensionalViewport| 'NILADIC T) 

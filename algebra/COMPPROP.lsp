@@ -66,7 +66,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|SubSpaceComponentProperty|))
-          (LETT % (GETREFV 22))
+          (LETT % (GETREFV 20))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SubSpaceComponentProperty| NIL
@@ -84,22 +84,20 @@
               |COMPPROP;closed?;%B;1| |COMPPROP;solid?;%B;2|
               |COMPPROP;close;%2B;3| |COMPPROP;solid;%2B;4| |COMPPROP;new;%;5|
               |COMPPROP;copy;2%;6| (|String|) (|OutputForm|) (0 . |message|)
-              (|List| %) (5 . |hconcat|) |COMPPROP;coerce;%Of;7|
-              (|SingleInteger|) (|HashState|))
-           '#(~= 10 |solid?| 16 |solid| 21 |new| 27 |latex| 31 |hashUpdate!| 36
-              |hash| 42 |copy| 47 |coerce| 52 |closed?| 57 |close| 62 = 68)
+              (|List| %) (5 . |hconcat|) |COMPPROP;coerce;%Of;7|)
+           '#(~= 10 |solid?| 16 |solid| 21 |new| 27 |latex| 31 |copy| 36
+              |coerce| 41 |closed?| 46 |close| 51 = 57)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 15))
-                        (|makeByteWordVec2| 21
+                        (|makeByteWordVec2| 19
                                             '(1 15 0 14 16 1 15 0 17 18 2 0 7 0
                                               0 1 1 0 7 0 9 2 0 7 0 7 11 0 0 0
-                                              12 1 0 14 0 1 2 0 21 21 0 1 1 0
-                                              20 0 1 1 0 0 0 13 1 0 15 0 19 1 0
-                                              7 0 8 2 0 7 0 7 10 2 0 7 0 0
-                                              1)))))
+                                              12 1 0 14 0 1 1 0 0 0 13 1 0 15 0
+                                              19 1 0 7 0 8 2 0 7 0 7 10 2 0 7 0
+                                              0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|SubSpaceComponentProperty| 'NILADIC T) 

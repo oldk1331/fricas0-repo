@@ -142,14 +142,17 @@
                     (SIGNATURE |outputForm|
                      ((|OutputForm|) % (|OutputForm|))))))
           (|sae|
-           (|Join| (|MonogenicAlgebra| F (|SparseUnivariatePolynomial| F))
+           (|Join| (|MonogenicAlgebra| F #3=(|SparseUnivariatePolynomial| F))
                    (CATEGORY |package|
                     (IF (|has| F (|Field|))
                         (IF (|has| F (|PolynomialFactorizationExplicit|))
                             (ATTRIBUTE (|PolynomialFactorizationExplicit|))
                             |noBranch|)
+                        |noBranch|)
+                    (IF (|has| #3# (|Hashable|))
+                        (ATTRIBUTE (|Hashable|))
                         |noBranch|))))
-          (|lk2| (|List| #1#)) (#3=#:G157 NIL) (|k| NIL) (#4=#:G156 NIL)
+          (|lk2| (|List| #1#)) (#4=#:G157 NIL) (|k| NIL) (#5=#:G156 NIL)
           (|q| (|SparseUnivariatePolynomial| F)) (|k1| (|Kernel| F))
           (|cnp| (|SparseUnivariatePolynomial| F)) (|cn| (F))
           (|n| (|NonNegativeInteger|)))
@@ -159,7 +162,7 @@
                (COND
                 ((SPADCALL |cn| (|spadConstant| % 29) (QREFELT % 31))
                  (SPADCALL |p| 1 (QREFELT % 36)))
-                (#5='T
+                (#6='T
                  (SEQ (LETT |cnp| (SPADCALL |cn| (QREFELT % 38)))
                       (EXIT
                        (COND ((< |n| 1) (SPADCALL |cnp| NIL (QREFELT % 49)))
@@ -171,10 +174,10 @@
                                                            (QREFELT % 37))
                                                  1))
                                         (QREFELT % 49)))
-                             (#5#
+                             (#6#
                               (COND
                                ((NULL |lk|) (|EFACTOR;fpoly_factor| |p| %))
-                               (#5#
+                               (#6#
                                 (SEQ
                                  (LETT |q|
                                        (SPADCALL
@@ -184,13 +187,13 @@
                                         (QREFELT % 66)))
                                  (LETT |lk2|
                                        (PROGN
-                                        (LETT #4# NIL)
-                                        (SEQ (LETT |k| NIL) (LETT #3# |lk|)
+                                        (LETT #5# NIL)
+                                        (SEQ (LETT |k| NIL) (LETT #4# |lk|)
                                              G190
                                              (COND
-                                              ((OR (ATOM #3#)
+                                              ((OR (ATOM #4#)
                                                    (PROGN
-                                                    (LETT |k| (CAR #3#))
+                                                    (LETT |k| (CAR #4#))
                                                     NIL))
                                                (GO G191)))
                                              (SEQ
@@ -198,9 +201,9 @@
                                                (COND
                                                 ((SPADCALL |k| |k1|
                                                            (QREFELT % 67))
-                                                 (LETT #4# (CONS |k| #4#))))))
-                                             (LETT #3# (CDR #3#)) (GO G190)
-                                             G191 (EXIT (NREVERSE #4#)))))
+                                                 (LETT #5# (CONS |k| #5#))))))
+                                             (LETT #4# (CDR #4#)) (GO G190)
+                                             G191 (EXIT (NREVERSE #5#)))))
                                  (LETT |sae|
                                        (|SimpleAlgebraicExtension|
                                         (QREFELT % 7)

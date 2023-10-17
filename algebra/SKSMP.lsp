@@ -197,7 +197,7 @@
     (LETT DV$3 |#3|)
     (LETT DV$4 |#4|)
     (LETT |dv$| (LIST '|SparseMultivariateSkewPolynomial| DV$1 DV$2 DV$3 DV$4))
-    (LETT % (GETREFV 91))
+    (LETT % (GETREFV 89))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -461,8 +461,7 @@
               (|Union| 72 '#1="failed") (|Union| 70 '#1#) (|Matrix| 6)
               (|Record| (|:| |mat| 79) (|:| |vec| (|Vector| 6))) (|List| %)
               (|List| 7) (|List| 12) (|Mapping| 73 73) (|Union| 6 '#1#)
-              (|List| 6) (|List| 73) (|HashState|) (|String|)
-              (|SingleInteger|))
+              (|List| 6) (|List| 73) (|String|))
            '#(~= 180 |zero?| 186 |variables| 191 |unitNormal| 196
               |unitCanonical| 201 |unit?| 206 |totalDegreeSorted| 211
               |totalDegree| 217 |support| 228 |subtractIfCan| 233 |smaller?|
@@ -474,14 +473,14 @@
               |mapExponents| 397 |map| 403 |mainVariable| 409 |listOfTerms| 414
               |linearExtend| 419 |leftRecip| 425 |leftPower| 430 |leadingTerm|
               442 |leadingSupport| 447 |leadingMonomial| 452
-              |leadingCoefficient| 457 |latex| 462 |hashUpdate!| 467 |hash| 473
-              |ground?| 478 |ground| 483 |fmecg| 488 |exquo| 496 |degree| 508
-              |content| 525 |constructOrdered| 530 |construct| 535 |commutator|
-              540 |coerce| 546 |coefficients| 571 |coefficient| 576
-              |charthRoot| 596 |characteristic| 601 |binomThmExpt| 605
-              |associator| 612 |associates?| 619 |antiCommutator| 625
-              |annihilate?| 631 ^ 637 |Zero| 649 |One| 653 |Delta| 657 D 662 =
-              667 / 673 - 679 + 690 * 696)
+              |leadingCoefficient| 457 |latex| 462 |ground?| 467 |ground| 472
+              |fmecg| 477 |exquo| 485 |degree| 497 |content| 514
+              |constructOrdered| 519 |construct| 524 |commutator| 529 |coerce|
+              535 |coefficients| 560 |coefficient| 565 |charthRoot| 585
+              |characteristic| 590 |binomThmExpt| 594 |associator| 601
+              |associates?| 608 |antiCommutator| 614 |annihilate?| 620 ^ 626
+              |Zero| 638 |One| 642 |Delta| 646 D 651 = 656 / 662 - 668 + 679 *
+              685)
            'NIL
            (CONS
             (|makeByteWordVec2| 27
@@ -527,7 +526,7 @@
                  (|BasicType|) (|CoercibleTo| 59) (|unitsKnown|)
                  (|noZeroDivisors|) (|CoercibleFrom| 72) (|CoercibleFrom| 70)
                  (|canonicalUnitNormal|))
-              (|makeByteWordVec2| 90
+              (|makeByteWordVec2| 88
                                   '(0 0 0 10 0 6 0 11 3 0 0 0 7 12 13 1 7 15 16
                                     17 1 0 0 16 18 1 22 0 21 23 0 0 0 25 2 0 0
                                     27 0 28 2 29 6 0 6 30 1 29 0 0 31 2 22 0 21
@@ -552,20 +551,20 @@
                                     1 1 0 73 0 1 2 0 0 84 0 1 2 0 0 27 0 28 1 0
                                     37 0 38 1 0 75 0 1 2 8 6 76 0 1 1 33 15 0 1
                                     2 33 0 0 12 1 2 0 0 0 56 1 1 14 74 0 1 1 14
-                                    73 0 1 1 14 0 0 49 1 14 6 0 1 1 0 89 0 1 2
-                                    0 88 88 0 1 1 0 90 0 1 1 0 33 0 34 1 0 6 0
-                                    1 4 6 0 0 73 6 0 1 2 31 15 0 0 55 2 4 15 0
-                                    6 47 2 0 83 0 82 1 2 0 12 0 7 1 1 0 73 0 1
-                                    1 18 6 0 1 1 14 0 75 1 1 0 0 75 1 2 34 0 0
-                                    0 1 1 32 0 70 1 1 29 0 0 1 1 17 0 72 1 1 0
-                                    0 6 45 1 0 59 0 65 1 0 86 0 1 3 0 0 0 82 83
-                                    1 3 0 0 0 7 12 1 2 0 6 0 73 1 1 2 15 0 1 0
-                                    34 12 1 3 30 0 0 0 12 1 3 34 0 0 0 0 1 2 31
-                                    33 0 0 1 2 0 0 0 0 1 2 34 33 0 0 1 2 33 0 0
-                                    12 58 2 0 0 0 56 57 0 37 0 25 0 33 0 10 1
-                                    28 0 16 18 1 0 0 7 14 2 0 33 0 0 1 2 15 0 0
-                                    6 1 1 35 0 0 1 2 35 0 0 0 54 2 0 0 0 0 53 2
-                                    26 0 0 70 1 2 35 0 70 0 1 2 37 0 12 0 1 2 1
-                                    0 72 0 1 2 1 0 0 72 1 2 0 0 0 6 46 2 0 0 6
-                                    0 36 2 0 0 0 0 44 2 0 0 56 0 1)))))
+                                    73 0 1 1 14 0 0 49 1 14 6 0 1 1 0 88 0 1 1
+                                    0 33 0 34 1 0 6 0 1 4 6 0 0 73 6 0 1 2 31
+                                    15 0 0 55 2 4 15 0 6 47 2 0 83 0 82 1 2 0
+                                    12 0 7 1 1 0 73 0 1 1 18 6 0 1 1 14 0 75 1
+                                    1 0 0 75 1 2 34 0 0 0 1 1 32 0 70 1 1 29 0
+                                    0 1 1 17 0 72 1 1 0 0 6 45 1 0 59 0 65 1 0
+                                    86 0 1 3 0 0 0 82 83 1 3 0 0 0 7 12 1 2 0 6
+                                    0 73 1 1 2 15 0 1 0 34 12 1 3 30 0 0 0 12 1
+                                    3 34 0 0 0 0 1 2 31 33 0 0 1 2 0 0 0 0 1 2
+                                    34 33 0 0 1 2 33 0 0 12 58 2 0 0 0 56 57 0
+                                    37 0 25 0 33 0 10 1 28 0 16 18 1 0 0 7 14 2
+                                    0 33 0 0 1 2 15 0 0 6 1 1 35 0 0 1 2 35 0 0
+                                    0 54 2 0 0 0 0 53 2 26 0 0 70 1 2 35 0 70 0
+                                    1 2 37 0 12 0 1 2 1 0 72 0 1 2 1 0 0 72 1 2
+                                    0 0 6 0 36 2 0 0 0 6 46 2 0 0 0 0 44 2 0 0
+                                    56 0 1)))))
            '|lookupComplete|)) 

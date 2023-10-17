@@ -439,6 +439,9 @@
                                           '(|IntegralDomain|))
                                          (|HasCategory|
                                           (|Fraction| (|Polynomial| |#1|))
+                                          '(|Hashable|))
+                                         (|HasCategory|
+                                          (|Fraction| (|Polynomial| |#1|))
                                           '(|Finite|))
                                          (|HasCategory|
                                           (|Fraction| (|Polynomial| |#1|))
@@ -500,7 +503,7 @@
                  (SPADCALL (SPADCALL (ELT % 28) |v| (QREFELT % 33))
                            (QREFELT % 34)))))
      (COND
-      ((|testBitVector| |pv$| 4)
+      ((|testBitVector| |pv$| 5)
        (PROGN
         (QSETREFV % 53
                   (CONS
@@ -597,13 +600,12 @@
               |GCNAALG;generic;SV%;20| |GCNAALG;generic;V%;22|
               |GCNAALG;generic;S%;23|
               (|SparseUnivariatePolynomial| (|Polynomial| 27)) (|List| %)
-              (|PositiveInteger|) (|InputForm|) (|Boolean|)
-              (|Union| % '"failed") (|List| 29)
+              (|PositiveInteger|) (|InputForm|) (|Boolean|) (|HashState|)
+              (|SingleInteger|) (|Union| % '"failed") (|List| 29)
               (|Record| (|:| |particular| %) (|:| |basis| 103))
-              (|Union| 109 '"failed")
+              (|Union| 111 '"failed")
               (|SquareMatrix| (NRTEVAL (QREFELT % 7)) 27)
-              (|List| (|Polynomial| 27)) (|HashState|) (|OutputForm|)
-              (|SingleInteger|))
+              (|List| (|Polynomial| 27)) (|OutputForm|))
            '#(|rightRankPolynomial| 245 |rightMinimalPolynomial| 249
               |represents| 254 |leftRankPolynomial| 260 |leftMinimalPolynomial|
               264 |genericRightTraceForm| 269 |genericRightTrace| 275
@@ -615,16 +617,16 @@
               |conditionsForIdempotents| 366 |basis| 375 - 379 * 385)
            'NIL
            (CONS
-            (|makeByteWordVec2| 2
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 2 0 0 0 1
-                                  2))
+            (|makeByteWordVec2| 3
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 3 0 2 0 0 1
+                                  3))
             (CONS
              '#(|FramedNonAssociativeAlgebra&|
                 |FiniteRankNonAssociativeAlgebra&| |NonAssociativeAlgebra&|
                 |Module&| |FramedModule&| NIL |NonAssociativeRng&| NIL NIL NIL
                 |AbelianGroup&| NIL |NonAssociativeSemiRng&| |AbelianMonoid&|
                 |Finite&| |AbelianSemiGroup&| |Magma&| NIL |SetCategory&|
-                |BasicType&| NIL NIL NIL)
+                |Hashable&| |BasicType&| NIL NIL NIL)
              (CONS
               '#((|FramedNonAssociativeAlgebra| (|Fraction| (|Polynomial| 6)))
                  (|FiniteRankNonAssociativeAlgebra|
@@ -641,8 +643,8 @@
                  (|LeftModule| (|Fraction| (|Polynomial| 6))) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Finite|) (|AbelianSemiGroup|) (|Magma|)
-                 (|Comparable|) (|SetCategory|) (|BasicType|)
-                 (|CoercibleTo| 114) (|unitsKnown|) (|ConvertibleTo| 105))
+                 (|Comparable|) (|SetCategory|) (|Hashable|) (|BasicType|)
+                 (|CoercibleTo| 115) (|unitsKnown|) (|ConvertibleTo| 105))
               (|makeByteWordVec2| 101
                                   '(1 12 10 11 13 1 16 0 15 17 0 19 0 20 2 22
                                     16 0 21 23 3 19 0 0 24 25 26 1 27 0 19 28 2
@@ -658,13 +660,13 @@
                                     82 1 67 83 0 84 2 83 0 0 0 85 2 67 27 0 83
                                     86 1 27 0 0 87 1 0 27 0 88 1 0 27 0 89 2 0
                                     0 0 0 91 2 0 29 0 54 92 1 57 21 0 96 2 0 0
-                                    29 54 97 0 4 67 78 1 1 67 0 76 2 0 0 29 54
-                                    97 0 4 67 77 1 1 67 0 71 2 4 27 0 0 65 1 4
-                                    27 0 64 1 4 27 0 89 1 4 67 0 82 0 4 27 66 2
-                                    4 27 0 0 53 1 4 27 0 52 1 4 27 0 88 1 4 67
-                                    0 81 0 4 27 63 2 0 0 22 54 98 1 0 0 54 90 2
+                                    29 54 97 0 5 67 78 1 1 67 0 76 2 0 0 29 54
+                                    97 0 5 67 77 1 1 67 0 71 2 5 27 0 0 65 1 5
+                                    27 0 64 1 5 27 0 89 1 5 67 0 82 0 5 27 66 2
+                                    5 27 0 0 53 1 5 27 0 52 1 5 27 0 88 1 5 67
+                                    0 81 0 5 27 63 2 0 0 22 54 98 1 0 0 54 90 2
                                     0 0 16 54 99 1 0 0 16 101 1 0 0 22 100 0 0
                                     0 95 1 0 29 0 37 2 0 29 0 54 92 1 0 0 29 34
-                                    0 4 40 94 1 4 40 54 93 0 0 54 55 2 0 0 0 0
+                                    0 5 40 94 1 5 40 54 93 0 0 54 55 2 0 0 0 0
                                     91 2 0 0 0 0 51)))))
            '|lookupIncomplete|)) 

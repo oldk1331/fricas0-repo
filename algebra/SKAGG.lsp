@@ -32,5 +32,8 @@
                                                             T)
                                                            ((|top| (|t#1| %))
                                                             T))
-                                                         NIL NIL NIL)))))))
+                                                         '(((|Hashable|)
+                                                            (|has| |t#1|
+                                                                   (|Hashable|))))
+                                                         NIL NIL)))))))
            (SETELT #1# 0 (LIST '|StackAggregate| |t#1|))))) 

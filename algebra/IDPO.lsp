@@ -979,6 +979,9 @@
                     (|buildPredVector| 0 0
                                        (LIST
                                         (|HasCategory| |#1| '(|AbelianGroup|))
+                                        (AND (|HasCategory| |#1| '(|Hashable|))
+                                             (|HasCategory| |#2|
+                                                            '(|Hashable|)))
                                         (AND
                                          (|HasCategory| |#1|
                                                         '(|OrderedAbelianMonoidSup|))
@@ -1040,6 +1043,48 @@
                                          (AND
                                           (|HasCategory| |#1| '(|Comparable|))
                                           (|HasCategory| |#2| '(|OrderedSet|)))
+                                         (AND
+                                          (|HasCategory| |#1| '(|Hashable|))
+                                          (|HasCategory| |#2| '(|Hashable|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|OrderedAbelianMonoid|))
+                                          (|HasCategory| |#2| '(|OrderedSet|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|OrderedAbelianMonoidSup|))
+                                          (|HasCategory| |#2|
+                                                         '(|OrderedSet|))))
+                                        (OR
+                                         (|HasCategory| |#1| '(|AbelianGroup|))
+                                         (|HasCategory| |#1|
+                                                        '(|AbelianMonoid|))
+                                         (|HasCategory| |#1|
+                                                        '(|CancellationAbelianMonoid|))
+                                         (AND
+                                          (|HasCategory| |#1| '(|Comparable|))
+                                          #1#)
+                                         (AND
+                                          (|HasCategory| |#1| '(|Comparable|))
+                                          (|HasCategory| |#2| '(|OrderedSet|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|OrderedAbelianMonoid|))
+                                          (|HasCategory| |#2| '(|OrderedSet|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|OrderedAbelianMonoidSup|))
+                                          (|HasCategory| |#2|
+                                                         '(|OrderedSet|))))
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|AbelianMonoid|))
+                                         (AND
+                                          (|HasCategory| |#1| '(|Comparable|))
+                                          #1#)
+                                         (AND
+                                          (|HasCategory| |#1| '(|Hashable|))
+                                          (|HasCategory| |#2| '(|Hashable|)))
                                          (AND
                                           (|HasCategory| |#1|
                                                          '(|OrderedAbelianMonoid|))
@@ -1114,7 +1159,7 @@
        (QSETREFV % 26 (CONS (|dispatchFunction| |IDPO;monomial;AS%;7|) %))
        (QSETREFV % 28 (CONS (|dispatchFunction| |IDPO;map;M2%;8|) %)))))
     (COND
-     ((|testBitVector| |pv$| 6)
+     ((|testBitVector| |pv$| 7)
       (PROGN
        (QSETREFV % 31 (CONS (|dispatchFunction| |IDPO;=;2%B;9|) %))
        (COND
@@ -1151,8 +1196,13 @@
        (QSETREFV % 43
                  (CONS (|dispatchFunction| |IDPO;constructOrdered;L%;20|) %))
        (QSETREFV % 44 (CONS (|dispatchFunction| |IDPO;leadingTerm;%R;21|) %))
-       (QSETREFV % 48
-                 (CONS (|dispatchFunction| |IDPO;hashUpdate!;Hs%Hs;22|) %))
+       (COND
+        ((|HasCategory| |#2| '(|Hashable|))
+         (COND
+          ((|HasCategory| |#1| '(|Hashable|))
+           (QSETREFV % 48
+                     (CONS (|dispatchFunction| |IDPO;hashUpdate!;Hs%Hs;22|)
+                           %))))))
        (COND
         ((|HasCategory| |#1| '(|AbelianMonoid|))
          (PROGN
@@ -1241,50 +1291,48 @@
               |construct| 412 |coerce| 417 |Zero| 422 >= 426 > 432 = 438 <= 444
               < 450 - 456 + 467 * 473)
            'NIL
-           (CONS (|makeByteWordVec2| 9 '(0 0 2 0 2 1 3 3 4 3 5 7 5 9 8 3 9))
-                 (CONS
-                  '#(NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL
-                     |OrderedSet&| |AbelianMonoid&| NIL |AbelianSemiGroup&|
-                     |SetCategory&| NIL |PartialOrder&| |BasicType&|)
-                  (CONS
-                   '#((|IndexedDirectProductCategory| 6 7)
-                      (|IndexedProductCategory| 6 7)
-                      (|OrderedAbelianMonoidSup|) (|AbelianProductCategory| 6)
-                      (|OrderedCancellationAbelianMonoid|) (|AbelianGroup|)
-                      (|OrderedAbelianMonoid|) (|OrderedAbelianSemiGroup|)
-                      (|CancellationAbelianMonoid|) (|OrderedSet|)
-                      (|AbelianMonoid|) (|Comparable|) (|AbelianSemiGroup|)
-                      (|SetCategory|) (|CoercibleTo| 9) (|PartialOrder|)
-                      (|BasicType|))
-                   (|makeByteWordVec2| 76
-                                       '(1 7 9 0 10 1 6 9 0 11 2 9 0 0 0 12 1 9
-                                         0 13 14 0 0 0 23 0 6 0 24 2 6 19 0 0
-                                         25 2 0 0 6 7 26 2 0 0 27 0 28 2 7 19 0
-                                         0 29 2 6 19 0 0 30 2 0 19 0 0 31 1 0 0
-                                         0 32 1 0 6 0 33 2 6 19 0 0 34 2 7 19 0
-                                         0 35 2 7 19 0 0 36 2 0 19 0 0 37 1 0 7
-                                         0 38 1 0 0 0 39 2 8 0 40 0 41 1 0 0 17
-                                         42 1 0 0 17 43 1 0 16 0 44 2 7 45 45 0
-                                         46 2 6 45 45 0 47 2 0 45 45 0 48 1 0
-                                         19 0 49 2 6 0 0 0 50 1 6 19 0 51 2 52
-                                         19 0 0 53 2 0 0 0 0 54 2 6 0 21 0 55 2
-                                         0 0 21 0 56 1 6 0 0 57 1 0 0 0 58 2 6
-                                         0 59 0 60 2 0 0 59 0 61 2 6 0 0 0 62 2
-                                         0 0 0 0 63 2 6 64 0 0 65 2 0 64 0 0 66
-                                         2 0 19 0 0 67 2 7 19 0 0 68 2 0 0 0 0
-                                         69 2 7 19 0 0 70 2 6 0 0 0 71 2 6 0 0
-                                         0 72 2 0 0 0 0 73 2 21 19 0 0 74 2 10
-                                         19 0 0 1 1 12 19 0 49 2 2 0 0 0 69 2
-                                         13 64 0 0 66 2 11 19 0 0 37 0 12 0 1 1
-                                         6 0 0 32 2 12 19 0 0 1 1 0 21 0 22 1 0
-                                         19 0 20 2 0 0 6 7 26 2 3 0 0 0 1 2 3 0
-                                         0 0 1 2 0 0 27 0 28 1 0 17 0 18 1 6 16
-                                         0 44 1 6 7 0 38 1 6 0 0 39 1 6 6 0 33
-                                         1 10 75 0 1 2 2 0 0 0 73 2 10 45 45 0
-                                         48 1 10 52 0 1 1 6 0 17 43 1 0 0 17 42
-                                         1 10 9 0 15 0 12 0 23 2 3 19 0 0 1 2 3
-                                         19 0 0 1 2 10 19 0 0 31 2 3 19 0 0 1 2
-                                         3 19 0 0 67 1 1 0 0 58 2 1 0 0 0 63 2
-                                         12 0 0 0 54 2 12 0 21 0 56 2 12 0 76 0
-                                         1 2 1 0 59 0 61)))))
+           (CONS
+            (|makeByteWordVec2| 11 '(0 0 3 0 3 1 4 4 5 4 6 8 6 2 11 9 4 10))
+            (CONS
+             '#(NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL |OrderedSet&|
+                |AbelianMonoid&| NIL |AbelianSemiGroup&| |Hashable&|
+                |SetCategory&| NIL |PartialOrder&| |BasicType&|)
+             (CONS
+              '#((|IndexedDirectProductCategory| 6 7)
+                 (|IndexedProductCategory| 6 7) (|OrderedAbelianMonoidSup|)
+                 (|AbelianProductCategory| 6)
+                 (|OrderedCancellationAbelianMonoid|) (|AbelianGroup|)
+                 (|OrderedAbelianMonoid|) (|OrderedAbelianSemiGroup|)
+                 (|CancellationAbelianMonoid|) (|OrderedSet|) (|AbelianMonoid|)
+                 (|Comparable|) (|AbelianSemiGroup|) (|Hashable|)
+                 (|SetCategory|) (|CoercibleTo| 9) (|PartialOrder|)
+                 (|BasicType|))
+              (|makeByteWordVec2| 76
+                                  '(1 7 9 0 10 1 6 9 0 11 2 9 0 0 0 12 1 9 0 13
+                                    14 0 0 0 23 0 6 0 24 2 6 19 0 0 25 2 0 0 6
+                                    7 26 2 0 0 27 0 28 2 7 19 0 0 29 2 6 19 0 0
+                                    30 2 0 19 0 0 31 1 0 0 0 32 1 0 6 0 33 2 6
+                                    19 0 0 34 2 7 19 0 0 35 2 7 19 0 0 36 2 0
+                                    19 0 0 37 1 0 7 0 38 1 0 0 0 39 2 8 0 40 0
+                                    41 1 0 0 17 42 1 0 0 17 43 1 0 16 0 44 2 7
+                                    45 45 0 46 2 6 45 45 0 47 2 0 45 45 0 48 1
+                                    0 19 0 49 2 6 0 0 0 50 1 6 19 0 51 2 52 19
+                                    0 0 53 2 0 0 0 0 54 2 6 0 21 0 55 2 0 0 21
+                                    0 56 1 6 0 0 57 1 0 0 0 58 2 6 0 59 0 60 2
+                                    0 0 59 0 61 2 6 0 0 0 62 2 0 0 0 0 63 2 6
+                                    64 0 0 65 2 0 64 0 0 66 2 0 19 0 0 67 2 7
+                                    19 0 0 68 2 0 0 0 0 69 2 7 19 0 0 70 2 6 0
+                                    0 0 71 2 6 0 0 0 72 2 0 0 0 0 73 2 21 19 0
+                                    0 74 2 12 19 0 0 1 1 15 19 0 49 2 3 0 0 0
+                                    69 2 16 64 0 0 66 2 14 19 0 0 37 0 15 0 1 1
+                                    7 0 0 32 2 15 19 0 0 1 1 0 21 0 22 1 0 19 0
+                                    20 2 0 0 6 7 26 2 4 0 0 0 1 2 4 0 0 0 1 2 0
+                                    0 27 0 28 1 0 17 0 18 1 7 16 0 44 1 7 7 0
+                                    38 1 7 0 0 39 1 7 6 0 33 1 13 75 0 1 2 3 0
+                                    0 0 73 2 2 45 45 0 48 1 2 52 0 1 1 7 0 17
+                                    43 1 0 0 17 42 1 13 9 0 15 0 15 0 23 2 4 19
+                                    0 0 1 2 4 19 0 0 1 2 12 19 0 0 31 2 4 19 0
+                                    0 1 2 4 19 0 0 67 1 1 0 0 58 2 1 0 0 0 63 2
+                                    15 0 0 0 54 2 15 0 21 0 56 2 15 0 76 0 1 2
+                                    1 0 59 0 61)))))
            '|lookupComplete|)) 

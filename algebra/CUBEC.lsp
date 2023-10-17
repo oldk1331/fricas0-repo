@@ -469,7 +469,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|FiniteCubicalComplex| DV$1))
-          (LETT % (GETREFV 80))
+          (LETT % (GETREFV 78))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|FiniteCubicalComplex| (LIST DV$1)
@@ -506,18 +506,17 @@
               (138 . |elt|) (144 . ~=) (|List| 26) (150 . |elt|)
               (156 . |setelt!|) |CUBEC;=;2%B;17| (|OutputForm|) (163 . |empty|)
               (|String|) (167 . |message|) (172 . |bracket|) (177 . |coerce|)
-              (182 . |vconcat|) |CUBEC;coerce;%Of;18| |CUBEC;coerce;%Dc;19|
-              (|SingleInteger|) (|HashState|))
+              (182 . |vconcat|) |CUBEC;coerce;%Of;18| |CUBEC;coerce;%Dc;19|)
            '#(~= 188 |product| 194 |maxIndex| 200 |latex| 205 |homology| 210
-              |hashUpdate!| 215 |hash| 221 |grade| 226 |fundamentalGroup| 231
-              |cubicalComplex| 243 |coerce| 266 |chain| 276 |boundary| 281
-              |addImpliedFaces| 286 |addCube| 291 = 297)
+              |grade| 215 |fundamentalGroup| 220 |cubicalComplex| 232 |coerce|
+              255 |chain| 265 |boundary| 270 |addImpliedFaces| 275 |addCube|
+              280 = 286)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 69))
-                        (|makeByteWordVec2| 79
+                        (|makeByteWordVec2| 77
                                             '(2 13 0 11 12 14 2 9 0 0 13 15 2
                                               13 0 11 18 19 1 13 12 0 23 2 12
                                               26 0 0 27 1 13 11 0 28 0 6 0 29 2
@@ -534,11 +533,10 @@
                                               71 72 1 69 0 0 73 1 13 69 0 74 2
                                               69 0 0 0 75 2 0 26 0 0 1 2 0 0 0
                                               0 48 1 0 24 0 25 1 0 71 0 1 1 0
-                                              56 0 58 2 0 79 79 0 1 1 0 78 0 1
-                                              1 0 37 0 41 3 0 49 0 26 26 50 1 0
-                                              49 0 51 1 0 0 8 22 2 0 0 8 20 21
-                                              2 0 0 8 9 10 2 0 0 8 16 17 1 0 53
-                                              0 77 1 0 69 0 76 1 0 59 0 61 1 0
-                                              0 0 35 1 0 37 0 44 2 0 0 0 13 32
-                                              2 0 26 0 0 68)))))
+                                              56 0 58 1 0 37 0 41 1 0 49 0 51 3
+                                              0 49 0 26 26 50 1 0 0 8 22 2 0 0
+                                              8 16 17 2 0 0 8 20 21 2 0 0 8 9
+                                              10 1 0 53 0 77 1 0 69 0 76 1 0 59
+                                              0 61 1 0 0 0 35 1 0 37 0 44 2 0 0
+                                              0 13 32 2 0 26 0 0 68)))))
            '|lookupComplete|)) 

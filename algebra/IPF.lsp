@@ -438,15 +438,15 @@
               |IPF;minimalPolynomial;%Sup;28| |IPF;charthRoot;2%;29|
               (|Union| 81 '#1="failed") (|Matrix| %) (|Union| 92 '"failed")
               (|OnePointCompletion| 19) (|Factored| 92) (|Union| 102 '#1#)
-              (|List| 92) (|InputForm|) (|List| %) (|Union| 49 '"failed")
-              (|Fraction| 22) (|Union| 104 '#2="failed")
+              (|List| 92) (|InputForm|) (|HashState|) (|List| %)
+              (|Union| 49 '"failed") (|Fraction| 22) (|Union| 105 '#2="failed")
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
-              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 109 '#2#)
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 110 '#2#)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
-              (|Record| (|:| |coef| 104) (|:| |generator| %))
+              (|Record| (|:| |coef| 105) (|:| |generator| %))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|String|) (|HashState|) (|OutputForm|))
+              (|String|) (|OutputForm|))
            '#(|zero?| 181 |tableForDiscreteLogarithm| 186 |sqrt| 191
               |retractIfCan| 196 |retract| 201 |represents| 206
               |representationType| 211 |recip| 215 |quadraticNonResidue| 220
@@ -463,7 +463,7 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -475,8 +475,9 @@
                 |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&| NIL
                 |AbelianGroup&| NIL NIL NIL |Finite&| NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| NIL NIL |Magma&|
-                |AbelianSemiGroup&| |RetractableTo&| NIL |SetCategory&| NIL NIL
-                NIL NIL NIL NIL NIL NIL |BasicType&| NIL)
+                |AbelianSemiGroup&| |RetractableTo&| |Hashable&| NIL
+                |SetCategory&| NIL NIL NIL NIL NIL NIL NIL NIL |BasicType&|
+                NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| $$) (|FiniteFieldCategory|)
                  (|ExtensionField| $$) (|FieldOfPrimeCharacteristic|) (|Field|)
@@ -485,18 +486,18 @@
                  (|GcdDomain|) (|FramedAlgebra| $$ 89) (|IntegralDomain|)
                  (|FiniteRankAlgebra| $$ 89) (|CommutativeRing|)
                  (|DivisionRing|) (|LeftOreRing|) (|Algebra| $$)
-                 (|DifferentialRing|) (|CharacteristicNonZero|) (|Algebra| 106)
-                 (|EntireRing|) (|Ring|) (|Rng|) (|SemiRing|) (|Module| 106)
+                 (|DifferentialRing|) (|CharacteristicNonZero|) (|Algebra| 107)
+                 (|EntireRing|) (|Ring|) (|Rng|) (|SemiRing|) (|Module| 107)
                  (|Module| $$) (|SemiRng|) (|FramedModule| $$)
-                 (|BiModule| 106 106) (|BiModule| $$ $$) (|NonAssociativeRing|)
-                 (|RightModule| 106) (|LeftModule| 106) (|LeftModule| $$)
+                 (|BiModule| 107 107) (|BiModule| $$ $$) (|NonAssociativeRing|)
+                 (|RightModule| 107) (|LeftModule| 107) (|LeftModule| $$)
                  (|NonAssociativeRng|) (|RightModule| $$) (|AbelianGroup|)
                  (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|Finite|) (|SemiGroup|)
                  (|MagmaWithUnit|) (|NonAssociativeSemiRng|) (|AbelianMonoid|)
                  (|StepThrough|) (|Comparable|) (|Magma|) (|AbelianSemiGroup|)
-                 (|RetractableTo| $$) (|CommutativeStar|) (|SetCategory|)
-                 (|ConvertibleTo| 22) (|CoercibleFrom| $$)
+                 (|RetractableTo| $$) (|Hashable|) (|CommutativeStar|)
+                 (|SetCategory|) (|ConvertibleTo| 22) (|CoercibleFrom| $$)
                  (|ConvertibleTo| 103) (|canonicalsClosed|)
                  (|canonicalUnitNormal|) (|noZeroDivisors|) (|TwoSidedRecip|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 117))

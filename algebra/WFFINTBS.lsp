@@ -43,6 +43,9 @@
                         (IF (|has| K (|PolynomialFactorizationExplicit|))
                             (ATTRIBUTE (|PolynomialFactorizationExplicit|))
                             |noBranch|)
+                        |noBranch|)
+                    (IF (|has| R (|Hashable|))
+                        (ATTRIBUTE (|Hashable|))
                         |noBranch|))))
           (|p2| (R)) (|standardBasis| (|Vector| F)) (|n| (|PositiveInteger|)))
          (SEQ

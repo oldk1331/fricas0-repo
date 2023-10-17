@@ -25,7 +25,7 @@
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|EqTable| DV$1 DV$2))
-    (LETT % (GETREFV 34))
+    (LETT % (GETREFV 32))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -136,13 +136,13 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|HashTable| 6 7 '"EQ") (|local| |#1|)
               (|local| |#2|) (|Record| (|:| |key| 6) (|:| |entry| 7))
-              (|List| 8) (|Equation| 8) (|List| 10) (|Mapping| 8 8 8)
-              (|Boolean|) (|NonNegativeInteger|) (|Equation| 7) (|List| 15)
-              (|List| 7) (|OutputForm|) (|String|) (|SingleInteger|)
-              (|HashState|) (|InputForm|) (|Mapping| 13 7) (|Mapping| 13 7 7)
-              (|Mapping| 13 8) (|Mapping| 13 8 8) (|Mapping| 7 7) (|Void|)
-              (|Mapping| 8 8) (|Mapping| 7 7 7) (|List| 6)
-              (|Union| 7 '"failed") (|Union| 8 '"failed"))
+              (|List| 8) (|List| 11) (|Equation| 8) (|Mapping| 8 8 8)
+              (|NonNegativeInteger|) (|Boolean|) (|Equation| 7) (|List| 15)
+              (|List| 7) (|OutputForm|) (|String|) (|InputForm|)
+              (|Mapping| 14 7) (|Mapping| 14 7 7) (|Mapping| 14 8)
+              (|Mapping| 14 8 8) (|Mapping| 7 7) (|Void|) (|Mapping| 8 8)
+              (|Mapping| 7 7 7) (|List| 6) (|Union| 7 '"failed")
+              (|Union| 8 '"failed"))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 13
@@ -172,7 +172,7 @@
                  (|Eltable| 6 7) (|Type|) (|shallowlyMutable|)
                  (|InnerEvalable| (|Record| (|:| |key| 6) (|:| |entry| 7))
                                   (|Record| (|:| |key| 6) (|:| |entry| 7)))
-                 (|ConvertibleTo| 22) (|InnerEvalable| 7 7) (|BasicType|)
+                 (|ConvertibleTo| 20) (|InnerEvalable| 7 7) (|BasicType|)
                  (|CoercibleTo| 18))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

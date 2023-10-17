@@ -41,6 +41,7 @@
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicNonZero|))
                                          #1#)
+                                        (|HasCategory| |#1| '(|Hashable|))
                                         (|HasCategory| |#1| '(|Field|))))))
     (|haddProp| |$ConstructorCache| '|FiniteFieldExtension| (LIST DV$1 DV$2)
                 (CONS 1 %))
@@ -48,7 +49,7 @@
     (QSETREFV % 6 |#1|)
     (QSETREFV % 7 |#2|)
     (AND #1# (|HasCategory| % '(|CharacteristicNonZero|))
-         (|augmentPredVector| % 16))
+         (|augmentPredVector| % 32))
     (SETF |pv$| (QREFELT % 3))
     %))) 
 
@@ -69,21 +70,22 @@
               (|Table| 9 17) (|Integer|) (|Boolean|)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Union| 8 '"failed") (|Vector| %) (|InputForm|) (|List| %)
-              (|Matrix| 6) (|Vector| 6) (|Union| 6 '"failed") (|Fraction| 25)
-              (|Factored| %) (|Union| 31 '#2="failed")
+              (|SingleInteger|) (|HashState|) (|Matrix| 6) (|Vector| 6)
+              (|Union| 6 '"failed") (|Fraction| 25) (|Factored| %)
+              (|Union| 31 '#2="failed")
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
-              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 39 '#2#)
+              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 41 '#2#)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (|Record| (|:| |coef| 31) (|:| |generator| %))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
+              (|String|) (|OutputForm|))
            '#() 'NIL
            (CONS
-            (|makeByteWordVec2| 3
+            (|makeByteWordVec2| 4
                                 '(0 0 2 3 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 2 0 0 2 2 0 0 0 0 0 0 0 0 0 0 0 2))
+                                  0 0 0 0 2 0 0 2 2 0 0 0 4 0 0 0 0 0 0 0 0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -96,8 +98,8 @@
                 NIL NIL |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL
                 NIL |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
                 |Finite&| |Magma&| |AbelianSemiGroup&| NIL NIL |RetractableTo&|
-                NIL |SetCategory&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL
-                NIL)
+                NIL |SetCategory&| |Hashable&| NIL NIL NIL NIL NIL NIL
+                |BasicType&| NIL NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| 6) (|ExtensionField| 6)
                  (|FiniteFieldCategory|) (|FieldOfPrimeCharacteristic|)
@@ -108,20 +110,20 @@
                  (|IntegralDomain|)
                  (|FiniteRankAlgebra| 6 (|SparseUnivariatePolynomial| 6))
                  (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
-                 (|Algebra| 6) (|Algebra| 35) (|EntireRing|) (|Algebra| $$)
+                 (|Algebra| 6) (|Algebra| 37) (|EntireRing|) (|Algebra| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|DifferentialRing|) (|Ring|) (|Rng|) (|SemiRing|)
-                 (|Module| 6) (|Module| 35) (|Module| $$) (|SemiRng|)
-                 (|FramedModule| 6) (|BiModule| 6 6) (|BiModule| 35 35)
+                 (|Module| 6) (|Module| 37) (|Module| $$) (|SemiRng|)
+                 (|FramedModule| 6) (|BiModule| 6 6) (|BiModule| 37 37)
                  (|BiModule| $$ $$) (|NonAssociativeRing|) (|RightModule| 6)
-                 (|LeftModule| 6) (|RightModule| 35) (|LeftModule| 35)
+                 (|LeftModule| 6) (|RightModule| 37) (|LeftModule| 37)
                  (|LeftModule| $$) (|NonAssociativeRng|) (|RightModule| $$)
                  (|AbelianGroup|) (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Finite|)
                  (|Magma|) (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
                  (|RetractableTo| 6) (|CommutativeStar|) (|SetCategory|)
-                 (|CoercibleFrom| 6) (|canonicalsClosed|)
+                 (|Hashable|) (|CoercibleFrom| 6) (|canonicalsClosed|)
                  (|canonicalUnitNormal|) (|noZeroDivisors|) (|TwoSidedRecip|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 48)
                  (|ConvertibleTo| 30))

@@ -121,11 +121,21 @@
           (LETT |dv$| (LIST '|BinaryTreeCategory&| DV$1 DV$2))
           (LETT % (GETREFV 37))
           (QSETREFV % 0 |dv$|)
-          (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
+          (QSETREFV % 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|Hashable|))))))
           (|stuffDomainSlots| %)
           (QSETREFV % 6 |#1|)
           (QSETREFV % 7 |#2|)
           (SETF |pv$| (QREFELT % 3))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (QSETREFV % 36
+                      (CONS (|dispatchFunction| |BTCAT-;hashUpdate!;HsAHs;7|)
+                            %))))
           %))) 
 
 (MAKEPROP '|BinaryTreeCategory&| '|infovec|
@@ -138,25 +148,24 @@
               (|NonNegativeInteger|) (61 . |#|) |BTCAT-;#;ANni;4| (66 . =)
               (|List| %) (72 . |children|) (|Integer|) |BTCAT-;distance;2AI;6|
               (|HashState|) (77 . |hashUpdate!|) (83 . |hashUpdate!|)
-              |BTCAT-;hashUpdate!;HsAHs;7|)
-           '#(|map!| 89 |map| 95 |hashUpdate!| 101 |distance| 107 |copy| 113
-              |#| 118)
+              (89 . |hashUpdate!|))
+           '#(|map!| 95 |map| 101 |hashUpdate!| 107 |distance| 113 |copy| 119
+              |#| 124)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
                         '#((|Join|
                             (|mkCategory|
-                             (LIST '((|distance| ((|Integer|) |#1| |#1|)) T)
-                                   '((|hashUpdate!|
-                                      ((|HashState|) (|HashState|) |#1|))
-                                     T)
-                                   '((|map!| (|#1| (|Mapping| |#2| |#2|) |#1|))
-                                     T)
-                                   '((|map| (|#1| (|Mapping| |#2| |#2|) |#1|))
-                                     T)
-                                   '((|#| ((|NonNegativeInteger|) |#1|)) T)
-                                   '((|copy| (|#1| |#1|)) T))
+                             (LIST
+                              '((|hashUpdate!|
+                                 ((|HashState|) (|HashState|) |#1|))
+                                T)
+                              '((|distance| ((|Integer|) |#1| |#1|)) T)
+                              '((|map!| (|#1| (|Mapping| |#2| |#2|) |#1|)) T)
+                              '((|map| (|#1| (|Mapping| |#2| |#2|) |#1|)) T)
+                              '((|#| ((|NonNegativeInteger|) |#1|)) T)
+                              '((|copy| (|#1| |#1|)) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 36
                                             '(1 6 8 0 9 0 6 0 10 1 6 0 0 11 1 6
@@ -165,7 +174,8 @@
                                               20 21 3 6 7 0 20 7 22 2 6 0 17 0
                                               23 1 6 25 0 26 2 6 8 0 0 28 1 6
                                               29 0 30 2 7 33 33 0 34 2 6 33 33
-                                              0 35 2 0 0 17 0 24 2 0 0 17 0 19
-                                              2 0 33 33 0 36 2 0 31 0 0 32 1 0
-                                              0 0 16 1 0 25 0 27)))))
+                                              0 35 2 0 33 33 0 36 2 0 0 17 0 24
+                                              2 0 0 17 0 19 2 0 33 33 0 36 2 0
+                                              31 0 0 32 1 0 0 0 16 1 0 25 0
+                                              27)))))
            '|lookupComplete|)) 

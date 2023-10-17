@@ -47,7 +47,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|SequentialDifferentialVariable| DV$1))
-          (LETT % (GETREFV 21))
+          (LETT % (GETREFV 19))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|SequentialDifferentialVariable|
@@ -66,11 +66,11 @@
               (|NonNegativeInteger|) |SDVAR;makeVariable;SNni%;1|
               |SDVAR;variable;%S;2| |SDVAR;order;%Nni;3| (|Boolean|) (0 . =)
               (6 . <) |SDVAR;<;2%B;4| (|Union| 6 '"failed") (|String|)
-              (|SingleInteger|) (|HashState|) (|OutputForm|))
+              (|OutputForm|))
            '#(~= 12 |weight| 18 |variable| 23 |smaller?| 28 |retractIfCan| 34
               |retract| 39 |order| 44 |min| 49 |max| 55 |makeVariable| 61
-              |latex| 67 |hashUpdate!| 72 |hash| 78 |differentiate| 83 |coerce|
-              94 >= 104 > 110 = 116 <= 122 < 128)
+              |latex| 67 |differentiate| 72 |coerce| 83 >= 93 > 99 = 105 <= 111
+              < 117)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -81,14 +81,13 @@
                    '#((|DifferentialVariableCategory| 6) (|OrderedSet|)
                       (|Comparable|) (|SetCategory|) (|RetractableTo| 6)
                       (|BasicType|) (|CoercibleFrom| 6) (|PartialOrder|)
-                      (|CoercibleTo| 20))
-                   (|makeByteWordVec2| 20
+                      (|CoercibleTo| 18))
+                   (|makeByteWordVec2| 18
                                        '(2 6 12 0 0 13 2 6 12 0 0 14 2 0 12 0 0
                                          1 1 0 8 0 1 1 0 6 0 10 2 0 12 0 0 1 1
                                          0 16 0 1 1 0 6 0 1 1 0 8 0 11 2 0 0 0
                                          0 1 2 0 0 0 0 1 2 0 0 6 8 9 1 0 17 0 1
-                                         2 0 19 19 0 1 1 0 18 0 1 1 0 0 0 1 2 0
-                                         0 0 8 1 1 0 0 6 1 1 0 20 0 1 2 0 12 0
+                                         1 0 0 0 1 2 0 0 0 8 1 1 0 0 6 1 1 0 18
                                          0 1 2 0 12 0 0 1 2 0 12 0 0 1 2 0 12 0
-                                         0 1 2 0 12 0 0 15)))))
+                                         0 1 2 0 12 0 0 1 2 0 12 0 0 15)))))
            '|lookupComplete|)) 

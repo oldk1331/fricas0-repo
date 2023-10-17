@@ -122,7 +122,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|File| DV$1))
-          (LETT % (GETREFV 35))
+          (LETT % (GETREFV 33))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|File| (LIST DV$1) (CONS 1 %))
@@ -145,24 +145,23 @@
               |FILE;reopen!;%S%;6| |FILE;close!;2%;7| |FILE;name;%Fn;8|
               |FILE;iomode;%S;9| (31 . ~=) |FILE;read!;%S;10|
               (|Union| 6 '"failed") |FILE;readIfCan!;%U;11|
-              |FILE;write!;%2S;12| (|HashState|) (|SingleInteger|))
+              |FILE;write!;%2S;12|)
            '#(~= 37 |write!| 43 |reopen!| 49 |readIfCan!| 55 |read!| 60 |open|
-              65 |name| 76 |latex| 81 |iomode| 86 |hashUpdate!| 91 |hash| 97
-              |flush| 102 |coerce| 107 |close!| 112 = 117)
+              65 |name| 76 |latex| 81 |iomode| 86 |flush| 91 |coerce| 96
+              |close!| 101 = 106)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|FileCategory| 9 6) (|SetCategory|) (|BasicType|)
                            (|CoercibleTo| 11))
-                        (|makeByteWordVec2| 34
+                        (|makeByteWordVec2| 32
                                             '(1 9 8 0 10 1 12 11 0 13 1 9 11 0
                                               14 1 9 12 0 15 1 9 8 0 16 2 9 8 0
                                               0 17 2 12 8 0 0 28 2 0 8 0 0 1 2
                                               0 6 0 6 32 2 0 0 0 12 24 1 0 30 0
                                               31 1 0 6 0 29 1 0 0 9 21 2 0 0 9
                                               12 20 1 0 9 0 26 1 0 12 0 1 1 0
-                                              12 0 27 2 0 33 33 0 1 1 0 34 0 1
-                                              1 0 22 0 23 1 0 11 0 19 1 0 0 0
-                                              25 2 0 8 0 0 18)))))
+                                              12 0 27 1 0 22 0 23 1 0 11 0 19 1
+                                              0 0 0 25 2 0 8 0 0 18)))))
            '|lookupComplete|)) 

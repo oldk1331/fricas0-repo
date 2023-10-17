@@ -1169,9 +1169,9 @@
             (SPADCALL (SPADCALL |zf| |u| |j| (QREFELT % 134))
                       (QREFELT % 135)))))) 
 
-(PUT '|POSET-;hash;ASi;66| '|SPADreplace| '(XLAM (|s|) 0)) 
+(PUT '|POSET-;hash| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(SDEFUN |POSET-;hash;ASi;66| ((|s| (A)) (% (|SingleInteger|))) 0) 
+(SDEFUN |POSET-;hash| ((|s| (A)) (% (|SingleInteger|))) 0) 
 
 (SDEFUN |POSET-;=;2AB;67| ((|x| (A)) (|y| (A)) (% (|Boolean|)))
         (SPROG ((#1=#:G491 NIL))
@@ -1180,17 +1180,17 @@
                  (SEQ
                   (COND
                    ((SPADCALL (SPADCALL |x| (QREFELT % 9))
-                              (SPADCALL |y| (QREFELT % 9)) (QREFELT % 143))
+                              (SPADCALL |y| (QREFELT % 9)) (QREFELT % 141))
                     (PROGN (LETT #1# NIL) (GO #2=#:G490))))
                   (COND
                    ((SPADCALL (SPADCALL |x| (QREFELT % 12))
-                              (SPADCALL |y| (QREFELT % 12)) (QREFELT % 144))
+                              (SPADCALL |y| (QREFELT % 12)) (QREFELT % 142))
                     (PROGN (LETT #1# NIL) (GO #2#))))
                   (EXIT 'T)))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |POSET-;~=;2AB;68| ((|x| (A)) (|y| (A)) (% (|Boolean|)))
-        (NULL (SPADCALL |x| |y| (QREFELT % 146)))) 
+        (NULL (SPADCALL |x| |y| (QREFELT % 144)))) 
 
 (SDEFUN |POSET-;coerce;AOf;69| ((|s| (A)) (% (|OutputForm|)))
         (SPROG
@@ -1204,7 +1204,7 @@
                  ((NULL (SPADCALL |s| (QREFELT % 12)))
                   (PROGN
                    (LETT #1#
-                         (SPADCALL (SPADCALL (QREFELT % 149)) (QREFELT % 150)))
+                         (SPADCALL (SPADCALL (QREFELT % 147)) (QREFELT % 148)))
                    (GO #4=#:G504))))
                 (LETT |mat| NIL)
                 (SEQ (LETT |a| NIL) (LETT #3# (SPADCALL |s| (QREFELT % 12)))
@@ -1214,13 +1214,13 @@
                        (GO G191)))
                      (SEQ (LETT |row| NIL)
                           (COND
-                           ((SPADCALL |a| (QREFELT % 151))
+                           ((SPADCALL |a| (QREFELT % 149))
                             (LETT |row|
                                   (SPADCALL |row|
                                             (SPADCALL
-                                             (SPADCALL (QREFELT % 149))
-                                             (QREFELT % 150))
-                                            (QREFELT % 153))))
+                                             (SPADCALL (QREFELT % 147))
+                                             (QREFELT % 148))
+                                            (QREFELT % 151))))
                            ('T
                             (SEQ (LETT |b| NIL) (LETT #2# |a|) G190
                                  (COND
@@ -1233,8 +1233,8 @@
                                    (LETT |row|
                                          (SPADCALL |row|
                                                    (SPADCALL |c|
-                                                             (QREFELT % 155))
-                                                   (QREFELT % 153)))))
+                                                             (QREFELT % 153))
+                                                   (QREFELT % 151)))))
                                  (LETT #2# (CDR #2#)) (GO G190) G191
                                  (EXIT NIL))))
                           (COND
@@ -1242,18 +1242,18 @@
                             (PROGN
                              (LETT #1#
                                    (SPADCALL "wrong number of cols"
-                                             (QREFELT % 156)))
+                                             (QREFELT % 154)))
                              (GO #4#))))
                           (EXIT
                            (LETT |mat|
-                                 (SPADCALL |mat| |row| (QREFELT % 158)))))
+                                 (SPADCALL |mat| |row| (QREFELT % 156)))))
                      (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                 (COND
                  ((SPADCALL (LENGTH |mat|) |dim| (QREFELT % 103))
                   (PROGN
-                   (LETT #1# (SPADCALL "wrong number of rows" (QREFELT % 156)))
+                   (LETT #1# (SPADCALL "wrong number of rows" (QREFELT % 154)))
                    (GO #4#))))
-                (EXIT (SPADCALL |mat| (QREFELT % 160)))))
+                (EXIT (SPADCALL |mat| (QREFELT % 158)))))
           #4# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |Poset&;|)) 
@@ -1264,7 +1264,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|Poset&| DV$1 DV$2))
-          (LETT % (GETREFV 162))
+          (LETT % (GETREFV 160))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| %)
@@ -1333,13 +1333,12 @@
               (240 . |indices|) (245 . |incidenceAlgebra|)
               |POSET-;moebius;AIa;64| (251 . |zero|) (257 . |elt|)
               (264 . |one?|) (|Mapping| 16 24) (|List| 24) (269 . |any?|)
-              (275 . |setelt!|) |POSET-;coverMatrix;AIa;65| (|SingleInteger|)
-              |POSET-;hash;ASi;66| (283 . ~=) (289 . ~=) |POSET-;=;2AB;67|
-              (295 . =) |POSET-;~=;2AB;68| (|OutputForm|) (301 . |empty|)
-              (305 . |bracket|) (310 . |empty?|) (|List| 148) (315 . |concat|)
-              (|Symbol|) (321 . |outputForm|) (326 . |outputForm|) (|List| 152)
-              (331 . |concat|) (|List| (|List| %)) (337 . |matrix|)
-              |POSET-;coerce;AOf;69|)
+              (275 . |setelt!|) |POSET-;coverMatrix;AIa;65| (283 . ~=)
+              (289 . ~=) |POSET-;=;2AB;67| (295 . =) |POSET-;~=;2AB;68|
+              (|OutputForm|) (301 . |empty|) (305 . |bracket|) (310 . |empty?|)
+              (|List| 146) (315 . |concat|) (|Symbol|) (321 . |outputForm|)
+              (326 . |outputForm|) (|List| 150) (331 . |concat|)
+              (|List| (|List| %)) (337 . |matrix|) |POSET-;coerce;AOf;69|)
            '#(~= 342 |zetaMatrix| 348 |unit| 353 |terminal| 359 |routeNodes|
               364 |routeArrows| 371 |outDegree| 378 |opposite| 384
               |objectToIndex| 389 |nodeToNode| 395 |nodeToArrow| 401
@@ -1348,14 +1347,14 @@
               |lub| 483 |looseEquals| 489 |le| 495 |kgraph| 502 |joinIfCan| 508
               |isGreaterThan?| 521 |isFixPoint?| 528 |isDirected?| 534
               |isDirectSuccessor?| 538 |isAntisymmetric?| 545 |initial| 550
-              |indexToObject| 554 |inDegree| 560 |implies| 566 |hash| 573 |glb|
-              578 |getVertices| 584 |getArrows| 589 |getArrowIndex| 594
-              |flatten| 601 |distance| 606 |cycleOpen| 613 |cycleClosed| 619
-              |createY| 625 |createX| 631 |createWidth| 637 |coverMatrix| 642
-              |completeTransitivity| 647 |completeReflexivity| 652 |coerce| 657
-              |arrowsToNode| 662 |arrowsToArrow| 668 |arrowsFromNode| 674
-              |arrowsFromArrow| 680 |arrowName| 686 |addObject!| 693
-              |addArrow!| 705 = 729)
+              |indexToObject| 554 |inDegree| 560 |implies| 566 |glb| 573
+              |getVertices| 579 |getArrows| 584 |getArrowIndex| 589 |flatten|
+              596 |distance| 601 |cycleOpen| 608 |cycleClosed| 614 |createY|
+              620 |createX| 626 |createWidth| 632 |coverMatrix| 637
+              |completeTransitivity| 642 |completeReflexivity| 647 |coerce| 652
+              |arrowsToNode| 657 |arrowsToArrow| 663 |arrowsFromNode| 669
+              |arrowsFromArrow| 675 |arrowName| 681 |addObject!| 688
+              |addArrow!| 700 = 724)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -1594,12 +1593,11 @@
                                                  (|NonNegativeInteger|)))))
                                 T)
                               '((|addObject!| (|#1| |#1| |#2|)) T)
-                              '((|hash| ((|SingleInteger|) |#1|)) T)
                               '((|coerce| ((|OutputForm|) |#1|)) T)
                               '((= ((|Boolean|) |#1| |#1|)) T)
                               '((~= ((|Boolean|) |#1| |#1|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 161
+                        (|makeByteWordVec2| 159
                                             '(1 6 8 0 9 2 8 0 0 7 10 1 6 11 0
                                               12 2 14 13 0 0 15 2 17 16 0 0 18
                                               2 19 0 0 16 20 2 11 0 0 19 21 2 6
@@ -1623,12 +1621,12 @@
                                               2 120 0 14 14 133 3 120 24 0 24
                                               24 134 1 24 16 0 135 2 137 16 136
                                               0 138 4 120 24 0 24 24 24 139 2 8
-                                              16 0 0 143 2 11 16 0 0 144 2 6 16
-                                              0 0 146 0 148 0 149 1 148 0 0 150
-                                              1 19 16 0 151 2 152 0 0 148 153 1
-                                              148 0 154 155 1 148 0 38 156 2
-                                              157 0 0 152 158 1 148 0 159 160 2
-                                              0 16 0 0 147 1 0 122 0 124 2 0 0
+                                              16 0 0 141 2 11 16 0 0 142 2 6 16
+                                              0 0 144 0 146 0 147 1 146 0 0 148
+                                              1 19 16 0 149 2 150 0 0 146 151 1
+                                              146 0 152 153 1 146 0 38 154 2
+                                              155 0 0 150 156 1 146 0 157 158 2
+                                              0 16 0 0 145 1 0 122 0 124 2 0 0
                                               8 38 55 1 0 0 7 52 3 0 41 0 14 14
                                               80 3 0 41 0 14 14 81 2 0 14 0 14
                                               71 1 0 0 0 91 2 0 14 0 7 111 2 0
@@ -1645,17 +1643,17 @@
                                               0 14 67 0 0 16 84 3 0 16 0 14 14
                                               57 1 0 16 0 115 0 0 0 51 2 0 7 0
                                               14 109 2 0 14 0 14 70 3 0 16 0 14
-                                              14 92 1 0 141 0 142 2 0 17 0 41
-                                              106 1 0 43 0 44 1 0 46 0 48 3 0
-                                              14 0 14 14 69 1 0 0 49 50 3 0 24
-                                              0 14 14 82 2 0 0 8 38 53 2 0 0 8
-                                              38 54 2 0 14 14 14 87 2 0 14 14
-                                              14 86 1 0 14 14 85 1 0 122 0 140
-                                              1 0 0 0 114 1 0 0 0 113 1 0 148 0
-                                              161 2 0 41 0 14 75 2 0 41 0 14 79
-                                              2 0 41 0 14 74 2 0 41 0 14 78 3 0
-                                              38 0 14 14 68 2 0 0 0 36 37 2 0 0
-                                              0 7 23 3 0 0 0 14 14 28 4 0 0 0
-                                              38 14 14 39 5 0 0 0 38 14 14 41
-                                              42 2 0 16 0 0 145)))))
+                                              14 92 2 0 17 0 41 106 1 0 43 0 44
+                                              1 0 46 0 48 3 0 14 0 14 14 69 1 0
+                                              0 49 50 3 0 24 0 14 14 82 2 0 0 8
+                                              38 53 2 0 0 8 38 54 2 0 14 14 14
+                                              87 2 0 14 14 14 86 1 0 14 14 85 1
+                                              0 122 0 140 1 0 0 0 114 1 0 0 0
+                                              113 1 0 146 0 159 2 0 41 0 14 75
+                                              2 0 41 0 14 79 2 0 41 0 14 74 2 0
+                                              41 0 14 78 3 0 38 0 14 14 68 2 0
+                                              0 0 7 23 2 0 0 0 36 37 3 0 0 0 14
+                                              14 28 5 0 0 0 38 14 14 41 42 4 0
+                                              0 0 38 14 14 39 2 0 16 0 0
+                                              143)))))
            '|lookupComplete|)) 

@@ -5478,12 +5478,15 @@
         (SPROG
          ((|resd| (F)) (|fa| (|SparseUnivariatePolynomial| F)) (|f| (F))
           (|Sae|
-           (|Join| (|MonogenicAlgebra| F (|SparseUnivariatePolynomial| F))
+           (|Join| (|MonogenicAlgebra| F #1=(|SparseUnivariatePolynomial| F))
                    (CATEGORY |package|
                     (IF (|has| F (|Field|))
                         (IF (|has| F (|PolynomialFactorizationExplicit|))
                             (ATTRIBUTE (|PolynomialFactorizationExplicit|))
                             |noBranch|)
+                        |noBranch|)
+                    (IF (|has| #1# (|Hashable|))
+                        (ATTRIBUTE (|Hashable|))
                         |noBranch|)))))
          (SEQ
           (LETT |Sae|

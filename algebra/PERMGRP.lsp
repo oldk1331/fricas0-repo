@@ -2418,7 +2418,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|PermutationGroup| DV$1))
-          (LETT % (GETREFV 183))
+          (LETT % (GETREFV 181))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PermutationGroup| (LIST DV$1)
@@ -2528,22 +2528,21 @@
               |PERMGRP;=;2%B;52| (583 . |empty|) (587 . |insert!|)
               |PERMGRP;orbit;%SS;53| (|Set| 38) (593 . |set|)
               |PERMGRP;orbit;%LS;54|
-              |PERMGRP;initializeGroupForWordProblem;%2IV;55| (|String|)
-              (|SingleInteger|) (|HashState|))
+              |PERMGRP;initializeGroupForWordProblem;%2IV;55| (|String|))
            '#(~= 598 |wordsForStrongGenerators| 604 |wordInStrongGenerators|
               609 |wordInGenerators| 615 |strongGenerators| 621
               |relationsInStrongGenerators| 626 |relationsInGenerators| 631
               |random| 636 |pointList| 647 |permutationGroup| 652 |perm_to_vec|
               657 |order| 664 |orbits| 669 |orbit| 674 |movedPoints| 692
               |member?| 697 |latex| 703 |initializeGroupForWordProblem| 708
-              |hashUpdate!| 720 |hash| 726 |generators| 731 |elt| 736 |degree|
-              742 |coerce| 747 |base| 762 = 767 <= 773 < 779)
+              |generators| 720 |elt| 725 |degree| 731 |coerce| 736 |base| 751 =
+              756 <= 762 < 768)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 148))
-                        (|makeByteWordVec2| 182
+                        (|makeByteWordVec2| 180
                                             '(1 11 10 0 12 1 13 0 0 14 2 13 10
                                               0 15 16 2 13 17 10 0 18 2 13 15
                                               10 0 19 2 13 0 0 15 20 1 13 10 0
@@ -2595,16 +2594,15 @@
                                               177 2 0 17 0 0 1 1 0 35 0 145 2 0
                                               13 11 0 166 2 0 13 11 0 167 1 0 8
                                               0 134 1 0 124 0 126 1 0 124 0 131
-                                              2 0 11 0 15 140 1 0 11 0 141 1 0
+                                              1 0 11 0 141 2 0 11 0 15 140 1 0
                                               38 0 51 1 0 0 8 147 3 0 25 38 11
                                               10 68 1 0 10 0 142 1 0 162 0 164
                                               2 0 162 0 52 175 2 0 176 0 38 178
                                               2 0 52 0 6 157 1 0 52 0 138 2 0
                                               17 11 0 114 1 0 180 0 1 1 0 109 0
-                                              127 3 0 109 0 15 15 179 2 0 182
-                                              182 0 1 1 0 181 0 1 1 0 8 0 132 2
-                                              0 11 0 10 136 1 0 10 0 143 1 0 0
-                                              8 146 1 0 8 0 9 1 0 148 0 155 1 0
-                                              38 0 144 2 0 17 0 0 172 2 0 17 0
-                                              0 170 2 0 17 0 0 169)))))
+                                              127 3 0 109 0 15 15 179 1 0 8 0
+                                              132 2 0 11 0 10 136 1 0 10 0 143
+                                              1 0 0 8 146 1 0 8 0 9 1 0 148 0
+                                              155 1 0 38 0 144 2 0 17 0 0 172 2
+                                              0 17 0 0 170 2 0 17 0 0 169)))))
            '|lookupComplete|)) 

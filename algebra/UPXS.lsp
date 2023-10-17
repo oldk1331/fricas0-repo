@@ -317,7 +317,7 @@
     (LETT DV$2 |#2|)
     (LETT DV$3 |#3|)
     (LETT |dv$| (LIST '|UnivariatePuiseuxSeries| DV$1 DV$2 DV$3))
-    (LETT % (GETREFV 109))
+    (LETT % (GETREFV 107))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -635,13 +635,13 @@
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Record| (|:| |k| 27) (|:| |c| 6)) (|List| 92)
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
-              (|SparseUnivariatePolynomial| %) (|Union| 78 '"failed")
               (|Record| (|:| |coef| 78) (|:| |generator| %))
+              (|SparseUnivariatePolynomial| %) (|Union| 78 '"failed")
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
-              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 99 '"failed")
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
-              (|Factored| %) (|Stream| 92) (|PositiveInteger|) (|Mapping| 6 6)
-              (|String|) (|SingleInteger|) (|HashState|))
+              (|Record| (|:| |coef1| %) (|:| |coef2| %))
+              (|Union| 100 '"failed") (|Factored| %) (|Stream| 92)
+              (|PositiveInteger|) (|Mapping| 6 6) (|String|))
            '#(|variable| 303 |retractIfCan| 308 |rationalPower| 318 |monomial|
               323 |laurentRep| 329 |integrate| 334 |differentiate| 345 |coerce|
               356 |center| 376 |approximate| 381 |Zero| 387 |One| 391 + 395)
@@ -728,8 +728,8 @@
                                     14 0 40 0 84 2 63 0 0 0 85 1 63 0 0 86 1 0
                                     10 0 11 1 0 20 0 22 1 0 18 0 19 1 0 27 0 56
                                     2 0 0 6 27 29 1 0 14 0 59 2 6 0 0 34 39 1 6
-                                    0 0 38 1 3 0 0 36 2 0 0 0 34 37 1 0 0 34 35
-                                    1 0 0 13 17 1 0 0 14 16 1 0 63 0 87 1 0 6 0
+                                    0 0 38 1 3 0 0 36 2 0 0 0 34 37 1 0 0 13 17
+                                    1 0 0 34 35 1 0 0 14 16 1 0 63 0 87 1 0 6 0
                                     12 2 12 6 0 27 61 0 33 0 31 0 31 0 26 2 0 0
                                     0 0 33)))))
            '|lookupIncomplete|)) 

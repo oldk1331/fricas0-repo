@@ -34,7 +34,7 @@
          (PROGN
           (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|RuleCalled| DV$1))
-          (LETT % (GETREFV 19))
+          (LETT % (GETREFV 17))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RuleCalled| (LIST DV$1) (CONS 1 %))
@@ -48,18 +48,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Symbol|)
               |RULECOLD;name;%S;1| (|OutputForm|) (0 . |coerce|)
               |RULECOLD;coerce;%Of;2| (|Boolean|) |RULECOLD;=;2%B;3| (|String|)
-              (5 . |latex|) |RULECOLD;latex;%S;4| (|HashState|)
-              (|SingleInteger|))
-           '#(~= 10 |name| 16 |latex| 21 |hashUpdate!| 26 |hash| 32 |coerce| 37
-              = 42)
-           'NIL
+              (5 . |latex|) |RULECOLD;latex;%S;4|)
+           '#(~= 10 |name| 16 |latex| 21 |coerce| 26 = 31) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 9))
-                        (|makeByteWordVec2| 18
+                        (|makeByteWordVec2| 16
                                             '(1 7 9 0 10 1 7 14 0 15 2 0 12 0 0
-                                              1 1 0 7 0 8 1 0 14 0 16 2 0 17 17
-                                              0 1 1 0 18 0 1 1 0 9 0 11 2 0 12
-                                              0 0 13)))))
+                                              1 1 0 7 0 8 1 0 14 0 16 1 0 9 0
+                                              11 2 0 12 0 0 13)))))
            '|lookupComplete|)) 

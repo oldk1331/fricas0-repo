@@ -135,7 +135,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ChainComplex|))
-          (LETT % (GETREFV 38))
+          (LETT % (GETREFV 36))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|ChainComplex| NIL (CONS 1 %))
@@ -154,17 +154,15 @@
               (|Void|) (38 . |print|) (43 . *) (49 . |zero?|) (54 . |coerce|)
               |CHAINC;validate;%B;3| (|Homology|) (59 . |homologyGroup|)
               (|List| 28) (65 . |concat|) |CHAINC;homology;%L;4| (|List| %)
-              (71 . |commaSeparate|) |CHAINC;coerce;%Of;5| (|SingleInteger|)
-              (|HashState|))
+              (71 . |commaSeparate|) |CHAINC;coerce;%Of;5|)
            '#(~= 76 |validate| 82 |transition_matrices| 87 |latex| 92
-              |homology| 97 |hashUpdate!| 102 |hash| 108 |coerce| 113
-              |chainComplex| 118 = 123)
+              |homology| 97 |coerce| 102 |chainComplex| 107 = 112)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 18))
-                        (|makeByteWordVec2| 37
+                        (|makeByteWordVec2| 35
                                             '(2 6 10 0 11 12 1 10 11 0 13 1 10
                                               11 0 14 2 11 15 0 0 16 1 18 0 17
                                               19 1 11 18 0 20 2 18 0 0 0 21 1
@@ -172,9 +170,8 @@
                                               0 25 1 10 18 0 26 2 28 0 10 10 29
                                               2 30 0 0 28 31 1 18 0 33 34 2 0
                                               15 0 0 1 1 0 15 0 27 1 0 7 0 9 1
-                                              0 17 0 1 1 0 30 0 32 2 0 37 37 0
-                                              1 1 0 36 0 1 1 0 18 0 35 1 0 0 7
-                                              8 2 0 15 0 0 1)))))
+                                              0 17 0 1 1 0 30 0 32 1 0 18 0 35
+                                              1 0 0 7 8 2 0 15 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ChainComplex| 'NILADIC T) 

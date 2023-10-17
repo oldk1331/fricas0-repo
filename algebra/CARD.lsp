@@ -147,7 +147,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|CardinalNumber|))
-          (LETT % (GETREFV 45))
+          (LETT % (GETREFV 43))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CardinalNumber| NIL (CONS 1 %))
@@ -176,15 +176,15 @@
               |CARD;retractIfCan;%U;16|
               |CARD;generalizedContinuumHypothesisAssumed?;B;17|
               |CARD;generalizedContinuumHypothesisAssumed;2B;18|
-              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
+              (|PositiveInteger|) (|String|))
            '#(~= 34 |zero?| 40 |smaller?| 45 |sample| 51 |rightRecip| 55
               |rightPower| 60 |retractIfCan| 72 |retract| 77 |recip| 82
               |opposite?| 87 |one?| 93 |min| 98 |max| 104 |leftRecip| 110
-              |leftPower| 115 |latex| 127 |hashUpdate!| 132 |hash| 138
-              |generalizedContinuumHypothesisAssumed?| 143
-              |generalizedContinuumHypothesisAssumed| 147 |finite?| 152
-              |countable?| 157 |coerce| 162 ^ 172 |Zero| 190 |One| 194 |Aleph|
-              198 >= 203 > 209 = 215 <= 221 < 227 - 233 + 239 * 245)
+              |leftPower| 115 |latex| 127
+              |generalizedContinuumHypothesisAssumed?| 132
+              |generalizedContinuumHypothesisAssumed| 136 |finite?| 141
+              |countable?| 146 |coerce| 151 ^ 161 |Zero| 179 |One| 183 |Aleph|
+              187 >= 192 > 198 = 204 <= 210 < 216 - 222 + 228 * 234)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -198,7 +198,7 @@
                       (|RetractableTo| 10) (|SetCategory|) (|TwoSidedRecip|)
                       (|CoercibleFrom| 10) (|BasicType|) (|PartialOrder|)
                       (|CoercibleTo| 13))
-                   (|makeByteWordVec2| 44
+                   (|makeByteWordVec2| 42
                                        '(1 14 13 0 15 1 17 13 0 18 2 13 0 0 19
                                          20 2 17 22 0 0 23 2 0 0 0 0 27 2 0 22
                                          0 0 29 2 0 22 0 0 1 1 0 22 0 1 2 0 22
@@ -206,15 +206,14 @@
                                          2 0 0 0 10 1 1 0 37 0 38 1 0 10 0 36 1
                                          0 30 0 1 2 0 22 0 0 1 1 0 22 0 1 2 0 0
                                          0 0 1 2 0 0 0 0 27 1 0 30 0 1 2 0 0 0
-                                         41 1 2 0 0 0 10 1 1 0 42 0 1 2 0 44 44
-                                         0 1 1 0 43 0 1 0 0 22 39 1 0 22 22 40
-                                         1 0 22 0 24 1 0 22 0 35 1 0 0 10 11 1
-                                         0 13 0 21 2 0 0 0 0 34 2 0 0 0 41 1 2
-                                         0 0 0 10 1 0 0 0 9 0 0 0 8 1 0 0 10 12
-                                         2 0 22 0 0 1 2 0 22 0 0 29 2 0 22 0 0
-                                         25 2 0 22 0 0 1 2 0 22 0 0 26 2 0 30 0
-                                         0 31 2 0 0 0 0 28 2 0 0 0 0 32 2 0 0
-                                         41 0 1 2 0 0 10 0 33)))))
+                                         41 1 2 0 0 0 10 1 1 0 42 0 1 0 0 22 39
+                                         1 0 22 22 40 1 0 22 0 24 1 0 22 0 35 1
+                                         0 0 10 11 1 0 13 0 21 2 0 0 0 0 34 2 0
+                                         0 0 41 1 2 0 0 0 10 1 0 0 0 9 0 0 0 8
+                                         1 0 0 10 12 2 0 22 0 0 1 2 0 22 0 0 29
+                                         2 0 22 0 0 25 2 0 22 0 0 1 2 0 22 0 0
+                                         26 2 0 30 0 0 31 2 0 0 0 0 28 2 0 0 0
+                                         0 32 2 0 0 41 0 1 2 0 0 10 0 33)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CardinalNumber| 'NILADIC T) 

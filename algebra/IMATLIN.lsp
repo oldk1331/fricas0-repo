@@ -1046,6 +1046,9 @@
                     (IF (|has| SUP (|UniqueFactorizationDomain|))
                         (SIGNATURE |factorFraction|
                          ((|Fraction| (|Factored| SUP)) %))
+                        |noBranch|)
+                    (IF (|has| SUP (|Hashable|))
+                        (ATTRIBUTE (|Hashable|))
                         |noBranch|))))
           (SUP
            (|Join| (|UnivariatePolynomialCategory| R)

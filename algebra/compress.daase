@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5256 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5258 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -170,7 +170,7 @@
  |GeneralSparseTable| |GeneralTriangularSet| |Guess| |GuessAlgebraicNumber|
  |GuessExpBin| |GuessFinite| |GuessFiniteFunctions| |GuessInteger|
  |GuessPolynomial| |GuessPolynomialFunctions| |GuessPolynomialInteger| |Pi|
- |HankelPackage| |HashState| |HashTable| |HallBasis|
+ |HankelPackage| |Hashable&| |Hashable| |HashState| |HashTable| |HallBasis|
  |HomogeneousDistributedMultivariatePolynomial| |HomogeneousDirectProduct|
  |Heap| |HyperellipticFiniteDivisor| |HeuGcd| |HexadecimalExpansion|
  |HomogeneousAggregate&| |HomogeneousAggregate| |Homology| |HopfAlgebra|
@@ -699,10 +699,10 @@
  |directProduct| |refactor| |groupPresentation| F2EXPRR EXPRR2F |iim2|
  |iiretractVar| |guess| |guessExpRat| |guessBinRat| |guessAlgDep| |guessFE|
  |guessAlg| |guessPade| |algDepHP| |substHP| |shiftHP| |diffHP| |guessRec|
- |guessPRec| |guessRat| |guessADE| |guessHolo| |HankelMatrix| |update!| |lfunc|
- |inHallBasis?| |reorder| |heap| |gcdprim| |gcdcofact| |gcdcofactprim|
- |lintgcd| |hex| |members| |parts| |count| |every?| |any?| |map!|
- |dispGenerators| |homologyzc2| |homologyc2| |homologyzz| |homologyz|
+ |guessPRec| |guessRat| |guessADE| |guessHolo| |HankelMatrix| |hashUpdate!|
+ |hash| |update!| |lfunc| |inHallBasis?| |reorder| |heap| |gcdprim| |gcdcofact|
+ |gcdcofactprim| |lintgcd| |hex| |members| |parts| |count| |every?| |any?|
+ |map!| |dispGenerators| |homologyzc2| |homologyc2| |homologyzz| |homologyz|
  |homology0| |homologyGroup| |antipode| |exprex| |factorList|
  |listConjugateBases| |matrixGcd| |divideIfCan!| |leastPower| |idealiser|
  |idealiserMatrix| |moduleSum| |mapUnivariate| |mapUnivariateIfCan|
@@ -1043,11 +1043,11 @@
  |consRow!| |deleteRow!| |setRow!| |row| |sortedPurge!| |purge!|
  |elimZeroCols!| |allIndices| |nrows| |ncols| |dilate| |firstn| |sequence|
  |apply| |union| |subset?| |symmetricDifference| |difference| |intersect| |set|
- |latex| |hashUpdate!| |hash| |complement| |subsetLattice| |delta| |enumerate|
- |setOfMinN| |elements| |replaceKthElement| |incrementKthElement| |cdr| |car|
- |float| |integer| |symbol| |destruct| |float?| |integer?| |symbol?| |string?|
- |list?| |pair?| |null?| |eq| |fortran| |startTable!| |stopTable!|
- |supDimElseRittWu?| |algebraicSort| |moreAlgebraic?| |subTriSet?| |subPolSet?|
+ |latex| |complement| |subsetLattice| |delta| |enumerate| |setOfMinN|
+ |elements| |replaceKthElement| |incrementKthElement| |cdr| |car| |float|
+ |integer| |symbol| |destruct| |float?| |integer?| |symbol?| |string?| |list?|
+ |pair?| |null?| |eq| |fortran| |startTable!| |stopTable!| |supDimElseRittWu?|
+ |algebraicSort| |moreAlgebraic?| |subTriSet?| |subPolSet?|
  |internalSubPolSet?| |internalInfRittWu?| |internalSubQuasiComponent?|
  |subQuasiComponent?| |removeSuperfluousQuasiComponents| |subCase?|
  |removeSuperfluousCases| |prepareDecompose| |branchIfCan| |startTableGcd!|

@@ -1058,8 +1058,8 @@
               (289 . |coefficient|) (295 . *) (301 . *) (307 . |concat!|)
               (312 . |member?|) (|AssociationList| 7 6) (318 . |search|)
               (324 . |setelt!|) (331 . |remove!|) (337 . |table|)
-              (341 . |keys|) (346 . |elt|) (|InputForm|) (|String|)
-              (|SingleInteger|) (|HashState|))
+              (341 . |keys|) (346 . |elt|) (|InputForm|) (|SingleInteger|)
+              (|HashState|) (|String|))
            '#(~= 352 |zero?| 358 |terms| 363 |support| 368 |subtractIfCan| 373
               |smaller?| 379 |size| 385 |sample| 389 |rightRecip| 393
               |rightPower| 398 |retractIfCan| 410 |retract| 420 |reductum| 430
@@ -1078,8 +1078,8 @@
            (CONS
             (|makeByteWordVec2| 7
                                 '(0 3 3 2 4 5 0 0 0 0 0 0 3 2 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0 0 0 0 1 0 0 7 0 0 0 3 0 0 0 0 0 1
-                                  3))
+                                  0 0 0 0 0 0 0 0 0 1 0 0 7 0 0 0 1 3 0 0 0 0 0
+                                  1 3))
             (CONS
              '#(NIL NIL |Algebra&| |Algebra&| NIL NIL NIL |Rng&|
                 |FreeModuleCategory&| NIL NIL NIL |Module&| |Module&| NIL NIL
@@ -1087,7 +1087,8 @@
                 NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Finite&| |Magma&|
                 |AbelianSemiGroup&| NIL |RetractableTo&| |RetractableTo&|
-                |SetCategory&| NIL NIL NIL NIL |BasicType&| NIL NIL NIL)
+                |SetCategory&| |Hashable&| NIL NIL NIL NIL |BasicType&| NIL NIL
+                NIL)
              (CONS
               '#((|MonoidRingCategory| 6 7) (|CommutativeRing|) (|Algebra| $$)
                  (|Algebra| 6) (|CharacteristicNonZero|) (|CharacteristicZero|)
@@ -1102,9 +1103,10 @@
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Finite|) (|Magma|) (|AbelianSemiGroup|)
                  (|Comparable|) (|RetractableTo| 6) (|RetractableTo| 7)
-                 (|SetCategory|) (|CommutativeStar|) (|CoercibleFrom| 6)
-                 (|CoercibleFrom| 7) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 73) (|ConvertibleTo| 114) (|TwoSidedRecip|))
+                 (|SetCategory|) (|Hashable|) (|CommutativeStar|)
+                 (|CoercibleFrom| 6) (|CoercibleFrom| 7) (|unitsKnown|)
+                 (|BasicType|) (|CoercibleTo| 73) (|ConvertibleTo| 114)
+                 (|TwoSidedRecip|))
               (|makeByteWordVec2| 117
                                   '(0 6 9 10 0 6 0 16 2 6 17 0 0 18 0 6 9 21 0
                                     7 9 22 0 0 9 23 2 24 17 0 0 25 1 6 0 26 27
@@ -1135,8 +1137,8 @@
                                     59 0 60 1 1 26 0 35 1 0 13 0 88 2 2 6 98 0
                                     99 1 0 67 0 1 2 0 0 0 9 1 2 0 0 0 26 1 1 6
                                     12 0 86 1 6 7 0 84 1 6 0 0 85 1 6 6 0 83 1
-                                    0 115 0 1 1 1 0 26 30 2 0 117 117 0 1 1 0
-                                    116 0 1 0 1 44 1 1 1 114 0 1 1 6 0 13 91 1
+                                    0 117 0 1 1 1 0 26 30 2 1 116 116 0 1 1 1
+                                    115 0 1 0 1 44 1 1 1 114 0 1 1 6 0 13 91 1
                                     0 0 13 97 2 0 0 0 0 1 1 3 0 0 1 1 0 0 6 49
                                     1 0 0 13 14 1 0 0 7 48 1 0 0 24 51 1 0 73 0
                                     82 1 0 46 0 47 2 0 6 0 7 102 1 4 67 0 1 0 0

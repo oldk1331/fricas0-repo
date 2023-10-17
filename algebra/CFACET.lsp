@@ -457,7 +457,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|CubicalFacet|))
-          (LETT % (GETREFV 63))
+          (LETT % (GETREFV 61))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|CubicalFacet| NIL (CONS 1 %))
@@ -488,13 +488,12 @@
               |CFACET;sameFace?;2%B;16| |CFACET;<;2%B;18| |CFACET;<=;2%B;19|
               |CFACET;=;2%B;20| (|String|) (|OutputForm|) (107 . |message|)
               (112 . |coerce|) (117 . |hconcat|) (123 . |coerce|)
-              (128 . |paren|) |CFACET;coerce;%Of;21| (|HashState|)
-              (|SingleInteger|))
+              (128 . |paren|) |CFACET;coerce;%Of;21|)
            '#(~= 133 |smaller?| 139 |setMult| 145 |sameFace?| 151 |product| 157
               |position| 163 |order| 169 |min| 174 |max| 180 |latex| 186
-              |hashUpdate!| 191 |hash| 197 |getMult| 202 |getIntervals| 207
-              |empty?| 212 |cubicalFacet| 217 |coerce| 235 |boundary| 240
-              |allSubsets| 245 >= 258 > 264 = 270 <= 276 < 282)
+              |getMult| 191 |getIntervals| 196 |empty?| 201 |cubicalFacet| 206
+              |coerce| 224 |boundary| 229 |allSubsets| 234 >= 247 > 253 = 259
+              <= 265 < 271)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -504,7 +503,7 @@
                    '#((|FacetCategory|) (|OrderedSet|) (|Comparable|)
                       (|SetCategory|) (|PartialOrder|) (|BasicType|)
                       (|CoercibleTo| 54))
-                   (|makeByteWordVec2| 62
+                   (|makeByteWordVec2| 60
                                        '(1 8 7 0 9 1 8 7 0 10 2 8 0 7 7 11 2 12
                                          0 0 8 13 2 7 15 0 0 16 1 17 7 0 18 1
                                          21 12 0 22 2 12 15 0 0 29 2 12 0 0 0
@@ -516,13 +515,13 @@
                                          54 0 30 59 2 0 15 0 0 1 2 0 15 0 0 1 2
                                          0 0 0 7 28 2 0 15 0 0 49 2 0 0 0 0 33
                                          2 0 7 0 30 31 1 0 25 0 26 2 0 0 0 0 1
-                                         2 0 0 0 0 1 1 0 53 0 1 2 0 61 61 0 1 1
-                                         0 62 0 1 1 0 7 0 27 1 0 12 0 24 1 0 15
-                                         0 40 2 0 0 7 21 23 2 0 0 7 12 14 2 0 0
-                                         7 19 20 1 0 54 0 60 1 0 30 0 39 3 0 30
-                                         0 25 25 47 2 0 30 0 25 46 2 0 15 0 0 1
-                                         2 0 15 0 0 1 2 0 15 0 0 52 2 0 15 0 0
-                                         51 2 0 15 0 0 50)))))
+                                         2 0 0 0 0 1 1 0 53 0 1 1 0 7 0 27 1 0
+                                         12 0 24 1 0 15 0 40 2 0 0 7 21 23 2 0
+                                         0 7 19 20 2 0 0 7 12 14 1 0 54 0 60 1
+                                         0 30 0 39 3 0 30 0 25 25 47 2 0 30 0
+                                         25 46 2 0 15 0 0 1 2 0 15 0 0 1 2 0 15
+                                         0 0 52 2 0 15 0 0 51 2 0 15 0 0
+                                         50)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CubicalFacet| 'NILADIC T) 

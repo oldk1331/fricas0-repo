@@ -245,7 +245,7 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$| (LIST '|RewriteRule| DV$1 DV$2 DV$3))
-          (LETT % (GETREFV 86))
+          (LETT % (GETREFV 84))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RewriteRule| (LIST DV$1 DV$2 DV$3)
@@ -286,12 +286,10 @@
               (147 . |generic?|) (|Union| 47 '"failed") (152 . |isPlus|)
               (157 . |new|) (161 . |One|) (165 . |isTimes|) (170 . |Zero|)
               (174 . |Zero|) (|OutputForm|) (178 . |coerce|) (183 . |coerce|)
-              (188 . |infix|) |RULE;coerce;%Of;19| (|String|) (|SingleInteger|)
-              (|HashState|))
+              (188 . |infix|) |RULE;coerce;%Of;19| (|String|))
            '#(~= 195 |suchThat| 201 |rule| 208 |rhs| 221 |retractIfCan| 226
               |retract| 231 |quotedOperators| 236 |pattern| 241 |lhs| 246
-              |latex| 251 |hashUpdate!| 256 |hash| 262 |elt| 267 |coerce| 280 =
-              290)
+              |latex| 251 |elt| 256 |coerce| 269 = 279)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
                  (CONS
@@ -300,7 +298,7 @@
                    '#((|SetCategory|) (|RetractableTo| (|Equation| 8))
                       (|BasicType|) (|CoercibleFrom| (|Equation| 8))
                       (|Eltable| 8 8) (|CoercibleTo| 78))
-                   (|makeByteWordVec2| 85
+                   (|makeByteWordVec2| 83
                                        '(1 16 8 0 17 1 16 8 0 18 2 23 8 22 8 24
                                          3 27 10 10 14 26 28 2 8 30 0 0 31 2 14
                                          30 0 0 32 3 23 8 22 8 34 35 1 38 37 0
@@ -314,10 +312,9 @@
                                          72 0 45 0 73 0 8 0 74 1 10 71 0 75 0 7
                                          0 76 0 8 0 77 1 45 78 0 79 1 8 78 0 80
                                          3 78 0 0 0 0 81 2 0 30 0 0 1 3 0 0 0
-                                         14 26 29 3 0 0 8 8 14 19 2 0 0 8 8 21
+                                         14 26 29 2 0 0 8 8 21 3 0 0 8 8 14 19
                                          1 0 8 0 13 1 0 55 0 56 1 0 16 0 1 1 0
                                          14 0 15 1 0 10 0 11 1 0 8 0 12 1 0 83
-                                         0 1 2 0 85 85 0 1 1 0 84 0 1 3 0 8 0 8
-                                         34 36 2 0 8 0 8 25 1 0 0 16 20 1 0 78
-                                         0 82 2 0 30 0 0 33)))))
+                                         0 1 3 0 8 0 8 34 36 2 0 8 0 8 25 1 0 0
+                                         16 20 1 0 78 0 82 2 0 30 0 0 33)))))
            '|lookupComplete|)) 

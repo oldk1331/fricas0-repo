@@ -27,9 +27,9 @@
 
 (DECLAIM (NOTINLINE |Reference;|)) 
 
-(DEFUN |Reference| (#1=#:G1922)
+(DEFUN |Reference| (#1=#:G1924)
   (SPROG NIL
-         (PROG (#2=#:G1923)
+         (PROG (#2=#:G1925)
            (RETURN
             (COND
              ((LETT #2#
@@ -48,7 +48,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|Reference| DV$1))
-          (LETT % (GETREFV 24))
+          (LETT % (GETREFV 22))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3
                     (LETT |pv$|
@@ -72,20 +72,19 @@
               |REF;=;2%B;1| |REF;ref;S%;2| |REF;elt;%S;3| |REF;setelt!;%2S;4|
               |REF;deref;%S;5| |REF;setref;%2S;6| (|String|) (|OutputForm|)
               (0 . |message|) (5 . |coerce|) (|List| %) (10 . |prefix|)
-              (16 . |coerce|) (|HashState|) (|SingleInteger|))
-           '#(~= 21 |setref| 27 |setelt!| 33 |ref| 39 |latex| 44 |hashUpdate!|
-              49 |hash| 55 |elt| 60 |deref| 65 |coerce| 70 = 75)
+              (16 . |coerce|))
+           '#(~= 21 |setref| 27 |setelt!| 33 |ref| 39 |latex| 44 |elt| 49
+              |deref| 54 |coerce| 59 = 64)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(1 0 1 1))
                  (CONS '#(|SetCategory&| NIL |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|Type|) (|BasicType|)
                            (|CoercibleTo| 16))
-                        (|makeByteWordVec2| 23
+                        (|makeByteWordVec2| 21
                                             '(1 16 0 15 17 1 6 16 0 18 2 16 0 0
                                               19 20 1 0 16 0 21 2 1 8 0 0 1 2 0
                                               6 0 6 14 2 0 6 0 6 12 1 0 0 6 10
-                                              1 1 15 0 1 2 1 22 22 0 1 1 1 23 0
-                                              1 1 0 6 0 11 1 0 6 0 13 1 1 16 0
-                                              21 2 0 8 0 0 9)))))
+                                              1 1 15 0 1 1 0 6 0 11 1 0 6 0 13
+                                              1 1 16 0 21 2 0 8 0 0 9)))))
            '|lookupComplete|)) 

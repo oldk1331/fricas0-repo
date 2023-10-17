@@ -126,6 +126,12 @@
                                                     ((|PartialDifferentialRing|
                                                       |t#3|)
                                                      (|has| |t#1| (|Ring|)))
+                                                    ((|Hashable|)
+                                                     (AND
+                                                      (|has| |t#3|
+                                                             (|Hashable|))
+                                                      (|has| |t#1|
+                                                             (|Hashable|))))
                                                     ((|ConvertibleTo|
                                                       (|InputForm|))
                                                      (AND
