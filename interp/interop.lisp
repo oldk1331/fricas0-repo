@@ -1809,18 +1809,12 @@
 ;   u is ['spadConstant,d,n] =>
 ;     dom := evalSlotDomain(d,dollar)
 ;     SPADCALL(dom . n)
-;   u is ['ELT,d,n] =>
-;     dom := evalSlotDomain(d,dollar)
-;     slot := dom . n
-;     slot is [=FUNCTION newGoGet,:env] =>
-;         replaceGoGetSlot env
-;     slot
 ;   u is [op,:argl] => APPLY(op,[evalSlotDomain(x,dollar) for x in argl])
 ;   systemErrorHere '"evalSlotDomain"
 
 (DEFUN |evalSlotDomain| (|u| |dollar|)
-  (PROG (|$lookupDefaults| $ |$returnNowhereFromGoGet| |op| |env| |slot| |n|
-         |d| |ISTMP#3| |dom| |ISTMP#2| |tag| |argl| |ISTMP#1| |v| |y|)
+  (PROG (|$lookupDefaults| $ |$returnNowhereFromGoGet| |op| |n| |d| |ISTMP#3|
+         |dom| |ISTMP#2| |tag| |argl| |ISTMP#1| |v| |y|)
     (DECLARE (SPECIAL |$lookupDefaults| $ |$returnNowhereFromGoGet|))
     (RETURN
      (PROGN
@@ -1934,23 +1928,6 @@
              (PROGN
               (SETQ |dom| (|evalSlotDomain| |d| |dollar|))
               (SPADCALL (ELT |dom| |n|))))
-            ((AND (CONSP |u|) (EQ (CAR |u|) 'ELT)
-                  (PROGN
-                   (SETQ |ISTMP#1| (CDR |u|))
-                   (AND (CONSP |ISTMP#1|)
-                        (PROGN
-                         (SETQ |d| (CAR |ISTMP#1|))
-                         (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                         (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                              (PROGN (SETQ |n| (CAR |ISTMP#2|)) #1#))))))
-             (PROGN
-              (SETQ |dom| (|evalSlotDomain| |d| |dollar|))
-              (SETQ |slot| (ELT |dom| |n|))
-              (COND
-               ((AND (CONSP |slot|) (EQUAL (CAR |slot|) #'|newGoGet|)
-                     (PROGN (SETQ |env| (CDR |slot|)) #1#))
-                (|replaceGoGetSlot| |env|))
-               (#1# |slot|))))
             ((AND (CONSP |u|)
                   (PROGN (SETQ |op| (CAR |u|)) (SETQ |argl| (CDR |u|)) #1#))
              (APPLY |op|

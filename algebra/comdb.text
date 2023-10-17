@@ -2567,7 +2567,7 @@
 268755`\spad{degree(upoly,{} lvar)} returns a list containing the maximum degree for each variable in lvar.
 268969`\spad{degree(p,{} s)} returns the maximum degree of the differential polynomial \spad{p} viewed as a differential polynomial in the differential indeterminate \spad{s} alone.
 269057`\spad{degreePartition(f)} returns the degree partition (\spadignore{i.e.} the multiset of the degrees of the irreducible factors) of the polynomial \spad{f}.
-269169`\spad{degreePartition(ddfactorization)} returns the degree partition of the polynomial \spad{f} modulo \spad{p} where \spad{ddfactorization} is the distinct degree factorization of \spad{f} computed by \spadfunFrom{ddFact}{ModularDistinctDegreeFactorizer} for some prime \spad{p}.
+269169`\spad{degreePartition(ddfactorization)} returns the degree partition of the polynomial \spad{f} modulo \spad{p} where \spad{ddfactorization} is the distinct degree factorization of \spad{f} computed by \spad{ddfact} from modular factorization package for some prime \spad{p}.
 269296`\spad{degreeSubResultant(P,{} Q,{} d)} computes a subresultant of degree \spad{d}.
 269398`\spad{degreeSubResultantEuclidean(P,{} Q,{} d)} returns a subresultant \spad{S_i} of degree \spad{d} and carries out the equality \spad{coef1*P + coef2*Q = S_i}.
 269552`\spad{dehomogenize(ls)} converts list of solutions (a,{} [\spad{c0},{} \spad{c1},{} ...,{} \spad{cn}]) to homogeneous equation \spad{L}(a) + \spad{c0} \spad{f} + \spad{c1} \spad{g1} + ... + \spad{cn} \spad{gn} = 0 into list of solutions of inhomogeneous equation \spad{L}(a) + \spad{f} + \spad{c1} \spad{g1} + ... + \spad{cn} \spad{gn} = 0. This transformation works the same for all equations,{} so we only need list of solutions as argument

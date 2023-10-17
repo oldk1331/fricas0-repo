@@ -102,7 +102,6 @@
 ;     [op,:[mkEvalable x for x in argl]]
 ;   form=$EmptyMode => $Integer
 ;   IDENTP form and constructor?(form) => [form]
-;   FBPIP form => BREAK()
 ;   form
 
 (DEFUN |mkEvalable| (|form|)
@@ -172,7 +171,7 @@
                         NIL |argl| NIL))))))))
       ((EQUAL |form| |$EmptyMode|) |$Integer|)
       ((AND (IDENTP |form|) (|constructor?| |form|)) (LIST |form|))
-      ((FBPIP |form|) (BREAK)) (#1# |form|)))))
+      (#1# |form|)))))
 
 ; mkEvalableMapping form ==
 ;   [first form,:[mkEvalable d for d in rest form]]

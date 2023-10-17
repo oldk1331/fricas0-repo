@@ -2069,9 +2069,6 @@
 
 ; getBindingPowerOf(key,x) ==
 ;   --binding powers can be found in file NEWAUX LISP
-;   x is ['REDUCE,:.] => (key='left => 130; key='right => 0)
-;   x is ["REPEAT",:.] => (key="left" => 130; key="right" => 0)
-;   x is ["COND",:.] => (key="left" => 130; key="right" => 0)
 ;   x is [op,:argl] =>
 ;     if op is [a,:.] then op:= a
 ;     op = 'SLASH => getBindingPowerOf(key,["/",:argl]) - 1
@@ -2083,7 +2080,6 @@
 ;     n>1 =>
 ;       key="left" and (m:= getOpBindingPower(op,"Led","left")) => m
 ;       key="right" and (m:= getOpBindingPower(op,"Led","right")) => m
-;       op="ELT" => 1002
 ;       1000
 ;     1000
 ;   1002
@@ -2092,12 +2088,6 @@
   (PROG (|op| |argl| |a| |n| |m|)
     (RETURN
      (COND
-      ((AND (CONSP |x|) (EQ (CAR |x|) 'REDUCE))
-       (COND ((EQ |key| '|left|) 130) ((EQ |key| '|right|) 0)))
-      ((AND (CONSP |x|) (EQ (CAR |x|) 'REPEAT))
-       (COND ((EQ |key| '|left|) 130) ((EQ |key| '|right|) 0)))
-      ((AND (CONSP |x|) (EQ (CAR |x|) 'COND))
-       (COND ((EQ |key| '|left|) 130) ((EQ |key| '|right|) 0)))
       ((AND (CONSP |x|)
             (PROGN (SETQ |op| (CAR |x|)) (SETQ |argl| (CDR |x|)) #1='T))
        (PROGN
@@ -2124,7 +2114,7 @@
            ((AND (EQ |key| '|right|)
                  (SETQ |m| (|getOpBindingPower| |op| '|Led| '|right|)))
             |m|)
-           ((EQ |op| 'ELT) 1002) (#1# 1000)))
+           (#1# 1000)))
          (#1# 1000))))
       (#1# 1002)))))
 
