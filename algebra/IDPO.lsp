@@ -270,98 +270,31 @@
 (SDEFUN |IDPO;add_gen| ((|x| (|Rep|)) (|y| (|Rep|)) ($ (|Rep|)))
         (SPROG
          ((|res| (|Rep|)) (|end| (|Rep|)) (|endcell| (|Rep|))
-          (|newcell| (|Rep|)) (|r| (A)))
-         (SEQ
-          (COND ((NULL |x|) |y|) ((NULL |y|) |x|)
-                (#1='T
-                 (SEQ (LETT |endcell| NIL) (LETT |res| NIL)
-                      (SEQ G190
-                           (COND
-                            ((NULL
-                              (COND ((NULL |x|) NIL) ('T (NULL (NULL |y|)))))
-                             (GO G191)))
-                           (SEQ (LETT |newcell| NIL)
-                                (COND
-                                 ((SPADCALL (QCAR (|SPADfirst| |x|))
-                                            (QCAR (|SPADfirst| |y|))
-                                            (QREFELT $ 35))
-                                  (SEQ
-                                   (LETT |r|
-                                         (SPADCALL (QCDR (|SPADfirst| |x|))
-                                                   (QCDR (|SPADfirst| |y|))
-                                                   (QREFELT $ 50)))
-                                   (COND
-                                    ((NULL (SPADCALL |r| (QREFELT $ 51)))
-                                     (LETT |newcell|
-                                           (CONS
-                                            (CONS (QCAR (|SPADfirst| |x|)) |r|)
-                                            NIL))))
-                                   (LETT |x| (CDR |x|))
-                                   (EXIT (LETT |y| (CDR |y|)))))
-                                 ((SPADCALL (QCAR (|SPADfirst| |y|))
-                                            (QCAR (|SPADfirst| |x|))
-                                            (QREFELT $ 36))
-                                  (SEQ
-                                   (LETT |newcell|
-                                         (CONS (|SPADfirst| |x|) NIL))
-                                   (EXIT (LETT |x| (CDR |x|)))))
-                                 ('T
-                                  (SEQ
-                                   (LETT |newcell|
-                                         (CONS (|SPADfirst| |y|) NIL))
-                                   (EXIT (LETT |y| (CDR |y|))))))
-                                (EXIT
-                                 (COND
-                                  ((NULL (NULL |newcell|))
-                                   (COND
-                                    ((NULL |endcell|)
-                                     (SEQ (LETT |res| |newcell|)
-                                          (EXIT (LETT |endcell| |res|))))
-                                    ('T
-                                     (SEQ (RPLACD |endcell| |newcell|)
-                                          (EXIT
-                                           (LETT |endcell| |newcell|)))))))))
-                           NIL (GO G190) G191 (EXIT NIL))
-                      (COND ((NULL |x|) (LETT |end| |y|))
-                            (#1# (LETT |end| |x|)))
-                      (COND ((NULL |res|) (LETT |res| |end|))
-                            (#1# (RPLACD |endcell| |end|)))
-                      (EXIT |res|))))))) 
-
-(SDEFUN |IDPO;add_si|
-        ((|x| (|List| (|Record| (|:| |k| (|SingleInteger|)) (|:| |c| A))))
-         (|y| #1=(|List| (|Record| (|:| |k| (|SingleInteger|)) (|:| |c| A))))
-         ($ (|List| (|Record| (|:| |k| (|SingleInteger|)) (|:| |c| A)))))
-        (SPROG
-         ((|res|
-           #2=(|List| (|Record| (|:| |k| (|SingleInteger|)) (|:| |c| A))))
-          (|end| #1#) (|endcell| #2#) (|newcell| #2#) (|r| (A)))
+          (|newcell| (|Rep|)) (|newcoef| (A))
+          (|ty| #1=(|Record| (|:| |k| S) (|:| |c| A))) (|tx| #1#))
          (SEQ (LETT |endcell| NIL) (LETT |res| NIL)
               (SEQ G190
                    (COND
                     ((NULL (COND ((NULL |x|) NIL) ('T (NULL (NULL |y|)))))
                      (GO G191)))
-                   (SEQ (LETT |newcell| NIL)
+                   (SEQ (LETT |tx| (|SPADfirst| |x|))
+                        (LETT |ty| (|SPADfirst| |y|)) (LETT |newcell| NIL)
                         (COND
-                         ((|eql_SI| (QCAR (|SPADfirst| |x|))
-                                    (QCAR (|SPADfirst| |y|)))
+                         ((SPADCALL (QCAR |tx|) (QCAR |ty|) (QREFELT $ 35))
                           (SEQ
-                           (LETT |r|
-                                 (SPADCALL (QCDR (|SPADfirst| |x|))
-                                           (QCDR (|SPADfirst| |y|))
+                           (LETT |newcoef|
+                                 (SPADCALL (QCDR |tx|) (QCDR |ty|)
                                            (QREFELT $ 50)))
                            (COND
-                            ((NULL (SPADCALL |r| (QREFELT $ 51)))
+                            ((NULL (SPADCALL |newcoef| (QREFELT $ 51)))
                              (LETT |newcell|
-                                   (CONS (CONS (QCAR (|SPADfirst| |x|)) |r|)
-                                         NIL))))
+                                   (CONS (CONS (QCAR |tx|) |newcoef|) NIL))))
                            (LETT |x| (CDR |x|)) (EXIT (LETT |y| (CDR |y|)))))
-                         ((SPADCALL (QCAR (|SPADfirst| |y|))
-                                    (QCAR (|SPADfirst| |x|)) (QREFELT $ 53))
-                          (SEQ (LETT |newcell| (CONS (|SPADfirst| |x|) NIL))
+                         ((SPADCALL (QCAR |ty|) (QCAR |tx|) (QREFELT $ 36))
+                          (SEQ (LETT |newcell| (CONS |tx| NIL))
                                (EXIT (LETT |x| (CDR |x|)))))
                          ('T
-                          (SEQ (LETT |newcell| (CONS (|SPADfirst| |y|) NIL))
+                          (SEQ (LETT |newcell| (CONS |ty| NIL))
                                (EXIT (LETT |y| (CDR |y|))))))
                         (EXIT
                          (COND
@@ -374,37 +307,82 @@
                              (SEQ (RPLACD |endcell| |newcell|)
                                   (EXIT (LETT |endcell| |newcell|)))))))))
                    NIL (GO G190) G191 (EXIT NIL))
-              (COND ((NULL |x|) (LETT |end| |y|)) (#3='T (LETT |end| |x|)))
+              (COND ((NULL |x|) (LETT |end| |y|)) (#2='T (LETT |end| |x|)))
               (COND ((NULL |res|) (LETT |res| |end|))
-                    (#3# (RPLACD |endcell| |end|)))
+                    (#2# (RPLACD |endcell| |end|)))
+              (EXIT |res|)))) 
+
+(SDEFUN |IDPO;add_si|
+        ((|x| (|List| (|Record| (|:| |k| (|SingleInteger|)) (|:| |c| A))))
+         (|y| #1=(|List| (|Record| (|:| |k| (|SingleInteger|)) (|:| |c| A))))
+         ($ (|List| (|Record| (|:| |k| (|SingleInteger|)) (|:| |c| A)))))
+        (SPROG
+         ((|res|
+           #2=(|List| (|Record| (|:| |k| (|SingleInteger|)) (|:| |c| A))))
+          (|end| #1#) (|endcell| #2#) (|newcell| #2#) (|newcoef| (A))
+          (|ty| #3=(|Record| (|:| |k| (|SingleInteger|)) (|:| |c| A)))
+          (|tx| #3#))
+         (SEQ (LETT |endcell| NIL) (LETT |res| NIL)
+              (SEQ G190
+                   (COND
+                    ((NULL (COND ((NULL |x|) NIL) ('T (NULL (NULL |y|)))))
+                     (GO G191)))
+                   (SEQ (LETT |tx| (|SPADfirst| |x|))
+                        (LETT |ty| (|SPADfirst| |y|)) (LETT |newcell| NIL)
+                        (COND
+                         ((|eql_SI| (QCAR |tx|) (QCAR |ty|))
+                          (SEQ
+                           (LETT |newcoef|
+                                 (SPADCALL (QCDR |tx|) (QCDR |ty|)
+                                           (QREFELT $ 50)))
+                           (COND
+                            ((NULL (SPADCALL |newcoef| (QREFELT $ 51)))
+                             (LETT |newcell|
+                                   (CONS (CONS (QCAR |tx|) |newcoef|) NIL))))
+                           (LETT |x| (CDR |x|)) (EXIT (LETT |y| (CDR |y|)))))
+                         ((SPADCALL (QCAR |ty|) (QCAR |tx|) (QREFELT $ 53))
+                          (SEQ (LETT |newcell| (CONS |tx| NIL))
+                               (EXIT (LETT |x| (CDR |x|)))))
+                         ('T
+                          (SEQ (LETT |newcell| (CONS |ty| NIL))
+                               (EXIT (LETT |y| (CDR |y|))))))
+                        (EXIT
+                         (COND
+                          ((NULL (NULL |newcell|))
+                           (COND
+                            ((NULL |endcell|)
+                             (SEQ (LETT |res| |newcell|)
+                                  (EXIT (LETT |endcell| |res|))))
+                            ('T
+                             (SEQ (RPLACD |endcell| |newcell|)
+                                  (EXIT (LETT |endcell| |newcell|)))))))))
+                   NIL (GO G190) G191 (EXIT NIL))
+              (COND ((NULL |x|) (LETT |end| |y|)) (#4='T (LETT |end| |x|)))
+              (COND ((NULL |res|) (LETT |res| |end|))
+                    (#4# (RPLACD |endcell| |end|)))
               (EXIT |res|)))) 
 
 (SDEFUN |IDPO;+;3$;27| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
-         ((#1=#:G313 NIL) (|msi| (|SingleInteger|)) (|degy| (|Integer|))
-          (|degx| (|Integer|)))
+         ((|msi| (|SingleInteger|)) (|degy| (|Integer|)) (|degx| (|Integer|)))
          (SEQ
-          (EXIT
-           (COND ((NULL |x|) |y|) ((NULL |y|) |x|)
-                 ('T
-                  (SEQ (LETT |degx| (QCAR (|SPADfirst| |x|)))
-                       (LETT |degy| (QCAR (|SPADfirst| |y|)))
-                       (LETT |msi| MOST-POSITIVE-FIXNUM)
-                       (COND
-                        ((< |degx| |msi|)
-                         (COND
-                          ((< |degy| |msi|)
-                           (EXIT
-                            (PROGN
-                             (LETT #1# (|IDPO;add_si| |x| |y| $))
-                             (GO #2=#:G312)))))))
-                       (EXIT (|IDPO;add_gen| |x| |y| $))))))
-          #2# (EXIT #1#)))) 
+          (COND ((NULL |x|) |y|) ((NULL |y|) |x|)
+                ('T
+                 (SEQ (LETT |degx| (QCAR (|SPADfirst| |x|)))
+                      (LETT |degy| (QCAR (|SPADfirst| |y|)))
+                      (LETT |msi| MOST-POSITIVE-FIXNUM)
+                      (COND
+                       ((< |degx| |msi|)
+                        (COND
+                         ((< |degy| |msi|) (EXIT (|IDPO;add_si| |x| |y| $))))))
+                      (EXIT (|IDPO;add_gen| |x| |y| $)))))))) 
 
-(SDEFUN |IDPO;+;3$;28| ((|x| ($)) (|y| ($)) ($ ($))) (|IDPO;add_gen| |x| |y| $)) 
+(SDEFUN |IDPO;+;3$;28| ((|x| ($)) (|y| ($)) ($ ($)))
+        (COND ((NULL |x|) |y|) ((NULL |y|) |x|)
+              ('T (|IDPO;add_gen| |x| |y| $)))) 
 
 (SDEFUN |IDPO;*;Nni2$;29| ((|n| (|NonNegativeInteger|)) (|x| ($)) ($ ($)))
-        (SPROG ((|a| (A)) (#1=#:G319 NIL) (|u| NIL) (#2=#:G318 NIL))
+        (SPROG ((|a| (A)) (#1=#:G318 NIL) (|u| NIL) (#2=#:G317 NIL))
                (SEQ
                 (COND ((EQL |n| 0) (|spadConstant| $ 23)) ((EQL |n| 1) |x|)
                       ('T
@@ -428,7 +406,7 @@
                              (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |IDPO;-;2$;30| ((|x| ($)) ($ ($)))
-        (SPROG ((#1=#:G324 NIL) (|u| NIL) (#2=#:G323 NIL))
+        (SPROG ((#1=#:G323 NIL) (|u| NIL) (#2=#:G322 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -447,7 +425,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |IDPO;*;I2$;31| ((|n| (|Integer|)) (|x| ($)) ($ ($)))
-        (SPROG ((|a| (A)) (#1=#:G329 NIL) (|u| NIL) (#2=#:G328 NIL))
+        (SPROG ((|a| (A)) (#1=#:G328 NIL) (|u| NIL) (#2=#:G327 NIL))
                (SEQ
                 (COND ((EQL |n| 0) (|spadConstant| $ 23)) ((EQL |n| 1) |x|)
                       ('T
@@ -541,7 +519,7 @@
         ((|x| ($)) (|y| ($)) ($ (|Union| $ #1="failed")))
         (SPROG
          ((|res| (|Rep|)) (|endcell| (|Rep|)) (|newcell| ($)) (|r| (A))
-          (#2=#:G385 NIL) (|ru| (|Union| A #1#)))
+          (#2=#:G384 NIL) (|ru| (|Union| A #1#)))
          (SEQ
           (EXIT
            (COND ((NULL |y|) (CONS 0 |x|))
@@ -567,7 +545,7 @@
                                       ((QEQCAR |ru| 1)
                                        (PROGN
                                         (LETT #2# (CONS 1 "failed"))
-                                        (GO #4=#:G384)))
+                                        (GO #4=#:G383)))
                                       ('T
                                        (SEQ (LETT |r| (QCDR |ru|))
                                             (COND
@@ -732,7 +710,7 @@
 (SDEFUN |IDPO;Zero;$;38| (($ ($))) NIL) 
 
 (SDEFUN |IDPO;do_copy| ((|xr| (|Rep|)) ($ (|Rep|)))
-        (SPROG ((|res| ($)) (#1=#:G410 NIL) (|t| NIL))
+        (SPROG ((|res| ($)) (#1=#:G409 NIL) (|t| NIL))
                (SEQ (LETT |res| NIL)
                     (SEQ (LETT |t| NIL) (LETT #1# |xr|) G190
                          (COND
@@ -750,7 +728,7 @@
          ((|xr| (|Rep|)) (|cxr| (|Rep|)) (|pxr| (|Rep|))
           (|first_time| #1=(|Boolean|)) (|done| #1#) (|nxr| (|Rep|)) (|tc| (A))
           (|t| (|Record| (|:| |k| S) (|:| |c| A))) (|sc| (A)) (|sk| (S))
-          (#2=#:G426 NIL) (|s| NIL) (|yr| (|Rep|)) (|xxr| (|Rep|)))
+          (#2=#:G425 NIL) (|s| NIL) (|yr| (|Rep|)) (|xxr| (|Rep|)))
          (SEQ (LETT |xxr| |x|) (LETT |yr| |y|)
               (EXIT
                (COND ((NULL |xxr|) |y|) ((NULL |yr|) |x|)
@@ -814,8 +792,8 @@
 
 (SDEFUN |IDPO;=;2$B;41| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G438 NIL) (|done| (|Boolean|)) (#2=#:G440 NIL) (|t| NIL)
-          (|sc| (A)) (|sk| (S)) (#3=#:G439 NIL) (|s| NIL) (|yr| (|Rep|))
+         ((#1=#:G437 NIL) (|done| (|Boolean|)) (#2=#:G439 NIL) (|t| NIL)
+          (|sc| (A)) (|sk| (S)) (#3=#:G438 NIL) (|s| NIL) (|yr| (|Rep|))
           (|xr| (|Rep|)))
          (SEQ
           (EXIT
@@ -849,7 +827,7 @@
                                         ('T
                                          (PROGN
                                           (LETT #1# NIL)
-                                          (GO #4=#:G437))))))))
+                                          (GO #4=#:G436))))))))
                                    (LETT #2# (CDR #2#)) (GO G190) G191
                                    (EXIT NIL))
                               (EXIT
@@ -863,11 +841,11 @@
 (SDEFUN |IDPO;subtractIfCan;2$U;42|
         ((|x| ($)) (|y| ($)) ($ (|Union| $ #1="failed")))
         (SPROG
-         ((|xr| (|Rep|)) (#2=#:G462 NIL) (|tcu| (|Union| A #1#))
+         ((|xr| (|Rep|)) (#2=#:G461 NIL) (|tcu| (|Union| A #1#))
           (|cxr| (|Rep|)) (|pxr| (|Rep|)) (|first_time| #3=(|Boolean|))
           (|done| #3#) (|nxr| (|Rep|)) (|tc| (A))
           (|t| (|Record| (|:| |k| S) (|:| |c| A))) (|sc| (A)) (|sk| (S))
-          (#4=#:G463 NIL) (|s| NIL) (|yr| (|Rep|)))
+          (#4=#:G462 NIL) (|s| NIL) (|yr| (|Rep|)))
          (SEQ
           (EXIT
            (SEQ (LETT |yr| |y|)
@@ -906,7 +884,7 @@
                                                         (LETT #2#
                                                               (CONS 1
                                                                     "failed"))
-                                                        (GO #5=#:G461)))
+                                                        (GO #5=#:G460)))
                                                       ('T
                                                        (SEQ
                                                         (LETT |tc|
@@ -967,9 +945,9 @@
 
 (DECLAIM (NOTINLINE |IndexedDirectProductObject;|)) 
 
-(DEFUN |IndexedDirectProductObject| (&REST #1=#:G467)
+(DEFUN |IndexedDirectProductObject| (&REST #1=#:G466)
   (SPROG NIL
-         (PROG (#2=#:G468)
+         (PROG (#2=#:G467)
            (RETURN
             (COND
              ((LETT #2#
@@ -989,7 +967,7 @@
 
 (DEFUN |IndexedDirectProductObject;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G466 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G465 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
