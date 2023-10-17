@@ -10,10 +10,10 @@
                  (|PlottableSpaceCurveCategory;|))))) 
 
 (DEFUN |PlottableSpaceCurveCategory;| ()
-  (SPROG ((#1=#:G105 NIL))
+  (SPROG ((#1=#:G1 NIL))
          (PROG1
              (LETT #1#
-                   (|subst_in_cat| '(#2=#:G104) (LIST '(|OutputForm|))
+                   (|subst_in_cat| '(#2=#:G0) (LIST '(|OutputForm|))
                                    (|Join| (|CoercibleTo| '#2#)
                                            (|mkCategory|
                                             '(((|listBranches|

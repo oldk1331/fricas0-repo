@@ -10,7 +10,7 @@
                   (QREFELT % 6))) 
 
 (SDEFUN |ROMAN;coerce;%Of;4| ((|r| (%)) (% (|OutputForm|)))
-        (SPROG ((#1=#:G118 NIL) (|n| (|Integer|)))
+        (SPROG ((#1=#:G14 NIL) (|n| (|Integer|)))
                (SEQ (LETT |n| (SPADCALL |r| (QREFELT % 16)))
                     (EXIT
                      (COND ((ZEROP |n|) (SPADCALL |n| (QREFELT % 18)))
@@ -35,7 +35,7 @@
 
 (DEFUN |RomanNumeral| ()
   (SPROG NIL
-         (PROG (#1=#:G144)
+         (PROG (#1=#:G40)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|RomanNumeral|))

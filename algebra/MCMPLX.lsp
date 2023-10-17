@@ -27,7 +27,7 @@
 
 (DEFUN |MachineComplex| ()
   (SPROG NIL
-         (PROG (#1=#:G159)
+         (PROG (#1=#:G55)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|MachineComplex|))
@@ -45,8 +45,8 @@
 
 (DEFUN |MachineComplex;| ()
   (SPROG
-   ((|dv$| NIL) (% NIL) (#1=#:G157 NIL) (#2=#:G156 NIL) (#3=#:G155 NIL)
-    (#4=#:G154 NIL) (#5=#:G153 NIL) (|pv$| NIL))
+   ((|dv$| NIL) (% NIL) (#1=#:G53 NIL) (#2=#:G52 NIL) (#3=#:G51 NIL)
+    (#4=#:G50 NIL) (#5=#:G49 NIL) (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|MachineComplex|))
     (LETT % (GETREFV 90))

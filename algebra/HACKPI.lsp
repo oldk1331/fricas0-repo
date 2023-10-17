@@ -93,7 +93,7 @@
 
 (DEFUN |Pi| ()
   (SPROG NIL
-         (PROG (#1=#:G151)
+         (PROG (#1=#:G47)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Pi|))

@@ -7,9 +7,9 @@
 
 (DECLAIM (NOTINLINE |UnivariatePolynomial;|)) 
 
-(DEFUN |UnivariatePolynomial| (&REST #1=#:G165)
+(DEFUN |UnivariatePolynomial| (&REST #1=#:G61)
   (SPROG NIL
-         (PROG (#2=#:G166)
+         (PROG (#2=#:G62)
            (RETURN
             (COND
              ((LETT #2#
@@ -28,9 +28,9 @@
 
 (DEFUN |UnivariatePolynomial;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G164 NIL) (|pv$| NIL) (#2=#:G155 NIL) (#3=#:G157 NIL) (#4=#:G156 NIL)
-    (#5=#:G158 NIL) (#6=#:G159 NIL) (#7=#:G160 NIL) (#8=#:G161 NIL)
-    (#9=#:G162 NIL) (#10=#:G163 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G60 NIL) (|pv$| NIL) (#2=#:G51 NIL) (#3=#:G53 NIL) (#4=#:G52 NIL)
+    (#5=#:G54 NIL) (#6=#:G55 NIL) (#7=#:G56 NIL) (#8=#:G57 NIL) (#9=#:G58 NIL)
+    (#10=#:G59 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)
     (LETT DV$2 (|devaluate| |#2|))

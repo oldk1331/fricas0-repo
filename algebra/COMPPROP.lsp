@@ -42,7 +42,7 @@
 
 (DEFUN |SubSpaceComponentProperty| ()
   (SPROG NIL
-         (PROG (#1=#:G119)
+         (PROG (#1=#:G15)
            (RETURN
             (COND
              ((LETT #1#

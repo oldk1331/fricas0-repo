@@ -31,9 +31,9 @@
 
 (DECLAIM (NOTINLINE |OperatorHandlers;|)) 
 
-(DEFUN |OperatorHandlers| (#1=#:G118)
+(DEFUN |OperatorHandlers| (#1=#:G14)
   (SPROG NIL
-         (PROG (#2=#:G119)
+         (PROG (#2=#:G15)
            (RETURN
             (COND
              ((LETT #2#

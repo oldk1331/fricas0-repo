@@ -207,7 +207,7 @@
          (% (|Union| (|Stream| A) "failed")))
         (SPROG
          ((|c0| (A)) (|x0| (A)) (|ry0| (A)) (|ry0u| (|Union| A "failed"))
-          (#1=#:G252 NIL) (#2=#:G253 NIL) (|y0| (A)) (|n| NIL))
+          (#1=#:G148 NIL) (#2=#:G149 NIL) (|y0| (A)) (|n| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -218,7 +218,7 @@
                     (EXIT
                      (COND
                       ((OR (> |n| 1000) (SPADCALL |y| (QREFELT % 10)))
-                       (PROGN (LETT #2# (CONS 1 "failed")) (GO #3=#:G251)))
+                       (PROGN (LETT #2# (CONS 1 "failed")) (GO #3=#:G147)))
                       ((SPADCALL |x| (QREFELT % 10))
                        (PROGN
                         (LETT #2# (CONS 0 (SPADCALL (QREFELT % 8))))
@@ -244,7 +244,7 @@
                               ('T
                                (PROGN
                                 (LETT #1# |$NoValue|)
-                                (GO #4=#:G242))))))))))
+                                (GO #4=#:G138))))))))))
                    (LETT |n| (|inc_SI| |n|)) (GO G190) G191 (EXIT NIL)))
              #4# (EXIT #1#))
             (LETT |ry0u| (SPADCALL |y0| (QREFELT % 32)))
@@ -423,7 +423,7 @@
            (PROGN
             (SPROG
              ((|x| NIL) (|c| NIL) (|y| NIL) (|ll| NIL) (|n| NIL) (|i| NIL)
-              (#1=#:G333 NIL) (#2=#:G332 NIL) (#3=#:G331 NIL) (|res| NIL)
+              (#1=#:G229 NIL) (#2=#:G228 NIL) (#3=#:G227 NIL) (|res| NIL)
               (|llp| NIL) (|xp| NIL))
              (SEQ
               (EXIT
@@ -436,7 +436,7 @@
                             (SPADCALL |x| (QREFELT % 10)))
                         (PROGN
                          (LETT #2# (SPADCALL (QREFELT % 8)))
-                         (GO #4=#:G330)))
+                         (GO #4=#:G226)))
                        ('T (LETT |x| (SPADCALL |x| (QREFELT % 11))))))
                      ('T
                       (SEQ (LETT |c| (SPADCALL |y| (QREFELT % 13)))
@@ -485,7 +485,7 @@
                                  (PROGN
                                   (LETT #2# (SPADCALL (QREFELT % 8)))
                                   (GO #4#)))
-                                ('T (PROGN (LETT #3# 1) (GO #5=#:G326)))))
+                                ('T (PROGN (LETT #3# 1) (GO #5=#:G222)))))
                               ('T
                                (SEQ
                                 (LETT |res|
@@ -1018,7 +1018,7 @@
 (SDEFUN |STTAYLOR;multisect;2I2S;43|
         ((|b| (|Integer|)) (|a| (|Integer|)) (|x| (|Stream| A))
          (% (|Stream| A)))
-        (SPROG ((#1=#:G484 NIL))
+        (SPROG ((#1=#:G380 NIL))
                (|STTAYLOR;ms| (+ |a| |b|) 0
                 (SPADCALL |x|
                           (PROG1 (LETT #1# |a|)
@@ -1203,10 +1203,10 @@
 (SDEFUN |STTAYLOR;powern;F2S;55|
         ((|rn| (|Fraction| (|Integer|))) (|x| (|Stream| A)) (% (|Stream| A)))
         (SPROG
-         ((|power| (|Stream| A)) (#1=#:G543 NIL) (#2=#:G537 NIL)
+         ((|power| (|Stream| A)) (#1=#:G439 NIL) (#2=#:G433 NIL)
           (|num| (|Integer|)) (|invCo| (|Union| A "failed")) (|co| (A))
-          (|ord| (|Union| (|Integer|) "failed")) (#3=#:G552 NIL)
-          (|order| (|Integer|)) (#4=#:G553 NIL) (|n| NIL))
+          (|ord| (|Union| (|Integer|) "failed")) (#3=#:G448 NIL)
+          (|order| (|Integer|)) (#4=#:G449 NIL) (|n| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |order| 0)
@@ -1219,7 +1219,7 @@
                           ((SPADCALL |x| (QREFELT % 10))
                            (PROGN
                             (LETT #4# (|STTAYLOR;zro| %))
-                            (GO #5=#:G551)))
+                            (GO #5=#:G447)))
                           ((NULL
                             (SPADCALL (SPADCALL |x| (QREFELT % 13))
                                       (QREFELT % 25)))
@@ -1227,7 +1227,7 @@
                                 (EXIT
                                  (PROGN
                                   (LETT #3# |$NoValue|)
-                                  (GO #6=#:G525)))))
+                                  (GO #6=#:G421)))))
                           ('T
                            (SEQ (LETT |x| (SPADCALL |x| (QREFELT % 11)))
                                 (EXIT
@@ -1451,9 +1451,9 @@
 
 (DECLAIM (NOTINLINE |StreamTaylorSeriesOperations;|)) 
 
-(DEFUN |StreamTaylorSeriesOperations| (#1=#:G577)
+(DEFUN |StreamTaylorSeriesOperations| (#1=#:G473)
   (SPROG NIL
-         (PROG (#2=#:G578)
+         (PROG (#2=#:G474)
            (RETURN
             (COND
              ((LETT #2#

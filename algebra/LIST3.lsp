@@ -2,26 +2,26 @@
 (SDEFUN |LIST3;map;MLLL;1|
         ((|fn| (|Mapping| C A B)) (|la| (|List| A)) (|lb| (|List| B))
          (% (|List| C)))
-        (SPROG
-         ((#1=#:G109 NIL) (|a| NIL) (#2=#:G110 NIL) (|b| NIL) (#3=#:G108 NIL))
-         (SEQ
-          (PROGN
-           (LETT #3# NIL)
-           (SEQ (LETT |b| NIL) (LETT #2# |lb|) (LETT |a| NIL) (LETT #1# |la|)
-                G190
-                (COND
-                 ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#)) NIL) (ATOM #2#)
-                      (PROGN (LETT |b| (CAR #2#)) NIL))
-                  (GO G191)))
-                (SEQ (EXIT (LETT #3# (CONS (SPADCALL |a| |b| |fn|) #3#))))
-                (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#)))) (GO G190)
-                G191 (EXIT (NREVERSE #3#))))))) 
+        (SPROG ((#1=#:G5 NIL) (|a| NIL) (#2=#:G6 NIL) (|b| NIL) (#3=#:G4 NIL))
+               (SEQ
+                (PROGN
+                 (LETT #3# NIL)
+                 (SEQ (LETT |b| NIL) (LETT #2# |lb|) (LETT |a| NIL)
+                      (LETT #1# |la|) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#)) NIL)
+                            (ATOM #2#) (PROGN (LETT |b| (CAR #2#)) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT (LETT #3# (CONS (SPADCALL |a| |b| |fn|) #3#))))
+                      (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#))))
+                      (GO G190) G191 (EXIT (NREVERSE #3#))))))) 
 
 (DECLAIM (NOTINLINE |ListFunctions3;|)) 
 
-(DEFUN |ListFunctions3| (&REST #1=#:G111)
+(DEFUN |ListFunctions3| (&REST #1=#:G7)
   (SPROG NIL
-         (PROG (#2=#:G112)
+         (PROG (#2=#:G8)
            (RETURN
             (COND
              ((LETT #2#

@@ -26,8 +26,7 @@
 
 (SDEFUN |MODFT3;degree;PaI;4| ((|pol| (|PrimitiveArray| K)) (% (|Integer|)))
         (SPROG
-         ((#1=#:G135 NIL) (#2=#:G136 NIL) (|i| NIL)
-          (|n| (|NonNegativeInteger|)))
+         ((#1=#:G31 NIL) (#2=#:G32 NIL) (|i| NIL) (|n| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ (LETT |n| (QVSIZE |pol|))
@@ -41,8 +40,8 @@
                             (SPADCALL (QAREF1 |pol| |i|) (|spadConstant| % 14)
                                       (QREFELT % 16)))
                            (PROGN
-                            (LETT #1# (PROGN (LETT #2# |i|) (GO #3=#:G134)))
-                            (GO #4=#:G132))))))
+                            (LETT #1# (PROGN (LETT #2# |i|) (GO #3=#:G30)))
+                            (GO #4=#:G28))))))
                        (LETT |i| (+ |i| -1)) (GO G190) G191 (EXIT NIL)))
                  #4# (EXIT #1#))
                 (EXIT -1)))
@@ -70,7 +69,7 @@
          (|p| (|Record| (|:| |i_mod| (|Integer|)) (|:| |deg| (|Integer|))))
          (% #1#))
         (SPROG
-         ((#2=#:G146 NIL) (|i| NIL) (|res| (|PrimitiveArray| K))
+         ((#2=#:G42 NIL) (|i| NIL) (|res| (|PrimitiveArray| K))
           (|dr| (|Integer|)) (|d2| #3=(|Integer|)) (|d1| #3#))
          (SEQ (LETT |d1| (SPADCALL |pol1| (QREFELT % 18)))
               (LETT |d2| (SPADCALL |pol2| (QREFELT % 18)))
@@ -90,7 +89,7 @@
 (SDEFUN |MODFT3;trim_pol|
         ((|pol| (|PrimitiveArray| K)) (% (|PrimitiveArray| K)))
         (SPROG
-         ((#1=#:G152 NIL) (|i| NIL) (|res| (|PrimitiveArray| K))
+         ((#1=#:G48 NIL) (|i| NIL) (|res| (|PrimitiveArray| K))
           (|n1| (|NonNegativeInteger|)))
          (SEQ (LETT |n1| (+ (SPADCALL |pol| (QREFELT % 18)) 1))
               (EXIT
@@ -108,7 +107,7 @@
 (SDEFUN |MODFT3;mul_by_scalar;PaIKV;11|
         ((|pol| (|PrimitiveArray| K)) (|n1| (|Integer|)) (|c| (K))
          (% (|Void|)))
-        (SPROG ((#1=#:G156 NIL) (|i| NIL))
+        (SPROG ((#1=#:G52 NIL) (|i| NIL))
                (SEQ (LETT |i| 0) (LETT #1# |n1|) G190
                     (COND ((|greater_SI| |i| #1#) (GO G191)))
                     (SEQ
@@ -151,7 +150,7 @@
          (|md| (|Record| (|:| |i_mod| (|Integer|)) (|:| |deg| (|Integer|))))
          (% (|PrimitiveArray| K)))
         (SPROG
-         ((#1=#:G171 NIL) (|i| NIL) (|res| (|PrimitiveArray| K))
+         ((#1=#:G67 NIL) (|i| NIL) (|res| (|PrimitiveArray| K))
           (|n0| (|Integer|)))
          (SEQ (LETT |n0| (+ (SPADCALL |pol| (QREFELT % 18)) 1))
               (EXIT
@@ -170,7 +169,7 @@
         ((|n| (|Integer|))
          (|p| (|Record| (|:| |i_mod| (|Integer|)) (|:| |deg| (|Integer|))))
          (% (|PrimitiveArray| K)))
-        (SPROG ((#1=#:G177 NIL) (|i| NIL) (|res| (|PrimitiveArray| K)))
+        (SPROG ((#1=#:G73 NIL) (|i| NIL) (|res| (|PrimitiveArray| K)))
                (SEQ (LETT |res| (MAKEARR1 (+ |n| 1) (|spadConstant| % 14)))
                     (SEQ (LETT |i| 0) (LETT #1# |n|) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -184,8 +183,8 @@
         ((|v1| (|PrimitiveArray| K)) (|c1| (K)) (|v2| (|PrimitiveArray| K))
          (|c2| (K)) (|n| (|Integer|)) (|delta| (|Integer|)) (% (|Void|)))
         (SPROG
-         ((#1=#:G193 NIL) (|i| NIL) (#2=#:G192 NIL) (#3=#:G191 NIL)
-          (#4=#:G190 NIL) (|ds| #5=(|SingleInteger|)) (|ns| #5#))
+         ((#1=#:G89 NIL) (|i| NIL) (#2=#:G88 NIL) (#3=#:G87 NIL) (#4=#:G86 NIL)
+          (|ds| #5=(|SingleInteger|)) (|ns| #5#))
          (SEQ (LETT |ns| |n|) (LETT |ds| |delta|)
               (EXIT
                (COND
@@ -257,8 +256,8 @@
          (|md| (|Record| (|:| |i_mod| (|Integer|)) (|:| |deg| (|Integer|))))
          (% (|PrimitiveArray| K)))
         (SPROG
-         ((#2=#:G213 NIL) (|dr0| #3=(|SingleInteger|)) (#4=#:G214 NIL)
-          (|c1| (K)) (|delta| (|SingleInteger|)) (|c0| (K)) (#5=#:G215 NIL)
+         ((#2=#:G109 NIL) (|dr0| #3=(|SingleInteger|)) (#4=#:G110 NIL)
+          (|c1| (K)) (|delta| (|SingleInteger|)) (|c0| (K)) (#5=#:G111 NIL)
           (|res| (|PrimitiveArray| K)) (|dres| (|Integer|)) (|dr1| #3#))
          (SEQ
           (EXIT
@@ -274,7 +273,7 @@
                              (EXIT
                               (COND
                                ((|less_SI| |dr0| 0)
-                                (PROGN (LETT #5# |res|) (GO #7=#:G212)))
+                                (PROGN (LETT #5# |res|) (GO #7=#:G108)))
                                (#6#
                                 (SEQ
                                  (LETT |c0|
@@ -329,7 +328,7 @@
                                               ((|less_SI| |dr0| 0)
                                                (PROGN
                                                 (LETT #4# |$NoValue|)
-                                                (GO #8=#:G207))))
+                                                (GO #8=#:G103))))
                                              (|MODFT3;vector_combination| |r0|
                                               (|spadConstant| % 13) |r1| |c1|
                                               |dr0| |delta| %)
@@ -352,7 +351,7 @@
                                                         ((|less_SI| |dr0| 0)
                                                          (PROGN
                                                           (LETT #2# |$NoValue|)
-                                                          (GO #9=#:G205))))))
+                                                          (GO #9=#:G101))))))
                                                      NIL (GO G190) G191
                                                      (EXIT NIL)))
                                                #9# (EXIT #2#))))
@@ -366,11 +365,11 @@
          (|p| (|Record| (|:| |i_mod| (|Integer|)) (|:| |deg| (|Integer|))))
          (% (|PrimitiveArray| K)))
         (SPROG
-         ((#2=#:G241 NIL) (|dr1| #3=(|SingleInteger|))
+         ((#2=#:G137 NIL) (|dr1| #3=(|SingleInteger|))
           (|r1| #4=(|PrimitiveArray| K)) (|dr0| #3#) (|r0| #4#)
           (|tmp| #5=(|SingleInteger|)) (|tmpp| (|PrimitiveArray| K))
-          (#6=#:G240 NIL) (|c0| (K)) (|c1| (K)) (|delta| #5#) (#7=#:G243 NIL)
-          (|i| NIL) (#8=#:G242 NIL))
+          (#6=#:G136 NIL) (|c0| (K)) (|c1| (K)) (|delta| #5#) (#7=#:G139 NIL)
+          (|i| NIL) (#8=#:G138 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |dr0| (SPADCALL |y| (QREFELT % 18)))
@@ -385,7 +384,7 @@
                   ((|less_SI| |dr0| 0)
                    (PROGN
                     (LETT #2# (MAKEARR1 1 (|spadConstant| % 14)))
-                    (GO #10=#:G239)))
+                    (GO #10=#:G135)))
                   (#9#
                    (SEQ
                     (LETT |r0|
@@ -463,7 +462,7 @@
                                                    ((|less_SI| |dr0| 0)
                                                     (PROGN
                                                      (LETT #6# |$NoValue|)
-                                                     (GO #11=#:G229))))))
+                                                     (GO #11=#:G125))))))
                                                 NIL (GO G190) G191 (EXIT NIL)))
                                           #11# (EXIT #6#))))
                                    NIL (GO G190) G191 (EXIT NIL))
@@ -498,8 +497,8 @@
            (|:| |p_mod| (|PrimitiveArray| K))))
          (% (|PrimitiveArray| K)))
         (SPROG
-         ((|k| (|Integer|)) (|i| NIL) (|c| (K)) (#1=#:G262 NIL) (|j| NIL)
-          (#2=#:G261 NIL) (#3=#:G260 NIL) (|m| (|Integer|))
+         ((|k| (|Integer|)) (|i| NIL) (|c| (K)) (#1=#:G158 NIL) (|j| NIL)
+          (#2=#:G157 NIL) (#3=#:G156 NIL) (|m| (|Integer|))
           (|res| (|PrimitiveArray| K)) (|n0| (|Integer|))
           (|pm| (|PrimitiveArray| K)))
          (SEQ (LETT |pm| (QCDR |pmd|)) (LETT |n0| (- (QVSIZE |pm|) 1))
@@ -563,8 +562,8 @@
            (|:| |p_mod| (|PrimitiveArray| K))))
          (% (|PrimitiveArray| K)))
         (SPROG
-         ((#1=#:G275 NIL) (|j| NIL) (|c| (K)) (#2=#:G274 NIL) (|i| NIL)
-          (#3=#:G273 NIL) (|n0| (|NonNegativeInteger|)))
+         ((#1=#:G171 NIL) (|j| NIL) (|c| (K)) (#2=#:G170 NIL) (|i| NIL)
+          (#3=#:G169 NIL) (|n0| (|NonNegativeInteger|)))
          (SEQ (LETT |n0| (QVSIZE |pol1|))
               (SEQ (LETT |i| 0) (LETT #3# (- (* 2 |n0|) 2)) G190
                    (COND ((|greater_SI| |i| #3#) (GO G191)))
@@ -598,7 +597,7 @@
            (|:| |p_mod| (|PrimitiveArray| K))))
          (% (|PrimitiveArray| K)))
         (SPROG
-         ((|pow| (|PrimitiveArray| K)) (#1=#:G284 NIL) (|has_res| (|Boolean|))
+         ((|pow| (|PrimitiveArray| K)) (#1=#:G180 NIL) (|has_res| (|Boolean|))
           (|res| (|PrimitiveArray| K)) (|work| (|PrimitiveArray| K))
           (|n0| (|NonNegativeInteger|)))
          (SEQ (LETT |pow| (SPADCALL |pol| |rdata| (QREFELT % 42)))
@@ -623,7 +622,7 @@
                       (EXIT
                        (COND
                         ((EQL |n| 0)
-                         (PROGN (LETT #1# |$NoValue|) (GO #2=#:G281)))
+                         (PROGN (LETT #1# |$NoValue|) (GO #2=#:G177)))
                         ('T
                          (LETT |pow|
                                (|MODFT3;mul_and_red| |pow| |pow| |work| |rdata|
@@ -643,8 +642,8 @@
           (|Record| (|:| |matr| (|PrimitiveTwoDimensionalArray| K))
                     (|:| |poly| (|PrimitiveArray| K)))))
         (SPROG
-         ((|pow| (|PrimitiveArray| K)) (#1=#:G297 NIL) (|k| NIL)
-          (#2=#:G296 NIL) (|j| NIL) (|n1| (|SingleInteger|)) (|l1| (|Integer|))
+         ((|pow| (|PrimitiveArray| K)) (#1=#:G193 NIL) (|k| NIL)
+          (#2=#:G192 NIL) (|j| NIL) (|n1| (|SingleInteger|)) (|l1| (|Integer|))
           (|work| (|PrimitiveArray| K))
           (|pm| (|PrimitiveTwoDimensionalArray| K))
           (|n| (|NonNegativeInteger|)) (|pol_m| (|PrimitiveArray| K))
@@ -675,7 +674,7 @@
         ((|m| (|PrimitiveTwoDimensionalArray| K)) (|nr| (|Integer|))
          (% (|PrimitiveTwoDimensionalArray| K)))
         (SPROG
-         ((#1=#:G305 NIL) (|j| NIL) (#2=#:G304 NIL) (|i| NIL)
+         ((#1=#:G201 NIL) (|j| NIL) (#2=#:G200 NIL) (|i| NIL)
           (|res| (|PrimitiveTwoDimensionalArray| K)) (|nc| (|Integer|)))
          (SEQ (LETT |nc| (MIN (ANCOLS |m|) |nr|))
               (LETT |res| (MAKE_MATRIX1 |nr| |nc| (|spadConstant| % 14)))
@@ -697,7 +696,7 @@
         ((|m| (|PrimitiveTwoDimensionalArray| K)) (|sa| #1=(|Integer|))
          (|nr| #1#) (% (|Void|)))
         (SPROG
-         ((#2=#:G313 NIL) (|j| NIL) (#3=#:G312 NIL) (|i| NIL)
+         ((#2=#:G209 NIL) (|j| NIL) (#3=#:G208 NIL) (|i| NIL)
           (|nc| (|Integer|)))
          (SEQ (LETT |nc| (MIN (ANCOLS |m|) |nr|))
               (EXIT
@@ -725,8 +724,8 @@
            (|:| |p_mod| (|PrimitiveArray| K))))
          (% (|Void|)))
         (SPROG
-         ((#2=#:G327 NIL) (|i| NIL) (|tmp1| (|PrimitiveArray| K))
-          (#3=#:G326 NIL) (#4=#:G325 NIL) (|j| NIL)
+         ((#2=#:G223 NIL) (|i| NIL) (|tmp1| (|PrimitiveArray| K))
+          (#3=#:G222 NIL) (#4=#:G221 NIL) (|j| NIL)
           (|tmp| (|PrimitiveArray| K)) (|nc| (|Integer|)))
          (SEQ
           (COND ((< (ANROWS |m|) |nr0|) (|error| "trim_mat!: m too small"))
@@ -770,8 +769,8 @@
               (|:| |p_mod| (|PrimitiveArray| K))))
          (|rdata2| #2#) (% (|Void|)))
         (SPROG
-         ((#3=#:G346 NIL) (|i| NIL) (|rtmp| (|PrimitiveArray| K))
-          (#4=#:G345 NIL) (#5=#:G344 NIL) (#6=#:G343 NIL) (|j| NIL)
+         ((#3=#:G242 NIL) (|i| NIL) (|rtmp| (|PrimitiveArray| K))
+          (#4=#:G241 NIL) (#5=#:G240 NIL) (#6=#:G239 NIL) (|j| NIL)
           (|tmp2| #7=(|PrimitiveArray| K)) (|tmp1| #7#) (|nc| (|Integer|)))
          (SEQ
           (COND ((< (ANROWS |m|) |nr1|) (|error| "split_mat!: m too small"))
@@ -833,8 +832,8 @@
          (|m2| (|PrimitiveTwoDimensionalArray| K)) (|d2| (|Integer|))
          (% (|PrimitiveTwoDimensionalArray| K)))
         (SPROG
-         ((|ss| (K)) (#1=#:G360 NIL) (|k| NIL) (#2=#:G359 NIL) (|j| NIL)
-          (#3=#:G358 NIL) (|i| NIL) (|res| (|PrimitiveTwoDimensionalArray| K))
+         ((|ss| (K)) (#1=#:G256 NIL) (|k| NIL) (#2=#:G255 NIL) (|j| NIL)
+          (#3=#:G254 NIL) (|i| NIL) (|res| (|PrimitiveTwoDimensionalArray| K))
           (|nr2| (|NonNegativeInteger|)) (|nc1| (|NonNegativeInteger|))
           (|nr1| (|NonNegativeInteger|)))
          (SEQ (LETT |nr1| (ANROWS |m1|)) (LETT |nc1| (ANCOLS |m1|))
@@ -889,11 +888,11 @@
            (|:| |p_mod| (|PrimitiveArray| K))))
          (% (|PrimitiveArray| K)))
         (SPROG
-         ((#2=#:G381 NIL) (|i| (|SingleInteger|))
-          (|res| #3=(|PrimitiveArray| K)) (#4=#:G380 NIL) (|k| NIL)
+         ((#2=#:G277 NIL) (|i| (|SingleInteger|))
+          (|res| #3=(|PrimitiveArray| K)) (#4=#:G276 NIL) (|k| NIL)
           (|ns1| (|SingleInteger|)) (|work| #3#) (|p1| #3#)
-          (|m2| (|PrimitiveTwoDimensionalArray| K)) (#5=#:G379 NIL)
-          (#6=#:G378 NIL) (|j| NIL) (|k1| #7=(|SingleInteger|)) (|l1s| #7#)
+          (|m2| (|PrimitiveTwoDimensionalArray| K)) (#5=#:G275 NIL)
+          (#6=#:G274 NIL) (|j| NIL) (|k1| #7=(|SingleInteger|)) (|l1s| #7#)
           (|m1| (|PrimitiveTwoDimensionalArray| K))
           (|l2| #8=(|NonNegativeInteger|)) (|dps1| #7#) (|dp| #8#)
           (|dp0| (|Integer|)) (|ns| #7#) (|n| #8#) (|f| (|PrimitiveArray| K)))
@@ -992,9 +991,9 @@
 
 (DECLAIM (NOTINLINE |ModularFactorizationTools3;|)) 
 
-(DEFUN |ModularFactorizationTools3| (#1=#:G394)
+(DEFUN |ModularFactorizationTools3| (#1=#:G290)
   (SPROG NIL
-         (PROG (#2=#:G395)
+         (PROG (#2=#:G291)
            (RETURN
             (COND
              ((LETT #2#

@@ -1,6 +1,6 @@
 
 (SDEFUN |FM2;linearExtend;MM1M2;1| ((|f| (|Mapping| M2 S)) (|x| (M1)) (% (M2)))
-        (SPROG ((|res| (M2)) (#1=#:G112 NIL) (|t| NIL))
+        (SPROG ((|res| (M2)) (#1=#:G8 NIL) (|t| NIL))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT % 11)) (|spadConstant| % 12))
                       ('T
@@ -26,9 +26,9 @@
 
 (DECLAIM (NOTINLINE |FreeModuleFunctions2;|)) 
 
-(DEFUN |FreeModuleFunctions2| (&REST #1=#:G113)
+(DEFUN |FreeModuleFunctions2| (&REST #1=#:G9)
   (SPROG NIL
-         (PROG (#2=#:G114)
+         (PROG (#2=#:G10)
            (RETURN
             (COND
              ((LETT #2#

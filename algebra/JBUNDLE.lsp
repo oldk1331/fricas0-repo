@@ -15,7 +15,7 @@
         (SPADCALL (CDR (CDR |jv|)) (QREFELT % 24))) 
 
 (SDEFUN |JBUNDLE;index;%Pi;4| ((|jv| (%)) (% (|PositiveInteger|)))
-        (SPROG ((#1=#:G121 NIL))
+        (SPROG ((#1=#:G17 NIL))
                (PROG1 (LETT #1# (|SPADfirst| (CDR |jv|)))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
@@ -29,7 +29,7 @@
 
 (SDEFUN |JBUNDLE;CheckZeroIndex|
         ((|il| (|List| (|NonNegativeInteger|))) (% (|Boolean|)))
-        (SPROG ((#1=#:G131 NIL) (#2=#:G132 NIL) (|i| NIL))
+        (SPROG ((#1=#:G27 NIL) (#2=#:G28 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -41,7 +41,7 @@
                         (EXIT
                          (COND
                           ((NULL (ZEROP |i|))
-                           (PROGN (LETT #1# NIL) (GO #3=#:G130))))))
+                           (PROGN (LETT #1# NIL) (GO #3=#:G26))))))
                        (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
@@ -51,7 +51,7 @@
               ('T (LIST 1 |up|)))) 
 
 (SDEFUN |JBUNDLE;U;Pi%;8| ((|up| (|PositiveInteger|)) (% (%)))
-        (SPROG ((#1=#:G138 NIL) (|i| NIL) (#2=#:G137 NIL))
+        (SPROG ((#1=#:G34 NIL) (|i| NIL) (#2=#:G33 NIL))
                (SEQ
                 (COND ((> |up| (QREFELT % 9)) (|error| "Improper upper index"))
                       ('T
@@ -79,7 +79,7 @@
               ('T (CONS 3 (CONS |up| |lo|))))) 
 
 (SDEFUN |JBUNDLE;coerce;S%;10| ((|s| (|Symbol|)) (% (%)))
-        (SPROG ((#1=#:G146 NIL) (#2=#:G143 NIL) (|pos| (|Integer|)))
+        (SPROG ((#1=#:G42 NIL) (#2=#:G39 NIL) (|pos| (|Integer|)))
                (SEQ (LETT |pos| (SPADCALL |s| (QREFELT % 6) (QREFELT % 39)))
                     (EXIT
                      (COND
@@ -107,9 +107,8 @@
 (SDEFUN |JBUNDLE;D;SL%;11|
         ((|u| (|Symbol|)) (|der| (|List| (|Symbol|))) (% (%)))
         (SPROG
-         ((#1=#:G155 NIL) (|lower| (|List| (|PositiveInteger|)))
-          (#2=#:G151 NIL) (|pos| #3=(|Integer|)) (#4=#:G159 NIL) (|d| NIL)
-          (|up| #3#))
+         ((#1=#:G51 NIL) (|lower| (|List| (|PositiveInteger|))) (#2=#:G47 NIL)
+          (|pos| #3=(|Integer|)) (#4=#:G55 NIL) (|d| NIL) (|up| #3#))
          (SEQ (LETT |up| (SPADCALL |u| (QREFELT % 7) (QREFELT % 39)))
               (EXIT
                (COND
@@ -149,20 +148,20 @@
 (SDEFUN |JBUNDLE;One;%;12| ((% (%))) (LIST 0 1)) 
 
 (SDEFUN |JBUNDLE;numIndVar;Pi;13| ((% (|PositiveInteger|)))
-        (SPROG ((#1=#:G161 NIL))
+        (SPROG ((#1=#:G57 NIL))
                (PROG1 (LETT #1# (QREFELT % 8))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
 
 (SDEFUN |JBUNDLE;numDepVar;Pi;14| ((% (|PositiveInteger|)))
-        (SPROG ((#1=#:G163 NIL))
+        (SPROG ((#1=#:G59 NIL))
                (PROG1 (LETT #1# (QREFELT % 9))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
 
 (SDEFUN |JBUNDLE;name;%S;15| ((|jv| (%)) (% (|Symbol|)))
         (SPROG
-         ((|lower| (|List| (|OutputForm|))) (#1=#:G172 NIL) (|j| NIL)
+         ((|lower| (|List| (|OutputForm|))) (#1=#:G68 NIL) (|j| NIL)
           (|res| (|Symbol|)) (|mu| (|List| (|PositiveInteger|)))
           (|i| (|PositiveInteger|)) (|jt| (|Symbol|)))
          (SEQ
@@ -204,8 +203,8 @@
 
 (SDEFUN |JBUNDLE;coerce;%E;17| ((|jv| (%)) (% (|Expression| (|Integer|))))
         (SPROG
-         ((|arg| (|List| (|Expression| (|Integer|)))) (#1=#:G182 NIL) (|i| NIL)
-          (#2=#:G181 NIL) (|jop| (|BasicOperator|)) (|tmp| (|None|))
+         ((|arg| (|List| (|Expression| (|Integer|)))) (#1=#:G78 NIL) (|i| NIL)
+          (#2=#:G77 NIL) (|jop| (|BasicOperator|)) (|tmp| (|None|))
           (|opname| (|Symbol|)))
          (SEQ
           (COND
@@ -251,9 +250,9 @@
 
 (DECLAIM (NOTINLINE |JetBundle;|)) 
 
-(DEFUN |JetBundle| (&REST #1=#:G189)
+(DEFUN |JetBundle| (&REST #1=#:G85)
   (SPROG NIL
-         (PROG (#2=#:G190)
+         (PROG (#2=#:G86)
            (RETURN
             (COND
              ((LETT #2#

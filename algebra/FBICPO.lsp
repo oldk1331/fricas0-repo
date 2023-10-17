@@ -3,7 +3,7 @@
         ((|s| (%)) (|a| #1=(|NonNegativeInteger|)) (|b| #1#)
          (% (|NonNegativeInteger|)))
         (SPROG
-         ((#2=#:G105 NIL) (|res| (|Union| (|NonNegativeInteger|) "failed")))
+         ((#2=#:G1 NIL) (|res| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ (LETT |res| (SPADCALL |s| |a| |b| (QREFELT % 9)))
               (COND
                ((SPADCALL |res| (CONS 1 "failed") (QREFELT % 11))
@@ -19,7 +19,7 @@
         ((|s| (%)) (|a| #1=(|NonNegativeInteger|)) (|b| #1#)
          (% (|NonNegativeInteger|)))
         (SPROG
-         ((#2=#:G110 NIL) (|res| (|Union| (|NonNegativeInteger|) "failed")))
+         ((#2=#:G6 NIL) (|res| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ (LETT |res| (SPADCALL |s| |a| |b| (QREFELT % 13)))
               (COND
                ((SPADCALL |res| (CONS 1 "failed") (QREFELT % 11))
@@ -33,9 +33,9 @@
 
 (DECLAIM (NOTINLINE |FiniteBiCPO;|)) 
 
-(DEFUN |FiniteBiCPO| (#1=#:G119)
+(DEFUN |FiniteBiCPO| (#1=#:G15)
   (SPROG NIL
-         (PROG (#2=#:G120)
+         (PROG (#2=#:G16)
            (RETURN
             (COND
              ((LETT #2#

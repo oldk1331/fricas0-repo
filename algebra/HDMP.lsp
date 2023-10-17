@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |HomogeneousDistributedMultivariatePolynomial;|)) 
 
-(DEFUN |HomogeneousDistributedMultivariatePolynomial| (&REST #1=#:G152)
+(DEFUN |HomogeneousDistributedMultivariatePolynomial| (&REST #1=#:G48)
   (SPROG NIL
-         (PROG (#2=#:G153)
+         (PROG (#2=#:G49)
            (RETURN
             (COND
              ((LETT #2#
@@ -27,9 +27,9 @@
 
 (DEFUN |HomogeneousDistributedMultivariatePolynomial;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G151 NIL) (|pv$| NIL) (#2=#:G142 NIL) (#3=#:G144 NIL) (#4=#:G143 NIL)
-    (#5=#:G145 NIL) (#6=#:G146 NIL) (#7=#:G147 NIL) (#8=#:G148 NIL)
-    (#9=#:G149 NIL) (#10=#:G150 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G47 NIL) (|pv$| NIL) (#2=#:G38 NIL) (#3=#:G40 NIL) (#4=#:G39 NIL)
+    (#5=#:G41 NIL) (#6=#:G42 NIL) (#7=#:G43 NIL) (#8=#:G44 NIL) (#9=#:G45 NIL)
+    (#10=#:G46 NIL) (% NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)
     (LETT DV$2 (|devaluate| |#2|))

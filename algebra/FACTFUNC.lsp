@@ -5,12 +5,12 @@
           (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| M)
                     (|:| |radicand| (|List| M)))))
         (SPROG
-         ((#1=#:G127 NIL) (|radi| (|List| M)) (|coeff| (M))
+         ((#1=#:G23 NIL) (|radi| (|List| M)) (|coeff| (M))
           (|qr|
            (|Record| (|:| |quotient| (|NonNegativeInteger|))
                      (|:| |remainder| (|NonNegativeInteger|))))
-          (#2=#:G130 NIL) (|term| NIL) (|d| (|NonNegativeInteger|))
-          (#3=#:G118 NIL) (#4=#:G129 NIL) (|t| NIL) (#5=#:G128 NIL)
+          (#2=#:G26 NIL) (|term| NIL) (|d| (|NonNegativeInteger|))
+          (#3=#:G14 NIL) (#4=#:G25 NIL) (|t| NIL) (#5=#:G24 NIL)
           (|lf|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -78,7 +78,7 @@
                                                           (QCDR |qr|)
                                                           (QREFELT % 20))
                                                 (QREFELT % 23))))
-                          (GO #7=#:G122)))))))
+                          (GO #7=#:G18)))))))
                     #7# (EXIT #1#))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT (VECTOR |n| |coeff| |radi|))))) 
@@ -88,7 +88,7 @@
          (%
           (|List|
            (|Record| (|:| |coef| (|NonNegativeInteger|)) (|:| |logand| M)))))
-        (SPROG ((#1=#:G139 NIL) (|term| NIL) (#2=#:G138 NIL))
+        (SPROG ((#1=#:G35 NIL) (|term| NIL) (#2=#:G34 NIL))
                (SEQ
                 (CONS (CONS 1 (SPADCALL |ff| (QREFELT % 9)))
                       (PROGN
@@ -110,9 +110,9 @@
 
 (DECLAIM (NOTINLINE |FactoredFunctions;|)) 
 
-(DEFUN |FactoredFunctions| (#1=#:G140)
+(DEFUN |FactoredFunctions| (#1=#:G36)
   (SPROG NIL
-         (PROG (#2=#:G141)
+         (PROG (#2=#:G37)
            (RETURN
             (COND
              ((LETT #2#

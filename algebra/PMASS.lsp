@@ -12,7 +12,7 @@
 
 (DEFUN |PatternMatchAssertions| ()
   (SPROG NIL
-         (PROG (#1=#:G108)
+         (PROG (#1=#:G4)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|PatternMatchAssertions|))

@@ -9,7 +9,7 @@
               ('T (> (|SPADfirst| |x|) (|SPADfirst| |y|))))) 
 
 (SDEFUN |EAB;coerce;L%;3| ((|li| (|List| (|Integer|))) (% (%)))
-        (SPROG ((#1=#:G123 NIL) (|x| NIL))
+        (SPROG ((#1=#:G19 NIL) (|x| NIL))
                (SEQ
                 (SEQ (LETT |x| NIL) (LETT #1# |li|) G190
                      (COND
@@ -27,8 +27,8 @@
 
 (SDEFUN |EAB;degree;%Nni;4| ((|x| (%)) (% (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G130 NIL) (#2=#:G128 NIL) (#3=#:G127 #4=(|Integer|))
-          (#5=#:G129 #4#) (#6=#:G132 NIL) (#7=#:G104 NIL))
+         ((#1=#:G26 NIL) (#2=#:G24 NIL) (#3=#:G23 #4=(|Integer|))
+          (#5=#:G25 #4#) (#6=#:G28 NIL) (#7=#:G0 NIL))
          (SEQ
           (PROG1
               (LETT #1#
@@ -54,7 +54,7 @@
         (SPADCALL |x| (QREFELT % 17))) 
 
 (SDEFUN |EAB;Nul;Nni%;6| ((|n| (|NonNegativeInteger|)) (% (%)))
-        (SPROG ((#1=#:G138 NIL) (|i| NIL) (#2=#:G137 NIL))
+        (SPROG ((#1=#:G34 NIL) (|i| NIL) (#2=#:G33 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -71,7 +71,7 @@
 
 (DEFUN |ExtAlgBasis| ()
   (SPROG NIL
-         (PROG (#1=#:G141)
+         (PROG (#1=#:G37)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ExtAlgBasis|))

@@ -71,9 +71,9 @@
 
 (SDEFUN |NUMFMT;FormatRoman;PiS;9| ((|pn| (|PositiveInteger|)) (% (|String|)))
         (SPROG
-         ((|s| (|String|)) (|mm| (|String|)) (#1=#:G166 NIL) (|j| NIL)
-          (#2=#:G165 NIL) (|m0| (|String|)) (#3=#:G164 NIL) (|n| (|Integer|))
-          (|d| (|Integer|)) (|i| NIL) (#4=#:G149 NIL))
+         ((|s| (|String|)) (|mm| (|String|)) (#1=#:G62 NIL) (|j| NIL)
+          (#2=#:G61 NIL) (|m0| (|String|)) (#3=#:G60 NIL) (|n| (|Integer|))
+          (|d| (|Integer|)) (|i| NIL) (#4=#:G45 NIL))
          (SEQ (LETT |n| |pn|) (LETT |d| (+ (REM |n| 10) (QREFELT % 36)))
               (LETT |n| (QUOTIENT2 |n| 10))
               (LETT |s| (QAREF1 (QREFELT % 33) |d|))
@@ -138,7 +138,7 @@
                                                                       (LETT #3#
                                                                             |$NoValue|)
                                                                       (GO
-                                                                       #6=#:G150)))
+                                                                       #6=#:G46)))
                                                                     ('T
                                                                      (SEQ
                                                                       (LETT
@@ -224,9 +224,9 @@
 
 (SDEFUN |NUMFMT;ScanRoman;SPi;10| ((|s| (|String|)) (% (|PositiveInteger|)))
         (SPROG
-         ((#1=#:G180 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
-          (|n| (|Integer|)) (#2=#:G183 NIL) (|i| (|Integer|))
-          (|c| (|Character|)) (#3=#:G184 NIL) (|k| NIL)
+         ((#1=#:G76 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
+          (|n| (|Integer|)) (#2=#:G79 NIL) (|i| (|Integer|))
+          (|c| (|Character|)) (#3=#:G80 NIL) (|k| NIL)
           (|nprens| (|PositiveInteger|)))
          (SEQ (LETT |s| (SPADCALL |s| (QREFELT % 50))) (LETT |tot| 0)
               (LETT |Max| 0) (LETT |i| (SPADCALL |s| (QREFELT % 51)))
@@ -294,7 +294,7 @@
                                                  (LETT #2#
                                                        (|error|
                                                         "Improper Roman numeral: unbalanced ')'"))
-                                                 (GO #4=#:G172)))))))
+                                                 (GO #4=#:G68)))))))
                                            #4# (EXIT #2#))
                                           (LETT |k| (|inc_SI| |k|)) (GO G190)
                                           G191 (EXIT NIL))
@@ -327,7 +327,7 @@
 
 (DEFUN |NumberFormats| ()
   (SPROG NIL
-         (PROG (#1=#:G187)
+         (PROG (#1=#:G83)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|))

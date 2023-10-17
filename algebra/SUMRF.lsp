@@ -124,9 +124,9 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionSum;|)) 
 
-(DEFUN |RationalFunctionSum| (#1=#:G137)
+(DEFUN |RationalFunctionSum| (#1=#:G33)
   (SPROG NIL
-         (PROG (#2=#:G138)
+         (PROG (#2=#:G34)
            (RETURN
             (COND
              ((LETT #2#

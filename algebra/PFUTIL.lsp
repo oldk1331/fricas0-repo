@@ -3,7 +3,7 @@
         ((|nn| (UP)) (|dens| (|List| UP)) (% (|List| UP)))
         (SPROG
          ((|ru| (|Union| (|List| UP) "failed")) (|sdeg| (|Integer|))
-          (#1=#:G115 NIL) (|den| NIL))
+          (#1=#:G11 NIL) (|den| NIL))
          (SEQ
           (COND
            ((NULL |dens|)
@@ -28,9 +28,9 @@
 
 (DECLAIM (NOTINLINE |PartialFractionUtilities;|)) 
 
-(DEFUN |PartialFractionUtilities| (&REST #1=#:G116)
+(DEFUN |PartialFractionUtilities| (&REST #1=#:G12)
   (SPROG NIL
-         (PROG (#2=#:G117)
+         (PROG (#2=#:G13)
            (RETURN
             (COND
              ((LETT #2#

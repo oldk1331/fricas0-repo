@@ -68,7 +68,7 @@
 
 (DEFUN |U8Matrix| ()
   (SPROG NIL
-         (PROG (#1=#:G2600)
+         (PROG (#1=#:G2496)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|U8Matrix|))
@@ -84,7 +84,7 @@
 
 (DEFUN |U8Matrix;| ()
   (SPROG
-   ((|dv$| NIL) (% NIL) (#1=#:G2597 NIL) (#2=#:G2598 NIL) (#3=#:G2596 NIL)
+   ((|dv$| NIL) (% NIL) (#1=#:G2493 NIL) (#2=#:G2494 NIL) (#3=#:G2492 NIL)
     (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|U8Matrix|))

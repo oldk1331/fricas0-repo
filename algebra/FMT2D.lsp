@@ -30,8 +30,8 @@
         ((|left| #1=(|String|)) (|right| #1#) (|b| (|OutputBox|))
          (% (|OutputBox|)))
         (SPROG
-         ((|bxr| #2=(|OutputBox|)) (#3=#:G145 NIL) (|i| NIL) (#4=#:G144 NIL)
-          (|bxl| #2#) (#5=#:G143 NIL) (#6=#:G142 NIL) (|br| #7=(|OutputBox|))
+         ((|bxr| #2=(|OutputBox|)) (#3=#:G41 NIL) (|i| NIL) (#4=#:G40 NIL)
+          (|bxl| #2#) (#5=#:G39 NIL) (#6=#:G38 NIL) (|br| #7=(|OutputBox|))
           (|bl| #7#) (|t| (|NonNegativeInteger|)) (|h| (|NonNegativeInteger|)))
          (SEQ (LETT |h| (SPADCALL |b| (QREFELT % 22)))
               (LETT |t| (+ |h| (SPADCALL |b| (QREFELT % 23))))
@@ -61,8 +61,8 @@
 
 (SDEFUN |FMT2D;fbox| ((|bx| (|OutputBox|)) (% (|OutputBox|)))
         (SPROG
-         ((|bar| #1=(|OutputBox|)) (|r| #1#) (#2=#:G159 NIL) (|i| NIL)
-          (#3=#:G158 NIL) (|l| #1#) (#4=#:G157 NIL) (#5=#:G156 NIL)
+         ((|bar| #1=(|OutputBox|)) (|r| #1#) (#2=#:G55 NIL) (|i| NIL)
+          (#3=#:G54 NIL) (|l| #1#) (#4=#:G53 NIL) (#5=#:G52 NIL)
           (|w| (|NonNegativeInteger|)) (|d| (|NonNegativeInteger|))
           (|h| (|NonNegativeInteger|)))
          (SEQ (LETT |h| (SPADCALL |bx| (QREFELT % 22)))
@@ -373,10 +373,10 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|lb| NIL) (#1=#:G218 NIL) (|i| NIL) (#2=#:G217 NIL) (|br| NIL)
+             ((|lb| NIL) (#1=#:G114 NIL) (|i| NIL) (#2=#:G113 NIL) (|br| NIL)
               (|hdn| NIL) (|bv| NIL) (|bn| NIL) (|bspace| NIL) (|bar| NIL)
-              (|r| NIL) (#3=#:G216 NIL) (#4=#:G215 NIL) (|l| NIL)
-              (#5=#:G214 NIL) (#6=#:G213 NIL) (|w| NIL) (|d| NIL) (|h| NIL)
+              (|r| NIL) (#3=#:G112 NIL) (#4=#:G111 NIL) (|l| NIL)
+              (#5=#:G110 NIL) (#6=#:G109 NIL) (|w| NIL) (|d| NIL) (|h| NIL)
               (|bx| NIL))
              (SEQ
               (LETT |bx|
@@ -516,9 +516,9 @@
            (PROGN
             (SPROG
              ((|left| NIL) (|ll| NIL) (|ul| NIL) (|wl| NIL) (|right| NIL)
-              (|lr| NIL) (|ur| NIL) (|wr| NIL) (|hspace| NIL) (#1=#:G238 NIL)
-              (|i| NIL) (#2=#:G237 NIL) (|h| NIL) (|lb| NIL) (#3=#:G236 NIL)
-              (#4=#:G235 NIL) (|a| NIL) (#5=#:G234 NIL) (|bx| NIL))
+              (|lr| NIL) (|ur| NIL) (|wr| NIL) (|hspace| NIL) (#1=#:G134 NIL)
+              (|i| NIL) (#2=#:G133 NIL) (|h| NIL) (|lb| NIL) (#3=#:G132 NIL)
+              (#4=#:G131 NIL) (|a| NIL) (#5=#:G130 NIL) (|bx| NIL))
              (SEQ
               (LETT |bx|
                     (SPADCALL (SPADCALL |args| (QREFELT % 66)) |p|
@@ -699,9 +699,9 @@
            (PROGN
             (SPROG
              ((|bx| NIL) (|right| NIL) (|bu| NIL) (|bl| NIL) (|w| NIL)
-              (|wu| NIL) (|lb| NIL) (|wl| NIL) (|hspace| NIL) (#1=#:G259 NIL)
-              (|i| NIL) (#2=#:G258 NIL) (|h| NIL) (#3=#:G257 NIL) (|a| NIL)
-              (#4=#:G256 NIL))
+              (|wu| NIL) (|lb| NIL) (|wl| NIL) (|hspace| NIL) (#1=#:G155 NIL)
+              (|i| NIL) (#2=#:G154 NIL) (|h| NIL) (#3=#:G153 NIL) (|a| NIL)
+              (#4=#:G152 NIL))
              (SEQ
               (LETT |bx|
                     (SPADCALL (SPADCALL |args| (QREFELT % 66)) |p|
@@ -805,8 +805,8 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|b| NIL) (|raise| NIL) (#1=#:G277 NIL) (|i| NIL) (#2=#:G276 NIL)
-              (|h| NIL) (#3=#:G275 NIL) (|n| NIL) (|s2| NIL) (|b1| NIL)
+             ((|b| NIL) (|raise| NIL) (#1=#:G173 NIL) (|i| NIL) (#2=#:G172 NIL)
+              (|h| NIL) (#3=#:G171 NIL) (|n| NIL) (|s2| NIL) (|b1| NIL)
               (|a2| NIL))
              (SEQ (LETT |a2| (SPADCALL |args| 2 (QREFELT % 40)))
                   (COND
@@ -895,8 +895,8 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|bx2| NIL) (|raise| NIL) (#1=#:G284 NIL) (|i| NIL)
-              (#2=#:G283 NIL) (|bx1| NIL) (|ht2| NIL) (|ht1| NIL) (|b2| NIL)
+             ((|bx2| NIL) (|raise| NIL) (#1=#:G180 NIL) (|i| NIL)
+              (#2=#:G179 NIL) (|bx1| NIL) (|ht2| NIL) (|ht1| NIL) (|b2| NIL)
               (|b1| NIL))
              (SEQ
               (LETT |b1|
@@ -1052,7 +1052,7 @@
 (SDEFUN |FMT2D;formatList|
         ((|prec| (|Integer|)) (|args| (|List| (|OutputForm|)))
          (% (|List| (|OutputBox|))))
-        (SPROG ((#1=#:G308 NIL) (|a| NIL) (#2=#:G307 NIL))
+        (SPROG ((#1=#:G204 NIL) (|a| NIL) (#2=#:G203 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -1080,9 +1080,9 @@
           (RETURN
            (PROGN
             (SPROG
-             ((#1=#:G330 NIL) (|b| NIL) (#2=#:G329 NIL) (#3=#:G328 NIL)
-              (#4=#:G327 NIL) (#5=#:G326 NIL) (#6=#:G325 NIL) (|h| NIL)
-              (|w| NIL) (#7=#:G324 NIL) (#8=#:G323 NIL) (|boxes| NIL))
+             ((#1=#:G226 NIL) (|b| NIL) (#2=#:G225 NIL) (#3=#:G224 NIL)
+              (#4=#:G223 NIL) (#5=#:G222 NIL) (#6=#:G221 NIL) (|h| NIL)
+              (|w| NIL) (#7=#:G220 NIL) (#8=#:G219 NIL) (|boxes| NIL))
              (SEQ
               (COND
                ((SPADCALL |args| (QREFELT % 113)) (SPADCALL (QREFELT % 9)))
@@ -1216,12 +1216,12 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|t| NIL) (|rb| NIL) (#1=#:G378 NIL) (|b| NIL) (#2=#:G375 NIL)
-              (#3=#:G377 NIL) (#4=#:G376 NIL) (|rowBoxes| NIL) (|rrow| NIL)
-              (#5=#:G373 NIL) (#6=#:G374 NIL) (|i| NIL) (#7=#:G372 NIL)
-              (|row| NIL) (|sep| NIL) (#8=#:G370 NIL) (#9=#:G371 NIL)
-              (#10=#:G369 NIL) (|wd| NIL) (|n| NIL) (|rows| NIL)
-              (#11=#:G368 NIL) (|a| NIL) (#12=#:G367 NIL))
+             ((|t| NIL) (|rb| NIL) (#1=#:G274 NIL) (|b| NIL) (#2=#:G271 NIL)
+              (#3=#:G273 NIL) (#4=#:G272 NIL) (|rowBoxes| NIL) (|rrow| NIL)
+              (#5=#:G269 NIL) (#6=#:G270 NIL) (|i| NIL) (#7=#:G268 NIL)
+              (|row| NIL) (|sep| NIL) (#8=#:G266 NIL) (#9=#:G267 NIL)
+              (#10=#:G265 NIL) (|wd| NIL) (|n| NIL) (|rows| NIL)
+              (#11=#:G264 NIL) (|a| NIL) (#12=#:G263 NIL))
              (SEQ
               (COND
                ((SPADCALL |args| (QREFELT % 113)) (SPADCALL (QREFELT % 9)))
@@ -1373,7 +1373,7 @@
          (%
           (|OperatorHandlers|
            (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))))
-        (SPROG ((#1=#:G761 NIL))
+        (SPROG ((#1=#:G657 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1858,7 +1858,7 @@
                   (SPADCALL |oh| -1 "MATRIX" (SPADCALL "[" "]" (QREFELT % 135))
                             (QREFELT % 138))
                   (SPADCALL |oh| -1 "theMap" (ELT % 65) (QREFELT % 138))
-                  (EXIT (PROGN (LETT #1# |oh|) (GO #7=#:G760)))))
+                  (EXIT (PROGN (LETT #1# |oh|) (GO #7=#:G656)))))
                 #7# (EXIT #1#)))) 
 
 (SDEFUN |FMT2D;operatorHandlers;Oh;35|
@@ -1871,7 +1871,7 @@
 
 (DEFUN |Format2D| ()
   (SPROG NIL
-         (PROG (#1=#:G764)
+         (PROG (#1=#:G660)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Format2D|))

@@ -163,7 +163,7 @@
         ((|Sys| (|List| D)) (|dim| (|NonNegativeInteger|))
          (|q| (|NonNegativeInteger|)) (|s| (|NonNegativeInteger|))
          (|CarChar| (|List| (|NonNegativeInteger|))) (% (|Void|)))
-        (SPROG ((#1=#:G154 NIL) (|cc| NIL) (#2=#:G153 NIL))
+        (SPROG ((#1=#:G50 NIL) (|cc| NIL) (#2=#:G49 NIL))
                (SEQ
                 (COND ((EQL (QREFELT % 16) 0) (SPADCALL (QREFELT % 29)))
                       (#3='T
@@ -236,10 +236,9 @@
         ((|i| (|NonNegativeInteger|)) (|k| (|NonNegativeInteger|))
          (|q| (|NonNegativeInteger|)) (% (|NonNegativeInteger|)))
         (SPROG
-         ((|res| (|NonNegativeInteger|)) (#1=#:G188 NIL) (#2=#:G187 NIL)
-          (#3=#:G186 NIL) (#4=#:G198 NIL) (|j| NIL) (#5=#:G197 NIL)
-          (#6=#:G196 NIL) (#7=#:G195 NIL)
-          (|ans| (|Union| (|NonNegativeInteger|) "failed")))
+         ((|res| (|NonNegativeInteger|)) (#1=#:G84 NIL) (#2=#:G83 NIL)
+          (#3=#:G82 NIL) (#4=#:G94 NIL) (|j| NIL) (#5=#:G93 NIL) (#6=#:G92 NIL)
+          (#7=#:G91 NIL) (|ans| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ
           (COND ((> |k| |i|) (|error| "Symmetric polynomial not defined"))
                 ((OR (ZEROP |i|) (ZEROP |k|)) 1)
@@ -319,8 +318,8 @@
         ((|q| (|NonNegativeInteger|)) (|beta| (|List| (|NonNegativeInteger|)))
          (% (|List| (|NonNegativeInteger|))))
         (SPROG
-         ((#1=#:G200 NIL) (#2=#:G204 NIL) (|bi| NIL) (#3=#:G205 NIL) (|i| NIL)
-          (#4=#:G203 NIL))
+         ((#1=#:G96 NIL) (#2=#:G100 NIL) (|bi| NIL) (#3=#:G101 NIL) (|i| NIL)
+          (#4=#:G99 NIL))
          (SEQ
           (PROGN
            (LETT #4# NIL)
@@ -354,8 +353,8 @@
         (SPROG
          ((|ifac| #1=(|Integer|))
           (|res| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|coeff| (|Fraction| (|Integer|))) (#2=#:G208 NIL) (|kfac| #1#)
-          (#3=#:G216 NIL) (|k| NIL) (#4=#:G215 NIL) (|i| NIL))
+          (|coeff| (|Fraction| (|Integer|))) (#2=#:G104 NIL) (|kfac| #1#)
+          (#3=#:G112 NIL) (|k| NIL) (#4=#:G111 NIL) (|i| NIL))
          (SEQ (LETT |res| (|spadConstant| % 66)) (LETT |ifac| 1)
               (SEQ (LETT |i| 0) (LETT #4# (- (QREFELT % 10) 1)) G190
                    (COND ((|greater_SI| |i| #4#) (GO G191)))
@@ -400,10 +399,10 @@
         ((|hilp| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
          (% (|List| (|NonNegativeInteger|))))
         (SPROG
-         ((|res| (|List| (|NonNegativeInteger|))) (#1=#:G355 NIL)
-          (|ai| (|Integer|)) (#2=#:G353 NIL) (|kfac| #3=(|Integer|))
-          (|sum| (|Fraction| (|Integer|))) (#4=#:G222 NIL) (#5=#:G221 NIL)
-          (#6=#:G360 NIL) (|k| NIL) (|ifac| #3#) (|i| NIL))
+         ((|res| (|List| (|NonNegativeInteger|))) (#1=#:G251 NIL)
+          (|ai| (|Integer|)) (#2=#:G249 NIL) (|kfac| #3=(|Integer|))
+          (|sum| (|Fraction| (|Integer|))) (#4=#:G118 NIL) (#5=#:G117 NIL)
+          (#6=#:G256 NIL) (|k| NIL) (|ifac| #3#) (|i| NIL))
          (SEQ (LETT |res| NIL)
               (LETT |ifac| (SPADCALL (QREFELT % 10) (QREFELT % 76)))
               (SEQ (LETT |i| (QREFELT % 10)) G190 (COND ((< |i| 1) (GO G191)))
@@ -464,8 +463,8 @@
          (|CarChar| (|List| (|NonNegativeInteger|))) (% (|List| (|Integer|))))
         (SPROG
          ((|res| (|List| (|Integer|))) (|t| (|Fraction| (|Integer|)))
-          (#1=#:G400 NIL) (#2=#:G399 NIL) (#3=#:G390 NIL) (|kfac| (|Integer|))
-          (|ki| (|NonNegativeInteger|)) (#4=#:G363 NIL) (#5=#:G407 NIL)
+          (#1=#:G296 NIL) (#2=#:G295 NIL) (#3=#:G286 NIL) (|kfac| (|Integer|))
+          (|ki| (|NonNegativeInteger|)) (#4=#:G259 NIL) (#5=#:G303 NIL)
           (|k| NIL) (|ifac| (|Integer|)) (|i| NIL))
          (SEQ
           (LETT |res|
@@ -534,10 +533,10 @@
          (|gamma| (|List| (|NonNegativeInteger|))) (% (|List| (|Integer|))))
         (SPROG
          ((|res| (|List| (|Integer|))) (|t| (|Fraction| (|Integer|)))
-          (#1=#:G430 NIL) (#2=#:G429 NIL) (|kfac| (|Integer|))
-          (|ki| (|NonNegativeInteger|)) (#3=#:G420 NIL) (#4=#:G440 NIL)
-          (|k| NIL) (|ifac| (|Integer|)) (#5=#:G417 NIL) (#6=#:G416 NIL)
-          (#7=#:G438 NIL) (|l| NIL) (#8=#:G439 NIL) (|g| NIL) (|i| NIL)
+          (#1=#:G326 NIL) (#2=#:G325 NIL) (|kfac| (|Integer|))
+          (|ki| (|NonNegativeInteger|)) (#3=#:G316 NIL) (#4=#:G336 NIL)
+          (|k| NIL) (|ifac| (|Integer|)) (#5=#:G313 NIL) (#6=#:G312 NIL)
+          (#7=#:G334 NIL) (|l| NIL) (#8=#:G335 NIL) (|g| NIL) (|i| NIL)
           (|rnf| (|Fraction| (|Integer|))) (|n1| (|Integer|))
           (|gp| (|NonNegativeInteger|)))
          (SEQ (LETT |gp| (SPADCALL |gamma| (QREFELT % 88)))
@@ -652,8 +651,8 @@
          (% (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|t| (|NonNegativeInteger|)) (#1=#:G444 NIL) (#2=#:G443 NIL)
-          (#3=#:G452 NIL) (|l| NIL) (#4=#:G453 NIL) (|g| NIL) (#5=#:G451 NIL)
+          (|t| (|NonNegativeInteger|)) (#1=#:G340 NIL) (#2=#:G339 NIL)
+          (#3=#:G348 NIL) (|l| NIL) (#4=#:G349 NIL) (|g| NIL) (#5=#:G347 NIL)
           (|k| NIL) (|rnf| (|Fraction| (|Integer|)))
           (|gp| (|NonNegativeInteger|)))
          (SEQ (LETT |gp| (SPADCALL |gamma| (QREFELT % 88)))
@@ -730,8 +729,8 @@
         ((|nn| (|NonNegativeInteger|)) (|mm| (|NonNegativeInteger|))
          (|qq| (|NonNegativeInteger|)) (% (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G458 NIL) (#2=#:G455 NIL) (|tmp| (|NonNegativeInteger|))
-          (#3=#:G454 NIL))
+         ((#1=#:G354 NIL) (#2=#:G351 NIL) (|tmp| (|NonNegativeInteger|))
+          (#3=#:G350 NIL))
          (SEQ
           (COND
            ((EQL |qq| 1)
@@ -787,9 +786,9 @@
                      (|:| IC (|List| D))))
           (|PrevDe| #1#) (|CompSys| (|List| D)) (|s| #2=(|NonNegativeInteger|))
           (|InvDe| (|Boolean|)) (|ProjDeDim| #3=(|NonNegativeInteger|))
-          (#4=#:G483 NIL) (|ProjDe| (|JetDifferentialEquation| JB D))
+          (#4=#:G379 NIL) (|ProjDe| (|JetDifferentialEquation| JB D))
           (|InvSymb| (|Boolean|)) (|CurDeDim| #3#) (|CurSymbDim| #2#)
-          (#5=#:G475 NIL)
+          (#5=#:G371 NIL)
           (|CurMV|
            (|Record| (|:| |Rank| (|NonNegativeInteger|))
                      (|:| |NumMultVar| (|NonNegativeInteger|))
@@ -802,7 +801,7 @@
                      (|:| |Betas| (|List| (|NonNegativeInteger|)))))
           (|dimSq1| #6=(|NonNegativeInteger|)) (|dimSq| #6#)
           (|q1| (|NonNegativeInteger|)) (|q| (|NonNegativeInteger|))
-          (#7=#:G469 NIL) (#8=#:G467 NIL) (#9=#:G492 NIL)
+          (#7=#:G365 NIL) (#8=#:G363 NIL) (#9=#:G388 NIL)
           (|solved?| (|Boolean|)))
          (SEQ (LETT |PrevDe| (QCAR (SPADCALL |De| (QREFELT % 99))))
               (LETT |CompSys| (SPADCALL |PrevDe| (QREFELT % 100)))
@@ -1000,9 +999,9 @@
 
 (DECLAIM (NOTINLINE |CartanKuranishi;|)) 
 
-(DEFUN |CartanKuranishi| (&REST #1=#:G493)
+(DEFUN |CartanKuranishi| (&REST #1=#:G389)
   (SPROG NIL
-         (PROG (#2=#:G494)
+         (PROG (#2=#:G390)
            (RETURN
             (COND
              ((LETT #2#

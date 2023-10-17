@@ -1,8 +1,8 @@
 
 (SDEFUN |SYMPOLY;*;3%;1| ((|p1| (%)) (|p2| (%)) (% (%)))
         (SPROG
-         ((#1=#:G113 NIL) (#2=#:G112 (%)) (#3=#:G114 (%)) (#4=#:G123 NIL)
-          (|t2| NIL) (#5=#:G122 NIL) (#6=#:G121 NIL) (|t1| NIL))
+         ((#1=#:G9 NIL) (#2=#:G8 (%)) (#3=#:G10 (%)) (#4=#:G19 NIL) (|t2| NIL)
+          (#5=#:G18 NIL) (#6=#:G17 NIL) (|t1| NIL))
          (SEQ
           (COND ((OR (NULL |p1|) (NULL |p2|)) (|spadConstant| % 9))
                 ((SPADCALL (QCAR (|SPADfirst| |p1|)) (QREFELT % 12))
@@ -48,9 +48,8 @@
 
 (SDEFUN |SYMPOLY;*;3%;2| ((|p1| (%)) (|p2| (%)) (% (%)))
         (SPROG
-         ((#1=#:G125 NIL) (#2=#:G124 (%)) (#3=#:G126 (%)) (|r| (R))
-          (#4=#:G135 NIL) (|t2| NIL) (#5=#:G134 NIL) (#6=#:G133 NIL)
-          (|t1| NIL))
+         ((#1=#:G21 NIL) (#2=#:G20 (%)) (#3=#:G22 (%)) (|r| (R)) (#4=#:G31 NIL)
+          (|t2| NIL) (#5=#:G30 NIL) (#6=#:G29 NIL) (|t1| NIL))
          (SEQ
           (COND ((OR (NULL |p1|) (NULL |p2|)) (|spadConstant| % 9))
                 ((SPADCALL (QCAR (|SPADfirst| |p1|)) (QREFELT % 12))
@@ -102,9 +101,9 @@
 
 (DECLAIM (NOTINLINE |SymmetricPolynomial;|)) 
 
-(DEFUN |SymmetricPolynomial| (#1=#:G157)
+(DEFUN |SymmetricPolynomial| (#1=#:G53)
   (SPROG NIL
-         (PROG (#2=#:G158)
+         (PROG (#2=#:G54)
            (RETURN
             (COND
              ((LETT #2#
@@ -121,7 +120,7 @@
 
 (DEFUN |SymmetricPolynomial;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G154 NIL) (#2=#:G155 NIL) (#3=#:G156 NIL) (% NIL)
+   ((|pv$| NIL) (#1=#:G50 NIL) (#2=#:G51 NIL) (#3=#:G52 NIL) (% NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

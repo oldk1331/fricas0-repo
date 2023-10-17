@@ -5,10 +5,10 @@
           (|Record| (|:| LU (|Matrix| D)) (|:| |Perm| (|Vector| (|Integer|)))
                     (|:| |Pivots| (|List| D)))))
         (SPROG
-         ((#1=#:G139 NIL) (|k| NIL) (|d| (D)) (|Pivs| (|List| D))
-          (|i0| (|Integer|)) (|s| (D)) (#2=#:G138 NIL) (#3=#:G137 NIL)
-          (|i| NIL) (#4=#:G136 NIL) (#5=#:G135 NIL) (#6=#:G134 NIL) (|j| NIL)
-          (|PermV| (|Vector| (|Integer|))) (#7=#:G111 NIL) (|maxC| (|Integer|))
+         ((#1=#:G35 NIL) (|k| NIL) (|d| (D)) (|Pivs| (|List| D))
+          (|i0| (|Integer|)) (|s| (D)) (#2=#:G34 NIL) (#3=#:G33 NIL) (|i| NIL)
+          (#4=#:G32 NIL) (#5=#:G31 NIL) (#6=#:G30 NIL) (|j| NIL)
+          (|PermV| (|Vector| (|Integer|))) (#7=#:G7 NIL) (|maxC| (|Integer|))
           (|minC| (|Integer|)) (|maxR| (|Integer|)) (|minR| (|Integer|))
           (A (|Matrix| D)))
          (SEQ (LETT A (SPADCALL AA (QREFELT % 8))) (LETT |minR| (PROGN A 1))
@@ -114,8 +114,8 @@
         ((LU (|Matrix| D)) (|Perm| (|Vector| (|Integer|))) (XX (|Vector| D))
          (% (|Vector| D)))
         (SPROG
-         ((|s| (D)) (#1=#:G157 NIL) (|j| NIL) (#2=#:G156 NIL) (|i| NIL)
-          (|ii| (|Integer|)) (#3=#:G155 NIL) (|ip| (|Integer|)) (#4=#:G154 NIL)
+         ((|s| (D)) (#1=#:G53 NIL) (|j| NIL) (#2=#:G52 NIL) (|i| NIL)
+          (|ii| (|Integer|)) (#3=#:G51 NIL) (|ip| (|Integer|)) (#4=#:G50 NIL)
           (|maxR| (|Integer|)) (|minR| (|Integer|)) (X (|Vector| D)))
          (SEQ (LETT X (SPADCALL XX (QREFELT % 24))) (LETT |minR| (PROGN LU 1))
               (LETT |maxR| (SPADCALL LU (QREFELT % 10)))
@@ -180,7 +180,7 @@
         ((A (|Matrix| D))
          (% (|Record| (|:| |Inv| (|Matrix| D)) (|:| |Pivots| (|List| D)))))
         (SPROG
-         ((|res| (|Matrix| D)) (|v| (|Vector| D)) (#1=#:G166 NIL) (|i| NIL)
+         ((|res| (|Matrix| D)) (|v| (|Vector| D)) (#1=#:G62 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|))
           (|Alu|
            (|Record| (|:| LU (|Matrix| D)) (|:| |Perm| (|Vector| (|Integer|)))
@@ -204,9 +204,9 @@
 
 (DECLAIM (NOTINLINE |LUDecomposition;|)) 
 
-(DEFUN |LUDecomposition| (#1=#:G167)
+(DEFUN |LUDecomposition| (#1=#:G63)
   (SPROG NIL
-         (PROG (#2=#:G168)
+         (PROG (#2=#:G64)
            (RETURN
             (COND
              ((LETT #2#

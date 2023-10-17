@@ -4,7 +4,7 @@
 
 (SDEFUN |FINRALG-;coordinates;2VM;2|
         ((|v| (|Vector| S)) (|b| (|Vector| S)) (% (|Matrix| R)))
-        (SPROG ((#1=#:G116 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| R)))
+        (SPROG ((#1=#:G12 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| R)))
                (SEQ
                 (LETT |m|
                       (MAKE_MATRIX1 (QVSIZE |v|) (QVSIZE |b|)
@@ -26,8 +26,8 @@
 (SDEFUN |FINRALG-;represents;VVS;3|
         ((|v| (|Vector| R)) (|b| (|Vector| S)) (% (S)))
         (SPROG
-         ((#1=#:G118 NIL) (#2=#:G117 (S)) (#3=#:G119 (S)) (#4=#:G122 NIL)
-          (|i| NIL) (|m| (|Integer|)))
+         ((#1=#:G14 NIL) (#2=#:G13 (S)) (#3=#:G15 (S)) (#4=#:G18 NIL) (|i| NIL)
+          (|m| (|Integer|)))
          (SEQ (LETT |m| (- (SPADCALL |v| (QREFELT % 22)) 1))
               (EXIT
                (PROGN
@@ -50,8 +50,8 @@
 
 (SDEFUN |FINRALG-;traceMatrix;VM;4| ((|v| (|Vector| S)) (% (|Matrix| R)))
         (SPROG
-         ((#1=#:G131 NIL) (|j| NIL) (#2=#:G130 NIL) (#3=#:G129 NIL) (|i| NIL)
-          (#4=#:G128 NIL))
+         ((#1=#:G27 NIL) (|j| NIL) (#2=#:G26 NIL) (#3=#:G25 NIL) (|i| NIL)
+          (#4=#:G24 NIL))
          (SEQ
           (SPADCALL
            (PROGN
@@ -86,7 +86,7 @@
 
 (SDEFUN |FINRALG-;regularRepresentation;SVM;5|
         ((|x| (S)) (|b| (|Vector| S)) (% (|Matrix| R)))
-        (SPROG ((#1=#:G139 NIL) (|i| NIL) (#2=#:G138 NIL) (|m| (|Integer|)))
+        (SPROG ((#1=#:G35 NIL) (|i| NIL) (#2=#:G34 NIL) (|m| (|Integer|)))
                (SEQ (LETT |m| (- (SPADCALL |b| (QREFELT % 17)) 1))
                     (EXIT
                      (SPADCALL

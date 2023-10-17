@@ -13,9 +13,9 @@
 
 (DECLAIM (NOTINLINE |ListFunctions2;|)) 
 
-(DEFUN |ListFunctions2| (&REST #1=#:G112)
+(DEFUN |ListFunctions2| (&REST #1=#:G8)
   (SPROG NIL
-         (PROG (#2=#:G113)
+         (PROG (#2=#:G9)
            (RETURN
             (COND
              ((LETT #2#

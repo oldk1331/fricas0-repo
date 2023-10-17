@@ -10,8 +10,8 @@
         ((|n| (I))
          (% (|Record| (|:| |base| I) (|:| |exponent| (|NonNegativeInteger|)))))
         (SPROG
-         ((|p| (|NonNegativeInteger|)) (#1=#:G131 NIL)
-          (|e| (|NonNegativeInteger|)) (#2=#:G128 NIL)
+         ((|p| (|NonNegativeInteger|)) (#1=#:G27 NIL)
+          (|e| (|NonNegativeInteger|)) (#2=#:G24 NIL)
           (|r| (|Union| I #3="failed")) (|m| NIL))
          (SEQ
           (COND
@@ -72,7 +72,7 @@
         ((|a| (I)) (|n| (|NonNegativeInteger|)) (% (I)))
         (SPROG
          ((|z| (I)) (|y| (I)) (|xn| (I)) (|x| (I))
-          (|n1| (|NonNegativeInteger|)) (#1=#:G138 NIL) (|l| (I)))
+          (|n1| (|NonNegativeInteger|)) (#1=#:G34 NIL) (|l| (I)))
          (SEQ
           (COND ((ZEROP |n|) (|error| "invalid arguments")) ((EQL |n| 1) |a|)
                 ((EQL |n| 2) (SPADCALL |a| (QREFELT % 31)))
@@ -173,7 +173,7 @@
 (SDEFUN |IROOT;approxSqrt;2I;7| ((|a| (I)) (% (I)))
         (SPROG
          ((|old| (I)) (|new| (I)) (|#G18| (I)) (|#G17| (I)) (|#G16| (I))
-          (|#G15| (I)) (#1=#:G165 NIL) (|s| (I)) (|n| (I)))
+          (|#G15| (I)) (#1=#:G61 NIL) (|s| (I)) (|n| (I)))
          (SEQ
           (EXIT
            (COND
@@ -209,7 +209,7 @@
                                  (SPADCALL |a| |s| (QREFELT % 36))
                                  (QREFELT % 24))
                                 (QREFELT % 12) (QREFELT % 36)))
-                         (GO #2=#:G164))))))))
+                         (GO #2=#:G60))))))))
               (PROGN
                (LETT |#G15|
                      (SPADCALL (|spadConstant| % 8)
@@ -241,9 +241,9 @@
 
 (DECLAIM (NOTINLINE |IntegerRoots;|)) 
 
-(DEFUN |IntegerRoots| (#1=#:G166)
+(DEFUN |IntegerRoots| (#1=#:G62)
   (SPROG NIL
-         (PROG (#2=#:G167)
+         (PROG (#2=#:G63)
            (RETURN
             (COND
              ((LETT #2#

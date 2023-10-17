@@ -50,10 +50,10 @@
                            (|SparseUnivariatePolynomial|
                             (|SparseUnivariatePolynomial| F)))
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (#1=#:G192 NIL) (|v| NIL) (#2=#:G191 NIL)
+          (#1=#:G88 NIL) (|v| NIL) (#2=#:G87 NIL)
           (|unitPart|
            (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
-          (#3=#:G180 NIL)
+          (#3=#:G76 NIL)
           (|nfl|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -64,30 +64,30 @@
           (|twoF|
            (|Factored|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
-          (|ydeg| #4=(|NonNegativeInteger|)) (#5=#:G166 NIL) (#6=#:G165 #4#)
-          (#7=#:G167 #4#) (#8=#:G190 NIL) (|w| NIL) (#9=#:G189 NIL)
-          (#10=#:G188 NIL)
+          (|ydeg| #4=(|NonNegativeInteger|)) (#5=#:G62 NIL) (#6=#:G61 #4#)
+          (#7=#:G63 #4#) (#8=#:G86 NIL) (|w| NIL) (#9=#:G85 NIL)
+          (#10=#:G84 NIL)
           (|m2|
            #11=(|Factored|
                 (|SparseUnivariatePolynomial|
                  (|SparseUnivariatePolynomial| F))))
-          (#12=#:G187 NIL) (#13=#:G186 NIL) (|res| #11#)
+          (#12=#:G83 NIL) (#13=#:G82 NIL) (|res| #11#)
           (|m1|
            (|Union|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
             "failed"))
-          (|PthRootPow| (|NonNegativeInteger|)) (#14=#:G154 NIL)
+          (|PthRootPow| (|NonNegativeInteger|)) (#14=#:G50 NIL)
           (|p| (|NonNegativeInteger|))
           (|fac|
            (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
-          (|expon| (|NonNegativeInteger|)) (#15=#:G185 NIL) (|u| NIL)
+          (|expon| (|NonNegativeInteger|)) (#15=#:G81 NIL) (|u| NIL)
           (|sqfrm|
            (|Factored|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
-          (#16=#:G184 NIL) (#17=#:G183 NIL)
+          (#16=#:G80 NIL) (#17=#:G79 NIL)
           (|contfact| #18=(|Factored| (|SparseUnivariatePolynomial| F)))
-          (|cont| (|SparseUnivariatePolynomial| F)) (#19=#:G182 NIL)
-          (#20=#:G181 NIL) (|l| #18#))
+          (|cont| (|SparseUnivariatePolynomial| F)) (#19=#:G78 NIL)
+          (#20=#:G77 NIL) (|l| #18#))
          (SEQ
           (EXIT
            (COND
@@ -356,7 +356,7 @@
                                     (EXIT
                                      (PROGN
                                       (LETT #3# |twoF|)
-                                      (GO #22=#:G179)))))))
+                                      (GO #22=#:G75)))))))
                                 (LETT |unitPart|
                                       (SPADCALL |unitPart|
                                                 (SPADCALL
@@ -413,23 +413,23 @@
           (|Factored|
            (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))))
         (SPROG
-         ((#2=#:G223 NIL)
-          (#3=#:G222
+         ((#2=#:G119 NIL)
+          (#3=#:G118
            #4=(|Factored|
                (|SparseUnivariatePolynomial|
                 (|SparseUnivariatePolynomial| F))))
-          (#5=#:G224 #4#) (#6=#:G234 NIL) (|ff1| NIL)
+          (#5=#:G120 #4#) (#6=#:G130 NIL) (|ff1| NIL)
           (|lfactk|
            (|List|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
-          (#7=#:G211 NIL) (|ffn| (TP)) (#8=#:G218 NIL) (#9=#:G217 (TP))
-          (#10=#:G219 (TP)) (#11=#:G233 NIL) (#12=#:G104 NIL)
+          (#7=#:G107 NIL) (|ffn| (TP)) (#8=#:G114 NIL) (#9=#:G113 (TP))
+          (#10=#:G115 (TP)) (#11=#:G129 NIL) (#12=#:G0 NIL)
           (|lfacth|
            (|List|
             #13=(|SparseUnivariatePolynomial|
                  (|SparseUnivariatePolynomial| |extField|))))
-          (#14=#:G232 NIL) (|g| NIL) (#15=#:G231 NIL) (|normfacs| (|List| TP))
-          (#16=#:G228 NIL)
+          (#14=#:G128 NIL) (|g| NIL) (#15=#:G127 NIL) (|normfacs| (|List| TP))
+          (#16=#:G124 NIL)
           (|ffu|
            (|Union|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
@@ -437,7 +437,7 @@
           (|ff|
            (|SparseUnivariatePolynomial|
             (|SparseUnivariatePolynomial| |extField|)))
-          (|c| (|extField|)) (#18=#:G230 NIL) (|fac| NIL) (#19=#:G229 NIL)
+          (|c| (|extField|)) (#18=#:G126 NIL) (|fac| NIL) (#19=#:G125 NIL)
           (|Normp|
            (CATEGORY |package| (SIGNATURE |normFactors| ((|List| TP) TP))
             (SIGNATURE |retractIfCan|
@@ -669,7 +669,7 @@
                                    (LETT #16#
                                          (LETT |lfactk|
                                                (CONS (QCDR |ffu|) |lfactk|)))
-                                   (GO #26=#:G220))))))
+                                   (GO #26=#:G116))))))
                               (LETT |normfacs|
                                     (SPADCALL |ff|
                                               (|compiledLookupCheck|
@@ -805,11 +805,11 @@
           (|Factored|
            (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))))
         (SPROG
-         ((#1=#:G246 NIL) (#2=#:G247 NIL)
+         ((#1=#:G142 NIL) (#2=#:G143 NIL)
           (|res1|
            (|Factored|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
-          (|nsize| (|NonNegativeInteger|)) (#3=#:G248 NIL) (|n| NIL)
+          (|nsize| (|NonNegativeInteger|)) (#3=#:G144 NIL) (|n| NIL)
           (|ln| (|List| (|PositiveInteger|))))
          (SEQ
           (EXIT
@@ -841,8 +841,8 @@
                                 (CONS 3 "prime") (QREFELT % 68))
                                (PROGN
                                 (LETT #1#
-                                      (PROGN (LETT #2# |res1|) (GO #4=#:G245)))
-                                (GO #5=#:G242)))))))
+                                      (PROGN (LETT #2# |res1|) (GO #4=#:G141)))
+                                (GO #5=#:G138)))))))
                       #5# (EXIT #1#))
                      (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                 (EXIT (|error| "doExtension : Impossible"))))
@@ -855,12 +855,12 @@
           (|Factored|
            (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))))
         (SPROG
-         ((#1=#:G267 NIL)
-          (#2=#:G266
+         ((#1=#:G163 NIL)
+          (#2=#:G162
            #3=(|Factored|
                (|SparseUnivariatePolynomial|
                 (|SparseUnivariatePolynomial| F))))
-          (#4=#:G268 #3#) (#5=#:G276 NIL) (|ff1| NIL)
+          (#4=#:G164 #3#) (#5=#:G172 NIL) (|ff1| NIL)
           (|lfactk|
            (|List|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
@@ -870,18 +870,18 @@
           (|lfacth|
            (|List|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
-          (|dx1| (|PositiveInteger|)) (#6=#:G260 NIL)
+          (|dx1| (|PositiveInteger|)) (#6=#:G156 NIL)
           (|lfact|
            (|List|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
-          (#7=#:G275 NIL) (|lf| NIL) (#8=#:G274 NIL)
+          (#7=#:G171 NIL) (|lf| NIL) (#8=#:G170 NIL)
           (|lfact1|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| (|SparseUnivariatePolynomial| F))
                       (|:| |exponent| (|NonNegativeInteger|)))))
           (|fumv| (|Factored| (|SparseUnivariatePolynomial| F)))
-          (|prime| (|SparseUnivariatePolynomial| F)) (#9=#:G273 NIL)
+          (|prime| (|SparseUnivariatePolynomial| F)) (#9=#:G169 NIL)
           (|look| (|Boolean|)) (|umv| (|SparseUnivariatePolynomial| F))
           (|val| (F)) (|i| (|Integer|)) (|use_random| (|Boolean|))
           (|lcm| (|SparseUnivariatePolynomial| F)) (|try_max| (|Integer|)))
@@ -932,7 +932,7 @@
                     (EXIT
                      (PROGN
                       (LETT #9# (SPADCALL |m| 1 (QREFELT % 70)))
-                      (GO #10=#:G272)))))))
+                      (GO #10=#:G168)))))))
                 (EXIT
                  (COND (|look| (|TWOFACT;doExtension| |m| |dx| %))
                        (#11='T
@@ -1044,9 +1044,9 @@
 
 (DECLAIM (NOTINLINE |TwoFactorize;|)) 
 
-(DEFUN |TwoFactorize| (#1=#:G277)
+(DEFUN |TwoFactorize| (#1=#:G173)
   (SPROG NIL
-         (PROG (#2=#:G278)
+         (PROG (#2=#:G174)
            (RETURN
             (COND
              ((LETT #2#

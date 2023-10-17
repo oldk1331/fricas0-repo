@@ -10,7 +10,7 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|a| NIL) (|b| NIL) (|l| NIL) (|m| NIL) (#1=#:G116 NIL) (|w| NIL)
+             ((|a| NIL) (|b| NIL) (|l| NIL) (|m| NIL) (#1=#:G12 NIL) (|w| NIL)
               (|mqnext| NIL) (|n| NIL) (|mq| NIL))
              (SEQ (LETT |a| (SPADCALL |aTob| (QREFELT % 8)))
                   (LETT |b| (SPADCALL |aTob| (QREFELT % 9)))
@@ -52,7 +52,7 @@
 (SDEFUN |RIDIST;ridHack1;5I;2|
         ((|mq| (|Integer|)) (|n| (|Integer|)) (|w| (|Integer|))
          (|l| (|Integer|)) (% (|Integer|)))
-        (SPROG ((|r| (|Integer|)) (#1=#:G128 NIL) (|i| NIL))
+        (SPROG ((|r| (|Integer|)) (#1=#:G24 NIL) (|i| NIL))
                (SEQ (LETT |r| (SPADCALL |mq| (QREFELT % 32)))
                     (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -68,7 +68,7 @@
 
 (DEFUN |RandomIntegerDistributions| ()
   (SPROG NIL
-         (PROG (#1=#:G130)
+         (PROG (#1=#:G26)
            (RETURN
             (COND
              ((LETT #1#

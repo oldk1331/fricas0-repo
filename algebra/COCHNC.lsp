@@ -12,13 +12,13 @@
 
 (SDEFUN |COCHNC;validate;%B;3| ((|a| (%)) (% (|Boolean|)))
         (SPROG
-         ((|last| (|Matrix| (|Integer|))) (#1=#:G120 NIL)
-          (|prod| (|Matrix| (|Integer|))) (#2=#:G121 NIL) (|m| NIL)
+         ((|last| (|Matrix| (|Integer|))) (#1=#:G16 NIL)
+          (|prod| (|Matrix| (|Integer|))) (#2=#:G17 NIL) (|m| NIL)
           (|len| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ (LETT |len| (LENGTH |a|))
-                (COND ((< |len| 2) (PROGN (LETT #1# 'T) (GO #3=#:G119))))
+                (COND ((< |len| 2) (PROGN (LETT #1# 'T) (GO #3=#:G15))))
                 (LETT |last| (|SPADfirst| |a|))
                 (SEQ (LETT |m| NIL) (LETT #2# (CDR |a|)) G190
                      (COND
@@ -74,11 +74,11 @@
         ((|a| (%)) (|n| (|NonNegativeInteger|)) (|inp| (|List| VS))
          (% (|List| VS)))
         (SPROG
-         ((|res| (|List| VS)) (#1=#:G139 NIL) (|i| NIL) (#2=#:G138 NIL)
-          (|res1| (|List| VS)) (|val| (VS)) (#3=#:G137 NIL) (|v| NIL)
+         ((|res| (|List| VS)) (#1=#:G35 NIL) (|i| NIL) (#2=#:G34 NIL)
+          (|res1| (|List| VS)) (|val| (VS)) (#3=#:G33 NIL) (|v| NIL)
           (|vs| (|Vector| (|Integer|))) (|m| (|Matrix| (|Integer|)))
           (|b| (|Vector| (|Integer|))) (|base| (|List| (|Integer|)))
-          (#4=#:G136 NIL) (|x| NIL) (#5=#:G135 NIL) (#6=#:G134 NIL) (|p| NIL)
+          (#4=#:G32 NIL) (|x| NIL) (#5=#:G31 NIL) (#6=#:G30 NIL) (|p| NIL)
           (|inpn| (|NonNegativeInteger|))
           (|maps| (|List| (|Matrix| (|Integer|)))))
          (SEQ (LETT |maps| (REVERSE |a|)) (LETT |res| NIL)
@@ -157,7 +157,7 @@
 (SDEFUN |COCHNC;coHomology;%L;5| ((|a| (%)) (% (|List| (|Homology|))))
         (SPROG
          ((|prev| (|Matrix| (|Integer|))) (|notFirst| (|Boolean|))
-          (|res| (|List| (|Homology|))) (|m2| (|Homology|)) (#1=#:G146 NIL)
+          (|res| (|List| (|Homology|))) (|m2| (|Homology|)) (#1=#:G42 NIL)
           (|m1| NIL))
          (SEQ (LETT |res| NIL) (LETT |prev| (MAKE_MATRIX 0 0))
               (LETT |notFirst| NIL)
@@ -178,8 +178,8 @@
 
 (SDEFUN |COCHNC;coerce;%Of;6| ((|s| (%)) (% (|OutputForm|)))
         (SPROG
-         ((|lst| (|List| (|OutputForm|))) (#1=#:G152 NIL) (|x| NIL)
-          (#2=#:G151 NIL))
+         ((|lst| (|List| (|OutputForm|))) (#1=#:G48 NIL) (|x| NIL)
+          (#2=#:G47 NIL))
          (SEQ
           (LETT |lst|
                 (PROGN
@@ -197,9 +197,9 @@
 
 (DECLAIM (NOTINLINE |CoChainComplex;|)) 
 
-(DEFUN |CoChainComplex| (#1=#:G153)
+(DEFUN |CoChainComplex| (#1=#:G49)
   (SPROG NIL
-         (PROG (#2=#:G154)
+         (PROG (#2=#:G50)
            (RETURN
             (COND
              ((LETT #2#

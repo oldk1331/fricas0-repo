@@ -2,7 +2,7 @@
 (SDEFUN |IMATRIX;swapRows!;%2I%;1|
         ((|x| (%)) (|i1| #1=(|Integer|)) (|i2| #1#) (% (%)))
         (SPROG
-         ((|t2| (R)) (|t1| (R)) (#2=#:G118 NIL) (|j| NIL) (|co| (|Integer|))
+         ((|t2| (R)) (|t1| (R)) (#2=#:G14 NIL) (|j| NIL) (|co| (|Integer|))
           (|ro| (|Integer|)))
          (SEQ
           (COND
@@ -50,9 +50,9 @@
 
 (DECLAIM (NOTINLINE |IndexedMatrix;|)) 
 
-(DEFUN |IndexedMatrix| (&REST #1=#:G143)
+(DEFUN |IndexedMatrix| (&REST #1=#:G39)
   (SPROG NIL
-         (PROG (#2=#:G144)
+         (PROG (#2=#:G40)
            (RETURN
             (COND
              ((LETT #2#
@@ -70,7 +70,7 @@
 
 (DEFUN |IndexedMatrix;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G140 NIL) (#2=#:G141 NIL) (% NIL) (|dv$| NIL) (DV$3 NIL)
+   ((|pv$| NIL) (#1=#:G36 NIL) (#2=#:G37 NIL) (% NIL) (|dv$| NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

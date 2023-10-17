@@ -43,9 +43,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialCommonDenominator;|)) 
 
-(DEFUN |PolynomialCommonDenominator| (&REST #1=#:G113)
+(DEFUN |PolynomialCommonDenominator| (&REST #1=#:G9)
   (SPROG NIL
-         (PROG (#2=#:G114)
+         (PROG (#2=#:G10)
            (RETURN
             (COND
              ((LETT #2#

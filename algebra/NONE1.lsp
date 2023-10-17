@@ -5,9 +5,9 @@
 
 (DECLAIM (NOTINLINE |NoneFunctions1;|)) 
 
-(DEFUN |NoneFunctions1| (#1=#:G105)
+(DEFUN |NoneFunctions1| (#1=#:G1)
   (SPROG NIL
-         (PROG (#2=#:G106)
+         (PROG (#2=#:G2)
            (RETURN
             (COND
              ((LETT #2#

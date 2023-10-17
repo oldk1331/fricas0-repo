@@ -32,16 +32,16 @@
 
 (SDEFUN |MPCPF;factor;PPRF;2| ((|p| (PPR)) (% (|Factored| PPR)))
         (SPROG
-         ((#1=#:G130 NIL) (#2=#:G129 #3=(|Factored| PPR)) (#4=#:G131 #3#)
-          (#5=#:G141 NIL) (|ff| NIL) (|fcont| (PPR))
+         ((#1=#:G26 NIL) (#2=#:G25 #3=(|Factored| PPR)) (#4=#:G27 #3#)
+          (#5=#:G37 NIL) (|ff| NIL) (|fcont| (PPR))
           (|ffact|
            (|List|
             (|Record| (|:| |irr| PPR) (|:| |pow| (|NonNegativeInteger|)))))
-          (#6=#:G140 NIL) (|u| NIL) (#7=#:G139 NIL)
+          (#6=#:G36 NIL) (|u| NIL) (#7=#:G35 NIL)
           (|flist| (|Factored| (|Polynomial| R))) (|g| (|Polynomial| R))
-          (|nvals| (|List| (|Polynomial| R))) (#8=#:G138 NIL) (|nv| NIL)
-          (#9=#:G137 NIL) (|nvars| (|List| (|Symbol|))) (#10=#:G136 NIL)
-          (|v| NIL) (#11=#:G135 NIL) (|vars| (|List| OV)) (#12=#:G113 NIL)
+          (|nvals| (|List| (|Polynomial| R))) (#8=#:G34 NIL) (|nv| NIL)
+          (#9=#:G33 NIL) (|nvars| (|List| (|Symbol|))) (#10=#:G32 NIL)
+          (|v| NIL) (#11=#:G31 NIL) (|vars| (|List| OV)) (#12=#:G9 NIL)
           (|c| (|Polynomial| R)))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT % 27)) (SPADCALL |p| 1 (QREFELT % 32)))
@@ -144,9 +144,9 @@
 
 (DECLAIM (NOTINLINE |MPolyCatPolyFactorizer;|)) 
 
-(DEFUN |MPolyCatPolyFactorizer| (&REST #1=#:G142)
+(DEFUN |MPolyCatPolyFactorizer| (&REST #1=#:G38)
   (SPROG NIL
-         (PROG (#2=#:G143)
+         (PROG (#2=#:G39)
            (RETURN
             (COND
              ((LETT #2#

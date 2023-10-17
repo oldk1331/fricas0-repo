@@ -45,20 +45,20 @@
 
 (SDEFUN |FFHOM;initialize| ((% (|Void|)))
         (SPROG
-         ((|matbs| #1=(|Matrix| GF)) (#2=#:G140 NIL) (|matsb| #1#)
-          (#3=#:G171 NIL) (|i| NIL) (|mat| #1#)
+         ((|matbs| #1=(|Matrix| GF)) (#2=#:G36 NIL) (|matsb| #1#)
+          (#3=#:G67 NIL) (|i| NIL) (|mat| #1#)
           (|arr| (|PrimitiveArray| (|SparseUnivariatePolynomial| GF)))
-          (#4=#:G170 NIL) (#5=#:G169 NIL) (|rowind| (|Integer|))
+          (#4=#:G66 NIL) (#5=#:G65 NIL) (|rowind| (|Integer|))
           (|ra| (|Integer|)) (|iVec| (|Vector| (|Integer|)))
           (|a| #6=(|FiniteFieldExtensionByPolynomial| GF |dPbig|))
-          (#7=#:G168 NIL) (|root| #6#)
+          (#7=#:G64 NIL) (|root| #6#)
           (|rTsmall|
            (|Union| #8="prime" #9="polynomial" #10="normal" #11="cyclic"))
           (|dPsmall| (|SparseUnivariatePolynomial| GF))
           (|rTbig| (|Union| #8# #9# #10# #11#))
           (|dPbig| (|SparseUnivariatePolynomial| GF))
           (|degbig| (|NonNegativeInteger|)) (|degsmall| (|NonNegativeInteger|))
-          (#12=#:G167 NIL))
+          (#12=#:G63 NIL))
          (SEQ
           (COND
            ((SPADCALL (QREFELT % 30) (QREFELT % 32) (QREFELT % 41))
@@ -369,9 +369,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldHomomorphisms;|)) 
 
-(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G190)
+(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G86)
   (SPROG NIL
-         (PROG (#2=#:G191)
+         (PROG (#2=#:G87)
            (RETURN
             (COND
              ((LETT #2#
@@ -432,8 +432,8 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|PositiveInteger|) (0 . |extensionDegree|)
               '|degree1| (4 . |extensionDegree|) '|degree2| (|Boolean|)
-              (|NonNegativeInteger|) (8 . ~=) '#:G104 (|Matrix| 7)
-              (14 . |zero|) '|conMat1to2| '|conMat2to1|
+              (|NonNegativeInteger|) (8 . ~=) '#:G0 (|Matrix| 7) (14 . |zero|)
+              '|conMat1to2| '|conMat2to1|
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (20 . |representationType|) '|repType1|
               (24 . |representationType|) '|repType2| '|init?|

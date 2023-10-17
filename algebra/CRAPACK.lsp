@@ -14,8 +14,8 @@
 (SDEFUN |CRAPACK;chineseRemainder;2LR;2|
         ((|lv| (|List| R)) (|lm| (|List| R)) (% (R)))
         (SPROG
-         ((|y| (BB)) (|l| (|List| R)) (#1=#:G129 NIL) (|v| NIL) (#2=#:G130 NIL)
-          (#3=#:G131 NIL) (|m| NIL) (#4=#:G128 NIL) (|linv| (|List| R))
+         ((|y| (BB)) (|l| (|List| R)) (#1=#:G25 NIL) (|v| NIL) (#2=#:G26 NIL)
+          (#3=#:G27 NIL) (|m| NIL) (#4=#:G24 NIL) (|linv| (|List| R))
           (|inv| (R))
           (|u| (|Union| (|Record| (|:| |coef1| R) (|:| |coef2| R)) "failed"))
           (|x| (BB)))
@@ -100,9 +100,9 @@
 (SDEFUN |CRAPACK;chineseRemainder;L2L;3|
         ((|llv| (|List| (|List| R))) (|lm| (|List| R)) (% (|List| R)))
         (SPROG
-         ((|retVal| (|List| R)) (|y| (BB)) (|l| (|List| R)) (#1=#:G150 NIL)
-          (|v| NIL) (#2=#:G151 NIL) (|u3| NIL) (#3=#:G152 NIL) (|m| NIL)
-          (#4=#:G149 NIL) (#5=#:G148 NIL) (|lv| NIL) (|linv| (|List| R))
+         ((|retVal| (|List| R)) (|y| (BB)) (|l| (|List| R)) (#1=#:G46 NIL)
+          (|v| NIL) (#2=#:G47 NIL) (|u3| NIL) (#3=#:G48 NIL) (|m| NIL)
+          (#4=#:G45 NIL) (#5=#:G44 NIL) (|lv| NIL) (|linv| (|List| R))
           (|inv| (R))
           (|u| (|Union| (|Record| (|:| |coef1| R) (|:| |coef2| R)) "failed"))
           (|x| (BB)))
@@ -226,9 +226,9 @@
 
 (DECLAIM (NOTINLINE |CRApackage;|)) 
 
-(DEFUN |CRApackage| (#1=#:G166)
+(DEFUN |CRApackage| (#1=#:G62)
   (SPROG NIL
-         (PROG (#2=#:G167)
+         (PROG (#2=#:G63)
            (RETURN
             (COND
              ((LETT #2#

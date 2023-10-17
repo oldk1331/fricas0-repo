@@ -6,8 +6,8 @@
 (DEFPARAMETER |FiniteDivisorCategory;AL| 'NIL) 
 
 (DEFUN |FiniteDivisorCategory| (|t#1| |t#2| |t#3| |t#4|)
-  (LET (#1=#:G105
-        (#2=#:G106
+  (LET (#1=#:G1
+        (#2=#:G2
          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|) (|devaluate| |t#3|)
                (|devaluate| |t#4|))))
     (COND ((SETQ #1# (|assoc| #2# |FiniteDivisorCategory;AL|)) (CDR #1#))
@@ -20,7 +20,7 @@
            #1#)))) 
 
 (DEFUN |FiniteDivisorCategory;| (|t#1| |t#2| |t#3| |t#4|)
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G0 NIL))
          (PROG1
              (LETT #1#
                    (|subst_in_cat| '(|t#1| |t#2| |t#3| |t#4|)

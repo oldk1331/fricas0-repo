@@ -3,7 +3,7 @@
         ((|p| (XPOLY)) (|n| (|NonNegativeInteger|)) (% (XPOLY)))
         (SPROG
          ((|k| (|Integer|)) (|s| (XPOLY)) (|k2| (R))
-          (|k1| (|Fraction| (|Integer|))) (#1=#:G112 NIL) (|i| NIL)
+          (|k1| (|Fraction| (|Integer|))) (#1=#:G8 NIL) (|i| NIL)
           (|p1| (XPOLY)))
          (SEQ (LETT |p1| (SPADCALL |p| (|spadConstant| % 10) (QREFELT % 11)))
               (COND
@@ -32,7 +32,7 @@
         ((|p| (XPOLY)) (|n| (|NonNegativeInteger|)) (% (XPOLY)))
         (SPROG
          ((|k| (|Integer|)) (|s| (XPOLY)) (|k2| (R))
-          (|k1| (|Fraction| (|Integer|))) (#1=#:G120 NIL) (|i| NIL))
+          (|k1| (|Fraction| (|Integer|))) (#1=#:G16 NIL) (|i| NIL))
          (SEQ
           (COND
            ((NULL (SPADCALL |p| (QREFELT % 13)))
@@ -76,9 +76,9 @@
 
 (DECLAIM (NOTINLINE |XExponentialPackage;|)) 
 
-(DEFUN |XExponentialPackage| (&REST #1=#:G123)
+(DEFUN |XExponentialPackage| (&REST #1=#:G19)
   (SPROG NIL
-         (PROG (#2=#:G124)
+         (PROG (#2=#:G20)
            (RETURN
             (COND
              ((LETT #2#

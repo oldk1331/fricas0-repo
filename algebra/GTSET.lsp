@@ -35,7 +35,7 @@
 (SDEFUN |GTSET;roughUnitIdeal?;%B;11| ((|ts| (%)) (% (|Boolean|))) NIL) 
 
 (SDEFUN |GTSET;coerce;%Of;12| ((|ts| (%)) (% (|OutputForm|)))
-        (SPROG ((#1=#:G133 NIL) (|p| NIL) (#2=#:G132 NIL) (|lp| (|List| P)))
+        (SPROG ((#1=#:G29 NIL) (|p| NIL) (#2=#:G28 NIL) (|lp| (|List| P)))
                (SEQ (LETT |lp| (REVERSE (|GTSET;rep| |ts| %)))
                     (EXIT
                      (SPADCALL
@@ -129,9 +129,9 @@
 
 (DECLAIM (NOTINLINE |GeneralTriangularSet;|)) 
 
-(DEFUN |GeneralTriangularSet| (&REST #1=#:G194)
+(DEFUN |GeneralTriangularSet| (&REST #1=#:G90)
   (SPROG NIL
-         (PROG (#2=#:G195)
+         (PROG (#2=#:G91)
            (RETURN
             (COND
              ((LETT #2#
@@ -150,7 +150,7 @@
 
 (DEFUN |GeneralTriangularSet;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((#1=#:G193 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+   ((#1=#:G89 NIL) (|pv$| NIL) (% NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

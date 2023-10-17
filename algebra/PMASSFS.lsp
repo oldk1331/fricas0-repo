@@ -33,9 +33,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceAssertions;|)) 
 
-(DEFUN |FunctionSpaceAssertions| (&REST #1=#:G126)
+(DEFUN |FunctionSpaceAssertions| (&REST #1=#:G22)
   (SPROG NIL
-         (PROG (#2=#:G127)
+         (PROG (#2=#:G23)
            (RETURN
             (COND
              ((LETT #2#

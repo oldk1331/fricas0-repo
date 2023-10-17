@@ -286,9 +286,9 @@
 
 (DECLAIM (NOTINLINE |UnittestAux;|)) 
 
-(DEFUN |UnittestAux| (#1=#:G182)
+(DEFUN |UnittestAux| (#1=#:G78)
   (SPROG NIL
-         (PROG (#2=#:G183)
+         (PROG (#2=#:G79)
            (RETURN
             (COND
              ((LETT #2#

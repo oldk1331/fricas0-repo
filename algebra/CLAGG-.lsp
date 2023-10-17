@@ -42,8 +42,8 @@
 (SDEFUN |CLAGG-;convert;AIf;9| ((|x| (A)) (% (|InputForm|)))
         (SPROG
          ((|a_form| (|InputForm|)) (|l_form| (|List| (|InputForm|)))
-          (|p_form| (|List| (|InputForm|))) (#1=#:G144 NIL) (|el| NIL)
-          (#2=#:G143 NIL))
+          (|p_form| (|List| (|InputForm|))) (#1=#:G40 NIL) (|el| NIL)
+          (#2=#:G39 NIL))
          (SEQ
           (LETT |p_form|
                 (PROGN

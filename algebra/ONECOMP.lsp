@@ -52,9 +52,9 @@
 
 (DECLAIM (NOTINLINE |OnePointCompletion;|)) 
 
-(DEFUN |OnePointCompletion| (#1=#:G141)
+(DEFUN |OnePointCompletion| (#1=#:G37)
   (SPROG NIL
-         (PROG (#2=#:G142)
+         (PROG (#2=#:G38)
            (RETURN
             (COND
              ((LETT #2#

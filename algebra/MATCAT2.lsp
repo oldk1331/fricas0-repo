@@ -1,8 +1,8 @@
 
 (SDEFUN |MATCAT2;map;MM1M2;1| ((|f| (|Mapping| R2 R1)) (|m| (M1)) (% (M2)))
         (SPROG
-         ((#1=#:G113 NIL) (|j| NIL) (#2=#:G114 NIL) (|l| NIL) (#3=#:G111 NIL)
-          (|i| NIL) (#4=#:G112 NIL) (|k| NIL) (|ans| (M2)))
+         ((#1=#:G9 NIL) (|j| NIL) (#2=#:G10 NIL) (|l| NIL) (#3=#:G7 NIL)
+          (|i| NIL) (#4=#:G8 NIL) (|k| NIL) (|ans| (M2)))
          (SEQ
           (LETT |ans|
                 (SPADCALL (SPADCALL |m| (QREFELT % 15))
@@ -36,9 +36,9 @@
         ((|f| (|Mapping| (|Union| R2 "failed") R1)) (|m| (M1))
          (% (|Union| M2 "failed")))
         (SPROG
-         ((#1=#:G121 NIL) (#2=#:G135 NIL) (|r| (|Union| R2 #3="failed"))
-          (#4=#:G138 NIL) (|j| NIL) (#5=#:G139 NIL) (|l| NIL) (#6=#:G136 NIL)
-          (|i| NIL) (#7=#:G137 NIL) (|k| NIL) (|ans| (M2)))
+         ((#1=#:G17 NIL) (#2=#:G31 NIL) (|r| (|Union| R2 #3="failed"))
+          (#4=#:G34 NIL) (|j| NIL) (#5=#:G35 NIL) (|l| NIL) (#6=#:G32 NIL)
+          (|i| NIL) (#7=#:G33 NIL) (|k| NIL) (|ans| (M2)))
          (SEQ
           (EXIT
            (SEQ
@@ -65,9 +65,7 @@
                          (EXIT
                           (COND
                            ((SPADCALL |r| (CONS 1 "failed") (QREFELT % 34))
-                            (PROGN
-                             (LETT #2# (CONS 1 "failed"))
-                             (GO #8=#:G134)))
+                            (PROGN (LETT #2# (CONS 1 "failed")) (GO #8=#:G30)))
                            ('T
                             (SPADCALL |ans| |k| |l|
                                       (PROG2 (LETT #1# |r|)
@@ -87,7 +85,7 @@
 
 (SDEFUN |MATCAT2;reduce;MM12R2;3|
         ((|f| (|Mapping| R2 R1 R2)) (|m| (M1)) (|ident| (R2)) (% (R2)))
-        (SPROG ((|s| (R2)) (#1=#:G148 NIL) (|j| NIL) (#2=#:G147 NIL) (|i| NIL))
+        (SPROG ((|s| (R2)) (#1=#:G44 NIL) (|j| NIL) (#2=#:G43 NIL) (|i| NIL))
                (SEQ (LETT |s| |ident|)
                     (SEQ (LETT |i| (SPADCALL |m| (QREFELT % 20)))
                          (LETT #2# (SPADCALL |m| (QREFELT % 21))) G190
@@ -110,9 +108,9 @@
 
 (DECLAIM (NOTINLINE |MatrixCategoryFunctions2;|)) 
 
-(DEFUN |MatrixCategoryFunctions2| (&REST #1=#:G149)
+(DEFUN |MatrixCategoryFunctions2| (&REST #1=#:G45)
   (SPROG NIL
-         (PROG (#2=#:G150)
+         (PROG (#2=#:G46)
            (RETURN
             (COND
              ((LETT #2#

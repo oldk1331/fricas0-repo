@@ -1,7 +1,7 @@
 
 (SDEFUN |FRNAAF2;map;MARAS;1| ((|fn| (|Mapping| S R)) (|u| (AR)) (% (AS)))
         (SPROG
-         ((#1=#:G110 NIL) (#2=#:G112 NIL) (|i| NIL) (#3=#:G111 NIL)
+         ((#1=#:G6 NIL) (#2=#:G8 NIL) (|i| NIL) (#3=#:G7 NIL)
           (|ba| (|Vector| AS)) (|vs| (|Vector| S)) (|vr| (|Vector| R)))
          (SEQ
           (COND
@@ -41,9 +41,9 @@
 
 (DECLAIM (NOTINLINE |FramedNonAssociativeAlgebraFunctions2;|)) 
 
-(DEFUN |FramedNonAssociativeAlgebraFunctions2| (&REST #1=#:G113)
+(DEFUN |FramedNonAssociativeAlgebraFunctions2| (&REST #1=#:G9)
   (SPROG NIL
-         (PROG (#2=#:G114)
+         (PROG (#2=#:G10)
            (RETURN
             (COND
              ((LETT #2#

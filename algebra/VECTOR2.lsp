@@ -15,8 +15,8 @@
         ((|f| (|Mapping| (|Union| B #1="failed") A)) (|a| (|Vector| A))
          (% (|Union| (|Vector| B) "failed")))
         (SPROG
-         ((|res| (|List| B)) (#2=#:G117 NIL) (#3=#:G130 NIL)
-          (|r| (|Union| B #1#)) (#4=#:G131 NIL) (|u| NIL))
+         ((|res| (|List| B)) (#2=#:G13 NIL) (#3=#:G26 NIL)
+          (|r| (|Union| B #1#)) (#4=#:G27 NIL) (|u| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |res| NIL)
@@ -31,7 +31,7 @@
                             ((SPADCALL |r| (CONS 1 "failed") (QREFELT % 23))
                              (PROGN
                               (LETT #3# (CONS 1 "failed"))
-                              (GO #5=#:G129)))
+                              (GO #5=#:G25)))
                             ('T
                              (LETT |res|
                                    (CONS
@@ -49,9 +49,9 @@
 
 (DECLAIM (NOTINLINE |VectorFunctions2;|)) 
 
-(DEFUN |VectorFunctions2| (&REST #1=#:G132)
+(DEFUN |VectorFunctions2| (&REST #1=#:G28)
   (SPROG NIL
-         (PROG (#2=#:G133)
+         (PROG (#2=#:G29)
            (RETURN
             (COND
              ((LETT #2#

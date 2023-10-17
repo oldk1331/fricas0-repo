@@ -55,7 +55,7 @@
         (DSETELT |x| |i| |s|)) 
 
 (SDEFUN |DFVEC;fill!;%Df%;12| ((|x| (%)) (|s| (|DoubleFloat|)) (% (%)))
-        (SPROG ((#1=#:G2804 NIL) (|i| NIL))
+        (SPROG ((#1=#:G2700 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (DLEN |x|) 1)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -67,7 +67,7 @@
 
 (DEFUN |DoubleFloatVector| ()
   (SPROG NIL
-         (PROG (#1=#:G2816)
+         (PROG (#1=#:G2712)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloatVector|))
@@ -86,7 +86,7 @@
 
 (DEFUN |DoubleFloatVector;| ()
   (SPROG
-   ((|dv$| NIL) (% NIL) (#1=#:G2814 NIL) (#2=#:G2813 NIL) (#3=#:G2812 NIL)
+   ((|dv$| NIL) (% NIL) (#1=#:G2710 NIL) (#2=#:G2709 NIL) (#3=#:G2708 NIL)
     (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|DoubleFloatVector|))

@@ -13,9 +13,9 @@
 (SDEFUN |GENMOEBF;generalizedMoebiusFunction;LM%;4|
         ((|xx| (|List| P)) (|z| (|Mapping| R P P)) (% (%)))
         (SPROG
-         ((#1=#:G124 NIL) (|mf| (|Union| (|Matrix| R) "failed"))
-          (|zf| (|Matrix| R)) (#2=#:G128 NIL) (|x| NIL) (#3=#:G127 NIL)
-          (#4=#:G126 NIL) (|y| NIL) (#5=#:G125 NIL) (|xxo| (|List| P)))
+         ((#1=#:G20 NIL) (|mf| (|Union| (|Matrix| R) "failed"))
+          (|zf| (|Matrix| R)) (#2=#:G24 NIL) (|x| NIL) (#3=#:G23 NIL)
+          (#4=#:G22 NIL) (|y| NIL) (#5=#:G21 NIL) (|xxo| (|List| P)))
          (SEQ
           (EXIT
            (SEQ
@@ -64,24 +64,23 @@
                     (PROGN
                      (LETT #1#
                            (|GENMOEBF;per| (VECTOR |zf| (QCDR |mf|) |xxo|) %))
-                     (GO #6=#:G123)))))))
+                     (GO #6=#:G19)))))))
           #6# (EXIT #1#)))) 
 
 (SDEFUN |GENMOEBF;canonicalZeta| ((|pi| (P)) (|si| (P)) (% (R)))
-        (SPROG ((#1=#:G131 NIL))
+        (SPROG ((#1=#:G27 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((SPADCALL |pi| |si| (QREFELT % 12))
-                    (PROGN (LETT #1# (|spadConstant| % 25)) (GO #2=#:G130))))
+                    (PROGN (LETT #1# (|spadConstant| % 25)) (GO #2=#:G26))))
                   (EXIT (|spadConstant| % 17))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |GENMOEBF;apply;%2PR;6| ((|mf| (%)) (|x| (P)) (|y| (P)) (% (R)))
         (SPROG
-         ((#1=#:G137 NIL) (|ky| #2=(|Integer|)) (|kx| #2#)
-          (|mfn| (|Matrix| R)))
+         ((#1=#:G33 NIL) (|ky| #2=(|Integer|)) (|kx| #2#) (|mfn| (|Matrix| R)))
          (SEQ
           (EXIT
            (SEQ (LETT |mfn| (QVELT (|GENMOEBF;rep| |mf| %) 1))
@@ -97,7 +96,7 @@
                 (EXIT
                  (PROGN
                   (LETT #1# (SPADCALL |mfn| |ky| |kx| (QREFELT % 28)))
-                  (GO #3=#:G136)))))
+                  (GO #3=#:G32)))))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |GENMOEBF;moebiusMatrix;%M;7| ((|mf| (%)) (% (|Matrix| R)))
@@ -111,9 +110,9 @@
 
 (DECLAIM (NOTINLINE |GeneralizedFiniteMoebiusFunction;|)) 
 
-(DEFUN |GeneralizedFiniteMoebiusFunction| (&REST #1=#:G143)
+(DEFUN |GeneralizedFiniteMoebiusFunction| (&REST #1=#:G39)
   (SPROG NIL
-         (PROG (#2=#:G144)
+         (PROG (#2=#:G40)
            (RETURN
             (COND
              ((LETT #2#

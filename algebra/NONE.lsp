@@ -10,7 +10,7 @@
 
 (DEFUN |None| ()
   (SPROG NIL
-         (PROG (#1=#:G107)
+         (PROG (#1=#:G3)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|None|))

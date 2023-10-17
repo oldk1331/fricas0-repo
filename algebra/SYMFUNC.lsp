@@ -15,8 +15,8 @@
 
 (SDEFUN |SYMFUNC;symFunc;LV;3| ((|l| (|List| R)) (% (|Vector| R)))
         (SPROG
-         ((#1=#:G107 NIL) (#2=#:G106 #3=(|SparseUnivariatePolynomial| R))
-          (#4=#:G108 #3#) (#5=#:G110 NIL) (|a| NIL))
+         ((#1=#:G3 NIL) (#2=#:G2 #3=(|SparseUnivariatePolynomial| R))
+          (#4=#:G4 #3#) (#5=#:G6 NIL) (|a| NIL))
          (SEQ
           (|SYMFUNC;coef_vect|
            (PROGN
@@ -39,9 +39,9 @@
 
 (DECLAIM (NOTINLINE |SymmetricFunctions;|)) 
 
-(DEFUN |SymmetricFunctions| (#1=#:G111)
+(DEFUN |SymmetricFunctions| (#1=#:G7)
   (SPROG NIL
-         (PROG (#2=#:G112)
+         (PROG (#2=#:G8)
            (RETURN
             (COND
              ((LETT #2#

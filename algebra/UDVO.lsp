@@ -24,7 +24,7 @@
 
 (DEFUN |UserDefinedVariableOrdering| ()
   (SPROG NIL
-         (PROG (#1=#:G113)
+         (PROG (#1=#:G9)
            (RETURN
             (COND
              ((LETT #1#

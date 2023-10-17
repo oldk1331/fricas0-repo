@@ -40,9 +40,9 @@
           (|Record| (|:| |answer| (|Fraction| UP)) (|:| |lognum| UP)
                     (|:| |logden| UP))))
         (SPROG
-         ((|mult| (UP)) (|p| (UP)) (|a| (UP)) (#1=#:G118 NIL) (|qr_rem| (UP))
+         ((|mult| (UP)) (|p| (UP)) (|a| (UP)) (#1=#:G14 NIL) (|qr_rem| (UP))
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
-          (|bc| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#2=#:G123 NIL)
+          (|bc| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#2=#:G19 NIL)
           (|qtil| (UP)) (|qbarhat| (UP)) (|g| (UP)) (|qbar| (UP)) (|qhat| (UP))
           (|g0| (UP)) (|q| (UP)))
          (SEQ (LETT |a| (SPADCALL |f| (QREFELT % 22)))
@@ -145,9 +145,9 @@
 
 (DECLAIM (NOTINLINE |TranscendentalHermiteIntegration;|)) 
 
-(DEFUN |TranscendentalHermiteIntegration| (&REST #1=#:G130)
+(DEFUN |TranscendentalHermiteIntegration| (&REST #1=#:G26)
   (SPROG NIL
-         (PROG (#2=#:G131)
+         (PROG (#2=#:G27)
            (RETURN
             (COND
              ((LETT #2#

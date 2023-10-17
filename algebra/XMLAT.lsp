@@ -10,7 +10,7 @@
         (CONS |name| |values|)) 
 
 (SDEFUN |XMLAT;coerce;%S;3| ((|rp| (%)) (% (|String|)))
-        (SPROG ((|val| (|String|)) (#1=#:G113 NIL) (|vn| NIL))
+        (SPROG ((|val| (|String|)) (#1=#:G9 NIL) (|vn| NIL))
                (SEQ (LETT |val| "")
                     (SEQ (LETT |vn| NIL) (LETT #1# (QCDR |rp|)) G190
                          (COND
@@ -34,7 +34,7 @@
                       (QREFELT % 12)))))) 
 
 (SDEFUN |XMLAT;outputVRML;%TfV;4| ((|rp| (%)) (|f1| (|TextFile|)) (% (|Void|)))
-        (SPROG ((|val| (|String|)) (#1=#:G119 NIL) (|vn| NIL))
+        (SPROG ((|val| (|String|)) (#1=#:G15 NIL) (|vn| NIL))
                (SEQ (LETT |val| "")
                     (SEQ (LETT |vn| NIL) (LETT #1# (QCDR |rp|)) G190
                          (COND
@@ -58,7 +58,7 @@
 
 (DEFUN |XmlAttribute| ()
   (SPROG NIL
-         (PROG (#1=#:G121)
+         (PROG (#1=#:G17)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|XmlAttribute|))

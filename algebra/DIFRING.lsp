@@ -8,7 +8,7 @@
         (T (SETQ |DifferentialRing;AL| (|DifferentialRing;|))))) 
 
 (DEFUN |DifferentialRing;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G0 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|Ring|)

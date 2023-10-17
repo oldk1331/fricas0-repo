@@ -14,7 +14,7 @@
                        ('T (CONS 0 (QCDR |inv|)))))))) 
 
 (SDEFUN |IMATQF;nullSpace;ML;4| ((|m| (M)) (% (|List| |Col|)))
-        (SPROG ((#1=#:G115 NIL) (|v| NIL) (#2=#:G114 NIL))
+        (SPROG ((#1=#:G11 NIL) (|v| NIL) (#2=#:G10 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -33,9 +33,9 @@
 
 (DECLAIM (NOTINLINE |InnerMatrixQuotientFieldFunctions;|)) 
 
-(DEFUN |InnerMatrixQuotientFieldFunctions| (&REST #1=#:G116)
+(DEFUN |InnerMatrixQuotientFieldFunctions| (&REST #1=#:G12)
   (SPROG NIL
-         (PROG (#2=#:G117)
+         (PROG (#2=#:G13)
            (RETURN
             (COND
              ((LETT #2#

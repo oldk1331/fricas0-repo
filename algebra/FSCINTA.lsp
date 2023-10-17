@@ -2,8 +2,8 @@
 (SDEFUN |FSCINTA;internalIntegrate;FGSIr;1|
         ((|f| (FG)) (|x| (|Symbol|)) (% (|IntegrationResult| FG)))
         (SPROG
-         ((|h| (FG)) (#1=#:G119 NIL) (|k| NIL) (#2=#:G118 NIL)
-          (|lt| (|List| #3=(|Kernel| FG))) (#4=#:G117 NIL) (#5=#:G116 NIL)
+         ((|h| (FG)) (#1=#:G15 NIL) (|k| NIL) (#2=#:G14 NIL)
+          (|lt| (|List| #3=(|Kernel| FG))) (#4=#:G13 NIL) (#5=#:G12 NIL)
           (|tg| (|List| #3#)) (|g| (FG)))
          (SEQ
           (LETT |f|
@@ -69,9 +69,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceComplexIntegrationAux;|)) 
 
-(DEFUN |FunctionSpaceComplexIntegrationAux| (&REST #1=#:G120)
+(DEFUN |FunctionSpaceComplexIntegrationAux| (&REST #1=#:G16)
   (SPROG NIL
-         (PROG (#2=#:G121)
+         (PROG (#2=#:G17)
            (RETURN
             (COND
              ((LETT #2#

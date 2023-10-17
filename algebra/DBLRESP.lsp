@@ -1,6 +1,6 @@
 
 (SDEFUN |DBLRESP;remove0| ((|p| (UP)) (% (UP)))
-        (SPROG ((#1=#:G105 NIL))
+        (SPROG ((#1=#:G1 NIL))
                (SPADCALL
                 (PROG2
                     (LETT #1#
@@ -28,7 +28,7 @@
 (SDEFUN |DBLRESP;doubleResultant;RMUP;4|
         ((|h| (R)) (|derivation| (|Mapping| UP UP)) (% (UP)))
         (SPROG
-         ((|r| (|SparseUnivariatePolynomial| UP)) (|d| (UP)) (#1=#:G113 NIL)
+         ((|r| (|SparseUnivariatePolynomial| UP)) (|d| (UP)) (#1=#:G9 NIL)
           (|g| (UP)) (|cd| (|Record| (|:| |num| UPUP) (|:| |den| UP))))
          (SEQ
           (LETT |cd| (SPADCALL (SPADCALL |h| (QREFELT % 29)) (QREFELT % 32)))
@@ -75,9 +75,9 @@
 
 (DECLAIM (NOTINLINE |DoubleResultantPackage;|)) 
 
-(DEFUN |DoubleResultantPackage| (&REST #1=#:G118)
+(DEFUN |DoubleResultantPackage| (&REST #1=#:G14)
   (SPROG NIL
-         (PROG (#2=#:G119)
+         (PROG (#2=#:G15)
            (RETURN
             (COND
              ((LETT #2#

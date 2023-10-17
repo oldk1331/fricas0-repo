@@ -10,7 +10,7 @@
                  (|PolynomialFactorizationExplicit;|))))) 
 
 (DEFUN |PolynomialFactorizationExplicit;| ()
-  (SPROG ((#1=#:G105 NIL))
+  (SPROG ((#1=#:G1 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|UniqueFactorizationDomain|)

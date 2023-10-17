@@ -20,8 +20,8 @@
         ((|p| (|Polynomial| R)) (|facq| (|Factored| (|Polynomial| R)))
          (|v| (|Symbol|)) (% (|Any|)))
         (SPROG
-         ((|pfup| (|PartialFraction| |up|)) (|nflist| (|fup|)) (#1=#:G110 NIL)
-          (#2=#:G109 (|fup|)) (#3=#:G111 (|fup|)) (#4=#:G114 NIL) (|u| NIL)
+         ((|pfup| (|PartialFraction| |up|)) (|nflist| (|fup|)) (#1=#:G6 NIL)
+          (#2=#:G5 (|fup|)) (#3=#:G7 (|fup|)) (#4=#:G10 NIL) (|u| NIL)
           (|fcont| (|up|))
           (|fup|
            (|Join| (|IntegralDomain|) (|DifferentialExtension| |up|)
@@ -167,9 +167,9 @@
 
 (DECLAIM (NOTINLINE |PartialFractionPackage;|)) 
 
-(DEFUN |PartialFractionPackage| (#1=#:G115)
+(DEFUN |PartialFractionPackage| (#1=#:G11)
   (SPROG NIL
-         (PROG (#2=#:G116)
+         (PROG (#2=#:G12)
            (RETURN
             (COND
              ((LETT #2#

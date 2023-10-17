@@ -1,6 +1,6 @@
 
 (SDEFUN |MATLIN;rowAllZeroes?| ((|x| (M)) (|i| (|Integer|)) (% (|Boolean|)))
-        (SPROG ((#1=#:G130 NIL) (#2=#:G131 NIL) (#3=#:G132 NIL) (|j| NIL))
+        (SPROG ((#1=#:G26 NIL) (#2=#:G27 NIL) (#3=#:G28 NIL) (|j| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -15,15 +15,15 @@
                             ((SPADCALL (SPADCALL |x| |i| |j| (QREFELT % 13))
                                        (|spadConstant| % 14) (QREFELT % 16))
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# NIL) (GO #4=#:G129)))
-                              (GO #5=#:G127))))))
+                              (LETT #1# (PROGN (LETT #2# NIL) (GO #4=#:G25)))
+                              (GO #5=#:G23))))))
                          (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT 'T)))
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |MATLIN;colAllZeroes?| ((|x| (M)) (|j| (|Integer|)) (% (|Boolean|)))
-        (SPROG ((#1=#:G138 NIL) (#2=#:G139 NIL) (#3=#:G140 NIL) (|i| NIL))
+        (SPROG ((#1=#:G34 NIL) (#2=#:G35 NIL) (#3=#:G36 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -38,8 +38,8 @@
                             ((SPADCALL (SPADCALL |x| |i| |j| (QREFELT % 13))
                                        (|spadConstant| % 14) (QREFELT % 16))
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# NIL) (GO #4=#:G137)))
-                              (GO #5=#:G135))))))
+                              (LETT #1# (PROGN (LETT #2# NIL) (GO #4=#:G33)))
+                              (GO #5=#:G31))))))
                          (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT 'T)))
@@ -51,7 +51,7 @@
          (% (R)))
         (SPROG
          ((|j| (|Integer|)) (|rl| (|List| (|Integer|))) (|pos| (|Boolean|))
-          (#2=#:G167 NIL) (|ans| (R)) (|md| (R)) (#3=#:G154 NIL)
+          (#2=#:G63 NIL) (|ans| (R)) (|md| (R)) (#3=#:G50 NIL)
           (|minC| (|Integer|)) (|minR| (|Integer|)) (|z| (|Union| R #1#)))
          (SEQ
           (EXIT
@@ -112,7 +112,7 @@
                                             (EXIT
                                              (PROGN
                                               (LETT #2# |ans|)
-                                              (GO #4=#:G166)))))
+                                              (GO #4=#:G62)))))
                                       ('T
                                        (SEQ (LETT |pos| (NULL |pos|))
                                             (LETT |rl| (CONS |j| |rl|))
@@ -123,9 +123,9 @@
 
 (SDEFUN |MATLIN;minordet;MR;4| ((|x| (M)) (% (R)))
         (SPROG
-         ((#1=#:G184 NIL) (|i| NIL) (#2=#:G183 NIL) (#3=#:G182 NIL)
+         ((#1=#:G80 NIL) (|i| NIL) (#2=#:G79 NIL) (#3=#:G78 NIL)
           (|maxC| (|Integer|)) (|minR| (|Integer|))
-          (|v| (|PrimitiveArray| (|Union| R "uncomputed"))) (#4=#:G171 NIL)
+          (|v| (|PrimitiveArray| (|Union| R "uncomputed"))) (#4=#:G67 NIL)
           (|n1| (|Integer|)) (|ndim| (|NonNegativeInteger|)))
          (SEQ
           (COND
@@ -213,11 +213,11 @@
 
 (SDEFUN |MATLIN;fractionFreeGauss!;2M;8| ((|x| (M)) (% (M)))
         (SPROG
-         ((#1=#:G236 NIL) (|j| NIL) (|lasti| #2=(|Integer|)) (#3=#:G228 NIL)
-          (#4=#:G230 NIL) (|i| #5=(|Integer|)) (|b| (R)) (#6=#:G209 NIL)
-          (|val| (R)) (#7=#:G235 NIL) (|l| NIL) (|pv| (R)) (#8=#:G234 NIL)
-          (#9=#:G233 NIL) (|k| NIL) (|c| (R)) (|ans| (R)) (#10=#:G229 NIL)
-          (|rown| #2#) (#11=#:G232 NIL) (#12=#:G231 NIL) (|maxC| (|Integer|))
+         ((#1=#:G132 NIL) (|j| NIL) (|lasti| #2=(|Integer|)) (#3=#:G124 NIL)
+          (#4=#:G126 NIL) (|i| #5=(|Integer|)) (|b| (R)) (#6=#:G105 NIL)
+          (|val| (R)) (#7=#:G131 NIL) (|l| NIL) (|pv| (R)) (#8=#:G130 NIL)
+          (#9=#:G129 NIL) (|k| NIL) (|c| (R)) (|ans| (R)) (#10=#:G125 NIL)
+          (|rown| #2#) (#11=#:G128 NIL) (#12=#:G127 NIL) (|maxC| (|Integer|))
           (|minC| (|Integer|)) (|maxR| (|Integer|)) (|minR| #5#)
           (|ndim| (|NonNegativeInteger|)))
          (SEQ (LETT |ndim| (SPADCALL |x| (QREFELT % 26)))
@@ -259,7 +259,7 @@
                                                            (PROGN
                                                             (LETT #10# 1)
                                                             (GO
-                                                             #13=#:G202))))))))
+                                                             #13=#:G98))))))))
                                                  (LETT |k| (+ |k| 1)) (GO G190)
                                                  G191 (EXIT NIL)))
                                            #13# (EXIT #10#))
@@ -423,8 +423,8 @@
                                              (LETT #3#
                                                    (PROGN
                                                     (LETT #4# 1)
-                                                    (GO #15=#:G220)))
-                                             (GO #16=#:G218)))))))
+                                                    (GO #15=#:G116)))
+                                             (GO #16=#:G114)))))))
                                        #16# (EXIT #3#))))))
                                   (LETT |j| (+ |j| 1)) (GO G190) G191
                                   (EXIT NIL)))
@@ -451,9 +451,9 @@
 
 (SDEFUN |MATLIN;lastStep| ((|x| (M)) (% (M)))
         (SPROG
-         ((|iCol| #1=(|Integer|)) (#2=#:G243 NIL) (|ss| (R)) (#3=#:G240 NIL)
-          (#4=#:G239 (R)) (#5=#:G241 (R)) (#6=#:G252 NIL) (|k| NIL)
-          (#7=#:G251 NIL) (|j| NIL) (|i| NIL) (|maxC1| (|Integer|))
+         ((|iCol| #1=(|Integer|)) (#2=#:G139 NIL) (|ss| (R)) (#3=#:G136 NIL)
+          (#4=#:G135 (R)) (#5=#:G137 (R)) (#6=#:G148 NIL) (|k| NIL)
+          (#7=#:G147 NIL) (|j| NIL) (|i| NIL) (|maxC1| (|Integer|))
           (|maxR1| #1#) (|det| (R)) (|exCol| (|Integer|)) (|maxC| #1#)
           (|minC| (|Integer|)) (|maxR| (|Integer|)) (|minR| (|Integer|))
           (|ndim| (|NonNegativeInteger|)))
@@ -592,7 +592,7 @@
         (SPADCALL |y| (QREFELT % 76))) 
 
 (SDEFUN |MATLIN;nullSpace;ML;18| ((|y| (M)) (% (|List| |Col|)))
-        (SPROG ((#1=#:G285 NIL) (|v| NIL) (#2=#:G284 NIL))
+        (SPROG ((#1=#:G181 NIL) (|v| NIL) (#2=#:G180 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -643,7 +643,7 @@
 
 (SDEFUN |MATLIN;rank;MNni;21| ((|x| (M)) (% (|NonNegativeInteger|)))
         (SPROG
-         ((|rk| (|NonNegativeInteger|)) (#1=#:G293 NIL) (|i| (|Integer|))
+         ((|rk| (|NonNegativeInteger|)) (#1=#:G189 NIL) (|i| (|Integer|))
           (|y| (M)) (|rh| (|NonNegativeInteger|)))
          (SEQ
           (LETT |y|
@@ -674,7 +674,7 @@
           (EXIT |rk|)))) 
 
 (SDEFUN |MATLIN;nullity;MNni;22| ((|x| (M)) (% (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G298 NIL))
+        (SPROG ((#1=#:G194 NIL))
                (PROG1
                    (LETT #1#
                          (- (SPADCALL |x| (QREFELT % 27))
@@ -724,17 +724,17 @@
 
 (SDEFUN |MATLIN;rowEchelon;2M;25| ((|y| (M)) (% (M)))
         (SPROG
-         ((|i| #1=(|Integer|)) (#2=#:G350 NIL) (|k1| NIL)
+         ((|i| #1=(|Integer|)) (#2=#:G246 NIL) (|k1| NIL)
           (|qr| (|Record| (|:| |quotient| R) (|:| |remainder| R)))
-          (#3=#:G349 NIL) (|k| NIL) (|xij| (R)) (#4=#:G348 NIL) (|jj| NIL)
+          (#3=#:G245 NIL) (|k| NIL) (|xij| (R)) (#4=#:G244 NIL) (|jj| NIL)
           (|un|
            (|Record| (|:| |unit| R) (|:| |canonical| R) (|:| |associate| R)))
-          (|val2| (R)) (|val1| (R)) (#5=#:G347 NIL) (|a1| (R)) (#6=#:G319 NIL)
+          (|val2| (R)) (|val1| (R)) (#5=#:G243 NIL) (|a1| (R)) (#6=#:G215 NIL)
           (|b1| (R)) (|d| (R)) (|b| (R)) (|a| (R)) (|#G67| (R)) (|#G66| (R))
           (|#G65| (R))
           (|aa| (|Record| (|:| |coef1| R) (|:| |coef2| R) (|:| |generator| R)))
-          (#7=#:G346 NIL) (|xnj| (R)) (|n| (|Integer|)) (|xkj| (R))
-          (#8=#:G345 NIL) (#9=#:G343 NIL) (#10=#:G344 NIL) (|j| NIL)
+          (#7=#:G242 NIL) (|xnj| (R)) (|n| (|Integer|)) (|xkj| (R))
+          (#8=#:G241 NIL) (#9=#:G239 NIL) (#10=#:G240 NIL) (|j| NIL)
           (|maxC| (|Integer|)) (|minC| (|Integer|)) (|maxR| (|Integer|))
           (|minR| #1#) (|x| (M)))
          (SEQ (LETT |x| (SPADCALL |y| (QREFELT % 61)))
@@ -750,7 +750,7 @@
                      (SEQ
                       (COND
                        ((> |i| |maxR|)
-                        (PROGN (LETT #9# |$NoValue|) (GO #11=#:G340))))
+                        (PROGN (LETT #9# |$NoValue|) (GO #11=#:G236))))
                       (LETT |n| (- |minR| 1))
                       (SEQ (LETT |k| |i|) (LETT #8# |maxR|) G190
                            (COND ((> |k| #8#) (GO G191)))
@@ -987,9 +987,9 @@
 
 (DECLAIM (NOTINLINE |MatrixLinearAlgebraFunctions;|)) 
 
-(DEFUN |MatrixLinearAlgebraFunctions| (&REST #1=#:G352)
+(DEFUN |MatrixLinearAlgebraFunctions| (&REST #1=#:G248)
   (SPROG NIL
-         (PROG (#2=#:G353)
+         (PROG (#2=#:G249)
            (RETURN
             (COND
              ((LETT #2#

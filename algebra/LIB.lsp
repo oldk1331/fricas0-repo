@@ -13,7 +13,7 @@
 
 (DEFUN |Library| ()
   (SPROG NIL
-         (PROG (#1=#:G165)
+         (PROG (#1=#:G61)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Library|))
@@ -29,8 +29,8 @@
 
 (DEFUN |Library;| ()
   (SPROG
-   ((|dv$| NIL) (% NIL) (#1=#:G161 NIL) (#2=#:G160 NIL) (|pv$| NIL)
-    (#3=#:G162 NIL) (#4=#:G163 NIL))
+   ((|dv$| NIL) (% NIL) (#1=#:G57 NIL) (#2=#:G56 NIL) (|pv$| NIL)
+    (#3=#:G58 NIL) (#4=#:G59 NIL))
    (PROGN
     (LETT |dv$| '(|Library|))
     (LETT % (GETREFV 41))

@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |BezoutMatrixWrapper;|)) 
 
-(DEFUN |BezoutMatrixWrapper| (&REST #1=#:G104)
+(DEFUN |BezoutMatrixWrapper| (&REST #1=#:G0)
   (SPROG NIL
-         (PROG (#2=#:G105)
+         (PROG (#2=#:G1)
            (RETURN
             (COND
              ((LETT #2#

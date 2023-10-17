@@ -13,7 +13,7 @@
          (QREFELT % 20))) 
 
 (SDEFUN |IR2F;pairprod| ((|x| (F)) (|l| (|List| F)) (% (|List| F)))
-        (SPROG ((#1=#:G140 NIL) (|y| NIL) (#2=#:G139 NIL))
+        (SPROG ((#1=#:G36 NIL) (|y| NIL) (#2=#:G35 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -29,7 +29,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |IR2F;evenRoots| ((|x| (F)) (% (|List| F)))
-        (SPROG ((#1=#:G148 NIL) (|k| NIL) (#2=#:G147 NIL))
+        (SPROG ((#1=#:G44 NIL) (|k| NIL) (#2=#:G43 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -74,7 +74,7 @@
 
 (SDEFUN |IR2F;split;2Ir;6|
         ((|i| (|IntegrationResult| F)) (% (|IntegrationResult| F)))
-        (SPROG ((#1=#:G158 NIL) (|l| NIL) (#2=#:G157 NIL))
+        (SPROG ((#1=#:G54 NIL) (|l| NIL) (#2=#:G53 NIL))
                (SEQ
                 (SPADCALL (SPADCALL |i| (QREFELT % 13))
                           (SPADCALL
@@ -96,7 +96,7 @@
 
 (SDEFUN |IR2F;complexExpand;IrF;7| ((|i| (|IntegrationResult| F)) (% (F)))
         (SPROG
-         ((#1=#:G161 NIL) (#2=#:G160 (F)) (#3=#:G162 (F)) (#4=#:G165 NIL)
+         ((#1=#:G57 NIL) (#2=#:G56 (F)) (#3=#:G58 (F)) (#4=#:G61 NIL)
           (|lg| NIL) (|j| (|IntegrationResult| F)))
          (SEQ (LETT |j| (SPADCALL |i| (QREFELT % 34)))
               (EXIT
@@ -254,7 +254,7 @@
 
 (SDEFUN |IR2F;tantrick| ((|a| (F)) (|b| (F)) (% (F)))
         (SPROG
-         ((#1=#:G185 NIL) (|sa| #2=(|Union| (|Integer|) "failed")) (|sb| #2#))
+         ((#1=#:G81 NIL) (|sa| #2=(|Union| (|Integer|) "failed")) (|sb| #2#))
          (SEQ
           (EXIT
            (COND
@@ -276,7 +276,7 @@
                                       (SPADCALL |a| |b| (QREFELT % 55))
                                       (QREFELT % 65))
                                      (QREFELT % 50)))
-                     (GO #3=#:G184))))
+                     (GO #3=#:G80))))
                   (LETT |sa| (SPADCALL |a| (QREFELT % 68)))
                   (COND
                    ((QEQCAR |sa| 0)
@@ -300,7 +300,7 @@
 (SDEFUN |IR2F;var_kers|
         ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F))) (|x| (|Symbol|))
          (% (|List| (|Kernel| F))))
-        (SPROG ((#1=#:G190 NIL) (|k| NIL) (#2=#:G189 NIL))
+        (SPROG ((#1=#:G86 NIL) (|k| NIL) (#2=#:G85 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -440,7 +440,7 @@
                     (|:| |logand| (|SparseUnivariatePolynomial| F))))
          (|x| (|Symbol|)) (% (|List| F)))
         (SPROG
-         ((#2=#:G223 NIL) (#3=#:G216 NIL) (|alpha| (F))
+         ((#2=#:G119 NIL) (#3=#:G112 NIL) (|alpha| (F))
           (|r| (|Union| F "failed")) (|d| (|NonNegativeInteger|)) (|p| #1#))
          (SEQ
           (COND
@@ -498,7 +498,7 @@
                                       (QVELT |lg| 2))
                               |x| %)
                              %))
-                      (GO #4=#:G220))))))))
+                      (GO #4=#:G116))))))))
                (EXIT (LIST (|IR2F;lg2cfunc| |lg| %)))))
              #4# (EXIT #2#))))))) 
 
@@ -509,7 +509,7 @@
                     (|:| |logand| (|SparseUnivariatePolynomial| F))))
          (% (F)))
         (SPROG
-         ((#1=#:G226 NIL) (#2=#:G225 (F)) (#3=#:G227 (F)) (#4=#:G229 NIL)
+         ((#1=#:G122 NIL) (#2=#:G121 (F)) (#3=#:G123 (F)) (#4=#:G125 NIL)
           (|alpha| NIL))
          (SEQ
           (PROGN
@@ -535,7 +535,7 @@
                      (|:| |coeff| (|SparseUnivariatePolynomial| F))
                      (|:| |logand| (|SparseUnivariatePolynomial| F)))))
          (|x| (|Symbol|)) (% (|List| F)))
-        (SPROG ((|ans| (|List| F)) (#1=#:G235 NIL) (|lg| NIL))
+        (SPROG ((|ans| (|List| F)) (#1=#:G131 NIL) (|lg| NIL))
                (SEQ (LETT |ans| NIL)
                     (SEQ (LETT |lg| NIL) (LETT #1# |l|) G190
                          (COND
@@ -574,7 +574,7 @@
          (|delta| (F)) (% (|Record| (|:| |ans1| F) (|:| |ans2| F))))
         (SPROG
          ((|ai| (F)) (|bi| (F)) (|temp| (F)) (|d| (F)) (|c| (F))
-          (#1=#:G245 NIL) (|i| NIL) (|v| (|Vector| F)))
+          (#1=#:G141 NIL) (|i| NIL) (|v| (|Vector| F)))
          (SEQ
           (COND
            ((SPADCALL |p| (QREFELT % 106))
@@ -616,8 +616,8 @@
 (SDEFUN |IR2F;compatible?|
         ((|lx| (|List| F)) (|ly| (|List| F)) (% (|Boolean|)))
         (SPROG
-         ((#1=#:G258 NIL) (#2=#:G259 NIL) (|s| (|Union| (|Integer|) "failed"))
-          (#3=#:G261 NIL) (|y| NIL) (#4=#:G260 NIL) (|x| NIL))
+         ((#1=#:G154 NIL) (#2=#:G155 NIL) (|s| (|Union| (|Integer|) "failed"))
+          (#3=#:G157 NIL) (|y| NIL) (#4=#:G156 NIL) (|x| NIL))
          (SEQ
           (EXIT
            (COND ((NULL |ly|) 'T)
@@ -648,8 +648,8 @@
                                       (LETT #1#
                                             (PROGN
                                              (LETT #2# NIL)
-                                             (GO #5=#:G257)))
-                                      (GO #6=#:G253))))))))
+                                             (GO #5=#:G153)))
+                                      (GO #6=#:G149))))))))
                                (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                          #6# (EXIT #1#))
                         (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
@@ -658,8 +658,8 @@
 
 (SDEFUN |IR2F;pairsum| ((|lx| (|List| F)) (|ly| (|List| F)) (% (|List| F)))
         (SPROG
-         ((|l| (|List| F)) (|ln| (|List| F)) (#1=#:G273 NIL) (|y| NIL)
-          (#2=#:G272 NIL) (|ls| (|List| F)) (#3=#:G271 NIL) (|x| NIL))
+         ((|l| (|List| F)) (|ln| (|List| F)) (#1=#:G169 NIL) (|y| NIL)
+          (#2=#:G168 NIL) (|ls| (|List| F)) (#3=#:G167 NIL) (|x| NIL))
          (SEQ
           (COND ((NULL |lx|) |ly|) ((NULL |ly|) |lx|)
                 (#4='T
@@ -750,7 +750,7 @@
            (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
                      (|:| |coeff| (|SparseUnivariatePolynomial| F))
                      (|:| |logand| (|SparseUnivariatePolynomial| F))))))
-        (SPROG ((#1=#:G290 NIL) (|f| NIL) (#2=#:G289 NIL))
+        (SPROG ((#1=#:G186 NIL) (|f| NIL) (#2=#:G185 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -779,9 +779,9 @@
 
 (DECLAIM (NOTINLINE |IntegrationResultToFunction;|)) 
 
-(DEFUN |IntegrationResultToFunction| (&REST #1=#:G291)
+(DEFUN |IntegrationResultToFunction| (&REST #1=#:G187)
   (SPROG NIL
-         (PROG (#2=#:G292)
+         (PROG (#2=#:G188)
            (RETURN
             (COND
              ((LETT #2#

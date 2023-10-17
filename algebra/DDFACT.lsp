@@ -1,7 +1,7 @@
 
 (SDEFUN |DDFACT;ranpol| ((|d| (|NonNegativeInteger|)) (% (FP)))
         (SPROG
-         ((|u| (FP)) (#1=#:G125 NIL) (|j| NIL) (#2=#:G124 NIL)
+         ((|u| (FP)) (#1=#:G21 NIL) (|j| NIL) (#2=#:G20 NIL)
           (|k1| (|NonNegativeInteger|)))
          (SEQ (LETT |k1| 0)
               (SEQ G190 (COND ((NULL (EQL |k1| 0)) (GO G191)))
@@ -48,9 +48,9 @@
          ((|factlist|
            (|List|
             (|Record| (|:| |irr| FP) (|:| |pow| (|NonNegativeInteger|)))))
-          (#1=#:G141 NIL) (|pf| NIL) (#2=#:G140 NIL) (|fln| (|List| FP))
+          (#1=#:G37 NIL) (|pf| NIL) (#2=#:G36 NIL) (|fln| (|List| FP))
           (|pol| (FP)) (|lcp| (F)) (|d1| #3=(|NonNegativeInteger|))
-          (#4=#:G139 NIL) (|lf| NIL)
+          (#4=#:G35 NIL) (|lf| NIL)
           (|llf|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -115,7 +115,7 @@
 
 (SDEFUN |DDFACT;trace2PowMod;FPNni2FP;4|
         ((|u| (FP)) (|k| (|NonNegativeInteger|)) (|v| (FP)) (% (FP)))
-        (SPROG ((|uu| (FP)) (#1=#:G147 NIL) (|i| NIL))
+        (SPROG ((|uu| (FP)) (#1=#:G43 NIL) (|i| NIL))
                (SEQ (LETT |uu| |u|)
                     (SEQ (LETT |i| 1) (LETT #1# |k|) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -132,7 +132,7 @@
 
 (SDEFUN |DDFACT;tracePowMod;FPNni2FP;5|
         ((|u| (FP)) (|k| (|NonNegativeInteger|)) (|v| (FP)) (% (FP)))
-        (SPROG ((|uu| (D)) (#1=#:G152 NIL) (|i| NIL) (|u1| (D)))
+        (SPROG ((|uu| (D)) (#1=#:G48 NIL) (|i| NIL) (|u1| (D)))
                (SEQ (LETT |u1| (SPADCALL |u| (QREFELT % 35))) (LETT |uu| |u1|)
                     (SEQ (LETT |i| 1) (LETT #1# |k|) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -148,7 +148,7 @@
 
 (SDEFUN |DDFACT;normPowMod|
         ((|u| (FP)) (|k| (|NonNegativeInteger|)) (|v| (FP)) (% (FP)))
-        (SPROG ((|uu| (D)) (#1=#:G157 NIL) (|i| NIL) (|u1| (D)))
+        (SPROG ((|uu| (D)) (#1=#:G53 NIL) (|i| NIL) (|u1| (D)))
                (SEQ (LETT |u1| (SPADCALL |u| (QREFELT % 35))) (LETT |uu| |u1|)
                     (SEQ (LETT |i| 1) (LETT #1# |k|) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -168,7 +168,7 @@
           (|List|
            (|Record| (|:| |deg| (|NonNegativeInteger|)) (|:| |prod| FP)))))
         (SPROG
-         ((#1=#:G167 NIL) (|du| (|NonNegativeInteger|)) (|u| (FP))
+         ((#1=#:G63 NIL) (|du| (|NonNegativeInteger|)) (|u| (FP))
           (|ddfact|
            (|List|
             (|Record| (|:| |deg| (|NonNegativeInteger|)) (|:| |prod| FP))))
@@ -210,7 +210,7 @@
                                (EXIT
                                 (COND
                                  (|testirr|
-                                  (PROGN (LETT #1# |ddfact|) (GO #2=#:G166)))
+                                  (PROGN (LETT #1# |ddfact|) (GO #2=#:G62)))
                                  ('T
                                   (SEQ
                                    (LETT |u| (SPADCALL |u| |g| (QREFELT % 49)))
@@ -245,10 +245,10 @@
          (% (|List| FP)))
         (SPROG
          ((|aux| (|List| FP)) (|newaux| #1=(|List| FP)) (|ris| #1#) (|v| (FP))
-          (|dg| (|NonNegativeInteger|)) (|g| (FP)) (#2=#:G190 NIL) (|u| NIL)
-          (|t| (FP)) (#3=#:G177 NIL) (#4=#:G176 NIL)
-          (|d| (|NonNegativeInteger|)) (|fprod| (FP)) (#5=#:G189 NIL)
-          (|ffprod| NIL) (|n1| (|Integer|)) (|p1| (|NonNegativeInteger|))
+          (|dg| (|NonNegativeInteger|)) (|g| (FP)) (#2=#:G86 NIL) (|u| NIL)
+          (|t| (FP)) (#3=#:G73 NIL) (#4=#:G72 NIL) (|d| (|NonNegativeInteger|))
+          (|fprod| (FP)) (#5=#:G85 NIL) (|ffprod| NIL) (|n1| (|Integer|))
+          (|p1| (|NonNegativeInteger|))
           (|ddfact|
            (|List|
             (|Record| (|:| |deg| (|NonNegativeInteger|)) (|:| |prod| FP)))))
@@ -399,7 +399,7 @@
          ((|factlist|
            (|List|
             (|Record| (|:| |irr| FP) (|:| |pow| (|NonNegativeInteger|)))))
-          (#1=#:G207 NIL) (|pol| NIL) (#2=#:G206 NIL) (|fln| (|List| FP))
+          (#1=#:G103 NIL) (|pol| NIL) (#2=#:G102 NIL) (|fln| (|List| FP))
           (|d| (|NonNegativeInteger|)) (|lcm| (F)))
          (SEQ (LETT |factlist| NIL) (LETT |fln| NIL)
               (COND
@@ -463,7 +463,7 @@
 
 (SDEFUN |DDFACT;factor;FPF;13| ((|m| (FP)) (% (|Factored| FP)))
         (SPROG
-         ((#1=#:G220 NIL) (|u| NIL) (#2=#:G219 NIL)
+         ((#1=#:G116 NIL) (|u| NIL) (#2=#:G115 NIL)
           (|flist|
            (|Record| (|:| |cont| F)
                      (|:| |factors|
@@ -498,7 +498,7 @@
 
 (SDEFUN |DDFACT;factorSquareFree;FPF;14| ((|m| (FP)) (% (|Factored| FP)))
         (SPROG
-         ((#1=#:G233 NIL) (|u| NIL) (#2=#:G232 NIL)
+         ((#1=#:G129 NIL) (|u| NIL) (#2=#:G128 NIL)
           (|flist|
            (|Record| (|:| |cont| F)
                      (|:| |factors|
@@ -533,9 +533,9 @@
 
 (DECLAIM (NOTINLINE |DistinctDegreeFactorize;|)) 
 
-(DEFUN |DistinctDegreeFactorize| (&REST #1=#:G234)
+(DEFUN |DistinctDegreeFactorize| (&REST #1=#:G130)
   (SPROG NIL
-         (PROG (#2=#:G235)
+         (PROG (#2=#:G131)
            (RETURN
             (COND
              ((LETT #2#

@@ -12,7 +12,7 @@
           (|ans|
            (|Record| (|:| |value| F) (|:| |error| F)
                      (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
-          (#1=#:G122 NIL) (|i| NIL) (|io| (|List| (|OutputForm|))) (|hh| (F)))
+          (#1=#:G18 NIL) (|i| NIL) (|io| (|List| (|OutputForm|))) (|hh| (F)))
          (SEQ (LETT |sum| (|spadConstant| % 7))
               (LETT |err| (|spadConstant| % 7)) (LETT |pts| 1) (LETT |done| 'T)
               (LETT |hh|
@@ -70,7 +70,7 @@
           (|ans|
            (|Record| (|:| |value| F) (|:| |error| F)
                      (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
-          (#1=#:G132 NIL) (|i| NIL) (|io| (|List| (|OutputForm|))) (|hh| (F)))
+          (#1=#:G28 NIL) (|i| NIL) (|io| (|List| (|OutputForm|))) (|hh| (F)))
          (SEQ (LETT |sum| (|spadConstant| % 7))
               (LETT |err| (|spadConstant| % 7)) (LETT |pts| 1) (LETT |done| 'T)
               (LETT |hh|
@@ -128,7 +128,7 @@
           (|ans|
            (|Record| (|:| |value| F) (|:| |error| F)
                      (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|))))
-          (#1=#:G142 NIL) (|i| NIL) (|io| (|List| (|OutputForm|))) (|hh| (F)))
+          (#1=#:G38 NIL) (|i| NIL) (|io| (|List| (|OutputForm|))) (|hh| (F)))
          (SEQ (LETT |sum| (|spadConstant| % 7))
               (LETT |err| (|spadConstant| % 7)) (LETT |pts| 1) (LETT |done| 'T)
               (LETT |hh|
@@ -181,10 +181,10 @@
                     (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|qx1| (F)) (|pts| (|Integer|)) (|delta| (F)) (|oldsum| (F))
-          (#1=#:G160 NIL) (|change| (F)) (|four| (|PositiveInteger|))
-          (|i| (|Integer|)) (#2=#:G162 NIL) (|j| NIL) (|newest| (F))
-          (|newsum| (F)) (#3=#:G161 NIL) (|n| NIL) (|table| (|Vector| F))
-          (#4=#:G144 NIL) (|length| (F)))
+          (#1=#:G56 NIL) (|change| (F)) (|four| (|PositiveInteger|))
+          (|i| (|Integer|)) (#2=#:G58 NIL) (|j| NIL) (|newest| (F))
+          (|newsum| (F)) (#3=#:G57 NIL) (|n| NIL) (|table| (|Vector| F))
+          (#4=#:G40 NIL) (|length| (F)))
          (SEQ
           (EXIT
            (SEQ (LETT |length| (SPADCALL |b| |a| (QREFELT % 8)))
@@ -217,7 +217,7 @@
                      (LETT #1#
                            (VECTOR (|spadConstant| % 7) (|spadConstant| % 7) 0
                                    NIL))
-                     (GO #5=#:G159))))))
+                     (GO #5=#:G55))))))
                 (COND
                  ((< |nmax| |nmin|)
                   (SEQ
@@ -343,9 +343,9 @@
           (|Record| (|:| |value| F) (|:| |error| F)
                     (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
-         ((|pts| (|Integer|)) (|delta| (F)) (|oldsum| (F)) (#1=#:G176 NIL)
-          (|change| (F)) (|newest| (F)) (|newsum| (F)) (#2=#:G177 NIL)
-          (|n| NIL) (|oldest| (F)) (|length| (F)))
+         ((|pts| (|Integer|)) (|delta| (F)) (|oldsum| (F)) (#1=#:G72 NIL)
+          (|change| (F)) (|newest| (F)) (|newsum| (F)) (#2=#:G73 NIL) (|n| NIL)
+          (|oldest| (F)) (|length| (F)))
          (SEQ
           (EXIT
            (SEQ (LETT |length| (SPADCALL |b| |a| (QREFELT % 8)))
@@ -372,7 +372,7 @@
                      (LETT #1#
                            (VECTOR (|spadConstant| % 7) (|spadConstant| % 7) 0
                                    NIL))
-                     (GO #3=#:G175))))))
+                     (GO #3=#:G71))))))
                 (COND
                  ((< |nmax| |nmin|)
                   (SEQ
@@ -473,8 +473,8 @@
           (|Record| (|:| |value| F) (|:| |error| F)
                     (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
-         ((|pts| (|Integer|)) (|delta| (F)) (#1=#:G191 NIL) (|change| (F))
-          (|newsum| (F)) (|oldsum| (F)) (#2=#:G192 NIL) (|n| NIL)
+         ((|pts| (|Integer|)) (|delta| (F)) (#1=#:G87 NIL) (|change| (F))
+          (|newsum| (F)) (|oldsum| (F)) (#2=#:G88 NIL) (|n| NIL)
           (|length| (F)))
          (SEQ
           (EXIT
@@ -499,7 +499,7 @@
                      (LETT #1#
                            (VECTOR (|spadConstant| % 7) (|spadConstant| % 7) 0
                                    NIL))
-                     (GO #3=#:G190))))))
+                     (GO #3=#:G86))))))
                 (COND
                  ((< |nmax| |nmin|)
                   (SEQ
@@ -595,10 +595,10 @@
                     (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|qx1| (F)) (|pts| (|Integer|)) (|delta| (F)) (|oldsum| (F))
-          (#1=#:G205 NIL) (|change| (F)) (|nine| (|PositiveInteger|))
-          (|i| (|Integer|)) (#2=#:G207 NIL) (|j| NIL) (|newest| (F))
-          (|newsum| (F)) (#3=#:G206 NIL) (|n| NIL) (|table| (|Vector| F))
-          (#4=#:G194 NIL) (|length| (F)))
+          (#1=#:G101 NIL) (|change| (F)) (|nine| (|PositiveInteger|))
+          (|i| (|Integer|)) (#2=#:G103 NIL) (|j| NIL) (|newest| (F))
+          (|newsum| (F)) (#3=#:G102 NIL) (|n| NIL) (|table| (|Vector| F))
+          (#4=#:G90 NIL) (|length| (F)))
          (SEQ
           (EXIT
            (SEQ (LETT |length| (SPADCALL |b| |a| (QREFELT % 8)))
@@ -682,7 +682,7 @@
                                         (SPADCALL (SPADCALL 3 2 (QREFELT % 45))
                                                   |change| (QREFELT % 46))
                                         (* 3 |pts|) 'T))
-                                 (GO #5=#:G204))))))))
+                                 (GO #5=#:G100))))))))
                           (SPADCALL (SPADCALL |table| (QREFELT % 48))
                                     (QREFELT % 47))
                           (LETT |oldsum| |newsum|)
@@ -706,8 +706,8 @@
                     (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
          ((|pts| (|Integer|)) (|delta| (F)) (|oldest| (F)) (|oldsum| (F))
-          (#1=#:G216 NIL) (|change| (F)) (|newest| (F)) (|newsum| (F))
-          (#2=#:G217 NIL) (|n| NIL) (|length| (F)))
+          (#1=#:G112 NIL) (|change| (F)) (|newest| (F)) (|newsum| (F))
+          (#2=#:G113 NIL) (|n| NIL) (|length| (F)))
          (SEQ
           (EXIT
            (SEQ (LETT |length| (SPADCALL |b| |a| (QREFELT % 8)))
@@ -760,7 +760,7 @@
                                                 (SPADCALL 3 2 (QREFELT % 45))
                                                 |change| (QREFELT % 46))
                                                (* 3 |pts|) 'T))
-                                 (GO #3=#:G215))))))))
+                                 (GO #3=#:G111))))))))
                           (LETT |oldsum| |newsum|) (LETT |oldest| |newest|)
                           (LETT |delta| (SPADCALL |delta| 3 (QREFELT % 10)))
                           (EXIT (LETT |pts| (* 3 |pts|))))
@@ -779,8 +779,8 @@
           (|Record| (|:| |value| F) (|:| |error| F)
                     (|:| |totalpts| (|Integer|)) (|:| |success| (|Boolean|)))))
         (SPROG
-         ((|pts| (|Integer|)) (|delta| (F)) (#1=#:G226 NIL) (|change| (F))
-          (|newsum| (F)) (|oldsum| (F)) (#2=#:G227 NIL) (|n| NIL)
+         ((|pts| (|Integer|)) (|delta| (F)) (#1=#:G122 NIL) (|change| (F))
+          (|newsum| (F)) (|oldsum| (F)) (#2=#:G123 NIL) (|n| NIL)
           (|length| (F)))
          (SEQ
           (EXIT
@@ -826,7 +826,7 @@
                                                 (SPADCALL 3 2 (QREFELT % 45))
                                                 |change| (QREFELT % 46))
                                                (* 3 |pts|) 'T))
-                                 (GO #3=#:G225))))))))
+                                 (GO #3=#:G121))))))))
                           (LETT |delta| (SPADCALL |delta| 3 (QREFELT % 10)))
                           (EXIT (LETT |pts| (* 3 |pts|))))
                      (LETT |n| (|inc_SI| |n|)) (GO G190) G191 (EXIT NIL))
@@ -840,7 +840,7 @@
 (SDEFUN |NUMQUAD;trapclosed|
         ((|func| (|Mapping| F F)) (|start| (F)) (|h| (F)) (|oldsum| (F))
          (|numpoints| (|Integer|)) (% (F)))
-        (SPROG ((|x| (F)) (|sum| (F)) (#1=#:G233 NIL) (|i| NIL))
+        (SPROG ((|x| (F)) (|sum| (F)) (#1=#:G129 NIL) (|i| NIL))
                (SEQ
                 (LETT |x|
                       (SPADCALL |start| (SPADCALL |h| 2 (QREFELT % 10))
@@ -863,7 +863,7 @@
 (SDEFUN |NUMQUAD;trapopen|
         ((|func| (|Mapping| F F)) (|start| (F)) (|del| (F)) (|oldsum| (F))
          (|numpoints| (|Integer|)) (% (F)))
-        (SPROG ((|x| (F)) (|sum| (F)) (#1=#:G239 NIL) (|i| NIL) (|ddel| (F)))
+        (SPROG ((|x| (F)) (|sum| (F)) (#1=#:G135 NIL) (|i| NIL) (|ddel| (F)))
                (SEQ (LETT |ddel| (SPADCALL 2 |del| (QREFELT % 40)))
                     (LETT |x|
                           (SPADCALL |start| (SPADCALL |del| 2 (QREFELT % 10))
@@ -889,9 +889,9 @@
 
 (DECLAIM (NOTINLINE |NumericalQuadrature;|)) 
 
-(DEFUN |NumericalQuadrature| (#1=#:G240)
+(DEFUN |NumericalQuadrature| (#1=#:G136)
   (SPROG NIL
-         (PROG (#2=#:G241)
+         (PROG (#2=#:G137)
            (RETURN
             (COND
              ((LETT #2#

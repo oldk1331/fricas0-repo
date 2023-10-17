@@ -33,7 +33,7 @@
         (SPROG
          ((|tk| #1#) (|k2| #2=(|NonNegativeInteger|))
           (|res| (|Complex| (|Float|))) (|term| (|Complex| (|Float|)))
-          (|k1| #2#) (#3=#:G133 NIL) (|i| NIL) (|z2| (|Complex| (|Float|))))
+          (|k1| #2#) (#3=#:G29 NIL) (|i| NIL) (|z2| (|Complex| (|Float|))))
          (SEQ (LETT |z2| (SPADCALL |z| |z| (QREFELT % 20))) (LETT |tk| |z|)
               (LETT |res| (|spadConstant| % 21))
               (SEQ (LETT |i| 0) (LETT #3# |n|) G190
@@ -112,7 +112,7 @@
 (SDEFUN |FLIOUFUN;erf_z|
         ((|z| (|Complex| (|Float|))) (% (|Complex| (|Float|))))
         (SPROG
-         ((#1=#:G144 NIL) (#2=#:G145 NIL) (|res| (|Complex| (|Float|)))
+         ((#1=#:G40 NIL) (#2=#:G41 NIL) (|res| (|Complex| (|Float|)))
           (|n| (|Integer|)) (|nf| #3=(|DoubleFloat|))
           (|np| (|PositiveInteger|)) (|npf| #3#) (|sp| (|DoubleFloat|))
           (|dnz| (|DoubleFloat|)) (|oz| (|Integer|))
@@ -178,8 +178,8 @@
                                         (EXIT
                                          (PROGN
                                           (LETT #2# |res|)
-                                          (GO #5=#:G143)))))
-                                 (GO #6=#:G140)))))))
+                                          (GO #5=#:G39)))))
+                                 (GO #6=#:G36)))))))
                        #6# (EXIT #1#))))
                     (SPADCALL |prec| (QREFELT % 14))
                     (EXIT
@@ -236,7 +236,7 @@
         (SPROG
          ((|tk| #1#) (|k2| (|NonNegativeInteger|))
           (|res| (|Complex| (|Float|))) (|term| (|Complex| (|Float|)))
-          (|k1| (|NonNegativeInteger|)) (#2=#:G156 NIL) (|i| NIL)
+          (|k1| (|NonNegativeInteger|)) (#2=#:G52 NIL) (|i| NIL)
           (|z4| #3=(|Complex| (|Float|))) (|z2| #3#))
          (SEQ (LETT |z2| (SPADCALL |z| |z| (QREFELT % 20))) (LETT |tk| |z|)
               (LETT |z4| (SPADCALL |z2| |z2| (QREFELT % 20)))
@@ -326,7 +326,7 @@
         ((|z| (|Complex| (|Float|))) (% (|Complex| (|Float|))))
         (SPROG
          ((|im_z| (|Float|)) (|re_z| (|Float|)) (|pi_fac| (|Float|))
-          (#1=#:G170 NIL) (#2=#:G171 NIL) (|res| (|Complex| (|Float|)))
+          (#1=#:G66 NIL) (#2=#:G67 NIL) (|res| (|Complex| (|Float|)))
           (|n| (|Integer|)) (|nf| #3=(|DoubleFloat|))
           (|np| (|PositiveInteger|)) (|npf| #3#) (|sp| (|DoubleFloat|))
           (|dnz| (|DoubleFloat|)) (|oz| (|Integer|))
@@ -396,8 +396,8 @@
                                         (EXIT
                                          (PROGN
                                           (LETT #2# |res|)
-                                          (GO #5=#:G169)))))
-                                 (GO #6=#:G163)))))))
+                                          (GO #5=#:G65)))))
+                                 (GO #6=#:G59)))))))
                        #6# (EXIT #1#))))
                     (SPADCALL |prec| (QREFELT % 14))
                     (LETT |pi_fac|
@@ -510,7 +510,7 @@
         (SPROG
          ((|tk| #1=(|Complex| (|Float|))) (|k2| (|NonNegativeInteger|))
           (|res| (|Complex| (|Float|))) (|term| (|Complex| (|Float|)))
-          (|k1| (|NonNegativeInteger|)) (#2=#:G181 NIL) (|i| NIL) (|z4| #1#)
+          (|k1| (|NonNegativeInteger|)) (#2=#:G77 NIL) (|i| NIL) (|z4| #1#)
           (|z2| #1#))
          (SEQ (LETT |z2| (SPADCALL |z| |z| (QREFELT % 20)))
               (LETT |tk| (SPADCALL |z2| |z| (QREFELT % 20)))
@@ -601,7 +601,7 @@
         ((|z| (|Complex| (|Float|))) (% (|Complex| (|Float|))))
         (SPROG
          ((|im_z| (|Float|)) (|re_z| (|Float|)) (|pi_fac| (|Float|))
-          (#1=#:G195 NIL) (#2=#:G196 NIL) (|res| (|Complex| (|Float|)))
+          (#1=#:G91 NIL) (#2=#:G92 NIL) (|res| (|Complex| (|Float|)))
           (|n| (|Integer|)) (|nf| #3=(|DoubleFloat|))
           (|np| (|PositiveInteger|)) (|npf| #3#) (|sp| (|DoubleFloat|))
           (|dnz| (|DoubleFloat|)) (|oz| (|Integer|))
@@ -671,8 +671,8 @@
                                         (EXIT
                                          (PROGN
                                           (LETT #2# |res|)
-                                          (GO #5=#:G194)))))
-                                 (GO #6=#:G188)))))))
+                                          (GO #5=#:G90)))))
+                                 (GO #6=#:G84)))))))
                        #6# (EXIT #1#))))
                     (SPADCALL |prec| (QREFELT % 14))
                     (LETT |pi_fac|
@@ -785,7 +785,7 @@
         (SPROG
          ((|tk| #1#) (|k2| #2=(|NonNegativeInteger|))
           (|res| (|Complex| (|Float|))) (|term| (|Complex| (|Float|)))
-          (|k1| #2#) (#3=#:G206 NIL) (|i| NIL))
+          (|k1| #2#) (#3=#:G102 NIL) (|i| NIL))
          (SEQ (LETT |tk| |z|) (LETT |res| (|spadConstant| % 21))
               (SEQ (LETT |i| 0) (LETT #3# |n|) G190
                    (COND ((|greater_SI| |i| #3#) (GO G191)))
@@ -839,7 +839,7 @@
 
 (SDEFUN |FLIOUFUN;ei_z| ((|z| (|Complex| (|Float|))) (% (|Complex| (|Float|))))
         (SPROG
-         ((|im_z| (|Float|)) (|pii| (|Float|)) (#1=#:G219 NIL) (#2=#:G220 NIL)
+         ((|im_z| (|Float|)) (|pii| (|Float|)) (#1=#:G115 NIL) (#2=#:G116 NIL)
           (|res| (|Complex| (|Float|))) (|n| (|Integer|))
           (|nf| #3=(|DoubleFloat|)) (|np| (|PositiveInteger|)) (|npf| #3#)
           (|sp| (|DoubleFloat|)) (|dnz| (|DoubleFloat|)) (|oz| (|Integer|))
@@ -911,8 +911,8 @@
                                               (SPADCALL |z| (QREFELT % 65))
                                               (QREFELT % 29))
                                              |res| (QREFELT % 29)))
-                                      (GO #5=#:G218)))))
-                             (GO #6=#:G213)))))))
+                                      (GO #5=#:G114)))))
+                             (GO #6=#:G109)))))))
                        #6# (EXIT #1#))))
                     (SPADCALL |prec| (QREFELT % 14))
                     (LETT |pii| (SPADCALL (QREFELT % 30)))
@@ -987,7 +987,7 @@
         (SPROG
          ((|tk| #1=(|Complex| (|Float|))) (|k2| (|NonNegativeInteger|))
           (|res| (|Complex| (|Float|))) (|term| #1#)
-          (|k1| (|NonNegativeInteger|)) (#2=#:G233 NIL) (|i| NIL)
+          (|k1| (|NonNegativeInteger|)) (#2=#:G129 NIL) (|i| NIL)
           (|z2| (|Complex| (|Float|))))
          (SEQ (LETT |z2| (SPADCALL |z| |z| (QREFELT % 20)))
               (LETT |tk|
@@ -1072,7 +1072,7 @@
 
 (SDEFUN |FLIOUFUN;ci_z| ((|z| (|Complex| (|Float|))) (% (|Complex| (|Float|))))
         (SPROG
-         ((|pi_fac| (|Float|)) (#1=#:G245 NIL) (#2=#:G246 NIL)
+         ((|pi_fac| (|Float|)) (#1=#:G141 NIL) (#2=#:G142 NIL)
           (|res| (|Complex| (|Float|))) (|n| (|Integer|))
           (|nf| #3=(|DoubleFloat|)) (|np| (|PositiveInteger|)) (|npf| #3#)
           (|sp| (|DoubleFloat|)) (|dnz| (|DoubleFloat|)) (|oz| (|Integer|))
@@ -1149,8 +1149,8 @@
                                                        (QREFELT % 29))
                                              (SPADCALL |z| (QREFELT % 65))
                                              (QREFELT % 29)))
-                                      (GO #5=#:G244)))))
-                             (GO #6=#:G240)))))))
+                                      (GO #5=#:G140)))))
+                             (GO #6=#:G136)))))))
                        #6# (EXIT #1#))))
                     (SPADCALL |prec| (QREFELT % 14))
                     (EXIT
@@ -1230,7 +1230,7 @@
         (SPROG
          ((|tk| #1#) (|k2| (|NonNegativeInteger|))
           (|res| (|Complex| (|Float|))) (|term| (|Complex| (|Float|)))
-          (|k1| (|NonNegativeInteger|)) (#2=#:G257 NIL) (|i| NIL)
+          (|k1| (|NonNegativeInteger|)) (#2=#:G153 NIL) (|i| NIL)
           (|z2| (|Complex| (|Float|))))
          (SEQ (LETT |z2| (SPADCALL |z| |z| (QREFELT % 20))) (LETT |tk| |z|)
               (LETT |res| (|spadConstant| % 21))
@@ -1308,7 +1308,7 @@
 
 (SDEFUN |FLIOUFUN;si_z| ((|z| (|Complex| (|Float|))) (% (|Complex| (|Float|))))
         (SPROG
-         ((|pi_fac| (|Float|)) (#1=#:G268 NIL) (#2=#:G269 NIL)
+         ((|pi_fac| (|Float|)) (#1=#:G164 NIL) (#2=#:G165 NIL)
           (|res| (|Complex| (|Float|))) (|n| (|Integer|))
           (|nf| #3=(|DoubleFloat|)) (|np| (|PositiveInteger|)) (|npf| #3#)
           (|sp| (|DoubleFloat|)) (|dnz| (|DoubleFloat|)) (|oz| (|Integer|))
@@ -1376,8 +1376,8 @@
                                           (|FLIOUFUN;si_series| |z| |n| %))
                                     (SPADCALL |obits| (QREFELT % 14))
                                     (EXIT
-                                     (PROGN (LETT #2# |res|) (GO #5=#:G267)))))
-                             (GO #6=#:G264)))))))
+                                     (PROGN (LETT #2# |res|) (GO #5=#:G163)))))
+                             (GO #6=#:G160)))))))
                        #6# (EXIT #1#))))
                     (SPADCALL |prec| (QREFELT % 14))
                     (LETT |pi_fac|
@@ -1441,7 +1441,7 @@
 
 (DEFUN |FloatLiouvilianFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G276)
+         (PROG (#1=#:G172)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FloatLiouvilianFunctions|))

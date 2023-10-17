@@ -95,7 +95,7 @@
 
 (DEFUN |Color| ()
   (SPROG NIL
-         (PROG (#1=#:G134)
+         (PROG (#1=#:G30)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Color|))

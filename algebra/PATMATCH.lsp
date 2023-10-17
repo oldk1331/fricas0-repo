@@ -22,7 +22,7 @@
 (SDEFUN |PATMATCH;Is;SubjectPatL;5|
         ((|s| (|Subject|)) (|p| (|Pat|)) (% (|List| (|Equation| |Subject|))))
         (SPROG
-         ((#1=#:G120 NIL) (|rec| NIL) (#2=#:G119 NIL)
+         ((#1=#:G16 NIL) (|rec| NIL) (#2=#:G15 NIL)
           (|r| (|PatternMatchResult| |Base| |Subject|)))
          (SEQ
           (COND
@@ -50,7 +50,7 @@
         ((|s| (|Subject|)) (|p| (|Pat|))
          (% (|List| (|Equation| (|Polynomial| |Subject|)))))
         (SPROG
-         ((#1=#:G127 NIL) (|rec| NIL) (#2=#:G126 NIL)
+         ((#1=#:G23 NIL) (|rec| NIL) (#2=#:G22 NIL)
           (|r| (|PatternMatchResult| |Base| |Subject|)))
          (SEQ
           (COND
@@ -82,9 +82,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatch;|)) 
 
-(DEFUN |PatternMatch| (&REST #1=#:G130)
+(DEFUN |PatternMatch| (&REST #1=#:G26)
   (SPROG NIL
-         (PROG (#2=#:G131)
+         (PROG (#2=#:G27)
            (RETURN
             (COND
              ((LETT #2#
@@ -101,7 +101,7 @@
 
 (DEFUN |PatternMatch;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G129 NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
+   ((|pv$| NIL) (#1=#:G25 NIL) (% NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

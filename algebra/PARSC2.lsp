@@ -9,9 +9,9 @@
 
 (DECLAIM (NOTINLINE |ParametricSpaceCurveFunctions2;|)) 
 
-(DEFUN |ParametricSpaceCurveFunctions2| (&REST #1=#:G106)
+(DEFUN |ParametricSpaceCurveFunctions2| (&REST #1=#:G2)
   (SPROG NIL
-         (PROG (#2=#:G107)
+         (PROG (#2=#:G3)
            (RETURN
             (COND
              ((LETT #2#

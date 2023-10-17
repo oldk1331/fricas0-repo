@@ -1,7 +1,7 @@
 
 (SDEFUN |RATFACT;factor;RPF;1| ((|p| (RP)) (% (|Factored| RP)))
         (SPROG
-         ((#1=#:G123 NIL) (|u| NIL) (#2=#:G122 NIL)
+         ((#1=#:G19 NIL) (|u| NIL) (#2=#:G18 NIL)
           (|ffact|
            (|Record| (|:| |contp| (|Integer|))
                      (|:| |factors|
@@ -11,7 +11,7 @@
                                  (|SparseUnivariatePolynomial| (|Integer|)))
                             (|:| |pow| (|NonNegativeInteger|)))))))
           (|ipol| (|SparseUnivariatePolynomial| (|Integer|))) (|pol| (RP))
-          (|pden| (|Integer|)) (#3=#:G121 NIL) (|c| NIL) (#4=#:G120 NIL))
+          (|pden| (|Integer|)) (#3=#:G17 NIL) (|c| NIL) (#4=#:G16 NIL))
          (SEQ
           (COND
            ((SPADCALL |p| (|spadConstant| % 7) (QREFELT % 11))
@@ -62,7 +62,7 @@
 
 (SDEFUN |RATFACT;factorSquareFree;RPF;2| ((|p| (RP)) (% (|Factored| RP)))
         (SPROG
-         ((#1=#:G143 NIL) (|u| NIL) (#2=#:G142 NIL)
+         ((#1=#:G39 NIL) (|u| NIL) (#2=#:G38 NIL)
           (|ffact|
            (|Record| (|:| |contp| (|Integer|))
                      (|:| |factors|
@@ -72,7 +72,7 @@
                                  (|SparseUnivariatePolynomial| (|Integer|)))
                             (|:| |pow| (|NonNegativeInteger|)))))))
           (|ipol| (|SparseUnivariatePolynomial| (|Integer|))) (|pol| (RP))
-          (|pden| (|Integer|)) (#3=#:G141 NIL) (|c| NIL) (#4=#:G140 NIL))
+          (|pden| (|Integer|)) (#3=#:G37 NIL) (|c| NIL) (#4=#:G36 NIL))
          (SEQ
           (COND
            ((SPADCALL |p| (|spadConstant| % 7) (QREFELT % 11))
@@ -123,9 +123,9 @@
 
 (DECLAIM (NOTINLINE |RationalFactorize;|)) 
 
-(DEFUN |RationalFactorize| (#1=#:G144)
+(DEFUN |RationalFactorize| (#1=#:G40)
   (SPROG NIL
-         (PROG (#2=#:G145)
+         (PROG (#2=#:G41)
            (RETURN
             (COND
              ((LETT #2#

@@ -7,7 +7,7 @@
 
 (DEFUN |SimplifyAlgebraicNumberConvertPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G106)
+         (PROG (#1=#:G2)
            (RETURN
             (COND
              ((LETT #1#

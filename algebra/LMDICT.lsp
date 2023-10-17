@@ -1,6 +1,6 @@
 
 (SDEFUN |LMDICT;coerce;%Of;1| ((|s| (%)) (% (|OutputForm|)))
-        (SPROG ((#1=#:G126 NIL) (|x| NIL) (#2=#:G125 NIL))
+        (SPROG ((#1=#:G22 NIL) (|x| NIL) (#2=#:G21 NIL))
                (SEQ
                 (SPADCALL (SPADCALL "dictionary" (QREFELT % 10))
                           (PROGN
@@ -35,7 +35,7 @@
 (SDEFUN |LMDICT;empty;%;6| ((% (%))) (SPADCALL NIL (QREFELT % 25))) 
 
 (SDEFUN |LMDICT;dictionary;L%;7| ((|ls| (|List| S)) (% (%)))
-        (SPROG ((#1=#:G137 NIL) (|x| NIL) (|lmd| (%)))
+        (SPROG ((#1=#:G33 NIL) (|x| NIL) (|lmd| (%)))
                (SEQ
                 (COND ((NULL |ls|) (SPADCALL (QREFELT % 26)))
                       ('T
@@ -73,7 +73,7 @@
 
 (SDEFUN |LMDICT;insert!;S%Nni%;13|
         ((|x| (S)) (|s| (%)) (|n| (|NonNegativeInteger|)) (% (%)))
-        (SPROG ((#1=#:G149 NIL) (|i| NIL))
+        (SPROG ((#1=#:G45 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -117,7 +117,7 @@
                    (SPADCALL |s| (CDR |p|) (QREFELT % 46)) (EXIT |x|))))))) 
 
 (SDEFUN |LMDICT;duplicates?;%B;18| ((|s| (%)) (% (|Boolean|)))
-        (SPROG ((|q| (|List| S)) (|p| (|List| S)) (#1=#:G166 NIL))
+        (SPROG ((|q| (|List| S)) (|p| (|List| S)) (#1=#:G62 NIL))
                (SEQ
                 (EXIT
                  (COND ((NULL (LETT |p| (SPADCALL |s| (QREFELT % 12)))) NIL)
@@ -131,7 +131,7 @@
                                      ((SPADCALL (|SPADfirst| |p|)
                                                 (|SPADfirst| |q|)
                                                 (QREFELT % 40))
-                                      (PROGN (LETT #1# 'T) (GO #2=#:G165)))
+                                      (PROGN (LETT #1# 'T) (GO #2=#:G61)))
                                      ('T
                                       (SEQ (LETT |p| |q|)
                                            (EXIT (LETT |q| (CDR |q|))))))))
@@ -141,7 +141,7 @@
 
 (SDEFUN |LMDICT;remove!;M2%;19|
         ((|p| (|Mapping| (|Boolean|) S)) (|lmd| (%)) (% (%)))
-        (SPROG ((#1=#:G172 NIL) (|x| NIL))
+        (SPROG ((#1=#:G68 NIL) (|x| NIL))
                (SEQ
                 (SEQ (LETT |x| NIL)
                      (LETT #1#
@@ -175,7 +175,7 @@
          ((|ld|
            (|List|
             (|Record| (|:| |entry| S) (|:| |count| (|NonNegativeInteger|)))))
-          (|n| (|NonNegativeInteger|)) (#1=#:G187 NIL) (|x| NIL))
+          (|n| (|NonNegativeInteger|)) (#1=#:G83 NIL) (|x| NIL))
          (SEQ (LETT |ld| NIL)
               (SEQ (LETT |x| NIL)
                    (LETT #1#
@@ -270,7 +270,7 @@
          (EXIT |s|))) 
 
 (SDEFUN |LMDICT;=;2%B;26| ((|s| (%)) (|t| (%)) (% (|Boolean|)))
-        (SPROG ((#1=#:G220 NIL) (|x| (S)) (|a| (%)))
+        (SPROG ((#1=#:G116 NIL) (|x| (S)) (|a| (%)))
                (SEQ
                 (EXIT
                  (SEQ (LETT |a| (SPADCALL |s| (QREFELT % 21)))
@@ -284,14 +284,14 @@
                                   ((SPADCALL (SPADCALL |x| |s| (QREFELT % 54))
                                              (SPADCALL |x| |t| (QREFELT % 54))
                                              (QREFELT % 65))
-                                   (PROGN (LETT #1# NIL) (GO #2=#:G219)))
+                                   (PROGN (LETT #1# NIL) (GO #2=#:G115)))
                                   ('T (SPADCALL |x| |a| (QREFELT % 50))))))
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT 'T)))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |LMDICT;insert!;S2%;27| ((|x| (S)) (|s| (%)) (% (%)))
-        (SPROG ((|p| (|List| S)) (#1=#:G228 NIL))
+        (SPROG ((|p| (|List| S)) (#1=#:G124 NIL))
                (SEQ
                 (EXIT
                  (SEQ (LETT |p| (SPADCALL |s| (QREFELT % 39)))
@@ -303,7 +303,7 @@
                                (SEQ
                                 (SPADCALL |p| '|rest| (CONS |x| (CDR |p|))
                                           (QREFELT % 62))
-                                (EXIT (PROGN (LETT #1# |s|) (GO #2=#:G227)))))
+                                (EXIT (PROGN (LETT #1# |s|) (GO #2=#:G123)))))
                               ('T (LETT |p| (CDR |p|))))))
                            NIL (GO G190) G191 (EXIT NIL))
                       (SPADCALL |s| (CONS |x| (SPADCALL |s| (QREFELT % 39)))
@@ -313,9 +313,9 @@
 
 (DECLAIM (NOTINLINE |ListMultiDictionary;|)) 
 
-(DEFUN |ListMultiDictionary| (#1=#:G239)
+(DEFUN |ListMultiDictionary| (#1=#:G135)
   (SPROG NIL
-         (PROG (#2=#:G240)
+         (PROG (#2=#:G136)
            (RETURN
             (COND
              ((LETT #2#
@@ -332,8 +332,8 @@
 
 (DEFUN |ListMultiDictionary;| (|#1|)
   (SPROG
-   ((#1=#:G238 NIL) (#2=#:G237 NIL) (|pv$| NIL) (#3=#:G234 NIL) (#4=#:G235 NIL)
-    (#5=#:G236 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+   ((#1=#:G134 NIL) (#2=#:G133 NIL) (|pv$| NIL) (#3=#:G130 NIL) (#4=#:G131 NIL)
+    (#5=#:G132 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|ListMultiDictionary| DV$1))

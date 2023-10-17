@@ -287,9 +287,9 @@
 
 (DECLAIM (NOTINLINE |TopLevelDrawFunctions;|)) 
 
-(DEFUN |TopLevelDrawFunctions| (#1=#:G173)
+(DEFUN |TopLevelDrawFunctions| (#1=#:G69)
   (SPROG NIL
-         (PROG (#2=#:G174)
+         (PROG (#2=#:G70)
            (RETURN
             (COND
              ((LETT #2#

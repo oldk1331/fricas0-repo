@@ -7,7 +7,7 @@
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| S)
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (#1=#:G119 NIL) (|f| NIL) (#2=#:G118 NIL))
+          (#1=#:G15 NIL) (|f| NIL) (#2=#:G14 NIL))
          (SEQ
           (LETT |l|
                 (CONS
@@ -40,7 +40,7 @@
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| S)
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (#1=#:G132 NIL) (|f| NIL) (#2=#:G131 NIL) (|nu| (S)))
+          (#1=#:G28 NIL) (|f| NIL) (#2=#:G27 NIL) (|nu| (S)))
          (SEQ (LETT |nu| (SPADCALL (SPADCALL |u| (QREFELT % 9)) |fn|))
               (LETT |nl|
                     (PROGN
@@ -64,9 +64,9 @@
 
 (DECLAIM (NOTINLINE |FactoredFunctions2;|)) 
 
-(DEFUN |FactoredFunctions2| (&REST #1=#:G133)
+(DEFUN |FactoredFunctions2| (&REST #1=#:G29)
   (SPROG NIL
-         (PROG (#2=#:G134)
+         (PROG (#2=#:G30)
            (RETURN
             (COND
              ((LETT #2#

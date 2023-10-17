@@ -23,7 +23,7 @@
 
 (DEFUN |OrdSetInts| ()
   (SPROG NIL
-         (PROG (#1=#:G110)
+         (PROG (#1=#:G6)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|OrdSetInts|))

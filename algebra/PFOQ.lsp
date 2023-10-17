@@ -170,9 +170,9 @@
 
 (DECLAIM (NOTINLINE |PointsOfFiniteOrderRational;|)) 
 
-(DEFUN |PointsOfFiniteOrderRational| (&REST #1=#:G145)
+(DEFUN |PointsOfFiniteOrderRational| (&REST #1=#:G41)
   (SPROG NIL
-         (PROG (#2=#:G146)
+         (PROG (#2=#:G42)
            (RETURN
             (COND
              ((LETT #2#

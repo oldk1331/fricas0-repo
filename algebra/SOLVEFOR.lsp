@@ -57,8 +57,8 @@
 
 (SDEFUN |SOLVEFOR;solve;UPL;4| ((|u| (UP)) (% (|List| F)))
         (SPROG
-         ((|ls| (|List| F)) (#1=#:G127 NIL) (|i| NIL) (|lsf| (|List| F))
-          (#2=#:G126 NIL) (|f| NIL))
+         ((|ls| (|List| F)) (#1=#:G23 NIL) (|i| NIL) (|lsf| (|List| F))
+          (#2=#:G22 NIL) (|f| NIL))
          (SEQ (LETT |ls| NIL)
               (SEQ (LETT |f| NIL)
                    (LETT #2#
@@ -254,9 +254,9 @@
 (SDEFUN |SOLVEFOR;cubic;4FL;18|
         ((|c3| (F)) (|c2| (F)) (|c1| (F)) (|c0| (F)) (% (|List| F)))
         (SPROG
-         ((#1=#:G174 NIL) (|u| NIL) (#2=#:G173 NIL) (S (F)) (D (F)) (R (F))
-          (Q (F)) (#3=#:G172 NIL) (#4=#:G171 NIL) (P (F)) (#5=#:G170 NIL)
-          (#6=#:G169 NIL) (|a3| (F)) (|a2| (F)) (|a1| (F)))
+         ((#1=#:G70 NIL) (|u| NIL) (#2=#:G69 NIL) (S (F)) (D (F)) (R (F))
+          (Q (F)) (#3=#:G68 NIL) (#4=#:G67 NIL) (P (F)) (#5=#:G66 NIL)
+          (#6=#:G65 NIL) (|a3| (F)) (|a2| (F)) (|a1| (F)))
          (SEQ (|SOLVEFOR;needLcoef| |c3| %) (|SOLVEFOR;needChar0| %)
               (EXIT
                (COND
@@ -508,7 +508,7 @@
 (SDEFUN |SOLVEFOR;quartic;5FL;20|
         ((|c4| (F)) (|c3| (F)) (|c2| (F)) (|c1| (F)) (|c0| (F)) (% (|List| F)))
         (SPROG
-         ((#1=#:G187 NIL) (|s| NIL) (#2=#:G186 NIL) (|slist| (|List| F))
+         ((#1=#:G83 NIL) (|s| NIL) (#2=#:G82 NIL) (|slist| (|List| F))
           (|rt| (F)) (|t0| (F)) (|r| (F)) (|q| (F)) (|p| (F)) (|a4| (F))
           (|a3| (F)) (|a2| (F)) (|a1| (F)))
          (SEQ (|SOLVEFOR;needLcoef| |c4| %) (|SOLVEFOR;needChar0| %)
@@ -790,9 +790,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialSolveByFormulas;|)) 
 
-(DEFUN |PolynomialSolveByFormulas| (&REST #1=#:G192)
+(DEFUN |PolynomialSolveByFormulas| (&REST #1=#:G88)
   (SPROG NIL
-         (PROG (#2=#:G193)
+         (PROG (#2=#:G89)
            (RETURN
             (COND
              ((LETT #2#

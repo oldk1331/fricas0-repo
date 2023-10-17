@@ -1,6 +1,6 @@
 
 (SDEFUN |FAXF-;represents;VS;1| ((|v| (|Vector| F)) (% (S)))
-        (SPROG ((|a| (S)) (#1=#:G123 NIL) (|i| NIL) (|b| (|Vector| S)))
+        (SPROG ((|a| (S)) (#1=#:G19 NIL) (|i| NIL) (|b| (|Vector| S)))
                (SEQ (LETT |a| (|spadConstant| % 8))
                     (LETT |b| (SPADCALL (QREFELT % 10)))
                     (SEQ (LETT |i| 1) (LETT #1# (SPADCALL (QREFELT % 12))) G190
@@ -23,7 +23,7 @@
 
 (SDEFUN |FAXF-;extensionDegree;Opc;3|
         ((% (|OnePointCompletion| (|PositiveInteger|))))
-        (SPROG ((#1=#:G126 NIL))
+        (SPROG ((#1=#:G22 NIL))
                (SPADCALL
                 (PROG1 (LETT #1# (QVSIZE (SPADCALL (QREFELT % 10))))
                   (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
@@ -35,7 +35,7 @@
         (SPADCALL (SPADCALL |a| (QREFELT % 26)) (QREFELT % 24))) 
 
 (SDEFUN |FAXF-;coordinates;VM;5| ((|v| (|Vector| S)) (% (|Matrix| F)))
-        (SPROG ((#1=#:G133 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| F)))
+        (SPROG ((#1=#:G29 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| F)))
                (SEQ
                 (LETT |m|
                       (MAKE_MATRIX1 (QVSIZE |v|) (SPADCALL (QREFELT % 12))
@@ -62,13 +62,13 @@
 (SDEFUN |FAXF-;transcendent?;SB;7| ((|a| (S)) (% (|Boolean|))) NIL) 
 
 (SDEFUN |FAXF-;extensionDegree;Pi;8| ((% (|PositiveInteger|)))
-        (SPROG ((#1=#:G136 NIL))
+        (SPROG ((#1=#:G32 NIL))
                (PROG1 (LETT #1# (QVSIZE (SPADCALL (QREFELT % 10))))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
 
 (SDEFUN |FAXF-;trace;SF;9| ((|a| (S)) (% (F)))
-        (SPROG ((|abs| (F)) (#1=#:G142 NIL) (|i| NIL) (|b| (|Vector| S)))
+        (SPROG ((|abs| (F)) (#1=#:G38 NIL) (|i| NIL) (|b| (|Vector| S)))
                (SEQ (LETT |b| (SPADCALL (QREFELT % 10)))
                     (LETT |abs| (|spadConstant| % 28))
                     (SEQ (LETT |i| 1) (LETT #1# (QVSIZE |b|)) G190
@@ -91,28 +91,29 @@
                     (EXIT |abs|)))) 
 
 (SDEFUN |FAXF-;norm;SF;10| ((|a| (S)) (% (F)))
-        (SPROG
-         ((#1=#:G147 NIL) (|i| NIL) (|m| (|Matrix| F)) (|b| (|Vector| S)))
-         (SEQ (LETT |b| (SPADCALL (QREFELT % 10)))
-              (LETT |m|
-                    (MAKE_MATRIX1 (QVSIZE |b|) (QVSIZE |b|)
-                                  (|spadConstant| % 28)))
-              (SEQ (LETT |i| 1) (LETT #1# (QVSIZE |b|)) G190
-                   (COND ((|greater_SI| |i| #1#) (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (SPADCALL |m| |i|
-                               (SPADCALL
-                                (SPADCALL |a| (SPADCALL |b| |i| (QREFELT % 17))
-                                          (QREFELT % 38))
-                                (QREFELT % 30))
-                               (QREFELT % 32))))
-                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |m| (QREFELT % 41)))))) 
+        (SPROG ((#1=#:G43 NIL) (|i| NIL) (|m| (|Matrix| F)) (|b| (|Vector| S)))
+               (SEQ (LETT |b| (SPADCALL (QREFELT % 10)))
+                    (LETT |m|
+                          (MAKE_MATRIX1 (QVSIZE |b|) (QVSIZE |b|)
+                                        (|spadConstant| % 28)))
+                    (SEQ (LETT |i| 1) (LETT #1# (QVSIZE |b|)) G190
+                         (COND ((|greater_SI| |i| #1#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (SPADCALL |m| |i|
+                                     (SPADCALL
+                                      (SPADCALL |a|
+                                                (SPADCALL |b| |i|
+                                                          (QREFELT % 17))
+                                                (QREFELT % 38))
+                                      (QREFELT % 30))
+                                     (QREFELT % 32))))
+                         (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+                    (EXIT (SPADCALL |m| (QREFELT % 41)))))) 
 
 (SDEFUN |FAXF-;linearAssociatedExp;SSupS;11|
         ((|x| (S)) (|f| (|SparseUnivariatePolynomial| F)) (% (S)))
-        (SPROG ((|y| (S)) (|erg| (S)) (#1=#:G153 NIL) (|i| NIL))
+        (SPROG ((|y| (S)) (|erg| (S)) (#1=#:G49 NIL) (|i| NIL))
                (SEQ (LETT |erg| (|spadConstant| % 8)) (LETT |y| |x|)
                     (SEQ (LETT |i| 0) (LETT #1# (SPADCALL |f| (QREFELT % 44)))
                          G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -131,11 +132,11 @@
         ((|b| (S)) (|x| (S))
          (% (|Union| (|SparseUnivariatePolynomial| F) "failed")))
         (SPROG
-         ((|p| #1=(|SparseUnivariatePolynomial| F)) (#2=#:G165 NIL)
-          (#3=#:G164 #1#) (#4=#:G166 #1#) (#5=#:G175 NIL) (|i| NIL)
-          (|rown| (|Integer|)) (#6=#:G174 NIL) (|v| (|Vector| F))
+         ((|p| #1=(|SparseUnivariatePolynomial| F)) (#2=#:G61 NIL)
+          (#3=#:G60 #1#) (#4=#:G62 #1#) (#5=#:G71 NIL) (|i| NIL)
+          (|rown| (|Integer|)) (#6=#:G70 NIL) (|v| (|Vector| F))
           (|m1| (|Matrix| F)) (|l| (|List| (|List| F))) (|a| (S))
-          (#7=#:G173 NIL) (|extdeg| (|NonNegativeInteger|)))
+          (#7=#:G69 NIL) (|extdeg| (|NonNegativeInteger|)))
          (SEQ
           (COND
            ((SPADCALL |x| (|spadConstant| % 8) (QREFELT % 48))
@@ -208,7 +209,7 @@
 
 (SDEFUN |FAXF-;linearAssociatedLog;SSup;13|
         ((|x| (S)) (% (|SparseUnivariatePolynomial| F)))
-        (SPROG ((#1=#:G177 NIL))
+        (SPROG ((#1=#:G73 NIL))
                (PROG2
                    (LETT #1#
                          (SPADCALL (SPADCALL (QREFELT % 71)) |x|
@@ -224,9 +225,9 @@
 (SDEFUN |FAXF-;linearAssociatedOrder;SSup;14|
         ((|x| (S)) (% (|SparseUnivariatePolynomial| F)))
         (SPROG
-         ((#1=#:G184 NIL) (#2=#:G183 #3=(|SparseUnivariatePolynomial| F))
-          (#4=#:G185 #3#) (#5=#:G189 NIL) (|i| NIL) (|v| (|Vector| F))
-          (|l| (|List| (|List| F))) (|a| (S)) (#6=#:G188 NIL))
+         ((#1=#:G80 NIL) (#2=#:G79 #3=(|SparseUnivariatePolynomial| F))
+          (#4=#:G81 #3#) (#5=#:G85 NIL) (|i| NIL) (|v| (|Vector| F))
+          (|l| (|List| (|List| F))) (|a| (S)) (#6=#:G84 NIL))
          (SEQ
           (COND
            ((SPADCALL |x| (|spadConstant| % 8) (QREFELT % 48))
@@ -307,7 +308,7 @@
 
 (SDEFUN |FAXF-;norm;SPiS;17| ((|e| (S)) (|s| (|PositiveInteger|)) (% (S)))
         (SPROG
-         ((#1=#:G205 NIL) (|pow| (|Integer|))
+         ((#1=#:G101 NIL) (|pow| (|Integer|))
           (|qr|
            (|Record| (|:| |quotient| (|NonNegativeInteger|))
                      (|:| |remainder| (|NonNegativeInteger|)))))
@@ -332,7 +333,7 @@
 
 (SDEFUN |FAXF-;trace;SPiS;18| ((|e| (S)) (|s| (|PositiveInteger|)) (% (S)))
         (SPROG
-         ((|a| (S)) (#1=#:G215 NIL) (|i| NIL) (|q| (|NonNegativeInteger|))
+         ((|a| (S)) (#1=#:G111 NIL) (|i| NIL) (|q| (|NonNegativeInteger|))
           (|qr|
            (|Record| (|:| |quotient| (|NonNegativeInteger|))
                      (|:| |remainder| (|NonNegativeInteger|)))))
@@ -363,7 +364,7 @@
 
 (SDEFUN |FAXF-;createNormalElement;S;20| ((% (S)))
         (SPROG
-         ((#1=#:G225 NIL) (#2=#:G226 NIL) (|res| (S)) (#3=#:G219 NIL)
+         ((#1=#:G121 NIL) (#2=#:G122 NIL) (|res| (S)) (#3=#:G115 NIL)
           (|i| NIL))
          (SEQ
           (EXIT
@@ -393,8 +394,8 @@
                                    (LETT #1#
                                          (PROGN
                                           (LETT #2# |res|)
-                                          (GO #4=#:G224)))
-                                   (GO #5=#:G221)))))
+                                          (GO #4=#:G120)))
+                                   (GO #5=#:G117)))))
                           (GO #5#)))))))
                     #5# (EXIT #1#))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
@@ -403,8 +404,8 @@
 
 (SDEFUN |FAXF-;normal?;SB;21| ((|x| (S)) (% (|Boolean|)))
         (SPROG
-         ((|f| #1=(|SparseUnivariatePolynomial| S)) (#2=#:G228 NIL)
-          (#3=#:G227 #1#) (#4=#:G229 #1#) (#5=#:G232 NIL) (|i| NIL)
+         ((|f| #1=(|SparseUnivariatePolynomial| S)) (#2=#:G124 NIL)
+          (#3=#:G123 #1#) (#4=#:G125 #1#) (#5=#:G128 NIL) (|i| NIL)
           (|p| (|SparseUnivariatePolynomial| S)))
          (SEQ
           (LETT |p|

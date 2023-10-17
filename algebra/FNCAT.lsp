@@ -8,7 +8,7 @@
         (T (SETQ |FileNameCategory;AL| (|FileNameCategory;|))))) 
 
 (DEFUN |FileNameCategory;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G0 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|SetCategory|)

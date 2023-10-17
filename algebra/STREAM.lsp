@@ -59,12 +59,12 @@
         ((|count| (|NonNegativeInteger|)) (|x| (%)) (% (|OutputForm|)))
         (SPROG
          ((|pp| (|OutputForm|)) (|pl| #1=(|List| (|OutputForm|)))
-          (#2=#:G220 NIL) (|i| NIL) (|le| #1#) (#3=#:G219 NIL)
+          (#2=#:G116 NIL) (|i| NIL) (|le| #1#) (#3=#:G115 NIL)
           (|fc|
            (|Record| (|:| |cycle?| (|Boolean|))
                      (|:| |prefix| (|NonNegativeInteger|))
                      (|:| |period| (|NonNegativeInteger|))))
-          (|y| (%)) (#4=#:G218 NIL))
+          (|y| (%)) (#4=#:G114 NIL))
          (SEQ (LETT |y| |x|)
               (SEQ (LETT |i| 1) (LETT #4# |count|) G190
                    (COND
@@ -144,7 +144,7 @@
 
 (SDEFUN |STREAM;showAllElements;%Of;13| ((|x| (%)) (% (|OutputForm|)))
         (SPROG
-         ((|pp| (|OutputForm|)) (|pl| (|List| (|OutputForm|))) (#1=#:G242 NIL)
+         ((|pp| (|OutputForm|)) (|pl| (|List| (|OutputForm|))) (#1=#:G138 NIL)
           (|i| NIL) (|len| (|NonNegativeInteger|))
           (|le| (|List| (|OutputForm|))) (|cycEnt| (%))
           (|cycElt| (|Union| % "failed")))
@@ -230,7 +230,7 @@
 
 (SDEFUN |STREAM;copy;2%;17| ((|x| (%)) (% (%)))
         (SPROG
-         ((|head| (%)) (#1=#:G258 NIL) (|cycle| (%)) (|d| (|Integer|))
+         ((|head| (%)) (#1=#:G154 NIL) (|cycle| (%)) (|d| (|Integer|))
           (|e| (%)) (|len| (|NonNegativeInteger|)) (|ce| (%))
           (|cycElt| (|Union| % "failed")))
          (SEQ (LETT |cycElt| (SPADCALL |x| (QREFELT % 36)))
@@ -367,7 +367,7 @@
         (SEQ (|STREAM;setfrst!| |x| |s| %) (EXIT (|STREAM;setrst!| |x| |x| %)))) 
 
 (SDEFUN |STREAM;map!;M2%;29| ((|f| (|Mapping| S S)) (|x| (%)) (% (%)))
-        (SPROG ((|y| (%)) (#1=#:G363 NIL) (|tail| (%)))
+        (SPROG ((|y| (%)) (#1=#:G259 NIL) (|tail| (%)))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT % 68))
@@ -480,7 +480,7 @@
 (SDEFUN |STREAM;setelt!;%Us2S;34|
         ((|x| (%)) (|seg| (|UniversalSegment| (|Integer|))) (|s| (S)) (% (S)))
         (SPROG
-         ((#1=#:G410 NIL) (|y| (%)) (#2=#:G414 NIL) (|i| NIL) (#3=#:G403 NIL)
+         ((#1=#:G306 NIL) (|y| (%)) (#2=#:G310 NIL) (|i| NIL) (#3=#:G299 NIL)
           (|h| (|Integer|)) (|l| (|Integer|)))
          (SEQ (LETT |l| (SPADCALL |seg| (QREFELT % 84)))
               (EXIT
@@ -582,7 +582,7 @@
           (LETT |x| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((#1=#:G443 NIL))
+            (SPROG ((#1=#:G339 NIL))
                    (COND
                     ((OR (SPADCALL |n| (|spadConstant| % 90) (QREFELT % 92))
                          (SPADCALL |x| (QREFELT % 16)))
@@ -611,7 +611,7 @@
 
 (SDEFUN |STREAM;cycleSplit!;2%;42| ((|x| (%)) (% (%)))
         (SPROG
-         ((|z| (%)) (#1=#:G462 NIL) (|y| (%)) (|cycElt| (|Union| % "failed")))
+         ((|z| (%)) (#1=#:G358 NIL) (|y| (%)) (|cycElt| (|Union| % "failed")))
          (SEQ
           (EXIT
            (SEQ (LETT |cycElt| (SPADCALL |x| (QREFELT % 36)))
@@ -626,7 +626,7 @@
                      (COND
                       ((SPADCALL |x| |y| (QREFELT % 21))
                        (SEQ (|STREAM;setToNil!| |x| %)
-                            (EXIT (PROGN (LETT #1# |y|) (GO #3=#:G461)))))
+                            (EXIT (PROGN (LETT #1# |y|) (GO #3=#:G357)))))
                       (#2#
                        (SEQ (LETT |z| (SPADCALL |x| (QREFELT % 15)))
                             (EXIT
@@ -651,9 +651,9 @@
 
 (SDEFUN |STREAM;expand!| ((|x| (%)) (|n| (|Integer|)) (% (%)))
         (SPROG
-         ((#1=#:G474 NIL) (|e| (%)) (|y| (%)) (|nLessD| (|NonNegativeInteger|))
-          (#2=#:G473 NIL) (|t| (%)) (|d| (|Integer|))
-          (|cycElt| (|Union| % "failed")) (#3=#:G479 NIL) (|i| NIL))
+         ((#1=#:G370 NIL) (|e| (%)) (|y| (%)) (|nLessD| (|NonNegativeInteger|))
+          (#2=#:G369 NIL) (|t| (%)) (|d| (|Integer|))
+          (|cycElt| (|Union| % "failed")) (#3=#:G375 NIL) (|i| NIL))
          (SEQ
           (COND ((< |n| 1) |x|)
                 (#4='T
@@ -785,7 +785,7 @@
 
 (SDEFUN |STREAM;split!;%Nni%;53|
         ((|x| (%)) (|n| (|NonNegativeInteger|)) (% (%)))
-        (SPROG ((|y| (%)) (#1=#:G494 NIL))
+        (SPROG ((|y| (%)) (#1=#:G390 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "split!: index out of range"))
                       ((EQL |n| 1)
@@ -833,7 +833,7 @@
                        (EXIT (|STREAM;setrst!| |x| |x0| %)))))))) 
 
 (SDEFUN |STREAM;repeating?;L%B;56| ((|l| (|List| S)) (|x| (%)) (% (|Boolean|)))
-        (SPROG ((#1=#:G516 NIL) (#2=#:G517 NIL) (|s| NIL) (|x0| (%)))
+        (SPROG ((#1=#:G412 NIL) (#2=#:G413 NIL) (|s| NIL) (|x0| (%)))
                (SEQ
                 (EXIT
                  (COND
@@ -863,7 +863,7 @@
                                      (SPADCALL |s|
                                                (SPADCALL |x| (QREFELT % 11))
                                                (QREFELT % 114)))
-                                 (PROGN (LETT #1# NIL) (GO #3=#:G515)))
+                                 (PROGN (LETT #1# NIL) (GO #3=#:G411)))
                                 ('T
                                  (LETT |x| (SPADCALL |x| (QREFELT % 15)))))))
                              (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
@@ -1125,8 +1125,8 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|step| NIL) (|lo| NIL) (|hi| NIL) (#1=#:G688 NIL)
-              (#2=#:G689 NIL) (#3=#:G692 NIL) (|z| NIL))
+             ((|step| NIL) (|lo| NIL) (|hi| NIL) (#1=#:G584 NIL)
+              (#2=#:G585 NIL) (#3=#:G588 NIL) (|z| NIL))
              (SEQ (LETT |step| (SPADCALL |seg| (QREFELT % 125)))
                   (LETT |lo| (SPADCALL |seg| (QREFELT % 84)))
                   (EXIT
@@ -1225,7 +1225,7 @@
            (PROGN
             (SPROG
              ((|step| NIL) (|hi| NIL) (|mustEventuallyFail?| NIL)
-              (#1=#:G747 NIL) (|l| NIL) (#2=#:G750 NIL) (|z| NIL) (|lo| NIL)
+              (#1=#:G643 NIL) (|l| NIL) (#2=#:G646 NIL) (|z| NIL) (|lo| NIL)
               (|result| NIL))
              (SEQ
               (LETT |step|
@@ -1318,9 +1318,9 @@
 
 (DECLAIM (NOTINLINE |Stream;|)) 
 
-(DEFUN |Stream| (#1=#:G769)
+(DEFUN |Stream| (#1=#:G665)
   (SPROG NIL
-         (PROG (#2=#:G770)
+         (PROG (#2=#:G666)
            (RETURN
             (COND
              ((LETT #2#
@@ -1335,8 +1335,8 @@
 
 (DEFUN |Stream;| (|#1|)
   (SPROG
-   ((#1=#:G765 NIL) (#2=#:G766 NIL) (#3=#:G768 NIL) (#4=#:G767 NIL) (|pv$| NIL)
-    (#5=#:G763 NIL) (#6=#:G764 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
+   ((#1=#:G661 NIL) (#2=#:G662 NIL) (#3=#:G664 NIL) (#4=#:G663 NIL) (|pv$| NIL)
+    (#5=#:G659 NIL) (#6=#:G660 NIL) (% NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|Stream| DV$1))

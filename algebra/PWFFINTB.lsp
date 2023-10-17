@@ -121,13 +121,13 @@
           (|henselInfo|
            (|Record| (|:| |plist| #11#)
                      (|:| |modulo| (|SparseUnivariatePolynomial| E))))
-          (|deg| (|PositiveInteger|)) (#12=#:G135 NIL)
+          (|deg| (|PositiveInteger|)) (#12=#:G31 NIL)
           (|primaries|
            (|List|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| E))))
-          (#13=#:G156 NIL) (|ff| NIL) (#14=#:G155 NIL)
+          (#13=#:G52 NIL) (|ff| NIL) (#14=#:G51 NIL)
           (|redFactors| (|List| (|SparseUnivariatePolynomial| |sae|)))
-          (#15=#:G154 NIL) (|f| NIL) (#16=#:G153 NIL)
+          (#15=#:G50 NIL) (|f| NIL) (#16=#:G49 NIL)
           (|factorListSAE|
            (|List|
             (|Record|
@@ -158,7 +158,7 @@
                         . #8#)
                     (IF (|has| #24# . #9#)
                         . #10#))))
-          (|irrPoly| (|SparseUnivariatePolynomial| K)) (#25=#:G125 NIL)
+          (|irrPoly| (|SparseUnivariatePolynomial| K)) (#25=#:G21 NIL)
           (|r| #26=(|NonNegativeInteger|)) (|disc0| (R)) (|n| #26#))
          (SEQ (LETT |n| (SPADCALL |poly0| (QREFELT % 36)))
               (LETT |disc0| (SPADCALL |poly0| (QREFELT % 37)))
@@ -775,19 +775,19 @@
           (|base|
            (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
                      (|:| |basisInv| (|Matrix| R))))
-          (|degPp| (|NonNegativeInteger|)) (#1=#:G199 NIL) (|pp| NIL)
-          (#2=#:G200 NIL) (|k| NIL) (#3=#:G201 NIL) (|qq| NIL)
+          (|degPp| (|NonNegativeInteger|)) (#1=#:G95 NIL) (|pp| NIL)
+          (#2=#:G96 NIL) (|k| NIL) (#3=#:G97 NIL) (|qq| NIL)
           (|degPrime| (|NonNegativeInteger|)) (|henselFactors| #4=(|List| UP))
           (|henselInfo| (|Record| (|:| |plist| #4#) (|:| |modulo| R)))
-          (|deg| (|PositiveInteger|)) (#5=#:G177 NIL) (|primaries| (|List| UP))
-          (#6=#:G198 NIL) (|ff| NIL) (#7=#:G197 NIL)
+          (|deg| (|PositiveInteger|)) (#5=#:G73 NIL) (|primaries| (|List| UP))
+          (#6=#:G94 NIL) (|ff| NIL) (#7=#:G93 NIL)
           (|redPrimaries| (|List| (|SparseUnivariatePolynomial| |sae|)))
-          (#8=#:G196 NIL) (|f| NIL) (#9=#:G195 NIL)
-          (|expons| (|List| (|NonNegativeInteger|))) (#10=#:G194 NIL)
-          (#11=#:G193 NIL) (|primes| (|List| UP)) (#12=#:G192 NIL)
-          (#13=#:G191 NIL)
+          (#8=#:G92 NIL) (|f| NIL) (#9=#:G91 NIL)
+          (|expons| (|List| (|NonNegativeInteger|))) (#10=#:G90 NIL)
+          (#11=#:G89 NIL) (|primes| (|List| UP)) (#12=#:G88 NIL)
+          (#13=#:G87 NIL)
           (|redPrimes| (|List| (|SparseUnivariatePolynomial| |sae|)))
-          (#14=#:G190 NIL) (#15=#:G189 NIL)
+          (#14=#:G86 NIL) (#15=#:G85 NIL)
           (|factorListSAE|
            (|List|
             (|Record|
@@ -1066,7 +1066,7 @@
 
 (SDEFUN |PWFFINTB;listSquaredFactors| ((|px| (R)) (% (|List| R)))
         (SPROG
-         ((|ans| (|List| R)) (#1=#:G212 NIL) (|f| NIL)
+         ((|ans| (|List| R)) (#1=#:G108 NIL) (|f| NIL)
           (|factored| (|Factored| R)))
          (SEQ (LETT |ans| NIL) (LETT |factored| (SPADCALL |px| (QREFELT % 72)))
               (SEQ (LETT |f| NIL)
@@ -1093,7 +1093,7 @@
           (|lb|
            (|Record| (|:| |basis| #2#) (|:| |basisDen| R)
                      (|:| |basisInv| (|Matrix| R)) (|:| |discr| R)))
-          (#3=#:G221 NIL) (|prime| NIL) (|redDisc| (R)) (|singList| (|List| R))
+          (#3=#:G117 NIL) (|prime| NIL) (|redDisc| (R)) (|singList| (|List| R))
           (|n| (|PositiveInteger|)) (|p| (UP)))
          (SEQ (LETT |p| (SPADCALL (QREFELT % 68)))
               (LETT |disc| (SPADCALL |p| (QREFELT % 37)))
@@ -1142,9 +1142,9 @@
 
 (DECLAIM (NOTINLINE |PAdicWildFunctionFieldIntegralBasis;|)) 
 
-(DEFUN |PAdicWildFunctionFieldIntegralBasis| (&REST #1=#:G222)
+(DEFUN |PAdicWildFunctionFieldIntegralBasis| (&REST #1=#:G118)
   (SPROG NIL
-         (PROG (#2=#:G223)
+         (PROG (#2=#:G119)
            (RETURN
             (COND
              ((LETT #2#

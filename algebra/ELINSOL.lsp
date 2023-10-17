@@ -19,12 +19,12 @@
 (SDEFUN |ELINSOL;F_to_LF|
         ((|x| (F)) (|vl| (|List| (|Kernel| F))) (% (|List| F)))
         (SPROG
-         ((#1=#:G134 NIL) (|v| NIL) (#2=#:G133 NIL)
+         ((#1=#:G30 NIL) (|v| NIL) (#2=#:G29 NIL)
           (|nx0| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|nx1| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|ml| (|List| (|SparseMultivariatePolynomial| R (|Kernel| F))))
-          (#3=#:G131 NIL) (#4=#:G132 NIL) (|c| NIL) (#5=#:G130 NIL)
-          (|res0| (|List| F)) (#6=#:G129 NIL) (#7=#:G128 NIL)
+          (#3=#:G27 NIL) (#4=#:G28 NIL) (|c| NIL) (#5=#:G26 NIL)
+          (|res0| (|List| F)) (#6=#:G25 NIL) (#7=#:G24 NIL)
           (|nx| (|SparseMultivariatePolynomial| R (|Kernel| F))))
          (SEQ (LETT |nx| (SPADCALL |x| (QREFELT % 21)))
               (LETT |res0|
@@ -93,15 +93,15 @@
         ((|eql| (|List| F)) (|vl| (|List| (|Symbol|)))
          (% (|Union| (|List| F) "failed")))
         (SPROG
-         ((#1=#:G148 NIL)
+         ((#1=#:G44 NIL)
           (|ss|
            (|Record| (|:| |particular| (|Union| (|Vector| F) #2="failed"))
                      (|:| |basis| (|List| (|Vector| F)))))
-          (|eqm| (|Matrix| F)) (#3=#:G162 NIL) (|ll| NIL) (#4=#:G161 NIL)
-          (|rh| (|Vector| F)) (#5=#:G160 NIL) (#6=#:G159 NIL)
-          (|eqll| (|List| (|List| F))) (#7=#:G158 NIL) (|p| NIL)
-          (#8=#:G157 NIL) (|coefk| (|List| (|Kernel| F))) (#9=#:G156 NIL)
-          (|c| NIL) (#10=#:G155 NIL))
+          (|eqm| (|Matrix| F)) (#3=#:G58 NIL) (|ll| NIL) (#4=#:G57 NIL)
+          (|rh| (|Vector| F)) (#5=#:G56 NIL) (#6=#:G55 NIL)
+          (|eqll| (|List| (|List| F))) (#7=#:G54 NIL) (|p| NIL) (#8=#:G53 NIL)
+          (|coefk| (|List| (|Kernel| F))) (#9=#:G52 NIL) (|c| NIL)
+          (#10=#:G51 NIL))
          (SEQ
           (LETT |coefk|
                 (PROGN
@@ -175,9 +175,9 @@
 
 (DECLAIM (NOTINLINE |ExpressionLinearSolve;|)) 
 
-(DEFUN |ExpressionLinearSolve| (&REST #1=#:G163)
+(DEFUN |ExpressionLinearSolve| (&REST #1=#:G59)
   (SPROG NIL
-         (PROG (#2=#:G164)
+         (PROG (#2=#:G60)
            (RETURN
             (COND
              ((LETT #2#

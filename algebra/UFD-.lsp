@@ -1,8 +1,8 @@
 
 (SDEFUN |UFD-;squareFreePart;2S;1| ((|x| (S)) (% (S)))
         (SPROG
-         ((#1=#:G112 NIL) (#2=#:G111 (S)) (#3=#:G113 (S)) (#4=#:G115 NIL)
-          (|f| NIL) (|s| (|Factored| S)))
+         ((#1=#:G8 NIL) (#2=#:G7 (S)) (#3=#:G9 (S)) (#4=#:G11 NIL) (|f| NIL)
+          (|s| (|Factored| S)))
          (SEQ
           (SPADCALL
            (SPADCALL (LETT |s| (SPADCALL |x| (QREFELT % 8))) (QREFELT % 10))

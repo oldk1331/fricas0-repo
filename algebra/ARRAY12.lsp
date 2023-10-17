@@ -16,9 +16,9 @@
 
 (DECLAIM (NOTINLINE |OneDimensionalArrayFunctions2;|)) 
 
-(DEFUN |OneDimensionalArrayFunctions2| (&REST #1=#:G112)
+(DEFUN |OneDimensionalArrayFunctions2| (&REST #1=#:G8)
   (SPROG NIL
-         (PROG (#2=#:G113)
+         (PROG (#2=#:G9)
            (RETURN
             (COND
              ((LETT #2#

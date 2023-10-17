@@ -1,9 +1,9 @@
 
 (SDEFUN |HANKP;HankelMatrix;LM;1| ((|l| (|List| R)) (% (|Matrix| R)))
         (SPROG
-         ((#1=#:G121 NIL) (|x| NIL) (#2=#:G122 NIL) (|i| NIL) (#3=#:G120 NIL)
-          (|lloc| (|List| R)) (#4=#:G119 NIL) (|j| NIL) (#5=#:G118 NIL)
-          (|n| (|Integer|)) (#6=#:G107 NIL))
+         ((#1=#:G17 NIL) (|x| NIL) (#2=#:G18 NIL) (|i| NIL) (#3=#:G16 NIL)
+          (|lloc| (|List| R)) (#4=#:G15 NIL) (|j| NIL) (#5=#:G14 NIL)
+          (|n| (|Integer|)) (#6=#:G3 NIL))
          (SEQ
           (COND ((NULL (ODDP (LENGTH |l|))) (|error| "n must be odd"))
                 ('T
@@ -72,9 +72,9 @@
 
 (DECLAIM (NOTINLINE |HankelPackage;|)) 
 
-(DEFUN |HankelPackage| (#1=#:G123)
+(DEFUN |HankelPackage| (#1=#:G19)
   (SPROG NIL
-         (PROG (#2=#:G124)
+         (PROG (#2=#:G20)
            (RETURN
             (COND
              ((LETT #2#

@@ -51,8 +51,8 @@
 (SDEFUN |GALUTIL;pascalTriangle;NniIR;5|
         ((|n| (|NonNegativeInteger|)) (|r| (|Integer|)) (% (R)))
         (SPROG
-         ((#1=#:G120 NIL) (#2=#:G119 NIL) (#3=#:G130 NIL) (|j| NIL)
-          (#4=#:G129 NIL) (|i| NIL) (|mq| #5=(|Integer|))
+         ((#1=#:G16 NIL) (#2=#:G15 NIL) (#3=#:G26 NIL) (|j| NIL) (#4=#:G25 NIL)
+          (|i| NIL) (|mq| #5=(|Integer|))
           (|m| (|Record| (|:| |quotient| #5#) (|:| |remainder| (|Integer|))))
           (|d| (|Integer|)))
          (SEQ
@@ -178,9 +178,9 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupUtilities;|)) 
 
-(DEFUN |GaloisGroupUtilities| (#1=#:G139)
+(DEFUN |GaloisGroupUtilities| (#1=#:G35)
   (SPROG NIL
-         (PROG (#2=#:G140)
+         (PROG (#2=#:G36)
            (RETURN
             (COND
              ((LETT #2#

@@ -43,7 +43,7 @@
 (SDEFUN |LMOPS;reverse!;2%;12| ((|l| (%)) (% (%))) (NREVERSE |l|)) 
 
 (SDEFUN |LMOPS;mapGen;M2%;13| ((|f| (|Mapping| S S)) (|l| (%)) (% (%)))
-        (SPROG ((#1=#:G148 NIL) (|x| NIL) (#2=#:G147 NIL))
+        (SPROG ((#1=#:G44 NIL) (|x| NIL) (#2=#:G43 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -62,7 +62,7 @@
 (SDEFUN |LMOPS;mapExpon;M2%;14| ((|f| (|Mapping| E E)) (|l| (%)) (% (%)))
         (SPROG
          ((|ans| (|List| (|Record| (|:| |gen| S) (|:| |exp| E)))) (|a| (E))
-          (#1=#:G156 NIL) (|x| NIL))
+          (#1=#:G52 NIL) (|x| NIL))
          (SEQ (LETT |ans| NIL)
               (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
                    (COND
@@ -82,7 +82,7 @@
          (|op| (|Mapping| (|OutputForm|) (|OutputForm|) (|OutputForm|)))
          (|opexp| (|Mapping| (|OutputForm|) (|OutputForm|) (|OutputForm|)))
          (|id| (|Integer|)) (% (|OutputForm|)))
-        (SPROG ((#1=#:G167 NIL) (|p| NIL) (#2=#:G166 NIL))
+        (SPROG ((#1=#:G63 NIL) (|p| NIL) (#2=#:G62 NIL))
                (SEQ
                 (COND ((NULL |l|) (SPADCALL |id| (QREFELT % 38)))
                       ('T
@@ -161,9 +161,9 @@
 
 (DECLAIM (NOTINLINE |ListMonoidOps;|)) 
 
-(DEFUN |ListMonoidOps| (&REST #1=#:G189)
+(DEFUN |ListMonoidOps| (&REST #1=#:G85)
   (SPROG NIL
-         (PROG (#2=#:G190)
+         (PROG (#2=#:G86)
            (RETURN
             (COND
              ((LETT #2#

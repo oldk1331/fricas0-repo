@@ -1,6 +1,6 @@
 
 (SDEFUN |QALGSET;factorset| ((|y| (|Dpoly|)) (% (|List| |Dpoly|)))
-        (SPROG ((#1=#:G130 NIL) (|j| NIL) (#2=#:G129 NIL))
+        (SPROG ((#1=#:G26 NIL) (|j| NIL) (#2=#:G25 NIL))
                (SEQ
                 (COND ((SPADCALL |y| (QREFELT % 12)) NIL)
                       ('T
@@ -20,13 +20,13 @@
 
 (SDEFUN |QALGSET;simplify;2%;2| ((|x| (%)) (% (%)))
         (SPROG
-         ((#1=#:G145 NIL) (#2=#:G144 (|Dpoly|)) (#3=#:G146 (|Dpoly|))
-          (#4=#:G157 NIL) (#5=#:G105 NIL) (|zro| (|List| |Dpoly|))
-          (#6=#:G141 NIL) (#7=#:G140 (|Dpoly|)) (#8=#:G142 (|Dpoly|))
-          (#9=#:G156 NIL) (#10=#:G104 NIL) (#11=#:G155 NIL) (|s| NIL)
-          (#12=#:G154 NIL) (|mset| (|List| (|List| |Dpoly|))) (#13=#:G153 NIL)
-          (#14=#:G152 NIL) (#15=#:G151 NIL) (|p| NIL) (#16=#:G150 NIL)
-          (|nzro| (|List| |Dpoly|)) (|pnzero| (|Dpoly|)))
+         ((#1=#:G41 NIL) (#2=#:G40 (|Dpoly|)) (#3=#:G42 (|Dpoly|))
+          (#4=#:G53 NIL) (#5=#:G1 NIL) (|zro| (|List| |Dpoly|)) (#6=#:G37 NIL)
+          (#7=#:G36 (|Dpoly|)) (#8=#:G38 (|Dpoly|)) (#9=#:G52 NIL)
+          (#10=#:G0 NIL) (#11=#:G51 NIL) (|s| NIL) (#12=#:G50 NIL)
+          (|mset| (|List| (|List| |Dpoly|))) (#13=#:G49 NIL) (#14=#:G48 NIL)
+          (#15=#:G47 NIL) (|p| NIL) (#16=#:G46 NIL) (|nzro| (|List| |Dpoly|))
+          (|pnzero| (|Dpoly|)))
          (SEQ
           (COND
            ((QEQCAR (QVELT |x| 0) 1)
@@ -200,7 +200,7 @@
                                          (QREFELT % 56)))))))))))))))) 
 
 (SDEFUN |QALGSET;coerce;%Of;5| ((|x| (%)) (% (|OutputForm|)))
-        (SPROG ((#1=#:G180 NIL) (|f| NIL) (#2=#:G179 NIL))
+        (SPROG ((#1=#:G76 NIL) (|f| NIL) (#2=#:G75 NIL))
                (SEQ
                 (COND
                  ((SPADCALL (QVELT |x| 0) (CONS 0 'T) (QREFELT % 58))
@@ -232,7 +232,7 @@
                    (QREFELT % 67))))))) 
 
 (SDEFUN |QALGSET;empty?;%B;6| ((|x| (%)) (% (|Boolean|)))
-        (SPROG ((#1=#:G182 NIL))
+        (SPROG ((#1=#:G78 NIL))
                (SEQ
                 (COND
                  ((QEQCAR (QVELT |x| 0) 1)
@@ -277,7 +277,7 @@
            (|List|
             (|PolynomialRing| R (|Product| (|NonNegativeInteger|) |Expon|))))
           (|gb| (|List| |Dpoly|)) (|f| (|Union| |Dpoly| "failed"))
-          (#1=#:G224 NIL) (|g| NIL) (#2=#:G223 NIL)
+          (#1=#:G120 NIL) (|g| NIL) (#2=#:G119 NIL)
           (|tp|
            (|PolynomialRing| R (|Product| (|NonNegativeInteger|) |Expon|)))
           (|n0| (|Dpoly|)) (|z0| (|List| |Dpoly|)))
@@ -360,7 +360,7 @@
 
 (SDEFUN |QALGSET;minset|
         ((|lset| (|List| (|List| |Dpoly|))) (% (|List| (|List| |Dpoly|))))
-        (SPROG ((#1=#:G231 NIL) (|s| NIL) (#2=#:G230 NIL))
+        (SPROG ((#1=#:G127 NIL) (|s| NIL) (#2=#:G126 NIL))
                (SEQ
                 (COND ((NULL |lset|) |lset|)
                       ('T
@@ -382,8 +382,8 @@
         ((|p| (|List| |Dpoly|)) (|qlist| (|List| (|List| |Dpoly|)))
          (% (|Boolean|)))
         (SPROG
-         ((#1=#:G233 NIL) (#2=#:G232 #3=(|Boolean|)) (#4=#:G234 #3#)
-          (#5=#:G237 NIL) (|q| NIL))
+         ((#1=#:G129 NIL) (#2=#:G128 #3=(|Boolean|)) (#4=#:G130 #3#)
+          (#5=#:G133 NIL) (|q| NIL))
          (SEQ
           (COND ((NULL |qlist|) NIL)
                 (#6='T
@@ -407,9 +407,9 @@
 
 (DECLAIM (NOTINLINE |QuasiAlgebraicSet;|)) 
 
-(DEFUN |QuasiAlgebraicSet| (&REST #1=#:G238)
+(DEFUN |QuasiAlgebraicSet| (&REST #1=#:G134)
   (SPROG NIL
-         (PROG (#2=#:G239)
+         (PROG (#2=#:G135)
            (RETURN
             (COND
              ((LETT #2#

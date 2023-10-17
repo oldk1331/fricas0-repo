@@ -7,7 +7,7 @@
   (COND (|LeftOreRing;AL|) (T (SETQ |LeftOreRing;AL| (|LeftOreRing;|))))) 
 
 (DEFUN |LeftOreRing;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G0 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|EntireRing|)

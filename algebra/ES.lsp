@@ -8,10 +8,10 @@
         (T (SETQ |ExpressionSpace;AL| (|ExpressionSpace;|))))) 
 
 (DEFUN |ExpressionSpace;| ()
-  (SPROG ((#1=#:G124 NIL))
+  (SPROG ((#1=#:G20 NIL))
          (PROG1
              (LETT #1#
-                   (|subst_in_cat| '(#2=#:G122 #3=#:G123)
+                   (|subst_in_cat| '(#2=#:G18 #3=#:G19)
                                    (LIST '(|Kernel| %) '(|Kernel| %))
                                    (|Join| (|Comparable|)
                                            (|RetractableTo| '#2#)

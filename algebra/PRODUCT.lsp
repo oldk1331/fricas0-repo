@@ -39,7 +39,7 @@
         (* (SPADCALL (QREFELT % 32)) (SPADCALL (QREFELT % 33)))) 
 
 (SDEFUN |PRODUCT;index;Pi%;10| ((|n| (|PositiveInteger|)) (% (%)))
-        (SPROG ((#1=#:G121 NIL) (#2=#:G120 NIL))
+        (SPROG ((#1=#:G17 NIL) (#2=#:G16 NIL))
                (SPADCALL
                 (SPADCALL
                  (PROG1
@@ -62,7 +62,7 @@
                   (QREFELT % 19))) 
 
 (SDEFUN |PRODUCT;lookup;%Pi;12| ((|x| (%)) (% (|PositiveInteger|)))
-        (SPROG ((#1=#:G125 NIL))
+        (SPROG ((#1=#:G21 NIL))
                (PROG1
                    (LETT #1#
                          (+
@@ -157,9 +157,9 @@
 
 (DECLAIM (NOTINLINE |Product;|)) 
 
-(DEFUN |Product| (&REST #1=#:G159)
+(DEFUN |Product| (&REST #1=#:G55)
   (SPROG NIL
-         (PROG (#2=#:G160)
+         (PROG (#2=#:G56)
            (RETURN
             (COND
              ((LETT #2#
@@ -175,7 +175,7 @@
 
 (DEFUN |Product;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G156 NIL) (#2=#:G157 NIL) (#3=#:G158 NIL) (% NIL)
+   ((|pv$| NIL) (#1=#:G52 NIL) (#2=#:G53 NIL) (#3=#:G54 NIL) (% NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

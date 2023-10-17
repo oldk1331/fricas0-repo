@@ -6,7 +6,7 @@
 (DEFPARAMETER |UnivariatePuiseuxSeriesConstructorCategory;AL| 'NIL) 
 
 (DEFUN |UnivariatePuiseuxSeriesConstructorCategory| (|t#1| |t#2|)
-  (LET (#1=#:G105 (#2=#:G106 (LIST (|devaluate| |t#1|) (|devaluate| |t#2|))))
+  (LET (#1=#:G1 (#2=#:G2 (LIST (|devaluate| |t#1|) (|devaluate| |t#2|))))
     (COND
      ((SETQ #1# (|assoc| #2# |UnivariatePuiseuxSeriesConstructorCategory;AL|))
       (CDR #1#))
@@ -22,7 +22,7 @@
       #1#)))) 
 
 (DEFUN |UnivariatePuiseuxSeriesConstructorCategory;| (|t#1| |t#2|)
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G0 NIL))
          (PROG1
              (LETT #1#
                    (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)

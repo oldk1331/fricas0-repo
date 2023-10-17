@@ -59,7 +59,7 @@
 
 (SDEFUN |RULE;F2Symbol| ((|f| (F)) (% (F)))
         (SPROG
-         ((#1=#:G131 NIL) (#2=#:G139 NIL) (|k| NIL) (#3=#:G138 NIL)
+         ((#1=#:G27 NIL) (#2=#:G35 NIL) (|k| NIL) (#3=#:G34 NIL)
           (|l| (|List| (|Kernel| F))))
          (SEQ
           (LETT |l|
@@ -146,7 +146,7 @@
 (SDEFUN |RULE;appear?|
         ((|x| (|Pattern| |Base|)) (|l| (|List| (|Pattern| |Base|)))
          (% (|Boolean|)))
-        (SPROG ((#1=#:G165 NIL) (#2=#:G166 NIL) (#3=#:G167 NIL) (|p| NIL))
+        (SPROG ((#1=#:G61 NIL) (#2=#:G62 NIL) (#3=#:G63 NIL) (|p| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -164,8 +164,8 @@
                               ((SPADCALL |x| (SPADCALL |p| (QREFELT % 67))
                                          (QREFELT % 69))
                                (PROGN
-                                (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G164)))
-                                (GO #5=#:G162))))))))
+                                (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G60)))
+                                (GO #5=#:G58))))))))
                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT NIL)))
@@ -173,7 +173,7 @@
 
 (SDEFUN |RULE;bad?|
         ((|u| (|Union| (|List| (|Pattern| |Base|)) "failed")) (% (|Boolean|)))
-        (SPROG ((#1=#:G177 NIL) (#2=#:G178 NIL) (#3=#:G179 NIL) (|x| NIL))
+        (SPROG ((#1=#:G73 NIL) (#2=#:G74 NIL) (#3=#:G75 NIL) (|x| NIL))
                (SEQ
                 (EXIT
                  (COND
@@ -193,8 +193,8 @@
                                 ((NULL (|RULE;appear?| |x| (QCDR |u|) %))
                                  (PROGN
                                   (LETT #1#
-                                        (PROGN (LETT #2# NIL) (GO #4=#:G176)))
-                                  (GO #5=#:G174))))))))
+                                        (PROGN (LETT #2# NIL) (GO #4=#:G72)))
+                                  (GO #5=#:G70))))))))
                            (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                      #5# (EXIT #1#))
                     (EXIT 'T)))
@@ -221,9 +221,9 @@
 
 (DECLAIM (NOTINLINE |RewriteRule;|)) 
 
-(DEFUN |RewriteRule| (&REST #1=#:G188)
+(DEFUN |RewriteRule| (&REST #1=#:G84)
   (SPROG NIL
-         (PROG (#2=#:G189)
+         (PROG (#2=#:G85)
            (RETURN
             (COND
              ((LETT #2#
