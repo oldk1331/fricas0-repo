@@ -3961,9 +3961,6 @@
 ; compCategoryItem(x, predl, acc) ==
 ;   x is nil => nil
 ;   --1. if x is a conditional expression, recurse; otherwise, form the predicate
-;   x is ["COND",[p,e]] =>
-;     predl':= [p,:predl]
-;     compCategoryItem(e, predl', acc)
 ;   x is ["IF",a,b,c] =>
 ;     predl':= [a,:predl]
 ;     if b ~= "noBranch" then compCategoryItem(b, predl', acc)
@@ -3993,27 +3990,10 @@
 ;   push_sig_list(MKQ [rest x, pred], acc)
 
 (DEFUN |compCategoryItem| (|x| |predl| |acc|)
-  (PROG (|ISTMP#1| |ISTMP#2| |p| |ISTMP#3| |e| |predl'| |a| |b| |c| |pred| |y|
-         |l| |op| |sig|)
+  (PROG (|ISTMP#1| |a| |ISTMP#2| |b| |ISTMP#3| |c| |predl'| |pred| |y| |l| |op|
+         |sig|)
     (RETURN
      (COND ((NULL |x|) NIL)
-           ((AND (CONSP |x|) (EQ (CAR |x|) 'COND)
-                 (PROGN
-                  (SETQ |ISTMP#1| (CDR |x|))
-                  (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                       (PROGN
-                        (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                        (AND (CONSP |ISTMP#2|)
-                             (PROGN
-                              (SETQ |p| (CAR |ISTMP#2|))
-                              (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                              (AND (CONSP |ISTMP#3|) (EQ (CDR |ISTMP#3|) NIL)
-                                   (PROGN
-                                    (SETQ |e| (CAR |ISTMP#3|))
-                                    #1='T))))))))
-            (PROGN
-             (SETQ |predl'| (CONS |p| |predl|))
-             (|compCategoryItem| |e| |predl'| |acc|)))
            ((AND (CONSP |x|) (EQ (CAR |x|) 'IF)
                  (PROGN
                   (SETQ |ISTMP#1| (CDR |x|))
@@ -4028,7 +4008,7 @@
                               (AND (CONSP |ISTMP#3|) (EQ (CDR |ISTMP#3|) NIL)
                                    (PROGN
                                     (SETQ |c| (CAR |ISTMP#3|))
-                                    #1#))))))))
+                                    #1='T))))))))
             (PROGN
              (SETQ |predl'| (CONS |a| |predl|))
              (COND
