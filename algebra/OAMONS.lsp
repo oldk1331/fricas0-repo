@@ -12,7 +12,9 @@
          (PROG1
              (LETT #1#
                    (|Join| (|OrderedCancellationAbelianMonoid|)
-                           (|mkCategory| '(((|sup| ($ $ $)) T)) NIL NIL NIL)))
+                           (|mkCategory|
+                            '(((|sup| ($ $ $)) T) ((|inf| ($ $ $)) T)) NIL NIL
+                            NIL)))
            (SETELT #1# 0 '(|OrderedAbelianMonoidSup|))))) 
 
 (MAKEPROP '|OrderedAbelianMonoidSup| 'NILADIC T) 

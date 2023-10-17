@@ -506,13 +506,13 @@
               (|NonNegativeInteger|) (|PositiveInteger|) (|List| 8)
               (|Equation| 8) (|List| 18)
               (|Record| (|:| |mat| 23) (|:| |vec| (|Vector| 10))) (|Matrix| $)
-              (|Vector| $) (|Matrix| 10) (|Symbol|) (|List| 24) (|List| 15)
-              (|Union| 28 '#1="failed") (|Fraction| 10) (|Union| 10 '#1#)
+              (|Vector| $) (|Matrix| 10) (|List| 26) (|List| 15) (|Symbol|)
+              (|Fraction| 10) (|Union| 27 '#1="failed") (|Union| 10 '#1#)
               (|Union| $ '"failed") (|Mapping| 14 8 8) (|Mapping| 14 8)
-              (|Void|) (|Mapping| 8 8) (|InputForm|) (|List| $)
-              (|Record| (|:| |mat| 38) (|:| |vec| 44)) (|Matrix| 8)
-              (|Union| 8 '#1#) (|OutputForm|) (|HashState|) (|SingleInteger|)
-              (|String|) (|Vector| 8) (|List| 10))
+              (|Void|) (|Mapping| 8 8) (|InputForm|) (|List| $) (|Matrix| 8)
+              (|Record| (|:| |mat| 37) (|:| |vec| 44)) (|Union| 8 '#1#)
+              (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
+              (|Vector| 8) (|List| 10))
            '#(|elt| 12 * 18) 'NIL
            (CONS
             (|makeByteWordVec2| 43
@@ -538,7 +538,7 @@
               '#((|DirectProductCategory| 6 8) (|CommutativeRing|)
                  (|FullyLinearlyExplicitOver| 8) (|DifferentialExtension| 8)
                  (|Algebra| $$) (|Algebra| 8) (|LinearlyExplicitOver| 8)
-                 (|LinearlyExplicitOver| 10) (|PartialDifferentialRing| 24)
+                 (|LinearlyExplicitOver| 10) (|PartialDifferentialRing| 26)
                  (|DifferentialRing|) (|Ring|) (|SemiRing|) (|Rng|) (|SemiRng|)
                  (|Module| $$) (|Module| 8) (|OrderedAbelianMonoidSup|)
                  (|NonAssociativeRing|) (|BiModule| $$ $$) (|BiModule| 8 8)
@@ -554,12 +554,12 @@
                  (|HomogeneousAggregate| 8) (|AbelianSemiGroup|) (|Comparable|)
                  (|Magma|) (|FullyRetractableTo| 8) (|Aggregate|)
                  (|SetCategory|) (|EltableAggregate| 10 8) (|Evalable| 8)
-                 (|CommutativeStar|) (|RetractableTo| 8) (|RetractableTo| 28)
+                 (|CommutativeStar|) (|RetractableTo| 8) (|RetractableTo| 27)
                  (|RetractableTo| 10) (|Type|) (|CoercibleTo| 40) (|BasicType|)
                  (|finiteAggregate|) (|CoercibleTo| (|Vector| 8))
                  (|Eltable| 10 8) (|InnerEvalable| 8 8) (|PartialOrder|)
                  (|unitsKnown|) (|TwoSidedRecip|) (|ConvertibleTo| 35)
-                 (|CoercibleFrom| 8) (|CoercibleFrom| 28) (|CoercibleFrom| 10))
+                 (|CoercibleFrom| 8) (|CoercibleFrom| 27) (|CoercibleFrom| 10))
               (|makeByteWordVec2| 13
                                   '(2 0 8 0 10 11 2 8 0 7 0 12 2 0 8 0 10 11 2
                                     0 0 7 0 13)))))
